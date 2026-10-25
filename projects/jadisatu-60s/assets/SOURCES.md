@@ -6,3 +6,5 @@
 | P02 | — | belum | menunggu keputusan fair use vs lisensi | Wikimedia hanya punya 631×802 |
 | P03 | — | belum | menunggu keputusan | versi Wikipedia ±300 px |
 | P04 | — | belum | Pexels butuh API key | |
+
+**Catatan cloud (25 Okt 15:10):** `P01-ira-glass-web.webp` adalah versi storyboard: dipotong ke kepala dan bahu (piala tidak ikut), alpha di-choke ±3 px, dan sisa merah di tepi rambut serta lensa kacamata dinetralkan. Wajah tidak diubah. Untuk render final, langkah yang sama diterapkan ke file 2400×3600. Kredit "Photo: Peabody Awards, CC BY 2.0" tampil kecil di frame B02/B13 dan wajib masuk kredit akhir.
