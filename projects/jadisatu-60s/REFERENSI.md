@@ -9,3 +9,7 @@ Nama file referensi = apa yang ditiru (D-005). Bedah dari contact sheet 1 frame 
 | Apple Styele.mp4 | 45 dtk | Visual | "You built / A business" (akui penonton) → "Now" → "Meet [produk]" → daftar kerja (Ads, Socials, Emails, SEO) dengan UI 2D → "Autopilot" → "Generating". Latar putih, gradasi lembut, satu kata per frame. |
 | Sound efex.mp4 | 40 dtk | SFX | UI pastel, setiap onset kata/kartu/kursor punya bunyi. Detail SFX dibedah di gerbang audio, bukan sekarang. |
 | Holy freak tutorial.mp4, baikovphilipp_ssspin.mp4 | 120 / 67 dtk | (tidak dinamai) | Peran lama di `projects/jadisatu-launch/ART-DIRECTION.md` §5: Holy Freak = penyutradaraan tokoh pixel; Baikov = gerak teks dan penempatan SFX. Dibedah di gerbang storyboard. |
+
+## kaye.creatives (dikirim 25 Okt 12:57, untuk momen tokoh nyata, D-022)
+
+852×720, 99 dtk. Pola saat menyebut Sam Altman (0–6 dtk): nama muncul sebagai teks kinetik kecil ("Sam Altman … said") → potong ke footage Altman → kartu kutipan: tanda kutip besar, label kecil "Sam Altman said:", kalimat diketik kata per kata di kiri atas, kamera push pelan → ganti ke footage kedua dengan kutipan yang sama terus berjalan. Wajah dan kutipan satu subjek, jadi tetap satu fokus. Nama ditaruh di depan karena Altman dikenal; Ira Glass tidak, jadi konsep "the gap" didahulukan (devil's advocate 12:55).
