@@ -45,6 +45,7 @@ Detail versi dan peta pemakaian ada di `external/README.md`.
 
 | Proyek | Isi |
 |---|---|
+| `jadisatu-60s` | Video 60-90 dtk (proyek baru 25 Okt): `DECISIONS.md` ledger, `REFERENSI.md` peran referensi. Gerbang script. |
 | `jadisatu-launch` | `AUTHORITY.md` (urutan menang, peran storyboard, gerbang per adegan), `ART-DIRECTION.md` (dunia Pixel vs Apple, peta adegan, transisi antar dunia, audio, peran referensi) |
 
 ## Arsip (`archive/`)
