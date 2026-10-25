@@ -50,3 +50,8 @@ Kriteria dari Irfan (D-013): spesifik, spesial, urgent; jarang diucapkan tetapi 
 | Apple | "You built a business. Now…" | Penonton sudah berhasil, tapi ada yang belum | Bangga lalu tegang → "now apa?" |
 
 Pola: (1) sebut yang semua orang lakukan/percayai, (2) vonis tegas yang membantahnya, (3) klaim absolut, (4) jawaban "kenapa/bagaimana" ditahan. Hook T1–T3 gagal karena langsung memberi jawaban dan tidak membantah apa pun.
+
+## Putaran setelah D-017 (siap ditinjau)
+
+- **R (Rick Rubin)**: jangkar nyata. Sumber: 60 Minutes, CBS, 15 Jan 2023 (https://www.cbsnews.com/news/rick-rubin-anderson-cooper-60-minutes-interview-2023-01-15/): "I have no technical ability. And I know nothing about music." / "I know what I like and what I don't like." Kutipan kata per kata dicek ulang di transkrip sebelum script final.
+- **K (mengenali desain AI)**: melibatkan penonton langsung.
