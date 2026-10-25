@@ -70,10 +70,11 @@ motion-graphic/
 Sumber kebenaran skill ini adalah repo `Siirfannih/skill-development` (`claude/motion-graphic/`). Salinan di Mac dan cloud disinkronkan dari sana.
 
 **Muat konteks proyek (gerbang 0):**
-1. Baca `PROJECT_STATE.md` atau `00_MULAI-DI-SINI.md` proyek aktif.
-2. Baca skill VO proyek bila ada (contoh: `jadisatu-narrator-vo`).
-3. Katalogkan aset atau paket yang Irfan berikan (SFX, kit, proyek lama) sebelum membuat aset baru.
-4. Simpan proyek di `~/Documents/<Proyek>` dengan `PROJECT_STATE.md`.
+1. Jika repo `skill-development` punya folder `projects/<proyek>/`, baca `AUTHORITY.md` dan `ART-DIRECTION.md` di sana lebih dulu. Keduanya menang atas dokumen di repo produksi.
+2. Baca `PROJECT_STATE.md` atau `00_MULAI-DI-SINI.md` proyek aktif.
+3. Baca skill VO proyek bila ada (contoh: `jadisatu-narrator-vo`).
+4. Katalogkan aset atau paket yang Irfan berikan (SFX, kit, proyek lama) sebelum membuat aset baru.
+5. Simpan proyek di `~/Documents/<Proyek>` dengan `PROJECT_STATE.md`.
 
 ## 5. Kapan membaca cabang
 

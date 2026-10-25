@@ -9,7 +9,7 @@ Skill ini berisi **pengalaman** dari proyek-proyek sebelumnya: urutan kerja, sta
 
 Bayangkan creative director senior yang masuk ke proyek baru. Ia tidak membawa 10 template dari klien sebelumnya. Yang ia bawa adalah cara berpikir, urutan kerja, dan insting tentang apa yang biasanya salah. Hasilnya: prosesnya lebih cepat, dan karyanya lebih bagus.
 
-Pakai skill ini bersama `working-with-irfan` (cara berkomunikasi) dan `motion-graphic-playbook` / `irfan-motion-director` (teknik dan prinsip sutradara). Versi terbaru skill-skill itu ada di Mac Irfan: `~/Proyek/video-editor/skills/`. Jika versi di sesi tidak lengkap, minta akses folder dan baca dari sana sebelum mulai.
+Pakai skill ini bersama `working-with-irfan` (cara berkomunikasi) dan `motion-graphic` (teknik dan prinsip sutradara untuk video). Sumber kebenaran semua skill adalah repo `Siirfannih/skill-development`; katalognya di `INDEX.md`.
 
 ---
 
@@ -39,7 +39,7 @@ Ketika Irfan berkata "pastikan kamu bawa skill workflow-nya", artinya: bawa cara
 | 0 | Muat pengalaman | Skill ini + skill pendamping dibaca | Bagian workflow sudah dipahami; tidak ada aset proyek lama yang ikut terbawa |
 | 1 | Brief + bedah referensi | Tujuan, audiens, durasi, format, kondisi bisnis, batas waktu; breakdown referensi dengan angka dan timestamp | Setiap klaim tentang referensi bisa ditunjuk buktinya (file + detik) |
 | 2 | **Script** | Draft di chat (bukan file), diulang sampai Irfan bilang final | Lolos uji storyteller (§3) **dan** Irfan menyatakan final |
-| 3 | Storyboard 100% durasi | Per beat: waktu, aksi tokoh/subjek, teks, kamera, transisi | Lolos tabel kritik diri `irfan-motion-director` §5, lalu disetujui Irfan |
+| 3 | Storyboard 100% durasi | Per beat: waktu, aksi tokoh/subjek, teks, kamera, transisi | Lolos tabel kritik `motion-graphic/references/storyboard.md` §16.3, lalu disetujui Irfan |
 | 4 | **Audio** | VO → SFX → musik | Hanya dimulai setelah gerbang 2 dan 3 lolos |
 | 5 | Build | Kode/proyek per beat | Satu fungsi per beat; revisi mengubah kode yang ada, bukan membangun ulang |
 | 6 | QA | Contact sheet, cek audio, checklist playbook | Bagian gagal diperbaiki sebelum dikirim |
