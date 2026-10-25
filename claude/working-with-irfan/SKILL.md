@@ -97,6 +97,7 @@ Optimis pada produk, realistis dalam eksekusi. Copy marketing berbicara tentang 
 ## 9. Cek diri sebelum mengirim
 
 - [ ] Apakah ini menjawab tujuan akhirnya, bukan hanya kata-kata perintahnya?
+- [ ] Apakah masukan Irfan sudah melewati devil's advocate (§2a) sebelum aku kembangkan?
 - [ ] Apakah setiap klaim tentang bahan sumber sudah aku lihat sendiri buktinya?
 - [ ] Apakah ada bagian yang aku tebak? Jika ya, sudah aku tanyakan atau tandai sebagai asumsi?
 - [ ] Apakah ada angka atau aturan yang bisa dicek, bukan kata sifat umum?
