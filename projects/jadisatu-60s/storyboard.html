@@ -145,7 +145,8 @@ td.ok{color:#15803d;font-weight:600} td.warn{color:#c2410c;font-weight:600}
 <header>
   <h1>The Gap: storyboard v2</h1>
   <p>Jadisatu, video motion ±76 detik. Versi 2 mengikuti arahan Irfan (25 Okt): hook dirombak, latar putih polos tanpa tekstur, tanpa abu-abu, font Geist yang lebih modern, dan pola Baikov. Di pola Baikov, isi adegan diletakkan diam di "dunia", lalu <b>kamera yang bergerak</b> membacanya. Perpindahan adegan memakai cut di puncak gerak kamera dengan motion blur, dan setiap frame punya kinetic typography. Kotak kuning adalah catatan produksi. Overlay pink adalah arah kamera.</p>
-  <div class="meta"><span>1920×1080 · 30 fps</span><span>VO ElevenLabs (setelan Jadisatu terakhir)</span><span>25 beat · 76,0 dtk</span><span>hook terkunci (D-020)</span><span>Geist + Geist Mono</span><span>v2 · 25 Okt 2026</span></div>
+  <p><b>Mode 2D (D-027):</b> kamera 2D (truck, tilt, push/pull, whip). Semua visual dibangun sebagai vektor/SVG atau animasi 2D. Foto dan footage asli hanya untuk orang (Ira Glass, Rick Rubin, dan klip manusia di B04).</p>
+  <div class="meta"><span>1920×1080 · 30 fps</span><span>VO ElevenLabs (setelan Jadisatu terakhir)</span><span>25 beat · 76,0 dtk</span><span>hook terkunci (D-020)</span><span>Geist + Geist Mono</span><span>v2.1 · mode 2D</span></div>
 </header>
 
 <div class="controls">
@@ -222,7 +223,7 @@ td.ok{color:#15803d;font-weight:600} td.warn{color:#c2410c;font-weight:600}
   </div>
   <div class="spec"><div class="top"><span class="id">B03</span><span class="tc">5,5–7,2</span><span class="tag">baru v2</span></div>
     <p class="vo">"Bertahun-tahun, karyamu akan mengecewakanmu."</p>
-    <dl><dt>Visual</dt><dd><b>Flashbang.</b> ±16 karya terbang dari tepi menuju pusat dan menumpuk makin rapat (bertahun-tahun mengejar). Tepat di "mengecewakanmu" ada kilatan putih, lalu semuanya <b>berpencar</b> ke luar dengan motion blur. Karya = <b>draft dan render lama milik Irfan sendiri</b> (I-10, "22 render dalam 7 hari"), bukan stok. Pratinjau ini memakai pengganti.</dd>
+    <dl><dt>Visual</dt><dd><b>Flashbang.</b> ±16 karya terbang dari tepi menuju pusat dan menumpuk makin rapat (bertahun-tahun mengejar). Tepat di "mengecewakanmu" ada kilatan putih, lalu semuanya <b>berpencar</b> ke luar dengan motion blur. Karya = <b>kartu vektor 2D</b> (poster, sketsa, UI, bentuk) seperti di frame ini, dibangun sebagai SVG supaya mudah dianimasikan. Draft lama Irfan opsional.</dd>
     <dt>Kinetic</dt><dd>"bertahun-tahun, karyamu akan" (kecil, biru) mengetik selama karya berkumpul. "mengecewakanmu." muncul di dalam kilatan (<code>G1</code> slam, 4 f) saat semuanya berpencar.</dd>
     <dt class="cam">Kamera</dt><dd>Mendarat dari whip B02 (blur → tajam). <b>Push</b> pelan ke pusat selama karya berkumpul. Saat kilatan: <b>punch</b> 1,00→1,08 dalam 2 f + satu guncangan ≤ 8 px, lalu diam.</dd>
     <dt class="cam">Keluar</dt><dd>Sisa kilatan putih menjadi kanvas B04. Kamera mulai <b>tilt ↓</b>.</dd>
@@ -265,20 +266,18 @@ td.ok{color:#15803d;font-weight:600} td.warn{color:#c2410c;font-weight:600}
 </article>
 
 <article class="beat">
-  <div class="frame" data-cam="push" data-label="ORBIT KECIL + PUSH KE TOMBOL" style="--x0:3cqw;--y0:-3cqw;--s0:1;--x1:-3cqw;--y1:1cqw;--s1:1.14;--d:3.2s">
+  <div class="frame" data-cam="push" data-label="PUSH 2D KE TOMBOL" style="--s0:1;--x1:-6cqw;--y1:2cqw;--s1:1.14;--d:3.2s">
     <div class="world">
-      <div style="position:absolute;inset:0;perspective:90cqw">
-        <div class="prompt" style="left:22cqw;top:18cqw;width:56cqw;height:9cqw;transform:rotateX(18deg) rotateY(-14deg)"><span>buatkan karya yang bagus</span><span class="caret"></span><span class="send"></span></div>
-      </div>
+      <div class="prompt" style="left:22cqw;top:18cqw;width:56cqw;height:9cqw"><span>buatkan karya yang bagus</span><span class="caret"></span><span class="send"></span></div>
       <div class="abs w cx nowrap a-rise" style="top:35cqw;font-size:8cqw">tiga <span class="pill">detik.</span></div>
     </div>
     <div class="note">UI prompt: rekonstruksi dari screenshot UI AI asli (menunggu keputusan).</div>
   </div>
   <div class="spec"><div class="top"><span class="id">B05</span><span class="tc">10,5–13,6</span></div>
     <p class="vo">"Sekarang, AI menutup jarak itu dalam tiga detik."</p>
-    <dl><dt>Visual</dt><dd>Kolom prompt AI miring 3D (K9). Klik kirim = jarak ditutup.</dd>
+    <dl><dt>Visual</dt><dd>Kolom prompt AI datar (2D, vektor). Klik kirim = jarak ditutup.</dd>
     <dt>Kinetic</dt><dd>Isi prompt diketik (<code>T11</code>, UI saja) · "tiga detik." dengan <code>G1</code> slam ringan, "detik." dalam pill.</dd>
-    <dt class="cam">Kamera</dt><dd>Mendarat dari atas (blur vertikal B04). <b>Orbit kecil</b> kiri→kanan ±6° di sekitar UI, lalu <b>push</b> ke tombol kirim. <code>C17</code> rack focus, <code>C09</code> snap punch-in saat klik.</dd>
+    <dt class="cam">Kamera</dt><dd>Mendarat dari atas (blur vertikal B04). <b>Push 2D</b> ke tombol kirim (tanpa orbit, kamera 2D). <code>C17</code> rack focus, <code>C09</code> snap punch-in saat klik.</dd>
     <dt class="cam">Keluar</dt><dd><code>X14</code> bloom: kamera menembus tombol yang menyala.</dd>
     <dt>SFX</dt><dd>ketik keyboard per kata (−12 dB) · klik UI · whoosh naik −11 f → thud di landing</dd></dl></div>
 </article>
@@ -683,7 +682,7 @@ td.ok{color:#15803d;font-weight:600} td.warn{color:#c2410c;font-weight:600}
 <tr><td>B02</td><td>zoom (dalam)</td><td>push ke wajah lalu truck →</td><td><b>whip → cut + blur</b></td><td class="ok">tidak</td></tr>
 <tr><td>B03</td><td>whip → (blur ke tajam)</td><td>push + punch di kilatan</td><td>kilatan putih jadi kanvas, tilt ↓</td><td class="warn">ya: flashbang (maknanya)</td></tr>
 <tr><td>B04</td><td>dari putih kilatan</td><td>tilt ↓ menuruni baris</td><td><b>tilt ↓ cut + blur vertikal</b></td><td class="ok">tidak (footage main di tempat)</td></tr>
-<tr><td>B05</td><td>dari atas (blur ↓)</td><td>orbit kecil + push ke tombol</td><td>bloom menembus tombol</td><td class="ok">tidak</td></tr>
+<tr><td>B05</td><td>dari atas (blur ↓)</td><td>push 2D ke tombol</td><td>bloom menembus tombol</td><td class="ok">tidak</td></tr>
 <tr><td>B06</td><td>pull dari bloom</td><td>diam + drift</td><td>tilt ↓ (seam)</td><td class="warn">ya: kata merapat (maknanya)</td></tr>
 <tr><td>B07</td><td>dari atas</td><td>follow ujung garis, berhenti mati</td><td>engsel senyap → banjir navy</td><td class="ok">tidak</td></tr>
 <tr><td>B08</td><td>dari atas (banjir)</td><td>drop-settle ↓</td><td>tilt ↓ ke prompt</td><td class="ok">tidak (huruf diganti di tempat)</td></tr>
@@ -726,7 +725,7 @@ td.ok{color:#15803d;font-weight:600} td.warn{color:#c2410c;font-weight:600}
 <ul>
 <li><b>Moodboard punya dua bahasa.</b> Diagram garis hitam (Entertained/Truth) dan kolase foto bulat yang ceria (Abstractive, Visionaries, Contra). Kalau dicampur sembarangan, hasilnya jadi gaya hibrida (diagnosis Jadisatu v7). Keputusanku: diagram garis hanya untuk <b>konsep abstrak</b> (B01 jarak, B07 garis, B19 grid). Kartu foto bulat untuk <b>orang dan bukti nyata</b> (B02, B04, B13, B20). Latar hitam diagram moodboard tidak dipakai: babak terang tetap putih sesuai arahanmu.</li>
 <li><b>Kutipan bahasa Inggris di B02</b> melanggar aturan "teks layar hanya dari VO". Aku tetap memakainya karena ini kutipan asli tokohnya, artinya sama dengan VO, dan maksimal 6 kata. Subjudul Indonesia memakai kata VO. Kalau terasa ganda, opsi B: hanya "this gap." tanpa kalimat lengkap.</li>
-<li><b>Flashbang (B03)</b> berisiko jadi efek demi efek. Penahannya: hanya satu kilatan, dan isinya karya Irfan sendiri, jadi maknanya personal ("ini karyaku yang bertahun-tahun mengecewakan"). Pengganti stok akan melemahkannya.</li>
+<li><b>Flashbang (B03)</b> berisiko jadi efek demi efek. Penahannya: hanya satu kilatan, dan kartunya vektor yang ditata rapi (bukan foto acak), jadi tetap terbaca sebagai "karya" tanpa jadi kolase berisik.</li>
 <li><b>Grid footage (B04)</b> padat: 5 klip dalam 3,3 dtk. Kamera tilt hanya memperlihatkan 2–3 baris sekaligus, jadi tetap satu fokus per baris. Kalau terasa cepat saat diuji, kurangi menjadi 3 klip.</li>
 <li><b>10 cut + blur</b> di 76 dtk masih jauh di bawah Baikov (±38 perubahan adegan terdeteksi dalam 67 dtk). Disengaja: cerita kita reflektif, bukan katalog fitur. Kepadatan cut ada di B10 (rasa terburu-buru = menyerahkan semua ke AI).</li>
 <li><b>Geist menggantikan Inter.</b> Lebih geometris dan rapat, mendekati huruf di moodboard dan Baikov. Bagi penonton awam bedanya kecil. Bedanya terasa di judul besar dan angka.</li>
@@ -740,7 +739,7 @@ td.ok{color:#15803d;font-weight:600} td.warn{color:#c2410c;font-weight:600}
 <ol>
 <li><b>Foto asli:</b> Ira Glass (B02, B13) dan Rick Rubin (B20, B21) beserta sampul album. Aku tidak bisa mengunduh gambar dari cloud ini. Kirim filenya, atau aku ambil lewat Mac-mu.</li>
 <li><b>Footage B04:</b> 5 klip (stok berlisensi atau rekaman sendiri).</li>
-<li><b>Karya untuk flashbang B03:</b> 12–16 draft atau render lamamu.</li>
+<li><b>Karya untuk flashbang B03:</b> dibangun sebagai kartu vektor (seperti di frame). Draft lamamu opsional.</li>
 <li><b>Palet:</b> biru #2563EB + coral (storyboard ini) atau palet launch #2273FA / #01081B.</li>
 <li><b>UI prompt</b> (B05, B09, B10): rekonstruksi UI AI asli.</li>
 <li><b>Logo Jadisatu</b> (SVG), <b>baris Jadisatu</b>, dan <b>CTA</b>: masih terbuka.</li>
