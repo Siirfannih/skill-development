@@ -34,10 +34,10 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya: satu kalimat 
 | 0 | Muat konteks | — | §4 selesai |
 | 1 | Brief | `decision.md` | Tujuan, penonton, durasi, CTA, format master terkunci. Default 16:9 1920×1080, 30 fps native (jangan upconvert 24→30), ditonton di HP |
 | 2 | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file |
-| 3 | Bedah referensi | `analysis-qa.md` §2 | Metrik visual + peta audio dengan timestamp |
+| 3 | Bedah referensi | `analysis-qa.md` §2 | Metrik visual + peta audio dengan timestamp. Tanpa referensi dari Irfan: pakai video proyek sebelumnya yang ia setujui sebagai pembanding dan catat itu di brief |
 | 4 | Storyboard 100 % | `storyboard.md`, `direction.md` | Tabel kritik lolos; Irfan menyatakan final |
 | 5 | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
-| 6 | Audio | `audio.md` | Hanya setelah gerbang 2 dan 4 final |
+| 6 | Audio | `audio.md` | VO boleh setelah script final (gerbang 2), karena timestamp VO menggerakkan spec beat. SFX dan musik hanya setelah storyboard final (gerbang 4). Tidak ada VO "sementara" sebelum script final |
 | 7 | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum pendekatan diterapkan ke semua |
 | 8 | Build semua adegan | `build.md` | Komponen sama untuk semua adegan |
 | 9 | QA + loop kritik | `analysis-qa.md` §16 | ≥ 3 putaran, semua skor ≥ 8, gerbang QA lolos |
@@ -75,7 +75,7 @@ Sumber kebenaran skill ini adalah repo `Siirfannih/skill-development` (`claude/m
 
 ## 5. Kapan membaca cabang
 
-Baca cabang saat salah satu kondisi ini terjadi, bukan di awal. Setiap cabang berdiri sendiri; tidak perlu membaca cabang lain untuk memahaminya.
+Baca cabang saat salah satu kondisi ini terjadi, bukan di awal. Cabang boleh merujuk bagian cabang lain (misalnya `direction.md` §6.4); buka bagian itu saja bila dirujuk.
 
 | Kondisi | Cabang |
 |---|---|
@@ -99,7 +99,7 @@ Aturan ini dipisah dari cabang karena pelanggarannya paling sering muncul di rev
 3. **Tokoh dan dunia yang sudah diperkenalkan konsisten sampai akhir.** Bagian solusi tidak berubah menjadi slide UI + teks.
 4. **UI harus UI asli produk**, atau rekonstruksi per elemen dari screenshot asli.
 5. **Nol crossfade; fade bukan gerak.** Sesuatu yang berganti datang dari suatu arah atau berubah bentuk.
-6. **Keterbacaan lewat komposisi**, bukan scrim, bayangan, blur, atau blok warna di belakang kata.
+6. **Keterbacaan dan penekanan lewat komposisi**, bukan scrim, bayangan, blur, atau blok warna/stabilo/highlight box di belakang kata. Kata kunci ditekankan dengan warna aksen pada hurufnya, skala, atau kamera.
 7. **Setiap efek punya alasan.** Jika tidak bisa menjawab "efek ini membantu penonton memahami apa?", hapus.
 8. **Keterbacaan HP**: margin aman 5 %, teks kunci tidak di 8 % bawah, kata sambung ≥ 56 px, rasio kunci : sambung ≥ 3 : 1, kontras ≥ 4,5 : 1. Uji di lebar 360 px; CTA adalah hal paling terbaca.
 9. **Motion blur di semua gerak cepat**, tanpa gerak linear kecuali drift dan rotasi loop.

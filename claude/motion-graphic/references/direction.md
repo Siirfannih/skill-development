@@ -52,7 +52,7 @@ Perpindahan family adalah momen cerita, memakai transisi bab (§10) + engsel sen
     - Membuang = jatuh ke dalam tong, ter-mask bibir wadah.
     - **Elemen yang diperbesar keluar dari frame dengan wajar**: barisnya dibiarkan memanjang keluar tepi layar, tidak terpotong oleh kontainer/kolom (contoh: post Threads yang di-zoom).
 12. **UI harus UI asli produk** (atau rekonstruksi per elemen dari screenshot asli). Proses yang dianimasikan adalah proses yang benar-benar terjadi.
-13. **Highlight hanya di kata yang membawa makna**, maksimal 1 per frame, tidak otomatis di kata pertama.
+13. **Highlight (warna aksen pada huruf, bukan kotak di belakang kata) hanya di kata yang membawa makna**, maksimal 1 per frame, tidak otomatis di kata pertama.
 14. **Variasi datang dari cerita, bukan template.** Layout sama maksimal 2 beat berturut-turut, kecuali disengaja untuk rutinitas.
 
 ---

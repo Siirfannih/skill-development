@@ -73,7 +73,7 @@ Alasannya: template lama membuat karya baru terasa seperti salinan dan mengunci 
 
 ## 6. Biaya dan kredit
 
-- Tidak ada generate berbayar sebelum gerbangnya terbuka: VO setelah script final, musik dan SFX setelah storyboard final.
+- Tidak ada generate berbayar sebelum gerbangnya terbuka: VO setelah script final, musik dan SFX setelah storyboard final (sama dengan gerbang 6 di `SKILL.md`).
 - Sebelum generate, sebutkan perkiraan biaya. Generate 1–2 variasi, bukan 4, kecuali Irfan meminta.
 - Generate per potong agar potongan yang kurang bisa diulang sendiri.
 - Kegagalan nyata: VO di-generate 3 kali (± 7.300 kredit) sebelum script final (Jadisatu, 17 Okt).

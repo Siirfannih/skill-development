@@ -7,8 +7,8 @@ Baca di gerbang 4–5 (storyboard, TYPE-TEST, TRANSITION-SHEET). Storyboard adal
 1. Syarat masuk
 2. Storyboard 100 %
 3. Melanjutkan storyboard contoh Irfan
-4. §15 Spec beat
-5. §16.3 Tabel kritik sutradara
+4. Spec beat (§15)
+5. Tabel kritik sutradara (§16.3)
 6. TYPE-TEST dan TRANSITION-SHEET
 7. Serah terima
 
@@ -47,7 +47,7 @@ Contoh nyata (Tuntunly, 12 panel):
 
 Bagian yang tidak digambar lalu dilanjutkan dengan tokoh yang sama: "Cara baru: pahami" menjadi tokoh membuka laptop dengan UI Tuntunly asli dan kamera mendekat ke layar; "Langsung praktik" menjadi komposisi meja yang sama seperti "Catat. Hafal.", tetapi kali ini tokoh tersenyum.
 
-## 4. §15 Spec beat
+## 4. Spec beat (§15)
 
 ```
 PROJECT | FAMILY per babak | 1920×1080 · 30 fps | VO: <file> | Musik: <cue per babak>
@@ -63,7 +63,7 @@ Cek sebelum build:
 - satu fokus per frame
 - tidak ada teks kiri + UI kanan
 
-## 5. §16.3 Tabel kritik sutradara (per beat)
+## 5. Tabel kritik sutradara (§16.3) (per beat)
 
 Isi untuk setiap beat saat storyboard selesai, lalu cek ulang pada render:
 
