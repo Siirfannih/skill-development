@@ -38,3 +38,15 @@ Kriteria dari Irfan (D-013): spesifik, spesial, urgent; jarang diucapkan tetapi 
 ## Putaran 3: susunan
 
 #6 sebagai hook (momen yang dialami semua orang, belum pernah diberi nama), #5 + daftar #14 sebagai masalah (paradoks D-011), #7 sebagai jembatan untuk memberi nama "taste".
+
+## Bedah hook referensi (D-015), dari teks layar 0–15 dtk
+
+| Referensi | Hook | Opini | Emosi → pertanyaan penonton |
+|---|---|---|---|
+| Holy Freak | "This video went VIRAL. Everyone's asking the same thing: what's the prompt? WRONG question. Because Claude didn't make this." | Yang semua orang tanyakan itu salah | Tegang (dibantah) → "lalu siapa/apa?" |
+| Storytellers | "Kalau orang paling berbahaya adalah storyteller…" + Zuckerberg, Musk, Altman, Jobs | Kemampuan bercerita = kekuatan terbesar | Tegang ("berbahaya") → "kenapa?" |
+| Gawx | "This is GAWX. Cinematic content. But what actually makes his work so GAWX? This is the breakdown." | Ada rahasia di balik hasil yang terlihat | Kagum → "bagaimana?" |
+| Baikov/Shapes | "What makes your company unique?" | Keunikan bisa dibongkar | Penasaran → "apa?" |
+| Apple | "You built a business. Now…" | Penonton sudah berhasil, tapi ada yang belum | Bangga lalu tegang → "now apa?" |
+
+Pola: (1) sebut yang semua orang lakukan/percayai, (2) vonis tegas yang membantahnya, (3) klaim absolut, (4) jawaban "kenapa/bagaimana" ditahan. Hook T1–T3 gagal karena langsung memberi jawaban dan tidak membantah apa pun.
