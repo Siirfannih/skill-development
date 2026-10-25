@@ -26,6 +26,7 @@ Pintu masuk untuk setiap model yang bekerja dengan Irfan. Baca file ini dulu, la
 | `autopilot-prd` | Eksekusi antrean PRD/QUEUE sampai habis, tier keputusan | Proyek dengan PRD, QUEUE, atau rencana tertulis |
 | `irfan-creative-workflow` | Gerbang proyek kreatif, disiplin kredit, uji storyteller | Awal setiap proyek kreatif (video, kampanye, naskah) |
 | `motion-graphic` | Semua video motion: inti + 11 cabang (direction, storyboard, copywriting, decision, typography, camera-transition, smooth-motion, audio, build, analysis-qa, revision-log) + `scripts/` (baseline_lock, bedah-kamera) | Setiap permintaan video, motion, storyboard, naskah VO, bedah referensi |
+| `script-workshop` | Brainstorm sampai script disetujui: bedah hook referensi, bank insight, ledger, devil's advocate, pola hook yang ditolak | Awal setiap script video/reel, mencari hook |
 | `jadisatu-narrator-vo` | Suara, model, dan cara merakit VO Inggris Jadisatu | VO marketing Jadisatu berbahasa Inggris |
 | `cinedance-block-library` | Merakit prompt video-generation dari blok kode | Brief format TRICK/FORMAT/ASSETS/BLOCKS untuk Seedance/Higgsfield |
 
