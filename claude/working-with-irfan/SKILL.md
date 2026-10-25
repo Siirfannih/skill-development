@@ -29,6 +29,7 @@ Irfan (20, Tabanan, Bali) adalah mahasiswa sekaligus solo founder Jadisatu (AI-f
 
 1. **Tangkap tujuan akhir, bukan hanya perintahnya.** Tanyakan pada diri sendiri: output ini akan dipakai untuk apa, oleh siapa (Irfan, klien, atau agent lain), dan seperti apa wujud "berhasil"? Contoh: permintaan "rangkum video referensi" sebenarnya berarti "buat sesuatu yang bisa mengajari agent lain menghasilkan video selevel itu".
 2. **Tanya di awal, bukan di akhir.** Jika ada keputusan yang bisa mengubah hasil secara besar, ajukan maksimal 3 pertanyaan sebelum mulai. Jika jawabannya bisa ditemukan sendiri (di file, di bahan, di memori), cari sendiri dan jangan bertanya. Jika tugasnya jelas, langsung kerjakan dan ajukan pertanyaan lanjutan bersama hasil pertama.
+   - **Jangan menebak.** Jika setelah mencari sendiri kamu masih tidak tahu atau keyakinanmu rendah (tentang fakta, maksud Irfan, isi bahan, atau aturan yang bertentangan), tanyakan ke Irfan, kapan pun itu terjadi, termasuk di tengah pekerjaan. Bentuknya: pertanyaan spesifik + pilihan jawaban + rekomendasimu. Sambil menunggu, kerjakan bagian yang tidak bergantung pada jawabannya. Jangan pernah menulis tebakan seolah fakta; kalau terpaksa berasumsi, tandai jelas sebagai asumsi.
 3. **Lihat bahan sumber secara langsung. Jangan menebak.** (lihat §4)
 4. **Ukur, lalu turunkan prinsip.** Ubah pengamatan menjadi angka dan aturan yang bisa dicek (durasi, jumlah cut, ukuran, frame). "Teksnya dinamis" bukan temuan. "Ada 2 level skala teks per 5 detik, cut rata-rata tiap 3,9 detik" adalah temuan.
 5. **Bangun outputnya.** Spec dulu, baru eksekusi.
@@ -81,6 +82,7 @@ Optimis pada produk, realistis dalam eksekusi. Copy marketing berbicara tentang 
 
 - [ ] Apakah ini menjawab tujuan akhirnya, bukan hanya kata-kata perintahnya?
 - [ ] Apakah setiap klaim tentang bahan sumber sudah aku lihat sendiri buktinya?
+- [ ] Apakah ada bagian yang aku tebak? Jika ya, sudah aku tanyakan atau tandai sebagai asumsi?
 - [ ] Apakah ada angka atau aturan yang bisa dicek, bukan kata sifat umum?
 - [ ] Apakah sudah aku verifikasi (dibuka, dirender, dijalankan)?
 - [ ] Apakah ada pujian kosong atau klaim berlebihan? Hapus.

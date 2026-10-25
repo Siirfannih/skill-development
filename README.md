@@ -3,7 +3,12 @@
 Tempat menyimpan dan mengembangkan skill Claude milik Irfan. Repo ini adalah sumber kebenaran; salinan di Mac (`~/.claude/skills`) dan cloud disinkronkan dari sini.
 
 - `claude/` — satu folder per skill, berisi `SKILL.md` (+ `references/` bila bercabang)
+- `external/` — skill pihak ketiga sebagai submodule (superpowers, anti-slop, awesome-design-md); peta pemakaian di `external/README.md`
 - `AUDIT-2026-10-25.md` — audit awal dan rencana perbaikan
+- `EVALS-DESIGN.md` — desain eval agar skill membaik tiap sesi
+- `DIAGNOSA-JADISATU-V7.md` — diagnosa video Jadisatu v7
+
+Clone beserta submodule: `git clone --recurse-submodules https://github.com/Siirfannih/skill-development.git`
 
 ## Status skill video
 

@@ -50,6 +50,10 @@ Teks layar adalah turunan script, bukan tulisan baru. Alasannya: teks yang tidak
 - Satu kebiasaan tanda baca per proyek.
 - Tidak ada subtitle statis: teks kinetik adalah caption-nya. Ukuran, warna, dan gerak teks ada di `typography.md`.
 
+## 5b. Filter tambahan
+
+Setelah uji §3–§4, saring sekali lagi dengan `external/anti-slop/skills/antislop-copywriting` untuk pola tulisan generik yang belum tertangkap. Jika aturan anti-slop bertentangan dengan arahan Irfan atau file ini, arahan Irfan dan file ini yang menang.
+
 ## 6. Menyerahkan script
 
 - Draft ditampilkan di chat, bukan file, dan diulang sampai Irfan bilang final. Setelah final, simpan sebagai file sebelum apa pun di-generate.

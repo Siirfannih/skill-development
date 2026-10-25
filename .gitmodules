@@ -1,0 +1,9 @@
+[submodule "external/superpowers"]
+	path = external/superpowers
+	url = https://github.com/obra/superpowers.git
+[submodule "external/anti-slop"]
+	path = external/anti-slop
+	url = https://github.com/miqdadbadjuber/anti-slop.git
+[submodule "external/awesome-design-md"]
+	path = external/awesome-design-md
+	url = https://github.com/VoltAgent/awesome-design-md.git

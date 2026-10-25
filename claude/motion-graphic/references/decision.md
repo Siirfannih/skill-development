@@ -80,7 +80,7 @@ Alasannya: template lama membuat karya baru terasa seperti salinan dan mengunci 
 
 ## 7. Kapan bertanya
 
-Bertanya hanya untuk ambiguitas yang mengubah hasil secara besar, maksimal 3 pertanyaan di awal, dalam satu pesan. Sebelum bertanya, cek apakah jawabannya ada di file proyek, brief, atau memori.
+Bertanya untuk ambiguitas yang mengubah hasil secara besar, maksimal 3 pertanyaan di awal, dalam satu pesan. Sebelum bertanya, cek apakah jawabannya ada di file proyek, brief, atau memori. Jika setelah dicek kamu masih tidak tahu atau keyakinanmu rendah, **jangan menebak**: tanyakan (rules inti 13 di `SKILL.md`). Ini berlaku juga di tengah pekerjaan, bukan hanya di awal.
 
 | Situasi | Tindakan |
 |---|---|
