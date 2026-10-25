@@ -1,0 +1,668 @@
+<title>The Gap Storyboard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a production sheet. Each beat is a row: the 16:9 frame (built in HTML, so it is the real composition) beside its spec. Acts separate the rows. */
+:root{
+  /* page chrome (themed) */
+  --bg:#f3f4f6; --surface:#ffffff; --ink:#111827; --muted:#5b6474; --line:#dde1e7; --chip:#eef2fb; --chip-ink:#1e3a8a; --note:#fff6c9; --note-ink:#5a4a00;
+  /* video palette (fixed, never themed: these are the film's colours) */
+  --v-paper:#FBFAF7; --v-warm:#FAF8EC; --v-navy:#0F172A; --v-navy2:#16213b; --v-blue:#2563EB; --v-coral:#F97066; --v-grey:#9aa3b2;
+  --f-display:"Inter",system-ui,sans-serif; --f-serif:"Instrument Serif",Georgia,serif; --f-ui:"Instrument Sans",system-ui,sans-serif; --f-mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1117;--surface:#151b24;--ink:#e6e9ef;--muted:#9aa4b4;--line:#263040;--chip:#1c2a4a;--chip-ink:#c7d6ff;--note:#3a3310;--note-ink:#f3e7a6;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0d1117;--surface:#151b24;--ink:#e6e9ef;--muted:#9aa4b4;--line:#263040;--chip:#1c2a4a;--chip-ink:#c7d6ff;--note:#3a3310;--note-ink:#f3e7a6;color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-ui);font-size:15px;line-height:1.55}
+.wrap{max-width:1180px;margin:0 auto;padding-block:32px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
+header h1{font-family:var(--f-display);font-weight:800;font-size:clamp(28px,4vw,44px);letter-spacing:-.02em;margin:0;text-wrap:balance}
+header p{margin:6px 0 0;color:var(--muted);max-width:68ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.meta span{font-family:var(--f-mono);font-size:12px;background:var(--chip);color:var(--chip-ink);padding:4px 8px;border-radius:6px}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+button{font:600 14px var(--f-ui);background:var(--ink);color:var(--bg);border:0;border-radius:8px;padding:9px 14px;cursor:pointer}
+button:focus-visible{outline:3px solid var(--v-blue);outline-offset:2px}
+.controls small{color:var(--muted)}
+.act{display:grid;gap:18px}
+.act>h2{font-family:var(--f-display);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:8px 0 0;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.act>h2 b{color:var(--ink);font-size:20px;letter-spacing:-.01em;text-transform:none}
+.beat{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px}
+@media (max-width:820px){.beat{grid-template-columns:minmax(0,1fr)}}
+.spec{min-width:0;display:grid;gap:8px;align-content:start;font-size:14px}
+.spec .top{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.spec .id{font-family:var(--f-mono);font-weight:500;font-size:13px;background:var(--ink);color:var(--surface);padding:2px 7px;border-radius:5px}
+.spec .tc{font-family:var(--f-mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.spec .vo{font-family:var(--f-display);font-weight:600;font-size:17px;line-height:1.35;margin:0}
+.spec dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 12px;margin:0}
+.spec dt{font-family:var(--f-mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+.spec dd{margin:0}
+.spec code{font-family:var(--f-mono);font-size:12.5px;background:var(--chip);color:var(--chip-ink);padding:1px 5px;border-radius:4px}
+
+/* ---------- frames ---------- */
+.frame{position:relative;aspect-ratio:16/9;max-width:100%;container-type:inline-size;overflow:hidden;border-radius:8px;background:var(--v-paper);color:var(--v-navy);font-family:var(--f-display)}
+.frame.dark{background:radial-gradient(120% 90% at 50% 40%,var(--v-navy2),var(--v-navy));color:var(--v-warm)}
+.frame *{box-sizing:border-box}
+.abs{position:absolute}
+.c{left:50%;top:50%;transform:translate(-50%,-50%)}
+.note{position:absolute;right:1.2cqw;bottom:1.2cqw;font:500 1.25cqw/1.3 var(--f-mono);background:var(--note);color:var(--note-ink);padding:.5cqw .8cqw;border-radius:.6cqw;max-width:42cqw;z-index:9}
+.serif{font-family:var(--f-serif);font-style:italic;font-weight:400;letter-spacing:0}
+.blue{color:var(--v-blue)} .coral{color:var(--v-coral)}
+.blob{position:absolute;border-radius:50%;filter:blur(4cqw);opacity:.55;background:radial-gradient(circle at 35% 40%,var(--v-blue),transparent 60%),radial-gradient(circle at 70% 65%,var(--v-coral),transparent 55%)}
+.grain::after{content:"";position:absolute;inset:0;opacity:.05;background-image:repeating-radial-gradient(circle at 17% 33%,#000 0 1px,transparent 1px 3px);pointer-events:none}
+.w{font-weight:800;letter-spacing:-.035em;line-height:1}
+.m{font-weight:500;letter-spacing:-.01em}
+.portrait{position:absolute;border-radius:1.4cqw;background:linear-gradient(160deg,#2a3346,#11182a);overflow:hidden}
+.portrait::before{content:"";position:absolute;left:50%;top:26%;width:30%;aspect-ratio:1;border-radius:50%;transform:translateX(-50%);background:#4a5468}
+.portrait::after{content:"";position:absolute;left:50%;top:60%;width:62%;height:60%;border-radius:40% 40% 0 0;transform:translateX(-50%);background:#4a5468}
+.card{position:absolute;border-radius:1.2cqw;background:#fff;box-shadow:0 1.5cqw 3cqw rgba(15,23,42,.10)}
+.dark .card{background:#1d2945;box-shadow:0 1.5cqw 3cqw rgba(0,0,0,.35)}
+.thumb{position:absolute;inset:12%;border-radius:.8cqw;background:radial-gradient(circle at 30% 35%,rgba(37,99,235,.85),transparent 60%),radial-gradient(circle at 70% 70%,rgba(249,112,102,.8),transparent 55%),#e9edf6}
+.dark .thumb{background:radial-gradient(circle at 30% 35%,rgba(37,99,235,.9),transparent 60%),radial-gradient(circle at 70% 70%,rgba(249,112,102,.8),transparent 55%),#24304d}
+
+/* gap measure */
+.measure{position:absolute;height:0;border-top:.18cqw dashed var(--v-grey)}
+.measure::before,.measure::after{content:"";position:absolute;top:-1cqw;width:.18cqw;height:2cqw;background:var(--v-grey)}
+.measure::before{left:0}.measure::after{right:0}
+
+/* prompt UI */
+.prompt{position:absolute;border-radius:1.6cqw;background:#fff;border:.12cqw solid #e3e7ef;box-shadow:0 2cqw 5cqw rgba(15,23,42,.14);display:flex;align-items:center;gap:1.2cqw;padding:0 1.4cqw;font:500 1.8cqw var(--f-display);color:#475569}
+.dark .prompt{background:#18223b;border-color:#2b3858;color:#c4cde0;box-shadow:0 2cqw 5cqw rgba(0,0,0,.45)}
+.caret{display:inline-block;width:.18cqw;height:2.4cqw;background:var(--v-blue)}
+.send{margin-left:auto;width:3.6cqw;height:3.6cqw;border-radius:50%;background:var(--v-blue);box-shadow:0 0 0 .8cqw rgba(37,99,235,.18)}
+
+/* tiles */
+.tile{position:absolute;width:13cqw;aspect-ratio:1;border-radius:2cqw;background:rgba(255,255,255,.7);border:.15cqw solid rgba(15,23,42,.08);display:grid;place-items:center;font:800 6cqw var(--f-display);color:#c5ccd8;box-shadow:0 1.5cqw 3cqw rgba(15,23,42,.08)}
+.tile.on{color:var(--v-blue);background:#fff;border-color:rgba(37,99,235,.35)}
+
+/* ---------- motion preview (only when "Putar gerak" is on) ---------- */
+@media (prefers-reduced-motion:no-preference){
+  .play .a-rise{animation:rise 2.6s cubic-bezier(.16,1,.3,1) infinite both}
+  .play .a-rise2{animation:rise 2.6s .12s cubic-bezier(.16,1,.3,1) infinite both}
+  .play .a-draw{animation:draw 3s cubic-bezier(.16,1,.3,1) infinite both}
+  .play .a-drop{animation:drop 2.8s cubic-bezier(.16,1,.3,1) infinite both}
+  .play .a-fall{animation:fall 3s cubic-bezier(.7,0,.84,0) infinite both}
+  .play .a-pick{animation:pick 3s cubic-bezier(.16,1,.3,1) infinite both}
+  .play .a-lens{animation:lens 4s ease-in-out infinite both}
+  .play .a-zoomout{animation:zoomout 4s cubic-bezier(.16,1,.3,1) infinite both}
+  .play .a-push{animation:push 4s ease-in-out infinite both}
+}
+@keyframes rise{0%{translate:0 40%;opacity:0;filter:blur(.6cqw)}30%,100%{translate:0 0;opacity:1;filter:none}}
+@keyframes draw{0%{stroke-dashoffset:var(--len,400)}45%,100%{stroke-dashoffset:0}}
+@keyframes drop{0%{translate:0 -120%;opacity:0}35%,100%{translate:0 0;opacity:1}}
+@keyframes fall{0%,40%{translate:0 0;rotate:0deg;opacity:1}75%,100%{translate:0 160%;rotate:14deg;opacity:0}}
+@keyframes pick{0%,30%{scale:1}55%,100%{scale:1.25}}
+@keyframes lens{0%,100%{translate:-20% 8%}50%{translate:0 0}}
+@keyframes zoomout{0%{scale:3.2}60%,100%{scale:1}}
+@keyframes push{0%{scale:1}100%{scale:1.08}}
+
+table{border-collapse:collapse;width:100%;font-size:13px;min-width:860px}
+th,td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left;vertical-align:top}
+th{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+td.ok{color:#16a34a;font-weight:600} td.na{color:var(--muted)} td.warn{color:#d97706;font-weight:600}
+.scroll{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:6px 10px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;display:grid;gap:10px}
+.panel h2{margin:0;font-family:var(--f-display);font-size:20px;letter-spacing:-.01em}
+.panel ul,.panel ol{margin:0;padding-left:20px;display:grid;gap:6px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+</style>
+
+<div class="wrap" id="top">
+<header>
+  <h1>The Gap: storyboard 100%</h1>
+  <p>Jadisatu, video motion ±75 detik. Setiap frame di bawah dibangun dengan HTML dan font yang sama seperti video final, jadi komposisi, ukuran teks, dan palet sudah seperti hasil akhirnya. Kotak kuning adalah catatan produksi, bukan bagian dari video.</p>
+  <div class="meta"><span>1920×1080 · 30 fps</span><span>VO narator ElevenLabs (setelan Jadisatu terakhir)</span><span>25 beat · 75,2 dtk</span><span>Script v1 (D-023) · hook terkunci (D-020)</span><span>100% Apple, tanpa pixel</span></div>
+</header>
+
+<div class="controls"><button type="button" id="playBtn" aria-pressed="false">Putar gerak</button><small>Menjalankan pratinjau gerak kunci di beberapa frame (loop). Frame diam = pose akhir beat.</small></div>
+
+<div class="legend"><span>Kode G/T/C/X dan kelas SFX mengacu ke skill <code>motion-graphic</code> (typography, camera-transition, audio).</span><span>Waktu = perkiraan dari jumlah kata (2,75 kata/dtk); dikunci ulang dari timestamp VO.</span></div>
+
+<!-- ================= ACT 1 ================= -->
+<section class="act">
+<h2>Babak 1 <b>Hook: the gap</b> 0,0–17,1 dtk · terang</h2>
+
+<article class="beat">
+  <div class="frame grain">
+    <div class="blob" style="width:40cqw;height:30cqw;left:30cqw;top:12cqw;opacity:.18"></div>
+    <div class="abs w a-rise" style="left:6cqw;top:24cqw;font-size:5.6cqw">seleramu</div>
+    <div class="abs w a-rise2" style="right:6cqw;top:24cqw;font-size:5.6cqw;color:#64748b">kemampuanmu</div>
+    <div class="measure" style="left:36cqw;right:45cqw;top:27cqw"></div>
+    <div class="abs m" style="left:36cqw;width:19cqw;top:31cqw;text-align:center;font:500 1.6cqw var(--f-mono);color:var(--v-grey);letter-spacing:.1em">JARAK</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B01</span><span class="tc">0,0–2,5</span></div>
+    <p class="vo">"Ada jarak antara seleramu dan kemampuanmu."</p>
+    <dl><dt>Objek</dt><dd>Jarak, digambar sebagai ruang kosong nyata di antara dua kata.</dd>
+    <dt>Teks</dt><dd>"seleramu" · "kemampuanmu" · label mono "JARAK"</dd>
+    <dt>Teknik</dt><dd><code>G2</code> <code>T01</code> per kata; garis ukur digambar <code>Trim Paths</code> 12 f</dd>
+    <dt>Kamera</dt><dd><code>C19</code> drift 1,00→1,03</dd>
+    <dt>Keluar</dt><dd><code>X04</code> zoom-through ke celah jarak</dd>
+    <dt>SFX</dt><dd>soft pop per kata (−9 dB vs VO, −1 f) · nada sub panjang tipis selama garis tergambar (−18 dB)</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain" style="background:#eef1f6">
+    <div class="portrait" style="left:34cqw;top:5cqw;width:32cqw;height:36cqw"></div>
+    <div class="abs serif" style="left:25cqw;top:2cqw;font-size:12cqw;color:var(--v-navy);line-height:1">“</div>
+    <div class="abs" style="left:34cqw;top:42.5cqw;font:600 1.8cqw var(--f-display);color:#64748b">Ira Glass:</div>
+    <div class="abs serif a-rise" style="left:34cqw;top:45cqw;font-size:8cqw;line-height:1">the gap</div>
+    <div class="note" style="max-width:24cqw">Footage Ira Glass (placeholder). Sumber: "Ira Glass on Storytelling", 2009. Hak pakai dicek.</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B02</span><span class="tc">2,5–4,7</span></div>
+    <p class="vo">"Ira Glass menyebutnya the gap."</p>
+    <dl><dt>Objek</dt><dd>Tokoh nyata, pola kaye.creatives: wajah + kutipan satu subjek.</dd>
+    <dt>Teks</dt><dd>"Ira Glass:" (label) · <span class="serif">the gap</span> (aksen serif, kata pahlawan R6)</dd>
+    <dt>Teknik</dt><dd><code>G3</code> + <code>T02</code> blur-to-focus untuk "the gap"; tanda kutip <code>T08</code> pop</dd>
+    <dt>Kamera</dt><dd>mendarat dari <code>C05</code>, lalu <code>C02</code> push 100→108% pelan</dd>
+    <dt>Keluar</dt><dd><code>X01</code> potret menyusut menjadi satu kartu draft</dd>
+    <dt>SFX</dt><dd>riser pendek memuncak di landing + thud hangat (−3,5 dB) · pop kecil di tanda kutip</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain">
+    <div class="card" style="left:20cqw;top:14cqw;width:14cqw;height:10cqw;transform:rotate(-6deg);opacity:.55"><div class="thumb" style="filter:grayscale(.7)"></div></div>
+    <div class="card" style="left:36cqw;top:10cqw;width:14cqw;height:10cqw;transform:rotate(3deg);opacity:.65"><div class="thumb" style="filter:grayscale(.55)"></div></div>
+    <div class="card" style="left:52cqw;top:13cqw;width:14cqw;height:10cqw;transform:rotate(-2deg);opacity:.75"><div class="thumb" style="filter:grayscale(.4)"></div></div>
+    <div class="card" style="left:67cqw;top:9cqw;width:14cqw;height:10cqw;transform:rotate(5deg);opacity:.85"><div class="thumb" style="filter:grayscale(.25)"></div></div>
+    <div class="abs c w a-rise" style="top:58%;font-size:7.6cqw">mengecewakanmu.</div>
+    <div class="abs" style="left:50%;transform:translateX(-50%);top:42cqw;font:500 2.6cqw var(--f-display);color:#64748b">bertahun-tahun,</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B03</span><span class="tc">4,7–6,4</span></div>
+    <p class="vo">"Bertahun-tahun, karyamu akan mengecewakanmu."</p>
+    <dl><dt>Objek</dt><dd>Karya yang menumpuk dari waktu ke waktu: kartu draft makin berwarna (makin baik), tetap belum sampai.</dd>
+    <dt>Teks</dt><dd>"bertahun-tahun," (S) · "mengecewakanmu." (L)</dd>
+    <dt>Teknik</dt><dd><code>T10</code> card stack untuk draft (8 f/kartu) · <code>T01</code> teks</dd>
+    <dt>Kamera</dt><dd>truck lateral pelan ke kanan mengikuti kartu (<code>C08</code>)</dd>
+    <dt>Keluar</dt><dd><code>X07</code> seam di puncak gerak lateral</dd>
+    <dt>SFX</dt><dd>seri blip bernada sama per kartu (−15 dB) · pop untuk kata kunci</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain">
+    <div class="measure" style="left:20cqw;right:20cqw;top:30cqw;opacity:.6"></div>
+    <div class="abs c" style="top:56%;text-align:center;white-space:nowrap"><span class="m" style="font-size:3.4cqw;color:#64748b">tanda </span><span class="serif blue a-rise" style="font-size:9cqw">taste</span><span class="w" style="font-size:5.4cqw">-mu sedang bekerja.</span></div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B04</span><span class="tc">6,4–9,7</span></div>
+    <p class="vo">"Dan rasa kecewa itu tanda taste-mu sedang bekerja."</p>
+    <dl><dt>Objek</dt><dd>Garis jarak tetap ada di atas: kecewa = jarak yang masih terasa.</dd>
+    <dt>Teks</dt><dd>"tanda <span class="serif">taste</span>-mu sedang bekerja." (kunci: taste, biru)</dd>
+    <dt>Teknik</dt><dd><code>G2</code> + <code>G3</code>; "taste" masuk terakhir <code>T04</code> 300→100%</dd>
+    <dt>Kamera</dt><dd>diam (dibaca 1,5 dtk), <code>C01</code> zoom mikro 1,06 di "taste"</dd>
+    <dt>Keluar</dt><dd><code>X01</code> garis jarak memanjang menjadi kolom prompt</dd>
+    <dt>SFX</dt><dd>thock lembut di "taste" · room tone tipis</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain" style="background:#f1f3f8">
+    <div class="blob" style="width:44cqw;height:26cqw;left:28cqw;top:12cqw;opacity:.45"></div>
+    <div style="position:absolute;inset:0;perspective:90cqw">
+      <div class="prompt" style="left:22cqw;top:20cqw;width:56cqw;height:9cqw;transform:rotateX(18deg) rotateY(-14deg)"><span>buatkan karya yang bagus</span><span class="caret"></span><span class="send"></span></div>
+    </div>
+    <div class="abs c w a-rise" style="top:72%;font-size:8cqw">tiga detik.</div>
+    <div class="note">UI prompt: rekonstruksi dari UI AI asli (lihat Pertanyaan 2).</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B05</span><span class="tc">9,7–12,8</span></div>
+    <p class="vo">"Sekarang, AI menutup jarak itu dalam tiga detik."</p>
+    <dl><dt>Objek</dt><dd>Kolom prompt AI (K9: UI miring 3D, depth of field). Klik kirim = jarak ditutup.</dd>
+    <dt>Teks</dt><dd>"tiga detik." · isi prompt diketik (<code>T11</code>, UI saja)</dd>
+    <dt>Teknik</dt><dd><code>T11</code> typewriter di UI · kursor <code>T06</code> klik · <code>G1</code> slam ringan untuk "tiga detik."</dd>
+    <dt>Kamera</dt><dd><code>C17</code> rack focus ke tombol kirim · <code>C09</code> snap punch-in saat klik</dd>
+    <dt>Keluar</dt><dd><code>X14</code> bloom: tombol menyala memenuhi frame</dd>
+    <dt>SFX</dt><dd>ketik keyboard per kata (−12 dB) · klik UI · whoosh naik −11 f → thud di landing</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain">
+    <div class="blob" style="width:60cqw;height:30cqw;left:20cqw;top:18cqw;opacity:.35"></div>
+    <div class="abs" style="left:50%;transform:translateX(-50%);top:16cqw;font:500 2.8cqw var(--f-display);color:#64748b;white-space:nowrap">tidak lagi terasa mengecewakan.</div>
+    <div class="abs w " style="left:20cqw;top:28cqw;font-size:6cqw">seleramu</div>
+    <div class="abs w " style="left:48.5cqw;top:28cqw;font-size:6cqw;color:#64748b">kemampuanmu</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B06</span><span class="tc">12,8–14,9</span></div>
+    <p class="vo">"Karyamu tidak lagi terasa mengecewakan."</p>
+    <dl><dt>Objek</dt><dd>Dua kata dari B01 kini menempel. Jarak hilang, tapi "kemampuanmu" tetap abu-abu: rasa puasnya palsu.</dd>
+    <dt>Teks</dt><dd>"tidak lagi terasa mengecewakan." (S, pengantar) · pasangan kata (L)</dd>
+    <dt>Teknik</dt><dd><code>T13</code> tracking converge (dua kata merapat), dibalik dari makna "jauh"</dd>
+    <dt>Kamera</dt><dd>diam; <code>C19</code> drift</dd>
+    <dt>Keluar</dt><dd><code>X07</code> seam, kamera turun ke grafik</dd>
+    <dt>SFX</dt><dd>bunyi "klik" magnet hangat saat kata menempel · pad lembut puas (−20 dB)</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain" style="background:linear-gradient(180deg,var(--v-paper),#dfe4ee)">
+    <svg class="abs" viewBox="0 0 1000 560" style="inset:0;width:100%;height:100%">
+      <path class="a-draw" style="--len:900" d="M120 470 C260 440 330 330 430 300 S560 240 600 236 L880 236" fill="none" stroke="#2563EB" stroke-width="6" stroke-linecap="round" stroke-dasharray="900"/>
+      <circle cx="600" cy="236" r="12" fill="#2563EB"/>
+      <line x1="120" y1="500" x2="880" y2="500" stroke="#c3cad6" stroke-width="2"/>
+    </svg>
+    <div class="abs w" style="left:50%;transform:translateX(-50%);top:46cqw;font-size:6.4cqw;white-space:nowrap">berhenti <span class="serif coral" style="font-size:8cqw">tumbuh.</span></div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B07</span><span class="tc">14,9–17,1</span></div>
+    <p class="vo">"Dan taste-mu berhenti tumbuh."</p>
+    <dl><dt>Objek</dt><dd>Garis pertumbuhan naik lalu datar tepat di kata "berhenti". Latar mulai meredup (masuk babak gelap).</dd>
+    <dt>Teks</dt><dd>"berhenti <span class="serif">tumbuh.</span>"</dd>
+    <dt>Teknik</dt><dd>garis <code>Trim Paths</code> · <code>T01</code> · aksen coral di "tumbuh"</dd>
+    <dt>Kamera</dt><dd>diam; titik akhir garis diberi <code>C01</code> zoom mikro</dd>
+    <dt>Keluar</dt><dd>engsel senyap 9 f → <code>X03</code> banjir warna navy (ganti bab)</dd>
+    <dt>SFX</dt><dd>nada naik yang berhenti mendadak (tape-stop &lt;1,5 kHz) di "berhenti" · senyap 0,4 dtk</dd></dl></div>
+</article>
+</section>
+
+<!-- ================= ACT 2 ================= -->
+<section class="act">
+<h2>Babak 2 <b>Masalah: kita merasa cukup</b> 17,1–31,7 dtk · gelap</h2>
+
+<article class="beat">
+  <div class="frame dark grain">
+    <div class="abs c" style="text-align:center;white-space:nowrap"><span class="m" style="font-size:4.4cqw">Kita takut </span><span class="w coral" style="font-size:7cqw">digan<span style="display:inline-block;transform:translateY(-18%);opacity:.45">t</span>ikan</span><span class="m" style="font-size:4.4cqw"> AI.</span></div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B08</span><span class="tc">17,1–18,9</span></div>
+    <p class="vo">"Kita takut digantikan AI."</p>
+    <dl><dt>Objek</dt><dd>Kata "digantikan" yang hurufnya sedang diganti satu per satu.</dd>
+    <dt>Teks</dt><dd>"Kita takut <b>digantikan</b> AI." (kunci coral)</dd>
+    <dt>Teknik</dt><dd><code>T07</code> slot swap per huruf (bukan glitch acak)</dd>
+    <dt>Kamera</dt><dd>landing <code>C10</code> drop-settle dari banjir warna</dd>
+    <dt>Keluar</dt><dd><code>X01</code> huruf-huruf jatuh ke dalam kolom prompt</dd>
+    <dt>SFX</dt><dd>sub-thud saat mendarat · tick hangat per huruf berganti (−18 dB)</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame dark grain">
+    <div class="abs" style="left:50%;transform:translateX(-50%);top:20cqw;font:500 3cqw var(--f-display);white-space:nowrap;color:#c4cde0">yang <span class="w" style="color:var(--v-warm);font-size:4.6cqw">enggan</span> kita kerjakan</div>
+    <div class="prompt" style="left:22cqw;top:33cqw;width:56cqw;height:8.6cqw"><span class="caret"></span><span class="send"></span></div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B09</span><span class="tc">18,9–22,7</span></div>
+    <p class="vo">"Tapi diam-diam, kita menyerahkan semua yang enggan kita kerjakan kepadanya."</p>
+    <dl><dt>Objek</dt><dd>Kolom prompt yang sama dengan B05, kini di dunia gelap: tempat kita "menyerahkan".</dd>
+    <dt>Teks</dt><dd>"yang <b>enggan</b> kita kerjakan" (4 kata dari VO)</dd>
+    <dt>Teknik</dt><dd><code>T28</code> flip-up X per kata</dd>
+    <dt>Kamera</dt><dd>diam 1,5 dtk lalu <code>C02</code> push ke prompt</dd>
+    <dt>Keluar</dt><dd>dalam adegan: kata berikut jatuh ke prompt</dd>
+    <dt>SFX</dt><dd>whoosh rendah pelan (−15 dB) · pop saat "enggan"</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame dark grain">
+    <div style="position:absolute;inset:0;perspective:80cqw">
+      <div class="abs w a-drop" style="left:14cqw;top:8cqw;font-size:5.2cqw;transform:rotateY(18deg)">Mengedit.</div>
+      <div class="abs w a-drop" style="left:52cqw;top:12cqw;font-size:4cqw;transform:rotateY(-16deg);color:#c4cde0;animation-delay:.15s">Menulis.</div>
+      <div class="abs w a-drop" style="left:12cqw;top:22cqw;font-size:4.2cqw;transform:rotateX(14deg);color:#c4cde0;animation-delay:.3s">Mencari kerja.</div>
+      <div class="abs w a-drop" style="left:47cqw;top:22cqw;font-size:6.2cqw;transform:rotateY(-10deg);animation-delay:.45s">Mencari <span class="coral">uang.</span></div>
+    </div>
+    <div class="prompt" style="left:22cqw;top:38cqw;width:56cqw;height:8.6cqw"><span class="caret"></span><span class="send"></span></div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B10</span><span class="tc">22,7–25,2</span></div>
+    <p class="vo">"Mengedit. Menulis. Mencari kerja. Mencari uang."</p>
+    <dl><dt>Objek</dt><dd>Empat pekerjaan sebagai benda yang jatuh ke prompt satu per satu (K4: kata bertumpuk, tilt 3D).</dd>
+    <dt>Teks</dt><dd>4 frasa VO, ukuran berbeda; "uang." aksen coral, masuk terakhir</dd>
+    <dt>Teknik</dt><dd><code>T31</code> depth push + jatuh ke prompt (ter-mask bibir kolom)</dd>
+    <dt>Kamera</dt><dd>diam; tiap kata yang jatuh memberi <code>C14</code> shake ≤ 6 px</dd>
+    <dt>Keluar</dt><dd><code>X04</code> zoom-through ke dalam prompt</dd>
+    <dt>SFX</dt><dd>cluster pop bernada naik (4 nada), satu per kata · plop saat masuk prompt</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame dark grain">
+    <div class="card" style="left:14cqw;top:12cqw;width:20cqw;height:14cqw"><div class="thumb"></div></div>
+    <div class="card" style="left:40cqw;top:12cqw;width:20cqw;height:14cqw"><div class="thumb"></div></div>
+    <div class="card" style="left:66cqw;top:12cqw;width:20cqw;height:14cqw"><div class="thumb"></div></div>
+    <div class="card" style="left:14cqw;top:29cqw;width:20cqw;height:14cqw"><div class="thumb"></div></div>
+    <div class="card" style="left:40cqw;top:29cqw;width:20cqw;height:14cqw"><div class="thumb"></div></div>
+    <div class="card" style="left:66cqw;top:29cqw;width:20cqw;height:14cqw"><div class="thumb"></div></div>
+    <div class="abs w a-rise" style="left:50%;transform:translateX(-50%);top:46cqw;font-size:5.8cqw;white-space:nowrap">merasa <span class="serif coral" style="font-size:7cqw">cukup.</span></div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B11</span><span class="tc">25,2–28,8</span></div>
+    <p class="vo">"Hasilnya keluar dalam hitungan detik, dan kita merasa cukup."</p>
+    <dl><dt>Objek</dt><dd>Hasil generate muncul serentak, rapi, terlihat "bagus".</dd>
+    <dt>Teks</dt><dd>"merasa <span class="serif">cukup.</span>"</dd>
+    <dt>Teknik</dt><dd>kartu <code>T08</code> pop stagger 2 f (sangat cepat = "hitungan detik")</dd>
+    <dt>Kamera</dt><dd>landing <code>C21</code> blur-in, lalu diam</dd>
+    <dt>Keluar</dt><dd>dalam adegan: <code>C06</code> reveal-out ke B12</dd>
+    <dt>SFX</dt><dd>rentetan pop cepat bernada naik (cluster) · satu chime hangat "selesai" (−12 dB)</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame dark grain">
+    <div class="a-zoomout" style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(10,1fr);gap:1.2cqw;padding:4cqw 5cqw;transform-origin:50% 40%">
+      <div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div>
+      <div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div>
+      <div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div>
+      <div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div><div class="card" style="position:relative;aspect-ratio:4/3"><div class="thumb"></div></div>
+    </div>
+    <div style="position:absolute;inset:0;background:radial-gradient(60% 40% at 50% 62%,rgba(15,23,42,.92),rgba(15,23,42,.0))"></div>
+    <div class="abs w" style="left:50%;transform:translateX(-50%);top:41cqw;font-size:7cqw;white-space:nowrap">terlihat <span class="serif" style="font-size:8.6cqw">sama.</span></div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B12</span><span class="tc">28,8–31,7</span></div>
+    <p class="vo">"Pelan-pelan, semua karya mulai terlihat sama."</p>
+    <dl><dt>Objek</dt><dd>Kamera mundur dari 6 kartu ke 40 kartu identik: jarak = jumlah, kesamaan terlihat sendiri.</dd>
+    <dt>Teks</dt><dd>"terlihat <span class="serif">sama.</span>"</dd>
+    <dt>Teknik</dt><dd><code>T01</code>; latar diredupkan di belakang teks lewat komposisi (pusat kosong), bukan scrim</dd>
+    <dt>Kamera</dt><dd><code>C06</code> reveal-out 3,2× dalam 60 f, lalu diam</dd>
+    <dt>Keluar</dt><dd>engsel senyap → <code>X09</code> wipe berlapis ke kanvas terang (bab penjelasan)</dd>
+    <dt>SFX</dt><dd>whoosh mundur panjang · musik babak 1 dipotong (bass putus) di akhir</dd></dl></div>
+</article>
+</section>
+
+<!-- ================= ACT 3 ================= -->
+<section class="act">
+<h2>Babak 3 <b>Breakdown: tiga hal</b> 31,7–64,7 dtk · terang</h2>
+
+<article class="beat">
+  <div class="frame grain" style="background:#eef1f6">
+    <div class="portrait" style="left:52cqw;top:10cqw;width:34cqw;height:42cqw"></div>
+    <div class="abs serif" style="left:8cqw;top:6cqw;font-size:12cqw;line-height:1">“</div>
+    <div class="abs" style="left:10cqw;top:19cqw;font:600 1.8cqw var(--f-display);color:#64748b">Ira Glass:</div>
+    <div class="abs w" style="left:10cqw;top:23cqw;font-size:4.6cqw;line-height:1.08;width:40cqw">hanya tertutup lewat <span class="blue">banyak karya.</span></div>
+    <div class="note">Kutipan disesuaikan dengan kata VO, bukan terjemahan bebas.</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B13</span><span class="tc">31,7–35,5</span></div>
+    <p class="vo">"Ira Glass bilang, jarak itu hanya tertutup lewat banyak karya."</p>
+    <dl><dt>Objek</dt><dd>Kartu kutipan pola kaye.creatives: footage yang sama dengan B02 (konsistensi tokoh), kutipan diketik kata per kata.</dd>
+    <dt>Teks</dt><dd>"Ira Glass:" · "hanya tertutup lewat <b>banyak karya.</b>"</dd>
+    <dt>Teknik</dt><dd><code>T19</code> word-pop mengikuti VO · tanda kutip <code>T08</code></dd>
+    <dt>Kamera</dt><dd><code>C02</code> push pelan ke potret</dd>
+    <dt>Keluar</dt><dd><code>X13</code> frame-in-frame: kartu menyusut menjadi satu dari ribuan</dd>
+    <dt>SFX</dt><dd>ketik lembut per kata (bukan keyboard keras, −15 dB) · thud saat mendarat</dd></dl></div>
+  <!-- note: text left + portrait right is one subject (quote = what he says), as in kaye.creatives -->
+</article>
+
+<article class="beat">
+  <div class="frame grain">
+    <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(24,1fr);gap:.5cqw;padding:2cqw;opacity:.9">
+      <script>document.currentScript.insertAdjacentHTML('afterend',Array.from({length:312},()=>'<div style="aspect-ratio:4/3;border-radius:.3cqw;background:radial-gradient(circle at 30% 35%,rgba(37,99,235,.55),transparent 60%),radial-gradient(circle at 70% 70%,rgba(249,112,102,.5),transparent 55%),#e6eaf3"></div>').join(''))</script>
+    </div>
+    <div style="position:absolute;inset:0;background:radial-gradient(50% 36% at 50% 50%,rgba(251,250,247,.97),rgba(251,250,247,0))"></div>
+    <div class="abs c w a-rise" style="font-size:11cqw">ribuan.</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B14</span><span class="tc">35,5–36,8</span></div>
+    <p class="vo">"AI memberimu ribuan."</p>
+    <dl><dt>Objek</dt><dd>Ribuan karya, semuanya identik (lanjutan B12, kini di kanvas terang).</dd>
+    <dt>Teks</dt><dd>"ribuan." (XL, slam)</dd>
+    <dt>Teknik</dt><dd><code>G1</code> <code>T03</code> slam + <code>C14</code> shake kecil</dd>
+    <dt>Kamera</dt><dd><code>C06</code> reveal-out dilanjutkan dari kartu B13</dd>
+    <dt>Keluar</dt><dd>dalam adegan</dd>
+    <dt>SFX</dt><dd>kantong senyap 5 f → impact + sub (salah satu dari 2 hit puncak, ≈0 dB)</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain">
+    <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(24,1fr);gap:.5cqw;padding:2cqw;opacity:.35">
+      <script>document.currentScript.insertAdjacentHTML('afterend',Array.from({length:312},()=>'<div style="aspect-ratio:4/3;border-radius:.3cqw;background:#dfe4ee"></div>').join(''))</script>
+    </div>
+    <div class="abs" style="left:50%;transform:translateX(-50%);top:21cqw;font:500 3.4cqw var(--f-display);color:#64748b;white-space:nowrap">tidak satu pun</div>
+    <div class="abs w" style="left:50%;transform:translateX(-50%);top:28cqw;font-size:6.8cqw;white-space:nowrap">yang kamu <span class="serif coral" style="font-size:8.6cqw">kecewai.</span></div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B15</span><span class="tc">36,8–39,9</span></div>
+    <p class="vo">"Tapi tidak satu pun yang kamu kecewai."</p>
+    <dl><dt>Objek</dt><dd>Ribuan kartu memudar warnanya: tidak ada yang ditandai, tidak ada yang dipilih. Jawaban untuk argumen "volume" (devil's advocate).</dd>
+    <dt>Teks</dt><dd>"tidak satu pun" · "yang kamu <span class="serif">kecewai.</span>"</dd>
+    <dt>Teknik</dt><dd><code>T01</code> lalu kata aksen <code>T02</code></dd>
+    <dt>Kamera</dt><dd>diam penuh (berat)</dd>
+    <dt>Keluar</dt><dd><code>X08</code> shape wipe (kotak ubin) ke B16</dd>
+    <dt>SFX</dt><dd>hampir senyap; room tone −50 dB; satu nada piano rendah di "kecewai" (−16 dB)</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain" style="background:radial-gradient(80% 70% at 50% 45%,#f4f6fa,#d9dfea)">
+    <div class="abs" style="left:50%;transform:translateX(-50%);top:9cqw;font:600 3.6cqw var(--f-display);white-space:nowrap">tidak bisa <span class="serif blue" style="font-size:5cqw">di-generate.</span></div>
+    <div class="tile" style="left:24cqw;top:24cqw">1</div>
+    <div class="tile" style="left:43.5cqw;top:24cqw">2</div>
+    <div class="tile" style="left:63cqw;top:24cqw">3</div>
+    <svg class="abs" viewBox="0 0 1000 560" style="inset:0;width:100%;height:100%"><path class="a-draw" style="--len:260" d="M160 470 C170 400 200 370 250 360" fill="none" stroke="#0F172A" stroke-width="5" stroke-linecap="round" stroke-dasharray="260"/><path d="M228 344 L252 360 L230 380" fill="none" stroke="#0F172A" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B16</span><span class="tc">39,9–43,9</span></div>
+    <p class="vo">"Karena taste tumbuh dari tiga hal yang tidak bisa di-generate."</p>
+    <dl><dt>Objek</dt><dd>Tiga ubin 1-2-3 (K8 dari Kinetic typography) di latar blur; panah tulisan tangan menuju ubin 1.</dd>
+    <dt>Teks</dt><dd>"tidak bisa <span class="serif">di-generate.</span>"</dd>
+    <dt>Teknik</dt><dd>ubin <code>T09</code> sticker drop stagger 4 f · panah write-on <code>Trim Paths</code> 14 f</dd>
+    <dt>Kamera</dt><dd>diam 2 dtk, lalu ikut panah</dd>
+    <dt>Keluar</dt><dd><code>X04</code> zoom-through ke ubin 1</dd>
+    <dt>SFX</dt><dd>3 thock bernada naik untuk ubin · goresan pensil (paper glide) untuk panah</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain">
+    <div class="card" style="left:30cqw;top:18cqw;width:24cqw;height:17cqw;transform:rotate(-8deg)"><div class="thumb" style="filter:grayscale(.6)"></div></div>
+    <div class="card" style="left:36cqw;top:15cqw;width:24cqw;height:17cqw;transform:rotate(-2deg)"><div class="thumb" style="filter:grayscale(.4)"></div></div>
+    <div class="card" style="left:42cqw;top:13cqw;width:24cqw;height:17cqw;transform:rotate(5deg)"><div class="thumb" style="filter:grayscale(.2)"></div></div>
+    <svg class="abs" viewBox="0 0 1000 560" style="inset:0;width:100%;height:100%"><path d="M440 90 L640 300 M640 90 L440 300" stroke="#F97066" stroke-width="9" stroke-linecap="round"/></svg>
+    <div class="abs" style="left:9cqw;top:6cqw;font:500 1.8cqw var(--f-mono);color:var(--v-blue);letter-spacing:.1em">01</div>
+    <div class="abs w" style="left:50%;transform:translateX(-50%);top:41cqw;font-size:7.4cqw">Pengalaman.</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B17</span><span class="tc">43,9–47,2</span></div>
+    <p class="vo">"Pengalaman: semua yang pernah kamu coba, dan gagal."</p>
+    <dl><dt>Objek</dt><dd>Tumpukan percobaanmu sendiri, dicoret pensil merah oleh tanganmu (berbeda dengan B15: di sini ada yang dikecewai).</dd>
+    <dt>Teks</dt><dd>"01" label · "Pengalaman."</dd>
+    <dt>Teknik</dt><dd><code>T04</code> untuk judul · coretan write-on 6 f per garis</dd>
+    <dt>Kamera</dt><dd>landing dari zoom-through · <code>C01</code> di "gagal"</dd>
+    <dt>Keluar</dt><dd><code>X06</code> whip ke kanan, ke ubin 2</dd>
+    <dt>SFX</dt><dd>goresan pensil di "gagal" · whoosh whip (−15 dB)</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain">
+    <div class="card a-fall" style="left:12cqw;top:16cqw;width:14cqw;height:10cqw;opacity:.7"><div class="thumb" style="filter:grayscale(.5)"></div></div>
+    <div class="card a-fall" style="left:28cqw;top:16cqw;width:14cqw;height:10cqw;opacity:.7;animation-delay:.1s"><div class="thumb" style="filter:grayscale(.5)"></div></div>
+    <div class="card a-pick" style="left:43cqw;top:14cqw;width:14cqw;height:10cqw;box-shadow:0 0 0 .5cqw var(--v-blue),0 2cqw 4cqw rgba(37,99,235,.25)"><div class="thumb"></div></div>
+    <div class="card a-fall" style="left:58cqw;top:16cqw;width:14cqw;height:10cqw;opacity:.7;animation-delay:.2s"><div class="thumb" style="filter:grayscale(.5)"></div></div>
+    <div class="card a-fall" style="left:74cqw;top:16cqw;width:14cqw;height:10cqw;opacity:.7;animation-delay:.3s"><div class="thumb" style="filter:grayscale(.5)"></div></div>
+    <div class="abs" style="left:9cqw;top:6cqw;font:500 1.8cqw var(--f-mono);color:var(--v-blue);letter-spacing:.1em">02</div>
+    <div class="abs w" style="left:50%;transform:translateX(-50%);top:38cqw;font-size:7.4cqw">Direction.</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B18</span><span class="tc">47,2–50,1</span></div>
+    <p class="vo">"Direction: berani memilih satu, lalu membuang sisanya."</p>
+    <dl><dt>Objek</dt><dd>Lima opsi: satu dipilih (membesar + cincin), sisanya jatuh keluar frame.</dd>
+    <dt>Teks</dt><dd>"02" · "Direction."</dd>
+    <dt>Teknik</dt><dd>pilih = geser seperti layar pilih karakter; buang = jatuh dengan gravitasi (<code>T14</code> pada kartu)</dd>
+    <dt>Kamera</dt><dd><code>C17</code> rack focus ke kartu terpilih</dd>
+    <dt>Keluar</dt><dd><code>X07</code> seam ke ubin 3</dd>
+    <dt>SFX</dt><dd>klik pilih + pop · whoosh jatuh beruntun bernada turun</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame dark grain" style="background:#0f1526">
+    <div style="position:absolute;inset:0;display:grid;grid-template-columns:repeat(16,1fr);gap:2.4cqw;padding:6cqw 8cqw;opacity:.45">
+      <script>document.currentScript.insertAdjacentHTML('afterend',Array.from({length:96},(_,i)=>'<div style="aspect-ratio:1;border-radius:50%;background:#9aa3b2;'+(i===40?'transform:translate(35%,-30%);background:#F97066;':'')+'"></div>').join(''))</script>
+    </div>
+    <div class="a-lens" style="position:absolute;left:30cqw;top:4cqw;width:40cqw;aspect-ratio:1;border-radius:50%;box-shadow:inset 0 0 6cqw rgba(0,0,0,.75),0 0 0 .25cqw rgba(255,255,255,.18);background:radial-gradient(circle at 50% 50%,rgba(255,255,255,.04),rgba(0,0,0,.35) 75%)">
+      <div style="position:absolute;inset:3%;border-radius:50%;border-top:.35cqw solid rgba(255,255,255,.65);transform:rotate(-20deg)"></div>
+      <svg viewBox="0 0 400 400" style="position:absolute;inset:-12%;width:124%;height:124%;overflow:visible"><defs><path id="arc" d="M60 200 A140 140 0 0 1 340 200"/></defs><text font-family="Inter" font-weight="800" font-size="34" fill="#FAF8EC" letter-spacing="1"><textPath href="#arc" startOffset="50%" text-anchor="middle">Cara <tspan fill="#F97066">melihat.</tspan></textPath></text></svg>
+    </div>
+    <div class="abs" style="left:9cqw;top:6cqw;font:500 1.8cqw var(--f-mono);color:#7aa2ff;letter-spacing:.1em">03</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B19</span><span class="tc">50,1–54,3</span></div>
+    <p class="vo">"Cara melihat: tahu ada yang salah, sebelum orang lain menyadarinya."</p>
+    <dl><dt>Objek</dt><dd>Grid titik rapi dengan satu titik yang melenceng. Lensa (K2 fisheye) menyapu lalu berhenti tepat di titik itu.</dd>
+    <dt>Teks</dt><dd>"Cara melihat." melengkung di tepi lensa (K1)</dd>
+    <dt>Teknik</dt><dd><code>T17</code> text on arc · distorsi lensa naik bertahap · lens shine di tepi atas</dd>
+    <dt>Kamera</dt><dd><code>C18</code> follow lensa, lag 4 f; berhenti dengan settle 8 f</dd>
+    <dt>Keluar</dt><dd><code>X02</code> lingkaran lensa menjadi jendela ke footage Rick Rubin</dd>
+    <dt>SFX</dt><dd>gesekan kaca lensa rendah (LPF 5 kHz) · "tok" hangat saat lensa mengunci</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain" style="background:#eef1f6">
+    <div class="portrait" style="left:8cqw;top:9cqw;width:34cqw;height:42cqw"></div>
+    <div class="abs" style="left:48cqw;top:13cqw;font:600 1.8cqw var(--f-display);color:#64748b">Rick Rubin</div>
+    <div class="abs w" style="left:48cqw;top:17cqw;font-size:4.6cqw;line-height:1.08;width:42cqw">tidak bisa memainkan <span class="coral">alat musik.</span></div>
+    <div class="card" style="left:49cqw;top:34cqw;width:13cqw;height:13cqw;transform:rotate(-5deg)"><div class="thumb" style="inset:8%;filter:grayscale(1)"></div></div>
+    <div class="card" style="left:65cqw;top:33cqw;width:13cqw;height:13cqw;transform:rotate(4deg)"><div class="thumb" style="inset:8%"></div></div>
+    <div class="note">Footage Rubin: 60 Minutes, CBS 2023. Ubin album = Johnny Cash, Adele (sampul asli, hak pakai dicek).</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B20</span><span class="tc">54,3–59,7</span></div>
+    <p class="vo">"Rick Rubin tidak bisa memainkan alat musik. Tapi ia memproduseri Johnny Cash dan Adele."</p>
+    <dl><dt>Objek</dt><dd>Tokoh nyata kedua, pola kartu yang sama dengan Ira Glass. Dua sampul album jatuh di "Johnny Cash" dan "Adele".</dd>
+    <dt>Teks</dt><dd>"Rick Rubin" · "tidak bisa memainkan <b>alat musik.</b>" lalu berganti nama album via <code>T32</code></dd>
+    <dt>Teknik</dt><dd><code>T19</code> · album <code>T10</code> card stack di kata nama</dd>
+    <dt>Kamera</dt><dd>landing dari <code>X02</code>, diam; <code>C20</code> cut zoom ke wajah di "Tapi"</dd>
+    <dt>Keluar</dt><dd>dalam adegan: <code>C02</code> push ke B21</dd>
+    <dt>SFX</dt><dd>pop per album · thud lembut di "Tapi" (cut zoom)</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame dark grain" style="background:radial-gradient(90% 80% at 30% 40%,#2a3346,#0F172A)">
+    <div class="portrait a-push" style="left:6cqw;top:6cqw;width:40cqw;height:50cqw;filter:blur(.5cqw);opacity:.7"></div>
+    <div class="abs" style="left:50cqw;top:20cqw;font:500 3cqw var(--f-display);color:#c4cde0">ia tahu apa yang</div>
+    <div class="abs serif" style="left:50cqw;top:25cqw;font-size:16cqw;line-height:1;color:var(--v-warm)">bagus.</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B21</span><span class="tc">59,7–64,7</span></div>
+    <p class="vo">"Yang ia bawa ke studio hanya satu: ia tahu apa yang bagus."</p>
+    <dl><dt>Objek</dt><dd>Wajah Rubin mundur ke kedalaman (blur DoF), kata "bagus." menjadi satu-satunya fokus.</dd>
+    <dt>Teks</dt><dd>"ia tahu apa yang" · <span class="serif">bagus.</span> (kata pahlawan R6, ke-2 dan terakhir)</dd>
+    <dt>Teknik</dt><dd><code>G3</code> + <code>T04</code> scale-down settle, masuk terakhir</dd>
+    <dt>Kamera</dt><dd><code>C02</code> push 100→112% selama 3 dtk</dd>
+    <dt>Keluar</dt><dd>engsel senyap 15 f → <code>X09</code> wipe berlapis ke kanvas terang</dd>
+    <dt>SFX</dt><dd>semua audio turun · hit puncak kedua (≈0 dB) di "bagus" · musik babak penutup masuk ≤2 f sebelum wipe</dd></dl></div>
+</article>
+</section>
+
+<!-- ================= ACT 4 ================= -->
+<section class="act">
+<h2>Babak 4 <b>Penutup: selera tetap milikmu</b> 64,7–75,2 dtk · terang hangat</h2>
+
+<article class="beat">
+  <div class="frame grain" style="background:var(--v-warm)">
+    <div class="blob" style="width:30cqw;height:24cqw;left:58cqw;top:14cqw;opacity:.6"></div>
+    <svg class="abs" viewBox="0 0 100 100" style="left:30cqw;top:20cqw;width:9cqw;height:9cqw;transform:rotate(-8deg)"><path d="M20 8 L20 78 L38 62 L50 90 L62 85 L50 58 L74 58 Z" fill="#0F172A" stroke="#FAF8EC" stroke-width="4" stroke-linejoin="round"/></svg>
+    <svg class="abs" viewBox="0 0 1000 560" style="inset:0;width:100%;height:100%"><path d="M400 150 C480 120 560 140 620 180" fill="none" stroke="#9aa3b2" stroke-width="3" stroke-dasharray="8 10"/></svg>
+    <div class="abs w" style="left:50%;transform:translateX(-50%);top:38cqw;font-size:6.4cqw;white-space:nowrap">mengambil <span class="serif" style="font-size:8cqw">tanganmu.</span></div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B22</span><span class="tc">64,7–66,5</span></div>
+    <p class="vo">"AI boleh mengambil tanganmu."</p>
+    <dl><dt>Objek</dt><dd>Kursor (tangan di layar) ditarik pelan menuju blob gradien AI yang sama dengan B05/B06.</dd>
+    <dt>Teks</dt><dd>"mengambil <span class="serif">tanganmu.</span>"</dd>
+    <dt>Teknik</dt><dd>kursor <code>T06</code> melengkung, melambat · <code>T01</code></dd>
+    <dt>Kamera</dt><dd><code>C18</code> follow kursor</dd>
+    <dt>Keluar</dt><dd>dalam adegan</dd>
+    <dt>SFX</dt><dd>musik penutup hangat · swoosh lembut ikut kursor (−18 dB)</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain" style="background:var(--v-warm)">
+    <div class="abs" style="left:50%;transform:translateX(-50%);top:18cqw;font:500 3.4cqw var(--f-display);color:#64748b;white-space:nowrap">jangan berikan</div>
+    <div class="abs w a-rise" style="left:50%;transform:translateX(-50%);top:25cqw;font-size:11cqw">seleramu.</div>
+    <div class="measure" style="left:72cqw;right:6cqw;top:32cqw;opacity:.5"></div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B23</span><span class="tc">66,5–68,4</span></div>
+    <p class="vo">"Jangan berikan seleramu."</p>
+    <dl><dt>Objek</dt><dd>Callback B01: kata "seleramu" yang sama, kini sendirian dan terbesar. Garis jarak tersisa di kanan, menunjuk ke jalan yang harus ditempuh.</dd>
+    <dt>Teks</dt><dd>"jangan berikan" · "seleramu." (XL)</dd>
+    <dt>Teknik</dt><dd><code>T04</code> scale-down settle (berat, tanpa overshoot)</dd>
+    <dt>Kamera</dt><dd>diam; drift 1,02</dd>
+    <dt>Keluar</dt><dd><code>X15</code> "seleramu" menyusut ke bentuk logo Jadisatu</dd>
+    <dt>SFX</dt><dd>senyap 0,4 dtk sebelum kata → sub-thud hangat</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain" style="background:var(--v-paper)">
+    <div class="abs c" style="text-align:center"><div style="width:9cqw;height:9cqw;margin:0 auto 2cqw;border-radius:2.4cqw;background:var(--v-blue)"></div><div class="w" style="font-size:6cqw">jadisatu</div></div>
+    <div class="note">Logo Jadisatu belum ada di sini: kirim file logo (SVG). Bentuk biru ini placeholder.</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B24</span><span class="tc">68,4–70,1</span></div>
+    <p class="vo">"Itu sebabnya Jadisatu dibangun."</p>
+    <dl><dt>Objek</dt><dd>Logo lahir dari kata "seleramu".</dd>
+    <dt>Teks</dt><dd>logo (tanpa teks tambahan)</dd>
+    <dt>Teknik</dt><dd><code>C11</code> glyph anchor / <code>X15</code> mask shrink</dd>
+    <dt>Kamera</dt><dd>diam</dd>
+    <dt>Keluar</dt><dd><code>X14</code> bloom match logo → kartu akhir</dd>
+    <dt>SFX</dt><dd>riser pendek → "bloop" hangat di logo (−9 dB)</dd></dl></div>
+</article>
+
+<article class="beat">
+  <div class="frame grain" style="background:var(--v-paper)">
+    <div class="abs" style="left:50%;transform:translateX(-50%);top:17cqw;font:600 3.6cqw var(--f-display);color:#64748b;white-space:nowrap">Not AI company.</div>
+    <div class="abs w" style="left:50%;transform:translateX(-50%);top:24cqw;font-size:7.6cqw;white-space:nowrap">Only <span class="serif blue" style="font-size:9.6cqw">Human</span> with AI.</div>
+    <div class="abs" style="left:50%;transform:translateX(-50%);top:46cqw;display:flex;gap:1cqw;align-items:center;font:700 2cqw var(--f-display)"><span style="width:2.4cqw;height:2.4cqw;border-radius:.7cqw;background:var(--v-blue);display:inline-block"></span>jadisatu</div>
+  </div>
+  <div class="spec"><div class="top"><span class="id">B25</span><span class="tc">70,1–75,2</span></div>
+    <p class="vo">"Not AI company. Only Human with AI."</p>
+    <dl><dt>Objek</dt><dd>Kartu akhir: tagline sebagai kalimat panjang satu-satunya (pengecualian penutup).</dd>
+    <dt>Teks</dt><dd>"Not AI company." (S) · "Only <span class="serif">Human</span> with AI." (L) · logo kecil</dd>
+    <dt>Teknik</dt><dd><code>T28</code> flip-up X untuk baris 1 · "Human" <code>G3</code> masuk terakhir</dd>
+    <dt>Kamera</dt><dd>diam ≥ 2,5 dtk</dd>
+    <dt>Keluar</dt><dd>selesai; bass putus tepat di frame terakhir</dd>
+    <dt>SFX</dt><dd>pop lembut per baris · musik resolve, tanpa SFX saat hold</dd></dl></div>
+</article>
+</section>
+
+<!-- ================= CRITIQUE ================= -->
+<section class="act">
+<h2>Kritik sutradara <b>Tabel §16.3 per beat</b></h2>
+<div class="scroll">
+<table>
+<thead><tr><th>Beat</th><th>Tokoh</th><th>1 fokus</th><th>Teks ≤ 6 kata</th><th>Metafora spasial</th><th>Efek beralasan</th><th>Kamera ke subjek</th><th>UI asli</th><th>Highlight bermakna</th><th>Layout ≤ 2× berulang</th></tr></thead>
+<tbody>
+<tr><td>B01</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">jarak = ruang</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">tanpa aksen</td><td class="ok">ya</td></tr>
+<tr><td>B02</td><td class="ok">Ira Glass</td><td class="ok">wajah+kutip</td><td class="ok">ya</td><td class="ok">masuk ke celah</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">the gap</td><td class="ok">ya</td></tr>
+<tr><td>B03</td><td class="na">n/a*</td><td class="warn">teks + kartu</td><td class="ok">ya</td><td class="ok">tumpukan waktu</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">tanpa aksen</td><td class="ok">ya</td></tr>
+<tr><td>B04</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">jarak tetap</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">taste</td><td class="ok">ya</td></tr>
+<tr><td>B05</td><td class="na">n/a*</td><td class="ok">UI lalu teks</td><td class="ok">ya</td><td class="ok">klik = tutup</td><td class="ok">ya</td><td class="ok">ya</td><td class="warn">menunggu</td><td class="ok">tanpa aksen</td><td class="ok">ya</td></tr>
+<tr><td>B06</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">kata menempel</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">tanpa aksen</td><td class="ok">ya</td></tr>
+<tr><td>B07</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">garis datar</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">tumbuh</td><td class="ok">ya</td></tr>
+<tr><td>B08</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya (4)</td><td class="ok">huruf diganti</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">digantikan</td><td class="ok">ya</td></tr>
+<tr><td>B09</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya (4)</td><td class="ok">diserahkan ke kolom</td><td class="ok">ya</td><td class="ok">ya</td><td class="warn">menunggu</td><td class="ok">enggan</td><td class="ok">ya</td></tr>
+<tr><td>B10</td><td class="na">n/a*</td><td class="warn">4 kata bergiliran</td><td class="ok">ya</td><td class="ok">jatuh ke kolom</td><td class="ok">ya</td><td class="ok">ya</td><td class="warn">menunggu</td><td class="ok">uang</td><td class="warn">prompt ke-3</td></tr>
+<tr><td>B11</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">muncul serentak</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">cukup</td><td class="ok">ya</td></tr>
+<tr><td>B12</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">sama = jumlah</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">tanpa warna</td><td class="ok">ya</td></tr>
+<tr><td>B13</td><td class="ok">Ira Glass</td><td class="ok">kutipan</td><td class="ok">ya (5)</td><td class="ok">—</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">banyak karya</td><td class="ok">ya</td></tr>
+<tr><td>B14</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">ribuan = lautan</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">tanpa aksen</td><td class="ok">ya</td></tr>
+<tr><td>B15</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">tak ada tanda</td><td class="ok">ya</td><td class="ok">diam</td><td class="na">—</td><td class="ok">kecewai</td><td class="warn">grid ke-3</td></tr>
+<tr><td>B16</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">ubin = urutan</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">di-generate</td><td class="ok">ya</td></tr>
+<tr><td>B17</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">coretan</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">coret merah</td><td class="ok">ya</td></tr>
+<tr><td>B18</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">buang = jatuh</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">cincin pilih</td><td class="ok">ya</td></tr>
+<tr><td>B19</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">lensa = melihat</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">melihat</td><td class="ok">ya</td></tr>
+<tr><td>B20</td><td class="ok">Rick Rubin</td><td class="warn">wajah + album</td><td class="ok">ya (5)</td><td class="ok">album jatuh</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">alat musik</td><td class="ok">ya</td></tr>
+<tr><td>B21</td><td class="ok">Rick Rubin</td><td class="ok">ya</td><td class="ok">ya (5)</td><td class="ok">wajah mundur</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">bagus</td><td class="ok">ya</td></tr>
+<tr><td>B22</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">kursor ditarik</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">tanganmu</td><td class="ok">ya</td></tr>
+<tr><td>B23</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">ya</td><td class="ok">callback B01</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="ok">tanpa aksen</td><td class="ok">ya</td></tr>
+<tr><td>B24</td><td class="na">n/a*</td><td class="ok">ya</td><td class="ok">—</td><td class="ok">logo dari kata</td><td class="ok">ya</td><td class="ok">ya</td><td class="na">—</td><td class="na">—</td><td class="ok">ya</td></tr>
+<tr><td>B25</td><td class="na">n/a*</td><td class="ok">ya</td><td class="warn">7 kata (tagline)</td><td class="na">—</td><td class="ok">ya</td><td class="ok">diam</td><td class="na">—</td><td class="ok">Human</td><td class="ok">ya</td></tr>
+</tbody></table>
+</div>
+<div class="panel">
+<h2>Pengecualian yang disengaja</h2>
+<ul>
+<li><b>* Tokoh n/a.</b> Pixel dihapus (D-023) dan tidak ada wajah Irfan. Subjek tiap beat adalah objek (kata, kartu, kolom prompt, lensa). Konsistensi dijaga lewat tiga objek yang kembali: kata "seleramu", kolom prompt, dan blob gradien AI.</li>
+<li><b>B03, B10, B20</b> punya dua elemen, tapi hanya satu yang bergerak pada satu saat (kartu masuk dulu, teks sesudahnya).</li>
+<li><b>B10, B15</b>: prompt dan grid muncul ketiga kalinya. Disengaja sebagai rutinitas yang berulang (rules direction §6.7).</li>
+<li><b>B25</b>: tagline 7 kata, satu-satunya kalimat panjang, sesuai aturan penutup.</li>
+<li><b>B13, B20</b>: teks di kiri + wajah di kanan. Ini bukan pola "teks kiri + UI kanan" yang dilarang, karena kutipan adalah ucapan tokoh itu sendiri (pola kaye.creatives).</li>
+</ul>
+</div>
+</section>
+
+<section class="act">
+<h2>Ringkasan <b>Ritme, transisi, audio</b></h2>
+<div class="panel">
+<ul>
+<li><b>Nol hard cut.</b> Referensi Apple diukur: 0 potongan keras dalam 44,7 dtk (scene detection 0,25). Semua perpindahan di sini lewat objek, zoom, wipe, atau seam.</li>
+<li><b>Transisi per 30 dtk:</b> 0–30 dtk memakai X04, X01, X07, X14, X03, X09 (6 tipe); 30–60 dtk memakai X13, X08, X04, X06, X07, X02, X09 (7 tipe). Tidak ada tipe yang sama berturut-turut.</li>
+<li><b>Dua dunia warna:</b> terang (hook, breakdown, penutup) dan gelap navy (masalah). Pergantiannya selalu lewat banjir warna atau wipe berlapis, didahului engsel senyap.</li>
+<li><b>Kata pahlawan (R6):</b> "the gap" (B02) dan "bagus." (B21). Hit audio puncak: "ribuan." (B14) dan "bagus." (B21).</li>
+<li><b>Musik 3 cue:</b> tegang-minimal (babak 1–2), dipotong di B12 → jernih (babak 3) → hangat lega (babak 4). Kepadatan SFX ±2,5/dtk di babak 1–2, ±1/dtk di babak 3.</li>
+<li><b>Dari referensi tidak dipakai:</b> layout daftar kiri + kartu kanan (Apple, melanggar aturan 1 fokus), huruf kolase dan latar komik petir (Kinetic typography), palet pink-oranye Apple (diganti palet Jadisatu).</li>
+</ul>
+</div>
+<div class="panel">
+<h2>Butuh keputusanmu sebelum build</h2>
+<ol>
+<li><b>Palet.</b> Skill memakai biru <code>#2563EB</code> + coral <code>#F97066</code> + navy <code>#0F172A</code>. Art direction launch lama memakai <code>#2273FA</code> + <code>#01081B</code>. Storyboard ini memakai yang pertama. Mana yang benar untuk brand Jadisatu sekarang?</li>
+<li><b>UI prompt (B05, B09, B10).</b> Aturan skill: UI harus asli. Usulku: rekonstruksi kolom prompt Claude dari screenshot asli, karena netral dan dikenal creator. Alternatif: UI generik buatan sendiri.</li>
+<li><b>Footage tokoh.</b> Ira Glass (video 2009) dan Rick Rubin (60 Minutes 2023) dipakai dalam konteks komentar. Kamu nyaman memakai footage asli, atau lebih aman foto diam yang diolah?</li>
+<li><b>Logo Jadisatu</b> (SVG) untuk B24–B25.</li>
+<li><b>Masih terbuka dari script:</b> kalimat "Itu sebabnya Jadisatu dibangun" dan belum ada CTA follow.</li>
+</ol>
+</div>
+</section>
+</div>
+
+<script>
+(function(){
+  var btn=document.getElementById('playBtn');
+  btn.addEventListener('click',function(){
+    var on=document.body.classList.toggle('play');
+    btn.setAttribute('aria-pressed',on?'true':'false');
+    btn.textContent=on?'Hentikan gerak':'Putar gerak';
+  });
+})();
+</script>
