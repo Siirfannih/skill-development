@@ -9,6 +9,8 @@ Baca saat mulai build atau menulis ExtendScript/expression. Nomor § sama dengan
 
 ## 3. Alat & pipeline produksi
 
+**Versi Remotion (dicek 25 Okt 2026):** proyek baru memakai Remotion ≥ 4.0.475 (terbaru 4.0.538). Sejak 4.0.475 Studio bisa mengedit keyframe dan props langsung, jadi Irfan bisa menyetel timing sendiri. Proyek Jadisatu lama masih 4.0.380. Saat upgrade, pakai skill `external/remotion-skills/skills/remotion-upgrade`. Resep motion blur, teks, dan kamera ada di `smooth-motion.md`.
+
 **Default: After Effects 2026 lewat ExtendScript** (terbukti di Tuntunly v13–v14). Alasannya: animator teks 3D per huruf, kamera AE, motion blur asli, easing influence, dan `.aep` yang bisa Irfan buka dan setel sendiri.
 - **Struktur**:
   - `engine.jsx`: helper, mengikuti kontrak `ENGINE-CONTRACT.md` v14

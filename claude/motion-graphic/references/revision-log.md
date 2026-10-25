@@ -42,3 +42,45 @@ Status: menunggu persetujuan
 ```
 - Usulan tidak langsung dimasukkan; tunggu jawaban Irfan, lalu tempel dan ubah status. Kasus selera sesaat ditulis "tidak ada (kasus khusus)".
 - Catat juga di BUILD-LOG proyek: jumlah gerbang, putaran revisi per gerbang, jam kerja per gerbang, dan % lolos putaran pertama. Angka ini dibandingkan antarproyek.
+
+---
+
+## 21. Ledger keputusan dan kunci adegan (wajib di setiap proyek)
+
+Audit Jadisatu (25 Okt) menunjukkan pola berputar: `KEPUTUSAN_TERKINI.md` identik di 8 versi V7→V14, sehingga feedback V8–V14 tidak pernah menjadi keputusan. Status storyboard juga berbalik minimal 7 kali, dan adegan yang sudah disetujui didesain ulang di putaran berikutnya. Yang selamat hanya adegan yang dikunci sebagai file jadi. Bagian ini mencegah pola itu.
+
+### 21.1 Ledger: `DECISIONS.md` di folder proyek, hanya ditambah
+
+Satu baris per keputusan. Baris lama **tidak pernah diedit atau dihapus**; keputusan yang berubah ditandai lewat kolom "Menggantikan" di baris baru.
+
+```
+| ID | Tanggal jam | Kata Irfan (verbatim) | Cakupan | Status | Menggantikan |
+|---|---|---|---|---|---|
+| D-014 | 2026-10-25 08:16 | "real footage itu bagian dari Apple style" | S12 NPNP | terkunci | D-009 |
+```
+- **Cakupan** wajib spesifik: adegan, beat, atau elemen (`S08-B03 kartu tujuan`). "Semua" hanya bila Irfan sendiri menyebut semua.
+- **Kata Irfan verbatim**, bukan parafrase model. Parafrase boleh ditambah di kolom terpisah, tetapi tidak menggantikan.
+- Sebelum mengubah apa pun, kutip ID baris ledger yang mengizinkannya. Perubahan tanpa ID ledger = jangan dikerjakan; tanyakan dulu.
+- Komentar pendek tidak boleh membesar menjadi larangan global. "UI kurang elegan" di S09 adalah keputusan untuk S09, bukan larangan glass di seluruh film. Jika ragu cakupannya, ulangi cakupannya dalam satu kalimat dan tanyakan (rules inti 13).
+
+### 21.2 Feedback = delta per adegan
+
+Format terima: `S08-B03: ubah X. Sisanya tetap.` Sebelum mengerjakan, tulis balik dalam satu kalimat: adegan mana yang berubah, dan adegan mana yang dijamin tidak berubah. Adegan di luar cakupan tidak disentuh.
+
+### 21.3 Kunci adegan = frame baseline
+
+Adegan yang Irfan setujui dikunci dengan `scripts/baseline_lock.py`:
+```bash
+python3 scripts/baseline_lock.py approve render.mp4 S08 12.0,13.5,15.2 --dir locks --note "D-014"
+python3 scripts/baseline_lock.py check render_baru.mp4 --dir locks --shift S08=+2.3   # wajib sebelum kirim
+python3 scripts/baseline_lock.py unlock S08 --dir locks --note "D-020"               # hanya dengan ID ledger
+```
+`check` keluar dengan kode 1 bila adegan terkunci berubah lebih dari 0,5 % piksel. Render seperti itu tidak boleh dikirim. Diuji 25 Okt pada render Jadisatu: V13 vs V14 lolos (piksel identik), sedangkan V13 vs V10 di adegan pixel gagal 80 %; dengan `--shift +3,3` lolos.
+
+### 21.4 Kata yang hanya boleh ditulis Irfan
+
+Model hanya menulis "siap ditinjau". Kata "final", "terkunci", "approved", dan "PASS kreatif" hanya muncul di ledger sebagai kutipan Irfan. Gerbang teknis yang lolos ditulis sebagai "QA teknis lolos", bukan "selesai".
+
+### 21.5 Satu skema versi
+
+`<proyek>-r<n>` untuk render penuh dan `<adegan>-r<n>` untuk adegan, naik terus sepanjang proyek walau pipeline berganti. Jangan memulai ulang dari "v1", karena di Jadisatu label "v5" dan "v7" sempat berarti tiga render berbeda.

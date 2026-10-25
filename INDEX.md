@@ -25,7 +25,7 @@ Pintu masuk untuk setiap model yang bekerja dengan Irfan. Baca file ini dulu, la
 | `working-with-irfan` | Cara bekerja umum: komunikasi, siklus kerja, cara membuat skill/prompt, jangan menebak | Setiap tugas dari Irfan |
 | `autopilot-prd` | Eksekusi antrean PRD/QUEUE sampai habis, tier keputusan | Proyek dengan PRD, QUEUE, atau rencana tertulis |
 | `irfan-creative-workflow` | Gerbang proyek kreatif, disiplin kredit, uji storyteller | Awal setiap proyek kreatif (video, kampanye, naskah) |
-| `motion-graphic` | Semua video motion: inti + 10 cabang (direction, storyboard, copywriting, decision, typography, camera-transition, audio, build, analysis-qa, revision-log) | Setiap permintaan video, motion, storyboard, naskah VO, bedah referensi |
+| `motion-graphic` | Semua video motion: inti + 11 cabang (direction, storyboard, copywriting, decision, typography, camera-transition, smooth-motion, audio, build, analysis-qa, revision-log) + `scripts/` (baseline_lock, bedah-kamera) | Setiap permintaan video, motion, storyboard, naskah VO, bedah referensi |
 | `jadisatu-narrator-vo` | Suara, model, dan cara merakit VO Inggris Jadisatu | VO marketing Jadisatu berbahasa Inggris |
 | `cinedance-block-library` | Merakit prompt video-generation dari blok kode | Brief format TRICK/FORMAT/ASSETS/BLOCKS untuk Seedance/Higgsfield |
 
@@ -38,6 +38,8 @@ Detail versi dan peta pemakaian ada di `external/README.md`.
 | `superpowers` | Brainstorming → plan → develop → evaluasi | Fitur atau ide baru, debugging, sebelum menyatakan selesai |
 | `anti-slop` | Filter anti-generik untuk kode, UI, copy | Menulis kode, mendesain UI, menulis copy |
 | `awesome-design-md` | Contoh `DESIGN.md` dari sistem desain nyata | Menentukan prinsip visual (bukan meniru merek) |
+| `remotion-skills` | Agent Skills resmi Remotion | Membangun, me-render, atau meng-upgrade proyek Remotion |
+| `hyperframes` | HTML + GSAP → MP4 deterministik, prinsip gerak | Video berbasis HTML/GSAP, atau migrasi dari Remotion |
 
 ## Proyek (`projects/`)
 

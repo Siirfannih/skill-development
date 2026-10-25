@@ -142,3 +142,19 @@ Perbaiki 3 masalah terburuk, verifikasi dengan still/klip, catat di `review_log.
 
 ### 16.6 Metrik terhadap referensi
 Jalankan `compare.py`. Setiap FAIL harus diperbaiki atau diberi alasan tertulis kenapa disengaja (misalnya brief Irfan meminta hold statis). Laporan ke Irfan memuat hasil gerbang dengan jujur, termasuk yang masih menyimpang.
+
+### 16.7 Checker layout per frame (wajib di proyek berbasis HTML/Remotion)
+
+Penyebab utama kegagalan Jadisatu v7 adalah teks terpotong, teks bertabrakan, dan dobel exposure. QA lama tidak pernah mengeceknya karena hanya mengukur jumlah gerak. Di Remotion setiap frame adalah DOM, jadi posisi teks bisa dibaca langsung (`getBoundingClientRect`) per frame:
+
+| Cek | Aturan |
+|---|---|
+| Area aman | Kotak teks di dalam margin 5 % dan tidak di 8 % bawah, kecuali elemen bertanda `data-bleed` |
+| Teks vs teks | Dua kotak teks dengan opacity > 0,15 tidak beririsan |
+| Teks vs subjek | Kotak teks tidak menutup elemen `data-subject` lebih dari 10 % |
+| Ukuran minimum | Teks wajib ≥ 56 px di master 1080p |
+| Teks melebihi kotak | Pakai `fitText` / `fillTextBox` dari `@remotion/layout-utils` saat membangun, bukan setelah render |
+
+Status: spesifikasi. Checker ini belum dibuat; bangun di repo proyek video berikutnya bersama komponen pertama, lalu salin skripnya ke `scripts/` setelah terbukti menangkap kasus v7 (0:10, 0:17, 0:48–0:59, 1:03).
+
+Metrik "jumlah gerak" dan "% diam" hanya informasi. Jangan dijadikan syarat lolos, karena mendorong drift tanpa tujuan.

@@ -1,0 +1,5 @@
+# Dependensi skrip di claude/*/scripts (pasang: python3 -m pip install -r requirements.txt)
+# Juga butuh ffmpeg di PATH.
+numpy
+Pillow
+opencv-python   # motion-graphic/scripts/bedah-kamera.py

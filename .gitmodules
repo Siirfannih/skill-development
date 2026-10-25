@@ -7,3 +7,9 @@
 [submodule "external/awesome-design-md"]
 	path = external/awesome-design-md
 	url = https://github.com/VoltAgent/awesome-design-md.git
+[submodule "external/remotion-skills"]
+	path = external/remotion-skills
+	url = https://github.com/remotion-dev/skills.git
+[submodule "external/hyperframes"]
+	path = external/hyperframes
+	url = https://github.com/heygen-com/hyperframes.git

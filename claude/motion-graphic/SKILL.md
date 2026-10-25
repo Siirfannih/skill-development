@@ -45,7 +45,7 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya: satu kalimat 
 | 9 | QA + loop kritik | `analysis-qa.md` §16 | ≥ 3 putaran, semua skor ≥ 8, gerbang QA lolos |
 | 10 | Kirim | — | Video + daftar penyimpangan dari storyboard dan alasannya |
 
-Revisi dari Irfan: baca `revision-log.md`, tulis entri RETRO dulu, baru kerjakan. Revisi mengubah kode yang ada, tidak membangun ulang dari nol.
+Revisi dari Irfan: baca `revision-log.md`, catat di ledger `DECISIONS.md` (§21) dan entri RETRO dulu, baru kerjakan. Sebelum kirim, `scripts/baseline_lock.py check` wajib lolos untuk semua adegan terkunci. Revisi mengubah kode yang ada, tidak membangun ulang dari nol.
 
 Pekerjaan yang sudah tertulis di rencana yang Irfan setujui dianggap disetujui. Yang menunggu kata "final" hanya script dan storyboard.
 
@@ -65,7 +65,11 @@ motion-graphic/
     ├── audio.md             mix, musik per babak, SFX per gerak, engsel senyap
     ├── build.md             pipeline After Effects + engine kode, snippet
     ├── analysis-qa.md       bedah referensi, gerbang kirim, rubrik, loop kritik
-    └── revision-log.md      log revisi Irfan, format RETRO
+    ├── smooth-motion.md     resep motion blur, teks masuk, kamera halus (terbukti di Tuntunly)
+    └── revision-log.md      log revisi Irfan, RETRO, ledger keputusan, kunci adegan
+└── scripts/
+    ├── baseline_lock.py     kunci adegan yang disetujui; gagalkan render yang mengubahnya
+    └── bedah-kamera.py      ukur kecepatan, jerk, dan henti-mulai kamera dari video
 ```
 Sumber kebenaran skill ini adalah repo `Siirfannih/skill-development` (`claude/motion-graphic/`). Salinan di Mac dan cloud disinkronkan dari sana.
 
@@ -91,7 +95,8 @@ Baca cabang saat salah satu kondisi ini terjadi, bukan di awal. Cabang boleh mer
 | Membuat VO, SFX, musik, atau QA audio | `audio.md` |
 | Build di After Effects atau engine kode | `build.md` |
 | Membedah referensi atau mengecek render sebelum kirim | `analysis-qa.md` |
-| Irfan memberi revisi | `revision-log.md` |
+| Irfan memberi revisi, atau mengunci/membuka adegan | `revision-log.md` |
+| Membangun animasi teks, mengatur motion blur, atau gerak terasa kurang smooth | `smooth-motion.md` |
 
 ## 6. Rules inti (berlaku di setiap gerbang)
 
@@ -110,3 +115,4 @@ Aturan ini dipisah dari cabang karena pelanggarannya paling sering muncul di rev
 11. **Build gagal bila font tidak ditemukan**, dan proyek AE yang sedang terbuka tidak pernah ditimpa.
 12. **Jangan tunjukkan video ke Irfan sebelum loop kritik memberi verdict SHIP.**
 13. **Tidak tahu atau tidak yakin = jangan menebak, tanyakan.** Berlaku untuk fakta, maksud Irfan, isi referensi, UI produk, dan aturan yang saling bertentangan. Urutannya: cek dulu sumber yang bisa dicek sendiri (file proyek, referensi, memori, skill ini). Jika masih ragu, tanyakan ke Irfan dengan pertanyaan spesifik, pilihan jawaban, dan rekomendasimu, lalu kerjakan bagian yang tidak bergantung pada jawabannya. Tebakan yang ditulis seolah fakta adalah penyebab utama revisi berulang, misalnya UI dikarang atau referensi yang salah dibedah. Pilihan teknik (T/C/X, timing, SFX) yang punya dasar di skill ini tetap diputuskan sendiri; tulis alasannya.
+14. **Adegan yang disetujui tidak disentuh.** Ubah hanya cakupan yang disebut di ledger (`revision-log.md` §21). Model tidak pernah menulis "final" atau "terkunci" sendiri; hanya Irfan yang bisa.
