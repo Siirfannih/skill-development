@@ -1,6 +1,6 @@
 ---
 name: script-workshop
-description: Brainstorm and write a short-video script with Irfan from zero to approved (hook, problem, structure, VO), using reference dissection, an insight bank, a decision ledger, and devil's advocate. Use whenever Irfan starts a new video or reel script, asks for a hook, or says "bikin script", "brainstorm script", "cari hook".
+description: Brainstorm and write a short-video script with Irfan from zero to approved (hook, problem, structure, VO). Use when he starts a new video/reel script or asks for a hook.
 ---
 
 # Script workshop (Irfan)
