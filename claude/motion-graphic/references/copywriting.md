@@ -24,6 +24,8 @@ Irfan sering membawa draft kasar yang strukturnya sudah benar. Tugasmu **mempert
 - Setelah merapikan, cocokkan ide per ide dengan draft aslinya. Kegagalan nyata: "kami tidak membangun AI agent/model/sesuatu yang inspiratif" dan "aman dan terencana" hilang saat dirapikan (Jadisatu, 17 Okt).
 - Sertakan catatan singkat: apa yang diubah, kenapa, dan apa yang masih terbuka.
 
+Setiap masukan Irfan (hook, kalimat, struktur) melewati devil's advocate di `working-with-irfan` §2a sebelum dikembangkan.
+
 ## 3. Uji per kalimat
 
 - **Gambar, bukan label.** Kalimat yang menyuruh penonton percaya ("rasanya produktif", "ada yang jadi", "sangat membantu") diganti dengan sesuatu yang bisa dibayangkan ("kamu kasih arahan, dan dalam hitungan detik sesuatu berdiri di depanmu").
