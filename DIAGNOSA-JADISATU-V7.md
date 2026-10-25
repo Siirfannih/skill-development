@@ -79,7 +79,10 @@ Ditambah dua cek non-otomatis:
 ## 4. Cara memperbaiki (urut)
 
 1. **Satu dokumen otoritas** (`AUTHORITY.md`) dengan urutan menang yang eksplisit. Tulis tegas apakah storyboard itu "komposisi terkunci" atau "sketsa kasar", lalu hapus atau tandai kalimat lama yang bertentangan. Model tidak bisa menebak versi mana yang kamu maksud.
-2. **Satu art direction untuk film ini.** Contoh: Apple-style putih + biru #2273FA sebagai dunia utama. Dunia pixel hanya dipakai bila cerita butuh, dengan satu transisi bab yang jelas. Foto NPNP dan kolase poster diputuskan masuk atau keluar, bukan dibiarkan "terkunci".
+2. **Satu art direction dengan dua dunia yang perannya jelas** (koreksi Irfan, 25 Okt):
+   - **Pixel** = tokoh, persona, vibes, dan transisi supaya tidak membosankan.
+   - **Apple-style cinematic / UI modern** = penjelasan. Kepuasan menonton dibangun dari kamera, transisi, dan SFX yang bergerak bersamaan.
+   Aturan yang perlu ditulis: kapan sebuah adegan masuk dunia mana, dan transisi apa yang menyeberangkan keduanya. Elemen di luar dua dunia ini (foto NPNP, kolase poster, layar kode gelap) diputuskan masuk ke salah satunya atau keluar, bukan dibiarkan "terkunci".
 3. **Referensi diganti jadi ukuran + contoh frame.** Per referensi: angka terukur (alat sendiri, bukan Gemini), 3–5 frame contoh, plus "ambil: …" dan "jangan ambil: …".
 4. **QA diganti.** Pasang checker layout integrity (§3) sebagai gerbang wajib. Hapus target "% diam" sebagai syarat lolos, karena diam saat membaca itu benar.
 5. **Kerja per adegan**: build satu adegan → checker lolos → kritikus buta → kamu nilai → baru adegan berikutnya.
