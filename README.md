@@ -11,4 +11,6 @@ Perpustakaan skill untuk semua model yang bekerja dengan Irfan. Satu repo, satu 
 
 Dokumen kerja: `AUDIT-2026-10-25.md` (audit dan rencana), `EVALS-DESIGN.md` (agar skill membaik tiap sesi), `DIAGNOSA-JADISATU-V7.md`.
 
+Pasang ke Mac: `./tools/sync.sh` (salin `claude/` ke `~/.claude/skills`, cabut skill di `archive/`, cadangan otomatis).
+
 Clone beserta submodule: `git clone --recurse-submodules https://github.com/Siirfannih/skill-development.git`
