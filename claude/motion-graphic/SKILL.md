@@ -69,7 +69,8 @@ motion-graphic/
     └── revision-log.md      log revisi Irfan, RETRO, ledger keputusan, kunci adegan
 └── scripts/
     ├── baseline_lock.py     kunci adegan yang disetujui; gagalkan render yang mengubahnya
-    └── bedah-kamera.py      ukur kecepatan, jerk, dan henti-mulai kamera dari video
+    ├── bedah-kamera.py      ukur kecepatan, jerk, dan henti-mulai kamera dari video
+    └── audio/               kit QA audio & sinkron (jeda VO, musik per babak, kenyamanan SFX, speaker HP, cakupan & sinkron SFX) — lihat audio/README.md, aturan 33–37
 ```
 Sumber kebenaran skill ini adalah repo `Siirfannih/skill-development` (`claude/motion-graphic/`). Salinan di Mac dan cloud disinkronkan dari sana.
 
