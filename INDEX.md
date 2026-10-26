@@ -46,7 +46,7 @@ Detail versi dan peta pemakaian ada di `external/README.md`.
 | Proyek | Isi |
 |---|---|
 | `jadisatu-launch` | `AUTHORITY.md` (urutan menang, peran storyboard, gerbang per adegan), `ART-DIRECTION.md` (dunia Pixel vs Apple, peta adegan, transisi antar dunia, audio, peran referensi) |
-| `talking-head-ai-kerja` | Talking head Irfan 30–60 dtk (26 Okt): `SCRIPT.md` draft v1 + devil's advocate, `RISET.md` sumber data AI & lapangan kerja, `DECISIONS.md`. Gerbang script. |
+| `talking-head-ai-kerja` | Talking head Irfan 30–60 dtk (26 Okt): `SCRIPT.md` draft v2 + devil's advocate, `RISET.md` sumber data AI & lapangan kerja, `DECISIONS.md`. Gerbang script. |
 
 ## Arsip (`archive/`)
 
