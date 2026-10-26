@@ -1,6 +1,6 @@
 """The Gap — audio: VO assembly + synthesized warm SFX (100–1,200 Hz, LPF 5 kHz) + 4 music cues + mix.
 All SFX are generated here (no stock pack access in this session). cues.json lists every SFX with the visual it voices."""
-import json, numpy as np, soundfile as sf, scipy.signal as ss, pyloudnorm as pyln, subprocess
+import json, numpy as np, soundfile as sf, scipy.signal as ss, pyloudnorm as pyln, subprocess, sys
 
 SR = 48000
 ROOT = '/home/claude/thegap'
@@ -155,7 +155,7 @@ KEN = dict(
     typing=lambda **kw: k_typing(kw['dur']),
     glitch=lambda **kw: smp('ui-sound-2-374229.mp3', 0.35, 9000),
     shutter=lambda **kw: smp('shutter-modern.wav', 0.5, 6000),
-    boom=lambda **kw: smp('whoosh-end-384629.mp3', 2.5, 5000),
+    boom=lambda **kw: smp(rr('bm', ['el/v17_impact_1.mp3', 'el/v17_impact_0.mp3']), 1.6, 6000),  # v18: clean bass drop, no whoosh
     shine=lambda **kw: tail(smp('el/swell_1.mp3', None, 9000), 0.5),
 )
 SYN = {'gulp'}  # only the tiny gulp stays synthesized
@@ -163,8 +163,7 @@ def tail(x, dur):
     n = int(dur * SR); pk = int(np.argmax(np.abs(x))); a_ = max(0, pk - n); y = x[a_:pk + int(0.05 * SR)].copy()
     f_ = min(len(y) // 3, int(0.06 * SR)); y[:f_] *= np.linspace(0, 1, f_); return y
 def el_impact(**kw):
-    a = smp(rr('im', ['el/v17_impact_1.mp3', 'el/v17_impact_0.mp3']), 1.6, 6000); b = smp('whoosh-end-384629.mp3', 1.6, 5000)
-    m = max(len(a), len(b)); x = np.zeros(m); x[:len(a)] += a; x[:len(b)] += 0.4 * b; return norm(x)
+    return smp(rr('im', ['el/v17_impact_1.mp3', 'el/v17_impact_0.mp3']), 1.6, 6000)  # v18: no whoosh tail
 ELK = dict(
     thud=lambda **kw: smp(rr('th', ['el/v17_thud_0.mp3', 'el/thud_0.mp3', 'el/thud_1.mp3']), 1.0, 6000),
     impact=el_impact,
@@ -178,13 +177,13 @@ ELK = dict(
     lens=lambda **kw: smp(rr('ln', ['47313572-ui-sounds-pack-2-sound-8-358892.mp3', 'ui-sound-270349.mp3']), 0.8, 9000),
 )
 FAMILY = {**{k_: 'ui' for k_ in ('pop', 'click', 'tick', 'typing', 'latch', 'send', 'ding', 'ping', 'bloop', 'lens', 'shutter', 'thock', 'glitch')},
-          **{k_: 'motion' for k_ in ('whoosh', 'glide', 'swell', 'riser', 'shine')}, 'subwhoosh': 'sub', 'scribble': 'texture',
+          **{k_: 'motion' for k_ in ('whoosh', 'glide', 'swell', 'riser', 'shine', 'subwhoosh')}, 'scribble': 'texture',
           **{k_: 'low' for k_ in ('thud', 'impact', 'boom')}}
 def shape(x, kind):
     fam = FAMILY.get(kind)
     if fam == 'ui':
         y = lp(hp(x, 300, 2), 8000, 4); return y - 0.37 * bp(y, 2800, 4500, 2)
-    if fam == 'motion': return lp(hp(x, 250, 2), 3200, 4)
+    if fam == 'motion': return 0.6 * lp(hp(x, 400, 4), 2500, 4)  # v18: thin, silky, mid-band (Apple-style), −4.4 dB
     if fam == 'sub': return lp(hp(x, 45, 2), 2500, 4)
     if fam == 'texture': return 0.5 * bp(x, 400, 2600, 4)
     if fam == 'low':
@@ -199,7 +198,7 @@ def cue(t, kind, db, visual, align='start', **kw):
 # ---------------- CUE SHEET (bound to visuals in src/S*.tsx)
 f = F
 # S1 (grafik → Ira)
-cue(0.0, 'boom', -14, 'v10 hook: hantaman pembuka (frame 0)')
+# v18 (Irfan 19:33): the frame-0 boom is gone — nothing on screen asked for it and it broke the opening flow
 cue(F('c01', 'jarak') + fr(3), 'whoosh', -17, 'kata Ada|jarak terdorong terpisah', align='start', dur=0.4)
 cue(F('c01', 'jarak') + fr(4), 'thud', -14, 'celah terbuka', f0=80, f1=40, dur=0.45)
 cue(F('c01', 'jarak') + fr(14), 'latch', -19, 'garis ukur terkunci')
@@ -414,6 +413,8 @@ for t_, kind_, db_, vis_, kw_ in [
     (75.13, 'whoosh', -19, 'lensa Rick keluar', {'dur': 0.35}), (75.53, 'pop', -20, 'teks memproduseri', {}), (75.73, 'glide', -21, 'dunia biru naik', {'dur': 0.4}),
     (77.40, 'whoosh', -17, 'pergantian ke pasangan album', {'dur': 0.35}),
     (89.77, 'glide', -20, 'karya merapat ke orbit', {'dur': 0.4}), (89.97, 'tick', -20, 'orbit terkunci', {}),
+    (33.33, 'click', -20, 'v18: sesi Claude baru (cut)', {}), (44.07, 'whoosh', -19, 'v18: kartu berubah jadi template identik', {'dur': 0.35}),
+    (54.60, 'pop', -20, 'v18: lensa menutup di angka 0', {}), (78.47, 'whoosh', -19, 'v18: pindah ke studio', {'dur': 0.35}),
 ]:
     cue(t_, kind_, db_, 'v16 cakupan: ' + vis_, **kw_)
 
@@ -435,6 +436,14 @@ def presence(x, amt=0.55):
     return x + amt * norm(bp(h, 250, 1400, 2), np.max(np.abs(x)))
 # per-cue lifts written by tools/audio_phone.py --fix (phone-speaker audibility at 20 % volume)
 CUE_GAIN = json.load(open(f'{ROOT}/tools/cue_gain.json')) if os.path.exists(f'{ROOT}/tools/cue_gain.json') else {}
+# v18: every cue snapped to the picture (tools/sync_cues.py): shifted onto the visual onset, or dropped when nothing
+# on screen starts there / when it would pile onto another sound of the same family within 100 ms.
+for c in cues: c['key'] = f"{c['t']:.4f}|{c['kind']}"
+_SYNC = json.load(open(f'{ROOT}/tools/cue_sync.json')) if os.path.exists(f'{ROOT}/tools/cue_sync.json') and '--nosync' not in sys.argv else {}
+cues = [c for c in cues if _SYNC.get(c['key']) != 'drop']
+for c in cues:
+    v_ = _SYNC.get(c['key'])
+    if isinstance(v_, (int, float)): c['t'] = round(c['t'] + v_, 4)
 # ---------------- render SFX bus
 sfxL = np.zeros(N); sfxR = np.zeros(N)
 for ci, c in enumerate(cues):
@@ -448,7 +457,7 @@ for ci, c in enumerate(cues):
     x = shape(x, c['kind'])  # v17 band discipline (no saturation)
     i0 = int(max(0, start) * SR)
     _boost = 6.0 if F('c09', 'AI') <= c['t'] < F('c09', 'seleramu') else 0.0  # v15: build act buried the slot SFX (−14.7 dB vs music)
-    seg = x[: max(0, min(len(x), N - i0))] * 10 ** ((max(c['db'], -22) + _boost + CUE_GAIN.get(f"{c['t']:.4f}|{c['kind']}", 0)) / 20)  # v16: floor −22 dB — nothing too quiet for a phone at 20 %
+    seg = x[: max(0, min(len(x), N - i0))] * 10 ** ((max(c['db'], -22) + _boost + CUE_GAIN.get(c['key'], 0)) / 20)  # v16: floor −22 dB — nothing too quiet for a phone at 20 %
     pan = 0.0 if c['kind'] in ('impact', 'boom', 'thud', 'typing') else (0.35 if ci % 2 else -0.35)
     gl, gr = np.cos((pan + 1) * np.pi / 4) * 1.414, np.sin((pan + 1) * np.pi / 4) * 1.414
     sfxL[i0:i0 + len(seg)] += seg * gl; sfxR[i0:i0 + len(seg)] += seg * gr
@@ -528,7 +537,7 @@ def put_cue(name, dst0, dst1, fin, fout, lufs, src0=0.0):
     e[:a_] = np.linspace(0, 1, a_) ** 0.5; e[n_ - b_:] *= np.linspace(1, 0, b_) ** 0.5   # equal-power-ish crossfades
     i_ = int(dst0 * SR); cueL[i_:i_ + n_] += seg[:, 0] * e; cueR[i_:i_ + n_] += seg[:, 1] * e
 XF_ = 0.35
-put_cue('c1_opening', 0.0, tA1 + XF_, 0.005, XF_, -26.0)                       # hook: sub pulse + ticks, impact from frame 0
+put_cue('c1_opening', 0.0, tA1 + XF_, 0.06, XF_, -26.0)                       # hook: sub pulse + ticks, impact from frame 0
 put_cue('c2_longing', tA1 - XF_, tB0 + 0.3, XF_, 0.3, -28.5)                    # bittersweet but driving (no sad piano)
 put_cue('c3_accel', tB0 - 0.3, tStop, 0.3, 0.025, -27.0)                         # rising tension → HARD stop on "berhenti"
 # the stop is a held breath, not a hole: a low drone sits under the first second of c4 (rule 32)

@@ -1,9 +1,9 @@
 # STATUS — The Gap (Jadisatu) · Remotion
 
-_Update terakhir: 26 Okt 2026, 18:00 WITA · versi terakhir: **v17** (`render/TheGap-Jadisatu-v17.mp4`, 95,0 dtk, 1920×1080 @ 30 fps; versi lama ada di riwayat git)_
+_Update terakhir: 26 Okt 2026, 18:00 WITA · versi terakhir: **v18** (`render/TheGap-Jadisatu-v18.mp4`, 95,0 dtk, 1920×1080 @ 30 fps; versi lama ada di riwayat git)_
 
 ## Fase sekarang
-Video sudah lolos penilaian Irfan ("udah oke untuk kualitasmu saat ini", 26 Okt 17:06). v13 = evaluasi mandiri terhadap referensi setelah itu. v14 = finishing: durasi dipadatkan lewat VO (D-034). v15 = audio diorkestrasi ulang dengan ElevenLabs Music/SFX + fisheye di penutup (D-035). v16 = finishing review CD + audit audio HP (D-036). v17 = audio nyaman: palet SFX halus + disiplin pita (D-037). Fase berikutnya: iterasi lanjutan bila Irfan memberi catatan baru, lalu turunan format (Reels 9:16) bila diminta.
+Video sudah lolos penilaian Irfan ("udah oke untuk kualitasmu saat ini", 26 Okt 17:06). v13 = evaluasi mandiri terhadap referensi setelah itu. v14 = finishing: durasi dipadatkan lewat VO (D-034). v15 = audio diorkestrasi ulang dengan ElevenLabs Music/SFX + fisheye di penutup (D-035). v16 = finishing review CD + audit audio HP (D-036). v17 = audio nyaman: palet SFX halus + disiplin pita (D-037). v18 = SFX disinkronkan ke onset objek, pembuka tanpa hantaman (D-038). Fase berikutnya: iterasi lanjutan bila Irfan memberi catatan baru, lalu turunan format (Reels 9:16) bila diminta.
 
 ## Keputusan terkunci (jangan diubah tanpa Irfan)
 - **Naskah & VO**: `SCRIPT.md` final; VO ElevenLabs suara Jadisatu (clone `1I8tElkHzrblGqkJtwn3`, eleven_v4). Kata Inggris ditulis dalam kutip (`"taste"`) agar dibaca Inggris. Tanpa VO Jadisatu di akhir, hanya wordmark.
@@ -34,6 +34,7 @@ Video sudah lolos penilaian Irfan ("udah oke untuk kualitasmu saat ini", 26 Okt 
 - `remotion/tools/timing.py`, `wh.py` — timestamp kata VO (faster-whisper) → `vo.json`.
 - `remotion/vo/` — VO per chunk (mp3 + trim wav). `remotion/sfx-extra/` — shutter/click Remotion + katalog earshot pack Kenyset.
 - Path di tools masih absolut ke `/home/claude/thegap` (lingkungan cloud). Untuk dijalankan di Mac: ganti `ROOT` dan arahkan `SFXD` ke `~/Downloads/Kenyset [FREE SFX PACK]` + `sfx-extra/`.
+- Alur audio v18: `audio_build.py --nosync` → `sync_cues.py render/<silent>.mp4` → `audio_build.py` → `audio_phone.py --fix` (opsional) → `audio_build.py`.
 - QA audio v16: `tools/audio_phone.py [--list|--fix]` (HP 20/50/100 %, kejelasan VO, 2–6 kHz) dan `tools/visual_coverage.py render/<video>.mp4` (setiap event visual harus punya suara).
 - QA: earshot (`earshot critique`, `measure`), contact sheet `tools/stills.sh`, cek gap musik (RMS per 0,5 dtk pada stem musik).
 

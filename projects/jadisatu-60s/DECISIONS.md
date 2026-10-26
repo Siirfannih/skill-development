@@ -80,3 +80,10 @@ Proyek baru (bukan revisi Jadisatu Launch v7). Aturan ledger: `claude/motion-gra
 - Disiplin pita per keluarga (mengikuti catatan spektrum Irfan): UI 300 Hz–8 kHz dengan cekungan −4 dB di 2,8–4,5 kHz; gerak 250 Hz–3,2 kHz tanpa desis; tekstur 400 Hz–2,6 kHz pelan; low < 250 Hz + body bersih 150–450 Hz, tanpa saturasi.
 - Bus: kompresi lebih lembut (2:1), angkat +1 dB, pompa musik 1,5 dB, SFX turun 3 dB saat kata diucapkan; musik dapat high-shelf −3 dB di atas 5 kHz dan −2 dB di bawah 70 Hz; tick kurva 40 → 14, langkah kaki tiap 8 frame.
 - Hasil: desis SFX ≤ 1 %, 0 SFX lebih tajam dari sibilan VO, VO 12 dB di atas latar (median), 82 % SFX terdengar di HP 20 % (sisanya di bawah kata VO, sengaja), 162/162 event visual tetap bersuara, earshot launch-grade.
+
+## D-038 · 2026-10-26 · v18: SFX ikut objek, pembuka tanpa hantaman
+- Irfan 19:33: suara bass/whoosh di awal kasar dan memutus alur (diam → keras → hilang), tidak ada objek yang membutuhkannya; transisi cukup whoosh tipis di pita tengah; SFX bertabrakan, ada yang mendahului objek, ada yang tertinggal.
+- Hantaman frame 0 dihapus (tidak ada visual di frame 0). Musik pembuka masuk dengan fade 60 ms. Keluarga "boom" dan "impact" tidak lagi memakai ekor whoosh, hanya bass drop bersih.
+- Whoosh/gerak: pita 400 Hz–2,5 kHz, −4,4 dB; sub-whoosh ikut keluarga yang sama (tidak ada lagi whoosh berat).
+- `tools/sync_cues.py`: setiap cue dicocokkan ke onset visual (grid 8×6 + event global, ±7 frame). 79 cue digeser ke frame munculnya objek (34 tadinya mendahului, 45 tertinggal); cue tanpa apa pun yang bergerak di layar dihapus; maksimal 2 suara per 100 ms dan tidak boleh dua suara satu keluarga → 347 → 233 cue. Tetap 162/162 event visual bersuara.
+- VO terhadap latar median 13,7 dB, 0 SFX tajam. Dengan ukuran ketat (SFX tidak boleh > 15 dB di bawah kata), 62 % SFX lolos di HP 20 %; yang tidak lolos berada di bawah kata yang diucapkan, tetap di atas musik — pilihan sadar: alur halus dan VO di depan.
