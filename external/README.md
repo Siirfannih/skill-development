@@ -9,6 +9,7 @@ Repo pihak ketiga, dipasang sebagai **git submodule** dan dikunci di commit tert
 | `awesome-design-md/` | github.com/VoltAgent/awesome-design-md | `3b60532` | Prinsip desain: 84 contoh `DESIGN.md` dari sistem desain merek nyata |
 | `remotion-skills/` | github.com/remotion-dev/skills | `6c67adc` | Agent Skills resmi Remotion (12): best-practices, create, render, studio, interactivity, multimedia, upgrade, dll. **Lisensi belum tercantum di repo**: dipakai sebagai acuan, jangan didistribusikan ulang |
 | `hyperframes/` | github.com/heygen-com/hyperframes | `382a14d` (Apache-2.0) | HTML + GSAP → MP4 deterministik; skill `hyperframes`, `hyperframes-cli`, `media-use` (SFX), `remotion-to-hyperframes`, plus `motion-doctrine`, `seam-craft`, `cut-the-curve` di `.claude/skills/`. Checkout ± 330 MB |
+| `earshot/` | github.com/Leonxlnx/earshot | v0.4.0 (`591fa3e`) | "Telinga" untuk agent: describe, rank, match, critique audio/film terhadap film referensi; dipakai kit `claude/motion-graphic/scripts/audio/` (sfx_comfort, QA). Pasang: `cd external/earshot && python3 -m venv .venv && .venv/bin/pip install -e .`, lalu `EARSHOT=external/earshot/.venv/bin/earshot` |
 
 ## Peta pemakaian
 
@@ -27,6 +28,7 @@ Repo pihak ketiga, dipasang sebagai **git submodule** dan dikunci di commit tert
 | Membangun atau me-render video di Remotion | `remotion-skills/skills/remotion-best-practices`, `remotion-render`, `remotion-studio`, `remotion-upgrade` |
 | Video HTML + GSAP, atau pindah dari Remotion | `hyperframes/skills/hyperframes`, `remotion-to-hyperframes` |
 | Prinsip gerak dan sambungan potongan | `hyperframes/.claude/skills/motion-doctrine`, `seam-craft`, `cut-the-curve` |
+| Mendengar audio yang tidak bisa didengar agent (SFX, musik, mix) | `earshot` (`describe`, `rank`, `critique`) + `claude/motion-graphic/scripts/audio/` |
 
 ## Aturan pakai
 

@@ -3,3 +3,11 @@
 numpy
 Pillow
 opencv-python   # motion-graphic/scripts/bedah-kamera.py
+# motion-graphic/scripts/audio (kit QA audio & sinkron, aturan 33–37)
+scipy
+librosa
+soundfile
+pyloudnorm
+pedalboard      # EQ/kompresi bus audio
+faster-whisper  # timestamp kata VO (tools timing)
+# ffmpeg harus punya filter rubberband (tighten.py); earshot: lihat external/README.md

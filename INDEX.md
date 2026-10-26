@@ -41,6 +41,7 @@ Detail versi dan peta pemakaian ada di `external/README.md`.
 | `awesome-design-md` | Contoh `DESIGN.md` dari sistem desain nyata | Menentukan prinsip visual (bukan meniru merek) |
 | `remotion-skills` | Agent Skills resmi Remotion | Membangun, me-render, atau meng-upgrade proyek Remotion |
 | `hyperframes` | HTML + GSAP → MP4 deterministik, prinsip gerak | Video berbasis HTML/GSAP, atau migrasi dari Remotion |
+| `earshot` | Analisis audio untuk agent: describe, rank, critique terhadap film referensi | QA audio video, memilih SFX, cek mix |
 
 ## Proyek (`projects/`)
 
