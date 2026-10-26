@@ -50,3 +50,10 @@ Proyek baru (bukan revisi Jadisatu Launch v7). Aturan ledger: `claude/motion-gra
 - v12: grafik pembuka kembali ke v10 (+kamera saja); AI digambar sebagai tile ChatGPT/Claude/Gemini, bukan manusia; backsound tanpa bolong (penuh dari frame 0, drone setelah "berhenti", riser pra-drop).
 - v13 (evaluasi mandiri vs referensi): kalimat "Tapi di satu sisi… kepadanya." dibangun kata per kata di satu baris dengan kamera mengikuti + thumbnail tugas di antara kata + snap zoom-out (Baikov Shapes 0:00–0:02), menggantikan 5 dtk teks statis; penutup +1 dtk, wordmark ditahan ±2,5 dtk (ref Apple ±3 dtk).
 - Irfan 17:06: kualitas v12 "udah oke"; progres disimpan ke repo (STATUS.md, remotion/).
+
+## D-034 · 2026-10-26 · v14 finishing: durasi 105,2 → 95,0 dtk tanpa memotong kata
+- Irfan 17:34: masih ada jeda VO kosong 0–3 dtk yang menurunkan perhatian; minta durasi lebih pendek tanpa adegan terputus.
+- Cara (`remotion/tools/tighten.py`): (1) VO dipercepat 5 % dengan rubberband (pitch + formant dijaga); (2) hanya bagian tengah jeda yang diam (diukur di audio, −42 dB, bukan dari timestamp whisper yang selesai lebih cepat) yang dibuang; target jeda 0,28 dtk, jeda dramatis ("…", sebelum "berhenti", braam "AI.", sesi Claude per tugas) 0,34–0,50 dtk; (3) jeda antarbabak dari 0,6–1,1 dtk → 0,40–0,60 dtk; (4) ekor setelah "seleramu." 4,6 → 3,6 dtk (wordmark tetap ±2,5 dtk).
+- Semua adegan, FX dan cue audio terkunci ke kata `vo.json`, jadi ikut bergeser otomatis. Satu-satunya beat yang perlu disesuaikan: grafik pembuka (KEMAMPUAN → tag JARAK → dive), offset dipadatkan supaya label terbaca sebelum dive.
+- Hasil ukur `tools/vo_gaps.py`: diam ≥ 0,25 dtk turun dari 25,1 → 17,6 dtk (termasuk ekor); jeda terpanjang di tengah video 1,10 → 0,62 dtk.
+- Stereo dilebarkan (Haas musik 0,45, side track ×1,55) karena earshot menilai sempit.
