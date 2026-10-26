@@ -36,6 +36,24 @@ def gen(job):
             return f'{kind}_{i} HTTP {e.code} {e.read()[:200]}'
     return f'{kind}_{i} gave up'
 
+# v17 (Irfan 19:20): comfort first, using his reference keywords. Every prompt asks for a soft, smooth version.
+SOFT = ', soft and smooth, gentle on the ears, no hiss, no harsh highs, no distortion, clean studio recording, single isolated sound, no music'
+LIB.update({
+    'v17_pop': ('minimalist bubble pop, round and soft' + SOFT, 0.5, 4),
+    'v17_click': ('clean app click, glass UI tap, quiet and rounded' + SOFT, 0.5, 4),
+    'v17_tick': ('very subtle glass UI tick, tiny and delicate' + SOFT, 0.5, 3),
+    'v17_typing': ('digital typing on a quiet soft keyboard, gentle fast keystrokes' + SOFT, 1.5, 3),
+    'v17_whoosh': ('airy whoosh transition, smooth air movement' + SOFT, 0.8, 4),
+    'v17_whip': ('whip pan swoosh, fast smooth air' + SOFT, 0.6, 3),
+    'v17_glide': ('kinetic motion whoosh, light and silky, slow' + SOFT, 1.0, 3),
+    'v17_scribble': ('marker scribble sound, gentle felt-tip pen on paper, muted' + SOFT, 0.8, 3),
+    'v17_impact': ('subtle bass drop impact, deep and clean, warm' + SOFT, 1.5, 3),
+    'v17_thud': ('soft deep thump of a card landing on a table, warm' + SOFT, 0.7, 3),
+    'v17_riser': ('short cinematic riser, airy and smooth, builds then stops' + SOFT, 1.2, 3),
+    'v17_lens': ('soft glass lens focus sound, gentle glassy shimmer' + SOFT, 0.8, 3),
+    'v17_shutter': ('camera shutter click, crisp but soft, muted mechanical' + SOFT, 0.5, 3),
+})
+
 if __name__ == '__main__':
     kinds = sys.argv[1:] or list(LIB)
     jobs = [(k, i) for k in kinds for i in range(LIB[k][2])]

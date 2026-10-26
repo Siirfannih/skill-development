@@ -1516,41 +1516,9 @@
   "kw": {}
  },
  {
-  "t": 47.1442,
-  "kind": "tick",
-  "db": -26.897435897435898,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 47.331,
-  "kind": "tick",
-  "db": -26.794871794871796,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
   "t": 47.4725,
   "kind": "tick",
   "db": -26.692307692307693,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 47.5908,
-  "kind": "tick",
-  "db": -26.58974358974359,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 47.6944,
-  "kind": "tick",
-  "db": -26.48717948717949,
   "visual": "karya bertambah di kurva",
   "align": "start",
   "kw": {}
@@ -1564,41 +1532,9 @@
   "kw": {}
  },
  {
-  "t": 47.873,
-  "kind": "tick",
-  "db": -26.28205128205128,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 47.9522,
-  "kind": "tick",
-  "db": -26.17948717948718,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
   "t": 48.0264,
   "kind": "tick",
   "db": -26.076923076923077,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 48.0963,
-  "kind": "tick",
-  "db": -25.974358974358974,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 48.1627,
-  "kind": "tick",
-  "db": -25.871794871794872,
   "visual": "karya bertambah di kurva",
   "align": "start",
   "kw": {}
@@ -1612,41 +1548,9 @@
   "kw": {}
  },
  {
-  "t": 48.2866,
-  "kind": "tick",
-  "db": -25.666666666666668,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 48.3448,
-  "kind": "tick",
-  "db": -25.564102564102566,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
   "t": 48.4008,
   "kind": "tick",
   "db": -25.46153846153846,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 48.4549,
-  "kind": "tick",
-  "db": -25.358974358974358,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 48.5073,
-  "kind": "tick",
-  "db": -25.256410256410255,
   "visual": "karya bertambah di kurva",
   "align": "start",
   "kw": {}
@@ -1660,41 +1564,9 @@
   "kw": {}
  },
  {
-  "t": 48.6074,
-  "kind": "tick",
-  "db": -25.05128205128205,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 48.6554,
-  "kind": "tick",
-  "db": -24.94871794871795,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
   "t": 48.7022,
   "kind": "tick",
   "db": -24.846153846153847,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 48.7478,
-  "kind": "tick",
-  "db": -24.743589743589745,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 48.7923,
-  "kind": "tick",
-  "db": -24.641025641025642,
   "visual": "karya bertambah di kurva",
   "align": "start",
   "kw": {}
@@ -1708,41 +1580,9 @@
   "kw": {}
  },
  {
-  "t": 48.8784,
-  "kind": "tick",
-  "db": -24.435897435897434,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 48.9201,
-  "kind": "tick",
-  "db": -24.333333333333332,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
   "t": 48.9609,
   "kind": "tick",
   "db": -24.23076923076923,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 49.001,
-  "kind": "tick",
-  "db": -24.128205128205128,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 49.0404,
-  "kind": "tick",
-  "db": -24.025641025641026,
   "visual": "karya bertambah di kurva",
   "align": "start",
   "kw": {}
@@ -1756,22 +1596,6 @@
   "kw": {}
  },
  {
-  "t": 49.1169,
-  "kind": "tick",
-  "db": -23.82051282051282,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 49.1543,
-  "kind": "tick",
-  "db": -23.71794871794872,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
   "t": 49.191,
   "kind": "tick",
   "db": -23.615384615384617,
@@ -1780,41 +1604,9 @@
   "kw": {}
  },
  {
-  "t": 49.2271,
-  "kind": "tick",
-  "db": -23.51282051282051,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 49.2627,
-  "kind": "tick",
-  "db": -23.41025641025641,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
   "t": 49.2978,
   "kind": "tick",
   "db": -23.307692307692307,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 49.3323,
-  "kind": "tick",
-  "db": -23.205128205128204,
-  "visual": "karya bertambah di kurva",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 49.3664,
-  "kind": "tick",
-  "db": -23.102564102564102,
   "visual": "karya bertambah di kurva",
   "align": "start",
   "kw": {}
@@ -2112,7 +1904,7 @@
   "kw": {}
  },
  {
-  "t": 60.4333,
+  "t": 60.5667,
   "kind": "tick",
   "db": -24,
   "visual": "langkah kaki 2",
@@ -2120,7 +1912,7 @@
   "kw": {}
  },
  {
-  "t": 60.5667,
+  "t": 60.8333,
   "kind": "tick",
   "db": -25,
   "visual": "langkah kaki 3",
@@ -2128,7 +1920,7 @@
   "kw": {}
  },
  {
-  "t": 60.7,
+  "t": 61.1,
   "kind": "tick",
   "db": -24,
   "visual": "langkah kaki 4",
@@ -2136,7 +1928,7 @@
   "kw": {}
  },
  {
-  "t": 60.8333,
+  "t": 61.3667,
   "kind": "tick",
   "db": -25,
   "visual": "langkah kaki 5",
@@ -2144,50 +1936,10 @@
   "kw": {}
  },
  {
-  "t": 60.9667,
+  "t": 61.6333,
   "kind": "tick",
   "db": -24,
   "visual": "langkah kaki 6",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 61.1,
-  "kind": "tick",
-  "db": -25,
-  "visual": "langkah kaki 7",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 61.2333,
-  "kind": "tick",
-  "db": -24,
-  "visual": "langkah kaki 8",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 61.3667,
-  "kind": "tick",
-  "db": -25,
-  "visual": "langkah kaki 9",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 61.5,
-  "kind": "tick",
-  "db": -24,
-  "visual": "langkah kaki 10",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 61.6333,
-  "kind": "tick",
-  "db": -25,
-  "visual": "langkah kaki 11",
   "align": "start",
   "kw": {}
  },
@@ -2248,7 +2000,7 @@
   "kw": {}
  },
  {
-  "t": 62.8,
+  "t": 62.9333,
   "kind": "tick",
   "db": -24,
   "visual": "langkah lagi 2",
@@ -2256,26 +2008,10 @@
   "kw": {}
  },
  {
-  "t": 62.9333,
-  "kind": "tick",
-  "db": -25,
-  "visual": "langkah lagi 3",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 63.0667,
-  "kind": "tick",
-  "db": -24,
-  "visual": "langkah lagi 4",
-  "align": "start",
-  "kw": {}
- },
- {
   "t": 63.2,
   "kind": "tick",
   "db": -25,
-  "visual": "langkah lagi 5",
+  "visual": "langkah lagi 3",
   "align": "start",
   "kw": {}
  },

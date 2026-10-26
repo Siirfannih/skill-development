@@ -131,48 +131,65 @@ def smp(name, maxdur=None, lpf=9000, rate=1.0):
         n = int(maxdur * SR); x = x[:n].copy(); f_ = min(len(x), int(0.04 * SR)); x[-f_:] *= np.linspace(1, 0, f_)
     return x
 def k_typing(dur):
-    x = load('keyboard-typing-fast-371229.mp3', 4500)
+    x = load('iphone-keyboard-typing-sound-effect-336778.mp3', 9000)  # v17: softer source
     n = int(dur * SR); y = x[int(0.3 * SR): int(0.3 * SR) + n].copy(); f_ = int(0.05 * SR); y[-f_:] *= np.linspace(1, 0, f_); return y
 RR = {}
 def rr(kind, names):
     i = RR.get(kind, 0); RR[kind] = i + 1; return names[i % len(names)]
+# v17 (Irfan 19:20: some SFX felt rough — scribbles, paper glides, clicky UI). The palette is rebuilt from the
+# smoothest sources (scored by tools/sfx_comfort.py: hiss > 6 kHz, 2–6 kHz bite, envelope roughness, earshot
+# "harsh" vs "soft"), and every family is held to its own band, following Irfan's reference spectrum:
+#   ui      (pop, click, tick, typing, notifications)  300 Hz – 8 kHz, gentle −4 dB dip at 2.8–4.5 kHz, short and quiet
+#   motion  (whoosh, glide, swell, riser)              250 Hz – 3.2 kHz: air, no hiss
+#   texture (scribble)                                 400 Hz – 2.6 kHz, kept low
+#   low     (thud, impact, boom)                       < 250 Hz weight + a clean 150–450 Hz body (no saturation)
 KEN = dict(
-    pop=lambda **kw: smp(rr('pop', ['ui-pop-up-2-197887.mp3', 'pop-402324.mp3', 'soft-subtle-ui-pop-sfx-348820.mp3', 'pop-2-269283.mp3']), 0.45, 3200, rate=0.86),  # v16: deep bubble pop (Irfan's SFX standard), no 2–6 kHz bite
-    whoosh=lambda **kw: smp(rr('wh', ['swoosh-014-383768.mp3', 'swoosh-2-359826.mp3', 'simple-whoosh-382724.mp3', 'woosh-230554.mp3']), kw.get('dur', 0.5) + 0.4, 8000),
-    subwhoosh=lambda **kw: smp('universfield-swoosh-023-454830.mp3', 1.2, 6000),
-    click=lambda **kw: smp(rr('ck', ['App Click 1.wav', 'universfield-computer-mouse-click-352734.mp3', 'ipad_click-99325.mp3']), 0.3, 4000),
-    bloop=lambda **kw: smp('marimba-bloop-3-188151.mp3', 1.0, 4000),
-    latch=lambda **kw: smp('confirm-tap-394001.mp3', 0.6, 7000),
+    pop=lambda **kw: smp(rr('pop', ['pop-up-notify-smooth-modern-332448.mp3', 'ui-pop-sound-316482.mp3', 'soft-ui-pop-light-minimal-click-451232.mp3', 'el/v17_pop_0.mp3']), 0.45, 9000),
+    whoosh=lambda **kw: smp(rr('wh', ['swoosh-2-359826.mp3', 'simple-whoosh-382724.mp3', 'el/v17_whoosh_1.mp3', 'universfield-swoosh-023-454830.mp3']), kw.get('dur', 0.5) + 0.4, 9000),
+    click=lambda **kw: smp(rr('ck', ['confirm-tap-394001.mp3', 'el/v17_click_0.mp3', 'tiktok_drop_sample_click3_kofi_by_miraclei-360034.mp3']), 0.3, 9000),
+    bloop=lambda **kw: smp('marimba-bloop-3-188151.mp3', 1.0, 9000),
+    latch=lambda **kw: smp('confirm-tap-394001.mp3', 0.6, 9000),
     send=lambda **kw: smp('message-envoye-iphone-apple-391098.mp3', 0.5, 9000),
-    ding=lambda **kw: smp('notification-pluck-off-269290.mp3', 0.9, 8000),
-    ping=lambda **kw: smp('happy-message-ping-351298.mp3', 1.0, 8000),
+    ding=lambda **kw: smp('notification-pluck-off-269290.mp3', 0.9, 9000),
+    ping=lambda **kw: smp('happy-message-ping-351298.mp3', 1.0, 9000),
     typing=lambda **kw: k_typing(kw['dur']),
-    glitch=lambda **kw: smp(rr('gl', ['ui-sounds-pack-2-sound-4-358895.mp3', 'glitch-fx-transitions-8-311809.mp3']), 0.35, 9000),
-    shutter=lambda **kw: smp('shutter-modern.wav', 0.5, 14000),
+    glitch=lambda **kw: smp('ui-sound-2-374229.mp3', 0.35, 9000),
+    shutter=lambda **kw: smp('shutter-modern.wav', 0.5, 6000),
     boom=lambda **kw: smp('whoosh-end-384629.mp3', 2.5, 5000),
-    shine=lambda **kw: smp('benkirb-shine-1-268902.mp3', 1.6, 2800),  # v16: was the harshest cue (78 % in 2–6 kHz)
+    shine=lambda **kw: tail(smp('el/swell_1.mp3', None, 9000), 0.5),
 )
-SYN = {'gulp'}  # v15: only the tiny gulp stays synthesized
-# v15 (Irfan 17:52): real recorded/generated SFX replace the code-synth layers (tools/el_sfx.py → sfx/el/).
-# Hissy ones (glide, scribble) and the riser are low-passed to keep the "warm, no ear-fatigue" standard.
+SYN = {'gulp'}  # only the tiny gulp stays synthesized
 def tail(x, dur):
     n = int(dur * SR); pk = int(np.argmax(np.abs(x))); a_ = max(0, pk - n); y = x[a_:pk + int(0.05 * SR)].copy()
     f_ = min(len(y) // 3, int(0.06 * SR)); y[:f_] *= np.linspace(0, 1, f_); return y
 def el_impact(**kw):
-    a = smp(rr('im', ['el/impact_0.mp3', 'el/impact_1.mp3']), 1.6, 6000); b = smp('whoosh-end-384629.mp3', 1.6, 5000)
-    m = max(len(a), len(b)); x = np.zeros(m); x[:len(a)] += a; x[:len(b)] += 0.55 * b; return norm(x)
+    a = smp(rr('im', ['el/v17_impact_1.mp3', 'el/v17_impact_0.mp3']), 1.6, 6000); b = smp('whoosh-end-384629.mp3', 1.6, 5000)
+    m = max(len(a), len(b)); x = np.zeros(m); x[:len(a)] += a; x[:len(b)] += 0.4 * b; return norm(x)
 ELK = dict(
-    thud=lambda **kw: smp(rr('th', ['el/thud_0.mp3', 'el/thud_1.mp3', 'el/thud_2.mp3']), 1.0, 4000),
+    thud=lambda **kw: smp(rr('th', ['el/v17_thud_0.mp3', 'el/thud_0.mp3', 'el/thud_1.mp3']), 1.0, 6000),
     impact=el_impact,
-    thock=lambda **kw: smp(rr('tk', ['el/thock_0.mp3', 'el/thock_1.mp3', 'el/thock_2.mp3']), 0.45, 6000),
-    tick=lambda **kw: smp(rr('ti', ['el/tick_0.mp3', 'el/tick_2.mp3']), 0.3, 4000),
-    glide=lambda **kw: smp(rr('gd', ['el/glide_0.mp3', 'el/glide_1.mp3', 'el/glide_2.mp3']), kw.get('dur', 0.75) + 0.2, 4500),
-    swell=lambda **kw: tail(smp(rr('sw', ['el/swell_0.mp3', 'el/swell_1.mp3']), None, 6000), kw.get('dur', 0.6)),
-    riser=lambda **kw: tail(smp(rr('ri', ['el/riser_0.mp3', 'el/riser_1.mp3']), None, 5000), kw.get('dur', 0.6)),
-    scribble=lambda **kw: smp(rr('sc', ['el/scribble_0.mp3', 'el/scribble_1.mp3']), kw.get('dur', 0.6) + 0.1, 6000),
-    subwhoosh=lambda **kw: smp(rr('cw', ['el/camwhoosh_1.mp3', 'el/camwhoosh_2.mp3', 'universfield-swoosh-023-454830.mp3']), 1.2, 6000),
-    lens=lambda **kw: smp(rr('ln', ['el/lens_0.mp3', 'el/lens_1.mp3']), 0.8, 6000),
+    thock=lambda **kw: smp(rr('tk', ['ui-sound-2-374229.mp3', 'el/thock_0.mp3']), 0.45, 9000),
+    tick=lambda **kw: smp(rr('ti', ['el/v17_click_0.mp3', 'confirm-tap-394001.mp3']), 0.25, 9000, rate=1.25),
+    glide=lambda **kw: smp(rr('gd', ['el/v17_whoosh_3.mp3', 'el/v17_whoosh_1.mp3', 'simple-whoosh-02-433006.mp3']), kw.get('dur', 0.75) + 0.3, 9000),
+    swell=lambda **kw: tail(smp(rr('sw', ['el/swell_1.mp3', 'el/swell_0.mp3']), None, 9000), kw.get('dur', 0.6)),
+    riser=lambda **kw: tail(smp(rr('ri', ['el/swell_1.mp3', 'el/v17_riser_0.mp3']), None, 9000), kw.get('dur', 0.6)),
+    scribble=lambda **kw: smp('el/v17_scribble_0.mp3', kw.get('dur', 0.6) + 0.1, 9000),
+    subwhoosh=lambda **kw: smp(rr('cw', ['el/camwhoosh_2.mp3', 'el/camwhoosh_1.mp3', 'swoosh-010-352856.mp3']), 1.2, 9000),
+    lens=lambda **kw: smp(rr('ln', ['47313572-ui-sounds-pack-2-sound-8-358892.mp3', 'ui-sound-270349.mp3']), 0.8, 9000),
 )
+FAMILY = {**{k_: 'ui' for k_ in ('pop', 'click', 'tick', 'typing', 'latch', 'send', 'ding', 'ping', 'bloop', 'lens', 'shutter', 'thock', 'glitch')},
+          **{k_: 'motion' for k_ in ('whoosh', 'glide', 'swell', 'riser', 'shine')}, 'subwhoosh': 'sub', 'scribble': 'texture',
+          **{k_: 'low' for k_ in ('thud', 'impact', 'boom')}}
+def shape(x, kind):
+    fam = FAMILY.get(kind)
+    if fam == 'ui':
+        y = lp(hp(x, 300, 2), 8000, 4); return y - 0.37 * bp(y, 2800, 4500, 2)
+    if fam == 'motion': return lp(hp(x, 250, 2), 3200, 4)
+    if fam == 'sub': return lp(hp(x, 45, 2), 2500, 4)
+    if fam == 'texture': return 0.5 * bp(x, 400, 2600, 4)
+    if fam == 'low':
+        y = lp(x, 2000, 4); return y + 0.45 * norm(bp(y, 150, 450, 2), np.max(np.abs(y)))
+    return x
 
 cues = []
 def cue(t, kind, db, visual, align='start', **kw):
@@ -276,9 +293,9 @@ cue(F('c06', 'Ira') + fr(1), 'thud', -16, 'landing hitam', f0=65, f1=34, dur=0.6
 # S4
 cue(F('c06', 'Ira') + fr(4), 'pop', -24, 'label Ira Glass bilang', f0=300)
 t0, t1 = F('c06', 'jarak') - fr(6), F('c06', 'karya') + fr(6)
-for i in range(40):
-    p = (i / 39) ** (1 / 2.1)
-    cue(t0 + (t1 - t0) * p, 'tick', -27 + 4 * (i / 39), 'karya bertambah di kurva')
+for i in range(14):  # v17: 40 → 14 ticks, a soft trickle instead of a rattle
+    p = (i / 13) ** (1 / 2.1)
+    cue(t0 + (t1 - t0) * p, 'tick', -27 + 4 * (i / 13), 'karya bertambah di kurva')
 cue(F('c06', 'banyak') + fr(3), 'thock', -15, 'label BANYAK KARYA, jarak tertutup', f0=180)
 cue(F('c06', 'AI') - fr(2), 'swell', -18, 'reveal-out ke ribuan titik', dur=1.2)
 cue(F('c06', 'ribuan') + fr(3), 'pop', -20, 'ribuan.', f0=260)
@@ -304,14 +321,14 @@ cue(F('c07', 'Pengalaman') + fr(5), 'pop', -20, 'bendera MULAI terbentang', f0=3
 cue(F('c07', 'Pengalaman') + fr(2), 'thock', -19, 'pelari jongkok di garis start', f0=200)
 cue(F('c07', 'Pengalaman') + fr(7), 'thock', -15, 'judul Pengalaman.', f0=190)
 cue(F('c07', 'semua'), 'whoosh', -21, 'pelari melesat', align='start', dur=0.3, lo=300, hi=900)
-for i, t_ in enumerate(np.arange(F('c07', 'semua') + fr(3), F('c07', 'coba') + fr(4), fr(4))):
+for i, t_ in enumerate(np.arange(F('c07', 'semua') + fr(3), F('c07', 'coba') + fr(4), fr(8))):
     cue(t_, 'tick', -25 + (i % 2), f'langkah kaki {i+1}')
 cue(F('c07', 'semua'), 'glide', -24, 'garis coral memanjang di belakang pelari', dur=0.8)
 cue(F('c07', 'coba') + fr(4), 'thud', -14, 'pelari tersandung, berhenti', f0=90, f1=45, dur=0.4)
 cue(F('c07', 'coba') + fr(5), 'scribble', -19, 'tanda silang coral di lintasan')
 cue(F('c07', 'coba') + fr(7), 'bloop', -23, 'keringat lelah', f0=300)
 cue(F('c07', 'gagal'), 'subwhoosh', -16, 'kamera patah ke wide: seluruh jalur gagal terlihat', align='start')
-for i, t_ in enumerate(np.arange(F('c07', 'gagal') + fr(1), F('c07', 'Direction') - fr(6), fr(4))):
+for i, t_ in enumerate(np.arange(F('c07', 'gagal') + fr(1), F('c07', 'Direction') - fr(6), fr(8))):
     cue(t_, 'tick', -25 + (i % 2), f'langkah lagi {i+1}')
 cue(F('c07', 'gagal') + fr(2), 'glide', -23, 'garis biru: tetap jalan', dur=0.7)
 cue(F('c07', 'Direction'), 'whoosh', -15, 'whip pan ke Direction', align='end', dur=0.3, lo=400, hi=1200)
@@ -428,7 +445,7 @@ for ci, c in enumerate(cues):
     else:
         x = PAL[c['kind']](**c['kw'])
         start = c['t'] - (len(x) / SR if c['align'] == 'end' else 0)
-    if c['kind'] in SUBK: x = presence(x)
+    x = shape(x, c['kind'])  # v17 band discipline (no saturation)
     i0 = int(max(0, start) * SR)
     _boost = 6.0 if F('c09', 'AI') <= c['t'] < F('c09', 'seleramu') else 0.0  # v15: build act buried the slot SFX (−14.7 dB vs music)
     seg = x[: max(0, min(len(x), N - i0))] * 10 ** ((max(c['db'], -22) + _boost + CUE_GAIN.get(f"{c['t']:.4f}|{c['kind']}", 0)) / 20)  # v16: floor −22 dB — nothing too quiet for a phone at 20 %
@@ -438,8 +455,8 @@ for ci, c in enumerate(cues):
 sfxL = hp(lp(sfxL, 9000, 6), 40); sfxR = hp(lp(sfxR, 9000, 6), 40)
 # v16: bus glue — gentle compression lifts the quiet ticks/pops, then +5 dB so SFX read over the bed on a phone
 from pedalboard import Pedalboard, Compressor, Limiter
-_pb = Pedalboard([Compressor(threshold_db=-30, ratio=3.0, attack_ms=2, release_ms=120), Limiter(threshold_db=-3)])
-_st = _pb(np.stack([sfxL, sfxR]).astype(np.float32) * 10 ** (5 / 20), SR).astype(np.float64)
+_pb = Pedalboard([Compressor(threshold_db=-28, ratio=2.0, attack_ms=5, release_ms=150), Limiter(threshold_db=-3)])
+_st = _pb(np.stack([sfxL, sfxR]).astype(np.float32) * 10 ** (1 / 20), SR).astype(np.float64)
 sfxL, sfxR = _st[0], _st[1]
 sfx = (sfxL + sfxR) / 2
 
@@ -553,7 +570,7 @@ venv = ss.lfilter([1 - np.exp(-1 / (0.25 * SR))], [1, -np.exp(-1 / (0.25 * SR))]
 venv = venv / (np.max(venv) + 1e-9)
 # v16: music also dips 3 dB under each SFX hit (sidechain from the SFX bus) so objects cut through
 senv = ss.lfilter([1 - np.exp(-1 / (0.06 * SR))], [1, -np.exp(-1 / (0.06 * SR))], np.abs(sfx)); senv = senv / (np.percentile(senv, 99.5) + 1e-9)
-duck_s = 10 ** (-3 * np.clip(senv, 0, 1) / 20)
+duck_s = 10 ** (-1.5 * np.clip(senv, 0, 1) / 20)  # v17: 3→1.5 dB, no audible pumping
 duck = 10 ** (-8 * np.clip(venv * 6, 0, 1) / 20) * duck_s
 mus = mus * duck
 # v16: two-band duck. The speech band (≥ 300 Hz) of the music gets out of the voice's way (−11 dB), the low end only
@@ -574,12 +591,20 @@ for a_, b_, tgt in TRK_SEG:
     L = _m.integrated_loudness(np.stack([trkL[i0_:i1_], trkR[i0_:i1_]], 1))
     g_ = 10 ** ((tgt - L) / 20)
     trkL[i0_:i1_] *= g_; trkR[i0_:i1_] *= g_
+# v17: SFX step 3 dB aside while a word is spoken (speech-band clarity); between words they keep full level
+_dv = 10 ** (-3 * np.clip(venv * 6, 0, 1) / 20); sfxL = sfxL * _dv; sfxR = sfxR * _dv; sfx = sfx * _dv
 sfx_ = sfx * 0.5
 d = int(0.011 * SR)
 musR = np.concatenate([np.zeros(d), mus[:-d]])
 musL = mus; musR = 0.55 * mus + 0.45 * musR; musL = 0.55 * mus + 0.45 * np.concatenate([mus[d // 2:], np.zeros(d // 2)])  # v14: wider (earshot: side −17 dB)
-_mid = (trkL + trkR) / 2; _sid = (trkL - trkR) / 2 * 1.55; trkL = _mid + _sid; trkR = _mid - _sid
-_cm = (cueL + cueR) / 2; _cs = (cueL - cueR) / 2 * 1.3; cueL = _cm + _cs; cueR = _cm - _cs
+_mid = (trkL + trkR) / 2; _sid = (trkL - trkR) / 2 * 1.85; trkL = _mid + _sid; trkR = _mid - _sid
+_cm = (cueL + cueR) / 2; _cs = (cueL - cueR) / 2 * 1.7; cueL = _cm + _cs; cueR = _cm - _cs
+# v17: smoother bed — high shelf −3 dB above ~5 kHz (hat edge) and −2 dB under 70 Hz (less throb fatigue)
+from pedalboard import HighShelfFilter, LowShelfFilter
+_eq = Pedalboard([HighShelfFilter(cutoff_frequency_hz=5000, gain_db=-3.0), LowShelfFilter(cutoff_frequency_hz=70, gain_db=-2.0)])
+for _a in ('cue', 'trk'):
+    _st = _eq(np.stack([globals()[_a + 'L'], globals()[_a + 'R']]).astype(np.float32), SR).astype(np.float64)
+    globals()[_a + 'L'], globals()[_a + 'R'] = _st[0], _st[1]
 mixL = vob + musL + trkL + cueL + sfxL * 0.5; mixR = vob + musR + trkR + cueR + sfxR * 0.5
 mix = (mixL + mixR) / 2
 meter = pyln.Meter(SR)

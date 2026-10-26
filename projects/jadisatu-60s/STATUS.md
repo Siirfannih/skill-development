@@ -1,9 +1,9 @@
 # STATUS — The Gap (Jadisatu) · Remotion
 
-_Update terakhir: 26 Okt 2026, 18:00 WITA · versi terakhir: **v16** (`render/TheGap-Jadisatu-v16.mp4`, 95,0 dtk, 1920×1080 @ 30 fps; versi lama ada di riwayat git)_
+_Update terakhir: 26 Okt 2026, 18:00 WITA · versi terakhir: **v17** (`render/TheGap-Jadisatu-v17.mp4`, 95,0 dtk, 1920×1080 @ 30 fps; versi lama ada di riwayat git)_
 
 ## Fase sekarang
-Video sudah lolos penilaian Irfan ("udah oke untuk kualitasmu saat ini", 26 Okt 17:06). v13 = evaluasi mandiri terhadap referensi setelah itu. v14 = finishing: durasi dipadatkan lewat VO (D-034). v15 = audio diorkestrasi ulang dengan ElevenLabs Music/SFX + fisheye di penutup (D-035). v16 = finishing review CD + audit audio HP (D-036). Fase berikutnya: iterasi lanjutan bila Irfan memberi catatan baru, lalu turunan format (Reels 9:16) bila diminta.
+Video sudah lolos penilaian Irfan ("udah oke untuk kualitasmu saat ini", 26 Okt 17:06). v13 = evaluasi mandiri terhadap referensi setelah itu. v14 = finishing: durasi dipadatkan lewat VO (D-034). v15 = audio diorkestrasi ulang dengan ElevenLabs Music/SFX + fisheye di penutup (D-035). v16 = finishing review CD + audit audio HP (D-036). v17 = audio nyaman: palet SFX halus + disiplin pita (D-037). Fase berikutnya: iterasi lanjutan bila Irfan memberi catatan baru, lalu turunan format (Reels 9:16) bila diminta.
 
 ## Keputusan terkunci (jangan diubah tanpa Irfan)
 - **Naskah & VO**: `SCRIPT.md` final; VO ElevenLabs suara Jadisatu (clone `1I8tElkHzrblGqkJtwn3`, eleven_v4). Kata Inggris ditulis dalam kutip (`"taste"`) agar dibaca Inggris. Tanpa VO Jadisatu di akhir, hanya wordmark.
