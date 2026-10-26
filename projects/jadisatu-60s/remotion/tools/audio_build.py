@@ -370,7 +370,7 @@ sfx = (sfxL + sfxR) / 2
 # ---------------- VO bus
 vob = np.zeros(N)
 for c in vo['chunks']:
-    x, sr = sf.read(f'{ROOT}/vo/v2/{c["id"]}_trim.wav')
+    x, sr = sf.read(f'{ROOT}/vo/v3/{c["id"]}_trim.wav')
     assert sr == SR
     i0 = int(c['start'] * SR); vob[i0:i0 + len(x)] += x[: N - i0]
 # light presence + gentle compression
@@ -558,7 +558,8 @@ for a_, b_, tgt in TRK_SEG:
 sfx_ = sfx * 0.5
 d = int(0.011 * SR)
 musR = np.concatenate([np.zeros(d), mus[:-d]])
-musL = mus; musR = 0.75 * mus + 0.25 * musR; musL = 0.75 * mus + 0.25 * np.concatenate([mus[d // 2:], np.zeros(d // 2)])
+musL = mus; musR = 0.55 * mus + 0.45 * musR; musL = 0.55 * mus + 0.45 * np.concatenate([mus[d // 2:], np.zeros(d // 2)])  # v14: wider (earshot: side −17 dB)
+_mid = (trkL + trkR) / 2; _sid = (trkL - trkR) / 2 * 1.55; trkL = _mid + _sid; trkR = _mid - _sid
 mixL = vob + musL + trkL + sfxL * 0.5; mixR = vob + musR + trkR + sfxR * 0.5
 mix = (mixL + mixR) / 2
 meter = pyln.Meter(SR)

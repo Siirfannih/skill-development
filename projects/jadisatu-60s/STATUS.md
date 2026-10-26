@@ -1,28 +1,29 @@
 # STATUS — The Gap (Jadisatu) · Remotion
 
-_Update terakhir: 26 Okt 2026, 17:xx WITA · versi terakhir: **v13** (`render/TheGap-Jadisatu-v13.mp4`, 105,2 dtk, 1920×1080 @ 30 fps)_
+_Update terakhir: 26 Okt 2026, 18:00 WITA · versi terakhir: **v14** (`render/TheGap-Jadisatu-v14.mp4`, 95,0 dtk, 1920×1080 @ 30 fps; v13 105,2 dtk ada di riwayat git)_
 
 ## Fase sekarang
-Video sudah lolos penilaian Irfan ("udah oke untuk kualitasmu saat ini", 26 Okt 17:06). v13 = evaluasi mandiri terhadap referensi setelah itu. Fase berikutnya: iterasi lanjutan bila Irfan memberi catatan baru, lalu turunan format (Reels 9:16) bila diminta.
+Video sudah lolos penilaian Irfan ("udah oke untuk kualitasmu saat ini", 26 Okt 17:06). v13 = evaluasi mandiri terhadap referensi setelah itu. v14 = finishing: durasi dipadatkan lewat VO (D-034). Fase berikutnya: iterasi lanjutan bila Irfan memberi catatan baru, lalu turunan format (Reels 9:16) bila diminta.
 
 ## Keputusan terkunci (jangan diubah tanpa Irfan)
 - **Naskah & VO**: `SCRIPT.md` final; VO ElevenLabs suara Jadisatu (clone `1I8tElkHzrblGqkJtwn3`, eleven_v4). Kata Inggris ditulis dalam kutip (`"taste"`) agar dibaca Inggris. Tanpa VO Jadisatu di akhir, hanya wordmark.
+- **Timing VO v14**: `vo/v3` = VO v2 dipercepat 5 % + jeda dipadatkan oleh `tools/tighten.py` (sumber: `video/src/vo_v13.json` + `vo/v2`). Ubah target jeda di skrip itu, jangan edit `vo.json` manual. Cek dengan `tools/vo_gaps.py video/src/vo.json vo/v3`.
 - **Palet**: ink #0A0A0A, putih, biru #2563EB hanya di latar terang, coral #F97066 sebagai tanda salah. Tidak ada teks/elemen biru di latar gelap. Tanpa abu-abu (D-024).
 - **Font**: Geist (UI/teks), Instrument Serif italic hanya untuk "the gap", Inter/Source Serif untuk UI ChatGPT/Claude, Fraunces/Bricolage/DM Sans di desain hasil karya.
 - **Aturan teks/visual**: teks dulu di tengah lalu visual; visual kuat = tanpa teks; hitam = fokus, putih = transformasi; tidak ada headline pojok kiri atas.
 - **UI produk asli**: ChatGPT (S2) dan Claude (S3), satu kegiatan = satu sesi. Tanpa logo merek yang digambar ulang (nama produk saja; logo resmi bisa dipasang bila Irfan memberi file).
 - **Negative effect** hanya di "taste berhenti", SFX camera click.
-- **Musik per babak**: tension bed 112 bpm (0–16 dtk) → 124 bpm tegang → drone setelah "berhenti" → braam + drive 116 bpm → drone gelap → "nightfall future bass" (Kenyset) dengan drop di "seleramu.".
+- **Musik per babak**: tension bed 112 bpm (0–15 dtk) → 124 bpm tegang → drone setelah "berhenti" → braam + drive 116 bpm → drone gelap → "nightfall future bass" (Kenyset) dengan drop di "seleramu.".
 
 ## Struktur adegan (frame @30 fps, ikut `video/src/vo.json`)
 | Adegan | File | Isi |
 |---|---|---|
-| S1 0–7,9 dtk | `S1.tsx` | "Ada ⟷ jarak" terbelah, kurva SELERA/KEMAMPUAN dengan kamera mengikuti ujung garis, menyelam ke Ira Glass "the gap" |
-| S2 7,9–27 dtk | `S2.tsx` | karya di bawah garis selera; grid "Dan rasa kecewa…" (kamera baca per kata); ChatGPT landing page; dinding hasil; taste berhenti (close-up → negative → wide) |
-| S3 27–50 dtk | `S3.tsx` | lingkaran "kita" vs tile ChatGPT/Claude/Gemini; kalimat dibangun kata per kata (gaya Baikov); 4 sesi Claude; hasil nyata + "cukup."; kartu beragam → template AI identik, disapu kamera |
-| S4 50–61 dtk | `S4.tsx` | "Ira Glass bilang," grafik banyak karya; ribuan titik; lensa "0 yang mengecewakan" |
-| S5 61–80 dtk | `S5.tsx`, `S5Art.tsx` | 3 kartu foto; Pengalaman (8 draft logo Senja, kamera menyusuri coretan); Direction (5 arah desain); Cara melihat (loupe di landing page) |
-| S6 80–105 dtk | `S6.tsx`, `S6Art.tsx` | Rick Rubin (foto kiri, teks kanan); album; studio Logic 8 take → "bagus."; "AI bisa…" + chip gambar; pusaran → orbit → kartu kaca + kursor; wordmark |
+| S1 0–7 dtk | `S1.tsx` | "Ada ⟷ jarak" terbelah, kurva SELERA/KEMAMPUAN dengan kamera mengikuti ujung garis, menyelam ke Ira Glass "the gap" |
+| S2 7–24 dtk | `S2.tsx` | karya di bawah garis selera; grid "Dan rasa kecewa…" (kamera baca per kata); ChatGPT landing page; dinding hasil; taste berhenti (close-up → negative → wide) |
+| S3 24–45,5 dtk | `S3.tsx` | lingkaran "kita" vs tile ChatGPT/Claude/Gemini; kalimat dibangun kata per kata (gaya Baikov); 4 sesi Claude; hasil nyata + "cukup."; kartu beragam → template AI identik, disapu kamera |
+| S4 45,5–55,4 dtk | `S4.tsx` | "Ira Glass bilang," grafik banyak karya; ribuan titik; lensa "0 yang mengecewakan" |
+| S5 55,4–72,3 dtk | `S5.tsx`, `S5Art.tsx` | 3 kartu foto; Pengalaman (8 draft logo Senja, kamera menyusuri coretan); Direction (5 arah desain); Cara melihat (loupe di landing page) |
+| S6 72,3–95 dtk | `S6.tsx`, `S6Art.tsx` | Rick Rubin (foto kiri, teks kanan); album; studio Logic 8 take → "bagus."; "AI bisa…" + chip gambar; pusaran → orbit → kartu kaca + kursor; wordmark |
 | Desain hasil AI | `Designs.tsx` | 11 desain nyata (landing page Senja, app lari, poster, IG, deck, toko, reel, CV, rencana bisnis, caption, template AI generik); papan QA = komposisi `Board` |
 | UI produk | `RealUI.tsx` | ChatGPT & Claude (empty state, composer, lampiran, Berpikir, streaming) |
 | Efek | `FX.tsx` + `fx.json` | RGB split, flash, negative; `fx.json` juga dibaca `tools/audio_build.py` untuk SFX |
@@ -37,6 +38,5 @@ Video sudah lolos penilaian Irfan ("udah oke untuk kualitasmu saat ini", 26 Okt 
 
 ## Sisa pekerjaan / ide iterasi berikutnya
 - Logo resmi ChatGPT/Claude/Gemini di tile beat "takut digantikan" (butuh file dari Irfan).
-- Lebar stereo masih sedikit sempit menurut earshot (−17 dB side/mid; ref −14,5…−5).
 - Versi 9:16 untuk Reels (reframe per adegan, bukan crop).
 - Riwayat revisi & pelajaran: `DECISIONS.md` (D-028 dst.) dan `claude/motion-graphic/RETRO.md` + rules inti 15–32.

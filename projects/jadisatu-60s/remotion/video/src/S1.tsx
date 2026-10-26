@@ -23,8 +23,8 @@ export const S1: React.FC = () => {
   // ---- chart part
   const axes = k(f, [0, 16], [0, 1], eOut);
   const drawSel = k(f, [fSel, fSel + 22], [0, 1], eIO);
-  const drawKem = k(f, [fKem, fKem + 22], [0, 1], eIO);
-  const area = k(f, [fKem + 16, fKem + 34], [0, 1], eIO);
+  const drawKem = k(f, [fKem, fKem + 18], [0, 1], eIO); // v14: VO 5% faster + tighter pause → beats compressed
+  const area = k(f, [fKem + 10, fKem + 22], [0, 1], eIO);
   const tGap = 0.62;
   const dive = k(f, [fIra - 10, fIra + 6], [0, 1], eIn);
   const gapCx = X(tGap);
@@ -32,11 +32,11 @@ export const S1: React.FC = () => {
   // Irfan 15:49 / v10: the camera rides the line being drawn (close), whips to the second line, then pulls back.
   const cam1 = (ff: number) => {
     const dS = k(ff, [fSel, fSel + 22], [0, 1], eIO);
-    const dK = k(ff, [fKem, fKem + 22], [0, 1], eIO);
+    const dK = k(ff, [fKem, fKem + 18], [0, 1], eIO);
     const sx = X(Math.max(0.04, dS)), sy = Y(selera(Math.max(0.04, dS)));
     const kx = X(Math.max(0.04, dK)), ky = Y(kemampuan(Math.max(0.04, dK)));
     const a = k(ff, [fKem - 3, fKem + 4], [0, 1], eIO);
-    const b = k(ff, [fKem + 20, fKem + 34], [0, 1], eIO);
+    const b = k(ff, [fKem + 14, fKem + 25], [0, 1], eIO);
     const zx = sx + (kx - sx) * a;
     const zy = sy + (ky - sy) * a;
     return { fx: zx + (960 - zx) * b, fy: zy + (560 - zy) * b, s: 2.2 - 1.2 * b };
@@ -121,7 +121,7 @@ export const S1: React.FC = () => {
           {drawSel > 0.98 && <Dot x={X(1)} y={Y(selera(1))} />}
           {drawKem > 0.98 && <Dot x={X(1)} y={Y(kemampuan(1))} s={0.7} color="rgba(255,255,255,0.6)" />}
           {area > 0.6 && (
-            <g opacity={k(f, [fKem + 28, fKem + 36], [0, 1])}>
+            <g opacity={k(f, [fKem + 16, fKem + 22], [0, 1])}>
               <line x1={gapCx} x2={gapCx} y1={Y(selera(tGap)) + 14} y2={Y(kemampuan(tGap)) - 14} stroke={C.white} strokeWidth={2} />
               <line x1={gapCx - 14} x2={gapCx + 14} y1={Y(selera(tGap)) + 14} y2={Y(selera(tGap)) + 14} stroke={C.white} strokeWidth={2} />
               <line x1={gapCx - 14} x2={gapCx + 14} y1={Y(kemampuan(tGap)) - 14} y2={Y(kemampuan(tGap)) - 14} stroke={C.white} strokeWidth={2} />
@@ -129,8 +129,8 @@ export const S1: React.FC = () => {
           )}
         </svg>
         {drawSel > 0.9 && <Tag x={X(1) + 6} y={Y(selera(1))} text="SELERA" at={fSel + 18} align="r" />}
-        {drawKem > 0.9 && <Tag x={X(1) + 6} y={Y(kemampuan(1))} text="KEMAMPUAN" at={fKem + 18} align="r" color={C.dim} />}
-        {area > 0.6 && <Tag x={gapCx + 34} y={gapCy} text="JARAK" at={fKem + 30} dy={-26} />}
+        {drawKem > 0.9 && <Tag x={X(1) + 6} y={Y(kemampuan(1))} text="KEMAMPUAN" at={fKem + 14} align="r" color={C.dim} />}
+        {area > 0.6 && <Tag x={gapCx + 34} y={gapCy} text="JARAK" at={fKem + 17} dy={-26} />}
         </div>
         </MB>
       </Cam>
