@@ -1,0 +1,1657 @@
+[
+ {
+  "file": "04_handy-mitteilung-2-473883.mp3",
+  "dur": 1.344,
+  "lufs": -17.6,
+  "peak": -3.3,
+  "attack_ms": 13.0,
+  "decay_ms": 238.0,
+  "bright": 1844,
+  "shape": "short transient (attack 13 ms, decays in 238 ms)",
+  "tags": [
+   "a triangle hit",
+   "a success chime",
+   "a glass ting",
+   "a notification ding",
+   "a kalimba note"
+  ]
+ },
+ {
+  "file": "47313572-ui-sounds-pack-2-sound-7-358894.mp3",
+  "dur": 1.959,
+  "lufs": -12.5,
+  "peak": 0.0,
+  "attack_ms": 122.0,
+  "decay_ms": 128.0,
+  "bright": 594,
+  "shape": "short one-shot (attack 122 ms, decays in 128 ms)",
+  "tags": [
+   "a success chime",
+   "an error buzz",
+   "an alarm clock beeping",
+   "a chat message pop",
+   "a notification ding"
+  ]
+ },
+ {
+  "file": "47313572-ui-sounds-pack-2-sound-8-358892.mp3",
+  "dur": 0.94,
+  "lufs": -12.2,
+  "peak": 0.0,
+  "attack_ms": 133.0,
+  "decay_ms": 115.0,
+  "bright": 615,
+  "shape": "short one-shot (attack 133 ms, decays in 115 ms)",
+  "tags": [
+   "an error buzz",
+   "a stutter glitch transition",
+   "a digital glitch",
+   "a short swish",
+   "a fast whoosh"
+  ]
+ },
+ {
+  "file": "88300.mp3",
+  "dur": 179.017,
+  "lufs": -8.7,
+  "peak": 1.7,
+  "attack_ms": 95.0,
+  "decay_ms": 39275.0,
+  "bright": 3124,
+  "shape": "long recording, loudness range 5 LU",
+  "tags": [
+   "a cow mooing",
+   "a big braam",
+   "heavy rain",
+   "a snare hit",
+   "bubbles underwater"
+  ]
+ },
+ {
+  "file": "App Click 1.wav",
+  "dur": 0.698,
+  "lufs": -12.7,
+  "peak": 5.8,
+  "attack_ms": 4.0,
+  "decay_ms": 169.0,
+  "bright": 6302,
+  "shape": "short transient (attack 4 ms, decays in 169 ms)",
+  "tags": [
+   "a squishy wet squelch",
+   "a mouth pop",
+   "a cork pop",
+   "bubbles underwater",
+   "a bubble pop"
+  ]
+ },
+ {
+  "file": "App Click 11.wav",
+  "dur": 0.698,
+  "lufs": -14.8,
+  "peak": 2.1,
+  "attack_ms": 102.0,
+  "decay_ms": 138.0,
+  "bright": 6832,
+  "shape": "busy, 11.5 onsets/s (attack 102 ms, decays in 138 ms)",
+  "tags": [
+   "a squishy wet squelch",
+   "bubbles underwater",
+   "a can opening",
+   "a record scratch",
+   "a bubble pop"
+  ]
+ },
+ {
+  "file": "benkirb-shine-1-268902.mp3",
+  "dur": 4.128,
+  "lufs": -30.1,
+  "peak": -19.2,
+  "attack_ms": 115.0,
+  "decay_ms": 1247.0,
+  "bright": 4146,
+  "shape": "2 separate events, tonal, pitch ~1174 Hz (D6) (attack 115 ms, decays in 1247 ms)",
+  "tags": [
+   "a success chime",
+   "a triangle hit",
+   "a magic sparkle chime",
+   "a small bell",
+   "a notification ding"
+  ]
+ },
+ {
+  "file": "bright-notification-352449.mp3",
+  "dur": 3.072,
+  "lufs": -19.7,
+  "peak": -2.6,
+  "attack_ms": 33.0,
+  "decay_ms": 418.0,
+  "bright": 5563,
+  "shape": "sustained (attack 33 ms, decays in 418 ms)",
+  "tags": [
+   "a glass ting",
+   "a success chime",
+   "a notification ding",
+   "a bicycle bell",
+   "a wine glass ring"
+  ]
+ },
+ {
+  "file": "bubble-254777.mp3",
+  "dur": 0.679,
+  "lufs": -18.8,
+  "peak": -5.5,
+  "attack_ms": 165.0,
+  "decay_ms": 48.0,
+  "bright": 1115,
+  "shape": "busy, 5.9 onsets/s (attack 165 ms, decays in 48 ms)",
+  "tags": [
+   "a fast whoosh",
+   "a bubble pop",
+   "a mouth pop",
+   "a short swish",
+   "a quick swipe"
+  ]
+ },
+ {
+  "file": "bubble-pops-272427.mp3",
+  "dur": 6.949,
+  "lufs": -27.1,
+  "peak": -8.8,
+  "attack_ms": 10.0,
+  "decay_ms": 183.0,
+  "bright": 1448,
+  "shape": "8 separate events (attack 10 ms, decays in 183 ms)",
+  "tags": [
+   "a mouth pop",
+   "a cork pop",
+   "a bubble pop",
+   "a suction cup pop",
+   "a liquid bloop"
+  ]
+ },
+ {
+  "file": "bubble_pop_1-476367.mp3",
+  "error": "'lufs'"
+ },
+ {
+  "file": "button-202966.mp3",
+  "dur": 1.344,
+  "lufs": -19.0,
+  "peak": 1.6,
+  "attack_ms": 3.0,
+  "decay_ms": 24.0,
+  "bright": 6710,
+  "shape": "short transient (attack 3 ms, decays in 24 ms)",
+  "tags": [
+   "a single mechanical keyboard key press",
+   "a toggle switch click",
+   "a spacebar press",
+   "a light switch flicked",
+   "a plastic toy snapping together"
+  ]
+ },
+ {
+  "file": "confirm-tap-394001.mp3",
+  "dur": 1.097,
+  "lufs": -17.7,
+  "peak": -3.1,
+  "attack_ms": 20.0,
+  "decay_ms": 110.0,
+  "bright": 1740,
+  "shape": "short one-shot (attack 20 ms, decays in 110 ms)",
+  "tags": [
+   "a cork pop",
+   "a mouth pop",
+   "a suction cup pop",
+   "a bubble pop",
+   "a kalimba note"
+  ]
+ },
+ {
+  "file": "creatorshome-plop-333525.mp3",
+  "error": "'lufs'"
+ },
+ {
+  "file": "creatorshome-sharp-pop-328170.mp3",
+  "dur": 1.019,
+  "lufs": -17.0,
+  "peak": 0.0,
+  "attack_ms": 7.0,
+  "decay_ms": 23.0,
+  "bright": 1610,
+  "shape": "short transient (attack 7 ms, decays in 23 ms)",
+  "tags": [
+   "a mouth pop",
+   "a bubble pop",
+   "a cork pop",
+   "a suction cup pop",
+   "a liquid bloop"
+  ]
+ },
+ {
+  "file": "flipcard-91468.mp3",
+  "dur": 0.967,
+  "lufs": -28.0,
+  "peak": -8.9,
+  "attack_ms": 148.0,
+  "decay_ms": 254.0,
+  "bright": 4115,
+  "shape": "busy, 7.2 onsets/s (attack 148 ms, decays in 254 ms)",
+  "tags": [
+   "a squishy wet squelch",
+   "a page turning",
+   "a quick swipe",
+   "a box lid closing",
+   "a rubber stretch"
+  ]
+ },
+ {
+  "file": "flowing-water-sound-effect-418728.mp3",
+  "error": "'decay_ms'"
+ },
+ {
+  "file": "freesound_community-appearance-effect-6733.mp3",
+  "dur": 3.912,
+  "lufs": -25.9,
+  "peak": -16.2,
+  "attack_ms": 241.0,
+  "decay_ms": 1899.0,
+  "bright": 545,
+  "shape": "sustained, tonal, pitch ~73 Hz (D2) (attack 241 ms, decays in 1899 ms)",
+  "tags": [
+   "a deep cinematic whoosh",
+   "a sub bass drop",
+   "an uplifter sweep",
+   "a cinematic hit with a long tail",
+   "an error buzz"
+  ]
+ },
+ {
+  "file": "game-start-317318.mp3",
+  "dur": 1.437,
+  "lufs": -22.3,
+  "peak": -12.4,
+  "attack_ms": 5.0,
+  "decay_ms": 463.0,
+  "bright": 1705,
+  "shape": "busy, 2.8 onsets/s (attack 5 ms, decays in 463 ms)",
+  "tags": [
+   "a kalimba note",
+   "a success chime",
+   "a notification ding",
+   "a chat message pop",
+   "a sub bass drop"
+  ]
+ },
+ {
+  "file": "glitch-fx-transitions-8-311809.mp3",
+  "dur": 2.4,
+  "lufs": -17.9,
+  "peak": -0.9,
+  "attack_ms": 61.0,
+  "decay_ms": 885.0,
+  "bright": 1689,
+  "shape": "busy, 3.3 onsets/s (attack 61 ms, decays in 885 ms)",
+  "tags": [
+   "a camera shutter click",
+   "a tape stop slowing down",
+   "a stutter glitch transition",
+   "a kick drum",
+   "a record scratch"
+  ]
+ },
+ {
+  "file": "happy-message-ping-351298.mp3",
+  "dur": 1.128,
+  "lufs": -15.6,
+  "peak": -2.8,
+  "attack_ms": 11.0,
+  "decay_ms": 390.0,
+  "bright": 1548,
+  "shape": "short transient (attack 11 ms, decays in 390 ms)",
+  "tags": [
+   "a kalimba note",
+   "a success chime",
+   "a magic sparkle chime",
+   "a notification ding",
+   "a doorbell"
+  ]
+ },
+ {
+  "file": "immersivecontrol-button-click-sound-463065.mp3",
+  "error": "'lufs'"
+ },
+ {
+  "file": "interface-digital-de-texto-text-digital-interface-218128 (1).mp3",
+  "dur": 1.536,
+  "lufs": -27.6,
+  "peak": -14.9,
+  "attack_ms": 55.0,
+  "decay_ms": 23.0,
+  "bright": 10044,
+  "shape": "short one-shot (attack 55 ms, decays in 23 ms)",
+  "tags": [
+   "an error buzz",
+   "a digital glitch",
+   "keys jingling",
+   "a stutter glitch transition",
+   "coins dropping"
+  ]
+ },
+ {
+  "file": "interface-digital-de-texto-text-digital-interface-218128.mp3",
+  "dur": 1.536,
+  "lufs": -27.6,
+  "peak": -14.9,
+  "attack_ms": 55.0,
+  "decay_ms": 23.0,
+  "bright": 10044,
+  "shape": "short one-shot (attack 55 ms, decays in 23 ms)",
+  "tags": [
+   "an error buzz",
+   "a digital glitch",
+   "keys jingling",
+   "a stutter glitch transition",
+   "coins dropping"
+  ]
+ },
+ {
+  "file": "ipad_click-99325.mp3",
+  "dur": 1.176,
+  "lufs": -43.4,
+  "peak": -16.8,
+  "attack_ms": 1.0,
+  "decay_ms": 28.0,
+  "bright": 4997,
+  "shape": "short transient (attack 1 ms, decays in 28 ms)",
+  "tags": [
+   "a single mechanical keyboard key press",
+   "a soft key release click",
+   "a pen click",
+   "a light switch flicked",
+   "a mouse click"
+  ]
+ },
+ {
+  "file": "iphone-keyboard-typing-sound-effect-336778 (1).mp3",
+  "dur": 22.7,
+  "lufs": -33.2,
+  "peak": -8.9,
+  "attack_ms": 2.0,
+  "decay_ms": 9.0,
+  "bright": 2412,
+  "shape": "busy, 2.4 onsets/s, loudness range 2 LU",
+  "tags": [
+   "a wooden block hit",
+   "a scroll wheel tick",
+   "a horse galloping",
+   "a hand clap",
+   "a typing cursor blip"
+  ]
+ },
+ {
+  "file": "iphone-keyboard-typing-sound-effect-336778.mp3",
+  "dur": 22.7,
+  "lufs": -33.2,
+  "peak": -8.9,
+  "attack_ms": 2.0,
+  "decay_ms": 9.0,
+  "bright": 2412,
+  "shape": "busy, 2.4 onsets/s, loudness range 2 LU",
+  "tags": [
+   "a wooden block hit",
+   "a scroll wheel tick",
+   "a horse galloping",
+   "a hand clap",
+   "a typing cursor blip"
+  ]
+ },
+ {
+  "file": "keyboard-typing-fast-371229.mp3",
+  "dur": 8.046,
+  "lufs": -20.5,
+  "peak": 0.3,
+  "attack_ms": 14.0,
+  "decay_ms": 288.0,
+  "bright": 2995,
+  "shape": "busy, 8.1 onsets/s (attack 14 ms, decays in 288 ms)",
+  "tags": [
+   "a laptop keyboard typing",
+   "slow typing with separate key presses",
+   "a keyboard typing fast",
+   "a single mechanical keyboard key press",
+   "a clicky mechanical keyboard"
+  ]
+ },
+ {
+  "file": "marimba-bloop-2-188149.mp3",
+  "dur": 2.28,
+  "lufs": -18.8,
+  "peak": -4.8,
+  "attack_ms": 141.0,
+  "decay_ms": 494.0,
+  "bright": 1392,
+  "shape": "busy, 2.2 onsets/s (attack 141 ms, decays in 494 ms)",
+  "tags": [
+   "a magic sparkle chime",
+   "a success chime",
+   "a glissando on bar chimes",
+   "a notification ding",
+   "a sustained glass harp tone"
+  ]
+ },
+ {
+  "file": "marimba-bloop-3-188151.mp3",
+  "dur": 2.04,
+  "lufs": -19.3,
+  "peak": -3.1,
+  "attack_ms": 61.0,
+  "decay_ms": 405.0,
+  "bright": 897,
+  "shape": "short one-shot (attack 61 ms, decays in 405 ms)",
+  "tags": [
+   "a liquid bloop",
+   "a notification ding",
+   "a success chime",
+   "a magic sparkle chime",
+   "a glass ting"
+  ]
+ },
+ {
+  "file": "mensaje-de-texto-iphone-218138.mp3",
+  "dur": 52.032,
+  "lufs": -27.5,
+  "peak": -3.7,
+  "attack_ms": 1.0,
+  "decay_ms": 11.0,
+  "bright": 2783,
+  "shape": "busy, 4.1 onsets/s, loudness range 3 LU",
+  "tags": [
+   "a pen click",
+   "a scroll wheel tick",
+   "a typing cursor blip",
+   "a plastic toy snapping together",
+   "a fidget toy clicking"
+  ]
+ },
+ {
+  "file": "message-envoye-iphone-apple-391098 (1).mp3",
+  "dur": 0.504,
+  "lufs": -5.9,
+  "peak": 0.1,
+  "attack_ms": 92.0,
+  "decay_ms": 129.0,
+  "bright": 1188,
+  "shape": "short one-shot (attack 92 ms, decays in 129 ms)",
+  "tags": [
+   "a finger squeaking on glass",
+   "a glass ting",
+   "a kalimba note",
+   "a fast whoosh",
+   "a wine glass ring"
+  ]
+ },
+ {
+  "file": "message-envoye-iphone-apple-391098.mp3",
+  "dur": 0.504,
+  "lufs": -5.9,
+  "peak": 0.1,
+  "attack_ms": 92.0,
+  "decay_ms": 129.0,
+  "bright": 1188,
+  "shape": "short one-shot (attack 92 ms, decays in 129 ms)",
+  "tags": [
+   "a finger squeaking on glass",
+   "a glass ting",
+   "a kalimba note",
+   "a fast whoosh",
+   "a wine glass ring"
+  ]
+ },
+ {
+  "file": "minimal-pop-click-ui-11-198311.mp3",
+  "dur": 1.536,
+  "lufs": -13.2,
+  "peak": -0.5,
+  "attack_ms": 4.0,
+  "decay_ms": 15.0,
+  "bright": 1977,
+  "shape": "busy, 4.6 onsets/s (attack 4 ms, decays in 15 ms)",
+  "tags": [
+   "a wooden block hit",
+   "a horse galloping",
+   "bubbles underwater",
+   "a stutter glitch transition",
+   "a digital glitch"
+  ]
+ },
+ {
+  "file": "mouse-click-290204.mp3",
+  "error": "'lufs'"
+ },
+ {
+  "file": "multi-pop-2-188167.mp3",
+  "error": "'lufs'"
+ },
+ {
+  "file": "new-notification-012-363675.mp3",
+  "dur": 1.056,
+  "lufs": -18.4,
+  "peak": -4.4,
+  "attack_ms": 5.0,
+  "decay_ms": 472.0,
+  "bright": 626,
+  "shape": "short transient, tonal, pitch ~208 Hz (Ab3) (attack 5 ms, decays in 472 ms)",
+  "tags": [
+   "a kalimba note",
+   "a success chime",
+   "a notification ding",
+   "a glass ting",
+   "a doorbell"
+  ]
+ },
+ {
+  "file": "new-notification-013-363676.mp3",
+  "dur": 1.08,
+  "lufs": -16.4,
+  "peak": -7.7,
+  "attack_ms": 59.0,
+  "decay_ms": 198.0,
+  "bright": 2667,
+  "shape": "short one-shot (attack 59 ms, decays in 198 ms)",
+  "tags": [
+   "a success chime",
+   "an alarm clock beeping",
+   "a kalimba note",
+   "a notification ding",
+   "a chat message pop"
+  ]
+ },
+ {
+  "file": "new-notification-08-352461.mp3",
+  "dur": 1.128,
+  "lufs": -19.8,
+  "peak": -4.1,
+  "attack_ms": 53.0,
+  "decay_ms": 346.0,
+  "bright": 1950,
+  "shape": "short one-shot (attack 53 ms, decays in 346 ms)",
+  "tags": [
+   "a success chime",
+   "a notification ding",
+   "a doorbell",
+   "a glass ting",
+   "a kalimba note"
+  ]
+ },
+ {
+  "file": "new-notification-09-352705.mp3",
+  "dur": 1.152,
+  "lufs": -13.2,
+  "peak": -2.8,
+  "attack_ms": 92.0,
+  "decay_ms": 326.0,
+  "bright": 1196,
+  "shape": "short one-shot, tonal, pitch ~311 Hz (Eb4) (attack 92 ms, decays in 326 ms)",
+  "tags": [
+   "a success chime",
+   "a kalimba note",
+   "a notification ding",
+   "a doorbell",
+   "an alarm clock beeping"
+  ]
+ },
+ {
+  "file": "nightfall-future-bass-music-228100.mp3",
+  "dur": 141.636,
+  "lufs": -11.7,
+  "peak": 0.7,
+  "attack_ms": 11.0,
+  "decay_ms": 2549.0,
+  "bright": 1241,
+  "shape": "long recording, loudness range 16 LU",
+  "tags": [
+   "keys jingling",
+   "an uplifter sweep",
+   "a sub bass drop",
+   "a cinematic hit with a long tail",
+   "a wooden block hit"
+  ]
+ },
+ {
+  "file": "notification-2-269292.mp3",
+  "dur": 2.142,
+  "lufs": -33.8,
+  "peak": -18.2,
+  "attack_ms": 5.0,
+  "decay_ms": 132.0,
+  "bright": 1048,
+  "shape": "short transient (attack 5 ms, decays in 132 ms)",
+  "tags": [
+   "a kalimba note",
+   "a success chime",
+   "a notification ding",
+   "a magic sparkle chime",
+   "a music box melody"
+  ]
+ },
+ {
+  "file": "notification-pluck-off-269290.mp3",
+  "dur": 1.75,
+  "lufs": -27.5,
+  "peak": -13.7,
+  "attack_ms": 5.0,
+  "decay_ms": 144.0,
+  "bright": 711,
+  "shape": "short transient (attack 5 ms, decays in 144 ms)",
+  "tags": [
+   "a crisp interface click",
+   "a chat message pop",
+   "a water drop",
+   "a liquid bloop",
+   "a notification ding"
+  ]
+ },
+ {
+  "file": "phone-typing-333292.mp3",
+  "dur": 24.189,
+  "lufs": -33.3,
+  "peak": -8.3,
+  "attack_ms": 2.0,
+  "decay_ms": 34.0,
+  "bright": 1526,
+  "shape": "busy, 3.9 onsets/s, loudness range 4 LU",
+  "tags": [
+   "a typing cursor blip",
+   "a laptop keyboard typing",
+   "a touchscreen tap",
+   "slow typing with separate key presses",
+   "a deep thocky mechanical keyboard"
+  ]
+ },
+ {
+  "file": "pop-2-269283.mp3",
+  "dur": 0.549,
+  "lufs": -32.0,
+  "peak": -10.8,
+  "attack_ms": 4.0,
+  "decay_ms": 25.0,
+  "bright": 1300,
+  "shape": "short transient (attack 4 ms, decays in 25 ms)",
+  "tags": [
+   "a mouth pop",
+   "a bubble pop",
+   "a cork pop",
+   "a suction cup pop",
+   "a wooden block hit"
+  ]
+ },
+ {
+  "file": "pop-331049.mp3",
+  "dur": 0.993,
+  "lufs": -16.7,
+  "peak": -0.5,
+  "attack_ms": 4.0,
+  "decay_ms": 24.0,
+  "bright": 1131,
+  "shape": "short transient (attack 4 ms, decays in 24 ms)",
+  "tags": [
+   "a mouth pop",
+   "a bubble pop",
+   "a cork pop",
+   "a suction cup pop",
+   "a liquid bloop"
+  ]
+ },
+ {
+  "file": "pop-402324.mp3",
+  "dur": 0.72,
+  "lufs": -16.1,
+  "peak": 0.0,
+  "attack_ms": 7.0,
+  "decay_ms": 31.0,
+  "bright": 938,
+  "shape": "short transient (attack 7 ms, decays in 31 ms)",
+  "tags": [
+   "a mouth pop",
+   "a cork pop",
+   "a bubble pop",
+   "a suction cup pop",
+   "a fast whoosh"
+  ]
+ },
+ {
+  "file": "pop-sound-423716.mp3",
+  "dur": 1.776,
+  "lufs": -12.6,
+  "peak": 0.1,
+  "attack_ms": 5.0,
+  "decay_ms": 70.0,
+  "bright": 1298,
+  "shape": "short transient (attack 5 ms, decays in 70 ms)",
+  "tags": [
+   "a mouth pop",
+   "a bubble pop",
+   "a cork pop",
+   "a suction cup pop",
+   "a wooden block hit"
+  ]
+ },
+ {
+  "file": "pop-up-notify-smooth-modern-332448 (1).mp3",
+  "dur": 3.082,
+  "lufs": -17.6,
+  "peak": -3.0,
+  "attack_ms": 8.0,
+  "decay_ms": 244.0,
+  "bright": 848,
+  "shape": "2 separate events (attack 8 ms, decays in 244 ms)",
+  "tags": [
+   "a kalimba note",
+   "a success chime",
+   "a notification ding",
+   "a magic sparkle chime",
+   "a glissando on bar chimes"
+  ]
+ },
+ {
+  "file": "pop-up-notify-smooth-modern-332448 (2).mp3",
+  "dur": 3.082,
+  "lufs": -17.6,
+  "peak": -3.0,
+  "attack_ms": 8.0,
+  "decay_ms": 244.0,
+  "bright": 848,
+  "shape": "2 separate events (attack 8 ms, decays in 244 ms)",
+  "tags": [
+   "a kalimba note",
+   "a success chime",
+   "a notification ding",
+   "a magic sparkle chime",
+   "a glissando on bar chimes"
+  ]
+ },
+ {
+  "file": "pop-up-notify-smooth-modern-332448.mp3",
+  "dur": 3.082,
+  "lufs": -17.6,
+  "peak": -3.0,
+  "attack_ms": 8.0,
+  "decay_ms": 244.0,
+  "bright": 848,
+  "shape": "2 separate events (attack 8 ms, decays in 244 ms)",
+  "tags": [
+   "a kalimba note",
+   "a success chime",
+   "a notification ding",
+   "a magic sparkle chime",
+   "a glissando on bar chimes"
+  ]
+ },
+ {
+  "file": "quick-double-swish-sfx-230502.mp3",
+  "dur": 2.142,
+  "lufs": -16.7,
+  "peak": -0.1,
+  "attack_ms": 45.0,
+  "decay_ms": 240.0,
+  "bright": 2760,
+  "shape": "short one-shot (attack 45 ms, decays in 240 ms)",
+  "tags": [
+   "a stick swung fast through the air",
+   "a fast whoosh",
+   "a short swish",
+   "cloth whipping through the air",
+   "a swoosh passing by"
+  ]
+ },
+ {
+  "file": "rope-creak-01-sound-effect-340131.mp3",
+  "dur": 1.28,
+  "lufs": -22.7,
+  "peak": -4.6,
+  "attack_ms": 179.0,
+  "decay_ms": 61.0,
+  "bright": 4905,
+  "shape": "busy, 4.7 onsets/s (attack 179 ms, decays in 61 ms)",
+  "tags": [
+   "a balloon squeak",
+   "a rubber stretch",
+   "a wood creak",
+   "a record scratch",
+   "an old typewriter"
+  ]
+ },
+ {
+  "file": "sci-fi-sfx-1-350830.mp3",
+  "dur": 1.698,
+  "lufs": -18.4,
+  "peak": -1.3,
+  "attack_ms": 25.0,
+  "decay_ms": 114.0,
+  "bright": 5411,
+  "shape": "short one-shot (attack 25 ms, decays in 114 ms)",
+  "tags": [
+   "a branch snapping",
+   "digging in soil",
+   "a punchy impact hit",
+   "a camera shutter click",
+   "a squishy wet squelch"
+  ]
+ },
+ {
+  "file": "sci-fi-sfx-13-350839 (1).mp3",
+  "dur": 1.724,
+  "lufs": -19.2,
+  "peak": -3.2,
+  "attack_ms": 26.0,
+  "decay_ms": 127.0,
+  "bright": 7405,
+  "shape": "short one-shot (attack 26 ms, decays in 127 ms)",
+  "tags": [
+   "a punchy impact hit",
+   "a fast whoosh",
+   "a squishy wet squelch",
+   "a kick drum",
+   "a quick swipe"
+  ]
+ },
+ {
+  "file": "sci-fi-sfx-13-350839.mp3",
+  "dur": 1.724,
+  "lufs": -19.2,
+  "peak": -3.2,
+  "attack_ms": 26.0,
+  "decay_ms": 127.0,
+  "bright": 7405,
+  "shape": "short one-shot (attack 26 ms, decays in 127 ms)",
+  "tags": [
+   "a punchy impact hit",
+   "a fast whoosh",
+   "a squishy wet squelch",
+   "a kick drum",
+   "a quick swipe"
+  ]
+ },
+ {
+  "file": "sci-fi-sfx-2-350831.mp3",
+  "dur": 1.698,
+  "lufs": -18.4,
+  "peak": -1.3,
+  "attack_ms": 25.0,
+  "decay_ms": 114.0,
+  "bright": 5411,
+  "shape": "short one-shot (attack 25 ms, decays in 114 ms)",
+  "tags": [
+   "a branch snapping",
+   "digging in soil",
+   "a punchy impact hit",
+   "a camera shutter click",
+   "a squishy wet squelch"
+  ]
+ },
+ {
+  "file": "sci-fi-sfx-4-350829.mp3",
+  "dur": 1.776,
+  "lufs": -17.2,
+  "peak": -1.3,
+  "attack_ms": 25.0,
+  "decay_ms": 168.0,
+  "bright": 6002,
+  "shape": "short one-shot (attack 25 ms, decays in 168 ms)",
+  "tags": [
+   "a punchy impact hit",
+   "digging in soil",
+   "a camera shutter click",
+   "a branch snapping",
+   "a gunshot"
+  ]
+ },
+ {
+  "file": "sci-fi-sfx-7-350834.mp3",
+  "dur": 1.829,
+  "lufs": -15.2,
+  "peak": -1.1,
+  "attack_ms": 17.0,
+  "decay_ms": 322.0,
+  "bright": 7033,
+  "shape": "short one-shot (attack 17 ms, decays in 322 ms)",
+  "tags": [
+   "a camera shutter click",
+   "digging in soil",
+   "an old typewriter",
+   "a branch snapping",
+   "a power drill"
+  ]
+ },
+ {
+  "file": "sfx-acceptation-363730.mp3",
+  "dur": 2.456,
+  "lufs": -23.1,
+  "peak": -9.9,
+  "attack_ms": 102.0,
+  "decay_ms": 1157.0,
+  "bright": 2575,
+  "shape": "short one-shot (attack 102 ms, decays in 1157 ms)",
+  "tags": [
+   "a notification ding",
+   "a success chime",
+   "a rubber stretch",
+   "an error buzz",
+   "a magic sparkle chime"
+  ]
+ },
+ {
+  "file": "sfx-erreur-363728.mp3",
+  "dur": 0.888,
+  "lufs": -22.6,
+  "peak": -6.7,
+  "attack_ms": 36.0,
+  "decay_ms": 391.0,
+  "bright": 5191,
+  "shape": "short one-shot (attack 36 ms, decays in 391 ms)",
+  "tags": [
+   "a punchy impact hit",
+   "a sword being drawn",
+   "a zipper",
+   "a metal scrape",
+   "a metallic clang"
+  ]
+ },
+ {
+  "file": "shine-6-268910.mp3",
+  "dur": 6.744,
+  "lufs": -15.3,
+  "peak": -2.7,
+  "attack_ms": 265.0,
+  "decay_ms": 1324.0,
+  "bright": 850,
+  "shape": "2 separate events, tonal, pitch ~98 Hz (G2) (attack 265 ms, decays in 1324 ms)",
+  "tags": [
+   "a success chime",
+   "a notification ding",
+   "a magic sparkle chime",
+   "a cinematic hit with a long tail",
+   "a chat message pop"
+  ]
+ },
+ {
+  "file": "simple-pop-noise-383737.mp3",
+  "dur": 2.136,
+  "lufs": -17.8,
+  "peak": -0.6,
+  "attack_ms": 4.0,
+  "decay_ms": 38.0,
+  "bright": 511,
+  "shape": "short transient (attack 4 ms, decays in 38 ms)",
+  "tags": [
+   "a mouth pop",
+   "a bubble pop",
+   "a liquid bloop",
+   "a cork pop",
+   "bubbles underwater"
+  ]
+ },
+ {
+  "file": "simple-whoosh-02-433006.mp3",
+  "dur": 4.032,
+  "lufs": -12.2,
+  "peak": 0.0,
+  "attack_ms": 294.0,
+  "decay_ms": 761.0,
+  "bright": 197,
+  "shape": "busy, 6.2 onsets/s (attack 294 ms, decays in 761 ms)",
+  "tags": [
+   "a deep cinematic whoosh",
+   "a fast whoosh",
+   "a soft air whoosh",
+   "a swoosh passing by",
+   "a deep cinematic boom"
+  ]
+ },
+ {
+  "file": "simple-whoosh-382724 (1).mp3",
+  "dur": 0.575,
+  "lufs": -15.2,
+  "peak": -2.0,
+  "attack_ms": 68.0,
+  "decay_ms": 139.0,
+  "bright": 1553,
+  "shape": "short one-shot (attack 68 ms, decays in 139 ms)",
+  "tags": [
+   "a fast whoosh",
+   "a stick swung fast through the air",
+   "a swoosh passing by",
+   "a whip pan transition",
+   "a short swish"
+  ]
+ },
+ {
+  "file": "simple-whoosh-382724.mp3",
+  "dur": 0.575,
+  "lufs": -15.2,
+  "peak": -2.0,
+  "attack_ms": 68.0,
+  "decay_ms": 139.0,
+  "bright": 1553,
+  "shape": "short one-shot (attack 68 ms, decays in 139 ms)",
+  "tags": [
+   "a fast whoosh",
+   "a stick swung fast through the air",
+   "a swoosh passing by",
+   "a whip pan transition",
+   "a short swish"
+  ]
+ },
+ {
+  "file": "soft-pop-sfx-433612.mp3",
+  "error": "'lufs'"
+ },
+ {
+  "file": "soft-subtle-ui-pop-sfx-348820.mp3",
+  "dur": 0.575,
+  "lufs": -18.2,
+  "peak": -2.1,
+  "attack_ms": 62.0,
+  "decay_ms": 79.0,
+  "bright": 649,
+  "shape": "short one-shot (attack 62 ms, decays in 79 ms)",
+  "tags": [
+   "a cork pop",
+   "a bubble pop",
+   "bubbles underwater",
+   "a mouth pop",
+   "a wooden block hit"
+  ]
+ },
+ {
+  "file": "soft-ui-pop-light-minimal-click-451232.mp3",
+  "dur": 5.042,
+  "lufs": -25.6,
+  "peak": -6.5,
+  "attack_ms": 56.0,
+  "decay_ms": 201.0,
+  "bright": 665,
+  "shape": "busy, 2.0 onsets/s (attack 56 ms, decays in 201 ms)",
+  "tags": [
+   "pouring water",
+   "a liquid bloop",
+   "a notification ding",
+   "a chat message pop",
+   "a water drop"
+  ]
+ },
+ {
+  "file": "son_duquotidient-message-envoye-iphone-apple-391098.mp3",
+  "dur": 0.504,
+  "lufs": -5.9,
+  "peak": 0.1,
+  "attack_ms": 92.0,
+  "decay_ms": 129.0,
+  "bright": 1188,
+  "shape": "short one-shot (attack 92 ms, decays in 129 ms)",
+  "tags": [
+   "a finger squeaking on glass",
+   "a glass ting",
+   "a kalimba note",
+   "a fast whoosh",
+   "a wine glass ring"
+  ]
+ },
+ {
+  "file": "sonar-ping-95840.mp3",
+  "dur": 3.553,
+  "lufs": -20.5,
+  "peak": -9.4,
+  "attack_ms": 24.0,
+  "decay_ms": 970.0,
+  "bright": 1089,
+  "shape": "2 separate events, tonal, pitch ~1101 Hz (C#6) (attack 24 ms, decays in 970 ms)",
+  "tags": [
+   "a notification ding",
+   "a deep cinematic boom",
+   "an explosion",
+   "a success chime",
+   "an error buzz"
+  ]
+ },
+ {
+  "file": "success-340660.mp3",
+  "dur": 3.408,
+  "lufs": -16.7,
+  "peak": -4.6,
+  "attack_ms": 149.0,
+  "decay_ms": 2061.0,
+  "bright": 1409,
+  "shape": "4 separate events, tonal, pitch ~87 Hz (F2) (attack 149 ms, decays in 2.1 s)",
+  "tags": [
+   "a success chime",
+   "a notification ding",
+   "a glockenspiel run",
+   "a magic sparkle chime",
+   "a glissando on bar chimes"
+  ]
+ },
+ {
+  "file": "swoosh-010-352856.mp3",
+  "dur": 1.368,
+  "lufs": -17.6,
+  "peak": -2.7,
+  "attack_ms": 122.0,
+  "decay_ms": 332.0,
+  "bright": 1046,
+  "shape": "busy, 2.9 onsets/s (attack 122 ms, decays in 332 ms)",
+  "tags": [
+   "a fast whoosh",
+   "a swoosh passing by",
+   "a deep cinematic whoosh",
+   "a short swish",
+   "a stick swung fast through the air"
+  ]
+ },
+ {
+  "file": "swoosh-014-383768 (2).mp3",
+  "dur": 1.056,
+  "lufs": -15.1,
+  "peak": -1.8,
+  "attack_ms": 102.0,
+  "decay_ms": 347.0,
+  "bright": 375,
+  "shape": "busy, 3.8 onsets/s (attack 102 ms, decays in 347 ms)",
+  "tags": [
+   "a fast whoosh",
+   "a short swish",
+   "a swoosh passing by",
+   "a deep cinematic whoosh",
+   "a stick swung fast through the air"
+  ]
+ },
+ {
+  "file": "swoosh-014-383768.mp3",
+  "dur": 1.056,
+  "lufs": -15.1,
+  "peak": -1.8,
+  "attack_ms": 102.0,
+  "decay_ms": 347.0,
+  "bright": 375,
+  "shape": "busy, 3.8 onsets/s (attack 102 ms, decays in 347 ms)",
+  "tags": [
+   "a fast whoosh",
+   "a short swish",
+   "a swoosh passing by",
+   "a deep cinematic whoosh",
+   "a stick swung fast through the air"
+  ]
+ },
+ {
+  "file": "swoosh-015-383769.mp3",
+  "dur": 1.056,
+  "lufs": -19.4,
+  "peak": -1.9,
+  "attack_ms": 178.0,
+  "decay_ms": 175.0,
+  "bright": 1178,
+  "shape": "busy, 3.8 onsets/s (attack 178 ms, decays in 175 ms)",
+  "tags": [
+   "a fast whoosh",
+   "a swoosh passing by",
+   "cloth whipping through the air",
+   "a deep cinematic whoosh",
+   "a stick swung fast through the air"
+  ]
+ },
+ {
+  "file": "swoosh-06-351021.mp3",
+  "dur": 1.104,
+  "lufs": -17.3,
+  "peak": -4.4,
+  "attack_ms": 221.0,
+  "decay_ms": 307.0,
+  "bright": 2408,
+  "shape": "busy, 4.5 onsets/s (attack 221 ms, decays in 307 ms)",
+  "tags": [
+   "a fast whoosh",
+   "a swoosh passing by",
+   "a deep cinematic whoosh",
+   "a stick swung fast through the air",
+   "a short swish"
+  ]
+ },
+ {
+  "file": "swoosh-2-359826.mp3",
+  "dur": 1.104,
+  "lufs": -19.3,
+  "peak": -2.3,
+  "attack_ms": 162.0,
+  "decay_ms": 210.0,
+  "bright": 468,
+  "shape": "busy, 6.3 onsets/s (attack 162 ms, decays in 210 ms)",
+  "tags": [
+   "a fast whoosh",
+   "a swoosh passing by",
+   "a short swish",
+   "a deep cinematic whoosh",
+   "a stick swung fast through the air"
+  ]
+ },
+ {
+  "file": "swoosh-sound-effect-for-fight-scenes-or-transitions-2-149890.mp3",
+  "error": "'lufs'"
+ },
+ {
+  "file": "text-sound-4-30218.mp3",
+  "dur": 16.562,
+  "lufs": -26.4,
+  "peak": -3.5,
+  "attack_ms": 1.0,
+  "decay_ms": 16347.0,
+  "bright": 5483,
+  "shape": "busy, 5.9 onsets/s (attack 1 ms, decays in 16.3 s)",
+  "tags": [
+   "an error buzz",
+   "a scroll wheel tick",
+   "a record scratch",
+   "a spacebar press",
+   "a soft key release click"
+  ]
+ },
+ {
+  "file": "tiktok_drop_sample_click3_kofi_by_miraclei-360034.mp3",
+  "dur": 1.593,
+  "lufs": -29.4,
+  "peak": -13.7,
+  "attack_ms": 9.0,
+  "decay_ms": 69.0,
+  "bright": 725,
+  "shape": "short transient (attack 9 ms, decays in 69 ms)",
+  "tags": [
+   "a bubble pop",
+   "a liquid bloop",
+   "bubbles underwater",
+   "a mouth pop",
+   "a water drop"
+  ]
+ },
+ {
+  "file": "ui-interface-sound-26-299883.mp3",
+  "dur": 6.024,
+  "lufs": -12.2,
+  "peak": -1.8,
+  "attack_ms": 81.0,
+  "decay_ms": 673.0,
+  "bright": 10157,
+  "shape": "sustained (attack 81 ms, decays in 673 ms)",
+  "tags": [
+   "a digital glitch",
+   "a crisp interface click",
+   "an error buzz",
+   "a magic sparkle chime",
+   "a stutter glitch transition"
+  ]
+ },
+ {
+  "file": "ui-pop-sound-316482.mp3",
+  "dur": 1.358,
+  "lufs": -27.6,
+  "peak": -11.3,
+  "attack_ms": 4.0,
+  "decay_ms": 28.0,
+  "bright": 1039,
+  "shape": "short transient (attack 4 ms, decays in 28 ms)",
+  "tags": [
+   "a mouth pop",
+   "a bubble pop",
+   "a cork pop",
+   "a liquid bloop",
+   "a wooden block hit"
+  ]
+ },
+ {
+  "file": "ui-pop-up-2-197887.mp3",
+  "dur": 0.456,
+  "lufs": -13.6,
+  "peak": -0.5,
+  "attack_ms": 4.0,
+  "decay_ms": 90.0,
+  "bright": 832,
+  "shape": "short transient (attack 4 ms, decays in 90 ms)",
+  "tags": [
+   "a bubble pop",
+   "a liquid bloop",
+   "bubbles underwater",
+   "a mouth pop",
+   "a cork pop"
+  ]
+ },
+ {
+  "file": "ui-processing-data-sequence-modern-interface-progress-02-230495.mp3",
+  "dur": 12.072,
+  "lufs": -22.8,
+  "peak": -9.5,
+  "attack_ms": 262.0,
+  "decay_ms": 4870.0,
+  "bright": 12462,
+  "shape": "busy, 4.2 onsets/s (attack 262 ms, decays in 4.9 s)",
+  "tags": [
+   "a spray can hissing",
+   "a summer meadow with insects",
+   "insects buzzing",
+   "a small animal running through grass",
+   "a power drill"
+  ]
+ },
+ {
+  "file": "ui-sound-2-374229.mp3",
+  "dur": 1.296,
+  "lufs": -13.9,
+  "peak": -0.1,
+  "attack_ms": 17.0,
+  "decay_ms": 699.0,
+  "bright": 318,
+  "shape": "short one-shot, tonal, pitch ~175 Hz (F3) (attack 17 ms, decays in 699 ms)",
+  "tags": [
+   "a kalimba note",
+   "a success chime",
+   "a glass ting",
+   "a notification ding",
+   "a wine glass ring"
+  ]
+ },
+ {
+  "file": "ui-sound-270349 (1).mp3",
+  "dur": 3.239,
+  "lufs": -26.3,
+  "peak": -15.0,
+  "attack_ms": 112.0,
+  "decay_ms": 231.0,
+  "bright": 464,
+  "shape": "busy, 1.9 onsets/s (attack 112 ms, decays in 231 ms)",
+  "tags": [
+   "a notification ding",
+   "a success chime",
+   "a crisp interface click",
+   "a chat message pop",
+   "a liquid bloop"
+  ]
+ },
+ {
+  "file": "ui-sound-270349.mp3",
+  "dur": 3.239,
+  "lufs": -26.3,
+  "peak": -15.0,
+  "attack_ms": 112.0,
+  "decay_ms": 231.0,
+  "bright": 464,
+  "shape": "busy, 1.9 onsets/s (attack 112 ms, decays in 231 ms)",
+  "tags": [
+   "a notification ding",
+   "a success chime",
+   "a crisp interface click",
+   "a chat message pop",
+   "a liquid bloop"
+  ]
+ },
+ {
+  "file": "ui-sound-374228.mp3",
+  "dur": 0.888,
+  "lufs": -13.0,
+  "peak": 0.0,
+  "attack_ms": 28.0,
+  "decay_ms": 438.0,
+  "bright": 509,
+  "shape": "short one-shot, tonal, pitch ~147 Hz (D3) (attack 28 ms, decays in 438 ms)",
+  "tags": [
+   "a kalimba note",
+   "a success chime",
+   "a notification ding",
+   "a chat message pop",
+   "a glass ting"
+  ]
+ },
+ {
+  "file": "ui-sound-off-270300.mp3",
+  "dur": 3.344,
+  "lufs": -28.7,
+  "peak": -15.3,
+  "attack_ms": 139.0,
+  "decay_ms": 254.0,
+  "bright": 616,
+  "shape": "sustained (attack 139 ms, decays in 254 ms)",
+  "tags": [
+   "a short swish",
+   "a cinematic hit with a long tail",
+   "a stutter glitch transition",
+   "a deep cinematic boom",
+   "a water drop"
+  ]
+ },
+ {
+  "file": "ui-sounds-pack-2-sound-1-358893.mp3",
+  "dur": 2.064,
+  "lufs": -28.9,
+  "peak": -11.6,
+  "attack_ms": 3.0,
+  "decay_ms": 35.0,
+  "bright": 1020,
+  "shape": "short transient (attack 3 ms, decays in 35 ms)",
+  "tags": [
+   "a liquid bloop",
+   "a water drop",
+   "a chat message pop",
+   "a cork pop",
+   "a bubble pop"
+  ]
+ },
+ {
+  "file": "ui-sounds-pack-2-sound-2-358896.mp3",
+  "dur": 3.109,
+  "lufs": -26.3,
+  "peak": -6.7,
+  "attack_ms": 105.0,
+  "decay_ms": 163.0,
+  "bright": 545,
+  "shape": "busy, 1.6 onsets/s (attack 105 ms, decays in 163 ms)",
+  "tags": [
+   "a short swish",
+   "a cinematic hit with a long tail",
+   "a fast whoosh",
+   "a liquid bloop",
+   "a chat message pop"
+  ]
+ },
+ {
+  "file": "ui-sounds-pack-2-sound-4-358895.mp3",
+  "dur": 2.508,
+  "lufs": -28.4,
+  "peak": -12.7,
+  "attack_ms": 4.0,
+  "decay_ms": 35.0,
+  "bright": 1289,
+  "shape": "busy, 1.6 onsets/s (attack 4 ms, decays in 35 ms)",
+  "tags": [
+   "a kalimba note",
+   "a stutter glitch transition",
+   "a digital glitch",
+   "a success chime",
+   "a cork pop"
+  ]
+ },
+ {
+  "file": "ui-sounds-pack-2-sound-6-358891.mp3",
+  "dur": 0.758,
+  "lufs": -14.7,
+  "peak": -3.0,
+  "attack_ms": 58.0,
+  "decay_ms": 56.0,
+  "bright": 3043,
+  "shape": "short one-shot (attack 58 ms, decays in 56 ms)",
+  "tags": [
+   "a success chime",
+   "a magic sparkle chime",
+   "an alarm clock beeping",
+   "a notification ding",
+   "a digital glitch"
+  ]
+ },
+ {
+  "file": "ui-sounds-pack-2-sound-7-358894.mp3",
+  "dur": 1.959,
+  "lufs": -12.5,
+  "peak": 0.0,
+  "attack_ms": 122.0,
+  "decay_ms": 128.0,
+  "bright": 594,
+  "shape": "short one-shot (attack 122 ms, decays in 128 ms)",
+  "tags": [
+   "a success chime",
+   "an error buzz",
+   "an alarm clock beeping",
+   "a chat message pop",
+   "a notification ding"
+  ]
+ },
+ {
+  "file": "ui-sounds-pack-3-7-359721 (1).mp3",
+  "error": "'lufs'"
+ },
+ {
+  "file": "ui-sounds-pack-3-7-359721.mp3",
+  "error": "'lufs'"
+ },
+ {
+  "file": "ui_sci-fi-sound-36061.mp3",
+  "dur": 2.04,
+  "lufs": -29.2,
+  "peak": -24.0,
+  "attack_ms": 97.0,
+  "decay_ms": 130.0,
+  "bright": 805,
+  "shape": "short one-shot (attack 97 ms, decays in 130 ms)",
+  "tags": [
+   "a success chime",
+   "a notification ding",
+   "an error buzz",
+   "a digital glitch",
+   "a sub bass drop"
+  ]
+ },
+ {
+  "file": "universfield-computer-mouse-click-352734.mp3",
+  "dur": 0.648,
+  "lufs": -33.4,
+  "peak": -13.0,
+  "attack_ms": 3.0,
+  "decay_ms": 22.0,
+  "bright": 5770,
+  "shape": "short transient (attack 3 ms, decays in 22 ms)",
+  "tags": [
+   "a single mechanical keyboard key press",
+   "slow typing with separate key presses",
+   "a clicky mechanical keyboard",
+   "a spacebar press",
+   "a keyboard typing fast"
+  ]
+ },
+ {
+  "file": "universfield-swoosh-023-454830.mp3",
+  "dur": 1.272,
+  "lufs": -15.7,
+  "peak": -3.7,
+  "attack_ms": 285.0,
+  "decay_ms": 342.0,
+  "bright": 464,
+  "shape": "busy, 3.1 onsets/s (attack 285 ms, decays in 342 ms)",
+  "tags": [
+   "a fast whoosh",
+   "a deep cinematic whoosh",
+   "a swoosh passing by",
+   "a soft air whoosh",
+   "a short swish"
+  ]
+ },
+ {
+  "file": "victorabdo-spin-232536.mp3",
+  "dur": 3.683,
+  "lufs": -36.4,
+  "peak": -11.4,
+  "attack_ms": 2.0,
+  "decay_ms": 40.0,
+  "bright": 9194,
+  "shape": "busy, 6.2 onsets/s (attack 2 ms, decays in 40 ms)",
+  "tags": [
+   "a scroll wheel tick",
+   "a ratchet clicking",
+   "a fidget toy clicking",
+   "a soft key release click",
+   "a pen click"
+  ]
+ },
+ {
+  "file": "whoosh-arrow-start-243483.mp3",
+  "dur": 8.04,
+  "lufs": -18.7,
+  "peak": 0.4,
+  "attack_ms": 31.0,
+  "decay_ms": 73.0,
+  "bright": 5423,
+  "shape": "3 separate events (attack 31 ms, decays in 73 ms)",
+  "tags": [
+   "a whip pan transition",
+   "a fast whoosh",
+   "a stick swung fast through the air",
+   "a sword being drawn",
+   "a short swish"
+  ]
+ },
+ {
+  "file": "whoosh-end-384629.mp3",
+  "dur": 8.04,
+  "lufs": -10.3,
+  "peak": 0.0,
+  "attack_ms": 76.0,
+  "decay_ms": 464.0,
+  "bright": 74,
+  "shape": "3 separate events, tonal, pitch ~50 Hz (G1) (attack 76 ms, decays in 464 ms)",
+  "tags": [
+   "a deep cinematic whoosh",
+   "a deep cinematic boom",
+   "a cinematic hit with a long tail",
+   "a fast whoosh",
+   "a sub bass drop"
+  ]
+ },
+ {
+  "file": "whoosh-velocity-383019.mp3",
+  "dur": 6.024,
+  "lufs": -11.4,
+  "peak": 0.1,
+  "attack_ms": 85.0,
+  "decay_ms": 376.0,
+  "bright": 1187,
+  "shape": "6 separate events (attack 85 ms, decays in 376 ms)",
+  "tags": [
+   "a fast whoosh",
+   "a short swish",
+   "a deep cinematic whoosh",
+   "a swoosh passing by",
+   "a soft air whoosh"
+  ]
+ },
+ {
+  "file": "woosh-230554.mp3",
+  "dur": 1.149,
+  "lufs": -15.0,
+  "peak": -0.1,
+  "attack_ms": 38.0,
+  "decay_ms": 57.0,
+  "bright": 2678,
+  "shape": "short one-shot (attack 38 ms, decays in 57 ms)",
+  "tags": [
+   "a fast whoosh",
+   "a stick swung fast through the air",
+   "a swoosh passing by",
+   "a punchy impact hit",
+   "cloth whipping through the air"
+  ]
+ }
+]

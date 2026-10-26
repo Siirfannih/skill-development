@@ -49,3 +49,46 @@ Revisi Irfan: tipografi glitch/terpotong ("dilewati", "terjebak", "belum cukup")
 Akar masalah: (1) skill terbaru di ~/Proyek/video-editor/skills tidak dimuat (aturan yang dilanggar — larangan teks kiri+UI kanan, larangan stabilo/blok, TYPE-TEST, TRANSITION-SHEET — sudah ada di playbook/TYPE-STYLES); (2) tidak ada alat ukur audio sendiri, tidak ada cek tumpang tindih teks di QA; (3) pipeline dipilih engine kode tanpa membandingkan dengan AE yang sudah terbukti; (4) skill terpecah di 5+ file.
 Usulan aturan: disatukan ke motion-director v3 (SKILL.md, 18 Okt): §0 muat konteks dari Mac; §2 bedah referensi per frame + peta audio (librosa + Demucs, Gemini hanya tambahan); §3 AE default + hibrida engine; §6.3/§6.11 larangan teks kiri+UI kanan dan elemen diperbesar keluar frame; §7.3 larangan blok/scrim/glitch; §7.4 default teks 2.5D, ekstrusi hanya lolos TYPE-TEST; §8 T28–T32 rotasi 2.5D; §14.3 SFX ≥85 % terukur termasuk onset teks/counter/transisi; §16 cek tumpang tindih + loop kritik ≥3 putaran. motion-graphic-playbook, irfan-motion-director, MOTION-SYSTEM, TYPE-STYLES menjadi arsip (versi lama motion-director: SKILL.v2-17okt.md).
 Status: menunggu persetujuan
+
+
+### 2026-10-26 · Jadisatu The Gap · review v3 (13:01–13:02)
+Revisi Irfan: (1) "Adele." biru di latar navy = kontras tidak enak; pola warna ini sudah ia ubah di storyboard tapi muncul lagi. (2) Layout label kecil di pojok + "Johnny Cash"/"Adele." miring bertangga. (3) Storyboard dipakai sebagai visual akhir (garis ukur + teks "seleramu/kemampuanmu"); seharusnya hanya struktur kasar, visual akhir harus dikembangkan jadi visual yang mudah dipahami (acuan: grafik editorial Cielo "field vs firework", "positioning ladder", kurva good/bad habits).
+Akar masalah: skill mengizinkan "gelap = navy + biru"; tidak ada aturan bahwa storyboard hanya struktur; model membangun dari moodboard artifact tanpa membaca projects/jadisatu-60s (DECISIONS D-024 tanpa abu-abu, Geist, Ira di latar putih).
+Aturan: direction.md §13 (biru hanya di latar terang, cek kontras ≥ 7:1), §13.1 (larangan layout label pojok + kata miring bertangga; storyboard = struktur), SKILL.md rules inti 15–16.
+Status: diterapkan (Irfan meminta langsung: "tambahkan rules").
+
+### 2026-10-26 · Jadisatu The Gap · review v7a storyboard (13:48–14:06)
+Revisi Irfan: (1) UI chat AI dibuat sendiri (generik); seharusnya UI asli ChatGPT/Claude seperti ref Apple Style (Gmail/IG/Google asli). (2) Kode S2/S3 ditulis ulang, sehingga beat yang sudah bagus di v6 (grid "Dan rasa kecewa itu tanda taste-mu sedang bekerja") hilang; yang ia minta hanya kamera close lalu slide per kata, baru reveal. (3) Feedback ditelan mentah tanpa QC sendiri. (4) Grafik selalu format/posisi sama; perlu variasi kamera + effect family (negative, klik, RGB). (5) Teks pojok kiri atas; aturan teks/visual bergiliran, hitam = fokus, putih = transformasi.
+Akar masalah: rule 14 (adegan disetujui tidak disentuh) ada tapi tidak dipraktikkan sebagai diff per beat; tidak ada aturan UI produk asli.
+Aturan: SKILL.md rules inti 18–21.
+Status: diterapkan (v8: v6 grid dipulihkan + kamera baca; ChatGPT & Claude UI asli; fx.json → SFX Kenyset via earshot).
+
+### 2026-10-26 · Jadisatu The Gap · review v8 (14:41–14:48)
+Revisi Irfan: (1) SFX negative sumbang; seharusnya camera click. (2) Negative ditabur (spam); yang benar hanya di "taste berhenti". (3) Shape placeholder storyboard (lingkaran + garis, kotak biru, kartu kosong) jadi visual final; harus gambar/ilustrasi nyata yang relevan. (4) Rick Rubin foto kanan, teks kiri; urutan baca terbalik. (5) Musik piano yang sama dari awal sampai akhir; tidak membangun suasana. (6) Garis + wordmark di akhir tanpa makna. (7) "AI bisa…" terlalu polos. (8) 4 tugas dalam satu sesi Claude + timer 3 detik = tidak logis; kiasan digambar harfiah. (9) Landing page hasil AI terlalu mentah, tidak lolos sebagai website asli: "visual is king".
+Akar masalah: tidak ada gerbang uji realisme dan kualitas objek; placeholder storyboard dianggap selesai; efek dan musik dirancang sebagai lapisan, bukan berdasarkan fungsi per babak.
+Aturan: SKILL.md rules inti 22–25 (+ devil's advocate dari working-with-irfan §2a dipakai untuk keputusan visual sendiri).
+Status: diterapkan di v9 (Designs.tsx: 11 desain nyata; sesi Claude terpisah; S5 draft logo/arah desain/loupe; Rick foto kiri; AI bisa ala Apple; musik per babak + track Kenyset).
+
+### 2026-10-26 · Jadisatu The Gap · review storyboard v9 (15:15)
+Revisi Irfan: (1) "ribuan" digambar harfiah jadi dinding ribuan gambar + lubang hitam di tengah (masker teks); seharusnya kiasan "tanpa batas" cukup titik-titik (atau tombol Generate yang berlipat seperti ref Output Motion). (2) Penutup "seleramu" masih polos teks serif + latar; minta urutan ref: kartu berputar seperti pusaran → merapat jadi orbit di sekitar teks → kartu kaca di latar gelap dengan kursor.
+Akar masalah: masukan kritik subagent ("ganti titik dengan karya nyata") diterapkan tanpa devil's advocate terhadap maksud kiasan; masker "clear zone" untuk teks terlihat sebagai objek.
+Aturan: rule 23 diperluas: kiasan VO (ribuan, hitungan detik) = metafora visual, bukan hitungan harfiah; masukan reviewer/subagent juga lewat devil's advocate; masker keterbacaan teks tidak boleh tampak sebagai bentuk.
+Status: diterapkan (titik dikembalikan tanpa lubang; Finale = pusaran → orbit → kartu kaca + kursor ChatGPT/Claude/Gemini di luar, "Kamu" di dalam).
+
+### 2026-10-26 · Jadisatu The Gap · review v9 (15:49)
+Revisi Irfan: kamera masih menampilkan semua bagian; minta close-up mengikuti titik taste lalu patah ke wide saat negative; barisan kartu "sama" disapu kiri→kanan tanpa teks; "bagus." masih text box; 0–8 detik skor 2 (piano gagal, terlalu text box, tanpa gebrakan), 8–22 skor 5 (piano sedih vs cut cepat). Lampiran panduan Gemini: dipakai selektif.
+Akar masalah: kamera dipakai sebagai framing statis per adegan, bukan alat fokus; musik dipilih per babak tapi babak 1 tidak dicocokkan dengan tempo visual; hook tidak diuji terhadap perilaku scroll Instagram.
+Aturan: SKILL.md rules inti 26–28.
+Status: diterapkan di v10 (hook kata terbelah + hantaman frame 0; kamera tracking kurva; taste close→cut wide; sapuan kartu kembar; push-in composer Claude; tracking draft logo; push loupe + blur luar; studio Logic 8 take untuk "bagus."; tension bed 112 bpm).
+
+### 2026-10-26 · Jadisatu The Gap · v10 → v11 (16:19, panduan Irfan + Gemini)
+Temuan yang terverifikasi: kamera grid "Dan rasa kecewa" meninggalkan kata sebelum kata berikutnya diucapkan; framing setelah push-in Claude memotong bubble atas; SFX mengetik/coretan/playhead ada di cue sheet tapi terlalu pelan (stem −40 s/d −42 LUFS).
+Temuan Gemini yang ditolak (bertentangan dengan Irfan atau tidak terbukti): "sama." harus muncul (Irfan minta dihapus), "tidak ada SFX sama sekali" (stem membuktikan ada), glow biru di latar gelap (melanggar aturan warna), plugin @remotion/motion-blur & SFX data-URI prosedural (render 8× lebih lambat / duplikasi pipeline audio yang sudah ada).
+Aturan: SKILL.md rules inti 29–30.
+
+### 2026-10-26 · Jadisatu The Gap · review v11 (16:40)
+Revisi Irfan: (1) kartu website/Kopi Senja di grafik pembuka tidak relevan, karena bagian awal bicara ekspektasi (perilaku manusia), bukan output; (2) "bekerja." sempat terpotong saat muncul (keyframe + kecepatan); (3) beat "AI." masih teks polos, perlu visual ketakutan (karakter di tengah, gaya neuronvisuals); (4) backsound masih ada bagian kosong/tiba-tiba sepi; (5) bagian terbaik: mulai detik 1 ke atas (backsound masuk, SFX jelas, transisi halus).
+Akar masalah: visual dipilih dari aset yang sudah ada, bukan dari subjek kalimat; stop-down musik dibuat hening total; bed pembuka fade-in 2 detik.
+Aturan: SKILL.md rules inti 31–32.
+Status: diterapkan di v12 (orang + sorot cahaya ke ujung SELERA; lingkaran zona nyaman, kita tersentak, percik AI jadi salinan yang merebut tengah; drone + swell setelah "berhenti"; bed penuh sejak frame 0; riser pra-drop).
+- 16:44 koreksi: piktogram orang di grafik pembuka dibatalkan (lebih kecil dari kurva, tidak masuk akal; v10 sudah bagus, hanya kameranya yang diminta). AI di beat "takut digantikan" digambar sebagai AI (tile ChatGPT/Claude/Gemini), bukan manusia. Rule 31 diperjelas.
