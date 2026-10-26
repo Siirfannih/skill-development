@@ -19,3 +19,8 @@
 | P04e-blank-screen-typing.mp4 | [6611942](https://www.pexels.com/video/man-typing-on-laptop-with-blank-screen-6611942/) | 8 dtk, 1920×1080 | dokumen kosong baru | layar putih, bisa ditimpa UI oleh cloud |
 
 **Catatan cloud (25 Okt 15:10):** `P01-ira-glass-web.webp` adalah versi storyboard: dipotong ke kepala dan bahu (piala tidak ikut), alpha di-choke ±3 px, dan sisa merah di tepi rambut serta lensa kacamata dinetralkan. Wajah tidak diubah. Untuk render final, langkah yang sama diterapkan ke file 2400×3600. Kredit "Photo: Peabody Awards, CC BY 2.0" tampil kecil di frame B02/B13 dan wajib masuk kredit akhir.
+
+## Catatan cloud: trim P04 dan pemakaian P02 (26 Okt)
+- `trim/P04a..e-trim.mp4`: 2,5 dtk, 1920×1080, 30 fps, tanpa audio. Titik mulai: P04a 17,8 dtk · P04b 33,0 dtk · P04c 2,0 dtk · P04d 4,9 dtk · P04e 0,0 dtk. Lisensi mengikuti file aslinya.
+- Substitusi B04: "seret ke tempat sampah" diganti meremas draft (P04b); "bersandar" diganti kepala di meja (P04d).
+- P02: storyboard memakai versi Wikimedia (CC BY 3.0). Still 60 Minutes tidak dipakai.
