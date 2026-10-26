@@ -1,3 +1,8 @@
 .DS_Store
 .remember/
 .pytest_cache/
+
+# secrets (never commit) — see tools/ELEVENLABS.md
+.secrets/
+*.key
+.el_key

@@ -4,7 +4,16 @@ import json, os, sys, urllib.request, urllib.error, concurrent.futures as cf
 
 import os as _os
 ROOT = _os.environ.get('MG_ROOT', '/home/claude/thegap')
-KEY = open(f'{ROOT}/.el_key').read().strip()
+def _key():
+    """ElevenLabs key, never printed: $ELEVENLABS_API_KEY → $MG_ROOT/.el_key → Skill-Development/.secrets/elevenlabs.key
+    (Mac: also in Keychain, service 'elevenlabs-api-key'). See tools/ELEVENLABS.md in the skill-development repo."""
+    import os
+    if os.environ.get('ELEVENLABS_API_KEY'): return os.environ['ELEVENLABS_API_KEY'].strip()
+    for p_ in (f'{ROOT}/.el_key', os.path.expanduser('~/Documents/Skill-Development/.secrets/elevenlabs.key'),
+               os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../../../.secrets/elevenlabs.key')):
+        if os.path.exists(p_): return open(p_).read().strip()
+    raise SystemExit('ElevenLabs key not found — see tools/ELEVENLABS.md')
+KEY = _key()
 OUT = f'{ROOT}/sfx/el'; os.makedirs(OUT, exist_ok=True)
 WARM = ', warm and muted, low-mid weight, no harsh high frequencies, clean studio recording, single isolated sound, no music'
 LIB = {  # kind: (prompt, seconds, variants)
