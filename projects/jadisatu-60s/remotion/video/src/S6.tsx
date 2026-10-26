@@ -26,7 +26,7 @@ export const S6: React.FC = () => {
   const fSel = wf("c09", "seleramu");
 
   // iris inside the lens
-  const iris = k(f, [fRick, fRick + 12], [0, 1], eOut);
+  const iris = k(f, [fRick, fRick + 8], [0, 1], eOut);
   const lensOut = k(f, [fTapi + 4, fMemp + 4], [0, 1], eIn);
   // Irfan 14:41: read left → right. Photo pops where the lens was (right), slides left, text appears in its place.
   const slide = k(f, [fRick + 6, fRick + 18], [0, 1], eIO);
@@ -47,7 +47,7 @@ export const S6: React.FC = () => {
 
   // slot pill
   const slots = [
-    { a: "membuat sesuatu", chip: "landing", b: "dengan cepat,", at: fMembuat },
+    { a: "membuat sesuatu", chip: "landing", b: "dengan cepat,", at: fMembuat + 6 }, // v15: lets "AI bisa" read centred, then dock
     { a: "menciptakan bisnis", chip: "store", b: "dalam satu malam,", at: wf("c09", "menciptakan") },
     { a: "meniru", chip: "doc", b: "cara kerjamu…", at: fMeniru },
   ];

@@ -1,9 +1,9 @@
 # STATUS — The Gap (Jadisatu) · Remotion
 
-_Update terakhir: 26 Okt 2026, 18:00 WITA · versi terakhir: **v14** (`render/TheGap-Jadisatu-v14.mp4`, 95,0 dtk, 1920×1080 @ 30 fps; v13 105,2 dtk ada di riwayat git)_
+_Update terakhir: 26 Okt 2026, 18:00 WITA · versi terakhir: **v15** (`render/TheGap-Jadisatu-v15.mp4`, 95,0 dtk, 1920×1080 @ 30 fps; v13/v14 ada di riwayat git)_
 
 ## Fase sekarang
-Video sudah lolos penilaian Irfan ("udah oke untuk kualitasmu saat ini", 26 Okt 17:06). v13 = evaluasi mandiri terhadap referensi setelah itu. v14 = finishing: durasi dipadatkan lewat VO (D-034). Fase berikutnya: iterasi lanjutan bila Irfan memberi catatan baru, lalu turunan format (Reels 9:16) bila diminta.
+Video sudah lolos penilaian Irfan ("udah oke untuk kualitasmu saat ini", 26 Okt 17:06). v13 = evaluasi mandiri terhadap referensi setelah itu. v14 = finishing: durasi dipadatkan lewat VO (D-034). v15 = audio diorkestrasi ulang dengan ElevenLabs Music/SFX + fisheye di penutup (D-035). Fase berikutnya: iterasi lanjutan bila Irfan memberi catatan baru, lalu turunan format (Reels 9:16) bila diminta.
 
 ## Keputusan terkunci (jangan diubah tanpa Irfan)
 - **Naskah & VO**: `SCRIPT.md` final; VO ElevenLabs suara Jadisatu (clone `1I8tElkHzrblGqkJtwn3`, eleven_v4). Kata Inggris ditulis dalam kutip (`"taste"`) agar dibaca Inggris. Tanpa VO Jadisatu di akhir, hanya wordmark.
@@ -13,7 +13,7 @@ Video sudah lolos penilaian Irfan ("udah oke untuk kualitasmu saat ini", 26 Okt 
 - **Aturan teks/visual**: teks dulu di tengah lalu visual; visual kuat = tanpa teks; hitam = fokus, putih = transformasi; tidak ada headline pojok kiri atas.
 - **UI produk asli**: ChatGPT (S2) dan Claude (S3), satu kegiatan = satu sesi. Tanpa logo merek yang digambar ulang (nama produk saja; logo resmi bisa dipasang bila Irfan memberi file).
 - **Negative effect** hanya di "taste berhenti", SFX camera click.
-- **Musik per babak**: tension bed 112 bpm (0–15 dtk) → 124 bpm tegang → drone setelah "berhenti" → braam + drive 116 bpm → drone gelap → "nightfall future bass" (Kenyset) dengan drop di "seleramu.".
+- **Musik per babak (v15)**: 6 cue ElevenLabs di `music/` (hook → longing → acceleration, stop keras di "berhenti" → held breath → braam + pressure → sameness/void) lalu "nightfall future bass" (Kenyset) dengan drop di "seleramu.". SFX: Kenyset + `sfx/el/` (ElevenLabs; di repo: `remotion/sfx-el/`).
 
 ## Struktur adegan (frame @30 fps, ikut `video/src/vo.json`)
 | Adegan | File | Isi |

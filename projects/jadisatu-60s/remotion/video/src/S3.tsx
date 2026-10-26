@@ -38,7 +38,7 @@ export const S3: React.FC = () => {
   const fKita3 = wf("c04", "kita", 3);
   const fKerj = wf("c04", "kerjakan");
   const fHasil = wf("c05", "Hasilnya");
-  const fJadi = wf("c05", "jadi");
+  // fJadi no longer needed (v15)
   const fDetik = wf("c05", "detik");
   const fCukup = wf("c05", "cukup");
   const fPerl = wf("c05", "perlahan");
@@ -254,7 +254,8 @@ export const S3: React.FC = () => {
   const camS = (1 + 1.1 * zIn) * (1 + dive * dive * 7);
   const resOut = k(f, [fPerl - 4, fPerl + 8], [0, 1], eIn);
   const g = k(f, [fCukup - 6, fCukup + 8], [0, 1], eIO);
-  const arrive = [fJadi - 4, wf("c05", "dalam") - 2, wf("c05", "hitungan") - 2, fDetik - 2];
+  const arrive = [fHasil - 4, // v15: first result lands on the cut (was ~15 f of blank white)
+    wf("c05", "dalam") - 2, wf("c05", "hitungan") - 2, fDetik - 2];
   const RES = [
     { id: "reel", nw: 1080, nh: 1920 },
     { id: "caption", nw: 900, nh: 1100 },

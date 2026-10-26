@@ -48,7 +48,7 @@
   }
  },
  {
-  "t": 3.6667,
+  "t": 3.4667,
   "kind": "subwhoosh",
   "db": -19,
   "visual": "kamera mundur: area jarak",
@@ -116,7 +116,7 @@
   }
  },
  {
-  "t": 3.6667,
+  "t": 3.6,
   "kind": "pop",
   "db": -22,
   "visual": "titik ujung KEMAMPUAN",
@@ -126,7 +126,7 @@
   }
  },
  {
-  "t": 3.5333,
+  "t": 3.3333,
   "kind": "swell",
   "db": -22,
   "visual": "area jarak terisi arsir",
@@ -136,7 +136,7 @@
   }
  },
  {
-  "t": 4.0,
+  "t": 3.5667,
   "kind": "thock",
   "db": -16,
   "visual": "braket + label JARAK",
@@ -2698,6 +2698,42 @@
   }
  },
  {
+  "t": 83.0333,
+  "kind": "glide",
+  "db": -24,
+  "visual": "v15: \"AI bisa\" bergeser dari tengah ke atas",
+  "align": "start",
+  "kw": {
+   "dur": 0.4
+  }
+ },
+ {
+  "t": 67.6,
+  "kind": "lens",
+  "db": -19,
+  "visual": "v15: loupe kaca muncul di landing page",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 68.5,
+  "kind": "glide",
+  "db": -27,
+  "visual": "v15: judul \"Cara melihat.\" keluar sebelum push",
+  "align": "start",
+  "kw": {
+   "dur": 0.3
+  }
+ },
+ {
+  "t": 52.0,
+  "kind": "lens",
+  "db": -21,
+  "visual": "v15: lensa kaca di ladang titik",
+  "align": "start",
+  "kw": {}
+ },
+ {
   "t": 83.1333,
   "kind": "whoosh",
   "db": -22,
@@ -2885,6 +2921,26 @@
   "align": "start",
   "kw": {
    "dur": 0.8
+  }
+ },
+ {
+  "t": 88.8667,
+  "kind": "swell",
+  "db": -21,
+  "visual": "v15: lensa fisheye menekuk karya saat muncul",
+  "align": "start",
+  "kw": {
+   "dur": 0.4
+  }
+ },
+ {
+  "t": 91.0333,
+  "kind": "whoosh",
+  "db": -19,
+  "visual": "v15: orbit terlempar keluar lewat lensa fisheye",
+  "align": "start",
+  "kw": {
+   "dur": 0.45
   }
  },
  {

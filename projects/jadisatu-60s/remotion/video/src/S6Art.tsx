@@ -1,6 +1,7 @@
 import React from "react";
 import { C, SANS, eIn, eIO, eOut, k, kk } from "./lib";
 import { DESIGNS, DM, Fit, StorePage } from "./Designs";
+import { FISHEYE_MAP } from "./fisheyeMap";
 import { INTER, RSERIF } from "./RealUI";
 
 // "AI bisa …" (Irfan 14:41: too plain, not Apple style). Apple-ref pattern: one sentence with a real image
@@ -39,9 +40,16 @@ export const AIBisa: React.FC<{ f: number; fAI: number; slots: Slot[]; end: numb
   const cur = slots.reduce((acc, s, i) => (f >= s.at - 3 ? i : acc), -1);
   return (
     <>
-      <div style={{ position: "absolute", left: 0, width: 1920, top: 96, textAlign: "center", fontFamily: SANS, fontWeight: 500, fontSize: 52, color: C.ink, opacity: k(f, [fAI, fAI + 8], [0, 1]), letterSpacing: "-0.02em" }}>
-        AI bisa
-      </div>
+      {/* v15: "AI bisa" is the first spoken words → it lands centred and large, then docks to the top as the label
+          when the first slot arrives (was a 52 px label alone at the top while the VO said it). */}
+      {(() => {
+        const dock = k(f, [(slots[0]?.at ?? fAI + 20) - 11, (slots[0]?.at ?? fAI + 20) - 1], [0, 1], eIO);
+        return (
+          <div style={{ position: "absolute", left: 0, width: 1920, top: 96 + (480 - 96) * (1 - dock), textAlign: "center", fontFamily: SANS, fontWeight: 600 - 100 * dock, fontSize: 52, scale: String(2.6 - 1.6 * dock), transformOrigin: "50% 0", color: C.ink, opacity: k(f, [fAI, fAI + 6], [0, 1]), translate: `0 ${(1 - k(f, [fAI, fAI + 8], [0, 1], eOut)) * 24}px`, letterSpacing: "-0.03em" }}>
+            AI bisa
+          </div>
+        );
+      })()}
       {slots.map((s, i) => {
         const next = slots[i + 1]?.at ?? end + 4;
         if (f < s.at - 1 || f > next - 1) return null;
@@ -188,8 +196,22 @@ export const Finale: React.FC<{ f: number; fTapi: number; fTidak: number; fDenga
   const settle = k(f, [fTidak - 2, fDengan + 4], [0, 1], eIO); // vortex → ring
   const spread = k(f, [fSel + 10, tDark], [0, 1], eIn); // ring flies out before the cut
   const spin = kk(f, [[fTapi, 0], [fTidak, 1.2], [fDengan + 4, 1.55], [tDark, 1.62]], eOut) * Math.PI * 2;
+  // v15 (Irfan 18:05): the ring felt static → barrel/fisheye lens on the cards (not on the text) + a moving camera.
+  // Strongest while the works fly in, eases as they settle into the orbit, bends again as they fly out.
+  const arrive = 1 - k(f, [fTapi, fTapi + 18], [0, 1], eOut);
+  const fish = (0.24 + 0.16 * arrive) * (1 - 0.4 * settle) + 0.18 * spread;
+  const camS = 1.1 - 0.1 * settle + 0.08 * spread + 0.05 * arrive;
+  const camR = (-5 * (1 - settle) + 1.5 * spread) * (0.6 + 0.4 * arrive);
   return (
     <div style={{ position: "absolute", inset: 0, background: C.white, overflow: "hidden" }}>
+      <svg width="0" height="0" style={{ position: "absolute" }} aria-hidden="true">
+        <filter id="fisheye" filterUnits="userSpaceOnUse" x="0" y="0" width="1920" height="1080" colorInterpolationFilters="sRGB">
+          <feImage href={FISHEYE_MAP} x="0" y="0" width="1920" height="1080" preserveAspectRatio="none" result="map" />
+          <feDisplacementMap in="SourceGraphic" in2="map" scale={2 * 1101 * fish} xChannelSelector="R" yChannelSelector="G" />
+        </filter>
+      </svg>
+      <div style={{ position: "absolute", inset: 0, filter: "url(#fisheye)" }}>
+      <div style={{ position: "absolute", inset: 0, scale: String(camS), rotate: `${camR}deg` }}>
       {RING.map((id, i) => {
         const d = DESIGNS.find((x) => x.id === id)!;
         const phi = (i / RING.length) * Math.PI * 2 + spin * (1 - settle * 0.85);
@@ -213,8 +235,10 @@ export const Finale: React.FC<{ f: number; fTapi: number; fTidak: number; fDenga
           </div>
         );
       })}
+      </div>
+      </div>
       <div style={{ position: "absolute", left: 0, width: 1920, top: 540, translate: "0 -50%", textAlign: "center", fontFamily: SANS, color: C.ink }}>
-        <div data-text="tapi tidak dengan" style={{ fontSize: 56, fontWeight: 500, letterSpacing: "-0.02em", opacity: k(f, [fTidak - 2, fTidak + 6], [0, 1]) * (1 - k(f, [fSel - 2, fSel + 4], [0, 0.45])), translate: `0 ${(1 - k(f, [fTidak - 2, fTidak + 8], [0, 1], eOut)) * 20}px` }}>
+        <div data-text="tapi tidak dengan" style={{ fontSize: 68, fontWeight: 500, letterSpacing: "-0.02em", opacity: k(f, [fTidak - 2, fTidak + 6], [0, 1]) * (1 - k(f, [fSel - 2, fSel + 4], [0, 0.45])), translate: `0 ${(1 - k(f, [fTidak - 2, fTidak + 8], [0, 1], eOut)) * 20}px` }}>
           tapi tidak dengan
         </div>
         <div data-text="seleramu." style={{ fontSize: 168, fontWeight: 600, letterSpacing: "-0.055em", lineHeight: 1.05, opacity: k(f, [fSel - 1, fSel + 5], [0, 1]), scale: String(k(f, [fSel - 1, fSel + 10], [0.86, 1], eOut) * (1 + 0.05 * spread)) }}>

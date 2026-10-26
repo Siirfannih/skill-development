@@ -60,7 +60,7 @@ export const S5: React.FC = () => {
   // --- P4 lens
   const LAND = { x: 960 - 720 * 0.72, y: 70, s: 0.72 };
   const ZOOM = 2.2;
-  const toRick = k(f, [fRick - 22, fRick], [0, 1], eIO);
+  const toRick = k(f, [fRick - 12, fRick], [0, 1], eIO); // v15: shorter empty-lens hold
   const BTN = { x: LAND.x + 330 * LAND.s, y: LAND.y + 742 * LAND.s }; // "Arah ke kedai" (faulty)
   const lpx = kk(f, [[fCara + 2, LAND.x + 1000 * LAND.s], [fTahu - 4, LAND.x + 300 * LAND.s], [fSalah - 2, BTN.x]], eIO);
   const lpy = kk(f, [[fCara + 2, LAND.y + 450 * LAND.s], [fTahu - 4, LAND.y + 380 * LAND.s], [fSalah - 2, BTN.y]], eIO);
@@ -243,8 +243,8 @@ export const S5: React.FC = () => {
                 )}
               </Abs>
               <Abs style={{ left: 0, width: 1920, top: 860, display: "flex", justifyContent: "center", gap: 30 }}>
-                <Rise text="Cara" at={fCara} out={fRick - 24} size={120} weight={600} color={C.ink} letterSpacing="-0.04em" />
-                <Rise text="melihat." at={fCara + 6} out={fRick - 22} size={120} weight={600} color={C.ink} letterSpacing="-0.04em" />
+                <Rise text="Cara" at={fCara} out={fTahu - 4} size={120} weight={600} color={C.ink} letterSpacing="-0.04em" />
+                <Rise text="melihat." at={fCara + 6} out={fTahu - 2} size={120} weight={600} color={C.ink} letterSpacing="-0.04em" />
               </Abs>
             </>
           )}

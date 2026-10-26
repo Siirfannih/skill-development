@@ -130,7 +130,7 @@ export const S4: React.FC = () => {
         <Statement
           y={640}
           out={fTapi - 8}
-          lines={[[{ t: "AI", at: fAI, size: 84, weight: 400, color: C.dim }, { t: "memberimu", at: fMemberi, size: 84, weight: 400, color: C.dim }], [{ t: "ribuan.", at: fRibuan, size: 230 }]]}
+          lines={[[{ t: "AI", at: fAI, size: 96, weight: 500 }, { t: "memberimu", at: fMemberi, size: 96, weight: 500 }], [{ t: "ribuan.", at: fRibuan, size: 230 }]]}
         />
       )}
       {f >= fKecewa - 2 && f < fKarena - 12 && (
