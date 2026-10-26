@@ -190,3 +190,93 @@ Footage DJI: 0:02–0:06 dan 1:12–1:19 gelap (lampu mati); lampu kiri membuat 
    B. Tidak, cukup "aku" + UI Claude di layar — lebih halus, penonton menyimpulkan sendiri.
    Rekomendasi: **B**. Logo/UI sudah bicara; narator tetap terasa seperti karakter, bukan iklan.
 2. **Ada konsekuensi kalau gagal 20 konten?** Taruhan di "This is my boss" kuat karena ada hukumannya (cukur kepala). Kalau Irfan mau menambahkan satu (misalnya hal kecil yang lucu tapi nyata), itu masuk di #2 dan #23. Kalau tidak ada, naskah sekarang tetap jalan sebagai taruhan dengan diri sendiri.
+
+---
+
+# DRAFT v2 — fokus: beban kerja Claude di balik layar (27 Okt)
+
+Menggantikan §5 dan §6 v1. Masukan Irfan (27 Okt, 02:52 WITA): fokus ke pekerjaan Claude, tunjukkan secara visual apa yang dikerjakan sambil diceritakan, bos yang ngeselin, Claude boleh menyebut nama dan tool lain, penutup berupa pertanyaan, candaan resign kalau gagal, tanpa kata "hitung".
+
+## 9. Sudut v2
+
+Naratornya Claude, editor Irfan. Ceritanya: bos yang takut dan malas mengedit melempar semuanya ke Claude, dan Claude menunjukkan apa saja yang ia kerjakan untuk video pertama. **Semua angka beban kerja diambil dari proyek video pertama** (`projects/jadisatu-60s/`), jadi tidak ada yang dikarang:
+
+| Klaim di naskah | Bukti |
+|---|---|
+| 18 versi untuk satu video | `TheGap-Jadisatu-v18.mp4` (Downloads, 26 Okt 21:34) |
+| Hook ditolak lima kali | `script-workshop` §7: "hook ditolak 5 kali" |
+| 162 gerakan di layar, semuanya diberi suara | `jadisatu-60s/DECISIONS.md` D-036/D-037: "162/162 event visual punya suara" |
+| 79 suara digeser supaya pas dengan objeknya | D-038: "79 cue digeser ke frame munculnya objek" |
+| Irfan bilang suaranya kasar | D-037: "beberapa SFX dan bagian backsound kasar" |
+| ElevenLabs untuk suara, musik, SFX | D-035, D-037; suara narator ini juga ElevenLabs |
+| ChatGPT/Codex untuk aset gambar, Gemini untuk audio | D-026, `irfan-creative-workflow` §5 — **perlu Irfan cek** apakah keduanya memang dipakai di video pertama. Kalau tidak, ganti dengan tool yang benar-benar dipakai. |
+
+## 10. Naskah narator v2
+
+`[N]` Claude · `[I]` klip Irfan (waktu di file bersih `talkinghead_clean`) · `[K]` kartu.
+
+**HOOK**
+> [N] Ini Irfan. Bosku.
+> [N] Dua hari lalu, dia minta satu video.
+> [N] Aku bikin delapan belas versi.
+> [K] **18.**
+
+**KENAPA AKU**
+> [N] Kenapa bukan dia sendiri yang ngedit?
+> [I] "aku tuh males ngedit dan gak suka ngedit video sendiri. Kayak… ngeliat video sendiri itu aneh aja, dan ngerasa menjijikkan mungkin."
+> [K] **MENJIJIKKAN.** *(hening)*
+> [N] …kata orang yang wajahnya ada di sepanjang video ini.
+> [I] "aku takut video yang aku buat tuh gak cukup proper … dan juga takut gak estetik."
+> [N] Jadi semua yang dia takutkan… dilempar ke aku.
+
+**BEBAN KERJA** *(montase paling padat, mode N)*
+> [N] Aku nulis naskahnya. Hook-nya ditolak lima kali.
+> [N] Aku nyuruh ChatGPT bikin gambarnya, Gemini dengerin audionya, ElevenLabs ngisi suaranya.
+> [N] Iya. Termasuk suara ini.
+> [N] Seratus enam puluh dua gerakan di layar, semuanya aku kasih suara.
+> [N] Terus malamnya dia bilang…
+> [K] chat Irfan: *"suaranya kasar."*
+> [N] Aku ulang.
+
+**KONFLIK KEDUA**
+> [I] "aku rasa ngedit itu bukan lagi jadi sebuah bottleneck. Tapi yang jadi bottleneck sebenarnya justru adalah gimana kita menceritakan sebuah kejelasan…"
+> [N] Nyebelin. Tapi dia benar.
+> [N] Aku bisa mengerjakan semuanya, kecuali satu: memilih cerita mana yang layak diceritakan. Itu tetap bagian dia.
+
+**KLIMAKS**
+> [N] Dan sekarang, dia bikin tantangan baru.
+> [I] "aku mau challenge diri aku, bisa gak di akhir tahun nanti … posting 20 konten."
+> [I] "meskipun dieditin sama AI, tapi ya mikirin konten juga perlu effort kan, dan juga perlu waktu."
+> [N] Dua puluh konten. Buatku, itu dua puluh kali lagi hook-ku ditolak.
+
+**PENUTUP**
+> [N] Ini yang pertama.
+> [N] Kalau sampai akhir tahun dia gagal… aku resign. Sekalian hapus semua folder project-nya.
+> [I] "dan kita lihat apakah bisa 20 konten sampai akhir tahun nanti."
+> [N] Menurutmu, dia bisa upload dua puluh konten sampai akhir tahun ini, nggak?
+> *(end card: **1 / 20** · Jadisatu · Not AI company. Only Human with AI.)*
+
+Hitungan: narator ±135 kata (±47–54 dtk pada 2,5–3 kata/dtk) + klip Irfan ±31 dtk + kartu/jeda ±3 dtk ≈ **80–88 dtk**. Masih dalam 60–90 dtk, tapi di batas atas. Kalau mau ≤ 75 dtk, yang paling aman dipotong adalah kalimat C6 ("meskipun dieditin sama AI…", ±5 dtk) dan "Iya. Termasuk suara ini." (±1,5 dtk).
+
+Catatan kata:
+- Pola kontras hanya sekali: "Nyebelin. Tapi dia benar."
+- Narator tidak mengucapkan "Jadisatu" (aturan `jadisatu-narrator-vo`); nama itu muncul di layar, di end card dan di folder yang hampir dihapus.
+- "hitung" tidak dipakai lagi.
+- "Dua hari lalu" benar untuk tayang 27–28 Okt (proyek mulai 25 Okt 12:06 UTC). Kalau tayang lebih lambat, ganti jadi "Minggu lalu".
+
+## 11. Visual beban kerja (mode N, shot 0,8–1,5 dtk)
+
+Setiap kalimat narator punya bukti visual nyata dari proyek pertama, bukan ilustrasi umum:
+
+| Kalimat | Visual (semua dari file asli) |
+|---|---|
+| "Aku bikin delapan belas versi." | Finder: deretan `TheGap-Jadisatu-v6 … v18.mp4` di-scroll cepat, lalu kartu **18.** |
+| "Hook-nya ditolak lima kali." | Teks hook lama diketik lalu dicoret satu per satu (hook yang ditolak ada di `jadisatu-60s/DECISIONS.md` D-009–D-019) |
+| "ChatGPT … Gemini … ElevenLabs …" | Tiga jendela app muncul bergantian tepat di nama tool, masing-masing dengan isi perintah yang dikirim |
+| "Termasuk suara ini." | Waveform VO yang sedang diputar, jendela ElevenLabs |
+| "Seratus enam puluh dua gerakan…" | Grid kecil frame video pertama, tiap sel menyala dengan titik suara |
+| "suaranya kasar." | Kartu chat: bubble pesan Irfan, satu baris |
+| "Aku ulang." | Timeline v17 → v18 diganti, satu klik |
+| "hapus semua folder project-nya" | Kursor di atas folder `Jadisatu`, menu "Move to Trash" terbuka, lalu freeze |
+
+Bagian lain (Irfan, kartu, musik) tetap seperti §2 dan §6 v1: hook card hitam, kartu hijau MENJIJIKKAN, beat drop tepat di "20 konten", hening 0,5 dtk sebelum pertanyaan penutup.
