@@ -57,3 +57,12 @@ Proyek baru (bukan revisi Jadisatu Launch v7). Aturan ledger: `claude/motion-gra
 - Semua adegan, FX dan cue audio terkunci ke kata `vo.json`, jadi ikut bergeser otomatis. Satu-satunya beat yang perlu disesuaikan: grafik pembuka (KEMAMPUAN → tag JARAK → dive), offset dipadatkan supaya label terbaca sebelum dive.
 - Hasil ukur `tools/vo_gaps.py`: diam ≥ 0,25 dtk turun dari 25,1 → 17,6 dtk (termasuk ekor); jeda terpanjang di tengah video 1,10 → 0,62 dtk.
 - Stereo dilebarkan (Haas musik 0,45, side track ×1,55) karena earshot menilai sempit.
+
+## D-035 · 2026-10-26 · v15: audio diorkestrasi ulang + fisheye di penutup
+- Irfan 17:52: audio sebelumnya terbatas pada folder Kenyset + synth kode (terdengar "piano" terus; piano berhenti di "jarak" lalu muncul di Ira Glass). Semua tool boleh dipakai.
+- Backsound babak 1–3 diganti 6 cue ElevenLabs Music (`tools/el_music.py cues`), satu peran per babak: hook (sub pulse + tick, tanpa piano) → longing (synth pad + cello, tetap bergerak; versi solo piano ditolak karena bertabrakan dengan potongan cepat) → acceleration 124 bpm, berhenti keras di "berhenti" → held breath (drone + swell) → braam + dark drive di "AI." → sameness/void. Babak 4–5 tetap "nightfall future bass" (sudah dinilai 8/10), drop di "seleramu.".
+- Pelajaran generate musik: satu komposisi panjang dengan banyak section mengabaikan dinamika per section (drop malah sunyi) → generate per babak; model menutup lagu dengan fade panjang → minta durasi +3–6 dtk dan potong; cek envelope dengan `tools/env.py` / `music_check.py`.
+- SFX yang dulu disintesis (thud, impact, thock, tick, glide, swell, riser, scribble) diganti hasil ElevenLabs sound generation (`tools/el_sfx.py`, `sfx/el/`), dicek dengan earshot rank + porsi 2–6 kHz; yang mendesis di-low-pass 5–6 kHz. Cue baru: loupe & lensa (kaca), "AI bisa" bergeser, judul keluar, lensa fisheye, orbit terlempar.
+- SFX di babak build tertutup musik (−14,7 dB) → +9 dB di rentang itu, track −1,5 dB.
+- Visual: "AI memberimu" & "AI bisa" sebelumnya kecil/redup saat diucapkan → besar di tengah (AI bisa lalu bergeser ke atas); "Cara melihat." keluar sebelum kamera push (dulu terpotong); hasil pertama mendarat saat cut (dulu ±15 frame putih kosong); lensa kosong sebelum Rick dipersingkat.
+- Irfan 18:05: orbit "seleramu" terasa statis → fisheye (feDisplacementMap, peta barrel `fisheyeMap.ts`) hanya pada kartu + kamera zoom/rotasi.

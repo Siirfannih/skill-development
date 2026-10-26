@@ -1,0 +1,35 @@
+{
+ "positive_global_styles": [
+  "instrumental cinematic underscore for an Apple-style product film",
+  "modern, premium, clean mix",
+  "full energy from the very first beat, no fade-in"
+ ],
+ "negative_global_styles": [
+  "vocals",
+  "lyrics",
+  "choir",
+  "lo-fi",
+  "cheesy",
+  "silence",
+  "fade-out",
+  "ending",
+  "outro",
+  "decrescendo"
+ ],
+ "sections": [
+  {
+   "section_name": "longing",
+   "positive_local_styles": [
+    "emotional yet driving, bittersweet, warm analog synth pad with soft cello swells over a steady pulsing pluck and light kick at 112 bpm, matches fast editing, heartfelt but with momentum, sustained and full the whole time, F major to A minor"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "piano",
+    "solo piano",
+    "slow ballad"
+   ],
+   "duration_ms": 13882,
+   "lines": []
+  }
+ ]
+}

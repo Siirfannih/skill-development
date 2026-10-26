@@ -1,0 +1,33 @@
+{
+ "positive_global_styles": [
+  "instrumental cinematic underscore for an Apple-style product film",
+  "modern, premium, clean mix",
+  "full energy from the very first beat, no fade-in"
+ ],
+ "negative_global_styles": [
+  "vocals",
+  "lyrics",
+  "choir",
+  "lo-fi",
+  "cheesy",
+  "silence",
+  "fade-out",
+  "ending",
+  "outro",
+  "decrescendo"
+ ],
+ "sections": [
+  {
+   "section_name": "acceleration",
+   "positive_local_styles": [
+    "tension rising fast, 124 bpm, pulsing synth bass, ticking hi-hats, rising filter sweep, urgency, keeps building and getting denser the whole time"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "piano"
+   ],
+   "duration_ms": 12454,
+   "lines": []
+  }
+ ]
+}

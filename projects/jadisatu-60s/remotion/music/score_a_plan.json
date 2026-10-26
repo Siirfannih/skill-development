@@ -1,0 +1,149 @@
+{
+ "positive_global_styles": [
+  "instrumental cinematic score for an Apple-style product film",
+  "modern, premium, clean mix",
+  "one continuous evolving piece with seamless transitions between sections"
+ ],
+ "negative_global_styles": [
+  "vocals",
+  "lyrics",
+  "choir",
+  "lo-fi",
+  "cheesy",
+  "silence gaps"
+ ],
+ "sections": [
+  {
+   "section_name": "hook",
+   "positive_local_styles": [
+    "cold open, instant attention, tight sub-bass pulse, muted clock-like ticks, minimal modern cinematic tension, 112 bpm, A minor",
+    "airy glassy swell and soft low impact at the end of the section as a reveal"
+   ],
+   "negative_local_styles": [
+    "piano",
+    "vocals"
+   ],
+   "duration_ms": 7024,
+   "lines": []
+  },
+  {
+   "section_name": "longing",
+   "positive_local_styles": [
+    "emotional, bittersweet, warm felt keys with soft cello, gentle steady pulse continues, intimate, heartfelt but moving forward, F major to A minor"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "drums too loud"
+   ],
+   "duration_ms": 7882,
+   "lines": []
+  },
+  {
+   "section_name": "acceleration",
+   "positive_local_styles": [
+    "tension rising fast, 124 bpm, pulsing synth bass, ticking hi-hats, rising filter sweep, urgency, building to a sudden hard stop at the very end"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "piano"
+   ],
+   "duration_ms": 7454,
+   "lines": []
+  },
+  {
+   "section_name": "stopped",
+   "positive_local_styles": [
+    "sudden silence of the beat, only a deep low drone and a slow reversed swell rising, suspense, held breath"
+   ],
+   "negative_local_styles": [
+    "drums",
+    "melody",
+    "vocals"
+   ],
+   "duration_ms": 4075,
+   "lines": []
+  },
+  {
+   "section_name": "pressure",
+   "positive_local_styles": [
+    "massive cinematic braam hit on the first beat, then dark driving electronic pulse 116 bpm, ominous minor arpeggio, tense, unsettling, mechanical"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "happy"
+   ],
+   "duration_ms": 14893,
+   "lines": []
+  },
+  {
+   "section_name": "sameness",
+   "positive_local_styles": [
+    "beat drops out, eerie detuned synth pad, cold, hollow, uncanny sameness, sparse"
+   ],
+   "negative_local_styles": [
+    "drums",
+    "vocals"
+   ],
+   "duration_ms": 4208,
+   "lines": []
+  },
+  {
+   "section_name": "void",
+   "positive_local_styles": [
+    "dark minimal ambient, low drone, slow heartbeat kick, vast empty space, contemplative and heavy"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "melody too busy"
+   ],
+   "duration_ms": 9886,
+   "lines": []
+  },
+  {
+   "section_name": "discovery",
+   "positive_local_styles": [
+    "hope returning, curious and warm, music box and soft bells over gentle plucked synth, light rhythmic pulse builds layer by layer, inspiring"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "sad"
+   ],
+   "duration_ms": 16858,
+   "lines": []
+  },
+  {
+   "section_name": "confidence",
+   "positive_local_styles": [
+    "confident warm groove, organic drums and round bass, studio warmth, laid-back swagger, tasteful, human"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "epic orchestra"
+   ],
+   "duration_ms": 10472,
+   "lines": []
+  },
+  {
+   "section_name": "build",
+   "positive_local_styles": [
+    "future bass build-up, rising snare roll and riser, tension climbing toward a drop, anticipation, energetic"
+   ],
+   "negative_local_styles": [
+    "vocals"
+   ],
+   "duration_ms": 7876,
+   "lines": []
+  },
+  {
+   "section_name": "drop",
+   "positive_local_styles": [
+    "euphoric future bass drop on the first beat, wide supersaws, triumphant, then resolving and fading to a clean ending"
+   ],
+   "negative_local_styles": [
+    "vocals"
+   ],
+   "duration_ms": 4336,
+   "lines": []
+  }
+ ]
+}

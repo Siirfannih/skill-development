@@ -1,0 +1,41 @@
+{
+ "positive_global_styles": [
+  "instrumental cinematic underscore for an Apple-style product film",
+  "modern, premium, clean mix",
+  "full energy from the very first beat, no fade-in"
+ ],
+ "negative_global_styles": [
+  "vocals",
+  "lyrics",
+  "choir",
+  "lo-fi",
+  "cheesy",
+  "silence"
+ ],
+ "sections": [
+  {
+   "section_name": "sameness",
+   "positive_local_styles": [
+    "beat drops out, eerie detuned synth pad, cold, hollow, uncanny sameness, sparse"
+   ],
+   "negative_local_styles": [
+    "drums",
+    "vocals"
+   ],
+   "duration_ms": 4208,
+   "lines": []
+  },
+  {
+   "section_name": "void",
+   "positive_local_styles": [
+    "dark minimal ambient, low drone, slow heartbeat kick, vast empty space, contemplative and heavy"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "melody too busy"
+   ],
+   "duration_ms": 11386,
+   "lines": []
+  }
+ ]
+}

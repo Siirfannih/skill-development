@@ -152,7 +152,27 @@ KEN = dict(
     boom=lambda **kw: smp('whoosh-end-384629.mp3', 2.5, 5000),
     shine=lambda **kw: smp('benkirb-shine-1-268902.mp3', 1.6, 7000),
 )
-SYN = {'thud', 'impact', 'thock', 'tick', 'glide', 'swell', 'riser', 'scribble', 'gulp'}  # warm synthesized layers kept
+SYN = {'gulp'}  # v15: only the tiny gulp stays synthesized
+# v15 (Irfan 17:52): real recorded/generated SFX replace the code-synth layers (tools/el_sfx.py → sfx/el/).
+# Hissy ones (glide, scribble) and the riser are low-passed to keep the "warm, no ear-fatigue" standard.
+def tail(x, dur):
+    n = int(dur * SR); pk = int(np.argmax(np.abs(x))); a_ = max(0, pk - n); y = x[a_:pk + int(0.05 * SR)].copy()
+    f_ = min(len(y) // 3, int(0.06 * SR)); y[:f_] *= np.linspace(0, 1, f_); return y
+def el_impact(**kw):
+    a = smp(rr('im', ['el/impact_0.mp3', 'el/impact_1.mp3']), 1.6, 6000); b = smp('whoosh-end-384629.mp3', 1.6, 5000)
+    m = max(len(a), len(b)); x = np.zeros(m); x[:len(a)] += a; x[:len(b)] += 0.55 * b; return norm(x)
+ELK = dict(
+    thud=lambda **kw: smp(rr('th', ['el/thud_0.mp3', 'el/thud_1.mp3', 'el/thud_2.mp3']), 1.0, 4000),
+    impact=el_impact,
+    thock=lambda **kw: smp(rr('tk', ['el/thock_0.mp3', 'el/thock_1.mp3', 'el/thock_2.mp3']), 0.45, 6000),
+    tick=lambda **kw: smp(rr('ti', ['el/tick_0.mp3', 'el/tick_2.mp3']), 0.3, 5000),
+    glide=lambda **kw: smp(rr('gd', ['el/glide_0.mp3', 'el/glide_1.mp3', 'el/glide_2.mp3']), kw.get('dur', 0.75) + 0.2, 5500),
+    swell=lambda **kw: tail(smp(rr('sw', ['el/swell_0.mp3', 'el/swell_1.mp3']), None, 6000), kw.get('dur', 0.6)),
+    riser=lambda **kw: tail(smp(rr('ri', ['el/riser_0.mp3', 'el/riser_1.mp3']), None, 5000), kw.get('dur', 0.6)),
+    scribble=lambda **kw: smp(rr('sc', ['el/scribble_0.mp3', 'el/scribble_1.mp3']), kw.get('dur', 0.6) + 0.1, 6000),
+    subwhoosh=lambda **kw: smp(rr('cw', ['el/camwhoosh_1.mp3', 'el/camwhoosh_2.mp3', 'universfield-swoosh-023-454830.mp3']), 1.2, 6000),
+    lens=lambda **kw: smp(rr('ln', ['el/lens_0.mp3', 'el/lens_1.mp3']), 0.8, 6000),
+)
 
 cues = []
 def cue(t, kind, db, visual, align='start', **kw):
@@ -167,14 +187,14 @@ cue(F('c01', 'jarak') + fr(3), 'whoosh', -17, 'kata Ada|jarak terdorong terpisah
 cue(F('c01', 'jarak') + fr(4), 'thud', -14, 'celah terbuka', f0=80, f1=40, dur=0.45)
 cue(F('c01', 'jarak') + fr(14), 'latch', -19, 'garis ukur terkunci')
 cue(F('c01', 'kemampuan') - fr(3), 'whoosh', -20, 'kamera whip ke garis kemampuan', align='end', dur=0.3)
-cue(F('c01', 'kemampuan') + fr(20), 'subwhoosh', -19, 'kamera mundur: area jarak', align='start')
+cue(F('c01', 'kemampuan') + fr(14), 'subwhoosh', -19, 'kamera mundur: area jarak', align='start')
 for w, db in (('Ada', -21), ('jarak', -22), ('antara', -23)): cue(f('c01', w) + fr(2), 'pop', db, f'headline "{w}"', f0=380)
 cue(f('c01', 'seleramu'), 'glide', -20, 'kurva SELERA tergambar', dur=0.75)
 cue(f('c01', 'seleramu') + fr(20), 'bloop', -20, 'titik ujung SELERA', f0=294)
 cue(f('c01', 'kemampuan'), 'glide', -23, 'kurva KEMAMPUAN putus-putus', dur=0.75)
-cue(f('c01', 'kemampuan') + fr(20), 'pop', -22, 'titik ujung KEMAMPUAN', f0=240)
-cue(f('c01', 'kemampuan') + fr(16), 'swell', -22, 'area jarak terisi arsir', dur=0.6, align='start')
-cue(f('c01', 'kemampuan') + fr(30), 'thock', -16, 'braket + label JARAK', f0=190)
+cue(f('c01', 'kemampuan') + fr(18), 'pop', -22, 'titik ujung KEMAMPUAN', f0=240)
+cue(f('c01', 'kemampuan') + fr(10), 'swell', -22, 'area jarak terisi arsir', dur=0.6, align='start')
+cue(f('c01', 'kemampuan') + fr(17), 'thock', -16, 'braket + label JARAK', f0=190)
 cue(f('c01', 'Ira') + fr(6), 'riser', -16, 'kamera menyelam ke dalam jarak', align='end', dur=0.55)
 cue(f('c01', 'Ira') + fr(7), 'thud', -15, 'mendarat di dunia putih Ira', f0=80, f1=40, dur=0.5)
 cue(f('c01', 'Ira') + fr(9), 'pop', -22, 'label IRA GLASS', f0=420)
@@ -316,6 +336,10 @@ cue(F('c08', 'bagus') + fr(1), 'ping', -15, 'take 6 dipilih (chime)')
 cue(F('c08', 'bagus') + fr(1), 'impact', -11, 'bagus. (serif biru)')
 cue(F('c08', 'bagus') + fr(1), 'latch', -16, 'take 6 dipilih, pil bagus.')
 cue(F('c09', 'AI') + fr(2), 'pop', -20, 'AI bisa', f0=300)
+cue(F('c09', 'membuat') - fr(6), 'glide', -24, 'v15: "AI bisa" bergeser dari tengah ke atas', dur=0.4)
+cue(F('c07', 'Cara') + fr(2), 'lens', -19, 'v15: loupe kaca muncul di landing page')
+cue(F('c07', 'tahu') - fr(4), 'glide', -27, 'v15: judul "Cara melihat." keluar sebelum push', dur=0.3)
+cue(F('c06', 'tidak') - fr(2), 'lens', -21, 'v15: lensa kaca di ladang titik')
 for w in ('membuat', 'menciptakan', 'meniru'):
     cue(F('c09', w) - fr(3), 'whoosh', -22, f'frasa {w} masuk', align='end', dur=0.3)
     cue(F('c09', w) + fr(4), 'pop', -21, f'chip gambar {w}')
@@ -327,6 +351,8 @@ cue(F('c09', 'tapi') + fr(10), 'pop', -23, 'tapi tidak dengan', f0=300)
 cue(F('c09', 'seleramu') + fr(1), 'impact', -7, 'seleramu. (hit puncak 2)')
 cue(F('c09', 'tapi') + fr(2), 'subwhoosh', -16, 'karya berputar seperti pusaran')
 cue(F('c09', 'tidak') - fr(2), 'glide', -22, 'pusaran merapat jadi orbit', dur=0.8)
+cue(F('c09', 'tapi') + fr(2), 'swell', -21, 'v15: lensa fisheye menekuk karya saat muncul', dur=0.4, align='start')
+cue(F('c09', 'seleramu') + fr(12), 'whoosh', -19, 'v15: orbit terlempar keluar lewat lensa fisheye', align='start', dur=0.45)
 cue(F('c09', 'seleramu') + fr(26), 'thud', -15, 'cut ke hitam: kartu kaca seleramu', f0=70, f1=36, dur=0.5)
 for i, nm in enumerate(('ChatGPT', 'Claude', 'Gemini')): cue(F('c09', 'seleramu') + fr(30 + i * 3), 'whoosh', -26, f'kursor {nm} mendekat', align='start', dur=0.6)
 cue(F('c09', 'seleramu') + fr(27), 'click', -20, 'kursor Kamu di dalam kartu')
@@ -352,15 +378,16 @@ cue(F('c09', 'seleramu') + fr(1), 'boom', -16, 'seleramu. (layer)')
 # ---------------- render SFX bus
 sfxL = np.zeros(N); sfxR = np.zeros(N)
 for ci, c in enumerate(cues):
-    if c['kind'] in KEN and c['kind'] not in SYN:
-        x = KEN[c['kind']](**c['kw'])
+    if c['kind'] in ELK or (c['kind'] in KEN and c['kind'] not in SYN):
+        x = (ELK.get(c['kind']) or KEN[c['kind']])(**c['kw'])
         pk = int(np.argmax(np.abs(lp(x, 2000)) > 0.5 * np.max(np.abs(lp(x, 2000)))))
         start = c['t'] - (pk / SR if c['align'] == 'end' else 0)
     else:
         x = PAL[c['kind']](**c['kw'])
         start = c['t'] - (len(x) / SR if c['align'] == 'end' else 0)
     i0 = int(max(0, start) * SR)
-    seg = x[: max(0, min(len(x), N - i0))] * 10 ** (c['db'] / 20)
+    _boost = 9.0 if F('c09', 'AI') <= c['t'] < F('c09', 'seleramu') else 0.0  # v15: build act buried the slot SFX (−14.7 dB vs music)
+    seg = x[: max(0, min(len(x), N - i0))] * 10 ** ((c['db'] + _boost) / 20)
     pan = 0.0 if c['kind'] in ('impact', 'boom', 'thud', 'typing') else (0.35 if ci % 2 else -0.35)
     gl, gr = np.cos((pan + 1) * np.pi / 4) * 1.414, np.sin((pan + 1) * np.pi / 4) * 1.414
     sfxL[i0:i0 + len(seg)] += seg * gl; sfxR[i0:i0 + len(seg)] += seg * gr
@@ -419,98 +446,32 @@ def kick_():
 def tick_():
     n_ = int(0.02 * SR); t = np.arange(n_) / SR
     return bp(rng.standard_normal(n_), 2500, 6000) * np.exp(-t / 0.004)
-act1 = np.zeros(N)
-b8 = 60 / 112 / 2
-tIra = F('c01', 'Ira'); tIraIn = tIra + 0.25
-tDan = F('c02', 'Dan')
-arpA = [57, 60, 64, 71, 64, 60]          # Am(add9)
-arpB = [53, 57, 60, 64, 55, 59, 62, 67]  # F → G
-for i in range(int(tB0 / b8)):
-    t = 0.05 + i * b8
-    if t >= tB0: break
-    dive = tIra - 0.35 <= t < tIraIn + 0.2
-    if dive: continue
-    build = 1.0  # v12: full bed from frame 0 (Irfan: the video only came alive after 1 s)
-    place(act1, tick_() * (0.07 if i % 2 else 0.12) * build, t)
-    if i % 2 == 0:
-        root = 33 if t < tDan else [29, 29, 31, 31, 33, 33, 33, 33][(i // 8) % 8]
-        place(act1, subp(nt(root), b8 * 1.8) * 0.55 * build, t)
-    arp = arpA if t < tDan else arpB
-    m = arp[i % len(arp)] + 12
-    place(act1, pluck(nt(m), 0.32, 1600 + 1600 * min(1, t / 6)) * (0.16 if t < tIra else 0.13), t)
-    if t >= tA1 and i % 4 == 0:
-        place(act1, kick_() * 0.38, t)
-    if t < tIra and i % 8 == 0:
-        place(act1, kick_() * 0.25 * build, t)
-# riser into the dive, then a soft pad under Ira's line
-place(act1, pad([nt(45), nt(52), nt(57), nt(64)], tA1 - tIra + 0.4, 0.4, 0.5), tIra, 0.22)
-mus += act1 * 2.2
-# Irfan 14:41: music builds the mood per act, not one piano throughout.
-#  Act 1 focus (0 → Sekarang): felt piano (kept, "tepat").
-#  Act 2a tension (Sekarang → berhenti): 124 bpm ticking hats + pulsing bass + rising filter, hard stop on "berhenti".
-#  Act 2b pressure (Faktanya → sama): braam on AI., 116 bpm kick/hat drive with minor arp, thins out on "perlahan".
-#  Act 3 dark (Ira bilang → kecewa): low drone + slow heartbeat.
-#  Act 4–5 hope → confidence (Karena → end): Kenyset "nightfall future bass" intro, then its breakdown/build,
-#  aligned so the track's drop lands on "seleramu.".
-def pulse(t0, t1, root, bpm=96, cutoff=700, rise=None):
-    b = 60 / bpm / 2; out = np.zeros(int((t1 - t0) * SR) + 1)
-    for i in range(int((t1 - t0) / b)):
-        n_ = int(b * 0.9 * SR); t = np.arange(n_) / SR
-        f0 = nt(root + (0 if (i // 8) % 2 == 0 else -2))
-        x = sum(np.sin(2 * np.pi * f0 * h * t) / h for h in range(1, 7)) * np.exp(-t / 0.12)
-        cf = cutoff if rise is None else cutoff + (rise - cutoff) * (i * b) / (t1 - t0)
-        i0 = int(i * b * SR); out[i0:i0 + n_] += lp(x, cf)[: len(out) - i0]
-    return out
-def kick():
-    n_ = int(0.35 * SR); t = np.arange(n_) / SR
-    f = 48 + 90 * np.exp(-t / 0.03)
-    return np.sin(2 * np.pi * np.cumsum(f) / SR) * np.exp(-t / 0.12)
-def hat(dur=0.05):
-    n_ = int(dur * SR); t = np.arange(n_) / SR
-    return bp(rng.standard_normal(n_), 5000, 9000) * np.exp(-t / 0.012)
-def tick():
-    n_ = int(0.02 * SR); t = np.arange(n_) / SR
-    return bp(rng.standard_normal(n_), 2500, 6000) * np.exp(-t / 0.004)
-tStop = F('c03', 'berhenti')
-act2a = np.zeros(N)
-# 2a
-bt = 60 / 124
-for i in range(int((tStop - tB0) / (bt / 4))):
-    tt = tB0 + i * bt / 4
-    place(act2a, tick() * (0.10 if i % 4 else 0.16), tt)
-    if i % 4 == 0: place(act2a, kick() * 0.35 * min(1, (tt - tB0) / 3), tt)
-place(act2a, pulse(tB0, tStop, 33, 124, 400, rise=1600) * 0.5, tB0)
-place(act2a, pad([nt(45), nt(48), nt(52)], tStop - tB0, 0.8, 0.05), tB0, 0.25)
-mus += act2a * 1.5
-# 2b
-tF = F('c04', 'Faktanya'); tAI = F('c04', 'AI'); tPerl = F('c05', 'perlahan'); tSama = F('c05', 'sama') + 1.0
-place(mus, pad([nt(40), nt(47)], tAI - tF + 0.5, 1.2, 0.3), tF, 0.35)
-braam = (pad([nt(33), nt(40), nt(45)], 3.0, 0.01, 2.6) + 0.6 * lp(np.tanh(3 * pad([nt(33), nt(45)], 3.0, 0.01, 2.6)), 900))
-place(mus, braam * 1.4, tAI)
-bt2 = 60 / 116
-t_drive0 = F('c04', 'Tapi')
-for i in range(int((tPerl - t_drive0) / (bt2 / 2))):
-    tt = t_drive0 + i * bt2 / 2
-    if i % 2 == 0: place(mus, kick() * 0.42, tt)
-    place(mus, hat() * (0.12 if i % 2 else 0.07), tt)
-    place(mus, note_piano(nt([57, 60, 64, 67, 64, 60, 59, 62][i % 8] + 12), 0.5, 0.12), tt)
-place(mus, pulse(t_drive0, tPerl, 33, 116, 700, rise=1300) * 0.45, t_drive0)
-place(mus, pad([nt(57), nt(60), nt(64)], tPerl - t_drive0, 1.0, 0.4), t_drive0, 0.18)
-# thinning, eerie detuned pad on "perlahan … sama"
-eer = pad([nt(64), nt(64) * 1.012, nt(71)], tSama - tPerl + 1.5, 0.8, 1.2)
-place(mus, eer, tPerl, 0.55)
-place(mus, pad([nt(40), nt(47)], tSama - tPerl + 1.5, 0.5, 1.2), tPerl, 0.35)
-# v12: no hole after "berhenti" — a low held drone + rising swell carries the stop into "Faktanya"
-_tb = F('c03', 'berhenti') + 0.15
-place(mus, pad([nt(33), nt(40), nt(45)], F('c04', 'Faktanya') - _tb + 0.6, 0.6, 0.4), _tb, 0.42)
-_sw = int((F('c04', 'Faktanya') - _tb) * SR); _tt = np.arange(_sw) / SR
-place(mus, lp(pink(_sw), 900) * (_tt / (_tt[-1] + 1e-9)) ** 2 * 0.5, _tb)
-# 3 dark
-tS4 = F('c06', 'Ira'); tC = F('c07', 'Karena')
-place(mus, pad([nt(33), nt(40)], tC - tS4 + 0.4, 1.0, 0.6), tS4, 0.5)
-for i in range(int((tC - tS4) / 1.1)):
-    place(mus, kick() * 0.22, tS4 + 0.4 + i * 1.1)
-    place(mus, kick() * 0.12, tS4 + 0.4 + i * 1.1 + 0.28)
+# v15 (Irfan 17:52): the synthesized acts 1–3 are replaced by ElevenLabs Music cues, one per act, each with a job
+# (tools/el_music.py). Seams sit on act changes, where VO + transition SFX cover them; "berhenti" is a hard stop.
+tB0 = F('c03', 'Sekarang'); tStop = F('c03', 'berhenti'); tF = F('c04', 'Faktanya'); tAI = F('c04', 'AI')
+tPerl = F('c05', 'perlahan'); tS4 = F('c06', 'Ira'); tC = F('c07', 'Karena'); tA1 = F('c02', 'Bertahun')
+def load_mp3(path):
+    raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', path, '-ac', '2', '-ar', str(SR), '-f', 'f32le', '-'], capture_output=True).stdout
+    return np.frombuffer(raw, np.float32).astype(np.float64).reshape(-1, 2)
+cueL = np.zeros(N); cueR = np.zeros(N); CUE_SEG = []
+def put_cue(name, dst0, dst1, fin, fout, lufs, src0=0.0):
+    x = load_mp3(f'{ROOT}/music/{name}.mp3'); s0 = int(src0 * SR)
+    n_ = min(int((dst1 - dst0) * SR), len(x) - s0); seg = x[s0:s0 + n_].copy()
+    L_ = pyln.Meter(SR).integrated_loudness(seg); seg *= 10 ** ((lufs - L_) / 20)
+    e = np.ones(n_); a_ = max(1, int(fin * SR)); b_ = max(1, int(fout * SR))
+    e[:a_] = np.linspace(0, 1, a_) ** 0.5; e[n_ - b_:] *= np.linspace(1, 0, b_) ** 0.5   # equal-power-ish crossfades
+    i_ = int(dst0 * SR); cueL[i_:i_ + n_] += seg[:, 0] * e; cueR[i_:i_ + n_] += seg[:, 1] * e
+XF_ = 0.35
+put_cue('c1_opening', 0.0, tA1 + XF_, 0.005, XF_, -26.0)                       # hook: sub pulse + ticks, impact from frame 0
+put_cue('c2_longing', tA1 - XF_, tB0 + 0.3, XF_, 0.3, -28.5)                    # bittersweet but driving (no sad piano)
+put_cue('c3_accel', tB0 - 0.3, tStop, 0.3, 0.025, -27.0)                         # rising tension → HARD stop on "berhenti"
+# the stop is a held breath, not a hole: a low drone sits under the first second of c4 (rule 32)
+_tb = tStop + 0.04; _dl = tAI - _tb + 0.3
+place(mus, pad([nt(33), nt(40), nt(45)], _dl, 0.12, 1.2), _tb, 0.13)
+put_cue('c4_stopped', tStop + 0.03, tAI + 0.25, 0.05, 0.25, -30.0)               # held breath: drone + swell into AI.
+put_cue('c5_pressure', tAI - 0.02, tPerl + 0.5, 0.02, 0.5, -27.0, src0=0.0)      # braam on AI. + dark drive
+put_cue('c6_void', tPerl - 0.5, tC + 0.9, 0.5, 1.2, -29.5)                       # sameness → void (heartbeat)
+
 # 4–5: the track (stereo, not reverbed; added after the synth bus)
 def load_st(name):
     raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', f'{ROOT}/sfx/{name}', '-ac', '2', '-ar', str(SR), '-f', 'f32le', '-'], capture_output=True).stdout
@@ -524,7 +485,7 @@ def put(src0, dst0, dst1, fin=0.05, fout=0.05):
     e = np.ones(n_); a_ = int(fin * SR); b_ = int(fout * SR)
     e[:a_] = np.linspace(0, 1, a_); e[n_ - b_:] *= np.linspace(1, 0, b_)
     trkL[i0:i0 + n_] += seg[:, 0] * e; trkR[i0:i0 + n_] += seg[:, 1] * e
-put(0.0, tC - 0.3, tD + 0.25, fin=0.6, fout=0.5)  # intro: bells / music box (hope)
+put(0.0, tC - 1.6, tD + 0.25, fin=1.3, fout=0.5)  # intro: bells / music box (hope)
 DROP = 96.06  # track drop (librosa beat + RMS jump), aligned to "seleramu."
 off = DROP - tSel
 end_t = TOTAL
@@ -533,7 +494,7 @@ _r0 = F('c09', 'AI') - 0.2
 place(mus, pad([nt(33), nt(45)], tSel - _r0, 1.0, 0.2), _r0, 0.3)
 _rs = int((tSel - (tSel - 1.6)) * SR); _rt = np.arange(_rs) / SR
 place(mus, lp(pink(_rs), 2500) * (_rt / _rt[-1]) ** 2 * 0.6, tSel - 1.6)
-TRK_SEG = [(tC - 0.3, tD + 0.25, -29.0), (tD + 0.25, tSel - 0.05, -29.0), (tSel - 0.05, end_t, -25.0)]
+TRK_SEG = [(tC - 1.6, tD + 0.25, -29.0), (tD + 0.25, tSel - 0.05, -30.5), (tSel - 0.05, end_t, -25.0)]
 # reverb (simple exponential-noise IR)
 ir_n = int(2.2 * SR); ir = rng.standard_normal(ir_n) * np.exp(-np.arange(ir_n) / SR / 0.55); ir = lp(ir, 3500)
 wet = ss.fftconvolve(mus, ir)[:N]; mus = mus + 0.25 * norm(wet, np.max(np.abs(mus)) + 1e-9)
@@ -545,10 +506,12 @@ duck = 10 ** (-8 * np.clip(venv * 6, 0, 1) / 20)
 mus = mus * duck
 duck_t = 10 ** (-6 * np.clip(venv * 6, 0, 1) / 20)
 trkL = trkL * duck_t; trkR = trkR * duck_t
+cueL = cueL * duck_t; cueR = cueR * duck_t
 
 # ---------------- mix + loudness
 vob = norm(vob, 0.5)
-mus = norm(mus, 1) * 10 ** (-17 / 20) * 2
+_seg = mus[int((tSel - 8) * SR):int(tSel * SR)]
+mus = mus * 10 ** ((-33.0 - pyln.Meter(SR).integrated_loudness(_seg)) / 20)  # v15: synth bus is only the pre-drop pad/riser now
 _m = pyln.Meter(SR)
 for a_, b_, tgt in TRK_SEG:
     i0_, i1_ = int(a_ * SR), int(b_ * SR)
@@ -560,7 +523,8 @@ d = int(0.011 * SR)
 musR = np.concatenate([np.zeros(d), mus[:-d]])
 musL = mus; musR = 0.55 * mus + 0.45 * musR; musL = 0.55 * mus + 0.45 * np.concatenate([mus[d // 2:], np.zeros(d // 2)])  # v14: wider (earshot: side −17 dB)
 _mid = (trkL + trkR) / 2; _sid = (trkL - trkR) / 2 * 1.55; trkL = _mid + _sid; trkR = _mid - _sid
-mixL = vob + musL + trkL + sfxL * 0.5; mixR = vob + musR + trkR + sfxR * 0.5
+_cm = (cueL + cueR) / 2; _cs = (cueL - cueR) / 2 * 1.3; cueL = _cm + _cs; cueR = _cm - _cs
+mixL = vob + musL + trkL + cueL + sfxL * 0.5; mixR = vob + musR + trkR + cueR + sfxR * 0.5
 mix = (mixL + mixR) / 2
 meter = pyln.Meter(SR)
 n_ = int(TOTAL * SR)
@@ -585,7 +549,7 @@ mix = X.mean(1)
 print('LUFS', round(meter.integrated_loudness(X), 2), 'peak dBTP~', round(20 * np.log10(np.max(np.abs(ss.resample_poly(X[:, 0], 4, 1)))), 2))
 sf.write(f'{ROOT}/render/mix.wav', X.astype(np.float32), SR, subtype='PCM_24')
 sf.write(f'{ROOT}/render/stem_vo.wav', vob[: len(mix)].astype(np.float32), SR)
-sf.write(f'{ROOT}/render/stem_music.wav', (mus + (trkL + trkR) / 2)[: len(mix)].astype(np.float32), SR)
+sf.write(f'{ROOT}/render/stem_music.wav', (mus + (trkL + trkR) / 2 + (cueL + cueR) / 2)[: len(mix)].astype(np.float32), SR)
 sf.write(f'{ROOT}/render/stem_sfx.wav', sfx_[: len(mix)].astype(np.float32), SR)
 json.dump(cues, open(f'{ROOT}/render/cues.json', 'w'), indent=1)
 print('cues', len(cues))

@@ -1,0 +1,34 @@
+{
+ "positive_global_styles": [
+  "instrumental cinematic underscore for an Apple-style product film",
+  "modern, premium, clean mix",
+  "full energy from the very first beat, no fade-in"
+ ],
+ "negative_global_styles": [
+  "vocals",
+  "lyrics",
+  "choir",
+  "lo-fi",
+  "cheesy",
+  "silence",
+  "fade-out",
+  "ending",
+  "outro",
+  "decrescendo"
+ ],
+ "sections": [
+  {
+   "section_name": "stopped",
+   "positive_local_styles": [
+    "the beat is gone, only a deep low drone and a reversed swell in one continuous crescendo that keeps rising to the very last second, suspense, held breath"
+   ],
+   "negative_local_styles": [
+    "drums",
+    "melody",
+    "vocals"
+   ],
+   "duration_ms": 7075,
+   "lines": []
+  }
+ ]
+}
