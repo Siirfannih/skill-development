@@ -128,7 +128,7 @@ export const S6: React.FC = () => {
           )}
           {/* album covers: one focus, then a clean pair */}
           {f >= fMemp - 2 && (
-            <Album src="assets/cash.jpg" label="JOHNNY CASH" f={f} at={fMemp + 4} x={400 + 300 * (1 - k(f, [fAdele - 2, fAdele + 10], [0, 1], eIO)) - nOut * 1400} />
+            <Album src="assets/cash.jpg" label="JOHNNY CASH" f={f} at={fMemp + 4} x={400 + 300 * (1 - k(f, [fAdele - 12, fAdele], [0, 1], eIO)) - nOut * 1400} />
           )}
           {f >= fAdele - 2 && <Album src="assets/adele.jpg" label="ADELE" f={f} at={fAdele} x={1000 + nOut * 1400} />}
           {f >= fJohnny && (

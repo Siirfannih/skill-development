@@ -121,7 +121,7 @@ def load(name, lpf=9000):
     x = np.frombuffer(raw, np.float32).astype(np.float64)
     nz = np.where(np.abs(x) > 0.01 * np.max(np.abs(x)))[0]
     x = x[max(0, nz[0] - int(0.002 * SR)):] if len(nz) else x
-    x = lp(x, lpf, 2)  # warm: shave the top
+    x = lp(x, lpf, 4)  # warm: shave the top (v16: 4th order, steeper)
     fade = int(0.01 * SR); x[-fade:] *= np.linspace(1, 0, fade)
     return norm(x)
 def smp(name, maxdur=None, lpf=9000, rate=1.0):
@@ -131,17 +131,17 @@ def smp(name, maxdur=None, lpf=9000, rate=1.0):
         n = int(maxdur * SR); x = x[:n].copy(); f_ = min(len(x), int(0.04 * SR)); x[-f_:] *= np.linspace(1, 0, f_)
     return x
 def k_typing(dur):
-    x = load('keyboard-typing-fast-371229.mp3', 7000)
+    x = load('keyboard-typing-fast-371229.mp3', 4500)
     n = int(dur * SR); y = x[int(0.3 * SR): int(0.3 * SR) + n].copy(); f_ = int(0.05 * SR); y[-f_:] *= np.linspace(1, 0, f_); return y
 RR = {}
 def rr(kind, names):
     i = RR.get(kind, 0); RR[kind] = i + 1; return names[i % len(names)]
 KEN = dict(
-    pop=lambda **kw: smp(rr('pop', ['ui-pop-up-2-197887.mp3', 'pop-402324.mp3', 'soft-subtle-ui-pop-sfx-348820.mp3', 'pop-2-269283.mp3']), 0.4, 7000),
+    pop=lambda **kw: smp(rr('pop', ['ui-pop-up-2-197887.mp3', 'pop-402324.mp3', 'soft-subtle-ui-pop-sfx-348820.mp3', 'pop-2-269283.mp3']), 0.45, 3200, rate=0.86),  # v16: deep bubble pop (Irfan's SFX standard), no 2–6 kHz bite
     whoosh=lambda **kw: smp(rr('wh', ['swoosh-014-383768.mp3', 'swoosh-2-359826.mp3', 'simple-whoosh-382724.mp3', 'woosh-230554.mp3']), kw.get('dur', 0.5) + 0.4, 8000),
     subwhoosh=lambda **kw: smp('universfield-swoosh-023-454830.mp3', 1.2, 6000),
-    click=lambda **kw: smp(rr('ck', ['App Click 1.wav', 'universfield-computer-mouse-click-352734.mp3', 'ipad_click-99325.mp3']), 0.3, 8000),
-    bloop=lambda **kw: smp('marimba-bloop-3-188151.mp3', 1.0, 6000),
+    click=lambda **kw: smp(rr('ck', ['App Click 1.wav', 'universfield-computer-mouse-click-352734.mp3', 'ipad_click-99325.mp3']), 0.3, 4000),
+    bloop=lambda **kw: smp('marimba-bloop-3-188151.mp3', 1.0, 4000),
     latch=lambda **kw: smp('confirm-tap-394001.mp3', 0.6, 7000),
     send=lambda **kw: smp('message-envoye-iphone-apple-391098.mp3', 0.5, 9000),
     ding=lambda **kw: smp('notification-pluck-off-269290.mp3', 0.9, 8000),
@@ -150,7 +150,7 @@ KEN = dict(
     glitch=lambda **kw: smp(rr('gl', ['ui-sounds-pack-2-sound-4-358895.mp3', 'glitch-fx-transitions-8-311809.mp3']), 0.35, 9000),
     shutter=lambda **kw: smp('shutter-modern.wav', 0.5, 14000),
     boom=lambda **kw: smp('whoosh-end-384629.mp3', 2.5, 5000),
-    shine=lambda **kw: smp('benkirb-shine-1-268902.mp3', 1.6, 7000),
+    shine=lambda **kw: smp('benkirb-shine-1-268902.mp3', 1.6, 2800),  # v16: was the harshest cue (78 % in 2–6 kHz)
 )
 SYN = {'gulp'}  # v15: only the tiny gulp stays synthesized
 # v15 (Irfan 17:52): real recorded/generated SFX replace the code-synth layers (tools/el_sfx.py → sfx/el/).
@@ -165,8 +165,8 @@ ELK = dict(
     thud=lambda **kw: smp(rr('th', ['el/thud_0.mp3', 'el/thud_1.mp3', 'el/thud_2.mp3']), 1.0, 4000),
     impact=el_impact,
     thock=lambda **kw: smp(rr('tk', ['el/thock_0.mp3', 'el/thock_1.mp3', 'el/thock_2.mp3']), 0.45, 6000),
-    tick=lambda **kw: smp(rr('ti', ['el/tick_0.mp3', 'el/tick_2.mp3']), 0.3, 5000),
-    glide=lambda **kw: smp(rr('gd', ['el/glide_0.mp3', 'el/glide_1.mp3', 'el/glide_2.mp3']), kw.get('dur', 0.75) + 0.2, 5500),
+    tick=lambda **kw: smp(rr('ti', ['el/tick_0.mp3', 'el/tick_2.mp3']), 0.3, 4000),
+    glide=lambda **kw: smp(rr('gd', ['el/glide_0.mp3', 'el/glide_1.mp3', 'el/glide_2.mp3']), kw.get('dur', 0.75) + 0.2, 4500),
     swell=lambda **kw: tail(smp(rr('sw', ['el/swell_0.mp3', 'el/swell_1.mp3']), None, 6000), kw.get('dur', 0.6)),
     riser=lambda **kw: tail(smp(rr('ri', ['el/riser_0.mp3', 'el/riser_1.mp3']), None, 5000), kw.get('dur', 0.6)),
     scribble=lambda **kw: smp(rr('sc', ['el/scribble_0.mp3', 'el/scribble_1.mp3']), kw.get('dur', 0.6) + 0.1, 6000),
@@ -186,8 +186,7 @@ cue(0.0, 'boom', -14, 'v10 hook: hantaman pembuka (frame 0)')
 cue(F('c01', 'jarak') + fr(3), 'whoosh', -17, 'kata Ada|jarak terdorong terpisah', align='start', dur=0.4)
 cue(F('c01', 'jarak') + fr(4), 'thud', -14, 'celah terbuka', f0=80, f1=40, dur=0.45)
 cue(F('c01', 'jarak') + fr(14), 'latch', -19, 'garis ukur terkunci')
-cue(F('c01', 'kemampuan') - fr(3), 'whoosh', -20, 'kamera whip ke garis kemampuan', align='end', dur=0.3)
-cue(F('c01', 'kemampuan') + fr(14), 'subwhoosh', -19, 'kamera mundur: area jarak', align='start')
+cue(F('c01', 'kemampuan') - fr(2), 'subwhoosh', -18, 'v16: kamera patah ke grafik utuh', align='start')
 for w, db in (('Ada', -21), ('jarak', -22), ('antara', -23)): cue(f('c01', w) + fr(2), 'pop', db, f'headline "{w}"', f0=380)
 cue(f('c01', 'seleramu'), 'glide', -20, 'kurva SELERA tergambar', dur=0.75)
 cue(f('c01', 'seleramu') + fr(20), 'bloop', -20, 'titik ujung SELERA', f0=294)
@@ -242,8 +241,8 @@ cue(s3 + fr(2), 'thud', -17, 'landing dunia putih', f0=75, f1=40, dur=0.4)
 for w, db in (('kita', -24), ('takut', -18), ('digantikan', -23)): cue(F('c04', w) + fr(2), 'pop', db, f'headline {w}', f0=360)
 cue(F('c04', 'Faktanya'), 'glide', -20, 'lingkaran zona nyaman tergambar', dur=0.6)
 cue(F('c04', 'takut'), 'thud', -16, 'orangnya tersentak takut', f0=70, f1=36, dur=0.4)
-cue(F('c04', 'digantikan'), 'shine', -19, 'percik AI muncul')
-cue(F('c04', 'digantikan') + fr(4), 'pop', -18, 'percik AI pecah jadi ChatGPT, Claude, Gemini')
+cue(F('c04', 'digantikan'), 'shine', -23, 'percik AI muncul')
+for i_, n_ in enumerate(['ChatGPT', 'Claude', 'Gemini']): cue(F('c04', 'digantikan') + fr(4 + 3 * i_), 'pop', -19, f'tile {n_} terpisah', f0=280 + 40 * i_)
 cue(F('c04', 'AI') - fr(2), 'whoosh', -16, 'AI merebut tengah, kita terdorong keluar', align='end', dur=0.3)
 cue(F('c04', 'AI'), 'impact', -6, 'AI. mendarat berat (hit puncak 1)')
 # v13: sentence built word by word, camera rides the line
@@ -257,9 +256,10 @@ for i, (w, n) in enumerate((('Edit', 1), ('Menulis', 1), ('Mencari', 1), ('Menca
     if i == 0: cue(s0, 'whoosh', -18, 'Claude UI meluncur masuk', align='end', dur=0.4)
     cue(s0, 'click', -15, f'obrolan baru: {w}')
     if i in (0, 2): cue(s0 + fr(1), 'pop', -21, f'lampiran file {w}')
-    cue(s0 + fr(3), 'typing', -15, f'mengetik prompt {w}', dur=fr(15))
-    cue(s0 + fr(21), 'send', -16, f'kirim {w}')
-    cue(s0 + fr(21), 'click', -17, f'tombol kirim {w}')
+    cue(s0 + fr(2), 'typing', -19, f'mengetik prompt {w}', dur=fr(11))
+    cue(s0 + fr(17), 'send', -16, f'kirim {w}')
+    cue(s0 + fr(16), 'click', -17, f'tombol kirim {w}')
+    cue(s0 + fr(18), 'pop', -22, f'bubble prompt {w} muncul', f0=300)
 # results arrive on "Hasilnya jadi dalam hitungan detik"
 for w in ('jadi', 'dalam', 'hitungan', 'detik'):
     t0 = F('c05', w) - fr(2 if w != 'jadi' else 4)
@@ -284,6 +284,8 @@ cue(F('c06', 'AI') - fr(2), 'swell', -18, 'reveal-out ke ribuan titik', dur=1.2)
 cue(F('c06', 'ribuan') + fr(3), 'pop', -20, 'ribuan.', f0=260)
 cue(F('c06', 'tidak') + fr(2), 'bloop', -22, 'lensa muncul', f0=262)
 cue(F('c06', 'tidak') + fr(2), 'glide', -26, 'lensa menyapu', dur=2.0)
+cue(F('c06', 'kecewa') - fr(2), 'thock', -14, 'v16: angka 0 mendarat di lensa', f0=170)
+cue(F('c06', 'kecewa') + fr(2), 'pop', -20, 'v16: teks "yang mengecewakan."', f0=260)
 cue(F('c06', 'kecewa') + fr(8), 'click', -20, 'lensa menutup kosong')
 cue(F('c07', 'Karena') - fr(10), 'whoosh', -18, 'titik rontok', align='end', dur=0.5, lo=700, hi=120)
 for i in range(3): cue(F('c07', 'Karena') - fr(12) + i * 0.06, 'pop', -20, f'titik {i+1} bertahan', f0=330 + 60 * i)
@@ -294,15 +296,24 @@ for i in range(3): cue(F('c07', 'Karena') + fr(4 + i * 5), 'pop', -22, f'kartu 0
 cue(F('c07', 'tiga') + fr(2), 'pop', -20, 'tiga', f0=380)
 cue(F('c07', 'hal') + fr(2), 'bloop', -15, 'kartu 01 jadi biru (warna pertama)', f0=294)
 cue(F('c07', 'tidak') + fr(2), 'pop', -23, 'tidak bisa di-generate', f0=300)
+# v16 Pengalaman = pictogram runner (Irfan's refs)
 cue(F('c07', 'Pengalaman'), 'whoosh', -17, 'zoom-through kartu 01', align='end', dur=0.45, lo=200, hi=900)
-cue(F('c07', 'Pengalaman') + fr(1), 'thud', -16, 'landing kotak biru', f0=80, f1=40, dur=0.45)
-for i in range(7): cue(F('c07', 'Pengalaman') + fr(6 + i * 2), 'pop', -26, f'kotak percobaan {i+1}', f0=320 + 20 * i, dur=0.07)
-cue(F('c07', 'Pengalaman') + fr(14), 'thock', -16, 'Pengalaman.', f0=190)
-step = round((W('c07', 'gagal') - W('c07', 'semua')) * FPS / 7)
-for i in range(7):
-    cue(F('c07', 'semua') + fr(4 + i * step), 'scribble', -21, f'coretan coral {i+1}')
-    cue(F('c07', 'semua') + fr(4 + i * step), 'thock', -16, f'draft {i+1} gagal', f0=170 - i * 6)
-cue(F('c07', 'gagal') + fr(10), 'ping', -15, 'draft 8 Senja. terpilih (chime)')
+cue(F('c07', 'Pengalaman') + fr(1), 'thud', -16, 'mendarat di lintasan', f0=80, f1=40, dur=0.45)
+cue(F('c07', 'Pengalaman') - fr(1), 'latch', -19, 'tiang bendera MULAI berdiri')
+cue(F('c07', 'Pengalaman') + fr(5), 'pop', -20, 'bendera MULAI terbentang', f0=320)
+cue(F('c07', 'Pengalaman') + fr(2), 'thock', -19, 'pelari jongkok di garis start', f0=200)
+cue(F('c07', 'Pengalaman') + fr(7), 'thock', -15, 'judul Pengalaman.', f0=190)
+cue(F('c07', 'semua'), 'whoosh', -21, 'pelari melesat', align='start', dur=0.3, lo=300, hi=900)
+for i, t_ in enumerate(np.arange(F('c07', 'semua') + fr(3), F('c07', 'coba') + fr(4), fr(4))):
+    cue(t_, 'tick', -25 + (i % 2), f'langkah kaki {i+1}')
+cue(F('c07', 'semua'), 'glide', -24, 'garis coral memanjang di belakang pelari', dur=0.8)
+cue(F('c07', 'coba') + fr(4), 'thud', -14, 'pelari tersandung, berhenti', f0=90, f1=45, dur=0.4)
+cue(F('c07', 'coba') + fr(5), 'scribble', -19, 'tanda silang coral di lintasan')
+cue(F('c07', 'coba') + fr(7), 'bloop', -23, 'keringat lelah', f0=300)
+cue(F('c07', 'gagal'), 'subwhoosh', -16, 'kamera patah ke wide: seluruh jalur gagal terlihat', align='start')
+for i, t_ in enumerate(np.arange(F('c07', 'gagal') + fr(1), F('c07', 'Direction') - fr(6), fr(4))):
+    cue(t_, 'tick', -25 + (i % 2), f'langkah lagi {i+1}')
+cue(F('c07', 'gagal') + fr(2), 'glide', -23, 'garis biru: tetap jalan', dur=0.7)
 cue(F('c07', 'Direction'), 'whoosh', -15, 'whip pan ke Direction', align='end', dur=0.3, lo=400, hi=1200)
 cue(F('c07', 'Direction') + fr(2), 'thud', -18, 'landing whip', f0=90, f1=45, dur=0.35)
 for i in range(4): cue(F('c07', 'Direction') + fr(2 + i * 2), 'pop', -24, f'kartu kipas {i+1}', f0=300 + 25 * i, dur=0.07)
@@ -325,6 +336,7 @@ cue(F('c08', 'memproduseri') + fr(4), 'whoosh', -22, 'lensa keluar kanan', align
 cue(F('c08', 'memproduseri') + fr(2), 'pop', -23, 'memproduseri', f0=360)
 cue(F('c08', 'memproduseri') + fr(16), 'whoosh', -18, 'sampul Cash naik', align='end', dur=0.3, lo=250, hi=900)
 cue(F('c08', 'memproduseri') + fr(16), 'thud', -15, 'sampul Cash mendarat', f0=90, f1=45, dur=0.4)
+cue(F('c08', 'Adele') - fr(12), 'glide', -22, 'v16: sampul Cash bergeser memberi ruang', dur=0.4)
 cue(F('c08', 'Adele') + fr(10), 'whoosh', -18, 'sampul Adele naik', align='end', dur=0.35, lo=300, hi=1100)
 cue(F('c08', 'Adele') + fr(10), 'thud', -14, 'sampul Adele mendarat', f0=110, f1=55, dur=0.4)
 cue(F('c08', 'Yang') + fr(14), 'subwhoosh', -15, 'nama keluar + dunia putih naik', align='end', dur=0.5)
@@ -345,7 +357,7 @@ for w in ('membuat', 'menciptakan', 'meniru'):
     cue(F('c09', w) + fr(4), 'pop', -21, f'chip gambar {w}')
 for i in range(7): cue(F('c09', 'membuat') + fr(2 + i * 5), 'pop', -24 + (i % 2), f'hasil {i+1} dilempar ke kipas')
 for i in range(3): cue(F('c09', 'menciptakan') + fr(22 + i * 12), 'ding', -17, f'pesanan baru #{1001+i}')
-cue(F('c09', 'meniru') + fr(10), 'typing', -8, 'AI menyalin tulisanmu', dur=1.2)
+cue(F('c09', 'meniru') + fr(10), 'typing', -14, 'AI menyalin tulisanmu', dur=1.2)
 cue(F('c09', 'tapi') + fr(1), 'whoosh', -18, 'visual AI bisa keluar', align='end', dur=0.35)
 cue(F('c09', 'tapi') + fr(10), 'pop', -23, 'tapi tidak dengan', f0=300)
 cue(F('c09', 'seleramu') + fr(1), 'impact', -7, 'seleramu. (hit puncak 2)')
@@ -365,6 +377,29 @@ cue(F('c06', 'jarak') - fr(1), 'whoosh', -20, 'statement Ira Glass bilang -> gra
 cue(F('c06', 'tidak') - fr(4), 'click', -20, 'lensa muncul di ladang titik')
 cue(7.73, 'pop', -24, 'S1 grafik: label/titik')
 
+# v16 coverage pass (tools/visual_coverage.py): visual events that had no sound of their own
+for t_, kind_, db_, vis_, kw_ in [
+    (3.83, 'pop', -21, 'label JARAK + arsir selesai', {}),
+    (6.88, 'subwhoosh', -16, '"the gap" larut, keluar ke grafik', {}),
+    (9.60, 'tick', -20, 'titik karya di kurva putus-putus', {}), (9.87, 'tick', -20, 'titik karya berikutnya', {}),
+    (12.00, 'whoosh', -20, 'kamera geser di grid kalimat', {'dur': 0.3}), (12.93, 'whoosh', -20, 'kamera geser ke baris taste', {'dur': 0.3}),
+    (13.30, 'pop', -18, 'pil taste-mu + klip', {}), (14.30, 'subwhoosh', -18, 'kalimat utuh terlihat', {}),
+    (17.50, 'glide', -21, 'halaman landing page mengalir', {'dur': 0.5}), (18.13, 'glide', -21, 'landing page bergulir', {'dur': 0.5}),
+    (18.77, 'whoosh', -20, 'kamera mundur dari landing page', {'dur': 0.35}),
+    (36.77, 'thud', -16, 'hasil reel pertama mendarat', {}), (41.37, 'glide', -20, 'hasil bergeser beri ruang', {'dur': 0.5}),
+    (45.97, 'pop', -18, '"Ira Glass" naik', {}), (50.27, 'pop', -18, 'kata "AI"', {}), (50.70, 'pop', -18, 'kata "memberimu"', {}),
+    (51.60, 'whoosh', -19, '"ribuan." keluar, ladang titik terbuka', {'dur': 0.4}), (54.00, 'glide', -20, 'lensa menyapu ladang titik', {'dur': 0.5}),
+    (54.80, 'pop', -18, 'lensa menutup, 0 tertinggal', {}), (55.33, 'pop', -18, 'tiga kartu muncul', {}),
+    (59.30, 'whoosh', -17, 'menyelam ke kartu 01', {'dur': 0.35}),
+    (64.77, 'pop', -19, 'kartu arah desain muncul', {}), (65.03, 'pop', -19, 'kartu arah desain berikutnya', {}),
+    (67.10, 'swell', -18, 'kartu terpilih membanjiri layar', {'dur': 0.4}), (68.90, 'lens', -18, 'loupe bergeser ke tombol', {}),
+    (72.00, 'pop', -18, 'lensa jadi jendela foto', {}),
+    (75.13, 'whoosh', -19, 'lensa Rick keluar', {'dur': 0.35}), (75.53, 'pop', -20, 'teks memproduseri', {}), (75.73, 'glide', -21, 'dunia biru naik', {'dur': 0.4}),
+    (77.40, 'whoosh', -17, 'pergantian ke pasangan album', {'dur': 0.35}),
+    (89.77, 'glide', -20, 'karya merapat ke orbit', {'dur': 0.4}), (89.97, 'tick', -20, 'orbit terkunci', {}),
+]:
+    cue(t_, kind_, db_, 'v16 cakupan: ' + vis_, **kw_)
+
 # ---------------- effect family (video/src/fx.json) → bound SFX
 FXJ = json.load(open(f'{ROOT}/video/src/fx.json'))
 for e in FXJ:
@@ -375,6 +410,14 @@ for e in FXJ:
 cue(F('c04', 'AI'), 'boom', -14, 'AI. slam (layer)')
 cue(F('c09', 'seleramu') + fr(1), 'boom', -16, 'seleramu. (layer)')
 
+# v16 (Irfan 18:52: audible on a phone at 20 %): sub-only hits vanish on phone speakers, so they get a warm
+# harmonic layer (saturated low end, band-passed 250–1,400 Hz) — still no 2–6 kHz bite.
+SUBK = {'thud', 'impact', 'boom', 'subwhoosh', 'thock', 'tick', 'swell'}
+def presence(x, amt=0.55):
+    low = lp(x, 260); h = np.tanh(6 * low / (np.max(np.abs(low)) + 1e-9))
+    return x + amt * norm(bp(h, 250, 1400, 2), np.max(np.abs(x)))
+# per-cue lifts written by tools/audio_phone.py --fix (phone-speaker audibility at 20 % volume)
+CUE_GAIN = json.load(open(f'{ROOT}/tools/cue_gain.json')) if os.path.exists(f'{ROOT}/tools/cue_gain.json') else {}
 # ---------------- render SFX bus
 sfxL = np.zeros(N); sfxR = np.zeros(N)
 for ci, c in enumerate(cues):
@@ -385,13 +428,19 @@ for ci, c in enumerate(cues):
     else:
         x = PAL[c['kind']](**c['kw'])
         start = c['t'] - (len(x) / SR if c['align'] == 'end' else 0)
+    if c['kind'] in SUBK: x = presence(x)
     i0 = int(max(0, start) * SR)
-    _boost = 9.0 if F('c09', 'AI') <= c['t'] < F('c09', 'seleramu') else 0.0  # v15: build act buried the slot SFX (−14.7 dB vs music)
-    seg = x[: max(0, min(len(x), N - i0))] * 10 ** ((c['db'] + _boost) / 20)
+    _boost = 6.0 if F('c09', 'AI') <= c['t'] < F('c09', 'seleramu') else 0.0  # v15: build act buried the slot SFX (−14.7 dB vs music)
+    seg = x[: max(0, min(len(x), N - i0))] * 10 ** ((max(c['db'], -22) + _boost + CUE_GAIN.get(f"{c['t']:.4f}|{c['kind']}", 0)) / 20)  # v16: floor −22 dB — nothing too quiet for a phone at 20 %
     pan = 0.0 if c['kind'] in ('impact', 'boom', 'thud', 'typing') else (0.35 if ci % 2 else -0.35)
     gl, gr = np.cos((pan + 1) * np.pi / 4) * 1.414, np.sin((pan + 1) * np.pi / 4) * 1.414
     sfxL[i0:i0 + len(seg)] += seg * gl; sfxR[i0:i0 + len(seg)] += seg * gr
 sfxL = hp(lp(sfxL, 9000, 6), 40); sfxR = hp(lp(sfxR, 9000, 6), 40)
+# v16: bus glue — gentle compression lifts the quiet ticks/pops, then +5 dB so SFX read over the bed on a phone
+from pedalboard import Pedalboard, Compressor, Limiter
+_pb = Pedalboard([Compressor(threshold_db=-30, ratio=3.0, attack_ms=2, release_ms=120), Limiter(threshold_db=-3)])
+_st = _pb(np.stack([sfxL, sfxR]).astype(np.float32) * 10 ** (5 / 20), SR).astype(np.float64)
+sfxL, sfxR = _st[0], _st[1]
 sfx = (sfxL + sfxR) / 2
 
 # ---------------- VO bus
@@ -494,7 +543,7 @@ _r0 = F('c09', 'AI') - 0.2
 place(mus, pad([nt(33), nt(45)], tSel - _r0, 1.0, 0.2), _r0, 0.3)
 _rs = int((tSel - (tSel - 1.6)) * SR); _rt = np.arange(_rs) / SR
 place(mus, lp(pink(_rs), 2500) * (_rt / _rt[-1]) ** 2 * 0.6, tSel - 1.6)
-TRK_SEG = [(tC - 1.6, tD + 0.25, -29.0), (tD + 0.25, tSel - 0.05, -30.5), (tSel - 0.05, end_t, -25.0)]
+TRK_SEG = [(tC - 1.6, tD + 0.25, -32.0), (tD + 0.25, tSel - 0.05, -30.5), (tSel - 0.05, end_t, -25.0)]
 # reverb (simple exponential-noise IR)
 ir_n = int(2.2 * SR); ir = rng.standard_normal(ir_n) * np.exp(-np.arange(ir_n) / SR / 0.55); ir = lp(ir, 3500)
 wet = ss.fftconvolve(mus, ir)[:N]; mus = mus + 0.25 * norm(wet, np.max(np.abs(mus)) + 1e-9)
@@ -502,11 +551,18 @@ mus = lp(mus, 6000)
 # sidechain duck under VO (8 dB)
 venv = ss.lfilter([1 - np.exp(-1 / (0.25 * SR))], [1, -np.exp(-1 / (0.25 * SR))], np.abs(vob))
 venv = venv / (np.max(venv) + 1e-9)
-duck = 10 ** (-8 * np.clip(venv * 6, 0, 1) / 20)
+# v16: music also dips 3 dB under each SFX hit (sidechain from the SFX bus) so objects cut through
+senv = ss.lfilter([1 - np.exp(-1 / (0.06 * SR))], [1, -np.exp(-1 / (0.06 * SR))], np.abs(sfx)); senv = senv / (np.percentile(senv, 99.5) + 1e-9)
+duck_s = 10 ** (-3 * np.clip(senv, 0, 1) / 20)
+duck = 10 ** (-8 * np.clip(venv * 6, 0, 1) / 20) * duck_s
 mus = mus * duck
-duck_t = 10 ** (-6 * np.clip(venv * 6, 0, 1) / 20)
-trkL = trkL * duck_t; trkR = trkR * duck_t
-cueL = cueL * duck_t; cueR = cueR * duck_t
+# v16: two-band duck. The speech band (≥ 300 Hz) of the music gets out of the voice's way (−11 dB), the low end only
+# dips −4 dB so the bed keeps its weight. Clear VO on a phone without the music feeling switched off.
+_v = np.clip(venv * 6, 0, 1)
+duck_hi = 10 ** (-11 * _v / 20) * duck_s; duck_lo = 10 ** (-4 * _v / 20) * duck_s
+def duck2(x):
+    lo_ = lp(x, 300, 2); return lo_ * duck_lo + (x - lo_) * duck_hi
+trkL, trkR, cueL, cueR = duck2(trkL), duck2(trkR), duck2(cueL), duck2(cueR)
 
 # ---------------- mix + loudness
 vob = norm(vob, 0.5)

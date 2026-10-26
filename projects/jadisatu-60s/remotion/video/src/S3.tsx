@@ -2,7 +2,7 @@ import React from "react";
 import { useCurrentFrame } from "remotion";
 import { Abs, C, Cam, MB, Rise, SANS, eIn, eIO, eOut, k, rnd, shake, wf, Vignette } from "./lib";
 import { ClaudeApp, RMsg } from "./RealUI";
-import { CapLabel, Person, Sparkle } from "./Figures";
+import { CapLabel, Person } from "./Figures";
 import { DESIGNS, Fit, GenericAI, Reel } from "./Designs";
 
 // S3 — hitam (fokus): "Faktanya, kita takut digantikan" → AI. slam.
@@ -13,10 +13,10 @@ export const S3_START = () => wf("c04", "Faktanya") - 1;
 export const S3_END = () => wf("c06", "Ira") + 1;
 
 const REQ = [
-  { key: "Edit", nth: 1, short: "Edit video", title: "Edit footage konser", prompt: "Edit jadi reels 30 detik. Ambil momen terbaik, tambahkan subtitle.", chip: { name: "footage_konser.mp4", meta: "Video · 2:41", thumb: "p_concert.jpg" } },
-  { key: "Menulis", nth: 1, short: "Menulis", title: "Caption launching kedai", prompt: "Tulis 3 opsi caption untuk launching kedai kopiku. Nadanya hangat.", chip: undefined },
-  { key: "Mencari", nth: 1, short: "Mencari kerja", title: "CV Product Designer", prompt: "Rapikan CV-ku untuk posisi Product Designer di lowongan ini.", chip: { name: "CV_lama.pdf", meta: "PDF · 2 halaman" } },
-  { key: "Mencari", nth: 2, short: "Mencari uang", title: "Ide bisnis modal 7 juta", prompt: "Modalku 7 juta. Bisnis apa yang bisa mulai jalan bulan ini?", chip: undefined },
+  { key: "Edit", nth: 1, short: "Edit video", title: "Edit footage konser", prompt: "Edit jadi reels 30 detik, pakai subtitle.", chip: { name: "footage_konser.mp4", meta: "Video · 2:41", thumb: "p_concert.jpg" } },
+  { key: "Menulis", nth: 1, short: "Menulis", title: "Caption launching kedai", prompt: "Tulis 3 caption launching kedai kopiku.", chip: undefined },
+  { key: "Mencari", nth: 1, short: "Mencari kerja", title: "CV Product Designer", prompt: "Rapikan CV-ku untuk Product Designer.", chip: { name: "CV_lama.pdf", meta: "PDF · 2 halaman" } },
+  { key: "Mencari", nth: 2, short: "Mencari uang", title: "Ide bisnis modal 7 juta", prompt: "Modal 7 juta, bisnis apa yang cocok?", chip: undefined },
 ];
 
 export const S3: React.FC = () => {
@@ -89,12 +89,24 @@ export const S3: React.FC = () => {
             return (
               <Abs key={name} style={{ left: cx, top: cy, translate: "-50% -50%", opacity: spark, scale: String(0.6 + 0.4 * spark) }}>
                 <div style={{ width: 120, height: 120, borderRadius: 30, background: "linear-gradient(160deg, rgba(255,255,255,0.22), rgba(255,255,255,0.06))", boxShadow: `0 0 0 1.5px rgba(255,255,255,0.45), 0 0 ${20 + 30 * take}px rgba(255,255,255,${0.15 + 0.25 * take})`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ rotate: `${f * 2 + i * 40}deg` }}>
-                    <Sparkle r={34} />
-                  </div>
+                  {/* v16: three different generic glyphs instead of one star ×3 (chat bubble · asterisk · four-point spark) */}
+                  <svg width={72} height={72} viewBox="0 0 72 72" style={{ rotate: i === 0 ? "0deg" : `${f * 1.5 + i * 40}deg` }} aria-hidden="true">
+                    {i === 0 && (
+                      <g fill="none" stroke="#FFFFFF" strokeWidth={5} strokeLinejoin="round" strokeLinecap="round">
+                        <path d="M14 18 h44 a8 8 0 0 1 8 8 v18 a8 8 0 0 1 -8 8 h-24 l-12 10 v-10 h-8 a8 8 0 0 1 -8 -8 v-18 a8 8 0 0 1 8 -8 z" />
+                        <circle cx={26} cy={35} r={1.5} fill="#FFFFFF" /><circle cx={36} cy={35} r={1.5} fill="#FFFFFF" /><circle cx={46} cy={35} r={1.5} fill="#FFFFFF" />
+                      </g>
+                    )}
+                    {i === 1 && (
+                      <g stroke="#FFFFFF" strokeWidth={7} strokeLinecap="round">
+                        {[0, 60, 120].map((r) => <line key={r} x1={36} y1={12} x2={36} y2={60} transform={`rotate(${r} 36 36)`} />)}
+                      </g>
+                    )}
+                    {i === 2 && <path d="M36 6 C38 26 46 34 66 36 C46 38 38 46 36 66 C34 46 26 38 6 36 C26 34 34 26 36 6 Z" fill="#FFFFFF" />}
+                  </svg>
                 </div>
                 <div style={{ position: "absolute", left: 60, top: 132, translate: "-50% 0", opacity: split }}>
-                  <CapLabel size={22}>{name}</CapLabel>
+                  <CapLabel size={26}>{name}</CapLabel>
                 </div>
               </Abs>
             );
@@ -139,7 +151,10 @@ export const S3: React.FC = () => {
     const TH = { w: 190, h: 150 };
     // estimated advance (Geist 600, -0.045em); words are laid out by flex so they never overlap, the estimate only
     // steers the camera and the zoom-out fit
-    const widths = toks.map((tk) => (tk.thumb ? TH.w : tk.t!.length * SZ * 0.52));
+    // v16: real advances measured in Chromium (Geist, 150 px, −0.045em; /tmp measure.js) — the estimate drifted and
+    // left "pi di satu sisi," cut on the left with the right 70 % empty.
+    const MW: Record<string, number> = { "Tapi": 237.4, "di": 109.4, "satu": 270.9, "sisi,": 221.1, "kita": 245, "menyerahkan": 892.8, "semua": 443.3, "yang": 322.4, "enggan": 496.2, "kerjakan": 564.5, "kepadanya.": 751.8 };
+    const widths = toks.map((tk) => (tk.thumb ? TH.w : MW[tk.t!] ?? tk.t!.length * SZ * 0.52));
     const xs: number[] = [];
     let acc = 0;
     widths.forEach((w) => {
@@ -152,7 +167,9 @@ export const S3: React.FC = () => {
       const ci = toks.reduce((c, tk, i) => (ff >= tk.at - 2 ? i : c), 0);
       const prev = Math.max(0, ci - 1);
       const t = k(ff, [toks[ci].at - 2, toks[ci].at + 6], [0, 1], eOut);
-      return xs[prev] + widths[prev] / 2 + (xs[ci] + widths[ci] / 2 - xs[prev] - widths[prev] / 2) * t;
+      // Irfan (v16 review): the newest word ENDS at the centre — read words fill the left, the right is never 70 % empty
+      const endOf = (j: number) => xs[j] + widths[j];
+      return ci === 0 ? endOf(0) * t + (widths[0] / 2) * (1 - t) : endOf(prev) + (endOf(ci) - endOf(prev)) * t;
     };
     const outT = k(f, [fKepada + 10, fKepada + 22], [0, 1], (t) => 1 - Math.pow(1 - t, 3));
     const sFit = 1640 / (total * 1.08);
@@ -202,7 +219,7 @@ export const S3: React.FC = () => {
     const cur = start.reduce((acc, a, i) => (f >= a ? i : acc), 0);
     const r = REQ[cur];
     const s0 = start[cur];
-    const sendAt = s0 + 21;
+    const sendAt = s0 + 17; // v16: short prompts finish typing, hold, then send — the sent bubble reads ~12 f
     const msgs: RMsg[] = [
       { role: "user", text: r.prompt, at: sendAt, file: r.chip },
       { role: "ai", text: "", at: sendAt + 3, think: 999 },
@@ -233,7 +250,7 @@ export const S3: React.FC = () => {
         </Abs>
         <Abs style={{ left: 1330, top: 470, translate: `${(1 - enter) * 400}px 0`, opacity: enter }}>
           <div style={{ translate: "-50% -50%", scale: "1.38" }}>
-            <ClaudeApp key={cur} f={f} msgs={msgs} typing={{ text: r.prompt, from: s0 + 3, to: s0 + 18, sendAt, file: r.chip, fileAt: s0 + 1 }} w={1000} h={840} fs={21} title={r.title} />
+            <ClaudeApp key={cur} f={f} msgs={msgs} typing={{ text: r.prompt, from: s0 + 2, to: s0 + 13, sendAt, file: r.chip, fileAt: s0 + 1 }} w={1000} h={840} fs={21} title={r.title} />
           </div>
         </Abs>
       </Cam>

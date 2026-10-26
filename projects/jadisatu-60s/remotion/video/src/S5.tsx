@@ -1,8 +1,9 @@
 import React from "react";
 import { Img, staticFile, useCurrentFrame } from "remotion";
-import { Direction as DirArt, Draft } from "./S5Art";
+import { Direction as DirArt } from "./S5Art";
+import { Person } from "./Figures";
 import { Fit, KopiLanding } from "./Designs";
-import { Abs, C, Cam, MB, Rise, SANS, eIn, eIO, eOut, k, kk, rnd, wf, Vignette } from "./lib";
+import { Abs, C, Cam, MB, Rise, SANS, eIn, eIO, eOut, k, kk, wf, Vignette } from "./lib";
 import { CARD_H, CARD_W, TRI_X, TRI_Y } from "./S4";
 
 // S5 — putih → navy. Tiga kartu (01 biru: warna pertama) → Pengalaman (percobaan dicoret) → Direction (pilih satu, buang sisanya) → Cara melihat (lensa menemukan yang miring).
@@ -40,17 +41,6 @@ export const S5: React.FC = () => {
   const c1x = (960 - TRI_X[0]) * (s1 - 1);
   const c1y = (540 - TRI_Y) * (s1 - 1);
 
-  // --- P2 camera: pull out of the blue square (last attempt)
-  const SQ = 150;
-  const GAPX = 180;
-  const ROWX = 960 - (8 * GAPX - (GAPX - SQ)) / 2;
-  const ROWY = 250;
-  const blueCx = ROWX + 7 * GAPX + SQ / 2;
-  const blueCy = ROWY + SQ / 2;
-  const land2 = k(f, [fPeng, fPeng + 20], [1, 0], eOut);
-  const s2 = 1 + 9 * land2;
-  const c2x = (960 - blueCx) * (s2 - 1);
-  const c2y = (540 - blueCy) * (s2 - 1);
   const whip = k(f, [fDir - 8, fDir], [0, 1], eIn);
   const whipIn = k(f, [fDir, fDir + 10], [1, 0], eOut);
 
@@ -68,6 +58,14 @@ export const S5: React.FC = () => {
   const ly = lpy * (1 - toRick) + LENS_END.y * toRick;
   const lr = 150 * (1 - toRick) + LENS_END.r * toRick;
 
+  // --- P2 runner (v16)
+  const fCoba = wf("c07", "coba");
+  const TRACK_Y = 640;
+  const START_X = 380;
+  const FAIL_X = 880;
+  const runX = kk(f, [[fSemua, START_X], [fCoba + 4, FAIL_X], [fGagal - 2, FAIL_X], [fDir - 2, 1300]], (t) => t);
+  const running = (f >= fSemua && f < fCoba + 4) || f >= fGagal - 2;
+  const runPose = f < fSemua ? "crouch" : running ? (Math.floor(f / 4) % 2 ? "walk" : "walk2") : "tired";
   let camX = 0;
   let camY = 0;
   let camS = 1;
@@ -76,14 +74,15 @@ export const S5: React.FC = () => {
     camY = c1y;
     camS = s1;
   } else if (P2) {
-    // v10: after landing, ride along the drafts as each gets crossed out, ending on the good one
-    const zT = k(f, [fSemua - 6, fSemua + 4], [0, 1], eIO);
-    const ti = k(f, [fSemua + 4, fGagal + 10], [0, 7], eIO);
-    const tfx = ROWX + ti * GAPX + SQ / 2;
-    const sT = 2.4;
-    camS = s2 * (1 + (sT - 1) * zT);
-    camX = c2x * (1 - zT) + (960 - tfx) * camS * zT - whip * 1900;
-    camY = c2y * (1 - zT) + (540 - 300) * camS * zT;
+    // v16 (Irfan): experience is human → a pictogram runner (his visualhustles refs), not logo drafts. Close tracking on
+    // the runner, then a hard break to wide on "gagal" that shows the whole red path — and that he keeps walking.
+    const wide = f >= fGagal ? 1 : 0;
+    const land = k(f, [fPeng, fPeng + 12], [1, 0], eOut);
+    const sC = 1.7 * (1 + 2.2 * land);
+    camS = wide ? 1 : sC;
+    const fx = wide ? 820 : runX;
+    camX = (960 - fx) * camS - whip * 1900;
+    camY = (540 - 560) * camS;
   } else if (P3) {
     const zD = k(f, [fMemilih - 4, fSatu + 8], [0, 1], eIO);
     camS = 1 + 0.45 * zD;
@@ -98,6 +97,7 @@ export const S5: React.FC = () => {
   const camV = P2 ? -1900 * (whip - k(f - 1, [fDir - 8, fDir], [0, 1], eIn)) : P3 ? 1900 * (whipIn - k(f - 1, [fDir, fDir + 10], [1, 0], eOut)) : 0;
 
   return (
+    <>
     <Cam bg={P4 ? C.g4 : C.white} x={camX} y={camY} s={camS}>
       <Vignette />
       <MB id="s5whip" vx={camV} max={30}>
@@ -161,42 +161,21 @@ export const S5: React.FC = () => {
 
           {P2 && (
             <>
-              {Array.from({ length: 8 }, (_, i) => {
-                const x = ROWX + i * GAPX;
-                const last = i === 7;
-                const crossAt = fSemua + 4 + i * Math.round((fGagal - fSemua) / 7);
-                const cr = k(f, [crossAt, crossAt + 6], [0, 1], eOut);
-                const pop = last ? 1 : k(f, [fPeng + 6 + i * 2, fPeng + 14 + i * 2], [0, 1], eOut);
-                return (
-                  <Abs
-                    key={i}
-                    dataSubject
-                    style={{
-                      left: x,
-                      top: ROWY,
-                      width: SQ,
-                      height: SQ,
-                      borderRadius: 22,
-                      overflow: "hidden",
-                      boxShadow: last ? `0 0 0 5px ${C.blue}, 0 20px 40px rgba(15,23,42,0.12)` : "0 12px 30px rgba(15,23,42,0.08)",
-                      scale: String(pop),
-                      rotate: `${last ? 0 : (rnd(i) - 0.5) * 8}deg`,
-                    }}
-                  >
-                    <div style={{ width: 300, height: 300, scale: String(SQ / 300), transformOrigin: "0 0" }}>
-                      <Draft v={i + 1} />
-                    </div>
-                    {!last && cr > 0 && (
-                      <svg width={SQ} height={SQ} viewBox="0 0 150 150" style={{ position: "absolute", left: 0, top: 0, background: `rgba(255,255,255,${0.35 * Math.min(1, cr * 2)})` }}>
-                        <path d="M45 45 L105 105" stroke={C.coral} strokeWidth={9} strokeLinecap="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - Math.min(1, cr * 2)} />
-                        <path d="M105 45 L45 105" stroke={C.coral} strokeWidth={9} strokeLinecap="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - Math.max(0, cr * 2 - 1)} />
-                      </svg>
-                    )}
-                  </Abs>
-                );
-              })}
-              <Abs style={{ left: 0, width: 1920, top: 530, display: "flex", justifyContent: "center" }}>
-                <Rise text="Pengalaman." at={fPeng + 14} size={200} weight={600} color={C.ink} letterSpacing="-0.04em" />
+              {/* track: thin ink base, coral where he tried and failed, blue where he keeps going */}
+              <Abs style={{ left: 120, top: TRACK_Y - 3, width: 1700, height: 6, borderRadius: 3, background: "rgba(10,10,10,0.12)" }} />
+              <Abs style={{ left: START_X, top: TRACK_Y - 5, width: Math.max(0, Math.min(runX, FAIL_X) - START_X), height: 10, borderRadius: 5, background: C.coral }} />
+              {f >= fGagal - 2 && <Abs style={{ left: FAIL_X, top: TRACK_Y - 5, width: Math.max(0, runX - FAIL_X), height: 10, borderRadius: 5, background: C.blue }} />}
+              {/* start flag */}
+              <Abs style={{ left: START_X - 6, top: TRACK_Y - 250, width: 8, height: 250, borderRadius: 4, background: C.coral, scale: `1 ${k(f, [fPeng - 2, fPeng + 8], [0, 1], eOut)}`, transformOrigin: "50% 100%" }} />
+              <Abs style={{ left: START_X + 2, top: TRACK_Y - 250, padding: "14px 34px 14px 22px", background: C.coral, clipPath: "polygon(0 0, 100% 0, 88% 50%, 100% 100%, 0 100%)", fontFamily: SANS, fontWeight: 700, fontSize: 44, letterSpacing: "0.02em", color: C.white, opacity: k(f, [fPeng + 4, fPeng + 10], [0, 1]), scale: `${k(f, [fPeng + 4, fPeng + 12], [0, 1], eOut)} 1`, transformOrigin: "0 50%" }}>MULAI</Abs>
+              {/* the cross where it failed */}
+              {f >= fCoba + 4 && (
+                <svg width={70} height={70} viewBox="0 0 70 70" style={{ position: "absolute", left: FAIL_X - 35, top: TRACK_Y + 26 }}>
+                  <path d="M15 15 L55 55 M55 15 L15 55" stroke={C.coral} strokeWidth={9} strokeLinecap="round" pathLength={1} strokeDasharray="1 1" strokeDashoffset={1 - k(f, [fCoba + 4, fCoba + 12], [0, 1], eOut)} />
+                </svg>
+              )}
+              <Abs style={{ left: runX - 48, top: TRACK_Y - 224 + 6, scale: String(k(f, [fPeng, fPeng + 6], [0.7, 1], eOut)), transformOrigin: "50% 100%" }}>
+                <Person s={1.6} pose={runPose as "walk"} color={C.ink} sweat={runPose === "tired" ? k(f, [fCoba + 6, fCoba + 12], [0, 1]) : 0} />
               </Abs>
             </>
           )}
@@ -265,6 +244,13 @@ export const S5: React.FC = () => {
         </div>
       </MB>
     </Cam>
+    {P2 && (
+      /* v16: "Pengalaman." is screen-space (like Direction./Cara melihat.), so the tracking camera never crops it */
+      <Abs style={{ left: 0, width: 1920, top: 800, display: "flex", justifyContent: "center", translate: `${-whip * 1900}px 0` }}>
+        <Rise text="Pengalaman." at={fPeng + 6} size={150} weight={600} color={C.ink} letterSpacing="-0.04em" />
+      </Abs>
+    )}
+    </>
   );
 };
 

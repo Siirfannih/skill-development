@@ -1,6 +1,6 @@
 import React from "react";
 import { Img, staticFile, useCurrentFrame } from "remotion";
-import { Abs, C, Cam, MONO, Statement, eIn, eIO, eOut, k, kk, wf, Vignette } from "./lib";
+import { Abs, C, Cam, Statement, eIn, eIO, eOut, k, kk, wf, Vignette } from "./lib";
 import { CH, Dot, Tag, X, Y, areaOf, kemampuan, pathOf, selera } from "./Chart";
 
 // S4 — hitam, grafik lagi: banyak karya → kurva kemampuan naik menutup jarak → reveal-out: ribuan titik
@@ -134,9 +134,13 @@ export const S4: React.FC = () => {
         />
       )}
       {f >= fKecewa - 2 && f < fKarena - 12 && (
-        <Abs style={{ left: 960, top: 760, translate: "-50% 0", padding: "16px 30px", borderRadius: 999, background: "rgba(10,10,10,0.88)", fontFamily: MONO, fontSize: 40, color: C.white, letterSpacing: "0.06em", opacity: k(f, [fKecewa, fKecewa + 6], [0, 1]), scale: String(k(f, [fKecewa, fKecewa + 8], [0.9, 1], eOut)) }}>
-          0 YANG MENGECEWAKAN
-        </Abs>
+        <>
+          {/* v16: the punchline was a 40 px mono pill. Now the lens' finding is the number itself, and the line is readable. */}
+          <Abs style={{ zIndex: 6, left: lx, top: ly + drop, translate: "-50% -50%", fontFamily: "Geist", fontWeight: 600, fontSize: 210, letterSpacing: "-0.05em", color: C.white, opacity: k(f, [fKecewa - 2, fKecewa + 4], [0, 1]), scale: String(k(f, [fKecewa - 2, fKecewa + 10], [1.5, 1], eOut)) }}>0</Abs>
+          <Abs style={{ zIndex: 6, left: 960, top: 780, translate: "-50% 0", fontFamily: "Geist", fontWeight: 500, fontSize: 64, letterSpacing: "-0.03em", color: C.white, whiteSpace: "nowrap", opacity: k(f, [fKecewa + 2, fKecewa + 8], [0, 1]) }}>
+            yang mengecewakan.
+          </Abs>
+        </>
       )}
 
       {lensR > 1 && (

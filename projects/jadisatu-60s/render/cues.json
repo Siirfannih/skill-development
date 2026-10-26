@@ -38,20 +38,10 @@
   "kw": {}
  },
  {
-  "t": 2.9,
-  "kind": "whoosh",
-  "db": -20,
-  "visual": "kamera whip ke garis kemampuan",
-  "align": "end",
-  "kw": {
-   "dur": 0.3
-  }
- },
- {
-  "t": 3.4667,
+  "t": 2.9333,
   "kind": "subwhoosh",
-  "db": -19,
-  "visual": "kamera mundur: area jarak",
+  "db": -18,
+  "visual": "v16: kamera patah ke grafik utuh",
   "align": "start",
   "kw": {}
  },
@@ -828,7 +818,7 @@
  {
   "t": 26.0,
   "kind": "shine",
-  "db": -19,
+  "db": -23,
   "visual": "percik AI muncul",
   "align": "start",
   "kw": {}
@@ -836,10 +826,32 @@
  {
   "t": 26.1333,
   "kind": "pop",
-  "db": -18,
-  "visual": "percik AI pecah jadi ChatGPT, Claude, Gemini",
+  "db": -19,
+  "visual": "tile ChatGPT terpisah",
   "align": "start",
-  "kw": {}
+  "kw": {
+   "f0": 280
+  }
+ },
+ {
+  "t": 26.2333,
+  "kind": "pop",
+  "db": -19,
+  "visual": "tile Claude terpisah",
+  "align": "start",
+  "kw": {
+   "f0": 320
+  }
+ },
+ {
+  "t": 26.3333,
+  "kind": "pop",
+  "db": -19,
+  "visual": "tile Gemini terpisah",
+  "align": "start",
+  "kw": {
+   "f0": 360
+  }
  },
  {
   "t": 26.3667,
@@ -1022,17 +1034,17 @@
   "kw": {}
  },
  {
-  "t": 32.1333,
+  "t": 32.1,
   "kind": "typing",
-  "db": -15,
+  "db": -19,
   "visual": "mengetik prompt Edit",
   "align": "start",
   "kw": {
-   "dur": 0.5
+   "dur": 0.36666666666666664
   }
  },
  {
-  "t": 32.7333,
+  "t": 32.6,
   "kind": "send",
   "db": -16,
   "visual": "kirim Edit",
@@ -1040,12 +1052,22 @@
   "kw": {}
  },
  {
-  "t": 32.7333,
+  "t": 32.5667,
   "kind": "click",
   "db": -17,
   "visual": "tombol kirim Edit",
   "align": "start",
   "kw": {}
+ },
+ {
+  "t": 32.6333,
+  "kind": "pop",
+  "db": -22,
+  "visual": "bubble prompt Edit muncul",
+  "align": "start",
+  "kw": {
+   "f0": 300
+  }
  },
  {
   "t": 33.1333,
@@ -1056,17 +1078,17 @@
   "kw": {}
  },
  {
-  "t": 33.2333,
+  "t": 33.2,
   "kind": "typing",
-  "db": -15,
+  "db": -19,
   "visual": "mengetik prompt Menulis",
   "align": "start",
   "kw": {
-   "dur": 0.5
+   "dur": 0.36666666666666664
   }
  },
  {
-  "t": 33.8333,
+  "t": 33.7,
   "kind": "send",
   "db": -16,
   "visual": "kirim Menulis",
@@ -1074,12 +1096,22 @@
   "kw": {}
  },
  {
-  "t": 33.8333,
+  "t": 33.6667,
   "kind": "click",
   "db": -17,
   "visual": "tombol kirim Menulis",
   "align": "start",
   "kw": {}
+ },
+ {
+  "t": 33.7333,
+  "kind": "pop",
+  "db": -22,
+  "visual": "bubble prompt Menulis muncul",
+  "align": "start",
+  "kw": {
+   "f0": 300
+  }
  },
  {
   "t": 34.1,
@@ -1098,17 +1130,17 @@
   "kw": {}
  },
  {
-  "t": 34.2,
+  "t": 34.1667,
   "kind": "typing",
-  "db": -15,
+  "db": -19,
   "visual": "mengetik prompt Mencari",
   "align": "start",
   "kw": {
-   "dur": 0.5
+   "dur": 0.36666666666666664
   }
  },
  {
-  "t": 34.8,
+  "t": 34.6667,
   "kind": "send",
   "db": -16,
   "visual": "kirim Mencari",
@@ -1116,12 +1148,22 @@
   "kw": {}
  },
  {
-  "t": 34.8,
+  "t": 34.6333,
   "kind": "click",
   "db": -17,
   "visual": "tombol kirim Mencari",
   "align": "start",
   "kw": {}
+ },
+ {
+  "t": 34.7,
+  "kind": "pop",
+  "db": -22,
+  "visual": "bubble prompt Mencari muncul",
+  "align": "start",
+  "kw": {
+   "f0": 300
+  }
  },
  {
   "t": 35.2667,
@@ -1132,17 +1174,17 @@
   "kw": {}
  },
  {
-  "t": 35.3667,
+  "t": 35.3333,
   "kind": "typing",
-  "db": -15,
+  "db": -19,
   "visual": "mengetik prompt Mencari",
   "align": "start",
   "kw": {
-   "dur": 0.5
+   "dur": 0.36666666666666664
   }
  },
  {
-  "t": 35.9667,
+  "t": 35.8333,
   "kind": "send",
   "db": -16,
   "visual": "kirim Mencari",
@@ -1150,12 +1192,22 @@
   "kw": {}
  },
  {
-  "t": 35.9667,
+  "t": 35.8,
   "kind": "click",
   "db": -17,
   "visual": "tombol kirim Mencari",
   "align": "start",
   "kw": {}
+ },
+ {
+  "t": 35.8667,
+  "kind": "pop",
+  "db": -22,
+  "visual": "bubble prompt Mencari muncul",
+  "align": "start",
+  "kw": {
+   "f0": 300
+  }
  },
  {
   "t": 37.4667,
@@ -1826,6 +1878,26 @@
   }
  },
  {
+  "t": 54.1667,
+  "kind": "thock",
+  "db": -14,
+  "visual": "v16: angka 0 mendarat di lensa",
+  "align": "start",
+  "kw": {
+   "f0": 170
+  }
+ },
+ {
+  "t": 54.3,
+  "kind": "pop",
+  "db": -20,
+  "visual": "v16: teks \"yang mengecewakan.\"",
+  "align": "start",
+  "kw": {
+   "f0": 260
+  }
+ },
+ {
   "t": 54.5,
   "kind": "click",
   "db": -20,
@@ -1973,7 +2045,7 @@
   "t": 59.6667,
   "kind": "thud",
   "db": -16,
-  "visual": "landing kotak biru",
+  "visual": "mendarat di lintasan",
   "align": "start",
   "kw": {
    "f0": 80,
@@ -1982,225 +2054,240 @@
   }
  },
  {
-  "t": 59.8333,
+  "t": 59.6,
+  "kind": "latch",
+  "db": -19,
+  "visual": "tiang bendera MULAI berdiri",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 59.8,
   "kind": "pop",
-  "db": -26,
-  "visual": "kotak percobaan 1",
+  "db": -20,
+  "visual": "bendera MULAI terbentang",
   "align": "start",
   "kw": {
-   "f0": 320,
-   "dur": 0.07
+   "f0": 320
   }
  },
  {
-  "t": 59.9,
-  "kind": "pop",
-  "db": -26,
-  "visual": "kotak percobaan 2",
-  "align": "start",
-  "kw": {
-   "f0": 340,
-   "dur": 0.07
-  }
- },
- {
-  "t": 59.9667,
-  "kind": "pop",
-  "db": -26,
-  "visual": "kotak percobaan 3",
-  "align": "start",
-  "kw": {
-   "f0": 360,
-   "dur": 0.07
-  }
- },
- {
-  "t": 60.0333,
-  "kind": "pop",
-  "db": -26,
-  "visual": "kotak percobaan 4",
-  "align": "start",
-  "kw": {
-   "f0": 380,
-   "dur": 0.07
-  }
- },
- {
-  "t": 60.1,
-  "kind": "pop",
-  "db": -26,
-  "visual": "kotak percobaan 5",
-  "align": "start",
-  "kw": {
-   "f0": 400,
-   "dur": 0.07
-  }
- },
- {
-  "t": 60.1667,
-  "kind": "pop",
-  "db": -26,
-  "visual": "kotak percobaan 6",
-  "align": "start",
-  "kw": {
-   "f0": 420,
-   "dur": 0.07
-  }
- },
- {
-  "t": 60.2333,
-  "kind": "pop",
-  "db": -26,
-  "visual": "kotak percobaan 7",
-  "align": "start",
-  "kw": {
-   "f0": 440,
-   "dur": 0.07
-  }
- },
- {
-  "t": 60.1,
+  "t": 59.7,
   "kind": "thock",
-  "db": -16,
-  "visual": "Pengalaman.",
+  "db": -19,
+  "visual": "pelari jongkok di garis start",
+  "align": "start",
+  "kw": {
+   "f0": 200
+  }
+ },
+ {
+  "t": 59.8667,
+  "kind": "thock",
+  "db": -15,
+  "visual": "judul Pengalaman.",
   "align": "start",
   "kw": {
    "f0": 190
   }
  },
  {
-  "t": 60.3333,
-  "kind": "scribble",
+  "t": 60.2,
+  "kind": "whoosh",
   "db": -21,
-  "visual": "coretan coral 1",
+  "visual": "pelari melesat",
+  "align": "start",
+  "kw": {
+   "dur": 0.3,
+   "lo": 300,
+   "hi": 900
+  }
+ },
+ {
+  "t": 60.3,
+  "kind": "tick",
+  "db": -25,
+  "visual": "langkah kaki 1",
   "align": "start",
   "kw": {}
  },
  {
-  "t": 60.3333,
-  "kind": "thock",
-  "db": -16,
-  "visual": "draft 1 gagal",
+  "t": 60.4333,
+  "kind": "tick",
+  "db": -24,
+  "visual": "langkah kaki 2",
   "align": "start",
-  "kw": {
-   "f0": 170
-  }
+  "kw": {}
+ },
+ {
+  "t": 60.5667,
+  "kind": "tick",
+  "db": -25,
+  "visual": "langkah kaki 3",
+  "align": "start",
+  "kw": {}
  },
  {
   "t": 60.7,
-  "kind": "scribble",
-  "db": -21,
-  "visual": "coretan coral 2",
+  "kind": "tick",
+  "db": -24,
+  "visual": "langkah kaki 4",
   "align": "start",
   "kw": {}
  },
  {
-  "t": 60.7,
-  "kind": "thock",
-  "db": -16,
-  "visual": "draft 2 gagal",
+  "t": 60.8333,
+  "kind": "tick",
+  "db": -25,
+  "visual": "langkah kaki 5",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 60.9667,
+  "kind": "tick",
+  "db": -24,
+  "visual": "langkah kaki 6",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 61.1,
+  "kind": "tick",
+  "db": -25,
+  "visual": "langkah kaki 7",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 61.2333,
+  "kind": "tick",
+  "db": -24,
+  "visual": "langkah kaki 8",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 61.3667,
+  "kind": "tick",
+  "db": -25,
+  "visual": "langkah kaki 9",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 61.5,
+  "kind": "tick",
+  "db": -24,
+  "visual": "langkah kaki 10",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 61.6333,
+  "kind": "tick",
+  "db": -25,
+  "visual": "langkah kaki 11",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 60.2,
+  "kind": "glide",
+  "db": -24,
+  "visual": "garis coral memanjang di belakang pelari",
   "align": "start",
   "kw": {
-   "f0": 164
+   "dur": 0.8
   }
  },
  {
-  "t": 61.0667,
-  "kind": "scribble",
-  "db": -21,
-  "visual": "coretan coral 3",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 61.0667,
-  "kind": "thock",
-  "db": -16,
-  "visual": "draft 3 gagal",
+  "t": 61.7333,
+  "kind": "thud",
+  "db": -14,
+  "visual": "pelari tersandung, berhenti",
   "align": "start",
   "kw": {
-   "f0": 158
+   "f0": 90,
+   "f1": 45,
+   "dur": 0.4
   }
  },
  {
-  "t": 61.4333,
+  "t": 61.7667,
   "kind": "scribble",
-  "db": -21,
-  "visual": "coretan coral 4",
+  "db": -19,
+  "visual": "tanda silang coral di lintasan",
   "align": "start",
   "kw": {}
  },
  {
-  "t": 61.4333,
-  "kind": "thock",
-  "db": -16,
-  "visual": "draft 4 gagal",
+  "t": 61.8333,
+  "kind": "bloop",
+  "db": -23,
+  "visual": "keringat lelah",
   "align": "start",
   "kw": {
-   "f0": 152
+   "f0": 300
   }
  },
  {
-  "t": 61.8,
-  "kind": "scribble",
-  "db": -21,
-  "visual": "coretan coral 5",
+  "t": 62.6333,
+  "kind": "subwhoosh",
+  "db": -16,
+  "visual": "kamera patah ke wide: seluruh jalur gagal terlihat",
   "align": "start",
   "kw": {}
  },
  {
-  "t": 61.8,
-  "kind": "thock",
-  "db": -16,
-  "visual": "draft 5 gagal",
+  "t": 62.6667,
+  "kind": "tick",
+  "db": -25,
+  "visual": "langkah lagi 1",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 62.8,
+  "kind": "tick",
+  "db": -24,
+  "visual": "langkah lagi 2",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 62.9333,
+  "kind": "tick",
+  "db": -25,
+  "visual": "langkah lagi 3",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 63.0667,
+  "kind": "tick",
+  "db": -24,
+  "visual": "langkah lagi 4",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 63.2,
+  "kind": "tick",
+  "db": -25,
+  "visual": "langkah lagi 5",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 62.7,
+  "kind": "glide",
+  "db": -23,
+  "visual": "garis biru: tetap jalan",
   "align": "start",
   "kw": {
-   "f0": 146
+   "dur": 0.7
   }
- },
- {
-  "t": 62.1667,
-  "kind": "scribble",
-  "db": -21,
-  "visual": "coretan coral 6",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 62.1667,
-  "kind": "thock",
-  "db": -16,
-  "visual": "draft 6 gagal",
-  "align": "start",
-  "kw": {
-   "f0": 140
-  }
- },
- {
-  "t": 62.5333,
-  "kind": "scribble",
-  "db": -21,
-  "visual": "coretan coral 7",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 62.5333,
-  "kind": "thock",
-  "db": -16,
-  "visual": "draft 7 gagal",
-  "align": "start",
-  "kw": {
-   "f0": 134
-  }
- },
- {
-  "t": 62.9667,
-  "kind": "ping",
-  "db": -15,
-  "visual": "draft 8 Senja. terpilih (chime)",
-  "align": "start",
-  "kw": {}
  },
  {
   "t": 63.5,
@@ -2546,6 +2633,16 @@
   }
  },
  {
+  "t": 77.0333,
+  "kind": "glide",
+  "db": -22,
+  "visual": "v16: sampul Cash bergeser memberi ruang",
+  "align": "start",
+  "kw": {
+   "dur": 0.4
+  }
+ },
+ {
   "t": 77.7667,
   "kind": "whoosh",
   "db": -18,
@@ -2870,7 +2967,7 @@
  {
   "t": 87.6,
   "kind": "typing",
-  "db": -8,
+  "db": -14,
   "visual": "AI menyalin tulisanmu",
   "align": "start",
   "kw": {
@@ -3038,10 +3135,286 @@
   "kw": {}
  },
  {
-  "t": 1.8667,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: statement -> chart",
+  "t": 3.83,
+  "kind": "pop",
+  "db": -21,
+  "visual": "v16 cakupan: label JARAK + arsir selesai",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 6.88,
+  "kind": "subwhoosh",
+  "db": -16,
+  "visual": "v16 cakupan: \"the gap\" larut, keluar ke grafik",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 9.6,
+  "kind": "tick",
+  "db": -20,
+  "visual": "v16 cakupan: titik karya di kurva putus-putus",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 9.87,
+  "kind": "tick",
+  "db": -20,
+  "visual": "v16 cakupan: titik karya berikutnya",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 12.0,
+  "kind": "whoosh",
+  "db": -20,
+  "visual": "v16 cakupan: kamera geser di grid kalimat",
+  "align": "start",
+  "kw": {
+   "dur": 0.3
+  }
+ },
+ {
+  "t": 12.93,
+  "kind": "whoosh",
+  "db": -20,
+  "visual": "v16 cakupan: kamera geser ke baris taste",
+  "align": "start",
+  "kw": {
+   "dur": 0.3
+  }
+ },
+ {
+  "t": 13.3,
+  "kind": "pop",
+  "db": -18,
+  "visual": "v16 cakupan: pil taste-mu + klip",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 14.3,
+  "kind": "subwhoosh",
+  "db": -18,
+  "visual": "v16 cakupan: kalimat utuh terlihat",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 17.5,
+  "kind": "glide",
+  "db": -21,
+  "visual": "v16 cakupan: halaman landing page mengalir",
+  "align": "start",
+  "kw": {
+   "dur": 0.5
+  }
+ },
+ {
+  "t": 18.13,
+  "kind": "glide",
+  "db": -21,
+  "visual": "v16 cakupan: landing page bergulir",
+  "align": "start",
+  "kw": {
+   "dur": 0.5
+  }
+ },
+ {
+  "t": 18.77,
+  "kind": "whoosh",
+  "db": -20,
+  "visual": "v16 cakupan: kamera mundur dari landing page",
+  "align": "start",
+  "kw": {
+   "dur": 0.35
+  }
+ },
+ {
+  "t": 36.77,
+  "kind": "thud",
+  "db": -16,
+  "visual": "v16 cakupan: hasil reel pertama mendarat",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 41.37,
+  "kind": "glide",
+  "db": -20,
+  "visual": "v16 cakupan: hasil bergeser beri ruang",
+  "align": "start",
+  "kw": {
+   "dur": 0.5
+  }
+ },
+ {
+  "t": 45.97,
+  "kind": "pop",
+  "db": -18,
+  "visual": "v16 cakupan: \"Ira Glass\" naik",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 50.27,
+  "kind": "pop",
+  "db": -18,
+  "visual": "v16 cakupan: kata \"AI\"",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 50.7,
+  "kind": "pop",
+  "db": -18,
+  "visual": "v16 cakupan: kata \"memberimu\"",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 51.6,
+  "kind": "whoosh",
+  "db": -19,
+  "visual": "v16 cakupan: \"ribuan.\" keluar, ladang titik terbuka",
+  "align": "start",
+  "kw": {
+   "dur": 0.4
+  }
+ },
+ {
+  "t": 54.0,
+  "kind": "glide",
+  "db": -20,
+  "visual": "v16 cakupan: lensa menyapu ladang titik",
+  "align": "start",
+  "kw": {
+   "dur": 0.5
+  }
+ },
+ {
+  "t": 54.8,
+  "kind": "pop",
+  "db": -18,
+  "visual": "v16 cakupan: lensa menutup, 0 tertinggal",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 55.33,
+  "kind": "pop",
+  "db": -18,
+  "visual": "v16 cakupan: tiga kartu muncul",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 59.3,
+  "kind": "whoosh",
+  "db": -17,
+  "visual": "v16 cakupan: menyelam ke kartu 01",
+  "align": "start",
+  "kw": {
+   "dur": 0.35
+  }
+ },
+ {
+  "t": 64.77,
+  "kind": "pop",
+  "db": -19,
+  "visual": "v16 cakupan: kartu arah desain muncul",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 65.03,
+  "kind": "pop",
+  "db": -19,
+  "visual": "v16 cakupan: kartu arah desain berikutnya",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 67.1,
+  "kind": "swell",
+  "db": -18,
+  "visual": "v16 cakupan: kartu terpilih membanjiri layar",
+  "align": "start",
+  "kw": {
+   "dur": 0.4
+  }
+ },
+ {
+  "t": 68.9,
+  "kind": "lens",
+  "db": -18,
+  "visual": "v16 cakupan: loupe bergeser ke tombol",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 72.0,
+  "kind": "pop",
+  "db": -18,
+  "visual": "v16 cakupan: lensa jadi jendela foto",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 75.13,
+  "kind": "whoosh",
+  "db": -19,
+  "visual": "v16 cakupan: lensa Rick keluar",
+  "align": "start",
+  "kw": {
+   "dur": 0.35
+  }
+ },
+ {
+  "t": 75.53,
+  "kind": "pop",
+  "db": -20,
+  "visual": "v16 cakupan: teks memproduseri",
+  "align": "start",
+  "kw": {}
+ },
+ {
+  "t": 75.73,
+  "kind": "glide",
+  "db": -21,
+  "visual": "v16 cakupan: dunia biru naik",
+  "align": "start",
+  "kw": {
+   "dur": 0.4
+  }
+ },
+ {
+  "t": 77.4,
+  "kind": "whoosh",
+  "db": -17,
+  "visual": "v16 cakupan: pergantian ke pasangan album",
+  "align": "start",
+  "kw": {
+   "dur": 0.35
+  }
+ },
+ {
+  "t": 89.77,
+  "kind": "glide",
+  "db": -20,
+  "visual": "v16 cakupan: karya merapat ke orbit",
+  "align": "start",
+  "kw": {
+   "dur": 0.4
+  }
+ },
+ {
+  "t": 89.97,
+  "kind": "tick",
+  "db": -20,
+  "visual": "v16 cakupan: orbit terkunci",
   "align": "start",
   "kw": {}
  },
@@ -3054,58 +3427,10 @@
   "kw": {}
  },
  {
-  "t": 6.1333,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: the gap",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 6.9667,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: whip to chart",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 12.6,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: taste-mu pill",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 14.8333,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: whip into ChatGPT",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 17.3,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: result appears",
-  "align": "start",
-  "kw": {}
- },
- {
   "t": 22.3667,
   "kind": "shutter",
   "db": -13,
   "visual": "FX neg: taste stops",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 26.5333,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: AI. slam",
   "align": "start",
   "kw": {}
  },
@@ -3118,30 +3443,6 @@
   "kw": {}
  },
  {
-  "t": 32.0333,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: cut into Claude + list",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 36.8333,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: pull back to workflow",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 44.3667,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: sama.",
-  "align": "start",
-  "kw": {}
- },
- {
   "t": 50.9,
   "kind": "shine",
   "db": -27,
@@ -3150,34 +3451,10 @@
   "kw": {}
  },
  {
-  "t": 59.6333,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: zoom-through",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 63.4333,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: whip",
-  "align": "start",
-  "kw": {}
- },
- {
   "t": 72.2667,
   "kind": "shine",
   "db": -27,
   "visual": "FX flash: lens window",
-  "align": "start",
-  "kw": {}
- },
- {
-  "t": 81.6333,
-  "kind": "glitch",
-  "db": -25,
-  "visual": "FX rgb: bagus.",
   "align": "start",
   "kw": {}
  },

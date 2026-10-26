@@ -1,65 +1,11 @@
 [
  {
   "c": "c01",
-  "w": "seleramu",
-  "off": -1,
-  "kind": "rgb",
-  "dur": 4,
-  "amt": 16,
-  "why": "statement -> chart"
- },
- {
-  "c": "c01",
   "w": "Ira",
   "off": 5,
   "kind": "flash",
   "dur": 5,
   "why": "dive lands in white"
- },
- {
-  "c": "c01",
-  "w": "gap",
-  "off": 0,
-  "kind": "rgb",
-  "dur": 4,
-  "amt": 12,
-  "why": "the gap"
- },
- {
-  "c": "c02",
-  "w": "Bertahun",
-  "off": -2,
-  "kind": "rgb",
-  "dur": 5,
-  "amt": 18,
-  "why": "whip to chart"
- },
- {
-  "c": "c02",
-  "w": "taste",
-  "off": 0,
-  "kind": "rgb",
-  "dur": 3,
-  "amt": 10,
-  "why": "taste-mu pill"
- },
- {
-  "c": "c03",
-  "w": "Sekarang",
-  "off": -2,
-  "kind": "rgb",
-  "dur": 5,
-  "amt": 18,
-  "why": "whip into ChatGPT"
- },
- {
-  "c": "c03",
-  "w": "tiga",
-  "off": 0,
-  "kind": "rgb",
-  "dur": 3,
-  "amt": 10,
-  "why": "result appears"
  },
  {
   "c": "c03",
@@ -71,47 +17,11 @@
  },
  {
   "c": "c04",
-  "w": "AI",
-  "off": 3,
-  "kind": "rgb",
-  "dur": 5,
-  "amt": 14,
-  "why": "AI. slam"
- },
- {
-  "c": "c04",
   "w": "Tapi",
   "off": -1,
   "kind": "flash",
   "dur": 4,
   "why": "black -> white transformation"
- },
- {
-  "c": "c04",
-  "w": "Edit",
-  "off": -14,
-  "kind": "rgb",
-  "dur": 3,
-  "amt": 12,
-  "why": "cut into Claude + list"
- },
- {
-  "c": "c05",
-  "w": "Hasilnya",
-  "off": -2,
-  "kind": "rgb",
-  "dur": 4,
-  "amt": 12,
-  "why": "pull back to workflow"
- },
- {
-  "c": "c05",
-  "w": "sama",
-  "off": 0,
-  "kind": "rgb",
-  "dur": 4,
-  "amt": 12,
-  "why": "sama."
  },
  {
   "c": "c06",
@@ -122,39 +32,12 @@
   "why": "ribuan."
  },
  {
-  "c": "c07",
-  "w": "Pengalaman",
-  "off": 0,
-  "kind": "rgb",
-  "dur": 4,
-  "amt": 14,
-  "why": "zoom-through"
- },
- {
-  "c": "c07",
-  "w": "Direction",
-  "off": -2,
-  "kind": "rgb",
-  "dur": 5,
-  "amt": 16,
-  "why": "whip"
- },
- {
   "c": "c08",
   "w": "Rick",
   "off": 0,
   "kind": "flash",
   "dur": 4,
   "why": "lens window"
- },
- {
-  "c": "c08",
-  "w": "bagus",
-  "off": 0,
-  "kind": "rgb",
-  "dur": 4,
-  "amt": 10,
-  "why": "bagus."
  },
  {
   "c": "c09",

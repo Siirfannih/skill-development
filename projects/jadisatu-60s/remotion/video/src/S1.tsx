@@ -35,8 +35,8 @@ export const S1: React.FC = () => {
     const dK = k(ff, [fKem, fKem + 18], [0, 1], eIO);
     const sx = X(Math.max(0.04, dS)), sy = Y(selera(Math.max(0.04, dS)));
     const kx = X(Math.max(0.04, dK)), ky = Y(kemampuan(Math.max(0.04, dK)));
-    const a = k(ff, [fKem - 3, fKem + 4], [0, 1], eIO);
-    const b = k(ff, [fKem + 14, fKem + 25], [0, 1], eIO);
+    const a = k(ff, [fKem - 3, fKem + 4], [0, 1], eIO); // (v16: superseded by the early break to wide below)
+    const b = k(ff, [fKem - 2, fKem + 9], [0, 1], eIO); // v16: break to the whole chart as KEMAMPUAN starts, so the full graph + JARAK read ~1 s before the dive
     const zx = sx + (kx - sx) * a;
     const zy = sy + (ky - sy) * a;
     return { fx: zx + (960 - zx) * b, fy: zy + (560 - zy) * b, s: 2.2 - 1.2 * b };
@@ -100,7 +100,7 @@ export const S1: React.FC = () => {
     return (
       <Cam bg={C.black} x={camX} y={camY} s={camS}>
         <Vignette dark />
-        <MB id="s1cam" vx={camVX} vy={camVY} max={2.5}>
+        <MB id="s1cam" vx={camVX} vy={camVY} max={0.7}>
         <div style={{ position: "absolute", inset: 0 }}>
         <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, overflow: "visible" }}>
           <defs>
