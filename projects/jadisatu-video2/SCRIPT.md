@@ -28,7 +28,7 @@ Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). RELAXED = `[warm
 > Aku nyuruh ChatGPT nyusun storyboard, Gemini ngritik, ElevenLabs ngisi suaranya.
 > [Irfan] "aku rasa ngedit itu bukan lagi jadi sebuah bottleneck. Tapi yang jadi bottleneck sebenarnya justru adalah gimana kita menceritakan sebuah kejelasan."
 > [FOUNDER] Nyebelin. Tapi iya juga, sih.
-> Aku bisa mengedit dalam hitungan menit. Tapi aku ga tau cerita mana yang layak diceritakan, makanya itu bagian dia.
+> Aku bisa ngedit dalam hitungan menit. Tapi aku ga tau cerita mana yang layak diceritakan, makanya itu bagian dia.
 
 **KLIMAKS** [RELAXED]
 > Jadi, ini taruhannya.
@@ -55,6 +55,6 @@ Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). RELAXED = `[warm
 
 Fokus "beban kerja Claude" (D-005) sekarang ada di **visual**, bukan di VO tambahan: B14 menampilkan proses asli video ini (sinkron 0,518 dtk, 9 potongan, transkrip).
 
-## Perlu dicek sebelum VO
-- "Jam dua pagi tadi": jam diambil dari nama file export kamera (01:45). Benar jam rekamnya?
-- "Aku bisa mengedit dalam hitungan menit": benar untuk potong + sinkron (render bersih selesai dalam beberapa menit), tapi edit penuh video ini nanti lebih lama. Kalau mau aman: "dalam satu malam".
+## Sudah dijawab Irfan (09:05 WITA)
+- "Jam dua pagi tadi" tetap; visualnya kiasan, tidak harus file asli (misalnya chat Irfan jam 02:00, atau `script.md` dibuat jam 02:00).
+- "Aku bisa ngedit dalam hitungan menit." Konten komedi, tidak harus akurat 100%.
