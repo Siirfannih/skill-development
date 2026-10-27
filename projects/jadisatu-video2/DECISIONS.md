@@ -23,3 +23,4 @@ Format: `claude/motion-graphic/references/revision-log.md` §21. Baris lama tida
 | D-017 | 2026-10-27 01:03 | Irfan (komentar) | "Tapi aku ga tau cerita mana yang layak diceritakan makanya itu bagian dia" | baris diganti |
 | D-018 | 2026-10-27 01:05 | Irfan (verbatim) | "1. Benar tapi kalau ga ada buktinya gpp itu namanya kiasan konteks visualnya ga harus benar benar filenya … 2. Gpp kan ini konten komedi jadi ga harus akurat 100%, yang benar adalah \"Aku bisa ngedit dalam hitungan menit\"" | diterapkan |
 | D-019 | 2026-10-27 01:08 | Irfan (komentar) | "Aku yang memotong itu aneh buat dibaca vo dan kurang ngalir … \"Aku yang motong, nyusun sama ngedit video ini\"" | baris diganti; aturan ragam VO dicatat |
+| D-020 | 2026-10-27 01:08 | Irfan (komentar) | "jangan pakai kata mengedit tapi pakai kata ngedit … \"Aku bisa ngedit video dalam hitungan menit tapi aku ga tau cerita mana yang layak diceritakan\"" | digabung dengan D-017 ("makanya itu bagian dia") |

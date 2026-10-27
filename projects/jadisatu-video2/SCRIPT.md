@@ -28,7 +28,7 @@ Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). RELAXED = `[warm
 > Aku nyuruh ChatGPT nyusun storyboard, Gemini ngritik, ElevenLabs ngisi suaranya.
 > [Irfan] "aku rasa ngedit itu bukan lagi jadi sebuah bottleneck. Tapi yang jadi bottleneck sebenarnya justru adalah gimana kita menceritakan sebuah kejelasan."
 > [FOUNDER] Nyebelin. Tapi iya juga, sih.
-> Aku bisa ngedit dalam hitungan menit. Tapi aku ga tau cerita mana yang layak diceritakan, makanya itu bagian dia.
+> Aku bisa ngedit video dalam hitungan menit, tapi aku ga tau cerita mana yang layak diceritakan, makanya itu bagian dia.
 
 **KLIMAKS** [RELAXED]
 > Jadi, ini taruhannya.
