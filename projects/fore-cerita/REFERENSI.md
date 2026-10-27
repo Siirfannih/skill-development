@@ -9,3 +9,4 @@ Analisa lengkap per referensi (baca file ini, jangan bedah ulang video):
 | `analisa/05-fore-campaign-press.md` | Rilis pers kampanye Fore | Fakta brand dan cerita ambassador |
 | `analisa/06-lightyear-cohort.md` | Viral: iklan Lightyear cohort (33 dtk) | Hook artefak nyata, sorot tokoh, kartu hitam/putih, ritme 0,5 dtk |
 | `analisa/07-day-in-life-theartexpo.md` | Viral: Day 310 without a boss (53 dtk) | Rutinitas sebagai ritme, rasa UGC, wide terkunci + POV tangan |
+| `analisa/08-lagu-kalah-lagi.md` | Lagu Kalah Lagi — Biru Baru (4:44) | Peta bagian per detik, tempo, kandidat potongan |
