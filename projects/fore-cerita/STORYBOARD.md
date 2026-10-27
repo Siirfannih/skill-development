@@ -1,10 +1,10 @@
-# STORYBOARD v3 (hibrida 80/20: dunia lukis = bayangan/imajinasinya, real footage = kenyataan di awal dan akhir)
+# STORYBOARD v4 (animasi penuh: dunia lukis; bayangan = teal + kapur, kenyataan = hangat penuh warna)
 
 ```
 PROJECT  fore-cerita | 1920×1080 · 24 fps native · 74,6 dtk (1.790 f)
 AUDIO    Lagu: Kalah Lagi — Biru Baru, potongan 26,17→100,8 dtk (video 0 = lagu 26,17) · ketukan 0,39 dtk (152 bpm), 1 bar = 1,56 dtk
          SFX: dibuat setelah storyboard final · Tanpa VO
-FAMILY   R = real footage fotorealistik (±20 %: B01 dan B10b–B12), orang tanpa wajah (tangan, bahu, belakang kepala) · P = dunia lukis (±80 %: B02–B10a), gaya analisa 11 · K = coretan monokrom rasa takut di dalam dunia P
+FAMILY   N = kenyataan malam ini di meja Fore (lukis, hangat penuh warna, bersih: B01, B10b–B12) · P = bayangan/kilas balik (lukis, bayangan teal, saturasi rendah, berdebu: B02–B10a) · K = coretan kapur rasa takut di dalam P
 FONT     Tidak ada teks naratif. Hanya: UI asli (Instagram, WhatsApp) · tulisan tangan diegetik di planner (satu gaya tangan dia, satu gaya tangan perempuan)
 ```
 Waktu dari peta bagian lagu (±1 dtk, Whisper) dan sudah diselaraskan ke ketukan terdekat. Sebelum build, waktu disetel ulang dengan onset vokal per baris.
@@ -13,8 +13,8 @@ Waktu dari peta bagian lagu (±1 dtk, Whisper) dan sudah diselaraskan ke ketukan
 
 | | Aturan | Alasan |
 |---|---|---|
-| **Konsep hibrida 80/20 (v3, Irfan 28 Okt 01:39)** | Video dibuka dan ditutup di **kenyataan** (real footage, meja pojok Fore malam ini). Di antaranya, **dunia lukis = bayangannya**: kilas balik harinya, rutinitas, dan rasa takutnya. Bersenggolan dengan perempuan itu menariknya **kembali ke kenyataan** | Real ±14,6 dtk dari 74,6 dtk (≈20 %). Kenyataan selalu lebih ramah daripada bayangannya (X+Y) |
-| **Dunia R (kenyataan)** | Fotorealistik sinematik, UGC: lensa 35–50 mm, DoF dangkal, grade hangat natural malam di outlet Fore (krem, kayu, hijau tua). Orang **tanpa wajah**: tangan, bahu, punggung, wajah keluar frame atau buram, supaya penonton tetap bisa menjadi dia. Wardrobe sama dengan tokoh lukis (kemeja lengan pendek + lanyard; kardigan krem) sebagai jembatan | Tidak ada masalah konsistensi wajah; tetap universal |
+| **Animasi penuh (v4, Irfan 28 Okt 02:05)** | Semua shot dunia lukis (gaya analisa 11). Pembeda kenyataan vs bayangan: **kenyataan** = cahaya oranye hangat, bayangan ungu muda, tepi lebih bersih; **bayangan** = teal pucat, berdebu, grain lebih kasar, coretan kapur. Real footage dihapus | Irfan: real footage terasa 'jomplang' dengan animasi dan masih terasa AI loop |
+| **Dunia N (kenyataan, lukis)** | Meja pojok Fore malam ini, lampu gantung hangat, tokoh bisa terlihat wajahnya (gaya character sheet). Gelas plastik es kopi + logo daun di setiap shot | Bahasa visual sama, hanya suhu warnanya berbeda |
 | **Dunia P (bayangan, gaya analisa 11)** | Lukisan digital tanpa lineart hitam, tekstur gouache + grain, wajah disederhanakan (mata kecil, emosi lewat pose), proporsi 6–7 kepala, detail Indonesia spesifik, tokoh latar tanpa wajah, satu sumber cahaya. Babak sakit: bayangan **teal**, cahaya pucat berdebu. Coretan rasa takut (K) = garis kapur monokrom kasar di dalam lukisan | Dunia lukis terasa seperti ingatan: indah tapi tidak bisa disentuh |
 | **Transformasi** | Masuk: makro gelas Fore real → zoom-through ke pantulan/es di gelas → dunia lukis (B01→B02). Keluar: di meja Fore versi lukis, coretan memuncak → disenggol → **kedip bergantian lukis/real 2–7 f berjangkar gelas** (teknik referensi fast transition) → mendarat di real (B10) | Gelas = benda yang sama di dua dunia |
 | **Tokoh utama (P)** | Pria 20-an, pekerja muda + kuliah malam. Kemeja kerja lengan pendek dilipat, lanyard ID, ransel lusuh, helm motor, planner kulit cokelat. Mata kecil sayu, rambut satu bentuk besar sedikit berantakan | Spesifik, bukan generik |
