@@ -90,6 +90,18 @@ export const Layer: React.FC<{
   );
 };
 
+/** Grup bebas (teks/UI) yang ikut kamera persis seperti Layer pada kedalaman yang sama. */
+export const Follow: React.FC<{ depth?: number; children: React.ReactNode }> = ({ depth = 0.5, children }) => {
+  const c = useContext(CamCtx);
+  const f = 0.35 + depth * 0.9;
+  const s = 1 + (c.s - 1) * f;
+  return (
+    <AbsoluteFill style={{ scale: String(s), translate: `${c.x * f}px ${c.y * f}px`, rotate: `${c.r * f}deg` }}>
+      {children}
+    </AbsoluteFill>
+  );
+};
+
 /** Sprite (tokoh/siluet) di posisi tertentu, ikut kamera di kedalaman tertentu. */
 export const Sprite: React.FC<{
   src: string;
@@ -100,15 +112,16 @@ export const Sprite: React.FC<{
   opacity?: number;
   flip?: boolean;
   boil?: number;
+  bob?: number; // napas: naik-turun px (12 fps)
   style?: React.CSSProperties;
-}> = ({ src, x, y, h, depth = 0.6, opacity = 1, flip, boil = 1.2, style }) => {
+}> = ({ src, x, y, h, depth = 0.6, opacity = 1, flip, boil = 1.2, bob = 0, style }) => {
   const c = useContext(CamCtx);
   const frame = useCurrentFrame();
   const f = 0.35 + depth * 0.9;
   const s = 1 + (c.s - 1) * f;
   // posisi relatif pusat frame mengikuti zoom kamera
   const cx = 960 + (x - 960) * s + c.x * f;
-  const cy = 540 + (y - 540) * s + c.y * f;
+  const cy = 540 + (y - 540) * s + c.y * f + Math.sin(twos(frame) / 14) * bob;
   const bx = (random(`sx${twos(frame)}${src}${x}`) - 0.5) * boil;
   const by = (random(`sy${twos(frame)}${src}${x}`) - 0.5) * boil;
   return (

@@ -69,7 +69,7 @@ CUES = [
     (68.70, "pen", -17, "S20 coret baris (pria)"),
     (68.83, "pen", -19, "S20 coret baris (perempuan)"),
     (70.20, "chairs_laugh", -19, "S21 bangku ramai"),
-    (72.70, "writing", -21, "S22 tagline ditulis"),
+    (72.20, "writing", -21, "S22 tagline ditulis"),
 ]
 # lembar kalender S09: tiap 2 lembar
 per = int((39.56 - 33.06 - 1.0) * 24 / 12) / 24
@@ -155,8 +155,16 @@ def main():
     meter = pyln.Meter(SR)
     lufs = meter.integrated_loudness(mix)
     mix = mix * db(-14 - lufs)
-    pk = np.abs(mix).max()
-    if pk > db(-1.5): mix = mix / pk * db(-1.5)
+    # limiter (bukan skala turun) supaya loudness tetap -14 LUFS dan puncak <= -1,5 dBTP
+    ceil = db(-1.5)
+    env = np.abs(mix).max(axis=1)
+    w = int(0.005 * SR)
+    env = np.maximum.reduce([np.roll(env, k) for k in range(-w, w + 1, max(1, w // 4))])
+    g = np.minimum(1.0, ceil / np.maximum(env, 1e-9))
+    rel = int(0.08 * SR); ker = np.exp(-np.arange(rel) / (rel / 4)); ker /= ker.sum()
+    g = np.minimum(g, np.convolve(g, ker, mode="same"))
+    mix = mix * g[:, None]
+    mix = np.clip(mix, -ceil, ceil)
     os.makedirs(OUT, exist_ok=True)
     sf.write(f"{OUT}/mix.wav", mix, SR, subtype="PCM_16")
     sf.write(f"{OUT}/stem_sfx.wav", sfx * db(-14 - lufs), SR, subtype="PCM_16")

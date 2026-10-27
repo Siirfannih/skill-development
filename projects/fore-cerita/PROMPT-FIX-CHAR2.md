@@ -1,0 +1,2 @@
+# Perbaikan kecil: `ch_kos_3.png` dan `ch_stand.png` punya aura/glow terang di sekeliling tubuh (opaque), jadi tidak bisa ditempel ke latar.
+Buat ulang DUA file itu saja (tokoh dan pose sama persis dengan versi yang baru kamu buat: pria dewasa, kemeja putih, lanyard biru tua). Syarat mutlak: latar **benar-benar transparan** di luar siluet tubuh, TANPA aura, glow, bayangan jatuh, atau vignette. Tepi tubuh tegas. Timpa file lama di `~/Proyek/fore-cerita/assets/`.

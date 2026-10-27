@@ -73,9 +73,21 @@ def cmd_grade(a):
     rgb, alpha = load_rgba(a.inp)
     bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
     e0 = edge_energy(Image.fromarray(rgb))
-    k = a.shapes * float(np.clip((e0 - 8.0) / 10.0, 0, 1.2))
+    k = max(a.minshape, a.shapes * float(np.clip((e0 - 8.0) / 10.0, 0, 1.2)))
     s = simplify(bgr, k) if k > 0.05 else bgr
+    if a.lift > 0:   # malam -> kenangan pudar: terangkan dan buang biru tua
+        f = s.astype(np.float32) / 255.0
+        f = np.power(f, 1.0 - a.lift)
+        lum = f.mean(axis=2, keepdims=True); f = lum + (f - lum) * 0.7
+        f = f * np.array([0.95, 1.0, 1.05])  # BGR: kurangi biru, tambah hangat
+        s = np.clip(f * 255, 0, 255).astype(np.uint8)
     g = grade(s, a.world)
+    if a.world == "N" and a.poster > 0:   # bidang datar bersudut 2–3 nilai (ref 5/7)
+        q = cv2.cvtColor(g, cv2.COLOR_BGR2LAB).astype(np.float32)
+        L = q[..., 0]; step = 255.0 / 7
+        Lq = np.round(L / step) * step
+        q[..., 0] = L * (1 - a.poster) + Lq * a.poster
+        g = cv2.cvtColor(np.clip(q, 0, 255).astype(np.uint8), cv2.COLOR_LAB2BGR)
     out = cv2.cvtColor(g, cv2.COLOR_BGR2RGB)
     Image.fromarray(np.dstack([out, alpha])).save(a.out)
     print(f"{os.path.basename(a.inp)}: edge {edge_energy(a.inp):.1f} -> {edge_energy(Image.fromarray(out)):.1f}")
@@ -121,7 +133,7 @@ def cmd_layers(a):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser(); sp = ap.add_subparsers(dest="c")
-    g = sp.add_parser("grade"); g.add_argument("inp"); g.add_argument("out"); g.add_argument("--world", default="P"); g.add_argument("--shapes", type=float, default=1.0)
+    g = sp.add_parser("grade"); g.add_argument("inp"); g.add_argument("out"); g.add_argument("--world", default="P"); g.add_argument("--shapes", type=float, default=1.0); g.add_argument("--minshape", type=float, default=0.0); g.add_argument("--lift", type=float, default=0.0); g.add_argument("--poster", type=float, default=0.0)
     k = sp.add_parser("key"); k.add_argument("inp"); k.add_argument("out")
     l = sp.add_parser("layers"); l.add_argument("inp"); l.add_argument("outdir"); l.add_argument("--n", type=int, default=3)
     e = sp.add_parser("edge"); e.add_argument("imgs", nargs="+")

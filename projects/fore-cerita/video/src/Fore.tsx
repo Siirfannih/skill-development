@@ -2,7 +2,7 @@ import React from "react";
 import { AbsoluteFill, Img, interpolate, random, Sequence, useCurrentFrame } from "remotion";
 import { Audio } from "@remotion/media";
 import { staticFile } from "remotion";
-import { a, Cam, clamp, ease, easeOut, Layer, sec, Sprite, twos, World } from "./lib/core";
+import { a, Cam, clamp, ease, easeOut, Follow, Layer, sec, Sprite, twos, World } from "./lib/core";
 import { DreamBubble, Handwrite, IGStory, Strike, WAChat, HAND } from "./lib/ui";
 
 /* Waktu shot (detik video, diselaraskan ke onset baris lagu) */
@@ -11,7 +11,7 @@ export const T = {
   S06: [22.0, 24.38], S07: [24.38, 26.9], S08: [26.9, 33.06], S09: [33.06, 39.56], S10: [39.56, 45.0],
   S11: [45.0, 48.0], S12: [48.0, 50.98], S13: [50.98, 54.0], S14: [54.0, 57.22], S15: [57.22, 62.3],
   S16: [62.3, 63.46], S17: [63.46, 65.0], S18: [65.0, 66.44], S19: [66.44, 68.2], S20: [68.2, 70.0],
-  S21: [70.0, 72.6], S22: [72.6, 74.58],
+  S21: [70.0, 72.1], S22: [72.1, 74.58],
 } as const;
 export const TOTAL = sec(74.58);
 type K = keyof typeof T;
@@ -97,18 +97,18 @@ const S04: React.FC = () => {
   const frame = useCurrentFrame();
   const f = twos(frame);
   const d = dur("S04");
-  const pose = f < sec(3.6) ? "ch_kos_1.png" : f < sec(6.6) ? "ch_kos_2.png" : "ch_kos_3.png";
+  const pose = f < sec(2.8) ? "ch_kos_1.png" : f < sec(5.6) ? "ch_kos_2.png" : "ch_kos_3.png";
   const curtain = interpolate(frame, [sec(0.4), sec(2.0)], [0, 1], { ...clamp, easing: easeOut });
   return (
     <World kind="P">
       <Cam
         keys={[
           [0, { s: 1.6, x: 600, y: -60 }],
-          [sec(3.6) - 1, { s: 1.64, x: 640, y: -70 }],
-          [sec(3.6), { s: 1.5, x: -480, y: -270 }],
-          [sec(6.6) - 1, { s: 1.53, x: -500, y: -280 }],
-          [sec(6.6), { s: 1.0, x: 0, y: 0 }],
-          [d, { s: 1.04, x: -10, y: 0 }],
+          [sec(2.8) - 1, { s: 1.66, x: 640, y: -70 }],
+          [sec(2.8), { s: 1.5, x: -480, y: -270 }],
+          [sec(5.6) - 1, { s: 1.56, x: -500, y: -280 }],
+          [sec(5.6), { s: 1.0, x: 0, y: 0 }],
+          [d, { s: 1.55, x: -230, y: 60 }],
         ]}
         easing={(t) => t}
       >
@@ -121,7 +121,7 @@ const S04: React.FC = () => {
             mixBlendMode: "screen",
           }}
         />
-        <Sprite src={a(pose)} x={pose === "ch_kos_2.png" ? 1330 : pose === "ch_kos_1.png" ? 400 : 1120} y={pose === "ch_kos_2.png" ? 870 : 930} h={pose === "ch_kos_2.png" ? 520 : 600} depth={0.5} flip={pose === "ch_kos_1.png"} />
+        <Sprite src={a(pose)} x={pose === "ch_kos_2.png" ? 1330 : pose === "ch_kos_1.png" ? 400 : 1120} y={pose === "ch_kos_2.png" ? 870 : 930} h={pose === "ch_kos_2.png" ? 520 : 600} depth={0.5} bob={2.5} />
       </Cam>
     </World>
   );
@@ -193,16 +193,18 @@ const S08: React.FC = () => {
   const faded = interpolate(frame, [sec(3.4), sec(5.6)], [1, 0.45], clamp);
   return (
     <World kind="P">
-      <Cam keys={[[0, { s: 1.1, y: 60 }], [sec(3.0), { s: 1.16, y: -30 }], [d, { s: 1.3, y: -120, x: 40 }]]}>
+      <Cam keys={[[0, { s: 1.15, x: 300, y: 80 }], [sec(3.0), { s: 1.25, x: 380, y: 60 }], [d, { s: 1.75, x: 560, y: 60 }]]}>
         <Layer src={a("P_planner.png")} depth={0.5} />
+        <Follow depth={0.5}>
         <AbsoluteFill style={{ left: PL.x, top: PL.y, width: 700, rotate: `${PL.rot}deg`, opacity: faded }}>
-          <Handwrite text="Resolusi 2026" start={4} cps={16} size={56} color="#3b3532" />
+          <Handwrite text="Resolusi 2026" start={4} cps={16} size={56} color="#221c19" style={{ fontWeight: 700 }} />
           {LIST.map((t, i) => (
             <div key={i} style={{ marginTop: 12, filter: i === 3 ? undefined : `blur(${interpolate(frame, [sec(3.4), sec(4.4)], [0, 1.6], clamp)}px)` }}>
-              <Handwrite text={`☐  ${t}`} start={16 + i * 9} cps={18} size={40} color="#3b3532" />
+              <Handwrite text={`☐  ${t}`} start={16 + i * 9} cps={18} size={i === 3 ? 46 : 40} color={i === 3 ? "#1c1613" : "#3b3532"} style={{ fontWeight: i === 3 ? 700 : 500 }} />
             </div>
           ))}
         </AbsoluteFill>
+        </Follow>
       </Cam>
     </World>
   );
@@ -213,11 +215,11 @@ const MONTHS = ["JAN", "FEB", "MAR", "APR", "MEI", "JUN", "JUL", "AGS", "SEP", "
 const S09: React.FC = () => {
   const frame = useCurrentFrame();
   const d = dur("S09");
-  const per = Math.floor((d - sec(1.0)) / 12);
+  const per = Math.floor((d - sec(0.45)) / 12);
   return (
     <World kind="P">
       <Cam keys={[[0, { s: 1.0 }], [d, { s: 1.08 }]]}>
-        <Layer src={a("P_desk_clean.png")} depth={0.1} style={{ filter: "blur(10px)" }} />
+        <Layer src={a("P_kos_clean.png")} depth={0.1} style={{ filter: "blur(12px)" }} />
         {MONTHS.map((m, i) => {
           const st = i * per;
           const p = interpolate(frame, [st, st + sec(0.75)], [0, 1], { ...clamp, easing: Easing2 });
@@ -230,7 +232,7 @@ const S09: React.FC = () => {
           const rot = (random(`mr${i}`) - 0.5) * 70 * p;
           const top = i === Math.min(11, Math.floor(frame / per));
           return (
-            <div key={m} style={{ position: "absolute", left: x - 230 * z, top: y - 230 * z, width: 460 * z, height: 460 * z, rotate: `${rot}deg`, opacity: p > 0.92 ? 1 - (p - 0.92) / 0.08 : 1, zIndex: 20 - i }}>
+            <div key={m} style={{ position: "absolute", left: x - 230 * z, top: y - 230 * z, width: 460 * z, height: 460 * z, rotate: `${rot}deg`, opacity: p > 0.92 ? 1 - (p - 0.92) / 0.08 : 1, zIndex: 20 - i, filter: `blur(${Math.max(0, (p - 0.35) * 14)}px)` }}>
               <Img src={a("paper.png")} style={{ width: "100%", height: "100%", filter: "sepia(0.25) brightness(0.98)", boxShadow: "0 18px 40px rgba(40,50,55,0.25)" }} />
               <div style={{ position: "absolute", top: "5%", left: "12%", right: "12%", display: "flex", justifyContent: "space-between" }}>{new Array(9).fill(0).map((_, h) => <div key={h} style={{ width: 16 * z, height: 16 * z, borderRadius: "50%", background: "rgba(90,95,100,0.55)" }} />)}</div>
               <div style={{ position: "absolute", top: "13%", left: 0, right: 0, height: 3 * z, background: "rgba(150,70,60,0.35)" }} />
@@ -272,11 +274,13 @@ const S11: React.FC = () => {
   const dim = interpolate(frame, [sec(2.6), sec(2.9)], [0, 1], clamp);
   return (
     <World kind="P" bloom={0.25}>
-      <AbsoluteFill style={{ background: "#c7cec9" }} />
+      <AbsoluteFill style={{ filter: "blur(16px) brightness(1.02)" }}>
+        <Img src={a("P_desk_clean.png")} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+      </AbsoluteFill>
       <AbsoluteFill
         style={{
           scale: String(interpolate(frame, [0, dur("S11")], [1.62, 1.7], clamp)),
-          translate: `-70px ${interpolate(frame, [0, dur("S11")], [215, 225], clamp)}px`,
+          translate: `-70px ${interpolate(frame, [0, dur("S11")], [55, 62], clamp)}px`,
         }}
       >
         <AbsoluteFill style={{ translate: `0px ${flip * 900}px`, rotate: `${flip * 8}deg` }}>
@@ -406,6 +410,14 @@ const S17: React.FC = () => (
   <World kind="N">
     <Cam keys={[[0, { s: 1.06 }], [dur("S17"), { s: 1.0 }]]}>
       <Layer src={a("N_spill.png")} depth={0.5} boil={0.8} />
+      <Follow depth={0.5}>
+        <div style={{ position: "absolute", left: 300, top: 400, rotate: "-21deg", mixBlendMode: "multiply", opacity: 0.85 }}>
+          <div style={{ fontFamily: HAND, fontWeight: 700, fontSize: 44, color: "#2a1d16" }}>Resolusi 2026</div>
+          {LIST.map((t, i) => (
+            <div key={i} style={{ fontFamily: HAND, fontSize: 34, lineHeight: "50px", color: "#2a1d16", opacity: i === 3 ? 1 : 0.8 }}>☐  {t}</div>
+          ))}
+        </div>
+      </Follow>
     </Cam>
   </World>
 );
@@ -447,16 +459,16 @@ const PlannerPages: React.FC<{ strike?: number; tagline?: number }> = ({ strike,
     ))}
     {tagline !== undefined && (
       <div style={{ position: "absolute", left: 1035, top: 360, width: 300, rotate: "-3deg" }}>
-        <Handwrite text={"Setiap Fore\nPunya Cerita"} start={tagline} cps={15} size={56} color="#2a2421" />
+        <Handwrite text={"Setiap Fore\nPunya Cerita"} start={tagline} cps={21} size={60} color="#1a1513" style={{ fontWeight: 700 }} />
       </div>
     )}
   </>
 );
 const S20: React.FC = () => (
   <World kind="N" bloom={0.18}>
-    <Cam keys={[[0, { s: 1.05 }], [dur("S20"), { s: 1.0 }]]}>
+    <Cam keys={[[0, { s: 1.15, x: 200, y: 60 }], [dur("S20"), { s: 1.7, x: 672, y: 187 }]]}>
       <Layer src={a("N_two_planners.png")} depth={0.5} />
-      <PlannerPages strike={sec(0.5)} />
+      <Follow depth={0.5}><PlannerPages strike={sec(0.5)} /></Follow>
     </Cam>
   </World>
 );
@@ -484,9 +496,9 @@ const S21: React.FC = () => {
 };
 const S22: React.FC = () => (
   <World kind="N" bloom={0.18}>
-    <Cam keys={[[0, { s: 1.0 }], [dur("S22"), { s: 1.04 }]]}>
+    <Cam keys={[[0, { s: 1.55, x: -260, y: 120 }], [dur("S22"), { s: 1.85, x: -300, y: 150 }]]}>
       <Layer src={a("N_two_planners.png")} depth={0.5} />
-      <PlannerPages strike={-30} tagline={2} />
+      <Follow depth={0.5}><PlannerPages strike={-30} tagline={2} /></Follow>
     </Cam>
   </World>
 );
