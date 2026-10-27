@@ -63,7 +63,7 @@ Pengecualian: B18 caption kata per kata (≤ 4 kata di layar), penekanan hanya "
 
 ## 5. Gaya visual dan aturan aset (v1.1, masukan Irfan 27 Okt 08:43 WITA)
 
-**Aturan aset (Irfan):** saat narator bicara atau Irfan tidak di layar, visualnya Apple style dengan **aset asli**. Produk/brand (Claude, ChatGPT, Codex, Gemini, ElevenLabs, Finder, Notes, logo) = tangkapan layar atau logo asli, tidak digambar ulang. Aset buatan hanya untuk **karakter atau bagian cerita** (misalnya karakter Claude, efek pada wajah Irfan).
+**Aturan aset (Irfan, dikoreksi 27 Okt 09:02 WITA):** menggambar ulang dan membuat aset baru **boleh**, termasuk lewat GPT image dari terminal atau jalur lain. Yang **tidak boleh** adalah membuat tiruan/dummy UI produk asli. Kalau visualnya bicara tentang Claude (atau ChatGPT, Gemini, ElevenLabs, Finder, Notes), yang tampil harus UI asli produknya, bukan desain tiruan karena alasan hak cipta.
 
 Referensi gaya ada di `Personal-video/Styele-refference/`. Nama file = tujuannya.
 
@@ -72,7 +72,7 @@ Referensi gaya ada di `Personal-video/Styele-refference/`. Nama file = tujuannya
 | `b5b0d427…jpg` (tanpa nama) | Teks raksasa di belakang orang (cutout), deretan kartu melayang di depan: komentar chat, folder Fonts, file .mp4 | **B01** | Cutout Irfan dari file bersih di depan kata raksasa "Bosku.", kartu asli melayang: bubble chatnya, folder `Jadisatu`, file `TheGap-Jadisatu-v18.mp4` |
 | `Claude respond or AI respond.jpg` | Bubble prompt putih di atas latar blur berbutir + baris "Working…" dengan logo | **B13** | Bubble pesan Irfan yang asli + status kerja Claude yang asli (tangkapan layar Claude), latar = frame footage Irfan yang di-blur dan diberi grain |
 | `Effect & Character 2.jpg` | Kotak zoom hijau dengan garis yang menghubungkan detail kecil ke potret besar | **B09** | Kotak zoom berlipat di wajah Irfan, tiap kotak membuka frame wajah lain dari sepanjang video ("wajahnya ada di sepanjang video ini") |
-| `Effect & Character.jpg` | Kerumunan hitam-putih, satu siluet terisi kode biner hijau | **B13** ("Ke aku.") | **Karakter Claude**: siluet berisi kode di antara orang-orang, yang bekerja di balik layar. Ini satu-satunya aset buatan untuk karakter |
+| `Effect & Character.jpg` | Kerumunan hitam-putih, satu siluet terisi kode biner hijau | **B13** ("Ke aku.") | **Karakter Claude**: siluet berisi kode di antara orang-orang, yang bekerja di balik layar. Aset buatan (boleh, bukan tiruan UI) |
 | `Irfan with claude.jpg` | Alur 3 node dengan glow: Holder → Proof → Applications | **B15** | Irfan → Claude → ChatGPT / Gemini / ElevenLabs (logo asli), node menyala saat namanya diucapkan |
 | `Type.jpg` | Pill putih dengan perintah aktif, perintah lain berputar samar di atas dan bawah | **B15** | Pill berisi perintah yang benar-benar dikirim ke tiap tool, berputar ke perintah berikutnya di tiap nama tool |
 | `UI.jpg` | Layar app asli (Codex) + ikon 3D melayang | **B15** | Gaya tampilan saja (Codex tidak dipakai di VO, D-009): jendela asli ChatGPT, Gemini, ElevenLabs dengan ikon 3D melayang |
