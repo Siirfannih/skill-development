@@ -17,6 +17,7 @@ Pintu masuk untuk setiap model yang bekerja dengan Irfan. Baca file ini dulu, la
 | `external/` | Skill open-source yang sudah teruji, sebagai submodule terkunci versi | Aktif, dipakai sebagai pendamping |
 | `projects/` | Dokumen otoritas dan art direction per proyek | Aktif untuk proyeknya saja |
 | `scriptwriter/` | Mandat peran dan pengembangan cara kerja ide → naskah → storyboard; mulai dari [README](scriptwriter/README.md) | Fondasi awal; memakai skill aktif di `claude/` |
+| `content-ops/` | Operasi konten harian tiga jalur; mulai dari [content-ops/README.md](content-ops/README.md) | Aktif |
 | `archive/` | Skill lama yang sudah digantikan | Jangan dimuat; hanya baseline untuk eval |
 
 ## Skill Irfan (`claude/`)
