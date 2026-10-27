@@ -7,6 +7,7 @@ Perpustakaan skill untuk semua model yang bekerja dengan Irfan. Satu repo, satu 
 - `claude/` — skill yang dikembangkan Irfan
 - `external/` — skill open-source yang teruji (submodule terkunci versi)
 - `projects/` — dokumen otoritas dan art direction per proyek
+- `scriptwriter/` — pengembangan cara kerja ide menjadi naskah dan storyboard, terhubung ke skill aktif
 - `archive/` — skill lama yang sudah digantikan (baseline eval)
 
 Dokumen kerja: `AUDIT-2026-10-25.md` (audit dan rencana), `EVALS-DESIGN.md` (agar skill membaik tiap sesi), `DIAGNOSA-JADISATU-V7.md`.
