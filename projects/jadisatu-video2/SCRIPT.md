@@ -7,7 +7,7 @@ Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). RELAXED = `[warm
 ## Naskah
 
 **HOOK** [RELAXED]
-> Ini Irfan. Bosku.
+> Ini Irfan. Dia bosku.
 > Dua hari lalu, dia minta satu video.
 > Aku bikin delapan belas versi.
 > [kartu **18**]
@@ -50,6 +50,8 @@ Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). RELAXED = `[warm
 ## Yang diubah dari v2 (hanya yang Irfan minta)
 - Isi bubble chat: "suaranya masih kasar." (Irfan: "Kamu bisa buat sendiri", 08:50 WITA).
 - Codex tetap tidak disebut (Irfan: "Tidak ini cuma insight dan tambahan visual jika mau digunakan").
+
+- Baris pembuka: "Ini Irfan. Dia bosku." (komentar Irfan 08:56 WITA).
 
 ## Catatan, tidak diubah
 - "ChatGPT bikin gambarnya, Gemini dengerin audionya": di ledger video pertama, bukti terdekatnya adalah ChatGPT untuk prompt storyboard/aset (PROMPT-CHATGPT.md, ASSET-SPECS) dan Gemini untuk panduan v11. Kalimat dibiarkan seperti v2. Ubah hanya kalau Irfan bilang tidak sesuai kenyataan.
