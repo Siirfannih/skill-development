@@ -23,3 +23,5 @@
 | 19 | 2026-10-28 | Irfan | "real footage itu tuh transformasi ke motion cartoon, kemudian balik lagi ke real footage ... Tapi menggambarkan ceritanya" | Terkunci; logika animasi dipilih ronde 4 |
 | 20 | 2026-10-28 | Irfan | Logika animasi: "X" (kartun = isi kepala) + "secara konsep Y tetep bisa dipakai karena videonya kan menunjukan tranasformasi kalau apa yang kita takutin itu ga selalu terjadi" | Terkunci |
 | 21 | 2026-10-28 | Irfan | Foto wajah via Photo Booth: ~/Pictures/Photo Booth Library/Pictures/ "Photo on 28-10-26 at 00.58/00.59/00.59 #2.jpg" (depan, profil kiri, profil kanan) + "28-02-26 at 10.47" (depan, hoodie). Tidak di-commit ke repo | Terkunci |
+| 22 | 2026-10-28 | Irfan | Potongan lagu A: 26→100 ("1. Ya aku setuju"); 2 referensi viral tambahan; "kalau kamu confident kamu bisa lanjut ke storyboard" | Terkunci → SCRIPT.md, storyboard dimulai |
+| 23 | 2026-10-28 | Claude (default skill) | Master 1920×1080, 16:9 (seperti postingan siirfan sebelumnya), **24 fps native** karena footage AI video dan semua referensi 24 fps (aturan: jangan upconvert 24→30) | Default, bisa diubah Irfan |
