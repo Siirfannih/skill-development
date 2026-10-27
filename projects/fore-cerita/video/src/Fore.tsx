@@ -222,17 +222,18 @@ const S09: React.FC = () => {
         <Layer src={a("P_kos_clean.png")} depth={0.1} style={{ filter: "blur(12px)" }} />
         {MONTHS.map((m, i) => {
           const st = i * per;
-          const p = interpolate(frame, [st, st + sec(0.95)], [0, 1], { ...clamp, easing: Easing2 });
+          const last = i === 11;
+          const p = interpolate(frame, [st, last ? d : st + sec(0.95)], [0, 1], { ...clamp, easing: Easing2 });
           if (frame < st - 2) {
             return null;
           }
-          const z = 0.55 + p * 3.6;
-          const x = 960 + (random(`mx${i}`) < 0.5 ? -1 : 1) * (200 + random(`mx2${i}`) * 900) * p * p;
-          const y = 540 + (random(`my${i}`) - 0.5) * 900 * p * p;
-          const rot = (random(`mr${i}`) - 0.5) * 70 * p;
+          const z = last ? 0.55 + p * 6.5 : 0.55 + p * 3.6;
+          const x = last ? 960 : 960 + (random(`mx${i}`) < 0.5 ? -1 : 1) * (200 + random(`mx2${i}`) * 900) * p * p;
+          const y = last ? 540 : 540 + (random(`my${i}`) - 0.5) * 900 * p * p;
+          const rot = last ? -4 * p : (random(`mr${i}`) - 0.5) * 70 * p;
           const top = i === Math.min(11, Math.floor(frame / per));
           return (
-            <div key={m} style={{ position: "absolute", left: x - 230 * z, top: y - 230 * z, width: 460 * z, height: 460 * z, rotate: `${rot}deg`, opacity: p > 0.85 ? 1 - (p - 0.85) / 0.15 : 1, zIndex: 20 - i, filter: `blur(${Math.max(0, (p - 0.3) * 30)}px)` }}>
+            <div key={m} style={{ position: "absolute", left: x - 230 * z, top: y - 230 * z, width: 460 * z, height: 460 * z, rotate: `${rot}deg`, opacity: last ? 1 : p > 0.85 ? 1 - (p - 0.85) / 0.15 : 1, zIndex: last ? 40 : 20 - i, filter: `blur(${last ? Math.max(0, (p - 0.6) * 20) : Math.max(0, (p - 0.3) * 30)}px)` }}>
               <Img src={a("paper.png")} style={{ width: "100%", height: "100%", filter: "sepia(0.25) brightness(0.98)", boxShadow: "0 18px 40px rgba(40,50,55,0.25)" }} />
               <div style={{ position: "absolute", top: "5%", left: "12%", right: "12%", display: "flex", justifyContent: "space-between" }}>{new Array(9).fill(0).map((_, h) => <div key={h} style={{ width: 16 * z, height: 16 * z, borderRadius: "50%", background: "rgba(90,95,100,0.55)" }} />)}</div>
               <div style={{ position: "absolute", top: "13%", left: 0, right: 0, height: 3 * z, background: "rgba(150,70,60,0.35)" }} />
@@ -313,7 +314,7 @@ const S12: React.FC = () => {
 
 const S13: React.FC = () => (
   <World kind="P">
-    <Cam keys={[[0, { s: 1.04, x: 20 }], [dur("S13"), { s: 1.0, x: -20 }]]}>
+    <Cam keys={[[0, { s: 1.0, x: 60 }], [dur("S13"), { s: 1.18, x: -90, y: 20 }]]}>
       <Layer src={a("P_counter.png")} depth={0.5} boil={0.6} />
     </Cam>
   </World>
@@ -491,9 +492,9 @@ const S21: React.FC = () => {
           dark
         />
       </Cam>
-      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(10,6,4,0) 55%, rgba(10,6,4,0.45) 100%)", opacity: interpolate(frame, [sec(2.0), sec(2.6)], [0, 1], clamp) }} />
+      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(10,6,4,0) 55%, rgba(10,6,4,0.45) 100%)", opacity: interpolate(frame, [sec(1.1), sec(1.8)], [0, 1.3], clamp) }} />
       <div style={{ position: "absolute", left: 0, right: 0, top: 735, textAlign: "center", rotate: "-2deg" }}>
-        <Handwrite text="Setiap Fore Punya Cerita" start={sec(2.1)} cps={20} size={104} color="#fff6ea" style={{ fontWeight: 700, textShadow: "0 2px 18px rgba(0,0,0,0.45)" }} />
+        <Handwrite text="Setiap Fore Punya Cerita" start={sec(1.3)} cps={20} size={104} color="#fff6ea" style={{ fontWeight: 700, textShadow: "0 2px 18px rgba(0,0,0,0.45)" }} />
       </div>
     </World>
   );

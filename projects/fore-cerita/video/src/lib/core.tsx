@@ -201,10 +201,10 @@ export const World: React.FC<{ kind: "P" | "N"; children: React.ReactNode; dust?
   bloom,
 }) => {
   const isP = kind === "P";
-  const b = bloom ?? (isP ? 0.24 : 0.2);
+  const b = bloom ?? (isP ? 0.24 : 0.3);
   return (
     <AbsoluteFill style={{ backgroundColor: isP ? "#cfd6d2" : "#120d0b" }}>
-      <AbsoluteFill style={{ filter: isP ? "contrast(0.97) saturate(0.9)" : "contrast(0.96) saturate(0.94)" }}>
+      <AbsoluteFill style={{ filter: isP ? "contrast(0.97) saturate(0.9)" : "contrast(0.86) brightness(1.04) saturate(0.9)" }}>
         {children}
       </AbsoluteFill>
       {/* bloom: salinan terang diburamkan */}
@@ -212,7 +212,7 @@ export const World: React.FC<{ kind: "P" | "N"; children: React.ReactNode; dust?
         style={{
           mixBlendMode: "screen",
           opacity: b,
-          filter: `blur(${isP ? 26 : 18}px) brightness(${isP ? 0.9 : 0.75}) contrast(1.6)`,
+          filter: `blur(${isP ? 26 : 22}px) brightness(${isP ? 0.9 : 0.8}) contrast(1.7) sepia(${isP ? 0 : 0.5})`,
         }}
       >
         {children}
@@ -234,7 +234,7 @@ export const World: React.FC<{ kind: "P" | "N"; children: React.ReactNode; dust?
           }}
         />
       )}
-      <Grain amount={isP ? 0.2 : 0.3} />
+      <Grain amount={isP ? 0.2 : 0.46} />
     </AbsoluteFill>
   );
 };

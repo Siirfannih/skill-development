@@ -69,7 +69,7 @@ CUES = [
     (68.70, "pen", -17, "S20 coret baris (pria)"),
     (68.83, "pen", -19, "S20 coret baris (perempuan)"),
     (70.20, "chairs_laugh", -19, "S21 bangku ramai"),
-    (72.10, "glide_1", -20, "S21 tagline muncul"),
+    (71.30, "glide_1", -20, "S21 tagline muncul"),
 ]
 # lembar kalender S09: tiap 2 lembar
 per = int((39.56 - 33.06 - 1.0) * 24 / 12) / 24
