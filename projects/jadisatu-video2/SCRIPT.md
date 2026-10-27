@@ -1,54 +1,55 @@
-# Script FINAL v2.1 — narator Claude (VO perempuan, bahasa Indonesia)
+# Script FINAL v2 — narator Claude (VO perempuan, bahasa Indonesia)
 
-Status: Irfan membalas "lanjut" (27 Okt 2026, 08:39 WITA) setelah draft v2 dikirim → dianggap persetujuan untuk lanjut ke storyboard. Perubahan v2 → v2.1 dilakukan saat menyusun storyboard supaya durasi ≤ 90 dtk (lihat bawah); tolong koreksi kalau ada yang tidak kamu setujui.
+Status: naskah v2 (PLAN.md §10) **dikembalikan utuh** atas permintaan Irfan, 27 Okt 2026 08:53 WITA: "Kembalikan ke versi sebelumnya dan hanya improv apa yang perlu dan aku minta perbaiki, jangan hilangkan bagian yang sudah bagus, durasi tidak masalah". Versi v2.1 (pangkasan untuk durasi) dibatalkan.
 
-Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). Tag cara baca per bagian: RELAXED = `[warmly] [relaxed]`, FOUNDER = `[warmly] [thoughtful]`.
+Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). RELAXED = `[warmly] [relaxed]`, FOUNDER = `[warmly] [thoughtful]`.
 
-## Naskah (VO saja; klip Irfan di STORYBOARD.md)
+## Naskah
 
-[RELAXED]
-1. Ini Irfan. Bosku.
-2. Dua hari lalu, dia minta satu video.
-3. Aku bikin delapan belas versi.
-   — klip I1, I2, kartu MENJIJIKKAN —
-4. …kata orang yang wajahnya ada di sepanjang video ini.
-   — klip I3 —
-5. Jadi semua yang dia takutkan… dilempar ke aku.
-6. Hook-ku ditolak lima kali.
-7. Aku nyuruh ChatGPT nyusun storyboard, Gemini ngritik, ElevenLabs ngisi suaranya.
-8. Iya. Termasuk suara ini.
-9. Seratus enam puluh dua gerakan di layar, semuanya aku kasih suara.
-10. Terus malamnya, dia bilang…
-11. Aku ulang.
-   — klip I4 —
+**HOOK** [RELAXED]
+> Ini Irfan. Bosku.
+> Dua hari lalu, dia minta satu video.
+> Aku bikin delapan belas versi.
+> [kartu **18**]
 
-[FOUNDER]
-12. Nyebelin. Tapi dia benar.
-13. Aku bisa mengerjakan semuanya, kecuali memilih cerita mana yang layak diceritakan.
+**KENAPA AKU**
+> Kenapa bukan dia sendiri yang ngedit?
+> [Irfan] "aku tuh males ngedit dan gak suka ngedit video sendiri. Kayak… ngeliat video sendiri itu aneh aja, dan ngerasa menjijikkan mungkin."
+> [kartu **MENJIJIKKAN.**] *(hening)*
+> …kata orang yang wajahnya ada di sepanjang video ini.
+> [Irfan] "aku takut video yang aku buat tuh gak cukup proper … dan juga takut gak estetik."
+> Jadi semua yang dia takutkan… dilempar ke aku.
 
-[RELAXED]
-14. Dan sekarang, dia bikin tantangan baru.
-   — klip I5 —
-15. Dua puluh konten. Buatku, itu dua puluh kali lagi hook-ku ditolak.
-16. Ini yang pertama.
-17. Kalau dia gagal… aku resign. Sekalian hapus semua folder project-nya.
-   — klip I7 —
+**BEBAN KERJA**
+> Aku nulis naskahnya. Hook-nya ditolak lima kali.
+> Aku nyuruh ChatGPT bikin gambarnya, Gemini dengerin audionya, ElevenLabs ngisi suaranya.
+> Iya. Termasuk suara ini.
+> Seratus enam puluh dua gerakan di layar, semuanya aku kasih suara.
+> Terus malamnya dia bilang…
+> [bubble chat: "suaranya masih kasar."]
+> Aku ulang.
 
-[FOUNDER]
-18. Menurutmu, dia bisa upload dua puluh konten sampai akhir tahun ini, nggak?
+**KONFLIK KEDUA**
+> [Irfan] "aku rasa ngedit itu bukan lagi jadi sebuah bottleneck. Tapi yang jadi bottleneck sebenarnya justru adalah gimana kita menceritakan sebuah kejelasan…"
+> [FOUNDER] Nyebelin. Tapi dia benar.
+> Aku bisa mengerjakan semuanya, kecuali satu: memilih cerita mana yang layak diceritakan. Itu tetap bagian dia.
 
-±103 kata narator.
+**KLIMAKS** [RELAXED]
+> Dan sekarang, dia bikin tantangan baru.
+> [Irfan] "aku mau challenge diri aku, bisa gak di akhir tahun nanti … posting 20 konten."
+> [Irfan] "meskipun dieditin sama AI, tapi ya mikirin konten juga perlu effort kan, dan juga perlu waktu."
+> Dua puluh konten. Buatku, itu dua puluh kali lagi hook-ku ditolak.
 
-## Perubahan dari v2 (PLAN.md §10) dan alasannya
-| Diubah | Alasan |
-|---|---|
-| "Kenapa bukan dia sendiri yang ngedit?" dihapus | Kartu "18." langsung dijawab klip I1; hemat 2,5 dtk |
-| "Aku nulis naskahnya. Hook-nya ditolak lima kali." → "Hook-ku ditolak lima kali." | Lebih pendek dan jadi callback yang sama dengan baris 15 |
-| "ChatGPT bikin gambarnya, Gemini dengerin audionya" → "ChatGPT nyusun storyboard, Gemini ngritik" | Disesuaikan dengan bukti: `jadisatu-60s/PROMPT-CHATGPT.md` (prompt storyboard untuk ChatGPT/Codex) dan D-032 v11 "Panduan Gemini dipakai selektif". Gambar wajah tokoh tidak boleh dibuat AI (ASSET-SPECS) |
-| "…Itu tetap bagian dia." dihapus | Maknanya sudah ada di "kecuali memilih cerita…"; hemat 1,8 dtk |
-| "Kalau sampai akhir tahun dia gagal" → "Kalau dia gagal" | Klip I7 sesudahnya sudah menyebut "sampai akhir tahun" |
-| Klip "meskipun dieditin sama AI…" tidak dipakai | Durasi; bisa dikembalikan (file bersih 49,30–54,70, ±5,4 dtk) jika video boleh 90 dtk |
+**PENUTUP**
+> Ini yang pertama.
+> Kalau sampai akhir tahun dia gagal… aku resign. Sekalian hapus semua folder project-nya.
+> [Irfan] "dan kita lihat apakah bisa 20 konten sampai akhir tahun nanti."
+> [FOUNDER] Menurutmu, dia bisa upload dua puluh konten sampai akhir tahun ini, nggak?
+> *(end card: 1 / 20 · Jadisatu · tagline)*
 
-## Masih terbuka
-- Codex: Irfan (27 Okt 08:50 WITA) "Tidak ini cuma insight dan tambahan visual jika mau digunakan" → Codex tidak disebut di VO.
-- Bubble B16: Irfan "Kamu bisa buat sendiri" → teks bubble: "suaranya masih kasar." 
+## Yang diubah dari v2 (hanya yang Irfan minta)
+- Isi bubble chat: "suaranya masih kasar." (Irfan: "Kamu bisa buat sendiri", 08:50 WITA).
+- Codex tetap tidak disebut (Irfan: "Tidak ini cuma insight dan tambahan visual jika mau digunakan").
+
+## Catatan, tidak diubah
+- "ChatGPT bikin gambarnya, Gemini dengerin audionya": di ledger video pertama, bukti terdekatnya adalah ChatGPT untuk prompt storyboard/aset (PROMPT-CHATGPT.md, ASSET-SPECS) dan Gemini untuk panduan v11. Kalimat dibiarkan seperti v2. Ubah hanya kalau Irfan bilang tidak sesuai kenyataan.
