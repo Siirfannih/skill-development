@@ -31,3 +31,4 @@
 | 27 | 2026-10-28 | Irfan | Konsep A: tokoh kartun, dunia real footage | Terkunci → STORYBOARD v2 |
 | 28 | 2026-10-28 | Irfan | "Untuk buat storyboard awal pakai Chatgpt aja via terminal ... kalau udah fix baru generate pakai AI berbayar seperti idea dan Flow" | Terkunci; job gpt-bridge 20261028-012300-siirfan-32560 |
 | 29 | 2026-10-28 | Claude | idea.ai: OAuth berhasil, tapi MCP menolak: akun tanpa langganan berbayar. Flow: login OK, belum ada proyek terbuka. Disk Mac 100 % (±0,5 GB sisa); cache npm/uv/brew dibersihkan (±1,8 GB, regenerable) | Dilaporkan ke Irfan |
+| 30 | 2026-10-28 | Irfan | "characternya masih terasa AI slop generik , pelajari dan amati styele gambar refference ini untuk cartoon ... Analisa tone , karakter , bentuk" | Analisa 11; arah tokoh baru menunggu persetujuan |
