@@ -16,3 +16,6 @@ Format: `claude/motion-graphic/references/revision-log.md` §21. Baris lama tida
 | D-010 | 2026-10-27 00:53 | Irfan (verbatim) | "Kembalikan ke versi sebelumnya dan hanya improv apa yang perlu dan aku minta perbaiki, jangan hilangkan bagian yang sudah bagus, durasi tidak masalah asal kita bisa ngebuat editannya bagus dan ngalir aja" | SCRIPT.md = v2 utuh; storyboard v1.2 (29 beat, ±96 dtk) |
 | D-011 | 2026-10-27 00:56 | Irfan (komentar di STORYBOARD baris 12) | "Ini Irfan Dia Bosku" | baris pembuka diganti |
 | D-012 | 2026-10-27 00:57 | Irfan (komentar) | "ini ga masalah" (baris "Aku nyuruh ChatGPT nyusun storyboard, Gemini ngritik, ElevenLabs ngisi suaranya.") | baris tool versi ini dipakai |
+| D-013 | 2026-10-27 00:58 | Irfan (komentar) | "Nyebelin tapi iya juga sih" | baris diganti |
+| D-014 | 2026-10-27 00:58 | Irfan (komentar) | "Hapus ini" (klip I7 "Dan kita lihat apakah bisa 20 konten…") | klip dihapus |
+| D-015 | 2026-10-27 00:59 | Irfan (verbatim) | "Bagian bagian yang aku tandai itu seharusnya ga ada di VO dan kamu menambahkannya sendiri bukannya semakin bagus kualitas scriptnya justru menurun dan terlalu basa basi jadi script sebelumnya masih lebih baik, tapi ada beberapa konteks tambahan yang aku loloskan karena masih sesuai" | SCRIPT v3 = v1 + tambahan yang diloloskan; storyboard v2 (26 beat, 87,7 dtk) |
