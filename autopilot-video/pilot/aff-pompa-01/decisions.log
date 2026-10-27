@@ -1,0 +1,9 @@
+2026-10-27 21:25 GERBANG-1 diwakili orchestrator atas wewenang Irfan ("Secara penuh full otor"); topik dari riset Maximus niche #1 ide 1.
+21:27 Gambar keyframe dibuat ChatGPT lewat gpt-bridge (3 job paralel, ~2 menit/gambar).
+21:30 Suara VO: tidak ada suara Indonesia di akun; dipilih "Bian - Neutral, Calm and Clear" (shared library, informative_educational) — default, perlu persetujuan Irfan untuk dipakai permanen di akun affiliate.
+21:31 Output 192 kbps ditolak paket Starter -> 128 kbps.
+21:33 VO 41,8 dtk; jeda antar kalimat 1,0-1,3 dtk dipadatkan ke ~0,28 dtk (aturan jeda VO Irfan) -> 38,6 dtk. Kata tidak diubah.
+21:35 Builder = ChatGPT (Codex) lewat gpt-bridge jalur aff-pompa.
+21:36 Musik + 1 SFX thud dari ElevenLabs (tidak ada thud rendah di stok Kenyset). SFX lain dari stok Kenyset sesuai urutan sumber Irfan; semua SFX low-pass 6 kHz.
+21:36 Builder menolak render penuh karena disk Mac 3,4 GiB (aturan AGENTS.md Codex: < 10 GiB). Orchestrator mengambil alih render: estimasi kebutuhan < 1 GiB; dipantau.
+22:22 Disk Mac sempat 0 byte (22:17): well-full.png tersalin terpotong 1 MiB dan job gambar macro-water-inlet panik. Dipulihkan dari ~/.codex/generated_images.

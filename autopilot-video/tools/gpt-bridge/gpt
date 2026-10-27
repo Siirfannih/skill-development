@@ -1,0 +1,53 @@
+#!/bin/zsh
+# gpt — satu pintu untuk menyuruh ChatGPT (Codex CLI, kuota ChatGPT Pro) dari agent mana pun:
+# Claude, Grok Bot (Maximus), Hermes, atau terminal. Jalan di background, hasil ditulis ke file.
+#
+#   gpt run [-l jalur] [-m model] [-i gambar]... [-d folder] "perintah"   → cetak JOB id
+#   gpt run -f perintah.md ...                                            → perintah dari file
+#   gpt status JOB | gpt wait JOB [detik] | gpt result JOB | gpt list | gpt lanes
+#
+# -l jalur : sesi berlanjut per jalur (siirfan, jadisatu, affiliate, dev, …). ChatGPT ingat
+#            percakapan sebelumnya di jalur itu. Tanpa -l = sesi baru sekali pakai.
+# -d folder: folder kerja yang boleh ditulis ChatGPT (default: folder job).
+set -u
+export PATH="$HOME/.npm-global/bin:$HOME/.local/bin:/opt/homebrew/bin:$PATH"
+BR="$HOME/AI-OPS/gpt-bridge"; JOBS="$BR/jobs"; LANES="$BR/lanes"
+mkdir -p "$JOBS" "$LANES"
+
+cmd="${1:-help}"; shift 2>/dev/null || true
+case "$cmd" in
+run)
+  lane=""; model=""; dir=""; pfile=""; imgs=()
+  while getopts "l:m:d:f:i:" o; do case $o in
+    l) lane=$OPTARG;; m) model=$OPTARG;; d) dir=$OPTARG;; f) pfile=$OPTARG;; i) imgs+=(-i "$OPTARG");; esac; done
+  shift $((OPTIND-1))
+  prompt="${*:-}"; [ -n "$pfile" ] && prompt="$(cat "$pfile")"
+  [ -z "$prompt" ] && { echo "perintah kosong" >&2; exit 2; }
+  id="$(date +%Y%m%d-%H%M%S)-${lane:-solo}-$RANDOM"; J="$JOBS/$id"; mkdir -p "$J"
+  [ -z "$dir" ] && dir="$J"
+  { cat "$BR/BRIEF-CHATGPT.md"; echo; echo "## Tugas ini"; echo "job_id: $id · jalur: ${lane:-tanpa jalur} · folder kerja: $dir"
+    echo "Simpan semua file hasil (termasuk gambar dari image generation) di folder kerja itu."; echo; echo "$prompt"; } > "$J/prompt.md"
+  args=(--skip-git-repo-check -s workspace-write -C "$dir" --add-dir "$J" --add-dir "$HOME/AI-OPS" --add-dir "$HOME/Proyek/skill-development" -o "$J/result.md")
+  rargs=(--skip-git-repo-check -c 'sandbox_mode="workspace-write"' -c "sandbox_workspace_write.writable_roots=[\"$J\",\"$HOME/AI-OPS\",\"$HOME/Proyek/skill-development\",\"$dir\"]" -o "$J/result.md")
+  [ -n "$model" ] && { args+=(-m "$model"); rargs+=(-m "$model"); }
+  sid=""; [ -n "$lane" ] && [ -f "$LANES/$lane" ] && sid="$(cat "$LANES/$lane")"
+  git -C "$HOME/Proyek/skill-development" pull --ff-only -q > /dev/null 2>&1
+  echo running > "$J/status"; echo "${lane:-}" > "$J/lane"; date +%s > "$J/start"
+  (
+    if [ -n "$sid" ]; then cd "$dir" && codex exec resume "${rargs[@]}" "${imgs[@]}" "$sid" - < "$J/prompt.md" > "$J/log.txt" 2>&1
+    else codex exec "${args[@]}" "${imgs[@]}" - < "$J/prompt.md" > "$J/log.txt" 2>&1; fi
+    rc=$?
+    new="$(grep -m1 '^session id:' "$J/log.txt" | awk '{print $3}')"
+    [ -n "$lane" ] && [ -n "$new" ] && echo "$new" > "$LANES/$lane"
+    echo $(( $(date +%s) - $(cat "$J/start") )) > "$J/seconds"
+    [ $rc -eq 0 ] && echo done > "$J/status" || echo "error $rc" > "$J/status"
+  ) > /dev/null 2>&1 &!
+  echo "$id";;
+status) J="$JOBS/$1"; echo "$(cat "$J/status") $( [ -f "$J/seconds" ] && echo "($(cat "$J/seconds")s)")";;
+wait) J="$JOBS/$1"; t=${2:-50}; while [ "$(cat "$J/status")" = running ] && [ $t -gt 0 ]; do sleep 5; t=$((t-5)); done; cat "$J/status";;
+result) J="$JOBS/$1"; cat "$J/status"; echo; [ -f "$J/result.md" ] && cat "$J/result.md" || tail -20 "$J/log.txt"; echo; ls "$J" | grep -v -E '^(status|lane|start|seconds|prompt.md|log.txt|result.md)$' | sed "s|^|file: $J/|";;
+list) ls -1t "$JOBS" | head -${1:-15} | while read j; do echo "$j  $(cat "$JOBS/$j/status")"; done;;
+lanes) for f in "$LANES"/*(N); do echo "$(basename $f)  $(cat $f)"; done;;
+reset) rm -f "$LANES/$1" && echo "jalur $1 mulai sesi baru";;
+*) sed -n 2,12p "$0";;
+esac

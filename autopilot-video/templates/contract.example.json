@@ -1,0 +1,52 @@
+{
+  "project": "aff-pompa-01",
+  "lane": "affiliate · niche rumah: air & listrik",
+  "locked_by": "Orchestrator (Claude) atas wewenang Irfan 27 Okt 2026 21:25 WITA: 'Secara penuh full otor'",
+  "canvas": {"w": 1080, "h": 1920, "fps": 30, "durationInFrames": 1200},
+  "audio": {"vo": "public/audio/vo_tight.wav", "words": "runs/vo_words_tight.json", "music": "public/audio/music.mp3 (opsional, -20 dB di bawah VO)"},
+  "assets": {
+    "well": {"file": "public/img/well-cutaway.png", "size": [1080, 1920],
+      "approx_px_verify_yourself": {"pump_center": [688, 855], "pipe_x": 597, "ground_y": 898, "well_x": [486, 663], "water_surface_y": 1543, "water_bottom_y": 1745}},
+    "pump_shallow": "public/img/pump-shallow.png",
+    "pump_jet": "public/img/pump-jet.png"
+  },
+  "scale_story": {"note": "Dalam cerita, permukaan air sumur ada di kedalaman 11 m. Tanah (ground_y) = 0 m, water_surface_y = 11 m; meter dipetakan linier di antaranya."},
+  "style": {
+    "font": "-apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif",
+    "text": "#111111 di atas latar terang; aksen hangat #E8590C untuk kata kunci dan zona bahaya; hijau #2F9E44 untuk zona aman. DILARANG teks/elemen biru di atas latar gelap.",
+    "hierarchy": "Teks selalu di sepertiga atas, tengah, besar (judul 84-96 px, label 40-48 px). Satu fokus per frame. Teks muncul tepat saat kata VO pemicunya diucapkan, terbaca minimal 1,2 dtk sebelum kamera bergerak jauh.",
+    "camera": "2.5D: lapisan teks di atas, ilustrasi di tengah, latar di belakang. Kamera yang bergerak (scale + translate pada lapisan ilustrasi), easing halus, motion blur ringan saat pindah cepat. Close-up mengikuti objek aktif, lalu break mendadak ke wide di momen negatif (B5).",
+    "transitions": "Halus; B5->B6 memakai flash putih singkat (putih = perubahan/solusi)."
+  },
+  "beats": [
+    {"id": "B1", "start": 0.0, "end": 4.55, "vo": "Pompa airmu nggak rusak. Air sumurmu yang terlalu dalam.",
+     "teks_layar": [{"t": 0.0, "text": "Pompa airmu nggak rusak."}, {"t": 2.08, "text": "Air sumurmu yang terlalu dalam.", "aksen": "terlalu dalam"}],
+     "kamera": "frame 0 sudah close-up di pompa (scale ~2.2). Mulai 2.08 kamera tilt turun mengikuti pipa sampai permukaan air, lalu sedikit mundur.",
+     "lulus_bila": ["frame 0 tidak kosong", "teks hook terbaca di 0.0-2.0", "permukaan air terlihat sebelum 4.5"]},
+    {"id": "B2", "start": 4.55, "end": 11.55, "vo": "Pompa sumur dangkal itu sebenarnya nggak nyedot air. Dia cuma bikin ruang hampa di dalam pipa.",
+     "teks_layar": [{"t": 4.64, "text": "Pompa nggak nyedot air."}, {"t": 9.36, "text": "ruang hampa", "jenis": "label dengan garis penunjuk ke bagian atas pipa"}],
+     "visual": "close-up pompa + bagian atas pipa; di dalam pipa muncul area tekanan rendah (gradasi abu-abu transparan yang berdenyut pelan).",
+     "lulus_bila": ["label 'ruang hampa' menunjuk ke dalam pipa, tidak menutupi pompa"]},
+    {"id": "B3", "start": 11.55, "end": 16.25, "vo": "Yang mendorong air naik adalah tekanan udara di permukaan sumur.",
+     "teks_layar": [{"t": 13.44, "text": "tekanan udara", "jenis": "label"}],
+     "visual": "kamera ke permukaan air di sumur. Mulai 11.88 kolom air biru naik di dalam pipa dari permukaan air. Mulai 13.44 tiga panah turun menekan permukaan air.",
+     "lulus_bila": ["panah menekan permukaan air, bukan di udara kosong", "kolom air naik di dalam garis pipa"]},
+    {"id": "B4", "start": 16.25, "end": 22.45, "vo": "Masalahnya, dorongan udara cuma kuat sampai sekitar tujuh sampai sembilan meter.",
+     "teks_layar": [{"t": 20.22, "text": "7-9 meter", "aksen": "seluruhnya"}],
+     "visual": "kamera wide seluruh sumur. Penggaris vertikal di samping sumur dari tanah (0 m) ke bawah, tick per meter. Zona 0-7 m hijau tipis, zona 7-9 m oranye, garis tegas di 9 m dengan label '9 m'. Kolom air di pipa naik dari permukaan air hanya sampai batas yang bisa dicapai.",
+     "lulus_bila": ["angka di penggaris konsisten dengan skala 11 m", "label 7-9 m sejajar zonanya"]},
+    {"id": "B5", "start": 22.45, "end": 26.7, "vo": "Lebih dalam dari itu, pompa baru pun bakal mancing terus.",
+     "teks_layar": [{"t": 24.31, "text": "Pompa baru pun mancing terus.", "aksen": "mancing terus"}],
+     "visual": "momen negatif: break mendadak ke wide (cut kamera cepat). Air di pipa naik lalu jatuh kembali berulang (2x), pompa bergetar kecil. Warna sedikit didesaturasi.",
+     "lulus_bila": ["terlihat jelas air gagal sampai ke pompa"]},
+    {"id": "B6", "start": 26.7, "end": 34.5, "vo": "Jadi ukur dulu jarak pompa ke permukaan air. Lebih dari sembilan meter, pakai pompa jet sumur dalam.",
+     "teks_layar": [{"t": 26.79, "text": "Ukur: pompa ke permukaan air"}, {"t": 30.56, "text": "Lebih dari 9 m?", "aksen": "9 m"}, {"t": 32.38, "text": "Pakai pompa jet sumur dalam"}],
+     "visual": "26.79-30.4: panah ukur dua arah dari pompa ke permukaan air di gambar sumur. 30.45: flash putih singkat, lalu dua kartu produk di latar putih: kiri pump-shallow.png 'Sumur sampai 9 m: pompa sumur dangkal' (redup setelah 32.38), kanan pump-jet.png 'Lebih dari 9 m: pompa jet sumur dalam' (disorot dengan border oranye mulai 32.38).",
+     "lulus_bila": ["urutan baca kiri ke kanan", "kartu kanan jelas jadi jawaban"]},
+    {"id": "B7", "start": 34.5, "end": 40.0, "vo": "Sumur di rumahmu sedalam apa? Tulis di komentar.",
+     "teks_layar": [{"t": 34.61, "text": "Sumur di rumahmu sedalam apa?"}, {"t": 37.09, "text": "Tulis di komentar", "jenis": "subjudul"}],
+     "visual": "teks CTA besar di tengah; latar gambar sumur wide yang di-blur halus. Diam tenang sampai akhir, VO tidak terpotong.",
+     "lulus_bila": ["CTA tidak kecil", "tidak ada frame kosong di akhir"]}
+  ],
+  "dilarang": ["teks biru di latar gelap", "teks di kiri atas", "elemen tanpa makna", "placeholder", "mengubah file audio VO", "logo/merek pompa"]
+}

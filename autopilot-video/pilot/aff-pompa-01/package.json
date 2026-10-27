@@ -1,0 +1,1 @@
+{"name":"aff-pompa-01","private":true,"scripts":{"render":"remotion render src/index.ts Main out/final.mp4"},"dependencies":{"@remotion/cli":"4.0.534","@rspack/binding-darwin-arm64":"^1.7.11","react":"19.2.0","react-dom":"19.2.0","remotion":"4.0.534"},"devDependencies":{"@types/react":"19.0.0","typescript":"5.6.3"},"allowScripts":{"esbuild@0.28.1":true}}
