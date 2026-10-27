@@ -30,9 +30,11 @@ def simplify(bgr, strength=1.0):
 def grade(bgr, world):
     f = bgr.astype(np.float32) / 255.0
     if world == "P":   # bayangan: pudar, terang, kontras sangat rendah, bayangan teal
-        f = 0.22 + f * 0.70                       # angkat hitam, redam putih
+        f = 0.12 + f * 0.82                       # angkat hitam, redam putih
         lum = f.mean(axis=2, keepdims=True)
-        f = lum + (f - lum) * 0.62                # saturasi turun
+        f = lum + (f - lum) * 0.82                # saturasi sedikit turun
+        hi = np.clip((lum - 0.6) * 2.5, 0, 1)
+        f += hi * np.array([-0.015, 0.0, 0.02])[None, None, :]       # sorotan hangat (BGR)
         shadow = np.clip(1.0 - lum * 1.6, 0, 1)
         f += shadow * np.array([0.05, 0.04, -0.02])[None, None, :]   # BGR: teal di bayangan
         f = f * np.array([1.02, 1.0, 0.97])
@@ -49,6 +51,12 @@ def load_rgba(path):
     im = Image.open(path).convert("RGBA")
     a = np.asarray(im)
     rgb, alpha = a[..., :3], a[..., 3]
+    if alpha.min() <= 250:  # sudah transparan: buang sisa magenta di tepi
+        r, g, b = [rgb[..., i].astype(int) for i in range(3)]
+        mag = (r > 150) & (b > 120) & (g < 120) & ((r - g) > 60) & ((b - g) > 40)
+        alpha = np.where(mag, 0, alpha).astype(np.uint8)
+        red = (r > 170) & (g < 90) & (b < 110) & (alpha < 255)
+        alpha = np.where(red, 0, alpha).astype(np.uint8)
     if alpha.min() > 250:  # tidak transparan -> key magenta
         r, g, b = [rgb[..., i].astype(int) for i in range(3)]
         mag = (r > 180) & (b > 180) & (g < 110) & (abs(r - b) < 70)
@@ -64,7 +72,9 @@ def load_rgba(path):
 def cmd_grade(a):
     rgb, alpha = load_rgba(a.inp)
     bgr = cv2.cvtColor(rgb, cv2.COLOR_RGB2BGR)
-    s = simplify(bgr, a.shapes)
+    e0 = edge_energy(Image.fromarray(rgb))
+    k = a.shapes * float(np.clip((e0 - 8.0) / 10.0, 0, 1.2))
+    s = simplify(bgr, k) if k > 0.05 else bgr
     g = grade(s, a.world)
     out = cv2.cvtColor(g, cv2.COLOR_BGR2RGB)
     Image.fromarray(np.dstack([out, alpha])).save(a.out)
