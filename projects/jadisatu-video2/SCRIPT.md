@@ -22,7 +22,7 @@ Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). RELAXED = `[warm
 
 **BEBAN KERJA**
 > Aku nulis naskahnya. Hook-nya ditolak lima kali.
-> Aku nyuruh ChatGPT bikin gambarnya, Gemini dengerin audionya, ElevenLabs ngisi suaranya.
+> Aku nyuruh ChatGPT nyusun storyboard, Gemini ngritik, ElevenLabs ngisi suaranya.
 > Iya. Termasuk suara ini.
 > Seratus enam puluh dua gerakan di layar, semuanya aku kasih suara.
 > Terus malamnya dia bilang…
@@ -54,4 +54,4 @@ Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). RELAXED = `[warm
 - Baris pembuka: "Ini Irfan. Dia bosku." (komentar Irfan 08:56 WITA).
 
 ## Catatan, tidak diubah
-- "ChatGPT bikin gambarnya, Gemini dengerin audionya": di ledger video pertama, bukti terdekatnya adalah ChatGPT untuk prompt storyboard/aset (PROMPT-CHATGPT.md, ASSET-SPECS) dan Gemini untuk panduan v11. Kalimat dibiarkan seperti v2. Ubah hanya kalau Irfan bilang tidak sesuai kenyataan.
+- Baris tool memakai versi "ChatGPT nyusun storyboard, Gemini ngritik" (Irfan 08:57 WITA: "ini ga masalah").

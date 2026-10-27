@@ -15,3 +15,4 @@ Format: `claude/motion-graphic/references/revision-log.md` §21. Baris lama tida
 | D-009 | 2026-10-27 00:50 | Irfan (verbatim) | "1. Tidak ini cuma insight dan tambahan visual jika mau digunakan 2. Kamu bisa buat sendiri" (jawaban: Codex di video 1, teks bubble B16) | Codex tidak di VO; bubble "suaranya masih kasar." |
 | D-010 | 2026-10-27 00:53 | Irfan (verbatim) | "Kembalikan ke versi sebelumnya dan hanya improv apa yang perlu dan aku minta perbaiki, jangan hilangkan bagian yang sudah bagus, durasi tidak masalah asal kita bisa ngebuat editannya bagus dan ngalir aja" | SCRIPT.md = v2 utuh; storyboard v1.2 (29 beat, ±96 dtk) |
 | D-011 | 2026-10-27 00:56 | Irfan (komentar di STORYBOARD baris 12) | "Ini Irfan Dia Bosku" | baris pembuka diganti |
+| D-012 | 2026-10-27 00:57 | Irfan (komentar) | "ini ga masalah" (baris "Aku nyuruh ChatGPT nyusun storyboard, Gemini ngritik, ElevenLabs ngisi suaranya.") | baris tool versi ini dipakai |
