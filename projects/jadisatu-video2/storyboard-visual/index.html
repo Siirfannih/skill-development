@@ -1,0 +1,430 @@
+<title>Storyboard Jadisatu #2</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..900&family=Geist+Mono:wght@400;600&family=Instrument+Serif:ital@0;1&display=swap">
+<style>/* Layout: edit-room contact sheet. Timeline strip on top, sections as reels, beat cards in a 2-up grid (1-up on phone). Frames are video and keep their own fixed colors. */
+:root{
+  --bg:#f1efec; --surface:#ffffff; --line:#dedad4; --fg:#1b1917; --muted:#6a645c;
+  --accent:#c9500c; --green:#16824a; --paper:#2a2724;
+  --mN:#ff6a13; --mI:#2fd06b; --mK:#e9e3da; --mink:#141210;
+  --ph-stripe:rgba(201,80,12,.10);
+  --sans:"Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --serif:"Instrument Serif", "Iowan Old Style", Georgia, serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#121110; --surface:#1a1816; --line:#2d2a26; --fg:#ece7e0; --muted:#9c958b;
+  --accent:#ff7a2e; --green:#3ddc84; --paper:#ece7e0; --ph-stripe:rgba(255,122,46,.10); color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#121110; --surface:#1a1816; --line:#2d2a26; --fg:#ece7e0; --muted:#9c958b;
+  --accent:#ff7a2e; --green:#3ddc84; --paper:#ece7e0; --ph-stripe:rgba(255,122,46,.10); color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.5}
+.wrap{max-width:1360px;margin:0 auto;padding-block:40px 64px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:grid;gap:56px}
+h1,h2{text-wrap:balance;margin:0}
+em{font-family:var(--serif);font-style:italic;font-weight:400}
+
+.top{display:grid;gap:18px}
+.eyebrow{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(32px,5.4vw,64px);line-height:1.02;font-weight:700;letter-spacing:-.03em}
+h1 em{font-size:1.12em;letter-spacing:0}
+.lede{margin:0;max-width:65ch;color:var(--muted)}
+.legend{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:var(--muted)}
+.legend li{display:flex;align-items:center;gap:8px;min-width:0}
+.ph-key{width:28px;height:16px;flex:none;border:1.5px dashed var(--accent);background:repeating-linear-gradient(135deg,var(--ph-stripe) 0 5px,transparent 5px 10px);border-radius:3px}
+
+.mode{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.04em;padding:2px 8px;border-radius:99px;color:var(--mink)}
+.mN{background:var(--mN)} .mI{background:var(--mI)} .mK{background:var(--mK)}
+
+/* timeline */
+.tl-wrap{display:grid;gap:4px;margin-top:8px}
+.tl-secs,.tl-beats{display:flex;gap:2px;min-width:0}
+.tls{min-width:0;display:flex;flex-direction:column;padding:6px 8px;border-top:2px solid var(--fg);color:var(--fg);text-decoration:none;overflow:hidden}
+.tls b{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tls span{font-family:var(--mono);font-size:10.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.tlb{min-width:0;height:34px;border-radius:3px;display:flex;align-items:flex-end;padding:3px;text-decoration:none;color:var(--mink);font-family:var(--mono);font-size:9.5px;overflow:hidden}
+.tlb:hover,.tlb:focus-visible{outline:2px solid var(--fg);outline-offset:1px}
+.tl-ruler{position:relative;height:16px;font-family:var(--mono);font-size:10px;color:var(--muted)}
+.tl-ruler span{position:absolute;transform:translateX(-50%)}
+.tl-ruler span:first-child{transform:none}
+
+/* sections */
+.sec{display:grid;gap:20px;scroll-margin-top:16px}
+.sec-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.sec-h h2{font-size:clamp(22px,2.6vw,30px);font-weight:700;letter-spacing:-.02em}
+.sec-h span{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.beats{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,500px),1fr));gap:36px 28px}
+.beat{display:grid;gap:14px;align-content:start;min-width:0;scroll-margin-top:16px}
+.meta{display:grid;gap:8px;min-width:0}
+.mh{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.bid{font-weight:800;font-size:18px;letter-spacing:-.01em}
+.tc,.dur{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.dur::before{content:"·  "}
+.audio{margin:0;font-size:15.5px;line-height:1.45;font-weight:500}
+.vis{margin:0;font-size:13.5px;color:var(--muted)}
+dl{margin:4px 0 0;display:grid;gap:4px;border-top:1px solid var(--line);padding-top:8px}
+dl div{display:grid;grid-template-columns:84px 1fr;gap:10px;font-size:13.5px}
+dt{white-space:nowrap;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+dd{margin:0;min-width:0}
+.needs{margin:2px 0 0;font-size:13px;padding:8px 10px;border:1.5px dashed var(--accent);border-radius:4px;background:repeating-linear-gradient(135deg,var(--ph-stripe) 0 6px,transparent 6px 12px)}
+.needs b{color:var(--accent);font-weight:600}
+.foot{font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:16px;max-width:80ch}
+
+/* ===== frame system (video colors, fixed) ===== */
+.fr{position:relative;width:100%;max-width:100%;aspect-ratio:16/9;overflow:hidden;container-type:inline-size;background:#000;border-radius:4px;color:#fff;font-family:var(--sans);line-height:1.1;box-shadow:0 0 0 1px var(--line)}
+.fr img{max-width:none}
+.fr .bg,.fr .bgc,.fr .fill{position:absolute;inset:0;width:100%;height:100%}
+.fr .bg{object-fit:cover}
+.fr .abs{position:absolute}
+.fr .center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center}
+.serif-it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.cond{font-weight:900;letter-spacing:-.04em;transform:scaleX(.78);display:inline-block;line-height:.9}
+.giant{position:absolute;left:0;right:0;text-align:center;font-weight:800;letter-spacing:-.06em;line-height:.85}
+.cap{position:absolute;left:0;right:0;bottom:7%;padding:0 4%;text-align:center;font-weight:700;font-size:4.4cqw;letter-spacing:-.02em;text-shadow:0 .2cqw 1.2cqw rgba(0,0,0,.65)}
+.cap em{font-size:1.25em;letter-spacing:0}
+.cap b{font-size:1.4em;font-weight:900}
+.kt{display:inline-block;padding:.1em .35em;background:#fff;color:#111;border-radius:.2em;text-shadow:none}
+.kt.on{background:#ff6a13;color:#120800}
+.kt.dim{background:rgba(255,255,255,.18);color:#fff}
+.ftag{position:absolute;left:2%;top:3%;font-family:var(--mono);font-size:1.7cqw;padding:.4cqw .9cqw;border-radius:.5cqw;background:rgba(0,0,0,.55);color:#f2ede6;white-space:nowrap}
+
+/* placeholder for real product screenshots */
+.ph{position:absolute;display:flex;flex-direction:column;justify-content:center;gap:.8cqw;padding:1.6cqw;border:.3cqw dashed var(--phc,#ff8a3d);border-radius:1cqw;
+  background:repeating-linear-gradient(135deg,rgba(255,138,61,.16) 0 1.2cqw,transparent 1.2cqw 2.4cqw),var(--phb,rgba(20,18,16,.82));color:var(--phc,#ffd9bf);overflow:hidden}
+.ph b{font-family:var(--mono);font-size:1.6cqw;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.ph b::before{content:"[ "} .ph b::after{content:" ]"}
+.ph .ph-p{font-size:2.3cqw;font-weight:700;line-height:1.15;color:var(--phc,#fff)}
+.ph em{font-family:var(--sans);font-style:normal;font-size:1.6cqw;opacity:.85;line-height:1.25}
+.ph-sm{padding:1cqw;gap:.4cqw;box-shadow:0 1cqw 2.4cqw rgba(0,0,0,.5)}
+.ph-sm b{font-size:1.15cqw} .ph-sm .ph-p{font-size:1.7cqw} .ph-sm em{font-size:1.25cqw}
+.ph-in{inset:8%;padding:1cqw;gap:.4cqw}
+.ph-in .ph-p{font-size:1.6cqw}
+.ph-in b{font-size:1.2cqw}
+
+.inset{position:absolute;right:3%;bottom:6%;width:30%;aspect-ratio:16/9;border:.35cqw solid #fff;border-radius:.6cqw;overflow:hidden;box-shadow:0 1cqw 3cqw rgba(0,0,0,.5);background:#000}
+.inset img{width:100%;height:100%;object-fit:cover;display:block}
+.inset>span{position:absolute;left:0;bottom:0;font-family:var(--mono);font-size:1.4cqw;background:#fff;color:#111;padding:.3cqw .8cqw;border-top-right-radius:.5cqw}
+
+.loupe{position:absolute;aspect-ratio:1;border-radius:50%;border:.5cqw solid #ff8a3d;background:rgba(10,9,8,.9);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 1cqw rgba(255,138,61,.18)}
+.loupe span{font-family:var(--mono);font-weight:600;font-size:7cqw;color:#fff}
+.freeze{position:absolute;left:3%;top:4%;font-family:var(--mono);font-size:1.8cqw;font-weight:600;padding:.5cqw 1cqw;background:#fff;color:#111;border-radius:.4cqw}
+.snap{position:absolute;right:3%;top:4%;font-family:var(--mono);font-size:1.8cqw;padding:.5cqw 1cqw;border:.25cqw solid #fff;border-radius:.4cqw}
+.sticker{position:absolute;filter:drop-shadow(0 .6cqw 1.2cqw rgba(0,0,0,.45));transform:rotate(-10deg)}
+.stamp{position:absolute;font-weight:900;font-size:6.5cqw;letter-spacing:.02em;color:#ff5a1f;border:.6cqw solid #ff5a1f;padding:.2cqw 1.2cqw;border-radius:.6cqw;background:rgba(255,255,255,.12);mix-blend-mode:normal;text-shadow:none}
+.zthumb{object-fit:cover;border:.25cqw solid #7fd49a}
+.zbox{position:absolute;border:.25cqw solid #7fd49a}
+.chip{position:absolute;font-family:var(--mono);font-size:1.9cqw;padding:1cqw 1.4cqw;background:#f2ede6;color:#141210;border-radius:.8cqw;box-shadow:0 1cqw 2.4cqw rgba(0,0,0,.5);white-space:nowrap}
+
+/* B14 workload */
+.wk{position:absolute;inset:4% 3% 15%;display:grid;grid-template-columns:1.25fr 1fr;grid-template-rows:auto auto 1fr;gap:1.4cqw}
+.wk-h{font-family:var(--mono);font-size:1.6cqw;color:#9c958b;margin-bottom:.6cqw}
+.wk-h b{color:#ff8a3d}
+.wk-sync,.wk-cut{min-width:0}
+.wk-sync img{display:block;width:100%;height:6cqw;object-fit:fill}
+.wk-seg{grid-row:1 / span 2;grid-column:2;margin:0;padding:1.2cqw;list-style:none;border:.15cqw solid #2d2a26;border-radius:.6cqw;font-family:var(--mono);font-size:1.75cqw;display:grid;gap:.5cqw;align-content:start}
+.wk-seg li{display:grid;grid-template-columns:3cqw 1fr auto;gap:1cqw;color:#ddd5ca}
+.wk-seg li b{color:#3ddc84}
+.wk-wave{position:relative}
+.wk-wave img{display:block;width:100%;height:7cqw;object-fit:fill}
+.wk-wave i{position:absolute;top:-.6cqw;bottom:-.6cqw;width:.25cqw;background:#ff6a13}
+.wk-words{grid-column:1 / span 2;align-self:end;display:flex;flex-wrap:wrap;gap:.6cqw;font-size:1.8cqw;color:#7d776f}
+.wk-words .on{color:#120800;background:#ff6a13;padding:0 .4cqw;border-radius:.3cqw}
+
+/* B15 flow */
+.node{position:absolute;width:15%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:.35cqw solid #ff8a3d;box-shadow:0 0 4cqw rgba(255,122,26,.55);background:#222}
+.node img{width:100%;height:100%;object-fit:cover}
+.node-c{border-color:#39e46f;box-shadow:0 0 4cqw rgba(57,228,111,.5)}
+.node-c svg{position:absolute;inset:0;width:100%;height:100%}
+.node-ph{width:10%;border:.3cqw dashed #ff8a3d;box-shadow:none;background:repeating-linear-gradient(135deg,rgba(255,138,61,.2) 0 .8cqw,transparent .8cqw 1.6cqw),#151311;display:flex;align-items:center;justify-content:center}
+.node-ph span{font-family:var(--mono);font-size:1.3cqw;color:#ffd9bf;text-align:center}
+.node-l{position:absolute;width:15%;text-align:center;font-weight:700;font-size:2.2cqw;padding-top:1cqw}
+.node-name{position:absolute;font-weight:700;font-size:2.2cqw}
+.pills{position:absolute;left:0;right:0;bottom:3%;gap:.4cqw;display:flex;flex-direction:column;align-items:center}
+.pill{display:flex;align-items:center;gap:1.2cqw;background:#f7f5f2;color:#151311;font-size:2.6cqw;font-weight:500;padding:1.1cqw 2.4cqw 1.1cqw 1.2cqw;border-radius:99px;box-shadow:0 1cqw 3cqw rgba(0,0,0,.45)}
+.pill i{width:3.4cqw;height:3.4cqw;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffb27a,#ff6a13)}
+.pill-ghost{font-size:2cqw;color:rgba(255,255,255,.28);font-weight:500}
+
+/* B18 timeline + gradient word */
+.tl{position:absolute;left:6%;right:6%;top:9%;display:grid;gap:.6cqw}
+.tl-track{display:flex;gap:.3cqw;height:2.2cqw}
+.tl-track i{background:#3a342e;border-radius:.3cqw}
+.tl-track.t2 i{background:#2a3a2f}
+.tl-ph{position:absolute;left:62%;top:-1cqw;bottom:-1cqw;width:.3cqw;background:#ff6a13}
+.grad-line{font-size:5.6cqw;font-weight:500;letter-spacing:-.02em;color:#fff}
+.grad{font-family:var(--serif);font-style:italic;font-weight:400;font-size:1.3em;background:linear-gradient(90deg,#ffd27a,#ff6a13 60%,#ff3d5a);-webkit-background-clip:text;background-clip:text;color:transparent;padding-right:.1em}
+.note-empty{font-family:var(--mono);font-size:1.8cqw;color:#8d877f;border:.2cqw dashed #4a4540;padding:1.4cqw 2cqw;border-radius:.6cqw;line-height:1.4}
+
+/* B21 performance */
+.grain{position:absolute;inset:0;opacity:.18;background-image:radial-gradient(rgba(255,255,255,.6) .08cqw,transparent .1cqw);background-size:.5cqw .5cqw}
+.big20{position:absolute;right:4%;top:2%;font-weight:900;font-size:44cqw;line-height:1;letter-spacing:-.07em;background:linear-gradient(180deg,#fff 30%,#ffd9c2 75%,rgba(255,200,170,.6));-webkit-background-clip:text;background-clip:text;color:transparent}
+.glass{position:absolute;left:52%;top:46%;font-size:5.4cqw;font-weight:700;color:#fff;padding:1.4cqw 3.6cqw;border-radius:2cqw;background:linear-gradient(180deg,rgba(255,255,255,.42),rgba(255,255,255,.14));border:.25cqw solid rgba(255,255,255,.6);backdrop-filter:blur(1.2cqw);-webkit-backdrop-filter:blur(1.2cqw);box-shadow:0 1.4cqw 3cqw rgba(60,0,10,.35), inset 0 .3cqw 0 rgba(255,255,255,.5)}
+
+/* B22 calendar */
+.cal-inset{display:flex;gap:1.2cqw;padding:1.2cqw 1.2cqw 3cqw;background:#f7f5f2;color:#141210;aspect-ratio:auto;right:3%;top:5%;bottom:auto}
+.cal{flex:1;min-width:0}
+.cal-n{font-weight:700;font-size:1.5cqw;margin-bottom:.5cqw}
+.cal-g{display:grid;grid-template-columns:repeat(7,1fr);gap:.2cqw;font-family:var(--mono);font-size:1.05cqw;text-align:center}
+.cal-g u{text-decoration:none;color:#8a847c}
+.cal-g i{font-style:normal;padding:.15cqw 0;border-radius:50%}
+.cal-g i.m{background:#ff6a13;color:#120800;font-weight:600}
+
+/* B23 split */
+.split-r{position:absolute;left:50%;right:0;top:0;bottom:0;border-left:.3cqw solid #ff6a13}
+.tl-in{left:8%;right:8%;top:14%}
+.count{position:absolute;left:8%;top:38%;display:flex;flex-direction:column}
+.count b{font-size:15cqw;font-weight:800;letter-spacing:-.05em;line-height:.9}
+.count span{font-family:var(--mono);font-size:1.9cqw;color:#ffb27a}
+
+/* B24 */
+.one20{position:absolute;right:6%;top:50%;transform:translateY(-50%);font-weight:800;font-size:13cqw;letter-spacing:-.05em;color:#141210}
+.one20 span{font-weight:300;margin:0 .05em;color:#ff5a0a}
+
+/* B26 end card */
+.endq{position:absolute;left:24%;top:9%;right:6%;font-weight:600;font-size:3.3cqw;letter-spacing:-.02em;color:#140800;line-height:1.15}
+.endtag{position:absolute;left:24%;top:38%;color:#140800;font-size:6.6cqw;line-height:1.05}
+.serif-r{font-family:var(--serif);font-weight:400}
+.hand{position:relative;font-family:var(--serif);font-style:italic;font-size:1.2em}
+.uline{position:absolute;left:0;right:0;bottom:-.25em;width:100%;height:.35em}
+.end120{position:absolute;left:3%;top:87%;font-family:var(--mono);font-weight:600;font-size:2.6cqw;color:#140800}
+.endbrand{position:absolute;right:4%;top:87%;font-weight:800;font-size:2.6cqw;color:#140800;letter-spacing:-.02em}
+.unconf{position:absolute;right:3%;top:3%;font-family:var(--mono);font-size:1.5cqw;padding:.4cqw .9cqw;border:.2cqw dashed #140800;color:#140800;border-radius:.4cqw}
+
+@media (max-width:640px){
+  .tlb span{display:none}
+  .tls span{display:none}
+  .tls{padding:6px 4px}
+  .tls b{font-size:10.5px}
+  dl div{grid-template-columns:92px 1fr}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+<div class="wrap">
+<header class="top">
+<p class="eyebrow">Jadisatu · video #2 · storyboard visual</p>
+<h1>Dia yang mikir. <em>Aku</em> yang ngedit.</h1>
+<p class="lede">Gambaran tiap beat sebelum video dibangun. 26 beat, 87,7 dtk, 1920×1080. Sumber: STORYBOARD.md v2 dan SCRIPT.md v3. Frame wajah diambil dari file bersih dan b-roll asli.</p>
+<ul class="legend">
+<li><span class="mode mN">N</span> Narator di atas visual</li>
+<li><span class="mode mI">I</span> Irfan bicara</li>
+<li><span class="mode mK">K</span> Kartu penuh</li>
+<li><span class="ph-key"></span> Kotak bergaris = tangkapan layar asli yang masih harus diambil. Tidak ada UI produk yang digambar ulang.</li>
+</ul>
+<nav class="tl-wrap" aria-label="Timeline beat">
+<div class="tl-secs"><a class="tls" href="#hook" style="flex:6.20"><b>Hook</b><span>0,0–6,2</span></a><a class="tls" href="#rising-action" style="flex:21.80"><b>Rising action</b><span>6,2–28,0</span></a><a class="tls" href="#second-conflict" style="flex:30.10"><b>Second conflict</b><span>28,0–58,1</span></a><a class="tls" href="#klimaks" style="flex:17.20"><b>Klimaks</b><span>58,1–75,3</span></a><a class="tls" href="#penutup" style="flex:12.40"><b>Penutup</b><span>75,3–87,7</span></a></div>
+<div class="tl-beats"><a class="tlb mN" href="#b01" style="flex:1.80" title="B01 · 0,0–1,8 dtk · Narator"><span>01</span></a><a class="tlb mN" href="#b02" style="flex:3.60" title="B02 · 1,8–5,4 dtk · Narator"><span>02</span></a><a class="tlb mK" href="#b03" style="flex:0.80" title="B03 · 5,4–6,2 dtk · Kartu"><span>03</span></a><a class="tlb mN" href="#b04" style="flex:2.90" title="B04 · 6,2–9,1 dtk · Narator"><span>04</span></a><a class="tlb mI" href="#b05" style="flex:2.80" title="B05 · 9,1–11,9 dtk · Irfan"><span>05</span></a><a class="tlb mN" href="#b06" style="flex:1.80" title="B06 · 11,9–13,7 dtk · Narator"><span>06</span></a><a class="tlb mI" href="#b07" style="flex:3.80" title="B07 · 13,7–17,5 dtk · Irfan"><span>07</span></a><a class="tlb mK" href="#b08" style="flex:1.20" title="B08 · 17,5–18,7 dtk · Kartu"><span>08</span></a><a class="tlb mN" href="#b09" style="flex:3.70" title="B09 · 18,7–22,4 dtk · Narator"><span>09</span></a><a class="tlb mN" href="#b10" style="flex:1.80" title="B10 · 22,4–24,2 dtk · Narator"><span>10</span></a><a class="tlb mI" href="#b11" style="flex:3.80" title="B11 · 24,2–28,0 dtk · Irfan"><span>11</span></a><a class="tlb mN" href="#b12" style="flex:3.30" title="B12 · 28,0–31,3 dtk · Narator"><span>12</span></a><a class="tlb mN" href="#b13" style="flex:1.00" title="B13 · 31,3–32,3 dtk · Narator"><span>13</span></a><a class="tlb mN" href="#b14" style="flex:4.00" title="B14 · 32,3–36,3 dtk · Narator"><span>14</span></a><a class="tlb mN" href="#b15" style="flex:4.00" title="B15 · 36,3–40,3 dtk · Narator"><span>15</span></a><a class="tlb mI" href="#b16" style="flex:8.70" title="B16 · 40,3–49,0 dtk · Irfan"><span>16</span></a><a class="tlb mN" href="#b17" style="flex:2.10" title="B17 · 49,0–51,1 dtk · Narator"><span>17</span></a><a class="tlb mN" href="#b18" style="flex:7.00" title="B18 · 51,1–58,1 dtk · Narator"><span>18</span></a><a class="tlb mN" href="#b19" style="flex:1.40" title="B19 · 58,1–59,5 dtk · Narator"><span>19</span></a><a class="tlb mK" href="#b20" style="flex:0.80" title="B20 · 59,5–60,3 dtk · Kartu"><span>20</span></a><a class="tlb mI" href="#b21" style="flex:5.70" title="B21 · 60,3–66,0 dtk · Irfan"><span>21</span></a><a class="tlb mI" href="#b22" style="flex:4.10" title="B22 · 66,0–70,1 dtk · Irfan"><span>22</span></a><a class="tlb mN" href="#b23" style="flex:5.20" title="B23 · 70,1–75,3 dtk · Narator"><span>23</span></a><a class="tlb mN" href="#b24" style="flex:1.40" title="B24 · 75,3–76,7 dtk · Narator"><span>24</span></a><a class="tlb mN" href="#b25" style="flex:4.70" title="B25 · 76,7–81,4 dtk · Narator"><span>25</span></a><a class="tlb mN" href="#b26" style="flex:6.30" title="B26 · 81,4–87,7 dtk · Narator"><span>26</span></a></div>
+<div class="tl-ruler"><span style="left:0.00%">0</span><span style="left:11.40%">10</span><span style="left:22.81%">20</span><span style="left:34.21%">30</span><span style="left:45.61%">40</span><span style="left:57.01%">50</span><span style="left:68.42%">60</span><span style="left:79.82%">70</span><span style="left:91.22%">80</span></div>
+</nav>
+</header>
+<section class="sec" id="hook"><header class="sec-h"><h2>Hook</h2><span>B01–B03 · 0,0–6,2 dtk · 6,2 dtk</span></header><div class="beats"><article class="beat" id="b01">
+<div class="fr" role="img" aria-label="Mock frame B01"><img class="bg" src="img/b01_lampu.jpg" alt="" style="filter:brightness(.55) saturate(.8)"><div class="giant" style="top:2%;font-size:27cqw;color:#f6efe6">Bosku.</div><img class="bg" src="img/b01_cutout.webp" alt="Cutout Irfan dari broll lampu" style="object-fit:contain"><div class="ph ph-sm" style="left:3%;top:56%;width:21%;height:22%;transform:rotate(-4deg)"><b>Tangkapan layar asli</b><span class="ph-p">Bubble chat Irfan</span><em>pesan aslinya ke Claude</em></div><div class="ph ph-sm" style="left:3%;top:30%;width:17%;height:20%;transform:rotate(3deg)"><b>Tangkapan layar asli</b><span class="ph-p">Finder: folder Jadisatu</span><em>ikon folder asli</em></div><div class="ph ph-sm" style="left:79%;top:56%;width:19%;height:22%;transform:rotate(-3deg)"><b>Tangkapan layar asli</b><span class="ph-p">File TheGap-Jadisatu-v18.mp4</span><em>ikon file asli</em></div><div class="inset" style="left:auto;right:3%;top:30%;bottom:auto;width:17%"><img src="img/b01_gelap.jpg" alt="" style=""><span>awal: gelap</span></div><div class="cap" style="bottom:3%">Ini <em>Irfan</em>. Dia <em>bosku</em>.</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B01</span><span class="tc">0,0–1,8 dtk</span><span class="dur">1,8 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Ini Irfan. Dia bosku.”</p>
+<p class="vis">broll_lampu_awal 3,0–6,3: gelap, lampu menyala → cutout Irfan di depan kata raksasa “Bosku.” + kartu asli melayang. Gaya b5b0d427…jpg.</p>
+<dl><div><dt>Teks layar</dt><dd>Ini Irfan. Dia bosku.</dd></div><div><dt>Kamera</dt><dd>Push-in pelan 100→108%</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Klik saklar di frame lampu menyala; musik fade-in 60 ms</dd></div></dl>
+<p class="needs"><b>Perlu tangkapan layar asli:</b> Bubble chat Claude, Finder (folder, file .mp4)</p>
+</div></article><article class="beat" id="b02">
+<div class="fr" role="img" aria-label="Mock frame B02"><div class="bgc" style="background:#141312"></div><div class="ph " style="left:4%;top:8%;width:50%;height:66%"><b>Tangkapan layar asli</b><span class="ph-p">Finder: script.md dibuat 02:00 (atau chat Irfan ke Claude jam 02:00)</span><em>kolom tanggal dibuat terlihat, lalu zoom ke jamnya</em></div><div class="loupe" style="left:60%;top:6%;width:22%"><span>02:00</span></div><div class="inset" style="right:3%;bottom:20%;width:26%"><img src="img/b02_kamar.jpg" alt="" style="filter:brightness(2.2)"><span>lalu: kamar gelap</span></div><div class="cap" style="">jam <em>dua</em> pagi</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B02</span><span class="tc">1,8–5,4 dtk</span><span class="dur">3,6 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Jam dua pagi tadi, dia taruhan sama dirinya sendiri.”</p>
+<p class="vis">Kiasan jam 02:00 (Finder atau chat Claude), lalu broll_akhir_gelap (kamar gelap).</p>
+<dl><div><dt>Teks layar</dt><dd>jam dua pagi</dd></div><div><dt>Kamera</dt><dd>Zoom ke jam 02:00</dd></div><div><dt>Transisi</dt><dd>Cut ke kartu</dd></div><div><dt>SFX</dt><dd>Tick jam</dd></div></dl>
+<p class="needs"><b>Perlu tangkapan layar asli:</b> Finder atau Claude</p>
+</div></article><article class="beat" id="b03">
+<div class="fr" role="img" aria-label="Mock frame B03"><div class="bgc" style="background:#000"></div><div class="center"><span class="serif-it" style="font-size:13cqw;color:#f4efe8">taruhan.</span></div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B03</span><span class="tc">5,4–6,2 dtk</span><span class="dur">0,8 dtk</span><span class="mode mK">K · Kartu</span></div>
+<p class="audio">—</p>
+<p class="vis">Kartu hitam penuh.</p>
+<dl><div><dt>Teks layar</dt><dd>taruhan.</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Hard cut</dd></div><div><dt>SFX</dt><dd>Musik turun, tahan 0,8 dtk</dd></div></dl>
+
+</div></article></div></section><section class="sec" id="rising-action"><header class="sec-h"><h2>Rising action</h2><span>B04–B11 · 6,2–28,0 dtk · 21,8 dtk</span></header><div class="beats"><article class="beat" id="b04">
+<div class="fr" role="img" aria-label="Mock frame B04"><img class="bg" src="img/b04_freeze.jpg" alt="" style="filter:grayscale(.65) contrast(1.05);transform:scale(1.55);transform-origin:68% 32%"><div class="freeze">❚❚ FREEZE</div><div class="cap" style=""><em>ngaku</em> dulu</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B04</span><span class="tc">6,2–9,1 dtk</span><span class="dur">2,9 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Tapi sebelum itu, dia mau ngaku dulu.”</p>
+<p class="vis">Freeze frame Irfan dari file bersih, sedikit desaturasi.</p>
+<dl><div><dt>Teks layar</dt><dd>ngaku dulu</dd></div><div><dt>Kamera</dt><dd>Zoom cepat ke wajah</dd></div><div><dt>Transisi</dt><dd>Unfreeze ke klip</dd></div><div><dt>SFX</dt><dd>Whoosh tipis</dd></div></dl>
+
+</div></article><article class="beat" id="b05">
+<div class="fr" role="img" aria-label="Mock frame B05"><img class="bg" src="img/b05_c1.jpg" alt=""><svg viewBox="0 0 100 100" class="sticker" style="left:8%;top:12%;width:17%" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="#fff"/><g fill="none" stroke="#111" stroke-width="6" stroke-linecap="round"><circle cx="32" cy="66" r="10"/><circle cx="58" cy="72" r="10"/><path d="M39 59 L72 22 M50 64 L40 22"/></g><path d="M14 86 L86 14" stroke="#ff4d1a" stroke-width="9" stroke-linecap="round"/></svg><div class="ftag">C1 · 3.28–6.10</div><div class="cap" style=""><span class="kt">males</span> · <span class="kt">ngedit</span></div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B05</span><span class="tc">9,1–11,9 dtk</span><span class="dur">2,8 dtk</span><span class="mode mI">I · Irfan</span></div>
+<p class="audio">C1 3.28–6.10: “Aku tuh males ngedit dan gak suka ngedit video sendiri”</p>
+<p class="vis">Wajah Irfan; tempelan gunting dicoret di “males”.</p>
+<dl><div><dt>Teks layar</dt><dd>males · ngedit</dd></div><div><dt>Kamera</dt><dd>Statis</dd></div><div><dt>Transisi</dt><dd>Jump cut</dd></div><div><dt>SFX</dt><dd>Pop kertas</dd></div></dl>
+
+</div></article><article class="beat" id="b06">
+<div class="fr" role="img" aria-label="Mock frame B06"><img class="bg" src="img/b06_mata.jpg" alt="" style="transform:scale(3.2);transform-origin:60% 39%"><div class="snap">SNAP ZOOM</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B06</span><span class="tc">11,9–13,7 dtk</span><span class="dur">1,8 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Dan yang lebih parah…”</p>
+<p class="vis">Zoom cepat ke mata Irfan.</p>
+<dl><div><dt>Teks layar</dt><dd>—</dd></div><div><dt>Kamera</dt><dd>Snap zoom</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Whoosh kecil</dd></div></dl>
+
+</div></article><article class="beat" id="b07">
+<div class="fr" role="img" aria-label="Mock frame B07"><img class="bg" src="img/b07_c2.jpg" alt="" style="transform:scale(1.35);transform-origin:62% 35%"><svg class="fill" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><path id="c07" d="M 960 330 m -330 0 a 330 250 0 1 1 660 0 a 330 250 0 1 1 -660 0"/></defs><text font-family="Geist, sans-serif" font-weight="800" font-size="74" fill="#fff" letter-spacing="4" style="paint-order:stroke;stroke:#000;stroke-opacity:.35;stroke-width:6"><textPath href="#c07">menjijikkan · menjijikkan · menjijikkan ·</textPath></text></svg><div class="ftag">C2 · 7.62–11.45 · punch-in 2×</div><div class="cap" style=""><span class="kt">aneh</span></div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B07</span><span class="tc">13,7–17,5 dtk</span><span class="dur">3,8 dtk</span><span class="mode mI">I · Irfan</span></div>
+<p class="audio">C2 7.62–11.45: “Ngeliat video sendiri tuh kayak aneh aja. Dan ngerasa menjijikan mungkin”</p>
+<p class="vis">Crop makin rapat; “menjijikkan” melingkar di kepala (gaya Kinetic Typography).</p>
+<dl><div><dt>Teks layar</dt><dd>aneh · menjijikkan</dd></div><div><dt>Kamera</dt><dd>Punch-in 2×</dd></div><div><dt>Transisi</dt><dd>Hard cut di akhir “mungkin”</dd></div><div><dt>SFX</dt><dd>—</dd></div></dl>
+
+</div></article><article class="beat" id="b08">
+<div class="fr" role="img" aria-label="Mock frame B08"><div class="bgc" style="background:#29d468"></div><div class="center"><span class="cond" style="font-size:16cqw;color:#06140b">MENJIJIKKAN.</span></div><div class="ftag" style="background:rgba(0,0,0,.15);color:#06140b">hening 1,2 dtk</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B08</span><span class="tc">17,5–18,7 dtk</span><span class="dur">1,2 dtk</span><span class="mode mK">K · Kartu</span></div>
+<p class="audio">(hening)</p>
+<p class="vis">Kartu hijau penuh.</p>
+<dl><div><dt>Teks layar</dt><dd>MENJIJIKKAN.</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Hard cut</dd></div><div><dt>SFX</dt><dd>Musik mati total 1,2 dtk</dd></div></dl>
+
+</div></article><article class="beat" id="b09">
+<div class="fr" role="img" aria-label="Mock frame B09"><div class="bgc" style="background:#1b2a23"></div><img src="img/b10_jeda.jpg" alt="" class="abs" style="left:36.25%;top:0.00%;width:63.75%;height:100.00%;object-fit:cover;object-position:55% 30%;filter:grayscale(.3) contrast(1.05)"><img src="img/b09_wajah_22.jpg" alt="" class="abs zthumb" style="left:3.12%;top:6.67%;width:15.00%;height:15.00%"><div class="zbox" style="left:61.25%;top:20.00%;width:7.50%;height:13.33%"></div><img src="img/b09_wajah_30.5.jpg" alt="" class="abs zthumb" style="left:3.12%;top:41.11%;width:15.00%;height:15.00%"><div class="zbox" style="left:70.00%;top:33.33%;width:5.62%;height:10.00%"></div><img src="img/b09_wajah_48.jpg" alt="" class="abs zthumb" style="left:3.12%;top:75.56%;width:15.00%;height:15.00%"><div class="zbox" style="left:60.00%;top:44.44%;width:6.25%;height:11.11%"></div><img src="img/b09_wajah_56.jpg" alt="" class="abs zthumb" style="left:20.62%;top:77.78%;width:15.00%;height:15.00%"><div class="zbox" style="left:73.75%;top:57.78%;width:8.12%;height:14.44%"></div><svg class="fill" viewBox="0 0 160 90" preserveAspectRatio="none" aria-hidden="true"><g stroke="#7fd49a" stroke-width="1" vector-effect="non-scaling-stroke" fill="none"><line vector-effect="non-scaling-stroke" x1="29" y1="12.75" x2="98" y2="24.0"/><line vector-effect="non-scaling-stroke" x1="29" y1="6" x2="98" y2="18"/><line vector-effect="non-scaling-stroke" x1="29" y1="43.75" x2="112" y2="34.5"/><line vector-effect="non-scaling-stroke" x1="29" y1="37" x2="112" y2="30"/><line vector-effect="non-scaling-stroke" x1="29" y1="74.75" x2="96" y2="45.0"/><line vector-effect="non-scaling-stroke" x1="29" y1="68" x2="96" y2="40"/><line vector-effect="non-scaling-stroke" x1="57" y1="76.75" x2="118" y2="58.5"/><line vector-effect="non-scaling-stroke" x1="57" y1="70" x2="118" y2="52"/></g></svg><div class="abs" style="left:60%;top:60%;width:8%;height:14%;background:#6cc487"></div><div class="cap" style="left:auto;right:3%;text-align:right">di <em>sepanjang</em> video ini</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B09</span><span class="tc">18,7–22,4 dtk</span><span class="dur">3,7 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “…kata orang yang mukanya ada di sepanjang video ini.”</p>
+<p class="vis">Kotak zoom berlipat di wajah Irfan; tiap kotak membuka wajah lain dari video (gaya Effect &amp; Character 2.jpg).</p>
+<dl><div><dt>Teks layar</dt><dd>di sepanjang video ini</dd></div><div><dt>Kamera</dt><dd>Zoom out dari kotak tengah</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Musik masuk lagi di “kata”</dd></div></dl>
+
+</div></article><article class="beat" id="b10">
+<div class="fr" role="img" aria-label="Mock frame B10"><img class="bg" src="img/b10_jeda.jpg" alt=""><div class="ftag">tanpa teks · jeda pendek</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B10</span><span class="tc">22,4–24,2 dtk</span><span class="dur">1,8 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Terus, satu lagi yang dia takutin.”</p>
+<p class="vis">Wajah Irfan, jeda pendek.</p>
+<dl><div><dt>Teks layar</dt><dd>—</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>—</dd></div></dl>
+
+</div></article><article class="beat" id="b11">
+<div class="fr" role="img" aria-label="Mock frame B11"><img class="bg" src="img/b11_c3.jpg" alt=""><div class="stamp" style="left:6%;top:14%;transform:rotate(-9deg)">PROPER?</div><div class="stamp" style="right:5%;top:46%;transform:rotate(7deg)">ESTETIK?</div><div class="ftag">C3 · 14.84–19.95 (16.84–18.08 dibuang)</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B11</span><span class="tc">24,2–28,0 dtk</span><span class="dur">3,8 dtk</span><span class="mode mI">I · Irfan</span></div>
+<p class="audio">C3 14.84–19.95: “aku takut video yang aku buat tuh gak cukup proper … dan juga takut gak estetik”</p>
+<p class="vis">Wajah Irfan; stempel “PROPER?” lalu “ESTETIK?”.</p>
+<dl><div><dt>Teks layar</dt><dd>proper? · estetik?</dd></div><div><dt>Kamera</dt><dd>Statis</dd></div><div><dt>Transisi</dt><dd>Jump cut (16,84–18,08 dibuang)</dd></div><div><dt>SFX</dt><dd>Thud stempel ×2</dd></div></dl>
+
+</div></article></div></section><section class="sec" id="second-conflict"><header class="sec-h"><h2>Second conflict</h2><span>B12–B18 · 28,0–58,1 dtk · 30,1 dtk</span></header><div class="beats"><article class="beat" id="b12">
+<div class="fr" role="img" aria-label="Mock frame B12"><div class="bgc" style="background:#171513"></div><div class="ph " style="left:38%;top:10%;width:58%;height:74%"><b>Tangkapan layar asli</b><span class="ph-p">Claude: jendela chat</span><em>kolom input chat yang menerima file</em></div><div class="chip" style="left:5%;top:22%;transform:rotate(-5deg)">▶ dji_export_20261027_014553…mp4</div><div class="chip" style="left:9%;top:44%;transform:rotate(4deg)">♪ Audiomic.m4a</div><svg class="fill" viewBox="0 0 160 90" preserveAspectRatio="none" aria-hidden="true"><path d="M44 28 C 56 26, 60 40, 70 52" stroke="#ff8a3d" stroke-width="2" vector-effect="non-scaling-stroke" fill="none" stroke-dasharray="4 4"/></svg><div class="cap" style="">dia <em>serahin</em></div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B12</span><span class="tc">28,0–31,3 dtk</span><span class="dur">3,3 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Jadi bagian yang paling dia hindarin, dia serahin.”</p>
+<p class="vis">File asli dji_export…mp4 + Audiomic.m4a diseret ke chat Claude asli.</p>
+<dl><div><dt>Teks layar</dt><dd>dia serahin</dd></div><div><dt>Kamera</dt><dd>Ikut file</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Swish + landing</dd></div></dl>
+<p class="needs"><b>Perlu tangkapan layar asli:</b> Claude (chat)</p>
+</div></article><article class="beat" id="b13">
+<div class="fr" role="img" aria-label="Mock frame B13"><svg class="fill" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><clipPath id="cp13"><circle cx="800" cy="330" r="120"/><path d="M540,900 C540,534.0 657.0,468.0 800,468.0 C943.0,468.0 1060,534.0 1060,900 Z"/></clipPath><radialGradient id="rg13" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#8a8580"/><stop offset="1" stop-color="#2a2826"/></radialGradient></defs><rect width="1600" height="900" fill="url(#rg13)"/><g fill="#3a3734"><circle cx="170" cy="330" r="95"/><path d="M-40,900 C-40,491.5 54.499999999999986,439.25 170,439.25 C285.5,439.25 380,491.5 380,900 Z"/></g><g fill="#55514c"><circle cx="430" cy="300" r="100"/><path d="M210,900 C210,470.0 309.0,415.0 430,415.0 C551.0,415.0 650,470.0 650,900 Z"/></g><g fill="#4a4743"><circle cx="1150" cy="290" r="105"/><path d="M920,900 C920,468.5 1023.5,410.75 1150,410.75 C1276.5,410.75 1380,468.5 1380,900 Z"/></g><g fill="#2f2c29"><circle cx="1420" cy="340" r="98"/><path d="M1205,900 C1205,506.6 1301.75,452.7 1420,452.7 C1538.25,452.7 1635,506.6 1635,900 Z"/></g><g fill="#1e1c1a"><circle cx="300" cy="470" r="110"/><path d="M60,900 C60,657.0 168.0,596.5 300,596.5 C432.0,596.5 540,657.0 540,900 Z"/></g><g fill="#252220"><circle cx="1300" cy="480" r="115"/><path d="M1055,900 C1055,675.5 1165.25,612.25 1300,612.25 C1434.75,612.25 1545,675.5 1545,900 Z"/></g><g clip-path="url(#cp13)"><rect x="500" y="150" width="600" height="760" fill="#0c3a1a"/><g fill="#39e46f" font-family="Geist Mono, monospace" font-size="22" font-weight="700"><text x="560" y="150">1 0 1 0 0 0 1 0 0 0 0 1 1 0 0 0 1 0 0 0 0 1 0 0 0 0</text><text x="560" y="174">1 1 0 0 1 0 0 0 1 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0 1 1</text><text x="560" y="198">1 1 1 0 0 1 0 1 0 1 1 0 0 1 1 1 1 1 0 0 1 1 0 0 1 1</text><text x="560" y="222">1 1 1 0 1 1 0 0 1 0 0 1 0 0 1 1 1 0 0 1 1 1 0 1 1 1</text><text x="560" y="246">1 1 0 0 0 0 0 0 0 0 1 0 1 1 0 0 1 1 1 0 0 1 1 1 1 1</text><text x="560" y="270">0 1 1 0 0 0 0 1 0 0 1 0 0 0 0 0 1 0 0 0 1 0 1 1 1 1</text><text x="560" y="294">0 0 1 1 1 1 1 0 0 0 1 1 1 0 0 0 1 0 0 1 0 1 1 0 1 0</text><text x="560" y="318">1 0 0 0 1 0 0 1 1 0 0 1 1 1 0 1 1 1 1 0 0 0 0 1 0 1</text><text x="560" y="342">0 1 0 1 1 0 0 1 0 1 0 1 1 0 1 1 1 0 0 0 0 0 0 1 0 1</text><text x="560" y="366">1 0 0 0 0 0 0 1 0 0 0 1 0 1 0 1 1 1 0 0 1 1 1 0 0 0</text><text x="560" y="390">1 0 0 0 0 0 1 0 0 1 1 0 0 0 0 1 0 0 1 0 0 1 1 0 1 1</text><text x="560" y="414">1 0 1 0 1 0 1 0 1 1 1 0 0 1 0 0 1 0 0 1 0 1 0 1 0 0</text><text x="560" y="438">1 1 0 0 0 1 1 1 1 0 1 1 0 1 0 1 1 1 0 1 1 1 0 0 0 0</text><text x="560" y="462">0 1 1 0 0 1 0 1 1 1 0 1 1 0 1 0 0 1 0 1 0 0 1 0 0 0</text><text x="560" y="486">1 0 1 0 1 1 1 0 0 0 0 0 1 0 0 0 1 1 0 1 1 0 1 1 0 1</text><text x="560" y="510">0 0 0 0 1 0 1 0 1 1 1 1 0 0 1 0 0 1 1 0 0 0 0 1 1 0</text><text x="560" y="534">0 0 1 1 0 1 0 1 0 0 1 1 0 1 1 1 1 0 0 1 0 1 0 0 1 1</text><text x="560" y="558">0 1 1 0 0 0 0 1 0 0 1 0 1 0 1 1 0 0 0 1 1 1 0 1 0 0</text><text x="560" y="582">1 0 0 0 0 0 0 0 1 0 1 1 0 0 0 1 1 0 1 0 0 0 1 1 0 1</text><text x="560" y="606">0 0 0 1 1 1 0 1 1 0 0 0 0 1 1 1 0 0 1 0 1 1 0 0 1 1</text><text x="560" y="630">1 1 1 1 0 0 1 0 1 0 1 1 0 1 1 1 0 0 0 0 0 1 1 0 1 0</text><text x="560" y="654">1 0 1 1 1 0 0 0 1 1 1 1 0 1 1 1 1 0 1 0 1 1 1 0 0 0</text><text x="560" y="678">1 1 1 0 1 1 0 1 1 1 0 1 0 0 1 0 0 1 1 1 0 1 1 0 1 0</text><text x="560" y="702">0 0 1 1 0 1 1 0 0 0 1 1 1 1 1 1 1 1 0 1 1 1 0 0 0 0</text><text x="560" y="726">0 1 0 1 1 1 1 0 0 0 0 0 1 0 1 0 1 1 0 0 1 1 1 0 1 1</text><text x="560" y="750">1 0 1 1 1 0 0 0 1 0 1 1 1 1 1 0 0 0 1 1 1 0 0 1 1 1</text><text x="560" y="774">0 0 0 0 0 0 1 0 0 0 0 0 0 1 0 1 1 0 0 0 1 0 1 1 0 0</text><text x="560" y="798">0 1 1 1 1 0 1 0 0 0 1 1 0 0 0 1 1 0 1 0 1 1 0 1 0 1</text><text x="560" y="822">1 1 1 0 0 1 0 0 1 0 1 0 0 1 0 1 1 0 1 0 0 1 1 0 0 1</text><text x="560" y="846">0 0 0 0 1 0 0 0 1 1 1 0 0 0 1 0 0 1 0 1 1 1 1 1 0 0</text><text x="560" y="870">0 0 1 0 1 1 0 0 1 1 1 1 0 0 1 0 1 1 0 1 1 1 0 1 0 1</text><text x="560" y="894">0 1 0 1 0 0 1 0 0 1 1 1 1 0 1 1 1 1 0 0 0 0 0 1 1 1</text><text x="560" y="918">1 1 1 0 1 0 0 1 0 0 1 1 1 1 0 0 1 0 0 1 0 0 1 1 0 1</text><text x="560" y="942">0 0 1 0 0 0 1 1 1 0 0 0 1 1 0 0 1 1 1 1 1 1 1 0 1 0</text></g></g></svg><div class="ftag">karakter Claude · aset ilustrasi</div><div class="inset" style="right:2%;bottom:6%;width:30%;background:#000"><img src="img/b13_blur.jpg" alt="" style="filter:blur(6px) brightness(.8)"><div class="ph ph-in"><b>Tangkapan layar asli</b><span class="ph-p">Claude: bubble pesan Irfan + status "Working…"</span></div><span>lalu: status kerja asli</span></div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B13</span><span class="tc">31,3–32,3 dtk</span><span class="dur">1,0 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Ke aku.”</p>
+<p class="vis">Karakter Claude: siluet berisi kode di kerumunan (Effect &amp; Character.jpg), lalu status kerja asli “Working…” di atas footage blur + grain.</p>
+<dl><div><dt>Teks layar</dt><dd>—</dd></div><div><dt>Kamera</dt><dd>Push-in ke siluet</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Pop</dd></div></dl>
+<p class="needs"><b>Perlu tangkapan layar asli:</b> Claude (bubble + Working…)</p>
+</div></article><article class="beat" id="b14">
+<div class="fr" role="img" aria-label="Mock frame B14"><div class="bgc" style="background:#0f110f"></div><div class="wk"><div class="wk-sync"><div class="wk-h">Sinkron mic ↔ kamera <b>+0,518 dtk</b></div><img src="img/b14_mic.webp" alt="" style="transform:translateX(4%)"><img src="img/b14_waveform.webp" alt=""></div><ol class="wk-seg"><div class="wk-h">9 potongan · segments.json</div><li><b>01</b><span>6.37→12.97</span><span>6.60 dtk</span></li><li><b>02</b><span>13.40→17.23</span><span>3.83 dtk</span></li><li><b>03</b><span>17.70→26.27</span><span>8.57 dtk</span></li><li><b>04</b><span>26.43→37.60</span><span>11.17 dtk</span></li><li><b>05</b><span>38.63→41.47</span><span>2.83 dtk</span></li><li><b>06</b><span>41.73→51.50</span><span>9.77 dtk</span></li><li><b>07</b><span>51.67→55.13</span><span>3.47 dtk</span></li><li><b>08</b><span>55.83→64.33</span><span>8.50 dtk</span></li><li><b>09</b><span>69.13→72.67</span><span>3.53 dtk</span></li></ol><div class="wk-cut"><div class="wk-h">Hening dipotong · 58,27 dtk tersisa</div><div class="wk-wave"><img src="img/b14_waveform.webp" alt=""><i style="left:11.33%"></i><i style="left:17.91%"></i><i style="left:32.61%"></i><i style="left:51.77%"></i><i style="left:56.64%"></i><i style="left:73.40%"></i><i style="left:79.35%"></i><i style="left:93.94%"></i></div></div><div class="wk-words"><span>aku</span><span>tuh</span><span class=on>males</span><span>ngedit</span><span>dan</span><span>gak</span><span>suka</span><span>ngedit</span><span>video</span><span>sendiri</span><span>ngeliat</span><span>video</span><span>sendiri</span><span>tuh</span><span>kayak</span><span>aneh</span><span>aja</span></div></div><div class="cap" style="bottom:2.5%"><span class="kt on">motong</span> · <span class="kt dim">nyusun</span> · <span class="kt dim">ngedit</span></div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B14</span><span class="tc">32,3–36,3 dtk</span><span class="dur">4,0 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Aku yang motong, nyusun sama ngedit video ini.”</p>
+<p class="vis">Beban kerja, visual saja: sinkron 0,518 dtk, 9 potongan dari segments.json, waveform diam dipotong, transkrip kata per kata. Waveform di mock ini dirender dari audio asli.</p>
+<dl><div><dt>Teks layar</dt><dd>motong · nyusun · ngedit</dd></div><div><dt>Kamera</dt><dd>Cut di tiap kata kerja</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>3 klik ritmis</dd></div></dl>
+
+</div></article><article class="beat" id="b15">
+<div class="fr" role="img" aria-label="Mock frame B15"><div class="bgc" style="background:radial-gradient(60% 70% at 45% 45%, #3a1d0c 0%, #0d0c0b 70%)"></div><svg class="fill" viewBox="0 0 160 90" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="g15" x1="0" x2="1"><stop offset="0" stop-color="#ff7a1a"/><stop offset="1" stop-color="#39e46f"/></linearGradient></defs><g stroke="url(#g15)" stroke-width="2.5" vector-effect="non-scaling-stroke" fill="none"><path vector-effect="non-scaling-stroke" d="M30 36 L66 36"/><path vector-effect="non-scaling-stroke" d="M86 36 C 100 36, 104 14, 120 14"/><path vector-effect="non-scaling-stroke" d="M86 36 L120 36"/><path vector-effect="non-scaling-stroke" d="M86 36 C 100 36, 104 58, 120 58"/></g></svg><div class="node" style="left:9%;top:26%"><img src="img/b05_c1.jpg" alt="" style="object-position:62% 30%;transform:scale(1.8)"></div><div class="node-l" style="left:9%;top:58%">Irfan</div><div class="node node-c" style="left:41%;top:26%"><svg class="fill" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><clipPath id="cp15n"><circle cx="800" cy="330" r="120"/><path d="M540,900 C540,534.0 657.0,468.0 800,468.0 C943.0,468.0 1060,534.0 1060,900 Z"/></clipPath><radialGradient id="rg15n" cx="50%" cy="45%" r="60%"><stop offset="0" stop-color="#8a8580"/><stop offset="1" stop-color="#2a2826"/></radialGradient></defs><rect width="1600" height="900" fill="url(#rg15n)"/><g clip-path="url(#cp15n)"><rect x="500" y="150" width="600" height="760" fill="#0c3a1a"/><g fill="#39e46f" font-family="Geist Mono, monospace" font-size="22" font-weight="700"><text x="560" y="150">0 0 0 0 1 0 1 0 1 1 0 0 0 1 0 0 0 1 0 1 1 0 1 0 0 0</text><text x="560" y="174">0 0 0 1 0 1 1 0 0 1 0 0 1 1 0 0 0 1 0 0 0 1 1 1 0 1</text><text x="560" y="198">0 0 0 1 1 0 1 0 1 0 0 0 1 1 1 1 1 1 0 1 1 1 1 0 1 0</text><text x="560" y="222">1 1 0 0 1 0 1 0 0 1 1 1 0 0 0 0 0 1 0 1 0 0 1 1 0 0</text><text x="560" y="246">0 0 1 1 0 1 0 0 1 1 0 1 0 0 0 1 0 1 0 0 0 1 0 1 1 0</text><text x="560" y="270">0 0 0 0 0 1 0 1 1 1 1 1 0 1 1 1 1 1 0 0 0 1 1 0 1 1</text><text x="560" y="294">0 1 1 0 0 0 1 1 1 0 1 0 0 0 0 1 0 0 1 0 0 0 0 0 0 1</text><text x="560" y="318">1 0 0 0 1 1 0 1 1 1 0 1 1 0 1 0 1 1 0 0 0 1 0 1 1 1</text><text x="560" y="342">0 1 0 0 1 1 0 1 1 1 1 1 1 0 1 1 0 1 0 0 0 1 1 1 1 0</text><text x="560" y="366">0 0 0 1 1 1 1 0 0 1 0 0 0 0 0 1 1 0 1 0 1 1 0 0 1 1</text><text x="560" y="390">0 0 0 0 0 1 0 0 0 1 1 1 0 0 1 1 1 0 0 0 0 0 0 1 0 0</text><text x="560" y="414">0 0 0 0 0 0 1 0 1 0 1 0 1 0 1 0 1 1 1 0 1 0 0 0 1 0</text><text x="560" y="438">0 0 1 1 0 1 1 1 1 0 0 0 0 1 0 0 0 1 0 1 1 0 1 1 1 0</text><text x="560" y="462">0 1 0 1 0 1 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 0</text><text x="560" y="486">0 1 0 0 0 0 0 0 0 0 1 1 0 0 0 0 1 1 1 1 1 0 1 1 1 0</text><text x="560" y="510">1 1 1 1 0 1 0 1 0 1 1 0 0 0 1 0 1 0 0 1 0 0 1 1 0 1</text><text x="560" y="534">0 1 1 1 0 1 0 0 1 0 0 0 1 0 1 1 0 1 1 0 1 0 1 0 1 1</text><text x="560" y="558">1 0 1 0 1 0 0 1 1 0 1 1 0 1 1 1 0 0 1 1 0 0 1 1 0 0</text><text x="560" y="582">0 1 1 0 0 1 0 1 0 0 0 0 1 0 0 1 1 1 1 0 0 0 1 0 1 1</text><text x="560" y="606">0 0 1 1 0 1 1 0 0 1 1 0 0 1 1 0 0 0 0 1 1 1 1 0 1 0</text><text x="560" y="630">1 0 1 1 1 1 0 1 0 1 0 1 1 0 0 1 0 0 0 1 0 1 0 1 0 1</text><text x="560" y="654">1 1 1 0 0 1 0 1 0 1 1 1 1 0 0 0 1 1 1 1 0 0 1 1 0 1</text><text x="560" y="678">1 0 0 0 0 0 1 0 0 1 1 1 1 0 1 1 0 1 1 1 1 0 1 0 1 1</text><text x="560" y="702">0 1 1 1 1 1 0 1 0 1 1 0 0 1 0 1 0 0 0 0 1 1 0 0 0 0</text><text x="560" y="726">1 1 0 0 1 0 0 1 0 1 0 0 1 0 0 1 1 0 0 1 1 0 1 1 0 1</text><text x="560" y="750">0 1 0 0 0 1 1 1 1 1 1 1 1 0 0 1 0 0 0 1 0 1 1 0 0 0</text><text x="560" y="774">1 0 1 0 1 1 1 0 1 1 1 1 1 0 1 1 1 1 1 1 1 1 0 1 0 1</text><text x="560" y="798">0 1 1 0 0 0 1 1 0 1 1 0 0 0 0 1 0 1 0 0 0 0 1 0 0 0</text><text x="560" y="822">0 1 0 0 1 0 1 1 1 0 1 0 1 0 1 0 1 0 0 1 1 1 0 0 1 0</text><text x="560" y="846">1 1 0 0 1 0 0 0 1 0 0 0 0 0 0 0 1 0 1 0 1 0 0 1 0 0</text><text x="560" y="870">1 1 1 1 0 0 0 0 0 0 1 1 1 0 1 0 1 1 1 1 0 0 0 1 0 1</text><text x="560" y="894">1 1 1 1 1 1 1 0 1 0 0 1 1 0 1 1 1 0 1 1 0 1 1 1 1 0</text><text x="560" y="918">0 1 0 0 1 1 1 0 1 1 0 0 1 0 1 1 0 1 0 1 1 0 1 0 0 1</text><text x="560" y="942">1 1 1 0 0 0 0 0 0 1 1 1 1 0 0 0 1 1 0 1 1 0 0 1 0 1</text></g></g></svg></div><div class="node-l" style="left:41%;top:58%">Claude</div><div class="node node-ph" style="left:75%;top:4%"><span>logo asli</span></div><div class="node-name" style="left:86.5%;top:9%">ChatGPT</div><div class="node node-ph" style="left:75%;top:29%"><span>logo asli</span></div><div class="node-name" style="left:86.5%;top:34%">Gemini</div><div class="node node-ph" style="left:75%;top:54%"><span>logo asli</span></div><div class="node-name" style="left:86.5%;top:59%">ElevenLabs</div><div class="pills"><div class="pill-ghost" style="transform:rotate(-3deg)">Kritik naskah ini</div><div class="pill"><i></i>Susun storyboard dari naskah ini</div><div class="pill-ghost" style="transform:rotate(3deg)">Isi suara narator</div></div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B15</span><span class="tc">36,3–40,3 dtk</span><span class="dur">4,0 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Aku nyuruh ChatGPT nyusun storyboard, Gemini ngritik, ElevenLabs ngisi suaranya.”</p>
+<p class="vis">Alur Irfan → Claude → 3 tool (Irfan with claude.jpg), pill perintah berputar (Type.jpg), jendela asli tiap tool di namanya. Glow oranye/hijau, bukan biru.</p>
+<dl><div><dt>Teks layar</dt><dd>nama tool per kata</dd></div><div><dt>Kamera</dt><dd>Whip-pan antar node</dd></div><div><dt>Transisi</dt><dd>Whip</dd></div><div><dt>SFX</dt><dd>Whoosh tipis per whip</dd></div></dl>
+<p class="needs"><b>Perlu tangkapan layar asli:</b> Logo + jendela ChatGPT, Gemini, ElevenLabs</p>
+</div></article><article class="beat" id="b16">
+<div class="fr" role="img" aria-label="Mock frame B16"><img class="bg" src="img/b16_c4.jpg" alt=""><svg class="fill" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><defs><path id="c16" d="M 900 300 m -290 0 a 290 200 0 1 1 580 0 a 290 200 0 1 1 -580 0"/></defs><text font-family="Geist, sans-serif" font-weight="800" font-size="70" fill="#ff8a3d" letter-spacing="4" style="paint-order:stroke;stroke:#000;stroke-opacity:.4;stroke-width:6"><textPath href="#c16">bottleneck · bottleneck · bottleneck ·</textPath></text></svg><div class="ftag">C4 · 26.78–35.40</div><div class="inset" style="left:3%;right:auto;bottom:4%;width:38%;background:#0e0d0c"><svg viewBox="0 0 200 120" class="abs" style="left:4%;top:8%;width:92%;height:84%" aria-hidden="true"><path d="M10 25 H120 C135 25 140 45 160 50 H195 V70 H160 C140 75 135 95 120 95 H10 Z" fill="#1a1715" stroke="#ff8a3d" stroke-width="2"/><text x="168" y="64" font-family="Geist" font-weight="800" font-size="13" fill="#39e46f">edit →</text><text x="100" y="66" font-family="Instrument Serif" font-style="italic" font-size="26" fill="#fff">cerita</text><text x="30" y="50" font-family="Geist" font-size="9" fill="#9c958b">tersangkut di leher</text></svg><span>cutaway 1,2 dtk</span></div><div class="cap" style="left:auto;right:3%;text-align:right"><span class="kt">cerita</span></div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B16</span><span class="tc">40,3–49,0 dtk</span><span class="dur">8,7 dtk</span><span class="mode mI">I · Irfan</span></div>
+<p class="audio">C4 26.78–35.40: “Aku rasa ngedit itu bukan lagi jadi sebuah bottleneck. Tapi yang jadi bottleneck sebenarnya justru adalah gimana kita menceritakan sebuah kejelasan”</p>
+<p class="vis">Wajah Irfan; cutaway 1,2 dtk leher botol (“edit” lolos, “cerita” tersangkut); “bottleneck” melingkar di kepala.</p>
+<dl><div><dt>Teks layar</dt><dd>bottleneck · cerita</dd></div><div><dt>Kamera</dt><dd>Punch-in di “justru”</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Tempelan di kata kunci</dd></div></dl>
+
+</div></article><article class="beat" id="b17">
+<div class="fr" role="img" aria-label="Mock frame B17"><div class="bgc" style="background:#0e0d0c"></div><div class="ph " style="left:14%;top:12%;width:72%;height:54%"><b>Tangkapan layar asli</b><span class="ph-p">Claude: kolom input kosong</span><em>kursor berkedip, tanpa teks, ditahan 2 dtk</em></div><div class="cap" style="bottom:12%"><em>nyebelin.</em></div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B17</span><span class="tc">49,0–51,1 dtk</span><span class="dur">2,1 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Nyebelin. Tapi iya juga, sih.”</p>
+<p class="vis">Kursor Claude diam di layar kosong.</p>
+<dl><div><dt>Teks layar</dt><dd>nyebelin.</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Musik turun</dd></div></dl>
+<p class="needs"><b>Perlu tangkapan layar asli:</b> Claude (input kosong)</p>
+</div></article><article class="beat" id="b18">
+<div class="fr" role="img" aria-label="Mock frame B18"><div class="bgc" style="background:linear-gradient(180deg,#000 30%,#2b1406 100%)"></div><div class="tl"><div class="tl-track"><i style="flex:3"></i><i style="flex:5"></i><i style="flex:2"></i><i style="flex:6"></i><i style="flex:4"></i><i style="flex:3"></i><i style="flex:7"></i><i style="flex:2"></i><i style="flex:5"></i></div><div class="tl-track t2"><i style="flex:6"></i><i style="flex:2"></i><i style="flex:4"></i><i style="flex:8"></i><i style="flex:3"></i><i style="flex:5"></i><i style="flex:4"></i></div><b class="tl-ph"></b></div><div class="center"><span class="grad-line">cerita mana yang <span class="grad">layak</span></span></div><div class="inset" style=""><img src="img/b18_wajah.jpg" alt="" style=""><span>lalu: wajah Irfan</span></div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B18</span><span class="tc">51,1–58,1 dtk</span><span class="dur">7,0 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Aku bisa ngedit video dalam hitungan menit, tapi aku ga tau cerita mana yang layak diceritakan, makanya itu bagian dia.”</p>
+<p class="vis">Timeline berjalan cepat → berhenti; “layak” bergradasi di tengah (Gradient-text.jpg, gradasi oranye bukan biru) → wajah Irfan. Caption ≤ 4 kata di layar.</p>
+<dl><div><dt>Teks layar</dt><dd>cerita mana yang layak</dd></div><div><dt>Kamera</dt><dd>Dolly lambat</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Cara baca FOUNDER, musik tipis</dd></div></dl>
+
+</div></article></div></section><section class="sec" id="klimaks"><header class="sec-h"><h2>Klimaks</h2><span>B19–B23 · 58,1–75,3 dtk · 17,2 dtk</span></header><div class="beats"><article class="beat" id="b19">
+<div class="fr" role="img" aria-label="Mock frame B19"><div class="bgc" style="background:#050505"></div><div class="center"><div class="note-empty">Visual belum diisi di STORYBOARD (kolom "—").<br>Usul: layar gelap, musik hampir hening, lalu kartu.</div></div><div class="cap" style="opacity:.9">ini <em>taruhannya</em></div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B19</span><span class="tc">58,1–59,5 dtk</span><span class="dur">1,4 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Jadi, ini taruhannya.”</p>
+<p class="vis">— (kosong di STORYBOARD)</p>
+<dl><div><dt>Teks layar</dt><dd>—</dd></div><div><dt>Kamera</dt><dd>—</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Musik hampir hening</dd></div></dl>
+
+</div></article><article class="beat" id="b20">
+<div class="fr" role="img" aria-label="Mock frame B20"><div class="bgc" style="background:#000"></div><div class="center"><span class="serif-it" style="font-size:13cqw;color:#f4efe8">taruhan.</span></div><div class="ftag">callback</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B20</span><span class="tc">59,5–60,3 dtk</span><span class="dur">0,8 dtk</span><span class="mode mK">K · Kartu</span></div>
+<p class="audio">—</p>
+<p class="vis">Kartu hitam callback.</p>
+<dl><div><dt>Teks layar</dt><dd>taruhan.</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Hard cut</dd></div><div><dt>SFX</dt><dd>Tahan 0,8 dtk</dd></div></dl>
+
+</div></article><article class="beat" id="b21">
+<div class="fr" role="img" aria-label="Mock frame B21"><div class="bgc" style="background:radial-gradient(70% 90% at 75% 30%, #ff9a5c 0%, #e8452c 35%, #3a0d1f 75%, #12060a 100%)"></div><div class="grain"></div><img src="img/b21_c5.jpg" alt="" class="abs" style="left:0;top:0;width:52%;height:100%;object-fit:cover;object-position:60% 40%;-webkit-mask-image:linear-gradient(90deg,#000 60%,transparent);mask-image:linear-gradient(90deg,#000 60%,transparent)"><div class="big20">20</div><div class="glass">Upload</div><div class="ftag">C5 · 39.56–46.20 · beat drop di “20” · shake 4 frame</div><div class="cap" style="left:4%;text-align:left"><b>20</b> konten</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B21</span><span class="tc">60,3–66,0 dtk</span><span class="dur">5,7 dtk</span><span class="mode mI">I · Irfan</span></div>
+<p class="audio">C5 39.56–46.20: “Jadi aku mau challenge diri aku, bisa gak di akhir tahun nanti … posting 20 konten”</p>
+<p class="vis">Wajah Irfan; “20” raksasa + tombol kaca “Upload” (Performence.jpg). “mungkin ya” 43,90–44,85 dibuang.</p>
+<dl><div><dt>Teks layar</dt><dd>20 konten</dd></div><div><dt>Kamera</dt><dd>Shake 4 frame di “20”</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Beat drop tepat di “20”</dd></div></dl>
+
+</div></article><article class="beat" id="b22">
+<div class="fr" role="img" aria-label="Mock frame B22"><img class="bg" src="img/b22_c6.jpg" alt=""><div class="ftag">C6 · 49.30–54.70</div><div class="inset cal-inset" style="width:40%"><div class="cal"><div class="cal-n">November 2026</div><div class="cal-g"><u>S</u><u>S</u><u>R</u><u>K</u><u>J</u><u>S</u><u>M</u><i></i><i></i><i></i><i></i><i></i><i></i><i>1</i><i class="m">2</i><i>3</i><i>4</i><i class="m">5</i><i>6</i><i>7</i><i>8</i><i class="m">9</i><i>10</i><i>11</i><i class="m">12</i><i>13</i><i>14</i><i>15</i><i class="m">16</i><i>17</i><i>18</i><i class="m">19</i><i>20</i><i>21</i><i>22</i><i class="m">23</i><i>24</i><i>25</i><i class="m">26</i><i>27</i><i>28</i><i>29</i><i class="m">30</i></div></div><div class="cal"><div class="cal-n">Desember 2026</div><div class="cal-g"><u>S</u><u>S</u><u>R</u><u>K</u><u>J</u><u>S</u><u>M</u><i></i><i class="m">1</i><i>2</i><i class="m">3</i><i>4</i><i>5</i><i>6</i><i class="m">7</i><i>8</i><i>9</i><i class="m">10</i><i>11</i><i>12</i><i>13</i><i class="m">14</i><i>15</i><i>16</i><i class="m">17</i><i>18</i><i>19</i><i>20</i><i class="m">21</i><i>22</i><i>23</i><i class="m">24</i><i>25</i><i>26</i><i>27</i><i class="m">28</i><i>29</i><i class="m">30</i><i class="m">31</i></div></div><span>cutaway 1 dtk</span></div><div class="cap" style="left:4%;text-align:left"><span class="kt">effort</span> · <span class="kt">waktu</span></div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B22</span><span class="tc">66,0–70,1 dtk</span><span class="dur">4,1 dtk</span><span class="mode mI">I · Irfan</span></div>
+<p class="audio">C6 49.30–54.70: “Meskipun dieditin sama AI, tapi ya mikirin konten juga perlu effort kan, dan juga perlu waktu”</p>
+<p class="vis">Wajah Irfan; cutaway 1 dtk kalender Nov–Des (20 titik = 20 konten, posisi titik contoh).</p>
+<dl><div><dt>Teks layar</dt><dd>effort · waktu</dd></div><div><dt>Kamera</dt><dd>Statis</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Musik penuh (jeda dalam klip dirapatkan)</dd></div></dl>
+
+</div></article><article class="beat" id="b23">
+<div class="fr" role="img" aria-label="Mock frame B23"><div class="bgc" style="background:#0f0e0d"></div><img src="img/b23_kepala.jpg" alt="" class="abs" style="left:0;top:0;width:50%;height:100%;object-fit:cover;object-position:58% 30%"><div class="split-r"><div class="tl tl-in"><div class="tl-track"><i style="flex:3"></i><i style="flex:5"></i><i style="flex:2"></i><i style="flex:6"></i><i style="flex:4"></i><i style="flex:3"></i></div><div class="tl-track t2"><i style="flex:6"></i><i style="flex:2"></i><i style="flex:4"></i><i style="flex:8"></i></div></div><div class="count"><b>65</b><span>hari lagi → 31 Des</span></div></div><div class="cap" style=""><em>dua puluh</em> kali</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B23</span><span class="tc">70,1–75,3 dtk</span><span class="dur">5,2 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Dia yang mikir. Aku yang ngedit. Dua puluh kali, sebelum tahun ini habis.”</p>
+<p class="vis">Split: kepala Irfan / timeline Claude; hitung mundur hari ke 31 Des (65 hari dari 27 Okt).</p>
+<dl><div><dt>Teks layar</dt><dd>dua puluh kali</dd></div><div><dt>Kamera</dt><dd>Cut tiap kalimat</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>—</dd></div></dl>
+
+</div></article></div></section><section class="sec" id="penutup"><header class="sec-h"><h2>Penutup</h2><span>B24–B26 · 75,3–87,7 dtk · 12,4 dtk</span></header><div class="beats"><article class="beat" id="b24">
+<div class="fr" role="img" aria-label="Mock frame B24"><div class="bgc" style="background:linear-gradient(180deg,#b8c7d6,#e9e7ec)"></div><div class="ph " style="left:6%;top:12%;width:54%;height:76%;--phc:#2a2622;--phb:rgba(255,255,255,.55)"><b>Tangkapan layar asli</b><span class="ph-p">Notes: daftar “20 konten”</span><em>item #1 terpilih (gaya Idea Content.jpg, tapi app asli)</em></div><div class="one20">1<span>/</span>20</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B24</span><span class="tc">75,3–76,7 dtk</span><span class="dur">1,4 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Ini yang pertama.”</p>
+<p class="vis">App catatan: daftar “20 konten”, item #1 terpilih (gaya Idea Content.jpg).</p>
+<dl><div><dt>Teks layar</dt><dd>1 / 20</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>—</dd></div></dl>
+<p class="needs"><b>Perlu tangkapan layar asli:</b> Notes</p>
+</div></article><article class="beat" id="b25">
+<div class="fr" role="img" aria-label="Mock frame B25"><div class="bgc" style="background:#141312"></div><div class="ph " style="left:6%;top:8%;width:60%;height:70%"><b>Tangkapan layar asli</b><span class="ph-p">Finder: folder Jadisatu</span><em>kursor di folder, menu “Move to Trash” terbuka. Tidak benar-benar dihapus.</em></div><div class="freeze" style="top:auto;bottom:22%;left:auto;right:5%">❚❚ FREEZE 0,4 dtk</div><div class="cap" style="">aku <em>resign</em>.</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B25</span><span class="tc">76,7–81,4 dtk</span><span class="dur">4,7 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Kalau dia gagal… aku mending resign, sih. Sekalian hapus semua folder project-nya.”</p>
+<p class="vis">Finder asli: kursor di folder Jadisatu, menu “Move to Trash” terbuka → freeze. Tidak benar-benar dihapus.</p>
+<dl><div><dt>Teks layar</dt><dd>aku resign.</dd></div><div><dt>Kamera</dt><dd>Push-in ke menu</dd></div><div><dt>Transisi</dt><dd>Freeze 0,4 dtk</dd></div><div><dt>SFX</dt><dd>Hening 0,4 dtk setelah “resign”</dd></div></dl>
+<p class="needs"><b>Perlu tangkapan layar asli:</b> Finder</p>
+</div></article><article class="beat" id="b26">
+<div class="fr" role="img" aria-label="Mock frame B26"><div class="bgc" style="background:#ff5a0a"></div><div class="abs" style="left:21%;top:0;bottom:0;border-left:1px solid rgba(60,20,0,.35)"></div><div class="abs" style="left:0;right:0;top:83%;border-top:1px solid rgba(60,20,0,.35)"></div><div class="endq">Menurutmu, dia bisa upload dua puluh konten<br>sampai akhir tahun ini, nggak?</div><div class="endtag"><span class="serif-r">Not AI Company.</span><br><span class="serif-r">Just </span><span class="hand">Human<svg viewBox="0 0 200 20" class="uline" aria-hidden="true"><path d="M4 12 C 50 4, 120 18, 196 8" stroke="#140800" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M20 16 C 80 10, 140 18, 186 13" stroke="#140800" stroke-width="2" fill="none" stroke-linecap="round"/></svg></span><span class="serif-r"> with AI.</span></div><div class="end120">1 / 20</div><div class="endbrand">Jadisatu</div><div class="unconf">tagline belum final</div></div>
+<div class="meta">
+<div class="mh"><span class="bid">B26</span><span class="tc">81,4–87,7 dtk</span><span class="dur">6,3 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Menurutmu, dia bisa upload dua puluh konten sampai akhir tahun ini, nggak?”</p>
+<p class="vis">End card oranye (gaya Penutup…jpg): pertanyaan + 1 / 20 + tagline. Teks tagline belum final.</p>
+<dl><div><dt>Teks layar</dt><dd>pertanyaan, 2 baris</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Tahan 1,5 dtk</dd></div><div><dt>SFX</dt><dd>Musik keluar</dd></div></dl>
+
+</div></article></div></section>
+<footer class="foot">Mock frame bukan render final. Posisi teks, warna gradasi, dan isi kalender adalah usulan. Durasi beat VO dikunci ulang setelah VO dibuat.</footer>
+</div>
