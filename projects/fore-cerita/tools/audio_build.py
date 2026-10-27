@@ -27,6 +27,7 @@ def filt(x, lo=None, hi=None):
     if hi: x = sosfilt(butter(4, hi, "lp", fs=SR, output="sos"), x, axis=0)
     return x
 
+SUBONLY = {'bubble_pop', 'buzz', 'thud_0', 'thud_1', 'heartbeat_0', 'steps', 'gasp'}
 LPF = {'paper': 2800, 'tissue': 2800, 'curtain': 3000, 'door': 4500, 'spill': 4500}
 
 def db(v): return 10 ** (v / 20)
@@ -122,16 +123,34 @@ def main():
         place(sfx, y * env[:, None], s, g)
         used.append({"t": s, "end": e, "kind": "bed", "name": name, "db": g})
     cues = sorted(CUES)
-    last = {}
+    PRIMARY = {"bubble_form","glide_0","curtain","blanket","door","buzz","thock_1","thud_0","thud_1","bubble_pop","spill","pen","writing","chairs_laugh","gasp","tissue","heartbeat_0","swell_1"}
+    duck = np.ones(n, np.float32)
     for (t, name, g, note) in cues:
         x = load(name)
         if x is None: continue
         x = norm_peak(filt(x, 40, LPF.get(name, 6000)), -1)
-        # jangan menumpuk: maks 2 suara per 100 ms
+        if name in SUBONLY:   # HP tidak memutar < 300 Hz: tambah lapisan harmonik 250–1.400 Hz (aturan 35)
+            h = filt(np.tanh(x * 5.0), 250, 1400)
+            x = norm_peak(x + norm_peak(h, -1) * 0.45, -1)
         near = [u for u in used if u.get("kind") == "sfx" and abs(u["t"] - t) < 0.1]
         if len(near) >= 2: print("skip (padat)", t, name); continue
-        place(sfx, x, t, g)
-        used.append({"t": round(t, 3), "kind": "sfx", "name": name, "db": g, "visual": note})
+        # level otomatis: SFX harus terdengar di atas lagu (aturan 30), target relatif per kelas
+        i = int(t * SR); L = min(len(x), int(0.35 * SR), n - i)
+        rs = np.sqrt((song[i:i + L] ** 2).mean() + 1e-12)
+        rx = np.sqrt((x[:L] ** 2).mean() + 1e-12)
+        target = -9 if name in PRIMARY else -14
+        gain = target + 20 * np.log10(rs / rx)
+        gain = float(np.clip(gain, g, g + 24))
+        place(sfx, x, t, gain)
+        if name in PRIMARY:   # turunkan lagu maks 1,5 dB di sekitar SFX utama (tidak memompa)
+            a0, a1 = max(0, i - int(0.03 * SR)), min(n, i + int(0.45 * SR))
+            duck[a0:a1] = np.minimum(duck[a0:a1], db(-1.5))
+        used.append({"t": round(t, 3), "kind": "sfx", "name": name, "db": round(gain, 1), "visual": note})
+    # haluskan envelope duck
+    k = int(0.12 * SR); ker = np.ones(k) / k
+    duck = np.convolve(duck, ker, mode="same").astype(np.float32)
+    song = song * duck[:, None]
+    pk_sfx = np.abs(sfx).max()
     mix = song * db(-1.0) + sfx
     meter = pyln.Meter(SR)
     lufs = meter.integrated_loudness(mix)

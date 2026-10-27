@@ -50,7 +50,11 @@ export const Cam: React.FC<{ keys: Key[]; easing?: (t: number) => number; childr
   children,
 }) => {
   const frame = useCurrentFrame();
-  const c = camAt(frame, keys, easing);
+  const c0 = camAt(frame, keys, easing);
+  // jangan pernah memperlihatkan tepi layer latar: geser maksimal sebesar kelebihan zoom
+  const mx = Math.max(0, 960 * (c0.s - 1) * 0.97);
+  const my = Math.max(0, 540 * (c0.s - 1) * 0.97);
+  const c = { ...c0, x: Math.max(-mx, Math.min(mx, c0.x)), y: Math.max(-my, Math.min(my, c0.y)) };
   return (
     <CamCtx.Provider value={c}>
       <AbsoluteFill style={{ overflow: "hidden" }}>{children}</AbsoluteFill>

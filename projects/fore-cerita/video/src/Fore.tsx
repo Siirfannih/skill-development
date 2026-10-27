@@ -30,14 +30,15 @@ const Sils: React.FC<{
   items: { src: string; x: number; y: number; h: number; d?: number; inF?: number }[];
   approach?: number; // 0..1 merapat ke pusat
   opacity?: number;
-}> = ({ items, approach = 0, opacity = 0.9 }) => {
+  dark?: boolean;
+}> = ({ items, approach = 0, opacity = 0.9, dark }) => {
   const frame = useCurrentFrame();
   return (
     <>
       {items.map((it, i) => {
         const o = interpolate(frame, [it.inF ?? 0, (it.inF ?? 0) + 12], [0, opacity], clamp) * (0.85 + 0.15 * random(`so${twos(frame)}${i}`));
         const x = it.x + (960 - it.x) * approach * 0.35;
-        return <Sprite key={i} src={a(it.src)} x={x} y={it.y} h={it.h * (1 + approach * 0.15)} depth={it.d ?? 0.5} opacity={o} boil={2.5} style={{ filter: "blur(1.5px)" }} />;
+        return <Sprite key={i} src={a(it.src)} x={x} y={it.y} h={it.h * (1 + approach * 0.15)} depth={it.d ?? 0.5} opacity={o} boil={2.5} style={{ filter: dark ? "blur(1px) brightness(0.42) saturate(0.7) drop-shadow(0 0 14px rgba(255,186,130,0.55))" : "blur(1.5px)" }} />;
       })}
     </>
   );
@@ -77,6 +78,7 @@ const S03: React.FC = () => {
   const d = dur("S03");
   const r = interpolate(frame, [0, d], [26, 1300], { ...clamp, easing: Easing2 });
   const flash = interpolate(frame, [d - 6, d - 2, d], [0, 0.85, 0.3], clamp);
+  const sEff = 1 + (interpolate(frame, [0, d], [1, 1.35], { ...clamp, easing: ease }) - 1) * 0.89;
   return (
     <AbsoluteFill>
       <World kind="N">
@@ -84,7 +86,7 @@ const S03: React.FC = () => {
           <Layer src={a("N_cup_ecu.png")} depth={0.6} />
         </Cam>
       </World>
-      <DreamBubble cx={520} cy={590} r={r} inner={<World kind="P"><Layer src={a("P_kos_clean.png")} depth={0.3} /></World>} />
+      <DreamBubble cx={960 + (720 - 960) * sEff} cy={540 + (420 - 540) * sEff} r={r} inner={<World kind="P"><Layer src={a("P_kos_clean.png")} depth={0.3} /></World>} />
       <AbsoluteFill style={{ background: "#fffaf0", opacity: flash }} />
     </AbsoluteFill>
   );
@@ -99,8 +101,18 @@ const S04: React.FC = () => {
   const curtain = interpolate(frame, [sec(0.4), sec(2.0)], [0, 1], { ...clamp, easing: easeOut });
   return (
     <World kind="P">
-      <Cam keys={[[0, { s: 1.04, x: 30 }], [d, { s: 1.0, x: -20 }]]}>
-        <Layer src={a("P_kos_clean.png")} depth={0.2} />
+      <Cam
+        keys={[
+          [0, { s: 1.6, x: 600, y: -60 }],
+          [sec(3.6) - 1, { s: 1.64, x: 640, y: -70 }],
+          [sec(3.6), { s: 1.5, x: -480, y: -270 }],
+          [sec(6.6) - 1, { s: 1.53, x: -500, y: -280 }],
+          [sec(6.6), { s: 1.0, x: 0, y: 0 }],
+          [d, { s: 1.04, x: -10, y: 0 }],
+        ]}
+        easing={(t) => t}
+      >
+        <Layer src={a("P_kos_clean.png")} depth={0.45} />
         {/* cahaya pagi masuk saat tirai dibuka */}
         <AbsoluteFill
           style={{
@@ -109,7 +121,7 @@ const S04: React.FC = () => {
             mixBlendMode: "screen",
           }}
         />
-        <Sprite src={a(pose)} x={pose === "ch_kos_2.png" ? 1270 : pose === "ch_kos_1.png" ? 400 : 1120} y={930} h={pose === "ch_kos_2.png" ? 520 : 600} depth={0.5} flip={pose === "ch_kos_1.png"} />
+        <Sprite src={a(pose)} x={pose === "ch_kos_2.png" ? 1330 : pose === "ch_kos_1.png" ? 400 : 1120} y={pose === "ch_kos_2.png" ? 870 : 930} h={pose === "ch_kos_2.png" ? 520 : 600} depth={0.5} flip={pose === "ch_kos_1.png"} />
       </Cam>
     </World>
   );
@@ -451,7 +463,7 @@ const S20: React.FC = () => (
 
 const S21: React.FC = () => {
   const frame = useCurrentFrame();
-  const silO = interpolate(frame, [sec(0.2), sec(0.6), sec(1.3)], [0, 0.75, 0], clamp);
+  const silO = interpolate(frame, [0, sec(0.35), sec(1.0), sec(1.7)], [0, 0.9, 0.9, 0], clamp);
   return (
     <World kind="N">
       <Cam keys={[[0, { s: 1.12 }], [dur("S21"), { s: 1.0, y: 10 }]]}>
@@ -464,6 +476,7 @@ const S21: React.FC = () => {
             { src: "sil_stand_4.png", x: 1640, y: 1080, h: 840, d: 0.5 },
           ]}
           opacity={silO}
+          dark
         />
       </Cam>
     </World>
