@@ -1,4 +1,4 @@
-# Storyboard v1 — Jadisatu video #2 (100% durasi, 84,0 dtk)
+# Storyboard v1.1 — Jadisatu video #2 (100% durasi, 84,0 dtk)
 
 Syarat masuk: SCRIPT.md (v2.1). Klip Irfan memakai **file bersih** `Personal-video/Bahan/clean/talkinghead_clean_4k.mp4` (timestamp kata: `words_clean.txt`). Durasi beat VO = jumlah kata / 2,7 + 0,3 dtk jeda; dikunci ulang setelah VO dibuat (gerbang audio).
 
@@ -83,3 +83,35 @@ Pengecualian tertulis:
 1. Irfan menyetujui storyboard ini.
 2. VO dibuat per bagian (±103 kata ≈ ±650 kredit ElevenLabs (rasio proyek launch: ±2.400 kredit untuk ±380 kata), 1 take per bagian), lalu durasi beat dikunci ulang dari timestamp VO.
 3. Musik + SFX, lalu build.
+
+---
+
+## 6. Gaya visual dan aturan aset (v1.1, masukan Irfan 27 Okt 08:43 WITA)
+
+**Aturan aset (Irfan):** saat narator bicara atau Irfan tidak di layar, visualnya Apple style dengan **aset asli**. Produk/brand (Claude, ChatGPT, Codex, Gemini, ElevenLabs, Finder, Notes, logo) = tangkapan layar atau logo asli, tidak digambar ulang. Aset buatan hanya untuk **karakter atau bagian cerita** (misalnya karakter Claude, efek pada wajah Irfan).
+
+Referensi gaya ada di `Personal-video/Styele-refference/`. Nama file = tujuannya.
+
+| File | Yang terlihat | Dipakai di | Cara pakainya |
+|---|---|---|---|
+| `b5b0d427…jpg` (tanpa nama) | Teks raksasa di belakang orang (cutout), deretan kartu melayang di depan: komentar chat, folder Fonts, file .mp4 | **B01** | Cutout Irfan dari file bersih di depan kata raksasa "Bosku.", kartu asli melayang: bubble chatnya, folder `Jadisatu`, file `TheGap-Jadisatu-v18.mp4` |
+| `Claude respond or AI respond.jpg` | Bubble prompt putih di atas latar blur berbutir + baris "Working…" dengan logo | **B02**, **B10** | Bubble pesan Irfan yang asli + status kerja Claude yang asli (tangkapan layar Claude), latar = frame footage Irfan yang di-blur dan diberi grain |
+| `Effect & Character 2.jpg` | Kotak zoom hijau dengan garis yang menghubungkan detail kecil ke potret besar | **B08** | Kotak zoom berlipat di wajah Irfan, tiap kotak membuka frame wajah lain dari sepanjang video ("wajahnya ada di sepanjang video ini") |
+| `Effect & Character.jpg` | Kerumunan hitam-putih, satu siluet terisi kode biner hijau | **B10** ("…ke aku") | **Karakter Claude**: siluet berisi kode di antara orang-orang, yang bekerja di balik layar. Ini satu-satunya aset buatan untuk karakter |
+| `Irfan with claude.jpg` | Alur 3 node dengan glow: Holder → Proof → Applications | **B10 → B12** | Irfan → Claude → ChatGPT / Gemini / ElevenLabs (logo asli), node menyala saat namanya diucapkan |
+| `Type.jpg` | Pill putih dengan perintah aktif, perintah lain berputar samar di atas dan bawah | **B12** | Pill berisi perintah yang benar-benar dikirim ke tiap tool, berputar ke perintah berikutnya di tiap nama tool |
+| `UI.jpg` | Layar app asli (Codex) + ikon 3D melayang | **B12** | Jendela asli tiap tool. Hanya tool yang benar-benar dipakai (lihat pertanyaan Codex) |
+| `Idea Content.jpg` | App catatan: daftar judul + jam di kiri, isi dokumen di kanan | **B11**, **B24** | B11: 5 hook yang ditolak sebagai daftar catatan bertanggal (teks asli D-009–D-019), dicoret satu per satu. B24: daftar "20 konten", item #1 terpilih |
+| `Performence.jpg` | Angka raksasa "2X" + tombol kaca "Publish" di depannya | **B04**, **B22** | **B04**: "18" + tombol kaca "Export". **B22**: "20" + tombol kaca "Upload", meledak tepat di beat drop. Menggantikan kartu hitam serif di B04, supaya 18 → 20 jadi satu callback visual |
+| `Gradient-text.jpg` | Satu frasa di tengah, latar hitam ke biru, kata kedua bergradasi biru | **B20** | Satu kata kunci "*layak*" bergradasi di tengah layar kosong — **warna menunggu jawaban (pertanyaan 1)** |
+| `Penutup … "Not AI Company Just Human With AI".jpg` | Latar oranye penuh, garis grid tipis, serif "We're" + tulisan tangan "humans" bergaris bawah | **B27** | End card oranye: "Not AI Company." serif + "Just *Human* with AI" dengan "Human" tulisan tangan bergaris bawah, pertanyaan penutup di atasnya — **teks tagline menunggu jawaban (pertanyaan 2)** |
+
+### 6.1 File referensi baru: `Story-context/Kinetic Typography + Transision.mp4`
+Belum disebut di pesan, tapi ada di folder (77,8 dtk). Angkanya: 59 cut (rata-rata 1,3 dtk per shot). Yang terlihat di contact sheet 1 fps: kata melingkar mengelilingi kepala atau objek ("but the version of him that chose…"), kata 3D tebal yang menembus layar ("films", "in"), dan papan gabus berisi catatan chat ("CLIENT"). Usulan pemakaian: caption di beat I dengan kalimat paling emosional (B06 "menjijikkan", B18 "bottleneck") melingkar di sekitar kepala Irfan, tidak lagi diam di bawah.
+
+### 6.2 Daftar tangkapan layar asli yang perlu diambil (gerbang build)
+Claude (chat + status kerja), ChatGPT (prompt storyboard), Gemini (catatan kritik), ElevenLabs (layar suara Jadisatu Narrator), Finder (render v6–v18, folder Jadisatu + menu Move to Trash), Notes (hook ditolak, daftar 20 konten), logo asli tiap tool. Semuanya diambil di Mac, tidak ada yang digambar ulang.
+
+### 6.3 Konflik yang perlu diputuskan
+1. **Biru di latar gelap.** `Gradient-text.jpg` dan `Irfan with claude.jpg` sama-sama memakai biru di atas latar gelap. Aturan video pertama (D-030, sekarang aturan inti `motion-graphic` 15–16) melarang teks biru di latar gelap/navy.
+2. **Tagline.** Nama file referensi penutup menulis "Not AI Company **Just** Human With AI", sedangkan tagline yang kamu kunci di video pertama (D-007) adalah "Not AI company **only** Human with AI".
