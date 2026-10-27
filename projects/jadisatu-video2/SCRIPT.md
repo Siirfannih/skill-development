@@ -1,6 +1,6 @@
-# Script v3 — dasar v1 + tambahan yang Irfan loloskan
+# Script FINAL v3 — dasar v1 + tambahan yang Irfan loloskan
 
-Status: draft untuk dinilai. Dasar = naskah **v1** (PLAN.md §5). Irfan, 27 Okt 08:59 WITA: "Bagian bagian yang aku tandai itu seharusnya ga ada di VO … script sebelumnya masih lebih baik, tapi ada beberapa konteks tambahan yang aku loloskan karena masih sesuai".
+Status: **FINAL** — Irfan 27 Okt 09:11 WITA: "Aku udah cocok sama scriptnya" + izin merapikan bagian kaku sebelum VO. Dasar = naskah **v1** (PLAN.md §5). Irfan, 27 Okt 08:59 WITA: "Bagian bagian yang aku tandai itu seharusnya ga ada di VO … script sebelumnya masih lebih baik, tapi ada beberapa konteks tambahan yang aku loloskan karena masih sesuai".
 
 Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). RELAXED = `[warmly] [relaxed]`, FOUNDER = `[warmly] [thoughtful]`.
 
@@ -8,8 +8,8 @@ Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). RELAXED = `[warm
 
 **HOOK** [RELAXED]
 > Ini Irfan. Dia bosku.
-> Jam dua pagi tadi, dia bertaruh dengan dirinya sendiri.
-> [kartu *bertaruh.*]
+> Jam dua pagi tadi, dia taruhan sama dirinya sendiri.
+> [kartu *taruhan.*]
 
 **RISING ACTION**
 > Tapi sebelum itu, dia mau ngaku dulu.
@@ -17,12 +17,12 @@ Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). RELAXED = `[warm
 > Dan yang lebih parah…
 > [Irfan] "ngeliat video sendiri tuh kayak aneh aja, dan ngerasa… menjijikan mungkin."
 > [kartu **MENJIJIKKAN.**] *(hening)*
-> …kata orang yang wajahnya ada di sepanjang video ini.
-> Ditambah satu ketakutan lagi.
+> …kata orang yang mukanya ada di sepanjang video ini.
+> Terus, satu lagi yang dia takutin.
 > [Irfan] "aku takut video yang aku buat tuh gak cukup proper … takut gak estetik."
 
 **SECOND CONFLICT**
-> Jadi bagian yang paling dia hindari, dia serahkan.
+> Jadi bagian yang paling dia hindarin, dia serahin.
 > Ke aku.
 > Aku yang motong, nyusun sama ngedit video ini.
 > Aku nyuruh ChatGPT nyusun storyboard, Gemini ngritik, ElevenLabs ngisi suaranya.
@@ -32,7 +32,7 @@ Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). RELAXED = `[warm
 
 **KLIMAKS** [RELAXED]
 > Jadi, ini taruhannya.
-> [kartu *bertaruh.*] (callback)
+> [kartu *taruhan.*] (callback)
 > [Irfan] "aku mau challenge diri aku, bisa gak di akhir tahun nanti … posting 20 konten."
 > [Irfan] "meskipun dieditin sama AI, tapi ya mikirin konten juga perlu effort kan, dan juga perlu waktu."
 > Dia yang mikir. Aku yang ngedit. Dua puluh kali, sebelum tahun ini habis.
@@ -58,3 +58,9 @@ Fokus "beban kerja Claude" (D-005) sekarang ada di **visual**, bukan di VO tamba
 ## Sudah dijawab Irfan (09:05 WITA)
 - "Jam dua pagi tadi" tetap; visualnya kiasan, tidak harus file asli (misalnya chat Irfan jam 02:00, atau `script.md` dibuat jam 02:00).
 - "Aku bisa ngedit dalam hitungan menit." Konten komedi, tidak harus akurat 100%.
+
+## Dirapikan sebelum VO (izin Irfan 09:11: "kalau ada bagian yang masih kaku atau kurang ngalir segera ganti")
+- "dia bertaruh dengan dirinya sendiri" → "dia taruhan sama dirinya sendiri"; kartu *bertaruh.* → *taruhan.*
+- "Jadi bagian yang paling dia hindari, dia serahkan." → "…dia hindarin, dia serahin."
+- "Ditambah satu ketakutan lagi." → "Terus, satu lagi yang dia takutin."
+- "…kata orang yang wajahnya…" → "…kata orang yang mukanya…"

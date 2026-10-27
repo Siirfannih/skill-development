@@ -9,17 +9,17 @@ Mode: **N** narator (shot 0,8–1,5 dtk, aset asli, caption kata per kata, 1 kat
 | # | Waktu (dtk) | Mode | Audio | Visual | Teks layar | Kamera | Keluar | SFX / musik |
 |---|---|---|---|---|---|---|---|---|
 | B01 | 0.0–1.8 | N | VO: Ini Irfan. Dia bosku. | `broll_lampu_awal` 3,0–6,3: gelap, lampu menyala → cutout Irfan di depan kata raksasa "Bosku." + kartu asli melayang (bubble chatnya, folder `Jadisatu`, file `.mp4`) — gaya `b5b0d427…jpg` | Ini *Irfan*. Dia *bosku*. | Push-in pelan 100→108% | Cut | Klik saklar tepat di frame lampu menyala; musik masuk fade 60 ms |
-| B02 | 1.8–5.4 | N | VO: Jam dua pagi tadi, dia bertaruh dengan dirinya sendiri. | Kiasan jam 2 pagi: chat Irfan di UI Claude asli dengan jam 02:00, atau `script.md` dibuat 02:00 di Finder asli; lalu `broll_akhir_gelap` (kamar gelap) | jam *dua* pagi | Zoom ke jam 02:00 | Cut ke kartu | Tick jam |
-| B03 | 5.4–6.2 | K | — | Kartu hitam penuh (gaya "a bet." dari referensi Boss) | ***bertaruh.*** serif italic | Diam | Hard cut | Musik turun, tahan 0,8 dtk |
+| B02 | 1.8–5.4 | N | VO: Jam dua pagi tadi, dia taruhan sama dirinya sendiri. | Kiasan jam 2 pagi: chat Irfan di UI Claude asli dengan jam 02:00, atau `script.md` dibuat 02:00 di Finder asli; lalu `broll_akhir_gelap` (kamar gelap) | jam *dua* pagi | Zoom ke jam 02:00 | Cut ke kartu | Tick jam |
+| B03 | 5.4–6.2 | K | — | Kartu hitam penuh (gaya "a bet." dari referensi Boss) | ***taruhan.*** serif italic | Diam | Hard cut | Musik turun, tahan 0,8 dtk |
 | B04 | 6.2–9.1 | N | VO: Tapi sebelum itu, dia mau ngaku dulu. | Freeze frame Irfan dari file bersih, sedikit desaturasi | *ngaku* dulu | Zoom cepat ke wajah | Unfreeze ke klip | Whoosh tipis |
 | B05 | 9.1–11.9 | I | **C1** file bersih 3.28–6.10: "Aku tuh males ngedit dan gak suka ngedit video sendiri" | Wajah Irfan; tempelan ikon gunting dicoret di "males" | males · ngedit | Statis | Jump cut | Pop kertas |
 | B06 | 11.9–13.7 | N | VO: Dan yang lebih parah… | Zoom cepat ke mata Irfan | — | Snap zoom | Cut | Whoosh kecil |
 | B07 | 13.7–17.5 | I | **C2** file bersih 7.62–11.45: "Ngeliat video sendiri tuh kayak aneh aja. Dan ngerasa menjijikan mungkin" | Wajah Irfan, crop makin rapat; kata "menjijikkan" melingkar di sekitar kepala (gaya Kinetic Typography ref) | aneh · menjijikkan | Punch-in 2× | Hard cut di akhir "mungkin" | — |
 | B08 | 17.5–18.7 | K | (hening) | Kartu hijau penuh (referensi kartu hijau) | **MENJIJIKKAN.** condensed raksasa | Diam | Hard cut | Musik mati total 1,2 dtk |
-| B09 | 18.7–22.4 | N | VO: …kata orang yang wajahnya ada di sepanjang video ini. | Kotak zoom berlipat di wajah Irfan, tiap kotak membuka frame wajah lain dari video (gaya `Effect & Character 2.jpg`) | di *sepanjang* video ini | Zoom out dari kotak tengah | Cut | Musik masuk lagi di "kata" |
-| B10 | 22.4–24.2 | N | VO: Ditambah satu ketakutan lagi. | Wajah Irfan, jeda pendek | — | Diam | Cut | — |
+| B09 | 18.7–22.4 | N | VO: …kata orang yang mukanya ada di sepanjang video ini. | Kotak zoom berlipat di wajah Irfan, tiap kotak membuka frame wajah lain dari video (gaya `Effect & Character 2.jpg`) | di *sepanjang* video ini | Zoom out dari kotak tengah | Cut | Musik masuk lagi di "kata" |
+| B10 | 22.4–24.2 | N | VO: Terus, satu lagi yang dia takutin. | Wajah Irfan, jeda pendek | — | Diam | Cut | — |
 | B11 | 24.2–28.0 | I | **C3** file bersih 14.84–19.95: "aku takut video yang aku buat tuh gak cukup proper … dan juga takut gak estetik" | Wajah Irfan; stempel "PROPER?" lalu "ESTETIK?" | proper? · estetik? | Statis | Jump cut (16,84–18,08 dibuang) | Thud stempel ×2 |
-| B12 | 28.0–31.3 | N | VO: Jadi bagian yang paling dia hindari, dia serahkan. | File asli `dji_export…mp4` + `Audiomic.m4a` diseret ke chat Claude asli | dia *serahkan* | Ikut file | Cut | Swish + landing |
+| B12 | 28.0–31.3 | N | VO: Jadi bagian yang paling dia hindarin, dia serahin. | File asli `dji_export…mp4` + `Audiomic.m4a` diseret ke chat Claude asli | dia *serahin* | Ikut file | Cut | Swish + landing |
 | B13 | 31.3–32.3 | N | VO: Ke aku. | Karakter Claude: siluet berisi kode di antara kerumunan (gaya `Effect & Character.jpg`), lalu status kerja Claude asli "Working…" (gaya `Claude respond…jpg`) | — | Push-in ke siluet | Cut | Pop |
 | B14 | 32.3–36.3 | N | VO: Aku yang motong, nyusun sama ngedit video ini. | **Beban kerja, visual saja:** grafik sinkron mic vs kamera (0,518 dtk), daftar 9 potongan dari `segments.json`, waveform yang diam dipotong, kata per kata transkrip muncul — semua dari proses asli video ini | motong · nyusun · ngedit | Cut di tiap kata kerja | Cut | 3 klik ritmis |
 | B15 | 36.3–40.3 | N | VO: Aku nyuruh ChatGPT nyusun storyboard, Gemini ngritik, ElevenLabs ngisi suaranya. | Alur Irfan → Claude → 3 tool (gaya `Irfan with claude.jpg`), pill perintah berputar (gaya `Type.jpg`), jendela asli tiap tool di nama masing-masing | nama tool per kata | Whip-pan antar node | Whip | Whoosh tipis per whip |
@@ -27,7 +27,7 @@ Mode: **N** narator (shot 0,8–1,5 dtk, aset asli, caption kata per kata, 1 kat
 | B17 | 49.0–51.1 | N | VO: Nyebelin. Tapi iya juga, sih. | Kursor Claude diam di layar kosong | *nyebelin.* | Diam | Cut | Musik turun |
 | B18 | 51.1–58.1 | N | VO: Aku bisa ngedit video dalam hitungan menit, tapi aku ga tau cerita mana yang layak diceritakan, makanya itu bagian dia. | Timeline berjalan cepat → berhenti; kata "*layak*" bergradasi di tengah (gaya `Gradient-text.jpg`) → wajah Irfan | cerita mana yang *layak* | Dolly lambat | Cut | Cara baca FOUNDER, musik tipis |
 | B19 | 58.1–59.5 | N | VO: Jadi, ini taruhannya. | — | — | — | Cut | Musik hampir hening |
-| B20 | 59.5–60.3 | K | — | Kartu hitam callback | ***bertaruh.*** | Diam | Hard cut | Tahan 0,8 dtk |
+| B20 | 59.5–60.3 | K | — | Kartu hitam callback | ***taruhan.*** | Diam | Hard cut | Tahan 0,8 dtk |
 | B21 | 60.3–66.0 | I | **C5** file bersih 39.56–46.20: "Jadi aku mau challenge diri aku, bisa gak di akhir tahun nanti … posting 20 konten" | Wajah Irfan; angka **20** raksasa + tombol kaca "Upload" (gaya `Performence.jpg`) | **20** konten | Shake 4 frame di "20" | Cut | **Beat drop tepat di "20"** ("mungkin ya" 43,90–44,85 dibuang) |
 | B22 | 66.0–70.1 | I | **C6** file bersih 49.30–54.70: "Meskipun dieditin sama AI, tapi ya mikirin konten juga perlu effort kan, dan juga perlu waktu" | Wajah Irfan; cutaway 1 dtk kalender Nov–Des | effort · waktu | Statis | Cut | Musik penuh (jeda dalam klip dirapatkan) |
 | B23 | 70.1–75.3 | N | VO: Dia yang mikir. Aku yang ngedit. Dua puluh kali, sebelum tahun ini habis. | Split: kepala Irfan / timeline Claude; hitung mundur hari ke 31 Des | *dua puluh* kali | Cut tiap kalimat | Cut | — |
@@ -40,7 +40,7 @@ Mode: **N** narator (shot 0,8–1,5 dtk, aset asli, caption kata per kata, 1 kat
 |---|---|---|
 | N | 55,9 | 64 |
 | I | 29,0 | 33 |
-| K | 2,8 | 3 (bertaruh. · MENJIJIKKAN. · bertaruh. callback) |
+| K | 2,8 | 3 (taruhan. · MENJIJIKKAN. · taruhan. callback) |
 
 Struktur (dari v1): hook B01–B03 → rising action B04–B11 → second conflict B12–B18 → klimaks B19–B23 (beat drop di "20", B21) → penutup B24–B26.
 
