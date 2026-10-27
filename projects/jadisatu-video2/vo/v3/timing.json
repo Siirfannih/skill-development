@@ -1,0 +1,101 @@
+{
+ "total": 78.95,
+ "marks": [
+  {
+   "item": "s1",
+   "type": "vo",
+   "start": 0,
+   "end": 4.82
+  },
+  {
+   "item": "taruhan",
+   "type": "card",
+   "start": 4.86,
+   "end": 5.41
+  },
+  {
+   "item": "s2",
+   "type": "vo",
+   "start": 5.45,
+   "end": 7.88
+  },
+  {
+   "item": "C1",
+   "type": "clip",
+   "start": 7.92,
+   "end": 10.74
+  },
+  {
+   "item": "s3",
+   "type": "vo",
+   "start": 10.78,
+   "end": 12.26
+  },
+  {
+   "item": "C2",
+   "type": "clip",
+   "start": 12.3,
+   "end": 16.13
+  },
+  {
+   "item": "MENJIJIKKAN",
+   "type": "card",
+   "start": 16.17,
+   "end": 16.82
+  },
+  {
+   "item": "s4",
+   "type": "vo",
+   "start": 16.86,
+   "end": 21.58
+  },
+  {
+   "item": "C3",
+   "type": "clip",
+   "start": 21.62,
+   "end": 25.49
+  },
+  {
+   "item": "s5",
+   "type": "vo",
+   "start": 25.53,
+   "end": 36.3
+  },
+  {
+   "item": "C4",
+   "type": "clip",
+   "start": 36.34,
+   "end": 44.96
+  },
+  {
+   "item": "s6",
+   "type": "vo",
+   "start": 45.0,
+   "end": 55.57
+  },
+  {
+   "item": "taruhan",
+   "type": "card",
+   "start": 55.61,
+   "end": 56.16
+  },
+  {
+   "item": "C5",
+   "type": "clip",
+   "start": 56.2,
+   "end": 61.89
+  },
+  {
+   "item": "C6",
+   "type": "clip",
+   "start": 61.93,
+   "end": 66.1
+  },
+  {
+   "item": "s7",
+   "type": "vo",
+   "start": 66.14,
+   "end": 78.91
+  }
+ ]
+}
