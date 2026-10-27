@@ -13,3 +13,4 @@ Analisa lengkap per referensi (baca file ini, jangan bedah ulang video):
 | `analisa/09-pastel-3d-course.md` | Viral: iklan kursus 3D pastel (26 dtk) | Kamera one-take, objek pembawa, palet satu keluarga |
 | `analisa/10-merantau.md` | Viral: Merantau (47 dtk) | Cerita lewat benda, 8 cut, tagline tulisan tangan |
 | `analisa/11-gaya-kartun.md` | Referensi gaya kartun Irfan (4 ilustrasi) | Tone, karakter, bentuk; kenapa v1 AI slop |
+| `analisa/12-gaya-bentuk-v4.md` | Ref gaya tahap 2 + kritik Irfan | Bentuk bersudut, kontras rendah, grain; logika dua dunia; devil's advocate |
