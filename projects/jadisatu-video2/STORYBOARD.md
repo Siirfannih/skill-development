@@ -24,7 +24,7 @@ Huruf: Geist (sans) + satu serif italic untuk penekanan; latar putih di UI, tanp
 | B13 | 31.5–33.3 | N | VO: Iya. Termasuk suara ini. | Waveform VO yang sedang diputar (waveform narator ini sendiri) | termasuk *suara ini* | Diam | Cut | Musik turun 3 dB di bawah kalimat |
 | B14 | 33.3–37.7 | N | VO: Seratus enam puluh dua gerakan di layar, semuanya aku kasih suara. | Grid frame video pertama, sel menyala satu per satu dengan titik suara, counter 0→162 | *162* gerakan | Zoom out lambat | Cut | Tick lembut makin rapat (sumber cue asli v18) |
 | B15 | 37.7–39.5 | N | VO: Terus malamnya, dia bilang… | HP di meja, notifikasi masuk | — | Push-in ke layar HP | Cut | Notifikasi chat |
-| B16 | 39.5–40.5 | N | — | Bubble chat Irfan, teks persis dari pesannya 26 Okt (keluhan SFX kasar, jadisatu-60s D-037) | isi bubble | Diam 1 dtk | Cut | Hening 0,3 dtk |
+| B16 | 39.5–40.5 | N | — | Bubble chat Irfan di UI Claude asli: "suaranya masih kasar." | isi bubble | Diam 1 dtk | Cut | Hening 0,3 dtk |
 | B17 | 40.5–41.5 | N | VO: Aku ulang. | Timeline: `v17` diganti `v18` satu klik | v17 → *v18* | Diam | Cut | Klik |
 | B18 | 41.5–50.1 | I | **I4** file bersih 26.78–35.40: "Aku rasa ngedit itu bukan lagi jadi sebuah bottleneck. Tapi yang jadi bottleneck sebenarnya justru adalah gimana kita menceritakan sebuah kejelasan" | Wajah Irfan; 1 cutaway 1,2 dtk: leher botol, label "edit" lolos, label "cerita" tersangkut | bottleneck · cerita | Statis, 1 punch-in di "justru" | Cut | Tempelan masuk di kata kunci |
 | B19 | 50.1–51.9 | N | VO: Nyebelin. Tapi dia benar. | Kursor Claude diam di tengah layar kosong | *nyebelin.* | Diam | Cut | Musik turun |
@@ -75,7 +75,7 @@ Pengecualian tertulis:
 | Teks 5 hook yang ditolak (B11) | `jadisatu-60s/DECISIONS.md` D-009–D-019 | ada |
 | Jendela ChatGPT / Gemini / ElevenLabs (B12) | `PROMPT-CHATGPT.md`, catatan Gemini v11, layar ElevenLabs | screenshot perlu diambil |
 | Grid 162 gerakan (B14) | frame `TheGap-Jadisatu-v18.mp4` + cue `render/cues.json` | ada |
-| Bubble keluhan SFX (B16) | pesan Irfan 26 Okt ±19:20 | **teks persis belum ada** |
+| Bubble keluhan SFX (B16) | ditulis sendiri atas izin Irfan: "suaranya masih kasar." | ada |
 | Folder `Jadisatu` + menu Move to Trash (B25) | screenshot Finder (tanpa benar-benar dihapus) | perlu diambil |
 | b-roll lampu (B01) | `Bahan/clean/broll_lampu_awal.mp4` | ada |
 

@@ -50,5 +50,5 @@ Suara: Jadisatu Narrator (`EKW9kJAbsPJUsVgih66R`, `eleven_v4`). Tag cara baca pe
 | Klip "meskipun dieditin sama AI…" tidak dipakai | Durasi; bisa dikembalikan (file bersih 49,30–54,70, ±5,4 dtk) jika video boleh 90 dtk |
 
 ## Masih terbuka
-- Codex tidak disebut karena belum ada bukti Codex benar-benar dipakai di video pertama. Kalau dipakai, baris 7 bisa jadi "ChatGPT sama Codex nyusun storyboard…".
-- Bubble chat B16 butuh teks persis keluhan Irfan 26 Okt (sekitar 19:20) soal SFX kasar.
+- Codex: Irfan (27 Okt 08:50 WITA) "Tidak ini cuma insight dan tambahan visual jika mau digunakan" → Codex tidak disebut di VO.
+- Bubble B16: Irfan "Kamu bisa buat sendiri" → teks bubble: "suaranya masih kasar." 
