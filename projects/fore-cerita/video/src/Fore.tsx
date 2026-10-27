@@ -7,11 +7,11 @@ import { DreamBubble, Handwrite, IGStory, Strike, WAChat, HAND } from "./lib/ui"
 
 /* Waktu shot (detik video, diselaraskan ke onset baris lagu) */
 export const T = {
-  S01: [0, 2.34], S02: [2.34, 4.6], S03: [4.6, 5.6], S04: [5.6, 15.0], S05: [15.0, 22.0],
+  S01: [0, 2.34], S02: [2.34, 4.6], S03: [4.6, 5.6], S04: [5.6, 13.0], S05: [13.0, 22.0],
   S06: [22.0, 24.38], S07: [24.38, 26.9], S08: [26.9, 33.06], S09: [33.06, 39.56], S10: [39.56, 45.0],
   S11: [45.0, 48.0], S12: [48.0, 50.98], S13: [50.98, 54.0], S14: [54.0, 57.22], S15: [57.22, 62.3],
   S16: [62.3, 63.46], S17: [63.46, 65.0], S18: [65.0, 66.44], S19: [66.44, 68.2], S20: [68.2, 70.0],
-  S21: [70.0, 72.1], S22: [72.1, 74.58],
+  S21: [70.0, 74.58], S22: [74.58, 74.58],
 } as const;
 export const TOTAL = sec(74.58);
 type K = keyof typeof T;
@@ -97,17 +97,17 @@ const S04: React.FC = () => {
   const frame = useCurrentFrame();
   const f = twos(frame);
   const d = dur("S04");
-  const pose = f < sec(2.8) ? "ch_kos_1.png" : f < sec(5.6) ? "ch_kos_2.png" : "ch_kos_3.png";
-  const curtain = interpolate(frame, [sec(0.4), sec(2.0)], [0, 1], { ...clamp, easing: easeOut });
+  const pose = f < sec(2.4) ? "ch_kos_1.png" : f < sec(4.8) ? "ch_kos_2.png" : "ch_kos_3.png";
+  const curtain = interpolate(frame, [sec(0.3), sec(1.8)], [0, 1], { ...clamp, easing: easeOut });
   return (
     <World kind="P">
       <Cam
         keys={[
           [0, { s: 1.6, x: 600, y: -60 }],
-          [sec(2.8) - 1, { s: 1.66, x: 640, y: -70 }],
-          [sec(2.8), { s: 1.5, x: -480, y: -270 }],
-          [sec(5.6) - 1, { s: 1.56, x: -500, y: -280 }],
-          [sec(5.6), { s: 1.0, x: 0, y: 0 }],
+          [sec(2.4) - 1, { s: 1.66, x: 640, y: -70 }],
+          [sec(2.4), { s: 1.5, x: -480, y: -270 }],
+          [sec(4.8) - 1, { s: 1.56, x: -500, y: -280 }],
+          [sec(4.8), { s: 1.0, x: 0, y: 0 }],
           [d, { s: 1.55, x: -230, y: 60 }],
         ]}
         easing={(t) => t}
@@ -134,7 +134,7 @@ const S05: React.FC = () => {
   const idx = Math.floor(frame / per);
   const bg = bgs[idx % 4];
   const ch = idx >= 6 ? "ch_slump_b.png" : "ch_slump.png";
-  const silIn = sec(19.0 - 15.0);
+  const silIn = sec(19.0 - 13.0);
   return (
     <World kind="P">
       <Cam keys={[[0, { s: 1.0 }], [dur("S05"), { s: 1.06 }]]}>
@@ -215,24 +215,24 @@ const MONTHS = ["JAN", "FEB", "MAR", "APR", "MEI", "JUN", "JUL", "AGS", "SEP", "
 const S09: React.FC = () => {
   const frame = useCurrentFrame();
   const d = dur("S09");
-  const per = Math.floor((d - sec(0.45)) / 12);
+  const per = Math.floor((d - sec(0.9)) / 12);
   return (
     <World kind="P">
       <Cam keys={[[0, { s: 1.0 }], [d, { s: 1.08 }]]}>
         <Layer src={a("P_kos_clean.png")} depth={0.1} style={{ filter: "blur(12px)" }} />
         {MONTHS.map((m, i) => {
           const st = i * per;
-          const p = interpolate(frame, [st, st + sec(0.75)], [0, 1], { ...clamp, easing: Easing2 });
+          const p = interpolate(frame, [st, st + sec(0.95)], [0, 1], { ...clamp, easing: Easing2 });
           if (frame < st - 2) {
             return null;
           }
-          const z = 0.9 + p * 1.6;
-          const x = 960 + (random(`mx${i}`) < 0.5 ? -1 : 1) * (300 + random(`mx2${i}`) * 700) * p;
-          const y = 560 + (random(`my${i}`) - 0.5) * 700 * p;
+          const z = 0.55 + p * 3.6;
+          const x = 960 + (random(`mx${i}`) < 0.5 ? -1 : 1) * (200 + random(`mx2${i}`) * 900) * p * p;
+          const y = 540 + (random(`my${i}`) - 0.5) * 900 * p * p;
           const rot = (random(`mr${i}`) - 0.5) * 70 * p;
           const top = i === Math.min(11, Math.floor(frame / per));
           return (
-            <div key={m} style={{ position: "absolute", left: x - 230 * z, top: y - 230 * z, width: 460 * z, height: 460 * z, rotate: `${rot}deg`, opacity: p > 0.92 ? 1 - (p - 0.92) / 0.08 : 1, zIndex: 20 - i, filter: `blur(${Math.max(0, (p - 0.35) * 14)}px)` }}>
+            <div key={m} style={{ position: "absolute", left: x - 230 * z, top: y - 230 * z, width: 460 * z, height: 460 * z, rotate: `${rot}deg`, opacity: p > 0.85 ? 1 - (p - 0.85) / 0.15 : 1, zIndex: 20 - i, filter: `blur(${Math.max(0, (p - 0.3) * 30)}px)` }}>
               <Img src={a("paper.png")} style={{ width: "100%", height: "100%", filter: "sepia(0.25) brightness(0.98)", boxShadow: "0 18px 40px rgba(40,50,55,0.25)" }} />
               <div style={{ position: "absolute", top: "5%", left: "12%", right: "12%", display: "flex", justifyContent: "space-between" }}>{new Array(9).fill(0).map((_, h) => <div key={h} style={{ width: 16 * z, height: 16 * z, borderRadius: "50%", background: "rgba(90,95,100,0.55)" }} />)}</div>
               <div style={{ position: "absolute", top: "13%", left: 0, right: 0, height: 3 * z, background: "rgba(150,70,60,0.35)" }} />
@@ -491,10 +491,14 @@ const S21: React.FC = () => {
           dark
         />
       </Cam>
+      <AbsoluteFill style={{ background: "linear-gradient(180deg, rgba(10,6,4,0) 55%, rgba(10,6,4,0.45) 100%)", opacity: interpolate(frame, [sec(2.0), sec(2.6)], [0, 1], clamp) }} />
+      <div style={{ position: "absolute", left: 0, right: 0, top: 735, textAlign: "center", rotate: "-2deg" }}>
+        <Handwrite text="Setiap Fore Punya Cerita" start={sec(2.1)} cps={20} size={104} color="#fff6ea" style={{ fontWeight: 700, textShadow: "0 2px 18px rgba(0,0,0,0.45)" }} />
+      </div>
     </World>
   );
 };
-const S22: React.FC = () => (
+export const S22: React.FC = () => (
   <World kind="N" bloom={0.18}>
     <Cam keys={[[0, { s: 1.55, x: -260, y: 120 }], [dur("S22"), { s: 1.85, x: -300, y: 150 }]]}>
       <Layer src={a("N_two_planners.png")} depth={0.5} />
@@ -526,7 +530,6 @@ export const Fore: React.FC = () => (
     <Shot id="S19"><S19 /></Shot>
     <Shot id="S20"><S20 /></Shot>
     <Shot id="S21"><S21 /></Shot>
-    <Shot id="S22"><S22 /></Shot>
     <Audio src={staticFile("audio/mix.wav")} />
   </AbsoluteFill>
 );

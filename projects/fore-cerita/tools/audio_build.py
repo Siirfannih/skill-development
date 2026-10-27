@@ -43,7 +43,7 @@ CUES = [
     (4.60, "bubble_form", -15, "S03 tetes embun jadi gelembung"),
     (5.45, "glide_0", -20, "S03 mendarat di dunia bayangan"),
     (6.00, "curtain", -19, "S04 tirai dibuka"),
-    (9.20, "blanket", -19, "S04 merapikan selimut"),
+    (8.00, "blanket", -19, "S04 merapikan selimut"),
     (19.0, "swell_0", -24, "S05 siluet muncul"),
     (22.2, "heartbeat_0", -27, "S06 telentang, mata terbuka"),
     (24.40, "swell_1", -20, "S07 langit-langit larut ke ruang bayangan"),
@@ -69,20 +69,20 @@ CUES = [
     (68.70, "pen", -17, "S20 coret baris (pria)"),
     (68.83, "pen", -19, "S20 coret baris (perempuan)"),
     (70.20, "chairs_laugh", -19, "S21 bangku ramai"),
-    (72.20, "writing", -21, "S22 tagline ditulis"),
+    (72.10, "glide_1", -20, "S21 tagline muncul"),
 ]
 # lembar kalender S09: tiap 2 lembar
 per = int((39.56 - 33.06 - 1.0) * 24 / 12) / 24
 for i in range(0, 12, 2):
     CUES.append((33.06 + i * per + 0.05, "paper", -24, f"S09 lembar {i+1}"))
 # potongan rutinitas S05 (setiap cut kedua, thock pelan)
-for k in range(0, 9, 2):
-    CUES.append((15.0 + k * 19 / 24, ["thock_0", "thock_2"][k // 2 % 2], -27, f"S05 cut {k}"))
+for k in range(0, 11, 2):
+    CUES.append((13.0 + k * 19 / 24, ["thock_0", "thock_2"][k // 2 % 2], -27, f"S05 cut {k}"))
 
 BEDS = [  # (nama, mulai, selesai, dB, fade_in, fade_out)
     ("amb_cafe", 0.0, 4.9, -27, 0.05, 0.4),
     ("amb_dream", 4.6, 63.2, -31, 0.6, 0.3),
-    ("amb_room", 5.6, 15.0, -30, 0.4, 0.6),
+    ("amb_room", 5.6, 13.0, -30, 0.4, 0.6),
     ("whispers", 19.0, 22.0, -31, 0.8, 0.6),
     ("whispers", 24.4, 26.9, -30, 0.6, 0.6),
     ("whispers", 57.2, 62.3, -26, 1.5, 0.05),
@@ -156,7 +156,7 @@ def main():
     lufs = meter.integrated_loudness(mix)
     mix = mix * db(-14 - lufs)
     # limiter (bukan skala turun) supaya loudness tetap -14 LUFS dan puncak <= -1,5 dBTP
-    ceil = db(-1.5)
+    ceil = db(-2.2)
     env = np.abs(mix).max(axis=1)
     w = int(0.005 * SR)
     env = np.maximum.reduce([np.roll(env, k) for k in range(-w, w + 1, max(1, w // 4))])
