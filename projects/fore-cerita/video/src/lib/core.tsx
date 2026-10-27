@@ -184,10 +184,10 @@ export const World: React.FC<{ kind: "P" | "N"; children: React.ReactNode; dust?
   bloom,
 }) => {
   const isP = kind === "P";
-  const b = bloom ?? (isP ? 0.42 : 0.22);
+  const b = bloom ?? (isP ? 0.24 : 0.2);
   return (
     <AbsoluteFill style={{ backgroundColor: isP ? "#cfd6d2" : "#120d0b" }}>
-      <AbsoluteFill style={{ filter: isP ? "contrast(0.86) saturate(0.85)" : "contrast(0.94) saturate(0.92)" }}>
+      <AbsoluteFill style={{ filter: isP ? "contrast(0.97) saturate(0.9)" : "contrast(0.96) saturate(0.94)" }}>
         {children}
       </AbsoluteFill>
       {/* bloom: salinan terang diburamkan */}
@@ -205,7 +205,7 @@ export const World: React.FC<{ kind: "P" | "N"; children: React.ReactNode; dust?
           <AbsoluteFill
             style={{
               background:
-                "radial-gradient(ellipse 75% 70% at 50% 50%, rgba(255,255,255,0) 55%, rgba(246,248,244,0.55) 100%)",
+                "radial-gradient(ellipse 75% 70% at 50% 50%, rgba(255,255,255,0) 60%, rgba(246,248,244,0.38) 100%)",
             }}
           />
           {dust && <Dust />}

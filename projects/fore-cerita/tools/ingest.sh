@@ -12,5 +12,6 @@ for b in $NEW; do n=${b%.png}
     *) w=P; s=1.0;;
   esac
   python3 /home/claude/fore/tools/prep.py grade $R/$b $P/$b --world $w --shapes $s
+  case $n in ch_*|sil_*) python3 /home/claude/fore/tools/trim.py $P/$b;; esac
 done
 echo "new:$NEW"

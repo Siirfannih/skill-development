@@ -84,7 +84,7 @@ const S03: React.FC = () => {
           <Layer src={a("N_cup_ecu.png")} depth={0.6} />
         </Cam>
       </World>
-      <DreamBubble cx={560} cy={430} r={r} inner={<World kind="P"><Layer src={a("P_kos_clean.png")} depth={0.3} /></World>} />
+      <DreamBubble cx={520} cy={590} r={r} inner={<World kind="P"><Layer src={a("P_kos_clean.png")} depth={0.3} /></World>} />
       <AbsoluteFill style={{ background: "#fffaf0", opacity: flash }} />
     </AbsoluteFill>
   );
@@ -109,7 +109,7 @@ const S04: React.FC = () => {
             mixBlendMode: "screen",
           }}
         />
-        <Sprite src={a(pose)} x={1240} y={980} h={760} depth={0.5} />
+        <Sprite src={a(pose)} x={pose === "ch_kos_2.png" ? 1270 : pose === "ch_kos_1.png" ? 400 : 1120} y={930} h={pose === "ch_kos_2.png" ? 520 : 600} depth={0.5} flip={pose === "ch_kos_1.png"} />
       </Cam>
     </World>
   );
@@ -161,14 +161,14 @@ const S07: React.FC = () => {
         <Layer src={a("P_void.png")} depth={0.1} />
         <Sils
           items={[
-            { src: "sil_stand_1.png", x: 300, y: 700, h: 330, d: 0.2 },
-            { src: "sil_stand_2.png", x: 560, y: 690, h: 300, d: 0.2, inF: 6 },
-            { src: "sil_stand_3.png", x: 1400, y: 690, h: 310, d: 0.2, inF: 12 },
-            { src: "sil_stand_4.png", x: 1650, y: 705, h: 340, d: 0.2, inF: 18 },
+            { src: "sil_stand_1.png", x: 260, y: 760, h: 300, d: 0.2 },
+            { src: "sil_stand_2.png", x: 540, y: 740, h: 250, d: 0.2, inF: 6 },
+            { src: "sil_stand_3.png", x: 1400, y: 740, h: 260, d: 0.2, inF: 12 },
+            { src: "sil_stand_4.png", x: 1680, y: 765, h: 310, d: 0.2, inF: 18 },
           ]}
           opacity={0.7}
         />
-        <Sprite src={a("ch_bed_float.png")} x={960} y={720 + fy} h={360} depth={0.5} boil={0.8} />
+        <Sprite src={a("ch_bed_float.png")} x={960} y={780 + fy} h={420} depth={0.5} boil={0.8} />
       </Cam>
     </World>
   );
@@ -184,10 +184,10 @@ const S08: React.FC = () => {
       <Cam keys={[[0, { s: 1.1, y: 60 }], [sec(3.0), { s: 1.16, y: -30 }], [d, { s: 1.3, y: -120, x: 40 }]]}>
         <Layer src={a("P_planner.png")} depth={0.5} />
         <AbsoluteFill style={{ left: PL.x, top: PL.y, width: 700, rotate: `${PL.rot}deg`, opacity: faded }}>
-          <Handwrite text="Resolusi 2026" start={4} cps={16} size={64} color="#3b3532" />
+          <Handwrite text="Resolusi 2026" start={4} cps={16} size={56} color="#3b3532" />
           {LIST.map((t, i) => (
             <div key={i} style={{ marginTop: 12, filter: i === 3 ? undefined : `blur(${interpolate(frame, [sec(3.4), sec(4.4)], [0, 1.6], clamp)}px)` }}>
-              <Handwrite text={`☐  ${t}`} start={16 + i * 9} cps={18} size={50} color="#3b3532" />
+              <Handwrite text={`☐  ${t}`} start={16 + i * 9} cps={18} size={40} color="#3b3532" />
             </div>
           ))}
         </AbsoluteFill>
@@ -195,7 +195,7 @@ const S08: React.FC = () => {
     </World>
   );
 };
-const PL = { x: 700, y: 250, rot: -4 }; // posisi halaman planner (disetel ke gambar)
+const PL = { x: 250, y: 260, rot: -3 }; // posisi halaman planner (disetel ke gambar)
 
 const MONTHS = ["JAN", "FEB", "MAR", "APR", "MEI", "JUN", "JUL", "AGS", "SEP", "OKT", "NOV", "DES"];
 const S09: React.FC = () => {
@@ -208,18 +208,20 @@ const S09: React.FC = () => {
         <Layer src={a("P_desk_clean.png")} depth={0.1} style={{ filter: "blur(10px)" }} />
         {MONTHS.map((m, i) => {
           const st = i * per;
-          const p = interpolate(frame, [st, st + sec(1.2)], [0, 1], { ...clamp, easing: ease });
+          const p = interpolate(frame, [st, st + sec(0.75)], [0, 1], { ...clamp, easing: Easing2 });
           if (frame < st - 2) {
             return null;
           }
-          const z = 1 + p * 3.2;
-          const x = 960 + (random(`mx${i}`) - 0.5) * 600 * p;
-          const y = 540 + (random(`my${i}`) - 0.3) * 420 * p;
+          const z = 0.9 + p * 1.6;
+          const x = 960 + (random(`mx${i}`) < 0.5 ? -1 : 1) * (300 + random(`mx2${i}`) * 700) * p;
+          const y = 560 + (random(`my${i}`) - 0.5) * 700 * p;
           const rot = (random(`mr${i}`) - 0.5) * 70 * p;
           const top = i === Math.min(11, Math.floor(frame / per));
           return (
             <div key={m} style={{ position: "absolute", left: x - 230 * z, top: y - 230 * z, width: 460 * z, height: 460 * z, rotate: `${rot}deg`, opacity: p > 0.92 ? 1 - (p - 0.92) / 0.08 : 1, zIndex: 20 - i }}>
-              <Img src={a("paper.png")} style={{ width: "100%", height: "100%" }} />
+              <Img src={a("paper.png")} style={{ width: "100%", height: "100%", filter: "sepia(0.25) brightness(0.98)", boxShadow: "0 18px 40px rgba(40,50,55,0.25)" }} />
+              <div style={{ position: "absolute", top: "5%", left: "12%", right: "12%", display: "flex", justifyContent: "space-between" }}>{new Array(9).fill(0).map((_, h) => <div key={h} style={{ width: 16 * z, height: 16 * z, borderRadius: "50%", background: "rgba(90,95,100,0.55)" }} />)}</div>
+              <div style={{ position: "absolute", top: "13%", left: 0, right: 0, height: 3 * z, background: "rgba(150,70,60,0.35)" }} />
               <div style={{ position: "absolute", top: "30%", width: "100%", textAlign: "center", fontFamily: HAND, fontWeight: 700, fontSize: 120 * z, color: top ? "#5b4a42" : "#7c6d65" }}>{m}</div>
             </div>
           );
@@ -237,10 +239,10 @@ const S10: React.FC = () => {
     <World kind="P">
       <Cam keys={[[0, { s: 1.25, x: 380 }], [sec(3.4), { s: 1.25, x: -260 }], [sec(3.5), { s: 1.0, x: 0 }], [d, { s: 0.97 }]]} easing={ease}>
         <Layer src={a("P_track_clean.png")} depth={0.1} />
-        <Sprite src={a("sil_run_toga.png")} x={run(0)} y={860} h={520} depth={0.6} boil={2} />
-        <Sprite src={a("sil_run_lanyard.png")} x={run(1) - 200} y={880} h={540} depth={0.6} boil={2} />
-        <Sprite src={a("sil_run_couple.png")} x={run(2) - 400} y={870} h={520} depth={0.6} boil={2} />
-        <Sprite src={a("ch_stand.png")} x={960} y={900} h={560} depth={0.5} />
+        <Sprite src={a("sil_run_toga.png")} x={run(0)} y={1000} h={480} depth={0.6} boil={2} />
+        <Sprite src={a("sil_run_lanyard.png")} x={run(1) - 200} y={1010} h={490} depth={0.6} boil={2} />
+        <Sprite src={a("sil_run_couple.png")} x={run(2) - 400} y={1000} h={470} depth={0.6} boil={2} />
+        <Sprite src={a("ch_stand.png")} x={960} y={985} h={560} depth={0.5} />
       </Cam>
     </World>
   );
@@ -259,18 +261,23 @@ const S11: React.FC = () => {
   return (
     <World kind="P" bloom={0.25}>
       <AbsoluteFill style={{ background: "#c7cec9" }} />
-      <Cam keys={[[0, { s: 1.0 }], [dur("S11"), { s: 1.05 }]]}>
+      <AbsoluteFill
+        style={{
+          scale: String(interpolate(frame, [0, dur("S11")], [1.62, 1.7], clamp)),
+          translate: `-70px ${interpolate(frame, [0, dur("S11")], [215, 225], clamp)}px`,
+        }}
+      >
         <AbsoluteFill style={{ translate: `0px ${flip * 900}px`, rotate: `${flip * 8}deg` }}>
-          <Layer src={a("P_hand_phone.png")} depth={0.6} fit="cover" />
-          <div style={{ position: "absolute", left: PH.x, top: PH.y, width: PH.w, height: PH.h, borderRadius: 22, overflow: "hidden" }}>
+          <Img src={a("P_hand_phone.png")} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+          <div style={{ position: "absolute", left: PH.x, top: PH.y, width: PH.w, height: PH.h, borderRadius: 26, overflow: "hidden" }}>
             <WAChat typed={word.slice(0, n)} caretOn={Math.floor(f / 8) % 2 === 0} dim={dim} w={PH.w} h={PH.h} />
           </div>
         </AbsoluteFill>
-      </Cam>
+      </AbsoluteFill>
     </World>
   );
 };
-const PH = { x: 760, y: 180, w: 400, h: 760 }; // layar HP (disetel ke gambar)
+const PH = { x: 836, y: 120, w: 328, h: 668 }; // layar HP (disetel ke gambar)
 
 const S12: React.FC = () => {
   const frame = useCurrentFrame();
@@ -281,8 +288,8 @@ const S12: React.FC = () => {
     <World kind="P">
       <Cam keys={[[0, { s: 1.0 }], [dur("S12"), { s: 1.12, y: -10 }]]}>
         <Layer src={a("P_alley_clean.png")} depth={0.2} />
-        <Sils items={[{ src: "sil_stand_2.png", x: 900, y: 620, h: 210, d: 0.2 }, { src: "sil_stand_4.png", x: 1010, y: 625, h: 220, d: 0.2, inF: 8 }]} opacity={0.6} />
-        <Sprite src={a(step ? "ch_back_2.png" : "ch_back_1.png")} x={step ? 960 - walk * 40 : 1000} y={1080 - walk * 80} h={980 - walk * 260} depth={0.7} />
+        <Sils items={[{ src: "sil_stand_2.png", x: 1060, y: 640, h: 170, d: 0.2 }, { src: "sil_stand_4.png", x: 1150, y: 645, h: 180, d: 0.2, inF: 8 }]} opacity={0.65} />
+        <Sprite src={a(step ? "ch_back_2.png" : "ch_back_1.png")} x={step ? 1000 + walk * 30 : 1000} y={1120 - walk * 120} h={940 - walk * 300} depth={0.7} />
       </Cam>
     </World>
   );
@@ -314,10 +321,10 @@ const S15: React.FC = () => {
         <Sils
           approach={ap}
           items={[
-            { src: "sil_stand_1.png", x: 250, y: 1080, h: 950, d: 0.7 },
-            { src: "sil_stand_2.png", x: 520, y: 1000, h: 780, d: 0.6, inF: 8 },
-            { src: "sil_stand_3.png", x: 1420, y: 1000, h: 800, d: 0.6, inF: 16 },
-            { src: "sil_stand_4.png", x: 1690, y: 1080, h: 960, d: 0.7, inF: 24 },
+            { src: "sil_stand_1.png", x: 200, y: 1100, h: 980, d: 0.7 },
+            { src: "sil_stand_2.png", x: 470, y: 960, h: 700, d: 0.6, inF: 8 },
+            { src: "sil_stand_3.png", x: 1450, y: 960, h: 720, d: 0.6, inF: 16 },
+            { src: "sil_stand_4.png", x: 1730, y: 1100, h: 1000, d: 0.7, inF: 24 },
           ]}
           opacity={0.88}
         />
@@ -406,7 +413,7 @@ const S19: React.FC = () => (
 );
 
 /** Dua planner, baris yang sama dicoret bersama. */
-const PP = { lx: 330, rx: 1020, y: 300, w: 560 }; // area halaman (disetel ke gambar)
+const PP = { lx: 215, rx: 1375, y: 292, w: 320 }; // area halaman (disetel ke gambar)
 const PlannerPages: React.FC<{ strike?: number; tagline?: number }> = ({ strike, tagline }) => (
   <>
     {[PP.lx, PP.rx].map((x, k) => (
@@ -414,23 +421,23 @@ const PlannerPages: React.FC<{ strike?: number; tagline?: number }> = ({ strike,
         {(k === 0 ? LIST : ["Baca 12 buku", "Kenalan sama orang baru", "Belajar masak", "Tidur sebelum jam 12"]).map((t, i) => {
           const hit = t === "Kenalan sama orang baru";
           return (
-            <div key={i} style={{ position: "relative", fontFamily: HAND, fontSize: 40, color: k ? "#2f3a33" : "#3a2a22", lineHeight: "62px", opacity: k === 0 && !hit ? 0.7 : 1 }}>
+            <div key={i} style={{ position: "relative", fontFamily: HAND, fontSize: 31, color: k ? "#2f3a33" : "#3a2a22", lineHeight: "44px", opacity: k === 0 && !hit ? 0.7 : 1 }}>
               {t}
               {hit && strike !== undefined && (
                 <div style={{ position: "absolute", left: -6, top: 16 }}>
-                  <Strike w={t.length * 17} start={strike + k * 3} dur={10} seed={`k${k}`} />
+                  <Strike w={t.length * 13} start={strike + k * 3} dur={10} seed={`k${k}`} thick={3} />
                 </div>
               )}
             </div>
           );
         })}
-        {k === 1 && tagline !== undefined && (
-          <div style={{ marginTop: 26 }}>
-            <Handwrite text={"Setiap Fore\nPunya Cerita"} start={tagline} cps={15} size={60} color="#2a2421" rotate={-3} />
-          </div>
-        )}
       </div>
     ))}
+    {tagline !== undefined && (
+      <div style={{ position: "absolute", left: 1035, top: 360, width: 300, rotate: "-3deg" }}>
+        <Handwrite text={"Setiap Fore\nPunya Cerita"} start={tagline} cps={15} size={56} color="#2a2421" />
+      </div>
+    )}
   </>
 );
 const S20: React.FC = () => (
