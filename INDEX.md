@@ -27,6 +27,7 @@ Pintu masuk untuk setiap model yang bekerja dengan Irfan. Baca file ini dulu, la
 |---|---|---|
 | `working-with-irfan` | Cara bekerja umum: komunikasi, siklus kerja, cara membuat skill/prompt, jangan menebak | Setiap tugas dari Irfan |
 | `autopilot-prd` | Eksekusi antrean PRD/QUEUE sampai habis, tier keputusan | Proyek dengan PRD, QUEUE, atau rencana tertulis |
+| `jadisatu-canvas` | Aturan ruang bersama MCP lintas penyedia; koneksi, gambar, revisi dan reset konteks | Memakai atau menghubungkan Jadisatu Canvas dari Claude, Codex, Gemini CLI, Cursor, VS Code atau klien MCP lain |
 | `irfan-creative-workflow` | Gerbang proyek kreatif, disiplin kredit, uji storyteller | Awal setiap proyek kreatif (video, kampanye, naskah) |
 | `motion-graphic` | Semua video motion: inti + 11 cabang (direction, storyboard, copywriting, decision, typography, camera-transition, smooth-motion, audio, build, analysis-qa, revision-log) + `scripts/` (baseline_lock, bedah-kamera) | Setiap permintaan video, motion, storyboard, naskah VO, bedah referensi |
 | `script-workshop` | Brainstorm sampai script disetujui: bedah hook referensi, bank insight, ledger, devil's advocate, pola hook yang ditolak | Awal setiap script video/reel, mencari hook |
