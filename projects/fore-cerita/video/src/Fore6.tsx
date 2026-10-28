@@ -10,6 +10,7 @@ import { a, clamp, Dust, ease, Grain, sec, twos } from "./lib/core";
 import { Handwrite, HAND, IGStory, Strike, WAChat } from "./lib/ui";
 import { T, TOTAL } from "./Fore";
 import { CLIPS, OV } from "./clips6";
+import TR11 from "./tracks/v11.json";
 
 type K = keyof typeof T;
 const dur = (id: K) => sec(T[id][1]) - sec(T[id][0]);
@@ -91,7 +92,7 @@ const S03: React.FC = () => {
   const warm = interpolate(frame, [d - 8, d], [0, 1], clamp);
   return (
     <Look dream={frame > d / 2}>
-      <Clip id="v03" len={d} rate={OV.v03rate} />
+      <Clip id="v03" from={OV.v03from} len={d} rate={OV.v03rate} />
       <AbsoluteFill style={{ background: "#ffe6bf", opacity: warm * 0.25, mixBlendMode: "screen" }} />
     </Look>
   );
@@ -135,17 +136,16 @@ const S08: React.FC = () => {
   const frame = useCurrentFrame();
   const d = dur("S08");
   const faded = interpolate(frame, [sec(3.4), sec(5.6)], [1, 0.45], clamp);
-  const z = interpolate(frame, [0, d], [1.0, 1.45], { ...clamp, easing: ease });
-  const P = OV.planner;
+  const z = interpolate(frame, [0, d], [1.0, 1.5], { ...clamp, easing: ease });
   return (
     <Look dream>
-      <AbsoluteFill style={{ scale: String(z), transformOrigin: `${P.ox}px ${P.oy}px` }}>
-        <Clip id="v08" len={d} />
-        <div style={{ position: "absolute", left: P.x, top: P.y, width: P.w, rotate: `${P.rot}deg`, opacity: faded, mixBlendMode: "multiply" }}>
-          <Handwrite text="Resolusi 2026" start={4} cps={16} size={P.size * 1.3} color="#2a1c14" style={{ fontWeight: 700 }} />
+      <AbsoluteFill style={{ scale: String(z), transformOrigin: "760px 760px" }}>
+        <Still id="k08" />
+        <div style={{ position: "absolute", left: 0, top: 0, width: 640, height: 700, transformOrigin: "0 0", transform: OV.page08, opacity: faded, mixBlendMode: "multiply", padding: "20px 30px" }}>
+          <Handwrite text="Resolusi 2026" start={4} cps={16} size={74} color="#2a1c14" style={{ fontWeight: 700 }} />
           {LIST.map((t, i) => (
-            <div key={i} style={{ marginTop: P.size * 0.25, filter: i === 3 ? undefined : `blur(${interpolate(frame, [sec(3.4), sec(4.4)], [0, 1.6], clamp)}px)` }}>
-              <Handwrite text={`☐  ${t}`} start={16 + i * 9} cps={18} size={i === 3 ? P.size * 1.12 : P.size} color={i === 3 ? "#22160f" : "#4a3a30"} style={{ fontWeight: i === 3 ? 700 : 500 }} />
+            <div key={i} style={{ marginTop: 22, filter: i === 3 ? undefined : `blur(${interpolate(frame, [sec(3.4), sec(4.4)], [0, 1.6], clamp)}px)` }}>
+              <Handwrite text={`☐  ${t}`} start={16 + i * 9} cps={18} size={i === 3 ? 60 : 54} color={i === 3 ? "#22160f" : "#4a3a30"} style={{ fontWeight: i === 3 ? 700 : 500 }} />
             </div>
           ))}
         </div>
@@ -196,13 +196,14 @@ const S11: React.FC = () => {
   if (f > sec(1.9)) n = Math.max(0, word.length - Math.floor((f - sec(1.9)) / 2));
   const flip = interpolate(frame, [sec(2.45), sec(2.85)], [0, 1], { ...clamp, easing: ease });
   const dim = interpolate(frame, [sec(2.6), sec(2.9)], [0, 1], clamp);
-  const H = OV.phone;
+  const tr = TR11[Math.min(TR11.length - 1, frame)];
+  const W = 300, Hh = 636; // ukuran acuan layar; diskalakan ke kotak hasil tracking
   return (
     <Look dream>
       <AbsoluteFill style={{ translate: `0px ${flip * 900}px`, rotate: `${flip * 8}deg` }}>
         <Clip id="v11" len={dur("S11")} />
-        <div style={{ position: "absolute", left: H.x, top: H.y, width: H.w, height: H.h, borderRadius: H.r, overflow: "hidden", rotate: `${H.rot}deg` }}>
-          <WAChat typed={word.slice(0, n)} caretOn={Math.floor(f / 8) % 2 === 0} dim={dim} w={H.w} h={H.h} />
+        <div style={{ position: "absolute", left: tr[0], top: tr[1], width: W, height: Hh, transformOrigin: "0 0", scale: `${(tr[2] - tr[0]) / W} ${(tr[3] - tr[1]) / Hh}`, borderRadius: 30, overflow: "hidden" }}>
+          <WAChat typed={word.slice(0, n)} caretOn={Math.floor(f / 8) % 2 === 0} dim={dim} w={W} h={Hh} />
         </div>
       </AbsoluteFill>
     </Look>
@@ -220,33 +221,20 @@ const S16: React.FC = () => {
   return (
     <AbsoluteFill style={{ translate: `${shake}px ${shake * 0.6}px` }}>
       <Look>
-        <Clip id="v16" len={dur("S16")} rate={OV.v16rate} />
+        <Clip id="v16" from={OV.v16from} len={dur("S16")} rate={OV.v16rate} />
       </Look>
       {frame === pop && <AbsoluteFill style={{ backdropFilter: "invert(1)" }} />}
     </AbsoluteFill>
   );
 };
-const S17: React.FC = () => {
-  const L = OV.spill;
-  return (
-    <Look>
-      <Clip id="v17" len={dur("S17")} />
-      <div style={{ position: "absolute", left: L.x, top: L.y, rotate: `${L.rot}deg`, mixBlendMode: "multiply", opacity: 0.8 }}>
-        <div style={{ fontFamily: HAND, fontWeight: 700, fontSize: L.size * 1.3, color: "#2a1d16" }}>Resolusi 2026</div>
-        {LIST.map((t, i) => (
-          <div key={i} style={{ fontFamily: HAND, fontSize: L.size, lineHeight: `${L.size * 1.45}px`, color: "#2a1d16", opacity: i === 3 ? 1 : 0.8 }}>☐  {t}</div>
-        ))}
-      </div>
-    </Look>
-  );
-};
+const S17: React.FC = () => <Look><Clip id="v17" len={dur("S17")} /></Look>;
 const S18: React.FC = () => <Look><Clip id="v18" len={dur("S18")} /></Look>;
 const S19: React.FC = () => <Look><Clip id="v19" len={dur("S19")} push={1.04} /></Look>;
 const S20: React.FC = () => {
   const frame = useCurrentFrame();
   const d = dur("S20");
   const P = OV.planners;
-  const z = interpolate(frame, [0, d], [1.0, 1.35], { ...clamp, easing: ease });
+  const z = interpolate(frame, [0, d], [1.15, 1.75], { ...clamp, easing: ease });
   const right = ["Baca 12 buku", "Kenalan sama orang baru", "Belajar masak", "Tidur sebelum jam 12"];
   return (
     <Look>
@@ -260,7 +248,7 @@ const S20: React.FC = () => {
                 <div key={i} style={{ position: "relative", fontFamily: HAND, fontSize: P.size, color: "#2e2018", lineHeight: `${P.size * 1.42}px`, opacity: k === 0 && !hit ? 0.75 : 1 }}>
                   {t}
                   {hit && (
-                    <div style={{ position: "absolute", left: -6, top: P.size * 0.5 }}>
+                    <div style={{ position: "absolute", left: -6, top: P.size * 0.66 - 15 }}>
                       <Strike w={t.length * P.size * 0.42} start={sec(0.5) + k * 3} dur={10} seed={`k${k}`} thick={3} />
                     </div>
                   )}
