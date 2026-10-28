@@ -1,3 +1,28 @@
+# Laporan v6 — Fore "Kalah Lagi" (klip AI per shot)
+
+**Hasil:** `fore_kalah-lagi_v6.mp4` (1920×1080, 24 fps, 74,6 dtk, −14,0 LUFS, puncak −1,7 dBFS) + `fore_kalah-lagi_v6_SFX-only.mp4`. Salinan Mac: `~/Proyek/fore-cerita/render/fore_kalah-lagi_v6.mp4`.
+
+## Yang berubah dari v5 (feedback 28 Okt 08:39)
+- Sistem layer/sprite (efek melayang) diganti klip AI per shot: keyframe Nano Banana Pro → image-to-video Google Flow Omni 1.1 Flash (720p, upscaled 1080p) → dirakit di Remotion (`Fore6`) di atas timing lagu v5.
+- **1 tone:** amber-madu + umber + aksen zaitun di semua shot; dunia bayangan dibedakan oleh kabut emas/debu cahaya, bukan warna. Ukuran kehangatan (R−B) positif di 26/26 titik.
+- **1 tokoh:** character sheet pria & perempuan jadi referensi setiap keyframe.
+- **Transisi:** matanya pindah dari HP ke gelas → kamera menyelam ke tetes embun berisi kamar paginya → kamar. Keluar: perempuan menyenggol meja → tetes yang sama (berisi meja bayangan dikepung siluet) meluncur dan pecah, kilat negatif 1 frame → kopi tumpah.
+- Teks tetap dari kode: story IG di layar HP (homografi), daftar resolusi di halaman planner (perspektif), WhatsApp di HP yang dilacak per frame, coretan bersama + noda kopi, tagline.
+
+## QA
+- Reviewer independen v6 (sebelum revisi): cerita 5, tokoh 5, tone 6, transisi 5, gaya 4, komposisi 6, teks 5, artefak 5. Diperbaiki: senggolan diperlihatkan, masuk mimpi dimotivasi, gelas tumpah kontinu, grade bayangan diturunkan ke amber (vignette putih dihapus), latar HP saat ditelungkupkan, zoom coretan, tangan barista yang meleleh dipotong.
+- Tidak diambil: kilat negatif dihapus (aturan Irfan: negatif untuk transisi), ransel dihapus (logis saat keluar rumah).
+
+## Biaya
+Flow (akun paymediaindonesia, PRO): ±237 dari 1.050 kredit; keyframe 0 kredit. Job gagal tidak memotong kredit.
+
+## Yang masih bisa dinaikkan
+1. Gaya masih "anime halus" dibanding ref 5–7 (skor gaya 4): keyframe perlu prompt + referensi yang lebih kasar (bidang bersudut, sapuan kering), lalu klip digenerate ulang (±180 kredit).
+2. Shot senggolan memakai gelas kaca kopi hitam (bukan es kopi susu Fore) — tampil ±0,4 dtk.
+3. Garis kilau tipis di keyframe bus (S05).
+
+---
+
 # Laporan pagi — Fore "Kalah Lagi" (unofficial fan project)
 
 **Hasil:** `fore_kalah-lagi_v5.mp4` (1920×1080, 24 fps, 74,6 dtk, −14 LUFS) + `fore_kalah-lagi_v5_SFX-only.mp4` (tanpa lagu, untuk diposting dengan lisensi musik IG pada titik mulai lagu **0:26**).

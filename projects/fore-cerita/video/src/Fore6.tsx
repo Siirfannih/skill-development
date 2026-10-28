@@ -23,16 +23,16 @@ const Shot: React.FC<{ id: K; children: React.ReactNode }> = ({ id, children }) 
 /* ---------- satu look untuk semua shot ---------- */
 const Look: React.FC<{ dream?: boolean; children: React.ReactNode }> = ({ dream, children }) => (
   <AbsoluteFill style={{ background: "#1a110c" }}>
-    <AbsoluteFill style={{ filter: dream ? "contrast(0.9) brightness(1.04)" : "contrast(0.94)" }}>{children}</AbsoluteFill>
+    <AbsoluteFill style={{ filter: dream ? "contrast(0.97) brightness(0.95) saturate(0.95)" : "contrast(0.94)" }}>{children}</AbsoluteFill>
     {dream && (
       <>
-        <AbsoluteFill style={{ mixBlendMode: "screen", opacity: 0.22, filter: "blur(24px) brightness(0.9) contrast(1.6)" }}>{children}</AbsoluteFill>
-        <AbsoluteFill style={{ background: "radial-gradient(ellipse 78% 72% at 50% 50%, rgba(255,232,196,0) 58%, rgba(255,228,188,0.34) 100%)" }} />
+        <AbsoluteFill style={{ mixBlendMode: "screen", opacity: 0.12, filter: "blur(24px) brightness(0.9) contrast(1.6)" }}>{children}</AbsoluteFill>
+        <AbsoluteFill style={{ background: "radial-gradient(ellipse 78% 72% at 50% 50%, rgba(60,34,20,0) 55%, rgba(60,34,20,0.32) 100%)" }} />
         <Dust color="255,226,180" opacity={0.5} />
       </>
     )}
     {!dream && <AbsoluteFill style={{ background: "radial-gradient(ellipse 80% 75% at 50% 48%, rgba(0,0,0,0) 55%, rgba(20,10,6,0.5) 100%)" }} />}
-    <Grain amount={dream ? 0.24 : 0.34} />
+    <Grain amount={dream ? 0.32 : 0.34} />
   </AbsoluteFill>
 );
 
@@ -65,7 +65,7 @@ const S01: React.FC = () => {
   const hx = Math.sin(twos(frame) / 11) * 3, hy = Math.cos(twos(frame) / 13) * 2;
   return (
     <Look>
-      <AbsoluteFill style={{ translate: `${hx}px ${hy}px`, scale: String(interpolate(frame, [0, dur("S01")], [1.02, 1.06], clamp)) }}>
+      <AbsoluteFill style={{ translate: `${hx}px ${hy}px`, scale: String(interpolate(frame, [0, dur("S01")], [1.22, 1.3], clamp)), transformOrigin: "740px 620px" }}>
         <Still id="k01" />
         <div style={{ position: "absolute", left: 0, top: 0, width: W, height: H, transformOrigin: "0 0", transform: OV.screen01, overflow: "hidden", borderRadius: 30, opacity: 0.96 }}>
           <div style={{ position: "absolute", left: -(960 - W / 2), top: -(540 - H / 2), width: 1920, height: 1080 }}>
@@ -84,7 +84,17 @@ const S01: React.FC = () => {
     </Look>
   );
 };
-const S02: React.FC = () => <Look><Clip id="v02" len={dur("S02")} push={1.04} /></Look>;
+const S02: React.FC = () => {
+  const frame = useCurrentFrame();
+  const cut = sec(1.3);
+  return (
+    <Look>
+      {frame < cut ? <Clip id="v02" len={cut} push={1.03} /> : (
+        <Sequence from={cut} layout="none"><Clip id="v02b" from={1.2} rate={2.8} len={dur("S02") - cut} push={1.05} /></Sequence>
+      )}
+    </Look>
+  );
+};
 /** Masuk: tetes embun = lensa; kamera menyelam ke tetes, kamar pagi memenuhi frame. */
 const S03: React.FC = () => {
   const frame = useCurrentFrame();
@@ -200,17 +210,21 @@ const S11: React.FC = () => {
   const W = 300, Hh = 636; // ukuran acuan layar; diskalakan ke kotak hasil tracking
   return (
     <Look dream>
+      <AbsoluteFill style={{ filter: "blur(14px)" }}><Still id="k11" /></AbsoluteFill>
+      <AbsoluteFill style={{ scale: String(interpolate(frame, [0, sec(2.4)], [1.05, 1.28], { ...clamp, easing: ease })), transformOrigin: "960px 520px" }}>
       <AbsoluteFill style={{ translate: `0px ${flip * 900}px`, rotate: `${flip * 8}deg` }}>
         <Clip id="v11" len={dur("S11")} />
         <div style={{ position: "absolute", left: tr[0], top: tr[1], width: W, height: Hh, transformOrigin: "0 0", scale: `${(tr[2] - tr[0]) / W} ${(tr[3] - tr[1]) / Hh}`, borderRadius: 30, overflow: "hidden" }}>
           <WAChat typed={word.slice(0, n)} caretOn={Math.floor(f / 8) % 2 === 0} dim={dim} w={W} h={Hh} />
+          <div style={{ position: "absolute", inset: 0, background: "rgba(255,214,160,0.22)", mixBlendMode: "multiply" }} />
         </div>
+      </AbsoluteFill>
       </AbsoluteFill>
     </Look>
   );
 };
 const S12: React.FC = () => <Look dream><Clip id="v12" len={dur("S12")} /></Look>;
-const S13: React.FC = () => <Look dream><Clip id="v13" len={dur("S13")} push={1.08} /></Look>;
+const S13: React.FC = () => <Look dream><Clip id="v13" len={dur("S13")} rate={0.75} push={1.08} /></Look>;
 const S14: React.FC = () => <Look dream><Clip id="v14" len={dur("S14")} push={1.04} /></Look>;
 const S15: React.FC = () => <Look dream><Clip id="v15" len={dur("S15")} push={1.1} /></Look>;
 /** Keluar: tetes yang sama, isinya meja bayangan; senggolan → tetes pecah; 1 frame negatif saat pecah. */
@@ -221,7 +235,9 @@ const S16: React.FC = () => {
   return (
     <AbsoluteFill style={{ translate: `${shake}px ${shake * 0.6}px` }}>
       <Look>
-        <Clip id="v16" from={OV.v16from} len={dur("S16")} rate={OV.v16rate} />
+        {frame < sec(OV.bump) ? <Clip id="v16a" from={0.3} len={sec(OV.bump)} rate={2.2} /> : (
+          <Sequence from={sec(OV.bump)} layout="none"><Clip id="v16" from={OV.v16from} len={dur("S16") - sec(OV.bump)} rate={OV.v16rate} /></Sequence>
+        )}
       </Look>
       {frame === pop && <AbsoluteFill style={{ backdropFilter: "invert(1)" }} />}
     </AbsoluteFill>
@@ -234,12 +250,13 @@ const S20: React.FC = () => {
   const frame = useCurrentFrame();
   const d = dur("S20");
   const P = OV.planners;
-  const z = interpolate(frame, [0, d], [1.15, 1.75], { ...clamp, easing: ease });
+  const z = interpolate(frame, [0, d], [1.5, 2.2], { ...clamp, easing: ease });
   const right = ["Baca 12 buku", "Kenalan sama orang baru", "Belajar masak", "Tidur sebelum jam 12"];
   return (
     <Look>
       <AbsoluteFill style={{ scale: String(z), transformOrigin: `${P.ox}px ${P.oy}px` }}>
         <Clip id="v20" len={d} />
+        <div style={{ position: "absolute", left: P.l.x - 30, top: P.l.y + 40, width: 300, height: 360, mixBlendMode: "multiply", background: "radial-gradient(ellipse 45% 35% at 40% 60%, rgba(150,95,55,0.45) 0%, rgba(150,95,55,0.25) 55%, rgba(150,95,55,0) 72%), radial-gradient(circle at 75% 20%, rgba(140,90,50,0.35) 0%, rgba(140,90,50,0) 18%)" }} />
         {[P.l, P.r].map((pg, k) => (
           <div key={k} style={{ position: "absolute", left: pg.x, top: pg.y, width: pg.w, rotate: `${pg.rot}deg`, mixBlendMode: "multiply" }}>
             {(k === 0 ? LIST : right).map((t, i) => {

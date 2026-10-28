@@ -1,4 +1,4 @@
-# STATUS — v6 sedang produksi (28 Okt)
+# STATUS — v6 selesai (28 Okt 14:07), menunggu review Irfan
 
 Fase: v6 = klip AI per shot (Google Flow, Omni 1.1 Flash) dirakit di Remotion (`video/src/Fore6.tsx`, komposisi `Fore6`). Dasar keputusan: `STYLE-AI.md`.
 - Tokoh terkunci: Flow asset `fore-ai-scene-03-v1` (pria), `fore-ai-scene-02` (perempuan); file di Mac `~/Proyek/fore-cerita/ai/keys/`.
