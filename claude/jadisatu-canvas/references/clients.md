@@ -41,7 +41,7 @@ codex mcp add jadisatu_canvas --url https://canvas.jadisatu.cloud/mcp
 codex mcp login jadisatu_canvas --oauth-client-registration dcr
 ```
 
-Perintah ini mengubah konfigurasi klien, jadi bukan bagian uji offline skill. Sumber: [MCP Codex](https://learn.chatgpt.com/docs/extend/mcp?surface=cli). Flag bearer juga dikonfirmasi dengan `codex mcp add --help` lokal.
+Perintah ini mengubah konfigurasi klien, jadi bukan bagian uji offline skill. Sumber: [MCP Codex](https://learn.chatgpt.com/docs/extend/mcp?surface=cli). Bantuan CLI lokal mengonfirmasi flag bearer (`codex mcp add --help`) dan pilihan registrasi `dcr` (`codex mcp login --help`).
 
 ## 4. Claude Code · `.mcp.json`
 

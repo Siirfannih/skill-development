@@ -47,7 +47,7 @@ Contoh offline: setelah `read_board` mengembalikan generasi 3 dan `note-a` revis
 
 ID dan angka contoh bukan nilai untuk disalin ke board nyata. Ambil nilai nyata dari pembacaan terbaru.
 
-Jika menerima HTTP **409**, `REVISION_CONFLICT`, `CONTEXT_VERSION_CONFLICT`, atau hasil MCP `isError` tentang konteks/revisi: baca board lagi. Jika generasi berubah, buang rencana tulis dan referensi lama; jangan mengulang patch dengan angka baru saja. Susun ulang dari keadaan dan brief saat ini. Jika maksud tugas setelah reset tidak jelas, minta konteks yang diperlukan. Konflik revisi dalam generasi yang sama memerlukan pembacaan item terbaru sebelum menerapkan perubahan yang masih diminta.
+Jika menerima HTTP **409**, `REVISION_CONFLICT`, `CONTEXT_CONFLICT`, atau hasil MCP `isError` tentang konteks/revisi: baca board lagi. Jika generasi berubah, buang rencana tulis dan referensi lama; jangan mengulang patch dengan angka baru saja. Susun ulang dari keadaan dan brief saat ini. Jika maksud tugas setelah reset tidak jelas, minta konteks yang diperlukan. Konflik revisi dalam generasi yang sama memerlukan pembacaan item terbaru sebelum menerapkan perubahan yang masih diminta.
 
 Setelah perubahan berhasil, baca kembali bagian yang relevan untuk memverifikasi hasil. Jangan melaporkan keberhasilan dari rencana, percobaan gagal, atau status presence.
 

@@ -15,7 +15,7 @@
   "mock_responses": [
     {"tool": "read_board", "result": {"board": {"id": "room-a", "contextVersion": 3, "items": [{"id": "new-logo", "type": "image", "assetId": "cafe-logo", "revision": 1, "title": "Cafe reference"}]}}},
     {"tool": "read_image", "args": {"assetId": "cafe-logo"}, "result": "Mock image-content response; no real pixels supplied in this text-only evaluation"},
-    {"tool": "add_card", "when": {"contextVersion": 3}, "result": {"isError": true, "text": "409 CONTEXT_VERSION_CONFLICT: reread board"}},
+    {"tool": "add_card", "when": {"contextVersion": 3}, "result": {"isError": true, "text": "409 CONTEXT_CONFLICT: reread board"}},
     {"tool": "read_board", "result": {"board": {"id": "room-a", "contextVersion": 4, "items": [], "title": "Private room", "lastEvent": "owner reset"}}}
   ],
   "assertions": [
