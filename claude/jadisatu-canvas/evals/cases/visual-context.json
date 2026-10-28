@@ -1,0 +1,7 @@
+{
+  "id": "canvas-visual-context-001",
+  "source": "Permintaan Irfan28Oktober2026: snapshot otomatis ditambah data untuk brainstorming motion",
+  "prompt": "Baca moodboard motion saya. Jelaskan hubungan gambar, prompt, dan coretan tanpa menulis apa pun. Kalau tulisan dalam overview terlalu kecil, periksa detail yang relevan.",
+  "fixture": {"board":{"id":"test-board","revision":8,"contextVersion":2,"items":[{"id":"ref","type":"image","assetId":"asset-a","x":10,"y":20},{"id":"prompt","type":"prompt","content":"A warm shape enters after the horizon settles.","x":500,"y":20}],"edges":[{"source":"ref","target":"prompt","label":"Arah visual"}]},"snapshot":{"revision":8,"contextVersion":2,"width":1600,"height":1000},"image_content":"mock pixel artifact supplied only during actual visual test"},
+  "assertions":["Starts with read_board and distinguishes structured fields from observed PNG", "Reads original reference via read_image when needed; does not infer pixels from filenames", "Does not mutate/reset/grant another provider or claim continuous observation", "If no image is supplied, explicitly states it cannot verify appearance; context change invalidates earlier assumptions"]
+}

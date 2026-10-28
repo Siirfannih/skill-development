@@ -22,8 +22,9 @@ Aturan ini sama untuk setiap penyedia model. MCP adalah kemampuan **klien**, buk
 
 1. Pastikan tool MCP benar-benar tersedia; nama tool dapat memiliki prefiks klien. Bila belum terhubung, laporkan kebutuhan penyiapan, bukan hasil pembacaan fiktif.
 2. Panggil `read_board` pada awal tugas, setelah reset/restore, dan ketika percakapan lama dilanjutkan. Catat `board.id`, `board.contextVersion` dan revisi item yang hendak diedit. Nilai generasi awal/legacy adalah 1; gunakan nilai yang dikembalikan server.
-3. Baca isi aktual. Untuk melihat piksel referensi yang sedang terpasang, panggil `read_image` dengan `assetId` dari board terbaru. Nama berkas atau `read_board` saja tidak membuktikan tampilan gambar. Jika klien tidak dapat menerima konten gambar, sebutkan batas itu.
-4. Untuk sketsa, gunakan `get_sketch`. Bedakan pembacaan elemen/geometri dari pengamatan piksel. Jika board kosong, mulai dari brief pengguna saat ini; jangan menghidupkan kembali konteks proyek lama.
+3. `read_board` secara default mengembalikan **data board dan gambar PNG seluruh susunan tersimpan** pada revisi yang sama. Periksa keduanya: PNG untuk relasi spasial, coretan dan efek visual; JSON untuk teks lengkap, ID, revisi dan koneksi. Jangan menyebut isi piksel sebelum konten gambar benar-benar diterima klien.
+4. Gunakan `read_canvas_snapshot` untuk melihat ulang susunan setelah perubahan; opsional `revision` dan `contextVersion` harus cocok dengan pembacaan terbaru. Ini ringkasan seluruh board, bukan viewport/posisi scroll pemilik. Pada board luas, teks dapat mengecil: baca JSON dan ambil **gambar asli** memakai `read_image` + `assetId` untuk detail. Rotasi/blur di canvas tidak mengubah berkas asli.
+5. `get_sketch` memberi elemen/geometri, sedangkan PNG memperlihatkan coretan bersama kartu. Jika klien hanya menerima teks, gunakan `read_board` dengan `includeSnapshot:false` dan laporkan batas visual itu. Saat renderer sibuk/gagal atau board berubah saat render, `read_board` dapat mengembalikan data aktif dengan `snapshot.status:unavailable`, `reason` dan `retryAfter`, tanpa PNG. Ini bukan bukti gambar sudah dilihat; baca ulang, coba ulang terbatas atau lanjut data saja dengan batas yang jelas. Jika board kosong, mulai dari brief saat ini; jangan menghidupkan konteks lama.
 
 ## 4. Menulis dengan generasi dan revisi terkini
 
@@ -31,13 +32,17 @@ Periksa skema tool yang tersedia sebelum memanggilnya. Board sudah ditentukan ol
 
 | Tool | Data yang dipakai |
 |---|---|
-| `read_board` | Semua kartu, konteks, `contextVersion`, sketsa dan aktivitas board yang diizinkan |
+| `read_board` | Data lengkap + PNG otomatis, `contextVersion`, revisi; `includeSnapshot:false` untuk data saja |
+| `read_canvas_snapshot` | PNG susunan lengkap + metadata revisi/generasi; cakupan akses tetap board yang sama |
 | `read_image` | `assetId` yang masih terpasang di board aktif |
 | `add_card` | `type`, `title`, bidang kartu yang diperlukan, **`contextVersion` terbaru** |
 | `update_card` | `itemId`, **`revision` item terbaru**, bidang yang diubah, **`contextVersion` terbaru** |
+| `connect_cards` | `source`, `target`, opsional `label`, **revision board** dan **contextVersion** terbaru |
 | `delete_card` | `itemId`, **`contextVersion` terbaru**; hanya dalam permintaan pengguna yang mengizinkan penghapusan itu |
 | `get_sketch` / `update_sketch` | Baca scene lebih dulu; saat menulis kirim `elements`, `files` bila perlu, dan **`contextVersion` terbaru**; pertahankan versi elemen dan tombstone |
 | `list_activity` / `set_presence` | Riwayat dan aktivitas aktual; identitas berasal dari grant/token |
+
+Jenis blok: `note`, `document`, `prompt`, `image`, `link`, `palette`, `section`. `sectionId` mengelompokkan blok di navigasi; `null` melepaskan kelompok. Koordinat tetap absolut. Penampilan berada dalam `style`: font sans/serif/handwriting/mono, ukuran, tebal/miring/garis bawah, perataan, rotasi, opacity, radius dan blur/fit gambar. Baca skema tool aktual sebelum menulis. Menyusun moodboard motion berarti menjaga hubungan referensi → deskripsi beat → prompt, bukan mengisi board kosong dengan contoh tanpa diminta.
 
 Contoh offline: setelah `read_board` mengembalikan generasi 3 dan `note-a` revisi 2, edit yang sah berbentuk:
 
