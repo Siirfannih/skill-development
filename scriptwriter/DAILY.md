@@ -33,4 +33,4 @@
 
 ## 28 Oktober2026 · Jadisatu Canvas visual context
 - Permintaan: snapshot canvas otomatis + data, moodboard motion dengan dokumen/prompt/coretan tersusun.
-- Patch skill di cabang feat/canvas-visual-context; implementasi dan uji visual masih berlangsung. Tidak ada grant atau konfigurasi provider baru.
+- Skill visual sudah masuk main dan salinan Claude/Codex lokal telah divalidasi. Server online mengirim PNG + data; uji Claude CLI aktual dan reset/fallback lulus. Penutupan audit/laporan sedang berjalan. Tidak ada grant atau konfigurasi provider baru.
