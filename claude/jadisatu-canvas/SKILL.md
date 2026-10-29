@@ -22,9 +22,10 @@ Aturan ini sama untuk setiap penyedia model. MCP adalah kemampuan **klien**, buk
 
 1. Pastikan tool MCP benar-benar tersedia; nama tool dapat memiliki prefiks klien. Bila belum terhubung, laporkan kebutuhan penyiapan, bukan hasil pembacaan fiktif.
 2. Panggil `read_board` pada awal tugas, setelah reset/restore, dan ketika percakapan lama dilanjutkan. Catat `board.id`, `board.contextVersion` dan revisi item yang hendak diedit. Nilai generasi awal/legacy adalah 1; gunakan nilai yang dikembalikan server.
-3. `read_board` secara default mengembalikan **data board dan gambar PNG seluruh susunan tersimpan** pada revisi yang sama. Periksa keduanya: PNG untuk relasi spasial, coretan dan efek visual; JSON untuk teks lengkap, ID, revisi dan koneksi. Jangan menyebut isi piksel sebelum konten gambar benar-benar diterima klien.
+3. `read_board` secara default mengembalikan **data board dan gambar PNG seluruh susunan tersimpan** pada revisi yang sama. Periksa keduanya: PNG untuk relasi spasial, coretan dan efek visual; JSON untuk teks lengkap, ID, revisi dan koneksi. Jangan menyebut isi piksel sebelum konten gambar benar-benar diterima klien. Setiap interpretasi visual berlaku pada contextVersion yang dibaca: bila generasi berubah, batalkan interpretasi/gambar lama dan baca ulang board, walaupun tautan ruang tetap sama. Ini juga berlaku ketika hanya menjawab pertanyaan tanpa menulis.
 4. Gunakan `read_canvas_snapshot` untuk melihat ulang susunan setelah perubahan; opsional `revision` dan `contextVersion` harus cocok dengan pembacaan terbaru. Ini ringkasan seluruh board, bukan viewport/posisi scroll pemilik. Pada board luas, teks dapat mengecil: baca JSON dan ambil **gambar asli** memakai `read_image` + `assetId` untuk detail. Rotasi/blur di canvas tidak mengubah berkas asli.
 5. `get_sketch` memberi elemen/geometri, sedangkan PNG memperlihatkan coretan bersama kartu. Jika klien hanya menerima teks, gunakan `read_board` dengan `includeSnapshot:false` dan laporkan batas visual itu. Saat renderer sibuk/gagal atau board berubah saat render, `read_board` dapat mengembalikan data aktif dengan `snapshot.status:unavailable`, `reason` dan `retryAfter`, tanpa PNG. Ini bukan bukti gambar sudah dilihat; baca ulang, coba ulang terbatas atau lanjut data saja dengan batas yang jelas. Jika board kosong, mulai dari brief saat ini; jangan menghidupkan konteks lama.
+6. Untuk storyboard motion, baca [references/storyboard.md](references/storyboard.md). `read_board` memuat data storyboard, tetapi PNG defaultnya menunjukkan moodboard Canvas. Panggil `list_storyboard`, lalu `read_storyboard_scene` untuk piksel frame dan arahan produksi satu adegan. `read_storyboard_snapshot` memberi contact sheet urutan adegan. Jangan menyamakan overview moodboard dengan frame adegan atau menganggap kolom gerak sudah menjadi animasi.
 
 ## 4. Menulis dengan generasi dan revisi terkini
 
@@ -61,6 +62,8 @@ Setelah perubahan berhasil, baca kembali bagian yang relevan untuk memverifikasi
 Pemilik melakukan reset/restore melalui workspace; **tidak ada tool reset/restore untuk model**. Jangan meniru reset dengan menghapus semua kartu lewat MCP.
 
 Reset menyimpan snapshot board beserta aktivitas yang dapat dipulihkan, lalu membersihkan kartu, koneksi, deskripsi, sketsa dan riwayat lama dari konteks aktif. Riwayat aktif hanya menyisakan penanda reset generik. Board ID dan cakupan token tetap sama, tetapi `contextVersion` bertambah.
+
+Storyboard beserta layer, narasi dan arahan produksinya ikut diarsipkan/reset/restore. Draf lokal yang belum disimpan tidak terlihat melalui MCP. ID adegan dari generasi lama tidak boleh digunakan setelah konteks berubah.
 
 Restore menyimpan keadaan aktif lebih dulu, lalu memulihkan konten snapshot. Revisi board dan `contextVersion` tetap bertambah, tidak mundur ke angka snapshot. Model harus membaca ulang. Gambar yang hanya berada di snapshot tidak dapat dibaca dengan `read_image` sampai kembali terpasang di board aktif.
 
