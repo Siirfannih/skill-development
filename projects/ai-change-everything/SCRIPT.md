@@ -1,7 +1,7 @@
 # Pengganti kita sendiri · script v3
 
 Proyek: `ai-change-everything` · akun personal @siirfannih · ±57 dtk · 1920×1080 · 30 fps
-Status: keputusan uji storyteller dari Irfan diterapkan (29 Okt 2026, 18:09 WITA). Menunggu kata "final" dari Irfan sebelum VO di-generate.
+Status: **FINAL** (Irfan, 29 Okt 2026 18:28 WITA).
 
 Narator orang ketiga tanpa kata "aku". Teks di bawah adalah VO; baris dalam kurung siku adalah klip asli.
 
