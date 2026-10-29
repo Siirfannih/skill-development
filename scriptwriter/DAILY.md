@@ -1,5 +1,14 @@
 # Catatan sesi scriptwriter
 
+## 29 Oktober 2026 · Jadisatu Canvas Storyboard
+
+- Permintaan: Mode Storyboard online dengan frame, narasi, durasi, gerak, transisi, urutan dan pembacaan AI per adegan.
+- Aturan portabel diperbarui di `claude/jadisatu-canvas/`: bedakan overview Canvas, contact sheet dan frame; gunakan scene revision + contextVersion saat menulis.
+- Evaluasi tertulis: baseline 10/12, kandidat revisi 12/12, seluruh kasus lama 8/8. Hasil awal 11/12 tetap disimpan. Ini perbandingan offline kecil, bukan klaim akurasi visual atau safety umum.
+- Aplikasi online memakai data + PNG per adegan. Unit 95/95 dan audit independen R3 PASS_WITH_NOTES; catatan terakhir dokumentasi diselesaikan pada commit penutupan aplikasi. Claude CLI nyata R2 membaca dua frame sintetis; klien web tidak diuji ulang.
+- Salinan skill dan referensi storyboard pada Claude/Codex lokal cocok sumber. Tidak mengubah token, grant, konfigurasi global MCP atau skill lain.
+- Preview masih frame diam berdurasi, tanpa animasi otomatis, VO atau MP4. Board pengguna tidak diisi contoh. Tidak ada butir pengembangan lain yang diambil dari proyek lain.
+
 ## 28 Oktober 2026 · Integrasi skill Jadisatu Canvas
 
 - Permintaan: aturan MCP universal untuk room privat yang dapat dipakai ulang; satu skill di `claude/jadisatu-canvas/`, ditemukan melalui INDEX dan AGENTS.
