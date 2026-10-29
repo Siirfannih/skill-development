@@ -7,7 +7,7 @@ Narator orang ketiga tanpa kata "aku". Teks di bawah adalah VO; baris dalam kuru
 
 | Babak | VO |
 |---|---|
-| 1 · Janji | Tanpa kita sadari, kita sedang berlomba-lomba membangun pengganti kita sendiri. Dan anehnya... kita menyukainya. |
+| 1 · Janji | Tanpa kita sadari, kita sedang berlomba-lomba membangun pengganti kita sendiri. Tapi anehnya, kita menginginkan hal tersebut. |
 | 1 · Janji | Janjinya dulu sederhana. AI akan mengambil pekerjaan yang membosankan, supaya manusia bisa fokus menjadi lebih kreatif. |
 | 2 · Kenyataan | Tapi hari ini, kita tidak lagi memakai AI sekedar untuk bekerja lebih cepat. Kita mengkloning diri kita sendiri, dari customer service, video editor, sampai eksekutor bisnis. |
 | 2 · Kenyataan | [Klip Jensen Huang, Milken Institute Global Conference 2025] "You're not going to lose your job to an AI, but you're going to lose your job to somebody who uses AI." (06:58–07:03, youtu.be/HT8-KPAjpiA) |
@@ -25,6 +25,7 @@ Narator orang ketiga tanpa kata "aku". Teks di bawah adalah VO; baris dalam kuru
 | 4 | Kalimat babak 4 ±30 kata, gagal uji satu napas | Dipecah dengan tanda baca, kata tetap |
 | 5 | Revisi 18:12: "sekadar" → "sekedar" (VO dan teks layar); hapus "Yang jarang dibahas:"; penutup jadi pertanyaan | Irfan |
 | 6 | Data vibe coding (App Store +84%, TrustMRR 54% $0) | Visual saja di babak 4, VO tidak berubah |
+| 7 | VO v1 terlalu santai/fun; "kita menyukainya" janggal diucapkan (akhiran -i berulang) | Nada setelan A (eleven_v4, stability 0.85, similarity 0.8) + tempo ×1,06 + jeda ±0,3 dtk (acuan kaye.creatives); hook jadi "Tapi anehnya, kita menginginkan hal tersebut." (Irfan 18:48) |
 
 Terbuka: "eksekutor bisnis" (usulan "yang menjalankan bisnisnya") belum diputus; tetap kata asli.
 
