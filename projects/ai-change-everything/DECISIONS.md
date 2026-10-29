@@ -10,3 +10,5 @@
 | D-006 | 29 Okt 19:40 | Irfan | Sound design penuh: musik per babak + SFX per objek/transisi | v4: 5 cue ElevenLabs Music + palet SFX nyaman (The Gap v17/Jadisatu #2) di dalam Remotion |
 | D-007 | 29 Okt 19:40 | Irfan | Babak 5 tanpa real footage → stickman 2,5D Apple style (bukan stickman mentah storyboard); real footage tetap untuk Altman, Jensen, foto industri awal | v4 |
 | REF | — | — | Acuan build = `STORYBOARD.md` (spec beat) + PDF storyboard Irfan sebagai struktur; gaya = keputusan D-005 | — |
+| D-008 | 29 Okt 22:55 | Irfan | Babak 4 = opsi A ("Itu satu cerita …" ditutup callback ke hook); kalimat "satu miliar dolar, katanya, sudah lahir" dihapus karena mengulang klip Altman | berlaku |
+| D-009 | 29 Okt 22:55 | Irfan | VO memakai suara Irfan sendiri lewat klon (rekaman `Vo_tanpa_kamera.m4a`, 106 dtk, dibersihkan → 98 dtk); ElevenLabs Instant Voice Clone `1MOP6dYxPUocHNWyDqR8`. Menggantikan pencarian narator perempuan (D-003) untuk video ini | tes 3 model dikirim |

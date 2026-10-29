@@ -1,7 +1,7 @@
-# Pengganti kita sendiri · script v3
+# Pengganti kita sendiri · script v4
 
 Proyek: `ai-change-everything` · akun personal @siirfannih · ±57 dtk · 1920×1080 · 30 fps
-Status: **FINAL** (Irfan, 29 Okt 2026 18:28 WITA).
+Status: **FINAL v4** (babak 4 = opsi A, Irfan 29 Okt 2026 22:55 WITA).
 
 Narator orang ketiga tanpa kata "aku". Teks di bawah adalah VO; baris dalam kurung siku adalah klip asli.
 
@@ -13,7 +13,7 @@ Narator orang ketiga tanpa kata "aku". Teks di bawah adalah VO; baris dalam kuru
 | 2 · Kenyataan | [Klip Jensen Huang, Milken Institute Global Conference 2025] "You're not going to lose your job to an AI, but you're going to lose your job to somebody who uses AI." (06:58–07:03, youtu.be/HT8-KPAjpiA) |
 | 3 · Visi berubah | Teknologi ini tidak peduli apakah kita skeptis atau tidak. Ia akan terus berevolusi. Lalu, apakah visi AI yang dulu masih sama dengan yang sekarang? |
 | 3 · Visi berubah | [Klip Sam Altman, wawancara Laurie Segall, Mostly Human] "It is a legitimate single-person billion-dollar company, as far as I can tell." (13:35+28,1 dtk ≈ 14:03–14:07, youtu.be/mJSnn0GZmls) |
-| 4 · Yang tidak terlihat | Perusahaan satu orang bernilai satu miliar dolar, katanya, sudah lahir. Di saat yang sama, banyak orang lain memakai tools yang sama persis. Membangun sama kerasnya. Dan produknya tidak pernah dipakai siapa pun. Mereka juga satu orang. Jadi, apa perbedaan mereka? |
+| 4 · Yang tidak terlihat | Itu satu cerita. Di belakangnya, banyak orang lain memakai tools yang sama persis. Membangun sama kerasnya. Dan produknya tidak pernah dipakai siapa pun. Mereka juga satu orang. Bedanya, cerita mereka tidak pernah masuk wawancara. Dan mungkin, karena hanya cerita itu yang kita dengar, kita terus berlomba membangun pengganti kita sendiri. |
 
 ## Keputusan uji storyteller (29 Okt)
 
@@ -26,6 +26,7 @@ Narator orang ketiga tanpa kata "aku". Teks di bawah adalah VO; baris dalam kuru
 | 5 | Revisi 18:12: "sekadar" → "sekedar" (VO dan teks layar); hapus "Yang jarang dibahas:"; penutup jadi pertanyaan | Irfan |
 | 6 | Data vibe coding (App Store +84%, TrustMRR 54% $0) | Visual saja di babak 4, VO tidak berubah |
 | 7 | VO v1 terlalu santai/fun; "kita menyukainya" janggal diucapkan (akhiran -i berulang) | Nada setelan A (eleven_v4, stability 0.85, similarity 0.8) + tempo ×1,06 + jeda ±0,3 dtk (acuan kaye.creatives); hook jadi "Tapi anehnya, kita menginginkan hal tersebut." (Irfan 18:48) |
+| 8 | Babak 4 mengulang klip Altman ("satu miliar dolar … sudah lahir"); penutup harus insight dari opini Irfan | Opsi A: "Itu satu cerita …" ditutup callback ke hook (Irfan 22:55) |
 
 Terbuka: "eksekutor bisnis" (usulan "yang menjalankan bisnisnya") belum diputus; tetap kata asli.
 
