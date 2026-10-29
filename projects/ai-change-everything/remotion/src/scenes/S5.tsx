@@ -1,18 +1,25 @@
 import React from 'react';
 import {AbsoluteFill, Sequence, interpolate, useCurrentFrame} from 'remotion';
+import {Cues, cluster} from '../comp/sound';
 import {At, DEPTH, Layer, Stage} from '../lib/stage';
 import {C, EASE_OUT, F} from '../lib/theme';
 import {TOTAL, wf} from '../lib/timing';
 import {Counter, KText, prog} from '../comp/text';
 import {AppTile, Label, Photo} from '../comp/ui';
+import {Figure} from '../comp/figure';
+import {PhraseKey} from '../comp/ktype';
 import {AnalyticsCard, RevenueChart} from '../comp/products';
 
 const T = (w: string, n = 0) => wf('05_tidakterlihat', w, n);
 const rp = (n: number) => '$' + Math.round(n).toLocaleString('id-ID');
 
-/* grid builder: 1 kartu utama di tengah + 14 lainnya */
-const GW = 560, GH = 360, GXS = 620, GYS = 420;
-const GRID_SRC = ['night1', 'hack1', 'night3', 'night5', 'hack4', 'night2', 'hack3', 'hack2', 'sil2', 'night3', 'hack1', 'night5', 'night2', 'hack4'];
+/* barisan builder (stickman 2,5D): baris depan → belakang, skala & redup = kedalaman */
+const FW = 560;
+const ROWS = [
+  {y: 230, s: 1, dim: 0, xs: [-1240, -620, 0, 620, 1240]},
+  {y: -10, s: 0.74, dim: 0.35, xs: [-1550, -930, -310, 310, 930, 1550]},
+  {y: -190, s: 0.55, dim: 0.6, xs: [-1860, -1240, -620, 0, 620, 1240, 1860]},
+];
 
 const Claim: React.FC<{start: number; len: number}> = ({start, len}) => {
   const fr = useCurrentFrame();
@@ -40,46 +47,35 @@ const Claim: React.FC<{start: number; len: number}> = ({start, len}) => {
       len={len}
       bg={C.black}
       keys={[
-        {f: 0, x: 0, y: 0, s: 1.6},
-        {f: di - 2, x: 0, y: 0, s: 1.66},
-        {f: banyak + 12, x: 0, y: 0, s: 0.56, ease: EASE_OUT},
-        {f: membangun, x: 0, y: 0, s: 0.54},
-        {f: len, x: 0, y: 0, s: 0.52},
+        {f: 0, x: 40, y: 230, s: 1.7},
+        {f: di - 2, x: 40, y: 230, s: 1.78},
+        {f: banyak + 14, x: 0, y: 40, s: 0.62, ease: EASE_OUT},
+        {f: membangun, x: 0, y: 40, s: 0.6},
+        {f: len, x: 0, y: 40, s: 0.58},
       ]}
     >
       <Layer depth={DEPTH.MID}>
-        {/* grid builder lain */}
-        {GRID_SRC.map((src, i) => {
-          const idx = i >= 7 ? i + 1 : i; // lewati sel tengah
-          const cx = (idx % 5) - 2;
-          const cy = Math.floor(idx / 5) - 1;
-          const d = Math.hypot(cx, cy);
-          const p = prog(fr, di - 4 + d * 3, di + 8 + d * 3);
-          const tileP = prog(fr, memakai + (i % 5), memakai + 6 + (i % 5));
-          return (
-            <At key={i} x={cx * GXS} y={cy * GYS} style={{opacity: p * gridIn * (1 - 0.8 * anaIn)}}>
-              <div style={{position: 'relative'}}>
-                <Photo src={src} w={GW} h={GH} radius={14} dim={0.25 + dimGrid * 0.7} />
-                <div style={{position: 'absolute', left: 18, bottom: 18, display: 'flex', gap: 10, opacity: tileP * (1 - dimGrid * 0.7), transform: `scale(${0.85 + 0.15 * tileP})`, transformOrigin: '0 100%'}}>
-                  <AppTile app="chatgptLight" size={64} />
-                  <AppTile app="claude" size={64} />
-                  <AppTile app="gemini" size={64} />
-                </div>
-              </div>
-            </At>
-          );
-        })}
-        {/* kartu builder utama */}
-        <At x={0} y={0} style={{opacity: photoIn * (1 - 0.8 * anaIn), transform: `translate(-50%,-50%) scale(${0.94 + 0.06 * photoIn})`}}>
-          <div style={{position: 'relative'}}>
-            <Photo src="night4" w={GW} h={GH} radius={14} dim={0.05 + dimGrid * 0.9} />
-            <div style={{position: 'absolute', left: 18, bottom: 18, display: 'flex', gap: 10, opacity: prog(fr, memakai, memakai + 6) * (1 - dimGrid * 0.7)}}>
-              <AppTile app="chatgptLight" size={64} />
-              <AppTile app="claude" size={64} />
-              <AppTile app="gemini" size={64} />
-            </div>
-          </div>
-        </At>
+        {/* builder lain: barisan meja yang menjauh (2,5D), semua mengetik dengan tools yang sama */}
+        {ROWS.flatMap((r, ri) =>
+          r.xs.map((x, xi) => {
+            const isMain = ri === 0 && x === 0;
+            const d = Math.abs(xi - (r.xs.length - 1) / 2) + ri;
+            const p = isMain ? photoIn : prog(fr, di - 4 + d * 3, di + 8 + d * 3) * gridIn;
+            const tileP = prog(fr, memakai + ((xi + ri) % 5), memakai + 6 + ((xi + ri) % 5));
+            return (
+              <At key={`${ri}-${xi}`} x={x * r.s} y={r.y} style={{opacity: p * (1 - 0.85 * anaIn), zIndex: 10 - ri}}>
+                <Figure
+                  w={FW * r.s}
+                  seed={ri * 7 + xi}
+                  lit={isMain ? 1 - dimGrid * 0.8 : 0}
+                  dim={Math.min(1, r.dim + dimGrid * 0.85)}
+                  screen="ai"
+                  badge={tileP * (1 - dimGrid * 0.8)}
+                />
+              </At>
+            );
+          }),
+        )}
       </Layer>
       {/* klaim $1 miliar */}
         {/* klaim $1 miliar: di atas kartu */}
@@ -108,7 +104,7 @@ const Claim: React.FC<{start: number; len: number}> = ({start, len}) => {
               <Counter from={0} to={1e9} f={satu} dur={24} fmt={rp} />
             </div>
             <div style={{marginTop: -6}}>
-              <KText lines={[[{t: 'katanya,', f: katanya, k: 'serif'}, {t: 'sudah', f: sudah}, {t: 'lahir.', f: g(T('lahir'))}]]} size={64} color={C.white} />
+              <KText lines={[[{t: 'katanya,', f: katanya, k: 'dim'}, {t: 'sudah', f: sudah}, {t: 'lahir.', f: g(T('lahir'))}]]} size={64} color={C.white} />
             </div>
           </div>
         </AbsoluteFill>
@@ -132,6 +128,7 @@ const Claim: React.FC<{start: number; len: number}> = ({start, len}) => {
       <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', opacity: chartIn}}>
         <RevenueChart w={1400} h={640} f0={dipakai} />
       </AbsoluteFill>
+      <Cues list={[{at: 0, s: 'thud', db: -6}, ...cluster(satu, 7, 3, -16, 'tick'), {at: satu + 22, s: 'thock', db: -8}, {at: lahirEnd, s: 'click', db: -12}, {at: lahirEnd, s: 'pop', db: -16}, {at: di - 2, s: 'move3', db: -8}, ...cluster(di + 2, 8, 2, -23), ...cluster(memakai, 6, 2, -18), {at: membangun - 2, s: 'impact', db: -8}, ...cluster(membangun, 5, 3, -20, 'tick'), {at: dan, s: 'pop', db: -12}, ...cluster(dipakai, 6, 3, -16)]} />
     </Stage>
   );
 };
@@ -140,79 +137,71 @@ const Claim: React.FC<{start: number; len: number}> = ({start, len}) => {
 const Them: React.FC<{start: number; len: number}> = ({start, len}) => {
   const g = (x: number) => x - start;
   return (
-    <Stage len={len} bg={C.black} keys={[{f: 0, x: 0, y: 0, s: 1.08}, {f: len, x: 0, y: 0, s: 1.0}]}>
-      <Layer depth={DEPTH.BG}>
-        <At>
-          <Photo src="sil1" w={2000} h={1200} pos="50% 40%" dim={0.15} />
+    <Stage len={len} bg={C.black} keys={[{f: 0, x: 70, y: 60, s: 0.98}, {f: len, x: 70, y: 50, s: 1.06}]}>
+      <Layer depth={DEPTH.MID}>
+        <At x={0} y={-60}>
+          <Figure w={820} pose="slump" screen="zero" seed={3} />
         </At>
       </Layer>
-      <AbsoluteFill style={{alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 150}}>
+      <AbsoluteFill style={{alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 70}}>
         <KText
           lines={[[{t: 'Mereka', f: g(T('Mereka'))}, {t: 'juga', f: g(T('juga'))}, {t: 'satu', f: g(T('satu', 1))}, {t: 'orang.', f: g(T('orang', 2)), k: 'key'}]]}
-          size={92}
+          size={84}
           color={C.white}
           keyColor={C.white}
           weight={600}
           exitF={len - 6}
         />
       </AbsoluteFill>
+      <Cues list={[{at: 0, s: 'swell', db: -12}, {at: 2, s: 'heart', db: -12}, {at: 24, s: 'heart', db: -15}]} />
     </Stage>
   );
 };
 
-/* 5e · apa perbedaan mereka? */
+/* 5e · apa perbedaan mereka? — teks dulu, lalu dua sosok identik: satu di bawah lampu, satu di gelap */
 const Diff: React.FC<{start: number; len: number}> = ({start, len}) => {
   const fr = useCurrentFrame();
   const g = (x: number) => x - start;
-  const apa = g(T('apa'));
   const beda = g(T('perbedaan'));
-  const spot = prog(fr, 4, 20);
+  const reveal = g(T('mereka', 1)) + 14;
+  const vis = prog(fr, reveal - 4, reveal + 10);
+  const lamp = prog(fr, reveal + 6, reveal + 22);
   return (
     <Stage
       len={len}
       bg={C.black}
       keys={[
-        {f: 0, x: -520, y: 0, s: 1.25},
-        {f: apa - 4, x: -520, y: 0, s: 1.28},
-        {f: beda + 6, x: 0, y: 60, s: 0.92, ease: EASE_OUT},
-        {f: len, x: 0, y: 60, s: 0.9},
+        {f: 0, x: 0, y: 40, s: 1.4},
+        {f: reveal - 4, x: 0, y: 40, s: 1.4},
+        {f: reveal + 16, x: 0, y: 40, s: 0.86, ease: EASE_OUT},
+        {f: len, x: 0, y: 40, s: 0.9},
       ]}
     >
       <Layer depth={DEPTH.MID}>
         {[
-          {x: -520, src: 'night4', v: '$1.000.000.000', lit: true},
-          {x: 520, src: 'night5', v: '$0', lit: false},
+          {x: -560, v: '$1.000.000.000', lit: true},
+          {x: 560, v: '$0', lit: false},
         ].map((c) => (
-          <At key={c.x} x={c.x} y={60}>
-            <div style={{position: 'relative'}}>
-              <div
-                style={{
-                  position: 'absolute',
-                  left: '50%',
-                  top: -260,
-                  width: 700,
-                  height: 900,
-                  transform: 'translateX(-50%)',
-                  background: c.lit ? `radial-gradient(ellipse at 50% 0%, rgba(255,255,255,${0.22 * spot}) 0%, rgba(255,255,255,0) 60%)` : 'none',
-                }}
-              />
-              <Photo src={c.src} w={620} h={620} radius={18} pos="50% 40%" dim={c.lit ? 0.05 : 0.45} />
-              <div style={{marginTop: 30, textAlign: 'center', fontFamily: F.sans, fontWeight: 600, fontSize: 56, letterSpacing: '-0.03em', color: c.lit ? C.white : 'rgba(255,255,255,0.5)'}}>
-                {c.v}
-              </div>
+          <At key={c.x} x={c.x} y={40} style={{opacity: vis}}>
+            <Figure w={760} seed={c.lit ? 1 : 4} lit={c.lit ? lamp : 0} dim={c.lit ? 0 : 0.45} screen={c.lit ? 'ai' : 'zero'} />
+            <div style={{marginTop: -30, textAlign: 'center', fontFamily: F.sans, fontWeight: 700, fontSize: 64, letterSpacing: '-0.035em', color: c.lit ? C.white : 'rgba(255,255,255,0.45)', opacity: prog(fr, reveal + 10, reveal + 20)}}>
+              {c.v}
             </div>
           </At>
         ))}
       </Layer>
-      <AbsoluteFill style={{alignItems: 'center', justifyContent: 'flex-start', paddingTop: 70}}>
-        <KText
-          lines={[[{t: 'Jadi,', f: g(T('jadi')), k: 'dim'}, {t: 'apa', f: apa}, {t: 'perbedaan', f: beda, k: 'keyserif'}, {t: 'mereka?', f: g(T('mereka', 1))}]]}
-          size={84}
-          color={C.white}
-          keyColor={C.white}
-          dimColor={C.whiteDim}
-        />
+      <PhraseKey
+        phrase={[{t: 'Jadi,', f: g(T('jadi'))}, {t: 'apa', f: g(T('apa'))}]}
+        keyText="PERBEDAAN MEREKA?"
+        keyAt={beda}
+        dark
+        keySize={170}
+        exitF={reveal - 8}
+      />
+      <AbsoluteFill style={{alignItems: 'center', justifyContent: 'flex-start', paddingTop: 80, opacity: prog(fr, reveal + 14, reveal + 26)}}>
+        <div style={{fontFamily: F.sans, fontWeight: 600, fontSize: 54, letterSpacing: '-0.025em', color: C.white}}>Jadi, apa perbedaan mereka?</div>
       </AbsoluteFill>
+      <Cues list={[{at: g(T('jadi')), s: 'pop', db: -18}, {at: beda - 7, s: 'thin', db: -12}, {at: beda, s: 'thock', db: -8}, {at: reveal - 4, s: 'move3', db: -10}, {at: reveal + 6, s: 'click', db: -12}, {at: reveal + 10, s: 'pop', db: -16}, {at: reveal + 13, s: 'pop', db: -18}]} />
     </Stage>
   );
 };

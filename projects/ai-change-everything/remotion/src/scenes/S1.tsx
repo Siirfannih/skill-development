@@ -1,9 +1,11 @@
 import React from 'react';
 import {AbsoluteFill, Sequence, interpolate, useCurrentFrame} from 'remotion';
+import {Cues, cluster} from '../comp/sound';
 import {At, DEPTH, Layer, Stage} from '../lib/stage';
 import {C, EASE_IN, EASE_OUT} from '../lib/theme';
 import {wf} from '../lib/timing';
 import {KText, prog} from '../comp/text';
+import {PhraseKey} from '../comp/ktype';
 import {AppTile, Photo} from '../comp/ui';
 import {ChatGPTUI} from '../comp/products';
 
@@ -66,17 +68,9 @@ const Race: React.FC<{zoomIn: number}> = ({zoomIn}) => {
         <At y={0}>
           <KText lines={[[{t: 'Tanpa', f: wf('01_hook', 'Tanpa')}, {t: 'kita', f: wf('01_hook', 'kita')}, {t: 'sadari,', f: wf('01_hook', 'sadari')}]]} size={92} color={C.white} exitF={b1 - 8} />
         </At>
-        <At y={0}>
-          <KText
-            lines={[[{t: 'kita', f: b1}, {t: 'sedang', f: wf('01_hook', 'sedang')}], [{t: 'berlomba-lomba.', f: kunci, k: 'key'}]]}
-            size={116}
-            color={C.whiteDim}
-            keyColor={C.white}
-            weight={650}
-            exitF={zoomIn - 2}
-          />
-        </At>
       </Layer>
+      <PhraseKey phrase={[{t: 'kita', f: b1}, {t: 'sedang', f: wf('01_hook', 'sedang')}]} keyText="BERLOMBA-LOMBA." keyAt={kunci} dark keySize={190} exitF={zoomIn - 2} />
+      <Cues list={[{at: 0, s: 'impact', db: -4}, {at: 0, s: 'swell', db: -12}, {at: wf('01_hook', 'Tanpa'), s: 'pop', db: -18}, {at: b1, s: 'pop', db: -18}, {at: pullA, s: 'move3', db: -10}, {at: kunci - 7, s: 'thin', db: -12}, {at: kunci, s: 'thock', db: -8}, {at: zoomIn, s: 'riser', db: -16}, {at: zoomIn + 11, s: 'lens', db: -10}]} />
     </Stage>
   );
 };
@@ -141,22 +135,22 @@ const Agent: React.FC<{start: number}> = ({start}) => {
             lines={[[{t: 'membangun', f: 0}, {t: 'pengganti', f: g(wf('01_hook', 'pengganti')), k: 'key'}, {t: 'kita', f: g(wf('01_hook', 'kita', 2))}, {t: 'sendiri.', f: g(wf('01_hook', 'sendiri'))}]]}
             size={96}
             color={C.ink}
-            keyColor={C.blue}
+            keyColor={C.ink}
             exitF={26}
           />
         </At>
       </Layer>
       {/* teks paradoks: di atas jendela yang di-blur (rack focus), terkunci ke layar */}
-      <AbsoluteFill style={{alignItems: 'center', justifyContent: 'center', opacity: textIn}}>
-        <KText lines={[[{t: 'Tapi', f: tapi}, {t: 'anehnya,', f: g(wf('01_hook', 'anehnya'))}]]} size={64} color={C.inkSoft} style={{marginBottom: 18}} />
-        <KText
-          lines={[[{t: 'kita', f: kita2}, {t: 'menginginkan', f: g(wf('01_hook', 'menginginkan')), k: 'keyserif'}, {t: 'hal', f: g(wf('01_hook', 'hal'))}, {t: 'tersebut.', f: g(wf('01_hook', 'tersebut'))}]]}
-          size={104}
-          color={C.ink}
-          keyColor={C.ink}
-          weight={650}
+      <AbsoluteFill style={{opacity: textIn}}>
+        <PhraseKey
+          phrase={[{t: 'Tapi', f: tapi}, {t: 'anehnya,', f: g(wf('01_hook', 'anehnya'))}, {t: 'kita', f: kita2}]}
+          keyText="MENGINGINKAN"
+          keyAt={g(wf('01_hook', 'menginginkan'))}
+          dark={false}
+          keySize={170}
         />
       </AbsoluteFill>
+      <Cues list={[{at: 1, s: 'pop', db: -18}, {at: 22, s: 'move1', db: -12}, {at: 32, s: 'click', db: -9}, {at: 38, s: 'typing', db: -22}, {at: 58, s: 'pop', db: -17}, {at: tapi - 12, s: 'move3', db: -10}, ...cluster(tapi - 12, 8, 1.5, -22), {at: tapi, s: 'pop', db: -18}, {at: g(wf('01_hook', 'menginginkan')) - 7, s: 'thin', db: -12}, {at: g(wf('01_hook', 'menginginkan')), s: 'thock', db: -8}]} />
     </Stage>
   );
 };

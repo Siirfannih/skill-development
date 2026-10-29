@@ -1,0 +1,32 @@
+{
+ "positive_global_styles": [
+  "instrumental cinematic underscore for a serious documentary-style short film about AI and work",
+  "modern, premium, restrained, clean mix",
+  "full level from the very first beat, no fade-in, no silence"
+ ],
+ "negative_global_styles": [
+  "vocals",
+  "lyrics",
+  "choir",
+  "cheesy",
+  "happy pop",
+  "lo-fi",
+  "silence",
+  "fade in"
+ ],
+ "sections": [
+  {
+   "section_name": "c2_janji",
+   "positive_local_styles": [
+    "the old promise: calm, clear and hopeful but restrained, soft warm synth pad with a gentle plucked arpeggio at 112 bpm, light and airy, slightly nostalgic"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "drums heavy",
+    "sad"
+   ],
+   "duration_ms": 12000,
+   "lines": []
+  }
+ ]
+}

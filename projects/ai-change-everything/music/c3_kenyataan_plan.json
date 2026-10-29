@@ -1,0 +1,32 @@
+{
+ "positive_global_styles": [
+  "instrumental cinematic underscore for a serious documentary-style short film about AI and work",
+  "modern, premium, restrained, clean mix",
+  "full level from the very first beat, no fade-in, no silence"
+ ],
+ "negative_global_styles": [
+  "vocals",
+  "lyrics",
+  "choir",
+  "cheesy",
+  "happy pop",
+  "lo-fi",
+  "silence",
+  "fade in"
+ ],
+ "sections": [
+  {
+   "section_name": "c3_kenyataan",
+   "positive_local_styles": [
+    "reality hits: driving tense electronic pulse at 120 bpm, pulsing low synth bass, muted hi-hats, ominous minor arpeggio, keeps building and getting denser, mechanical and cold"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "happy",
+    "piano"
+   ],
+   "duration_ms": 20000,
+   "lines": []
+  }
+ ]
+}

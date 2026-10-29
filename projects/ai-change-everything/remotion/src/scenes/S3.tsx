@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Sequence, useCurrentFrame} from 'remotion';
+import {Cues, cluster} from '../comp/sound';
 import {At, DEPTH, Layer, Stage} from '../lib/stage';
 import {C, EASE_OUT, F} from '../lib/theme';
 import {seg, wf} from '../lib/timing';
@@ -108,11 +109,8 @@ const Reality: React.FC<{start: number; len: number}> = ({start, len}) => {
         </At>
         <At x={0} y={-110}>
           <KText
-            lines={[
-              [{t: 'tidak', f: k('tidak')}, {t: 'lagi', f: k('lagi')}, {t: 'sekedar', f: sek, k: 'keyserif'}],
-              [{t: 'lebih', f: k('lebih')}, {t: 'cepat.', f: cepat, k: 'key'}],
-            ]}
-            size={96}
+            lines={[[{t: 'tidak', f: k('tidak')}, {t: 'lagi', f: k('lagi')}, {t: 'sekedar', f: sek, k: 'key'}, {t: 'lebih', f: k('lebih')}, {t: 'cepat.', f: cepat, k: 'key'}]]}
+            size={84}
             color={C.whiteDim}
             keyColor={C.white}
             weight={650}
@@ -121,7 +119,7 @@ const Reality: React.FC<{start: number; len: number}> = ({start, len}) => {
         </At>
         <At x={0} y={1900 * DEPTH.TXT - 400}>
           <KText
-            lines={[[{t: 'mengkloning', f: mk, k: 'keyserif'}, {t: 'diri', f: k('diri')}, {t: 'kita', f: k('kita', 2)}, {t: 'sendiri.', f: k('sendiri')}]]}
+            lines={[[{t: 'mengkloning', f: mk, k: 'key'}, {t: 'diri', f: k('diri')}, {t: 'kita', f: k('kita', 2)}, {t: 'sendiri.', f: k('sendiri')}]]}
             size={84}
             color={C.white}
             keyColor={C.white}
@@ -129,6 +127,7 @@ const Reality: React.FC<{start: number; len: number}> = ({start, len}) => {
           />
         </At>
       </Layer>
+      <Cues list={[{at: 0, s: 'impact', db: -5}, {at: 0, s: 'thud', db: -8}, {at: k('kita') - 2, s: 'pop', db: -16}, {at: k('memakai'), s: 'typing', db: -17}, {at: k('memakai') + 12, s: 'typing', db: -19}, {at: k('memakai') + 24, s: 'typing', db: -19}, {at: k('memakai') + 41, s: 'click', db: -8}, {at: sek, s: 'thock2', db: -12}, {at: cepat, s: 'thock', db: -10}, {at: mk - 10, s: 'move1', db: -10}, {at: mk + 2, s: 'thin', db: -14}, {at: mk + 10, s: 'pop', db: -16}, {at: mk + 14, s: 'pop', db: -18}, {at: cs - 10, s: 'move3', db: -10}, ...cluster(cs - 4, 4, 10, -15), {at: ve - 4, s: 'move2', db: -10}, ...cluster(ve + 8, 7, 6, -21, 'clack'), {at: eb - 2, s: 'move2', db: -10}, ...[0, 1, 2].map((i) => ({at: eb + 18 + i * 9, s: 'pop', db: -14 - i}))]} />
     </Stage>
   );
 };
@@ -168,8 +167,16 @@ export const Quote: React.FC<{
         </At>
       </Layer>
       <AbsoluteFill style={{justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 70}}>
-        <KText lines={[toWd(words.slice(0, split)), toWd(words.slice(split))]} size={40} color={dark ? '#fff' : C.ink} weight={500} tracking={-0.01} lineGap={1.25} />
+        <div style={{position: 'relative', height: 60, width: '100%'}}>
+          <div style={{position: 'absolute', left: 0, right: 0}}>
+            <KText lines={[toWd(words.slice(0, split))]} size={42} color={dark ? '#fff' : C.ink} weight={500} tracking={-0.01} exitF={Math.round(words[split][1] * 30) - 5} />
+          </div>
+          <div style={{position: 'absolute', left: 0, right: 0}}>
+            <KText lines={[toWd(words.slice(split))]} size={42} color={dark ? '#fff' : C.ink} weight={500} tracking={-0.01} />
+          </div>
+        </div>
       </AbsoluteFill>
+      <Cues list={[{at: 0, s: 'lens', db: -10}, {at: 0, s: 'swell2', db: -17}]} />
     </Stage>
   );
 };

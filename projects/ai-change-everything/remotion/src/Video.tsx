@@ -7,6 +7,7 @@ import {S2} from './scenes/S2';
 import {S3} from './scenes/S3';
 import {S4} from './scenes/S4';
 import {S5} from './scenes/S5';
+import {MusicCue} from './comp/sound';
 
 export const Video: React.FC<{withVo?: boolean}> = ({withVo = true}) => {
   const s2 = wf('02_janji', 'Janjinya');
@@ -27,6 +28,12 @@ export const Video: React.FC<{withVo?: boolean}> = ({withVo = true}) => {
       <Sequence from={wf('05_tidakterlihat', 'Perusahaan') - 8}>
         <S5 start={wf('05_tidakterlihat', 'Perusahaan') - 8} />
       </Sequence>
+      {/* musik per babak (rule 25): tiap cue punya satu tugas, berganti di batas babak */}
+      <MusicCue src="c1_hook" from={0} to={s2} base={-8} />
+      <MusicCue src="c2_janji" from={s2} to={wf('03_kenyataan', 'Tapi')} base={-7} />
+      <MusicCue src="c3_kenyataan" from={wf('03_kenyataan', 'Tapi')} to={wf('04_visi', 'Teknologi') - 3} base={-9} skip={2.6} tailOut={4} />
+      <MusicCue src="c4_visi" from={wf('04_visi', 'Teknologi') - 3} to={wf('05_tidakterlihat', 'Perusahaan') - 8} base={-8} skip={1.0} />
+      <MusicCue src="c5_sunyi" from={wf('05_tidakterlihat', 'Perusahaan') - 8} to={TOTAL} base={-7} tailOut={0} />
       {withVo ? <Audio src={staticFile('audio/vo_temp.wav')} /> : null}
     </AbsoluteFill>
   );

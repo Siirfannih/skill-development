@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, Sequence, useCurrentFrame} from 'remotion';
+import {Cues, cluster} from '../comp/sound';
 import {At, DEPTH, Layer, Stage} from '../lib/stage';
 import {C, EASE_OUT, F} from '../lib/theme';
 import {seg, wf} from '../lib/timing';
@@ -7,6 +8,7 @@ import {KText, prog} from '../comp/text';
 import {AppTile, Label, Photo} from '../comp/ui';
 import {TweetCard} from '../comp/products';
 import {Quote} from './S3';
+import {PhraseKey} from '../comp/ktype';
 import {measureText} from '@remotion/layout-utils';
 
 const V = (w: string, n = 0) => wf('04_visi', w, n);
@@ -63,9 +65,9 @@ const Vision: React.FC<{start: number; len: number}> = ({start, len}) => {
         {f: evo + 26, x: EG * 5, y: EY, s: 1.0, ease: [0.45, 0, 0.55, 1]},
         {f: lalu + 6, x: EG * 5, y: EY, s: 1.0},
         {f: lalu + 20, x: -380, y: TY - 60, s: 1.18, ease: EASE_OUT},
-        {f: masih + 2, x: -380, y: TY - 60, s: 1.22},
-        {f: masih + 20, x: 520, y: TY, s: 0.94, ease: EASE_OUT},
-        {f: len, x: 540, y: TY, s: 0.96},
+        {f: masih - 8, x: -380, y: TY - 60, s: 1.22},
+        {f: masih + 8, x: 1000, y: TY, s: 0.94, ease: EASE_OUT},
+        {f: len, x: 1020, y: TY, s: 0.96},
       ]}
     >
       <Layer depth={DEPTH.MID}>
@@ -104,46 +106,30 @@ const Vision: React.FC<{start: number; len: number}> = ({start, len}) => {
             2023
           </Label>
         </At>
-        <At x={760} y={TY - 330} style={{opacity: prog(fr, skr - 2, skr + 8)}}>
-          <Label color="rgba(17,17,17,0.5)" size={26}>
-            2026
-          </Label>
-        </At>
-        <div
-          style={{
-            position: 'absolute',
-            left: 200,
-            top: TY - 330,
-            height: 2,
-            width: 400 * prog(fr, masih, masih + 22, 'inout'),
-            background: 'rgba(17,17,17,0.18)',
-          }}
-        />
       </Layer>
       {/* teks berevolusi: terkunci ke layar, di bawah barisan */}
       <AbsoluteFill style={{justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 90}}>
-        <KText lines={[[{t: 'Ia', f: ia}, {t: 'akan', f: g(V('akan'))}, {t: 'terus', f: g(V('terus'))}, {t: 'berevolusi.', f: evo, k: 'keyserif'}]]} size={78} color={C.ink} keyColor={C.ink} exitF={lalu - 2} />
+        <KText lines={[[{t: 'Ia', f: ia}, {t: 'akan', f: g(V('akan'))}, {t: 'terus', f: g(V('terus'))}, {t: 'berevolusi.', f: evo, k: 'key'}]]} size={78} color={C.ink} keyColor={C.ink} exitF={lalu - 2} />
       </AbsoluteFill>
       <Layer depth={DEPTH.TXT}>
         <At x={-380 * DEPTH.TXT} y={TY * DEPTH.TXT - 330}>
           <KText
-            lines={[[{t: 'Lalu,', f: lalu, k: 'dim'}, {t: 'apakah', f: g(V('apakah', 1))}, {t: 'visi', f: g(V('visi'))}, {t: 'AI', f: g(V('AI'))}], [{t: 'yang', f: g(V('yang'))}, {t: 'dulu', f: dulu, k: 'key'}]]}
-            size={74}
+            lines={[[{t: 'apakah', f: g(V('apakah', 1))}, {t: 'visi', f: g(V('visi'))}, {t: 'AI', f: g(V('AI'))}, {t: 'yang', f: g(V('yang'))}, {t: 'dulu', f: dulu, k: 'key'}]]}
+            size={70}
             color={C.ink}
-            keyColor={C.blue}
+            keyColor={C.ink}
             dimColor={C.inkSoft}
           />
         </At>
-        <At x={760 * DEPTH.TXT - 60} y={TY * DEPTH.TXT + 20}>
-          <KText
-            lines={[[{t: 'masih', f: masih}, {t: 'sama', f: g(V('sama'))}], [{t: 'dengan', f: g(V('dengan'))}, {t: 'yang', f: g(V('yang', 1))}], [{t: 'sekarang?', f: skr, k: 'keyserif'}]]}
-            size={96}
-            color={C.ink}
-            keyColor={C.ink}
-            weight={650}
-          />
-        </At>
       </Layer>
+      <PhraseKey
+        phrase={[{t: 'masih', f: masih}, {t: 'sama', f: g(V('sama'))}, {t: 'dengan', f: g(V('dengan'))}, {t: 'yang', f: g(V('yang', 1))}]}
+        keyText="SEKARANG?"
+        keyAt={skr}
+        dark={false}
+        keySize={200}
+      />
+      <Cues list={[{at: 0, s: 'thin', db: -12}, {at: onsets[6], s: 'thock', db: -10}, {at: ia - 4, s: 'move1', db: -10}, ...cluster(ia - 6, 6, 2, -19), {at: evo, s: 'move2', db: -14}, {at: lalu + 6, s: 'move3', db: -10}, {at: dulu, s: 'thock2', db: -12}, {at: masih + 2, s: 'move1', db: -10}, {at: skr - 7, s: 'thin', db: -12}, {at: skr, s: 'thock', db: -8}]} />
     </Stage>
   );
 };

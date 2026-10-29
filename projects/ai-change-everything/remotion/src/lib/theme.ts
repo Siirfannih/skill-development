@@ -3,19 +3,19 @@ export const H = 1080;
 export const FPS = 30;
 
 export const C = {
-  black: '#0A0A0A',
-  paper: '#F6F5F2',
-  ink: '#111111',
-  inkSoft: 'rgba(17,17,17,0.42)',
+  black: '#101216', // charcoal (R4-01)
+  paper: '#F5F5F7', // off-white (R4-01)
+  ink: '#101216',
+  inkSoft: 'rgba(16,18,22,0.42)',
   white: '#FFFFFF',
   whiteDim: 'rgba(255,255,255,0.46)',
-  blue: '#2563EB', // hanya di latar terang
+  blue: '#2F55C8', // diredam (R4-01), hanya di latar terang
   line: 'rgba(17,17,17,0.10)',
 };
 
 export const F = {
   sans: '"Inter", system-ui, sans-serif',
-  serif: '"Instrument Serif", Georgia, serif',
+  serif: '"Inter", system-ui, sans-serif', // R4-02: tanpa serif dekoratif
   mono: '"JetBrains Mono", ui-monospace, monospace',
   claude: '"Source Serif 4", Georgia, serif',
 };

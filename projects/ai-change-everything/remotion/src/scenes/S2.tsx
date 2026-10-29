@@ -1,5 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, interpolate, useCurrentFrame} from 'remotion';
+import {Cues, cluster} from '../comp/sound';
 import {At, DEPTH, Layer, Stage} from '../lib/stage';
 import {C, EASE_OUT, F} from '../lib/theme';
 import {wf} from '../lib/timing';
@@ -150,19 +151,33 @@ export const S2: React.FC<{start: number}> = ({start}) => {
             lines={[[{t: 'AI', f: ai}, {t: 'mengambil', f: ambil}, {t: 'pekerjaan', f: pek}, {t: 'yang', f: g(wf('02_janji', 'yang'))}, {t: 'membosankan.', f: g(wf('02_janji', 'membosankan')), k: 'key'}]]}
             size={62}
             color={C.ink}
-            keyColor={C.blue}
+            keyColor={C.ink}
             exitF={supaya - 6}
           />
         </At>
       </Layer>
         <AbsoluteFill style={{alignItems: 'center', justifyContent: 'flex-end', paddingBottom: 120}}>
-          <KText
-            lines={[[{t: 'supaya', f: supaya}, {t: 'manusia', f: manusia}, {t: 'bisa', f: g(wf('02_janji', 'bisa'))}, {t: 'fokus', f: g(wf('02_janji', 'fokus'))}], [{t: 'menjadi', f: g(wf('02_janji', 'menjadi'))}, {t: 'lebih', f: g(wf('02_janji', 'lebih'))}, {t: 'kreatif.', f: kreatif, k: 'keyserif'}]]}
-            size={76}
-            color={C.ink}
-            keyColor={C.blue}
-          />
+          <div style={{position: 'relative', height: 110, width: '100%'}}>
+            <div style={{position: 'absolute', left: 0, right: 0, top: 0}}>
+              <KText
+                lines={[[{t: 'supaya', f: supaya}, {t: 'manusia', f: manusia}, {t: 'bisa', f: g(wf('02_janji', 'bisa'))}, {t: 'fokus', f: g(wf('02_janji', 'fokus'))}]]}
+                size={76}
+                color={C.ink}
+                exitF={g(wf('02_janji', 'menjadi')) - 6}
+              />
+            </div>
+            <div style={{position: 'absolute', left: 0, right: 0, top: 0}}>
+              <KText
+                lines={[[{t: 'menjadi', f: g(wf('02_janji', 'menjadi'))}, {t: 'lebih', f: g(wf('02_janji', 'lebih'))}, {t: 'kreatif.', f: kreatif, k: 'key'}]]}
+                size={76}
+                color={C.ink}
+                keyColor={C.ink}
+                weight={600}
+              />
+            </div>
+          </div>
         </AbsoluteFill>
+      <Cues list={[{at: 0, s: 'thin', db: -12}, {at: 1, s: 'pop', db: -18}, {at: g(wf('02_janji', 'sederhana')), s: 'thock2', db: -11}, ...cluster(ai - 6, 5, 2, -19), {at: ai, s: 'pop', db: -14}, ...TASKS.flatMap((_, i) => [{at: ambil + i * 7, s: 'thin', db: -22}, {at: ambil + i * 7 + 11, s: 'pop', db: -15}]), {at: g(wf('02_janji', 'membosankan')), s: 'thock2', db: -12}, {at: supaya - 6, s: 'move1', db: -11}, {at: manusia, s: 'swell2', db: -14}, {at: kreatif - 2, s: 'move3', db: -11}, ...cluster(kreatif, 3, 4, -16)]} />
     </Stage>
   );
 };
