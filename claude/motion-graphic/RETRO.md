@@ -92,3 +92,13 @@ Akar masalah: visual dipilih dari aset yang sudah ada, bukan dari subjek kalimat
 Aturan: SKILL.md rules inti 31–32.
 Status: diterapkan di v12 (orang + sorot cahaya ke ujung SELERA; lingkaran zona nyaman, kita tersentak, percik AI jadi salinan yang merebut tengah; drone + swell setelah "berhenti"; bed penuh sejak frame 0; riser pra-drop).
 - 16:44 koreksi: piktogram orang di grafik pembuka dibatalkan (lebih kecil dari kurva, tidak masuk akal; v10 sudah bagus, hanya kameranya yang diminta). AI di beat "takut digantikan" digambar sebagai AI (tile ChatGPT/Claude/Gemini), bukan manusia. Rule 31 diperjelas.
+
+### 2026-10-29 · AI change everything · narator menjadi biografi lalu reportase
+
+- Bukti: draf A1 (block 73194) membuka “Dia takut pekerjaannya diganti AI”, lalu mengenalkan Irfan. Setelah dikritik, A2 (block 49218) memajukan Sam Altman tetapi langsung dilanjutkan angka Klarna. Keduanya ditolak.
+- Koreksi Irfan, verbatim: “Kita nggak nge-report apa yang terjadi di dunia, tapi kita menceritakan permasalahan yang terjadi.”
+- Diagnosis sementara: pusat cerita kandidat pertama berpindah. Konteks otoritas penulis dianggap cerita personal, lalu permintaan bukti dianggap alasan mendahulukan laporan kasus. Skill sudah dibaca; belum terbukti perlu aturan baru.
+- Keputusan khusus konten: narator mengembangkan keresahan bersama dan kontradiksinya; kutipan/data memeriksa serta memperjelas persoalan itu. Pembuka asli diapresiasi, belum dinyatakan final. Penempatan akhir insert Sam masih terbuka.
+- Batas: bukan larangan data untuk akun personal atau kewajiban membuka semua video dengan tokoh terkenal.
+- Status: kegagalan dicatat; belum ada draf perbaikan yang disetujui atau evaluasi perilaku lama vs baru; tidak ada patch aturan aktif.
+- Bukti lengkap: [catatan proyek](../../projects/ai-change-everything/NARRATOR-REVIEW.md). [Inbox evaluasi](evals/inbox/2026-10-29-ai-change-everything-narrator.md).
