@@ -1,0 +1,6 @@
+node_modules
+out
+qa
+public/clip
+public/audio
+*.log

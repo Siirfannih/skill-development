@@ -1,0 +1,775 @@
+{
+ "fps": 30,
+ "duration": 66.69,
+ "segments": [
+  {
+   "id": "01_hook",
+   "s": 0.35,
+   "e": 7.768
+  },
+  {
+   "id": "02_janji",
+   "s": 8.168,
+   "e": 15.918
+  },
+  {
+   "id": "03_kenyataan",
+   "s": 16.368,
+   "e": 27.192
+  },
+  {
+   "id": "jensen",
+   "s": 27.542,
+   "e": 32.063,
+   "text": "You're not going to lose your job to an AI, but you're going to lose your job to somebody who uses AI.",
+   "src": "/home/claude/clips/jensen_quote.mp4",
+   "in": 0.05
+  },
+  {
+   "id": "04_visi",
+   "s": 32.413,
+   "e": 42.112
+  },
+  {
+   "id": "altman",
+   "s": 42.462,
+   "e": 46.083,
+   "text": "It is a legitimate single-person billion-dollar company, as far as I can tell.",
+   "src": "/home/claude/clips/altman_quote.mp4",
+   "in": 0.08
+  },
+  {
+   "id": "05_tidakterlihat",
+   "s": 46.483,
+   "e": 64.09
+  }
+ ],
+ "words": [
+  {
+   "w": "Tanpa",
+   "s": 0.35,
+   "e": 0.69,
+   "seg": "01_hook"
+  },
+  {
+   "w": "kita",
+   "s": 0.69,
+   "e": 0.85,
+   "seg": "01_hook"
+  },
+  {
+   "w": "sadari,",
+   "s": 0.85,
+   "e": 1.39,
+   "seg": "01_hook"
+  },
+  {
+   "w": "kita",
+   "s": 1.71,
+   "e": 1.87,
+   "seg": "01_hook"
+  },
+  {
+   "w": "sedang",
+   "s": 1.87,
+   "e": 2.17,
+   "seg": "01_hook"
+  },
+  {
+   "w": "berlomba",
+   "s": 2.17,
+   "e": 2.55,
+   "seg": "01_hook"
+  },
+  {
+   "w": "-lomba",
+   "s": 2.55,
+   "e": 2.97,
+   "seg": "01_hook"
+  },
+  {
+   "w": "membangun",
+   "s": 2.97,
+   "e": 3.43,
+   "seg": "01_hook"
+  },
+  {
+   "w": "pengganti",
+   "s": 3.43,
+   "e": 3.97,
+   "seg": "01_hook"
+  },
+  {
+   "w": "kita",
+   "s": 3.97,
+   "e": 4.21,
+   "seg": "01_hook"
+  },
+  {
+   "w": "sendiri.",
+   "s": 4.21,
+   "e": 4.57,
+   "seg": "01_hook"
+  },
+  {
+   "w": "Tapi",
+   "s": 4.89,
+   "e": 5.15,
+   "seg": "01_hook"
+  },
+  {
+   "w": "anehnya,",
+   "s": 5.15,
+   "e": 5.75,
+   "seg": "01_hook"
+  },
+  {
+   "w": "kita",
+   "s": 6.03,
+   "e": 6.25,
+   "seg": "01_hook"
+  },
+  {
+   "w": "menginginkan",
+   "s": 6.25,
+   "e": 7.03,
+   "seg": "01_hook"
+  },
+  {
+   "w": "hal",
+   "s": 7.03,
+   "e": 7.19,
+   "seg": "01_hook"
+  },
+  {
+   "w": "tersebut.",
+   "s": 7.19,
+   "e": 7.63,
+   "seg": "01_hook"
+  },
+  {
+   "w": "Janjinya",
+   "s": 8.168,
+   "e": 8.648,
+   "seg": "02_janji"
+  },
+  {
+   "w": "dulu",
+   "s": 8.648,
+   "e": 8.928,
+   "seg": "02_janji"
+  },
+  {
+   "w": "sederhana,",
+   "s": 8.928,
+   "e": 9.628,
+   "seg": "02_janji"
+  },
+  {
+   "w": "AI",
+   "s": 9.908,
+   "e": 10.328,
+   "seg": "02_janji"
+  },
+  {
+   "w": "akan",
+   "s": 10.328,
+   "e": 10.628,
+   "seg": "02_janji"
+  },
+  {
+   "w": "mengambil",
+   "s": 10.628,
+   "e": 11.028,
+   "seg": "02_janji"
+  },
+  {
+   "w": "pekerjaan",
+   "s": 11.028,
+   "e": 11.648,
+   "seg": "02_janji"
+  },
+  {
+   "w": "yang",
+   "s": 11.648,
+   "e": 11.728,
+   "seg": "02_janji"
+  },
+  {
+   "w": "membosankan",
+   "s": 11.728,
+   "e": 12.488,
+   "seg": "02_janji"
+  },
+  {
+   "w": "supaya",
+   "s": 12.488,
+   "e": 13.248,
+   "seg": "02_janji"
+  },
+  {
+   "w": "manusia",
+   "s": 13.248,
+   "e": 13.808,
+   "seg": "02_janji"
+  },
+  {
+   "w": "bisa",
+   "s": 13.808,
+   "e": 13.948,
+   "seg": "02_janji"
+  },
+  {
+   "w": "fokus",
+   "s": 13.948,
+   "e": 14.548,
+   "seg": "02_janji"
+  },
+  {
+   "w": "menjadi",
+   "s": 14.548,
+   "e": 14.828,
+   "seg": "02_janji"
+  },
+  {
+   "w": "lebih",
+   "s": 14.828,
+   "e": 15.068,
+   "seg": "02_janji"
+  },
+  {
+   "w": "kreatif.",
+   "s": 15.068,
+   "e": 15.748,
+   "seg": "02_janji"
+  },
+  {
+   "w": "Tapi",
+   "s": 16.368,
+   "e": 16.588,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "hari",
+   "s": 16.588,
+   "e": 16.788,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "ini,",
+   "s": 16.788,
+   "e": 17.088,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "kita",
+   "s": 17.368,
+   "e": 17.668,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "tidak",
+   "s": 17.668,
+   "e": 17.848,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "lagi",
+   "s": 17.848,
+   "e": 18.188,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "memakai",
+   "s": 18.188,
+   "e": 18.608,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "AI",
+   "s": 18.608,
+   "e": 18.908,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "sekedar",
+   "s": 18.908,
+   "e": 19.428,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "untuk",
+   "s": 19.428,
+   "e": 19.648,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "bekerja",
+   "s": 19.648,
+   "e": 20.168,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "lebih",
+   "s": 20.168,
+   "e": 20.348,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "cepat.",
+   "s": 20.348,
+   "e": 20.888,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "Kita",
+   "s": 20.928,
+   "e": 21.148,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "mengkloning",
+   "s": 21.148,
+   "e": 21.748,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "diri",
+   "s": 21.748,
+   "e": 22.048,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "kita",
+   "s": 22.048,
+   "e": 22.168,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "sendiri",
+   "s": 22.168,
+   "e": 22.528,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "dari",
+   "s": 22.528,
+   "e": 23.208,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "customer",
+   "s": 23.208,
+   "e": 23.688,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "service,",
+   "s": 23.688,
+   "e": 24.228,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "video",
+   "s": 24.568,
+   "e": 24.788,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "editor,",
+   "s": 24.788,
+   "e": 25.248,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "sampai",
+   "s": 25.548,
+   "e": 25.828,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "executor",
+   "s": 25.828,
+   "e": 26.428,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "bisnis.",
+   "s": 26.428,
+   "e": 26.828,
+   "seg": "03_kenyataan"
+  },
+  {
+   "w": "Teknologi",
+   "s": 32.413,
+   "e": 32.953,
+   "seg": "04_visi"
+  },
+  {
+   "w": "ini",
+   "s": 32.953,
+   "e": 33.133,
+   "seg": "04_visi"
+  },
+  {
+   "w": "tidak",
+   "s": 33.133,
+   "e": 33.373,
+   "seg": "04_visi"
+  },
+  {
+   "w": "peduli.",
+   "s": 33.373,
+   "e": 33.873,
+   "seg": "04_visi"
+  },
+  {
+   "w": "Apakah",
+   "s": 34.133,
+   "e": 34.413,
+   "seg": "04_visi"
+  },
+  {
+   "w": "kita",
+   "s": 34.413,
+   "e": 34.613,
+   "seg": "04_visi"
+  },
+  {
+   "w": "skeptis",
+   "s": 34.613,
+   "e": 35.253,
+   "seg": "04_visi"
+  },
+  {
+   "w": "atau",
+   "s": 35.253,
+   "e": 35.413,
+   "seg": "04_visi"
+  },
+  {
+   "w": "tidak?",
+   "s": 35.413,
+   "e": 35.733,
+   "seg": "04_visi"
+  },
+  {
+   "w": "Ia",
+   "s": 36.013,
+   "e": 36.273,
+   "seg": "04_visi"
+  },
+  {
+   "w": "akan",
+   "s": 36.273,
+   "e": 36.453,
+   "seg": "04_visi"
+  },
+  {
+   "w": "terus",
+   "s": 36.453,
+   "e": 36.893,
+   "seg": "04_visi"
+  },
+  {
+   "w": "berevolusi.",
+   "s": 36.893,
+   "e": 37.633,
+   "seg": "04_visi"
+  },
+  {
+   "w": "Lalu,",
+   "s": 37.973,
+   "e": 38.413,
+   "seg": "04_visi"
+  },
+  {
+   "w": "apakah",
+   "s": 38.613,
+   "e": 39.073,
+   "seg": "04_visi"
+  },
+  {
+   "w": "visi",
+   "s": 39.073,
+   "e": 39.473,
+   "seg": "04_visi"
+  },
+  {
+   "w": "AI",
+   "s": 39.473,
+   "e": 39.733,
+   "seg": "04_visi"
+  },
+  {
+   "w": "yang",
+   "s": 39.733,
+   "e": 39.973,
+   "seg": "04_visi"
+  },
+  {
+   "w": "dulu",
+   "s": 39.973,
+   "e": 40.313,
+   "seg": "04_visi"
+  },
+  {
+   "w": "masih",
+   "s": 40.313,
+   "e": 40.653,
+   "seg": "04_visi"
+  },
+  {
+   "w": "sama",
+   "s": 40.653,
+   "e": 41.073,
+   "seg": "04_visi"
+  },
+  {
+   "w": "dengan",
+   "s": 41.073,
+   "e": 41.313,
+   "seg": "04_visi"
+  },
+  {
+   "w": "yang",
+   "s": 41.313,
+   "e": 41.473,
+   "seg": "04_visi"
+  },
+  {
+   "w": "sekarang?",
+   "s": 41.473,
+   "e": 41.813,
+   "seg": "04_visi"
+  },
+  {
+   "w": "Perusahaan",
+   "s": 46.483,
+   "e": 47.063,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "satu",
+   "s": 47.063,
+   "e": 47.223,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "orang",
+   "s": 47.223,
+   "e": 47.623,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "bernilai",
+   "s": 47.623,
+   "e": 48.163,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "1",
+   "s": 48.163,
+   "e": 48.583,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "miliar",
+   "s": 48.583,
+   "e": 49.003,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "dolar,",
+   "s": 49.003,
+   "e": 49.503,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "katanya",
+   "s": 49.743,
+   "e": 50.223,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "sudah",
+   "s": 50.223,
+   "e": 50.843,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "lahir.",
+   "s": 50.843,
+   "e": 51.383,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "Bisaat",
+   "s": 51.663,
+   "e": 51.963,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "yang",
+   "s": 51.963,
+   "e": 52.083,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "sama,",
+   "s": 52.083,
+   "e": 52.403,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "banyak",
+   "s": 52.703,
+   "e": 53.003,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "orang",
+   "s": 53.003,
+   "e": 53.223,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "lain",
+   "s": 53.223,
+   "e": 53.563,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "memakai",
+   "s": 53.563,
+   "e": 54.023,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "tools",
+   "s": 54.023,
+   "e": 54.303,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "yang",
+   "s": 54.303,
+   "e": 54.583,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "sama",
+   "s": 54.583,
+   "e": 55.063,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "persis,",
+   "s": 55.063,
+   "e": 55.643,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "membangun",
+   "s": 55.823,
+   "e": 56.443,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "sama",
+   "s": 56.443,
+   "e": 56.823,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "kerasnya,",
+   "s": 56.823,
+   "e": 57.443,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "dan",
+   "s": 57.723,
+   "e": 57.963,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "produknya",
+   "s": 57.963,
+   "e": 58.523,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "tidak",
+   "s": 58.523,
+   "e": 58.863,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "pernah",
+   "s": 58.863,
+   "e": 59.303,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "dipakai",
+   "s": 59.303,
+   "e": 59.763,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "siapapun.",
+   "s": 59.763,
+   "e": 60.303,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "Mereka",
+   "s": 60.563,
+   "e": 60.963,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "juga",
+   "s": 60.963,
+   "e": 61.283,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "satu",
+   "s": 61.283,
+   "e": 61.563,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "orang,",
+   "s": 61.563,
+   "e": 61.843,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "jadi",
+   "s": 62.123,
+   "e": 62.383,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "apa",
+   "s": 62.383,
+   "e": 62.963,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "perbedaan",
+   "s": 62.963,
+   "e": 63.423,
+   "seg": "05_tidakterlihat"
+  },
+  {
+   "w": "mereka?",
+   "s": 63.423,
+   "e": 63.683,
+   "seg": "05_tidakterlihat"
+  }
+ ]
+}
