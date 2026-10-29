@@ -43,3 +43,10 @@
 ## 28 Oktober2026 · Jadisatu Canvas visual context
 - Permintaan: snapshot canvas otomatis + data, moodboard motion dengan dokumen/prompt/coretan tersusun.
 - Skill visual sudah masuk main dan salinan Claude/Codex lokal telah divalidasi. Server online mengirim PNG + data; uji Claude CLI aktual dan reset/fallback lulus. Audit produksi penutup PASS_WITH_NOTES; dua catatan screenshot sudah diperbaiki dengan bukti ulang, tanpa perubahan runtime. Laporan akhir dicatat. Tidak ada grant atau konfigurasi provider baru.
+
+## 29 Oktober 2026 · AI change everything: koreksi fungsi narator
+
+- Permintaan aktif: bedah dua kegagalan draf dan simpan koreksi ke repo, sebelum menulis revisi berikutnya.
+- A1 berpusat pada pembuat; A2 menjadi laporan perusahaan setelah insert Sam. Irfan menegaskan narator harus menceritakan keresahan bersama sesuai pusat cerita kandidat pertama.
+- [Bukti, kutipan koreksi, dan keputusan konten](../projects/ai-change-everything/NARRATOR-REVIEW.md) dicatat bersama RETRO motion-graphic dan [inbox evaluasi](../claude/motion-graphic/evals/inbox/2026-10-29-ai-change-everything-narrator.md).
+- Status: kedua draf ditolak; belum ada skrip final, patch skill, atau hasil performa. Penempatan akhir kutipan masih terbuka. Titik lanjut: pertahankan pusat persoalan sambil menilai fungsi tiap ucapan narator dan bukti.
