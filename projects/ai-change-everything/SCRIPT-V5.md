@@ -1,7 +1,7 @@
 ---
-status: draft
+status: final
 scope: ai-change-everything
-how_to_use: "Naskah kerja Video 3 v5 dari Irfan (30 Okt). Perbaikan B5 disetujui Irfan. Belum dinyatakan FINAL. Baseline: BASELINE-V5.md."
+how_to_use: "Naskah kerja Video 3 v5 dari Irfan (30 Okt). FINAL (Irfan 31 Okt 00:04), termasuk perbaikan B5 dan \"yang\" di B6. Baseline: BASELINE-V5.md."
 ---
 
 # Pengganti Kita Sendiri · script v5
@@ -30,6 +30,6 @@ Ejaan dirapikan untuk teks layar. Kata VO sama dengan versi Irfan, kecuali B5 (B
 | B3 | "sehari hari" | "sehari-hari" | ejaan |
 | B4 | ", Ia terus" | ", ia terus" | ejaan |
 | B5 | "satu cerita dari ribuan cerita gagal" | "satu cerita sukses, di antara ribuan cerita gagal" | logika (B-05, disetujui Irfan) |
-| B6 | "Terkadang Kita" · "sama dengan semua orang lakukan" | "Terkadang kita" · "sama dengan yang semua orang lakukan" | ejaan · tata kalimat. **Kata VO bertambah satu ("yang"), perlu konfirmasi Irfan.** |
+| B6 | "Terkadang Kita" · "sama dengan semua orang lakukan" | "Terkadang kita" · "sama dengan yang semua orang lakukan" | ejaan · tata kalimat. Kata VO bertambah satu ("yang"), disetujui Irfan. |
 
 Sumber klip: lihat bagian Sumber di `SCRIPT.md` (Jensen: Milken 2025, youtu.be/HT8-KPAjpiA 06:58–07:03; Altman: Mostly Human, youtu.be/mJSnn0GZmls ≈14:03–14:07).

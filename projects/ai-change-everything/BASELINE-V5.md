@@ -18,11 +18,12 @@ Sumber: jawaban Irfan di sesi storyboard, 30 Oktober 2026 ±23:55 WITA.
 | B-03 | Palet | **Putih + charcoal per fungsi.** Off-white #F5F5F7 untuk motion teks dan gagasan (Janji, grafik janji, kartu ke Trash, kartu abu-abu → titik biru). Charcoal #101216 untuk footage dokumenter (cold open, klip Jensen/Altman, montase B5) dan penutup B6. | Menyesuaikan D-010 (charcoal saja). Biru solid hanya di latar putih (rule 15). Titik biru jatuh di latar putih. |
 | B-04 | Ritme potongan | **Hybrid naik-reda.** Montase <0,5 dtk hanya di cold open dan B5 ("akses yang sama", "lahir dalam semalam"). Foto bercerita ditahan 2–3 dtk. B6 melambat sampai berhenti. | Menyesuaikan D-013 (±3 dtk per foto) dengan V3 (0,86 dtk/cut). |
 | B-05 | Script B5 | "Apa yang dikatakan Sam Altman adalah satu cerita **sukses**, di antara ribuan cerita gagal yang gak pernah kita dengar." | Versi lama menyebut cerita Altman sebagai cerita gagal. |
-| B-06 | Ejaan teks layar | Dirapikan (di satu sisi, di tahap, sehari-hari). Kata VO tidak berubah, kecuali usulan "yang" di B6 (menunggu konfirmasi). | Rincian di `SCRIPT-V5.md`. |
+| B-06 | Ejaan teks layar | Dirapikan (di satu sisi, di tahap, sehari-hari). Kata VO tidak berubah, kecuali "yang" di B6 (disetujui, B-11). | Rincian di `SCRIPT-V5.md`. |
 | B-07 | Deliverable storyboard | Canvas Wonder (file "Basilisk"): satu frame still 16:9 per beat dengan desain akhir. Ditambah `STORYBOARD-V5.md`: tabel beat (VO, teks layar, visual, kamera, transisi, SFX). | — |
 | B-08 | Aset nyata | Irfan mengirim referensi aset yang ia maksud (foto founder/meetup, berita AI). Gaya karakter sudah masuk (B-09); siluet "aku" tidak butuh foto (B-10). | **Menunggu.** Storyboard visual dimulai setelah aset masuk. |
 | B-09 | Gaya karakter | Animasi tokoh/ilustrasi mengikuti `references/karakter-cahaya-ref.png`: piktogram tanpa wajah (kepala bola terpisah dari badan kapsul), matte abu gelap, satu sumber cahaya, rim light tipis, berkas cahaya volumetrik. Teks kata kunci tampil di atas bidang cahaya (sans tebal miring, Inter Black Italic). | Irfan, 30 Okt 23:58. Penyesuaian dari uji: adegan bertokoh selalu di charcoal, karena gaya ini kehilangan cahaya di latar putih. Putih tetap untuk grafik, kartu, dan teks. Logo GatesFX tidak ditiru. Format referensi 9:16 dikomposisi ulang ke 16:9. |
 | B-10 | Momen "siluet wireframe terisi menjadi aku" | Wireframe terisi menjadi piktogram B-09 saja, tanpa foto asli. "Aku" diwakili tokoh tanpa wajah. | Irfan, 31 Okt. Momen ini tidak butuh foto atau footage Irfan. |
+| B-11 | Status naskah, foto, VO | Naskah v5 **FINAL** termasuk "yang" di B6. Foto nyata belum ada: storyboard memakai placeholder bayangan berlabel. VO dibuat setelah storyboard. | Irfan, 31 Okt 00:04. Timing storyboard memakai perkiraan 2,6 kata/dtk sampai VO klon diukur. |
 
 ## Tetap berlaku dari ledger
 
@@ -52,6 +53,5 @@ VO 243 kata. Dengan klon ±2,6 kata/dtk (perkiraan, belum diukur dari VO klon), 
 
 ## Terbuka
 
-- Script v5 belum dinyatakan FINAL oleh Irfan (gerbang 2).
 - Aset B-08.
 - Momen 7 ("musik hilang") perlu dicek terhadap rule 32 (backsound tidak boleh bolong). Usulan: musik hilang hanya di ekor penutup setelah kata terakhir, sebagai akhir yang dirancang.

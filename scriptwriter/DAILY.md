@@ -1,5 +1,12 @@
 # Catatan sesi scriptwriter
 
+## 31 Oktober 2026 · Storyboard Video 3 v5
+
+- Naskah v5 FINAL (Irfan 00:04), "yang" di B6 disetujui, foto diganti placeholder bayangan, VO dibuat setelah storyboard (B-11).
+- `projects/ai-change-everything/STORYBOARD-V5.md`: 36 beat, timing perkiraan 2,6 kata/dtk (±2:01), kode G/T/C/X, rencana SFX/musik per babak, peta 7 momen kunci, tabel kritik, 5 keputusan terbuka.
+- Canvas Wonder "Basilisk": 36 panel 16:9 + caption + 7 label babak. Gaya karakter B-09 diuji di panel 02d lebih dulu. Batas renderer canvas: transform/skew dan `var()` di SVG tidak dirender, jadi diganti clip-path dan currentColor.
+- Status: menunggu Irfan menyatakan storyboard final (gerbang 4). Belum diuji: TYPE-TEST, TRANSITION-SHEET, gerak. Titik lanjut: ganti placeholder dengan aset Irfan di `ASSETS / …`, lalu VO klon.
+
 ## 30 Oktober 2026 · Baseline storyboard Video 3 v5
 
 - Permintaan: Irfan memberi naskah v5 «Pengganti Kita Sendiri» (±2 menit, 6 babak + cold open) dan meminta pertanyaan untuk memperkuat baseline sebelum storyboard.
