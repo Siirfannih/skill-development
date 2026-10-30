@@ -1,5 +1,12 @@
 # Catatan sesi scriptwriter
 
+## 30 Oktober 2026 · Baseline storyboard Video 3 v5
+
+- Permintaan: Irfan memberi naskah v5 «Pengganti Kita Sendiri» (±2 menit, 6 babak + cold open) dan meminta pertanyaan untuk memperkuat baseline sebelum storyboard.
+- Jawaban dikunci di `projects/ai-change-everything/BASELINE-V5.md` (B-01–B-08). Naskah kerja di `SCRIPT-V5.md`: ejaan teks layar dirapikan, B5 diperbaiki jadi "satu cerita sukses" atas putusan Irfan.
+- "Pola The 2030" = V3 The Next Renaissance (bedah GrokAgent). Palet: putih + charcoal per fungsi, menyesuaikan D-010 di branch `cursor/skill-load-order-3827` yang belum masuk main.
+- Belum ada storyboard visual. Titik lanjut: aset referensi dari Irfan (B-08), konfirmasi tambahan kata "yang" di B6, lalu `STORYBOARD-V5.md` + frame per beat di canvas Wonder "Basilisk".
+
 ## 29 Oktober 2026 · Jadisatu Canvas Storyboard
 
 - Permintaan: Mode Storyboard online dengan frame, narasi, durasi, gerak, transisi, urutan dan pembacaan AI per adegan.
