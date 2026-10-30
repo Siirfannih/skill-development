@@ -20,8 +20,9 @@ Sumber: jawaban Irfan di sesi storyboard, 30 Oktober 2026 ±23:55 WITA.
 | B-05 | Script B5 | "Apa yang dikatakan Sam Altman adalah satu cerita **sukses**, di antara ribuan cerita gagal yang gak pernah kita dengar." | Versi lama menyebut cerita Altman sebagai cerita gagal. |
 | B-06 | Ejaan teks layar | Dirapikan (di satu sisi, di tahap, sehari-hari). Kata VO tidak berubah, kecuali usulan "yang" di B6 (menunggu konfirmasi). | Rincian di `SCRIPT-V5.md`. |
 | B-07 | Deliverable storyboard | Canvas Wonder (file "Basilisk"): satu frame still 16:9 per beat dengan desain akhir. Ditambah `STORYBOARD-V5.md`: tabel beat (VO, teks layar, visual, kamera, transisi, SFX). | — |
-| B-08 | Aset nyata | Irfan mengirim referensi aset yang ia maksud (foto founder/meetup, berita AI, foto/footage untuk "siluet wireframe terisi menjadi aku"). Gaya karakter sudah masuk (B-09). | **Menunggu.** Storyboard visual dimulai setelah aset masuk. |
+| B-08 | Aset nyata | Irfan mengirim referensi aset yang ia maksud (foto founder/meetup, berita AI, berita AI). Gaya karakter sudah masuk (B-09); siluet "aku" tidak butuh foto (B-10). | **Menunggu.** Storyboard visual dimulai setelah aset masuk. |
 | B-09 | Gaya karakter | Animasi tokoh/ilustrasi mengikuti `references/karakter-cahaya-ref.png`: piktogram tanpa wajah (kepala bola terpisah dari badan kapsul), matte abu gelap, satu sumber cahaya, rim light tipis, berkas cahaya volumetrik. Teks kata kunci tampil di atas bidang cahaya (sans tebal miring, Inter Black Italic). | Irfan, 30 Okt 23:58. Penyesuaian dari uji: adegan bertokoh selalu di charcoal, karena gaya ini kehilangan cahaya di latar putih. Putih tetap untuk grafik, kartu, dan teks. Logo GatesFX tidak ditiru. Format referensi 9:16 dikomposisi ulang ke 16:9. |
+| B-10 | Momen "siluet wireframe terisi menjadi aku" | Wireframe terisi menjadi piktogram B-09 saja, tanpa foto asli. "Aku" diwakili tokoh tanpa wajah. | Irfan, 31 Okt. Momen ini tidak butuh foto atau footage Irfan. |
 
 ## Tetap berlaku dari ledger
 
