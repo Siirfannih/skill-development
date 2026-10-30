@@ -1,71 +1,60 @@
-# Katalog perpustakaan skill
+---
+status: rule
+scope: global
+how_to_use: Baca berkas ini dulu. Muat hanya langkah yang tertulis di bawah, sesuai tugas yang sedang dikerjakan.
+---
 
-Pintu masuk untuk setiap model yang bekerja dengan Irfan. Baca file ini dulu, lalu buka **hanya** skill yang cocok dengan pekerjaan. Jangan memuat semua skill sekaligus.
+# Urutan muat
 
-## Cara memakai
+Setiap sesi baru memuat sedikit. Bobot berkas mengikuti statusnya, bukan panjangnya.
 
-1. Cocokkan pekerjaan dengan kolom "Pakai saat" di bawah.
-2. Buka `SKILL.md` skill itu. Cabang di `references/` dibaca hanya saat `SKILL.md` menyuruh.
-3. Jika pekerjaan milik proyek yang punya folder di `projects/`, baca `AUTHORITY.md` proyek itu sebelum yang lain.
-4. Jika dua skill bertentangan: **skill Irfan (`claude/`) menang atas skill eksternal (`external/`)**, dan dokumen proyek (`projects/`) menang atas keduanya untuk proyek itu.
+1. **Aturan inti:** `claude/STYLE-CORE.md`.
+2. **Standar proyek:** `projects/<proyek>/BRIEF-STANDARD.md` bila ada. Hanya berkas itu yang menetapkan kriteria sukses proyek tersebut. Standar video sebelumnya dan skill lain tidak ikut sendiri.
+3. **Kartu prinsip:** di `claude/principles/`, hanya kartu yang tugas ini butuh. Menu singkatnya ada di `claude/principles/README.md`.
+4. **Skill:** `claude/<nama>/SKILL.md` hanya bila perannya cocok dengan tabel di bawah. Cabang `references/` dibuka hanya saat skill itu menyuruh, bagian yang dirujuk saja.
+5. **Bukti dan arsip:** `evidence/` dan `archive/` dibuka hanya jika Irfan meminta verifikasi angka atau perbandingan dengan versi lama.
 
-## Struktur
+Saat menulis atau mengubah kode di repo ini, pakai `rtk` (https://github.com/rtk-ai/rtk) untuk perintah shell agar keluaran yang masuk ke konteks lebih kecil.
 
-| Folder | Isi | Status |
+## Arti status
+
+| Status | Arti | Kapan dimuat |
 |---|---|---|
-| `claude/` | Skill yang dikembangkan Irfan | Aktif |
-| `external/` | Skill open-source yang sudah teruji, sebagai submodule terkunci versi | Aktif, dipakai sebagai pendamping |
-| `projects/` | Dokumen otoritas dan art direction per proyek | Aktif untuk proyeknya saja |
-| `autopilot-video/` | Sistem autopilot produksi video: PRD, desain, ConOps, ADR, tools (gpt-bridge, render, TTS lokal), pilot aff-pompa-01; mulai dari [README](autopilot-video/README.md) | v0, diuji sekali |
-| `scriptwriter/` | Mandat peran dan pengembangan cara kerja ide → naskah → storyboard; mulai dari [README](scriptwriter/README.md) | Fondasi awal; memakai skill aktif di `claude/` |
-| `content-ops/` | Operasi konten harian tiga jalur; mulai dari [content-ops/README.md](content-ops/README.md) | Aktif |
-| `GrokAgent/` | Analisis referensi visual+audio (Grok Bot Maximus); mulai dari [GrokAgent/README.md](GrokAgent/README.md) | Reference findings 2026-10-30; tidak menimpa `claude/` |
-| `archive/` | Skill lama yang sudah digantikan | Jangan dimuat; hanya baseline untuk eval |
+| `rule` | Wajib diikuti di cakupannya. Yang `scope: global` hanya hal yang Irfan kunci untuk semua sesi. | Sesuai `scope` |
+| `principle` | Panduan desain beserta alasannya. Disesuaikan per proyek. | Hanya kartu atau skill yang tugas ini butuh |
+| `benchmark` | Angka terukur dari video referensi tertentu. Rentang awal, bukan target. | Bersama kartu yang memakainya, bila tugasnya butuh |
+| `evidence` | Data mentah. Bukan aturan. | Hanya untuk mengecek satu angka |
+| `proposal` | Menunggu keputusan Irfan. | Saat membahas butir itu, bukan sebagai syarat |
+| `archive` | Sudah diganti. | Tidak dimuat |
 
-## Skill Irfan (`claude/`)
+Header tiap berkas panduan: `status`, `scope` (`global` atau nama proyek), dan `how_to_use` satu baris. Naskah, storyboard, dan kredit di `projects/` adalah isi proyek, bukan aturan, dan boleh tanpa header itu.
 
-| Skill | Peran | Pakai saat |
-|---|---|---|
-| `working-with-irfan` | Cara bekerja umum: komunikasi, siklus kerja, cara membuat skill/prompt, jangan menebak | Setiap tugas dari Irfan |
-| `autopilot-prd` | Eksekusi antrean PRD/QUEUE sampai habis, tier keputusan | Proyek dengan PRD, QUEUE, atau rencana tertulis |
-| `jadisatu-canvas` | Aturan ruang bersama MCP lintas penyedia; koneksi, gambar, revisi dan reset konteks | Memakai atau menghubungkan Jadisatu Canvas dari Claude, Codex, Gemini CLI, Cursor, VS Code atau klien MCP lain |
-| `irfan-creative-workflow` | Gerbang proyek kreatif, disiplin kredit, uji storyteller | Awal setiap proyek kreatif (video, kampanye, naskah) |
-| `motion-graphic` | Semua video motion: inti + 11 cabang (direction, storyboard, copywriting, decision, typography, camera-transition, smooth-motion, audio, build, analysis-qa, revision-log) + `scripts/` (baseline_lock, bedah-kamera) | Setiap permintaan video, motion, storyboard, naskah VO, bedah referensi |
-| `script-workshop` | Brainstorm sampai script disetujui: bedah hook referensi, bank insight, ledger, devil's advocate, pola hook yang ditolak | Awal setiap script video/reel, mencari hook |
-| `jadisatu-narrator-vo` | Suara, model, dan cara merakit VO Inggris Jadisatu | VO marketing Jadisatu berbahasa Inggris |
-| `cinedance-block-library` | Merakit prompt video-generation dari blok kode | Brief format TRICK/FORMAT/ASSETS/BLOCKS untuk Seedance/Higgsfield |
+## Otoritas
 
-## Skill eksternal (`external/`)
+Instruksi langsung Irfan, lalu berkas standar proyek ini, lalu skill `claude/`, lalu `external/`. Untuk satu proyek, dokumen proyek itu menang atas skill. Usulan di kartu `proposal` tidak menimpa yang sudah dikunci.
 
-Detail versi dan peta pemakaian ada di `external/README.md`.
+## Skill `claude/`
 
-| Skill | Peran | Pakai saat |
-|---|---|---|
-| `superpowers` | Brainstorming → plan → develop → evaluasi | Fitur atau ide baru, debugging, sebelum menyatakan selesai |
-| `anti-slop` | Filter anti-generik untuk kode, UI, copy | Menulis kode, mendesain UI, menulis copy |
-| `awesome-design-md` | Contoh `DESIGN.md` dari sistem desain nyata | Menentukan prinsip visual (bukan meniru merek) |
-| `remotion-skills` | Agent Skills resmi Remotion | Membangun, me-render, atau meng-upgrade proyek Remotion |
-| `hyperframes` | HTML + GSAP → MP4 deterministik, prinsip gerak | Video berbasis HTML/GSAP, atau migrasi dari Remotion |
-| `earshot` | Analisis audio untuk agent: describe, rank, critique terhadap film referensi | QA audio video, memilih SFX, cek mix |
-
-## Proyek (`projects/`)
-
-| Proyek | Isi |
+| Skill | Pakai saat |
 |---|---|
-| `jadisatu-60s` | Video 60-90 dtk (proyek baru 25 Okt): `DECISIONS.md` ledger, `REFERENSI.md` peran referensi. Gerbang script. |
-| `jadisatu-launch` | `AUTHORITY.md` (urutan menang, peran storyboard, gerbang per adegan), `ART-DIRECTION.md` (dunia Pixel vs Apple, peta adegan, transisi antar dunia, audio, peran referensi) |
+| `working-with-irfan` | Butuh cara bicara, uji masukan, atau cara menulis skill. Inti wajibnya sudah di STYLE-CORE. |
+| `irfan-creative-workflow` | Awal proyek kreatif: urutan gerbang dan apa yang dibawa dari proyek lama. |
+| `motion-graphic` | Video, motion, storyboard, naskah VO, bedah referensi. |
+| `script-workshop` | Mencari hook dan mengembangkan naskah sampai disetujui. |
+| `autopilot-prd` | Proyek dengan PRD atau antrean tertulis. |
+| `jadisatu-canvas` | Membaca atau mengubah ruang Jadisatu Canvas. |
+| `jadisatu-narrator-vo` | VO ini dipilih berkas standar proyek, atau VO marketing Jadisatu berbahasa Inggris. |
+| `cinedance-block-library` | Brief blok untuk Seedance atau Higgsfield. |
 
-## Arsip (`archive/`)
+Skill `external/` tercatat di `external/README.md`. Skill Irfan menang bila keduanya bentrok.
 
-| Skill | Digantikan oleh |
+## Proyek
+
+| Folder | Isi |
 |---|---|
-| `motion-director` v3 | `motion-graphic` |
-| `motion-graphic-playbook` | `motion-graphic` |
-| `irfan-motion-director` | `motion-graphic` |
-| `morning` | Skill contoh bawaan Anthropic, bukan milik Irfan |
+| `projects/_TEMPLATE/` | Contoh `BRIEF-STANDARD.md` untuk proyek baru. |
+| `projects/ai-change-everything/` | Video 3 «Pengganti Kita Sendiri» (@siirfannih). Kriteria sukses: `BRIEF-STANDARD.md`. |
+| `projects/jadisatu-60s/` | The Gap. Keputusannya tidak ikut ke proyek lain. |
+| `projects/jadisatu-launch/` | Launch Jadisatu. `AUTHORITY.md` dan `ART-DIRECTION.md` hanya untuk proyek itu. |
 
-## Menambah skill baru
-
-1. Skill buatan sendiri: folder baru di `claude/<nama>/` dengan `SKILL.md` (< 500 baris; detail di `references/`), lalu tambahkan satu baris di tabel di atas.
-2. Skill open-source: `git submodule add <url> external/<nama>`, lalu catat versi dan perannya di `external/README.md` dan di tabel di atas.
-3. Satu konsep, satu skill. Kalau skill baru tumpang tindih dengan yang ada, gabungkan atau pindahkan yang lama ke `archive/`.
+Pintu lain: `scriptwriter/README.md` (ide sampai storyboard), `content-ops/README.md` (operasi harian), `autopilot-video/README.md` (sistem produksi). Semuanya prinsip untuk foldernya, bukan aturan global.

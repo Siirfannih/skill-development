@@ -1,4 +1,18 @@
+---
+status: evidence
+scope: scriptwriter
+how_to_use: "Catatan sesi. Bukan aturan."
+---
+
 # Catatan sesi scriptwriter
+
+## 30 Oktober 2026 · Urutan muat perpustakaan
+
+- Permintaan: sesi baru hanya memuat yang relevan, dan temuan referensi tidak dipakai sebagai template syarat.
+- Ditambah `claude/STYLE-CORE.md`, kartu di `claude/principles/`, `projects/_TEMPLATE/BRIEF-STANDARD.md`, dan `projects/ai-change-everything/BRIEF-STANDARD.md`.
+- Bukti mentah Maximus pindah ke `evidence/grok-agent/`. Empat konflik tetap usulan.
+- Belum ada uji perilaku model segar. Ini perubahan struktur muat, bukan klaim skill sudah lebih akurat.
+- Titik lanjut: Irfan mengunci butir di bagian "Needs Irfan's decision" pada PR, terutama kriteria suara Video 3 dan selisih dengan ledger 29 Oktober.
 
 ## 29 Oktober 2026 · Jadisatu Canvas Storyboard
 

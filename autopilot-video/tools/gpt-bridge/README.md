@@ -1,3 +1,9 @@
+---
+status: principle
+scope: gpt-bridge
+how_to_use: "Muat saat memanggil jembatan ChatGPT."
+---
+
 # gpt-bridge · satu pintu ke ChatGPT dari agent mana pun
 
 Memakai Codex CLI yang sudah login dengan akun ChatGPT Pro Irfan, jadi tidak memakai API berbayar. Agent yang punya akses terminal ke Mac ini (Claude lewat device tools, Grok Bot lewat local exec, Hermes lewat SSH) cukup memanggil:

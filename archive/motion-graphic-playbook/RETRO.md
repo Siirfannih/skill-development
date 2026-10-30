@@ -1,3 +1,9 @@
+---
+status: archive
+scope: archive
+how_to_use: "Jangan dimuat. Digantikan skill yang masih aktif."
+---
+
 # RETRO · catatan pelajaran per gerbang
 
 Format dan aturan: lihat MOTION-SYSTEM.md §8. Entri terbaru di bawah.

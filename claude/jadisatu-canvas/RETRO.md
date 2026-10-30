@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: jadisatu-canvas
+how_to_use: "Catatan keputusan Canvas. Buka bila perlu mengecek satu butir."
+---
+
 # Jadisatu Canvas · keputusan dari pengguna
 
 ## 28 Oktober 2026 — visual canvas bersama

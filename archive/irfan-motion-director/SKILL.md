@@ -1,4 +1,7 @@
 ---
+status: archive
+scope: archive
+how_to_use: "Jangan dimuat. Digantikan skill yang masih aktif."
 name: irfan-motion-director
 description: Cara Irfan menyutradarai video motion graphic — prinsip cerita, tokoh, komposisi, dan gerak. Selalu dipakai bersama motion-graphic-playbook saat membuat storyboard dan video untuknya.
 ---

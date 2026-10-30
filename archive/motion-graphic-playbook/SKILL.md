@@ -1,4 +1,7 @@
 ---
+status: archive
+scope: archive
+how_to_use: "Jangan dimuat. Digantikan skill yang masih aktif."
 name: motion-graphic-playbook
 description: Playbook desain motion graphic untuk After Effects — tipografi, animasi teks, kamera 2D, cut zoom, transisi, ikon, dan style preset. Pakai sebelum membuat storyboard atau membangun komposisi AE.
 ---

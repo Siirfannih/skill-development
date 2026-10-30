@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: personal-brand-day-02
+how_to_use: "Sumber ide hari itu. Bukan aturan."
+---
+
 # Sumber · Personal branding, konten kedua
 
 Diperiksa pada 27 Oktober 2026. Bukti publik dipisahkan dari laporan Irfan dan penilaian editorial agent.

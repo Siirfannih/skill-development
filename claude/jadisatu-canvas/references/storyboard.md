@@ -1,3 +1,9 @@
+---
+status: principle
+scope: jadisatu-canvas
+how_to_use: "Muat saat membaca atau merevisi adegan storyboard di Canvas."
+---
+
 # Storyboard motion bersama AI
 
 Gunakan cabang ini ketika pengguna membangun atau merevisi storyboard di Jadisatu Canvas. Tetap ikuti izin board, aturan konteks segar dan konten sumber pada SKILL.md. Tidak perlu memberi grant baru untuk membaca adegan di dalam board yang sudah diizinkan; memilih sceneId hanya mempersempit operasi itu. Ini bukan izin mengakses board atau penyedia lain.

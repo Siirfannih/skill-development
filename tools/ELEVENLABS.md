@@ -1,3 +1,9 @@
+---
+status: rule
+scope: alat
+how_to_use: "Muat saat memakai ElevenLabs. Kunci tidak pernah dicetak atau di-commit."
+---
+
 # ElevenLabs — cara akses untuk session Claude
 
 Kunci API **tidak pernah** ada di repo ini, di chat, atau di memori. Kunci disimpan di Mac Irfan, di dua tempat:

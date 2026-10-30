@@ -1,3 +1,9 @@
+---
+status: principle
+scope: motion
+how_to_use: "Muat saat membangun adegan. Cuplikan teknis, bukan kriteria gaya."
+---
+
 # Build — After Effects & engine kode
 
 Baca saat mulai build atau menulis ExtendScript/expression. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.

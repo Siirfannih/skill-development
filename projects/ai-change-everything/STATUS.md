@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: ai-change-everything
+how_to_use: "Catatan fase build. Bukan kriteria sukses. Kriteria ada di BRIEF-STANDARD.md."
+---
+
 # STATUS · ai-change-everything ("Pengganti kita sendiri")
 
 **Fase:** build visual Remotion (gerbang 7–8) dengan timing VO sementara. VO final belum dipilih (Irfan: suara perempuan, serius, dalam, tegang tapi natural — casting belum ada yang cocok). Audio SFX/musik belum dibuat.

@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: affiliate
+how_to_use: "Riset satu tanggal. Bukan aturan niche untuk seterusnya."
+---
+
 # Riset Niche Akun Affiliate (TikTok + Facebook Reels): Oktober 2026
 
 - **Peneliti:** Maximus (Grok Bot). **Untuk:** Irfan.

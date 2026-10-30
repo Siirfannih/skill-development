@@ -1,4 +1,12 @@
+---
+status: rule
+scope: ai-change-everything
+how_to_use: "Ledger 29 Oktober. Kriteria sukses sesi baru ada di BRIEF-STANDARD.md. Selisih dilaporkan ke Irfan."
+---
+
 # ai-change-everything — ledger keputusan
+
+Ledger tanggal 29 Oktober 2026. Kriteria sukses yang dipakai sesi baru ada di `BRIEF-STANDARD.md`. Bila satu baris di bawah berbeda dari berkas itu, ikuti BRIEF untuk kriteria sukses dan laporkan selisihnya ke Irfan.
 
 | ID | Tanggal jam (WITA) | Sumber | Isi | Status |
 |---|---|---|---|---|

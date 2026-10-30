@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: content-ops
+how_to_use: "Jadwal minggu itu. Bukan aturan tetap."
+---
+
 # Kalender
 
 ## Minggu 1 · 28 Okt – 3 Nov 2026 (kalibrasi)

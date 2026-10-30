@@ -1,3 +1,9 @@
+---
+status: benchmark
+scope: the-gap
+how_to_use: "Alat bantu yang lahir di The Gap. Ambang di tabel mengikuti aturan 33–37 proyek itu, bukan syarat video lain."
+---
+
 # Audio & sync QA kit (lahir di The Gap, v14–v18)
 
 Alat umum untuk video Remotion/motion apa pun. Set `MG_ROOT` ke folder proyek (berisi `render/`, `tools/`, `video/src/vo.json`).

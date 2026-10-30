@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: jadisatu-60s
+how_to_use: "Peran referensi The Gap. Bukan template."
+---
+
 # Peran dan bedah referensi (gerbang script)
 
 Nama file referensi = apa yang ditiru (D-005). Bedah dari contact sheet 1 frame / 1,5–3 dtk dan teks layar. Transkrip audio belum dibuat: model Whisper tidak bisa diunduh dari cloud (huggingface diblokir proxy).

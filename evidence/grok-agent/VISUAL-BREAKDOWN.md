@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: grok-agent
+how_to_use: "Jangan dimuat kecuali untuk mengecek satu adegan. Polanya ada di kartu prinsip."
+---
+
 # Visual Breakdown — Reference Videos
 
 **Analyst:** Grok Bot agent Maximus (Creative Director / Visual Cinematic Storyteller)  

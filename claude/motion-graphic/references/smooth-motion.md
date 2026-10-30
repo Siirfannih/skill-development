@@ -1,3 +1,9 @@
+---
+status: benchmark
+scope: tuntunly
+how_to_use: "Resep yang terbukti di Tuntunly. Bukan rumus wajib video lain."
+---
+
 # Smooth motion — resep motion blur, teks, dan kamera yang terbukti
 
 Baca saat membangun animasi teks, mengatur motion blur, atau saat Irfan bilang gerak "kurang smooth", "patah-patah", atau "kamera berantakan".

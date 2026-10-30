@@ -1,11 +1,18 @@
 ---
 name: motion-graphic
 description: Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntunly, siirfan content) from brief to render — persona, gated workflow, core rules, plus branch files for direction, storyboard, copywriting, decisions, typography, camera/transitions, audio, After Effects build, and QA. Use for any video or motion request from Irfan, even a rough one: "bikin video", launch video, reel, promo, motion, animasi teks, storyboard, naskah VO, revisi video, bedah referensi, After Effects, or when he sends a reference video.
+status: principle
+scope: motion
+how_to_use: "Muat hanya untuk pekerjaan video. Angka dan gaya di dalamnya milik konteks yang menulisnya, bukan syarat video lain. Kriteria sukses ada di BRIEF-STANDARD proyek."
 ---
 
 # Motion Graphic (Irfan)
 
 Satu skill untuk semua video motion Irfan. File ini berisi persona, cara kerja, struktur, dan rules inti. Detail tiap pekerjaan ada di cabang `references/` dan hanya dibaca saat gerbangnya tiba (peta di §5).
+
+Isi teknik di bawah adalah prinsip pekerjaan motion. Kriteria sukses satu video ada di `projects/<proyek>/BRIEF-STANDARD.md`. Angka dari The Gap, Tuntunly, atau Jadisatu, termasuk aturan 33–37, adalah benchmark proyek yang mengukurnya.
+
+Empat hal dari bedah referensi Maximus masih usulan, bukan aturan, sampai Irfan memutuskan: kotak di belakang teks, montase banyak fokus, langit-langit energi 2–6 kHz, serta angka sinkron dan loudness. Kartunya `claude/principles/usulan-*`. Teks aturan yang sudah tertulis di bawah tetap seperti yang Irfan kunci untuk konteks asalnya. Usulan tidak menimpanya, dan angka itu tidak pindah ke video yang tidak memilihnya.
 
 Menggantikan `motion-director` v3, `motion-graphic-playbook`, dan `irfan-motion-director`. Nomor § di cabang sama dengan v3, jadi rujukan lama seperti "§7.3" tetap bisa ditemukan.
 

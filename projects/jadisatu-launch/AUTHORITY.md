@@ -1,3 +1,9 @@
+---
+status: rule
+scope: jadisatu-launch
+how_to_use: "Hanya untuk proyek launch Jadisatu."
+---
+
 # Jadisatu Launch — dokumen otoritas
 
 Satu-satunya pintu untuk menentukan aturan mana yang menang di film launching Jadisatu. Agent membaca file ini **sebelum** dokumen lain di repo produksi (`motion-production-pc`, `handoff/jadisatu-20261024/`).

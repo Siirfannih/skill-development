@@ -1,6 +1,14 @@
+---
+status: rule
+scope: global
+how_to_use: "Pintu masuk agen. Lanjutkan ke INDEX.md, lalu muat sesuai urutannya."
+---
+
 # Bekerja di Skill Development
 
-Repo ini menyimpan cara kerja AI bersama Irfan. Mulai dari [INDEX.md](INDEX.md), lalu baca hanya skill dan dokumen proyek yang relevan. Urutan otoritas mengikuti katalog; instruksi langsung Irfan tetap menang.
+Repo ini menyimpan cara kerja AI bersama Irfan. Mulai dari [INDEX.md](INDEX.md): aturan inti di `claude/STYLE-CORE.md`, lalu berkas standar proyek bila ada, lalu hanya kartu prinsip yang tugasnya butuh. Bukti di `evidence/` dan arsip tidak dimuat kecuali diminta. Urutan otoritas mengikuti katalog; instruksi langsung Irfan tetap menang.
+
+Saat menulis atau mengubah kode di repo ini, pakai `rtk` (https://github.com/rtk-ai/rtk) untuk perintah shell agar keluaran yang masuk ke konteks lebih kecil.
 
 ## Jadisatu Canvas · semua klien MCP
 

@@ -1,3 +1,9 @@
+---
+status: principle
+scope: siirfannih
+how_to_use: "Jalur akun @siirfannih. Bukan sistem visual Video 3."
+---
+
 # Jalur @siirfannih · storytelling
 
 ## Tujuan

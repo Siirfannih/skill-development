@@ -1,3 +1,9 @@
+---
+status: principle
+scope: motion
+how_to_use: "Muat saat memilih kamera atau transisi. Kode adalah kosakata, bukan kuota."
+---
+
 # Camera & transition
 
 Baca saat memilih gerak kamera (C) dan transisi (X) per potongan. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.

@@ -1,3 +1,9 @@
+---
+status: principle
+scope: jadisatu-canvas
+how_to_use: "Muat hanya untuk klien yang sedang dipakai."
+---
+
 # Koneksi klien · diverifikasi dari sumber resmi 28 Oktober 2026
 
 ## Isi

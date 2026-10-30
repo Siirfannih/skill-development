@@ -1,3 +1,9 @@
+---
+status: principle
+scope: external
+how_to_use: "Skill Irfan menang bila bentrok. Muat baris skill yang tugasnya butuh."
+---
+
 # Skill eksternal
 
 Repo pihak ketiga, dipasang sebagai **git submodule** dan dikunci di commit tertentu. Isinya tidak disalin ke `claude/`, supaya lisensi dan asal tetap utuh dan pembaruan bisa ditarik kapan saja.

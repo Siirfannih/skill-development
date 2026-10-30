@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: motion
+how_to_use: "Catatan revisi. Buka untuk mengecek satu keputusan lama, bukan untuk menyalin angkanya."
+---
+
 # Revision log & RETRO
 
 Baca saat Irfan memberi revisi: catat dulu, baru kerjakan. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.

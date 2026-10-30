@@ -1,6 +1,12 @@
+---
+status: benchmark
+scope: the-gap-dan-referensi-launch
+how_to_use: "Angka mix, offset, dan daftar file Kenyset adalah rentang dari video yang mengukurnya, bukan syarat video lain. Pustaka Kenyset hanya bila BRIEF proyek memilihnya."
+---
+
 # Audio — VO, SFX, musik
 
-Baca hanya di gerbang audio (setelah script dan storyboard final) dan saat QA audio. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.
+Baca hanya di gerbang audio (setelah script dan storyboard final) dan saat QA audio, dan hanya bila proyek ini sedang mengerjakan suara. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku. Angka dan nama file di bawah tidak menjadi kriteria sukses proyek yang tidak memilihnya.
 
 ## 14. Audio
 

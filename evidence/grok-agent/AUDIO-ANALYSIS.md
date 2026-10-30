@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: grok-agent
+how_to_use: "Jangan dimuat kecuali untuk mengecek satu angka. Rentang harian ada di kartu prinsip."
+---
+
 # Reference Video Audio Analysis Report
 
 **Method:** measured with ffmpeg + librosa + pyloudnorm (ITU-R BS.1770) + openai-whisper `small`.

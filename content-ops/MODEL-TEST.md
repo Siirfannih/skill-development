@@ -1,3 +1,9 @@
+---
+status: proposal
+scope: content-ops
+how_to_use: "Rencana uji model. Menunggu pemakaian, bukan standar mutu."
+---
+
 # Protokol uji model (dijalankan setelah produksi stabil)
 
 Arahan O-004. Disiapkan sekarang supaya data sejak hari pertama sudah bisa dibandingkan; uji formal **dimulai setelah 2 minggu berturut-turut kadensi tercapai** tanpa konten terlewat.

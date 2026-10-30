@@ -1,3 +1,9 @@
+---
+status: archive
+scope: archive
+how_to_use: "Jangan dimuat. Digantikan skill yang masih aktif."
+---
+
 # Sistem Gerak · Irfan Motion (v1 · 14 Okt 2026)
 
 Berlaku untuk semua video motion Irfan (launch Tuntunly, video edukasi 30–60 detik, konten siirfan). Melengkapi TYPE-STYLES.md (tampilan teks) dan SKILL.md (library T/C/X). Kalau ada konflik, file ini menang untuk urusan gerak dan transisi.

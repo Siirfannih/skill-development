@@ -1,3 +1,9 @@
+---
+status: principle
+scope: jadisatu-launch
+how_to_use: "Arah visual launch Jadisatu. Tidak ikut ke proyek lain."
+---
+
 # Jadisatu Launch — art direction
 
 Satu film, dua dunia, masing-masing dengan pekerjaan yang jelas. Masalah v7 bukan karena ada dua dunia, tetapi karena belum ada aturan kapan sebuah adegan masuk dunia mana dan bagaimana menyeberanginya.

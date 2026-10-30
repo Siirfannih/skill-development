@@ -1,3 +1,9 @@
+---
+status: principle
+scope: motion
+how_to_use: "Muat saat menulis naskah atau teks layar."
+---
+
 # Copywriting — script VO dan teks layar
 
 Baca di gerbang 2 (script) dan setiap kali menulis teks yang tampil di layar. Script adalah fondasi: script yang lemah tidak bisa diselamatkan oleh animasi sebagus apa pun.

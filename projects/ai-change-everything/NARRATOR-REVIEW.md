@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: ai-change-everything
+how_to_use: "Catatan koreksi narator. Bukan aturan untuk video lain."
+---
+
 # AI change everything: review fungsi narator
 
 Tanggal: 29 Oktober 2026 (WITA).

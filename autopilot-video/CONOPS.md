@@ -1,3 +1,9 @@
+---
+status: principle
+scope: autopilot-video
+how_to_use: "Cara operasi yang diusulkan untuk autopilot."
+---
+
 # ConOps · simulasi pemakaian
 
 Jam adalah perkiraan, belum diukur di PC server.
