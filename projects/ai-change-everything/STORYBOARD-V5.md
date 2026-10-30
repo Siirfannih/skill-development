@@ -11,6 +11,8 @@ Canvas: Wonder file **Basilisk**, Page 1 — 36 panel (baris = babak, x 0→8128
 1920×1080 · 30 fps · ±2:01 · naskah `SCRIPT-V5.md` (FINAL) · baseline `BASELINE-V5.md` (B-01–B-11).
 **Timing = perkiraan** dari jumlah kata ÷ 2,6 kata/dtk + 0,3 dtk jeda. Semua waktu diganti dengan onset kata `vo.json` setelah VO klon dibuat (B-11).
 
+**R2 (31 Okt 01:00):** latar putih diganti sistem gradien `STYLE-R2.md` (R-HZ, R-BP, R-SKY, R-RAY) per peta §5; agent multi-warna §2. Versi lama di canvas "Arsip R1" (x + 20000).
+
 **Dunia:** `W` = putih #F5F5F7, tinta #1D1D1F, biru #2563EB hanya di sini · `C` = charcoal #101216, teks putih penuh vs putih 55 %, tanpa biru.
 **Tokoh:** piktogram B-09 (kepala bola terpisah, badan kapsul, matte, satu sumber cahaya, rim light). Selalu di `C`.
 **Font:** Inter saja. Display 700–800, tracking −3 %. Kata kunci KAPITAL di kanvas baru (R4-05). Kata di bidang cahaya: Inter Black Italic. Label/sumber: Inter SemiBold kapital 12–14 px setara, tracking lebar (pengganti mono, karena D-005 = Inter saja).
@@ -38,7 +40,7 @@ Canvas: Wonder file **Basilisk**, Page 1 — 36 panel (baris = babak, x 0→8128
 
 | # | Dunia | Waktu (dtk, est.) | VO pemicu | Teks layar | G/T | Subjek & aksi | Kamera | Transisi keluar | SFX |
 |---|---|---|---|---|---|---|---|---|---|
-| 02a | C | 12.5–15.5 | Padahal waktu AI pertama kali ramai dibicarakan, | — | — | Dokumenter: 3 foto berita/acara peluncuran ChatGPT 2022 (placeholder), 2,5D parallax | C19 drift + parallax | X09 wipe berlapis ke putih | musik B2 (piano + pulse lembut), shutter per foto |
+| 02a | Kertas | 12.5–15.5 | Padahal waktu AI pertama kali ramai dibicarakan, | Padahal · waktu AI · pertama kali ramai dibicarakan, | T19 per kata | R2: kolase gaya node "Wikipedia" — kata VO di sela potongan foto (meetup, Altman, laptop), kartu Wikipedia ChatGPT disusun ulang dengan kalimat rilis 30 Nov 2022 diseleksi, kotak piksel warna agent | C08 truck lambat + parallax | X09 wipe ke blueprint 02b | musik B2, tick per kata, bunyi seleksi teks |
 | 02b | W | 15.5–17.3 | dia punya janji sederhana. | janji sederhana. | G2 + T19 | Grafik janji: garis putus-putus naik ke kanan, label mono JANJI menempel di ujung | C02 push pelan | tetap (dunia sama) | goresan pena tipis saat garis digambar |
 | 02c | W | 17.3–20.7 | AI akan mengambil pekerjaan yang membosankan dan berulang, | — | — | Momen 4: kartu tugas identik (Rekap Excel, Balas email, Input data, Invoice) diseret kursor AI ke Trash satu per satu | C18 follow kursor | X07 cut on motion | drag-swish + kertas remuk masuk Trash per kartu |
 | 02d | C | 20.7–23.7 | supaya kita bisa fokus jadi lebih KREATIF. | KREATIF | Inter Black Italic di bidang cahaya (B-09) | Piktogram menghadap bidang cahaya (komposisi referensi B-09) | C02 push-in lambat | X14 bloom match ke putih | swell hangat + bloom |
@@ -49,9 +51,9 @@ Canvas: Wonder file **Basilisk**, Page 1 — 36 panel (baris = babak, x 0→8128
 
 | # | Dunia | Waktu (dtk, est.) | VO pemicu | Teks layar | G/T | Subjek & aksi | Kamera | Transisi keluar | SFX |
 |---|---|---|---|---|---|---|---|---|---|
-| 03a-1 | C | 32.3–34.9 | Sekarang kita mulai mengajari AI untuk berpikir, menulis, | (UI) Kamu bertindak sebagai CEO untuk menjalankan bisnis yang aku jalankan | T11 di UI | V2 (Irfan 31 Okt): jendela agent dark glass "CEO Agent · Playground"; prompt diketik per kata | C02 push + C18 ikut caret | kamera geser ke tombol kirim | ketik per kata; musik B3 (pulse naik) |
-| 03a-2 | C | 34.9–36.4 | dan bekerja | — | — | Close-up tombol kirim chrome; kursor klik tepat di onset "bekerja" (100→88→100, 4 f) + riak cahaya | C18 ke tombol, C01 saat klik | C06 mundur ke jendela chat | klik UI tebal + swoosh kirim |
-| 03b | C | 36.4–40.2 | persis seperti apa yang kita lakukan dalam kehidupan sehari-hari. | (UI) Siap, aku ambil alih. Hari ini mulai dari mana: laporan penjualan, balas pelanggan, atau cek stok? | streaming di UI | Agent Orb (maskot desain sendiri) melompat keluar dari avatar: Diam → Berpikir → Membaca → Senang (squash 100→92→104→100) | C06 mundur lalu C18 ikut orb | X04 zoom-through ke orb | pop dalam + chirp lembut, ketik stream |
+| 03a-1 | W (R-SKY) | 32.3–34.9 | Sekarang kita mulai mengajari AI untuk berpikir, menulis, | (UI) Kamu bertindak sebagai CEO untuk menjal… | T11 di UI | R2: composer terang close-up (ref composer), pesan muncul per kata, kalimat belum utuh; chip Agent, Bisnis-ku, Akses penuh | C18 ikut caret, crop kanan | C06 mundur sedikit | ketik per kata; musik B3 |
+| 03a-2 | W (R-SKY) | 34.9–36.4 | dan bekerja | (UI) kalimat utuh | — | R2: klik kirim di onset "bekerja"; empat agent (CEO, CS, Ops, Editor) melompat keluar dari tombol | C06 mundur, C01 saat klik | X01 agent terbang ke ruang kerja | klik + 4 pop dalam bertangga |
+| 03b | W (R-SKY) | 36.4–40.2 | persis seperti apa yang kita lakukan dalam kehidupan sehari-hari. | (UI) Laporan siap. CS Agent lanjut membalas pelanggan, Ops Agent cek stok. | streaming di UI | R2: ruang kerja bersama (ref kursor bernama); kursor CEO/CS/Ops Agent bergerak sendiri mengerjakan tugas harian | C19 drift, C18 ikut kursor CEO | X04 zoom-through ke kursor CEO → 03c | klik UI, ketik stream, notif lembut |
 | 03c | C | 40.2–43.6 | Dan perlahan, yang kita bangun menjadi cukup besar | — | — | Momen 2: wireframe terisi dari kaki ke kepala jadi piktogram matte, tumbuh setinggi kita | C19 drift, sudut rendah | tetap | scan-fill hum naik |
 | 03d | C | 43.6–45.4 | untuk mengambil tempat kita. | — | — | Piktogram baru melangkah ke titik cahaya; piktogram kita mundur ke gelap | C17 rack focus (kita blur) | X13 frame-in-frame ke kartu klip | langkah + low thump, cahaya berpindah |
 | 03e | C | 45.4–50.7 | [Klip Jensen Huang] | terjemahan 2 baris | subtitle | Kartu klip 16:9 (placeholder) + label mono JENSEN HUANG · CEO NVIDIA · MILKEN 2025 | C19 drift 1,03 | X17 hard cut ke putih | musik turun −6 dB di bawah klip |
@@ -69,7 +71,7 @@ Canvas: Wonder file **Basilisk**, Page 1 — 36 panel (baris = babak, x 0→8128
 
 | # | Dunia | Waktu (dtk, est.) | VO pemicu | Teks layar | G/T | Subjek & aksi | Kamera | Transisi keluar | SFX |
 |---|---|---|---|---|---|---|---|---|---|
-| 05a | W | 64.0–67.8 | Apa yang dikatakan Sam Altman adalah satu cerita sukses, | satu cerita sukses, | G2 + T19 | Satu kartu biru (thumbnail Altman) di kanvas putih | C19 | tetap | musik B5 build |
+| 05a | Kertas | 64.0–67.8 | Apa yang dikatakan Sam Altman adalah satu cerita sukses, | satu cerita sukses, | G2 + T19 | R2: foto tokoh/founder sukses melayang (ref Telescope), satu foto Altman bergaris biru. Narator; klip Altman tetap di 04d | C19 drift + parallax 3 lapis | C06 reveal-out ke 05b | musik B5 build, shutter lembut |
 | 05b | W | 67.8–71.9 | di antara ribuan cerita gagal yang gak pernah kita dengar. | — | — | Momen 6: ribuan kartu abu mengelilingi; lalu lenyap bergelombang, tersisa satu titik biru | C06 reveal-out lalu tahan | X17 hard cut ke gelap | rustle kartu → senyap pendek diisi drone |
 | 05c | C | 71.9–76.8 | Dan hari ini, semua orang punya akses ke tools AI yang sama. | SAMA. | T24 anchor word | Foto orang memakai AI (placeholder) berganti tiap 14–22 f di balik kata tetap | C19 | X07 | shutter per foto, kick per 2 foto |
 | 05d | W | 76.8–78.3 | Prompt yang sama. | (UI) prompt identik | T11 di UI | Composer ChatGPT dengan prompt sama di laptop, HP, tablet (3 cut) | C20 cut zoom | tetap | ketik singkat + klik kirim tiap cut |
@@ -142,7 +144,7 @@ Belum dipakai, kandidat build: `_staging/evo-*` (abakus, kalkulator, mainframe, 
 
 ## Keputusan yang perlu dilihat Irfan
 
-0. **03a/03b V2:** maskot agent = desain sendiri (orb hitam mengilap, mata pil), bukan vectorize maskot referensi pihak ketiga (rule 18). Lembar state: artboard "Agent Orb States Sheet".
+0. **R2 agent:** empat agent multi-warna desain sendiri (STYLE-R2 §2), bukan salinan maskot referensi. Lembar: artboard "Agent Family Sheet". Orb hitam V2 diarsipkan.
 1. **Trash (momen 4) diletakkan di B2** sebagai janji AI ("mengambil pekerjaan yang membosankan"), bukan di B3. Alternatif: kartu nama pekerjaan (CS, editor) dibuang di 03d.
 2. **06c kepala piktogram masuk ke cahaya** = "menyerahkan cara berpikir". Kuat untuk penonton awam, tetapi bisa terasa ganjil. Cadangan: bola cahaya kecil keluar dari kepala.
 3. **Label sumber memakai Inter kapital** (bukan mono) karena D-005 = Inter saja.

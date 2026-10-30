@@ -1,5 +1,12 @@
 # Catatan sesi scriptwriter
 
+## 31 Oktober 2026 · Storyboard v5 R2: gradien, agent, 02a/03a/05a
+
+- Referensi baru Irfan (composer, kursor bernama, foto melayang, gradien KOAH, horizon; node Wikipedia, Maskot, Refference, Visual, Collor, Collor + text) diekstrak ke `projects/ai-change-everything/STYLE-R2.md`: hex diukur dari piksel (ffmpeg), kontras dihitung WCAG, uji devil's advocate, peta resep per panel.
+- Canvas: 13 panel putih direstyle (R-HZ/R-BP/R-SKY/R-RAY), 02a dan 05a dibuat ulang, B3 jadi composer → klik → agent bekerja, Agent Family Sheet 4 warna. 19 panel versi lama dipindah ke "Arsip R1" (x + 20000).
+- Batas renderer yang ditemukan: warna SVG dibakar saat dibuat (ganti SVG, bukan warna induk); style inline hilang saat className diganti (posisi masuk className); repeating-conic dan radial dot tidak dirender (pakai SVG/titik eksplisit).
+- Baseline B-14. Status: menunggu Irfan.
+
 ## 31 Oktober 2026 · Storyboard v5: 03a V2 + aset nyata
 
 - 03a/03b diganti V2 atas permintaan Irfan: UI agent dark glass, prompt CEO diketik, kamera ke tombol kirim, klik, agent merespon + bereaksi. Maskot didesain sendiri (orb hitam mata pil, sama dengan kepala piktogram) karena maskot referensi milik pihak lain; lembar 4 state dibuat untuk animator. Referensi disimpan di `projects/ai-change-everything/references/03a-*`.
