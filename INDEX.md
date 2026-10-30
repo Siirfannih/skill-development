@@ -53,7 +53,7 @@ Skill `external/` tercatat di `external/README.md`. Skill Irfan menang bila kedu
 | Folder | Isi |
 |---|---|
 | `projects/_TEMPLATE/` | Contoh `BRIEF-STANDARD.md` untuk proyek baru. |
-| `projects/ai-change-everything/` | Video 3 «Pengganti Kita Sendiri» (@siirfannih). Kriteria sukses: `BRIEF-STANDARD.md`. |
+| `projects/ai-change-everything/` | Video 3 «Pengganti Kita Sendiri» (@siirfannih). Kriteria sukses: `BRIEF-STANDARD.md` (arah ledger 29 Oktober; naskah dan storyboard v4 sudah diganti). |
 | `projects/jadisatu-60s/` | The Gap. Keputusannya tidak ikut ke proyek lain. |
 | `projects/jadisatu-launch/` | Launch Jadisatu. `AUTHORITY.md` dan `ART-DIRECTION.md` hanya untuk proyek itu. |
 

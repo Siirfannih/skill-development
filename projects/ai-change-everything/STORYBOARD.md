@@ -1,4 +1,14 @@
-# Pengganti kita sendiri · storyboard final (spec beat)
+---
+status: archive
+scope: ai-change-everything
+how_to_use: "Storyboard v4 sudah diganti (D-011). Jangan dipakai sebagai acuan build. Arah yang berlaku ada di BRIEF-STANDARD.md."
+---
+
+# Pengganti kita sendiri · storyboard v4 (diganti)
+
+Storyboard ini sudah diganti pada 30 Oktober 2026. Video disusun ulang dari nol. Jangan membangun adegan dari tabel di bawah.
+
+Riwayat spec beat yang dulu disebut final:
 
 1920×1080 · 30 fps · ±66,7 dtk (2001 f) · timing dari VO v1 sementara (`vo/vo.json`).
 Storyboard PDF Irfan = struktur; visual digambar ulang. Build: Remotion 2.5D, kamera bergerak, objek diam di dunia.

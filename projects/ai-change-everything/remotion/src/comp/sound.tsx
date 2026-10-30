@@ -1,3 +1,5 @@
+// DIGANTI 30 Okt 2026 (D-012). Cue di berkas ini adalah mix suara pertama.
+// Jangan dijadikan sasaran mix baru. Arah yang berlaku: musik per babak + SFX per objek (D-006), dimulai ulang.
 // Sound design di dalam Remotion: setiap SFX ditaruh pada frame lokal adegan yang sama dengan visualnya,
 // jadi timing ikut otomatis bila VO final mengganti timeline (rule 37: SFX lahir bersama objeknya).
 import React from 'react';

@@ -1,7 +1,14 @@
-# Pengganti kita sendiri · script v4
+---
+status: archive
+scope: ai-change-everything
+how_to_use: "Naskah v4 sudah diganti (D-011). Jangan dilanjutkan. Irfan menilai sebagian kalimatnya kaku, contoh kata mengkloning."
+---
+
+# Pengganti kita sendiri · script v4 (diganti)
 
 Proyek: `ai-change-everything` · akun personal @siirfannih · ±57 dtk · 1920×1080 · 30 fps
-Status: **FINAL v4** (babak 4 = opsi A, Irfan 29 Okt 2026 22:55 WITA).
+
+Naskah ini sudah diganti pada 30 Oktober 2026. Video disusun ulang dari nol, termasuk naskah. Contoh yang terasa kaku: kata "mengkloning". Teks di bawah disimpan sebagai riwayat, bukan naskah yang dikerjakan.
 
 Narator orang ketiga tanpa kata "aku". Teks di bawah adalah VO; baris dalam kurung siku adalah klip asli.
 

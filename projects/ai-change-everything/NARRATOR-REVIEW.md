@@ -6,6 +6,8 @@ how_to_use: "Catatan koreksi narator. Bukan aturan untuk video lain."
 
 # AI change everything: review fungsi narator
 
+Naskah yang dibahas di catatan ini sudah diganti (D-011, 30 Oktober 2026). Catatan tetap sebagai riwayat fungsi narator, bukan naskah yang dikerjakan.
+
 Tanggal: 29 Oktober 2026 (WITA).
 Status: dua draf agent ditolak; koreksi editorial dicatat; belum ada revisi yang disetujui atau bukti performa penonton.
 

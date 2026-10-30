@@ -1,60 +1,67 @@
 ---
 status: rule
 scope: ai-change-everything
-how_to_use: Kriteria sukses Video 3 «Pengganti Kita Sendiri». Yang tidak disebut di sini bukan syarat, termasuk standar The Gap, Jadisatu, Tuntunly, dan bedah referensi.
+how_to_use: "Kriteria sukses Video 3. Arah visual dan suara mengikuti ledger 29 Oktober. Naskah, storyboard v4, dan mix suara pertama sudah diganti."
 ---
 
 # Standar · Pengganti Kita Sendiri
 
 Video 3, akun @siirfannih, folder `projects/ai-change-everything`.
 
-Kriteria di bawah mengikuti arahan Irfan pada 30 Oktober 2026 untuk sesi ini. Ledger `DECISIONS.md` (29 Oktober) masih menyimpan keputusan yang berbeda (palet Inter/biru, klon suara). Sampai Irfan menandai salah satu yang berlaku, kriteria sukses yang dipakai adalah berkas ini. Selisihnya dilaporkan, tidak digabung diam-diam.
+Irfan, 30 Oktober 2026: video ini mengikuti arah ledger 29 Oktober (`DECISIONS.md`, D-005, D-006, D-009). Arah itu lebih dekat ke video referensi. Berkas standar 30 Oktober yang memakai Geist, oranye `#FF5A1F`, dan Jadisatu Narrator V3 adalah versi yang gagal. Pilihan itu ditolak untuk video ini.
+
+Video disusun ulang dari nol, termasuk naskah. Sound design juga mulai lagi.
 
 ## Kriteria sukses
 
 - Format: 16:9, 1920×1080, 30 fps.
-- Sistem visual baru @siirfannih. Bukan template Jadisatu dan bukan template Tuntunly.
-- Teks di layar tanpa tanda baca, satu baris untuk satu kalimat, muncul kata per kata.
-- Warna: hitam untuk fokus, putih untuk perubahan, oranye `#FF5A1F` untuk satu kata kunci.
-- Font: Geist, Instrument Serif Italic, Geist Mono.
-- VO: ElevenLabs, suara Jadisatu Narrator V3, model `eleven_v4` (pengenal suara ada di `claude/jadisatu-narrator-vo/SKILL.md`). Yang dipilih hanya suara dan model itu. Aturan baca bahasa Inggris di skill tersebut (tag RELAXED/FOUNDER, larangan mengucapkan "Jadisatu") tidak menjadi syarat naskah Indonesia ini.
-- Sound design: belum ada kriteria sukses. Jangan menilai mix, pustaka, atau jumlah efek dengan standar video lain.
+- Palet D-005: charcoal `#101216`, off-white `#F5F5F7`, biru diredam. Font Inter saja, tanpa serif.
+- Teks: sekitar 70/30 visual berbanding teks, satu baris per state. Kata kunci di kanvas baru, huruf kapital, bergerak truck kiri ke kanan. Glow ultramarine, KWord + Bloom, tiga layer, kamera bergerak (rujukan di D-005).
+- Teks muncul kata per kata, jatuh bersama VO.
+- Gaya sunting: cerita dokumenter, potongan cepat, foto dan footage nyata yang padat (meetup founder, berita AI, komunitas) sekitar 3 detik per foto, plus animasi 2,5D.
+- VO: klon suara Irfan, ElevenLabs Instant Voice Clone `1MOP6dYxPUocHNWyDqR8` (D-009).
+- Suara: arah D-006 tetap, yaitu musik per babak dan SFX pada tiap objek atau transisi. Mix pertama tidak dipakai. Pustaka dan angka mix belum dikunci ulang.
+
+## Ditolak untuk video ini
+
+Pilihan berkas 30 Oktober yang gagal:
+
+- Font Geist, Instrument Serif Italic, Geist Mono.
+- Oranye `#FF5A1F` sebagai warna kata kunci.
+- Suara Jadisatu Narrator V3, model `eleven_v4`.
+
+Juga tidak dipakai sebagai acuan build:
+
+- Naskah v4 di `SCRIPT.md`. Ada bagian yang kaku, contoh kata "mengkloning".
+- Storyboard v4 di `STORYBOARD.md`.
+- Mix suara pertama: rencana musik `music/c1`–`c5` dan cue di `remotion/src/comp/sound.tsx`.
 
 ## Prinsip
 
 | Kartu | Sikap | Catatan |
 |---|---|---|
-| `jangan-bawa-template` | dipakai | Sistem visual proyek ini sendiri. |
-| `teks-sedikit` | ditolak | Proyek ini memakai satu baris per kalimat, bukan 1–3 kata per layar. |
-| `satu-font-aksen` | disesuaikan | Tiga peran font sudah dikunci di atas, bukan font referensi. |
-| `tekan-dengan-huruf` | disesuaikan | Kata kunci memakai oranye `#FF5A1F` pada hurufnya. |
+| `jangan-bawa-template` | dipakai | Irfan memilih sistem jadisatu-video2 untuk video ini (D-005). Sistem lain tidak ikut. |
+| `teks-sedikit` | disesuaikan | Satu baris per state, kata per kata bersama VO. Bukan kuota 1–3 kata. |
+| `satu-font-aksen` | ditolak | Inter saja, tanpa serif. |
+| `tekan-dengan-huruf` | disesuaikan | Kata kunci kapital di kanvas baru, bukan oranye dan bukan kotak. |
+| `gambar-diam-tetap-bergerak` | dipakai | Foto nyata yang padat, plus gerak 2,5D. |
+| `ritme-naik-lalu-reda` | disesuaikan | Potongan cepat. Foto ditahan sekitar 3 detik. |
+| `musik-mengikuti-babak` | dipakai | Arah D-006. Cue lama tidak dipakai. |
+| `gerak-bermakna-bersuara` | dipakai | SFX menempel pada objek. Kepadatan belum dikunci. |
 | `usulan-kotak-aksen` | tidak dipilih | Masih usulan. |
 | `usulan-montase-banyak-fokus` | tidak dipilih | Masih usulan. |
-| `usulan-pita-2-6-khz` | tidak dipilih | Masih usulan. Bukan syarat mix. |
-| `usulan-sinkron-dan-loudness` | tidak dipilih | Angka referensi bukan target video ini. |
-| `kandidat-rekaman-asli` | tidak dipilih | Kandidat. Sumber skill-nya tidak ada di repo. |
-| `kandidat-kenyset` | tidak dipilih | Kandidat dari The Gap, bukan pustaka utama video ini. |
-| `kandidat-kepadatan-sfx-launch` | tidak dipilih | Klaim dari luar repo, bukan target. |
-| `telinga-nyaman` | tidak dipilih | Kandidat bila Irfan ingin mix yang hangat. |
-| `gerak-bermakna-bersuara` | tidak dipilih | Kandidat. Kepadatan efek belum dikunci. |
-| `musik-mengikuti-babak` | tidak dipilih | Kandidat. Musik belum dikunci. |
+| `usulan-pita-2-6-khz` | tidak dipilih | Bukan syarat mix baru. |
+| `usulan-sinkron-dan-loudness` | tidak dipilih | Bukan target mix baru. |
+| `kandidat-rekaman-asli` | tidak dipilih | Bukan syarat. |
+| `kandidat-kenyset` | tidak dipilih | Bukan pustaka yang dikunci untuk mix baru. |
+| `kandidat-kepadatan-sfx-launch` | tidak dipilih | Bukan target. |
+| `telinga-nyaman` | tidak dipilih | Belum dipilih untuk mix baru. |
 
-Kartu yang tidak muncul di tabel ini juga tidak dipilih.
+## Alat
 
-## Alat dan pustaka
+- Build yang ada di folder ini: Remotion. Adegan lamanya ikut storyboard yang sudah diganti.
+- VO baru memakai klon di atas, bukan narator Jadisatu.
 
-- Build yang sudah ada di folder ini: Remotion. Itu catatan keadaan, bukan syarat gaya.
-- VO: ElevenLabs, suara dan model di atas.
-- Pustaka SFX, termasuk Kenyset, belum dipilih.
-- Paket "real-sound" dan profil tujuh film launch tidak ada berkasnya di repo ini, jadi tidak dipakai.
+## Terbuka
 
-## Terbuka untuk Irfan
-
-Kriteria sukses sound design video ini belum dikunci. Kandidat yang pernah tertukar dengan syarat, dan sengaja tidak dijadikan syarat:
-
-1. Skill real-sound: hanya rekaman berlisensi, audio hasil generate ditolak.
-2. Kenyset FREE SFX PACK sebagai pustaka utama.
-3. Sekitar lima efek per 10 detik, dari tujuh film launch.
-4. Langit-langit energi 2–6 kHz dan angka sinkron/loudness dari lima video yang dibedah Maximus.
-
-Irfan memilih mana yang masuk, atau menulis kriteria lain. Sampai ada pilihan, sound design tidak dinilai lulus atau gagal terhadap keempat butir itu.
+Mix baru belum punya angka kelulusan. Empat kandidat ini tetap bukan syarat: hanya rekaman berlisensi, Kenyset sebagai pustaka utama, sekitar lima efek per 10 detik, serta langit-langit 2–6 kHz dan angka sinkron dari bedah referensi.
