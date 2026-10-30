@@ -6,7 +6,7 @@ how_to_use: "Spec beat storyboard v5. Pasangannya: frame visual di canvas Wonder
 
 # Pengganti Kita Sendiri · storyboard v5 (spec beat)
 
-Canvas: Wonder file **Basilisk**, Page 1 — 36 panel (baris = babak, x 0→8128, y 0→5400) + label babak di kiri. Folder `ASSETS / …` di x=10000 milik Irfan, tidak disentuh.
+Canvas: Wonder file **Basilisk**, Page 1 — 36 panel (baris = babak, x 0→8128, y 0→5400) + label babak di kiri. Panel V2 03a-1, 03a-2, 03b + "Agent Orb States Sheet" ada di ujung kanan baris B3 (x 5120–8192); panel 03a/03b lama ditandai DIGANTI. Folder `ASSETS / …` di x=10000 milik Irfan, tidak disentuh.
 
 1920×1080 · 30 fps · ±2:01 · naskah `SCRIPT-V5.md` (FINAL) · baseline `BASELINE-V5.md` (B-01–B-11).
 **Timing = perkiraan** dari jumlah kata ÷ 2,6 kata/dtk + 0,3 dtk jeda. Semua waktu diganti dengan onset kata `vo.json` setelah VO klon dibuat (B-11).
@@ -49,8 +49,9 @@ Canvas: Wonder file **Basilisk**, Page 1 — 36 panel (baris = babak, x 0→8128
 
 | # | Dunia | Waktu (dtk, est.) | VO pemicu | Teks layar | G/T | Subjek & aksi | Kamera | Transisi keluar | SFX |
 |---|---|---|---|---|---|---|---|---|---|
-| 03a | W | 32.3–36.4 | Sekarang kita mulai mengajari AI untuk berpikir, menulis, dan bekerja | (UI) Berpikir/Menulis/Bekerja seperti aku. | T11 di UI | UI asli ChatGPT "Create a GPT" › Configure › Instructions diketik per kata kerja | C02 push ke field | tetap | ketik keyboard per kata; musik B3 (pulse naik) |
-| 03b | W | 36.4–40.2 | persis seperti apa yang kita lakukan dalam kehidupan sehari-hari. | — | — | Chip berkas (catatan-harian.md, email-terkirim.mbox, chat-wa.txt, kalender.ics) terbang masuk ke Knowledge | C18 follow chip → C06 | X04 zoom-through ke avatar GPT kosong | pop dalam (LPF 3 kHz) per chip |
+| 03a-1 | C | 32.3–34.9 | Sekarang kita mulai mengajari AI untuk berpikir, menulis, | (UI) Kamu bertindak sebagai CEO untuk menjalankan bisnis yang aku jalankan | T11 di UI | V2 (Irfan 31 Okt): jendela agent dark glass "CEO Agent · Playground"; prompt diketik per kata | C02 push + C18 ikut caret | kamera geser ke tombol kirim | ketik per kata; musik B3 (pulse naik) |
+| 03a-2 | C | 34.9–36.4 | dan bekerja | — | — | Close-up tombol kirim chrome; kursor klik tepat di onset "bekerja" (100→88→100, 4 f) + riak cahaya | C18 ke tombol, C01 saat klik | C06 mundur ke jendela chat | klik UI tebal + swoosh kirim |
+| 03b | C | 36.4–40.2 | persis seperti apa yang kita lakukan dalam kehidupan sehari-hari. | (UI) Siap, aku ambil alih. Hari ini mulai dari mana: laporan penjualan, balas pelanggan, atau cek stok? | streaming di UI | Agent Orb (maskot desain sendiri) melompat keluar dari avatar: Diam → Berpikir → Membaca → Senang (squash 100→92→104→100) | C06 mundur lalu C18 ikut orb | X04 zoom-through ke orb | pop dalam + chirp lembut, ketik stream |
 | 03c | C | 40.2–43.6 | Dan perlahan, yang kita bangun menjadi cukup besar | — | — | Momen 2: wireframe terisi dari kaki ke kepala jadi piktogram matte, tumbuh setinggi kita | C19 drift, sudut rendah | tetap | scan-fill hum naik |
 | 03d | C | 43.6–45.4 | untuk mengambil tempat kita. | — | — | Piktogram baru melangkah ke titik cahaya; piktogram kita mundur ke gelap | C17 rack focus (kita blur) | X13 frame-in-frame ke kartu klip | langkah + low thump, cahaya berpindah |
 | 03e | C | 45.4–50.7 | [Klip Jensen Huang] | terjemahan 2 baris | subtitle | Kartu klip 16:9 (placeholder) + label mono JENSEN HUANG · CEO NVIDIA · MILKEN 2025 | C19 drift 1,03 | X17 hard cut ke putih | musik turun −6 dB di bawah klip |
@@ -114,7 +115,7 @@ Y = lolos · — = tidak berlaku · catatan = pengecualian beralasan.
 | 02b, 02e, 02f | — (grafik) | Y | Y | janji = garis | Y | Y | Y | — | Y | 3 beat grafik, framing beda tiap beat (rule 21) |
 | 02c | kursor AI = aktor | Y (1 kartu diseret per saat) | — | buang = Trash | Y | Y | Y | desktop/Trash gaya macOS | — | Y |
 | 02d | Y | Y | Y | kreatif = cahaya | Y | Y | Y | — | Y | Y |
-| 03a–03b | — | Y | UI diegetik | ajari = isi Instructions/Knowledge | Y | Y | Y | ChatGPT GPT builder asli | — | Y |
+| 03a-1–03b | agent orb = aktor | Y | UI diegetik | ajari = beri peran CEO; agent = kepala kita di komputer | Y | Y | Y | pengecualian: UI agent generik dark glass atas permintaan Irfan (bukan ChatGPT asli) | — | Y |
 | 03c–03d | Y | Y | — | tempat = titik cahaya | Y | Y | Y | — | — | Y |
 | 03e, 04d | narasumber | Y | subtitle | — | Y | Y | Y | — | Y | Y |
 | 04a–04c | — | Y | Y | arah = belokan garis | Y | Y | Y | nama rilis asli | Y | Y |
@@ -124,8 +125,24 @@ Y = lolos · — = tidak berlaku · catatan = pengecualian beralasan.
 | 06a–06f | Y | Y | Y | serahkan pikiran = kepala masuk cahaya; tertinggal = jarak | Y | Y | Y | composer di bidang cahaya | Y | 06a gema 02d disengaja (rutinitas) |
 | 06g | Y | Y | 6 kata ke atas: pengecualian tagline penutup (`direction.md` §6.5) | sendiri di tengah kerumunan | Y | Y | Y | — | "kamu" | Y |
 
+## Aset nyata terpasang (31 Okt)
+
+| Panel | Aset (canvas `ASSETS / …`) |
+|---|---|
+| 00a | `_staging/local/cheque.jpg` (TC Disrupt Berlin 2018), opasitas 20 % di charcoal |
+| 00b | 12 foto dari `_staging`, `b5_kenyataan`, `news` sebagai awan gambar |
+| 02a | `news/wiki_ai.png` |
+| 03e | `_staging/local/jensen.jpg` (latar Milken Institute) |
+| 04d | `cutouts/altman.png` |
+| 05a | `_staging/local/altman.jpg` (wawancara Mostly Human) |
+| 05c | `_staging/local/hackathon-thumb.jpg` |
+| 05f | `b5_kenyataan/b5_kenyataan_08.jpg` |
+
+Belum dipakai, kandidat build: `_staging/evo-*` (abakus, kalkulator, mainframe, PC, ponsel lipat, iPhone) untuk 04b, `_staging/rocket*.jpg`, `b3_tiru/*`, `b6_cermin/*`, `cutouts/job_*`. Lisensi tiap foto dicatat di `CREDITS.md` saat build.
+
 ## Keputusan yang perlu dilihat Irfan
 
+0. **03a/03b V2:** maskot agent = desain sendiri (orb hitam mengilap, mata pil), bukan vectorize maskot referensi pihak ketiga (rule 18). Lembar state: artboard "Agent Orb States Sheet".
 1. **Trash (momen 4) diletakkan di B2** sebagai janji AI ("mengambil pekerjaan yang membosankan"), bukan di B3. Alternatif: kartu nama pekerjaan (CS, editor) dibuang di 03d.
 2. **06c kepala piktogram masuk ke cahaya** = "menyerahkan cara berpikir". Kuat untuk penonton awam, tetapi bisa terasa ganjil. Cadangan: bola cahaya kecil keluar dari kepala.
 3. **Label sumber memakai Inter kapital** (bukan mono) karena D-005 = Inter saja.

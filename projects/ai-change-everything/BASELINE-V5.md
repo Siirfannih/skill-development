@@ -24,7 +24,8 @@ Sumber: jawaban Irfan di sesi storyboard, 30 Oktober 2026 ±23:55 WITA.
 | B-09 | Gaya karakter | Animasi tokoh/ilustrasi mengikuti `references/karakter-cahaya-ref.png`: piktogram tanpa wajah (kepala bola terpisah dari badan kapsul), matte abu gelap, satu sumber cahaya, rim light tipis, berkas cahaya volumetrik. Teks kata kunci tampil di atas bidang cahaya (sans tebal miring, Inter Black Italic). | Irfan, 30 Okt 23:58. Penyesuaian dari uji: adegan bertokoh selalu di charcoal, karena gaya ini kehilangan cahaya di latar putih. Putih tetap untuk grafik, kartu, dan teks. Logo GatesFX tidak ditiru. Format referensi 9:16 dikomposisi ulang ke 16:9. |
 | B-10 | Momen "siluet wireframe terisi menjadi aku" | Wireframe terisi menjadi piktogram B-09 saja, tanpa foto asli. "Aku" diwakili tokoh tanpa wajah. | Irfan, 31 Okt. Momen ini tidak butuh foto atau footage Irfan. |
 | B-11 | Status naskah, foto, VO | Naskah v5 **FINAL** termasuk "yang" di B6. Foto nyata belum ada: storyboard memakai placeholder bayangan berlabel. VO dibuat setelah storyboard. | Irfan, 31 Okt 00:04. Timing storyboard memakai perkiraan 2,6 kata/dtk sampai VO klon diukur. |
-
+| B-12 | 03a/03b V2 | 03a jadi adegan agent: UI chat dark glass (ref `references/03a-ui-*.png`), prompt "Kamu bertindak sebagai CEO untuk menjalankan bisnis yang aku jalankan", kamera ke tombol kirim, klik, agent merespon dengan pertanyaan dan bereaksi. | Irfan, 31 Okt 00:26. Penyesuaian dari uji: maskot didesain sendiri (orb hitam mata pil = kepala piktogram B-09), monokrom; maskot referensi (`references/03a-mascot-ref-pihak-ketiga.png`) tidak di-vectorize karena milik pihak lain. UI generik dicatat sebagai pengecualian aturan UI asli atas permintaan Irfan. |
+| B-13 | Aset nyata | Aset Irfan di canvas `ASSETS / …` dipakai untuk 8 panel bertanda placeholder. | Irfan, 31 Okt 00:28. Pemetaan di `STORYBOARD-V5.md`. |
 ## Tetap berlaku dari ledger
 
 - D-005 kecuali palet: Inter saja tanpa serif, 70/30 visual-teks, satu baris per state, kata kunci KAPITAL di kanvas baru dengan truck kiri ke kanan, KWord + Bloom, tiga layer, kamera bergerak.
@@ -53,5 +54,4 @@ VO 243 kata. Dengan klon ±2,6 kata/dtk (perkiraan, belum diukur dari VO klon), 
 
 ## Terbuka
 
-- Aset B-08.
 - Momen 7 ("musik hilang") perlu dicek terhadap rule 32 (backsound tidak boleh bolong). Usulan: musik hilang hanya di ekor penutup setelah kata terakhir, sebagai akhir yang dirancang.

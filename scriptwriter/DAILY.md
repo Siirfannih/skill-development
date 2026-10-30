@@ -1,5 +1,11 @@
 # Catatan sesi scriptwriter
 
+## 31 Oktober 2026 · Storyboard v5: 03a V2 + aset nyata
+
+- 03a/03b diganti V2 atas permintaan Irfan: UI agent dark glass, prompt CEO diketik, kamera ke tombol kirim, klik, agent merespon + bereaksi. Maskot didesain sendiri (orb hitam mata pil, sama dengan kepala piktogram) karena maskot referensi milik pihak lain; lembar 4 state dibuat untuk animator. Referensi disimpan di `projects/ai-change-everything/references/03a-*`.
+- Aset Irfan di canvas (`ASSETS / …`) dipasang di 8 panel placeholder: 00a, 00b, 02a, 03e, 04d, 05a, 05c, 05f. Kontras kata kunci di atas foto dijaga lewat opasitas foto di charcoal, tanpa scrim.
+- Baseline B-12, B-13. Status: menunggu Irfan menyatakan storyboard final.
+
 ## 31 Oktober 2026 · Storyboard Video 3 v5
 
 - Naskah v5 FINAL (Irfan 00:04), "yang" di B6 disetujui, foto diganti placeholder bayangan, VO dibuat setelah storyboard (B-11).
