@@ -1,4 +1,7 @@
 ---
+status: rule
+scope: jadisatu-vo-inggris
+how_to_use: "Suara dan model ini untuk VO Inggris Jadisatu, atau bila BRIEF proyek memilihnya. Aturan bacanya tidak ikut sendiri."
 name: "jadisatu-narrator-vo"
 description: "Pengaturan VO narator Inggris Jadisatu yang sudah disetujui Irfan (suara, model, cara baca, cara merakit). Pakai setiap kali membuat voiceover marketing/promo Jadisatu dalam bahasa Inggris."
 ---

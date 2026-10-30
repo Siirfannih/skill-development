@@ -1,3 +1,9 @@
+---
+status: principle
+scope: motion
+how_to_use: "Muat saat memilih gaya teks. Nama font dan ukuran Jadisatu di dalamnya bukan syarat proyek lain."
+---
+
 # Typography & kinetic text
 
 Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.

@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: jadisatu-60s
+how_to_use: "Catatan fase The Gap. Bukan kriteria sukses proyek lain."
+---
+
 # STATUS — The Gap (Jadisatu) · Remotion
 
 _Update terakhir: 26 Okt 2026, 18:00 WITA · versi terakhir: **v18** (`render/TheGap-Jadisatu-v18.mp4`, 95,0 dtk, 1920×1080 @ 30 fps; versi lama ada di riwayat git)_

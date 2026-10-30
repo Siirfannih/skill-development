@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: ai-change-everything
+how_to_use: "Kasus mentah. Bukan aturan."
+---
+
 # Kasus mentah: narator kehilangan fungsi cerita setelah dua revisi
 
 ID: mg-script-20261029-narrator.

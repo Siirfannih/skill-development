@@ -1,3 +1,9 @@
+---
+status: principle
+scope: motion
+how_to_use: "Muat saat menentukan tokoh, family, atau palet. Palet yang tertulis milik proyek yang disebut."
+---
+
 # Direction — prinsip sutradara, family visual, elemen, warna
 
 Baca saat menentukan apa yang terjadi di setiap beat: tokoh, subjek, metafora, family visual, palet. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.

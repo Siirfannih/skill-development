@@ -1,4 +1,18 @@
+---
+status: evidence
+scope: ai-change-everything
+how_to_use: "Catatan pelajaran proyek ini. Bukan aturan untuk video lain. Entri 30 Oktober mengunci arah yang berlaku."
+---
+
 # RETRO · ai-change-everything
+
+### 2026-10-30 · arah video dan yang diganti
+
+Keputusan Irfan: video mengikuti ledger 29 Oktober (D-005 Inter dan biru, D-006 sound design penuh, D-009 klon suara). Arah itu lebih dekat ke video referensi. Berkas standar yang memakai Geist, oranye `#FF5A1F`, dan Jadisatu Narrator V3 ditolak.
+
+Video disusun ulang dari nol, termasuk naskah. Contoh yang terasa kaku: kata "mengkloning". Storyboard v4 dan mix suara pertama diganti. Gaya sunting yang baru: cerita dokumenter, potongan cepat, foto dan footage nyata yang padat (meetup founder, berita AI, komunitas) sekitar 3 detik per foto, teks kata per kata bersama VO, plus animasi 2,5D.
+
+Status: diterapkan di `BRIEF-STANDARD.md` dan `DECISIONS.md` (D-010–D-013).
 
 ### 2026-10-29 · ai-change-everything · gerbang 6 (VO)
 Revisi Irfan: VO v1 masih memakai nada lama (santai, fun, intonasi sedang); proyek ini butuh formal-serius dan lebih cepat. Acuan nada: kaye.creatives (Dd94xUgo7Nd) dan Baikov.

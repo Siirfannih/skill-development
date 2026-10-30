@@ -1,3 +1,9 @@
+---
+status: principle
+scope: autopilot-video
+how_to_use: "Rencana sistem. ADR di dalamnya masih menunggu Irfan, bukan kriteria video lain."
+---
+
 # PRD · Autopilot produksi video
 
 ## Masalah

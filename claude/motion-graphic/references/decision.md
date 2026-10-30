@@ -1,3 +1,9 @@
+---
+status: principle
+scope: motion
+how_to_use: "Muat saat harus memilih. Pengalaman kerja boleh ikut; template proyek lain tidak."
+---
+
 # Decision — memilih, memutuskan, dan kapan bertanya
 
 Baca saat harus memilih di antara beberapa pilihan (family, gaya teks, teknik, transisi), saat dua aturan terasa bertabrakan, atau saat ragu apakah perlu bertanya ke Irfan.

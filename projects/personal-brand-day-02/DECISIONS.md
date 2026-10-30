@@ -1,3 +1,9 @@
+---
+status: rule
+scope: personal-brand-day-02
+how_to_use: "Keputusan proyek itu saja."
+---
+
 # Ledger · Personal branding, konten kedua challenge
 
 Status: pencarian ide. Belum ada tema, hook, atau script yang dinyatakan final oleh Irfan. Tanggal sesi: 27 Oktober 2026 WITA.

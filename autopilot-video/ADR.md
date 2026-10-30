@@ -1,3 +1,9 @@
+---
+status: proposal
+scope: autopilot-video
+how_to_use: "Keputusan arsitektur yang masih diusulkan."
+---
+
 # Catatan keputusan (ADR, format Nygard)
 
 Status semua: **Diusulkan** sampai Irfan menyetujui, kecuali yang ditandai.

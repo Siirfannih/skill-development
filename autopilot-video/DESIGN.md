@@ -1,3 +1,9 @@
+---
+status: principle
+scope: autopilot-video
+how_to_use: "Desain sistem yang belum dikunci sebagai aturan global."
+---
+
 # Design doc · Autopilot produksi video
 
 ## 1. Riset: rakit, jangan adopsi utuh

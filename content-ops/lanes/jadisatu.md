@@ -1,3 +1,9 @@
+---
+status: principle
+scope: jadisatu
+how_to_use: "Jalur akun Jadisatu saja."
+---
+
 # Jalur Jadisatu · konten sebagai eksperimen terukur
 
 ## Tujuan

@@ -1,3 +1,9 @@
+---
+status: archive
+scope: archive
+how_to_use: "Jangan dimuat. Digantikan skill yang masih aktif."
+---
+
 # Kamus Gaya Teks · Irfan Motion (draft v0 · 13 Okt 2026)
 
 Berlaku untuk semua video motion Irfan (launch Tuntunly dan video edukasi 30–60 detik). Kamus ini mengatur TAMPILAN teks. GERAK teks tetap memakai kode T01–T17 di SKILL.md §3. Satu beat = satu gaya utama + paling banyak satu gaya pendamping.

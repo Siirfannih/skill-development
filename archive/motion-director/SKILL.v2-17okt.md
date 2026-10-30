@@ -1,4 +1,7 @@
 ---
+status: archive
+scope: archive
+how_to_use: "Jangan dimuat. Digantikan skill yang masih aktif."
 name: motion-director
 description: Satu pegangan utuh untuk membuat video motion Irfan (launch Jadisatu, Tuntunly, konten siirfan) setara Holy Freak — gerbang kerja, family visual, tipografi kinetik, kamera, transisi, SFX per gerak, engine render, QA. Menggantikan motion-graphic-playbook, irfan-motion-director, MOTION-SYSTEM, TYPE-STYLES. Pakai di setiap video/motion untuk Irfan.
 ---

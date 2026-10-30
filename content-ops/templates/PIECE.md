@@ -1,3 +1,9 @@
+---
+status: principle
+scope: content-ops
+how_to_use: "Templat selembar konten. Isi tiap keping mengikuti briefnya sendiri."
+---
+
 # <piece_id> · <judul kerja>
 
 piece_id: <YYYY-MM-DD>_<siirfan|jadisatu|aff-niche>_<slug>

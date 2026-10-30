@@ -1,3 +1,9 @@
+---
+status: principle
+scope: motion
+how_to_use: "Muat saat menyusun storyboard. Tabel kritik adalah alat periksa, bukan gaya yang disalin."
+---
+
 # Storyboard — dari script final ke rencana beat
 
 Baca di gerbang 4–5 (storyboard, TYPE-TEST, TRANSITION-SHEET). Storyboard adalah gerbang review termurah: memperbaiki satu baris di sini jauh lebih murah daripada memperbaiki render.

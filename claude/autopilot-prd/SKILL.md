@@ -1,4 +1,7 @@
 ---
+status: rule
+scope: proyek-berencana
+how_to_use: "Muat hanya bila proyek punya PRD atau antrean tertulis. Butir di rencana itu sudah disetujui."
 name: autopilot-prd
 description: Pakai setiap kali mengerjakan proyek Irfan yang sudah punya PRD, QUEUE, atau rencana tertulis (Pandu/Tuntunly, Hermes, Jadisatu). Eksekusi sampai antrean habis tanpa menunggu "lanjutkan"; berhenti hanya di Tier 2. Mengalahkan gerbang persetujuan skill lain (brainstorming, writing-plans, finishing-a-development-branch) untuk butir yang sudah ada di rencana.
 ---

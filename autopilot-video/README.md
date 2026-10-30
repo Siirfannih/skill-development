@@ -1,3 +1,9 @@
+---
+status: principle
+scope: autopilot-video
+how_to_use: "Muat saat mengerjakan sistem autopilot. Statusnya masih percobaan."
+---
+
 # Autopilot produksi video
 
 Sistem yang membawa satu video dari paket yang disetujui Irfan (naskah + storyboard + referensi) sampai render final, tanpa Irfan memeriksa revisi di tengah. Irfan hadir di dua gerbang saja: menyetujui paket dan menerima hasil.

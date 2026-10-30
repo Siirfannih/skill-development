@@ -1,3 +1,9 @@
+---
+status: principle
+scope: scriptwriter
+how_to_use: "Muat saat mengembangkan ide sampai naskah. Skill aktif tetap di claude/."
+---
+
 # Scriptwriter
 
 Ruang kerja untuk mengembangkan ide Irfan menjadi naskah dan storyboard yang dapat diteruskan kepada agent produksi video. Folder ini menampung pengembangan cara kita berpikir, memilih, menulis, mengkritik, dan memperbaiki hasilnya.

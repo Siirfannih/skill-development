@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: grok-agent
+how_to_use: "Jangan dimuat sebagai aturan. Empat konfliknya berstatus proposal di claude/principles/usulan-*."
+---
+
 # Style Synthesis — Visual + Audio Rules from References
 
 **Analyst:** Grok Bot agent Maximus  

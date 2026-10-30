@@ -1,4 +1,7 @@
 ---
+status: principle
+scope: proyek-kreatif
+how_to_use: "Muat di awal proyek kreatif. Yang ikut adalah cara kerja, bukan palet atau pustaka proyek lama."
 name: "irfan-creative-workflow"
 description: "Workflow and hard-won lessons for any creative project with Irfan (launch videos, motion graphics, scripts, campaigns): gate order, script quality bar, credit discipline, and what experience to carry vs leave behind. Use at the start of every new video/creative project or session, even if he only says 'bikin video' or sends a reference."
 ---
@@ -84,6 +87,8 @@ Tampilkan di chat. Jangan buat file sebelum final. Jangan menyatakan script "sia
 ---
 
 ## 4. Standar keberhasilan (lintas proyek)
+
+Butir di bawah adalah pengalaman tentang kualitas, bukan daftar syarat yang ikut sendiri ke proyek baru. Syarat satu proyek ada di `BRIEF-STANDARD.md` proyek itu.
 
 - Output bisa langsung dipakai: video jadi, caption, dan file yang bisa Irfan buka atau edit sendiri.
 - Kualitas visual minimal setara referensi yang ia bawa, diukur dari contact sheet berdampingan, bukan dari kesan.

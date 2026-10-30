@@ -1,4 +1,7 @@
 ---
+status: rule
+scope: jadisatu-canvas
+how_to_use: "Muat saat membaca atau mengubah Canvas. Bukan aturan untuk video lain."
 name: jadisatu-canvas
 description: Use when an AI client connects to, reads, edits, or resumes a shared Jadisatu Canvas board, including uploaded references, room resets and stale-context conflicts.
 ---

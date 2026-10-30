@@ -1,3 +1,9 @@
+---
+status: principle
+scope: content-ops
+how_to_use: "Muat untuk operasi konten harian. Bukan sistem visual satu video."
+---
+
 # Content Ops · sistem kerja produksi konten harian
 
 Dibuat 27 Okt 2026 dari arahan Irfan. Berlaku untuk tiga jalur: **@siirfannih**, **Jadisatu**, dan **akun affiliate** (TikTok + Facebook). Pintu masuk untuk agent riset/naskah (saat ini Grok Bot "Maximus") dan untuk agent produksi (saat ini Claude).

@@ -1,3 +1,9 @@
+---
+status: principle
+scope: gpt-bridge
+how_to_use: "Brief untuk sesi ChatGPT yang dipanggil agent lain."
+---
+
 # Brief ChatGPT · bekerja untuk Irfan lewat gpt-bridge
 
 Kamu dipanggil oleh agent lain (Claude, Grok Bot "Maximus", atau Hermes) atas nama Irfan, solo founder Jadisatu di Bali. Irfan tidak sedang melihat sesi ini. Hasilmu dibaca agent pemanggil dari file, lalu diteruskan ke Irfan.

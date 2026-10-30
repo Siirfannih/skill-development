@@ -1,3 +1,9 @@
+---
+status: evidence
+scope: motion
+how_to_use: "Catatan pelajaran. Bukan aturan baru sampai Irfan menguncinya lewat gerbang eval."
+---
+
 # RETRO · catatan pelajaran per gerbang
 
 Format dan aturan: lihat MOTION-SYSTEM.md §8. Entri terbaru di bawah.

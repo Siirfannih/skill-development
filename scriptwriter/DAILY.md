@@ -1,4 +1,25 @@
+---
+status: evidence
+scope: scriptwriter
+how_to_use: "Catatan sesi. Bukan aturan."
+---
+
 # Catatan sesi scriptwriter
+
+## 30 Oktober 2026 · Arah Video 3
+
+- Irfan memilih ledger 29 Oktober (Inter, biru, klon suara, D-005/D-006/D-009). Berkas 30 Oktober (Geist, oranye, Jadisatu Narrator V3) ditolak. Arah 29 Oktober lebih dekat ke video referensi.
+- Video disusun ulang dari nol, termasuk naskah. Contoh yang kaku: "mengkloning". Sound design diulang. Storyboard v4 dan mix pertama ditandai diganti.
+- Gaya sunting: cerita dokumenter, potongan cepat, foto nyata padat sekitar 3 detik, teks kata per kata bersama VO, plus animasi 2,5D.
+- Berkas yang diubah: `BRIEF-STANDARD.md`, `DECISIONS.md`, `STATUS.md`, `SCRIPT.md`, `STORYBOARD.md`, `RETRO.md`, `NARRATOR-REVIEW.md`, `music/README.md`, `remotion/src/comp/sound.tsx`.
+
+## 30 Oktober 2026 · Urutan muat perpustakaan
+
+- Permintaan: sesi baru hanya memuat yang relevan, dan temuan referensi tidak dipakai sebagai template syarat.
+- Ditambah `claude/STYLE-CORE.md`, kartu di `claude/principles/`, `projects/_TEMPLATE/BRIEF-STANDARD.md`, dan `projects/ai-change-everything/BRIEF-STANDARD.md`.
+- Bukti mentah Maximus pindah ke `evidence/grok-agent/`. Empat konflik tetap usulan.
+- Belum ada uji perilaku model segar. Ini perubahan struktur muat, bukan klaim skill sudah lebih akurat.
+- Titik lanjut sesi itu: selisih BRIEF dan ledger. Diputus di entri "Arah Video 3" di atas: ledger 29 Oktober yang berlaku.
 
 ## 29 Oktober 2026 · Jadisatu Canvas Storyboard
 

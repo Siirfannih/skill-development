@@ -1,3 +1,9 @@
+---
+status: principle
+scope: affiliate
+how_to_use: "Jalur affiliate saja."
+---
+
 # Jalur affiliate · TikTok + Facebook (akun baru)
 
 ## Tujuan

@@ -1,4 +1,7 @@
 ---
+status: principle
+scope: cinedance
+how_to_use: "Muat saat brief memakai kode blok Seedance atau Higgsfield."
 name: cinedance-block-library
 description: CINEDANCE — BLOCK LIBRARY v1. Assembles a full video-generation prompt from a short brief (TRICK, FORMAT, ASSETS, MAIN, FAIL, COUNT, TASK, ACTING) plus a list of block codes (FACE, BODY, MODEST, TASK, CAM-HANDHELD, CAM-LIVING-TRIPOD, CAM-RIG, CAM-POV, CAM-PULLBACK-TURN, CAM-OVER-SHOULDER, CAM-HIGH, CAM-MANUAL-ZOOM, OPT-ANAMORPHIC, OPT-PENTAX, OPT-WIDE, OPT-MACRO, OPT-NORMAL, GRADE-BRIGHT, GRADE-COOL-GREEN, GRADE-WARM-DARK, GRADE-LOCK, WIND, WATER, RAIN, LIVING-BACKGROUND, INTEGRATION, SCALE, PEOPLE-LAW, COUNT, FAIL, NO-FREEZING, CONTAMINATION, TEXT-ON, ANATOMY, ACTING, RESTRAINED, GAZE, SOUND, SOUND-SWITCH, STOP-BASE, STOP-INVERSION). Use WHENEVER the user sends a brief in this TRICK/FORMAT/ASSETS/BLOCKS format, lists block codes from this library, mentions Karima's face lock, or asks to build a Seedance / Higgsfield video prompt from blocks — even if written roughly or in Russian.
 ---

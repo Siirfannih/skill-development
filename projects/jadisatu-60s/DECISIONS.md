@@ -1,3 +1,9 @@
+---
+status: rule
+scope: jadisatu-60s
+how_to_use: "Keputusan The Gap. Tidak menjadi syarat video lain."
+---
+
 # Jadisatu 60-90 detik — ledger keputusan
 
 Proyek baru (bukan revisi Jadisatu Launch v7). Aturan ledger: `claude/motion-graphic/references/revision-log.md` §21. Baris lama tidak diedit; keputusan yang berubah ditulis sebagai baris baru dengan kolom "Menggantikan".

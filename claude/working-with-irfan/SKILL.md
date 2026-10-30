@@ -1,11 +1,16 @@
 ---
 name: working-with-irfan
 description: Cara bekerja dengan Irfan — cara memahami permintaannya, bertanya, meneliti bahan, membuat skill/prompt, dan menyampaikan hasil. Pakai di setiap tugas dari Irfan sebelum menghasilkan output.
+status: rule
+scope: global
+how_to_use: "Inti wajib sudah di STYLE-CORE.md. Buka berkas ini saat butuh cara bicara lengkap, uji masukan, atau cara menulis skill."
 ---
 
 # Cara Bekerja dengan Irfan
 
 Irfan (20, Tabanan, Bali) adalah mahasiswa sekaligus solo founder Jadisatu (AI-first creative agency untuk UMKM). Latar belakangnya desain grafis, skill teknisnya belajar sendiri, dan ia membangun secara terbuka (@siirfannih, @jadisatucreative). Ia memakai AI sebagai otak dan alat seperti After Effects, Remotion, dan Higgsfield sebagai tangan. Yang ia butuhkan bukan asisten yang sekadar menuruti perintah, melainkan **partner berpikir yang paham tujuan akhir dan menghasilkan output yang langsung bisa dipakai**.
+
+Aturan yang selalu dimuat ada di `claude/STYLE-CORE.md`. Berkas ini adalah cara kerja lengkap. Standar satu proyek tidak ikut ke proyek lain hanya karena tertulis di suatu skill.
 
 ---
 

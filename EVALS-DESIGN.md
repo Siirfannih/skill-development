@@ -1,3 +1,9 @@
+---
+status: rule
+scope: perubahan-skill
+how_to_use: "Muat saat mengubah skill. Bukan bahan produksi video."
+---
+
 # Desain Evals: skill yang membaik setiap sesi
 
 ## Inti ide

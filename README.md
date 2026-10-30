@@ -1,12 +1,19 @@
+---
+status: rule
+scope: global
+how_to_use: "Pengantar repo. Lanjutkan ke INDEX.md."
+---
+
 # Skill Development
 
 Perpustakaan skill untuk semua model yang bekerja dengan Irfan. Satu repo, satu sumber kebenaran: skill tidak lagi terpecah di beberapa lokasi, dan setiap skill punya peran yang jelas sehingga hanya yang relevan yang dimuat.
 
-**Mulai dari [INDEX.md](INDEX.md).**
+**Mulai dari [INDEX.md](INDEX.md).** Urutan muatnya ketat: `claude/STYLE-CORE.md`, berkas standar proyek, lalu kartu prinsip yang memang dibutuhkan.
 
-- `claude/` — skill yang dikembangkan Irfan
+- `claude/` — skill yang dikembangkan Irfan, plus `STYLE-CORE.md` dan `principles/`
 - `external/` — skill open-source yang teruji (submodule terkunci versi)
-- `projects/` — dokumen otoritas dan art direction per proyek
+- `projects/` — dokumen per proyek; kriteria sukses ada di `BRIEF-STANDARD.md` bila proyek itu memilikinya
+- `evidence/` — data mentah bedah referensi; dibuka hanya untuk mengecek angka
 - `scriptwriter/` — pengembangan cara kerja ide menjadi naskah dan storyboard, terhubung ke skill aktif
 - `archive/` — skill lama yang sudah digantikan (baseline eval)
 

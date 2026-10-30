@@ -1,4 +1,7 @@
 ---
+status: archive
+scope: archive
+how_to_use: "Jangan dimuat. Digantikan skill yang masih aktif."
 name: motion-director
 description: Satu-satunya pegangan untuk membuat video motion Irfan (launch Jadisatu, Tuntunly, konten siirfan) — gerbang kerja, analisis referensi per frame, After Effects + engine kode, tipografi kinetik 2.5D, kamera, transisi, SFX/musik per gerak, QA terukur. Menggantikan motion-graphic-playbook, irfan-motion-director, MOTION-SYSTEM, TYPE-STYLES, STANDAR-KUALITAS. Pakai di setiap video/motion untuk Irfan.
 ---
