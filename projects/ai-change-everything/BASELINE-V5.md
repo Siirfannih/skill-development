@@ -27,11 +27,13 @@ Sumber: jawaban Irfan di sesi storyboard, 30 Oktober 2026 ±23:55 WITA.
 | B-12 | 03a/03b V2 | 03a jadi adegan agent: UI chat dark glass (ref `references/03a-ui-*.png`), prompt "Kamu bertindak sebagai CEO untuk menjalankan bisnis yang aku jalankan", kamera ke tombol kirim, klik, agent merespon dengan pertanyaan dan bereaksi. | Irfan, 31 Okt 00:26. Penyesuaian dari uji: maskot didesain sendiri (orb hitam mata pil = kepala piktogram B-09), monokrom; maskot referensi (`references/03a-mascot-ref-pihak-ketiga.png`) tidak di-vectorize karena milik pihak lain. UI generik dicatat sebagai pengecualian aturan UI asli atas permintaan Irfan. |
 | B-13 | Aset nyata | Aset Irfan di canvas `ASSETS / …` dipakai untuk 8 panel bertanda placeholder. | Irfan, 31 Okt 00:28. Pemetaan di `STORYBOARD-V5.md`. |
 | B-14 | Revisi R2: gradien, agent, 02a, 03a, 05a | (1) Latar putih polos diganti sistem gradien hasil ekstraksi referensi (`STYLE-R2.md`: R-HZ horizon, R-BP blueprint, R-SKY kaca langit, R-RAY sekali). (2) Agent multi-warna per kepribadian (CEO, CS, Ops, Editor) menggantikan orb hitam B-12. (3) 03a jadi composer terang → klik kirim → kursor agent bernama bekerja. (4) 02a kolase gaya Wikipedia. (5) 05a foto sukses melayang. | Irfan, 31 Okt 00:56. Uji devil's advocate di STYLE-R2 §4: dibatasi 3 resep + 1, dikunci per babak, kontras dihitung per teks. Menyesuaikan B-03 untuk panel di peta STYLE-R2 §5; panel charcoal tidak berubah. |
+| B-15 | Storyboard final | Storyboard R2 di canvas Basilisk **FINAL**; lanjut VO dan build Remotion di sesi ini (tidak pindah aplikasi). | Irfan, 31 Okt 01:16. Frame diekspor ke `storyboard-frames/`. Tiga catatan build ada di README folder itu. |
+| B-16 | Suara VO | **Tidak memakai klon suara Irfan.** Pakai suara narator The Gap (`1I8tElkHzrblGqkJtwn3`, Jadisatu Narrator V3, `eleven_v4`) dengan nada disesuaikan agar lebih serius-dokumenter. | Irfan, 31 Okt 01:20. Menggantikan D-009. Suara ini sebelumnya ditolak karena terlalu santai (D-003/D-010); karena itu nada diuji dulu: 3 varian hook di `vo/v5-tone-test/`, Irfan memilih sebelum VO penuh. |
 ## Tetap berlaku dari ledger
 
 - D-005 kecuali palet: Inter saja tanpa serif, 70/30 visual-teks, satu baris per state, kata kunci KAPITAL di kanvas baru dengan truck kiri ke kanan, KWord + Bloom, tiga layer, kamera bergerak.
 - D-006 / D-012: musik per babak + SFX per objek. Mix lama tidak dipakai.
-- D-009: VO klon suara Irfan (`1MOP6dYxPUocHNWyDqR8`).
+- ~~D-009: VO klon suara Irfan~~ → diganti B-16 (suara narator The Gap, nada disesuaikan).
 - D-013: teks kata per kata bersama VO, foto/footage nyata, animasi 2,5D.
 
 ## Gaya (dari brief Irfan)

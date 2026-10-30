@@ -1,5 +1,12 @@
 # Catatan sesi scriptwriter
 
+## 31 Oktober 2026 · Storyboard final, uji nada VO, ekspor frame
+
+- Irfan menyatakan storyboard R2 final (B-15) dan memilih tetap di sesi ini untuk VO + Remotion.
+- VO: bukan klon; suara narator The Gap dengan nada disesuaikan (B-16). Tiga varian hook dibuat (±420 kredit; sisa ±15.800/40.000). Tempo terukur 2,14 kata/dtk, lebih lambat dari perkiraan storyboard 2,6.
+- 38 frame diekspor ke `projects/ai-change-everything/storyboard-frames/`. Kuota layer Wonder (Free) habis sampai 6 Nov 23:32 WITA: 05g R2 belum bisa diperbaiki, dipakai versi R1.
+- Titik lanjut: Irfan pilih varian nada → VO penuh → timing → satu adegan uji Remotion. Disk ±10 GiB (batas aturan).
+
 ## 31 Oktober 2026 · Storyboard v5 R2: gradien, agent, 02a/03a/05a
 
 - Referensi baru Irfan (composer, kursor bernama, foto melayang, gradien KOAH, horizon; node Wikipedia, Maskot, Refference, Visual, Collor, Collor + text) diekstrak ke `projects/ai-change-everything/STYLE-R2.md`: hex diukur dari piksel (ffmpeg), kontras dihitung WCAG, uji devil's advocate, peta resep per panel.
