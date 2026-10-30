@@ -1,0 +1,712 @@
+{
+  "01_krea2_launch": {
+    "id": "01_krea2_launch",
+    "engine": "openai-whisper-small",
+    "language": "en",
+    "duration_s": 67.177,
+    "speech_duration_s": 44.82,
+    "vo_presence_fraction": 0.667,
+    "word_count": 117,
+    "vo_pace_words_per_sec": 2.61,
+    "vo_pace_words_per_min": 156.6,
+    "transcript": "This is Creati, an image model made for aesthetics. Create in any style, no matter how expressive. Explore new ideas without stylistic boundaries. Show it a mood board and set the direction for what you want to create. It gets it, it gets you. Tell it what you love and what you don't. It learns and adapts to your visual preferences. The more you use it, the better it gets. With unique controls to adjust its creativity, add randomness or surprise, or tune stylization. Craya 2 is meant to be a base for you to build on. A raw creative medium with no predefined preferences or opinions, and every control for you to make it your own.",
+    "segments": [
+      {
+        "start": 1.0,
+        "end": 6.04,
+        "text": "This is Creati, an image model made for aesthetics."
+      },
+      {
+        "start": 7.12,
+        "end": 11.08,
+        "text": "Create in any style, no matter how expressive."
+      },
+      {
+        "start": 11.92,
+        "end": 14.68,
+        "text": "Explore new ideas without stylistic boundaries."
+      },
+      {
+        "start": 15.76,
+        "end": 19.74,
+        "text": "Show it a mood board and set the direction for what you want to create."
+      },
+      {
+        "start": 20.76,
+        "end": 22.48,
+        "text": "It gets it, it gets you."
+      },
+      {
+        "start": 23.56,
+        "end": 25.7,
+        "text": "Tell it what you love and what you don't."
+      },
+      {
+        "start": 25.7,
+        "end": 28.8,
+        "text": "It learns and adapts to your visual preferences."
+      },
+      {
+        "start": 30.06,
+        "end": 34.0,
+        "text": "The more you use it, the better it gets."
+      },
+      {
+        "start": 40.64,
+        "end": 44.34,
+        "text": "With unique controls to adjust its creativity,"
+      },
+      {
+        "start": 44.96,
+        "end": 48.68,
+        "text": "add randomness or surprise, or tune stylization."
+      },
+      {
+        "start": 51.2,
+        "end": 54.96,
+        "text": "Craya 2 is meant to be a base for you to build on."
+      },
+      {
+        "start": 55.52,
+        "end": 59.9,
+        "text": "A raw creative medium with no predefined preferences or opinions,"
+      },
+      {
+        "start": 60.38,
+        "end": 63.0,
+        "text": "and every control for you to make it your own."
+      }
+    ],
+    "vo_present": true
+  },
+  "02_spark": {
+    "id": "02_spark",
+    "engine": "openai-whisper-small",
+    "language": "en",
+    "duration_s": 47.347,
+    "speech_duration_s": 31.66,
+    "vo_presence_fraction": 0.669,
+    "word_count": 80,
+    "vo_pace_words_per_sec": 2.527,
+    "vo_pace_words_per_min": 151.6,
+    "transcript": "Everything starts with a spark. An idea. A sketch. A question. What if this could grow? That's where purposeful design begins, turning ideas into experiences, and experiences into growth. Users want clarity. Not clutter. Not waiting. Just flow and simplicity. From messy sketches to clean dashboards, design shapes the journey. We design intuitive interfaces, smart layouts, and clear actions. All crafted to move people forward. Because great design isn't just how it looks. It's how it works. Ready to grow?",
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 1.72,
+        "text": "Everything starts with a spark."
+      },
+      {
+        "start": 2.54,
+        "end": 4.3,
+        "text": "An idea. A sketch."
+      },
+      {
+        "start": 5.6,
+        "end": 6.2,
+        "text": "A question."
+      },
+      {
+        "start": 7.1,
+        "end": 8.14,
+        "text": "What if this could grow?"
+      },
+      {
+        "start": 9.04,
+        "end": 11.04,
+        "text": "That's where purposeful design begins,"
+      },
+      {
+        "start": 11.7,
+        "end": 13.48,
+        "text": "turning ideas into experiences,"
+      },
+      {
+        "start": 13.86,
+        "end": 16.16,
+        "text": "and experiences into growth."
+      },
+      {
+        "start": 17.42,
+        "end": 18.8,
+        "text": "Users want clarity."
+      },
+      {
+        "start": 19.62,
+        "end": 21.46,
+        "text": "Not clutter. Not waiting."
+      },
+      {
+        "start": 22.02,
+        "end": 23.48,
+        "text": "Just flow and simplicity."
+      },
+      {
+        "start": 24.4,
+        "end": 26.96,
+        "text": "From messy sketches to clean dashboards,"
+      },
+      {
+        "start": 27.56,
+        "end": 29.02,
+        "text": "design shapes the journey."
+      },
+      {
+        "start": 29.02,
+        "end": 32.0,
+        "text": "We design intuitive interfaces,"
+      },
+      {
+        "start": 32.64,
+        "end": 35.22,
+        "text": "smart layouts, and clear actions."
+      },
+      {
+        "start": 36.08,
+        "end": 38.5,
+        "text": "All crafted to move people forward."
+      },
+      {
+        "start": 39.44,
+        "end": 41.92,
+        "text": "Because great design isn't just how it looks."
+      },
+      {
+        "start": 42.68,
+        "end": 43.36,
+        "text": "It's how it works."
+      },
+      {
+        "start": 44.5,
+        "end": 45.12,
+        "text": "Ready to grow?"
+      }
+    ],
+    "vo_present": true
+  },
+  "03_renaissance": {
+    "id": "03_renaissance",
+    "engine": "openai-whisper-small",
+    "language": "en",
+    "duration_s": 90.629,
+    "speech_duration_s": 83.04,
+    "vo_presence_fraction": 0.916,
+    "word_count": 283,
+    "vo_pace_words_per_sec": 3.408,
+    "vo_pace_words_per_min": 204.5,
+    "transcript": "The 2030s will be the start of a new renaissance. Let's start! What can I explain? We all know AI is changing everything. New stations say we live in unprecedented times. What they don't realise is all of this has happened before. Do you plan to take over the world? The year is 1440 and this guy invents the printing press. A machine that brought knowledge, stories and scientific advancements to a scale the world had never seen before. Within a hundred years, 30,000 books turned into 200 million printed and spread across Europe. But that actually became a huge problem. Because once everyone was given the power to say anything, finding information wasn't difficult. Finding something meaningful was. Until eventually, this guy decided it was time for the rebirth of a lost human spirit. Or as the French say, as a renaissance. Where real art and knowledge became more important than endless tablets. But now our ways of communication are changing. Again, most companies believe the next rebirth of media belongs to those who pump out the most content the fastest. But we believe they're making the same mistake people made 500 years ago. Because the reason you treasure that handmade gift or cry at your favourite movie isn't because a machine pumped it out in a second. It's because they're made by real people putting in hours of effort, making things the scrappy and half-heart ways. Hilling stories that come from an honest human voice. We believe the next generation of brands won't win by just making more, they'll win by making things people actually care about. So, if this is the next renaissance, what part will you go?",
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 2.8,
+        "text": "The 2030s will be the start of a new renaissance."
+      },
+      {
+        "start": 3.6,
+        "end": 4.12,
+        "text": "Let's start!"
+      },
+      {
+        "start": 4.54,
+        "end": 5.16,
+        "text": "What can I explain?"
+      },
+      {
+        "start": 5.38,
+        "end": 6.84,
+        "text": "We all know AI is changing everything."
+      },
+      {
+        "start": 7.06,
+        "end": 9.68,
+        "text": "New stations say we live in unprecedented times."
+      },
+      {
+        "start": 9.82,
+        "end": 12.82,
+        "text": "What they don't realise is all of this has happened before."
+      },
+      {
+        "start": 13.0,
+        "end": 15.14,
+        "text": "Do you plan to take over the world?"
+      },
+      {
+        "start": 15.84,
+        "end": 19.36,
+        "text": "The year is 1440 and this guy invents the printing press."
+      },
+      {
+        "start": 19.76,
+        "end": 25.26,
+        "text": "A machine that brought knowledge, stories and scientific advancements to a scale the world had never seen before."
+      },
+      {
+        "start": 25.26,
+        "end": 31.08,
+        "text": "Within a hundred years, 30,000 books turned into 200 million printed and spread across Europe."
+      },
+      {
+        "start": 31.2,
+        "end": 33.1,
+        "text": "But that actually became a huge problem."
+      },
+      {
+        "start": 33.26,
+        "end": 37.38,
+        "text": "Because once everyone was given the power to say anything, finding information wasn't difficult."
+      },
+      {
+        "start": 37.74,
+        "end": 39.56,
+        "text": "Finding something meaningful was."
+      },
+      {
+        "start": 39.88,
+        "end": 44.64,
+        "text": "Until eventually, this guy decided it was time for the rebirth of a lost human spirit."
+      },
+      {
+        "start": 44.8,
+        "end": 47.56,
+        "text": "Or as the French say, as a renaissance."
+      },
+      {
+        "start": 48.2,
+        "end": 51.92,
+        "text": "Where real art and knowledge became more important than endless tablets."
+      },
+      {
+        "start": 52.32,
+        "end": 54.46,
+        "text": "But now our ways of communication are changing."
+      },
+      {
+        "start": 55.0,
+        "end": 61.08,
+        "text": "Again, most companies believe the next rebirth of media belongs to those who pump out the most content the fastest."
+      },
+      {
+        "start": 61.48,
+        "end": 65.24,
+        "text": "But we believe they're making the same mistake people made 500 years ago."
+      },
+      {
+        "start": 65.3,
+        "end": 71.52,
+        "text": "Because the reason you treasure that handmade gift or cry at your favourite movie isn't because a machine pumped it out in a second."
+      },
+      {
+        "start": 71.74,
+        "end": 76.9,
+        "text": "It's because they're made by real people putting in hours of effort, making things the scrappy and half-heart ways."
+      },
+      {
+        "start": 77.14,
+        "end": 79.6,
+        "text": "Hilling stories that come from an honest human voice."
+      },
+      {
+        "start": 79.6,
+        "end": 86.1,
+        "text": "We believe the next generation of brands won't win by just making more, they'll win by making things people actually care about."
+      },
+      {
+        "start": 86.32,
+        "end": 89.96,
+        "text": "So, if this is the next renaissance, what part will you go?"
+      }
+    ],
+    "vo_present": true
+  },
+  "04_grii_batam": {
+    "id": "04_grii_batam",
+    "engine": "openai-whisper-small",
+    "language": "id",
+    "duration_s": 105.025,
+    "speech_duration_s": 104.46,
+    "vo_presence_fraction": 0.995,
+    "word_count": 298,
+    "vo_pace_words_per_sec": 2.853,
+    "vo_pace_words_per_min": 171.2,
+    "transcript": "yang namanya londo irng itu kayak begitu sudah kalau jadi pecahbat pegang kuasa bisa ngatur undang-undang bisa eksekusi bisa pake aparat penegang ukung untuk pencet orang pake pacak bikin perijinan tetanggutan rampas tanah adat setelah itu kalau ada banjir kita mesti tabah terdemusi bah dari mengkuasa sudah kurang londo apa ini sudah ya persis kayak pada waktu itu ya sabat itu perintah yang diberikan oleh Tuhan untuk membebasikan orang-orang yang sangat lemah perintahnya anjelas ya jangan kamu bekerja pada hari sabat orang-orang lemah orang-orang dibawah yang disuruh kerja paksa dikasih perintah sabat sabat adalah perintah untuk orang-orang dibawah bisa istirahat sabat itu perintah pembebasan tapi sekarang sudah dilengkungkan orang-orang agami seperti ini sudah sabat itu menjadi semacam kayak peraturan agama dan semakin beragama mereka semakin bersabat mereka semakin tinggi nilainya padahal sabat itu adalah untuk orang-orang yang dibawah sabat dibalik sudah prinsipnya harika merdekaan dengan sabat sebenarnya mirip ya sudah membebaskan orang-orang yang tertindas sudah kita waktu ngomong tentang KOMPERDECAAN sudah bersiap-siap untuk mendengarkan kekonyalan-kekonyalan yang kita tonton dengan bayar tiket tiketnya adalah darah dan air matanya orang-orang melarat bidatuh-bidatuh ada angka-angka yang super fantasi lalu nanti akan mendapatkan tepuk tangan yang banyak dari pejilat-pejilat yang berharap cabatan saja dapat cabatan atau mempertahankan cabatan atau naik cabatan atau rangkap cabatan ya kurang lebih seperti itu ongkosnya ya darah dan air matanya orang-orang kecil kita diajak untuk nasionalis mencintai negara untuk mumpa cara juga lalu melakukan kejutan-kejutan yang minim sekali vaidah kalau karung makan kerubu bagianya dipasangin juga itu kemerdekaan juga yang merdekas ya apa sih sabat dipake dia eksploitasi oleh para pemimpin agamanya yusus-yusus membalikkan itu maka yusus datang untuk membebaskan dan ongkosnya adalah dia menjadi kurban mati dia terserah-serah",
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 1.64,
+        "text": "yang namanya londo irng itu kayak begitu sudah"
+      },
+      {
+        "start": 1.64,
+        "end": 3.04,
+        "text": "kalau jadi pecahbat"
+      },
+      {
+        "start": 3.04,
+        "end": 4.06,
+        "text": "pegang kuasa"
+      },
+      {
+        "start": 4.06,
+        "end": 5.4,
+        "text": "bisa ngatur undang-undang"
+      },
+      {
+        "start": 5.4,
+        "end": 6.46,
+        "text": "bisa eksekusi"
+      },
+      {
+        "start": 6.46,
+        "end": 8.08,
+        "text": "bisa pake aparat penegang ukung"
+      },
+      {
+        "start": 8.08,
+        "end": 9.92,
+        "text": "untuk pencet orang pake pacak"
+      },
+      {
+        "start": 9.92,
+        "end": 10.88,
+        "text": "bikin perijinan"
+      },
+      {
+        "start": 10.88,
+        "end": 11.54,
+        "text": "tetanggutan"
+      },
+      {
+        "start": 11.54,
+        "end": 12.78,
+        "text": "rampas tanah adat"
+      },
+      {
+        "start": 12.78,
+        "end": 14.06,
+        "text": "setelah itu kalau ada banjir"
+      },
+      {
+        "start": 14.06,
+        "end": 17.24,
+        "text": "kita mesti tabah terdemusi bah dari mengkuasa sudah"
+      },
+      {
+        "start": 17.24,
+        "end": 18.72,
+        "text": "kurang londo apa ini sudah ya"
+      },
+      {
+        "start": 18.72,
+        "end": 20.0,
+        "text": "persis kayak pada waktu itu ya"
+      },
+      {
+        "start": 20.0,
+        "end": 22.02,
+        "text": "sabat itu perintah yang diberikan oleh Tuhan"
+      },
+      {
+        "start": 22.02,
+        "end": 23.44,
+        "text": "untuk membebasikan orang-orang yang sangat lemah"
+      },
+      {
+        "start": 23.44,
+        "end": 24.58,
+        "text": "perintahnya anjelas ya"
+      },
+      {
+        "start": 24.58,
+        "end": 26.34,
+        "text": "jangan kamu bekerja pada hari sabat"
+      },
+      {
+        "start": 26.88,
+        "end": 27.68,
+        "text": "orang-orang lemah"
+      },
+      {
+        "start": 27.68,
+        "end": 29.3,
+        "text": "orang-orang dibawah yang disuruh kerja paksa"
+      },
+      {
+        "start": 29.3,
+        "end": 30.62,
+        "text": "dikasih perintah sabat"
+      },
+      {
+        "start": 30.62,
+        "end": 33.0,
+        "text": "sabat adalah perintah untuk orang-orang dibawah"
+      },
+      {
+        "start": 33.0,
+        "end": 33.82,
+        "text": "bisa istirahat"
+      },
+      {
+        "start": 33.82,
+        "end": 36.04,
+        "text": "sabat itu perintah pembebasan"
+      },
+      {
+        "start": 36.04,
+        "end": 38.84,
+        "text": "tapi sekarang sudah dilengkungkan orang-orang agami seperti ini sudah"
+      },
+      {
+        "start": 38.84,
+        "end": 41.44,
+        "text": "sabat itu menjadi semacam kayak peraturan agama"
+      },
+      {
+        "start": 41.44,
+        "end": 43.12,
+        "text": "dan semakin beragama mereka"
+      },
+      {
+        "start": 43.12,
+        "end": 44.46,
+        "text": "semakin bersabat mereka"
+      },
+      {
+        "start": 44.46,
+        "end": 45.86,
+        "text": "semakin tinggi nilainya"
+      },
+      {
+        "start": 45.86,
+        "end": 47.82,
+        "text": "padahal sabat itu adalah untuk orang-orang yang dibawah"
+      },
+      {
+        "start": 47.82,
+        "end": 49.44,
+        "text": "sabat dibalik sudah"
+      },
+      {
+        "start": 49.44,
+        "end": 51.62,
+        "text": "prinsipnya harika merdekaan dengan sabat"
+      },
+      {
+        "start": 51.62,
+        "end": 52.42,
+        "text": "sebenarnya mirip ya sudah"
+      },
+      {
+        "start": 52.42,
+        "end": 54.48,
+        "text": "membebaskan orang-orang yang tertindas sudah"
+      },
+      {
+        "start": 54.48,
+        "end": 55.58,
+        "text": "kita waktu ngomong tentang"
+      },
+      {
+        "start": 55.58,
+        "end": 56.58,
+        "text": "KOMPERDECAAN"
+      },
+      {
+        "start": 56.58,
+        "end": 59.32,
+        "text": "sudah bersiap-siap untuk mendengarkan kekonyalan-kekonyalan"
+      },
+      {
+        "start": 59.32,
+        "end": 61.18,
+        "text": "yang kita tonton dengan bayar tiket"
+      },
+      {
+        "start": 61.18,
+        "end": 62.8,
+        "text": "tiketnya adalah darah"
+      },
+      {
+        "start": 62.8,
+        "end": 64.64,
+        "text": "dan air matanya orang-orang melarat"
+      },
+      {
+        "start": 64.64,
+        "end": 65.98,
+        "text": "bidatuh-bidatuh"
+      },
+      {
+        "start": 65.98,
+        "end": 68.28,
+        "text": "ada angka-angka yang super fantasi"
+      },
+      {
+        "start": 68.28,
+        "end": 70.28,
+        "text": "lalu nanti akan mendapatkan tepuk tangan yang banyak"
+      },
+      {
+        "start": 70.28,
+        "end": 71.46,
+        "text": "dari pejilat-pejilat yang"
+      },
+      {
+        "start": 71.46,
+        "end": 72.64,
+        "text": "berharap cabatan saja"
+      },
+      {
+        "start": 72.64,
+        "end": 75.06,
+        "text": "dapat cabatan atau mempertahankan cabatan"
+      },
+      {
+        "start": 75.06,
+        "end": 76.94,
+        "text": "atau naik cabatan atau rangkap cabatan"
+      },
+      {
+        "start": 76.94,
+        "end": 77.74,
+        "text": "ya kurang lebih seperti itu"
+      },
+      {
+        "start": 77.74,
+        "end": 78.8,
+        "text": "ongkosnya ya"
+      },
+      {
+        "start": 78.8,
+        "end": 80.94,
+        "text": "darah dan air matanya orang-orang kecil"
+      },
+      {
+        "start": 80.94,
+        "end": 82.8,
+        "text": "kita diajak untuk nasionalis"
+      },
+      {
+        "start": 82.8,
+        "end": 83.96,
+        "text": "mencintai negara"
+      },
+      {
+        "start": 83.96,
+        "end": 85.34,
+        "text": "untuk mumpa cara juga"
+      },
+      {
+        "start": 85.34,
+        "end": 86.82,
+        "text": "lalu melakukan kejutan-kejutan"
+      },
+      {
+        "start": 86.82,
+        "end": 88.32,
+        "text": "yang minim sekali vaidah"
+      },
+      {
+        "start": 88.32,
+        "end": 89.98,
+        "text": "kalau karung makan kerubu"
+      },
+      {
+        "start": 89.98,
+        "end": 91.0,
+        "text": "bagianya dipasangin juga"
+      },
+      {
+        "start": 91.0,
+        "end": 92.22,
+        "text": "itu kemerdekaan juga"
+      },
+      {
+        "start": 92.22,
+        "end": 93.48,
+        "text": "yang merdekas ya apa sih"
+      },
+      {
+        "start": 93.48,
+        "end": 94.62,
+        "text": "sabat dipake"
+      },
+      {
+        "start": 94.62,
+        "end": 96.82,
+        "text": "dia eksploitasi oleh para pemimpin agamanya"
+      },
+      {
+        "start": 96.82,
+        "end": 98.02,
+        "text": "yusus-yusus membalikkan itu"
+      },
+      {
+        "start": 98.02,
+        "end": 99.72,
+        "text": "maka yusus datang untuk membebaskan"
+      },
+      {
+        "start": 99.72,
+        "end": 102.82,
+        "text": "dan ongkosnya adalah dia menjadi kurban"
+      },
+      {
+        "start": 102.82,
+        "end": 105.0,
+        "text": "mati dia terserah-serah"
+      }
+    ],
+    "vo_present": true
+  },
+  "05_energy_sun": {
+    "id": "05_energy_sun",
+    "engine": "openai-whisper-small",
+    "language": "en",
+    "duration_s": 21.868,
+    "speech_duration_s": 20.24,
+    "vo_presence_fraction": 0.926,
+    "word_count": 74,
+    "vo_pace_words_per_sec": 3.656,
+    "vo_pace_words_per_min": 219.4,
+    "transcript": "Everything around you that you call life was made up by people that were no smarter than you. In order for a new industry to emerge, you need energy. The future of concy will essentially just be wattage. We need to move towards nuclear, wind and solar very quickly. There's always energy, there never can be enough energy. The sun rounds up to 100% of all energy. It's really all about the sun.",
+    "segments": [
+      {
+        "start": 0.0,
+        "end": 5.18,
+        "text": "Everything around you that you call life was made up by people that were no smarter than you."
+      },
+      {
+        "start": 5.36,
+        "end": 7.96,
+        "text": "In order for a new industry to emerge, you need energy."
+      },
+      {
+        "start": 8.2,
+        "end": 10.94,
+        "text": "The future of concy will essentially just be wattage."
+      },
+      {
+        "start": 11.08,
+        "end": 14.28,
+        "text": "We need to move towards nuclear, wind and solar very quickly."
+      },
+      {
+        "start": 14.48,
+        "end": 17.06,
+        "text": "There's always energy, there never can be enough energy."
+      },
+      {
+        "start": 17.22,
+        "end": 20.2,
+        "text": "The sun rounds up to 100% of all energy."
+      },
+      {
+        "start": 20.46,
+        "end": 21.42,
+        "text": "It's really all about the sun."
+      }
+    ],
+    "vo_present": true
+  }
+}

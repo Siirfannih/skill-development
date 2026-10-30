@@ -1,0 +1,63 @@
+ffmpeg version 7.1.5-0+deb13u1 Copyright (c) 2000-2026 the FFmpeg developers
+  built with gcc 14 (Debian 14.2.0-19)
+  configuration: --prefix=/usr --extra-version=0+deb13u1 --toolchain=hardened --libdir=/usr/lib/x86_64-linux-gnu --incdir=/usr/include/x86_64-linux-gnu --arch=amd64 --enable-gpl --disable-stripping --disable-libmfx --disable-omx --enable-gnutls --enable-libaom --enable-libass --enable-libbs2b --enable-libcdio --enable-libcodec2 --enable-libdav1d --enable-libflite --enable-libfontconfig --enable-libfreetype --enable-libfribidi --enable-libglslang --enable-libgme --enable-libgsm --enable-libharfbuzz --enable-libmp3lame --enable-libmysofa --enable-libopenjpeg --enable-libopenmpt --enable-libopus --enable-librubberband --enable-libshine --enable-libsnappy --enable-libsoxr --enable-libspeex --enable-libtheora --enable-libtwolame --enable-libvidstab --enable-libvorbis --enable-libvpx --enable-libwebp --enable-libx265 --enable-libxml2 --enable-libxvid --enable-libzimg --enable-openal --enable-opencl --enable-opengl --disable-sndio --enable-libvpl --enable-libdc1394 --enable-libdrm --enable-libiec61883 --enable-chromaprint --enable-frei0r --enable-ladspa --enable-libbluray --enable-libcaca --enable-libdvdnav --enable-libdvdread --enable-libjack --enable-libpulse --enable-librabbitmq --enable-librist --enable-libsrt --enable-libssh --enable-libsvtav1 --enable-libx264 --enable-libzmq --enable-libzvbi --enable-lv2 --enable-sdl2 --enable-libplacebo --enable-librav1e --enable-pocketsphinx --enable-librsvg --enable-libjxl --enable-shared
+  libavutil      59. 39.100 / 59. 39.100
+  libavcodec     61. 19.101 / 61. 19.101
+  libavformat    61.  7.103 / 61.  7.103
+  libavdevice    61.  3.100 / 61.  3.100
+  libavfilter    10.  5.100 / 10.  5.100
+  libswscale      8.  3.100 /  8.  3.100
+  libswresample   5.  3.100 /  5.  3.100
+  libpostproc    58.  3.100 / 58.  3.100
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/workspace/audio-analysis/02_spark.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.1.100
+  Duration: 00:00:47.35, start: 0.000000, bitrate: 328 kb/s
+  Stream #0:0[0x1](eng): Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 736x414 [SAR 1:1 DAR 16:9], 258 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+      Metadata:
+        handler_name    : ?Mainconcept Video Media Handler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.3.100 libwz264
+  Stream #0:1[0x2](eng): Audio: aac (HE-AACv2) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 64 kb/s (default)
+      Metadata:
+        handler_name    : #Mainconcept MP4 Sound Media Handler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> wrapped_avframe (native))
+  Stream #0:1 -> #0:1 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+[Parsed_showinfo_1 @ 0x7ff090003380] config in time_base: 1/15360, frame_rate: 30/1
+[Parsed_showinfo_1 @ 0x7ff090003380] config out time_base: 0/0, frame_rate: 0/0
+[Parsed_showinfo_1 @ 0x7ff090003380] n:   0 pts: 218112 pts_time:14.2    duration:    512 duration_time:0.0333333 fmt:yuv420p cl:left sar:1/1 s:736x414 i:P iskey:0 type:I checksum:A98AD335 plane_checksum:[CD480255 BBCC4DE3 7C7182FD] mean:[224 114 123] stdev:[8.5 4.9 4.1]
+[Parsed_showinfo_1 @ 0x7ff090003380] color_range:tv color_space:bt709 color_primaries:bt709 color_trc:bt709
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf61.7.103
+  Stream #0:0(eng): Video: wrapped_avframe, yuv420p(tv, bt709, progressive), 736x414 [SAR 1:1 DAR 16:9], q=2-31, 200 kb/s, 30 fps, 30 tbn (default)
+      Metadata:
+        handler_name    : ?Mainconcept Video Media Handler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.101 wrapped_avframe
+  Stream #0:1(eng): Audio: pcm_s16le, 44100 Hz, stereo, s16, 1411 kb/s (default)
+      Metadata:
+        handler_name    : #Mainconcept MP4 Sound Media Handler
+        vendor_id       : [0][0][0][0]
+        encoder         : Lavc61.19.101 pcm_s16le
+frame=    1 fps=0.0 q=-0.0 size=N/A time=00:00:14.23 bitrate=N/A speed=28.3x    [Parsed_showinfo_1 @ 0x7ff090003380] n:   1 pts: 305152 pts_time:19.866667 duration:    512 duration_time:0.0333333 fmt:yuv420p cl:left sar:1/1 s:736x414 i:P iskey:0 type:I checksum:67989322 plane_checksum:[CBBCDBB6 5FE2C40A 9988F344] mean:[201 113 126] stdev:[52.3 7.9 7.9]
+[Parsed_showinfo_1 @ 0x7ff090003380] color_range:tv color_space:bt709 color_primaries:bt709 color_trc:bt709
+[Parsed_showinfo_1 @ 0x7ff090003380] n:   2 pts: 365568 pts_time:23.8    duration:    512 duration_time:0.0333333 fmt:yuv420p cl:left sar:1/1 s:736x414 i:P iskey:0 type:P checksum:63712FAA plane_checksum:[AEBBDE0B D9209805 9DA3B97C] mean:[163 117 112] stdev:[78.0 8.2 11.5]
+[Parsed_showinfo_1 @ 0x7ff090003380] color_range:tv color_space:bt709 color_primaries:bt709 color_trc:bt709
+[Parsed_showinfo_1 @ 0x7ff090003380] n:   3 pts: 366080 pts_time:23.833333 duration:    512 duration_time:0.0333333 fmt:yuv420p cl:left sar:1/1 s:736x414 i:P iskey:0 type:P checksum:1090F96B plane_checksum:[006F734A D18E71FE 914F1423] mean:[112 123 103] stdev:[71.0 7.8 14.4]
+[Parsed_showinfo_1 @ 0x7ff090003380] color_range:tv color_space:bt709 color_primaries:bt709 color_trc:bt709
+[Parsed_showinfo_1 @ 0x7ff090003380] n:   4 pts: 518656 pts_time:33.766667 duration:    512 duration_time:0.0333333 fmt:yuv420p cl:left sar:1/1 s:736x414 i:P iskey:0 type:I checksum:BBD5B119 plane_checksum:[FBFB350E 1D3907DC 0B92742F] mean:[79 122 108] stdev:[54.8 17.4 14.3]
+[Parsed_showinfo_1 @ 0x7ff090003380] color_range:tv color_space:bt709 color_primaries:bt709 color_trc:bt709
+[Parsed_showinfo_1 @ 0x7ff090003380] n:   5 pts: 646656 pts_time:42.1    duration:    512 duration_time:0.0333333 fmt:yuv420p cl:left sar:1/1 s:736x414 i:P iskey:0 type:I checksum:F6604083 plane_checksum:[D52ED099 AF5530B9 FD4E3F22] mean:[227 113 124] stdev:[5.7 5.7 3.9]
+[Parsed_showinfo_1 @ 0x7ff090003380] color_range:tv color_space:bt709 color_primaries:bt709 color_trc:bt709
+[out#0/null @ 0x55fb2fc7da00] video:3KiB audio:8156KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame=    6 fps=0.0 q=-0.0 Lsize=N/A time=00:00:42.13 bitrate=N/A speed=42.9x    

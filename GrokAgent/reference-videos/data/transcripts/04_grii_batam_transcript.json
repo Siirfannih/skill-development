@@ -1,0 +1,2130 @@
+{
+  "id": "04_grii_batam",
+  "engine": "openai-whisper-small",
+  "language": "id",
+  "duration_s": 105.025,
+  "speech_duration_s": 104.46,
+  "vo_presence_fraction": 0.995,
+  "word_count": 298,
+  "vo_pace_words_per_sec": 2.853,
+  "vo_pace_words_per_min": 171.2,
+  "transcript": "yang namanya londo irng itu kayak begitu sudah kalau jadi pecahbat pegang kuasa bisa ngatur undang-undang bisa eksekusi bisa pake aparat penegang ukung untuk pencet orang pake pacak bikin perijinan tetanggutan rampas tanah adat setelah itu kalau ada banjir kita mesti tabah terdemusi bah dari mengkuasa sudah kurang londo apa ini sudah ya persis kayak pada waktu itu ya sabat itu perintah yang diberikan oleh Tuhan untuk membebasikan orang-orang yang sangat lemah perintahnya anjelas ya jangan kamu bekerja pada hari sabat orang-orang lemah orang-orang dibawah yang disuruh kerja paksa dikasih perintah sabat sabat adalah perintah untuk orang-orang dibawah bisa istirahat sabat itu perintah pembebasan tapi sekarang sudah dilengkungkan orang-orang agami seperti ini sudah sabat itu menjadi semacam kayak peraturan agama dan semakin beragama mereka semakin bersabat mereka semakin tinggi nilainya padahal sabat itu adalah untuk orang-orang yang dibawah sabat dibalik sudah prinsipnya harika merdekaan dengan sabat sebenarnya mirip ya sudah membebaskan orang-orang yang tertindas sudah kita waktu ngomong tentang KOMPERDECAAN sudah bersiap-siap untuk mendengarkan kekonyalan-kekonyalan yang kita tonton dengan bayar tiket tiketnya adalah darah dan air matanya orang-orang melarat bidatuh-bidatuh ada angka-angka yang super fantasi lalu nanti akan mendapatkan tepuk tangan yang banyak dari pejilat-pejilat yang berharap cabatan saja dapat cabatan atau mempertahankan cabatan atau naik cabatan atau rangkap cabatan ya kurang lebih seperti itu ongkosnya ya darah dan air matanya orang-orang kecil kita diajak untuk nasionalis mencintai negara untuk mumpa cara juga lalu melakukan kejutan-kejutan yang minim sekali vaidah kalau karung makan kerubu bagianya dipasangin juga itu kemerdekaan juga yang merdekas ya apa sih sabat dipake dia eksploitasi oleh para pemimpin agamanya yusus-yusus membalikkan itu maka yusus datang untuk membebaskan dan ongkosnya adalah dia menjadi kurban mati dia terserah-serah",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 1.64,
+      "text": "yang namanya londo irng itu kayak begitu sudah"
+    },
+    {
+      "start": 1.64,
+      "end": 3.04,
+      "text": "kalau jadi pecahbat"
+    },
+    {
+      "start": 3.04,
+      "end": 4.06,
+      "text": "pegang kuasa"
+    },
+    {
+      "start": 4.06,
+      "end": 5.4,
+      "text": "bisa ngatur undang-undang"
+    },
+    {
+      "start": 5.4,
+      "end": 6.46,
+      "text": "bisa eksekusi"
+    },
+    {
+      "start": 6.46,
+      "end": 8.08,
+      "text": "bisa pake aparat penegang ukung"
+    },
+    {
+      "start": 8.08,
+      "end": 9.92,
+      "text": "untuk pencet orang pake pacak"
+    },
+    {
+      "start": 9.92,
+      "end": 10.88,
+      "text": "bikin perijinan"
+    },
+    {
+      "start": 10.88,
+      "end": 11.54,
+      "text": "tetanggutan"
+    },
+    {
+      "start": 11.54,
+      "end": 12.78,
+      "text": "rampas tanah adat"
+    },
+    {
+      "start": 12.78,
+      "end": 14.06,
+      "text": "setelah itu kalau ada banjir"
+    },
+    {
+      "start": 14.06,
+      "end": 17.24,
+      "text": "kita mesti tabah terdemusi bah dari mengkuasa sudah"
+    },
+    {
+      "start": 17.24,
+      "end": 18.72,
+      "text": "kurang londo apa ini sudah ya"
+    },
+    {
+      "start": 18.72,
+      "end": 20.0,
+      "text": "persis kayak pada waktu itu ya"
+    },
+    {
+      "start": 20.0,
+      "end": 22.02,
+      "text": "sabat itu perintah yang diberikan oleh Tuhan"
+    },
+    {
+      "start": 22.02,
+      "end": 23.44,
+      "text": "untuk membebasikan orang-orang yang sangat lemah"
+    },
+    {
+      "start": 23.44,
+      "end": 24.58,
+      "text": "perintahnya anjelas ya"
+    },
+    {
+      "start": 24.58,
+      "end": 26.34,
+      "text": "jangan kamu bekerja pada hari sabat"
+    },
+    {
+      "start": 26.88,
+      "end": 27.68,
+      "text": "orang-orang lemah"
+    },
+    {
+      "start": 27.68,
+      "end": 29.3,
+      "text": "orang-orang dibawah yang disuruh kerja paksa"
+    },
+    {
+      "start": 29.3,
+      "end": 30.62,
+      "text": "dikasih perintah sabat"
+    },
+    {
+      "start": 30.62,
+      "end": 33.0,
+      "text": "sabat adalah perintah untuk orang-orang dibawah"
+    },
+    {
+      "start": 33.0,
+      "end": 33.82,
+      "text": "bisa istirahat"
+    },
+    {
+      "start": 33.82,
+      "end": 36.04,
+      "text": "sabat itu perintah pembebasan"
+    },
+    {
+      "start": 36.04,
+      "end": 38.84,
+      "text": "tapi sekarang sudah dilengkungkan orang-orang agami seperti ini sudah"
+    },
+    {
+      "start": 38.84,
+      "end": 41.44,
+      "text": "sabat itu menjadi semacam kayak peraturan agama"
+    },
+    {
+      "start": 41.44,
+      "end": 43.12,
+      "text": "dan semakin beragama mereka"
+    },
+    {
+      "start": 43.12,
+      "end": 44.46,
+      "text": "semakin bersabat mereka"
+    },
+    {
+      "start": 44.46,
+      "end": 45.86,
+      "text": "semakin tinggi nilainya"
+    },
+    {
+      "start": 45.86,
+      "end": 47.82,
+      "text": "padahal sabat itu adalah untuk orang-orang yang dibawah"
+    },
+    {
+      "start": 47.82,
+      "end": 49.44,
+      "text": "sabat dibalik sudah"
+    },
+    {
+      "start": 49.44,
+      "end": 51.62,
+      "text": "prinsipnya harika merdekaan dengan sabat"
+    },
+    {
+      "start": 51.62,
+      "end": 52.42,
+      "text": "sebenarnya mirip ya sudah"
+    },
+    {
+      "start": 52.42,
+      "end": 54.48,
+      "text": "membebaskan orang-orang yang tertindas sudah"
+    },
+    {
+      "start": 54.48,
+      "end": 55.58,
+      "text": "kita waktu ngomong tentang"
+    },
+    {
+      "start": 55.58,
+      "end": 56.58,
+      "text": "KOMPERDECAAN"
+    },
+    {
+      "start": 56.58,
+      "end": 59.32,
+      "text": "sudah bersiap-siap untuk mendengarkan kekonyalan-kekonyalan"
+    },
+    {
+      "start": 59.32,
+      "end": 61.18,
+      "text": "yang kita tonton dengan bayar tiket"
+    },
+    {
+      "start": 61.18,
+      "end": 62.8,
+      "text": "tiketnya adalah darah"
+    },
+    {
+      "start": 62.8,
+      "end": 64.64,
+      "text": "dan air matanya orang-orang melarat"
+    },
+    {
+      "start": 64.64,
+      "end": 65.98,
+      "text": "bidatuh-bidatuh"
+    },
+    {
+      "start": 65.98,
+      "end": 68.28,
+      "text": "ada angka-angka yang super fantasi"
+    },
+    {
+      "start": 68.28,
+      "end": 70.28,
+      "text": "lalu nanti akan mendapatkan tepuk tangan yang banyak"
+    },
+    {
+      "start": 70.28,
+      "end": 71.46,
+      "text": "dari pejilat-pejilat yang"
+    },
+    {
+      "start": 71.46,
+      "end": 72.64,
+      "text": "berharap cabatan saja"
+    },
+    {
+      "start": 72.64,
+      "end": 75.06,
+      "text": "dapat cabatan atau mempertahankan cabatan"
+    },
+    {
+      "start": 75.06,
+      "end": 76.94,
+      "text": "atau naik cabatan atau rangkap cabatan"
+    },
+    {
+      "start": 76.94,
+      "end": 77.74,
+      "text": "ya kurang lebih seperti itu"
+    },
+    {
+      "start": 77.74,
+      "end": 78.8,
+      "text": "ongkosnya ya"
+    },
+    {
+      "start": 78.8,
+      "end": 80.94,
+      "text": "darah dan air matanya orang-orang kecil"
+    },
+    {
+      "start": 80.94,
+      "end": 82.8,
+      "text": "kita diajak untuk nasionalis"
+    },
+    {
+      "start": 82.8,
+      "end": 83.96,
+      "text": "mencintai negara"
+    },
+    {
+      "start": 83.96,
+      "end": 85.34,
+      "text": "untuk mumpa cara juga"
+    },
+    {
+      "start": 85.34,
+      "end": 86.82,
+      "text": "lalu melakukan kejutan-kejutan"
+    },
+    {
+      "start": 86.82,
+      "end": 88.32,
+      "text": "yang minim sekali vaidah"
+    },
+    {
+      "start": 88.32,
+      "end": 89.98,
+      "text": "kalau karung makan kerubu"
+    },
+    {
+      "start": 89.98,
+      "end": 91.0,
+      "text": "bagianya dipasangin juga"
+    },
+    {
+      "start": 91.0,
+      "end": 92.22,
+      "text": "itu kemerdekaan juga"
+    },
+    {
+      "start": 92.22,
+      "end": 93.48,
+      "text": "yang merdekas ya apa sih"
+    },
+    {
+      "start": 93.48,
+      "end": 94.62,
+      "text": "sabat dipake"
+    },
+    {
+      "start": 94.62,
+      "end": 96.82,
+      "text": "dia eksploitasi oleh para pemimpin agamanya"
+    },
+    {
+      "start": 96.82,
+      "end": 98.02,
+      "text": "yusus-yusus membalikkan itu"
+    },
+    {
+      "start": 98.02,
+      "end": 99.72,
+      "text": "maka yusus datang untuk membebaskan"
+    },
+    {
+      "start": 99.72,
+      "end": 102.82,
+      "text": "dan ongkosnya adalah dia menjadi kurban"
+    },
+    {
+      "start": 102.82,
+      "end": 105.0,
+      "text": "mati dia terserah-serah"
+    }
+  ],
+  "words": [
+    {
+      "start": 0.0,
+      "end": 0.16,
+      "word": "yang",
+      "prob": 0.766
+    },
+    {
+      "start": 0.16,
+      "end": 0.38,
+      "word": "namanya",
+      "prob": 0.992
+    },
+    {
+      "start": 0.38,
+      "end": 0.64,
+      "word": "londo",
+      "prob": 0.64
+    },
+    {
+      "start": 0.64,
+      "end": 0.98,
+      "word": "irng",
+      "prob": 0.336
+    },
+    {
+      "start": 0.98,
+      "end": 1.08,
+      "word": "itu",
+      "prob": 0.325
+    },
+    {
+      "start": 1.08,
+      "end": 1.2,
+      "word": "kayak",
+      "prob": 0.304
+    },
+    {
+      "start": 1.2,
+      "end": 1.44,
+      "word": "begitu",
+      "prob": 0.554
+    },
+    {
+      "start": 1.44,
+      "end": 1.64,
+      "word": "sudah",
+      "prob": 0.42
+    },
+    {
+      "start": 1.64,
+      "end": 2.26,
+      "word": "kalau",
+      "prob": 0.431
+    },
+    {
+      "start": 2.26,
+      "end": 2.54,
+      "word": "jadi",
+      "prob": 0.954
+    },
+    {
+      "start": 2.54,
+      "end": 3.04,
+      "word": "pecahbat",
+      "prob": 0.537
+    },
+    {
+      "start": 3.04,
+      "end": 3.64,
+      "word": "pegang",
+      "prob": 0.81
+    },
+    {
+      "start": 3.64,
+      "end": 4.06,
+      "word": "kuasa",
+      "prob": 0.801
+    },
+    {
+      "start": 4.06,
+      "end": 4.44,
+      "word": "bisa",
+      "prob": 0.828
+    },
+    {
+      "start": 4.44,
+      "end": 4.8,
+      "word": "ngatur",
+      "prob": 0.929
+    },
+    {
+      "start": 4.8,
+      "end": 5.06,
+      "word": "undang",
+      "prob": 0.951
+    },
+    {
+      "start": 5.06,
+      "end": 5.4,
+      "word": "-undang",
+      "prob": 0.926
+    },
+    {
+      "start": 5.4,
+      "end": 5.84,
+      "word": "bisa",
+      "prob": 0.887
+    },
+    {
+      "start": 5.84,
+      "end": 6.46,
+      "word": "eksekusi",
+      "prob": 0.771
+    },
+    {
+      "start": 6.46,
+      "end": 6.92,
+      "word": "bisa",
+      "prob": 0.648
+    },
+    {
+      "start": 6.92,
+      "end": 7.28,
+      "word": "pake",
+      "prob": 0.747
+    },
+    {
+      "start": 7.28,
+      "end": 7.54,
+      "word": "aparat",
+      "prob": 0.946
+    },
+    {
+      "start": 7.54,
+      "end": 7.82,
+      "word": "penegang",
+      "prob": 0.612
+    },
+    {
+      "start": 7.82,
+      "end": 8.08,
+      "word": "ukung",
+      "prob": 0.398
+    },
+    {
+      "start": 8.08,
+      "end": 8.52,
+      "word": "untuk",
+      "prob": 0.935
+    },
+    {
+      "start": 8.52,
+      "end": 8.94,
+      "word": "pencet",
+      "prob": 0.768
+    },
+    {
+      "start": 8.94,
+      "end": 9.18,
+      "word": "orang",
+      "prob": 0.953
+    },
+    {
+      "start": 9.18,
+      "end": 9.42,
+      "word": "pake",
+      "prob": 0.775
+    },
+    {
+      "start": 9.42,
+      "end": 9.92,
+      "word": "pacak",
+      "prob": 0.648
+    },
+    {
+      "start": 9.92,
+      "end": 10.36,
+      "word": "bikin",
+      "prob": 0.719
+    },
+    {
+      "start": 10.36,
+      "end": 10.88,
+      "word": "perijinan",
+      "prob": 0.685
+    },
+    {
+      "start": 10.88,
+      "end": 11.54,
+      "word": "tetanggutan",
+      "prob": 0.637
+    },
+    {
+      "start": 11.54,
+      "end": 12.24,
+      "word": "rampas",
+      "prob": 0.528
+    },
+    {
+      "start": 12.24,
+      "end": 12.44,
+      "word": "tanah",
+      "prob": 0.711
+    },
+    {
+      "start": 12.44,
+      "end": 12.78,
+      "word": "adat",
+      "prob": 0.964
+    },
+    {
+      "start": 12.78,
+      "end": 13.24,
+      "word": "setelah",
+      "prob": 0.857
+    },
+    {
+      "start": 13.24,
+      "end": 13.32,
+      "word": "itu",
+      "prob": 0.903
+    },
+    {
+      "start": 13.32,
+      "end": 13.42,
+      "word": "kalau",
+      "prob": 0.877
+    },
+    {
+      "start": 13.42,
+      "end": 13.54,
+      "word": "ada",
+      "prob": 0.994
+    },
+    {
+      "start": 13.54,
+      "end": 14.06,
+      "word": "banjir",
+      "prob": 0.973
+    },
+    {
+      "start": 14.06,
+      "end": 14.76,
+      "word": "kita",
+      "prob": 0.938
+    },
+    {
+      "start": 14.76,
+      "end": 14.92,
+      "word": "mesti",
+      "prob": 0.914
+    },
+    {
+      "start": 14.92,
+      "end": 15.42,
+      "word": "tabah",
+      "prob": 0.923
+    },
+    {
+      "start": 15.42,
+      "end": 15.94,
+      "word": "terdemusi",
+      "prob": 0.445
+    },
+    {
+      "start": 15.94,
+      "end": 16.28,
+      "word": "bah",
+      "prob": 0.485
+    },
+    {
+      "start": 16.28,
+      "end": 16.48,
+      "word": "dari",
+      "prob": 0.95
+    },
+    {
+      "start": 16.48,
+      "end": 17.0,
+      "word": "mengkuasa",
+      "prob": 0.566
+    },
+    {
+      "start": 17.0,
+      "end": 17.24,
+      "word": "sudah",
+      "prob": 0.851
+    },
+    {
+      "start": 17.24,
+      "end": 17.68,
+      "word": "kurang",
+      "prob": 0.705
+    },
+    {
+      "start": 17.68,
+      "end": 17.92,
+      "word": "londo",
+      "prob": 0.963
+    },
+    {
+      "start": 17.92,
+      "end": 18.18,
+      "word": "apa",
+      "prob": 0.916
+    },
+    {
+      "start": 18.18,
+      "end": 18.36,
+      "word": "ini",
+      "prob": 0.898
+    },
+    {
+      "start": 18.36,
+      "end": 18.52,
+      "word": "sudah",
+      "prob": 0.916
+    },
+    {
+      "start": 18.52,
+      "end": 18.72,
+      "word": "ya",
+      "prob": 0.915
+    },
+    {
+      "start": 18.72,
+      "end": 19.16,
+      "word": "persis",
+      "prob": 0.646
+    },
+    {
+      "start": 19.16,
+      "end": 19.28,
+      "word": "kayak",
+      "prob": 0.814
+    },
+    {
+      "start": 19.28,
+      "end": 19.44,
+      "word": "pada",
+      "prob": 0.879
+    },
+    {
+      "start": 19.44,
+      "end": 19.68,
+      "word": "waktu",
+      "prob": 0.987
+    },
+    {
+      "start": 19.68,
+      "end": 19.86,
+      "word": "itu",
+      "prob": 0.995
+    },
+    {
+      "start": 19.86,
+      "end": 20.0,
+      "word": "ya",
+      "prob": 0.122
+    },
+    {
+      "start": 20.0,
+      "end": 20.6,
+      "word": "sabat",
+      "prob": 0.574
+    },
+    {
+      "start": 20.6,
+      "end": 20.72,
+      "word": "itu",
+      "prob": 0.974
+    },
+    {
+      "start": 20.72,
+      "end": 21.32,
+      "word": "perintah",
+      "prob": 0.98
+    },
+    {
+      "start": 21.32,
+      "end": 21.48,
+      "word": "yang",
+      "prob": 0.967
+    },
+    {
+      "start": 21.48,
+      "end": 21.76,
+      "word": "diberikan",
+      "prob": 0.938
+    },
+    {
+      "start": 21.76,
+      "end": 21.88,
+      "word": "oleh",
+      "prob": 0.632
+    },
+    {
+      "start": 21.88,
+      "end": 22.02,
+      "word": "Tuhan",
+      "prob": 0.582
+    },
+    {
+      "start": 22.02,
+      "end": 22.16,
+      "word": "untuk",
+      "prob": 0.954
+    },
+    {
+      "start": 22.16,
+      "end": 22.62,
+      "word": "membebasikan",
+      "prob": 0.779
+    },
+    {
+      "start": 22.62,
+      "end": 22.76,
+      "word": "orang",
+      "prob": 0.995
+    },
+    {
+      "start": 22.76,
+      "end": 22.86,
+      "word": "-orang",
+      "prob": 0.961
+    },
+    {
+      "start": 22.86,
+      "end": 22.98,
+      "word": "yang",
+      "prob": 0.98
+    },
+    {
+      "start": 22.98,
+      "end": 23.1,
+      "word": "sangat",
+      "prob": 0.983
+    },
+    {
+      "start": 23.1,
+      "end": 23.44,
+      "word": "lemah",
+      "prob": 0.993
+    },
+    {
+      "start": 23.44,
+      "end": 24.14,
+      "word": "perintahnya",
+      "prob": 0.943
+    },
+    {
+      "start": 24.14,
+      "end": 24.36,
+      "word": "anjelas",
+      "prob": 0.921
+    },
+    {
+      "start": 24.36,
+      "end": 24.58,
+      "word": "ya",
+      "prob": 0.912
+    },
+    {
+      "start": 24.58,
+      "end": 24.98,
+      "word": "jangan",
+      "prob": 0.962
+    },
+    {
+      "start": 24.98,
+      "end": 25.2,
+      "word": "kamu",
+      "prob": 0.984
+    },
+    {
+      "start": 25.2,
+      "end": 25.58,
+      "word": "bekerja",
+      "prob": 0.996
+    },
+    {
+      "start": 25.58,
+      "end": 25.88,
+      "word": "pada",
+      "prob": 0.988
+    },
+    {
+      "start": 25.88,
+      "end": 26.04,
+      "word": "hari",
+      "prob": 0.994
+    },
+    {
+      "start": 26.04,
+      "end": 26.34,
+      "word": "sabat",
+      "prob": 0.835
+    },
+    {
+      "start": 26.84,
+      "end": 27.1,
+      "word": "orang",
+      "prob": 0.993
+    },
+    {
+      "start": 27.1,
+      "end": 27.3,
+      "word": "-orang",
+      "prob": 0.973
+    },
+    {
+      "start": 27.3,
+      "end": 27.68,
+      "word": "lemah",
+      "prob": 0.995
+    },
+    {
+      "start": 27.68,
+      "end": 27.84,
+      "word": "orang",
+      "prob": 0.682
+    },
+    {
+      "start": 27.84,
+      "end": 27.96,
+      "word": "-orang",
+      "prob": 0.987
+    },
+    {
+      "start": 27.96,
+      "end": 28.36,
+      "word": "dibawah",
+      "prob": 0.81
+    },
+    {
+      "start": 28.36,
+      "end": 28.48,
+      "word": "yang",
+      "prob": 0.825
+    },
+    {
+      "start": 28.48,
+      "end": 28.68,
+      "word": "disuruh",
+      "prob": 0.627
+    },
+    {
+      "start": 28.68,
+      "end": 28.94,
+      "word": "kerja",
+      "prob": 0.985
+    },
+    {
+      "start": 28.94,
+      "end": 29.3,
+      "word": "paksa",
+      "prob": 0.792
+    },
+    {
+      "start": 29.3,
+      "end": 29.6,
+      "word": "dikasih",
+      "prob": 0.779
+    },
+    {
+      "start": 29.6,
+      "end": 29.88,
+      "word": "perintah",
+      "prob": 0.969
+    },
+    {
+      "start": 29.88,
+      "end": 30.62,
+      "word": "sabat",
+      "prob": 0.813
+    },
+    {
+      "start": 30.62,
+      "end": 31.14,
+      "word": "sabat",
+      "prob": 0.604
+    },
+    {
+      "start": 31.14,
+      "end": 31.36,
+      "word": "adalah",
+      "prob": 0.959
+    },
+    {
+      "start": 31.36,
+      "end": 31.9,
+      "word": "perintah",
+      "prob": 0.988
+    },
+    {
+      "start": 31.9,
+      "end": 32.12,
+      "word": "untuk",
+      "prob": 0.91
+    },
+    {
+      "start": 32.12,
+      "end": 32.38,
+      "word": "orang",
+      "prob": 0.993
+    },
+    {
+      "start": 32.38,
+      "end": 32.54,
+      "word": "-orang",
+      "prob": 0.913
+    },
+    {
+      "start": 32.54,
+      "end": 33.0,
+      "word": "dibawah",
+      "prob": 0.774
+    },
+    {
+      "start": 33.0,
+      "end": 33.2,
+      "word": "bisa",
+      "prob": 0.835
+    },
+    {
+      "start": 33.2,
+      "end": 33.82,
+      "word": "istirahat",
+      "prob": 0.977
+    },
+    {
+      "start": 33.82,
+      "end": 34.44,
+      "word": "sabat",
+      "prob": 0.779
+    },
+    {
+      "start": 34.44,
+      "end": 34.56,
+      "word": "itu",
+      "prob": 0.333
+    },
+    {
+      "start": 34.56,
+      "end": 34.92,
+      "word": "perintah",
+      "prob": 0.982
+    },
+    {
+      "start": 34.92,
+      "end": 36.04,
+      "word": "pembebasan",
+      "prob": 0.943
+    },
+    {
+      "start": 36.04,
+      "end": 36.5,
+      "word": "tapi",
+      "prob": 0.894
+    },
+    {
+      "start": 36.5,
+      "end": 36.74,
+      "word": "sekarang",
+      "prob": 0.993
+    },
+    {
+      "start": 36.74,
+      "end": 36.92,
+      "word": "sudah",
+      "prob": 0.956
+    },
+    {
+      "start": 36.92,
+      "end": 37.5,
+      "word": "dilengkungkan",
+      "prob": 0.582
+    },
+    {
+      "start": 37.5,
+      "end": 37.66,
+      "word": "orang",
+      "prob": 0.993
+    },
+    {
+      "start": 37.66,
+      "end": 37.8,
+      "word": "-orang",
+      "prob": 0.991
+    },
+    {
+      "start": 37.8,
+      "end": 38.22,
+      "word": "agami",
+      "prob": 0.782
+    },
+    {
+      "start": 38.22,
+      "end": 38.5,
+      "word": "seperti",
+      "prob": 0.951
+    },
+    {
+      "start": 38.5,
+      "end": 38.72,
+      "word": "ini",
+      "prob": 0.98
+    },
+    {
+      "start": 38.72,
+      "end": 38.84,
+      "word": "sudah",
+      "prob": 0.079
+    },
+    {
+      "start": 38.84,
+      "end": 39.7,
+      "word": "sabat",
+      "prob": 0.918
+    },
+    {
+      "start": 39.7,
+      "end": 39.92,
+      "word": "itu",
+      "prob": 0.93
+    },
+    {
+      "start": 39.92,
+      "end": 40.12,
+      "word": "menjadi",
+      "prob": 0.989
+    },
+    {
+      "start": 40.12,
+      "end": 40.4,
+      "word": "semacam",
+      "prob": 0.954
+    },
+    {
+      "start": 40.4,
+      "end": 40.54,
+      "word": "kayak",
+      "prob": 0.236
+    },
+    {
+      "start": 40.54,
+      "end": 40.96,
+      "word": "peraturan",
+      "prob": 0.764
+    },
+    {
+      "start": 40.96,
+      "end": 41.44,
+      "word": "agama",
+      "prob": 0.99
+    },
+    {
+      "start": 41.44,
+      "end": 41.76,
+      "word": "dan",
+      "prob": 0.99
+    },
+    {
+      "start": 41.76,
+      "end": 42.34,
+      "word": "semakin",
+      "prob": 0.994
+    },
+    {
+      "start": 42.34,
+      "end": 42.9,
+      "word": "beragama",
+      "prob": 0.991
+    },
+    {
+      "start": 42.9,
+      "end": 43.12,
+      "word": "mereka",
+      "prob": 0.966
+    },
+    {
+      "start": 43.12,
+      "end": 43.5,
+      "word": "semakin",
+      "prob": 0.906
+    },
+    {
+      "start": 43.5,
+      "end": 44.24,
+      "word": "bersabat",
+      "prob": 0.932
+    },
+    {
+      "start": 44.24,
+      "end": 44.46,
+      "word": "mereka",
+      "prob": 0.975
+    },
+    {
+      "start": 44.46,
+      "end": 45.08,
+      "word": "semakin",
+      "prob": 0.966
+    },
+    {
+      "start": 45.08,
+      "end": 45.38,
+      "word": "tinggi",
+      "prob": 0.828
+    },
+    {
+      "start": 45.38,
+      "end": 45.86,
+      "word": "nilainya",
+      "prob": 0.883
+    },
+    {
+      "start": 45.86,
+      "end": 46.2,
+      "word": "padahal",
+      "prob": 0.952
+    },
+    {
+      "start": 46.2,
+      "end": 46.54,
+      "word": "sabat",
+      "prob": 0.981
+    },
+    {
+      "start": 46.54,
+      "end": 46.64,
+      "word": "itu",
+      "prob": 0.979
+    },
+    {
+      "start": 46.64,
+      "end": 46.78,
+      "word": "adalah",
+      "prob": 0.942
+    },
+    {
+      "start": 46.78,
+      "end": 46.92,
+      "word": "untuk",
+      "prob": 0.975
+    },
+    {
+      "start": 46.92,
+      "end": 47.06,
+      "word": "orang",
+      "prob": 0.996
+    },
+    {
+      "start": 47.06,
+      "end": 47.14,
+      "word": "-orang",
+      "prob": 0.97
+    },
+    {
+      "start": 47.14,
+      "end": 47.26,
+      "word": "yang",
+      "prob": 0.347
+    },
+    {
+      "start": 47.26,
+      "end": 47.82,
+      "word": "dibawah",
+      "prob": 0.982
+    },
+    {
+      "start": 47.82,
+      "end": 48.72,
+      "word": "sabat",
+      "prob": 0.939
+    },
+    {
+      "start": 48.72,
+      "end": 49.3,
+      "word": "dibalik",
+      "prob": 0.885
+    },
+    {
+      "start": 49.3,
+      "end": 49.44,
+      "word": "sudah",
+      "prob": 0.087
+    },
+    {
+      "start": 49.44,
+      "end": 50.34,
+      "word": "prinsipnya",
+      "prob": 0.817
+    },
+    {
+      "start": 50.34,
+      "end": 50.78,
+      "word": "harika",
+      "prob": 0.764
+    },
+    {
+      "start": 50.78,
+      "end": 51.24,
+      "word": "merdekaan",
+      "prob": 0.945
+    },
+    {
+      "start": 51.24,
+      "end": 51.32,
+      "word": "dengan",
+      "prob": 0.936
+    },
+    {
+      "start": 51.32,
+      "end": 51.62,
+      "word": "sabat",
+      "prob": 0.984
+    },
+    {
+      "start": 51.62,
+      "end": 51.9,
+      "word": "sebenarnya",
+      "prob": 0.541
+    },
+    {
+      "start": 51.9,
+      "end": 52.2,
+      "word": "mirip",
+      "prob": 0.697
+    },
+    {
+      "start": 52.2,
+      "end": 52.3,
+      "word": "ya",
+      "prob": 0.541
+    },
+    {
+      "start": 52.3,
+      "end": 52.42,
+      "word": "sudah",
+      "prob": 0.572
+    },
+    {
+      "start": 52.42,
+      "end": 53.4,
+      "word": "membebaskan",
+      "prob": 0.692
+    },
+    {
+      "start": 53.4,
+      "end": 53.64,
+      "word": "orang",
+      "prob": 0.997
+    },
+    {
+      "start": 53.64,
+      "end": 53.76,
+      "word": "-orang",
+      "prob": 0.99
+    },
+    {
+      "start": 53.76,
+      "end": 53.88,
+      "word": "yang",
+      "prob": 0.992
+    },
+    {
+      "start": 53.88,
+      "end": 54.26,
+      "word": "tertindas",
+      "prob": 0.66
+    },
+    {
+      "start": 54.26,
+      "end": 54.48,
+      "word": "sudah",
+      "prob": 0.986
+    },
+    {
+      "start": 54.48,
+      "end": 54.96,
+      "word": "kita",
+      "prob": 0.965
+    },
+    {
+      "start": 54.96,
+      "end": 55.14,
+      "word": "waktu",
+      "prob": 0.977
+    },
+    {
+      "start": 55.14,
+      "end": 55.4,
+      "word": "ngomong",
+      "prob": 0.938
+    },
+    {
+      "start": 55.4,
+      "end": 55.58,
+      "word": "tentang",
+      "prob": 0.948
+    },
+    {
+      "start": 55.58,
+      "end": 56.58,
+      "word": "KOMPERDECAAN",
+      "prob": 0.459
+    },
+    {
+      "start": 56.58,
+      "end": 56.98,
+      "word": "sudah",
+      "prob": 0.011
+    },
+    {
+      "start": 56.98,
+      "end": 57.38,
+      "word": "bersiap",
+      "prob": 0.659
+    },
+    {
+      "start": 57.38,
+      "end": 57.62,
+      "word": "-siap",
+      "prob": 0.88
+    },
+    {
+      "start": 57.62,
+      "end": 57.78,
+      "word": "untuk",
+      "prob": 0.855
+    },
+    {
+      "start": 57.78,
+      "end": 58.16,
+      "word": "mendengarkan",
+      "prob": 0.955
+    },
+    {
+      "start": 58.16,
+      "end": 58.74,
+      "word": "kekonyalan",
+      "prob": 0.769
+    },
+    {
+      "start": 58.74,
+      "end": 59.32,
+      "word": "-kekonyalan",
+      "prob": 0.948
+    },
+    {
+      "start": 59.32,
+      "end": 59.64,
+      "word": "yang",
+      "prob": 0.879
+    },
+    {
+      "start": 59.64,
+      "end": 59.82,
+      "word": "kita",
+      "prob": 0.983
+    },
+    {
+      "start": 59.82,
+      "end": 60.2,
+      "word": "tonton",
+      "prob": 0.885
+    },
+    {
+      "start": 60.2,
+      "end": 60.48,
+      "word": "dengan",
+      "prob": 0.979
+    },
+    {
+      "start": 60.48,
+      "end": 60.8,
+      "word": "bayar",
+      "prob": 0.885
+    },
+    {
+      "start": 60.8,
+      "end": 61.18,
+      "word": "tiket",
+      "prob": 0.786
+    },
+    {
+      "start": 61.18,
+      "end": 62.14,
+      "word": "tiketnya",
+      "prob": 0.636
+    },
+    {
+      "start": 62.14,
+      "end": 62.36,
+      "word": "adalah",
+      "prob": 0.993
+    },
+    {
+      "start": 62.36,
+      "end": 62.8,
+      "word": "darah",
+      "prob": 0.949
+    },
+    {
+      "start": 62.8,
+      "end": 63.0,
+      "word": "dan",
+      "prob": 0.923
+    },
+    {
+      "start": 63.0,
+      "end": 63.22,
+      "word": "air",
+      "prob": 0.97
+    },
+    {
+      "start": 63.22,
+      "end": 63.58,
+      "word": "matanya",
+      "prob": 0.969
+    },
+    {
+      "start": 63.58,
+      "end": 63.9,
+      "word": "orang",
+      "prob": 0.966
+    },
+    {
+      "start": 63.9,
+      "end": 64.14,
+      "word": "-orang",
+      "prob": 0.947
+    },
+    {
+      "start": 64.14,
+      "end": 64.64,
+      "word": "melarat",
+      "prob": 0.56
+    },
+    {
+      "start": 64.64,
+      "end": 65.48,
+      "word": "bidatuh",
+      "prob": 0.444
+    },
+    {
+      "start": 65.48,
+      "end": 65.98,
+      "word": "-bidatuh",
+      "prob": 0.899
+    },
+    {
+      "start": 65.98,
+      "end": 66.42,
+      "word": "ada",
+      "prob": 0.868
+    },
+    {
+      "start": 66.42,
+      "end": 66.86,
+      "word": "angka",
+      "prob": 0.93
+    },
+    {
+      "start": 66.86,
+      "end": 67.24,
+      "word": "-angka",
+      "prob": 0.98
+    },
+    {
+      "start": 67.24,
+      "end": 67.42,
+      "word": "yang",
+      "prob": 0.985
+    },
+    {
+      "start": 67.42,
+      "end": 67.76,
+      "word": "super",
+      "prob": 0.898
+    },
+    {
+      "start": 67.76,
+      "end": 68.28,
+      "word": "fantasi",
+      "prob": 0.731
+    },
+    {
+      "start": 68.28,
+      "end": 68.94,
+      "word": "lalu",
+      "prob": 0.568
+    },
+    {
+      "start": 68.94,
+      "end": 69.1,
+      "word": "nanti",
+      "prob": 0.965
+    },
+    {
+      "start": 69.1,
+      "end": 69.22,
+      "word": "akan",
+      "prob": 0.927
+    },
+    {
+      "start": 69.22,
+      "end": 69.52,
+      "word": "mendapatkan",
+      "prob": 0.819
+    },
+    {
+      "start": 69.52,
+      "end": 69.7,
+      "word": "tepuk",
+      "prob": 0.794
+    },
+    {
+      "start": 69.7,
+      "end": 69.9,
+      "word": "tangan",
+      "prob": 0.991
+    },
+    {
+      "start": 69.9,
+      "end": 70.0,
+      "word": "yang",
+      "prob": 0.982
+    },
+    {
+      "start": 70.0,
+      "end": 70.28,
+      "word": "banyak",
+      "prob": 0.995
+    },
+    {
+      "start": 70.28,
+      "end": 70.52,
+      "word": "dari",
+      "prob": 0.958
+    },
+    {
+      "start": 70.52,
+      "end": 70.86,
+      "word": "pejilat",
+      "prob": 0.797
+    },
+    {
+      "start": 70.86,
+      "end": 71.26,
+      "word": "-pejilat",
+      "prob": 0.984
+    },
+    {
+      "start": 71.26,
+      "end": 71.46,
+      "word": "yang",
+      "prob": 0.984
+    },
+    {
+      "start": 71.46,
+      "end": 72.12,
+      "word": "berharap",
+      "prob": 0.979
+    },
+    {
+      "start": 72.12,
+      "end": 72.42,
+      "word": "cabatan",
+      "prob": 0.77
+    },
+    {
+      "start": 72.42,
+      "end": 72.64,
+      "word": "saja",
+      "prob": 0.423
+    },
+    {
+      "start": 72.64,
+      "end": 73.38,
+      "word": "dapat",
+      "prob": 0.208
+    },
+    {
+      "start": 73.38,
+      "end": 73.96,
+      "word": "cabatan",
+      "prob": 0.866
+    },
+    {
+      "start": 73.96,
+      "end": 74.16,
+      "word": "atau",
+      "prob": 0.942
+    },
+    {
+      "start": 74.16,
+      "end": 74.76,
+      "word": "mempertahankan",
+      "prob": 0.914
+    },
+    {
+      "start": 74.76,
+      "end": 75.06,
+      "word": "cabatan",
+      "prob": 0.943
+    },
+    {
+      "start": 75.06,
+      "end": 75.2,
+      "word": "atau",
+      "prob": 0.798
+    },
+    {
+      "start": 75.2,
+      "end": 75.56,
+      "word": "naik",
+      "prob": 0.547
+    },
+    {
+      "start": 75.56,
+      "end": 75.88,
+      "word": "cabatan",
+      "prob": 0.878
+    },
+    {
+      "start": 75.88,
+      "end": 76.04,
+      "word": "atau",
+      "prob": 0.971
+    },
+    {
+      "start": 76.04,
+      "end": 76.48,
+      "word": "rangkap",
+      "prob": 0.906
+    },
+    {
+      "start": 76.48,
+      "end": 76.94,
+      "word": "cabatan",
+      "prob": 0.942
+    },
+    {
+      "start": 76.94,
+      "end": 77.08,
+      "word": "ya",
+      "prob": 0.105
+    },
+    {
+      "start": 77.08,
+      "end": 77.22,
+      "word": "kurang",
+      "prob": 0.959
+    },
+    {
+      "start": 77.22,
+      "end": 77.4,
+      "word": "lebih",
+      "prob": 0.98
+    },
+    {
+      "start": 77.4,
+      "end": 77.56,
+      "word": "seperti",
+      "prob": 0.94
+    },
+    {
+      "start": 77.56,
+      "end": 77.74,
+      "word": "itu",
+      "prob": 0.989
+    },
+    {
+      "start": 77.74,
+      "end": 78.58,
+      "word": "ongkosnya",
+      "prob": 0.667
+    },
+    {
+      "start": 78.58,
+      "end": 78.8,
+      "word": "ya",
+      "prob": 0.413
+    },
+    {
+      "start": 78.8,
+      "end": 79.46,
+      "word": "darah",
+      "prob": 0.564
+    },
+    {
+      "start": 79.46,
+      "end": 79.6,
+      "word": "dan",
+      "prob": 0.988
+    },
+    {
+      "start": 79.6,
+      "end": 79.94,
+      "word": "air",
+      "prob": 0.995
+    },
+    {
+      "start": 79.94,
+      "end": 80.28,
+      "word": "matanya",
+      "prob": 0.992
+    },
+    {
+      "start": 80.28,
+      "end": 80.52,
+      "word": "orang",
+      "prob": 0.983
+    },
+    {
+      "start": 80.52,
+      "end": 80.64,
+      "word": "-orang",
+      "prob": 0.974
+    },
+    {
+      "start": 80.64,
+      "end": 80.94,
+      "word": "kecil",
+      "prob": 0.998
+    },
+    {
+      "start": 80.94,
+      "end": 81.6,
+      "word": "kita",
+      "prob": 0.968
+    },
+    {
+      "start": 81.6,
+      "end": 81.82,
+      "word": "diajak",
+      "prob": 0.472
+    },
+    {
+      "start": 81.82,
+      "end": 81.98,
+      "word": "untuk",
+      "prob": 0.966
+    },
+    {
+      "start": 81.98,
+      "end": 82.8,
+      "word": "nasionalis",
+      "prob": 0.944
+    },
+    {
+      "start": 82.8,
+      "end": 83.52,
+      "word": "mencintai",
+      "prob": 0.743
+    },
+    {
+      "start": 83.52,
+      "end": 83.96,
+      "word": "negara",
+      "prob": 0.994
+    },
+    {
+      "start": 83.96,
+      "end": 84.4,
+      "word": "untuk",
+      "prob": 0.903
+    },
+    {
+      "start": 84.4,
+      "end": 84.82,
+      "word": "mumpa",
+      "prob": 0.348
+    },
+    {
+      "start": 84.82,
+      "end": 85.12,
+      "word": "cara",
+      "prob": 0.574
+    },
+    {
+      "start": 85.12,
+      "end": 85.34,
+      "word": "juga",
+      "prob": 0.665
+    },
+    {
+      "start": 85.34,
+      "end": 85.78,
+      "word": "lalu",
+      "prob": 0.769
+    },
+    {
+      "start": 85.78,
+      "end": 86.02,
+      "word": "melakukan",
+      "prob": 0.984
+    },
+    {
+      "start": 86.02,
+      "end": 86.38,
+      "word": "kejutan",
+      "prob": 0.477
+    },
+    {
+      "start": 86.38,
+      "end": 86.82,
+      "word": "-kejutan",
+      "prob": 0.939
+    },
+    {
+      "start": 86.82,
+      "end": 87.1,
+      "word": "yang",
+      "prob": 0.935
+    },
+    {
+      "start": 87.1,
+      "end": 87.42,
+      "word": "minim",
+      "prob": 0.675
+    },
+    {
+      "start": 87.42,
+      "end": 87.7,
+      "word": "sekali",
+      "prob": 0.467
+    },
+    {
+      "start": 87.7,
+      "end": 88.32,
+      "word": "vaidah",
+      "prob": 0.612
+    },
+    {
+      "start": 88.32,
+      "end": 88.62,
+      "word": "kalau",
+      "prob": 0.133
+    },
+    {
+      "start": 88.62,
+      "end": 89.02,
+      "word": "karung",
+      "prob": 0.505
+    },
+    {
+      "start": 89.02,
+      "end": 89.24,
+      "word": "makan",
+      "prob": 0.908
+    },
+    {
+      "start": 89.24,
+      "end": 89.98,
+      "word": "kerubu",
+      "prob": 0.703
+    },
+    {
+      "start": 89.98,
+      "end": 90.34,
+      "word": "bagianya",
+      "prob": 0.574
+    },
+    {
+      "start": 90.34,
+      "end": 90.82,
+      "word": "dipasangin",
+      "prob": 0.778
+    },
+    {
+      "start": 90.82,
+      "end": 91.0,
+      "word": "juga",
+      "prob": 0.117
+    },
+    {
+      "start": 91.0,
+      "end": 91.5,
+      "word": "itu",
+      "prob": 0.55
+    },
+    {
+      "start": 91.5,
+      "end": 92.02,
+      "word": "kemerdekaan",
+      "prob": 0.766
+    },
+    {
+      "start": 92.02,
+      "end": 92.22,
+      "word": "juga",
+      "prob": 0.29
+    },
+    {
+      "start": 92.22,
+      "end": 92.8,
+      "word": "yang",
+      "prob": 0.482
+    },
+    {
+      "start": 92.8,
+      "end": 93.14,
+      "word": "merdekas",
+      "prob": 0.845
+    },
+    {
+      "start": 93.14,
+      "end": 93.18,
+      "word": "ya",
+      "prob": 0.242
+    },
+    {
+      "start": 93.18,
+      "end": 93.36,
+      "word": "apa",
+      "prob": 0.97
+    },
+    {
+      "start": 93.36,
+      "end": 93.48,
+      "word": "sih",
+      "prob": 0.38
+    },
+    {
+      "start": 93.48,
+      "end": 94.3,
+      "word": "sabat",
+      "prob": 0.458
+    },
+    {
+      "start": 94.3,
+      "end": 94.62,
+      "word": "dipake",
+      "prob": 0.796
+    },
+    {
+      "start": 94.62,
+      "end": 95.0,
+      "word": "dia",
+      "prob": 0.2
+    },
+    {
+      "start": 95.0,
+      "end": 95.54,
+      "word": "eksploitasi",
+      "prob": 0.894
+    },
+    {
+      "start": 95.54,
+      "end": 95.88,
+      "word": "oleh",
+      "prob": 0.996
+    },
+    {
+      "start": 95.88,
+      "end": 96.08,
+      "word": "para",
+      "prob": 0.842
+    },
+    {
+      "start": 96.08,
+      "end": 96.36,
+      "word": "pemimpin",
+      "prob": 0.838
+    },
+    {
+      "start": 96.36,
+      "end": 96.82,
+      "word": "agamanya",
+      "prob": 0.87
+    },
+    {
+      "start": 96.82,
+      "end": 97.3,
+      "word": "yusus",
+      "prob": 0.224
+    },
+    {
+      "start": 97.3,
+      "end": 97.46,
+      "word": "-yusus",
+      "prob": 0.546
+    },
+    {
+      "start": 97.46,
+      "end": 97.9,
+      "word": "membalikkan",
+      "prob": 0.757
+    },
+    {
+      "start": 97.9,
+      "end": 98.02,
+      "word": "itu",
+      "prob": 0.486
+    },
+    {
+      "start": 98.02,
+      "end": 98.54,
+      "word": "maka",
+      "prob": 0.351
+    },
+    {
+      "start": 98.54,
+      "end": 98.76,
+      "word": "yusus",
+      "prob": 0.906
+    },
+    {
+      "start": 98.76,
+      "end": 98.98,
+      "word": "datang",
+      "prob": 0.893
+    },
+    {
+      "start": 98.98,
+      "end": 99.1,
+      "word": "untuk",
+      "prob": 0.128
+    },
+    {
+      "start": 99.1,
+      "end": 99.72,
+      "word": "membebaskan",
+      "prob": 0.688
+    },
+    {
+      "start": 99.72,
+      "end": 100.32,
+      "word": "dan",
+      "prob": 0.95
+    },
+    {
+      "start": 100.32,
+      "end": 101.22,
+      "word": "ongkosnya",
+      "prob": 0.745
+    },
+    {
+      "start": 101.22,
+      "end": 101.38,
+      "word": "adalah",
+      "prob": 0.767
+    },
+    {
+      "start": 101.38,
+      "end": 101.74,
+      "word": "dia",
+      "prob": 0.987
+    },
+    {
+      "start": 101.74,
+      "end": 102.18,
+      "word": "menjadi",
+      "prob": 0.981
+    },
+    {
+      "start": 102.18,
+      "end": 102.82,
+      "word": "kurban",
+      "prob": 0.373
+    },
+    {
+      "start": 102.82,
+      "end": 103.42,
+      "word": "mati",
+      "prob": 0.865
+    },
+    {
+      "start": 103.42,
+      "end": 103.5,
+      "word": "dia",
+      "prob": 0.498
+    },
+    {
+      "start": 103.5,
+      "end": 103.72,
+      "word": "terserah",
+      "prob": 0.41
+    },
+    {
+      "start": 103.72,
+      "end": 105.0,
+      "word": "-serah",
+      "prob": 0.442
+    }
+  ],
+  "vo_present": true
+}

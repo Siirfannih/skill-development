@@ -1,0 +1,496 @@
+{
+  "id": "05_energy_sun",
+  "engine": "openai-whisper-small",
+  "language": "en",
+  "duration_s": 21.868,
+  "speech_duration_s": 20.24,
+  "vo_presence_fraction": 0.926,
+  "word_count": 74,
+  "vo_pace_words_per_sec": 3.656,
+  "vo_pace_words_per_min": 219.4,
+  "transcript": "Everything around you that you call life was made up by people that were no smarter than you. In order for a new industry to emerge, you need energy. The future of concy will essentially just be wattage. We need to move towards nuclear, wind and solar very quickly. There's always energy, there never can be enough energy. The sun rounds up to 100% of all energy. It's really all about the sun.",
+  "segments": [
+    {
+      "start": 0.0,
+      "end": 5.18,
+      "text": "Everything around you that you call life was made up by people that were no smarter than you."
+    },
+    {
+      "start": 5.36,
+      "end": 7.96,
+      "text": "In order for a new industry to emerge, you need energy."
+    },
+    {
+      "start": 8.2,
+      "end": 10.94,
+      "text": "The future of concy will essentially just be wattage."
+    },
+    {
+      "start": 11.08,
+      "end": 14.28,
+      "text": "We need to move towards nuclear, wind and solar very quickly."
+    },
+    {
+      "start": 14.48,
+      "end": 17.06,
+      "text": "There's always energy, there never can be enough energy."
+    },
+    {
+      "start": 17.22,
+      "end": 20.2,
+      "text": "The sun rounds up to 100% of all energy."
+    },
+    {
+      "start": 20.46,
+      "end": 21.42,
+      "text": "It's really all about the sun."
+    }
+  ],
+  "words": [
+    {
+      "start": 0.0,
+      "end": 0.28,
+      "word": "Everything",
+      "prob": 0.736
+    },
+    {
+      "start": 0.28,
+      "end": 0.74,
+      "word": "around",
+      "prob": 0.997
+    },
+    {
+      "start": 0.74,
+      "end": 0.94,
+      "word": "you",
+      "prob": 0.996
+    },
+    {
+      "start": 0.94,
+      "end": 1.06,
+      "word": "that",
+      "prob": 0.836
+    },
+    {
+      "start": 1.06,
+      "end": 1.18,
+      "word": "you",
+      "prob": 0.997
+    },
+    {
+      "start": 1.18,
+      "end": 1.42,
+      "word": "call",
+      "prob": 0.982
+    },
+    {
+      "start": 1.42,
+      "end": 1.8,
+      "word": "life",
+      "prob": 0.912
+    },
+    {
+      "start": 1.8,
+      "end": 2.44,
+      "word": "was",
+      "prob": 0.81
+    },
+    {
+      "start": 2.44,
+      "end": 2.82,
+      "word": "made",
+      "prob": 0.999
+    },
+    {
+      "start": 2.82,
+      "end": 3.02,
+      "word": "up",
+      "prob": 0.997
+    },
+    {
+      "start": 3.02,
+      "end": 3.24,
+      "word": "by",
+      "prob": 0.996
+    },
+    {
+      "start": 3.24,
+      "end": 3.62,
+      "word": "people",
+      "prob": 0.999
+    },
+    {
+      "start": 3.62,
+      "end": 4.0,
+      "word": "that",
+      "prob": 0.965
+    },
+    {
+      "start": 4.0,
+      "end": 4.12,
+      "word": "were",
+      "prob": 0.992
+    },
+    {
+      "start": 4.12,
+      "end": 4.36,
+      "word": "no",
+      "prob": 0.993
+    },
+    {
+      "start": 4.36,
+      "end": 4.76,
+      "word": "smarter",
+      "prob": 0.985
+    },
+    {
+      "start": 4.76,
+      "end": 5.02,
+      "word": "than",
+      "prob": 0.995
+    },
+    {
+      "start": 5.02,
+      "end": 5.18,
+      "word": "you.",
+      "prob": 0.999
+    },
+    {
+      "start": 5.36,
+      "end": 5.48,
+      "word": "In",
+      "prob": 0.937
+    },
+    {
+      "start": 5.48,
+      "end": 5.66,
+      "word": "order",
+      "prob": 0.997
+    },
+    {
+      "start": 5.66,
+      "end": 5.84,
+      "word": "for",
+      "prob": 0.998
+    },
+    {
+      "start": 5.84,
+      "end": 5.98,
+      "word": "a",
+      "prob": 0.979
+    },
+    {
+      "start": 5.98,
+      "end": 6.1,
+      "word": "new",
+      "prob": 0.999
+    },
+    {
+      "start": 6.1,
+      "end": 6.46,
+      "word": "industry",
+      "prob": 0.996
+    },
+    {
+      "start": 6.46,
+      "end": 6.68,
+      "word": "to",
+      "prob": 0.998
+    },
+    {
+      "start": 6.68,
+      "end": 7.0,
+      "word": "emerge,",
+      "prob": 0.998
+    },
+    {
+      "start": 7.18,
+      "end": 7.3,
+      "word": "you",
+      "prob": 0.99
+    },
+    {
+      "start": 7.3,
+      "end": 7.58,
+      "word": "need",
+      "prob": 0.993
+    },
+    {
+      "start": 7.58,
+      "end": 7.96,
+      "word": "energy.",
+      "prob": 0.997
+    },
+    {
+      "start": 8.2,
+      "end": 8.3,
+      "word": "The",
+      "prob": 0.987
+    },
+    {
+      "start": 8.3,
+      "end": 8.62,
+      "word": "future",
+      "prob": 0.995
+    },
+    {
+      "start": 8.62,
+      "end": 8.98,
+      "word": "of",
+      "prob": 0.912
+    },
+    {
+      "start": 8.98,
+      "end": 9.4,
+      "word": "concy",
+      "prob": 0.612
+    },
+    {
+      "start": 9.4,
+      "end": 9.56,
+      "word": "will",
+      "prob": 0.992
+    },
+    {
+      "start": 9.56,
+      "end": 9.84,
+      "word": "essentially",
+      "prob": 0.982
+    },
+    {
+      "start": 9.84,
+      "end": 10.16,
+      "word": "just",
+      "prob": 0.981
+    },
+    {
+      "start": 10.16,
+      "end": 10.4,
+      "word": "be",
+      "prob": 0.998
+    },
+    {
+      "start": 10.4,
+      "end": 10.94,
+      "word": "wattage.",
+      "prob": 0.901
+    },
+    {
+      "start": 11.08,
+      "end": 11.2,
+      "word": "We",
+      "prob": 0.991
+    },
+    {
+      "start": 11.2,
+      "end": 11.32,
+      "word": "need",
+      "prob": 0.997
+    },
+    {
+      "start": 11.32,
+      "end": 11.52,
+      "word": "to",
+      "prob": 0.998
+    },
+    {
+      "start": 11.52,
+      "end": 11.82,
+      "word": "move",
+      "prob": 0.998
+    },
+    {
+      "start": 11.82,
+      "end": 12.2,
+      "word": "towards",
+      "prob": 0.967
+    },
+    {
+      "start": 12.2,
+      "end": 12.74,
+      "word": "nuclear,",
+      "prob": 0.99
+    },
+    {
+      "start": 13.04,
+      "end": 13.32,
+      "word": "wind",
+      "prob": 0.982
+    },
+    {
+      "start": 13.32,
+      "end": 13.54,
+      "word": "and",
+      "prob": 0.589
+    },
+    {
+      "start": 13.54,
+      "end": 13.74,
+      "word": "solar",
+      "prob": 0.996
+    },
+    {
+      "start": 13.74,
+      "end": 14.02,
+      "word": "very",
+      "prob": 0.949
+    },
+    {
+      "start": 14.02,
+      "end": 14.28,
+      "word": "quickly.",
+      "prob": 0.996
+    },
+    {
+      "start": 14.48,
+      "end": 14.7,
+      "word": "There's",
+      "prob": 0.98
+    },
+    {
+      "start": 14.7,
+      "end": 15.16,
+      "word": "always",
+      "prob": 0.991
+    },
+    {
+      "start": 15.16,
+      "end": 15.66,
+      "word": "energy,",
+      "prob": 1.0
+    },
+    {
+      "start": 15.82,
+      "end": 15.9,
+      "word": "there",
+      "prob": 0.97
+    },
+    {
+      "start": 15.9,
+      "end": 16.16,
+      "word": "never",
+      "prob": 0.494
+    },
+    {
+      "start": 16.16,
+      "end": 16.36,
+      "word": "can",
+      "prob": 0.98
+    },
+    {
+      "start": 16.36,
+      "end": 16.5,
+      "word": "be",
+      "prob": 0.544
+    },
+    {
+      "start": 16.5,
+      "end": 16.66,
+      "word": "enough",
+      "prob": 0.926
+    },
+    {
+      "start": 16.66,
+      "end": 17.06,
+      "word": "energy.",
+      "prob": 0.998
+    },
+    {
+      "start": 17.22,
+      "end": 17.3,
+      "word": "The",
+      "prob": 0.987
+    },
+    {
+      "start": 17.3,
+      "end": 17.58,
+      "word": "sun",
+      "prob": 0.737
+    },
+    {
+      "start": 17.58,
+      "end": 18.14,
+      "word": "rounds",
+      "prob": 0.978
+    },
+    {
+      "start": 18.14,
+      "end": 18.44,
+      "word": "up",
+      "prob": 0.994
+    },
+    {
+      "start": 18.44,
+      "end": 18.76,
+      "word": "to",
+      "prob": 0.996
+    },
+    {
+      "start": 18.76,
+      "end": 19.16,
+      "word": "100",
+      "prob": 0.687
+    },
+    {
+      "start": 19.16,
+      "end": 19.54,
+      "word": "%",
+      "prob": 0.841
+    },
+    {
+      "start": 19.54,
+      "end": 19.78,
+      "word": "of",
+      "prob": 0.983
+    },
+    {
+      "start": 19.78,
+      "end": 19.9,
+      "word": "all",
+      "prob": 0.975
+    },
+    {
+      "start": 19.9,
+      "end": 20.2,
+      "word": "energy.",
+      "prob": 0.987
+    },
+    {
+      "start": 20.46,
+      "end": 20.62,
+      "word": "It's",
+      "prob": 0.959
+    },
+    {
+      "start": 20.62,
+      "end": 20.78,
+      "word": "really",
+      "prob": 0.997
+    },
+    {
+      "start": 20.78,
+      "end": 20.92,
+      "word": "all",
+      "prob": 0.984
+    },
+    {
+      "start": 20.92,
+      "end": 21.08,
+      "word": "about",
+      "prob": 0.999
+    },
+    {
+      "start": 21.08,
+      "end": 21.24,
+      "word": "the",
+      "prob": 0.999
+    },
+    {
+      "start": 21.24,
+      "end": 21.42,
+      "word": "sun.",
+      "prob": 0.958
+    }
+  ],
+  "vo_present": true
+}

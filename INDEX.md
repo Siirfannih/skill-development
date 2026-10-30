@@ -19,6 +19,7 @@ Pintu masuk untuk setiap model yang bekerja dengan Irfan. Baca file ini dulu, la
 | `autopilot-video/` | Sistem autopilot produksi video: PRD, desain, ConOps, ADR, tools (gpt-bridge, render, TTS lokal), pilot aff-pompa-01; mulai dari [README](autopilot-video/README.md) | v0, diuji sekali |
 | `scriptwriter/` | Mandat peran dan pengembangan cara kerja ide → naskah → storyboard; mulai dari [README](scriptwriter/README.md) | Fondasi awal; memakai skill aktif di `claude/` |
 | `content-ops/` | Operasi konten harian tiga jalur; mulai dari [content-ops/README.md](content-ops/README.md) | Aktif |
+| `GrokAgent/` | Analisis referensi visual+audio (Grok Bot Maximus); mulai dari [GrokAgent/README.md](GrokAgent/README.md) | Reference findings 2026-10-30; tidak menimpa `claude/` |
 | `archive/` | Skill lama yang sudah digantikan | Jangan dimuat; hanya baseline untuk eval |
 
 ## Skill Irfan (`claude/`)
