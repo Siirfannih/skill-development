@@ -38,8 +38,14 @@ const TILES: Tile[] = [
 const LANE_TOP = 180, LANE_H = 144, TILE = 112;
 const laneY = (l: number) => LANE_TOP + LANE_H * l + 76; // pusat tile
 const tileX = (tl: Tile, t: number) => keys(t - P1b.start, tl.xs, EZ.inOut);
+// frame pertama Gemini mendahului Claude (pemimpin pertama berganti) — dihitung dari keyframe, bukan ditulis tangan
+const T_SALIP1 = (() => {
+  for (let k = Math.round(P1b.start * FPS); k < P1b.end * FPS; k++) if (tileX(TILES[2], k / FPS) > tileX(TILES[1], k / FPS)) return k / FPS;
+  return P1b.start;
+})();
 const TRACK_V = 9 * FPS; // px/dtk, lintasan (dan cat BERLOMBA-LOMBA) bergeser 9 px/frame (teks tetap terbaca)
-const ZOOM_A = P1b.end - 8 * fr; // X04 zoom-through 8 frame terakhir
+const ZOOM_A = P1b.end - 6 * fr; // X04 zoom-through 6 frame terakhir (cat BERLOMBA-LOMBA terbaca lebih lama)
+const SNAP_W = W("berlomba-lomba") - 0.6 * fr; // patah ke wide 5 f, mulai ±2 f sebelum kata dicat
 
 const TileIcon: React.FC<{ tl: Tile; cx: number; cy: number; sy?: number; sx?: number; trail?: number }> = ({ tl, cx, cy, sy = 1, sx = 1, trail = 0 }) => {
   const s = TILE;
@@ -74,6 +80,8 @@ const S = 0.8;
 const HEAD_TOP = 230;
 const FLOOR = HEAD_TOP + (FIG.head + FIG.gap + FIG.bodyH) * S;
 
+const CLOSE_A = word("anehnya", "s1").s + 1.25; // close-up mulai setelah «anehnya» terbaca
+const CLOSE_B = word("lebih", "s1").s - 3 / FPS; // tiba 2× tepat sebelum LEBIH
 const BIG: React.CSSProperties = { fontFamily: "Inter", color: C.white, lineHeight: 1, whiteSpace: "nowrap" };
 
 export const S01_Perlombaan: React.FC = () => {
@@ -93,9 +101,10 @@ const HorizonA: React.FC<{ t: number }> = ({ t }) => {
   const drift = 1 + 0.03 * ((t - P1a.start) / (P1b.end - P1a.start)); // C19 drift (linear)
   const fallA = P1b.start - 10 * fr;
   const tilt = keys(t, [[fallA, 0], [P1b.start, 90]], EZ.acc); // kamera ikut turun sedikit bersama tile
+  const c01 = prog(t, W("sadar"), W("sadar") + 15 * fr, EZ.out); // C01 zoom mikro di kata inti «sadar»
   return (
     <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
-      <Camera scale={drift} y={-tilt}>
+      <Camera scale={drift * (1 + 0.06 * c01)} y={-tilt}>
         {/* langit 1620 px; cakrawala naik 190 px = malam → fajar */}
         <div style={{
           position: "absolute", left: 0, top: 190 * (1 - p), width: 1920, height: 1620,
@@ -107,7 +116,7 @@ const HorizonA: React.FC<{ t: number }> = ({ t }) => {
         ))}
       </Camera>
       {/* teks di zona gelap atas, tengah */}
-      <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", paddingBottom: 220 }}>
+      <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", paddingBottom: 220, transform: `scale(${1 + 0.035 * c01})` }}>
         <div style={{ ...BIG, fontWeight: 800, fontSize: 152, letterSpacing: -4.5, display: "flex", gap: 40 }}>
           <KWord at={T.tanpa} out={fallA}>Tanpa</KWord>
           <KWord at={T.sadar} out={fallA}>sadar</KWord>
@@ -137,10 +146,21 @@ const RaceB: React.FC<{ t: number }> = ({ t }) => {
   const scale = 1 + 34 * z;
   const land = (k: number) => 1 - 0.1 * Math.max(0, 1 - (tau - k * 0.6 * fr) / (4 * fr)); // squash mendarat
   const sh = shake(t, P1b.start, 6, 0.18);
+  // C20 cut zoom di pendaratan (1,8× pada pemimpin) → C18 follow pemimpin (Claude → Gemini) → patah ke wide
+  // di «berlomba-lomba» (5 f) supaya seluruh perlombaan + cat terbaca → X04 zoom-through ke ChatGPT.
+  const swap = prog(t, T_SALIP1 - 3 * fr, T_SALIP1 + 5 * fr, EZ.inOut);
+  const fx = tileX(TILES[1], t) * (1 - swap) + tileX(TILES[2], t) * swap;
+  const fy = laneY(1) * (1 - swap) + laneY(2) * swap;
+  const wide = prog(t, SNAP_W, SNAP_W + 5 * fr, EZ.out);
+  const sC = 1.8 + 0.06 * prog(t, P1b.start, P1b.start + 6 * fr, EZ.out); // momentum cut zoom
+  const s1 = sC + (1 - sC) * wide;
+  const tx = (1 - wide) * (860 - ((fx - 960) * sC + 960));
+  const ty = (1 - wide) * (560 - ((fy - 540) * sC + 540));
   return (
     <AbsoluteFill style={{ background: C.charcoal, overflow: "hidden" }}>
       <Camera scale={scale} ox={ox} oy={oy} x={sh.x} y={sh.y} blur={z * 5}>
-        <AbsoluteFill style={{ backgroundImage: "linear-gradient(180deg, #c4dafd 0%, #e1f5fd 38%, #f4f9fd 70%, #ffffff 100%)" }} />
+      <Camera scale={s1} x={tx} y={ty} blur={wide > 0 && wide < 0.9 ? 2.5 * (1 - wide) : 0}>
+        <div style={{ position: "absolute", left: -1500, top: -600, width: 5000, height: 2400, backgroundImage: "linear-gradient(180deg, #c4dafd 0%, #c4dafd 25%, #e1f5fd 41%, #f4f9fd 54%, #ffffff 66%, #ffffff 100%)" }} />
         {/* cat lintasan: BERLOMBA-LOMBA (truck kiri→kanan bersama lintasan) */}
         <div style={{
           position: "absolute", left: paintLeft0 + trackX, top: 440, fontFamily: "Inter", fontWeight: 900, fontSize: 180, letterSpacing: -6,
@@ -152,17 +172,18 @@ const RaceB: React.FC<{ t: number }> = ({ t }) => {
         {/* garis lajur putus-putus (bergeser = kecepatan) */}
         {[0, 1, 2, 3, 4, 5].map((i) => (
           <div key={i} style={{
-            position: "absolute", left: 0, top: LANE_TOP + LANE_H * i, width: 1920, height: 3,
+            position: "absolute", left: -1512, top: LANE_TOP + LANE_H * i, width: 5000, height: 3,
             backgroundImage: "linear-gradient(90deg, #d2d2d7 0 64px, transparent 64px 112px)", backgroundSize: "112px 3px",
             backgroundPositionX: trackX,
           }} />
         ))}
         {/* garis finis di kanan, masuk saat ChatGPT memimpin */}
-        <div style={{ position: "absolute", left: keys(t, [[P1b.start + 0.55, 1960], [P1b.end, 1640]], EZ.out), top: LANE_TOP, width: 6, height: LANE_H * 5,
+        <div style={{ position: "absolute", left: keys(t, [[SNAP_W, 2000], [P1b.end, 1640]], EZ.out), top: LANE_TOP, width: 6, height: LANE_H * 5,
           backgroundImage: "repeating-linear-gradient(180deg, #1d1d1f 0 18px, #ffffff 18px 36px)" }} />
         {TILES.map((tl, k) => (
           <TileIcon key={tl.icon} tl={tl} cx={tileX(tl, t)} cy={laneY(tl.lane)} sy={land(k)} sx={2 - land(k)} trail={0.9} />
         ))}
+      </Camera>
       </Camera>
       {/* akhir zoom-through: masuk ke badan gelap tile → ruang gelap 01c */}
       <AbsoluteFill style={{ background: C.charcoal, opacity: prog(t, P1b.end - 2 * fr, P1b.end, EZ.inOut) }} />
@@ -172,24 +193,38 @@ const RaceB: React.FC<{ t: number }> = ({ t }) => {
 
 // ═══ 01c–01d · ruang gelap: kerucut cahaya, wireframe pengganti, piktogram kita
 const RoomCD: React.FC<{ t: number }> = ({ t }) => {
-  // kamera: C02 push-in di 01c → pan ke kiri di «Dan» (piktogram kita masuk) → C01 zoom mikro di «lebih cepat»
+  // kamera dalam bentuk (Q = titik dunia di tengah layar, sc = skala); layar = (p − Q)·sc + (960, 540)
+  // 01c: C02 push-in 1→1,1 + C01 di «pengganti». 01d: pan di «Dan» (kita masuk) → tahan → C02 push close-up
+  // mengikuti garis scan wireframe (objek aktif, 2×) → patah ke wide di LEBIH (5 f) → C01 di CEPAT.
+  const u0 = Math.min(1, Math.max(0, (t - T.kita3) / (P1d.end - T.kita3)));
+  const scanY = HEAD_TOP + (FIG.head + FIG.gap + FIG.bodyH) * S - 0.46 * Math.pow(u0, 2.2) * FIG.bodyH * S;
   const push = keys(t, [[P1c.start, 1], [P1c.end, 1.1]], EZ.inOut);
+  const c01c = 1 + 0.05 * prog(t, T.pengganti, T.pengganti + 18 * fr, EZ.out);
   const pan = prog(t, T.dan, T.dan + 0.6, EZ.inOut);
-  const micro = 1 + 0.035 * prog(t, T.lebih + 2 * fr, T.lebih + 10 * fr, EZ.out);
-  const scale = (push + (1 - push) * pan) * micro;
-  const camX = 640 * pan;
+  const hold = 1 + 0.02 * Math.min(1, Math.max(0, (t - (T.dan + 0.6)) / (CLOSE_A - T.dan - 0.6))); // drift
+  const close = prog(t, CLOSE_A, CLOSE_B, EZ.inOut);
+  const snap = prog(t, T.lebih + 2 * fr, T.lebih + 7 * fr, EZ.out);
+  const cl = close * (1 - snap);
+  const c01d = 1 + 0.05 * prog(t, T.cepat + 2 * fr, T.cepat + 17 * fr, EZ.out);
+  const sWide = (push * c01c) * (1 - pan) + hold * pan;
+  const sc = (sWide + (2.0 - sWide) * cl) * c01d;
+  const qx = (960 * (1 - pan) + 320 * pan) * (1 - cl) + WX * cl;
+  const qy = 530 * (1 - pan) + 540 * pan;
+  const qy2 = qy * (1 - cl) + (scanY - 40) * cl;
+  const camX = 960 - qx * sc, camY = 540 - qy2 * sc;
+  const txtScale = 1 + 0.6 * (c01d - 1);
   // garis finis → kerucut membuka
   const open = prog(t, P1c.start, P1c.start + 0.42, EZ.out);
   const draw = prog(t, P1c.start + 0.2, T.pengganti, EZ.out);
   // isi naik makin cepat (mulai di «kita» 01d, ±46 % di batas babak)
-  const u = Math.min(1, Math.max(0, (t - T.kita3) / (P1d.end - T.kita3)));
-  const fill = 0.46 * Math.pow(u, 2.2);
+  const fill = 0.46 * Math.pow(u0, 2.2);
   const scan = 0.8 + 0.2 * Math.sin(t * 38);
   const lean = 3 * prog(t, T.ingin, T.ingin + 0.7, EZ.inOut);
   const textOut1 = T.dan - 6 * fr;
+  const anehOut = CLOSE_A - 6 * fr; // «anehnya» terbaca 1,1 dtk, keluar sebelum kamera mendekat
   return (
     <AbsoluteFill style={{ background: C.charcoal, overflow: "hidden" }}>
-      <Camera scale={scale} x={camX} ox={960} oy={500}>
+      <Camera scale={sc} x={camX} y={camY} ox={0} oy={0} blur={snap > 0 && snap < 0.85 ? 2.5 * (1 - snap) : 0}>
         <LightCone cx={WX} floorY={FLOOR} open={open} />
         {/* garis finis putih yang membuka jadi kerucut */}
         <div style={{ position: "absolute", left: WX - 2, top: 0, width: 4, height: 1080, background: "#fff", opacity: 1 - prog(t, P1c.start + 2 * fr, P1c.start + 0.3) }} />
@@ -208,10 +243,10 @@ const RoomCD: React.FC<{ t: number }> = ({ t }) => {
       )}
       {/* 01d · «anehnya» masuk dulu (T02), lalu LEBIH CEPAT di antara kedua piktogram */}
       {t >= T.dan && (
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", paddingTop: 30 }}>
+        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", paddingTop: 30, transform: `scale(${txtScale})` }}>
           {t < T.lebih && (
             <div style={{ ...BIG, fontSize: 120, fontWeight: 800, letterSpacing: -3.6 }}>
-              <KWord at={T.aneh} out={T.lebih - 7 * fr} kind="blurIn">anehnya</KWord>
+              <KWord at={T.aneh} out={anehOut} kind="blurIn">anehnya</KWord>
             </div>
           )}
           {t >= T.lebih && (

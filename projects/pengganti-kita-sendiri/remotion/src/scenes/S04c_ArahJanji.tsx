@@ -49,12 +49,18 @@ export const S04c_ArahJanji: React.FC = () => {
 
   // kamera: dekat mengikuti ujung garis → reveal-out wide (grafik naik, ruang teks di bawah)
   const wide = prog(t, tArah - 0.35, tMasih + 0.25, EZ.inOut);
-  const sA = 1.55;
+  // C20 cut zoom di «adalah»: potong 1,5× lebih dekat ke ujung garis, momentum 6 f; lalu C18 follow ujung
+  const tCut = word("adalah", "s4").s;
+  const cut = t >= tCut;
+  const sA = cut ? 2.3 * (1 + 0.04 * (1 - prog(t, tCut, tCut + 6 / 30, EZ.out))) : 1.55;
   const sB = 0.88;
-  const s = Math.exp(lerp(Math.log(sA), Math.log(sB), wide));
+  // C01 zoom mikro di «sama» (grafik saja; teks pertanyaan tetap diam)
+  const c01 = 1 + 0.05 * prog(t, tSama, tSama + 0.6, EZ.out);
+  const s = Math.exp(lerp(Math.log(sA), Math.log(sB), wide)) * c01;
   const mid = graphToScreen(onShared(0.5));
   const follow = graphToScreen(tipA);
-  const Fclose = { x: lerp(mid.x, follow.x, 0.55), y: lerp(mid.y, follow.y, 0.55) };
+  const fk = cut ? 0.9 : 0.55;
+  const Fclose = { x: lerp(mid.x, follow.x, fk), y: lerp(mid.y, follow.y, fk) };
   const Fwide = { x: 960, y: 683 };
   const F = { x: lerp(Fclose.x, Fwide.x, wide), y: lerp(Fclose.y, Fwide.y, wide) };
   const T = { x: -(F.x - O.x) * s, y: -(F.y - O.y) * s };

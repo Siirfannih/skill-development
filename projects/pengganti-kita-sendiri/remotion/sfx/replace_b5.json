@@ -1,0 +1,22 @@
+[
+ {
+  "old_id": "tick_z3_87.16",
+  "new_id": "05d_send1",
+  "reason": "event = klik kirim di laptop; ui_click sama dengan send2/send3 (seri nada naik)"
+ },
+ {
+  "old_id": "tick_z3_88.69",
+  "new_id": "05e_land_d0",
+  "reason": "event = landing page tengah mendarat; land_soft sebagai awal gelombang nada naik d0/d3"
+ },
+ {
+  "old_id": "tick_z3_97.89",
+  "new_id": "05g_card7",
+  "reason": "event = kartu ke-7 mendarat di tumpukan; tick di tengah seri land_soft memutus seri"
+ },
+ {
+  "old_id": "tick_z3_95.59",
+  "new_id": "05f_SEMALAM",
+  "reason": "05f SEMALAM adalah kata slam besar (SlotWord) + storyboard minta «hantaman di SEMALAM»; kelas micro_tick salah. Ganti dengan cue 05f_SEMALAM (text_slam) di cues_b5.json."
+ }
+]

@@ -130,7 +130,7 @@ export const LightPlane: React.FC<{ beam: number; plane: number; glow: number; c
     <div
       style={{
         position: "absolute", left: 1000, top: 536, width: 760, height: 176, borderRadius: 80,
-        boxShadow: `0px 0px 240px 80px rgba(255,255,255,${0.24 * glow})`,
+        boxShadow: `0px 0px 240px 80px rgba(255,255,255,${0.24 * glow * plane * plane})`,
       }}
     />
     <div

@@ -6,7 +6,7 @@
 // Engsel senyap: lampu produk padam kanan→kiri setelah «susah», tahan, X17 hard cut ke 06a.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Camera, EZ, Grain, keys, KWord, prog, Scene, useT } from "../lib/anim";
+import { Camera, EZ, Grain, KWord, prog, Scene, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
 import { AppIcon, APPS, C, GRID, Pictogram } from "./_b5_shared";
 
@@ -27,6 +27,10 @@ const WALK_A = P.start + 0.12;
 const WALK_B = W_JUSTRU + 0.2; // keluar kanan sebelum «semakin»
 const X0 = -200, X1 = WORLD_W + 220;
 const OFF = W_SUSAH + 0.45; // lampu padam
+const W_ORANG = word("orang", "s5", 2).s; // 100.86 «dibutuhkan orang»
+const T_PIN_A = P.start + 0.47, T_PIN_B = P.start + 1.12;
+const CX_END = WORLD_W - 960;
+const OY = 560;
 
 const Product: React.FC<{ i: number; lit: number }> = ({ i, lit }) => {
   const app = APPS[i];
@@ -49,10 +53,19 @@ export const S05h_UsersWalkPast: React.FC = () => {
   const wp = Math.min(1, Math.max(0, (t - WALK_A) / (WALK_B - WALK_A)));
   const ux = X0 + (X1 - X0) * wp;
   const phase = (t - WALK_A) / (GRID * 2);
-  // C18 follow: kamera mengikuti pengguna, dijepit ke ujung dunia (berhenti, pengguna keluar kanan)
-  // (dihaluskan: kamera mulai ikut saat pengguna lewat x≈600, berhenti di ujung saat x≈1900; puncak ≈ 20 px/f)
-  const tAt = (x: number) => WALK_A + ((x - X0) / (X1 - X0)) * (WALK_B - WALK_A);
-  const camX = 960 - keys(t, [[tAt(600), 960], [tAt(1900), WORLD_W - 960]], EZ.inOut);
+  // Kamera 2.5D (v2): wide saat lampu menyala → C02 push-in ke close-up 1,7× mengikuti pengguna (C18) →
+  // patah ke wide 5 f di «orang» (C15) → tahan wide, C01 zoom mikro di «susah» (lapis dunia saja; teks di ruang layar).
+  // Lapis produk = kedalaman lebih jauh: zoom dan translasi ×0,55 (parallax, ≤ 24 px/f saat follow).
+  const pin = prog(t, T_PIN_A, T_PIN_B, EZ.inOut);
+  const snap = prog(t, W_ORANG, W_ORANG + 5 / FPS, EZ.out);
+  const cxF = 960 + (ux + 140 - 960) * pin;
+  const cx = cxF + (CX_END - cxF) * snap;
+  const Z = (1 + 0.7 * pin) * (1 - snap) + snap;
+  const micro = 1 + 0.04 * prog(t, W_SUSAH, W_SUSAH + 20 / FPS, EZ.inOut);
+  const Zu = Z * micro;
+  const Zp = (1 + (Z - 1) * 0.55) * micro;
+  const cp = 960 + (cx - 960) * 0.55;
+  const snapBlur = 3 * Math.sin(Math.PI * snap);
   // wipe: tepi depan siluet bergerak kiri→kanan
   const wp2 = prog(t, WIPE_A, WIPE_B + 4 / FPS, EZ.inOut);
   const lead = -200 + (1920 + WIPE_W + 400) * wp2;
@@ -62,7 +75,7 @@ export const S05h_UsersWalkPast: React.FC = () => {
     <Scene code="05h" pre={6 / FPS}>
       <AbsoluteFill style={{ clipPath: clipRight > 0 ? `inset(0 ${clipRight}px 0 0)` : undefined }}>
         <AbsoluteFill style={{ background: C.charcoal }}>
-          <Camera x={camX}>
+          <Camera scale={Zp} x={-Zp * (cp - 960)} oy={OY} blur={snapBlur}>
             {Array.from({ length: N }).map((_, i) => {
               const on = P.start - 0.05 + (i * GRID) / 2; // menyala tiap 1/16
               const near = Math.max(0, 1 - Math.abs(ux - (ROW_X + i * (PW + PG) + PW / 2)) / 260);
@@ -70,6 +83,8 @@ export const S05h_UsersWalkPast: React.FC = () => {
               const lit = (prog(t, on, on + 3 / FPS, EZ.out) * (0.9 + 0.1 * near)) * (1 - 0.85 * off);
               return <Product key={i} i={i} lit={lit} />;
             })}
+          </Camera>
+          <Camera scale={Zu} x={-Zu * (cx - 960)} oy={OY} blur={snapBlur}>
             {/* lantai */}
             <div style={{ position: "absolute", left: -400, top: FLOOR, width: WORLD_W + 800, height: 2, background: "rgba(255,255,255,0.14)" }} />
             {t >= WALK_A && t <= WALK_B + 0.1 && <Pictogram x={ux} floor={FLOOR} h={400} phase={phase} />}

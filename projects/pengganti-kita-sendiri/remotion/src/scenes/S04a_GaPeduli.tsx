@@ -33,7 +33,8 @@ export const S04a_GaPeduli: React.FC = () => {
   const tiltA = 63.85;
   const camY = keys(t, [[P.start, 150], [tPe, 0], [tiltA, -40], [P.end - 0.12, -640]], EZ.inOut);
   // C01 punch-in mikro di «peduli»
-  const camS = 1 + 0.045 * prog(t, tPe + 2 / 30, tPe + 0.45, EZ.out) + 0.012 * prog(t, tPe, tiltA, EZ.inOut);
+  // C02 push-in pelan selama «Teknologi ini» (tensi sebelum inti kalimat) + C01 punch-in di «peduli»
+  const camS = 0.97 + 0.03 * prog(t, P.start, tNg, EZ.inOut) + 0.06 * prog(t, tPe, tPe + 0.6, EZ.out) + 0.012 * prog(t, tPe + 0.6, tiltA, EZ.inOut);
   // C08 truck ke kanan (isi bergeser ke kiri), menyambung ke 04b
   const truck = prog(t, P.end - 0.3, P.end, EZ.acc);
   const camX = -520 * truck;

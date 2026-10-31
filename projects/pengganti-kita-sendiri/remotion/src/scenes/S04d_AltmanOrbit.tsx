@@ -5,7 +5,7 @@
 // Keluar X01: kartu menyusut jadi kartu bergaris biru (posisi 05a) bersama whoosh 75,195.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { EZ, Grain, prog, Scene, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, prog, Scene, useT } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
 import { block, panel, word } from "../lib/time";
 import { altCard, ALTMAN_STILL, CLIP_CARD, T_SHRINK, T_STILL } from "./_b4_shared";
@@ -20,7 +20,7 @@ const TAIL = 0.73; // gambar (tanpa suara) diperpanjang sampai batas 05a, saat k
 
 // cincin
 const RC = { x: 960, y: 545, rx: 650, ry: 150 };
-const OMEGA = -30; // derajat/detik (bagian depan bergerak ke kiri)
+const OMEGA = -15; // derajat/detik (bagian depan bergerak ke kiri, ≤ 6 px/f agar kata terbaca)
 type Item = { parts: { text: string; at: number }[]; phiAt: number; tRef: number };
 
 const ringPos = (phiDeg: number) => {
@@ -61,7 +61,7 @@ export const S04d_AltmanOrbit: React.FC = () => {
     const blur = (1 - d) * 2.4 + wordsOut * 8;
     return (
       <div key={i} style={{
-        position: "absolute", left: p.x, top: p.y, transform: `translate(-50%, -50%) perspective(1600px) rotateY(${p.rot}deg) scale(${sc})`,
+        position: "absolute", left: p.x, top: p.y, transform: `translate(-50%, calc(-100% - 14px)) perspective(1600px) rotateY(${p.rot}deg) scale(${sc})`, transformOrigin: "50% 100%",
         fontFamily: "Inter", fontWeight: 800, fontSize: 92, letterSpacing: -1.5, lineHeight: 1, color: "#fff", whiteSpace: "nowrap",
         opacity: op, filter: blur > 0.1 ? `blur(${blur}px)` : undefined,
       }}>
@@ -99,6 +99,8 @@ export const S04d_AltmanOrbit: React.FC = () => {
   return (
     <Scene code="04d">
       <AbsoluteFill style={{ background: "var(--sb-charcoal)" }}>
+        {/* C01 zoom mikro di «billion-dollar» (inti kutipan), kembali pelan ke 1,0 sebelum kartu menyusut */}
+        <Camera scale={keys(t, [[tBillion, 1], [tBillion + 0.65, 1.06], [T_SHRINK - 0.35, 1.0]], EZ.inOut) } oy={RC.y}>
         {ellipse("back")}
         {items.map((it, i) => renderItem(it, i, false))}
         {/* kartu klip */}
@@ -122,6 +124,7 @@ export const S04d_AltmanOrbit: React.FC = () => {
         <div style={{ position: "absolute", left: 0, right: 0, top: 872, textAlign: "center", fontFamily: "Inter", fontWeight: 600, fontSize: 26, letterSpacing: 4.2, color: "rgba(255,255,255,0.6)", opacity: prog(t, P.start + 0.3, P.start + 0.8, EZ.out) * (1 - wordsOut) }}>
           SAM ALTMAN · CEO OPENAI · MOSTLY HUMAN
         </div>
+        </Camera>
         <Grain opacity={0.05} />
       </AbsoluteFill>
     </Scene>

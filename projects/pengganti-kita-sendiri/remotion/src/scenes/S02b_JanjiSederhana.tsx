@@ -17,8 +17,10 @@ const FRAME = { x: 540, y: 744, w: 840, h: 156 };
 export const S02b_JanjiSederhana: React.FC = () => {
   const t = useT();
   const p = panel("02b");
-  // C02 push pelan
-  const cam = keys(t, [[p.start, 1.0], [p.end, 1.04]], EZ.inOut);
+  // close di judul ×1,22→1,25 (C02 tensi) → C06 reveal-out ke grafik saat garis mulai disketsa.
+  // Zoom berpusat di judul: judul tidak bergeser, tepinya ≤6 px/f.
+  const cam = keys(t, [[p.start, 1.22], [W_SEDERHANA.s + 0.13, 1.25], [p.end - 0.07, 1.02]], EZ.inOut);
+  const camG = 1 + (cam - 1) * 0.8; // grid lapis belakang (parallax)
   // bingkai digores mulai «janji» (keliling rect, satu goresan pena)
   const fr = prog(t, W_JANJI.s, W_JANJI.s + 0.42, EZ.inOut);
   // sumbu dan garis janji disketsa setelah judul lengkap
@@ -33,8 +35,10 @@ export const S02b_JanjiSederhana: React.FC = () => {
     <Scene code="02b">
       <AbsoluteFill>
         <BlueprintPaper />
-        <AbsoluteFill style={{ transform: `scale(${cam})`, transformOrigin: "960px 600px" }}>
+        <AbsoluteFill style={{ transform: `scale(${camG})`, transformOrigin: `${FRAME.x + FRAME.w / 2}px ${FRAME.y + FRAME.h / 2}px` }}>
           <BlueprintGrid />
+        </AbsoluteFill>
+        <AbsoluteFill style={{ transform: `scale(${cam})`, transformOrigin: `${FRAME.x + FRAME.w / 2}px ${FRAME.y + FRAME.h / 2}px` }}>
           {/* garis margin kertas */}
           <div style={{ position: "absolute", left: 52, top: 0, width: 2, height: 1080, background: "rgba(255,255,255,0.4)" }} />
           <svg width={1920} height={1080} style={{ position: "absolute", inset: 0, overflow: "visible" }}>

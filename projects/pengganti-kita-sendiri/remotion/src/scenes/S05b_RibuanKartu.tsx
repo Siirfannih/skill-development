@@ -19,7 +19,8 @@ export const S05b_RibuanKartu: React.FC = () => {
   const t = useT();
   const P = panel("05b");
   const tGak = word("gak", "s5").s;
-  const s = cam05b(t);
+  // C01 zoom mikro di «gak»: fokus ke kartu biru yang akan tersisa
+  const s = cam05b(t) * (1 + 0.07 * prog(t, word("gak", "s5").s, word("gak", "s5").s + 0.75, EZ.out));
   // pan: kartu biru dari posisi akhir 05a ke tengah layar
   const pan = 1 - prog(t, P.start, P.start + 0.6, EZ.inOut);
   const CX = 960 + (CARD05A_END.x - 960) * pan;

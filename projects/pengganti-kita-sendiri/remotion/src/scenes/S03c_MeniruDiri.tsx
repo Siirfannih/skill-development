@@ -9,7 +9,6 @@ import { block, FPS, panel, word, wordsOf } from "../lib/time";
 import { cue, LightCone, MattePicto, PICTO, pictoHalfWidth, WirePicto } from "./_b3_shared";
 
 const PC = panel("03c");
-const PD = panel("03d");
 const PE = panel("03e");
 const W = (w: string, n = 1) => word(w, "s3", n).s;
 const BOOM = cue("boom2");
@@ -33,6 +32,7 @@ const STEP_A = W("mengambil");
 const STEP_B = BOOM - 0.12;
 const RETREAT_A = W("mengambil") + 0.1;
 const RETREAT_B = BOOM;
+const T_SNAP = W("besar") + 0.16; // sesudah latch «terisi penuh» (besar + 0,1)
 
 // terjemahan Jensen, kata Indonesia mendarat di kata Inggris padanannya (indeks wordsOf('jensen'))
 const JW = wordsOf("jensen");
@@ -85,13 +85,29 @@ const Stage: React.FC<{ t: number }> = ({ t }) => {
 export const S03c_MeniruDiri: React.FC = () => {
   const t = useT();
 
-  // kamera 03c: mendarat dari zoom-through (1,14 → 1), lalu C19 drift sudut rendah; 03d: ikut ke cahaya (C17 rack focus di panggung)
+  // kamera 03c: zoom-through mendarat close (2,1 → 1,8) di kaki salinan, C18 ikut garis scan naik ke kepala,
+  // lalu C15 patah ke wide ≤ 6 f setelah salinan penuh: kita dan salinan sama tinggi.
+  // 03d: ikut ke cahaya + C02 push-in mulai «tempat», C01 hentak kecil di beat drop.
+  const fill = fillAt(t);
+  const yF = FLOOR - (FLOOR - HEAD_TOP) * fill;
   const land = prog(t, PC.start, PC.start + 0.5, EZ.out);
-  const drift = prog(t, PC.start + 0.5, PD.start, EZ.inOut);
+  const closeS = 2.1 - 0.3 * land;
+  const py = Math.max(500, Math.min(840, yF - 40));
+  const snap = prog(t, T_SNAP, T_SNAP + 0.17, EZ.inOut);
   const pan = prog(t, STEP_A, BOOM, EZ.inOut);
-  const push = prog(t, PD.start, BOOM + 0.4, EZ.inOut);
+  const push = prog(t, W("tempat"), BOOM, EZ.inOut);
+  const punch = prog(t, BOOM, BOOM + 15 / FPS, EZ.out);
   const camX = 960 + (CONE - 960) * pan;
-  const camS = (1.14 - 0.14 * land) * (1 + 0.03 * drift) * (1 + 0.03 * push);
+  const wideS = (1 + 0.08 * push) * (1 + 0.03 * punch);
+  const ck = 1 - snap;
+  const cam = {
+    s: ck * closeS + (1 - ck) * wideS,
+    ox: ck * COPY0 + (1 - ck) * camX,
+    oy: ck * py + (1 - ck) * 1000,
+    x: ck * (960 - COPY0) + (1 - ck) * (960 - camX),
+    y: ck * (540 - py),
+  };
+  const snapBlur = Math.sin(snap * Math.PI) * 3;
   const sh = shake(t, BOOM, 6, 0.3);
 
   // X13: frame 03d menyusut jadi kartu klip (berakhir tepat saat klip mulai)
@@ -102,6 +118,9 @@ export const S03c_MeniruDiri: React.FC = () => {
   // 03e: drift 1,03
   const eDrift = prog(t, JENSEN, PE.end, (x) => x);
   const labelP = prog(t, JENSEN + 0.1, JENSEN + 0.5, EZ.out);
+  // C20 cut zoom ke wajah Jensen di «somebody» (garis pandang sama, momentum 6 f); kartu & terjemahan tidak bergerak
+  const T_CZ = JW[18].s;
+  const cz = t >= T_CZ ? 1.6 + 0.05 * prog(t, T_CZ, T_CZ + 6 / FPS, EZ.out) : 1;
 
   return (
     <Scene start={PC.start} end={PE.end} name="03c–03e Meniru diri + Jensen">
@@ -112,16 +131,18 @@ export const S03c_MeniruDiri: React.FC = () => {
             transform: `translateY(${(411 - 540) * k}px) scale(${sc})`, transformOrigin: "960px 540px", borderRadius: (28 * k) / sc,
             boxShadow: k > 0 ? `0 0 0 ${2 / sc}px rgba(255,255,255,${0.1 * k})` : undefined }}>
             {!showClip && (
-              <Camera scale={camS} ox={camX} oy={1000} x={960 - camX + sh.x} y={sh.y}>
+              <Camera scale={cam.s} ox={cam.ox} oy={cam.oy} x={cam.x + sh.x} y={cam.y + sh.y} blur={snapBlur}>
                 <Stage t={t} />
               </Camera>
             )}
             {showClip && (
               <>
                 <AbsoluteFill style={{ background: "var(--sb-placeholder)" }} />
+                <AbsoluteFill style={{ transform: `scale(${cz})`, transformOrigin: "55% 18%" }}>
                 <Clip src="clips/jensen_src_412.mp4" at={block("jensen").t} inS={CLIP_IN} outS={CLIP_OUT} grade={DOC_GRADE} style={{ transform: "scale(1.05)" }} />
                 {/* lanjutkan shot yang sama tanpa suara sampai hard cut (bukan freeze; sumber 16 dtk masih berlanjut) */}
                 <Clip src="clips/jensen_src_412.mp4" at={CLIP_END} inS={CLIP_OUT} outS={CLIP_OUT + (PE.end - CLIP_END) + 0.1} grade={DOC_GRADE} style={{ transform: "scale(1.05)" }} />
+                </AbsoluteFill>
               </>
             )}
           </div>

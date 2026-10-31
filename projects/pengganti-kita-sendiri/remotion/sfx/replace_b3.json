@@ -1,0 +1,22 @@
+[
+ {
+  "old_id": "tick_z2_45.44",
+  "new_id": "03a2_send_click",
+  "reason": "event = klik tombol kirim; kelas ui_click lebih tepat dari tick ketik"
+ },
+ {
+  "old_id": "tick_agent2",
+  "new_id": "03a2_agent_CS",
+  "reason": "agent muncul = ui_pop (boop), bukan tick ketik"
+ },
+ {
+  "old_id": "tick_agent3",
+  "new_id": "03a2_agent_Ops",
+  "reason": "agent muncul = ui_pop (boop), bukan tick ketik"
+ },
+ {
+  "old_id": "tick_agent4",
+  "new_id": "03a2_agent_Editor",
+  "reason": "agent muncul = ui_pop (boop), bukan tick ketik"
+ }
+]

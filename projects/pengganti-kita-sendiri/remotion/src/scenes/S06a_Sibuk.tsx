@@ -14,6 +14,8 @@ const W_MERENCANAKAN = word("merencanakan", "s6", 1).s;
 const W_HAL = word("hal", "s6", 1).s;
 const W_SAMA = word("sama", "s6", 1).s;
 const W_LAKUKAN = word("lakukan", "s6", 1).s;
+const W_TERLALU2 = word("terlalu", "s6", 2).s; // C20 cut zoom ke bidang
+export const REV_SNAP = B.start; // patah ke wide (C15) di «Membangun»
 const F2 = 2 / FPS;
 
 // grid 06b ×2 (ruang dunia 1920×1080): 5 kolom × 2 baris, sel 164×200 unit → 328×400 px
@@ -76,19 +78,28 @@ export const S06a_Sibuk: React.FC = () => {
   const t = useT();
   // ── kamera: 06a drift C19 (≤1,03) → reveal-out C06 di «Membangun» → tahan wide → push-through ke hero di «lakukan»
   const drift = prog(t, A.start, A.end, EZ.inOut);
-  const rev = keys(t, [[B.start, 0], [B.start + 0.3, 0.32], [W_SAMA + 0.9, 1]], EZ.out);
+  // patah ke wide: 72 % jarak zoom dalam 6 f, sisanya mengendap sampai «sama»
+  const rev = keys(t, [[B.start, 0], [B.start + 6 / FPS, 0.72], [W_SAMA + 0.6, 1]], EZ.out);
   const pushStart = W_LAKUKAN + 0.12;
   const push = prog(t, pushStart, B.end, EZ.acc);
   const sClose = S_06A * (1 + 0.025 * drift);
   let S = Math.exp(lerp(Math.log(sClose), Math.log(1), rev));
   let anchor = { x: lerp(HEAD_06A.x, HEAD_W.x, rev), y: lerp(HEAD_06A.y, HEAD_W.y, rev) };
+  // C02 tahan wide: dorong pelan ke hero sebelum push-through
+  const hold = prog(t, W_SAMA + 0.6, pushStart, EZ.inOut);
+  S *= 1 + 0.04 * hold;
   if (push > 0) {
-    S = Math.exp(lerp(0, Math.log(5.2), push));
+    S = Math.exp(lerp(Math.log(1.04), Math.log(5.2), push));
     anchor = { x: lerp(HEAD_W.x, 960, push), y: lerp(HEAD_W.y, 520, push) };
   }
   const tx = anchor.x - S * HEAD_W.x;
   const ty = anchor.y - S * HEAD_W.y;
   const blur = push > 0.55 ? (push - 0.55) * 14 : 0;
+  // kamera layar 06a: C01 di «membangun» lalu C20 cut zoom ×1,32 ke bidang di «terlalu» kedua (momentum 6 f).
+  // Titik asal (1830,568) membuat bidang mendarat di x≈1200 sehingga MERENCANAKAN tetap utuh. Lepas saat reveal.
+  const c01 = 1 + 0.06 * prog(t, W_MEMBANGUN, W_MEMBANGUN + 20 / FPS, EZ.out);
+  const cz = t >= W_TERLALU2 ? 1.32 + 0.04 * (1 - prog(t, W_TERLALU2, W_TERLALU2 + 6 / FPS, EZ.out)) : 1;
+  const Z = lerp(c01 * cz, 1, Math.min(1, rev * 1.4));
   // bentuk hero: proporsi 06a → sel 06b selama reveal
   const k = Math.min(1, rev * 1.35);
   // bidang lain menyala per baris (hum bertambah per baris): baris hero di «hal», baris atas di «sama»
@@ -103,7 +114,7 @@ export const S06a_Sibuk: React.FC = () => {
   return (
     <Scene start={A.start} end={B.end} name="06a–06b Sibuk / sama">
       <AbsoluteFill style={{ background: C6.charcoal, overflow: "hidden" }}>
-        <AbsoluteFill style={{ filter: blur > 0.1 ? `blur(${blur}px)` : undefined }}>
+        <AbsoluteFill style={{ filter: blur > 0.1 ? `blur(${blur}px)` : undefined, transform: `scale(${Z})`, transformOrigin: "1830px 568px" }}>
           <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, transformOrigin: "0 0", transform: `translate(${tx}px, ${ty}px) scale(${S})` }}>
             {cells.map(({ r, c }) => {
               const on = rowOn(r);

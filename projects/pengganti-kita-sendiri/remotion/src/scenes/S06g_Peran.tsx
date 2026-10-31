@@ -27,7 +27,11 @@ const offAt = (i: number) => {
 export const S06g_Peran: React.FC = () => {
   const t = useT();
   const push = prog(t, P.start, P.end, EZ.inOut);
-  const sc = 1 + 0.15 * push;
+  // C09 snap punch-in ×1,09 di «kamu» (4 f), patah balik ke wide di boom penutup (5 f).
+  // Lebar kalimat ±1500 px × skala maks ±1,2 = ±1800 px < 1920: tidak terpotong.
+  const W_KAMU = at("kamu");
+  const punch = 0.09 * (prog(t, W_KAMU, W_KAMU + 4 / 30, EZ.out) - prog(t, T_BOOM, T_BOOM + 5 / 30, EZ.out));
+  const sc = (1 + 0.15 * push) * (1 + punch);
   const land = prog(t, P.start, P.start + 0.4, EZ.out);
   const ons = PX.map((_, i) => relay(t, offAt(i)));
   const litFrac = ons.reduce((a, b) => a + b, 0) / ons.length;

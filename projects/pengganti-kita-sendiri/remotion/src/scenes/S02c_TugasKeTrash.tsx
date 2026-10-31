@@ -5,7 +5,8 @@
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import { EZ, keys, prog, Scene, useT, Grain } from "../lib/anim";
-import { panel } from "../lib/time";
+import { panel, word } from "../lib/time";
+const W_BERULANG = word("berulang", "s2", 1);
 const P02C = panel("02c");
 import { C } from "./_b2_shared";
 import cues from "../../public/data/cues11.json";
@@ -110,7 +111,8 @@ export const S02c_TugasKeTrash: React.FC = () => {
   const cur = cursorAt(t, p.start, p.end);
   const lag = cursorAt(t - 0.14, p.start, p.end);
   // kamera C18: ikut kursor 60 %, dijepit supaya tumpukan dan dock tetap di bingkai
-  const Z = 1.1;
+  // C02 push pelan 1,08→1,16 sepanjang tumpukan (tugas makin menumpuk) + C01 di «berulang» (+5 %, 18 f)
+  const Z = keys(t, [[p.start, 1.08], [p.end, 1.16]], EZ.inOut) * (1 + 0.05 * prog(t, W_BERULANG.s, W_BERULANG.s + 18 / 30, EZ.out));
   const cl = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
   const hw = 960 / Z - 40, hh = 540 / Z - 40;
   const tx = cl(960 + (lag.x - 960) * 0.6, DOCK.x + DOCK.w + 20 - hw, CARD.x - 20 + hw);

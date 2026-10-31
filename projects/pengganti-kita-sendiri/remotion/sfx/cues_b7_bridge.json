@@ -1,0 +1,77 @@
+[
+{
+"id": "bridge_jensen_out",
+"t": 61.25,
+"class": "riser",
+"file": "/home/claude/pool/bank/b_reverse_swell__dark.wav",
+"db": -20,
+"lp": 3500,
+"align": "peak",
+"peak": 0.568,
+"fi": 0.1,
+"fo": 0.05,
+"panel": "03e→04a",
+"visual": "klip Jensen selesai → hard cut ke horizon 04a (puncak swell di cut)",
+"role": "jembatan suara dari akhir klip Jensen ke narator supaya tidak terputus (Irfan 20:19)"
+},
+{
+"id": "cam_82.7",
+"t": 82.7,
+"class": "sub_thud",
+"file": "/home/claude/pool/bank/b_cut_hit__sub.wav",
+"db": -14,
+"lp": 3500,
+"fo": 0.08,
+"panel": "-",
+"visual": "hard cut titik biru 05b → montase foto 05c",
+"role": "menandai batas ke montase «SAMA» (X17)"
+},
+{
+"id": "cam_113.5",
+"t": 113.5,
+"class": "land_soft",
+"file": "/home/claude/pool/bank/b_pro_impact__air.wav",
+"db": -20,
+"lp": 3500,
+"fo": 0.08,
+"panel": "-",
+"visual": "bloom 06c mendarat jadi over-the-shoulder 06d",
+"role": "pendaratan dunia composer, tenang"
+},
+{
+"id": "cam_120.53",
+"t": 120.53,
+"class": "whoosh_s",
+"file": "/home/claude/pool/bank/b_cut_hit__air.wav",
+"db": -20,
+"lp": 3500,
+"fo": 0.08,
+"panel": "-",
+"visual": "cut on motion 06e → kerumunan 06f",
+"role": "menyambung truck lintas cut"
+},
+{
+"id": "cam_106.2",
+"t": 106.2,
+"class": "whoosh_s",
+"file": "/home/claude/pool/bank/b_cut_hit__air.wav",
+"db": -22,
+"lp": 3500,
+"fo": 0.08,
+"panel": "-",
+"visual": "C20 cut zoom ke bidang MEMBANGUN (06a)",
+"role": "momentum cut zoom, tipis"
+},
+{
+"id": "cam_115.3",
+"t": 115.3,
+"class": "whoosh_s",
+"file": "/home/claude/pool/bank/b_cut_hit__air.wav",
+"db": -22,
+"lp": 3500,
+"fo": 0.08,
+"panel": "-",
+"visual": "C20 cut zoom ke composer (06d)",
+"role": "momentum cut zoom, tipis"
+}
+]

@@ -4,11 +4,12 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { EZ, Grain, keys, prog, Scene, useT } from "../lib/anim";
-import { FPS, panel } from "../lib/time";
+import { FPS, panel, word } from "../lib/time";
 import { C, z3tick } from "./_b5_shared";
 
 const P = panel("05e");
 const T_TICK = z3tick("05e kesempatan"); // 88.69
+const W_KES = word("kesempatan", "s5", 1).s; // 88.56
 const WHIP = P.end - 6 / FPS;
 const CW = 640, CH = 600, GAP = 64;
 const DOMAINS = ["cofounder.ai", "mycofounder.app", "aicofounder.io", "cofoundr.ai", "getcofounder.com", "cofounder.so", "launchmate.ai", "cofounderly.app", "buildbuddy.ai"];
@@ -69,12 +70,15 @@ export const S05e_SameChance: React.FC = () => {
   const whip = prog(t, WHIP, P.end, EZ.acc);
   const camX = -(truck + whip * 2200);
   const whipBlur = whip * 40;
+  // v2: C01 zoom mikro di «kesempatan» (lapis kartu 1→1,05, 20 f) + parallax 2.5D: sinar (latar jauh) ikut 12 % truck
+  const micro = 1 + 0.05 * prog(t, W_KES, W_KES + 20 / FPS, EZ.inOut);
+  const rayX = camX * 0.12;
   const rowLeft = 960 - CW * 1.5 - GAP - 700; // kartu tengah layar awal ≈ indeks 2–3
   return (
     <Scene code="05e">
       <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 50%, ${C.violet50} 0%, ${C.violet200} 30%, ${C.violet400} 55%, ${C.electric} 100%)`, overflow: "hidden" }}>
         {/* R-RAY: diam di ruang layar (latar jauh), rotasi pelan */}
-        <svg width="2400" height="2400" viewBox="-1200 -1200 2400 2400" style={{ position: "absolute", left: -240, top: -660, transform: `rotate(${rot}deg) scale(${0.35 + 0.65 * ray})`, opacity: ray }}>
+        <svg width="2400" height="2400" viewBox="-1200 -1200 2400 2400" style={{ position: "absolute", left: -240 + rayX, top: -660, transform: `rotate(${rot}deg) scale(${0.35 + 0.65 * ray})`, opacity: ray }}>
           {Array.from({ length: 14 }).map((_, i) => {
             const a0 = (i / 14) * Math.PI * 2;
             const a1 = a0 + 0.13;
@@ -83,7 +87,7 @@ export const S05e_SameChance: React.FC = () => {
           })}
         </svg>
         <svg width="0" height="0" style={{ position: "absolute" }}><filter id="whip05e" x="-20%" y="0" width="140%" height="100%"><feGaussianBlur stdDeviation={`${whipBlur} 0`} /></filter></svg>
-        <AbsoluteFill style={{ transform: `translateX(${camX}px)`, filter: whipBlur > 0.1 ? "url(#whip05e)" : undefined }}>
+        <AbsoluteFill style={{ transform: `scale(${micro}) translateX(${camX}px)`, transformOrigin: "960px 540px", filter: whipBlur > 0.1 ? "url(#whip05e)" : undefined }}>
           {DOMAINS.map((d, i) => {
             const x = rowLeft + i * (CW + GAP);
             // gelombang dari tengah layar ke luar, 1 f per langkah jarak

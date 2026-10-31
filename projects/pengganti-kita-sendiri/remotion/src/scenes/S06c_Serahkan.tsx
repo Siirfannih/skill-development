@@ -38,8 +38,10 @@ export const S06c_Serahkan: React.FC = () => {
   const bloom = BLOOM_06C_END(t);
   // kamera: mendarat dari push-through 06b, lalu ikut bola (C18)
   const land = prog(t, P.start, P.start + 0.35, EZ.out);
-  const sc = (1 + 0.14 * (1 - land)) * (1 + 0.04 * u);
-  const camX = -(pos.x - P0.x) * 0.18;
+  // C01 di «menyerahkan» + C18 ikut bola (framing makin rapat saat bola mendekati cahaya)
+  const c01 = 1 + 0.07 * prog(t, W_MENYERAHKAN, W_MENYERAHKAN + 18 / FPS, EZ.out);
+  const sc = (1 + 0.14 * (1 - land)) * c01 * (1 + 0.1 * u);
+  const camX = -(pos.x - P0.x) * 0.3;
   const blur = (1 - land) * 6;
   // trail putus-putus: polyline dari awal ke posisi bola
   const N = 36;

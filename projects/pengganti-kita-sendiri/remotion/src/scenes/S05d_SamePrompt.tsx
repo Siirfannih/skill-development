@@ -108,14 +108,15 @@ export const S05d_SamePrompt: React.FC = () => {
   const press = prog(t, send, send + 5 / FPS, EZ.out);
   // kamera: tiap cut mendarat dari dorongan kecil (C20), lalu drift mikro
   const land = seg === 0 ? 1 + 0.12 * (1 - prog(t, a, a + 7 / FPS, EZ.out)) : 1 + 0.05 * (1 - prog(t, a, a + 5 / FPS, EZ.out));
-  const drift = 1 + 0.02 * prog(t, a, a + 0.6, EZ.inOut);
-  const s = land * drift;
+  // v2: C01 zoom mikro ke composer di tiap shot (1→1,06, 15 f, mulai saat ketikan mulai); tablet = C20 terdekat (×1,22 ke composer)
+  const drift = 1 + 0.06 * prog(t, a, a + 15 / FPS, EZ.inOut);
+  const s = land * drift * (seg === 2 ? 1.22 : 1);
   let device: React.ReactNode = null;
   if (seg === 0) {
     // MacBook: layar 1560×975, kamera agak dekat
     const W = 1560, H = 975;
     device = (
-      <div style={{ position: "absolute", left: 960 - W / 2 - 22, top: 120, transform: `scale(${s})`, transformOrigin: `${W / 2 + 22}px 420px` }}>
+      <div style={{ position: "absolute", left: 960 - W / 2 - 22, top: 120, transform: `scale(${s})`, transformOrigin: `${W / 2 + 22}px 490px` }}>
         <div style={{ width: W + 44, height: H + 44, background: "#0d0d0f", borderRadius: 36, padding: 22, boxSizing: "border-box", boxShadow: "0 40px 90px rgba(29,54,235,0.16)" }}>
           <div style={{ position: "relative", width: W, height: H, borderRadius: 14, overflow: "hidden" }}>
             <ChatGPT w={W} h={H} mode="desktop" typed={typed} press={press} u={1.45} />
@@ -141,7 +142,7 @@ export const S05d_SamePrompt: React.FC = () => {
     // iPad landscape
     const W = 1800, H = 1250;
     device = (
-      <div style={{ position: "absolute", left: 960 - W / 2 - 30, top: -40, transform: `scale(${s})`, transformOrigin: `${W / 2}px 700px` }}>
+      <div style={{ position: "absolute", left: 960 - W / 2 - 30, top: -40, transform: `scale(${s})`, transformOrigin: `${W / 2 + 30}px 611px` }}>
         <div style={{ width: W + 60, height: H + 60, background: "#0d0d0f", borderRadius: 70, padding: 30, boxSizing: "border-box", boxShadow: "0 40px 90px rgba(29,54,235,0.16)" }}>
           <div style={{ position: "relative", width: W, height: H, borderRadius: 40, overflow: "hidden" }}>
             <ChatGPT w={W} h={H} mode="tablet" typed={typed} press={press} u={1.75} />

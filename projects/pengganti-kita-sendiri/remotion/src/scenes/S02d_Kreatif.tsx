@@ -16,8 +16,15 @@ export const S02d_Kreatif: React.FC = () => {
   const t = useT();
   const p = panel("02d");
   const bloomA = p.end - 0.42;
-  // C02 push-in lambat, berpusat di bidang cahaya (titik bloom tetap di tempat)
-  const z = keys(t, [[p.start, 1.0], [bloomA, 1.08], [p.end, 1.16]], EZ.inOut);
+  // C18 close di piktogram ×1,5 (push 1,45→1,5) → «fokus»: C06 reveal-out ke bidang cahaya (0,65 dtk, selesai sebelum
+  // KREATIF) → C01 di «kreatif» (+7 %, 18 f) → push-in ke bidang saat bloom. Setelah reveal, semua zoom berpusat di BLOOM_PT.
+  const rv = prog(t, W_FOKUS.s, W_FOKUS.s + 0.65, EZ.inOut);
+  const zClose = keys(t, [[p.start, 1.45], [W_FOKUS.s, 1.5]], EZ.inOut);
+  const zWide = (1 + 0.07 * prog(t, W_KREATIF.s, W_KREATIF.s + 18 / 30, EZ.out)) * keys(t, [[bloomA, 1.0], [p.end, 1.14]], EZ.inOut);
+  const z = zClose + (zWide - zClose) * rv;
+  const look = { x: 650 + (BLOOM_PT.x - 650) * rv, y: 600 + (BLOOM_PT.y - 600) * rv };
+  const anch = { x: 960 + (BLOOM_PT.x - 960) * rv, y: 540 + (BLOOM_PT.y - 540) * rv };
+  const T = { x: anch.x - look.x * z, y: anch.y - look.y * z };
   const rim = 0.35 + 0.25 * prog(t, W_KITA.s, W_KITA.s + 0.5) + 0.4 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.4);
   const beam = 0.15 + 0.85 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.45);
   const plane = 0.18 + 0.5 * prog(t, W_KITA.s, W_FOKUS.s, EZ.inOut) + 0.32 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.35);
@@ -27,7 +34,7 @@ export const S02d_Kreatif: React.FC = () => {
   return (
     <Scene code="02d">
       <AbsoluteFill style={{ background: C.charcoal, filter: b > 0 ? `brightness(${1 + 0.8 * b})` : undefined }}>
-        <AbsoluteFill style={{ transform: `scale(${z})`, transformOrigin: `${BLOOM_PT.x}px ${BLOOM_PT.y}px` }}>
+        <AbsoluteFill style={{ transform: `translate(${T.x}px, ${T.y}px) scale(${z})`, transformOrigin: "0 0" }}>
           <LightPlane beam={beam} plane={plane} glow={glow}>
             <span style={{ fontFamily: "Inter", fontWeight: 900, fontStyle: "italic", fontSize: 136, lineHeight: 1, letterSpacing: -1.4, color: C.ink, whiteSpace: "nowrap" }}>
               <KWord at={W_KREATIF.s} kind="blurIn">KREATIF</KWord>

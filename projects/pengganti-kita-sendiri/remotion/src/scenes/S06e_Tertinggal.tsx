@@ -5,7 +5,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { EZ, Grain, KWord, prog, Scene, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
-import { Ball, C6, Plane, SideUnit, Torso } from "./_b6_shared";
+import { Ball, C6, lerp, Plane, SideUnit, Torso } from "./_b6_shared";
 import { OFF_HOLD, T_OFF } from "./S06d_Prompt";
 
 const P = panel("06e");
@@ -13,16 +13,21 @@ const START = T_OFF + OFF_HOLD;
 const W_TERTINGGAL = word("tertinggal", "s6", 1).s;
 export const TRUCK_V = 118; // px/dtk, sama dengan kecepatan awal truck 06f
 export const TRUCK_A = W_TERTINGGAL + 0.28;
+export const SNAP_WIDE = W_TERTINGGAL - 0.22; // patah ke wide sebelum kata, supaya teks mendarat di frame diam
 
 export const S06e_Tertinggal: React.FC = () => {
   const t = useT();
   const back = prog(t, START, P.end, EZ.inOut);
   const sc = 1.06 - 0.06 * back;
+  // close 2× pada kita yang padam (C18 drift pelan), lalu patah ke wide dalam 6 f: jarak ke yang lain terlihat
+  const zc = 2 + 0.08 * prog(t, START, SNAP_WIDE, EZ.inOut);
+  const Z = lerp(zc, 1, prog(t, SNAP_WIDE, SNAP_WIDE + 6 / FPS, EZ.out));
   const truck = t > TRUCK_A ? -(t - TRUCK_A) * TRUCK_V : 0;
   const recede = prog(t, START + 0.2, P.end + 0.2, EZ.inOut);
   return (
     <Scene start={START} end={P.end} name="06e Tertinggal">
       <AbsoluteFill style={{ background: C6.charcoal, overflow: "hidden" }}>
+        <AbsoluteFill style={{ transform: `scale(${Z})`, transformOrigin: "400px 700px" }}>
         <AbsoluteFill style={{ transform: `translateX(${truck}px) scale(${sc})`, transformOrigin: "960px 600px" }}>
           <div style={{ position: "absolute", left: 0, top: 0, width: 960, height: 540, transform: "scale(2)", transformOrigin: "0 0" }}>
             {/* kita: bidang padam, tanpa rim light */}
@@ -38,6 +43,7 @@ export const S06e_Tertinggal: React.FC = () => {
               ))}
             </div>
           </div>
+        </AbsoluteFill>
         </AbsoluteFill>
         {/* kata di bawah visual, tengah */}
         <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "center", top: 830 }}>

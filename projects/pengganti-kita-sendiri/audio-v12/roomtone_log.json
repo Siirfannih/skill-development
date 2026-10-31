@@ -1,0 +1,38 @@
+[
+{
+"name": "news_gates",
+"s0": 0.0,
+"s1": 3.58,
+"tone_db_vs_speech": -28.7
+},
+{
+"name": "news_teen",
+"s0": 3.58,
+"s1": 6.15,
+"tone_db_vs_speech": -12.7
+},
+{
+"name": "news_billion",
+"s0": 6.15,
+"s1": 7.95,
+"tone_db_vs_speech": -10.4
+},
+{
+"name": "news_fast",
+"s0": 7.95,
+"s1": 10.25,
+"tone_db_vs_speech": -59.8
+},
+{
+"name": "jensen",
+"s0": 54.885,
+"s1": 61.405,
+"tone_db_vs_speech": -36.1
+},
+{
+"name": "altman",
+"s0": 69.975,
+"s1": 75.175,
+"tone_db_vs_speech": -52.7
+}
+]

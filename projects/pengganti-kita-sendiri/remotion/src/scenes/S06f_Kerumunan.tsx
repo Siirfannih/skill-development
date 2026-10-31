@@ -31,6 +31,10 @@ export const S06f_Kerumunan: React.FC = () => {
   const crane = prog(t, CRANE_A, P.end, EZ.acc);
   const sc = 1 - 0.45 * crane; // bidang depan mendarat ±140×44 seperti barisan 06g
   const flat = 1 - 0.5 * crane;
+  // C20 cut zoom ×1,4 ke barisan bidang tepat saat glyph muncul («tools»), C01 di «sama»; lepas selama crane
+  const tc = W_TOOLS + F2;
+  const cz = t >= tc ? 1.4 + 0.05 * (1 - prog(t, tc, tc + 6 / FPS, EZ.out)) : 1;
+  const Z = 1 + (cz * (1 + 0.06 * prog(t, W_SAMA, W_SAMA + 18 / FPS, EZ.out)) - 1) * (1 - crane);
   const row = (list: typeof FRONT, par: number, op: number, key: string) =>
     list.map((u, i) => (
       <div key={key + i} style={{ position: "absolute", left: u.x + truck * par, top: u.y, width: 160, height: 260, transform: `scale(${u.s})`, transformOrigin: "0 0", opacity: op }}>
@@ -40,9 +44,11 @@ export const S06f_Kerumunan: React.FC = () => {
   return (
     <Scene code="06f" name="06f Kerumunan">
       <AbsoluteFill style={{ background: C6.charcoal, overflow: "hidden" }}>
+        <AbsoluteFill style={{ transform: `scale(${Z})`, transformOrigin: "960px 430px" }}>
         <AbsoluteFill style={{ transform: `translateY(${crane * -130}px) scale(${sc})`, transformOrigin: "960px 400px" }}>
           {row(FAR, 0.62, 0.42, "far")}
           {row(FRONT, 1, 1, "front")}
+        </AbsoluteFill>
         </AbsoluteFill>
         <Grain opacity={0.05} />
       </AbsoluteFill>

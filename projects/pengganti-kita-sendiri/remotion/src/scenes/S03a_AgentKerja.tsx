@@ -51,7 +51,7 @@ const T_SEND_CEO = W("apa"); // CEO mulai menulis laporan
 const T_STREAM = [W("yang"), W("dalam") - 0.05];
 const T_REPLY = W("dalam");
 const T_WORK = [W("kehidupan"), W("kehidupan") + 0.22, W("sehari-hari")];
-const T_FOLLOW = W("kehidupan");
+const T_FOLLOW = W("dalam") + 0.8; // balasan CEO terbaca ≥ 0,8 dtk dalam wide sebelum kamera mendorong
 const T_ZOOM = P3.end - 0.55;
 
 const STREAM = "312 pesanan · omzet Rp48,6 jt · naik 18% dari minggu lalu";
@@ -80,7 +80,7 @@ const cursorPos = (k: number, t: number): { x: number; y: number } => {
     const k3 = prog(t, T_STREAM[1] + 0.05, T_STREAM[1] + 0.5, EZ.inOut);
     return { x: lerp(sEnd.x, CEO_DOCK.x, k3), y: lerp(sEnd.y, CEO_DOCK.y, k3) };
   }
-  const home = [null, { x: 560, y: Y0 + 880 }, { x: 170, y: Y0 + 300 }, { x: 1250, y: Y0 + 50 }][k]!;
+  const home = [null, { x: 560, y: Y0 + 880 }, { x: 430, y: Y0 + 60 }, { x: 1250, y: Y0 + 50 }][k]!;
   const w = wob(26, 18, 1.7 + k * 0.35, k * 1.9);
   const idle = { x: home.x + w.x, y: home.y + w.y };
   const i = k - 1;
@@ -111,28 +111,40 @@ export const S03a_AgentKerja: React.FC = () => {
     cy: keys(t, [[MSG[4].at, 690], [MSG[5].at + 0.2, 718]], EZ.inOut),
     s: keys(t, [[P1.start, 1.6], [P1.start + 0.6, 1.5], [P1.end, 1.53]], EZ.out),
   };
-  const pb = prog(t, T_MENULIS + 0.28, W("dan") + 0.12, EZ.inOut);
-  const click = prog(t, T_KIRIM, T_KIRIM + 0.35, EZ.out);
+  // C01 di «CEO» (kata inti prompt), lalu C15 patah ke wide ≤ 6 f di «dan» (sebelum klik), C01 di klik kirim
+  const c01 = 1 + 0.04 * prog(t, T_MENGAJARI, T_MENGAJARI + 18 / FPS, EZ.out);
+  const pb = prog(t, W("dan") - 0.07, W("dan") + 0.1, EZ.inOut);
+  const click = prog(t, T_KIRIM, T_KIRIM + 0.6, EZ.out);
   const up = prog(t, LAUNCH[0], T_LAND, EZ.inOut);
-  const drift = prog(t, T_LAND, T_FOLLOW, EZ.inOut);
-  const fol = prog(t, T_FOLLOW, T_ZOOM, EZ.inOut);
   const ceo = cursorPos(0, t);
   const zt = { x: ceo.x + 11, y: ceo.y + 15 };
-  const zoom = prog(t, T_ZOOM, P3.end, EZ.acc);
-  let cx = lerp(follow.cx, 960, pb);
-  let cy = lerp(follow.cy, 540, pb);
-  let s = lerp(follow.s, 1, pb) * (1 + 0.025 * click * (1 - up));
+  let cx = lerp(follow.cx, lerp(960, 1000, click), pb);
+  let cy = lerp(follow.cy, lerp(540, 500, click), pb);
+  let s = lerp(follow.s * c01, 1 + 0.06 * click, pb);
+  // X01 tilt ke ruang kerja
+  cx = lerp(cx, 960, up);
   cy = lerp(cy, Y0 + 540, up);
-  s = lerp(s, 1.0, up) * (1 + 0.03 * drift);
-  cx = lerp(cx, lerp(960, 1240, fol), up > 0 ? 1 : 0);
-  cy = up > 0 ? lerp(cy, Y0 + 500, fol) : cy;
-  s = s * (1 + 0.12 * fol);
+  s = lerp(s, 1, up);
+  // C20 cut zoom ke dokumen saat CEO mulai menulis (momentum 6 f) → C15 patah ke wide saat balasan CEO muncul
+  const mom = prog(t, T_STREAM[0], T_STREAM[0] + 6 / FPS, EZ.out);
+  const wide = prog(t, T_REPLY - 0.03, T_REPLY + 0.14, EZ.inOut);
+  const closeK = (t >= T_STREAM[0] ? 1 : 0) * (1 - wide);
+  cx = lerp(cx, 960, closeK);
+  cy = lerp(cy, Y0 + 330, closeK);
+  s = lerp(s, 1.55 + 0.06 * mom, closeK);
+  s *= 1 + 0.02 * prog(t, T_REPLY + 0.14, T_FOLLOW, EZ.inOut);
+  // C02 dorong ke kursor CEO → X04 zoom-through
+  const fol = prog(t, T_FOLLOW, T_ZOOM, EZ.inOut);
+  cx = lerp(cx, 1150, fol);
+  cy = lerp(cy, Y0 + 480, fol);
+  s *= 1 + 0.08 * fol;
+  const zoom = prog(t, T_ZOOM, P3.end, EZ.acc);
   const zc = prog(t, T_ZOOM, T_ZOOM + 0.3, EZ.inOut); // pusatkan ke kursor CEO dulu, skala menyusul (acc)
   cx = lerp(cx, zt.x, zc);
   cy = lerp(cy, zt.y, zc);
   s = s * Math.pow(36, zoom);
   const vUp = up > 0 && up < 1 ? Math.sin(up * Math.PI) : 0;
-  const camBlur = vUp * 3 + zoom * 10;
+  const camBlur = vUp * 3 + zoom * 10 + Math.sin(pb * Math.PI) * 2.5 + Math.sin(wide * Math.PI) * 2.5;
 
   // ── klik tombol kirim
   const press = t >= T_KIRIM ? 1 - 0.1 * (1 - prog(t, T_KIRIM, T_KIRIM + 0.2, EZ.out)) : 1;

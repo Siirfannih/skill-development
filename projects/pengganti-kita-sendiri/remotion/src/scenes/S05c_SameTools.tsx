@@ -12,6 +12,7 @@ import { gridIdx, z3tick } from "./_b5_shared";
 const P = panel("05c");
 const T_TOOLS = z3tick("05c SAMA"); // 85.37 (kata «tools»)
 const W_SAMA = word("sama", "s5", 1).s;
+const W_SEMUA = word("semua", "s5", 1).s; // 83.75
 
 // orang biasa + laptop/layar: «semua orang punya akses»
 const PHOTOS = [
@@ -41,9 +42,14 @@ export const S05c_SameTools: React.FC = () => {
   const idx = (((k - kFirst) % PHOTOS.length) + PHOTOS.length) % PHOTOS.length;
   const local = t - Math.max(P.start, T_TOOLS + k * (60 / 117.5 / 2));
   const zoomCycle = [1.06, 1.14, 1.0][idx % 3]; // C01: zoom mikro per foto, skala bergantian
-  // C19 drift ≤1,03 lalu dorong cut-on-motion 4 f terakhir
+  // Kamera 2.5D (v2). Lapis foto (belakang): C02 push-in 1→1,12 sampai «sama» + C01 zoom mikro di «semua» (18 f)
+  // + pan pelan −50 px (parallax). Lapis depan (ikon + SAMA): diam saat ikon dibaca, C01 1→1,08 (20 f) mulai di onset «sama».
+  // Keluar: dorongan cut-on-motion 4 f terakhir di kedua lapis (X07).
   const pushA = P.end - 4 / FPS;
-  const cam = keys(t, [[P.start, 1], [pushA, 1.03]], EZ.inOut) * (1 + 0.14 * prog(t, pushA, P.end, EZ.acc));
+  const exitPush = 1 + 0.14 * prog(t, pushA, P.end, EZ.acc);
+  const camBack = keys(t, [[P.start, 1], [W_SAMA, 1.12], [P.end, 1.14]], EZ.inOut) * (1 + 0.06 * prog(t, W_SEMUA, W_SEMUA + 18 / FPS, EZ.inOut)) * exitPush;
+  const panBack = -50 * prog(t, P.start, P.end, EZ.inOut);
+  const camFront = (1 + 0.08 * prog(t, W_SAMA, W_SAMA + 20 / FPS, EZ.inOut)) * exitPush;
   const camBlur = 6 * prog(t, pushA, P.end, EZ.acc);
   // ikon AI: mendarat di tick, menyatu ke tengah tepat sebelum SAMA
   const merge = prog(t, W_SAMA - 3 / FPS, W_SAMA + 2 / FPS, EZ.acc);
@@ -51,9 +57,11 @@ export const S05c_SameTools: React.FC = () => {
   return (
     <Scene code="05c">
       <AbsoluteFill style={{ background: "#2a2d33" }}>
-        <Camera scale={cam} blur={camBlur}>
+        <Camera scale={camBack} x={panBack} blur={camBlur}>
           <Img src={staticFile(PHOTOS[idx])}
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: `${DOC_GRADE} brightness(${dimPhoto})`, transform: `scale(${zoomCycle + local * 0.12})` }} />
+        </Camera>
+        <Camera scale={camFront} blur={camBlur}>
           {/* tiga tool AI asli (sama untuk semua orang) */}
           {t >= T_TOOLS && merge < 1 && (
             <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>

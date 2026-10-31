@@ -2,15 +2,13 @@
 // Pola dari referensi siirfannih_DfDC0I9PHin: footage berganti per frasa, suara asli disambung rapat.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { Camera, EZ, keys, prog, Scene, shake, useT, Grain } from "../lib/anim";
+import { Camera, EZ, keys, KWord, prog, Scene, useT, Grain } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
-import { block, FPS, panel } from "../lib/time";
+import { block, FPS, panel, WORDS } from "../lib/time";
 import cues from "../../public/data/cues11.json";
 
-const tick = (id: string) => (cues as any[]).find((c) => c.id.startsWith("tick_z0") && c.why.includes(id)).t as number;
-const T_FOUNDER = tick("FOUNDER");
-const T_CEO = tick("CEO");
-const T_SEMALAM = tick("SEMALAM");
+// (tick FOUNDER/CEO/SEMALAM tidak dipakai lagi sejak v2)
+export const tick = (id: string) => (cues as any[]).find((c) => c.id.startsWith("tick_z0") && c.why.includes(id)).t as number;
 
 // spans = detik di file sumber (sama dengan assemble11.py NEWS) → posisi di timeline
 type NewsDef = { name: string; file: string; spans: [number, number][]; label: string };
@@ -45,6 +43,22 @@ const PHOTOS = [
   "cf62d8467f160bc4293f098cb9a24564fe12fca16dc033f1060380dc5e43b663.jpg",
   "653933ac539310f41d2288501c1ffb8e67c47b10758b6785a5d2d9e60e441859.jpg",
 ];
+// v2 (Irfan 20:19): FOUNDER/CEO/SEMALAM dihapus → teks kinetik isi ucapan, per kata kiri→kanan, di ruang kosong (tidak menutupi pembicara).
+// Framing per potongan: footage di-reframe (skala + geser, origin kiri-atas) supaya pembicara di satu sisi & chyron TV terdorong keluar bawah.
+type Frame = { s: number; tx: number; ty: number; box: { x: number; y: number; w: number; align: "left" | "center" }; accent: string };
+const FRAMES: Frame[] = [
+  { s: 1.38, tx: -155, ty: 0, box: { x: 120, y: 470, w: 760, align: "left" }, accent: "biggest" }, // Gates kanan, teks kiri
+  { s: 1, tx: 0, ty: 0, box: { x: 0, y: 470, w: 1920, align: "center" }, accent: "technical" }, // montase foto
+  { s: 1, tx: 0, ty: 0, box: { x: 0, y: 470, w: 1920, align: "center" }, accent: "lifetime" }, // montase foto
+  { s: 1.15, tx: -60, ty: -40, box: { x: 1000, y: 300, w: 820, align: "left" }, accent: "16-year-old" }, // remaja kiri, teks kanan atas
+  { s: 1.2, tx: -192, ty: -108, box: { x: 0, y: 500, w: 1920, align: "center" }, accent: "ai" }, // close gelap
+  { s: 1.45, tx: 0, ty: 0, box: { x: 110, y: 420, w: 540, align: "left" }, accent: "billion" }, // Bloomberg kanan, teks kiri
+  { s: 1.25, tx: -350, ty: 0, box: { x: 1120, y: 760, w: 700, align: "left" }, accent: "time" }, // presenter kiri, teks kanan bawah
+  { s: 1, tx: 0, ty: 0, box: { x: 0, y: 652, w: 1920, align: "center" }, accent: "fast" }, // kartu menyusut, teks di bawah kartu
+];
+const clean = (w: string) => w.replace(/[.,!?]/g, "").replace(/-/g, " ");
+const isAccent = (w: string, a: string) => w.toLowerCase().replace(/[.,]/g, "") === a;
+
 const MONTAGE_A = CUTS[1].at; // «technical thing»
 const MONTAGE_B = CUTS[3].at; // berhenti saat Sky News masuk
 const STEP = 0.2554;
@@ -92,9 +106,10 @@ export const S00_ColdOpen: React.FC = () => {
 
   const pB = panel("00b");
   const shrinkAt = CUTS[CUTS.length - 1].at; // «progress» → footage menyusut jadi satu foto di awan
-  const sh = { x: shake(t, T_FOUNDER, 10).x + shake(t, T_CEO, 8).x + shake(t, T_SEMALAM, 12).x, y: shake(t, T_FOUNDER, 10).y + shake(t, T_SEMALAM, 12).y };
-  // redup footage saat kata slam ada di layar (keterbacaan tanpa scrim)
-  const dimF = t >= T_FOUNDER && t < shrinkAt ? 0.58 : 1;
+  const sh = { x: 0, y: 0 };
+  const ci = Math.max(0, CUTS.findIndex((c, i) => t >= c.at && (i === CUTS.length - 1 || t < CUTS[i + 1].at)));
+  // redup footage saat teks ada (keterbacaan tanpa scrim); montase sedikit lebih redup
+  const dimF = t >= MONTAGE_A && t < MONTAGE_B ? 0.62 : 0.8;
   // reveal-out 00b (C06): kamera mundur ×3, akselerasi singkat lalu deselerasi panjang
   const rev = keys(t, [[shrinkAt, 0], [shrinkAt + 0.3, 0.35], [pB.end, 1]], EZ.out);
   const cardScale = 1 - rev * 0.84;
@@ -115,12 +130,15 @@ export const S00_ColdOpen: React.FC = () => {
           })}
         <Camera x={sh.x} y={sh.y}>
           {/* footage berita per frasa, cut zoom bergantian (C20) + zoom mikro (C01) */}
-          <AbsoluteFill style={{ transform: t >= shrinkAt ? `scale(${cardScale})` : undefined, borderRadius: t >= shrinkAt ? 24 / cardScale : 0, overflow: "hidden", opacity: dimF === 1 ? 1 : 1 }}>
+          <AbsoluteFill style={{ transform: t >= shrinkAt ? `scale(${cardScale})` : undefined, borderRadius: t >= shrinkAt ? 24 / cardScale : 0, overflow: "hidden", }}>
             {CUTS.map((c, i) => {
-              const z = [1.0, 1.22, 1.38][c.idx % 3] * (1 + 0.04 * prog(t, c.at, c.at + 0.6, EZ.inOut));
+              const F = FRAMES[i];
+              // C01: dorongan mikro 1→1,05 dari kata aksen; C19 drift kecil di sepanjang potongan
+              const acc = WORDS.find((w) => w.s >= c.at && w.s < (CUTS[i + 1]?.at ?? 99) && isAccent(w.w, F.accent));
+              const z = 1 + 0.02 * prog(t, c.at, c.at + 1.2, EZ.inOut) + (acc ? 0.05 * prog(t, acc.s, acc.s + 0.6, EZ.out) : 0);
               return (
                 <Clip key={i} src={c.file} at={c.at} inS={c.inS} outS={c.outS}
-                  style={{ transform: `scale(${z})`, transformOrigin: "50% 42%" }} grade={`${DOC_GRADE} brightness(${dimF})`} />
+                  style={{ transform: `translate(${F.tx}px, ${F.ty}px) scale(${F.s * z})`, transformOrigin: "0 0" }} grade={`${DOC_GRADE} brightness(${dimF})`} />
               );
             })}
             {/* montase foto founder di atas Gates (6–8 f per foto) */}
@@ -145,10 +163,27 @@ export const S00_ColdOpen: React.FC = () => {
             </div>
           );
         })()}
-        {/* slot swap FOUNDER → CEO → SEMALAM. (tipe sama dengan 05f) */}
-        <SlotWord text="FOUNDER" at={T_FOUNDER} out={T_CEO - 4 / FPS} />
-        <SlotWord text="CEO" at={T_CEO} out={shrinkAt + 0.1} />
-        <SlotWord text="SEMALAM" at={T_SEMALAM} size={260} />
+        {/* teks kinetik ucapan pembicara: per kata kiri→kanan, keluar bersama cut potongan */}
+        {(() => {
+          const c = CUTS[ci];
+          const end = CUTS[ci + 1]?.at ?? pB.end - 0.1;
+          const F = FRAMES[ci];
+          const ws = WORDS.filter((w) => w.src.startsWith("news_") && w.s >= c.at - 0.02 && w.s < end - 0.02);
+          if (!ws.length || t >= pB.end - 0.05) return null;
+          return (
+            <div style={{ position: "absolute", left: F.box.x, top: F.box.y, width: F.box.w, display: "flex", flexWrap: "wrap", justifyContent: F.box.align === "center" ? "center" : "flex-start", alignItems: "baseline", columnGap: 26, rowGap: 6 }}>
+              {ws.map((w, k) => {
+                const ac = isAccent(w.w, F.accent);
+                return (
+                  <KWord key={k} at={w.s} kind="rise" dist={30}
+                    style={{ fontFamily: "Inter", fontWeight: ac ? 900 : 700, fontSize: ac ? 112 : 92, letterSpacing: ac ? -3.5 : -2.4, lineHeight: 1.05, color: ac ? "#FAF8EC" : "rgba(250,248,236,0.82)", whiteSpace: "nowrap" }}>
+                    {clean(w.w)}
+                  </KWord>
+                );
+              })}
+            </div>
+          );
+        })()}
         <Grain opacity={0.06} />
       </AbsoluteFill>
     </Scene>

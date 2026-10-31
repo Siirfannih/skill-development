@@ -4,7 +4,7 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { EZ, Grain, prog, Scene, useT } from "../lib/anim";
-import { panel, word } from "../lib/time";
+import { FPS, panel, word } from "../lib/time";
 import { Ball, C6, Plane, relay, Torso, wa } from "./_b6_shared";
 
 const P = panel("06d");
@@ -13,6 +13,8 @@ export const OFF_HOLD = 0.24; // gelap sesaat sebelum potong ke wide 06e
 const PROMPT = "tolong balas “oke, siap” ke pesan ini";
 const TYPE_A = P.start + 0.12;
 const TYPE_B = word("sendiri", "s6", 1).s + 0.1;
+const W_BISA = word("bisa", "s6", 1).s; // C20 cut zoom ke composer
+const W_SENDIRI = word("sendiri", "s6", 1).s; // C01
 
 export const S06d_Prompt: React.FC = () => {
   const t = useT();
@@ -24,6 +26,10 @@ export const S06d_Prompt: React.FC = () => {
   const sc = 1 + 0.035 * d;
   const fgX = -d * 36;
   const bgX = -d * 12;
+  // C20 di «bisa»: potong ×1,35 ke composer di garis pandang sama (momentum 6 f), lalu C01 di «sendiri».
+  // Titik asal (1949,520) menaruh composer di x≈1100; lebar composer ±1,35 k px tetap di dalam frame.
+  const cz = t >= W_BISA ? 1.35 + 0.05 * (1 - prog(t, W_BISA, W_BISA + 6 / FPS, EZ.out)) : 1;
+  const Z = cz * (1 + 0.05 * prog(t, W_SENDIRI, W_SENDIRI + 20 / FPS, EZ.out));
   // ketik pelan: per huruf rata dari TYPE_A sampai TYPE_B
   const n = Math.max(0, Math.min(PROMPT.length, Math.floor(((t - TYPE_A) / (TYPE_B - TYPE_A)) * PROMPT.length)));
   const typed = PROMPT.slice(0, n);
@@ -32,6 +38,7 @@ export const S06d_Prompt: React.FC = () => {
   return (
     <Scene start={P.start} end={T_OFF + OFF_HOLD} name="06d Prompt sepele">
       <AbsoluteFill style={{ background: C6.charcoal, overflow: "hidden" }}>
+        <AbsoluteFill style={{ transform: `scale(${Z})`, transformOrigin: "1949px 520px" }}>
         <AbsoluteFill style={{ transform: `scale(${sc})`, transformOrigin: "1280px 520px" }}>
           <div style={{ position: "absolute", left: 0, top: 0, width: 960, height: 540, transform: `translateX(${bgX}px) scale(2)`, transformOrigin: "0 0" }}>
             <Plane b={{ x: 380, y: 120, w: 560, h: 280 }} on={on} slant={0.08}
@@ -52,6 +59,7 @@ export const S06d_Prompt: React.FC = () => {
             <Ball b={{ x: -30, y: 110, w: 250, h: 250 }} rim={0.85 * on} r={7} style={{ background: `linear-gradient(100deg, ${C6.charcoal} 45%, ${C6.raised} 100%)` }} />
             <Torso b={{ x: -140, y: 380, w: 560, h: 400 }} rim={0.65 * on} r={7} style={{ background: `linear-gradient(100deg, ${C6.charcoal} 45%, ${C6.raised} 100%)` }} />
           </div>
+        </AbsoluteFill>
         </AbsoluteFill>
         {bloom > 0.005 && (
           <AbsoluteFill style={{ background: `radial-gradient(ellipse 70% 80% at 1300px 520px, ${wa(bloom)} 0%, ${wa(bloom * 0.5)} 45%, ${wa(0)} 100%)` }} />

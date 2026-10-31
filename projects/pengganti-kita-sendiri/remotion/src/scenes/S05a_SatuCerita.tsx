@@ -3,9 +3,9 @@
 // Keluar C06 reveal-out: kamera mundur memusatkan kartu biru, foto lain memudar abu → ribuan kartu abu (05b).
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { EZ, Grain, KWord, prog, Scene, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, KWord, prog, Scene, useT } from "../lib/anim";
 import { panel, word } from "../lib/time";
-import { altCard, ALTMAN_STILL, DRIFT05A, DRIFTX05A, lerp, reveal05a, S05A_END } from "./_b4_shared";
+import { altCard, ALTMAN_STILL, CARD05A_END, T_SHRINK_END, DRIFT05A, DRIFTX05A, lerp, reveal05a, S05A_END } from "./_b4_shared";
 
 // posisi dari panel Wonder 05a (×2); z = lapis parallax (0,5 belakang · 1 tengah · 1,6 depan)
 const PHOTOS = [
@@ -22,6 +22,7 @@ const PHOTOS = [
 ];
 
 const O = { x: 960, y: 540 };
+
 
 export const S05a_SatuCerita: React.FC = () => {
   const t = useT();
@@ -53,11 +54,21 @@ export const S05a_SatuCerita: React.FC = () => {
   };
   // penekanan halus di «Sam Altman»: kartu biru sedikit terangkat
   const lift = prog(t, tAltman, tAltman + 0.4, EZ.out) * (1 - prog(t, tSatu, tSatu + 0.5, EZ.inOut));
+  // C02 push-in ke kartu biru selama «…dikatakan Sam Altman adalah» → patah ke wide (5 f) di «satu»
+  const tSnap = tSatu - 1 / 30;
+  const push = keys(t, [[T_SHRINK_END, 1], [tSnap, 1.42]], EZ.inOut);
+  const snap = prog(t, tSnap, tSnap + 5 / 30, EZ.out);
+  const camPush = t < tSnap ? push : 1.42 - 0.42 * snap;
+  // close-up: kartu biru ditarik ke arah tengah selama push
+  const pk = (camPush - 1) / 0.42;
+  const pushX = (960 - CARD05A_END.x) * 0.5 * pk;
+  const pushY = (540 - CARD05A_END.y) * 0.5 * pk;
   const tSatuGlow = prog(t, tSatu + 2 / 30, tSatu + 0.4, EZ.out);
 
   return (
     <Scene code="05a">
       <AbsoluteFill style={{ background: "var(--sb-paper)", overflow: "hidden" }}>
+        <Camera scale={camPush} x={pushX} y={pushY} ox={CARD05A_END.x} oy={CARD05A_END.y} blur={snap > 0 && snap < 1 ? 2 : 0}>
         {[...PHOTOS].sort((a, b) => a.z - b.z).map((ph, i) => {
           const idx = PHOTOS.indexOf(ph);
           const a = P.start + 0.04 + idx * 0.045 + (ph.z < 1 ? 0.1 : 0);
@@ -91,6 +102,7 @@ export const S05a_SatuCerita: React.FC = () => {
             </div>
           );
         })()}
+        </Camera>
         {/* teks */}
         <div style={{ position: "absolute", left: 0, right: 0, top: 470, textAlign: "center", fontFamily: "Inter", fontWeight: 800, fontSize: 112, letterSpacing: -3.4, lineHeight: 1, color: "var(--sb-ink)", whiteSpace: "nowrap" }}>
           <KWord at={tSatu} out={P.end - 0.32}>satu</KWord>{" "}

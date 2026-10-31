@@ -4,9 +4,9 @@
 // Di SEMALAM montase berhenti di satu foto + hantaman (shake), tahan, lalu X17 hard cut ke 05g.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { Grain, Scene, shake, useT } from "../lib/anim";
+import { EZ, Grain, prog, Scene, shake, useT } from "../lib/anim";
 import { DOC_GRADE } from "../lib/media";
-import { FPS, panel } from "../lib/time";
+import { FPS, panel, word } from "../lib/time";
 import { SlotWord } from "./S00_ColdOpen";
 import { GRID, z3tick } from "./_b5_shared";
 
@@ -14,6 +14,7 @@ const P = panel("05f");
 const T_FOUNDER = z3tick("05f FOUNDER"); // 92.53
 const T_CEO = z3tick("05f CEO"); // 93.80
 const T_SEMALAM = z3tick("05f SEMALAM"); // 95.59
+const W_YANG = word("yang", "s5", 6).s; // 94.605 «yang lahir dalam»
 const STEP = GRID / 2;
 
 // founder di panggung, cek besar, demo day, meetup
@@ -42,11 +43,16 @@ export const S05f_FoundersOvernight: React.FC = () => {
   const z = [1.0, 1.16, 1.3][((k % 3) + 3) % 3] * (1 + local * 0.25);
   const hold = t >= T_SEMALAM ? 1 + (t - T_SEMALAM) * 0.05 : 1; // dorong pelan saat tahan
   const sh = { x: shake(t, T_FOUNDER, 10).x + shake(t, T_CEO, 8).x + shake(t, T_SEMALAM, 12).x, y: shake(t, T_FOUNDER, 10).y + shake(t, T_SEMALAM, 12).y };
+  // v2 kamera: C02 push-in 1→1,15 dari «yang lahir dalam» sampai SEMALAM (tensi), lalu patah ke wide 5 f di SEMALAM (C15):
+  // montase menyusut jadi satu kartu foto 0,62× di ruang charcoal (close → wide; bunyi = slam SEMALAM yang sama).
+  const push = 1 + 0.15 * prog(t, W_YANG, T_SEMALAM, EZ.inOut);
+  const brk = prog(t, T_SEMALAM, T_SEMALAM + 5 / FPS, EZ.out);
+  const camS = push * (1 - brk) + 0.62 * brk;
   const dim = t >= T_FOUNDER ? 0.58 : 0.9; // redup saat kata slam di layar (sama dengan cold open)
   return (
     <Scene code="05f">
       <AbsoluteFill style={{ background: "#101216", overflow: "hidden" }}>
-        <AbsoluteFill style={{ transform: `translate(${sh.x}px, ${sh.y}px)` }}>
+        <AbsoluteFill style={{ transform: `translate(${sh.x}px, ${sh.y}px) scale(${camS})`, borderRadius: (28 * brk) / camS, overflow: "hidden" }}>
           <Img src={staticFile(PHOTOS[idx])}
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: `${DOC_GRADE} brightness(${dim})`, transform: `scale(${z * hold})`, transformOrigin: "50% 42%" }} />
         </AbsoluteFill>

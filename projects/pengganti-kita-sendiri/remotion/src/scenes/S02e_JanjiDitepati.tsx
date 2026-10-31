@@ -14,6 +14,7 @@ const W_DITEPATI = word("ditepati", "s2", 1);
 const W_KITA = word("kita", "s2", 2);
 const W_CEPAT = word("cepat", "s2", 1);
 const W_TAPI = word("tapi", "s2", 1);
+const W_JAUH = word("jauh", "s2", 1);
 const W_TIDAK = word("tidak", "s2", 1);
 const W_DI = word("di", "s2", 2);
 const W_TAHAP = word("tahap", "s2", 1);
@@ -47,14 +48,21 @@ export const S02e_JanjiDitepati: React.FC = () => {
   // kamera: close-up mengikuti titik; awal 02e titik di BLOOM_PT lalu bergeser ke TIP_SCREEN; C15 patah ke wide
   const settle = prog(t, pe.start, pe.start + 1.1, EZ.inOut);
   const anchor = { x: BLOOM_PT.x + (TIP_SCREEN.x - BLOOM_PT.x) * settle, y: BLOOM_PT.y + (TIP_SCREEN.y - BLOOM_PT.y) * settle };
-  const closeT = { x: anchor.x - tipLag.x * ZC, y: anchor.y - tipLag.y * ZC };
-  const w = prog(t, snap, snap + 7 / FPS, EZ.out); // patah cepat
-  const drift = keys(t, [[snap + 7 / FPS, 1.0], [pf.end, 1.025]], EZ.inOut); // drift wide ≤1,03
-  const Z = (ZC + (1 - ZC) * w) * (w >= 1 ? drift : 1);
+  // pola fokus: C18 close-follow ×1,9 → C01 di «jauh» (+0,12 dalam 20 f) → C02 push tensi di «Tapi… kita juga»
+  // (×2,02→×2,3) → C15 patah ke wide di «tidak» (6 f). Titik ujung = jangkar, jadi label di titik tetap diam saat zoom.
+  const zc = ZC * (1 + 0.063 * prog(t, W_JAUH.s, W_JAUH.s + 20 / FPS, EZ.out)) * keys(t, [[W_TAPI.s, 1.0], [snap, 1.14]], EZ.inOut);
+  const closeT = { x: anchor.x - tipLag.x * zc, y: anchor.y - tipLag.y * zc };
+  const w = prog(t, snap, snap + 6 / FPS, EZ.out); // patah cepat
+  const drift = keys(t, [[snap + 6 / FPS, 1.0], [pf.end, 1.025]], EZ.inOut); // drift wide ≤1,03
+  const Z = (zc + (1 - zc) * w) * (w >= 1 ? drift : 1);
   const wideT = { x: 960 - 960 * Z, y: 540 - 540 * Z };
   const T = { x: closeT.x + (wideT.x - closeT.x) * w, y: closeT.y + (wideT.y - closeT.y) * w };
   const camBlur = w > 0 && w < 1 ? 6 * Math.sin(Math.PI * w) : 0;
   const scr = (p: { x: number; y: number }) => ({ x: p.x * Z + T.x, y: p.y * Z + T.y });
+  // 2.5D: grid kertas di lapis belakang, parallax 80 % dari zoom kamera
+  const ctr = { x: (960 - T.x) / Z, y: (540 - T.y) / Z };
+  const Zg = 1 + (Z - 1) * 0.8;
+  const Tg = { x: 960 - ctr.x * Zg, y: 540 - ctr.y * Zg };
 
   // bloom masuk (X14): putih penuh mengerut ke titik ujung
   const bl = 1 - prog(t, pe.start, pe.start + 0.5, EZ.out);
@@ -70,8 +78,10 @@ export const S02e_JanjiDitepati: React.FC = () => {
     <Scene start={pe.start} end={pf.end} name="02e–02f Grafik janji">
       <AbsoluteFill>
         <BlueprintPaper />
-        <AbsoluteFill style={{ transform: `translate(${T.x}px, ${T.y}px) scale(${Z})`, transformOrigin: "0 0", filter: camBlur > 0.1 ? `blur(${camBlur}px)` : undefined }}>
+        <AbsoluteFill style={{ transform: `translate(${Tg.x}px, ${Tg.y}px) scale(${Zg})`, transformOrigin: "0 0", filter: camBlur > 0.1 ? `blur(${camBlur}px)` : undefined }}>
           <BlueprintGrid />
+        </AbsoluteFill>
+        <AbsoluteFill style={{ transform: `translate(${T.x}px, ${T.y}px) scale(${Z})`, transformOrigin: "0 0", filter: camBlur > 0.1 ? `blur(${camBlur}px)` : undefined }}>
           <svg width={1920} height={1080} style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }}>
             {/* sumbu waktu */}
             <line x1={120} y1={CHART.axisY} x2={2400} y2={CHART.axisY} stroke="rgba(255,255,255,0.45)" strokeWidth={3} />
