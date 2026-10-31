@@ -1,0 +1,14 @@
+{
+  "name": "lagu-kalah-lagi",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio src/index.ts",
+    "render:07": "remotion render src/index.ts Scene07 out/scene07.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.534",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "remotion": "4.0.534"
+  }
+}

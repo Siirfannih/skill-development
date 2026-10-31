@@ -39,7 +39,7 @@ Aturan 31 Okt 16:08 ("kamera hanya translate/scale/rotate 2D") terlalu ketat: sh
 
 | Kebutuhan | After Effects 2026 (terpasang) | Remotion 4.0.539 (terpasang di repo) |
 |---|---|---|
-| Bidang datar + kamera perspektif | ✓ 3D layer + kamera, pipeline ExtendScript terbukti (Tuntunly) | ✓ secara teori via CSS 3D; **belum pernah diuji di repo** |
+| Bidang datar + kamera perspektif | ✓ 3D layer + kamera, pipeline ExtendScript terbukti (Tuntunly) | ✓ **teruji 31 Okt** (Scene07: 6 bidang di z −2600…+620, dolly + roll, blur DOF) |
 | Lembar kalender dibalik (page curl) | ✓ CC Page Turn (CycoreFX HD terpasang) | ✗ tidak ada bawaan; perlu flip kartu sederhana (rotateX + gradasi) |
 | DOF / rack focus | ✓ DOF kamera | ✓ blur per layer |
 | Flare, light leak, sorot cahaya | ✓ Lens Flare bawaan + gradasi (Optical Flares tidak terpasang, tidak wajib) | ✓ gradasi + blend mode |
@@ -49,3 +49,11 @@ Aturan 31 Okt 16:08 ("kamera hanya translate/scale/rotate 2D") terlalu ketat: sh
 | Mesin | RAM 16 GB (34 % bebas), disk bebas 12 GiB: cukup untuk satu adegan uji; render penuh 2:20 dengan DOF + motion blur mendekati batas 10 GiB | sama |
 
 Kesimpulan: untuk gaya objek + POV + kamera 2.5D seperti referensi, alat kita cukup. Celahnya ada di animasi karakter seluruh badan (belum ada rig) dan di 2.5D Remotion yang belum terbukti. Langkah aman: uji satu adegan 6 dtk dulu.
+
+## Uji Remotion 2.5D · Scene07 (31 Okt 21:05)
+
+- Kode: `remotion/src/scenes/Scene07.tsx` (panel 07 v3). `node_modules` = symlink ke `~/Proyek/content-ops-runs/aff-pompa-01` (Remotion 4.0.534), jadi tidak ada install baru.
+- Teknik: `perspective: 1600px` di root; tiap bidang `translateZ(z) scale((P−z)/P)` supaya frame 0 = storyboard; kamera = `translateZ(dolly) rotateZ(roll)` pada world. Bidang: langit −2600, lembar jauh −1500, gedung −900, lembar tengah −380, tokoh 0, lembar dekat lensa +620 (blur 10 px).
+- Hasil: 180 frame 1920×1080 30 fps, 1,4 MB, render 2:09 di Mac ini. Parallax terbaca, z-order benar, tidak ada mesh/lighting; tampilan tetap flat.
+- Perbaikan selama uji (dilihat dari still + contact sheet): lembar tengah jatuh terlalu rendah dan menabrak kepala (jatuh dikurangi −180→90); celah biru di tepi kiri saat dolly (bidang gedung diperlebar); lembar dekat lensa tertahan di bahu karena titik keluar ikut mengecil saat dolly (jalur keluar diperjauh).
+- Belum diuji: motion blur, audio/timing lagu, karakter yang bergerak lebih dari tilt kepala, page curl kalender. Estimasi render penuh ±2:20 dengan kompleksitas serupa: ±50 menit. Disk turun 8,9 → 7,8 GiB selama sesi; sebelum render penuh, bebaskan ruang sampai > 10 GiB.
