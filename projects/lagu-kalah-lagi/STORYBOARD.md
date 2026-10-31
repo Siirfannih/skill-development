@@ -59,7 +59,9 @@ Komposisi dikunci berpasangan agar perubahan terbaca: 03=04, 08=15, 16=22, 06=24
 
 Panel 02, 07, 20, 22 di-ACC sebagai acuan; komposisinya dikunci. Pola yang diturunkan (P1–P5) dan putusan devil's advocate ada di [DECISIONS.md](DECISIONS.md). Ringkasnya: tokoh dari mata tokoh (belakang/OTS/tangan), satu sumbu komposisi tegas, sedikit bentuk besar, 3–4 warna + gradasi, kedalaman dari lapisan bidang. Panel lain digambar ulang mengikuti pola ini saat karakter R2b dipasang.
 
-## Aturan render (31 Okt): Remotion + SVG 2D, tanpa three.js
+## Aturan render (31 Okt): 2.5D bidang datar, tanpa mesh 3D / lighting
+
+> Koreksi 31 Okt 16:23 setelah bedah [REF-2DMOTION.md](REF-2DMOTION.md): bidang SVG datar **boleh** diberi posisi Z + kamera perspektif (AE 3D layer atau CSS 3D di Remotion). Yang dilarang tetap mesh 3D, material berpencahayaan, three.js dengan lighting. Tabel di bawah: baris crane/dolly memakai kamera perspektif bila adegan punya kedalaman.
 
 Kekhawatiran Irfan: istilah kamera di panel (crane, dolly, foreshortening) bisa dibaca sebagai kamera 3D. `claude/motion-graphic/references/build.md` baris 32 memang mengarahkan "engine kode (canvas + three.js)" untuk dunia 3D. Kalau jalur itu dipakai, warna flat kena lighting dan tepi putih hilang. Proyek ini **tidak** memakai jalur itu. Semua perspektif sudah digambar di ilustrasi, jadi kamera cukup transform 2D.
 

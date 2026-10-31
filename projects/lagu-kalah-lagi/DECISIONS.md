@@ -5,6 +5,7 @@
 | 31 Okt 15:40 | Page Loris, 16:9, timing estimasi | Irfan (jawaban pertanyaan) | semua |
 | 31 Okt 15:58 | Tokoh jadi laki-laki 20-an, gaya karakter ref 5 | Irfan | tokoh |
 | 31 Okt 16:08 | Kepala navy ditolak → kulit sawo matang; render Remotion SVG 2D, tanpa three.js | Irfan | tokoh, build |
+| 31 Okt 16:23 | Target hasil = 2D–2.5D seperti 2dmotion.mp4 (gaya) + Motion.mp4 (kamera); keputusan karakter mengikuti target ini | Irfan | gaya, tokoh |
 | 31 Okt 16:17 | **ACC panel 02, 07, 20, 22 sebagai acuan visual** ("premium, bukan three.js mentah, logikanya dapet") | Irfan | komposisi 4 panel |
 
 ## Panel ACC (komposisi dikunci)
