@@ -1,54 +1,32 @@
-# Remotion video
+# «Pengganti Kita Sendiri» · build Remotion v1 (31 Okt 2026)
 
-<p align="center">
-  <a href="https://github.com/remotion-dev/logo">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-dark.apng">
-      <img alt="Animated Remotion Logo" src="https://github.com/remotion-dev/logo/raw/main/animated-logo-banner-light.gif">
-    </picture>
-  </a>
-</p>
+1920×1080, 30 fps, 132,8 dtk. Semua waktu dikunci ke audio master v11.
 
-Welcome to your Remotion project!
+## Struktur
+- `src/panels/`: 37 panel storyboard Wonder (`export/`, 31 Okt), dikonversi otomatis apa adanya. Referensi statis; jangan diedit.
+- `src/scenes/S*.tsx`: adegan animasi per panel. Registrasi otomatis lewat `export const SCENE = {Component, covers}`. Panel yang tidak di-cover adegan mana pun tampil statis.
+- `src/lib/`: framework.
+  - `time.ts`: timestamp kata VO dan panel dari `timeline.json` / `beats.json`.
+  - `anim.tsx`: Scene, kamera, KWord, easing.
+  - `media.tsx`: Clip.
+- `BRIEF-AGENTS.md`: aturan desain untuk agen pembangun adegan.
+- `PANEL-TIMING.md`: tabel waktu kata dan SFX per panel.
 
-## Commands
+## Media (tidak di-commit)
+Letakkan di `public/`:
 
-**Install Dependencies**
+| Folder/file | Sumber |
+|---|---|
+| `audio/mix_v11.wav` | AI-Video/audio/v11 (mix master) |
+| `clips/jensen_src_412.mp4` | Video Jensen Huang (Milken 2025), detik 412–428 |
+| `clips/altman_src_838.mp4` | Video Sam Altman (Mostly Human), detik 838–852 |
+| `news/*.mp4` | AI-Video/assets/news/seg |
+| `wonder/*` | Gambar panel dari cdn.wonder.so (URL ada di `export/*.tsx`) |
+| `img/` | video3/assets/img |
 
-```console
-npm i --loglevel=error
+## Jalankan
 ```
-
-**Start Preview**
-
-```console
-npm run dev
+npm i
+npx remotion studio
+npx remotion render PenggantiKitaSendiri out.mp4 --crf=20
 ```
-
-**Render video**
-
-```console
-npx remotion render
-```
-
-**Upgrade Remotion**
-
-```console
-npx remotion upgrade
-```
-
-## Docs
-
-Get started with Remotion by reading the [fundamentals page](https://www.remotion.dev/docs/the-fundamentals).
-
-## Help
-
-We provide help on our [Discord server](https://discord.gg/6VzzNDwUwV).
-
-## Issues
-
-Found an issue with Remotion? [File an issue here](https://github.com/remotion-dev/remotion/issues/new).
-
-## License
-
-Note that for some entities a company license is needed. [Read the terms here](https://github.com/remotion-dev/remotion/blob/main/LICENSE.md).
