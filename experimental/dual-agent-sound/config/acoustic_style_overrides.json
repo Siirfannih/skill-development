@@ -3,11 +3,8 @@
  "vo_and_clips": {
   "playback_rate": 1.0,
   "never_time_stretch_or_pitch_shift": "narator maupun klip Jensen Huang & Sam Altman",
-  "pause_end_of_sentence_s": [
-   0.6,
-   1.0
-  ],
-  "pause_before_and_after_english_clip_s": 1.5,
+  "pause_end_of_sentence_s": "v10: 0,30 antar ide; klausa 0,10–0,15; item daftar 0,05",
+  "pause_before_and_after_english_clip_s": "v10: sebelum Jensen 0,8–1,0; sebelum Altman 0,8–1,0; sesudah Altman 0,6; sesudah Jensen tidak termasuk jeda panjang",
   "clip_protection": "klip Sam Altman tidak boleh dipotong di tengah kata. Catatan terverifikasi: di sumber aslinya Altman memotong sendiri kata 'company' ('comp—') lalu lanjut 'as far as I can tell'; klip v9 berakhir setelah 'tell.' agar berhenti di batas frasa alami",
   "tts": {
    "stability_range": [
@@ -22,7 +19,7 @@
   }
  },
  "music": {
-  "single_full_track": "satu trek utuh, jangan dipotong menjadi banyak genre",
+  "single_full_track": "v10: Echoes sebagai bed utuh + lapisan ostinato 117,5 BPM",
   "banned_tags": [
    "corporate",
    "inspirational corporate",
@@ -40,16 +37,11 @@
    "melancholic piano underscore",
    "documentary tension"
   ],
-  "dynamics": {
-   "0:00-0:40_lufs": -26,
-   "during_jensen_clip": "mute / fade out total",
-   "after_jensen_lufs": -20,
-   "fade_back": "pelan"
-  },
+  "dynamics": "v10: bed -23 LUFS sebelum Jensen (ostinato harus terdengar), mati saat Jensen, sesudahnya ±-20/-18 dengan ostinato sampai 06e",
   "self_critique": "jalankan CLAP pada tiap kandidat; buang otomatis bila tag terlarang dominan; ambil yang dominan ambient / drone / cinematic / warm pad"
  },
  "sfx": {
-  "max_total_cues": 15,
+  "max_total_cues": "v10: 9 atmosferik + micro-tick hanya di poin beruntun",
   "banned": [
    "foley",
    "paper rustling",
@@ -69,8 +61,23 @@
  "mastering_pass_fail": {
   "fail_if_lra_below_lu": 7.0,
   "target_lra_lu": 8.0,
-  "fail_if_mean_sentence_gap_below_s": 0.5,
   "ducking": "sidechain/envelope: musik tenggelam saat narasi, naik di sela kalimat"
  },
- "workflow": "Dual agent: Claude = sound engineer (eksekutor teknis), Gemini = music & vocal director (kurator, kritikus). Fase: kurasi library → VO pick & pacing → mix → QC loop sampai APPROVED."
+ "workflow": "Dual agent: Claude = sound engineer (eksekutor teknis), Gemini = music & vocal director (kurator, kritikus). Fase: kurasi library → VO pick & pacing → mix → QC loop sampai APPROVED.",
+ "v10_update_31okt_1521": {
+  "_doc": "Irfan 15:21 — menang atas aturan sebelumnya bila bertentangan",
+  "music": "tambah lapisan ostinato ritmis 115–122 BPM (pluck/ticking synth 1/8–1/16 konstan) di 0:00→beat drop Jensen dan sesudah Jensen→06e; urgensi datang dari musik, bukan kecepatan mulut",
+  "vo_gaps": {
+   "clause_s": [
+    0.1,
+    0.15
+   ],
+   "list_items_s": 0.05,
+   "long_pauses_only": "sebelum Jensen, sebelum/sesudah Altman (sesudah = 0,6), sebelum kalimat penutup",
+   "others_sentence_end_s": 0.3
+  },
+  "vo_cut_safety": "batas potong dari energi audio + pre-roll/fade-in 100 ms; tidak ada awal kata terpotong",
+  "sfx_micro_ticks": "soft muted tick menempel di grid BPM ostinato pada setiap poin beruntun (02c, 03a, 05c–05g); tick pengisi tiap ketukan ditolak (menumpuk dengan ostinato)",
+  "gates": "jeda kalimat rata-rata ≥0,5 dicabut; LRA ≥7 tetap; VO harus tetap paling jelas"
+ }
 }
