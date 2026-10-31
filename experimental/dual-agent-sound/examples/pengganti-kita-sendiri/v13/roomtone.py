@@ -16,7 +16,7 @@ NEWS_SRC = {
 }
 
 def _load(p):
-    a = ['ffmpeg', '-v', 'error', '-i', p, '-af', 'highpass=f=120,lowpass=f=9000', '-ac', '1', '-ar', str(SR), '-f', 'f32le', '-']
+    a = ['ffmpeg', '-v', 'error', '-i', p, '-af', 'highpass=f=120:poles=2,equalizer=f=320:t=q:w=1.8:g=-5.0,equalizer=f=220:t=q:w=1.2:g=-3,lowpass=f=9000:poles=2,afftdn=nf=-25', '-ac', '1', '-ar', str(SR), '-f', 'f32le', '-']
     return np.frombuffer(subprocess.run(a, capture_output=True).stdout, np.float32).copy()
 
 def _tone(name):
@@ -79,6 +79,14 @@ def add_roomtone(dia, T, vo_rms_ref):
         a0, a1 = max(0, t2i(s0)), min(n, t2i(s1))
         if a1 - a0 > fin + fout:
             seg[a0:a0 + fin] *= np.linspace(0, 1, fin); seg[a1 - fout:a1] *= np.linspace(1, 0, fout)
+        # v13 QC: room tone hanya di CELAH (tidak di bawah ucapan klip, yang sudah membawa ruangannya sendiri) + LPF 1,5 kHz supaya menyatu
+        bi0, bi1 = i0 + t2i(0.06), i1 - t2i(0.06)
+        if bi1 > bi0:
+            m_ = np.ones(n, np.float32); m_[bi0:bi1] = 0; r_ = t2i(0.06)
+            m_[i0:bi0] = np.linspace(1, 0, bi0 - i0); m_[bi1:i1] = np.linspace(0, 1, i1 - bi1)
+            seg *= m_
+        from scipy.signal import butter as _b, sosfilt as _s
+        seg = _s(_b(2, 1500, 'lp', fs=SR, output='sos'), seg).astype(np.float32)
         layer += seg
         log.append(dict(name=b['name'], s0=round(s0, 3), s1=round(s1, 3), tone_db_vs_speech=round(20 * np.log10(ratio + 1e-9), 1)))
     return dia + layer, log

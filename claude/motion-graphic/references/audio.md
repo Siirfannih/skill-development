@@ -120,6 +120,12 @@ ffmpeg -y -i klip_mentah.mp4 -vn -af "pan=mono|c0=0.5*c0+0.5*c1,highpass=f=120:p
 - **HPF 120 + mud cut −5 dB @320 Hz**: anti-boxy;
 - **+2,5 dB @3,2 kHz**: kejelasan;
 - **afftdn + kompresor + loudnorm −15,5**: setara narator.
+- **loudnorm dijalankan sebagai penyamaan level LINEAR** (gain terukur, atau `loudnorm` dua-pass `linear=true`), bukan mode dinamis.
+  - Pada klip pendek, mode dinamis bekerja seperti AGC dan mengangkat ekor ruangan. Hasil uji Altman: low-mid 61 → 70 %.
+  - Tambahkan **mud cut kedua −3 dB @220 Hz** untuk suara pria/ruang konferensi. Hasil uji: low-mid Altman 56 → 41 %, Gates 51 → 33 %.
+  - **Jangan pakai gate/expander**: tidak mengurangi gema, dan menambah potongan mendadak di dalam ucapan.
+- **Cara mengukur gema**: ekor energi 40–150 ms setelah akhir kata, relatif ke level kata (pakai timestamp STT).
+  - Autokorelasi lag 15–23 ms **tidak valid** untuk ucapan, karena terdominasi periodisitas F0 (2 periode suara pria ±15–20 ms) dan ikut naik oleh sub-pad 41 Hz.
 - **EQ narator juga dicek.** Tanpa boost 150–300 Hz; mulai dari HPF 90, −4,5 dB @300 Hz Q1, +1,5 dB @3 kHz. Ukur low-mid hasil akhirnya.
 
 ### 14.7 Modul 2 — tanpa potong mendadak (guillotine), J-cut / L-cut, bed kontinu

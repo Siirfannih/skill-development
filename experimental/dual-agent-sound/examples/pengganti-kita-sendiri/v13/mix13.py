@@ -79,8 +79,8 @@ cenv=np.ones(N)   # Modul 2.3: BGM turun 6 dB di bawah klip narasumber, ramp mas
 for b_ in T['blocks']:
     if b_['kind']=='clip':
         a_,c_=t2i(b_['t']),t2i(b_['t']+b_['dur']); r1,r2=t2i(0.4),t2i(0.5); lo=db2(G('clip_bgm_db',-6.0))
-        cenv[a_:c_]=np.minimum(cenv[a_:c_],lo); cenv[max(0,a_-r1):a_]=np.minimum(cenv[max(0,a_-r1):a_],np.linspace(1,lo,a_-max(0,a_-r1)))
-        cenv[c_:c_+r2]=np.minimum(cenv[c_:c_+r2],np.linspace(lo,1,len(cenv[c_:c_+r2])))
+        cenv[a_:c_]=np.minimum(cenv[a_:c_],lo); _u=np.linspace(0,1,a_-max(0,a_-r1)); cenv[max(0,a_-r1):a_]=np.minimum(cenv[max(0,a_-r1):a_],lo+(1-lo)*(0.5+0.5*np.cos(np.pi*_u)))   # ramp kosinus (QC: duck linear terasa mendadak)
+        _u=np.linspace(0,1,len(cenv[c_:c_+r2])); cenv[c_:c_+r2]=np.minimum(cenv[c_:c_+r2],lo+(1-lo)*(0.5-0.5*np.cos(np.pi*_u)))
 env*=cenv
 sw=t2i(G('end_swell_s',24.0)); env[-sw:]*=db2(np.linspace(0,G('end_swell_db',5.0),sw))   # swell naik di akhir (resolusi)
 tail=t2i(2.5); env[-tail:]*=np.linspace(1,0,tail)
@@ -110,6 +110,8 @@ for _f in sorted(_g.glob('/home/claude/pks-video/sfx/cues_*.json')): C+=json.loa
 C=sorted(C,key=lambda q:q['t'])
 from sfx_rules import apply_rules
 C=apply_rules(C,T)
+for q in C:
+    if q['id']=='wh1': q['peak_dbfs']=(q.get('peak_dbfs') or -20)+1.5   # QC: tegaskan masuk Babak 1
 json.dump(C,open('cues13.json','w'),indent=0,ensure_ascii=False)
 sfx=np.zeros((N,2)); placed=[]
 for q in C:

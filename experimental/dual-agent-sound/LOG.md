@@ -89,3 +89,23 @@ Irfan menyerahkan audit DSP Gemini dan menyatakannya sebagai masukannya sendiri:
 Pelajaran:
 - Low-mid tinggi berasal dari EQ narator sendiri (+1,5 dB @160), bukan hanya dari klip berita.
 - Stem dialog mono harus diukur sebagai stereo; kalau tidak, VO terbaca 3 dB lebih pelan.
+
+QC akhir v13 (devil's advocate):
+- `loudnorm` dinamis pada klip pendek menaikkan ekor ruangan → dijalankan linear; ditambah mud cut kedua 220 Hz.
+- Gate/expander dibuang karena tidak mengurangi gema dan menambah potongan mendadak.
+- Room tone hanya di celah, LPF 1,5 kHz.
+- Ramp musik di sekitar klip memakai kurva kosinus.
+- Metrik gema autokorelasi dinyatakan tidak valid untuk ucapan; diganti ekor energi setelah akhir kata.
+- Gemini API blind: APPROVED 9/10/9.
+
+Gerbang final:
+
+| Metrik | Hasil |
+|---|---|
+| Integrated / TP | −14,1 LUFS / −1,9 dBTP |
+| Sub | 26,7 % |
+| Low-mid | 40,4 % |
+| VO per blok | −14,2…−14,4 LUFS |
+| Klip narasumber | −15,1…−15,4 LUFS |
+| Musik di bawah VO | −23,6 LUFS |
+| Penurunan mendadak | 6, tidak satu pun di ujung klip (artikulasi ucapan asli + pre-drop penutup yang disengaja) |

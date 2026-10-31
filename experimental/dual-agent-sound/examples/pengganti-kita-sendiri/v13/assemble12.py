@@ -72,7 +72,8 @@ def news(nm):
         y.append(seg); tt+=len(seg)/SR
     return np.concatenate(y),words,lab,url,H
 # Modul 1 (audit Irfan/Gemini 31 Okt): rantai wajib setiap klip narasumber — mono, HPF 120, mud cut −5 dB @320, presence +2,5 @3,2k, LPF 9k, afftdn, kompresor, loudnorm −15,5
-M1='pan=mono|c0=0.5*c0+0.5*c1,highpass=f=120:poles=2,equalizer=f=320:t=q:w=1.8:g=-5.0,equalizer=f=3200:t=q:w=1.4:g=2.5,lowpass=f=9000:poles=2,afftdn=nf=-25,acompressor=threshold=-20dB:ratio=3.5:attack=5:release=80:makeup=4dB,loudnorm=I=-15.5:TP=-2.0:LRA=5.0'
+M1='pan=mono|c0=0.5*c0+0.5*c1,highpass=f=120:poles=2,equalizer=f=320:t=q:w=1.8:g=-5.0,equalizer=f=220:t=q:w=1.2:g=-3,equalizer=f=3200:t=q:w=1.4:g=2.5,lowpass=f=9000:poles=2,afftdn=nf=-25,acompressor=threshold=-20dB:ratio=3.5:attack=5:release=80:makeup=4dB'
+# loudnorm −15,5 dijalankan LINEAR (gain terukur di mix13: klip = VO −1,25 LU). loudnorm dinamis pada klip pendek terbukti menaikkan gema (Altman echo 0,18→0,31, low-mid 61→70 %; QC 31 Okt)
 def m1load(wav):
     return np.frombuffer(subprocess.run(['ffmpeg','-v','error','-i',wav,'-af',M1,'-ac','1','-ar',str(SR),'-f','f32le','-'],capture_output=True).stdout,np.float32).copy()
 # Modul 2: handle J/L-cut dari audio sumber (pre ≤ 133 ms / 4 f, post ≤ 266 ms / 8 f), dibatasi supaya tidak memasukkan kata tetangga;
@@ -81,6 +82,7 @@ PRE,POST=0.133,0.266
 def handles(x,W,s,e):
     pw=[w['end'] for w in W if w['end']<=s+0.005]; nw=[w['start'] for w in W if w['start']>=e-0.005]
     pre=max(0.0,min(PRE,s-(max(pw) if pw else 0.0)-0.02)); post=max(0.0,min(POST,(min(nw) if nw else 9e9)-e-0.02))
+    post=max(post,0.12)   # L-cut minimal 120 ms walau kata berikut menempel: onsetnya terdengar memudar (kubik), bukan terpenggal
     hp=x[max(0,int((s-pre)*SR)):int(s*SR)].copy(); hq=x[int(e*SR):int((e+post)*SR)].copy()
     if len(hp): u=np.linspace(0,1,len(hp)); hp*=1-(1-u)**2
     if len(hq): u=np.linspace(0,1,len(hq)); hq*=1-u**3
@@ -106,7 +108,10 @@ for it in SEQ:
         words+=ww; blocks.append(dict(kind='clip',name='news_'+it[1],label=lab,url=url,t=round(t,3),dur=round(len(y)/SR,3))); out.append(y); t+=len(y)/SR
     else:
         nm=it[1]; wav,js,a,b=CLIP[nm]; x=m1load(wav); y=x[int(a*SR):int(b*SR)].astype(np.float32); CW=[w for w in json.load(open(js))['words'] if w['type']=='word']; hp,hq=handles(x,CW,a,b)
-        _k=vo_rms*10**(-1/20)/float(np.sqrt(np.mean(y[np.abs(y)>0.01]**2))); y*=_k; hp=hp*_k; hq=hq*_k; OV.append((t-len(hp)/SR,hp)); OV.append((t+len(y)/SR,hq))
+        _k=vo_rms*10**(-1/20)/float(np.sqrt(np.mean(y[np.abs(y)>0.01]**2))); y*=_k; hp=hp*_k; hq=hq*_k
+        if len(hp)<int(0.035*SR): fi_=int(0.03*SR); y[:fi_]*=1-(1-np.linspace(0,1,fi_))**2   # handle kosong → fade masuk
+        if len(hq)<int(0.035*SR): fo_=int(0.06*SR); y[-fo_:]*=1-np.linspace(0,1,fo_)**3      # handle kosong (kata menempel) → fade keluar 60 ms
+        OV.append((t-len(hp)/SR,hp)); OV.append((t+len(y)/SR,hq))
         for w in json.load(open(js))['words']:
             if w['type']=='word' and a<=w['start']<b: words.append(dict(w=w['text'],s=round(t+w['start']-a,3),e=round(t+w['end']-a,3),src=nm))
         blocks.append(dict(kind='clip',name=nm,t=round(t,3),dur=round(len(y)/SR,3))); out.append(y); t+=len(y)/SR
