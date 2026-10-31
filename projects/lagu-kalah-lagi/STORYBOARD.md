@@ -52,13 +52,34 @@ Komposisi dikunci berpasangan agar perubahan terbaca: 03=04, 08=15, 16=22, 06=24
 
 - **R1 (31 Okt):** tokoh siluet tanpa wajah. Metafora "senyum palsu" = senyum digambar di embun cermin.
 - **R2 (31 Okt, Irfan):** tokoh laki-laki 20-an, gaya karakter ref 5. Hasil devil's advocate: dipakai dengan perbaikan, yaitu character sheet dikunci dulu, lalu validasi 2 panel (08 v2, 21 v2) sebelum 23 panel lain diganti. Metafora cermin tetap: wajah asli murung, senyum digambar di embun di atas pantulan.
-- Karakter: kepala navy `#10192E` + wajah garis putih, kacamata bulat, jambul; hoodie `#7FA0F5`, bayangan/celana `#3550D6`, tepi putih 6–8 px. Petir kuning/merah hanya di 08 dan 15; percik teal hanya di 18 dan 23.
+- **R2b (31 Okt, Irfan):** kepala navy ditolak. Kulit sawo matang `#B87A4F` (bayang `#8E5A37`), rambut `#1E1712`, garis wajah cokelat tua `#2A1A12` (garis putih di kulit cokelat hanya ±3 : 1), tepi putih 6 px di kepala supaya lepas dari latar terang. Kacamata bulat + jambul tetap jadi penanda identitas; hoodie `#7FA0F5`, bayangan/celana `#3550D6`, tepi putih 6–8 px. Petir kuning/merah hanya di 08 dan 15; percik teal hanya di 18 dan 23.
 - Warna di SVG canvas ditulis hex. `var()` di atribut SVG dirender hitam oleh Wonder (sudah diuji); nilainya sama dengan token `loris/*`.
+
+## Aturan render (31 Okt): Remotion + SVG 2D, tanpa three.js
+
+Kekhawatiran Irfan: istilah kamera di panel (crane, dolly, foreshortening) bisa dibaca sebagai kamera 3D. `claude/motion-graphic/references/build.md` baris 32 memang mengarahkan "engine kode (canvas + three.js)" untuk dunia 3D. Kalau jalur itu dipakai, warna flat kena lighting dan tepi putih hilang. Proyek ini **tidak** memakai jalur itu. Semua perspektif sudah digambar di ilustrasi, jadi kamera cukup transform 2D.
+
+| Istilah di panel | Cara di Remotion (2D) | Panel |
+|---|---|---|
+| Push-in / pull-out | scale CameraRig ke titik fokus, spring | 01, 03, 16, 25 |
+| Crane naik / tilt-up | translateY rig di ilustrasi tinggi (1920×3000), parallax per layer | 06, 12, 20, 23 |
+| Truck / tracking | translateX rig + parallax (offset = kamera × depth 0–1) | 05, 13, 19 |
+| Dolly mundur + rotasi | scale turun + rotate 2D ±8° | 07 |
+| Foreshortening tokoh | morph path SVG antar pose kunci + scale bagian terdekat | 08, 21, 23 |
+| Rack focus | blur layer di luar fokus 0 → 6 px | 09, 17 |
+| Kelopak mata / sapuan tangan | clipPath / mask SVG | 11, 22 |
+| Garis tergambar | strokeDashoffset | 01, 13, 16, 25 |
+| Lengan & kaki lentur | satu path per anggota tubuh; pose kunci digambar, inbetween di kode | semua |
+
+- Easing gaya Apple: spring (damping 18–22) atau `cubic-bezier(0.22, 1, 0.36, 1)`. Linear hanya untuk drift.
+- Grain: satu PNG noise 4 % di atas semua layer, bukan filter per frame.
+- Motion blur: `CameraMotionBlur` 200° hanya di gerak cepat; uji di dalam `<Sequence>` dulu (bug 4.0.380, `smooth-motion.md` §6).
+- Anti "kartu digeser": minimal 4 layer kedalaman, tokoh selalu punya gerak sekunder, kamera tidak bergerak tanpa aksi tokoh.
+- Belum diuji: belum ada adegan Remotion yang dibangun. Gerbang berikutnya = validasi satu adegan (disarankan 08) sebelum semua.
 
 ## Belum selesai / perlu keputusan
 
-1. Character sheet dan panel 08 v2 / 21 v2 menunggu persetujuan Irfan. Default: setelah disetujui, 23 panel lain digambar ulang dengan karakter baru.
-2. Kaki depan di 21 v2 masih terbaca seperti rok; perlu digambar ulang (lutut ditekuk, celana menyempit).
+1. Character sheet R2b (sawo matang) dan panel 08 v2 / 21 v2 menunggu persetujuan Irfan. Default: setelah disetujui, 23 panel lain digambar ulang dengan karakter baru.
 3. Timing semua panel masih estimasi; menunggu file lagu.
 4. Teks lirik di layar (penuh / kata kunci / tanpa teks) belum diputuskan. Default storyboard: tanpa lirik di layar.
 5. Judul lagu belum dikonfirmasi; slug folder sementara `lagu-kalah-lagi`.
