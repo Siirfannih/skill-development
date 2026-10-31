@@ -4,6 +4,27 @@ Baca hanya di gerbang audio (setelah script dan storyboard final) dan saat QA au
 
 ## 14. Audio
 
+### 14.0 Gerbang sumber SFX (WAJIB sebelum menyusun cue apa pun; Irfan 31 Okt 23:38)
+Kesalahan terbesar di proyek *Pengganti Kita Sendiri*:
+- Agent memakai bank bunyi **sintetis** (earshot `pool/bank`) dan bunyi Mixkit yang tidak sesuai gaya.
+- Sumber milik Irfan tidak dicek lebih dulu.
+- Akibatnya 2 jam kerja audio terbuang.
+
+Aturan:
+1. **Inventaris dulu, dalam urutan ini**, dan tulis hasilnya di `STATUS.md` proyek:
+   - (a) pack stok SFX Irfan: `~/Downloads/Kenyset [FREE SFX PACK]` (minta akses folder bila belum terhubung);
+   - (b) folder `sfx/` proyek yang sudah disetujui, misalnya `~/Proyek/tuntunly-motion/audio/final/sfx` dan `Skill-Development/projects/jadisatu-60s/remotion/sfx-el`;
+   - (c) sumber internet berlisensi (Mixkit, Pixabay, Freesound CC0);
+   - (d) ElevenLabs SFX, hanya untuk peran yang tidak ada di (a)–(c).
+2. **Akses dipastikan di awal.** Folder belum terhubung, kredensial belum ada, atau situs memblokir: minta izin atau lapor ke Irfan **sebelum** bekerja. Jangan lanjut dengan pengganti karangan.
+3. **Dilarang memakai bunyi sintetis/karangan sebagai SFX final.** Termasuk bank earshot `sfx_render`, sinus, dan noise generator. Bank earshot hanya untuk analisis/QA.
+4. **Gaya Apple motion** = rekaman UI nyata:
+   - klik app/iPad/mouse;
+   - **keyboard digital (iPhone/Magic Keyboard), bukan tick/thock mekanik**;
+   - **whoosh "wave" halus** (swoosh udara lembut), bukan angin badai atau terowongan;
+   - pop/notif iOS yang lembut.
+5. **VO tidak diberi reverb/ekor ruang buatan.** Narator TTS harus kering dan dekat; ekor ruang membuatnya terdengar menggema.
+
 ### 14.1 Hierarki mix
 1. **VO pemilik panggung**: kompresi ringan, +2 dB di 3 kHz.
 2. **SFX penekan**:

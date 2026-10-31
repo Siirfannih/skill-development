@@ -102,3 +102,19 @@ Status: diterapkan di v12 (orang + sorot cahaya ke ujung SELERA; lingkaran zona 
 - Batas: bukan larangan data untuk akun personal atau kewajiban membuka semua video dengan tokoh terkenal.
 - Status: kegagalan dicatat; belum ada draf perbaikan yang disetujui atau evaluasi perilaku lama vs baru; tidak ada patch aturan aktif.
 - Bukti lengkap: [catatan proyek](../../projects/ai-change-everything/NARRATOR-REVIEW.md). [Inbox evaluasi](evals/inbox/2026-10-29-ai-change-everything-narrator.md).
+
+### 31 Okt 2026 · Pengganti Kita Sendiri · gerbang audio (SFX)
+Revisi Irfan:
+- SFX bukan gaya Apple motion: masih pakai setelan lama, hanya diperbanyak.
+- Yang diminta: click, keyboard digital (bukan tick mekanik), whoosh wave halus.
+- VO menggema.
+- Sumber SFX tidak dipastikan di awal; agent memakai bunyi karangan. 2 jam kerja audio tidak menghasilkan apa-apa.
+
+Akar masalah:
+- Tidak ada gerbang inventaris sumber SFX. Agent memakai bank sintetis earshot yang kebetulan ada di container.
+- Pack Kenyset di `~/Downloads` tidak pernah diminta aksesnya.
+- Reverb VO ditambahkan tanpa diminta.
+
+Usulan aturan: `audio.md` §14.0 (gerbang sumber SFX + larangan bunyi sintetis + definisi gaya Apple + VO tanpa reverb).
+
+Status: diterapkan (diminta Irfan).
