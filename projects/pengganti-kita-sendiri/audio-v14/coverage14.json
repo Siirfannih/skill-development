@@ -7,40 +7,64 @@
 "why": "tidak ada perubahan visual ±7 f"
 },
 {
+"t": 2.2,
+"role": "photo",
+"visual": "foto montase founder #4 tampil (cut 1/8 grid)",
+"why": "≤2 f dengan bunyi lain"
+},
+{
+"t": 9.033,
+"role": "ui_pop",
+"visual": "foto awan gelombang #3 muncul",
+"why": "≤2 f dengan bunyi lain"
+},
+{
 "t": 9.033,
 "role": "ui_pop",
 "visual": "foto awan gelombang #2 muncul",
 "why": "tabrakan ≤100 ms"
 },
 {
-"t": 9.033,
+"t": 9.1,
 "role": "ui_pop",
-"visual": "foto awan gelombang #3 muncul",
-"why": "tabrakan ≤100 ms"
+"visual": "foto awan gelombang #4 muncul",
+"why": "≤2 f dengan bunyi lain"
 },
 {
-"t": 65.067,
+"t": 21.867,
+"role": "click",
+"visual": "seleksi «released on November 30, 2022.» selesai (mouse-up, highlight ",
+"why": "≤2 f dengan bunyi lain"
+},
+{
+"t": 45.533,
 "role": "ui_pop",
-"visual": "kartu kaca rilis GPT-4o muncul di garis waktu",
-"why": "tabrakan ≤100 ms"
+"visual": "CEO Agent melompat keluar dari tombol kirim",
+"why": "≤2 f dengan bunyi lain"
 },
 {
-"t": 88.7,
-"role": "land",
-"visual": "landing page identik di jarak 0 kartu dari tengah mendarat (gelombang ",
-"why": "tabrakan ≤100 ms"
+"t": 52.967,
+"role": "light",
+"visual": "garis scan mencapai ubun-ubun, salinan terisi penuh, wireframe padam",
+"why": "≤2 f dengan bunyi lain"
 },
 {
-"t": 97.9,
-"role": "land",
-"visual": "kartu Trip AI jatuh dan mendarat di tumpukan",
-"why": "tabrakan ≤100 ms"
+"t": 65.233,
+"role": "ui_pop",
+"visual": "kartu GPT-5 mendarat di «berkembang» dan menyala biru elektrik",
+"why": "≤2 f dengan bunyi lain"
 },
 {
 "t": 98.167,
 "role": "land",
 "visual": "kartu Inbox AI jatuh dan mendarat di tumpukan (kamera snap mundur di f",
-"why": "tabrakan ≤100 ms"
+"why": "≤2 f dengan bunyi lain"
+},
+{
+"t": 98.4,
+"role": "land",
+"visual": "kartu Study AI jatuh dan mendarat di tumpukan",
+"why": "≤2 f dengan bunyi lain"
 }
 ],
 "uncovered": [
@@ -140,6 +164,11 @@
 "glob": true
 },
 {
+"t": 27.9,
+"strength": 16.0,
+"glob": true
+},
+{
 "t": 31.47,
 "strength": 36.9,
 "glob": true
@@ -205,6 +234,11 @@
 "glob": true
 },
 {
+"t": 65.97,
+"strength": 209.0,
+"glob": true
+},
+{
 "t": 70.3,
 "strength": 12.3,
 "glob": true
@@ -240,8 +274,8 @@
 "glob": true
 },
 {
-"t": 75.63,
-"strength": 68.0,
+"t": 75.4,
+"strength": 31.2,
 "glob": true
 },
 {
@@ -272,11 +306,6 @@
 {
 "t": 85.4,
 "strength": 112.4,
-"glob": true
-},
-{
-"t": 88.93,
-"strength": 4.0,
 "glob": true
 },
 {
@@ -320,8 +349,8 @@
 "glob": true
 },
 {
-"t": 111.27,
-"strength": 6.8,
+"t": 113.03,
+"strength": 6.5,
 "glob": true
 },
 {
@@ -375,18 +404,18 @@
 "glob": true
 },
 {
-"t": 124.53,
-"strength": 6.7,
+"t": 124.63,
+"strength": 5.5,
 "glob": true
 },
 {
-"t": 124.7,
+"t": 124.77,
 "strength": 6.8,
 "glob": true
 },
 {
-"t": 124.83,
-"strength": 6.2,
+"t": 124.93,
+"strength": 7.7,
 "glob": true
 },
 {

@@ -12,55 +12,49 @@
 0.14,
 3.76,
 7.83,
-8.16
+8.15
 ],
 "vo_sibilance_hi6_p99": 0.997,
 "sfx_by_role": {
 "word": {
 "n": 81,
-"peak_vs_vo_db": -16.2,
+"peak_vs_vo_db": -16.3,
 "b2_6k": 0.64,
 "hi6": 0.004
 },
 "photo": {
-"n": 45,
-"peak_vs_vo_db": -17.2,
-"b2_6k": 0.34,
+"n": 44,
+"peak_vs_vo_db": -17.3,
+"b2_6k": 0.23,
 "hi6": 0.009
 },
 "whoosh": {
 "n": 41,
-"peak_vs_vo_db": -14.2,
+"peak_vs_vo_db": -29.7,
 "b2_6k": 0.0,
 "hi6": 0.0
 },
-"ui_pop": {
-"n": 15,
-"peak_vs_vo_db": -13.5,
-"b2_6k": 0.01,
-"hi6": 0.0
-},
 "land": {
-"n": 14,
-"peak_vs_vo_db": -15.2,
+"n": 15,
+"peak_vs_vo_db": -15.3,
 "b2_6k": 0.0,
 "hi6": 0.0
 },
 "draw": {
 "n": 5,
-"peak_vs_vo_db": -18.2,
+"peak_vs_vo_db": -15.3,
 "b2_6k": 0.01,
 "hi6": 0.0
 },
-"light": {
-"n": 17,
-"peak_vs_vo_db": -16.1,
-"b2_6k": 0.77,
-"hi6": 0.054
-},
 "riser": {
 "n": 6,
-"peak_vs_vo_db": -17.0,
+"peak_vs_vo_db": -16.8,
+"b2_6k": 0.0,
+"hi6": 0.0
+},
+"light": {
+"n": 16,
+"peak_vs_vo_db": -15.5,
 "b2_6k": 0.0,
 "hi6": 0.0
 },
@@ -71,32 +65,38 @@
 "hi6": 0.0
 },
 "click": {
-"n": 12,
-"peak_vs_vo_db": -14.1,
-"b2_6k": 0.39,
-"hi6": 0.025
+"n": 11,
+"peak_vs_vo_db": -14.2,
+"b2_6k": 0.38,
+"hi6": 0.024
 },
 "trash": {
 "n": 3,
-"peak_vs_vo_db": -17.2,
-"b2_6k": 0.29,
+"peak_vs_vo_db": -17.3,
+"b2_6k": 0.3,
 "hi6": 0.0
 },
 "whip": {
 "n": 5,
-"peak_vs_vo_db": -14.2,
+"peak_vs_vo_db": -14.3,
 "b2_6k": 0.01,
 "hi6": 0.0
 },
 "type": {
 "n": 6,
-"peak_vs_vo_db": -14.2,
-"b2_6k": 0.17,
-"hi6": 0.002
+"peak_vs_vo_db": -14.8,
+"b2_6k": 0.29,
+"hi6": 0.074
+},
+"ui_pop": {
+"n": 13,
+"peak_vs_vo_db": -13.9,
+"b2_6k": 0.01,
+"hi6": 0.0
 },
 "message": {
 "n": 1,
-"peak_vs_vo_db": -14.2,
+"peak_vs_vo_db": -14.3,
 "b2_6k": 0.0,
 "hi6": 0.0
 },
@@ -111,7 +111,7 @@
 "words_total": 81,
 "words_with_sfx": 81,
 "missing_words": [],
-"events_within_2f": 8,
-"sfx_cues": 261,
-"sfx_per_sec": 1.97
+"events_within_2f": 1,
+"sfx_cues": 257,
+"sfx_per_sec": 1.94
 }

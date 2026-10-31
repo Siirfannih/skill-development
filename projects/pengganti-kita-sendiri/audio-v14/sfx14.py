@@ -52,7 +52,7 @@ def render_sfx(C, N, dia, master_comp=0.0):
         x = shape(x, q['fam'])
         f_o = min(t2i(0.25 if q['role'] == 'impact' else 0.03), len(x) // 3); x[-f_o:] *= np.linspace(1, 0, f_o)
         x *= db2(q['peak_dbfs'] - master_comp) / max(np.abs(x).max(), 1e-9)
-        if q['role'] == 'riser': start = q['t'] - len(x) / SR
+        if q['role'] == 'riser': start = q['t'] - 3 / 30 - len(x) / SR   # QC: riser selesai 3 f sebelum hit, bukan menumpuk
         elif q['role'] == 'type': start = q['t']
         else:
             env = np.abs(lp(x, 2000)) if q['fam'] in ('motion', 'low') else np.abs(x)

@@ -30,14 +30,20 @@ for c in C:
     cand = [a + i for i in range(len(w)) if w[i] >= max(thr, 0.6 * w.max())] + [g for g in GEV if a <= g <= b]
     if not cand:
         drops.append(dict(t=c['t'], role=c['role'], visual=c['visual'][:70], why='tidak ada perubahan visual ±7 f')); continue
-    near5 = [x for x in cand if abs(x - f0) <= 5]
+    near5 = [x for x in cand if 0 <= x - f0 <= 5]   # QC 1 Nov: hanya geser ke belakang (bunyi tidak boleh mendahului objek)
     fe = min(near5 or cand, key=lambda x: abs(x - f0))
-    if abs(fe - f0) > 5: fe = f0       # onset hanya di 6–7 f: event ada tapi jangan geser jauh
+    if not (0 <= fe - f0 <= 5): fe = f0   # onset di depan/terlalu jauh: pakai waktu kode
     c['t_code'] = c['t']; c['t'] = round(fe / FPS, 3); shifts.append(fe - f0); kept.append(c)
 FAM = lambda c: c['fam'] if c['role'] != 'type' else 'type'
 PRI = ['impact', 'slam', 'word', 'whip', 'whoosh', 'riser', 'click', 'message', 'ui_pop', 'land', 'type', 'light', 'photo', 'trash', 'draw', 'shutter']
 kept.sort(key=lambda c: c['t']); final = []
 for c in kept:
+    dup = [o for o in final if abs(o['t'] - c['t']) <= 2 / FPS and 'riser' not in (o['role'], c['role'])]
+    if dup:   # QC 1 Nov: satu event = satu bunyi
+        o = dup[0]; worst = o if PRI.index(o['role']) > PRI.index(c['role']) else c
+        drops.append(dict(t=worst['t'], role=worst['role'], visual=worst['visual'][:70], why='≤2 f dengan bunyi lain'))
+        if worst is c: continue
+        final.remove(o)
     near = [o for o in final if abs(o['t'] - c['t']) < 0.1 and 'riser' not in (o['role'], c['role'])]
     same = [o for o in near if o['role'] == c['role'] and c['role'] != 'type']
     if same or len(near) >= 2:

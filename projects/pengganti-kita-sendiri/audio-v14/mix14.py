@@ -35,8 +35,7 @@ for _k,b_ in enumerate(_bl):
         lv=meter.integrated_loudness(dia[t2i(_v['t']):t2i(_v['t']+_v['dur'])]); i_,j_=t2i(b_['t']),t2i(b_['t']+b_['dur']); lc=meter.integrated_loudness(dia[i_:j_])
         if np.isfinite(lv) and np.isfinite(lc): dia[i_:j_]*=db2(lv-G('clip_below_vo',1.25)-lc)
 # ekor ruang tipis pada VO (narator tidak lagi «kering terpotong»): IR noise eksponensial 0,6 dtk, LPF 3 kHz, send −22 dB
-from scipy.signal import fftconvolve
-_rng=np.random.default_rng(7); _L=t2i(0.6); _ir=_rng.standard_normal(_L)*np.exp(-np.arange(_L)/(0.12*SR)); _ir=sosfilt(butter(2,3000,'lp',fs=SR,output='sos'),_ir); _ir[:t2i(0.012)]=0; _ir/=np.sqrt(np.sum(_ir**2))
+# v14: reverb VO dihapus (tidak ada IR)
 _vo=np.zeros_like(dia)
 for b_ in T['blocks']:
     if b_['kind']=='vo': _vo[t2i(b_['t']):t2i(b_['t']+b_['dur'])]=dia[t2i(b_['t']):t2i(b_['t']+b_['dur'])]
@@ -44,6 +43,9 @@ for b_ in T['blocks']:
 # v12: room tone jembatan antar pembicara (tanpa gap)
 from roomtone import add_roomtone
 _vr=float(np.sqrt(np.mean(dia[np.abs(dia)>0.01]**2)))
+# QC 1 Nov: ujung klip Altman — blip suku kata berikut sesudah «tell.» dipotong bersih dengan fade 50 ms
+_a=BL['altman']; _e=_a['t']+_a['dur']
+if _e>74.4: dia[t2i(74.40):t2i(74.45)]*=np.linspace(1,0,t2i(0.45)-t2i(0.40)) if False else np.linspace(1,0,t2i(74.45)-t2i(74.40)); dia[t2i(74.45):t2i(_e)]=0
 dia,_rt=add_roomtone(dia,T,_vr); json.dump(_rt,open('roomtone_log.json','w'),indent=0)
 # ── musik: satu trek utuh dari detik 0 sumber
 bed=load('/home/claude/music_hunt/dl2/188.mp3',G('music_offset',0.0),G('music_offset',0.0)+T['total']+0.5)[:N]
@@ -86,13 +88,6 @@ sw=t2i(G('end_swell_s',24.0)); env[-sw:]*=db2(np.linspace(0,G('end_swell_db',5.0
 tail=t2i(2.5); env[-tail:]*=np.linspace(1,0,tail)
 mus=mus*(env*dk)[:,None]
 # v13: sub-pad hangat di bawah seluruh musik (audit: sub 5,8 % vs ref 39–55 %). Di bawah klip Jensen tetap ada, −10 dB (tidak mati ke 0).
-_t=np.arange(N)/SR
-_sub=(np.sin(2*np.pi*41.2*_t)+0.55*np.sin(2*np.pi*61.74*_t+0.7)+0.25*np.sin(2*np.pi*82.4*_t+1.3))*(0.75+0.25*np.sin(2*np.pi*_t/7.0))
-_sub=sosfilt(butter(4,110,'lp',fs=SR,output='sos'),_sub)
-_se=np.copy(cenv); _se=np.convolve(_se,np.ones(t2i(0.6))/t2i(0.6),'same')
-_fade=np.minimum(1,np.minimum(_t/1.5,(T['total']-_t)/2.5).clip(0,None))
-_sub=_sub*_se*_fade*(1-duck*(1-db2(-4)))
-_ref=np.sqrt(np.mean(mus**2))+1e-9
 # v14: sub-pad sinus sintetis dihapus (bukan sumber nyata; dengung 132 dtk)
 # Modul 5: musik (termasuk sub-pad) di bawah VO −22…−25 LUFS di master
 _voa=duck>0.6

@@ -74,3 +74,24 @@ Diambil dari `jadisatu-60s/remotion/tools/audio_build.py`, `sync_cues.py`, D-035
 Semua bunyi lama dihapus. Event diambil dari anotasi visual per adegan ditambah log frame kemunculan kata dari render (`KWord`/`SlotWord`, `inputProps.sfxlog`). Satu peran memakai satu bunyi (lihat `audio.md` §14.8), lalu disinkronkan ke onset visual (`sync14.py`).
 
 Hasil: 273 cue, termasuk ketikan yang digabung per kalimat. Ke-81 kata kinetik semuanya bersuara. Gema VO (energi ekor setelah kata) turun dari −19,8 dB menjadi −27,3 dB, dan tidak ada celah < −45 dBFS. File ada di `audio-v14/`.
+
+## 6. Devil's advocate (agent independen) → perbaikan
+
+Verdict pertama: FIX-FIRST. Yang lulus:
+- VO kering;
+- tidak ada sumber sintetis;
+- level setara The Gap;
+- bunyi kata tepat 1 frame setelah kata muncul.
+
+Yang diperbaiki:
+1. **15 cue mendahului objek 2–5 frame.** `sync14.py` sekarang hanya boleh menggeser cue ke belakang. Hasil: 0 cue mendahului.
+2. **Dua bunyi untuk satu event (≤ 2 frame).** Hanya bunyi yang lebih penting yang disimpan, dan riser berakhir 3 frame sebelum hit. Tersisa 1 pasangan.
+3. **Musik terlalu dekat dengan VO di babak 2–3** (8,8 dB). Duck ostinato −10 dB dan musik di bawah VO −26,5 LUFS. VO sekarang 10,5–19,6 dB di atas musik di semua blok.
+4. **Klik saklar berdesis** (17×). Diganti `soft-ui-pop-light-minimal-click`.
+5. **Ujung klip Altman.** Blip suku kata sesudah «tell.» dipotong dengan fade 50 ms.
+6. **Whoosh.** Sekarang satu file (`whoosh-gelombang`), sesuai aturan satu peran satu bunyi.
+7. **Kode mati** (sub-pad sinus dan IR reverb) dihapus dari `mix14.py`.
+
+Yang sengaja tidak diubah, untuk diputuskan Irfan:
+- **Langkah kaki piktogram (99–101 dtk, 54 dtk) dibiarkan tanpa bunyi.** Langkah kartun pernah dilarang, dan pergerakannya sudah diwakili whoosh kamera.
+- **Klik kata `ipad_click` tetap dipakai.** Energinya 88 % di 2–6 kHz, tetapi letaknya 16 dB di bawah VO dan sesuai referensi Audio.mp4 (klik terang).
