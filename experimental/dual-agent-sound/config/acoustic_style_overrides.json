@@ -1,0 +1,76 @@
+{
+ "_doc": "Aturan Irfan di chat 31 Okt 2026 13:42. Menang atas acoustic_style_blueprint.json bila bertentangan.",
+ "vo_and_clips": {
+  "playback_rate": 1.0,
+  "never_time_stretch_or_pitch_shift": "narator maupun klip Jensen Huang & Sam Altman",
+  "pause_end_of_sentence_s": [
+   0.6,
+   1.0
+  ],
+  "pause_before_and_after_english_clip_s": 1.5,
+  "clip_protection": "klip Sam Altman tidak boleh dipotong di tengah kata. Catatan terverifikasi: di sumber aslinya Altman memotong sendiri kata 'company' ('comp—') lalu lanjut 'as far as I can tell'; klip v9 berakhir setelah 'tell.' agar berhenti di batas frasa alami",
+  "tts": {
+   "stability_range": [
+    0.35,
+    0.45
+   ],
+   "style_exaggeration_range": [
+    0.0,
+    0.1
+   ],
+   "note": "VO v8 (time-stretch ×1,15) ditolak Irfan karena terburu-buru, ceria dan energik; VO v9 memakai stability 0,35–0,45, style 0–0,05, playback 1,0"
+  }
+ },
+ "music": {
+  "single_full_track": "satu trek utuh, jangan dipotong menjadi banyak genre",
+  "banned_tags": [
+   "corporate",
+   "inspirational corporate",
+   "upbeat",
+   "happy",
+   "vocal chop",
+   "trap beat",
+   "bright",
+   "commercial"
+  ],
+  "required_tags": [
+   "dark ambient electronic",
+   "cinematic drone",
+   "minimalist synth pulse",
+   "melancholic piano underscore",
+   "documentary tension"
+  ],
+  "dynamics": {
+   "0:00-0:40_lufs": -26,
+   "during_jensen_clip": "mute / fade out total",
+   "after_jensen_lufs": -20,
+   "fade_back": "pelan"
+  },
+  "self_critique": "jalankan CLAP pada tiap kandidat; buang otomatis bila tag terlarang dominan; ambil yang dominan ambient / drone / cinematic / warm pad"
+ },
+ "sfx": {
+  "max_total_cues": 15,
+  "banned": [
+   "foley",
+   "paper rustling",
+   "wooden block hit",
+   "water drop",
+   "ui chat message pop"
+  ],
+  "allowed_only": {
+   "low_sub_bass_boom": "hanya di 0:00, transisi masuk klip Jensen, dan penutup",
+   "soft_air_whoosh_or_low_pass_sweep": "hanya di pergantian babak visual utama",
+   "analog_tape_hiss_or_vinyl_crackle": "tipis di latar sebagai tekstur, bukan ketukan"
+  },
+  "level_db_below_narrator": -18,
+  "placement_rule": "1 kata kunci per kalimat; SFX hanya pada perubahan emosi atau pergantian panel storyboard utama, bukan setiap onset kata/gerak",
+  "acoustic_world": "Analog & Warm Synthesis: pita kaset tua, low-pass synth pulse, deep sub-bass, soft air; tolak transien tajam > 5 kHz"
+ },
+ "mastering_pass_fail": {
+  "fail_if_lra_below_lu": 7.0,
+  "target_lra_lu": 8.0,
+  "fail_if_mean_sentence_gap_below_s": 0.5,
+  "ducking": "sidechain/envelope: musik tenggelam saat narasi, naik di sela kalimat"
+ },
+ "workflow": "Dual agent: Claude = sound engineer (eksekutor teknis), Gemini = music & vocal director (kurator, kritikus). Fase: kurasi library → VO pick & pacing → mix → QC loop sampai APPROVED."
+}

@@ -21,6 +21,7 @@ Pintu masuk untuk setiap model yang bekerja dengan Irfan. Baca file ini dulu, la
 | `content-ops/` | Operasi konten harian tiga jalur; mulai dari [content-ops/README.md](content-ops/README.md) | Aktif |
 | `GrokAgent/` | Analisis referensi visual+audio (Grok Bot Maximus); mulai dari [GrokAgent/README.md](GrokAgent/README.md) | Reference findings 2026-10-30; tidak menimpa `claude/` |
 | `archive/` | Skill lama yang sudah digantikan | Jangan dimuat; hanya baseline untuk eval |
+| `experimental/` | Eksperimen yang belum menjadi aturan skill; mulai dari README tiap folder (mis. `dual-agent-sound`: Claude engineer × Gemini director untuk sound design) | Eksperimen, diuji sekali |
 
 ## Skill Irfan (`claude/`)
 

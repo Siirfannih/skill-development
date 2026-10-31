@@ -1,0 +1,90 @@
+{
+  "project_profile": {
+    "title": "Hybrid Tech Documentary Essay (Baikov x The 2030 Style)",
+    "core_aesthetic": "Reflective, analytical, high-stakes technological shift, warm analog-digital hybrid",
+    "strict_prohibitions": {
+      "music_tags": ["corporate", "inspirational corporate", "upbeat", "happy", "vocal chop", "trap beat", "commercial", "ukulele", "bright pop"],
+      "sfx_tags": ["cartoon", "wooden block hit", "paper rustling", "water drop", "ui chat message pop", "harsh metallic", "comedy"],
+      "vocal_styles": ["cheerful", "sales pitch", "upward inflection", "excited youtuber", "bright announcer"]
+    }
+  },
+  "act_structure_and_acoustic_profiles": {
+    "act_1_hook_and_identity": {
+      "reference_model": "Baikov / Krea 2 (Fast-Paced Minimalist Hook)",
+      "visual_context": "Founder Montage & Image Cloud",
+      "vocal_prosody": {
+        "pacing": "Crisp, urgent, zero dead-air within phrases, 0.5s strict pause between sentences",
+        "pitch_contour": "Flat-to-downward (authoritative, declarative statements)",
+        "timbre": "Dry, close-mic, chest-dominant, zero smile resonance",
+        "tts_parameters": { "stability": 0.40, "similarity_boost": 0.80, "style_exaggeration": 0.0, "playback_rate": 1.0 }
+      },
+      "music_bed": {
+        "genre": "Dark Minimalist Pulse / Deep Sub-Bass Drone",
+        "bpm_range": "100-115 BPM",
+        "target_lufs": -26.0,
+        "characteristics": "Rhythmic low-end pulse without distracting top-melody"
+      },
+      "sfx_palette": "Warm analog camera clicks, subtle low-pass air whooshes, deep sub-bass thud on major frame cuts (Max 5 cues)"
+    },
+    "act_2_analytical_execution": {
+      "reference_model": "Hybrid Baikov UI Flow x Documentary Pacing",
+      "visual_context": "GPT Instructions, Knowledge, Wireframes Filling",
+      "vocal_prosody": {
+        "pacing": "Measured, analytical, 15% slower cognitive rhythm via punctuation pauses (never time-stretch)",
+        "pitch_contour": "Downward inflection at every clause end to convey factual weight",
+        "timbre": "Warm baritone/alto, calm, contemplative, slight micro-hesitation before key technical terms",
+        "tts_parameters": { "stability": 0.45, "similarity_boost": 0.85, "style_exaggeration": 0.0, "playback_rate": 1.0 }
+      },
+      "music_bed": {
+        "genre": "Minimalist Electronic Underscore / Warm Synth Plucks",
+        "bpm_range": "110-120 BPM",
+        "target_lufs": -24.0,
+        "characteristics": "Steady metronomic pulse, muted high frequencies (<4kHz dominant) to leave 100% vocal clarity"
+      },
+      "sfx_palette": "Soft glassmorphism UI taps (low-passed at 4.5kHz), dampened tactile mechanical switches, smooth filter sweeps (Max 6 cues)"
+    },
+    "act_3_philosophical_resolution": {
+      "reference_model": "The 2030 (Cinematic Manifesto & Archival Gravity)",
+      "visual_context": "Takes Our Place, Jensen Huang & Sam Altman Clips",
+      "vocal_prosody": {
+        "pacing": "Slow, weighty, deliberate. Mandatory 1.2s silence before and after archival English clips",
+        "pitch_contour": "Deep downward cadence, solemn and philosophical",
+        "timbre": "Deep chest resonance, intimate, serious documentary narrator",
+        "tts_parameters": { "stability": 0.35, "similarity_boost": 0.85, "style_exaggeration": 0.05, "playback_rate": 1.0 }
+      },
+      "music_bed": {
+        "genre": "Cinematic Ambient Swell / Melancholic Analog Pads & Cello",
+        "target_lufs": "Complete drop (-inf LUFS) during first 2 seconds of archival clip, swelling back to -18.0 LUFS after speech",
+        "characteristics": "Emotional wide stereo field, slow attack, resonant reverb tail"
+      },
+      "sfx_palette": "Deep cinematic sub-drop at archival transition, subtle vinyl/tape floor noise, long dark reverb tail on final word (Max 4 cues)"
+    }
+  },
+  "mastering_and_engineering_constraints": {
+    "integrated_lufs_target": -14.0,
+    "true_peak_max_dbtp": -1.5,
+    "minimum_loudness_range_lra_lu": 7.5,
+    "maximum_total_sfx_cues": 15,
+    "vocal_eq_chain": "High-pass @ 80Hz, Warmth boost +1.5dB @ 160Hz, Harshness cut -2.5dB high-shelf @ 7.5kHz",
+    "archival_clip_protection": "Never trim within 0.3s of first/last spoken phoneme; preserve original playback_rate = 1.0"
+  },
+  "gemini_api_evaluation_rubric": {
+    "role": "Executive Audio & Vocal Director",
+    "rejection_triggers": [
+      "Narrator sounds upbeat, cheerful, commercial, or rises in pitch at the end of sentences.",
+      "Background music contains corporate guitar/ukulele, bright vocal chops, or trap hi-hats.",
+      "SFX sound literal, cartoonish, or occur more than once every 5 seconds.",
+      "Archival clips (Jensen/Sam Altman) are cut off mid-word or time-stretched.",
+      "Mix sounds flat/over-compressed without breathing room or silence before key transitions."
+    ],
+    "output_format_required_from_gemini": {
+      "status": "APPROVED | REJECTED",
+      "vocal_prosody_score_1_to_10": "number",
+      "music_vibe_match_1_to_10": "number",
+      "sfx_integration_1_to_10": "number",
+      "timestamped_fixes": [
+        { "timecode": "MM:SS", "issue": "string", "ffmpeg_or_tts_action_required": "string" }
+      ]
+    }
+  }
+}

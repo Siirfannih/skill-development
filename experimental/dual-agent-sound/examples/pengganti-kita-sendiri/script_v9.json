@@ -1,0 +1,68 @@
+{
+ "1": {
+  "text": "Tanpa sadar, kita lagi berlomba-lomba membangun pengganti kita sendiri. Dan anehnya, kita justru menginginkan hal tersebut terjadi lebih cepat.",
+  "act": 1,
+  "settings": {
+   "stability": 0.4,
+   "similarity_boost": 0.8,
+   "style": 0.0,
+   "use_speaker_boost": true,
+   "speed": 1.0
+  }
+ },
+ "2": {
+  "text": "Padahal waktu AI pertama kali ramai dibicarakan, dia punya janji sederhana. AI akan mengambil pekerjaan yang membosankan dan berulang, supaya kita bisa fokus jadi lebih kreatif. Sebagian janji itu memang ditepati. Kita bekerja jauh lebih cepat. Tapi di satu sisi, kita juga tidak berhenti di tahap ini.",
+  "act": 1,
+  "settings": {
+   "stability": 0.4,
+   "similarity_boost": 0.8,
+   "style": 0.0,
+   "use_speaker_boost": true,
+   "speed": 1.0
+  }
+ },
+ "3": {
+  "text": "Sekarang kita mulai mengajari AI untuk berpikir, menulis, dan bekerja persis seperti apa yang kita lakukan dalam kehidupan sehari-hari. Dan perlahan, yang kita bangun menjadi cukup besar untuk mengambil tempat kita.",
+  "act": 2,
+  "settings": {
+   "stability": 0.45,
+   "similarity_boost": 0.85,
+   "style": 0.0,
+   "use_speaker_boost": true,
+   "speed": 1.0
+  }
+ },
+ "4": {
+  "text": "[serious] Teknologi ini ga peduli sama apa yang kita pikirkan, ia terus berkembang. Pertanyaannya adalah, apakah arahnya masih sama dengan janjinya dulu?",
+  "act": 3,
+  "settings": {
+   "stability": 0.35,
+   "similarity_boost": 0.85,
+   "style": 0.05,
+   "use_speaker_boost": true,
+   "speed": 1.0
+  }
+ },
+ "5": {
+  "text": "[serious] Apa yang dikatakan Sam Altman adalah satu cerita sukses, di antara ribuan cerita gagal yang gak pernah kita dengar. Dan hari ini, semua orang punya akses ke \"tools\" AI yang sama. \"Prompt\" yang sama. Dan kesempatan yang sama untuk membuat sesuatu. Makanya ada banyak \"founder\", ada banyak CEO, yang lahir dalam semalam. Membangun sesuatu jadi gampang. Tapi membangun sesuatu yang dibutuhkan orang, justru semakin susah.",
+  "act": 3,
+  "settings": {
+   "stability": 0.35,
+   "similarity_boost": 0.85,
+   "style": 0.05,
+   "use_speaker_boost": true,
+   "speed": 1.0
+  }
+ },
+ "6": {
+  "text": "[serious] Terkadang kita terlalu sibuk membangun. Terlalu sibuk merencanakan. Membangun hal yang sama dengan yang semua orang lakukan, dan menyerahkan cara berpikir kita ke AI, bahkan untuk hal yang sebenarnya bisa kita kerjakan sendiri. Tapi kalau tidak memakai AI, kita merasa tertinggal. Karena semua orang di sekitar kita memakainya, dengan \"tools\" yang sama persis. Jadi di tengah semua ini, peran apa yang sedang kamu mainkan?",
+  "act": 3,
+  "settings": {
+   "stability": 0.35,
+   "similarity_boost": 0.85,
+   "style": 0.05,
+   "use_speaker_boost": true,
+   "speed": 1.0
+  }
+ }
+}
