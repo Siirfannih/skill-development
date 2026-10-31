@@ -6,6 +6,7 @@ Baca saat membedah referensi (gerbang 3) dan sebelum mengirim render (gerbang 9)
 
 - 2. Bedah referensi per frame (wajib, dikerjakan sendiri)
 - 16. QA — gerbang kirim
+- 16.0 Gerbang Karpathy (cara kerja)
 - 16.1 Bahan dari render (bukan dari kode/ingatan)
 - 16.2 Checklist anti-monoton & kerapian
 - 16.3 Tabel kritik sutradara
@@ -53,6 +54,27 @@ Kesalahan termahal di Jadisatu adalah menunggu Irfan menunjuk masalah yang bisa 
 ---
 
 ## 16. QA — gerbang kirim
+
+### 16.0 Gerbang Karpathy (cara kerja, dicek sebelum 16.1)
+Empat aturan dari [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) (MIT), diterjemahkan untuk editing video di `working-with-irfan` §2b. Satu jawaban "tidak" berarti belum boleh kirim.
+- [ ] **Pikir dulu**:
+  - asumsi atas masukan Irfan tertulis di laporan;
+  - tafsir ganda dan bentrokan aturan (skill vs instruksi baru) sudah ditandai, bukan dipilih diam-diam.
+- [ ] **Sederhana dulu**:
+  - setiap elemen, efek, layer, dan SFX menjawab "membantu penonton memahami apa?";
+  - yang tidak punya jawaban dihapus;
+  - elemen wajib (SFX per event, teks dari VO) tetap ada.
+- [ ] **Perubahan bedah**:
+  - `git diff` hanya menyentuh adegan/cue yang diminta;
+  - bagian yang dipuji atau tidak dikomentari Irfan tidak berubah;
+  - sisa yatim dari perubahan ini (cue, import, aset) sudah dibersihkan;
+  - masalah lain dilaporkan, tidak diubah.
+- [ ] **Berbasis tujuan**: setiap poin revisi punya kriteria terukur dan bukti angka di laporan. Contoh:
+  - cakupan SFX ≥ 85 %;
+  - tidak ada jendela 100 ms < −45 dBFS di perpindahan pembicara;
+  - teks kalimat ≥ 48 px @1080;
+  - teks diam ≥ 0,8 dtk saat dibaca.
+
 
 ### 16.1 Bahan dari render (bukan dari kode/ingatan)
 - contact sheet 1–4 fps

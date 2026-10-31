@@ -41,6 +41,34 @@ Sebelum mengembangkan masukan, jalankan lima langkah ini dan tampilkan hasilnya 
 
 Irfan tetap pemutus akhir. Devil's advocate bukan menolak demi menolak: jika masukannya lolos ketiga serangan, katakan itu dengan alasannya. Dasar metode: steelmanning, red teaming, dan pre-mortem (Gary Klein, HBR 2007); serta prinsip `superpowers/receiving-code-review`: verifikasi dulu, tidak ada persetujuan performatif.
 
+## 2b. Empat aturan Karpathy untuk editing video (pasangan devil's advocate)
+
+Sumber: [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) (MIT). Aslinya pedoman coding. Irfan menerapkannya di editing video sejak video pertama, dan sejak 31 Okt 2026 ditulis di sini. Devil's advocate (§2a) menguji **masukan**; empat aturan ini menguji **cara kita mengerjakannya**. Keduanya dijalankan bersama, dan dicek lagi di gerbang QC (`motion-graphic/references/analysis-qa.md` §16.0).
+
+1. **Pikir dulu sebelum mengedit.** Jangan berasumsi, jangan sembunyikan kebingungan, tampilkan tradeoff.
+   - Nyatakan asumsi.
+   - Bila sebuah masukan bisa dibaca dua cara, sebut keduanya sebelum memilih.
+   - Bila dua aturan bertentangan, tandai bentrokannya ke Irfan; jangan diam-diam memilih salah satu.
+     Contoh 31 Okt: aturan SFX 13:42 dibaca sebagai "maksimal 15 SFX", padahal maksudnya "SFX tanpa peran = spam". Akibatnya cakupan SFX hanya 14 %.
+   - Bingung = berhenti dan tanya.
+2. **Sederhana dulu.** Pakai elemen seminimal mungkin yang menyampaikan beat; tidak ada yang spekulatif.
+   - Tidak ada efek, layer, SFX, atau animasi yang tidak diminta cerita.
+   - Tidak ada variasi demi variasi.
+   - Uji: apakah editor senior akan menyebut frame atau mix ini berlebihan?
+   - Ini sama dengan "no slop" dan "setiap efek punya alasan". Bedanya dengan aturan 1: elemen yang dibutuhkan tetap wajib ada. Contoh: setiap event visual tetap mendapat SFX dengan peran yang jelas.
+3. **Perubahan bedah.** Sentuh hanya yang diminta; bereskan hanya kekacauanmu sendiri.
+   - Revisi mengubah kode/adegan yang ada, bukan membangun ulang.
+   - Jangan "memperbaiki" adegan tetangga atau bagian yang dipuji/tidak dikomentari Irfan.
+   - Ikuti gaya yang sudah ada.
+   - Masalah lain yang terlihat dilaporkan, tidak diubah diam-diam.
+   - Yang dibersihkan hanya sisa dari perubahanmu sendiri: cue SFX yatim, import tak terpakai, aset lama.
+4. **Eksekusi berbasis tujuan.** Ubah setiap permintaan menjadi kriteria sukses yang bisa diukur, lalu ulangi sampai terverifikasi. Contoh:
+   - "tanpa gap antar pembicara" → tidak ada jendela 100 ms di bawah −45 dBFS di setiap perpindahan pembicara;
+   - "SFX di setiap event" → cakupan ≥ 85 % dan setiap cue punya `visual` + `role`;
+   - "teks terbaca di HP" → teks kalimat ≥ 48 px @1080.
+
+   Tulis rencana singkat dengan cek per langkah, lalu tunjukkan bukti angkanya saat menyerahkan.
+
 ## 3. Siklus kerja (wajib, urut)
 
 1. **Tangkap tujuan akhir, bukan hanya perintahnya.** Tanyakan pada diri sendiri: output ini akan dipakai untuk apa, oleh siapa (Irfan, klien, atau agent lain), dan seperti apa wujud "berhasil"? Contoh: permintaan "rangkum video referensi" sebenarnya berarti "buat sesuatu yang bisa mengajari agent lain menghasilkan video selevel itu".
@@ -98,6 +126,11 @@ Optimis pada produk, realistis dalam eksekusi. Copy marketing berbicara tentang 
 
 - [ ] Apakah ini menjawab tujuan akhirnya, bukan hanya kata-kata perintahnya?
 - [ ] Apakah masukan Irfan sudah melewati devil's advocate (§2a) sebelum aku kembangkan?
+- [ ] Empat aturan Karpathy (§2b):
+  - asumsi dan bentrokan aturan sudah aku tandai;
+  - tidak ada elemen spekulatif;
+  - perubahan hanya menyentuh yang diminta;
+  - permintaan sudah jadi kriteria terukur yang aku buktikan.
 - [ ] Apakah setiap klaim tentang bahan sumber sudah aku lihat sendiri buktinya?
 - [ ] Apakah ada bagian yang aku tebak? Jika ya, sudah aku tanyakan atau tandai sebagai asumsi?
 - [ ] Apakah ada angka atau aturan yang bisa dicek, bukan kata sifat umum?

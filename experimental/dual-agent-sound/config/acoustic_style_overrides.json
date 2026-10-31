@@ -41,7 +41,7 @@
   "self_critique": "jalankan CLAP pada tiap kandidat; buang otomatis bila tag terlarang dominan; ambil yang dominan ambient / drone / cinematic / warm pad"
  },
  "sfx": {
-  "max_total_cues": "v10: 9 atmosferik + micro-tick hanya di poin beruntun",
+  "max_total_cues": "TIDAK ADA batas jumlah (koreksi Irfan 31 Okt 20:12): setiap event visual diskret yang bermakna mendapat SFX sendiri (motion-director §14.3, ≥85 %)",
   "banned": [
    "foley",
    "paper rustling",
@@ -55,7 +55,7 @@
    "analog_tape_hiss_or_vinyl_crackle": "tipis di latar sebagai tekstur, bukan ketukan"
   },
   "level_db_below_narrator": -18,
-  "placement_rule": "1 kata kunci per kalimat; SFX hanya pada perubahan emosi atau pergantian panel storyboard utama, bukan setiap onset kata/gerak",
+  "placement_rule": "Setiap SFX wajib punya peran/fungsi jelas yang terikat ke objek atau aksi tertentu di layar; yang dilarang adalah SFX tidak relevan/spamming (bunyi tanpa visual, dua bunyi untuk satu event, bunyi di gerak kontinu pelan). Aturan 13:42 dulu dibuat karena SFX spam, bukan untuk membatasi jumlah.",
   "acoustic_world": "Analog & Warm Synthesis: pita kaset tua, low-pass synth pulse, deep sub-bass, soft air; tolak transien tajam > 5 kHz"
  },
  "mastering_pass_fail": {
@@ -85,5 +85,9 @@
   "cold_open": "tidak ada detik kosong di awal: suara langsung di 0:00. 00a–00b diisi supercut potongan berita asli (AI, founder, perubahan cepat) yang dipotong cepat dan disambung rapat (jeda antar sumber 0,10–0,15 dtk), lalu transisi (SEMALAM → whoosh → hard cut) ke VO narator",
   "news_audio": "suara asli playback 1,0, HPF 120 / LPF 9k (warna siaran), loudness tiap potongan disamakan (−1 LU di bawah VO), tidak ada kata terpotong",
   "screen_words": "FOUNDER / CEO / SEMALAM mendarat di micro-tick grid ostinato, motif sama dengan 05f"
+ },
+ "v12_sfx_correction_31okt_2012": {
+  "_doc": "Irfan 20:12 — menang atas tafsir sebelumnya",
+  "rule": "SFX per event visual dengan peran jelas; batas 15 cue / 3 jenis dicabut; tetap hangat (hindari 2–6 kHz tajam), offset sesuai §14.3"
  }
 }
