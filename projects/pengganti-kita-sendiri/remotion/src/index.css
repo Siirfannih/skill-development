@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/inter/800.css";
+@import "@fontsource/inter/900.css";
+@import "@fontsource/jetbrains-mono/500.css";
+@font-face { font-family: "Instrument Serif"; font-style: italic; src: url("../public/InstrumentSerif-Italic.woff2") format("woff2"); }
+:root { --sb-paper: #f5f5f7; --sb-ink: #1d1d1f; --sb-ink-muted: #6e6e73; --sb-line: #d2d2d7; --sb-charcoal: #101216; --sb-charcoal-raised: #1c1f25; --sb-white: #ffffff; --sb-blue: #2563eb; --sb-placeholder: #2a2d33; --hz-black: #000000; --hz-900: #020221; --hz-800: #010c4c; --hz-700: #022a87; --hz-600: #165fc6; --hz-300: #72b3f3; --hz-100: #c5e3fb; --hz-400: #7dbdfa; --bp-900: #042b79; --bp-700: #06368a; --bp-400: #517ab9; --sky-300: #c4dafd; --sky-100: #e1f5fd; --sky-50: #f4f9fd; --sky-400: #8dd7f9; --sky-600: #4e9bee; --electric: #1d36eb; --violet-400: #a48bf3; --violet-200: #cbaff3; --violet-50: #ebe0f2; --agent-ceo-a: #89fafa; --agent-ceo-b: #783ff6; --agent-cs-a: #ff5c8a; --agent-cs-b: #a626c5; --agent-cs-label: #c2185b; --agent-ops-a: #7dffd0; --agent-ops-b: #02c88a; --agent-editor-a: #ffd86b; --agent-editor-b: #ff7a45; --agent-editor-label: #ff9f43; }
+* { box-sizing: border-box; }

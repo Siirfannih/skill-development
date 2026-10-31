@@ -1,0 +1,738 @@
+[
+ {
+  "code": "00a",
+  "comp": "P00a",
+  "name": "Panel 00a Founder Montage",
+  "caption": [
+   "00a",
+   "COLD OPEN · CHARCOAL",
+   "0,0–2,0 dtk",
+   "Tanpa VO. FOUNDER → CEO (slam, slot swap).",
+   "±8 foto ganti tiap 6–8 f: founder di panggung, meetup, berita AI, layar ChatGPT, demo day. Foto = placeholder.",
+   "Kamera",
+   "C01 zoom mikro per foto",
+   "Keluar",
+   "X07 cut on motion",
+   "SFX",
+   "shutter per foto, sub-hit di FOUNDER"
+  ]
+ },
+ {
+  "code": "00b",
+  "comp": "P00b",
+  "name": "Panel 00b Image Cloud",
+  "caption": [
+   "00b",
+   "COLD OPEN · CHARCOAL",
+   "2,0–4,0 dtk",
+   "Tanpa VO. SEMALAM. (slam)",
+   "Foto terakhir meledak jadi awan gambar 3D di kedalaman berbeda; kata mendarat di tengah.",
+   "Kamera",
+   "C06 reveal-out ×3",
+   "Keluar",
+   "X17 hard cut ke putih",
+   "SFX",
+   "swell → hantaman di cut"
+  ]
+ },
+ {
+  "code": "01a",
+  "comp": "P01a",
+  "name": "Panel 01a Tanpa Sadar",
+  "caption": [
+   "01a",
+   "B1 PERLOMBAAN · R2 · R-HZ",
+   "4,0–5,1 dtk (est.)",
+   "“Tanpa sadar,”",
+   "Hard cut dari awan gambar ke horizon malam→fajar (R-HZ). Teks putih di zona gelap atas (18 : 1). Fajar = perlombaan dimulai.",
+   "Kamera",
+   "C19 drift",
+   "Keluar",
+   "tile logo jatuh masuk (C10)",
+   "SFX",
+   "musik B1 penuh dari frame ini"
+  ]
+ },
+ {
+  "code": "01b",
+  "comp": "P01b",
+  "name": "Panel 01b Logo Race",
+  "caption": [
+   "01b",
+   "B1 PERLOMBAAN · R2 · R-SKY · MOMEN 1",
+   "5,1–6,6 dtk (est.)",
+   "“kita lagi",
+   "berlomba-lomba",
+   "”",
+   "Tile logo AI asli berpacu di lintasan, pemimpin berganti. BERLOMBA-LOMBA dicat di lintasan (truck kiri→kanan, R4-05).",
+   "Kamera",
+   "C18 follow tile terdepan",
+   "Keluar",
+   "X04 zoom-through ke tile",
+   "SFX",
+   "whoosh tipis per salip"
+  ]
+ },
+ {
+  "code": "01c",
+  "comp": "P01c",
+  "name": "Panel 01c Pengganti Wireframe",
+  "caption": [
+   "01c",
+   "B1 PERLOMBAAN · CHARCOAL · MOMEN 2 (awal)",
+   "6,6–8,4 dtk (est.)",
+   "“membangun",
+   "pengganti",
+   "kita sendiri.”",
+   "Garis finis membuka ke ruang gelap: piktogram wireframe kosong berdiri di kerucut cahaya. Diperkenalkan kosong, terisi di 03c.",
+   "Kamera",
+   "C02 push-in",
+   "Keluar",
+   "tahan",
+   "SFX",
+   "drone rendah + shimmer cahaya"
+  ]
+ },
+ {
+  "code": "01d",
+  "comp": "P01d",
+  "name": "Panel 01d Lebih Cepat",
+  "caption": [
+   "01d",
+   "B1 PERLOMBAAN · CHARCOAL",
+   "8,4–12,5 dtk (est.)",
+   "“Dan anehnya, kita justru menginginkan hal tersebut terjadi",
+   "lebih cepat",
+   ".”",
+   "“anehnya,” masuk dulu (T02). Piktogram kita menatap wireframe; isi wireframe naik makin cepat, garis scan menyala.",
+   "Kamera",
+   "C01 di “lebih cepat”",
+   "Keluar",
+   "X17 hard cut (batas babak)",
+   "SFX",
+   "riser pendek, hantaman di cut"
+  ]
+ },
+ {
+  "code": "02a",
+  "comp": "P02a",
+  "name": "Panel 02a R2 Wikipedia Collage",
+  "caption": [
+   "02a",
+   "B2 JANJI · R2 · KERTAS + R-FLOAT + R-PX",
+   "12,5–15,5 dtk (est.)",
+   "“Padahal waktu",
+   "AI pertama kali ramai dibicarakan",
+   ",”",
+   "Kolase gaya node “Wikipedia”: kata VO muncul per kata di sela potongan foto. Kartu Wikipedia ChatGPT disusun ulang terbaca; kalimat rilis 30 Nov 2022 diseleksi seperti teks yang di-highlight browser.",
+   "Kamera",
+   "C08 truck lambat, parallax per lapis",
+   "Keluar",
+   "X09 wipe ke blueprint 02b",
+   "SFX",
+   "musik B2, tick per kata, seleksi teks"
+  ]
+ },
+ {
+  "code": "02b",
+  "comp": "P02b",
+  "name": "Panel 02b Janji Line",
+  "caption": [
+   "02b",
+   "B2 JANJI · R2 · R-BP · MOMEN 5 (awal)",
+   "15,5–17,3 dtk (est.)",
+   "“dia punya",
+   "janji",
+   "sederhana.”",
+   "Janji = rencana: kertas blueprint (R-BP). Teks dalam bingkai garis putih, lalu garis janji putus-putus digambar seperti sketsa rencana. Putih di biru tua 11 : 1.",
+   "Kamera",
+   "C02 push pelan",
+   "Keluar",
+   "tetap di dunia putih",
+   "SFX",
+   "goresan pena tipis"
+  ]
+ },
+ {
+  "code": "02c",
+  "comp": "P02c",
+  "name": "Panel 02c Tasks To Trash",
+  "caption": [
+   "02c",
+   "B2 JANJI · R2 · R-SKY · MOMEN 4",
+   "17,3–20,7 dtk (est.)",
+   "“AI akan mengambil pekerjaan yang",
+   "membosankan dan berulang",
+   ",”",
+   "Tanpa teks layar. Kursor berlabel AI menyeret kartu tugas satu per satu ke Trash di dock; tumpukan berulang terus muncul.",
+   "Kamera",
+   "C18 follow kursor",
+   "Keluar",
+   "X07 cut on motion",
+   "SFX",
+   "drag-swish + kertas masuk Trash"
+  ]
+ },
+ {
+  "code": "02d",
+  "comp": "P02d",
+  "name": "Panel 02d Kreatif",
+  "caption": [
+   "02d",
+   "B2 JANJI · CHARCOAL",
+   "20,7–23,7 dtk (est.)",
+   "“supaya kita bisa fokus jadi lebih",
+   "KREATIF",
+   ".”",
+   "Piktogram menghadap bidang cahaya; KREATIF di bidang (Inter Black). Rim light dari kanan.",
+   "Kamera",
+   "C02 push-in lambat",
+   "Keluar",
+   "X14 bloom match ke putih",
+   "SFX",
+   "swell hangat + bloom"
+  ]
+ },
+ {
+  "code": "02e",
+  "comp": "P02e",
+  "name": "Panel 02e Janji Ditepati",
+  "caption": [
+   "02e",
+   "B2 JANJI · R2 · R-BP · MOMEN 5",
+   "23,7–27,8 dtk (est.)",
+   "“Sebagian janji itu memang",
+   "ditepati",
+   ". Kita bekerja jauh lebih cepat.”",
+   "Bloom dari 02d mendarat di grafik. Close-up: garis solid berjalan tepat di atas garis janji; label menempel di titik ujung.",
+   "Kamera",
+   "C18 follow titik (close)",
+   "Keluar",
+   "tetap",
+   "SFX",
+   "tick lembut per penanda"
+  ]
+ },
+ {
+  "code": "02f",
+  "comp": "P02f",
+  "name": "Panel 02f Tidak Berhenti",
+  "caption": [
+   "02f",
+   "B2 JANJI · R2 · R-BP · MOMEN 5",
+   "27,8–32,3 dtk (est.)",
+   "“Tapi di satu sisi, kita juga",
+   "tidak berhenti",
+   "di tahap ini.”",
+   "Kamera patah ke wide: garis janji berhenti di penanda TAHAP INI, garis solid melewatinya dan terus naik keluar frame.",
+   "Kamera",
+   "C15 patah ke wide",
+   "Keluar",
+   "X17 hard cut (batas babak)",
+   "SFX",
+   "stop-down + drone, hantaman di cut"
+  ]
+ },
+ {
+  "code": "03a-1",
+  "comp": "P03a_1",
+  "name": "Panel 03a-1 R2 Composer Typing",
+  "caption": [
+   "03a-1",
+   "B3 · R2 · R-SKY",
+   "32,3–34,9 dtk (est.)",
+   "“Sekarang kita mulai",
+   "mengajari AI",
+   "untuk berpikir, menulis,”",
+   "Kamera close di composer (ref composer, tanpa garis bantu). Pesan muncul per kata, penonton tidak melihat kalimat utuh lebih dulu. Chip: Agent, Bisnis-ku, Akses penuh.",
+   "Kamera",
+   "C18 ikut caret, crop kanan",
+   "Keluar",
+   "C06 mundur sedikit ke tombol kirim",
+   "SFX",
+   "ketik per kata, musik B3"
+  ]
+ },
+ {
+  "code": "03a-2",
+  "comp": "P03a_2",
+  "name": "Panel 03a-2 R2 Send Spawns Agents",
+  "caption": [
+   "03a-2",
+   "B3 · R2 · R-SKY + AGENT",
+   "34,9–36,4 dtk (est.)",
+   "“dan",
+   "bekerja",
+   "”",
+   "Kamera mundur sedikit: kalimat baru utuh sekarang. Klik kirim di onset “bekerja”; empat agent melompat keluar dari tombol, terbesar (CEO) paling dekat.",
+   "Kamera",
+   "C06 mundur, C01 saat klik",
+   "Keluar",
+   "X01 agent terbang ke ruang kerja",
+   "SFX",
+   "klik + 4 pop dalam bertangga"
+  ]
+ },
+ {
+  "code": "03b",
+  "comp": "P03b",
+  "name": "Panel 03b R2 Agents At Work",
+  "caption": [
+   "03b",
+   "B3 · R2 · R-SKY + AGENT",
+   "36,4–40,2 dtk (est.)",
+   "“persis seperti apa yang kita lakukan dalam",
+   "kehidupan sehari-hari",
+   ".”",
+   "Ruang kerja bersama (ref kursor bernama). Kursor agent bergerak sendiri mengerjakan tugas harian; balasan CEO Agent membagi kerja ke agent lain. Agent = rekan kerja yang hidup di komputer.",
+   "Kamera",
+   "C19 drift, C18 ikut kursor CEO",
+   "Keluar",
+   "X04 zoom-through ke kursor CEO → 03c",
+   "SFX",
+   "klik UI, ketik stream, notif lembut"
+  ]
+ },
+ {
+  "code": "03c",
+  "comp": "P03c",
+  "name": "Panel 03c Wireframe Fills",
+  "caption": [
+   "03c",
+   "B3 MENIRU DIRI · CHARCOAL · MOMEN 2",
+   "40,2–43,6 dtk (est.)",
+   "“Dan perlahan, yang kita bangun menjadi",
+   "cukup besar",
+   "”",
+   "Tanpa teks. Wireframe (dari 01c) terisi dari kaki ke kepala menjadi piktogram matte, sama tinggi dengan kita. Kita masih di cahaya.",
+   "Kamera",
+   "C19 drift, sudut rendah",
+   "Keluar",
+   "tetap",
+   "SFX",
+   "scan-fill hum naik"
+  ]
+ },
+ {
+  "code": "03d",
+  "comp": "P03d",
+  "name": "Panel 03d Takes Our Place",
+  "caption": [
+   "03d",
+   "B3 MENIRU DIRI · CHARCOAL · MOMEN 2",
+   "43,6–45,4 dtk (est.)",
+   "“untuk",
+   "mengambil tempat kita",
+   ".”",
+   "Salinan melangkah ke titik cahaya (tempat = cahaya). Kita mundur ke gelap, buram oleh rack focus. Tanpa teks.",
+   "Kamera",
+   "C17 rack focus",
+   "Keluar",
+   "X13 frame-in-frame ke klip",
+   "SFX",
+   "langkah + low thump"
+  ]
+ },
+ {
+  "code": "03e",
+  "comp": "P03e",
+  "name": "Panel 03e Jensen Clip",
+  "caption": [
+   "03e",
+   "B3 MENIRU DIRI · CHARCOAL · KLIP",
+   "45,4–50,7 dtk (est.)",
+   "[Jensen] “You’re not going to lose your job to an AI, but you’re going to lose your job to somebody who uses AI.”",
+   "Frame 03d menyusut jadi kartu klip (X13). Terjemahan 2 baris di atas zona 8 % bawah. Klip = placeholder.",
+   "Kamera",
+   "C19 drift 1,03",
+   "Keluar",
+   "X17 hard cut ke putih",
+   "SFX",
+   "musik −6 dB di bawah klip"
+  ]
+ },
+ {
+  "code": "04a",
+  "comp": "P04a",
+  "name": "Panel 04a Ga Peduli",
+  "caption": [
+   "04a",
+   "B4 EVOLUSI · R2 · R-HZ",
+   "50,7–54,5 dtk (est.)",
+   "“Teknologi ini",
+   "ga peduli",
+   "sama apa yang kita pikirkan,”",
+   "Horizon R-HZ: teknologi terus naik seperti fajar, tidak menunggu kita. Teks di zona gelap (≥ 12 : 1). Kamera tilt turun ke cahaya lalu truck ke kartu rilis.",
+   "Kamera",
+   "C01 di “peduli”",
+   "Keluar",
+   "C08 truck ke garis waktu",
+   "SFX",
+   "musik B4: ticking + bass"
+  ]
+ },
+ {
+  "code": "04b",
+  "comp": "P04b",
+  "name": "Panel 04b Release Timeline",
+  "caption": [
+   "04b",
+   "B4 EVOLUSI · R2 · R-SKY",
+   "54,5–56,0 dtk (est.)",
+   "“ia terus",
+   "berkembang",
+   ".”",
+   "Kartu kaca rilis asli muncul makin rapat; rilis terbaru menyala biru elektrik (satu aksen). Nama model diverifikasi saat build.",
+   "Kamera",
+   "C08 truck kiri→kanan",
+   "Keluar",
+   "X01 kartu jadi titik grafik",
+   "SFX",
+   "tick per kartu, makin rapat"
+  ]
+ },
+ {
+  "code": "04c",
+  "comp": "P04c",
+  "name": "Panel 04c Promise Diverges",
+  "caption": [
+   "04c",
+   "B4 EVOLUSI · R2 · R-BP · MOMEN 5",
+   "56,0–59,8 dtk (est.)",
+   "“Pertanyaannya adalah, apakah arahnya",
+   "masih sama",
+   "dengan janjinya dulu?”",
+   "Payoff grafik janji, framing ke-3 (wide). Garis solid berbelok menjauh dari janji; area jarak berarsir. Label menempel di ujung garis.",
+   "Kamera",
+   "C06 reveal-out",
+   "Keluar",
+   "X13 frame-in-frame ke klip",
+   "SFX",
+   "whoosh tipis saat belok, stop-down"
+  ]
+ },
+ {
+  "code": "04d",
+  "comp": "P04d",
+  "name": "Panel 04d Altman Orbit",
+  "caption": [
+   "04d",
+   "B4 EVOLUSI · CHARCOAL · KLIP · MOMEN 3",
+   "59,8–64,0 dtk (est.)",
+   "[Altman] “It is a legitimate single-person billion-dollar company…”",
+   "Kata kutipan mengorbit foto Altman dalam cincin 3D; kata di depan terang dan tajam, di belakang redup dan tertutup kepala. Kata ikut audio klip.",
+   "Kamera",
+   "C19 drift + orbit pelan",
+   "Keluar",
+   "X01 foto jadi kartu biru",
+   "SFX",
+   "hum orbit tipis"
+  ]
+ },
+ {
+  "code": "05a",
+  "comp": "P05a",
+  "name": "Panel 05a R2 Floating Success",
+  "caption": [
+   "05a",
+   "B5 · R2 · KERTAS + R-FLOAT · MOMEN 6",
+   "64,0–67,8 dtk (est.)",
+   "“Apa yang dikatakan Sam Altman adalah",
+   "satu cerita sukses",
+   ",”",
+   "Narator, bukan Altman bicara (klip Altman ada di 04d). Foto tokoh dan founder sukses melayang dengan parallax; satu foto Altman bergaris biru = satu cerita. Lalu kamera mundur ke ribuan kartu abu (05b).",
+   "Kamera",
+   "C19 drift + parallax 3 lapis",
+   "Keluar",
+   "C06 reveal-out ke 05b",
+   "SFX",
+   "musik B5 build, shutter lembut"
+  ]
+ },
+ {
+  "code": "05b",
+  "comp": "P05b",
+  "name": "Panel 05b Thousand Grey Cards",
+  "caption": [
+   "05b",
+   "B5 KENYATAAN · PUTIH · MOMEN 6",
+   "67,8–71,9 dtk (est.)",
+   "“di antara",
+   "ribuan cerita gagal",
+   "yang gak pernah kita dengar.”",
+   "Reveal-out: kartu biru jadi satu di tengah ribuan kartu abu. Di “gak pernah kita dengar” kartu abu lenyap bergelombang dari tengah ke luar; tersisa satu titik biru. Tanpa teks.",
+   "Kamera",
+   "C06 reveal-out lalu tahan",
+   "Keluar",
+   "X17 hard cut ke gelap",
+   "SFX",
+   "rustle kartu → drone sunyi"
+  ]
+ },
+ {
+  "code": "05c",
+  "comp": "P05c",
+  "name": "Panel 05c Same Tools Anchor",
+  "caption": [
+   "05c",
+   "B5 KENYATAAN · CHARCOAL · MONTASE",
+   "71,9–76,8 dtk (est.)",
+   "“Dan hari ini, semua orang punya akses ke tools AI yang",
+   "sama",
+   ".”",
+   "Anchor word (T24): SAMA. tetap di tengah, foto di belakang berganti cepat. Montase cepat pertama B5 (B-04).",
+   "Kamera",
+   "C19 drift",
+   "Keluar",
+   "X07 cut on motion",
+   "SFX",
+   "shutter per foto, kick tiap 2 foto"
+  ]
+ },
+ {
+  "code": "05d",
+  "comp": "P05d",
+  "name": "Panel 05d Same Prompt",
+  "caption": [
+   "05d",
+   "B5 KENYATAAN · R2 · R-SKY · UI",
+   "76,8–78,3 dtk (est.)",
+   "“",
+   "Prompt",
+   "yang sama.”",
+   "Composer ChatGPT asli dengan prompt identik, 3 cut zoom: laptop → HP → tablet. Build: tangkap UI dan copy asli.",
+   "Kamera",
+   "C20 cut zoom",
+   "Keluar",
+   "tetap",
+   "SFX",
+   "ketik singkat + klik kirim per cut"
+  ]
+ },
+ {
+  "code": "05e",
+  "comp": "P05e",
+  "name": "Panel 05e Same Landing Pages",
+  "caption": [
+   "05e",
+   "B5 KENYATAAN · R2 · R-RAY",
+   "78,3–81,3 dtk (est.)",
+   "“Dan",
+   "kesempatan yang sama",
+   "untuk membuat sesuatu.”",
+   "Barisan landing page identik di atas ray burst (R-RAY, dipakai sekali): “kesempatan yang sama” memancar ke semua orang. Kamera sapu kiri→kanan, tanpa teks.",
+   "Kamera",
+   "C08 truck kiri→kanan",
+   "Keluar",
+   "X06 whip",
+   "SFX",
+   "whoosh tipis"
+  ]
+ },
+ {
+  "code": "05f",
+  "comp": "P05f",
+  "name": "Panel 05f Founders Overnight",
+  "caption": [
+   "05f",
+   "B5 KENYATAAN · CHARCOAL · MONTASE",
+   "81,3–85,8 dtk (est.)",
+   "“Makanya ada banyak",
+   "founder",
+   ", ada banyak",
+   "CEO",
+   ", yang lahir dalam",
+   "semalam",
+   ".”",
+   "Callback cold open: slot swap FOUNDER → CEO → SEMALAM. di posisi sama, tipe sama dengan 00a. Montase tercepat di video.",
+   "Kamera",
+   "C01 per cut",
+   "Keluar",
+   "X17 hard cut",
+   "SFX",
+   "shutter rapat, hantaman di SEMALAM"
+  ]
+ },
+ {
+  "code": "05g",
+  "comp": "P05g",
+  "name": "Panel 05g Building Is Easy",
+  "caption": [
+   "05g",
+   "B5 KENYATAAN · R2 · R-SKY",
+   "85,8–87,6 dtk (est.)",
+   "“Membangun sesuatu jadi",
+   "gampang",
+   ".”",
+   "Kartu aplikasi muncul dan menumpuk secepat ketukan (T10); kamera snap mundur tiap tumpukan bertambah.",
+   "Kamera",
+   "C15 snap reflow",
+   "Keluar",
+   "X10 foreground wipe",
+   "SFX",
+   "pop per kartu"
+  ]
+ },
+ {
+  "code": "05h",
+  "comp": "P05h",
+  "name": "Panel 05h Users Walk Past",
+  "caption": [
+   "05h",
+   "B5 KENYATAAN · CHARCOAL",
+   "87,6–91,4 dtk (est.)",
+   "“Tapi membangun sesuatu yang dibutuhkan orang, justru",
+   "semakin susah",
+   ".”",
+   "Deretan produk menyala; piktogram pengguna berjalan melewati semuanya tanpa berhenti dan keluar frame kanan (dibutuhkan = pengguna berhenti).",
+   "Kamera",
+   "C18 follow pengguna",
+   "Keluar",
+   "X17 + engsel senyap",
+   "SFX",
+   "langkah, drone; musik B5 putus"
+  ]
+ },
+ {
+  "code": "06a",
+  "comp": "P06a",
+  "name": "Panel 06a Busy Planning",
+  "caption": [
+   "06a",
+   "B6 CERMIN · CHARCOAL",
+   "91,4–94,8 dtk (est.)",
+   "“Terkadang kita terlalu sibuk",
+   "membangun",
+   ". Terlalu sibuk",
+   "merencanakan",
+   ".”",
+   "Gema komposisi 02d (disengaja: dulu KREATIF, kini sibuk). Kata di bidang cahaya berganti MEMBANGUN → MERENCANAKAN (T32).",
+   "Kamera",
+   "C19 drift",
+   "Keluar",
+   "tetap (kamera mundur)",
+   "SFX",
+   "musik B6: piano rendah + drone"
+  ]
+ },
+ {
+  "code": "06b",
+  "comp": "P06b",
+  "name": "Panel 06b Same As Everyone",
+  "caption": [
+   "06b",
+   "B6 CERMIN · CHARCOAL",
+   "94,8–98,6 dtk (est.)",
+   "“Membangun",
+   "hal yang sama",
+   "dengan yang semua orang lakukan,”",
+   "Reveal-out dari 06a: kita satu dari grid piktogram identik, masing-masing di depan bidang cahaya identik. Tanpa teks.",
+   "Kamera",
+   "C06 reveal-out",
+   "Keluar",
+   "tetap (push ke satu unit)",
+   "SFX",
+   "hum bertambah per baris"
+  ]
+ },
+ {
+  "code": "06c",
+  "comp": "P06c",
+  "name": "Panel 06c Handing Over Thinking",
+  "caption": [
+   "06c",
+   "B6 CERMIN · CHARCOAL",
+   "98,6–101,6 dtk (est.)",
+   "“dan",
+   "menyerahkan cara berpikir",
+   "kita ke AI,”",
+   "Close-up: kepala bola (yang memang terpisah di gaya B-09) melayang meninggalkan badan menuju bidang cahaya. Cadangan: bola cahaya kecil keluar dari kepala.",
+   "Kamera",
+   "C18 follow bola",
+   "Keluar",
+   "tetap (bola masuk cahaya)",
+   "SFX",
+   "swell tipis, hisapan"
+  ]
+ },
+ {
+  "code": "06d",
+  "comp": "P06d",
+  "name": "Panel 06d Trivial Prompt",
+  "caption": [
+   "06d",
+   "B6 CERMIN · CHARCOAL",
+   "101,6–105,4 dtk (est.)",
+   "“bahkan untuk hal yang sebenarnya",
+   "bisa kita kerjakan sendiri",
+   ".”",
+   "Over-the-shoulder: bidang cahaya menjadi composer; prompt sepele diketik pelan. Bukti visual “hal kecil yang bisa dikerjakan sendiri”.",
+   "Kamera",
+   "C13 over-the-shoulder",
+   "Keluar",
+   "tetap (cahaya padam)",
+   "SFX",
+   "ketik pelan"
+  ]
+ },
+ {
+  "code": "06e",
+  "comp": "P06e",
+  "name": "Panel 06e Left Behind",
+  "caption": [
+   "06e",
+   "B6 CERMIN · CHARCOAL",
+   "105,4–108,8 dtk (est.)",
+   "“Tapi kalau tidak memakai AI, kita merasa",
+   "tertinggal",
+   ".”",
+   "Bidang kita padam; tanpa cahaya, rim light hilang. Yang lain tetap menyala dan bergerak menjauh (tertinggal = jarak ruang).",
+   "Kamera",
+   "mundur pelan (C06 lambat)",
+   "Keluar",
+   "tetap (truck ke kerumunan)",
+   "SFX",
+   "klik relay cahaya mati + drone"
+  ]
+ },
+ {
+  "code": "06f",
+  "comp": "P06f",
+  "name": "Panel 06f Same Tools Crowd",
+  "caption": [
+   "06f",
+   "B6 CERMIN · CHARCOAL",
+   "108,8–113,7 dtk (est.)",
+   "“Karena semua orang di sekitar kita memakainya, dengan tools yang",
+   "sama persis",
+   ".”",
+   "Sudut belakang kerumunan: setiap bidang cahaya menampilkan glyph AI yang sama. Kamera menyapu kiri→kanan; barisan memanjang keluar frame. Tanpa teks.",
+   "Kamera",
+   "C08 truck kiri→kanan",
+   "Keluar",
+   "tetap (crane naik ke wide)",
+   "SFX",
+   "hum bertumpuk"
+  ]
+ },
+ {
+  "code": "06g",
+  "comp": "P06g",
+  "name": "Panel 06g Closing Question",
+  "caption": [
+   "06g",
+   "B6 CERMIN · CHARCOAL · MOMEN 7",
+   "113,7–120,7 dtk (est.)",
+   "“Jadi di tengah semua ini, peran apa yang sedang",
+   "kamu",
+   "mainkan?”",
+   "Bidang-bidang padam satu per satu; tersisa satu piktogram di tengah. Pertanyaan muncul kata per kata, “kamu” putih penuh. Ekor gelap 2,5 dtk.",
+   "Kamera",
+   "C02 push-in 100→115 % ±7 dtk",
+   "Keluar",
+   "akhir video",
+   "SFX",
+   "musik lepas setelah kata terakhir"
+  ]
+ }
+]
