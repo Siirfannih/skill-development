@@ -118,3 +118,22 @@ Akar masalah:
 Usulan aturan: `audio.md` §14.0 (gerbang sumber SFX + larangan bunyi sintetis + definisi gaya Apple + VO tanpa reverb).
 
 Status: diterapkan (diminta Irfan).
+
+### 2026-11-01 · Pengganti Kita Sendiri · audit audio vs The Gap/video #2 (00:23)
+Revisi Irfan: SFX Kenyset terbukti membangun suasana di The Gap dan video #2. Masalahnya kemungkinan dari Gemini atau dari aturan workflow yang berubah. Dia meminta:
+- periksa feedback lama, termasuk "1 adegan 1 message 1 SFX";
+- audit ulang referensi;
+- pakai solusi audit independen yang relevan (VO kering dan jernih, SFX kayu dihapus);
+- kata per kata belum punya SFX, jadi hapus semua SFX dan susun ulang.
+
+Akar masalah:
+- (1) Tabel Gemini (Modul 3/5 dan `Refference-audio.json`) dikodekan ke `audio.md` §14.5/§14.8/§14.10 tanpa dibandingkan dengan proyek yang sudah lulus. Isinya: wood/felt/thock LPF 1,5 kHz, sub thump di bawah whoosh, tick + pulse, dan gerbang sub 25–55 % yang berasal dari referensi musik tanpa VO.
+- (2) Untuk lolos gerbang itu, ditambahkan sub-pad sinus. Akibatnya bed hanya −5,8 dB di bawah VO (The Gap −14,8) dan event SFX yang menonjol tinggal 0,26/dtk (The Gap 2,05).
+- (3) Dua bunyi per event melanggar "1 adegan 1 pesan 1 SFX".
+
+Aturan:
+- `audio.md` §14.5 (palet The Gap + pita per keluarga + referensi terukur), §14.8 (satu peran satu bunyi; tabel Gemini dicabut), §14.9 (stagger; kata tidak pernah dipangkas), §14.10 (pita dibandingkan dengan referensi ber-VO; kepadatan/level/gema terukur).
+- `scripts/audio/sfx_profile.py`.
+- Laporan: `projects/pengganti-kita-sendiri/AUDIO-AUDIT-1NOV.md`.
+
+Status: diterapkan (1 Nov).

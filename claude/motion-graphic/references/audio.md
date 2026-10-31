@@ -88,27 +88,22 @@ Aturan:
 ### 14.4 Engsel senyap (titik balik)
 Senyap hanya boleh **disengaja dan pendek** (≤ 300 ms, sebelum hantaman/sub drop). Musik/bed **tidak pernah mati ke 0** di bawah klip narasumber (§14.7). Senyap 9 f tepat di cut → VO kalimat balik → senyap 15 f → musik bagian baru masuk ≤ 2 f sebelum gerak kamera pertama. Punchline terbesar: semua audio senyap 0,4 dtk → hantaman + bass.
 
-### 14.5 Standar "Warm, Thock, No Ear-Fatigue"
-- Hindari energi tajam 2–6 kHz: piezo beep, tick digital, klik kaca, whoosh tipis, sparkle.
-- Pilih thock/sub/muted latch/felt/wood/paper glide 100–1.200 Hz. Low-pass 5–6 kHz bus SFX; **whoosh/riser LPF 1,8–3,5 kHz** (§14.8).
-- **Deep bubble pop dilarang di grafik/data**: terdengar «blup» sonar (audit 31 Okt). Grafik memakai haptic micro-tick + felt pulse (§14.8).
-- Glitch diterjemahkan ke versi hangat: sub stutter / tape-stop < 1,5 kHz.
-- Dilarang: koin, logam, bunyi game, kartun berlebihan, salinan bunyi sistem Apple.
-- Pustaka: **Kenyset FREE SFX PACK** (Pixabay license; katalog dengan kelas, durasi, centroid, energi rendah, label HANGAT/PAKAI+LPF/TAJAM). Rakit "kit gaya transisi" yang konsisten dari pack ini:
-  - WHIP (swoosh + thump rendah)
-  - TEXT_SLAM (pop + sub)
-  - TEXT_SOFT
-  - COUNTUP (tick roll + lock)
-  - UI_CLICK, NOTIF
-  - RISER → reveal
-- Pemetaan cepat dari pack:
-  - pendaratan kamera / whip: `whoosh-end`, `swoosh-2`, `swoosh-010`, `universfield-swoosh-023`, `simple-whoosh-02`, `whoosh-velocity`
-  - pop kata kunci / objek muncul: `soft-subtle-ui-pop`, `simple-pop-noise`, `pop-2`, `pop-402324`, `bubble_pop_1`, `multi-pop-2`, `creatorshome-plop`
-  - UI/klik: `soft-ui-pop-light-minimal-click`, `tiktok_drop_sample_click3`, `confirm-tap` (+LPF), `ui-sounds-pack-2-sound-*`
-  - notifikasi/positif: `pop-up-notify-smooth-modern`, `marimba-bloop-2/3`, `notification-pluck-off`, `new-notification-012`
-  - riser/appear: `freesound_community-appearance-effect`
-- Impact rendah disintesis (sine 55–150 Hz) bila pack tidak punya.
-- QA telinga: Gemini berguna untuk mendeteksi bunyi tajam atau yang menutupi VO, tetapi **tidak andal untuk level dan timestamp** (bisa bergeser puluhan detik). Ukur dengan alat sendiri; telinga Irfan hakim terakhir.
+### 14.5 Standar "Nyaman, jelas, tanpa ear-fatigue" (direvisi 1 Nov 2026)
+Versi lama bagian ini mewajibkan bunyi thock/felt/wood dengan LPF 1,5–2,5 kHz. Bersama tabel Gemini §14.8, aturan itu menghasilkan palet gelap seperti ketukan kayu di Pengganti Kita Sendiri v3, yang ditolak Irfan pada 31 Okt pukul 23.34. **Acuan sekarang adalah palet yang terbukti lulus**, yaitu The Gap v17/v18 dan Jadisatu #2 (`projects/jadisatu-60s/remotion/tools/audio_build.py`):
+
+- **Sumber**: hanya stok nyata (§14.0), yaitu Kenyset, SFX proyek Irfan, dan ElevenLabs dengan prompt "dry, clean". Tidak ada SFX yang disintesis di kode.
+- **Apple-style** berarti:
+  - tap/klik digital, contohnya `ipad_click`, `mouse-click`, `pop-up-notify-smooth-modern`;
+  - keyboard digital iPhone (`iphone-keyboard-typing`);
+  - whoosh gelombang halus (`whoosh-gelombang`, `swoosh-014`, `simple-whoosh-382724`).
+- **Disiplin pita per keluarga** (The Gap v17, tanpa saturasi):
+  - UI: HPF 300 Hz / LPF 8 kHz, cekungan −4 dB di 2,8–4,5 kHz;
+  - gerak: 400 Hz–2,5 kHz;
+  - tekstur: 400 Hz–2,6 kHz;
+  - low: di bawah 2 kHz + body 150–450 Hz.
+- **Jangan menggelapkan klik dengan LPF 1,5–2,5 kHz.** Referensi Audio.mp4 terukur: klik/tick ber-centroid 8–10 kHz, whoosh berpusat di 1,4–1,9 kHz tanpa energi di atas 6 kHz. Yang dibuang adalah desis di atas 6 kHz, bukan kecerahan klik.
+- **Dilarang**: ketukan kayu/woodblock, felt knock, koin, logam, kartun, langkah kaki kartun, salinan bunyi sistem Apple, potongan SFX yang "dipahat" dari video referensi orang lain.
+- **QA telinga**: Gemini tidak andal untuk level dan timestamp, dan tabel aturannya tidak boleh menggantikan data proyek yang sudah lulus. Ukur dengan alat sendiri; telinga Irfan adalah hakim terakhir.
 - Sumber dan lisensi tiap file dicatat di `CREDITS.md`.
 
 ---
@@ -122,6 +117,8 @@ Sumber: audit DSP Gemini atas `PenggantiKitaSendiri_v2`, diminta dan diadopsi Ir
 | v2 | 5,8 % | 67,9 % | 100 |
 | Ref Krea 2 | 55,4 % | 33,6 % | 3 |
 | Ref Renaissance | 39,3 % | 35,2 % | 17 |
+
+> Catatan 1 Nov 2026: Krea 2 dan Renaissance adalah referensi musik/motion **tanpa VO**, jadi tidak bisa dipakai sebagai target pita untuk video ber-narasi. Referensi ber-VO terukur: The Gap sub 14 % / low-mid 63 %, Emotion 18 % / 64 %. Lihat §14.10.
 
 Implementasi rujukan ada di `experimental/dual-agent-sound/examples/pengganti-kita-sendiri/v13/`: `assemble12.py`, `mix13.py`, `sfx_rules.py`, `roomtone.py`.
 
@@ -174,17 +171,28 @@ Dilarang:
 - laser sci-fi;
 - langkah kaki kartun.
 
-Semua whoosh/riser LPF 1,8–3,5 kHz.
+**Direvisi 1 Nov 2026.** Kolom "Wajib" versi Gemini dicabut: wood/felt, thock LPF 1,5 kHz, lapisan sub thump di bawah whoosh, dan micro-tick + felt pulse. Penyebabnya:
+- dua bunyi untuk satu event melanggar aturan "1 adegan 1 pesan 1 SFX";
+- palet gelap bertentangan dengan referensi dan dengan palet The Gap.
 
-| Visual | Dilarang | Wajib | Spektrum/durasi |
-|---|---|---|---|
-| Pan/zoom/whip cepat | desis noise tajam | whoosh udara/kain hangat **+ sub thump** | puncak 120–600 Hz, LPF 2,5 kHz, 180–350 ms |
-| Kartu UI / urutan item | pop datar satu nada | felt-pop / wood-tick naik +1 st (atau +50 cent) per kartu | transien 8–20 ms, body 250–800 Hz, −16 dBFS |
-| Grafik / kurva / dial / data | sonar «blup» | haptic micro-tick 2–4 ms + felt pulse naik 60–180 Hz | klik ultra-pendek + sub-swell halus |
-| Ketikan prompt | ketik mekanik keras di 2 kHz | thock lembut LPF 1,5 kHz, variasi nada ±3 % | −22…−25 dBFS |
-| Metafora dokumenter (siluet, kloning, buku) | laser buzz, langkah kartun | foley material diegetik: kertas/flutter untuk data masif, klik tombol fisik, ketukan kayu/felt, vinyl stop | organik, sesuai materi objek |
-| Montase foto cepat | shutter keras berulang | flutter karton/kertas LPF 2,2 kHz sinkron 1:1 per foto (shutter tunggal tetap boleh) | pendek, lembut |
-| Klimaks/pertanyaan penutup | dengung low-mid 150–300 Hz | **300 ms pre-drop silence → sub drop 45–80 Hz + ekor piano/synth hangat 3 dtk** | ekor fade eksponensial ke −60 dB |
+Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan tipografi. Satu event hanya mendapat **satu bunyi**.
+
+| Visual | Bunyi (stok Irfan) | Catatan |
+|---|---|---|
+| Kata kinetik muncul (setiap kata) | tap digital `ipad_click` | −16 dB dari puncak VO, turun −3 dB saat VO bicara |
+| Kata slam/penekanan | `v17_thud_1` (dentum pendek) | satu bunyi, bukan pop + sub |
+| Ketikan | `iphone-keyboard-typing`, satu rentang per kalimat yang diketik | keyboard digital, bukan thock mekanik |
+| Kursor/tombol ditekan | `mouse-click-290204` | |
+| Kartu/UI/agent muncul | `pop-up-notify-smooth-modern` | |
+| Kartu/tile mendarat | `soft-subtle-ui-pop` | |
+| Kamera patah / transisi / potongan antar pembicara | whoosh gelombang (rotasi 3 sampel mirip), puncak di v_max atau di potongan | tanpa lapisan sub |
+| Whip / cut on motion | `v17_whip_1/2` | |
+| Zoom-through / build | `riser` (ElevenLabs, video #2), berakhir di cut | |
+| Beat drop / pendaratan besar | `v17_impact_1`, ekor ≤ 0,9 dtk | tidak ada hantaman di frame 0 (The Gap D-038) |
+| Foto montase berganti | `klik-ui` 1:1 per foto | |
+| Bidang cahaya menyala/padam | `switch` (klik saklar) | |
+| Garis/grafik tergambar | `v17_glide_2` | |
+| Penutup | jeda pra-drop −18 dB (bukan hening mati) → bass drop + ekor musik asli | tanpa akor sinus |
 
 ### 14.9 Modul 4 — sinkron kurva kamera ↔ audio (velocity-peak)
 - Kamera Apple-style tidak linear: spring (stiffness 160–220, damping 22–28) atau `cubic-bezier(0.22, 1, 0.36, 1)`. Kecepatan maksimum ada di 25–35 % durasi gerak.
@@ -195,7 +203,7 @@ Semua whoosh/riser LPF 1,8–3,5 kHz.
   - rumus: `sfxStart = camStart + round(0.28 × moveDur) − whooshPeakOffset`;
   - di cue, pakai `align:"peak"` + `peak` = detik puncak di file.
 - **Pop/klik kemunculan**: transien di +1…+2 f setelah skala melewati 0,6 (objek pertama kali terlihat jelas), bukan di frame 0.
-- **Stagger banyak item** (grid, barisan): maksimal 4–6 micro-tick terpisah di awal, lalu satu tekstur organik kontinu (flutter kertas/shimmer LPF) yang mengikuti kurva jumlah objek. Dilarang memicu ratusan SFX bersamaan.
+- **Stagger banyak item** (grid, barisan): satu bunyi per item yang terlihat terpisah. Item yang muncul bersamaan dalam ≤ 2 frame dihitung sebagai satu event. Maksimal 2 bunyi per 100 ms, dan dua bunyi berperan sama tidak boleh jatuh dalam 100 ms (The Gap `sync_cues.py`). **Kata kinetik tidak pernah dipangkas**, karena setiap kata yang muncul mendapat bunyinya (revisi 1 Nov). Aturan lama "4–6 tick lalu tekstur kertas" dicabut.
 
 ### 14.10 Modul 5 — gerbang QA audio otomatis (wajib sebelum render/kirim final)
 ```
@@ -208,9 +216,10 @@ Lulus bila semua terpenuhi:
 |---|---|
 | Integrated | −14,0…−14,5 LUFS |
 | True peak | ≤ −1 dBTP |
-| Sub 20–150 Hz | 25–55 % daya spektral |
-| Low-mid 150–500 Hz | < 42 % |
-| Abrupt cutoff (>18 dB/50 ms) di ujung klip narasumber | 0, kecuali tape-stop/silence drop yang tertulis di naskah |
+| Pita spektral | **dibandingkan dengan referensi segenre (video ber-VO), bukan angka tetap.** The Gap: sub 14 % / low-mid 63 %. Emotion: sub 18 % / low-mid 64 %. Angka lama (sub 25–55 %, low-mid < 42 %) berasal dari referensi musik tanpa VO (Krea 2, Renaissance) dan mendorong penambahan sub-pad sinus; dicabut 1 Nov 2026. |
+| Abrupt cutoff (> 18 dB/50 ms) di ujung klip narasumber | tidak ada celah mati: di potongan antar pembicara selalu ada jembatan (whoosh + musik/room tone), jendela 100 ms < −45 dBFS = 0. Penurunan di akhir kata VO kering itu normal (The Gap 46). |
+| Kepadatan & level SFX (demucs no_vocals, `refaudit/sfx_profile.py`) | event menonjol ±1,8–2,1/dtk; puncak SFX median ±−9…−10 dB dari puncak VO; bed −13…−15 dB di bawah VO (The Gap: 2,05/dtk, −10 dB, −14,8 dB) |
+| Gema VO | energi ekor 40–150 ms setelah kata ≤ −25 dB dari kata (`qa14.py`) |
 | VO per blok | −14 LUFS ±1 |
 | Klip narasumber per blok | −15,0…−15,5 LUFS (±0,5) |
 | Musik di bawah VO | −22…−25 LUFS |

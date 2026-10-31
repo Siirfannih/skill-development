@@ -1,0 +1,117 @@
+{
+"echo_tail_db_v13": [
+-19.8,
+51
+],
+"echo_tail_db_v14": [
+-27.3,
+51
+],
+"silent_100ms": [],
+"abrupt_at_clip_edges": [
+0.14,
+3.76,
+7.83,
+8.16
+],
+"vo_sibilance_hi6_p99": 0.997,
+"sfx_by_role": {
+"word": {
+"n": 81,
+"peak_vs_vo_db": -16.2,
+"b2_6k": 0.64,
+"hi6": 0.004
+},
+"photo": {
+"n": 45,
+"peak_vs_vo_db": -17.2,
+"b2_6k": 0.34,
+"hi6": 0.009
+},
+"whoosh": {
+"n": 41,
+"peak_vs_vo_db": -14.2,
+"b2_6k": 0.0,
+"hi6": 0.0
+},
+"ui_pop": {
+"n": 15,
+"peak_vs_vo_db": -13.5,
+"b2_6k": 0.01,
+"hi6": 0.0
+},
+"land": {
+"n": 14,
+"peak_vs_vo_db": -15.2,
+"b2_6k": 0.0,
+"hi6": 0.0
+},
+"draw": {
+"n": 5,
+"peak_vs_vo_db": -18.2,
+"b2_6k": 0.01,
+"hi6": 0.0
+},
+"light": {
+"n": 17,
+"peak_vs_vo_db": -16.1,
+"b2_6k": 0.77,
+"hi6": 0.054
+},
+"riser": {
+"n": 6,
+"peak_vs_vo_db": -17.0,
+"b2_6k": 0.0,
+"hi6": 0.0
+},
+"slam": {
+"n": 5,
+"peak_vs_vo_db": -6.1,
+"b2_6k": 0.0,
+"hi6": 0.0
+},
+"click": {
+"n": 12,
+"peak_vs_vo_db": -14.1,
+"b2_6k": 0.39,
+"hi6": 0.025
+},
+"trash": {
+"n": 3,
+"peak_vs_vo_db": -17.2,
+"b2_6k": 0.29,
+"hi6": 0.0
+},
+"whip": {
+"n": 5,
+"peak_vs_vo_db": -14.2,
+"b2_6k": 0.01,
+"hi6": 0.0
+},
+"type": {
+"n": 6,
+"peak_vs_vo_db": -14.2,
+"b2_6k": 0.17,
+"hi6": 0.002
+},
+"message": {
+"n": 1,
+"peak_vs_vo_db": -14.2,
+"b2_6k": 0.0,
+"hi6": 0.0
+},
+"impact": {
+"n": 5,
+"peak_vs_vo_db": -7.1,
+"b2_6k": 0.0,
+"hi6": 0.0
+}
+},
+"sfx_sharper_than_vo_sibilance": [],
+"words_total": 81,
+"words_with_sfx": 81,
+"missing_words": [],
+"events_within_2f": 8,
+"sfx_cues": 261,
+"sfx_per_sec": 1.97
+}

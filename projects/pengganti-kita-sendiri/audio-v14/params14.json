@@ -1,0 +1,19 @@
+{
+ "vo_b1_db": 0,
+ "vo_b2_db": 0,
+ "vo_b3_db": 0,
+ "vo_end_db": 0,
+ "end_swell_db": 8,
+ "duck_db": -6,
+ "lufs_pre": -19.0,
+ "duck_ost_db": -4,
+ "lufs_post": -21,
+ "vo_lufs": -12.8,
+ "duck_rel_s": 0.25,
+ "clip_bgm_db": -3.0,
+ "clip_below_vo": 0.9,
+ "mus_under_vo": -23.8,
+ "sub_db": 7.5,
+ "vo_verb_db": -99,
+ "bed_under_ost_db": -4.0
+}
