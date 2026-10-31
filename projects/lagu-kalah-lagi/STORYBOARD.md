@@ -55,6 +55,10 @@ Komposisi dikunci berpasangan agar perubahan terbaca: 03=04, 08=15, 16=22, 06=24
 - **R2b (31 Okt, Irfan):** kepala navy ditolak. Kulit sawo matang `#B87A4F` (bayang `#8E5A37`), rambut `#1E1712`, garis wajah cokelat tua `#2A1A12` (garis putih di kulit cokelat hanya ±3 : 1), tepi putih 6 px di kepala supaya lepas dari latar terang. Kacamata bulat + jambul tetap jadi penanda identitas; hoodie `#7FA0F5`, bayangan/celana `#3550D6`, tepi putih 6–8 px. Petir kuning/merah hanya di 08 dan 15; percik teal hanya di 18 dan 23.
 - Warna di SVG canvas ditulis hex. `var()` di atribut SVG dirender hitam oleh Wonder (sudah diuji); nilainya sama dengan token `loris/*`.
 
+## Acuan visual ACC Irfan (31 Okt 16:17)
+
+Panel 02, 07, 20, 22 di-ACC sebagai acuan; komposisinya dikunci. Pola yang diturunkan (P1–P5) dan putusan devil's advocate ada di [DECISIONS.md](DECISIONS.md). Ringkasnya: tokoh dari mata tokoh (belakang/OTS/tangan), satu sumbu komposisi tegas, sedikit bentuk besar, 3–4 warna + gradasi, kedalaman dari lapisan bidang. Panel lain digambar ulang mengikuti pola ini saat karakter R2b dipasang.
+
 ## Aturan render (31 Okt): Remotion + SVG 2D, tanpa three.js
 
 Kekhawatiran Irfan: istilah kamera di panel (crane, dolly, foreshortening) bisa dibaca sebagai kamera 3D. `claude/motion-graphic/references/build.md` baris 32 memang mengarahkan "engine kode (canvas + three.js)" untuk dunia 3D. Kalau jalur itu dipakai, warna flat kena lighting dan tepi putih hilang. Proyek ini **tidak** memakai jalur itu. Semua perspektif sudah digambar di ilustrasi, jadi kamera cukup transform 2D.
