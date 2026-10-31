@@ -37,7 +37,7 @@
    "melancholic piano underscore",
    "documentary tension"
   ],
-  "dynamics": "v10: bed -23 LUFS sebelum Jensen (ostinato harus terdengar), mati saat Jensen, sesudahnya ±-20/-18 dengan ostinato sampai 06e",
+  "dynamics": "v13: lihat v13_audit_audio_31okt_2137 (bed tidak pernah 0; tanpa beat drop ke hening)",
   "self_critique": "jalankan CLAP pada tiap kandidat; buang otomatis bila tag terlarang dominan; ambil yang dominan ambient / drone / cinematic / warm pad"
  },
  "sfx": {
@@ -59,9 +59,8 @@
   "acoustic_world": "Analog & Warm Synthesis: pita kaset tua, low-pass synth pulse, deep sub-bass, soft air; tolak transien tajam > 5 kHz"
  },
  "mastering_pass_fail": {
-  "fail_if_lra_below_lu": 7.0,
-  "target_lra_lu": 8.0,
-  "ducking": "sidechain/envelope: musik tenggelam saat narasi, naik di sela kalimat"
+  "gate": "audio_qa.py --module5 (motion-graphic/references/audio.md §14.10)",
+  "superseded": "fail_if_lra_below_lu 7.0 (dicabut 31 Okt 21:41)"
  },
  "workflow": "Dual agent: Claude = sound engineer (eksekutor teknis), Gemini = music & vocal director (kurator, kritikus). Fase: kurasi library → VO pick & pacing → mix → QC loop sampai APPROVED.",
  "v10_update_31okt_1521": {
@@ -89,5 +88,14 @@
  "v12_sfx_correction_31okt_2012": {
   "_doc": "Irfan 20:12 — menang atas tafsir sebelumnya",
   "rule": "SFX per event visual dengan peran jelas; batas 15 cue / 3 jenis dicabut; tetap hangat (hindari 2–6 kHz tajam), offset sesuai §14.3"
+ },
+ "v13_audit_audio_31okt_2137": {
+  "_doc": "Audit DSP Gemini diadopsi Irfan sebagai masukannya (21:41). Menang atas aturan lama yang bertentangan.",
+  "clips": "Modul 1: mono, HPF120, −5 dB@320, +2,5@3,2k, LPF9k, afftdn, kompresor, loudnorm −15,5; klip −15…−15,5 LUFS di master",
+  "edges": "Modul 2: handle J/L-cut ≤133/266 ms dari sumber, fade quad/cubic, bridge SFX di setiap perpindahan pembicara, room tone sumber di celah",
+  "music": "Bed + sub-pad tidak pernah 0 di bawah klip (−6 dB, ramp 12/15 f); musik di bawah VO −22…−25 LUFS; sub 20–150 Hz 25–55 % daya, low-mid < 42 %",
+  "sfx": "Modul 3 taksonomi (whoosh udara hangat LPF 2,5k + sub thump; kartu wood/felt naik nada; grafik haptic tick + felt pulse; ketikan thock LPF 1,5k −22…−25 dBFS; tanpa beep/laser/langkah kartun; montase = flutter kertas 1:1; penutup 300 ms pre-drop → sub drop + ekor synth 3 dtk)",
+  "sync": "Modul 4: whoosh memuncak di v_max kamera; pop +1…+2 f setelah skala > 0,6; stagger > 6 item → tekstur kontinu",
+  "gate": "Modul 5: audio_qa.py --module5 lulus; menggantikan LRA≥7, hening total saat Jensen, dinamika narator per babak"
  }
 }

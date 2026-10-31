@@ -72,3 +72,20 @@ Masukan Irfan: tidak boleh ada jeda di awal. Cold open diisi potongan berita yan
 - **Ostinato:** A1 (51,8 dtk) diperpanjang 2 bar tepat di ketukan (`OST_A1x`) karena Jensen bergeser +6,25 dtk.
 - **Gerbang:** I −14,1, LRA 7,4, TP −2,0. Berita di atas musik median 20–25 dB.
 - **QC Gemini API** (16 dtk pertama): APPROVED, tetapi «temuannya» merujuk 0:45–1:15 di luar potongan yang dikirim. Gemini membaca konteks, bukan audio. Pelajaran: untuk QC potongan, kirim konteks yang relevan saja (tanpa cues di luar rentang).
+
+## Putaran v13 (31 Okt 21:37) — audit audio Modul 1–5
+Irfan menyerahkan audit DSP Gemini dan menyatakannya sebagai masukannya sendiri: semua modul diterapkan, devil's advocate dijalankan di QC akhir. Angka diukur ulang dengan `claude/motion-graphic/scripts/audio_qa.py` (definisi sama untuk video kita dan referensi).
+
+| Metrik | v2 | v13 | Ref Krea 2 | Ref Renaissance | Gerbang |
+|---|---|---|---|---|---|
+| Sub 20–150 Hz | 5,8 % | 26,3 % | 55,4 % | 39,3 % | 25–55 % |
+| Low-mid 150–500 Hz | 67,9 % | 41,4 % | 33,6 % | 35,2 % | < 42 % |
+| Penurunan > 18 dB/50 ms | 100 | 4 (0 di ujung klip) | 3 | 17 | 0 di ujung klip |
+| VO per blok | −14…−16,5 | −14,2…−14,3 | | | −14 ± 1 |
+| Klip narasumber | −15,1 / −21,3 (Jensen) / −20,4 (Altman) dB RMS | −14,8…−15,4 LUFS | | | −15…−15,5 |
+| Musik di bawah VO | — | −23,5 LUFS | | | −22…−25 |
+| Integrated / TP | −14,2 / −1,9 | −14,1 / −1,9 | −14,0 | −14,4 | −14…−14,5 / ≤ −1 |
+
+Pelajaran:
+- Low-mid tinggi berasal dari EQ narator sendiri (+1,5 dB @160), bukan hanya dari klip berita.
+- Stem dialog mono harus diukur sebagai stereo; kalau tidak, VO terbaca 3 dB lebih pelan.

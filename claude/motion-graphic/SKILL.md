@@ -62,7 +62,7 @@ motion-graphic/
     ├── decision.md          siapa memutuskan apa, prioritas aturan, kapan bertanya
     ├── typography.md        peran font, skala, gaya G1–G7, teknik T01–T32, easing
     ├── camera-transition.md kamera C01–C21, transisi X01–X17
-    ├── audio.md             mix, musik per babak, SFX per gerak, engsel senyap
+    ├── audio.md             mix, musik per babak, SFX per gerak, engsel senyap, Modul 1–5 audit 31 Okt (§14.6–14.10)
     ├── build.md             pipeline After Effects + engine kode, snippet
     ├── analysis-qa.md       bedah referensi, gerbang kirim, rubrik, loop kritik
     ├── smooth-motion.md     resep motion blur, teks masuk, kamera halus (terbukti di Tuntunly)
@@ -137,6 +137,15 @@ Aturan ini dipisah dari cabang karena pelanggarannya paling sering muncul di rev
 32. **Backsound tidak boleh bolong.** Musik ada sejak frame 0 dengan level penuh (bukan fade-in pelan); stop-down untuk penekanan diisi drone rendah + swell, bukan hening total. Cek dengan RMS per 0,5 detik pada stem musik: tidak ada titik < −15 dB dari level umum kecuali yang memang dirancang dan < 0,5 detik. Keyframe kamera dan kecepatan geraknya disetel bersama, supaya kata yang baru muncul tidak terpotong tepi frame.
 33. **VO tanpa lubang diam.** Sebelum render final, ukur diam di VO yang sudah dirakit (`tools/vo_gaps.py`, −42 dB pada audio, bukan timestamp whisper yang berakhir terlalu cepat). Target: jeda antar kalimat ±0,28 dtk, jeda dramatis ("…", sebelum efek) ≤0,5 dtk, antarbabak 0,4–0,6 dtk, ekor penutup ≤3,6 dtk. Padatkan dengan `tools/tighten.py` (tempo VO ×1,05 rubberband + buang hanya bagian tengah jeda yang diam), lalu cek beat visual dengan offset tetap yang kini lebih rapat (The Gap v14: 105→95 dtk, Irfan 26 Okt).
 34. **Audio tidak dibatasi folder yang diberikan.** Folder SFX Irfan adalah sumber pertama, bukan satu-satunya: ElevenLabs Music (cue per babak, `tools/el_music.py`) dan ElevenLabs SFX (`tools/el_sfx.py`) dipakai untuk peran yang tidak bisa diisi stok, dan musik yang disintesis di kode tidak dipakai sebagai backsound utama. Generate musik per babak (satu komposisi panjang mengabaikan dinamika per section), minta durasi +3–6 dtk lalu potong (model menutup dengan fade), cek envelope dan porsi 2–6 kHz SFX sebelum mix (The Gap v15, Irfan 26 Okt).
-35. **Audio diuji di speaker HP sebelum kirim.** Jalankan `tools/audio_phone.py` (speaker HP 20/50/100 %: tiap SFX terdengar, VO jelas, tidak ada SFX lebih tajam di 2–6 kHz daripada sibilan suara sendiri) dan `tools/visual_coverage.py` (setiap event visual punya suara ±5 frame). Hit sub-only diberi lapisan harmonik 250–1.400 Hz karena HP tidak memutar < 300 Hz; pop memakai deep bubble pop (LPF ±3 kHz) (The Gap v16, Irfan 26 Okt).
+35. **Audio diuji di speaker HP sebelum kirim.** Jalankan `tools/audio_phone.py` (speaker HP 20/50/100 %: tiap SFX terdengar, VO jelas, tidak ada SFX lebih tajam di 2–6 kHz daripada sibilan suara sendiri) dan `tools/visual_coverage.py` (setiap event visual punya suara ±5 frame). Hit sub-only diberi lapisan harmonik 250–1.400 Hz karena HP tidak memutar < 300 Hz; pop memakai deep bubble pop (LPF ±3 kHz), kecuali grafik/data yang wajib haptic micro-tick + felt pulse (`audio.md` §14.8) (The Gap v16, Irfan 26 Okt).
 36. **Nyaman dulu, baru keras.** Jangan pakai saturasi/distorsi untuk mengejar HP. Skor setiap sumber SFX dengan `tools/sfx_comfort.py` (desis > 6 kHz, 2–6 kHz, roughness, earshot harsh/soft) dan tolak yang berdesis. Kunci pita per keluarga: UI 300 Hz–8 kHz (cekungan 2,8–4,5 kHz), gerak 250 Hz–3,2 kHz, tekstur 400 Hz–2,6 kHz, low < 250 Hz + body 150–450 Hz. SFX turun 3 dB saat kata diucapkan, musik tidak memompa lebih dari 1,5 dB, sekuens tick jarang (The Gap v17, Irfan 26 Okt).
 37. **SFX lahir bersama objeknya.** Setelah render visual, jalankan `tools/sync_cues.py`: setiap cue digeser ke frame munculnya objek (bukan mendahului, bukan tertinggal), cue yang tidak mengikuti apa pun di layar dihapus, maksimal 2 suara per 100 ms dan satu per keluarga. Tidak ada hantaman/whoosh di frame 0 bila layar belum menampilkan apa-apa. Transisi memakai whoosh tipis di pita tengah (400 Hz–2,5 kHz), bukan whoosh berat (The Gap v18, Irfan 26 Okt).
+38. **Audit audio 31 Okt (Modul 1–5) adalah standar mix.** Wajib untuk setiap video:
+    - setiap klip narasumber melewati rantai Modul 1;
+    - setiap ujung klip punya handle J/L-cut dan bridge;
+    - bed tidak pernah 0 di bawah klip;
+    - palet SFX mengikuti taksonomi §14.8;
+    - whoosh memuncak di v_max kamera;
+    - `scripts/audio_qa.py --module5` lulus sebelum render final.
+
+    Rincian di `audio.md` §14.6–14.10. Aturan ini menggantikan gerbang LRA ≥ 7, "hening total saat klip", dan dinamika narator per babak (PenggantiKitaSendiri v3, Irfan 31 Okt).

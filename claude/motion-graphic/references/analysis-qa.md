@@ -76,6 +76,9 @@ Empat aturan dari [andrej-karpathy-skills](https://github.com/multica-ai/andrej-
   - teks diam ≥ 0,8 dtk saat dibaca.
 
 
+### 16.0b Gerbang audio otomatis (wajib)
+Jalankan `scripts/audio_qa.py --module5` (ambang di `audio.md` §14.10). Satu FAIL berarti belum boleh render/kirim final. Laporkan angkanya ke Irfan.
+
 ### 16.1 Bahan dari render (bukan dari kode/ingatan)
 - contact sheet 1–4 fps
 - strip 12 frame berurutan di dua momen tercepat
