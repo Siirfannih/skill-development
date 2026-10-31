@@ -1,5 +1,15 @@
 # Catatan sesi scriptwriter
 
+## 31 Oktober 2026 · Konsolidasi seluruh storyboard Loris R4
+
+- Permintaan: selesaikan semua bagian dahulu, lalu hapus versi lama/kurang relevan; lingkup 25 panel storyboard, bukan render video.
+- Canvas aktif: 25 panel R4 dalam grid 5×5, Panduan Tokoh R4 dan Panduan Produksi R4. Semua 32 artboard lama yang tergantikan dihapus setelah cadangan dan pemeriksaan.
+- Bukti: [REVIEW-R4.md](../projects/lagu-kalah-lagi/REVIEW-R4.md), 27 screenshot native, snapshot source sesudah, serta source dan metadata tata letak sebelum penghapusan.
+- Pemeriksaan inventaris/nomor/grid/tanpa overlap/viewBox/caption/tinggi 828 dan whitespace Git lulus. Tidak mengubah atau menguji ulang Remotion Scene07.
+- Audit R1 FAIL (embun menutupi wajah 22); diperbaiki. Audit penutup R3 PASS_WITH_NOTES: pose lari 21 dan pemisahan senyum/mulut 17 masih perlu uji animatic. Bukti di EVALUASI-R4.md; auditor memeriksa snapshot, bukan canvas live.
+- [K-20261031-1] File lagu dan judul pasti belum tersedia. Default: 142 detik estimasi, tanpa subtitle; timing/mix/animatic belum dinyatakan selesai. Status: storyboard berjalan dengan default; produksi audio menunggu sumber.
+- Tidak membuat aturan skill baru. Tidak mengambil antrean proyek lain. Disk <10 GiB: tanpa build/render berat.
+
 ## 29 Oktober 2026 · Jadisatu Canvas Storyboard
 
 - Permintaan: Mode Storyboard online dengan frame, narasi, durasi, gerak, transisi, urutan dan pembacaan AI per adegan.

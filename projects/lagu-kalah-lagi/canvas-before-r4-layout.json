@@ -1,0 +1,751 @@
+{
+  "pageId": "a435035e-128c-531c-8013-34810338b0c9",
+  "artboards": [
+    {
+      "dataNodeId": "aim",
+      "dataNodeLabel": "Panel 01 Kalender November",
+      "x": 0,
+      "y": 0,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "aim.can",
+          "dataNodeLabel": "Frame 01 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "aim.spa",
+          "dataNodeLabel": "Panel 01 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "vic",
+      "dataNodeLabel": "Panel 02 Catatan Resolusi",
+      "x": 1060,
+      "y": 0,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 12,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "vic.you",
+          "dataNodeLabel": "Frame 02 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "vic.may",
+          "dataNodeLabel": "Panel 02 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "kui",
+      "dataNodeLabel": "Panel 03 Harapan Tertata Rapi",
+      "x": 2120,
+      "y": 0,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "kui.ita",
+          "dataNodeLabel": "Frame 03 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "kui.non",
+          "dataNodeLabel": "Panel 03 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "own",
+      "dataNodeLabel": "Panel 04 Harapan Jadi Basi",
+      "x": 3180,
+      "y": 0,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "own.hey",
+          "dataNodeLabel": "Frame 04 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "own.pya",
+          "dataNodeLabel": "Panel 04 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "gut",
+      "dataNodeLabel": "Panel 05 Hanya Wacana",
+      "x": 4240,
+      "y": 0,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "gut.him",
+          "dataNodeLabel": "Frame 05 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "gut.mtv",
+          "dataNodeLabel": "Panel 05 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "can",
+      "dataNodeLabel": "Panel 06 Mereka Berlari",
+      "x": 5300,
+      "y": 0,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "can.rio",
+          "dataNodeLabel": "Frame 06 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "can.eds",
+          "dataNodeLabel": "Panel 06 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "who",
+      "dataNodeLabel": "Panel 07 Akhir Tahun Menanti",
+      "x": 0,
+      "y": 960,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 12,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "who.oct",
+          "dataNodeLabel": "Frame 07 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "who.wis",
+          "dataNodeLabel": "Panel 07 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "cod",
+      "dataNodeLabel": "Panel 08 Kalah Lagi",
+      "x": 1060,
+      "y": 960,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "cod.noa",
+          "dataNodeLabel": "Frame 08 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "cod.gul",
+          "dataNodeLabel": "Panel 08 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "tgp",
+      "dataNodeLabel": "Panel 09 Masih Ada Esok",
+      "x": 2120,
+      "y": 960,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "tgp.man",
+          "dataNodeLabel": "Frame 09 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "tgp.hue",
+          "dataNodeLabel": "Panel 09 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "hot",
+      "dataNodeLabel": "Panel 10 Tidur Cukup",
+      "x": 3180,
+      "y": 960,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "hot.act",
+          "dataNodeLabel": "Frame 10 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "hot.how",
+          "dataNodeLabel": "Panel 10 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "gmt",
+      "dataNodeLabel": "Panel 11 Coba Lawan Lagi",
+      "x": 4240,
+      "y": 960,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "gmt.did",
+          "dataNodeLabel": "Frame 11 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "gmt.you",
+          "dataNodeLabel": "Panel 11 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "nut",
+      "dataNodeLabel": "Panel 12 Mencari Solusi",
+      "x": 0,
+      "y": 1920,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "nut.map",
+          "dataNodeLabel": "Frame 12 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "nut.you",
+          "dataNodeLabel": "Panel 12 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "yep",
+      "dataNodeLabel": "Panel 13 Percaya Pikiran",
+      "x": 1060,
+      "y": 1920,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "yep.diy",
+          "dataNodeLabel": "Frame 13 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "yep.lit",
+          "dataNodeLabel": "Panel 13 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "mba",
+      "dataNodeLabel": "Panel 14 Masalahnya Diri Sendiri",
+      "x": 2120,
+      "y": 1920,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "mba.can",
+          "dataNodeLabel": "Frame 14 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "mba.has",
+          "dataNodeLabel": "Panel 14 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "ave",
+      "dataNodeLabel": "Panel 15 Hari Ini Kalah Lagi",
+      "x": 3180,
+      "y": 1920,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "ave.usa",
+          "dataNodeLabel": "Frame 15 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "ave.cet",
+          "dataNodeLabel": "Panel 15 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "dvd",
+      "dataNodeLabel": "Panel 16 Senyum Palsu Cermin",
+      "x": 0,
+      "y": 2880,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "dvd.neo",
+          "dataNodeLabel": "Frame 16 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "dvd.ked",
+          "dataNodeLabel": "Panel 16 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "lit",
+      "dataNodeLabel": "Panel 17 Meyakinkan Diri",
+      "x": 1060,
+      "y": 2880,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "lit.fun",
+          "dataNodeLabel": "Frame 17 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "lit.own",
+          "dataNodeLabel": "Panel 17 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "tag",
+      "dataNodeLabel": "Panel 18 Bukan Selamanya",
+      "x": 2120,
+      "y": 2880,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "tag.has",
+          "dataNodeLabel": "Frame 18 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "tag.was",
+          "dataNodeLabel": "Panel 18 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "iii",
+      "dataNodeLabel": "Panel 19 Cermin Fasad Kota",
+      "x": 0,
+      "y": 3840,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "iii.goy",
+          "dataNodeLabel": "Frame 19 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "iii.cms",
+          "dataNodeLabel": "Panel 19 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "see",
+      "dataNodeLabel": "Panel 20 Semua Mungkin Menengadah",
+      "x": 1060,
+      "y": 3840,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 12,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "see.you",
+          "dataNodeLabel": "Frame 20 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "see.cas",
+          "dataNodeLabel": "Panel 20 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "nba",
+      "dataNodeLabel": "Panel 21 Mulai Berlari",
+      "x": 2120,
+      "y": 3840,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "nba.ofo",
+          "dataNodeLabel": "Frame 21 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "nba.isp",
+          "dataNodeLabel": "Panel 21 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "asp",
+      "dataNodeLabel": "Panel 22 Embun Dihapus",
+      "x": 0,
+      "y": 4800,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 12,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "asp.you",
+          "dataNodeLabel": "Frame 22 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "asp.who",
+          "dataNodeLabel": "Panel 22 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "ido",
+      "dataNodeLabel": "Panel 23 Kecambah Meledak Tumbuh",
+      "x": 1060,
+      "y": 4800,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "ido.zed",
+          "dataNodeLabel": "Frame 23 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "ido.cds",
+          "dataNodeLabel": "Panel 23 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "doe",
+      "dataNodeLabel": "Panel 24 Di Atas Daun",
+      "x": 2120,
+      "y": 4800,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "doe.gel",
+          "dataNodeLabel": "Frame 24 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "doe.spy",
+          "dataNodeLabel": "Panel 24 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "pdf",
+      "dataNodeLabel": "Panel 25 Kalender Pagi Penutup",
+      "x": 3180,
+      "y": 4800,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "pdf.pro",
+          "dataNodeLabel": "Frame 25 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "pdf.pvc",
+          "dataNodeLabel": "Panel 25 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "tat",
+      "dataNodeLabel": "Character Sheet Aku Laki Laki",
+      "x": 0,
+      "y": -1400,
+      "width": 2080,
+      "height": 1140,
+      "descendantsCount": 26,
+      "descendantsDepth": 5,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "tat.tie",
+          "dataNodeLabel": "Sheet Header",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "tat.dan",
+          "dataNodeLabel": "Sheet Drawing",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "tat.era",
+          "dataNodeLabel": "Sheet Motion Rules",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "sep",
+      "dataNodeLabel": "Panel 08 V2 Kalah Lagi",
+      "x": 5300,
+      "y": 960,
+      "width": 1000,
+      "height": 850,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "sep.per",
+          "dataNodeLabel": "Frame 08 V2 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "sep.icy",
+          "dataNodeLabel": "Panel 08 V2 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "two",
+      "dataNodeLabel": "Panel 21 V2 Mulai Berlari",
+      "x": 3180,
+      "y": 3840,
+      "width": 1000,
+      "height": 828,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "two.dig",
+          "dataNodeLabel": "Frame 21 V2 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "two.you",
+          "dataNodeLabel": "Panel 21 V2 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "had",
+      "dataNodeLabel": "Aturan Render Remotion 2D",
+      "x": 2140,
+      "y": -1400,
+      "width": 1400,
+      "height": 890,
+      "descendantsCount": 55,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "had.mar",
+          "dataNodeLabel": "Render Header",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "had.job",
+          "dataNodeLabel": "Mapping Table",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "had.zip",
+          "dataNodeLabel": "Render Rules Grid",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "jan",
+      "dataNodeLabel": "Panel 07 V3 Siluet Skala Logis",
+      "x": -1060,
+      "y": 960,
+      "width": 1000,
+      "height": 873,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "jan.low",
+          "dataNodeLabel": "Frame 07 V3 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "jan.kob",
+          "dataNodeLabel": "Panel 07 V3 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "has",
+      "dataNodeLabel": "Panel 01 V3 Kalender Skala Logis",
+      "x": -1060,
+      "y": 0,
+      "width": 1000,
+      "height": 850,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "has.aus",
+          "dataNodeLabel": "Frame 01 V3 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "has.bed",
+          "dataNodeLabel": "Panel 01 V3 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    },
+    {
+      "dataNodeId": "phd",
+      "dataNodeLabel": "Panel 19 V3 Pantulan Skala Logis",
+      "x": -1060,
+      "y": 3840,
+      "width": 1000,
+      "height": 850,
+      "descendantsCount": 11,
+      "descendantsDepth": 3,
+      "topLevelChildren": [
+        {
+          "dataNodeId": "phd.vhs",
+          "dataNodeLabel": "Frame 19 V3 Illustration",
+          "tag": "div"
+        },
+        {
+          "dataNodeId": "phd.you",
+          "dataNodeLabel": "Panel 19 V3 Caption",
+          "tag": "div"
+        }
+      ],
+      "topLevelChildrenTruncated": false
+    }
+  ]
+}

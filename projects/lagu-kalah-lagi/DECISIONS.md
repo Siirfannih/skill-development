@@ -1,5 +1,15 @@
 # Ledger keputusan · lagu-kalah-lagi
 
+## D-20261031-R4 · Penyelesaian dan konsolidasi
+
+Kata Irfan: "Aku mau kamu selesaikan semua bagian terlebeih dahulu dan hapus versi lama atau yang kurang relevant".
+
+Cakupan: seluruh 25 panel storyboard Loris beserta panduan tokoh/render yang terkait. Lengkapi versi konsisten dengan arah siluet terakhir, pertahankan komposisi acuan 02/07/20/22, lalu hapus dari canvas versi yang sudah tergantikan. Cadangan kode canvas sebelum penghapusan: `canvas-before-r4.json`. Tidak mencakup penghapusan file/skill proyek lain atau render video penuh. Timing tetap estimasi; default tanpa lirik overlay. Status: dikerjakan, belum persetujuan kreatif final.
+
+Catatan evaluasi: versi ganda membuat urutan cerita sulit diikuti. Pembersihan dilakukan setelah seluruh pengganti diperiksa; sumber lama disimpan untuk pemulihan. Ini keputusan proyek, bukan perubahan skill global.
+
+Hasil implementasi D-20261031-R4: 25 panel dan dua panduan R4 menggantikan 32 akar lama di Loris. Source sebelum: `canvas-before-r4.json`; source sesudah: `canvas-r4.json`; gambar yang diperiksa: `qa-r4/`. Caption 15 kini hanya jam/turus, tanpa tanggal 3/4/5. Arah aktif dalam STORYBOARD.md mengatasi aturan lama yang bertentangan; ledger historis di bawah dipertahankan sebagai riwayat keputusan.
+
 | Tanggal | Keputusan | Oleh | Cakupan |
 |---|---|---|---|
 | 31 Okt 15:40 | Page Loris, 16:9, timing estimasi | Irfan (jawaban pertanyaan) | semua |
