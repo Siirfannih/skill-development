@@ -50,3 +50,9 @@
 - A1 berpusat pada pembuat; A2 menjadi laporan perusahaan setelah insert Sam. Irfan menegaskan narator harus menceritakan keresahan bersama sesuai pusat cerita kandidat pertama.
 - [Bukti, kutipan koreksi, dan keputusan konten](../projects/ai-change-everything/NARRATOR-REVIEW.md) dicatat bersama RETRO motion-graphic dan [inbox evaluasi](../claude/motion-graphic/evals/inbox/2026-10-29-ai-change-everything-narrator.md).
 - Status: kedua draf ditolak; belum ada skrip final, patch skill, atau hasil performa. Penempatan akhir kutipan masih terbuka. Titik lanjut: pertahankan pusat persoalan sambil menilai fungsi tiap ucapan narator dan bukti.
+
+## 31 Oktober 2026 · Storyboard video motion lagu (page Loris)
+
+- Permintaan: storyboard flat illustration untuk lirik lagu "hari ini aku kalah lagi", di Wonder page Loris.
+- Hasil: 25 panel R1 (tokoh siluet), character sheet laki-laki 20-an (gaya ref 5), dua panel validasi 08 v2 dan 21 v2. Spec di [projects/lagu-kalah-lagi/STORYBOARD.md](../projects/lagu-kalah-lagi/STORYBOARD.md).
+- Status: draf, belum final. Perlu keputusan: setujui karakter → gambar ulang 23 panel; file lagu untuk timing; lirik di layar atau tidak.
