@@ -49,3 +49,26 @@ agy hang (bahkan ping "OK" timeout 2 menit), jadi QC agy tidak dijalankan.
 Pelajaran:
 - Konsep sound dicocokkan **per panel storyboard** (`STORYBOARD-SYNC.md`) dan diuji dengan devil's advocate (`DEVILS-ADVOCATE.md`). Di v9 hanya batas babak yang dicocokkan, dan itulah sebab v9 terlalu ambient untuk montase 6–8 frame.
 - Overrides harus diperbarui setiap kali aturan berubah. Konteks basi membuat QC Gemini salah arah.
+
+## Putaran v11 (31 Okt 16:06) — cold open supercut berita
+Masukan Irfan: tidak boleh ada jeda di awal. Cold open diisi potongan berita yang dipotong cepat (seperti referensi siirfannih_DfDC0I9PHin), lalu transisi masuk ke VO.
+- **Bedah referensi** (scribe diarize):
+  - 4 pembicara, suara mulai di 0,10 dtk
+  - jeda antar sumber 0,10–0,20 dtk, tidak ada keheningan
+  - footage berganti per frasa
+- **Sumber:**
+  - Gates «AI is the biggest technical thing ever in my lifetime» (CNBC)
+  - «16-year-old launched a new AI company» (Sky News)
+  - «raised over a billion dollars» (Bloomberg)
+  - «This time progress was so fast» (Sky News)
+  - Masing-masing dipetakan ke teks layar FOUNDER / CEO / SEMALAM.
+- **Unduhan:**
+  - yt-dlp dari kontainer cloud terkena 429 / «Sign in to confirm you're not a bot».
+  - Lewat VM Mac Irfan (jaringan rumah) berhasil dengan `--download-sections`, jadi hanya segmen yang diunduh.
+- **Perakitan** (`assemble11.py`, blok `news`):
+  - potong di timestamp kata, sambungan internal 30 ms, antar sumber 0,12–0,14 dtk
+  - HPF 120 / LPF 9k, loudness −1 LU di bawah VO
+  - STT ulang: semua kata utuh
+- **Ostinato:** A1 (51,8 dtk) diperpanjang 2 bar tepat di ketukan (`OST_A1x`) karena Jensen bergeser +6,25 dtk.
+- **Gerbang:** I −14,1, LRA 7,4, TP −2,0. Berita di atas musik median 20–25 dB.
+- **QC Gemini API** (16 dtk pertama): APPROVED, tetapi «temuannya» merujuk 0:45–1:15 di luar potongan yang dikirim. Gemini membaca konteks, bukan audio. Pelajaran: untuk QC potongan, kirim konteks yang relevan saja (tanpa cues di luar rentang).

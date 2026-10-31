@@ -15,7 +15,7 @@
     0.0,
     0.1
    ],
-   "note": "VO v8 (time-stretch ×1,15) ditolak Irfan karena terburu-buru, ceria dan energik; VO v9 memakai stability 0,35–0,45, style 0–0,05, playback 1,0"
+   "note": "VO v9+ memakai stability 0,35–0,45, style 0–0,05, playback 1,0"
   }
  },
  "music": {
@@ -79,5 +79,11 @@
   "vo_cut_safety": "batas potong dari energi audio + pre-roll/fade-in 100 ms; tidak ada awal kata terpotong",
   "sfx_micro_ticks": "soft muted tick menempel di grid BPM ostinato pada setiap poin beruntun (02c, 03a, 05c–05g); tick pengisi tiap ketukan ditolak (menumpuk dengan ostinato)",
   "gates": "jeda kalimat rata-rata ≥0,5 dicabut; LRA ≥7 tetap; VO harus tetap paling jelas"
+ },
+ "v11_cold_open_31okt_1606": {
+  "_doc": "Irfan 16:06 — menang atas aturan sebelumnya bila bertentangan",
+  "cold_open": "tidak ada detik kosong di awal: suara langsung di 0:00. 00a–00b diisi supercut potongan berita asli (AI, founder, perubahan cepat) yang dipotong cepat dan disambung rapat (jeda antar sumber 0,10–0,15 dtk), lalu transisi (SEMALAM → whoosh → hard cut) ke VO narator",
+  "news_audio": "suara asli playback 1,0, HPF 120 / LPF 9k (warna siaran), loudness tiap potongan disamakan (−1 LU di bawah VO), tidak ada kata terpotong",
+  "screen_words": "FOUNDER / CEO / SEMALAM mendarat di micro-tick grid ostinato, motif sama dengan 05f"
  }
 }
