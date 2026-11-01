@@ -112,11 +112,13 @@ export const S02c_TugasKeTrash: React.FC = () => {
   const lag = cursorAt(t - 0.14, p.start, p.end);
   // kamera C18: ikut kursor 60 %, dijepit supaya tumpukan dan dock tetap di bingkai
   // C02 push pelan 1,08→1,16 sepanjang tumpukan (tugas makin menumpuk) + C01 di «berulang» (+5 %, 18 f)
-  const Z = keys(t, [[p.start, 1.08], [p.end, 1.16]], EZ.inOut) * (1 + 0.05 * prog(t, W_BERULANG.s, W_BERULANG.s + 18 / 30, EZ.out));
-  const cl = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
+  const Z = keys(t, [[p.start, 1.4], [p.end, 1.52]], EZ.inOut) // v9 (B4): zoom ke kartu (v8 1,08–1,16× = kartu kecil, separuh frame kosong); kamera mengikuti aliran file kartu → Trash
+     * (1 + 0.05 * prog(t, W_BERULANG.s, W_BERULANG.s + 18 / 30, EZ.out));
+  // v9: pada zoom dekat bingkai lebih sempit dari isi (tumpukan + dock) → batas kiri/kanan bisa terbalik; urutkan dulu supaya kamera tetap mengikuti kursor
+  const cl = (v: number, a: number, b: number) => Math.min(Math.max(a, b), Math.max(Math.min(a, b), v));
   const hw = 960 / Z - 40, hh = 540 / Z - 40;
-  const tx = cl(960 + (lag.x - 960) * 0.6, DOCK.x + DOCK.w + 20 - hw, CARD.x - 20 + hw);
-  const ty = cl(540 + (lag.y - 540) * 0.6, DOCK.y + DOCK.h + 20 - hh, CARD.y0 - 20 + hh);
+  const tx = cl(960 + (lag.x - 960) * 0.85, DOCK.x + DOCK.w + 20 - hw, CARD.x - 20 + hw);
+  const ty = cl(540 + (lag.y - 540) * 0.85, DOCK.y + DOCK.h + 20 - hh, CARD.y0 - 20 + hh);
   // jumlah kartu sudah diambil (pindah slot)
   const taken = plan.filter((P) => t >= P.grab).length;
   // geser naik tumpukan setelah kartu teratas diangkat

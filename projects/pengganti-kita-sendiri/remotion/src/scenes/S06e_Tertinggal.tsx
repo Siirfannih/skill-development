@@ -3,8 +3,9 @@
 // Kamera mundur pelan (C06 lambat); di akhir mulai truck ke kanan → cut on motion ke kerumunan 06f.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, Grain, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
+import { EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { Ball, C6, lerp, Plane, SideUnit, Torso } from "./_b6_shared";
 import { OFF_HOLD, T_OFF } from "./S06d_Prompt";
 
@@ -17,13 +18,16 @@ export const SNAP_WIDE = W_TERTINGGAL - 0.22; // patah ke wide sebelum kata, sup
 
 export const S06e_Tertinggal: React.FC = () => {
   const t = useT();
+  const atTert = useFrameAt(3591); // v9: f terukur ANCHORS-V9 #31
+  const untilTert = useFrameAt(Math.round(P.end * FPS) - 5);
   const back = prog(t, START, P.end, EZ.inOut);
   // ── SFXEV
   sfxMark(t, "cut", START, "06e:cut:in"); // potong dalam gelap dari 06d
   sfxMark(t, "whoosh", SNAP_WIDE + 1 / FPS, "06e:snapwide:1"); // patah close 2× → wide dalam 6 f (EZ.out)
   const sc = 1.06 - 0.06 * back;
   // close 2× pada kita yang padam (C18 drift pelan), lalu patah ke wide dalam 6 f: jarak ke yang lain terlihat
-  const zc = 2 + 0.08 * prog(t, START, SNAP_WIDE, EZ.inOut);
+  // v9 (B5, 1:58 beat mati): close 2× yang gelap kosong → mulai 1,5× supaya kelompok «yang lain» sudah menyembul di tepi kanan, push ke 1,85× sampai patah
+  const zc = 1.5 + 0.35 * prog(t, START, SNAP_WIDE, EZ.inOut);
   const Z = lerp(zc, 1, prog(t, SNAP_WIDE, SNAP_WIDE + 6 / FPS, EZ.out));
   const truck = t > TRUCK_A ? -(t - TRUCK_A) * TRUCK_V : 0;
   const recede = prog(t, START + 0.2, P.end + 0.2, EZ.inOut);
@@ -32,6 +36,9 @@ export const S06e_Tertinggal: React.FC = () => {
       <AbsoluteFill style={{ background: C6.charcoal, overflow: "hidden" }}>
         <AbsoluteFill style={{ transform: `scale(${Z})`, transformOrigin: "400px 700px" }}>
         <AbsoluteFill style={{ transform: `translateX(${truck}px) scale(${sc})`, transformOrigin: "960px 600px" }}>
+          {/* v9: TERTINGGAL = anchor di BELAKANG tubuh «kita» yang padam (urutan DOM sebelum Torso), putih penuh di charcoal */}
+          <AnchorWord text="TERTINGGAL" at={atTert} until={untilTert} x={260} y={900} size={140} color={C6.white} align="left" enter="right" shadow="0 0 40px rgba(16,18,22,0.6)"
+            sfx={{ kind: "sub_impact", id: "06e:anchor:tertinggal" }} />
           <div style={{ position: "absolute", left: 0, top: 0, width: 960, height: 540, transform: "scale(2)", transformOrigin: "0 0" }}>
             {/* kita: bidang padam, tanpa rim light */}
             <Plane b={{ x: 270, y: 290, w: 150, h: 50 }} on={0} />
@@ -47,12 +54,6 @@ export const S06e_Tertinggal: React.FC = () => {
             </div>
           </div>
         </AbsoluteFill>
-        </AbsoluteFill>
-        {/* kata di bawah visual, tengah */}
-        <AbsoluteFill style={{ justifyContent: "flex-start", alignItems: "center", top: 830 }}>
-          <KWord at={W_TERTINGGAL} out={P.end - 5 / FPS} kind="rise" style={{ fontFamily: "Inter", fontWeight: 700, fontSize: 128, letterSpacing: -3.84, lineHeight: 1, color: C6.white, whiteSpace: "nowrap" }}>
-            tertinggal
-          </KWord>
         </AbsoluteFill>
         <Grain opacity={0.05} />
       </AbsoluteFill>

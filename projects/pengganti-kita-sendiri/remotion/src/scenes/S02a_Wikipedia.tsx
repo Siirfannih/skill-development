@@ -3,7 +3,8 @@
 // Kamera C08 truck lambat dengan parallax per lapis; keluar X09 wipe ke kertas blueprint 02b.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { Camera, EZ, Grain, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
+import { Camera, EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { FPS, panel, word } from "../lib/time";
 import { C, ezHalf } from "./_b1_shared";
 
@@ -40,6 +41,7 @@ const SEL = "#b3d4fc"; // warna seleksi teks Chrome
 
 export const S02a_Wikipedia: React.FC = () => {
   const t = useT();
+  const atAI = useFrameAt(623); // v9: f terukur ANCHORS-V9 #7 (AI)
   const u = (t - P.start) / P.dur;
   const camX = 40 - 110 * u; // C08 truck lambat (drift linear)
   const card = prog(t, CARD_A, CARD_B, EZ.out);
@@ -80,6 +82,9 @@ export const S02a_Wikipedia: React.FC = () => {
             }} />
           );
         })}
+        {/* v9 (B2): kalimat «Padahal waktu AI…» dihapus. AI = anchor tracking ke judul ChatGPT, di BELAKANG kartu halaman
+            (urutan DOM: sebelum kartu; ujung kanan teks terselip 60 px di bawah kartu). Posisi mengikuti camX tiap frame. */}
+        <AnchorWord text="AI" at={atAI} x={460 + camX + 60} y={452} size={360} color={C.ink} align="right" enter="left" />
         {/* lapis tengah: kartu artikel Wikipedia */}
         <div style={{
           position: "absolute", left: 460 + camX, top: 300 + (1 - card) * 40, width: 1000, opacity: Math.min(1, card * 1.6),
@@ -109,18 +114,6 @@ export const S02a_Wikipedia: React.FC = () => {
           return <div key={i} style={{ position: "absolute", left: s.x + camX * s.k, top: s.y, width: s.s, height: s.s, background: s.c, transform: `scale(${q})` }} />;
         })}
         </Camera>
-        {/* kata VO per kata, satu baris di bawah kolase (lapis depan, diam selama dibaca) */}
-        <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 116 }}>
-          <div style={{ display: "flex", gap: 22, fontFamily: "Inter", fontSize: 80, fontWeight: 600, letterSpacing: -2, color: C.ink, lineHeight: 1, whiteSpace: "nowrap" }}>
-            <KWord at={T.padahal} kind="pop">Padahal</KWord>
-            <KWord at={T.waktu} kind="pop">waktu</KWord>
-            <KWord at={T.ai} kind="pop" style={{ fontWeight: 900 }}>AI</KWord>
-            <KWord at={T.pertama} kind="pop">pertama</KWord>
-            <KWord at={T.kali} kind="pop">kali</KWord>
-            <KWord at={T.ramai} kind="pop">ramai</KWord>
-            <KWord at={T.dibicarakan} kind="pop">dibicarakan</KWord>
-          </div>
-        </AbsoluteFill>
         <Grain opacity={0.04} />
         {/* X09 wipe kiri→kanan ke kertas blueprint 02b (latar & grid identik dengan panel 02b) */}
         {wipe > 0 && (

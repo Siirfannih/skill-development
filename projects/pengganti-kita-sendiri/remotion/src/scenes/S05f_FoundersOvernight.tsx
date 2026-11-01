@@ -7,7 +7,7 @@ import { AbsoluteFill, Img, staticFile } from "remotion";
 import { EZ, Grain, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
 import { DOC_GRADE } from "../lib/media";
 import { FPS, panel, word } from "../lib/time";
-import { SlotWord } from "./S00_ColdOpen";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { firstFrame, GRID, moveFrame, z3tick } from "./_b5_shared";
 
 const P = panel("05f");
@@ -35,6 +35,7 @@ const PHOTOS = [
 
 export const S05f_FoundersOvernight: React.FC = () => {
   const t = useT();
+  const atFounder = useFrameAt(2775), atCeo = useFrameAt(2813), atSemalam = useFrameAt(2868); // v9: f terukur ANCHORS-V9 #25
   const tm = Math.min(t, T_SEMALAM); // montase membeku di SEMALAM
   const k = Math.floor((tm - T_FOUNDER) / STEP + 1e-6);
   const k0 = Math.floor((P.start - T_FOUNDER) / STEP + 1e-6);
@@ -62,9 +63,11 @@ export const S05f_FoundersOvernight: React.FC = () => {
           <Img src={staticFile(PHOTOS[idx])}
             style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: `${DOC_GRADE} brightness(${dim})`, transform: `scale(${z * hold})`, transformOrigin: "50% 42%" }} />
         </AbsoluteFill>
-        <SlotWord text="FOUNDER" at={T_FOUNDER} out={T_CEO - 4 / FPS} />
-        <SlotWord text="CEO" at={T_CEO} out={T_SEMALAM - 4 / FPS} />
-        <SlotWord text="SEMALAM" at={T_SEMALAM} size={260} />
+        {/* v9: slot swap SlotWord → AnchorWord di posisi tengah yang sama (callback cold open); FOUNDER → CEO → SEMALAM menggantikan di slot yang sama */}
+        <AnchorWord text="FOUNDER" at={atFounder} until={atCeo} x={960} y={540} size={300} color="#FAF8EC" enter="scale" shadow="0 6px 50px rgba(0,0,0,0.5)" />
+        <AnchorWord text="CEO" at={atCeo} until={atSemalam} x={960} y={540} size={300} color="#FAF8EC" enter="scale" shadow="0 6px 50px rgba(0,0,0,0.5)" />
+        <AnchorWord text="SEMALAM" at={atSemalam} x={960} y={540} size={260} color="#FAF8EC" enter="scale" shadow="0 6px 50px rgba(0,0,0,0.5)"
+          sfx={{ kind: "sub_impact", id: "05f:anchor:semalam" }} />
         <Grain opacity={0.06} />
       </AbsoluteFill>
     </Scene>

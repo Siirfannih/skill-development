@@ -5,12 +5,12 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
-import { Ball, C6, lerp, Plane, PLANE_TEXT, SideUnit, Torso, wa } from "./_b6_shared";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
+import { Ball, C6, lerp, Plane, SideUnit, Torso, wa } from "./_b6_shared";
 
 const A = panel("06a");
 const B = panel("06b");
 const W_MEMBANGUN = word("membangun", "s6", 1).s;
-const W_MERENCANAKAN = word("merencanakan", "s6", 1).s;
 const W_HAL = word("hal", "s6", 1).s;
 const W_SAMA = word("sama", "s6", 1).s;
 const W_LAKUKAN = word("lakukan", "s6", 1).s;
@@ -33,21 +33,16 @@ const HEAD_06A = { x: 648, y: 480 }; // pusat kepala di panel 06a ×2
 const S_06A = 248 / 80; // diameter kepala 06a (248) / dunia (80)
 
 /** Unit hero: geometri bergeser dari proporsi 06a (k=0) ke proporsi sel 06b (k=1). Koordinat unit sel. */
-const HeroUnit: React.FC<{ k: number; on: number; t: number }> = ({ k, on, t }) => {
+const HeroUnit: React.FC<{ k: number; on: number; t?: number }> = ({ k, on }) => {
   const plane = { x: lerp(89.1, 74, k), y: lerp(65.2, 66, k), w: lerp(142, 86, k), h: lerp(36.1, 30, k) };
   const glow = { b: { x: lerp(98.8, 78, k), y: lerp(69, 70, k), w: lerp(122.6, 76, k), h: lerp(28.4, 24, k) }, blur: lerp(38.7, 40, k), spread: lerp(12.9, 12, k), a: lerp(0.24, 0.18, k), radius: 12.5 };
   const rimR = lerp(1.6, 3, k);
-  // kata di bidang: MEMBANGUN mendarat +2 f; T32 swap ke MERENCANAKAN (kubus 3D: lama terangkat jadi bayangan, baru berputar masuk)
-  const a1 = W_MEMBANGUN + F2;
-  const a2 = W_MERENCANAKAN + F2;
-  const pIn = prog(t, a1, a1 + 10 / FPS, EZ.out);
-  const sw = prog(t, a2, a2 + 9 / FPS, EZ.out);
-  const textOut = prog(t, B.start + 0.05, B.start + 0.4, EZ.acc); // teks lepas saat reveal-out
+  // v9 (#28): parallelogram bidang dipertahankan; MEMBANGUN → MERENCANAKAN (T32 swap) lewat AnchorWord di suku tekan (f terukur 3169 / 3217), slot yang sama.
+  const atMembangun = useFrameAt(3169), atMerencanakan = useFrameAt(3217), outTxt = useFrameAt(Math.round((B.start + 0.05) * FPS));
   const cx = plane.x + plane.w / 2;
   const cy = plane.y + plane.h / 2;
   const fsOld = 15.6;
   const fsNew = 12.2;
-  const ghostDY = -31; // posisi bayangan MEMBANGUN di panel 06a (di atas bidang)
   return (
     <div style={{ position: "absolute", left: 0, top: 0, width: 164, height: 200 }}>
       {/* berkas cahaya dari bidang (06a), hilang saat unit menyusut ke proporsi grid */}
@@ -64,21 +59,10 @@ const HeroUnit: React.FC<{ k: number; on: number; t: number }> = ({ k, on, t }) 
         );
       })()}
       <Plane b={plane} on={on} glow={glow} grad={`linear-gradient(90deg, ${C6.white} 55%, ${C6.paper} 100%)`} />
-      {/* MEMBANGUN: masuk naik di bidang, lalu terangkat jadi bayangan 25 % */}
-      {t >= a1 && (
-        <div style={{ position: "absolute", left: cx, top: cy, transform: `translate(-50%, -50%) translateY(${(1 - pIn) * 6 + sw * ghostDY}px) scale(${1 - sw * 0.26})`, opacity: Math.min(1, pIn * 2) * (1 - textOut), perspective: 300 }}>
-          <div style={{ transform: `rotateX(${sw * 70 - sw * sw * 70}deg)`, transformOrigin: "50% 100%" }}>
-            <span style={{ ...PLANE_TEXT, fontSize: fsOld, letterSpacing: -0.17, display: "block", opacity: 1 - sw }}>MEMBANGUN</span>
-            <span style={{ fontFamily: "Inter", fontWeight: 900, fontStyle: "italic", fontSize: fsOld, letterSpacing: -0.17, lineHeight: 1, whiteSpace: "nowrap", color: wa(0.25), position: "absolute", left: 0, top: 0, opacity: 0 }}>MEMBANGUN</span>
-          </div>
-        </div>
-      )}
-      {/* MERENCANAKAN: berputar masuk dari bawah (sisi kubus berikutnya) */}
-      {t >= a2 && (
-        <div style={{ position: "absolute", left: cx, top: cy, transform: `translate(-50%, -50%)`, perspective: 300, opacity: (1 - textOut) * Math.min(1, sw * 2.5) }}>
-          <span style={{ ...PLANE_TEXT, fontSize: fsNew, letterSpacing: -0.16, display: "block", transform: `translateY(${(1 - sw) * 8}px) rotateX(${(1 - sw) * -90}deg)`, transformOrigin: "50% 0%" }}>MERENCANAKAN</span>
-        </div>
-      )}
+      {/* teks di bidang (koordinat unit sel). Abu tua #6e6e73 di bidang putih (kontras ≥ 5:1), miring seperti PLANE_TEXT v8. */}
+      <AnchorWord text="MEMBANGUN" at={atMembangun} until={atMerencanakan} x={cx} y={cy} size={fsOld} color="#6e6e73" italic grain={0} enter="scale" />
+      <AnchorWord text="MERENCANAKAN" at={atMerencanakan} until={outTxt} x={cx} y={cy} size={fsNew} color="#6e6e73" italic grain={0} enter="scale"
+        sfx={{ kind: "scifi_whoosh", id: "06a:anchor:merencanakan" }} />
       <Ball b={{ x: 22, y: 40, w: 40, h: 40 }} rim={0.9 * on} r={rimR} />
       <Torso b={{ x: lerp(4.6, 6, k), y: lerp(85.2, 86, k), w: lerp(74.8, 72, k), h: lerp(83.9, 90, k) }} rim={0.7 * on} r={rimR} />
     </div>
@@ -121,9 +105,7 @@ export const S06a_Sibuk: React.FC = () => {
 
   // ── SFXEV (waktu = konstanta yang sama dengan animasi di atas / HeroUnit)
   sfxMark(t, "cut", A.start, "06a:cut:in"); // B5 → B6
-  sfxMark(t, "pop", W_MEMBANGUN + F2, "06a:membangun:1"); // a1 HeroUnit: MEMBANGUN naik di bidang
   sfxMark(t, "cut", W_TERLALU2, "06a:cutzoom:1"); // C20 cut zoom ×1,32 ke bidang
-  sfxMark(t, "whoosh", W_MERENCANAKAN + F2 + 1 / FPS, "06a:swap:1"); // a2 T32 swap (EZ.out 9 f, puncak di awal)
   sfxMark(t, "whoosh", B.start + 1 / FPS, "06b:reveal:1"); // rev: patah ke wide 72 % dalam 6 f (EZ.out)
   sfxMark(t, "toggle", W_HAL + F2, "06b:row:hero"); // rowOn baris hero (4 bidang)
   sfxMark(t, "toggle", W_SAMA + F2, "06b:row:top"); // rowOn baris atas (5 bidang)

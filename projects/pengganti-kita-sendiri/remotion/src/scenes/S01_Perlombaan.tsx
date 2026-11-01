@@ -3,7 +3,8 @@
 // Satu file karena 01a→01b (tile jatuh masuk), 01b→01c (zoom-through) dan 01c→01d (ruang yang sama) kontinu.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { Camera, EZ, Grain, keys, KWord, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { FPS, panel, word } from "../lib/time";
 import { C, FIG, LightCone, Pictogram, WireFigure } from "./_b1_shared";
 
@@ -90,9 +91,7 @@ const CLOSE_A = word("anehnya", "s1").s + 1.25; // close-up mulai setelah «aneh
 const CLOSE_B = word("lebih", "s1").s - 3 / FPS; // tiba 2× tepat sebelum LEBIH
 const FALL_A = P1b.start - 10 * fr; // tile mulai jatuh (C10)
 const TEXT_OUT1 = T.dan - 6 * fr; // «PENGGANTI kita sendiri» keluar
-const ANEH_OUT = CLOSE_A - 6 * fr; // «anehnya» keluar
 const SNAP_D = T.lebih + 2 * fr; // 01d patah close-up 2× → wide (5 f, EZ.out)
-const BIG: React.CSSProperties = { fontFamily: "Inter", color: C.white, lineHeight: 1, whiteSpace: "nowrap" };
 
 export const S01_Perlombaan: React.FC = () => {
   const t = useT();
@@ -111,7 +110,6 @@ export const S01_Perlombaan: React.FC = () => {
   sfxMark(t, "draw", P1c.start + 0.2, "01c:wire:draw"); // wireframe digambar kaki → kepala
   sfxMark(t, "whoosh", TEXT_OUT1 + 4 * fr, "01c:text:out"); // «PENGGANTI kita sendiri» keluar (5 f EZ.acc → puncak akhir)
   sfxMark(t, "whoosh", T.dan + 0.3, "01d:cam:pan"); // pan 640 px 0,6 dtk EZ.inOut → puncak di tengah
-  sfxMark(t, "whoosh", ANEH_OUT + 4 * fr, "01d:text:aneh:out"); // «anehnya» keluar (5 f EZ.acc)
   sfxMark(t, "whoosh", SNAP_D, "01d:cam:snapwide"); // patah 2× → wide 5 f EZ.out (frame sama dengan slam LEBIH)
   return (
     <Scene start={P1a.start} end={P1d.end} name="01a–01d Perlombaan">
@@ -129,6 +127,7 @@ const HorizonA: React.FC<{ t: number }> = ({ t }) => {
   const fallA = FALL_A;
   const tilt = keys(t, [[fallA, 0], [P1b.start, 90]], EZ.acc); // kamera ikut turun sedikit bersama tile
   const c01 = prog(t, W("sadar"), W("sadar") + 15 * fr, EZ.out); // C01 zoom mikro di kata inti «sadar»
+  const atSadar = useFrameAt(319); // v9: f terukur ANCHORS-V9 #5
   return (
     <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
       <Camera scale={drift * (1 + 0.06 * c01)} y={-tilt}>
@@ -143,11 +142,9 @@ const HorizonA: React.FC<{ t: number }> = ({ t }) => {
         ))}
       </Camera>
       {/* teks di zona gelap atas, tengah */}
-      <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", paddingBottom: 220, transform: `scale(${1 + 0.035 * c01})` }}>
-        <div style={{ ...BIG, fontWeight: 800, fontSize: 152, letterSpacing: -4.5, display: "flex", gap: 40 }}>
-          <KWord at={T.tanpa} out={fallA}>Tanpa</KWord>
-          <KWord at={T.sadar} out={fallA}>sadar</KWord>
-        </div>
+      {/* v9 (B13): «Tanpa» dihapus; SADAR = anchor di langit gelap tengah (putih di navy, bukan biru di gelap), masuk di suku tekan f319 */}
+      <AbsoluteFill style={{ transform: `scale(${1 + 0.035 * c01})` }}>
+        <AnchorWord text="SADAR" at={atSadar} until={useFrameAt(Math.round(fallA * FPS))} x={960} y={500} size={250} color={C.white} enter="scale" />
       </AbsoluteFill>
       {/* C10: tile jatuh dari atas ke lajurnya (akselerasi), mendarat di cut 01b */}
       {t >= fallA && TILES.map((tl, i) => {
@@ -220,6 +217,8 @@ const RaceB: React.FC<{ t: number }> = ({ t }) => {
 
 // ═══ 01c–01d · ruang gelap: kerucut cahaya, wireframe pengganti, piktogram kita
 const RoomCD: React.FC<{ t: number }> = ({ t }) => {
+  // v9: frame masuk anchor = "f terukur" ANCHORS-V9 (#5 PENGGANTI f400, #6 LEBIH f559 / CEPAT f567)
+  const atPeng = useFrameAt(400), atLebih = useFrameAt(559), atCepat = useFrameAt(567), outPeng = useFrameAt(Math.round(TEXT_OUT1 * FPS));
   // kamera dalam bentuk (Q = titik dunia di tengah layar, sc = skala); layar = (p − Q)·sc + (960, 540)
   // 01c: C02 push-in 1→1,1 + C01 di «pengganti». 01d: pan di «Dan» (kita masuk) → tahan → C02 push close-up
   // mengikuti garis scan wireframe (objek aktif, 2×) → patah ke wide di LEBIH (5 f) → C01 di CEPAT.
@@ -247,41 +246,24 @@ const RoomCD: React.FC<{ t: number }> = ({ t }) => {
   const fill = 0.46 * Math.pow(u0, 2.2);
   const scan = 0.8 + 0.2 * Math.sin(t * 38);
   const lean = 3 * prog(t, T.ingin, T.ingin + 0.7, EZ.inOut);
-  const textOut1 = TEXT_OUT1;
-  const anehOut = ANEH_OUT; // «anehnya» terbaca 1,1 dtk, keluar sebelum kamera mendekat
   return (
     <AbsoluteFill style={{ background: C.charcoal, overflow: "hidden" }}>
       <Camera scale={sc} x={camX} y={camY} ox={0} oy={0} blur={snap > 0 && snap < 0.85 ? 2.5 * (1 - snap) : 0}>
         <LightCone cx={WX} floorY={FLOOR} open={open} />
         {/* garis finis putih yang membuka jadi kerucut */}
         <div style={{ position: "absolute", left: WX - 2, top: 0, width: 4, height: 1080, background: "#fff", opacity: 1 - prog(t, P1c.start + 2 * fr, P1c.start + 0.3) }} />
+        {/* v9 (#5): PENGGANTI di dunia kamera, di antara kerucut cahaya dan wireframe → tampak DI BELAKANG piktogram wireframe, setinggi bahu */}
+        <AnchorWord text="PENGGANTI" at={atPeng} until={outPeng} x={WX} y={HEAD_TOP + 215} size={210} color={C.white} enter="scale" shadow="0 0 44px rgba(16,18,22,0.7)"
+          sfx={{ kind: "sub_impact", id: "01c:anchor:pengganti" }} />
         <WireFigure id="wf01" cx={WX} headTop={HEAD_TOP} s={S} draw={draw} fill={fill} scan={scan} />
         <Pictogram cx={OURX} headTop={HEAD_TOP} s={S} rim="right" lean={lean} />
       </Camera>
-      {/* 01c · teks di bawah lantai */}
-      {t < T.dan && (
-        <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 108 }}>
-          <div style={{ ...BIG, fontSize: 112, letterSpacing: -3.4, display: "flex", gap: 30, alignItems: "baseline" }}>
-            <KWord at={T.pengganti} out={textOut1} style={{ fontWeight: 900 }}>PENGGANTI</KWord>
-            <KWord at={T.kita2} out={textOut1} style={{ fontWeight: 500 }}>kita</KWord>
-            <KWord at={T.sendiri} out={textOut1} style={{ fontWeight: 500 }}>sendiri</KWord>
-          </div>
-        </AbsoluteFill>
-      )}
-      {/* 01d · «anehnya» masuk dulu (T02), lalu LEBIH CEPAT di antara kedua piktogram */}
+      {/* 01d · LEBIH CEPAT di antara kedua piktogram (posisi v8 dipertahankan); «anehnya» dihapus (v9) */}
       {t >= T.dan && (
-        <AbsoluteFill style={{ justifyContent: "center", alignItems: "center", paddingTop: 30, transform: `scale(${txtScale})` }}>
-          {t < T.lebih && (
-            <div style={{ ...BIG, fontSize: 120, fontWeight: 800, letterSpacing: -3.6 }}>
-              <KWord at={T.aneh} out={anehOut} kind="blurIn">anehnya</KWord>
-            </div>
-          )}
-          {t >= T.lebih && (
-            <div style={{ ...BIG, fontSize: 132, fontWeight: 900, letterSpacing: -4, display: "flex", gap: 36 }}>
-              <KWord at={T.lebih} kind="slam">LEBIH</KWord>
-              <KWord at={T.cepat} kind="slam">CEPAT</KWord>
-            </div>
-          )}
+        <AbsoluteFill style={{ transform: `scale(${txtScale})` }}>
+          <AnchorWord text="LEBIH" at={atLebih} x={925} y={570} size={150} color={C.white} align="right" enter="left" />
+          <AnchorWord text="CEPAT" at={atCepat} x={995} y={570} size={150} color={C.white} align="left" enter="right"
+            sfx={{ kind: "sub_impact", id: "01d:anchor:cepat" }} />
         </AbsoluteFill>
       )}
       <Grain opacity={0.05} />

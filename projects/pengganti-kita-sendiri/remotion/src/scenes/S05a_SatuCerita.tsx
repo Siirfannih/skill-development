@@ -3,8 +3,9 @@
 // Keluar C06 reveal-out: kamera mundur memusatkan kartu biru, foto lain memudar abu → ribuan kartu abu (05b).
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { Camera, EZ, Grain, keys, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
-import { panel, word } from "../lib/time";
+import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
+import { FPS, panel, word } from "../lib/time";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { altCard, ALTMAN_STILL, CARD05A_END, T_SHRINK, T_SHRINK_END, DRIFT05A, DRIFTX05A, lerp, reveal05a, S05A_END } from "./_b4_shared";
 import { firstFrame, moveFrame, progAt } from "./_b5_shared";
 
@@ -32,8 +33,7 @@ export const S05a_SatuCerita: React.FC = () => {
   const t = useT();
   const P = panel("05a");
   const tSatu = word("satu", "s5").s;
-  const tCerita = word("cerita", "s5").s;
-  const tSukses = word("sukses", "s5").s;
+  const atSatu = useFrameAt(2322), atSukses = useFrameAt(2344), outSS = useFrameAt(Math.round((P.end - 0.32) * FPS)); // v9: f terukur ANCHORS-V9 #20
   const tAltman = word("altman", "s5").s;
 
   // kamera C19: drift pelan (isi geser kiri + dorong 1,03); parallax per lapis
@@ -76,27 +76,28 @@ export const S05a_SatuCerita: React.FC = () => {
   sfxMark(t, "whoosh", moveFrame(tSnap), "05a:cam:snapwide"); // patah close-up → wide 5 f (EZ.out, puncak di frame gerak pertama)
   sfxMark(t, "whoosh", (T_SHRINK + T_SHRINK_END) / 2, "05a:altman:shrink"); // kartu Altman menyusut ke tempatnya (X13), puncak kecepatan di tengah gerak
 
+  const renderPhotos = (front: boolean) => [...PHOTOS].sort((a, b) => a.z - b.z).filter((ph) => (ph.z >= 1.6) === front).map((ph) => {
+            const idx = PHOTOS.indexOf(ph);
+            const a = photoA(P.start, idx, ph.z);
+            const inP = prog(t, a, a + PH_IN, EZ.out);
+            const bob = Math.sin(t * 0.9 + idx * 1.3) * 5 * ph.z;
+            const c = place(ph.x + ph.w / 2, ph.y + ph.h / 2 + bob, ph.z);
+            const sc = c.k * (1.06 - 0.06 * inP);
+            const w = ph.w * sc;
+            const h = ph.h * sc;
+            return (
+              <Img key={idx} src={staticFile("wonder/" + ph.img)} style={{
+                position: "absolute", left: c.x - w / 2, top: c.y - h / 2, width: w, height: h, objectFit: "cover", borderRadius: 6 * sc,
+                opacity: Math.min(1, inP * 1.6) * (1 - 0.55 * rv), filter: `grayscale(${rv}) ${ph.z < 1 ? "blur(1.2px)" : ""}`,
+                boxShadow: `0 ${10 * ph.z}px ${26 * ph.z}px rgba(29,29,31,${0.16 * (1 - rv)})`,
+              }} />
+            );
+          });
   return (
     <Scene code="05a">
       <AbsoluteFill style={{ background: "var(--sb-paper)", overflow: "hidden" }}>
         <Camera scale={camPush} x={pushX} y={pushY} ox={CARD05A_END.x} oy={CARD05A_END.y} blur={snap > 0 && snap < 1 ? 2 : 0}>
-        {[...PHOTOS].sort((a, b) => a.z - b.z).map((ph, i) => {
-          const idx = PHOTOS.indexOf(ph);
-          const a = photoA(P.start, idx, ph.z);
-          const inP = prog(t, a, a + PH_IN, EZ.out);
-          const bob = Math.sin(t * 0.9 + idx * 1.3) * 5 * ph.z;
-          const c = place(ph.x + ph.w / 2, ph.y + ph.h / 2 + bob, ph.z);
-          const sc = c.k * (1.06 - 0.06 * inP);
-          const w = ph.w * sc;
-          const h = ph.h * sc;
-          return (
-            <Img key={idx} src={staticFile("wonder/" + ph.img)} style={{
-              position: "absolute", left: c.x - w / 2, top: c.y - h / 2, width: w, height: h, objectFit: "cover", borderRadius: 6 * sc,
-              opacity: Math.min(1, inP * 1.6) * (1 - 0.55 * rv), filter: `grayscale(${rv}) ${ph.z < 1 ? "blur(1.2px)" : ""}`,
-              boxShadow: `0 ${10 * ph.z}px ${26 * ph.z}px rgba(29,29,31,${0.16 * (1 - rv)})`,
-            }} />
-          );
-        })}
+        {renderPhotos(false)}
         {/* kartu biru Altman (lapis tengah) */}
         {(() => {
           const c = place(cardC.x, cardC.y - lift * 8, card.p);
@@ -113,13 +114,21 @@ export const S05a_SatuCerita: React.FC = () => {
             </div>
           );
         })()}
+        {/* v9 (#20): SATU → SUKSES = anchor satu slot (rata kanan, tepat di kiri kartu biru, mengikuti kartu lewat kamera yang sama), lapis tengah:
+            di depan foto belakang & kartu, DI BELAKANG foto depan (z 1,6 dirender sesudahnya). "cerita" dihapus. Ink gelap di kertas terang. */}
+        {(() => {
+          const cc = place(cardC.x, cardC.y, card.p);
+          const lx = cc.x - (card.w * cc.k) / 2 - 56;
+          return (
+            <>
+              <AnchorWord text="SATU" at={atSatu} until={atSukses} x={lx} y={cc.y} size={170} color="#1d1d1f" align="right" enter="left" />
+              <AnchorWord text="SUKSES" at={atSukses} until={outSS} x={lx} y={cc.y} size={170} color="#1d1d1f" align="right" enter="left" />
+            </>
+          );
+        })()}
+        {renderPhotos(true)}
         </Camera>
         {/* teks */}
-        <div style={{ position: "absolute", left: 0, right: 0, top: 470, textAlign: "center", fontFamily: "Inter", fontWeight: 800, fontSize: 112, letterSpacing: -3.4, lineHeight: 1, color: "var(--sb-ink)", whiteSpace: "nowrap" }}>
-          <KWord at={tSatu} out={P.end - 0.32}>satu</KWord>{" "}
-          <KWord at={tCerita} out={P.end - 0.32}>cerita</KWord>{" "}
-          <KWord at={tSukses} out={P.end - 0.32}>sukses</KWord>
-        </div>
         <Grain opacity={0.04} />
       </AbsoluteFill>
     </Scene>

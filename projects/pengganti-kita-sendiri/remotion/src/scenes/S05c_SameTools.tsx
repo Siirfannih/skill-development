@@ -4,9 +4,10 @@
 // Keluar X07 cut on motion: kamera mendorong masuk 4 f terakhir, 05d mendarat dari dorongan yang sama.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { Camera, EZ, Grain, keys, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { DOC_GRADE } from "../lib/media";
 import { FPS, panel, word } from "../lib/time";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { firstFrame, GRID, gridIdx, progAt, z3tick } from "./_b5_shared";
 
 const P = panel("05c");
@@ -41,6 +42,7 @@ const ICONS = [
 
 export const S05c_SameTools: React.FC = () => {
   const t = useT();
+  const atSemua = useFrameAt(2514), atTools = useFrameAt(Math.round(T_TOOLS * FPS)), atSama = useFrameAt(2591); // v9: f terukur ANCHORS-V9 #22
   // indeks foto terkunci ke grid yang beranchor di tick «tools» (foto berganti tepat di tick)
   const k = gridIdx(t, T_TOOLS);
   const kFirst = gridIdx(P.start, T_TOOLS);
@@ -65,13 +67,22 @@ export const S05c_SameTools: React.FC = () => {
   ICONS.forEach((_, i) => { const a = T_TOOLS + i * ICON_GAP; sfxMark(t, "pop", progAt(a, a + ICON_IN, EZ.out), `05c:icon:${i}`); });
   sfxMark(t, "whoosh", MERGE_B - 1 / FPS, "05c:icons:merge"); // tiga ikon menyatu ke tengah (EZ.acc, puncak di akhir)
   sfxMark(t, "whoosh", P.end - 1 / FPS, "05c:cam:exitpush"); // dorongan cut-on-motion 4 f terakhir (EZ.acc) ke 05d
-  const dimPhoto = t >= W_SAMA ? 0.5 : t >= T_TOOLS ? 0.62 : 0.85;
+  const dimPhoto = t >= W_SAMA ? 0.5 : t >= T_TOOLS ? 0.58 : 0.68; // v9 (B12): grade gelap konsisten (v8: 0,85 → foto terang beda tone dengan sistem visual)
   return (
     <Scene code="05c">
       <AbsoluteFill style={{ background: "#2a2d33" }}>
-        <Camera scale={camBack} x={panBack} blur={camBlur}>
+        {/* v9 (B12): 2.5D. Lapis belakang = foto yang sama, diperbesar, blur 18 px, gelap (parallax 50 % dari gerak kamera); lapis tengah = foto sebagai kartu
+            bertepi bulat dengan bayangan; vignette charcoal menyatukan tone dengan sistem visual. */}
+        <Camera scale={1 + (camBack - 1) * 0.5} x={panBack * 0.4} blur={camBlur}>
           <Img src={staticFile(PHOTOS[idx])}
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: `${DOC_GRADE} brightness(${dimPhoto})`, transform: `scale(${zoomCycle + local * 0.12})` }} />
+            style={{ position: "absolute", inset: -60, width: "calc(100% + 120px)", height: "calc(100% + 120px)", objectFit: "cover", filter: `saturate(0.4) blur(18px) brightness(${dimPhoto * 0.55})`, transform: "scale(1.15)" }} />
+        </Camera>
+        <Camera scale={camBack} x={panBack} blur={camBlur}>
+          <div style={{ position: "absolute", left: 96, top: 54, width: 1728, height: 972, borderRadius: 28, overflow: "hidden", boxShadow: "0 40px 120px rgba(0,0,0,0.55)" }}>
+            <Img src={staticFile(PHOTOS[idx])}
+              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: `${DOC_GRADE} brightness(${dimPhoto})`, transform: `scale(${zoomCycle + local * 0.12})` }} />
+            <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(16,18,22,0) 45%, rgba(16,18,22,0.45) 100%)" }} />
+          </div>
         </Camera>
         <Camera scale={camFront} blur={camBlur}>
           {/* tiga tool AI asli (sama untuk semua orang) */}
@@ -91,12 +102,11 @@ export const S05c_SameTools: React.FC = () => {
               </div>
             </AbsoluteFill>
           )}
-          {/* anchor word T24 */}
-          <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
-            <KWord at={W_SAMA} kind="pop" style={{ fontFamily: "Inter", fontWeight: 800, fontSize: 360, letterSpacing: -18, lineHeight: 1, color: "#ffffff" }}>
-              SAMA
-            </KWord>
-          </AbsoluteFill>
+          {/* v9 (#22): SEMUA (tengah, sampai ikon AI mendarat) → SAMA (raksasa, T24 dipertahankan). Seharusnya di belakang foto orang yang lewat;
+              lapis tengah sekarang kartu foto utuh → SEMUA di depan (fallback). */}
+          <AnchorWord text="SEMUA" at={atSemua} until={atTools} x={960} y={540} size={300} color="#ffffff" enter="scale" shadow="0 6px 50px rgba(0,0,0,0.65)" />
+          <AnchorWord text="SAMA" at={atSama} x={960} y={540} size={360} color="#ffffff" enter="scale" shadow="0 6px 50px rgba(0,0,0,0.5)"
+            sfx={{ kind: "sub_impact", id: "05c:anchor:sama" }} />
         </Camera>
         <Grain opacity={0.05} />
       </AbsoluteFill>

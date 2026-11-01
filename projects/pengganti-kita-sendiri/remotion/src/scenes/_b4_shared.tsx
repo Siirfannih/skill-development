@@ -79,6 +79,6 @@ export const cam05b = (t: number) => {
   const a = panel("05b").start;
   // lanjut dari akselerasi akhir 05a: langsung cepat lalu deselerasi panjang, mendarat di «gagal», lalu tahan + drift
   const g = word("gagal", "s5").s + 0.3;
-  if (t <= g) return Math.exp(keys(t, [[a, Math.log(1.5)], [g, Math.log(0.42)]], EZ.out));
-  return keys(t, [[g, 0.42], [panel("05b").end, 0.4]], (x) => x);
+  if (t <= g) return Math.exp(keys(t, [[a, Math.log(1.5)], [g, Math.log(0.68)]], EZ.out));
+  return keys(t, [[g, 0.68], [panel("05b").end, 0.66]], (x) => x);
 };

@@ -6,8 +6,9 @@
 //      label TAHAP INI di bawah sumbu. Keluar X17 hard cut di batas babak (akhir 02f).
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, KWord, keys, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
+import { EZ, panOf, keys, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { BLOOM_PT, BlueprintGrid, BlueprintPaper, C, CHART, PROMISE, REALITY } from "./_b2_shared";
 import { ezHalf } from "./_b1_shared";
 
@@ -18,7 +19,6 @@ const W_TAPI = word("tapi", "s2", 1);
 const W_JAUH = word("jauh", "s2", 1);
 const W_TIDAK = word("tidak", "s2", 1);
 const W_DI = word("di", "s2", 2);
-const W_TAHAP = word("tahap", "s2", 1);
 
 const L1 = PROMISE.L; // panjang jalur janji (sampai TAHAP INI)
 const LT = REALITY.L;
@@ -27,6 +27,9 @@ const TIP_SCREEN = { x: 1060, y: 560 }; // posisi titik di layar saat close-up
 
 export const S02e_JanjiDitepati: React.FC = () => {
   const t = useT();
+  const atDitepati = useFrameAt(1010), untilDitepati = useFrameAt(Math.round((W_TIDAK.s - 0.35) * FPS)); // v9: f terukur ANCHORS-V9 #10
+  const atTahap = useFrameAt(1194), atIni = useFrameAt(1201); // #12
+  const T_DT = 1010 / FPS;
   const pe = panel("02e");
   const pf = panel("02f");
   const snap = W_TIDAK.s; // C15
@@ -51,7 +54,8 @@ export const S02e_JanjiDitepati: React.FC = () => {
   const anchor = { x: BLOOM_PT.x + (TIP_SCREEN.x - BLOOM_PT.x) * settle, y: BLOOM_PT.y + (TIP_SCREEN.y - BLOOM_PT.y) * settle };
   // pola fokus: C18 close-follow ×1,9 → C01 di «jauh» (+0,12 dalam 20 f) → C02 push tensi di «Tapi… kita juga»
   // (×2,02→×2,3) → C15 patah ke wide di «tidak» (6 f). Titik ujung = jangkar, jadi label di titik tetap diam saat zoom.
-  const zc = ZC * (1 + 0.063 * prog(t, W_JAUH.s, W_JAUH.s + 20 / FPS, EZ.out)) * keys(t, [[W_TAPI.s, 1.0], [snap, 1.14]], EZ.inOut);
+  const zc = ZC * (1 + 0.063 * prog(t, W_JAUH.s, W_JAUH.s + 20 / FPS, EZ.out)) * keys(t, [[W_TAPI.s, 1.0], [snap, 1.14]], EZ.inOut)
+    * (t >= T_DT ? 1 + 0.12 * (1 - prog(t, T_DT, T_DT + 4 / FPS, EZ.out)) : 1); // v9 (B6): snap-punch 4 f di DITEPATI, lalu close-up tetap mengikuti ujung garis
   const closeT = { x: anchor.x - tipLag.x * zc, y: anchor.y - tipLag.y * zc };
   const w = prog(t, snap, snap + 6 / FPS, EZ.out); // patah cepat
   const drift = keys(t, [[snap + 6 / FPS, 1.0], [pf.end, 1.025]], EZ.inOut); // drift wide ≤1,03
@@ -69,14 +73,14 @@ export const S02e_JanjiDitepati: React.FC = () => {
   const snapIn = 1 - prog(t, pe.start, pe.start + 5 / FPS, EZ.out);
   const tipS = scr(tip);
 
-  // label DITEPATI menempel di titik, keluar sebelum kamera patah
-  const lblOut = snap - 0.35;
   // penanda TAHAP INI
   const mk = prog(t, W_DI.s, W_DI.s + 0.35, EZ.out);
   const endDot = prog(t, W_DI.s - 0.1, W_DI.s + 0.15, EZ.out);
   const sFrac = s / LT;
   // SFXEV · metronom (label DITEPATI / TAHAP INI = KWord, tercatat otomatis)
   sfxMark(t, "riser", pe.start, "02d:bloom:hit"); // X14 bloom 02d (EZ.acc) memuncak putih penuh → mengerut ke titik (bl)
+  sfxMark(t, "snap_click", T_DT, "02e:ditepati:punch", panOf(tipS.x)); // v9: snap-punch 4 f di DITEPATI (pan mengikuti ujung garis di layar)
+  sfxMark(t, "graph_riser", W_JAUH.s, "02e:tip:accelerate", 0); // v9: titik melaju di jalur janji («jauh lebih cepat»), riser grafik tipis
   sfxMark(t, "whoosh", snap, "02f:cam:snapwide"); // C15 patah ke wide 6 f EZ.out + garis solid melesat (satu event)
   sfxMark(t, "draw", W_DI.s, "02f:marker:draw"); // penanda vertikal TAHAP INI tumbuh dari sumbu
   sfxMark(t, "pop", ezHalf(W_DI.s - 0.1, W_DI.s + 0.15), "02f:dot:stage"); // titik ujung janji ditegaskan
@@ -106,19 +110,16 @@ export const S02e_JanjiDitepati: React.FC = () => {
           </svg>
         </AbsoluteFill>
 
-        {/* label menempel di titik (ruang layar, ukuran tetap) — di bawah kanan titik, di bawah garis */}
-        {t < lblOut + 0.2 && (
-          <div style={{ position: "absolute", left: tipS.x + 34, top: tipS.y + 30, fontFamily: "Inter", fontWeight: 600, fontSize: 50, letterSpacing: 5, color: C.white, whiteSpace: "nowrap" }}>
-            <KWord at={W_DITEPATI.s} out={lblOut} kind="pop">DITEPATI</KWord>
-          </div>
-        )}
-        {/* label penanda: menempel di kanan ujung atas penanda (jauh dari zona UI bawah dan dari garis solid) */}
-        {t >= snap && (() => {
-          const m = scr({ x: CHART.stage.x, y: CHART.markerTop });
+        {/* v9 (B6): DITEPATI = anchor yang menempel di ujung garis (ruang layar, ikut tip tiap frame), di kanan-bawah titik; keluar sebelum kamera patah ke wide */}
+        <AnchorWord text="DITEPATI" at={atDitepati} until={untilDitepati} x={tipS.x + 34} y={tipS.y + 100} size={112} color={C.white} align="left" enter="left" />
+        {/* v9: TAHAP INI = anchor di kanan penanda vertikal (bawah garis kenyataan), satu baris dua kata, tracking posisi penanda */}
+        {(() => {
+          const m = scr({ x: CHART.stage.x, y: 830 });
           return (
-            <div style={{ position: "absolute", left: m.x + 24, top: m.y - 6, fontFamily: "Inter", fontWeight: 600, fontSize: 50, letterSpacing: 5, color: C.white, whiteSpace: "nowrap" }}>
-              <KWord at={W_TAHAP.s} kind="rise" dist={18}>TAHAP INI</KWord>
-            </div>
+            <>
+              <AnchorWord text="TAHAP" at={atTahap} x={m.x + 30} y={m.y} size={112} color={C.white} align="left" enter="right" sfx={{ kind: "sub_impact", id: "02f:anchor:tahap" }} />
+              <AnchorWord text="INI" at={atIni} x={m.x + 30 + 440 * Z} y={m.y} size={112} color={C.white} align="left" enter="right" />
+            </>
           );
         })()}
 

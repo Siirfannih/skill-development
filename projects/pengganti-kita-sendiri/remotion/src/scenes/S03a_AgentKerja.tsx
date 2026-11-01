@@ -5,6 +5,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { AgentFace, AGENTS, Arrow, cue, ezAt, Icon, I_FOLDER, I_KEY, I_MIC, I_MORE, I_PLUS, I_UP, I_X, NamedCursor } from "./_b3_shared";
 
 const P1 = panel("03a-1");
@@ -111,8 +112,19 @@ const Chip: React.FC<{ children: React.ReactNode; pad?: string }> = ({ children,
   </div>
 );
 
+/** Posisi pusat wajah agent i (ruang dunia) pada detik t: lompatan dari tombol lalu terbang ke kursor bernama (dipakai anchor PERSIS). */
+const agentXY = (i: number, t: number) => {
+  const sp = SPAWN[i];
+  const pos0 = bez(BTN, sp, prog(t, T_AG[i], T_AG[i] + HOP, EZ.out));
+  const fp = prog(t, LAUNCH[i], LAUNCH[i] + FLY, EZ.inOut);
+  const tip = cursorPos(i, Math.max(t, LAUNCH[i] + FLY));
+  return { x: lerp(pos0.x, tip.x + FACE_OFF.x, fp), y: lerp(pos0.y, tip.y + FACE_OFF.y, fp) };
+};
+
 export const S03a_AgentKerja: React.FC = () => {
   const t = useT();
+  const atPersis = useFrameAt(1381), untilPersis = useFrameAt(Math.round((LAUNCH[1] + FLY) * FPS)); // v9: f terukur ANCHORS-V9 #13
+  const persisXY = agentXY(1, t);
 
   // ── SFXEV (metronom SFX): satu tanda per event visual, dari konstanta yang sama dengan animasinya
   sfxMark(t, "cut", P1.start, "03a:cut:in"); // Babak 2 → composer
@@ -277,6 +289,10 @@ export const S03a_AgentKerja: React.FC = () => {
               })}
             </svg>
           )}
+
+          {/* v9 (#13): PERSIS = satu-satunya anchor babak ini (UI asli jadi bintang). Menempel pada agent kedua (CS) yang meniru agent pertama saat terbang,
+              di BELAKANG wajah/kursor bernama (DOM sebelum agent), tinta gelap di atas latar langit terang. Hidup sampai agent tiba (±0,6 dtk). */}
+          <AnchorWord text="PERSIS" at={atPersis} until={untilPersis} x={persisXY.x + 100} y={persisXY.y + 24} size={112} color="#1d1d1f" align="left" enter="left" />
 
           {/* agent: lompat dari tombol (03a-2) → terbang ke ruang kerja jadi kursor bernama (X01) */}
           {AGENTS.map((ag, i) => {

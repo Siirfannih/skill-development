@@ -7,8 +7,9 @@ import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
-import { block, panel, word } from "../lib/time";
-import { ezAt } from "./_b3_shared";
+import { block, FPS, panel, word } from "../lib/time";
+import { AnchorStage, AnchorWord, useFrameAt } from "../lib/AnchorWord";
+import { useSubjectMatte } from "../lib/SubjectMatteStub";
 import { altCard, ALTMAN_STILL, CLIP_CARD, T_SHRINK, T_STILL } from "./_b4_shared";
 
 // crop sumber 1920×1080 → kartu: Altman di tengah kartu
@@ -21,32 +22,17 @@ const TAIL = 0.73; // gambar (tanpa suara) diperpanjang sampai batas 05a, saat k
 
 // cincin
 const RC = { x: 960, y: 545, rx: 650, ry: 150 };
-const OMEGA = -15;
-const WORD_IN = 0.28; // kata kutipan blur-in // derajat/detik (bagian depan bergerak ke kiri, ≤ 6 px/f agar kata terbaca)
-type Item = { parts: { text: string; at: number }[]; phiAt: number; tRef: number };
-
-const ringPos = (phiDeg: number) => {
-  const r = (phiDeg * Math.PI) / 180;
-  const z = Math.cos(r); // 1 = depan
-  return { x: RC.x + RC.rx * Math.sin(r), y: RC.y + RC.ry * z, z, rot: -Math.sin(r) * 32 };
-};
+// v9 (B10): kata orbit dibuang → SINGLE / BILLION / COMPANY = AnchorWord satu baris sejajar kepala Altman (di belakang kepala bila matte ada). "-PERSON" dibuang.
 
 export const S04d_AltmanOrbit: React.FC = () => {
   const t = useT();
   const P = panel("04d");
   const B = block("altman");
-  const tSingle = word("single", "altman").s;
-  const tPerson = word("person", "altman").s;
   const tBillion = word("billion-dollar", "altman").s;
-  const tComp = word("comp--", "altman").s;
   const tEnd = word("tell", "altman").e;
 
-  // urutan baca kiri → tengah → kanan saat masing-masing diucapkan; jarak 120° di cincin
-  const items: Item[] = [
-    { parts: [{ text: "SINGLE", at: tSingle }, { text: "-PERSON", at: tPerson }], phiAt: -100, tRef: tSingle },
-    { parts: [{ text: "BILLION-DOLLAR", at: tBillion }], phiAt: 0, tRef: tBillion },
-    { parts: [{ text: "COMPANY", at: tComp }], phiAt: 92, tRef: tComp },
-  ];
+  const matteAltman = useSubjectMatte("altman"); // null selama stub → teks di depan klip
+  const atSingle = useFrameAt(2162), atBillion = useFrameAt(2182), atCompany = useFrameAt(2209), outW = useFrameAt(Math.round((T_SHRINK + 0.05) * FPS)); // v9: f terukur #19
   const wordsOut = prog(t, tEnd + 0.12, T_SHRINK + 0.05, EZ.acc);
   const ringA = P.start + 0.05;
   const ringIn = prog(t, ringA, P.start + 0.7, EZ.out);
@@ -57,36 +43,6 @@ export const S04d_AltmanOrbit: React.FC = () => {
   // ── SFXEV (metronom SFX). Kartu menyusut (T_SHRINK…T_SHRINK_END) & ganti ke foto diam (T_STILL) dirender 05a.
   sfxMark(t, "cut", P.start, "04d:clip:in"); // isi kartu: grafik 04c → klip Altman
   sfxMark(t, "draw", ringA, "04d:ring"); // cincin orbit mulai tergambar
-  items.forEach((it, i) => it.parts.forEach((w, j) => {
-    const a = w.at + 2 / 30; // sama dengan renderItem
-    sfxMark(t, "pop", ezAt(a, a + WORD_IN, EZ.out), `04d:word:${i}:${j}`); // kata kutipan muncul di cincin
-  }));
-
-  const renderItem = (it: Item, i: number, front: boolean) => {
-    const phi = it.phiAt + OMEGA * (t - it.tRef);
-    const p = ringPos(phi);
-    if ((p.z >= 0) !== front) return null;
-    const d = (p.z + 1) / 2; // 0 belakang .. 1 depan
-    const sc = 0.6 + 0.4 * d;
-    // kedalaman tetap terbaca (belakang lebih redup), tapi kata di sisi cincin saat diucapkan tetap kontras (≥ ~0,7)
-    const op = (0.45 + 0.55 * d) * (1 - wordsOut) * ringIn;
-    const blur = (1 - d) * 1.2 + wordsOut * 8;
-    return (
-      <div key={i} style={{
-        position: "absolute", left: p.x, top: p.y, transform: `translate(-50%, calc(-100% - 14px)) perspective(1600px) rotateY(${p.rot}deg) scale(${sc})`, transformOrigin: "50% 100%",
-        fontFamily: "Inter", fontWeight: 800, fontSize: 92, letterSpacing: -1.5, lineHeight: 1, color: "#fff", whiteSpace: "nowrap",
-        opacity: op, filter: blur > 0.1 ? `blur(${blur}px)` : undefined,
-      }}>
-        {it.parts.map((w, j) => {
-          const a = w.at + 2 / 30;
-          const q = prog(t, a, a + WORD_IN, EZ.out);
-          return (
-            <span key={j} style={{ display: "inline-block", opacity: t < a ? 0 : Math.min(1, q * 2), filter: `blur(${(1 - q) * 10}px)`, transform: `translateY(${(1 - q) * 24}px)` }}>{w.text}</span>
-          );
-        })}
-      </div>
-    );
-  };
 
   const ellipse = (half: "back" | "front") => {
     // setengah atas = belakang (redup, di belakang kartu), setengah bawah = depan
@@ -114,7 +70,6 @@ export const S04d_AltmanOrbit: React.FC = () => {
         {/* C01 zoom mikro di «billion-dollar» (inti kutipan), kembali pelan ke 1,0 sebelum kartu menyusut */}
         <Camera scale={keys(t, [[tBillion, 1], [tBillion + 0.65, 1.06], [T_SHRINK - 0.35, 1.0]], EZ.inOut) } oy={RC.y}>
         {ellipse("back")}
-        {items.map((it, i) => renderItem(it, i, false))}
         {/* kartu klip */}
         <div style={{
           position: "absolute", left: card.x, top: card.y, width: card.w, height: card.h, borderRadius: card.r, overflow: "hidden",
@@ -131,7 +86,21 @@ export const S04d_AltmanOrbit: React.FC = () => {
           </div>
         </div>
         {ellipse("front")}
-        {items.map((it, i) => renderItem(it, i, true))}
+        {/* v9 (B10): anchor di BELAKANG kepala Altman: kartu → teks → matte (fg, crop identik). Matte null → teks di depan klip. Satu baris, tinggi kepala (y 330). */}
+        <AnchorStage bg={null} fg={matteAltman && !showStill ? (
+          <div style={{ position: "absolute", left: card.x, top: card.y, width: card.w, height: card.h, borderRadius: card.r, overflow: "hidden" }}>
+            <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden" }}>
+              <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, transformOrigin: "0 0", transform: crop }}>
+                <Clip src={matteAltman} at={B.t} inS={IN_S} outS={OUT_S + TAIL} />
+              </div>
+            </div>
+          </div>
+        ) : undefined}>
+          <AnchorWord text="SINGLE" at={atSingle} until={outW} x={400} y={330} size={108} color="#fff" enter="left" shadow="0 4px 30px rgba(0,0,0,0.6)" />
+          <AnchorWord text="BILLION" at={atBillion} until={outW} x={960} y={330} size={108} color="#fff" enter="scale" shadow="0 4px 30px rgba(0,0,0,0.6)"
+            sfx={{ kind: "sub_impact", id: "04d:anchor:billion" }} />
+          <AnchorWord text="COMPANY" at={atCompany} until={outW} x={1520} y={330} size={108} color="#fff" enter="right" shadow="0 4px 30px rgba(0,0,0,0.6)" />
+        </AnchorStage>
         {/* atribusi */}
         <div style={{ position: "absolute", left: 0, right: 0, top: 872, textAlign: "center", fontFamily: "Inter", fontWeight: 600, fontSize: 26, letterSpacing: 4.2, color: "rgba(255,255,255,0.6)", opacity: prog(t, P.start + 0.3, P.start + 0.8, EZ.out) * (1 - wordsOut) }}>
           SAM ALTMAN · CEO OPENAI · MOSTLY HUMAN

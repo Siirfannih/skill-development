@@ -2,7 +2,9 @@
 // Pola dari referensi siirfannih_DfDC0I9PHin: footage berganti per frasa, suara asli disambung rapat.
 import React from "react";
 import { AbsoluteFill, Img, staticFile, getInputProps } from "remotion";
-import { Camera, EZ, keys, KWord, prog, Scene, useT, Grain, sfxMark } from "../lib/anim";
+import { Camera, EZ, keys, prog, Scene, useT, useSceneFrom, Grain, sfxMark } from "../lib/anim";
+import { AnchorStage, AnchorWord } from "../lib/AnchorWord";
+import { useSubjectMatte } from "../lib/SubjectMatteStub";
 import { Clip, DOC_GRADE } from "../lib/media";
 import { block, FPS, panel, WORDS } from "../lib/time";
 import cues from "../../public/data/cues11.json";
@@ -56,7 +58,6 @@ const FRAMES: Frame[] = [
   { s: 1.25, tx: -350, ty: 0, box: { x: 1120, y: 760, w: 700, align: "left" }, accent: "time" }, // presenter kiri, teks kanan bawah
   { s: 1, tx: 0, ty: 0, box: { x: 0, y: 652, w: 1920, align: "center" }, accent: "fast" }, // kartu menyusut, teks di bawah kartu
 ];
-const clean = (w: string) => w.replace(/[.,!?]/g, "").replace(/-/g, " ");
 const isAccent = (w: string, a: string) => w.toLowerCase().replace(/[.,]/g, "") === a;
 
 const MONTAGE_A = CUTS[1].at; // «technical thing»
@@ -108,7 +109,6 @@ export const S00_ColdOpen: React.FC = () => {
   const pB = panel("00b");
   const shrinkAt = CUTS[CUTS.length - 1].at; // «progress» → footage menyusut jadi satu foto di awan
   const sh = { x: 0, y: 0 };
-  const ci = Math.max(0, CUTS.findIndex((c, i) => t >= c.at && (i === CUTS.length - 1 || t < CUTS[i + 1].at)));
   // redup footage saat teks ada (keterbacaan tanpa scrim); montase sedikit lebih redup
   const dimF = t >= MONTAGE_A && t < MONTAGE_B ? 0.62 : 0.8;
   // reveal-out 00b (C06): kamera mundur ×3, akselerasi singkat lalu deselerasi panjang
@@ -119,6 +119,22 @@ export const S00_ColdOpen: React.FC = () => {
   CUTS.forEach((c, i) => sfxMark(t, "cut", c.at, `00a:cut:${i}`));
   for (let i = 0; MONTAGE_A + i * STEP < MONTAGE_B; i++) sfxMark(t, "snap", Math.ceil((MONTAGE_A + i * STEP) * FPS - 1e-6) / FPS, `00a:photo:${i}`);
   sfxMark(t, "whoosh", shrinkAt, "00b:shrink:0");
+  // matte narasumber (null selama stub): fg di depan teks, transform identik dengan footage (FRAMES + zoom aksen)
+  const sf = useSceneFrom();
+  const mattes: Record<string, string | null> = { news_gates: useSubjectMatte("news_gates"), news_teen: useSubjectMatte("news_teen"), news_billion: useSubjectMatte("news_billion") };
+  const matteFg = Object.values(mattes).some(Boolean) ? (
+    <AbsoluteFill style={{ overflow: "hidden" }}>
+      {CUTS.map((c, i) => {
+        const key = NEWS.find((n) => n.file === c.file)!.name;
+        const m = mattes[key];
+        if (!m) return null;
+        const F = FRAMES[i];
+        const acc = WORDS.find((w) => w.s >= c.at && w.s < (CUTS[i + 1]?.at ?? 99) && isAccent(w.w, F.accent));
+        const z = 1 + 0.02 * prog(t, c.at, c.at + 1.2, EZ.inOut) + (acc ? 0.05 * prog(t, acc.s, acc.s + 0.6, EZ.out) : 0);
+        return <Clip key={i} src={m} at={c.at} inS={c.inS} outS={c.outS} style={{ transform: `translate(${F.tx}px, ${F.ty}px) scale(${F.s * z})`, transformOrigin: "0 0" }} grade={`${DOC_GRADE} brightness(${dimF})`} />;
+      })}
+    </AbsoluteFill>
+  ) : undefined;
   return (
     <Scene start={0} end={pB.end} name="00a–00b Cold open">
       <AbsoluteFill style={{ background: "#101216" }}>
@@ -169,29 +185,36 @@ export const S00_ColdOpen: React.FC = () => {
             </div>
           );
         })()}
-        {/* teks kinetik ucapan pembicara: per kata kiri→kanan, keluar bersama cut potongan */}
-        {(() => {
-          const c = CUTS[ci];
-          const end = CUTS[ci + 1]?.at ?? pB.end - 0.1;
-          const F = FRAMES[ci];
-          const ws = WORDS.filter((w) => w.src.startsWith("news_") && w.s >= c.at - 0.02 && w.s < end - 0.02);
-          if (!ws.length || t >= pB.end - 0.05) return null;
-          return (
-            <div style={{ position: "absolute", left: F.box.x, top: F.box.y, width: F.box.w, display: "flex", flexWrap: "wrap", justifyContent: F.box.align === "center" ? "center" : "flex-start", alignItems: "baseline", columnGap: 26, rowGap: 6 }}>
-              {ws.map((w, k) => {
-                const ac = isAccent(w.w, F.accent);
-                return (
-                  <KWord key={k} at={w.s} kind="rise" dist={30}
-                    style={{ fontFamily: "Inter", fontWeight: ac ? 900 : 700, fontSize: ac ? 112 : 92, letterSpacing: ac ? -3.5 : -2.4, lineHeight: 1.05, color: ac ? "#FAF8EC" : "rgba(250,248,236,0.9)", whiteSpace: "nowrap",
-                      // keterbacaan di footage terang (langit pink Bloomberg, grafik putih Sky News): bayangan lembut, bukan scrim
-                      textShadow: "0 2px 6px rgba(0,0,0,0.35), 0 4px 36px rgba(0,0,0,0.55)" }}>
-                    {clean(w.w)}
-                  </KWord>
-                );
-              })}
-            </div>
-          );
-        })()}
+        {/* v9 (B1): subtitle transkrip dihapus → anchor word 1–3 kata, di belakang kepala narsum bila matte ada (useSubjectMatte, stub = null → teks di depan).
+            Frame masuk = "f terukur" ANCHORS-V9 (onset suku tekan, diukur di dialog.wav). */}
+        <AnchorStage bg={null} fg={matteFg}>
+          {(() => {
+            const o = sf; // frame awal Scene (0)
+            const SH = "0 2px 6px rgba(0,0,0,0.35), 0 4px 36px rgba(0,0,0,0.6)";
+            const CR = "#FAF8EC";
+            const gEnd = Math.round(block("news_teen").t * FPS) - o;
+            const tEnd = Math.round(block("news_billion").t * FPS) - o;
+            const bEnd = Math.round(block("news_fast").t * FPS) - o;
+            return (
+              <>
+                {/* #1 Gates: slot kiri (Gates di kanan), AI → BIGGEST di tempat yang sama */}
+                <AnchorWord text="AI" at={2 - o} until={27 - o} x={140} y={540} size={380} color={CR} align="left" enter="scale" shadow={SH} />
+                <AnchorWord text="BIGGEST" at={27 - o} until={gEnd} x={140} y={540} size={168} color={CR} align="left" enter="left" shadow={SH}
+                  sfx={{ kind: "sub_impact", id: "00a:anchor:biggest" }} />
+                {/* #2 remaja Sky News (kiri), slot kanan-bawah: 16 → LAUNCHED */}
+                <AnchorWord text="16" at={112 - o} until={133 - o} x={1040} y={640} size={420} color={CR} align="left" enter="scale" shadow={SH} />
+                <AnchorWord text="LAUNCHED" at={133 - o} until={tEnd} x={1040} y={640} size={150} color={CR} align="left" enter="right" shadow={SH}
+                  sfx={{ kind: "scifi_whoosh", id: "00a:anchor:launched" }} />
+                {/* #3 Bloomberg (presenter kanan), slot kiri tengah-bawah */}
+                <AnchorWord text="BILLION" at={208 - o} until={bEnd} x={110} y={600} size={160} color={CR} align="left" enter="scale" shadow={SH}
+                  sfx={{ kind: "sub_impact", id: "00a:anchor:billion" }} />
+                {/* #4 Sky News grafik: FAST di tengah-bawah kartu yang menyusut (foto awan lewat di belakang) */}
+                <AnchorWord text="FAST" at={284 - o} until={pB.end * FPS - o} x={960} y={820} size={300} color={CR} align="center" enter="right" shadow={SH}
+                  sfx={{ kind: "scifi_whoosh", id: "00b:anchor:fast" }} />
+              </>
+            );
+          })()}
+        </AnchorStage>
         <Grain opacity={0.06} />
       </AbsoluteFill>
     </Scene>

@@ -4,6 +4,7 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { FPS, panel, word } from "../lib/time";
 import { Ball, C6, Plane, relay, Torso, wa } from "./_b6_shared";
 
@@ -33,6 +34,7 @@ const KEY_MARKS: { at: number; id: string }[] = (() => {
 
 export const S06d_Prompt: React.FC = () => {
   const t = useT();
+  const atSendiri = useFrameAt(3492), untilSendiri = useFrameAt(Math.round(T_OFF * FPS)); // v9: f terukur ANCHORS-V9 #30 (SENDIRI)
   const on = relay(t, T_OFF);
   // ── SFXEV
   sfxMark(t, "pop", P.start, "06d:bloom:1"); // bloom match dari 06c (puncak BLOOM_06C_END) mendarat jadi composer
@@ -61,6 +63,9 @@ export const S06d_Prompt: React.FC = () => {
         <AbsoluteFill style={{ transform: `scale(${Z})`, transformOrigin: "1949px 520px" }}>
         <AbsoluteFill style={{ transform: `scale(${sc})`, transformOrigin: "1280px 520px" }}>
           <div style={{ position: "absolute", left: 0, top: 0, width: 960, height: 540, transform: `translateX(${bgX}px) scale(2)`, transformOrigin: "0 0" }}>
+            {/* v9 (#30): SENDIRI = anchor di kiri composer, setinggi kepala piktogram over-the-shoulder; DOM sebelum bola kepala (fg) → ujung kiri huruf tertutup kepala.
+                Putih di charcoal, berhenti di tepi kiri bidang (x 372) supaya tidak menimpa bidang putih. */}
+            <AnchorWord text="SENDIRI" at={atSendiri} until={untilSendiri} x={372} y={235} size={46} color="#ffffff" align="right" enter="left" grain={0} />
             <Plane b={{ x: 380, y: 120, w: 560, h: 280 }} on={on} slant={0.08} softGlow
               grad={`linear-gradient(90deg, ${C6.white} 60%, ${C6.paper} 100%)`}
               glow={{ b: { x: 420, y: 150, w: 480, h: 220 }, blur: 140, spread: 40, a: 0.22, radius: 40 }}>

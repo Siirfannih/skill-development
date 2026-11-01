@@ -4,6 +4,7 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { FPS, panel, word } from "../lib/time";
 import { Ball, C6, Plane, Torso, wa } from "./_b6_shared";
 
@@ -28,6 +29,7 @@ export const BLOOM_06C_END = (t: number) => keys(t, [[P.end - 0.3, 0], [P.end, 0
 
 export const S06c_Serahkan: React.FC = () => {
   const t = useT();
+  const atAI = useFrameAt(3383), untilAI = useFrameAt(Math.round(P.end * FPS) - 4); // v9: f terukur ANCHORS-V9 #30 (AI)
   const lift = prog(t, W_MENYERAHKAN + F2, W_MENYERAHKAN + F2 + 0.35, EZ.out);
   const FLY_A = W_MENYERAHKAN + 0.3;
   const FLY_B = W_AI_C + F2;
@@ -72,6 +74,9 @@ export const S06c_Serahkan: React.FC = () => {
             <Plane b={{ x: 700, y: 90, w: 320, h: 360 }} on={1} slant={0.18} boost={boost * 1.2} softGlow
               grad={`linear-gradient(90deg, ${C6.paper} 0%, ${C6.white} 45%)`}
               glow={{ b: { x: 770, y: 140, w: 170, h: 260 }, blur: 140, spread: 50, a: 0.24, radius: 40 }} />
+            {/* v9 (#30): AI = anchor di tengah bidang cahaya (target hisapan), ink gelap di bidang putih; DOM sebelum bola → bola yang lewat menutupi huruf (di belakang bola) */}
+            <AnchorWord text="AI" at={atAI} until={untilAI} x={846} y={270} size={150} color={C6.ink} enter="scale"
+              sfx={{ kind: "scifi_whoosh", id: "06c:anchor:ai" }} />
             <Torso b={{ x: 60, y: 330, w: 360, h: 300 }} rim={0.6} r={6} />
             {hs > 0.01 && (
               <Ball b={{ x: pos.x - 62 * hs, y: headY - 62 * hs, w: 124 * hs, h: 124 * hs }} rim={0.75 + 0.2 * u} r={6 + 3 * u}

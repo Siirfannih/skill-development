@@ -2,8 +2,9 @@
 // Kamera: mulai menengadah ke langit gelap → C01 punch-in mikro di «peduli» → tilt turun ke cahaya → C08 truck ke garis waktu (04b).
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Camera, EZ, Grain, keys, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
-import { panel, word } from "../lib/time";
+import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
+import { FPS, panel, word } from "../lib/time";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 
 // bintang dari panel Wonder (×2), satu lapis langit
 const STARS: [number, number, number, number][] = [
@@ -28,6 +29,7 @@ export const S04a_GaPeduli: React.FC = () => {
   const tNg = word("nggak", "s4").s;
   const tPe = word("peduli", "s4").s;
   const tPik = word("pikirkan", "s4").s;
+  const atNggak = useFrameAt(1861), atPeduli = useFrameAt(1871), outTxt = useFrameAt(Math.round((tPik + 0.55) * FPS)); // v9: f terukur ANCHORS-V9 #16
 
   // tilt: menengadah → komposisi panel saat «peduli» → turun ke cahaya sesudah «pikirkan»
   const tiltA = 63.85;
@@ -53,6 +55,10 @@ export const S04a_GaPeduli: React.FC = () => {
       <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
         <Camera scale={camS} x={camX} y={camY} oy={480} blur={truck * 6}>
           <div style={{ position: "absolute", left: -600, top: -300, width: 3120, height: 2100, background: SKY }} />
+          {/* v9 (#16): NGGAK PEDULI = anchor di garis horizon tengah, DOM sebelum cahaya fajar → cahaya yang naik lewat di depan huruf (mask cahaya). Putih di zona gelap. */}
+          <AnchorWord text="NGGAK" at={atNggak} until={outTxt} x={930} y={480} size={200} color="#fff" align="right" enter="left" />
+          <AnchorWord text="PEDULI" at={atPeduli} until={outTxt} x={990} y={480} size={200} color="#fff" align="left" enter="right"
+            sfx={{ kind: "sub_impact", id: "04a:anchor:peduli" }} />
           {/* cahaya fajar: pita terang di horizon yang terus naik */}
           <div style={{
             position: "absolute", left: 960 - 1300, top: 900 - dawn * 120 - 300, width: 2600, height: 600, borderRadius: "50%",
@@ -61,11 +67,6 @@ export const S04a_GaPeduli: React.FC = () => {
           {STARS.map(([x, y, s, o], i) => (
             <div key={i} style={{ position: "absolute", left: x * 2, top: y * 2, width: s * 2, height: s * 2, borderRadius: 9, background: "#fff", opacity: o * twinkle(i) }} />
           ))}
-          {/* teks di zona gelap (kontras ≥ 12:1) */}
-          <div style={{ position: "absolute", left: 0, right: 0, top: 380, textAlign: "center", fontFamily: "Inter", fontWeight: 800, fontSize: 200, letterSpacing: -8, lineHeight: 1, color: "#fff", whiteSpace: "nowrap" }}>
-            <KWord at={tNg} kind="blurIn" out={tPik + 0.55}>nggak</KWord>{" "}
-            <KWord at={tPe} kind="blurIn" out={tPik + 0.55}>peduli</KWord>
-          </div>
         </Camera>
         <Grain opacity={0.05} />
       </AbsoluteFill>

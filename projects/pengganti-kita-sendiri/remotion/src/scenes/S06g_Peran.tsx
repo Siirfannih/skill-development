@@ -4,8 +4,9 @@
 // Kamera C02 push-in 100→115 % sepanjang panel. Ekor gelap sampai akhir video. Tanpa tanda tanya di layar.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, Grain, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
+import { EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { panel, wordsOf } from "../lib/time";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { AIGlyph, Ball, C6, Plane, relay, Torso, wa } from "./_b6_shared";
 import cues from "../../public/data/cues11.json";
 
@@ -13,7 +14,6 @@ const P = panel("06g");
 const T_BOOM = (cues as any[]).find((c) => c.id === "boom3").t as number; // 130.025 penutup setelah «mainkan»
 const QW = wordsOf("s6").filter((w) => w.s >= P.start - 0.01);
 const at = (txt: string) => QW.find((w) => w.w.toLowerCase().replace(/[^a-z]/g, "") === txt)!.s;
-const LINE = ["peran", "apa", "yang", "sedang", "kamu", "mainkan"];
 const W_TENGAH = at("tengah");
 
 // 8 bidang kerumunan (panel 06g ×2, dinaikkan supaya kalimat duduk di tengah antara barisan dan piktogram)
@@ -26,6 +26,7 @@ const offAt = (i: number) => {
 
 export const S06g_Peran: React.FC = () => {
   const t = useT();
+  const atPeran = useFrameAt(3841), atKamu = useFrameAt(3869); // v9: f terukur ANCHORS-V9 #32
   const push = prog(t, P.start, P.end, EZ.inOut);
   // C09 snap punch-in ×1,09 di «kamu» (4 f), patah balik ke wide di boom penutup (5 f).
   // Lebar kalimat ±1500 px × skala maks ±1,2 = ±1800 px < 1920: tidak terpotong.
@@ -62,15 +63,10 @@ export const S06g_Peran: React.FC = () => {
                 </React.Fragment>
               );
             })}
-            {/* pertanyaan: satu baris di tengah, per kata, «kamu» putih penuh */}
-            <div style={{ position: "absolute", left: 0, top: 448, width: 1920, display: "flex", justifyContent: "center", alignItems: "baseline", gap: 24 }}>
-              {LINE.map((w) => (
-                <KWord key={w} at={at(w)} kind="rise" dist={22}
-                  style={{ fontFamily: "Inter", fontWeight: w === "kamu" ? 900 : 700, fontSize: w === "kamu" ? 124 : 74, letterSpacing: w === "kamu" ? -4 : -1.6, lineHeight: 1, whiteSpace: "nowrap", color: w === "kamu" ? C6.white : wa(0.6) }}>
-                  {w}
-                </KWord>
-              ))}
-            </div>
+            {/* v9 (#32): kalimat penuh DI ATAS piktogram dibuang → PERAN | KAMU satu baris setinggi kepala piktogram tunggal, DI BELAKANG kepalanya
+                (DOM sebelum Ball: tepi dalam kedua kata terselip 40 px di bawah kepala). KAMU putih penuh. */}
+            <AnchorWord text="PERAN" at={atPeran} x={932} y={704} size={150} color={wa(0.88)} align="right" enter="left" />
+            <AnchorWord text="KAMU" at={atKamu} x={988} y={704} size={220} color={C6.white} align="left" enter="right" />
             {/* yang tersisa: satu piktogram di tengah */}
             <Ball b={{ x: 892, y: 636, w: 136, h: 136 }} rim={0.4 + 0.35 * litFrac} r={8} />
             <Torso b={{ x: 840, y: 784, w: 240, h: 360 }} rim={0.3 + 0.25 * litFrac} r={7} />{/* h 300→360: saat land (translateY −40) alas badan tak terlihat */}

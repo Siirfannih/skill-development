@@ -93,10 +93,14 @@ export const shake = (t: number, t0: number, amp = 10, dur = 0.25) => {
  *   · hit (hantaman/slam/mendarat berat) · key (satu huruf terketik) · toggle (lampu/bidang menyala/padam) · trash · draw (garis mulai
  *   digambar) · step (kaki menapak) · notify (notifikasi/pesan masuk) · cut (hard cut tanpa bunyi, untuk audit).
  */
-export type SfxKind = "click" | "pop" | "land" | "snap" | "whoosh" | "riser" | "hit" | "key" | "toggle" | "trash" | "draw" | "step" | "notify" | "cut";
-export const sfxMark = (t: number, kind: SfxKind, at: number, id: string) => {
+/** v9: peran SFX hybrid motion (library nyata, bukan sintesis). Dipakai bersama `pan` (-1 kiri … 1 kanan, dari posisi x layar) untuk elemen UI. */
+export type SfxRole = "sub_impact" | "low_whoosh" | "scifi_whoosh" | "glass_ping" | "ui_tap" | "telemetry_blip" | "graph_riser" | "snap_click";
+export type SfxKind = "click" | "pop" | "land" | "snap" | "whoosh" | "riser" | "hit" | "key" | "toggle" | "trash" | "draw" | "step" | "notify" | "cut" | SfxRole;
+/** pan dari koordinat x layar (0..1920) → -1..1 */
+export const panOf = (x: number) => Math.max(-1, Math.min(1, (x - 960) / 960));
+export const sfxMark = (t: number, kind: SfxKind, at: number, id: string, pan?: number) => {
   if ((getInputProps() as { sfxlog?: boolean }).sfxlog && Math.round(t * FPS) === Math.round(at * FPS)) {
-    console.log(`SFXEV ${kind} ${at.toFixed(3)} ${id}`);
+    console.log(`SFXEV ${kind} ${at.toFixed(3)} ${id}${pan !== undefined ? ` pan=${pan.toFixed(2)}` : ""}`);
   }
 };
 

@@ -37,21 +37,28 @@ export type AnchorProps = {
   /** offset pelacakan per frame (dipakai untuk kata yang mengikuti objek bergerak); ditambahkan ke (x,y). */
   trackFn?: (frame: number) => { x: number; y: number };
   /** cue SFX untuk metronom sfxMark (jatuh tepat di frame masuk). */
-  sfx?: { kind: SfxKind; id: string };
+  sfx?: { kind: SfxKind; id: string; pan?: number };
   /** kekuatan tekstur 0..1 (default 0,5). Tetap rendah supaya teks kontras tinggi. */
   grain?: number;
+  /** bayangan teks CSS untuk keterbacaan di footage terang (mis. "0 4px 36px rgba(0,0,0,.55)"). */
+  shadow?: string;
+  /** miring (dipakai KREATIF di parallelogram). */
+  italic?: boolean;
 };
 
 /** detik absolut video → frame lokal di dalam <Scene> (untuk prop `at`/`until`). */
 export const useAnchorAt = (absSeconds: number) => Math.round(absSeconds * FPS) - useSceneFrom();
 
+/** frame ABSOLUT video → frame lokal di dalam <Scene> (untuk prop `at`/`until`; dipakai dengan kolom "f terukur" ANCHORS-V9.md). */
+export const useFrameAt = (absFrame: number) => absFrame - useSceneFrom();
+
 export const AnchorWord: React.FC<AnchorProps> = ({
-  text, at, until, x, y, size, color, align = "center", enter = "scale", exit = "cut", maskSrc, maskNode, trackFn, sfx, grain = 0.5,
+  text, at, until, x, y, size, color, align = "center", enter = "scale", exit = "cut", maskSrc, maskNode, trackFn, sfx, grain = 0.5, shadow, italic,
 }) => {
   const frame = useCurrentFrame();
   const sceneFrom = useSceneFrom();
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
-  if (sfx) sfxMark((frame + sceneFrom) / FPS, sfx.kind, (at + sceneFrom) / FPS, sfx.id);
+  if (sfx) sfxMark((frame + sceneFrom) / FPS, sfx.kind, (at + sceneFrom) / FPS, sfx.id, sfx.pan);
   if (frame < at || (until !== undefined && exit === "cut" && frame >= until)) return null;
   if (until !== undefined && exit === "snap" && frame >= until + OUT_F) return null;
 
@@ -64,22 +71,23 @@ export const AnchorWord: React.FC<AnchorProps> = ({
   const kIn = interpolate(lf, [0, IN_F], [0, 1], { ...clamp, easing: SNAP });
   // LAMBAT: drift 100→104 % selama ±1,5 dtk setelah mendarat
   const drift = interpolate(lf, [IN_F, IN_F + 45], [0, 1], { ...clamp, easing: SLOW });
+  const nf = Math.min(1, size / 160); // jarak whip & blur ikut ukuran huruf (adegan yang memakai satuan unit/panel, bukan px)
   let scale = 1 + 0.04 * drift;
   let dx = 0;
   let blurX = 0;
   if (enter === "scale") {
     scale *= 1 + 0.35 * (1 - kIn);
-    blurX = 10 * (1 - kIn);
+    blurX = 10 * nf * (1 - kIn);
   } else {
     const dir = enter === "left" ? -1 : 1;
-    dx = dir * 260 * (1 - kIn);
-    blurX = 34 * (1 - kIn);
+    dx = dir * 260 * nf * (1 - kIn);
+    blurX = 34 * nf * (1 - kIn);
   }
   // keluar snap 3 f (geser + blur searah, tanpa fade)
   if (until !== undefined && exit === "snap" && frame >= until) {
     const ko = interpolate(Math.max(0, q - until), [0, OUT_F], [0, 1], { ...clamp, easing: ACC });
-    dx += (enter === "left" ? -1 : 1) * 320 * ko;
-    blurX = Math.max(blurX, 34 * ko);
+    dx += (enter === "left" ? -1 : 1) * 320 * nf * ko;
+    blurX = Math.max(blurX, 34 * nf * ko);
   }
   const tr = trackFn ? trackFn(q) : { x: 0, y: 0 };
   const tx = align === "left" ? "0%" : align === "right" ? "-100%" : "-50%";
@@ -104,7 +112,7 @@ export const AnchorWord: React.FC<AnchorProps> = ({
         style={{
           position: "absolute", left: x + tr.x + dx, top: y + tr.y,
           transform: `translate(${tx}, -50%) scale(${scale})`, transformOrigin: align === "left" ? "0% 50%" : align === "right" ? "100% 50%" : "50% 50%",
-          fontFamily: "Inter", fontWeight: 900, fontSize: size, letterSpacing: -size * 0.03, lineHeight: 1, color, whiteSpace: "nowrap",
+          fontFamily: "Inter", fontWeight: 900, fontStyle: italic ? "italic" : undefined, fontSize: size, letterSpacing: -size * 0.03, lineHeight: 1, color, whiteSpace: "nowrap", textShadow: shadow,
           filter: g > 0 ? `url(#ag${uid})` : undefined,
         }}
       >

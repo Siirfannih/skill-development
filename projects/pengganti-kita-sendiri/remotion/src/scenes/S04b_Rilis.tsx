@@ -23,7 +23,8 @@ export const S04b_Rilis: React.FC = () => {
   const glow = prog(t, AT[5], AT[5] + 0.4, EZ.out);
   // C18 close mengikuti kartu terbaru selama truck → patah ke wide (5 f) saat GPT-5 mendarat
   const snapW = prog(t, AT[5], AT[5] + 5 / 30, EZ.out);
-  const camS = 1.25 - 0.25 * snapW;
+  // v9 (B8): close 1,25× berpusat di x 1300 memotong GPT-3/ChatGPT di tepi kiri → close 1,1× berpusat di x 800: kartu pertama (x 80) tetap utuh sampai patah ke wide
+  const camS = 1.1 - 0.1 * snapW;
 
   // ── SFXEV (metronom SFX)
   sfxMark(t, "whoosh", P.start, "04b:cam:truck"); // truck C08: puncak kecepatan di sambungan 04a (EZ.acc) → 04b (EZ.out)
@@ -34,7 +35,7 @@ export const S04b_Rilis: React.FC = () => {
   return (
     <Scene code="04b">
       <AbsoluteFill style={{ background: "linear-gradient(180deg, var(--sky-300) 0%, var(--sky-100) 38%, var(--sky-50) 70%, #fff 100%)", overflow: "hidden" }}>
-        <Camera x={camX} scale={camS} ox={1300} blur={Math.max(0, 6 - (t - P.start) * 30) + (snapW > 0 && snapW < 1 ? 2 : 0)}>
+        <Camera x={camX} scale={camS} ox={800} blur={Math.max(0, 6 - (t - P.start) * 30) + (snapW > 0 && snapW < 1 ? 2 : 0)}>
           <div style={{ position: "absolute", left: -600, width: 3200, top: LINE_Y - 2, height: 4, background: "var(--sky-400)", opacity: 1 - col * 0.4 }} />
           {RELEASES.map((r, i) => {
             const a = AT[i];

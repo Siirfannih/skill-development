@@ -4,8 +4,9 @@
 // Kamera C06 reveal-out (dekat → wide). Keluar X13 frame-in-frame: seluruh grafik menyusut jadi kartu klip Altman (04d).
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Camera, EZ, Grain, KWord, prog, Scene, sfxMark, useT, Panel2x } from "../lib/anim";
+import { Camera, EZ, Grain, prog, Scene, sfxMark, useT, Panel2x } from "../lib/anim";
 import { panel, word } from "../lib/time";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { ezAt } from "./_b3_shared";
 import { CLIP_CARD, DOT04B, DOT_U, graphToScreen, lerp, onBend, onShared, P2, SEG_BEND, SEG_SHARED } from "./_b4_shared";
 
@@ -38,8 +39,8 @@ export const S04c_ArahJanji: React.FC = () => {
   const P = panel("04c");
   const tArah = word("arahnya", "s4").s;
   const tMasih = word("masih", "s4").s;
+  const atArah = useFrameAt(2037), atJanjinya = useFrameAt(2079), outAnchor = useFrameAt(Math.round(70.22 * 30)); // v9: f terukur ANCHORS-V9 #18
   const tSama = word("sama", "s4", 2).s;
-  const tJanji = word("janjinya", "s4").s;
   const X0 = 70.22; // frame-in-frame mulai sesudah «dulu» selesai (jeda sebelum Altman)
 
   // progres gambar garis
@@ -58,7 +59,7 @@ export const S04c_ArahJanji: React.FC = () => {
   const tCut = word("adalah", "s4").s;
   const cut = t >= tCut;
   const sA = cut ? 2.3 * (1 + 0.04 * (1 - prog(t, tCut, tCut + 6 / 30, EZ.out))) : 1.55;
-  const sB = 0.88;
+  const sB = 0.98; // v9 (B9): wide 0,88× → 0,98× supaya grafik mengisi frame (v8: grafik kecil di dalam kotak)
   // C01 zoom mikro di «sama» (grafik saja; teks pertanyaan tetap diam)
   const c01 = 1 + 0.05 * prog(t, tSama, tSama + 0.6, EZ.out);
   const s = Math.exp(lerp(Math.log(sA), Math.log(sB), wide)) * c01;
@@ -66,7 +67,7 @@ export const S04c_ArahJanji: React.FC = () => {
   const follow = graphToScreen(tipA);
   const fk = cut ? 0.9 : 0.55;
   const Fclose = { x: lerp(mid.x, follow.x, fk), y: lerp(mid.y, follow.y, fk) };
-  const Fwide = { x: 960, y: 683 };
+  const Fwide = { x: 960, y: 648 };
   const F = { x: lerp(Fclose.x, Fwide.x, wide), y: lerp(Fclose.y, Fwide.y, wide) };
   const T = { x: -(F.x - O.x) * s, y: -(F.y - O.y) * s };
   const proj = (p: P2) => ({ x: O.x + (p.x - O.x) * s + T.x, y: O.y + (p.y - O.y) * s + T.y });
@@ -85,13 +86,6 @@ export const S04c_ArahJanji: React.FC = () => {
   const dotR = lerp(10, 6 * 2 * s, land);
 
   const hatchW = drawB * 440;
-  const lblOut = 1 - prog(t, X0, X0 + 0.15, EZ.acc);
-  const arahA = tArah + 2 / 30;
-  const arahB = tArah + 0.3;
-  const janjiA = tJanji + 2 / 30;
-  const janjiB = tJanji + 0.35;
-  const lblArah = prog(t, arahA, arahB, EZ.out) * lblOut;
-  const lblJanji = prog(t, janjiA, janjiB, EZ.out) * lblOut;
   const stopDown = 1 - 0.25 * ex;
 
   // ── SFXEV (metronom SFX)
@@ -101,9 +95,7 @@ export const S04c_ArahJanji: React.FC = () => {
   sfxMark(t, "draw", drawA0, "04c:line:solid"); // garis solid mulai tergambar di atas janji
   sfxMark(t, "cut", tCut, "04c:cutzoom"); // C20 cut zoom ×1,5 di «adalah»
   sfxMark(t, "draw", drawB0, "04c:line:bend"); // garis berbelok menjauh dari janji
-  sfxMark(t, "pop", ezAt(arahA, arahB, EZ.out), "04c:label:arah"); // label ARAH menempel di ujung garis
   sfxMark(t, "whoosh", (wideA + wideB) / 2, "04c:cam:revealout"); // C06 reveal-out ke wide (EZ.inOut → tengah)
-  sfxMark(t, "pop", ezAt(janjiA, janjiB, EZ.out), "04c:label:janji"); // label JANJI di ujung garis putus-putus
   sfxMark(t, "whoosh", (X0 + exB) / 2, "04c:x13:shrink"); // grafik menyusut jadi kartu klip (EZ.inOut → tengah)
 
   return (
@@ -133,9 +125,11 @@ export const S04c_ArahJanji: React.FC = () => {
                     <path d={pathD(SEG_BEND)} pathLength={1} stroke="#fff" strokeWidth="5" strokeLinecap="round" fill="none" strokeDasharray="1 1" strokeDashoffset={1 - drawB} opacity={drawB > 0 ? 1 : 0} />
                     {drawB > 0 && <circle cx={tipB.x} cy={tipB.y} r={10} fill="#fff" />}
                   </svg>
-                  {/* label menempel di ujung garis */}
-                  <span style={{ position: "absolute", left: tipB.x + 14, top: tipB.y + 14, fontFamily: "Inter", fontWeight: 600, fontSize: 26, letterSpacing: 3, color: "#fff", opacity: lblArah, transform: `translateY(${(1 - lblArah) * 6}px)`, whiteSpace: "nowrap" }}>ARAH</span>
-                  <span style={{ position: "absolute", left: 820 + 14, top: 40 - 26, fontFamily: "Inter", fontWeight: 600, fontSize: 26, letterSpacing: 3, color: "rgba(255,255,255,0.75)", opacity: lblJanji, transform: `translateY(${(1 - lblJanji) * 6}px)`, whiteSpace: "nowrap" }}>JANJI</span>
+                  {/* v9 (#18): label kecil ARAH/JANJI digantikan anchor yang menempel di ujung garis (satu teks, tidak dobel). Koordinat panel (×2×kamera).
+                      ARAHNYA di kiri-bawah ujung garis solid yang berbelok; JANJINYA di kiri ujung garis putus-putus (di atas jalur, di luar arsiran). */}
+                  <AnchorWord text="ARAHNYA" at={atArah} until={outAnchor} x={tipB.x - 8} y={tipB.y + 56} size={54} color="#fff" align="right" enter="left" grain={0.35}
+                    sfx={{ kind: "scifi_whoosh", id: "04c:anchor:arahnya" }} />
+                  <AnchorWord text="JANJINYA" at={atJanjinya} until={outAnchor} x={812} y={-30} size={54} color="#fff" align="right" enter="right" grain={0.35} />
                 </div>
               </Panel2x>
             </Camera>
@@ -145,11 +139,6 @@ export const S04c_ArahJanji: React.FC = () => {
               const d = { x: lerp(DOT04B[i].x, target.x, land), y: lerp(DOT04B[i].y, target.y, land) };
               return <div key={i} style={{ position: "absolute", left: d.x - dotR, top: d.y - dotR, width: dotR * 2, height: dotR * 2, borderRadius: 999, background: "#fff", boxShadow: "0 0 0 3px color-mix(in srgb, var(--bp-900) 60%, transparent)" }} />;
             })}
-            {/* pertanyaan di bawah grafik */}
-            <div style={{ position: "absolute", left: 0, right: 0, top: 860, textAlign: "center", fontFamily: "Inter", fontWeight: 800, fontSize: 120, letterSpacing: -4, lineHeight: 1, color: "#fff", whiteSpace: "nowrap" }}>
-              <KWord at={tMasih} out={X0 - 0.05}>masih</KWord>{" "}
-              <KWord at={tSama} out={X0 - 0.05}>sama</KWord>
-            </div>
           </AbsoluteFill>
         </AbsoluteFill>
         <Grain opacity={0.05} />

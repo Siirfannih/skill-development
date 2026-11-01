@@ -3,8 +3,10 @@
 // Tanpa teks di 03c/03d. Ruang dunia 1920×1080 (panel ×2).
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Camera, EZ, Grain, keys, KWord, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
+import { AnchorStage, AnchorWord, useFrameAt } from "../lib/AnchorWord";
+import { useSubjectMatte } from "../lib/SubjectMatteStub";
 import { block, FPS, panel, word, wordsOf } from "../lib/time";
 import { cue, ezAt, LightCone, MattePicto, PICTO, pictoHalfWidth, WirePicto } from "./_b3_shared";
 
@@ -38,15 +40,12 @@ const T_SNAP = W("besar") + 0.16; // sesudah latch «terisi penuh» (besar + 0,1
 const SNAP_DUR = 0.17;
 const SHRINK_A = BOOM + 0.42; // X13 frame 03d menyusut jadi kartu klip
 
-// terjemahan Jensen, kata Indonesia mendarat di kata Inggris padanannya (indeks wordsOf('jensen'))
+// v9: subtitle terjemahan Jensen (LINE1/LINE2, dua baris Indonesia) DIHAPUS; diganti anchor Inggris JOB / SOMEBODY / AI di bawah.
 const JW = wordsOf("jensen");
-const LINE1: [string, number][] = [["Kamu", 0], ["tidak", 1], ["akan", 2], ["kehilangan", 3], ["pekerjaan", 5], ["karena", 8], ["AI", 10]];
-const LINE2: [string, number][] = [["tapi", 11], ["karena", 17], ["orang", 18], ["yang", 19], ["memakai", 20], ["AI", 21]];
-
-const SUB: React.CSSProperties = { fontFamily: "Inter", fontWeight: 600, fontSize: 62, letterSpacing: -0.8, color: "var(--sb-white)", lineHeight: 1.2, whiteSpace: "nowrap" };
 
 /** Panggung 03c/03d (dipakai utuh lalu menyusut jadi kartu klip). */
 const Stage: React.FC<{ t: number }> = ({ t }) => {
+  const atPerlahan = useFrameAt(1508), atTempat = useFrameAt(1626), atKita = useFrameAt(1634); // v9: f terukur ANCHORS-V9 #14
   const fill = fillAt(t);
   const yF = FLOOR - (FLOOR - HEAD_TOP) * fill;
   const half = pictoHalfWidth(yF);
@@ -73,6 +72,11 @@ const Stage: React.FC<{ t: number }> = ({ t }) => {
       <LightCone cx={CONE} i={1 + flare} />
       {/* kita: di cahaya (03c) → mundur, mengecil, gelap, buram (rack focus) */}
       <MattePicto cx={usX} scale={usS} rimR={usInLight} flat={rp > 0.6} opacity={1 - 0.55 * rp} blur={rack * 9} />
+      {/* v9 (#14): anchor DI BELAKANG piktogram (urutan DOM sebelum salinan/kita). PERLAHAN di kiri salinan setinggi kaki, tepi kanannya terselip di bawah badan
+          yang terisi selagi scan naik. TEMPAT | KITA satu baris, celah 60 px di belakang badan salinan di kerucut cahaya (x = CONE). */}
+      <AnchorWord text="PERLAHAN" at={atPerlahan} until={atTempat} x={COPY0 - 30} y={880} size={80} color="#FAF8EC" align="right" enter="left" />
+      <AnchorWord text="TEMPAT" at={atTempat} x={CONE - 30} y={700} size={130} color="#FAF8EC" align="right" enter="scale" />
+      <AnchorWord text="KITA" at={atKita} x={CONE + 30} y={700} size={130} color="#FAF8EC" align="left" enter="right" />
       {/* salinan: wireframe → isi dari kaki ke kepala → melangkah ke cahaya */}
       <div style={{ position: "absolute", inset: 0, transform: `translate(${copyX - COPY0}px, ${stepBob}px)` }}>
         <MattePicto cx={COPY0} clipTop={yF} litLeft={inLight < 0.5} rimR={inLight} rimL={inLight * 0.85} />
@@ -88,6 +92,8 @@ const Stage: React.FC<{ t: number }> = ({ t }) => {
 
 export const S03c_MeniruDiri: React.FC = () => {
   const t = useT();
+  const matteJensen = useSubjectMatte("jensen"); // null selama stub → teks di depan
+  const atJob = useFrameAt(1701), atSomebody = useFrameAt(1781), atAi = useFrameAt(1804), endJ = useFrameAt(Math.round(PE.end * FPS)); // v9: #15
 
   // ── SFXEV (metronom SFX)
   sfxMark(t, "hit", PC.start, "03c:land"); // zoom-through 03b mendarat di ruang gelap (close 2,1 → 1,8, EZ.out)
@@ -169,16 +175,21 @@ export const S03c_MeniruDiri: React.FC = () => {
                 color: "color-mix(in srgb, var(--sb-white) 62%, transparent)", opacity: labelP, transform: `translateY(${(1 - labelP) * 10}px)` }}>
                 JENSEN HUANG · CEO NVIDIA · MILKEN INSTITUTE 2025
               </div>
-              {[LINE1, LINE2].map((ln, li) => (
-                <div key={li} style={{ position: "absolute", left: 0, width: 1920, top: li === 0 ? 826 : 896, textAlign: "center", ...SUB }}>
-                  {ln.map(([w, ji], i) => (
-                    <React.Fragment key={i}>
-                      {i > 0 ? " " : ""}
-                      <KWord at={JW[ji].s} kind="rise" dist={18}>{w}</KWord>
-                    </React.Fragment>
-                  ))}
+              {/* v9 (B7): anchor Inggris di BELAKANG kepala Jensen: urutan z = kartu klip → teks → matte subjek (fg). Matte null → teks di depan.
+                  Koordinat sementara (kepala ≈ (1016, 209) di layar, teks di zona dada y 560, di dalam kartu x 400–1520) — verifikasi saat render. */}
+              <AnchorStage bg={null} fg={matteJensen ? (
+                <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, overflow: "hidden", transform: `translateY(${(411 - 540) * k}px) scale(${sc})`, transformOrigin: "960px 540px", borderRadius: (28 * k) / sc }}>
+                  <AbsoluteFill style={{ transform: `scale(${cz})`, transformOrigin: "55% 18%" }}>
+                    <Clip src={matteJensen} at={block("jensen").t} inS={CLIP_IN} outS={CLIP_OUT} style={{ transform: "scale(1.05)" }} />
+                    <Clip src={matteJensen} at={CLIP_END} inS={CLIP_OUT} outS={CLIP_OUT + (PE.end - CLIP_END) + 0.1} style={{ transform: "scale(1.05)" }} />
+                  </AbsoluteFill>
                 </div>
-              ))}
+              ) : undefined}>
+                <AnchorWord text="JOB" at={atJob} until={endJ} x={430} y={560} size={150} color="#FAF8EC" align="left" enter="left" shadow="0 4px 30px rgba(0,0,0,0.6)" />
+                <AnchorWord text="SOMEBODY" at={atSomebody} until={atAi} x={800} y={560} size={120} color="#FAF8EC" align="left" enter="right" shadow="0 4px 30px rgba(0,0,0,0.6)"
+                  sfx={{ kind: "sub_impact", id: "03e:anchor:somebody" }} />
+                <AnchorWord text="AI" at={atAi} until={endJ} x={800} y={560} size={260} color="#FAF8EC" align="left" enter="scale" shadow="0 4px 30px rgba(0,0,0,0.6)" />
+              </AnchorStage>
             </>
           )}
         </Camera>

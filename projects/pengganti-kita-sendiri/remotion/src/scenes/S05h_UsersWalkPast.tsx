@@ -6,12 +6,12 @@
 // Engsel senyap: lampu produk padam kanan→kiri setelah «susah», tahan, X17 hard cut ke 06a.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Camera, EZ, Grain, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
+import { Camera, EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { AppIcon, APPS, C, GRID, moveFrame, Pictogram } from "./_b5_shared";
 
 const P = panel("05h");
-const W_SEMAKIN = word("semakin", "s5", 1).s;
 const W_SUSAH = word("susah", "s5", 1).s;
 const W_JUSTRU = word("justru", "s5", 1).s;
 // wipe
@@ -76,6 +76,7 @@ const Product: React.FC<{ i: number; lit: number }> = ({ i, lit }) => {
 
 export const S05h_UsersWalkPast: React.FC = () => {
   const t = useT();
+  const atSusah = useFrameAt(3076); // v9: f terukur ANCHORS-V9 #27
   // pengguna: kecepatan konstan (berjalan), langkah tiap 1/8 grid
   const phase = (t - WALK_A) / (GRID * 2);
   // Kamera 2.5D (v2): wide saat lampu menyala → C02 push-in ke close-up 1,7× mengikuti pengguna (C18) →
@@ -117,12 +118,8 @@ export const S05h_UsersWalkPast: React.FC = () => {
             <div style={{ position: "absolute", left: -400, top: FLOOR, width: WORLD_W + 800, height: 2, background: "rgba(255,255,255,0.14)" }} />
             {t >= WALK_A && t <= WALK_B + 0.1 && <Pictogram x={ux} floor={FLOOR} h={400} phase={phase} />}
           </Camera>
-          <AbsoluteFill style={{ justifyContent: "flex-end", alignItems: "center", paddingBottom: 120 }}>
-            <div style={{ fontFamily: "Inter", fontWeight: 800, fontSize: 132, letterSpacing: -4, lineHeight: 1, color: C.white, whiteSpace: "nowrap", display: "flex", gap: 34 }}>
-              <KWord at={W_SEMAKIN} kind="rise">semakin</KWord>
-              <KWord at={W_SUSAH} kind="rise">susah</KWord>
-            </div>
-          </AbsoluteFill>
+          {/* v9 (#27): «semakin» dihapus; SUSAH = anchor di bawah lantai, tengah (bukan di atas visual), masuk di suku tekan f3076 */}
+          <AnchorWord text="SUSAH" at={atSusah} x={960} y={890} size={230} color={C.white} enter="scale" />
           <Grain opacity={0.05} />
         </AbsoluteFill>
       </AbsoluteFill>

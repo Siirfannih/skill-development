@@ -4,8 +4,9 @@
 // lalu 02e match cut: zoom keluar dari titik ujung grafik di BLOOM_PT. (Bukan layar putih penuh.)
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, KWord, keys, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
+import { EZ, keys, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
 import { panel, word } from "../lib/time";
+import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { BLOOM_PT, C, LightPlane, Pictogram } from "./_b2_shared";
 
 const W_KITA = word("kita", "s2", 1);
@@ -14,6 +15,7 @@ const W_KREATIF = word("kreatif", "s2", 1);
 
 export const S02d_Kreatif: React.FC = () => {
   const t = useT();
+  const atKreatif = useFrameAt(927); // v9: f terukur ANCHORS-V9 #9
   const p = panel("02d");
   const bloomA = p.end - 0.42;
   // C18 close di piktogram ×1,5 (push 1,45→1,5) → «fokus»: C06 reveal-out ke bidang cahaya (0,65 dtk, selesai sebelum
@@ -25,9 +27,9 @@ export const S02d_Kreatif: React.FC = () => {
   const look = { x: 650 + (BLOOM_PT.x - 650) * rv, y: 600 + (BLOOM_PT.y - 600) * rv };
   const anch = { x: 960 + (BLOOM_PT.x - 960) * rv, y: 540 + (BLOOM_PT.y - 540) * rv };
   const T = { x: anch.x - look.x * z, y: anch.y - look.y * z };
-  const rim = 0.35 + 0.25 * prog(t, W_KITA.s, W_KITA.s + 0.5) + 0.4 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.4);
-  const beam = 0.15 + 0.85 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.45);
-  const plane = 0.18 + 0.5 * prog(t, W_KITA.s, W_FOKUS.s, EZ.inOut) + 0.32 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.35);
+  const rim = 0.5 + 0.15 * prog(t, W_KITA.s, W_KITA.s + 0.5) + 0.35 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.4);
+  const beam = 0.3 + 0.7 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.45);
+  const plane = 0.4 + 0.28 * prog(t, W_KITA.s, W_FOKUS.s, EZ.inOut) + 0.32 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.35);
   const glow = 0.3 + 0.7 * prog(t, W_KREATIF.s, W_KREATIF.s + 0.5) + 0.5 * prog(t, bloomA, p.end, EZ.acc);
   // v9 (B14): TANPA blow-out putih. Keluar = snap zoom ke BLOOM_PT (4 f, EZ.acc, motion blur) + aksen cahaya ≤ 40 % di titik itu.
   // 02e mendarat dengan match cut: zoom keluar dari titik yang sama.
@@ -43,9 +45,8 @@ export const S02d_Kreatif: React.FC = () => {
       <AbsoluteFill style={{ background: C.charcoal, transform: snapK > 0 ? `scale(${snapZ})` : undefined, transformOrigin: `${BLOOM_PT.x}px ${BLOOM_PT.y}px`, filter: snapK > 0.02 ? `blur(${(10 * snapK).toFixed(2)}px)` : undefined }}>
         <AbsoluteFill style={{ transform: `translate(${T.x}px, ${T.y}px) scale(${z})`, transformOrigin: "0 0" }}>
           <LightPlane beam={beam} plane={plane} glow={glow}>
-            <span style={{ fontFamily: "Inter", fontWeight: 900, fontStyle: "italic", fontSize: 136, lineHeight: 1, letterSpacing: -1.4, color: C.ink, whiteSpace: "nowrap" }}>
-              <KWord at={W_KREATIF.s} kind="blurIn">KREATIF</KWord>
-            </span>
+            {/* v9: parallelogram dipertahankan; masuk lewat AnchorWord di suku tekan f927 (koordinat lokal bidang 880×224) */}
+            <AnchorWord text="KREATIF" at={atKreatif} x={440} y={112} size={136} color={C.ink} italic grain={0.3} sfx={{ kind: "scifi_whoosh", id: "02d:anchor:kreatif" }} />
           </LightPlane>
           <Pictogram rim={rim} />
           {/* lantai gelap memudar */}
