@@ -65,7 +65,6 @@ export const S06d_Prompt: React.FC = () => {
           <div style={{ position: "absolute", left: 0, top: 0, width: 960, height: 540, transform: `translateX(${bgX}px) scale(2)`, transformOrigin: "0 0" }}>
             {/* v9 (#30): SENDIRI = anchor di kiri composer, setinggi kepala piktogram over-the-shoulder; DOM sebelum bola kepala (fg) → ujung kiri huruf tertutup kepala.
                 Putih di charcoal, berhenti di tepi kiri bidang (x 372) supaya tidak menimpa bidang putih. */}
-            <AnchorWord text="SENDIRI" at={atSendiri} until={untilSendiri} x={480} y={470} size={46} color="#ffffff" align="center" enter="left" grain={0} />
             <Plane b={{ x: 380, y: 120, w: 560, h: 280 }} on={on} slant={0.08} softGlow
               grad={`linear-gradient(90deg, ${C6.white} 60%, ${C6.paper} 100%)`}
               glow={{ b: { x: 420, y: 150, w: 480, h: 220 }, blur: 140, spread: 40, a: 0.22, radius: 40 }}>
@@ -94,6 +93,8 @@ export const S06d_Prompt: React.FC = () => {
           </div>
         </AbsoluteFill>
         </AbsoluteFill>
+        {/* v11 (U2 disetujui): SENDIRI di ruang layar — tinta gelap di area putih bidang, di bawah composer; hilang bersama lampu bidang (T_OFF). */}
+        <AnchorWord text="SENDIRI" at={atSendiri} until={untilSendiri} x={1066} y={806} size={92} color={C6.ink} align="center" enter="left" grain={0} />
         {bloom > 0.005 && (
           <AbsoluteFill style={{ background: `radial-gradient(ellipse 70% 80% at 1300px 520px, ${wa(bloom)} 0%, ${wa(bloom * 0.5)} 45%, ${wa(0)} 100%)` }} />
         )}

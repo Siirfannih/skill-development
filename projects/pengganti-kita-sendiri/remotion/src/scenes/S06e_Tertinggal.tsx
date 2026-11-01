@@ -37,16 +37,16 @@ export const S06e_Tertinggal: React.FC = () => {
         <AbsoluteFill style={{ transform: `scale(${Z})`, transformOrigin: "400px 700px" }}>
         <AbsoluteFill style={{ transform: `translateX(${truck}px) scale(${sc})`, transformOrigin: "960px 600px" }}>
           {/* v10 (#42): TERTINGGAL utuh di KANAN figur (x 590+, di bawah kelompok «yang lain»), tidak lagi tertutup tubuh (v9: TER hilang → «TINGGAL») */}
-          <AnchorWord text="TERTINGGAL" at={atTert} until={untilTert} x={590} y={962} size={130} color={C6.white} align="left" enter="right" shadow="0 0 40px rgba(16,18,22,0.6)"
+          <AnchorWord text="TERTINGGAL" at={atTert} until={untilTert} x={590} y={800} size={130} color={C6.white} align="left" enter="right" shadow="0 0 40px rgba(16,18,22,0.6)"
             sfx={{ kind: "sub_impact", id: "06e:anchor:tertinggal" }} />
-          <div style={{ position: "absolute", left: 0, top: 0, width: 960, height: 540, transform: "scale(2)", transformOrigin: "0 0" }}>
+          <div style={{ position: "absolute", left: 0, top: -130, width: 960, height: 540, transform: "scale(2)", transformOrigin: "0 0" }}>{/* v11 (U3 disetujui): dunia naik 130 px supaya TERTINGGAL (y 800) di safe zone */}
             {/* kita: bidang padam, tanpa rim light */}
             {/* v10 (#41): layar mati bertepi rim tipis + piktogram rim light (bukan abu datar 1,3:1 di atas hitam) */}
             <div style={{ position: "absolute", left: 269, top: 289, width: 152, height: 52, clipPath: "polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)", background: "rgba(255,255,255,0.34)" }} />
             <Plane b={{ x: 270, y: 290, w: 150, h: 50 }} on={0} />
             <AIGlyph size={26} style={{ position: "absolute", left: 345 - 13, top: 315 - 13, filter: "invert(1)", opacity: 0.22 }} />
             <Ball b={{ x: 150, y: 250, w: 80, h: 80 }} rim={0.6} r={2.4} />
-            <Torso b={{ x: 114, y: 338, w: 152, h: 250 }} rim={0.5} r={2.4} />{/* h 180→250: alas datar badan tidak lagi terlihat di atas tepi bawah frame saat wide */}
+            <Torso b={{ x: 114, y: 338, w: 152, h: 330 }} rim={0.5} r={2.4} />{/* h 180→250: alas datar badan tidak lagi terlihat di atas tepi bawah frame saat wide */}
             {/* yang lain: tetap menyala, menjauh ke kanan (mengecil = makin jauh) */}
             <div style={{ position: "absolute", left: 400, top: 214, transform: `translateX(${recede * 36}px) scale(${1 - 0.22 * recede})`, transformOrigin: "0 100px" }}>
               {[0, 1, 2].map((i) => (

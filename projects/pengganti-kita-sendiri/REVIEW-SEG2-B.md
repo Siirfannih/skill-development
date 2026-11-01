@@ -45,3 +45,8 @@ Still pratinjau 480 px belum dirender: CPU dibagi dengan worker A, probe satu je
 
 ## Laporan checker rentang 65–133 s
 Sisa: BILLION (U1), SENDIRI (U2), TERTINGGAL (U3) menunggu keputusan; tidak ada SAFE/CLASH lain; 4 CONTR masuk 1 frame. Belum LOLOS penuh.
+
+## Keputusan koordinator (diterapkan)
+- U1 BILLION: **diterima** tanpa perubahan (teks narasumber di footage dengan shadow lembut, keputusan Irfan 07.30). Aksen kuning tetap.
+- U2 SENDIRI: opsi A diterapkan (x 1066, y 806, 92, tinta #101216). Checker 116,3–117,1: LOLOS. Tidak menimpa composer. Still: /home/claude/pks/v10/u2_1..3.png.
+- U3 TERTINGGAL: opsi A diterapkan (dunia naik 130 px, badan 330, kata y 800, di kanan figur). Checker 119,5–121: hanya CONTR 4,1:1 di 1 frame masuk. Figur dan kelompok utuh. Still: /home/claude/pks/v10/u3_1..3.png.
