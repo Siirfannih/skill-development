@@ -33,7 +33,7 @@
 - [x] Render v9 + QC visual (visual_qc) + devil's advocate
 
 ## 5. Selesai
-- [ ] Update STATUS.md, push main, kirim PKS_v9 ke Irfan
+- [x] Update STATUS.md, push main, kirim PKS_v9 ke Irfan (2 Nov 03.00)
 
 ## Log 2 Nov 00.00
 - Bed musik: `audio-v19/music_bed.py` (77 Cycles stems offset −16 s, DOX bass −4 st = C min, Dark Water piano dari 75,2 s). Ducking −6/−8 dB, carving 1–4 kHz −4 dB, trim per babak terukur.
@@ -63,3 +63,4 @@ Setiap perbaikan langsung dirender per segmen dan di-QC, baru render final sekal
 - 02.13: s5 gagal (delayRender 28 s, matte Altman VP9 alpha 1080p). seg.sh/final.sh: --concurrency=4 --timeout=120000. chain9 = s5 lalu final.
 
 - 02.36: FINAL_DONE + patch Altman. QC final: 132,8 s, 1080p30, −14,0 LUFS, TP −1,3, dead air 0. Patch ke-2 Altman (90 px, x100–775 | 1080) sedang.
+- 03.00: patch Altman ke-3/4 (SINGLE/BILLION/COMPANY ditumpuk rata kanan di kiri kartu, frame 2120–2300). PKS_v9 terkirim. Menunggu review Irfan.

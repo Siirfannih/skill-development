@@ -1,6 +1,6 @@
 # STATUS: Pengganti Kita Sendiri (@siirfannih)
 
-_Update terakhir: 2 Nov 2026 02.45 WITA._
+_Update terakhir: 2 Nov 2026 03.00 WITA — PKS_v9 terkirim ke Irfan, menunggu review._
 
 ## Posisi sekarang
 - **Versi terakhir: v9** = visual v9 (anchor words + teks narasumber bervariasi + orbit + checklist) + audio v19.
@@ -16,7 +16,7 @@ _Update terakhir: 2 Nov 2026 02.45 WITA._
 
 ## Keputusan terkunci v9
 - Teks: VO = anchor words saja (1–3 kata, `lib/AnchorWord.tsx`, frame ABSOLUT, posterize 12 fps + grain). Narasumber (berita, Jensen, Altman) = teks per kata bervariasi 4 teknik (`lib/SpeakerWords.tsx`). Bahasa ikut audio.
-- Matte narasumber: `tools/make_mattes.py` → `public/mattes/*.webm`. Dipakai untuk berita & Altman; close-up remaja dan Jensen tanpa matte (badan menutup teks).
+- Matte narasumber: `tools/make_mattes.py` → `public/mattes/*.webm`. Dipakai untuk berita (Altman: teks ditumpuk di kiri kartu, tidak di belakang kepala); close-up remaja dan Jensen tanpa matte (badan menutup teks).
 - 02e "janji ditepati" = checklist tugas 02c dicentang AI + 8 jam → 45 menit (bukan kurva). 05e = orbit 10 landing page berbeda mengitari logo OpenAI vektor.
 - Audio v19 (`audio-v19/`):
   - `music_bed.py`: 77 Cycles stems (offset −16 s) + DOX bass −4 st (C min) + Dark Water piano dari 75,2 s. Ducking −6/−8 dB, carving 1–4 kHz −4 dB.
