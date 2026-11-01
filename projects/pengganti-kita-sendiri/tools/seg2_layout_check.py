@@ -3,7 +3,7 @@ python3 seg2_layout_check.py <probeDir> [--scale 0.25] > report.md
 Cek per kotak teks per frame:
   SAFE   kotak keluar safe zone x 288–1632, y 216–864 (teks harus utuh di dalamnya)
   CLASH  dua kotak teks bertumpuk di frame yang sama
-  CONTR  kontras warna teks vs latar (median piksel kotak yang bukan warna teks) < 3:1 (WCAG teks besar)
+  CONTR  kontras warna teks vs latar (median piksel kotak yang bukan warna teks) < 4.5:1 (target referensi ≥ 7:1)
 Teks yang seluruhnya di luar layar (animasi masuk/keluar) diabaikan.
 """
 import sys, os, re, collections
@@ -54,7 +54,7 @@ for f, objs in sorted(rows.items()):
                 if len(bg) > 0.15 * len(crop):
                     lb = float(np.median(lum(bg))); lt = float(lum(np.array(tc)))
                     cr = (max(lb, lt) + 0.05) / (min(lb, lt) + 0.05)
-                    if cr < 3.0: issues[('CONTR', o['name'])].append((f, f"{cr:.1f}:1"))
+                    if cr < 4.5: issues[('CONTR', o['name'])].append((f, f"{cr:.1f}:1"))
     for i in range(len(texts)):
         for j in range(i + 1, len(texts)):
             a, b = texts[i], texts[j]
