@@ -2,15 +2,16 @@
 
 ## 0. Setup
 - [x] Brief dikunci di `AUTORUN-2NOV.md`, rencana audio di `SOUND-PLAN-IRFAN-2NOV.md`
-- [ ] Akses folder Mac `~/Documents/Skill-Development/AI-Video` (granted 1 Nov) — petakan media + proyek Remotion
-- [ ] Tentukan tempat render (Mac via Desktop Commander vs cloud) + cek Codex CLI di Mac
-- [ ] Heartbeat/trigger lanjutan aktif
+- [x] Akses folder Mac `~/Documents/Skill-Development/AI-Video` (granted 1 Nov) — petakan media + proyek Remotion
+- [x] Tentukan tempat render (Mac via Desktop Commander vs cloud) + cek Codex CLI di Mac
+  - Render di Mac (M2 16 GB): pks-studio/remotion punya node_modules; codex 0.163, rtk, ffmpeg ada.
+- [x] Heartbeat/trigger lanjutan aktif
 
 ## 1. Audit A — video v8 (Claude utama)
 - [ ] Peta timeline v8: beat, kalimat VO, klip, scene (dari `remotion/src/timeline.json`, `beats.json`)
-- [ ] Audit audio terukur: noise floor per babak, dead air (> 300 ms sunyi), spektrum SFX, LUFS
-- [ ] Audit visual: frame per beat vs `GrokAgent/reference-videos/*` + storyboard; daftar yang tidak rapi
-- [ ] Tulis `AUDIT-V8-2NOV.md` (temuan → prioritas → fix)
+- [x] Audit audio terukur: noise floor per babak, dead air (> 300 ms sunyi), spektrum SFX, LUFS
+- [x] Audit visual: frame per beat vs `GrokAgent/reference-videos/*` + storyboard; daftar yang tidak rapi
+- [x] Tulis `AUDIT-V8-2NOV.md` (temuan → prioritas → fix)
 
 ## 2. Audit B — repo skill-development (sub-agent)
 - [ ] Laporan `AUDIT-REPO-2NOV.md` + file kandidat dipindah ke `_archive/` (tidak dihapus)
