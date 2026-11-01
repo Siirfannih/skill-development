@@ -46,6 +46,14 @@ for c in json.load(open(CUES)):
     a = int(c['t'] * SR); n = min(len(x), N - a)
     if n > 0: sfx[a:a + n] += x[:n]
 
+# SFX duck −4 dB saat kata diucapkan (QC HP 2 Nov: 64 jendela VO<6 dB di atas latar); attack 20 ms, release 200 ms
+dm = dialog.mean(1); hop = 480
+fr = np.sqrt(np.convolve(dm ** 2, np.ones(hop) / hop, 'same'))[::hop]
+act = (20 * np.log10(fr + 1e-9) > -42).astype(float) * -4.0
+g = np.zeros_like(act); a_c = np.exp(-hop / SR / 0.02); r_c = np.exp(-hop / SR / 0.2)
+for i in range(len(act)):
+    pv = g[i - 1] if i else 0.0; c = a_c if act[i] < pv else r_c; g[i] = c * pv + (1 - c) * act[i]
+sfx *= (10 ** (np.interp(np.arange(N) / SR, np.arange(len(g)) * hop / SR, g) / 20)).astype(np.float32)[:, None]
 mix = dialog + bed + room + sfx
 meter = pyln.Meter(SR)
 lufs = meter.integrated_loudness(mix)

@@ -56,7 +56,7 @@ for t, kind, ident, pan in ev:
 out = []
 for c in sorted(cues, key=lambda c: (-c['prio'], c['t'])):
     near = [o for o in out if abs(o['t'] - c['t']) < 0.1]
-    gap = 0.25 if c['role'] == 'snap_click' else 0.09  # montase foto: maks 4 snap/dtk
+    gap = {'snap_click': 0.33, 'sub_impact': 1.5}.get(c['role'], 0.09)  # montase foto maks 3 snap/dtk; sub-impact berjarak supaya tetap berbobot
     same = [o for o in out if o['role'] == c['role'] and abs(o['t'] - c['t']) < gap]
     if len(near) >= 2 or same: continue
     out.append(c)
