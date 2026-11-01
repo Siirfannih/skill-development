@@ -54,3 +54,8 @@ Setiap perbaikan langsung dirender per segmen dan di-QC, baru render final sekal
 - SFX: `tools/sfxev_to_cues.py` memetakan penanda kode (SFXEV dari render segmen) → peran library; anti-spam (return-drag dibuang, snap ≥ 250 ms, maks 2/100 ms).
 - QC segmen lolos: 0–10 (setelah fix Gates/remaja), 10–22, 22–41, orbit 85–92. Sedang: 41–55, 75–103, 103–133. Menunggu matte Altman/Jensen untuk 55–75.
 - Pelajaran: job cloud wajib `run_in_background` (proses nohup mati saat giliran berakhir); render Mac dipantau dengan send_later 8–10 menit, bukan heartbeat 50 menit.
+
+## Disk Mac (izin Irfan 2 Nov 02.00: jaga > 10 GB)
+- Dihapus 02.01: cache wonder updater (2,6 GB), Brave, node-gyp, npm, uv, potongan tar _cloud-handoff → 9 → 13 GB.
+- Offload: `Documents/Orange 4 Backups` (1,5 GB) disalin ke Internxt `Personal/Mac-Offload-2026-11-02`; asli dihapus HANYA setelah evict Internxt sukses (bukti ter-upload).
+- Sinkron cloud→Mac: selalu stagedPath baru per sinkron (device_commit_files menyimpan cache per path; file lama sempat tertulis ulang 2 Nov).
