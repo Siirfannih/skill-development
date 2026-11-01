@@ -31,6 +31,7 @@ for ln in open(os.path.join(d, 'obj.log')):
     if len(p) < 9: continue
     f, kind = int(p[1]), p[2]
     x, y, w, h = map(float, p[3:7])
+    if y < -500000: y += 1e6  # renderStill memasang kanvas di top −1e6 px; koreksi ke koordinat komposisi
     if x + w < 0 or y + h < 0 or x > 1920 or y > 1080: continue  # di luar layar (transisi)
     rows[f].append(dict(kind=kind, x=x, y=y, w=w, h=h, color=p[7], name=p[8]))
 
