@@ -1,144 +1,98 @@
-// 05e · «Dan kesempatan yang sama untuk membuat sesuatu.»
-// Ray burst (R-RAY, sekali pakai) memancar dari tengah di «dan»; barisan landing page identik mendarat bergelombang dari tengah
-// ke luar tepat di micro-tick «kesempatan» (88.69). Kamera C08 truck kiri→kanan, keluar X06 whip ke kanan (6 f) ke 05f.
+// 05e · «Dan kesempatan yang sama untuk membuat sesuatu.» (v9 F1)
+// Latar hitam. Logo ChatGPT/OpenAI (path vektor, putih monokrom) di tengah pada cakram gelap; 10 pratinjau landing page BERBEDA mengorbit
+// di elips miring 2.5D: kedalaman z → skala, blur selektif (DOF), kecerahan, dan urutan z (kartu di belakang logo tertutup cakram).
+// Kamera push-in pelan; SAMA (anchor) di tengah depan di f2677. Keluar: whip kanan 6 f ke 05f. Fungsi murni terhadap frame absolut.
 import React from "react";
-import { AbsoluteFill } from "remotion";
-import { EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
-import { FPS, panel, word } from "../lib/time";
-import { C, moveFrame, progAt, z3tick } from "./_b5_shared";
+import { AbsoluteFill, Easing } from "remotion";
+import { EZ, Grain, panOf, prog, Scene, sfxMark, useT } from "../lib/anim";
+import { FPS, panel } from "../lib/time";
+import { AnchorWord } from "../lib/AnchorWord";
+import { moveFrame } from "./_b5_shared";
+import { LANDING_CARDS, LH, LW } from "./parts/LandingCards";
+import { OPENAI_KNOT_PATH, OPENAI_KNOT_VIEWBOX } from "../assets/openaiKnot";
 
 const P = panel("05e");
-const T_TICK = z3tick("05e kesempatan"); // 88.69
-const W_KES = word("kesempatan", "s5", 1).s; // 88.56
-const WHIP = P.end - 6 / FPS;
-const CW = 640, CH = 600, GAP = 64;
-const RAY_DUR = 0.35;
-const CARD_IN = 6 / FPS;
-/** truck kiri→kanan (≤ 22 px/f puncak), lalu whip — posisi X kamera di detik t. */
-const camXAt = (t: number) => {
-  const truck = keys(t, [[P.start, 0], [WHIP, 1100]], EZ.inOut);
-  const whip = prog(t, WHIP, P.end, EZ.acc);
-  return -(truck + whip * 2200);
-};
-/** C01 zoom mikro di «kesempatan» (lapis kartu 1→1,05, 20 f). */
-const microAt = (t: number) => 1 + 0.05 * prog(t, W_KES, W_KES + 20 / FPS, EZ.inOut);
-const DOMAINS = ["cofounder.ai", "mycofounder.app", "aicofounder.io", "cofoundr.ai", "getcofounder.com", "cofounder.so", "launchmate.ai", "cofounderly.app", "buildbuddy.ai"];
+const F0 = Math.round(P.start * FPS); // 2652
+const F1 = Math.round(P.end * FPS); // 2740
+const F_SAMA = 2677; // «sama» 89.24 s (onset)
+const N = LANDING_CARDS.length;
+const RX = 780, RZ = 500, FOC = 2300, TILT = 0.55;
+const CY = 450; // pusat orbit di layar
+const LOGO = { x: 960, y: 400, r: 120 };
+const SWEEP = 125; // derajat total putaran selama adegan
+const spin = Easing.bezier(0.22, 0.55, 0.3, 1);
 
-const Landing: React.FC<{ domain: string }> = ({ domain }) => (
-  <div style={{ width: CW, height: CH, borderRadius: 26, background: "#fff", overflow: "hidden", boxShadow: "0 30px 70px rgba(29,54,235,0.22)", fontFamily: "Inter", color: C.ink, display: "flex", flexDirection: "column" }}>
-    {/* chrome peramban */}
-    <div style={{ height: 46, background: "#f2f2f5", display: "flex", alignItems: "center", gap: 8, padding: "0 18px", borderBottom: "1px solid #e6e6ea" }}>
-      {["#ff5f57", "#febc2e", "#28c840"].map((c) => <div key={c} style={{ width: 12, height: 12, borderRadius: 6, background: c }} />)}
-      <div style={{ marginLeft: 18, flex: 1, height: 26, borderRadius: 8, background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 14, color: C.muted, gap: 6 }}>
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke={C.muted} strokeWidth="2.4"><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V7a4 4 0 0 1 8 0v4" /></svg>
-        {domain}
-      </div>
-    </div>
-    {/* nav */}
-    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", padding: "18px 30px" }}>
-      <div style={{ display: "flex", alignItems: "center", gap: 9, fontWeight: 700, fontSize: 17, letterSpacing: -0.3 }}>
-        <div style={{ width: 22, height: 22, borderRadius: 7, background: `linear-gradient(135deg, ${C.violet400}, ${C.electric})` }} />Cofounder
-      </div>
-      <div style={{ display: "flex", gap: 20, fontSize: 13, color: C.muted, alignItems: "center" }}>
-        <span>Product</span><span>Pricing</span><span>Log in</span>
-        <span style={{ background: C.ink, color: "#fff", borderRadius: 999, padding: "6px 13px", fontWeight: 600 }}>Get started</span>
-      </div>
-    </div>
-    {/* hero */}
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", textAlign: "center", padding: "14px 40px 0" }}>
-      <span style={{ fontSize: 12, fontWeight: 600, color: C.electric, background: "#eef0ff", borderRadius: 999, padding: "5px 12px" }}>✦ Powered by GPT</span>
-      <span style={{ fontSize: 50, fontWeight: 800, letterSpacing: -1.8, lineHeight: 1.02, marginTop: 16 }}>Your AI co-founder.</span>
-      <span style={{ fontSize: 16, color: C.muted, marginTop: 12, lineHeight: 1.4 }}>Launch your startup this weekend. No code needed.</span>
-      <div style={{ display: "flex", gap: 10, marginTop: 20 }}>
-        <span style={{ background: C.ink, color: "#fff", fontSize: 14, fontWeight: 600, borderRadius: 999, padding: "10px 20px" }}>Join waitlist</span>
-        <span style={{ border: `1px solid ${C.line}`, fontSize: 14, fontWeight: 600, borderRadius: 999, padding: "9px 20px" }}>Watch demo</span>
-      </div>
-    </div>
-    {/* cuplikan produk */}
-    <div style={{ margin: "26px 40px 0", flex: 1, borderRadius: "16px 16px 0 0", background: `linear-gradient(160deg, ${C.violet50}, ${C.violet200})`, padding: "18px 22px 0", display: "flex", flexDirection: "column", gap: 10 }}>
-      <div style={{ alignSelf: "flex-end", background: C.ink, color: "#fff", fontSize: 12, borderRadius: 14, padding: "7px 12px" }}>Find me a startup idea</div>
-      <div style={{ alignSelf: "flex-start", background: "#fff", fontSize: 12, borderRadius: 14, padding: "8px 12px", maxWidth: 300, lineHeight: 1.4, textAlign: "left", boxShadow: "0 4px 12px rgba(29,54,235,0.10)" }}>Here are 3 AI startups you can launch this weekend…</div>
-      <div style={{ display: "flex", gap: 8 }}>
-        {["Habit AI", "Resume AI", "Caption AI"].map((n, i) => (
-          <div key={n} style={{ flex: 1, background: "#fff", borderRadius: 12, padding: "10px 12px", display: "flex", alignItems: "center", gap: 8, fontSize: 12, fontWeight: 600, boxShadow: "0 4px 12px rgba(29,54,235,0.08)" }}>
-            <div style={{ width: 20, height: 20, borderRadius: 6, background: ["linear-gradient(145deg,#34d399,#059669)", "linear-gradient(145deg,#60a5fa,#2563eb)", "linear-gradient(145deg,#f472b6,#db2777)"][i] }} />{n}
-          </div>
-        ))}
-      </div>
-    </div>
-  </div>
-);
+const orbit = (i: number, fa: number) => {
+  const u = Math.min(1, Math.max(0, (fa - F0) / (F1 - F0)));
+  const bloom = EZ.out(Math.min(1, Math.max(0, (fa - F0) / 12)));
+  const th = ((-20 + i * (360 / N) + SWEEP * spin(u)) * Math.PI) / 180;
+  const rr = 0.25 + 0.75 * bloom;
+  const x = RX * rr * Math.cos(th), z = RZ * rr * Math.sin(th);
+  const s = FOC / (FOC - z);
+  const push = 1 + 0.1 * EZ.inOut(u);
+  return { x: 960 + x * s * push, y: CY + (z * TILT * s) * push - (push - 1) * 0, z, s: s * push, zn: z / RZ, th, rawX: x };
+};
+
+// glass_ping: kartu yang pertama kali mendekati kamera (zn > 0,85), maksimum 4, pan sesuai x layar
+const PINGS: { f: number; x: number; i: number }[] = (() => {
+  const out: { f: number; x: number; i: number }[] = [];
+  for (let i = 0; i < N; i++) {
+    for (let fa = F0 + 8; fa < F1 - 6; fa++) {
+      const a = orbit(i, fa - 1), b = orbit(i, fa);
+      if (a.zn <= 0.85 && b.zn > 0.85 && b.x > 120 && b.x < 1800) { out.push({ f: fa, x: b.x, i }); break; }
+    }
+  }
+  return out.sort((p, q) => p.f - q.f).slice(0, 4);
+})();
 
 export const S05e_SameChance: React.FC = () => {
   const t = useT();
-  // sinar memancar dari tengah di «dan», kilat kecil di tick
-  const ray = prog(t, P.start, P.start + RAY_DUR, EZ.out);
-  const flash = t >= T_TICK ? Math.exp(-(t - T_TICK) * 6) : 0;
-  const rot = (t - P.start) * 2.2;
-  // truck kiri→kanan (≤ 22 px/f puncak), lalu whip
-  const whip = prog(t, WHIP, P.end, EZ.acc);
-  const camX = camXAt(t);
-  const whipBlur = whip * 40;
-  // v2: C01 zoom mikro di «kesempatan» (lapis kartu 1→1,05, 20 f) + parallax 2.5D: sinar (latar jauh) ikut 12 % truck
-  const micro = microAt(t);
-  const rayX = camX * 0.12;
-  const rowLeft = 960 - CW * 1.5 - GAP - 700; // kartu tengah layar awal ≈ indeks 2–3
-  const cardA = (i: number) => {
-    const x = rowLeft + i * (CW + GAP);
-    // gelombang dari tengah layar ke luar, 1 f per langkah jarak
-    const dist = Math.abs(x + CW / 2 - 960) / (CW + GAP);
-    return { x, a: T_TICK + (dist * 1.4) / FPS };
+  const fa = Math.round(t * FPS);
+  const u = Math.min(1, Math.max(0, (fa - F0) / (F1 - F0)));
+  const push = 1 + 0.1 * EZ.inOut(u);
+  // whip keluar ke kanan (6 f)
+  const whip = prog(t, P.end - 6 / FPS, P.end, EZ.acc);
+  const whipX = -whip * 1800, whipBlur = whip * 36;
+
+  sfxMark(t, "cut", P.start, "05e:in:cut");
+  sfxMark(t, "whoosh", moveFrame(P.start), "05e:orbit:bloom"); // kartu mekar keluar dari logo
+  PINGS.forEach((p, k) => sfxMark(t, "glass_ping", p.f / FPS, `05e:orbit:ping:${k}`, panOf(p.x)));
+  sfxMark(t, "whoosh", P.end - 1 / FPS, "05e:cam:whip");
+
+  const cards = LANDING_CARDS.map((C, i) => ({ C, i, o: orbit(i, fa) })).sort((a, b) => a.o.z - b.o.z);
+  const logoS = 1 + (push - 1) * 0.6;
+  const card = (c: (typeof cards)[number]) => {
+    const { C, i, o } = c;
+    const blur = o.zn < 0 ? -o.zn * 3.4 : o.zn > 0.7 ? ((o.zn - 0.7) / 0.3) * 3.5 : 0;
+    const bright = 0.5 + 0.5 * ((o.zn + 1) / 2);
+    const yaw = (o.rawX / RX) * 16;
+    return (
+      <div key={i} style={{ position: "absolute", left: o.x - LW / 2, top: o.y - LH / 2, zIndex: o.zn > 0 ? 20 + Math.round(o.zn * 10) : 1, transform: `perspective(1600px) rotateY(${yaw}deg) scale(${o.s})`, filter: `blur(${blur.toFixed(2)}px) brightness(${bright.toFixed(2)})` }}>
+        <C />
+      </div>
+    );
   };
-  // ── SFXEV penanda metronom
-  sfxMark(t, "cut", P.start, "05e:in:cut"); // tablet 05d → ray burst
-  sfxMark(t, "whoosh", moveFrame(P.start), "05e:ray:burst"); // sinar memancar 0,35→1 (EZ.out, puncak di frame gerak pertama)
-  // landing page mendarat: satu tanda per frame-mendarat (kartu berpasangan kiri/kanan mendarat di frame sama),
-  // hanya kartu yang terlihat di layar saat mendarat (posisi kamera dari camXAt yang sama)
-  const ringDone = new Set<number>();
-  DOMAINS.forEach((_, i) => {
-    const { x, a } = cardA(i);
-    const at = progAt(a, a + CARD_IN, EZ.out);
-    const fr = Math.round(at * FPS);
-    const sx = 960 + (x + camXAt(at) - 960) * microAt(at);
-    if (sx + CW < 0 || sx > 1920 || ringDone.has(fr)) return;
-    ringDone.add(fr);
-    sfxMark(t, "pop", at, `05e:landing:${i}`);
-  });
-  sfxMark(t, "whoosh", P.end - 1 / FPS, "05e:cam:whip"); // whip X06 ke kanan 6 f (EZ.acc, puncak di akhir)
   return (
     <Scene code="05e">
-      <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 50%, ${C.violet50} 0%, ${C.violet200} 30%, ${C.violet400} 55%, ${C.electric} 100%)`, overflow: "hidden" }}>
-        {/* R-RAY: diam di ruang layar (latar jauh), rotasi pelan */}
-        {/* kanvas sinar 4200 (pusat tetap 960,540) + mask radial: ujung sinar memudar lembut, tak pernah terpotong tepi kotak SVG
-            saat skala kecil; inti cahaya radial menutup titik temu sinar yang lancip */}
-        <svg width="4200" height="4200" viewBox="-2100 -2100 4200 4200" style={{ position: "absolute", left: 960 - 2100 + rayX, top: 540 - 2100, transform: `rotate(${rot}deg) scale(${0.35 + 0.65 * ray})`, opacity: ray, maskImage: "radial-gradient(circle closest-side at 50% 50%, #000 50%, rgba(0,0,0,0) 97%)", WebkitMaskImage: "radial-gradient(circle closest-side at 50% 50%, #000 50%, rgba(0,0,0,0) 97%)" }}>
-          <defs>
-            <radialGradient id="rayCore05e">
-              <stop offset="0%" stopColor="#ffffff" stopOpacity={0.75} />
-              <stop offset="45%" stopColor="#ffffff" stopOpacity={0.28} />
-              <stop offset="100%" stopColor="#ffffff" stopOpacity={0} />
-            </radialGradient>
-          </defs>
-          {Array.from({ length: 14 }).map((_, i) => {
-            const a0 = (i / 14) * Math.PI * 2;
-            const a1 = a0 + 0.13;
-            const R = 2050;
-            return <polygon key={i} points={`0,0 ${Math.cos(a0) * R},${Math.sin(a0) * R} ${Math.cos(a1) * R},${Math.sin(a1) * R}`} fill="#ffffff" fillOpacity={0.2 + 0.2 * flash} />;
-          })}
-          <circle r={300} fill="url(#rayCore05e)" />
-        </svg>
+      <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
         <svg width="0" height="0" style={{ position: "absolute" }}><filter id="whip05e" x="-20%" y="0" width="140%" height="100%"><feGaussianBlur stdDeviation={`${whipBlur} 0`} /></filter></svg>
-        <AbsoluteFill style={{ transform: `scale(${micro}) translateX(${camX}px)`, transformOrigin: "960px 540px", filter: whipBlur > 0.1 ? "url(#whip05e)" : undefined }}>
-          {DOMAINS.map((d, i) => {
-            const { x, a } = cardA(i);
-            const p = prog(t, a, a + CARD_IN, EZ.out);
-            return (
-              <div key={i} style={{ position: "absolute", left: x, top: 540 - CH / 2 + 10, opacity: Math.min(1, p * 2), transform: `translateY(${(1 - p) * 60}px) scale(${0.9 + 0.1 * p})` }}>
-                <Landing domain={d} />
-              </div>
-            );
-          })}
+        <AbsoluteFill style={{ transform: `translateX(${whipX}px)`, filter: whipBlur > 0.1 ? "url(#whip05e)" : undefined }}>
+          <AbsoluteFill style={{ background: "radial-gradient(ellipse 50% 45% at 50% 40%, rgba(255,255,255,0.07), rgba(0,0,0,0) 70%)" }} />
+          {/* cincin orbit tipis (belakang semuanya) */}
+          <svg width={1920} height={1080} style={{ position: "absolute", left: 0, top: 0 }}>
+            <ellipse cx={960} cy={CY} rx={RX * push} ry={RZ * TILT * push * 0.95} fill="none" stroke="rgba(255,255,255,0.09)" strokeWidth={1.5} />
+          </svg>
+          {cards.filter((c) => c.o.zn <= 0).map(card)}
+          {/* logo AI (vektor) pada cakram gelap: menutup kartu di belakangnya */}
+          <div style={{ position: "absolute", left: LOGO.x - LOGO.r, top: LOGO.y - LOGO.r, width: LOGO.r * 2, height: LOGO.r * 2, borderRadius: LOGO.r, zIndex: 10, transform: `scale(${logoS})`, background: "radial-gradient(circle at 50% 35%, #1b1b20, #070709)", boxShadow: "0 0 0 1.5px rgba(255,255,255,0.2), 0 0 90px rgba(255,255,255,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <svg width={LOGO.r * 1.15} height={LOGO.r * 1.15} viewBox={OPENAI_KNOT_VIEWBOX} style={{ filter: "drop-shadow(0 0 14px rgba(255,255,255,0.35))" }}>
+              <path d={OPENAI_KNOT_PATH} fill="#fff" fillRule="evenodd" />
+            </svg>
+          </div>
+          {cards.filter((c) => c.o.zn > 0).map(card)}
         </AbsoluteFill>
+        {/* anchor di tengah depan, di bawah logo (ruang layar, tidak ikut whip supaya tetap terbaca) */}
+        <AnchorWord text="SAMA" at={F_SAMA} x={960} y={625} size={170} color="#ffffff" align="center" enter="scale" shadow="0 6px 40px rgba(0,0,0,0.9)" />
         <Grain opacity={0.035} />
       </AbsoluteFill>
     </Scene>
