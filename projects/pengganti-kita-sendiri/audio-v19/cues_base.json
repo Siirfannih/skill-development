@@ -1,0 +1,38 @@
+[
+ {
+  "role": "riser_coldopen",
+  "file": "tension-glitch-riser__1b894efa.wav",
+  "t": 0.87,
+  "gainDb": -16,
+  "stopAt": 9.95,
+  "fadeOut": 0.02,
+  "pan": 0
+ },
+ {
+  "role": "heartbeat_pulse",
+  "file": "cinematic-54bpm__c805d6d8.wav",
+  "t": 9.95,
+  "trim": 12.6,
+  "gainDb": -18,
+  "fadeOut": 2.0,
+  "pan": 0
+ },
+ {
+  "role": "graph_riser",
+  "file": "shepard-tone-up-09__25747e8d.wav",
+  "t": 31.9,
+  "trim": 5.0,
+  "gainDb": -20,
+  "fadeOut": 0.8,
+  "pan": 0
+ },
+ {
+  "role": "graph_riser",
+  "file": "shepard-tone-up-09__25747e8d.wav",
+  "t": 64.45,
+  "trim": 5.0,
+  "gainDb": -20,
+  "fadeOut": 0.8,
+  "pan": 0
+ }
+]
