@@ -79,11 +79,13 @@ export const Plane: React.FC<{
 };
 
 /** Unit sel 06b (164×200): piktogram menghadap kanan + bidang cahaya. Koordinat dalam unit sel. */
-export const SideUnit: React.FC<{ on: number; rim?: number; flat?: boolean; boost?: number }> = ({ on, rim, flat, boost }) => {
+export const SideUnit: React.FC<{ on: number; rim?: number; flat?: boolean; boost?: number; glyph?: boolean }> = ({ on, rim, flat, boost, glyph }) => {
   const rr = rim ?? on;
   return (
     <div style={{ position: "absolute", left: 0, top: 0, width: 164, height: 200 }}>
-      <Plane b={{ x: 74, y: 66, w: 86, h: 30 }} on={on} boost={boost} glow={{ b: { x: 78, y: 70, w: 76, h: 24 }, blur: 40, spread: 12, a: 0.18, radius: 12 }} grad={C6.white} />
+      <Plane b={{ x: 74, y: 66, w: 86, h: 30 }} on={on} boost={boost} glow={{ b: { x: 78, y: 70, w: 76, h: 24 }, blur: 40, spread: 12, a: 0.18, radius: 12 }} grad={C6.white} softGlow>
+        {glyph && <AIGlyph size={22} />}
+      </Plane>
       <Ball b={{ x: 22, y: 40, w: 40, h: 40 }} rim={0.9 * rr} r={3} flat={flat} />
       <Torso b={{ x: 6, y: 86, w: 72, h: 90 }} rim={0.7 * rr} r={3} flat={flat} />
     </div>

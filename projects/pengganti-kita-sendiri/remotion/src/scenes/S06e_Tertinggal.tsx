@@ -6,7 +6,7 @@ import { AbsoluteFill } from "remotion";
 import { EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
 import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
-import { Ball, C6, lerp, Plane, SideUnit, Torso } from "./_b6_shared";
+import { AIGlyph, Ball, C6, lerp, Plane, SideUnit, Torso } from "./_b6_shared";
 import { OFF_HOLD, T_OFF } from "./S06d_Prompt";
 
 const P = panel("06e");
@@ -27,7 +27,7 @@ export const S06e_Tertinggal: React.FC = () => {
   const sc = 1.06 - 0.06 * back;
   // close 2× pada kita yang padam (C18 drift pelan), lalu patah ke wide dalam 6 f: jarak ke yang lain terlihat
   // v9 (B5, 1:58 beat mati): close 2× yang gelap kosong → mulai 1,5× supaya kelompok «yang lain» sudah menyembul di tepi kanan, push ke 1,85× sampai patah
-  const zc = 1.5 + 0.35 * prog(t, START, SNAP_WIDE, EZ.inOut);
+  const zc = 1.0 + 0.08 * prog(t, START, SNAP_WIDE, EZ.inOut); // v10: komposisi utuh dari frame pertama (v9: zoom 1,5 mendorong «yang lain» ke tepi)
   const Z = lerp(zc, 1, prog(t, SNAP_WIDE, SNAP_WIDE + 6 / FPS, EZ.out));
   const truck = t > TRUCK_A ? -(t - TRUCK_A) * TRUCK_V : 0;
   const recede = prog(t, START + 0.2, P.end + 0.2, EZ.inOut);
@@ -44,13 +44,14 @@ export const S06e_Tertinggal: React.FC = () => {
             {/* v10 (#41): layar mati bertepi rim tipis + piktogram rim light (bukan abu datar 1,3:1 di atas hitam) */}
             <div style={{ position: "absolute", left: 269, top: 289, width: 152, height: 52, clipPath: "polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%)", background: "rgba(255,255,255,0.34)" }} />
             <Plane b={{ x: 270, y: 290, w: 150, h: 50 }} on={0} />
+            <AIGlyph size={26} style={{ position: "absolute", left: 345 - 13, top: 315 - 13, filter: "invert(1)", opacity: 0.22 }} />
             <Ball b={{ x: 150, y: 250, w: 80, h: 80 }} rim={0.6} r={2.4} />
             <Torso b={{ x: 114, y: 338, w: 152, h: 250 }} rim={0.5} r={2.4} />{/* h 180→250: alas datar badan tidak lagi terlihat di atas tepi bawah frame saat wide */}
             {/* yang lain: tetap menyala, menjauh ke kanan (mengecil = makin jauh) */}
-            <div style={{ position: "absolute", left: 600, top: 320, transform: `translateX(${recede * 110}px) translateY(${-recede * 18}px) scale(${1 - 0.32 * recede})`, transformOrigin: "0 60px" }}>
+            <div style={{ position: "absolute", left: 400, top: 214, transform: `translateX(${recede * 36}px) scale(${1 - 0.22 * recede})`, transformOrigin: "0 100px" }}>
               {[0, 1, 2].map((i) => (
-                <div key={i} style={{ position: "absolute", left: i * 118 - 6.3, top: -16, width: 164, height: 200, transform: "scale(0.65)", transformOrigin: "0 0" }}>
-                  <SideUnit on={1} />
+                <div key={i} style={{ position: "absolute", left: i * 150, top: 0, width: 164, height: 200, transform: "scale(1)", transformOrigin: "0 0" }}>
+                  <SideUnit on={1} glyph />
                 </div>
               ))}
             </div>

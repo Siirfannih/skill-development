@@ -18,8 +18,8 @@ const W_AI_C = W_AI >= P.start ? W_AI : word("AI", "s6", 2).s;
 // lintasan kepala (koordinat panel 960×540): dari atas badan ke pusat bidang cahaya
 const P0 = { x: 240, y: 258 };
 const C1 = { x: 320, y: 130 };
-const C2 = { x: 600, y: 190 };
-const P3 = { x: 860, y: 262 };
+const C2 = { x: 470, y: 210 };
+const P3 = { x: 720, y: 372 }; // v10: bidang digeser ke kiri (tidak menempel tepi kanan); sasaran hisapan di bawah kata AI (tak menimpa teks)
 const bez = (u: number) => {
   const a = (1 - u) ** 3, b = 3 * (1 - u) ** 2 * u, c = 3 * (1 - u) * u * u, d = u ** 3;
   return { x: a * P0.x + b * C1.x + c * C2.x + d * P3.x, y: a * P0.y + b * C1.y + c * C2.y + d * P3.y };
@@ -71,13 +71,13 @@ export const S06c_Serahkan: React.FC = () => {
                 <polyline points={pts.join(" ")} fill="none" stroke="rgb(210,210,215)" strokeOpacity={0.45} strokeWidth={2} strokeDasharray="6 8" strokeLinecap="round" />
               </svg>
             )}
-            <Plane b={{ x: 700, y: 90, w: 320, h: 360 }} on={1} slant={0.18} boost={boost * 1.2} softGlow
+            <Plane b={{ x: 560, y: 90, w: 320, h: 360 }} on={1} slant={0.18} boost={boost * 1.2} softGlow
               grad={`linear-gradient(90deg, ${C6.paper} 0%, ${C6.white} 45%)`}
-              glow={{ b: { x: 770, y: 140, w: 170, h: 260 }, blur: 140, spread: 50, a: 0.24, radius: 40 }} />
+              glow={{ b: { x: 630, y: 140, w: 170, h: 260 }, blur: 140, spread: 50, a: 0.24, radius: 40 }} />
             {/* v9 (#30): AI = anchor di tengah bidang cahaya (target hisapan), ink gelap di bidang putih; DOM sebelum bola → bola yang lewat menutupi huruf (di belakang bola) */}
             {/* v10 (#38): bidang tidak kosong sebelum «AI» — glyph OpenAI asli (target hisapan) tampil sampai kata AI mendarat di slot yang sama */}
-            {t * FPS < atAI && <AIGlyph size={130} style={{ position: "absolute", left: 846 - 65, top: 270 - 65 }} />}
-            <AnchorWord text="AI" at={atAI} until={untilAI} x={846} y={270} size={150} color={C6.ink} enter="scale"
+            {t * FPS < atAI && <AIGlyph size={110} style={{ position: "absolute", left: 706 - 55, top: 205 - 55 }} />}
+            <AnchorWord text="AI" at={atAI} until={untilAI} x={706} y={205} size={130} color={C6.ink} enter="scale"
               sfx={{ kind: "scifi_whoosh", id: "06c:anchor:ai" }} />
             <Torso b={{ x: 60, y: 330, w: 360, h: 300 }} rim={0.6} r={6} />
             {hs > 0.01 && (
@@ -87,7 +87,7 @@ export const S06c_Serahkan: React.FC = () => {
           </div>
         </AbsoluteFill>
         {bloom > 0.005 && (
-          <AbsoluteFill style={{ background: `radial-gradient(ellipse 70% 80% at 1720px 540px, ${wa(bloom)} 0%, ${wa(bloom * 0.5)} 45%, ${wa(0)} 100%)` }} />
+          <AbsoluteFill style={{ background: `radial-gradient(ellipse 70% 80% at 1440px 540px, ${wa(bloom)} 0%, ${wa(bloom * 0.5)} 45%, ${wa(0)} 100%)` }} />
         )}
         <Grain opacity={0.05} />
       </AbsoluteFill>

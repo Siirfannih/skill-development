@@ -17,3 +17,10 @@ Stills sesudah: `/home/claude/pks/v10/<id>_after.png` (+ `_after2.png` = frame t
 | 43 | _b6 BackUnit: pendar radial lembut a=0.12, layar berisi kerangka UI sebelum glyph (tak putih kosong). S06f tidak diedit | 43a/43b_after | BERES |
 | 44 | S06g: PERAN | torso | KAMU di y 906 (tinggi badan, bukan kepala), KAMU size 170 agar tidak terpotong | 44a/44b_after | BERES |
 | Irfan 1 | S06a: berkas cahaya di-blur + mask feather dua arah, pendar bidang pakai radial (softGlow); MEMBANGUN/MERENCANAKAN tinta #101216 | 1a/1b_after | BERES (belum membandingkan dengan teknik W2; REVIEW-W2 belum ada) |
+
+## Ronde 2 (koreksi QC utama), tile: `/home/claude/pks/v10/w4_fix2.jpg`
+| # | Perubahan | Still | Status |
+|---|---|---|---|
+| 44 | PERAN | KAMU diperkecil (110/140) dan dinaikkan ke y 826, margin dihitung pada skala puncak 1,254. 12 frame (tiap 6 f, 3845-3959) semuanya utuh, kanan <= 86 % lebar | g38xx_fix2, g3845/g3869_fix3 | BERES |
+| 38c | S06c: bidang digeser kiri (tidak menempel tepi), kata/glyph AI di bagian atas bidang, sasaran hisapan kepala di bagian bawah; kepala tidak lagi menimpa AI (frame 3360-3420) | c33xx_fix2 | BERES |
+| 43a/40b (= 06e) | S06e dikomposisi ulang: tanpa zoom 1,5 awal, figur kiri, layar mati berisi glyph redup, tiga figur lain skala 1 dengan layar menampilkan glyph OpenAI, di tengah frame (tidak menempel tepi), TERTINGGAL di kanan figur | e3540/e3600_fix3, f4 | BERES |
