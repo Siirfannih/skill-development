@@ -17,13 +17,14 @@ import { useProbe } from "./probe";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 
-// advance glyph Inter (satuan 1/1000 em), ASCII 32..126; hasil fontTools dari Inter-ExtraBold/Black.otf
-const ADV800 = [219, 358, 586, 655, 660, 1029, 683, 354, 382, 382, 583, 686, 353, 471, 353, 400, 692, 441, 638, 657, 688, 652, 662, 588, 664, 662, 353, 360, 686, 686, 686, 579, 1036, 770, 665, 744, 723, 610, 585, 752, 749, 286, 590, 738, 565, 943, 766, 773, 652, 782, 662, 660, 677, 727, 770, 1059, 761, 752, 679, 382, 400, 382, 493, 484, 382, 588, 638, 595, 638, 601, 410, 639, 635, 283, 283, 593, 283, 927, 635, 619, 638, 638, 420, 573, 382, 635, 615, 863, 594, 618, 581, 486, 388, 486, 686];
-const ADV900 = [199, 381, 625, 662, 666, 1044, 695, 372, 388, 388, 608, 693, 373, 475, 373, 412, 711, 452, 646, 669, 702, 666, 675, 595, 679, 675, 373, 378, 693, 693, 693, 601, 1059, 795, 668, 748, 723, 613, 584, 754, 750, 291, 596, 759, 565, 956, 770, 775, 656, 787, 668, 666, 687, 722, 795, 1082, 786, 775, 694, 388, 412, 388, 500, 493, 401, 597, 646, 603, 646, 606, 422, 647, 649, 296, 296, 606, 296, 943, 649, 625, 646, 646, 434, 588, 399, 649, 632, 877, 609, 636, 590, 505, 405, 505, 693];
+// advance glyph Geist Sans (satuan 1/1000 em), ASCII 32..126; fontTools dari @fontsource/geist-sans 500/600 (v10: Inter Black diganti — Irfan 07.23 «terlalu tebal»)
+export const DISPLAY_FONT = "Geist Sans";
+const ADV500 = [243, 230, 369, 515, 659, 794, 651, 192, 325, 325, 433, 565, 215, 425, 215, 496, 680, 406, 630, 626, 651, 641, 636, 589, 625, 638, 298, 298, 545, 648, 549, 577, 930, 695, 688, 711, 708, 610, 596, 718, 709, 282, 608, 670, 584, 890, 742, 756, 658, 750, 681, 659, 596, 695, 694, 938, 659, 652, 561, 352, 492, 352, 408, 564, 256, 590, 611, 569, 611, 582, 416, 611, 592, 258, 284, 610, 299, 885, 592, 594, 611, 611, 398, 546, 414, 587, 562, 830, 608, 555, 565, 426, 275, 426, 532];
+const ADV600 = [236, 243, 378, 552, 669, 817, 680, 195, 336, 336, 429, 559, 227, 423, 227, 510, 689, 428, 642, 640, 665, 656, 648, 592, 646, 651, 304, 304, 541, 636, 545, 586, 945, 719, 696, 720, 714, 616, 600, 727, 713, 291, 617, 688, 586, 903, 745, 765, 665, 759, 689, 669, 614, 699, 717, 965, 689, 674, 579, 368, 506, 368, 414, 565, 261, 605, 624, 586, 624, 596, 432, 623, 601, 270, 308, 629, 313, 893, 601, 608, 624, 624, 412, 562, 431, 597, 586, 840, 630, 571, 581, 429, 285, 429, 527];
 
 /** lebar teks (px) untuk Inter `weight` 800/900 pada `size` px dengan letter-spacing `trackEm` (em, tiap huruf). */
-export const textWidth = (text: string, size: number, weight: 800 | 900 = 900, trackEm = -0.03) => {
-  const T = weight === 800 ? ADV800 : ADV900;
+export const textWidth = (text: string, size: number, weight: 500 | 600 = 600, trackEm = -0.02) => {
+  const T = weight === 500 ? ADV500 : ADV600;
   let w = 0;
   for (const ch of text) {
     const c = ch.charCodeAt(0);
@@ -54,8 +55,8 @@ export type SpeakerWordSpec = {
 };
 export type PlacedWord = SpeakerWordSpec & { x: number; baseline: number; align?: "left" | "center" | "right" };
 
-const trackOf = (k: SpeakerKind) => (k === "emph" ? -0.03 : -0.02); // v10: tanpa tracking-out «melebar» (tidak ada di referensi)
-const weightOf = (k: SpeakerKind): 800 | 900 => (k === "normal" || k === "last" ? 800 : 900);
+const trackOf = (_k: SpeakerKind) => -0.01; // v10: tanpa tracking-out «melebar» (tidak ada di referensi)
+const weightOf = (_k: SpeakerKind): 500 | 600 => 500; // ucapan Medium 500; penekanan lewat warna, bukan ketebalan
 const widthOf = (w: SpeakerWordSpec) => {
   const k = w.kind ?? "normal";
   return textWidth(w.text, w.size, weightOf(k), trackOf(k));
@@ -104,8 +105,8 @@ export const flowLine = (
   });
 };
 
-const ASC = 0.864; // baseline Inter dari tepi atas kotak line-height 1 (em)
-const BL_FROM_CENTER = 0.364; // baseline − pusat vertikal kotak (em)
+const ASC = 0.85; // baseline Geist dari tepi atas kotak line-height 1 (em)
+const BL_FROM_CENTER = 0.35; // baseline − pusat vertikal kotak (em)
 
 const NormalLike: React.FC<{ w: PlacedWord; absF: number; shadow: string; color: string; dim?: boolean }> = ({ w, absF, shadow, color, dim }) => {
   const kind = w.kind ?? "normal";
@@ -122,7 +123,7 @@ const NormalLike: React.FC<{ w: PlacedWord; absF: number; shadow: string; color:
     <div
       ref={probe}
       style={{
-        fontFamily: "Inter", fontWeight: weightOf(kind), fontSize: s, letterSpacing: `${track}em`, lineHeight: 1, color, whiteSpace: "nowrap",
+        fontFamily: DISPLAY_FONT, fontWeight: weightOf(kind), fontSize: s, letterSpacing: `${track}em`, lineHeight: 1, color, whiteSpace: "nowrap",
         textShadow: shadow, transform: `translateY(${tr * 100}%)`, opacity: dim ? 0.45 : 1,
         transformOrigin: "0% 60%", filter: blur ? `blur(${blur}px)` : undefined,
       }}
@@ -168,7 +169,7 @@ export const SpeakerWords: React.FC<{
           if (w.sfx) sfxMark(absF / FPS, w.sfx.kind, w.at / FPS, w.sfx.id, w.sfx.pan);
           return (
             <AnchorWord key={i} text={w.text} at={w.at} until={end} x={w.x} y={w.baseline - BL_FROM_CENTER * w.size}
-              size={w.size} color={col} align="left" enter={w.enter ?? "scale"} shadow={shadow} grain={w.grain} />
+              size={w.size} color={col} align="left" enter={w.enter ?? "scale"} shadow={shadow} grain={w.grain} weight={500} track={-0.01} />
           );
         }
         if (absF < w.at || (end !== undefined && absF >= end)) return null;

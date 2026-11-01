@@ -45,16 +45,25 @@ export type AnchorProps = {
   shadow?: string;
   /** miring (dipakai KREATIF di parallelogram). */
   italic?: boolean;
+  /** ketebalan Geist Sans (default 600 SemiBold) */
+  weight?: 500 | 600;
+  /** letter-spacing (em), default −0,02 */
+  track?: number;
 };
 
 /** detik absolut video → frame ABSOLUT (prop `at`/`until` AnchorWord selalu absolut). */
+// v10 (Irfan 06.48): pembeda estetika = huruf kapital di AWAL kata, bukan seluruh huruf kapital. Akronim tetap.
+const ACR = new Set(["AI", "CEO", "OK", "AGI"]);
+export const displayCase = (t: string) =>
+  t.split(" ").map((w) => (ACR.has(w) || /[0-9]/.test(w) || w !== w.toUpperCase() ? w : w.charAt(0) + w.slice(1).toLowerCase())).join(" ");
+
 export const useAnchorAt = (absSeconds: number) => Math.round(absSeconds * FPS);
 
 /** frame ABSOLUT video (kolom "f terukur" ANCHORS-V9.md) → dipakai langsung sebagai prop `at`/`until`. */
 export const useFrameAt = (absFrame: number) => absFrame;
 
 export const AnchorWord: React.FC<AnchorProps> = ({
-  text, at: atAbs, until: untilAbs, x, y, size, color, align = "center", enter = "scale", exit = "cut", maskSrc, maskNode, trackFn, sfx, grain = 0.5, shadow, italic,
+  text, at: atAbs, until: untilAbs, x, y, size, color, align = "center", enter = "scale", exit = "cut", maskSrc, maskNode, trackFn, sfx, grain = 0.5, shadow, italic, weight = 600, track = -0.02,
 }) => {
   const frame = useCurrentFrame();
   const sceneFrom = useSceneFrom();
@@ -115,11 +124,11 @@ export const AnchorWord: React.FC<AnchorProps> = ({
         style={{
           position: "absolute", left: x + tr.x + dx, top: y + tr.y,
           transform: `translate(${tx}, -50%) scale(${scale})`, transformOrigin: align === "left" ? "0% 50%" : align === "right" ? "100% 50%" : "50% 50%",
-          fontFamily: "Inter", fontWeight: 900, fontStyle: italic ? "italic" : undefined, fontSize: size, letterSpacing: -size * 0.03, lineHeight: 1, color, whiteSpace: "nowrap", textShadow: shadow,
+          fontFamily: "Geist Sans", fontWeight: weight, fontStyle: italic ? "italic" : undefined, fontSize: size, letterSpacing: size * track, lineHeight: 1, color, whiteSpace: "nowrap", textShadow: shadow,
           filter: g > 0 ? `url(#ag${uid})` : undefined,
         }}
       >
-        {text}
+        {displayCase(text)}
       </div>
     </AbsoluteFill>
   );
