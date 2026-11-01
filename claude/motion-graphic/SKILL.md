@@ -65,6 +65,7 @@ motion-graphic/
     ├── audio.md             mix, musik per babak, SFX per gerak, engsel senyap, Modul 1–5 audit 31 Okt (§14.6–14.10)
     ├── build.md             pipeline After Effects + engine kode, snippet
     ├── analysis-qa.md       bedah referensi, gerbang kirim, rubrik, loop kritik
+    ├── hybrid-motion-standard.md  standar minimum Hybrid Motion dari referensi (anchor words, bezier ekstrem, masking, posterize, SFX/BGM) — wajib dicek di storyboard & QA
     ├── smooth-motion.md     resep motion blur, teks masuk, kamera halus (terbukti di Tuntunly)
     └── revision-log.md      log revisi Irfan, RETRO, ledger keputusan, kunci adegan
 └── scripts/

@@ -53,3 +53,7 @@ Celah 0:55–1:15 tidak disebut → Claude memutuskan (jembatan Babak 3→4) dan
 - Sound: Claude pegang penuh; Gemini hanya second opinion QC yang diverifikasi alat ukur.
 - Audit repo: pindah ke `_archive/` dulu.
 - Perubahan = diff pada kode v8, bukan bangun ulang. VO tidak diregenerasi (playback 1,0).
+
+## Standar Hybrid Motion (1 Nov 23.48)
+Wajib dipenuhi sebagai barrier minimum: `claude/motion-graphic/references/hybrid-motion-standard.md`.
+Flash radial putih di 0:32 = temuan B14.

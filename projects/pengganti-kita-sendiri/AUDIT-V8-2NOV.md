@@ -30,6 +30,7 @@ Acuan: `AUTORUN-2NOV.md`, `SOUND-PLAN-IRFAN-2NOV.md`, `GrokAgent/reference-video
 | B10 | 1:12–1:14 | "SINGLE-PERSON BILLION-DOLLAR COMPANY" menindih Altman, tidak di belakang subjek | Mask Altman, teks di belakang kepala |
 | B11 | 1:18–1:20 | Hampir seluruh frame kosong (grid putih, elemen 1 % frame) | Kamera dekat, transisi lebih cepat |
 | B12 | 1:22–1:24 | Foto stok tanpa perlakuan 2.5D, beda tone dengan sistem visual | Parallax + grade gelap konsisten |
+| B14 | 0:32 | Transisi ke grafik biru: flash radial putih menutup ~70 % frame (blow-out) — tidak Apple style | Ganti match-cut/snap zoom bersih tanpa flash; kalau perlu terang, gradien halus ≤ 40 % opasitas |
 | B13 | semua teks | Animasi masuk lembut/fade; tidak ada Cepat–Hantam–Lambat, tidak ada posterize/tekstur | Komponen `AnchorWord` baru (snap 2–3 frame, ease-out ekstrem, 12 fps, tekstur kertas) |
 
 Yang tidak dikomentari dan sudah kuat → **dipertahankan**: piktogram spotlight gelap, UI agent 0:40–0:50, "KREATIF"/"MEMBANGUN" parallelogram, penutup kursi teater.
