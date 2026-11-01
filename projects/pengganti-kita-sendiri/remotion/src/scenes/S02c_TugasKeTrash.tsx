@@ -14,9 +14,9 @@ import cues from "../../public/data/cues11.json";
 const TICKS = (cues as any[]).filter((c) => c.panel === "02c" && c.role === "micro_tick").map((c) => c.t as number).sort((a, b) => a - b);
 
 // ── tata letak dunia (1920×1080)
-const CARD = { w: 680, h: 152, x: 300, y0: 150, gap: 28 };
+const CARD = { w: 680, h: 152, x: 460, y0: 150, gap: 28 }; // v10 (#14): daftar x 460–1140, dock x 1260–1780 sejajar
 const slotY = (i: number) => CARD.y0 + i * (CARD.h + CARD.gap);
-const DOCK = { x: 1150, y: 800, w: 520, h: 144 };
+const DOCK = { x: 1260, y: 800, w: 520, h: 144 };
 const TRASH = { x: DOCK.x + DOCK.w - 28 - 104, y: DOCK.y + 20, s: 104 }; // ubin Trash
 const TRASH_C = { x: TRASH.x + TRASH.s / 2, y: TRASH.y + TRASH.s / 2 };
 const GRAB = { dx: 470, dy: 96 }; // titik pegang di kartu (relatif kiri atas)
@@ -112,13 +112,13 @@ export const S02c_TugasKeTrash: React.FC = () => {
   const lag = cursorAt(t - 0.14, p.start, p.end);
   // kamera C18: ikut kursor 60 %, dijepit supaya tumpukan dan dock tetap di bingkai
   // C02 push pelan 1,08→1,16 sepanjang tumpukan (tugas makin menumpuk) + C01 di «berulang» (+5 %, 18 f)
-  const Z = keys(t, [[p.start, 1.2], [p.end, 1.28]], EZ.inOut) // v9 (B4): zoom ke kartu (v8 1,08–1,16× = kartu kecil, separuh frame kosong); kamera mengikuti aliran file kartu → Trash
+  const Z = keys(t, [[p.start, 1.06], [p.end, 1.12]], EZ.inOut) // v9 (B4): zoom ke kartu (v8 1,08–1,16× = kartu kecil, separuh frame kosong); kamera mengikuti aliran file kartu → Trash
      * (1 + 0.05 * prog(t, W_BERULANG.s, W_BERULANG.s + 18 / 30, EZ.out));
   // v9: pada zoom dekat bingkai lebih sempit dari isi (tumpukan + dock) → batas kiri/kanan bisa terbalik; urutkan dulu supaya kamera tetap mengikuti kursor
   const cl = (v: number, a: number, b: number) => Math.min(Math.max(a, b), Math.max(Math.min(a, b), v));
-  const hw = 960 / Z - 40, hh = 540 / Z - 40;
-  const tx = cl(960 + (lag.x - 960) * 0.85, DOCK.x + DOCK.w + 20 - hw, CARD.x - 20 + hw);
-  const ty = cl(540 + (lag.y - 540) * 0.85, DOCK.y + DOCK.h + 20 - hh, CARD.y0 - 20 + hh);
+  const hw = 960 / Z - 90, hh = 540 / Z - 60;
+  const tx = cl(960 + (lag.x - 960) * 0.5, DOCK.x + DOCK.w + 90 - hw, CARD.x - 90 + hw);
+  const ty = cl(540 + (lag.y - 540) * 0.5, DOCK.y + DOCK.h + 60 - hh, CARD.y0 - 60 + hh);
   // jumlah kartu sudah diambil (pindah slot)
   const taken = plan.filter((P) => t >= P.grab).length;
   // geser naik tumpukan setelah kartu teratas diangkat
@@ -164,13 +164,13 @@ export const S02c_TugasKeTrash: React.FC = () => {
       x = cur.x - GRAB.dx;
       y = cur.y - GRAB.dy;
       const d = Math.hypot(cur.x - g.x, cur.y - g.y) / Math.hypot(overTrash.x - g.x, overTrash.y - g.y);
-      sc = 1.03 - 0.63 * Math.min(1, d);
+      sc = 1.03 - 0.33 * Math.min(1, d); // v10: kartu seret tetap terbaca (≥ 0,7)
     } else {
       // dilepas: jatuh masuk ke Trash
       const u = prog(t, P.release, P.inT, EZ.acc);
       x = overTrash.x - GRAB.dx;
       y = overTrash.y - GRAB.dy + u * 44;
-      sc = 0.4 - 0.3 * u;
+      sc = 0.7 - 0.55 * u;
       op = 1 - u * 0.9;
     }
     const lift = prog(t, P.grab, P.grab + 0.1, EZ.out);

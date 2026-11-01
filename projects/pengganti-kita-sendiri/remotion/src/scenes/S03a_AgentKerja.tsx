@@ -83,11 +83,12 @@ const cursorPos = (k: number, t: number): { x: number; y: number } => {
   const wob = (ax: number, ay: number, fx: number, ph: number) => ({ x: Math.sin(t * fx + ph) * ax, y: Math.cos(t * fx * 0.8 + ph) * ay });
   if (k === 0) {
     const land = { x: 1500, y: Y0 + 360 };
-    const s0 = { x: STREAM_X + 8, y: STREAM_Y + 40 };
+    const s0 = { x: STREAM_X + 8 + 70, y: STREAM_Y + 4 }; // v10 (#22): tip di kanan-atas caret supaya pil nama jatuh di celah teks laporan–input, bukan di atas «@CEO Agent»
     const n = Math.floor(STREAM.length * prog(t, T_STREAM[0], T_STREAM[1], (x) => x));
-    const sEnd = { x: STREAM_X + n * CW + 8, y: STREAM_Y + 40 };
+    const sEnd = { x: STREAM_X + n * CW + 8 + 70, y: STREAM_Y + 4 };
     if (t < T_SEND_CEO) return { x: land.x + wob(10, 6, 2.1, 0).x, y: land.y + wob(10, 6, 2.1, 0).y };
-    if (t < T_STREAM[0]) { const k2 = prog(t, T_SEND_CEO, T_STREAM[0], EZ.inOut); return { x: lerp(land.x, s0.x, k2), y: lerp(land.y, s0.y, k2) }; }
+    // v10 (#22): rute melengkung ke atas (−130 px) supaya pil «CEO Agent» tidak menimpa teks «@CEO Agent» di kolom input
+    if (t < T_STREAM[0]) { const k2 = prog(t, T_SEND_CEO, T_STREAM[0], EZ.inOut); return { x: lerp(land.x, s0.x, k2), y: lerp(land.y, s0.y, k2) - 130 * Math.sin(Math.PI * k2) }; }
     if (t < T_STREAM[1] + 0.05) return sEnd;
     const k3 = prog(t, T_STREAM[1] + 0.05, T_STREAM[1] + 0.5, EZ.inOut);
     return { x: lerp(sEnd.x, CEO_DOCK.x, k3), y: lerp(sEnd.y, CEO_DOCK.y, k3) };
@@ -112,19 +113,9 @@ const Chip: React.FC<{ children: React.ReactNode; pad?: string }> = ({ children,
   </div>
 );
 
-/** Posisi pusat wajah agent i (ruang dunia) pada detik t: lompatan dari tombol lalu terbang ke kursor bernama (dipakai anchor PERSIS). */
-const agentXY = (i: number, t: number) => {
-  const sp = SPAWN[i];
-  const pos0 = bez(BTN, sp, prog(t, T_AG[i], T_AG[i] + HOP, EZ.out));
-  const fp = prog(t, LAUNCH[i], LAUNCH[i] + FLY, EZ.inOut);
-  const tip = cursorPos(i, Math.max(t, LAUNCH[i] + FLY));
-  return { x: lerp(pos0.x, tip.x + FACE_OFF.x, fp), y: lerp(pos0.y, tip.y + FACE_OFF.y, fp) };
-};
-
 export const S03a_AgentKerja: React.FC = () => {
   const t = useT();
   const atPersis = useFrameAt(1381), untilPersis = useFrameAt(Math.round((LAUNCH[1] + FLY) * FPS)); // v9: f terukur ANCHORS-V9 #13
-  const persisXY = agentXY(1, t);
 
   // ── SFXEV (metronom SFX): satu tanda per event visual, dari konstanta yang sama dengan animasinya
   sfxMark(t, "cut", P1.start, "03a:cut:in"); // Babak 2 → composer
@@ -292,7 +283,7 @@ export const S03a_AgentKerja: React.FC = () => {
 
           {/* v9 (#13): PERSIS = satu-satunya anchor babak ini (UI asli jadi bintang). Menempel pada agent kedua (CS) yang meniru agent pertama saat terbang,
               di BELAKANG wajah/kursor bernama (DOM sebelum agent), tinta gelap di atas latar langit terang. Hidup sampai agent tiba (±0,6 dtk). */}
-          <AnchorWord text="PERSIS" at={atPersis} until={untilPersis} x={persisXY.x + 100} y={persisXY.y + 24} size={112} color="#1d1d1f" align="left" enter="left" />
+          <AnchorWord text="PERSIS" at={atPersis} until={untilPersis} x={960} y={446} size={96} color="#1d1d1f" align="center" enter="left" />
 
           {/* agent: lompat dari tombol (03a-2) → terbang ke ruang kerja jadi kursor bernama (X01) */}
           {AGENTS.map((ag, i) => {

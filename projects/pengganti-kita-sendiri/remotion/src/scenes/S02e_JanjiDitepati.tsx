@@ -5,7 +5,7 @@
 //  2) f1037–1100 «Kita bekerja jauh lebih cepat»: daftar surut (DOF), bar waktu «8 jam» whip-compress jadi «45 menit» di «lebih cepat» (f1074→1081),
 //     low_whoosh di puncak kecepatan, sub_impact saat mendarat; kamera whip mengikuti ujung bar.
 //  3) f1104–1229 «Tapi … tidak berhenti di tahap ini»: daftar bergulir, tugas manusiawi Menulis / Berpikir / Memutuskan ikut dicentang AI (close-up kursor),
-//     «tidak» = kamera patah ke wide (daftar panjang terus terisi), TAHAP f1194 + INI f1201 di kanan daftar.
+//     «tidak» = kamera patah ke wide (daftar panjang terus terisi), v10: TIDAK f1169 + BERHENTI f1176 di kanan daftar.
 // Semua fungsi murni terhadap frame absolut (fa) supaya posisi kamera/kursor dapat dipakai untuk pan SFX.
 import React from "react";
 import { AbsoluteFill } from "remotion";
@@ -15,6 +15,7 @@ import { AnchorWord } from "../lib/AnchorWord";
 import { BLOOM_PT } from "./_b2_shared";
 import { moveFrame } from "./_b5_shared";
 import { CARD, TaskCard, type TaskIcon } from "./parts/TaskCard";
+import { CalendarDay, CAL } from "./parts/CalendarDay";
 
 const W_TIDAK = word("tidak", "s2", 1);
 
@@ -41,12 +42,10 @@ const tapOf = (i: number) => TAPS[i];
 
 // ── jadwal
 const F_START = 956, F_PUNCH = 1010, F_BAR_IN = 1037, F_COMP0 = 1074, F_LAND = 1081, F_BAR_OUT = 1100, F_BACK = 1104;
-const F_TAHAP = 1194, F_INI = 1201;
+const F_BERHENTI = 1176;
 const F_TIDAK = Math.round(W_TIDAK.s * FPS); // 1169
 
 // ── bar waktu (dunia)
-const BAR = { x: 300, y: 540, len: 960, h: 64 };
-const FRAC = 45 / 480;
 
 const e = (fa: number, a: number, b: number, ez = EZ.out) => prog(fa / FPS, a / FPS, b / FPS, ez);
 const mix = (a: number, b: number, k: number) => a + (b - a) * k;
@@ -87,7 +86,8 @@ const camAt = (fa: number): Cam => {
   const p2: Cam = { cx: 1000, cy: 540, Z: 1 + 0.05 * e(fa, 1042, F_COMP0, EZ.inOut) };
   const p2b: Cam = { cx: 640, cy: 540, Z: 1.3 + 0.04 * e(fa, 1086, F_BAR_OUT + 2, EZ.out) };
   const p3: Cam = { cx: 700 + (cur.x - BOX_X) * 0.4, cy: cur.y, Z: 1.3 };
-  const wide2: Cam = { cx: 860, cy: mix(1010, 1060, e(fa, F_TIDAK + 6, 1229, EZ.inOut)), Z: mix(0.6, 0.63, e(fa, F_TIDAK + 6, 1229, EZ.inOut)) };
+  // v10 (#19): daftar terbaca (Z ≈ 0,95 → teks ±34 px), 5–6 baris terakhir saja, sisanya keluar frame atas; daftar di kiri, ruang kanan untuk TIDAK BERHENTI
+  const wide2: Cam = { cx: 1084, cy: mix(1440, 1500, e(fa, F_TIDAK + 6, 1229, EZ.inOut)), Z: mix(0.95, 0.98, e(fa, F_TIDAK + 6, 1229, EZ.inOut)) };
   let c = p1;
   c = mixCam(c, wide, e(fa, F_PUNCH, F_PUNCH + 4));
   c = mixCam(c, p2, e(fa, 1034, 1042, EZ.inOut));
@@ -104,7 +104,6 @@ export const S02e_JanjiDitepati: React.FC = () => {
   const pf = panel("02f");
   // konvensi lib v9: at/until AnchorWord = frame ABSOLUT video
   const atDitepati = F_PUNCH, untilDitepati = 1034;
-  const atTahap = F_TAHAP, atIni = F_INI;
 
   const cam = camAt(fa);
   const { cx, cy, Z } = cam;
@@ -116,17 +115,17 @@ export const S02e_JanjiDitepati: React.FC = () => {
 
   // daftar surut (DOF) saat bar waktu menjadi fokus
   const dim = e(fa, F_BAR_IN - 1, F_BAR_IN + 5) - e(fa, F_BAR_OUT + 2, F_BACK + 4);
-  const listOp = 1 - 0.93 * dim, listBlur = 9 * dim;
+  // v10 (#18): cut bersih, daftar hilang total saat kalender tampil (tanpa kartu blur sebagai lapis hantu)
+  const listOp = dim > 0.02 ? 0 : 1, listBlur = 0;
 
-  // bar waktu
+  // kalender hari kerja (macOS Calendar): masuk cut bersih, blok memampat 09.00–17.00 → 09.00–09.45
   const barIn = e(fa, F_BAR_IN, F_BAR_IN + 5);
   const kc = e(fa, F_COMP0, F_LAND, EZ.out);
-  const fillW = BAR.len * (1 - kc * (1 - FRAC)) * barIn;
   const barOut = e(fa, F_BAR_OUT, F_BAR_OUT + 6, EZ.acc);
   const showBar = fa >= F_BAR_IN - 1 && barOut < 1;
   const land = fa >= F_LAND ? 1 - e(fa, F_LAND, F_LAND + 6) : 0; // denyut pendaratan
-  const sheen = fa < F_COMP0 ? ((fa - F_BAR_IN) * 38) % BAR.len : -1;
   const compressed = kc >= 0.45;
+  const calBlur = 9 * Math.sin(Math.PI * e(fa, F_COMP0, F_LAND + 2, EZ.inOut));
 
   // SFXEV · metronom
   sfxMark(t, "riser", pe.start, "02d:bloom:hit"); // X14 bloom 02d memuncak → mengerut ke titik (tetap)
@@ -145,7 +144,6 @@ export const S02e_JanjiDitepati: React.FC = () => {
   const Zg = 1 + (Z - 1) * 0.4;
 
   const label = compressed ? { n: "45", u: " menit" } : { n: "8", u: " jam" };
-  const labelX = BAR.x + fillW + 44;
 
   return (
     <Scene start={pe.start} end={pf.end} name="02e–02f Daftar centang">
@@ -175,26 +173,25 @@ export const S02e_JanjiDitepati: React.FC = () => {
                 <span style={{ marginTop: 40, background: "#fff", color: "#1d1d1f", fontFamily: "Inter", fontWeight: 800, fontSize: 24, letterSpacing: 1.4, borderRadius: 999, padding: "4px 16px" }}>AI</span>
               </div>
             </div>
-            {/* bar waktu kerja */}
-            {showBar && (
-              <div style={{ position: "absolute", inset: 0, opacity: 1 - barOut, transform: `scale(${1 + 0.4 * barOut})`, transformOrigin: `${BAR.x + 400}px ${BAR.y}px` }}>
-                <div style={{ position: "absolute", left: BAR.x, top: BAR.y - BAR.h / 2, width: BAR.len * barIn, height: BAR.h, borderRadius: BAR.h / 2, background: "rgba(255,255,255,0.08)", overflow: "hidden" }} />
-                <div style={{ position: "absolute", left: BAR.x, top: BAR.y - BAR.h / 2, width: Math.max(BAR.h, fillW), height: BAR.h, borderRadius: BAR.h / 2, background: "#fff", overflow: "hidden", boxShadow: "0 0 60px rgba(255,255,255,0.18)" }}>
-                  {sheen >= 0 && <div style={{ position: "absolute", left: sheen - 120, top: 0, width: 120, height: BAR.h, background: "linear-gradient(90deg, rgba(0,0,0,0), rgba(0,0,0,0.14), rgba(0,0,0,0))" }} />}
-                </div>
-                <div style={{ position: "absolute", left: labelX, top: BAR.y, transform: `translateY(-50%) scale(${1 + 0.12 * land})`, transformOrigin: "0 50%", fontFamily: "Inter", color: "#fff", whiteSpace: "nowrap", display: "flex", alignItems: "baseline", opacity: barIn }}>
-                  <span style={{ fontSize: 150, fontWeight: 800, letterSpacing: -5, lineHeight: 1 }}>{label.n}</span>
-                  <span style={{ fontSize: 78, fontWeight: 600, letterSpacing: -2, marginLeft: 22 }}>{label.u.trim()}</span>
-                </div>
-              </div>
-            )}
           </AbsoluteFill>
+          {/* kalender hari kerja: ruang layar (di luar kamera dunia), cut bersih */}
+          {showBar && (
+            <AbsoluteFill style={{ opacity: (1 - barOut) * Math.min(1, barIn * 1.5), transform: `scale(${(0.96 + 0.04 * barIn) * (1 + 0.4 * barOut)})`, transformOrigin: "50% 50%" }}>
+              <svg width="0" height="0" style={{ position: "absolute" }}><filter id="cal02e" x="-5%" y="-30%" width="110%" height="160%"><feGaussianBlur stdDeviation={`0 ${calBlur.toFixed(2)}`} /></filter></svg>
+              <CalendarDay k={kc} blurY={calBlur} style={{ left: 230, top: (1080 - CAL.h) / 2 }} />
+              <div style={{ position: "absolute", left: 1260, top: 390 - 190 * kc, fontFamily: "Inter", color: "#fff", whiteSpace: "nowrap", display: "flex", alignItems: "baseline", transform: `scale(${1 + 0.12 * land})`, transformOrigin: "0 50%" }}>
+                <span style={{ fontSize: 150, fontWeight: 800, letterSpacing: -5, lineHeight: 1 }}>{label.n}</span>
+                <span style={{ fontSize: 78, fontWeight: 600, letterSpacing: -2, marginLeft: 22 }}>{label.u.trim()}</span>
+              </div>
+            </AbsoluteFill>
+          )}
         </AbsoluteFill>
 
         {/* lapis atas: anchor (ruang layar). DITEPATI di samping daftar yang tuntas */}
         <AnchorWord text="DITEPATI" at={atDitepati} until={untilDitepati} x={1080} y={556} size={150} color="#ffffff" align="left" enter="left" />
-        <AnchorWord text="TAHAP" at={atTahap} x={1040} y={540} size={120} color="#ffffff" align="left" enter="right" sfx={{ kind: "sub_impact", id: "02f:anchor:tahap" }} />
-        <AnchorWord text="INI" at={atIni} x={1040 + 470} y={540} size={120} color="#ffffff" align="left" enter="right" />
+        {/* v10 (#19): anchor «TIDAK BERHENTI» (bukan TAHAP INI): satu baris, kanan daftar, keduanya putih di latar hitam */}
+        <AnchorWord text="TIDAK" at={F_TIDAK} x={850} y={540} size={100} color="#ffffff" align="left" enter="right" />
+        <AnchorWord text="BERHENTI" at={F_BERHENTI} x={850 + 345} y={540} size={100} color="#ffffff" align="left" enter="right" sfx={{ kind: "sub_impact", id: "02f:anchor:tahap" }} />
         <Grain opacity={0.05} />
       </AbsoluteFill>
     </Scene>

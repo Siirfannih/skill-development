@@ -29,7 +29,8 @@ export const S02d_Kreatif: React.FC = () => {
   const T = { x: anch.x - look.x * z, y: anch.y - look.y * z };
   const rim = 0.5 + 0.15 * prog(t, W_KITA.s, W_KITA.s + 0.5) + 0.35 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.4);
   const beam = 0.3 + 0.7 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.45);
-  const plane = 0.4 + 0.28 * prog(t, W_KITA.s, W_FOKUS.s, EZ.inOut) + 0.32 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.35);
+  // v10 (#15): bidang putih TIDAK tampil kosong; ia mendarat (4 f) bersamaan dengan kata KREATIF (f927)
+  const plane = prog(t, 927 / 30 - 4 / 30, 927 / 30, EZ.out);
   const glow = 0.3 + 0.7 * prog(t, W_KREATIF.s, W_KREATIF.s + 0.5) + 0.5 * prog(t, bloomA, p.end, EZ.acc);
   // v9 (B14): TANPA blow-out putih. Keluar = snap zoom ke BLOOM_PT (4 f, EZ.acc, motion blur) + aksen cahaya ≤ 40 % di titik itu.
   // 02e mendarat dengan match cut: zoom keluar dari titik yang sama.

@@ -3,7 +3,7 @@
 // Teks di bawah grafik (judul gambar kerja), bukan di atas visual.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, useSceneFrom, keys, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
+import { EZ, keys, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
 import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { panel, word } from "../lib/time";
 import { BlueprintGrid, BlueprintPaper, C, makePath } from "./_b2_shared";
@@ -18,15 +18,16 @@ const GOAL = { x: 1540, y: 196 }; // titik tujuan = ujung kurva
 
 export const S02b_JanjiSederhana: React.FC = () => {
   const t = useT();
-  const sceneFrom = useSceneFrom();
   const p = panel("02b");
-  const atJanji = useFrameAt(713); // v9: f terukur ANCHORS-V9 #7 (JANJI)
+  const atJanji = useFrameAt(713);
+  const atSederhana = useFrameAt(Math.round(W_SEDERHANA.s * 30)); // v9: f terukur ANCHORS-V9 #7 (JANJI)
   // v9 (B3): judul + kotak outline dibuang. Kamera C02 push pelan 1,0→1,12 ke arah ujung kurva (titik tujuan), lalu reveal-out di akhir.
   const cam = keys(t, [[p.start, 1.0], [p.end - 0.35, 1.12], [p.end - 0.07, 1.04]], EZ.inOut);
   const camG = 1 + (cam - 1) * 0.8; // grid lapis belakang (parallax)
   // sumbu dan garis janji disketsa setelah judul lengkap
-  const axisA = W_SEDERHANA.s + 0.05;
-  const axis = prog(t, axisA, W_SEDERHANA.s + 0.4, EZ.out);
+  // v10 (#13): sumbu mulai di frame pertama panel (tidak ada 0,5 dtk grid kosong); judul «janji sederhana» menyusul per kata
+  const axisA = p.start + 0.03;
+  const axis = prog(t, axisA, axisA + 0.35, EZ.out);
   const d0 = W_JANJI.s + 0.06; // pena mulai di «janji» (anchor JANJI menempel di ujung pena)
   const d1 = p.end - 0.3;
   const draw = prog(t, d0, d1, EZ.inOut);
@@ -60,12 +61,10 @@ export const S02b_JanjiSederhana: React.FC = () => {
             {/* titik tujuan */}
             <circle cx={1540} cy={196} r={16 * dot} fill={C.white} />
           </svg>
-          {/* v9 (B3): JANJI = anchor tracking ujung pena → titik tujuan (kotak outline dibuang). Posisi dasar = di kanan-bawah titik tujuan,
-              offset trackFn = (ujung pena − titik tujuan) sehingga kata mengikuti kurva; rata kanan supaya tidak keluar frame. Tanpa SFX (pop titik sudah ada). */}
-          <AnchorWord text="JANJI" at={atJanji} x={GOAL.x} y={GOAL.y + 150} size={140} color={C.white} align="center" enter="scale"
-            trackFn={(fr) => { const tt = (fr + sceneFrom) / 30; const d = prog(tt, d0, d1, EZ.inOut); const q = LINE.at(d * LINE.L);
-              // QC 2 Nov: tengah kata dijepit 400..1500 px supaya tidak terpotong tepi frame saat ujung pena di awal/akhir kurva
-              return { x: Math.min(1500, Math.max(400, q.x)) - GOAL.x, y: q.y - GOAL.y }; }} />
+          {/* v10 (Irfan 6): «JANJI SEDERHANA» dua kata satu baris, gaya anchor tanpa kotak, di bawah ujung kurva (ruang kosong antara kurva dan sumbu),
+              rata kanan di x 1800 (aman). Kata muncul satu-satu mengikuti VO. */}
+          <AnchorWord text="JANJI" at={atJanji} x={900} y={565} size={92} color={C.white} align="left" enter="scale" />
+          <AnchorWord text="SEDERHANA" at={atSederhana} x={900 + 300} y={565} size={92} color={C.white} align="left" enter="scale" />
         </AbsoluteFill>
         <Grain opacity={0.05} />
       </AbsoluteFill>

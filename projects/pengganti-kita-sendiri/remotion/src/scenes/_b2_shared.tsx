@@ -116,33 +116,25 @@ export const Pictogram: React.FC<{ rim?: number; x?: number; y?: number }> = ({ 
   );
 };
 
-/** Berkas cahaya dari kanan atas + bidang cahaya miring (tempat kata). `beam`, `plane`, `glow` 0..1. */
+/** Berkas cahaya dari kanan atas + bidang cahaya miring (tempat kata). `beam`, `plane`, `glow` 0..1.
+ *  v10 (Irfan 1, #16) TEKNIK TANPA TEPI KOTAK: semua cahaya = elemen yang ISINYA gradien radial elips `closest-side`
+ *  (nilai 0 tepat di tepi kotak elemen, jadi tepi elemen tidak pernah terlihat) — TANPA clip-path, TANPA box-shadow,
+ *  TANPA filter blur pada kotak yang dipotong. Elemen digeser/diputar saja (rotate) agar jadi berkas miring.
+ *  Gradien memakai beberapa stop (ease, bukan linear) supaya falloff halus tanpa pita. Teks di bidang: tinta #111 di putih. */
+const soft = (a: number) =>
+  `radial-gradient(ellipse closest-side at 50% 50%, rgba(255,255,255,${a}) 0%, rgba(255,255,255,${(a * 0.72).toFixed(3)}) 22%, rgba(255,255,255,${(a * 0.4).toFixed(3)}) 45%, rgba(255,255,255,${(a * 0.16).toFixed(3)}) 68%, rgba(255,255,255,${(a * 0.04).toFixed(3)}) 86%, rgba(255,255,255,0) 100%)`;
 export const LightPlane: React.FC<{ beam: number; plane: number; glow: number; children?: React.ReactNode }> = ({ beam, plane, glow, children }) => (
   <>
-    {/* berkas: sumber di luar frame kanan atas, kaki berkas berakhir DI BALIK bidang (tidak ada ujung lancip /
-        potongan lurus yang terlihat); tepi di-feather blur, intensitas memudar ke atas lewat mask. */}
-    <div style={{ position: "absolute", left: 1000, top: -420, width: 1500, height: 1040, filter: "blur(16px)", opacity: beam }}>
-      <div
-        style={{
-          position: "absolute", inset: 0,
-          clipPath: "polygon(3% 96%, 51% 96%, 100% 0%, 30% 0%)",
-          background: "linear-gradient(205deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.30) 88%)",
-          WebkitMaskImage: "linear-gradient(180deg, rgba(0,0,0,0.25) 0%, #000 70%, #000 89%, rgba(0,0,0,0) 95%)",
-          maskImage: "linear-gradient(180deg, rgba(0,0,0,0.25) 0%, #000 70%, #000 89%, rgba(0,0,0,0) 95%)",
-        }}
-      />
-    </div>
-    <div
-      style={{
-        position: "absolute", left: 1000, top: 536, width: 760, height: 176, borderRadius: 80,
-        boxShadow: `0px 0px 240px 80px rgba(255,255,255,${0.24 * glow * plane * plane})`,
-      }}
-    />
+    {/* berkas: dua elips panjang berputar (sumbu ±24° dari tegak, atas ke kanan) yang berpusat antara sumber (kanan atas) dan bidang */}
+    <div style={{ position: "absolute", left: 1540 - 380, top: 250 - 760, width: 760, height: 1520, transform: "rotate(24deg)", transformOrigin: "50% 50%", background: soft(0.34), opacity: beam }} />
+    <div style={{ position: "absolute", left: 1500 - 220, top: 230 - 700, width: 440, height: 1400, transform: "rotate(24deg)", transformOrigin: "50% 50%", background: soft(0.22), opacity: beam }} />
+    {/* pendar di sekitar bidang: elips besar, memudar penuh sebelum tepi */}
+    <div style={{ position: "absolute", left: 1380 - 900, top: 624 - 420, width: 1800, height: 840, background: soft(0.5 * glow * plane), }} />
     <div
       style={{
         position: "absolute", left: 940, top: 512, width: 880, height: 224,
         clipPath: "polygon(9% 0%, 100% 0%, 91% 100%, 0% 100%)",
-        background: `linear-gradient(90deg, ${C.white} 55%, ${C.paper} 100%)`,
+        background: C.white,
         display: "flex", justifyContent: "center", alignItems: "center",
         opacity: plane,
       }}
