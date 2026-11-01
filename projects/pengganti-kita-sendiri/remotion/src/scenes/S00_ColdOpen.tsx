@@ -129,7 +129,7 @@ export const S00_ColdOpen: React.FC = () => {
   const matteFg = Object.values(mattes).some(Boolean) ? (
     <AbsoluteFill style={{ transform: t >= shrinkAt ? `scale(${cardScale})` : undefined, borderRadius: t >= shrinkAt ? 24 / cardScale : 0, overflow: "hidden" }}>
       {CUTS.map((c, i) => {
-        if (i === 1 || i === 2) return null;
+        if (i === 1 || i === 2 || i === 4) return null; // QC 2 Nov: close-up remaja = badan menutup seluruh teks → teks di depan
         const key = NEWS.find((n) => n.file === c.file)!.name;
         const m = mattes[key];
         if (!m) return null;
@@ -207,9 +207,9 @@ export const S00_ColdOpen: React.FC = () => {
             return (
               <>
                 {/* Gates (kanan frame): tumpukan kiri AI / is the / BIGGEST, hierarki 300 → 84 → 150 */}
-                <SpeakerLine words={[{ text: "AI", at: 2, size: 300, kind: "emph" }]} x={140} baseline={420} until={mEnd} />
-                <SpeakerLine words={[{ text: "is", at: W("news_gates", "is"), size: 84 }, { text: "the", at: W("news_gates", "the"), size: 84 }]} x={146} baseline={530} until={mEnd} />
-                <SpeakerLine words={[{ text: "BIGGEST", at: 27, size: 150, kind: "emph", enter: "left", sfx: { kind: "sub_impact", id: "00a:anchor:biggest" } }]} x={140} baseline={690} until={mEnd} />
+                <SpeakerLine words={[{ text: "AI", at: 2, size: 300, kind: "emph" }]} x={140} baseline={600} until={mEnd} />
+                <SpeakerLine words={[{ text: "is", at: W("news_gates", "is"), size: 84 }, { text: "the", at: W("news_gates", "the"), size: 84 }]} x={146} baseline={700} until={mEnd} />
+                <SpeakerLine words={[{ text: "BIGGEST", at: 27, size: 150, kind: "emph", enter: "left", sfx: { kind: "sub_impact", id: "00a:anchor:biggest" } }]} x={140} baseline={850} until={mEnd} />
                 {/* montase foto: satu baris tengah-bawah (di bawah dagu foto, di atas zona UI 8 %) */}
                 <SpeakerLine x={960} baseline={930} align="center" until={gEnd} words={[
                   { text: "technical", at: W("news_gates", "technical"), size: 92 },

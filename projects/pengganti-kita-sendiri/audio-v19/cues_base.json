@@ -20,15 +20,6 @@
  {
   "role": "graph_riser",
   "file": "shepard-tone-up-09__25747e8d.wav",
-  "t": 31.9,
-  "trim": 5.0,
-  "gainDb": -20,
-  "fadeOut": 0.8,
-  "pan": 0
- },
- {
-  "role": "graph_riser",
-  "file": "shepard-tone-up-09__25747e8d.wav",
   "t": 64.45,
   "trim": 5.0,
   "gainDb": -20,
