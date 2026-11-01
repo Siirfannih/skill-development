@@ -4,7 +4,7 @@
 // lalu 02e mengerut dari putih ke titik ujung grafik di BLOOM_PT.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, KWord, keys, prog, Scene, useT, Grain } from "../lib/anim";
+import { EZ, KWord, keys, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
 import { panel, word } from "../lib/time";
 import { BLOOM_PT, C, LightPlane, Pictogram } from "./_b2_shared";
 
@@ -31,6 +31,10 @@ export const S02d_Kreatif: React.FC = () => {
   const glow = 0.3 + 0.7 * prog(t, W_KREATIF.s, W_KREATIF.s + 0.5) + 2 * prog(t, bloomA, p.end, EZ.acc);
   // bloom: lingkaran putih mekar dari bidang, eksposur naik
   const b = prog(t, bloomA, p.end - 1 / 30, EZ.acc);
+  // SFXEV · metronom. Hit riser bloom (layar putih penuh di p.end) dicatat di S02e (frame pertama 02e).
+  sfxMark(t, "cut", p.start, "02d:cut:x07"); // cut on motion dari 02c
+  sfxMark(t, "toggle", W_FOKUS.s, "02d:beam:on"); // berkas cahaya menyala + bidang terang di «fokus»
+  sfxMark(t, "whoosh", W_FOKUS.s + 0.65 / 2, "02d:cam:reveal"); // C06 reveal-out ×1,5→×1 (0,65 dtk EZ.inOut → tengah)
   return (
     <Scene code="02d">
       <AbsoluteFill style={{ background: C.charcoal, filter: b > 0 ? `brightness(${1 + 0.8 * b})` : undefined }}>

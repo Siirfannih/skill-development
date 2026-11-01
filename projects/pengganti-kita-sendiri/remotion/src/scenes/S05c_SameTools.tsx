@@ -4,10 +4,10 @@
 // Keluar X07 cut on motion: kamera mendorong masuk 4 f terakhir, 05d mendarat dari dorongan yang sama.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { Camera, EZ, Grain, keys, KWord, prog, Scene, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { DOC_GRADE } from "../lib/media";
 import { FPS, panel, word } from "../lib/time";
-import { gridIdx, z3tick } from "./_b5_shared";
+import { firstFrame, GRID, gridIdx, progAt, z3tick } from "./_b5_shared";
 
 const P = panel("05c");
 const T_TOOLS = z3tick("05c SAMA"); // 85.37 (kata «tools»)
@@ -28,6 +28,11 @@ const PHOTOS = [
   "img/night.jpg",
   "wonder/081067b5c127cff324887ff17cf5454ef60f4d9673b32f58c6d68d7a05080c6b.jpg",
 ];
+// ikon AI: jeda antar-ikon dan durasi masuk (dipakai animasi + penanda SFX)
+const ICON_GAP = 2 / FPS;
+const ICON_IN = 5 / FPS;
+const MERGE_A = W_SAMA - 3 / FPS;
+const MERGE_B = W_SAMA + 2 / FPS;
 const ICONS = [
   { src: "icons/openai.svg", invert: false },
   { src: "icons/claude-color.svg", invert: false },
@@ -52,7 +57,14 @@ export const S05c_SameTools: React.FC = () => {
   const camFront = (1 + 0.08 * prog(t, W_SAMA, W_SAMA + 20 / FPS, EZ.inOut)) * exitPush;
   const camBlur = 6 * prog(t, pushA, P.end, EZ.acc);
   // ikon AI: mendarat di tick, menyatu ke tengah tepat sebelum SAMA
-  const merge = prog(t, W_SAMA - 3 / FPS, W_SAMA + 2 / FPS, EZ.acc);
+  const merge = prog(t, MERGE_A, MERGE_B, EZ.acc);
+  // ── SFXEV penanda metronom
+  sfxMark(t, "cut", P.start, "05c:in:cut"); // titik biru 05b → montase foto
+  // foto berganti di tiap langkah grid (rumus idx di atas)
+  for (let kk = kFirst + 1; T_TOOLS + kk * GRID < P.end; kk++) sfxMark(t, "snap", firstFrame(T_TOOLS + kk * GRID), `05c:photo:${kk - kFirst}`);
+  ICONS.forEach((_, i) => { const a = T_TOOLS + i * ICON_GAP; sfxMark(t, "pop", progAt(a, a + ICON_IN, EZ.out), `05c:icon:${i}`); });
+  sfxMark(t, "whoosh", MERGE_B - 1 / FPS, "05c:icons:merge"); // tiga ikon menyatu ke tengah (EZ.acc, puncak di akhir)
+  sfxMark(t, "whoosh", P.end - 1 / FPS, "05c:cam:exitpush"); // dorongan cut-on-motion 4 f terakhir (EZ.acc) ke 05d
   const dimPhoto = t >= W_SAMA ? 0.5 : t >= T_TOOLS ? 0.62 : 0.85;
   return (
     <Scene code="05c">
@@ -67,8 +79,8 @@ export const S05c_SameTools: React.FC = () => {
             <AbsoluteFill style={{ justifyContent: "center", alignItems: "center" }}>
               <div style={{ display: "flex", gap: 56 }}>
                 {ICONS.map((ic, i) => {
-                  const a = T_TOOLS + (i * 2) / FPS;
-                  const p = prog(t, a, a + 5 / FPS, EZ.out);
+                  const a = T_TOOLS + i * ICON_GAP;
+                  const p = prog(t, a, a + ICON_IN, EZ.out);
                   const dx = (1 - i) * 236 * merge; // menyatu ke ikon tengah
                   return (
                     <div key={i} style={{ width: 180, height: 180, borderRadius: 48, background: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 30px 70px rgba(0,0,0,0.35)", opacity: Math.min(1, p * 2) * (1 - merge), transform: `translate(${dx}px, ${(1 - p) * 30}px) scale(${(0.86 + 0.14 * p) * (1 - 0.5 * merge)})` }}>

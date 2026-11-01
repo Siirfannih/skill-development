@@ -5,9 +5,10 @@
 // Keluar X01: kartu menyusut jadi kartu bergaris biru (posisi 05a) bersama whoosh 75,195.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { Camera, EZ, Grain, keys, prog, Scene, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
 import { block, panel, word } from "../lib/time";
+import { ezAt } from "./_b3_shared";
 import { altCard, ALTMAN_STILL, CLIP_CARD, T_SHRINK, T_STILL } from "./_b4_shared";
 
 // crop sumber 1920×1080 → kartu: Altman di tengah kartu
@@ -20,7 +21,8 @@ const TAIL = 0.73; // gambar (tanpa suara) diperpanjang sampai batas 05a, saat k
 
 // cincin
 const RC = { x: 960, y: 545, rx: 650, ry: 150 };
-const OMEGA = -15; // derajat/detik (bagian depan bergerak ke kiri, ≤ 6 px/f agar kata terbaca)
+const OMEGA = -15;
+const WORD_IN = 0.28; // kata kutipan blur-in // derajat/detik (bagian depan bergerak ke kiri, ≤ 6 px/f agar kata terbaca)
 type Item = { parts: { text: string; at: number }[]; phiAt: number; tRef: number };
 
 const ringPos = (phiDeg: number) => {
@@ -46,10 +48,19 @@ export const S04d_AltmanOrbit: React.FC = () => {
     { parts: [{ text: "COMPANY", at: tComp }], phiAt: 92, tRef: tComp },
   ];
   const wordsOut = prog(t, tEnd + 0.12, T_SHRINK + 0.05, EZ.acc);
-  const ringIn = prog(t, P.start + 0.05, P.start + 0.7, EZ.out);
+  const ringA = P.start + 0.05;
+  const ringIn = prog(t, ringA, P.start + 0.7, EZ.out);
   const drift = 1 + 0.03 * prog(t, P.start, T_SHRINK, (x) => x);
   const card = altCard(t);
   const stop = 1 - 0.18 * prog(t, tEnd + 0.1, T_SHRINK, EZ.inOut);
+
+  // ── SFXEV (metronom SFX). Kartu menyusut (T_SHRINK…T_SHRINK_END) & ganti ke foto diam (T_STILL) dirender 05a.
+  sfxMark(t, "cut", P.start, "04d:clip:in"); // isi kartu: grafik 04c → klip Altman
+  sfxMark(t, "draw", ringA, "04d:ring"); // cincin orbit mulai tergambar
+  items.forEach((it, i) => it.parts.forEach((w, j) => {
+    const a = w.at + 2 / 30; // sama dengan renderItem
+    sfxMark(t, "pop", ezAt(a, a + WORD_IN, EZ.out), `04d:word:${i}:${j}`); // kata kutipan muncul di cincin
+  }));
 
   const renderItem = (it: Item, i: number, front: boolean) => {
     const phi = it.phiAt + OMEGA * (t - it.tRef);
@@ -57,8 +68,9 @@ export const S04d_AltmanOrbit: React.FC = () => {
     if ((p.z >= 0) !== front) return null;
     const d = (p.z + 1) / 2; // 0 belakang .. 1 depan
     const sc = 0.6 + 0.4 * d;
-    const op = (0.32 + 0.68 * d * d) * (1 - wordsOut) * ringIn;
-    const blur = (1 - d) * 2.4 + wordsOut * 8;
+    // kedalaman tetap terbaca (belakang lebih redup), tapi kata di sisi cincin saat diucapkan tetap kontras (≥ ~0,7)
+    const op = (0.45 + 0.55 * d) * (1 - wordsOut) * ringIn;
+    const blur = (1 - d) * 1.2 + wordsOut * 8;
     return (
       <div key={i} style={{
         position: "absolute", left: p.x, top: p.y, transform: `translate(-50%, calc(-100% - 14px)) perspective(1600px) rotateY(${p.rot}deg) scale(${sc})`, transformOrigin: "50% 100%",
@@ -67,7 +79,7 @@ export const S04d_AltmanOrbit: React.FC = () => {
       }}>
         {it.parts.map((w, j) => {
           const a = w.at + 2 / 30;
-          const q = prog(t, a, a + 0.28, EZ.out);
+          const q = prog(t, a, a + WORD_IN, EZ.out);
           return (
             <span key={j} style={{ display: "inline-block", opacity: t < a ? 0 : Math.min(1, q * 2), filter: `blur(${(1 - q) * 10}px)`, transform: `translateY(${(1 - q) * 24}px)` }}>{w.text}</span>
           );

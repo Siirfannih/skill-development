@@ -3,30 +3,32 @@
 _Update terakhir: 1 Nov 2026 19.50 WITA._
 
 ## Posisi sekarang
-- **Versi terakhir: v6** (`PKS_v6.mp4`, 132,8 dtk) = visual v2 + **audio v16**. Seluruh SFX dan backsound v14/v15 dihapus. Yang dipertahankan hanya dialog (VO + klip berita/Jensen/Altman, rantai v14).
-- **Audio v16 disusun dengan earshot asli** (github.com/Leonxlnx/earshot 0.4.0, commit 591fa3e, di-clone baru, bukan salinan `external/` repo ini). Prosesnya mengikuti `skills/real-sound` dan `docs/launch-video-sound.md`:
-  - **Cue dari picture.** Grammar launch earshot: hard cut, cut zoom, dan pergantian babak tanpa SFX (14 cue dibuang). Gerak kamera mendapat satu swish.
-  - **Pemilihan suara.** Setiap peran dipilih dengan `earshot rank`, `realness`, dan `find` dari Epidemic, folder Irfan, papan audisi, dan bank earshot. Bank earshot kalah di semua peran (sintetis / realness rendah).
-  - **Mix dan level.** Dirakit dengan `mix.py` (design JSON). Level tiap event diukur di atas bed musik memakai `bed_db` dan offset dari kit `launch`.
-  - **Master.** `master.py` −14 LUFS, ceiling 0,6 (AAC ffmpeg overshoot ±5 dB pada ceiling 0,77).
-- **Palet (satu peran satu bunyi):**
-  - Kata dan kursor: klik mouse (Pixabay 15C, PAKAI Irfan).
-  - Foto: shutter Canon 5D (Epidemic).
-  - Kartu/pop: UI Bubbly Select (Epidemic).
-  - Lampu: light switch (Epidemic).
-  - Gerak kamera: Swish Tonal Flyby (Epidemic).
-  - Hit: Electric Tonne (Epidemic).
-  - Riser: Pixabay 04C.
-  - Ketik: Apple keyboard (Epidemic, dipotong per huruf).
-  - Lainnya: trash, marker, dan langkah kaki dari Epidemic.
-- **Musik:** "Leave the Room" (Damon Greene, Epidemic, 120 BPM, G minor). Diedit di garis birama: drop di 54,93 dtk, outro di akhir. Musik turun 5 dB di bawah VO, dengan stop-down 9 dB sebelum 5 hit besar.
-- **QA:**
-  - `earshot critique` atas film: launch-grade (22/23, 0 critical/major; sisa minor: low end tipis).
-  - `qa.py`: coverage 336/336, sync 0 meleset, 0 klik.
-  - Uji HP 20 %: 277/336 terdengar, 0 SFX tajam terhadap presence VO.
-  - VO di atas musik+SFX: median 11,5 dB.
-- **Kode dan bukti:** `audio-v16-earshot/` (`run.sh` menjalankan semuanya; media dan aset tidak di repo).
-- **Menunggu review telinga Irfan atas v6.**
+- **Versi terakhir: v7** (`PKS_v7.mp4`, 132,8 dtk, 1080p). Visualnya hasil render ulang kode Remotion setelah audit visual. Audionya v17. Menunggu review Irfan.
+- **Penanda SFX dari kode (metronom).**
+  - Setiap objek menulis `SFXEV <jenis> <detik> <id>` lewat `sfxMark()` di `remotion/src/lib/anim.tsx`, dengan variabel waktu yang sama dengan animasinya. Kata kinetik memakai `KWord` (`SFXEV word`).
+  - Render dengan `--props='{"sfxlog":true}' --log=verbose` lalu `grep SFXEV` menghasilkan `audio-v17/sfxev.log` (370+ penanda). Hanya file itu sumber cue.
+  - Daftar tangan v14 dan detektor frame tidak dipakai lagi. Daftar itu sempat memuat objek yang tidak ada di kode, misalnya "slab KREATIF" dan "tile ChatGPT".
+- **Audit visual 1 Nov.** Berkas cahaya yang terpotong dan lancip diperbaiki di 06a ("MEMBANGUN", screenshot Irfan), 02d, 01c, 03c–03d, dan 05e (sinar). Perbaikan lain:
+  - glow bidang terpotong kotak di 06c dan 06d;
+  - strip hitam di langit 04a;
+  - badan piktogram terpotong di 01d, 06e, dan 06g;
+  - kontras teks di 00a dan 04d.
+- **Dialog.** Rantai EQ klip berita, Jensen, dan Altman diganti (`audio-v17/assemble15_dialog.py`). Notch 240/350/680 Hz, LPF 10 kHz, dan afftdn dibuang; presence dan high-shelf ditambah. Level klip sekarang setara VO. Klip Gates memang sempit dari sumbernya (rolloff 3,3 kHz, unduhan ulang tetap sama).
+- **SFX v17.** Dirakit dengan earshot upstream (`skills/real-sound` `mix.py`, `qa.py`, `master.py`). Pemilihan pakai `audio-v17/pick.py`: earshot match dengan pengecoh, cek nada terhadap kunci lagu G minor (anti-sumbang), roughness, desis, skor earshot harsh/soft, dan realness.
+  - Kata: satu tik mesin tik Hermes (Epidemic). Kata slam: hit "Slam Braam".
+  - Klik kursor: mouse 15C.
+  - Kartu: pop "Small Lid" (nada D).
+  - Foto: shutter Nikon D3100.
+  - Gerak kamera: "Whoosh Short Wide Noise Dry".
+  - Ketik composer: keyboard Apple.
+  - Musik: "Leave the Room", tetap.
+- **QA v7:**
+  - `earshot critique`: launch-grade 23/23.
+  - `qa.py`: coverage 331/331, 0 klik.
+  - Sync: hit/slam puncaknya +78 ms setelah frame, karena body braam; onset tepat di frame.
+  - HP 20 %: 266/331 terdengar, 0 tajam.
+  - VO di atas musik+SFX: median 11,2 dB.
+  - Master −14 LUFS, peak −2,8 dB.
 
 ## Keputusan terkunci
 - Storyboard: Wonder export panel 00a–06g (03a/03b memakai versi R2).

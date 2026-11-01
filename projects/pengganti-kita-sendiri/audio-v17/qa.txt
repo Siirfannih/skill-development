@@ -1,0 +1,23 @@
+QA WARN: edges warn, audibility warn, harshness warn, sync warn (not run: loudness). No master: levels below are at stem scale.
+[OK     ] clicks: 0 click(s) in the master, 0 in the stems; 0 at a placement edge (a cut: fix the trim / fade) (designed attacks: sfx 24, amb 0, music 0)
+[SKIPPED] loudness: no master WAV (pass --master)
+[OK     ] coverage: 0 of 331 cue events have no sound; 0 class(es) of action sounded only in part
+[WARN   ] edges: 1 defect(s) (abrupt entries, chopped decays, chopped music), 5 with craft notes only (used samples, slices, music splices); 0 placement(s) run past the film ends
+    slices ui.key: the sound continues after the trim
+[WARN   ] audibility: 331 events: clear 328, ok 2, barely 0, masked 1; masked at 10.12 riser:01b:zoomthru:hit (by other effects)
+    10.120 (0:10.12) riser:01b:zoomthru:hit: read -8.1 dB (masked), vs bed 15.3 dB @ 3981 Hz [r.riser]
+[WARN   ] harshness: 259 event(s) more than 6 dB over the music's loudest 2-6 kHz peak (-32.8 dBFS): 82.83 snap:05c:photo:1, 44.34 key:03a:key:aku:0, 42.08 key:03a:key:bertindak:0, 115.11 key:06d:key:siap?:0, 83.10 snap:05c:photo:2, 84.10 snap:05c:photo:6; note: 8 bright event(s) (centroid > 6.5 kHz, above launch-film effects)
+    82.833 (1:22.83) snap:05c:photo:1: 2-6 kHz peak -12.0 dBFS, +20.8 dB over the music's loudest [r.snap]
+    44.341 (0:44.34) key:03a:key:aku:0: 2-6 kHz peak -13.1 dBFS, +19.7 dB over the music's loudest [r.key]
+    42.075 (0:42.08) key:03a:key:bertindak:0: 2-6 kHz peak -13.4 dBFS, +19.4 dB over the music's loudest [r.key]
+    115.108 (1:55.11) key:06d:key:siap?:0: 2-6 kHz peak -13.4 dBFS, +19.3 dB over the music's loudest [r.key]
+    83.100 (1:23.10) snap:05c:photo:2: 2-6 kHz peak -13.5 dBFS, +19.3 dB over the music's loudest [r.snap]
+[WARN   ] sync: 331 events checked, 10 off their cue: 18.61 word:LEBIH:18.607 peak +78 ms (lands late), 18.83 word:CEPAT:18.827 peak +77 ms (lands late), 50.08 hit:03c:land peak +78 ms (lands late), 54.91 hit:03d:boom peak +78 ms (lands late), 92.53 slam:FOUNDER:92.525 peak +78 ms (lands late); 0 more sit off the cue by exactly a rule offset or carry a qa_ok note (check those on the frames)
+    cue 18.607 (0:18.61) word:LEBIH:18.607: peak +78 ms (lands late)
+    cue 18.827 (0:18.83) word:CEPAT:18.827: peak +77 ms (lands late)
+    cue 50.080 (0:50.08) hit:03c:land: peak +78 ms (lands late)
+    cue 54.910 (0:54.91) hit:03d:boom: peak +78 ms (lands late)
+    cue 92.525 (1:32.53) slam:FOUNDER:92.525: peak +78 ms (lands late)
+    cue 93.802 (1:33.80) slam:CEO:93.802: peak +77 ms (lands late)
+[OK     ] density: 331 effect events in 133 s (24.9 per 10 s); busiest seconds 98s:9, 2s:8, 92s:8, 93s:8, 94s:8; 0 machine-gun rule(s)
+wrote /home/claude/pks7/mix/out/qa/qa.json

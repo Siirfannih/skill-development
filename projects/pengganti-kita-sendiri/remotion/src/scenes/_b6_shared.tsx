@@ -47,12 +47,27 @@ export const Torso: React.FC<{ b: Box; rim: number; r: number; dir?: "side" | "d
 export const Plane: React.FC<{
   b: Box; on: number; slant?: number; glow?: { b: Box; blur: number; spread: number; a: number; radius: number };
   grad?: string; children?: React.ReactNode; boost?: number;
-}> = ({ b, on, slant = 0.1, glow, grad, children, boost = 0 }) => {
+  /** pendar besar (blur ≥ 100): box-shadow sebesar itu dipotong Chrome jadi tepi kotak keras → pakai gradien radial */
+  softGlow?: boolean;
+}> = ({ b, on, slant = 0.1, glow, grad, children, boost = 0, softGlow }) => {
   const s = slant * 100;
   const clip = `polygon(${s}% 0%, 100% 0%, ${100 - s}% 100%, 0% 100%)`;
+  const ga = glow ? glow.a * on * (1 + boost) : 0;
+  const ext = glow ? glow.spread + glow.blur : 0;
+  const core = glow ? Math.min(0.85, (Math.min(glow.b.w, glow.b.h) / 2 + glow.spread) / (Math.min(glow.b.w, glow.b.h) / 2 + ext)) : 0;
+  const softStops = glow
+    ? Array.from({ length: 9 }, (_, i) => {
+        const u = i / 8; // smoothstep jatuh dari core−0,45 ke tepi (≈0,55a di tepi spread, seperti box-shadow)
+        const pos = Math.max(0, core - 0.45) + (1 - Math.max(0, core - 0.45)) * u;
+        return `${wa(ga * (1 - u * u * (3 - 2 * u)))} ${(pos * 100).toFixed(1)}%`;
+      }).join(", ")
+    : "";
   return (
     <>
-      {glow && on > 0.01 && (
+      {glow && on > 0.01 && softGlow && (
+        <div style={{ position: "absolute", left: glow.b.x - ext, top: glow.b.y - ext, width: glow.b.w + 2 * ext, height: glow.b.h + 2 * ext, background: `radial-gradient(closest-side, ${wa(ga)} 0%, ${softStops})` }} />
+      )}
+      {glow && on > 0.01 && !softGlow && (
         <div style={{ ...abs(glow.b), borderRadius: glow.radius, background: wa(glow.a * on * (1 + boost)), boxShadow: `0px 0px ${glow.blur}px ${glow.spread}px ${wa(glow.a * on * (1 + boost))}` }} />
       )}
       <div style={{ ...abs(b), clipPath: clip, background: C6.raised }} />

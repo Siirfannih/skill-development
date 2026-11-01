@@ -2,7 +2,7 @@
 // Pola dari referensi siirfannih_DfDC0I9PHin: footage berganti per frasa, suara asli disambung rapat.
 import React from "react";
 import { AbsoluteFill, Img, staticFile, getInputProps } from "remotion";
-import { Camera, EZ, keys, KWord, prog, Scene, useT, Grain } from "../lib/anim";
+import { Camera, EZ, keys, KWord, prog, Scene, useT, Grain, sfxMark } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
 import { block, FPS, panel, WORDS } from "../lib/time";
 import cues from "../../public/data/cues11.json";
@@ -114,6 +114,11 @@ export const S00_ColdOpen: React.FC = () => {
   // reveal-out 00b (C06): kamera mundur ×3, akselerasi singkat lalu deselerasi panjang
   const rev = keys(t, [[shrinkAt, 0], [shrinkAt + 0.3, 0.35], [pB.end, 1]], EZ.out);
   const cardScale = 1 - rev * 0.84;
+  // SFXEV · metronom: hard cut tiap potongan berita (termasuk cut zoom C20 antar-span), foto montase berganti
+  // (frame pertama floor((t−MONTAGE_A)/STEP) naik), footage menyusut jadi kartu di awan (EZ.out → puncak di awal).
+  CUTS.forEach((c, i) => sfxMark(t, "cut", c.at, `00a:cut:${i}`));
+  for (let i = 0; MONTAGE_A + i * STEP < MONTAGE_B; i++) sfxMark(t, "snap", Math.ceil((MONTAGE_A + i * STEP) * FPS - 1e-6) / FPS, `00a:photo:${i}`);
+  sfxMark(t, "whoosh", shrinkAt, "00b:shrink:0");
   return (
     <Scene start={0} end={pB.end} name="00a–00b Cold open">
       <AbsoluteFill style={{ background: "#101216" }}>
@@ -177,7 +182,9 @@ export const S00_ColdOpen: React.FC = () => {
                 const ac = isAccent(w.w, F.accent);
                 return (
                   <KWord key={k} at={w.s} kind="rise" dist={30}
-                    style={{ fontFamily: "Inter", fontWeight: ac ? 900 : 700, fontSize: ac ? 112 : 92, letterSpacing: ac ? -3.5 : -2.4, lineHeight: 1.05, color: ac ? "#FAF8EC" : "rgba(250,248,236,0.82)", whiteSpace: "nowrap" }}>
+                    style={{ fontFamily: "Inter", fontWeight: ac ? 900 : 700, fontSize: ac ? 112 : 92, letterSpacing: ac ? -3.5 : -2.4, lineHeight: 1.05, color: ac ? "#FAF8EC" : "rgba(250,248,236,0.9)", whiteSpace: "nowrap",
+                      // keterbacaan di footage terang (langit pink Bloomberg, grafik putih Sky News): bayangan lembut, bukan scrim
+                      textShadow: "0 2px 6px rgba(0,0,0,0.35), 0 4px 36px rgba(0,0,0,0.55)" }}>
                     {clean(w.w)}
                   </KWord>
                 );

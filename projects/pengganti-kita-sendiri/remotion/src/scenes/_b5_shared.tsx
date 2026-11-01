@@ -1,6 +1,7 @@
 // Komponen bersama montase cepat Babak 5 «Kenyataan» (05c–05h).
 import React from "react";
 import cues from "../../public/data/cues11.json";
+import { FPS } from "../lib/time";
 
 /** Grid 1/8 ostinato 117,5 BPM. */
 export const GRID = 60 / 117.5 / 2; // 0,2553 dtk
@@ -16,6 +17,20 @@ export const z3tick = (label: string) => {
 export const gridAt = (anchor: number, k: number, div = 1) => anchor + (k * GRID) / div;
 /** Indeks langkah grid terakhir yang sudah lewat, terkunci ke anchor. */
 export const gridIdx = (t: number, anchor: number, div = 1) => Math.floor(((t - anchor) * div) / GRID + 1e-6);
+
+/** SFXEV: detik frame pertama yang t ≥ at (untuk ganti gambar diskret: `t >= X`, gridIdx, akhir prog yang mendarat). */
+export const firstFrame = (at: number) => Math.ceil(at * FPS - 1e-4) / FPS;
+/** SFXEV: detik frame pertama yang t > a (frame gerak pertama untuk gerak EZ.out yang mulai di a = puncak kecepatan). */
+export const moveFrame = (a: number) => (Math.floor(a * FPS + 1e-4) + 1) / FPS;
+/** SFXEV: detik saat prog(t, a, b, ez) mencapai nilai v (bisection; easing monoton). Untuk "pop di 50 % perjalanan". */
+export const progAt = (a: number, b: number, ez: (x: number) => number, v = 0.5) => {
+  let lo = 0, hi = 1;
+  for (let i = 0; i < 30; i++) {
+    const m = (lo + hi) / 2;
+    if (ez(m) < v) lo = m; else hi = m;
+  }
+  return a + (b - a) * hi;
+};
 
 export const C = {
   ink: "#1d1d1f", muted: "#6e6e73", line: "#d2d2d7", paper: "#f5f5f7", white: "#ffffff",

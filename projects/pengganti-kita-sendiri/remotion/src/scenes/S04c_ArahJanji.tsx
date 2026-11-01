@@ -4,8 +4,9 @@
 // Kamera C06 reveal-out (dekat → wide). Keluar X13 frame-in-frame: seluruh grafik menyusut jadi kartu klip Altman (04d).
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Camera, EZ, Grain, KWord, prog, Scene, useT, Panel2x } from "../lib/anim";
+import { Camera, EZ, Grain, KWord, prog, Scene, sfxMark, useT, Panel2x } from "../lib/anim";
 import { panel, word } from "../lib/time";
+import { ezAt } from "./_b3_shared";
 import { CLIP_CARD, DOT04B, DOT_U, graphToScreen, lerp, onBend, onShared, P2, SEG_BEND, SEG_SHARED } from "./_b4_shared";
 
 const O = { x: 960, y: 540 };
@@ -42,13 +43,17 @@ export const S04c_ArahJanji: React.FC = () => {
   const X0 = 70.22; // frame-in-frame mulai sesudah «dulu» selesai (jeda sebelum Altman)
 
   // progres gambar garis
-  const drawA = prog(t, P.start + 0.03, tArah, EZ.inOut); // segmen bersama (di atas janji)
-  const drawB = prog(t, tArah + 2 / 30, tArah + 0.95, EZ.inOut); // belokan menjauh
+  const drawA0 = P.start + 0.03;
+  const drawB0 = tArah + 2 / 30;
+  const drawA = prog(t, drawA0, tArah, EZ.inOut); // segmen bersama (di atas janji)
+  const drawB = prog(t, drawB0, tArah + 0.95, EZ.inOut); // belokan menjauh
   const tipA = onShared(uShared(drawA));
   const tipB = onBend(uBend(drawB));
 
   // kamera: dekat mengikuti ujung garis → reveal-out wide (grafik naik, ruang teks di bawah)
-  const wide = prog(t, tArah - 0.35, tMasih + 0.25, EZ.inOut);
+  const wideA = tArah - 0.35;
+  const wideB = tMasih + 0.25;
+  const wide = prog(t, wideA, wideB, EZ.inOut);
   // C20 cut zoom di «adalah»: potong 1,5× lebih dekat ke ujung garis, momentum 6 f; lalu C18 follow ujung
   const tCut = word("adalah", "s4").s;
   const cut = t >= tCut;
@@ -67,21 +72,39 @@ export const S04c_ArahJanji: React.FC = () => {
   const proj = (p: P2) => ({ x: O.x + (p.x - O.x) * s + T.x, y: O.y + (p.y - O.y) * s + T.y });
 
   // keluar: frame-in-frame
-  const ex = prog(t, X0, P.end - 0.02, EZ.inOut);
+  const exB = P.end - 0.02;
+  const ex = prog(t, X0, exB, EZ.inOut);
   const k = lerp(1, Math.max(CLIP_CARD.w / 1920, CLIP_CARD.h / 1080), ex);
   const ccx = CLIP_CARD.x + CLIP_CARD.w / 2;
   const ccy = CLIP_CARD.y + CLIP_CARD.h / 2;
   const inset = `inset(${CLIP_CARD.y * ex}px ${(1920 - CLIP_CARD.x - CLIP_CARD.w) * ex}px ${(1080 - CLIP_CARD.y - CLIP_CARD.h) * ex}px ${CLIP_CARD.x * ex}px round ${CLIP_CARD.r * ex}px)`;
 
   // titik rilis: dari posisi 04b (layar) mendarat di garis solid
-  const land = prog(t, P.start, P.start + 0.42, EZ.out);
+  const landB = P.start + 0.42;
+  const land = prog(t, P.start, landB, EZ.out);
   const dotR = lerp(10, 6 * 2 * s, land);
 
   const hatchW = drawB * 440;
   const lblOut = 1 - prog(t, X0, X0 + 0.15, EZ.acc);
-  const lblArah = prog(t, tArah + 2 / 30, tArah + 0.3, EZ.out) * lblOut;
-  const lblJanji = prog(t, tJanji + 2 / 30, tJanji + 0.35, EZ.out) * lblOut;
+  const arahA = tArah + 2 / 30;
+  const arahB = tArah + 0.3;
+  const janjiA = tJanji + 2 / 30;
+  const janjiB = tJanji + 0.35;
+  const lblArah = prog(t, arahA, arahB, EZ.out) * lblOut;
+  const lblJanji = prog(t, janjiA, janjiB, EZ.out) * lblOut;
   const stopDown = 1 - 0.25 * ex;
+
+  // ── SFXEV (metronom SFX)
+  sfxMark(t, "cut", P.start, "04c:cut:in"); // timeline langit 04b → grafik blueprint
+  sfxMark(t, "whoosh", P.start, "04c:dots:fly"); // titik rilis melesat dari posisi 04b (EZ.out → awal)
+  sfxMark(t, "land", ezAt(P.start, landB, EZ.out, 0.95), "04c:dots:land"); // titik mendarat di garis solid (95 %)
+  sfxMark(t, "draw", drawA0, "04c:line:solid"); // garis solid mulai tergambar di atas janji
+  sfxMark(t, "cut", tCut, "04c:cutzoom"); // C20 cut zoom ×1,5 di «adalah»
+  sfxMark(t, "draw", drawB0, "04c:line:bend"); // garis berbelok menjauh dari janji
+  sfxMark(t, "pop", ezAt(arahA, arahB, EZ.out), "04c:label:arah"); // label ARAH menempel di ujung garis
+  sfxMark(t, "whoosh", (wideA + wideB) / 2, "04c:cam:revealout"); // C06 reveal-out ke wide (EZ.inOut → tengah)
+  sfxMark(t, "pop", ezAt(janjiA, janjiB, EZ.out), "04c:label:janji"); // label JANJI di ujung garis putus-putus
+  sfxMark(t, "whoosh", (X0 + exB) / 2, "04c:x13:shrink"); // grafik menyusut jadi kartu klip (EZ.inOut → tengah)
 
   return (
     <Scene code="04c">

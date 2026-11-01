@@ -3,7 +3,7 @@
 // Satu file karena 01a→01b (tile jatuh masuk), 01b→01c (zoom-through) dan 01c→01d (ruang yang sama) kontinu.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { Camera, EZ, Grain, keys, KWord, prog, Scene, shake, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, KWord, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
 import { C, FIG, LightCone, Pictogram, WireFigure } from "./_b1_shared";
 
@@ -43,9 +43,15 @@ const T_SALIP1 = (() => {
   for (let k = Math.round(P1b.start * FPS); k < P1b.end * FPS; k++) if (tileX(TILES[2], k / FPS) > tileX(TILES[1], k / FPS)) return k / FPS;
   return P1b.start;
 })();
+// SFXEV: frame pertama ChatGPT mendahului Gemini (pemimpin berganti kedua), dari keyframe yang sama
+const T_SALIP2 = (() => {
+  for (let k = Math.round(T_SALIP1 * FPS); k < P1b.end * FPS; k++) if (tileX(TILES[0], k / FPS) > tileX(TILES[2], k / FPS)) return k / FPS;
+  return P1b.end;
+})();
 const TRACK_V = 9 * FPS; // px/dtk, lintasan (dan cat BERLOMBA-LOMBA) bergeser 9 px/frame (teks tetap terbaca)
 const ZOOM_A = P1b.end - 6 * fr; // X04 zoom-through 6 frame terakhir (cat BERLOMBA-LOMBA terbaca lebih lama)
 const SNAP_W = W("berlomba-lomba") - 0.6 * fr; // patah ke wide 5 f, mulai ±2 f sebelum kata dicat
+const PAINT_A = T.lomba + 2 * fr; // cat BERLOMBA-LOMBA mulai di-wipe (dipakai RaceB + sfxMark)
 
 const TileIcon: React.FC<{ tl: Tile; cx: number; cy: number; sy?: number; sx?: number; trail?: number }> = ({ tl, cx, cy, sy = 1, sx = 1, trail = 0 }) => {
   const s = TILE;
@@ -82,10 +88,31 @@ const FLOOR = HEAD_TOP + (FIG.head + FIG.gap + FIG.bodyH) * S;
 
 const CLOSE_A = word("anehnya", "s1").s + 1.25; // close-up mulai setelah «anehnya» terbaca
 const CLOSE_B = word("lebih", "s1").s - 3 / FPS; // tiba 2× tepat sebelum LEBIH
+const FALL_A = P1b.start - 10 * fr; // tile mulai jatuh (C10)
+const TEXT_OUT1 = T.dan - 6 * fr; // «PENGGANTI kita sendiri» keluar
+const ANEH_OUT = CLOSE_A - 6 * fr; // «anehnya» keluar
+const SNAP_D = T.lebih + 2 * fr; // 01d patah close-up 2× → wide (5 f, EZ.out)
 const BIG: React.CSSProperties = { fontFamily: "Inter", color: C.white, lineHeight: 1, whiteSpace: "nowrap" };
 
 export const S01_Perlombaan: React.FC = () => {
   const t = useT();
+  // SFXEV · metronom (waktu dari konstanta animasi yang sama). Hit riser isi wireframe di P1d.end dicatat di S02a
+  // (frame terakhir adegan ini = f(P1d.end) − 1).
+  sfxMark(t, "cut", P1a.start, "01a:cut:horizon");
+  sfxMark(t, "land", P1b.start, "01b:tiles:land"); // 5 tile mendarat bersamaan (EZ.acc → kontak di cut) + shake
+  sfxMark(t, "cut", P1b.start, "01b:cut:race");
+  sfxMark(t, "whoosh", T_SALIP1, "01b:salip:1"); // Gemini menyalip Claude; kamera swap follow (inOut ±4 f) satu event
+  sfxMark(t, "whoosh", SNAP_W, "01b:cam:snapwide"); // patah 1,8× → wide 5 f, EZ.out
+  sfxMark(t, "draw", PAINT_A, "01b:paint:berlomba"); // cat BERLOMBA-LOMBA wipe 8 f
+  sfxMark(t, "whoosh", T_SALIP2, "01b:salip:2"); // ChatGPT menyalip Gemini
+  sfxMark(t, "riser", P1b.end, "01b:zoomthru:hit"); // X04 zoom-through ×35 (EZ.acc) mendarat di badan gelap tile
+  sfxMark(t, "cut", P1c.start, "01c:cut:room");
+  sfxMark(t, "toggle", P1c.start + 3 * fr, "01c:cone:open"); // garis finis membuka jadi kerucut (open, EZ.out)
+  sfxMark(t, "draw", P1c.start + 0.2, "01c:wire:draw"); // wireframe digambar kaki → kepala
+  sfxMark(t, "whoosh", TEXT_OUT1 + 4 * fr, "01c:text:out"); // «PENGGANTI kita sendiri» keluar (5 f EZ.acc → puncak akhir)
+  sfxMark(t, "whoosh", T.dan + 0.3, "01d:cam:pan"); // pan 640 px 0,6 dtk EZ.inOut → puncak di tengah
+  sfxMark(t, "whoosh", ANEH_OUT + 4 * fr, "01d:text:aneh:out"); // «anehnya» keluar (5 f EZ.acc)
+  sfxMark(t, "whoosh", SNAP_D, "01d:cam:snapwide"); // patah 2× → wide 5 f EZ.out (frame sama dengan slam LEBIH)
   return (
     <Scene start={P1a.start} end={P1d.end} name="01a–01d Perlombaan">
       {t < P1b.start && <HorizonA t={t} />}
@@ -99,7 +126,7 @@ export const S01_Perlombaan: React.FC = () => {
 const HorizonA: React.FC<{ t: number }> = ({ t }) => {
   const p = prog(t, P1a.start, P1b.start, EZ.inOut); // fajar naik selama panel
   const drift = 1 + 0.03 * ((t - P1a.start) / (P1b.end - P1a.start)); // C19 drift (linear)
-  const fallA = P1b.start - 10 * fr;
+  const fallA = FALL_A;
   const tilt = keys(t, [[fallA, 0], [P1b.start, 90]], EZ.acc); // kamera ikut turun sedikit bersama tile
   const c01 = prog(t, W("sadar"), W("sadar") + 15 * fr, EZ.out); // C01 zoom mikro di kata inti «sadar»
   return (
@@ -137,7 +164,7 @@ const HorizonA: React.FC<{ t: number }> = ({ t }) => {
 const RaceB: React.FC<{ t: number }> = ({ t }) => {
   const tau = t - P1b.start;
   const trackX = -tau * TRACK_V;
-  const paintA = T.lomba + 2 * fr;
+  const paintA = PAINT_A;
   const paintLeft0 = 170 + (paintA - P1b.start) * TRACK_V; // posisi dunia: kiri kata di x=70 saat dicat
   const paint = prog(t, paintA, paintA + 8 * fr, EZ.out);
   const z = prog(t, ZOOM_A, P1b.end, EZ.acc);
@@ -203,7 +230,7 @@ const RoomCD: React.FC<{ t: number }> = ({ t }) => {
   const pan = prog(t, T.dan, T.dan + 0.6, EZ.inOut);
   const hold = 1 + 0.02 * Math.min(1, Math.max(0, (t - (T.dan + 0.6)) / (CLOSE_A - T.dan - 0.6))); // drift
   const close = prog(t, CLOSE_A, CLOSE_B, EZ.inOut);
-  const snap = prog(t, T.lebih + 2 * fr, T.lebih + 7 * fr, EZ.out);
+  const snap = prog(t, SNAP_D, SNAP_D + 5 * fr, EZ.out);
   const cl = close * (1 - snap);
   const c01d = 1 + 0.05 * prog(t, T.cepat + 2 * fr, T.cepat + 17 * fr, EZ.out);
   const sWide = (push * c01c) * (1 - pan) + hold * pan;
@@ -220,8 +247,8 @@ const RoomCD: React.FC<{ t: number }> = ({ t }) => {
   const fill = 0.46 * Math.pow(u0, 2.2);
   const scan = 0.8 + 0.2 * Math.sin(t * 38);
   const lean = 3 * prog(t, T.ingin, T.ingin + 0.7, EZ.inOut);
-  const textOut1 = T.dan - 6 * fr;
-  const anehOut = CLOSE_A - 6 * fr; // «anehnya» terbaca 1,1 dtk, keluar sebelum kamera mendekat
+  const textOut1 = TEXT_OUT1;
+  const anehOut = ANEH_OUT; // «anehnya» terbaca 1,1 dtk, keluar sebelum kamera mendekat
   return (
     <AbsoluteFill style={{ background: C.charcoal, overflow: "hidden" }}>
       <Camera scale={sc} x={camX} y={camY} ox={0} oy={0} blur={snap > 0 && snap < 0.85 ? 2.5 * (1 - snap) : 0}>

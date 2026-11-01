@@ -6,9 +6,10 @@
 //      label TAHAP INI di bawah sumbu. Keluar X17 hard cut di batas babak (akhir 02f).
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, KWord, keys, prog, Scene, useT, Grain } from "../lib/anim";
+import { EZ, KWord, keys, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
 import { BLOOM_PT, BlueprintGrid, BlueprintPaper, C, CHART, PROMISE, REALITY } from "./_b2_shared";
+import { ezHalf } from "./_b1_shared";
 
 const W_DITEPATI = word("ditepati", "s2", 1);
 const W_KITA = word("kita", "s2", 2);
@@ -74,6 +75,11 @@ export const S02e_JanjiDitepati: React.FC = () => {
   const mk = prog(t, W_DI.s, W_DI.s + 0.35, EZ.out);
   const endDot = prog(t, W_DI.s - 0.1, W_DI.s + 0.15, EZ.out);
   const sFrac = s / LT;
+  // SFXEV · metronom (label DITEPATI / TAHAP INI = KWord, tercatat otomatis)
+  sfxMark(t, "riser", pe.start, "02d:bloom:hit"); // X14 bloom 02d (EZ.acc) memuncak putih penuh → mengerut ke titik (bl)
+  sfxMark(t, "whoosh", snap, "02f:cam:snapwide"); // C15 patah ke wide 6 f EZ.out + garis solid melesat (satu event)
+  sfxMark(t, "draw", W_DI.s, "02f:marker:draw"); // penanda vertikal TAHAP INI tumbuh dari sumbu
+  sfxMark(t, "pop", ezHalf(W_DI.s - 0.1, W_DI.s + 0.15), "02f:dot:stage"); // titik ujung janji ditegaskan
   return (
     <Scene start={pe.start} end={pf.end} name="02e–02f Grafik janji">
       <AbsoluteFill>

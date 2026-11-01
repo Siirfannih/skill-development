@@ -2,6 +2,16 @@
 import React from "react";
 import cues from "../../public/data/cues11.json";
 
+/**
+ * SFXEV: detik saat prog(t, a, b, ez) mencapai nilai y (default 0,5 = «±50 % perjalanan masuk» untuk sfxMark pop;
+ * y mendekati 1 = frame kontak untuk land). Dipakai B3/B4 untuk menaruh tanda dari konstanta animasi yang sama.
+ */
+export const ezAt = (a: number, b: number, ez: (x: number) => number, y = 0.5) => {
+  let lo = 0, hi = 1;
+  for (let i = 0; i < 30; i++) { const m = (lo + hi) / 2; if (ez(m) < y) lo = m; else hi = m; }
+  return a + (b - a) * hi;
+};
+
 /** Waktu cue SFX di mix (detik absolut) berdasarkan id. */
 export const cue = (id: string) => {
   const c = (cues as any[]).find((x) => x.id === id || x.id.startsWith(id));
@@ -130,11 +140,27 @@ export const pictoHalfWidth = (y: number) => {
 };
 
 /** Kerucut cahaya (dari atas) + genangan cahaya di lantai, pusat cx. */
-export const LightCone: React.FC<{ cx: number; w?: number; i?: number }> = ({ cx, w = 880, i = 1 }) => (
+export const LightCone: React.FC<{ cx: number; w?: number; i?: number }> = ({ cx, w = 880, i = 1 }) => {
+  // Kemiringan sama dengan versi lama (lebar 12 % w di y=0 → 68 % w di y=1080), tetapi berkas dimulai di atas frame
+  // (apeks tak terlihat), tepinya di-feather (blur pada pembungkus, bukan pada elemen ber-clip) dan memudar
+  // lembut ke genangan cahaya di lantai alih-alih terpotong lurus di tepi bawah frame.
+  const top = -220;
+  const bot = 1080;
+  const hw = (y: number) => w * (0.06 + (0.28 * y) / 1080);
+  const h = bot - top;
+  const m = w / 2;
+  const fadeA = 920 - top; // mulai pudar sedikit di atas lantai (FLOOR 1020)
+  const fadeB = 1050 - top;
+  return (
   <>
-    <div style={{ position: "absolute", left: cx - w / 2, top: 0, width: w, height: 1080, clipPath: "polygon(44% 0%, 56% 0%, 84% 100%, 16% 100%)",
-      backgroundImage: `linear-gradient(180deg, color-mix(in srgb, var(--sb-white) ${Math.round(19 * i)}%, transparent) 0%, color-mix(in srgb, var(--sb-white) ${Math.round(4.5 * i)}%, transparent) 100%)` }} />
+    <div style={{ position: "absolute", left: cx - w / 2, top, width: w, height: h, filter: "blur(9px)",
+      maskImage: `linear-gradient(180deg, #000 0px, #000 ${fadeA}px, transparent ${fadeB}px)`, WebkitMaskImage: `linear-gradient(180deg, #000 0px, #000 ${fadeA}px, transparent ${fadeB}px)` }}>
+      <div style={{ position: "absolute", inset: 0,
+        clipPath: `polygon(${m - hw(top)}px 0px, ${m + hw(top)}px 0px, ${m + hw(bot)}px ${h}px, ${m - hw(bot)}px ${h}px)`,
+        backgroundImage: `linear-gradient(180deg, color-mix(in srgb, var(--sb-white) ${Math.round(19 * i)}%, transparent) ${-top}px, color-mix(in srgb, var(--sb-white) ${Math.round(4.5 * i)}%, transparent) ${1080 - top}px)` }} />
+    </div>
     <div style={{ position: "absolute", left: cx - 260, top: 956, width: 520, height: 96, borderRadius: "50%",
       backgroundImage: `radial-gradient(circle at center, color-mix(in srgb, var(--sb-white) ${Math.round(29 * i)}%, transparent) 0%, #00000000 70%)` }} />
   </>
-);
+  );
+};

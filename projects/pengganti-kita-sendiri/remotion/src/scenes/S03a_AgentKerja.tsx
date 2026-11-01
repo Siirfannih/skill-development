@@ -3,9 +3,9 @@
 // Satu dunia kontinu (ruang 1920×1080, skala kamera 1 = framing panel 03a-2 ×2; ruang kerja 03b di atasnya, Y0 = −1080).
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Camera, EZ, Grain, keys, prog, Scene, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
-import { AgentFace, AGENTS, Arrow, cue, Icon, I_FOLDER, I_KEY, I_MIC, I_MORE, I_PLUS, I_UP, I_X, NamedCursor } from "./_b3_shared";
+import { AgentFace, AGENTS, Arrow, cue, ezAt, Icon, I_FOLDER, I_KEY, I_MIC, I_MORE, I_PLUS, I_UP, I_X, NamedCursor } from "./_b3_shared";
 
 const P1 = panel("03a-1");
 const P3 = panel("03b");
@@ -53,6 +53,17 @@ const T_REPLY = W("dalam");
 const T_WORK = [W("kehidupan"), W("kehidupan") + 0.22, W("sehari-hari")];
 const T_FOLLOW = W("dalam") + 0.8; // balasan CEO terbaca ≥ 0,8 dtk dalam wide sebelum kamera mendorong
 const T_ZOOM = P3.end - 0.55;
+const T_PRESS_CEO = T_SEND_CEO - 0.25; // tombol kirim permintaan ke CEO tertekan
+const HOP = 0.32; // durasi lompatan agent dari tombol kirim
+const WORK_GO = 0.36; // kursor agent meluncur ke progress bar-nya
+const REPLY_IN = 0.4; // kartu balasan CEO naik
+const PB_A = word("dan", "s3").s - 0.07; // C15 patah ke wide sebelum klik kirim
+const PB_B = word("dan", "s3").s + 0.1;
+const WIDE_A = T_REPLY - 0.03; // C15 patah ke wide saat balasan CEO muncul
+const WIDE_B = T_REPLY + 0.14;
+const ZC = 0.3; // pusatkan kamera ke kursor CEO sebelum zoom-through
+/** Jumlah huruf kata composer yang sudah terketik pada detik tt (3 frame per kata). */
+const typedN = (w: string, at: number, tt: number) => Math.max(1, Math.ceil(w.length * Math.min(1, ((tt - at) * FPS + 1) / 3)));
 
 const STREAM = "312 pesanan · omzet Rp48,6 jt · naik 18% dari minggu lalu";
 const STREAM_X = 444;
@@ -66,7 +77,7 @@ const CEO_DOCK = { x: 1470, y: Y0 + 520 };
 const BAR_X = [440, 800, 1160];
 const BAR_W = 320;
 const BAR_Y = Y0 + 600 + 40 + 80 + 20 + 106 + 20; // padding + header + gap + 2 baris teks + gap
-const fillOf = (i: number, t: number) => prog(t, T_WORK[i] + 0.36, P3.end + 0.2, EZ.inOut);
+const fillOf = (i: number, t: number) => prog(t, T_WORK[i] + WORK_GO, P3.end + 0.2, EZ.inOut);
 const cursorPos = (k: number, t: number): { x: number; y: number } => {
   const wob = (ax: number, ay: number, fx: number, ph: number) => ({ x: Math.sin(t * fx + ph) * ax, y: Math.cos(t * fx * 0.8 + ph) * ay });
   if (k === 0) {
@@ -84,7 +95,7 @@ const cursorPos = (k: number, t: number): { x: number; y: number } => {
   const w = wob(26, 18, 1.7 + k * 0.35, k * 1.9);
   const idle = { x: home.x + w.x, y: home.y + w.y };
   const i = k - 1;
-  const go = prog(t, T_WORK[i], T_WORK[i] + 0.36, EZ.inOut);
+  const go = prog(t, T_WORK[i], T_WORK[i] + WORK_GO, EZ.inOut);
   const target = { x: BAR_X[i] + 10 + BAR_W * fillOf(i, t), y: BAR_Y + 14 };
   return { x: lerp(idle.x, target.x, go), y: lerp(idle.y, target.y, go) };
 };
@@ -103,6 +114,34 @@ const Chip: React.FC<{ children: React.ReactNode; pad?: string }> = ({ children,
 export const S03a_AgentKerja: React.FC = () => {
   const t = useT();
 
+  // ── SFXEV (metronom SFX): satu tanda per event visual, dari konstanta yang sama dengan animasinya
+  sfxMark(t, "cut", P1.start, "03a:cut:in"); // Babak 2 → composer
+  MSG.forEach((m) => {
+    // huruf muncul per frame (typedN): tanda di setiap frame jumlah huruf bertambah, mulai frame pertama t ≥ m.at
+    const t0 = Math.ceil(m.at * FPS - 1e-6) / FPS;
+    let prev = 0;
+    for (let k = 0; k < 4; k++) {
+      const tk = t0 + k / FPS;
+      const n = typedN(m.w, m.at, tk);
+      if (n > prev) sfxMark(t, "key", tk, `03a:key:${m.w.replace(/[^\w]/g, "")}:${k}`);
+      prev = n;
+    }
+  });
+  sfxMark(t, "whoosh", (PB_A + PB_B) / 2, "03a:cam:snapwide"); // C15 patah ke wide (EZ.inOut → tengah)
+  sfxMark(t, "click", T_KIRIM, "03a:send:click"); // panah mouse menekan tombol kirim (press + cincin)
+  T_AG.forEach((a, i) => sfxMark(t, "pop", ezAt(a, a + HOP, EZ.out), `03a:agent:${i}`)); // agent melompat dari tombol (50 %)
+  sfxMark(t, "whoosh", (LAUNCH[0] + T_LAND) / 2, "03a:cam:tiltup"); // X01 tilt naik ke ruang kerja (EZ.inOut → tengah)
+  LAUNCH.forEach((l, i) => sfxMark(t, "pop", l + FLY, `03b:cursor:${i}`)); // agent tiba jadi kursor bernama (pil nama)
+  sfxMark(t, "click", T_PRESS_CEO, "03b:sendceo:click"); // tombol kirim «Rangkum penjualan… @CEO Agent» tertekan
+  sfxMark(t, "whoosh", (T_SEND_CEO + T_STREAM[0]) / 2, "03b:ceo:dash"); // kursor CEO melesat ke dokumen
+  sfxMark(t, "cut", T_STREAM[0], "03b:cutzoom"); // C20 cut zoom ke dokumen
+  sfxMark(t, "key", T_STREAM[0], "03b:key:stream:0"); // CEO mulai menulis laporan (streaming; hanya awal)
+  sfxMark(t, "whoosh", (WIDE_A + WIDE_B) / 2, "03b:cam:snapwide"); // C15 patah ke wide
+  sfxMark(t, "pop", ezAt(T_REPLY, T_REPLY + REPLY_IN, EZ.out), "03b:reply:card"); // kartu balasan CEO naik
+  T_WORK.forEach((w, i) => sfxMark(t, "click", w + WORK_GO, `03b:bar:${i + 1}`)); // kursor CS/Ops/Editor tiba di bar, bar mulai terisi
+  sfxMark(t, "whoosh", T_ZOOM + ZC / 2, "03b:cam:center"); // kamera memusat ke kursor CEO (EZ.inOut → tengah)
+  sfxMark(t, "riser", P3.end, "03b:zoomthrough"); // X04 zoom-through ×36 (EZ.acc) → HIT di cut ke 03c
+
   // ── kamera: close di composer (C18 ikut caret, crop kanan) → mundur ke tombol kirim (C06) → C01 di klik
   //    → X01 naik ke ruang kerja → C19 drift → C18 ikut kursor CEO → X04 zoom-through
   const lastIdx = MSG.reduce((a, m, i) => (t >= m.at ? i : a), -1);
@@ -113,7 +152,7 @@ export const S03a_AgentKerja: React.FC = () => {
   };
   // C01 di «CEO» (kata inti prompt), lalu C15 patah ke wide ≤ 6 f di «dan» (sebelum klik), C01 di klik kirim
   const c01 = 1 + 0.04 * prog(t, T_MENGAJARI, T_MENGAJARI + 18 / FPS, EZ.out);
-  const pb = prog(t, W("dan") - 0.07, W("dan") + 0.1, EZ.inOut);
+  const pb = prog(t, PB_A, PB_B, EZ.inOut);
   const click = prog(t, T_KIRIM, T_KIRIM + 0.6, EZ.out);
   const up = prog(t, LAUNCH[0], T_LAND, EZ.inOut);
   const ceo = cursorPos(0, t);
@@ -127,7 +166,7 @@ export const S03a_AgentKerja: React.FC = () => {
   s = lerp(s, 1, up);
   // C20 cut zoom ke dokumen saat CEO mulai menulis (momentum 6 f) → C15 patah ke wide saat balasan CEO muncul
   const mom = prog(t, T_STREAM[0], T_STREAM[0] + 6 / FPS, EZ.out);
-  const wide = prog(t, T_REPLY - 0.03, T_REPLY + 0.14, EZ.inOut);
+  const wide = prog(t, WIDE_A, WIDE_B, EZ.inOut);
   const closeK = (t >= T_STREAM[0] ? 1 : 0) * (1 - wide);
   cx = lerp(cx, 960, closeK);
   cy = lerp(cy, Y0 + 330, closeK);
@@ -139,7 +178,7 @@ export const S03a_AgentKerja: React.FC = () => {
   cy = lerp(cy, Y0 + 480, fol);
   s *= 1 + 0.08 * fol;
   const zoom = prog(t, T_ZOOM, P3.end, EZ.acc);
-  const zc = prog(t, T_ZOOM, T_ZOOM + 0.3, EZ.inOut); // pusatkan ke kursor CEO dulu, skala menyusul (acc)
+  const zc = prog(t, T_ZOOM, T_ZOOM + ZC, EZ.inOut); // pusatkan ke kursor CEO dulu, skala menyusul (acc)
   cx = lerp(cx, zt.x, zc);
   cy = lerp(cy, zt.y, zc);
   s = s * Math.pow(36, zoom);
@@ -162,7 +201,7 @@ export const S03a_AgentKerja: React.FC = () => {
     return (
       <div style={{ height: 70, whiteSpace: "nowrap", display: "flex", alignItems: "center" }}>
         {items.map((m, j) => {
-          const n = Math.max(1, Math.ceil(m.w.length * Math.min(1, ((t - m.at) * FPS + 1) / 3)));
+          const n = typedN(m.w, m.at, t);
           return (
             <span key={m.i} style={{ fontWeight: m.bold ? 600 : 400 }}>
               {j > 0 ? " " : ""}{m.w.slice(0, n)}
@@ -226,7 +265,7 @@ export const S03a_AgentKerja: React.FC = () => {
           {t >= T_KIRIM && t < T_LAND && (
             <svg style={{ position: "absolute", left: 0, top: 0, overflow: "visible" }} width={1920} height={1080}>
               {SPAWN.map((sp, i) => {
-                const p = prog(t, T_AG[i], T_AG[i] + 0.32, EZ.out);
+                const p = prog(t, T_AG[i], T_AG[i] + HOP, EZ.out);
                 const fade = 1 - prog(t, T_AG[i] + 0.35, T_AG[i] + 0.8, EZ.inOut);
                 if (p <= 0 || fade <= 0) return null;
                 const dots = [];
@@ -243,7 +282,7 @@ export const S03a_AgentKerja: React.FC = () => {
           {AGENTS.map((ag, i) => {
             if (t < T_AG[i]) return null;
             const sp = SPAWN[i];
-            const p = prog(t, T_AG[i], T_AG[i] + 0.32, EZ.out);
+            const p = prog(t, T_AG[i], T_AG[i] + HOP, EZ.out);
             const pos0 = bez(BTN, sp, p);
             const bob = Math.sin((t - T_AG[i]) * 2 * Math.PI * 0.7 + i) * 6 * prog(t, T_AG[i] + 0.25, T_AG[i] + 0.6);
             const popS = 0.15 + 0.85 * p + 0.05 * Math.sin(p * Math.PI);
@@ -293,8 +332,8 @@ const Workspace: React.FC<{ t: number }> = ({ t }) => {
   const n = Math.floor(STREAM.length * prog(t, T_STREAM[0], T_STREAM[1], (x) => x));
   const writing = t >= T_STREAM[0] && t < T_STREAM[1] + 0.3;
   const sel = prog(t, T_STREAM[0], T_STREAM[1], (x) => x);
-  const rp = prog(t, T_REPLY, T_REPLY + 0.4, EZ.out);
-  const sent = prog(t, T_SEND_CEO - 0.25, T_SEND_CEO, EZ.out);
+  const rp = prog(t, T_REPLY, T_REPLY + REPLY_IN, EZ.out);
+  const sent = prog(t, T_PRESS_CEO, T_SEND_CEO, EZ.out);
   const card: React.CSSProperties = { position: "absolute", left: 400, width: 1120, background: "#fff", border: "2px solid var(--sky-300)", borderRadius: 44 };
   const mention = (k: number, txt: string) => <span style={{ color: AGENTS[k].label, fontWeight: 600 }}>{txt}</span>;
   return (
@@ -319,7 +358,7 @@ const Workspace: React.FC<{ t: number }> = ({ t }) => {
             Rangkum penjualan minggu ini <span style={{ color: "var(--agent-ceo-b)", fontWeight: 600 }}>@CEO Agent</span>
           </div>
           <div style={{ width: 76, height: 76, borderRadius: 20, background: "var(--sb-ink)", display: "flex", alignItems: "center", justifyContent: "center",
-            transform: `scale(${t >= T_SEND_CEO - 0.25 && t < T_SEND_CEO - 0.1 ? 0.9 : 1})` }}>
+            transform: `scale(${t >= T_PRESS_CEO && t < T_SEND_CEO - 0.1 ? 0.9 : 1})` }}>
             <Icon d={I_UP} size={32} color="#fff" sw={2.4} />
           </div>
         </div>

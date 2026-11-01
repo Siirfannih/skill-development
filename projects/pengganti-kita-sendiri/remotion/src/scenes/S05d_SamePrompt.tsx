@@ -3,9 +3,9 @@
 // Klik kirim laptop mendarat di micro-tick 87.16. Masuk dari dorongan cut-on-motion 05c (kamera mendarat dari 1,12×).
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { EZ, Grain, prog, Scene, useT } from "../lib/anim";
+import { EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel } from "../lib/time";
-import { C, GRID, SKY_BG, z3tick } from "./_b5_shared";
+import { C, firstFrame, GRID, SKY_BG, z3tick } from "./_b5_shared";
 
 const P = panel("05d");
 const T_SEND1 = z3tick("05d prompt"); // 87.16
@@ -14,6 +14,26 @@ const CUT3 = T_SEND1 + 3 * GRID; // tablet
 const SEND2 = CUT2 + GRID;
 const SEND3 = CUT3 + GRID;
 const PROMPT = "Buatkan ide startup AI yang bisa cepat dapat pengguna";
+/** Jumlah huruf prompt yang tampil untuk progres ketik 0..1 (ekor 28 % diketik). */
+const typedChars = (typed: number) => Math.round(PROMPT.length * (0.72 + 0.28 * typed));
+/** Progres ketik per perangkat: dari awal shot `a` sampai 2 f sebelum klik kirim. */
+const typedAt = (t: number, a: number, send: number) => prog(t, a, send - 2 / FPS, EZ.inOut);
+const PRESS_DUR = 5 / FPS;
+// ── SFXEV: frame tempat ketikan bertambah (dihitung dari rumus yang sama; kode mengetik 2–3 huruf/frame,
+// jadi satu tanda key per frame, id = huruf terakhir yang muncul di frame itu)
+const DEV = ["laptop", "hp", "tablet"];
+const SEG_A = [P.start, CUT2, CUT3];
+const SEG_SEND = [T_SEND1, SEND2, SEND3];
+const wordAt = (i: number) => (PROMPT[i] === " " ? "spasi" : PROMPT.slice(0, i + 1).split(" ").pop()! + PROMPT.slice(i + 1).split(" ")[0]);
+const KEYS: { at: number; id: string }[] = [];
+SEG_A.forEach((a, d) => {
+  let prev = typedChars(typedAt(a, a, SEG_SEND[d]));
+  for (let fr = Math.round(a * FPS) + 1; fr <= Math.round(SEG_SEND[d] * FPS); fr++) {
+    const n = typedChars(typedAt(fr / FPS, a, SEG_SEND[d]));
+    if (n > prev) KEYS.push({ at: fr / FPS, id: `05d:${DEV[d]}:key:${wordAt(n - 1)}:${n - 1}` });
+    prev = n;
+  }
+});
 
 // ── ikon UI ChatGPT (garis 2 px, gaya produk asli)
 const Ico: React.FC<{ d: React.ReactNode; s: number; c?: string; w?: number }> = ({ d, s, c = C.ink, w = 2 }) => (
@@ -34,7 +54,7 @@ const I = {
 
 /** Isi ChatGPT (light mode). `typed` 0..1 = ekor prompt terketik, `press` 0..1 = klik kirim. */
 const ChatGPT: React.FC<{ w: number; h: number; mode: "desktop" | "mobile" | "tablet"; typed: number; press: number; u: number }> = ({ w, h, mode, typed, press, u }) => {
-  const n = Math.round(PROMPT.length * (0.72 + 0.28 * typed));
+  const n = typedChars(typed);
   const text = PROMPT.slice(0, n);
   const caret = typed < 1;
   const side = mode === "desktop" ? 260 * u : 0;
@@ -102,10 +122,16 @@ const Composer: React.FC<{ w: number; u: number; text: string; caret: boolean; p
 export const S05d_SamePrompt: React.FC = () => {
   const t = useT();
   const seg = t < CUT2 ? 0 : t < CUT3 ? 1 : 2;
-  const a = [P.start, CUT2, CUT3][seg];
-  const send = [T_SEND1, SEND2, SEND3][seg];
-  const typed = prog(t, a, send - 2 / FPS, EZ.inOut);
-  const press = prog(t, send, send + 5 / FPS, EZ.out);
+  const a = SEG_A[seg];
+  const send = SEG_SEND[seg];
+  const typed = typedAt(t, a, send);
+  const press = prog(t, send, send + PRESS_DUR, EZ.out);
+  // ── SFXEV penanda metronom
+  sfxMark(t, "cut", P.start, "05d:in:cut"); // dorongan 05c → laptop (cut on motion; whoosh dicatat di 05c)
+  sfxMark(t, "cut", firstFrame(CUT2), "05d:cut:hp");
+  sfxMark(t, "cut", firstFrame(CUT3), "05d:cut:tablet");
+  KEYS.forEach((k) => sfxMark(t, "key", k.at, k.id));
+  SEG_SEND.forEach((sd, d) => sfxMark(t, "click", sd, `05d:${DEV[d]}:send`)); // tombol kirim mulai ditekan
   // kamera: tiap cut mendarat dari dorongan kecil (C20), lalu drift mikro
   const land = seg === 0 ? 1 + 0.12 * (1 - prog(t, a, a + 7 / FPS, EZ.out)) : 1 + 0.05 * (1 - prog(t, a, a + 5 / FPS, EZ.out));
   // v2: C01 zoom mikro ke composer di tiap shot (1→1,06, 15 f, mulai saat ketikan mulai); tablet = C20 terdekat (×1,22 ke composer)

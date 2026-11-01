@@ -3,7 +3,7 @@
 // Keluar: di «Tapi» (awal 06e, ostinato berhenti) lampu bidang padam dengan klik relay → potong dalam gelap ke 06e.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, Grain, prog, Scene, useT } from "../lib/anim";
+import { EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
 import { Ball, C6, Plane, relay, Torso, wa } from "./_b6_shared";
 
@@ -16,9 +16,29 @@ const TYPE_B = word("sendiri", "s6", 1).s + 0.1;
 const W_BISA = word("bisa", "s6", 1).s; // C20 cut zoom ke composer
 const W_SENDIRI = word("sendiri", "s6", 1).s; // C01
 
+// frame pertama huruf ke-i (1-based) muncul, persis rumus n di bawah; spasi tidak ditandai
+const KEY_MARKS: { at: number; id: string }[] = (() => {
+  const out: { at: number; id: string }[] = [];
+  let w = 0;
+  let wi = 0;
+  const words = PROMPT.split(" ");
+  for (let i = 1; i <= PROMPT.length; i++) {
+    const ch = PROMPT[i - 1];
+    if (ch === " ") { w++; wi = 0; continue; }
+    const at = Math.ceil((TYPE_A + (i / PROMPT.length) * (TYPE_B - TYPE_A)) * FPS - 1e-6) / FPS;
+    out.push({ at, id: `06d:key:${words[w]}:${wi++}` });
+  }
+  return out;
+})();
+
 export const S06d_Prompt: React.FC = () => {
   const t = useT();
   const on = relay(t, T_OFF);
+  // ── SFXEV
+  sfxMark(t, "pop", P.start, "06d:bloom:1"); // bloom match dari 06c (puncak BLOOM_06C_END) mendarat jadi composer
+  KEY_MARKS.forEach((k) => sfxMark(t, "key", k.at, k.id));
+  sfxMark(t, "cut", W_BISA, "06d:cutzoom:1"); // C20 cut zoom ×1,35 ke composer
+  sfxMark(t, "toggle", T_OFF, "06d:relay:off"); // relay(t, T_OFF): bidang/composer padam
   // bloom masuk dari 06c meluruh
   const bloom = 0.6 * (1 - prog(t, P.start, P.start + 0.35, EZ.out));
   // C13: dorong pelan + parallax (bahu depan bergeser lebih jauh dari bidang)
@@ -41,7 +61,7 @@ export const S06d_Prompt: React.FC = () => {
         <AbsoluteFill style={{ transform: `scale(${Z})`, transformOrigin: "1949px 520px" }}>
         <AbsoluteFill style={{ transform: `scale(${sc})`, transformOrigin: "1280px 520px" }}>
           <div style={{ position: "absolute", left: 0, top: 0, width: 960, height: 540, transform: `translateX(${bgX}px) scale(2)`, transformOrigin: "0 0" }}>
-            <Plane b={{ x: 380, y: 120, w: 560, h: 280 }} on={on} slant={0.08}
+            <Plane b={{ x: 380, y: 120, w: 560, h: 280 }} on={on} slant={0.08} softGlow
               grad={`linear-gradient(90deg, ${C6.white} 60%, ${C6.paper} 100%)`}
               glow={{ b: { x: 420, y: 150, w: 480, h: 220 }, blur: 140, spread: 40, a: 0.22, radius: 40 }}>
               {/* composer (gaya chat AI: pil putih, garis tipis, tombol kirim bulat) */}

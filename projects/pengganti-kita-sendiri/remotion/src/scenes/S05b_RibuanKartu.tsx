@@ -4,12 +4,17 @@
 // Ribuan kartu digambar sebagai satu SVG <rect> sederhana (deterministik, di-cull di luar layar) supaya ringan.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { EZ, prog, Scene, useT } from "../lib/anim";
+import { EZ, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { panel, word } from "../lib/time";
 import { ALTMAN_STILL, BLUE_CARD, cam05b, CARD05A_END, DRIFT05A, G_H, G_PX, G_PY, G_W, lerp, S05A_END } from "./_b4_shared";
+import { progAt } from "./_b5_shared";
 
 const NI = 30;
 const NJ = 24;
+// kartu abu: durasi masuk (rustle) dan lenyap (dipakai animasi + penanda SFX)
+const IN_DUR = 0.16;
+const OUT_DUR = 0.22;
+const OUT_LAG = 2 / 30;
 const hash = (i: number, j: number) => {
   const v = Math.sin(i * 12.9898 + j * 78.233) * 43758.5453;
   return v - Math.floor(v);
@@ -35,6 +40,13 @@ export const S05b_RibuanKartu: React.FC = () => {
   const cr = lerp(lerp(BLUE_CARD.r * k05, 3 * s, morph), 20, dot);
   const photo = 1 - prog(t, P.start + 0.05, P.start + 0.4, EZ.out);
 
+  // ── SFXEV penanda metronom
+  sfxMark(t, "cut", P.start, "05b:in:cut"); // foto 05a → grid kartu abu
+  // reveal-out 05a (EZ.acc) menyambung ke zoom-out grid 05b (cam05b EZ.out): satu gerak, puncak kecepatan tepat di batas panel
+  sfxMark(t, "whoosh", P.start, "05b:cam:revealout");
+  sfxMark(t, "pop", progAt(P.start, P.start + IN_DUR, EZ.out), "05b:grey:spread"); // ribuan kartu abu menyebar dari tengah (cincin pertama)
+  sfxMark(t, "pop", progAt(tGak + OUT_LAG, tGak + OUT_LAG + OUT_DUR, EZ.acc), "05b:grey:vanish"); // kartu abu lenyap bergelombang dari tengah
+
   const rects: React.ReactNode[] = [];
   const w = G_W * s;
   const h = G_H * s;
@@ -47,11 +59,11 @@ export const S05b_RibuanKartu: React.FC = () => {
       // muncul (rustle) menyebar dari tengah
       const dw = Math.hypot(i * G_PX, j * G_PY);
       const a = P.start + Math.min(0.3, dw / 4500) + hash(i, j) * 0.05;
-      const inP = prog(t, a, a + 0.16, EZ.out);
+      const inP = prog(t, a, a + IN_DUR, EZ.out);
       // lenyap bergelombang dari tengah ke luar (jarak layar), sedikit acak agar organik
       const ds = Math.hypot(x - CX, y - CY);
-      const v = tGak + 2 / 30 + ds / 1250 + (hash(j, i) - 0.5) * 0.08;
-      const outP = prog(t, v, v + 0.22, EZ.acc);
+      const v = tGak + OUT_LAG + ds / 1250 + (hash(j, i) - 0.5) * 0.08;
+      const outP = prog(t, v, v + OUT_DUR, EZ.acc);
       const sc = (0.9 + 0.1 * inP) * (1 - outP);
       if (sc <= 0.01 || inP <= 0) continue;
       rects.push(

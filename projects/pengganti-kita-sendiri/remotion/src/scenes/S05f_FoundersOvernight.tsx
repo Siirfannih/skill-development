@@ -4,11 +4,11 @@
 // Di SEMALAM montase berhenti di satu foto + hantaman (shake), tahan, lalu X17 hard cut ke 05g.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { EZ, Grain, prog, Scene, shake, useT } from "../lib/anim";
+import { EZ, Grain, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
 import { DOC_GRADE } from "../lib/media";
 import { FPS, panel, word } from "../lib/time";
 import { SlotWord } from "./S00_ColdOpen";
-import { GRID, z3tick } from "./_b5_shared";
+import { firstFrame, GRID, moveFrame, z3tick } from "./_b5_shared";
 
 const P = panel("05f");
 const T_FOUNDER = z3tick("05f FOUNDER"); // 92.53
@@ -48,6 +48,12 @@ export const S05f_FoundersOvernight: React.FC = () => {
   const push = 1 + 0.15 * prog(t, W_YANG, T_SEMALAM, EZ.inOut);
   const brk = prog(t, T_SEMALAM, T_SEMALAM + 5 / FPS, EZ.out);
   const camS = push * (1 - brk) + 0.62 * brk;
+  // ── SFXEV penanda metronom (FOUNDER/CEO/SEMALAM + shake sudah dicatat SlotWord sebagai slam)
+  sfxMark(t, "cut", P.start, "05f:in:cut"); // whip 05e → montase founder
+  // foto berganti tiap STEP (1/16 grid) dari rumus k di atas, sampai membeku di SEMALAM
+  for (let kk = k0 + 1; T_FOUNDER + kk * STEP <= T_SEMALAM + 1e-6 * STEP; kk++) sfxMark(t, "snap", firstFrame(T_FOUNDER + kk * STEP), `05f:photo:${kk - k0}`);
+  // patah ke wide 5 f di SEMALAM (EZ.out): montase menyusut jadi kartu foto. Komentar desain: bunyinya = slam SEMALAM.
+  sfxMark(t, "whoosh", moveFrame(T_SEMALAM), "05f:cam:breakwide");
   const dim = t >= T_FOUNDER ? 0.58 : 0.9; // redup saat kata slam di layar (sama dengan cold open)
   return (
     <Scene code="05f">

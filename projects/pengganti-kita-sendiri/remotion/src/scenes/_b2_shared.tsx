@@ -119,14 +119,19 @@ export const Pictogram: React.FC<{ rim?: number; x?: number; y?: number }> = ({ 
 /** Berkas cahaya dari kanan atas + bidang cahaya miring (tempat kata). `beam`, `plane`, `glow` 0..1. */
 export const LightPlane: React.FC<{ beam: number; plane: number; glow: number; children?: React.ReactNode }> = ({ beam, plane, glow, children }) => (
   <>
-    <div
-      style={{
-        position: "absolute", left: 940, top: -120, width: 1040, height: 680,
-        clipPath: "polygon(4% 100%, 100% 96%, 100% 0%, 58% 0%)",
-        background: "linear-gradient(215deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.30) 85%)",
-        opacity: beam,
-      }}
-    />
+    {/* berkas: sumber di luar frame kanan atas, kaki berkas berakhir DI BALIK bidang (tidak ada ujung lancip /
+        potongan lurus yang terlihat); tepi di-feather blur, intensitas memudar ke atas lewat mask. */}
+    <div style={{ position: "absolute", left: 1000, top: -420, width: 1500, height: 1040, filter: "blur(16px)", opacity: beam }}>
+      <div
+        style={{
+          position: "absolute", inset: 0,
+          clipPath: "polygon(3% 96%, 51% 96%, 100% 0%, 30% 0%)",
+          background: "linear-gradient(205deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.30) 88%)",
+          WebkitMaskImage: "linear-gradient(180deg, rgba(0,0,0,0.25) 0%, #000 70%, #000 89%, rgba(0,0,0,0) 95%)",
+          maskImage: "linear-gradient(180deg, rgba(0,0,0,0.25) 0%, #000 70%, #000 89%, rgba(0,0,0,0) 95%)",
+        }}
+      />
+    </div>
     <div
       style={{
         position: "absolute", left: 1000, top: 536, width: 760, height: 176, borderRadius: 80,

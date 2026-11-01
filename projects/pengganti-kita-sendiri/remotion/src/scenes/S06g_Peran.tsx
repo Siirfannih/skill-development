@@ -4,7 +4,7 @@
 // Kamera C02 push-in 100→115 % sepanjang panel. Ekor gelap sampai akhir video. Tanpa tanda tanya di layar.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, Grain, KWord, prog, Scene, useT } from "../lib/anim";
+import { EZ, Grain, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { panel, wordsOf } from "../lib/time";
 import { AIGlyph, Ball, C6, Plane, relay, Torso, wa } from "./_b6_shared";
 import cues from "../../public/data/cues11.json";
@@ -34,6 +34,11 @@ export const S06g_Peran: React.FC = () => {
   const sc = (1 + 0.15 * push) * (1 + punch);
   const land = prog(t, P.start, P.start + 0.4, EZ.out);
   const ons = PX.map((_, i) => relay(t, offAt(i)));
+  // ── SFXEV
+  sfxMark(t, "cut", P.start, "06g:cut:in"); // ujung crane 06f
+  ORDER.forEach((i) => sfxMark(t, "toggle", offAt(i), `06g:plane:${i + 1}`)); // padam tepi → dalam
+  sfxMark(t, "whoosh", W_KAMU, "06g:punch:in"); // C09 snap punch-in ×1,09 dalam 4 f (EZ.out)
+  sfxMark(t, "hit", T_BOOM, "06g:boom:1"); // bidang terakhir (indeks 3) padam + punch patah balik ke wide
   const litFrac = ons.reduce((a, b) => a + b, 0) / ons.length;
   const fade = prog(t, P.end - 1.45, P.end - 0.45, EZ.inOut);
   return (
@@ -68,7 +73,7 @@ export const S06g_Peran: React.FC = () => {
             </div>
             {/* yang tersisa: satu piktogram di tengah */}
             <Ball b={{ x: 892, y: 636, w: 136, h: 136 }} rim={0.4 + 0.35 * litFrac} r={8} />
-            <Torso b={{ x: 840, y: 784, w: 240, h: 300 }} rim={0.3 + 0.25 * litFrac} r={7} />
+            <Torso b={{ x: 840, y: 784, w: 240, h: 360 }} rim={0.3 + 0.25 * litFrac} r={7} />{/* h 300→360: saat land (translateY −40) alas badan tak terlihat */}
           </AbsoluteFill>
         </AbsoluteFill>
         <Grain opacity={0.05 * (1 - fade * 0.6)} />

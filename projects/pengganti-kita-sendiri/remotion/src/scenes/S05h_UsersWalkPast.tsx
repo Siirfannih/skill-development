@@ -6,9 +6,9 @@
 // Engsel senyap: lampu produk padam kanan→kiri setelah «susah», tahan, X17 hard cut ke 06a.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Camera, EZ, Grain, KWord, prog, Scene, useT } from "../lib/anim";
+import { Camera, EZ, Grain, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
-import { AppIcon, APPS, C, GRID, Pictogram } from "./_b5_shared";
+import { AppIcon, APPS, C, GRID, moveFrame, Pictogram } from "./_b5_shared";
 
 const P = panel("05h");
 const W_SEMAKIN = word("semakin", "s5", 1).s;
@@ -32,6 +32,33 @@ const T_PIN_A = P.start + 0.47, T_PIN_B = P.start + 1.12;
 const CX_END = WORLD_W - 960;
 const OY = 560;
 
+const LIGHT_DUR = 3 / FPS;
+const lightOn = (i: number) => P.start - 0.05 + (i * GRID) / 2; // menyala tiap 1/16
+const lightOff = (i: number) => OFF + ((N - 1 - i) * GRID) / 4; // padam kanan→kiri
+const WIPE_END = WIPE_B + 4 / FPS;
+/** tepi belakang siluet wipe (layar); isi 05h terlihat di kiri tepi ini. */
+const wipeTrail = (t: number) => -200 + (1920 + WIPE_W + 400) * prog(t, WIPE_A, WIPE_END, EZ.inOut) - WIPE_W;
+/** posisi X pengguna (dunia) — kecepatan konstan. */
+const userX = (t: number) => X0 + (X1 - X0) * Math.min(1, Math.max(0, (t - WALK_A) / (WALK_B - WALK_A)));
+/** Kamera lapis pengguna: pusat X dunia (cx) dan skala (Zu). */
+const camAt = (t: number) => {
+  const ux = userX(t);
+  const pin = prog(t, T_PIN_A, T_PIN_B, EZ.inOut);
+  const snap = prog(t, W_ORANG, W_ORANG + 5 / FPS, EZ.out);
+  const cxF = 960 + (ux + 140 - 960) * pin;
+  const cx = cxF + (CX_END - cxF) * snap;
+  const Z = (1 + 0.7 * pin) * (1 - snap) + snap;
+  const micro = 1 + 0.04 * prog(t, W_SUSAH, W_SUSAH + 20 / FPS, EZ.inOut);
+  return { ux, pin, snap, cx, Z, micro, Zu: Z * micro };
+};
+// ── SFXEV: langkah = kaki di ayunan terjauh (phase × 2 = n + ½), tiap 1/8 grid; hanya saat piktogram di layar
+const STEPS: number[] = [];
+for (let n = 0; WALK_A + (n + 0.5) * GRID <= WALK_B + 0.1; n++) {
+  const ts = WALK_A + (n + 0.5) * GRID;
+  const c = camAt(ts);
+  if (Math.abs(c.Zu * (c.ux - c.cx)) < 960 + 115 * c.Zu) STEPS.push(ts);
+}
+
 const Product: React.FC<{ i: number; lit: number }> = ({ i, lit }) => {
   const app = APPS[i];
   return (
@@ -50,37 +77,38 @@ const Product: React.FC<{ i: number; lit: number }> = ({ i, lit }) => {
 export const S05h_UsersWalkPast: React.FC = () => {
   const t = useT();
   // pengguna: kecepatan konstan (berjalan), langkah tiap 1/8 grid
-  const wp = Math.min(1, Math.max(0, (t - WALK_A) / (WALK_B - WALK_A)));
-  const ux = X0 + (X1 - X0) * wp;
   const phase = (t - WALK_A) / (GRID * 2);
   // Kamera 2.5D (v2): wide saat lampu menyala → C02 push-in ke close-up 1,7× mengikuti pengguna (C18) →
   // patah ke wide 5 f di «orang» (C15) → tahan wide, C01 zoom mikro di «susah» (lapis dunia saja; teks di ruang layar).
   // Lapis produk = kedalaman lebih jauh: zoom dan translasi ×0,55 (parallax, ≤ 24 px/f saat follow).
-  const pin = prog(t, T_PIN_A, T_PIN_B, EZ.inOut);
-  const snap = prog(t, W_ORANG, W_ORANG + 5 / FPS, EZ.out);
-  const cxF = 960 + (ux + 140 - 960) * pin;
-  const cx = cxF + (CX_END - cxF) * snap;
-  const Z = (1 + 0.7 * pin) * (1 - snap) + snap;
-  const micro = 1 + 0.04 * prog(t, W_SUSAH, W_SUSAH + 20 / FPS, EZ.inOut);
-  const Zu = Z * micro;
+  const { ux, snap, cx, Z, micro, Zu } = camAt(t);
   const Zp = (1 + (Z - 1) * 0.55) * micro;
   const cp = 960 + (cx - 960) * 0.55;
   const snapBlur = 3 * Math.sin(Math.PI * snap);
   // wipe: tepi depan siluet bergerak kiri→kanan
-  const wp2 = prog(t, WIPE_A, WIPE_B + 4 / FPS, EZ.inOut);
-  const lead = -200 + (1920 + WIPE_W + 400) * wp2;
-  const trail = lead - WIPE_W;
-  const clipRight = t < WIPE_B + 4 / FPS ? Math.max(0, 1920 - trail) : 0;
+  const trail = wipeTrail(t);
+  const clipRight = t < WIPE_END ? Math.max(0, 1920 - trail) : 0;
+  // ── SFXEV penanda metronom
+  sfxMark(t, "whoosh", (WIPE_A + WIPE_END) / 2, "05h:wipe:silhouette"); // siluet raksasa lewat kiri→kanan (EZ.inOut, puncak di tengah)
+  for (let i = 0; i < N; i++) {
+    // lampu produk menyala: hanya bila produk sudah terbuka oleh wipe saat menyala (kalau belum, ia terungkap sudah menyala)
+    const on = moveFrame(lightOn(i));
+    if (on >= WIPE_END || wipeTrail(on) > ROW_X + i * (PW + PG)) sfxMark(t, "toggle", on, `05h:light:on:${i}`);
+    sfxMark(t, "toggle", moveFrame(lightOff(i)), `05h:light:off:${i}`);
+  }
+  STEPS.forEach((ts, n) => sfxMark(t, "step", ts, `05h:user:step:${n}`));
+  sfxMark(t, "whoosh", (T_PIN_A + T_PIN_B) / 2, "05h:cam:pushin"); // C02 push-in 1→1,7× 0,65 dtk (EZ.inOut, puncak di tengah)
+  sfxMark(t, "whoosh", moveFrame(W_ORANG), "05h:cam:snapwide"); // patah close-up → wide 5 f (EZ.out)
   return (
     <Scene code="05h" pre={6 / FPS}>
       <AbsoluteFill style={{ clipPath: clipRight > 0 ? `inset(0 ${clipRight}px 0 0)` : undefined }}>
         <AbsoluteFill style={{ background: C.charcoal }}>
           <Camera scale={Zp} x={-Zp * (cp - 960)} oy={OY} blur={snapBlur}>
             {Array.from({ length: N }).map((_, i) => {
-              const on = P.start - 0.05 + (i * GRID) / 2; // menyala tiap 1/16
+              const on = lightOn(i);
               const near = Math.max(0, 1 - Math.abs(ux - (ROW_X + i * (PW + PG) + PW / 2)) / 260);
-              const off = prog(t, OFF + ((N - 1 - i) * GRID) / 4, OFF + ((N - 1 - i) * GRID) / 4 + 3 / FPS, EZ.out);
-              const lit = (prog(t, on, on + 3 / FPS, EZ.out) * (0.9 + 0.1 * near)) * (1 - 0.85 * off);
+              const off = prog(t, lightOff(i), lightOff(i) + LIGHT_DUR, EZ.out);
+              const lit = (prog(t, on, on + LIGHT_DUR, EZ.out) * (0.9 + 0.1 * near)) * (1 - 0.85 * off);
               return <Product key={i} i={i} lit={lit} />;
             })}
           </Camera>
@@ -99,7 +127,7 @@ export const S05h_UsersWalkPast: React.FC = () => {
         </AbsoluteFill>
       </AbsoluteFill>
       {/* siluet foreground (X10) */}
-      {t < WIPE_B + 4 / FPS && (
+      {t < WIPE_END && (
         <div style={{ position: "absolute", left: trail, top: -260, width: WIPE_W, height: 1700, borderRadius: "760px 760px 120px 120px", background: `linear-gradient(100deg, ${C.raised} 0%, ${C.charcoal} 65%)`, boxShadow: "inset 26px 10px 18px -8px rgba(255,255,255,0.55)", filter: "blur(6px)" }} />
       )}
     </Scene>

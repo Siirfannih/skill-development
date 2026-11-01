@@ -1,0 +1,233 @@
+[
+ {
+  "file": "aud__04C.wav",
+  "z": 3.31,
+  "verdict": "strong",
+  "harsh_z": 0.63,
+  "real": 0.97,
+  "tonal": 0.99,
+  "pitch_class": 3,
+  "in_key": true,
+  "rough": 0.16,
+  "hiss8k": 0.0,
+  "bite2_6k": 0.03,
+  "low300": 0.89,
+  "dur": 4.0,
+  "cen": 247,
+  "reject": []
+ },
+ {
+  "file": "es__riser_clean_01.mp3",
+  "z": 2.85,
+  "verdict": "plausible",
+  "harsh_z": -0.1,
+  "real": 0.78,
+  "tonal": 0.99,
+  "pitch_class": 2,
+  "in_key": true,
+  "rough": 0.15,
+  "hiss8k": 0.13,
+  "bite2_6k": 0.19,
+  "low300": 0.02,
+  "dur": 4.406,
+  "cen": 3352,
+  "reject": []
+ },
+ {
+  "file": "es__riser_suspense.mp3",
+  "z": 2.56,
+  "verdict": "plausible",
+  "harsh_z": -0.95,
+  "real": 0.94,
+  "tonal": 0.75,
+  "pitch_class": 3,
+  "in_key": true,
+  "rough": 0.42,
+  "hiss8k": 0.01,
+  "bite2_6k": 0.01,
+  "low300": 0.93,
+  "dur": 4.375,
+  "cen": 242,
+  "reject": [
+   "kasar"
+  ]
+ },
+ {
+  "file": "es__riser_whoosh_01.mp3",
+  "z": 2.21,
+  "verdict": "weak",
+  "harsh_z": -0.7,
+  "real": 0.98,
+  "tonal": 0.11,
+  "pitch_class": null,
+  "in_key": true,
+  "rough": 0.25,
+  "hiss8k": 0.01,
+  "bite2_6k": 0.14,
+  "low300": 0.52,
+  "dur": 3.016,
+  "cen": 1113,
+  "reject": [
+   "tidak cocok peran"
+  ]
+ },
+ {
+  "file": "es__riser_clean_02.mp3",
+  "z": 2.41,
+  "verdict": "weak",
+  "harsh_z": 0.07,
+  "real": 0.66,
+  "tonal": 0.66,
+  "pitch_class": 5,
+  "in_key": true,
+  "rough": 0.16,
+  "hiss8k": 0.03,
+  "bite2_6k": 0.59,
+  "low300": 0.01,
+  "dur": 3.266,
+  "cen": 2872,
+  "reject": [
+   "tidak cocok peran"
+  ]
+ },
+ {
+  "file": "bank__riser_snatch.wav",
+  "z": 0.27,
+  "verdict": "no match",
+  "harsh_z": -0.11,
+  "real": 0.93,
+  "tonal": 0.0,
+  "pitch_class": null,
+  "in_key": true,
+  "rough": 0.35,
+  "hiss8k": 0.01,
+  "bite2_6k": 0.01,
+  "low300": 0.43,
+  "dur": 0.635,
+  "cen": 463,
+  "reject": [
+   "tidak cocok peran"
+  ]
+ },
+ {
+  "file": "aud__04B.wav",
+  "z": 1.87,
+  "verdict": "no match",
+  "harsh_z": -0.48,
+  "real": 0.97,
+  "tonal": 0.79,
+  "pitch_class": 4,
+  "in_key": false,
+  "rough": 0.3,
+  "hiss8k": 0.0,
+  "bite2_6k": 0.0,
+  "low300": 0.87,
+  "dur": 2.257,
+  "cen": 165,
+  "reject": [
+   "sumbang (nada di luar G minor)",
+   "tidak cocok peran"
+  ]
+ },
+ {
+  "file": "aud__04D.wav",
+  "z": 2.24,
+  "verdict": "weak",
+  "harsh_z": 0.41,
+  "real": 0.54,
+  "tonal": 0.86,
+  "pitch_class": 8,
+  "in_key": false,
+  "rough": 0.33,
+  "hiss8k": 0.0,
+  "bite2_6k": 0.01,
+  "low300": 0.91,
+  "dur": 4.0,
+  "cen": 347,
+  "reject": [
+   "sumbang (nada di luar G minor)",
+   "tidak cocok peran"
+  ]
+ },
+ {
+  "file": "bank__riser_dark.wav",
+  "z": 1.13,
+  "verdict": "no match",
+  "harsh_z": 0.46,
+  "real": 0.76,
+  "tonal": 0.0,
+  "pitch_class": null,
+  "in_key": true,
+  "rough": 0.41,
+  "hiss8k": 0.0,
+  "bite2_6k": 0.01,
+  "low300": 0.39,
+  "dur": 0.951,
+  "cen": 451,
+  "reject": [
+   "kasar",
+   "tidak cocok peran"
+  ]
+ },
+ {
+  "file": "aud__04A.wav",
+  "z": 1.52,
+  "verdict": "no match",
+  "harsh_z": 1.55,
+  "real": 0.86,
+  "tonal": 0.73,
+  "pitch_class": 1,
+  "in_key": false,
+  "rough": 0.12,
+  "hiss8k": 0.04,
+  "bite2_6k": 0.15,
+  "low300": 0.16,
+  "dur": 1.881,
+  "cen": 2138,
+  "reject": [
+   "sumbang (nada di luar G minor)",
+   "tidak cocok peran"
+  ]
+ },
+ {
+  "file": "bank__riser_build.wav",
+  "z": 0.37,
+  "verdict": "no match",
+  "harsh_z": 1.44,
+  "real": 0.69,
+  "tonal": 0.0,
+  "pitch_class": null,
+  "in_key": true,
+  "rough": 0.4,
+  "hiss8k": 0.06,
+  "bite2_6k": 0.0,
+  "low300": 0.92,
+  "dur": 1.758,
+  "cen": 930,
+  "reject": [
+   "kasar",
+   "tidak cocok peran"
+  ]
+ },
+ {
+  "file": "aud__04E.wav",
+  "z": 2.42,
+  "verdict": "weak",
+  "harsh_z": 0.97,
+  "real": 0.42,
+  "tonal": 0.76,
+  "pitch_class": 11,
+  "in_key": false,
+  "rough": 0.3,
+  "hiss8k": 0.0,
+  "bite2_6k": 0.0,
+  "low300": 0.82,
+  "dur": 4.0,
+  "cen": 282,
+  "reject": [
+   "sumbang (nada di luar G minor)",
+   "tidak cocok peran",
+   "terdengar sintetis"
+  ]
+ }
+]

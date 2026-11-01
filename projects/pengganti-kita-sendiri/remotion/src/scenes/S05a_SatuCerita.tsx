@@ -3,9 +3,10 @@
 // Keluar C06 reveal-out: kamera mundur memusatkan kartu biru, foto lain memudar abu → ribuan kartu abu (05b).
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { Camera, EZ, Grain, keys, KWord, prog, Scene, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { panel, word } from "../lib/time";
-import { altCard, ALTMAN_STILL, CARD05A_END, T_SHRINK_END, DRIFT05A, DRIFTX05A, lerp, reveal05a, S05A_END } from "./_b4_shared";
+import { altCard, ALTMAN_STILL, CARD05A_END, T_SHRINK, T_SHRINK_END, DRIFT05A, DRIFTX05A, lerp, reveal05a, S05A_END } from "./_b4_shared";
+import { firstFrame, moveFrame, progAt } from "./_b5_shared";
 
 // posisi dari panel Wonder 05a (×2); z = lapis parallax (0,5 belakang · 1 tengah · 1,6 depan)
 const PHOTOS = [
@@ -22,6 +23,9 @@ const PHOTOS = [
 ];
 
 const O = { x: 960, y: 540 };
+// masuk foto (dipakai animasi + penanda SFX)
+const PH_IN = 0.45;
+const photoA = (start: number, idx: number, z: number) => start + 0.04 + idx * 0.045 + (z < 1 ? 0.1 : 0);
 
 
 export const S05a_SatuCerita: React.FC = () => {
@@ -65,14 +69,21 @@ export const S05a_SatuCerita: React.FC = () => {
   const pushY = (540 - CARD05A_END.y) * 0.5 * pk;
   const tSatuGlow = prog(t, tSatu + 2 / 30, tSatu + 0.4, EZ.out);
 
+  // ── SFXEV penanda metronom
+  sfxMark(t, "cut", P.start, "05a:in:cut"); // klip Altman 04d → 05a
+  PHOTOS.forEach((ph, idx) => { const a = photoA(P.start, idx, ph.z); sfxMark(t, "pop", progAt(a, a + PH_IN, EZ.out), `05a:photo:${idx}`); });
+  sfxMark(t, "land", firstFrame(T_SHRINK_END), "05a:bluecard:land"); // kartu Altman bergaris biru selesai menyusut ke tempatnya
+  sfxMark(t, "whoosh", moveFrame(tSnap), "05a:cam:snapwide"); // patah close-up → wide 5 f (EZ.out, puncak di frame gerak pertama)
+  sfxMark(t, "whoosh", (T_SHRINK + T_SHRINK_END) / 2, "05a:altman:shrink"); // kartu Altman menyusut ke tempatnya (X13), puncak kecepatan di tengah gerak
+
   return (
     <Scene code="05a">
       <AbsoluteFill style={{ background: "var(--sb-paper)", overflow: "hidden" }}>
         <Camera scale={camPush} x={pushX} y={pushY} ox={CARD05A_END.x} oy={CARD05A_END.y} blur={snap > 0 && snap < 1 ? 2 : 0}>
         {[...PHOTOS].sort((a, b) => a.z - b.z).map((ph, i) => {
           const idx = PHOTOS.indexOf(ph);
-          const a = P.start + 0.04 + idx * 0.045 + (ph.z < 1 ? 0.1 : 0);
-          const inP = prog(t, a, a + 0.45, EZ.out);
+          const a = photoA(P.start, idx, ph.z);
+          const inP = prog(t, a, a + PH_IN, EZ.out);
           const bob = Math.sin(t * 0.9 + idx * 1.3) * 5 * ph.z;
           const c = place(ph.x + ph.w / 2, ph.y + ph.h / 2 + bob, ph.z);
           const sc = c.k * (1.06 - 0.06 * inP);

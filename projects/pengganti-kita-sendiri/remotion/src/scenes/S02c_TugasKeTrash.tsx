@@ -4,8 +4,8 @@
 // yang sama (berulang). Kamera C18 mengikuti kursor dengan lag. Keluar X07: cut saat kursor melesat ke kartu berikut.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { EZ, keys, prog, Scene, useT, Grain } from "../lib/anim";
-import { panel, word } from "../lib/time";
+import { EZ, keys, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
+import { FPS, panel, word } from "../lib/time";
 const W_BERULANG = word("berulang", "s2", 1);
 const P02C = panel("02c");
 import { C } from "./_b2_shared";
@@ -126,6 +126,16 @@ export const S02c_TugasKeTrash: React.FC = () => {
   // bump Trash tepat di tick
   const bump = TICKS.reduce((acc, tk) => acc + keys(t, [[tk, 0], [tk + 0.06, 1], [tk + 0.2, 0]], EZ.out), 0);
   const full = TICKS.filter((tk) => t >= tk).length;
+  // SFXEV · metronom per kartu: tekan (puncak clickPulse), seret (cursorAt u EZ.inOut → tengah), masuk Trash (tick),
+  // kursor balik ke tumpukan (EZ.inOut → tengah). Balik terakhir = EZ.acc sampai p.end+0,25 → dicatat di frame cut terakhir.
+  plan.forEach((P, i) => {
+    sfxMark(t, "click", P.grab + 0.03, `02c:grab:${i}`);
+    sfxMark(t, "whoosh", (P.grab + 0.06 + P.release - 0.02) / 2, `02c:drag:${i}`);
+    sfxMark(t, "trash", P.inT, `02c:trash:${i}`);
+    const next = plan[i + 1];
+    if (next) sfxMark(t, "whoosh", (P.release + 0.06 + next.grab - 0.03) / 2, `02c:return:${i}`);
+    else sfxMark(t, "whoosh", p.end - 1 / FPS, `02c:return:${i}`);
+  });
 
   const stack: React.ReactNode[] = [];
   QUEUE.forEach((task, qi) => {

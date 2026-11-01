@@ -2,6 +2,14 @@
 // dipakai ulang di 03c/03d/06a–06g: impor dari sini supaya bentuk, warna, dan cahaya identik.
 // Satuan = px layar 1920×1080 pada skala 1 (panel Wonder ×2). Semua deterministik.
 import React from "react";
+import { EZ } from "../lib/anim";
+
+/** SFXEV: detik saat prog(t, a, b, ez) mencapai 0,5 (titik «±50 % perjalanan masuk» untuk sfxMark pop). */
+export const ezHalf = (a: number, b: number, ez: (x: number) => number = EZ.out) => {
+  let lo = 0, hi = 1;
+  for (let i = 0; i < 30; i++) { const m = (lo + hi) / 2; if (ez(m) < 0.5) lo = m; else hi = m; }
+  return a + (b - a) * hi;
+};
 
 export const C = {
   charcoal: "#101216",
@@ -31,13 +39,17 @@ export const LightCone: React.FC<{ cx: number; floorY: number; open?: number; w?
   const bx = botHalf / k; // lebar di bawah frame (proporsional)
   return (
     <>
-      <div
-        style={{
-          position: "absolute", left: cx - bx, top: y0, width: bx * 2, height: H,
-          clipPath: `polygon(${50 - (topHalf / (bx * 2)) * 100}% 0%, ${50 + (topHalf / (bx * 2)) * 100}% 0%, 100% 100%, 0% 100%)`,
-          backgroundImage: `linear-gradient(180deg, rgba(255,255,255,${0.22 * intensity}) 0%, rgba(255,255,255,${0.06 * intensity}) ${k * 100}%, rgba(255,255,255,0) 100%)`,
-        }}
-      />
+      {/* tepi kerucut di-feather (blur di wrapper, karena clip-path diterapkan SESUDAH filter pada elemen yang sama);
+          blur mengecil saat kerucut masih berupa garis finis tipis supaya garisnya tidak hilang. */}
+      <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, filter: `blur(${2 + 12 * Math.min(1, open)}px)` }}>
+        <div
+          style={{
+            position: "absolute", left: cx - bx, top: y0, width: bx * 2, height: H,
+            clipPath: `polygon(${50 - (topHalf / (bx * 2)) * 100}% 0%, ${50 + (topHalf / (bx * 2)) * 100}% 0%, 100% 100%, 0% 100%)`,
+            backgroundImage: `linear-gradient(180deg, rgba(255,255,255,${0.22 * intensity}) 0%, rgba(255,255,255,${0.06 * intensity}) ${k * 100}%, rgba(255,255,255,0) 100%)`,
+          }}
+        />
+      </div>
       <div
         style={{
           position: "absolute", left: cx - botHalf * 0.95, top: floorY - 56, width: botHalf * 1.9, height: 112, borderRadius: "50%",
@@ -68,6 +80,9 @@ export const Pictogram: React.FC<{ cx: number; headTop: number; s?: number; rim?
         borderTopLeftRadius: bw / 2, borderTopRightRadius: bw / 2,
         backgroundImage: `linear-gradient(${ang}deg, ${C.charcoal} 35%, ${C.raised} 100%)`,
         boxShadow: `inset ${-10 * dir * s}px ${6 * s}px ${8 * s}px ${-4 * s}px rgba(255,255,255,0.7)`,
+        // kaki badan larut ke lantai gelap (tanpa potongan datar + ujung rim light yang terpotong)
+        WebkitMaskImage: "linear-gradient(180deg, #000 78%, rgba(0,0,0,0) 100%)",
+        maskImage: "linear-gradient(180deg, #000 78%, rgba(0,0,0,0) 100%)",
       }} />
     </div>
   );

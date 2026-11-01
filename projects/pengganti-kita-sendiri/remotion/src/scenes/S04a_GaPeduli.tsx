@@ -2,7 +2,7 @@
 // Kamera: mulai menengadah ke langit gelap → C01 punch-in mikro di «peduli» → tilt turun ke cahaya → C08 truck ke garis waktu (04b).
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Camera, EZ, Grain, keys, KWord, prog, Scene, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { panel, word } from "../lib/time";
 
 // bintang dari panel Wonder (×2), satu lapis langit
@@ -31,7 +31,8 @@ export const S04a_GaPeduli: React.FC = () => {
 
   // tilt: menengadah → komposisi panel saat «peduli» → turun ke cahaya sesudah «pikirkan»
   const tiltA = 63.85;
-  const camY = keys(t, [[P.start, 150], [tPe, 0], [tiltA, -40], [P.end - 0.12, -640]], EZ.inOut);
+  const tiltB = P.end - 0.12;
+  const camY = keys(t, [[P.start, 150], [tPe, 0], [tiltA, -40], [tiltB, -640]], EZ.inOut);
   // C01 punch-in mikro di «peduli»
   // C02 push-in pelan selama «Teknologi ini» (tensi sebelum inti kalimat) + C01 punch-in di «peduli»
   const camS = 0.97 + 0.03 * prog(t, P.start, tNg, EZ.inOut) + 0.06 * prog(t, tPe, tPe + 0.6, EZ.out) + 0.012 * prog(t, tPe + 0.6, tiltA, EZ.inOut);
@@ -42,11 +43,16 @@ export const S04a_GaPeduli: React.FC = () => {
   const dawn = prog(t, P.start, P.end, (x) => x);
   const twinkle = (i: number) => 0.75 + 0.25 * Math.sin(t * 2.1 + i * 1.7);
 
+  // ── SFXEV (metronom SFX)
+  sfxMark(t, "riser", P.start, "04a:cut:in"); // hard cut klip Jensen → horizon 04a (swell memuncak di cut)
+  sfxMark(t, "whoosh", (tiltA + tiltB) / 2, "04a:cam:tiltdown"); // tilt turun −40 → −640 (segmen tercepat, EZ.inOut → tengah)
+  // truck C08 (EZ.acc, puncak di batas 04a/04b) ditandai di 04b:cam:truck
+
   return (
     <Scene code="04a">
       <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
         <Camera scale={camS} x={camX} y={camY} oy={480} blur={truck * 6}>
-          <div style={{ position: "absolute", left: -200, top: -300, width: 2320, height: 2100, background: SKY }} />
+          <div style={{ position: "absolute", left: -600, top: -300, width: 3120, height: 2100, background: SKY }} />
           {/* cahaya fajar: pita terang di horizon yang terus naik */}
           <div style={{
             position: "absolute", left: 960 - 1300, top: 900 - dawn * 120 - 300, width: 2600, height: 600, borderRadius: "50%",

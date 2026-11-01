@@ -3,7 +3,7 @@
 // Kamera mundur pelan (C06 lambat); di akhir mulai truck ke kanan → cut on motion ke kerumunan 06f.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, Grain, KWord, prog, Scene, useT } from "../lib/anim";
+import { EZ, Grain, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
 import { Ball, C6, lerp, Plane, SideUnit, Torso } from "./_b6_shared";
 import { OFF_HOLD, T_OFF } from "./S06d_Prompt";
@@ -18,6 +18,9 @@ export const SNAP_WIDE = W_TERTINGGAL - 0.22; // patah ke wide sebelum kata, sup
 export const S06e_Tertinggal: React.FC = () => {
   const t = useT();
   const back = prog(t, START, P.end, EZ.inOut);
+  // ── SFXEV
+  sfxMark(t, "cut", START, "06e:cut:in"); // potong dalam gelap dari 06d
+  sfxMark(t, "whoosh", SNAP_WIDE + 1 / FPS, "06e:snapwide:1"); // patah close 2× → wide dalam 6 f (EZ.out)
   const sc = 1.06 - 0.06 * back;
   // close 2× pada kita yang padam (C18 drift pelan), lalu patah ke wide dalam 6 f: jarak ke yang lain terlihat
   const zc = 2 + 0.08 * prog(t, START, SNAP_WIDE, EZ.inOut);
@@ -33,7 +36,7 @@ export const S06e_Tertinggal: React.FC = () => {
             {/* kita: bidang padam, tanpa rim light */}
             <Plane b={{ x: 270, y: 290, w: 150, h: 50 }} on={0} />
             <Ball b={{ x: 150, y: 250, w: 80, h: 80 }} rim={0.25} r={2} flat />
-            <Torso b={{ x: 114, y: 338, w: 152, h: 180 }} rim={0.2} r={2} flat />
+            <Torso b={{ x: 114, y: 338, w: 152, h: 250 }} rim={0.2} r={2} flat />{/* h 180→250: alas datar badan tidak lagi terlihat di atas tepi bawah frame saat wide */}
             {/* yang lain: tetap menyala, menjauh ke kanan (mengecil = makin jauh) */}
             <div style={{ position: "absolute", left: 600, top: 320, transform: `translateX(${recede * 110}px) translateY(${-recede * 18}px) scale(${1 - 0.32 * recede})`, transformOrigin: "0 60px" }}>
               {[0, 1, 2].map((i) => (

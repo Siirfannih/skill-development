@@ -1,0 +1,114 @@
+[
+ {
+  "file": "aud__09C.wav",
+  "z": 3.17,
+  "verdict": "strong",
+  "harsh_z": -0.46,
+  "real": 0.99,
+  "tonal": 0.0,
+  "pitch_class": null,
+  "in_key": true,
+  "rough": 1.13,
+  "hiss8k": 0.05,
+  "bite2_6k": 0.54,
+  "low300": 0.0,
+  "dur": 0.148,
+  "cen": 3659,
+  "reject": []
+ },
+ {
+  "file": "es__light_switch_apartment02.mp3",
+  "z": 3.9,
+  "verdict": "strong",
+  "harsh_z": -1.13,
+  "real": 0.88,
+  "tonal": 0.0,
+  "pitch_class": null,
+  "in_key": true,
+  "rough": 0.93,
+  "hiss8k": 0.06,
+  "bite2_6k": 0.4,
+  "low300": 0.0,
+  "dur": 1.753,
+  "cen": 2733,
+  "reject": [
+   "kasar"
+  ]
+ },
+ {
+  "file": "es__light_switch_on_off.mp3",
+  "z": 3.67,
+  "verdict": "strong",
+  "harsh_z": -1.09,
+  "real": 0.94,
+  "tonal": 0.0,
+  "pitch_class": null,
+  "in_key": true,
+  "rough": 0.96,
+  "hiss8k": 0.08,
+  "bite2_6k": 0.47,
+  "low300": 0.03,
+  "dur": 1.264,
+  "cen": 3761,
+  "reject": [
+   "kasar"
+  ]
+ },
+ {
+  "file": "aud__09A.wav",
+  "z": 3.25,
+  "verdict": "strong",
+  "harsh_z": 0.58,
+  "real": 0.99,
+  "tonal": 0.39,
+  "pitch_class": null,
+  "in_key": true,
+  "rough": 0.96,
+  "hiss8k": 0.24,
+  "bite2_6k": 0.4,
+  "low300": 0.09,
+  "dur": 0.47,
+  "cen": 5128,
+  "reject": [
+   "kasar"
+  ]
+ },
+ {
+  "file": "bank__fit_snap_switch_flip.wav",
+  "z": 2.62,
+  "verdict": "plausible",
+  "harsh_z": 0.32,
+  "real": 0.89,
+  "tonal": 0.0,
+  "pitch_class": null,
+  "in_key": true,
+  "rough": 0.92,
+  "hiss8k": 0.8,
+  "bite2_6k": 0.09,
+  "low300": 0.0,
+  "dur": 0.185,
+  "cen": 10007,
+  "reject": [
+   "desis"
+  ]
+ },
+ {
+  "file": "aud__09D.wav",
+  "z": 1.94,
+  "verdict": "no match",
+  "harsh_z": 0.43,
+  "real": 0.98,
+  "tonal": 0.0,
+  "pitch_class": null,
+  "in_key": true,
+  "rough": 0.78,
+  "hiss8k": 0.04,
+  "bite2_6k": 0.3,
+  "low300": 0.33,
+  "dur": 0.206,
+  "cen": 1958,
+  "reject": [
+   "tidak cocok peran"
+  ]
+ }
+]

@@ -3,15 +3,25 @@
 // ke luar tepat di micro-tick «kesempatan» (88.69). Kamera C08 truck kiri→kanan, keluar X06 whip ke kanan (6 f) ke 05f.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, Grain, keys, prog, Scene, useT } from "../lib/anim";
+import { EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
-import { C, z3tick } from "./_b5_shared";
+import { C, moveFrame, progAt, z3tick } from "./_b5_shared";
 
 const P = panel("05e");
 const T_TICK = z3tick("05e kesempatan"); // 88.69
 const W_KES = word("kesempatan", "s5", 1).s; // 88.56
 const WHIP = P.end - 6 / FPS;
 const CW = 640, CH = 600, GAP = 64;
+const RAY_DUR = 0.35;
+const CARD_IN = 6 / FPS;
+/** truck kiri→kanan (≤ 22 px/f puncak), lalu whip — posisi X kamera di detik t. */
+const camXAt = (t: number) => {
+  const truck = keys(t, [[P.start, 0], [WHIP, 1100]], EZ.inOut);
+  const whip = prog(t, WHIP, P.end, EZ.acc);
+  return -(truck + whip * 2200);
+};
+/** C01 zoom mikro di «kesempatan» (lapis kartu 1→1,05, 20 f). */
+const microAt = (t: number) => 1 + 0.05 * prog(t, W_KES, W_KES + 20 / FPS, EZ.inOut);
 const DOMAINS = ["cofounder.ai", "mycofounder.app", "aicofounder.io", "cofoundr.ai", "getcofounder.com", "cofounder.so", "launchmate.ai", "cofounderly.app", "buildbuddy.ai"];
 
 const Landing: React.FC<{ domain: string }> = ({ domain }) => (
@@ -62,38 +72,66 @@ const Landing: React.FC<{ domain: string }> = ({ domain }) => (
 export const S05e_SameChance: React.FC = () => {
   const t = useT();
   // sinar memancar dari tengah di «dan», kilat kecil di tick
-  const ray = prog(t, P.start, P.start + 0.35, EZ.out);
+  const ray = prog(t, P.start, P.start + RAY_DUR, EZ.out);
   const flash = t >= T_TICK ? Math.exp(-(t - T_TICK) * 6) : 0;
   const rot = (t - P.start) * 2.2;
   // truck kiri→kanan (≤ 22 px/f puncak), lalu whip
-  const truck = keys(t, [[P.start, 0], [WHIP, 1100]], EZ.inOut);
   const whip = prog(t, WHIP, P.end, EZ.acc);
-  const camX = -(truck + whip * 2200);
+  const camX = camXAt(t);
   const whipBlur = whip * 40;
   // v2: C01 zoom mikro di «kesempatan» (lapis kartu 1→1,05, 20 f) + parallax 2.5D: sinar (latar jauh) ikut 12 % truck
-  const micro = 1 + 0.05 * prog(t, W_KES, W_KES + 20 / FPS, EZ.inOut);
+  const micro = microAt(t);
   const rayX = camX * 0.12;
   const rowLeft = 960 - CW * 1.5 - GAP - 700; // kartu tengah layar awal ≈ indeks 2–3
+  const cardA = (i: number) => {
+    const x = rowLeft + i * (CW + GAP);
+    // gelombang dari tengah layar ke luar, 1 f per langkah jarak
+    const dist = Math.abs(x + CW / 2 - 960) / (CW + GAP);
+    return { x, a: T_TICK + (dist * 1.4) / FPS };
+  };
+  // ── SFXEV penanda metronom
+  sfxMark(t, "cut", P.start, "05e:in:cut"); // tablet 05d → ray burst
+  sfxMark(t, "whoosh", moveFrame(P.start), "05e:ray:burst"); // sinar memancar 0,35→1 (EZ.out, puncak di frame gerak pertama)
+  // landing page mendarat: satu tanda per frame-mendarat (kartu berpasangan kiri/kanan mendarat di frame sama),
+  // hanya kartu yang terlihat di layar saat mendarat (posisi kamera dari camXAt yang sama)
+  const ringDone = new Set<number>();
+  DOMAINS.forEach((_, i) => {
+    const { x, a } = cardA(i);
+    const at = progAt(a, a + CARD_IN, EZ.out);
+    const fr = Math.round(at * FPS);
+    const sx = 960 + (x + camXAt(at) - 960) * microAt(at);
+    if (sx + CW < 0 || sx > 1920 || ringDone.has(fr)) return;
+    ringDone.add(fr);
+    sfxMark(t, "pop", at, `05e:landing:${i}`);
+  });
+  sfxMark(t, "whoosh", P.end - 1 / FPS, "05e:cam:whip"); // whip X06 ke kanan 6 f (EZ.acc, puncak di akhir)
   return (
     <Scene code="05e">
       <AbsoluteFill style={{ background: `radial-gradient(circle at 50% 50%, ${C.violet50} 0%, ${C.violet200} 30%, ${C.violet400} 55%, ${C.electric} 100%)`, overflow: "hidden" }}>
         {/* R-RAY: diam di ruang layar (latar jauh), rotasi pelan */}
-        <svg width="2400" height="2400" viewBox="-1200 -1200 2400 2400" style={{ position: "absolute", left: -240 + rayX, top: -660, transform: `rotate(${rot}deg) scale(${0.35 + 0.65 * ray})`, opacity: ray }}>
+        {/* kanvas sinar 4200 (pusat tetap 960,540) + mask radial: ujung sinar memudar lembut, tak pernah terpotong tepi kotak SVG
+            saat skala kecil; inti cahaya radial menutup titik temu sinar yang lancip */}
+        <svg width="4200" height="4200" viewBox="-2100 -2100 4200 4200" style={{ position: "absolute", left: 960 - 2100 + rayX, top: 540 - 2100, transform: `rotate(${rot}deg) scale(${0.35 + 0.65 * ray})`, opacity: ray, maskImage: "radial-gradient(circle closest-side at 50% 50%, #000 50%, rgba(0,0,0,0) 97%)", WebkitMaskImage: "radial-gradient(circle closest-side at 50% 50%, #000 50%, rgba(0,0,0,0) 97%)" }}>
+          <defs>
+            <radialGradient id="rayCore05e">
+              <stop offset="0%" stopColor="#ffffff" stopOpacity={0.75} />
+              <stop offset="45%" stopColor="#ffffff" stopOpacity={0.28} />
+              <stop offset="100%" stopColor="#ffffff" stopOpacity={0} />
+            </radialGradient>
+          </defs>
           {Array.from({ length: 14 }).map((_, i) => {
             const a0 = (i / 14) * Math.PI * 2;
             const a1 = a0 + 0.13;
-            const R = 1700;
+            const R = 2050;
             return <polygon key={i} points={`0,0 ${Math.cos(a0) * R},${Math.sin(a0) * R} ${Math.cos(a1) * R},${Math.sin(a1) * R}`} fill="#ffffff" fillOpacity={0.2 + 0.25 * flash} />;
           })}
+          <circle r={300} fill="url(#rayCore05e)" />
         </svg>
         <svg width="0" height="0" style={{ position: "absolute" }}><filter id="whip05e" x="-20%" y="0" width="140%" height="100%"><feGaussianBlur stdDeviation={`${whipBlur} 0`} /></filter></svg>
         <AbsoluteFill style={{ transform: `scale(${micro}) translateX(${camX}px)`, transformOrigin: "960px 540px", filter: whipBlur > 0.1 ? "url(#whip05e)" : undefined }}>
           {DOMAINS.map((d, i) => {
-            const x = rowLeft + i * (CW + GAP);
-            // gelombang dari tengah layar ke luar, 1 f per langkah jarak
-            const dist = Math.abs(x + CW / 2 - 960) / (CW + GAP);
-            const a = T_TICK + (dist * 1.4) / FPS;
-            const p = prog(t, a, a + 6 / FPS, EZ.out);
+            const { x, a } = cardA(i);
+            const p = prog(t, a, a + CARD_IN, EZ.out);
             return (
               <div key={i} style={{ position: "absolute", left: x, top: 540 - CH / 2 + 10, opacity: Math.min(1, p * 2), transform: `translateY(${(1 - p) * 60}px) scale(${0.9 + 0.1 * p})` }}>
                 <Landing domain={d} />

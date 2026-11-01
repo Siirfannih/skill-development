@@ -82,6 +82,24 @@ export const shake = (t: number, t0: number, amp = 10, dur = 0.25) => {
   return { x: Math.sin(d * 2 * Math.PI * 8) * k, y: Math.cos(d * 2 * Math.PI * 7) * k * 0.6 };
 };
 
+/**
+ * SFXEV · penanda metronom untuk SFX. Setiap objek non-teks yang muncul, mendarat, diklik, menyala/padam, bergerak cepat
+ * atau dipotong menulis SATU baris log di frame kontaknya, dihitung dari konstanta waktu yang sama dengan animasinya:
+ *   SFXEV <kind> <detik> <id>
+ * Hanya aktif saat render dengan --props='{"sfxlog":true}'. Panggil di badan komponen yang dirender tiap frame:
+ *   sfxMark(t, "pop", cardIn, "02c:card:1")
+ * kind (kosakata cue earshot): click (klik kursor/tombol) · pop (kartu/panel/ikon/chip muncul) · land (objek mendarat)
+ *   · snap (foto/potongan montase) · whoosh (gerak cepat / kamera patah / swipe, di PUNCAK KECEPATAN) · riser (dicatat di frame HIT-nya)
+ *   · hit (hantaman/slam/mendarat berat) · key (satu huruf terketik) · toggle (lampu/bidang menyala/padam) · trash · draw (garis mulai
+ *   digambar) · step (kaki menapak) · notify (notifikasi/pesan masuk) · cut (hard cut tanpa bunyi, untuk audit).
+ */
+export type SfxKind = "click" | "pop" | "land" | "snap" | "whoosh" | "riser" | "hit" | "key" | "toggle" | "trash" | "draw" | "step" | "notify" | "cut";
+export const sfxMark = (t: number, kind: SfxKind, at: number, id: string) => {
+  if ((getInputProps() as { sfxlog?: boolean }).sfxlog && Math.round(t * FPS) === Math.round(at * FPS)) {
+    console.log(`SFXEV ${kind} ${at.toFixed(3)} ${id}`);
+  }
+};
+
 export type KStyle = "rise" | "slam" | "pop" | "flipX" | "swingY" | "blurIn" | "fade";
 /**
  * Kata kinetik. `at` = onset kata VO (detik absolut); kata muncul +2 f (T19).

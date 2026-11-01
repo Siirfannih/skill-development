@@ -3,11 +3,12 @@
 // Masuk: lanjutan push-through 06b (zoom mendarat). Keluar: bidang membesar terang → bloom match ke composer 06d.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, Grain, keys, prog, Scene, useT } from "../lib/anim";
+import { EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
 import { Ball, C6, Plane, Torso, wa } from "./_b6_shared";
 
 const P = panel("06c");
+const PUSH_HIT_06B = panel("06b").end; // akhir push-through S06a (B.end) = mendarat di 06c
 const F2 = 2 / FPS;
 const W_MENYERAHKAN = word("menyerahkan", "s6", 1).s;
 const W_AI = word("AI", "s6", 1).s; // «ke AI,» di 06c
@@ -28,8 +29,16 @@ export const BLOOM_06C_END = (t: number) => keys(t, [[P.end - 0.3, 0], [P.end, 0
 export const S06c_Serahkan: React.FC = () => {
   const t = useT();
   const lift = prog(t, W_MENYERAHKAN + F2, W_MENYERAHKAN + F2 + 0.35, EZ.out);
-  const u = prog(t, W_MENYERAHKAN + 0.3, W_AI_C + F2, EZ.inOut);
-  const absorb = prog(t, W_AI_C + F2, W_AI_C + F2 + 0.28, EZ.acc);
+  const FLY_A = W_MENYERAHKAN + 0.3;
+  const FLY_B = W_AI_C + F2;
+  const ABSORB_END = W_AI_C + F2 + 0.28;
+  const u = prog(t, FLY_A, FLY_B, EZ.inOut);
+  const absorb = prog(t, W_AI_C + F2, ABSORB_END, EZ.acc);
+  // ── SFXEV
+  sfxMark(t, "riser", PUSH_HIT_06B, "06b:push:1"); // push-through ×5 (S06a) → frame hit
+  sfxMark(t, "hit", P.start, "06c:land:1"); // zoom + blur meluruh mendarat di close-up
+  sfxMark(t, "whoosh", (FLY_A + FLY_B) / 2, "06c:head:fly"); // kepala melayang, puncak kecepatan inOut
+  sfxMark(t, "hit", ABSORB_END, "06c:head:absorb"); // kepala terhisap habis (scale→0, EZ.acc)
   const pos = bez(u);
   const headY = pos.y - lift * 16 * (1 - u);
   const hs = 1 - absorb;
@@ -60,7 +69,7 @@ export const S06c_Serahkan: React.FC = () => {
                 <polyline points={pts.join(" ")} fill="none" stroke="rgb(210,210,215)" strokeOpacity={0.45} strokeWidth={2} strokeDasharray="6 8" strokeLinecap="round" />
               </svg>
             )}
-            <Plane b={{ x: 700, y: 90, w: 320, h: 360 }} on={1} slant={0.18} boost={boost * 1.2}
+            <Plane b={{ x: 700, y: 90, w: 320, h: 360 }} on={1} slant={0.18} boost={boost * 1.2} softGlow
               grad={`linear-gradient(90deg, ${C6.paper} 0%, ${C6.white} 45%)`}
               glow={{ b: { x: 770, y: 140, w: 170, h: 260 }, blur: 140, spread: 50, a: 0.24, radius: 40 }} />
             <Torso b={{ x: 60, y: 330, w: 360, h: 300 }} rim={0.6} r={6} />

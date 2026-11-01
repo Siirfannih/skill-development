@@ -2,9 +2,12 @@
 // Kamera C08 truck kiri→kanan (lanjutan truck 04a). Keluar X01: kartu menyusut jadi titik di garis → titik grafik 04c.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Camera, EZ, Grain, keys, prog, Scene, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { panel, word } from "../lib/time";
+import { ezAt } from "./_b3_shared";
 import { CARD_H, CARD_W, LINE_Y, RELEASES } from "./_b4_shared";
+
+const CARD_IN = 0.2; // kartu naik + muncul
 
 export const S04b_Rilis: React.FC = () => {
   const t = useT();
@@ -22,6 +25,12 @@ export const S04b_Rilis: React.FC = () => {
   const snapW = prog(t, AT[5], AT[5] + 5 / 30, EZ.out);
   const camS = 1.25 - 0.25 * snapW;
 
+  // ── SFXEV (metronom SFX)
+  sfxMark(t, "whoosh", P.start, "04b:cam:truck"); // truck C08: puncak kecepatan di sambungan 04a (EZ.acc) → 04b (EZ.out)
+  AT.forEach((a, i) => sfxMark(t, "pop", ezAt(a, a + CARD_IN, EZ.out), `04b:card:${i}`)); // kartu kaca rilis muncul (50 %)
+  sfxMark(t, "whoosh", AT[5], "04b:cam:snapwide"); // C18 close → patah ke wide 5 f (EZ.out → awal)
+  sfxMark(t, "whoosh", (X0 + P.end - 0.04) / 2, "04b:x01:collapse"); // keenam kartu menyusut jadi titik (EZ.inOut → tengah)
+
   return (
     <Scene code="04b">
       <AbsoluteFill style={{ background: "linear-gradient(180deg, var(--sky-300) 0%, var(--sky-100) 38%, var(--sky-50) 70%, #fff 100%)", overflow: "hidden" }}>
@@ -30,7 +39,7 @@ export const S04b_Rilis: React.FC = () => {
           {RELEASES.map((r, i) => {
             const a = AT[i];
             if (t < a) return null;
-            const p = prog(t, a, a + 0.2, EZ.out);
+            const p = prog(t, a, a + CARD_IN, EZ.out);
             const hot = i === RELEASES.length - 1;
             // kolaps ke titik di pusat kartu
             const w = CARD_W + (20 - CARD_W) * col;

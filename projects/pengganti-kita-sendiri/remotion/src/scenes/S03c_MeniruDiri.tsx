@@ -3,10 +3,10 @@
 // Tanpa teks di 03c/03d. Ruang dunia 1920×1080 (panel ×2).
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { Camera, EZ, Grain, keys, KWord, prog, Scene, shake, useT } from "../lib/anim";
+import { Camera, EZ, Grain, keys, KWord, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
 import { block, FPS, panel, word, wordsOf } from "../lib/time";
-import { cue, LightCone, MattePicto, PICTO, pictoHalfWidth, WirePicto } from "./_b3_shared";
+import { cue, ezAt, LightCone, MattePicto, PICTO, pictoHalfWidth, WirePicto } from "./_b3_shared";
 
 const PC = panel("03c");
 const PE = panel("03e");
@@ -24,8 +24,10 @@ const HEAD_TOP = PICTO.headTop;
 const FLOOR = PICTO.floor;
 
 // isi: pelan di «perlahan», makin cepat, penuh di «besar»
+const FILL_A = W("perlahan") + 0.15; // garis scan menyala
+const FILL_B = W("besar") + 0.1; // terisi penuh, garis scan padam
 const fillAt = (t: number) =>
-  keys(t, [[W("perlahan") + 0.15, 0], [W("bangun"), 0.32], [W("cukup"), 0.72], [W("besar") + 0.1, 1]], EZ.inOut);
+  keys(t, [[FILL_A, 0], [W("bangun"), 0.32], [W("cukup"), 0.72], [FILL_B, 1]], EZ.inOut);
 
 // salinan melangkah (3 langkah) dari «mengambil» sampai sebelum beat drop
 const STEP_A = W("mengambil");
@@ -33,6 +35,8 @@ const STEP_B = BOOM - 0.12;
 const RETREAT_A = W("mengambil") + 0.1;
 const RETREAT_B = BOOM;
 const T_SNAP = W("besar") + 0.16; // sesudah latch «terisi penuh» (besar + 0,1)
+const SNAP_DUR = 0.17;
+const SHRINK_A = BOOM + 0.42; // X13 frame 03d menyusut jadi kartu klip
 
 // terjemahan Jensen, kata Indonesia mendarat di kata Inggris padanannya (indeks wordsOf('jensen'))
 const JW = wordsOf("jensen");
@@ -85,6 +89,16 @@ const Stage: React.FC<{ t: number }> = ({ t }) => {
 export const S03c_MeniruDiri: React.FC = () => {
   const t = useT();
 
+  // ── SFXEV (metronom SFX)
+  sfxMark(t, "hit", PC.start, "03c:land"); // zoom-through 03b mendarat di ruang gelap (close 2,1 → 1,8, EZ.out)
+  sfxMark(t, "toggle", FILL_A, "03c:scan:on"); // garis cahaya scan muncul di kaki wireframe
+  sfxMark(t, "toggle", FILL_B, "03c:scan:off"); // salinan terisi penuh, garis scan padam
+  sfxMark(t, "whoosh", T_SNAP + SNAP_DUR / 2, "03c:cam:snapwide"); // C15 patah close → wide (EZ.inOut → tengah)
+  [1, 2, 3].forEach((n) => sfxMark(t, "step", ezAt(STEP_A, STEP_B, EZ.inOut, n / 3), `03d:step:${n}`)); // stepBob = 0 di sp = n/3
+  sfxMark(t, "hit", BOOM, "03d:boom"); // beat drop: flare cahaya + shake + C01 punch
+  sfxMark(t, "whoosh", (SHRINK_A + JENSEN) / 2, "03d:x13:shrink"); // X13 frame menyusut jadi kartu (EZ.inOut → tengah)
+  sfxMark(t, "cut", JENSEN, "03e:clip:in"); // isi kartu berganti ke klip Jensen
+
   // kamera 03c: zoom-through mendarat close (2,1 → 1,8) di kaki salinan, C18 ikut garis scan naik ke kepala,
   // lalu C15 patah ke wide ≤ 6 f setelah salinan penuh: kita dan salinan sama tinggi.
   // 03d: ikut ke cahaya + C02 push-in mulai «tempat», C01 hentak kecil di beat drop.
@@ -93,7 +107,7 @@ export const S03c_MeniruDiri: React.FC = () => {
   const land = prog(t, PC.start, PC.start + 0.5, EZ.out);
   const closeS = 2.1 - 0.3 * land;
   const py = Math.max(500, Math.min(840, yF - 40));
-  const snap = prog(t, T_SNAP, T_SNAP + 0.17, EZ.inOut);
+  const snap = prog(t, T_SNAP, T_SNAP + SNAP_DUR, EZ.inOut);
   const pan = prog(t, STEP_A, BOOM, EZ.inOut);
   const push = prog(t, W("tempat"), BOOM, EZ.inOut);
   const punch = prog(t, BOOM, BOOM + 15 / FPS, EZ.out);
@@ -111,7 +125,7 @@ export const S03c_MeniruDiri: React.FC = () => {
   const sh = shake(t, BOOM, 6, 0.3);
 
   // X13: frame 03d menyusut jadi kartu klip (berakhir tepat saat klip mulai)
-  const k = prog(t, BOOM + 0.42, JENSEN, EZ.inOut);
+  const k = prog(t, SHRINK_A, JENSEN, EZ.inOut);
   const sc = 1 - (1 - 1120 / 1920) * k;
   const showClip = t >= JENSEN - 0.5 / FPS;
 
@@ -120,6 +134,7 @@ export const S03c_MeniruDiri: React.FC = () => {
   const labelP = prog(t, JENSEN + 0.1, JENSEN + 0.5, EZ.out);
   // C20 cut zoom ke wajah Jensen di «somebody» (garis pandang sama, momentum 6 f); kartu & terjemahan tidak bergerak
   const T_CZ = JW[18].s;
+  sfxMark(t, "cut", T_CZ, "03e:cutzoom"); // SFXEV: C20 cut zoom, audit
   const cz = t >= T_CZ ? 1.6 + 0.05 * prog(t, T_CZ, T_CZ + 6 / FPS, EZ.out) : 1;
 
   return (

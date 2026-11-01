@@ -3,9 +3,10 @@
 // Teks di bawah grafik (judul gambar kerja), bukan di atas visual.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, KWord, keys, prog, Scene, useT, Grain } from "../lib/anim";
+import { EZ, KWord, keys, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
 import { panel, word } from "../lib/time";
 import { BlueprintGrid, BlueprintPaper, C, makePath } from "./_b2_shared";
+import { ezHalf } from "./_b1_shared";
 
 const W_JANJI = word("janji", "s2", 1);
 const W_SEDERHANA = word("sederhana", "s2", 1);
@@ -24,13 +25,19 @@ export const S02b_JanjiSederhana: React.FC = () => {
   // bingkai digores mulai «janji» (keliling rect, satu goresan pena)
   const fr = prog(t, W_JANJI.s, W_JANJI.s + 0.42, EZ.inOut);
   // sumbu dan garis janji disketsa setelah judul lengkap
-  const axis = prog(t, W_SEDERHANA.s + 0.05, W_SEDERHANA.s + 0.4, EZ.out);
+  const axisA = W_SEDERHANA.s + 0.05;
+  const axis = prog(t, axisA, W_SEDERHANA.s + 0.4, EZ.out);
   const d0 = W_SEDERHANA.s + 0.2;
   const d1 = p.end - 0.3;
   const draw = prog(t, d0, d1, EZ.inOut);
   const tip = LINE.at(draw * LINE.L);
   const dot = prog(t, d1, d1 + 0.12, EZ.out);
   const per = 2 * (FRAME.w + FRAME.h);
+  // SFXEV · metronom
+  sfxMark(t, "draw", W_JANJI.s, "02b:frame:draw"); // bingkai judul digores
+  sfxMark(t, "draw", axisA, "02b:axis:draw"); // sumbu waktu
+  sfxMark(t, "draw", d0, "02b:line:draw"); // garis janji disketsa, ujung pena memimpin
+  sfxMark(t, "pop", ezHalf(d1, d1 + 0.12), "02b:dot:goal"); // titik tujuan (label JANJI = KWord, tercatat otomatis)
   return (
     <Scene code="02b">
       <AbsoluteFill>

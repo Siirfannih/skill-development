@@ -4,9 +4,9 @@
 // raksasa lewat dekat kamera kiri→kanan dan membuka 05h (wipe digambar di S05h, yang dirender di atas adegan ini).
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, Grain, keys, prog, Scene, useT } from "../lib/anim";
+import { EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel } from "../lib/time";
-import { AppCard, APPS, GRID, SKY_BG, z3tick } from "./_b5_shared";
+import { AppCard, APPS, firstFrame, GRID, moveFrame, SKY_BG, z3tick } from "./_b5_shared";
 
 const P = panel("05g");
 const T_TICK = z3tick("05g kartu"); // 97.89
@@ -32,6 +32,10 @@ export const S05g_BuildingEasy: React.FC = () => {
     else { kf.push([a, SNAPS[j - 1][1]]); kf.push([a + 5 / FPS, s]); }
   });
   const cam = keys(t, kf, EZ.out);
+  // ── SFXEV penanda metronom
+  sfxMark(t, "cut", P.start, "05g:in:cut"); // hard cut X17 dari SEMALAM 05f
+  LAND.forEach((a, i) => sfxMark(t, "land", firstFrame(a), `05g:card:${i}:${APPS[i % APPS.length].name.split(" ")[0].toLowerCase()}`)); // kartu jatuh → mendarat (EZ.acc berakhir di a)
+  SNAPS.forEach(([i], j) => { if (j > 0) sfxMark(t, "whoosh", moveFrame(LAND[i]), `05g:cam:snap:${j}`); }); // kamera snap mundur 5 f (EZ.out) di frame kartu pemicu mendarat
   return (
     <Scene code="05g">
       <AbsoluteFill style={{ background: SKY_BG, overflow: "hidden" }}>

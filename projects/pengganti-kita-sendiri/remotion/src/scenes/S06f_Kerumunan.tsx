@@ -4,7 +4,7 @@
 // berdenyut bersamaan. Keluar: crane naik ke wide (barisan mengecil ke atas, bidang makin pipih) → posisi barisan 06g.
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, Grain, prog, Scene, useT } from "../lib/anim";
+import { EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
 import { BackUnit, C6 } from "./_b6_shared";
 import { TRUCK_V } from "./S06e_Tertinggal";
@@ -35,6 +35,12 @@ export const S06f_Kerumunan: React.FC = () => {
   const tc = W_TOOLS + F2;
   const cz = t >= tc ? 1.4 + 0.05 * (1 - prog(t, tc, tc + 6 / FPS, EZ.out)) : 1;
   const Z = 1 + (cz * (1 + 0.06 * prog(t, W_SAMA, W_SAMA + 18 / FPS, EZ.out)) - 1) * (1 - crane);
+  // ── SFXEV
+  sfxMark(t, "cut", P.start, "06f:cut:in"); // cut on motion dari truck 06e
+  sfxMark(t, "pop", tc, "06f:glyph:all"); // glyph OpenAI serentak di semua bidang
+  sfxMark(t, "cut", tc, "06f:cutzoom:1"); // C20 cut zoom ×1,4 di frame yang sama
+  sfxMark(t, "pop", W_SAMA + F2, "06f:pulse:1"); // semua bidang berdenyut di «sama»
+  sfxMark(t, "whoosh", P.end - 1 / FPS, "06f:crane:1"); // crane EZ.acc: tercepat di frame terakhir sebelum 06g
   const row = (list: typeof FRONT, par: number, op: number, key: string) =>
     list.map((u, i) => (
       <div key={key + i} style={{ position: "absolute", left: u.x + truck * par, top: u.y, width: 160, height: 260, transform: `scale(${u.s})`, transformOrigin: "0 0", opacity: op }}>

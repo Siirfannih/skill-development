@@ -3,9 +3,9 @@
 // Kamera C08 truck lambat dengan parallax per lapis; keluar X09 wipe ke kertas blueprint 02b.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
-import { Camera, EZ, Grain, KWord, prog, Scene, useT } from "../lib/anim";
+import { Camera, EZ, Grain, KWord, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
-import { C } from "./_b1_shared";
+import { C, ezHalf } from "./_b1_shared";
 
 const P = panel("02a");
 const W = (w: string) => word(w, "s2").s;
@@ -16,6 +16,9 @@ const fr = 1 / FPS;
 const WIPE_A = P.end - 7 * fr;
 const CUTZ = T.pertama + 2 * fr; // C20 cut zoom ke kalimat rilis, bersamaan «pertama» (bunyi kata yang sudah ada)
 const SNAP = T.dibicarakan - 0.14; // patah ke wide sebelum kata penutup (whoosh_s 02a_snap_wide)
+const P1D_END = panel("01d").end; // batas babak B1 → B2: hit riser isi wireframe 01d (frame pertama adegan ini)
+const CARD_A = P.start + 2 * fr, CARD_B = P.start + 14 * fr; // kartu Wikipedia masuk
+const SEL_A = T.pertama + 2 * fr; // drag-select kalimat rilis mulai
 const SEL_Q = { x: 960, y: 640 }; // titik dunia kalimat yang diseleksi (baris 2–3 paragraf kartu)
 
 // lapis kolase (px layar). k = faktor parallax truck (jauh < 1 < dekat)
@@ -39,8 +42,8 @@ export const S02a_Wikipedia: React.FC = () => {
   const t = useT();
   const u = (t - P.start) / P.dur;
   const camX = 40 - 110 * u; // C08 truck lambat (drift linear)
-  const card = prog(t, P.start + 2 * fr, P.start + 14 * fr, EZ.out);
-  const sel = prog(t, T.pertama + 2 * fr, T.kali + 8 * fr, EZ.inOut);
+  const card = prog(t, CARD_A, CARD_B, EZ.out);
+  const sel = prog(t, SEL_A, T.kali + 8 * fr, EZ.inOut);
   const wipe = prog(t, WIPE_A, P.end, EZ.inOut);
   // kamera: wide + truck C08 → C01 di «AI» → C20 cut zoom 1,85× ke seleksi (momentum 6 f) → patah wide 5 f → wipe
   const c01 = 1 + 0.06 * prog(t, T.ai + 2 * fr, T.ai + 20 * fr, EZ.out);
@@ -52,6 +55,16 @@ export const S02a_Wikipedia: React.FC = () => {
   const qy = 540 * (1 - inClose) + SEL_Q.y * inClose;
   const gy = 540 * (1 - inClose) + 450 * inClose; // seleksi diletakkan di atas baris teks bawah
   const cam = { x: 960 - qx * sc, y: gy - qy * sc };
+  // SFXEV · metronom (konstanta yang sama dengan animasi di bawah)
+  sfxMark(t, "riser", P1D_END, "01d:fill:riser"); // isi wireframe (kurva ^2,2) → hard cut batas babak
+  sfxMark(t, "cut", P.start, "02a:cut:babak");
+  PHOTOS.forEach((_, i) => sfxMark(t, "pop", ezHalf(P.start + i * 2 * fr, P.start + (i * 2 + 10) * fr), `02a:photo:${i}`));
+  sfxMark(t, "pop", ezHalf(CARD_A, CARD_B), "02a:card:wiki");
+  SQUARES.forEach((q, i) => sfxMark(t, "pop", ezHalf(q.at + 2 * fr, q.at + 6 * fr), `02a:square:${i}`));
+  sfxMark(t, "cut", CUTZ, "02a:cut:zoom"); // C20 cut zoom 1,85× ke kalimat rilis
+  sfxMark(t, "click", SEL_A, "02a:select:start"); // drag-select browser mulai (tekan)
+  sfxMark(t, "whoosh", SNAP, "02a:cam:snapwide"); // patah ke wide 5 f EZ.out
+  sfxMark(t, "whoosh", ezHalf(WIPE_A, P.end, EZ.inOut), "02a:wipe:x09"); // X09 wipe 7 f EZ.inOut → puncak di tengah
   const snapBlur = t >= SNAP && inClose > 0.1 && inClose < 0.95 ? 2.5 * inClose : 0;
   return (
     <Scene code="02a" name="02a Wikipedia">

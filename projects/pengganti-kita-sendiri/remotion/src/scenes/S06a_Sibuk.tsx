@@ -3,7 +3,7 @@
 // dan keluar dengan push-through ke satu unit (dilanjutkan close-up 06c).
 import React from "react";
 import { AbsoluteFill } from "remotion";
-import { EZ, Grain, keys, prog, Scene, useT } from "../lib/anim";
+import { EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
 import { Ball, C6, lerp, Plane, PLANE_TEXT, SideUnit, Torso, wa } from "./_b6_shared";
 
@@ -51,7 +51,18 @@ const HeroUnit: React.FC<{ k: number; on: number; t: number }> = ({ k, on, t }) 
   return (
     <div style={{ position: "absolute", left: 0, top: 0, width: 164, height: 200 }}>
       {/* berkas cahaya dari bidang (06a), hilang saat unit menyusut ke proporsi grid */}
-      <div style={{ position: "absolute", left: 89.1, top: -36.8, width: 167.7, height: 109.7, clipPath: "polygon(4% 100%, 100% 96%, 100% 0%, 58% 0%)", backgroundImage: `linear-gradient(215deg, ${wa(0.06)} 0%, ${wa(0.3)} 85%)`, opacity: (1 - k) * on }} />
+      {/* alas berkas = tepi atas bidang (tak ada ujung lancip di kiri bidang); sisi di-feather blur, ujung atas memudar lewat mask */}
+      {(() => {
+        const bh = plane.y + 2 + 36.8; // dari y −36,8 sampai 2 unit di bawah tepi atas bidang (tertutup bidang)
+        const xl = 0.1 * plane.w + 1;
+        const xr = plane.w - 1;
+        const bw = xr + 0.6 * bh + 4;
+        return (
+          <div style={{ position: "absolute", left: plane.x, top: -36.8, width: bw, height: bh, filter: "blur(1.4px)", WebkitMaskImage: "linear-gradient(180deg, transparent 0%, #000 45%)", maskImage: "linear-gradient(180deg, transparent 0%, #000 45%)", opacity: (1 - k) * on }}>
+            <div style={{ position: "absolute", inset: 0, clipPath: `polygon(${xl}px ${bh}px, ${xr}px ${bh}px, ${xr + 0.6 * bh}px 0px, ${xl + 0.826 * bh}px 0px)`, backgroundImage: `linear-gradient(215deg, ${wa(0.06)} 0%, ${wa(0.3)} 85%)` }} />
+          </div>
+        );
+      })()}
       <Plane b={plane} on={on} glow={glow} grad={`linear-gradient(90deg, ${C6.white} 55%, ${C6.paper} 100%)`} />
       {/* MEMBANGUN: masuk naik di bidang, lalu terangkat jadi bayangan 25 % */}
       {t >= a1 && (
@@ -107,6 +118,16 @@ export const S06a_Sibuk: React.FC = () => {
   // nyala awal 06a mendarat di sapuan low-pass (B5 → B6)
   const boot = prog(t, A.start, A.start + 0.5, EZ.out);
   const heroOn = 0.55 + 0.45 * boot;
+
+  // ── SFXEV (waktu = konstanta yang sama dengan animasi di atas / HeroUnit)
+  sfxMark(t, "cut", A.start, "06a:cut:in"); // B5 → B6
+  sfxMark(t, "pop", W_MEMBANGUN + F2, "06a:membangun:1"); // a1 HeroUnit: MEMBANGUN naik di bidang
+  sfxMark(t, "cut", W_TERLALU2, "06a:cutzoom:1"); // C20 cut zoom ×1,32 ke bidang
+  sfxMark(t, "whoosh", W_MERENCANAKAN + F2 + 1 / FPS, "06a:swap:1"); // a2 T32 swap (EZ.out 9 f, puncak di awal)
+  sfxMark(t, "whoosh", B.start + 1 / FPS, "06b:reveal:1"); // rev: patah ke wide 72 % dalam 6 f (EZ.out)
+  sfxMark(t, "toggle", W_HAL + F2, "06b:row:hero"); // rowOn baris hero (4 bidang)
+  sfxMark(t, "toggle", W_SAMA + F2, "06b:row:top"); // rowOn baris atas (5 bidang)
+  // push-through (riser) berakhir di B.end = frame pertama 06c → ditandai di S06c (frame B.end tidak dirender di sini)
 
   const cells: { r: number; c: number }[] = [];
   for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) if (!(r === HERO.r && c === HERO.c)) cells.push({ r, c });
