@@ -9,7 +9,8 @@ import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim
 import { Clip, DOC_GRADE } from "../lib/media";
 import { block, FPS, panel, word } from "../lib/time";
 import { AnchorStage, AnchorWord, useFrameAt } from "../lib/AnchorWord";
-import { useSubjectMatte } from "../lib/SubjectMatteStub";
+import { MatteClip, useSubjectMatte } from "../lib/SubjectMatte";
+import { orbitLine, SpeakerWords, wordAt } from "../lib/SpeakerWords";
 import { altCard, ALTMAN_STILL, CLIP_CARD, T_SHRINK, T_STILL } from "./_b4_shared";
 
 // crop sumber 1920×1080 → kartu: Altman di tengah kartu
@@ -91,7 +92,7 @@ export const S04d_AltmanOrbit: React.FC = () => {
           <div style={{ position: "absolute", left: card.x, top: card.y, width: card.w, height: card.h, borderRadius: card.r, overflow: "hidden" }}>
             <div style={{ position: "relative", width: "100%", height: "100%", overflow: "hidden" }}>
               <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, transformOrigin: "0 0", transform: crop }}>
-                <Clip src={matteAltman} at={B.t} inS={IN_S} outS={OUT_S + TAIL} />
+                <MatteClip src={matteAltman} at={B.t} inS={IN_S} outS={OUT_S + TAIL} />
               </div>
             </div>
           </div>
@@ -101,6 +102,22 @@ export const S04d_AltmanOrbit: React.FC = () => {
             sfx={{ kind: "sub_impact", id: "04d:anchor:billion" }} />
           <AnchorWord text="COMPANY" at={atCompany} until={outW} x={1520} y={330} size={108} color="#fff" enter="right" shadow="0 4px 30px rgba(0,0,0,0.6)" />
         </AnchorStage>
+        {/* F2: kata Altman non-anchor berjalan di BUSUR DEPAN cincin orbit (kiri→kanan), miring mengikuti singgung busur (halus),
+            di depan kartu dan di DEPAN matte (sengaja di luar AnchorStage). Dua ruang kosong (setelah «legitimate» dan setelah «person»)
+            = tempat anchor SINGLE / BILLION COMPANY yang duduk di belakang kepala. */}
+        <SpeakerWords until={Math.round((T_SHRINK + 0.05) * FPS)} words={orbitLine([
+          { text: "it", at: wordAt("altman", "it"), size: 52 },
+          { text: "is", at: wordAt("altman", "is"), size: 52 },
+          { text: "a", at: wordAt("altman", "a"), size: 52 },
+          { text: "legitimate", at: wordAt("altman", "legitimate"), size: 74 },
+          { text: "person", at: wordAt("altman", "person"), size: 62 },
+          { text: "as", at: wordAt("altman", "as"), size: 48 },
+          { text: "far", at: wordAt("altman", "far"), size: 48 },
+          { text: "as", at: wordAt("altman", "as", 2), size: 48 },
+          { text: "i", at: wordAt("altman", "i"), size: 48 },
+          { text: "can", at: wordAt("altman", "can"), size: 48 },
+          { text: "tell", at: wordAt("altman", "tell"), size: 70, kind: "last" },
+        ], RC, { gapsAfter: { 3: 150, 4: 230 }, fill: 0.94 })} />
         {/* atribusi */}
         <div style={{ position: "absolute", left: 0, right: 0, top: 872, textAlign: "center", fontFamily: "Inter", fontWeight: 600, fontSize: 26, letterSpacing: 4.2, color: "rgba(255,255,255,0.6)", opacity: prog(t, P.start + 0.3, P.start + 0.8, EZ.out) * (1 - wordsOut) }}>
           SAM ALTMAN · CEO OPENAI · MOSTLY HUMAN

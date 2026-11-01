@@ -6,7 +6,8 @@ import { AbsoluteFill } from "remotion";
 import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
 import { AnchorStage, AnchorWord, useFrameAt } from "../lib/AnchorWord";
-import { useSubjectMatte } from "../lib/SubjectMatteStub";
+import { MatteClip, useSubjectMatte } from "../lib/SubjectMatte";
+import { SpeakerLine, wordAt } from "../lib/SpeakerWords";
 import { block, FPS, panel, word, wordsOf } from "../lib/time";
 import { cue, ezAt, LightCone, MattePicto, PICTO, pictoHalfWidth, WirePicto } from "./_b3_shared";
 
@@ -93,7 +94,7 @@ const Stage: React.FC<{ t: number }> = ({ t }) => {
 export const S03c_MeniruDiri: React.FC = () => {
   const t = useT();
   const matteJensen = useSubjectMatte("jensen"); // null selama stub → teks di depan
-  const atJob = useFrameAt(1701), atSomebody = useFrameAt(1781), atAi = useFrameAt(1804), endJ = useFrameAt(Math.round(PE.end * FPS)); // v9: #15
+  const fSomebody = 1781, fEnd = Math.round(PE.end * FPS); // frame ABSOLUT (f terukur ANCHORS-V9 #15; SpeakerLine memakai frame absolut)
 
   // ── SFXEV (metronom SFX)
   sfxMark(t, "hit", PC.start, "03c:land"); // zoom-through 03b mendarat di ruang gelap (close 2,1 → 1,8, EZ.out)
@@ -180,15 +181,27 @@ export const S03c_MeniruDiri: React.FC = () => {
               <AnchorStage bg={null} fg={matteJensen ? (
                 <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, overflow: "hidden", transform: `translateY(${(411 - 540) * k}px) scale(${sc})`, transformOrigin: "960px 540px", borderRadius: (28 * k) / sc }}>
                   <AbsoluteFill style={{ transform: `scale(${cz})`, transformOrigin: "55% 18%" }}>
-                    <Clip src={matteJensen} at={block("jensen").t} inS={CLIP_IN} outS={CLIP_OUT} style={{ transform: "scale(1.05)" }} />
-                    <Clip src={matteJensen} at={CLIP_END} inS={CLIP_OUT} outS={CLIP_OUT + (PE.end - CLIP_END) + 0.1} style={{ transform: "scale(1.05)" }} />
+                    <MatteClip src={matteJensen} at={block("jensen").t} inS={CLIP_IN} outS={CLIP_OUT} style={{ transform: "scale(1.05)" }} />
+                    <MatteClip src={matteJensen} at={CLIP_END} inS={CLIP_OUT} outS={CLIP_OUT + (PE.end - CLIP_END) + 0.1} style={{ transform: "scale(1.05)" }} />
                   </AbsoluteFill>
                 </div>
               ) : undefined}>
-                <AnchorWord text="JOB" at={atJob} until={endJ} x={430} y={560} size={150} color="#FAF8EC" align="left" enter="left" shadow="0 4px 30px rgba(0,0,0,0.6)" />
-                <AnchorWord text="SOMEBODY" at={atSomebody} until={atAi} x={800} y={560} size={120} color="#FAF8EC" align="left" enter="right" shadow="0 4px 30px rgba(0,0,0,0.6)"
-                  sfx={{ kind: "sub_impact", id: "03e:anchor:somebody" }} />
-                <AnchorWord text="AI" at={atAi} until={endJ} x={800} y={560} size={260} color="#FAF8EC" align="left" enter="scale" shadow="0 4px 30px rgba(0,0,0,0.6)" />
+                {/* F2: kalimat Jensen dua bagian kontras di SATU slot baris (y 600): «not gonna lose a JOB» lalu diganti «SOMEBODY who uses AI».
+                    Bagian 1 kecil-ke-besar (JOB tekanan), bagian 2 SOMEBODY besar → who uses kecil → AI raksasa. Kata lain kalimat
+                    ("your job to an AI but you're gonna...") sengaja dilewati: kontras dua bagian, bukan subtitle. */}
+                <SpeakerLine x={960} baseline={600} align="center" until={fSomebody} words={[
+                  { text: "not", at: wordAt("jensen", "not"), size: 64 },
+                  { text: "gonna", at: wordAt("jensen", "gonna"), size: 64 },
+                  { text: "lose", at: wordAt("jensen", "lose"), size: 84 },
+                  { text: "a", at: wordAt("jensen", "a"), size: 56 },
+                  { text: "JOB", at: 1701, size: 190, kind: "emph", enter: "left" },
+                ]} />
+                <SpeakerLine x={960} baseline={600} align="center" until={fEnd} words={[
+                  { text: "SOMEBODY", at: 1781, size: 100, kind: "emph", enter: "right", sfx: { kind: "sub_impact", id: "03e:anchor:somebody" } },
+                  { text: "who", at: wordAt("jensen", "who"), size: 54 },
+                  { text: "uses", at: wordAt("jensen", "uses"), size: 54 },
+                  { text: "AI", at: 1804, size: 200, kind: "emph" },
+                ]} />
               </AnchorStage>
             </>
           )}

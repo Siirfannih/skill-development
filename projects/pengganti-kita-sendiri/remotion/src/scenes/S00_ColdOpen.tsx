@@ -2,11 +2,12 @@
 // Pola dari referensi siirfannih_DfDC0I9PHin: footage berganti per frasa, suara asli disambung rapat.
 import React from "react";
 import { AbsoluteFill, Img, staticFile, getInputProps } from "remotion";
-import { Camera, EZ, keys, prog, Scene, useT, useSceneFrom, Grain, sfxMark } from "../lib/anim";
-import { AnchorStage, AnchorWord } from "../lib/AnchorWord";
-import { useSubjectMatte } from "../lib/SubjectMatteStub";
+import { Camera, EZ, keys, prog, Scene, useT, Grain, sfxMark } from "../lib/anim";
+import { AnchorStage } from "../lib/AnchorWord";
+import { MatteClip, useSubjectMatte } from "../lib/SubjectMatte";
+import { SpeakerLine, wordAt } from "../lib/SpeakerWords";
 import { Clip, DOC_GRADE } from "../lib/media";
-import { block, FPS, panel, WORDS } from "../lib/time";
+import { block, FPS, panel, word as timelineWord, WORDS } from "../lib/time";
 import cues from "../../public/data/cues11.json";
 
 // (tick FOUNDER/CEO/SEMALAM tidak dipakai lagi sejak v2)
@@ -119,19 +120,23 @@ export const S00_ColdOpen: React.FC = () => {
   CUTS.forEach((c, i) => sfxMark(t, "cut", c.at, `00a:cut:${i}`));
   for (let i = 0; MONTAGE_A + i * STEP < MONTAGE_B; i++) sfxMark(t, "snap", Math.ceil((MONTAGE_A + i * STEP) * FPS - 1e-6) / FPS, `00a:photo:${i}`);
   sfxMark(t, "whoosh", shrinkAt, "00b:shrink:0");
-  // matte narasumber (null selama stub): fg di depan teks, transform identik dengan footage (FRAMES + zoom aksen)
-  const sf = useSceneFrom();
-  const mattes: Record<string, string | null> = { news_gates: useSubjectMatte("news_gates"), news_teen: useSubjectMatte("news_teen"), news_billion: useSubjectMatte("news_billion") };
+  // matte narasumber (null bila input props noMatte): fg di depan teks, transform/grade/trim identik dengan footage (FRAMES + zoom aksen).
+  // Potongan montase foto (indeks 1–2: Gates tertutup foto penuh) TIDAK diberi matte; potongan terakhir ikut menyusut jadi kartu.
+  const mattes: Record<string, string | null> = {
+    news_gates: useSubjectMatte("news_gates"), news_teen: useSubjectMatte("news_teen"),
+    news_billion: useSubjectMatte("news_billion"), news_fast: useSubjectMatte("news_fast"),
+  };
   const matteFg = Object.values(mattes).some(Boolean) ? (
-    <AbsoluteFill style={{ overflow: "hidden" }}>
+    <AbsoluteFill style={{ transform: t >= shrinkAt ? `scale(${cardScale})` : undefined, borderRadius: t >= shrinkAt ? 24 / cardScale : 0, overflow: "hidden" }}>
       {CUTS.map((c, i) => {
+        if (i === 1 || i === 2) return null;
         const key = NEWS.find((n) => n.file === c.file)!.name;
         const m = mattes[key];
         if (!m) return null;
         const F = FRAMES[i];
         const acc = WORDS.find((w) => w.s >= c.at && w.s < (CUTS[i + 1]?.at ?? 99) && isAccent(w.w, F.accent));
         const z = 1 + 0.02 * prog(t, c.at, c.at + 1.2, EZ.inOut) + (acc ? 0.05 * prog(t, acc.s, acc.s + 0.6, EZ.out) : 0);
-        return <Clip key={i} src={m} at={c.at} inS={c.inS} outS={c.outS} style={{ transform: `translate(${F.tx}px, ${F.ty}px) scale(${F.s * z})`, transformOrigin: "0 0" }} grade={`${DOC_GRADE} brightness(${dimF})`} />;
+        return <MatteClip key={i} src={m} at={c.at} inS={c.inS} outS={c.outS} style={{ transform: `translate(${F.tx}px, ${F.ty}px) scale(${F.s * z})`, transformOrigin: "0 0" }} grade={`${DOC_GRADE} brightness(${dimF})`} />;
       })}
     </AbsoluteFill>
   ) : undefined;
@@ -185,32 +190,69 @@ export const S00_ColdOpen: React.FC = () => {
             </div>
           );
         })()}
-        {/* v9 (B1): subtitle transkrip dihapus → anchor word 1–3 kata, di belakang kepala narsum bila matte ada (useSubjectMatte, stub = null → teks di depan).
-            Frame masuk = "f terukur" ANCHORS-V9 (onset suku tekan, diukur di dialog.wav). */}
+        {/* v9 (B1+F2): teks per kata NARASUMBER (Inggris, sesuai ucapan), masuk di onset kata (ceil, tidak pernah lebih awal),
+            4 teknik per fungsi kata (SpeakerWords) + anchor (AnchorWord) sebagai kata tekanan. Komposisi berbeda per narsum:
+            Gates = tumpukan kiri bertingkat → baris tengah-bawah di atas montase; remaja = tangga kiri→kanan di ruang kanan;
+            Bloomberg = kolom kiri dengan BILLION sebagai angka pahlawan; Sky News grafik = baris kecil → FAST raksasa.
+            Matte (fg) menaruh teks di belakang kepala; di montase foto tidak ada matte. */}
         <AnchorStage bg={null} fg={matteFg}>
           {(() => {
-            const o = sf; // frame awal Scene (0)
-            const SH = "0 2px 6px rgba(0,0,0,0.35), 0 4px 36px rgba(0,0,0,0.6)";
-            const CR = "#FAF8EC";
-            const gEnd = Math.round(block("news_teen").t * FPS) - o;
-            const tEnd = Math.round(block("news_billion").t * FPS) - o;
-            const bEnd = Math.round(block("news_fast").t * FPS) - o;
+            const gEnd = Math.round(block("news_teen").t * FPS);
+            const tEnd = Math.round(block("news_billion").t * FPS);
+            const bEnd = Math.round(block("news_fast").t * FPS);
+            const mEnd = Math.round(MONTAGE_A * FPS); // tumpukan Gates berhenti saat montase foto mulai
+            const W = (src: string, w: string, n = 1) => wordAt(src, w, n);
+            // "16-year-old" satu kata di timeline (3,70–4,1 dtk): "year old" masuk di ±45 % durasinya
+            const yo = Math.ceil((timelineWord("16-year-old", "news_teen").s + 0.45 * (timelineWord("16-year-old", "news_teen").e - timelineWord("16-year-old", "news_teen").s)) * FPS);
             return (
               <>
-                {/* #1 Gates: slot kiri (Gates di kanan), AI → BIGGEST di tempat yang sama */}
-                <AnchorWord text="AI" at={2 - o} until={27 - o} x={140} y={540} size={380} color={CR} align="left" enter="scale" shadow={SH} />
-                <AnchorWord text="BIGGEST" at={27 - o} until={gEnd} x={140} y={540} size={168} color={CR} align="left" enter="left" shadow={SH}
-                  sfx={{ kind: "sub_impact", id: "00a:anchor:biggest" }} />
-                {/* #2 remaja Sky News (kiri), slot kanan-bawah: 16 → LAUNCHED */}
-                <AnchorWord text="16" at={112 - o} until={133 - o} x={1040} y={640} size={420} color={CR} align="left" enter="scale" shadow={SH} />
-                <AnchorWord text="LAUNCHED" at={133 - o} until={tEnd} x={1040} y={640} size={150} color={CR} align="left" enter="right" shadow={SH}
-                  sfx={{ kind: "scifi_whoosh", id: "00a:anchor:launched" }} />
-                {/* #3 Bloomberg (presenter kanan), slot kiri tengah-bawah */}
-                <AnchorWord text="BILLION" at={208 - o} until={bEnd} x={110} y={600} size={160} color={CR} align="left" enter="scale" shadow={SH}
-                  sfx={{ kind: "sub_impact", id: "00a:anchor:billion" }} />
-                {/* #4 Sky News grafik: FAST di tengah-bawah kartu yang menyusut (foto awan lewat di belakang) */}
-                <AnchorWord text="FAST" at={284 - o} until={pB.end * FPS - o} x={960} y={820} size={300} color={CR} align="center" enter="right" shadow={SH}
-                  sfx={{ kind: "scifi_whoosh", id: "00b:anchor:fast" }} />
+                {/* Gates (kanan frame): tumpukan kiri AI / is the / BIGGEST, hierarki 300 → 84 → 150 */}
+                <SpeakerLine words={[{ text: "AI", at: 2, size: 300, kind: "emph" }]} x={140} baseline={420} until={mEnd} />
+                <SpeakerLine words={[{ text: "is", at: W("news_gates", "is"), size: 84 }, { text: "the", at: W("news_gates", "the"), size: 84 }]} x={146} baseline={530} until={mEnd} />
+                <SpeakerLine words={[{ text: "BIGGEST", at: 27, size: 150, kind: "emph", enter: "left", sfx: { kind: "sub_impact", id: "00a:anchor:biggest" } }]} x={140} baseline={690} until={mEnd} />
+                {/* montase foto: satu baris tengah-bawah (di bawah dagu foto, di atas zona UI 8 %) */}
+                <SpeakerLine x={960} baseline={930} align="center" until={gEnd} words={[
+                  { text: "technical", at: W("news_gates", "technical"), size: 92 },
+                  { text: "thing", at: W("news_gates", "thing"), size: 92 },
+                  { text: "ever", at: W("news_gates", "ever"), size: 60 },
+                  { text: "in", at: W("news_gates", "in"), size: 52 },
+                  { text: "my", at: W("news_gates", "my"), size: 52 },
+                  { text: "lifetime", at: W("news_gates", "lifetime"), size: 112, kind: "last" },
+                ]} />
+                {/* remaja Sky News (kiri): tangga kiri→kanan di ruang kanan, 16 = angka (scale-slam), LAUNCHED = tekanan */}
+                <SpeakerLine x={980} baseline={470} until={tEnd} words={[
+                  { text: "16", at: 112, size: 300, kind: "number" },
+                  { text: "year old", at: yo, size: 76 },
+                ]} />
+                <SpeakerLine x={1010} baseline={640} until={tEnd} words={[
+                  { text: "LAUNCHED", at: 133, size: 128, kind: "emph", enter: "right", sfx: { kind: "scifi_whoosh", id: "00a:anchor:launched" } },
+                ]} />
+                <SpeakerLine x={1010} baseline={790} until={tEnd} words={[
+                  { text: "a new", at: W("news_teen", "a"), size: 64 },
+                  { text: "AI", at: W("news_teen", "AI"), size: 112 },
+                  { text: "company", at: W("news_teen", "company"), size: 76, kind: "last" },
+                ]} />
+                {/* Bloomberg (presenter kanan): kolom kiri, BILLION = angka pahlawan */}
+                <SpeakerLine x={110} baseline={410} until={bEnd} words={[
+                  { text: "raised", at: W("news_billion", "raised"), size: 62 },
+                  { text: "over", at: W("news_billion", "over"), size: 62 },
+                  { text: "a", at: W("news_billion", "a"), size: 62 },
+                ]} />
+                <SpeakerLine x={110} baseline={600} until={bEnd} words={[
+                  { text: "BILLION", at: 208, size: 160, kind: "emph", sfx: { kind: "sub_impact", id: "00a:anchor:billion" } },
+                ]} />
+                <SpeakerLine x={116} baseline={705} until={bEnd} words={[{ text: "dollars", at: W("news_billion", "dollars"), size: 84, kind: "last" }]} />
+                {/* Sky News grafik: baris kecil di atas FAST raksasa (kartu menyusut di belakang, foto awan lewat) */}
+                <SpeakerLine x={960} baseline={668} align="center" until={Math.round(pB.end * FPS)} words={[
+                  { text: "this", at: W("news_fast", "this"), size: 56 },
+                  { text: "time", at: W("news_fast", "time"), size: 56 },
+                  { text: "progress", at: W("news_fast", "progress"), size: 104 },
+                  { text: "was", at: W("news_fast", "was"), size: 56 },
+                  { text: "so", at: W("news_fast", "so"), size: 56 },
+                ]} />
+                <SpeakerLine x={960} baseline={929} align="center" until={Math.round(pB.end * FPS)} words={[
+                  { text: "FAST", at: 284, size: 300, kind: "emph", enter: "right", sfx: { kind: "scifi_whoosh", id: "00b:anchor:fast" } },
+                ]} />
               </>
             );
           })()}
