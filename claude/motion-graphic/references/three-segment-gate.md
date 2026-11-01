@@ -46,6 +46,27 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
   - Bisa juga warna aksen yang kontras. Ukuran tidak dibesarkan.
 - **Hindari pola "blok di kiri + teks di kanan" di atas latar hitam polos.** Pola ini menyisakan ruang kosong besar di atas dan bawah, jadi melanggar gaya Apple yang modern dan elegan. Isi frame dengan visualnya, dan kamera fokus ke objek.
 
+## Kinetic typography: teknik dipilih menurut PERAN teks (prinsip dari audit referensi 2 Nov, bukan aturan mutlak)
+Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. Referensi memilih teknik menurut fungsi teks.
+- **Ucapan (VO/narasumber):**
+  - Kata ditambah satu per satu dengan jeda sekitar 3 f.
+  - Masuknya blur → tajam 2–3 f, atau naik dari balik mask 3–4 f.
+  - Baris rata tengah di-tengahkan ulang setiap kali kata baru masuk.
+  - Ukuran seragam.
+- **Penekanan tanpa memperbesar huruf:**
+  - warna aksen;
+  - kata sebelumnya diredupkan;
+  - ganti gaya (serif italic, ketebalan);
+  - kotak sorot.
+- **Drama lewat kamera:** punch-in cepat atau rack-focus close-up → wide, bukan pop skala teks.
+- **Teks yang hidup di objek:**
+  - mengetik per huruf di UI asli;
+  - label berupa tombol yang didorong kursor;
+  - objek atau ikon disisipkan di antara kata ("Chief [ikon] Marketing").
+  - Ini pola terkuat untuk menyambung teks dan visual.
+- **Gaya yang tidak ditemukan di referensi:** tracking-out "melebar" dan pop membesar. Pop hanya dipakai untuk angka atau hero yang bergerak, lalu mendarat di tengah.
+- **Kalimat pesan berada di pita tengah, y sekitar 36–64 %.** Pengecualian hanya untuk yang disengaja: hero full-bleed singkat, dan caption.
+
 ## Audio (koreksi)
 - **Rentang −21 s/d −41 dB adalah aturan BACKSOUND (BGM), bukan SFX.**
 - **Level SFX dan backsound ditetapkan dari kondisi VO ASLI proyek** (karakter suara, tone, tema, kepadatan ucapan), lalu diukur di mix kita sendiri:
