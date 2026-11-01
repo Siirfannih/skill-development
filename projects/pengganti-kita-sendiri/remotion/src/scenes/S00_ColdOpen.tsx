@@ -1,7 +1,7 @@
 // 00a–00b · Cold open: supercut berita (audio v11) + montase founder + slot swap FOUNDER → CEO → SEMALAM.
 // Pola dari referensi siirfannih_DfDC0I9PHin: footage berganti per frasa, suara asli disambung rapat.
 import React from "react";
-import { AbsoluteFill, Img, staticFile } from "remotion";
+import { AbsoluteFill, Img, staticFile, getInputProps } from "remotion";
 import { Camera, EZ, keys, KWord, prog, Scene, useT, Grain } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
 import { block, FPS, panel, WORDS } from "../lib/time";
@@ -88,6 +88,7 @@ export const SlotWord: React.FC<{ text: string; at: number; out?: number; size?:
   const t = useT();
   if (t < at - 1 / FPS) return null;
   const fr = Math.round((t - at) * FPS);
+  if ((getInputProps() as { sfxlog?: boolean }).sfxlog && fr === 0) console.log(`SFXEV slam ${at.toFixed(3)} slam ${text}`);
   const sc = fr <= 0 ? 1.9 : fr === 1 ? 1.25 : 1.0;
   const blur = fr <= 0 ? 8 : fr === 1 ? 2.5 : 0;
   const q = out !== undefined ? prog(t, out, out + 4 / FPS, EZ.acc) : 0;

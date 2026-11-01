@@ -1,7 +1,7 @@
 // Framework animasi «Pengganti Kita Sendiri» — semua waktu dalam DETIK ABSOLUT video (bukan frame lokal),
 // supaya setiap adegan terkunci ke timestamp kata VO di timeline.json.
 import React, { createContext, useContext } from "react";
-import { AbsoluteFill, Easing, interpolate, Sequence, useCurrentFrame } from "remotion";
+import { AbsoluteFill, Easing, interpolate, Sequence, useCurrentFrame, getInputProps } from "remotion";
 import { f, FPS, panel } from "./time";
 
 // ── easing satu keluarga (motion-director §11)
@@ -94,6 +94,11 @@ export const KWord: React.FC<{
   const a = at + 2 / FPS;
   const dur = kind === "slam" ? 3 / FPS : kind === "pop" ? 4 / FPS : 11 / FPS;
   const p = prog(t, a, a + dur, kind === "slam" ? Easing.linear : EZ.out);
+  // SFXLOG: catat frame kemunculan kata untuk penyusunan SFX (hanya saat render dengan inputProps.sfxlog)
+  if ((getInputProps() as { sfxlog?: boolean }).sfxlog && Math.round(t * FPS) === Math.round(a * FPS)) {
+    const txt = typeof children === "string" ? children : Array.isArray(children) ? children.join("") : "?";
+    console.log(`SFXEV word ${a.toFixed(3)} ${kind} ${txt}`);
+  }
   const q = out !== undefined ? prog(t, out, out + 5 / FPS, EZ.acc) : 0;
   if (t < a - 0.001) return <span className={className} style={{ ...style, opacity: 0, display: "inline-block" }}>{children}</span>;
   let tr = "";
