@@ -62,8 +62,10 @@ export const S02b_JanjiSederhana: React.FC = () => {
           </svg>
           {/* v9 (B3): JANJI = anchor tracking ujung pena → titik tujuan (kotak outline dibuang). Posisi dasar = di kanan-bawah titik tujuan,
               offset trackFn = (ujung pena − titik tujuan) sehingga kata mengikuti kurva; rata kanan supaya tidak keluar frame. Tanpa SFX (pop titik sudah ada). */}
-          <AnchorWord text="JANJI" at={atJanji} x={GOAL.x + 280} y={GOAL.y + 290} size={140} color={C.white} align="right" enter="right"
-            trackFn={(fr) => { const tt = (fr + sceneFrom) / 30; const d = prog(tt, d0, d1, EZ.inOut); const q = LINE.at(d * LINE.L); return { x: q.x - GOAL.x, y: q.y - GOAL.y }; }} />
+          <AnchorWord text="JANJI" at={atJanji} x={GOAL.x} y={GOAL.y + 150} size={140} color={C.white} align="center" enter="scale"
+            trackFn={(fr) => { const tt = (fr + sceneFrom) / 30; const d = prog(tt, d0, d1, EZ.inOut); const q = LINE.at(d * LINE.L);
+              // QC 2 Nov: tengah kata dijepit 400..1500 px supaya tidak terpotong tepi frame saat ujung pena di awal/akhir kurva
+              return { x: Math.min(1500, Math.max(400, q.x)) - GOAL.x, y: q.y - GOAL.y }; }} />
         </AbsoluteFill>
         <Grain opacity={0.05} />
       </AbsoluteFill>
