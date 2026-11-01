@@ -165,7 +165,10 @@ const RaceB: React.FC<{ t: number }> = ({ t }) => {
   const tau = t - P1b.start;
   const trackX = -tau * TRACK_V;
   const paintA = PAINT_A;
-  const probeBerlomba = useProbe("text:BERLOMBA-LOMBA", "text", Math.round(t * FPS), "#1d1d1f");
+  const paintLeft0 = 280 + (paintA - P1b.start) * TRACK_V; // posisi dunia: kiri kata di x=70 saat dicat
+  // DIKUNCI Irfan 07.51: versi cat BERLOMBA-LOMBA ini (Inter Black 150, kapital, ikut lintasan) sudah bagus — JANGAN diubah lagi.
+  // Checker SAFE untuk kata ini diterima (kata sengaja ikut gerak lintasan).
+  const probeBerlomba = useProbe("text:BERLOMBA-LOMBA(dikunci)", "text", Math.round(t * FPS), "#1d1d1f");
   const paint = prog(t, paintA, paintA + 8 * fr, EZ.out);
   const z = prog(t, ZOOM_A, P1b.end, EZ.acc);
   const lead = TILES[0];
@@ -190,11 +193,11 @@ const RaceB: React.FC<{ t: number }> = ({ t }) => {
         <div style={{ position: "absolute", left: -1500, top: -600, width: 5000, height: 2400, backgroundImage: "linear-gradient(180deg, #c4dafd 0%, #c4dafd 25%, #e1f5fd 41%, #f4f9fd 54%, #ffffff 66%, #ffffff 100%)" }} />
         {/* cat lintasan: BERLOMBA-LOMBA (truck kiri→kanan bersama lintasan) */}
         <div ref={paint > 0 && z === 0 ? probeBerlomba : undefined} style={{
-          position: "absolute", left: 400 - (t - paintA) * TRACK_V * 0.4, top: 470, fontFamily: "Geist Sans", fontWeight: 600, fontSize: 120, letterSpacing: -4,
+          position: "absolute", left: paintLeft0 + trackX, top: 462, fontFamily: "Inter", fontWeight: 900, fontSize: 150, letterSpacing: -5,
           lineHeight: 1, whiteSpace: "nowrap", color: "rgba(29,29,31,0.88)", clipPath: `inset(0 ${(1 - paint) * 100}% 0 0)`,
           transform: "skewX(-6deg)",
         }}>
-          Berlomba-lomba
+          BERLOMBA-LOMBA
         </div>
         {/* garis lajur putus-putus (bergeser = kecepatan) */}
         {[120, 260, 400, 680, 800, 920, 1040].map((ly, i) => (

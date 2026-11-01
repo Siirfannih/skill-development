@@ -1,6 +1,6 @@
 # Brief worker · Segmen 2 putaran 1 (perbaiki temuan SEG2-REPORT-R1.md)
 
-Baca: `claude/motion-graphic/references/three-segment-gate.md` (aturan terkunci), `SEG2-REPORT-R1.md` (temuan), `FEEDBACK-2NOV-0605.md`.
+Baca: `LOCKED.md` (bagian dikunci Irfan — JANGAN diubah), `claude/motion-graphic/references/three-segment-gate.md` (aturan terkunci), `SEG2-REPORT-R1.md` (temuan), `FEEDBACK-2NOV-0605.md`.
 
 ## Aturan
 - Diff bedah pada kode yang ada; hanya file milikmu. Bagian yang sudah dipuji Irfan jangan didesain ulang.
