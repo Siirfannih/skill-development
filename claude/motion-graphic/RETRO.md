@@ -137,3 +137,22 @@ Aturan:
 - Laporan: `projects/pengganti-kita-sendiri/AUDIO-AUDIT-1NOV.md`.
 
 Status: diterapkan (1 Nov).
+
+## 2 Nov 2026 · PKS v9 dikirim dengan 44 cacat dan SFX tak terdengar
+
+Keluhan Irfan (06.05): "kenapa masih ada banyak bug … tidak ada sfx sama sekali … devil's advocate dan QC sepertinya ga kamu jalankan". 9 screenshot: cahaya kotak kasar, matte Gates dobel, teks di posisi salah padahal ada ruang kosong, "AI" hitam tanpa alasan, "JANJI" kehilangan kata kedua, visual kalender jadi shape polos, Jensen/Altman tidak full frame, teks Altman dipaksakan.
+
+Akar masalah:
+- (1) Level SFX dinormalisasi ke PUNCAK dialog −20 dB → bunyi pendek 17–26 dB di bawah VO (praktis hilang). QA hanya mengukur LUFS total, dead air, pita 2–6 kHz; keterdengaran per cue tidak pernah diukur.
+- (2) QC visual memakai contact sheet 240 px; ghost matte, tepi cahaya, dan komposisi tidak terlihat. Gerbang §16 (R6 reviewer segar, loop kritik 3 putaran sampai SHIP) dilewati; video dikirim tanpa verdict SHIP.
+- (3) Masalah komposisi (Altman) ditambal koordinat 4× tanpa devil's advocate atas keputusan sendiri.
+- (4) Worker diberi spesifikasi tanpa kewajiban bukti render; tidak ada media di cloud sehingga tidak bisa memverifikasi sendiri.
+
+Aturan (usulan, menunggu gerbang EVALS):
+- Gerbang keterdengaran SFX wajib: gain dari RMS jendela 300 ms terkeras relatif RMS ucapan; ≥ 85 % cue ≥ −10 dB terhadap dialog+bed di jendela 250 ms (`audio-v19/mix_v19.py` PKS).
+- QC visual minimal 2 fps @960 px atas seluruh video oleh reviewer segar + strip penuh di setiap momen yang diubah; contact sheet kecil hanya untuk navigasi.
+- Tidak ada pengiriman ke Irfan sebelum verdict SHIP dari reviewer segar.
+- Setiap worker wajib render still sebelum/sesudah per cacat; media proyek disalin ke tempat worker bekerja.
+- Revisi komposisi yang gagal 2× → ganti pendekatan, bukan geser koordinat lagi (§16.4 "dua putaran gagal").
+
+Status: usulan (2 Nov). Laporan: `projects/pengganti-kita-sendiri/FEEDBACK-2NOV-0605.md`, `AUDIT-V9-INDEPENDEN.md`.
