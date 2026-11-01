@@ -165,8 +165,8 @@ const RaceB: React.FC<{ t: number }> = ({ t }) => {
   const tau = t - P1b.start;
   const trackX = -tau * TRACK_V;
   const paintA = PAINT_A;
-  const probeBerlomba = useProbe("text:BERLOMBA-LOMBA", "text", Math.round(t * FPS), "#1d1d1f");
   const paintLeft0 = 280 + (paintA - P1b.start) * TRACK_V; // posisi dunia: kiri kata di x=70 saat dicat
+  const probeBerlomba = useProbe("text:BERLOMBA-LOMBA", "text", Math.round(t * FPS), "#1d1d1f");
   const paint = prog(t, paintA, paintA + 8 * fr, EZ.out);
   const z = prog(t, ZOOM_A, P1b.end, EZ.acc);
   const lead = TILES[0];
@@ -191,11 +191,11 @@ const RaceB: React.FC<{ t: number }> = ({ t }) => {
         <div style={{ position: "absolute", left: -1500, top: -600, width: 5000, height: 2400, backgroundImage: "linear-gradient(180deg, #c4dafd 0%, #c4dafd 25%, #e1f5fd 41%, #f4f9fd 54%, #ffffff 66%, #ffffff 100%)" }} />
         {/* cat lintasan: BERLOMBA-LOMBA (truck kiri→kanan bersama lintasan) */}
         <div ref={probeBerlomba} style={{
-          position: "absolute", left: paintLeft0 + trackX, top: 462, fontFamily: "Inter", fontWeight: 900, fontSize: 150, letterSpacing: -5,
+          position: "absolute", left: paintLeft0 + trackX, top: 462, fontFamily: "Geist Sans", fontWeight: 600, fontSize: 150, letterSpacing: -5,
           lineHeight: 1, whiteSpace: "nowrap", color: "rgba(29,29,31,0.88)", clipPath: `inset(0 ${(1 - paint) * 100}% 0 0)`,
           transform: "skewX(-6deg)",
         }}>
-          BERLOMBA-LOMBA
+          Berlomba-lomba
         </div>
         {/* garis lajur putus-putus (bergeser = kecepatan) */}
         {[120, 260, 400, 680, 800, 920, 1040].map((ly, i) => (
@@ -257,7 +257,7 @@ const RoomCD: React.FC<{ t: number }> = ({ t }) => {
         {/* garis finis putih yang membuka jadi kerucut */}
         <div style={{ position: "absolute", left: WX - 2, top: 0, width: 4, height: 1080, background: "#fff", opacity: 1 - prog(t, P1c.start + 2 * fr, P1c.start + 0.3) }} />
         {/* v9 (#5): PENGGANTI di dunia kamera, di antara kerucut cahaya dan wireframe → tampak DI BELAKANG piktogram wireframe, setinggi bahu */}
-        <AnchorWord text="PENGGANTI" at={atPeng} until={outPeng} x={WX} y={HEAD_TOP + 215} size={210} color={C.white} enter="scale" shadow="0 0 44px rgba(16,18,22,0.7)"
+        <AnchorWord text="PENGGANTI" at={atPeng} until={outPeng} x={WX} y={HEAD_TOP + 215} size={140} color={C.white} enter="scale" shadow="0 0 44px rgba(16,18,22,0.7)"
           sfx={{ kind: "sub_impact", id: "01c:anchor:pengganti" }} />
         <WireFigure id="wf01" cx={WX} headTop={HEAD_TOP} s={S} draw={draw} fill={fill} scan={scan} />
         <Pictogram cx={OURX} headTop={HEAD_TOP} s={S} rim="right" lean={lean} />
@@ -265,8 +265,8 @@ const RoomCD: React.FC<{ t: number }> = ({ t }) => {
       {/* 01d · LEBIH CEPAT di antara kedua piktogram (posisi v8 dipertahankan); «anehnya» dihapus (v9) */}
       {t >= T.dan && (
         <AbsoluteFill style={{ transform: `scale(${txtScale})` }}>
-          <AnchorWord text="LEBIH" at={atLebih} x={925} y={570} size={150} color={C.white} align="right" enter="left" />
-          <AnchorWord text="CEPAT" at={atCepat} x={995} y={570} size={150} color={C.white} align="left" enter="right"
+          <AnchorWord text="LEBIH" at={atLebih} x={925} y={570} size={130} color={C.white} align="right" enter="left" />
+          <AnchorWord text="CEPAT" at={atCepat} x={995} y={570} size={130} color={C.white} align="left" enter="right"
             sfx={{ kind: "sub_impact", id: "01d:anchor:cepat" }} />
         </AbsoluteFill>
       )}

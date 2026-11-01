@@ -192,7 +192,7 @@ export const S00_ColdOpen: React.FC = () => {
             Bloomberg = kolom kiri dengan BILLION sebagai angka pahlawan; Sky News grafik = baris kecil → FAST raksasa.
             Matte (fg) menaruh teks di belakang kepala; di montase foto tidak ada matte. */}
         {/* v10: bayangan radial lembut (tanpa tepi) di belakang baris «this time progress was so FAST» supaya foto awan tidak mengganggu keterbacaan */}
-        {t >= shrinkAt - 0.5 && <AbsoluteFill style={{ background: "radial-gradient(ellipse 900px 150px at 960px 840px, rgba(16,18,22,0.85) 0%, rgba(16,18,22,0.55) 55%, rgba(16,18,22,0) 100%)" }} />}
+        {t >= shrinkAt - 0.5 && <AbsoluteFill style={{ background: "radial-gradient(ellipse 900px 150px at 960px 750px, rgba(16,18,22,0.85) 0%, rgba(16,18,22,0.55) 55%, rgba(16,18,22,0) 100%)" }} />}
         <AnchorStage bg={null} fg={matteFg}>
           {(() => {
             const gEnd = Math.round(block("news_teen").t * FPS);
@@ -223,7 +223,7 @@ export const S00_ColdOpen: React.FC = () => {
                 ]} />
                 {/* remaja Sky News (kiri): tangga kiri→kanan di ruang kanan, 16 = angka (scale-slam), LAUNCHED = tekanan */}
                 {/* v10 (audit #5, #6): satu kalimat satu baris, di ruang bawah (badan/kemeja, bukan wajah) */}
-                <SpeakerLine x={110} baseline={800} gap={36} until={tEnd} words={[
+                <SpeakerLine x={110} baseline={760} gap={24} until={tEnd} words={[
                   { text: "16", at: 112, size: 170, kind: "number" },
                   { text: "year old", at: yo, size: 52 },
                   { text: "LAUNCHED", at: 133, size: 96, kind: "emph", enter: "right", sfx: { kind: "scifi_whoosh", id: "00a:anchor:launched" } },
@@ -232,7 +232,7 @@ export const S00_ColdOpen: React.FC = () => {
                   { text: "company", at: W("news_teen", "company"), size: 58, kind: "last" },
                 ]} />
                 {/* Bloomberg (presenter kanan): satu baris di dada, BILLION = angka pahlawan */}
-                <SpeakerLine x={110} baseline={800} gap={36} until={bEnd} words={[
+                <SpeakerLine x={110} baseline={760} gap={36} until={bEnd} words={[
                   { text: "raised", at: W("news_billion", "raised"), size: 52 },
                   { text: "over", at: W("news_billion", "over"), size: 52 },
                   { text: "a", at: W("news_billion", "a"), size: 52 },
@@ -241,7 +241,7 @@ export const S00_ColdOpen: React.FC = () => {
                 ]} />
                 {/* Sky News grafik: baris kecil di atas FAST raksasa (kartu menyusut di belakang, foto awan lewat) */}
                 {/* v10 (Irfan 4): satu baris di ruang kosong BAWAH kartu yang menyusut, rata tengah; matte fast dimatikan (presenter tidak lagi memotong «o» progress) */}
-                <SpeakerLine x={960} baseline={870} align="center" until={Math.round(pB.end * FPS)} words={[
+                <SpeakerLine x={960} baseline={770} align="center" until={Math.round(pB.end * FPS)} words={[
                   { text: "this", at: W("news_fast", "this"), size: 56 },
                   { text: "time", at: W("news_fast", "time"), size: 56 },
                   { text: "progress", at: W("news_fast", "progress"), size: 96 },

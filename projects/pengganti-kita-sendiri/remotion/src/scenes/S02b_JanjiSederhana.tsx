@@ -61,10 +61,9 @@ export const S02b_JanjiSederhana: React.FC = () => {
             {/* titik tujuan */}
             <circle cx={1540} cy={196} r={16 * dot} fill={C.white} />
           </svg>
-          {/* v10 (Irfan 6): «JANJI SEDERHANA» dua kata satu baris, gaya anchor tanpa kotak, di bawah ujung kurva (ruang kosong antara kurva dan sumbu),
-              rata kanan di x 1800 (aman). Kata muncul satu-satu mengikuti VO. */}
-          <AnchorWord text="JANJI" at={atJanji} x={900} y={565} size={92} color={C.white} align="left" enter="scale" />
-          <AnchorWord text="SEDERHANA" at={atSederhana} x={900 + 300} y={565} size={92} color={C.white} align="left" enter="scale" />
+          {/* v10 (Irfan 6): «JANJI SEDERHANA» dua kata satu baris, gaya anchor tanpa kotak, di bawah sumbu (judul gambar kerja; R1: dipindah dari antara kurva-sumbu agar utuh di safe zone setelah zoom kamera). Kata muncul satu-satu mengikuti VO. */}
+          <AnchorWord text="JANJI" at={atJanji} x={470} y={770} size={92} color={C.white} align="left" enter="scale" />
+          <AnchorWord text="SEDERHANA" at={atSederhana} x={870} y={770} size={92} color={C.white} align="left" enter="scale" />
         </AbsoluteFill>
         <Grain opacity={0.05} />
       </AbsoluteFill>

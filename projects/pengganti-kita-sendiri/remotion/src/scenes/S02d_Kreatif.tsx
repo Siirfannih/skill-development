@@ -25,7 +25,7 @@ export const S02d_Kreatif: React.FC = () => {
   const zWide = (1 + 0.07 * prog(t, W_KREATIF.s, W_KREATIF.s + 18 / 30, EZ.out)) * keys(t, [[bloomA, 1.0], [p.end, 1.14]], EZ.inOut);
   const z = zClose + (zWide - zClose) * rv;
   const look = { x: 650 + (BLOOM_PT.x - 650) * rv, y: 600 + (BLOOM_PT.y - 600) * rv };
-  const anch = { x: 960 + (BLOOM_PT.x - 960) * rv, y: 540 + (BLOOM_PT.y - 540) * rv };
+  const anch = { x: 960 + (BLOOM_PT.x - 130 - 960) * rv, y: 540 + (BLOOM_PT.y - 540) * rv };
   const T = { x: anch.x - look.x * z, y: anch.y - look.y * z };
   const rim = 0.5 + 0.15 * prog(t, W_KITA.s, W_KITA.s + 0.5) + 0.35 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.4);
   const beam = 0.3 + 0.7 * prog(t, W_FOKUS.s, W_FOKUS.s + 0.45);
@@ -47,7 +47,7 @@ export const S02d_Kreatif: React.FC = () => {
         <AbsoluteFill style={{ transform: `translate(${T.x}px, ${T.y}px) scale(${z})`, transformOrigin: "0 0" }}>
           <LightPlane beam={beam} plane={plane} glow={glow}>
             {/* v9: parallelogram dipertahankan; masuk lewat AnchorWord di suku tekan f927 (koordinat lokal bidang 880×224) */}
-            <AnchorWord text="KREATIF" at={atKreatif} x={440} y={112} size={136} color={C.ink} italic grain={0.3} sfx={{ kind: "scifi_whoosh", id: "02d:anchor:kreatif" }} />
+            <AnchorWord text="KREATIF" at={atKreatif} x={440} y={112} size={108} color={C.ink} italic grain={0.3} sfx={{ kind: "scifi_whoosh", id: "02d:anchor:kreatif" }} />
           </LightPlane>
           <Pictogram rim={rim} />
           {/* lantai gelap memudar */}

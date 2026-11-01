@@ -66,9 +66,9 @@ export const S04a_GaPeduli: React.FC = () => {
         </Camera>
         {/* v10 (#27): tidak ada frame kosong. «TEKNOLOGI INI» mengisi 1838–1860 (sebelum «nggak»); NGGAK PEDULI dipindah ke lapisan layar dan bertahan sampai
             cut ke 04b (1932) selagi tilt menurun; warna putih → tinta saat langit terang (kontras tinggi, bukan putih di atas biru muda). */}
-        <AnchorWord text={"TEKNOLOGI\u2002INI"} at={1838} until={atNggak} x={960} y={480} size={150} color="#fff" align="center" enter="scale" />
-        <AnchorWord text="NGGAK" at={atNggak} until={1934} x={930} y={480} size={200} color={txtCol} align="right" enter="left" />
-        <AnchorWord text="PEDULI" at={atPeduli} until={1934} x={990} y={480} size={200} color={txtCol} align="left" enter="right"
+        <AnchorWord text={"TEKNOLOGI\u2002INI"} at={1838} until={atNggak} x={960} y={480} size={120} color="#fff" align="center" enter="scale" />
+        <AnchorWord text="NGGAK" at={atNggak} until={1934} x={930} y={480} size={120} color={txtCol} align="right" enter="left" />
+        <AnchorWord text="PEDULI" at={atPeduli} until={1934} x={990} y={480} size={120} color={txtCol} align="left" enter="right"
           sfx={{ kind: "sub_impact", id: "04a:anchor:peduli" }} />
         <Grain opacity={0.05} />
       </AbsoluteFill>
