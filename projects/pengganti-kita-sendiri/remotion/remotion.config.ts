@@ -8,7 +8,7 @@
 import { Config } from "@remotion/cli/config";
 import { enableTailwind } from '@remotion/tailwind-v4';
 
-Config.setRspack(true);
+Config.setRspack(false); // rspack + Studio di Mac: error $RefreshReg$
 Config.setVideoImageFormat("jpeg");
 Config.setOverwriteOutput(true);
 Config.setDefaultPremountInSeconds(2);

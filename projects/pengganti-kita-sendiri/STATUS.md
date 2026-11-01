@@ -1,39 +1,21 @@
 # STATUS: Pengganti Kita Sendiri (@siirfannih)
 
-_Update terakhir: 1 Nov 2026 19.50 WITA._
+_Update terakhir: 1 Nov 2026 23.10 WITA._
 
 ## Posisi sekarang
-- **v8 (1 Nov 22.40)** = visual v7 + audio v18, mengikuti permintaan Irfan:
-  - Tanpa backsound.
-  - VO, berita, Jensen, dan Altman memakai suara asli tanpa EQ, denoise, atau kompresor (`audio-v18/assemble16_dialog_raw.py`); hanya levelnya disamakan, master tanpa kompresor.
-  - SFX per kata dihapus. Yang tersisa hanya kata yang berdiri sendiri atau ditekankan (`EMPH` di `audio-v18/build.py`), plus SFX objek dari penanda kode.
-  - Editor timeline di claude.ai: https://claude.ai/artifact/4fiESTcLpg3RgWTPsaW8GK (sumber `editor/index.html`). Irfan bisa geser, hapus, atau bisukan SFX per trek lalu Simpan ke db `edits/current`. Claude membaca dokumen itu (ArtifactData get) sebelum render final.
-- **Versi terakhir: v7** (`PKS_v7.mp4`, 132,8 dtk, 1080p). Visualnya hasil render ulang kode Remotion setelah audit visual. Audionya v17. Menunggu review Irfan.
-- **Penanda SFX dari kode (metronom).**
-  - Setiap objek menulis `SFXEV <jenis> <detik> <id>` lewat `sfxMark()` di `remotion/src/lib/anim.tsx`, dengan variabel waktu yang sama dengan animasinya. Kata kinetik memakai `KWord` (`SFXEV word`).
-  - Render dengan `--props='{"sfxlog":true}' --log=verbose` lalu `grep SFXEV` menghasilkan `audio-v17/sfxev.log` (370+ penanda). Hanya file itu sumber cue.
-  - Daftar tangan v14 dan detektor frame tidak dipakai lagi. Daftar itu sempat memuat objek yang tidak ada di kode, misalnya "slab KREATIF" dan "tile ChatGPT".
-- **Audit visual 1 Nov.** Berkas cahaya yang terpotong dan lancip diperbaiki di 06a ("MEMBANGUN", screenshot Irfan), 02d, 01c, 03c–03d, dan 05e (sinar). Perbaikan lain:
-  - glow bidang terpotong kotak di 06c dan 06d;
-  - strip hitam di langit 04a;
-  - badan piktogram terpotong di 01d, 06e, dan 06g;
-  - kontras teks di 00a dan 04d.
-- **Dialog.** Rantai EQ klip berita, Jensen, dan Altman diganti (`audio-v17/assemble15_dialog.py`). Notch 240/350/680 Hz, LPF 10 kHz, dan afftdn dibuang; presence dan high-shelf ditambah. Level klip sekarang setara VO. Klip Gates memang sempit dari sumbernya (rolloff 3,3 kHz, unduhan ulang tetap sama).
-- **SFX v17.** Dirakit dengan earshot upstream (`skills/real-sound` `mix.py`, `qa.py`, `master.py`). Pemilihan pakai `audio-v17/pick.py`: earshot match dengan pengecoh, cek nada terhadap kunci lagu G minor (anti-sumbang), roughness, desis, skor earshot harsh/soft, dan realness.
-  - Kata: satu tik mesin tik Hermes (Epidemic). Kata slam: hit "Slam Braam".
-  - Klik kursor: mouse 15C.
-  - Kartu: pop "Small Lid" (nada D).
-  - Foto: shutter Nikon D3100.
-  - Gerak kamera: "Whoosh Short Wide Noise Dry".
-  - Ketik composer: keyboard Apple.
-  - Musik: "Leave the Room", tetap.
-- **QA v7:**
-  - `earshot critique`: launch-grade 23/23.
-  - `qa.py`: coverage 331/331, 0 klik.
-  - Sync: hit/slam puncaknya +78 ms setelah frame, karena body braam; onset tepat di frame.
-  - HP 20 %: 266/331 terdengar, 0 tajam.
-  - VO di atas musik+SFX: median 11,2 dB.
-  - Master −14 LUFS, peak −2,8 dB.
+- **Edit di Remotion Studio (lokal di Mac).** Proyek ada di `~/Documents/Skill-Development/AI-Video/pks-studio/remotion`. Jalankan `npx remotion studio --port=3333`, lalu buka http://localhost:3333/PenggantiKitaSendiri.
+  - Timeline berisi grup **🎬 Visual**, track **🎙 Dialog** (VO dan klip dengan suara asli), dan satu grup **SFX · <jenis>** per jenis. Setiap cue tampil sebagai Sequence sendiri.
+  - Timeline suara diatur oleh `defaultProps` di `remotion/src/Root.tsx`, dengan skema Zod di `remotion/src/SoundLayer.tsx`. Isinya: `dialogMuted`/`dialogGainDb`, `solo`, `lanes[]` (mute/gain per jenis), dan `cues[]` (`at` dalam detik, `gainDb`, `muted`; `codeAt` = frame penanda dari kode, hanya sebagai acuan).
+  - Edit di panel Default Props lalu Save. `Root.tsx` ikut tertulis, dan render final membaca nilai dari situ.
+  - `audio-v18/gen_studio.py` membangun ulang `Root.tsx` dan `public/audio/v8/` dari mix v8. File WAV tidak masuk git (`public/audio` ada di gitignore).
+  - Di pratinjau Studio, posisi SFX dibulatkan ke frame terdekat (±16 ms). Render final memakai detik persis.
+  - Rspack dimatikan (`remotion.config.ts`) karena Studio di Mac error `$RefreshReg$`.
+- **Versi terakhir: v8** = visual v7 + audio v18.
+  - Tanpa backsound. Suara asli tanpa efek (`audio-v18/assemble16_dialog_raw.py`).
+  - SFX hanya untuk kata yang berdiri sendiri atau ditekankan (`EMPH` di `audio-v18/build.py`), plus SFX objek dari penanda kode (`sfxMark()` di `remotion/src/lib/anim.tsx`).
+  - QA: 263 event, VO jernih (median 21,4 dB), −14 LUFS, TP −4,4 dB.
+- **Versi lama dihapus 1 Nov 23.10:** audio-v12, v14, v16-earshot, v17, dan editor artifact. Semuanya digantikan audio-v18 dan Remotion Studio. Riwayatnya tetap ada di git.
+- **Sisa pekerjaan:** Irfan mengedit di Studio → Claude membaca `Root.tsx` → `audio-v18/run.sh` → render final.
 
 ## Keputusan terkunci
 - Storyboard: Wonder export panel 00a–06g (03a/03b memakai versi R2).
