@@ -40,7 +40,7 @@ export const S06d_Prompt: React.FC = () => {
   sfxMark(t, "cut", W_BISA, "06d:cutzoom:1"); // C20 cut zoom ×1,35 ke composer
   sfxMark(t, "toggle", T_OFF, "06d:relay:off"); // relay(t, T_OFF): bidang/composer padam
   // bloom masuk dari 06c meluruh
-  const bloom = 0.6 * (1 - prog(t, P.start, P.start + 0.35, EZ.out));
+  const bloom = 0.4 * (1 - prog(t, P.start, P.start + 0.35, EZ.out));
   // C13: dorong pelan + parallax (bahu depan bergeser lebih jauh dari bidang)
   const d = prog(t, P.start, T_OFF, EZ.inOut);
   const sc = 1 + 0.035 * d;

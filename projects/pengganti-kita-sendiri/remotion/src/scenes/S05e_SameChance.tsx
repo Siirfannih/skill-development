@@ -123,7 +123,7 @@ export const S05e_SameChance: React.FC = () => {
             const a0 = (i / 14) * Math.PI * 2;
             const a1 = a0 + 0.13;
             const R = 2050;
-            return <polygon key={i} points={`0,0 ${Math.cos(a0) * R},${Math.sin(a0) * R} ${Math.cos(a1) * R},${Math.sin(a1) * R}`} fill="#ffffff" fillOpacity={0.2 + 0.25 * flash} />;
+            return <polygon key={i} points={`0,0 ${Math.cos(a0) * R},${Math.sin(a0) * R} ${Math.cos(a1) * R},${Math.sin(a1) * R}`} fill="#ffffff" fillOpacity={0.2 + 0.2 * flash} />;
           })}
           <circle r={300} fill="url(#rayCore05e)" />
         </svg>

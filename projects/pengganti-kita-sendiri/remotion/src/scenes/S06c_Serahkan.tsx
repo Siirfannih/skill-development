@@ -24,7 +24,7 @@ const bez = (u: number) => {
   return { x: a * P0.x + b * C1.x + c * C2.x + d * P3.x, y: a * P0.y + b * C1.y + c * C2.y + d * P3.y };
 };
 
-export const BLOOM_06C_END = (t: number) => keys(t, [[P.end - 0.3, 0], [P.end, 0.6]], EZ.acc);
+export const BLOOM_06C_END = (t: number) => keys(t, [[P.end - 0.3, 0], [P.end, 0.4]], EZ.acc);
 
 export const S06c_Serahkan: React.FC = () => {
   const t = useT();

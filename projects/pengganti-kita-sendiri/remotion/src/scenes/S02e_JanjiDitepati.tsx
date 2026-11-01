@@ -1,5 +1,5 @@
 // 02e–02f · grafik janji (editorial chart, R-BP). Satu dunia, satu kamera kontinu:
-// 02e  bloom dari 02d mengerut ke titik ujung garis kenyataan. Close-up C18 mengikuti titik yang berjalan tepat di atas
+// 02e  match cut dari 02d (snap zoom keluar dari titik ujung garis kenyataan, v9 tanpa flash putih). Close-up C18 mengikuti titik yang berjalan tepat di atas
 //      jalur janji putus-putus; label DITEPATI menempel di titik pada «ditepati»; «jauh lebih cepat» = titik melaju.
 // 02f  «Tapi di satu sisi, kita juga…» titik melambat mendekati ujung jalur janji (ketegangan). «tidak» = C15 kamera
 //      patah ke wide: garis solid melewati ujung janji dan terus naik keluar frame. «di tahap ini» = penanda vertikal +
@@ -65,8 +65,8 @@ export const S02e_JanjiDitepati: React.FC = () => {
   const Zg = 1 + (Z - 1) * 0.8;
   const Tg = { x: 960 - ctr.x * Zg, y: 540 - ctr.y * Zg };
 
-  // bloom masuk (X14): putih penuh mengerut ke titik ujung
-  const bl = 1 - prog(t, pe.start, pe.start + 0.5, EZ.out);
+  // match cut masuk (X14, v9): snap zoom keluar dari titik ujung di BLOOM_PT (5 f, EZ.out, motion blur), tanpa flash putih
+  const snapIn = 1 - prog(t, pe.start, pe.start + 5 / FPS, EZ.out);
   const tipS = scr(tip);
 
   // label DITEPATI menempel di titik, keluar sebelum kamera patah
@@ -82,7 +82,7 @@ export const S02e_JanjiDitepati: React.FC = () => {
   sfxMark(t, "pop", ezHalf(W_DI.s - 0.1, W_DI.s + 0.15), "02f:dot:stage"); // titik ujung janji ditegaskan
   return (
     <Scene start={pe.start} end={pf.end} name="02e–02f Grafik janji">
-      <AbsoluteFill>
+      <AbsoluteFill style={{ transform: snapIn > 0.002 ? `scale(${1 + 0.6 * snapIn})` : undefined, transformOrigin: `${BLOOM_PT.x}px ${BLOOM_PT.y}px`, filter: snapIn > 0.02 ? `blur(${(10 * snapIn).toFixed(2)}px)` : undefined }}>
         <BlueprintPaper />
         <AbsoluteFill style={{ transform: `translate(${Tg.x}px, ${Tg.y}px) scale(${Zg})`, transformOrigin: "0 0", filter: camBlur > 0.1 ? `blur(${camBlur}px)` : undefined }}>
           <BlueprintGrid />
@@ -122,11 +122,6 @@ export const S02e_JanjiDitepati: React.FC = () => {
           );
         })()}
 
-        {bl > 0 && (
-          <AbsoluteFill
-            style={{ background: `radial-gradient(circle at ${tipS.x}px ${tipS.y}px, rgba(255,255,255,1) ${bl * 130}%, rgba(255,255,255,${bl * bl}) ${bl * 170 + 2}%, rgba(255,255,255,0) 100%)` }}
-          />
-        )}
         <Grain opacity={0.05} />
       </AbsoluteFill>
     </Scene>
