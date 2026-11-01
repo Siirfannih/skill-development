@@ -6,7 +6,7 @@ import { AbsoluteFill } from "remotion";
 import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
 import { AnchorStage, AnchorWord } from "../lib/AnchorWord";
-import { MatteClip, useSubjectMatte } from "../lib/SubjectMatte";
+import { MatteClip } from "../lib/SubjectMatte";
 import { SpeakerLine, wordAt } from "../lib/SpeakerWords";
 import { block, FPS, panel, word, wordsOf } from "../lib/time";
 import { cue, ezAt, LightCone, MattePicto, PICTO, pictoHalfWidth, WirePicto } from "./_b3_shared";
@@ -89,7 +89,7 @@ const Stage: React.FC<{ t: number }> = ({ t }) => {
 
 export const S03c_MeniruDiri: React.FC = () => {
   const t = useT();
-  const matteJensen = useSubjectMatte("jensen"); // null selama stub → teks di depan
+  const matteJensen = null as string | null; // QC 2 Nov: matte Jensen menutup SOMEBODY → teks di depan (useSubjectMatte("jensen") dinonaktifkan) // null selama stub → teks di depan
   const fSomebody = 1781, fEnd = Math.round(PE.end * FPS); // frame ABSOLUT (f terukur ANCHORS-V9 #15; SpeakerLine memakai frame absolut)
 
   // ── SFXEV (metronom SFX)

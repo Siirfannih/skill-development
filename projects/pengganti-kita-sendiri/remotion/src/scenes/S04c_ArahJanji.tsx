@@ -127,7 +127,7 @@ export const S04c_ArahJanji: React.FC = () => {
                   </svg>
                   {/* v9 (#18): label kecil ARAH/JANJI digantikan anchor yang menempel di ujung garis (satu teks, tidak dobel). Koordinat panel (×2×kamera).
                       ARAHNYA di kiri-bawah ujung garis solid yang berbelok; JANJINYA di kiri ujung garis putus-putus (di atas jalur, di luar arsiran). */}
-                  <AnchorWord text="ARAHNYA" at={atArah} until={outAnchor} x={tipB.x - 8} y={tipB.y + 56} size={54} color="#fff" align="right" enter="left" grain={0.35}
+                  <AnchorWord text="ARAHNYA" at={atArah} until={outAnchor} x={Math.max(420, tipB.x - 8)} y={tipB.y + 56} size={54} color="#fff" align="right" enter="left" grain={0.35}
                     sfx={{ kind: "scifi_whoosh", id: "04c:anchor:arahnya" }} />
                   <AnchorWord text="JANJINYA" at={atJanjinya} until={outAnchor} x={812} y={-30} size={54} color="#fff" align="right" enter="right" grain={0.35} />
                 </div>
