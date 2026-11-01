@@ -46,17 +46,21 @@ export type AnchorProps = {
   italic?: boolean;
 };
 
-/** detik absolut video → frame lokal di dalam <Scene> (untuk prop `at`/`until`). */
-export const useAnchorAt = (absSeconds: number) => Math.round(absSeconds * FPS) - useSceneFrom();
+/** detik absolut video → frame ABSOLUT (prop `at`/`until` AnchorWord selalu absolut). */
+export const useAnchorAt = (absSeconds: number) => Math.round(absSeconds * FPS);
 
-/** frame ABSOLUT video → frame lokal di dalam <Scene> (untuk prop `at`/`until`; dipakai dengan kolom "f terukur" ANCHORS-V9.md). */
-export const useFrameAt = (absFrame: number) => absFrame - useSceneFrom();
+/** frame ABSOLUT video (kolom "f terukur" ANCHORS-V9.md) → dipakai langsung sebagai prop `at`/`until`. */
+export const useFrameAt = (absFrame: number) => absFrame;
 
 export const AnchorWord: React.FC<AnchorProps> = ({
-  text, at, until, x, y, size, color, align = "center", enter = "scale", exit = "cut", maskSrc, maskNode, trackFn, sfx, grain = 0.5, shadow, italic,
+  text, at: atAbs, until: untilAbs, x, y, size, color, align = "center", enter = "scale", exit = "cut", maskSrc, maskNode, trackFn, sfx, grain = 0.5, shadow, italic,
 }) => {
   const frame = useCurrentFrame();
   const sceneFrom = useSceneFrom();
+  // v9 fix: `at`/`until` SELALU frame ABSOLUT video (kolom "f terukur"); konversi ke lokal di sini, sehingga benar
+  // baik hook dipanggil di dalam maupun di luar <Scene> (bug 2 Nov: anchor di 15 adegan tidak pernah muncul).
+  const at = atAbs - sceneFrom;
+  const until = untilAbs === undefined ? undefined : untilAbs - sceneFrom;
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   if (sfx) sfxMark((frame + sceneFrom) / FPS, sfx.kind, (at + sceneFrom) / FPS, sfx.id, sfx.pan);
   if (frame < at || (until !== undefined && exit === "cut" && frame >= until)) return null;

@@ -144,7 +144,7 @@ export const SpeakerWords: React.FC<{
           // AnchorWord: frame lokal; titik jangkar = kiri-tengah kotak → y = baseline − 0,364 em
           if (w.sfx) sfxMark(absF / FPS, w.sfx.kind, w.at / FPS, w.sfx.id, w.sfx.pan);
           return (
-            <AnchorWord key={i} text={w.text} at={w.at - sf} until={end !== undefined ? end - sf : undefined} x={w.x} y={w.baseline - BL_FROM_CENTER * w.size}
+            <AnchorWord key={i} text={w.text} at={w.at} until={end} x={w.x} y={w.baseline - BL_FROM_CENTER * w.size}
               size={w.size} color={col} align="left" enter={w.enter ?? "scale"} shadow={shadow} grain={w.grain} />
           );
         }
