@@ -66,6 +66,7 @@ motion-graphic/
     ├── build.md             pipeline After Effects + engine kode, snippet
     ├── analysis-qa.md       bedah referensi, gerbang kirim, rubrik, loop kritik
     ├── hybrid-motion-standard.md  standar minimum Hybrid Motion dari referensi (anchor words, bezier ekstrem, masking, posterize, SFX/BGM) — wajib dicek di storyboard & QA
+    ├── three-segment-gate.md     gerbang 3 segmen (kode bernama-objek → pra-render probe safe zone/kontras → render MP4); aturan teks prioritas 2, ukuran seragam; −21..−41 dB = BGM
     ├── smooth-motion.md     resep motion blur, teks masuk, kamera halus (terbukti di Tuntunly)
     └── revision-log.md      log revisi Irfan, RETRO, ledger keputusan, kunci adegan
 └── scripts/

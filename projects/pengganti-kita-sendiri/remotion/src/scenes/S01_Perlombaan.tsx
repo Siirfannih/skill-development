@@ -1,6 +1,7 @@
 // 01a–01d · Babak 1 «Perlombaan»: horizon fajar → tile logo AI berpacu → zoom-through ke ruang gelap →
 // wireframe "pengganti" di kerucut cahaya → piktogram kita menatap wireframe yang terisi makin cepat.
 // Satu file karena 01a→01b (tile jatuh masuk), 01b→01c (zoom-through) dan 01c→01d (ruang yang sama) kontinu.
+import { useProbe } from "../lib/probe";
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
@@ -164,6 +165,7 @@ const RaceB: React.FC<{ t: number }> = ({ t }) => {
   const tau = t - P1b.start;
   const trackX = -tau * TRACK_V;
   const paintA = PAINT_A;
+  const probeBerlomba = useProbe("text:BERLOMBA-LOMBA", "text", Math.round(t * FPS), "#1d1d1f");
   const paintLeft0 = 280 + (paintA - P1b.start) * TRACK_V; // posisi dunia: kiri kata di x=70 saat dicat
   const paint = prog(t, paintA, paintA + 8 * fr, EZ.out);
   const z = prog(t, ZOOM_A, P1b.end, EZ.acc);
@@ -188,7 +190,7 @@ const RaceB: React.FC<{ t: number }> = ({ t }) => {
       <Camera scale={s1} x={tx} y={ty} blur={wide > 0 && wide < 0.9 ? 2.5 * (1 - wide) : 0}>
         <div style={{ position: "absolute", left: -1500, top: -600, width: 5000, height: 2400, backgroundImage: "linear-gradient(180deg, #c4dafd 0%, #c4dafd 25%, #e1f5fd 41%, #f4f9fd 54%, #ffffff 66%, #ffffff 100%)" }} />
         {/* cat lintasan: BERLOMBA-LOMBA (truck kiri→kanan bersama lintasan) */}
-        <div style={{
+        <div ref={probeBerlomba} style={{
           position: "absolute", left: paintLeft0 + trackX, top: 462, fontFamily: "Inter", fontWeight: 900, fontSize: 150, letterSpacing: -5,
           lineHeight: 1, whiteSpace: "nowrap", color: "rgba(29,29,31,0.88)", clipPath: `inset(0 ${(1 - paint) * 100}% 0 0)`,
           transform: "skewX(-6deg)",
