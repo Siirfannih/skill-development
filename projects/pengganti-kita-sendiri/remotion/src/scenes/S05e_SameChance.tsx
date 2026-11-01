@@ -6,7 +6,6 @@ import React from "react";
 import { AbsoluteFill, Easing } from "remotion";
 import { EZ, Grain, panOf, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel } from "../lib/time";
-import { AnchorWord } from "../lib/AnchorWord";
 import { moveFrame } from "./_b5_shared";
 import { LANDING_CARDS, LH, LW } from "./parts/LandingCards";
 import { OPENAI_KNOT_PATH, OPENAI_KNOT_VIEWBOX } from "../assets/openaiKnot";
@@ -14,7 +13,6 @@ import { OPENAI_KNOT_PATH, OPENAI_KNOT_VIEWBOX } from "../assets/openaiKnot";
 const P = panel("05e");
 const F0 = Math.round(P.start * FPS); // 2652
 const F1 = Math.round(P.end * FPS); // 2740
-const F_SAMA = 2677; // «sama» 89.24 s (onset)
 const N = LANDING_CARDS.length;
 const RX = 780, RZ = 500, FOC = 2300, TILT = 0.55;
 const CY = 450; // pusat orbit di layar
@@ -92,7 +90,7 @@ export const S05e_SameChance: React.FC = () => {
           {cards.filter((c) => c.o.zn > 0).map(card)}
         </AbsoluteFill>
         {/* anchor di tengah depan, di bawah logo (ruang layar, tidak ikut whip supaya tetap terbaca) */}
-        <AnchorWord text="SAMA" at={F_SAMA} x={960} y={625} size={170} color="#ffffff" align="center" enter="scale" shadow="0 6px 40px rgba(0,0,0,0.9)" />
+        {/* SAMA dihapus: visual orbit sudah kuat, ANCHORS-V9 #24 = no text (keputusan Claude 2 Nov) */}
         <Grain opacity={0.035} />
       </AbsoluteFill>
     </Scene>
