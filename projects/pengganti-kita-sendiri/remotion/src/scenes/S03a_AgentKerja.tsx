@@ -99,6 +99,14 @@ const cursorPos = (k: number, t: number): { x: number; y: number } => {
   const i = k - 1;
   const go = prog(t, T_WORK[i], T_WORK[i] + WORK_GO, EZ.inOut);
   const target = { x: BAR_X[i] + 10 + BAR_W * fillOf(i, t), y: BAR_Y + 14 };
+  if (k >= 2) {
+    // v10 (#22): Ops/Editor tidak menyilang dokumen + kartu balasan: keluar ke sisi (Ops kiri, Editor kanan), turun di luar kartu, naik ke bar dari bawah
+    const side = k === 2 ? 170 : 1650, yb = Y0 + 1090;
+    const pts = [idle, { x: side, y: idle.y }, { x: side, y: yb }, target];
+    const seg = go < 0.3 ? 0 : go < 0.7 ? 1 : 2;
+    const u = seg === 0 ? go / 0.3 : seg === 1 ? (go - 0.3) / 0.4 : (go - 0.7) / 0.3;
+    return { x: lerp(pts[seg].x, pts[seg + 1].x, u), y: lerp(pts[seg].y, pts[seg + 1].y, u) };
+  }
   return { x: lerp(idle.x, target.x, go), y: lerp(idle.y, target.y, go) };
 };
 // pusat wajah kecil di pil nama relatif ke ujung kursor (lihat NamedCursor)
@@ -283,7 +291,7 @@ export const S03a_AgentKerja: React.FC = () => {
 
           {/* v9 (#13): PERSIS = satu-satunya anchor babak ini (UI asli jadi bintang). Menempel pada agent kedua (CS) yang meniru agent pertama saat terbang,
               di BELAKANG wajah/kursor bernama (DOM sebelum agent), tinta gelap di atas latar langit terang. Hidup sampai agent tiba (±0,6 dtk). */}
-          <AnchorWord text="PERSIS" at={atPersis} until={untilPersis} x={960} y={446} size={96} color="#1d1d1f" align="center" enter="left" />
+          {/* PERSIS dipindah ke ruang layar (lihat setelah Camera) */}
 
           {/* agent: lompat dari tombol (03a-2) → terbang ke ruang kerja jadi kursor bernama (X01) */}
           {AGENTS.map((ag, i) => {
@@ -321,6 +329,8 @@ export const S03a_AgentKerja: React.FC = () => {
             </div>
           )}
         </Camera>
+        {/* v10 (#21, QC): PERSIS di RUANG LAYAR (tidak ikut tilt kamera yang menyeretnya ke tepi bawah), tengah x 960, y 520 (hilang f1394 sebelum maskot memenuhi tengah): di atas composer saat masih terlihat, lalu di tengah ruang maskot yang beterbangan; selalu dalam margin aman */}
+        <AnchorWord text="PERSIS" at={atPersis} until={Math.min(untilPersis, 1394)} x={960} y={520} size={96} color="#1d1d1f" align="center" enter="left" />
         <Grain opacity={0.035} />
       </AbsoluteFill>
     </Scene>
