@@ -4,7 +4,6 @@
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Camera, EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
-import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { FPS, panel, word } from "../lib/time";
 import { C, ezHalf } from "./_b1_shared";
 
@@ -28,20 +27,11 @@ const PHOTOS = [
   { img: "wonder/43cca1a394c8a5a50d96edbb22a2cddeef9b45d7e3a99ac323829deb292db7ca.jpg", x: 1500, y: 300, w: 300, h: 312, k: 0.8, pos: "50% 20%" }, // Altman
   { img: "wonder/193550038d18ec319191a1a059481c7292b65882cc01fa813359e8c67fa286d4.jpg", x: 150, y: 560, w: 360, h: 203, k: 0.75, pos: "50% 50%" }, // hackathon
 ];
-// blok warna (palet agen) muncul satu per kata VO
-const SQUARES = [
-  { c: "#ff7a45", x: 528, y: 300, s: 44, at: T.waktu, k: 1.25 },
-  { c: "#783ff6", x: 1432, y: 268, s: 48, at: T.ai, k: 1.3 },
-  { c: "#02c88a", x: 486, y: 760, s: 40, at: T.pertama, k: 1.35 },
-  { c: "#ff5c8a", x: 1770, y: 640, s: 40, at: T.ramai, k: 1.3 },
-];
-
 const LINK = "#3366cc"; // biru tautan Wikipedia (di atas putih)
 const SEL = "#b3d4fc"; // warna seleksi teks Chrome
 
 export const S02a_Wikipedia: React.FC = () => {
   const t = useT();
-  const atAI = useFrameAt(623); // v9: f terukur ANCHORS-V9 #7 (AI)
   const u = (t - P.start) / P.dur;
   const camX = 40 - 110 * u; // C08 truck lambat (drift linear)
   const card = prog(t, CARD_A, CARD_B, EZ.out);
@@ -50,7 +40,7 @@ export const S02a_Wikipedia: React.FC = () => {
   // kamera: wide + truck C08 → C01 di «AI» → C20 cut zoom 1,85× ke seleksi (momentum 6 f) → patah wide 5 f → wipe
   const c01 = 1 + 0.06 * prog(t, T.ai + 2 * fr, T.ai + 20 * fr, EZ.out);
   const inClose = t >= CUTZ ? 1 - prog(t, SNAP, SNAP + 5 * fr, EZ.out) : 0;
-  const sC = 1.85 + 0.07 * prog(t, CUTZ, CUTZ + 6 * fr, EZ.out);
+  const sC = 1.6 + 0.07 * prog(t, CUTZ, CUTZ + 6 * fr, EZ.out);
   const sW = t < CUTZ ? c01 : 1.0;
   const sc = sW + (sC - sW) * inClose;
   const qx = 960 * (1 - inClose) + (SEL_Q.x + camX) * inClose;
@@ -62,7 +52,6 @@ export const S02a_Wikipedia: React.FC = () => {
   sfxMark(t, "cut", P.start, "02a:cut:babak");
   PHOTOS.forEach((_, i) => sfxMark(t, "pop", ezHalf(P.start + i * 2 * fr, P.start + (i * 2 + 10) * fr), `02a:photo:${i}`));
   sfxMark(t, "pop", ezHalf(CARD_A, CARD_B), "02a:card:wiki");
-  SQUARES.forEach((q, i) => sfxMark(t, "pop", ezHalf(q.at + 2 * fr, q.at + 6 * fr), `02a:square:${i}`));
   sfxMark(t, "cut", CUTZ, "02a:cut:zoom"); // C20 cut zoom 1,85× ke kalimat rilis
   sfxMark(t, "click", SEL_A, "02a:select:start"); // drag-select browser mulai (tekan)
   sfxMark(t, "whoosh", SNAP, "02a:cam:snapwide"); // patah ke wide 5 f EZ.out
@@ -82,9 +71,7 @@ export const S02a_Wikipedia: React.FC = () => {
             }} />
           );
         })}
-        {/* v9 (B2): kalimat «Padahal waktu AI…» dihapus. AI = anchor tracking ke judul ChatGPT, di BELAKANG kartu halaman
-            (urutan DOM: sebelum kartu; ujung kanan teks terselip 60 px di bawah kartu). Posisi mengikuti camX tiap frame. */}
-        <AnchorWord text="AI" at={atAI} x={460 + camX + 60} y={452} size={360} color={C.ink} align="right" enter="left" />
+        {/* v10 (Irfan 5): «AI» hitam raksasa di belakang kartu DIHAPUS — visual Wikipedia sudah kuat, tanpa teks */}
         {/* lapis tengah: kartu artikel Wikipedia */}
         <div style={{
           position: "absolute", left: 460 + camX, top: 300 + (1 - card) * 40, width: 1000, opacity: Math.min(1, card * 1.6),
@@ -108,11 +95,7 @@ export const S02a_Wikipedia: React.FC = () => {
             It became one of the fastest-growing consumer apps in history.
           </div>
         </div>
-        {/* lapis dekat: blok warna, satu per kata */}
-        {SQUARES.map((s, i) => {
-          const q = prog(t, s.at + 2 * fr, s.at + 6 * fr, EZ.out);
-          return <div key={i} style={{ position: "absolute", left: s.x + camX * s.k, top: s.y, width: s.s, height: s.s, background: s.c, transform: `scale(${q})` }} />;
-        })}
+        {/* v10 (audit #12): 4 kotak warna dekoratif dihapus (warna tanpa alasan) */}
         </Camera>
         <Grain opacity={0.04} />
         {/* X09 wipe kiri→kanan ke kertas blueprint 02b (latar & grid identik dengan panel 02b) */}

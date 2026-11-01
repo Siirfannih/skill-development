@@ -36,8 +36,10 @@ const TILES: Tile[] = [
   { icon: "x", bg: "#ffffff", mono: C.ink, pad: 0.3, lane: 3, xs: [[0, 1060], [0.6, 1120], [1.34, 1010]] },
   { icon: "meta", bg: "#ffffff", mono: "#0866FF", pad: 0.24, lane: 4, xs: [[0, 900], [0.5, 1000], [1.34, 1090]] },
 ];
-const LANE_TOP = 180, LANE_H = 144, TILE = 112;
-const laneY = (l: number) => LANE_TOP + LANE_H * l + 76; // pusat tile
+const TILE = 112;
+// v10 (audit #9): lajur dipecah — 2 di atas & 3 di bawah pita kata BERLOMBA-LOMBA (y 450–630), tile tak pernah melintasi huruf
+const LANE_C = [190, 330, 740, 860, 980];
+const laneY = (l: number) => LANE_C[l]; // pusat tile
 const tileX = (tl: Tile, t: number) => keys(t - P1b.start, tl.xs, EZ.inOut);
 // frame pertama Gemini mendahului Claude (pemimpin pertama berganti) — dihitung dari keyframe, bukan ditulis tangan
 const T_SALIP1 = (() => {
@@ -162,7 +164,7 @@ const RaceB: React.FC<{ t: number }> = ({ t }) => {
   const tau = t - P1b.start;
   const trackX = -tau * TRACK_V;
   const paintA = PAINT_A;
-  const paintLeft0 = 170 + (paintA - P1b.start) * TRACK_V; // posisi dunia: kiri kata di x=70 saat dicat
+  const paintLeft0 = 280 + (paintA - P1b.start) * TRACK_V; // posisi dunia: kiri kata di x=70 saat dicat
   const paint = prog(t, paintA, paintA + 8 * fr, EZ.out);
   const z = prog(t, ZOOM_A, P1b.end, EZ.acc);
   const lead = TILES[0];
@@ -187,22 +189,22 @@ const RaceB: React.FC<{ t: number }> = ({ t }) => {
         <div style={{ position: "absolute", left: -1500, top: -600, width: 5000, height: 2400, backgroundImage: "linear-gradient(180deg, #c4dafd 0%, #c4dafd 25%, #e1f5fd 41%, #f4f9fd 54%, #ffffff 66%, #ffffff 100%)" }} />
         {/* cat lintasan: BERLOMBA-LOMBA (truck kiri→kanan bersama lintasan) */}
         <div style={{
-          position: "absolute", left: paintLeft0 + trackX, top: 440, fontFamily: "Inter", fontWeight: 900, fontSize: 180, letterSpacing: -6,
+          position: "absolute", left: paintLeft0 + trackX, top: 462, fontFamily: "Inter", fontWeight: 900, fontSize: 150, letterSpacing: -5,
           lineHeight: 1, whiteSpace: "nowrap", color: "rgba(29,29,31,0.88)", clipPath: `inset(0 ${(1 - paint) * 100}% 0 0)`,
           transform: "skewX(-6deg)",
         }}>
           BERLOMBA-LOMBA
         </div>
         {/* garis lajur putus-putus (bergeser = kecepatan) */}
-        {[0, 1, 2, 3, 4, 5].map((i) => (
+        {[120, 260, 400, 680, 800, 920, 1040].map((ly, i) => (
           <div key={i} style={{
-            position: "absolute", left: -1512, top: LANE_TOP + LANE_H * i, width: 5000, height: 3,
+            position: "absolute", left: -1512, top: ly, width: 5000, height: 3,
             backgroundImage: "linear-gradient(90deg, #d2d2d7 0 64px, transparent 64px 112px)", backgroundSize: "112px 3px",
             backgroundPositionX: trackX,
           }} />
         ))}
         {/* garis finis di kanan, masuk saat ChatGPT memimpin */}
-        <div style={{ position: "absolute", left: keys(t, [[SNAP_W, 2000], [P1b.end, 1640]], EZ.out), top: LANE_TOP, width: 6, height: LANE_H * 5,
+        <div style={{ position: "absolute", left: keys(t, [[SNAP_W, 2000], [P1b.end, 1640]], EZ.out), top: 120, width: 6, height: 920,
           backgroundImage: "repeating-linear-gradient(180deg, #1d1d1f 0 18px, #ffffff 18px 36px)" }} />
         {TILES.map((tl, k) => (
           <TileIcon key={tl.icon} tl={tl} cx={tileX(tl, t)} cy={laneY(tl.lane)} sy={land(k)} sx={2 - land(k)} trail={0.9} />

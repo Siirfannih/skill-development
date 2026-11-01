@@ -129,7 +129,7 @@ export const S00_ColdOpen: React.FC = () => {
   const matteFg = Object.values(mattes).some(Boolean) ? (
     <AbsoluteFill style={{ transform: t >= shrinkAt ? `scale(${cardScale})` : undefined, borderRadius: t >= shrinkAt ? 24 / cardScale : 0, overflow: "hidden" }}>
       {CUTS.map((c, i) => {
-        if (i === 1 || i === 2 || i === 4) return null; // QC 2 Nov: close-up remaja = badan menutup seluruh teks → teks di depan
+        if (i !== -1) return null; // v10: SEMUA matte dimatikan — Gates ghost dobel (Irfan 2); teen/billion/fast: matte menutupi teks satu-baris di badan narasumber, teks di depan // v10: i=0 Gates matte dimatikan (ghost dobel, Irfan 2) // QC 2 Nov: close-up remaja = badan menutup seluruh teks → teks di depan
         const key = NEWS.find((n) => n.file === c.file)!.name;
         const m = mattes[key];
         if (!m) return null;
@@ -195,6 +195,8 @@ export const S00_ColdOpen: React.FC = () => {
             Gates = tumpukan kiri bertingkat → baris tengah-bawah di atas montase; remaja = tangga kiri→kanan di ruang kanan;
             Bloomberg = kolom kiri dengan BILLION sebagai angka pahlawan; Sky News grafik = baris kecil → FAST raksasa.
             Matte (fg) menaruh teks di belakang kepala; di montase foto tidak ada matte. */}
+        {/* v10: bayangan radial lembut (tanpa tepi) di belakang baris «this time progress was so FAST» supaya foto awan tidak mengganggu keterbacaan */}
+        {t >= shrinkAt - 0.5 && <AbsoluteFill style={{ background: "radial-gradient(ellipse 900px 150px at 960px 840px, rgba(16,18,22,0.85) 0%, rgba(16,18,22,0.55) 55%, rgba(16,18,22,0) 100%)" }} />}
         <AnchorStage bg={null} fg={matteFg}>
           {(() => {
             const gEnd = Math.round(block("news_teen").t * FPS);
@@ -207,11 +209,15 @@ export const S00_ColdOpen: React.FC = () => {
             return (
               <>
                 {/* Gates (kanan frame): tumpukan kiri AI / is the / BIGGEST, hierarki 300 → 84 → 150 */}
-                <SpeakerLine words={[{ text: "AI", at: 2, size: 300, kind: "emph" }]} x={140} baseline={600} until={mEnd} />
-                <SpeakerLine words={[{ text: "is", at: W("news_gates", "is"), size: 84 }, { text: "the", at: W("news_gates", "the"), size: 84 }]} x={146} baseline={700} until={mEnd} />
-                <SpeakerLine words={[{ text: "BIGGEST", at: 27, size: 150, kind: "emph", enter: "left", sfx: { kind: "sub_impact", id: "00a:anchor:biggest" } }]} x={140} baseline={850} until={mEnd} />
+                {/* v10 (audit #2, Irfan 2): satu baris di ruang kosong backdrop kiri (matte Gates dimatikan → teks di depan, tak ada ghost/pemotongan) */}
+                <SpeakerLine x={90} baseline={600} until={mEnd} words={[
+                  { text: "AI", at: 2, size: 150, kind: "emph" },
+                  { text: "is", at: W("news_gates", "is"), size: 64 },
+                  { text: "the", at: W("news_gates", "the"), size: 64 },
+                  { text: "BIGGEST", at: 27, size: 150, kind: "emph", enter: "left", sfx: { kind: "sub_impact", id: "00a:anchor:biggest" } },
+                ]} />
                 {/* montase foto: satu baris tengah-bawah (di bawah dagu foto, di atas zona UI 8 %) */}
-                <SpeakerLine x={960} baseline={930} align="center" until={gEnd} words={[
+                <SpeakerLine x={960} baseline={590} align="center" until={gEnd} words={[
                   { text: "technical", at: W("news_gates", "technical"), size: 92 },
                   { text: "thing", at: W("news_gates", "thing"), size: 92 },
                   { text: "ever", at: W("news_gates", "ever"), size: 60 },
@@ -220,38 +226,32 @@ export const S00_ColdOpen: React.FC = () => {
                   { text: "lifetime", at: W("news_gates", "lifetime"), size: 112, kind: "last" },
                 ]} />
                 {/* remaja Sky News (kiri): tangga kiri→kanan di ruang kanan, 16 = angka (scale-slam), LAUNCHED = tekanan */}
-                <SpeakerLine x={980} baseline={470} until={tEnd} words={[
-                  { text: "16", at: 112, size: 300, kind: "number" },
-                  { text: "year old", at: yo, size: 76 },
+                {/* v10 (audit #5, #6): satu kalimat satu baris, di ruang bawah (badan/kemeja, bukan wajah) */}
+                <SpeakerLine x={110} baseline={800} gap={36} until={tEnd} words={[
+                  { text: "16", at: 112, size: 170, kind: "number" },
+                  { text: "year old", at: yo, size: 52 },
+                  { text: "LAUNCHED", at: 133, size: 96, kind: "emph", enter: "right", sfx: { kind: "scifi_whoosh", id: "00a:anchor:launched" } },
+                  { text: "a new", at: W("news_teen", "a"), size: 46 },
+                  { text: "AI", at: W("news_teen", "AI"), size: 80 },
+                  { text: "company", at: W("news_teen", "company"), size: 58, kind: "last" },
                 ]} />
-                <SpeakerLine x={1010} baseline={640} until={tEnd} words={[
-                  { text: "LAUNCHED", at: 133, size: 128, kind: "emph", enter: "right", sfx: { kind: "scifi_whoosh", id: "00a:anchor:launched" } },
+                {/* Bloomberg (presenter kanan): satu baris di dada, BILLION = angka pahlawan */}
+                <SpeakerLine x={110} baseline={800} gap={36} until={bEnd} words={[
+                  { text: "raised", at: W("news_billion", "raised"), size: 52 },
+                  { text: "over", at: W("news_billion", "over"), size: 52 },
+                  { text: "a", at: W("news_billion", "a"), size: 52 },
+                  { text: "BILLION", at: 208, size: 120, kind: "emph", sfx: { kind: "sub_impact", id: "00a:anchor:billion" } },
+                  { text: "dollars", at: W("news_billion", "dollars"), size: 64, kind: "last" },
                 ]} />
-                <SpeakerLine x={1010} baseline={790} until={tEnd} words={[
-                  { text: "a new", at: W("news_teen", "a"), size: 64 },
-                  { text: "AI", at: W("news_teen", "AI"), size: 112 },
-                  { text: "company", at: W("news_teen", "company"), size: 76, kind: "last" },
-                ]} />
-                {/* Bloomberg (presenter kanan): kolom kiri, BILLION = angka pahlawan */}
-                <SpeakerLine x={110} baseline={410} until={bEnd} words={[
-                  { text: "raised", at: W("news_billion", "raised"), size: 62 },
-                  { text: "over", at: W("news_billion", "over"), size: 62 },
-                  { text: "a", at: W("news_billion", "a"), size: 62 },
-                ]} />
-                <SpeakerLine x={110} baseline={600} until={bEnd} words={[
-                  { text: "BILLION", at: 208, size: 160, kind: "emph", sfx: { kind: "sub_impact", id: "00a:anchor:billion" } },
-                ]} />
-                <SpeakerLine x={116} baseline={705} until={bEnd} words={[{ text: "dollars", at: W("news_billion", "dollars"), size: 84, kind: "last" }]} />
                 {/* Sky News grafik: baris kecil di atas FAST raksasa (kartu menyusut di belakang, foto awan lewat) */}
-                <SpeakerLine x={960} baseline={668} align="center" until={Math.round(pB.end * FPS)} words={[
+                {/* v10 (Irfan 4): satu baris di ruang kosong BAWAH kartu yang menyusut, rata tengah; matte fast dimatikan (presenter tidak lagi memotong «o» progress) */}
+                <SpeakerLine x={960} baseline={870} align="center" until={Math.round(pB.end * FPS)} words={[
                   { text: "this", at: W("news_fast", "this"), size: 56 },
                   { text: "time", at: W("news_fast", "time"), size: 56 },
-                  { text: "progress", at: W("news_fast", "progress"), size: 104 },
+                  { text: "progress", at: W("news_fast", "progress"), size: 96 },
                   { text: "was", at: W("news_fast", "was"), size: 56 },
                   { text: "so", at: W("news_fast", "so"), size: 56 },
-                ]} />
-                <SpeakerLine x={960} baseline={929} align="center" until={Math.round(pB.end * FPS)} words={[
-                  { text: "FAST", at: 284, size: 300, kind: "emph", enter: "right", sfx: { kind: "scifi_whoosh", id: "00b:anchor:fast" } },
+                  { text: "FAST", at: 284, size: 150, kind: "emph", enter: "right", sfx: { kind: "scifi_whoosh", id: "00b:anchor:fast" } },
                 ]} />
               </>
             );
