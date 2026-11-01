@@ -24,7 +24,10 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
 - Jalankan `python3 tools/seg2_layout_check.py <dir>`. Pemeriksaannya:
   - **SAFE:** teks utuh di dalam x 15–85 %, y 20–80 % (1920×1080: x 288–1632, y 216–864). Mengikuti safe zone thumbnail YouTube.
   - **CLASH:** dua teks bertumpuk.
-  - **CONTR:** kontras teks vs latar < 3:1. Teks yang tak terbaca atau bertabrakan dengan warna di belakangnya mengurangi 1 poin estetika.
+  - **CONTR:** kontras teks vs latar < 4,5:1.
+    - Perbaikannya lewat warna teks, posisi di area tenang, atau text-shadow lembut.
+    - **Dilarang menambah pita/scrim gradien hitam di belakang baris** (Irfan 07.30: kasar, tepinya terlihat, menurunkan estetika).
+    - Teks narasumber di atas footage yang sudah terbaca dengan shadow lembut boleh diterima walau angka checker rendah. Keputusan mata Irfan menang atas metrik. Teks yang tak terbaca atau bertabrakan dengan warna di belakangnya mengurangi 1 poin estetika.
 - Lihat contact sheet still ≤ 960 px untuk estetika: ruang kosong, hierarki, variasi.
 - **Lolos jika** laporan LOLOS dan contact sheet bersih.
 
