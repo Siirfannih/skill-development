@@ -1,0 +1,5 @@
+100%: 278/336 SFX audible on a phone speaker
+ 50%: 278/336 SFX audible on a phone speaker
+ 20%: 277/336 SFX audible on a phone speaker
+VO clarity (speech band, VO vs bed while talking): median 11.5 dB, worst -17.8 dB at 125.0s, windows < 8 dB: 44
+harsh SFX (louder in 2–6 kHz than the voice's own 90th-percentile presence): 0

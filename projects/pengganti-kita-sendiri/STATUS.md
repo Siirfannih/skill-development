@@ -1,13 +1,32 @@
 # STATUS: Pengganti Kita Sendiri (@siirfannih)
 
-_Update terakhir: 1 Nov 2026 16.20 WITA. Sesi cloud ditutup karena terlalu panjang; lanjutkan di sesi baru dari dokumen ini._
+_Update terakhir: 1 Nov 2026 19.50 WITA._
 
 ## Posisi sekarang
-- **Versi terakhir: v4** (`PenggantiKitaSendiri_v4_1080p.mp4`, 132,8 dtk, 1920×1080 @ 30 fps) = visual v2 + audio v14.
-- **Menunggu review Irfan** atas audio v14. Ada dua keputusan terbuka:
-  1. Langkah kaki piktogram di detik 54 dan 99–101 saat ini tanpa SFX. Perlu bunyi langkah lembut?
-  2. Klik kata `ipad_click` terang (energi di 2–6 kHz), letaknya 16 dB di bawah VO. Masih nyaman, atau perlu tap yang lebih lembut?
-- Audit audio dan alasan semua perubahan ada di `AUDIO-AUDIT-1NOV.md`. Aturan yang direvisi ada di `claude/motion-graphic/references/audio.md` §14.5 dan §14.8–14.10.
+- **Versi terakhir: v6** (`PKS_v6.mp4`, 132,8 dtk) = visual v2 + **audio v16**. Seluruh SFX dan backsound v14/v15 dihapus. Yang dipertahankan hanya dialog (VO + klip berita/Jensen/Altman, rantai v14).
+- **Audio v16 disusun dengan earshot asli** (github.com/Leonxlnx/earshot 0.4.0, commit 591fa3e, di-clone baru, bukan salinan `external/` repo ini). Prosesnya mengikuti `skills/real-sound` dan `docs/launch-video-sound.md`:
+  - **Cue dari picture.** Grammar launch earshot: hard cut, cut zoom, dan pergantian babak tanpa SFX (14 cue dibuang). Gerak kamera mendapat satu swish.
+  - **Pemilihan suara.** Setiap peran dipilih dengan `earshot rank`, `realness`, dan `find` dari Epidemic, folder Irfan, papan audisi, dan bank earshot. Bank earshot kalah di semua peran (sintetis / realness rendah).
+  - **Mix dan level.** Dirakit dengan `mix.py` (design JSON). Level tiap event diukur di atas bed musik memakai `bed_db` dan offset dari kit `launch`.
+  - **Master.** `master.py` −14 LUFS, ceiling 0,6 (AAC ffmpeg overshoot ±5 dB pada ceiling 0,77).
+- **Palet (satu peran satu bunyi):**
+  - Kata dan kursor: klik mouse (Pixabay 15C, PAKAI Irfan).
+  - Foto: shutter Canon 5D (Epidemic).
+  - Kartu/pop: UI Bubbly Select (Epidemic).
+  - Lampu: light switch (Epidemic).
+  - Gerak kamera: Swish Tonal Flyby (Epidemic).
+  - Hit: Electric Tonne (Epidemic).
+  - Riser: Pixabay 04C.
+  - Ketik: Apple keyboard (Epidemic, dipotong per huruf).
+  - Lainnya: trash, marker, dan langkah kaki dari Epidemic.
+- **Musik:** "Leave the Room" (Damon Greene, Epidemic, 120 BPM, G minor). Diedit di garis birama: drop di 54,93 dtk, outro di akhir. Musik turun 5 dB di bawah VO, dengan stop-down 9 dB sebelum 5 hit besar.
+- **QA:**
+  - `earshot critique` atas film: launch-grade (22/23, 0 critical/major; sisa minor: low end tipis).
+  - `qa.py`: coverage 336/336, sync 0 meleset, 0 klik.
+  - Uji HP 20 %: 277/336 terdengar, 0 SFX tajam terhadap presence VO.
+  - VO di atas musik+SFX: median 11,5 dB.
+- **Kode dan bukti:** `audio-v16-earshot/` (`run.sh` menjalankan semuanya; media dan aset tidak di repo).
+- **Menunggu review telinga Irfan atas v6.**
 
 ## Keputusan terkunci
 - Storyboard: Wonder export panel 00a–06g (03a/03b memakai versi R2).
@@ -15,7 +34,8 @@ _Update terakhir: 1 Nov 2026 16.20 WITA. Sesi cloud ditutup karena terlalu panja
 - Cold open: supercut berita dengan kinetic typography per kata, kiri→kanan, tidak menutupi pembicara.
 - Audio v14:
   - VO kering, tanpa reverb.
-  - SFX hanya dari stok Irfan: Kenyset, SFX Tuntunly, ElevenLabs The Gap (`jadisatu-60s/remotion/sfx-el`), ElevenLabs video #2.
+  - (v14, digantikan v16) SFX dari stok Kenyset/Tuntunly/ElevenLabs.
+- Audio v16: earshot (upstream) menyusun dan memilih; library (Epidemic, folder Irfan) hanya sumber file. Klik per kata = klik mouse, bukan kayu.
   - Satu peran satu bunyi; satu event satu bunyi.
   - Setiap kata kinetik bersuara.
   - SFX tidak pernah mendahului objek.

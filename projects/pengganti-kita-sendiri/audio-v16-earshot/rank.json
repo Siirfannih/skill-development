@@ -1,0 +1,737 @@
+{
+ "click": {
+  "query": "a single crisp computer mouse click",
+  "rows": [
+   {
+    "file": "aud__15C.wav",
+    "z": 4.53,
+    "verdict": "strong",
+    "p_real": 0.79
+   },
+   {
+    "file": "aud__01C.wav",
+    "z": 4.36,
+    "verdict": "strong",
+    "p_real": 0.64
+   },
+   {
+    "file": "es__apple_mighty_mouse_click.mp3",
+    "z": 4.29,
+    "verdict": "strong",
+    "p_real": 0.87
+   },
+   {
+    "file": "bank__pro_click_soft.wav",
+    "z": 4.22,
+    "verdict": "strong",
+    "p_real": 0.1
+   },
+   {
+    "file": "aud__15B.wav",
+    "z": 4.04,
+    "verdict": "strong",
+    "p_real": 0.91
+   },
+   {
+    "file": "es__magic_mouse_double_click.mp3",
+    "z": 3.97,
+    "verdict": "strong",
+    "p_real": 0.99
+   },
+   {
+    "file": "bank__fit_click_floss_lid.wav",
+    "z": 3.64,
+    "verdict": "strong",
+    "p_real": 0.81
+   },
+   {
+    "file": "aud__01F.wav",
+    "z": 3.52,
+    "verdict": "strong",
+    "p_real": 0.79
+   },
+   {
+    "file": "bank__pro_click_mouse.wav",
+    "z": 3.47,
+    "verdict": "strong",
+    "p_real": 0.06
+   },
+   {
+    "file": "aud__15D.wav",
+    "z": 3.33,
+    "verdict": "strong",
+    "p_real": 0.95
+   },
+   {
+    "file": "bank__click_snap.wav",
+    "z": 3.27,
+    "verdict": "strong",
+    "p_real": 0.4
+   },
+   {
+    "file": "aud__01D.wav",
+    "z": 2.89,
+    "verdict": "plausible",
+    "p_real": 0.47
+   },
+   {
+    "file": "bank__click_soft.wav",
+    "z": 2.72,
+    "verdict": "plausible",
+    "p_real": 0.39
+   },
+   {
+    "file": "bank__click_double.wav",
+    "z": 2.42,
+    "verdict": "weak",
+    "p_real": 0.84
+   },
+   {
+    "file": "irfan__press_pos03.mp3",
+    "z": 2.32,
+    "verdict": "weak",
+    "p_real": 0.61
+   },
+   {
+    "file": "aud__01E.wav",
+    "z": 2.21,
+    "verdict": "weak",
+    "p_real": 0.04
+   },
+   {
+    "file": "aud__01A.wav",
+    "z": 2.16,
+    "verdict": "weak",
+    "p_real": 0.19
+   },
+   {
+    "file": "aud__01B.wav",
+    "z": 1.58,
+    "verdict": "no match",
+    "p_real": 0.52
+   },
+   {
+    "file": "irfan__phone_tap.mp3",
+    "z": 1.16,
+    "verdict": "no match",
+    "p_real": 0.01
+   }
+  ]
+ },
+ "swish": {
+  "query": "a fast bright clean air swish whoosh",
+  "rows": [
+   {
+    "file": "es__swish_stick_fast_01.mp3",
+    "z": 5.56,
+    "verdict": "strong",
+    "p_real": 0.99
+   },
+   {
+    "file": "es__swish_short_bright_flyby.mp3",
+    "z": 5.52,
+    "verdict": "strong",
+    "p_real": 0.75
+   },
+   {
+    "file": "es__swish_stick_bendy_03.mp3",
+    "z": 5.45,
+    "verdict": "strong",
+    "p_real": 0.99
+   },
+   {
+    "file": "bank__swish_blade.wav",
+    "z": 5.37,
+    "verdict": "strong",
+    "p_real": 0.97
+   },
+   {
+    "file": "aud__06E.wav",
+    "z": 5.16,
+    "verdict": "strong",
+    "p_real": 0.62
+   },
+   {
+    "file": "es__swish_boomerang.mp3",
+    "z": 5.16,
+    "verdict": "strong",
+    "p_real": 0.99
+   },
+   {
+    "file": "bank__swish_stick.wav",
+    "z": 5.08,
+    "verdict": "strong",
+    "p_real": 0.94
+   },
+   {
+    "file": "bank__swish_zing.wav",
+    "z": 5.05,
+    "verdict": "strong",
+    "p_real": 0.86
+   },
+   {
+    "file": "irfan__whoosh_softs.mp3",
+    "z": 4.99,
+    "verdict": "strong",
+    "p_real": 0.92
+   },
+   {
+    "file": "irfan__whoosh_big.mp3",
+    "z": 4.85,
+    "verdict": "strong",
+    "p_real": 0.98
+   },
+   {
+    "file": "irfan__whoosh_smacky.mp3",
+    "z": 4.85,
+    "verdict": "strong",
+    "p_real": 0.98
+   },
+   {
+    "file": "bank__swish_bright.wav",
+    "z": 4.55,
+    "verdict": "strong",
+    "p_real": 0.23
+   },
+   {
+    "file": "es__whoosh_airy_fast_bright_metallic.mp3",
+    "z": 4.19,
+    "verdict": "strong",
+    "p_real": 0.97
+   },
+   {
+    "file": "bank__whoosh_fast_crisp.wav",
+    "z": 3.78,
+    "verdict": "strong",
+    "p_real": 0.8
+   },
+   {
+    "file": "bank__whoosh_fast_whip.wav",
+    "z": 3.03,
+    "verdict": "strong",
+    "p_real": 0.2
+   },
+   {
+    "file": "aud__06A.wav",
+    "z": 2.84,
+    "verdict": "plausible",
+    "p_real": 0.97
+   },
+   {
+    "file": "bank__swish_flick.wav",
+    "z": 2.45,
+    "verdict": "weak",
+    "p_real": 0.73
+   },
+   {
+    "file": "bank__swipe_flick.wav",
+    "z": 2.4,
+    "verdict": "weak",
+    "p_real": 0.91
+   }
+  ]
+ },
+ "pop": {
+  "query": "a soft short user interface pop",
+  "rows": [
+   {
+    "file": "es__ui_bubbly_select.mp3",
+    "z": 3.94,
+    "verdict": "strong",
+    "p_real": 0.15
+   },
+   {
+    "file": "irfan__pop_up.mp3",
+    "z": 3.89,
+    "verdict": "strong",
+    "p_real": 0.14
+   },
+   {
+    "file": "aud__03B.wav",
+    "z": 3.75,
+    "verdict": "strong",
+    "p_real": 0.44
+   },
+   {
+    "file": "es__pops_glass_ui.mp3",
+    "z": 3.63,
+    "verdict": "strong",
+    "p_real": 0.01
+   },
+   {
+    "file": "aud__03F.wav",
+    "z": 3.39,
+    "verdict": "strong",
+    "p_real": 0.68
+   },
+   {
+    "file": "bank__knock_plastic.wav",
+    "z": 3.38,
+    "verdict": "strong",
+    "p_real": 0.14
+   },
+   {
+    "file": "bank__ui_pop_soft.wav",
+    "z": 3.32,
+    "verdict": "strong",
+    "p_real": 0.03
+   },
+   {
+    "file": "es__plastic_tap.wav",
+    "z": 3.32,
+    "verdict": "strong",
+    "p_real": 0.02
+   },
+   {
+    "file": "aud__13E.wav",
+    "z": 3.14,
+    "verdict": "strong",
+    "p_real": 0.91
+   },
+   {
+    "file": "aud__03D.wav",
+    "z": 3.08,
+    "verdict": "strong",
+    "p_real": 0.55
+   },
+   {
+    "file": "aud__03E.wav",
+    "z": 3.05,
+    "verdict": "strong",
+    "p_real": 0.43
+   },
+   {
+    "file": "irfan__confirm_menu.mp3",
+    "z": 2.95,
+    "verdict": "plausible",
+    "p_real": 0.0
+   },
+   {
+    "file": "bank__ui_pop_step.wav",
+    "z": 2.84,
+    "verdict": "plausible",
+    "p_real": 0.06
+   },
+   {
+    "file": "aud__14D.wav",
+    "z": 2.82,
+    "verdict": "plausible",
+    "p_real": 0.38
+   },
+   {
+    "file": "es__pop_mouth_finger.mp3",
+    "z": 2.79,
+    "verdict": "plausible",
+    "p_real": 0.94
+   },
+   {
+    "file": "es__pop_small_lid.mp3",
+    "z": 2.73,
+    "verdict": "plausible",
+    "p_real": 0.97
+   },
+   {
+    "file": "bank__pro_pop_thup.wav",
+    "z": 2.63,
+    "verdict": "plausible",
+    "p_real": 0.38
+   },
+   {
+    "file": "bank__ui_pop_boop.wav",
+    "z": 2.6,
+    "verdict": "plausible",
+    "p_real": 0.79
+   },
+   {
+    "file": "aud__03A.wav",
+    "z": 2.5,
+    "verdict": "plausible",
+    "p_real": 0.72
+   },
+   {
+    "file": "bank__pro_pop_in_round.wav",
+    "z": 2.49,
+    "verdict": "weak",
+    "p_real": 0.94
+   },
+   {
+    "file": "aud__03C.wav",
+    "z": 2.48,
+    "verdict": "weak",
+    "p_real": 0.5
+   },
+   {
+    "file": "aud__14E.wav",
+    "z": 1.49,
+    "verdict": "no match",
+    "p_real": 1.0
+   }
+  ]
+ },
+ "shutter": {
+  "query": "a camera shutter click",
+  "rows": [
+   {
+    "file": "es__shutter_canon_5d.mp3",
+    "z": 5.07,
+    "verdict": "strong",
+    "p_real": 0.94
+   },
+   {
+    "file": "es__shutter_nikon_d3100.mp3",
+    "z": 4.97,
+    "verdict": "strong",
+    "p_real": 0.92
+   },
+   {
+    "file": "es__shutter_zenit_01.mp3",
+    "z": 4.49,
+    "verdict": "strong",
+    "p_real": 0.94
+   },
+   {
+    "file": "es__shutter_nikon_d7200.mp3",
+    "z": 4.16,
+    "verdict": "strong",
+    "p_real": 0.85
+   },
+   {
+    "file": "aud__02D.wav",
+    "z": 4.01,
+    "verdict": "strong",
+    "p_real": 0.68
+   },
+   {
+    "file": "aud__02A.wav",
+    "z": 3.57,
+    "verdict": "strong",
+    "p_real": 0.97
+   },
+   {
+    "file": "aud__02C.wav",
+    "z": 2.74,
+    "verdict": "plausible",
+    "p_real": 0.62
+   },
+   {
+    "file": "es__shutter_panasonic_g2.mp3",
+    "z": 2.72,
+    "verdict": "plausible",
+    "p_real": 0.94
+   },
+   {
+    "file": "aud__02E.wav",
+    "z": 2.46,
+    "verdict": "weak",
+    "p_real": 0.97
+   },
+   {
+    "file": "aud__02B.wav",
+    "z": 1.63,
+    "verdict": "no match",
+    "p_real": 0.91
+   },
+   {
+    "file": "bank__shutter_snap.wav",
+    "z": 1.57,
+    "verdict": "no match",
+    "p_real": 0.83
+   },
+   {
+    "file": "bank__shutter_mirror.wav",
+    "z": 0.42,
+    "verdict": "no match",
+    "p_real": 0.83
+   },
+   {
+    "file": "bank__shutter_dslr.wav",
+    "z": 0.22,
+    "verdict": "no match",
+    "p_real": 0.55
+   },
+   {
+    "file": "bank__shutter_quick.wav",
+    "z": -0.05,
+    "verdict": "no match",
+    "p_real": 0.49
+   }
+  ]
+ },
+ "hit": {
+  "query": "a deep cinematic impact boom hit",
+  "rows": [
+   {
+    "file": "es__hit_thud_dark.mp3",
+    "z": 4.34,
+    "verdict": "strong",
+    "p_real": 0.66
+   },
+   {
+    "file": "es__hit_thud_bright_airy.mp3",
+    "z": 4.07,
+    "verdict": "strong",
+    "p_real": 0.94
+   },
+   {
+    "file": "es__hit_slam_braam.mp3",
+    "z": 3.91,
+    "verdict": "strong",
+    "p_real": 0.86
+   },
+   {
+    "file": "es__hit_electric_tonne.mp3",
+    "z": 3.81,
+    "verdict": "strong",
+    "p_real": 0.96
+   },
+   {
+    "file": "aud__07B.wav",
+    "z": 3.44,
+    "verdict": "strong",
+    "p_real": 0.79
+   },
+   {
+    "file": "aud__07A.wav",
+    "z": 3.41,
+    "verdict": "strong",
+    "p_real": 0.55
+   },
+   {
+    "file": "aud__07D.wav",
+    "z": 3.25,
+    "verdict": "strong",
+    "p_real": 0.78
+   },
+   {
+    "file": "bank__cut_hit_punch.wav",
+    "z": 2.69,
+    "verdict": "plausible",
+    "p_real": 0.13
+   },
+   {
+    "file": "bank__cut_hit_sub.wav",
+    "z": 2.56,
+    "verdict": "plausible",
+    "p_real": 0.02
+   },
+   {
+    "file": "bank__cut_hit_rumble.wav",
+    "z": 2.53,
+    "verdict": "plausible",
+    "p_real": 0.08
+   },
+   {
+    "file": "bank__cut_hit_kick.wav",
+    "z": 1.67,
+    "verdict": "no match",
+    "p_real": 0.01
+   }
+  ]
+ },
+ "riser": {
+  "query": "a short tension riser building up",
+  "rows": [
+   {
+    "file": "aud__04C.wav",
+    "z": 3.31,
+    "verdict": "strong",
+    "p_real": 0.97
+   },
+   {
+    "file": "es__riser_clean_01.mp3",
+    "z": 2.85,
+    "verdict": "plausible",
+    "p_real": 0.78
+   },
+   {
+    "file": "es__riser_suspense.mp3",
+    "z": 2.56,
+    "verdict": "plausible",
+    "p_real": 0.94
+   },
+   {
+    "file": "aud__04E.wav",
+    "z": 2.42,
+    "verdict": "weak",
+    "p_real": 0.42
+   },
+   {
+    "file": "es__riser_clean_02.mp3",
+    "z": 2.41,
+    "verdict": "weak",
+    "p_real": 0.66
+   },
+   {
+    "file": "aud__04D.wav",
+    "z": 2.24,
+    "verdict": "weak",
+    "p_real": 0.54
+   },
+   {
+    "file": "es__riser_whoosh_01.mp3",
+    "z": 2.21,
+    "verdict": "weak",
+    "p_real": 0.98
+   },
+   {
+    "file": "aud__04B.wav",
+    "z": 1.87,
+    "verdict": "no match",
+    "p_real": 0.97
+   },
+   {
+    "file": "aud__04A.wav",
+    "z": 1.52,
+    "verdict": "no match",
+    "p_real": 0.86
+   },
+   {
+    "file": "bank__riser_dark.wav",
+    "z": 1.13,
+    "verdict": "no match",
+    "p_real": 0.76
+   },
+   {
+    "file": "bank__riser_build.wav",
+    "z": 0.37,
+    "verdict": "no match",
+    "p_real": 0.69
+   },
+   {
+    "file": "bank__riser_snatch.wav",
+    "z": 0.27,
+    "verdict": "no match",
+    "p_real": 0.93
+   }
+  ]
+ },
+ "key": {
+  "query": "laptop keyboard typing",
+  "rows": [
+   {
+    "file": "es__type_apple.wav",
+    "z": 4.16,
+    "verdict": "strong",
+    "p_real": 0.98
+   },
+   {
+    "file": "bank__typing_key_crisp.wav",
+    "z": 1.15,
+    "verdict": "no match",
+    "p_real": 0.95
+   },
+   {
+    "file": "bank__typing_key_light.wav",
+    "z": 0.66,
+    "verdict": "no match",
+    "p_real": 0.96
+   },
+   {
+    "file": "bank__pro_typing_key_soft.wav",
+    "z": 0.34,
+    "verdict": "no match",
+    "p_real": 0.56
+   },
+   {
+    "file": "bank__typing_key_laptop.wav",
+    "z": 0.04,
+    "verdict": "no match",
+    "p_real": 0.96
+   }
+  ]
+ },
+ "toggle": {
+  "query": "a light switch click",
+  "rows": [
+   {
+    "file": "es__light_switch_apartment02.mp3",
+    "z": 3.33,
+    "verdict": "strong",
+    "p_real": 0.88
+   },
+   {
+    "file": "es__light_switch_on_off.mp3",
+    "z": 2.96,
+    "verdict": "plausible",
+    "p_real": 0.94
+   },
+   {
+    "file": "aud__09A.wav",
+    "z": 2.67,
+    "verdict": "plausible",
+    "p_real": 0.99
+   },
+   {
+    "file": "aud__09C.wav",
+    "z": 2.44,
+    "verdict": "weak",
+    "p_real": 0.99
+   },
+   {
+    "file": "bank__fit_snap_switch_flip.wav",
+    "z": 1.85,
+    "verdict": "no match",
+    "p_real": 0.89
+   },
+   {
+    "file": "aud__09D.wav",
+    "z": 1.43,
+    "verdict": "no match",
+    "p_real": 0.98
+   }
+  ]
+ },
+ "music": {
+  "query": "dark suspenseful minimal electronic pulse documentary music",
+  "rows": [
+   {
+    "file": "es__LeaveTheRoom_120.mp3",
+    "z": 3.04,
+    "verdict": "strong",
+    "p_real": null
+   },
+   {
+    "file": "es__LaunchSequence_126.mp3",
+    "z": 3.01,
+    "verdict": "strong",
+    "p_real": null
+   },
+   {
+    "file": "es__SignalContainment_126.mp3",
+    "z": 2.99,
+    "verdict": "plausible",
+    "p_real": null
+   },
+   {
+    "file": "es__Fragment_105.mp3",
+    "z": 2.68,
+    "verdict": "plausible",
+    "p_real": null
+   },
+   {
+    "file": "es__Formula_120.mp3",
+    "z": 2.67,
+    "verdict": "plausible",
+    "p_real": null
+   },
+   {
+    "file": "es__AxonTerminal_120.mp3",
+    "z": 2.54,
+    "verdict": "plausible",
+    "p_real": null
+   },
+   {
+    "file": "es__Vestige_105.mp3",
+    "z": 2.46,
+    "verdict": "weak",
+    "p_real": null
+   },
+   {
+    "file": "es__Mindscape_108.mp3",
+    "z": 2.39,
+    "verdict": "weak",
+    "p_real": null
+   }
+  ]
+ }
+}
