@@ -8,7 +8,7 @@
 - [x] Heartbeat/trigger lanjutan aktif
 
 ## 1. Audit A — video v8 (Claude utama)
-- [ ] Peta timeline v8: beat, kalimat VO, klip, scene (dari `remotion/src/timeline.json`, `beats.json`)
+- [x] Peta timeline v8: beat, kalimat VO, klip, scene (dari `remotion/src/timeline.json`, `beats.json`)
 - [x] Audit audio terukur: noise floor per babak, dead air (> 300 ms sunyi), spektrum SFX, LUFS
 - [x] Audit visual: frame per beat vs `GrokAgent/reference-videos/*` + storyboard; daftar yang tidak rapi
 - [x] Tulis `AUDIT-V8-2NOV.md` (temuan → prioritas → fix)
@@ -22,15 +22,15 @@
   - Kandidat palet satu artis (Lennon Hutton): DOX 07e2e4ec (74 bpm, bass+instruments → drone Babak 2), Mindscape 4cb08b97 (108 bpm, pulses → Babak 3), 77 Cycles b303cb62 (drums/arp → puncak 0:41). Refleksi: Gray 25c74293 (solo piano). Cek key cocok sebelum download WAV.
 - [x] Sourcing SFX per peran (sci-fi whoosh, sub-impact, UI glass/hologram, telemetry, riser) dari library
 - [x] Room tone / ambient bed konsisten (hospital-air loop, −54 dBFS)
-- [ ] Mix: EQ carving 1–4 kHz, ducking klip asli −6..−8 dB, pan agent, reverb ruang, −14 LUFS
-- [ ] QA: dead air = 0, telinga-HP 20/50/100 %, tidak ada 2–6 kHz menusuk
+- [x] Mix: EQ carving 1–4 kHz, ducking klip asli −6..−8 dB, pan agent, reverb ruang, −14 LUFS
+- [x] QA: dead air = 0, telinga-HP 20/50/100 %, tidak ada 2–6 kHz menusuk
 
 ## 4. Visual + kinetic type v9
 - [x] Daftar anchor words per kalimat (bahasa ikut audio) + timestamp suku kata
 - [x] Komponen AnchorWord: snap–hantam–ease-out, posterize 8–12 fps, tekstur
-- [ ] Masking teks di belakang subjek/objek + tracking ke UI
+- [x] Masking teks di belakang subjek/objek + tracking ke UI
 - [x] Perbaiki visual tidak rapi dari Audit A (B3–B14 + feedback 00.16: orbit S05e, checklist S02e, teks narasumber bervariasi)
-- [ ] Render v9 + QC visual (visual_qc) + devil's advocate
+- [x] Render v9 + QC visual (visual_qc) + devil's advocate
 
 ## 5. Selesai
 - [ ] Update STATUS.md, push main, kirim PKS_v9 ke Irfan
@@ -61,3 +61,5 @@ Setiap perbaikan langsung dirender per segmen dan di-QC, baru render final sekal
 - Sinkron cloud→Mac: selalu stagedPath baru per sinkron (device_commit_files menyimpan cache per path; file lama sempat tertulis ulang 2 Nov).
 
 - 02.13: s5 gagal (delayRender 28 s, matte Altman VP9 alpha 1080p). seg.sh/final.sh: --concurrency=4 --timeout=120000. chain9 = s5 lalu final.
+
+- 02.36: FINAL_DONE + patch Altman. QC final: 132,8 s, 1080p30, −14,0 LUFS, TP −1,3, dead air 0. Patch ke-2 Altman (90 px, x100–775 | 1080) sedang.
