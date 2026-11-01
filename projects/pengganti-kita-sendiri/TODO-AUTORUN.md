@@ -57,5 +57,7 @@ Setiap perbaikan langsung dirender per segmen dan di-QC, baru render final sekal
 
 ## Disk Mac (izin Irfan 2 Nov 02.00: jaga > 10 GB)
 - Dihapus 02.01: cache wonder updater (2,6 GB), Brave, node-gyp, npm, uv, potongan tar _cloud-handoff → 9 → 13 GB.
-- Offload: `Documents/Orange 4 Backups` (1,5 GB) disalin ke Internxt `Personal/Mac-Offload-2026-11-02`; asli dihapus HANYA setelah evict Internxt sukses (bukti ter-upload).
+- Offload: `Documents/Orange 4 Backups` (1,5 GB, 13.561 file) disalin ke Internxt `Personal/Mac-Offload-2026-11-02`. `fileproviderctl` di Mac ini tidak punya `evict` → upload tak bisa dibuktikan dari CLI. Asli BELUM dihapus; tunggu Irfan konfirmasi di app Internxt, lalu hapus asli + "Free up space" di Finder.
 - Sinkron cloud→Mac: selalu stagedPath baru per sinkron (device_commit_files menyimpan cache per path; file lama sempat tertulis ulang 2 Nov).
+
+- 02.13: s5 gagal (delayRender 28 s, matte Altman VP9 alpha 1080p). seg.sh/final.sh: --concurrency=4 --timeout=120000. chain9 = s5 lalu final.
