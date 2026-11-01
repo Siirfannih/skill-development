@@ -12,6 +12,8 @@ import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from "remotion";
 import { AnchorWord, type AnchorEnter } from "./AnchorWord";
 import { EZ, sfxMark, useSceneFrom, type SfxKind } from "./anim";
 import { FPS, word as timelineWord } from "./time";
+import { SAFE } from "./safe";
+import { useProbe } from "./probe";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
 const TRACK_OUT = Easing.bezier(0.05, 0.9, 0.1, 1);
@@ -64,17 +66,38 @@ const widthOf = (w: SpeakerWordSpec) => {
  * Susun satu baris: kata berurutan dengan baseline sama, hierarki ukuran per kata. align = sisi baris yang menempel di `x`.
  * Lebar dihitung untuk keadaan AKHIR (kata `last` sudah tracking-out), sehingga baris tidak bergeser saat kata muncul.
  */
+// Aturan Irfan 2 Nov 06.48: ukuran font SERAGAM dalam satu urutan; pembeda = huruf kapital di awal (bukan ukuran).
+// Teks = penekanan (prioritas 2) → ukuran sedang. Semua baris dijepit ke SAFE ZONE x 15–85 %, y 20–80 % (lib/safe.ts).
+export const LINE_SIZE = 76;
+const ACRONYM = new Set(["AI", "CEO", "OK", "AGI"]);
+const caseWord = (text: string, i: number, kind: SpeakerKind) =>
+  text.split(" ").map((t, j) => {
+    if (ACRONYM.has(t.toUpperCase()) && t === t.toUpperCase()) return t;
+    if (/^[0-9]/.test(t)) return t;
+    const low = t.toLowerCase();
+    return (i === 0 && j === 0) || kind === "emph" || kind === "number" ? low.charAt(0).toUpperCase() + low.slice(1) : low;
+  }).join(" ");
+
 export const flowLine = (
-  words: SpeakerWordSpec[], opts: { x: number; baseline: number; align?: "left" | "center" | "right"; gap?: number },
+  wordsIn: SpeakerWordSpec[], opts: { x: number; baseline: number; align?: "left" | "center" | "right"; gap?: number; size?: number },
 ): PlacedWord[] => {
+  // satu ukuran untuk seluruh baris; diperkecil bila baris tak muat di lebar safe zone
+  const want = opts.size ?? LINE_SIZE;
+  const norm = wordsIn.map((w, i) => ({ ...w, text: caseWord(w.text, i, w.kind ?? "normal"), size: want }));
+  const raw = norm.map(widthOf).reduce((a, b) => a + b, 0) + 0.26 * want * (norm.length - 1);
+  const k = Math.min(1, (SAFE.x1 - SAFE.x0) / raw);
+  const words = norm.map((w) => ({ ...w, size: Math.round(w.size * k) }));
   const widths = words.map(widthOf);
   const gaps = words.map((w, i) => (i === 0 ? 0 : opts.gap ?? 0.26 * Math.min(words[i - 1].size, w.size)));
   const total = widths.reduce((a, b) => a + b, 0) + gaps.reduce((a, b) => a + b, 0);
   const align = opts.align ?? "left";
   let cx = align === "left" ? opts.x : align === "center" ? opts.x - total / 2 : opts.x - total;
+  cx = Math.max(SAFE.x0, Math.min(SAFE.x1 - total, cx)); // jepit ke safe zone
+  const s0 = words[0]?.size ?? want;
+  const baseline = Math.max(SAFE.y0 + 0.75 * s0, Math.min(SAFE.y1 - 0.2 * s0, opts.baseline));
   return words.map((w, i) => {
     cx += gaps[i];
-    const p: PlacedWord = { ...w, x: cx, baseline: opts.baseline, align: "left" };
+    const p: PlacedWord = { ...w, x: cx, baseline, align: "left" };
     cx += widths[i];
     return p;
   });
@@ -85,6 +108,7 @@ const BL_FROM_CENTER = 0.364; // baseline − pusat vertikal kotak (em)
 
 const NormalLike: React.FC<{ w: PlacedWord; absF: number; shadow: string; color: string }> = ({ w, absF, shadow, color }) => {
   const kind = w.kind ?? "normal";
+  const probe = useProbe(`speaker:${w.text}`, "speaker", absF, color);
   const lf = absF - w.at;
   const s = w.size;
   const pad = 0.16 * s;
@@ -101,6 +125,7 @@ const NormalLike: React.FC<{ w: PlacedWord; absF: number; shadow: string; color:
   }
   const inner = (
     <div
+      ref={probe}
       style={{
         fontFamily: "Inter", fontWeight: weightOf(kind), fontSize: s, letterSpacing: `${track}em`, lineHeight: 1, color, whiteSpace: "nowrap",
         textShadow: shadow, transform: kind === "number" ? `scale(${scale})` : `translateY(${tr * 100}%)`,

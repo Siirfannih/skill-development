@@ -17,7 +17,17 @@ const EVENTS: Ev[] = [
 /** posisi tiap blok setelah dimampatkan: 3 × 15 menit berurutan dari 09.00 */
 const SQ = (i: number) => ({ s: 9 + i * 0.25, d: 0.25 });
 
-export const CalendarDay: React.FC<{ k: number; blurY?: number; style?: React.CSSProperties }> = ({ k, blurY = 0, style }) => {
+/** pusat tiap blok (koordinat lokal kalender) pada kompresi k — dipakai kamera untuk fokus ke blok */
+export const blockCenter = (i: number, k: number) => {
+  const gridTop = CAL.headH + 28;
+  const ev = EVENTS[i], q = SQ(i);
+  const s = ev.s + (q.s - ev.s) * k, d = ev.d + (q.d - ev.d) * k;
+  return { x: (CAL.gutter + 14 + CAL.w - 24) / 2, y: gridTop + (s - CAL.hours0 + d / 2) * CAL.rowH };
+};
+export const CAL_EVENTS = EVENTS.map((e) => e.name);
+
+/** k = kompresi 0..1; appear[i] = 0..1 kemunculan blok i (tumbuh dari tepi atas, «blok jadwal muncul perlahan»). */
+export const CalendarDay: React.FC<{ k: number; blurY?: number; appear?: number[]; style?: React.CSSProperties }> = ({ k, blurY = 0, appear, style }) => {
   const gridTop = CAL.headH + 28; // jam 09.00 sejajar dengan y ini
   const yOf = (h: number) => gridTop + (h - CAL.hours0) * CAL.rowH;
   const hours: number[] = [];
@@ -49,13 +59,16 @@ export const CalendarDay: React.FC<{ k: number; blurY?: number; style?: React.CS
         {EVENTS.map((ev, i) => {
           const q = SQ(i);
           const s = ev.s + (q.s - ev.s) * k, d = ev.d + (q.d - ev.d) * k;
-          const top = yOf(s) + 3, h = d * CAL.rowH - 6;
-          const showText = h > 44;
+          const a = appear ? Math.max(0, Math.min(1, appear[i])) : 1;
+          if (a <= 0) return null;
+          const top = yOf(s) + 3, h = (d * CAL.rowH - 6) * a;
+          const showText = h > 9;
+          const fs = Math.min(32, (h - 3) * 0.72);
           return (
-            <div key={i} style={{ position: "absolute", left: CAL.gutter + 14, right: 24, top, height: h, borderRadius: 12, background: "rgba(0,122,255,0.16)", overflow: "hidden" }}>
+            <div key={i} style={{ position: "absolute", left: CAL.gutter + 14, right: 24, top, height: h, borderRadius: 12, background: "rgba(0,122,255,0.16)", overflow: "hidden", opacity: Math.min(1, a * 1.6) }}>
               <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: 8, background: BLUE }} />
               {showText && (
-                <div style={{ position: "absolute", left: 28, top: Math.min(14, h / 2 - 20), fontSize: 32, fontWeight: 600, color: "#0a4fb3", whiteSpace: "nowrap", opacity: Math.min(1, (h - 44) / 30) }}>
+                <div style={{ position: "absolute", left: 28, top: Math.min(14, (h - fs) / 2), fontSize: fs, lineHeight: 1, fontWeight: 600, color: "#0a4fb3", whiteSpace: "nowrap" }}>
                   {ev.name}
                 </div>
               )}

@@ -5,7 +5,6 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
-import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { AgentFace, AGENTS, Arrow, cue, ezAt, Icon, I_FOLDER, I_KEY, I_MIC, I_MORE, I_PLUS, I_UP, I_X, NamedCursor } from "./_b3_shared";
 
 const P1 = panel("03a-1");
@@ -123,7 +122,6 @@ const Chip: React.FC<{ children: React.ReactNode; pad?: string }> = ({ children,
 
 export const S03a_AgentKerja: React.FC = () => {
   const t = useT();
-  const atPersis = useFrameAt(1381), untilPersis = useFrameAt(Math.round((LAUNCH[1] + FLY) * FPS)); // v9: f terukur ANCHORS-V9 #13
 
   // ── SFXEV (metronom SFX): satu tanda per event visual, dari konstanta yang sama dengan animasinya
   sfxMark(t, "cut", P1.start, "03a:cut:in"); // Babak 2 → composer
@@ -330,7 +328,7 @@ export const S03a_AgentKerja: React.FC = () => {
           )}
         </Camera>
         {/* v10 (#21, QC): PERSIS di RUANG LAYAR (tidak ikut tilt kamera yang menyeretnya ke tepi bawah), tengah x 960, y 520 (hilang f1394 sebelum maskot memenuhi tengah): di atas composer saat masih terlihat, lalu di tengah ruang maskot yang beterbangan; selalu dalam margin aman */}
-        <AnchorWord text="PERSIS" at={atPersis} until={Math.min(untilPersis, 1394)} x={960} y={520} size={96} color="#1d1d1f" align="center" enter="left" />
+        {/* PERSIS DIHAPUS (Irfan 2 Nov 06.48): agent kedua yang meniru agent pertama sudah menjadi visualnya; teks = prioritas 2 */}
         <Grain opacity={0.035} />
       </AbsoluteFill>
     </Scene>

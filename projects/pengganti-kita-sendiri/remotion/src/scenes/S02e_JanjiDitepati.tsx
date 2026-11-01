@@ -15,7 +15,7 @@ import { AnchorWord } from "../lib/AnchorWord";
 import { BLOOM_PT } from "./_b2_shared";
 import { moveFrame } from "./_b5_shared";
 import { CARD, TaskCard, type TaskIcon } from "./parts/TaskCard";
-import { CalendarDay, CAL } from "./parts/CalendarDay";
+import { CalendarDay, CAL, CAL_EVENTS, blockCenter } from "./parts/CalendarDay";
 
 const W_TIDAK = word("tidak", "s2", 1);
 
@@ -42,10 +42,25 @@ const tapOf = (i: number) => TAPS[i];
 
 // ── jadwal
 const F_START = 956, F_PUNCH = 1010, F_BAR_IN = 1037, F_COMP0 = 1074, F_LAND = 1081, F_BAR_OUT = 1100, F_BACK = 1104;
-const F_BERHENTI = 1176;
 const F_TIDAK = Math.round(W_TIDAK.s * FPS); // 1169
 
-// ── bar waktu (dunia)
+// ── OBJ «Kalender hari kerja» · blok jadwal muncul satu per satu (frame absolut), lalu memampat di «lebih cepat»
+/** frame muncul blok: Input data pesanan · Invoice Oktober · Rekap penjualan */
+const CAL_APPEAR = [1040, 1051, 1062];
+/** kamera kalender (koordinat lokal kalender): fokus ke blok yang sedang muncul → overview → ikut blok termampat */
+const calCamAt = (fa: number): Cam => {
+  const focus = (i: number, k = 0): Cam => { const b = blockCenter(i, k); return { cx: b.x, cy: b.y, Z: 2.0 }; };
+  const overview: Cam = { cx: CAL.w / 2, cy: CAL.h / 2, Z: 1.34 };
+  const top: Cam = { cx: 345, cy: blockCenter(1, 1).y + 40, Z: 3.0 };
+  let c = focus(0);
+  c = mixCam(c, focus(1), e(fa, CAL_APPEAR[1] - 3, CAL_APPEAR[1] + 4, EZ.inOut));
+  c = mixCam(c, focus(2), e(fa, CAL_APPEAR[2] - 3, CAL_APPEAR[2] + 4, EZ.inOut));
+  c = mixCam(c, overview, e(fa, 1066, F_COMP0, EZ.inOut));
+  c = mixCam(c, top, e(fa, F_COMP0, F_LAND + 4, EZ.out));
+  c = mixCam(c, overview, e(fa, 1088, F_BAR_OUT, EZ.inOut)); // tarik mundur: sisa hari 10.00–17.00 kosong
+  return c;
+};
+
 
 const e = (fa: number, a: number, b: number, ez = EZ.out) => prog(fa / FPS, a / FPS, b / FPS, ez);
 const mix = (a: number, b: number, k: number) => a + (b - a) * k;
@@ -82,12 +97,12 @@ const cursorAt = (fa: number) => {
 const camAt = (fa: number): Cam => {
   const cur = cursorAt(fa - 3);
   const p1: Cam = { cx: 700 + (cur.x - BOX_X) * 0.4, cy: cur.y * 0.9 + 556 * 0.1, Z: mix(1.46, 1.56, e(fa, F_START, F_PUNCH, EZ.inOut)) };
-  const wide: Cam = { cx: 860, cy: 540, Z: 1 + 0.04 * e(fa, 1014, 1036, EZ.inOut) };
+  const wide: Cam = { cx: 880, cy: 540, Z: 1 + 0.04 * e(fa, 1014, 1036, EZ.inOut) };
   const p2: Cam = { cx: 1000, cy: 540, Z: 1 + 0.05 * e(fa, 1042, F_COMP0, EZ.inOut) };
   const p2b: Cam = { cx: 640, cy: 540, Z: 1.3 + 0.04 * e(fa, 1086, F_BAR_OUT + 2, EZ.out) };
   const p3: Cam = { cx: 700 + (cur.x - BOX_X) * 0.4, cy: cur.y, Z: 1.3 };
   // v10 (#19): daftar terbaca (Z ≈ 0,95 → teks ±34 px), 5–6 baris terakhir saja, sisanya keluar frame atas; daftar di kiri, ruang kanan untuk TIDAK BERHENTI
-  const wide2: Cam = { cx: 1084, cy: mix(1440, 1500, e(fa, F_TIDAK + 6, 1229, EZ.inOut)), Z: mix(0.95, 0.98, e(fa, F_TIDAK + 6, 1229, EZ.inOut)) };
+  const wide2: Cam = { cx: CX + CARD.w / 2, cy: mix(1440, 1500, e(fa, F_TIDAK + 6, 1229, EZ.inOut)), Z: mix(0.95, 0.98, e(fa, F_TIDAK + 6, 1229, EZ.inOut)) };
   let c = p1;
   c = mixCam(c, wide, e(fa, F_PUNCH, F_PUNCH + 4));
   c = mixCam(c, p2, e(fa, 1034, 1042, EZ.inOut));
@@ -123,9 +138,9 @@ export const S02e_JanjiDitepati: React.FC = () => {
   const kc = e(fa, F_COMP0, F_LAND, EZ.out);
   const barOut = e(fa, F_BAR_OUT, F_BAR_OUT + 6, EZ.acc);
   const showBar = fa >= F_BAR_IN - 1 && barOut < 1;
-  const land = fa >= F_LAND ? 1 - e(fa, F_LAND, F_LAND + 6) : 0; // denyut pendaratan
-  const compressed = kc >= 0.45;
   const calBlur = 9 * Math.sin(Math.PI * e(fa, F_COMP0, F_LAND + 2, EZ.inOut));
+  const calCam = calCamAt(fa);
+  const calCamBlur = 2.5 * Math.sin(Math.PI * e(fa, CAL_APPEAR[1] - 3, CAL_APPEAR[1] + 3)) + 2.5 * Math.sin(Math.PI * e(fa, CAL_APPEAR[2] - 3, CAL_APPEAR[2] + 3));
 
   // SFXEV · metronom
   sfxMark(t, "riser", pe.start, "02d:bloom:hit"); // X14 bloom 02d memuncak → mengerut ke titik (tetap)
@@ -133,8 +148,9 @@ export const S02e_JanjiDitepati: React.FC = () => {
     const c = camAt(f);
     sfxMark(t, "ui_tap", f / FPS, `02e:tick:${i}`, panOf((BOX_X - c.cx) * c.Z + 960)); // centang ✓ (pan mengikuti x kotak di layar)
   });
+  CAL_APPEAR.forEach((f, i) => sfxMark(t, "glass_ping", f / FPS, `02e:cal:block:${CAL_EVENTS[i].replace(/\s+/g, "_")}`)); // blok jadwal muncul
   sfxMark(t, "low_whoosh", moveFrame(F_COMP0 / FPS), "02e:time:compress"); // puncak kecepatan whip-compress
-  sfxMark(t, "sub_impact", F_LAND / FPS, "02e:time:land"); // mendarat «45 menit» (kecil, ≥4 f senyap sesudah whoosh)
+  sfxMark(t, "sub_impact", F_LAND / FPS, "02e:cal:compressed"); // blok mendarat 09.00–09.45 (≥4 f senyap sesudah whoosh)
   sfxMark(t, "whoosh", W_TIDAK.s, "02f:cam:snapwide"); // C15 patah ke wide di «tidak»
 
   const cursor = cursorAt(fa);
@@ -143,7 +159,6 @@ export const S02e_JanjiDitepati: React.FC = () => {
   // dot grid parallax (lapis belakang 2.5D)
   const Zg = 1 + (Z - 1) * 0.4;
 
-  const label = compressed ? { n: "45", u: " menit" } : { n: "8", u: " jam" };
 
   return (
     <Scene start={pe.start} end={pf.end} name="02e–02f Daftar centang">
@@ -174,24 +189,22 @@ export const S02e_JanjiDitepati: React.FC = () => {
               </div>
             </div>
           </AbsoluteFill>
-          {/* kalender hari kerja: ruang layar (di luar kamera dunia), cut bersih */}
+          {/* OBJ «Kalender hari kerja» (ruang layar, cut bersih): penuh frame, blok jadwal muncul satu per satu dengan kamera fokus
+              ke blok yang muncul; «lebih cepat» = blok memampat 09.00–09.45 dan kamera ikut naik. TANPA teks «8 jam/45 menit»
+              (Irfan 2 Nov 06.48: visual blok sudah kuat). */}
           {showBar && (
-            <AbsoluteFill style={{ opacity: (1 - barOut) * Math.min(1, barIn * 1.5), transform: `scale(${(0.96 + 0.04 * barIn) * (1 + 0.4 * barOut)})`, transformOrigin: "50% 50%" }}>
+            <AbsoluteFill style={{ opacity: (1 - barOut) * Math.min(1, barIn * 1.5), filter: calCamBlur > 0.3 ? `blur(${calCamBlur.toFixed(2)}px)` : undefined }}>
               <svg width="0" height="0" style={{ position: "absolute" }}><filter id="cal02e" x="-5%" y="-30%" width="110%" height="160%"><feGaussianBlur stdDeviation={`0 ${calBlur.toFixed(2)}`} /></filter></svg>
-              <CalendarDay k={kc} blurY={calBlur} style={{ left: 230, top: (1080 - CAL.h) / 2 }} />
-              <div style={{ position: "absolute", left: 1260, top: 390 - 190 * kc, fontFamily: "Inter", color: "#fff", whiteSpace: "nowrap", display: "flex", alignItems: "baseline", transform: `scale(${1 + 0.12 * land})`, transformOrigin: "0 50%" }}>
-                <span style={{ fontSize: 150, fontWeight: 800, letterSpacing: -5, lineHeight: 1 }}>{label.n}</span>
-                <span style={{ fontSize: 78, fontWeight: 600, letterSpacing: -2, marginLeft: 22 }}>{label.u.trim()}</span>
+              <div style={{ position: "absolute", left: 0, top: 0, width: CAL.w, height: CAL.h, transform: `translate(${960 - calCam.cx * calCam.Z}px, ${540 - calCam.cy * calCam.Z}px) scale(${calCam.Z})`, transformOrigin: "0 0" }}>
+                <CalendarDay k={kc} blurY={calBlur} appear={CAL_APPEAR.map((f0) => e(fa, f0, f0 + 7, EZ.out))} style={{ left: 0, top: 0 }} />
               </div>
             </AbsoluteFill>
           )}
         </AbsoluteFill>
 
         {/* lapis atas: anchor (ruang layar). DITEPATI di samping daftar yang tuntas */}
-        <AnchorWord text="DITEPATI" at={atDitepati} until={untilDitepati} x={1080} y={556} size={150} color="#ffffff" align="left" enter="left" />
-        {/* v10 (#19): anchor «TIDAK BERHENTI» (bukan TAHAP INI): satu baris, kanan daftar, keduanya putih di latar hitam */}
-        <AnchorWord text="TIDAK" at={F_TIDAK} x={850} y={540} size={100} color="#ffffff" align="left" enter="right" />
-        <AnchorWord text="BERHENTI" at={F_BERHENTI} x={850 + 345} y={540} size={100} color="#ffffff" align="left" enter="right" sfx={{ kind: "sub_impact", id: "02f:anchor:tahap" }} />
+        <AnchorWord text="DITEPATI" at={atDitepati} until={untilDitepati} x={1030} y={556} size={110} color="#ffffff" align="left" enter="left" />
+        {/* «tidak berhenti»: TANPA teks (Irfan 2 Nov 06.48) — daftar panjang yang terus dicentang AI sudah menjadi visualnya */}
         <Grain opacity={0.05} />
       </AbsoluteFill>
     </Scene>

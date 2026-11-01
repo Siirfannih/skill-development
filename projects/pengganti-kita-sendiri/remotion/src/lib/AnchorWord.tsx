@@ -4,6 +4,7 @@
 // Posterize time 12 fps HANYA untuk grup teks ini (frame dikuantisasi), sisa video tetap 30 fps.
 // Tekstur kertas/grain di glyph (feTurbulence, deterministik per langkah 12 fps). Satu baris, Inter Black.
 // Lapisan: <AnchorStage bg fg> menaruh teks di ANTARA latar dan cutout subjek (teks di belakang subjek).
+import { useProbe } from "./probe";
 import React, { useId } from "react";
 import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from "remotion";
 import { useSceneFrom, sfxMark, type SfxKind } from "./anim";
@@ -62,6 +63,7 @@ export const AnchorWord: React.FC<AnchorProps> = ({
   const at = atAbs - sceneFrom;
   const until = untilAbs === undefined ? undefined : untilAbs - sceneFrom;
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
+  const probe = useProbe(`anchor:${text}`, "text", frame + sceneFrom, color);
   if (sfx) sfxMark((frame + sceneFrom) / FPS, sfx.kind, (at + sceneFrom) / FPS, sfx.id, sfx.pan);
   if (frame < at || (until !== undefined && exit === "cut" && frame >= until)) return null;
   if (until !== undefined && exit === "snap" && frame >= until + OUT_F) return null;
@@ -113,6 +115,7 @@ export const AnchorWord: React.FC<AnchorProps> = ({
         </filter>
       </svg>
       <div
+        ref={probe}
         style={{
           position: "absolute", left: x + tr.x + dx, top: y + tr.y,
           transform: `translate(${tx}, -50%) scale(${scale})`, transformOrigin: align === "left" ? "0% 50%" : align === "right" ? "100% 50%" : "50% 50%",
