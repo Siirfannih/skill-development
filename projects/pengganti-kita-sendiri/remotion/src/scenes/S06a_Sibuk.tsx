@@ -41,8 +41,8 @@ const HeroUnit: React.FC<{ k: number; on: number; lit: number; t?: number }> = (
   const atMembangun = useFrameAt(3169), atMerencanakan = useFrameAt(3217), outTxt = useFrameAt(Math.round((B.start + 0.05) * FPS));
   const cx = plane.x + plane.w / 2;
   const cy = plane.y + plane.h / 2;
-  const fsOld = 15.6;
-  const fsNew = 12.2;
+  const fsOld = 11.8; // v11 (SAFE): 15,6 → 12,6 supaya MEMBANGUN utuh di x ≤ 1632 saat reveal-out
+  const fsNew = 10.8; // v11 (SAFE): 12,2 → 10,8 (MERENCANAKAN utuh di safe zone)
   return (
     <div style={{ position: "absolute", left: 0, top: 0, width: 164, height: 200 }}>
       {/* berkas cahaya dari bidang (06a), hilang saat unit menyusut ke proporsi grid */}

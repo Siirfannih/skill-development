@@ -30,9 +30,9 @@ const QUOTE = [
 ];
 const QUOTE_Y = 540;
 const layoutQuote = () => {
-  const gap = (a: number, b: number) => 0.3 * Math.min(a, b);
+  const gap = (a: number, b: number) => 0.55 * Math.min(a, b); // v11: celah lebih lebar (drift 1,04 tidak menabrak kata berikutnya)
   const raw = QUOTE.reduce((acc, w, i) => acc + textWidth(w.text, w.size) + (i ? gap(QUOTE[i - 1].size, w.size) : 0), 0);
-  const k = Math.min(1, 1290 / raw);
+  const k = Math.min(1, 1260 / raw);
   let x = 960 - (raw * k) / 2;
   return QUOTE.map((w, i) => {
     if (i) x += gap(QUOTE[i - 1].size, w.size) * k;
@@ -91,12 +91,12 @@ export const S04d_AltmanOrbit: React.FC = () => {
         </Camera>
         {/* v10 (Irfan 9): satu baris, kata muncul pada onset (frame absolut). Di depan klip; boleh menutup torso/wajah (ruang logis, bukan ruang kosong lain). */}
         {QW.map((w) => (
-          <AnchorWord key={w.text} text={w.text} at={w.at} until={outW} x={w.x} y={QUOTE_Y} size={w.size} color={w.text === "BILLION" ? "#FFD84A" : "#fff"} align="left" enter="scale" grain={0.25}
+          <AnchorWord key={w.text} text={w.text} at={w.at} until={outW} x={w.x} y={QUOTE_Y} size={w.size} color={w.text === "BILLION" ? "#FFD25A" : "#fff"} align="left" enter="scale" grain={0.25}
             shadow="0 4px 36px rgba(0,0,0,0.6)" sfx={w.text === "BILLION" ? { kind: "sub_impact", id: "04d:anchor:billion" } : undefined} />
         ))}
         {/* atribusi */}
-        <div style={{ position: "absolute", top: 826, left: 288, textAlign: "left", background: "rgba(0,0,0,0.5)", padding: "10px 18px", borderRadius: 10, fontFamily: "Inter", fontWeight: 600, fontSize: 26, letterSpacing: 4.2, color: "rgba(255,255,255,0.88)", opacity: prog(t, P.start + 0.3, P.start + 0.8, EZ.out) * (1 - wordsOut) }}>
-          SAM ALTMAN · CEO OPENAI · MOSTLY HUMAN
+        <div style={{ position: "absolute", top: 826, left: 288, textAlign: "left", background: "rgba(0,0,0,0.5)", padding: "10px 18px", borderRadius: 10, fontFamily: "Geist Sans", fontWeight: 600, fontSize: 26, letterSpacing: 1, color: "rgba(255,255,255,0.88)", opacity: prog(t, P.start + 0.3, P.start + 0.8, EZ.out) * (1 - wordsOut) }}>
+          Sam Altman · CEO OpenAI · Mostly human
         </div>
         <Grain opacity={0.05} />
       </AbsoluteFill>

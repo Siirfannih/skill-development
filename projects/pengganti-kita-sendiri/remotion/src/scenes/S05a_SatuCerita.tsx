@@ -126,8 +126,8 @@ export const S05a_SatuCerita: React.FC = () => {
           const lx = cc.x - (card.w * cc.k) / 2 - 120; // v10 (#31): jarak ke tile Altman 56 → 120 px
           return (
             <>
-              <AnchorWord text="SATU" at={atSatu} until={atSukses} x={lx} y={cc.y} size={170} color="#1d1d1f" align="right" enter="left" />
-              <AnchorWord text="SUKSES" at={atSukses} until={outSS} x={lx} y={cc.y} size={170} color="#1d1d1f" align="right" enter="left" />
+              <AnchorWord text="SATU" at={atSatu} until={atSukses} x={lx} y={cc.y} size={150} color="#1d1d1f" align="right" enter="left" />
+              <AnchorWord text="SUKSES" at={atSukses} until={outSS} x={lx} y={cc.y} size={150} color="#1d1d1f" align="right" enter="left" />
             </>
           );
         })()}

@@ -65,12 +65,14 @@ export const S06g_Peran: React.FC = () => {
             })}
             {/* v10 (#44): PERAN | KAMU turun ke tinggi badan (kiri/kanan torso, bukan di antara kepala → tak ada «O» nyasar). v9 (#32): kalimat penuh DI ATAS piktogram dibuang → PERAN | KAMU satu baris setinggi kepala piktogram tunggal, DI BELAKANG kepalanya
                 (DOM sebelum Ball: tepi dalam kedua kata terselip 40 px di bawah kepala). KAMU putih penuh. */}
-            <AnchorWord text="PERAN" at={atPeran} x={815} y={826} size={110} color={wa(0.88)} align="right" enter="left" />
-            <AnchorWord text="KAMU" at={atKamu} x={1105} y={826} size={140} color={C6.white} align="left" enter="right" />
             {/* yang tersisa: satu piktogram di tengah */}
             <Ball b={{ x: 892, y: 636, w: 136, h: 136 }} rim={0.4 + 0.35 * litFrac} r={8} />
             <Torso b={{ x: 840, y: 784, w: 240, h: 360 }} rim={0.3 + 0.25 * litFrac} r={7} />{/* h 300→360: saat land (translateY −40) alas badan tak terlihat */}
           </AbsoluteFill>
+          {/* v11 (SAFE/CONTR): PERAN | KAMU pindah ke ruang layar di celah antara barisan bidang dan piktogram (y 540, utuh di safe zone);
+              di v10 duduk di y 826 dalam lapisan kamera → turun ke y 940 saat push-in dan menimpa badan piktogram (kontras 2,1:1). Ukuran seragam. */}
+          <AnchorWord text="PERAN" at={atPeran} x={934} y={548} size={124} color={wa(0.92)} align="right" enter="left" />
+          <AnchorWord text="KAMU" at={atKamu} x={986} y={548} size={124} color={C6.white} align="left" enter="right" />
         </AbsoluteFill>
         <Grain opacity={0.05 * (1 - fade * 0.6)} />
       </AbsoluteFill>
