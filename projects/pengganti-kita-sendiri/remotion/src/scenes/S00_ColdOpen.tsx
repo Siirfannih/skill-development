@@ -71,14 +71,9 @@ const CLOUD = [
   { img: "193550038d18ec319191a1a059481c7292b65882cc01fa813359e8c67fa286d4.jpg", x: 500, y: 40, w: 240, h: 140, z: 0.55 },
   { img: "30f18ba51b261b88d6986105a30b3219733874950edff61f4cf1762dbd412bf5.jpg", x: 1400, y: 60, w: 360, h: 208, z: 1.0 },
   { img: "f46925a87f669ce6a3a61cb6efe4882c1957b7e131988a67a6fd1799bbe6bc9e.jpg", x: 1720, y: 300, w: 240, h: 140, z: 0.5 },
-  { img: "a084d6713bd51936e5f2514555d8aad21d6e4470957796029947348a1493dee0.jpg", x: 120, y: 760, w: 400, h: 232, z: 1.1 },
-  { img: "6eda1bd3b11f988bdedbbb4a4caf766bcab8a36eb3b4cdfae840f0c8311076bb.jpg", x: 600, y: 840, w: 240, h: 140, z: 0.6 },
-  { img: "0b2f2da534f00131095234ec5f6dc8de72ba4c9053c979795f3cf1043830f75f.png", x: 1280, y: 800, w: 420, h: 244, z: 1.15 },
   { img: "d465a6b0c5cadf6fe67276beec88ccd0d4f8c1175570f664dc0bdeacaebde531.jpg", x: 300, y: 460, w: 180, h: 108, z: 0.35 },
   { img: "cf62d8467f160bc4293f098cb9a24564fe12fca16dc033f1060380dc5e43b663.jpg", x: 1480, y: 480, w: 180, h: 108, z: 0.35 },
   { img: "653933ac539310f41d2288501c1ffb8e67c47b10758b6785a5d2d9e60e441859.jpg", x: 860, y: 80, w: 200, h: 120, z: 0.45 },
-  { img: "081067b5c127cff324887ff17cf5454ef60f4d9673b32f58c6d68d7a05080c6b.jpg", x: 960, y: 900, w: 220, h: 128, z: 0.55 },
-  { img: "93987e2cbc28b5f73cf29d949b9c18e884c32421aa1d8446bef8f8b72d7b9a4a.jpg", x: 1760, y: 880, w: 180, h: 108, z: 0.4 },
 ];
 
 export const SLAM_STYLE: React.CSSProperties = {
@@ -108,12 +103,13 @@ export const S00_ColdOpen: React.FC = () => {
   const t = useT();
 
   const pB = panel("00b");
-  const shrinkAt = CUTS[CUTS.length - 1].at; // «progress» → footage menyusut jadi satu foto di awan
+  const shrinkAt = block("news_fast").t; // v10: menyusut dari awal klip fast (sebelum «this» masuk) supaya ada ruang kosong di bawah kartu // «progress» → footage menyusut jadi satu foto di awan
   const sh = { x: 0, y: 0 };
   // redup footage saat teks ada (keterbacaan tanpa scrim); montase sedikit lebih redup
   const dimF = t >= MONTAGE_A && t < MONTAGE_B ? 0.62 : 0.8;
   // reveal-out 00b (C06): kamera mundur ×3, akselerasi singkat lalu deselerasi panjang
-  const rev = keys(t, [[shrinkAt, 0], [shrinkAt + 0.3, 0.35], [pB.end, 1]], EZ.out);
+  const rev = keys(t, [[shrinkAt, 0], [shrinkAt + 0.1, 0.62], [shrinkAt + 0.5, 0.9], [pB.end, 1]], EZ.out);
+  const cardUp = -rev * 200; // kartu juga naik → ruang kosong di bawah
   const cardScale = 1 - rev * 0.84;
   // SFXEV · metronom: hard cut tiap potongan berita (termasuk cut zoom C20 antar-span), foto montase berganti
   // (frame pertama floor((t−MONTAGE_A)/STEP) naik), footage menyusut jadi kartu di awan (EZ.out → puncak di awal).
@@ -127,7 +123,7 @@ export const S00_ColdOpen: React.FC = () => {
     news_billion: useSubjectMatte("news_billion"), news_fast: useSubjectMatte("news_fast"),
   };
   const matteFg = Object.values(mattes).some(Boolean) ? (
-    <AbsoluteFill style={{ transform: t >= shrinkAt ? `scale(${cardScale})` : undefined, borderRadius: t >= shrinkAt ? 24 / cardScale : 0, overflow: "hidden" }}>
+    <AbsoluteFill style={{ transform: t >= shrinkAt ? `translateY(${cardUp}px) scale(${cardScale})` : undefined, borderRadius: t >= shrinkAt ? 24 / cardScale : 0, overflow: "hidden" }}>
       {CUTS.map((c, i) => {
         if (i !== -1) return null; // v10: SEMUA matte dimatikan — Gates ghost dobel (Irfan 2); teen/billion/fast: matte menutupi teks satu-baris di badan narasumber, teks di depan // v10: i=0 Gates matte dimatikan (ghost dobel, Irfan 2) // QC 2 Nov: close-up remaja = badan menutup seluruh teks → teks di depan
         const key = NEWS.find((n) => n.file === c.file)!.name;
@@ -157,7 +153,7 @@ export const S00_ColdOpen: React.FC = () => {
           })}
         <Camera x={sh.x} y={sh.y}>
           {/* footage berita per frasa, cut zoom bergantian (C20) + zoom mikro (C01) */}
-          <AbsoluteFill style={{ transform: t >= shrinkAt ? `scale(${cardScale})` : undefined, borderRadius: t >= shrinkAt ? 24 / cardScale : 0, overflow: "hidden", }}>
+          <AbsoluteFill style={{ transform: t >= shrinkAt ? `translateY(${cardUp}px) scale(${cardScale})` : undefined, borderRadius: t >= shrinkAt ? 24 / cardScale : 0, overflow: "hidden", }}>
             {CUTS.map((c, i) => {
               const F = FRAMES[i];
               // C01: dorongan mikro 1→1,05 dari kata aksen; C19 drift kecil di sepanjang potongan
