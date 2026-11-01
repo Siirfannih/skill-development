@@ -5,7 +5,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
-import { AnchorStage, AnchorWord, useFrameAt } from "../lib/AnchorWord";
+import { AnchorStage, AnchorWord } from "../lib/AnchorWord";
 import { MatteClip, useSubjectMatte } from "../lib/SubjectMatte";
 import { SpeakerLine, wordAt } from "../lib/SpeakerWords";
 import { block, FPS, panel, word, wordsOf } from "../lib/time";
@@ -46,7 +46,6 @@ const JW = wordsOf("jensen");
 
 /** Panggung 03c/03d (dipakai utuh lalu menyusut jadi kartu klip). */
 const Stage: React.FC<{ t: number }> = ({ t }) => {
-  const atPerlahan = useFrameAt(1508), atTempat = useFrameAt(1626), atKita = useFrameAt(1634); // v9: f terukur ANCHORS-V9 #14
   const fill = fillAt(t);
   const yF = FLOOR - (FLOOR - HEAD_TOP) * fill;
   const half = pictoHalfWidth(yF);
@@ -75,9 +74,6 @@ const Stage: React.FC<{ t: number }> = ({ t }) => {
       <MattePicto cx={usX} scale={usS} rimR={usInLight} flat={rp > 0.6} opacity={1 - 0.55 * rp} blur={rack * 9} />
       {/* v9 (#14): anchor DI BELAKANG piktogram (urutan DOM sebelum salinan/kita). PERLAHAN di kiri salinan setinggi kaki, tepi kanannya terselip di bawah badan
           yang terisi selagi scan naik. TEMPAT | KITA satu baris, celah 60 px di belakang badan salinan di kerucut cahaya (x = CONE). */}
-      <AnchorWord text="PERLAHAN" at={atPerlahan} until={atTempat} x={960} y={900} size={96} color="#FAF8EC" align="center" enter="left" />
-      <AnchorWord text="TEMPAT" at={atTempat} x={CONE - 30} y={930} size={130} color="#FAF8EC" align="right" enter="scale" />
-      <AnchorWord text="KITA" at={atKita} x={CONE + 30} y={930} size={130} color="#FAF8EC" align="left" enter="right" />
       {/* salinan: wireframe → isi dari kaki ke kepala → melangkah ke cahaya */}
       <div style={{ position: "absolute", inset: 0, transform: `translate(${copyX - COPY0}px, ${stepBob}px)` }}>
         <MattePicto cx={COPY0} clipTop={yF} litLeft={inLight < 0.5} rimR={inLight} rimL={inLight * 0.85} />
@@ -153,9 +149,16 @@ export const S03c_MeniruDiri: React.FC = () => {
             transform: `translateY(${(411 - 540) * k}px) scale(${sc})`, transformOrigin: "960px 540px", borderRadius: (28 * k) / sc,
             boxShadow: k > 0 ? `0 0 0 ${2 / sc}px rgba(255,255,255,${0.1 * k})` : undefined }}>
             {!showClip && (
-              <Camera scale={cam.s} ox={cam.ox} oy={cam.oy} x={cam.x + sh.x} y={cam.y + sh.y} blur={snapBlur}>
-                <Stage t={t} />
-              </Camera>
+              <>
+                <Camera scale={cam.s} ox={cam.ox} oy={cam.oy} x={cam.x + sh.x} y={cam.y + sh.y} blur={snapBlur}>
+                  <Stage t={t} />
+                </Camera>
+                {/* QC 2 Nov: anchor di lapisan LAYAR teratas (di luar kamera) — sebelumnya ikut kamera & di belakang piktogram → terpotong/tertutup.
+                    Teks di bawah tengah, di bawah figur (tidak di atas visual). */}
+                <AnchorWord text="PERLAHAN" at={1508} until={1626} x={960} y={960} size={110} color="#FAF8EC" align="center" enter="left" />
+                <AnchorWord text="TEMPAT" at={1626} x={930} y={960} size={130} color="#FAF8EC" align="right" enter="scale" />
+                <AnchorWord text="KITA" at={1634} x={990} y={960} size={130} color="#FAF8EC" align="left" enter="right" />
+              </>
             )}
             {showClip && (
               <>
