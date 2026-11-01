@@ -17,8 +17,8 @@
 - [x] Laporan `AUDIT-REPO-2NOV.md` + file kandidat dipindah ke `_archive/` (tidak dihapus)
 
 ## 3. Audio v9
-- [ ] Cue sheet babak (riser / drone+heartbeat / arp+perkusi / jembatan / piano-pad)
-- [ ] Sourcing musik/stems: Epidemic (stems) → ElevenLabs → internet. Tanpa sintesis.
+- [x] Cue sheet babak (riser / drone+heartbeat / arp+perkusi / jembatan / piano-pad)
+- [x] Sourcing musik/stems: Epidemic (stems) → ElevenLabs → internet. Tanpa sintesis.
   - Kandidat palet satu artis (Lennon Hutton): DOX 07e2e4ec (74 bpm, bass+instruments → drone Babak 2), Mindscape 4cb08b97 (108 bpm, pulses → Babak 3), 77 Cycles b303cb62 (drums/arp → puncak 0:41). Refleksi: Gray 25c74293 (solo piano). Cek key cocok sebelum download WAV.
 - [ ] Sourcing SFX per peran (sci-fi whoosh, sub-impact, UI glass/hologram, telemetry, riser) dari library
 - [ ] Room tone / ambient bed konsisten
@@ -26,11 +26,18 @@
 - [ ] QA: dead air = 0, telinga-HP 20/50/100 %, tidak ada 2–6 kHz menusuk
 
 ## 4. Visual + kinetic type v9
-- [ ] Daftar anchor words per kalimat (bahasa ikut audio) + timestamp suku kata
-- [ ] Komponen AnchorWord: snap–hantam–ease-out, posterize 8–12 fps, tekstur
+- [x] Daftar anchor words per kalimat (bahasa ikut audio) + timestamp suku kata
+- [x] Komponen AnchorWord: snap–hantam–ease-out, posterize 8–12 fps, tekstur
 - [ ] Masking teks di belakang subjek/objek + tracking ke UI
 - [ ] Perbaiki visual tidak rapi dari Audit A
 - [ ] Render v9 + QC visual (visual_qc) + devil's advocate
 
 ## 5. Selesai
 - [ ] Update STATUS.md, push main, kirim PKS_v9 ke Irfan
+
+## Log 2 Nov 00.00
+- Bed musik: `audio-v19/music_bed.py` (77 Cycles stems offset −16 s, DOX bass −4 st = C min, Dark Water piano dari 75,2 s). Ducking −6/−8 dB, carving 1–4 kHz −4 dB, trim per babak terukur.
+- B14 flash diperbaiki (S02d/S02e match cut), bloom lain ≤ 40 %. `AnchorWord` di `remotion/src/lib/AnchorWord.tsx`.
+- `ANCHORS-V9.md`: 45 anchor. Onset suku kata VO masih estimasi → ukur di gelombang.
+- Codex (gpt-5.6-sol, Mac) membuat matte narasumber → `pks-studio/public/mattes/` + `SubjectMatte.tsx`.
+- PENTING sinkron kode: repo `projects/.../remotion` vs Mac `pks-studio/remotion` (Mac punya perubahan lokal). Sinkronkan per file, jangan timpa.
