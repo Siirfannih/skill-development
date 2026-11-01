@@ -1,0 +1,2358 @@
+[
+{
+"t": 1.433,
+"kind": "snap",
+"id": "snap:00a:photo:0",
+"visual": "00a:photo:0",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 1.7,
+"kind": "snap",
+"id": "snap:00a:photo:1",
+"visual": "00a:photo:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 1.933,
+"kind": "snap",
+"id": "snap:00a:photo:2",
+"visual": "00a:photo:2",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 2.2,
+"kind": "snap",
+"id": "snap:00a:photo:3",
+"visual": "00a:photo:3",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 2.467,
+"kind": "snap",
+"id": "snap:00a:photo:4",
+"visual": "00a:photo:4",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 2.7,
+"kind": "snap",
+"id": "snap:00a:photo:5",
+"visual": "00a:photo:5",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 2.967,
+"kind": "snap",
+"id": "snap:00a:photo:6",
+"visual": "00a:photo:6",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 3.233,
+"kind": "snap",
+"id": "snap:00a:photo:7",
+"visual": "00a:photo:7",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 3.467,
+"kind": "snap",
+"id": "snap:00a:photo:8",
+"visual": "00a:photo:8",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 8.69,
+"kind": "whoosh",
+"id": "whoosh:00b:shrink:0",
+"visual": "00b:shrink:0",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 11.365,
+"kind": "pop",
+"id": "land:01b:tiles:land",
+"visual": "01b:tiles:land",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 11.633,
+"kind": "whoosh",
+"id": "whoosh:01b:salip:1",
+"visual": "01b:salip:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 11.825,
+"kind": "whoosh",
+"id": "whoosh:01b:cam:snapwide",
+"visual": "01b:cam:snapwide",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 11.912,
+"kind": "draw",
+"id": "draw:01b:paint:berlomba",
+"visual": "01b:paint:berlomba",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 12.0,
+"kind": "whoosh",
+"id": "whoosh:01b:salip:2",
+"visual": "01b:salip:2",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 12.705,
+"kind": "riser",
+"id": "riser:01b:zoomthru:hit",
+"visual": "01b:zoomthru:hit",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 12.805,
+"kind": "toggle",
+"id": "toggle:01c:cone:open",
+"visual": "01c:cone:open",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 12.905,
+"kind": "draw",
+"id": "draw:01c:wire:draw",
+"visual": "01c:wire:draw",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 14.778,
+"kind": "whoosh",
+"id": "whoosh:01c:text:out",
+"visual": "01c:text:out",
+"weight": 0.7406979634207748,
+"light": 0.5,
+"gain_db": -2.6
+},
+{
+"t": 15.145,
+"kind": "whoosh",
+"id": "whoosh:01d:cam:pan",
+"visual": "01d:cam:pan",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 16.228,
+"kind": "whoosh",
+"id": "whoosh:01d:text:aneh:out",
+"visual": "01d:text:aneh:out",
+"weight": 0.7406979634207748,
+"light": 0.5,
+"gain_db": -2.6
+},
+{
+"t": 18.607,
+"kind": "hit",
+"id": "word:LEBIH:18.607",
+"visual": "kata «LEBIH» (slam)",
+"weight": 1.3197737322814562,
+"gain_db": 2.4
+},
+{
+"t": 18.827,
+"kind": "hit",
+"id": "word:CEPAT:18.827",
+"visual": "kata «CEPAT» (slam)",
+"weight": 1.3197737322814562,
+"gain_db": 2.4
+},
+{
+"t": 19.53,
+"kind": "riser",
+"id": "riser:01d:fill:riser",
+"visual": "01d:fill:riser",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 19.564,
+"kind": "pop",
+"id": "pop:02a:photo:0",
+"visual": "02a:photo:0",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 19.597,
+"kind": "tick",
+"id": "word:Padahal:19.597",
+"visual": "kata «Padahal» (pop)",
+"weight": 0.9332209557280968,
+"gain_db": -0.6
+},
+{
+"t": 19.697,
+"kind": "pop",
+"id": "pop:02a:photo:2",
+"visual": "02a:photo:2",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 20.465,
+"kind": "pop",
+"id": "pop:02a:square:0",
+"visual": "02a:square:0",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 20.905,
+"kind": "pop",
+"id": "pop:02a:square:1",
+"visual": "02a:square:1",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 21.172,
+"kind": "click",
+"id": "click:02a:select:start",
+"visual": "02a:select:start",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 21.185,
+"kind": "pop",
+"id": "pop:02a:square:2",
+"visual": "02a:square:2",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 21.845,
+"kind": "pop",
+"id": "pop:02a:square:3",
+"visual": "02a:square:3",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 21.985,
+"kind": "whoosh",
+"id": "whoosh:02a:cam:snapwide",
+"visual": "02a:cam:snapwide",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 23.088,
+"kind": "whoosh",
+"id": "whoosh:02a:wipe:x09",
+"visual": "02a:wipe:x09",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 23.765,
+"kind": "draw",
+"id": "draw:02b:frame:draw",
+"visual": "02b:frame:draw",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 24.215,
+"kind": "draw",
+"id": "draw:02b:axis:draw",
+"visual": "02b:axis:draw",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 24.365,
+"kind": "draw",
+"id": "draw:02b:line:draw",
+"visual": "02b:line:draw",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 24.925,
+"kind": "tick",
+"id": "word:JANJI:24.925",
+"visual": "kata «JANJI» (pop)",
+"weight": 0.9332209557280968,
+"gain_db": -0.6
+},
+{
+"t": 24.937,
+"kind": "pop",
+"id": "pop:02b:dot:goal",
+"visual": "02b:dot:goal",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 25.325,
+"kind": "click",
+"id": "click:02c:grab:0",
+"visual": "02c:grab:0",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 25.617,
+"kind": "whoosh",
+"id": "whoosh:02c:drag:0",
+"visual": "02c:drag:0",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 26.03,
+"kind": "trash",
+"id": "trash:02c:trash:0",
+"visual": "02c:trash:0",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 26.215,
+"kind": "whoosh",
+"id": "whoosh:02c:return:0",
+"visual": "02c:return:0",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 26.531,
+"kind": "click",
+"id": "click:02c:grab:1",
+"visual": "02c:grab:1",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 26.731,
+"kind": "whoosh",
+"id": "whoosh:02c:drag:1",
+"visual": "02c:drag:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 27.051,
+"kind": "trash",
+"id": "trash:02c:trash:1",
+"visual": "02c:trash:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 27.237,
+"kind": "whoosh",
+"id": "whoosh:02c:return:1",
+"visual": "02c:return:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 27.553,
+"kind": "click",
+"id": "click:02c:grab:2",
+"visual": "02c:grab:2",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 27.753,
+"kind": "whoosh",
+"id": "whoosh:02c:drag:2",
+"visual": "02c:drag:2",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 28.073,
+"kind": "trash",
+"id": "trash:02c:trash:2",
+"visual": "02c:trash:2",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 28.652,
+"kind": "whoosh",
+"id": "whoosh:02c:return:2",
+"visual": "02c:return:2",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 29.925,
+"kind": "toggle",
+"id": "toggle:02d:beam:on",
+"visual": "02d:beam:on",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 30.25,
+"kind": "whoosh",
+"id": "whoosh:02d:cam:reveal",
+"visual": "02d:cam:reveal",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 30.912,
+"kind": "tick",
+"id": "word:KREATIF:30.912",
+"visual": "kata «KREATIF» (blurIn)",
+"weight": 0.9332209557280968,
+"gain_db": -0.6
+},
+{
+"t": 31.855,
+"kind": "riser",
+"id": "riser:02d:bloom:hit",
+"visual": "02d:bloom:hit",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 33.622,
+"kind": "tick",
+"id": "word:DITEPATI:33.622",
+"visual": "kata «DITEPATI» (pop)",
+"weight": 0.9332209557280968,
+"gain_db": -0.6
+},
+{
+"t": 38.975,
+"kind": "whoosh",
+"id": "whoosh:02f:cam:snapwide",
+"visual": "02f:cam:snapwide",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 39.62,
+"kind": "pop",
+"id": "pop:02f:dot:stage",
+"visual": "02f:dot:stage",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 39.695,
+"kind": "draw",
+"id": "draw:02f:marker:draw",
+"visual": "02f:marker:draw",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 41.833,
+"kind": "key",
+"id": "key:03a:key:Kamu:0",
+"visual": "03a:key:Kamu:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 42.067,
+"kind": "key",
+"id": "key:03a:key:bertindak:0",
+"visual": "03a:key:bertindak:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 42.2,
+"kind": "key",
+"id": "key:03a:key:sebagai:0",
+"visual": "03a:key:sebagai:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 42.4,
+"kind": "key",
+"id": "key:03a:key:CEO:0",
+"visual": "03a:key:CEO:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 42.9,
+"kind": "key",
+"id": "key:03a:key:untuk:0",
+"visual": "03a:key:untuk:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 43.4,
+"kind": "key",
+"id": "key:03a:key:menjalankan:0",
+"visual": "03a:key:menjalankan:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 43.667,
+"kind": "key",
+"id": "key:03a:key:bisnis:0",
+"visual": "03a:key:bisnis:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 43.967,
+"kind": "key",
+"id": "key:03a:key:yang:0",
+"visual": "03a:key:yang:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 44.333,
+"kind": "key",
+"id": "key:03a:key:aku:0",
+"visual": "03a:key:aku:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 44.7,
+"kind": "key",
+"id": "key:03a:key:jalankan:0",
+"visual": "03a:key:jalankan:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 45.295,
+"kind": "whoosh",
+"id": "whoosh:03a:cam:snapwide",
+"visual": "03a:cam:snapwide",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 45.441,
+"kind": "click",
+"id": "click:03a:send:click",
+"visual": "03a:send:click",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 45.474,
+"kind": "pop",
+"id": "pop:03a:agent:0",
+"visual": "03a:agent:0",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 45.729,
+"kind": "pop",
+"id": "pop:03a:agent:1",
+"visual": "03a:agent:1",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 45.985,
+"kind": "pop",
+"id": "pop:03a:agent:2",
+"visual": "03a:agent:2",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 46.24,
+"kind": "pop",
+"id": "pop:03a:agent:3",
+"visual": "03a:agent:3",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 46.39,
+"kind": "whoosh",
+"id": "whoosh:03a:cam:tiltup",
+"visual": "03a:cam:tiltup",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 46.575,
+"kind": "pop",
+"id": "pop:03b:cursor:0",
+"visual": "03b:cursor:0",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 46.695,
+"kind": "pop",
+"id": "pop:03b:cursor:2",
+"visual": "03b:cursor:2",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 46.848,
+"kind": "pop",
+"id": "pop:03b:cursor:3",
+"visual": "03b:cursor:3",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 46.865,
+"kind": "click",
+"id": "click:03b:sendceo:click",
+"visual": "03b:sendceo:click",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 47.235,
+"kind": "whoosh",
+"id": "whoosh:03b:ceo:dash",
+"visual": "03b:ceo:dash",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 47.355,
+"kind": "key",
+"id": "key:03b:key:stream:0",
+"visual": "03b:key:stream:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 48.33,
+"kind": "whoosh",
+"id": "whoosh:03b:cam:snapwide",
+"visual": "03b:cam:snapwide",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 48.935,
+"kind": "click",
+"id": "click:03b:bar:1",
+"visual": "03b:bar:1",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 49.155,
+"kind": "click",
+"id": "click:03b:bar:2",
+"visual": "03b:bar:2",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 49.395,
+"kind": "click",
+"id": "click:03b:bar:3",
+"visual": "03b:bar:3",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 49.68,
+"kind": "whoosh",
+"id": "whoosh:03b:cam:center",
+"visual": "03b:cam:center",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 50.08,
+"kind": "hit",
+"id": "hit:03c:land",
+"visual": "03c:land",
+"weight": 1.3197737322814562,
+"light": null,
+"gain_db": 2.4
+},
+{
+"t": 50.08,
+"kind": "riser",
+"id": "riser:03b:zoomthrough",
+"visual": "03b:zoomthrough",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 50.39,
+"kind": "toggle",
+"id": "toggle:03c:scan:on",
+"visual": "03c:scan:on",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 52.82,
+"kind": "toggle",
+"id": "toggle:03c:scan:off",
+"visual": "03c:scan:off",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 52.965,
+"kind": "whoosh",
+"id": "whoosh:03c:cam:snapwide",
+"visual": "03c:cam:snapwide",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 54.101,
+"kind": "step",
+"id": "step:03d:step:1",
+"visual": "03d:step:1",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 54.319,
+"kind": "step",
+"id": "step:03d:step:2",
+"visual": "03d:step:2",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 54.79,
+"kind": "step",
+"id": "step:03d:step:3",
+"visual": "03d:step:3",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 54.91,
+"kind": "hit",
+"id": "hit:03d:boom",
+"visual": "03d:boom",
+"weight": 1.3197737322814562,
+"light": null,
+"gain_db": 2.4
+},
+{
+"t": 55.608,
+"kind": "whoosh",
+"id": "whoosh:03d:x13:shrink",
+"visual": "03d:x13:shrink",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 61.255,
+"kind": "riser",
+"id": "riser:04a:cut:in",
+"visual": "04a:cut:in",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 62.062,
+"kind": "tick",
+"id": "word:nggak:62.062",
+"visual": "kata «nggak» (blurIn)",
+"weight": 0.9332209557280968,
+"gain_db": -0.6
+},
+{
+"t": 64.093,
+"kind": "whoosh",
+"id": "whoosh:04a:cam:tiltdown",
+"visual": "04a:cam:tiltdown",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 64.455,
+"kind": "whoosh",
+"id": "whoosh:04b:cam:truck",
+"visual": "04b:cam:truck",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 64.745,
+"kind": "pop",
+"id": "pop:04b:card:1",
+"visual": "04b:card:1",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 64.925,
+"kind": "pop",
+"id": "pop:04b:card:2",
+"visual": "04b:card:2",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 65.055,
+"kind": "pop",
+"id": "pop:04b:card:3",
+"visual": "04b:card:3",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 65.227,
+"kind": "whoosh",
+"id": "whoosh:04b:cam:snapwide",
+"visual": "04b:cam:snapwide",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 65.77,
+"kind": "whoosh",
+"id": "whoosh:04b:x01:collapse",
+"visual": "04b:x01:collapse",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 65.97,
+"kind": "whoosh",
+"id": "whoosh:04c:dots:fly",
+"visual": "04c:dots:fly",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 66.149,
+"kind": "pop",
+"id": "land:04c:dots:land",
+"visual": "04c:dots:land",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 68.027,
+"kind": "draw",
+"id": "draw:04c:line:bend",
+"visual": "04c:line:bend",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 68.11,
+"kind": "whoosh",
+"id": "whoosh:04c:cam:revealout",
+"visual": "04c:cam:revealout",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 69.395,
+"kind": "pop",
+"id": "pop:04c:label:janji",
+"visual": "04c:label:janji",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 70.613,
+"kind": "whoosh",
+"id": "whoosh:04c:x13:shrink",
+"visual": "04c:x13:shrink",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 71.075,
+"kind": "draw",
+"id": "draw:04d:ring",
+"visual": "04d:ring",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 72.14,
+"kind": "pop",
+"id": "pop:04d:word:0:0",
+"visual": "04d:word:0:0",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 72.4,
+"kind": "pop",
+"id": "pop:04d:word:0:1",
+"visual": "04d:word:0:1",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 72.82,
+"kind": "pop",
+"id": "pop:04d:word:1:0",
+"visual": "04d:word:1:0",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 73.74,
+"kind": "pop",
+"id": "pop:04d:word:2:0",
+"visual": "04d:word:2:0",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 75.25,
+"kind": "whoosh",
+"id": "whoosh:05a:altman:shrink",
+"visual": "05a:altman:shrink",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 75.371,
+"kind": "pop",
+"id": "pop:05a:photo:2",
+"visual": "05a:photo:2",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 75.5,
+"kind": "pop",
+"id": "land:05a:bluecard:land",
+"visual": "05a:bluecard:land",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 75.651,
+"kind": "pop",
+"id": "pop:05a:photo:6",
+"visual": "05a:photo:6",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 75.786,
+"kind": "pop",
+"id": "pop:05a:photo:9",
+"visual": "05a:photo:9",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 77.3,
+"kind": "whoosh",
+"id": "whoosh:05a:cam:snapwide",
+"visual": "05a:cam:snapwide",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 78.925,
+"kind": "whoosh",
+"id": "whoosh:05b:cam:revealout",
+"visual": "05b:cam:revealout",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 81.309,
+"kind": "pop",
+"id": "pop:05b:grey:vanish",
+"visual": "05b:grey:vanish",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 82.833,
+"kind": "snap",
+"id": "snap:05c:photo:1",
+"visual": "05c:photo:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 83.1,
+"kind": "snap",
+"id": "snap:05c:photo:2",
+"visual": "05c:photo:2",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 83.333,
+"kind": "snap",
+"id": "snap:05c:photo:3",
+"visual": "05c:photo:3",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 83.6,
+"kind": "snap",
+"id": "snap:05c:photo:4",
+"visual": "05c:photo:4",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 83.867,
+"kind": "snap",
+"id": "snap:05c:photo:5",
+"visual": "05c:photo:5",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 84.1,
+"kind": "snap",
+"id": "snap:05c:photo:6",
+"visual": "05c:photo:6",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 84.367,
+"kind": "snap",
+"id": "snap:05c:photo:7",
+"visual": "05c:photo:7",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 84.633,
+"kind": "snap",
+"id": "snap:05c:photo:8",
+"visual": "05c:photo:8",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 84.867,
+"kind": "snap",
+"id": "snap:05c:photo:9",
+"visual": "05c:photo:9",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 85.133,
+"kind": "snap",
+"id": "snap:05c:photo:10",
+"visual": "05c:photo:10",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 85.39,
+"kind": "pop",
+"id": "pop:05c:icon:0",
+"visual": "05c:icon:0",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 85.4,
+"kind": "snap",
+"id": "snap:05c:photo:11",
+"visual": "05c:photo:11",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 85.524,
+"kind": "pop",
+"id": "pop:05c:icon:2",
+"visual": "05c:icon:2",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 85.633,
+"kind": "snap",
+"id": "snap:05c:photo:12",
+"visual": "05c:photo:12",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 85.9,
+"kind": "snap",
+"id": "snap:05c:photo:13",
+"visual": "05c:photo:13",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 86.167,
+"kind": "snap",
+"id": "snap:05c:photo:14",
+"visual": "05c:photo:14",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 86.383,
+"kind": "whoosh",
+"id": "whoosh:05c:icons:merge",
+"visual": "05c:icons:merge",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 86.667,
+"kind": "snap",
+"id": "snap:05c:photo:16",
+"visual": "05c:photo:16",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 86.942,
+"kind": "whoosh",
+"id": "whoosh:05c:cam:exitpush",
+"visual": "05c:cam:exitpush",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 87.033,
+"kind": "key",
+"id": "key:05d:laptop:key:spasi:44",
+"visual": "05d:laptop:key:spasi:44",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 87.161,
+"kind": "click",
+"id": "click:05d:laptop:send",
+"visual": "05d:laptop:send",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 87.467,
+"kind": "key",
+"id": "key:05d:hp:key:dapat:39",
+"visual": "05d:hp:key:dapat:39",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 87.567,
+"kind": "key",
+"id": "key:05d:hp:key:pengguna:51",
+"visual": "05d:hp:key:pengguna:51",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 87.672,
+"kind": "click",
+"id": "click:05d:hp:send",
+"visual": "05d:hp:send",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 87.967,
+"kind": "key",
+"id": "key:05d:tablet:key:spasi:38",
+"visual": "05d:tablet:key:spasi:38",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 88.067,
+"kind": "key",
+"id": "key:05d:tablet:key:pengguna:50",
+"visual": "05d:tablet:key:pengguna:50",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 88.183,
+"kind": "click",
+"id": "click:05d:tablet:send",
+"visual": "05d:tablet:send",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 88.433,
+"kind": "whoosh",
+"id": "whoosh:05e:ray:burst",
+"visual": "05e:ray:burst",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 88.714,
+"kind": "pop",
+"id": "pop:05e:landing:2",
+"visual": "05e:landing:2",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 91.302,
+"kind": "whoosh",
+"id": "whoosh:05e:cam:whip",
+"visual": "05e:cam:whip",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 91.4,
+"kind": "snap",
+"id": "snap:05f:photo:1",
+"visual": "05f:photo:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 91.533,
+"kind": "snap",
+"id": "snap:05f:photo:2",
+"visual": "05f:photo:2",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 91.633,
+"kind": "snap",
+"id": "snap:05f:photo:3",
+"visual": "05f:photo:3",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 91.767,
+"kind": "snap",
+"id": "snap:05f:photo:4",
+"visual": "05f:photo:4",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 91.9,
+"kind": "snap",
+"id": "snap:05f:photo:5",
+"visual": "05f:photo:5",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 92.033,
+"kind": "snap",
+"id": "snap:05f:photo:6",
+"visual": "05f:photo:6",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 92.167,
+"kind": "snap",
+"id": "snap:05f:photo:7",
+"visual": "05f:photo:7",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 92.3,
+"kind": "snap",
+"id": "snap:05f:photo:8",
+"visual": "05f:photo:8",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 92.4,
+"kind": "snap",
+"id": "snap:05f:photo:9",
+"visual": "05f:photo:9",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 92.525,
+"kind": "hit",
+"id": "slam:FOUNDER:92.525",
+"visual": "kata «FOUNDER» membanting",
+"weight": 1.3197737322814562,
+"gain_db": 2.4
+},
+{
+"t": 92.667,
+"kind": "snap",
+"id": "snap:05f:photo:11",
+"visual": "05f:photo:11",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 92.8,
+"kind": "snap",
+"id": "snap:05f:photo:12",
+"visual": "05f:photo:12",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 92.933,
+"kind": "snap",
+"id": "snap:05f:photo:13",
+"visual": "05f:photo:13",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 93.067,
+"kind": "snap",
+"id": "snap:05f:photo:14",
+"visual": "05f:photo:14",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 93.167,
+"kind": "snap",
+"id": "snap:05f:photo:15",
+"visual": "05f:photo:15",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 93.3,
+"kind": "snap",
+"id": "snap:05f:photo:16",
+"visual": "05f:photo:16",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 93.433,
+"kind": "snap",
+"id": "snap:05f:photo:17",
+"visual": "05f:photo:17",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 93.567,
+"kind": "snap",
+"id": "snap:05f:photo:18",
+"visual": "05f:photo:18",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 93.7,
+"kind": "snap",
+"id": "snap:05f:photo:19",
+"visual": "05f:photo:19",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 93.802,
+"kind": "hit",
+"id": "slam:CEO:93.802",
+"visual": "kata «CEO» membanting",
+"weight": 1.3197737322814562,
+"gain_db": 2.4
+},
+{
+"t": 93.933,
+"kind": "snap",
+"id": "snap:05f:photo:21",
+"visual": "05f:photo:21",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 94.067,
+"kind": "snap",
+"id": "snap:05f:photo:22",
+"visual": "05f:photo:22",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 94.2,
+"kind": "snap",
+"id": "snap:05f:photo:23",
+"visual": "05f:photo:23",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 94.333,
+"kind": "snap",
+"id": "snap:05f:photo:24",
+"visual": "05f:photo:24",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 94.467,
+"kind": "snap",
+"id": "snap:05f:photo:25",
+"visual": "05f:photo:25",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 94.6,
+"kind": "snap",
+"id": "snap:05f:photo:26",
+"visual": "05f:photo:26",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 94.7,
+"kind": "snap",
+"id": "snap:05f:photo:27",
+"visual": "05f:photo:27",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 94.833,
+"kind": "snap",
+"id": "snap:05f:photo:28",
+"visual": "05f:photo:28",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 94.967,
+"kind": "snap",
+"id": "snap:05f:photo:29",
+"visual": "05f:photo:29",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 95.1,
+"kind": "snap",
+"id": "snap:05f:photo:30",
+"visual": "05f:photo:30",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 95.233,
+"kind": "snap",
+"id": "snap:05f:photo:31",
+"visual": "05f:photo:31",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 95.367,
+"kind": "snap",
+"id": "snap:05f:photo:32",
+"visual": "05f:photo:32",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 95.467,
+"kind": "snap",
+"id": "snap:05f:photo:33",
+"visual": "05f:photo:33",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 95.59,
+"kind": "hit",
+"id": "slam:SEMALAM:95.590",
+"visual": "kata «SEMALAM» membanting",
+"weight": 1.3197737322814562,
+"gain_db": 2.4
+},
+{
+"t": 96.367,
+"kind": "pop",
+"id": "land:05g:card:0:habit",
+"visual": "05g:card:0:habit",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 96.633,
+"kind": "pop",
+"id": "land:05g:card:1:resume",
+"visual": "05g:card:1:resume",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 96.9,
+"kind": "whoosh",
+"id": "whoosh:05g:cam:snap:1",
+"visual": "05g:cam:snap:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 97.133,
+"kind": "pop",
+"id": "land:05g:card:3:invoice",
+"visual": "05g:card:3:invoice",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 97.4,
+"kind": "whoosh",
+"id": "whoosh:05g:cam:snap:2",
+"visual": "05g:cam:snap:2",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 97.667,
+"kind": "pop",
+"id": "land:05g:card:5:recipe",
+"visual": "05g:card:5:recipe",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 97.9,
+"kind": "whoosh",
+"id": "whoosh:05g:cam:snap:3",
+"visual": "05g:cam:snap:3",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 98.033,
+"kind": "pop",
+"id": "land:05g:card:7:budget",
+"visual": "05g:card:7:budget",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 98.167,
+"kind": "whoosh",
+"id": "whoosh:05g:cam:snap:4",
+"visual": "05g:cam:snap:4",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 98.3,
+"kind": "pop",
+"id": "land:05g:card:9:study",
+"visual": "05g:card:9:study",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 98.547,
+"kind": "whoosh",
+"id": "whoosh:05h:wipe:silhouette",
+"visual": "05h:wipe:silhouette",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 98.7,
+"kind": "toggle",
+"id": "toggle:05h:light:on:2",
+"visual": "05h:light:on:2",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 98.728,
+"kind": "step",
+"id": "step:05h:user:step:0",
+"visual": "05h:user:step:0",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 98.833,
+"kind": "toggle",
+"id": "toggle:05h:light:on:3",
+"visual": "05h:light:on:3",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 98.967,
+"kind": "toggle",
+"id": "toggle:05h:light:on:4",
+"visual": "05h:light:on:4",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 98.983,
+"kind": "step",
+"id": "step:05h:user:step:1",
+"visual": "05h:user:step:1",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 99.1,
+"kind": "toggle",
+"id": "toggle:05h:light:on:5",
+"visual": "05h:light:on:5",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 99.275,
+"kind": "whoosh",
+"id": "whoosh:05h:cam:pushin",
+"visual": "05h:cam:pushin",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 99.494,
+"kind": "step",
+"id": "step:05h:user:step:3",
+"visual": "05h:user:step:3",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 99.749,
+"kind": "step",
+"id": "step:05h:user:step:4",
+"visual": "05h:user:step:4",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 100.004,
+"kind": "step",
+"id": "step:05h:user:step:5",
+"visual": "05h:user:step:5",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 100.26,
+"kind": "step",
+"id": "step:05h:user:step:6",
+"visual": "05h:user:step:6",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 100.515,
+"kind": "step",
+"id": "step:05h:user:step:7",
+"visual": "05h:user:step:7",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 100.77,
+"kind": "step",
+"id": "step:05h:user:step:8",
+"visual": "05h:user:step:8",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 100.867,
+"kind": "whoosh",
+"id": "whoosh:05h:cam:snapwide",
+"visual": "05h:cam:snapwide",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 101.026,
+"kind": "step",
+"id": "step:05h:user:step:9",
+"visual": "05h:user:step:9",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 101.281,
+"kind": "step",
+"id": "step:05h:user:step:10",
+"visual": "05h:user:step:10",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 101.536,
+"kind": "step",
+"id": "step:05h:user:step:11",
+"visual": "05h:user:step:11",
+"weight": 0.46661047786404847,
+"light": null,
+"gain_db": -6.6
+},
+{
+"t": 102.933,
+"kind": "toggle",
+"id": "toggle:05h:light:off:5",
+"visual": "05h:light:off:5",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 103.067,
+"kind": "toggle",
+"id": "toggle:05h:light:off:3",
+"visual": "05h:light:off:3",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 103.2,
+"kind": "toggle",
+"id": "toggle:05h:light:off:1",
+"visual": "05h:light:off:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 105.552,
+"kind": "pop",
+"id": "pop:06a:membangun:1",
+"visual": "06a:membangun:1",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 107.12,
+"kind": "whoosh",
+"id": "whoosh:06a:swap:1",
+"visual": "06a:swap:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 107.923,
+"kind": "whoosh",
+"id": "whoosh:06b:reveal:1",
+"visual": "06b:reveal:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 108.457,
+"kind": "toggle",
+"id": "toggle:06b:row:hero",
+"visual": "06b:row:hero",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 108.877,
+"kind": "toggle",
+"id": "toggle:06b:row:top",
+"visual": "06b:row:top",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 111.075,
+"kind": "hit",
+"id": "hit:06c:land:1",
+"visual": "06c:land:1",
+"weight": 1.3197737322814562,
+"light": null,
+"gain_db": 2.4
+},
+{
+"t": 111.075,
+"kind": "riser",
+"id": "riser:06b:push:1",
+"visual": "06b:push:1",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 112.198,
+"kind": "whoosh",
+"id": "whoosh:06c:head:fly",
+"visual": "06c:head:fly",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 113.162,
+"kind": "hit",
+"id": "hit:06c:head:absorb",
+"visual": "06c:head:absorb",
+"weight": 1.3197737322814562,
+"light": null,
+"gain_db": 2.4
+},
+{
+"t": 113.495,
+"kind": "pop",
+"id": "pop:06d:bloom:1",
+"visual": "06d:bloom:1",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 113.7,
+"kind": "key",
+"id": "key:06d:key:tolong:0",
+"visual": "06d:key:tolong:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 113.867,
+"kind": "key",
+"id": "key:06d:key:tolong:2",
+"visual": "06d:key:tolong:2",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 114.0,
+"kind": "key",
+"id": "key:06d:key:tolong:4",
+"visual": "06d:key:tolong:4",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 114.233,
+"kind": "key",
+"id": "key:06d:key:balas:0",
+"visual": "06d:key:balas:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 114.367,
+"kind": "key",
+"id": "key:06d:key:balas:2",
+"visual": "06d:key:balas:2",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 114.533,
+"kind": "key",
+"id": "key:06d:key:balas:4",
+"visual": "06d:key:balas:4",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 114.667,
+"kind": "key",
+"id": "key:06d:key:“oke,:0",
+"visual": "06d:key:“oke,:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 114.8,
+"kind": "key",
+"id": "key:06d:key:“oke,:2",
+"visual": "06d:key:“oke,:2",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 114.9,
+"kind": "key",
+"id": "key:06d:key:“oke,:3",
+"visual": "06d:key:“oke,:3",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 115.1,
+"kind": "key",
+"id": "key:06d:key:siap”:0",
+"visual": "06d:key:siap”:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 115.2,
+"kind": "key",
+"id": "key:06d:key:siap”:1",
+"visual": "06d:key:siap”:1",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 115.333,
+"kind": "key",
+"id": "key:06d:key:siap”:3",
+"visual": "06d:key:siap”:3",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 115.567,
+"kind": "key",
+"id": "key:06d:key:ke:0",
+"visual": "06d:key:ke:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 115.767,
+"kind": "key",
+"id": "key:06d:key:pesan:0",
+"visual": "06d:key:pesan:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 115.867,
+"kind": "key",
+"id": "key:06d:key:pesan:1",
+"visual": "06d:key:pesan:1",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 116.0,
+"kind": "key",
+"id": "key:06d:key:pesan:3",
+"visual": "06d:key:pesan:3",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 116.233,
+"kind": "key",
+"id": "key:06d:key:ini:0",
+"visual": "06d:key:ini:0",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 116.367,
+"kind": "key",
+"id": "key:06d:key:ini:2",
+"visual": "06d:key:ini:2",
+"weight": 0.5237525527458952,
+"light": null,
+"gain_db": -5.6
+},
+{
+"t": 117.06,
+"kind": "toggle",
+"id": "toggle:06d:relay:off",
+"visual": "06d:relay:off",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 119.483,
+"kind": "whoosh",
+"id": "whoosh:06e:snapwide:1",
+"visual": "06e:snapwide:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 119.737,
+"kind": "tick",
+"id": "word:tertinggal:119.737",
+"visual": "kata «tertinggal» (rise)",
+"weight": 0.9332209557280968,
+"gain_db": -0.6
+},
+{
+"t": 123.502,
+"kind": "pop",
+"id": "pop:06f:glyph:all",
+"visual": "06f:glyph:all",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 124.382,
+"kind": "pop",
+"id": "pop:06f:pulse:1",
+"visual": "06f:pulse:1",
+"weight": 0.8314053531998638,
+"light": null,
+"gain_db": -1.6
+},
+{
+"t": 126.317,
+"kind": "whoosh",
+"id": "whoosh:06f:crane:1",
+"visual": "06f:crane:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 126.95,
+"kind": "toggle",
+"id": "toggle:06g:plane:1",
+"visual": "06g:plane:1",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 127.14,
+"kind": "toggle",
+"id": "toggle:06g:plane:8",
+"visual": "06g:plane:8",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 127.33,
+"kind": "toggle",
+"id": "toggle:06g:plane:2",
+"visual": "06g:plane:2",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 127.52,
+"kind": "toggle",
+"id": "toggle:06g:plane:7",
+"visual": "06g:plane:7",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 127.71,
+"kind": "toggle",
+"id": "toggle:06g:plane:3",
+"visual": "06g:plane:3",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 127.9,
+"kind": "toggle",
+"id": "toggle:06g:plane:6",
+"visual": "06g:plane:6",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 128.09,
+"kind": "toggle",
+"id": "toggle:06g:plane:5",
+"visual": "06g:plane:5",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 128.975,
+"kind": "whoosh",
+"id": "whoosh:06g:punch:in",
+"visual": "06g:punch:in",
+"weight": 0.7406979634207748,
+"light": null,
+"gain_db": -2.6
+},
+{
+"t": 130.025,
+"kind": "hit",
+"id": "hit:06g:boom:1",
+"visual": "06g:boom:1",
+"weight": 1.6628107063997277,
+"light": null,
+"gain_db": 4.4
+}
+]

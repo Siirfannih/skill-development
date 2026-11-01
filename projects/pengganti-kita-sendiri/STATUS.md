@@ -3,6 +3,11 @@
 _Update terakhir: 1 Nov 2026 19.50 WITA._
 
 ## Posisi sekarang
+- **v8 (1 Nov 22.40)** = visual v7 + audio v18, mengikuti permintaan Irfan:
+  - Tanpa backsound.
+  - VO, berita, Jensen, dan Altman memakai suara asli tanpa EQ, denoise, atau kompresor (`audio-v18/assemble16_dialog_raw.py`); hanya levelnya disamakan, master tanpa kompresor.
+  - SFX per kata dihapus. Yang tersisa hanya kata yang berdiri sendiri atau ditekankan (`EMPH` di `audio-v18/build.py`), plus SFX objek dari penanda kode.
+  - Editor timeline di claude.ai: https://claude.ai/artifact/4fiESTcLpg3RgWTPsaW8GK (sumber `editor/index.html`). Irfan bisa geser, hapus, atau bisukan SFX per trek lalu Simpan ke db `edits/current`. Claude membaca dokumen itu (ArtifactData get) sebelum render final.
 - **Versi terakhir: v7** (`PKS_v7.mp4`, 132,8 dtk, 1080p). Visualnya hasil render ulang kode Remotion setelah audit visual. Audionya v17. Menunggu review Irfan.
 - **Penanda SFX dari kode (metronom).**
   - Setiap objek menulis `SFXEV <jenis> <detik> <id>` lewat `sfxMark()` di `remotion/src/lib/anim.tsx`, dengan variabel waktu yang sama dengan animasinya. Kata kinetik memakai `KWord` (`SFXEV word`).
