@@ -8,7 +8,7 @@
 // kerning diabaikan), baseline sejajar, hierarki ukuran per kata. Kata masuk TEPAT di frame `at` (selalu ceil dari onset,
 // tidak pernah lebih awal). VO tidak memakai komponen ini (VO tetap anchor saja).
 import React from "react";
-import { AbsoluteFill, Easing, interpolate, useCurrentFrame } from "remotion";
+import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
 import { AnchorWord, type AnchorEnter } from "./AnchorWord";
 import { EZ, sfxMark, useSceneFrom, type SfxKind } from "./anim";
 import { FPS, word as timelineWord } from "./time";
@@ -16,7 +16,6 @@ import { SAFE } from "./safe";
 import { useProbe } from "./probe";
 
 const clamp = { extrapolateLeft: "clamp", extrapolateRight: "clamp" } as const;
-const TRACK_OUT = Easing.bezier(0.05, 0.9, 0.1, 1);
 
 // advance glyph Inter (satuan 1/1000 em), ASCII 32..126; hasil fontTools dari Inter-ExtraBold/Black.otf
 const ADV800 = [219, 358, 586, 655, 660, 1029, 683, 354, 382, 382, 583, 686, 353, 471, 353, 400, 692, 441, 638, 657, 688, 652, 662, 588, 664, 662, 353, 360, 686, 686, 686, 579, 1036, 770, 665, 744, 723, 610, 585, 752, 749, 286, 590, 738, 565, 943, 766, 773, 652, 782, 662, 660, 677, 727, 770, 1059, 761, 752, 679, 382, 400, 382, 493, 484, 382, 588, 638, 595, 638, 601, 410, 639, 635, 283, 283, 593, 283, 927, 635, 619, 638, 638, 420, 573, 382, 635, 615, 863, 594, 618, 581, 486, 388, 486, 686];
@@ -55,7 +54,7 @@ export type SpeakerWordSpec = {
 };
 export type PlacedWord = SpeakerWordSpec & { x: number; baseline: number; align?: "left" | "center" | "right" };
 
-const trackOf = (k: SpeakerKind) => (k === "number" ? -0.07 : k === "last" ? 0.14 : k === "emph" ? -0.03 : -0.02);
+const trackOf = (k: SpeakerKind) => (k === "emph" ? -0.03 : -0.02); // v10: tanpa tracking-out «melebar» (tidak ada di referensi)
 const weightOf = (k: SpeakerKind): 800 | 900 => (k === "normal" || k === "last" ? 800 : 900);
 const widthOf = (w: SpeakerWordSpec) => {
   const k = w.kind ?? "normal";
@@ -69,6 +68,8 @@ const widthOf = (w: SpeakerWordSpec) => {
 // Aturan Irfan 2 Nov 06.48: ukuran font SERAGAM dalam satu urutan; pembeda = huruf kapital di awal (bukan ukuran).
 // Teks = penekanan (prioritas 2) → ukuran sedang. Semua baris dijepit ke SAFE ZONE x 15–85 %, y 20–80 % (lib/safe.ts).
 export const LINE_SIZE = 76;
+/** warna aksen kata kunci narasumber (satu peran = satu gaya di seluruh video) */
+export const ACCENT = "#FFD25A";
 const ACRONYM = new Set(["AI", "CEO", "OK", "AGI"]);
 const caseWord = (text: string, i: number, kind: SpeakerKind) =>
   text.split(" ").map((t, j) => {
@@ -106,29 +107,23 @@ export const flowLine = (
 const ASC = 0.864; // baseline Inter dari tepi atas kotak line-height 1 (em)
 const BL_FROM_CENTER = 0.364; // baseline − pusat vertikal kotak (em)
 
-const NormalLike: React.FC<{ w: PlacedWord; absF: number; shadow: string; color: string }> = ({ w, absF, shadow, color }) => {
+const NormalLike: React.FC<{ w: PlacedWord; absF: number; shadow: string; color: string; dim?: boolean }> = ({ w, absF, shadow, color, dim }) => {
   const kind = w.kind ?? "normal";
   const probe = useProbe(`speaker:${w.text}`, "speaker", absF, color);
   const lf = absF - w.at;
   const s = w.size;
   const pad = 0.16 * s;
   let tr = 0; // translateY (em) untuk reveal
-  let scale = 1;
-  let blur = 0;
-  let track = trackOf(kind);
-  if (kind === "number") {
-    scale = lf <= 0 ? 1.9 : lf === 1 ? 1.25 : 1;
-    blur = lf <= 0 ? 8 : lf === 1 ? 2.5 : 0;
-  } else {
-    tr = interpolate(lf, [0, 3], [1.15, 0], { ...clamp, easing: EZ.out });
-    if (kind === "last") track = -0.03 + 0.17 * interpolate(lf, [3, 55], [0, 1], { ...clamp, easing: TRACK_OUT });
-  }
+  const blur = 0;
+  const track = trackOf(kind);
+  // v10: SEMUA kata ucapan masuk sama — naik dari balik mask 3 f (tanpa slam/pop, tanpa tracking-out)
+  tr = interpolate(lf, [0, 3], [1.15, 0], { ...clamp, easing: EZ.out });
   const inner = (
     <div
       ref={probe}
       style={{
         fontFamily: "Inter", fontWeight: weightOf(kind), fontSize: s, letterSpacing: `${track}em`, lineHeight: 1, color, whiteSpace: "nowrap",
-        textShadow: shadow, transform: kind === "number" ? `scale(${scale})` : `translateY(${tr * 100}%)`,
+        textShadow: shadow, transform: `translateY(${tr * 100}%)`, opacity: dim ? 0.45 : 1,
         transformOrigin: "0% 60%", filter: blur ? `blur(${blur}px)` : undefined,
       }}
     >
@@ -164,7 +159,10 @@ export const SpeakerWords: React.FC<{
       {words.map((w, i) => {
         const kind = w.kind ?? "normal";
         const end = w.until ?? until;
-        const col = w.color ?? color;
+        // penekanan = warna aksen (bukan ukuran); kata sebelum kata kunci yang sudah mendarat diredupkan (pola Krea)
+        const col = w.color ?? (kind === "emph" ? ACCENT : color);
+        const lastEmph = words.filter((v) => (v.kind ?? "normal") === "emph" && v.at <= absF).reduce((m, v) => Math.max(m, v.at), -1);
+        const dim = kind !== "emph" && lastEmph > w.at;
         if (kind === "emph") {
           // AnchorWord: frame lokal; titik jangkar = kiri-tengah kotak → y = baseline − 0,364 em
           if (w.sfx) sfxMark(absF / FPS, w.sfx.kind, w.at / FPS, w.sfx.id, w.sfx.pan);
@@ -174,7 +172,7 @@ export const SpeakerWords: React.FC<{
           );
         }
         if (absF < w.at || (end !== undefined && absF >= end)) return null;
-        return <NormalLike key={i} w={w} absF={absF} shadow={shadow} color={col} />;
+        return <NormalLike key={i} w={w} absF={absF} shadow={shadow} color={col} dim={dim} />;
       })}
     </AbsoluteFill>
   );
@@ -184,9 +182,15 @@ export const SpeakerWords: React.FC<{
 export const SpeakerLine: React.FC<{
   words: SpeakerWordSpec[]; x: number; baseline: number; align?: "left" | "center" | "right"; gap?: number;
   until?: number; color?: string; shadow?: string;
-}> = ({ words, x, baseline, align, gap, until, color, shadow }) => (
-  <SpeakerWords words={flowLine(words, { x, baseline, align, gap })} until={until} color={color} shadow={shadow} />
-);
+}> = ({ words, x, baseline, align, gap, until, color, shadow }) => {
+  const absF = useCurrentFrame() + useSceneFrom();
+  // baris rata tengah di-TENGAHKAN ULANG seketika setiap kata baru masuk (pola referensi), ukuran tetap
+  const n = words.filter((w) => w.at <= absF).length;
+  const placed = align === "center" && n > 0 && n < words.length
+    ? [...flowLine(words.slice(0, n), { x, baseline, align, gap }), ...flowLine(words, { x, baseline, align, gap }).slice(n)]
+    : flowLine(words, { x, baseline, align, gap });
+  return <SpeakerWords words={placed} until={until} color={color} shadow={shadow} />;
+};
 
 /**
  * Posisi kata di sepanjang busur elips (orbit): kata berurutan mengisi busur bawah (depan) kiri→kanan sesuai lebar tiap kata.

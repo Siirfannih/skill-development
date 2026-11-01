@@ -78,17 +78,13 @@ export const AnchorWord: React.FC<AnchorProps> = ({
   // LAMBAT: drift 100→104 % selama ±1,5 dtk setelah mendarat
   const drift = interpolate(lf, [IN_F, IN_F + 45], [0, 1], { ...clamp, easing: SLOW });
   const nf = Math.min(1, size / 160); // jarak whip & blur ikut ukuran huruf (adegan yang memakai satuan unit/panel, bukan px)
-  let scale = 1 + 0.04 * drift;
+  // v10 (Irfan 2 Nov 07.09 + audit referensi): masuk = BLUR → TAJAM 3 f (tanpa pop membesar). left/right hanya geser pendek
+  // 48 px ke posisi. Drift sangat halus (100→101,5 %) supaya kata tetap hidup tanpa terasa "pop and drift".
+  let scale = 1 + 0.015 * drift;
   let dx = 0;
-  let blurX = 0;
-  if (enter === "scale") {
-    scale *= 1 + 0.35 * (1 - kIn);
-    blurX = 10 * nf * (1 - kIn);
-  } else {
-    const dir = enter === "left" ? -1 : 1;
-    dx = dir * 260 * nf * (1 - kIn);
-    blurX = 34 * nf * (1 - kIn);
-  }
+  let blurX = 16 * nf * (1 - kIn);
+  if (enter !== "scale") dx = (enter === "left" ? -1 : 1) * 48 * nf * (1 - kIn);
+  else scale *= 1 + 0.05 * (1 - kIn);
   // keluar snap 3 f (geser + blur searah, tanpa fade)
   if (until !== undefined && exit === "snap" && frame >= until) {
     const ko = interpolate(Math.max(0, q - until), [0, OUT_F], [0, 1], { ...clamp, easing: ACC });
