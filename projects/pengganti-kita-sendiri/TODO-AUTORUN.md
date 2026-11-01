@@ -29,7 +29,7 @@
 - [x] Daftar anchor words per kalimat (bahasa ikut audio) + timestamp suku kata
 - [x] Komponen AnchorWord: snap–hantam–ease-out, posterize 8–12 fps, tekstur
 - [ ] Masking teks di belakang subjek/objek + tracking ke UI
-- [ ] Perbaiki visual tidak rapi dari Audit A
+- [x] Perbaiki visual tidak rapi dari Audit A (B3–B14 + feedback 00.16: orbit S05e, checklist S02e, teks narasumber bervariasi)
 - [ ] Render v9 + QC visual (visual_qc) + devil's advocate
 
 ## 5. Selesai
@@ -47,3 +47,10 @@ Setiap perbaikan langsung dirender per segmen dan di-QC, baru render final sekal
 - Mac: `pks-studio/seg.sh <nama> <start_s> <end_s> [scale]` → bundle sekali (ulang hanya jika src berubah) → `seg/<nama>.mp4` dengan audio `seg/master19.wav`.
 - Urutan segmen QC: S1 0–10 cold open · S2 10–22 · S3 22–41 · S4 41–55 agent · S5 55–75 Jensen/bridge/Altman · S6 75–103 · S7 103–132,8.
 - Tiap segmen: visual_qc + lihat frame ≤ 960 px + cek audio → perbaiki → render ulang segmen itu saja.
+
+## Log 2 Nov 01.33
+- Bug sistemik diperbaiki: AnchorWord `at`/`until` kini frame ABSOLUT (sebelumnya anchor di 15 adegan tidak muncul).
+- Matte narasumber dibuat di cloud (`tools/make_mattes.py`, rembg u2net_human_seg → VP9 alpha) → `public/mattes/*.webm` di Mac. Codex dihentikan (sandbox tanpa jaringan).
+- SFX: `tools/sfxev_to_cues.py` memetakan penanda kode (SFXEV dari render segmen) → peran library; anti-spam (return-drag dibuang, snap ≥ 250 ms, maks 2/100 ms).
+- QC segmen lolos: 0–10 (setelah fix Gates/remaja), 10–22, 22–41, orbit 85–92. Sedang: 41–55, 75–103, 103–133. Menunggu matte Altman/Jensen untuk 55–75.
+- Pelajaran: job cloud wajib `run_in_background` (proses nohup mati saat giliran berakhir); render Mac dipantau dengan send_later 8–10 menit, bukan heartbeat 50 menit.
