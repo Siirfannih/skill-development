@@ -20,8 +20,8 @@
 - [x] Cue sheet babak (riser / drone+heartbeat / arp+perkusi / jembatan / piano-pad)
 - [x] Sourcing musik/stems: Epidemic (stems) → ElevenLabs → internet. Tanpa sintesis.
   - Kandidat palet satu artis (Lennon Hutton): DOX 07e2e4ec (74 bpm, bass+instruments → drone Babak 2), Mindscape 4cb08b97 (108 bpm, pulses → Babak 3), 77 Cycles b303cb62 (drums/arp → puncak 0:41). Refleksi: Gray 25c74293 (solo piano). Cek key cocok sebelum download WAV.
-- [ ] Sourcing SFX per peran (sci-fi whoosh, sub-impact, UI glass/hologram, telemetry, riser) dari library
-- [ ] Room tone / ambient bed konsisten
+- [x] Sourcing SFX per peran (sci-fi whoosh, sub-impact, UI glass/hologram, telemetry, riser) dari library
+- [x] Room tone / ambient bed konsisten (hospital-air loop, −54 dBFS)
 - [ ] Mix: EQ carving 1–4 kHz, ducking klip asli −6..−8 dB, pan agent, reverb ruang, −14 LUFS
 - [ ] QA: dead air = 0, telinga-HP 20/50/100 %, tidak ada 2–6 kHz menusuk
 
@@ -41,3 +41,9 @@
 - `ANCHORS-V9.md`: 45 anchor. Onset suku kata VO masih estimasi → ukur di gelombang.
 - Codex (gpt-5.6-sol, Mac) membuat matte narasumber → `pks-studio/public/mattes/` + `SubjectMatte.tsx`.
 - PENTING sinkron kode: repo `projects/.../remotion` vs Mac `pks-studio/remotion` (Mac punya perubahan lokal). Sinkronkan per file, jangan timpa.
+
+## ALUR RENDER PER SEGMEN (keputusan Irfan 2 Nov 00.00)
+Setiap perbaikan langsung dirender per segmen dan di-QC, baru render final sekali di akhir.
+- Mac: `pks-studio/seg.sh <nama> <start_s> <end_s> [scale]` → bundle sekali (ulang hanya jika src berubah) → `seg/<nama>.mp4` dengan audio `seg/master19.wav`.
+- Urutan segmen QC: S1 0–10 cold open · S2 10–22 · S3 22–41 · S4 41–55 agent · S5 55–75 Jensen/bridge/Altman · S6 75–103 · S7 103–132,8.
+- Tiap segmen: visual_qc + lihat frame ≤ 960 px + cek audio → perbaiki → render ulang segmen itu saja.
