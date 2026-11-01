@@ -97,10 +97,10 @@ export const S04d_AltmanOrbit: React.FC = () => {
             </div>
           </div>
         ) : undefined}>
-          <AnchorWord text="SINGLE" at={atSingle} until={outW} x={340} y={330} size={108} color="#fff" align="right" enter="left" shadow="0 4px 30px rgba(0,0,0,0.6)" />
-          <AnchorWord text="BILLION" at={atBillion} until={outW} x={790} y={330} size={108} color="#fff" align="right" enter="scale" shadow="0 4px 30px rgba(0,0,0,0.6)"
+          <AnchorWord text="SINGLE" at={atSingle} until={outW} x={100} y={330} size={90} color="#fff" align="left" enter="left" shadow="0 4px 30px rgba(0,0,0,0.6)" />
+          <AnchorWord text="BILLION" at={atBillion} until={outW} x={775} y={330} size={90} color="#fff" align="right" enter="scale" shadow="0 4px 30px rgba(0,0,0,0.6)"
             sfx={{ kind: "sub_impact", id: "04d:anchor:billion" }} />
-          <AnchorWord text="COMPANY" at={atCompany} until={outW} x={1130} y={330} size={108} color="#fff" align="left" enter="right" shadow="0 4px 30px rgba(0,0,0,0.6)" />
+          <AnchorWord text="COMPANY" at={atCompany} until={outW} x={1080} y={330} size={90} color="#fff" align="left" enter="right" shadow="0 4px 30px rgba(0,0,0,0.6)" />
         </AnchorStage>
         {/* F2: kata Altman non-anchor berjalan di BUSUR DEPAN cincin orbit (kiri→kanan), miring mengikuti singgung busur (halus),
             di depan kartu dan di DEPAN matte (sengaja di luar AnchorStage). Dua ruang kosong (setelah «legitimate» dan setelah «person»)
