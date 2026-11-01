@@ -40,6 +40,37 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
   - gerbang audio (keterdengaran SFX, VO di atas latar pada volume HP).
 - Render final sekali, setelah reviewer segar memberi SHIP.
 
+## Hierarki kerja dengan subagent (Irfan, 2 Nov 07.33)
+Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worker bukan keputusan.
+- **Tingkat 0 · mekanis:** worker boleh langsung mengerjakan, dengan bukti still sebelum/sesudah. Contohnya:
+  - geser koordinat ke safe zone;
+  - cocokkan timing ke ucapan;
+  - terapkan aturan yang sudah terkunci.
+- **Tingkat 1 · desain:** worker hanya menulis **mini proposal** dan belum boleh menerapkan. Yang termasuk:
+  - elemen visual baru;
+  - warna, latar, scrim atau gradien;
+  - menghapus atau menambah teks;
+  - tata letak, transisi.
+  
+  Isi proposalnya:
+  - masalah yang ditemukan;
+  - perubahan yang diusulkan;
+  - still pratinjau 480 px (render eksperimen, belum di-commit);
+  - prinsip desain mana yang dipenuhi;
+  - customer journey: apa yang dilihat penonton dan dalam urutan apa.
+
+  Claude utama menguji proposal secara visual terhadap prinsip dan feedback Irfan, lalu menyetujui atau menolak. Baru setelah itu worker menerapkan.
+- **Tingkat 2 · global:** hanya Claude utama yang mengubahnya, dan bila menyentuh selera, dilaporkan ke Irfan. Yang termasuk:
+  - lib bersama;
+  - font, palet, gaya kinetic;
+  - aturan skill.
+- **Biaya:** proposal ringan (beberapa ratus token + 1 thumbnail). Itu jauh lebih murah dari membatalkan perubahan yang salah setelah menyebar dan setelah dilihat Irfan.
+  - Proposal dikirim sekaligus per worker, tidak satu per satu.
+- **Kasus pelajaran (2 Nov):**
+  - Brief worker menyebut "scrim boleh", lalu worker menambah pita gradien hitam tanpa uji visual.
+  - Irfan menolaknya: kasar, menurunkan estetika.
+  - Kesalahannya ada di brief, yang memberi wewenang desain tanpa gerbang.
+
 ## Aturan teks (terkunci)
 - **Teks = penekanan, prioritas 2.** Visual kuat tidak butuh teks.
   - Contoh salah di PKS v9: "8 jam", "45 menit", "TIDAK BERHENTI", "PERSIS".
