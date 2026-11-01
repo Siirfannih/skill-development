@@ -47,7 +47,6 @@ export const S04b_Rilis: React.FC = () => {
             const h = CARD_H + (20 - CARD_H) * col;
             const cx = r.x + CARD_W / 2;
             const cy = LINE_Y;
-            const txt = 1 - prog(t, X0, X0 + 0.12, EZ.acc);
             return (
               <div key={r.name} style={{
                 position: "absolute", left: cx - w / 2, top: cy - h / 2 + (1 - p) * 34, width: w, height: h, opacity: Math.min(1, p * 2.5),
@@ -58,14 +57,16 @@ export const S04b_Rilis: React.FC = () => {
                   ? `0 24px 60px color-mix(in srgb, var(--electric) ${20 + 30 * glow}%, transparent), 0 0 ${40 * glow}px color-mix(in srgb, var(--electric) ${45 * glow}%, transparent)`
                   : "0 20px 50px color-mix(in srgb, var(--electric) 12%, transparent)",
                 backdropFilter: "blur(14px)", overflow: "hidden", boxSizing: "border-box",
-                ...(col > 0 && !hot ? { background: `color-mix(in srgb, var(--sb-ink) ${col * 100}%, color-mix(in srgb, #fff 62%, transparent))` } : {}),
+                ...(col > 0 && !hot ? { background: `color-mix(in srgb, var(--sb-ink) ${prog(col, 0.6, 1, EZ.acc) * 100}%, color-mix(in srgb, #fff 62%, transparent))` } : {}),
               }}>
-                <div style={{ position: "absolute", inset: 0, padding: 36, display: "flex", flexDirection: "column", justifyContent: "space-between", opacity: txt }}>
-                  <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
-                    <div style={{ width: 20, height: 20, borderRadius: 10, background: hot ? "#fff" : "var(--sb-ink)" }} />
-                    <span style={{ fontFamily: "Inter", fontWeight: 500, fontSize: 24, letterSpacing: 1, color: hot ? "rgba(255,255,255,0.8)" : "var(--sb-ink-muted)" }}>{r.year}</span>
+                {/* v10 (#28): isi kartu (label versi asli) mengecil bersama kartu, bukan memudar lebih dulu → tidak pernah jadi blok abu polos */}
+                <div style={{ position: "absolute", left: (w - CARD_W) / 2, top: (h - CARD_H) / 2, width: CARD_W, height: CARD_H, padding: 26, boxSizing: "border-box", display: "flex", flexDirection: "column", justifyContent: "space-between",
+                  transform: `scale(${w / CARD_W})`, transformOrigin: "50% 50%", opacity: 1 - prog(col, 0.7, 0.95, EZ.acc) }}>
+                  <div style={{ display: "flex", gap: 12, alignItems: "center" }}>
+                    <div style={{ width: 18, height: 18, borderRadius: 9, background: hot ? "#fff" : "var(--sb-ink)" }} />
+                    <span style={{ fontFamily: "Inter", fontWeight: 500, fontSize: 22, letterSpacing: 1, color: hot ? "rgba(255,255,255,0.8)" : "var(--sb-ink-muted)" }}>{r.year}</span>
                   </div>
-                  <span style={{ fontFamily: "Inter", fontWeight: 700, fontSize: 48, letterSpacing: -1, lineHeight: 1, color: hot ? "#fff" : "var(--sb-ink)", whiteSpace: "nowrap" }}>{r.name}</span>
+                  <span style={{ fontFamily: "Inter", fontWeight: 700, fontSize: 40, letterSpacing: -1, lineHeight: 1, color: hot ? "#fff" : "var(--sb-ink)", whiteSpace: "nowrap" }}>{r.name}</span>
                 </div>
               </div>
             );

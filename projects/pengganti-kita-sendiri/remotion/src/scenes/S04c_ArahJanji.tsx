@@ -8,7 +8,7 @@ import { Camera, EZ, Grain, prog, Scene, sfxMark, useT, Panel2x } from "../lib/a
 import { panel, word } from "../lib/time";
 import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { ezAt } from "./_b3_shared";
-import { CLIP_CARD, DOT04B, DOT_U, graphToScreen, lerp, onBend, onShared, P2, SEG_BEND, SEG_SHARED } from "./_b4_shared";
+import { DOT04B, DOT_U, graphToScreen, lerp, onBend, onShared, P2, SEG_BEND, SEG_SHARED } from "./_b4_shared";
 
 const O = { x: 960, y: 540 };
 const pathD = (s: [P2, P2, P2, P2]) => `M${s[0].x} ${s[0].y} C ${s[1].x} ${s[1].y}, ${s[2].x} ${s[2].y}, ${s[3].x} ${s[3].y}`;
@@ -72,13 +72,10 @@ export const S04c_ArahJanji: React.FC = () => {
   const T = { x: -(F.x - O.x) * s, y: -(F.y - O.y) * s };
   const proj = (p: P2) => ({ x: O.x + (p.x - O.x) * s + T.x, y: O.y + (p.y - O.y) * s + T.y });
 
-  // keluar: frame-in-frame
+  // keluar (v10 #25, Irfan 9): tanpa kartu berbingkai. Grafik ditarik masuk (zoom-through + blur + gelap) lalu hard cut ke Altman full frame.
   const exB = P.end - 0.02;
-  const ex = prog(t, X0, exB, EZ.inOut);
-  const k = lerp(1, Math.max(CLIP_CARD.w / 1920, CLIP_CARD.h / 1080), ex);
-  const ccx = CLIP_CARD.x + CLIP_CARD.w / 2;
-  const ccy = CLIP_CARD.y + CLIP_CARD.h / 2;
-  const inset = `inset(${CLIP_CARD.y * ex}px ${(1920 - CLIP_CARD.x - CLIP_CARD.w) * ex}px ${(1080 - CLIP_CARD.y - CLIP_CARD.h) * ex}px ${CLIP_CARD.x * ex}px round ${CLIP_CARD.r * ex}px)`;
+  const ex = prog(t, X0, exB, EZ.acc);
+  const exS = 1 + 0.55 * ex;
 
   // titik rilis: dari posisi 04b (layar) mendarat di garis solid
   const landB = P.start + 0.42;
@@ -86,7 +83,7 @@ export const S04c_ArahJanji: React.FC = () => {
   const dotR = lerp(10, 6 * 2 * s, land);
 
   const hatchW = drawB * 440;
-  const stopDown = 1 - 0.25 * ex;
+  const stopDown = 1 - 0.35 * ex;
 
   // ── SFXEV (metronom SFX)
   sfxMark(t, "cut", P.start, "04c:cut:in"); // timeline langit 04b → grafik blueprint
@@ -101,8 +98,8 @@ export const S04c_ArahJanji: React.FC = () => {
   return (
     <Scene code="04c">
       <AbsoluteFill style={{ background: "var(--sb-charcoal)" }}>
-        <AbsoluteFill style={{ clipPath: inset, background: "var(--bp-900)" }}>
-          <AbsoluteFill style={{ transform: `translate(${(ccx - 960) * ex}px, ${(ccy - 540) * ex}px) scale(${k})`, transformOrigin: "960px 540px", filter: `brightness(${stopDown})` }}>
+        <AbsoluteFill style={{ background: "var(--bp-900)" }}>
+          <AbsoluteFill style={{ transform: `scale(${exS})`, transformOrigin: "960px 540px", filter: `brightness(${stopDown}) blur(${ex * 7}px)` }}>
             <AbsoluteFill style={{ background: "linear-gradient(160deg, var(--bp-700) 0%, var(--bp-900) 100%)" }} />
             <Camera scale={s} x={T.x} y={T.y}>
               <div style={{ position: "absolute", left: -1600, top: -1200, width: 5120, height: 3480, backgroundImage: "linear-gradient(180deg, color-mix(in srgb, #fff 16%, transparent) 2px, transparent 2px), linear-gradient(90deg, color-mix(in srgb, #fff 16%, transparent) 2px, transparent 2px)", backgroundSize: "96px 96px", backgroundPosition: "-64px -48px" }} />
@@ -125,14 +122,14 @@ export const S04c_ArahJanji: React.FC = () => {
                     <path d={pathD(SEG_BEND)} pathLength={1} stroke="#fff" strokeWidth="5" strokeLinecap="round" fill="none" strokeDasharray="1 1" strokeDashoffset={1 - drawB} opacity={drawB > 0 ? 1 : 0} />
                     {drawB > 0 && <circle cx={tipB.x} cy={tipB.y} r={10} fill="#fff" />}
                   </svg>
-                  {/* v9 (#18): label kecil ARAH/JANJI digantikan anchor yang menempel di ujung garis (satu teks, tidak dobel). Koordinat panel (×2×kamera).
-                      ARAHNYA di kiri-bawah ujung garis solid yang berbelok; JANJINYA di kiri ujung garis putus-putus (di atas jalur, di luar arsiran). */}
-                  <AnchorWord text="ARAHNYA" at={atArah} until={outAnchor} x={Math.max(420, tipB.x - 8)} y={tipB.y + 56} size={54} color="#fff" align="right" enter="left" grain={0.35}
-                    sfx={{ kind: "scifi_whoosh", id: "04c:anchor:arahnya" }} />
-                  <AnchorWord text="JANJINYA" at={atJanjinya} until={outAnchor} x={812} y={-30} size={54} color="#fff" align="right" enter="right" grain={0.35} />
                 </div>
               </Panel2x>
             </Camera>
+            {/* v10 (#29): label di lapisan LAYAR di ruang kosong (grid biru dipertahankan). ARAHNYA di bawah ujung garis solid (kanan-bawah, di safe zone x≤1632 / y≤864, ukuran seragam 72);
+                JANJINYA di kiri ujung garis putus-putus, di atas jalurnya dengan jarak ≥ 40 px (tidak menempel tepi atas, tidak menimpa garis). */}
+            <AnchorWord text="ARAHNYA" at={atArah} until={outAnchor} x={1632} y={835} size={72} color="#fff" align="right" enter="left" grain={0.35}
+              sfx={{ kind: "scifi_whoosh", id: "04c:anchor:arahnya" }} />
+            <AnchorWord text="JANJINYA" at={atJanjinya} until={outAnchor} x={1560} y={245} size={72} color="#fff" align="right" enter="right" grain={0.35} />
             {/* titik rilis 04b → titik di garis solid */}
             {DOT_U.map((u, i) => {
               const target = proj(graphToScreen(onShared(u)));

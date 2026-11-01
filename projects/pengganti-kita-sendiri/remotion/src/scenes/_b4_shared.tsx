@@ -6,15 +6,16 @@ export const lerp = (a: number, b: number, p: number) => a + (b - a) * p;
 
 // ── 04b → 04c: kartu rilis jadi titik grafik (X01)
 export const RELEASES = [
-  { name: "GPT-3", year: "2020", x: 80 },
-  { name: "ChatGPT", year: "2022", x: 500 },
-  { name: "GPT-4", year: "2023", x: 860 },
-  { name: "GPT-4o", year: "2024", x: 1160 },
-  { name: "o1", year: "2024", x: 1400 },
-  { name: "GPT-5", year: "2025", x: 1600 },
+  { name: "GPT-3", year: "2020", x: 100 },
+  { name: "ChatGPT", year: "2022", x: 400 },
+  { name: "GPT-4", year: "2023", x: 690 },
+  { name: "GPT-4o", year: "2024", x: 965 },
+  { name: "o1", year: "2024", x: 1235 },
+  { name: "GPT-5", year: "2025", x: 1505 },
 ];
-export const CARD_W = 320;
-export const CARD_H = 224;
+// v10 (#28): kartu tidak lagi saling menimpa (pitch ≥ 270 > CARD_W 240); semua kartu tetap label versi asli.
+export const CARD_W = 240;
+export const CARD_H = 180;
 export const LINE_Y = 540; // garis waktu 04b (layar)
 /** Titik akhir 04b (pusat kartu, kamera sudah diam di x=0). */
 export const DOT04B = RELEASES.map((r) => ({ x: r.x + CARD_W / 2, y: LINE_Y }));
@@ -38,7 +39,8 @@ export const graphToScreen = (p: P2): P2 => ({ x: (60 + p.x) * 2, y: (120 + p.y)
 export const DOT_U = [0.14, 0.36, 0.55, 0.7, 0.82, 0.93];
 
 // ── 04c → 04d → 05a: kartu klip Altman (frame-in-frame lalu jadi kartu biru)
-export const CLIP_CARD = { x: 580, y: 150, w: 760, h: 620, r: 28 };
+// v10 (Irfan 9): klip Altman FULL FRAME (bukan kartu 760×620); menyusut ke kartu biru 05a hanya di akhir 04d.
+export const CLIP_CARD = { x: 0, y: 0, w: 1920, h: 1080, r: 0 };
 export const BLUE_CARD = { x: 1280, y: 250, w: 192, h: 200, r: 4 }; // posisi 05a (panel 640,140 ×2, sedikit naik agar tidak menyentuh teks)
 export const ALTMAN_STILL = "wonder/43cca1a394c8a5a50d96edbb22a2cddeef9b45d7e3a99ac323829deb292db7ca.jpg";
 /** Mulai menyusut bersamaan dengan whoosh 04d→05a (fade-in bunyi 0,2 dtk sebelum puncak 75,195). */

@@ -3,7 +3,7 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
-import { FPS, panel, word } from "../lib/time";
+import { panel, word } from "../lib/time";
 import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 
 // bintang dari panel Wonder (×2), satu lapis langit
@@ -28,8 +28,7 @@ export const S04a_GaPeduli: React.FC = () => {
   const P = panel("04a");
   const tNg = word("nggak", "s4").s;
   const tPe = word("peduli", "s4").s;
-  const tPik = word("pikirkan", "s4").s;
-  const atNggak = useFrameAt(1861), atPeduli = useFrameAt(1871), outTxt = useFrameAt(Math.round((tPik + 0.55) * FPS)); // v9: f terukur ANCHORS-V9 #16
+  const atNggak = useFrameAt(1861), atPeduli = useFrameAt(1871); // v9: f terukur ANCHORS-V9 #16
 
   // tilt: menengadah → komposisi panel saat «peduli» → turun ke cahaya sesudah «pikirkan»
   const tiltA = 63.85;
@@ -43,6 +42,7 @@ export const S04a_GaPeduli: React.FC = () => {
   const camX = -520 * truck;
   // fajar naik pelan sepanjang panel (teknologi tidak menunggu)
   const dawn = prog(t, P.start, P.end, (x) => x);
+  const txtCol = camY < -250 ? "#0b1020" : "#fff";
   const twinkle = (i: number) => 0.75 + 0.25 * Math.sin(t * 2.1 + i * 1.7);
 
   // ── SFXEV (metronom SFX)
@@ -55,10 +55,6 @@ export const S04a_GaPeduli: React.FC = () => {
       <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
         <Camera scale={camS} x={camX} y={camY} oy={480} blur={truck * 6}>
           <div style={{ position: "absolute", left: -600, top: -300, width: 3120, height: 2100, background: SKY }} />
-          {/* v9 (#16): NGGAK PEDULI = anchor di garis horizon tengah, DOM sebelum cahaya fajar → cahaya yang naik lewat di depan huruf (mask cahaya). Putih di zona gelap. */}
-          <AnchorWord text="NGGAK" at={atNggak} until={outTxt} x={930} y={480} size={200} color="#fff" align="right" enter="left" />
-          <AnchorWord text="PEDULI" at={atPeduli} until={outTxt} x={990} y={480} size={200} color="#fff" align="left" enter="right"
-            sfx={{ kind: "sub_impact", id: "04a:anchor:peduli" }} />
           {/* cahaya fajar: pita terang di horizon yang terus naik */}
           <div style={{
             position: "absolute", left: 960 - 1300, top: 900 - dawn * 120 - 300, width: 2600, height: 600, borderRadius: "50%",
@@ -68,6 +64,12 @@ export const S04a_GaPeduli: React.FC = () => {
             <div key={i} style={{ position: "absolute", left: x * 2, top: y * 2, width: s * 2, height: s * 2, borderRadius: 9, background: "#fff", opacity: o * twinkle(i) }} />
           ))}
         </Camera>
+        {/* v10 (#27): tidak ada frame kosong. «TEKNOLOGI INI» mengisi 1838–1860 (sebelum «nggak»); NGGAK PEDULI dipindah ke lapisan layar dan bertahan sampai
+            cut ke 04b (1932) selagi tilt menurun; warna putih → tinta saat langit terang (kontras tinggi, bukan putih di atas biru muda). */}
+        <AnchorWord text={"TEKNOLOGI\u2002INI"} at={1838} until={atNggak} x={960} y={480} size={150} color="#fff" align="center" enter="scale" />
+        <AnchorWord text="NGGAK" at={atNggak} until={1934} x={930} y={480} size={200} color={txtCol} align="right" enter="left" />
+        <AnchorWord text="PEDULI" at={atPeduli} until={1934} x={990} y={480} size={200} color={txtCol} align="left" enter="right"
+          sfx={{ kind: "sub_impact", id: "04a:anchor:peduli" }} />
         <Grain opacity={0.05} />
       </AbsoluteFill>
     </Scene>

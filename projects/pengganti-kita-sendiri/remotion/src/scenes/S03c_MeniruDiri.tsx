@@ -21,6 +21,7 @@ const CLIP_OUT = 11.27;
 const CLIP_END = JENSEN + (CLIP_OUT - CLIP_IN);
 
 const CONE = 560; // titik cahaya = «tempat kita»
+const WIDE_LIFT = -260; // v10 (#23/#24): dunia wide naik 140 px → pita bersih y 940–1020 di bawah lantai untuk TEMPAT KITA
 const COPY0 = 1360; // posisi awal salinan (wireframe 01c)
 const US_END = -84; // kita mundur ke gelap (layar ≈ x 316 setelah kamera pindah ke cahaya)
 const HEAD_TOP = PICTO.headTop;
@@ -43,6 +44,8 @@ const SHRINK_A = BOOM + 0.42; // X13 frame 03d menyusut jadi kartu klip
 
 // v9: subtitle terjemahan Jensen (LINE1/LINE2, dua baris Indonesia) DIHAPUS; diganti anchor Inggris JOB / SOMEBODY / AI di bawah.
 const JW = wordsOf("jensen");
+const FRAME_S = 1.18;
+const JS = 54;
 
 /** Panggung 03c/03d (dipakai utuh lalu menyusut jadi kartu klip). */
 const Stage: React.FC<{ t: number }> = ({ t }) => {
@@ -122,14 +125,18 @@ export const S03c_MeniruDiri: React.FC = () => {
     ox: ck * COPY0 + (1 - ck) * camX,
     oy: ck * py + (1 - ck) * 1000,
     x: ck * (960 - COPY0) + (1 - ck) * (960 - camX),
-    y: ck * (540 - py),
+    y: ck * (540 - py) + (1 - ck) * WIDE_LIFT,
   };
   const snapBlur = Math.sin(snap * Math.PI) * 3;
   const sh = shake(t, BOOM, 6, 0.3);
 
   // X13: frame 03d menyusut jadi kartu klip (berakhir tepat saat klip mulai)
-  const k = prog(t, SHRINK_A, JENSEN, EZ.inOut);
-  const sc = 1 - (1 - 1120 / 1920) * k;
+  // v10 (#25, Irfan 8): tanpa kartu menyusut. Panggung 03d ditarik masuk (zoom-through ke cahaya + blur) lalu hard cut ke klip full frame.
+  const zt = prog(t, SHRINK_A, JENSEN, EZ.acc);
+  const k = 0;
+  const sc = 1;
+  const ztS = 1 + 0.9 * zt;
+  const inP = prog(t, JENSEN, JENSEN + 8 / FPS, EZ.out); // klip mendarat: settle 1,10 → 1,0 + blur reda
   const showClip = t >= JENSEN - 0.5 / FPS;
 
   // 03e: drift 1,03
@@ -146,28 +153,37 @@ export const S03c_MeniruDiri: React.FC = () => {
         <Camera scale={1 + 0.03 * eDrift}>
           {/* kartu: panggung 03d (sebelum klip) atau klip Jensen */}
           <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, overflow: "hidden",
-            transform: `translateY(${(411 - 540) * k}px) scale(${sc})`, transformOrigin: "960px 540px", borderRadius: (28 * k) / sc,
-            boxShadow: k > 0 ? `0 0 0 ${2 / sc}px rgba(255,255,255,${0.1 * k})` : undefined }}>
+            }}>
             {!showClip && (
               <>
-                <Camera scale={cam.s} ox={cam.ox} oy={cam.oy} x={cam.x + sh.x} y={cam.y + sh.y} blur={snapBlur}>
-                  <Stage t={t} />
+                <Camera scale={ztS} ox={960} oy={560} blur={zt * 7}>
+                  <Camera scale={cam.s} ox={cam.ox} oy={cam.oy} x={cam.x + sh.x} y={cam.y + sh.y} blur={snapBlur}>
+                    <Stage t={t} />
+                  </Camera>
                 </Camera>
                 {/* QC 2 Nov: anchor di lapisan LAYAR teratas (di luar kamera) — sebelumnya ikut kamera & di belakang piktogram → terpotong/tertutup.
                     Teks di bawah tengah, di bawah figur (tidak di atas visual). */}
-                <AnchorWord text="PERLAHAN" at={1508} until={1626} x={960} y={960} size={110} color="#FAF8EC" align="center" enter="left" />
-                <AnchorWord text="TEMPAT" at={1626} x={930} y={960} size={130} color="#FAF8EC" align="right" enter="scale" />
-                <AnchorWord text="KITA" at={1634} x={990} y={960} size={130} color="#FAF8EC" align="left" enter="right" />
+                {/* v10 (#23): PERLAHAN di ruang kosong KANAN salinan (close-up), hilang tepat sebelum patah ke wide (frame 1587); tidak lagi menimpa badan/garis putus-putus.
+                    v10 (#24): TEMPAT KITA di pita bersih di bawah lantai (dunia wide diangkat 140 px), caps y 930–1020, di dalam area aman. */}
+                <AnchorWord text="PERLAHAN" at={1508} until={1586} x={1632} y={300} size={72} color="#FAF8EC" align="right" enter="right" />
+                <AnchorWord text="TEMPAT" at={1626} until={1662} x={930} y={815} size={104} color="#FAF8EC" align="right" enter="scale" />
+                <AnchorWord text="KITA" at={1634} until={1662} x={990} y={815} size={104} color="#FAF8EC" align="left" enter="right" />
               </>
             )}
             {showClip && (
               <>
                 <AbsoluteFill style={{ background: "var(--sb-placeholder)" }} />
+                {/* v10 (Irfan 8): klip FULL FRAME (cover 1920×1080, sumber 16:9). Pembingkaian: skala 1,18 berjangkar kiri-atas → Jensen bergeser ke kanan,
+                    pita kosong kiri-atas (x 60–850, y 60–290) jadi tempat teks. */}
                 <AbsoluteFill style={{ transform: `scale(${cz})`, transformOrigin: "55% 18%" }}>
-                <Clip src="clips/jensen_src_412.mp4" at={block("jensen").t} inS={CLIP_IN} outS={CLIP_OUT} grade={DOC_GRADE} style={{ transform: "scale(1.05)" }} />
+                <AbsoluteFill style={{ transform: `scale(${FRAME_S * (1 + 0.1 * (1 - inP))})`, transformOrigin: "0% 8%", filter: inP < 1 ? `blur(${(1 - inP) * 6}px)` : undefined }}>
+                <Clip src="clips/jensen_src_412.mp4" at={block("jensen").t} inS={CLIP_IN} outS={CLIP_OUT} grade={DOC_GRADE} />
                 {/* lanjutkan shot yang sama tanpa suara sampai hard cut (bukan freeze; sumber 16 dtk masih berlanjut) */}
-                <Clip src="clips/jensen_src_412.mp4" at={CLIP_END} inS={CLIP_OUT} outS={CLIP_OUT + (PE.end - CLIP_END) + 0.1} grade={DOC_GRADE} style={{ transform: "scale(1.05)" }} />
+                <Clip src="clips/jensen_src_412.mp4" at={CLIP_END} inS={CLIP_OUT} outS={CLIP_OUT + (PE.end - CLIP_END) + 0.1} grade={DOC_GRADE} />
                 </AbsoluteFill>
+                </AbsoluteFill>
+                {/* scrim bawah lembut untuk atribusi (kursi putih di kiri-bawah) */}
+                <AbsoluteFill style={{ background: "linear-gradient(180deg, transparent 80%, rgba(0,0,0,0.55) 100%)", pointerEvents: "none" }} />
               </>
             )}
           </div>
@@ -175,8 +191,8 @@ export const S03c_MeniruDiri: React.FC = () => {
           {/* atribusi + terjemahan (di atas zona 8 % bawah) */}
           {showClip && (
             <>
-              <div style={{ position: "absolute", left: 0, width: 1920, top: 754, textAlign: "center", fontFamily: "Inter", fontWeight: 600, fontSize: 26, letterSpacing: 4.2,
-                color: "color-mix(in srgb, var(--sb-white) 62%, transparent)", opacity: labelP, transform: `translateY(${(1 - labelP) * 10}px)` }}>
+              <div style={{ position: "absolute", top: 826, left: 288, textAlign: "left", background: "rgba(0,0,0,0.5)", padding: "10px 18px", borderRadius: 10, fontFamily: "Inter", fontWeight: 600, fontSize: 24, letterSpacing: 4.2,
+                color: "color-mix(in srgb, var(--sb-white) 82%, transparent)", opacity: labelP, transform: `translateY(${(1 - labelP) * 10}px)` }}>
                 JENSEN HUANG · CEO NVIDIA · MILKEN INSTITUTE 2025
               </div>
               {/* v9 (B7): anchor Inggris di BELAKANG kepala Jensen: urutan z = kartu klip → teks → matte subjek (fg). Matte null → teks di depan.
@@ -192,18 +208,19 @@ export const S03c_MeniruDiri: React.FC = () => {
                 {/* F2: kalimat Jensen dua bagian kontras di SATU slot baris (y 600): «not gonna lose a JOB» lalu diganti «SOMEBODY who uses AI».
                     Bagian 1 kecil-ke-besar (JOB tekanan), bagian 2 SOMEBODY besar → who uses kecil → AI raksasa. Kata lain kalimat
                     ("your job to an AI but you're gonna...") sengaja dilewati: kontras dua bagian, bukan subtitle. */}
-                <SpeakerLine x={960} baseline={600} align="center" until={fSomebody} words={[
-                  { text: "not", at: wordAt("jensen", "not"), size: 64 },
-                  { text: "gonna", at: wordAt("jensen", "gonna"), size: 64 },
-                  { text: "lose", at: wordAt("jensen", "lose"), size: 84 },
-                  { text: "a", at: wordAt("jensen", "a"), size: 56 },
-                  { text: "JOB", at: 1701, size: 190, kind: "emph", enter: "left" },
+                {/* v10 aturan Irfan: ukuran SERAGAM satu kalimat (62), penekanan lewat warna aksen; semua di safe zone x 288–1632, y 216–864 */}
+                <SpeakerLine x={300} baseline={266} align="left" until={fSomebody} shadow="0 3px 24px rgba(0,0,0,0.55)" words={[
+                  { text: "not", at: wordAt("jensen", "not"), size: JS },
+                  { text: "gonna", at: wordAt("jensen", "gonna"), size: JS },
+                  { text: "lose", at: wordAt("jensen", "lose"), size: JS },
+                  { text: "a", at: wordAt("jensen", "a"), size: JS },
+                  { text: "JOB", at: 1701, size: JS, kind: "emph", enter: "left", color: "#FFD84A" },
                 ]} />
-                <SpeakerLine x={960} baseline={600} align="center" until={fEnd} words={[
-                  { text: "SOMEBODY", at: 1781, size: 100, kind: "emph", enter: "right", sfx: { kind: "sub_impact", id: "03e:anchor:somebody" } },
-                  { text: "who", at: wordAt("jensen", "who"), size: 54 },
-                  { text: "uses", at: wordAt("jensen", "uses"), size: 54 },
-                  { text: "AI", at: 1804, size: 200, kind: "emph" },
+                <SpeakerLine x={300} baseline={266} align="left" until={fEnd} shadow="0 3px 24px rgba(0,0,0,0.55)" words={[
+                  { text: "SOMEBODY", at: 1781, size: JS, kind: "emph", enter: "right", color: "#FFD84A", sfx: { kind: "sub_impact", id: "03e:anchor:somebody" } },
+                  { text: "who", at: wordAt("jensen", "who"), size: JS },
+                  { text: "uses", at: wordAt("jensen", "uses"), size: JS },
+                  { text: "AI", at: 1804, size: JS, kind: "emph", color: "#FFD84A" },
                 ]} />
               </AnchorStage>
             </>
