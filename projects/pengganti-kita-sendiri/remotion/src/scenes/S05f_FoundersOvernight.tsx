@@ -61,7 +61,7 @@ export const S05f_FoundersOvernight: React.FC = () => {
       <AbsoluteFill style={{ background: "#101216", overflow: "hidden" }}>
         <AbsoluteFill style={{ transform: `translate(${sh.x}px, ${sh.y}px) scale(${camS})`, borderRadius: (28 * brk) / camS, overflow: "hidden" }}>
           <Img src={staticFile(PHOTOS[idx])}
-            style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: `${DOC_GRADE} brightness(${dim})`, transform: `scale(${z * hold})`, transformOrigin: "50% 42%" }} />
+            style={{ position: "absolute", inset: -40, width: "calc(100% + 80px)", height: "calc(100% + 80px)", objectFit: "cover", filter: `${DOC_GRADE} brightness(${dim})`, transform: `scale(${z * hold})`, transformOrigin: "50% 42%" }} />
         </AbsoluteFill>
         {/* v9: slot swap SlotWord → AnchorWord di posisi tengah yang sama (callback cold open); FOUNDER → CEO → SEMALAM menggantikan di slot yang sama */}
         <AnchorWord text="FOUNDER" at={atFounder} until={atCeo} x={960} y={540} size={300} color="#FAF8EC" enter="scale" shadow="0 6px 50px rgba(0,0,0,0.5)" />

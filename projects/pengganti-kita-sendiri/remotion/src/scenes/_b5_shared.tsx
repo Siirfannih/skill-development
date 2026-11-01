@@ -103,17 +103,20 @@ export const Pictogram: React.FC<{ x: number; floor: number; h?: number; phase: 
   const k = h / 400;
   const swing = Math.sin(phase * Math.PI * 2) * 24 * walking;
   const bob = -Math.abs(Math.sin(phase * Math.PI * 2)) * 8 * k * walking;
-  const fill = `linear-gradient(100deg, ${C.raised} 0%, ${C.charcoal} 70%)`;
-  const rim = "inset 6px 3px 4px -2px rgba(255,255,255,0.7)";
+  // v10 (#37): material identik dengan piktogram Babak 6 (Ball/Torso _b6_shared: charcoal→raised, rim light tipis dari kanan = arah jalan)
+  const fill = `linear-gradient(100deg, ${C.charcoal} 40%, ${C.raised} 100%)`;
+  const r = 6 * k;
+  const rimB = `inset ${-r}px 0px ${r * 0.66}px ${-r * 0.33}px rgba(255,255,255,0.9)`;
+  const rimT = `inset ${-r}px ${r * 0.66}px ${r}px ${-r * 0.33}px rgba(255,255,255,0.7)`;
   const leg = (rot: number, back: boolean) => (
-    <div style={{ position: "absolute", left: 92 * k, top: 236 * k, width: 46 * k, height: 164 * k, borderRadius: 23 * k, background: fill, boxShadow: back ? "inset 4px 2px 3px -2px rgba(255,255,255,0.35)" : rim, transform: `rotate(${rot}deg)`, transformOrigin: "50% 8%", opacity: back ? 0.9 : 1 }} />
+    <div style={{ position: "absolute", left: 92 * k, top: 236 * k, width: 46 * k, height: 164 * k, borderRadius: 23 * k, background: fill, boxShadow: back ? `inset ${-r * 0.6}px 0px ${r * 0.4}px ${-r * 0.3}px rgba(255,255,255,0.35)` : rimB, transform: `rotate(${rot}deg)`, transformOrigin: "50% 8%" }} />
   );
   return (
     <div style={{ position: "absolute", left: x - 115 * k, top: floor - h + bob, width: 230 * k, height: h }}>
       {leg(-swing, true)}
-      <div style={{ position: "absolute", left: 20 * k, top: 116 * k, width: 190 * k, height: 150 * k, borderRadius: `${95 * k}px ${95 * k}px ${30 * k}px ${30 * k}px`, background: fill, boxShadow: rim }} />
+      <div style={{ position: "absolute", left: 20 * k, top: 116 * k, width: 190 * k, height: 150 * k, borderRadius: `${95 * k}px ${95 * k}px ${30 * k}px ${30 * k}px`, background: fill, boxShadow: rimT }} />
       {leg(swing, false)}
-      <div style={{ position: "absolute", left: 63 * k, top: 0, width: 104 * k, height: 104 * k, borderRadius: "50%", background: fill, boxShadow: "inset 6px 0 3px -2px rgba(255,255,255,0.8)" }} />
+      <div style={{ position: "absolute", left: 63 * k, top: 0, width: 104 * k, height: 104 * k, borderRadius: "50%", background: fill, boxShadow: rimB }} />
     </div>
   );
 };

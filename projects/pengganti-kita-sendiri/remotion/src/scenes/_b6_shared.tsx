@@ -99,8 +99,16 @@ export const AIGlyph: React.FC<{ size: number; style?: React.CSSProperties }> = 
 export const BackUnit: React.FC<{ on: number; glyph: number; glyphScale?: number; boost?: number; flatY?: number }> = ({ on, glyph, glyphScale = 1, boost = 0, flatY = 1 }) => (
   <div style={{ position: "absolute", left: 0, top: 0, width: 160, height: 260 }}>
     <div style={{ position: "absolute", left: 0, top: -4, width: 160, height: 88, transform: `scaleY(${flatY})`, transformOrigin: "50% 100%" }}>
-      <Plane b={{ x: 14, y: 0, w: 132, h: 88 }} on={on} boost={boost} grad={C6.white}
-        glow={{ b: { x: 20, y: 4, w: 120, h: 80 }, blur: 50, spread: 14, a: 0.18, radius: 16 }}>
+      {/* v10 (#43): pendar radial lembut (≤ 0,14; tanpa tepi kotak) dan layar tidak putih kosong sebelum glyph — kerangka UI chat tipis (abu), glyph menggantikannya serentak */}
+      <Plane b={{ x: 14, y: 0, w: 132, h: 88 }} on={on} boost={boost} grad={`linear-gradient(90deg, ${C6.white} 55%, ${C6.paper} 100%)`} softGlow
+        glow={{ b: { x: 20, y: 4, w: 120, h: 80 }, blur: 50, spread: 14, a: 0.12, radius: 16 }}>
+        {glyph <= 0.01 && (
+          <div style={{ display: "flex", flexDirection: "column", gap: 7, width: 70 }}>
+            <div style={{ height: 8, width: 46, borderRadius: 4, background: "#d8d8dd" }} />
+            <div style={{ height: 8, width: 62, borderRadius: 4, background: "#e4e4e8", alignSelf: "flex-end" }} />
+            <div style={{ height: 12, width: 70, borderRadius: 6, background: "#ececf0" }} />
+          </div>
+        )}
         {glyph > 0.01 && <AIGlyph size={36} style={{ opacity: glyph, transform: `scale(${glyphScale})` }} />}
       </Plane>
     </div>

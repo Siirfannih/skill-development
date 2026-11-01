@@ -33,9 +33,9 @@ const HEAD_06A = { x: 648, y: 480 }; // pusat kepala di panel 06a ×2
 const S_06A = 248 / 80; // diameter kepala 06a (248) / dunia (80)
 
 /** Unit hero: geometri bergeser dari proporsi 06a (k=0) ke proporsi sel 06b (k=1). Koordinat unit sel. */
-const HeroUnit: React.FC<{ k: number; on: number; t?: number }> = ({ k, on }) => {
+const HeroUnit: React.FC<{ k: number; on: number; lit: number; t?: number }> = ({ k, on, lit }) => {
   const plane = { x: lerp(89.1, 74, k), y: lerp(65.2, 66, k), w: lerp(142, 86, k), h: lerp(36.1, 30, k) };
-  const glow = { b: { x: lerp(98.8, 78, k), y: lerp(69, 70, k), w: lerp(122.6, 76, k), h: lerp(28.4, 24, k) }, blur: lerp(38.7, 40, k), spread: lerp(12.9, 12, k), a: lerp(0.24, 0.18, k), radius: 12.5 };
+  const glow = { b: { x: lerp(98.8, 78, k), y: lerp(69, 70, k), w: lerp(122.6, 76, k), h: lerp(28.4, 24, k) }, blur: lerp(38.7, 40, k), spread: lerp(12.9, 12, k), a: lerp(0.2, 0.15, k), radius: 12.5 };
   const rimR = lerp(1.6, 3, k);
   // v9 (#28): parallelogram bidang dipertahankan; MEMBANGUN → MERENCANAKAN (T32 swap) lewat AnchorWord di suku tekan (f terukur 3169 / 3217), slot yang sama.
   const atMembangun = useFrameAt(3169), atMerencanakan = useFrameAt(3217), outTxt = useFrameAt(Math.round((B.start + 0.05) * FPS));
@@ -47,21 +47,25 @@ const HeroUnit: React.FC<{ k: number; on: number; t?: number }> = ({ k, on }) =>
     <div style={{ position: "absolute", left: 0, top: 0, width: 164, height: 200 }}>
       {/* berkas cahaya dari bidang (06a), hilang saat unit menyusut ke proporsi grid */}
       {/* alas berkas = tepi atas bidang (tak ada ujung lancip di kiri bidang); sisi di-feather blur, ujung atas memudar lewat mask */}
+      {/* v10 (Irfan 1): berkas cahaya tanpa tepi keras — poligon di-blur lebar, di-mask feather vertikal DAN horizontal (tidak ada garis kotak/diagonal tajam) */}
       {(() => {
-        const bh = plane.y + 2 + 36.8; // dari y −36,8 sampai 2 unit di bawah tepi atas bidang (tertutup bidang)
+        const bh = plane.y + 2 + 36.8;
         const xl = 0.1 * plane.w + 1;
         const xr = plane.w - 1;
-        const bw = xr + 0.6 * bh + 4;
+        const pad = 26;
+        const bw = xr + 0.6 * bh + 4 + pad * 2;
+        const m1 = "linear-gradient(180deg, transparent 0%, #000 55%)";
+        const m2 = "linear-gradient(90deg, transparent 0%, #000 22%, #000 70%, transparent 100%)";
         return (
-          <div style={{ position: "absolute", left: plane.x, top: -36.8, width: bw, height: bh, filter: "blur(1.4px)", WebkitMaskImage: "linear-gradient(180deg, transparent 0%, #000 45%)", maskImage: "linear-gradient(180deg, transparent 0%, #000 45%)", opacity: (1 - k) * on }}>
-            <div style={{ position: "absolute", inset: 0, clipPath: `polygon(${xl}px ${bh}px, ${xr}px ${bh}px, ${xr + 0.6 * bh}px 0px, ${xl + 0.826 * bh}px 0px)`, backgroundImage: `linear-gradient(215deg, ${wa(0.06)} 0%, ${wa(0.3)} 85%)` }} />
+          <div style={{ position: "absolute", left: plane.x - pad, top: -36.8, width: bw, height: bh, filter: "blur(5.5px)", WebkitMaskImage: `${m1}, ${m2}`, maskImage: `${m1}, ${m2}`, WebkitMaskComposite: "source-in", maskComposite: "intersect", opacity: (1 - k) * lit * 0.8 }}>
+            <div style={{ position: "absolute", inset: 0, clipPath: `polygon(${xl + pad}px ${bh}px, ${xr + pad}px ${bh}px, ${xr + pad + 0.6 * bh}px 0px, ${xl + pad + 0.826 * bh}px 0px)`, backgroundImage: `linear-gradient(215deg, ${wa(0.04)} 0%, ${wa(0.26)} 85%)` }} />
           </div>
         );
       })()}
-      <Plane b={plane} on={on} glow={glow} grad={`linear-gradient(90deg, ${C6.white} 55%, ${C6.paper} 100%)`} />
-      {/* teks di bidang (koordinat unit sel). Abu tua #6e6e73 di bidang putih (kontras ≥ 5:1), miring seperti PLANE_TEXT v8. */}
-      <AnchorWord text="MEMBANGUN" at={atMembangun} until={atMerencanakan} x={cx} y={cy} size={fsOld} color="#6e6e73" italic grain={0} enter="scale" />
-      <AnchorWord text="MERENCANAKAN" at={atMerencanakan} until={outTxt} x={cx} y={cy} size={fsNew} color="#6e6e73" italic grain={0} enter="scale"
+      <Plane b={plane} on={lit} glow={glow} softGlow grad={`linear-gradient(90deg, ${C6.white} 55%, ${C6.paper} 100%)`} />
+      {/* teks di bidang (koordinat unit sel). v10: tinta gelap #101216 di bidang putih (kontras ≈ 18:1), miring seperti PLANE_TEXT v8. */}
+      <AnchorWord text="MEMBANGUN" at={atMembangun} until={atMerencanakan} x={cx} y={cy} size={fsOld} color="#101216" italic grain={0} enter="scale" />
+      <AnchorWord text="MERENCANAKAN" at={atMerencanakan} until={outTxt} x={cx} y={cy} size={fsNew} color="#101216" italic grain={0} enter="scale"
         sfx={{ kind: "scifi_whoosh", id: "06a:anchor:merencanakan" }} />
       <Ball b={{ x: 22, y: 40, w: 40, h: 40 }} rim={0.9 * on} r={rimR} />
       <Torso b={{ x: lerp(4.6, 6, k), y: lerp(85.2, 86, k), w: lerp(74.8, 72, k), h: lerp(83.9, 90, k) }} rim={0.7 * on} r={rimR} />
@@ -102,6 +106,9 @@ export const S06a_Sibuk: React.FC = () => {
   // nyala awal 06a mendarat di sapuan low-pass (B5 → B6)
   const boot = prog(t, A.start, A.start + 0.5, EZ.out);
   const heroOn = 0.55 + 0.45 * boot;
+  // v10 (#38): tidak ada bidang putih kosong 2 dtk — layar mati (sambungan lampu padam 05h), menyala bersama MEMBANGUN (frame 3169)
+  const tLit = 3165 / FPS;
+  const heroLit = Math.max(0.07 * boot * (1 - prog(t, tLit, tLit + 4 / FPS, EZ.out)), prog(t, tLit, tLit + 4 / FPS, EZ.out));
 
   // ── SFXEV (waktu = konstanta yang sama dengan animasi di atas / HeroUnit)
   sfxMark(t, "cut", A.start, "06a:cut:in"); // B5 → B6
@@ -130,7 +137,7 @@ export const S06a_Sibuk: React.FC = () => {
               );
             })}
             <div style={{ position: "absolute", left: HO.x, top: HO.y, width: 164, height: 200, transform: "scale(2)", transformOrigin: "0 0" }}>
-              <HeroUnit k={k} on={heroOn} t={t} />
+              <HeroUnit k={k} on={heroOn} lit={heroLit} t={t} />
             </div>
           </div>
         </AbsoluteFill>

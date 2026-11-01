@@ -6,7 +6,7 @@ import { AbsoluteFill } from "remotion";
 import { EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { FPS, panel, word } from "../lib/time";
-import { Ball, C6, Plane, Torso, wa } from "./_b6_shared";
+import { AIGlyph, Ball, C6, Plane, Torso, wa } from "./_b6_shared";
 
 const P = panel("06c");
 const PUSH_HIT_06B = panel("06b").end; // akhir push-through S06a (B.end) = mendarat di 06c
@@ -75,6 +75,8 @@ export const S06c_Serahkan: React.FC = () => {
               grad={`linear-gradient(90deg, ${C6.paper} 0%, ${C6.white} 45%)`}
               glow={{ b: { x: 770, y: 140, w: 170, h: 260 }, blur: 140, spread: 50, a: 0.24, radius: 40 }} />
             {/* v9 (#30): AI = anchor di tengah bidang cahaya (target hisapan), ink gelap di bidang putih; DOM sebelum bola → bola yang lewat menutupi huruf (di belakang bola) */}
+            {/* v10 (#38): bidang tidak kosong sebelum «AI» — glyph OpenAI asli (target hisapan) tampil sampai kata AI mendarat di slot yang sama */}
+            {t * FPS < atAI && <AIGlyph size={130} style={{ position: "absolute", left: 846 - 65, top: 270 - 65 }} />}
             <AnchorWord text="AI" at={atAI} until={untilAI} x={846} y={270} size={150} color={C6.ink} enter="scale"
               sfx={{ kind: "scifi_whoosh", id: "06c:anchor:ai" }} />
             <Torso b={{ x: 60, y: 330, w: 360, h: 300 }} rim={0.6} r={6} />

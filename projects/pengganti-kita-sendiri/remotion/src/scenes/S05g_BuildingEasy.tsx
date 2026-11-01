@@ -15,10 +15,11 @@ const LAND: number[] = [];
 for (let k = -6; k <= 0; k++) LAND.push(T_TICK + k * GRID);
 for (let k = 1; k <= 3; k++) LAND.push(T_TICK + (k * GRID) / 2);
 // posisi tumpukan (pusat kartu, ruang dunia relatif ke tengah layar): spiral sudut emas, rotasi kecil
+// v10 (#36): kisi rapi (kartu 480×300, jarak ≥ 36 px, rotasi ≤ 2°) → tidak ada kartu yang menutup nama kartu lain
+const LATTICE: [number, number][] = [[0, 0], [1, 0], [-1, 0], [0, 1], [0, -1], [1, 1], [-1, -1], [1, -1], [-1, 1], [2, 0]];
 const POS = LAND.map((_, i) => {
-  const r = i === 0 ? 0 : 250 * Math.sqrt(i);
-  const a = i * 2.39996 + 0.6;
-  return { x: Math.cos(a) * r * 1.35, y: Math.sin(a) * r * 0.78, rot: ((i * 37) % 13) - 6 };
+  const [cx, cy] = LATTICE[i % LATTICE.length];
+  return { x: cx * 520, y: cy * 340, rot: ((i * 37) % 5) - 2 };
 });
 // snap kamera: [indeks kartu pemicu, skala]
 const SNAPS: [number, number][] = [[0, 1.55], [2, 1.2], [4, 0.98], [6, 0.82], [8, 0.68]];
@@ -44,11 +45,11 @@ export const S05g_BuildingEasy: React.FC = () => {
             if (t < a - 3 / FPS) return null;
             // jatuh dari arah kamera: besar + transparan → mendarat (tanpa overshoot), bayangan menguat saat mendarat
             const p = prog(t, a - 3 / FPS, a, EZ.acc);
-            const s = 1 + 0.35 * (1 - p);
+            const s = 1 + 0.2 * (1 - p);
             const settle = prog(t, a, a + 4 / FPS, EZ.out);
             const { x, y, rot } = POS[i];
             return (
-              <div key={i} style={{ position: "absolute", left: 960 + x - 240, top: 540 + y - 150, width: 480, height: 300, transform: `rotate(${rot * (0.6 + 0.4 * settle)}deg) scale(${s})`, opacity: Math.min(1, p * 1.6), zIndex: i }}>
+              <div key={i} style={{ position: "absolute", left: 960 + x - 240, top: 540 + y - 150, width: 480, height: 300, transform: `rotate(${rot * (0.6 + 0.4 * settle)}deg) scale(${s})`, opacity: 1, zIndex: i }}>
                 <AppCard app={APPS[i % APPS.length]} style={{ left: 0, top: 0, boxShadow: `0 ${10 + 24 * p}px ${30 + 40 * p}px rgba(29,29,31,${0.06 + 0.06 * p})` }} />
               </div>
             );

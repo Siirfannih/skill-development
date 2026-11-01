@@ -76,6 +76,9 @@ export const S05a_SatuCerita: React.FC = () => {
   sfxMark(t, "whoosh", moveFrame(tSnap), "05a:cam:snapwide"); // patah close-up → wide 5 f (EZ.out, puncak di frame gerak pertama)
   sfxMark(t, "whoosh", (T_SHRINK + T_SHRINK_END) / 2, "05a:altman:shrink"); // kartu Altman menyusut ke tempatnya (X13), puncak kecepatan di tengah gerak
 
+  // v10 (#31): zona aman teks SATU/SUKSES (kiri kartu biru, ±150 px vertikal): foto yang masuk zona diredam (blur + opasitas) supaya kata tidak menempel ke tile
+  const ccT = place(cardC.x, cardC.y, card.p);
+  const ZN = { x0: ccT.x - (card.w * ccT.k) / 2 - 120 - 760, x1: ccT.x - (card.w * ccT.k) / 2 - 40, y0: ccT.y - 160, y1: ccT.y + 160 };
   const renderPhotos = (front: boolean) => [...PHOTOS].sort((a, b) => a.z - b.z).filter((ph) => (ph.z >= 1.6) === front).map((ph) => {
             const idx = PHOTOS.indexOf(ph);
             const a = photoA(P.start, idx, ph.z);
@@ -85,10 +88,12 @@ export const S05a_SatuCerita: React.FC = () => {
             const sc = c.k * (1.06 - 0.06 * inP);
             const w = ph.w * sc;
             const h = ph.h * sc;
+            const ov = Math.min(c.x + w / 2 - ZN.x0, ZN.x1 - (c.x - w / 2), c.y + h / 2 - ZN.y0, ZN.y1 - (c.y - h / 2));
+            const zq = Math.max(0, Math.min(1, ov / 70)); // halus: tanpa lonjakan saat foto melintasi tepi zona
             return (
               <Img key={idx} src={staticFile("wonder/" + ph.img)} style={{
                 position: "absolute", left: c.x - w / 2, top: c.y - h / 2, width: w, height: h, objectFit: "cover", borderRadius: 6 * sc,
-                opacity: Math.min(1, inP * 1.6) * (1 - 0.55 * rv), filter: `grayscale(${rv}) ${ph.z < 1 ? "blur(1.2px)" : ""}`,
+                opacity: Math.min(1, inP * 1.6) * (1 - 0.55 * rv) * (1 - 0.6 * zq), filter: `grayscale(${rv}) ${ph.z < 1 ? "blur(1.2px)" : ""} ${zq > 0.02 ? `blur(${(5 * zq).toFixed(2)}px)` : ""}`,
                 boxShadow: `0 ${10 * ph.z}px ${26 * ph.z}px rgba(29,29,31,${0.16 * (1 - rv)})`,
               }} />
             );
@@ -118,7 +123,7 @@ export const S05a_SatuCerita: React.FC = () => {
             di depan foto belakang & kartu, DI BELAKANG foto depan (z 1,6 dirender sesudahnya). "cerita" dihapus. Ink gelap di kertas terang. */}
         {(() => {
           const cc = place(cardC.x, cardC.y, card.p);
-          const lx = cc.x - (card.w * cc.k) / 2 - 56;
+          const lx = cc.x - (card.w * cc.k) / 2 - 120; // v10 (#31): jarak ke tile Altman 56 → 120 px
           return (
             <>
               <AnchorWord text="SATU" at={atSatu} until={atSukses} x={lx} y={cc.y} size={170} color="#1d1d1f" align="right" enter="left" />

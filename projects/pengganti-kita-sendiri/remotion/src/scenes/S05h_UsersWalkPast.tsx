@@ -19,7 +19,7 @@ const WIPE_A = P.start - 6 / FPS;
 const WIPE_B = P.start + 6 / FPS;
 const WIPE_W = 1500;
 // dunia
-const PW = 300, PH = 190, PG = 76, ROW_X = 170, ROW_Y = 300;
+const PW = 300, PH = 190, PG = 76, ROW_X = 170, ROW_Y = 170; // v10 (#37): kartu di atas kepala (y < 380), kepala tidak lagi menutup nama kartu
 const N = 6;
 const WORLD_W = ROW_X * 2 + N * PW + (N - 1) * PG; // 2520
 const FLOOR = 770;
@@ -119,7 +119,7 @@ export const S05h_UsersWalkPast: React.FC = () => {
             {t >= WALK_A && t <= WALK_B + 0.1 && <Pictogram x={ux} floor={FLOOR} h={400} phase={phase} />}
           </Camera>
           {/* v9 (#27): «semakin» dihapus; SUSAH = anchor di bawah lantai, tengah (bukan di atas visual), masuk di suku tekan f3076 */}
-          <AnchorWord text="SUSAH" at={atSusah} x={960} y={890} size={230} color={C.white} enter="scale" />
+          <AnchorWord text="SUSAH" at={atSusah} x={960} y={866} size={170} color={C.white} enter="scale" />
           <Grain opacity={0.05} />
         </AbsoluteFill>
       </AbsoluteFill>

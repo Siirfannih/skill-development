@@ -6,7 +6,7 @@ import { AbsoluteFill } from "remotion";
 import { EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { FPS, panel, word } from "../lib/time";
-import { Ball, C6, Plane, relay, Torso, wa } from "./_b6_shared";
+import { AIGlyph, Ball, C6, Plane, relay, Torso, wa } from "./_b6_shared";
 
 const P = panel("06d");
 export const T_OFF = word("Tapi", "s6", 1).s; // = awal 06e
@@ -54,7 +54,7 @@ export const S06d_Prompt: React.FC = () => {
   const Z = cz * (1 + 0.05 * prog(t, W_SENDIRI, W_SENDIRI + 20 / FPS, EZ.out));
   // ketik pelan: per huruf rata dari TYPE_A sampai TYPE_B
   const n = Math.max(0, Math.min(PROMPT.length, Math.floor(((t - TYPE_A) / (TYPE_B - TYPE_A)) * PROMPT.length)));
-  const typed = PROMPT.slice(0, n);
+  const typed = PROMPT.slice(0, n).replace(/[“”",]/g, ""); // v10 (#40): tanpa tanda baca di layar; timing ketikan tetap (cue key)
   const done = n >= PROMPT.length;
   const caretOn = !done || Math.floor((t - TYPE_B) / 0.5) % 2 === 0;
   return (
@@ -69,13 +69,21 @@ export const S06d_Prompt: React.FC = () => {
             <Plane b={{ x: 380, y: 120, w: 560, h: 280 }} on={on} slant={0.08} softGlow
               grad={`linear-gradient(90deg, ${C6.white} 60%, ${C6.paper} 100%)`}
               glow={{ b: { x: 420, y: 150, w: 480, h: 220 }, blur: 140, spread: 40, a: 0.22, radius: 40 }}>
-              {/* composer (gaya chat AI: pil putih, garis tipis, tombol kirim bulat) */}
-              <div style={{ display: "flex", alignItems: "center", width: 430, background: C6.white, border: `1px solid ${C6.line}`, borderRadius: 24, padding: "12px 12px 12px 20px", boxShadow: "0 4px 16px rgba(0,0,0,0.06)" }}>
-                <span style={{ fontFamily: "Inter", fontSize: 20, lineHeight: 1.35, color: C6.ink, whiteSpace: "pre" }}>{typed}</span>
-                <div style={{ width: 2, height: 24, background: C6.ink, marginLeft: 1, opacity: caretOn ? 1 : 0 }} />
-                <div style={{ flex: 1 }} />
-                <div style={{ width: 32, height: 32, borderRadius: 16, background: n > 0 ? C6.ink : "#e5e5ea", display: "flex", justifyContent: "center", alignItems: "center", flexShrink: 0 }}>
-                  <svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5" stroke={n > 0 ? C6.white : "#aeaeb2"} strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
+              {/* v10 (#40): tampilan ChatGPT asli — logo, sapaan, composer abu muda #f4f4f4 pil besar: tombol +, teks, mikrofon, tombol kirim hitam bulat */}
+              <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 14, fontFamily: "Inter" }}>
+                <AIGlyph size={34} />
+                <span style={{ fontSize: 24, fontWeight: 600, color: C6.ink, letterSpacing: -0.4 }}>Apa yang bisa kubantu</span>
+                <div style={{ display: "flex", alignItems: "center", width: 460, background: "#f4f4f4", borderRadius: 30, padding: "12px 12px 12px 14px", gap: 10 }}>
+                  <div style={{ width: 32, height: 32, borderRadius: 16, display: "flex", justifyContent: "center", alignItems: "center", flexShrink: 0 }}>
+                    <svg width="18" height="18" viewBox="0 0 18 18"><path d="M9 3v12M3 9h12" stroke="#5d5d5d" strokeWidth="1.8" strokeLinecap="round" /></svg>
+                  </div>
+                  <span style={{ fontSize: 19, lineHeight: 1.35, color: n > 0 ? C6.ink : "#8e8e93", whiteSpace: "pre" }}>{n > 0 ? typed : "Tanya apa saja"}</span>
+                  <div style={{ width: 2, height: 24, background: C6.ink, marginLeft: -6, opacity: caretOn ? 1 : 0 }} />
+                  <div style={{ flex: 1 }} />
+                  <svg width="20" height="20" viewBox="0 0 20 20" style={{ flexShrink: 0 }}><rect x="7" y="2" width="6" height="10" rx="3" fill="none" stroke="#5d5d5d" strokeWidth="1.6" /><path d="M4 9a6 6 0 0 0 12 0M10 15v3" stroke="#5d5d5d" strokeWidth="1.6" fill="none" strokeLinecap="round" /></svg>
+                  <div style={{ width: 34, height: 34, borderRadius: 17, background: n > 0 ? C6.ink : "#d0d0d0", display: "flex", justifyContent: "center", alignItems: "center", flexShrink: 0 }}>
+                    <svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5" stroke={C6.white} strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                  </div>
                 </div>
               </div>
             </Plane>

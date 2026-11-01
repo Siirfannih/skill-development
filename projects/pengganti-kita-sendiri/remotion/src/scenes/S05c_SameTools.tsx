@@ -78,10 +78,10 @@ export const S05c_SameTools: React.FC = () => {
             style={{ position: "absolute", inset: -60, width: "calc(100% + 120px)", height: "calc(100% + 120px)", objectFit: "cover", filter: `saturate(0.4) blur(18px) brightness(${dimPhoto * 0.55})`, transform: "scale(1.15)" }} />
         </Camera>
         <Camera scale={camBack} x={panBack} blur={camBlur}>
-          <div style={{ position: "absolute", left: 96, top: 54, width: 1728, height: 972, borderRadius: 28, overflow: "hidden", boxShadow: "0 40px 120px rgba(0,0,0,0.55)" }}>
+          {/* v10 (#33): foto full-bleed (tanpa bingkai inset / sudut bulat / vinyet kotak); grade gelap rata */}
+          <div style={{ position: "absolute", left: -90, top: -60, width: 2100, height: 1200, overflow: "hidden" }}>
             <Img src={staticFile(PHOTOS[idx])}
               style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover", filter: `${DOC_GRADE} brightness(${dimPhoto})`, transform: `scale(${zoomCycle + local * 0.12})` }} />
-            <AbsoluteFill style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(16,18,22,0) 45%, rgba(16,18,22,0.45) 100%)" }} />
           </div>
         </Camera>
         <Camera scale={camFront} blur={camBlur}>
