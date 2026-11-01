@@ -169,7 +169,7 @@ export const SpeakerWords: React.FC<{
           if (w.sfx) sfxMark(absF / FPS, w.sfx.kind, w.at / FPS, w.sfx.id, w.sfx.pan);
           return (
             <AnchorWord key={i} text={w.text} at={w.at} until={end} x={w.x} y={w.baseline - BL_FROM_CENTER * w.size}
-              size={w.size} color={col} align="left" enter={w.enter ?? "scale"} shadow={shadow} grain={w.grain} weight={500} track={-0.01} />
+              size={w.size} color={col} align="left" enter="scale" shadow={shadow} grain={w.grain} weight={500} track={-0.01} />
           );
         }
         if (absF < w.at || (end !== undefined && absF >= end)) return null;
