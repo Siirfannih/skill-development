@@ -34,7 +34,7 @@ export const CalendarDay: React.FC<{ k: number; blurY?: number; appear?: number[
   for (let h = CAL.hours0; h <= CAL.hours1; h++) hours.push(h);
   return (
     <div style={{ position: "absolute", width: CAL.w, height: CAL.h, borderRadius: 28, background: "#fff", overflow: "hidden", fontFamily: "Inter", color: INK,
-      boxShadow: "0 40px 120px rgba(255,255,255,0.06), 0 0 0 1px rgba(255,255,255,0.12)", ...style }}>
+      boxShadow: "0 50px 120px rgba(16,42,90,0.30), 0 12px 32px rgba(16,42,90,0.16)", ...style }}>
       {/* header: bulan + tanggal */}
       <div style={{ position: "absolute", left: 36, top: 22, display: "flex", alignItems: "baseline", gap: 12, fontSize: 40, letterSpacing: -0.8 }}>
         <span style={{ fontWeight: 700 }}>Oktober</span><span style={{ fontWeight: 400, color: MUTED }}>2026</span>

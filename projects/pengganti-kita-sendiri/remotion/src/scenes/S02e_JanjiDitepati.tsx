@@ -15,6 +15,7 @@ import { AnchorWord } from "../lib/AnchorWord";
 import { BLOOM_PT } from "./_b2_shared";
 import { moveFrame } from "./_b5_shared";
 import { CARD, TaskCard, type TaskIcon } from "./parts/TaskCard";
+import { SkyBackdrop } from "./parts/SkyBackdrop";
 import { CalendarDay, CAL, CAL_EVENTS, blockCenter } from "./parts/CalendarDay";
 
 const W_TIDAK = word("tidak", "s2", 1);
@@ -194,6 +195,7 @@ export const S02e_JanjiDitepati: React.FC = () => {
               (Irfan 2 Nov 06.48: visual blok sudah kuat). */}
           {showBar && (
             <AbsoluteFill style={{ opacity: (1 - barOut) * Math.min(1, barIn * 1.5), filter: calCamBlur > 0.3 ? `blur(${calCamBlur.toFixed(2)}px)` : undefined }}>
+              <SkyBackdrop px={-(calCam.cx - CAL.w / 2) * 0.15 * calCam.Z} py={-(calCam.cy - CAL.h / 2) * 0.15 * calCam.Z} />
               <svg width="0" height="0" style={{ position: "absolute" }}><filter id="cal02e" x="-5%" y="-30%" width="110%" height="160%"><feGaussianBlur stdDeviation={`0 ${calBlur.toFixed(2)}`} /></filter></svg>
               <div style={{ position: "absolute", left: 0, top: 0, width: CAL.w, height: CAL.h, transform: `translate(${960 - calCam.cx * calCam.Z}px, ${540 - calCam.cy * calCam.Z}px) scale(${calCam.Z})`, transformOrigin: "0 0" }}>
                 <CalendarDay k={kc} blurY={calBlur} appear={CAL_APPEAR.map((f0) => e(fa, f0, f0 + 7, EZ.out))} style={{ left: 0, top: 0 }} />

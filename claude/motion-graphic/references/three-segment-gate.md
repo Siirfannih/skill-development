@@ -48,4 +48,18 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
 
 ## Audio (koreksi)
 - **Rentang −21 s/d −41 dB adalah aturan BACKSOUND (BGM), bukan SFX.**
-- SFX diatur relatif terhadap ucapan VO, harus terdengar jelas, dan VO tetap raja. Angka per jenis diambil dari audit referensi `GrokAgent/reference-videos/AUDIT-2NOV-C-audio.md`.
+- **Level SFX dan backsound ditetapkan dari kondisi VO ASLI proyek** (karakter suara, tone, tema, kepadatan ucapan), lalu diukur di mix kita sendiri:
+  - keterdengaran per cue;
+  - VO tetap di atas latar pada volume HP 20/50/100 %;
+  - tidak ada 2–6 kHz yang menusuk.
+
+## Referensi = prinsip dan studi kasus, bukan aturan tetap (Irfan, 2 Nov 07.03)
+- Angka dari video referensi (level SFX +X dB, BGM −Y dB, durasi transisi, ukuran font) dipakai sebagai **simulasi**: apa yang terjadi pada angka itu, dan apa dampaknya ke penonton.
+- Angka referensi tidak disalin menjadi aturan mutlak untuk proyek lain, karena karakteristik suara, tone dan tema berbeda.
+- Keputusan akhir selalu diuji pada materi proyek sendiri.
+
+## Latar
+- Hindari hitam polos monoton untuk adegan UI atau objek.
+- Pakai gambar nyata, misalnya lanskap atau langit dengan objek diletakkan di dalamnya dan teks boleh di belakang objek. Bisa juga gradien premium: langit biru → cakrawala hangat, awan lembut, pendar.
+- Latar diberi parallax lebih lambat dari kamera.
+- Hitam tetap boleh bila sengaja dipakai untuk fokus.
