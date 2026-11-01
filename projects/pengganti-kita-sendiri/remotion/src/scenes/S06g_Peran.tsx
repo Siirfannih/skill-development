@@ -65,8 +65,8 @@ export const S06g_Peran: React.FC = () => {
             })}
             {/* v9 (#32): kalimat penuh DI ATAS piktogram dibuang → PERAN | KAMU satu baris setinggi kepala piktogram tunggal, DI BELAKANG kepalanya
                 (DOM sebelum Ball: tepi dalam kedua kata terselip 40 px di bawah kepala). KAMU putih penuh. */}
-            <AnchorWord text="PERAN" at={atPeran} x={932} y={704} size={150} color={wa(0.88)} align="right" enter="left" />
-            <AnchorWord text="KAMU" at={atKamu} x={988} y={704} size={220} color={C6.white} align="left" enter="right" />
+            <AnchorWord text="PERAN" at={atPeran} x={880} y={704} size={150} color={wa(0.88)} align="right" enter="left" />
+            <AnchorWord text="KAMU" at={atKamu} x={1040} y={704} size={220} color={C6.white} align="left" enter="right" />
             {/* yang tersisa: satu piktogram di tengah */}
             <Ball b={{ x: 892, y: 636, w: 136, h: 136 }} rim={0.4 + 0.35 * litFrac} r={8} />
             <Torso b={{ x: 840, y: 784, w: 240, h: 360 }} rim={0.3 + 0.25 * litFrac} r={7} />{/* h 300→360: saat land (translateY −40) alas badan tak terlihat */}

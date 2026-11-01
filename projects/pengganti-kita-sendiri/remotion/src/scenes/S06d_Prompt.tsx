@@ -65,7 +65,7 @@ export const S06d_Prompt: React.FC = () => {
           <div style={{ position: "absolute", left: 0, top: 0, width: 960, height: 540, transform: `translateX(${bgX}px) scale(2)`, transformOrigin: "0 0" }}>
             {/* v9 (#30): SENDIRI = anchor di kiri composer, setinggi kepala piktogram over-the-shoulder; DOM sebelum bola kepala (fg) → ujung kiri huruf tertutup kepala.
                 Putih di charcoal, berhenti di tepi kiri bidang (x 372) supaya tidak menimpa bidang putih. */}
-            <AnchorWord text="SENDIRI" at={atSendiri} until={untilSendiri} x={372} y={235} size={46} color="#ffffff" align="right" enter="left" grain={0} />
+            <AnchorWord text="SENDIRI" at={atSendiri} until={untilSendiri} x={480} y={470} size={46} color="#ffffff" align="center" enter="left" grain={0} />
             <Plane b={{ x: 380, y: 120, w: 560, h: 280 }} on={on} slant={0.08} softGlow
               grad={`linear-gradient(90deg, ${C6.white} 60%, ${C6.paper} 100%)`}
               glow={{ b: { x: 420, y: 150, w: 480, h: 220 }, blur: 140, spread: 40, a: 0.22, radius: 40 }}>

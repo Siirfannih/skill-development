@@ -75,9 +75,9 @@ const Stage: React.FC<{ t: number }> = ({ t }) => {
       <MattePicto cx={usX} scale={usS} rimR={usInLight} flat={rp > 0.6} opacity={1 - 0.55 * rp} blur={rack * 9} />
       {/* v9 (#14): anchor DI BELAKANG piktogram (urutan DOM sebelum salinan/kita). PERLAHAN di kiri salinan setinggi kaki, tepi kanannya terselip di bawah badan
           yang terisi selagi scan naik. TEMPAT | KITA satu baris, celah 60 px di belakang badan salinan di kerucut cahaya (x = CONE). */}
-      <AnchorWord text="PERLAHAN" at={atPerlahan} until={atTempat} x={COPY0 - 30} y={880} size={80} color="#FAF8EC" align="right" enter="left" />
-      <AnchorWord text="TEMPAT" at={atTempat} x={CONE - 30} y={700} size={130} color="#FAF8EC" align="right" enter="scale" />
-      <AnchorWord text="KITA" at={atKita} x={CONE + 30} y={700} size={130} color="#FAF8EC" align="left" enter="right" />
+      <AnchorWord text="PERLAHAN" at={atPerlahan} until={atTempat} x={960} y={900} size={96} color="#FAF8EC" align="center" enter="left" />
+      <AnchorWord text="TEMPAT" at={atTempat} x={CONE - 30} y={930} size={130} color="#FAF8EC" align="right" enter="scale" />
+      <AnchorWord text="KITA" at={atKita} x={CONE + 30} y={930} size={130} color="#FAF8EC" align="left" enter="right" />
       {/* salinan: wireframe → isi dari kaki ke kepala → melangkah ke cahaya */}
       <div style={{ position: "absolute", inset: 0, transform: `translate(${copyX - COPY0}px, ${stepBob}px)` }}>
         <MattePicto cx={COPY0} clipTop={yF} litLeft={inLight < 0.5} rimR={inLight} rimL={inLight * 0.85} />
