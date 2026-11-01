@@ -6,3 +6,5 @@
 .secrets/
 *.key
 .el_key
+__pycache__/
+*.pyc
