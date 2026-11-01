@@ -39,3 +39,8 @@ Frame diperiksa: 148 · temuan: 12
 | SAFE | text:BERLOMBA-LOMBA | 11.4–12.6 (7) | x -1032–864 y 804–1080 |
 
 GAGAL — perbaiki kode lalu ulangi Segmen 2
+
+## Putaran lanjutan (keputusan Claude utama, diterapkan)
+- BERLOMBA-LOMBA (S01): size 120, mulai x 400, geser 0,4x lintasan, Geist Sans 600; probe hanya saat teks tampak (paint>0, bukan zoom-through). Checker 11-13 s LOLOS; still /home/claude/pks/v10/berlomba_{1,2,3}.png.
+- S02b: satu baris rapat "Janji sederhana" (x kedua = x pertama + lebar "Janji" + 0,26 em, pusat dunia 990 = sekitar 960 layar setelah zoom), y 770. Checker 24-26 s LOLOS.
+- S03c Jensen: baris di ruang layar (bukan lapisan kamera); kedua baris size 62 mulai x ~ 310-330, berakhir x <= 1010 (kepala Jensen > 1050). Checker 56-62 s: tersisa CONTR 1 frame Job 56,7 dan "lose" 58,2 di atas video narasumber (diterima, keputusan Irfan 07.30). Still /home/claude/pks/v10/jensen_chk.jpg (f1701, 1770, 1812, 1830).

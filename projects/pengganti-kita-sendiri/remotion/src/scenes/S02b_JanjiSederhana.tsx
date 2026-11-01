@@ -5,6 +5,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { EZ, keys, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
 import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
+import { textWidth } from "../lib/SpeakerWords";
 import { panel, word } from "../lib/time";
 import { BlueprintGrid, BlueprintPaper, C, makePath } from "./_b2_shared";
 import { ezHalf } from "./_b1_shared";
@@ -14,6 +15,8 @@ const W_SEDERHANA = word("sederhana", "s2", 1);
 
 // garis janji 02b (bingkai 1920): kiri bawah → kanan atas
 const LINE = makePath([[{ x: 230, y: 612 }, { x: 720, y: 584 }, { x: 1150, y: 430 }, { x: 1540, y: 196 }]]);
+const wJanji = textWidth("Janji", 92, 600, -0.02);
+const LINE_X = 990 - (wJanji + 0.26 * 92 + textWidth("sederhana", 92, 600, -0.02)) / 2;
 const GOAL = { x: 1540, y: 196 }; // titik tujuan = ujung kurva
 
 export const S02b_JanjiSederhana: React.FC = () => {
@@ -62,8 +65,9 @@ export const S02b_JanjiSederhana: React.FC = () => {
             <circle cx={1540} cy={196} r={16 * dot} fill={C.white} />
           </svg>
           {/* v10 (Irfan 6): «JANJI SEDERHANA» dua kata satu baris, gaya anchor tanpa kotak, di bawah sumbu (judul gambar kerja; R1: dipindah dari antara kurva-sumbu agar utuh di safe zone setelah zoom kamera). Kata muncul satu-satu mengikuti VO. */}
-          <AnchorWord text="JANJI" at={atJanji} x={470} y={770} size={92} color={C.white} align="left" enter="scale" />
-          <AnchorWord text="SEDERHANA" at={atSederhana} x={870} y={770} size={92} color={C.white} align="left" enter="scale" />
+          {/* R1: satu baris rapat «Janji sederhana»: x kedua = x pertama + lebar «Janji» + 0,26 em; baris di-tengahkan (pusat dunia 990 → ≈ x 960 layar setelah zoom 1,0–1,12) */}
+          <AnchorWord text="JANJI" at={atJanji} x={LINE_X} y={770} size={92} color={C.white} align="left" enter="scale" />
+          <AnchorWord text="sederhana" at={atSederhana} x={LINE_X + wJanji + 0.26 * 92} y={770} size={92} color={C.white} align="left" enter="scale" />
         </AbsoluteFill>
         <Grain opacity={0.05} />
       </AbsoluteFill>

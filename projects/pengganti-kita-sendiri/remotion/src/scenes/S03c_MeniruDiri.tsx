@@ -7,7 +7,7 @@ import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, shake, useT } from "../l
 import { Clip, DOC_GRADE } from "../lib/media";
 import { AnchorStage, AnchorWord } from "../lib/AnchorWord";
 import { MatteClip } from "../lib/SubjectMatte";
-import { SpeakerLine, wordAt } from "../lib/SpeakerWords";
+import { flowLine, SpeakerWords, wordAt } from "../lib/SpeakerWords";
 import { block, FPS, panel, word, wordsOf } from "../lib/time";
 import { cue, ezAt, LightCone, MattePicto, PICTO, pictoHalfWidth, WirePicto } from "./_b3_shared";
 
@@ -209,19 +209,19 @@ export const S03c_MeniruDiri: React.FC = () => {
                     Bagian 1 kecil-ke-besar (JOB tekanan), bagian 2 SOMEBODY besar → who uses kecil → AI raksasa. Kata lain kalimat
                     ("your job to an AI but you're gonna...") sengaja dilewati: kontras dua bagian, bukan subtitle. */}
                 {/* v10 aturan Irfan: ukuran SERAGAM satu kalimat (62), penekanan lewat warna aksen; semua di safe zone x 288–1632, y 216–864 */}
-                <SpeakerLine x={312} baseline={306} align="left" until={fSomebody} shadow="0 3px 24px rgba(0,0,0,0.55)" words={[
+                <SpeakerWords until={fSomebody} shadow="0 3px 24px rgba(0,0,0,0.55)" words={flowLine([
                   { text: "not", at: wordAt("jensen", "not"), size: JS },
                   { text: "gonna", at: wordAt("jensen", "gonna"), size: JS },
                   { text: "lose", at: wordAt("jensen", "lose"), size: JS },
                   { text: "a", at: wordAt("jensen", "a"), size: JS },
                   { text: "JOB", at: 1701, size: JS, kind: "emph", enter: "left", color: "#FFD84A" },
-                ]} />
-                <SpeakerLine x={312} baseline={306} align="left" until={fEnd} shadow="0 3px 24px rgba(0,0,0,0.55)" words={[
+                ], { x: 324, baseline: 306, align: "left", size: 62 })} />
+                <SpeakerWords until={fEnd} shadow="0 3px 24px rgba(0,0,0,0.55)" words={flowLine([
                   { text: "SOMEBODY", at: 1781, size: JS, kind: "emph", enter: "right", color: "#FFD84A", sfx: { kind: "sub_impact", id: "03e:anchor:somebody" } },
                   { text: "who", at: wordAt("jensen", "who"), size: JS },
                   { text: "uses", at: wordAt("jensen", "uses"), size: JS },
                   { text: "AI", at: 1804, size: JS, kind: "emph", color: "#FFD84A" },
-                ]} />
+                ], { x: 330, baseline: 306, align: "left", size: 62 })} />
               </AnchorStage>
             </>
           )}
