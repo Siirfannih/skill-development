@@ -89,6 +89,12 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
 - **SFX family:** satu file SFX sering berisi beberapa varian. Potong per varian (`ears/family.py`), dengarkan tiap varian, dan pakai yang paling cocok, bukan seluruh file. Peran yang Irfan tandai "acak" (mis. Kinetictypography) dirotasi di antara variannya.
 - **Setiap objek/visual punya bunyinya.** Contoh kasus v10: ketikan tanpa bunyi ketik. Ketikan memancarkan `type:start|end` → potongan Keyboardtyping sepanjang ketikan + Enter.
 
+## Sesi otonom/terjadwal (Irfan 2 Nov 23.49)
+- Proses panjang (render, probe seluruh film, earshot banyak file) wajib dijalankan di **latar belakang**, jangan sebagai perintah foreground yang menunggu.
+  - Kasus v21: satu perintah menahan sesi 1 jam 15 menit. Pesan Irfan tidak terbaca dan tidak ada laporan.
+- Kirim **progres singkat minimal setiap 15–20 menit** lewat SendUserMessage: apa yang selesai, apa yang berjalan, dan perkiraan selesai.
+- Sesi yang dibuat untuk Irfan selalu membawa dua instruksi di atas dalam prompt-nya.
+
 ## Kinetic typography: teknik dipilih menurut PERAN teks (prinsip dari audit referensi 2 Nov, bukan aturan mutlak)
 Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. Referensi memilih teknik menurut fungsi teks.
 - **Ucapan (VO/narasumber):**
