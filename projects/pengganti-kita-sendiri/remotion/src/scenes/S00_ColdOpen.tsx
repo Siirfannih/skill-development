@@ -197,7 +197,7 @@ export const S00_ColdOpen: React.FC = () => {
             Bloomberg = kolom kiri dengan BILLION sebagai angka pahlawan; Sky News grafik = baris kecil → FAST raksasa.
             Matte (fg) menaruh teks di belakang kepala; di montase foto tidak ada matte. */}
         {/* v10: bayangan radial lembut (tanpa tepi) di belakang baris «this time progress was so FAST» supaya foto awan tidak mengganggu keterbacaan */}
-        {t >= shrinkAt - 0.5 && <AbsoluteFill style={{ background: "radial-gradient(ellipse 900px 150px at 960px 750px, rgba(16,18,22,0.85) 0%, rgba(16,18,22,0.55) 55%, rgba(16,18,22,0) 100%)" }} />}
+        {/* v21: bayangan radial v10 DIHAPUS (itu sumber «pita hitam» 0:07–0:08 yang dilaporkan Irfan 2×). Keterbacaan «FAST» lewat tinta + chip, bukan scrim. */}
         <AnchorStage bg={null} fg={matteFg}>
           {(() => {
             const gEnd = Math.round(block("news_teen").t * FPS);

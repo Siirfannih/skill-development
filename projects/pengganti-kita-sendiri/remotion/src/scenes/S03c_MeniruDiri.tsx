@@ -183,8 +183,7 @@ export const S03c_MeniruDiri: React.FC = () => {
                 <Clip src="clips/jensen_src_412.mp4" at={CLIP_END} inS={CLIP_OUT} outS={CLIP_OUT + (PE.end - CLIP_END) + 0.1} grade={DOC_GRADE} />
                 </AbsoluteFill>
                 </AbsoluteFill>
-                {/* scrim bawah lembut untuk atribusi (kursi putih di kiri-bawah) */}
-                <AbsoluteFill style={{ background: "linear-gradient(180deg, transparent 80%, rgba(0,0,0,0.55) 100%)", pointerEvents: "none" }} />
+                {/* v21: scrim bawah atribusi dihapus (aturan terkunci: tanpa gradien gelap di belakang teks) */}
               </>
             )}
           </div>

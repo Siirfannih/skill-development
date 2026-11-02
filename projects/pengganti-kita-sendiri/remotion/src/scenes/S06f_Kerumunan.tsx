@@ -44,7 +44,7 @@ export const S06f_Kerumunan: React.FC = () => {
   const row = (list: typeof FRONT, par: number, op: number, key: string) =>
     list.map((u, i) => (
       <div key={key + i} style={{ position: "absolute", left: u.x + truck * par, top: u.y, width: 160, height: 260, transform: `scale(${u.s})`, transformOrigin: "0 0", opacity: op }}>
-        <BackUnit on={1} glyph={glyph} glyphScale={gScale} boost={pulse} flatY={flat} />
+        <BackUnit on={1} glyph={glyph} glyphScale={gScale} boost={pulse} flatY={flat} seed={(key === "far" ? 50 : 0) + i} />
       </div>
     ));
   return (

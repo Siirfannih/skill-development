@@ -132,7 +132,7 @@ export const S06a_Sibuk: React.FC = () => {
               const o = cellO(r, c);
               return (
                 <div key={`${r}-${c}`} style={{ position: "absolute", left: o.x, top: o.y, width: 164, height: 200, transform: "scale(2)", transformOrigin: "0 0", opacity: Math.min(1, on * 1.6) }}>
-                  <SideUnit on={on} />
+                  <SideUnit on={on} seed={r * 31 + c} />
                 </div>
               );
             })}

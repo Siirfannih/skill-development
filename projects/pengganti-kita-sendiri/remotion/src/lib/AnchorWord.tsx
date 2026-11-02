@@ -31,7 +31,7 @@ const ACC = Easing.bezier(0.7, 0, 0.84, 0);
  */
 export type AnchorEnter = "scale" | "left" | "right" | "blur" | "mask" | "type" | "letters";
 /** shadow halus standar v11 (Irfan: shadow gelap lebar terlihat seperti pita di belakang teks) */
-export const SOFT_SHADOW = "0 1px 2px rgba(0,0,0,.45), 0 2px 10px rgba(0,0,0,.30)";
+export const SOFT_SHADOW = "0 1px 2px rgba(0,0,0,.42), 0 1px 5px rgba(0,0,0,.18)"; // v21: halo 10 px → 5 px (tanpa kesan pita)
 /** shadow yang diberikan adegan dijinakkan: radius blur > 10 px → SOFT_SHADOW (tanpa pita gelap). "none" = tanpa shadow. */
 export const softenShadow = (sh: string | undefined, color: string): string | undefined => {
   if (sh === "none") return undefined;

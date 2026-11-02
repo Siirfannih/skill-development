@@ -7,7 +7,8 @@ import { Panel2x, Scene } from "./lib/anim";
 import { PANELS } from "./lib/time";
 import * as Static from "./panels/all";
 import { SCENES } from "./scenes";
-import { CaptionTrack } from "./lib/CaptionTrack";
+import { KineticVO } from "./lib/KineticVO";
+import { Breath } from "./lib/Breath";
 
 export const pksSchema = soundSchema;
 
@@ -24,9 +25,10 @@ export const PKS: React.FC<Partial<SoundProps>> = (p) => (
             </Scene>
           ) : null;
         })}
-        {SCENES.list.map((S, i) => <S key={i} />)}
-        {/* v11 · running text VO (Worker T): lapisan teratas, disembunyikan otomatis saat ada teks penekanan */}
-        <CaptionTrack />
+        {/* v21: «napas kamera» halus hanya di jendela statis (kurva gerak v11/v20) → tidak ada jeda mati, teks VO tidak ikut (paralaks) */}
+        <Breath>{SCENES.list.map((S, i) => <S key={i} />)}</Breath>
+        {/* v21 · tipografi kinetik VO (menggantikan baris subtitle CaptionTrack); disembunyikan otomatis saat ada teks penekanan */}
+        <KineticVO />
       </AbsoluteFill>
     </Sequence>
     {p.cues && p.lanes ? <SoundLayer dialogMuted={p.dialogMuted ?? false} dialogGainDb={p.dialogGainDb ?? 0} solo={p.solo ?? "none"} lanes={p.lanes} cues={p.cues} /> : null}

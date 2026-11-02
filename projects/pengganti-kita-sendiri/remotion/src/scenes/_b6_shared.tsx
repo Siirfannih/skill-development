@@ -2,7 +2,7 @@
 // Geometri diambil persis dari panel Wonder 06a–06g (unit sel 06b = 164×200, unit belakang 06f = 160×260).
 // Semua komponen murni (tanpa state), dipakai ulang lewat map supaya ringan dirender.
 import React from "react";
-import { Img, staticFile } from "remotion";
+import { Img, staticFile, useCurrentFrame } from "remotion";
 import { parallelogram, SourceBloom } from "./parts/NaturalLight";
 
 export const C6 = {
@@ -17,6 +17,24 @@ export const wa = (a: number) => `rgba(255,255,255,${Math.max(0, Math.min(1, a))
 export const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
 
 type Box = { x: number; y: number; w: number; h: number };
+
+// v21 (Irfan 2 Nov 22.25 «objek terlalu rapi → AI slop»): variasi organik per piktogram kerumunan — ukuran kepala/badan, condong,
+// dan napas idle (periode & fase berbeda). seed = indeks sel; tanpa seed → geometri asli persis (hero/piktogram tunggal).
+const h01 = (n: number) => { const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
+export const useOrganic = (seed?: number) => {
+  const fr = useCurrentFrame();
+  if (seed === undefined) return { hs: 1, tw: 1, th: 1, lean: 0, bob: 0, hx: 0 };
+  const r = (k: number) => h01(seed * 7 + k);
+  const t = fr / 30;
+  return {
+    hs: 1 + (r(1) - 0.5) * 0.16, // kepala ±8 %
+    tw: 1 + (r(2) - 0.5) * 0.14, // bahu ±7 %
+    th: 1 + (r(3) - 0.5) * 0.1,
+    lean: (r(4) - 0.5) * 4, // derajat
+    bob: Math.sin((2 * Math.PI * t) / (2.4 + 1.6 * r(5)) + 6.283 * r(6)) * (0.8 + 0.8 * r(7)),
+    hx: (r(8) - 0.5) * 4,
+  };
+};
 const abs = (b: Box): React.CSSProperties => ({ position: "absolute", left: b.x, top: b.y, width: b.w, height: b.h });
 
 /** Kepala bola. dir side = cahaya dari kanan (menghadap bidang), down = cahaya dari atas (tampak belakang), front = 06g. */
@@ -74,15 +92,19 @@ export const Plane: React.FC<{
 };
 
 /** Unit sel 06b (164×200): piktogram menghadap kanan + bidang cahaya. Koordinat dalam unit sel. */
-export const SideUnit: React.FC<{ on: number; rim?: number; flat?: boolean; boost?: number; glyph?: boolean }> = ({ on, rim, flat, boost, glyph }) => {
+export const SideUnit: React.FC<{ on: number; rim?: number; flat?: boolean; boost?: number; glyph?: boolean; seed?: number }> = ({ on, rim, flat, boost, glyph, seed }) => {
   const rr = rim ?? on;
+  const o = useOrganic(seed);
+  const hw = 40 * o.hs, tw = 72 * o.tw, th = 90 * o.th;
   return (
     <div style={{ position: "absolute", left: 0, top: 0, width: 164, height: 200 }}>
       <Plane b={{ x: 74, y: 66, w: 86, h: 30 }} on={on} boost={boost} glow={{ b: { x: 78, y: 70, w: 76, h: 24 }, blur: 40, spread: 12, a: 0.18, radius: 12 }} grad={C6.white} softGlow>
         {glyph && <AIGlyph size={22} />}
       </Plane>
-      <Ball b={{ x: 22, y: 40, w: 40, h: 40 }} rim={0.9 * rr} r={3} flat={flat} />
-      <Torso b={{ x: 6, y: 86, w: 72, h: 90 }} rim={0.7 * rr} r={3} flat={flat} />
+      <div style={{ position: "absolute", inset: 0, transform: seed === undefined ? undefined : `translateY(${o.bob.toFixed(2)}px) rotate(${o.lean.toFixed(2)}deg)`, transformOrigin: "42px 176px" }}>
+        <Ball b={{ x: 42 - hw / 2 + o.hx, y: 80 - hw + o.bob * 0.4, w: hw, h: hw }} rim={0.9 * rr} r={3} flat={flat} />
+        <Torso b={{ x: 42 - tw / 2, y: 176 - th, w: tw, h: th }} rim={0.7 * rr} r={3} flat={flat} />
+      </div>
     </div>
   );
 };
@@ -93,7 +115,10 @@ export const AIGlyph: React.FC<{ size: number; style?: React.CSSProperties }> = 
 );
 
 /** Unit tampak belakang 06f (160×260): bidang cahaya di atas kepala + glyph. */
-export const BackUnit: React.FC<{ on: number; glyph: number; glyphScale?: number; boost?: number; flatY?: number }> = ({ on, glyph, glyphScale = 1, boost = 0, flatY = 1 }) => (
+export const BackUnit: React.FC<{ on: number; glyph: number; glyphScale?: number; boost?: number; flatY?: number; seed?: number }> = ({ on, glyph, glyphScale = 1, boost = 0, flatY = 1, seed }) => {
+  const o = useOrganic(seed);
+  const hw = 56 * o.hs, tw = 100 * o.tw;
+  return (
   <div style={{ position: "absolute", left: 0, top: 0, width: 160, height: 260 }}>
     <div style={{ position: "absolute", left: 0, top: -4, width: 160, height: 88, transform: `scaleY(${flatY})`, transformOrigin: "50% 100%" }}>
       {/* v10 (#43): pendar radial lembut (≤ 0,14; tanpa tepi kotak) dan layar tidak putih kosong sebelum glyph — kerangka UI chat tipis (abu), glyph menggantikannya serentak */}
@@ -109,10 +134,13 @@ export const BackUnit: React.FC<{ on: number; glyph: number; glyphScale?: number
         {glyph > 0.01 && <AIGlyph size={36} style={{ opacity: glyph, transform: `scale(${glyphScale})` }} />}
       </Plane>
     </div>
-    <Ball b={{ x: 52, y: 106, w: 56, h: 56 }} rim={0.85 * on} r={5} dir="down" />
-    <Torso b={{ x: 30, y: 168, w: 100, h: 100 }} rim={0.65 * on} r={5} dir="down" />
+    <div style={{ position: "absolute", inset: 0, transform: seed === undefined ? undefined : `translateY(${o.bob.toFixed(2)}px) rotate(${(o.lean * 0.5).toFixed(2)}deg)`, transformOrigin: "80px 268px" }}>
+      <Ball b={{ x: 80 - hw / 2 + o.hx, y: 162 - hw, w: hw, h: hw }} rim={0.85 * on} r={5} dir="down" />
+      <Torso b={{ x: 80 - tw / 2, y: 168, w: tw, h: 100 }} rim={0.65 * on} r={5} dir="down" />
+    </div>
   </div>
-);
+  );
+};
 
 /** Relay lampu: 1 → kedip singkat → 0 di t0 (klik relay). */
 export const relay = (t: number, t0: number): number => {

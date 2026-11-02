@@ -51,7 +51,7 @@ export const S06e_Tertinggal: React.FC = () => {
             <div style={{ position: "absolute", left: 400, top: 214, transform: `translateX(${recede * 36}px) scale(${1 - 0.22 * recede})`, transformOrigin: "0 100px" }}>
               {[0, 1, 2].map((i) => (
                 <div key={i} style={{ position: "absolute", left: i * 150, top: 0, width: 164, height: 200, transform: "scale(1)", transformOrigin: "0 0" }}>
-                  <SideUnit on={1} glyph />
+                  <SideUnit on={1} glyph seed={100 + i} />
                 </div>
               ))}
             </div>
