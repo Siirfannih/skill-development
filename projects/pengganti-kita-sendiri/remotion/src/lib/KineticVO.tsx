@@ -56,7 +56,7 @@ const SPEC: Spec[] = [
   { t: "AI akan mengambil pekerjaan", x: 1060, y: 420, align: "left", lay: "column", ink: "dark", br: [2, 3], key: 3, mark: true, enter: "mask", exit: "rise" },
   { t: "yang membosankan dan berulang", x: 1030, y: 420, align: "left", lay: "column", ink: "dark", br: [2], key: 1, enter: "rise", exit: "wipe" },
   { t: "kita bisa fokus jadi lebih", x: 780, y: 470, align: "right", lay: "stair", ink: "light", br: [3], key: 2, enter: "blur", exit: "sink" },
-  { t: "Sebagian janji itu memang ditepati", x: 960, y: 670, align: "center", lay: "stair", ink: "dark", br: [2], key: 4, mark: true, enter: "mask", exit: "rise" },
+  { t: "Sebagian janji itu memang ditepati", x: 960, y: 760, align: "center", lay: "stair", ink: "dark", br: [2], key: 4, mark: true, enter: "mask", exit: "rise" },
   { t: "Kita bekerja jauh lebih cepat", x: 1120, y: 520, align: "left", lay: "column", ink: "dark", br: [2, 4], key: 4, plate: "light", enter: "type", exit: "wipe" },
   // «kita juga tidak» tidak ditampilkan (CaptionTrack.MANUAL_SKIP): kamera mundur cepat ke grid 3×3 → «Tapi di satu sisi» diam sampai kartu menyapu
   { t: "Tapi di satu sisi", x: 960, y: 790, align: "center", lay: "line", ink: "dark", size: 72, key: 3, enter: "blur", exit: "rise" },
