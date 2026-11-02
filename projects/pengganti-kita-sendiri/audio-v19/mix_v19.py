@@ -37,7 +37,9 @@ dpk = np.percentile(np.abs(dialog), 99.9)
 _dm = dialog.mean(1); dlg_rms = np.sqrt((_dm[np.abs(_dm) > 0.01] ** 2).mean())
 # target RMS bunyi relatif RMS ucapan (dB) — terdengar jelas, VO tetap raja
 REL = {'sub_impact': -4, 'low_whoosh': -3, 'scifi_whoosh': -4, 'snap_click': -5, 'glass_ping': -9, 'ui_tap': -7,
-       'telemetry_blip': -10, 'graph_riser': -11, 'riser_coldopen': -9, 'heartbeat_pulse': -12}
+       'telemetry_blip': -10, 'graph_riser': -11, 'riser_coldopen': -9, 'heartbeat_pulse': -12,
+       # v10 R5 (SFX dipilih dengan earshot): whoosh/swipe udara, pop UI, klik lembut, hit, data
+       'whoosh': -4, 'swipe': -5, 'pop': -8, 'click': -6, 'hit': -3, 'data': -8}
 sfx = np.zeros((N, 2), np.float32)
 for c in json.load(open(CUES)):
     x = load(f"{ROOT}/{c['role']}/{c['file']}")

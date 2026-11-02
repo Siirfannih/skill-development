@@ -1,0 +1,1798 @@
+[
+ {
+  "role": "riser_coldopen",
+  "file": "tension-glitch-riser__1b894efa.wav",
+  "t": 0.87,
+  "gainDb": -16,
+  "stopAt": 9.95,
+  "fadeOut": 0.02,
+  "pan": 0
+ },
+ {
+  "role": "hit",
+  "file": "boom_thud_distant.wav",
+  "t": 0.9,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "00a:anchor:biggest"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 1.433,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "00a:photo:0"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_max.wav",
+  "t": 1.933,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "00a:photo:2"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 2.467,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "00a:photo:4"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_max.wav",
+  "t": 2.967,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "00a:photo:6"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 3.467,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "00a:photo:8"
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 4.433,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "00a:anchor:launched"
+ },
+ {
+  "role": "hit",
+  "file": "bass_drop_deep.wav",
+  "t": 6.933,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "00a:anchor:billion"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 8.02,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "00b:shrink:0"
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 9.467,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "00b:anchor:fast"
+ },
+ {
+  "role": "heartbeat_pulse",
+  "file": "cinematic-54bpm__c805d6d8.wav",
+  "t": 9.95,
+  "trim": 12.6,
+  "gainDb": -18,
+  "fadeOut": 2.0,
+  "pan": 0
+ },
+ {
+  "role": "hit",
+  "file": "boom_thud_distant.wav",
+  "t": 11.365,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "01b:tiles:land"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 11.633,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "01b:salip:1"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 11.825,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "01b:cam:snapwide",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 12.0,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "01b:salip:2"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 12.705,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "01b:zoomthru:hit"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 12.805,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "01c:cone:open"
+ },
+ {
+  "role": "hit",
+  "file": "bass_drop_deep.wav",
+  "t": 13.333,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "01c:anchor:pengganti"
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 14.778,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "01c:text:out"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 15.145,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "01d:cam:pan",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 18.607,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "01d:cam:snapwide",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "hit",
+  "file": "boom_thud_distant.wav",
+  "t": 18.9,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "01d:anchor:cepat"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 19.53,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "01d:fill:riser"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 19.564,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02a:photo:0"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 19.697,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02a:photo:2"
+ },
+ {
+  "role": "click",
+  "file": "simple_select.wav",
+  "t": 21.172,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02a:select:start"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 21.985,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "02a:cam:snapwide",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 23.0,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "02a:cut:wipe"
+ },
+ {
+  "role": "graph_riser",
+  "file": "shepard-tone-up-09__25747e8d.wav",
+  "t": 23.825,
+  "gainDb": -22,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02b:line:draw",
+  "trim": 4.0,
+  "fadeOut": 0.8
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 24.937,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02b:dot:goal"
+ },
+ {
+  "role": "click",
+  "file": "dull_menu.wav",
+  "t": 25.325,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02c:grab:0"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 25.617,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "02c:drag:0"
+ },
+ {
+  "role": "click",
+  "file": "simple_select.wav",
+  "t": 26.03,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02c:trash:0"
+ },
+ {
+  "role": "click",
+  "file": "dull_menu.wav",
+  "t": 26.531,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02c:grab:1"
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 26.731,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "02c:drag:1"
+ },
+ {
+  "role": "click",
+  "file": "simple_select.wav",
+  "t": 27.051,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02c:trash:1"
+ },
+ {
+  "role": "click",
+  "file": "dull_menu.wav",
+  "t": 27.553,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02c:grab:2"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 27.753,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "02c:drag:2"
+ },
+ {
+  "role": "click",
+  "file": "simple_select.wav",
+  "t": 28.073,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02c:trash:2"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 29.925,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02d:beam:on"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 30.25,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "02d:cam:reveal",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 30.9,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "02d:anchor:kreatif"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 31.855,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "02d:bloom:hit"
+ },
+ {
+  "role": "click",
+  "file": "dull_menu.wav",
+  "t": 32.4,
+  "gainDb": -20,
+  "pan": 0.42,
+  "prio": 2,
+  "src": "02e:tick:0"
+ },
+ {
+  "role": "click",
+  "file": "simple_select.wav",
+  "t": 33.033,
+  "gainDb": -20,
+  "pan": 0.44,
+  "prio": 2,
+  "src": "02e:tick:1"
+ },
+ {
+  "role": "click",
+  "file": "dull_menu.wav",
+  "t": 33.667,
+  "gainDb": -20,
+  "pan": 0.45,
+  "prio": 2,
+  "src": "02e:tick:2"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 34.667,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02e:cal:block:Input_data_pesanan"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 35.033,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02e:cal:block:Invoice_Oktober"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 35.4,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "02e:cal:block:Rekap_penjualan"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 35.833,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "02e:time:compress",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "hit",
+  "file": "bass_drop_deep.wav",
+  "t": 36.033,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "02e:cal:compressed"
+ },
+ {
+  "role": "click",
+  "file": "simple_select.wav",
+  "t": 37.3,
+  "gainDb": -20,
+  "pan": 0.37,
+  "prio": 2,
+  "src": "02e:tick:3"
+ },
+ {
+  "role": "click",
+  "file": "dull_menu.wav",
+  "t": 37.933,
+  "gainDb": -20,
+  "pan": 0.37,
+  "prio": 2,
+  "src": "02e:tick:4"
+ },
+ {
+  "role": "click",
+  "file": "simple_select.wav",
+  "t": 38.567,
+  "gainDb": -20,
+  "pan": 0.37,
+  "prio": 2,
+  "src": "02e:tick:5"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 38.975,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "02f:cam:snapwide",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "click",
+  "file": "dull_menu.wav",
+  "t": 39.2,
+  "gainDb": -20,
+  "pan": -0.39,
+  "prio": 2,
+  "src": "02e:tick:6"
+ },
+ {
+  "role": "click",
+  "file": "simple_select.wav",
+  "t": 39.4,
+  "gainDb": -20,
+  "pan": 0.23,
+  "prio": 2,
+  "src": "02e:tick:7"
+ },
+ {
+  "role": "click",
+  "file": "dull_menu.wav",
+  "t": 39.6,
+  "gainDb": -20,
+  "pan": 0.85,
+  "prio": 2,
+  "src": "02e:tick:8"
+ },
+ {
+  "role": "data",
+  "file": "accept_release.wav",
+  "t": 41.833,
+  "gainDb": -26,
+  "pan": 0.0,
+  "prio": 1,
+  "src": "03a:key:Kamu:0",
+  "fadeOut": 0.15
+ },
+ {
+  "role": "data",
+  "file": "accept_release.wav",
+  "t": 42.9,
+  "gainDb": -26,
+  "pan": 0.0,
+  "prio": 1,
+  "src": "03a:key:untuk:0",
+  "fadeOut": 0.15
+ },
+ {
+  "role": "data",
+  "file": "accept_release.wav",
+  "t": 43.4,
+  "gainDb": -26,
+  "pan": 0.0,
+  "prio": 1,
+  "src": "03a:key:menjalankan:0",
+  "fadeOut": 0.15
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 45.295,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "03a:cam:snapwide",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "click",
+  "file": "simple_select.wav",
+  "t": 45.441,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03a:send:click"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 45.474,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03a:agent:0"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 45.729,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03a:agent:1"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 45.985,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03a:agent:2"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 46.24,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03a:agent:3"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 46.39,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "03a:cam:tiltup",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 46.575,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03b:cursor:0"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 46.695,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03b:cursor:2"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 46.848,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03b:cursor:3"
+ },
+ {
+  "role": "click",
+  "file": "dull_menu.wav",
+  "t": 46.865,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03b:sendceo:click"
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 47.235,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "03b:ceo:dash"
+ },
+ {
+  "role": "data",
+  "file": "accept_release.wav",
+  "t": 47.355,
+  "gainDb": -26,
+  "pan": 0.0,
+  "prio": 1,
+  "src": "03b:key:stream:0",
+  "fadeOut": 0.15
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 48.316,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03b:reply:card"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 48.33,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "03b:cam:snapwide",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "click",
+  "file": "simple_select.wav",
+  "t": 48.935,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03b:bar:1"
+ },
+ {
+  "role": "click",
+  "file": "dull_menu.wav",
+  "t": 49.155,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03b:bar:2"
+ },
+ {
+  "role": "click",
+  "file": "simple_select.wav",
+  "t": 49.395,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03b:bar:3"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 49.68,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "03b:cam:center",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 50.08,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "03b:zoomthrough"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 50.39,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03c:scan:on"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 52.82,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "03c:scan:off"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 52.965,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "03c:cam:snapwide",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 55.608,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "03d:x13:shrink"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 55.885,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "03c:cut:jensen"
+ },
+ {
+  "role": "hit",
+  "file": "boom_thud_distant.wav",
+  "t": 59.367,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "03e:anchor:somebody"
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 61.255,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "04a:cut:in"
+ },
+ {
+  "role": "hit",
+  "file": "bass_drop_deep.wav",
+  "t": 62.367,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "04a:anchor:peduli"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 64.093,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "04a:cam:tiltdown",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "graph_riser",
+  "file": "shepard-tone-up-09__25747e8d.wav",
+  "t": 64.45,
+  "trim": 5.0,
+  "gainDb": -20,
+  "fadeOut": 0.8,
+  "pan": 0
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 64.455,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "04b:cam:truck",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 64.495,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "04b:card:0"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 64.745,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "04b:card:1"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 64.925,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "04b:card:2"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 65.055,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "04b:card:3"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 65.227,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "04b:cam:snapwide",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 65.247,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "04b:card:5"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 65.77,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "04b:x01:collapse"
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 65.97,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "04c:dots:fly"
+ },
+ {
+  "role": "graph_riser",
+  "file": "shepard-tone-up-09__25747e8d.wav",
+  "t": 66.0,
+  "gainDb": -22,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "04c:line:solid",
+  "trim": 4.0,
+  "fadeOut": 0.8
+ },
+ {
+  "role": "hit",
+  "file": "boom_thud_distant.wav",
+  "t": 66.149,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "04c:dots:land"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 67.9,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "04c:anchor:arahnya"
+ },
+ {
+  "role": "graph_riser",
+  "file": "shepard-tone-up-09__25747e8d.wav",
+  "t": 68.027,
+  "gainDb": -22,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "04c:line:bend",
+  "trim": 4.0,
+  "fadeOut": 0.8
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 68.11,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "04c:cam:revealout",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 70.613,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "04c:x13:shrink"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 71.025,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "04d:cut:altman"
+ },
+ {
+  "role": "hit",
+  "file": "bass_drop_deep.wav",
+  "t": 72.733,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "04d:anchor:billion"
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 75.25,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "05a:altman:shrink"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 75.281,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05a:photo:0"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 75.416,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05a:photo:3"
+ },
+ {
+  "role": "hit",
+  "file": "boom_thud_distant.wav",
+  "t": 75.5,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "05a:bluecard:land"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 75.596,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05a:photo:7"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 75.741,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05a:photo:8"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 77.3,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05a:cam:snapwide",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 78.925,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05b:cam:revealout",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 78.941,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05b:grey:spread"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 81.309,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05b:grey:vanish"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_max.wav",
+  "t": 82.833,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05c:photo:1"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 83.333,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05c:photo:3"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_max.wav",
+  "t": 83.867,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05c:photo:5"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 84.367,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05c:photo:7"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_max.wav",
+  "t": 84.867,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05c:photo:9"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 85.39,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05c:icon:0"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 85.4,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05c:photo:11"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 85.524,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05c:icon:2"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_max.wav",
+  "t": 85.9,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05c:photo:13"
+ },
+ {
+  "role": "hit",
+  "file": "bass_drop_deep.wav",
+  "t": 86.367,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "05c:anchor:sama"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 86.383,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "05c:icons:merge"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 86.667,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05c:photo:16"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 86.942,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05c:cam:exitpush",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "data",
+  "file": "accept_release.wav",
+  "t": 87.0,
+  "gainDb": -26,
+  "pan": 0.0,
+  "prio": 1,
+  "src": "05d:laptop:key:spasi:38",
+  "fadeOut": 0.15
+ },
+ {
+  "role": "click",
+  "file": "dull_menu.wav",
+  "t": 87.161,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05d:laptop:send"
+ },
+ {
+  "role": "click",
+  "file": "simple_select.wav",
+  "t": 87.672,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05d:hp:send"
+ },
+ {
+  "role": "click",
+  "file": "dull_menu.wav",
+  "t": 88.183,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05d:tablet:send"
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 88.433,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "05e:orbit:bloom"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 88.8,
+  "gainDb": -20,
+  "pan": 0.5,
+  "prio": 2,
+  "src": "05e:orbit:ping:0"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 89.2,
+  "gainDb": -20,
+  "pan": 0.51,
+  "prio": 2,
+  "src": "05e:orbit:ping:1"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 90.067,
+  "gainDb": -20,
+  "pan": 0.55,
+  "prio": 2,
+  "src": "05e:orbit:ping:2"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 91.302,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05e:cam:whip",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "swipe",
+  "file": "ui_max.wav",
+  "t": 91.4,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05f:photo:1"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 91.767,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05f:photo:4"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_max.wav",
+  "t": 92.167,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05f:photo:7"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 92.533,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05f:photo:10"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_max.wav",
+  "t": 92.933,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05f:photo:13"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 93.3,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05f:photo:16"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_max.wav",
+  "t": 93.7,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05f:photo:19"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 94.067,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05f:photo:22"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_max.wav",
+  "t": 94.467,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05f:photo:25"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 94.833,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05f:photo:28"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_max.wav",
+  "t": 95.233,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05f:photo:31"
+ },
+ {
+  "role": "hit",
+  "file": "boom_thud_distant.wav",
+  "t": 95.6,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "05f:anchor:semalam"
+ },
+ {
+  "role": "swipe",
+  "file": "ui_min.wav",
+  "t": 95.6,
+  "gainDb": -18,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05f:photo:34"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 96.9,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05g:cam:snap:1",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "hit",
+  "file": "bass_drop_deep.wav",
+  "t": 97.133,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "05g:card:3:invoice"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 97.4,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05g:cam:snap:2",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 97.9,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05g:cam:snap:3",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 98.167,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05g:cam:snap:4",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 98.547,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "05h:wipe:silhouette"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 98.7,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05h:light:on:2"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 98.833,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05h:light:on:3"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 98.967,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05h:light:on:4"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 99.1,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05h:light:on:5"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 99.275,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05h:cam:pushin",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 100.867,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "05h:cam:snapwide",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 102.933,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05h:light:off:5"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 103.067,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05h:light:off:3"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 103.2,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "05h:light:off:1"
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 107.233,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "06a:anchor:merencanakan"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 107.923,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "06b:reveal:1",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 108.457,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06b:row:hero"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 108.877,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06b:row:top"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 111.075,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "06b:push:1"
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 112.198,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "06c:head:fly"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 112.767,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "06c:anchor:ai"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 113.495,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06d:bloom:1"
+ },
+ {
+  "role": "data",
+  "file": "accept_release.wav",
+  "t": 113.7,
+  "gainDb": -26,
+  "pan": 0.0,
+  "prio": 1,
+  "src": "06d:key:tolong:0",
+  "fadeOut": 0.15
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 117.06,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06d:relay:off"
+ },
+ {
+  "role": "low_whoosh",
+  "file": "sub-cinematic-01__a9946ddf.wav",
+  "t": 119.483,
+  "gainDb": -14,
+  "pan": 0.0,
+  "prio": 3,
+  "src": "06e:snapwide:1",
+  "trim": 1.2,
+  "fadeOut": 0.35
+ },
+ {
+  "role": "hit",
+  "file": "boom_thud_distant.wav",
+  "t": 119.7,
+  "gainDb": -12,
+  "pan": 0.0,
+  "prio": 5,
+  "src": "06e:anchor:tertinggal"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 123.502,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06f:glyph:all"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 124.382,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06f:pulse:1"
+ },
+ {
+  "role": "whoosh",
+  "file": "swoosh_light.wav",
+  "t": 126.317,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "06f:crane:1"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 126.95,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06g:plane:1"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 127.14,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06g:plane:8"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 127.33,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06g:plane:2"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 127.52,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06g:plane:7"
+ },
+ {
+  "role": "pop",
+  "file": "bubbly_select.wav",
+  "t": 127.71,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06g:plane:3"
+ },
+ {
+  "role": "pop",
+  "file": "wobble_bloop.wav",
+  "t": 127.9,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06g:plane:6"
+ },
+ {
+  "role": "pop",
+  "file": "cute_pops.wav",
+  "t": 128.09,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 2,
+  "src": "06g:plane:5"
+ },
+ {
+  "role": "whoosh",
+  "file": "air_generic.wav",
+  "t": 128.975,
+  "gainDb": -20,
+  "pan": 0.0,
+  "prio": 4,
+  "src": "06g:punch:in"
+ }
+]
