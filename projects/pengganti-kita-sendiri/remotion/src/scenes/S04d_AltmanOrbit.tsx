@@ -8,7 +8,7 @@ import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
 import { block, FPS, panel, word } from "../lib/time";
-import { AnchorWord } from "../lib/AnchorWord";
+import { AnchorWord, displayCase } from "../lib/AnchorWord";
 import { textWidth } from "../lib/SpeakerWords";
 import { altCard, ALTMAN_STILL, CLIP_CARD, T_SHRINK, T_STILL } from "./_b4_shared";
 
@@ -20,24 +20,26 @@ const IN_S = 5.27;
 const OUT_S = 8.72;
 const TAIL = 0.73; // gambar (tanpa suara) diperpanjang sampai batas 05a, saat kartu sudah menyusut (cut on motion)
 
-// v10: satu baris kutipan, dipusatkan; lebar total ≤ 1290 px × drift 1,04 ≤ 1344 = safe zone x 288–1632 (teks di luar kamera C01)
+// R2-C: satu baris «Single Person Billion Dollar Company», ukuran seragam SEBESAR MUNGKIN yang muat di safe zone (lebar 1344 px, x 288–1632), dipusatkan.
 const QUOTE = [
-  { text: "SINGLE", at: 2162, size: 100 },
-  { text: "PERSON", at: 2169, size: 100 },
-  { text: "BILLION", at: 2182, size: 100 }, // aturan Irfan: ukuran seragam; penekanan = warna aksen
-  { text: "DOLLAR", at: 2189, size: 100 },
-  { text: "COMPANY", at: 2209, size: 100 },
+  { text: "SINGLE", at: 2162 },
+  { text: "PERSON", at: 2169 },
+  { text: "BILLION", at: 2182 }, // penekanan = warna aksen
+  { text: "DOLLAR", at: 2189 },
+  { text: "COMPANY", at: 2209 },
 ];
-const QUOTE_Y = 540;
+const QUOTE_Y = 262; // R2-C: dipusatkan di atas kepala mic (kepala mic y ≈ 320–540 di layar; y 470 menimpa kepala mic)
+const SAFE_W = 1344 * 0.985; // sisa 1,5 % untuk drift AnchorWord (1,015) + selisih tabel glyph
+const GAP_EM = 0.3;
 const layoutQuote = () => {
-  const gap = (a: number, b: number) => 0.55 * Math.min(a, b); // v11: celah lebih lebar (drift 1,04 tidak menabrak kata berikutnya)
-  const raw = QUOTE.reduce((acc, w, i) => acc + textWidth(w.text, w.size) + (i ? gap(QUOTE[i - 1].size, w.size) : 0), 0);
-  const k = Math.min(1, 1260 / raw);
-  let x = 960 - (raw * k) / 2;
+  const disp = QUOTE.map((w) => displayCase(w.text));
+  const raw = disp.reduce((acc, d, i) => acc + textWidth(d, 100) + (i ? GAP_EM * 100 : 0), 0);
+  const size = (100 * SAFE_W) / raw; // seragam
+  let x = 960 - SAFE_W / 2;
   return QUOTE.map((w, i) => {
-    if (i) x += gap(QUOTE[i - 1].size, w.size) * k;
-    const out = { ...w, size: w.size * k, x };
-    x += textWidth(w.text, w.size) * k;
+    if (i) x += GAP_EM * size;
+    const out = { ...w, size, x };
+    x += textWidth(disp[i], size);
     return out;
   });
 };
@@ -58,6 +60,7 @@ export const S04d_AltmanOrbit: React.FC = () => {
 
   // ── SFXEV (metronom SFX). Kartu menyusut (T_SHRINK…T_SHRINK_END) & ganti ke foto diam (T_STILL) dirender 05a.
   sfxMark(t, "cut", P.start, "04d:clip:in"); // isi kartu: grafik 04c → klip Altman
+  sfxMark(t, "whoosh", P.start, "04d:cut:altman"); // R2-C: hit transisi tepat di frame cut
 
   const showStill = t >= T_STILL;
   // crop: titik sumber → kartu (drift C19 di pusat kartu, lalu ikut ukuran kartu saat menyusut)

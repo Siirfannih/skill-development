@@ -104,6 +104,7 @@ export const S03c_MeniruDiri: React.FC = () => {
   sfxMark(t, "hit", BOOM, "03d:boom"); // beat drop: flare cahaya + shake + C01 punch
   sfxMark(t, "whoosh", (SHRINK_A + JENSEN) / 2, "03d:x13:shrink"); // X13 frame menyusut jadi kartu (EZ.inOut → tengah)
   sfxMark(t, "cut", JENSEN, "03e:clip:in"); // isi kartu berganti ke klip Jensen
+  sfxMark(t, "whoosh", JENSEN, "03c:cut:jensen"); // R2-C: hit transisi tepat di frame cut ke klip Jensen
 
   // kamera 03c: zoom-through mendarat close (2,1 → 1,8) di kaki salinan, C18 ikut garis scan naik ke kepala,
   // lalu C15 patah ke wide ≤ 6 f setelah salinan penuh: kita dan salinan sama tinggi.
@@ -165,9 +166,9 @@ export const S03c_MeniruDiri: React.FC = () => {
                     Teks di bawah tengah, di bawah figur (tidak di atas visual). */}
                 {/* v10 (#23): PERLAHAN di ruang kosong KANAN salinan (close-up), hilang tepat sebelum patah ke wide (frame 1587); tidak lagi menimpa badan/garis putus-putus.
                     v10 (#24): TEMPAT KITA di pita bersih di bawah lantai (dunia wide diangkat 140 px), caps y 930–1020, di dalam area aman. */}
-                <AnchorWord text="PERLAHAN" at={1508} until={1586} x={1632} y={300} size={72} color="#FAF8EC" align="right" enter="right" />
-                <AnchorWord text="TEMPAT" at={1626} until={1662} x={930} y={815} size={104} color="#FAF8EC" align="right" enter="scale" />
-                <AnchorWord text="KITA" at={1634} until={1662} x={990} y={815} size={104} color="#FAF8EC" align="left" enter="right" />
+                <AnchorWord text="PERLAHAN" at={1508} until={1586} x={1632} y={300} size={130} color="#FAF8EC" align="right" enter="right" />
+                <AnchorWord text="TEMPAT" at={1626} until={1662} x={900} y={808} size={130} color="#FAF8EC" align="right" enter="scale" />
+                <AnchorWord text="KITA" at={1634} until={1662} x={960} y={808} size={130} color="#FAF8EC" align="left" enter="right" />
               </>
             )}
             {showClip && (
@@ -215,13 +216,13 @@ export const S03c_MeniruDiri: React.FC = () => {
                   { text: "lose", at: wordAt("jensen", "lose"), size: JS },
                   { text: "a", at: wordAt("jensen", "a"), size: JS },
                   { text: "JOB", at: 1701, size: JS, kind: "emph", enter: "left", color: "#FFD84A" },
-                ], { x: 324, baseline: 306, align: "left", size: 62 })} />
+                ], { x: 312, baseline: 268, align: "left", size: 62 })} />
                 <SpeakerWords until={fEnd} shadow="0 3px 24px rgba(0,0,0,0.55)" words={flowLine([
                   { text: "SOMEBODY", at: 1781, size: JS, kind: "emph", enter: "right", color: "#FFD84A", sfx: { kind: "sub_impact", id: "03e:anchor:somebody" } },
                   { text: "who", at: wordAt("jensen", "who"), size: JS },
                   { text: "uses", at: wordAt("jensen", "uses"), size: JS },
                   { text: "AI", at: 1804, size: JS, kind: "emph", color: "#FFD84A" },
-                ], { x: 330, baseline: 306, align: "left", size: 62 })} />
+                ], { x: 312, baseline: 268, align: "left", size: 62 })} />
               </AnchorStage>
             </>
           )}

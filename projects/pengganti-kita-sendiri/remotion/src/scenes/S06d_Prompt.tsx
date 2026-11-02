@@ -4,7 +4,6 @@
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
-import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { FPS, panel, word } from "../lib/time";
 import { AIGlyph, Ball, C6, Plane, relay, Torso, wa } from "./_b6_shared";
 
@@ -34,7 +33,6 @@ const KEY_MARKS: { at: number; id: string }[] = (() => {
 
 export const S06d_Prompt: React.FC = () => {
   const t = useT();
-  const atSendiri = useFrameAt(3492), untilSendiri = useFrameAt(Math.round(T_OFF * FPS)); // v9: f terukur ANCHORS-V9 #30 (SENDIRI)
   const on = relay(t, T_OFF);
   // ── SFXEV
   sfxMark(t, "pop", P.start, "06d:bloom:1"); // bloom match dari 06c (puncak BLOOM_06C_END) mendarat jadi composer
@@ -93,8 +91,7 @@ export const S06d_Prompt: React.FC = () => {
           </div>
         </AbsoluteFill>
         </AbsoluteFill>
-        {/* v11 (U2 disetujui): SENDIRI di ruang layar — tinta gelap di area putih bidang, di bawah composer; hilang bersama lampu bidang (T_OFF). */}
-        <AnchorWord text="SENDIRI" at={atSendiri} until={untilSendiri} x={1066} y={806} size={92} color={C6.ink} align="center" enter="left" grain={0} />
+        {/* R2-C: anchor «Sendiri» dihapus (terbaca seperti label UI di kartu ChatGPT). */}
         {bloom > 0.005 && (
           <AbsoluteFill style={{ background: `radial-gradient(ellipse 70% 80% at 1300px 520px, ${wa(bloom)} 0%, ${wa(bloom * 0.5)} 45%, ${wa(0)} 100%)` }} />
         )}

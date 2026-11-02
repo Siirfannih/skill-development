@@ -11,7 +11,6 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { EZ, panOf, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
-import { AnchorWord } from "../lib/AnchorWord";
 import { BLOOM_PT } from "./_b2_shared";
 import { moveFrame } from "./_b5_shared";
 import { CARD, TaskCard, type TaskIcon } from "./parts/TaskCard";
@@ -63,6 +62,7 @@ const calCamAt = (fa: number): Cam => {
 };
 
 
+const clampN = (v: number, m: number) => Math.max(-m, Math.min(m, v));
 const e = (fa: number, a: number, b: number, ez = EZ.out) => prog(fa / FPS, a / FPS, b / FPS, ez);
 const mix = (a: number, b: number, k: number) => a + (b - a) * k;
 type Cam = { cx: number; cy: number; Z: number };
@@ -101,9 +101,9 @@ const camAt = (fa: number): Cam => {
   const wide: Cam = { cx: 880, cy: 540, Z: 1 + 0.04 * e(fa, 1014, 1036, EZ.inOut) };
   const p2: Cam = { cx: 1000, cy: 540, Z: 1 + 0.05 * e(fa, 1042, F_COMP0, EZ.inOut) };
   const p2b: Cam = { cx: 640, cy: 540, Z: 1.3 + 0.04 * e(fa, 1086, F_BAR_OUT + 2, EZ.out) };
-  const p3: Cam = { cx: 700 + (cur.x - BOX_X) * 0.4, cy: cur.y, Z: 1.3 };
+  const p3: Cam = { cx: 700 + (cur.x - BOX_X) * 0.4, cy: cur.y - 170, Z: 1.3 }; // R2-C: kamera sedikit lebih tinggi dari kursor → kartu di atasnya tidak terpotong tepi atas
   // v10 (#19): daftar terbaca (Z ≈ 0,95 → teks ±34 px), 5–6 baris terakhir saja, sisanya keluar frame atas; daftar di kiri, ruang kanan untuk TIDAK BERHENTI
-  const wide2: Cam = { cx: CX + CARD.w / 2, cy: mix(1440, 1500, e(fa, F_TIDAK + 6, 1229, EZ.inOut)), Z: mix(0.95, 0.98, e(fa, F_TIDAK + 6, 1229, EZ.inOut)) };
+  const wide2: Cam = { cx: CX + CARD.w / 2, cy: mix(1385, 1405, e(fa, F_TIDAK + 6, 1229, EZ.inOut)), Z: 0.95 };
   let c = p1;
   c = mixCam(c, wide, e(fa, F_PUNCH, F_PUNCH + 4));
   c = mixCam(c, p2, e(fa, 1034, 1042, EZ.inOut));
@@ -118,8 +118,6 @@ export const S02e_JanjiDitepati: React.FC = () => {
   const fa = Math.round(t * FPS);
   const pe = panel("02e");
   const pf = panel("02f");
-  // konvensi lib v9: at/until AnchorWord = frame ABSOLUT video
-  const atDitepati = F_PUNCH, untilDitepati = 1034;
 
   const cam = camAt(fa);
   const { cx, cy, Z } = cam;
@@ -157,20 +155,17 @@ export const S02e_JanjiDitepati: React.FC = () => {
   const cursor = cursorAt(fa);
   const press = TAPS.some((f) => fa >= f && fa < f + 3) ? 0.86 : 1;
   const curScale = Math.min(1.8, Math.max(0.8, 1.1 / Z));
-  // dot grid parallax (lapis belakang 2.5D)
-  const Zg = 1 + (Z - 1) * 0.4;
 
 
   return (
     <Scene start={pe.start} end={pf.end} name="02e–02f Daftar centang">
-      <AbsoluteFill style={{ background: "#000", overflow: "hidden" }}>
+      <AbsoluteFill style={{ background: "#2f7fd6", overflow: "hidden" }}>
         <svg width="0" height="0" style={{ position: "absolute" }}>
           <filter id="cam02e" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation={`${(bu + bx).toFixed(2)} ${bu.toFixed(2)}`} /></filter>
         </svg>
         <AbsoluteFill style={{ transform: snapIn > 0.002 ? `scale(${1 + 0.6 * snapIn})` : undefined, transformOrigin: `${BLOOM_PT.x}px ${BLOOM_PT.y}px`, filter: snapIn > 0.02 ? `blur(${(10 * snapIn).toFixed(2)}px)` : undefined }}>
-          {/* lapis belakang: titik halus, parallax 50 % */}
-          <div style={{ position: "absolute", left: 0, top: 0, width: 7000, height: 7000, transform: `translate(${960 - 3500 - (cx - 960) * 0.5 * Zg}px, ${540 - 3500 - (cy - 540) * 0.5 * Zg}px) scale(${Zg})`, transformOrigin: "3500px 3500px", backgroundImage: "radial-gradient(rgba(255,255,255,0.10) 2px, transparent 2.5px)", backgroundSize: "88px 88px" }} />
-          <AbsoluteFill style={{ background: "radial-gradient(ellipse 60% 55% at 38% 52%, rgba(255,255,255,0.06), rgba(0,0,0,0) 70%)" }} />
+          {/* R2-C: latar langit (sama dengan kalender), parallax kecil dari kamera; tanpa titik grid & vinyet hitam */}
+          <SkyBackdrop px={clampN(-(cx - 960) * 0.06 * Z, 90)} py={clampN(-(cy - 540) * 0.06 * Z, 50)} />
           {/* lapis tengah: dunia di bawah kamera */}
           <AbsoluteFill style={{ transform: `translate(${960 - cx * Z}px, ${540 - cy * Z}px) scale(${Z})`, transformOrigin: "0 0", filter: bu + bx > 0.2 ? "url(#cam02e)" : undefined }}>
             <div style={{ position: "absolute", inset: 0, opacity: listOp, filter: listBlur > 0.1 ? `blur(${listBlur.toFixed(2)}px)` : undefined }}>
@@ -179,14 +174,14 @@ export const S02e_JanjiDitepati: React.FC = () => {
                 if (ap <= 0) return null;
                 const dn = e(fa, tapOf(i), tapOf(i) + 3);
                 const ring = fa >= tapOf(i) ? e(fa, tapOf(i), tapOf(i) + 8, EZ.out) : 0;
-                return <TaskCard key={i} name={it.name} icon={it.icon} done={dn} ring={ring} style={{ left: CX, top: topOf(i) + (1 - ap) * 40, opacity: Math.min(1, ap * 2) }} />;
+                return <TaskCard key={i} name={it.name} icon={it.icon} done={dn} ring={ring} style={{ left: CX, top: topOf(i) + (1 - ap) * 40, opacity: Math.min(1, ap * 2), border: "2px solid rgba(255,255,255,0.9)", boxShadow: "0 22px 50px rgba(14,48,110,0.38), 0 0 0 1.5px rgba(14,48,110,0.22)" }} />;
               })}
               {/* kursor AI (gaya 02c, dibalik untuk latar hitam) */}
               <div style={{ position: "absolute", left: cursor.x - 6 * curScale, top: cursor.y - 4 * curScale, zIndex: 10, opacity: 1 - dim, transform: `scale(${curScale * press})`, transformOrigin: "6px 4px", display: "flex", alignItems: "flex-start", gap: 4 }}>
-                <svg width={44} height={56} viewBox="0 0 22 28" style={{ filter: "drop-shadow(0 4px 10px rgba(0,0,0,0.6))" }}>
-                  <path d="M2 2 L2 22 L7.2 17.2 L10.6 25 L14 23.6 L10.7 16 L17.6 16 Z" fill="#fff" stroke="#000" strokeWidth={1.6} strokeLinejoin="round" />
+                <svg width={44} height={56} viewBox="0 0 22 28" style={{ filter: "drop-shadow(0 4px 10px rgba(0,20,60,0.5))" }}>
+                  <path d="M2 2 L2 22 L7.2 17.2 L10.6 25 L14 23.6 L10.7 16 L17.6 16 Z" fill="#111" stroke="#fff" strokeWidth={1.8} strokeLinejoin="round" />
                 </svg>
-                <span style={{ marginTop: 40, background: "#fff", color: "#1d1d1f", fontFamily: "Inter", fontWeight: 800, fontSize: 24, letterSpacing: 1.4, borderRadius: 999, padding: "4px 16px" }}>AI</span>
+                <span style={{ marginTop: 40, background: "#111", color: "#fff", fontFamily: "Inter", fontWeight: 800, fontSize: 24, letterSpacing: 1.4, borderRadius: 999, padding: "4px 16px" }}>AI</span>
               </div>
             </div>
           </AbsoluteFill>
@@ -204,8 +199,7 @@ export const S02e_JanjiDitepati: React.FC = () => {
           )}
         </AbsoluteFill>
 
-        {/* lapis atas: anchor (ruang layar). DITEPATI di samping daftar yang tuntas */}
-        <AnchorWord text="DITEPATI" at={atDitepati} until={untilDitepati} x={1030} y={556} size={110} color="#ffffff" align="left" enter="left" />
+        {/* R2-C: anchor «Ditepati» dihapus (daftar yang tercentang sudah kuat). */}
         {/* «tidak berhenti»: TANPA teks (Irfan 2 Nov 06.48) — daftar panjang yang terus dicentang AI sudah menjadi visualnya */}
         <Grain opacity={0.05} />
       </AbsoluteFill>
