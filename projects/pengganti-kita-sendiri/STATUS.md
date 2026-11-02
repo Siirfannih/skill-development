@@ -1,8 +1,17 @@
 # STATUS: Pengganti Kita Sendiri (@siirfannih)
 
-_Update terakhir: 2 Nov 2026 22.30 WITA — v20 terkirim; Irfan minta sesi baru untuk revisi (lihat `HANDOFF-SESI-BARU.md`)._
+_Update terakhir: 2 Nov 2026 malam — sesi revisi v21 (otonom, atas feedback 22.25). Lihat `AUDIT-V20.md` dan `LEARNINGS-2NOV.md` §E._
 
-## Posisi sekarang
+## Posisi sekarang (v21)
+- **Versi terakhir: v21.** Mac `pks-studio/out/PKS_v21_video1.mp4` (Particle Emission) dan `PKS_v21_video2.mp4` (Reggae buka/tutup + Particle).
+  Visual = render v21 (`seg/v21final_v.mp4`), audio = master v20 (`seg/master_v20_video{1,2}.flac`) karena penanda SFX tidak bergeser.
+- Perubahan v21: `lib/KineticVO.tsx` (tipografi kinetik VO per frasa, menggantikan baris subtitle CaptionTrack — logika frasa/mask tetap di
+  CaptionTrack), `lib/Breath.tsx` (napas kamera di jendela statis), scrim S00/S03c dihapus + SOFT_SHADOW lebih kecil, variasi organik
+  piktogram kerumunan (`_b6_shared.tsx` `useOrganic`).
+- Alat Mac baru: `pks-studio/sync21.sh` (sinkron src dari origin/main), `stills.sh` (still QC per frame → lembar), `audit21/`.
+
+## Arsip v20
+## Posisi v20
 - **Versi terakhir: v20.** Mac `pks-studio/out/PKS_v20_video1.mp4` (Particle Emission) dan `PKS_v20_video2.mp4` (Reggae buka/tutup + Particle). Visual = render v11 (`seg/v11final_v.mp4`), audio = `audio-v20/` (master FLAC di `seg/master_v20_video{1,2}.flac`).
 - v11 visual: CaptionTrack (running text), AnchorWord enter type/mask/letters/blur, NaturalLight (ganti pendar balon), crop wajah S05f, penanda `type`/`enter`.
 - v20 audio: disusun ulang dari nol oleh sesi segar tanpa aturan lama (BRIEF di `audio-v20/BRIEF.md`). 309 peristiwa, SFX dari folder SFXIrfan (varian family), −14 LUFS, TP −1,2.

@@ -81,7 +81,12 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
 - **Hindari pola "blok di kiri + teks di kanan" di atas latar hitam polos.** Pola ini menyisakan ruang kosong besar di atas dan bawah, jadi melanggar gaya Apple yang modern dan elegan. Isi frame dengan visualnya, dan kamera fokus ke objek.
 
 ## Running text + penekanan (Irfan 2 Nov 14.18)
-- **Teks = prioritas 2 bukan berarti alurnya hilang.** Subtitle berjalan (`lib/CaptionTrack.tsx`) mengikuti VO dari awal sampai akhir, kata per kata, satu baris di pita bawah.
+- **Teks = prioritas 2 bukan berarti alurnya hilang.** Teks VO berjalan mengikuti VO dari awal sampai akhir, kata per kata.
+  - **Koreksi v21 (Irfan 2 Nov 22.25):** satu baris datar di pita bawah = subtitle, bukan kinetic. Tiap frasa VO butuh KOMPOSISI sendiri
+    (`lib/KineticVO.tsx` PKS): posisi di ruang kosong atau menempel objek yang dirujuk, 1–3 baris (line/stair/column/drop), kata kunci
+    (redup sisanya, kotak sorot, baris besar), kata baru lahir di ujung baris lalu baris bergeser bersama, enter/exit dirotasi,
+    frasa berikut di tempat sama menukar (tidak menumpuk) dan keluar tidak menyeberang cut. Kontras lewat tinta per latar + chip padat
+    (layering), bukan gradien. Kerja: still per frasa (`stills.sh`) → tetapkan zona dari still → still ulang sampai tidak ada tabrakan.
   - Saat ada penekanan (AnchorWord/SpeakerLine), subtitle diganti oleh penekanan. Penekanan tampil lebih dulu, dan katanya tidak diulang di subtitle.
   - Subtitle tidak berbunyi. Klik hanya untuk kata penekanan/kinetic.
 - **Ukur cakupan:** persentase kata VO yang tampil (subtitle + penekanan). Kasus v10: 54/310 kata (17 %), dan Irfan menyebutnya fatal.

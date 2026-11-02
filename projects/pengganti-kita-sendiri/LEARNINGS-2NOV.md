@@ -61,3 +61,19 @@ Ditulis untuk sesi berikutnya. Dari kesalahan yang terulang dan cara yang akhirn
   - `ears/` (earshot venv Python 3.12, `palette.py`, `family.py`, `tl_sum.py`, `motion_curve.py`, `refs/*.timeline.json` + `refs/profile.json` dari 6 referensi).
 - **SFX dan backsound Irfan:** Mac `~/Downloads/SFXIrfan/`. Kenyset: `~/Downloads/Kenyset [FREE SFX PACK]/`.
 - **Referensi:** Mac `~/Documents/Skill-Development/Personal-video/Refference/` (Sound efex, Apple Style, Kinetic typography). The Gap v18: `projects/jadisatu-60s/render/`.
+
+## E. Sesi v21 (2 Nov malam, otonom) — revisi atas feedback 22.25
+
+1. **Scrim tersembunyi dicari dengan grep, bukan ingatan.** Dua sumber gradien gelap di belakang teks ditemukan (S00 radial «FAST», S03c scrim
+   atribusi Jensen). Cek otomatis: `grep -rnE "gradient\(.*rgba\((0|1[0-9]|2[0-9]), ?…, ?0?\.[3-9]" src/scenes src/lib` harus kosong.
+   `SOFT_SHADOW` dikecilkan ke halo 5 px.
+2. **Kinetic VO = komposisi per frasa.** Tabel `SPEC` di `lib/KineticVO.tsx` (46 frasa) ditulis dari still per frasa; tiga putaran still
+   (k1→k3) menangkap: dua frasa menumpuk di zona sama, kata baru menimpa kata lama saat baris rata kanan/tengah bergeser, sisa frasa
+   menyeberang cut, tinta redup terlalu pucat. Semua sudah jadi aturan kode (tukar di tempat, kata lahir menempel, keluar berhenti di cut, redup ≥ 4,5:1).
+3. **Jeda mati diatasi di lapisan kamera, bukan per adegan.** `lib/Breath.tsx` membaca jendela statis dari kurva gerak dan memberi push-in
+   2,8 % + geser kecil; teks di atasnya tidak ikut sehingga ada paralaks. Murah, tidak menyentuh adegan terkunci.
+4. **Organik untuk objek berulang:** seed per instance (ukuran, condong, napas idle) di komponen bersama, bukan di setiap adegan.
+5. **Audio tidak disentuh bila penanda tidak bergeser.** Bandingkan `.sfx` render baru dengan `.sfx` lama; sama → master lama dipakai ulang.
+6. **Sinkron Mac lewat git:** `pks-studio/sync21.sh` = `git archive origin/main` ke folder sementara lalu rsync ke `remotion/src`
+   (jangan `git checkout <rev> -- path` di clone Irfan `~/Proyek/skill-development`: itu mengubah working tree-nya; sempat terjadi dan dipulihkan).
+   Still QC cepat: `pks-studio/stills.sh <nama> label:frame …` → lembar `audit21/<nama>.jpg`.
