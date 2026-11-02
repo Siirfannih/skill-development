@@ -37,4 +37,5 @@ const worker = async () => {
 await Promise.all([worker(), worker(), worker()]);
 obj.end(); sfx.end();
 await browser.close({ silent: true });
+fs.rmSync(serveUrl, { recursive: true, force: true }); // bundle ±97 MB per probe — hapus (disk penuh 2 Nov)
 console.log("SEG2_DONE", done);
