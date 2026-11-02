@@ -44,7 +44,7 @@ const SHRINK_A = BOOM + 0.42; // X13 frame 03d menyusut jadi kartu klip
 
 // v9: subtitle terjemahan Jensen (LINE1/LINE2, dua baris Indonesia) DIHAPUS; diganti anchor Inggris JOB / SOMEBODY / AI di bawah.
 const JW = wordsOf("jensen");
-const FRAME_S = 1.18;
+const FRAME_S = 1.32; // R4-F: 1,18 → 1,32, jangkar kiri-atas (0% 0%): Jensen bergeser ke kanan, logo cincin turun ke y ≥ 331 sehingga pita ungu y 216–330 x 288–1100 bersih untuk satu baris
 const JS = 54;
 
 /** Panggung 03c/03d (dipakai utuh lalu menyusut jadi kartu klip). */
@@ -176,8 +176,8 @@ export const S03c_MeniruDiri: React.FC = () => {
                 <AbsoluteFill style={{ background: "var(--sb-placeholder)" }} />
                 {/* v10 (Irfan 8): klip FULL FRAME (cover 1920×1080, sumber 16:9). Pembingkaian: skala 1,18 berjangkar kiri-atas → Jensen bergeser ke kanan,
                     pita kosong kiri-atas (x 60–850, y 60–290) jadi tempat teks. */}
-                <AbsoluteFill style={{ transform: `scale(${cz})`, transformOrigin: "55% 18%" }}>
-                <AbsoluteFill style={{ transform: `scale(${FRAME_S * (1 + 0.1 * (1 - inP))})`, transformOrigin: "0% 8%", filter: inP < 1 ? `blur(${(1 - inP) * 6}px)` : undefined }}>
+                <AbsoluteFill style={{ transform: `scale(${cz})`, transformOrigin: "70% 18%" }}>
+                <AbsoluteFill style={{ transform: `scale(${FRAME_S * (1 + 0.1 * (1 - inP))})`, transformOrigin: "0% 0%", filter: inP < 1 ? `blur(${(1 - inP) * 6}px)` : undefined }}>
                 <Clip src="clips/jensen_src_412.mp4" at={block("jensen").t} inS={CLIP_IN} outS={CLIP_OUT} grade={DOC_GRADE} />
                 {/* lanjutkan shot yang sama tanpa suara sampai hard cut (bukan freeze; sumber 16 dtk masih berlanjut) */}
                 <Clip src="clips/jensen_src_412.mp4" at={CLIP_END} inS={CLIP_OUT} outS={CLIP_OUT + (PE.end - CLIP_END) + 0.1} grade={DOC_GRADE} />
@@ -200,7 +200,7 @@ export const S03c_MeniruDiri: React.FC = () => {
                   Koordinat sementara (kepala ≈ (1016, 209) di layar, teks di zona dada y 560, di dalam kartu x 400–1520) — verifikasi saat render. */}
               <AnchorStage bg={null} fg={matteJensen ? (
                 <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, overflow: "hidden", transform: `translateY(${(411 - 540) * k}px) scale(${sc})`, transformOrigin: "960px 540px", borderRadius: (28 * k) / sc }}>
-                  <AbsoluteFill style={{ transform: `scale(${cz})`, transformOrigin: "55% 18%" }}>
+                  <AbsoluteFill style={{ transform: `scale(${cz})`, transformOrigin: "70% 18%" }}>
                     <MatteClip src={matteJensen} at={block("jensen").t} inS={CLIP_IN} outS={CLIP_OUT} style={{ transform: "scale(1.05)" }} />
                     <MatteClip src={matteJensen} at={CLIP_END} inS={CLIP_OUT} outS={CLIP_OUT + (PE.end - CLIP_END) + 0.1} style={{ transform: "scale(1.05)" }} />
                   </AbsoluteFill>
@@ -216,13 +216,13 @@ export const S03c_MeniruDiri: React.FC = () => {
                   { text: "lose", at: wordAt("jensen", "lose"), size: JS },
                   { text: "a", at: wordAt("jensen", "a"), size: JS },
                   { text: "JOB", at: 1701, size: JS, kind: "emph", enter: "left", color: "#FFD84A" },
-                ], { x: 312, baseline: 300, align: "left", size: 62 })} />
+                ], { x: 312, baseline: 282, align: "left", size: 62 })} />
                 <SpeakerWords until={fEnd} shadow="0 3px 24px rgba(0,0,0,0.55)" words={flowLine([
                   { text: "SOMEBODY", at: 1781, size: JS, kind: "emph", enter: "right", color: "#FFD84A", sfx: { kind: "sub_impact", id: "03e:anchor:somebody" } },
                   { text: "who", at: wordAt("jensen", "who"), size: JS },
                   { text: "uses", at: wordAt("jensen", "uses"), size: JS },
                   { text: "AI", at: 1804, size: JS, kind: "emph", color: "#FFD84A" },
-                ], { x: 312, baseline: 300, align: "left", size: 62 })} />
+                ], { x: 312, baseline: 282, align: "left", size: 62 })} />
               </AnchorStage>
             </>
           )}

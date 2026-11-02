@@ -17,7 +17,8 @@ export const tick = (id: string) => (cues as any[]).find((c) => c.id.startsWith(
 type NewsDef = { name: string; file: string; spans: [number, number][]; label: string };
 const NEWS: NewsDef[] = [
   { name: "news_gates", file: "news/P_6RhqaMUts_76.5.mp4", spans: [[0, 1.34], [2.42, 3.42], [4.34, 5.4]], label: "CNBC" },
-  { name: "news_teen", file: "news/CXFtV0WAN7k_19.5.mp4", spans: [[0.87, 1.63], [2.09, 3.74]], label: "SKY NEWS" },
+  // R4-F: span kedua dipindah dari 2,09–3,74 (tilt dada/dagu, wajah tak pernah masuk frame) ke 4,6–6,25 sumber (wajah penuh); klip dibisukan, audio dirakit terpisah
+  { name: "news_teen", file: "news/CXFtV0WAN7k_19.5.mp4", spans: [[0.87, 1.63], [4.6, 6.25]], label: "SKY NEWS" },
   { name: "news_billion", file: "news/VuyOy5WN980_0.mp4", spans: [[1.07, 2.74]], label: "BLOOMBERG" },
   { name: "news_fast", file: "news/DKA5AkrQfxo_56.5.mp4", spans: [[1.06, 1.7], [2.24, 3.5]], label: "SKY NEWS" },
 ];
@@ -55,7 +56,7 @@ const FRAMES: Frame[] = [
   { s: 1, tx: 0, ty: 0, box: { x: 0, y: 470, w: 1920, align: "center" }, accent: "technical" }, // montase foto
   { s: 1, tx: 0, ty: 0, box: { x: 0, y: 470, w: 1920, align: "center" }, accent: "lifetime" }, // montase foto
   { s: 1.15, tx: -60, ty: -40, box: { x: 1000, y: 300, w: 820, align: "left" }, accent: "16-year-old" }, // remaja kiri, teks kanan atas
-  { s: 1.2, tx: -192, ty: -108, box: { x: 0, y: 500, w: 1920, align: "center" }, accent: "ai" }, // close gelap
+  { s: 1.0, tx: 0, ty: 0, box: { x: 0, y: 500, w: 1920, align: "center" }, accent: "ai" }, // R4-F: close-up wajah (sumber 4,15–5,8); skala 1,2→1,0 dan tx/ty 0: bingkai sumber penuh supaya mata masuk sejak frame pertama (di 1,2 mata terpotong atas pada 4,4–5,0)
   { s: 1.45, tx: 0, ty: 0, box: { x: 110, y: 420, w: 540, align: "left" }, accent: "billion" }, // Bloomberg kanan, teks kiri
   { s: 1.25, tx: -350, ty: 0, box: { x: 1120, y: 760, w: 700, align: "left" }, accent: "time" }, // presenter kiri, teks kanan bawah
   { s: 1, tx: 0, ty: 0, box: { x: 0, y: 652, w: 1920, align: "center" }, accent: "fast" }, // kartu menyusut, teks di bawah kartu
