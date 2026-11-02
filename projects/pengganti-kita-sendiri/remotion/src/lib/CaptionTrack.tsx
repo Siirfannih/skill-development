@@ -46,6 +46,14 @@ const lumAt = (f: number) => {
   return M.lum.length ? M.lum[Math.max(0, Math.min(M.lum.length - 1, i))] / 1000 : 0;
 };
 
+const normW = (t: string) => t.toLowerCase().replace(/[^a-z0-9]/g, "");
+/** teks penekanan (nama objek probe, mis. "anchor:SADAR text:BERLOMBA-LOMBA(dikunci)") yang tampil di [f−45, f+15] memuat kata ini? */
+const shownAsEmph = (text: string, f: number) => {
+  const k = normW(text);
+  if (k.length < 3) return false;
+  return M.emph.some(([a, b, names]) => b >= f - 45 && a <= f + 15 && names.split(/[\s:_()]+/).some((n) => normW(n) === k));
+};
+
 export type CapWord = { text: string; f: number; endF: number; i: number };
 export type Phrase = { words: CapWord[]; start: number; end: number; dark: boolean };
 
@@ -67,6 +75,13 @@ export const buildPhrases = (): { phrases: Phrase[]; skipped: number[] } => {
     const f = fOf(w.s);
     if (inHide(f)) {
       // diucapkan saat teks penekanan tampil → tidak diulang di caption; frasa berikutnya mulai baru
+      skipped.push(i);
+      flush();
+      prevSrc = w.src; prevRaw = w.w; prevE = w.e;
+      return;
+    }
+    if (shownAsEmph(text, f)) {
+      // kata yang baru saja tampil sebagai penekanan (≤ 1,5 dtk sebelumnya, mis. cat BERLOMBA-LOMBA) tidak diulang di caption
       skipped.push(i);
       flush();
       prevSrc = w.src; prevRaw = w.w; prevE = w.e;

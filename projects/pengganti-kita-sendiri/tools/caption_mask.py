@@ -69,7 +69,7 @@ for i in range(nS):  # isi sampel kosong dengan tetangga terdekat sebelumnya
     if lumv[i] is None: lumv[i], bad[i] = last, lb
     last, lb = lumv[i], bad[i]
 # haluskan: median ±3 sampel (tinta tidak berkedip; sembunyi hanya bila mayoritas sekitar sibuk)
-lum_s = [int(np.median(lumv[max(0, i - 3):i + 4])) for i in range(nS)]
+lum_s = [int(np.median(lumv[max(0, i - 2):i + 3])) for i in range(nS)]
 bad_s = [sum(bad[max(0, i - 3):i + 4]) * 2 > len(bad[max(0, i - 3):i + 4]) for i in range(nS)]
 busy = []
 for i, v in enumerate(bad_s):
