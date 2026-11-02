@@ -22,7 +22,7 @@ import { SOFT_SHADOW } from "./AnchorWord";
 import { textWidth } from "./SpeakerWords";
 import mask from "./captionMask.json";
 
-export const CAPTION = { size: 56, baseline: 820, light: "#FAF8EC", ink: "#14161A", maxChars: 32, gapS: 0.35, holdF: 36, inF: 3 } as const;
+export const CAPTION = { size: 62, baseline: 820, light: "#FAF8EC", ink: "#14161A", maxChars: 32, gapS: 0.35, holdF: 36, inF: 3 } as const;
 const INK_SHADOW = "0 1px 2px rgba(255,255,255,.35)";
 /** luminansi relatif latar pita caption di atas ini → tinta gelap (kontras #FAF8EC < 4,5:1 bila L > 0,17; #14161A ≥ 4,5:1 bila L ≥ 0,21) */
 const DARK_ABOVE = 0.19;
@@ -37,10 +37,13 @@ const fOf = (s: number) => Math.ceil(s * FPS - 1e-6);
 /** frame absolut f berada di dalam interval teks penekanan (mask probe)? */
 export const inEmph = (f: number) => M.emph.some(([a, b]) => f >= a && f <= b);
 /** pita caption terisi objek UI/bidang yang membuat caption menimpa objek atau tak terbaca (dari still probe, tools/caption_mask.py) */
-export const inBusy = (f: number) => (M.busy ?? []).some(([a, b]) => f >= a && f <= b);
+// QC Claude utama v11 (contact sheet render 1080p): caption masih menimpa kartu/ikon di pita bawah → disembunyikan manual
+const MANUAL_BUSY: [number, number][] = [[585, 690], [840, 870], [2875, 2945], [3400, 3515]];
+const BUSY = [...(M.busy ?? []), ...MANUAL_BUSY];
+export const inBusy = (f: number) => BUSY.some(([a, b]) => f >= a && f <= b);
 const inHide = (f: number) => inEmph(f) || inBusy(f);
 const emphBetween = (f0: number, f1: number) =>
-  M.emph.some(([a, b]) => b > f0 && a <= f1) || (M.busy ?? []).some(([a, b]) => b > f0 && a <= f1);
+  M.emph.some(([a, b]) => b > f0 && a <= f1) || BUSY.some(([a, b]) => b > f0 && a <= f1);
 const lumAt = (f: number) => {
   const i = Math.floor(f / Math.max(1, M.step));
   return M.lum.length ? M.lum[Math.max(0, Math.min(M.lum.length - 1, i))] / 1000 : 0;
