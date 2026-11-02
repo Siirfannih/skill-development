@@ -1,13 +1,20 @@
 # STATUS: Pengganti Kita Sendiri (@siirfannih)
 
-_Update terakhir: 2 Nov 2026 03.00 WITA — PKS_v9 terkirim ke Irfan, menunggu review._
+_Update terakhir: 2 Nov 2026 10.50 WITA — PKS_v10 terkirim ke Irfan, menunggu review._
 
 ## Posisi sekarang
-- **Versi terakhir: v9** = visual v9 (anchor words + teks narasumber bervariasi + orbit + checklist) + audio v19.
-  - File: Mac `~/Documents/Skill-Development/AI-Video/pks-studio/out/PKS_v9.mp4` (1080p30, 132,8 s, −14 LUFS, peak −1,3 dBFS).
-  - Brief & keputusan: `AUTORUN-2NOV.md`, feedback `FEEDBACK-2NOV-0016.md`, audit `AUDIT-V8-2NOV.md`, log & pelajaran `TODO-AUTORUN.md`.
-- **Sisa pekerjaan:** review telinga + mata Irfan atas v9 → perbaiki per segmen (diff), render final sekali.
+- **Versi terakhir: v10** — Mac `pks-studio/out/PKS_v10.mp4` (1080p30, 132,8 s, −14,0 LUFS, peak −1,2 dBFS).
+- QC: 4 putaran reviewer segar (`review_log.md`); putaran 4 = SHIP (0 P0/P1, semua rubrik 4; gerbang ketat R6 ≥ 4,5 belum). 9/9 keluhan 06.05 beres.
+- P2 ditunda untuk Irfan: ruang gelap kosong 101–103 & 115–120 s, «Tempat kita»/«Tertinggal» di y ≈ 73 %, komposisi 25–28 s, label UI kecil (perlu punch-in), VO p5 2,7 dB.
+- Bagian dikunci Irfan: `LOCKED.md`. Cara kerja baru: `claude/motion-graphic/references/three-segment-gate.md` (gerbang 3 segmen, hierarki subagent, aturan teks).
 
+## Alur v10 (dipakai)
+- Segmen 1 kode: `tools/seg1_code_check.py` → `OBJECT-MAP.md`.
+- Segmen 2 pra-render: `remotion/seg2_probe.mjs` (log OBJ dari DOM + still) → `tools/seg2_layout_check.py` (SAFE/CLASH/CONTR).
+- Segmen 3 render: Mac `seg.sh` per segmen → `tools/sfxev_to_cues.py` → `audio-v19/mix_v19.py --sfx-duck 5 --bed-duck 4` → `tools/audio_gate.py` → reviewer segar → `final.sh`.
+- Font overlay: Geist Sans 500/600 (`@fontsource/geist-sans`, sudah terpasang di Mac).
+
+## Arsip v9
 ## Cara kerja (dipakai v9)
 - Kode Remotion: repo `remotion/` = sumber kebenaran; disalin per file ke Mac `pks-studio/remotion` (stagedPath unik per sinkron).
 - Render per segmen: Mac `pks-studio/seg.sh <nama> <a_s> <b_s>` (50 %, log SFXEV → `seg/<nama>.sfx`). Final: `final.sh`. Tambal rentang tanpa render penuh: `patch.sh <fA> <fB>`.

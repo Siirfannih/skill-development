@@ -64,3 +64,13 @@ Setiap perbaikan langsung dirender per segmen dan di-QC, baru render final sekal
 
 - 02.36: FINAL_DONE + patch Altman. QC final: 132,8 s, 1080p30, −14,0 LUFS, TP −1,3, dead air 0. Patch ke-2 Altman (90 px, x100–775 | 1080) sedang.
 - 03.00: patch Altman ke-3/4 (SINGLE/BILLION/COMPANY ditumpuk rata kanan di kiri kartu, frame 2120–2300). PKS_v9 terkirim. Menunggu review Irfan.
+
+## v10 (2 Nov 06.05–10.50)
+- [x] Audit independen v9 (44 cacat) → 4 worker perbaikan per rentang waktu
+- [x] Gerbang 3 segmen (Irfan 06.48): probe pra-render, safe zone, kontras, ukuran seragam, Geist Sans, kinetic per peran
+- [x] Audit ulang 7 referensi (GrokAgent/reference-videos/AUDIT-2NOV-*.md) — referensi = prinsip, bukan aturan
+- [x] Hierarki subagent + LOCKED.md (BERLOMBA-LOMBA, grid 3×3 02e, dll)
+- [x] Audio: gerbang terukur (SFX terdengar 89 %, VO median 15,2 dB), ekor bersih
+- [x] 4 putaran reviewer segar → SHIP; render final + kirim PKS_v10
+- [ ] Menunggu review Irfan; P2 tertunda di STATUS.md
+- Pelajaran: probe meninggalkan bundle 97 MB → disk cloud penuh (diperbaiki: probe hapus bundle sendiri); bundle lama ±12 GB di /tmp butuh izin Irfan untuk dihapus.
