@@ -124,7 +124,7 @@ const NormalLike: React.FC<{ w: PlacedWord; absF: number; shadow: string; color:
       ref={probe}
       style={{
         fontFamily: DISPLAY_FONT, fontWeight: weightOf(kind), fontSize: s, letterSpacing: `${track}em`, lineHeight: 1, color, whiteSpace: "nowrap",
-        textShadow: shadow, transform: `translateY(${tr * 100}%)`, opacity: dim ? 0.45 : 1,
+        textShadow: shadow, transform: `translateY(${tr * 100}%)`, opacity: dim ? 0.6 : 1,
         transformOrigin: "0% 60%", filter: blur ? `blur(${blur}px)` : undefined,
       }}
     >
