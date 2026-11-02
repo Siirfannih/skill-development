@@ -5,7 +5,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
-import { AIGlyph, Ball, C6, Plane, relay, Torso, wa } from "./_b6_shared";
+import { AIGlyph, Ball, C6, Plane, Torso, wa } from "./_b6_shared";
 
 const P = panel("06d");
 export const T_OFF = word("Tapi", "s6", 1).s; // = awal 06e
@@ -33,7 +33,8 @@ const KEY_MARKS: { at: number; id: string }[] = (() => {
 
 export const S06d_Prompt: React.FC = () => {
   const t = useT();
-  const on = relay(t, T_OFF);
+  // R3-E: padam MONOTONIK 6 f (v10: relay 0 → 0,45 → 0 = kedip gelap→abu→gelap di 117,07–117,13), lalu potong dalam gelap ke 06e
+  const on = 1 - prog(t, T_OFF, T_OFF + 0.2, EZ.inOut);
   // ── SFXEV
   sfxMark(t, "pop", P.start, "06d:bloom:1"); // bloom match dari 06c (puncak BLOOM_06C_END) mendarat jadi composer
   KEY_MARKS.forEach((k) => sfxMark(t, "key", k.at, k.id));

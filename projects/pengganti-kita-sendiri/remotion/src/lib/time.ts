@@ -9,7 +9,8 @@ export const BLOCKS: any[] = (timeline as any).blocks;
 export const TOTAL_S: number = (timeline as any).total;
 export const PANELS: { panel: string; t: number; dur: number }[] = (beats as any).panels;
 
-export const f = (s: number) => Math.round(s * FPS);
+// R3-E: +1e-6 supaya batas panel yang jatuh di x,5 frame (mis. 1228,4999999 vs 1228,5) dibulatkan sama di akhir adegan lama dan awal adegan baru (tanpa frame kosong)
+export const f = (s: number) => Math.round(s * FPS + 1e-6);
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9-]/g, "");
 
 /** Kata ke-n (1-based) dengan teks `word` dari sumber `src` (s1..s6, jensen, altman, news_*). */

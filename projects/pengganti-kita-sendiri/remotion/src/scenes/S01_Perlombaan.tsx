@@ -6,7 +6,7 @@ import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, shake, useT } from "../lib/anim";
 import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
-import { FPS, panel, word } from "../lib/time";
+import { f, FPS, panel, word } from "../lib/time";
 import { C, FIG, LightCone, Pictogram, WireFigure } from "./_b1_shared";
 
 const P1a = panel("01a"), P1b = panel("01b"), P1c = panel("01c"), P1d = panel("01d");
@@ -92,6 +92,7 @@ const FLOOR = HEAD_TOP + (FIG.head + FIG.gap + FIG.bodyH) * S;
 
 const CLOSE_A = word("anehnya", "s1").s + 1.25; // close-up mulai setelah «anehnya» terbaca
 const CLOSE_B = word("lebih", "s1").s - 3 / FPS; // tiba 2× tepat sebelum LEBIH
+const C_START = f(P1c.start) / FPS - 1e-6; // frame pertama ruang gelap
 const FALL_A = P1b.start - 10 * fr; // tile mulai jatuh (C10)
 const TEXT_OUT1 = T.dan - 6 * fr; // «PENGGANTI kita sendiri» keluar
 const SNAP_D = T.lebih + 2 * fr; // 01d patah close-up 2× → wide (5 f, EZ.out)
@@ -118,8 +119,9 @@ export const S01_Perlombaan: React.FC = () => {
   return (
     <Scene start={P1a.start} end={P1d.end} name="01a–01d Perlombaan">
       {t < P1b.start && <HorizonA t={t} />}
-      {t >= P1b.start && t < P1c.start && <RaceB t={t} />}
-      {t >= P1c.start && <RoomCD t={t} />}
+      {/* R3-E: batas 01b→01c = FRAME bulat (P1c.start = 12,705 s jatuh di antara frame 381 dan 382 → frame 381 sebelumnya = RaceB berlapis charcoal penuh = 1 frame hitam) */}
+      {t >= P1b.start && t < C_START && <RaceB t={t} />}
+      {t >= C_START && <RoomCD t={t} />}
     </Scene>
   );
 };
@@ -148,7 +150,7 @@ const HorizonA: React.FC<{ t: number }> = ({ t }) => {
       {/* teks di zona gelap atas, tengah */}
       {/* v9 (B13): «Tanpa» dihapus; SADAR = anchor di langit gelap tengah (putih di navy, bukan biru di gelap), masuk di suku tekan f319 */}
       <AbsoluteFill style={{ transform: `scale(${1 + 0.035 * c01})` }}>
-        <AnchorWord text="SADAR" at={atSadar} until={useFrameAt(Math.round(fallA * FPS))} x={960} y={500} size={250} color={C.white} enter="scale" />
+        <AnchorWord text="SADAR" at={atSadar} until={useFrameAt(Math.round(fallA * FPS))} x={960} y={500} size={130} color={C.white} enter="scale" />
       </AbsoluteFill>
       {/* C10: tile jatuh dari atas ke lajurnya (akselerasi), mendarat di cut 01b */}
       {t >= fallA && TILES.map((tl, i) => {
@@ -247,7 +249,7 @@ const RoomCD: React.FC<{ t: number }> = ({ t }) => {
   const camX = 960 - qx * sc, camY = 540 - qy2 * sc;
   const txtScale = 1 + 0.6 * (c01d - 1);
   // garis finis → kerucut membuka
-  const open = prog(t, P1c.start, P1c.start + 0.42, EZ.out);
+  const open = prog(t, P1c.start - 1 / FPS, P1c.start + 0.42, EZ.out); // R3-E: berkas cahaya sudah mulai membuka di frame cut
   const draw = prog(t, P1c.start + 0.2, T.pengganti, EZ.out);
   // isi naik makin cepat (mulai di «kita» 01d, ±46 % di batas babak)
   const fill = 0.46 * Math.pow(u0, 2.2);

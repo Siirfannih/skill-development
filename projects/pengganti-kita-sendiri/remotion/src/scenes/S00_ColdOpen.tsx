@@ -7,7 +7,7 @@ import { AnchorStage } from "../lib/AnchorWord";
 import { MatteClip, useSubjectMatte } from "../lib/SubjectMatte";
 import { SpeakerLine, wordAt } from "../lib/SpeakerWords";
 import { Clip, DOC_GRADE } from "../lib/media";
-import { block, FPS, panel, word as timelineWord, WORDS } from "../lib/time";
+import { block, f, FPS, panel, word as timelineWord, WORDS } from "../lib/time";
 import cues from "../../public/data/cues11.json";
 
 // (tick FOUNDER/CEO/SEMALAM tidak dipakai lagi sejak v2)
@@ -31,7 +31,8 @@ const CUTS = (() => {
       t += b - a + 0.03;
     });
   });
-  for (let i = 0; i < out.length - 1; i++) out[i].outS = out[i].inS + (out[i + 1].at - out[i].at);
+  // R3-E: durasi dalam FRAME bulat sampai awal potongan berikutnya (round(durasi) ≠ f(berikut) − f(awal) → 1 frame hitam/teks yatim di 8,000)
+  for (let i = 0; i < out.length - 1; i++) out[i].outS = out[i].inS + (f(out[i + 1].at) - f(out[i].at)) / FPS;
   return out;
 })();
 

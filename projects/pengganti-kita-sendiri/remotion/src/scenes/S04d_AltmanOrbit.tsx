@@ -1,15 +1,14 @@
 // 04d · Klip Sam Altman: «It is a legitimate single-person billion-dollar company…»
 // Klip asli di kartu (frame-in-frame dari 04c), di-crop ke Altman (duduk di kanan frame sumber).
 // v10 (Irfan 9): Altman FULL FRAME; cincin orbit + kata orbit + tumpukan SINGLE/BILLION/COMPANY DIBUANG; matte tidak dipakai.
-// Kutipan = SATU baris besar «SINGLE PERSON BILLION DOLLAR COMPANY», tiap kata muncul pada onsetnya (BILLION = penekanan), di depan klip, di area aman.
+// R3-E: kutipan = SATU slot tengah layar (130 px), tiap kata menggantikan kata sebelumnya pada onsetnya (BILLION = aksen kuning).
 // Keluar X01: kartu menyusut jadi kartu bergaris biru (posisi 05a) bersama whoosh 75,195.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
 import { Camera, EZ, Grain, keys, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { Clip, DOC_GRADE } from "../lib/media";
 import { block, FPS, panel, word } from "../lib/time";
-import { AnchorWord, displayCase } from "../lib/AnchorWord";
-import { textWidth } from "../lib/SpeakerWords";
+import { AnchorWord } from "../lib/AnchorWord";
 import { altCard, ALTMAN_STILL, CLIP_CARD, T_SHRINK, T_STILL } from "./_b4_shared";
 
 // crop sumber 1920×1080 → kartu: Altman di tengah kartu
@@ -20,7 +19,7 @@ const IN_S = 5.27;
 const OUT_S = 8.72;
 const TAIL = 0.73; // gambar (tanpa suara) diperpanjang sampai batas 05a, saat kartu sudah menyusut (cut on motion)
 
-// R2-C: satu baris «Single Person Billion Dollar Company», ukuran seragam SEBESAR MUNGKIN yang muat di safe zone (lebar 1344 px, x 288–1632), dipusatkan.
+// R3-E (keputusan Claude utama atas R6 putaran 2): SATU slot di tengah layar; tiap kata muncul di onset ucapannya dan MENGGANTIKAN kata sebelumnya.
 const QUOTE = [
   { text: "SINGLE", at: 2162 },
   { text: "PERSON", at: 2169 },
@@ -28,21 +27,9 @@ const QUOTE = [
   { text: "DOLLAR", at: 2189 },
   { text: "COMPANY", at: 2209 },
 ];
-const QUOTE_Y = 262; // R2-C: dipusatkan di atas kepala mic (kepala mic y ≈ 320–540 di layar; y 470 menimpa kepala mic)
-const SAFE_W = 1344 * 0.985; // sisa 1,5 % untuk drift AnchorWord (1,015) + selisih tabel glyph
-const GAP_EM = 0.3;
-const layoutQuote = () => {
-  const disp = QUOTE.map((w) => displayCase(w.text));
-  const raw = disp.reduce((acc, d, i) => acc + textWidth(d, 100) + (i ? GAP_EM * 100 : 0), 0);
-  const size = (100 * SAFE_W) / raw; // seragam
-  let x = 960 - SAFE_W / 2;
-  return QUOTE.map((w, i) => {
-    if (i) x += GAP_EM * size;
-    const out = { ...w, size, x };
-    x += textWidth(disp[i], size);
-    return out;
-  });
-};
+const SLOT_X = 960;
+const SLOT_Y = 624; // di dalam pita pesan (y 36–64 % = 389–691), digeser 84 px ke bawah supaya tidak menyentuh kepala/lengan mikrofon (y 330–500)
+const SLOT_SIZE = 130;
 
 export const S04d_AltmanOrbit: React.FC = () => {
   const t = useT();
@@ -54,7 +41,6 @@ export const S04d_AltmanOrbit: React.FC = () => {
   const outW = Math.round(T_SHRINK * FPS); // teks hilang tepat saat kartu mulai menyusut
   const wordsOut = prog(t, tEnd + 0.12, T_SHRINK + 0.05, EZ.acc);
   const drift = 1 + 0.03 * prog(t, P.start, T_SHRINK, (x) => x);
-  const QW = layoutQuote();
   const card = altCard(t);
   const stop = 1 - 0.18 * prog(t, tEnd + 0.1, T_SHRINK, EZ.inOut);
 
@@ -92,9 +78,10 @@ export const S04d_AltmanOrbit: React.FC = () => {
           </div>
         </div>
         </Camera>
-        {/* v10 (Irfan 9): satu baris, kata muncul pada onset (frame absolut). Di depan klip; boleh menutup torso/wajah (ruang logis, bukan ruang kosong lain). */}
-        {QW.map((w) => (
-          <AnchorWord key={w.text} text={w.text} at={w.at} until={outW} x={w.x} y={QUOTE_Y} size={w.size} color={w.text === "BILLION" ? "#FFD25A" : "#fff"} align="left" enter="scale" grain={0.25}
+        {/* R3-E: satu slot tengah; kata lama hilang 1 f sebelum kata baru masuk (0–2 f). Di depan klip. */}
+        {QUOTE.map((w, i) => (
+          <AnchorWord key={w.text} text={w.text} at={w.at} until={i < QUOTE.length - 1 ? QUOTE[i + 1].at - 1 : outW} x={SLOT_X} y={SLOT_Y} size={SLOT_SIZE} align="center"
+            color={w.text === "BILLION" ? "#FFD25A" : "#fff"} enter="scale" grain={0.25}
             shadow="0 4px 36px rgba(0,0,0,0.6)" sfx={w.text === "BILLION" ? { kind: "sub_impact", id: "04d:anchor:billion" } : undefined} />
         ))}
         {/* atribusi */}

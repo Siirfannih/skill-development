@@ -44,7 +44,9 @@ export const S05c_SameTools: React.FC = () => {
   const t = useT();
   const atSemua = useFrameAt(2514), atTools = useFrameAt(Math.round(T_TOOLS * FPS)), atSama = useFrameAt(2591); // v9: f terukur ANCHORS-V9 #22
   // indeks foto terkunci ke grid yang beranchor di tick «tools» (foto berganti tepat di tick)
-  const k = gridIdx(t, T_TOOLS);
+  // R3-E: ganti foto montase yang jatuh di FRAME TERAKHIR adegan (1 frame sebelum UI ChatGPT 05d) ditiadakan → foto sebelumnya bertahan sampai cut
+  const tI = Math.min(t, (Math.round(P.end * FPS) - 2) / FPS);
+  const k = gridIdx(tI, T_TOOLS);
   const kFirst = gridIdx(P.start, T_TOOLS);
   const idx = (((k - kFirst) % PHOTOS.length) + PHOTOS.length) % PHOTOS.length;
   const local = t - Math.max(P.start, T_TOOLS + k * (60 / 117.5 / 2));
@@ -63,7 +65,7 @@ export const S05c_SameTools: React.FC = () => {
   // ── SFXEV penanda metronom
   sfxMark(t, "cut", P.start, "05c:in:cut"); // titik biru 05b → montase foto
   // foto berganti di tiap langkah grid (rumus idx di atas)
-  for (let kk = kFirst + 1; T_TOOLS + kk * GRID < P.end; kk++) sfxMark(t, "snap", firstFrame(T_TOOLS + kk * GRID), `05c:photo:${kk - kFirst}`);
+  for (let kk = kFirst + 1; firstFrame(T_TOOLS + kk * GRID) < (Math.round(P.end * FPS) - 1) / FPS; kk++) sfxMark(t, "snap", firstFrame(T_TOOLS + kk * GRID), `05c:photo:${kk - kFirst}`);
   ICONS.forEach((_, i) => { const a = T_TOOLS + i * ICON_GAP; sfxMark(t, "pop", progAt(a, a + ICON_IN, EZ.out), `05c:icon:${i}`); });
   sfxMark(t, "whoosh", MERGE_B - 1 / FPS, "05c:icons:merge"); // tiga ikon menyatu ke tengah (EZ.acc, puncak di akhir)
   sfxMark(t, "whoosh", P.end - 1 / FPS, "05c:cam:exitpush"); // dorongan cut-on-motion 4 f terakhir (EZ.acc) ke 05d

@@ -1,7 +1,7 @@
 // 06g · MOMEN 7 «Jadi di tengah semua ini, peran apa yang sedang kamu mainkan?»: wide setelah crane 06f.
 // Bidang-bidang kerumunan padam satu per satu (pictogram di belakangnya ikut hilang tanpa cahaya); bidang terakhir
 // padam tepat di boom penutup. Tersisa satu piktogram di tengah. Pertanyaan muncul per kata di tengah, «kamu» putih penuh.
-// Kamera C02 push-in 100→115 % sepanjang panel. Ekor gelap sampai akhir video. Tanpa tanda tanya di layar.
+// Kamera: drift 1→1,03 lalu dorong 1,00→1,12 (cubic-out) selama hold (R3-E). Ekor gelap sampai akhir video. Tanpa tanda tanya di layar.
 import React from "react";
 import { AbsoluteFill } from "remotion";
 import { EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
@@ -27,12 +27,18 @@ const offAt = (i: number) => {
 export const S06g_Peran: React.FC = () => {
   const t = useT();
   const atPeran = useFrameAt(3841), atKamu = useFrameAt(3869); // v9: f terukur ANCHORS-V9 #32
-  const push = prog(t, P.start, P.end, EZ.inOut);
+  // R3-E (penutup): selama hold «Peran Kamu» (dari PERAN mendarat sampai fade selesai) kamera dorong pelan 1,00→1,12 (cubic-out) dan rim light piktogram naik pelan.
+  // Sebelum hold: drift kecil 1→1,03 (total akhir ≈ 1,15, sama dengan C02 v10). Tanpa elemen baru; fade akhir tetap.
+  const H0 = atPeran / 30, H1 = P.end - 0.45;
+  const cubicOut = (x: number) => 1 - Math.pow(1 - x, 3);
+  const pre = 0.03 * prog(t, P.start, H0, EZ.inOut);
+  const hold = 0.12 * prog(t, H0, H1, cubicOut);
+  const rimUp = prog(t, H0, H1, (x) => x * x * (3 - 2 * x));
   // C09 snap punch-in ×1,09 di «kamu» (4 f), patah balik ke wide di boom penutup (5 f).
   // Lebar kalimat ±1500 px × skala maks ±1,2 = ±1800 px < 1920: tidak terpotong.
   const W_KAMU = at("kamu");
   const punch = 0.09 * (prog(t, W_KAMU, W_KAMU + 4 / 30, EZ.out) - prog(t, T_BOOM, T_BOOM + 5 / 30, EZ.out));
-  const sc = (1 + 0.15 * push) * (1 + punch);
+  const sc = (1 + pre) * (1 + hold) * (1 + punch);
   const land = prog(t, P.start, P.start + 0.4, EZ.out);
   const ons = PX.map((_, i) => relay(t, offAt(i)));
   // ── SFXEV
@@ -67,8 +73,8 @@ export const S06g_Peran: React.FC = () => {
             {/* v10 (#44): PERAN | KAMU turun ke tinggi badan (kiri/kanan torso, bukan di antara kepala → tak ada «O» nyasar). v9 (#32): kalimat penuh DI ATAS piktogram dibuang → PERAN | KAMU satu baris setinggi kepala piktogram tunggal, DI BELAKANG kepalanya
                 (DOM sebelum Ball: tepi dalam kedua kata terselip 40 px di bawah kepala). KAMU putih penuh. */}
             {/* yang tersisa: satu piktogram di tengah */}
-            <Ball b={{ x: 892, y: 636, w: 136, h: 136 }} rim={0.4 + 0.35 * litFrac} r={8} />
-            <Torso b={{ x: 840, y: 784, w: 240, h: 360 }} rim={0.3 + 0.25 * litFrac} r={7} />{/* h 300→360: saat land (translateY −40) alas badan tak terlihat */}
+            <Ball b={{ x: 892, y: 636, w: 136, h: 136 }} rim={Math.min(1, 0.4 + 0.35 * litFrac + 0.4 * rimUp)} r={8} />
+            <Torso b={{ x: 840, y: 784, w: 240, h: 360 }} rim={Math.min(1, 0.3 + 0.25 * litFrac + 0.4 * rimUp)} r={7} />{/* h 300→360: saat land (translateY −40) alas badan tak terlihat */}
           </AbsoluteFill>
           {/* v11 (SAFE/CONTR): PERAN | KAMU pindah ke ruang layar di celah antara barisan bidang dan piktogram (y 540, utuh di safe zone);
               di v10 duduk di y 826 dalam lapisan kamera → turun ke y 940 saat push-in dan menimpa badan piktogram (kontras 2,1:1). Ukuran seragam. */}
