@@ -3,6 +3,7 @@
 // Satuan = px layar 1920×1080 pada skala 1 (panel Wonder ×2). Semua deterministik.
 import React from "react";
 import { EZ } from "../lib/anim";
+import { FloorPool, LightShaft } from "./parts/NaturalLight";
 
 /** SFXEV: detik saat prog(t, a, b, ez) mencapai 0,5 (titik «±50 % perjalanan masuk» untuk sfxMark pop). */
 export const ezHalf = (a: number, b: number, ez: (x: number) => number = EZ.out) => {
@@ -34,28 +35,15 @@ export const LightCone: React.FC<{ cx: number; floorY: number; open?: number; w?
   const botHalf = Math.max(2, (0.32 * w) * open); // 18%..82%
   const H = 1400;
   const y0 = -160;
-  // kerucut digambar sampai lantai, lalu memudar
   const k = (floorY - y0) / H;
   const bx = botHalf / k; // lebar di bawah frame (proporsional)
+  // v11 (Irfan gambar 3): cahaya natural (parts/NaturalLight) — falloff panjang di sepanjang sumbu + penumbra + grain,
+  // genangan lantai gaussian (bukan elips terang bertepi). Geometri kerucut & animasi «garis finis → kerucut» sama.
   return (
     <>
-      {/* tepi kerucut di-feather (blur di wrapper, karena clip-path diterapkan SESUDAH filter pada elemen yang sama);
-          blur mengecil saat kerucut masih berupa garis finis tipis supaya garisnya tidak hilang. */}
-      <div style={{ position: "absolute", left: 0, top: 0, width: 1920, height: 1080, filter: `blur(${2 + 12 * Math.min(1, open)}px)` }}>
-        <div
-          style={{
-            position: "absolute", left: cx - bx, top: y0, width: bx * 2, height: H,
-            clipPath: `polygon(${50 - (topHalf / (bx * 2)) * 100}% 0%, ${50 + (topHalf / (bx * 2)) * 100}% 0%, 100% 100%, 0% 100%)`,
-            backgroundImage: `linear-gradient(180deg, rgba(255,255,255,${0.22 * intensity}) 0%, rgba(255,255,255,${0.06 * intensity}) ${k * 100}%, rgba(255,255,255,0) 100%)`,
-          }}
-        />
-      </div>
-      <div
-        style={{
-          position: "absolute", left: cx - botHalf * 0.95, top: floorY - 56, width: botHalf * 1.9, height: 112, borderRadius: "50%",
-          backgroundImage: `radial-gradient(closest-side, rgba(255,255,255,${0.3 * intensity * Math.min(1, open * 1.4)}) 0%, rgba(255,255,255,0) 100%)`,
-        }}
-      />
+      <LightShaft id={`lc01-${Math.round(cx)}`} from={{ x: cx, y: y0 }} to={{ x: cx, y: y0 + H }} w0={topHalf * 2} w1={bx * 2}
+        a={0.26 * intensity} soft={2 + 16 * Math.min(1, open)} falloff={0.9} scatter={0.25 * open} grain={0.2 * open} />
+      <FloorPool cx={cx} y={floorY} rx={botHalf * 1.2} ry={64} a={0.24 * intensity * Math.min(1, open * 1.4)} />
     </>
   );
 };

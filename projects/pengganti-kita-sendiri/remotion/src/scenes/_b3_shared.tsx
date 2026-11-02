@@ -1,5 +1,6 @@
 // Komponen bersama Babak 3 «Meniru Diri» (03a-1 … 03e): agent, kursor bernama, ikon UI, piktogram.
 import React from "react";
+import { FloorPool, LightShaft } from "./parts/NaturalLight";
 import cues from "../../public/data/cues11.json";
 
 /**
@@ -141,26 +142,16 @@ export const pictoHalfWidth = (y: number) => {
 
 /** Kerucut cahaya (dari atas) + genangan cahaya di lantai, pusat cx. */
 export const LightCone: React.FC<{ cx: number; w?: number; i?: number }> = ({ cx, w = 880, i = 1 }) => {
-  // Kemiringan sama dengan versi lama (lebar 12 % w di y=0 → 68 % w di y=1080), tetapi berkas dimulai di atas frame
-  // (apeks tak terlihat), tepinya di-feather (blur pada pembungkus, bukan pada elemen ber-clip) dan memudar
-  // lembut ke genangan cahaya di lantai alih-alih terpotong lurus di tepi bawah frame.
+  // Kemiringan sama dengan versi lama (lebar 12 % w di y=0 → 68 % w di y=1080), apeks di atas frame.
+  // v11 (Irfan gambar 3): cahaya natural (parts/NaturalLight) — falloff panjang sepanjang sumbu + penumbra + grain,
+  // genangan lantai gaussian lebar & redup (bukan elips terang bertepi bulat).
   const top = -220;
-  const bot = 1080;
   const hw = (y: number) => w * (0.06 + (0.28 * y) / 1080);
-  const h = bot - top;
-  const m = w / 2;
-  const fadeA = 920 - top; // mulai pudar sedikit di atas lantai (FLOOR 1020)
-  const fadeB = 1050 - top;
   return (
-  <>
-    <div style={{ position: "absolute", left: cx - w / 2, top, width: w, height: h, filter: "blur(9px)",
-      maskImage: `linear-gradient(180deg, #000 0px, #000 ${fadeA}px, transparent ${fadeB}px)`, WebkitMaskImage: `linear-gradient(180deg, #000 0px, #000 ${fadeA}px, transparent ${fadeB}px)` }}>
-      <div style={{ position: "absolute", inset: 0,
-        clipPath: `polygon(${m - hw(top)}px 0px, ${m + hw(top)}px 0px, ${m + hw(bot)}px ${h}px, ${m - hw(bot)}px ${h}px)`,
-        backgroundImage: `linear-gradient(180deg, color-mix(in srgb, var(--sb-white) ${Math.round(19 * i)}%, transparent) ${-top}px, color-mix(in srgb, var(--sb-white) ${Math.round(4.5 * i)}%, transparent) ${1080 - top}px)` }} />
-    </div>
-    <div style={{ position: "absolute", left: cx - 260, top: 956, width: 520, height: 96, borderRadius: "50%",
-      backgroundImage: `radial-gradient(circle at center, color-mix(in srgb, var(--sb-white) ${Math.round(29 * i)}%, transparent) 0%, #00000000 70%)` }} />
-  </>
+    <>
+      <LightShaft id={`lc03-${Math.round(cx)}`} from={{ x: cx, y: top }} to={{ x: cx, y: 1320 }} w0={2 * hw(top)} w1={2 * hw(1320)}
+        a={Math.min(0.5, 0.22 * i)} soft={20} falloff={0.9} />
+      <FloorPool cx={cx} y={1008} rx={340} ry={62} a={Math.min(0.5, 0.3 * i)} />
+    </>
   );
 };

@@ -10,7 +10,7 @@ import { panel, word } from "../lib/time";
 import { BlueprintGrid, BlueprintPaper, C, makePath } from "./_b2_shared";
 import { ezHalf } from "./_b1_shared";
 
-const W_JANJI = word("janji", "s2", 1);
+// (v11: W_JANJI tidak dipakai lagi — pena mulai di awal panel)
 const W_SEDERHANA = word("sederhana", "s2", 1);
 
 // garis janji 02b (bingkai 1920): kiri bawah → kanan atas
@@ -31,7 +31,8 @@ export const S02b_JanjiSederhana: React.FC = () => {
   // v10 (#13): sumbu mulai di frame pertama panel (tidak ada 0,5 dtk grid kosong); judul «janji sederhana» menyusul per kata
   const axisA = p.start + 0.03;
   const axis = prog(t, axisA, axisA + 0.35, EZ.out);
-  const d0 = W_JANJI.s + 0.06; // pena mulai di «janji» (anchor JANJI menempel di ujung pena)
+  // v11 (frame hampir kosong 0:23): pena mulai di «dia» (awal panel), bukan «janji» → sejak frame pertama ada garis janji yang digores, bukan grid kosong ±0,5 dtk
+  const d0 = p.start + 0.1;
   const d1 = p.end - 0.3;
   const draw = prog(t, d0, d1, EZ.inOut);
   const tip = LINE.at(draw * LINE.L);

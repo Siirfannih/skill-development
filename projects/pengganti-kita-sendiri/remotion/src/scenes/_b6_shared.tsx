@@ -3,6 +3,7 @@
 // Semua komponen murni (tanpa state), dipakai ulang lewat map supaya ringan dirender.
 import React from "react";
 import { Img, staticFile } from "remotion";
+import { parallelogram, SourceBloom } from "./parts/NaturalLight";
 
 export const C6 = {
   charcoal: "#101216",
@@ -53,19 +54,13 @@ export const Plane: React.FC<{
   const s = slant * 100;
   const clip = `polygon(${s}% 0%, 100% 0%, ${100 - s}% 100%, 0% 100%)`;
   const ga = glow ? glow.a * on * (1 + boost) : 0;
-  const ext = glow ? glow.spread + glow.blur : 0;
-  const core = glow ? Math.min(0.85, (Math.min(glow.b.w, glow.b.h) / 2 + glow.spread) / (Math.min(glow.b.w, glow.b.h) / 2 + ext)) : 0;
-  const softStops = glow
-    ? Array.from({ length: 9 }, (_, i) => {
-        const u = i / 8; // smoothstep jatuh dari core−0,45 ke tepi (≈0,55a di tepi spread, seperti box-shadow)
-        const pos = Math.max(0, core - 0.45) + (1 - Math.max(0, core - 0.45)) * u;
-        return `${wa(ga * (1 - u * u * (3 - 2 * u)))} ${(pos * 100).toFixed(1)}%`;
-      }).join(", ")
-    : "";
   return (
     <>
+      {/* v11 (Irfan gambar 3): pendar = bentuk bidang itu sendiri di-blur (parts/NaturalLight), bukan elips radial («balon putih»).
+          id dari geometri → filter userSpaceOnUse tiap instance unik. */}
       {glow && on > 0.01 && softGlow && (
-        <div style={{ position: "absolute", left: glow.b.x - ext, top: glow.b.y - ext, width: glow.b.w + 2 * ext, height: glow.b.h + 2 * ext, background: `radial-gradient(closest-side, ${wa(ga)} 0%, ${softStops})` }} />
+        <SourceBloom id={`pb${[b.x, b.y, b.w, b.h, glow.blur].map((v) => Math.round(v * 10)).join("_")}`} poly={parallelogram(b, slant)} a={Math.min(1, ga * 2.2)}
+          near={Math.max(3, glow.blur * 0.12)} far={glow.blur * 0.55} />
       )}
       {glow && on > 0.01 && !softGlow && (
         <div style={{ ...abs(glow.b), borderRadius: glow.radius, background: wa(glow.a * on * (1 + boost)), boxShadow: `0px 0px ${glow.blur}px ${glow.spread}px ${wa(glow.a * on * (1 + boost))}` }} />

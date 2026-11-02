@@ -15,6 +15,8 @@ const TYPE_A = P.start + 0.12;
 const TYPE_B = word("sendiri", "s6", 1).s + 0.1;
 const W_BISA = word("bisa", "s6", 1).s; // C20 cut zoom ke composer
 const W_SENDIRI = word("sendiri", "s6", 1).s; // C01
+// v11: prompt dikirim (tombol kirim ditekan 5 f) setelah huruf terakhir, sebelum lampu padam di «Tapi» → «menyerahkan» tuntas di layar
+const T_SEND = Math.round((TYPE_B + 0.25) * FPS) / FPS;
 
 // frame pertama huruf ke-i (1-based) muncul, persis rumus n di bawah; spasi tidak ditandai
 const KEY_MARKS: { at: number; id: string }[] = (() => {
@@ -37,7 +39,10 @@ export const S06d_Prompt: React.FC = () => {
   const on = 1 - prog(t, T_OFF, T_OFF + 0.2, EZ.inOut);
   // ── SFXEV
   sfxMark(t, "pop", P.start, "06d:bloom:1"); // bloom match dari 06c (puncak BLOOM_06C_END) mendarat jadi composer
-  KEY_MARKS.forEach((k) => sfxMark(t, "key", k.at, k.id));
+  // v11 (Irfan: ketikan tanpa sfx, hanya enter/klik): huruf pertama & terakhir + tombol kirim ditekan (enter)
+  sfxMark(t, "type", KEY_MARKS[0].at, "06d:type:prompt:start");
+  sfxMark(t, "type", KEY_MARKS[KEY_MARKS.length - 1].at, "06d:type:prompt:end");
+  sfxMark(t, "click", T_SEND, "06d:enter");
   sfxMark(t, "cut", W_BISA, "06d:cutzoom:1"); // C20 cut zoom ×1,35 ke composer
   sfxMark(t, "toggle", T_OFF, "06d:relay:off"); // relay(t, T_OFF): bidang/composer padam
   // bloom masuk dari 06c meluruh
@@ -55,7 +60,7 @@ export const S06d_Prompt: React.FC = () => {
   const n = Math.max(0, Math.min(PROMPT.length, Math.floor(((t - TYPE_A) / (TYPE_B - TYPE_A)) * PROMPT.length)));
   const typed = PROMPT.slice(0, n).replace(/[“”",]/g, ""); // v10 (#40): tanpa tanda baca di layar; timing ketikan tetap (cue key)
   const done = n >= PROMPT.length;
-  const caretOn = !done || Math.floor((t - TYPE_B) / 0.5) % 2 === 0;
+  const caretOn = (!done || Math.floor((t - TYPE_B) / 0.5) % 2 === 0) && t < T_SEND;
   return (
     <Scene start={P.start} end={T_OFF + OFF_HOLD} name="06d Prompt sepele">
       <AbsoluteFill style={{ background: C6.charcoal, overflow: "hidden" }}>
@@ -79,7 +84,7 @@ export const S06d_Prompt: React.FC = () => {
                   <div style={{ width: 2, height: 24, background: C6.ink, marginLeft: -6, opacity: caretOn ? 1 : 0 }} />
                   <div style={{ flex: 1 }} />
                   <svg width="20" height="20" viewBox="0 0 20 20" style={{ flexShrink: 0 }}><rect x="7" y="2" width="6" height="10" rx="3" fill="none" stroke="#5d5d5d" strokeWidth="1.6" /><path d="M4 9a6 6 0 0 0 12 0M10 15v3" stroke="#5d5d5d" strokeWidth="1.6" fill="none" strokeLinecap="round" /></svg>
-                  <div style={{ width: 34, height: 34, borderRadius: 17, background: n > 0 ? C6.ink : "#d0d0d0", display: "flex", justifyContent: "center", alignItems: "center", flexShrink: 0 }}>
+                  <div style={{ width: 34, height: 34, borderRadius: 17, background: n > 0 ? C6.ink : "#d0d0d0", display: "flex", justifyContent: "center", alignItems: "center", flexShrink: 0, transform: `scale(${1 - 0.14 * Math.sin(Math.PI * prog(t, T_SEND, T_SEND + 5 / FPS, EZ.out))})` }}>
                     <svg width="16" height="16" viewBox="0 0 16 16"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5" stroke={C6.white} strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" /></svg>
                   </div>
                 </div>

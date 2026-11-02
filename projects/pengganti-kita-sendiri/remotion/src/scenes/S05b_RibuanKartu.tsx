@@ -1,6 +1,6 @@
 // 05b · «di antara ribuan cerita gagal yang gak pernah kita dengar» — tanpa teks.
 // Reveal-out (C06): kartu biru dari 05a jadi satu di tengah ribuan kartu abu; kamera mendarat di «gagal» lalu tahan.
-// Di «gak» kartu abu lenyap bergelombang dari tengah ke luar; tersisa satu titik biru. Keluar X17 hard cut ke gelap (05c).
+// Di «gak» kartu abu memudar jadi hantu bergelombang dari tengah ke luar (v11: tidak lenyap habis); titik biru satu-satunya yang jelas. Keluar X17 hard cut ke gelap (05c).
 // Ribuan kartu digambar sebagai satu SVG <rect> sederhana (deterministik, di-cull di luar layar) supaya ringan.
 import React from "react";
 import { AbsoluteFill, Img, staticFile } from "remotion";
@@ -64,10 +64,12 @@ export const S05b_RibuanKartu: React.FC = () => {
       const ds = Math.hypot(x - CX, y - CY);
       const v = tGak + OUT_LAG + ds / 1250 + (hash(j, i) - 0.5) * 0.08;
       const outP = prog(t, v, v + OUT_DUR, EZ.acc);
-      const sc = (0.9 + 0.1 * inP) * (1 - outP);
-      if (sc <= 0.01 || inP <= 0) continue;
+      // v11 (frame hampir kosong 1:21–1:22): kartu abu TIDAK lenyap habis — memudar jadi «hantu» (cerita yang tak pernah terdengar
+      // tetap ada, hanya tak terlihat). Frame tidak lagi tinggal satu titik biru di layar putih ±1,3 dtk; titik biru tetap satu-satunya yang jelas.
+      const sc = (0.9 + 0.1 * inP) * (1 - 0.18 * outP);
+      if (inP <= 0) continue;
       rects.push(
-        <rect key={i * 1000 + j} x={x - (w * sc) / 2} y={y - (h * sc) / 2} width={w * sc} height={h * sc} rx={3 * s * sc} fill="#d2d2d7" opacity={Math.min(1, inP * 1.5) * (1 - outP * 0.4)} />,
+        <rect key={i * 1000 + j} x={x - (w * sc) / 2} y={y - (h * sc) / 2} width={w * sc} height={h * sc} rx={3 * s * sc} fill="#d2d2d7" opacity={Math.min(1, inP * 1.5) * (1 - outP * 0.7)} />,
       );
     }
   }

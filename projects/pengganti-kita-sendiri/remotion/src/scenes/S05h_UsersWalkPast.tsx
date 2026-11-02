@@ -10,6 +10,7 @@ import { Camera, EZ, Grain, prog, Scene, sfxMark, useT } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
 import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { AppIcon, APPS, C, GRID, moveFrame, Pictogram } from "./_b5_shared";
+import { FloorPool, parallelogram, SourceBloom } from "./parts/NaturalLight";
 
 const P = panel("05h");
 const W_SUSAH = word("susah", "s5", 1).s;
@@ -63,9 +64,9 @@ const Product: React.FC<{ i: number; lit: number }> = ({ i, lit }) => {
   const app = APPS[i];
   return (
     <div style={{ position: "absolute", left: ROW_X + i * (PW + PG), top: ROW_Y, width: PW, height: PH }}>
-      {/* pendar ke lantai + halo (gradien radial, tanpa tepi keras) */}
-      <div style={{ position: "absolute", left: -160, top: -120, width: PW + 320, height: FLOOR - ROW_Y + 160, background: `radial-gradient(ellipse 48% 42% at 50% 46%, rgba(255,255,255,${0.10 * lit}) 0%, rgba(255,255,255,0) 100%)` }} />
-      <div style={{ position: "absolute", left: -60, top: FLOOR - ROW_Y - 60, width: PW + 120, height: 120, background: `radial-gradient(ellipse 50% 50% at 50% 50%, rgba(255,255,255,${0.08 * lit}) 0%, rgba(255,255,255,0) 100%)` }} />
+      {/* v11 (Irfan gambar 3): halo elips radial → pendar berbentuk kartu (parts/NaturalLight) + genangan gaussian di lantai di bawahnya */}
+      <SourceBloom id={`sb05h-${i}`} poly={parallelogram({ x: 0, y: 0, w: PW, h: PH }, 0.12)} a={0.2 * lit} near={10} far={60} />
+      <FloorPool cx={PW / 2} y={FLOOR - ROW_Y} rx={PW * 0.8} ry={46} a={0.09 * lit} />
       <div style={{ position: "absolute", inset: 0, clipPath: "polygon(12% 0%, 100% 0%, 88% 100%, 0% 100%)", background: `linear-gradient(90deg, ${C.white} 50%, ${C.paper} 100%)`, opacity: 0.08 + 0.82 * lit, display: "flex", alignItems: "center", justifyContent: "center", gap: 18, fontFamily: "Inter" }}>
         <AppIcon app={app} size={64} />
         <span style={{ fontSize: 30, fontWeight: 700, color: C.ink, letterSpacing: -0.6 }}>{app.name}</span>

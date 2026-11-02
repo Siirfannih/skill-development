@@ -8,6 +8,7 @@ import { EZ, keys, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
 import { panel, word } from "../lib/time";
 import { AnchorWord, useFrameAt } from "../lib/AnchorWord";
 import { BLOOM_PT, C, LightPlane, Pictogram } from "./_b2_shared";
+import { parallelogram, SourceBloom } from "./parts/NaturalLight";
 
 const W_KITA = word("kita", "s2", 1);
 const W_FOKUS = word("fokus", "s2", 1);
@@ -53,12 +54,10 @@ export const S02d_Kreatif: React.FC = () => {
           {/* lantai gelap memudar */}
           <div style={{ position: "absolute", left: -200, top: 800, width: 2320, height: 480, background: `linear-gradient(180deg, rgba(16,18,22,0) 0%, ${C.charcoal} 58%)` }} />
         </AbsoluteFill>
+        {/* v11 (Irfan gambar 3): aksen cahaya keluar = bentuk bidang (jajar genjang, koordinat layar = dunia·z + T) yang di-blur, bukan lingkaran radial */}
         {b > 0 && (
-          <AbsoluteFill
-            style={{
-              background: `radial-gradient(circle 560px at ${BLOOM_PT.x}px ${BLOOM_PT.y}px, rgba(255,255,255,${(0.4 * b).toFixed(3)}) 0%, rgba(255,255,255,0) 100%)`,
-            }}
-          />
+          <SourceBloom id="sb02d-exit" poly={parallelogram({ x: 940, y: 512, w: 880, h: 224 }, 0.09).map((q) => ({ x: T.x + q.x * z, y: T.y + q.y * z }))}
+            a={0.9 * b} near={40} far={170} />
         )}
         <Grain opacity={0.05} />
       </AbsoluteFill>

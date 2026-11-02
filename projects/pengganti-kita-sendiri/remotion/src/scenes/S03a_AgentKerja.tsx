@@ -65,12 +65,24 @@ const ZC = 0.3; // pusatkan kamera ke kursor CEO sebelum zoom-through
 /** Jumlah huruf kata composer yang sudah terketik pada detik tt (3 frame per kata). */
 const typedN = (w: string, at: number, tt: number) => Math.max(1, Math.ceil(w.length * Math.min(1, ((tt - at) * FPS + 1) / 3)));
 
+// v11 SFXEV ketikan: frame huruf pertama / huruf terakhir (rumus sama dengan render)
+const firstTypedFrame = (pred: (tt: number) => boolean, a: number, b: number) => {
+  for (let fr = Math.ceil(a * FPS - 1e-6); fr <= Math.ceil(b * FPS) + 6; fr++) if (pred(fr / FPS)) return fr / FPS;
+  return a;
+};
+const TYPE_START = Math.ceil(MSG[0].at * FPS - 1e-6) / FPS;
+const M_LAST = MSG[MSG.length - 1];
+const TYPE_END = firstTypedFrame((tt) => typedN(M_LAST.w, M_LAST.at, tt) >= M_LAST.w.length, M_LAST.at, M_LAST.at + 0.2);
 const STREAM = "312 pesanan · omzet Rp48,6 jt · naik 18% dari minggu lalu";
 const STREAM_X = 444;
 const STREAM_Y = Y0 + 300;
 const CW = 0.535 * 32; // lebar rata-rata karakter Inter 32 px (perkiraan untuk posisi kursor)
 
 const lerp = (a: number, b: number, k: number) => a + (b - a) * k;
+const streamN = (tt: number) => Math.floor(STREAM.length * prog(tt, T_STREAM[0], T_STREAM[1], (x) => x));
+const STREAM_START = firstTypedFrame((tt) => streamN(tt) >= 1, T_STREAM[0], T_STREAM[1]);
+const STREAM_END = firstTypedFrame((tt) => streamN(tt) >= STREAM.length, T_STREAM[0], T_STREAM[1]);
+
 
 // posisi ujung kursor tiap agent di ruang kerja (fungsi waktu; gerak sendiri = lintasan halus deterministik)
 const CEO_DOCK = { x: 1470, y: Y0 + 520 };
@@ -125,26 +137,20 @@ export const S03a_AgentKerja: React.FC = () => {
 
   // ── SFXEV (metronom SFX): satu tanda per event visual, dari konstanta yang sama dengan animasinya
   sfxMark(t, "cut", P1.start, "03a:cut:in"); // Babak 2 → composer
-  MSG.forEach((m) => {
-    // huruf muncul per frame (typedN): tanda di setiap frame jumlah huruf bertambah, mulai frame pertama t ≥ m.at
-    const t0 = Math.ceil(m.at * FPS - 1e-6) / FPS;
-    let prev = 0;
-    for (let k = 0; k < 4; k++) {
-      const tk = t0 + k / FPS;
-      const n = typedN(m.w, m.at, tk);
-      if (n > prev) sfxMark(t, "key", tk, `03a:key:${m.w.replace(/[^\w]/g, "")}:${k}`);
-      prev = n;
-    }
-  });
+  // v11 (Irfan: «typing tidak mempunyai sfx dan hanya suara enter atau click»): tanpa tanda per huruf; hanya awal & akhir ketikan
+  // (huruf pertama «Kamu» / huruf terakhir «jalankan.», dari rumus typedN yang sama) + klik kirim = enter.
+  sfxMark(t, "type", TYPE_START, "03a:type:prompt:start");
+  sfxMark(t, "type", TYPE_END, "03a:type:prompt:end");
   sfxMark(t, "whoosh", (PB_A + PB_B) / 2, "03a:cam:snapwide"); // C15 patah ke wide (EZ.inOut → tengah)
-  sfxMark(t, "click", T_KIRIM, "03a:send:click"); // panah mouse menekan tombol kirim (press + cincin)
+  sfxMark(t, "click", T_KIRIM, "03a:enter"); // panah mouse menekan tombol kirim (press + cincin)
   T_AG.forEach((a, i) => sfxMark(t, "pop", ezAt(a, a + HOP, EZ.out), `03a:agent:${i}`)); // agent melompat dari tombol (50 %)
   sfxMark(t, "whoosh", (LAUNCH[0] + T_LAND) / 2, "03a:cam:tiltup"); // X01 tilt naik ke ruang kerja (EZ.inOut → tengah)
   LAUNCH.forEach((l, i) => sfxMark(t, "pop", l + FLY, `03b:cursor:${i}`)); // agent tiba jadi kursor bernama (pil nama)
-  sfxMark(t, "click", T_PRESS_CEO, "03b:sendceo:click"); // tombol kirim «Rangkum penjualan… @CEO Agent» tertekan
+  sfxMark(t, "click", T_PRESS_CEO, "03b:enter"); // tombol kirim «Rangkum penjualan… @CEO Agent» tertekan
   sfxMark(t, "whoosh", (T_SEND_CEO + T_STREAM[0]) / 2, "03b:ceo:dash"); // kursor CEO melesat ke dokumen
   sfxMark(t, "cut", T_STREAM[0], "03b:cutzoom"); // C20 cut zoom ke dokumen
-  sfxMark(t, "key", T_STREAM[0], "03b:key:stream:0"); // CEO mulai menulis laporan (streaming; hanya awal)
+  sfxMark(t, "type", STREAM_START, "03b:type:stream:start"); // CEO mulai menulis laporan (huruf pertama stream)
+  sfxMark(t, "type", STREAM_END, "03b:type:stream:end"); // huruf terakhir laporan
   sfxMark(t, "whoosh", (WIDE_A + WIDE_B) / 2, "03b:cam:snapwide"); // C15 patah ke wide
   sfxMark(t, "pop", ezAt(T_REPLY, T_REPLY + REPLY_IN, EZ.out), "03b:reply:card"); // kartu balasan CEO naik
   T_WORK.forEach((w, i) => sfxMark(t, "click", w + WORK_GO, `03b:bar:${i + 1}`)); // kursor CS/Ops/Editor tiba di bar, bar mulai terisi

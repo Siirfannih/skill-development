@@ -33,6 +33,15 @@ const PHOTOS = [
   "img/meetup.jpg",
 ];
 
+// v11 (Irfan 1:32/1:35): foto potret (2 = pembicara podium, 9 = pria bersweter) di-crop cover 16:9 di tengah → close-up sweater
+// tanpa wajah; foto cek (0/6) kepalanya terpotong zoom. Pembingkaian per foto: objectPosition ke wajah + titik zoom di wajah. Foto lanskap tetap di tengah.
+const FRAMING: Record<number, { pos: string; origin: string }> = {
+  0: { pos: "50% 50%", origin: "50% 14%" }, // pemegang cek: zoom berjangkar di kepala (bukan memotong kepala)
+  6: { pos: "50% 50%", origin: "50% 14%" },
+  2: { pos: "50% 10%", origin: "50% 34%" },
+  9: { pos: "50% 20%", origin: "50% 34%" },
+};
+
 export const S05f_FoundersOvernight: React.FC = () => {
   const t = useT();
   const atFounder = useFrameAt(2775), atCeo = useFrameAt(2813), atSemalam = useFrameAt(2868); // v9: f terukur ANCHORS-V9 #25
@@ -61,7 +70,7 @@ export const S05f_FoundersOvernight: React.FC = () => {
       <AbsoluteFill style={{ background: "#101216", overflow: "hidden" }}>
         <AbsoluteFill style={{ transform: `translate(${sh.x}px, ${sh.y}px) scale(${camS})`, borderRadius: (28 * brk) / camS, overflow: "hidden" }}>
           <Img src={staticFile(PHOTOS[idx])}
-            style={{ position: "absolute", inset: -40, width: "calc(100% + 80px)", height: "calc(100% + 80px)", objectFit: "cover", filter: `${DOC_GRADE} brightness(${dim})`, transform: `scale(${z * hold})`, transformOrigin: "50% 42%" }} />
+            style={{ position: "absolute", inset: -40, width: "calc(100% + 80px)", height: "calc(100% + 80px)", objectFit: "cover", objectPosition: FRAMING[idx]?.pos ?? "50% 50%", filter: `${DOC_GRADE} brightness(${dim})`, transform: `scale(${z * hold})`, transformOrigin: FRAMING[idx]?.origin ?? "50% 42%" }} />
         </AbsoluteFill>
         {/* v9: slot swap SlotWord → AnchorWord di posisi tengah yang sama (callback cold open); FOUNDER → CEO → SEMALAM menggantikan di slot yang sama */}
         <AnchorWord text="FOUNDER" at={atFounder} until={atCeo} x={960} y={540} size={130} color="#FAF8EC" enter="scale" shadow="0 6px 50px rgba(0,0,0,0.5)" />

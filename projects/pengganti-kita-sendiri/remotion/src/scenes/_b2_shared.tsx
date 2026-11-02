@@ -3,6 +3,7 @@
 // putih 40 %, garis kenyataan = garis solid putih tipis di atasnya, label = teks spasi lebar tanpa kotak.
 import React from "react";
 import { AbsoluteFill } from "remotion";
+import { LightShaft, parallelogram, SourceBloom } from "./parts/NaturalLight";
 
 export const C = {
   bp900: "#042b79",
@@ -117,19 +118,17 @@ export const Pictogram: React.FC<{ rim?: number; x?: number; y?: number }> = ({ 
 };
 
 /** Berkas cahaya dari kanan atas + bidang cahaya miring (tempat kata). `beam`, `plane`, `glow` 0..1.
- *  v10 (Irfan 1, #16) TEKNIK TANPA TEPI KOTAK: semua cahaya = elemen yang ISINYA gradien radial elips `closest-side`
+ *  v11: cahaya natural (parts/NaturalLight) — berkas trapesium + pendar berbentuk bidang. Riwayat v10 (Irfan 1, #16) TEKNIK TANPA TEPI KOTAK: semua cahaya = elemen yang ISINYA gradien radial elips `closest-side`
  *  (nilai 0 tepat di tepi kotak elemen, jadi tepi elemen tidak pernah terlihat) — TANPA clip-path, TANPA box-shadow,
  *  TANPA filter blur pada kotak yang dipotong. Elemen digeser/diputar saja (rotate) agar jadi berkas miring.
  *  Gradien memakai beberapa stop (ease, bukan linear) supaya falloff halus tanpa pita. Teks di bidang: tinta #111 di putih. */
-const soft = (a: number) =>
-  `radial-gradient(ellipse closest-side at 50% 50%, rgba(255,255,255,${a}) 0%, rgba(255,255,255,${(a * 0.72).toFixed(3)}) 22%, rgba(255,255,255,${(a * 0.4).toFixed(3)}) 45%, rgba(255,255,255,${(a * 0.16).toFixed(3)}) 68%, rgba(255,255,255,${(a * 0.04).toFixed(3)}) 86%, rgba(255,255,255,0) 100%)`;
 export const LightPlane: React.FC<{ beam: number; plane: number; glow: number; children?: React.ReactNode }> = ({ beam, plane, glow, children }) => (
   <>
-    {/* berkas: dua elips panjang berputar (sumbu ±24° dari tegak, atas ke kanan) yang berpusat antara sumber (kanan atas) dan bidang */}
-    <div style={{ position: "absolute", left: 1540 - 380, top: 250 - 760, width: 760, height: 1520, transform: "rotate(24deg)", transformOrigin: "50% 50%", background: soft(0.34), opacity: beam }} />
-    <div style={{ position: "absolute", left: 1500 - 220, top: 230 - 700, width: 440, height: 1400, transform: "rotate(24deg)", transformOrigin: "50% 50%", background: soft(0.22), opacity: beam }} />
-    {/* pendar di sekitar bidang: elips besar, memudar penuh sebelum tepi */}
-    <div style={{ position: "absolute", left: 1380 - 900, top: 624 - 420, width: 1800, height: 840, background: soft(0.5 * glow * plane), }} />
+    {/* v11 (Irfan gambar 3 · 0:30): elips berkas + pendar elips besar terbaca sebagai «balon putih». Diganti cahaya natural:
+        berkas = trapesium dari sumber di luar frame kanan-atas (sempit) ke bidang (melebar), intensitas turun sepanjang sumbu,
+        penumbra lebar + grain; pendar bidang = bentuk jajar genjang bidang itu sendiri di-blur (bukan elips). Arah sama (±24° dari tegak). */}
+    <LightShaft id="ls02d" from={{ x: 1880, y: -470 }} to={{ x: 1250, y: 905 }} w0={110} w1={800} a={0.44 * beam} soft={34} />
+    <SourceBloom id="sb02d" poly={parallelogram({ x: 940, y: 512, w: 880, h: 224 }, 0.09)} a={0.6 * glow * plane} near={30} far={120} />
     <div
       style={{
         position: "absolute", left: 940, top: 512, width: 880, height: 224,

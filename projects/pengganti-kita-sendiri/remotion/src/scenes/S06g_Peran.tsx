@@ -9,6 +9,7 @@ import { panel, wordsOf } from "../lib/time";
 import { AnchorWord } from "../lib/AnchorWord";
 import { AIGlyph, Ball, C6, Plane, relay, Torso, wa } from "./_b6_shared";
 import cues from "../../public/data/cues11.json";
+import { LightShaft } from "./parts/NaturalLight";
 
 const P = panel("06g");
 const T_BOOM = (cues as any[]).find((c) => c.id === "boom3").t as number; // 130.025 penutup setelah «mainkan»
@@ -73,9 +74,9 @@ export const S06g_Peran: React.FC = () => {
             {/* v10 (#44): PERAN | KAMU turun ke tinggi badan (kiri/kanan torso, bukan di antara kepala → tak ada «O» nyasar). v9 (#32): kalimat penuh DI ATAS piktogram dibuang → PERAN | KAMU satu baris setinggi kepala piktogram tunggal, DI BELAKANG kepalanya
                 (DOM sebelum Ball: tepi dalam kedua kata terselip 40 px di bawah kepala). KAMU putih penuh. */}
             {/* yang tersisa: satu piktogram di tengah */}
-            {/* aura lembut (gradien radial, tanpa tepi) di belakang piktogram: naik di onset «kamu» */}
-            <div style={{ position: "absolute", left: 960 - 460, top: 780 - 460, width: 920, height: 920,
-              background: `radial-gradient(closest-side, ${Array.from({ length: 9 }, (_, k) => { const u = k / 8; return `${wa(0.26 * lit * (1 - u * u * (3 - 2 * u)))} ${(u * 100).toFixed(0)}%`; }).join(", ")})` }} />
+            {/* v11 (Irfan gambar 3): aura radial bulat di belakang piktogram («balon putih») → cahaya natural dari SUMBER yang terlihat:
+                layar di atas kepala menyinari piktogram ke bawah (berkas melebar, memudar ke bawah, penumbra + grain), naik di onset «kamu». */}
+            <LightShaft id="ls06g" from={{ x: 960, y: 318 }} to={{ x: 960, y: 1240 }} w0={120} w1={820} a={0.3 * lit + 0.25 * boomFlare} soft={30} />
             <Ball b={{ x: 892, y: 636, w: 136, h: 136 }} rim={Math.min(1, (0.4 + 0.35 * litFrac) + (1 - (0.4 + 0.35 * litFrac)) * lit)} r={8 + 6 * lit} />
             <Torso b={{ x: 840, y: 784, w: 240, h: 360 }} rim={Math.min(1, (0.3 + 0.25 * litFrac) + (1 - (0.3 + 0.25 * litFrac)) * lit)} r={7 + 6 * lit} />{/* h 300→360: saat land (translateY −40) alas badan tak terlihat */}
           </AbsoluteFill>

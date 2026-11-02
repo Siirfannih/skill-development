@@ -130,8 +130,15 @@ export const S05d_SamePrompt: React.FC = () => {
   sfxMark(t, "cut", P.start, "05d:in:cut"); // dorongan 05c → laptop (cut on motion; whoosh dicatat di 05c)
   sfxMark(t, "cut", firstFrame(CUT2), "05d:cut:hp");
   sfxMark(t, "cut", firstFrame(CUT3), "05d:cut:tablet");
-  KEYS.forEach((k) => sfxMark(t, "key", k.at, k.id));
-  SEG_SEND.forEach((sd, d) => sfxMark(t, "click", sd, `05d:${DEV[d]}:send`)); // tombol kirim mulai ditekan
+  // v11 (Irfan: ketikan tanpa sfx, hanya enter/klik): per perangkat hanya huruf pertama & terakhir yang muncul + tombol kirim = enter
+  DEV.forEach((dv, d) => {
+    const ks = KEYS.filter((k) => k.id.startsWith(`05d:${dv}:`));
+    if (ks.length) {
+      sfxMark(t, "type", ks[0].at, `05d:type:${dv}:start`);
+      sfxMark(t, "type", ks[ks.length - 1].at, `05d:type:${dv}:end`);
+    }
+  });
+  SEG_SEND.forEach((sd, d) => sfxMark(t, "click", sd, `05d:enter:${DEV[d]}`)); // tombol kirim mulai ditekan
   // kamera: tiap cut mendarat dari dorongan kecil (C20), lalu drift mikro
   const land = seg === 0 ? 1 + 0.12 * (1 - prog(t, a, a + 7 / FPS, EZ.out)) : 1 + 0.05 * (1 - prog(t, a, a + 5 / FPS, EZ.out));
   // v2: C01 zoom mikro ke composer di tiap shot (1→1,06, 15 f, mulai saat ketikan mulai); tablet = C20 terdekat (×1,22 ke composer)
