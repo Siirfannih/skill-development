@@ -29,6 +29,21 @@ for ln in open(os.path.join(d, 'obj.log')):
     on[f].add(p[8])
 
 frames = sorted(int(os.path.basename(q)[1:6]) for q in glob.glob(os.path.join(d, 'f*.jpg')))
+if '--emph-only' in sys.argv:
+    # v22: interval penekanan TEPAT per frame dari probe setiap frame (node seg2_probe.mjs <dir> 0 133 1 0.1) → ganti kunci "emph"
+    # captionMask.json saja (lum/busy tetap dari probe step 2):  python3 caption_mask.py <dir> --emph-only --patch <captionMask.json>
+    iv = []
+    for f in sorted(on):
+        if iv and f <= iv[-1][1] + 1:
+            iv[-1][1] = f; iv[-1][2] |= on[f]
+        else:
+            iv.append([f, f, set(on[f])])
+    em = [[a, b, ' '.join(sorted(n))] for a, b, n in iv]
+    tgt = sys.argv[sys.argv.index('--patch') + 1]
+    M = json.load(open(tgt)); M['emph'] = em; M['emphStep'] = 1
+    json.dump(M, open(tgt, 'w'), ensure_ascii=False, separators=(',', ':'))
+    print(f"emph per frame: {len(em)} interval → {tgt}", file=sys.stderr)
+    sys.exit(0)
 # interval = sampel pertama..terakhir yang memuat teks (sampel berurutan digabung). Frame di antara sampel untuk teks lib
 # (AnchorWord/SpeakerWords) tetap tertutup tepat oleh CSS :has([data-emph]) di CaptionTrack.
 iv = []
