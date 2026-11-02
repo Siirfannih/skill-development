@@ -14,7 +14,7 @@
 //   · tanpa bunyi (aturan running text); penanda probe OBJ … caption:<kata> tetap untuk gerbang Segmen 2
 import React, { useLayoutEffect, useRef } from "react";
 import { AbsoluteFill, Easing, getInputProps, interpolate, spring, useCurrentFrame } from "remotion";
-import { FPS } from "./time";
+import { FPS, PANELS } from "./time";
 import { textWidth } from "./SpeakerWords";
 import { CAPTION_PHRASES, inBusy, inEmph, type Phrase } from "./CaptionTrack";
 
@@ -39,6 +39,8 @@ type Spec = {
   br?: number[];
   /** ikut gerak kamera/objek (px per detik) */
   drift?: [number, number];
+  /** lama drift (detik) — sesudahnya blok diam (mis. ikut pan kamera yang berhenti) */
+  driftFor?: number;
   enter?: Enter; exit?: Exit;
 };
 
@@ -47,11 +49,11 @@ type Spec = {
 const SPEC: (Spec | null)[] = [
   null, // 0 «16-year-old» — 1 frame sebelum SpeakerLine remaja (tidak tampil)
   { t: "Tanpa", x: 960, y: 520, align: "center", lay: "line", ink: "light", size: 92, enter: "blur", exit: "rise" },
-  { t: "kita lagi", x: 960, y: 640, align: "center", lay: "stair", ink: "dark", br: [1], enter: "rise", exit: "blur" },
+  { t: "kita lagi", x: 960, y: 770, align: "center", lay: "line", ink: "dark", size: 76, key: 1, enter: "rise", exit: "blur" },
   { t: "membangun", x: 700, y: 560, align: "right", lay: "line", ink: "light", size: 84, enter: "mask", exit: "wipe" },
   { t: "Dan anehnya", x: 960, y: 500, align: "center", lay: "drop", ink: "light", key: 1, enter: "blur", exit: "rise" },
   { t: "kita justru menginginkan hal", x: 960, y: 520, align: "center", lay: "stair", ink: "light", br: [2], key: 2, enter: "rise", exit: "sink" },
-  { t: "tersebut terjadi", x: 1400, y: 560, align: "left", lay: "column", ink: "light", br: [1], key: 1, enter: "mask", exit: "wipe" },
+  { t: "tersebut terjadi", x: 1290, y: 600, align: "center", lay: "column", ink: "light", br: [1], key: 1, drift: [-330, 0], driftFor: 0.95, enter: "mask", exit: "wipe" },
   { t: "dia punya", x: 300, y: 700, align: "left", lay: "line", ink: "light", size: 60, enter: "type", exit: "blur" },
   { t: "AI akan mengambil pekerjaan yang", x: 1060, y: 400, align: "left", lay: "stair", ink: "dark", br: [3], key: 3, mark: true, enter: "mask", exit: "rise" },
   { t: "membosankan dan berulang", x: 1150, y: 420, align: "left", lay: "drop", ink: "dark", key: 0, enter: "rise", exit: "wipe" },
@@ -61,7 +63,7 @@ const SPEC: (Spec | null)[] = [
   { t: "Kita bekerja jauh lebih cepat", x: 1120, y: 520, align: "left", lay: "column", ink: "dark", br: [2, 4], key: 4, plate: "light", enter: "type", exit: "wipe" },
   { t: "Tapi di satu sisi", x: 960, y: 780, align: "center", lay: "line", ink: "light", key: 3, plate: "dark", enter: "blur", exit: "rise" },
   { t: "kita juga tidak", x: 960, y: 780, align: "center", lay: "line", ink: "light", key: 2, plate: "dark", enter: "mask", exit: "sink" },
-  { t: "bekerja persis seperti apa yang", x: 920, y: 560, align: "left", lay: "stair", ink: "dark", br: [2], key: 1, mark: true, enter: "rise", exit: "blur" },
+  { t: "bekerja persis seperti apa yang", x: 960, y: 520, align: "center", lay: "stair", ink: "light", br: [2], key: 1, plate: "dark", enter: "rise", exit: "blur" },
   { t: "kita lakukan dalam", x: 960, y: 812, align: "center", lay: "line", ink: "light", key: 1, plate: "dark", enter: "blur", exit: "wipe" },
   { t: "Dan perlahan", x: 960, y: 640, align: "center", lay: "drop", ink: "light", key: 1, enter: "mask", exit: "rise" },
   { t: "yang kita bangun menjadi cukup", x: 1360, y: 420, align: "left", lay: "stair", ink: "light", br: [3], key: 2, enter: "type", exit: "blur" },
@@ -93,7 +95,7 @@ const SPEC: (Spec | null)[] = [
   { t: "Jadi di tengah semua ini", x: 860, y: 600, align: "right", lay: "stair", ink: "light", br: [3], key: 2, enter: "type", exit: "blur" },
 ];
 
-const INK = { light: "#FAF8EC", dark: "#14161A", dimLight: "rgba(250,248,236,0.46)", dimDark: "rgba(20,22,26,0.42)", mark: "#1d36eb" };
+const INK = { light: "#FAF8EC", dark: "#14161A", dimLight: "rgba(250,248,236,0.62)", dimDark: "rgba(20,22,26,0.66)", mark: "#1d36eb" };
 const SHADOW_LIGHT = "0 1px 2px rgba(0,0,0,.38)"; // hanya tepi glyph (tanpa halo)
 const BASE = 68;
 const GAP = 0.27; // jarak antar kata (em)
@@ -107,7 +109,7 @@ const ACC = Easing.bezier(0.6, 0, 0.84, 0.2);
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9 ]/g, "").trim();
 const hash = (n: number) => { const x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); };
 
-type Built = { p: Phrase; s: Spec; lines: number[][]; key: number; sizes: number[]; idx: number };
+type Built = { p: Phrase; s: Spec; lines: number[][]; key: number; sizes: number[]; idx: number; exA: number; exB: number; box: [number, number, number, number] };
 
 const ROT_EN: Enter[] = ["mask", "rise", "blur", "type"];
 const ROT_EX: Exit[] = ["rise", "blur", "wipe", "sink"];
@@ -146,12 +148,10 @@ const build = (): Built[] => {
       const big = key === 0 ? i === 0 : i >= key;
       return big ? Math.round(base * 1.42) : Math.round(base * 0.66);
     });
-    out.push({ p, s, lines, key, sizes, idx: k });
+    out.push({ p, s, lines, key, sizes, idx: k, exA: p.end, exB: p.end + EXIT_F, box: [0, 0, 0, 0] });
   });
   return out;
 };
-const BUILT = build();
-export const KINETIC_BUILT = BUILT;
 
 /** posisi x relatif tiap kata (dari tepi kiri baris) + lebar baris, untuk kata yang terlihat */
 const lineGeom = (b: Built, li: number, visible: (i: number) => boolean) => {
@@ -186,6 +186,34 @@ const layout = (b: Built, visible: (i: number) => boolean) => {
   return { pos, H };
 };
 
+const CUTS = PANELS.map((q) => Math.round(q.t * FPS));
+const finalBox = (b: Built): [number, number, number, number] => {
+  const { pos } = layout(b, () => true);
+  let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+  b.p.words.forEach((w, i) => {
+    const q = pos[i]; if (!q) return;
+    x0 = Math.min(x0, q.x); x1 = Math.max(x1, q.x + textWidth(w.text, b.sizes[i], i === b.key ? 600 : 500, -0.015));
+    y0 = Math.min(y0, q.y); y1 = Math.max(y1, q.y + b.sizes[i] * LH);
+  });
+  return [x0, y0, x1, y1];
+};
+const hit = (a: number[], c: number[], m = 50) => !(a[2] + m < c[0] || c[2] + m < a[0] || a[3] + m < c[1] || c[3] + m < a[1]);
+const BUILT = build();
+BUILT.forEach((b) => { b.box = finalBox(b); });
+// jendela keluar: (1) frasa berikut di tempat yang sama → yang lama sudah keluar TEPAT saat yang baru masuk (tanpa tumpuk);
+// (2) tidak pernah menyeberangi potongan adegan (keluar selesai di frame potong).
+BUILT.forEach((b, j) => {
+  const last = b.p.words[b.p.words.length - 1].f;
+  const nx = BUILT[j + 1];
+  let a = b.p.end, z = b.p.end + EXIT_F;
+  if (nx && nx.p.start < z && hit(b.box, nx.box)) { z = nx.p.start; a = z - 5; }
+  const cut = CUTS.find((c) => c > a && c < z);
+  if (cut !== undefined) { z = cut; a = Math.min(a, cut - 4); }
+  a = Math.max(a, last + 4); if (z <= a) z = a + 3;
+  b.exA = a; b.exB = z;
+});
+export const KINETIC_BUILT = BUILT;
+
 const PhraseBlock: React.FC<{ b: Built; F: number }> = ({ b, F }) => {
   const ref = useRef<HTMLDivElement>(null);
   const { p, s } = b;
@@ -198,8 +226,8 @@ const PhraseBlock: React.FC<{ b: Built; F: number }> = ({ b, F }) => {
   const prev = layout(b, (i) => visible(i) && i !== newest);
   const damping = 15 + 5 * hash(b.idx);
   const mv = spring({ frame: F - W[newest].f, fps: FPS, config: { damping, stiffness: 170, mass: 0.9 } });
-  const exitK = interpolate(F, [p.end, p.end + EXIT_F], [0, 1], { ...clampO, easing: ACC });
-  const t0 = (F - p.start) / FPS;
+  const exitK = interpolate(F, [b.exA, b.exB], [0, 1], { ...clampO, easing: ACC });
+  const t0 = Math.min((F - p.start) / FPS, s.driftFor ?? Infinity);
   const dx = (s.drift?.[0] ?? 0) * t0;
   const dy = (s.drift?.[1] ?? 0) * t0;
   const keyIn = F >= W[b.key].f;
@@ -256,8 +284,19 @@ const PhraseBlock: React.FC<{ b: Built; F: number }> = ({ b, F }) => {
         const isKey = i === b.key;
         const to = cur.pos[i];
         const from = prev.pos[i] ?? to;
-        const x = i === newest ? to.x : from.x + (to.x - from.x) * mv;
-        const y = i === newest ? to.y : from.y + (to.y - from.y) * mv;
+        // kata terbaru lahir menempel di ujung kata sebelumnya (posisi tata letak lama), lalu seluruh baris bergeser bersama
+        let fx = from.x, fy = from.y;
+        if (i === newest) {
+          const li = b.lines.findIndex((L) => L.includes(i));
+          const before = b.lines[li].filter((q) => q < i && visible(q));
+          const pq = before.length ? before[before.length - 1] : -1;
+          if (pq >= 0 && prev.pos[pq]) {
+            fx = prev.pos[pq].x + textWidth(W[pq].text, b.sizes[pq], pq === b.key ? 600 : 500, -0.015) + GAP * b.sizes[pq];
+            fy = prev.pos[pq].y;
+          } else { fx = to.x; fy = to.y; }
+        }
+        const x = fx + (to.x - fx) * mv;
+        const y = fy + (to.y - fy) * mv;
         const age = F - w.f;
         const seed = hash(b.idx * 31 + i);
         // masuk per kata
@@ -300,7 +339,7 @@ const CSS = `body:has([data-emph]) [data-caption]{visibility:hidden}`;
 export const KineticVO: React.FC = () => {
   const F = useCurrentFrame();
   if (inEmph(F) || inBusy(F)) return null;
-  const live = BUILT.filter((b) => F >= b.p.start && F < b.p.end + EXIT_F);
+  const live = BUILT.filter((b) => F >= b.p.start && F < b.exB);
   if (!live.length) return null;
   return (
     <AbsoluteFill style={{ pointerEvents: "none" }}>
