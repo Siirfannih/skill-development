@@ -1,8 +1,16 @@
 # STATUS: Pengganti Kita Sendiri (@siirfannih)
 
-_Update terakhir: 2 Nov 2026 malam — sesi revisi v21 (otonom, atas feedback 22.25). Lihat `AUDIT-V20.md` dan `LEARNINGS-2NOV.md` §E._
+_Update terakhir: 3 Nov 2026 pagi — v22 (teks VO tidak berkedip/terburu-buru). Lihat `REVIEW-V22.md`, `LEARNINGS-2NOV.md` §G._
 
-## Posisi sekarang (v21)
+## Posisi sekarang (v22)
+- **Versi terakhir: v22.** Mac `pks-studio/out/PKS_v22_video{1,2}.mp4`, render penuh `seg/v22final_v.mp4` (kode 8ce6b6c) + tambal f950–1040
+  («Sebagian janji…» y 670→760, kode 52a10d7, `patch22.sh`). Audio = master v20 (penanda SFX v22final.sfx identik v21final.sfx).
+- Gerbang kedip per frame (`tools/text_flicker_check.py`): DIP 4→0, CEPAT 7→0 (+4 pengecualian beralasan), DULUAN HILANG 6→0.
+- QC render: tile per frame di bekas titik dip (f312, f2155, f2488, f2618) bersih; f950 menemukan «Sebagian» menimpa kartu → ditambal.
+- Sisa: kontras teks VO 3,6–4,5:1 di 9 titik (ukur kasar), «Dan perlahan…» dekat garis figur 03c, 4–6 f awal «Sebagian» saat kamera tiba.
+
+## Arsip v21
+## Posisi v21
 - **Sesi routine QC (3 Nov ±00.40 WITA):** render final sesi sebelumnya (kode 8d06af6) DIHENTIKAN di 2536/3984 karena QC still menemukan
   bug (frasa menyeberang cut, tumpuk kata baris baru, frasa 14–17 kembali jadi chip subtitle, teks menimpa figur 05h). Render penuh ulang dari
   kode 474d041 → `seg/v21final_v.mp4` (sfx sama persis dengan v11 → master v20 dipakai). Reviewer segar: blocker kerumunan klon →
