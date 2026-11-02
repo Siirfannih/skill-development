@@ -93,3 +93,21 @@ Ditulis untuk sesi berikutnya. Dari kesalahan yang terulang dan cara yang akhirn
 6. **Sinkron file ke Mac:** `device_commit_files` dengan stagedPath yang SAMA dua kali bisa diam-diam menulis isi lama → selalu nama unik per sinkron
    dan verifikasi `md5` di Mac sebelum render (terjadi lagi 2 Nov 23.20). Skrip yang dikirim lewat commit kehilangan bit eksekusi → jalankan `zsh ./x.sh` dan cek proses benar-benar jalan (`pgrep`) sebelum menunggu.
 7. **Render final yang sudah jalan dengan kode lama dihentikan** begitu QC still menemukan bug yang mengubah banyak rentang (lebih murah dari 4+ patch).
+
+## G. v22 (3 Nov 05.31): teks VO terburu-buru dan berkedip, lolos QC v21
+
+Irfan melihat dua masalah di v21: teks muncul, hilang, lalu muncul lagi padahal kalimatnya sama, dan teks berganti secepat mungkin. QC v21 tidak menangkapnya karena hanya menyampel 1 still per detik dan 1 per 8 f, sementara kedipnya hanya 1–15 f.
+
+Akar masalah:
+1. **DIP:** CSS `body:has([data-emph]) [data-caption]{visibility:hidden}` mematikan teks VO di setiap frame yang memuat elemen penekanan, termasuk frame masuk/keluar. Mask busy/emph yang disampel per 2 f juga berlubang di tengah blok.
+2. **CEPAT:** frasa dipotong per 32 karakter dan akhirnya diambil dari `min(awal frasa berikut, …)`, jadi 17 dari 40 blok tampil < 1,5 dtk.
+
+Perbaikan (commit 8ce6b6c):
+- blok dikelompokkan per klausa/kalimat;
+- blok diam sampai VO selesai;
+- teks di posisi sama ditukar di tempat;
+- penekanan dihitung dari interval yang di-debounce per frame.
+
+Hasil gerbang per frame: DIP 4→0, CEPAT 7→0, DULUAN HILANG 6→0. Median lama tampil 1,63→2,07 dtk.
+
+**Pelajaran:** kesalahan temporal (kedip, buru-buru) hanya terlihat dengan pemeriksaan per frame. `tools/text_flicker_check.py` kini menjadi gerbang wajib (three-segment-gate §Segmen 2) dan dijalankan lagi pada render final.

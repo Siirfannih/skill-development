@@ -30,6 +30,21 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
     - Teks narasumber di atas footage yang sudah terbaca dengan shadow lembut boleh diterima walau angka checker rendah. Keputusan mata Irfan menang atas metrik. Teks yang tak terbaca atau bertabrakan dengan warna di belakangnya mengurangi 1 poin estetika.
 - Lihat contact sheet still ≤ 960 px untuk estetika: ruang kosong, hierarki, variasi.
 - **Lolos jika** laporan LOLOS dan contact sheet bersih.
+- **Gerbang kedip teks per frame (wajib, Irfan 3 Nov 05.31).** Contact sheet per detik tidak bisa melihat kedip 1–15 frame. Jalankan probe untuk SETIAP frame (`node seg2_probe.mjs <dir> 0 <durasi> 1 0.1`), lalu `tools/text_flicker_check.py` (proyek PKS). Lolos hanya jika temuan berikut nol:
+  - **DIP:** teks yang sama tampil, hilang ≤ 15 f, lalu tampil lagi;
+  - **CEPAT:** blok tampil < max(1,0 dtk; 0,4 + 0,2 × jumlah kata dtk);
+  - **DULUAN HILANG:** blok hilang sebelum VO selesai mengucapkan kata terakhirnya + 0,25 dtk;
+  - **KEDIP PENEKANAN:** kata penekanan berkedip.
+
+  Pengecualian harus ditulis beserta alasannya.
+
+  Aturan desain di baliknya:
+  - teks VO dikelompokkan per klausa/kalimat, tidak dipotong per jumlah karakter;
+  - teks diam sampai VO selesai;
+  - teks yang berganti di posisi sama ditukar di tempat;
+  - teks VO tidak disembunyikan lewat CSS `:has()` atau mask yang disampel jarang. Pakai interval penekanan yang di-debounce.
+
+  Gerbang yang sama dijalankan lagi pada render final.
 
 ## Segmen 3 · Render MP4
 - Render per segmen (Mac `seg.sh`), lalu periksa:
