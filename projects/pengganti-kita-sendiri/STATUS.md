@@ -7,6 +7,9 @@ _Update terakhir: 2 Nov 2026 malam — sesi revisi v21 (otonom, atas feedback 22
   bug (frasa menyeberang cut, tumpuk kata baris baru, frasa 14–17 kembali jadi chip subtitle, teks menimpa figur 05h). Render penuh ulang dari
   kode 474d041 → `seg/v21final_v.mp4` (sfx sama persis dengan v11 → master v20 dipakai). Reviewer segar: blocker kerumunan klon →
   tambal f3106–3790 (`patch21.sh`). Hasil akhir tetap `out/PKS_v21_video{1,2}.mp4`. Rincian: `AUDIT-V20.md` bagian QC lanjutan.
+- **v21 TERKIRIM ke Irfan (3 Nov ±00.55 WITA)**: 3984 f / 132,8 dtk, penanda SFX render + tambal ⊂ v21final.sfx = v11final.sfx.
+  Belum dilakukan di v21: earshot ulang (audio tidak berubah), kurva gerak `motion_curve.py` pada render v21 (Breath belum diukur ulang),
+  minor reviewer (kontras «Raised over a», kata menyentuh garis siluet 17/30/51 dtk). Menunggu feedback Irfan.
 - **Versi terakhir: v21.** Mac `pks-studio/out/PKS_v21_video1.mp4` (Particle Emission) dan `PKS_v21_video2.mp4` (Reggae buka/tutup + Particle).
   Visual = render v21 (`seg/v21final_v.mp4`), audio = master v20 (`seg/master_v20_video{1,2}.flac`) karena penanda SFX tidak bergeser.
 - Perubahan v21: `lib/KineticVO.tsx` (tipografi kinetik VO per frasa, menggantikan baris subtitle CaptionTrack — logika frasa/mask tetap di
