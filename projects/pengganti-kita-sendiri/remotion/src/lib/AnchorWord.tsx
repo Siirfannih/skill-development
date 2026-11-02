@@ -74,6 +74,8 @@ export const AnchorWord: React.FC<AnchorProps> = ({
   const uid = useId().replace(/[^a-zA-Z0-9]/g, "");
   const probe = useProbe(`anchor:${text}`, "text", frame + sceneFrom, color);
   if (sfx) sfxMark((frame + sceneFrom) / FPS, sfx.kind, (at + sceneFrom) / FPS, sfx.id, sfx.pan);
+  // setiap kata kinetik yang muncul = satu klik (Irfan 2 Nov 12.41); mapper membuang klik ini bila event lain jatuh ≤2 f
+  else sfxMark((frame + sceneFrom) / FPS, "word", (at + sceneFrom) / FPS, `word:${text.replace(/\s+/g, "_")}:${atAbs}`);
   if (frame < at || (until !== undefined && exit === "cut" && frame >= until)) return null;
   if (until !== undefined && exit === "snap" && frame >= until + OUT_F) return null;
 

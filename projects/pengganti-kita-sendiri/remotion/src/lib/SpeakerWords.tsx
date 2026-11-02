@@ -172,6 +172,7 @@ export const SpeakerWords: React.FC<{
               size={w.size} color={col} align="left" enter="scale" shadow={shadow} grain={w.grain} weight={500} track={-0.01} />
           );
         }
+        sfxMark(absF / FPS, w.sfx?.kind ?? "word", w.at / FPS, w.sfx?.id ?? `word:${w.text.replace(/\s+/g, "_")}:${w.at}`, w.sfx?.pan);
         if (absF < w.at || (end !== undefined && absF >= end)) return null;
         return <NormalLike key={i} w={w} absF={absF} shadow={shadow} color={col} dim={dim} />;
       })}

@@ -189,7 +189,7 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
 | Whip / cut on motion | `v17_whip_1/2` | |
 | Zoom-through / build | `riser` (ElevenLabs, video #2), berakhir di cut | |
 | Beat drop / pendaratan besar | `v17_impact_1`, ekor ≤ 0,9 dtk | tidak ada hantaman di frame 0 (The Gap D-038) |
-| Foto montase berganti | `klik-ui` 1:1 per foto | |
+| Foto montase berganti / gambar berganti | klik kamera `shutter-modern.wav` / video #2 `shutter.mp3`, 1:1 per gambar | bukan whoosh/swipe (Irfan 2 Nov 12.36) |
 | Bidang cahaya menyala/padam | `switch` (klik saklar) | |
 | Garis/grafik tergambar | `v17_glide_2` | |
 | Penutup | jeda pra-drop −18 dB (bukan hening mati) → bass drop + ekor musik asli | tanpa akor sinus |

@@ -117,6 +117,37 @@ Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. 
   6. Setelah mix, `earshot timeline` seluruh film untuk mencari label yang salah.
 - Kasus 2 Nov: whoosh transisi terdengar "record scratch/tape stop" dan pop UI terdengar "error buzz". Keduanya lolos semua gerbang angka, tapi Irfan mendengarnya seperti starter mobil.
 
+### Kata kode = bunyi (Irfan 2 Nov 12.36/12.41, pola The Gap v18 + video #2 "20 konten")
+Kasus PKS v10b: semua SFX lolos gerbang angka dan label earshot, tetapi Irfan tetap menolaknya. Ada tiga penyebab:
+1. Pergantian foto memakai swipe/whoosh.
+2. Whoosh terlambat. File ditaruh mulai di frame penanda, padahal puncak whoosh baru datang 200–400 ms kemudian.
+3. Bunyi dirotasi acak dan deep (`sub-cinematic`, 28×).
+
+Aturannya:
+- **Satu kata kode = satu bunyi yang sama sepanjang video.** Peta peran → file ditulis di `palette.json` proyek. Tidak ada rotasi acak.
+- **Tabel peran wajib:**
+
+  | Kata kode | Bunyi |
+  |---|---|
+  | `:photo:` / gambar berganti | klik kamera (shutter), satu per gambar |
+  | kata kinetik muncul (`word:`) | klik mouse/tap |
+  | kamera atau objek bergerak (`:cam:`, `push`, `wipe`, `drag`…) | satu whoosh udara tipis |
+  | kartu/ikon muncul | pop UI |
+  | centang/berhasil | nada pendek (marimba/pluck) |
+  | cahaya menyala | switch |
+  | garis tergambar | glide |
+  | objek mendarat | thud lembut |
+  | hapus | trash |
+
+- **Karakter bunyi: renyah, agak nyaring, bernada seperti motion Apple.** Ekornya alami pendek; bukan echo yang ditambahkan. Tidak deep, tidak kasar.
+  - Ukur centroid, keharmonisan (autokorelasi), nada dasar, porsi > 6 kHz dan 2–6 kHz, serta ekor (puncak → −30 dB), lalu bandingkan dengan palet proyek yang lulus (`ears/palette.py`).
+- **Whoosh hanya bila ada gerak nyata.** Cek kurva gerak video (`ears/motion_curve.py`: phase-correlation + beda global).
+  - Tidak ada gerak → whoosh dibuang.
+  - Ada gerak → **puncak** file jatuh di frame v_max (`align:"peak"` di mixer).
+  - Transien klik/pop jatuh di onset objek (`align:"onset"`).
+- **Mixer wajib menyelaraskan isi file, bukan awal file.** `mix_v10c.py` menghitung offset onset/puncak tiap file.
+- Penanda kata dipasang otomatis di `AnchorWord`/`SpeakerWords` (`word:<teks>:<frame>`). Klik kata dilebur bila event lain jatuh ≤ 2 f.
+
 ## Referensi = prinsip dan studi kasus, bukan aturan tetap (Irfan, 2 Nov 07.03)
 - Angka dari video referensi (level SFX +X dB, BGM −Y dB, durasi transisi, ukuran font) dipakai sebagai **simulasi**: apa yang terjadi pada angka itu, dan apa dampaknya ke penonton.
 - Angka referensi tidak disalin menjadi aturan mutlak untuk proyek lain, karena karakteristik suara, tone dan tema berbeda.
