@@ -146,6 +146,15 @@ Aturannya:
   - Ada gerak → **puncak** file jatuh di frame v_max (`align:"peak"` di mixer).
   - Transien klik/pop jatuh di onset objek (`align:"onset"`).
 - **Mixer wajib menyelaraskan isi file, bukan awal file.** `mix_v10c.py` menghitung offset onset/puncak tiap file.
+- **Bedah referensi dengan earshot sebelum memilih palet (Irfan 12.57):**
+  1. Jalankan `earshot timeline <ref.mp4> --detail high` pada tiap referensi dan proyek yang lulus.
+  2. Ringkas dengan `ears/tl_sum.py`: label per jenis, centroid, prominence di atas bed, potongan tanpa bunyi.
+  3. `earshot profile` lalu `critique --profile` mix sendiri.
+  4. Samakan tiga hal:
+     - kosakata bunyi (label earshot mix ≈ label referensi);
+     - prominence per jenis;
+     - sinkron potongan (status `near` yang konsisten berarti offset sistematis).
+  - Contoh: `projects/pengganti-kita-sendiri/audio-v19/EARSHOT-REFS-2NOV.md`.
 - Penanda kata dipasang otomatis di `AnchorWord`/`SpeakerWords` (`word:<teks>:<frame>`). Klik kata dilebur bila event lain jatuh ≤ 2 f.
 
 ## Referensi = prinsip dan studi kasus, bukan aturan tetap (Irfan, 2 Nov 07.03)

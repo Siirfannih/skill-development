@@ -40,9 +40,9 @@ _dm = dialog.mean(1); dlg_rms = np.sqrt((_dm[np.abs(_dm) > 0.01] ** 2).mean())
 REL = {'sub_impact': -4, 'low_whoosh': -3, 'scifi_whoosh': -4, 'snap_click': -5, 'glass_ping': -9, 'ui_tap': -7,
        'telemetry_blip': -10, 'graph_riser': -11, 'riser_coldopen': -9, 'heartbeat_pulse': -12,
        # v10 R5 (SFX dipilih dengan earshot): whoosh/swipe udara, pop UI, klik lembut, hit, data
-       'whoosh': -4, 'swipe': -5, 'pop': -8, 'click': -6, 'hit': -3, 'data': -8,
+       'whoosh': -6, 'swipe': -5, 'pop': -9, 'click': -7, 'hit': -6, 'data': -8,
        # v10c (palet The Gap + video #2, Irfan 2 Nov 12.36/12.41): satu kata kode = satu bunyi
-       'shutter': -6, 'word': -11, 'tonal': -9, 'glide': -10, 'switch': -8, 'trash': -8, 'swell': -10}
+       'shutter': -6, 'word': -8, 'tonal': -7, 'glide': -9, 'switch': -8, 'trash': -8, 'swell': -12}  # earshot vs ref (UI +8..9 dB, whoosh +5..9, hit +7..9 di atas bed)
 def _env10(x):
     m = x.mean(1); h = SR // 100
     return np.sqrt(np.convolve(m ** 2, np.ones(h) / h, 'same'))

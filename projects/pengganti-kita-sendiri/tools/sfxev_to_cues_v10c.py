@@ -18,7 +18,8 @@ flow = np.array(mo['flow']); glob = np.array(mo['glob']); onset = np.array(mo['o
 
 def role_for(kind, ident):
     obj = ident.split(':')[1] if ':' in ident else ident
-    if kind == 'word' or ident.startswith('word:'): return 'word'
+    if kind == 'word' or ident.startswith('word:') or obj == 'anchor': return 'word'   # tipografi = klik, juga anchor yang dulu diberi whoosh/hit
+    if obj == 'text': return None                         # teks keluar: bukan gerak kamera, tanpa whoosh
     if obj == 'photo' or kind in ('snap', 'snap_click'): return 'shutter'
     if kind == 'whoosh' or kind in ('low_whoosh', 'scifi_whoosh', 'riser'): return 'whoosh'
     if kind == 'draw': return 'glide' if 'line' in ident else None
@@ -29,12 +30,12 @@ def role_for(kind, ident):
     if kind in ('click', 'ui_tap', 'key'): return 'click'
     if kind in ('pop', 'glass_ping', 'toggle'): return 'pop'
     if kind in ('land', 'sub_impact', 'hit'):
-        return 'word' if obj == 'anchor' else 'hit'      # kata jangkar = tipografi -> klik; objek mendarat -> thud lembut
+        return 'hit'                                     # objek mendarat -> thud lembut
     if kind == 'graph_riser': return 'glide'
     return None
 
 PRIO = {'hit': 6, 'shutter': 5, 'whoosh': 4, 'switch': 4, 'tonal': 3, 'pop': 3, 'click': 3, 'trash': 3, 'glide': 2, 'word': 1}
-ALIGN = {'whoosh': 'peak', 'glide': 'start'}
+ALIGN = {'whoosh': 'peak', 'glide': 'start', 'shutter': 'peak', 'click': 'peak', 'word': 'peak', 'trash': 'onset', 'hit': 'onset', 'pop': 'onset', 'tonal': 'onset', 'switch': 'onset'}  # earshot 2 Nov: shutter onset-10 % = +58 ms telat → selaraskan puncak transien
 
 ev = []
 for line in open(SFX):
@@ -53,7 +54,7 @@ for t, kind, ident, pan in ev:
     f0 = int(round(t * FPS))
     if r == 'whoosh':
         # gerak nyata? puncak gerak kamera (phase-corr) atau perubahan global di [t-3f, t+18f]
-        a, b = max(1, f0 - 3), min(len(flow) - 1, f0 + 18)
+        a, b = max(1, f0 - 3), min(len(flow) - 1, f0 + 10)   # puncak gerak 3–6 f setelah mulai (28 % durasi); >10 f = gerak lain
         fl, gl = flow[a:b + 1], glob[a:b + 1]
         moving = fl.max() >= 2.0 or gl.max() >= 6.0
         if not moving:
