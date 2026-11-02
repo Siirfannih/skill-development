@@ -217,3 +217,95 @@ Satu-satunya catatan: #17 hanya memperingatkan bahwa shadow teks mendekati efek 
 - **Diterima:** frame hitam 40,93; kedip kartu 117,07–117,13; «Perlahan» keluar dari kanan-atas & tidak menempel kepala; teks yatim 8,0; 2 frame hitam 12,67 (transisi saja, cat BERLOMBA tetap dikunci); frame nyasar 86,93; «Sadar» ke 130 px.
 - **Penutup 126,25–132,8 — disetujui planner:** dorong kamera pelan 1,00→1,12 (cubic-out) + rim light piktogram naik pelan selama hold; tanpa elemen baru; fade akhir tetap.
 - **Ditunda:** punch-in label UI kecil (tidak mengubah alur; dicatat untuk Irfan). Kotak putih miring di KREATIF/MEMBANGUN: bidang cahaya yang sudah disetujui sesudah keluhan #1 → dipertahankan.
+
+## Putaran 3 (R6 segar)
+Bahan: `PKS_v10_r3_preview.mp4` (960×540, 30 fps, 132,8 dtk, audio final). Reviewer tidak tahu proses pembuatan.
+
+**Cara periksa:**
+- Contact sheet 4 fps (531 frame, 27 lembar 4×5 @240 px) untuk seluruh video, ditambah frame 960 px di 14 momen rawan.
+- Strip 30 fps ±3 f di 45 cut (semua cut babak + sampel montase). Deteksi otomatis memakai scene score > 0,25 (89 cut) dan luminansi per frame: frame gelap terisolasi, lonjakan ±25 yang kembali, frame < 10 Y.
+- Gerak antar frame per 0,5 dtk di 117–132,8.
+- Audio: ebur128, silencedetect −45 dB/100 ms, RMS 100 ms dan 20 ms di ekor.
+
+**Hasil terukur:**
+- Nol frame hitam dan nol kedip di seluruh video. Titik bermasalah putaran 2 bersih: 8,00 · 12,67 · 40,93 · 86,93 · 117,07 (luminansi menurun monotonik).
+- Integrated −14,0 LUFS, TP −1,1 dBFS, LRA 2,4 LU.
+- Satu-satunya jendela < −40 dBFS ada di fade akhir 131,5–132,8.
+- Ekor 132,60–132,80: muncul bunyi frekuensi rendah (20–150 Hz) +12 dB (−51 → −38 dBFS) di atas layar hitam, lalu terpotong di frame terakhir.
+- Angka pembuat untuk keterdengaran SFX (89 %), VO p50/p5 (15,2/2,7 dB), >5 kHz (4,8 %), dan BGM p50 (−29 dBFS) diterima. Reviewer tidak punya stem untuk mengukur ulang.
+
+### Skor rubrik R1–R7 (1–5)
+| R | Skor | Alasan |
+|---|---|---|
+| R1 timing di ketukan | 4 | Kata masuk per kata dan mengikuti ucapan: Gates, montase, 16 year old, Raised, Jensen, Altman. Montase cut tiap 7–8 f, rapat dengan transien. Semua serah-terima bersih. Nilai belum 5 karena di 126,5–131,5 tidak ada event visual baru selama 5 dtk saat musik masih berjalan. |
+| R2 satu fokus | 4 | Hampir semua frame satu fokus. Kalender, prompt, multi-agent, grid 3×3, Altman per kata, dan cahaya Membangun bekerja. Fokus pecah di Jensen 56,4–59,3 (baris teks menabrak logo cincin) dan 25,25–28,5 (tumpukan kartu kiri-atas, dock kanan-bawah, tengah kosong). |
+| R3 konsistensi karakter | 4 | Dua dunia (UI terang dan ruang piktogram gelap) konsisten. Ukuran anchor seragam, termasuk «Sadar» yang sudah setara. Entri blur→tajam dipakai konsisten untuk kata VO. |
+| R4 keterbacaan HP | 4 | Semua anchor dan kutipan narasumber terbaca di 960 px. Altman 130 px dengan shadow terbaca di atas lengan mikrofon. Label UI kecil ditunda sesuai keputusan Irfan, jadi tidak dihitung sebagai kegagalan (dicatat P2). |
+| R5 kebenaran produk | 4 | UI dipakai seperti sungguhan: kalender Oktober menyusut, prompt CEO diketik, chat multi-agent dengan angka omzet, ChatGPT mengetik «tolong balas oke siap…», linimasa GPT-3→GPT-5. Tidak ada klaim produk yang janggal. |
+| R6 setara referensi | **3** | Bagian tengah (19–50, 61–71, 87–98) sudah sekelas referensi. Penutup gagal kompas #10: setelah 126,25 frame praktis beku 5 dtk (selisih antar frame rata-rata 0,02–0,4 dari 255, jadi dorongan kamera 1,00→1,12 tidak terlihat). «Peran Kamu» diam 2,6 dtk menempel di atas kepala siluet, lalu fade. Aturan analysis-qa §16.4: gagal satu butir kompas berarti R6 tidak lulus. Ini putaran ketiga butir yang sama gagal, jadi pendekatannya harus diganti, bukan dipoles. |
+| R7 audio | 4 | Loudness dan TP sesuai target, nol dead air di tengah, SFX 89 %. Kekurangan: VO p5 hanya 2,7 dB di atas latar, dan ada dentum rendah terpotong di 132,6–132,8 di atas layar hitam. |
+
+**Rata-rata 3,86. Tidak lulus: R6 = 3.**
+
+**Gerbang R6:**
+- **(a) Tiga hal paling amatir:**
+  1. Penutup beku ±5 dtk dengan «Peran Kamu» menempel di kepala siluet, lalu fade ke hitam. Video berakhir lemah, padahal ini kalimat pesan utamanya.
+  2. 4,43–6,17: shot «16 year old» di-crop sampai yang tersisa hanya kaus hitam dan dagu. Wajah subjek hilang ±1,7 dtk dan frame nyaris hitam, terbaca sebagai salah framing.
+  3. Jensen: «Not gonna lose a Job» menabrak lingkar atas logo, kata «lose» tertimpa garis logo.
+- **(b) Ketahuan beda kelas bila diselipkan di showreel?** Tidak lagi di bagian tengah. Ya di detik-detik akhir: penonton terakhir melihat frame diam.
+
+### Tabel cacat
+| # | Timestamp | P | Apa | Aturan | Saran |
+|---|---|---|---|---|---|
+| 1 | 126,25–132,8 | P1 (eskalasi: 3 putaran) | Penutup praktis statis ±5 dtk. Satu layar menyala di 126,5, setelah itu nyaris tidak ada perubahan. «Peran Kamu» diam 129–131,6 lalu fade 1,2 dtk. Dorongan kamera tidak terukur di render (selisih frame ≤ 0,4/255). Teks hanya ±15 px @540 di atas kepala siluet. | §16.2: end card tidak statis > 1,5 dtk. Kompas #10. §16.4: dua putaran gagal di butir sama berarti ganti pendekatan. | Ganti pendekatan, jangan memoles. Contoh: kamera bergerak nyata (≥ 15 % atau dolly turun dari deret layar ke siluet) selama «Peran», lalu siluet berbalik/terang tepat di «Kamu». Hold ≤ 1,5 dtk, lalu cut ke hitam di ketukan musik. Jarak teks ke kepala ≥ 40 px @1080. |
+| 2 | 4,43–6,17 | P1 | Close-up «16 year old» hanya memperlihatkan kaus hitam dan leher/dagu. Frame 4,43–5,5 nyaris hitam total. Subjek tidak terbaca dan wajah terpotong. | Kompas #1; R2 satu fokus (subjek hilang). | Crop ulang supaya mata/wajah ada di sepertiga atas (punch-in ke wajah, bukan ke dada), atau tetap memakai shot medium 3,7–4,4 sampai «company». |
+| 3 | 56,4–59,3 | P1 | «Not gonna lose a Job» (y ≈ 26 %) duduk tepat di lingkar atas logo cincin. Kata «lose» tertimpa garis logo. | §16.2: teks tidak tumpang tindih dengan objek. Keluhan #8 (teks di ruang kosong kiri). | Naikkan baris ≥ 30 px @1080 di atas lingkar logo, atau geser kiri ke ruang ungu polos (x 3–25 %). Alternatif: punch-in kecil supaya logo keluar frame kiri. |
+| 4 | 132,60–132,80 | P2 | Dentum rendah (20–150 Hz) naik +12 dB di atas layar hitam lalu terpotong di frame terakhir. | Akhir mulus; tidak ada bunyi terpotong. | Hapus cue ekor, atau geser ke cut terakhir dan biarkan meluruh di dalam durasi. |
+| 5 | 117,3–119,0 · 28,75–30,6 · 103,5–105,3 | P2 | Hold 1,7–2 dtk tanpa perubahan (selisih frame < 0,3/255). Di 117–119 60 % bawah frame kosong gelap. | §16.5 hold tanpa info baru; kompas #8. | Potong ≤ 1 dtk, atau beri dolly 3–5 % / sapuan cahaya. |
+| 6 | 101,0–103,3 | P2 | Deret kartu app di 16–33 % atas, siluet nyaris keluar frame, dua per tiga bawah kosong. | Komposisi; satu fokus. | Tilt turun supaya deret di y ≈ 40 % dan siluet terlihat di bawahnya. |
+| 7 | 119,75–120,5 · 54,25–55,6 | P2 | «Tertinggal» di y ≈ 74 % menempel tepi tubuh siluet besar. «Tempat Kita» di y ≈ 73 % menempel alas siluet. | Pita pesan y 36–64 %. | Naikkan ke y ≈ 55–60 % di ruang gelap kanan. |
+| 8 | 13,25–14,6 | P2 | «Pengganti» melintang di leher/bahu figur garis putus-putus, teks menutupi subjek. | §16.2 teks vs subjek. Bisa disengaja (label slot kosong); bila disengaja, catat. | Bila bukan disengaja, taruh di atas lingkar kepala atau di bawah alas cahaya. |
+| 9 | 25,25–28,5 | P2 | Kartu tugas kiri-atas dan dock kanan-bawah, tengah kanan kosong. Mata harus melompat diagonal. | R2 satu fokus. | Rapatkan dock ke bawah tumpukan kartu, atau kamera mengikuti kartu yang diseret. |
+| 10 | 25–28 · 33,75–34,3 · 64,5–65,9 · 98,5–103,3 | P2 (ditunda Irfan) | Label UI kecil (nama file, linimasa GPT, deret aplikasi) < 22 px @1080. | R4. | Ditunda sesuai keputusan Irfan; catat saja. |
+| 11 | sepanjang VO (p5) | P2 | VO p5 hanya 2,7 dB di atas latar. | Vocal dominance. | Duck bed +3 dB lebih dalam di jendela p5. |
+
+**Diterima (keputusan Irfan/dikunci, bukan cacat):**
+- dunia piktogram dan siluet;
+- hitam sebagai fokus;
+- cat BERLOMBA-LOMBA;
+- grid biru «janji sederhana»;
+- gradien langit kalender;
+- grid 3×3;
+- tanpa scrim;
+- bidang cahaya putih miring di KREATIF/MEMBANGUN/MERENCANAKAN;
+- teks narasumber di atas footage dengan shadow (Altman di atas lengan mikrofon terbaca);
+- teks progress 8–10,3 di y ≈ 69 %.
+
+### Status 9 keluhan Irfan (FEEDBACK-2NOV-0605)
+| # | Keluhan | Status | Bukti |
+|---|---|---|---|
+| 1 | MEMBANGUN cahaya kotak kasar | **BERES** | 105,5–107,9: berkas cahaya diagonal lembut, tanpa tepi persegi. |
+| 2 | Gates dobel | **BERES** | 0,0–1,43: satu figur, frame 0 sudah footage. |
+| 3 | Montase teks ke tengah | **BERES** | 1,7–3,7: baris di y ≈ 52 %. |
+| 4 | Teks progress di ruang kosong | **BERES** | 8,25–10,3: di bawah kartu, tidak menimpa presenter. |
+| 5 | «AI» hitam di belakang Wikipedia | **BERES** | 19,5–23,0: tidak ada. |
+| 6 | «janji sederhana» | **BERES** | 23,75–25,2: dua kata, tanpa kotak. |
+| 7 | Kalender nyata | **BERES** | 34,5–36,6: kalender Oktober, blok menyusut. |
+| 8 | Jensen full frame, teks per kata di kiri | **SEBAGIAN** | Full frame dan per kata sudah. Baris masih menabrak logo cincin (cacat #3). |
+| 9 | Altman per kata besar di tengah, BILLION | **BERES** | 71,9–75,2: satu kata per beat di y ≈ 58 %, ±130 px, «Billion» kuning, kata saling menggantikan. |
+
+**Rekap: 8 BERES, 1 SEBAGIAN.**
+
+### VERDICT: **NO-SHIP**
+- 0 P0, tetapi R6 = 3 (< 4).
+- Jalur ke SHIP:
+  1. Penutup dengan pendekatan baru (cacat #1).
+  2. Crop ulang 16 year old (#2).
+  3. Jensen menjauh dari logo (#3).
+  4. Hapus dentum ekor (#4).
+- Keempatnya kecil dan lokal. Setelah itu R6 kemungkinan naik ke 4, dengan syarat penutup benar-benar bergerak di render (ukur selisih frame, jangan hanya membaca kode).
+
+## Keputusan Claude utama atas Putaran 3
+- Tidak ada P0; jalur ke SHIP: (1) penutup pendekatan baru (piktogram menyala di «Kamu» + push-in nyata ≥ 15 %, hold ≤ 1,5 s, gerak diukur dari render), (2) crop ulang close-up «16 year old», (3) reframe Jensen agar teks tidak menabrak logo, (4) dentum ekor — SELESAI (fade bed/SFX/room 131,6–132,6 s; VO berakhir 129,7 s).
+- Diterima tanpa perubahan: hold ruang piktogram 1,7–2 s (gelap = fokus), «Pengganti» di bahu figur (disengaja: kata di belakang/di antara piktogram), label UI kecil (ditunda), VO p5 2,7 dB (median 15,2 dB; di atas target 0 dB).
+- Ditunda untuk Irfan: deret kartu app 101–103 s di sepertiga atas; komposisi 25–28 s; «Tertinggal»/«Tempat kita» di y ≈ 73 % (dalam safe zone, di luar pita pesan).
