@@ -50,7 +50,7 @@ const PHOTOS = [
 // Framing per potongan: footage di-reframe (skala + geser, origin kiri-atas) supaya pembicara di satu sisi & chyron TV terdorong keluar bawah.
 type Frame = { s: number; tx: number; ty: number; box: { x: number; y: number; w: number; align: "left" | "center" }; accent: string };
 const FRAMES: Frame[] = [
-  { s: 1.38, tx: -155, ty: 0, box: { x: 120, y: 470, w: 760, align: "left" }, accent: "biggest" }, // Gates kanan, teks kiri
+  { s: 1.46, tx: -228, ty: 0, box: { x: 120, y: 470, w: 760, align: "left" }, accent: "biggest" }, // Gates kanan, teks kiri. R2-D: 1,38→1,46 (tx −155→−228, wajah tetap di tempat) supaya pita terang lower-third CNBC (bawah klip, 0,1–0,6 s) keluar frame
   { s: 1, tx: 0, ty: 0, box: { x: 0, y: 470, w: 1920, align: "center" }, accent: "technical" }, // montase foto
   { s: 1, tx: 0, ty: 0, box: { x: 0, y: 470, w: 1920, align: "center" }, accent: "lifetime" }, // montase foto
   { s: 1.15, tx: -60, ty: -40, box: { x: 1000, y: 300, w: 820, align: "left" }, accent: "16-year-old" }, // remaja kiri, teks kanan atas
@@ -154,6 +154,9 @@ export const S00_ColdOpen: React.FC = () => {
         <Camera x={sh.x} y={sh.y}>
           {/* footage berita per frasa, cut zoom bergantian (C20) + zoom mikro (C01) */}
           <AbsoluteFill style={{ transform: t >= shrinkAt ? `translateY(${cardUp}px) scale(${cardScale})` : undefined, borderRadius: t >= shrinkAt ? 24 / cardScale : 0, overflow: "hidden", }}>
+            {/* R2-D (P2 #14): frame 0–1 tidak kosong — dua frame pertama klip Gates tampil di t=0 (klip utama baru mulai di 0,05 s = frame 2) */}
+            <Clip src={CUTS[0].file} at={0} inS={0} outS={2 / FPS}
+              style={{ transform: `translate(${FRAMES[0].tx}px, ${FRAMES[0].ty}px) scale(${FRAMES[0].s})`, transformOrigin: "0 0" }} grade={`${DOC_GRADE} brightness(${dimF})`} />
             {CUTS.map((c, i) => {
               const F = FRAMES[i];
               // C01: dorongan mikro 1→1,05 dari kata aksen; C19 drift kecil di sepanjang potongan

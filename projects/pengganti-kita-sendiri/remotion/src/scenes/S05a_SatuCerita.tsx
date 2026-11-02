@@ -124,11 +124,15 @@ export const S05a_SatuCerita: React.FC = () => {
         {(() => {
           const cc = place(cardC.x, cardC.y, card.p);
           const lx = cc.x - (card.w * cc.k) / 2 - 120; // v10 (#31): jarak ke tile Altman 56 → 120 px
+          // R2-D: ukuran LAYAR seragam 130 px — kata dikembalikan dari skala kamera (camPush 1→1,42) dengan lapisan kebalikan di titik asal kamera;
+          // posisi layar tetap menempel di kiri kartu (q = o + (p − o)·camPush).
+          const oq = CARD05A_END;
+          const qx = oq.x + (lx - oq.x) * camPush, qy = oq.y + (cc.y - oq.y) * camPush;
           return (
-            <>
-              <AnchorWord text="SATU" at={atSatu} until={atSukses} x={lx} y={cc.y} size={150} color="#1d1d1f" align="right" enter="left" />
-              <AnchorWord text="SUKSES" at={atSukses} until={outSS} x={lx} y={cc.y} size={150} color="#1d1d1f" align="right" enter="left" />
-            </>
+            <AbsoluteFill style={{ transform: `scale(${1 / camPush})`, transformOrigin: `${oq.x}px ${oq.y}px` }}>
+              <AnchorWord text="SATU" at={atSatu} until={atSukses} x={qx} y={qy} size={130} color="#1d1d1f" align="right" enter="left" />
+              <AnchorWord text="SUKSES" at={atSukses} until={outSS} x={qx} y={qy} size={130} color="#1d1d1f" align="right" enter="left" />
+            </AbsoluteFill>
           );
         })()}
         {renderPhotos(true)}

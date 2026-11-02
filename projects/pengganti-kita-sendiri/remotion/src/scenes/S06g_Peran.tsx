@@ -71,8 +71,8 @@ export const S06g_Peran: React.FC = () => {
           </AbsoluteFill>
           {/* v11 (SAFE/CONTR): PERAN | KAMU pindah ke ruang layar di celah antara barisan bidang dan piktogram (y 540, utuh di safe zone);
               di v10 duduk di y 826 dalam lapisan kamera → turun ke y 940 saat push-in dan menimpa badan piktogram (kontras 2,1:1). Ukuran seragam. */}
-          <AnchorWord text="PERAN" at={atPeran} x={934} y={548} size={124} color={wa(0.92)} align="right" enter="left" />
-          <AnchorWord text="KAMU" at={atKamu} x={986} y={548} size={124} color={C6.white} align="left" enter="right" />
+          <AnchorWord text="PERAN" at={atPeran} x={934} y={548} size={130} color={wa(0.92)} align="right" enter="left" />
+          <AnchorWord text="KAMU" at={atKamu} x={986} y={548} size={130} color={C6.white} align="left" enter="right" />
         </AbsoluteFill>
         <Grain opacity={0.05 * (1 - fade * 0.6)} />
       </AbsoluteFill>

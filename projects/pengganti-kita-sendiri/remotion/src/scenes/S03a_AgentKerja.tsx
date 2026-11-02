@@ -166,6 +166,8 @@ export const S03a_AgentKerja: React.FC = () => {
   const up = prog(t, LAUNCH[0], T_LAND, EZ.inOut);
   const ceo = cursorPos(0, t);
   const zt = { x: ceo.x + 11, y: ceo.y + 15 };
+  // R2-D (P2 #12): tepi kiri kotak prompt (x 120) tidak boleh keluar layar di close-up 41–45 s → batasi pusat kamera supaya margin kiri ≥ 60 px
+  follow.cx = Math.min(follow.cx, 120 + 900 / (follow.s * c01));
   let cx = lerp(follow.cx, lerp(960, 1000, click), pb);
   let cy = lerp(follow.cy, lerp(540, 500, click), pb);
   let s = lerp(follow.s * c01, 1 + 0.06 * click, pb);

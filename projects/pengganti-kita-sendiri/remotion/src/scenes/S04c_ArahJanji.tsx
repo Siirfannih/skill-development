@@ -125,11 +125,11 @@ export const S04c_ArahJanji: React.FC = () => {
                 </div>
               </Panel2x>
             </Camera>
-            {/* v10 (#29): label di lapisan LAYAR di ruang kosong (grid biru dipertahankan). ARAHNYA di bawah ujung garis solid (kanan-bawah, di safe zone x≤1632 / y≤864, ukuran seragam 72);
+            {/* v10 (#29): label di lapisan LAYAR di ruang kosong (grid biru dipertahankan). ARAHNYA di bawah ujung garis solid (kanan-bawah, di safe zone x≤1632 / y≤864, ukuran seragam 130 (R2-D: ukuran anchor VO seragam; ARAHNYA di bawah segmen solid, kiri ujung; JANJINYA di atas garis putus-putus, jarak ≥ 25 px));
                 JANJINYA di kiri ujung garis putus-putus, di atas jalurnya dengan jarak ≥ 40 px (tidak menempel tepi atas, tidak menimpa garis). */}
-            <AnchorWord text="ARAHNYA" at={atArah} until={outAnchor} x={1632} y={835} size={72} color="#fff" align="right" enter="left" grain={0.35}
+            <AnchorWord text="ARAHNYA" at={atArah} until={outAnchor} x={1400} y={795} size={130} color="#fff" align="right" enter="left" grain={0.35}
               sfx={{ kind: "scifi_whoosh", id: "04c:anchor:arahnya" }} />
-            <AnchorWord text="JANJINYA" at={atJanjinya} until={outAnchor} x={1560} y={268} size={72} color="#fff" align="right" enter="right" grain={0.35} />
+            <AnchorWord text="JANJINYA" at={atJanjinya} until={outAnchor} x={1440} y={265} size={130} color="#fff" align="right" enter="right" grain={0.35} />
             {/* titik rilis 04b → titik di garis solid */}
             {DOT_U.map((u, i) => {
               const target = proj(graphToScreen(onShared(u)));

@@ -45,11 +45,12 @@ export const S02a_Wikipedia: React.FC = () => {
   const sc = sW + (sC - sW) * inClose;
   const qx = 960 * (1 - inClose) + (SEL_Q.x + camX) * inClose;
   const qy = 540 * (1 - inClose) + SEL_Q.y * inClose;
-  const gy = 540 * (1 - inClose) + 450 * inClose; // seleksi diletakkan di atas baris teks bawah
+  const gy = 540 * (1 - inClose) + 565 * inClose; // R2-D: seleksi diturunkan 450→565 supaya header «WIKIPEDIA» utuh di close-up (v10: terpotong tepi atas 21,3–21,9 s)
   const cam = { x: 960 - qx * sc, y: gy - qy * sc };
   // SFXEV · metronom (konstanta yang sama dengan animasi di bawah)
   sfxMark(t, "riser", P1D_END, "01d:fill:riser"); // isi wireframe (kurva ^2,2) → hard cut batas babak
   sfxMark(t, "cut", P.start, "02a:cut:babak");
+  sfxMark(t, "whoosh", 23.0, "02a:cut:wipe"); // R2-D (P2 #19): transisi besar 23,0 s (wipe biru) diberi hit whoosh tepat di frame 690
   PHOTOS.forEach((_, i) => sfxMark(t, "pop", ezHalf(P.start + i * 2 * fr, P.start + (i * 2 + 10) * fr), `02a:photo:${i}`));
   sfxMark(t, "pop", ezHalf(CARD_A, CARD_B), "02a:card:wiki");
   sfxMark(t, "cut", CUTZ, "02a:cut:zoom"); // C20 cut zoom 1,85× ke kalimat rilis

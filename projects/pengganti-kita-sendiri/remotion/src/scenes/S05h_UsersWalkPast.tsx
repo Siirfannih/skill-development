@@ -119,7 +119,7 @@ export const S05h_UsersWalkPast: React.FC = () => {
             {t >= WALK_A && t <= WALK_B + 0.1 && <Pictogram x={ux} floor={FLOOR} h={400} phase={phase} />}
           </Camera>
           {/* v9 (#27): «semakin» dihapus; SUSAH = anchor di bawah lantai, tengah (bukan di atas visual), masuk di suku tekan f3076 */}
-          <AnchorWord text="SUSAH" at={atSusah} x={960} y={610} size={170} color={C.white} enter="scale" />
+          <AnchorWord text="SUSAH" at={atSusah} x={960} y={610} size={130} color={C.white} enter="scale" />
           <Grain opacity={0.05} />
         </AbsoluteFill>
       </AbsoluteFill>
