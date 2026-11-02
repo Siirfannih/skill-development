@@ -61,10 +61,14 @@ const SPEC: (Spec | null)[] = [
   { t: "Sebagian janji itu memang", x: 960, y: 690, align: "center", lay: "stair", ink: "dark", br: [2], key: 1, enter: "mask", exit: "rise" },
   { t: "ditepati", x: 960, y: 720, align: "center", lay: "line", ink: "dark", size: 104, key: 0, mark: true, enter: "rise", exit: "blur" },
   { t: "Kita bekerja jauh lebih cepat", x: 1120, y: 520, align: "left", lay: "column", ink: "dark", br: [2, 4], key: 4, plate: "light", enter: "type", exit: "wipe" },
-  { t: "Tapi di satu sisi", x: 960, y: 780, align: "center", lay: "line", ink: "light", key: 3, plate: "dark", enter: "blur", exit: "rise" },
-  { t: "kita juga tidak", x: 960, y: 780, align: "center", lay: "line", ink: "light", key: 2, plate: "dark", enter: "mask", exit: "sink" },
-  { t: "bekerja persis seperti apa yang", x: 960, y: 812, align: "center", lay: "line", ink: "light", key: 1, plate: "dark", enter: "rise", exit: "blur" },
-  { t: "kita lakukan dalam", x: 960, y: 812, align: "center", lay: "line", ink: "light", key: 1, plate: "dark", enter: "blur", exit: "wipe" },
+  // 14–15 (QC v21): empat frasa berturut-turut chip gelap di pita bawah = subtitle lagi → tinta gelap tanpa chip di ruang kosong bawah kartu,
+  // «kita juga tidak» hanya tampil ±15 f saat kamera mundur cepat ke grid 3×3 (baris kartu menyapu setiap posisi) → tidak ditampilkan
+  { t: "Tapi di satu sisi", x: 960, y: 790, align: "center", lay: "line", ink: "dark", size: 72, key: 3, enter: "blur", exit: "rise" },
+  null, // 15 «kita juga tidak»
+  // 16–17 (QC v21): composer + kartu laporan + kursor agen mengisi seluruh safe zone dan kamera bergerak → setiap posisi menimpa UI
+  // (chip gelap menempel di tepi kotak input = tempelan). Visual agen bekerja sudah membawa makna → tidak ditampilkan.
+  null, // 16 «bekerja persis seperti apa yang»
+  null, // 17 «kita lakukan dalam»
   { t: "Dan perlahan", x: 960, y: 640, align: "center", lay: "drop", ink: "light", key: 1, enter: "mask", exit: "rise" },
   { t: "yang kita bangun menjadi cukup", x: 1360, y: 420, align: "left", lay: "stair", ink: "light", br: [3], key: 2, enter: "type", exit: "blur" },
   { t: "besar untuk mengambil", x: 960, y: 470, align: "center", lay: "drop", ink: "light", key: 0, enter: "rise", exit: "sink" },
@@ -82,15 +86,17 @@ const SPEC: (Spec | null)[] = [
   { t: "prompt", x: 960, y: 800, align: "center", lay: "line", ink: "light", plate: "dark", enter: "type", exit: "blur" },
   null, // 33 «dan» — 4 frame
   { t: "membuat", x: 960, y: 540, align: "center", lay: "line", ink: "light", size: 80, plate: "dark", enter: "mask", exit: "rise" },
-  { t: "tapi membangun sesuatu yang", x: 960, y: 520, align: "left", lay: "stair", ink: "light", br: [2], key: 1, drift: [10, 0], enter: "blur", exit: "rise" },
-  { t: "dibutuhkan orang justru semakin", x: 960, y: 520, align: "left", lay: "stair", ink: "light", br: [2], key: 0, mark: true, drift: [10, 0], enter: "rise", exit: "sink" },
+  // 35–36 (QC v21): figur berjalan dari tengah ke kanan melewati x 960 → teks menimpa badan figur. Pindah ke kolom kiri (x 290–620),
+  // figur berjalan menjauh dari teks; satu kata per baris = susunan kolom yang belum dipakai di 05h
+  { t: "tapi membangun sesuatu yang", x: 300, y: 560, align: "left", lay: "column", ink: "light", size: 58, br: [1, 2, 3], key: 1, enter: "blur", exit: "rise" },
+  { t: "dibutuhkan orang justru semakin", x: 300, y: 560, align: "left", lay: "column", ink: "light", size: 58, br: [1, 2], key: 0, mark: true, enter: "rise", exit: "sink" },
   { t: "Terkadang kita terlalu sibuk", x: 980, y: 330, align: "left", lay: "stair", ink: "light", br: [2], key: 3, enter: "mask", exit: "wipe" },
   { t: "hal yang sama dengan yang semua", x: 960, y: 545, align: "center", lay: "stair", ink: "light", br: [3], key: 2, enter: "type", exit: "rise" },
   { t: "orang lakukan", x: 960, y: 545, align: "center", lay: "line", ink: "light", key: 1, enter: "blur", exit: "blur" },
   { t: "kalau tidak memakai AI", x: 600, y: 680, align: "left", lay: "stair", ink: "light", br: [2], key: 3, mark: true, enter: "rise", exit: "sink" },
   { t: "kita merasa", x: 600, y: 680, align: "left", lay: "line", ink: "light", size: 84, enter: "mask", exit: "wipe" },
   { t: "karena semua orang di sekitar", x: 960, y: 585, align: "center", lay: "line", ink: "light", key: 1, enter: "blur", exit: "rise" },
-  { t: "kita memakainya dengan tools", x: 960, y: 655, align: "center", lay: "line", ink: "light", key: 3, mark: true, enter: "rise", exit: "blur" },
+  { t: "kita memakainya dengan tools", x: 960, y: 680, align: "center", lay: "stair", ink: "light", br: [2], key: 3, mark: true, enter: "rise", exit: "blur" },
   { t: "yang sama persis", x: 960, y: 650, align: "center", lay: "line", ink: "light", size: 80, key: 2, enter: "mask", exit: "sink" },
   { t: "Jadi di tengah semua ini", x: 860, y: 600, align: "right", lay: "stair", ink: "light", br: [3], key: 2, enter: "type", exit: "blur" },
 ];
@@ -206,7 +212,8 @@ BUILT.forEach((b, j) => {
   const last = b.p.words[b.p.words.length - 1].f;
   const nx = BUILT[j + 1];
   let a = b.p.end, z = b.p.end + EXIT_F;
-  const cut = CUTS.find((c) => c > a && c < z);
+  // potongan sesudah kata terakhir (bukan sesudah p.end): frasa yang berakhir tepat di/lewat potongan juga tidak boleh menyeberang
+  const cut = CUTS.find((c) => c > last + 1 && c < z);
   if (cut !== undefined) { z = cut; a = Math.max(last + 2, Math.min(a, cut - 4)); }
   if (nx && nx.p.start < z && hit(b.box, nx.box)) {
     // tukar di tempat: yang lama sudah hilang ≤ 1 frame setelah kata pertama frasa baru (tidak pernah dua frasa bertumpuk)
@@ -297,7 +304,11 @@ const PhraseBlock: React.FC<{ b: Built; F: number }> = ({ b, F }) => {
           if (pq >= 0 && prev.pos[pq]) {
             fx = prev.pos[pq].x + textWidth(W[pq].text, b.sizes[pq], pq === b.key ? 600 : 500, -0.015) + GAP * b.sizes[pq];
             fy = prev.pos[pq].y;
-          } else { fx = to.x; fy = to.y; }
+          } else {
+            // kata pertama baris baru: lahir di bawah baris terakhir dalam kerangka blok LAMA, lalu naik bersama blok
+            // (QC v21: tanpa ini kata baru langsung di posisi akhir sementara baris di atasnya masih turun → tumpuk 4–6 f)
+            fx = to.x; fy = to.y + (cur.H - prev.H) / 2;
+          }
         }
         const x = fx + (to.x - fx) * mv;
         const y = fy + (to.y - fy) * mv;

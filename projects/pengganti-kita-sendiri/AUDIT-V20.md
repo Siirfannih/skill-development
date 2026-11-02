@@ -52,3 +52,17 @@ untuk latar foto/UI ramai (layering, bukan gradien), frasa berikutnya di tempat 
 - Frasa 33 «dan» hanya 4 frame. v21: tidak ditampilkan.
 - Audio v20 tetap: earshot sinkron 94 % ≤ 100 ms, median 15 ms, tidak ada label kasar (LISTEN.md). Revisi v21 tidak menggeser penanda
   SFX (KineticVO tidak berbunyi, Breath tidak memancarkan penanda) → master v20 dipakai ulang; diverifikasi dengan membandingkan `.sfx` render v21 dengan `v11final.sfx`.
+
+## QC lanjutan v21 (sesi routine 2 Nov 23.00 WITA) — still render kode v21
+
+Bahan: `audit21/k3.jpg`, `q1.jpg`, `q2.jpg`, `q3.jpg` (still 0,5×), frame v11 `audit21/v11f/*.jpg` (latar tanpa teks).
+
+| Frasa / frame | Temuan | Perbaikan |
+|---|---|---|
+| 14–17 (f1103–1498) | Empat frasa berturut-turut chip gelap rata tengah di y 780–812 = pola subtitle kembali; 16–17 chip menempel di tepi kotak input composer (tempelan) | 14–15 tinta gelap tanpa chip di ruang kosong bawah kartu (tukar di tempat); 16–17 tidak ditampilkan — composer, kartu laporan, kursor agen dan gerak kamera mengisi seluruh safe zone |
+| 35–36 (f2955–3106) | Teks di x 960 menimpa badan figur yang berjalan | Kolom kiri x 300 (satu kata per baris), figur berjalan menjauh |
+| 43 (f3653) | Tiga frasa 06f berturut-turut `line` rata tengah | 43 → `stair` |
+| kata pertama baris baru (semua stair/column) | Kata baru langsung di posisi akhir sementara baris di atasnya masih bergeser → tumpuk 4–6 f (terlihat di 35 f3006) | Kata lahir di kerangka blok lama lalu naik bersama blok |
+| jendela keluar (13 frasa: 1, 2, 6, 9, 10, 13, 22, 29, 31, 32, 34, 36, 39) | Cek potongan memakai `c > p.end`, sehingga frasa yang berakhir di/lewat potongan tetap keluar 7–36 f di adegan berikutnya (39 «orang lakukan» 36 f di 06c) | Cek dari kata terakhir (`c > last + 1`) |
+
+Render final yang sedang berjalan (kode sebelum QC ini, 2536/3984 f) dihentikan dan dirender ulang penuh dengan kode baru.
