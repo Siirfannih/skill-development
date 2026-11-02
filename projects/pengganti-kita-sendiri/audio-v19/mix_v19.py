@@ -66,6 +66,9 @@ env = np.interp(np.arange(N) / SR, np.arange(len(g)) * hop / SR, g)  # 0 .. −S
 sfx *= (10 ** (env / 20)).astype(np.float32)[:, None]
 # v10: backsound ikut merunduk saat ucapan (tambahan di atas ducking music_bed) supaya VO tetap raja di pita HP
 if BED_DUCK > 0: bed = bed * (10 ** (env / max(SFX_DUCK, 1e-9) * BED_DUCK / 20)).astype(np.float32)[:, None]
+# v10 R3: ekor bersih — bed/SFX/room fade ke senyap mulai 131,6 s (dentum ekor musik di 132,6 s terpotong di frame terakhir)
+_tf = np.clip((np.arange(N) / SR - 131.6) / 1.0, 0, 1); _tf = (np.cos(_tf * np.pi / 2) ** 2).astype(np.float32)[:, None]
+bed = bed * _tf; sfx = sfx * _tf; room = room * _tf
 mix = dialog + bed + room + sfx
 meter = pyln.Meter(SR)
 lufs = meter.integrated_loudness(mix)
