@@ -80,6 +80,15 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
   - Bisa juga warna aksen yang kontras. Ukuran tidak dibesarkan.
 - **Hindari pola "blok di kiri + teks di kanan" di atas latar hitam polos.** Pola ini menyisakan ruang kosong besar di atas dan bawah, jadi melanggar gaya Apple yang modern dan elegan. Isi frame dengan visualnya, dan kamera fokus ke objek.
 
+## Running text + penekanan (Irfan 2 Nov 14.18)
+- **Teks = prioritas 2 bukan berarti alurnya hilang.** Subtitle berjalan (`lib/CaptionTrack.tsx`) mengikuti VO dari awal sampai akhir, kata per kata, satu baris di pita bawah.
+  - Saat ada penekanan (AnchorWord/SpeakerLine), subtitle diganti oleh penekanan. Penekanan tampil lebih dulu, dan katanya tidak diulang di subtitle.
+  - Subtitle tidak berbunyi. Klik hanya untuk kata penekanan/kinetic.
+- **Ukur cakupan:** persentase kata VO yang tampil (subtitle + penekanan). Kasus v10: 54/310 kata (17 %), dan Irfan menyebutnya fatal.
+- **Variasi kinetic wajib.** Fade/pop yang selalu sama membuat penonton bosan. Pakai `enter` = `type` (huruf per huruf + caret), `mask`, `letters`, `blur`; `scale` hanya untuk angka/hero. Teknik yang sama maksimal 2× berturut-turut.
+- **SFX family:** satu file SFX sering berisi beberapa varian. Potong per varian (`ears/family.py`), dengarkan tiap varian, dan pakai yang paling cocok, bukan seluruh file. Peran yang Irfan tandai "acak" (mis. Kinetictypography) dirotasi di antara variannya.
+- **Setiap objek/visual punya bunyinya.** Contoh kasus v10: ketikan tanpa bunyi ketik. Ketikan memancarkan `type:start|end` → potongan Keyboardtyping sepanjang ketikan + Enter.
+
 ## Kinetic typography: teknik dipilih menurut PERAN teks (prinsip dari audit referensi 2 Nov, bukan aturan mutlak)
 Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. Referensi memilih teknik menurut fungsi teks.
 - **Ucapan (VO/narasumber):**
