@@ -166,7 +166,7 @@ export const S03c_MeniruDiri: React.FC = () => {
                     Teks di bawah tengah, di bawah figur (tidak di atas visual). */}
                 {/* v10 (#23): PERLAHAN di ruang kosong KANAN salinan (close-up), hilang tepat sebelum patah ke wide (frame 1587); tidak lagi menimpa badan/garis putus-putus.
                     v10 (#24): TEMPAT KITA di pita bersih di bawah lantai (dunia wide diangkat 140 px), caps y 930–1020, di dalam area aman. */}
-                <AnchorWord text="PERLAHAN" at={1508} until={1586} x={1632} y={500} size={104} color="#FAF8EC" align="right" enter="right" />
+                {/* PERLAHAN DIHAPUS (planner, QC R3): tidak muat 130 px di ruang kanan salinan tanpa menempel kepala; pemindaian wireframe yang pelan sudah menyampaikan «perlahan» (teks = prioritas 2) */}
                 <AnchorWord text="TEMPAT" at={1626} until={1662} x={900} y={808} size={130} color="#FAF8EC" align="right" enter="scale" />
                 <AnchorWord text="KITA" at={1634} until={1662} x={960} y={808} size={130} color="#FAF8EC" align="left" enter="right" />
               </>
