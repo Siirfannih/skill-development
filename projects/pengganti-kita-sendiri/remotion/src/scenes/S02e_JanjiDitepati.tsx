@@ -11,7 +11,7 @@ import React from "react";
 import { AbsoluteFill } from "remotion";
 import { EZ, panOf, prog, Scene, sfxMark, useT, Grain } from "../lib/anim";
 import { FPS, panel, word } from "../lib/time";
-import { BLOOM_PT } from "./_b2_shared";
+import { BLOOM_PT, C } from "./_b2_shared";
 import { moveFrame } from "./_b5_shared";
 import { CARD, TaskCard, type TaskIcon } from "./parts/TaskCard";
 import { SkyBackdrop } from "./parts/SkyBackdrop";
@@ -20,9 +20,13 @@ import { CalendarDay, CAL, CAL_EVENTS, blockCenter } from "./parts/CalendarDay";
 const W_TIDAK = word("tidak", "s2", 1);
 
 // ── tata letak dunia (1920×1080 di Z=1). Daftar di kiri, ruang kanan untuk anchor.
-const CX = 200, TOP0 = 300, PITCH = 180;
-const topOf = (i: number) => TOP0 + PITCH * i;
-const BOX_X = CX + CARD.w - 64; // pusat kotak centang
+// v10 (Irfan 08.58): daftar dipecah jadi GRID 3 × 3 (bukan satu kolom panjang yang menyisakan kiri-kanan kosong):
+// baris 1 = 3 tugas operasional (dicentang dulu), baris 2–3 = tugas manusiawi. Kamera tetap close-up mengikuti kursor,
+// patah ke wide di «tidak» memperlihatkan seluruh grid terisi.
+const COL_X = [120, 860, 1600], ROW_Y = [260, 540, 820];
+const GRID_CX = COL_X[1] + CARD.w / 2, GRID_CY = (ROW_Y[0] + ROW_Y[2] + CARD.h) / 2;
+const posOf = (i: number) => ({ x: COL_X[i % 3], y: ROW_Y[Math.floor(i / 3)] });
+const boxOf = (i: number) => ({ x: posOf(i).x + CARD.w - 64, y: posOf(i).y + 76 }); // pusat kotak centang
 const ITEMS: { name: string; icon: TaskIcon }[] = [
   { name: "Input data pesanan", icon: "db" },
   { name: "Invoice Oktober.pdf", icon: "doc" },
@@ -62,7 +66,6 @@ const calCamAt = (fa: number): Cam => {
 };
 
 
-const clampN = (v: number, m: number) => Math.max(-m, Math.min(m, v));
 const e = (fa: number, a: number, b: number, ez = EZ.out) => prog(fa / FPS, a / FPS, b / FPS, ez);
 const mix = (a: number, b: number, k: number) => a + (b - a) * k;
 type Cam = { cx: number; cy: number; Z: number };
@@ -71,9 +74,9 @@ const mixCam = (a: Cam, b: Cam, k: number): Cam => ({ cx: mix(a.cx, b.cx, k), cy
 // ── kursor AI: titik singgah (frame tiba, posisi ujung panah). Berpindah ease-out ekstrem dalam ≤14 f sebelum tiba.
 const WP: { f: number; x: number; y: number }[] = [
   { f: F_START, x: 1040, y: 200 },
-  ...[0, 1, 2].map((i) => ({ f: tapOf(i), x: BOX_X, y: topOf(i) + 76 })),
+  ...[0, 1, 2].map((i) => ({ f: tapOf(i), ...boxOf(i) })),
   { f: 1030, x: 960, y: 700 }, // parkir selama bar waktu
-  ...[3, 4, 5, 6, 7, 8].map((i) => ({ f: tapOf(i), x: BOX_X, y: topOf(i) + 76 })),
+  ...[3, 4, 5, 6, 7, 8].map((i) => ({ f: tapOf(i), ...boxOf(i) })),
 ];
 const cursorAt = (fa: number) => {
   let from = WP[0];
@@ -97,13 +100,14 @@ const cursorAt = (fa: number) => {
 // ── kamera (pusat dunia di tengah layar + zoom), semua murni terhadap frame absolut
 const camAt = (fa: number): Cam => {
   const cur = cursorAt(fa - 3);
-  const p1: Cam = { cx: 700 + (cur.x - BOX_X) * 0.4, cy: cur.y * 0.9 + 556 * 0.1, Z: mix(1.46, 1.56, e(fa, F_START, F_PUNCH, EZ.inOut)) };
-  const wide: Cam = { cx: 880, cy: 540, Z: 1 + 0.04 * e(fa, 1014, 1036, EZ.inOut) };
+  // close-up: kartu yang sedang dicentang utuh di layar (pusat kamera di tengah kartu, sedikit ke arah kursor)
+  const p1: Cam = { cx: cur.x - CARD.w / 2 + 64, cy: cur.y, Z: mix(1.46, 1.56, e(fa, F_START, F_PUNCH, EZ.inOut)) };
+  const wide: Cam = { cx: GRID_CX, cy: ROW_Y[0] + CARD.h / 2, Z: 0.8 + 0.02 * e(fa, 1014, 1036, EZ.inOut) }; // baris 1 tuntas
   const p2: Cam = { cx: 1000, cy: 540, Z: 1 + 0.05 * e(fa, 1042, F_COMP0, EZ.inOut) };
   const p2b: Cam = { cx: 640, cy: 540, Z: 1.3 + 0.04 * e(fa, 1086, F_BAR_OUT + 2, EZ.out) };
-  const p3: Cam = { cx: 700 + (cur.x - BOX_X) * 0.4, cy: cur.y - 170, Z: 1.3 }; // R2-C: kamera sedikit lebih tinggi dari kursor → kartu di atasnya tidak terpotong tepi atas
+  const p3: Cam = { cx: cur.x - CARD.w / 2 + 64, cy: cur.y - 40, Z: 1.3 };
   // v10 (#19): daftar terbaca (Z ≈ 0,95 → teks ±34 px), 5–6 baris terakhir saja, sisanya keluar frame atas; daftar di kiri, ruang kanan untuk TIDAK BERHENTI
-  const wide2: Cam = { cx: CX + CARD.w / 2, cy: mix(1385, 1405, e(fa, F_TIDAK + 6, 1229, EZ.inOut)), Z: 0.95 };
+  const wide2: Cam = { cx: GRID_CX, cy: GRID_CY, Z: mix(0.8, 0.82, e(fa, F_TIDAK + 6, 1229, EZ.inOut)) }; // seluruh grid 3 × 3
   let c = p1;
   c = mixCam(c, wide, e(fa, F_PUNCH, F_PUNCH + 4));
   c = mixCam(c, p2, e(fa, 1034, 1042, EZ.inOut));
@@ -145,7 +149,7 @@ export const S02e_JanjiDitepati: React.FC = () => {
   sfxMark(t, "riser", pe.start, "02d:bloom:hit"); // X14 bloom 02d memuncak → mengerut ke titik (tetap)
   TAPS.forEach((f, i) => {
     const c = camAt(f);
-    sfxMark(t, "ui_tap", f / FPS, `02e:tick:${i}`, panOf((BOX_X - c.cx) * c.Z + 960)); // centang ✓ (pan mengikuti x kotak di layar)
+    sfxMark(t, "ui_tap", f / FPS, `02e:tick:${i}`, panOf((boxOf(i).x - c.cx) * c.Z + 960)); // centang ✓ (pan mengikuti x kotak di layar)
   });
   CAL_APPEAR.forEach((f, i) => sfxMark(t, "glass_ping", f / FPS, `02e:cal:block:${CAL_EVENTS[i].replace(/\s+/g, "_")}`)); // blok jadwal muncul
   sfxMark(t, "low_whoosh", moveFrame(F_COMP0 / FPS), "02e:time:compress"); // puncak kecepatan whip-compress
@@ -159,13 +163,13 @@ export const S02e_JanjiDitepati: React.FC = () => {
 
   return (
     <Scene start={pe.start} end={pf.end} name="02e–02f Daftar centang">
-      <AbsoluteFill style={{ background: "#2f7fd6", overflow: "hidden" }}>
+      <AbsoluteFill style={{ background: "#fff", overflow: "hidden" }}>
         <svg width="0" height="0" style={{ position: "absolute" }}>
           <filter id="cam02e" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation={`${(bu + bx).toFixed(2)} ${bu.toFixed(2)}`} /></filter>
         </svg>
         <AbsoluteFill style={{ transform: snapIn > 0.002 ? `scale(${1 + 0.6 * snapIn})` : undefined, transformOrigin: `${BLOOM_PT.x}px ${BLOOM_PT.y}px`, filter: snapIn > 0.02 ? `blur(${(10 * snapIn).toFixed(2)}px)` : undefined }}>
-          {/* R2-C: latar langit (sama dengan kalender), parallax kecil dari kamera; tanpa titik grid & vinyet hitam */}
-          <SkyBackdrop px={clampN(-(cx - 960) * 0.06 * Z, 90)} py={clampN(-(cy - 540) * 0.06 * Z, 50)} />
+          {/* Irfan 08.58: langit gradien tidak cocok untuk daftar → latar SAMA dengan 02c (kartu tugas yang sama, kontinu) */}
+          <AbsoluteFill style={{ background: `linear-gradient(180deg, ${C.sky300} 0%, ${C.sky100} 38%, ${C.sky50} 70%, #fff 100%)` }} />
           {/* lapis tengah: dunia di bawah kamera */}
           <AbsoluteFill style={{ transform: `translate(${960 - cx * Z}px, ${540 - cy * Z}px) scale(${Z})`, transformOrigin: "0 0", filter: bu + bx > 0.2 ? "url(#cam02e)" : undefined }}>
             <div style={{ position: "absolute", inset: 0, opacity: listOp, filter: listBlur > 0.1 ? `blur(${listBlur.toFixed(2)}px)` : undefined }}>
@@ -174,7 +178,7 @@ export const S02e_JanjiDitepati: React.FC = () => {
                 if (ap <= 0) return null;
                 const dn = e(fa, tapOf(i), tapOf(i) + 3);
                 const ring = fa >= tapOf(i) ? e(fa, tapOf(i), tapOf(i) + 8, EZ.out) : 0;
-                return <TaskCard key={i} name={it.name} icon={it.icon} done={dn} ring={ring} style={{ left: CX, top: topOf(i) + (1 - ap) * 40, opacity: Math.min(1, ap * 2), border: "2px solid rgba(255,255,255,0.9)", boxShadow: "0 22px 50px rgba(14,48,110,0.38), 0 0 0 1.5px rgba(14,48,110,0.22)" }} />;
+                return <TaskCard key={i} name={it.name} icon={it.icon} done={dn} ring={ring} style={{ left: posOf(i).x, top: posOf(i).y + (1 - ap) * 40, opacity: Math.min(1, ap * 2), border: "2px solid rgba(255,255,255,0.9)", boxShadow: "0 22px 50px rgba(14,48,110,0.38), 0 0 0 1.5px rgba(14,48,110,0.22)" }} />;
               })}
               {/* kursor AI (gaya 02c, dibalik untuk latar hitam) */}
               <div style={{ position: "absolute", left: cursor.x - 6 * curScale, top: cursor.y - 4 * curScale, zIndex: 10, opacity: 1 - dim, transform: `scale(${curScale * press})`, transformOrigin: "6px 4px", display: "flex", alignItems: "flex-start", gap: 4 }}>

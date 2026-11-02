@@ -9,3 +9,4 @@ Worker dan Claude utama wajib membaca ini sebelum menyentuh adegan. Checker bole
 | Latar gradien langit untuk kalender | S02e + parts/SkyBackdrop | 2 Nov 07.09 | keputusan gradien "sudah tepat" |
 | Font teks overlay Geist Sans (500/600), huruf kapital di awal | lib | 2 Nov 07.23 | |
 | Tanpa scrim/pita gradien hitam di belakang teks | semua | 2 Nov 07.30 | |
+| Daftar centang 02e = grid 3 × 3 di latar gradien 02c (bukan kolom panjang, bukan langit) | S02e | 2 Nov 08.58 | Irfan: kolom panjang menyisakan kiri-kanan kosong; langit gradien kurang cocok di bagian ini |
