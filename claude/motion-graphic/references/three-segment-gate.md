@@ -108,6 +108,15 @@ Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. 
   - VO tetap di atas latar pada volume HP 20/50/100 %;
   - tidak ada 2–6 kHz yang menusuk.
 
+- **Gerbang DENGAR wajib sebelum SFX masuk mix (Irfan 2 Nov 12.02).** Angka level/spektrum tidak memberi tahu bunyinya seperti apa. Langkahnya:
+  1. Jalankan `git submodule update --init external/earshot` lalu pasang earshot; di Mac bila disk cloud sempit, dengan Python 3.12.
+  2. `earshot describe` tiap file.
+  3. `earshot match` dengan deskripsi peran plus `--alts` pembanding salah, misalnya "car engine starting", "motorcycle revving", "error buzz", "record scratch".
+  4. Hanya kandidat "strong" yang tidak kalah dari pembandingnya yang boleh dipakai.
+  5. Simpan laporannya di proyek.
+  6. Setelah mix, `earshot timeline` seluruh film untuk mencari label yang salah.
+- Kasus 2 Nov: whoosh transisi terdengar "record scratch/tape stop" dan pop UI terdengar "error buzz". Keduanya lolos semua gerbang angka, tapi Irfan mendengarnya seperti starter mobil.
+
 ## Referensi = prinsip dan studi kasus, bukan aturan tetap (Irfan, 2 Nov 07.03)
 - Angka dari video referensi (level SFX +X dB, BGM −Y dB, durasi transisi, ukuran font) dipakai sebagai **simulasi**: apa yang terjadi pada angka itu, dan apa dampaknya ke penonton.
 - Angka referensi tidak disalin menjadi aturan mutlak untuk proyek lain, karena karakteristik suara, tone dan tema berbeda.
