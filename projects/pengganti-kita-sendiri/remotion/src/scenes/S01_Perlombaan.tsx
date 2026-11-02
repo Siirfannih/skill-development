@@ -103,6 +103,7 @@ export const S01_Perlombaan: React.FC = () => {
   sfxMark(t, "cut", P1a.start, "01a:cut:horizon");
   sfxMark(t, "land", P1b.start, "01b:tiles:land"); // 5 tile mendarat bersamaan (EZ.acc → kontak di cut) + shake
   sfxMark(t, "cut", P1b.start, "01b:cut:race");
+  sfxMark(t, "whoosh", P1c.start, "01c:cut:zoomthrough"); // QC R6 #P2: transisi zoom-through ke ruang gelap tanpa hit
   sfxMark(t, "whoosh", T_SALIP1, "01b:salip:1"); // Gemini menyalip Claude; kamera swap follow (inOut ±4 f) satu event
   sfxMark(t, "whoosh", SNAP_W, "01b:cam:snapwide"); // patah 1,8× → wide 5 f, EZ.out
   sfxMark(t, "draw", PAINT_A, "01b:paint:berlomba"); // cat BERLOMBA-LOMBA wipe 8 f

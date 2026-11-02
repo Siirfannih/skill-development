@@ -36,6 +36,7 @@ export const S06g_Peran: React.FC = () => {
   const land = prog(t, P.start, P.start + 0.4, EZ.out);
   const ons = PX.map((_, i) => relay(t, offAt(i)));
   // ── SFXEV
+  sfxMark(t, "whoosh", P.start, "06g:cut:peran"); // QC R6 #P2: transisi ke penutup tanpa hit
   sfxMark(t, "cut", P.start, "06g:cut:in"); // ujung crane 06f
   ORDER.forEach((i) => sfxMark(t, "toggle", offAt(i), `06g:plane:${i + 1}`)); // padam tepi → dalam
   sfxMark(t, "whoosh", W_KAMU, "06g:punch:in"); // C09 snap punch-in ×1,09 dalam 4 f (EZ.out)
