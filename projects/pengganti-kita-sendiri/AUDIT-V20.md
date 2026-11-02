@@ -66,3 +66,12 @@ Bahan: `audit21/k3.jpg`, `q1.jpg`, `q2.jpg`, `q3.jpg` (still 0,5×), frame v11 `
 | jendela keluar (13 frasa: 1, 2, 6, 9, 10, 13, 22, 29, 31, 32, 34, 36, 39) | Cek potongan memakai `c > p.end`, sehingga frasa yang berakhir di/lewat potongan tetap keluar 7–36 f di adegan berikutnya (39 «orang lakukan» 36 f di 06c) | Cek dari kata terakhir (`c > last + 1`) |
 
 Render final yang sedang berjalan (kode sebelum QC ini, 2536/3984 f) dihentikan dan dirender ulang penuh dengan kode baru.
+
+### Reviewer segar (render penuh v21, 2 fps, 11 sheet) → putusan NO-SHIP, 1 blocker
+- **Blocker (kat. 6, 108–110 & 117–126 dtk):** figur 06b/06f masih terbaca klon di grid sempurna walau ada variasi kepala/bahu.
+  Perbaikan: `useOrganic` menambah geser ±7/±5 px unit, skala 0,93–1,07 (kedalaman), lebar bidang cahaya ±13 % dan kemiringan berbeda, condong ±3°.
+  Ditambal dengan render rentang f3106–3790 (06a–06f), still `audit21/q4.jpg`.
+- Minor: teks 06f abu-abu (kata non-kunci diredupkan) tercoret garis kepala figur → `nodim` untuk frasa 42–44 (putih penuh).
+- Minor lain dicatat, tidak diubah: kontras «Raised over a» di langit pink Bloomberg (SpeakerWords, tanpa scrim sesuai aturan), chip gelap kecil
+  «It is a legitimate» (layering, bukan pita), beberapa kata VO menyentuh garis siluet (17, 30, 51 dtk), «yang kita bangun» dekat tepi kanan (52 dtk).
+- Tidak ditemukan pita/scrim hitam besar di mana pun; tidak ada bagian statis yang mati.

@@ -23,16 +23,23 @@ type Box = { x: number; y: number; w: number; h: number };
 const h01 = (n: number) => { const x = Math.sin(n * 12.9898 + 78.233) * 43758.5453; return x - Math.floor(x); };
 export const useOrganic = (seed?: number) => {
   const fr = useCurrentFrame();
-  if (seed === undefined) return { hs: 1, tw: 1, th: 1, lean: 0, bob: 0, hx: 0 };
+  if (seed === undefined) return { hs: 1, tw: 1, th: 1, lean: 0, bob: 0, hx: 0, dx: 0, dy: 0, sc: 1, pw: 1, ps: 0 };
   const r = (k: number) => h01(seed * 7 + k);
   const t = fr / 30;
   return {
     hs: 1 + (r(1) - 0.5) * 0.16, // kepala ±8 %
     tw: 1 + (r(2) - 0.5) * 0.14, // bahu ±7 %
     th: 1 + (r(3) - 0.5) * 0.1,
-    lean: (r(4) - 0.5) * 4, // derajat
+    lean: (r(4) - 0.5) * 6, // derajat (v21 QC reviewer: ±2° masih terbaca klon → ±3°)
     bob: Math.sin((2 * Math.PI * t) / (2.4 + 1.6 * r(5)) + 6.283 * r(6)) * (0.8 + 0.8 * r(7)),
     hx: (r(8) - 0.5) * 4,
+    // v21 QC (reviewer segar: «figur identik berjajar di grid sempurna» = AI slop): tiap unit sedikit keluar dari grid —
+    // geser ±7/±5 px unit, skala 0,93–1,07 (kedalaman), bidang cahaya lebar ±13 % dan miring berbeda (perangkat tidak seragam)
+    dx: (r(9) - 0.5) * 14,
+    dy: (r(10) - 0.5) * 10,
+    sc: 0.93 + 0.14 * r(11),
+    pw: 0.87 + 0.26 * r(12),
+    ps: (r(13) - 0.5) * 0.08,
   };
 };
 const abs = (b: Box): React.CSSProperties => ({ position: "absolute", left: b.x, top: b.y, width: b.w, height: b.h });
@@ -96,9 +103,10 @@ export const SideUnit: React.FC<{ on: number; rim?: number; flat?: boolean; boos
   const rr = rim ?? on;
   const o = useOrganic(seed);
   const hw = 40 * o.hs, tw = 72 * o.tw, th = 90 * o.th;
+  const pw = 86 * o.pw;
   return (
-    <div style={{ position: "absolute", left: 0, top: 0, width: 164, height: 200 }}>
-      <Plane b={{ x: 74, y: 66, w: 86, h: 30 }} on={on} boost={boost} glow={{ b: { x: 78, y: 70, w: 76, h: 24 }, blur: 40, spread: 12, a: 0.18, radius: 12 }} grad={C6.white} softGlow>
+    <div style={{ position: "absolute", left: 0, top: 0, width: 164, height: 200, transform: seed === undefined ? undefined : `translate(${o.dx.toFixed(2)}px, ${o.dy.toFixed(2)}px) scale(${o.sc.toFixed(4)})`, transformOrigin: "42px 176px" }}>
+      <Plane b={{ x: 74, y: 66, w: pw, h: 30 }} on={on} boost={boost} slant={0.1 + o.ps} glow={{ b: { x: 78, y: 70, w: pw - 10, h: 24 }, blur: 40, spread: 12, a: 0.18, radius: 12 }} grad={C6.white} softGlow>
         {glyph && <AIGlyph size={22} />}
       </Plane>
       <div style={{ position: "absolute", inset: 0, transform: seed === undefined ? undefined : `translateY(${o.bob.toFixed(2)}px) rotate(${o.lean.toFixed(2)}deg)`, transformOrigin: "42px 176px" }}>
@@ -118,12 +126,13 @@ export const AIGlyph: React.FC<{ size: number; style?: React.CSSProperties }> = 
 export const BackUnit: React.FC<{ on: number; glyph: number; glyphScale?: number; boost?: number; flatY?: number; seed?: number }> = ({ on, glyph, glyphScale = 1, boost = 0, flatY = 1, seed }) => {
   const o = useOrganic(seed);
   const hw = 56 * o.hs, tw = 100 * o.tw;
+  const pw = 132 * o.pw, px = 80 - pw / 2;
   return (
-  <div style={{ position: "absolute", left: 0, top: 0, width: 160, height: 260 }}>
+  <div style={{ position: "absolute", left: 0, top: 0, width: 160, height: 260, transform: seed === undefined ? undefined : `translate(${o.dx.toFixed(2)}px, ${o.dy.toFixed(2)}px) scale(${o.sc.toFixed(4)})`, transformOrigin: "80px 268px" }}>
     <div style={{ position: "absolute", left: 0, top: -4, width: 160, height: 88, transform: `scaleY(${flatY})`, transformOrigin: "50% 100%" }}>
       {/* v10 (#43): pendar radial lembut (≤ 0,14; tanpa tepi kotak) dan layar tidak putih kosong sebelum glyph — kerangka UI chat tipis (abu), glyph menggantikannya serentak */}
-      <Plane b={{ x: 14, y: 0, w: 132, h: 88 }} on={on} boost={boost} grad={`linear-gradient(90deg, ${C6.white} 55%, ${C6.paper} 100%)`} softGlow
-        glow={{ b: { x: 20, y: 4, w: 120, h: 80 }, blur: 50, spread: 14, a: 0.12, radius: 16 }}>
+      <Plane b={{ x: px, y: 0, w: pw, h: 88 }} on={on} boost={boost} slant={0.1 + o.ps} grad={`linear-gradient(90deg, ${C6.white} 55%, ${C6.paper} 100%)`} softGlow
+        glow={{ b: { x: px + 6, y: 4, w: pw - 12, h: 80 }, blur: 50, spread: 14, a: 0.12, radius: 16 }}>
         {glyph <= 0.01 && (
           <div style={{ display: "flex", flexDirection: "column", gap: 7, width: 70 }}>
             <div style={{ height: 8, width: 46, borderRadius: 4, background: "#d8d8dd" }} />

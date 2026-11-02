@@ -77,3 +77,19 @@ Ditulis untuk sesi berikutnya. Dari kesalahan yang terulang dan cara yang akhirn
 6. **Sinkron Mac lewat git:** `pks-studio/sync21.sh` = `git archive origin/main` ke folder sementara lalu rsync ke `remotion/src`
    (jangan `git checkout <rev> -- path` di clone Irfan `~/Proyek/skill-development`: itu mengubah working tree-nya; sempat terjadi dan dipulihkan).
    Still QC cepat: `pks-studio/stills.sh <nama> label:frame …` → lembar `audit21/<nama>.jpg`.
+## F. Sesi routine QC v21 (2–3 Nov, 23.00–01.00 WITA) — lanjutan §E
+
+1. **KineticVO menggantikan baris subtitle** (`lib/KineticVO.tsx`): komposisi per frasa (posisi, 1–3 baris line/stair/column/drop, rata menurut objek),
+   kata baru lahir di ujung baris lalu baris bergeser bersama (pegas), kata kunci diredupkan-sisanya/kotak sorot/baris besar, enter/exit dirotasi.
+   Kontras lewat tinta per latar + chip padat, bukan gradien.
+2. **Spesifikasi koordinat dari still v20 tidak cukup.** Adegan dengan kamera bergerak (zoom-out 02f, composer 03a→03b, figur berjalan 05h)
+   menyapu posisi yang kosong di satu frame. Pilih posisi dari still di AWAL, TENGAH dan AKHIR frasa, bukan satu frame.
+   Bila tidak ada ruang tenang di safe zone sepanjang frasa, frasa tidak ditampilkan (visual membawa makna) — jangan chip menempel di UI.
+3. **Pola subtitle bisa kembali lewat spesifikasi.** Empat frasa berturut-turut chip gelap rata tengah di y 780–812 = subtitle lagi walau
+   komponennya «kinetik». Cek otomatis: susunan + posisi + chip yang sama > 2× berturut-turut = temuan.
+4. **Bug jendela keluar:** cek potongan adegan harus dihitung dari kata terakhir, bukan `p.end` (yang sering = awal frasa berikut / di potongan).
+   13 frasa sempat menyeberang 7–36 f ke adegan berikutnya.
+5. **Kata pertama baris baru** harus lahir di kerangka blok lama (offset (H−Hprev)/2), kalau tidak tumpuk 4–6 f dengan baris di atasnya.
+6. **Sinkron file ke Mac:** `device_commit_files` dengan stagedPath yang SAMA dua kali bisa diam-diam menulis isi lama → selalu nama unik per sinkron
+   dan verifikasi `md5` di Mac sebelum render (terjadi lagi 2 Nov 23.20). Skrip yang dikirim lewat commit kehilangan bit eksekusi → jalankan `zsh ./x.sh` dan cek proses benar-benar jalan (`pgrep`) sebelum menunggu.
+7. **Render final yang sudah jalan dengan kode lama dihentikan** begitu QC still menemukan bug yang mengubah banyak rentang (lebih murah dari 4+ patch).

@@ -42,6 +42,8 @@ type Spec = {
   /** lama drift (detik) — sesudahnya blok diam (mis. ikut pan kamera yang berhenti) */
   driftFor?: number;
   enter?: Enter; exit?: Exit;
+  /** jangan redupkan kata non-kunci (latar bergaris/berpola: abu-di-atas-garis terbaca seperti coretan) */
+  nodim?: boolean;
 };
 
 // Komposisi per frasa (indeks = urutan CAPTION_PHRASES). Koordinat 1920×1080, dipilih dari still v20 per frasa
@@ -95,9 +97,9 @@ const SPEC: (Spec | null)[] = [
   { t: "orang lakukan", x: 960, y: 545, align: "center", lay: "line", ink: "light", key: 1, enter: "blur", exit: "blur" },
   { t: "kalau tidak memakai AI", x: 600, y: 680, align: "left", lay: "stair", ink: "light", br: [2], key: 3, mark: true, enter: "rise", exit: "sink" },
   { t: "kita merasa", x: 600, y: 680, align: "left", lay: "line", ink: "light", size: 84, enter: "mask", exit: "wipe" },
-  { t: "karena semua orang di sekitar", x: 960, y: 585, align: "center", lay: "line", ink: "light", key: 1, enter: "blur", exit: "rise" },
-  { t: "kita memakainya dengan tools", x: 960, y: 680, align: "center", lay: "stair", ink: "light", br: [2], key: 3, mark: true, enter: "rise", exit: "blur" },
-  { t: "yang sama persis", x: 960, y: 650, align: "center", lay: "line", ink: "light", size: 80, key: 2, enter: "mask", exit: "sink" },
+  { t: "karena semua orang di sekitar", x: 960, y: 585, align: "center", lay: "line", ink: "light", key: 1, nodim: true, enter: "blur", exit: "rise" },
+  { t: "kita memakainya dengan tools", x: 960, y: 680, align: "center", lay: "stair", ink: "light", br: [2], key: 3, mark: true, nodim: true, enter: "rise", exit: "blur" },
+  { t: "yang sama persis", x: 960, y: 650, align: "center", lay: "line", ink: "light", size: 80, key: 2, nodim: true, enter: "mask", exit: "sink" },
   { t: "Jadi di tengah semua ini", x: 860, y: 600, align: "right", lay: "stair", ink: "light", br: [3], key: 2, enter: "type", exit: "blur" },
 ];
 
@@ -322,7 +324,7 @@ const PhraseBlock: React.FC<{ b: Built; F: number }> = ({ b, F }) => {
           tr = `translateY(${(1 - q) * (26 + 14 * seed)}px) rotate(${(1 - q) * (seed - 0.5) * 7}deg)`; op = Math.min(1, age / 3);
         } else if (enter === "blur") { const q = interpolate(age, [0, 4], [0, 1], { ...clampO, easing: OUT }); bl = (1 - q) * 10; op = 0.3 + 0.7 * q; }
         else { chars = Math.max(1, Math.floor(age / 1.3) + 1); }
-        const dimmed = keyIn && !isKey && (s.mark || s.lay !== "line" || W.length > 2);
+        const dimmed = !s.nodim && keyIn && !isKey && (s.mark || s.lay !== "line" || W.length > 2);
         const fg = isKey && s.mark ? "#FFFFFF" : dimmed ? dim : color;
         const markK = isKey && s.mark ? interpolate(F - w.f, [1, 7], [0, 1], { ...clampO, easing: OUT }) : 0;
         const text = chars < w.text.length ? w.text.slice(0, chars) : w.text;
