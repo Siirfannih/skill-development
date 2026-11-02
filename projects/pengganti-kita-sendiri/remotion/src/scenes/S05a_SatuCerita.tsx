@@ -33,7 +33,7 @@ export const S05a_SatuCerita: React.FC = () => {
   const t = useT();
   const P = panel("05a");
   const tSatu = word("satu", "s5").s;
-  const atSatu = useFrameAt(2322), atSukses = useFrameAt(2344), outSS = useFrameAt(Math.round((P.end - 0.32) * FPS)); // v9: f terukur ANCHORS-V9 #20
+  const atSatu = useFrameAt(2322), atSukses = useFrameAt(2344), outSS = useFrameAt(Math.round(P.end * FPS)); // R4: tahan sampai cut (≥ 0,8 s terbaca) // v9: f terukur ANCHORS-V9 #20
   const tAltman = word("altman", "s5").s;
 
   // kamera C19: drift pelan (isi geser kiri + dorong 1,03); parallax per lapis

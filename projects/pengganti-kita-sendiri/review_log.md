@@ -309,3 +309,93 @@ Bahan: `PKS_v10_r3_preview.mp4` (960×540, 30 fps, 132,8 dtk, audio final). Revi
 - Tidak ada P0; jalur ke SHIP: (1) penutup pendekatan baru (piktogram menyala di «Kamu» + push-in nyata ≥ 15 %, hold ≤ 1,5 s, gerak diukur dari render), (2) crop ulang close-up «16 year old», (3) reframe Jensen agar teks tidak menabrak logo, (4) dentum ekor — SELESAI (fade bed/SFX/room 131,6–132,6 s; VO berakhir 129,7 s).
 - Diterima tanpa perubahan: hold ruang piktogram 1,7–2 s (gelap = fokus), «Pengganti» di bahu figur (disengaja: kata di belakang/di antara piktogram), label UI kecil (ditunda), VO p5 2,7 dB (median 15,2 dB; di atas target 0 dB).
 - Ditunda untuk Irfan: deret kartu app 101–103 s di sepertiga atas; komposisi 25–28 s; «Tertinggal»/«Tempat kita» di y ≈ 73 % (dalam safe zone, di luar pita pesan).
+
+## Putaran 4 (R6 segar)
+Bahan: `PKS_v10_r4_preview.mp4` (960×540, 132,8 s), dinilai dari render saja. Bahan visual: contact sheet 4 fps (14 lembar), strip 30 fps ±0,27 s di 36 cut/transisi (termasuk awal & akhir montase), strip 15 fps di teks pendek, still 960 px penutup 126–132,2. Numerik: deteksi scene (90 titik), YDIF per frame untuk hold statis, ebur128, RMS 100 ms, porsi 2–6 kHz.
+
+### Angka terukur (ulang oleh R6)
+- Loudness −14,0 LUFS, LRA 2,4 LU. Porsi energi 2–6 kHz di mix: 3,9 %.
+- Tidak ada jendela 100 ms < −45 dBFS sepanjang 0–132,0 s (tidak ada dead air di perpindahan pembicara). Ekor: −14 dB di 126 s, turun mulus ke −46 dB di 132,0 dan senyap di 132,6. Tidak ada dentum terpotong.
+- Hold statis ≥ 1,2 s (YDIF < 0,25): 28,73–29,93 (1,2 s); 103,67–105,47 (1,8 s); **129,47–131,50 (2,0 s, penutup)**. Selisih absolut rata-rata frame 129,5 vs 131,4 = 2,0/255 (setara noise JPEG). Baris teks «Peran Kamu» sama persis.
+- Tidak ada flash (lonjakan luma > 40 dalam 1 frame) dan tidak ada frame hitam di tengah video.
+- Angka pembuat (SFX 89 %, VO p50 15,2 dB / p5 2,7 dB, SFX > 5 kHz 4,8 %, TP −1,3) diterima. Tidak saya ulang per cue.
+
+### Skor rubrik
+| R | Skor | Alasan |
+|---|---|---|
+| R1 timing di ketukan | 4 | Kata masuk mengikuti VO, termasuk montase «Technical thing ever in my lifetime» (cut ±0,25 s) dan Altman per kata. Cut mendarat di akhir frase. Dua teks terlalu singkat untuk dibaca: «Sukses» ±0,47 s, «Tertinggal» tepat 0,8 s. |
+| R2 satu fokus | 4 | Mayoritas frame satu pesan. Masih ada frame berat sebelah: 101–103 (deret app di sepertiga atas), 115–119,7 (layar kecil di atas, 60 % bawah gelap), 25–28 (kartu kiri-atas vs dock kanan-bawah). Sudah ditunda Irfan. |
+| R3 konsistensi karakter | 4 | Bahasa piktogram, siluet, garis putus-putus dan bidang cahaya miring konsisten dari 12,7 s sampai penutup. Footage narasumber konsisten diberi grade gelap. |
+| R4 keterbacaan HP | 4 | Teks pesan besar, kontras, Geist konsisten. Teks narasumber ≈ 56 px @1080. Label UI kecil masih < 22 px (ditunda). «Sukses» 0,47 s di bawah ambang 0,8 s. |
+| R5 kebenaran produk | 4 | UI didemokan seperti dipakai: prompt diketik per huruf, @mention agen, kalender menyusut, centang tugas, chat «tolong balas oke siap». Wikipedia dan kartu GPT-3→GPT-5 masuk akal. |
+| R6 setara referensi | 4 | Kompas lulus. #1 1 frame = 1 pesan, ya. #3 kinetik ikut suara, ya. #4 transisi termotivasi: zoom-through ikon 12,6, match-cut Altman ke kartu 75,2, wipe siluet 98,5. #7 UI didemokan, ya. #10 akhir mulus: penutup kini punya push-in + siluet menyala di «Kamu» (128–129,5) lalu fade. Yang masih membedakan dari referensi: hold gelap 2 s di penutup dan dua ruang piktogram yang terasa kosong (115–119, 101–103). Itu menurunkan kelas, tetapi tidak sampai "langsung ketahuan" di showreel. |
+| R7 audio | 4 | −14 LUFS, tanpa dead air, ekor bersih, 2–6 kHz rendah, SFX ≥ 85 %. VO p5 hanya 2,7 dB di atas latar: di HP pada momen paling ramai VO bisa tertutup. |
+
+- Rata-rata 4,0.
+- Catatan: gerbang R6 §16.4 (rata-rata ≥ 4,5) belum tercapai. Aturan SHIP putaran ini (0 P0 dan semua ≥ 4) terpenuhi.
+
+### (a) Tiga hal paling amatir
+1. Penutup tetap beku ±2 s (129,5–131,5) setelah push-in berhenti, lalu fade. Gerak sudah ada, tetapi berhenti terlalu cepat.
+2. «Sukses» (78,17–78,6) hanya ±0,47 s. Kata kunci di frase «satu sukses» hilang sebelum terbaca.
+3. Ruang piktogram 115,3–119,7 dan 101–103: layar/deret kecil di sepertiga atas, sisanya gelap kosong. Terasa seperti menunggu, bukan fokus.
+
+**(b) Ketahuan beda kelas di showreel?**
+- Tidak untuk 0–100 s.
+- Di 100–120 dan beberapa detik terakhir ada jeda yang lebih sabar daripada referensi, tetapi tidak merusak.
+
+### Tabel cacat
+| # | Timestamp | P | Apa | Aturan | Saran |
+|---|---|---|---|---|---|
+| 1 | 129,47–131,50 | P2 | Push-in + siluet menyala di «Kamu» sudah bekerja (128–129,5). Setelah itu frame diam 2,0 s (MAD 2,0/255), baru fade 131,5–132,3. Melewati batas 0,5 s. | §16.2: end card tidak statis > 1,5 s. Kompas #10. | Lanjutkan push-in sangat pelan (2–3 %) sampai fade, atau mulai fade 0,5 s lebih awal. Jangan mengubah pendekatannya lagi. |
+| 2 | 78,17–78,60 | P2 | «Sukses» tampil ±0,47 s, lalu langsung hilang ke transisi grid. | §16.0: teks diam ≥ 0,8 s saat dibaca. | Tahan sampai ≥ 0,8 s, misalnya geser masuknya 0,3 s lebih awal atau mundurkan transisi grid. |
+| 3 | 19,53–19,63 | P2 | Cut dari ruang gelap «Lebih Cepat» ke 3 frame putih nyaris kosong (Wikipedia baru fade-in). Lonjakan terang dari gelap ke putih terasa seperti flash ringan. | §16.2: tidak ada frame kosong di serah-terima. | Biarkan kartu Wikipedia sudah 60–80 % terlihat di frame pertama setelah cut. |
+| 4 | 115,3–119,7 | P2 (ditunda) | Ruang dengan layar kecil di sepertiga atas dan siluet di kiri, 60 % frame gelap kosong selama ±4 s. | R2; kompas #8. | Dolly 3–5 % atau sapuan cahaya selama hold. |
+| 5 | 101,0–103,3 | P2 (ditunda Irfan) | Deret kartu app di 16–33 % atas, dua per tiga bawah kosong. | Komposisi. | Tilt turun. |
+| 6 | 54,25–55,6 · 119,75–120,5 | P2 (ditunda Irfan) | «Tempat Kita» / «Tertinggal» di y ≈ 73–74 %, di luar pita pesan. «Tertinggal» tepat 0,8 s. | Pita 36–64 %. | Naikkan ke y ≈ 55–60 %. |
+| 7 | 25,2–28,5 | P2 (ditunda Irfan) | Kartu kiri-atas, dock kanan-bawah. | R2. | Seperti putaran 3. |
+| 8 | 25–28 · 64,5–65,9 · 98,5–103 | P2 (ditunda Irfan) | Label UI < 22 px @1080. | R4. | Ditunda. |
+| 9 | sepanjang VO (p5) | P2 | VO p5 2,7 dB di atas latar. | Vocal dominance. | Duck bed lebih dalam di jendela p5. Opsional. |
+
+**Diterima (bukan cacat):**
+- hitam/piktogram sebagai fokus, termasuk hold 28,7–29,9 dan 103,7–105,5;
+- «Pengganti» di bahu figur;
+- CONTR saat kata masuk blur → tajam;
+- bidang cahaya putih miring KREATIF/MEMBANGUN/MERENCANAKAN;
+- teks narasumber di atas footage (Gates, «16 year old» di dada, Jensen, Altman);
+- fade ke hitam di akhir;
+- semua bagian di LOCKED.md.
+
+**Terverifikasi beres dari putaran 3:**
+- close-up «16 year old» kini memperlihatkan wajah (4,43–6,2);
+- Jensen: baris di atas logo dengan jarak ±80 px @1080, tidak menabrak garis;
+- dentum ekor hilang dan audio meluruh bersih;
+- penutup punya gerak dan aksen cahaya nyata di «Kamu».
+
+### Status 9 keluhan Irfan (FEEDBACK-2NOV-0605)
+| # | Keluhan | Status | Bukti |
+|---|---|---|---|
+| 1 | MEMBANGUN cahaya kotak kasar | **BERES** | 105,5–108: berkas cahaya diagonal berfalloff, tanpa tepi persegi. |
+| 2 | Gates dobel | **BERES** | 0–1,43: satu figur. |
+| 3 | Montase teks ke tengah | **BERES** | 1,7–3,7: baris di tengah frame. |
+| 4 | Teks progress di ruang kosong | **BERES** | 8,3–10,3: di bawah kartu, tidak menimpa presenter. |
+| 5 | «AI» hitam di belakang Wikipedia | **BERES** | 19,5–23: tidak ada. |
+| 6 | «janji sederhana» | **BERES** | 23,75–25,2: dua kata, tanpa kotak. |
+| 7 | Kalender nyata | **BERES** | 34,5–36,6: kalender Oktober 2026, blok menyusut. |
+| 8 | Jensen full frame, per kata di kiri | **BERES** | 55,9–61,2: full frame, per kata, di atas logo tanpa tabrakan. |
+| 9 | Altman per kata besar di tengah, BILLION | **BERES** | 71,9–75,2: satu kata per beat, «Billion» kuning. |
+
+**Rekap: 9/9 BERES.**
+
+### VERDICT: **SHIP**
+- 0 P0, 0 P1, semua rubrik = 4.
+- Catatan jujur: skor ini di ambang. Rata-rata 4,0 belum mencapai target gerbang R6 §16.4 (4,5).
+- Disarankan sebelum render final, murah dan lokal:
+  1. P2 #1: lanjutkan push-in sampai fade, atau fade 0,5 s lebih awal.
+  2. P2 #2: «Sukses» ≥ 0,8 s.
+  3. P2 #3: frame pertama Wikipedia tidak kosong.
+- Ketiganya tidak memblokir.
+
+## Keputusan Claude utama atas Putaran 4
+- VERDICT reviewer: **SHIP** (0 P0, 0 P1, semua rubrik 4; 9/9 keluhan Irfan BERES). Gerbang §16.4 R6 ≥ 4,5 belum tercapai — dilaporkan apa adanya ke Irfan.
+- Tiga P2 yang disarankan diperbaiki sebelum render final: penutup hold 2,0 s → fade dimulai 0,5 s lebih awal (hold ≤ 1,5 s); «Sukses» ditahan sampai cut (≥ 0,8 s); masuk 02a tanpa 3 frame putih kosong (kartu & foto sudah tampil di frame pertama — terverifikasi still f585–590).
+- Sisa P2 ditunda untuk Irfan: ruang gelap kosong 101–103 & 115–120, «Tempat kita»/«Tertinggal» di y ≈ 73 %, komposisi 25–28, label UI kecil, VO p5 2,7 dB.

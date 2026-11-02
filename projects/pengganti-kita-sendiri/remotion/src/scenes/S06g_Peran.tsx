@@ -45,7 +45,7 @@ export const S06g_Peran: React.FC = () => {
   sfxMark(t, "whoosh", at("kamu"), "06g:punch:in"); // push-in 1,00→1,18 mulai di onset «kamu» (+ nyala piktogram)
   sfxMark(t, "hit", T_BOOM, "06g:boom:1"); // kilat kecil di layar atas kepala (layar tidak padam)
   const litFrac = ons.reduce((a, b) => a + b, 0) / ons.length;
-  const fade = prog(t, P.end - 1.45, P.end - 0.45, EZ.inOut);
+  const fade = prog(t, P.end - 1.95, P.end - 0.75, EZ.inOut); // R4: hold setelah push-in ≤ 1,5 s
   return (
     <Scene code="06g" name="06g Peran apa">
       <AbsoluteFill style={{ background: C6.charcoal, overflow: "hidden" }}>

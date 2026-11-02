@@ -17,7 +17,7 @@ const WIPE_A = P.end - 7 * fr;
 const CUTZ = T.pertama + 2 * fr; // C20 cut zoom ke kalimat rilis, bersamaan «pertama» (bunyi kata yang sudah ada)
 const SNAP = T.dibicarakan - 0.14; // patah ke wide sebelum kata penutup (whoosh_s 02a_snap_wide)
 const P1D_END = panel("01d").end; // batas babak B1 → B2: hit riser isi wireframe 01d (frame pertama adegan ini)
-const CARD_A = P.start + 2 * fr, CARD_B = P.start + 14 * fr; // kartu Wikipedia masuk
+const CARD_A = P.start - 4 * fr, CARD_B = P.start + 12 * fr; // kartu Wikipedia masuk (R4: sudah tampil di frame pertama — tidak ada 3 frame putih kosong)
 const SEL_A = T.pertama + 2 * fr; // drag-select kalimat rilis mulai
 const SEL_Q = { x: 960, y: 640 }; // titik dunia kalimat yang diseleksi (baris 2–3 paragraf kartu)
 
@@ -64,7 +64,7 @@ export const S02a_Wikipedia: React.FC = () => {
         <Camera scale={sc} x={cam.x} y={cam.y} ox={0} oy={0} blur={snapBlur}>
         {/* lapis jauh: potongan foto */}
         {PHOTOS.map((p, i) => {
-          const q = prog(t, P.start + i * 2 * fr, P.start + (i * 2 + 10) * fr, EZ.out);
+          const q = Math.max(0.5, prog(t, P.start + i * 2 * fr, P.start + (i * 2 + 10) * fr, EZ.out));
           return (
             <Img key={i} src={staticFile(p.img)} style={{
               position: "absolute", left: p.x + camX * p.k, top: p.y + (1 - q) * 30, width: p.w, height: p.h, objectFit: "cover", objectPosition: p.pos,
