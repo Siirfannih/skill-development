@@ -1,0 +1,96 @@
+{
+ "photo_first": [
+  "Pergantianfoto-gambarpertama__v0.wav"
+ ],
+ "photo": [
+  "Pergantianfoto__v4.wav"
+ ],
+ "cut": [
+  "Cut__v0.wav"
+ ],
+ "cut_var": [
+  "Variasitransisiataucut__v0.wav",
+  "Variasitransisiataucut__v1.wav",
+  "Variasitransisiataucut__v2.wav"
+ ],
+ "cut_contrast": [
+  "Cutcontrastransision__v0.wav"
+ ],
+ "word": [
+  "Kinetictypography(gunakansecaraacak)__v0.wav",
+  "Kinetictypography(gunakansecaraacak)__v1.wav",
+  "Kinetictypography(gunakansecaraacak)__v2.wav"
+ ],
+ "word_first": [
+  "Katapertama__v0.wav"
+ ],
+ "key": [
+  "Keyboardtyping__v1.wav",
+  "Keyboardtyping__v2.wav",
+  "Keyboardtyping__v6.wav",
+  "Keyboardtyping__v7.wav"
+ ],
+ "typing": [
+  "Keyboardtyping_full.mp3"
+ ],
+ "enter": [
+  "Enter__v0.wav"
+ ],
+ "click": [
+  "ES_User_Interface_Click_Button_Double_Cl__v3.wav"
+ ],
+ "cam_whoosh": [
+  "Wooshcameramovementtransisi__v0.wav"
+ ],
+ "whoosh": [
+  "Woosh__v1.wav"
+ ],
+ "move": [
+  "Move__v0.wav"
+ ],
+ "riser": [
+  "ES_Designed_Riser_Transition_Fast_Short___v0.wav"
+ ],
+ "big_swoosh": [
+  "ES_Swooshes_Whoosh_Big_Cinematic_-_Epide__v0.wav"
+ ],
+ "pop": [
+  "pop_up__v0.wav"
+ ],
+ "ai_pop": [
+  "Popup_user_interface_-_AI__v0.wav"
+ ],
+ "ai_reply": [
+  "ResponAI-AIpopup__v1.wav"
+ ],
+ "notif": [
+  "Notif__v0.wav"
+ ],
+ "light": [
+  "Lasertransision__v0.wav"
+ ],
+ "scan": [
+  "scaningfast__v0.wav"
+ ],
+ "glitch": [
+  "ES_User_Interface_Glitch_Glitch_Databend__v0.wav"
+ ],
+ "curve": [
+  "Scanning_dan_gerak_kurva__v0.wav"
+ ],
+ "trash": [
+  "ES_User_Interface_Alert_UI_Buttons_Dissa__v0.wav"
+ ],
+ "spread": [
+  "basmenyebar__v0.wav"
+ ],
+ "boom": [
+  "ES_Designed_Bass_Dive_Bass_Drop_Deep_Sub__v0.wav"
+ ],
+ "land": [
+  "ES_User_Interface_Click_Pops_Glass_UI_Po__v1.wav"
+ ],
+ "tick": [
+  "notif09.wav"
+ ]
+}
