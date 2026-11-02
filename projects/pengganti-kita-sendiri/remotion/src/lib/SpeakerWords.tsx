@@ -9,7 +9,7 @@
 // tidak pernah lebih awal). VO tidak memakai komponen ini (VO tetap anchor saja).
 import React from "react";
 import { AbsoluteFill, interpolate, useCurrentFrame } from "remotion";
-import { AnchorWord, type AnchorEnter } from "./AnchorWord";
+import { AnchorWord, SOFT_SHADOW, softenShadow, type AnchorEnter } from "./AnchorWord";
 import { EZ, sfxMark, useSceneFrom, type SfxKind } from "./anim";
 import { FPS, word as timelineWord } from "./time";
 import { SAFE } from "./safe";
@@ -122,6 +122,7 @@ const NormalLike: React.FC<{ w: PlacedWord; absF: number; shadow: string; color:
   const inner = (
     <div
       ref={probe}
+      data-emph={w.text}
       style={{
         fontFamily: DISPLAY_FONT, fontWeight: weightOf(kind), fontSize: s, letterSpacing: `${track}em`, lineHeight: 1, color, whiteSpace: "nowrap",
         textShadow: shadow, transform: `translateY(${tr * 100}%)`, opacity: dim ? 0.6 : 1,
@@ -151,7 +152,9 @@ export const SpeakerWords: React.FC<{
   until?: number;
   color?: string;
   shadow?: string;
-}> = ({ words, until, color = "#FAF8EC", shadow = "0 2px 6px rgba(0,0,0,0.35), 0 4px 36px rgba(0,0,0,0.6)" }) => {
+}> = ({ words, until, color = "#FAF8EC", shadow: shadowIn = SOFT_SHADOW }) => {
+  // v11 (Irfan, Bloomberg 0:08): shadow gelap lebar = pita di belakang teks → shadow halus saja
+  const shadow = softenShadow(shadowIn, color) ?? "none";
   const frame = useCurrentFrame();
   const sf = useSceneFrom();
   const absF = frame + sf;
@@ -169,7 +172,7 @@ export const SpeakerWords: React.FC<{
           if (w.sfx) sfxMark(absF / FPS, w.sfx.kind, w.at / FPS, w.sfx.id, w.sfx.pan);
           return (
             <AnchorWord key={i} text={w.text} at={w.at} until={end} x={w.x} y={w.baseline - BL_FROM_CENTER * w.size}
-              size={w.size} color={col} align="left" enter="scale" shadow={shadow} grain={w.grain} weight={500} track={-0.01} />
+              size={w.size} color={col} align="left" enter={w.enter ?? "blur"} shadow={shadow} grain={w.grain} weight={500} track={-0.01} />
           );
         }
         sfxMark(absF / FPS, w.sfx?.kind ?? "word", w.at / FPS, w.sfx?.id ?? `word:${w.text.replace(/\s+/g, "_")}:${w.at}`, w.sfx?.pan);

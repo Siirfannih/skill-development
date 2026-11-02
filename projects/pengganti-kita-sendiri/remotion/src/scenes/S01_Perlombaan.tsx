@@ -150,7 +150,7 @@ const HorizonA: React.FC<{ t: number }> = ({ t }) => {
       {/* teks di zona gelap atas, tengah */}
       {/* v9 (B13): «Tanpa» dihapus; SADAR = anchor di langit gelap tengah (putih di navy, bukan biru di gelap), masuk di suku tekan f319 */}
       <AbsoluteFill style={{ transform: `scale(${1 + 0.035 * c01})` }}>
-        <AnchorWord text="SADAR" at={atSadar} until={useFrameAt(Math.round(fallA * FPS))} x={960} y={500} size={130} color={C.white} enter="scale" />
+        <AnchorWord text="SADAR" at={atSadar} until={useFrameAt(Math.round(fallA * FPS))} x={960} y={500} size={130} color={C.white} enter="blur" />
       </AbsoluteFill>
       {/* C10: tile jatuh dari atas ke lajurnya (akselerasi), mendarat di cut 01b */}
       {t >= fallA && TILES.map((tl, i) => {
@@ -262,7 +262,7 @@ const RoomCD: React.FC<{ t: number }> = ({ t }) => {
         {/* garis finis putih yang membuka jadi kerucut */}
         <div style={{ position: "absolute", left: WX - 2, top: 0, width: 4, height: 1080, background: "#fff", opacity: 1 - prog(t, P1c.start + 2 * fr, P1c.start + 0.3) }} />
         {/* v9 (#5): PENGGANTI di dunia kamera, di antara kerucut cahaya dan wireframe → tampak DI BELAKANG piktogram wireframe, setinggi bahu */}
-        <AnchorWord text="PENGGANTI" at={atPeng} until={outPeng} x={WX} y={HEAD_TOP + 215} size={140} color={C.white} enter="scale" shadow="0 0 44px rgba(16,18,22,0.7)"
+        <AnchorWord text="PENGGANTI" at={atPeng} until={outPeng} x={WX} y={HEAD_TOP + 215} size={140} color={C.white} enter="mask" shadow="0 0 44px rgba(16,18,22,0.7)"
           sfx={{ kind: "sub_impact", id: "01c:anchor:pengganti" }} />
         <WireFigure id="wf01" cx={WX} headTop={HEAD_TOP} s={S} draw={draw} fill={fill} scan={scan} />
         <Pictogram cx={OURX} headTop={HEAD_TOP} s={S} rim="right" lean={lean} />

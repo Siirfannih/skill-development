@@ -7,6 +7,7 @@ import { Panel2x, Scene } from "./lib/anim";
 import { PANELS } from "./lib/time";
 import * as Static from "./panels/all";
 import { SCENES } from "./scenes";
+import { CaptionTrack } from "./lib/CaptionTrack";
 
 export const pksSchema = soundSchema;
 
@@ -24,6 +25,8 @@ export const PKS: React.FC<Partial<SoundProps>> = (p) => (
           ) : null;
         })}
         {SCENES.list.map((S, i) => <S key={i} />)}
+        {/* v11 · running text VO (Worker T): lapisan teratas, disembunyikan otomatis saat ada teks penekanan */}
+        <CaptionTrack />
       </AbsoluteFill>
     </Sequence>
     {p.cues && p.lanes ? <SoundLayer dialogMuted={p.dialogMuted ?? false} dialogGainDb={p.dialogGainDb ?? 0} solo={p.solo ?? "none"} lanes={p.lanes} cues={p.cues} /> : null}

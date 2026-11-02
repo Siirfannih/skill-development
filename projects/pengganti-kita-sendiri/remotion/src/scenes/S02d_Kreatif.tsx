@@ -48,7 +48,7 @@ export const S02d_Kreatif: React.FC = () => {
         <AbsoluteFill style={{ transform: `translate(${T.x}px, ${T.y}px) scale(${z})`, transformOrigin: "0 0" }}>
           <LightPlane beam={beam} plane={plane} glow={glow}>
             {/* v9: parallelogram dipertahankan; masuk lewat AnchorWord di suku tekan f927 (koordinat lokal bidang 880×224) */}
-            <AnchorWord text="KREATIF" at={atKreatif} x={440} y={112} size={108} color={C.ink} italic grain={0.3} sfx={{ kind: "scifi_whoosh", id: "02d:anchor:kreatif" }} />
+            <AnchorWord text="KREATIF" at={atKreatif} x={440} y={112} size={108} color={C.ink} italic grain={0.3} enter="letters" sfx={{ kind: "scifi_whoosh", id: "02d:anchor:kreatif" }} />
           </LightPlane>
           <Pictogram rim={rim} />
           {/* lantai gelap memudar */}

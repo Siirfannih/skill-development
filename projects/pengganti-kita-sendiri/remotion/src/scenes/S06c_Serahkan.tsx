@@ -77,7 +77,7 @@ export const S06c_Serahkan: React.FC = () => {
             {/* v9 (#30): AI = anchor di tengah bidang cahaya (target hisapan), ink gelap di bidang putih; DOM sebelum bola → bola yang lewat menutupi huruf (di belakang bola) */}
             {/* v10 (#38): bidang tidak kosong sebelum «AI» — glyph OpenAI asli (target hisapan) tampil sampai kata AI mendarat di slot yang sama */}
             {t * FPS < atAI && <AIGlyph size={110} style={{ position: "absolute", left: 706 - 55, top: 205 - 55 }} />}
-            <AnchorWord text="AI" at={atAI} until={untilAI} x={706} y={205} size={130} color={C6.ink} enter="scale"
+            <AnchorWord text="AI" at={atAI} until={untilAI} x={706} y={205} size={130} color={C6.ink} enter="blur"
               sfx={{ kind: "scifi_whoosh", id: "06c:anchor:ai" }} />
             <Torso b={{ x: 60, y: 330, w: 360, h: 300 }} rim={0.6} r={6} />
             {hs > 0.01 && (

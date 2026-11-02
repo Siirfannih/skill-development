@@ -64,8 +64,8 @@ const HeroUnit: React.FC<{ k: number; on: number; lit: number; t?: number }> = (
       })()}
       <Plane b={plane} on={lit} glow={glow} softGlow grad={`linear-gradient(90deg, ${C6.white} 55%, ${C6.paper} 100%)`} />
       {/* teks di bidang (koordinat unit sel). v10: tinta gelap #101216 di bidang putih (kontras ≈ 18:1), miring seperti PLANE_TEXT v8. */}
-      <AnchorWord text="MEMBANGUN" at={atMembangun} until={atMerencanakan} x={cx} y={cy} size={fsOld} color="#101216" italic grain={0} enter="scale" />
-      <AnchorWord text="MERENCANAKAN" at={atMerencanakan} until={outTxt} x={cx} y={cy} size={fsNew} color="#101216" italic grain={0} enter="scale"
+      <AnchorWord text="MEMBANGUN" at={atMembangun} until={atMerencanakan} x={cx} y={cy} size={fsOld} color="#101216" italic grain={0} enter="letters" />
+      <AnchorWord text="MERENCANAKAN" at={atMerencanakan} until={outTxt} x={cx} y={cy} size={fsNew} color="#101216" italic grain={0} enter="type"
         sfx={{ kind: "scifi_whoosh", id: "06a:anchor:merencanakan" }} />
       <Ball b={{ x: 22, y: 40, w: 40, h: 40 }} rim={0.9 * on} r={rimR} />
       <Torso b={{ x: lerp(4.6, 6, k), y: lerp(85.2, 86, k), w: lerp(74.8, 72, k), h: lerp(83.9, 90, k) }} rim={0.7 * on} r={rimR} />

@@ -95,7 +95,7 @@ export const shake = (t: number, t0: number, amp = 10, dur = 0.25) => {
  */
 /** v9: peran SFX hybrid motion (library nyata, bukan sintesis). Dipakai bersama `pan` (-1 kiri … 1 kanan, dari posisi x layar) untuk elemen UI. */
 export type SfxRole = "sub_impact" | "low_whoosh" | "scifi_whoosh" | "glass_ping" | "ui_tap" | "telemetry_blip" | "graph_riser" | "snap_click";
-export type SfxKind = "click" | "pop" | "land" | "snap" | "whoosh" | "riser" | "hit" | "key" | "toggle" | "trash" | "draw" | "step" | "notify" | "cut" | "word" | SfxRole;
+export type SfxKind = "click" | "pop" | "land" | "snap" | "whoosh" | "riser" | "hit" | "key" | "toggle" | "trash" | "draw" | "step" | "notify" | "cut" | "word" | "type" | SfxRole;
 /** pan dari koordinat x layar (0..1920) → -1..1 */
 export const panOf = (x: number) => Math.max(-1, Math.min(1, (x - 960) / 960));
 export const sfxMark = (t: number, kind: SfxKind, at: number, id: string, pan?: number) => {

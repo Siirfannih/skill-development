@@ -241,7 +241,7 @@ export const S00_ColdOpen: React.FC = () => {
                   { text: "raised", at: W("news_billion", "raised"), size: 52 },
                   { text: "over", at: W("news_billion", "over"), size: 52 },
                   { text: "a", at: W("news_billion", "a"), size: 52 },
-                  { text: "BILLION", at: 208, size: 120, kind: "emph", sfx: { kind: "sub_impact", id: "00a:anchor:billion" } },
+                  { text: "BILLION", at: 208, size: 120, kind: "emph", enter: "scale", sfx: { kind: "sub_impact", id: "00a:anchor:billion" } },
                   { text: "dollars", at: W("news_billion", "dollars"), size: 64, kind: "last" },
                 ]} />
                 {/* Sky News grafik: baris kecil di atas FAST raksasa (kartu menyusut di belakang, foto awan lewat) */}

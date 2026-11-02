@@ -81,7 +81,7 @@ export const S04d_AltmanOrbit: React.FC = () => {
         {/* R3-E: satu slot tengah; kata lama hilang 1 f sebelum kata baru masuk (0–2 f). Di depan klip. */}
         {QUOTE.map((w, i) => (
           <AnchorWord key={w.text} text={w.text} at={w.at} until={i < QUOTE.length - 1 ? QUOTE[i + 1].at - 1 : outW} x={SLOT_X} y={SLOT_Y} size={SLOT_SIZE} align="center"
-            color={w.text === "BILLION" ? "#FFD25A" : "#fff"} enter="scale" grain={0.25}
+            color={w.text === "BILLION" ? "#FFD25A" : "#fff"} enter={({ SINGLE: "mask", PERSON: "blur", BILLION: "scale", DOLLAR: "mask", COMPANY: "letters" } as const)[w.text] ?? "blur"} grain={0.25}
             shadow="0 4px 36px rgba(0,0,0,0.6)" sfx={w.text === "BILLION" ? { kind: "sub_impact", id: "04d:anchor:billion" } : undefined} />
         ))}
         {/* atribusi */}

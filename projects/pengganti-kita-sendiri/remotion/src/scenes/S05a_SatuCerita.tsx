@@ -130,8 +130,8 @@ export const S05a_SatuCerita: React.FC = () => {
           const qx = oq.x + (lx - oq.x) * camPush, qy = oq.y + (cc.y - oq.y) * camPush;
           return (
             <AbsoluteFill style={{ transform: `scale(${1 / camPush})`, transformOrigin: `${oq.x}px ${oq.y}px` }}>
-              <AnchorWord text="SATU" at={atSatu} until={atSukses} x={qx} y={qy} size={130} color="#1d1d1f" align="right" enter="left" />
-              <AnchorWord text="SUKSES" at={atSukses} until={outSS} x={qx} y={qy} size={130} color="#1d1d1f" align="right" enter="left" />
+              <AnchorWord text="SATU" at={atSatu} until={atSukses} x={qx} y={qy} size={130} color="#1d1d1f" align="right" enter="scale" />
+              <AnchorWord text="SUKSES" at={atSukses} until={outSS} x={qx} y={qy} size={130} color="#1d1d1f" align="right" enter="type" />
             </AbsoluteFill>
           );
         })()}

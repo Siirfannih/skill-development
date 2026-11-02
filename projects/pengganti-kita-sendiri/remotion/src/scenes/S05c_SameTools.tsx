@@ -106,8 +106,8 @@ export const S05c_SameTools: React.FC = () => {
           )}
           {/* v9 (#22): SEMUA (tengah, sampai ikon AI mendarat) → SAMA (raksasa, T24 dipertahankan). Seharusnya di belakang foto orang yang lewat;
               lapis tengah sekarang kartu foto utuh → SEMUA di depan (fallback). */}
-          <AnchorWord text="SEMUA" at={atSemua} until={atTools} x={960} y={540} size={130} color="#ffffff" enter="scale" shadow="0 6px 50px rgba(0,0,0,0.65)" />
-          <AnchorWord text="SAMA" at={atSama} x={960} y={540} size={130} color="#ffffff" enter="scale" shadow="0 6px 50px rgba(0,0,0,0.5)"
+          <AnchorWord text="SEMUA" at={atSemua} until={atTools} x={960} y={540} size={130} color="#ffffff" enter="blur" shadow="0 6px 50px rgba(0,0,0,0.65)" />
+          <AnchorWord text="SAMA" at={atSama} x={960} y={540} size={130} color="#ffffff" enter="mask" shadow="0 6px 50px rgba(0,0,0,0.5)"
             sfx={{ kind: "sub_impact", id: "05c:anchor:sama" }} />
         </Camera>
         <Grain opacity={0.05} />

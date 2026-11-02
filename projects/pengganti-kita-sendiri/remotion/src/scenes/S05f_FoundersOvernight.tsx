@@ -73,9 +73,9 @@ export const S05f_FoundersOvernight: React.FC = () => {
             style={{ position: "absolute", inset: -40, width: "calc(100% + 80px)", height: "calc(100% + 80px)", objectFit: "cover", objectPosition: FRAMING[idx]?.pos ?? "50% 50%", filter: `${DOC_GRADE} brightness(${dim})`, transform: `scale(${z * hold})`, transformOrigin: FRAMING[idx]?.origin ?? "50% 42%" }} />
         </AbsoluteFill>
         {/* v9: slot swap SlotWord → AnchorWord di posisi tengah yang sama (callback cold open); FOUNDER → CEO → SEMALAM menggantikan di slot yang sama */}
-        <AnchorWord text="FOUNDER" at={atFounder} until={atCeo} x={960} y={540} size={130} color="#FAF8EC" enter="scale" shadow="0 6px 50px rgba(0,0,0,0.5)" />
-        <AnchorWord text="CEO" at={atCeo} until={atSemalam} x={960} y={540} size={130} color="#FAF8EC" enter="scale" shadow="0 6px 50px rgba(0,0,0,0.5)" />
-        <AnchorWord text="SEMALAM" at={atSemalam} x={960} y={540} size={130} color="#FAF8EC" enter="scale" shadow="0 6px 50px rgba(0,0,0,0.5)"
+        <AnchorWord text="FOUNDER" at={atFounder} until={atCeo} x={960} y={540} size={130} color="#FAF8EC" enter="type" shadow="0 6px 50px rgba(0,0,0,0.5)" />
+        <AnchorWord text="CEO" at={atCeo} until={atSemalam} x={960} y={540} size={130} color="#FAF8EC" enter="letters" shadow="0 6px 50px rgba(0,0,0,0.5)" />
+        <AnchorWord text="SEMALAM" at={atSemalam} x={960} y={540} size={130} color="#FAF8EC" enter="blur" shadow="0 6px 50px rgba(0,0,0,0.5)"
           sfx={{ kind: "sub_impact", id: "05f:anchor:semalam" }} />
         <Grain opacity={0.06} />
       </AbsoluteFill>
