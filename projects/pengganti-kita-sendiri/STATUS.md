@@ -1,13 +1,15 @@
 # STATUS: Pengganti Kita Sendiri (@siirfannih)
 
-_Update terakhir: 2 Nov 2026 10.50 WITA — PKS_v10 terkirim ke Irfan, menunggu review._
+_Update terakhir: 2 Nov 2026 22.30 WITA — v20 terkirim; Irfan minta sesi baru untuk revisi (lihat `HANDOFF-SESI-BARU.md`)._
 
 ## Posisi sekarang
-- **Versi terakhir: v10** — Mac `pks-studio/out/PKS_v10.mp4` (1080p30, 132,8 s, −14,0 LUFS, peak −1,2 dBFS).
-- QC: 4 putaran reviewer segar (`review_log.md`); putaran 4 = SHIP (0 P0/P1, semua rubrik 4; gerbang ketat R6 ≥ 4,5 belum). 9/9 keluhan 06.05 beres.
-- P2 ditunda untuk Irfan: ruang gelap kosong 101–103 & 115–120 s, «Tempat kita»/«Tertinggal» di y ≈ 73 %, komposisi 25–28 s, label UI kecil (perlu punch-in), VO p5 2,7 dB.
-- Bagian dikunci Irfan: `LOCKED.md`. Cara kerja baru: `claude/motion-graphic/references/three-segment-gate.md` (gerbang 3 segmen, hierarki subagent, aturan teks).
+- **Versi terakhir: v20.** Mac `pks-studio/out/PKS_v20_video1.mp4` (Particle Emission) dan `PKS_v20_video2.mp4` (Reggae buka/tutup + Particle). Visual = render v11 (`seg/v11final_v.mp4`), audio = `audio-v20/` (master FLAC di `seg/master_v20_video{1,2}.flac`).
+- v11 visual: CaptionTrack (running text), AnchorWord enter type/mask/letters/blur, NaturalLight (ganti pendar balon), crop wajah S05f, penanda `type`/`enter`.
+- v20 audio: disusun ulang dari nol oleh sesi segar tanpa aturan lama (BRIEF di `audio-v20/BRIEF.md`). 309 peristiwa, SFX dari folder SFXIrfan (varian family), −14 LUFS, TP −1,2.
+- **Feedback terbuka (22.25):** shadow hitam 0:07–0:08 terulang (akar: radial-gradient di S00), jeda/kurang smooth, objek terlalu rapi (AI slop), kinetic typography VO jadi subtitle datar. Rincian: `LEARNINGS-2NOV.md` §C.
+- Pelajaran sesi: `LEARNINGS-2NOV.md`. Bagian terkunci: `LOCKED.md`.
 
+## Arsip v10
 ## Alur v10 (dipakai)
 - Segmen 1 kode: `tools/seg1_code_check.py` → `OBJECT-MAP.md`.
 - Segmen 2 pra-render: `remotion/seg2_probe.mjs` (log OBJ dari DOM + still) → `tools/seg2_layout_check.py` (SAFE/CLASH/CONTR).

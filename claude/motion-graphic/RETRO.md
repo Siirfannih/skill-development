@@ -156,3 +156,35 @@ Aturan (usulan, menunggu gerbang EVALS):
 - Revisi komposisi yang gagal 2× → ganti pendekatan, bukan geser koordinat lagi (§16.4 "dua putaran gagal").
 
 Status: usulan (2 Nov). Laporan: `projects/pengganti-kita-sendiri/FEEDBACK-2NOV-0605.md`, `AUDIT-V9-INDEPENDEN.md`.
+
+### 2026-11-02 · Pengganti Kita Sendiri · v10 → v20 (06.05–22.25)
+Revisi Irfan, dalam urutan:
+- gerbang 3 segmen dan safe zone;
+- teks prioritas 2;
+- font ramping;
+- tanpa scrim;
+- hierarki subagent;
+- SFX salah karakter, dengan earshot dipakai sebagai telinga;
+- pelajari The Gap/video #2/referensi lewat earshot;
+- folder SFXIrfan + SFX family;
+- running text + variasi kinetic;
+- audio dari nol (sesi baru, prinsip saja).
+
+Pada 22.25 masalah lama muncul lagi:
+- shadow hitam 0:08;
+- jeda;
+- AI slop;
+- kinetic typography menjadi subtitle datar.
+
+Akar masalah:
+1. Aturan terkunci tidak dijadikan cek otomatis, jadi perbaikan menyasar satu sumber (text-shadow) dan melewatkan sumber lain (radial-gradient di S00).
+2. Perbaikan kuantitatif (cakupan kata 75 %) dianggap selesai, padahal kualitas kinetic tidak dinilai terhadap referensi.
+3. Tambal di atas tambal pada audio; baru membaik setelah mulai ulang dari prinsip.
+
+Aturan baru:
+- larangan visual (scrim, shadow besar) dicek dengan grep + still di setiap teks;
+- kinetic dinilai terhadap referensi per beat, bukan cakupan saja;
+- bila feedback berulang di area yang sama, susun ulang dari prinsip di sesi segar.
+
+Detail: `projects/pengganti-kita-sendiri/LEARNINGS-2NOV.md`, `HANDOFF-SESI-BARU.md`.
+Status: dicatat; revisi dilanjutkan di sesi baru.
