@@ -89,9 +89,9 @@ const SPEC: (Spec | null)[] = [
   { t: "orang lakukan", x: 960, y: 545, align: "center", lay: "line", ink: "light", key: 1, enter: "blur", exit: "blur" },
   { t: "kalau tidak memakai AI", x: 600, y: 680, align: "left", lay: "stair", ink: "light", br: [2], key: 3, mark: true, enter: "rise", exit: "sink" },
   { t: "kita merasa", x: 600, y: 680, align: "left", lay: "line", ink: "light", size: 84, enter: "mask", exit: "wipe" },
-  { t: "karena semua orang di sekitar", x: 960, y: 600, align: "center", lay: "line", ink: "light", key: 1, enter: "blur", exit: "rise" },
-  { t: "kita memakainya dengan tools", x: 960, y: 600, align: "center", lay: "line", ink: "light", key: 3, mark: true, enter: "rise", exit: "blur" },
-  { t: "yang sama persis", x: 960, y: 600, align: "center", lay: "drop", ink: "light", key: 2, enter: "mask", exit: "sink" },
+  { t: "karena semua orang di sekitar", x: 960, y: 585, align: "center", lay: "line", ink: "light", key: 1, enter: "blur", exit: "rise" },
+  { t: "kita memakainya dengan tools", x: 960, y: 655, align: "center", lay: "line", ink: "light", key: 3, mark: true, enter: "rise", exit: "blur" },
+  { t: "yang sama persis", x: 960, y: 650, align: "center", lay: "line", ink: "light", size: 80, key: 2, enter: "mask", exit: "sink" },
   { t: "Jadi di tengah semua ini", x: 860, y: 600, align: "right", lay: "stair", ink: "light", br: [3], key: 2, enter: "type", exit: "blur" },
 ];
 
@@ -206,10 +206,14 @@ BUILT.forEach((b, j) => {
   const last = b.p.words[b.p.words.length - 1].f;
   const nx = BUILT[j + 1];
   let a = b.p.end, z = b.p.end + EXIT_F;
-  if (nx && nx.p.start < z && hit(b.box, nx.box)) { z = nx.p.start; a = z - 5; }
   const cut = CUTS.find((c) => c > a && c < z);
-  if (cut !== undefined) { z = cut; a = Math.min(a, cut - 4); }
-  a = Math.max(a, last + 4); if (z <= a) z = a + 3;
+  if (cut !== undefined) { z = cut; a = Math.max(last + 2, Math.min(a, cut - 4)); }
+  if (nx && nx.p.start < z && hit(b.box, nx.box)) {
+    // tukar di tempat: yang lama sudah hilang ≤ 1 frame setelah kata pertama frasa baru (tidak pernah dua frasa bertumpuk)
+    z = Math.min(z, nx.p.start + 1);
+    a = Math.min(z - 3, Math.max(z - 6, last + 2));
+  }
+  a = Math.max(a, last + 1); if (z <= a) z = a + 2;
   b.exA = a; b.exB = z;
 });
 export const KINETIC_BUILT = BUILT;
