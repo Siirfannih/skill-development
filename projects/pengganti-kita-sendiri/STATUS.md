@@ -2,7 +2,8 @@
 
 _Update terakhir: 3 Nov 2026 pagi — v22 (teks VO tidak berkedip/terburu-buru). Lihat `REVIEW-V22.md`, `LEARNINGS-2NOV.md` §G._
 
-## Posisi sekarang (v22)
+## Posisi sekarang (v22) — SELESAI
+- **3 Nov 20.43: Irfan menyatakan video selesai dan memakai Video 1** → final = Mac `pks-studio/out/PKS_v22_video1.mp4` (Particle Emission). Sisa minor di bawah tidak dikerjakan.
 - **Versi terakhir: v22.** Mac `pks-studio/out/PKS_v22_video{1,2}.mp4`, render penuh `seg/v22final_v.mp4` (kode 8ce6b6c) + tambal f950–1040
   («Sebagian janji…» y 670→760, kode 52a10d7, `patch22.sh`). Audio = master v20 (penanda SFX v22final.sfx identik v21final.sfx).
 - Gerbang kedip per frame (`tools/text_flicker_check.py`): DIP 4→0, CEPAT 7→0 (+4 pengecualian beralasan), DULUAN HILANG 6→0.

@@ -188,3 +188,25 @@ Aturan baru:
 
 Detail: `projects/pengganti-kita-sendiri/LEARNINGS-2NOV.md`, `HANDOFF-SESI-BARU.md`.
 Status: dicatat; revisi dilanjutkan di sesi baru.
+
+### 2026-11-03 · Pengganti Kita Sendiri · v21 → v22 · SELESAI
+Feedback Irfan (05.31): teks VO tidak diam. Teks berganti secepat mungkin, dan ada dip (teks yang sama hilang lalu muncul lagi) yang hanya terlihat frame per frame.
+
+Akar masalah:
+- teks VO disembunyikan lewat CSS `:has()` setiap kali ada penekanan;
+- frasa dipotong per 32 karakter;
+- QC hanya menyampel 1 still per detik.
+
+Perbaikan:
+- gerbang kedip per frame (`tools/text_flicker_check.py`), wajib di three-segment-gate dan dijalankan juga pada render final;
+- blok teks per klausa, diam sampai VO selesai, ditukar di tempat.
+
+Hasil: DIP 4→0, CEPAT 7→0, DULUAN HILANG 6→0. QC render per frame menemukan «Sebagian» menimpa kartu, lalu ditambal.
+
+**Video dinyatakan selesai oleh Irfan (3 Nov 20.43). Versi final: `PKS_v22_video1.mp4`** (backsound Particle Emission).
+
+Pelajaran lintas proyek:
+1. Kesalahan temporal (kedip, buru-buru, tumpang tindih sesaat) hanya tertangkap dengan QC per frame. Contact sheet per detik tidak cukup.
+2. Aturan yang sudah dikunci harus jadi cek otomatis, bukan catatan.
+3. Proses panjang dijalankan di latar belakang dengan laporan progres.
+4. Sesi yang dibuat sebagai scheduled task tidak muncul di daftar chat. Beri tahu Irfan tautan sesinya sejak awal.
