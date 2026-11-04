@@ -39,3 +39,25 @@ Aturan ledger: `claude/motion-graphic/references/revision-log.md` §21.
 | Versi R3 panel yang diubah | Diarsipkan di x 50000 halaman yang sama | untuk perbandingan |
 
 Pertanyaan 03b dan 04a tetap peach atau ikut gelap dijawab oleh D-004: ikut satu family. Script "ruang luas berwarna terang" diadaptasi jadi ruang biru bercahaya.
+
+## Tabel revisi R4 → R5
+
+| Panel | Status | Catatan |
+|---|---|---|
+| 04a | UBAH | Kartu kaca jadi kartu warna |
+| 07a | UBAH | HP WhatsApp warna asli, lingkaran biru tetap |
+| 08b, 09a | UBAH | Foto kembali warna asli, palet kampanye, kartu stok lime |
+| 01a, 01b, 02a, 02b, 03a, 03b, 04b, 05a, 05b, 05c, 06a, 06b, 07b, 07c, 08a, 09b, 10a | TETAP | Sama dengan R4 |
+| Kartu Arah Visual dan caption terkait | UBAH | Mengikuti definisi premium baru |
+| Versi R4 panel yang sempat diubah | Diarsipkan di x 60000 halaman yang sama | untuk perbandingan |
+
+Percobaan gradasi di hampir semua panel dibatalkan di putaran yang sama (Irfan, 4 Nov 21.41): "Gradient itu hanya digunakan di beberapa frame saja". Elemen tambahannya sudah dihapus dan siluet kembali ke gambar lama.
+
+## D-005 · Premium bukan satu warna dan bukan satu efek
+
+Irfan menolak R4 yang serba biru, lalu menolak percobaan gradasi di semua panel. Contoh yang ia sebut (10a, 02a, 06a, 06b, 07c) adalah studi kasus, bukan aturan untuk setiap frame. Warna asli objek dipertahankan, gradasi dipakai terbatas. Pertanyaan warna 05a–05c ikut terjawab: tetap warna-warni.
+
+Bukti: pesan Irfan 4 Nov 19.3x dan 21.41, tangkapan panel 02a, 07a, 07c, 08b, 09a setelah pembatalan.
+
+Dampak: 21 panel. Pilihan kartu warna 04a, warna WhatsApp 07a, dan foto warna asli 08b–09a adalah tafsir "bukan serba biru"; versi birunya tersedia di arsip R4 jika Irfan ingin kembali penuh.
+

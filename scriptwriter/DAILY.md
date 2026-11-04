@@ -4,6 +4,7 @@
 
 - Permintaan: storyboard script marketing di halaman baru Wonder, referensi dari `canvas-skill-library`.
 - Hasil: 20 panel 16:9 + caption + arah visual, peta referensi, catatan tempo, tabel kritik di halaman "Storyboard Video Marketing". Spec: `projects/jadisatu-marketing-60s/STORYBOARD.md`.
+- R5: premium didefinisikan ulang oleh Irfan (struktur dan whitespace, visual menceritakan pesan, bukan serba biru). Percobaan gradasi semua panel dibatalkan; gradasi hanya di beberapa frame. Titik lanjut: daftar AI 07c dan penilaian Irfan atas R5.
 - Keputusan Irfan: 16:9; kartu stok data demo; Irfan sebagai avatar ilustrasi; baris "Dengan langganan..." teks layar tanpa VO.
 - Titik lanjut: Irfan menilai panel dan menjawab enam keputusan terbuka. Gerbang berikutnya setelah final: TYPE-TEST + TRANSITION-SHEET, lalu VO.
 - Belum diuji pada gerak. Empat dari delapan referensi hanya dari kartu bukti karena videonya di PC.

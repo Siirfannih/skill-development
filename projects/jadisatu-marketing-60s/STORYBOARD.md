@@ -1,6 +1,6 @@
 # Storyboard video marketing Jadisatu 60 detik
 
-Status: draf R4, menunggu penilaian Irfan. Arsip R1 di x 30000, R2 di x 40000, R3 di x 50000, pada halaman yang sama. Script sumber: `SCRIPT.md`.
+Status: draf R5, menunggu penilaian Irfan. Arsip R1 di x 30000, R2 di x 40000, R3 di x 50000, R4 di x 60000, pada halaman yang sama. Script sumber: `SCRIPT.md`.
 Gambar panel ada di Wonder, file "Rancangan ulang UI Jadisatu Canvas", halaman "Storyboard Video Marketing".
 
 ## Brief terkunci
@@ -43,18 +43,18 @@ PROJECT Jadisatu marketing | 1920×1080 · 30 fps | FONT Display/Headline/Body =
 | 02b | 00:09–00:11 | burnout | arang | gambar teknis, panah merah menekan | BURNOUT · Stok, Karyawan · Berantakan | C14 | X01 ke titik | ticking ±8/dtk, sub hit |
 | 03a | 00:11–00:12 | Melihat ini | hitam | satu garis cahaya menuju titik | – | diam | X02 | engsel senyap ±0,4 dtk, satu klik |
 | 03b | 00:12–00:16 | ngebangun | ruang biru | siluet Irfan, lingkaran cahaya, pantulan lantai | – | C19 | tanpa cut | room tone, satu klik |
-| 04a | 00:16–00:19 | owner | ruang biru | empat kartu kaca satu baris | Kartu UI | C02 | X17 ke hitam | synth chord, UI pop |
+| 04a | 00:16–00:19 | owner | ruang biru | empat kartu warna satu baris | Kartu UI | C02 | X17 ke hitam | synth chord, UI pop |
 | 04b | 00:19–00:22 | seribu karyawan virtual | hitam | 18 kursor bernama mengelilingi titik biru | 1000 Karyawan Virtual | C15 | kursor menuju kartu | chord, pop per kursor, lock |
 | 05a | 00:22–00:26 | ngasih tahu | hitam | kanvas kartu warna, kursor bekerja | Isi kartu | C02 | X04 ke kartu merah | UI micro-pop −12 dB |
 | 05b | 00:26–00:28 | sebelum semuanya terlambat | hitam | kartu merah membesar | SEBELUM TERLAMBAT | C01 | kartu lime masuk | dua thock |
 | 05c | 00:28–00:30 | ngingetin belanja | hitam | kartu lime, tombol hijau, kursor Stok | Pesan Lagi | C20 | C07 | ding sukses, kasir minimal |
 | 06a | 00:30–00:31,5 | pelanggan lupa | hitam | lembar gelap, bingkai seleksi biru | 50 terpilih | diam | X16 | swoosh, tick pendek |
 | 06b | 00:31,5–00:33 | draf promo | hitam + pendar biru | satu bubble biru, kursor Promo | Bubble WA | C01 kecil | X13 masuk HP | pop UI nada naik |
-| 07a | 00:33–00:36,5 | dikirim otomatis | hitam | HP gelap di depan lingkaran biru | Bubble laporan | C02 | X17 | notifikasi chat −9 dB |
+| 07a | 00:33–00:36,5 | dikirim otomatis | hitam | HP WhatsApp warna asli di depan lingkaran biru | Bubble laporan | C02 | X17 | notifikasi chat −9 dB |
 | 07b | 00:36,5–00:37,8 | Mau bedah data bisnismu | hitam | satu baris teks | Mau bedah data bisnismu? | diam | teks jadi pusat hub | tanpa SFX |
 | 07c | 00:37,8–00:40 | lewat MCP | hitam | enam logo AI mengorbit jadisatu | Dengan langganan dan data bisnismu sendiri. | C19 | Workspace menutup hub | tech-connect per logo |
 | 08a | 00:40–00:43 | marketingnya gimana | hitam + pendar biru | Workspace kiri, titik biru kanan | – | diam | titik meletup | swoosh, synth naik |
-| 08b | 00:43–00:47 | agency terpisah | hitam + pendar biru | Workspace, poster, reels, foto duotone biru, palet biru | – | diam | kedua sisi merapat | pop per elemen |
+| 08b | 00:43–00:47 | agency terpisah | hitam + pendar biru | Workspace, poster, reels, foto warna asli, palet kampanye | – | diam | kedua sisi merapat | pop per elemen |
 | 09a | 00:47–00:51 | sistem cerdas, tim kreatif | hitam + pendar biru | satu baris merapat ke titik | – | diam | X14 | riser panjang |
 | 09b | 00:51–00:54 | jadi satu | hitam | lingkaran biru, logo di dalamnya | SEMUANYA JADI SATU | C11 | X15 ke titik | bass drop + UI pop |
 | 10a | 00:54–01:00 | Rekan bisnis di sisimu | hitam + pendar bawah | logo, tagline, CTA biru | Rekan bisnis di sisimu. · Coba 7 Hari | diam | akhir | swoosh halus, ekor musik |
@@ -70,11 +70,14 @@ Cek SFX di atas adalah rencana. Audio belum dibuat; SFX dan musik menunggu story
 - Kartu glassmorphism jadi kartu putih di atas kertas, karena patokan tidak memakai efek kaca.
 - Di 08a tidak ada teks; ruang kosong mewakili pertanyaan (rule 20).
 
-## Family biru premium
+## Arah premium R5
 
-Dasar hitam pekat, satu sumber cahaya biru per adegan (lingkaran, pendar, atau ruang biru). Permukaan kartu kaca atau kartu gelap bergaris tipis. Foto duotone biru, UI Workspace tetap asli. Huruf Manrope Regular dan Medium, Unbounded untuk kata kunci, teks putih. Lingkaran biru membuka video di 01a dan menutupnya di 09b.
+Definisi Irfan (4 Nov): warna background dan object membentuk struktur dengan whitespace yang elegan, visual kuat menceritakan isi pesan script, bukan semua serba biru.
 
-Belum masuk family: kartu warna 05a–05c tetap dari acuan Irfan, menunggu keputusan.
+- Patokan visual kuat: 02a, 06a, 06b, 07c. Objeknya sendiri adalah isi pesan.
+- Warna asli dipertahankan: foto, logo AI, WhatsApp, kursor, kartu warna. Kartu 05a–05c tetap warna-warni, warnanya sudah muncul di 04a.
+- Latar dasar hitam atau arang. Gradasi hanya contoh kasus untuk beberapa frame: 03b–04a, 06b, 08a–09a, 10a. Menambah gradasi ke semua panel ditolak Irfan karena merusak keseimbangan dan jadi monoton.
+- Huruf tetap Manrope Regular dan Medium, Unbounded untuk kata kunci, teks putih.
 
 ## Acuan R3
 

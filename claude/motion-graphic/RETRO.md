@@ -210,3 +210,16 @@ Pelajaran lintas proyek:
 2. Aturan yang sudah dikunci harus jadi cek otomatis, bukan catatan.
 3. Proses panjang dijalankan di latar belakang dengan laporan progres.
 4. Sesi yang dibuat sebagai scheduled task tidak muncul di daftar chat. Beri tahu Irfan tautan sesinya sejak awal.
+
+### 2026-11-04 · Jadisatu marketing 60 dtk · storyboard R4 → R5
+Revisi Irfan: "premium" salah direpresentasikan. R4 serba biru dan foto diduotone. Percobaan berikutnya memberi gradasi ke hampir semua panel, lalu ditolak: gradasi hanya contoh kasus untuk beberapa frame, over-gradient merusak keseimbangan dan jadi monoton.
+
+Akar masalah:
+- Kompas premium di `analysis-qa.md` §16.4 menyebut "konsistensi palet" tanpa definisi visual, lalu kubaca sebagai satu warna.
+- `canvas-skill-library` tidak punya kartu gaya premium: dari 40 kartu, satu-satunya hit kata premium adalah teks preset CapCut.
+- Contoh dari Irfan kujadikan aturan semua frame, dua kali berturut-turut, padahal `three-segment-gate.md` sudah menulis referensi sebagai studi kasus.
+
+Usulan aturan: premium = warna latar dan objek membentuk struktur dengan whitespace, visual kuat menceritakan isi pesan, warna asli objek dipertahankan. Satu contoh efek dari Irfan berlaku untuk frame yang ia sebut, bukan semua frame, sampai ia menyebut sebaliknya.
+
+Status: usulan, belum diuji eval dan belum disetujui Irfan. Catatan kasus: `claude/motion-graphic/evals/inbox/2026-11-04-premium-bukan-satu-efek.md`.
+
