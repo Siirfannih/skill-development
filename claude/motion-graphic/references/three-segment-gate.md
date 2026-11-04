@@ -125,7 +125,7 @@ Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. 
 - **Penekanan tanpa memperbesar huruf:**
   - warna aksen;
   - kata sebelumnya diredupkan;
-  - ganti gaya (serif italic, ketebalan);
+  - ganti gaya (ketebalan, KAPITAL; tanpa serif);
   - kotak sorot.
 - **Drama lewat kamera:** punch-in cepat atau rack-focus close-up → wide, bukan pop skala teks.
 - **Teks yang hidup di objek:**
