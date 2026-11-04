@@ -1,6 +1,6 @@
 # Storyboard video marketing Jadisatu 60 detik
 
-Status: draf R2, menunggu penilaian Irfan. R1 diarsipkan di x 30000 pada halaman yang sama. Script sumber: `SCRIPT.md`.
+Status: draf R3, menunggu penilaian Irfan. Arsip R1 di x 30000 dan versi R2 panel yang diubah di x 40000, pada halaman yang sama. Script sumber: `SCRIPT.md`.
 Gambar panel ada di Wonder, file "Rancangan ulang UI Jadisatu Canvas", halaman "Storyboard Video Marketing".
 
 ## Brief terkunci
@@ -37,21 +37,22 @@ PROJECT Jadisatu marketing | 1920×1080 · 30 fps | FONT Display/Headline/Body =
 
 | # | Waktu | Kata pemicu | Latar | Isi frame | Teks layar | Kamera | Transisi keluar | SFX |
 |---|---|---|---|---|---|---|---|---|
-| 01a | 00:00–00:03 | Semua orang tau | hitam | owner kecil di tengah | – | C01 | C15 | pop + kick di 0,00 |
-| 01b | 00:03–00:06 | selalu sibuk | hitam | kotak, struk, owner, kartu staf, struk di satu garis | – | C19 | X01 | pop nada naik per benda |
-| 02a | 00:06–00:09 | stok, karyawan | hitam | grid 3 baris 9 kolom, owner di tengah | – | C15 | X05 ke struk | ticking ±4/dtk, cluster pop |
-| 02b | 00:09–00:11 | burnout | kertas struk | satu lembar penuh, baris belanja rapi | BURNOUT | C14 | X01 ke titik | ticking ±8/dtk, sub hit |
+| 01a | 00:00–00:03 | Semua orang tau | hitam | siluet owner, lingkaran biru | Semua orang tau | C01 | C15 | pop + kick di 0,00 |
+| 01b | 00:03–00:06 | selalu sibuk | hitam | tiga tile bundar mengorbit | selalu sibuk | C19 | tile berlipat | pop nada naik per tile |
+| 02a | 00:06–00:09 | stok, karyawan | hitam | sembilan tile mengorbit | Ngurusin stok, mantau karyawan | C19 | X17 | ticking ±4/dtk, cluster pop |
+| 02b | 00:09–00:11 | burnout | arang | gambar teknis, panah merah menekan | BURNOUT · Stok, Karyawan · Berantakan | C14 | X01 ke titik | ticking ±8/dtk, sub hit |
 | 03a | 00:11–00:12 | Melihat ini | hitam | satu garis cahaya menuju titik | – | diam | X02 | engsel senyap ±0,4 dtk, satu klik |
 | 03b | 00:12–00:16 | ngebangun | kertas peach | Irfan kecil sudut tinggi, bayangan panjang | – | C19 | tanpa cut | room tone, satu klik |
 | 04a | 00:16–00:19 | owner | kertas peach | empat kartu satu baris | Kartu UI | C02 | Irfan mengecil jadi titik | synth chord, UI pop |
-| 04b | 00:19–00:22 | seribu karyawan virtual | peach | tepat 1000 titik, satu cobalt | 1000 KARYAWAN VIRTUAL | C15 | X08 | chord, tick roll + lock |
-| 05a | 00:22–00:26 | ngasih tahu | kertas sage | satu kartu stok | Kartu UI | diam | X17 | UI micro-pop −12 dB |
-| 05b | 00:26–00:28 | sebelum semuanya terlambat | hitam | satu baris teks + titik | SEBELUM TERLAMBAT | C01 | X01 titik | dua thock, pop titik |
-| 05c | 00:28–00:30 | ngingetin belanja | kertas biru | satu kartu, tombol hijau | Pesan Lagi | C20 | C07 | ding sukses, kasir minimal |
+| 04b | 00:19–00:22 | seribu karyawan virtual | hitam | 18 kursor bernama mengelilingi titik biru | 1000 Karyawan Virtual | C15 | kursor menuju kartu | chord, pop per kursor, lock |
+| 05a | 00:22–00:26 | ngasih tahu | hitam | kanvas kartu warna, kursor bekerja | Isi kartu | C02 | X04 ke kartu merah | UI micro-pop −12 dB |
+| 05b | 00:26–00:28 | sebelum semuanya terlambat | hitam | kartu merah membesar | SEBELUM TERLAMBAT | C01 | kartu lime masuk | dua thock |
+| 05c | 00:28–00:30 | ngingetin belanja | hitam | kartu lime, tombol hijau, kursor Stok | Pesan Lagi | C20 | C07 | ding sukses, kasir minimal |
 | 06a | 00:30–00:31,5 | pelanggan lupa | putih | lembar pelanggan, bingkai seleksi | 50 terpilih | diam | X16 | swoosh, tick pendek |
 | 06b | 00:31,5–00:33 | draf promo | kertas sage | satu bubble, satu baris status | Bubble WA | C01 kecil | X13 masuk HP | pop UI nada naik |
 | 07a | 00:33–00:36,5 | dikirim otomatis | peach | HP dengan bayangan panjang | Bubble laporan | C02 | layar membelah | notifikasi chat −9 dB |
-| 07b | 00:36,5–00:40 | lewat MCP | hitam + putih | satu garis Claude, ChatGPT, titik, Jadisatu | Dengan langganan dan data bisnismu sendiri. | diam | Workspace menutup split | tech-connect halus |
+| 07b | 00:36,5–00:37,8 | Mau bedah data bisnismu | hitam | satu baris teks | Mau bedah data bisnismu? | diam | teks jadi pusat hub | tanpa SFX |
+| 07c | 00:37,8–00:40 | lewat MCP | hitam | enam logo AI mengorbit jadisatu | Dengan langganan dan data bisnismu sendiri. | C19 | Workspace menutup hub | tech-connect per logo |
 | 08a | 00:40–00:43 | marketingnya gimana | kertas putih | Workspace kiri, titik kanan | – | diam | titik meletup | swoosh, synth naik |
 | 08b | 00:43–00:47 | agency terpisah | kertas putih | Workspace, poster, reels, foto satu baris, palet | – | diam | kedua sisi merapat | pop per elemen |
 | 09a | 00:47–00:51 | sistem cerdas, tim kreatif | hitam | satu baris merapat ke titik | – | diam | X14 | riser panjang |
@@ -68,6 +69,12 @@ Cek SFX di atas adalah rencana. Audio belum dibuat; SFX dan musik menunggu story
 - "Pola grid melingkar" jadi grid lurus, karena patokan menyusun benda sejajar.
 - Kartu glassmorphism jadi kartu putih di atas kertas, karena patokan tidak memakai efek kaca.
 - Di 08a tidak ada teks; ruang kosong mewakili pertanyaan (rule 20).
+
+## Acuan R3
+
+Lima gambar dari Irfan (4 Nov 19:07): siluet lingkaran biru (01a–02a), gambar teknis Unbounded (02b), kursor bernama (04b), kartu warna di hitam (05a–05c), hub AI (07c). Biru terang di latar hitam di sini adalah permintaan langsung Irfan dan menang atas rule 15.
+
+Yang harus dicek sebelum tayang: enam AI di 07c hanya contoh visual, label "Lewat MCP" belum diverifikasi per produk. Nama kursor di 04b adalah contoh peran.
 
 ## Tempo VO
 
