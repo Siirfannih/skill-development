@@ -7,6 +7,7 @@
 - Keputusan Irfan: 16:9; kartu stok data demo; Irfan sebagai avatar ilustrasi; baris "Dengan langganan..." teks layar tanpa VO.
 - Titik lanjut: Irfan menilai panel dan menjawab enam keputusan terbuka. Gerbang berikutnya setelah final: TYPE-TEST + TRANSITION-SHEET, lalu VO.
 - Belum diuji pada gerak. Empat dari delapan referensi hanya dari kartu bukti karena videonya di PC.
+- R2: Irfan memberi patokan `siirfannih_DfSXjlOobvX.mp4` yang tidak ada di library. 20 panel digambar ulang, R1 diarsipkan. Pelajaran: minta patokan kualitas sebelum menggambar, bukan memilih sendiri dari pencarian kata kunci.
 
 ## 29 Oktober 2026 · Jadisatu Canvas Storyboard
 

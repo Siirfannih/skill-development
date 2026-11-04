@@ -1,6 +1,6 @@
 # Storyboard video marketing Jadisatu 60 detik
 
-Status: draf R1, menunggu penilaian Irfan. Script sumber: `SCRIPT.md`.
+Status: draf R2, menunggu penilaian Irfan. R1 diarsipkan di x 30000 pada halaman yang sama. Script sumber: `SCRIPT.md`.
 Gambar panel ada di Wonder, file "Rancangan ulang UI Jadisatu Canvas", halaman "Storyboard Video Marketing".
 
 ## Brief terkunci
@@ -12,9 +12,22 @@ Gambar panel ada di Wonder, file "Rancangan ulang UI Jadisatu Canvas", halaman "
 | Irfan | Avatar ilustrasi; wajah belum diacu dari foto asli |
 | "Dengan langganan dan Data Bisnismu sendiri." | Teks layar saja, tanpa VO (Irfan, 4 Nov) |
 
-## Gagasan visual
+## Patokan visual R2
 
-Naskah menyebut struk tersedot ke satu titik. Titik itu dipertahankan sebagai benda pembawa cerita: lahir dari struk (03a), mendarat di MacBook (03b), jadi kursor (05c), melintasi MCP (07b), menunggu sisi kreatif (08a), lalu mendarat sebagai titik pada kata `jadisatu.` (09b). Titik putih di latar hitam, cobalt `#1E56D6` di latar terang (rule 15).
+Patokan: `siirfannih_DfSXjlOobvX.mp4` (D-002), 54 dtk, 27 shot, rata-rata 2 dtk per shot, shot terpanjang 7,2 dtk. Video ini tidak ada di `canvas-skill-library` (0 hasil untuk ID dan hash).
+
+Aturan yang diturunkan dari contact sheet 2 fps + 8 frame kunci:
+
+1. Benda sejajar di satu garis atau grid dengan jarak sama. Tidak ada kolase atau benda miring.
+2. Subjek kecil, latar utuh; satu warna atau kertas per adegan.
+3. Material nyata: kertas, foto, benda. Tidak ada efek kaca atau dashboard buram.
+4. Satu arah cahaya, satu bayangan panjang.
+5. Huruf Regular atau Medium, satu baris.
+6. Satu benda bergerak per saat.
+
+Hasil ukur kepadatan tepi: patokan median 6,27, R1 median 4,44. Jadi patokan tidak lebih kosong secara piksel; ketenangannya datang dari susunan, material, dan hierarki.
+
+Gagasan titik dari R1 tetap: lahir dari struk (03a), mendarat di MacBook (03b), jadi kursor (05c), melintasi MCP (07b), menunggu sisi kreatif (08a), lalu mendarat di akhir kata `jadisatu.` (09b).
 
 ## Spec beat
 
@@ -22,28 +35,28 @@ Timecode adalah proposal dari script, bukan hasil ukur VO.
 
 PROJECT Jadisatu marketing | 1920×1080 · 30 fps | FONT Display/Headline/Body = Manrope (font Workspace), struk = mono sistem
 
-| # | Waktu | Kata pemicu | Teks layar | Gaya/teknik | Kamera | Transisi keluar | SFX |
-|---|---|---|---|---|---|---|---|
-| 01a | 00:00–00:03 | Semua orang tau | – | Pop avatar, frame 0 | C01 | C15 ke 01b | pop + kick di 0,00; pop kotak −9 dB |
-| 01b | 00:03–00:06 | selalu sibuk | – | Orbit tiga benda | C19 | X01 benda membelah | dua pop nada naik |
-| 02a | 00:06–00:09 | stok, karyawan | – | Cincin konsentris per kata | C15 | X01 struk jadi kolom | ticking ±4/dtk, cluster pop |
-| 02b | 00:09–00:11 | burnout | BURNOUT | G1, T03 | C14 | X01 struk ke pusat | ticking ±8/dtk, sub hit |
-| 03a | 00:11–00:12 | Melihat ini | – | Sedot radial 12 f | diam | X02 titik jadi jendela | engsel senyap ±0,4 dtk, satu klik |
-| 03b | 00:12–00:16 | ngebangun | – | Titik mendarat di MacBook | C19 | tanpa cut | room tone, satu klik |
-| 04a | 00:16–00:19 | owner | Kartu UI | Stagger 3 f, grid 2×2 | C02 | C17 | synth chord, UI pop naik |
-| 04b | 00:19–00:22 | seribu karyawan virtual | 1000 KARYAWAN VIRTUAL | T02, T16 | C15 | X04 ke kartu Stok | chord ditahan, tick roll + lock |
-| 05a | 00:22–00:26 | ngasih tahu | Kartu UI | Angka merah bergiliran | C21, C17 | teks menyapu | UI micro-pop −12 dB |
-| 05b | 00:26–00:28 | sebelum semuanya terlambat | SEBELUM TERLAMBAT | T19, phrase-build | C01 | X01 titik | dua thock, pop titik |
-| 05c | 00:28–00:30 | ngingetin belanja | Pesan Lagi | T06 cursor activate | C20 | C07 whip | ding sukses, kasir minimal |
-| 06a | 00:30–00:31,5 | pelanggan lupa | 50 terpilih | Centang berjalan | C17 | X16 card flip | swoosh, tick pendek |
-| 06b | 00:31,5–00:33 | draf promo | Bubble WA | Bubble tersusun | C01 kecil | X13 masuk HP | pop UI nada naik |
-| 07a | 00:33–00:36,5 | dikirim otomatis | Bubble laporan | Bubble masuk | C02 | HP bergeser, layar membelah | notifikasi chat −9 dB |
-| 07b | 00:36,5–00:40 | lewat MCP | Dengan langganan dan data bisnismu sendiri. | Garis tergambar, titik melintas | diam | Workspace menutup split | tech-connect halus |
-| 08a | 00:40–00:43 | marketingnya gimana | – | Ruang kosong sebagai pertanyaan | diam | titik meletup | swoosh, synth mulai naik |
-| 08b | 00:43–00:47 | agency terpisah | – | T09 sticker drop | C17 | kedua sisi tertarik | pop per elemen, synth naik |
-| 09a | 00:47–00:51 | sistem cerdas, tim kreatif | – | Melebur di bola kaca | C02 | X14 bloom match | riser panjang |
-| 09b | 00:51–00:54 | jadi satu | SEMUANYA JADI SATU | Titik jadi titik logo | C11 | X17 hard cut | bass drop + UI pop |
-| 10a | 00:54–01:00 | Rekan bisnis di sisimu | Rekan bisnis di sisimu. · Coba 7 Hari | Statis, tahan ≥ 3 dtk | diam | akhir | swoosh halus, ekor musik |
+| # | Waktu | Kata pemicu | Latar | Isi frame | Teks layar | Kamera | Transisi keluar | SFX |
+|---|---|---|---|---|---|---|---|---|
+| 01a | 00:00–00:03 | Semua orang tau | hitam | owner kecil di tengah | – | C01 | C15 | pop + kick di 0,00 |
+| 01b | 00:03–00:06 | selalu sibuk | hitam | kotak, struk, owner, kartu staf, struk di satu garis | – | C19 | X01 | pop nada naik per benda |
+| 02a | 00:06–00:09 | stok, karyawan | hitam | grid 3 baris 9 kolom, owner di tengah | – | C15 | X05 ke struk | ticking ±4/dtk, cluster pop |
+| 02b | 00:09–00:11 | burnout | kertas struk | satu lembar penuh, baris belanja rapi | BURNOUT | C14 | X01 ke titik | ticking ±8/dtk, sub hit |
+| 03a | 00:11–00:12 | Melihat ini | hitam | satu garis cahaya menuju titik | – | diam | X02 | engsel senyap ±0,4 dtk, satu klik |
+| 03b | 00:12–00:16 | ngebangun | kertas peach | Irfan kecil sudut tinggi, bayangan panjang | – | C19 | tanpa cut | room tone, satu klik |
+| 04a | 00:16–00:19 | owner | kertas peach | empat kartu satu baris | Kartu UI | C02 | Irfan mengecil jadi titik | synth chord, UI pop |
+| 04b | 00:19–00:22 | seribu karyawan virtual | peach | tepat 1000 titik, satu cobalt | 1000 KARYAWAN VIRTUAL | C15 | X08 | chord, tick roll + lock |
+| 05a | 00:22–00:26 | ngasih tahu | kertas sage | satu kartu stok | Kartu UI | diam | X17 | UI micro-pop −12 dB |
+| 05b | 00:26–00:28 | sebelum semuanya terlambat | hitam | satu baris teks + titik | SEBELUM TERLAMBAT | C01 | X01 titik | dua thock, pop titik |
+| 05c | 00:28–00:30 | ngingetin belanja | kertas biru | satu kartu, tombol hijau | Pesan Lagi | C20 | C07 | ding sukses, kasir minimal |
+| 06a | 00:30–00:31,5 | pelanggan lupa | putih | lembar pelanggan, bingkai seleksi | 50 terpilih | diam | X16 | swoosh, tick pendek |
+| 06b | 00:31,5–00:33 | draf promo | kertas sage | satu bubble, satu baris status | Bubble WA | C01 kecil | X13 masuk HP | pop UI nada naik |
+| 07a | 00:33–00:36,5 | dikirim otomatis | peach | HP dengan bayangan panjang | Bubble laporan | C02 | layar membelah | notifikasi chat −9 dB |
+| 07b | 00:36,5–00:40 | lewat MCP | hitam + putih | satu garis Claude, ChatGPT, titik, Jadisatu | Dengan langganan dan data bisnismu sendiri. | diam | Workspace menutup split | tech-connect halus |
+| 08a | 00:40–00:43 | marketingnya gimana | kertas putih | Workspace kiri, titik kanan | – | diam | titik meletup | swoosh, synth naik |
+| 08b | 00:43–00:47 | agency terpisah | kertas putih | Workspace, poster, reels, foto satu baris, palet | – | diam | kedua sisi merapat | pop per elemen |
+| 09a | 00:47–00:51 | sistem cerdas, tim kreatif | hitam | satu baris merapat ke titik | – | diam | X14 | riser panjang |
+| 09b | 00:51–00:54 | jadi satu | hitam | logo + teks | SEMUANYA JADI SATU | C11 | X17 | bass drop + UI pop |
+| 10a | 00:54–01:00 | Rekan bisnis di sisimu | hitam | logo, tagline, CTA | Rekan bisnis di sisimu. · Coba 7 Hari | diam | akhir | swoosh halus, ekor musik |
 
 Cek SFX di atas adalah rencana. Audio belum dibuat; SFX dan musik menunggu storyboard dinyatakan final.
 
@@ -51,7 +64,9 @@ Cek SFX di atas adalah rencana. Audio belum dibuat; SFX dan musik menunggu story
 
 - Tombol hijau dipindah dari 00:22–00:28 ke 00:28–00:30 (panel 05c), karena kata "Sebelum stok habis, dia ngingetin belanja." baru terucap di sana dan visual script sudah pindah ke Pelanggan (rule 29).
 - Titik tidak menghilang di 00:11; ia menetap sebagai benda pembawa.
-- "1000 karyawan" digambar sebagai dinding kartu tugas, bukan orang (rule 23).
+- "1000 karyawan" digambar sebagai tepat 1000 titik tugas, satu titik cobalt adalah owner (rule 23).
+- "Pola grid melingkar" jadi grid lurus, karena patokan menyusun benda sejajar.
+- Kartu glassmorphism jadi kartu putih di atas kertas, karena patokan tidak memakai efek kaca.
 - Di 08a tidak ada teks; ruang kosong mewakili pertanyaan (rule 20).
 
 ## Tempo VO
@@ -67,10 +82,10 @@ Cek SFX di atas adalah rencana. Audio belum dibuat; SFX dan musik menunggu story
 5. Logo: wordmark `jadisatu.` dari Workspace vs ikon segi enam di landing; `LogoJadisatu.af` belum terbaca.
 6. Fakta produk sebelum tayang: laporan harian otomatis dan koneksi MCP belum dicek di produk live.
 
-## Referensi
+## Referensi R1
 
-Dilihat langsung lewat contact sheet: LOC-e42107cea92d, LOC-37e054f734e9, LOC-87b8c2aea999, LOC-cc090eec9187. Hanya dari kartu bukti `canvas-skill-library` (commit 047f120), videonya di PC: DbszEmpIfK8, Dbn1uwLOphN, Dcn6EINyzaa, DeRyg7GhvQJ. Penggunaannya proposal, bukan bukti peningkatan mutu.
+R1 memakai referensi berikut sebelum patokan diberikan. Dilihat langsung lewat contact sheet: LOC-e42107cea92d, LOC-37e054f734e9, LOC-87b8c2aea999, LOC-cc090eec9187. Hanya dari kartu bukti `canvas-skill-library` (commit 047f120), videonya di PC: DbszEmpIfK8, Dbn1uwLOphN, Dcn6EINyzaa, DeRyg7GhvQJ. Penggunaannya proposal, bukan bukti peningkatan mutu.
 
 ## Belum dikerjakan
 
-TYPE-TEST, TRANSITION-SHEET, VO, audio, build. Angka laba 07a dan nama pelanggan 06a adalah data contoh. Tabel kritik di canvas adalah penilaian sendiri atas still, belum diuji pada gerak.
+TYPE-TEST, TRANSITION-SHEET, VO, audio, build. Angka laba 07a dan nama pelanggan 06a adalah data contoh. Panel masih still, belum diuji pada gerak.
