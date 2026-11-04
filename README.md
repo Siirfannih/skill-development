@@ -2,7 +2,7 @@
 
 Perpustakaan skill untuk semua model yang bekerja dengan Irfan. Satu repo, satu sumber kebenaran: skill tidak lagi terpecah di beberapa lokasi, dan setiap skill punya peran yang jelas sehingga hanya yang relevan yang dimuat.
 
-**Mulai dari [INDEX.md](INDEX.md).**
+**Mulai dari [INDEX.md](INDEX.md).** Ikuti langkah awal dan akhir sesi di [AGENTS.md](AGENTS.md); pelajaran yang belum disetujui ada di [PENDING.md](PENDING.md).
 
 - `claude/` — skill yang dikembangkan Irfan
 - `external/` — skill open-source yang teruji (submodule terkunci versi)

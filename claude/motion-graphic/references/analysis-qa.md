@@ -126,7 +126,7 @@ Kompas premium:
 6. kedalaman dan tekstur halus
 7. UI besar didemokan seperti dipakai
 8. elemen kecil yang hidup
-9. konsistensi palet
+9. konsistensi palet = satu family, bukan satu warna; warna asli objek/foto tetap (Irfan 4 Nov)
 10. akhir yang mulus
 
 Gagal salah satu = R6 tidak lulus.

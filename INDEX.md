@@ -4,6 +4,7 @@ Pintu masuk untuk setiap model yang bekerja dengan Irfan. Baca file ini dulu, la
 
 ## Cara memakai
 
+0. Jalankan langkah "Awal sesi" di [AGENTS.md](AGENTS.md).
 1. Cocokkan pekerjaan dengan kolom "Pakai saat" di bawah.
 2. Buka `SKILL.md` skill itu. Cabang di `references/` dibaca hanya saat `SKILL.md` menyuruh.
 3. Jika pekerjaan milik proyek yang punya folder di `projects/`, baca `AUTHORITY.md` proyek itu sebelum yang lain.

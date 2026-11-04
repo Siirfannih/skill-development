@@ -21,11 +21,11 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 | Display/Kunci | Kata kunci, slam | Inter Black 900 (atau Neue Haas Grotesk Display 95 di Adobe Fonts) | 200–320 px |
 | Headline | Kata utama | Inter ExtraBold 800 / NHG 65 | 110–170 px |
 | Sambung/Body | Pengantar, penjelas | Inter Medium 500 / NHG 45 | 56–80 px |
-| Aksen | Satu kata emosional | Instrument Serif Italic, 1,5–2× headline, baseline sejajar | — |
+| Aksen | Satu kata emosional | Inter (tanpa serif): bobot paling kontras, KAPITAL, atau skala 1,5–2× headline; warna aksen hanya di latar terang | — |
 | Data | Angka, kode | Silkscreen (dunia pixel) / JetBrains Mono (UI) | 60–140 px |
 | Label | Kategori, callout | JetBrains Mono / Inter SemiBold | 36–48 px |
 
-Pairing display + aksen harus kontras keluarga (sans tebal vs serif italic). Verifikasi PostScript name sebelum build.
+**Tanpa serif** (Irfan, D-005 29 Okt; Instrument Serif Italic ditolak 30 Okt; ditegaskan 4 Nov). Kontras aksen datang dari bobot, skala, KAPITAL, atau putih penuh vs redup, bukan dari keluarga font kedua. Verifikasi PostScript name sebelum build.
 
 ### 7.2 Skala & hierarki
 - Level (relatif tinggi H): XS 1,5–2,5 %, S 3–5 %, M 7–10 %, L 14–20 %, XL 35–80 % (boleh bleed).
@@ -77,8 +77,8 @@ Pairing display + aksen harus kontras keluarga (sans tebal vs serif italic). Ver
 | Kode | Gaya | Spesifikasi |
 |---|---|---|
 | G1 | Slam | Display, L–XL, tracking −20, satu baris; masuk T03 + C14 shake; keluar T15/T14 |
-| G2 | Headline | Headline M, maksimal 2 baris; hampir selalu berpasangan dengan G3 di kata kuncinya |
-| G3 | Aksen serif | Instrument Serif Italic, satu kata per kalimat, masuk terakhir |
+| G2 | Headline | Headline M, maksimal 2 baris; kata kuncinya memakai G3 |
+| G3 | Aksen sans | Satu kata per kalimat, masuk terakhir: Inter Black/KAPITAL atau 1,5–2× ukuran kalimatnya. Tanpa serif |
 | G4 | Color flash (acuan Baikov "What makes your company unique?") | Kata masuk dengan ISI huruf warna aksen + motion blur geraknya sendiri, tahan ±6 f, settle ke warna dasar 2–3 f; keluar kebalikannya. Tanpa stroke, glow, atau bayangan. SFX: satu pop kecil per kata |
 | G5 | Berperspektif | Layer 3D menempel bidang ruang (rotasi X 55–70° sesuai bidang); blur hanya dari gerak/DoF kamera |
 | G6 | Dalam adegan | Di antara latar dan objek depan (satu ruang) |
