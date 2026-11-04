@@ -1,5 +1,13 @@
 # Catatan sesi scriptwriter
 
+## 4 November 2026 · Storyboard video marketing Jadisatu 60 detik
+
+- Permintaan: storyboard script marketing di halaman baru Wonder, referensi dari `canvas-skill-library`.
+- Hasil: 20 panel 16:9 + caption + arah visual, peta referensi, catatan tempo, tabel kritik di halaman "Storyboard Video Marketing". Spec: `projects/jadisatu-marketing-60s/STORYBOARD.md`.
+- Keputusan Irfan: 16:9; kartu stok data demo; Irfan sebagai avatar ilustrasi; baris "Dengan langganan..." teks layar tanpa VO.
+- Titik lanjut: Irfan menilai panel dan menjawab enam keputusan terbuka. Gerbang berikutnya setelah final: TYPE-TEST + TRANSITION-SHEET, lalu VO.
+- Belum diuji pada gerak. Empat dari delapan referensi hanya dari kartu bukti karena videonya di PC.
+
 ## 29 Oktober 2026 · Jadisatu Canvas Storyboard
 
 - Permintaan: Mode Storyboard online dengan frame, narasi, durasi, gerak, transisi, urutan dan pembacaan AI per adegan.
