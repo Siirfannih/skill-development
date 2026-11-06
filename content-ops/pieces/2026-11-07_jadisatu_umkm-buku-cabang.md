@@ -35,17 +35,17 @@ Model naskah: claude-opus-5-5 (skill `script-workshop`)
 Digugurkan: "UMKM tutup di tahun pertama" (topik populer), "ternyata musuh terbesar owner…" (temuan palsu), "UMKM malas nyatat" (dibantah data).
 
 ## 4. Naskah (draft, menunggu kata final Irfan)
-VO dibaca Irfan. 162 kata ≈ 60 dtk pada 2,7 kata/dtk.
+VO dibaca Irfan. 158 kata ≈ 59 dtk pada 2,7 kata/dtk (dihitung skrip).
 
 | Waktu | Bagian | VO | Kata |
 |---|---|---|---|
-| 00:00–00:07 | Hook | Tiga belas cabang. Satu buku tulis hilang. Dan waktu mau ngajuin pinjaman ke bank, mereka nggak punya laporan keuangan buat ditunjukin. | 20 |
+| 00:00–00:07 | Hook | Tiga belas cabang. Satu buku tulis hilang. Dan waktu mau ngajuin pinjaman ke bank, mereka nggak punya laporan keuangan buat ditunjukin. | 21 |
 | 00:07–00:17 | Kisah | Ini kisah nyata dari studi Politeknik Negeri Jakarta. Usaha frozen food, cabangnya nyebar dari Jakarta sampai Tangerang. Hampir semua cabang nyatat penjualan di buku tulis. | 25 |
-| 00:17–00:26 | Belokan | Dan mereka nggak malas nyatat. Data OCBC bilang hampir delapan dari sepuluh UMKM udah nyatat keuangan. Masalahnya, kebanyakan masih manual. | 21 |
-| 00:26–00:38 | Dugaan | Aku curiga, manual itu aman selama kamu cuma punya satu toko dan kamu ada di sana. Begitu cabang kedua buka, catatanmu kebelah. Laporannya beda-beda, stoknya nggak kebaca dari pusat. | 31 |
+| 00:17–00:26 | Belokan | Dan mereka nggak malas nyatat. Data OCBC bilang hampir delapan dari sepuluh UMKM udah nyatat keuangan. Masalahnya, kebanyakan masih manual. | 20 |
+| 00:26–00:38 | Dugaan | Aku curiga, manual itu aman selama kamu cuma punya satu toko dan kamu ada di sana. Begitu cabang kedua buka, catatanmu kebelah. Laporannya beda-beda, stoknya nggak kebaca dari pusat. | 29 |
 | 00:38–00:44 | Uji diri | Coba tanya ke diri sendiri: seminggu nggak ke toko, kamu masih tahu omzet tiap cabang? | 15 |
-| 00:44–00:54 | Jawaban | Itu yang aku bangun di Jadisatu Workspace. Tiap cabang bisa punya akun sendiri, atau upload aja datanya dan tandai cabang mana. Laporannya datang ke WhatsApp-mu. | 26 |
-| 00:54–01:01 | Tawaran + CTA | Masih jualan kecil-kecilan? Daftar di website, belajar nyatat keuangan lewat WhatsApp, seratus persen gratis. Kamu sekarang nyatat di buku, atau udah di HP? | 24 |
+| 00:44–00:54 | Jawaban | Itu yang aku bangun di Jadisatu Workspace. Tiap cabang bisa punya akun sendiri, atau upload aja datanya dan tandai cabang mana. Laporannya datang ke WhatsApp-mu. | 25 |
+| 00:54–01:01 | Tawaran + CTA | Masih jualan kecil-kecilan? Daftar di website, belajar nyatat keuangan lewat WhatsApp, seratus persen gratis. Kamu sekarang nyatat di buku, atau udah di HP? | 23 |
 
 Jembatan: hook (akibat) → kisah (siapa) → belokan (membantah anggapan umum) → dugaan (kenapa) → uji diri (penonton bercermin) → jawaban (produk menjawab pertanyaan uji diri) → tawaran per audiens + CTA biner.
 
