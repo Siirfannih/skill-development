@@ -13,7 +13,7 @@ export const B09: React.FC = () => {
   if (f < s - 9 || f > e + 1) return null;
   const tKom = wf('b09', 'komen'), tWs = wf('b09', 'workspace'), tWsE = we('b09', 'workspace'), tAks = wf('b09', 'akses'), tDM = wf('b09', 'DM'), tPak = wf('b09', 'paket');
   const w = whip(f, s + 1, 99999, 2000, 9);
-  const out = eo(f, e - 6, 6);
+  const out = f >= e - 3 ? 1 : 0;  // potong keras ke layar gelap (sama dengan pergantian latar di Main)
   const word = 'workspace';
   const typed = word.slice(0, Math.round(interpolate(f, [tWs - 2, tWsE], [0, word.length], clamp)));
   const sent = f >= tWsE + 3;

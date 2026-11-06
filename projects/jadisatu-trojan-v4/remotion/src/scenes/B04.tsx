@@ -72,8 +72,9 @@ export const B04: React.FC = () => {
   // scroll thread agar laporan terlihat penuh
   const scrollY = 0;
   // masuk: lanjutan push-through
-  const enter = interpolate(f, [s - 6, s + 6], [1.35, 1], { ...clamp, easing: EASE });
-  const enterBlur = interpolate(f, [s - 6, s + 6], [10, 0], clamp);
+  const enter = interpolate(f, [s, s + 9], [0.55, 1], { ...clamp, easing: EASE });  // muncul dari dalam buku (push-through)
+  const enterBlur = interpolate(f, [s, s + 9], [12, 0], clamp);
+  const enterA = f >= s ? 1 : 0;  // potong keras di puncak dorongan, bukan crossfade
   // logo di kiri saat "Jadisatu Workspace"
   const logoA = eo(f, t.tJadi - 2, 10) * (1 - eo(f, t.tChat, 10));
   // kolom kanan
@@ -83,10 +84,11 @@ export const B04: React.FC = () => {
   const fingerA = eo(f, tap - 14, 10);
   const press = f >= tap && f < tap + 6 ? 1 - (f - tap) / 6 : 0;
   // keluar: hilang ke dasbor (dilanjut B06)
-  const out = eo(f, tap + 4, 10);
+  const out = f >= tap + 9 ? 1 : 0;  // potong keras saat dasbor sudah tumbuh dari link
+  const pushIn = interpolate(f, [tap + 2, tap + 9], [0, 1], { ...clamp, easing: (x) => x * x });
   return (
-    <AbsoluteFill style={{ opacity: 1 - out }}>
-      <MBlur y={enterBlur + vz} style={{ position: 'absolute', left: px - 215, top, transform: `scale(${sc * enter * (1 + out * 0.3)})`, transformOrigin: '50% 0%' }}>
+    <AbsoluteFill style={{ opacity: (1 - out) * enterA }}>
+      <MBlur y={enterBlur + vz} style={{ position: 'absolute', left: px - 215, top, transform: `scale(${sc * enter * (1 + pushIn * 0.5)})`, transformOrigin: '50% 0%' }}>
         <WAPhone msgs={msgs} typed={txt} caret={caret} clock={clock} scrollY={scrollY} sendPress={sendPress} />
       </MBlur>
       {/* jam 18.00 (laporan otomatis) */}

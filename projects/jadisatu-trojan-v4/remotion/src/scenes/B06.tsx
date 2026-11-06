@@ -28,9 +28,10 @@ export const B06: React.FC = () => {
   const born = interpolate(f, [t0, t0 + 14], [0, 1], { ...clamp, easing: EASE });
   // BK08: dorong ke kartu "Perlu restock"
   const focus = interpolate(f, [tKap - 10, tKap + 4], [0, 1], { ...clamp, easing: (t) => t * t });
-  const dashOn = f < tKap + 5;
+  const dashOn = f < tKap + 3;
   // ---- kalender ----
-  const calA = eo(f, tKap + 2, 10) * (1 - eo(f, tKal + 2, 8));
+  const calA = f >= tKap + 3 && f < tKal + 10 ? 1 : 0;
+  const calOut = interpolate(f, [tKal + 2, tKal + 10], [0, -1900], { ...clamp, easing: (x) => x * x * x });
   const calX = interpolate(f, [tKap + 2, tHab + 4], [600, 0], { ...clamp, easing: EASE });
   const sel = eo(f, tHab - 2, 8);
   const sug = pop(f, tDib - 4, 30, 15, 190);
@@ -52,14 +53,14 @@ export const B06: React.FC = () => {
         const tx = -focus * S * o[0], ty = mix(240, 0, born) - focus * S * o[1];
         return (
           <div style={{ position: 'absolute', left: 960 - 700, top: 452 - 320, width: 1400, height: 640, borderRadius: 24, overflow: 'hidden', boxShadow: '0 50px 100px rgba(30,50,110,.22)',
-            transform: `translate(${tx}px, ${ty}px) scale(${S})`, transformOrigin: '50% 50%', opacity: Math.min(1, born * 3) * (1 - eo(f, tKap + 1, 4)) }}>
+            transform: `translate(${tx}px, ${ty}px) scale(${S})`, transformOrigin: '50% 50%', opacity: f >= tKap + 3 ? 0 : Math.min(1, born * 4) }}>
             <Ringkasan stage={st} />
             <div style={{ position: 'absolute', left: 1102, top: 101, width: 272, height: 144, borderRadius: 20, border: `3px solid rgba(180,35,24,${eo(f, tKap - 24, 8)})` }} />
           </div>
         );
       })()}
       {calA > 0 && (
-        <div style={{ position: 'absolute', inset: 0, opacity: calA, transform: `scale(${mix(1.25, 1.0, sug)})`, transformOrigin: '960px 330px' }}>
+        <div style={{ position: 'absolute', inset: 0, transform: `translateX(${calOut}px) scale(${mix(1.25, 1.0, sug)})`, transformOrigin: '960px 330px', filter: calOut < -20 ? `blur(${Math.min(14, -calOut / 90)}px)` : undefined }}>
           <div style={{ position: 'absolute', left: 0, right: 0, top: 56, textAlign: 'center' }}>
             <span className="font-display" style={{ fontSize: 34, fontWeight: 600, color: '#5B6475' }}>November</span>
           </div>

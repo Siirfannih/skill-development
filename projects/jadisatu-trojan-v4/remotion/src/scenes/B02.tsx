@@ -35,13 +35,13 @@ export const B02: React.FC = () => {
   const mism = eo(f, tNg - 3, 10);
   const items = [
     { k: 'buku', t: tBuku, el: (z: number) => <Emoji n="ledger" size={z} />, main: true },
-    { k: 'memo', t: s + 4, el: (z: number) => <Emoji n="memo" size={z} /> },
+    { k: 'memo', t: s - 4, el: (z: number) => <Emoji n="memo" size={z} /> },
     { k: 'Excel', t: tEx, el: (z: number) => <Sheet size={z * 0.92} />, main: true },
-    { k: 'receipt', t: s + 8, el: (z: number) => <Emoji n="receipt" size={z} /> },
+    { k: 'receipt', t: s - 1, el: (z: number) => <Emoji n="receipt" size={z} /> },
     { k: 'laci', t: tLaci, el: (z: number) => <Drawer size={z * 0.92} />, main: true },
-    { k: 'abacus', t: s + 12, el: (z: number) => <Emoji n="abacus" size={z} /> },
-    { k: 'clip', t: s + 6, el: (z: number) => <Emoji n="clipboard" size={z} /> },
-    { k: 'pencil', t: s + 10, el: (z: number) => <Emoji n="pencil" size={z} /> },
+    { k: 'abacus', t: s + 5, el: (z: number) => <Emoji n="abacus" size={z} /> },
+    { k: 'clip', t: s - 2, el: (z: number) => <Emoji n="clipboard" size={z} /> },
+    { k: 'pencil', t: s + 2, el: (z: number) => <Emoji n="pencil" size={z} /> },
   ];
   const shake = f >= tCo && f < tCo + 14 ? Math.sin((f - tCo) * 2.6) * 10 * (1 - (f - tCo) / 14) : 0;
   return (

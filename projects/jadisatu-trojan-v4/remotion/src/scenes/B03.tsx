@@ -27,7 +27,7 @@ export const B03: React.FC = () => {
   const push = interpolate(f, [e - 9, e + 4], [1, 9], { ...clamp, easing: (t) => t * t * t });
   const pushBlur = interpolate(f, [e - 6, e + 4], [0, 14], clamp);
   return (
-    <AbsoluteFill style={{ opacity: interpolate(f, [e + 1, e + 5], [1, 0], clamp) }}>
+    <AbsoluteFill style={{ opacity: f >= e ? 0 : 1 }}>
       <MBlur x={vx} y={vy + pushBlur} style={{ position: 'absolute', inset: 0, transform: `translateY(${yin}px) scale(${push})`, transformOrigin: '960px 560px' }}>
         <div style={{ position: 'absolute', left: 960, top: 560, transform: `scale(${zoom}) translateX(${-cx}px)` }}>
           {CARDS.map((c, i) => {

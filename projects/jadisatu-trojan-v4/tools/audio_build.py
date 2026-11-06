@@ -244,6 +244,8 @@ env = np.ones(N)
 # naik +2 dB di sebelum VO (frame 0) dan saat layar kredit setelah VO selesai, ramp ≥ 250 ms
 def ramp(a, b, g0, g1):
     i0, i1 = int(a * SR), int(b * SR); env[i0:i1] = np.linspace(g0, g1, i1 - i0)
+g4 = 10 ** (4 / 20); b4s = vo['beats'][3]['s']  # hook–realita: musik +4 dB agar tidak kosong; turun ke 0 dB tepat sebelum "Makanya"
+env[:int((b4s - 0.35) * SR)] = g4; ramp(b4s - 0.35, b4s - 0.05, g4, 1.0)
 end_speech = W[-1]['e']
 ramp(end_speech + 0.1, end_speech + 0.6, 1.0, 10 ** (3 / 20)); env[int((end_speech + 0.6) * SR):] = 10 ** (3 / 20)
 fo = int(1.6 * SR); env[N - fo:] *= np.linspace(1, 0, fo) ** 1.5

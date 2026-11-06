@@ -52,8 +52,8 @@ export const B08: React.FC = () => {
           );
         })}
         {/* kartu usaha contoh */}
-        {intro > 0.01 && (
-          <div className="card" style={{ position: 'absolute', left: 960 - 330, top: 330, width: 660, padding: 34, borderRadius: 32, boxShadow: '0 50px 100px rgba(30,50,110,.16)', transform: `scale(${pop(f, s - 2, 30, 16, 180) * (1 - 0.1 * panelIn)})`, opacity: intro }}>
+        {f < tKami + 4 && (
+          <div className="card" style={{ position: 'absolute', left: 960 - 330, top: 330, width: 660, padding: 34, borderRadius: 32, boxShadow: '0 50px 100px rgba(30,50,110,.16)', transform: `scale(${pop(f, s - 2, 30, 16, 180) * (1 - 0.3 * panelIn)})` }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
               <Tile i={0} size={110} r={0.5} />
               <div><div style={{ fontSize: 44, fontWeight: 800, letterSpacing: '-0.025em' }}>Risol Bu Sari</div><div style={{ fontSize: 24, color: '#5B6475' }}>Makanan rumahan</div></div>
@@ -64,8 +64,8 @@ export const B08: React.FC = () => {
           </div>
         )}
         {/* carousel peragaan */}
-        {panelIn > 0.01 && (
-          <div style={{ position: 'absolute', left: 960 - PW / 2, top: 70, width: PW, height: PH, opacity: panelIn, transform: `scale(${mix(0.85, 1, panelIn)})` }}>
+        {f >= tKami - 2 && (
+          <div style={{ position: 'absolute', left: 960 - PW / 2, top: 70, width: PW, height: PH, transform: `scale(${mix(0.6, 1, panelIn)})` }}>
             {/* chip platform di atas */}
             <div style={{ position: 'absolute', top: -2, left: 0, right: 0, display: 'flex', justifyContent: 'center', gap: 14, zIndex: 5 }}>
               {[<Brand icon={IG} size={30} />, <Globe size={30} color="#2563EB" />, <Brand icon={GOOGLE} size={28} />, <span style={{ transform: 'scale(.9)' }}><Logo scale={0.95} /></span>].map((ic, k) => (
