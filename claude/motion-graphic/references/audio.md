@@ -57,27 +57,14 @@ Aturan:
 
 ### 14.1 Hierarki mix
 1. **VO pemilik panggung**: kompresi ringan, +2 dB di 3 kHz.
-2. **SFX penekan**:
-   - median −13…−21 dB di bawah VO; 1–2 hit puncak per video ≈ 0 dB
-   - SFX besar di sela kata
-   - UI kecil −12 dB relatif SFX utama
-3. **Musik pembangun emosi**:
-   - duck 6–12 dB saat VO (attack 20 ms, release 250 ms), naik di jeda
-   - −4 dB di 3 kHz; dynamic EQ 200–500 Hz pada SFX saat VO
-   - HPF 40 Hz bus SFX
-4. Master −14,0…−14,5 LUFS integrated, true peak ≤ −1 dBTP.
-5. **Level per lapisan di master (Modul 5, sejak 31 Okt 2026)**:
-   - VO −14 LUFS (±1, konsisten antarbabak);
-   - klip narasumber/berita −15,0…−15,5 LUFS;
-   - musik (termasuk sub-pad) saat VO aktif −22…−25 LUFS;
-   - puncak SFX UI −16…−20 dBFS dan ketikan −22…−25 dBFS (tidak boleh mengalahkan VO).
-
-   Lihat §14.10.
+2. **SFX penekan**: SFX besar jatuh di sela kata; dynamic EQ 200–500 Hz pada SFX saat VO; HPF 40 Hz bus SFX.
+3. **Musik pembangun emosi**: diletakkan tetap di bawah VO (level di §14.10), −4 dB di 3 kHz. **Tidak ada ducking kompresor 6–12 dB**: musik bergerak ≤ 1,5 dB saat kata diucapkan (anti-pumping) dan hanya naik di jeda panjang/antarbabak lewat automation ramp ≥ 250 ms. Alasan: musik yang sudah duduk di level yang benar tidak perlu dipompa, dan pompaan terdengar (The Gap v17, Irfan 26 Okt; diputuskan 6 Nov).
+4. **Semua angka level ada di satu tempat: tabel §14.10.** Bagian lain tidak menulis angka level sendiri (Irfan 6 Nov).
 
 ### 14.2 Musik: beberapa cue sesuai babak (tidak pernah satu bed dari awal sampai akhir)
 - Dua babak energi (Holy Freak):
   - hook/masalah: bed musik/sub + SFX padat (±2,5/dtk)
-  - penjelasan/solusi: musik tipis, SFX ±1/dtk, jeda boleh nyaris senyap (room tone −50 dB, jangan digital silence mutlak)
+  - penjelasan/solusi: musik tipis, SFX ±1/dtk; musik turun, tidak bolong (aturan inti 32)
   - engsel: satu riser panjang (±50 f) + hit tepat di kata pivot
 - Contoh: tegang/repetitif (masalah) → tape-stop/kill tepat di engsel → jernih/rasional → bertenaga (demo) → hangat lega (CTA).
 - Grid beat diukur dengan librosa. Cut besar di downbeat, kamera mulai/mendarat di beat (±2 f).
@@ -86,28 +73,25 @@ Aturan:
 ### 14.3 Penempatan SFX (acuan Baikov: "SFX mendukung semua visual")
 - **Setiap event visual diskret bersuara (target ≥ 85 %, diukur `scripts/audio/visual_coverage.py`)**:
   - muncul, mendarat, klik, perubahan state UI
-  - **onset teks**
+  - **kata penekanan dan teks diegetik** (caption tidak berbunyi, Irfan 6 Nov)
   - **angka berjalan**
   - **setiap transisi**
-  - kata kunci
 
   Yang boleh senyap hanya gerak pelan/kontinu.
 - **Peran bunyi**: setiap cue ditulis `{t, kelas, terikat_ke_visual, offset, dB}`. Tidak ada bunyi yang "sekadar ada".
-- **Layering** satu event penting: transien tinggi + body tengah + bobot rendah. Maksimal 2 lapis di satu frame untuk event kecil.
-- **Offset @30 fps**:
-  - pop muncul −1…+1 f
-  - sub-thud di frame mendarat
-  - hard cut: whoosh rendah −3 f, thud +2 f
-  - burst: whoosh naik −11 f, thud −2 f
-  - slam: impact −1…−2 f, didahului kantong senyap 3–7 f
-  - rangkaian zoom-through: satu riser kontinu, hit di pendaratan terakhir
-  - whoosh/riser memuncak di landing atau cut
+- **Satu event satu bunyi.** Tidak ada layering beberapa file untuk satu event; pilih satu file yang karakternya sudah lengkap (Irfan 6 Nov).
+- **Waktu @30 fps** (SFX tidak pernah mendahului objek, aturan inti 37):
+  - pop: +1…+2 f setelah objek terlihat jelas (§14.9)
+  - dentum/impact: di frame mendarat
+  - hard cut: satu whoosh tipis, puncak di cut
+  - push-through / zoom-through: satu riser kontinu yang berakhir di cut, lalu impact di pendaratan
+  - slam: impact di frame mendarat; sebelumnya musik turun ke drone, bukan senyap
+  - whoosh/riser memuncak di landing, cut, atau v_max kamera (§14.9)
 - **Cluster**: elemen yang muncul bersamaan diberi satu rangkaian pop bernada naik (staggered), bukan senapan mesin.
   - Ketikan tetap terdengar sebagai keyboard, jangan ikut di-cluster jadi pop.
   - Seri blip untuk item daftar: bunyi sama, interval tetap.
-- **UI micro-pop**: setiap perubahan state UI (pill, ikon, checkbox, hover, klik) pop pendek 400–1.200 Hz, 30–80 ms, −9…−15 dB.
-- **Level relatif VO**: sub-thud ≈ −3,5 dB, pop/thock ≈ −9 dB, blip/whoosh −15…−18 dB.
-  - Transien kecil di konsonan VO digeser ±2 f atau diturunkan ≥ 18 dB.
+- **UI micro-pop**: setiap perubahan state UI (pill, ikon, checkbox, hover, klik) pop pendek 30–80 ms dari palet §14.8.
+- Transien kecil yang jatuh di konsonan VO digeser ±2 f. Level: §14.10.
 - Kepadatan:
   - hook/masalah ±2,5/dtk
   - penjelasan ±1/dtk
@@ -115,8 +99,8 @@ Aturan:
   - logo hold ±0
 - Sinkron: hit bunyi vs onset visual ±1–2 f (±45 ms), dicek per cue dari render.
 
-### 14.4 Engsel senyap (titik balik)
-Senyap hanya boleh **disengaja dan pendek** (≤ 300 ms, sebelum hantaman/sub drop). Musik/bed **tidak pernah mati ke 0** di bawah klip narasumber (§14.7). Senyap 9 f tepat di cut → VO kalimat balik → senyap 15 f → musik bagian baru masuk ≤ 2 f sebelum gerak kamera pertama. Punchline terbesar: semua audio senyap 0,4 dtk → hantaman + bass.
+### 14.4 Titik balik: turun, bukan hilang
+Penekanan di titik balik dibuat dengan **musik turun ke drone/room tone** (stop-down ≤ 0,5 dtk), lalu hantaman atau drop di kata pivot. Tidak ada hening total (digital silence), dan musik tidak pernah 0 di bawah klip narasumber (§14.7). Alasan: hening total terdengar seperti audio rusak dan memutus perhatian (aturan inti 32; diputuskan Irfan 6 Nov). Panjang turunnya mengikuti nada di `pacing-map.md`, bukan resep frame tetap.
 
 ### 14.5 Standar "Nyaman, jelas, tanpa ear-fatigue" (direvisi 1 Nov 2026)
 Versi lama bagian ini mewajibkan bunyi thock/felt/wood dengan LPF 1,5–2,5 kHz. Bersama tabel Gemini §14.8, aturan itu menghasilkan palet gelap seperti ketukan kayu di Pengganti Kita Sendiri v3, yang ditolak Irfan pada 31 Okt pukul 23.34. **Acuan sekarang adalah palet yang terbukti lulus**, yaitu The Gap v17/v18 dan Jadisatu #2 (`projects/jadisatu-60s/remotion/tools/audio_build.py`):
@@ -209,7 +193,7 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
 
 | Visual | Bunyi (stok Irfan) | Catatan |
 |---|---|---|
-| Kata kinetik muncul (setiap kata) | tap digital `ipad_click` | −16 dB dari puncak VO, turun −3 dB saat VO bicara |
+| Kata penekanan / teks diegetik muncul | tap digital `ipad_click` | caption tidak berbunyi |
 | Kata slam/penekanan | `v17_thud_1` (dentum pendek) | satu bunyi, bukan pop + sub |
 | Ketikan | `iphone-keyboard-typing`, satu rentang per kalimat yang diketik | keyboard digital, bukan thock mekanik |
 | Kursor/tombol ditekan | `mouse-click-290204` | |
@@ -233,7 +217,7 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
   - rumus: `sfxStart = camStart + round(0.28 × moveDur) − whooshPeakOffset`;
   - di cue, pakai `align:"peak"` + `peak` = detik puncak di file.
 - **Pop/klik kemunculan**: transien di +1…+2 f setelah skala melewati 0,6 (objek pertama kali terlihat jelas), bukan di frame 0.
-- **Stagger banyak item** (grid, barisan): satu bunyi per item yang terlihat terpisah. Item yang muncul bersamaan dalam ≤ 2 frame dihitung sebagai satu event. Maksimal 2 bunyi per 100 ms, dan dua bunyi berperan sama tidak boleh jatuh dalam 100 ms (The Gap `sync_cues.py`). **Kata kinetik tidak pernah dipangkas**, karena setiap kata yang muncul mendapat bunyinya (revisi 1 Nov). Aturan lama "4–6 tick lalu tekstur kertas" dicabut.
+- **Stagger banyak item** (grid, barisan): satu bunyi per item yang terlihat terpisah. Item yang muncul bersamaan dalam ≤ 2 frame dihitung sebagai satu event. Maksimal 2 bunyi per 100 ms, dan dua bunyi berperan sama tidak boleh jatuh dalam 100 ms (The Gap `sync_cues.py`). Yang berbunyi hanya kata penekanan dan teks diegetik; caption tidak berbunyi (Irfan 6 Nov).
 
 ### 14.10 Modul 5 — gerbang QA audio otomatis (wajib sebelum render/kirim final)
 ```
@@ -249,12 +233,13 @@ Lulus bila semua terpenuhi:
 | Pita spektral | **dibandingkan dengan referensi segenre (video ber-VO), bukan angka tetap.** The Gap: sub 14 % / low-mid 63 %. Emotion: sub 18 % / low-mid 64 %. Angka lama (sub 25–55 %, low-mid < 42 %) berasal dari referensi musik tanpa VO (Krea 2, Renaissance) dan mendorong penambahan sub-pad sinus; dicabut 1 Nov 2026. |
 | Abrupt cutoff (> 18 dB/50 ms) di ujung klip narasumber | tidak ada celah mati: di potongan antar pembicara selalu ada jembatan (whoosh + musik/room tone), jendela 100 ms < −45 dBFS = 0. Penurunan di akhir kata VO kering itu normal (The Gap 46). |
 | Kepadatan & level SFX (demucs no_vocals, `refaudit/sfx_profile.py`) | event menonjol ±1,8–2,1/dtk; puncak SFX median ±−9…−10 dB dari puncak VO; bed −13…−15 dB di bawah VO (The Gap: 2,05/dtk, −10 dB, −14,8 dB) |
-| Gema VO | energi ekor 40–150 ms setelah kata ≤ −25 dB dari kata (`qa14.py`) |
+| Gema VO | energi ekor 40–150 ms setelah kata ≤ −25 dB dari kata (`scripts/audio/vo_echo.py`) |
 | VO per blok | −14 LUFS ±1 |
 | Klip narasumber per blok | −15,0…−15,5 LUFS (±0,5) |
 | Musik di bawah VO | −22…−25 LUFS |
 | Median puncak SFX UI per kelas | −16…−20 dBFS |
 | Median puncak ketikan | −22…−25 dBFS |
+| Hit terbesar video (puncak) | ≈ setara puncak VO, maksimal 1–2 per video |
 
 Catatan pengukuran:
 - Stem dialog mono harus diukur sebagai stereo (+3 dB), karena diputar di kedua kanal.
