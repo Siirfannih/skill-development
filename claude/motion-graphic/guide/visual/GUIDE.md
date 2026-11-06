@@ -16,7 +16,7 @@
 - Ruang kosong = struktur, bukan sisa.
 
 ## Kualitas render
-- **Bukan render three.js mentah** (Irfan 7 Nov: hasil sebelumnya terlihat murah). Visual akhir dibangun dengan React/CSS/SVG di Remotion atau AE; three.js hanya untuk plate 3D yang sudah final (material, cahaya, anti-alias) dan lolos still 100 % berdampingan dengan referensi.
+- **Bukan render three.js mentah** (Irfan 7 Nov: "bukan renderan three js mentah seperti sebelum-sebelumnya"). Visual akhir dibangun dengan React/CSS/SVG di Remotion atau AE; three.js hanya untuk plate 3D yang sudah final (material, cahaya, anti-alias) dan lolos still 100 % berdampingan dengan referensi.
 - Still per beat dibandingkan dengan frame referensi setara sebelum render penuh.
 
 ## Cek cepat
