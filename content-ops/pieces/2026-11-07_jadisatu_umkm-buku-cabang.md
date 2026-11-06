@@ -28,24 +28,24 @@ Model naskah: claude-opus-5-5 (skill `script-workshop`)
 ## 3. Hook (13 kandidat → 3)
 | # | Hook | Catatan |
 |---|---|---|
-| **H1 (rekomendasi, v2 mengalir)** | "Ada UMKM di Jakarta yang udah berhasil buka sampai tiga belas cabang, tapi pas mau ngajuin pinjaman ke bank mereka malah mentok karena nggak bisa nunjukin laporan keuangan, bahkan salah satu buku catatannya pernah hilang gitu aja." | Kasus nyata, konkret, jarang diucapkan; emosi tegang → penasaran "kok bisa?" |
+| **H1 (rekomendasi, v2 mengalir)** | "Ada UMKM di Jakarta yang udah buka sampai tiga belas cabang, tapi pas mau ngajuin pinjaman ke bank mereka malah mentok, soalnya nggak ada laporan keuangan yang bisa ditunjukin, bahkan salah satu buku catatannya pernah hilang." | Kasus nyata, konkret, jarang diucapkan; emosi tegang → penasaran "kok bisa?" |
 | H2 | "Kalau kamu nyatat jualan di buku, itu udah bener. Masalahnya muncul pas buku itu harus ada di dua tempat sekaligus." | Paling ramah ke penjual kecil; kurang dramatis untuk storytelling |
 | H3 | "Usaha yang laku di tiga belas tempat, kenapa bisa mentok pas ngajuin pinjaman bank?" | Bentuk pertanyaan; sedikit lebih umum |
 
 Digugurkan: "UMKM tutup di tahun pertama" (topik populer), "ternyata musuh terbesar owner…" (temuan palsu), "UMKM malas nyatat" (dibantah data).
 
 ## 4. Naskah v2 (draft, menunggu kata final Irfan)
-v2 (7 Nov): ditulis ulang mengalir seperti ngobrol, bukan potongan kalimat bertitik (koreksi Irfan: "storytelling itu yang beneran storytelling, jangan dipotong-potong"). VO dibaca Irfan. 212 kata ≈ 79 dtk pada 2,7 kata/dtk (dihitung skrip).
+v2 (7 Nov): ditulis ulang mengalir seperti ngobrol, bukan potongan kalimat bertitik (koreksi Irfan: "storytelling itu yang beneran storytelling, jangan dipotong-potong"). VO dibaca Irfan. 186 kata ≈ 68 dtk pada 2,75 kata/dtk (dihitung skrip; waktu per bagian dari jumlah kata).
 
 | Waktu | Bagian | VO | Kata |
 |---|---|---|---|
-| 00:00–00:09 | Hook | Ada UMKM di Jakarta yang udah berhasil buka sampai tiga belas cabang, tapi pas mau ngajuin pinjaman ke bank mereka malah mentok karena nggak bisa nunjukin laporan keuangan, bahkan salah satu buku catatannya pernah hilang gitu aja. | 37 |
-| 00:09–00:17 | Kisah | Ini kisah nyata dari studi Politeknik Negeri Jakarta, usahanya frozen food, cabangnya nyebar dari Jakarta sampai Tangerang, dan hampir semua cabangnya nyatat penjualan pakai buku tulis. | 26 |
-| 00:17–00:25 | Belokan | Nah yang menarik, masalahnya bukan karena mereka malas nyatat, soalnya data OCBC bilang hampir delapan dari sepuluh UMKM sebenarnya udah nyatat keuangan, cuma kebanyakan masih manual. | 26 |
-| 00:25–00:37 | Dugaan | Dan aku curiga cara manual itu aman-aman aja selama kamu cuma punya satu toko dan kamu selalu ada di sana, tapi begitu cabang kedua buka catatanmu ikut kebelah, laporan tiap cabang jadi beda-beda, dan dari pusat kamu nggak bisa lihat stoknya tinggal berapa. | 43 |
-| 00:37–00:42 | Uji diri | Coba deh tanya ke diri sendiri, kalau seminggu kamu nggak ke toko, kamu masih tahu nggak omzet tiap cabang? | 19 |
-| 00:42–00:52 | Jawaban | Makanya aku bangun Jadisatu Workspace, di sana tiap cabang bisa punya akun sendiri atau kamu tinggal upload datanya terus tandain itu cabang yang mana, dan laporannya langsung dikirim ke WhatsApp-mu. | 30 |
-| 00:52–01:01 | Tawaran + CTA | Kalau kamu masih jualan kecil-kecilan, kamu juga bisa daftar di website terus belajar nyatat keuangan lewat WhatsApp, seratus persen gratis. Jadi sekarang kamu nyatatnya masih di buku, atau udah di HP? | 31 |
+| 00:00–00:13 | Hook | Ada UMKM di Jakarta yang udah buka sampai tiga belas cabang, tapi pas mau ngajuin pinjaman ke bank mereka malah mentok, soalnya nggak ada laporan keuangan yang bisa ditunjukin, bahkan salah satu buku catatannya pernah hilang. | 36 |
+| 00:13–00:20 | Kisah | Ini kisah nyata dari studi Politeknik Negeri Jakarta, usahanya frozen food, dan hampir semua cabangnya nyatat penjualan pakai buku tulis. | 20 |
+| 00:20–00:29 | Belokan | Nah, masalahnya bukan karena mereka malas nyatat, soalnya kata data OCBC hampir delapan dari sepuluh UMKM udah nyatat keuangan, cuma kebanyakan masih manual. | 23 |
+| 00:29–00:41 | Dugaan | Dan aku curiga manual itu aman selama kamu cuma punya satu toko dan kamu ada di sana, tapi begitu cabang kedua buka, catatanmu ikut kebelah dan dari pusat kamu nggak bisa lihat apa-apa. | 33 |
+| 00:41–00:48 | Uji diri | Coba deh tanya ke diri sendiri, kalau seminggu kamu nggak ke toko, kamu masih tahu nggak omzet tiap cabang? | 19 |
+| 00:48–00:57 | Jawaban | Makanya aku bangun Jadisatu Workspace, tiap cabang bisa punya akun sendiri atau kamu tinggal upload datanya terus tandain cabangnya, dan laporannya langsung masuk ke WhatsApp-mu. | 25 |
+| 00:57–01:08 | Tawaran + CTA | Kalau kamu masih jualan kecil-kecilan, kamu juga bisa daftar di website terus belajar nyatat keuangan lewat WhatsApp, seratus persen gratis. Jadi sekarang kamu nyatat di buku, atau udah di HP? | 30 |
 
 Catatan akurasi: studi menyebut pengajuan kredit **terhambat** karena tidak ada laporan keuangan, dan buku yang hilang adalah kejadian terpisah. Naskah memakai "mentok" dan "bahkan … pernah hilang", bukan "ditolak karena buku hilang", supaya tetap setia sumber.
 
