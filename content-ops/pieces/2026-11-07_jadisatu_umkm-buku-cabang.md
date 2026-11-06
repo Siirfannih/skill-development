@@ -1,7 +1,7 @@
 # 2026-11-07_jadisatu_umkm-buku-cabang · Buku tulis di dua tempat
 
 piece_id: 2026-11-07_jadisatu_umkm-buku-cabang
-Jalur: Jadisatu · Format: video (storytelling × motion, VO Irfan) · Platform: IG Reels · Status: DRAFT
+Jalur: Jadisatu · Format: video (storytelling × motion, VO Irfan) · Platform: IG Reels · Status: FINAL-SCRIPT (v4)
 Model naskah: claude-opus-5-5 (skill `script-workshop`)
 
 ## 1. Ide terpilih
@@ -23,6 +23,7 @@ Model naskah: claude-opus-5-5 (skill `script-workshop`)
 | L1 | "Aku nggak ada ngobrol sama UMKM sendiri, makanya hook-nya harusnya adalah sebuah pertanyaan." | dipakai: hipotesis = "aku curiga", hook dari kasus bersumber |
 | L2 | "buat yang non-business owner yang masih bangun bisnis kecil-kecilan, dia tuh bisa pakai workspace secara gratis … 100% gratis" | dipakai: beat 7 |
 | L3 | "di sistem workspace kita kan kita bisa bikin multi-account … cabang 1, cabang 2 … atau di-upload aja semua datanya, ditandain cabang mana" | dipakai: beat 6 |
+| L5 | "Aku setuju sama skrip yang kamu buat. Ini adalah skrip pertama. Ini bisa disimpan dulu" | naskah v4 final |
 | L4 | Konsep: storytelling, motion, talking head; Gemini memilih storytelling × motion | rekomendasi: storytelling × motion, lihat §6 |
 
 ## 3. Hook (13 kandidat → 3)
@@ -34,7 +35,7 @@ Model naskah: claude-opus-5-5 (skill `script-workshop`)
 
 Digugurkan: "UMKM tutup di tahun pertama" (topik populer), "ternyata musuh terbesar owner…" (temuan palsu), "UMKM malas nyatat" (dibantah data).
 
-## 4a. Naskah v4 (draft terbaru, 7 Nov)
+## 4a. Naskah v4 · FINAL (Irfan 7 Nov: "Aku setuju sama skrip yang kamu buat. Ini adalah skrip pertama.")
 Arah Irfan 7 Nov: tanpa konteks pribadi (kuliah/pekerjaan); fokus masalah + fitur + keunggulan; cerita dari orang tua (pedagang) dan teman yang jualan; masalahnya nyata, bukan dugaan; gratis untuk yang baru mulai, CTA komen "workspace". 168 kata ≈ 61 dtk. Talking head + sisipan motion (chat WA tercatat, satu tempat untuk data, grafik stok habis).
 
 | Waktu | Bagian | VO | Kata |
