@@ -41,7 +41,6 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
   Aturan desain di baliknya:
   - teks VO dikelompokkan per klausa/kalimat, tidak dipotong per jumlah karakter;
   - teks diam sampai VO selesai;
-  - teks yang berganti di posisi sama ditukar di tempat;
   - teks VO tidak disembunyikan lewat CSS `:has()` atau mask yang disampel jarang. Pakai interval penekanan yang di-debounce.
 
   Gerbang yang sama dijalankan lagi pada render final.
@@ -90,13 +89,11 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
 - **Teks = penekanan, prioritas 2.** Visual kuat tidak butuh teks.
   - Contoh salah di PKS v9: "8 jam", "45 menit", "TIDAK BERHENTI", "PERSIS".
   - Cara yang benar: kalender padat yang bloknya muncul perlahan sudah cukup menjelaskan.
-- **Ukuran font seragam dalam satu urutan.**
-  - Pembedanya huruf kapital di awal, misalnya "This time progress was so Fast".
-  - Bisa juga warna aksen yang kontras. Ukuran tidak dibesarkan.
+- **Satu baris = satu ukuran** (Irfan 6 Nov). Besar-kecil acak dalam satu baris membuat baris tidak seimbang. Kata yang dibesarkan pindah ke barisnya sendiri; pembeda di dalam baris lewat warna aksen, bobot, atau KAPITAL.
 - **Hindari pola "blok di kiri + teks di kanan" di atas latar hitam polos.** Pola ini menyisakan ruang kosong besar di atas dan bawah, jadi melanggar gaya Apple yang modern dan elegan. Isi frame dengan visualnya, dan kamera fokus ke objek.
 
 ## Running text + penekanan (Irfan 2 Nov 14.18)
-- **Teks = prioritas 2 bukan berarti alurnya hilang.** Teks VO berjalan mengikuti VO dari awal sampai akhir, kata per kata.
+- **Mode teks per beat dipilih lewat `decision-guide.md` §1** (visual saja / penekanan / diegetik / caption / label). Caption hanya bila mode caption video nyala; bila nyala, ia berjalan per klausa mengikuti VO (Irfan 6 Nov).
   - **Koreksi v21 (Irfan 2 Nov 22.25):** satu baris datar di pita bawah = subtitle, bukan kinetic. Tiap frasa VO butuh KOMPOSISI sendiri
     (`lib/KineticVO.tsx` PKS): posisi di ruang kosong atau menempel objek yang dirujuk, 1–3 baris (line/stair/column/drop), kata kunci
     (redup sisanya, kotak sorot, baris besar), kata baru lahir di ujung baris lalu baris bergeser bersama, enter/exit dirotasi,
@@ -104,7 +101,7 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
     (layering), bukan gradien. Kerja: still per frasa (`stills.sh`) → tetapkan zona dari still → still ulang sampai tidak ada tabrakan.
   - Saat ada penekanan (AnchorWord/SpeakerLine), subtitle diganti oleh penekanan. Penekanan tampil lebih dulu, dan katanya tidak diulang di subtitle.
   - Subtitle tidak berbunyi. Klik hanya untuk kata penekanan/kinetic.
-- **Ukur cakupan:** persentase kata VO yang tampil (subtitle + penekanan). Kasus v10: 54/310 kata (17 %), dan Irfan menyebutnya fatal.
+- **Ukur cakupan hanya bila mode caption nyala:** persentase kata VO yang tampil. Kasus v10: 17 %, dan Irfan menyebutnya fatal. Bila caption mati, yang diukur adalah setiap beat punya mode yang tercatat di tabel beat.
 - **Variasi kinetic wajib.** Fade/pop yang selalu sama membuat penonton bosan. Pakai `enter` = `type` (huruf per huruf + caret), `mask`, `letters`, `blur`; `scale` hanya untuk angka/hero. Teknik yang sama maksimal 2× berturut-turut.
 - **SFX family:** satu file SFX sering berisi beberapa varian. Potong per varian (`ears/family.py`), dengarkan tiap varian, dan pakai yang paling cocok, bukan seluruh file. Peran yang Irfan tandai "acak" (mis. Kinetictypography) dirotasi di antara variannya.
 - **Setiap objek/visual punya bunyinya.** Contoh kasus v10: ketikan tanpa bunyi ketik. Ketikan memancarkan `type:start|end` → potongan Keyboardtyping sepanjang ketikan + Enter.
@@ -121,11 +118,11 @@ Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. 
   - Kata ditambah satu per satu dengan jeda sekitar 3 f.
   - Masuknya blur → tajam 2–3 f, atau naik dari balik mask 3–4 f.
   - Baris rata tengah di-tengahkan ulang setiap kali kata baru masuk.
-  - Ukuran seragam.
+  - Satu baris satu ukuran.
 - **Penekanan tanpa memperbesar huruf:**
   - warna aksen;
   - kata sebelumnya diredupkan;
-  - ganti gaya (ketebalan, KAPITAL; tanpa serif);
+  - ganti gaya (ketebalan, KAPITAL, atau serif yang tidak sejajar dengan bold);
   - kotak sorot.
 - **Drama lewat kamera:** punch-in cepat atau rack-focus close-up → wide, bukan pop skala teks.
 - **Teks yang hidup di objek:**

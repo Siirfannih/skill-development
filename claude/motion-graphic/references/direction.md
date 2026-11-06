@@ -81,7 +81,7 @@ Perpindahan family adalah momen cerita, memakai transisi bab (§10) + engsel sen
 - **Dilarang:** gradasi merah-cokelat atau latar maroon untuk adegan gelap. Latar gelap = hitam/navy dengan teks dan garis **putih saja**.
 - **Dilarang: teks atau elemen biru di atas latar gelap/navy** (contoh gagal: "Adele." biru `#2563EB` di navy `#0F172A`, The Gap v3, 26 Okt). Biru dan navy berbeda hue tipis tetapi kontras luminansinya rendah, jadi terlihat "nyala tapi tenggelam" dan murahan. Aturannya:
   - Biru sebagai warna teks/aksen **hanya di latar putih/terang**.
-  - Di latar gelap, penekanan memakai putih penuh vs putih redup (opasitas), ketebalan, skala, atau KAPITAL, bukan warna. Tanpa serif.
+  - Di latar gelap, penekanan memakai putih penuh vs putih redup (opasitas), ketebalan, skala, atau KAPITAL, bukan warna. Serif boleh sebagai penekanan, tidak sejajar dengan bold.
   - Satu momen gelap butuh aksen warna? Pindahkan momennya ke latar putih, jangan memaksa warna di gelap.
   - Cek otomatis: kontras luminansi teks vs latar ≥ 7 : 1 untuk kata kunci; biru `#2563EB` di `#0F172A` hanya ±3,6 : 1, jadi gagal.
 - Satu aksen per momen. Warna adalah bab: pergantian lewat wipe berlapis, bukan cut warna polos.

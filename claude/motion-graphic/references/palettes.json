@@ -1,0 +1,193 @@
+{
+ "version": "2026-11-06b",
+ "method": "Frame 2 fps, HSV. Vivid = saturasi > 0,55 dan kecerahan > 0,55. Keluarga = puncak hue + semua piksel dalam ±30° (melingkar), dihitung bila ≥ 5% piksel vivid. dominant_family_share = porsi keluarga terbesar.",
+ "palettes": {
+  "studio-merah": {
+   "source": "Contohkonten (Barsol Media), talking head 9:16",
+   "mood": "tegas, editorial, studio gelap",
+   "roles": {
+    "dasar": "#040406",
+    "netral": "#3E3D3E",
+    "teks": "#EEEBE9",
+    "aksen": "#A72321",
+    "aksen_gelap": "#76110D"
+   },
+   "measured": {
+    "vivid_share": 0.01,
+    "accent_families": 2,
+    "note": "Keluarga kedua (biru, 26%) = lampu studio, bukan grafik.",
+    "dominant_family_share": 0.74
+   }
+  },
+  "hitam-kuning-hangat": {
+   "source": "Contohkonten1, talking head 16:9",
+   "mood": "hangat, personal, reflektif",
+   "roles": {
+    "dasar": "#0C0A0D",
+    "netral": "#3B3838",
+    "teks": "#E5E2D7",
+    "aksen": "#FAB641",
+    "aksen_gelap": "#B57542"
+   },
+   "measured": {
+    "vivid_share": 0.166,
+    "accent_families": 1,
+    "note": "Dua keluarga bersebelahan (kuning + oranye). Kuning dipakai sebagai kartu layar penuh, jadi porsinya besar.",
+    "dominant_family_share": 1.0
+   }
+  },
+  "merah-menyala": {
+   "source": "Contohkonten2, explainer layar terbagi 9:16",
+   "mood": "dramatis, misteri, edukasi",
+   "roles": {
+    "dasar": "#120801",
+    "panel": "#640B04",
+    "teks": "#FDF9FA",
+    "glow": "#F2996B"
+   },
+   "measured": {
+    "vivid_share": 0.078,
+    "accent_families": 1,
+    "note": "98% piksel vivid di satu keluarga merah-oranye. Glow mengikuti hue panel, bukan warna baru.",
+    "dominant_family_share": 0.99
+   }
+  },
+  "putih-lavender": {
+   "source": "Motiongrapich (Sleeko), iklan produk",
+   "mood": "ringan, ramah, produk modern",
+   "roles": {
+    "dasar": "#FCFCFC",
+    "teks": "#1A1030",
+    "netral_gelap": "#000002",
+    "aksen_lembut": "#D8BAF7",
+    "aksen": "#AE3FF3"
+   },
+   "measured": {
+    "vivid_share": 0.015,
+    "accent_families": 2,
+    "note": "Keluarga kedua (oranye, 12%) = foto/footage di dalam mockup.",
+    "dominant_family_share": 0.85
+   }
+  },
+  "biru-gradasi-terang": {
+   "source": "Vector animation BNB (still)",
+   "mood": "bersih, finansial, terang",
+   "roles": {
+    "dasar": "#F1F5FB",
+    "gradasi_1": "#AEC6F1",
+    "gradasi_2": "#6289E1",
+    "aksen": "#3A68D9",
+    "teks": "#FFFFFF"
+   },
+   "measured": {
+    "vivid_share": 0.118,
+    "accent_families": 2,
+    "note": "Keluarga kedua (kuning, 8%) = logo merek pihak ketiga.",
+    "dominant_family_share": 0.92
+   }
+  },
+  "hitam-navy": {
+   "source": "Vector animation trading (still)",
+   "mood": "premium, malam, finansial",
+   "roles": {
+    "dasar": "#000000",
+    "navy_1": "#0C1121",
+    "navy_2": "#1B2669",
+    "aksen": "#2B44AD",
+    "teks": "#F6F8F9"
+   },
+   "measured": {
+    "vivid_share": 0.021,
+    "accent_families": 1,
+    "note": "Kata penekanan memakai biru aksen di latar hitam murni, bukan di navy.",
+    "dominant_family_share": 1.0
+   }
+  },
+  "monokrom": {
+   "source": "Vector animation magnifier @soulmatevisuals (still)",
+   "mood": "minimal, puitis, fokus",
+   "roles": {
+    "dasar": "#000000",
+    "abu_gelap": "#1B1B1B",
+    "abu": "#6E6E6F",
+    "abu_terang": "#CACACA",
+    "teks": "#FCFCFC"
+   },
+   "measured": {
+    "vivid_share": 0.0,
+    "accent_families": 0,
+    "note": "Penekanan lewat cahaya (glow putih) dan fokus, tanpa warna sama sekali.",
+    "dominant_family_share": 0.0
+   }
+  },
+  "merah-kertas-dokumenter": {
+   "source": "founded (VO + foto/footage arsip, 9:16)",
+   "mood": "dokumenter, cerita tokoh, serius",
+   "roles": {
+    "dasar": "#08090B",
+    "kertas": "#DDDDDB",
+    "teks": "#FFFFFF",
+    "aksen": "#C6060C"
+   },
+   "measured": {
+    "vivid_share": 0.213,
+    "accent_families": 2,
+    "dominant_family_share": 0.92,
+    "note": "Merah dipakai sebagai kartu layar penuh di antara footage; footage di-grade hangat dan berbutir."
+   }
+  },
+  "jadisatu-gelap": {
+   "source": "Design system Jadisatu (token, bukan referensi)",
+   "mood": "default konten Jadisatu, premium, malam",
+   "roles": {
+    "dasar": "#0B0D0F",
+    "permukaan": "#17181C",
+    "teks": "#F4F5F7",
+    "aksen": "#2B47FF",
+    "aksen_teks": "#6F8DFF",
+    "navy": "#13245E"
+   },
+   "fonts": {
+    "display": "Outfit",
+    "teks": "Inter",
+    "data": "JetBrains Mono"
+   },
+   "measured": null,
+   "note": "Biru #2B47FF untuk isian/grafik; teks biru di latar gelap memakai #6F8DFF (kontras)."
+  },
+  "jadisatu-terang": {
+   "source": "Design system Jadisatu (token, bukan referensi)",
+   "mood": "default konten Jadisatu, bersih, siang",
+   "roles": {
+    "dasar": "#F1F0EB",
+    "permukaan": "#F6F5F1",
+    "teks": "#282723",
+    "aksen": "#1A3AD0",
+    "aksen_lembut": "#DCE4FF",
+    "navy": "#0A1A4A"
+   },
+   "fonts": {
+    "display": "Outfit",
+    "teks": "Inter",
+    "data": "JetBrains Mono"
+   },
+   "measured": null
+  }
+ },
+ "counterexample": {
+  "source": "Preview DOAC (render Claude, 6 Nov)",
+  "measured": {
+   "accent_families": 3,
+   "dominant_family_share": 0.46,
+   "extra_minor": "hijau-tosca dan olive < 5%"
+  },
+  "colors_seen": [
+   "#F03D79",
+   "#603FBC",
+   "#E3A33D",
+   "#35D0A2",
+   "#9CAA42"
+  ],
+  "note": "Tidak ada keluarga dominan: pink 46%, kuning 26%, ungu 19%. Itulah kesan pelangi."
+ }
+}

@@ -34,10 +34,10 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya: satu kalimat 
 | # | Gerbang | Baca cabang | Lolos jika |
 |---|---|---|---|
 | 0 | Muat konteks | — | §4 selesai |
-| 1 | Brief | `decision.md` | Tujuan, penonton, durasi, CTA, format master terkunci. Default 16:9 1920×1080, 30 fps native (jangan upconvert 24→30), ditonton di HP |
+| 1 | Brief | `decision.md`, `palette.md` | Tujuan, penonton, durasi, CTA, format master terkunci. Default 16:9 1920×1080, 30 fps native (jangan upconvert 24→30), ditonton di HP |
 | 2 | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file |
 | 3 | Bedah referensi | `analysis-qa.md` §2 | Metrik visual + peta audio dengan timestamp. Tanpa referensi dari Irfan: pakai video proyek sebelumnya yang ia setujui sebagai pembanding dan catat itu di brief |
-| 4 | Storyboard 100 % | `storyboard.md`, `direction.md` | Tabel kritik lolos; Irfan menyatakan final |
+| 4 | Storyboard 100 % | `storyboard.md`, `direction.md`, `decision-guide.md` | Tabel kritik lolos; Irfan menyatakan final |
 | 5 | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
 | 6 | Audio | `audio.md` | VO boleh setelah script final (gerbang 2), karena timestamp VO menggerakkan spec beat. SFX dan musik hanya setelah storyboard final (gerbang 4). Tidak ada VO "sementara" sebelum script final |
 | 7 | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum pendekatan diterapkan ke semua |
@@ -66,9 +66,12 @@ motion-graphic/
     ├── build.md             pipeline After Effects + engine kode, snippet
     ├── analysis-qa.md       bedah referensi, gerbang kirim, rubrik, loop kritik
     ├── hybrid-motion-standard.md  standar minimum Hybrid Motion dari referensi (anchor words, bezier ekstrem, masking, posterize, SFX/BGM) — wajib dicek di storyboard & QA
-    ├── three-segment-gate.md     gerbang 3 segmen (kode bernama-objek → pra-render probe safe zone/kontras → render MP4); aturan teks prioritas 2, ukuran seragam; −21..−41 dB = BGM
+    ├── three-segment-gate.md     gerbang 3 segmen (kode bernama-objek → pra-render probe safe zone/kontras → render MP4); aturan teks prioritas 2, satu baris satu ukuran; −21..−41 dB = BGM
     ├── smooth-motion.md     resep motion blur, teks masuk, kamera halus (terbukti di Tuntunly)
-    └── revision-log.md      log revisi Irfan, RETRO, ledger keputusan, kunci adegan
+    ├── revision-log.md      log revisi Irfan, RETRO, ledger keputusan, kunci adegan
+    ├── decision-guide.md    mode teks per beat, caption, ukuran, posisi, kotak/glow, grafik di footage, devil's advocate
+    ├── palette.md + palettes.json  memilih dan mengunci palet; 10 palet terukur
+    └── motion-mechanics.md  kamera, transisi, cutout sebagai logika ruang
 └── scripts/
     ├── baseline_lock.py     kunci adegan yang disetujui; gagalkan render yang mengubahnya
     ├── bedah-kamera.py      ukur kecepatan, jerk, dan henti-mulai kamera dari video
@@ -100,17 +103,20 @@ Baca cabang saat salah satu kondisi ini terjadi, bukan di awal. Cabang boleh mer
 | Membedah referensi atau mengecek render sebelum kirim | `analysis-qa.md` |
 | Irfan memberi revisi, atau mengunci/membuka adegan | `revision-log.md` |
 | Membangun animasi teks, mengatur motion blur, atau gerak terasa kurang smooth | `smooth-motion.md` |
+| Memutuskan teks/visual/caption per beat, kotak, glow, grafik di atas footage | `decision-guide.md` |
+| Mengunci warna di brief atau QA warna | `palette.md` |
+| Memilih transisi, gerak kamera, atau cutout | `motion-mechanics.md` |
 
 ## 6. Rules inti (berlaku di setiap gerbang)
 
 Aturan ini dipisah dari cabang karena pelanggarannya paling sering muncul di revisi Irfan.
 
-1. **Satu frame, satu titik fokus.** Maksimal 1 blok teks + 1 subjek. Layout "teks besar di kiri + kartu/UI di kanan" dilarang karena memaksa mata membaca dua hal.
+1. **Satu fokus per momen.** Teks muncul satu per satu mengikuti VO dan yang baru masuk selalu jadi fokus; elemen boleh menumpuk jadi komposisi. Teks dan visual tidak berbobot sama di momen yang sama. Layout "teks besar di kiri + kartu/UI di kanan" dilarang karena memaksa mata membaca dua hal. Cara memilih mode teks per beat: `decision-guide.md` (Irfan 6 Nov).
 2. **Teks layar hanya dari VO.** Tidak ada kalimat atau angka tambahan.
 3. **Tokoh dan dunia yang sudah diperkenalkan konsisten sampai akhir.** Bagian solusi tidak berubah menjadi slide UI + teks.
 4. **UI harus UI asli produk**, atau rekonstruksi per elemen dari screenshot asli.
 5. **Nol crossfade; fade bukan gerak.** Sesuatu yang berganti datang dari suatu arah atau berubah bentuk.
-6. **Keterbacaan dan penekanan lewat komposisi**, bukan scrim, bayangan, blur, atau blok warna/stabilo/highlight box di belakang kata. Kata kunci ditekankan dengan warna aksen pada hurufnya, skala, atau kamera.
+6. **Kotak di belakang teks = alat keterbacaan, bukan dekorasi.** Pakai hanya bila kontras teks di area itu gagal (< 4,5 : 1) atau latarnya tidak stabil, setelah pindah posisi/ganti warna tidak cukup; atau bila brief menetapkannya sebagai elemen gaya yang konsisten. Kotak di teks yang sudah terbaca = salah. Glow boleh asal HD (bukan bloom three.js). Urutan keputusan: `decision-guide.md` §4 (Irfan 6 Nov).
 7. **Setiap efek punya alasan.** Jika tidak bisa menjawab "efek ini membantu penonton memahami apa?", hapus.
 8. **Keterbacaan HP**: margin aman 5 %, teks kunci tidak di 8 % bawah, kata sambung ≥ 56 px, rasio kunci : sambung ≥ 3 : 1, kontras ≥ 4,5 : 1. Uji di lebar 360 px; CTA adalah hal paling terbaca.
 9. **Motion blur di semua gerak cepat**, tanpa gerak linear kecuali drift dan rotasi loop.
@@ -151,5 +157,7 @@ Aturan ini dipisah dari cabang karena pelanggarannya paling sering muncul di rev
     - `scripts/audio_qa.py --module5` lulus sebelum render final.
 
     Rincian di `audio.md` §14.6–14.10. Aturan ini menggantikan gerbang LRA ≥ 7, "hening total saat klip", dan dinamika narator per babak (PenggantiKitaSendiri v3, Irfan 31 Okt).
-39. **Tanpa serif.** Semua teks memakai Inter (sans); aksen lewat bobot, skala, KAPITAL, atau putih penuh vs redup. Instrument Serif Italic dan font serif lain tidak dipakai kecuali Irfan memintanya untuk proyek itu (Irfan: D-005 29 Okt, ditolak lagi 30 Okt, ditegaskan 4 Nov).
+39. **Serif tidak sejajar dengan bold.** Dalam satu frasa, serif tidak boleh seukuran dan sebobot kata bold, karena dua gaya sama kuat membuat mata bingung. Serif boleh sebagai penekanan atau penutup. Satu baris = satu ukuran; kata yang dibesarkan pindah ke barisnya sendiri (Irfan 6 Nov).
+41. **Palet dikunci di brief.** Satu keluarga aksen dominan (≥ 70 % piksel berwarna), netral membawa frame, tidak ada hex di luar palet; konten Jadisatu memakai palet `jadisatu-*`. Detail dan cek: `palette.md`, `scripts/palette_check.py` (gagal: preview DOAC 6 Nov, pelangi).
+42. **Transisi = logika ruang.** Pilih mekanik dari hubungan dua adegan (B di dalam A → push-through; A bagian dari B → pull-back; ganti topik → whip). Detail: `motion-mechanics.md` (Irfan 6 Nov).
 40. **Contoh dari Irfan berlaku untuk frame yang ia sebut.** Satu gambar acuan atau efek (gradasi, satu warna) bukan aturan semua frame. Sebutkan frame mana yang berubah sebelum mengubah massal. "Premium" = struktur warna + ruang kosong + visual yang menceritakan pesan; warna asli objek dan foto dipertahankan (Irfan 4 Nov: "Gradient itu hanya digunakan di beberapa frame saja"; R4 serba biru ditolak).

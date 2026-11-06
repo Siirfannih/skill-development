@@ -88,11 +88,12 @@ Jalankan `scripts/audio_qa.py --module5` (ambang di `audio.md` §14.10). Satu FA
 - ukur loudness
 
 ### 16.2 Checklist anti-monoton & kerapian
-- [ ] ≥ 3 treatment teks berbeda per 15 dtk; 4–6 teknik T per 15 dtk; lompatan skala ≥ 2 level tiap 5 dtk (rasio ≥ 3 : 1).
+- [ ] ≥ 3 treatment teks berbeda per 15 dtk; 4–6 teknik T per 15 dtk; lompatan skala ≥ 2 level tiap 5 dtk (rasio ≥ 3 : 1) **antar baris atau antar momen, tidak di dalam satu baris**.
 - [ ] Satu fokus per frame; tidak ada teks kiri + UI kanan; teks tidak menutupi wajah/subjek.
 - [ ] **Tidak ada teks yang tumpang tindih dengan teks lain atau objek**; tidak ada teks terpotong tepi atau keluar area aman (kecuali bleed XL yang disengaja).
 - [ ] Elemen yang diperbesar keluar frame dengan wajar, tidak terpotong kontainer.
-- [ ] Tidak ada blok warna di belakang kata, scrim, outline/glow, atau glitch pengacak huruf.
+- [ ] Kotak/scrim hanya di teks yang gagal kontras atau yang ditetapkan brief; glow HD; tidak ada glitch pengacak huruf.
+- [ ] Tabel beat lolos devil's advocate `decision-guide.md` §7; `scripts/palette_check.py` lolos.
 - [ ] Teks 2.5D benar-benar berotasi/berlapis di momen yang tepat; ekstrusi hanya bila lolos TYPE-TEST.
 - [ ] Layout sama maksimal 2 beat berturut; tidak ada fade sebagai pengganti gerak.
 - [ ] Kamera global ±10 %; adegan informasional diam; gerak besar di setiap pergantian makna; 1 cut zoom per 6–10 dtk.
