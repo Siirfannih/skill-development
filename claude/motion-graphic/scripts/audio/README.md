@@ -6,7 +6,7 @@ Untuk proyek baru: cue sheet ada di `render/cues.json` (list of `{t, kind, db, v
 | Skrip | Fungsi | Aturan skill |
 |---|---|---|
 | `vo_gaps.py vo.json vodir` | daftar semua jeda diam di VO (diukur di audio, −42 dB) | 33 |
-| `tighten.py` | VO ×1,05 (rubberband) + padatkan jeda, tulis vo.json baru — sesuaikan `CH`/`OVR`/`CHUNK_GAP` per proyek | 33 |
+| `tighten.py` | Padatkan jeda VO (tempo terkunci 1,0: VO tidak pernah dipercepat), tulis vo.json baru — sesuaikan `CH`/`OVR`/`CHUNK_GAP` per proyek | 33 |
 | `el_music.py cues` | musik ElevenLabs per babak (peran tiap babak, durasi dikunci ke VO, minta +3–6 dtk lalu potong) | 34 |
 | `music_check.py`, `env.py` | cek envelope/dinamika cue musik (fade, lubang) | 34 |
 | `el_sfx.py <kind>` | SFX ElevenLabs dengan prompt "soft/smooth" | 34, 36 |

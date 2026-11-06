@@ -42,8 +42,8 @@ Kesalahan terbesar di proyek *Pengganti Kita Sendiri*:
 
 Aturan:
 1. **Inventaris dulu, dalam urutan ini**, dan tulis hasilnya di `STATUS.md` proyek:
-   - (a) pack stok SFX Irfan: `~/Downloads/Kenyset [FREE SFX PACK]` (minta akses folder bila belum terhubung);
-   - (b) folder `sfx/` proyek yang sudah disetujui, misalnya `~/Proyek/tuntunly-motion/audio/final/sfx` dan `Skill-Development/projects/jadisatu-60s/remotion/sfx-el`;
+   - (a) folder SFX yang Irfan siapkan di mesin kerja (PC server); jalurnya diberikan Irfan di sesi, tanyakan bila belum disebut;
+   - (b) folder `sfx/` proyek yang sudah disetujui, misalnya `projects/jadisatu-60s/remotion/sfx-el` di repo ini;
    - (c) sumber internet berlisensi (Mixkit, Pixabay, Freesound CC0);
    - (d) ElevenLabs SFX, hanya untuk peran yang tidak ada di (a)–(c).
 2. **Akses dipastikan di awal.** Folder belum terhubung, kredensial belum ada, atau situs memblokir: minta izin atau lapor ke Irfan **sebelum** bekerja. Jangan lanjut dengan pengganti karangan.

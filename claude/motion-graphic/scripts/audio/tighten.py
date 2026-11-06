@@ -1,5 +1,5 @@
 """v14 finishing: shorten the video by tightening the VO — never by cutting speech.
- 1. tempo: each original trim (vo/v2) is time-stretched x TEMPO with ffmpeg rubberband (pitch + formants kept).
+ 1. tempo: TEMPO is locked at 1.0; the VO is never sped up (Irfan 6 Nov). Only pauses are tightened.
  2. pauses: every quiet run inside a chunk (measured on the audio, -42 dB) longer than its target loses only its
     quiet middle; targets are per pause (sentence ends 0.28 s, dramatic "…" beats and visual-heavy beats longer).
  3. act hinges: chunks are re-packed so the real silence between them is CHUNK_GAP.
@@ -12,7 +12,7 @@ import os as _os
 ROOT = _os.environ.get('MG_ROOT', '/home/claude/thegap')
 SRC = json.load(open(f'{ROOT}/video/src/vo_v13.json'))
 OUT = f'{ROOT}/vo/v3'; os.makedirs(OUT, exist_ok=True)
-TEMPO = 1.05
+TEMPO = 1.0   # VO TIDAK PERNAH dipercepat (Irfan 6 Nov). Jangan ubah; padatkan lewat jeda saja.
 GEN = 0.28        # default target for an inner pause (s)
 # inner pauses that keep more air, keyed by (chunk, first word after the pause)
 OVR = {
