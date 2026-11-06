@@ -1,6 +1,6 @@
 # Storyboard v4 · Motion "Semudah chat sama ayang" (Trojan horse, 60 dtk)
 
-Status: STORYBOARD v4 · disetujui untuk build setelah review Irfan 7 Nov ("ayang" sesuai; tanpa VO, pakai visual saja) · menggantikan v3
+Status: STORYBOARD v4 · disetujui untuk build setelah review Irfan 7 Nov ("ayang" sesuai; naskah teks layar = naskah VO, sudah disesuaikan Irfan agar mengalir dibaca VO) · menggantikan v3
 Arah Irfan 7 Nov: 60 dtk; hook kembali ke masalah pencatatan administrasi bisnis tapi dibuat relate untuk non-UMKM; **struktur Baikov** (pembuka pertanyaan "gimana kalau…" yang dibalik ke penonton → realita → produk → UI → selesai → logo); **gaya visual & motion dari 08 (Mosycreate) dan 09 (thekrishray)**: ikon, emoji, komponen UI, gradien, bukan shape Baikov.
 
 ## Trojan horse
@@ -11,7 +11,7 @@ Arah Irfan 7 Nov: 60 dtk; hook kembali ke masalah pencatatan administrasi bisnis
 | Jasa kreatif + portofolio | 8 | pemilik usaha (sumber uang) |
 | CTA dua jalur + kredit | 9–10 | akses gratis / paket kreatif |
 
-Format A motion · master 1920×1080 30 fps (versi 9:16 reframe) · 183 kata ≈ 67 dtk · **tanpa VO (Irfan 7 Nov)**: naskah tampil sebagai teks layar kata per kata, dipecah per frasa ≤ 6 kata per momen tapi tetap satu kalimat yang mengalir; waktu per beat mengikuti waktu baca (±3 kata/dtk) dan ketukan musik · audio kategori `energi`, musik ±110–120 bpm, satu bunyi per aksi UI (ala 09) · latar gradien lembut biru `jadisatu-terang` + satu aksen hangat ("gratis") · UI produk dari `jadisatu-partner/apps/portal` di Remotion · WhatsApp dibangun mengikuti tampilan asli · ikon & emoji satu set konsisten.
+Format A motion · master 1920×1080 30 fps (versi 9:16 reframe) · 183 kata ≈ 67 dtk · **VO = suara narator Jadisatu yang sama dengan The Gap (`jadisatu-60s`) dan video personal kedua (`ai-change-everything`)**: ElevenLabs voice `1I8tElkHzrblGqkJtwn3` ("Jadisatu Narrator V3"), model `eleven_v4` (`tools/ELEVENLABS.md`, `el_tts.py` kedua proyek). Teks layar = kata VO, muncul per frasa ≤ 6 kata mengikuti onset kata VO (T19), satu baris per momen. VO tidak pernah dipercepat; jeda dipadatkan lewat `tighten.py`. Kata Inggris ditulis dalam kutip agar dibaca Inggris ("Workspace", "Excel", "Google") (aturan inti 21) · audio kategori `energi`, musik ±110–120 bpm, satu bunyi per aksi UI (ala 09) · latar gradien lembut biru `jadisatu-terang` + satu aksen hangat ("gratis") · UI produk dari `jadisatu-partner/apps/portal` di Remotion · WhatsApp dibangun mengikuti tampilan asli · ikon & emoji satu set konsisten.
 
 | # | Waktu | Bagian | Teks layar / VO (persis) | Visual | SFX |
 |---|---|---|---|---|---|
