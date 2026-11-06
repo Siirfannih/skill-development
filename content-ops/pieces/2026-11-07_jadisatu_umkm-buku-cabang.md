@@ -34,7 +34,21 @@ Model naskah: claude-opus-5-5 (skill `script-workshop`)
 
 Digugurkan: "UMKM tutup di tahun pertama" (topik populer), "ternyata musuh terbesar owner…" (temuan palsu), "UMKM malas nyatat" (dibantah data).
 
-## 4. Naskah v2 (draft, menunggu kata final Irfan)
+## 4a. Naskah v4 (draft terbaru, 7 Nov)
+Arah Irfan 7 Nov: tanpa konteks pribadi (kuliah/pekerjaan); fokus masalah + fitur + keunggulan; cerita dari orang tua (pedagang) dan teman yang jualan; masalahnya nyata, bukan dugaan; gratis untuk yang baru mulai, CTA komen "workspace". 168 kata ≈ 61 dtk. Talking head + sisipan motion (chat WA tercatat, satu tempat untuk data, grafik stok habis).
+
+| Waktu | Bagian | VO | Kata |
+|---|---|---|---|
+| 00:00–00:06 | Hook | Ngerasa nggak sih, banyak UMKM yang marketingnya udah jalan, jualannya rame, tapi uangnya tetep nggak jelas larinya ke mana? | 19 |
+| 00:06–00:20 | Cerita | Orang tuaku pedagang, dan dari dulu semuanya dicatat di buku, kadang bukunya hilang, kadang catatannya nggak cocok sama uang yang ada, terus temen-temenku yang jualan juga sama, nyatet manual dan akhir bulan bingung kenapa nggak balance. | 36 |
+| 00:20–00:27 | Belokan | Aplikasi kasir sebenarnya udah banyak, tapi kebanyakan orang yang baru jualan nggak butuh sistem kasir, mereka cuma butuh nyatet tanpa ribet. | 21 |
+| 00:27–00:39 | Fitur dasar | Makanya di Jadisatu Workspace kamu cukup chat ke WhatsApp, misalnya jual dua belas risol enam puluh ribu, atau beli gas dua puluh lima ribu, dan itu langsung kecatat sebagai pemasukan atau pengeluaran. | 32 |
+| 00:39–00:51 | Fitur owner | Terus kalau usahamu udah gede, penjualan dari kasir sampai marketplace bisa dirangkum jadi satu, tiap cabang bisa punya akun sendiri, dan sistemnya ngitung kapan stokmu bakal habis dan berapa yang perlu kamu belanja lagi. | 34 |
+| 00:51–01:01 | Gratis + CTA | Dan buat kamu yang baru mulai jualan atau lagi belajar ngatur keuangan usaha, ini gratis, termasuk catat lewat WhatsApp-nya, komen aja workspace, nanti aku kirimin link-nya. | 26 |
+
+Trojan horse: hook + cerita orang tua/teman (relate ke semua) → kenapa bukan aplikasi kasir (beda) → fitur dasar (yang baru mulai) → fitur owner (target pembeli) → gratis + CTA komen (engagement). Paket agensi + refund dipisah ke konten/landing tersendiri setelah syaratnya jelas.
+
+## 4. Naskah v2 (digantikan v4) (draft, menunggu kata final Irfan)
 v2 (7 Nov): ditulis ulang mengalir seperti ngobrol, bukan potongan kalimat bertitik (koreksi Irfan: "storytelling itu yang beneran storytelling, jangan dipotong-potong"). VO dibaca Irfan. 186 kata ≈ 68 dtk pada 2,75 kata/dtk (dihitung skrip; waktu per bagian dari jumlah kata).
 
 | Waktu | Bagian | VO | Kata |

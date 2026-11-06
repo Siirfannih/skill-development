@@ -13,6 +13,7 @@
 | Bukti | Cara bicara |
 |---|---|
 | Pengalaman Irfan sendiri | "aku …" |
+| Kejadian di keluarga/teman yang Irfan ceritakan | "orang tuaku …", "temen-temenku …" (fakta, bukan dugaan; Irfan 7 Nov) |
 | Data bersumber | "data X bilang …" |
 | Hipotesis / belum diuji | "aku curiga …", "gimana kalau …?" |
 | Tidak ada | jangan ditulis |
