@@ -32,7 +32,7 @@ Pintu masuk untuk setiap model yang bekerja dengan Irfan. Baca file ini dulu, la
 | `autopilot-prd` | Eksekusi antrean PRD/QUEUE sampai habis, tier keputusan | Proyek dengan PRD, QUEUE, atau rencana tertulis |
 | `jadisatu-canvas` | Aturan ruang bersama MCP lintas penyedia; koneksi, gambar, revisi dan reset konteks | Memakai atau menghubungkan Jadisatu Canvas dari Claude, Codex, Gemini CLI, Cursor, VS Code atau klien MCP lain |
 | `irfan-creative-workflow` | Gerbang proyek kreatif, disiplin kredit, uji storyteller | Awal setiap proyek kreatif (video, kampanye, naskah) |
-| `motion-graphic` | Semua video motion: inti + cabang (direction, storyboard, copywriting, decision, decision-guide, palette, motion-mechanics, pacing-map, typography, camera-transition, smooth-motion, audio, build, analysis-qa, revision-log) + `scripts/` (baseline_lock, bedah-kamera) | Setiap permintaan video, motion, storyboard, naskah VO, bedah referensi |
+| `motion-graphic` | Semua video motion dan klip podcast: mulai dari **format** (A motion ber-VO / B klip podcast), indeks aturan 3 tingkat (Hard Gate / Purpose-Gate / Quality Lock), `slop-catalog`, Delivery Gate berbukti (`scripts/gate/`), + cabang (direction, storyboard, copywriting, decision, typography, camera, audio, build, QA, revision-log) | Setiap permintaan video, motion, potongan podcast, storyboard, naskah VO, bedah referensi |
 | `script-workshop` | Brainstorm sampai script disetujui: bedah hook referensi, bank insight, ledger, devil's advocate, pola hook yang ditolak | Awal setiap script video/reel, mencari hook |
 | `jadisatu-narrator-vo` | Suara, model, dan cara merakit VO Inggris Jadisatu | VO marketing Jadisatu berbahasa Inggris |
 | `cinedance-block-library` | Merakit prompt video-generation dari blok kode | Brief format TRICK/FORMAT/ASSETS/BLOCKS untuk Seedance/Higgsfield |
@@ -56,6 +56,12 @@ Detail versi dan peta pemakaian ada di `external/README.md`.
 |---|---|
 | `jadisatu-60s` | Video 60-90 dtk (proyek baru 25 Okt): `DECISIONS.md` ledger, `REFERENSI.md` peran referensi. Gerbang script. |
 | `jadisatu-launch` | `AUTHORITY.md` (urutan menang, peran storyboard, gerbang per adegan), `ART-DIRECTION.md` (dunia Pixel vs Apple, peta adegan, transisi antar dunia, audio, peran referensi) |
+
+## Data referensi (repo terpisah)
+
+| Repo | Peran |
+|---|---|
+| `Siirfannih/canvas-skill-library` | Bukti referensi riset untuk Canvas (kartu video, resep kinetik, profil audio). **Data, bukan aturan**: dibuka hanya bila brief butuh contoh, kalah dari skill `claude/` bila bertentangan, tidak dimuat otomatis di sesi produksi (Irfan 6 Nov: library belum stabil) |
 
 ## Arsip (`archive/`)
 

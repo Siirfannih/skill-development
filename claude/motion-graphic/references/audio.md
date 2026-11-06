@@ -34,6 +34,15 @@ Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber
 Satu event satu suara; tidak ada suara yang tidak terikat ke sesuatu di layar. Setiap cue di lembar cue menyebut mekanik atau nada yang melahirkannya.
 
 
+### 14.B Format B: klip podcast/wawancara (Irfan 6 Nov)
+Profil lengkap di `formats.md`. Di format B suara pembicara adalah master; semua yang lain menyesuaikan.
+- **Suara pembicara masuk apa adanya**: tanpa EQ, LPF/HPF, denoise, kompresor, loudnorm dinamis, mono. Yang boleh hanya gain linear pada seluruh mix (aturan 43). §14.1 poin 1, §14.6, dan tabel level "Klip narasumber per blok" di §14.10 tidak berlaku.
+- **Musik**: satu bed tenang (lofi, ambient, fokus), register rendah, tanpa build/drop/tension; level di ujung bawah "Musik di bawah VO" §14.10. Tanpa musik juga sah bila brief memilihnya. §14.2 dan §14.4 tidak berlaku.
+- **SFX**: hanya pada sisipan motion (kartu/grafik masuk), memakai palet §14.8. Kalimat pembicara tanpa grafik tidak diberi SFX; target cakupan 85 % (§14.3) tidak berlaku.
+- **Potongan antar kalimat**: handle J/L-cut §14.7 tetap berlaku (tanpa guillotine), memakai audio sumber itu sendiri.
+- **Gerbang**: `scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` lulus (udara > 9 kHz ≥ 70 % sumber, LRA turun ≤ 2 LU) + integrated/true peak §14.10.
+- Mengapa: rantai Modul 1 pada audio DOAC yang sudah bersih memotong udara > 9 kHz ke 48 % dan render 6 Nov hanya 29 % dibanding versi lain dari sumber yang sama (LRA 4,0 → 0,7 LU); Irfan mendengarnya sebagai suara mendem dan musik yang merusak suasana.
+
 ### 14.0 Gerbang sumber SFX (WAJIB sebelum menyusun cue apa pun; Irfan 31 Okt 23:38)
 Kesalahan terbesar di proyek *Pengganti Kita Sendiri*:
 - Agent memakai bank bunyi **sintetis** (earshot `pool/bank`) dan bunyi Mixkit yang tidak sesuai gaya.
@@ -56,7 +65,7 @@ Aturan:
 5. **VO tidak diberi reverb/ekor ruang buatan.** Narator TTS harus kering dan dekat; ekor ruang membuatnya terdengar menggema.
 
 ### 14.1 Hierarki mix
-1. **VO pemilik panggung**: kompresi ringan, +2 dB di 3 kHz.
+1. **VO pemilik panggung** (format A): kompresi ringan, +2 dB di 3 kHz. Format B: suara pembicara tidak diproses (§14.B).
 2. **SFX penekan**: SFX besar jatuh di sela kata; dynamic EQ 200–500 Hz pada SFX saat VO; HPF 40 Hz bus SFX.
 3. **Musik pembangun emosi**: diletakkan tetap di bawah VO (level di §14.10), −4 dB di 3 kHz. **Tidak ada ducking kompresor 6–12 dB**: musik bergerak ≤ 1,5 dB saat kata diucapkan (anti-pumping) dan hanya naik di jeda panjang/antarbabak lewat automation ramp ≥ 250 ms. Alasan: musik yang sudah duduk di level yang benar tidak perlu dipompa, dan pompaan terdengar (The Gap v17, Irfan 26 Okt; diputuskan 6 Nov).
 4. **Semua angka level ada di satu tempat: tabel §14.10.** Bagian lain tidak menulis angka level sendiri (Irfan 6 Nov).
@@ -143,8 +152,8 @@ Akar masalah di v2:
 - **Ujung potongan memakai fade 12–30 ms.** Ducking juga pumping saat release.
 - **Musik dimatikan ke 0 di bawah Jensen** (aturan lama "hening total", sekarang dicabut).
 
-### 14.6 Modul 1 — pre-processing wajib setiap klip narasumber/berita
-Klip eksternal (berita, wawancara, podcast, konferensi) tidak pernah masuk mix mentah:
+### 14.6 Modul 1 — pre-processing klip sisipan di video ber-VO (format A saja)
+Berlaku untuk klip eksternal pendek (berita, wawancara, konferensi) yang **disisipkan di tengah narasi** dan **terukur buruk** (gema, boxy, level jauh dari narator). Klip yang sudah bersih cukup disamakan levelnya dengan gain linear. **Format B tidak memakai rantai ini** (§14.B). Rantai untuk klip yang terukur buruk:
 ```
 ffmpeg -y -i klip_mentah.mp4 -vn -af "pan=mono|c0=0.5*c0+0.5*c1,highpass=f=120:poles=2,equalizer=f=320:t=q:w=1.8:g=-5.0,equalizer=f=3200:t=q:w=1.4:g=2.5,lowpass=f=9000:poles=2,afftdn=nf=-25,acompressor=threshold=-20dB:ratio=3.5:attack=5:release=80:makeup=4dB,loudnorm=I=-15.5:TP=-2.0:LRA=5.0" -ar 48000 -ac 2 klip_bersih.wav
 ```

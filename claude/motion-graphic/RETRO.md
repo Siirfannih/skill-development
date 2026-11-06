@@ -210,3 +210,9 @@ Pelajaran lintas proyek:
 2. Aturan yang sudah dikunci harus jadi cek otomatis, bukan catatan.
 3. Proses panjang dijalankan di latar belakang dengan laporan progres.
 4. Sesi yang dibuat sebagai scheduled task tidak muncul di daftar chat. Beri tahu Irfan tautan sesinya sejak awal.
+
+### 2026-11-06 · Klip DOAC (clip01_final) · audio + caption
+Revisi Irfan: suara pembicara di-damp padahal audio podcast sudah bagus; musik tidak tenang (harusnya lofi/fokus); caption dua baris muncul lagi padahal referensi tidak memakainya.
+Akar masalah: skill hanya mengenal satu jenis video (motion ber-VO narator). Aturan 38 mewajibkan rantai Modul 1 (mono, LPF 9 kHz, denoise, kompresor, loudnorm) untuk *setiap* klip narasumber, musik per babak/tension berlaku untuk semua, dan aturan caption tidak membatasi jumlah baris. Terukur: udara > 9 kHz 0,29× dibanding versi lain dari sumber yang sama, LRA 0,7 LU; caption 2 baris di 14,5 / 24,2 / 72,8 dtk.
+Perubahan: profil format A/B (`formats.md`), aturan 43 dan 44, Modul 1 dibatasi ke format A, `slop-catalog.md`, `delivery-gate.md` (preview dulu, laporan berbukti), `scripts/gate/`. Kasus eval mg-043, mg-044.
+Status: diterapkan (Irfan 6 Nov: "langsung restrukturisasi")

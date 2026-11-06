@@ -1,6 +1,6 @@
 # Panduan keputusan: teks, visual, kotak, warna (logika, bukan contoh)
 
-Dibaca di gerbang storyboard (4) dan QA (9). Setiap keputusan per beat diambil dengan urutan di bawah, lalu dicatat di tabel beat dengan kolom **mode · alasan · cek**. File ini menang atas `three-segment-gate.md` dan `typography.md` bila bertentangan, dan atas panduan kinetik `canvas-skill-library` (yang menyuruh subtitle selalu stabil) untuk urusan mode teks (Irfan 6 Nov).
+Dibaca di gerbang storyboard (4) dan QA (9). Setiap keputusan per beat diambil dengan urutan di bawah, lalu dicatat di tabel beat dengan kolom **mode · alasan · cek**. File ini menang atas `three-segment-gate.md` dan `typography.md` bila bertentangan, dan atas `canvas-skill-library` yang hanya data referensi (Irfan 6 Nov).
 
 Prinsip dasarnya: penonton HP hanya menangkap **satu hal per momen**. Semua aturan di bawah adalah cara memilih hal itu.
 
@@ -27,6 +27,7 @@ Tentukan dulu jenis kalimat VO-nya, baru modenya.
 - **Nyala** bila: video ditonton di feed tanpa suara, formatnya wawancara/pembicara, atau penonton bukan penutur bahasa VO.
 - **Mati** bila: VO narator dan setiap beat sudah punya visual, penekanan, atau teks diegetik.
 - Bila nyala:
+  - **satu baris**: tidak pernah dibungkus jadi dua baris, tidak ada kata yatim, tidak terpotong tepi; klausa yang tidak muat lebar aman dipecah jadi dua caption berurutan (aturan 44, Irfan 6 Nov);
   - per klausa 2–5 kata, tidak per kata dan tidak memotong kata;
   - posisinya tetap selama satu shot, boleh pindah antar shot ke area tenang;
   - menghilang saat beat visual atau penekanan;
