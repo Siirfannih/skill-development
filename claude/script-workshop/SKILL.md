@@ -1,67 +1,66 @@
 ---
 name: script-workshop
-description: Brainstorm and write a short-video script with Irfan from zero to approved (hook, problem, structure, VO). Use when he starts a new video/reel script or asks for a hook.
+description: Menulis konten Irfan dari ide sampai naskah siap take: script reels/video, carousel, caption, thread, ideasi, dan hook, untuk Jadisatu maupun akun pribadinya. Pakai setiap kali Irfan minta ide konten, hook, naskah, carousel, caption, atau merevisi tulisan, walau permintaannya singkat ("bikinin script reels soal UMKM", "hook-nya kurang nendang").
 ---
 
 # Script workshop (Irfan)
 
-Proses yang menghasilkan script Jadisatu 60–90 dtk pada 25 Okt 2026 (`projects/jadisatu-60s/`). Ditulis supaya sesi berikutnya bisa mengulang proses ini lebih cepat. Gerbang dan uji kalimat tetap mengikuti `motion-graphic` §3 dan `references/copywriting.md`; skill ini mengatur **cara sampai ke script**.
+Satu skill untuk semua tulisan konten Irfan. File ini alur kerja + aturan mutlak. Rasa dan contoh ada di `guide/` (buka folder urusan yang sedang dikerjakan saja). Naskah video yang sudah final diteruskan ke `motion-graphic`.
 
-## 1. Siapkan (sebelum bertanya apa pun)
+Menggantikan `irfan-content-engine` v1/v2 yang dibuat di Gemini (6 Nov). Kesalahan berulangnya dicatat di `guide/hindari/` supaya tidak terulang.
 
-1. Buat folder `projects/<proyek>/` di repo `skill-development` dengan `DECISIONS.md` (ledger, format `motion-graphic/references/revision-log.md` §21), `REFERENSI.md`, `INSIGHTS.md`, `HOOKS.md`.
-2. Catat brief Irfan **verbatim** sebagai baris ledger pertama: durasi, penonton, rasio dunia visual, urutan prioritas.
-3. Bedah setiap referensi sendiri: contact sheet 1 frame/2–3 dtk untuk gambaran, 2 fps untuk 15 dtk pertama (hook). Nama file referensi = apa yang ditiru. Tulis temuan dengan detik.
-4. Tulis satu kalimat "yang aku tangkap dari referensi ini adalah…" dan kirim bersama pertanyaan pertama.
+## 1. Aturan mutlak (sedikit, karena pernah merusak)
 
-## 2. Bertanya saat Irfan lelah
+1. **Jangan mengarang pengalaman, data, atau fitur.** Yang tidak Irfan alami ditulis sebagai hipotesis/pertanyaan, bukan "ternyata…". Fitur & penawaran hanya dari `guide/produk/FAKTA.md` atau kata Irfan di sesi.
+2. **Riset dulu, baru tanya.** Hipotesis Irfan divalidasi lewat web search sebelum menulis; setiap klaim angka/fakta punya sumber yang bisa diklik. Tanya Irfan hanya yang tidak bisa diriset (pengalaman pribadinya, keputusan).
+3. **Evaluasi diri sebelum menunjukkan draft.** Jalankan cek di §4 dan tulis temuan + perbaikannya. Jangan menutup dengan meminta pujian ("udah dapet banget kan?") atau bagian "kenapa skrip ini bagus".
+4. **Kalau Irfan bilang ada yang kurang tanpa merinci, cari sendiri dulu**: sebut apa yang kurang + cara memperbaikinya, baru tanya bila masih ragu.
 
-- Maksimal 3–4 pertanyaan per ronde, masing-masing dengan pilihan berhuruf + rekomendasi + alasan satu kalimat. Irfan cukup membalas "1A 2C".
-- Urutan ronde yang terbukti: (1) penonton dan tujuan, (2) pola struktur dari referensi, (3) satu hal paling penting/masalah, (4) hook, (5) penutup/CTA.
-- Setiap jawaban Irfan: catat verbatim di ledger **sebelum** mengembangkannya.
+Selebihnya di `guide/` adalah arah, bukan aturan: pilih bebas asal bisa jelaskan alasannya satu kalimat. Ragu antara hook berani vs aman → ambil yang berani, lalu uji.
 
-## 3. Bank insight
+## 2. Alur
 
-Setiap insight Irfan, termasuk yang ia berikan saat menolak opsi, masuk ke `INSIGHTS.md` dengan kolom asal dan peran usulan (hook, masalah, breakdown, penutup, cadangan). Insight bukan hanya bahan hook: ia membangun seluruh struktur. Bukti eksternal (kutipan tokoh, riset) masuk dengan sumber yang bisa diklik.
+| # | Langkah | Buka | Selesai jika |
+|---|---|---|---|
+| 0 | Muat konteks | `guide/produk/FAKTA.md`, `content-ops/lanes/<jalur>.md` | Jalur (Jadisatu / Siirfan / affiliate), format, durasi, CTA jelas |
+| 1 | Riset & validasi | `guide/riset/` | Hipotesis diuji: data mendukung / membantah / campur, dengan link |
+| 2 | Gali cerita Irfan | `guide/suara/` | Hanya hal yang tidak bisa diriset; maks 3–4 pertanyaan berpilihan + rekomendasi |
+| 3 | Sudut & hook | `guide/audiens/`, `guide/hook/` | ≥ 10 kandidat, digugurkan dengan tabel tolak, 2–3 terbaik + rekomendasi |
+| 4 | Draft | `guide/struktur/` | Carousel atau reels; tiap bagian punya jembatan ke bagian berikut |
+| 5 | Evaluasi diri | §4 di bawah + `guide/hindari/` | Semua cek dijawab; perbaikan sudah diterapkan |
+| 6 | Kirim | — | Draft + catatan evaluasi singkat + sumber + maks 2 pertanyaan yang mengubah langkah berikutnya |
 
-## 4. Hook
+Proyek video panjang: simpan di `projects/<proyek>/` (DECISIONS, INSIGHTS, HOOKS, SCRIPT). Konten harian: cukup `content-ops/pieces/`.
 
-Hook adalah **opini yang kita yakini**, ditulis argumentatif, membawa emosi (marah, sedih, tegang, atau bahagia) yang berubah menjadi penasaran (kenapa/apa/bagaimana).
+## 3. Bertanya
 
-Pola dari referensi Irfan (Holy Freak, Storytellers, Gawx, Shapes, kaye.creatives):
-1. Jangkar nyata yang spesifik (tokoh bernama, karya sendiri, kutipan) atau langsung melibatkan penonton ("kamu").
-2. Sebut yang semua orang lakukan/percayai.
-3. Vonis tegas yang membantahnya.
-4. Jawab "kenapa" secukupnya agar tesis berdiri; tahan "bagaimana" untuk badan video.
+- Maks 3–4 pertanyaan per ronde, pilihan berhuruf + rekomendasi + alasan satu kalimat. Irfan cukup jawab "1A 2C".
+- Jawaban Irfan dicatat verbatim sebelum dikembangkan. Insight yang muncul saat ia menolak opsi juga dicatat.
+- Devil's advocate (`working-with-irfan` §2a) untuk setiap masukan Irfan dan setiap draft.
 
-Hook yang lolos di proyek pertama: konsep dulu, nama tokoh sesudahnya (tokoh tidak dikenal penonton Indonesia), lalu vonis: "Ada jarak antara seleramu dan kemampuanmu. Ira Glass menyebutnya the gap. … Sekarang, AI menutup jarak itu dalam tiga detik. … Dan taste-mu berhenti tumbuh."
+## 4. Evaluasi diri (wajib sebelum kirim)
 
-### Ditolak Irfan (jangan diulang)
+- [ ] Ada kalimat yang mengaku pengalaman/temuan yang tidak Irfan miliki? → ubah jadi hipotesis/pertanyaan.
+- [ ] Setiap fakta/angka punya sumber? Yang tidak → hapus atau tandai `[perlu data]`.
+- [ ] Hook: sudah berapa banyak konten membuka dengan kalimat serupa? Kalau "banyak" → cari sudut lain (`guide/hook/`).
+- [ ] Hook menyentuh semua audiens target (follower & non-follower; pemilik & pembangun bisnis kecil)? (`guide/audiens/`)
+- [ ] Baca keras berurutan: ada perpindahan bagian yang putus/tiba-tiba? Tambah jembatan.
+- [ ] Fitur & penawaran sesuai `FAKTA.md`, termasuk penawaran gratis yang relevan?
+- [ ] Kata haram & pola AI dari `guide/suara/` dan lane terkait?
+- [ ] Durasi: 2,5–3 kata/dtk VO Indonesia; durasi per bagian tertulis.
 
-| Pola | Contoh yang ditolak | Kenapa |
-|---|---|---|
-| Klaim tanpa bukti | "Orang yang paling sering pakai AI, sering paling sedikit hasilnya" | Bagaimana kita tahu? |
-| Pengakuan tanpa konteks | "Aku pernah berminggu-minggu membangun pakai AI" | Membangun apa? Terus kenapa? |
-| Tema penjual kelas/prompt | "Video ini 100% dibuat AI" | Sudah dipakai orang yang jualan template |
-| Angka kaku | "Lebih dari 20 versi. Tujuh hari." | Tidak natural |
-| Aman, tanpa emosi | "Taste. Satu-satunya hal yang tidak bisa kamu minta dari AI." | Tidak membantah apa pun, langsung memberi jawaban |
-| **AI loop**: contoh skenario generik di depan lalu dibantah | "Belajar AI seminggu. Bikin website. Minggu depannya jualan kelas." / "Sekarang semua orang bisa membuat apa saja dengan AI" | Tidak spesifik, opini umum, penonton tidak dilibatkan; tidak ada referensi yang membuka begini |
-| Format talking head di video motion | "Kamu bisa mengenali desain AI dalam satu detik" | Butuh wajah; video Apple-style hidup dari teks, objek, visual |
+## 5. Struktur
 
-Proses: tulis ≥ 10 kandidat, gugurkan yang masuk tabel di atas, beri skor (spesifik, jarang diucapkan, familiar, natural, mengarah ke tesis), lalu tawarkan 2–3 dengan rekomendasi.
-
-## 5. Devil's advocate (wajib)
-
-Setiap masukan Irfan dan setiap draft melewati `working-with-irfan` §2a: inti → steelman → serang (penonton awam, penonton skeptis pintar, fakta) → pre-mortem → putusan. Contoh yang menyelamatkan script pertama: bantahan "obat Ira Glass adalah volume, AI memberi volume tanpa batas" dijawab di breakdown ("AI memberimu ribuan. Tapi tidak satu pun yang kamu kecewai.").
-
-## 6. Menyusun script
-
-1. Kerangka dari pola referensi yang dipilih (proyek pertama: Gawx = satu pertanyaan dibongkar per bagian, dibungkus visual Apple): hook → masalah → breakdown 3 bagian + bukti tokoh nyata → penutup + tagline.
-2. Isi tiap bagian dari bank insight; sebut nomor insight yang dipakai.
-3. Hitung kata (2,5–3 kata/dtk VO Indonesia) dan tulis durasi per bagian.
-4. Kirim draft di chat dengan devil's advocate-nya sendiri dan maksimal 2 pertanyaan.
-5. Setelah Irfan menyetujui, simpan `SCRIPT.md` dengan kutipan persetujuannya dan daftar yang masih terbuka. Visual dan storyboard baru dimulai setelah ini.
-
-## 7. Waktu
-
-Proyek pertama: ±1 jam untuk 7 ronde. Penghambat terbesar: hook ditolak 5 kali karena pola di §4 tabel. Mulai dari tabel itu untuk memangkas ronde.
+```
+script-workshop/
+├── SKILL.md          alur + aturan mutlak (file ini)
+└── guide/
+    ├── riset/        validasi hipotesis, sumber, cara membingkai bila data tipis
+    ├── audiens/      lapisan penonton, follower vs non-follower, pemilik vs pembangun kecil
+    ├── hook/         rumus hook, pola yang ditolak Irfan, cara memberi skor
+    ├── suara/        suara Irfan, kata & pola haram
+    ├── struktur/     reels, carousel, caption; jembatan antar bagian; durasi
+    ├── produk/       FAKTA.md: fitur & penawaran Jadisatu yang boleh diklaim
+    └── hindari/      pola kesalahan berulang (Gemini 6 Nov, proyek sebelumnya)
+```
+Bedah video referensi untuk editing: `motion-graphic` (`references/analysis-qa.md`, `guide/referensi/`), bukan skill ini.

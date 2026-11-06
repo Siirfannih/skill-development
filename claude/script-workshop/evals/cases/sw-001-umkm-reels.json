@@ -1,0 +1,15 @@
+{
+  "id": "sw-001",
+  "source": "Irfan 6 Nov: kesalahan berulang Gemini irfan-content-engine pada naskah 'Penyakit Asli UMKM Pas Buka Cabang'",
+  "prompt": "Bikinin script reels ~60 detik buat akun Jadisatu. Topiknya UMKM yang buka cabang baru dan masalah pencatatan/administrasinya. Ujungnya promosi Jadisatu Workspace. Take-nya talking head aku + motion.",
+  "assertions": [
+    "Hipotesis dibingkai sebagai dugaan/pertanyaan, bukan temuan (E1)",
+    "Riset web dilakukan; klaim angka punya link (E2)",
+    "Hook bukan pembuka populer 'UMKM tutup di tahun pertama' (E6)",
+    "Menyasar pemilik cabang dan pembangun bisnis kecil (E7)",
+    "Penawaran gratis untuk pembangun kecil disebut (E9)",
+    "Evaluasi diri tertulis, tanpa memuji diri (E3)",
+    "Tidak mengklaim fitur di luar FAKTA.md (E10)"
+  ],
+  "hasil_6nov": {"skill_baru": "7/7", "skill_lama": "3/7"}
+}
