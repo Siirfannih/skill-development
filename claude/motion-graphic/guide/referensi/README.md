@@ -9,6 +9,7 @@ Contact sheet per video di `sheets/` (24 frame bertimestamp). Angka diukur 6 Nov
 | 03 | explore (vlog dok ID) | vlog + tipografi besar | 19 · 1,6 dtk | 50 | ±104 bpm | kuning-hijau di atas biru tua |
 | 04 | Cognition story | dokumenter narator, foto arsip | 65 · 0,7 dtk | 73 | ±117–123 bpm | merah/marun 76 % + netral |
 | 05 | Hook momentum | motion UI + kinetik | 18 · 2,2 dtk | 66 | ±125–136 bpm | merah-oranye 87 % + putih |
+| 07 | Baikov / Shapes | product film onboarding (16:9) | 13 · 1,8 dtk | 49 | padat (tanpa VO, perlu cek) | biru dominan + aksen hangat · katalog teknik BK01–BK10: `baikov.md` |
 | 06 | Sleeko HowDo | product film landscape | 5 · 8,5 dtk | 27 | ±117 bpm (ragu oktaf) | ungu 62 % + putih |
 
 Pola bersama: semua cepat (kecuali 06), musik 104–136 bpm mengikuti tempo cut; palet satu keluarga dominan kecuali 02 yang sengaja maksimalis; teks layar sedikit kata per momen.

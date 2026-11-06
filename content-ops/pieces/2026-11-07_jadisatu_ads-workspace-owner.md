@@ -39,10 +39,23 @@ Palet: biru Jadisatu yang dalam + netral, satu aksen; tidak ada teks biru di lat
 
 Aset yang dibutuhkan sebelum build: rekaman layar Workspace asli (dasbor multi-cabang, pemilih cabang, laporan WhatsApp, grafik stok + saran restock) dari akun demo; 6–9 contoh konten/video karya tim (atau label honest placeholder bila belum ada portofolio nyata).
 
+## 3b. Treatment Baikov (Irfan 7 Nov: pakai format referensi 07)
+Gaya: `motion-graphic/guide/referensi/baikov.md`. Penyesuaian: 9:16 (bukan 16:9), hook pemilik bisnis tetap di 0–4 dtk (iklan dingin), teks UI dibangun di ukuran asli lalu kamera zoom agar terbaca di HP.
+| # | Beat | Teknik Baikov |
+|---|---|---|
+| 1–2 | Hook: dua pertanyaan pemilik | BK01 kalimat besar menjadi objek kecil; foto toko/cabang disisipkan sebagai tanda baca |
+| 3 | Laporan nunggu kekumpul | BK02 kata pusat kecil, kertas/struk/file mengisi tepi sebagai struktur |
+| 4 | Dirangkum jadi satu, akun per cabang | BK06 roda pilihan Cabang 1/2/3 (satu aktif) → BK07 dasbor Workspace lahir bertahap |
+| 4b | Laporan ke WhatsApp | BK08 fokus satu widget → panel chat WA naik dari kanan (seperti panel asisten) |
+| 5 | Stok habis & saran belanja | BK09 kartu angka + garis stok, kartu tengah membuka saran restock |
+| 6 | Kelola sosmed + Workspace gratis | BK05 wipe dari shape kartu konten → grid feed/TikTok |
+| 7 | CTA | BK10 objek pembuka (titik cabang) kembali membentuk logo |
+
 ## 8. Seri konten Workspace
 | # | Video | Format | Status |
 |---|---|---|---|
 | 1 | "Uangnya nggak jelas larinya ke mana" (organik, 3 audiens, CTA komen "workspace") | talking head + motion | FINAL-SCRIPT · `2026-11-07_jadisatu_umkm-buku-cabang.md` |
 | 2 | Iklan pemilik bisnis (file ini) | motion, VO | DRAFT naskah + storyboard |
 | 3 | Gabungan semuanya: masalah → catat lewat WA → fitur owner → paket kelola sosmed + Workspace gratis | talking head + sisipan motion, 60–75 dtk | belum ditulis; menunggu syarat refund |
+| 2b | Onboarding in-app / landing (versi panjang 60–70 dtk, treatment Baikov: daftar → catat lewat WA → cabang → dasbor → stok → Done) | motion, tanpa VO atau VO opsional | usulan |
 | 4 | Review cara pakai mendalam: daftar → catat lewat WA → upload data cabang → baca laporan → stok | rekaman layar + VO, 2–4 menit (bisa dipecah jadi 3 klip pendek) | belum ditulis; butuh akun demo + rekaman layar |
