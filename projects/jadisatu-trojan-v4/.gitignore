@@ -1,0 +1,5 @@
+remotion/node_modules/
+remotion/out/
+render/
+*.wav
+!vo/vo.wav
