@@ -1,5 +1,12 @@
 # Catatan sesi scriptwriter
 
+## 7 November 2026 · DOAC 5 klip (motion-graphic, format B)
+
+- Permintaan: lanjutkan brief clip60, lima video DOAC masing-masing 60–80 dtk, ikut aturan skill terbaru (Format/kategori di brief, pace_read, music_fit, preview dulu, Delivery Gate).
+- Hasil: 5 MP4 9:16 (64,6–68,3 dtk) + DELIVERY_GATE.md + SFX_LIST.md + BRIEF.md di Drive `Claude edit/DOAC 5 klip - 2026-11-07`. Catatan: `projects/doac-5-klip/README.md`.
+- Gerbang: voice_fidelity, caption_lines, palette PASS di 5/5; loudness PASS 2/5, tiga klip −15,4…−15,9 LUFS karena TP sumber (penyimpangan tercatat).
+- Belum: dengar manual di HP oleh Irfan; jawaban atas 3 baris baru di PENDING.md; dua branch belum-merge yang mengubah `claude/` (cursor/skill-load-order-3827, siirfannih/storyboard-video-marketing) dilaporkan, tidak disentuh.
+
 ## 29 Oktober 2026 · Jadisatu Canvas Storyboard
 
 - Permintaan: Mode Storyboard online dengan frame, narasi, durasi, gerak, transisi, urutan dan pembacaan AI per adegan.
