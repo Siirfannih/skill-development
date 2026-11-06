@@ -16,6 +16,7 @@ Lolos (Jadisatu 60s, 25 Okt): "Ada jarak antara seleramu dan kemampuanmu. Ira Gl
 - **Celah penasaran**: keputusan yang terdengar aneh lalu ditahan alasannya ("aku kasih gratis, dan ini alasannya").
 - **Pertanyaan yang langsung menunjuk penonton**: dijawab "iya juga ya" oleh ketiga audiens.
 - **Loop terbuka**: janji jawaban yang baru dibayar di tengah/akhir.
+**Analogi relate harus menunjuk langsung ke produk**: "gimana kalau nyatet keuangan usaha semudah chattingan sama ayang di WhatsApp?" (Irfan 7 Nov) menang atas hook universal yang tidak berkorelasi dengan produk ("nyatet hal penting di chat" = bisa apa saja). Trojan horse ada di analoginya, pesannya tetap niche.
 Hook informatif (angka, studi) jarang viral untuk akun kecil; pakai sebagai bukti di badan, bukan pembuka.
 
 ## Bila basisnya hipotesis (Irfan belum mengalami/mewawancarai)
