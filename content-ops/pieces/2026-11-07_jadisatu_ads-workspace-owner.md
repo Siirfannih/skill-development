@@ -1,7 +1,7 @@
 # 2026-11-07_jadisatu_ads-workspace-owner · Iklan motion untuk pemilik bisnis
 
 piece_id: 2026-11-07_jadisatu_ads-workspace-owner
-Jalur: Jadisatu · Format: video iklan (motion, format A: VO + motion, tanpa wajah) · Platform: IG/FB Ads, TikTok Ads · Status: DRAFT
+Jalur: Jadisatu · Format: video iklan (motion, format A: VO + motion, tanpa wajah) · Platform: IG/FB Ads, TikTok Ads · Status: STORYBOARD DRAFT · storyboard v1: `2026-11-07_jadisatu_ads-workspace-owner-storyboard.md`
 Model naskah: claude-opus-5-5 (skill `script-workshop` + `motion-graphic`)
 Seri: video 2 dari 4 (lihat §8)
 
