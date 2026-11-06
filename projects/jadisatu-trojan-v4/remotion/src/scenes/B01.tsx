@@ -35,7 +35,7 @@ export const B01: React.FC = () => {
                 const isWA = clean(w.w).startsWith('WhatsApp');
                 const accent = clean(w.w) === 'ayang';
                 return (
-                  <MBlur key={i} y={(1 - p) * 8} style={{ opacity: p, transform: `translateY(${(1 - p) * 34}px)` }}>
+                  <MBlur key={i} y={(1 - p) * 8} style={{ opacity: p, transform: `translateY(${(1 - p) * 34}px)`, maxWidth: p * 900, marginRight: p < 0.02 ? -22 : 0, overflow: 'visible', whiteSpace: 'nowrap' }}>
                     <span style={{ fontSize: 92, fontWeight: 800, letterSpacing: '-0.03em', color: accent ? '#2563EB' : '#0F172A', display: 'inline-flex', alignItems: 'center', gap: 16 }}>
                       {isWA && <span style={{ transform: `scale(${pop(f, s)})`, display: 'inline-flex' }}><Brand icon={WA} size={84} /></span>}
                       {clean(w.w)}

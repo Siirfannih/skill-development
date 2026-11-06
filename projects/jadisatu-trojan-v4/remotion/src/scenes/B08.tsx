@@ -11,7 +11,7 @@ import { Ringkasan, StatusChip } from '../ui/portal';
 import { whip } from '../ui/trans';
 
 const FOOD = ['dumpling', 'hot_beverage', 'bread', 'bento_box', 'croissant', 'cookie', 'rice_ball', 'pot_of_food', 'shortcake', 'fried_shrimp'];
-const GRAD = ['#FFE7C7,#FFC98F', '#E3ECFF,#BFD2FF', '#FDE2E4,#F9B9C0', '#E2F6EA,#B5E6C9', '#FFF1C9,#FFDD7A', '#EDE4FF,#CDB8FF'];
+const GRAD = ['#EAF1FF,#C9DAFF', '#E3ECFF,#BFD2FF', '#EEF3FF,#D6E2FF', '#E6EEFF,#B8CCF7', '#F0F4FF,#DCE6FF', '#E1E9FF,#C3D4FB'];  // satu keluarga biru (palet terkunci)
 const Tile: React.FC<{ i: number; size: number; r?: number }> = ({ i, size, r = 0.22 }) => (
   <div style={{ width: size, height: size, borderRadius: size * r, background: `linear-gradient(150deg,${GRAD[i % GRAD.length]})`, display: 'grid', placeItems: 'center', boxShadow: '0 24px 50px rgba(30,50,110,.16)', border: '4px solid #fff' }}>
     <Emoji n={FOOD[i % FOOD.length]} size={size * 0.62} style={{ filter: 'drop-shadow(0 8px 10px rgba(0,0,0,.12))' }} />
@@ -103,8 +103,8 @@ export const B08: React.FC = () => {
                     <div style={{ marginLeft: 20, flex: 1, height: 34, borderRadius: 10, background: '#fff', display: 'flex', alignItems: 'center', gap: 8, padding: '0 14px', fontSize: 18, color: '#5B6475' }}><Lock size={16} />Risol Bu Sari · Menu &amp; pesan</div>
                   </div>
                   <div style={{ padding: 26, display: 'grid', gap: 18 }}>
-                    <div style={{ height: 260, borderRadius: 24, background: 'linear-gradient(120deg,#FFE7C7,#FFC98F)', display: 'flex', alignItems: 'center', padding: '0 50px', gap: 30, transform: `translateY(${(1 - eo(lt(1), 2, 10)) * 60}px)`, opacity: eo(lt(1), 2, 10) }}>
-                      <div style={{ flex: 1 }}><div style={{ fontSize: 60, fontWeight: 800, letterSpacing: '-0.03em' }}>Risol Bu Sari</div><div style={{ fontSize: 26, color: '#7A4B12', marginTop: 6 }}>Risol rumahan, digoreng tiap pagi</div></div>
+                    <div style={{ height: 260, borderRadius: 24, background: 'linear-gradient(120deg,#EAF1FF,#C3D4FB)', display: 'flex', alignItems: 'center', padding: '0 50px', gap: 30, transform: `translateY(${(1 - eo(lt(1), 2, 10)) * 60}px)`, opacity: eo(lt(1), 2, 10) }}>
+                      <div style={{ flex: 1 }}><div style={{ fontSize: 60, fontWeight: 800, letterSpacing: '-0.03em' }}>Risol Bu Sari</div><div style={{ fontSize: 26, color: '#334155', marginTop: 6 }}>Risol rumahan, digoreng tiap pagi</div></div>
                       <Emoji n="dumpling" size={200} />
                     </div>
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: 18 }}>

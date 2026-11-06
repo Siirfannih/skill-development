@@ -22,14 +22,14 @@ export const B03: React.FC = () => {
   const GAP = 600;
   const camX = (x: number) => interpolate(x, [s, tAtau - 4, tAtau + 6, tToko - 2, tToko + 8, tMas - 2, tMas + 12], [0, 0, GAP, GAP, 2 * GAP, 2 * GAP, GAP], { ...clamp, easing: EASE });
   const cx = camX(f); const vx = Math.abs(camX(f + 0.5) - camX(f - 0.5)) * 0.5;
-  const zoom = interpolate(f, [tMas - 2, tMas + 12], [1, 0.78], { ...clamp, easing: EASE });
+  const zoom = interpolate(f, [tMas - 2, tMas + 12], [1, 0.88], { ...clamp, easing: EASE });
   // keluar: push-through ke buku tengah
   const push = interpolate(f, [e - 9, e + 4], [1, 9], { ...clamp, easing: (t) => t * t * t });
   const pushBlur = interpolate(f, [e - 6, e + 4], [0, 14], clamp);
   return (
     <AbsoluteFill style={{ opacity: interpolate(f, [e + 1, e + 5], [1, 0], clamp) }}>
       <MBlur x={vx} y={vy + pushBlur} style={{ position: 'absolute', inset: 0, transform: `translateY(${yin}px) scale(${push})`, transformOrigin: '960px 560px' }}>
-        <div style={{ position: 'absolute', left: 960, top: 470, transform: `scale(${zoom}) translateX(${-cx}px)` }}>
+        <div style={{ position: 'absolute', left: 960, top: 560, transform: `scale(${zoom}) translateX(${-cx}px)` }}>
           {CARDS.map((c, i) => {
             const tIn = [s - 6, tAtau - 4, tToko - 4][i];
             const p = pop(f, tIn, 30, 16, 170);

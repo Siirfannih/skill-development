@@ -19,7 +19,7 @@ export const B10: React.FC = () => {
     <AbsoluteFill>
       <div style={{ position: 'absolute', left: 0, right: 0, top: mix(510, 360, up), display: 'flex', justifyContent: 'center', gap: 11, opacity: 1 - 0.45 * up }}>
         {W.map((w, i) => { const p = eo(f, fr(w.s) - 2, 7); return (
-          <MBlur key={i} y={(1 - p) * 6} style={{ opacity: p, transform: `translateY(${(1 - p) * 12}px)` }}>
+          <MBlur key={i} y={(1 - p) * 6} style={{ opacity: p, transform: `translateY(${(1 - p) * 12}px)`, maxWidth: p * 400, marginRight: p < 0.02 ? -11 : 0, whiteSpace: 'nowrap' }}>
             <span style={{ fontSize: 40, fontWeight: 600, color: '#F4F5F7', letterSpacing: '-0.01em' }}>{clean(w.w)}</span>
           </MBlur>); })}
       </div>

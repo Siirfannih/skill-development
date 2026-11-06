@@ -22,7 +22,7 @@ export const B06: React.FC = () => {
   if (f < t0 - 2 || f > end + 2) return null;
   // ---- dasbor ----
   const st = (k: string) => {
-    const m: Record<string, [number, number]> = { frame: [0, 8], side: [4, 12], head: [8, 10], k1: [11, 10], k2: [14, 10], k3: [17, 10], k4: [20, 10], chart: [22, 18], list: [28, 14] };
+    const m: Record<string, [number, number]> = { frame: [0, 4], side: [1, 9], head: [3, 8], k1: [6, 9], k2: [8, 9], k3: [10, 9], k4: [12, 9], chart: [13, 16], list: [17, 12] };
     const [a, d] = m[k]; return eo(f, t0 + a, d);
   };
   const born = interpolate(f, [t0, t0 + 14], [0, 1], { ...clamp, easing: EASE });
@@ -39,8 +39,8 @@ export const B06: React.FC = () => {
   const cabIn = interpolate(f, [tKal + 2, tKal + 12], [1100, 0], { ...clamp, easing: (t) => 1 - Math.pow(1 - t, 3) });
   const vCab = Math.abs(interpolate(f + 0.5, [tKal + 2, tKal + 12], [1100, 0], { ...clamp, easing: (t) => 1 - Math.pow(1 - t, 3) }) - cabIn) * 0.35;
   const cabOn = f >= tKal + 2;
-  const curX = interpolate(f, [tCab - 4, tTam - 4], [1500, 1262], { ...clamp, easing: EASE });
-  const curY = interpolate(f, [tCab - 4, tTam - 4], [860, 452], { ...clamp, easing: EASE });
+  const curX = interpolate(f, [tCab - 4, tTam - 4], [1500, 1353], { ...clamp, easing: EASE });
+  const curY = interpolate(f, [tCab - 4, tTam - 4], [860, 479], { ...clamp, easing: EASE });
   const press = f >= tTam - 1 && f < tTam + 6 ? 1 - Math.abs(f - tTam - 1) / 5 : 0;
   const chips = [{ n: 'Cabang 1', t: tKal + 8 }, { n: 'Cabang 2', t: tCab2 - 2 }, { n: 'Cabang 3', t: tCab2 + 8 }];
   const one = eo(f, tSat - 2, 10);
@@ -59,10 +59,16 @@ export const B06: React.FC = () => {
         );
       })()}
       {calA > 0 && (
-        <div style={{ position: 'absolute', inset: 0, opacity: calA }}>
-          <div style={{ position: 'absolute', left: 0, right: 0, top: 150, textAlign: 'center' }}>
+        <div style={{ position: 'absolute', inset: 0, opacity: calA, transform: `scale(${mix(1.25, 1.0, sug)})`, transformOrigin: '960px 330px' }}>
+          <div style={{ position: 'absolute', left: 0, right: 0, top: 56, textAlign: 'center' }}>
             <span className="font-display" style={{ fontSize: 34, fontWeight: 600, color: '#5B6475' }}>November</span>
           </div>
+          {/* minggu sebelum/sesudah: redup + blur untuk kedalaman (09) */}
+          {[-1, 1].map((r) => (
+            <div key={r} style={{ position: 'absolute', left: 0, right: 0, top: 262 + r * 140, display: 'flex', justifyContent: 'center', gap: 18, transform: `translateX(${calX * 0.7 - 2 * 118}px) scale(0.92)`, filter: 'blur(3px)', opacity: 0.35 }}>
+              {DAYS.map((d) => <div key={d} className="tabular" style={{ width: 100, textAlign: 'center', fontSize: 44, fontWeight: 800, color: '#94A3B8' }}>{r < 0 ? d - 7 : d + 7 > 30 ? d + 7 - 30 : d + 7}</div>)}
+            </div>
+          ))}
           <MBlur x={Math.abs(interpolate(f + 0.5, [tKap + 2, tHab + 4], [600, 0], { ...clamp, easing: EASE }) - calX) * 0.4} style={{ position: 'absolute', left: 0, right: 0, top: 230, display: 'flex', justifyContent: 'center', gap: 18, transform: `translateX(${calX - 2 * 118}px)` }}>
             {DAYS.map((d, i) => {
               const isSel = d === 19; const isToday = d === 13;
@@ -91,7 +97,7 @@ export const B06: React.FC = () => {
       )}
       {cabOn && (
         <MBlur x={vCab + w.v * 0.35} style={{ position: 'absolute', inset: 0, transform: `translateX(${cabIn + w.off}px)` }}>
-          <div className="card" style={{ position: 'absolute', left: 470, top: 250, width: 980, padding: 40, boxShadow: '0 50px 100px rgba(30,50,110,.16)' }}>
+          <div className="card" style={{ position: 'absolute', left: 470, top: 250, width: 980, padding: 40, transform: 'scale(1.3)', transformOrigin: '50% 40%', boxShadow: '0 50px 100px rgba(30,50,110,.16)' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 18 }}>
               <div style={{ width: 84, height: 84, borderRadius: 24, background: '#0F172A', color: '#fff', display: 'grid', placeItems: 'center', fontSize: 34, fontWeight: 700 }} className="font-display">BS</div>
               <div><div style={{ fontSize: 36, fontWeight: 700, letterSpacing: '-0.02em' }}>Risol Bu Sari</div><div style={{ fontSize: 22, color: '#5B6475', display: 'flex', alignItems: 'center', gap: 8 }}><Users size={22} />{`satu akun · ${chips.filter((c) => f >= c.t).length} cabang`}</div></div>

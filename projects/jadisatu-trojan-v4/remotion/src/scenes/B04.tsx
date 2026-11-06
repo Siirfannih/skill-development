@@ -67,7 +67,7 @@ export const B04: React.FC = () => {
   // kamera fokus (BK08): zoom ke thread saat mengetik dan saat laporan masuk
   const zk = (x: number) => interpolate(x, [t.tChat - 4, t.tChat + 8, t.tLang - 8, t.tLang + 6, t.tLap - 8, t.tLap + 6], [0, 1, 1, 0, 0, 1], { ...clamp, easing: EASE });
   const z = zk(f);
-  const sc = mix(0.98, 1.5, z), top = mix(40, -440, z);
+  const sc = mix(0.98, 1.75, z), top = mix(40, 900 - 880 * 1.75 + 40, z);
   const vz = Math.abs(zk(f + 0.5) - zk(f - 0.5)) * 14;
   // scroll thread agar laporan terlihat penuh
   const scrollY = 0;
