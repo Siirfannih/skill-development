@@ -11,6 +11,13 @@ Hook = opini yang kita yakini, argumentatif, membawa emosi (marah, sedih, tegang
 
 Lolos (Jadisatu 60s, 25 Okt): "Ada jarak antara seleramu dan kemampuanmu. Ira Glass menyebutnya the gap. … Sekarang, AI menutup jarak itu dalam tiga detik. … Dan taste-mu berhenti tumbuh."
 
+## Format hook yang bikin berhenti scroll (pilih yang jujur untuk topik itu)
+- **Kontras identitas**: siapa Irfan vs apa yang ia lakukan ("kedengarannya nggak nyambung, tapi…").
+- **Celah penasaran**: keputusan yang terdengar aneh lalu ditahan alasannya ("aku kasih gratis, dan ini alasannya").
+- **Pertanyaan yang langsung menunjuk penonton**: dijawab "iya juga ya" oleh ketiga audiens.
+- **Loop terbuka**: janji jawaban yang baru dibayar di tengah/akhir.
+Hook informatif (angka, studi) jarang viral untuk akun kecil; pakai sebagai bukti di badan, bukan pembuka.
+
 ## Bila basisnya hipotesis (Irfan belum mengalami/mewawancarai)
 Hook berbentuk **pertanyaan atau dugaan yang diuji**, bukan temuan. Contoh arah: "Aku curiga masalah UMKM yang buka cabang bukan di penjualan, tapi di pencatatan. Ini datanya." Data dari `../riset/` jadi jangkar (Irfan 6 Nov).
 

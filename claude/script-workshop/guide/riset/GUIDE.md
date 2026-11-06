@@ -17,6 +17,9 @@
 | Hipotesis / belum diuji | "aku curiga …", "gimana kalau …?" |
 | Tidak ada | jangan ditulis |
 
+## Data di naskah: secukupnya
+Riset untuk **memastikan kita tidak salah**, bukan untuk dibacakan. Statistik lembaga atau studi kasus tanpa nama yang tiba-tiba muncul di VO terasa tempelan dan bikin konten jadi "informasi" yang berat (Irfan 7 Nov: studi kasus + data OCBC "makin gak nyambung"). Masukkan ke VO hanya bila ia bagian alami dari cerita; selebihnya di caption.
+
 ## Cek cepat
 - Setiap angka punya link? Setiap "ternyata" punya bukti?
 - Ada data yang membantah dan sudah ditimbang (devil's advocate)?

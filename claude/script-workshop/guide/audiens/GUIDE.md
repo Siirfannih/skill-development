@@ -1,19 +1,21 @@
-# Audiens
+# Audiens & Trojan horse
 
-**Tujuan.** Hook dan isi membuat beberapa kelompok sekaligus merasa "ini soal aku".
+**Tujuan.** Satu konten menarik tiga kelompok sekaligus: kulit luarnya bisa dinikmati semua orang, isinya mengantar calon pembeli ke produk (Irfan 7 Nov).
 
-## Kelompok yang biasanya dituju (Jadisatu)
-- **Follower**: sudah kenal Irfan/Jadisatu; butuh hal baru, bukan pengulangan.
-- **Non-follower**: belum kenal; butuh masalah yang langsung dikenali dalam 3 detik.
-- **Pemilik bisnis** (UMKM, F&B, klinik, retail): masalah operasional, cabang, stok, laporan.
-- **Pembangun bisnis kecil / belum punya bisnis besar** (jualan kecil-kecilan, side hustle): belajar mencatat keuangan sederhana, gratis (Irfan 6 Nov).
+## Tiga audiens Irfan
+1. **Follower**: campuran acak, banyak mahasiswa dan teman yang kenal Irfan. Butuh cerita orangnya, bukan materi bisnis.
+2. **Calon pemilik bisnis / pemilik UMKM**: target pembeli. Butuh masalah yang langsung dikenali.
+3. **Non-follower**: penarik algoritma dan engagement. Butuh hook yang bikin berhenti scroll dalam 2 detik.
 
-Lapisan penonton & mode bicara per jalur: `content-ops/lanes/<jalur>.md` (Jadisatu: lapisan 3 frustrasi harian sebagai zona utama).
+## Trojan horse
+- **Kulit luar** = hal yang relate ke semua: posisi Irfan sendiri (fakta yang ia setujui untuk dibuka), uang yang tidak tercatat, kontras yang bikin penasaran ("kok bisa?").
+- **Isi** = masalah bisnis + produk, masuk setelah penonton sudah ikut cerita.
+- Penawaran per kelompok di akhir: gratis untuk yang jualan kecil-kecilan/baru mulai (follower ikut kebagian), akun per cabang untuk pemilik.
 
-## Cara
-- Sebelum hook: tulis satu kalimat "penonton X sedang mengalami Y" untuk tiap kelompok target.
-- Cari masalah yang irisannya kena ke semua (mis. "uang masuk-keluar tidak tercatat" kena ke owner cabang dan penjual kecil).
-- Penawaran disesuaikan per kelompok di bagian akhir (paket untuk owner, gratis untuk pembangun kecil) bila fakta mendukung (`../produk/FAKTA.md`).
+## Posisi Irfan sebagai bahan cerita
+Konten paling realistis lahir dari posisi Irfan sendiri, bukan studi kasus orang lain yang tidak jelas namanya. Ambil hanya fakta yang Irfan sebut atau setujui; detail pribadi (kuliah, pekerjaan sampingan, umur) dipakai di konten hanya setelah Irfan oke di sesi. Yang ia belum alami → hipotesis ("aku curiga").
 
 ## Cek cepat
-- Baca hook sebagai penjual kecil yang belum punya cabang: masih merasa diajak bicara?
+- Baca hook sebagai teman kuliah Irfan: mau nonton sampai habis?
+- Baca sebagai pemilik toko: kenal masalahnya?
+- Baca sebagai orang asing: ada kontras/pertanyaan yang bikin berhenti scroll?
