@@ -12,6 +12,9 @@
 - **Isi** = masalah bisnis + produk, masuk setelah penonton sudah ikut cerita.
 - Penawaran per kelompok di akhir: gratis untuk yang jualan kecil-kecilan/baru mulai (follower ikut kebagian), akun per cabang untuk pemilik.
 
+## Jangan terlalu niche di hook
+±99 % UMKM adalah usaha mikro (Menkop 2021); hook "punya banyak cabang" membuang mayoritas penonton, dan yang bercabang biasanya sudah pakai aplikasi kasir. Hook dari masalah umum (uang tidak tercatat), lalu pembeda = bundling kreatif + data (Irfan 7 Nov).
+
 ## Posisi Irfan sebagai bahan cerita
 Konten paling realistis lahir dari posisi Irfan sendiri, bukan studi kasus orang lain yang tidak jelas namanya. Ambil hanya fakta yang Irfan sebut atau setujui; detail pribadi (kuliah, pekerjaan sampingan, umur) dipakai di konten hanya setelah Irfan oke di sesi. Yang ia belum alami → hipotesis ("aku curiga").
 

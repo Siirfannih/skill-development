@@ -20,7 +20,9 @@ Sumber: kata Irfan + repo produk `Siirfannih/jadisatu-partner` (`OFFER.md`, `MAS
 - Analitik lain: akuntansi (laba-rugi, arus kas, rekonsiliasi). Detail dan status per fitur: `jadisatu-partner/STATUS.md`.
 - Live sejak 5 Nov 2026.
 
-## Paket agensi (konfirmasi dulu sebelum masuk konten)
+## Paket agensi / bundling
+- Isi bundling (Irfan 7 Nov): kelola sosmed, tim datang langsung ambil konten, sampai video TikTok; website profil usaha; optimasi Google Business (landing COPY-v2 masih menandai ulasan Google "Segera": konfirmasi status); Workspace gratis di dalam paket.
+- Pembeda utama (landing `docs/landing/COPY-v2.md`): "Konten yang dipilih dari data penjualanmu, bukan dari tebakan." Uang Jadisatu datang dari jasa kreatif; Workspace adalah pintu masuk (Irfan 7 Nov).
 - Workspace gratis untuk klien jasa kelola sosmed (OFFER.md).
 - Irfan 7 Nov: landing untuk pemilik bisnis yang mau coba; kelola sosmed sampai video TikTok; refund bila tidak perform/tidak sesuai harapan. Syarat refund belum tertulis (OFFER.md lama: "No Perform No Pay ditunda"): tanya syarat sebelum dijanjikan di konten.
 
