@@ -7,6 +7,7 @@
 - **Mengalir seperti ngobrol, bukan dipotong-potong.** Tulis seperti menjelaskan ke Irfan di diskusi biasa: kalimat disambung dengan "tapi", "terus", "nah", "soalnya", "jadi", "bahkan"; koma lebih sering daripada titik. Bukan tulisan formal, karya ilmiah, atau copy iklan bertitik-titik (Irfan 7 Nov).
 - Dilarang gaya staccato/fragmen: "Tiga belas cabang. Satu buku tulis hilang. Dan …" → "Ada UMKM yang udah buka sampai tiga belas cabang, tapi …".
 - Storytelling = cerita utuh dengan subjek, kejadian, akibat dalam satu alur; bukan daftar fakta yang dipenggal. Boleh mulai dengan "Ada …", "Coba deh…", "Jadi gini…".
+- **Naskah VO dibaca sebagai satu aliran**: tiap kalimat disambung dari kalimat sebelumnya dengan penghubung ("terus", "nah", "dan", "jadi"), dan contoh selalu diberi pengantar ("misalnya …"). Daftar dibuat sejajar ("pegang sosmed, ambil konten, bikin website"), bukan campur kata benda/kerja (Irfan 7 Nov).
 - Tanda baca tidak perlu rapi baku; yang penting enak dibaca keras dalam satu napas per gagasan.
 - Optimis soal produk, realistis soal eksekusi; manfaat dan dampak, bukan keterbatasan (`working-with-irfan` §7).
 - Pelajari ritme dari cara Irfan mengetik prompt di sesi.
