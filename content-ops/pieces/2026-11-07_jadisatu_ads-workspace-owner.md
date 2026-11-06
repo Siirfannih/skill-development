@@ -40,7 +40,7 @@ Palet: biru Jadisatu yang dalam + netral, satu aksen; tidak ada teks biru di lat
 Aset yang dibutuhkan sebelum build: rekaman layar Workspace asli (dasbor multi-cabang, pemilih cabang, laporan WhatsApp, grafik stok + saran restock) dari akun demo; 6–9 contoh konten/video karya tim (atau label honest placeholder bila belum ada portofolio nyata).
 
 ## 3b. Treatment Baikov (Irfan 7 Nov: pakai format referensi 07)
-Gaya: `motion-graphic/guide/referensi/baikov.md`. Penyesuaian: 9:16 (bukan 16:9), hook pemilik bisnis tetap di 0–4 dtk (iklan dingin), teks UI dibangun di ukuran asli lalu kamera zoom agar terbaca di HP.
+Gaya: `motion-graphic/guide/referensi/baikov.md`. Keputusan Irfan 7 Nov: **master 16:9 seperti aslinya**; hook = pertanyaan yang dibalikkan ke penonton gaya Baikov ("What makes your company unique?"), dibangun kata per kata (BK01), mis. "Gimana kalau semua cabangmu bisa kamu pantau dari satu tempat?" atau pertanyaan hook naskah; UI = komponen asli dari repo produk yang dianimasikan ulang di Remotion (lihat §3c), bukan dibuat ulang dari nol. Versi 9:16 untuk Reels/TikTok dibuat dari master 16:9 dengan reframe per beat.
 | # | Beat | Teknik Baikov |
 |---|---|---|
 | 1–2 | Hook: dua pertanyaan pemilik | BK01 kalimat besar menjadi objek kecil; foto toko/cabang disisipkan sebagai tanda baca |
@@ -50,6 +50,11 @@ Gaya: `motion-graphic/guide/referensi/baikov.md`. Penyesuaian: 9:16 (bukan 16:9)
 | 5 | Stok habis & saran belanja | BK09 kartu angka + garis stok, kartu tengah membuka saran restock |
 | 6 | Kelola sosmed + Workspace gratis | BK05 wipe dari shape kartu konten → grid feed/TikTok |
 | 7 | CTA | BK10 objek pembuka (titik cabang) kembali membentuk logo |
+
+## 3c. Jalur build UI asli (Irfan 7 Nov)
+- Sumber UI: `Siirfannih/jadisatu-partner` `apps/portal` (React 19 + Vite) = Workspace; `apps/greatstock` (stok, JS). Worker menyalin komponen/halaman yang dibutuhkan ke proyek Remotion (React juga), mengisinya dengan data demo yang ditandai, lalu menganimasikan per elemen (BK07 UI lahir bertahap, BK08 fokus satu widget).
+- Tidak memakai data pelanggan nyata, token, atau URL produksi; data demo sintetis.
+- Catat lewat WA: bubble chat dibangun ulang mengikuti tampilan WhatsApp asli (aturan inti 19).
 
 ## 8. Seri konten Workspace
 | # | Video | Format | Status |

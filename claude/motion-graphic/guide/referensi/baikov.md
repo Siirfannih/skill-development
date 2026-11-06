@@ -4,7 +4,9 @@ Disalin dari `Siirfannih/jadisatu-skills` `skills/jadisatu-motion/references/BAI
 
 Ukur 7 Nov (`pace_read.py`): 67 dtk, 16:9 736×414, 13 cut/menit, event visual 49/menit, kategori `energi`; informasi dibawa teks + UI (bisa ditonton tanpa suara).
 
-Alur: kata besar → kata kunci di antara shape → roda fitur (satu aktif) → UI lahir bertahap → fokus satu bagian UI → panel asisten/chat → workflow & formulir → kartu angka → rekomendasi → Done → logo, objek pembuka kembali.
+Pembuka (dicek frame 0–3 dtk, 7 Nov): **"What makes your company unique?"** dibangun kata per kata (What → makes → your → company → unique?), foto/shape disisipkan sebagai tanda baca, lalu kalimat ditarik kecil. Hook ini **pertanyaan yang dibalikkan ke penonton**, bukan kata acak: penonton dipancing berpikir, lalu jawabannya (Mission, Rituals, Feedback, Onboarding) muncul sebagai kata kunci di antara shape (Irfan 7 Nov).
+
+Alur: pertanyaan ke penonton → kata kunci jawaban di antara shape → roda fitur (satu aktif) → UI lahir bertahap → fokus satu bagian UI → panel asisten/chat → workflow & formulir → kartu angka → rekomendasi → Done → logo, objek pembuka kembali.
 
 ## Katalog eksekusi
 
