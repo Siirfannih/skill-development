@@ -4,7 +4,10 @@
 
 ## Ciri
 - "aku" dan "kamu". Kata sehari-hari: tapi, buat, gimana, nggak/ngga, emang, kayak, nyambung.
-- Kalimat pendek, ritme lisan. Boleh mulai dengan "Coba deh…", "Jadi gini…".
+- **Mengalir seperti ngobrol, bukan dipotong-potong.** Tulis seperti menjelaskan ke Irfan di diskusi biasa: kalimat disambung dengan "tapi", "terus", "nah", "soalnya", "jadi", "bahkan"; koma lebih sering daripada titik. Bukan tulisan formal, karya ilmiah, atau copy iklan bertitik-titik (Irfan 7 Nov).
+- Dilarang gaya staccato/fragmen: "Tiga belas cabang. Satu buku tulis hilang. Dan …" → "Ada UMKM yang udah buka sampai tiga belas cabang, tapi …".
+- Storytelling = cerita utuh dengan subjek, kejadian, akibat dalam satu alur; bukan daftar fakta yang dipenggal. Boleh mulai dengan "Ada …", "Coba deh…", "Jadi gini…".
+- Tanda baca tidak perlu rapi baku; yang penting enak dibaca keras dalam satu napas per gagasan.
 - Optimis soal produk, realistis soal eksekusi; manfaat dan dampak, bukan keterbatasan (`working-with-irfan` §7).
 - Pelajari ritme dari cara Irfan mengetik prompt di sesi.
 
@@ -16,3 +19,4 @@
 
 ## Cek cepat
 - Baca keras: ada kalimat yang tidak mungkin Irfan ucapkan di depan kamera? Tulis ulang.
+- Hitung titik di satu bagian: lebih dari 2 untuk satu gagasan = kemungkinan dipotong-potong; sambung.

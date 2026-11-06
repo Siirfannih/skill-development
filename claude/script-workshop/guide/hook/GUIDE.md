@@ -19,6 +19,7 @@ Hook berbentuk **pertanyaan atau dugaan yang diuji**, bukan temuan. Contoh arah:
 |---|---|---|
 | Klaim tanpa bukti | "Orang yang paling sering pakai AI, sering paling sedikit hasilnya" | Bagaimana kita tahu? |
 | Temuan palsu dari hipotesis | "Ternyata musuh terbesar owner UMKM pas buka cabang itu sistem mereka sendiri" | Irfan tidak ngobrol dengan UMKM; harusnya pertanyaan (Irfan 6 Nov) |
+| Hook staccato/fragmen bertitik | "Tiga belas cabang. Satu buku tulis hilang. Dan waktu mau ngajuin pinjaman…" | Penonton susah menangkap; harus jadi satu cerita mengalir (Irfan 7 Nov) |
 | Topik populer yang sudah berulang | "Pernah nggak kamu mikir kenapa banyak UMKM … tutup di tahun pertama?" | Benar tapi sudah dipakai banyak orang = slop; perlu sudut beda dengan urgensi (Irfan 6 Nov) |
 | Satu audiens saja | hook yang hanya bicara ke owner | Follower, non-follower, dan pembangun bisnis kecil ikut ditinggal (Irfan 6 Nov) |
 | Pengakuan tanpa konteks | "Aku pernah berminggu-minggu membangun pakai AI" | Membangun apa? Terus kenapa? |

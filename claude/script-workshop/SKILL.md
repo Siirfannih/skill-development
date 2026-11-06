@@ -47,6 +47,7 @@ Proyek video panjang: simpan di `projects/<proyek>/` (DECISIONS, INSIGHTS, HOOKS
 - [ ] Baca keras berurutan: ada perpindahan bagian yang putus/tiba-tiba? Tambah jembatan.
 - [ ] Fitur & penawaran sesuai `FAKTA.md`, termasuk penawaran gratis yang relevan?
 - [ ] Kata haram & pola AI dari `guide/suara/` dan lane terkait?
+- [ ] Mengalir seperti Irfan ngobrol, bukan fragmen bertitik? Storytelling jadi satu cerita utuh?
 - [ ] Durasi: 2,5–3 kata/dtk VO Indonesia; durasi per bagian tertulis.
 
 ## 5. Struktur

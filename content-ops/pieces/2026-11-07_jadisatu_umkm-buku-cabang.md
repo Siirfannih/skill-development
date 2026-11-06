@@ -28,24 +28,28 @@ Model naskah: claude-opus-5-5 (skill `script-workshop`)
 ## 3. Hook (13 kandidat → 3)
 | # | Hook | Catatan |
 |---|---|---|
-| **H1 (rekomendasi)** | "Tiga belas cabang. Satu buku tulis hilang. Dan waktu mau ngajuin pinjaman ke bank, mereka nggak punya laporan keuangan buat ditunjukin." | Kasus nyata, konkret, jarang diucapkan; emosi tegang → penasaran "kok bisa?" |
+| **H1 (rekomendasi, v2 mengalir)** | "Ada UMKM di Jakarta yang udah berhasil buka sampai tiga belas cabang, tapi pas mau ngajuin pinjaman ke bank mereka malah mentok karena nggak bisa nunjukin laporan keuangan, bahkan salah satu buku catatannya pernah hilang gitu aja." | Kasus nyata, konkret, jarang diucapkan; emosi tegang → penasaran "kok bisa?" |
 | H2 | "Kalau kamu nyatat jualan di buku, itu udah bener. Masalahnya muncul pas buku itu harus ada di dua tempat sekaligus." | Paling ramah ke penjual kecil; kurang dramatis untuk storytelling |
 | H3 | "Usaha yang laku di tiga belas tempat, kenapa bisa mentok pas ngajuin pinjaman bank?" | Bentuk pertanyaan; sedikit lebih umum |
 
 Digugurkan: "UMKM tutup di tahun pertama" (topik populer), "ternyata musuh terbesar owner…" (temuan palsu), "UMKM malas nyatat" (dibantah data).
 
-## 4. Naskah (draft, menunggu kata final Irfan)
-VO dibaca Irfan. 158 kata ≈ 59 dtk pada 2,7 kata/dtk (dihitung skrip).
+## 4. Naskah v2 (draft, menunggu kata final Irfan)
+v2 (7 Nov): ditulis ulang mengalir seperti ngobrol, bukan potongan kalimat bertitik (koreksi Irfan: "storytelling itu yang beneran storytelling, jangan dipotong-potong"). VO dibaca Irfan. 212 kata ≈ 79 dtk pada 2,7 kata/dtk (dihitung skrip).
 
 | Waktu | Bagian | VO | Kata |
 |---|---|---|---|
-| 00:00–00:07 | Hook | Tiga belas cabang. Satu buku tulis hilang. Dan waktu mau ngajuin pinjaman ke bank, mereka nggak punya laporan keuangan buat ditunjukin. | 21 |
-| 00:07–00:17 | Kisah | Ini kisah nyata dari studi Politeknik Negeri Jakarta. Usaha frozen food, cabangnya nyebar dari Jakarta sampai Tangerang. Hampir semua cabang nyatat penjualan di buku tulis. | 25 |
-| 00:17–00:26 | Belokan | Dan mereka nggak malas nyatat. Data OCBC bilang hampir delapan dari sepuluh UMKM udah nyatat keuangan. Masalahnya, kebanyakan masih manual. | 20 |
-| 00:26–00:38 | Dugaan | Aku curiga, manual itu aman selama kamu cuma punya satu toko dan kamu ada di sana. Begitu cabang kedua buka, catatanmu kebelah. Laporannya beda-beda, stoknya nggak kebaca dari pusat. | 29 |
-| 00:38–00:44 | Uji diri | Coba tanya ke diri sendiri: seminggu nggak ke toko, kamu masih tahu omzet tiap cabang? | 15 |
-| 00:44–00:54 | Jawaban | Itu yang aku bangun di Jadisatu Workspace. Tiap cabang bisa punya akun sendiri, atau upload aja datanya dan tandai cabang mana. Laporannya datang ke WhatsApp-mu. | 25 |
-| 00:54–01:01 | Tawaran + CTA | Masih jualan kecil-kecilan? Daftar di website, belajar nyatat keuangan lewat WhatsApp, seratus persen gratis. Kamu sekarang nyatat di buku, atau udah di HP? | 23 |
+| 00:00–00:09 | Hook | Ada UMKM di Jakarta yang udah berhasil buka sampai tiga belas cabang, tapi pas mau ngajuin pinjaman ke bank mereka malah mentok karena nggak bisa nunjukin laporan keuangan, bahkan salah satu buku catatannya pernah hilang gitu aja. | 37 |
+| 00:09–00:17 | Kisah | Ini kisah nyata dari studi Politeknik Negeri Jakarta, usahanya frozen food, cabangnya nyebar dari Jakarta sampai Tangerang, dan hampir semua cabangnya nyatat penjualan pakai buku tulis. | 26 |
+| 00:17–00:25 | Belokan | Nah yang menarik, masalahnya bukan karena mereka malas nyatat, soalnya data OCBC bilang hampir delapan dari sepuluh UMKM sebenarnya udah nyatat keuangan, cuma kebanyakan masih manual. | 26 |
+| 00:25–00:37 | Dugaan | Dan aku curiga cara manual itu aman-aman aja selama kamu cuma punya satu toko dan kamu selalu ada di sana, tapi begitu cabang kedua buka catatanmu ikut kebelah, laporan tiap cabang jadi beda-beda, dan dari pusat kamu nggak bisa lihat stoknya tinggal berapa. | 43 |
+| 00:37–00:42 | Uji diri | Coba deh tanya ke diri sendiri, kalau seminggu kamu nggak ke toko, kamu masih tahu nggak omzet tiap cabang? | 19 |
+| 00:42–00:52 | Jawaban | Makanya aku bangun Jadisatu Workspace, di sana tiap cabang bisa punya akun sendiri atau kamu tinggal upload datanya terus tandain itu cabang yang mana, dan laporannya langsung dikirim ke WhatsApp-mu. | 30 |
+| 00:52–01:01 | Tawaran + CTA | Kalau kamu masih jualan kecil-kecilan, kamu juga bisa daftar di website terus belajar nyatat keuangan lewat WhatsApp, seratus persen gratis. Jadi sekarang kamu nyatatnya masih di buku, atau udah di HP? | 31 |
+
+Catatan akurasi: studi menyebut pengajuan kredit **terhambat** karena tidak ada laporan keuangan, dan buku yang hilang adalah kejadian terpisah. Naskah memakai "mentok" dan "bahkan … pernah hilang", bukan "ditolak karena buku hilang", supaya tetap setia sumber.
+
+v1 (hook staccato "Tiga belas cabang. Satu buku tulis hilang. …") digantikan.
 
 Jembatan: hook (akibat) → kisah (siapa) → belokan (membantah anggapan umum) → dugaan (kenapa) → uji diri (penonton bercermin) → jawaban (produk menjawab pertanyaan uji diri) → tawaran per audiens + CTA biner.
 
