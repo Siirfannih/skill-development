@@ -15,6 +15,10 @@
 - UI = UI asli (05: post IG, lock screen, notes). Bangun ukuran asli, kamera yang zoom.
 - Ruang kosong = struktur, bukan sisa.
 
+## Kualitas render
+- **Bukan render three.js mentah** (Irfan 7 Nov: hasil sebelumnya terlihat murah). Visual akhir dibangun dengan React/CSS/SVG di Remotion atau AE; three.js hanya untuk plate 3D yang sudah final (material, cahaya, anti-alias) dan lolos still 100 % berdampingan dengan referensi.
+- Still per beat dibandingkan dengan frame referensi setara sebelum render penuh.
+
 ## Cek cepat
 - Blur still 10 px: ada satu gumpalan yang menang? Dua sama kuat = rapikan.
 - Hitung keluarga warna di frame: lebih dari aksen + netral tanpa alasan gaya = kebanyakan.

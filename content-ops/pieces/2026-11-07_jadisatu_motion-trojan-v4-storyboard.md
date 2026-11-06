@@ -1,6 +1,6 @@
 # Storyboard v4 · Motion "Semudah chat sama ayang" (Trojan horse, 60 dtk)
 
-Status: STORYBOARD DRAFT v4 (menunggu review Irfan) · menggantikan v3
+Status: STORYBOARD v4 · disetujui untuk build setelah review Irfan 7 Nov ("ayang" sesuai; tanpa VO, pakai visual saja) · menggantikan v3
 Arah Irfan 7 Nov: 60 dtk; hook kembali ke masalah pencatatan administrasi bisnis tapi dibuat relate untuk non-UMKM; **struktur Baikov** (pembuka pertanyaan "gimana kalau…" yang dibalik ke penonton → realita → produk → UI → selesai → logo); **gaya visual & motion dari 08 (Mosycreate) dan 09 (thekrishray)**: ikon, emoji, komponen UI, gradien, bukan shape Baikov.
 
 ## Trojan horse
@@ -11,7 +11,7 @@ Arah Irfan 7 Nov: 60 dtk; hook kembali ke masalah pencatatan administrasi bisnis
 | Jasa kreatif + portofolio | 8 | pemilik usaha (sumber uang) |
 | CTA dua jalur + kredit | 9–10 | akses gratis / paket kreatif |
 
-Format A motion · master 1920×1080 30 fps (versi 9:16 reframe) · 183 kata ≈ 67 dtk · teks layar = naskah, kata per kata; VO opsional dengan kata yang sama · audio kategori `energi`, musik ±110–120 bpm, satu bunyi per aksi UI (ala 09) · latar gradien lembut biru `jadisatu-terang` + satu aksen hangat ("gratis") · UI produk dari `jadisatu-partner/apps/portal` di Remotion · WhatsApp dibangun mengikuti tampilan asli · ikon & emoji satu set konsisten.
+Format A motion · master 1920×1080 30 fps (versi 9:16 reframe) · 183 kata ≈ 67 dtk · **tanpa VO (Irfan 7 Nov)**: naskah tampil sebagai teks layar kata per kata, dipecah per frasa ≤ 6 kata per momen tapi tetap satu kalimat yang mengalir; waktu per beat mengikuti waktu baca (±3 kata/dtk) dan ketukan musik · audio kategori `energi`, musik ±110–120 bpm, satu bunyi per aksi UI (ala 09) · latar gradien lembut biru `jadisatu-terang` + satu aksen hangat ("gratis") · UI produk dari `jadisatu-partner/apps/portal` di Remotion · WhatsApp dibangun mengikuti tampilan asli · ikon & emoji satu set konsisten.
 
 | # | Waktu | Bagian | Teks layar / VO (persis) | Visual | SFX |
 |---|---|---|---|---|---|
@@ -29,10 +29,17 @@ Format A motion · master 1920×1080 30 fps (versi 9:16 reframe) · 183 kata ≈
 ## Catatan alur laporan
 User mencatat lewat WhatsApp, dan laporan dikirim balik ke chat yang sama: laporan harian otomatis pukul 18.00 (bisa diubah owner) dan link laporan kapan diminta (`jadisatu-partner/agents/account-manager/SOUL.md`, `WS3-portal.md`). Perlu konfirmasi Irfan: laporan harian otomatis juga berlaku untuk akun gratis?
 
+## Standar visual & build (Irfan 7 Nov: "kualitas atau style yang mirip referensi, bukan renderan three.js mentah")
+- Acuan rasa: contact sheet `claude/motion-graphic/guide/referensi/sheets/08-mosycreate-save-reminders.jpg` dan `09-thekrishray-motion-designer.jpg` (komponen UI bersih, gradien lembut, ikon/emoji 3D halus, blur gerak, tipografi rapi); struktur dari Baikov.
+- **Tidak ada render three.js mentah** sebagai visual akhir. Semua dibangun di Remotion dengan React/CSS/SVG: komponen UI asli dari `jadisatu-partner/apps/portal`, tampilan WhatsApp dibangun ulang per elemen, gradien dan glow CSS resolusi penuh, motion blur di gerak cepat.
+- Satu set ikon/emoji konsisten bergaya 3D halus berlisensi terbuka (mis. Microsoft Fluent Emoji, MIT); logo platform asli hanya untuk platform yang disebut (Instagram, WhatsApp, Google).
+- Gerbang sebelum build penuh (`motion-graphic/references/delivery-gate.md` §0): still per beat diletakkan berdampingan dengan frame referensi 08/09 setara; bila still kalah rapi, perbaiki dulu, baru render.
+- Delivery Gate + `scripts/gate/caption_lines.py` (teks satu baris) + `music_fit.py` (kategori `energi`).
+
 ## Syarat
 - Portofolio beat 8 hanya karya nyata (pertanyaan v3 masih berlaku). Ilustrasi orang di beat 3 diberi gaya ikon, bukan foto orang sungguhan.
 - Fakta: catat lewat WA + kategori, laporan via WA, forecast stok + saran beli, akun per cabang, gratis untuk yang baru mulai, bundling (`script-workshop/guide/produk/FAKTA.md`).
 
 ## Terbuka untuk Irfan
-1. Kata "ayang" di hook: sesuai nada akun Jadisatu?
-2. Google Business & area ambil konten; portofolio yang boleh tampil; VO atau teks saja (dari v2/v3).
+1. Status optimasi Google Bisnis dan portofolio nyata yang boleh tampil di beat 8 (sementara: ikon + label, tanpa klaim hasil).
+2. Laporan harian otomatis 18.00 untuk akun gratis (beat 5); bila belum, visual diganti user meminta "laporan hari ini".
