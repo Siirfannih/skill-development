@@ -1,8 +1,149 @@
 {
-  "_catatan": "Profil target musik per kategori suasana. Angka awal = hipotesis analisis AI (6 Nov), BUKAN hasil kalibrasi. Kalibrasi dari track yang Irfan setujui: music_fit.py --calibrate <kategori> ref1 ref2 ... (menimpa rentang kategori itu dan mencatat sumbernya). Fitur: bpm; onset = kepadatan ketukan per detik; centroid = kecerahan (Hz); build = kenaikan loudness terbesar dalam 8 dtk (dB, tanda build/drop); dyn = rentang loudness p10-p90 jendela 1 dtk (dB); mode = major/minor/any; level = LUFS musik di bawah suara; snr_min = selisih minimum suara vs musik di pita 500-4000 Hz pada level itu.",
-  "fokus":    {"arti": "tenang, edukatif, menjelaskan, podcast santai", "bpm": [70, 95],  "onset": [0.8, 3.0], "centroid": [700, 1900],  "build": [0, 4],  "dyn": [0, 8],  "mode": "any",   "level": -26, "snr_min": 12, "query": "calm lofi hip hop beat with soft keys, mellow, focus", "kalibrasi": null},
-  "slowdown": {"arti": "reflektif, emosional, pelan, personal",     "bpm": [55, 85],  "onset": [0.3, 2.0], "centroid": [500, 1600],  "build": [0, 5],  "dyn": [0, 10], "mode": "minor", "level": -26, "snr_min": 12, "query": "slow emotional ambient piano, soft and sparse", "kalibrasi": null},
-  "energi":   {"arti": "hype, cepat, motivasi, launch",            "bpm": [112, 140], "onset": [3.0, 8.0], "centroid": [1700, 3800], "build": [0, 15], "dyn": [0, 10], "mode": "any",   "level": -22, "snr_min": 12, "query": "upbeat energetic electronic track with punchy drums", "kalibrasi": null},
-  "tegang":   {"arti": "masalah, ancaman, urgensi, investigasi",   "bpm": [85, 130], "onset": [1.5, 5.0], "centroid": [900, 2600],  "build": [0, 10], "dyn": [0, 12], "mode": "minor", "level": -24, "snr_min": 12, "query": "tense dark pulsing underscore with ticking", "kalibrasi": null},
-  "hangat":   {"arti": "harapan, solusi, penutup, CTA",            "bpm": [85, 118], "onset": [1.5, 4.0], "centroid": [1100, 2600], "build": [0, 8],  "dyn": [0, 10], "mode": "major", "level": -24, "snr_min": 12, "query": "warm hopeful uplifting acoustic track", "kalibrasi": null}
+  "_catatan": "Profil target musik per kategori suasana. Angka awal = hipotesis analisis AI (6 Nov), BUKAN hasil kalibrasi. Kalibrasi dari stem musik video referensi yang suasananya cocok (bukan selera): music_fit.py --calibrate <kategori> ref1 ref2 ... (menimpa rentang kategori itu dan mencatat sumbernya). Fitur: bpm; onset = kepadatan ketukan per detik; centroid = kecerahan (Hz); build = kenaikan loudness terbesar dalam 8 dtk (dB, tanda build/drop); dyn = rentang loudness p10-p90 jendela 1 dtk (dB); mode = major/minor/any; level = LUFS musik di bawah suara; snr_min = selisih minimum suara vs musik di pita 500-4000 Hz pada level itu.",
+  "fokus": {
+    "arti": "tenang, edukatif, menjelaskan, podcast santai",
+    "bpm": [
+      70,
+      100
+    ],
+    "onset": [
+      0.8,
+      3.0
+    ],
+    "centroid": [
+      700,
+      1900
+    ],
+    "build": [
+      0,
+      4
+    ],
+    "dyn": [
+      0,
+      8
+    ],
+    "mode": "any",
+    "level": -25,
+    "snr_min": 12,
+    "query": "calm lofi hip hop beat with soft keys, mellow, focus",
+    "kalibrasi": null
+  },
+  "slowdown": {
+    "arti": "reflektif, emosional, pelan, personal",
+    "bpm": [
+      55,
+      85
+    ],
+    "onset": [
+      0.3,
+      2.0
+    ],
+    "centroid": [
+      500,
+      1600
+    ],
+    "build": [
+      0,
+      5
+    ],
+    "dyn": [
+      0,
+      10
+    ],
+    "mode": "minor",
+    "level": -25,
+    "snr_min": 12,
+    "query": "slow emotional ambient piano, soft and sparse",
+    "kalibrasi": null
+  },
+  "energi": {
+    "arti": "hype, cepat, motivasi, launch",
+    "bpm": [
+      100,
+      140
+    ],
+    "onset": [
+      3.0,
+      8.0
+    ],
+    "centroid": [
+      1700,
+      3800
+    ],
+    "build": [
+      0,
+      15
+    ],
+    "dyn": [
+      0,
+      10
+    ],
+    "mode": "any",
+    "level": -22,
+    "snr_min": 12,
+    "query": "upbeat energetic electronic track with punchy drums",
+    "kalibrasi": {
+      "sumber": "6 video referensi Irfan 6 Nov (guide/referensi), bpm dari mix ±10",
+      "n": 6,
+      "fitur": [
+        "bpm"
+      ]
+    }
+  },
+  "tegang": {
+    "arti": "masalah, ancaman, urgensi, investigasi",
+    "bpm": [
+      85,
+      130
+    ],
+    "onset": [
+      1.5,
+      5.0
+    ],
+    "centroid": [
+      900,
+      2600
+    ],
+    "build": [
+      0,
+      10
+    ],
+    "dyn": [
+      0,
+      12
+    ],
+    "mode": "minor",
+    "level": -24,
+    "snr_min": 12,
+    "query": "tense dark pulsing underscore with ticking",
+    "kalibrasi": null
+  },
+  "hangat": {
+    "arti": "harapan, solusi, penutup, CTA",
+    "bpm": [
+      85,
+      118
+    ],
+    "onset": [
+      1.5,
+      4.0
+    ],
+    "centroid": [
+      1100,
+      2600
+    ],
+    "build": [
+      0,
+      8
+    ],
+    "dyn": [
+      0,
+      10
+    ],
+    "mode": "major",
+    "level": -24,
+    "snr_min": 12,
+    "query": "warm hopeful uplifting acoustic track",
+    "kalibrasi": null
+  }
 }

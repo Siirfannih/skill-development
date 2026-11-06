@@ -60,7 +60,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
   - menempel objek (diegetik)
   - ruang negatif samping subjek (hanya bila subjek tunggal dan teks satu-satunya bacaan)
 - Teks tidak menutupi wajah atau subjek. Objek boleh menutup ≤ 10 % huruf, tidak menutup huruf pertama, dan tidak menutup apa pun selama jeda baca.
-- **Tidak ada subtitle statis.** Teks kinetik itulah caption-nya. Kata muncul +1…+4 f setelah onset kata VO.
+- **Format A: tidak ada subtitle statis.** Teks kinetik itulah caption-nya. Format B memakai caption satu baris (aturan 44, `formats.md`). Kata muncul +1…+4 f setelah onset kata VO.
 
 ### 7.4 Kebijakan teks 3D
 - Default: **tipografi 2.5D**. Kata, huruf, dan baris adalah bidang di ruang perspektif yang berotasi X/Y/Z, berlapis kedalaman, ikut kamera, dan tajam.

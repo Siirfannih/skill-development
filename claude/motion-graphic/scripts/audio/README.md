@@ -8,6 +8,7 @@ Untuk proyek baru: cue sheet ada di `render/cues.json` (list of `{t, kind, db, v
 | `vo_gaps.py vo.json vodir` | daftar semua jeda diam di VO (diukur di audio, −42 dB) | 33 |
 | `vo_echo.py vo.wav words.json` | gema VO: ekor 40–150 ms setelah kata relatif ke kata (lulus ≤ −25 dB) | §14.10 |
 | `tighten.py` | Padatkan jeda VO (tempo terkunci 1,0: VO tidak pernah dipercepat), tulis vo.json baru — sesuaikan `CH`/`OVR`/`CHUNK_GAP` per proyek | 33 |
+| `pace_read.py video.mp4 [--words w.json]` | tempo video: cut/menit, event visual, laju bicara → kategori suasana + rentang bpm musik | 45 |
 | `music_fit.py --category <k> --voice v.mp4 kandidat/*` | peringkat musik terhadap kategori suasana: tempo, kepadatan, kecerahan, build, mayor/minor, benturan dengan suara; `--calibrate <k> ref…` dari track yang Irfan setujui | 45 |
 | `el_music.py cues` | musik ElevenLabs per babak (peran tiap babak, durasi dikunci ke VO, minta +3–6 dtk lalu potong) | 34 |
 | `music_check.py`, `env.py` | cek envelope/dinamika cue musik (fade, lubang) | 34 |

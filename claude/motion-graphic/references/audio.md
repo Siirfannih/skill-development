@@ -5,7 +5,7 @@ Baca hanya di gerbang audio (setelah script dan storyboard final) dan saat QA au
 ## 14. Audio
 
 ### 14.0A Kategori suasana dulu, baru cari audio (Irfan 6 Nov)
-Sebelum memilih musik atau SFX apa pun, tulis di brief **satu kategori suasana untuk video** (format B: satu untuk seluruh klip; format A: satu per babak). Kategori diturunkan dari isi, bukan dari selera: apa yang dibicarakan, nada pembicara, tempo bicara dan cut. Tulis alasannya satu baris.
+Sebelum memilih musik atau SFX apa pun, tulis di brief **satu kategori suasana untuk video** (format B: satu untuk seluruh klip; format A: satu per babak). Kategori diturunkan dari **tempo video**, bukan selera siapa pun: video cepat (cut rapat, bicara cepat) butuh musik cepat yang menyaingi tempo; video tenang butuh musik tenang (Irfan 6 Nov). Ukur dulu: `python3 scripts/audio/pace_read.py video.mp4 [--words words.json]` (cut/menit, event visual, laju bicara → usulan kategori + rentang bpm). Lalu cek isi: masalah/ancaman → `tegang`, harapan/CTA → `hangat`. Tulis alasannya satu baris.
 
 | Kategori | Kapan | Musik (profil terukur di `music-profiles.json`) | SFX |
 |---|---|---|---|
@@ -21,7 +21,7 @@ python3 scripts/audio/music_fit.py --category fokus --voice sumber.mp4 --duratio
 ```
 Skrip mengukur tempo yang dirasakan, kepadatan ketukan, kecerahan, build/drop, dinamika, mayor/minor, dan **benturan dengan suara**: selisih suara vs musik di pita 500–4000 Hz pada level rencana (min 12 dB; ≤ 4 dB kurang = boleh diatasi EQ −4 dB §14.1, lebih dari itu ganti track). Pakai track teratas yang `PAKAI`; tulis keluarannya di laporan Delivery Gate. `--earshot` hanya menambah skor teks sebagai info, tidak menentukan.
 
-Profil awal di `music-profiles.json` adalah **hipotesis** (`kalibrasi: null`). Kalibrasi tiap kategori dari ≥ 3 track yang Irfan setujui: `music_fit.py --calibrate fokus ref1 ref2 ref3`. SFX untuk kandidat: `earshot rank "<peran>" kandidat/*` untuk karakter, `sfx_comfort.py` untuk desis, lalu kepadatan mengikuti kolom SFX di tabel atas.
+Profil di `music-profiles.json`: `energi` disesuaikan dengan 6 video referensi Irfan (musik ±104–136 bpm, `guide/referensi/`); kategori lain masih hipotesis. Kalibrasi dari **stem musik video referensi yang suasananya cocok** (bukan dari track favorit): `music_fit.py --calibrate <k> stem1 stem2 stem3`. SFX untuk kandidat: `earshot rank "<peran>" kandidat/*` untuk karakter, `sfx_comfort.py` untuk desis, lalu kepadatan mengikuti kolom SFX di tabel atas.
 
 ### 14.A Memilih suara: logika (Irfan 6 Nov)
 Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber dan kualitas mix**. Pilihan diturunkan dari dua kolom tabel beat yang sudah ada: mekanik (`motion-mechanics.md`) dan nada (`pacing-map.md`). Suara lahir dari gerak, bukan dari kata.

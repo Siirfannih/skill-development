@@ -216,3 +216,9 @@ Revisi Irfan: suara pembicara di-damp padahal audio podcast sudah bagus; musik t
 Akar masalah: skill hanya mengenal satu jenis video (motion ber-VO narator). Aturan 38 mewajibkan rantai Modul 1 (mono, LPF 9 kHz, denoise, kompresor, loudnorm) untuk *setiap* klip narasumber, musik per babak/tension berlaku untuk semua, dan aturan caption tidak membatasi jumlah baris. Terukur: udara > 9 kHz 0,29× dibanding versi lain dari sumber yang sama, LRA 0,7 LU; caption 2 baris di 14,5 / 24,2 / 72,8 dtk.
 Perubahan: profil format A/B (`formats.md`), aturan 43 dan 44, Modul 1 dibatasi ke format A, `slop-catalog.md`, `delivery-gate.md` (preview dulu, laporan berbukti), `scripts/gate/`. Kasus eval mg-043, mg-044.
 Status: diterapkan (Irfan 6 Nov: "langsung restrukturisasi")
+
+### 2026-11-06 malam · Guide per urusan dari 6 video referensi
+Permintaan Irfan: standar video (rapi, hierarki terbaca, audio ikut suasana, SFX per objek, hindari warna kebanyakan/teks bertumpuk/kaku/cutout kasar) sebagai referensi per folder, bukan aturan kaku; audio ikut tempo video, bukan selera.
+Perubahan: `guide/` (README + visual, teks, gerak, audio, sfx, hindari, referensi + 6 contact sheet terukur), `scripts/audio/pace_read.py`, profil `energi` 100–140 bpm dari referensi, aturan 45 diperbarui; konflik yang ditemukan agen uji diperbaiki (bpm/level fokus, subtitle statis hanya format A, frame 0 aturan 27).
+Uji: 2 brief × (skill lama vs dengan guide), 5/5 assertion lulus di keduanya: keputusan inti sudah tertanam di aturan; guide menambah contoh dan rasa, belum terbukti menaikkan skor. Terbuka: video 06 (Sleeko) terbaca `fokus` padahal musiknya ±117 bpm (atau 58, ragu oktaf).
+Status: diterapkan (Irfan 6 Nov)

@@ -23,6 +23,10 @@ Skill ini adalah **filter + cara kerja**: ia menolak yang pernah Irfan tolak dan
 
 **Urutan menang:** instruksi langsung Irfan di sesi → `projects/<proyek>/` → profil format (`formats.md`) → file ini → cabang `references/` → `external/` → canvas-skill-library.
 
+## 2b. Guide: standar rasa, per urusan
+
+Sebelum keputusan kreatif, buka `guide/README.md` lalu **hanya** folder urusan yang sedang dikerjakan (`visual/`, `teks/`, `gerak/`, `audio/`, `sfx/`, `hindari/`, `referensi/`). Guide = arah + contoh terukur dari 6 video referensi Irfan, bukan aturan: pilih bebas asal bisa dijelaskan. Ragu → pilih yang hidup, lalu cek cepat; jangan main aman (Irfan 6 Nov).
+
 ## 3. Langkah pertama: tentukan format
 
 Baca `references/formats.md` dan tulis `Format: A` atau `Format: B` di brief. Format menentukan aturan audio, musik, SFX, dan teks.
@@ -57,6 +61,7 @@ Revisi dari Irfan: baca `revision-log.md`, catat di `DECISIONS.md` (§21) dan RE
 ```
 motion-graphic/
 ├── SKILL.md                 inti: format, gerbang, indeks aturan (file ini)
+├── guide/                   standar rasa per urusan (README → visual · teks · gerak · audio · sfx · hindari · referensi)
 ├── references/
 │   ├── formats.md           profil A (motion ber-VO) vs B (klip podcast): mulai di sini
 │   ├── core-rules.md        teks penuh aturan inti 1–45, bertanda [A]/[B]
@@ -70,6 +75,8 @@ motion-graphic/
 └── scripts/
     ├── gate/voice_fidelity.py   [B] suara pembicara tidak diproses (udara > 9 kHz, LRA)
     ├── gate/caption_lines.py    caption 1 baris, tidak terpotong tepi
+    ├── audio/pace_read.py       tempo video → kategori suasana + rentang bpm musik
+    ├── audio/music_fit.py       peringkat musik terhadap kategori + benturan dengan suara
     ├── baseline_lock.py · bedah-kamera.py · palette_check.py · audio_qa.py
     └── audio/                   kit QA audio format A (lihat audio/README.md)
 ```
@@ -85,6 +92,7 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 | Kondisi | Cabang |
 |---|---|
 | Brief baru / ragu format | `formats.md` |
+| Keputusan rasa (visual, teks, gerak, audio, SFX) | `guide/<urusan>/GUIDE.md` |
 | Memilih, aturan bertabrakan, ragu bertanya | `decision.md` |
 | Script, teks layar | `copywriting.md` |
 | Tokoh, metafora, family, palet | `direction.md`, `palette.md` |
@@ -106,7 +114,7 @@ Tiga tingkat, mengikuti pola anti-slop: **Hard Gate** mutlak; **Purpose-Gate** t
 - 12 Tidak ada video ke Irfan sebelum verdict SHIP + Delivery Gate · 13 tidak yakin = tanya, jangan menebak
 - 14 Adegan disetujui tidak disentuh · 17 baca folder proyek sebelum build · 18 revisi = diff, bukan tulis ulang
 - 33 [A] VO tidak dipercepat, jeda diukur · 38 [A] Modul 1–5 standar mix ber-VO (bukan untuk B)
-- 43 [B] Suara pembicara asli tidak diproses · 44 Caption satu baris, tidak terpotong · 45 audio dipilih dari kategori suasana + ukuran (`music_fit.py`)
+- 43 [B] Suara pembicara asli tidak diproses · 44 Caption satu baris, tidak terpotong · 45 audio ikut tempo video: kategori dari `pace_read.py`, musik lulus `music_fit.py`
 
 **Purpose-Gate**
 - 6 Kotak di belakang teks hanya bila kontras gagal · 7 setiap efek punya alasan · 24 efek karena fungsi (negative = transisi/before-after)
