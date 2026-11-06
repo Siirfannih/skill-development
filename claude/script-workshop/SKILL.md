@@ -11,7 +11,7 @@ Menggantikan `irfan-content-engine` v1/v2 yang dibuat di Gemini (6 Nov). Kesalah
 
 ## 1. Aturan mutlak (sedikit, karena pernah merusak)
 
-1. **Jangan mengarang pengalaman, data, atau fitur.** Yang tidak Irfan alami ditulis sebagai hipotesis/pertanyaan, bukan "ternyata…". Fitur & penawaran hanya dari `guide/produk/FAKTA.md` atau kata Irfan di sesi.
+1. **Jangan mengarang pengalaman, data, atau fitur.** Yang tidak Irfan alami ditulis sebagai hipotesis/pertanyaan, bukan "ternyata…". Fitur & penawaran hanya dari `guide/produk/FAKTA.md`, repo produk yang ditunjuk di sana, atau kata Irfan di sesi. Cari di sana dulu; tidak ketemu → tanya, jangan menebak.
 2. **Riset dulu, baru tanya.** Hipotesis Irfan divalidasi lewat web search sebelum menulis; setiap klaim angka/fakta punya sumber yang bisa diklik. Tanya Irfan hanya yang tidak bisa diriset (pengalaman pribadinya, keputusan).
 3. **Evaluasi diri sebelum menunjukkan draft.** Jalankan cek di §4 dan tulis temuan + perbaikannya. Jangan menutup dengan meminta pujian ("udah dapet banget kan?") atau bagian "kenapa skrip ini bagus".
 4. **Kalau Irfan bilang ada yang kurang tanpa merinci, cari sendiri dulu**: sebut apa yang kurang + cara memperbaikinya, baru tanya bila masih ragu.

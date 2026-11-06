@@ -14,3 +14,4 @@ Sumber utama: sesi Gemini `irfan-content-engine` (naskah "Penyakit Asli UMKM Pas
 | E8 | Perpindahan bagian putus/tiba-tiba | "rasanya kayak putus atau tiba-tiba" | `../struktur/` jembatan |
 | E9 | Penawaran tidak lengkap (lupa gratis untuk pembangun kecil) | "dia tuh bisa pakai workspace secara gratis" | `../produk/FAKTA.md` |
 | E10 | Fitur disebut spesifik tanpa dasar | — | Hanya dari FAKTA.md; ragu → tanya |
+| E11 | Bertanya fakta produk yang sudah tertulis di repo (multi-cabang) | "Di skill GitHub, reponya sebenarnya udah dijelasin … Tetep jangan menebak" (7 Nov) | Cari `FAKTA.md` + repo `jadisatu-partner` dulu, baru tanya |
