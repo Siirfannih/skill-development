@@ -4,6 +4,36 @@ Baca hanya di gerbang audio (setelah script dan storyboard final) dan saat QA au
 
 ## 14. Audio
 
+### 14.A Memilih suara: logika (Irfan 6 Nov)
+Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber dan kualitas mix**. Pilihan diturunkan dari dua kolom tabel beat yang sudah ada: mekanik (`motion-mechanics.md`) dan nada (`pacing-map.md`). Suara lahir dari gerak, bukan dari kata.
+
+**Mekanik visual → SFX**
+
+| Mekanik | SFX (stok §14.8) | Waktu |
+|---|---|---|
+| Punch-in serius | dentum pendek (`v17_thud_1`), **hanya di punch-in terkuat** | onset kata kunci |
+| Whip | whoosh tipis (`v17_whip_1/2`) | puncak di frame blur tengah |
+| Push-through | riser pendek → impact | riser mengikuti dorongan, impact di cut |
+| Pull-back reveal | whoosh mundur / udara (whoosh gelombang) | selama mengecil |
+| Orbit gather, kartu masuk | pop lembut per kartu, dijarangkan (`soft-subtle-ui-pop`) | saat kartu mendarat |
+| Flash montage | klik shutter 1:1 per foto | per foto |
+| Teks diegetik di UI | tap UI (`ipad_click`) | saat teks muncul |
+| Ganti topik | swoosh transisi (whoosh gelombang) | di cut |
+
+**Nada → musik dan kepadatan SFX**
+
+| Nada | Musik | SFX |
+|---|---|---|
+| Serius / klaim | turun ke drone, **turun bukan hilang** | jarang, beri ruang |
+| Penjelasan / data | bed stabil | tick UI pada data |
+| Analogi / ringan | elemen ringan masuk | lebih rapat, main-main |
+| Emosional | tipis, satu instrumen | hampir tidak ada |
+| Puncak | **drop jatuh tepat di kata puncak** | hit terbesar video |
+| Penutup / CTA | resolve, melambat | satu aksen di CTA |
+
+Satu event satu suara; tidak ada suara yang tidak terikat ke sesuatu di layar. Setiap cue di lembar cue menyebut mekanik atau nada yang melahirkannya.
+
+
 ### 14.0 Gerbang sumber SFX (WAJIB sebelum menyusun cue apa pun; Irfan 31 Okt 23:38)
 Kesalahan terbesar di proyek *Pengganti Kita Sendiri*:
 - Agent memakai bank bunyi **sintetis** (earshot `pool/bank`) dan bunyi Mixkit yang tidak sesuai gaya.
@@ -54,7 +84,7 @@ Aturan:
 - Bass putus ±1 dtk sebelum atau tepat di cut ke end card.
 
 ### 14.3 Penempatan SFX (acuan Baikov: "SFX mendukung semua visual")
-- **Setiap event visual diskret bersuara (target ≥ 85 %, diukur `compare_audio.py`)**:
+- **Setiap event visual diskret bersuara (target ≥ 85 %, diukur `scripts/audio/visual_coverage.py`)**:
   - muncul, mendarat, klik, perubahan state UI
   - **onset teks**
   - **angka berjalan**
