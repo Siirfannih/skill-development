@@ -36,6 +36,10 @@ Pola bersama: semua cepat (kecuali 06), musik 104–136 bpm mengikuti tempo cut;
 - 0:06–0:08 pivot "But, what if" di latar gelap berbintik → fitur konsep (Save Reminders) di UI asli → payoff emosional ("that photo of her?", "Forever") → kredit "MADE BY A HUMAN".
 - Pola: rasa kehilangan yang relate semua orang → "tapi gimana kalau" → produk → payoff → kredit pembuat.
 
+## 10–13 still komposisi (Irfan 7 Nov) · diambil: kartu di tengah + foto melayang
+- 10 thesoutline, 11 "Perspectives on Pride", 12 Cosmos search, 13 gather onboarding: satu kartu/kalimat UI di tengah, foto berbingkai (membulat atau persegi kecil) tersebar di sekeliling dengan ukuran dan blur berbeda sebagai kedalaman, latar terang netral, ruang kosong besar.
+- Cocok untuk memperagakan layanan atau isi feed tanpa karya nyata: foto stok/generik sebagai tekstur, fokus tetap di kartu tengah. Gerak: pop berurutan + drift pelan, bukan semua muncul sekaligus.
+
 ## 09 thekrishray (dibedah 7 Nov) · diambil: kamera, transisi, cara main sound
 - Kata diketik di tengah dengan emoji/ikon yang muncul di sekelilingnya (0:00–0:01); latar gradien biru lembut dengan bintang kecil.
 - Komponen UI jadi alat cerita: orbit ikon app (0:04), slider harga "−1000 $ +" (0:05–0:06), composer chat AI dengan teks diketik + dropdown (0:09–0:13), chip pilihan (0:13), bubble iMessage (0:15–0:17), carousel ikon platform dengan tombol panah (0:20–0:21), kalender pilih tanggal (0:27–0:28), terowongan kata "exciting" (0:31).
