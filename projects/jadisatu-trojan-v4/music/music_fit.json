@@ -1,0 +1,80 @@
+{
+  "category": "energi",
+  "profile": {
+    "arti": "hype, cepat, motivasi, launch",
+    "bpm": [
+      100,
+      140
+    ],
+    "onset": [
+      3.0,
+      8.0
+    ],
+    "centroid": [
+      1700,
+      3800
+    ],
+    "build": [
+      0,
+      15
+    ],
+    "dyn": [
+      0,
+      10
+    ],
+    "mode": "any",
+    "level": -22,
+    "snr_min": 12,
+    "query": "upbeat energetic electronic track with punchy drums",
+    "kalibrasi": {
+      "sumber": "6 video referensi Irfan 6 Nov (guide/referensi), bpm dari mix ±10",
+      "n": 6,
+      "fitur": [
+        "bpm"
+      ]
+    }
+  },
+  "ranked": [
+    {
+      "file": "music/m4_eq.wav",
+      "dur": 84.9,
+      "lufs": -15.2,
+      "bpm": 117.5,
+      "onset": 3.69,
+      "centroid": 1829.0,
+      "build": 7.5,
+      "dyn": 5.1,
+      "mode": "major",
+      "mode_margin": 0.309,
+      "score": 100,
+      "snr": 10.2,
+      "snr_ok": true,
+      "eq_fix": "EQ musik -1.8 dB di 1250 Hz (Q 1,4)",
+      "why": [
+        "benturan dengan suara di 1250 Hz bisa diatasi: EQ musik -1.8 dB di 1250 Hz (Q 1,4)"
+      ],
+      "earshot_z": null
+    },
+    {
+      "file": "music/m4.mp3",
+      "dur": 84.9,
+      "lufs": -14.1,
+      "bpm": 117.5,
+      "onset": 3.69,
+      "centroid": 1557.0,
+      "build": 7.9,
+      "dyn": 4.9,
+      "mode": "major",
+      "mode_margin": 0.277,
+      "score": 96,
+      "snr": 5.5,
+      "snr_ok": false,
+      "eq_fix": null,
+      "why": [
+        "centroid 1557.0 terlalu rendah (target 1700-3800)",
+        "menutupi suara: selisih 5.5 dB di 1250 Hz, butuh 6.5 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 2.5 dB lalu EQ -4 dB bila kategori masih terasa"
+      ],
+      "earshot_z": null
+    }
+  ]
+}

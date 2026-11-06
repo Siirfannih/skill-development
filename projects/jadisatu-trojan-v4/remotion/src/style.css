@@ -1,0 +1,33 @@
+@import "tailwindcss";
+@source "./";
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
+@import "@fontsource/plus-jakarta-sans/800.css";
+@import "@fontsource/poppins/500.css";
+@import "@fontsource/poppins/600.css";
+@import "@fontsource/poppins/700.css";
+/* Token disalin dari jadisatu-partner apps/portal/src/index.css */
+@theme {
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-display: 'Poppins', 'Plus Jakarta Sans', system-ui, sans-serif;
+  --color-canvas: #F3F4F6;
+  --color-stage: #F4F5F7;
+  --color-ink: #0F172A;
+  --color-muted: #5B6475;
+  --color-line: #E6E8EC;
+  --color-accent: #2563EB;
+  --color-accent-dark: #1D4ED8;
+  --color-up: #067647;
+  --color-warn: #B54708;
+  --color-bad: #B42318;
+  --color-warm: #F97066;
+}
+body { font-family: var(--font-sans); color: var(--color-ink); -webkit-font-smoothing: antialiased; }
+.tabular { font-variant-numeric: tabular-nums; }
+.card { background: #fff; border: 1px solid var(--color-line); border-radius: 16px; }
+.btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; min-height:44px; padding:0 1.1rem; border-radius:12px; font-weight:600; font-size:14px; }
+.btn-primary { background: var(--color-accent); color:#fff; }
+.btn-line { background:#fff; color: var(--color-ink); border:1px solid #D0D5DD; }
+.bar-hatch { background-image: repeating-linear-gradient(135deg, rgba(255,255,255,.35) 0 2px, transparent 2px 6px); }

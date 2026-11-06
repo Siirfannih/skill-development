@@ -1,0 +1,106 @@
+{
+ "positive_global_styles": [
+  "instrumental background score for a modern app explainer video",
+  "116 bpm",
+  "bright airy high-frequency sparkle: crisp shimmering hi-hats, glassy high plucks, bright claps, light thin bass, no heavy low end",
+  "clean premium mix, leaves room for a voice-over",
+  "one continuous piece with seamless section transitions"
+ ],
+ "negative_global_styles": [
+  "vocals",
+  "lyrics",
+  "choir",
+  "lo-fi hiss",
+  "cheesy",
+  "silence gaps",
+  "dark cinematic",
+  "muddy",
+  "boomy bass",
+  "warm lo-fi"
+ ],
+ "sections": [
+  {
+   "section_name": "hook",
+   "positive_local_styles": [
+    "playful bright intro, light plucked synth and finger snaps, curious and cheeky, 116 bpm, D major, small and intimate, like a cute chat notification jingle feel"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "heavy drums"
+   ],
+   "duration_ms": 5460,
+   "lines": []
+  },
+  {
+   "section_name": "problem",
+   "positive_local_styles": [
+    "same 116 bpm groove but muted and slightly tense, palm-muted pluck ostinato, ticking hi-hat, minor colour, light and modern, not dark, building a little"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "orchestra",
+    "epic"
+   ],
+   "duration_ms": 16490,
+   "lines": []
+  },
+  {
+   "section_name": "product",
+   "positive_local_styles": [
+    "lift: full bright modern pop groove at 116 bpm, punchy clean kick, round bass, sparkling plucks and claps, optimistic and confident, Apple product video energy, steady and sustained"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "dubstep",
+    "trap hi-hats"
+   ],
+   "duration_ms": 29630,
+   "lines": []
+  },
+  {
+   "section_name": "free",
+   "positive_local_styles": [
+    "short warm breakdown, same tempo, filtered drums, warm pad and glassy bells, friendly"
+   ],
+   "negative_local_styles": [
+    "vocals"
+   ],
+   "duration_ms": 5840,
+   "lines": []
+  },
+  {
+   "section_name": "services",
+   "positive_local_styles": [
+    "full groove returns with more energy, driving four-on-the-floor at 116 bpm, bright plucks, claps, uplifting and confident, sustained"
+   ],
+   "negative_local_styles": [
+    "vocals"
+   ],
+   "duration_ms": 13516,
+   "lines": []
+  },
+  {
+   "section_name": "cta",
+   "positive_local_styles": [
+    "warm resolving groove, same tempo, simpler, major, friendly invitation"
+   ],
+   "negative_local_styles": [
+    "vocals"
+   ],
+   "duration_ms": 6174,
+   "lines": []
+  },
+  {
+   "section_name": "credit",
+   "positive_local_styles": [
+    "gentle resolve, drums out, soft bell motif and warm pad, clean ending with natural decay"
+   ],
+   "negative_local_styles": [
+    "vocals",
+    "drums"
+   ],
+   "duration_ms": 7692,
+   "lines": []
+  }
+ ]
+}
