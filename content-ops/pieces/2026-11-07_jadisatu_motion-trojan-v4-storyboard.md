@@ -29,6 +29,19 @@ Format A motion · master 1920×1080 30 fps (versi 9:16 reframe) · 183 kata ≈
 ## Catatan alur laporan
 User mencatat lewat WhatsApp, dan laporan dikirim balik ke chat yang sama: laporan harian otomatis pukul 18.00 (bisa diubah owner) dan link laporan kapan diminta (`jadisatu-partner/agents/account-manager/SOUL.md`, `WS3-portal.md`). Perlu konfirmasi Irfan: laporan harian otomatis juga berlaku untuk akun gratis?
 
+## Mandat jalan otomatis sampai final (Irfan 7 Nov 01:46)
+Irfan: "Aku akan biarkan worker bekerja sampai pagi dan aku periksa hasil finalnya nanti, pastikan tidak ada kesalahan atau memerlukan persetujuanku lagi ditengah tengah pekerjaan, terkait biaya API elevenlabs udah aku hitung dan sudah dibudgeting."
+- **Naskah dan storyboard sudah final.** Gerbang 2 dan 4 dianggap lolos; tidak menunggu kata "final" lagi.
+- **Biaya ElevenLabs (VO, musik, SFX) sudah disetujui dan dibudgetkan.** Catat kredit yang terpakai di laporan, tanpa berhenti untuk minta izin.
+- **Keputusan yang sudah diambil untuk hal yang masih terbuka**, catat di laporan, jangan berhenti:
+  - beat 5: laporan harian otomatis pukul 18.00 (dokumen `jadisatu-partner/agents/account-manager/SOUL.md`);
+  - beat 8: hanya karya nyata yang ditemukan di repo/mesin (render video Jadisatu yang sudah ada, website klinik bila ada screenshot asli); yang tidak ditemukan tampil sebagai ikon + label tanpa klaim hasil;
+  - SFX: urutan sumber `SFXIrfan` di mesin kerja → `projects/jadisatu-60s/remotion/sfx-el` (palet The Gap yang sudah lulus) → ElevenLabs SFX; tidak berhenti untuk menanyakan path;
+  - musik: ElevenLabs Music atau stok, dipilih dengan `music_fit.py` kategori `energi`.
+- **Yang tetap berhenti** (aturan mutlak): akses repo/kredensial benar-benar tidak tersedia, atau sesuatu yang tidak bisa dibatalkan di luar proyek (posting ke akun, deploy). Selain itu putuskan sendiri lewat skill, tulis alasannya satu baris.
+- Proses panjang (render, earshot) dijalankan di latar belakang; simpan progres dan commit ke `main` berkala.
+- Hasil akhir: MP4 1920×1080 + laporan Delivery Gate berbukti + daftar keputusan yang diambil sendiri + kredit terpakai.
+
 ## Standar visual & build (Irfan 7 Nov: "kualitas atau style yang mirip referensi, bukan renderan three.js mentah")
 - Acuan rasa: contact sheet `claude/motion-graphic/guide/referensi/sheets/08-mosycreate-save-reminders.jpg` dan `09-thekrishray-motion-designer.jpg` (komponen UI bersih, gradien lembut, ikon/emoji 3D halus, blur gerak, tipografi rapi); struktur dari Baikov.
 - **Tidak ada render three.js mentah** sebagai visual akhir. Semua dibangun di Remotion dengan React/CSS/SVG: komponen UI asli dari `jadisatu-partner/apps/portal`, tampilan WhatsApp dibangun ulang per elemen, gradien dan glow CSS resolusi penuh, motion blur di gerak cepat.
