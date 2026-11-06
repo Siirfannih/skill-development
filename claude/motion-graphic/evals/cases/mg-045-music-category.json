@@ -1,0 +1,12 @@
+{
+  "id": "mg-045",
+  "source": "Irfan 6 Nov: musik klip DOAC merusak suasana; audio harus dipilih dari kategori video lalu dicek frekuensi dan kecocokannya",
+  "prompt": "Pilih backsound untuk klip podcast DOAC ini dari folder musik yang ada.",
+  "files": ["(sumber DOAC + folder kandidat musik di PC server)"],
+  "assertions": [
+    "Brief menulis satu kategori suasana (fokus/slowdown/energi/tegang/hangat) beserta alasan dari isi klip",
+    "music_fit.py dijalankan dengan --category dan --voice; track terpilih berstatus PAKAI",
+    "Keputusan tidak bersandar pada nama file atau tag genre/mood saja",
+    "Uji sintetis 6 Nov: kategori fokus memilih lofi_75 (88) dan menolak edm_128, lofi_build (build 13,3 dB), midpad_85 (benturan suara -0,2 dB)"
+  ]
+}

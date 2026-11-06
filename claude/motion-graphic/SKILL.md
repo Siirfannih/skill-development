@@ -44,7 +44,7 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Render penuh 
 | 3 | Bedah referensi | `analysis-qa.md` §2 | Metrik visual + peta audio dengan timestamp |
 | 4 | Storyboard 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final |
 | 5 | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
-| 6 | Audio | `audio.md` | A: VO setelah script final; SFX/musik setelah storyboard final. B: audio sumber utuh, bed dipilih |
+| 6 | Audio | `audio.md` | Kategori suasana tertulis; musik lulus `music_fit.py`. A: VO setelah script final; SFX/musik setelah storyboard final. B: audio sumber utuh |
 | 7 | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum diterapkan ke semua |
 | 8 | Build semua adegan | `build.md` | Komponen sama untuk semua adegan |
 | 9 | Preview + QA | `delivery-gate.md` §0, `analysis-qa.md` §16 | Still per beat + audio saja lulus, baru render penuh; ≥ 3 putaran kritik, skor ≥ 8 |
@@ -59,7 +59,8 @@ motion-graphic/
 ├── SKILL.md                 inti: format, gerbang, indeks aturan (file ini)
 ├── references/
 │   ├── formats.md           profil A (motion ber-VO) vs B (klip podcast): mulai di sini
-│   ├── core-rules.md        teks penuh aturan inti 1–44, bertanda [A]/[B]
+│   ├── core-rules.md        teks penuh aturan inti 1–45, bertanda [A]/[B]
+│   ├── music-profiles.json  profil musik per kategori suasana (kalibrasi dari referensi Irfan)
 │   ├── slop-catalog.md      tanda yang pernah Irfan tolak + cara mengeceknya
 │   ├── delivery-gate.md     preview-dulu + laporan PASS/FAIL berbukti sebelum kirim
 │   ├── direction.md · storyboard.md · copywriting.md · decision.md · decision-guide.md
@@ -90,7 +91,7 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 | Storyboard, spec beat, mode teks per beat | `storyboard.md`, `decision-guide.md`, `pacing-map.md` |
 | Gaya teks, easing, animasi teks | `typography.md`, `smooth-motion.md` |
 | Kamera, transisi, cutout | `camera-transition.md`, `motion-mechanics.md` |
-| VO, SFX, musik, QA audio | `audio.md` (mulai §14.A; format B: §14.B) |
+| VO, SFX, musik, QA audio | `audio.md` (mulai §14.0A kategori suasana; format B: §14.B) |
 | Build AE/engine kode | `build.md` |
 | Bedah referensi, QA render | `analysis-qa.md`, `delivery-gate.md` |
 | Revisi Irfan, kunci adegan | `revision-log.md` |
@@ -105,7 +106,7 @@ Tiga tingkat, mengikuti pola anti-slop: **Hard Gate** mutlak; **Purpose-Gate** t
 - 12 Tidak ada video ke Irfan sebelum verdict SHIP + Delivery Gate · 13 tidak yakin = tanya, jangan menebak
 - 14 Adegan disetujui tidak disentuh · 17 baca folder proyek sebelum build · 18 revisi = diff, bukan tulis ulang
 - 33 [A] VO tidak dipercepat, jeda diukur · 38 [A] Modul 1–5 standar mix ber-VO (bukan untuk B)
-- 43 [B] Suara pembicara asli tidak diproses · 44 Caption satu baris, tidak terpotong
+- 43 [B] Suara pembicara asli tidak diproses · 44 Caption satu baris, tidak terpotong · 45 audio dipilih dari kategori suasana + ukuran (`music_fit.py`)
 
 **Purpose-Gate**
 - 6 Kotak di belakang teks hanya bila kontras gagal · 7 setiap efek punya alasan · 24 efek karena fungsi (negative = transisi/before-after)

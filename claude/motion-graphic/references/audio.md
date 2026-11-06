@@ -4,6 +4,25 @@ Baca hanya di gerbang audio (setelah script dan storyboard final) dan saat QA au
 
 ## 14. Audio
 
+### 14.0A Kategori suasana dulu, baru cari audio (Irfan 6 Nov)
+Sebelum memilih musik atau SFX apa pun, tulis di brief **satu kategori suasana untuk video** (format B: satu untuk seluruh klip; format A: satu per babak). Kategori diturunkan dari isi, bukan dari selera: apa yang dibicarakan, nada pembicara, tempo bicara dan cut. Tulis alasannya satu baris.
+
+| Kategori | Kapan | Musik (profil terukur di `music-profiles.json`) | SFX |
+|---|---|---|---|
+| `fokus` | menjelaskan, edukatif, podcast santai | lambat-sedang, ketukan jarang, tidak terang, tanpa build | jarang, lembut, hanya di sisipan |
+| `slowdown` | reflektif, emosional, personal | lambat, sangat jarang, gelap/hangat, minor | hampir tidak ada |
+| `energi` | hype, motivasi, launch | cepat, padat, terang, build/drop boleh | padat, punchy, terikat ke cut |
+| `tegang` | masalah, ancaman, investigasi | sedang-cepat, berdenyut, minor | tick/pulse jarang, satu hit di engsel |
+| `hangat` | harapan, solusi, penutup/CTA | sedang, mayor, terang secukupnya | lembut, satu aksen di CTA |
+
+Lalu **ukur, jangan percaya label**. Kata "lofi" atau "EDM" di nama file, tag situs, atau mood dari earshot sering salah (earshot `docs/LIMITS.md`: mood musik top-1 keliru ±18 %). Keputusan diambil dari:
+```
+python3 scripts/audio/music_fit.py --category fokus --voice sumber.mp4 --duration 76 kandidat/*.mp3 [--earshot]
+```
+Skrip mengukur tempo yang dirasakan, kepadatan ketukan, kecerahan, build/drop, dinamika, mayor/minor, dan **benturan dengan suara**: selisih suara vs musik di pita 500–4000 Hz pada level rencana (min 12 dB; ≤ 4 dB kurang = boleh diatasi EQ −4 dB §14.1, lebih dari itu ganti track). Pakai track teratas yang `PAKAI`; tulis keluarannya di laporan Delivery Gate. `--earshot` hanya menambah skor teks sebagai info, tidak menentukan.
+
+Profil awal di `music-profiles.json` adalah **hipotesis** (`kalibrasi: null`). Kalibrasi tiap kategori dari ≥ 3 track yang Irfan setujui: `music_fit.py --calibrate fokus ref1 ref2 ref3`. SFX untuk kandidat: `earshot rank "<peran>" kandidat/*` untuk karakter, `sfx_comfort.py` untuk desis, lalu kepadatan mengikuti kolom SFX di tabel atas.
+
 ### 14.A Memilih suara: logika (Irfan 6 Nov)
 Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber dan kualitas mix**. Pilihan diturunkan dari dua kolom tabel beat yang sudah ada: mekanik (`motion-mechanics.md`) dan nada (`pacing-map.md`). Suara lahir dari gerak, bukan dari kata.
 

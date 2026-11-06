@@ -18,6 +18,7 @@ Render penuh adalah langkah paling mahal, jadi ia datang paling akhir (Irfan 6 N
 |---|---|---|
 | Format (A/B) tidak tertulis di brief? | baris `Format:` di brief | `formats.md` |
 | [B] Suara pembicara diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | 43 |
+| Kategori suasana tidak tertulis, atau musik dipakai tanpa laporan `music_fit.py` berstatus PAKAI? | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 musik.mp3` | 45 |
 | Ada caption 2 baris, kata yatim, atau teks terpotong tepi? | `python3 scripts/gate/caption_lines.py render.mp4 --stills qc/` + keputusan per still yang ditandai | 44 |
 | Ada teks/angka layar yang tidak diucapkan? | transkrip vs daftar teks | 2 |
 | Ada UI karangan atau placeholder storyboard di render? | still | 4, 16, 19, 22 |
