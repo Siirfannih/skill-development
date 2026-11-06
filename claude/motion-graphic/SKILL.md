@@ -37,7 +37,7 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya: satu kalimat 
 | 1 | Brief | `decision.md`, `palette.md` | Tujuan, penonton, durasi, CTA, format master terkunci. Default 16:9 1920×1080, 30 fps native (jangan upconvert 24→30), ditonton di HP |
 | 2 | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file |
 | 3 | Bedah referensi | `analysis-qa.md` §2 | Metrik visual + peta audio dengan timestamp. Tanpa referensi dari Irfan: pakai video proyek sebelumnya yang ia setujui sebagai pembanding dan catat itu di brief |
-| 4 | Storyboard 100 % | `storyboard.md`, `direction.md`, `decision-guide.md` | Tabel kritik lolos; Irfan menyatakan final |
+| 4 | Storyboard 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Tabel kritik lolos; Irfan menyatakan final |
 | 5 | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
 | 6 | Audio | `audio.md` | VO boleh setelah script final (gerbang 2), karena timestamp VO menggerakkan spec beat. SFX dan musik hanya setelah storyboard final (gerbang 4). Tidak ada VO "sementara" sebelum script final |
 | 7 | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum pendekatan diterapkan ke semua |
@@ -71,7 +71,8 @@ motion-graphic/
     ├── revision-log.md      log revisi Irfan, RETRO, ledger keputusan, kunci adegan
     ├── decision-guide.md    mode teks per beat, caption, ukuran, posisi, kotak/glow, grafik di footage, devil's advocate
     ├── palette.md + palettes.json  memilih dan mengunci palet; 10 palet terukur
-    └── motion-mechanics.md  kamera, transisi, cutout sebagai logika ruang
+    ├── motion-mechanics.md  kamera, transisi, cutout sebagai logika ruang
+    └── pacing-map.md        nada kalimat (transkrip + audio) → kekuatan gerak, cut, tipografi per jenis video
 └── scripts/
     ├── baseline_lock.py     kunci adegan yang disetujui; gagalkan render yang mengubahnya
     ├── bedah-kamera.py      ukur kecepatan, jerk, dan henti-mulai kamera dari video
@@ -105,6 +106,7 @@ Baca cabang saat salah satu kondisi ini terjadi, bukan di awal. Cabang boleh mer
 | Membangun animasi teks, mengatur motion blur, atau gerak terasa kurang smooth | `smooth-motion.md` |
 | Memutuskan teks/visual/caption per beat, kotak, glow, grafik di atas footage | `decision-guide.md` |
 | Mengunci warna di brief atau QA warna | `palette.md` |
+| Menentukan ritme gerak dari nada kalimat | `pacing-map.md` |
 | Memilih transisi, gerak kamera, atau cutout | `motion-mechanics.md` |
 
 ## 6. Rules inti (berlaku di setiap gerbang)
@@ -159,5 +161,5 @@ Aturan ini dipisah dari cabang karena pelanggarannya paling sering muncul di rev
     Rincian di `audio.md` §14.6–14.10. Aturan ini menggantikan gerbang LRA ≥ 7, "hening total saat klip", dan dinamika narator per babak (PenggantiKitaSendiri v3, Irfan 31 Okt).
 39. **Serif tidak sejajar dengan bold.** Dalam satu frasa, serif tidak boleh seukuran dan sebobot kata bold, karena dua gaya sama kuat membuat mata bingung. Serif boleh sebagai penekanan atau penutup. Satu baris = satu ukuran; kata yang dibesarkan pindah ke barisnya sendiri (Irfan 6 Nov).
 41. **Palet dikunci di brief.** Satu keluarga aksen dominan (≥ 70 % piksel berwarna), netral membawa frame, tidak ada hex di luar palet; konten Jadisatu memakai palet `jadisatu-*`. Detail dan cek: `palette.md`, `scripts/palette_check.py` (gagal: preview DOAC 6 Nov, pelangi).
-42. **Transisi = logika ruang.** Pilih mekanik dari hubungan dua adegan (B di dalam A → push-through; A bagian dari B → pull-back; ganti topik → whip). Detail: `motion-mechanics.md` (Irfan 6 Nov).
+42. **Transisi = logika ruang.** Pilih mekanik dari hubungan dua adegan (B di dalam A → push-through; A bagian dari B → pull-back; ganti topik → whip). Kekuatan dan waktu gerak dari nada kalimat (transkrip + audio) per jenis video: `pacing-map.md`. Detail: `motion-mechanics.md` (Irfan 6 Nov).
 40. **Contoh dari Irfan berlaku untuk frame yang ia sebut.** Satu gambar acuan atau efek (gradasi, satu warna) bukan aturan semua frame. Sebutkan frame mana yang berubah sebelum mengubah massal. "Premium" = struktur warna + ruang kosong + visual yang menceritakan pesan; warna asli objek dan foto dipertahankan (Irfan 4 Nov: "Gradient itu hanya digunakan di beberapa frame saja"; R4 serba biru ditolak).
