@@ -9,6 +9,7 @@
 - 05: kinetik bertumpuk boleh **sebagai tekstur**, asal satu baris menyala yang jadi fokus.
 
 ## Cara (pilih yang cocok)
+- Format A (motion ber-VO): tidak ada baris subtitle. Teks hadir sebagai bagian visual: kata besar yang jadi adegan, isi chat, label UI; VO yang membawa kalimatnya. Caption hanya untuk format B (Irfan 7 Nov, dari ref Baikov, Mosycreate, thekrishray).
 - Dua lapis maksimal per momen: caption (ringan) + penekanan (berat). Penekanan muncul, caption mundur.
 - Caption satu baris. Klausa panjang → pecah jadi dua caption berurutan (aturan 44).
 - Satu baris satu ukuran; kata yang dibesarkan pindah baris sendiri.

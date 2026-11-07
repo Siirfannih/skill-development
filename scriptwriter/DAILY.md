@@ -57,3 +57,10 @@
 - A1 berpusat pada pembuat; A2 menjadi laporan perusahaan setelah insert Sam. Irfan menegaskan narator harus menceritakan keresahan bersama sesuai pusat cerita kandidat pertama.
 - [Bukti, kutipan koreksi, dan keputusan konten](../projects/ai-change-everything/NARRATOR-REVIEW.md) dicatat bersama RETRO motion-graphic dan [inbox evaluasi](../claude/motion-graphic/evals/inbox/2026-10-29-ai-change-everything-narrator.md).
 - Status: kedua draf ditolak; belum ada skrip final, patch skill, atau hasil performa. Penempatan akhir kutipan masih terbuka. Titik lanjut: pertahankan pusat persoalan sambil menilai fungsi tiap ucapan narator dan bukti.
+
+## 7 November 2026 · Trojan v4: storyboard panel di Wonder
+
+- Storyboard digambar di file Basilisk, halaman Motion Trojan v4: 31 panel, arah visual, dan tabel kritik. Waktu dari `vo.json` (83,3 dtk), standar visual dan beat 8 dari versi main.
+- Irfan 7 Nov: baris subtitle dihapus dari semua panel, teks hanya bagian visual. Hook beat 1 dipecah: kata "Semudah chattingan" lalu ruang chat WhatsApp layar penuh.
+- Perlu keputusan: bubble penutup panel 10b dilepas (default: tanpa bubble); 08a tambahan visual agar VO "belum maksimal" punya gambar; foto Risol Bu Sari masih placeholder. Status: storyboard menunggu review Irfan, belum build.
+

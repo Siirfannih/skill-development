@@ -17,7 +17,7 @@ Disusun 7 Nov dengan struktur prompt-master (Template M + memory block, Claude C
 - Penolakan Irfan pada v2, kata-katanya: "tampilan videonya jadi 3d dan sangat funy atau cerah … collor Brand video kita adalah White, Biru sebagai icon dan beberapa tampilan dan kita ga punya permintaan 3d ke semua bagian termasuk efek glasses berwarna biru". Ukuran v2: 3 keluarga warna (biru 53 %, kuning-oranye 33 % dari emoji 3D, merah 9 %).
 - Yang diterima dari v2:
   - urutan beat dan jenis komponen UI (ponsel WhatsApp, dasbor, kalender, chip cabang, slider harga, carousel platform, chip CTA);
-  - teks layar satu baris di tengah bawah: kata yang sudah diucap berwarna tinta, sisanya abu.
+  - tidak ada baris subtitle (Irfan 7 Nov): teks hanya sebagai bagian visual (kata besar, isi chat, label UI).
 
 ## Objective
 Bangun dan render trojan_v4_v3.mp4 dari nol di Remotion dengan memakai VO dan timing yang sudah ada. Visual flat 2D dengan palet brand putih + biru, rapi seperti referensi 07/08/09, siap diperiksa Irfan tanpa revisi gaya.
@@ -46,7 +46,7 @@ Bentuk:
 
 Tipografi:
 - Plus Jakarta Sans (@remotion/google-fonts).
-- Teks layar 44–52 px, semibold, satu baris, ≤ 6 kata per frasa, muncul per kata mengikuti words[] di vo.json.
+- Tanpa subtitle. Teks yang tampil adalah bagian visual, muncul mengikuti words[] di vo.json; ikuti panel storyboard Wonder halaman Motion Trojan v4.
 - Ukuran seragam dalam satu baris; jangan mencampur besar-kecil.
 
 Gerak (ambil dari 09):
@@ -101,7 +101,6 @@ UI produk: ambil struktur dan teks dari repo Siirfannih/jadisatu-partner (apps/p
 ## Acceptance Criteria
 - [ ] `grep -rniE "fluent|backdrop-filter|radial-gradient|three" projects/jadisatu-trojan-v4/remotion/src` → 0 baris.
 - [ ] `python3 claude/motion-graphic/scripts/palette_check.py out/trojan_v4_v3.mp4 --max 1` → satu keluarga aksen (biru ±220°), dominan ≥ 70 %.
-- [ ] `python3 claude/motion-graphic/scripts/gate/caption_lines.py out/trojan_v4_v3.mp4` → PASS.
 - [ ] Durasi MP4 = durasi vo.json total ±0,1 dtk. VO di mix tidak dipercepat (cek dengan alignment kata di detik 10, 40, dan 75).
 - [ ] music_fit kategori energi → lolos SNR VO vs musik.
 - [ ] Delivery Gate (references/delivery-gate.md) diisi, setiap PASS dengan bukti.
