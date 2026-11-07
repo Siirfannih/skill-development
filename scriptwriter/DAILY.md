@@ -68,3 +68,4 @@
 - Finishing Apple motion 7 Nov ditolak: objek 3D, gradien merah, dan putih bergradien biru turun dari harapan. Panel 02–04 dikembalikan, percobaan ada di Arsip R4. Gratis diganti tipografi dinding kata di atas biru brand (07b–07d). Perlu keputusan: 01g dan 01h masih rusak, menunggu arahan Irfan.
 - Beat 9 direvisi 7 Nov: 09a memakai postingan, 09a2 baru untuk notifikasi, 09b dan 09c memakai dua tombol. VO akan disusun ulang karena terlalu lambat, jadi visual jadi acuan pertama dan waktu panel sementara.
 - Kucing 7 Nov: 02a memakai kucing vektor pusing sebagai ganti kata "ribet", 03a dan 03b memakai kucing pose natural kecil di belakang karakter, karakter dipisah dari latar kartu supaya bisa dianimasikan. 09a memakai postingan kucing 4:5.
+- Ekspor 7 Nov: 40 panel, PDF, dan aset masuk `projects/jadisatu-trojan-v4/storyboard/` supaya storyboard bisa dipindahkan. Irfan menghapus pertanyaan paket kreatif dari 09c.

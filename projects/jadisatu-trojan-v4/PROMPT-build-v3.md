@@ -73,7 +73,7 @@ Gerak (ambil dari 09):
    - panel Google Bisnis dibangun ulang dan dikelola: jam buka diubah, foto diunggah, postingan dibuat, ulasan dibalas;
    - dasbor berlabel "siap pakai".
    Foto berlisensi bebas (Unsplash/Pexels) dicatat di CREDITS.md. Bila unduhan gagal, pakai tile putih berikon garis biru. NEVER tampilkan angka hasil (rating, followers, omzet) atau nama usaha nyata.
-9. Postingan kucing 4:5 ("Data rapi, owner santai") terpotong di atas frame, kolom komentar di bawahnya jadi fokus, "workspace" diketik dan terkirim. Layar meredup, notifikasi Instagram turun dari atas, mouse mengkliknya, DM terbuka. User mengetik "Ambil akses", balasan berisi dua tombol: Akses Website dan Claim Bundling, bukan URL. Di "DM kami" user bertanya soal paket kreatif di DM yang sama. Tidak ada layar chip.
+9. Postingan kucing 4:5 ("Data rapi, owner santai") terpotong di atas frame, kolom komentar di bawahnya jadi fokus, "workspace" diketik dan terkirim. Layar meredup, notifikasi Instagram turun dari atas, mouse mengkliknya, DM terbuka. User mengetik "Ambil akses", balasan berisi dua tombol: Akses Website dan Claim Bundling, bukan URL. Di "DM kami" DM yang sama ditahan dengan dua tombol tetap terlihat. Tidak ada layar chip.
 10. Layar hitam, kalimat kecil "Oh iya, video ini juga kami yang bikin.", logo Jadisatu, dan bubble kecil "udah makan belum? 🥺" kembali di samping logo.
 
 UI produk: ambil struktur dan teks dari repo Siirfannih/jadisatu-partner (apps/portal/src, read-only) bila bisa diakses. Bila tidak, bangun dari deskripsi di atas. Jangan mengarang fitur di luar storyboard.
