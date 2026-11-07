@@ -36,13 +36,13 @@ Palet:
 - Variasi latar: 1–2 layar biru solid penuh seperti 07, dan hitam hanya untuk kredit beat 10 seperti 08.
 - Hijau #067647 / merah #B42318 hanya untuk angka naik/turun dan selisih di beat 2.
 - Pengecualian ruang WhatsApp, mengikuti tampilan asli: gelembung #D9FDD3, wallpaper #EFEAE2, centang #53BDEB, tombol kirim #00A884.
-- Pengecualian lain: kartu karakter beat 3, website Risol Bu Sari, dan DM Instagram beat 9 memakai warnanya sendiri.
+- Pengecualian lain: kartu karakter beat 3, kartu Gratis beat 7 (satu-satunya glow), website Risol Bu Sari, dan DM Instagram beat 9 memakai warnanya sendiri.
 
 Bentuk:
 - Flat 2D. Ikon garis lucide-react, stroke 1,75, berwarna biru atau tinta.
 - Logo platform asli kecil hanya untuk WhatsApp, Instagram, dan Google (simple-icons).
 - Emoji hanya sebagai isi teks chat (🥺 di bubble "udah makan belum?").
-- NEVER: emoji 3D/Fluent, backdrop-filter atau kaca, radial-gradient atau blob latar, glow, bintang/sparkle, konfeti, three.js.
+- NEVER: emoji 3D/Fluent, backdrop-filter atau kaca, radial-gradient atau blob latar, glow selain kartu Gratis beat 7, bintang/sparkle, konfeti, three.js.
 - Bayangan hanya abu tipis: 0 1px 2px rgba(15,23,42,.06), 0 8px 24px rgba(15,23,42,.06).
 - Radius kartu 16–20 px.
 
@@ -59,13 +59,13 @@ Gerak (ambil dari 09):
 - Satu fokus per momen.
 
 ## Beat (waktu dari vo.json beats[].s/e; isi VO jangan diubah)
-1. Kata "Gimana kalau nyatet keuangan" dibangun di tengah, lalu hanya "Semudah chattingan". Di "sama ayang" frame jadi ruang chat WhatsApp layar penuh, kontak ayang: "udah makan belum? 🥺" lalu dijawab "udah dong". Tidak ada transaksi di hook.
+1. Pembuka satu baris per kata, kata baru mendorong kata lama keluar frame: Gimana, kalau, nyatet keuangan, usaha itu, Semudah, chattingan. Mouse interaktif berhenti di bawah kata yang diucap dan terbang antar frame; di "chattingan" mouse mengklik, kata melebar jadi ruang chat WhatsApp layar penuh, kontak ayang: "udah makan belum? 🥺" lalu dijawab "udah dong". Tidak ada transaksi di hook.
 2. Ikon garis buku dan spreadsheet muncul bergantian dengan label "ribet". Lalu dua kartu "catatan Rp850.000" ≠ "laci Rp720.000".
 3. Kartu karakter datar ala referensi pilihan avatar: lapak kecil, titip jualan, punya toko. Warna kartu mengikuti karakter. Ketiganya diberi ikon buku yang sama, lalu satu ikon buku tercoret "akhirnya nggak dicatat".
 4. Label Jadisatu Workspace + ponsel WhatsApp yang dibangun ulang per elemen mengikuti tampilan asli, kontak Jadisatu, ruang chat sama dengan beat 1. Pesan "jual 12 risol 60rb" diketik, lalu terkirim. Bubble balasan "✓ Tercatat · Pemasukan · Penjualan Rp60.000". Pesan "beli gas 25rb" mendapat label Pengeluaran. Dua bubble terbang ke kolom Pemasukan/Pengeluaran.
 5. Baris catatan menyatu jadi kartu "Laporan hari ini" di kata "laporan". Di "dikirim" kartu masuk ke thread WhatsApp yang sama, jam 18.00 (penjualan, pengeluaran, laba berjalan + link). Ketuk link, dasbor Ringkasan Workspace tersusun per widget saat VO menyebut "Workspace" di awal beat 6.
 6. Kalender November menyorot tanggal stok habis dalam lingkaran biru. Kartu saran belanja muncul. Lalu kartu akun "Risol Bu Sari": kursor menekan "+ Tambah cabang", dan chip Cabang 1 · 2 · 3 muncul.
-7. Slider harga "− Rp … +" digeser ke Rp0, lalu kartu "Gratis" biru solid dengan teks putih.
+7. Slider harga "− Rp … +" digeser turun. Tepat di "gratis" hard cut ke layar gelap #020221: kartu "Gratis" melayang, gradien biru ke teal, glow menyala saat disentuh mouse, tanpa Rp0.
 8. Carousel platform Instagram → website → Google Bisnis → Workspace, ikuti "Beat 8: peragaan layanan" di storyboard. Semua untuk usaha fiktif "Risol Bu Sari":
    - grid IG terisi foto satu per satu;
    - website F&B yang terlihat jadi: hero gelap, menu pre-order dengan foto dan harga contoh, halaman digulir;
