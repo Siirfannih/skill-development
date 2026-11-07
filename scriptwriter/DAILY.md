@@ -60,7 +60,7 @@
 
 ## 7 November 2026 · Trojan v4: storyboard panel di Wonder
 
-- Storyboard digambar di file Basilisk, halaman Motion Trojan v4: 38 panel, arah visual, dan tabel kritik. Waktu dari `vo.json` (83,3 dtk), standar visual dan beat 8 dari versi main.
+- Storyboard digambar di file Basilisk, halaman Motion Trojan v4: 37 panel, arah visual, dan tabel kritik. Waktu dari `vo.json` (83,3 dtk), standar visual dan beat 8 dari versi main.
 - Irfan 7 Nov: baris subtitle dihapus dari semua panel, teks hanya bagian visual. Hook beat 1 dipecah: kata "Semudah chattingan" lalu ruang chat WhatsApp layar penuh.
 - Revisi urutan 7 Nov: hook hanya obrolan ayang; 04b ruang chat yang sama dengan kontak Jadisatu; beat 5 mengikuti VO (catatan, laporan, WhatsApp, dasbor); ruang WhatsApp mengikuti tampilan asli. Panel 03 memakai karakter, 08d website F&B, 09 DM Instagram. Hook jadi satu baris per kata dengan mouse penuntun; 07b gelap menyala.
 - Perlu keputusan: 08a tambahan visual agar VO "belum maksimal" punya gambar; foto Risol Bu Sari masih placeholder. Status: storyboard menunggu review Irfan, belum build.
