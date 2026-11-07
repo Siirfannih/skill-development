@@ -14,6 +14,9 @@
 - Motion blur di gerak cepat. Teks masuk dengan blur→tajam atau mask, bukan fade polos.
 - Footage diam terlalu lama → beri drift/zoom kecil.
 - Cutout: matte bersih (rambut, tepi), feather 1–2 px, warna & cahaya disamakan, atau beri outline sebagai gaya. Cek di 100 %.
+- Mouse interaktif boleh jadi penuntun mata: berhenti di kata atau UI yang sedang dibicarakan, terbang antar frame searah transisi (Irfan 7 Nov, dari ref Mosycreate).
+- Mouse dalam video berkarakter dibuat satu keluarga dengan karakternya, bukan kursor default: siluet tetap panah, sekitar 7,5% lebar frame, miring mengikuti arah gerak. Sertakan lembar pose idle, hover, melesat, klik untuk editor (Irfan 7 Nov, gerak dari ref Jordan Esfa).
+- Momen puncak diceritakan bertahap, bukan satu frame jadi: storyboard memberi satu panel per tahap agar editor melihat geraknya (Irfan 7 Nov).
 - Transisi dari logika ruang: masuk ke dalam = push-through; mundur = pull-back; ganti topik = whip.
 
 ## Cek cepat

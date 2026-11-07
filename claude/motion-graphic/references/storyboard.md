@@ -23,6 +23,8 @@ Baca di gerbang 4–5 (storyboard, TYPE-TEST, TRANSITION-SHEET). Storyboard adal
 - Mencakup seluruh durasi. Tidak ada bagian "nanti dilanjutkan saat build".
 - Storyboard adalah **referensi komposisi, bukan aset**. Gambar storyboard tidak pernah dipakai sebagai background yang ditumpuk teks.
 - Setiap beat menjawab tiga pertanyaan: tokoh sedang melakukan apa, apa subjeknya, objek apa yang sedang dibicarakan (`direction.md` §6.4).
+- Urutan visual mengikuti urutan kata VO: objek tampil saat katanya diucap, tidak mendahului. Percakapan di layar harus nyambung dan masuk ke ruang yang benar (Irfan 7 Nov; gagal: trojan v4 hook).
+- Objek UI (tombol, kartu) dipakai hanya kalau cerita punya aksi untuknya. Kata kunci abstrak seperti "gratis" cukup jadi tipografi besar (Irfan 7 Nov: gratis sebagai tombol kurang nyambung).
 - Setiap beat diisi dengan format §15 di bawah, termasuk kolom SFX. Musik dan SFX baru dibuat setelah storyboard disetujui, tetapi rencananya sudah ditulis di sini.
 
 ## 3. Melanjutkan storyboard contoh Irfan

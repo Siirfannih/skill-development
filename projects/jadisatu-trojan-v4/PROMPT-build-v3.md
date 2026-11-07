@@ -17,7 +17,7 @@ Disusun 7 Nov dengan struktur prompt-master (Template M + memory block, Claude C
 - Penolakan Irfan pada v2, kata-katanya: "tampilan videonya jadi 3d dan sangat funy atau cerah … collor Brand video kita adalah White, Biru sebagai icon dan beberapa tampilan dan kita ga punya permintaan 3d ke semua bagian termasuk efek glasses berwarna biru". Ukuran v2: 3 keluarga warna (biru 53 %, kuning-oranye 33 % dari emoji 3D, merah 9 %).
 - Yang diterima dari v2:
   - urutan beat dan jenis komponen UI (ponsel WhatsApp, dasbor, kalender, chip cabang, slider harga, carousel platform, chip CTA);
-  - teks layar satu baris di tengah bawah: kata yang sudah diucap berwarna tinta, sisanya abu.
+  - tidak ada baris subtitle (Irfan 7 Nov): teks hanya sebagai bagian visual (kata besar, isi chat, label UI).
 
 ## Objective
 Bangun dan render trojan_v4_v3.mp4 dari nol di Remotion dengan memakai VO dan timing yang sudah ada. Visual flat 2D dengan palet brand putih + biru, rapi seperti referensi 07/08/09, siap diperiksa Irfan tanpa revisi gaya.
@@ -32,21 +32,24 @@ Bangun dan render trojan_v4_v3.mp4 dari nol di Remotion dengan memakai VO dan ti
 Palet:
 - Latar putih #FFFFFF atau stage #F4F5F7.
 - Teks #0F172A, teks redup #5B6475, garis #E6E8EC.
-- Biru #2563EB (gelap #1D4ED8) satu-satunya aksen: ikon, tombol, slider, chip aktif, kartu "Gratis".
+- Biru #2563EB (gelap #1D4ED8) satu-satunya aksen: ikon, tombol, slider, chip aktif, layar "gratis".
 - Variasi latar: 1–2 layar biru solid penuh seperti 07, dan hitam hanya untuk kredit beat 10 seperti 08.
 - Hijau #067647 / merah #B42318 hanya untuk angka naik/turun dan selisih di beat 2.
+- Pengecualian ruang WhatsApp, mengikuti tampilan asli: gelembung #D9FDD3, wallpaper #EFEAE2, centang #53BDEB, tombol kirim #00A884.
+- Pengecualian lain: kartu karakter beat 3, website Risol Bu Sari, dan DM Instagram beat 9 memakai warnanya sendiri.
+- Mouse selalu karakter Jadisatu (lembar "Karakter Mouse Jadisatu" di halaman storyboard): oranye #F59A2E, sisi lipat #E8821C, rambut dan mata #0F172A, tepi putih. Pose idle, hover, melesat, klik. 72 px di pembuka dan 60 px di UI pada frame 960. Titik klik ujung kiri atas, miring maksimal 35°, gerak ease-out, klik squash 0,9 selama 3 frame.
 
 Bentuk:
 - Flat 2D. Ikon garis lucide-react, stroke 1,75, berwarna biru atau tinta.
 - Logo platform asli kecil hanya untuk WhatsApp, Instagram, dan Google (simple-icons).
 - Emoji hanya sebagai isi teks chat (🥺 di bubble "udah makan belum?").
-- NEVER: emoji 3D/Fluent, backdrop-filter atau kaca, radial-gradient atau blob latar, glow, bintang/sparkle, konfeti, three.js.
+- NEVER: emoji 3D/Fluent, backdrop-filter atau kaca, radial-gradient atau blob latar, glow, ikon 3D, gradien merah, putih dengan gradien biru, bintang/sparkle, konfeti, three.js.
 - Bayangan hanya abu tipis: 0 1px 2px rgba(15,23,42,.06), 0 8px 24px rgba(15,23,42,.06).
 - Radius kartu 16–20 px.
 
 Tipografi:
 - Plus Jakarta Sans (@remotion/google-fonts).
-- Teks layar 44–52 px, semibold, satu baris, ≤ 6 kata per frasa, muncul per kata mengikuti words[] di vo.json.
+- Tanpa subtitle. Teks yang tampil adalah bagian visual, muncul mengikuti words[] di vo.json; ikuti panel storyboard Wonder halaman Motion Trojan v4.
 - Ukuran seragam dalam satu baris; jangan mencampur besar-kecil.
 
 Gerak (ambil dari 09):
@@ -56,21 +59,21 @@ Gerak (ambil dari 09):
 - Cut di kata VO.
 - Satu fokus per momen.
 
-## Beat (waktu dari vo.json beats[].s/e; isi VO jangan diubah)
-1. Kata "Gimana kalau … semudah chattingan sama ayang di WhatsApp?" diketik di tengah. Dua bubble WhatsApp kecil muncul ("udah makan belum? 🥺" lalu "udah dong"). Logo WhatsApp kecil di samping kata.
-2. Ikon garis buku dan spreadsheet muncul bergantian dengan label "ribet". Lalu dua kartu "catatan Rp850.000" ≠ "laci Rp720.000".
-3. Carousel tiga kartu putih (ikon garis: troli "kecil-kecilan", kardus "jualan", toko "toko"). Ketiganya diberi ikon buku yang sama, lalu dicoret tipis "nggak dicatat".
-4. Label Jadisatu Workspace + ponsel WhatsApp yang dibangun ulang per elemen dalam palet netral. Pesan "jual 12 risol 60rb" diketik, lalu terkirim. Bubble balasan "✓ Tercatat · Pemasukan · Penjualan Rp60.000". Pesan "beli gas 25rb" mendapat label Pengeluaran. Dua bubble terbang ke kolom Pemasukan/Pengeluaran.
-5. Jam di thread yang sama bergulir ke 18.00. Bubble "Laporan hari ini" masuk (penjualan, pengeluaran, laba berjalan + link). Ketuk link, lalu dasbor Ringkasan Workspace tersusun per widget.
+## Beat (waktu vo.json sementara: VO disusun ulang karena terlalu lambat, visual jadi acuan pertama, Irfan 7 Nov)
+1. Pembuka satu baris per kata, kata baru mendorong kata lama keluar frame: Gimana, kalau, nyatet keuangan, usaha itu, Semudah, chattingan. Mouse interaktif berhenti di bawah kata yang diucap dan terbang antar frame; di "chattingan" mouse mengklik, kata melebar jadi ruang chat WhatsApp layar penuh, kontak ayang: "udah makan belum? 🥺" lalu dijawab "udah dong". Tidak ada transaksi di hook.
+2. Kucing oranye vektor (mata spiral, memegang kepala) di tengah tanpa teks, delapan ikon garis berputar mengelilinginya; ikon buku dan spreadsheet menyala biru saat disebut. Lalu dua kartu "catatan Rp850.000" ≠ "laci Rp720.000".
+3. Kartu karakter datar ala referensi pilihan avatar: lapak kecil, titip jualan, punya toko. Warna kartu mengikuti karakter. Kucing oranye vektor pose natural, kecil, di belakang tiap karakter (lapisan: latar, kucing, karakter). Ketiganya diberi ikon buku yang sama, lalu satu ikon buku tercoret "akhirnya nggak dicatat".
+4. Label Jadisatu Workspace + ponsel WhatsApp yang dibangun ulang per elemen mengikuti tampilan asli, kontak Jadisatu, ruang chat sama dengan beat 1. Pesan "jual 12 risol 60rb" diketik, lalu terkirim. Bubble balasan "✓ Tercatat · Pemasukan · Penjualan Rp60.000". Pesan "beli gas 25rb" mendapat label Pengeluaran. Dua bubble terbang ke kolom Pemasukan/Pengeluaran.
+5. Baris catatan menyatu jadi kartu "Laporan hari ini" di kata "laporan". Di "dikirim" kartu masuk ke thread WhatsApp yang sama, jam 18.00 (penjualan, pengeluaran, laba berjalan + link). Ketuk link, dasbor Ringkasan Workspace tersusun per widget saat VO menyebut "Workspace" di awal beat 6.
 6. Kalender November menyorot tanggal stok habis dalam lingkaran biru. Kartu saran belanja muncul. Lalu kartu akun "Risol Bu Sari": kursor menekan "+ Tambah cabang", dan chip Cabang 1 · 2 · 3 muncul.
-7. Slider harga "− Rp … +" digeser ke Rp0, lalu kartu "Gratis" biru solid dengan teks putih.
+7. Slider harga "− Rp … +" digeser turun. Tepat di "gratis" hard cut ke biru penuh #2563EB, tanpa Rp0 dan tanpa tombol. 56,3–56,6: dinding kata dari kalimat VO (cobain, Workspace ini, secara, GRATIS, baru mulai usaha) meluncur naik, semua gelap #010C4C dan blur. 56,6–56,9: "GRATIS" huruf besar mendarat di tengah, putih tajam, Plus Jakarta Sans 600 sekitar 170 px pada frame 960; kata lain tetap gelap blur, terpotong tepi frame. 56,9–57,4: push 6% lalu tahan. Keluar: dinding kata melesat naik masuk beat 8.
 8. Carousel platform Instagram → website → Google Bisnis → Workspace, ikuti "Beat 8: peragaan layanan" di storyboard. Semua untuk usaha fiktif "Risol Bu Sari":
    - grid IG terisi foto satu per satu;
-   - website tersusun per bagian;
+   - website F&B yang terlihat jadi: hero gelap, menu pre-order dengan foto dan harga contoh, halaman digulir;
    - panel Google Bisnis dibangun ulang dan dikelola: jam buka diubah, foto diunggah, postingan dibuat, ulasan dibalas;
    - dasbor berlabel "siap pakai".
    Foto berlisensi bebas (Unsplash/Pexels) dicatat di CREDITS.md. Bila unduhan gagal, pakai tile putih berikon garis biru. NEVER tampilkan angka hasil (rating, followers, omzet) atau nama usaha nyata.
-9. Kolom komentar "workspace" diketik. Dua chip "Akses gratis" · "Paket kreatif" dipilih kursor bergantian.
+9. Postingan kucing 4:5 ("Data rapi, owner santai") terpotong di atas frame, kolom komentar di bawahnya jadi fokus, "workspace" diketik dan terkirim. Layar meredup, notifikasi Instagram turun dari atas, mouse mengkliknya, DM terbuka. User mengetik "Ambil akses", balasan berisi dua tombol: Akses Website dan Claim Bundling, bukan URL. Di "DM kami" DM yang sama ditahan dengan dua tombol tetap terlihat. Tidak ada layar chip.
 10. Layar hitam, kalimat kecil "Oh iya, video ini juga kami yang bikin.", logo Jadisatu, dan bubble kecil "udah makan belum? 🥺" kembali di samping logo.
 
 UI produk: ambil struktur dan teks dari repo Siirfannih/jadisatu-partner (apps/portal/src, read-only) bila bisa diakses. Bila tidak, bangun dari deskripsi di atas. Jangan mengarang fitur di luar storyboard.
@@ -100,8 +103,7 @@ UI produk: ambil struktur dan teks dari repo Siirfannih/jadisatu-partner (apps/p
 
 ## Acceptance Criteria
 - [ ] `grep -rniE "fluent|backdrop-filter|radial-gradient|three" projects/jadisatu-trojan-v4/remotion/src` → 0 baris.
-- [ ] `python3 claude/motion-graphic/scripts/palette_check.py out/trojan_v4_v3.mp4 --max 1` → satu keluarga aksen (biru ±220°), dominan ≥ 70 %.
-- [ ] `python3 claude/motion-graphic/scripts/gate/caption_lines.py out/trojan_v4_v3.mp4` → PASS.
+- [ ] `python3 claude/motion-graphic/scripts/palette_check.py out/trojan_v4_v3.mp4 --max 1` → satu keluarga aksen (biru ±220°), dominan ≥ 70 %, di luar panel pengecualian palet.
 - [ ] Durasi MP4 = durasi vo.json total ±0,1 dtk. VO di mix tidak dipercepat (cek dengan alignment kata di detik 10, 40, dan 75).
 - [ ] music_fit kategori energi → lolos SNR VO vs musik.
 - [ ] Delivery Gate (references/delivery-gate.md) diisi, setiap PASS dengan bukti.
