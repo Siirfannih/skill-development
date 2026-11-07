@@ -1,0 +1,311 @@
+<title>Storyboard Jadisatu #2</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>/* Layout: edit-room contact sheet. Timeline strip on top, sections as reels, beat cards 2-up (1-up on phone). Frames are stills with their own fixed colours. */
+:root{
+  --bg:#FBF5EF; --surface:#FFFFFF; --line:#EADCCF; --fg:#1E0F0A; --muted:#7A5545;
+  --accent:#D2450F; --mN:#FF7A2E; --mI:#F0457A; --mK:#F3E3D3; --mink:#1E0F0A;
+  --ph:#2563EB;
+  --sans:"Poppins", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --serif:"Instrument Serif", "Iowan Old Style", Georgia, serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --bg:#120809; --surface:#1C0E10; --line:#3A1F1E; --fg:#FFF3E8; --muted:#D9B49C;
+  --accent:#FF9A4A; --mK:#FFE7D2; --ph:#FFC15A; color-scheme:dark } }
+:root[data-theme="dark"]{
+  --bg:#120809; --surface:#1C0E10; --line:#3A1F1E; --fg:#FFF3E8; --muted:#D9B49C;
+  --accent:#FF9A4A; --mK:#FFE7D2; --ph:#FFC15A; color-scheme:dark }
+
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);font-size:15px;line-height:1.55}
+.wrap{max-width:1360px;margin:0 auto;padding-block:44px 64px;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px));display:grid;gap:60px}
+h1,h2{text-wrap:balance;margin:0}
+em{font-family:var(--serif);font-style:italic;font-weight:400}
+
+.top{display:grid;gap:18px}
+.eyebrow{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(34px,5.6vw,68px);line-height:1.02;font-weight:700;letter-spacing:-.035em}
+h1 em{font-size:1.15em;letter-spacing:0;color:var(--accent)}
+.lede{margin:0;max-width:66ch;color:var(--muted)}
+.legend{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px 22px;font-size:13px;color:var(--muted)}
+.legend li{display:flex;align-items:center;gap:8px;min-width:0}
+.ph-key{width:30px;height:18px;flex:none;border-radius:6px;border:1.5px solid var(--ph);background:linear-gradient(140deg,rgba(255,255,255,.55),rgba(255,255,255,.12))}
+
+.mode{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.04em;padding:2px 9px;border-radius:99px;color:var(--mink);white-space:nowrap}
+.mN{background:var(--mN)} .mI{background:var(--mI)} .mK{background:var(--mK)}
+
+/* timeline */
+.tl-wrap{display:grid;gap:4px;margin-top:8px}
+.tl-secs,.tl-beats{display:flex;gap:2px;min-width:0}
+.tls{min-width:0;display:flex;flex-direction:column;padding:6px 8px;border-top:2px solid var(--fg);color:var(--fg);text-decoration:none;overflow:hidden}
+.tls b{font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tls span{font-family:var(--mono);font-size:10.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.tlb{min-width:0;height:36px;border-radius:4px;display:flex;align-items:flex-end;padding:3px;text-decoration:none;color:var(--mink);overflow:hidden}
+.tlb span{font-family:var(--mono);font-size:10px;font-weight:600}
+.tlb:hover,.tlb:focus-visible{outline:2px solid var(--fg);outline-offset:1px}
+.tl-ruler{position:relative;height:16px}
+.tl-ruler span{position:absolute;top:0;font-family:var(--mono);font-size:10px;color:var(--muted);transform:translateX(-50%)}
+.tl-ruler span:first-child{transform:none}
+
+/* sections */
+.sec{display:grid;gap:22px;scroll-margin-top:16px}
+.sec-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 18px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.sec-h h2{font-size:clamp(22px,3vw,30px);font-weight:600;letter-spacing:-.02em}
+.sec-h span{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.beats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 28px}
+@media (max-width:860px){.beats{grid-template-columns:minmax(0,1fr)}}
+
+.beat{display:grid;gap:14px;align-content:start;min-width:0;scroll-margin-top:16px}
+.frames{display:grid;gap:10px}
+.fr{margin:0;position:relative;border-radius:14px;overflow:hidden;background:#120809;box-shadow:0 1px 0 var(--line),0 18px 40px -24px rgba(60,20,10,.45)}
+.fr img{display:block;width:100%;height:auto;aspect-ratio:16/9;max-width:100%}
+.fr2 figcaption{position:absolute;left:10px;top:10px;font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:3px 9px;border-radius:99px;background:rgba(18,8,9,.72);color:#FFF3E8}
+.meta{display:grid;gap:8px;min-width:0}
+.mh{display:flex;flex-wrap:wrap;align-items:center;gap:6px 12px}
+.bid{font-size:20px;font-weight:700;letter-spacing:-.02em}
+.tc,.dur{font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums}
+.audio{margin:0;font-weight:500;font-size:15.5px}
+.vis{margin:0;color:var(--muted);font-size:14px;max-width:70ch}
+dl{margin:4px 0 0;display:grid;gap:4px;border-top:1px solid var(--line);padding-top:10px}
+dl div{display:grid;grid-template-columns:96px minmax(0,1fr);gap:12px}
+dt{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+dd{margin:0;font-size:14px;min-width:0}
+.assets{margin:0;font-size:12.5px;color:var(--muted);font-family:var(--mono)}
+.needs{margin:0;font-size:13px;padding:8px 12px;border-radius:10px;border:1.5px solid var(--ph);color:var(--fg)}
+.needs b{font-weight:600}
+.foot{font-size:13px;color:var(--muted);max-width:80ch;border-top:1px solid var(--line);padding-top:18px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:600px){.tlb{height:24px}.tlb span{display:none}}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
+</style>
+<div class="wrap">
+<header class="top">
+<p class="eyebrow">Jadisatu · video #2 · storyboard visual v2</p>
+<h1>Dia yang mikir. <em>Aku</em> yang ngedit.</h1>
+<p class="lede">Tiap frame di bawah adalah gambaran yang mendekati desain akhir, 1920×1080. 26 beat, 84,6 dtk mengikuti VO baru (vo/v2). Wajah dan tubuh Irfan diambil dari file 4K bersih lalu dipisah dari latar, jadi teks bisa duduk di belakang dan di depannya.</p>
+<ul class="legend">
+<li><span class="mode mN">N</span> Narator di atas visual</li>
+<li><span class="mode mI">I</span> Irfan bicara</li>
+<li><span class="mode mK">K</span> Kartu penuh</li>
+<li><span class="ph-key"></span> Panel kaca bertulisan “tangkapan layar asli” = UI produk yang masih harus diambil. Tidak ada UI produk yang digambar ulang.</li>
+</ul>
+<nav class="tl-wrap" aria-label="Timeline beat">
+<div class="tl-secs"><a class="tls" href="#hook" style="flex:6.31"><b>Hook</b><span>0,0–6,3</span></a><a class="tls" href="#rising-action" style="flex:21.64"><b>Rising action</b><span>6,3–27,9</span></a><a class="tls" href="#second-conflict" style="flex:30.35"><b>Second conflict</b><span>27,9–58,3</span></a><a class="tls" href="#klimaks" style="flex:16.92"><b>Klimaks</b><span>58,3–75,2</span></a><a class="tls" href="#penutup" style="flex:9.34"><b>Penutup</b><span>75,2–84,6</span></a></div>
+<div class="tl-beats"><a class="tlb mN" href="#b01" style="flex:1.60" title="B01 · 0,0–1,6 dtk · Narator"><span>01</span></a><a class="tlb mN" href="#b02" style="flex:3.76" title="B02 · 1,6–5,4 dtk · Narator"><span>02</span></a><a class="tlb mK" href="#b03" style="flex:0.95" title="B03 · 5,4–6,3 dtk · Kartu"><span>03</span></a><a class="tlb mN" href="#b04" style="flex:2.59" title="B04 · 6,3–8,9 dtk · Narator"><span>04</span></a><a class="tlb mI" href="#b05" style="flex:2.98" title="B05 · 8,9–11,9 dtk · Irfan"><span>05</span></a><a class="tlb mN" href="#b06" style="flex:1.64" title="B06 · 11,9–13,5 dtk · Narator"><span>06</span></a><a class="tlb mI" href="#b07" style="flex:3.98" title="B07 · 13,5–17,5 dtk · Irfan"><span>07</span></a><a class="tlb mK" href="#b08" style="flex:1.35" title="B08 · 17,5–18,9 dtk · Kartu"><span>08</span></a><a class="tlb mN" href="#b09" style="flex:2.96" title="B09 · 18,9–21,8 dtk · Narator"><span>09</span></a><a class="tlb mN" href="#b10" style="flex:2.12" title="B10 · 21,8–23,9 dtk · Narator"><span>10</span></a><a class="tlb mI" href="#b11" style="flex:4.02" title="B11 · 23,9–27,9 dtk · Irfan"><span>11</span></a><a class="tlb mN" href="#b12" style="flex:3.19" title="B12 · 27,9–31,1 dtk · Narator"><span>12</span></a><a class="tlb mN" href="#b13" style="flex:0.80" title="B13 · 31,1–31,9 dtk · Narator"><span>13</span></a><a class="tlb mN" href="#b14" style="flex:3.20" title="B14 · 31,9–35,1 dtk · Narator"><span>14</span></a><a class="tlb mN" href="#b15" style="flex:4.14" title="B15 · 35,1–39,3 dtk · Narator"><span>15</span></a><a class="tlb mI" href="#b16" style="flex:8.77" title="B16 · 39,3–48,0 dtk · Irfan"><span>16</span></a><a class="tlb mN" href="#b17" style="flex:2.05" title="B17 · 48,0–50,1 dtk · Narator"><span>17</span></a><a class="tlb mN" href="#b18" style="flex:8.20" title="B18 · 50,1–58,3 dtk · Narator"><span>18</span></a><a class="tlb mN" href="#b19" style="flex:1.39" title="B19 · 58,3–59,7 dtk · Narator"><span>19</span></a><a class="tlb mK" href="#b20" style="flex:0.94" title="B20 · 59,7–60,6 dtk · Kartu"><span>20</span></a><a class="tlb mI" href="#b21" style="flex:5.84" title="B21 · 60,6–66,5 dtk · Irfan"><span>21</span></a><a class="tlb mI" href="#b22" style="flex:4.33" title="B22 · 66,5–70,8 dtk · Irfan"><span>22</span></a><a class="tlb mN" href="#b23" style="flex:4.42" title="B23 · 70,8–75,2 dtk · Narator"><span>23</span></a><a class="tlb mN" href="#b24" style="flex:1.02" title="B24 · 75,2–76,2 dtk · Narator"><span>24</span></a><a class="tlb mN" href="#b25" style="flex:4.08" title="B25 · 76,2–80,3 dtk · Narator"><span>25</span></a><a class="tlb mN" href="#b26" style="flex:4.24" title="B26 · 80,3–84,6 dtk · Narator"><span>26</span></a></div>
+<div class="tl-ruler"><span style="left:0.00%">0</span><span style="left:11.83%">10</span><span style="left:23.65%">20</span><span style="left:35.48%">30</span><span style="left:47.30%">40</span><span style="left:59.13%">50</span><span style="left:70.96%">60</span><span style="left:82.78%">70</span><span style="left:94.61%">80</span></div>
+</nav>
+</header>
+<section class="sec" id="hook"><header class="sec-h"><h2>Hook</h2><span>B01–B03 · 0,0–6,3 dtk · 6,3 dtk</span></header><div class="beats"><article class="beat" id="b01">
+<div class="frames"><figure class="fr"><img src="img/b01.webp" alt="Frame B01: Ini Irfan. Dia · Bosku." width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B01</span><span class="tc">0,0–1,6 dtk</span><span class="dur">1,6 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Ini Irfan. Dia bosku.”</p>
+<p class="vis">Video lampu menyala main sebentar, lalu beku di “bosku”. Irfan jadi cutout di depan kata raksasa “Bosku.” (huruf terakhir masuk ke balik kepalanya). Di depan Irfan melayang tiga kartu kaca: folder Jadisatu, file TheGap-Jadisatu-v18.mp4, dan bubble chat asli Irfan.</p>
+<dl><div><dt>Teks layar</dt><dd>Ini Irfan. Dia · Bosku.</dd></div><div><dt>Kamera</dt><dd>Push-in pelan 100→108%</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Klik saklar tepat di frame lampu menyala; musik masuk fade 60 ms</dd></div></dl>
+<p class="assets">Cutout broll_lampu_awal 6,2 dtk (4K). Ikon folder asli macOS.</p><p class="needs"><b>Masih placeholder, perlu tangkapan layar asli:</b> Bubble chat Irfan di Claude</p>
+</div></article><article class="beat" id="b02">
+<div class="frames"><figure class="fr"><img src="img/b02.webp" alt="Frame B02: jam dua pagi · 02:00" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B02</span><span class="tc">1,6–5,4 dtk</span><span class="dur">3,8 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Jam dua pagi tadi, dia taruhan sama dirinya sendiri.”</p>
+<p class="vis">Kamar gelap dari broll_akhir_gelap, warna dihangatkan. Jam weker 3D menunjuk 02:00 di kanan, frasa “jam dua pagi” di ruang kosong kiri.</p>
+<dl><div><dt>Teks layar</dt><dd>jam dua pagi · 02:00</dd></div><div><dt>Kamera</dt><dd>Zoom pelan ke muka jam</dd></div><div><dt>Transisi</dt><dd>Cut ke kartu</dd></div><div><dt>SFX</dt><dd>Tick jam</dd></div></dl>
+<p class="assets">Jam weker: aset buatan (codex image gen).</p>
+</div></article><article class="beat" id="b03">
+<div class="frames"><figure class="fr"><img src="img/b03.webp" alt="Frame B03: taruhan." width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B03</span><span class="tc">5,4–6,3 dtk</span><span class="dur">0,9 dtk</span><span class="mode mK">K · Kartu</span></div>
+<p class="audio">—</p>
+<p class="vis">Kartu gelap dengan pendar bara di bawah. Satu kata serif miring di tengah.</p>
+<dl><div><dt>Teks layar</dt><dd>taruhan.</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Hard cut</dd></div><div><dt>SFX</dt><dd>Musik turun, tahan 0,8 dtk</dd></div></dl>
+
+</div></article></div></section><section class="sec" id="rising-action"><header class="sec-h"><h2>Rising action</h2><span>B04–B11 · 6,3–27,9 dtk · 21,6 dtk</span></header><div class="beats"><article class="beat" id="b04">
+<div class="frames"><figure class="fr"><img src="img/b04.webp" alt="Frame B04: ngaku · dulu." width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B04</span><span class="tc">6,3–8,9 dtk</span><span class="dur">2,6 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Tapi sebelum itu, dia mau ngaku dulu.”</p>
+<p class="vis">Freeze Irfan menunduk. Latar = frame yang sama diburamkan dan didesaturasi hangat. “ngaku” di belakang kepala, “dulu.” di depan.</p>
+<dl><div><dt>Teks layar</dt><dd>ngaku · dulu.</dd></div><div><dt>Kamera</dt><dd>Zoom cepat ke wajah</dd></div><div><dt>Transisi</dt><dd>Unfreeze ke klip</dd></div><div><dt>SFX</dt><dd>Whoosh tipis</dd></div></dl>
+<p class="assets">Cutout file bersih 12,3 dtk.</p>
+</div></article><article class="beat" id="b05">
+<div class="frames"><figure class="fr"><img src="img/b05.webp" alt="Frame B05: males · ngedit." width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B05</span><span class="tc">8,9–11,9 dtk</span><span class="dur">3,0 dtk</span><span class="mode mI">I · Irfan</span></div>
+<p class="audio">C1 file bersih 3.28–6.10: “Aku tuh males ngedit dan gak suka ngedit video sendiri”</p>
+<p class="vis">Irfan bicara. “males” besar di belakang kepala, papan klip 3D yang tidur di bantal muncul di kiri bawah pada kata “males”, “ngedit.” di depan.</p>
+<dl><div><dt>Teks layar</dt><dd>males · ngedit.</dd></div><div><dt>Kamera</dt><dd>Statis</dd></div><div><dt>Transisi</dt><dd>Jump cut</dd></div><div><dt>SFX</dt><dd>Pop lembut saat papan klip masuk</dd></div></dl>
+<p class="assets">Papan klip tidur: aset buatan.</p>
+</div></article><article class="beat" id="b06">
+<div class="frames"><figure class="fr"><img src="img/b06.webp" alt="Frame B06: —" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B06</span><span class="tc">11,9–13,5 dtk</span><span class="dur">1,6 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Dan yang lebih parah…”</p>
+<p class="vis">Snap zoom ke mata Irfan (crop 4K), vignette hangat dan kebocoran cahaya dari lampu.</p>
+<dl><div><dt>Teks layar</dt><dd>—</dd></div><div><dt>Kamera</dt><dd>Snap zoom</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Whoosh kecil</dd></div></dl>
+<p class="assets">Crop 4K file bersih 6,5 dtk.</p>
+</div></article><article class="beat" id="b07">
+<div class="frames"><figure class="fr"><img src="img/b07.webp" alt="Frame B07: aneh. · menjijikkan" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B07</span><span class="tc">13,5–17,5 dtk</span><span class="dur">4,0 dtk</span><span class="mode mI">I · Irfan</span></div>
+<p class="audio">C2 file bersih 7.62–11.45: “Ngeliat video sendiri tuh kayak aneh aja. Dan ngerasa menjijikan mungkin”</p>
+<p class="vis">Cincin kata “menjijikkan” mengorbit kepala: busur belakang lewat di balik rambut (terbalik, redup), busur depan melintas di dahi. “aneh.” muncul lebih dulu di kiri bawah.</p>
+<dl><div><dt>Teks layar</dt><dd>aneh. · menjijikkan</dd></div><div><dt>Kamera</dt><dd>Punch-in 2×</dd></div><div><dt>Transisi</dt><dd>Hard cut di akhir “mungkin”</dd></div><div><dt>SFX</dt><dd>—</dd></div></dl>
+<p class="assets">Cutout file bersih 10,7 dtk.</p>
+</div></article><article class="beat" id="b08">
+<div class="frames"><figure class="fr"><img src="img/b08.webp" alt="Frame B08: MENJIJIKKAN." width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B08</span><span class="tc">17,5–18,9 dtk</span><span class="dur">1,4 dtk</span><span class="mode mK">K · Kartu</span></div>
+<p class="audio">(hening)</p>
+<p class="vis">Kartu hijau penuh dengan mesh lime ke zamrud dan grain. Satu kata kapital.</p>
+<dl><div><dt>Teks layar</dt><dd>MENJIJIKKAN.</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Hard cut</dd></div><div><dt>SFX</dt><dd>Musik mati total 1,2 dtk</dd></div></dl>
+
+</div></article><article class="beat" id="b09">
+<div class="frames"><figure class="fr"><img src="img/b09.webp" alt="Frame B09: di sepanjang video ini" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B09</span><span class="tc">18,9–21,8 dtk</span><span class="dur">3,0 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “…kata orang yang mukanya ada di sepanjang video ini.”</p>
+<p class="vis">Kotak zoom gaya Effect &amp; Character 2: potret besar di kanan, empat kotak kecil di wajahnya membuka wajah lain dari sepanjang video (22, 30,9, 48, 56 dtk).</p>
+<dl><div><dt>Teks layar</dt><dd>di sepanjang video ini</dd></div><div><dt>Kamera</dt><dd>Zoom out dari kotak tengah</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Musik masuk lagi di “kata”</dd></div></dl>
+<p class="assets">Frame 4K file bersih.</p>
+</div></article><article class="beat" id="b10">
+<div class="frames"><figure class="fr"><img src="img/b10.webp" alt="Frame B10: —" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B10</span><span class="tc">21,8–23,9 dtk</span><span class="dur">2,1 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Terus, satu lagi yang dia takutin.”</p>
+<p class="vis">Irfan melirik ke samping, jeda pendek. Pendar bara di belakang kepala, tanpa teks.</p>
+<dl><div><dt>Teks layar</dt><dd>—</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>—</dd></div></dl>
+<p class="assets">Cutout file bersih 31,9 dtk.</p>
+</div></article><article class="beat" id="b11">
+<div class="frames"><figure class="fr"><img src="img/b11.webp" alt="Frame B11: proper? · estetik?" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B11</span><span class="tc">23,9–27,9 dtk</span><span class="dur">4,0 dtk</span><span class="mode mI">I · Irfan</span></div>
+<p class="audio">C3 file bersih 14.84–19.95: “aku takut video yang aku buat tuh gak cukup proper … dan juga takut gak estetik”</p>
+<p class="vis">“proper?” besar di belakang kepala pada kata “proper”, lalu “estetik?” serif di depan pada kata “estetik”.</p>
+<dl><div><dt>Teks layar</dt><dd>proper? · estetik?</dd></div><div><dt>Kamera</dt><dd>Statis</dd></div><div><dt>Transisi</dt><dd>Jump cut (16,84–18,08 dibuang)</dd></div><div><dt>SFX</dt><dd>Thud lembut ×2</dd></div></dl>
+<p class="assets">Cutout file bersih 16,7 dtk.</p>
+</div></article></div></section><section class="sec" id="second-conflict"><header class="sec-h"><h2>Second conflict</h2><span>B12–B18 · 27,9–58,3 dtk · 30,3 dtk</span></header><div class="beats"><article class="beat" id="b12">
+<div class="frames"><figure class="fr"><img src="img/b12.webp" alt="Frame B12: dia serahin" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B12</span><span class="tc">27,9–31,1 dtk</span><span class="dur">3,2 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Jadi bagian yang paling dia hindarin, dia serahin.”</p>
+<p class="vis">Latar kaca terang. Dua kartu file (dji_export…mp4, Audiomic.m4a) melengkung ke jendela chat Claude asli di kanan.</p>
+<dl><div><dt>Teks layar</dt><dd>dia serahin</dd></div><div><dt>Kamera</dt><dd>Ikut file</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Swish + landing</dd></div></dl>
+<p class="assets">Kartu file: gambar generik, bukan UI Finder.</p><p class="needs"><b>Masih placeholder, perlu tangkapan layar asli:</b> Claude: kolom chat menerima file</p>
+</div></article><article class="beat" id="b13">
+<div class="frames"><figure class="fr"><img src="img/b13.webp" alt="Frame B13: Ke aku." width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B13</span><span class="tc">31,1–31,9 dtk</span><span class="dur">0,8 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Ke aku.”</p>
+<p class="vis">Maskot asli Claude Code (makhluk piksel oranye dari layar sambutan terminal) berdiri di depan kata raksasa “aku.”, gema dari “Bosku.” di B01.</p>
+<dl><div><dt>Teks layar</dt><dd>Ke aku.</dd></div><div><dt>Kamera</dt><dd>Push-in ke maskot</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Pop</dd></div></dl>
+<p class="assets">Maskot dijiplak dari Claude.app (images/code/CLI.png); logo spark asli dari Claude.app.</p>
+</div></article><article class="beat" id="b14">
+<div class="frames"><figure class="fr"><img src="img/b14.webp" alt="Frame B14: motong · nyusun · ngedit" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B14</span><span class="tc">31,9–35,1 dtk</span><span class="dur">3,2 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Aku yang motong, nyusun sama ngedit video ini.”</p>
+<p class="vis">Panel kaca berisi kerja asli video ini: waveform audio bersih dengan titik potong hening, 9 potongan dari segments.json, transkrip kata per kata. Kata kerja menyala bergantian, maskot duduk di sudut panel.</p>
+<dl><div><dt>Teks layar</dt><dd>motong · nyusun · ngedit</dd></div><div><dt>Kamera</dt><dd>Cut di tiap kata kerja</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>3 klik ritmis</dd></div></dl>
+<p class="assets">Waveform dihitung dari talkinghead_clean_audio.wav.</p>
+</div></article><article class="beat" id="b15">
+<div class="frames"><figure class="fr"><img src="img/b15.webp" alt="Frame B15: nama tool per kata" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B15</span><span class="tc">35,1–39,3 dtk</span><span class="dur">4,1 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Aku nyuruh ChatGPT nyusun storyboard, Gemini ngritik, ElevenLabs ngisi suaranya.”</p>
+<p class="vis">Alur Irfan → Claude → tiga tool dengan pendar bara (bukan biru). Node menyala saat namanya disebut. Pill perintah putih di bawah berputar ke perintah berikutnya.</p>
+<dl><div><dt>Teks layar</dt><dd>nama tool per kata</dd></div><div><dt>Kamera</dt><dd>Whip-pan antar node</dd></div><div><dt>Transisi</dt><dd>Whip</dd></div><div><dt>SFX</dt><dd>Whoosh tipis per whip</dd></div></dl>
+<p class="assets">Logo ChatGPT dan Gemini dari app bundle; logo Claude dari Claude.app.</p><p class="needs"><b>Masih placeholder, perlu tangkapan layar asli:</b> Jendela ChatGPT, Gemini, ElevenLabs; Logo ElevenLabs</p>
+</div></article><article class="beat" id="b16">
+<div class="frames"><figure class="fr"><img src="img/b16.webp" alt="Frame B16: bottleneck · cerita" width="1280" height="720"></figure><figure class="fr fr2"><img src="img/b16b.webp" alt="Frame B16 cutaway" width="1280" height="720"><figcaption>Cutaway 1,2 dtk</figcaption></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B16</span><span class="tc">39,3–48,0 dtk</span><span class="dur">8,8 dtk</span><span class="mode mI">I · Irfan</span></div>
+<p class="audio">C4 file bersih 26.78–35.40: “Aku rasa ngedit itu bukan lagi jadi sebuah bottleneck. Tapi yang jadi bottleneck sebenarnya justru adalah gimana kita menceritakan sebuah kejelasan”</p>
+<p class="vis">Cincin “bottleneck” mengorbit kepala (belakang lewat di balik rambut, depan di dahi). Cutaway 1,2 dtk pada “menceritakan”: frame grafik penuh, botol kaca 3D, “ngedit” lolos dari leher botol, “cerita” tersangkut di dalam, Irfan masuk dari kiri.</p>
+<dl><div><dt>Teks layar</dt><dd>bottleneck · cerita</dd></div><div><dt>Kamera</dt><dd>Punch-in di “justru”</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Tempelan di kata kunci</dd></div></dl>
+<p class="assets">Botol: aset buatan. Cutout file bersih 29,2 dtk.</p>
+</div></article><article class="beat" id="b17">
+<div class="frames"><figure class="fr"><img src="img/b17.webp" alt="Frame B17: nyebelin." width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B17</span><span class="tc">48,0–50,1 dtk</span><span class="dur">2,1 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Nyebelin. Tapi iya juga, sih.”</p>
+<p class="vis">Kolom input Claude asli yang kosong, kursor berkedip. Maskot duduk di tepi jendela. “nyebelin.” serif di depan.</p>
+<dl><div><dt>Teks layar</dt><dd>nyebelin.</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Musik turun</dd></div></dl>
+<p class="needs"><b>Masih placeholder, perlu tangkapan layar asli:</b> Claude: kolom input kosong</p>
+</div></article><article class="beat" id="b18">
+<div class="frames"><figure class="fr"><img src="img/b18.webp" alt="Frame B18: cerita mana yang layak" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B18</span><span class="tc">50,1–58,3 dtk</span><span class="dur">8,2 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Aku bisa ngedit video dalam hitungan menit, tapi aku ga tau cerita mana yang layak diceritakan, makanya itu bagian dia.”</p>
+<p class="vis">Frame grafik penuh: deretan klip timeline melaju kabur lalu berhenti. “cerita mana yang layak” di tengah, “layak” bergradasi bara (gaya Gradient-text, tanpa biru). Di “bagian dia”, kepala cutout Irfan naik dari kanan bawah.</p>
+<dl><div><dt>Teks layar</dt><dd>cerita mana yang layak</dd></div><div><dt>Kamera</dt><dd>Dolly lambat</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Cara baca FOUNDER, musik tipis</dd></div></dl>
+<p class="assets">Cutout file bersih 33,5 dtk.</p>
+</div></article></div></section><section class="sec" id="klimaks"><header class="sec-h"><h2>Klimaks</h2><span>B19–B23 · 58,3–75,2 dtk · 16,9 dtk</span></header><div class="beats"><article class="beat" id="b19">
+<div class="frames"><figure class="fr"><img src="img/b19.webp" alt="Frame B19: Jadi, ini taruhannya." width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B19</span><span class="tc">58,3–59,7 dtk</span><span class="dur">1,4 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Jadi, ini taruhannya.”</p>
+<p class="vis">Ruang gelap dan kosong, satu baris di tengah sebagai jembatan ke kartu taruhan.</p>
+<dl><div><dt>Teks layar</dt><dd>Jadi, ini taruhannya.</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Musik hampir hening</dd></div></dl>
+
+</div></article><article class="beat" id="b20">
+<div class="frames"><figure class="fr"><img src="img/b20.webp" alt="Frame B20: taruhan." width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B20</span><span class="tc">59,7–60,6 dtk</span><span class="dur">0,9 dtk</span><span class="mode mK">K · Kartu</span></div>
+<p class="audio">—</p>
+<p class="vis">Kartu callback: kata yang sama dengan B03, pendar berganti ke mawar.</p>
+<dl><div><dt>Teks layar</dt><dd>taruhan.</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Hard cut</dd></div><div><dt>SFX</dt><dd>Tahan 0,8 dtk</dd></div></dl>
+
+</div></article><article class="beat" id="b21">
+<div class="frames"><figure class="fr"><img src="img/b21.webp" alt="Frame B21: 20 · Upload · konten" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B21</span><span class="tc">60,6–66,5 dtk</span><span class="dur">5,8 dtk</span><span class="mode mI">I · Irfan</span></div>
+<p class="audio">C5 file bersih 39.56–46.20: “Jadi aku mau challenge diri aku, bisa gak di akhir tahun nanti … posting 20 konten”</p>
+<p class="vis">Gaya Performence: latar mesh panas berbintik, angka “20” raksasa di belakang Irfan, tombol kaca “Upload” di depan. Meledak tepat di beat drop.</p>
+<dl><div><dt>Teks layar</dt><dd>20 · Upload · konten</dd></div><div><dt>Kamera</dt><dd>Shake 4 frame di “20”</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Beat drop tepat di “20” (“mungkin ya” 43,90–44,85 dibuang)</dd></div></dl>
+<p class="assets">Cutout file bersih 45,5 dtk.</p>
+</div></article><article class="beat" id="b22">
+<div class="frames"><figure class="fr"><img src="img/b22.webp" alt="Frame B22: effort · &amp; waktu." width="1280" height="720"></figure><figure class="fr fr2"><img src="img/b22b.webp" alt="Frame B22 cutaway" width="1280" height="720"><figcaption>Cutaway 1 dtk</figcaption></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B22</span><span class="tc">66,5–70,8 dtk</span><span class="dur">4,3 dtk</span><span class="mode mI">I · Irfan</span></div>
+<p class="audio">C6 file bersih 49.30–54.70: “Meskipun dieditin sama AI, tapi ya mikirin konten juga perlu effort kan, dan juga perlu waktu”</p>
+<p class="vis">“effort” di belakang kepala, “&amp; waktu.” di depan. Cutaway 1 dtk di “waktu”: kalender meja 3D, Nov – Des, 61 hari untuk 20 konten.</p>
+<dl><div><dt>Teks layar</dt><dd>effort · &amp; waktu.</dd></div><div><dt>Kamera</dt><dd>Statis</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>Musik penuh (jeda dalam klip dirapatkan)</dd></div></dl>
+<p class="assets">Kalender: aset buatan.</p>
+</div></article><article class="beat" id="b23">
+<div class="frames"><figure class="fr"><img src="img/b23.webp" alt="Frame B23: dua puluh kali · 65 hari lagi" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B23</span><span class="tc">70,8–75,2 dtk</span><span class="dur">4,4 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Dia yang mikir. Aku yang ngedit. Dua puluh kali, sebelum tahun ini habis.”</p>
+<p class="vis">Layar terbelah: kiri gelap bara dengan kepala Irfan (dia mikir) dan hitung mundur 65 hari ke 31 Des, kanan kaca terang dengan maskot Claude dan blok timeline (aku ngedit). “dua puluh kali.” di sisi kanan.</p>
+<dl><div><dt>Teks layar</dt><dd>dua puluh kali · 65 hari lagi</dd></div><div><dt>Kamera</dt><dd>Cut tiap kalimat</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>—</dd></div></dl>
+<p class="assets">Cutout file bersih 52,5 dtk.</p>
+</div></article></div></section><section class="sec" id="penutup"><header class="sec-h"><h2>Penutup</h2><span>B24–B26 · 75,2–84,6 dtk · 9,3 dtk</span></header><div class="beats"><article class="beat" id="b24">
+<div class="frames"><figure class="fr"><img src="img/b24.webp" alt="Frame B24: 1 / 20" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B24</span><span class="tc">75,2–76,2 dtk</span><span class="dur">1,0 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Ini yang pertama.”</p>
+<p class="vis">Latar langit pagi (gaya Idea Content). Jendela Notes asli berisi daftar 20 konten di kiri, “1 / 20” besar di kanan.</p>
+<dl><div><dt>Teks layar</dt><dd>1 / 20</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Cut</dd></div><div><dt>SFX</dt><dd>—</dd></div></dl>
+<p class="needs"><b>Masih placeholder, perlu tangkapan layar asli:</b> Notes: daftar 20 konten, item #1 terpilih</p>
+</div></article><article class="beat" id="b25">
+<div class="frames"><figure class="fr"><img src="img/b25.webp" alt="Frame B25: aku resign." width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B25</span><span class="tc">76,2–80,3 dtk</span><span class="dur">4,1 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Kalau dia gagal… aku mending resign, sih. Sekalian hapus semua folder project-nya.”</p>
+<p class="vis">Maskot Claude mendorong folder Jadisatu ke arah Trash di lintasan putus-putus, lalu freeze sebelum sampai. Tidak ada yang benar-benar dihapus.</p>
+<dl><div><dt>Teks layar</dt><dd>aku resign.</dd></div><div><dt>Kamera</dt><dd>Push-in ke folder</dd></div><div><dt>Transisi</dt><dd>Freeze 0,4 dtk</dd></div><div><dt>SFX</dt><dd>Hening 0,4 dtk setelah “resign”</dd></div></dl>
+<p class="assets">Ikon folder dan Trash asli dari macOS CoreTypes. Opsional: ganti dengan tangkapan Finder asli (menu Move to Trash).</p>
+</div></article><article class="beat" id="b26">
+<div class="frames"><figure class="fr"><img src="img/b26.webp" alt="Frame B26: pertanyaan, 2 baris · tagline" width="1280" height="720"></figure></div>
+<div class="meta">
+<div class="mh"><span class="bid">B26</span><span class="tc">80,3–84,6 dtk</span><span class="dur">4,2 dtk</span><span class="mode mN">N · Narator</span></div>
+<p class="audio">VO: “Menurutmu, dia bisa upload dua puluh konten sampai akhir tahun ini, nggak?”</p>
+<p class="vis">End card oranye dengan garis grid tipis (gaya Penutup). Pertanyaan dua baris, tagline dengan “human” serif bergaris bawah tangan, 1 / 20 dan Jadisatu di bawah.</p>
+<dl><div><dt>Teks layar</dt><dd>pertanyaan, 2 baris · tagline</dd></div><div><dt>Kamera</dt><dd>Diam</dd></div><div><dt>Transisi</dt><dd>Tahan 1,5 dtk</dd></div><div><dt>SFX</dt><dd>Musik keluar</dd></div></dl>
+<p class="assets">Teks tagline belum final (Just vs only).</p>
+</div></article></div></section>
+<footer class="foot">Frame adalah mock still, belum render final. Waktu beat dari vo/v2/animatic_timing.json (total 84,6 dtk); beat dalam satu bagian VO dibagi sesuai jumlah kata. Aset 3D (jam, papan klip, botol, kalender) dibuat dengan image gen; maskot dan logo Claude, logo ChatGPT dan Gemini, ikon folder dan Trash diambil dari aplikasi yang terpasang di Mac.</footer>
+</div>
