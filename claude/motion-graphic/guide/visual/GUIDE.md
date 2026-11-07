@@ -15,6 +15,10 @@
 - UI = UI asli (05: post IG, lock screen, notes). Bangun ukuran asli, kamera yang zoom.
 - Ruang kosong = struktur, bukan sisa.
 
+## Brand dulu, gaya referensi kedua
+- Video untuk brand: palet dan gaya ikon dari brand (token di repo produk). Dari referensi ambil struktur, gerak, dan komposisi; warna, emoji 3D, kaca, atau gradien hanya kalau brief menyebutnya (Irfan 7 Nov: "collor Brand video kita adalah White, Biru sebagai icon … kita ga punya permintaan 3d ke semua bagian termasuk efek glasses berwarna biru"; gagal: trojan v4 v2).
+- Cek: `scripts/palette_check.py render.mp4 --max 1` untuk brand satu aksen.
+
 ## Kualitas render
 - **Bukan render three.js mentah** (Irfan 7 Nov: "bukan renderan three js mentah seperti sebelum-sebelumnya"). Visual akhir dibangun dengan React/CSS/SVG di Remotion atau AE; three.js hanya untuk plate 3D yang sudah final (material, cahaya, anti-alias) dan lolos still 100 % berdampingan dengan referensi.
 - Still per beat dibandingkan dengan frame referensi setara sebelum render penuh.
