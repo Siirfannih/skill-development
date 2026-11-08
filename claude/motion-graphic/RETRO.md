@@ -266,3 +266,7 @@ Uji `ears.py` di PC (8 Nov): mix V5 klip c → suara terdeteksi (Speech 0,78), s
 Uji edit Behindwork: sesi remote dari Mac dimulai di `~/work` PC, yang `CLAUDE.md`-nya berisi aturan Workspace UI. Skill `motion-graphic` tetap termuat lewat deskripsinya, tetapi protokol Awal sesi (`doctor.sh`, `PENDING.md`) tidak terbaca. Irfan: `~/work` adalah titik masuk remote yang tidak bisa diubah, jadi repo yang harus masuk ke sana.
 Perubahan: `~/work/CLAUDE.md` PC diberi bagian rujukan bersyarat (tugas video/konten/skill → `AGENTS.md`); `sync.sh` memasangnya otomatis (idempoten), `doctor.sh` GAGAL bila rujukan tidak ada; README.
 Status: diterapkan (Irfan 8 Nov)
+
+### 2026-11-08 · Uji edit Behindwork (6 klip, skill 96cff28)
+SFX 1,59–1,89/dtk (V5 0,15–0,27), celah senyap 0, 6 track berbeda (`music_batch` PASS), peran+alasan di semua cue, 3 putaran evaluasi berbukti. Dilewati: ears/earshot referensi, `board.py`, `audio_order.py`, `audio_phone` (bug alat, diperbaiki 3e3ab3e), putusan BEDA `ears.py`. Rincian: `evals/results/2026-11-08-behindwork-uji-edit.md`.
+Status: hasil uji; usulan gerbang preflight menunggu Irfan
