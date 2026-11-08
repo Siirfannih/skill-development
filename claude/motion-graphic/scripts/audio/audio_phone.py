@@ -7,10 +7,21 @@ Volume: 100 % = 0 dB, 50 % = −12 dB, 20 % = −26 dB (typical phone volume cur
 An SFX cue counts as audible when, in its 160 ms window on the phone model,
   (a) it is no more than 6 dB under the music and 15 dB under a word at that moment (masking), and
   (b) its own level is ≥ 30 dB SPL (quiet-room threshold for a short mid-band sound).
-Usage: python3 tools/audio_phone.py [--list]"""
+Usage: python3 audio_phone.py --root <folder> [--list] [--fix]
+  <folder> berisi stem_vo.wav, stem_music.wav, stem_sfx.wav, mix.wav, cues.json (list {t, peran|kind, alasan|visual}).
+  Tanpa --root: $MG_ROOT/render (cara lama). Gagal pertama: Behindwork 8 Nov, default /home/claude/thegap tidak ada."""
 import json, sys, numpy as np, soundfile as sf, scipy.signal as ss
 
-import os as _os; ROOT = _os.environ.get('MG_ROOT', '/home/claude/thegap') + '/render'
+import os as _os
+if '--root' in sys.argv:
+    ROOT = sys.argv[sys.argv.index('--root') + 1]
+elif _os.environ.get('MG_ROOT'):
+    ROOT = _os.environ['MG_ROOT'] + '/render'
+else:
+    raise SystemExit("FAIL: beri --root <folder> (berisi stem_vo.wav, stem_music.wav, stem_sfx.wav, mix.wav, cues.json) atau set MG_ROOT")
+_need = [f for f in ('stem_vo.wav', 'stem_music.wav', 'stem_sfx.wav', 'mix.wav', 'cues.json') if not _os.path.exists(f'{ROOT}/{f}')]
+if _need:
+    raise SystemExit(f"FAIL: file tidak ada di {ROOT}: {', '.join(_need)} (tulis stem terpisah saat mix)")
 SR = 48000
 def mono(x): return x.mean(1) if x.ndim > 1 else x
 vo = mono(sf.read(f'{ROOT}/stem_vo.wav')[0]); mu = mono(sf.read(f'{ROOT}/stem_music.wav')[0]); fx = mono(sf.read(f'{ROOT}/stem_sfx.wav')[0])
@@ -26,6 +37,9 @@ db = lambda x: 10 * np.log10(np.mean(x ** 2) + 1e-14)
 # K-weighting-ish offset: −14 LUFS mix ≈ −14 dBFS RMS-equivalent here; good enough for a relative check
 CAL = 92 - 14 - db(mix) - 14  # maps full-scale RMS of this mix to its LUFS-ish level
 cues = json.load(open(f'{ROOT}/cues.json'))
+cues = cues.get('cues') or cues.get('placed') or [] if isinstance(cues, dict) else cues
+for c in cues:
+    c.setdefault('kind', c.get('peran', '?')); c.setdefault('visual', c.get('alasan', ''))
 VOL = {'100%': 0, '50%': -12, '20%': -26}
 res = {v: [] for v in VOL}
 for c in cues:
@@ -37,7 +51,7 @@ for c in cues:
         ok = (sfx_l - mask >= -6) and (sfx_l - mvo >= -15) and (spl >= 30)
         res[v].append((ok, round(sfx_l - mask, 1), round(spl, 1), c))
 import os
-fixf = f'{ROOT}/../tools/cue_gain.json'
+fixf = f'{ROOT}/cue_gain.json' if '--root' in sys.argv else f'{ROOT}/../tools/cue_gain.json'
 fix = json.load(open(fixf)) if os.path.exists(fixf) else {}
 if '--fix' in sys.argv:
     for ok, d, spl, c in res['20%']:
