@@ -8,5 +8,7 @@ Sumber: `[I]` = ada kata Irfan, `[A]` = analisis AI.
 - [A] Profil `music-profiles.json` selain `energi` (fokus, slowdown, tegang, hangat) masih hipotesis. Usul: pisahkan stem musik (demucs di PC server) dari video referensi yang suasananya cocok, minimal 3 per kategori, lalu `music_fit.py --calibrate`.
 - [A] Unduh YouTube: yt-dlp tanpa JS runtime kadang hanya memberi audio atau HLS lambat; pakai `--js-runtimes node --remote-components ejs:github` (doac5 7 Nov).
 - [A] `music_fit.py` segfault (numba/librosa) bila beberapa proses jalan paralel; jalankan berurutan dengan `NUMBA_CACHE_DIR` per proyek (doac5 7 Nov).
+- [A] Dari storyboard Wonder Trojan v4 (Irfan 7 Nov): "hindari ikon 3D, pakai ikon 2D; hindari gradien merah serta putih bergradien biru". Berlaku untuk semua video atau hanya Trojan v4?
+- [A] Dari Uji C 8 Nov (skor 24): (1) temuan yang melanggar gerbang keras (aturan 43, track sama) otomatis berdampak "tinggi" dan masuk 5 teratas; (2) audit audio wajib menilai perubahan musik per babak. Tulis ke `analysis-qa.md`?
 
 _Riwayat:_ Daftar 4 Nov (16 pelajaran dari proyek Fore, kartu usulan 30 Okt, dan RETRO 2 Nov) ditolak Irfan 4 Nov: proyek Fore tidak selesai dan pelajarannya bersifat kasus.

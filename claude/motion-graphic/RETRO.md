@@ -236,3 +236,27 @@ Akar masalah: `tools/sync.sh` menyalin snapshot hanya ke `~/.claude`; PC server 
 Perubahan: `sync.sh` memasang symlink + skill Remotion resmi + hook SessionStart `git pull`, mendukung `CLAUDE_CONFIG_DIR`, dan memperingatkan skill video lama di pustaka akun. Dijalankan di Mac dan PC server.
 Uji: pertanyaan yang sama ke sesi baru. Sebelum (PC): "tidak ada skill yang mengatur jumlah SFX". Sesudah (PC dan Mac): memuat `motion-graphic`, menyebut aturan 43, `remotion-*` tersedia. Sisa: duplikat di pustaka akun claude.ai harus dibereskan Irfan dari Settings.
 Status: diterapkan (Irfan 8 Nov)
+
+### 2026-11-08 · Storyboard visual diturunkan dari Wonder
+Permintaan Irfan: sebelum menulis kode video, model membedah target per frame, membuat rencana, lalu langsung membuat storyboard bergambar (letak dan posisi objek); pelajari cara kerja Wonder dari history di Mac.
+Sumber: `wonder-local.db` Mac (4 thread storyboard: Marketing, Motion Lagu, Pengganti Kita Sendiri, Trojan v4; 22.042 event) + skill Wonder `new-design`, `new-design-arrange`, `design-review` hasil `get_skills`. Pola Wonder: arah gaya tertulis sebelum menggambar → kerangka → artboard per item (frame 16:9 + caption beat/VO/aksi/kamera/keluar/SFX), satu baris per babak → screenshot setiap panel → design-review sekali (kritis/dasar/poles) → versi lama diarsip. Skill di internet (shotkit, orchestkit video-storyboarding, seedance-storyboard) hanya menghasilkan spesifikasi/prompt, tidak menyusun panel visual; dari shotkit diambil file data terbaca mesin + validator.
+Perubahan: `references/storyboard.md` ditulis ulang (jalur tanpa storyboard/tanpa referensi, urutan kerja, format panel, 13 aturan dari umpan balik Irfan di Wonder, review papan); `scripts/storyboard/board.py` (render panel HTML → PNG, papan per babak, `cues.json` untuk gerbang SFX, cek caption, peran/alasan, waktu, teks layar satu baris tanpa tanda baca, kerangka tersisa); `templates/storyboard/`; gerbang 4 di SKILL.md; eval mg-048.
+Uji: `board.py` pada templat: tanpa panel → FAIL; kerangka tersisa → FAIL; teks layar bertanda baca dan keluar frame → FAIL; panel lengkap → PASS, papan 3 beat/4 frame terbaca. Belum diuji: sesi baru membuat storyboard proyek nyata dengan cabang ini (mg-048).
+Status: diterapkan (Irfan 8 Nov: "turunkan jadi skill storyboard ke repo")
+
+### 2026-11-08 · Uji C: audit V5 dengan skill 15c04a0
+Sesi baru di PC server dengan skill-development 15c04a0 mengaudit 3 klip V5. Skor 24 (sebelumnya terbaik 11; tanpa skill 3; skill 7 Nov 0). Lulus kriteria: audio di 3 temuan teratas, track sama tertangkap dengan bukti terukur, satu-satunya dari 8 kondisi. Rincian: `evals/results/2026-11-08-audit-v5.md`.
+Sisa: label genre earshot masih dijadikan bukti (funk pada track piano yang sama); SFX jarang hanya di urutan 7 "sedang" walau aturan 43 gerbang keras; musik datar per babak tidak disebut. Usulan di PENDING.
+Status: diterapkan sebagai hasil uji; perbaikan sisa menunggu Irfan
+
+### 2026-11-08 · Earshot = skor pertama; storyboard = cara menilai, bukan templat
+Irfan: earshot bukan penilaian utama, hanya skor yang divalidasi alat lain; aturan storyboard dari Wonder jangan jadi templat tetap, tiru cara Irfan menilai.
+Bukti earshot (PC, track V5): file asli → "jazz, solo piano, sedih"; stem musik → "solo piano +3,5, sedih +3,7"; mix dengan suara podcast → "funk, vocal chop +3,1". Klaim salah di semua audit V5 berasal dari input bercampur suara, bukan dari earshot.
+Perubahan: `audio.md` §14.0B (stem dulu, earshot = hipotesis, validasi dengan ukuran/Gemini/metadata/sidik jari, beda = cari sebab dan tulis putusan); `analysis-qa.md` baris label earshot; `storyboard.md` §4 jadi 8 pertanyaan penilaian Irfan, tiap kasus ditandai konteksnya dan "bisa berbeda bila".
+Status: diterapkan (Irfan 8 Nov)
+
+### 2026-11-08 · Sound design paralel → berurutan dan dikunci
+Irfan: V5 mengerjakan visual, SFX, dan musik bersamaan tanpa proses mencocokkan. Dua cara yang benar: (1) susun SFX + latar terhadap timeline sejak awal, atau (2) visual dulu, SFX mengikuti timeline teks/transisi, musik latar paling akhir sesuai tipe video. Izin memasang alat lain.
+Perubahan: gerbang 6–12 di SKILL.md diurutkan ulang (suara dikunci → visual dikunci → SFX dari event visual → musik paling akhir → QA); `scripts/gate/audio_order.py` (lock bertahap dengan sidik file; lapisan sesudah revisi visual jadi basi; mode `konten` dan `musik`); `audio.md` §14.0C; `scripts/audio/ears.py` (demucs stem → earshot + ukuran → setuju/beda); demucs 4.1 dipasang di `~/work/mg-venv` PC (torch tetap 2.15, earshot doctor lulus); eval mg-050.
+Uji: `audio_order.py` sintetis: SFX sebelum visual → FAIL; musik tanpa preview didengar → FAIL; urutan benar → PASS; visual diubah → FAIL basi; visual dikunci ulang → SFX dan musik basi. demucs: 30 dtk referensi storytelling dipisah 39 dtk di CPU; stem terbaca "classical string quartet, strings ensemble" (sesuai brief biola/klasik).
+Status: diterapkan (Irfan 8 Nov)

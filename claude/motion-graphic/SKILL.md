@@ -41,13 +41,15 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Render penuh 
 | 1 | Brief | `decision.md`, `palette.md` | Brief Irfan disalin apa adanya; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari Irfan (gagal: V5 8 Nov). Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
 | 2 | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file (klip: daftar potongan + timestamp sumber) |
 | 3 | Bedah referensi | `analysis-qa.md` §2, `three-segment-gate.md` (gerbang DENGAR) | Metrik visual + peta audio dari `earshot timeline --detail high` (label, event/dtk, kepadatan SFX) |
-| 4 | Storyboard 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final |
+| 4 | Storyboard visual 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Papan panel (frame + caption) di `projects/<proyek>/storyboard/`, `scripts/storyboard/board.py` PASS, review papan + tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final. Tanpa storyboard dari Irfan (klip): agent membuatnya sendiri dan lanjut, papan dikirim bersama hasil (Irfan 8 Nov) |
 | 5 | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
-| 6 | Audio | `audio.md`, `three-segment-gate.md` (gerbang DENGAR) | Kategori suasana tertulis; musik lulus `music_fit.py`, tiap klip/babak punya track berbeda (`gate/music_batch.py`); tiap SFX dan cue musik punya `peran` + `alasan`; tiap SFX lolos `earshot describe/match`; cue sheet: 1 SFX per frame/pesan/objek/gerakan (aturan 43). VO setelah script final; SFX/musik setelah storyboard final; audio sumber klip utuh |
+| 6 | Suara dikunci | `audio.md` §14.0C | VO (setelah script final) atau audio sumber klip utuh; `gate/audio_order.py init --mode konten\|musik` + `lock suara`. Mode `musik` (video lirik, montage di ketukan): musik dipilih dan dikunci di sini lebih dulu, visual dipotong di ketukannya |
 | 7 | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum diterapkan ke semua |
-| 8 | Build semua adegan | `build.md` | Komponen sama untuk semua adegan |
-| 9 | Preview + QA | `delivery-gate.md` §0, `analysis-qa.md` §16 | **Audio diperiksa lebih dulu** (kesalahan V5 mayoritas audio, Irfan 8 Nov). Still per beat + audio saja lulus (`gate/sfx_density.py`, `audio_phone.py`, `earshot timeline`), baru render penuh; ≥ 3 putaran kritik, skor ≥ 8; devil's advocate audio `delivery-gate.md` §4 |
-| 10 | Kirim | `delivery-gate.md` | Video + laporan Delivery Gate (setiap PASS berbukti) + daftar penyimpangan |
+| 8 | Build semua adegan → visual dikunci | `build.md` | Komponen sama untuk semua adegan; render tanpa audio, `audio_order.py lock visual` |
+| 9 | SFX dari event visual | `audio.md` §14.0C, §14.A–14.3, `three-segment-gate.md` (DENGAR) | Cue sheet disusun dari event render terkunci, 1 SFX per frame/pesan/objek/gerakan (aturan 43), tiap cue `peran` + `alasan`, lolos `earshot describe/match`; `lock sfx` (menjalankan `gate/sfx_density.py`) |
+| 10 | Musik paling akhir | `audio.md` §14.0A, §14.0B | Dipilih sambil mendengar preview visual + SFX: kategori suasana dari tipe video (`pace_read.py`), `music_fit.py` (≥ 8 kandidat, ≥ 2 sumber), `audio/ears.py` untuk mengenali kandidat, tiap klip/babak track berbeda (`gate/music_batch.py`); `lock musik --peran --alasan --didengar` |
+| 11 | Preview + QA | `delivery-gate.md` §0, `analysis-qa.md` §16 | **Audio diperiksa lebih dulu** (kesalahan V5 mayoritas audio, Irfan 8 Nov): `audio_order.py check` PASS (tidak ada lapisan basi), `gate/sfx_density.py`, `audio_phone.py`, `earshot timeline`. Still per beat + audio saja lulus, baru render penuh; ≥ 3 putaran kritik, skor ≥ 8; devil's advocate audio `delivery-gate.md` §4 |
+| 12 | Kirim | `delivery-gate.md` | Video + laporan Delivery Gate (setiap PASS berbukti) + daftar penyimpangan |
 
 Revisi dari Irfan: baca `revision-log.md`, catat di `DECISIONS.md` (§21) dan RETRO, baru kerjakan; `scripts/baseline_lock.py check` wajib lolos. Pekerjaan dalam rencana yang Irfan setujui dianggap disetujui; yang menunggu kata "final" hanya script dan storyboard.
 
@@ -66,7 +68,11 @@ motion-graphic/
 │   ├── typography.md · camera-transition.md · motion-mechanics.md · smooth-motion.md · pacing-map.md
 │   ├── audio.md · build.md · analysis-qa.md · revision-log.md · palette.md (+ palettes.json)
 │   └── hybrid-motion-standard.md · three-segment-gate.md
+├── templates/storyboard/    contoh beats.json + tokens.css + panel (mulai dari salinan ini)
 └── scripts/
+    ├── storyboard/board.py      panel HTML → PNG + papan per babak + cek caption/teks layar/waktu + cues.json
+    ├── gate/audio_order.py      urutan sound design: suara → visual → SFX → musik, lapisan basi = FAIL
+    ├── audio/ears.py            telinga gabungan: demucs stem → earshot + ukuran → setuju/beda
     ├── gate/sfx_density.py      1 SFX per event visual: kepadatan + cakupan + celah senyap
     ├── gate/voice_fidelity.py   alat ukur: suara sumber bersih tidak rusak (udara > 9 kHz, LRA)
     ├── gate/caption_lines.py    caption 1 baris, tidak terpotong tepi

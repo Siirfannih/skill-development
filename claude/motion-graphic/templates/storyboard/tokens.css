@@ -1,0 +1,10 @@
+/* Satu sumber nilai untuk semua panel (pola token Wonder: peran -> nilai). Ganti per proyek, jangan bawa dari proyek lain. */
+:root{
+  --bg:#ffffff; --stage:#0b0b0c; --ink:#151515; --muted:#6b6b70; --accent:#1f6bff; --accent-soft:#e8f0ff; --bad:#e5484d;
+  --font-display:"Plus Jakarta Sans", Inter, system-ui, sans-serif;
+}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body.frame{position:relative;background:var(--bg);font-family:var(--font-display);color:var(--ink)}
+/* Lapisan 2.5D: teks di depan, visual di tengah, latar di belakang. Kamera yang bergerak, objek tetap. */
+.L-bg{position:absolute;inset:0;z-index:0}.L-vis{position:absolute;inset:0;z-index:1}.L-txt{position:absolute;inset:0;z-index:2}
+.layar{white-space:nowrap;letter-spacing:-0.03em;font-weight:700}

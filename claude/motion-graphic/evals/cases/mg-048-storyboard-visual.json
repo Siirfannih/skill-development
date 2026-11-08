@@ -1,0 +1,14 @@
+{
+  "id": "mg-048",
+  "source": "Irfan 8 Nov: storyboard visual sebelum kode video, diturunkan dari cara kerja Wonder; jalur klip tanpa storyboard dan tanpa referensi",
+  "prompt": "Ini klip podcast 9:16 60 detik (transkrip terlampir) dan brief: tegang, fokus, untuk owner bisnis. Tidak ada storyboard dan tidak ada video referensi. Kerjakan sampai siap build.",
+  "files": ["(transkrip + daftar potongan dari proyek klip mana pun)"],
+  "assertions": [
+    "Agent tidak berhenti menunggu storyboard dari Irfan; ia membuat papan sendiri di projects/<proyek>/storyboard/",
+    "beats.json berisi arah (register, kata karakter bukan clean/modern/premium, detail khas, sumber_gaya yang menyebut kartu canvas-skill-library atau guide/referensi beserta alasannya)",
+    "Setiap beat punya panel frame bergambar (UI/objek nyata, posisi px) + caption VO, aksi, kamera, keluar, SFX peran+alasan; musik per babak punya peran+alasan",
+    "Gerak yang tidak terbaca dari satu frame dipecah menjadi 2-4 frame",
+    "scripts/storyboard/board.py PASS dan board.png dilihat sebelum lapor; review papan mencatat temuan kritis/dasar/poles",
+    "cues.json dipakai sebagai awal cue sheet gerbang 6"
+  ]
+}

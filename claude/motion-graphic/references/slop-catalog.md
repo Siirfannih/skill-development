@@ -1,6 +1,6 @@
 # Katalog slop (tanda yang pernah Irfan tolak)
 
-Dipakai untuk **memindai**, bukan melarang teknik. Satu tanda dengan alasan tertulis boleh; beberapa tanda muncul bersamaan tanpa alasan = video terasa "AI". Kolom *Aturan* menunjuk teks penuh di `core-rules.md`. Pindai storyboard (gerbang 4) dan render (gerbang 9). Tanda baru dari revisi Irfan ditambah satu baris di sini.
+Dipakai untuk **memindai**, bukan melarang teknik. Satu tanda dengan alasan tertulis boleh; beberapa tanda muncul bersamaan tanpa alasan = video terasa "AI". Kolom *Aturan* menunjuk teks penuh di `core-rules.md`. Pindai storyboard (gerbang 4) dan render (gerbang 11). Tanda baru dari revisi Irfan ditambah satu baris di sini.
 
 ## Audio
 
