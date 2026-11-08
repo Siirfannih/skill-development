@@ -64,11 +64,11 @@ def measure(path):
     rms = librosa.feature.rms(y=y)[0]
     hop = 512 / SR
     win = int(10 / hop)
-    lv = [20 * np.log10(np.mean(rms[i:i + win]) + 1e-9) for i in range(0, max(1, len(rms) - win // 2), win)]
-    return dict(bpm=round(tempo, 1), mode=best[1], key=f"{NOTES[best[2]]} {best[1]}", mode_margin=round(best[0] - alt, 3),
+    lv = [float(20 * np.log10(np.mean(rms[i:i + win]) + 1e-9)) for i in range(0, max(1, len(rms) - win // 2), win)]
+    return dict(bpm=round(tempo, 1), mode=best[1], key=f"{NOTES[best[2]]} {best[1]}", mode_margin=round(float(best[0] - alt), 3),
                 brightness_hz=int(librosa.feature.spectral_centroid(y=y, sr=SR).mean()),
                 onsets_per_s=round(len(on) / (len(y) / SR), 2),
-                level_10s_db=[round(x, 1) for x in lv], level_range_db=round(max(lv) - min(lv), 1) if lv else 0.0)
+                level_10s_db=[round(x, 1) for x in lv], level_range_db=round(float(max(lv) - min(lv)), 1) if lv else 0.0)
 
 
 def main():
