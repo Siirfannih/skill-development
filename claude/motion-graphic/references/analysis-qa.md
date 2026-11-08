@@ -33,7 +33,7 @@ Kesalahan termahal di Jadisatu adalah menunggu Irfan menunjuk masalah yang bisa 
 
 **Audio (alat sendiri; Gemini hanya data tambahan)**
 - **Audit audio lebih dulu, baru visual** (Irfan 8 Nov: kesalahan V5 mayoritas audio). Sebutkan di 3 temuan teratas: musik (genre/tempo per babak, track sama antar klip), kepadatan SFX, dan level.
-- **Label genre earshot = petunjuk, bukan bukti**: track piano yang sama di V5 dilabeli "funk/jazz/corporate" (uji audit 8 Nov). Kenali track lewat file sumber atau sidik jari (`gate/music_batch.py`).
+- **Label earshot = skor pertama, lalu divalidasi** (`audio.md` §14.0B, Irfan 8 Nov): label musik dari stem, bukan dari mix bersuara (di V5 mix dengan suara terbaca "funk", stem-nya "solo piano"); cek dengan ukuran, Gemini, atau metadata; identitas track lewat `gate/music_batch.py`.
 - **Dengar dulu dengan earshot** (wajib, gerbang DENGAR): `earshot timeline ref.mp4 --detail high` untuk label tiap event, event/dtk, dan prominence. Analisis spektrogram tanpa earshot tidak cukup untuk menyimpulkan instrumen, genre, atau kepadatan SFX; bila earshot tidak tersedia, berhenti dan lapor ke Irfan (gagal: V5 8 Nov, ref ditebak "piano/biola" dan "SFX jarang").
 - Pemisahan stem: **Demucs** (htdemucs) memisahkan VO / musik / sisa. Cadangan: `librosa.decompose.hpss`.
 - **librosa** sebagai inti analisis:

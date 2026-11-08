@@ -23,6 +23,18 @@ Skrip mengukur tempo yang dirasakan, kepadatan ketukan, kecerahan, build/drop, d
 
 Profil di `music-profiles.json`: `energi` disesuaikan dengan 6 video referensi Irfan (musik ±104–136 bpm, `guide/referensi/`); kategori lain masih hipotesis. Kalibrasi dari **stem musik video referensi yang suasananya cocok** (bukan dari track favorit): `music_fit.py --calibrate <k> stem1 stem2 stem3`. SFX untuk kandidat: `earshot rank "<peran>" kandidat/*` untuk karakter, `sfx_comfort.py` untuk desis; jumlahnya mengikuti event visual (aturan 43), bukan kategori.
 
+### 14.0B Mengenali audio: earshot = skor pertama, lalu divalidasi (Irfan 8 Nov)
+Claude tidak mendengar sendiri. Setiap alat telinga punya titik buta, jadi kesimpulan "audio ini seperti apa" diambil dari beberapa sumber yang saling dicek, bukan dari satu label.
+1. **Input bersih dulu.** Label musik diambil dari **stem musik** (stem proyek, atau pisahkan suara dengan `demucs` untuk referensi), bukan dari mix yang ada suaranya. Bukti 8 Nov, track piano V5: track asli → "jazz, solo piano, sedih"; stem musik → "solo piano +3,5, sedih +3,7"; mix dengan suara podcast → "funk, vocal chop +3,1". Earshot benar; inputnya yang tercampur.
+2. **Earshot memberi skor awal** (`describe`, `match`, `timeline`): label + z. Itu hipotesis, bukan putusan.
+3. **Cek dengan minimal satu sumber lain yang independen:**
+   - ukuran: `music_fit.py` / `pace_read.py` (bpm, mayor/minor, kecerahan, kepadatan ketukan, dinamika per babak);
+   - telinga kedua: Gemini mendengar file yang sama (`agy` di Mac, fallback Gemini API), diberi pertanyaan spesifik ("instrumen utama?", "tempo terasa cepat/lambat?", "suasana berubah di detik berapa?"), bukan "deskripsikan";
+   - metadata sumber: judul/tag Epidemic, `SearchSimilarToRecording`, catatan pustaka asal file;
+   - identitas track: `gate/music_batch.py` (sidik jari) untuk "apakah ini track yang sama".
+4. **Sepakat → pakai. Berbeda → cari sebabnya** (input tercampur suara? jendela waktu salah? label di luar kosakata earshot? metadata salah?), lalu tulis mana yang benar dan buktinya. Jangan memilih diam-diam salah satu.
+5. Laporan audio memuat tabel kecil: klaim → sumber yang setuju → sumber yang tidak → putusan.
+
 ### 14.A Memilih suara: logika (Irfan 6 Nov)
 Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber dan kualitas mix**. Pilihan diturunkan dari dua kolom tabel beat yang sudah ada: mekanik (`motion-mechanics.md`) dan nada (`pacing-map.md`). Suara lahir dari gerak, bukan dari kata.
 

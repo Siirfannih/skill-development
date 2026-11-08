@@ -7,7 +7,7 @@ Baca di gerbang 4–5. Storyboard adalah gerbang review termurah: satu panel dip
 1. Jalur masuk
 2. Urutan kerja
 3. Panel: format dan isi
-4. Aturan panel dari umpan balik Irfan
+4. Cara Irfan menilai panel
 5. Review papan
 6. Melanjutkan panel contoh Irfan
 7. TYPE-TEST dan TRANSITION-SHEET
@@ -26,7 +26,7 @@ Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkun
 ## 2. Urutan kerja
 
 1. **Bedah referensi per frame** menjadi kartu "yang terlihat → aturan yang diturunkan". Daftar nama file bukan pengganti melihat gambar.
-2. **Arah visual sebelum menggambar.** Sumber gaya menurut prioritas: brief Irfan → token/UI produk asli → panel yang sudah ada di papan → tangan bebas. Tulis di `beats.json → arah`: register, 2–3 kata karakter khusus produk ini (bukan clean, modern, sleek, minimal, premium: kata itu cocok untuk template apa pun), peran palet dengan nilai di `tokens.css`, pasangan font, tulang layout, satu detail khas yang hanya dimiliki proyek ini (contoh: mouse karakter Jadisatu di Trojan v4).
+2. **Arah visual sebelum menggambar.** Sumber gaya menurut prioritas: brief Irfan → token/UI produk asli → panel yang sudah ada di papan → tangan bebas. Tulis di `beats.json → arah`: register, 2–3 kata karakter yang lolos uji "hanya cocok untuk proyek ini" (clean, modern, premium gagal karena cocok untuk apa pun), peran palet dengan nilai di `tokens.css`, pasangan font, tulang layout, satu detail khas yang hanya dimiliki proyek ini (contoh: mouse karakter Jadisatu di Trojan v4).
 3. **Beat dari VO kata per kata.** Satu beat = satu pesan; urutan panel dicocokkan dengan VO sebelum menggambar (gagal: Trojan v4 R1, panel acak dari urutan VO).
 4. **Kerangka dulu.** `board.py --skeleton` membuat satu panel kosong berlabel per beat; isi satu per satu; kerangka tidak boleh tersisa.
 5. **Gambar panel** (§3), render, lihat hasilnya, perbaiki. Jangan menilai dari kode.
@@ -51,27 +51,47 @@ Satu panel = frame + caption, seperti artboard Wonder.
 ```
 `cues.json` hasil `board.py` adalah bahan awal cue sheet gerbang 6: setiap event visual di storyboard sudah punya bunyi (aturan 43).
 
-## 4. Aturan panel dari umpan balik Irfan
+## 4. Cara Irfan menilai panel
 
-- Teks layar adalah bagian dari visual, bukan subtitle; jangan pasang baris subtitle di panel (Irfan 7 Nov, Trojan v4).
-- Teks layar satu baris, tanpa tanda baca; pembuka satu kata per baris dan kinetik (Irfan 7 Nov).
-- Logika dunia nyata per panel: percakapan harus nyambung (bukan dua pihak sama-sama bertanya), pesan masuk ke ruang yang benar (transaksi ke chat Jadisatu, bukan ke chat ayang) (Irfan 7 Nov, Trojan v4).
-- Urutan aksi UI mengikuti urutan nyata dan perhatian penonton; satu frame per langkah bila langkahnya penting (Irfan, Pengganti 03a).
-- Halaman sumber (Wikipedia, artikel) disusun ulang dengan fokus pada kalimat yang diucap, bukan ditempel utuh (Irfan, Pengganti 02a).
-- Premium = struktur, ruang kosong, dan visual kuat yang menceritakan pesan; bukan satu warna di semua panel. Gradien hanya untuk beberapa frame; gradien di semua panel membuat monoton (Irfan, Marketing R4–R5).
-- Frame rapi dan tidak penuh; noise dan elemen tanpa makna dibuang (Irfan, Marketing).
-- Skala karakter logis: karakter lebih besar dari objek di sekitarnya (kalender, meja) (Irfan, Motion Lagu).
-- Karakter orang Indonesia berkulit sawo matang, bukan wajah gelap tanpa detail (Irfan, Motion Lagu).
-- Aset yang belum ada (foto Irfan, footage) = bentuk bayangan berlabel; jangan mengarang gambar penggantinya (Irfan, Pengganti).
-- Satu keluarga karakter: elemen berkarakter (mouse, ikon) satu gaya dengan tokoh utama (Irfan 7 Nov).
-- Elemen boleh keluar frame bila fokus memang di bagian lain; tandai `data-bleed` (Irfan 7 Nov, panel 09a).
-- Revisi: ubah panel yang ada, jangan bangun ulang; elemen yang Irfan hapus tidak dipasang lagi; versi sebelumnya harus bisa dikembalikan (gagal: Trojan v4, elemen yang Irfan hapus dipasang ulang agent).
+Bagian ini meniru **cara Irfan berpikir saat menilai**, bukan daftar gaya. Setiap pertanyaan diikuti kasus nyata dari sesi storyboard-nya. Kasus itu adalah jawaban untuk konteksnya sendiri (motion Apple-style, iklan Jadisatu, video lirik), bukan aturan tetap. Di konteks lain, ajukan pertanyaan yang sama, dan jawabannya boleh berbeda; tulis alasannya di caption panel. Yang tetap hanya standar yang Irfan nyatakan berlaku umum (aturan inti di `SKILL.md` dan `core-rules.md`, mis. teks layar satu baris tanpa tanda baca) (Irfan 8 Nov).
+
+1. **Apakah ini masuk akal di dunia nyata?** Penonton langsung merasa ada yang janggal walau tidak bisa menyebutnya.
+   - Kasus Trojan v4: chat sama ayang, kedua pihak sama-sama bertanya → tidak nyambung; pesan "jual risol" masuk ke chat ayang, padahal seharusnya ke chat Jadisatu.
+   - Kasus Motion Lagu: tokoh lebih kecil dari kalender.
+   - Kasus Pengganti 03a: pesan sudah terbaca utuh sebelum tombol kirim diklik.
+   - Bisa berbeda: dunia metafora atau fantasi boleh melanggar fisika, asal logika di dalam dunianya konsisten.
+2. **Apakah visualnya menceritakan pesan kalimat itu?** Panel yang Irfan puji (Marketing 06a, 07c) dipuji karena "visualnya kuat dan menceritakan isi pesan", bukan karena gayanya.
+   - Kasus Pengganti 02a: halaman Wikipedia ditempel utuh, jadi penonton tidak tahu kalimat mana yang penting.
+   - Turunannya: bila visual sudah bercerita, teks tambahan tidak perlu.
+3. **Ke mana mata penonton pergi, dan apakah ia sudah bosan?**
+   - Kasus Trojan v4 (pembuka Instagram): satu kata per baris, karena dua baris di detik awal membuat orang bosan.
+   - Kasus Marketing: frame terlalu penuh dan banyak noise.
+   - Bisa berbeda: pada bagian yang penontonnya sudah terikat, ritmenya boleh lebih lambat, tapi tetap uji apa yang dibaca lebih dulu.
+4. **Apakah gaya ini dipakai dengan alasan, atau ditempel di semua panel?**
+   - Kasus Marketing R4–R5 (motion "premium"): agent menerjemahkan premium jadi "semua biru", lalu "semua bergradien". Keduanya ditolak. Bagi Irfan, premium adalah rasa yang dibangun dari struktur, ruang kosong, dan visual yang kuat. Gradien hanyalah satu alat untuk beberapa frame.
+   - Turunannya: satu panel yang dipuji adalah contoh cara mencapai rasa itu, bukan perintah untuk menyebarkannya ke semua panel.
+5. **Apakah semua panel terasa dari satu keluarga?**
+   - Kasus Trojan v4: mouse dijadikan karakter satu keluarga dengan tokoh usaha di panel 03.
+   - Kasus Motion Lagu: tokoh orang Indonesia digambar dengan kulit sawo matang, karena tokohnya harus mewakili dunia ceritanya.
+6. **Kalau panel ini dianimasikan, apakah editor paham geraknya?** Irfan selalu membayangkan saat frame diproduksi.
+   - Kasus Trojan v4: hook dipecah satu kata per frame; tombol "Gratis" dipecah jadi tiga tahap.
+7. **Apakah aset ini jujur?**
+   - Kasus Pengganti: aset yang belum ada (foto Irfan) dibuat sebagai bayangan berlabel, bukan gambar karangan.
+   - UI yang tampil adalah UI asli produknya.
+8. **Apakah keputusan Irfan yang sudah ada dihormati?** Ini satu-satunya pertanyaan yang jawabannya tidak bergantung konteks:
+   - elemen yang Irfan hapus tidak dipasang lagi;
+   - bagian yang ia puji atau tidak ia komentari tidak diubah;
+   - revisi mengubah panel yang ada, bukan membangun ulang;
+   - versi lama tetap bisa dikembalikan.
+   (gagal: Trojan v4, elemen yang Irfan hapus dipasang ulang agent.)
+
+Saat ragu, tanyakan: **"Kalau Irfan melihat panel ini, pertanyaan mana yang akan ia ajukan dulu?"**, lalu jawab sebelum ia sempat bertanya.
 
 ## 5. Review papan
 
 Sekali setelah semua panel terisi, dan setelah revisi yang menyentuh beberapa babak. Lihat `board.png` dan panel PNG, bukan kode. Urutkan temuan: **kritis** (tidak sesuai VO/niat, teks tak terbaca, kontras < 4,5:1, logika dunia salah, konten hilang, terpotong tanpa sengaja) → **dasar** (hierarki, kepadatan, ritme ruang, layout berulang > 2) → **poles** (sisanya, hanya bila murah). Tulis tiap temuan sebagai elemen, perubahan, dan prinsip yang dilayani.
 
-Kriteria:
+Kriteria (pertanyaan §4 dipakai di sini, ditambah):
 - **Niat**: panel menggambarkan kalimat VO-nya; urutan sama dengan VO.
 - **Karakter**: ganti nama produk dengan produk lain, panelnya tidak cocok lagi.
 - **Satu fokus** per frame, dari ukuran, bobot, dan warna sekaligus.

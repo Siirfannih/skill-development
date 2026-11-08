@@ -248,3 +248,9 @@ Status: diterapkan (Irfan 8 Nov: "turunkan jadi skill storyboard ke repo")
 Sesi baru di PC server dengan skill-development 15c04a0 mengaudit 3 klip V5. Skor 24 (sebelumnya terbaik 11; tanpa skill 3; skill 7 Nov 0). Lulus kriteria: audio di 3 temuan teratas, track sama tertangkap dengan bukti terukur, satu-satunya dari 8 kondisi. Rincian: `evals/results/2026-11-08-audit-v5.md`.
 Sisa: label genre earshot masih dijadikan bukti (funk pada track piano yang sama); SFX jarang hanya di urutan 7 "sedang" walau aturan 43 gerbang keras; musik datar per babak tidak disebut. Usulan di PENDING.
 Status: diterapkan sebagai hasil uji; perbaikan sisa menunggu Irfan
+
+### 2026-11-08 · Earshot = skor pertama; storyboard = cara menilai, bukan templat
+Irfan: earshot bukan penilaian utama, hanya skor yang divalidasi alat lain; aturan storyboard dari Wonder jangan jadi templat tetap, tiru cara Irfan menilai.
+Bukti earshot (PC, track V5): file asli → "jazz, solo piano, sedih"; stem musik → "solo piano +3,5, sedih +3,7"; mix dengan suara podcast → "funk, vocal chop +3,1". Klaim salah di semua audit V5 berasal dari input bercampur suara, bukan dari earshot.
+Perubahan: `audio.md` §14.0B (stem dulu, earshot = hipotesis, validasi dengan ukuran/Gemini/metadata/sidik jari, beda = cari sebab dan tulis putusan); `analysis-qa.md` baris label earshot; `storyboard.md` §4 jadi 8 pertanyaan penilaian Irfan, tiap kasus ditandai konteksnya dan "bisa berbeda bila".
+Status: diterapkan (Irfan 8 Nov)
