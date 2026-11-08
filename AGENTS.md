@@ -5,6 +5,9 @@ Repo ini menyimpan cara kerja AI bersama Irfan. Mulai dari [INDEX.md](INDEX.md),
 ## Awal sesi (wajib, sebelum bekerja)
 
 1. Ambil `main` terbaru. Skill di `main` adalah satu-satunya sumber aturan.
+   - Jalankan `./tools/doctor.sh` (hanya mengecek). Bila GAGAL, jangan mulai pekerjaan: laporkan hasilnya ke Irfan dan minta persetujuan untuk `./tools/doctor.sh --fix` (memasang skill `claude/*` dan skill Remotion resmi sebagai symlink ke akun Claude Code yang dipakai). Setelah disetujui, jalankan lalu cek ulang (Irfan 8 Nov).
+   - Skill yang baru dipasang mungkin belum masuk daftar skill sesi ini: baca SKILL.md-nya langsung dari repo. Jangan bekerja dari ingatan atau dari skill lain yang namanya mirip.
+   - Skill di `archive/` (`motion-director`, `motion-graphic-playbook`, `irfan-motion-director`) sudah digabung ke `claude/motion-graphic`; bila masih muncul di daftar skill (misalnya dari pustaka akun claude.ai), abaikan dan laporkan ke Irfan.
 2. Baca [PENDING.md](PENDING.md). Barisnya bukan aturan. Bila ada yang menyangkut tugas ini, tanyakan ke Irfan dalam satu pesan: ya / tidak.
 3. Cek branch yang belum masuk `main` dan mengubah `claude/` (`git log origin/main..origin/<branch> -- claude/`). Bila ada, laporkan ke Irfan sebelum mulai.
 
@@ -37,4 +40,4 @@ Gunakan `claude/working-with-irfan/SKILL.md` untuk cara berkolaborasi, `claude/s
 - Irfan mengizinkan kemajuan dalam tugas ini diperbarui ke GitHub. Setelah pemeriksaan dan audit yang diwajibkan lingkungan kerja, commit dan push perubahan dalam cakupan tugas dengan pesan yang menjelaskan kemajuannya. Periksa perubahan remote sebelum push; jangan menimpa pekerjaan agent lain.
 - Catat titik lanjut di `scriptwriter/DAILY.md` dan kirim laporan ke `ops-report` bila tersedia. Dokumen sesi ini bukan izin mengambil seluruh antrean proyek lain di repo.
 
-Penyiapan lokal repo tidak mengharuskan menjalankan `tools/sync.sh`, memasang seluruh dependensi media, atau mengubah konfigurasi skill global. Sinkronisasi lintas aplikasi mengikuti cakupan instruksi Irfan.
+Mesin atau akun baru wajib lolos `tools/doctor.sh` sebelum bekerja; pemasangan lewat `--fix` dengan persetujuan Irfan (gagal: PC server 8 Nov, akun claude2 tanpa skill video). Dependensi media lain (demucs, model besar) dipasang hanya bila tugasnya butuh.
