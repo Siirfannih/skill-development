@@ -1,85 +1,110 @@
-# Storyboard — dari script final ke rencana beat
+# Storyboard visual: dari script atau daftar potongan ke papan panel
 
-Baca di gerbang 4–5 (storyboard, TYPE-TEST, TRANSITION-SHEET). Storyboard adalah gerbang review termurah: memperbaiki satu baris di sini jauh lebih murah daripada memperbaiki render.
+Baca di gerbang 4–5. Storyboard adalah gerbang review termurah: satu panel diperbaiki dalam menit, satu render dalam jam. Metodenya diturunkan dari cara kerja Wonder (skill `new-design`, `new-design-arrange`, `design-review`) dan dari 4 sesi storyboard Irfan di Wonder 1–7 Nov (Marketing, Motion Lagu, Pengganti Kita Sendiri, Trojan v4) (Irfan 8 Nov).
 
 ## Isi
 
-1. Syarat masuk
-2. Storyboard 100 %
-3. Melanjutkan storyboard contoh Irfan
-4. Spec beat (§15)
-5. Tabel kritik sutradara (§16.3)
-6. TYPE-TEST dan TRANSITION-SHEET
-7. Serah terima
+1. Jalur masuk
+2. Urutan kerja
+3. Panel: format dan isi
+4. Aturan panel dari umpan balik Irfan
+5. Review papan
+6. Melanjutkan panel contoh Irfan
+7. TYPE-TEST dan TRANSITION-SHEET
+8. Alat dan serah terima
 
-## 1. Syarat masuk
+## 1. Jalur masuk
 
-- Script sudah dinyatakan final oleh Irfan dan disimpan sebagai file (lihat `copywriting.md`).
-- Brief terkunci: tujuan, penonton, durasi, CTA, format master.
-- Referensi sudah dibedah dengan angka (`analysis-qa.md` §2).
+| Kondisi | Yang dilakukan |
+|---|---|
+| Irfan memberi storyboard atau panel contoh | Lanjutkan seperti §6; panel contoh adalah arah gaya, bukan batas |
+| Tidak ada storyboard (klip podcast, brief + video saja) | Agent membuat storyboard sendiri dengan metode ini dari daftar potongan + transkrip; tidak menunggu kata "final", papan dikirim bersama hasil (Irfan 8 Nov) |
+| Tidak ada video referensi | Ambil paket ≤ 5 kartu dari repo `Siirfannih/canvas-skill-library` (`skills/canvas-reference-director/SKILL.md`, `references/cards.json`) + `guide/referensi/` sesuai goal; tulis di `beats.json → arah.sumber_gaya` mana yang dipakai dan kenapa (Irfan 8 Nov) |
 
-## 2. Storyboard 100 %
+Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkunci, referensi sudah dibedah per frame (`analysis-qa.md` §2).
 
-- Mencakup seluruh durasi. Tidak ada bagian "nanti dilanjutkan saat build".
-- Storyboard adalah **referensi komposisi, bukan aset**. Gambar storyboard tidak pernah dipakai sebagai background yang ditumpuk teks.
-- Setiap beat menjawab tiga pertanyaan: tokoh sedang melakukan apa, apa subjeknya, objek apa yang sedang dibicarakan (`direction.md` §6.4).
-- Setiap beat diisi dengan format §15 di bawah, termasuk kolom SFX. Musik dan SFX baru dibuat setelah storyboard disetujui, tetapi rencananya sudah ditulis di sini.
+## 2. Urutan kerja
 
-## 3. Melanjutkan storyboard contoh Irfan
+1. **Bedah referensi per frame** menjadi kartu "yang terlihat → aturan yang diturunkan". Daftar nama file bukan pengganti melihat gambar.
+2. **Arah visual sebelum menggambar.** Sumber gaya menurut prioritas: brief Irfan → token/UI produk asli → panel yang sudah ada di papan → tangan bebas. Tulis di `beats.json → arah`: register, 2–3 kata karakter khusus produk ini (bukan clean, modern, sleek, minimal, premium: kata itu cocok untuk template apa pun), peran palet dengan nilai di `tokens.css`, pasangan font, tulang layout, satu detail khas yang hanya dimiliki proyek ini (contoh: mouse karakter Jadisatu di Trojan v4).
+3. **Beat dari VO kata per kata.** Satu beat = satu pesan; urutan panel dicocokkan dengan VO sebelum menggambar (gagal: Trojan v4 R1, panel acak dari urutan VO).
+4. **Kerangka dulu.** `board.py --skeleton` membuat satu panel kosong berlabel per beat; isi satu per satu; kerangka tidak boleh tersisa.
+5. **Gambar panel** (§3), render, lihat hasilnya, perbaiki. Jangan menilai dari kode.
+6. **Gerak yang tidak terbaca dari satu frame dipecah jadi 2–4 frame** (`<id>-1.html`, `<id>-2.html`) supaya editor motion paham (Irfan 7 Nov: hook dipecah satu kata per frame, tombol "Gratis" jadi tiga tahap gelap → disentuh → menyala).
+7. **Review papan sekali** (§5), perbaiki temuan, jalankan `board.py` sampai PASS.
+8. **Serah terima** (§8).
 
-Irfan biasanya menggambar beberapa panel sebagai **arah gaya, bukan batas**. Tugasmu melanjutkan bagian yang tidak digambar seolah-olah Irfan sendiri yang menggambarnya.
+## 3. Panel: format dan isi
 
-Langkahnya:
-1. Deskripsikan setiap panel contoh apa adanya sebelum menilai: yang terlihat, lalu aturan yang diturunkan.
-2. Catat ciri gaya yang harus dibawa ke semua bagian: bentuk tokoh, palet, posisi teks, jumlah kata per beat, ruang kosong.
-3. Untuk setiap pesan baru, tanyakan: **"Jika Irfan menggambar ini dengan tokoh yang sama, tokoh itu sedang melakukan apa?"**
+Satu panel = frame + caption, seperti artboard Wonder.
 
-Contoh nyata (Tuntunly, 12 panel):
+- **Frame** berukuran format master (16:9 1920×1080, atau orientasi footage). Isinya **visual yang benar-benar terbaca**: UI asli produk/aplikasi, teks layar final, posisi objek dalam px, tiga lapisan 2.5D (`L-bg` latar, `L-vis` visual, `L-txt` teks). Bukan sketsa kotak.
+- **Caption**: id beat, babak, waktu, kalimat VO, aksi (apa yang bergerak), kamera, transisi keluar, SFX per event (`peran` + `alasan`), dan musik per babak di judul baris.
+- **Papan**: satu baris per babak, beat dari kiri ke kanan; versi lama pindah ke area arsip, bukan dihapus.
+- Kode G, T, C, X diambil dari `typography.md` dan `camera-transition.md`; jangan menciptakan kode baru di storyboard.
 
-| Panel | Yang terlihat | Aturan yang diturunkan |
-|---|---|---|
-| 01–02 | Logo AI berganti, lalu "AI berubah tiap minggu." | Pembuka = fakta dunia, cepat, visual sederhana di tengah |
-| 03–05 | Kelas → "Tapi cara kita belajar?" → kelas gelap "Masih sama..." | Kontras dibangun dengan mengubah warna latar dunia yang sama, bukan ganti scene |
-| 06 | Tokoh kotak berdiri sendiri | Tokoh diperkenalkan tanpa teks |
-| 07 | Tokoh kecil di bawah sorot cahaya, "Jaraknya makin jauh." | Makna "jauh" = jarak ruang antara tokoh dan cahaya |
-| 08–10 | Meja yang sama: "Baca." → "Catat. Hafal." → "Ujian." | Rutinitas = komposisi sama, aksi dan ekspresi berubah |
-| 11–12 | Buku/kertas masuk tong → "LUPAKAN" | Konsekuensi digambarkan dengan benda fisik |
-
-Bagian yang tidak digambar lalu dilanjutkan dengan tokoh yang sama: "Cara baru: pahami" menjadi tokoh membuka laptop dengan UI Tuntunly asli dan kamera mendekat ke layar; "Langsung praktik" menjadi komposisi meja yang sama seperti "Catat. Hafal.", tetapi kali ini tokoh tersenyum.
-
-## 4. Spec beat (§15)
-
+`beats.json` (contoh lengkap: `templates/storyboard/`):
 ```
-PROJECT | FAMILY per babak | 1920×1080 · 30 fps | VO: <file> | Musik: <cue per babak>
-FONT ROLES: Display=<…> Headline=<…> Body=<…> Aksen=<…> Data=<…>
-| # | Waktu VO | Kata VO pemicu | Objek pembicaraan | Teks layar (≤6 kata, **kunci**) | Gaya (G) + teknik (T) | Ukuran | Subjek & aksi tokoh | Kamera (C) | Transisi keluar (X) + benda pembawa | SFX (waktu, kelas, terikat ke, offset, dB vs VO) |
+{project, format:{w,h,fps}, arah:{register, kata_karakter, detail_khas, sumber_gaya},
+ babak:[{id, nama, musik:{peran, alasan}}],
+ beats:[{id, babak, t:[mulai, selesai], vo, layar, aksi, kamera, keluar, sfx:[{t, peran, alasan}]}]}
 ```
+`cues.json` hasil `board.py` adalah bahan awal cue sheet gerbang 6: setiap event visual di storyboard sudah punya bunyi (aturan 43).
 
-Kode G, T, C, X diambil dari `typography.md` dan `camera-transition.md`. Jangan menciptakan kode baru di storyboard; kalau butuh teknik baru, tambahkan dulu ke cabang yang sesuai.
+## 4. Aturan panel dari umpan balik Irfan
 
-Cek sebelum build:
-- setiap gerak punya alasan dan bunyi (atau alasan kenapa senyap)
-- setiap teks punya sumber VO
-- satu fokus per frame
-- tidak ada teks kiri + UI kanan
+- Teks layar adalah bagian dari visual, bukan subtitle; jangan pasang baris subtitle di panel (Irfan 7 Nov, Trojan v4).
+- Teks layar satu baris, tanpa tanda baca; pembuka satu kata per baris dan kinetik (Irfan 7 Nov).
+- Logika dunia nyata per panel: percakapan harus nyambung (bukan dua pihak sama-sama bertanya), pesan masuk ke ruang yang benar (transaksi ke chat Jadisatu, bukan ke chat ayang) (Irfan 7 Nov, Trojan v4).
+- Urutan aksi UI mengikuti urutan nyata dan perhatian penonton; satu frame per langkah bila langkahnya penting (Irfan, Pengganti 03a).
+- Halaman sumber (Wikipedia, artikel) disusun ulang dengan fokus pada kalimat yang diucap, bukan ditempel utuh (Irfan, Pengganti 02a).
+- Premium = struktur, ruang kosong, dan visual kuat yang menceritakan pesan; bukan satu warna di semua panel. Gradien hanya untuk beberapa frame; gradien di semua panel membuat monoton (Irfan, Marketing R4–R5).
+- Frame rapi dan tidak penuh; noise dan elemen tanpa makna dibuang (Irfan, Marketing).
+- Skala karakter logis: karakter lebih besar dari objek di sekitarnya (kalender, meja) (Irfan, Motion Lagu).
+- Karakter orang Indonesia berkulit sawo matang, bukan wajah gelap tanpa detail (Irfan, Motion Lagu).
+- Aset yang belum ada (foto Irfan, footage) = bentuk bayangan berlabel; jangan mengarang gambar penggantinya (Irfan, Pengganti).
+- Satu keluarga karakter: elemen berkarakter (mouse, ikon) satu gaya dengan tokoh utama (Irfan 7 Nov).
+- Elemen boleh keluar frame bila fokus memang di bagian lain; tandai `data-bleed` (Irfan 7 Nov, panel 09a).
+- Revisi: ubah panel yang ada, jangan bangun ulang; elemen yang Irfan hapus tidak dipasang lagi; versi sebelumnya harus bisa dikembalikan (gagal: Trojan v4, elemen yang Irfan hapus dipasang ulang agent).
 
-## 5. Tabel kritik sutradara (§16.3) (per beat)
+## 5. Review papan
 
-Isi untuk setiap beat saat storyboard selesai, lalu cek ulang pada render:
+Sekali setelah semua panel terisi, dan setelah revisi yang menyentuh beberapa babak. Lihat `board.png` dan panel PNG, bukan kode. Urutkan temuan: **kritis** (tidak sesuai VO/niat, teks tak terbaca, kontras < 4,5:1, logika dunia salah, konten hilang, terpotong tanpa sengaja) → **dasar** (hierarki, kepadatan, ritme ruang, layout berulang > 2) → **poles** (sisanya, hanya bila murah). Tulis tiap temuan sebagai elemen, perubahan, dan prinsip yang dilayani.
+
+Kriteria:
+- **Niat**: panel menggambarkan kalimat VO-nya; urutan sama dengan VO.
+- **Karakter**: ganti nama produk dengan produk lain, panelnya tidak cocok lagi.
+- **Satu fokus** per frame, dari ukuran, bobot, dan warna sekaligus.
+- **Kontinuitas**: objek dan tokoh yang sama terlihat sama antarpanel; transisi keluar panel A nyambung ke masuk panel B.
+- **Gerak terbaca** dari urutan frame tanpa penjelasan lisan.
+- **Bunyi**: setiap event visual di caption punya SFX dengan peran + alasan.
+
+Tabel kritik sutradara per beat tetap diisi:
 
 | Beat | Tokoh ada & beraksi | 1 fokus | Teks ≤ 6 kata | Metafora spasial | Efek punya alasan | Kamera ke subjek | Gerak masuk akal | UI asli | Highlight bermakna | Layout tidak berulang > 2 |
 |---|---|---|---|---|---|---|---|---|---|---|
 
-Satu "tidak" harus diperbaiki atau diberi alasan tertulis kenapa dikecualikan.
+Satu "tidak" harus diperbaiki atau diberi alasan tertulis.
 
-## 6. TYPE-TEST dan TRANSITION-SHEET
+**Variasi** hanya bila diminta atau untuk satu panel kunci: maksimal 4, masing-masing jawaban desainer yang berbeda (keluarga warna, kategori huruf, komposisi), diletakkan berdampingan, tidak menggantikan yang asli.
 
-Dibuat sebelum build, setelah storyboard lolos kritik:
-- **TYPE-TEST**: satu still per gaya teks yang dipakai (G1–G7, `typography.md` §7.5), berdampingan dengan frame referensi yang sepadan, ditambah video 4 detik untuk gaya yang bergerak.
-- **TRANSITION-SHEET**: untuk setiap potongan, frame terakhir A + frame pertama B + kode transisi + benda pembawa.
+## 6. Melanjutkan panel contoh Irfan
 
-Alasannya: gaya teks dan transisi adalah dua hal yang paling sering ditolak Irfan setelah render. Mengujinya sebagai still jauh lebih murah.
+1. Deskripsikan setiap panel contoh apa adanya: yang terlihat, lalu aturan yang diturunkan.
+2. Catat ciri gaya yang dibawa ke semua bagian: bentuk tokoh, palet, posisi teks, jumlah kata per beat, ruang kosong.
+3. Untuk setiap pesan baru, tanyakan: **"Jika Irfan menggambar ini dengan tokoh yang sama, tokoh itu sedang melakukan apa?"**
 
-## 7. Serah terima
+Contoh (Tuntunly, 12 panel): pembuka = fakta dunia, visual sederhana di tengah; kontras dibangun dengan mengubah warna latar dunia yang sama; "jauh" digambar sebagai jarak ruang antara tokoh dan cahaya; rutinitas = komposisi sama, aksi dan ekspresi berubah; konsekuensi digambar dengan benda fisik.
 
-Kirim storyboard ke Irfan sebagai file, bersama tabel kritik yang sudah terisi dan daftar singkat keputusan yang menyimpang dari referensi. Storyboard adalah gerbang persetujuan: build baru dimulai setelah Irfan menyatakan final.
+## 7. TYPE-TEST dan TRANSITION-SHEET
+
+Dibuat setelah storyboard lolos review:
+- **TYPE-TEST**: satu still per gaya teks (G1–G7, `typography.md` §7.5) berdampingan dengan frame referensi setara, ditambah video 4 detik untuk gaya yang bergerak.
+- **TRANSITION-SHEET**: untuk setiap potongan, frame terakhir A + frame pertama B + kode transisi + benda pembawa. Panel multi-frame dari §2 langkah 6 bisa langsung dipakai.
+
+## 8. Alat dan serah terima
+
+- **Default, semua mesin**: panel HTML + `scripts/storyboard/board.py` (render PNG, `board.html`/`board.png`, `cues.json`, cek otomatis: caption lengkap, peran/alasan SFX dan musik, waktu tanpa celah/tumpang tindih, teks layar satu baris tanpa tanda baca dan di dalam frame, kerangka tersisa, elemen terpotong). Mulai dari salinan `templates/storyboard/`.
+- **Wonder** (Mac Irfan, MCP `mcp__wonder__*`): format panel sama, artboard = frame + caption, babak per baris. Alur: `get_skills(new-design)` → `create_page` → `create_artboard` → `take_screenshot` → `update_elements`. Panel final tetap diekspor ke folder repo.
+- **Simpan di repo**: `projects/<proyek>/storyboard/` berisi `beats.json`, `tokens.css`, `panels/`, `png/`, `board.html`. Irfan berkali-kali harus bertanya "storyboard disimpan di mana?"; jawabannya selalu folder ini, ditulis di laporan (Irfan, Pengganti dan Trojan v4).
+- Kirim `board.png` + daftar keputusan yang menyimpang dari referensi. Storyboard adalah gerbang persetujuan, kecuali jalur tanpa storyboard di §1.

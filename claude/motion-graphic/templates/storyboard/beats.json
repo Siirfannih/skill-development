@@ -1,0 +1,33 @@
+{
+  "project": "Contoh: Trojan v4 pembuka (dari kanvas Wonder 7 Nov)",
+  "format": {"w": 1920, "h": 1080, "fps": 30},
+  "arah": {
+    "register": "iklan sosial, ringan",
+    "kata_karakter": ["akrab", "sigap", "sedikit jahil"],
+    "detail_khas": "mouse karakter Jadisatu yang berhenti di bawah kata yang diucap",
+    "sumber_gaya": "brief Irfan + 3 referensi (Instagram, Baikov, Mosycreate)"
+  },
+  "babak": [
+    {"id": "B1", "nama": "Hook", "musik": {"peran": "denyut ringan pembuka", "alasan": "hook cepat, penonton harus merasa diajak ngobrol, bukan diceramahi"}}
+  ],
+  "beats": [
+    {"id": "01a", "babak": "B1", "t": [0.0, 1.2],
+     "vo": "Gimana kalau nyatet keuangan usaha itu", "layar": "Gimana",
+     "aksi": "Satu kata per baris di tengah. Mouse masuk dari kanan bawah dan berhenti di bawah kata yang diucap",
+     "kamera": "diam", "keluar": "kata baru mendorong kata lama keluar ke atas",
+     "sfx": [{"t": 0.0, "peran": "kata kinetik muncul", "alasan": "kata pertama = event visual pertama"},
+             {"t": 0.6, "peran": "mouse mendarat", "alasan": "mouse berhenti di bawah kata"}]},
+    {"id": "01b", "babak": "B1", "t": [1.2, 2.9],
+     "vo": "semudah chattingan sama ayang", "layar": "chattingan",
+     "aksi": "Mouse mengklik kata chattingan, kata melebar jadi ruang chat WhatsApp layar penuh (2 frame: klik lalu melebar)",
+     "kamera": "push 4 % ke kata lalu tahan", "keluar": "kata melebar jadi ruang chat",
+     "sfx": [{"t": 1.2, "peran": "kata kinetik muncul", "alasan": "kata baru"},
+             {"t": 1.9, "peran": "klik mouse", "alasan": "mouse mengklik kata"},
+             {"t": 2.1, "peran": "transisi melebar", "alasan": "kata berubah jadi ruang chat"}]},
+    {"id": "01c", "babak": "B1", "t": [2.9, 4.5],
+     "vo": "di WhatsApp", "layar": "",
+     "aksi": "Ruang chat WhatsApp asli (header, wallpaper, centang biru). Bubble ayang masuk: udah makan belum",
+     "kamera": "diam", "keluar": "bubble balasan masuk",
+     "sfx": [{"t": 3.1, "peran": "notif chat masuk", "alasan": "bubble pertama muncul"}]}
+  ]
+}

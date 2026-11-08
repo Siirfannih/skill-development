@@ -41,7 +41,7 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Render penuh 
 | 1 | Brief | `decision.md`, `palette.md` | Brief Irfan disalin apa adanya; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari Irfan (gagal: V5 8 Nov). Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
 | 2 | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file (klip: daftar potongan + timestamp sumber) |
 | 3 | Bedah referensi | `analysis-qa.md` §2, `three-segment-gate.md` (gerbang DENGAR) | Metrik visual + peta audio dari `earshot timeline --detail high` (label, event/dtk, kepadatan SFX) |
-| 4 | Storyboard 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final |
+| 4 | Storyboard visual 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Papan panel (frame + caption) di `projects/<proyek>/storyboard/`, `scripts/storyboard/board.py` PASS, review papan + tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final. Tanpa storyboard dari Irfan (klip): agent membuatnya sendiri dan lanjut, papan dikirim bersama hasil (Irfan 8 Nov) |
 | 5 | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
 | 6 | Audio | `audio.md`, `three-segment-gate.md` (gerbang DENGAR) | Kategori suasana tertulis; musik lulus `music_fit.py`, tiap klip/babak punya track berbeda (`gate/music_batch.py`); tiap SFX dan cue musik punya `peran` + `alasan`; tiap SFX lolos `earshot describe/match`; cue sheet: 1 SFX per frame/pesan/objek/gerakan (aturan 43). VO setelah script final; SFX/musik setelah storyboard final; audio sumber klip utuh |
 | 7 | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum diterapkan ke semua |
@@ -66,7 +66,9 @@ motion-graphic/
 │   ├── typography.md · camera-transition.md · motion-mechanics.md · smooth-motion.md · pacing-map.md
 │   ├── audio.md · build.md · analysis-qa.md · revision-log.md · palette.md (+ palettes.json)
 │   └── hybrid-motion-standard.md · three-segment-gate.md
+├── templates/storyboard/    contoh beats.json + tokens.css + panel (mulai dari salinan ini)
 └── scripts/
+    ├── storyboard/board.py      panel HTML → PNG + papan per babak + cek caption/teks layar/waktu + cues.json
     ├── gate/sfx_density.py      1 SFX per event visual: kepadatan + cakupan + celah senyap
     ├── gate/voice_fidelity.py   alat ukur: suara sumber bersih tidak rusak (udara > 9 kHz, LRA)
     ├── gate/caption_lines.py    caption 1 baris, tidak terpotong tepi
