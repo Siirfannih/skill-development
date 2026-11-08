@@ -49,6 +49,9 @@ Proyek video panjang: simpan di `projects/<proyek>/` (DECISIONS, INSIGHTS, HOOKS
 - [ ] Kata haram & pola AI dari `guide/suara/` dan lane terkait?
 - [ ] Mengalir seperti Irfan ngobrol, bukan fragmen bertitik? Storytelling jadi satu cerita utuh?
 - [ ] Durasi: 2,5–3 kata/dtk VO Indonesia; durasi per bagian tertulis.
+- [ ] Kartu 5W1H terisi, dan dari hook saja pembaca tahu siapa yang disasar + value-nya? (E16)
+- [ ] Akun baru: konten memberi value dulu; CTA save/follow/kirim, bukan meminta cerita atau komentar? (E18)
+- [ ] Set ide: ≥ 7 jenis konten, ≤ 3 per jenis, ≤ 20 % penawaran, maks 1 angka per konten? (E17, E19, E20)
 
 ## 5. Struktur
 

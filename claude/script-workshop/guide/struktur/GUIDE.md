@@ -21,3 +21,9 @@ Pertanyaan penonton → 5–7 poin (1 slide 1 poin) → CTA. Jawaban bisa ditera
 - Hitung kata: durasi total sesuai brief?
 
 Detail lanjut: `motion-graphic/references/copywriting.md` (uji storyteller, teks layar dari VO).
+
+## Variasi dalam satu set ide (Irfan 8 Nov)
+Set "N ide" diukur dari variasi value dan jenis, bukan jumlah kalimat. Jenis konten: cara/tutorial · before–after · bedah karya atau merek · mitos vs kenyataan · kesalahan umum · checklist/daftar · behind the scenes proses · cerita founder · demo produk · penawaran.
+- 20 ide = minimal 7 jenis, maksimal 3 ide per jenis, maksimal 4 ide penawaran.
+- Ganti jenis usaha (kafe → salon) atau sinonim pada kerangka yang sama = **ide yang sama**.
+- Tiap ide punya value berbeda; dua ide dengan value sama digabung.

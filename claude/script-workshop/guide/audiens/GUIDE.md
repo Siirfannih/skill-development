@@ -22,3 +22,19 @@ Konten paling realistis lahir dari posisi Irfan sendiri, bukan studi kasus orang
 - Baca hook sebagai teman kuliah Irfan: mau nonton sampai habis?
 - Baca sebagai pemilik toko: kenal masalahnya?
 - Baca sebagai orang asing: ada kontras/pertanyaan yang bikin berhenti scroll?
+
+## Akun baru (0 followers): urutan kepercayaan (Irfan 8 Nov)
+Akun tanpa audience tidak bisa memancing interaksi; yang bisa ia beri hanya value. Urutannya: **value → like / save / share → follow → trust → DM / beli.**
+- Konten minggu-minggu awal memberi sesuatu yang langsung bisa dipakai penonton walau ia tidak pernah membeli: cara, tutorial, before–after, bedah, kesalahan umum, checklist.
+- CTA yang cocok: save, follow untuk bagian berikutnya, kirim ke teman yang punya usaha. Bukan "ceritakan", "komen pengalamanmu", "pilih A/B": itu butuh audience yang sudah ada.
+- Penawaran muncul di sedikit konten dan selalu sesudah value; konten value yang sama harus layak dipakai sebagai iklan.
+
+## Kartu ide 5W1H (wajib sebelum hook)
+| W/H | Isi | Contoh |
+|---|---|---|
+| Who | siapa persisnya, bukan "UMKM" | pemilik kafe yang motret menu pakai HP sendiri |
+| What | value yang dibawa pulang walau tidak beli | 3 setelan kamera HP biar foto menu nggak pucat |
+| Why | kenapa ia peduli sekarang | foto menu yang pucat bikin orang ragu mampir |
+| When / Where | momen masalah terjadi | sore, cahaya kuning lampu kafe |
+| How | format paling cepat menyampaikan value | reels before–after 20 dtk |
+Hook lolos kalau dari hook saja pembaca tahu **Who + What**.
