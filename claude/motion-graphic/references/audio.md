@@ -35,6 +35,25 @@ Claude tidak mendengar sendiri. Setiap alat telinga punya titik buta, jadi kesim
 4. **Sepakat → pakai. Berbeda → cari sebabnya** (input tercampur suara? jendela waktu salah? label di luar kosakata earshot? metadata salah?), lalu tulis mana yang benar dan buktinya. Jangan memilih diam-diam salah satu.
 5. Laporan audio memuat tabel kecil: klaim → sumber yang setuju → sumber yang tidak → putusan.
 
+### 14.0C Urutan sound design: satu lapisan dikunci, baru lapisan berikutnya (Irfan 8 Nov)
+Sound design = suara (VO/vokal), SFX, dan musik latar sebagai satu kesatuan. Lapisannya dikerjakan **berurutan**, setiap lapisan dicocokkan ke lapisan yang sudah terkunci. Gagal V5: visual, SFX, dan musik dikerjakan paralel tanpa tahap mencocokkan, sehingga SFX tidak terikat ke gerak (cakupan 5–11 %) dan musik dipilih tanpa mendengar videonya.
+
+Pilih mode di brief dan tulis alasannya:
+
+| Mode | Urutan | Kapan |
+|---|---|---|
+| `konten` (default) | suara → visual → SFX → musik | Video yang digerakkan isi/ucapan: klip podcast, explainer, iklan dengan VO. Visual mengikuti timing suara; SFX disusun dari event visual yang sudah jadi; musik dipilih terakhir karena "tipe videonya begini, jadi musiknya ini" |
+| `musik` | musik → visual → SFX | Video yang digerakkan lagu/ketukan: video lirik, montage potong di ketukan. Musik menentukan timeline; visual dipotong di ketukannya; SFX menyusul event visual |
+
+Langkah mode `konten`:
+1. **Suara dikunci**: VO final (atau audio sumber klip utuh). `audio_order.py init --mode konten` lalu `lock suara`.
+2. **Visual dibangun di atas timing suara**, render tanpa audio, `lock visual`.
+3. **SFX dari event visual terkunci**: mulai dari `cues.json` storyboard, lalu geser ke onset nyata di render (`sync_cues.py`); satu bunyi per event (aturan 43), tiap cue punya peran + alasan. `lock sfx` menjalankan `sfx_density.py` terhadap render terkunci.
+4. **Musik paling akhir**: render preview visual + SFX tanpa musik, dengarkan/ukur (`pace_read.py`), tentukan kategori suasana per babak, pilih kandidat (`music_fit.py`, kenali dengan `ears.py`), lalu `lock musik --peran --alasan --didengar preview.mp4`.
+5. **Mix dan QA**: `audio_order.py check` harus PASS sebelum render final.
+
+Revisi visual setelah SFX/musik dikunci membuat lapisan sesudahnya **basi** (`check` = FAIL): SFX disinkron ulang ke render baru, musik didengar ulang. Ini yang mencegah "visual diubah, audio ketinggalan".
+
 ### 14.A Memilih suara: logika (Irfan 6 Nov)
 Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber dan kualitas mix**. Pilihan diturunkan dari dua kolom tabel beat yang sudah ada: mekanik (`motion-mechanics.md`) dan nada (`pacing-map.md`). Suara lahir dari gerak, bukan dari kata.
 

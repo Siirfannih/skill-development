@@ -1,0 +1,13 @@
+{
+  "id": "mg-050",
+  "source": "Irfan 8 Nov: V5 mengerjakan visual, SFX, dan musik paralel tanpa sinkronisasi; urutan wajib suara -> visual -> SFX -> musik (mode konten) atau musik -> visual -> SFX (mode musik)",
+  "prompt": "Edit klip podcast 9:16 ini dengan teks kinetik, kartu grafik, dan punch-in. Susun sound design-nya.",
+  "files": ["(klip podcast mana pun + brief)"],
+  "assertions": [
+    "audio/ORDER.json ada dengan mode tertulis dan alasannya di brief",
+    "Urutan lock di ORDER.json: suara < visual < sfx < musik (waktu), musik punya peran, alasan, dan --didengar preview visual+SFX",
+    "Cue SFX dibuat dari event render terkunci (sfx_density PASS terhadap render itu)",
+    "Musik dikenali dengan audio/ears.py (stem, bukan mix bersuara) dan klaimnya ditabelkan setuju/beda",
+    "audio_order.py check PASS sebelum render final; bila visual direvisi, SFX disinkron ulang dan musik didengar ulang"
+  ]
+}

@@ -17,7 +17,8 @@ Untuk proyek baru: cue sheet ada di `render/cues.json` (list of `{t, kind, db, v
 | `audio_phone.py [--list\|--fix]` | simulasi speaker HP 20/50/100 %, kejelasan VO, kekasaran | 35 |
 | `visual_coverage.py silent.mp4` | setiap event visual punya suara ±5 frame | 35 |
 | `sync_cues.py silent.mp4` | geser SFX ke onset objek, buang yang tidak mengikuti apa pun, maks 2 suara/100 ms | 37 |
+| `ears.py file [--json]` | telinga gabungan: suara orang terdeteksi → stem musik demucs → earshot + ukuran (bpm, mayor/minor, onset, level per 10 dtk) → tabel SETUJU/BEDA/BELUM TERUJI + pertanyaan telinga kedua | §14.0B |
 
-Alur v18: build audio `--nosync` → `sync_cues.py` → build → `audio_phone.py --fix` → build → `../gate/sfx_density.py` + `visual_coverage.py` + `earshot critique`. Berlaku untuk semua video, termasuk klip podcast (Irfan 8 Nov).
+Urutan lapisan dijaga `../gate/audio_order.py` (suara → visual → SFX → musik, `audio.md` §14.0C). Alur v18: build audio `--nosync` → `sync_cues.py` → build → `audio_phone.py --fix` → build → `../gate/sfx_density.py` + `visual_coverage.py` + `earshot critique`. Berlaku untuk semua video, termasuk klip podcast (Irfan 8 Nov).
 Butuh: numpy, scipy, librosa, soundfile, pyloudnorm, pedalboard, ffmpeg (dengan rubberband), earshot (`EARSHOT=/path/to/earshot`). Kunci ElevenLabs dibaca dari `$MG_ROOT/.el_key` — jangan pernah di-commit.
 Contoh lengkap pemakaian: `projects/jadisatu-60s/remotion/tools/audio_build.py`.

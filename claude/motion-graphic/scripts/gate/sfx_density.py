@@ -108,7 +108,7 @@ def main():
     ev, dur = visual_events(a.video)
     density = len(cues) / dur if dur else 0.0
     covered = [e for e in ev if len(cues) and np.min(np.abs(cues - e)) <= 5 / FPS]
-    coverage = 100.0 * len(covered) / max(1, len(ev))
+    coverage = 100.0 * len(covered) / len(ev) if len(ev) else 100.0
     edges = np.concatenate([[0.0], cues, [dur]])
     gaps = []
     for lo, hi in zip(edges[:-1], edges[1:]):

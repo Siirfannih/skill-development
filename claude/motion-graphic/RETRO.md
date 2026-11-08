@@ -254,3 +254,9 @@ Irfan: earshot bukan penilaian utama, hanya skor yang divalidasi alat lain; atur
 Bukti earshot (PC, track V5): file asli → "jazz, solo piano, sedih"; stem musik → "solo piano +3,5, sedih +3,7"; mix dengan suara podcast → "funk, vocal chop +3,1". Klaim salah di semua audit V5 berasal dari input bercampur suara, bukan dari earshot.
 Perubahan: `audio.md` §14.0B (stem dulu, earshot = hipotesis, validasi dengan ukuran/Gemini/metadata/sidik jari, beda = cari sebab dan tulis putusan); `analysis-qa.md` baris label earshot; `storyboard.md` §4 jadi 8 pertanyaan penilaian Irfan, tiap kasus ditandai konteksnya dan "bisa berbeda bila".
 Status: diterapkan (Irfan 8 Nov)
+
+### 2026-11-08 · Sound design paralel → berurutan dan dikunci
+Irfan: V5 mengerjakan visual, SFX, dan musik bersamaan tanpa proses mencocokkan. Dua cara yang benar: (1) susun SFX + latar terhadap timeline sejak awal, atau (2) visual dulu, SFX mengikuti timeline teks/transisi, musik latar paling akhir sesuai tipe video. Izin memasang alat lain.
+Perubahan: gerbang 6–12 di SKILL.md diurutkan ulang (suara dikunci → visual dikunci → SFX dari event visual → musik paling akhir → QA); `scripts/gate/audio_order.py` (lock bertahap dengan sidik file; lapisan sesudah revisi visual jadi basi; mode `konten` dan `musik`); `audio.md` §14.0C; `scripts/audio/ears.py` (demucs stem → earshot + ukuran → setuju/beda); demucs 4.1 dipasang di `~/work/mg-venv` PC (torch tetap 2.15, earshot doctor lulus); eval mg-050.
+Uji: `audio_order.py` sintetis: SFX sebelum visual → FAIL; musik tanpa preview didengar → FAIL; urutan benar → PASS; visual diubah → FAIL basi; visual dikunci ulang → SFX dan musik basi. demucs: 30 dtk referensi storytelling dipisah 39 dtk di CPU; stem terbaca "classical string quartet, strings ensemble" (sesuai brief biola/klasik).
+Status: diterapkan (Irfan 8 Nov)

@@ -49,7 +49,7 @@ Satu panel = frame + caption, seperti artboard Wonder.
  babak:[{id, nama, musik:{peran, alasan}}],
  beats:[{id, babak, t:[mulai, selesai], vo, layar, aksi, kamera, keluar, sfx:[{t, peran, alasan}]}]}
 ```
-`cues.json` hasil `board.py` adalah bahan awal cue sheet gerbang 6: setiap event visual di storyboard sudah punya bunyi (aturan 43).
+`cues.json` hasil `board.py` adalah bahan awal cue sheet gerbang 9: setiap event visual di storyboard sudah punya bunyi (aturan 43).
 
 ## 4. Cara Irfan menilai panel
 

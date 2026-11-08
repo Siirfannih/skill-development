@@ -1,6 +1,6 @@
 # Analysis & QA — bedah referensi dan gerbang kirim
 
-Baca saat membedah referensi (gerbang 3) dan sebelum mengirim render (gerbang 9). Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.
+Baca saat membedah referensi (gerbang 3) dan sebelum mengirim render (gerbang 11). Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.
 
 ## Isi
 
