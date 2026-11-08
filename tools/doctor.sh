@@ -30,6 +30,7 @@ nrem=$(ls -d "$DEST"/remotion-*/ 2>/dev/null | wc -l | tr -d ' ')
 
 for d in "$REPO"/archive/*/; do n=$(basename "$d")
   [ -e "$DEST/$n" ] && bad "skill arsip masih aktif: $n (sudah digabung ke motion-graphic)"
+  grep -qi -E "video|motion" "$d/SKILL.md" 2>/dev/null || continue   # hanya skill arsip video yang bersaing dengan motion-graphic
   for s in "$DEST"/synced/*/; do [ -e "$s$n" ] && note "pustaka akun claude.ai masih memuat skill arsip: $n -> hapus di claude.ai › Settings › Skills"; done
 done
 for s in "$DEST"/synced/*/; do for n in motion-graphic irfan-creative-workflow script-workshop; do
