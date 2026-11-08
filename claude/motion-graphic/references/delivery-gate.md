@@ -14,8 +14,12 @@ Render penuh adalah langkah paling mahal, jadi ia datang paling akhir (Irfan 6 N
 
 ## Blok 1: Hard Gate (semua harus "tidak")
 
+Audio dicek lebih dulu, karena kesalahan terbanyak ada di audio (Irfan 8 Nov, V5: tiga klip gagal di audio).
+
 | Cek | Bukti | Aturan |
 |---|---|---|
+| Track musik yang sama dipakai di beberapa klip/babak dalam satu batch? | `python3 scripts/gate/music_batch.py musik_klipA.mp3 musik_klipB.mp3 …` | 25, S-A9 |
+| Ada cue SFX/musik tanpa `peran` + `alasan`, atau spam (whoosh > 1/dtk, file sama < 1 dtk)? | `scripts/gate/sfx_density.py` | 43, §14.3 |
 | Ada frame/pesan/objek/gerakan tanpa SFX (kepadatan < 1,5/dtk, cakupan < 85 %, atau celah senyap > 3 dtk saat ada gerak)? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json` | 43 |
 | Referensi atau SFX tidak didengar (tidak ada log `earshot timeline` ref + `earshot describe` tiap file)? | log earshot di folder proyek | gerbang DENGAR `three-segment-gate.md` |
 | Suara sumber klip yang bersih diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | 38, §14.6 |

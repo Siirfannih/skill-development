@@ -11,6 +11,8 @@
 ## Cara
 - Daftar semua event visual dari storyboard (muncul, mendarat, klik, ganti foto, transisi, angka jalan). Tiap event = satu bunyi.
 - Satu peran = satu bunyi yang sama sepanjang video (pop kartu selalu pop yang sama).
+- Setiap cue menulis `peran` + `alasan` (kenapa bunyi itu ada di titik itu). Batasnya spam, bukan jumlah: whoosh maks 1/dtk dan tidak lebih keras dari VO −6 dB (Irfan 8 Nov).
+- Sumber: `~/sfx/SFXIrfan`, `~/sfx/Kenyset` dulu; tidak cocok → Epidemic, internet, ElevenLabs. Tidak ada batasan sumber.
 - Bunyi sesuai bahan objek: kertas → rip/rustle; foto → shutter; UI → tap; kunci/ikon → ding/pop; transisi → whoosh tipis.
 - Waktu: pop 1–2 frame setelah objek jelas; whoosh memuncak di puncak gerak/cut; tidak pernah mendahului objek.
 - Jumlah = jumlah event (aturan 43); kategori audio hanya mengatur karakter: energi punchy, fokus lembut. Berlaku juga di klip podcast.

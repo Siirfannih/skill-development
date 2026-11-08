@@ -60,11 +60,11 @@ Kesalahan terbesar di proyek *Pengganti Kita Sendiri*:
 - Akibatnya 2 jam kerja audio terbuang.
 
 Aturan:
-1. **Inventaris dulu, dalam urutan ini**, dan tulis hasilnya di `STATUS.md` proyek:
-   - (a) folder SFX yang Irfan siapkan di mesin kerja (PC server); jalurnya diberikan Irfan di sesi, tanyakan bila belum disebut;
+1. **Inventaris dulu, dalam urutan ini**, dan tulis hasilnya di `STATUS.md` proyek. Urutan = urutan mencari, **bukan batas**: bila tidak ada file yang cocok untuk satu peran, lanjut ke sumber berikutnya (Irfan 8 Nov):
+   - (a) folder SFX Irfan: PC server `~/sfx/SFXIrfan` dan `~/sfx/Kenyset` (Mac: `~/Downloads/SFXIrfan`, `~/Downloads/Kenyset`);
    - (b) folder `sfx/` proyek yang sudah disetujui, misalnya `projects/jadisatu-60s/remotion/sfx-el` di repo ini;
-   - (c) sumber internet berlisensi (Mixkit, Pixabay, Freesound CC0);
-   - (d) ElevenLabs SFX, hanya untuk peran yang tidak ada di (a)–(c).
+   - (c) Epidemic Sound (MCP `Epidemic_Sound`, SFX dan musik), sumber internet berlisensi (Pixabay, Freesound CC0, Mixkit), ElevenLabs SFX dan Music.
+   Musik mengikuti urutan yang sama: kandidat ≥ 8 dari ≥ 2 sumber. Brief atau orkestrator tidak boleh mempersempit sumber audio ("hanya pustaka yang sudah dipakai") tanpa alasan tertulis dari Irfan (gagal: V5 8 Nov).
 2. **Akses dipastikan di awal.** Folder belum terhubung, kredensial belum ada, atau situs memblokir: minta izin atau lapor ke Irfan **sebelum** bekerja. Jangan lanjut dengan pengganti karangan.
 3. **Dilarang memakai bunyi sintetis/karangan sebagai SFX final.** Termasuk bank earshot `sfx_render`, sinus, dan noise generator. Bank earshot hanya untuk analisis/QA.
 4. **Gaya Apple motion** = rekaman UI nyata:
@@ -97,7 +97,8 @@ Aturan:
   - **setiap transisi**
 
   Yang boleh senyap hanya wajah pembicara tanpa overlay dan tanpa gerak kamera (aturan 43).
-- **Peran bunyi**: setiap cue ditulis `{t, kelas, terikat_ke_visual, offset, dB}`. Tidak ada bunyi yang "sekadar ada".
+- **Peran + alasan wajib di setiap cue SFX dan musik** (Irfan 8 Nov): `{t, peran, alasan, file, terikat_ke_visual, offset, dB}`. `peran` = fungsinya (mis. `kata_kinetik`, `kartu_mendarat`, `transisi`, `musik_babak2`); `alasan` = satu kalimat kenapa bunyi itu ada di titik itu (mis. "kata 'worthy' mendarat, penekanan emosi babak 3"). Cue tanpa peran atau alasan = FAIL di `gate/sfx_density.py`. Tidak ada bunyi yang "sekadar ada".
+- **Batasnya spam, bukan jumlah** (Irfan 8 Nov): whoosh/swoosh/whip maksimal 1 per detik dan puncaknya tidak melebihi puncak VO −6 dB; satu file yang sama tidak diulang dalam 1 detik kecuali seri kata kinetik; maksimal 2 bunyi per 100 ms (§14.9). `gate/sfx_density.py` menandai pelanggaran.
 - **Satu event satu bunyi.** Tidak ada layering beberapa file untuk satu event; pilih satu file yang karakternya sudah lengkap (Irfan 6 Nov).
 - **Waktu @30 fps** (SFX tidak pernah mendahului objek, aturan inti 37):
   - pop: +1…+2 f setelah objek terlihat jelas (§14.9)
