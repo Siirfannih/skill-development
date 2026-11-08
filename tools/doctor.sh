@@ -45,6 +45,11 @@ D="$(command -v demucs || ls "$HOME"/work/mg-venv/bin/demucs 2>/dev/null)"
 if [ -n "$D" ]; then ok "demucs siap ($D)"
 else note "demucs tidak terpasang: dipakai audio/ears.py untuk menilai musik dari stem (audio.md §14.0B); pasang saat tugas audio"; fi
 
+ENTRY="${ENTRY_DIR:-$HOME/work}"
+if [ -d "$ENTRY" ]; then
+  grep -q "skill-development/AGENTS.md" "$ENTRY/CLAUDE.md" 2>/dev/null && ok "folder masuk remote $ENTRY merujuk skill-development" \
+    || bad "folder masuk remote $ENTRY: CLAUDE.md tidak merujuk skill-development (sesi remote tidak membaca aturan video)"
+fi
 echo
 if [ "$fail" -ne 0 ]; then
   echo "PERBAIKI: minta persetujuan Irfan, lalu jalankan  ./tools/doctor.sh --fix  (memasang skill dari repo ini)."

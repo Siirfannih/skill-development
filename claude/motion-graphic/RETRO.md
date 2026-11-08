@@ -261,3 +261,8 @@ Perubahan: gerbang 6–12 di SKILL.md diurutkan ulang (suara dikunci → visual 
 Uji: `audio_order.py` sintetis: SFX sebelum visual → FAIL; musik tanpa preview didengar → FAIL; urutan benar → PASS; visual diubah → FAIL basi; visual dikunci ulang → SFX dan musik basi. demucs: 30 dtk referensi storytelling dipisah 39 dtk di CPU; stem terbaca "classical string quartet, strings ensemble" (sesuai brief biola/klasik).
 Status: diterapkan (Irfan 8 Nov)
 Uji `ears.py` di PC (8 Nov): mix V5 klip c → suara terdeteksi (Speech 0,78), stem dinilai: piano tenang ±60 bpm, sedih, **level per 10 dtk berubah 2,8 dB = DATAR** (K5 yang tidak ditangkap auditor mana pun). Referensi storytelling → stem: strings + beat, ±144 bpm, minor, level berubah 17,1 dB. Gerbang `audio_order.py` pada V5 klip b berhenti di `lock sfx` (0,17/dtk, cakupan 9 %, 12 cue tanpa peran/alasan). Batas: bpm librosa bisa terbaca dua kali lipat (track sama 123 vs 60), kini diberi catatan.
+
+### 2026-11-08 · Sesi remote PC tidak membaca AGENTS.md
+Uji edit Behindwork: sesi remote dari Mac dimulai di `~/work` PC, yang `CLAUDE.md`-nya berisi aturan Workspace UI. Skill `motion-graphic` tetap termuat lewat deskripsinya, tetapi protokol Awal sesi (`doctor.sh`, `PENDING.md`) tidak terbaca. Irfan: `~/work` adalah titik masuk remote yang tidak bisa diubah, jadi repo yang harus masuk ke sana.
+Perubahan: `~/work/CLAUDE.md` PC diberi bagian rujukan bersyarat (tugas video/konten/skill → `AGENTS.md`); `sync.sh` memasangnya otomatis (idempoten), `doctor.sh` GAGAL bila rujukan tidak ada; README.
+Status: diterapkan (Irfan 8 Nov)

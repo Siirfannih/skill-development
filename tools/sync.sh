@@ -43,4 +43,27 @@ else:
 EOF
 ls "$DEST/synced"/*/ 2>/dev/null | grep -x -E "motion-director|motion-graphic-playbook|motion-graphic|irfan-motion-director|motion-reel" \
   | sed 's/^/PERINGATAN pustaka akun claude.ai masih memuat: /' || true
+# 5. folder masuk remote (default ~/work di PC server): sesi remote mulai di sana, jadi CLAUDE.md-nya harus
+#    merujuk repo ini untuk tugas video/konten/skill (Irfan 8 Nov). Lewati bila foldernya tidak ada.
+ENTRY="${ENTRY_DIR:-$HOME/work}"
+if [ -d "$ENTRY" ]; then
+  python3 - "$ENTRY/CLAUDE.md" "$REPO" <<'EOF'
+import os, sys
+p, repo = sys.argv[1], sys.argv[2]
+s = open(p).read() if os.path.exists(p) else "# Claude Code\n"
+if "skill-development/AGENTS.md" in s:
+    print("folder masuk remote: rujukan skill-development sudah ada"); sys.exit()
+block = f"""
+## Tugas video, konten, naskah, storyboard, atau skill -> repo skill-development
+Folder ini adalah titik masuk remote, jadi aturan video tidak terbaca otomatis. Untuk tugas jenis ini:
+1. Baca dulu `{repo}/AGENTS.md` dan ikuti bagian **Awal sesi** (git pull, `./tools/doctor.sh`, `PENDING.md`). Doctor GAGAL = lapor Irfan, jangan mulai.
+2. Skill utama video: `motion-graphic` (`{repo}/claude/motion-graphic/`); alat di `scripts/` folder itu.
+3. Pelajaran yang Irfan setujui ditulis ke file skill di repo itu dan di-push ke `main` (AGENTS.md, Akhir sesi).
+Bagian lain file ini hanya berlaku untuk tugasnya sendiri.
+"""
+i = s.index("\n") + 1 if s.startswith("#") else 0
+open(p, "w").write(s[:i] + block + s[i:])
+print(f"folder masuk remote: rujukan skill-development ditambahkan ke {p}")
+EOF
+fi
 echo "Selesai. Cadangan (bila ada): $BK"
