@@ -173,21 +173,5 @@
    },
    "measured": null
   }
- },
- "counterexample": {
-  "source": "Preview DOAC (render Claude, 6 Nov)",
-  "measured": {
-   "accent_families": 3,
-   "dominant_family_share": 0.46,
-   "extra_minor": "hijau-tosca dan olive < 5%"
-  },
-  "colors_seen": [
-   "#F03D79",
-   "#603FBC",
-   "#E3A33D",
-   "#35D0A2",
-   "#9CAA42"
-  ],
-  "note": "Tidak ada keluarga dominan: pink 46%, kuning 26%, ungu 19%. Itulah kesan pelangi."
  }
 }

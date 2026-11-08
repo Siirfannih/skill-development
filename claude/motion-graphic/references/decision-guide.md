@@ -1,6 +1,6 @@
 # Panduan keputusan: teks, visual, kotak, warna (logika, bukan contoh)
 
-Dibaca di gerbang storyboard (4) dan QA (9). Setiap keputusan per beat diambil dengan urutan di bawah, lalu dicatat di tabel beat dengan kolom **mode · alasan · cek**. File ini menang atas `three-segment-gate.md` dan `typography.md` bila bertentangan, dan atas `canvas-skill-library` yang hanya data referensi (Irfan 6 Nov).
+Dibaca di gerbang storyboard (4) dan QA (9). Setiap keputusan per beat diambil dengan urutan di bawah, lalu dicatat di tabel beat dengan kolom **mode · alasan · cek**. Untuk keputusan teks dan visual, file ini menang atas `three-segment-gate.md` dan `typography.md` bila bertentangan; gerbang DENGAR (audio) di `three-segment-gate.md` tetap wajib dan tidak dikalahkan file ini, dan atas `canvas-skill-library` yang hanya data referensi (Irfan 6 Nov).
 
 Prinsip dasarnya: penonton HP hanya menangkap **satu hal per momen**. Semua aturan di bawah adalah cara memilih hal itu.
 
@@ -32,7 +32,7 @@ Tentukan dulu jenis kalimat VO-nya, baru modenya.
   - posisinya tetap selama satu shot, boleh pindah antar shot ke area tenang;
   - menghilang saat beat visual atau penekanan;
   - bobotnya selalu lebih ringan daripada visual dan penekanan (kecil, putih, tanpa warna aksen kecuali satu kata).
-- Alasan: caption yang bobotnya sama dengan grafik membuat keduanya berebut, dan teks terbaca sebagai subtitle (gagal: preview DOAC 6 Nov).
+- Alasan: caption yang bobotnya sama dengan grafik membuat keduanya berebut, dan teks terbaca sebagai subtitle.
 
 ## 2. Ukuran dan hierarki teks
 - **Satu baris = satu ukuran.** Kata yang dibesarkan pindah ke barisnya sendiri (ditumpuk), maksimal satu kata kunci per frasa, dan harus kata yang membawa makna inti. Alasan: besar-kecil-besar dalam satu baris tanpa alasan membuat baris tidak seimbang (Irfan 6 Nov, "Aku mau makan").
@@ -58,7 +58,7 @@ Pilih satu dari dua, jangan di tengah-tengah:
 - **Menyatu dengan footage:** warna dari footage atau palet, saturasi tidak melebihi footage, ada bayangan/cahaya dan grain yang sama, ukuran proporsional dengan subjek.
 - **Dunia sendiri:** layar penuh atau panel tegas dengan latar palet. Footage boleh hilang sesaat.
 
-Dilarang: grafik vivid mengambang di atas footage yang di-blur dan digelapkan. Itu yang terasa "tempelan" (gagal: preview DOAC 6 Nov).
+Dilarang: grafik vivid mengambang di atas footage yang di-blur dan digelapkan. Itu yang terasa "tempelan".
 Satu keluarga gaya grafik per video: flat, 3D, line, atau foto. Jangan dicampur.
 
 ## 6. Warna

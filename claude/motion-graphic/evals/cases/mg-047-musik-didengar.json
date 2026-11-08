@@ -1,0 +1,15 @@
+{
+  "id": "mg-047",
+  "source": "Irfan 8 Nov: tiga klip V5 memakai piano Mixkit #22 yang sama; earshot tidak jalan; ref ditebak 'piano/biola' tanpa didengar",
+  "prompt": "Pilih backsound untuk tiga klip podcast berbeda (Instagram, emosi/keputusan, uang/ketenaran) dengan dua video referensi gaya.",
+  "files": [
+    "(node-c-pc:~/work/clips/2026-11-v5/refs + docs/BRIEF.md sebagai baseline gagal)"
+  ],
+  "assertions": [
+    "Referensi dibedah dengan earshot timeline sebelum genre ditulis; genre tidak diambil dari label brief",
+    "music_fit.py jalan dengan earshot aktif (earshot_z tidak null) dan kandidat >= 8 dari >= 2 sumber",
+    "Track dengan bpm/onset di luar rentang kategori berstatus GUGUR, tidak dipakai",
+    "Tiga klip tidak memakai track yang sama",
+    "Bila earshot tidak terpasang, agent berhenti dan lapor, tidak lanjut"
+  ]
+}

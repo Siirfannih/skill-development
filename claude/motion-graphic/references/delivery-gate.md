@@ -16,15 +16,16 @@ Render penuh adalah langkah paling mahal, jadi ia datang paling akhir (Irfan 6 N
 
 | Cek | Bukti | Aturan |
 |---|---|---|
-| Format (A/B) tidak tertulis di brief? | baris `Format:` di brief | `formats.md` |
-| [B] Suara pembicara diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | 43 |
-| Kategori suasana tidak tertulis, atau musik dipakai tanpa laporan `music_fit.py` berstatus PAKAI? | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 musik.mp3` | 45 |
+| Ada frame/pesan/objek/gerakan tanpa SFX (kepadatan < 1,5/dtk, cakupan < 85 %, atau celah senyap > 3 dtk saat ada gerak)? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json` | 43 |
+| Referensi atau SFX tidak didengar (tidak ada log `earshot timeline` ref + `earshot describe` tiap file)? | log earshot di folder proyek | gerbang DENGAR `three-segment-gate.md` |
+| Suara sumber klip yang bersih diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | 38, §14.6 |
+| Kategori suasana tidak tertulis, musik tanpa laporan `music_fit.py` berstatus PAKAI (earshot aktif), kandidat < 8 atau dari < 2 sumber, atau track yang sama dipakai di semua klip/babak? | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 kandidat/*` | 25, 34, 45 |
 | Ada caption 2 baris, kata yatim, atau teks terpotong tepi? | `python3 scripts/gate/caption_lines.py render.mp4 --stills qc/` + keputusan per still yang ditandai | 44 |
 | Ada teks/angka layar yang tidak diucapkan? | transkrip vs daftar teks | 2 |
 | Ada UI karangan atau placeholder storyboard di render? | still | 4, 16, 19, 22 |
 | Ada adegan terkunci yang berubah? | `scripts/baseline_lock.py check` | 14 |
 | Integrated di luar −14,0…−14,5 LUFS atau true peak > −1 dBTP? | ebur128 | §14.10 |
-| [A] `audio_qa.py --module5`, `audio_phone.py`, `visual_coverage.py` ada yang gagal? | keluaran skrip | 30, 35, 37, 38 |
+| `audio_qa.py --module5`, `audio_phone.py` (tiap SFX terdengar di HP 20/50/100 %), `visual_coverage.py` ada yang gagal? | keluaran skrip | 30, 35, 37, 38 |
 | Generate berbayar sebelum gerbangnya terbuka, atau biaya tidak disebut? | log sesi | 10 |
 
 ## Blok 2: Purpose-Gate (teknik boleh, alasan wajib ditulis di tabel beat)
@@ -32,8 +33,7 @@ Render penuh adalah langkah paling mahal, jadi ia datang paling akhir (Irfan 6 N
 FAIL bila teknik ini ada tanpa alasan satu baris di tabel beat:
 - kotak/scrim di belakang teks (alasan = kontras terukur < 4,5 : 1) — aturan 6
 - glow, gradien, negative, RGB split, flash — aturan 7, 24, 40
-- musik dengan build/drop/tension (format B: harus ada alasan dari brief) — `formats.md`
-- SFX pada momen tanpa grafik (format B) — `formats.md`
+- musik dengan build/drop/tension — alasan dari nada babak (`pacing-map.md`)
 - grafik di atas footage: pilih menyatu atau dunia sendiri — `decision-guide.md` §5
 
 ## Blok 3: Quality Lock (semua harus "ya")
@@ -44,11 +44,20 @@ FAIL bila teknik ini ada tanpa alasan satu baris di tabel beat:
 - Satu baris satu ukuran; serif tidak sejajar bold — 39
 - Pindai `slop-catalog.md`: tiap tanda yang muncul punya alasan tertulis atau sudah dibuang
 
+## 4. Devil's advocate audio (wajib, ditulis di laporan sebelum render penuh)
+
+Jawab dengan bukti, bukan klaim. Satu jawaban lemah = FAIL.
+1. Apakah referensi **didengar** dengan earshot? Berapa event/dtk dan kosakata bunyinya, dan berapa milik kita?
+2. Berapa event visual yang senyap, dan apa alasan masing-masing? (aturan 43: yang boleh senyap hanya wajah tanpa overlay dan tanpa gerak kamera)
+3. Kenapa track musik ini, bukan kandidat lain? Apakah track yang sama dipakai di klip/babak lain?
+4. Bila reviewer menandai "sepi", "datar", atau "tidak terdengar": yang diperbaiki **penyebabnya** (jumlah cue, track) atau hanya level?
+
 ## Format laporan
 
 ```
-DELIVERY GATE · <proyek> v<N> · Format B
-B1 voice_fidelity PASS: udara 0,96, LRA −0,4 LU
+DELIVERY GATE · <proyek> v<N>
+B1 sfx_density PASS: 2,04 SFX/dtk, cakupan 91 %, celah senyap terpanjang 1,8 dtk
+B1 DENGAR PASS: earshot timeline ref (6,9 event/dtk) + describe 23 file, 0 label salah
 B1 caption_lines PASS: 0 frame > 1 baris, 0 tepi (304 frame @4 fps)
 B2 kotak beat 7 PASS: kontras 3,1 : 1 tanpa kotak (latar meja putih)
 ...
