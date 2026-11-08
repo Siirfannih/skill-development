@@ -115,6 +115,9 @@ def main():
                  "DATAR (< 3 dB)" if m["level_range_db"] < 3 else "BERUBAH"))
 
     print(f"{a.file}: {note}")
+    if m["bpm"] >= 100 and m["onsets_per_s"] <= 2.5:
+        print(f"catatan: bpm {m['bpm']} bisa terbaca dua kali lipat (onset hanya {m['onsets_per_s']}/dtk); "
+              f"tempo terasa mungkin {m['bpm'] / 2:.0f} bpm, cek dengan telinga kedua")
     print(f"ukuran: {m['bpm']} bpm · {m['key']} (margin {m['mode_margin']}) · kecerahan {m['brightness_hz']} Hz · "
           f"onset {m['onsets_per_s']}/dtk · level per 10 dtk {m['level_10s_db']}")
     print(f"earshot stem: genre {genre} · mood {mood} · instrumen {inst}")
