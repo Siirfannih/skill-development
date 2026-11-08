@@ -38,15 +38,15 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Render penuh 
 | # | Gerbang | Baca cabang | Lolos jika |
 |---|---|---|---|
 | 0 | Muat konteks | — | §6 selesai; `earshot doctor` lulus di mesin kerja (tidak terpasang = lapor Irfan dulu, jangan lanjut) |
-| 1 | Brief | `decision.md`, `palette.md` | Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
+| 1 | Brief | `decision.md`, `palette.md` | Brief Irfan disalin apa adanya; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari Irfan (gagal: V5 8 Nov). Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
 | 2 | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file (klip: daftar potongan + timestamp sumber) |
 | 3 | Bedah referensi | `analysis-qa.md` §2, `three-segment-gate.md` (gerbang DENGAR) | Metrik visual + peta audio dari `earshot timeline --detail high` (label, event/dtk, kepadatan SFX) |
 | 4 | Storyboard 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final |
 | 5 | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
-| 6 | Audio | `audio.md`, `three-segment-gate.md` (gerbang DENGAR) | Kategori suasana tertulis; musik lulus `music_fit.py`; tiap SFX lolos `earshot describe/match`; cue sheet: 1 SFX per frame/pesan/objek/gerakan (aturan 43). VO setelah script final; SFX/musik setelah storyboard final; audio sumber klip utuh |
+| 6 | Audio | `audio.md`, `three-segment-gate.md` (gerbang DENGAR) | Kategori suasana tertulis; musik lulus `music_fit.py`, tiap klip/babak punya track berbeda (`gate/music_batch.py`); tiap SFX dan cue musik punya `peran` + `alasan`; tiap SFX lolos `earshot describe/match`; cue sheet: 1 SFX per frame/pesan/objek/gerakan (aturan 43). VO setelah script final; SFX/musik setelah storyboard final; audio sumber klip utuh |
 | 7 | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum diterapkan ke semua |
 | 8 | Build semua adegan | `build.md` | Komponen sama untuk semua adegan |
-| 9 | Preview + QA | `delivery-gate.md` §0, `analysis-qa.md` §16 | Still per beat + audio saja lulus (`gate/sfx_density.py`, `audio_phone.py`, `earshot timeline`), baru render penuh; ≥ 3 putaran kritik, skor ≥ 8; devil's advocate audio `delivery-gate.md` §4 |
+| 9 | Preview + QA | `delivery-gate.md` §0, `analysis-qa.md` §16 | **Audio diperiksa lebih dulu** (kesalahan V5 mayoritas audio, Irfan 8 Nov). Still per beat + audio saja lulus (`gate/sfx_density.py`, `audio_phone.py`, `earshot timeline`), baru render penuh; ≥ 3 putaran kritik, skor ≥ 8; devil's advocate audio `delivery-gate.md` §4 |
 | 10 | Kirim | `delivery-gate.md` | Video + laporan Delivery Gate (setiap PASS berbukti) + daftar penyimpangan |
 
 Revisi dari Irfan: baca `revision-log.md`, catat di `DECISIONS.md` (§21) dan RETRO, baru kerjakan; `scripts/baseline_lock.py check` wajib lolos. Pekerjaan dalam rencana yang Irfan setujui dianggap disetujui; yang menunggu kata "final" hanya script dan storyboard.
