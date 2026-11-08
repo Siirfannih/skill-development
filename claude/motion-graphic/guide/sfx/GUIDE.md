@@ -13,11 +13,12 @@
 - Satu peran = satu bunyi yang sama sepanjang video (pop kartu selalu pop yang sama).
 - Bunyi sesuai bahan objek: kertas → rip/rustle; foto → shutter; UI → tap; kunci/ikon → ding/pop; transisi → whoosh tipis.
 - Waktu: pop 1–2 frame setelah objek jelas; whoosh memuncak di puncak gerak/cut; tidak pernah mendahului objek.
-- Kepadatan ikut kategori audio: energi rapat dan punchy; fokus jarang dan lembut (format B: hanya di sisipan grafik).
-- Caption biasa tidak berbunyi; kata penekanan boleh.
+- Jumlah = jumlah event (aturan 43); kategori audio hanya mengatur karakter: energi punchy, fokus lembut. Berlaku juga di klip podcast.
+- Kata kinetik berbunyi per kata (klik mouse); subtitle berbunyi satu kali per frasa (1 pesan = 1 bunyi).
 
 ## Cek cepat
-- `scripts/audio/visual_coverage.py` (event visual punya suara ±5 frame) dan `sync_cues.py`.
+- `scripts/gate/sfx_density.py` (kepadatan ≥ 1,5/dtk, cakupan ≥ 85 %, celah senyap ≤ 3 dtk), `visual_coverage.py`, `sync_cues.py`.
+- Dengar tiap file dengan `earshot describe` sebelum masuk mix (gerbang DENGAR, `three-segment-gate.md`).
 - Dengar di speaker HP 50 %: tiap bunyi terdengar, tidak ada yang tajam/menusuk (`audio_phone.py`, `sfx_comfort.py`).
 
 ## Bebas diputuskan

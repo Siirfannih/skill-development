@@ -1,6 +1,6 @@
 ---
 name: motion-graphic
-description: Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntunly, siirfan content) from brief to render — persona, gated workflow, core rules, plus branch files for direction, storyboard, copywriting, decisions, typography, camera/transitions, audio, After Effects build, and QA. Use for any video or motion request from Irfan, even a rough one: "bikin video", launch video, reel, promo, motion, animasi teks, storyboard, naskah VO, revisi video, bedah referensi, After Effects, or when he sends a reference video. Also for podcast/interview clip edits (DOAC-style) with motion overlays and captions.
+description: Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntunly, siirfan content) from brief to render — persona, gated workflow, core rules, plus branch files for direction, storyboard, copywriting, decisions, typography, camera/transitions, audio, After Effects build, and QA. Use for any video or motion request from Irfan, even a rough one: "bikin video", launch video, reel, promo, motion, animasi teks, storyboard, naskah VO, revisi video, bedah referensi, After Effects, or when he sends a reference video. Also for podcast/interview clip edits with motion overlays and captions.
 ---
 
 # Motion Graphic (Irfan)
@@ -21,20 +21,15 @@ Skill ini adalah **filter + cara kerja**: ia menolak yang pernah Irfan tolak dan
 
 **Prinsip:** cerita dulu, baru gaya · referensi adalah lantai, bukan langit-langit (teknik yang tidak cocok diganti yang setara, bukan yang lebih kasar) · setiap potongan jatuh di ketukan (frasa, beat musik, puncak gerak) · lihat sendiri, ukur sendiri sebelum Irfan menunjuk · satu fokus per frame, efek tanpa alasan dihapus.
 
-**Urutan menang:** instruksi langsung Irfan di sesi → `projects/<proyek>/` → profil format (`formats.md`) → file ini → cabang `references/` → `external/` → canvas-skill-library.
+**Urutan menang:** instruksi langsung Irfan di sesi → `projects/<proyek>/` → file ini → cabang `references/` → `external/` → canvas-skill-library.
 
 ## 2b. Guide: standar rasa, per urusan
 
 Sebelum keputusan kreatif, buka `guide/README.md` lalu **hanya** folder urusan yang sedang dikerjakan (`visual/`, `teks/`, `gerak/`, `audio/`, `sfx/`, `hindari/`, `referensi/`). Guide = arah + contoh terukur dari 6 video referensi Irfan, bukan aturan: pilih bebas asal bisa dijelaskan. Ragu → pilih yang hidup, lalu cek cepat; jangan main aman (Irfan 6 Nov).
 
-## 3. Langkah pertama: tentukan format
+## 3. Satu standar untuk semua video
 
-Baca `references/formats.md` dan tulis `Format: A` atau `Format: B` di brief. Format menentukan aturan audio, musik, SFX, dan teks.
-
-| Format | Isi | Beda utama |
-|---|---|---|
-| **A** | Motion ber-VO narator | VO dirakit, musik per babak, SFX per event, Modul 1 untuk klip sisipan |
-| **B** | Klip podcast/wawancara + overlay motion | Suara pembicara asli tidak diproses, bed tenang (lofi/fokus), caption 1 baris, SFX hanya di sisipan |
+Tidak ada profil format. Motion ber-VO dan klip podcast/wawancara memakai aturan yang sama; yang berbeda hanya isinya. Suara sumber yang terukur bersih (podcast, wawancara) tidak diproses, cukup gain linear (`audio.md` §14.6). Profil "Format A/B" turunan penilaian klip DOAC 6 Nov dihapus: proyek itu belum selesai, jadi bukan standar (Irfan 8 Nov).
 
 ## 4. Cara kerja (gerbang dikunci)
 
@@ -42,16 +37,16 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Render penuh 
 
 | # | Gerbang | Baca cabang | Lolos jika |
 |---|---|---|---|
-| 0 | Muat konteks | — | §6 selesai |
-| 1 | Brief | `formats.md`, `decision.md`, `palette.md` | Format, tujuan, penonton, durasi, CTA, rasio terkunci. Default A: 16:9 1920×1080, 30 fps native; B: ikuti sumber |
-| 2 | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file (B: daftar potongan + timestamp sumber) |
-| 3 | Bedah referensi | `analysis-qa.md` §2 | Metrik visual + peta audio dengan timestamp |
+| 0 | Muat konteks | — | §6 selesai; `earshot doctor` lulus di mesin kerja (tidak terpasang = lapor Irfan dulu, jangan lanjut) |
+| 1 | Brief | `decision.md`, `palette.md` | Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
+| 2 | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file (klip: daftar potongan + timestamp sumber) |
+| 3 | Bedah referensi | `analysis-qa.md` §2, `three-segment-gate.md` (gerbang DENGAR) | Metrik visual + peta audio dari `earshot timeline --detail high` (label, event/dtk, kepadatan SFX) |
 | 4 | Storyboard 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final |
 | 5 | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
-| 6 | Audio | `audio.md` | Kategori suasana tertulis; musik lulus `music_fit.py`. A: VO setelah script final; SFX/musik setelah storyboard final. B: audio sumber utuh |
+| 6 | Audio | `audio.md`, `three-segment-gate.md` (gerbang DENGAR) | Kategori suasana tertulis; musik lulus `music_fit.py`; tiap SFX lolos `earshot describe/match`; cue sheet: 1 SFX per frame/pesan/objek/gerakan (aturan 43). VO setelah script final; SFX/musik setelah storyboard final; audio sumber klip utuh |
 | 7 | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum diterapkan ke semua |
 | 8 | Build semua adegan | `build.md` | Komponen sama untuk semua adegan |
-| 9 | Preview + QA | `delivery-gate.md` §0, `analysis-qa.md` §16 | Still per beat + audio saja lulus, baru render penuh; ≥ 3 putaran kritik, skor ≥ 8 |
+| 9 | Preview + QA | `delivery-gate.md` §0, `analysis-qa.md` §16 | Still per beat + audio saja lulus (`gate/sfx_density.py`, `audio_phone.py`, `earshot timeline`), baru render penuh; ≥ 3 putaran kritik, skor ≥ 8; devil's advocate audio `delivery-gate.md` §4 |
 | 10 | Kirim | `delivery-gate.md` | Video + laporan Delivery Gate (setiap PASS berbukti) + daftar penyimpangan |
 
 Revisi dari Irfan: baca `revision-log.md`, catat di `DECISIONS.md` (§21) dan RETRO, baru kerjakan; `scripts/baseline_lock.py check` wajib lolos. Pekerjaan dalam rencana yang Irfan setujui dianggap disetujui; yang menunggu kata "final" hanya script dan storyboard.
@@ -60,11 +55,10 @@ Revisi dari Irfan: baca `revision-log.md`, catat di `DECISIONS.md` (§21) dan RE
 
 ```
 motion-graphic/
-├── SKILL.md                 inti: format, gerbang, indeks aturan (file ini)
+├── SKILL.md                 inti: gerbang, indeks aturan (file ini)
 ├── guide/                   standar rasa per urusan (README → visual · teks · gerak · audio · sfx · hindari · referensi)
 ├── references/
-│   ├── formats.md           profil A (motion ber-VO) vs B (klip podcast): mulai di sini
-│   ├── core-rules.md        teks penuh aturan inti 1–45, bertanda [A]/[B]
+│   ├── core-rules.md        teks penuh aturan inti 1–45
 │   ├── music-profiles.json  profil musik per kategori suasana (kalibrasi dari referensi Irfan)
 │   ├── slop-catalog.md      tanda yang pernah Irfan tolak + cara mengeceknya
 │   ├── delivery-gate.md     preview-dulu + laporan PASS/FAIL berbukti sebelum kirim
@@ -73,12 +67,13 @@ motion-graphic/
 │   ├── audio.md · build.md · analysis-qa.md · revision-log.md · palette.md (+ palettes.json)
 │   └── hybrid-motion-standard.md · three-segment-gate.md
 └── scripts/
-    ├── gate/voice_fidelity.py   [B] suara pembicara tidak diproses (udara > 9 kHz, LRA)
+    ├── gate/sfx_density.py      1 SFX per event visual: kepadatan + cakupan + celah senyap
+    ├── gate/voice_fidelity.py   alat ukur: suara sumber bersih tidak rusak (udara > 9 kHz, LRA)
     ├── gate/caption_lines.py    caption 1 baris, tidak terpotong tepi
     ├── audio/pace_read.py       tempo video → kategori suasana + rentang bpm musik
     ├── audio/music_fit.py       peringkat musik terhadap kategori + benturan dengan suara
     ├── baseline_lock.py · bedah-kamera.py · palette_check.py · audio_qa.py
-    └── audio/                   kit QA audio format A (lihat audio/README.md)
+    └── audio/                   kit QA audio (lihat audio/README.md)
 ```
 Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`).
 
@@ -91,7 +86,6 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 
 | Kondisi | Cabang |
 |---|---|
-| Brief baru / ragu format | `formats.md` |
 | Keputusan rasa (visual, teks, gerak, audio, SFX) | `guide/<urusan>/GUIDE.md` |
 | Memilih, aturan bertabrakan, ragu bertanya | `decision.md` |
 | Script, teks layar | `copywriting.md` |
@@ -99,22 +93,22 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 | Storyboard, spec beat, mode teks per beat | `storyboard.md`, `decision-guide.md`, `pacing-map.md` |
 | Gaya teks, easing, animasi teks | `typography.md`, `smooth-motion.md` |
 | Kamera, transisi, cutout | `camera-transition.md`, `motion-mechanics.md` |
-| VO, SFX, musik, QA audio | `audio.md` (mulai §14.0A kategori suasana; format B: §14.B) |
+| VO, SFX, musik, QA audio | `audio.md` (mulai §14.0A kategori suasana) + gerbang DENGAR `three-segment-gate.md` |
 | Build AE/engine kode | `build.md` |
 | Bedah referensi, QA render | `analysis-qa.md`, `delivery-gate.md` |
 | Revisi Irfan, kunci adegan | `revision-log.md` |
 
 ## 8. Indeks aturan inti (teks penuh: `references/core-rules.md`)
 
-Tiga tingkat, mengikuti pola anti-slop: **Hard Gate** mutlak; **Purpose-Gate** teknik boleh asal alasannya ditulis di tabel beat; **Quality Lock** konsistensi. [A]/[B] = hanya format itu.
+Tiga tingkat, mengikuti pola anti-slop: **Hard Gate** mutlak; **Purpose-Gate** teknik boleh asal alasannya ditulis di tabel beat; **Quality Lock** konsistensi.
 
 **Hard Gate**
 - 2 Teks layar hanya dari VO/ucapan · 4, 19 UI = UI asli produk · 22 tidak ada placeholder storyboard di render
 - 10 Tidak ada generate berbayar sebelum gerbangnya; biaya disebut dulu · 11 build gagal bila font hilang; proyek AE terbuka tidak ditimpa
 - 12 Tidak ada video ke Irfan sebelum verdict SHIP + Delivery Gate · 13 tidak yakin = tanya, jangan menebak
 - 14 Adegan disetujui tidak disentuh · 17 baca folder proyek sebelum build · 18 revisi = diff, bukan tulis ulang
-- 33 [A] VO tidak dipercepat, jeda diukur · 38 [A] Modul 1–5 standar mix ber-VO (bukan untuk B)
-- 43 [B] Suara pembicara asli tidak diproses · 44 Caption satu baris, tidak terpotong · 45 audio ikut tempo video: kategori dari `pace_read.py`, musik lulus `music_fit.py`
+- 33 VO tidak dipercepat, jeda diukur · 38 Modul 1–5 standar mix
+- **43 1 frame / 1 pesan / 1 objek visual / 1 gerakan = 1 SFX** · 44 Caption satu baris, tidak terpotong · 45 audio ikut tempo video: kategori dari `pace_read.py`, musik lulus `music_fit.py`
 
 **Purpose-Gate**
 - 6 Kotak di belakang teks hanya bila kontras gagal · 7 setiap efek punya alasan · 24 efek karena fungsi (negative = transisi/before-after)
@@ -125,7 +119,7 @@ Tiga tingkat, mengikuti pola anti-slop: **Hard Gate** mutlak; **Purpose-Gate** t
 - 5 Nol crossfade · 42 transisi = logika ruang · 26 kamera = alat fokus · 29 kamera patuh VO · 9 motion blur di gerak cepat
 - 8 Keterbacaan HP · 15 tidak ada biru di latar gelap · 39 serif tidak sejajar bold; satu baris satu ukuran · 41 palet dikunci di brief
 - 16 storyboard = struktur, bukan visual akhir · 21 format berulang beda framing · 23 uji logika dunia nyata + devil's advocate
-- 25 [A] musik per babak · 27 [A] tiga detik pertama · 32 [A] backsound tidak bolong · 34 audio tidak dibatasi folder
-- 30 [A] SFX terdengar · 35 [A] uji speaker HP · 36 nyaman dulu baru keras · 37 [A] SFX lahir bersama objeknya
+- 25 musik per babak · 27 tiga detik pertama · 32 backsound tidak bolong · 34 audio tidak dibatasi folder
+- 30 SFX terdengar · 35 uji speaker HP · 36 nyaman dulu baru keras · 37 SFX lahir bersama objeknya
 
 Tanda yang muncul berulang di revisi ada di `slop-catalog.md`. Aturan baru dari Irfan: satu baris di `core-rules.md` (dengan sumber), satu baris indeks di sini, satu baris tanda di katalog bila bisa dilihat/didengar.

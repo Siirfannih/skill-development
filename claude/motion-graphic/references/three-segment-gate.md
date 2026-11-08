@@ -140,8 +140,8 @@ Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. 
   - VO tetap di atas latar pada volume HP 20/50/100 %;
   - tidak ada 2–6 kHz yang menusuk.
 
-- **Gerbang DENGAR wajib sebelum SFX masuk mix (Irfan 2 Nov 12.02).** Angka level/spektrum tidak memberi tahu bunyinya seperti apa. Langkahnya:
-  1. Jalankan `git submodule update --init external/earshot` lalu pasang earshot; di Mac bila disk cloud sempit, dengan Python 3.12.
+- **Gerbang DENGAR wajib sebelum SFX atau musik masuk mix, di semua video dan semua mesin (Irfan 2 Nov 12.02; diperluas Irfan 8 Nov).** Tersambung ke gerbang 0, 3, 6, 9 di `SKILL.md` §4. Earshot tidak terpasang atau gagal = berhenti dan lapor, bukan lanjut tanpa telinga (gagal: V5 8 Nov di PC server, submodule tidak pernah di-init). Angka level/spektrum tidak memberi tahu bunyinya seperti apa. Langkahnya:
+  1. Jalankan `git submodule update --init external/earshot` lalu pasang earshot; di Mac bila disk cloud sempit, dengan Python 3.12. PC server (`node-c-pc`): earshot terpasang di `~/work/mg-venv` (`earshot doctor` harus lulus).
   2. `earshot describe` tiap file.
   3. `earshot match` dengan deskripsi peran plus `--alts` pembanding salah, misalnya "car engine starting", "motorcycle revving", "error buzz", "record scratch".
   4. Hanya kandidat "strong" yang tidak kalah dari pembandingnya yang boleh dipakai.

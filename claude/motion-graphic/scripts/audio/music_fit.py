@@ -6,12 +6,15 @@ diambil dari ukuran: tempo, kepadatan ketukan, kecerahan, build/drop, dinamika, 
 benturan frekuensi dengan suara pembicara pada level mix yang direncanakan.
 
 Pakai:
-  python3 music_fit.py --category fokus --voice sumber.mp4 kandidat/*.mp3 [--duration 76] [--earshot] [--json out.json]
+  python3 music_fit.py --category fokus --voice sumber.mp4 kandidat/*.mp3 [--duration 76] [--json out.json]
   python3 music_fit.py --calibrate fokus ref1.mp3 ref2.mp3     # rentang kategori diambil dari track yang Irfan setujui
   python3 music_fit.py --measure track.mp3                     # angka mentah saja
 
 Profil: ../../references/music-profiles.json. Keluaran: peringkat, skor 0-100, dan alasan per fitur.
-Lulus pakai = skor >= 70 DAN snr_min terpenuhi. Telinga Irfan tetap hakim terakhir.
+Lulus pakai = skor >= 70 DAN snr_min terpenuhi DAN bpm/onset di dalam rentang kategori (di luar = GUGUR, bukan
+penalti). earshot rank wajib jalan; bila tidak terpasang skrip berhenti (gerbang DENGAR, Irfan 8 Nov).
+Kandidat < 8 file atau dari < 2 folder sumber = FAIL (aturan 34; gagal: V5 8 Nov, tiga klip memakai satu piano).
+Telinga Irfan tetap hakim terakhir.
 """
 import argparse, json, os, subprocess, sys
 import numpy as np, librosa, pyloudnorm as pyln
@@ -105,12 +108,14 @@ def perceived_bpm(raw):
 
 
 def score(m, prof, snr):
-    parts, why = [], []
+    parts, why, hard = [], [], []
     for k, scale in (("bpm", 25), ("onset", 2.0), ("centroid", 800), ("build", 6), ("dyn", 6)):
         s, note = in_range(m[k], *prof[k], scale)
         parts.append(s)
         if note:
             why.append(f"{k} {m[k]} {note} (target {prof[k][0]}-{prof[k][1]})")
+            if k in ("bpm", "onset"):
+                hard.append(k)
     if prof["mode"] != "any":
         ok = m["mode"] == prof["mode"] or m["mode_margin"] < 0.03
         parts.append(1.0 if ok else 0.4)
@@ -125,7 +130,7 @@ def score(m, prof, snr):
             why.append(f"benturan dengan suara di {snr[1]} Hz bisa diatasi: {fix}")
         else:
             why.append(f"menutupi suara: selisih {snr[0]} dB di {snr[1]} Hz, butuh {need} dB (> 4 dB cekungan): ganti track, atau turunkan level musik {round(need - 4, 1)} dB lalu EQ -4 dB bila kategori masih terasa")
-    return round(total), snr_ok, why, fix
+    return round(total), snr_ok, why, fix, hard
 
 
 def earshot_rank(query, paths):
@@ -134,9 +139,9 @@ def earshot_rank(query, paths):
         res = json.loads(out.stdout)
         items = res.get("results") or res.get("ranked") or []
         return {os.path.abspath(r.get("path", r.get("file", ""))): r.get("z") for r in items}
-    except Exception as e:  # earshot tidak terpasang / model belum ada: lewati, bukan nol
-        print(f"(earshot rank dilewati: {e.__class__.__name__})")
-        return {}
+    except Exception as e:  # gerbang DENGAR: tidak boleh dilewati diam-diam (gagal: V5 8 Nov, earshot_z null)
+        raise SystemExit(f"FAIL earshot rank tidak jalan ({e.__class__.__name__}: {e}). Pasang earshot "
+                         "(three-segment-gate.md gerbang DENGAR) atau lapor ke Irfan; jangan pilih musik tanpa didengar.")
 
 
 def main():
@@ -144,7 +149,7 @@ def main():
     ap.add_argument("files", nargs="*")
     ap.add_argument("--category"); ap.add_argument("--voice", help="audio/video pembicara atau VO (untuk cek benturan)")
     ap.add_argument("--duration", type=float, help="durasi video (dtk); track lebih pendek ditandai")
-    ap.add_argument("--earshot", action="store_true", help="tambahkan skor teks earshot rank sebagai info (tidak menentukan)")
+    ap.add_argument("--no-earshot", action="store_true", help="HANYA untuk uji alat; laporan ditandai TANPA-DENGAR = FAIL di Delivery Gate")
     ap.add_argument("--calibrate", metavar="KATEGORI"); ap.add_argument("--measure", action="store_true")
     ap.add_argument("--profiles", default=PROFILES); ap.add_argument("--json")
     a = ap.parse_args()
@@ -174,28 +179,41 @@ def main():
         raise SystemExit(f"--category salah satu dari: {[k for k in profiles if not k.startswith('_')]}")
     prof = profiles[a.category]
     voice = load(a.voice, 180) if a.voice else None
-    es = earshot_rank(prof["query"], [os.path.abspath(f) for f in a.files]) if a.earshot else {}
+    pool_fail = []
+    if len(a.files) < 8:
+        pool_fail.append(f"kandidat {len(a.files)} < 8")
+    if len({os.path.dirname(os.path.abspath(f)) for f in a.files}) < 2:
+        pool_fail.append("kandidat dari < 2 folder sumber")
+    es = {} if a.no_earshot else earshot_rank(prof["query"], [os.path.abspath(f) for f in a.files])
     rows = []
     for f in a.files:
         m = measure(f, 180)
         snr = voice_snr(voice, m["_y"], prof["level"]) if voice is not None else None
-        s, ok, why, fix = score(m, prof, snr)
+        s, ok, why, fix, hard = score(m, prof, snr)
         if a.duration and m["dur"] < a.duration:
             why.append(f"durasi {m['dur']} < video {a.duration} (perlu loop/sambung)")
         m.pop("_y")
         rows.append({**m, "score": s, "snr": snr[0] if snr else None, "snr_ok": ok, "eq_fix": fix, "why": why,
-                     "earshot_z": es.get(os.path.abspath(f))})
-    rows.sort(key=lambda r: (r["snr_ok"], r["score"]), reverse=True)
+                     "gugur": hard, "earshot_z": es.get(os.path.abspath(f))})
+    rows.sort(key=lambda r: (not r["gugur"], r["snr_ok"], r["score"]), reverse=True)
+    if pool_fail:
+        print("FAIL kumpulan kandidat: " + "; ".join(pool_fail) + " (cari dari Epidemic, ElevenLabs Music, internet berlisensi, folder Irfan)")
+    if a.no_earshot:
+        print("TANPA-DENGAR: earshot dimatikan dengan --no-earshot; laporan ini tidak sah untuk Delivery Gate")
     print(f"Kategori: {a.category} ({prof['arti']}) · profil {'terkalibrasi ' + str(prof['kalibrasi']['n']) + ' ref' if prof.get('kalibrasi') else 'awal (belum dikalibrasi)'}")
     print(f"{'#':>2} {'skor':>4} {'snr':>5}  {'bpm':>5} {'onset':>5} {'cent':>5} {'build':>5} {'dyn':>4} {'mode':>5}  file")
     for i, r in enumerate(rows, 1):
-        verdict = ("PAKAI + EQ" if r["eq_fix"] else "PAKAI") if r["score"] >= 70 and r["snr_ok"] else "tolak"
+        verdict = ("GUGUR " + "/".join(r["gugur"]) if r["gugur"] else
+                   ("PAKAI + EQ" if r["eq_fix"] else "PAKAI") if r["score"] >= 70 and r["snr_ok"] else "tolak")
         print(f"{i:>2} {r['score']:>4} {str(r['snr']):>5}  {r['bpm']:>5} {r['onset']:>5} {r['centroid']:>5.0f} {r['build']:>5} {r['dyn']:>4} {r['mode']:>5}  {os.path.basename(r['file'])}  [{verdict}]"
               + (f"  earshot z {r['earshot_z']}" if r["earshot_z"] is not None else ""))
         for w in r["why"]:
             print(f"      - {w}")
     if a.json:
-        json.dump({"category": a.category, "profile": prof, "ranked": rows}, open(a.json, "w"), ensure_ascii=False, indent=2)
+        json.dump({"category": a.category, "profile": prof, "pool_fail": pool_fail, "earshot": not a.no_earshot,
+                   "ranked": rows}, open(a.json, "w"), ensure_ascii=False, indent=2)
+    if pool_fail:
+        sys.exit(1)
 
 
 if __name__ == "__main__":

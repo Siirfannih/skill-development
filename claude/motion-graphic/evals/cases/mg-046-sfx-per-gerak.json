@@ -1,0 +1,14 @@
+{
+  "id": "mg-046",
+  "source": "Irfan 8 Nov: 1 frame / 1 pesan / 1 objek visual / 1 gerakan selalu diiringi SFX; gagal V5 (tiga klip podcast 0,15–0,27 SFX/dtk)",
+  "prompt": "Edit klip podcast 9:16 70 detik ini dengan teks kinetik per kata, kartu grafik, dan punch-in kamera. Susun SFX-nya.",
+  "files": [
+    "(node-c-pc:~/work/clips/2026-11-v5/clip-b, out/clip-b_final.mp4 + docs/SFX_LIST.md sebagai baseline gagal)"
+  ],
+  "assertions": [
+    "Cue sheet memberi satu SFX untuk setiap kata kinetik, kartu, punch-in, transisi, dan setiap frasa subtitle (bukan per kata subtitle)",
+    "Tidak ada kalimat 'SFX hanya di sisipan' atau 'caption tidak berbunyi' di brief/QC",
+    "scripts/gate/sfx_density.py lulus: >= 1,5 SFX/dtk, cakupan >= 85 %, tidak ada celah senyap > 3 dtk saat ada gerak",
+    "Baseline gagal: sfx_density.py pada clip-b V5 = FAIL (0,17/dtk)"
+  ]
+}

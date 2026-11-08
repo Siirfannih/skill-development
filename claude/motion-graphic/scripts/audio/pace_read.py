@@ -9,7 +9,7 @@ Pakai:  python3 pace_read.py video.mp4 [--words words.json] [--json out.json]
         words.json = daftar kata STT [{"start":..,"end":..,"word":..}] (faster-whisper); tanpa itu,
         laju bicara memakai proxy suku kata yang kasar (musik ikut terhitung).
 Keluaran: cut/menit, panjang shot, gerak layar, laju bicara, kategori usulan + rentang bpm musik.
-Ambang awal diturunkan dari 6 video referensi Irfan (6 Nov) + klip DOAC; lihat audio.md §14.0A.
+Ambang awal diturunkan dari 6 video referensi Irfan (6 Nov); lihat audio.md §14.0A.
 """
 import argparse, json, re, subprocess
 import numpy as np

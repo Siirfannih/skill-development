@@ -6,10 +6,12 @@ Dipakai untuk **memindai**, bukan melarang teknik. Satu tanda dengan alasan tert
 
 | ID | Tanda | Cara cek | Aturan |
 |---|---|---|---|
-| S-A1 | Suara pembicara asli mendem, tipis udaranya, dinamikanya rata | `gate/voice_fidelity.py` | 43, 38 |
-| S-A2 | Musik tidak cocok suasana (tegang/build/drop di bawah klip tenang) atau menutupi suara | `music_fit.py --category <k> --voice` | 45, `formats.md` |
+| S-A1 | Suara sumber yang bersih jadi mendem, tipis udaranya, dinamikanya rata | `gate/voice_fidelity.py` | 38, §14.6 |
+| S-A2 | Musik tidak cocok suasana (tegang/build/drop di bawah klip tenang) atau menutupi suara | `music_fit.py --category <k> --voice` | 45 |
 | S-A3 | Backsound fade-in pelan atau hening total di tengah | RMS 0,5 dtk stem musik | 32 |
-| S-A4 | SFX di setiap caption/kata biasa | cue sheet: caption tidak berbunyi | §14.3 |
+| S-A4 | Objek, teks, gerak, atau frasa subtitle tanpa SFX; video terasa sepi (gagal: V5 8 Nov, 0,15–0,27 SFX/dtk) | `gate/sfx_density.py` | 43 |
+| S-A9 | Satu track musik untuk semua klip/babak; kandidat hanya dari pustaka lama | `music_fit.py` laporan: ≥ 8 kandidat, ≥ 2 sumber | 25, 34 |
+| S-A10 | Referensi atau SFX tidak didengar (tanpa label earshot) | log `earshot describe/timeline` | gerbang DENGAR |
 | S-A5 | Ketukan kayu/woodblock, felt, sinus 8-bit, whoosh noise mentah | daftar file di cue sheet | §14.5, §14.8 |
 | S-A6 | Dua bunyi berlapis untuk satu event | cue sheet: satu event satu file | §14.3 |
 | S-A7 | VO dipercepat atau diberi reverb | tempo 1,0; `vo_echo.py` | 33, §14.0 |

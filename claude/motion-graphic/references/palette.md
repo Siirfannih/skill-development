@@ -8,8 +8,8 @@ Dibaca di gerbang brief (1) saat mengunci palet, dan di QA (9). Data hex ada di 
    - konten Jadisatu → `jadisatu-gelap` atau `jadisatu-terang` (default; font Outfit + Inter);
    - konten lain → palet di `palettes.json` yang mood-nya cocok;
    - footage klien/orang lain → warna diambil dari footage (satu warna dominan scene + satu aksen).
-   Setelah dikunci, model tidak memakai hex di luar palet. Alasan: tanpa palet terkunci, tiap grafik memilih warnanya sendiri dan hasilnya pelangi (gagal: preview DOAC 6 Nov).
-2. **Satu keluarga warna aksen yang dominan.** Keluarga terbesar ≥ 70 % piksel berwarna; maksimal 2 keluarga. Keluarga kedua hanya boleh datang dari footage, lampu, atau logo pihak ketiga. Alasan: semua referensi yang diukur punya keluarga dominan 74–100 %; DOAC 46 %.
+   Setelah dikunci, model tidak memakai hex di luar palet. Alasan: tanpa palet terkunci, tiap grafik memilih warnanya sendiri dan hasilnya pelangi.
+2. **Satu keluarga warna aksen yang dominan.** Keluarga terbesar ≥ 70 % piksel berwarna; maksimal 2 keluarga. Keluarga kedua hanya boleh datang dari footage, lampu, atau logo pihak ketiga. Alasan: semua referensi yang diukur punya keluarga dominan 74–100 %.
 3. **Netral membawa frame, aksen hanya menandai.** Hitam, putih, abu mengisi sebagian besar layar; aksen biasanya ≤ 15 % area. Pengecualian: aksen sebagai dunia layar penuh (kartu atau panel warna) yang memang dirancang sebagai jeda.
 4. **Turunan mengikuti aksen.** Glow, gradasi, bayangan berwarna, dan tint memakai hue aksen, tidak menambah warna baru.
 5. **Teks berwarna aksen di latar gelap harus kontras ≥ 4,5 : 1.** Biru pekat di latar gelap tidak lolos; pakai versi terangnya (Jadisatu: `#6F8DFF`) atau putih.

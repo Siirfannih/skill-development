@@ -59,22 +59,3 @@ Angka shot diukur dari referensi yang Irfan setujui (6 Nov); angka zoom adalah t
 2. **Mekanik sama maksimal 2× berturut-turut.**
 3. **Kurva energi video:** hook tinggi → penjelasan turun → naik ke puncak → turun ke CTA. Nada per kalimat diletakkan di atas kurva ini; puncak gerak video hanya satu.
 4. **Nada adalah tebakan model**, jadi selalu ditulis di tabel beat beserta buktinya (kata + angka audio) untuk dikoreksi Irfan.
-
-## 6. Contoh kasus: DOAC (Dr Sahar Yousef), talking head 9:16
-Teks direkonstruksi dari caption yang terbaca di frame preview (bukan transkrip penuh); kolom audio diisi setelah alat dijalankan.
-
-| Waktu | Kalimat (rekonstruksi) | Nada | Gerak | Catatan |
-|---|---|---|---|---|
-| 0:00 | "The algorithm knows you really well" | Serius / klaim (hook) | punch-in 120 % di "knows", tahan | Hook: satu-satunya visual = footage + kata ALGORITHM; ponsel dibuang |
-| 0:03 | "right before you are about to leave…" | Penjelasan | cut ke framing lebar | Bar "boredom" boleh, tanpa caption bersamaan |
-| 0:05 | "Like a slot machine, BANG" | Analogi | hard cut ke dunia slot machine layar penuh | Satu dunia, bukan slot di atas footage blur |
-| 0:13 | "bad business, don't you think?" | Ringan | snap zoom kecil | Tanpa grafik |
-| 0:17 | "the fact it's intermittent and somewhat variable" | Data / konsep | kamera ke grafik reward, diam | Kata "intermittent" = label di grafik, bukan caption kuning terpisah |
-| 0:23 | "This is how slot machines work" | Serius | punch-in, tahan | Jangan ulang slot machine: sudah tampil di 0:05 |
-| 0:26 | "infinite scroll… all you can eat buffet" | Analogi + ringan | hard cut ke dunia buffet | Pilih satu: buffet ATAU infinite scroll |
-| 0:37 | "they get you hooked" | Serius / klaim | punch-in terkuat sejauh ini | HOOKED besar, footage bersih |
-| 0:41 | "reverse neuroscience… grayscale" | Ganti topik (solusi) | whip ke framing baru | Label bab "solusi"; GRAY: teks dihapus, ponsel grayscale cukup |
-| 0:53 | "In my study… Berkeley lab… healthy working professionals" | Data | drift, objek data | Label sumber kecil; tidak ada frame blur kosong |
-| 1:01 | "three weeks" | Data | angka besar | 21 DAYS dan THREE WEEKS adalah kata yang sama: pilih satu |
-| 1:08 | "seven hours every week" | **Puncak** | gerak tercepat video | Satu-satunya puncak |
-| 1:10 | "Well, one will give you…" | Penutup | pull-back ke wide | CTA paling terbaca |

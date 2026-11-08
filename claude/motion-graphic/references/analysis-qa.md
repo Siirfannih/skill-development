@@ -32,6 +32,7 @@ Kesalahan termahal di Jadisatu adalah menunggu Irfan menunjuk masalah yang bisa 
 - Mata tetap hakim: lihat sheet-nya.
 
 **Audio (alat sendiri; Gemini hanya data tambahan)**
+- **Dengar dulu dengan earshot** (wajib, gerbang DENGAR): `earshot timeline ref.mp4 --detail high` untuk label tiap event, event/dtk, dan prominence. Analisis spektrogram tanpa earshot tidak cukup untuk menyimpulkan instrumen, genre, atau kepadatan SFX; bila earshot tidak tersedia, berhenti dan lapor ke Irfan (gagal: V5 8 Nov, ref ditebak "piano/biola" dan "SFX jarang").
 - Pemisahan stem: **Demucs** (htdemucs) memisahkan VO / musik / sisa. Cadangan: `librosa.decompose.hpss`.
 - **librosa** sebagai inti analisis:
   - `onset_strength`/`onset_detect` (dengan backtrack) untuk SFX
