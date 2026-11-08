@@ -41,6 +41,9 @@ E="$(command -v earshot || ls "$HOME"/work/mg-venv/bin/earshot 2>/dev/null)"
 if [ -n "$E" ]; then
   "$E" doctor 2>/dev/null | grep -q '^problems: \[\]' && ok "earshot siap ($E)" || note "earshot doctor melaporkan masalah ($E doctor)"
 else note "earshot tidak terpasang: wajib untuk pekerjaan video (gerbang DENGAR, three-segment-gate.md)"; fi
+D="$(command -v demucs || ls "$HOME"/work/mg-venv/bin/demucs 2>/dev/null)"
+if [ -n "$D" ]; then ok "demucs siap ($D)"
+else note "demucs tidak terpasang: dipakai audio/ears.py untuk menilai musik dari stem (audio.md §14.0B); pasang saat tugas audio"; fi
 
 echo
 if [ "$fail" -ne 0 ]; then
