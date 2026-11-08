@@ -243,3 +243,8 @@ Sumber: `wonder-local.db` Mac (4 thread storyboard: Marketing, Motion Lagu, Peng
 Perubahan: `references/storyboard.md` ditulis ulang (jalur tanpa storyboard/tanpa referensi, urutan kerja, format panel, 13 aturan dari umpan balik Irfan di Wonder, review papan); `scripts/storyboard/board.py` (render panel HTML → PNG, papan per babak, `cues.json` untuk gerbang SFX, cek caption, peran/alasan, waktu, teks layar satu baris tanpa tanda baca, kerangka tersisa); `templates/storyboard/`; gerbang 4 di SKILL.md; eval mg-048.
 Uji: `board.py` pada templat: tanpa panel → FAIL; kerangka tersisa → FAIL; teks layar bertanda baca dan keluar frame → FAIL; panel lengkap → PASS, papan 3 beat/4 frame terbaca. Belum diuji: sesi baru membuat storyboard proyek nyata dengan cabang ini (mg-048).
 Status: diterapkan (Irfan 8 Nov: "turunkan jadi skill storyboard ke repo")
+
+### 2026-11-08 · Uji C: audit V5 dengan skill 15c04a0
+Sesi baru di PC server dengan skill-development 15c04a0 mengaudit 3 klip V5. Skor 24 (sebelumnya terbaik 11; tanpa skill 3; skill 7 Nov 0). Lulus kriteria: audio di 3 temuan teratas, track sama tertangkap dengan bukti terukur, satu-satunya dari 8 kondisi. Rincian: `evals/results/2026-11-08-audit-v5.md`.
+Sisa: label genre earshot masih dijadikan bukti (funk pada track piano yang sama); SFX jarang hanya di urutan 7 "sedang" walau aturan 43 gerbang keras; musik datar per babak tidak disebut. Usulan di PENDING.
+Status: diterapkan sebagai hasil uji; perbaikan sisa menunggu Irfan

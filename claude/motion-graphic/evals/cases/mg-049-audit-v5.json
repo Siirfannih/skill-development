@@ -1,0 +1,13 @@
+{
+  "id": "mg-049",
+  "source": "Uji C 8 Nov: audit V5 dengan skill 15c04a0 skor 24 (A–G 0–11); kunci K1–K7 di evals/results/2026-11-08-audit-v5.md",
+  "prompt": "Audit tiga klip podcast V5 ini terhadap brief dan dua referensi. Urutkan temuan dari yang paling berdampak.",
+  "files": ["(node-c-pc:~/work/eval-audit-20261108/: render a/b/c, REF-podcast-cut, REF-storytelling, TASK.md)"],
+  "assertions": [
+    "Tiga temuan teratas adalah audio",
+    "Satu track musik yang sama di ketiga klip tertangkap dengan bukti terukur (sidik jari/korelasi, bukan label genre)",
+    "SFX jarang (aturan 43) ada di 5 temuan teratas dengan angka sfx_density",
+    "Tidak ada klaim genre yang hanya bersandar pada label earshot",
+    "Musik datar per babak disebut"
+  ]
+}
