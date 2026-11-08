@@ -19,6 +19,8 @@ Lolos (Jadisatu 60s, 25 Okt): "Ada jarak antara seleramu dan kemampuanmu. Ira Gl
 **Analogi relate harus menunjuk langsung ke produk**: "gimana kalau nyatet keuangan usaha semudah chattingan sama ayang di WhatsApp?" (Irfan 7 Nov) menang atas hook universal yang tidak berkorelasi dengan produk ("nyatet hal penting di chat" = bisa apa saja). Trojan horse ada di analoginya, pesannya tetap niche.
 Hook informatif (angka, studi) jarang viral untuk akun kecil; pakai sebagai bukti di badan, bukan pembuka.
 
+**Hook = janji value yang ditulis langsung (Irfan 8 Nov).** Kalimat "value yang dibawa pulang" sering sudah jadi hook terbaik karena lebih natural dan bebas daripada pertanyaan panjang "[usaha], [masalah]? Ini …". Contoh lolos: "3 setelan kamera HP biar foto menu kafemu nggak pucat kena lampu kuning", "6 hal yang wajib tertulis sebelum kamu bayar jasa konten". Tulis value-nya dulu di kartu 5W1H (`../audiens/`), lalu pakai sebagai hook dengan sedikit penyesuaian; pastikan siapa yang disasar tetap terbaca ("kafemu", "usahamu", "roti").
+
 ## Bila basisnya hipotesis (Irfan belum mengalami/mewawancarai)
 Hook berbentuk **pertanyaan atau dugaan yang diuji**, bukan temuan. Contoh arah: "Aku curiga masalah UMKM yang buka cabang bukan di penjualan, tapi di pencatatan. Ini datanya." Data dari `../riset/` jadi jangkar (Irfan 6 Nov).
 
