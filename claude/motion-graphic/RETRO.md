@@ -288,3 +288,9 @@ Revisi berurutan dari review Irfan, dan perbaikannya:
 - v10: kamera ikut SATU objek sampai geraknya selesai (lintasan objek dan kamera dari modul path yang sama, key per frame); tanda tanya selalu tampil saat bertanya.
 - v11: rubrik Understand-Anything ("teach, not impress"); visual manusiawi (orang menggali di bawah cinta/sukses/karya, kunci yang sama = unity), satu tokoh + satu objek kebenaran (kunci) berulang di panel 4–7.
 Alur yang terbukti: konsep → evaluasi rubrik → bangun adegan → still per panel → SFX ulang hanya untuk kejadian yang bergeser → mix → render ±4 mnt.
+
+## 2026-11-10 · Behindwork, 6 video v11 (status: diterapkan)
+- Alur per video yang terbukti: audit sambungan potongan (kata terpotong, "but" menggantung, take ganda, kata kalimat berikut ikut) → re-cut → grup teks+visual (konsep → rubrik → adegan dunia → still) → QC lead per frame (contoh gagal yang tertangkap: tembok S2 di bawah jalur, harus menghalangi jalur) → SFX + mix → render → unggah.
+- Teks di dunia footage harus aman-zoom: lebar teks dihitung dari zoom terkuat (push × punch-in) dengan titik asal di wajah, kalau tidak teks keluar tepi kiri.
+- Pembicara yang suaranya sangat peaky (Sam, GSB) tidak bisa −14 LUFS tanpa gagal gerbang LRA; pakai target −15 (hasil −15,6/−15,7), platform akan menormalkan.
+- Disk PC bersama bisa penuh: hapus hasil sementara sendiri (sheet QC, parts) dengan path literal.
