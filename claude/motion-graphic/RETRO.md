@@ -277,3 +277,14 @@ Yang terbukti: (1) backsound: ≥ 20 kandidat dari ≥ 2 sumber (lokal + YouTube
 Kesalahan: SFX −33 dB tidak terdengar; whoosh di ganti frame; subtitle dihapus; kata tersebar tanpa urutan; kutipan 3 baris di atas pembicara; ilustrasi bertabrakan, ikon tidak cocok; teks hilang terlalu cepat; backsound melankolis. Masalah terbuka 9 Nov: video datar (kamera identik awal–akhir) dan overlay gelap nongol mendadak; perbaikan berjalan di renderer Behindwork (CardClip v4: lapisan kamera + cutout RVM).
 Perubahan: aturan 5, 26, 30, 44 (caption ≤ 2 baris) diperbarui, aturan 46 baru; `audio.md` §14.0A, §14.3, §14.8, §14.10; `delivery-gate.md` §0 dan blok 1; `slop-catalog.md` S-A2/8/9/12, S-T1/9–12, S-V10–12; guide audio/sfx/teks/gerak/hindari; `caption_lines.py` default `--max-lines 2`. Bukti: `behindwork/groups/RULES-v3.md`, `groups/N{1,2,3}/audio_report.md`, `groups/N2/sfx_check.md`.
 Status: diterapkan (Irfan 9 Nov)
+
+## 2026-11-09 (malam) · Behindwork N1, v4 → v11 (status: diterapkan, Irfan 9 Nov)
+Revisi berurutan dari review Irfan, dan perbaikannya:
+- v4: video datar → lapisan kamera (push-in per shot, punch-in saat penekanan, motion blur), cutout subjek RVM (ONNX, CPU ±5 mnt/klip), gradien gelap naik dari bawah lalu turun. Bukan masalah z-index/Railway; render lokal Remotion mendukung lapisan.
+- v5–v6: kartu 1:1 memotong objek → footage 16:9 utuh; lalu output 1920×1080 penuh (format ikut sumber).
+- v7: teks dan visual berjauhan → satu kelompok (judul di atas objek, caption di bawah); jendela ilustrasi sempit memotong sisi → dihapus.
+- v8: aturan 47 (satu dunia, kamera AE, teks di dunia footage dekat wajah setinggi mikrofon), aturan 48 (visual menggambarkan ucapan): agen konsep (3 metafora per beat) + WorldPanel (koordinat panggung tetap, hanya kamera bergerak) + adegan per panel (remotion/src/scenes/).
+- v9: aturan 49–50: logo asli (OpenAI via simple-icons), ikon Lucide (ISC) bukan gambar tangan, kerapian geometri (glow/segitiga tidak keluar kartu); audit pembicara (resemblyzer + YuNet) memastikan yang bicara tampil.
+- v10: kamera ikut SATU objek sampai geraknya selesai (lintasan objek dan kamera dari modul path yang sama, key per frame); tanda tanya selalu tampil saat bertanya.
+- v11: rubrik Understand-Anything ("teach, not impress"); visual manusiawi (orang menggali di bawah cinta/sukses/karya, kunci yang sama = unity), satu tokoh + satu objek kebenaran (kunci) berulang di panel 4–7.
+Alur yang terbukti: konsep → evaluasi rubrik → bangun adegan → still per panel → SFX ulang hanya untuk kejadian yang bergeser → mix → render ±4 mnt.
