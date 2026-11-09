@@ -54,3 +54,5 @@ Dipakai untuk **memindai**, bukan melarang teknik. Satu tanda dengan alasan tert
 | S-V12 | Overlay/gradien gelap muncul atau hilang mendadak (Irfan Behindwork 9 Nov) | putar 0,5×: overlay naik dari bawah (ease-in-out), turun saat keluar | 5 |
 | S-V13 | Teks dan visual berjauhan/terpisah; jendela ilustrasi memotong sisi; teks diam di layar sementara footage/objek di-zoom; kamera tidak mengikuti objek fokus; logika akhir salah (kaca pembesar berhenti di X) (Irfan 9 Nov) | still per beat + cek: judul ≤ 40 px dari objeknya, teks ikut transform kamera, keyframe kamera = posisi objek fokus | aturan 47 |
 | S-V14 | Ilustrasi hanya bentuk generik yang tidak menggambarkan ucapan (Irfan 9 Nov) | tabel beat: kata → makna → 3 metafora → pilihan | aturan 48 |
+| S-V15 | Wajah Naval tampil saat host yang bicara (Irfan 9 Nov) | label pembicara per frasa vs shot | aturan 49 |
+| S-V16 | Logo/ikon buatan sendiri yang kasar (pesawat, simpul ChatGPT); glow/segitiga keluar dari kartu (Irfan 9 Nov) | still close-up tiap ikon dan sambungan | aturan 50 |

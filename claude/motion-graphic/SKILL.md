@@ -115,7 +115,7 @@ Tiga tingkat, mengikuti pola anti-slop: **Hard Gate** mutlak; **Purpose-Gate** t
 - 10 Tidak ada generate berbayar sebelum gerbangnya; biaya disebut dulu · 11 build gagal bila font hilang; proyek AE terbuka tidak ditimpa
 - 12 Tidak ada video ke Irfan sebelum verdict SHIP + Delivery Gate · 13 tidak yakin = tanya, jangan menebak
 - 14 Adegan disetujui tidak disentuh · 17 baca folder proyek sebelum build · 18 revisi = diff, bukan tulis ulang
-- 33 VO tidak dipercepat, jeda diukur · 38 Modul 1–5 standar mix · 47 satu dunia + kamera AE + teks menyatu · 48 visual menggambarkan ucapan
+- 33 VO tidak dipercepat, jeda diukur · 38 Modul 1–5 standar mix · 47 satu dunia + kamera AE + teks menyatu · 48 visual menggambarkan ucapan · 49 yang bicara tampil · 50 logo asli + ikon jadi, rapi
 - **43 1 frame / 1 pesan / 1 objek visual / 1 gerakan = 1 SFX** · 44 Caption ≤ 2 baris, hadir selama ada ucapan, tidak terpotong · 45 audio ikut tempo video: kategori dari `pace_read.py`, musik lulus `music_fit.py`
 
 **Purpose-Gate**
