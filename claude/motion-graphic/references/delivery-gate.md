@@ -12,6 +12,10 @@ Render penuh adalah langkah paling mahal, jadi ia datang paling akhir (Irfan 6 N
 3. **Rentang bermasalah saja**: `--frames=120-240` untuk mengecek gerak di beat yang diragukan.
 4. **Render penuh** hanya setelah 1–3 lulus, lalu jalankan skrip blok 1 sekali lagi pada MP4 final.
 
+Yang terbukti di Behindwork (Irfan 9 Nov):
+- **Draft cepat** untuk QC gerak: Remotion `--scale=0.5 --concurrency=8 --crf=28` (±1 mnt per short 60 dtk); still untuk QC layout. Render penuh (±1,5 mnt) hanya setelah visual dikunci.
+- **QC tiga lapis berurutan**, lapis berikut hanya bila lapis sebelumnya lolos: (1) **visual saja** tanpa audio: urutan baca, waktu baca, terpotong, animasi, transisi, ilustrasi, tabrakan objek, zona aman; (2) **visual + SFX** tanpa musik: tiap SFX sesuai jenis gerak dan tepat waktu (±2 f), tidak ada event tanpa bunyi, tidak ada bunyi tanpa event; (3) **visual + SFX + musik**: bed kontinu dan sesuai emosi, suara jelas, level, tidak ada lubang.
+
 ## Blok 1: Hard Gate (semua harus "tidak")
 
 Audio dicek lebih dulu, karena kesalahan terbanyak ada di audio (Irfan 8 Nov, V5: tiga klip gagal di audio).
@@ -24,11 +28,11 @@ Audio dicek lebih dulu, karena kesalahan terbanyak ada di audio (Irfan 8 Nov, V5
 | Referensi atau SFX tidak didengar (tidak ada log `earshot timeline` ref + `earshot describe` tiap file)? | log earshot di folder proyek | gerbang DENGAR `three-segment-gate.md` |
 | Suara sumber klip yang bersih diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | 38, §14.6 |
 | Kategori suasana tidak tertulis, musik tanpa laporan `music_fit.py` berstatus PAKAI (earshot aktif), kandidat < 8 atau dari < 2 sumber, atau track yang sama dipakai di semua klip/babak? | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 kandidat/*` | 25, 34, 45 |
-| Ada caption 2 baris, kata yatim, atau teks terpotong tepi? | `python3 scripts/gate/caption_lines.py render.mp4 --stills qc/` + keputusan per still yang ditandai | 44 |
+| Ada caption > 2 baris, kata yatim, teks terpotong tepi, atau ucapan tanpa caption? | `python3 scripts/gate/caption_lines.py render.mp4 --stills qc/` + keputusan per still yang ditandai | 44 |
 | Ada teks/angka layar yang tidak diucapkan? | transkrip vs daftar teks | 2 |
 | Ada UI karangan atau placeholder storyboard di render? | still | 4, 16, 19, 22 |
 | Ada adegan terkunci yang berubah? | `scripts/baseline_lock.py check` | 14 |
-| Integrated di luar −14,0…−14,5 LUFS atau true peak > −1 dBTP? | ebur128 | §14.10 |
+| Integrated di luar −14,0…−14,5 LUFS atau true peak > −1 dBTP (diukur di MP4 setelah mux AAC, bukan hanya WAV)? | ebur128 | §14.10 |
 | `audio_qa.py --module5`, `audio_phone.py` (tiap SFX terdengar di HP 20/50/100 %), `visual_coverage.py` ada yang gagal? | keluaran skrip | 30, 35, 37, 38 |
 | Generate berbayar sebelum gerbangnya terbuka, atau biaya tidak disebut? | log sesi | 10 |
 
@@ -62,7 +66,7 @@ Jawab dengan bukti, bukan klaim. Satu jawaban lemah = FAIL.
 DELIVERY GATE · <proyek> v<N>
 B1 sfx_density PASS: 2,04 SFX/dtk, cakupan 91 %, celah senyap terpanjang 1,8 dtk
 B1 DENGAR PASS: earshot timeline ref (6,9 event/dtk) + describe 23 file, 0 label salah
-B1 caption_lines PASS: 0 frame > 1 baris, 0 tepi (304 frame @4 fps)
+B1 caption_lines PASS: 0 frame > 2 baris, 0 tepi (304 frame @4 fps)
 B2 kotak beat 7 PASS: kontras 3,1 : 1 tanpa kotak (latar meja putih)
 ...
 Penyimpangan dari storyboard: <daftar + alasan>

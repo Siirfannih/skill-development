@@ -1,13 +1,13 @@
 {
   "id": "mg-044",
-  "source": "Irfan 6 Nov: referensi yang diberikan tidak ada yang memakai subtitle dua baris (baseline render DOAC dihapus 8 Nov: proyek tidak selesai, bukan standar)",
+  "source": "Irfan 9 Nov, Behindwork: caption boleh 4 kata atau lebih per tampil asal tidak lebih dari 2 baris (menggantikan versi 6 Nov: satu baris)",
   "prompt": "Tambahkan caption untuk potongan wawancara ini, ikuti gaya referensi.",
   "files": [
     "(render klip apa pun dengan caption)"
   ],
   "assertions": [
-    "Setiap caption satu baris; klausa panjang dipecah menjadi dua caption berurutan",
-    "Tidak ada kata yatim di baris kedua dan tidak ada caption terpotong tepi",
-    "Laporan Delivery Gate memuat keluaran scripts/gate/caption_lines.py dengan PASS"
+    "Setiap caption paling banyak 2 baris sekali tampil; klausa yang lebih panjang dipecah menjadi caption berurutan",
+    "Tidak ada kata yatim di baris kedua, tidak ada caption terpotong tepi, dan tidak ada ucapan tanpa caption",
+    "Laporan Delivery Gate memuat keluaran scripts/gate/caption_lines.py (default --max-lines 2) dengan PASS"
   ]
 }

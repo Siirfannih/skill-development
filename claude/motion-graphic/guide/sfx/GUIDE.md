@@ -13,8 +13,10 @@
 - Satu peran = satu bunyi yang sama sepanjang video (pop kartu selalu pop yang sama).
 - Setiap cue menulis `peran` + `alasan` (kenapa bunyi itu ada di titik itu). Batasnya spam, bukan jumlah: whoosh maks 1/dtk dan tidak lebih keras dari VO −6 dB (Irfan 8 Nov).
 - Sumber: `~/sfx/SFXIrfan`, `~/sfx/Kenyset` dulu; tidak cocok → Epidemic, internet, ElevenLabs. Tidak ada batasan sumber.
-- Bunyi sesuai bahan objek: kertas → rip/rustle; foto → shutter; UI → tap; kunci/ikon → ding/pop; transisi → whoosh tipis.
-- Waktu: pop 1–2 frame setelah objek jelas; whoosh memuncak di puncak gerak/cut; tidak pernah mendahului objek.
+- Bunyi sesuai bahan objek: kertas → rip/rustle; foto → shutter; UI → tap; kunci/ikon → ding/pop; gerak cepat terlihat (wipe, dash, sapuan, slide) → whoosh tipis; cut/ganti frame → klik, bukan whoosh (Irfan 9 Nov, Behindwork).
+- Tanda rapat berulang (50 tanda X) = satu rattle berirama, bukan 50 tick; end card = satu hit rendah.
+- Waktu: `t` diatur supaya **puncak** bunyi jatuh di frame visual; pop 1–2 frame setelah objek jelas; whoosh memuncak di kecepatan tertinggi gerak; jarak antarwhoosh ≥ 1 dtk (mixer mengubah yang lebih rapat jadi tick); tidak pernah mendahului objek.
+- Level: normalisasi puncak dulu, gain −4…−10 dB; −33 dB tidak terdengar (Irfan 9 Nov, Behindwork).
 - Jumlah = jumlah event (aturan 43); kategori audio hanya mengatur karakter: energi punchy, fokus lembut. Berlaku juga di klip podcast.
 - Kata kinetik berbunyi per kata (klik mouse); subtitle berbunyi satu kali per frasa (1 pesan = 1 bunyi).
 

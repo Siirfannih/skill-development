@@ -51,6 +51,8 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Render penuh 
 | 11 | Preview + QA | `delivery-gate.md` §0, `analysis-qa.md` §16 | **Audio diperiksa lebih dulu** (kesalahan V5 mayoritas audio, Irfan 8 Nov): `audio_order.py check` PASS (tidak ada lapisan basi), `gate/sfx_density.py`, `audio_phone.py`, `earshot timeline`. Still per beat + audio saja lulus, baru render penuh; ≥ 3 putaran kritik, skor ≥ 8; devil's advocate audio `delivery-gate.md` §4 |
 | 12 | Kirim | `delivery-gate.md` | Video + laporan Delivery Gate (setiap PASS berbukti) + daftar penyimpangan |
 
+Beberapa video sekaligus: satu grup agen per video (Writing, SFX, Audio) + orkestrator QC; grup video berikutnya dibuat hanya setelah video ini lolos QC penuh. QC tiga lapis berurutan: visual saja → visual + SFX → visual + SFX + musik (`delivery-gate.md` §0) (Irfan 9 Nov, Behindwork).
+
 Revisi dari Irfan: baca `revision-log.md`, catat di `DECISIONS.md` (§21) dan RETRO, baru kerjakan; `scripts/baseline_lock.py check` wajib lolos. Pekerjaan dalam rencana yang Irfan setujui dianggap disetujui; yang menunggu kata "final" hanya script dan storyboard.
 
 ## 5. Struktur
@@ -60,7 +62,7 @@ motion-graphic/
 ├── SKILL.md                 inti: gerbang, indeks aturan (file ini)
 ├── guide/                   standar rasa per urusan (README → visual · teks · gerak · audio · sfx · hindari · referensi)
 ├── references/
-│   ├── core-rules.md        teks penuh aturan inti 1–45
+│   ├── core-rules.md        teks penuh aturan inti 1–46
 │   ├── music-profiles.json  profil musik per kategori suasana (kalibrasi dari referensi Irfan)
 │   ├── slop-catalog.md      tanda yang pernah Irfan tolak + cara mengeceknya
 │   ├── delivery-gate.md     preview-dulu + laporan PASS/FAIL berbukti sebelum kirim
@@ -75,7 +77,7 @@ motion-graphic/
     ├── audio/ears.py            telinga gabungan: demucs stem → earshot + ukuran → setuju/beda
     ├── gate/sfx_density.py      1 SFX per event visual: kepadatan + cakupan + celah senyap
     ├── gate/voice_fidelity.py   alat ukur: suara sumber bersih tidak rusak (udara > 9 kHz, LRA)
-    ├── gate/caption_lines.py    caption 1 baris, tidak terpotong tepi
+    ├── gate/caption_lines.py    caption ≤ 2 baris, tidak terpotong tepi
     ├── audio/pace_read.py       tempo video → kategori suasana + rentang bpm musik
     ├── audio/music_fit.py       peringkat musik terhadap kategori + benturan dengan suara
     ├── baseline_lock.py · bedah-kamera.py · palette_check.py · audio_qa.py
@@ -114,15 +116,15 @@ Tiga tingkat, mengikuti pola anti-slop: **Hard Gate** mutlak; **Purpose-Gate** t
 - 12 Tidak ada video ke Irfan sebelum verdict SHIP + Delivery Gate · 13 tidak yakin = tanya, jangan menebak
 - 14 Adegan disetujui tidak disentuh · 17 baca folder proyek sebelum build · 18 revisi = diff, bukan tulis ulang
 - 33 VO tidak dipercepat, jeda diukur · 38 Modul 1–5 standar mix
-- **43 1 frame / 1 pesan / 1 objek visual / 1 gerakan = 1 SFX** · 44 Caption satu baris, tidak terpotong · 45 audio ikut tempo video: kategori dari `pace_read.py`, musik lulus `music_fit.py`
+- **43 1 frame / 1 pesan / 1 objek visual / 1 gerakan = 1 SFX** · 44 Caption ≤ 2 baris, hadir selama ada ucapan, tidak terpotong · 45 audio ikut tempo video: kategori dari `pace_read.py`, musik lulus `music_fit.py`
 
 **Purpose-Gate**
 - 6 Kotak di belakang teks hanya bila kontras gagal · 7 setiap efek punya alasan · 24 efek karena fungsi (negative = transisi/before-after)
 - 40 Contoh Irfan berlaku untuk frame yang ia sebut · 28 panduan AI lain diterapkan selektif
 
 **Quality Lock**
-- 1 Satu fokus per momen · 20 teks dan visual bergiliran · 31 visual mengikuti subjek kalimat · 3 tokoh/dunia konsisten
-- 5 Nol crossfade · 42 transisi = logika ruang · 26 kamera = alat fokus · 29 kamera patuh VO · 9 motion blur di gerak cepat
+- 1 Satu fokus per momen · 46 teks berurutan, waktu baca cukup, tanpa tabrakan · 20 teks dan visual bergiliran · 31 visual mengikuti subjek kalimat · 3 tokoh/dunia konsisten
+- 5 Nol crossfade; overlay masuk/keluar bergerak · 42 transisi = logika ruang · 26 kamera = alat fokus, frame tidak datar · 29 kamera patuh VO · 9 motion blur di gerak cepat
 - 8 Keterbacaan HP · 15 tidak ada biru di latar gelap · 39 serif tidak sejajar bold; satu baris satu ukuran · 41 palet dikunci di brief
 - 16 storyboard = struktur, bukan visual akhir · 21 format berulang beda framing · 23 uji logika dunia nyata + devil's advocate
 - 25 musik per babak · 27 tiga detik pertama · 32 backsound tidak bolong · 34 audio tidak dibatasi folder

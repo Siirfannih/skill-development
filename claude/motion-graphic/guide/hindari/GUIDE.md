@@ -6,7 +6,7 @@ Ini daftar pindai, bukan larangan teknik. Satu tanda dengan alasan tertulis bole
 |---|---|---|---|
 | Warna kebanyakan | mata tidak tahu fokus | hitung keluarga hue di still | satu aksen + netral, atau maksimalis satu sistem (`../visual/`) |
 | Teks tidak beraturan / bertumpuk | dua hal berebut dibaca | still per frasa | dua lapis maks, caption mundur saat penekanan (`../teks/`) |
-| Caption 2 baris / terpotong | terbaca seperti subtitle film | `caption_lines.py` | pecah klausa |
+| Caption > 2 baris / terpotong / dihapus | terbaca seperti artikel, atau ucapan tanpa teks | `caption_lines.py` | pecah klausa; setiap ucapan bercaption |
 | Gerak kaku / linear / fade polos | terasa template | putar 0,5× | easing ekspresif, blur, mask (`../gerak/`) |
 | Cutout tidak rapi | terasa tempelan | still 100 % di tepi | matte bersih, feather, cahaya disamakan |
 | Kurang smooth / patah | perhatian putus | cut tidak di ketukan | cut di kata/beat/puncak gerak |

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
-"""Hitung jumlah baris caption di render. Gagal bila ada caption > 1 baris atau terpotong di tepi.
+"""Hitung jumlah baris caption di render. Gagal bila ada caption > 2 baris (aturan 44, Irfan 9 Nov) atau terpotong di tepi.
 
-Pakai:  python3 caption_lines.py render.mp4 [--fps 4] [--band 0.55 0.95] [--max-lines 1]
+Pakai:  python3 caption_lines.py render.mp4 [--fps 4] [--band 0.55 0.95] [--max-lines 2]
 Deteksi: piksel putih (min RGB > 215, saturasi rendah) di pita bawah, proyeksi per baris,
          blok setinggi huruf caption (1,1–4 % tinggi frame) dihitung sebagai satu baris.
 Teks berwarna aksen (headline oranye, dsb.) tidak dihitung; ini khusus caption putih.
 Keluaran: daftar rentang waktu yang melanggar + PASS/FAIL. Exit code 1 bila FAIL.
 Deteksi bisa salah pada komposisi kinetik bertingkat yang disengaja; buka still (--stills) dan
-putuskan per frame: caption 2 baris = gagal, komposisi penekanan yang dirancang = catat sebagai pengecualian.
+putuskan per frame: caption > 2 baris = gagal, komposisi penekanan yang dirancang = catat sebagai pengecualian.
 """
 import argparse, subprocess, sys
 import numpy as np
@@ -51,7 +51,7 @@ def lines_in(img, band):
 
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("video"); ap.add_argument("--fps", type=float, default=4)
-    ap.add_argument("--band", type=float, nargs=2, default=[0.55, 0.95]); ap.add_argument("--max-lines", type=int, default=1)
+    ap.add_argument("--band", type=float, nargs=2, default=[0.55, 0.95]); ap.add_argument("--max-lines", type=int, default=2)
     ap.add_argument("--stills", help="folder: simpan still setiap frame yang ditandai untuk dicek mata")
     a = ap.parse_args()
     if a.stills:

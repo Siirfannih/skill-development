@@ -21,6 +21,14 @@ python3 scripts/audio/music_fit.py --category fokus --voice sumber.mp4 --duratio
 ```
 Skrip mengukur tempo yang dirasakan, kepadatan ketukan, kecerahan, build/drop, dinamika, mayor/minor, dan **benturan dengan suara**: selisih suara vs musik di pita 500–4000 Hz pada level rencana (min 12 dB; ≤ 4 dB kurang = boleh diatasi EQ −4 dB §14.1, lebih dari itu ganti track). Pakai track teratas yang `PAKAI`; tulis keluarannya di laporan Delivery Gate. bpm/onset di luar rentang = `GUGUR`; earshot rank wajib jalan (skrip berhenti bila tidak terpasang); kandidat < 8 file atau dari < 2 folder sumber = FAIL (Irfan 8 Nov).
 
+**Cara memilih backsound yang terbukti** (Irfan 9 Nov, Behindwork: "pemilihan audio tepat, penggunaan backsound tepat"; 3 short Naval):
+1. Kumpulkan **≥ 20 kandidat dari ≥ 2 sumber** (pustaka lokal + YouTube lewat `yt-dlp`, sumber dicatat di `SOURCES.md`). Gerbang skrip tetap FAIL di < 8; 20 adalah target kerja.
+2. Peringkat dengan `music_fit.py` pada **potongan yang benar-benar dipakai** (`--duration` = durasi video, mulai dari offset yang akan dipakai), bukan track utuh: onset bisa berayun 2,2 → 3,6 hanya karena titik mulai bergeser (N3 Embrace: mulai 32 dtk = 2,22, 34–44 dtk = 3,1–3,6).
+3. Kenali dengan `earshot describe` pada potongan itu: instrumental (tanpa tag Speech/Singing AudioSet) dan mood sesuai brief.
+4. Tolak bila menutupi suara (masking > 4 dB di 500–4000 Hz), terbaca sedih/melankolis padahal brief tidak, atau bpm/onset di luar rentang.
+5. Tiap klip satu genre berbeda (Behindwork: orkestra Forzisimo / lo-fi Canals / chillstep Embrace).
+6. Pilih bagian yang **tidak punya breakdown di dalam durasi klip** (lewati intro braam, dip, outro fade); cek RMS 5 dtk potongannya.
+
 Profil di `music-profiles.json`: `energi` disesuaikan dengan 6 video referensi Irfan (musik ±104–136 bpm, `guide/referensi/`); kategori lain masih hipotesis. Kalibrasi dari **stem musik video referensi yang suasananya cocok** (bukan dari track favorit): `music_fit.py --calibrate <k> stem1 stem2 stem3`. SFX untuk kandidat: `earshot rank "<peran>" kandidat/*` untuk karakter, `sfx_comfort.py` untuk desis; jumlahnya mengikuti event visual (aturan 43), bukan kategori.
 
 ### 14.0B Mengenali audio: earshot = skor pertama, lalu divalidasi (Irfan 8 Nov)
@@ -130,11 +138,20 @@ Aturan:
   Yang boleh senyap hanya wajah pembicara tanpa overlay dan tanpa gerak kamera (aturan 43).
 - **Peran + alasan wajib di setiap cue SFX dan musik** (Irfan 8 Nov): `{t, peran, alasan, file, terikat_ke_visual, offset, dB}`. `peran` = fungsinya (mis. `kata_kinetik`, `kartu_mendarat`, `transisi`, `musik_babak2`); `alasan` = satu kalimat kenapa bunyi itu ada di titik itu (mis. "kata 'worthy' mendarat, penekanan emosi babak 3"). Cue tanpa peran atau alasan = FAIL di `gate/sfx_density.py`. Tidak ada bunyi yang "sekadar ada".
 - **Batasnya spam, bukan jumlah** (Irfan 8 Nov): whoosh/swoosh/whip maksimal 1 per detik dan puncaknya tidak melebihi puncak VO −6 dB; satu file yang sama tidak diulang dalam 1 detik kecuali seri kata kinetik; maksimal 2 bunyi per 100 ms (§14.9). `gate/sfx_density.py` menandai pelanggaran.
+- **Peta SFX yang terbukti** (Irfan 9 Nov, Behindwork, 3 short Naval ±110–120 cue/60 dtk):
+  - `t` cue dihitung supaya **puncak** bunyi jatuh di frame visual (t = frame − offset puncak file setelah trim);
+  - whoosh **hanya** di gerak cepat yang terlihat (panel wipe, dash, sapuan, slide), puncak di kecepatan tertinggi; tidak pernah di cut;
+  - satu tick lembut per frasa caption (bukan per kata);
+  - satu pop per elemen ilustrasi yang mendarat; garis tergambar senyap;
+  - satu hit rendah untuk end card;
+  - tanda rapat yang berulang (mis. 50 tanda X) = satu rattle berirama, bukan 50 tick;
+  - dua event < 0,1 dtk (3 f) berbunyi satu (peran prioritas membawa keduanya), supaya tidak flam;
+  - mixer mengubah cue gerak yang mulai < 1 dtk setelah cue gerak sebelumnya jadi tick: rencanakan jarak whoosh ≥ 1 dtk.
 - **Satu event satu bunyi.** Tidak ada layering beberapa file untuk satu event; pilih satu file yang karakternya sudah lengkap (Irfan 6 Nov).
 - **Waktu @30 fps** (SFX tidak pernah mendahului objek, aturan inti 37):
   - pop: +1…+2 f setelah objek terlihat jelas (§14.9)
   - dentum/impact: di frame mendarat
-  - hard cut: satu whoosh tipis, puncak di cut
+  - hard cut / ganti frame: klik (`cut_click`), atau senyap bila tertutup panel/kanvas yang sedang masuk; **bukan whoosh** (Irfan 9 Nov, Behindwork)
   - push-through / zoom-through: satu riser kontinu yang berakhir di cut, lalu impact di pendaratan
   - slam: impact di frame mendarat; sebelumnya musik turun ke drone, bukan senyap
   - whoosh/riser memuncak di landing, cut, atau v_max kamera (§14.9)
@@ -247,7 +264,8 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
 | Kursor/tombol ditekan | `mouse-click-290204` | |
 | Kartu/UI/agent muncul | `pop-up-notify-smooth-modern` | |
 | Kartu/tile mendarat | `soft-subtle-ui-pop` | |
-| Kamera patah / transisi / potongan antar pembicara | whoosh gelombang (rotasi 3 sampel mirip), puncak di v_max atau di potongan | tanpa lapisan sub |
+| Kamera patah / transisi dengan gerak cepat terlihat | whoosh gelombang (rotasi 3 sampel mirip), puncak di v_max | tanpa lapisan sub |
+| Cut / ganti frame / potongan antar pembicara tanpa gerak | klik cut pelan; senyap bila tertutup panel yang masuk | bukan whoosh (Irfan 9 Nov, Behindwork) |
 | Whip / cut on motion | `v17_whip_1/2` | |
 | Zoom-through / build | `riser` (ElevenLabs, video #2), berakhir di cut | |
 | Beat drop / pendaratan besar | `v17_impact_1`, ekor ≤ 0,9 dtk | tidak ada hantaman di frame 0 (The Gap D-038) |
@@ -285,9 +303,19 @@ Lulus bila semua terpenuhi:
 | VO per blok | −14 LUFS ±1 |
 | Klip narasumber per blok | −15,0…−15,5 LUFS (±0,5) |
 | Musik di bawah VO | −22…−25 LUFS |
+| Gain SFX setelah normalisasi puncak | −4…−10 dB (lantai −10; −33 dB tidak terdengar; Irfan 9 Nov, Behindwork) |
+| Sebaran RMS bed musik per 3 dtk | ≤ 4 dB, tanpa lubang (Behindwork 1,1–3,2 dB) |
 | Median puncak SFX UI per kelas | −16…−20 dBFS |
 | Median puncak ketikan | −22…−25 dBFS |
 | Hit terbesar video (puncak) | ≈ setara puncak VO, maksimal 1–2 per video |
+
+**Resep mix yang terbukti** (Irfan 9 Nov, Behindwork; alat: `behindwork/tools/mix.py`):
+- musik masuk di −15,5…−16,5 dB (track ber-beat/sub bass 1 dB lebih rendah); `dynaudnorm` + auto-gain RMS tahap 2 (1 dtk, maks ±8 dB) meratakan breakdown → sebaran bed 1,1–3,2 dB;
+- kantong EQ untuk suara (−4 dB 2,8 kHz, −2 dB 450 Hz), gerak musik saat kata ≤ 1,5 dB;
+- satu kali limiter (lebih banyak = dinamika pembicara gepeng, gagal LRA), target −14 LUFS;
+- setelah mix, langkah true peak oversampled (hanya menangkap puncak, gain tetap): `ffmpeg -i raw.wav -af "aresample=192000,alimiter=limit=0.85:attack=1:release=50:level=false,aresample=48000" -c:a pcm_s16le mix.wav`; puncak sampel dari skrip bukan true peak;
+- saat mux ke AAC turunkan −0,4 dB, karena AAC menaikkan puncak ±0,5 dB (N2 sebelum diperbaiki: −0,9 dBTP di MP4);
+- hasil 3 klip: −14,2 LUFS, −1,4 dBTP WAV, `voice_fidelity` PASS (ΔLRA −0,1…+0,2).
 
 Catatan pengukuran:
 - Stem dialog mono harus diukur sebagai stereo (+3 dB), karena diputar di kedua kanal.

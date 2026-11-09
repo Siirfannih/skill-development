@@ -27,7 +27,7 @@ Tentukan dulu jenis kalimat VO-nya, baru modenya.
 - **Nyala** bila: video ditonton di feed tanpa suara, formatnya wawancara/pembicara, atau penonton bukan penutur bahasa VO.
 - **Mati** bila: VO narator dan setiap beat sudah punya visual, penekanan, atau teks diegetik.
 - Bila nyala:
-  - **satu baris**: tidak pernah dibungkus jadi dua baris, tidak ada kata yatim, tidak terpotong tepi; klausa yang tidak muat lebar aman dipecah jadi dua caption berurutan (aturan 44, Irfan 6 Nov);
+  - **≤ 2 baris**: boleh 4 kata atau lebih per tampil asal tidak lebih dari 2 baris sekaligus, tidak ada kata yatim, tidak terpotong tepi; klausa yang lebih panjang dipecah jadi caption berurutan (aturan 44, Irfan 9 Nov, Behindwork);
   - per klausa 2–5 kata, tidak per kata dan tidak memotong kata;
   - posisinya tetap selama satu shot, boleh pindah antar shot ke area tenang;
   - menghilang saat beat visual atau penekanan;

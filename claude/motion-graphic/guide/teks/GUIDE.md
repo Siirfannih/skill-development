@@ -1,4 +1,4 @@
-# Teks: sedikit kata, satu baris, tidak bertumpuk
+# Teks: sedikit kata, maks 2 baris, tidak bertumpuk
 
 **Tujuan.** Teks membantu menangkap kalimat, bukan dibaca seperti artikel.
 
@@ -10,7 +10,8 @@
 
 ## Cara (pilih yang cocok)
 - Dua lapis maksimal per momen: caption (ringan) + penekanan (berat). Penekanan muncul, caption mundur.
-- Caption satu baris. Klausa panjang → pecah jadi dua caption berurutan (aturan 44).
+- Caption ≤ 2 baris sekali tampil (boleh 4+ kata); lebih panjang → pecah jadi caption berurutan. Setiap kata yang diucapkan tampil (aturan 44, Irfan 9 Nov).
+- Waktu baca ≥ max(0,8 dtk; 0,30 + 0,06 × huruf); kata tersebar terbaca satu arah; teks/ikon/kartu tidak bertabrakan (aturan 46).
 - Satu baris satu ukuran; kata yang dibesarkan pindah baris sendiri.
 - Gaya teks dipilih sekali per video (2 font maks: satu display, satu caption) lalu konsisten.
 - Teks layar dari ucapan saja (aturan 2).
