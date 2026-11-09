@@ -13,6 +13,10 @@ Contact sheet per video di `sheets/` (24 frame bertimestamp). Angka diukur 6 Nov
 | 08 | Mosycreate "Instagram Save Reminders" | konsep fitur IG, motion UI | 6 · 2,1 dtk | 32 | ±70–100 (fokus), hit di momen kehilangan | putih/abu + gradien hangat · 18 rb engagement dari ±2 rb follower (data Irfan) |
 | 09 | thekrishray "Hey I'm a motion designer" | perkenalan diri, UI sebagai cerita, VO | 20 · 1,3 dtk | 41 | energi | biru gradien lembut + putih |
 | 06 | Sleeko HowDo | product film landscape | 5 · 8,5 dtk | 27 | ±117 bpm (ragu oktaf) | ungu 62 % + putih |
+| 14 | pedro.andradeok "Grid Cut" | talking head ES + B-roll + screen recording (4:3) | 23 · 2,5 dtk | 42 · energi | bed kontinu, −17,4 LUFS | grade hangat tungsten, teks putih tanpa aksen · `pedro-andradeok.md` |
+| 15 | jefferson_fisher | percakapan duduk, kartu rounded di hitam (9:16) | 20 · 3,0 dtk | 28 · fokus | tanpa musik, jeda senyap, LRA 5,3 | monokrom low-key · `jefferson-fisher.md` |
+| 16 | markbrazil "Noir Stage" | klip podcast, panggung wide + CU (9:16) | 16 · 2,7 dtk | 29 · fokus | drone kontinu, onset 2,35/dtk, 5/6 cut ber-hit | hitam + merah `#EC0002` satu-satunya warna · `markbrazil.md` |
+| 17 | _ganimate_ showreel 2×2 | 4 proyek explainer editorial-tech (16:9) | 46 (mosaik) · 1,2 dtk | 75 · energi | musik + SFX tonal, ganti di babak data | netral + 1 aksen per mode (teal/kuning/coral) · `ganimate.md` |
 
 Pola bersama: semua cepat (kecuali 06), musik 104–136 bpm mengikuti tempo cut; palet satu keluarga dominan kecuali 02 yang sengaja maksimalis; teks layar sedikit kata per momen.
 
@@ -45,3 +49,11 @@ Pola bersama: semua cepat (kecuali 06), musik 104–136 bpm mengikuti tempo cut;
 - Komponen UI jadi alat cerita: orbit ikon app (0:04), slider harga "−1000 $ +" (0:05–0:06), composer chat AI dengan teks diketik + dropdown (0:09–0:13), chip pilihan (0:13), bubble iMessage (0:15–0:17), carousel ikon platform dengan tombol panah (0:20–0:21), kalender pilih tanggal (0:27–0:28), terowongan kata "exciting" (0:31).
 - Transisi: objek UI satu berubah/ditarik jadi berikutnya, blur gerak di setiap perpindahan, cut di kata VO.
 - Sound: tiap aksi UI berbunyi (ketik, klik, pop, swipe), VO pembicara memimpin; 20 cut/menit → kategori energi.
+
+## 14–17 guideline editing per video (dibedah Claude 9 Nov) · satu file per video
+Event visual/menit + kategori dari `scripts/audio/pace_read.py` (9 Nov). Kolom cut dari scene detect ffmpeg ambang 0,2 yang dicek ke contact sheet: `pace_read.py` hanya menangkap 4 cut di 15 dan 1 cut di 16 karena footage gelap dan pergantian speaker bersudut mirip, padahal sheet menunjukkan ±13 dan ±6 pergantian shot. Tiap file berisi kanvas, ritme, token warna, peran font, kode animasi/transisi @30 fps, audio terukur, komponen Remotion, benturan dengan aturan Irfan (usulan A/B), dan cek QC.
+- **14 pedro.andradeok** (`pedro-andradeok.md`) — kata putih mengorbit kepala pembicara, pasangan kata kecil + kata hero (rasio 5–7 : 1), transisi Grid Cut (tile putih acak ±6 f), subjek cutout keluar dari pita abu.
+- **15 jefferson_fisher** (`jefferson-fisher.md`) — footage sebagai kartu rounded di layar hitam, caption kapital yang terisi cahaya kiri→kanan mengikuti suku kata, 100 % hard cut.
+- **16 markbrazil** (`markbrazil.md`) — panggung siluet terkunci sebagai "rumah", kata vonis serif italic merah menyala di belakang siluet, counter + dot meter, lower third mono ter-decode, bleep sensor sebagai kantong senyap.
+- **17 _ganimate_** (`ganimate.md`) — sistem explainer 4 mode (arsip sinematik, UI asli, editorial putih, data isometrik) dengan tag teal menempel objek dan kamera truck isometrik.
+
