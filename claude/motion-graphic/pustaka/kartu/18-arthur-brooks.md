@@ -101,3 +101,6 @@ Rinci dan tabel per adegan: `../../guide/referensi/18-arthur-brooks-ukuran.md`. 
 
 ## Catatan pakai
 - 11 Nov, Builder Trap: template turunan kartu ini (minimal-premium) dipakai; hasil dinilai Irfan belum menggambarkan ucapan dan terlalu banyak gradien biru. Lihat `../contoh-gagal/`.
+- 12 Nov, uji rekonstruksi (Irfan): radial biru terlalu kecil sehingga lapisan gelap luarnya terlihat. Radial harus mayoritas frame dan lapisan terluarnya jatuh di luar frame.
+- 12 Nov (Irfan): jarak baris kutipan rapat (kira-kira −1 px dari ukuran huruf), kutipan maksimal 3 baris, masuk dengan motion blur. Tanda kutip tidak diberi baris sendiri; frasa pendek digabung satu baris ("not just" di kiri, "money" di sebelahnya).
+- 12 Nov (Irfan): adegan ilustrasi sudah cukup bagus; yang salah jarak. Teks menempel dekat subjek, tidak jauh di atasnya; kata sambung ("for every") tidak terlalu kecil; angka ("7–12 years") dekat subjek dan tidak mepet tepi frame.

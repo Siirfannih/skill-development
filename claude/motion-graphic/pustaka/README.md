@@ -9,6 +9,7 @@ Tujuan repo ini menaikkan mutu hasil dari prompt Irfan, bukan menyediakan templa
 | `kartu/<ref>.md` | anatomi 8 bagian satu referensi | hanya kartu yang dipilih |
 | `RESEP-TEMPLATE.md` | resep 8 baris per video | disalin ke `projects/<proyek>/RESEP.md` |
 | `teknik/` | pola lintas referensi yang boleh dipinjam (kinetic typography, resep editing) | saat merancang bagian itu |
+| `../fonts/README.md` | file font, pengganti, dan peran tiap jenis huruf | saat mengisi baris Teks di resep |
 | `contoh-gagal/` | frame yang pernah Irfan tolak + sebabnya | sebelum menilai still sendiri |
 
 ## Pengikat dan teknik
@@ -28,7 +29,7 @@ Yang dicatat kartu adalah hal yang tidak bergantung pada audio: proporsi (kata k
 1. Baca `../LANTAI.md` dan `PETA.md`.
 2. Tentukan kiblat (`PETA.md` §Cara memilih). Buka kartunya.
 3. Salin `RESEP-TEMPLATE.md` ke `projects/<proyek>/RESEP.md`, isi 8 baris. Jalankan `python3 ../scripts/juri/resep_check.py projects/<proyek>/RESEP.md`.
-4. Prompt lengkap: langsung jalan dan kirim resep bersama hasil. Prompt kabur: kirim resep ke Irfan dulu dalam satu pesan.
+4. Prompt menyebut gaya atau membawa referensi: langsung jalan dan kirim resep bersama hasil. Prompt tidak menyebut arah gaya: pilih 3 calon kiblat yang cocok dengan jenis videonya, buat satu still pembuka dari video itu untuk tiap calon (`render.sh still`, bukan render video), kirim ketiganya ke Irfan dalam satu pesan dan tunggu ia memilih (Irfan 12 Nov).
 5. Build. Render hanya lewat `../scripts/juri/render.sh` (still → draft → final).
 6. **Juri** sebelum kirim (di bawah).
 

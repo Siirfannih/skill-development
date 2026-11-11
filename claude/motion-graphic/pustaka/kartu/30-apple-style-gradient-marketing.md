@@ -85,4 +85,5 @@
 - Teks putih hanya di atas gradien; teks di putih selalu hitam.
 
 ## Catatan pakai
-- Belum pernah dipakai sebagai kiblat.
+- Belum pernah dipakai sebagai kiblat di video; baru diuji lewat rekonstruksi still.
+- 12 Nov, uji rekonstruksi (Irfan): objek 3D masih three.js mentah, terlalu bertekstur dan kasar: perlu penghalusan (material halus, cahaya lembut). Kata "now" polos karena tidak ada blur di pinggir huruf.

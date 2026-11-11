@@ -86,4 +86,5 @@ Rinci: `ukuran.md`. Frame kunci 720×1280: `keyframes/02-k1…k8-*.jpg`.
 - Penutup hitam murni dengan logo putih kecil (±3,7 % tinggi) di tengah.
 
 ## Catatan pakai
-- Belum pernah dipakai sebagai kiblat.
+- Belum pernah dipakai sebagai kiblat di video; baru diuji lewat rekonstruksi still.
+- 12 Nov, uji rekonstruksi (Irfan): yang paling mendekati aslinya di antara enam kartu yang diuji.
