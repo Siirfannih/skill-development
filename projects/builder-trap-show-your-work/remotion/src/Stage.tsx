@@ -10,11 +10,12 @@ export type Cam = { x?: number; y?: number; z?: number; rx?: number; ry?: number
 const CamCtx = createContext<Required<Cam>>({ x: 0, y: 0, z: 0, rx: 0, ry: 0, rz: 0 });
 export const useCam = () => useContext(CamCtx);
 
-export const Stage: React.FC<{ cam: Cam; children: React.ReactNode }> = ({ cam, children }) => {
+// mb = motion blur in px, driven by camera speed on fast dives (rule 9)
+export const Stage: React.FC<{ cam: Cam; children: React.ReactNode; mb?: number }> = ({ cam, children, mb = 0 }) => {
   const c = { x: 0, y: 0, z: 0, rx: 0, ry: 0, rz: 0, ...cam };
   return (
     <CamCtx.Provider value={c}>
-      <AbsoluteFill style={{ perspective: PERSP, perspectiveOrigin: '50% 50%', overflow: 'hidden' }}>
+      <AbsoluteFill style={{ perspective: PERSP, perspectiveOrigin: '50% 50%', overflow: 'hidden', filter: mb > 0.3 ? `blur(${mb}px)` : undefined }}>
         <AbsoluteFill style={{
           transformStyle: 'preserve-3d',
           transform: `translateZ(${c.z}px) rotateX(${c.rx}deg) rotateY(${c.ry}deg) rotateZ(${c.rz}deg) translate3d(${-c.x}px, ${-c.y}px, 0)`,

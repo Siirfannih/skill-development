@@ -294,3 +294,9 @@ Alur yang terbukti: konsep → evaluasi rubrik → bangun adegan → still per p
 - Teks di dunia footage harus aman-zoom: lebar teks dihitung dari zoom terkuat (push × punch-in) dengan titik asal di wajah, kalau tidak teks keluar tepi kiri.
 - Pembicara yang suaranya sangat peaky (Sam, GSB) tidak bisa −14 LUFS tanpa gagal gerbang LRA; pakai target −15 (hasil −15,6/−15,7), platform akan menormalkan.
 - Disk PC bersama bisa penuh: hapus hasil sementara sendiri (sheet QC, parts) dengan path literal.
+
+### 2026-11-11 · Builder trap (claude2, PC) · review v1–v3
+Revisi Irfan: VO kloning dihapus; screenshot UI dilarang (bangun ulang sebagai kode); palet Deep Space radial ditolak, putih utama + gradient linear hanya momen tertentu; 2,5D empat lapisan; red zone tepi frame; visual harus memerankan ucapan (Threads → draft, repo tanpa release); "Apakah kamu sudah benar benar membaca semua isi skill-development terbaru?".
+Akar masalah: gerbang 0 hanya membaca SKILL.md dan cabang sepotong-sepotong; `core-rules.md`, `slop-catalog.md`, `guide/`, `palette.md`, `decision-guide.md`, `delivery-gate.md`, RETRO tidak dibaca utuh sebelum desain. Akibatnya aturan yang sudah ada dilanggar ulang: 1/S-V4 (HP kiri + kartu kanan), 5 (fade), 8 (caption 38 px < 56), 22 (kartu kosong/placeholder), 27 (frame 0 tanpa gebrakan), 32 (musik fade-in), 41 (palet karangan), 43 (frasa caption tanpa bunyi), 47 (teks wajah tidak setinggi dagu, tidak aman-zoom), S-A8 (SFX tanpa normalisasi), S-A12 (whoosh di cut), decision-guide §1 (caption tidak mundur saat penekanan); proses `roles.md`/menu gaya/`board.py` dilewati.
+Usulan aturan: gerbang 0 wajib menulis daftar file yang dibaca utuh (`core-rules.md`, `slop-catalog.md`, `guide/*`, `palette.md`, `decision-guide.md`, `delivery-gate.md`, RETRO 5 entri terakhir) + tiga aturan paling relevan per file di `handoff/BRIEF.md`; tanpa daftar itu gerbang 1 tidak dibuka.
+Status: menunggu persetujuan

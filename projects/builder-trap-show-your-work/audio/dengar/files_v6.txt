@@ -1,0 +1,25 @@
+/home/irfan/sfx/Kenyset/flipcard-91468.mp3
+/home/irfan/sfx/Kenyset/iphone-keyboard-typing-sound-effect-336778.mp3
+/home/irfan/sfx/Kenyset/message-envoye-iphone-apple-391098.mp3
+/home/irfan/sfx/Kenyset/mouse-click-290204.mp3
+/home/irfan/sfx/Kenyset/multi-pop-2-188167.mp3
+/home/irfan/sfx/Kenyset/pop-up-notify-smooth-modern-332448.mp3
+/home/irfan/sfx/Kenyset/sfx-erreur-363728.mp3
+/home/irfan/sfx/Kenyset/soft-subtle-ui-pop-sfx-348820.mp3
+/home/irfan/sfx/Kenyset/sonar-ping-95840.mp3
+/home/irfan/sfx/Kenyset/ui-sound-off-270300.mp3
+/home/irfan/sfx/SFXIrfan/Enter.mp3
+/home/irfan/sfx/SFXIrfan/Popup user interface : AI.mp3
+/home/irfan/sfx/SFXIrfan/ResponAI:AIpopup.mp3
+/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/cursor_0.mp3
+/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/riser_0.mp3
+/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3
+/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_glide_2.mp3
+/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_impact_1.mp3
+/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_riser_1.mp3
+/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_shutter_1.mp3
+/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_thud_1.mp3
+/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3
+/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_1.mp3
+/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_2.mp3
+/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_3.mp3

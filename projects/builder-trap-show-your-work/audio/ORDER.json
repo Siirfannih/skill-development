@@ -6,6 +6,36 @@
    "sha": "a7ff8f71bb8bccc2",
    "waktu": "2026-11-11 11:32",
    "hulu": {}
+  },
+  "visual": {
+   "file": "/home/irfan/work/skill-development/projects/builder-trap-show-your-work/out/visual_v6.mp4",
+   "sha": "7d50b9b68b3a03f4",
+   "waktu": "2026-11-11 13:20",
+   "hulu": {
+    "suara": "a7ff8f71bb8bccc2"
+   }
+  },
+  "sfx": {
+   "file": "/home/irfan/work/skill-development/projects/builder-trap-show-your-work/audio/cues.json",
+   "sha": "39000a6457057730",
+   "waktu": "2026-11-11 13:28",
+   "hulu": {
+    "suara": "a7ff8f71bb8bccc2",
+    "visual": "7d50b9b68b3a03f4"
+   }
+  },
+  "musik": {
+   "file": "/home/irfan/work/skill-development/projects/builder-trap-show-your-work/music/used.wav",
+   "sha": "5c0369a0295143d3",
+   "waktu": "2026-11-11 13:29",
+   "hulu": {
+    "suara": "a7ff8f71bb8bccc2",
+    "visual": "7d50b9b68b3a03f4",
+    "sfx": "39000a6457057730"
+   },
+   "peran": "bed tunggal dipilih Irfan (Aware, Adrián Berenguer), offset 47,9 dtk",
+   "alasan": "Irfan: 'Gunakan musik ini'; drop di 'aku tidak menjual', lift di 'aku memutuskan' (−3 dB agar suara di atas); music_fit fokus GUGUR dilaporkan",
+   "didengar": "out/preview_visual_sfx.mp4"
   }
  },
  "dibuat": "2026-11-11 11:32"

@@ -1,0 +1,24 @@
+/home/irfan/sfx/Kenyset/benkirb-shine-1-268902.mp3
+/home/irfan/sfx/Kenyset/flipcard-91468.mp3
+/home/irfan/sfx/Kenyset/iphone-keyboard-typing-sound-effect-336778.mp3
+/home/irfan/sfx/Kenyset/message-envoye-iphone-apple-391098.mp3
+/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3
+/home/irfan/sfx/Kenyset/multi-pop-2-188167.mp3
+/home/irfan/sfx/Kenyset/pop-up-notify-smooth-modern-332448.mp3
+/home/irfan/sfx/Kenyset/sfx-erreur-363728.mp3
+/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3
+/home/irfan/sfx/Kenyset/soft-pop-sfx-433612.mp3
+/home/irfan/sfx/Kenyset/sonar-ping-95840.mp3
+/home/irfan/sfx/Kenyset/ui-sound-off-270300.mp3
+/home/irfan/sfx/Kenyset/universfield-computer-mouse-click-352734.mp3
+/home/irfan/sfx/SFXIrfan/Cut.mp3
+/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3
+/home/irfan/sfx/SFXIrfan/ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3
+/home/irfan/sfx/SFXIrfan/Enter.mp3
+/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3
+/home/irfan/sfx/SFXIrfan/Move.mp3
+/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3
+/home/irfan/sfx/SFXIrfan/Popup user interface : AI.mp3
+/home/irfan/sfx/SFXIrfan/ResponAI:AIpopup.mp3
+/home/irfan/sfx/SFXIrfan/basmenyebar.mp3
+/home/irfan/sfx/SFXIrfan/scaningfast.mp3

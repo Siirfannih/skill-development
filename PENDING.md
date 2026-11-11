@@ -14,6 +14,5 @@ Sumber: `[I]` = ada kata Irfan, `[A]` = analisis AI.
 - [A] Dari ref 18 (11 Nov): `pace_read.py` membaca hasil akhir Arthur Brooks (27 cut/menit) sebagai "energi 100–140 bpm"; musiknya string pizzicato ±108 bpm tanpa drum, jauh di bawah suara. Kandidat profil "premium-edukatif" untuk kalibrasi baris profil musik di atas.
 - [A] Engine `talking-head-reels` di Linux: matte (cut-out, siluet, kata di belakang kepala) masih butuh Apple Vision. Port ke MediaPipe/rembg di PC, atau cukup dikerjakan di Mac? (11 Nov)
 
-- [A] Aturan 15 (tidak ada elemen biru di latar gelap) vs palet `deep-space-gradien` dari Irfan 11 Nov (blob indigo/biru di navy, teks tetap putih). Latar gradient biru di gelap boleh asal teks putih, atau tetap dilarang di luar video builder-trap?
 
 _Riwayat:_ 11 Nov: 4 usulan ref 18 (tabel penempatan, menu 3 opsi per beat, paket gaya, tekstur + daftar aset) diterapkan ke `templates/gaya/`, `analysis-qa.md` §2, `storyboard.md` §1 atas permintaan Irfan membuat template dari bedah itu. Daftar 4 Nov (16 pelajaran dari proyek Fore, kartu usulan 30 Okt, dan RETRO 2 Nov) ditolak Irfan 4 Nov: proyek Fore tidak selesai dan pelajarannya bersifat kasus.

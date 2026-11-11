@@ -1,0 +1,305 @@
+== benkirb-shine-1-268902.mp3
+4.13 s 2 separate events, tonal, pitch ~1174 Hz (D6) (attack 115 ms, decays in 1247 ms). Sounds most like: a success chime (z +3.5), a triangle hit (z +3.4), a magic sparkle chime (z +3.2) [clear reading]. Other readings: a bicycle bell (everyday, z +2.6). AudioSet: Ding 0.94, Clang 0.22. peak -19.2 dBFS, -30.1 LUFS, brightness 4.1 kHz, bandwidth 20.5 kHz, noise floor -102 dBFS, side/mid -7 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.5  a success chime  [ui]  cos 0.428
+   +3.4  a triangle hit  [chimes]  cos 0.316
+   +3.2  a magic sparkle chime  [chimes]  cos 0.386
+   +3.1  a small bell  [chimes]  cos 0.345
+   +3.0  a notification ding  [ui]  cos 0.337
+   +2.6  a bicycle bell  [everyday]  cos 0.262
+   +2.4  a glockenspiel run  [chimes]  cos 0.326
+   +2.3  a music box melody  [chimes]  cos 0.292
+unvalidated hints (music genre / mood, instruments, voice): a glockenspiel (+2.7), bells (+2.0), a plucked synth arpeggio (+2.0), a music box (+1.9), crisp hi-hats (+1.0)
+== flipcard-91468.mp3
+0.97 s busy, 7.2 onsets/s (attack 148 ms, decays in 254 ms). Sounds most like: a squishy wet squelch (z +3.1), a page turning (z +3.0), a quick swipe (z +2.8) [clear reading]. AudioSet tagger unsure (Shuffling cards 0.14, Tearing 0.10). peak -9.0 dBFS, -28.0 LUFS, brightness 4.1 kHz, bandwidth 16.3 kHz, mono.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.1  a squishy wet squelch  [foley]  cos 0.279
+   +3.0  a page turning  [foley]  cos 0.317
+   +2.8  a quick swipe  [transitions]  cos 0.316
+   +2.5  a box lid closing  [foley]  cos 0.285
+   +2.4  a rubber stretch  [foley]  cos 0.232
+   +2.2  paper rustling  [foley]  cos 0.228
+   +2.2  a record scratch  [transitions]  cos 0.248
+   +2.1  a whip pan transition  [transitions]  cos 0.265
+unvalidated hints (music genre / mood, instruments, voice): a snare roll (+1.3), funk music (+1.2), an electric guitar (+1.0), a woman speaking (+0.9), a cymbal roll (+0.8)
+== iphone-keyboard-typing-sound-effect-336778.mp3
+22.70 s busy, 2.4 onsets/s, loudness range 2 LU. Sounds most like: a wooden block hit (z +3.2), a scroll wheel tick (z +2.8), a horse galloping (z +2.3) [clear reading]. Other readings: a hand clap (impacts, z +2.2), a clock ticking (everyday, z +2.0). AudioSet tagger unsure (Silence 0.12, Tick 0.12). peak -8.9 dBFS, -33.2 LUFS, brightness 2.4 kHz, bandwidth 16.3 kHz, mono. Uniform: all 4 analysed 10 s windows read as a wooden block hit.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.2  a wooden block hit  [foley]  cos 0.323
+   +2.8  a scroll wheel tick  [ui]  cos 0.332
+   +2.3  a horse galloping  [nature]  cos 0.210
+   +2.2  a hand clap  [impacts]  cos 0.270
+   +2.1  a typing cursor blip  [ui]  cos 0.248
+   +2.1  high heels walking  [foley]  cos 0.144
+   +2.0  a clock ticking  [everyday]  cos 0.217
+   +2.0  a touchscreen tap  [ui]  cos 0.242
+unvalidated hints (music genre / mood, instruments, voice): minimal electronic music (+1.9), glitch hop music (+1.3), a punchy kick drum pattern (+1.3), lo-fi hip hop beat (+1.2), trap beat (+0.9)
+== message-envoye-iphone-apple-391098.mp3
+0.50 s short one-shot (attack 92 ms, decays in 129 ms). Sounds most like: a finger squeaking on glass (z +2.9), a glass ting (z +2.7), a kalimba note (z +2.6) [plausible reading]. Other readings: a fast whoosh (transitions, z +2.6), a phone vibration buzz (ui, z +2.3). AudioSet: Sound effect 0.21, Plop 0.20, Grunt 0.07. peak 0.0 dBFS, -5.9 LUFS, brightness 1.2 kHz, bandwidth 8.1 kHz, mono.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +2.9  a finger squeaking on glass  [foley]  cos 0.193
+   +2.7  a glass ting  [chimes]  cos 0.247
+   +2.6  a kalimba note  [chimes]  cos 0.228
+   +2.6  a fast whoosh  [transitions]  cos 0.200
+   +2.5  a wine glass ring  [chimes]  cos 0.165
+   +2.4  a sustained glass harp tone  [chimes]  cos 0.144
+   +2.3  a phone vibration buzz  [ui]  cos 0.151
+   +2.2  a record scratch  [transitions]  cos 0.195
+unvalidated hints (music genre / mood, instruments, voice): a ukulele (+2.8), cheerful ukulele music (+2.2), a marimba (+1.5), a vocal chop (+1.5), an acoustic guitar (+1.4)
+== minimal-pop-click-ui-11-198311.mp3
+1.54 s busy, 4.6 onsets/s (attack 4 ms, decays in 15 ms). Sounds most like: a wooden block hit (z +2.6), a horse galloping (z +2.5), bubbles underwater (z +2.3) [plausible reading]. Other readings: a stutter glitch transition (transitions, z +2.3), a digital glitch (ui, z +2.1). AudioSet: Plop 0.23, Sound effect 0.05, Squeak 0.05. peak -0.5 dBFS, -13.2 LUFS, brightness 2.0 kHz, bandwidth 20.5 kHz, digital silence between sounds, mono.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +2.6  a wooden block hit  [foley]  cos 0.218
+   +2.5  a horse galloping  [nature]  cos 0.172
+   +2.3  bubbles underwater  [water]  cos 0.167
+   +2.3  a stutter glitch transition  [transitions]  cos 0.236
+   +2.1  a digital glitch  [ui]  cos 0.201
+   +2.1  a scroll wheel tick  [ui]  cos 0.206
+   +2.0  a keyboard typing fast  [keyboard]  cos 0.179
+   +1.7  a snare hit  [impacts]  cos 0.079
+unvalidated hints (music genre / mood, instruments, voice): glitch hop music (+1.8), a punchy kick drum pattern (+1.7), a snare roll (+1.5), a marimba (+1.4), brass section (+1.4)
+== multi-pop-2-188167.mp3
+0.22 s short one-shot (attack 80 ms, decays in 34 ms). Sounds most like: a bubble pop (z +4.0), a mouth pop (z +3.9), a cork pop (z +3.6) [clear reading]. Other readings: bubbles underwater (water, z +3.0), a fast whoosh (transitions, z +2.4). Character: dry close. AudioSet: Plop 0.90, Speech 0.08, Sound effect 0.05. peak -4.5 dBFS, brightness 870 Hz, bandwidth 10.2 kHz, mono.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +4.0  a bubble pop  [foley]  cos 0.436
+   +3.9  a mouth pop  [foley]  cos 0.398
+   +3.6  a cork pop  [foley]  cos 0.377
+   +3.0  bubbles underwater  [water]  cos 0.253
+   +2.6  a liquid bloop  [water]  cos 0.263
+   +2.6  a suction cup pop  [foley]  cos 0.273
+   +2.4  a fast whoosh  [transitions]  cos 0.189
+   +2.1  a kalimba note  [chimes]  cos 0.184
+unvalidated hints (music genre / mood, instruments, voice): funk music (+2.2), a marimba (+2.0), a vocal chop (+2.0), playful and quirky music (+1.7), a ukulele (+1.6)
+== pop-up-notify-smooth-modern-332448.mp3
+3.08 s 2 separate events (attack 8 ms, decays in 244 ms). Sounds most like: a kalimba note (z +3.4), a success chime (z +3.3), a notification ding (z +2.9) [clear reading]. AudioSet: Clang 0.20, Ding 0.19, Sound effect 0.16. peak -3.1 dBFS, -17.6 LUFS, brightness 848 Hz, bandwidth 6.5 kHz, noise floor -95 dBFS, side/mid 2 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.4  a kalimba note  [chimes]  cos 0.398
+   +3.3  a success chime  [ui]  cos 0.438
+   +2.9  a notification ding  [ui]  cos 0.355
+   +2.7  a magic sparkle chime  [chimes]  cos 0.365
+   +2.5  a glissando on bar chimes  [chimes]  cos 0.325
+   +2.4  a glockenspiel run  [chimes]  cos 0.351
+   +2.2  a doorbell  [chimes]  cos 0.295
+   +2.1  a music box melody  [chimes]  cos 0.291
+unvalidated hints (music genre / mood, instruments, voice): a marimba (+2.8), a glockenspiel (+2.8), a plucked synth arpeggio (+2.7), a music box (+1.9), pizzicato strings (+1.7)
+== sfx-erreur-363728.mp3
+0.89 s short one-shot (attack 36 ms, decays in 391 ms). Sounds most like: a punchy impact hit (z +2.6), a sword being drawn (z +2.5), a zipper (z +2.2) [plausible reading]. Other readings: digging in soil (nature, z +1.9). AudioSet: Breaking 0.48, Shatter 0.31, Sound effect 0.07. peak -6.7 dBFS, -22.6 LUFS, brightness 5.2 kHz, bandwidth 16.3 kHz, side/mid -6 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +2.6  a punchy impact hit  [impacts]  cos 0.177
+   +2.5  a sword being drawn  [everyday]  cos 0.202
+   +2.2  a zipper  [foley]  cos 0.217
+   +2.1  a metal scrape  [foley]  cos 0.151
+   +2.0  a metallic clang  [impacts]  cos 0.172
+   +2.0  a cinematic hit with a long tail  [impacts]  cos 0.140
+   +1.9  digging in soil  [nature]  cos 0.111
+   +1.9  a heavy thud  [impacts]  cos 0.135
+unvalidated hints (music genre / mood, instruments, voice): crisp hi-hats (+1.5), pizzicato strings (+1.0), a bass guitar (+0.9), funk music (+0.8), a punchy kick drum pattern (+0.8)
+== simple-whoosh-382724.mp3
+0.57 s short one-shot (attack 68 ms, decays in 139 ms). Sounds most like: a fast whoosh (z +5.1), a stick swung fast through the air (z +4.1), a swoosh passing by (z +3.5) [clear reading]. AudioSet tagger unsure (Whoosh, swoosh, swish 0.15, Zipper (clothing) 0.13, Sound effect 0.10). peak -2.1 dBFS, -15.2 LUFS, brightness 1.6 kHz, bandwidth 16.3 kHz, side/mid -17 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +5.1  a fast whoosh  [transitions]  cos 0.426
+   +4.1  a stick swung fast through the air  [transitions]  cos 0.332
+   +3.5  a swoosh passing by  [transitions]  cos 0.270
+   +3.0  a whip pan transition  [transitions]  cos 0.277
+   +2.9  a short swish  [transitions]  cos 0.263
+   +2.8  a soft air whoosh  [transitions]  cos 0.188
+   +2.7  cloth whipping through the air  [transitions]  cos 0.177
+   +2.5  a quick swipe  [transitions]  cos 0.212
+unvalidated hints (music genre / mood, instruments, voice): a ukulele (+1.7), a punchy kick drum pattern (+1.7), funk music (+1.5), a man shouting (+1.4), crisp hi-hats (+1.4)
+== soft-pop-sfx-433612.mp3
+0.19 s short transient (attack 4 ms, decays in 28 ms). Sounds most like: a mouth pop (z +4.2), a bubble pop (z +3.9), a cork pop (z +3.7) [clear reading]. Other readings: a liquid bloop (water, z +2.6), a chat message pop (ui, z +2.3). Character: dry close. AudioSet: Plop 0.90. peak -13.9 dBFS, brightness 3.7 kHz, bandwidth 20.5 kHz, mono.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +4.2  a mouth pop  [foley]  cos 0.465
+   +3.9  a bubble pop  [foley]  cos 0.465
+   +3.7  a cork pop  [foley]  cos 0.426
+   +2.8  a suction cup pop  [foley]  cos 0.334
+   +2.6  a liquid bloop  [water]  cos 0.296
+   +2.5  a water drop  [water]  cos 0.296
+   +2.3  a chat message pop  [ui]  cos 0.309
+   +2.1  a fast whoosh  [transitions]  cos 0.197
+unvalidated hints (music genre / mood, instruments, voice): a vocal chop (+1.9), funk music (+1.9), playful and quirky music (+1.7), celebratory and joyful music (+1.4), a marimba (+1.4)
+== sonar-ping-95840.mp3
+3.55 s 2 separate events, tonal, pitch ~1101 Hz (C#6) (attack 24 ms, decays in 970 ms). Sounds most like: a notification ding (z +2.5), a deep cinematic boom (z +2.4), an explosion (z +2.2) [plausible reading]. AudioSet: Sonar 0.68, Sound effect 0.27, Music 0.12. peak -9.4 dBFS, -20.5 LUFS, brightness 1.1 kHz, bandwidth 3.2 kHz, noise floor -94 dBFS, mono.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +2.5  a notification ding  [ui]  cos 0.260
+   +2.4  a deep cinematic boom  [impacts]  cos 0.206
+   +2.2  an explosion  [impacts]  cos 0.163
+   +2.2  a success chime  [ui]  cos 0.278
+   +2.1  an error buzz  [ui]  cos 0.201
+   +2.0  a sub bass drop  [impacts]  cos 0.193
+   +1.9  a chat message pop  [ui]  cos 0.272
+   +1.9  a cinematic hit with a long tail  [impacts]  cos 0.147
+unvalidated hints (music genre / mood, instruments, voice): bells (+1.2), a voice-over narration (+1.2), an electric piano (+1.2), a deep sub bass (+1.2), a glockenspiel (+1.0)
+== ui-sound-off-270300.mp3
+3.34 s sustained (attack 139 ms, decays in 254 ms). Sounds most like: a short swish (z +3.2), a cinematic hit with a long tail (z +3.1), a stutter glitch transition (z +2.5) [clear reading]. Other readings: a water drop (water, z +2.2), a crisp interface click (ui, z +2.2). AudioSet: Sound effect 0.53. peak -15.3 dBFS, -28.7 LUFS, brightness 616 Hz, bandwidth 3.2 kHz, digital silence between sounds, side/mid -5 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.2  a short swish  [transitions]  cos 0.338
+   +3.1  a cinematic hit with a long tail  [impacts]  cos 0.239
+   +2.5  a stutter glitch transition  [transitions]  cos 0.297
+   +2.4  a deep cinematic boom  [impacts]  cos 0.199
+   +2.2  a water drop  [water]  cos 0.268
+   +2.2  a liquid bloop  [water]  cos 0.258
+   +2.2  a crisp interface click  [ui]  cos 0.269
+   +2.1  a deep cinematic whoosh  [transitions]  cos 0.189
+unvalidated hints (music genre / mood, instruments, voice): a plucked synth arpeggio (+2.1), a deep sub bass (+1.6), pizzicato strings (+1.4), tech house music (+1.4), a vocal chop (+1.3)
+== universfield-computer-mouse-click-352734.mp3
+0.65 s short transient (attack 3 ms, decays in 22 ms). Sounds most like: a single mechanical keyboard key press (z +5.4), slow typing with separate key presses (z +3.6), a clicky mechanical keyboard (z +3.4) [clear reading]. AudioSet: Computer keyboard 0.20, Sound effect 0.19, Typing 0.07. peak -13.5 dBFS, -33.4 LUFS, brightness 5.8 kHz, bandwidth 20.5 kHz, side/mid -18 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +5.4  a single mechanical keyboard key press  [keyboard]  cos 0.523
+   +3.6  slow typing with separate key presses  [keyboard]  cos 0.341
+   +3.4  a clicky mechanical keyboard  [keyboard]  cos 0.314
+   +3.4  a spacebar press  [keyboard]  cos 0.349
+   +3.2  a keyboard typing fast  [keyboard]  cos 0.293
+   +3.2  an enter key press  [keyboard]  cos 0.343
+   +3.1  a soft key release click  [keyboard]  cos 0.264
+   +3.1  a deep thocky mechanical keyboard  [keyboard]  cos 0.319
+unvalidated hints (music genre / mood, instruments, voice): a punchy kick drum pattern (+0.5), dubstep music (+0.5), glitch hop music (+0.5), chiptune video game music (+0.4), an acoustic guitar (+0.4)
+== Cut.mp3
+0.78 s short one-shot (attack 20 ms, decays in 135 ms). Sounds most like: an error buzz (z +3.1), a digital glitch (z +2.6), a crisp interface click (z +2.4) [clear reading]. Other readings: an enter key press (keyboard, z +2.1), a stutter glitch transition (transitions, z +2.1). AudioSet tagger unsure (Sound effect 0.07, Coin (dropping) 0.06). peak -2.3 dBFS, -28.7 LUFS, brightness 5.2 kHz, bandwidth 20.5 kHz, side/mid -0 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.1  an error buzz  [ui]  cos 0.320
+   +2.6  a digital glitch  [ui]  cos 0.322
+   +2.4  a crisp interface click  [ui]  cos 0.323
+   +2.1  an enter key press  [keyboard]  cos 0.312
+   +2.1  a stutter glitch transition  [transitions]  cos 0.288
+   +2.0  a zipper  [foley]  cos 0.239
+   +2.0  a triangle hit  [chimes]  cos 0.189
+   +1.9  a spacebar press  [keyboard]  cos 0.278
+unvalidated hints (music genre / mood, instruments, voice): crisp hi-hats (+1.9), a man speaking (+1.3), glitch hop music (+1.2), a woman speaking (+1.0), a punchy kick drum pattern (+0.9)
+== Cutcontrastransision.mp3
+0.33 s short transient (attack 1 ms, decays in 46 ms). Sounds most like: a pen click (z +3.2), a soft key release click (z +3.0), a branch snapping (z +2.4) [clear reading]. Other readings: a toggle switch click (ui, z +2.3). AudioSet tagger unsure (Cap gun 0.06, Sound effect 0.05). peak -0.6 dBFS, brightness 7.7 kHz, bandwidth 20.5 kHz, side/mid -2 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.2  a pen click  [foley]  cos 0.386
+   +3.0  a soft key release click  [keyboard]  cos 0.326
+   +2.4  a branch snapping  [nature]  cos 0.280
+   +2.4  scissors cutting  [foley]  cos 0.272
+   +2.3  lego bricks clicking  [foley]  cos 0.281
+   +2.3  a toggle switch click  [ui]  cos 0.311
+   +2.3  a plastic toy snapping together  [foley]  cos 0.311
+   +2.2  a can opening  [foley]  cos 0.296
+unvalidated hints (music genre / mood, instruments, voice): crisp hi-hats (+1.9), someone whispering (+1.0), people laughing (+0.7), a vocal chop (+0.7), a punchy kick drum pattern (+0.6)
+== ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3
+4.41 s busy, 8.2 onsets/s (attack 124 ms, decays in 33 ms). Music (AudioSet Music 0.70). Unvalidated hints - genre: dubstep music (z +2.5), future bass music (z +2.3); mood (wrong for ~1 in 5 tracks in a test): suspenseful build-up music (z +2.0), aggressive music (z +1.7). Sounds most like: a reverse cymbal swell (z +4.5), a rising riser building tension (z +3.3), a cinematic hit with a long tail (z +3.1) [clear reading]. AudioSet: Music 0.70, Sound effect 0.18, Electronic music 0.10. peak -7.3 dBFS, -22.9 LUFS, brightness 4.0 kHz, bandwidth 20.5 kHz, noise floor -84 dBFS, side/mid -0 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +4.5  a reverse cymbal swell  [transitions]  cos 0.441
+   +3.3  a rising riser building tension  [transitions]  cos 0.350
+   +3.1  a cinematic hit with a long tail  [impacts]  cos 0.268
+   +3.0  an uplifter sweep  [transitions]  cos 0.329
+   +2.6  a downlifter falling sweep  [transitions]  cos 0.280
+   +2.6  a deep cinematic whoosh  [transitions]  cos 0.248
+   +2.4  a big braam  [impacts]  cos 0.258
+   +2.0  a short swish  [transitions]  cos 0.259
+unvalidated hints (music genre / mood, instruments, voice): dubstep music (+2.5), future bass music (+2.3), tech house music (+2.2), suspenseful build-up music (+2.0), techno music (+1.9)
+== Enter.mp3
+0.19 s short transient (attack 1 ms, decays in 40 ms). Sounds most like: a single mechanical keyboard key press (z +3.9), a soft key release click (z +3.9), a punchy impact hit (z +2.5) [clear reading]. Other readings: a pen click (foley, z +2.2). AudioSet: Computer keyboard 0.21, Knock 0.15, Sound effect 0.10. peak -2.9 dBFS, brightness 6.8 kHz, bandwidth 20.5 kHz, side/mid -11 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.9  a single mechanical keyboard key press  [keyboard]  cos 0.428
+   +3.9  a soft key release click  [keyboard]  cos 0.386
+   +2.5  a punchy impact hit  [impacts]  cos 0.176
+   +2.5  an enter key press  [keyboard]  cos 0.315
+   +2.5  a clicky mechanical keyboard  [keyboard]  cos 0.259
+   +2.4  a spacebar press  [keyboard]  cos 0.293
+   +2.2  a pen click  [foley]  cos 0.258
+   +2.2  a deep thocky mechanical keyboard  [keyboard]  cos 0.262
+unvalidated hints (music genre / mood, instruments, voice): a punchy kick drum pattern (+2.0), crisp hi-hats (+1.5), a crowd talking (+1.1), a man speaking (+0.9), a woman speaking (+0.8)
+== Kinetictypography(gunakansecaraacak).mp3
+1.24 s short one-shot (attack 22 ms, decays in 21 ms). Sounds most like: a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4) [clear reading]. Other readings: a clock ticking (everyday, z +2.1), a kalimba note (chimes, z +2.1). AudioSet: Tick 0.22, Sound effect 0.09, Tick-tock 0.08. peak -3.8 dBFS, -28.8 LUFS, brightness 11.6 kHz, bandwidth 20.5 kHz, digital silence between sounds, side/mid -6 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.0  a squishy wet squelch  [foley]  cos 0.220
+   +2.7  a scroll wheel tick  [ui]  cos 0.276
+   +2.4  ice cubes in a glass  [water]  cos 0.201
+   +2.1  a clock ticking  [everyday]  cos 0.182
+   +2.1  a liquid bloop  [water]  cos 0.221
+   +2.1  a kalimba note  [chimes]  cos 0.194
+   +2.1  bubbles underwater  [water]  cos 0.163
+   +2.0  a water drop  [water]  cos 0.216
+unvalidated hints (music genre / mood, instruments, voice): crisp hi-hats (+2.2), a punchy kick drum pattern (+1.9), glitch hop music (+1.9), minimal electronic music (+1.5), a marimba (+1.4)
+== Move.mp3
+4.35 s busy, 2.8 onsets/s (attack 66 ms, decays in 117 ms). Sounds most like: a body falling on the ground (z +2.7), a punchy impact hit (z +2.7), a heavy thud (z +2.6) [plausible reading]. Other readings: a deep cinematic whoosh (transitions, z +2.5), a drawer closing (foley, z +2.4). AudioSet: Door 0.56, Sliding door 0.19, Knock 0.12. peak -3.2 dBFS, -22.9 LUFS, brightness 1.2 kHz, bandwidth 12.9 kHz, noise floor -76 dBFS, mono.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +2.7  a body falling on the ground  [impacts]  cos 0.205
+   +2.7  a punchy impact hit  [impacts]  cos 0.168
+   +2.6  a heavy thud  [impacts]  cos 0.187
+   +2.5  a deep cinematic whoosh  [transitions]  cos 0.204
+   +2.4  a fast whoosh  [transitions]  cos 0.200
+   +2.4  a drawer closing  [foley]  cos 0.236
+   +2.3  cloth whipping through the air  [transitions]  cos 0.183
+   +2.2  digging in soil  [nature]  cos 0.122
+unvalidated hints (music genre / mood, instruments, voice): a punchy kick drum pattern (+1.6), a snare roll (+1.1), energetic and driving music (+1.1), a cymbal roll (+1.0), a man speaking (+1.0)
+== Pergantianfoto.mp3
+13.00 s 13 separate events (attack 1 ms, decays in 11 ms). Sounds most like: a pen click (z +3.1), a toggle switch click (z +3.0), a single mechanical keyboard key press (z +2.9) [clear reading]. AudioSet: Scissors 0.64, Tick 0.08. peak -3.6 dBFS, -34.3 LUFS, brightness 11.4 kHz, bandwidth 20.5 kHz, digital silence between sounds, side/mid -5 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.1  a pen click  [foley]  cos 0.403
+   +3.0  a toggle switch click  [ui]  cos 0.403
+   +2.9  a single mechanical keyboard key press  [keyboard]  cos 0.383
+   +2.9  a soft key release click  [keyboard]  cos 0.335
+   +2.8  a light switch flicked  [ui]  cos 0.367
+   +2.6  a plastic toy snapping together  [foley]  cos 0.370
+   +2.5  a mouse click  [ui]  cos 0.327
+   +2.5  a scroll wheel tick  [ui]  cos 0.342
+unvalidated hints (music genre / mood, instruments, voice): someone whispering (+0.9), a person coughing (+0.9), children laughing (+0.7), crisp hi-hats (+0.6), a vocal chop (+0.6)
+== Popup user interface : AI.mp3
+1.06 s busy, 9.4 onsets/s (attack 3 ms, decays in 386 ms). Sounds most like: a triangle hit (z +3.1), a success chime (z +2.9), a notification ding (z +2.9) [clear reading]. Other readings: an alarm clock beeping (everyday, z +1.8). AudioSet: Sound effect 0.36, Ringtone 0.15, Music 0.11. peak -17.9 dBFS, -33.0 LUFS, brightness 8.8 kHz, bandwidth 20.5 kHz, noise floor -90 dBFS, mono.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.1  a triangle hit  [chimes]  cos 0.226
+   +2.9  a success chime  [ui]  cos 0.308
+   +2.9  a notification ding  [ui]  cos 0.262
+   +2.6  a crisp interface click  [ui]  cos 0.273
+   +2.5  a magic sparkle chime  [chimes]  cos 0.255
+   +2.4  an error buzz  [ui]  cos 0.186
+   +1.9  a digital glitch  [ui]  cos 0.182
+   +1.8  an alarm clock beeping  [everyday]  cos 0.119
+unvalidated hints (music genre / mood, instruments, voice): a plucked synth arpeggio (+2.5), crisp hi-hats (+2.1), a woman speaking (+1.5), bells (+1.4), children laughing (+0.9)
+== ResponAI:AIpopup.mp3
+2.13 s busy, 2.8 onsets/s (attack 3 ms, decays in 155 ms). Sounds most like: a kalimba note (z +3.0), a success chime (z +2.9), a wooden block hit (z +2.7) [clear reading]. Other readings: a liquid bloop (water, z +1.9). AudioSet: Sound effect 0.28, Music 0.17, Synthesizer 0.06. peak -8.6 dBFS, -23.8 LUFS, brightness 508 Hz, bandwidth 5.1 kHz, digital silence between sounds, mono.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.0  a kalimba note  [chimes]  cos 0.236
+   +2.9  a success chime  [ui]  cos 0.277
+   +2.7  a wooden block hit  [foley]  cos 0.199
+   +2.6  a chat message pop  [ui]  cos 0.265
+   +2.5  a notification ding  [ui]  cos 0.196
+   +2.1  a crisp interface click  [ui]  cos 0.198
+   +2.0  a bubble pop  [foley]  cos 0.203
+   +1.9  a liquid bloop  [water]  cos 0.169
+unvalidated hints (music genre / mood, instruments, voice): a marimba (+2.5), a plucked synth arpeggio (+2.2), a glockenspiel (+1.9), a punchy kick drum pattern (+1.4), trap beat (+1.4)
+== basmenyebar.mp3
+6.27 s 5 separate events, tonal, pitch ~66 Hz (C2) (attack 268 ms, decays in 2.2 s). Sounds most like: a deep cinematic boom (z +3.9), a sub bass drop (z +3.9), a deep cinematic whoosh (z +3.5) [clear reading]. Unvalidated hint: a deep sub bass (z +3.7). Character: deep. AudioSet tagger unsure (Heart murmur 0.11, Heart sounds, heartbeat 0.06, Explosion 0.06). peak -1.9 dBFS, -17.5 LUFS, brightness 80 Hz, bandwidth 507 Hz, noise floor -57 dBFS, side/mid -7 dB.
+
+top tags (z calibrated: >= 3 clear, 2.5-3 plausible, 2-2.5 weak, < 2 tentative):
+   +3.9  a deep cinematic boom  [impacts]  cos 0.433
+   +3.9  a sub bass drop  [impacts]  cos 0.458
+   +3.5  a deep cinematic whoosh  [transitions]  cos 0.403
+   +3.0  a cinematic hit with a long tail  [impacts]  cos 0.320
+   +2.8  a big drum hit  [impacts]  cos 0.311
+   +2.4  a low rumble  [impacts]  cos 0.267
+   +2.1  a heavy thud  [impacts]  cos 0.226
+   +1.9  an explosion  [impacts]  cos 0.196
+unvalidated hints (music genre / mood, instruments, voice): a deep sub bass (+3.7), a bass guitar (+1.4), ambient synth pad music (+1.1), a punchy kick drum pattern (+1.1), hip hop beat with heavy bass (+1.1)
+== keyboard-typing-fast-371229.mp3
+8.05 s busy, 8.1 onsets/s (attack 14 ms, decays in 288 ms). Sounds most like: a laptop keyboard typing (z +4.1), a keyboard typing fast (z +4.1), slow typing with separate key presses (z +4.1) [clear reading]. Other readings: a typing cursor blip (ui, z +3.2). AudioSet: Computer keyboard 0.94, Typing 0.91. peak 0.2 dBFS, -20.5 LUFS, brightness 3.0 kHz, bandwidth 16.3 kHz, noise floor -47 dBFS, side/mid -37 dB.
+== ipad_click-99325.mp3
+1.18 s short transient (attack 1 ms, decays in 28 ms). Sounds most like: a single mechanical keyboard key press (z +3.0), a soft key release click (z +2.9), a pen click (z +2.7) [clear reading]. Other readings: a light switch flicked (ui, z +2.6). AudioSet: Finger snapping 0.62, Sound effect 0.07, Scissors 0.06. peak -17.0 dBFS, -43.4 LUFS, brightness 5.0 kHz, bandwidth 12.9 kHz, noise floor -90 dBFS, mono.
+== button-202966.mp3
+1.34 s short transient (attack 3 ms, decays in 24 ms). Sounds most like: a single mechanical keyboard key press (z +3.0), a toggle switch click (z +3.0), a spacebar press (z +2.9) [clear reading]. Other readings: a plastic toy snapping together (foley, z +2.6). AudioSet tagger unsure (Single-lens reflex camera 0.15, Sound effect 0.09). peak 1.6 dBFS, -19.0 LUFS, brightness 6.7 kHz, bandwidth 20.5 kHz, digital silence between sounds, side/mid -34 dB.

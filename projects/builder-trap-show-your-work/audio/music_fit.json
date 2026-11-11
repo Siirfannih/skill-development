@@ -1,0 +1,64 @@
+{
+  "category": "fokus",
+  "profile": {
+    "arti": "tenang, edukatif, menjelaskan, podcast santai",
+    "bpm": [
+      70,
+      100
+    ],
+    "onset": [
+      0.8,
+      3.0
+    ],
+    "centroid": [
+      700,
+      1900
+    ],
+    "build": [
+      0,
+      4
+    ],
+    "dyn": [
+      0,
+      8
+    ],
+    "mode": "any",
+    "level": -25,
+    "snr_min": 12,
+    "query": "calm lofi hip hop beat with soft keys, mellow, focus",
+    "kalibrasi": null
+  },
+  "pool_fail": [
+    "kandidat 1 < 8",
+    "kandidat dari < 2 folder sumber"
+  ],
+  "earshot": true,
+  "ranked": [
+    {
+      "file": "music/used.wav",
+      "dur": 97.5,
+      "lufs": -15.0,
+      "bpm": 71.8,
+      "onset": 4.8,
+      "centroid": 1395.0,
+      "build": 5.6,
+      "dyn": 10.2,
+      "mode": "minor",
+      "mode_margin": 0.08,
+      "score": 69,
+      "snr": -3.7,
+      "snr_ok": false,
+      "eq_fix": null,
+      "why": [
+        "onset 4.8 terlalu tinggi (target 0.8-3.0)",
+        "build 5.6 terlalu tinggi (target 0-4)",
+        "dyn 10.2 terlalu tinggi (target 0-8)",
+        "menutupi suara: selisih -3.7 dB di 3150 Hz, butuh 15.7 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 11.7 dB lalu EQ -4 dB bila kategori masih terasa"
+      ],
+      "gugur": [
+        "onset"
+      ],
+      "earshot_z": 1.33
+    }
+  ]
+}

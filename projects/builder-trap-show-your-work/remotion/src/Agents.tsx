@@ -50,16 +50,16 @@ export const Agent: React.FC<{ id: AgentId; size: number; t: number; seed?: numb
 };
 
 // ---------- editorial world (ref 01): light studio, red type, live chat canvas ----------
-const inkRed = '#0133FE';
+const inkRed = '#1A3AD0';
 type Line = { id: AgentId; name: string; text: string; at: number; x: number; y: number; side: 'l' | 'r' };
 export const AgentsWorld: React.FC<{ t: number; t0: number; font: { inter: string; tight: string; mono: string }; out: number }> = ({ t, t0, font, out }) => {
   const f = useCurrentFrame();
   const L: Line[] = [
     { id: 'fred', name: 'Creative Pro', text: 'Status: done. Laporan audit siap.', at: t0 + 0.35, x: 960, y: 300, side: 'r' },
-    { id: 'cloe', name: 'Developer', text: 'Status: done. Result: audit.', at: t0 + 1.0, x: 520, y: 470, side: 'l' },
-    { id: 'malu', name: 'Sales Ops', text: 'Status: done. Result: audit.', at: t0 + 1.55, x: 1400, y: 470, side: 'r' },
-    { id: 'vita', name: 'Content Research', text: 'Audit selesai dan dikirim.', at: t0 + 2.1, x: 640, y: 760, side: 'l' },
-    { id: 'nexo', name: 'Content Strategy', text: 'The audit report is ready.', at: t0 + 2.6, x: 1280, y: 760, side: 'r' },
+    { id: 'cloe', name: 'Developer', text: 'Status: done. Result: audit.', at: t0 + 1.0, x: 660, y: 470, side: 'l' },
+    { id: 'malu', name: 'Sales Ops', text: 'Status: done. Result: audit.', at: t0 + 1.55, x: 1260, y: 470, side: 'r' },
+    { id: 'vita', name: 'Content Research', text: 'Audit selesai dan dikirim.', at: t0 + 2.1, x: 680, y: 760, side: 'l' },
+    { id: 'nexo', name: 'Content Strategy', text: 'The audit report is ready.', at: t0 + 2.6, x: 1240, y: 760, side: 'r' },
     { id: 'yoshi', name: 'Writing Partner', text: 'Laporan audit saya sudah selesai.', at: t0 + 3.05, x: 960, y: 640, side: 'r' },
   ];
   const ease = Easing.bezier(0.22, 1, 0.36, 1);
@@ -83,14 +83,12 @@ export const AgentsWorld: React.FC<{ t: number; t0: number; font: { inter: strin
     </svg>
   );
   return (
-    <AbsoluteFill style={{ opacity: out, background: '#EADDEF' }}>
+    <AbsoluteFill style={{ opacity: out, background: '#F6F5F1' }}>
       <Stage cam={cam}>
         {/* L1 light gradient world (oversized) */}
         <Layer z={-800}>
-          <div style={{ position: 'absolute', left: -1500, top: -1000, width: 4920, height: 3080, background: 'linear-gradient(135deg, #D9CCF7 0%, #EADDEF 30%, #F6EEFA 50%, #FDCBF2 75%, #C9B8FF 100%)' }}>
-            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 70% 70%, rgba(160,135,253,0.55) 0%, rgba(160,135,253,0) 30%)' }} />
-            <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(circle at 30% 30%, rgba(119,110,254,0.35) 0%, rgba(119,110,254,0) 28%)' }} />
-            <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(91,88,235,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(91,88,235,0.08) 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
+          <div style={{ position: 'absolute', left: -1500, top: -1000, width: 4920, height: 3080, background: 'linear-gradient(180deg, #FFFFFF 0%, #F6F5F1 60%, #DCE4FF 100%)' }}>
+            <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(40,39,35,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(40,39,35,0.05) 1px, transparent 1px)', backgroundSize: '80px 80px' }} />
           </div>
         </Layer>
         {/* L2 the system: links + live packets */}
@@ -106,11 +104,11 @@ export const AgentsWorld: React.FC<{ t: number; t0: number; font: { inter: strin
             const bx = l.side === 'r' ? l.x + size * 0.38 : l.x - size * 0.38 - 360;
             return (
               <div key={l.id} style={{ position: 'absolute', left: bx, top: l.y - size * 0.42, width: 360, transform: `scale(${0.85 + bub * 0.15})`, opacity: Math.min(1, bub * 1.6), transformOrigin: l.side === 'r' ? '0% 100%' : '100% 100%' }}>
-                <div style={{ fontFamily: font.inter, fontWeight: 700, fontSize: 15, color: '#0A2353', marginBottom: 6, letterSpacing: '0.01em' }}>{l.name}<span style={{ color: '#6E6A99', fontWeight: 500, marginLeft: 8 }}>now</span></div>
-                <div style={{ display: 'inline-block', background: '#fff', borderRadius: 14, padding: '11px 16px', fontFamily: font.inter, fontSize: 19, color: '#0A2353', boxShadow: '0 12px 34px rgba(91,88,235,0.22)', border: '1px solid rgba(91,88,235,0.12)', minHeight: 24 }}>
+                <div style={{ fontFamily: font.inter, fontWeight: 700, fontSize: 15, color: '#282723', marginBottom: 6, letterSpacing: '0.01em' }}>{l.name}<span style={{ color: '#6B6A64', fontWeight: 500, marginLeft: 8 }}>now</span></div>
+                <div style={{ display: 'inline-block', background: '#fff', borderRadius: 14, padding: '11px 16px', fontFamily: font.inter, fontSize: 19, color: '#282723', boxShadow: '0 10px 28px rgba(40,39,35,0.10)', border: '1px solid rgba(40,39,35,0.08)', minHeight: 24 }}>
                   {typing ? (
                     <span style={{ display: 'inline-flex', gap: 5, alignItems: 'center', height: 22 }}>
-                      {[0, 1, 2].map((d) => <span key={d} style={{ width: 7, height: 7, borderRadius: 4, background: '#776EFE', opacity: 0.35 + 0.65 * Math.max(0, Math.sin((f / 30) * 12 - d * 0.9)) }} />)}
+                      {[0, 1, 2].map((d) => <span key={d} style={{ width: 7, height: 7, borderRadius: 4, background: '#1A3AD0', opacity: 0.35 + 0.65 * Math.max(0, Math.sin((f / 30) * 12 - d * 0.9)) }} />)}
                     </span>
                   ) : l.text.slice(0, nChars)}
                 </div>
@@ -132,12 +130,12 @@ export const AgentsWorld: React.FC<{ t: number; t0: number; font: { inter: strin
               </div>
             );
           })}
-          {[[180, 160, 0.2], [1700, 210, 0.5], [1600, 900, 0.9], [240, 860, 1.3], [1760, 560, 1.7]].map(([x, y, d], i) => {
+          {[[260, 220, 0.2], [1640, 240, 0.5], [1560, 850, 0.9], [300, 840, 1.3], [1660, 560, 1.7]].map(([x, y, d], i) => {
             const a = interpolate(t, [t0 + d, t0 + d + 0.25, t0 + d + 0.9, t0 + d + 1.2], [0, 1, 1, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
             return <div key={'px' + i} style={{ position: 'absolute', left: x, top: y, opacity: a }}>
               <div style={{ width: 22, height: 22, background: inkRed, position: 'absolute' }} />
-              <div style={{ width: 12, height: 12, background: '#776EFE', position: 'absolute', left: 30, top: -14 }} />
-              <div style={{ width: 8, height: 8, background: '#BB63FF', position: 'absolute', left: -16, top: 26 }} />
+              <div style={{ width: 12, height: 12, background: '#1A3AD0', position: 'absolute', left: 30, top: -14 }} />
+              <div style={{ width: 8, height: 8, background: '#0A1A4A', position: 'absolute', left: -16, top: 26 }} />
             </div>;
           })}
         </Layer>

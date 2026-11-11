@@ -28,6 +28,7 @@ Dipakai untuk **memindai**, bukan melarang teknik. Satu tanda dengan alasan tert
 | S-T10 | Kata tersebar tanpa urutan baca yang jelas (lompat balik ke atas/kiri) (gagal: Behindwork 9 Nov) | still per frasa: urutan kata satu arah | 46 |
 | S-T11 | Kutipan ≥ 5 kata, 3 baris rata tengah di atas wajah pembicara (gagal: Behindwork 9 Nov) | still; kutipan panjang → kanvas kosong, rata kiri | 1, 46 |
 | S-T12 | Teks hilang sebelum selesai dibaca/diucapkan (gagal: Behindwork 9 Nov) | durasi tiap frasa ≥ max(0,8; 0,30 + 0,06 × huruf) | 46 |
+| S-T13 | Kinetic typography satu gaya sepanjang video: font, ukuran, posisi, dan animasi masuk sama untuk semua kata (gagal: builder-trap 11 Nov) | daftar kata kinetik + kode T per kata: ≥ 4 teknik per 15 dtk, teknik sama ≤ 2× berturut, posisi ikut objek | `typography.md` §8 |
 | S-T2 | Teks mengulang apa yang sudah jelas di visual ("GRAY" di atas ponsel abu) | squint test, devil's advocate | `decision-guide.md` §1 |
 | S-T3 | Besar-kecil acak dalam satu baris; serif sejajar bold | still per frasa | 39 |
 | S-T4 | Kotak di belakang teks yang sudah terbaca | kontras ≥ 4,5 : 1 tanpa kotak | 6 |
@@ -60,3 +61,7 @@ Dipakai untuk **memindai**, bukan melarang teknik. Satu tanda dengan alasan tert
 | S-V18 | Vignette/lingkaran gelap di atas latar putih/terang (Irfan 11 Nov) | still adegan terang: tepi tidak lebih gelap dari tengah | palette.md |
 | S-V19 | Kombinasi coklat + hitam sebagai palet dasar terasa murah (Irfan 11 Nov) | `palette_check.py`, still | palette.md |
 | S-V20 | Screenshot UI ditempel sebagai gambar diam, bukan UI kode yang dianimasikan (Irfan 11 Nov) | daftar aset: tidak ada PNG UI di adegan | 19 |
+| S-V21 | Latar radial gradient / blob blur berwarna, atau gradient biru di banyak adegan (Irfan 11 Nov: "radial itu buruk dijadikan gradient") | grep `radial-gradient` di kode; hitung adegan bergradient | palette.md, aturan 40 |
+| S-V22 | Palet dikarang dari referensi padahal brand/`palettes.json` sudah ada (gagal: builder-trap 11 Nov) | brief menyebut palet dari `palettes.json` + bukti `palette_check.py` | palette.md §1 |
+| S-V23 | Objek/teks di red zone tepi frame (luar x 165–1755, y 140–935 @1080p) tanpa alasan kamera (Irfan 11 Nov) | still per beat dengan overlay safe frame | storyboard.md §3 |
+| S-V24 | Visual hanya simbol/kata besar, bukan aksi harfiah kalimat (contoh benar: "kecanduan" = terus membuat repo baru tanpa release; "tidak mempublikasikan" = ketik di Threads lalu simpan ke draft) (Irfan 11 Nov, ref motion graphic invideo) | tabel beat: kalimat → aksi yang terlihat | aturan 48 |
