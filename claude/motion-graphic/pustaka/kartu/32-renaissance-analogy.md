@@ -1,72 +1,91 @@
 # 32 · Renaissance analogy editorial ("The Next Renaissance")
 
 > **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
-> Sumber: "Renaissance analogy editorial", https://www.instagram.com/p/DbDyLzSRqMI/ · 4:3 (960×720), 24 fps, 90,7 dtk · analisis asal: canvas-skill-library, reference_id DbDyLzSRqMI · Frame: `../../guide/referensi/sheets/32-renaissance-analogy.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id DbDyLzSRqMI)`
-> Temuan GrokAgent digabung: `GrokAgent/reference-videos/VISUAL-BREAKDOWN.md` (V3), `AUDIO-ANALYSIS.md` (03_renaissance), dan `AUDIT-2NOV-C-audio.md` (di sana disebut "OWN", video yang sama; angkanya mengoreksi AUDIO-ANALYSIS).
-> Kedalaman bedah: **dalam** (audio terukur dengan stem terpisah; visual ditinjau seluruh frame; proporsi teks hanya sebagian terukur)
+> Sumber: "Renaissance analogy editorial", https://www.instagram.com/p/DbDyLzSRqMI/ · 4:3 (960×720), 24 fps, 90,7 dtk · analisis asal: canvas-skill-library, reference_id DbDyLzSRqMI · Frame: `../../guide/referensi/sheets/32-renaissance-analogy.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/32-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id DbDyLzSRqMI)`; data ukur: `ukuran.md`
+> Temuan GrokAgent digabung: `GrokAgent/reference-videos/VISUAL-BREAKDOWN.md` (V3), `AUDIO-ANALYSIS.md` (03_renaissance), `AUDIT-2NOV-C-audio.md` ("OWN", video sama).
+> Kedalaman bedah: **dalam** (teks, warna, cut, kamera per shot, loudness diukur dari video sumber 11 Nov 2026; sumber hanya 720p)
 
-**DNA (satu kalimat):** Esai video cepat: presenter bermikrofon tangan jadi benang argumen, diselingi arsip, lukisan, dan meme dengan caption putih tebal per kata yang hampir tidak pernah absen, di atas musik yang tidak pernah putus.
-**Cocok untuk:** esai/analogi sejarah ke masa kini, opini editorial, cerita "ini pernah terjadi" · **Tidak cocok untuk:** instruksi operasional yang butuh contoh literal dulu, tutorial langkah demi langkah
-**Kata kunci gaya:** editorial, arsip, cepat, padat, argumentatif
-**Diambil untuk:** nama tidak menyebut bagian; lihat bagian terkuat (ritme potong arsip ↔ presenter dan musik per babak). File asli di GrokAgent: `ac3ec985-siirfannih_DbDyLzSRqMI.mp4`.
+**DNA (satu kalimat):** Esai analogi sejarah yang dipotong ±70 kali/menit: presenter berkaos marun bermikrofon di ruang hangat jadi poros, diselingi arsip berita, gravir di kertas, lukisan, halaman artikel, dan meme, dengan satu caption putih bold rapat yang hampir selalu ada di dada pembicara.
+**Cocok untuk:** esai/analogi sejarah ke masa kini, opini editorial, "ini pernah terjadi" · **Tidak cocok untuk:** tutorial langkah demi langkah, demo UI produk
+**Kata kunci gaya:** editorial, arsip, cepat, padat, hangat, argumentatif
+**Diambil untuk:** nama tidak menyebut bagian; lihat bagian terkuat (ritme potong presenter ↔ arsip dan caption per kata). Nama file asli dari Irfan: "IG DbDyLzSRqMI"; di GrokAgent `ac3ec985-siirfannih_DbDyLzSRqMI.mp4`.
 
 ## PENGIKAT (diambil utuh dari SATU kiblat; ini yang membuat video terasa satu keluarga)
 
 ### 1. Warna & tekstur
-- Teks putih tebal dengan bayangan di atas footage; sesekali satu kata merah ("printing"). Angka "1440" emas 3D.
-- Pembuka: globe kecil di bidang gelap. Presenter berkemeja merah marun.
-- Arsip/berita tampil 4:3. Babak akhir digrade hangat (perkiraan, dari tonton langsung).
-- Keterbacaan teks berubah-ubah saat latar terang. Hex tidak terukur.
+- Presenter: dinding cokelat hangat `#563522`, kaos marun `#78414B`, latar buram (bokeh lensa), vignette (sudut 0,74× terang tengah).
+- Aset grafis memakai kertas abu terang bertekstur kusut `#D8D6DB` (gravir, peta, naskah, klip vertikal) atau halaman artikel putih `#FDFBFE` dengan blur kedalaman di tepi.
+- Aksen hanya pengecualian: merah `#C91F29` satu kata ("printing"), sorotan biru `#1E5A95` pada kalimat artikel, panah merah tangan.
+- Kartu tahun: biru tua `#10132F` dengan lukisan Sistina di-grade biru; angka "1440" diisi lukisan (image-in-text), bukan emas 3D.
+- Footage arsip dibiarkan apa adanya (berita, TV, film); tidak ada grade seragam, tidak ada grain tambahan.
 
 ### 2. Teks
-- Sans tebal putih; nama font tidak teridentifikasi. Sentence case, tanda baca tetap tampil.
-- Ukuran seragam ±5 % tinggi frame; penekanan lewat pengecualian: serif italic/kursif untuk "the Renaissance", kata "art" diperbesar, "1440" emas 3D, "printing" merah.
-- Posisi: tengah-bawah (y ≈ 55–70 %), kadang menyebar kiri-kanan; di close-up kata dibagi ke kiri-atas dan tengah-bawah ("The / 2030s / will be / the start"). Di shot presenter, wajah di tengah tetap terlihat.
-- 1–2 kata per tampil mengikuti suku kata ucapan; teks menempel/mengikuti subjek dan pena (perkiraan, dari tonton langsung).
-- Babak "banjir konten": teks sengaja bertumpuk kacau, banyak fokus sekaligus (perkiraan).
-- Layar hampir tidak pernah tanpa teks.
+- Font: sans grotesk bold dengan tracking rapat (paling mirip Inter Display Bold / SF Pro Display Bold, −3…−5 % tracking). Sentence case, tanda baca tampil. Satu script kaligrafi ("the Renaissance") hanya untuk nama zaman.
+- Caption standar: 1–3 kata, tinggi kotak 6,9–7,2 % (cap ±5 %), selalu satu ukuran. Di presenter pusat (50, 72–73 %), tepat di dada di bawah dagu; di b-roll naik ke tengah (y ±51 %).
+- Kata kunci: sama font, diperbesar ±1,6× ("renaissance" 11 % tinggi, lebar 81 %) di bawah, dengan kata sambung kecil (5–7 %) mengapit kiri-kanan di atasnya (x 23 % / 77 %).
+- Di gravir/dokumen: teks hitam kolom kiri-rata menempel samping wajah tokoh (x 45–73 %), satu kata merah.
+- Angka: vertikal diputar 90° setinggi 83 % frame di tepi kanan; angka kecil + label ("30,000 books") 4–5 %.
+- Penutup: kata menyebar mengelilingi dagu ("what / will / you / part / play?").
+- Watak masuk: per kata, sigap (muncul dalam 1–2 frame, tanpa geser jauh); keluar terpotong cut. Tanpa kotak, tanpa outline; bayangan tipis tidak terukur.
 
 ### 3. Ritme
-- 105 cut terdeteksi (ambang 0,3) dalam 90,6 dtk ≈ 70 cut/menit; hitungan selisih frame: 162 peristiwa visual, hard cut tiap ±0,56 dtk. Dua metode, angka berbeda.
-- VO 3,4 kata/dtk (±204 kata/menit), mengisi ±92 % durasi; tidak ada jeda senyap > 300 ms.
-- Babak: pembuka arsip + presenter → sejarah (lukisan, hitung naik) → tengah paling cepat (cut < 0,5 dtk, budaya pop) → akhir melambat, teks "bernapas" (perkiraan).
-- Cut ↔ audio: 86,7 % dalam ±80 ms dari beat/onset, tetapi dengan 5,45 onset/dtk kebetulan saja sudah ±58 %; jangan dijadikan bukti sinkron ketat.
+- 105 cut = 69,4/menit, shot median 0,71 dtk; 23 shot < 0,3 dtk, hanya 8 shot > 2 dtk. Event visual 73/menit.
+- Pembuka paling cepat (0–16 dtk: 90 cut/menit), babak sejarah 1440 paling lega (56/menit), lalu 65–78.
+- Presenter kembali tiap 2–5 dtk sebagai poros; argumen di presenter, contoh di sisipan.
+- VO ±3,4–3,8 suku kata/dtk, nyaris tanpa jeda.
 
 ## TEKNIK (boleh dipinjam referensi lain; selalu dikenakan pengikat kiblat)
 
 ### 4. B-roll / footage
-- Arsip/berita, potret sejarah, mesin cetak, lukisan klasik, potongan artikel, klip budaya pop, tangan manusia/pembuat film di akhir.
-- Presenter (mikrofon tangan) berulang kali kembali di antara arsip sebagai pengikat argumen.
-- Sisipan aksi konkret: close-up jari menekan tombol merah di antara kartu tahun dan presenter.
+- Arsip berita/TV (Fox, talk show, robot Ameca), lukisan klasik (Sistina, Athena, Caravaggio), gravir tokoh, peta & naskah tua, halaman Britannica, film/kartun (Spongebob, Tom & Jerry, Interstellar), klip kreator vertikal.
+- Hampir semua satu sisipan = satu kata/frasa ucapan ("unprecedented" → berita, "most content" → mesin cetak uang, "handmade" → Spongebob).
+- Perlakuan: full-frame crop 4:3; klip vertikal ditaruh tengah di atas kertas (±42 % lebar); dokumen diberi tilt/blur tepi.
 
 ### 5. Motion graphic
-- Kartu globe kecil + tahun besar; tanggal sejarah besar menggantikan presenter.
-- Ikon buku kecil menumpuk di samping presenter sambil angka putih berganti (hitung naik 30.000 → 200 juta).
-- Lukisan/foto diberi parallax 2,5D, tidak ada gambar yang benar-benar diam (perkiraan).
-- **Skala subjek:** tidak tercatat
-- **Kedalaman:** tidak tercatat
+- Kartu tahun: teks besar diisi gambar + judul kecil di atas. Hitung naik: ikon buku kecil menyebar di samping presenter, angka vertikal di tepi.
+- Dokumen: sorotan biru menyapu kalimat; panah merah tangan menunjuk potret.
+- Script kaligrafi ditulis di atas presenter.
+- **Skala subjek:** presenter kepala 45–55 % tinggi, lebar wajah ±25 %; gravir tokoh ±50 % lebar × 100 % tinggi di kiri; potret dokumen ±20 % lebar; satu subjek besar per shot, kecuali hitung ikon (banyak objek ±5 %).
+- **Kedalaman:** 2–3 lapis: latar buram/kertas → subjek tajam → teks. Presenter bokeh + vignette; dokumen depth-of-field miring (tepi buram); kartu 1440: lukisan di belakang dan di dalam angka.
 
 ### 6. Kamera & transisi
-- Kamera statis; perubahan datang dari cut. Transisi: hard cut.
+- Dari 76 shot terukur: 50 diam, 10 push, 10 pull, 6 pan. Presenter: drift digital pelan 2–7 % per shot, framing berganti sedang ↔ rapat antar-cut.
+- Sisipan: push cepat 13–28 % (globe, 71,8 dtk); zoom-through +69 % masuk ke gambar mesin cetak (22 dtk); pan 16–20 % pada footage.
+- Transisi: hard cut di kata; tidak ada whip/wipe/morph terlihat.
 
 ### 7. SFX
-- 5,45 onset/dtk, 124 hit kuat; sebagian besar aksen low-end adalah kick musik, bukan SFX terpisah.
-- SFX diskret hemat: 3 whoosh/riser tepat di cut (±5 ms), −8…−22 dB dari VO; 5 tik UI ±−13 dB dari VO; 16 aksen mid/badan whoosh ±−5,7 dB dari VO.
-- Jeda di batas babak diisi hit/swell +10…+16 dB, lalu musik turun lagi saat VO masuk.
+- earshot (mix, tanpa stem): 599 event (6,6/dtk); 96 berlabel: 31 hit/sub-drop, 25 pop/UI, 9 drum, 3 riser, 1 whoosh. Label adalah petunjuk; banyak "pop" bertumpuk dengan suku kata VO.
+- Kosakata: pop pendek untuk kemunculan teks/ikon, sub-bass drop di kartu besar, riser di 3,2 dtk (+20 dB di atas bed). Data lama (stem): whoosh/riser −8…−22 dB dari VO, tik UI ±−13 dB; aksen low-end kebanyakan kick musik.
 
 ### 8. Musik
-- Bed kontinu, tanpa dead air. Elektronik (perkiraan, label otomatis). Tempo: 117 bpm (AUDIO-ANALYSIS) atau grid drum ±152 bpm (AUDIT C); belum pasti.
-- Master −14,4 LUFS, true peak +0,1 dBTP, LRA 4,3 LU. VO −16,0 LUFS; musik −24,1 LUFS (−8 LU dari VO).
-- Tidak ada sidechain ducking; di jeda VO musik hanya naik ±2,6 dB.
-- Per babak (bed terhadap ucapan): pembuka −7…−17 dB · babak mesin cetak −1…−2 dB (hampir setara VO, klimaks) · babak tenang −17…−25 dB · penutup −10…−11 dB.
+- Bed kontinu tanpa jeda; earshot per babak: chiptune + vocal chop (0–5,5 dtk) → funk bass (5,5–12) → house + vocal chop (12–47) → funk/disco (47–91), semua "confident and cool". librosa 117,5 bpm, tetapi earshot: grid beat lemah (pulse clarity 0,10).
+- Mix −14,4 LUFS, true peak +0,1 dBTP, LRA 4,3 LU. Data lama: VO −16,0 LUFS, musik −24,1 LUFS (−8 LU), tanpa ducking.
+- Per babak: pembuka −7…−17 dB · mesin cetak −1…−2 dB (klimaks) · babak tenang −17…−25 dB · penutup −10…−11 dB.
+
+## Proporsi terukur (11 Nov 2026, video sumber 960×720; % terhadap frame penuh)
+| Jenis adegan | Kata kunci (% tinggi) | Kata sambung | Posisi teks | Skala subjek | Kedalaman |
+|---|---|---|---|---|---|
+| Presenter + caption (k1) | 11 (×1,6) | 5–7 | dada, pusat (50, 72–78) | kepala 45–55 % tinggi | bokeh + vignette, teks di depan |
+| Arsip berita (k2) | 7 | 7 | tengah atau kiri-kanan subjek | wajah/tubuh besar | footage rata + teks |
+| Kartu tahun (k3) | angka ±54 | judul 8,8 | judul di atas (y 25), angka tengah | angka ±90 % lebar | lukisan di belakang + di dalam angka |
+| Gravir di kertas (k4) | 8,9 (merah) | 7,1 | kolom samping wajah (x 45–73) | tokoh ±50 % lebar, terpotong kiri | kertas kusut + gravir |
+| Hitung ikon (k5) | angka vertikal 83 | 4–5 | angka tepi kanan, label kiri-bawah | ikon kecil ±5 % | presenter + ikon + angka |
+| Dokumen UI (k6) | 9,0 (hitam) | 7,1 | menempel potret, panah merah | potret ±20 % lebar | halaman miring, tepi buram |
+| Lukisan + caption (k7) | 7,2 | 7,2 | bawah-kiri (25, 73) | lukisan penuh | gambar rata + teks |
+| Script di presenter (k8) | ±18 (script) | – | tengah (50, 52) | kepala ±50 % | bokeh + script di depan |
+
+- Rasio kata kunci : caption ±1,6 kali saja; yang membedakan penekanan adalah ganti font/warna/arah, bukan ukuran besar.
+- Teks putih tidak pernah di atas wajah; di presenter selalu di bawah dagu.
 
 ## Cek kemiripan (dipakai juri saat menyandingkan still)
-- Caption putih tebal berbayangan, tinggi ±5 % frame, di tengah-bawah (y 55–70 %) atau menyebar kiri-kanan subjek.
-- Sentence case dengan tanda baca; hampir setiap still memuat teks.
-- Penekanan hanya lewat pengecualian: satu kata serif italic, satu kata merah, atau satu angka emas 3D; bukan warna aksen di semua teks.
-- Selang-seling presenter bermikrofon ↔ arsip/lukisan; wajah presenter tidak tertutup teks.
-- Ikon/angka menumpuk di samping presenter saat ada hitungan.
-- Musik tidak pernah putus dan berada ±8 LU di bawah VO.
+- Caption putih sans bold rapat, tinggi 6,5–7,5 % frame, 1–3 kata, tanpa kotak/outline.
+- Di shot presenter caption di pusat x 50 %, y 70–75 % (dada), tidak menutup wajah.
+- Kata kunci paling besar ±11 % (≤ 1,7× caption), kata sambung mengapit kiri-kanan di atasnya.
+- Satu still = maksimal satu aksen warna (merah `#C91F29` atau biru sorotan); sisanya putih/hitam.
+- Presenter di ruang hangat cokelat-marun, latar buram, sudut ±25 % lebih gelap dari tengah.
+- Aset grafis di kertas abu kusut `#D8D6DB` atau halaman artikel miring dengan tepi buram (2–3 lapis).
+- Satu subjek besar per shot (kepala presenter 45–55 % tinggi; tokoh gravir ±50 % lebar).
+- ±70 cut/menit, shot median ±0,7 dtk; sisipan push 10–30 %, presenter drift ≤ 7 %.
 
 ## Catatan pakai
 - Belum pernah dipakai sebagai kiblat.
