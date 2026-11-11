@@ -26,7 +26,7 @@
 - Warna teks: putih di gelap/lukisan/biru, hitam di kertas; di kertas kata istimewa juga tampil biru (sheet: "French" 0:40; "meaningful", "same job", "scientist").
 - A-roll tanpa kata kunci: caption kecil putih 2–3 kata di bawah dagu ("The first", "that was", "Second turn,").
 - Lukisan/objek/ilustrasi: teks mengelilingi subjek. Adegan teks penutup: tanda kutip, kalimat di tengah.
-- Ukuran sebagai % tinggi frame, durasi masuk/keluar: tidak terukur. Ukur dari video sumber.
+- Ukuran: lihat "Proporsi terukur" di bawah.
 
 ### 3. Ritme
 - 26 cut = 27,4/menit, shot median 1,7 dtk, event visual 37/menit (`pace_read.py`; terbaca `energi` dari tempo, registernya tenang).
@@ -65,6 +65,24 @@
 - String quartet / orkestra pizzicato, E mayor, ±108 bpm (librosa, stem demucs), tanpa drum; tanpa grid beat di mix (pulse clarity 0,05); duduk jauh di bawah suara.
 - Mix −20,2 LUFS, true peak −3,2 dBTP, LRA 2,0 LU.
 
+## Proporsi terukur (11 Nov, dari video sumber 17:56–18:53; % terhadap panel 9:16)
+Rinci dan tabel per adegan: `../../guide/referensi/18-arthur-brooks-ukuran.md`. Frame kunci ukuran penuh: `../../guide/referensi/sheets/keyframes/18-k1…k8-*.jpg` (pakai ini untuk lembar sanding, bukan contact sheet kecil).
+
+| Jenis adegan | Kata kunci (% tinggi) | Kata sambung | Posisi teks | Skala subjek | Kedalaman |
+|---|---|---|---|---|---|
+| Wajah + caption (k1) | sans 6–9, serif 4,7 | 1,6–1,9 | menumpuk di dada, di bawah dagu (y 55–70 %) | wajah mengisi frame | footage + teks |
+| Lukisan + teks (k2) | serif italic 5–7 | 1,4–1,6 | kolom sempit (≤ 40 % lebar) di ruang kosong samping kepala | tokoh lukisan besar | lukisan bertekstur + teks |
+| Garis + teks (k3) | 9,8 ("agility") | 1,6–1,85 | garis biru berhenti tepat di bawah kata kunci | tanpa subjek; garis tebal ±7 % lebar | kertas + garis + teks |
+| Grafik (k4) | ±4 | 1,6 | kanan-atas ujung kurva, dengan garis callout | kurva 45×37 %, bola kecil | hitam nyaris rata + grid |
+| Ilustrasi tengah (k5) | 5–6 | 1,6–2,6 | mengelilingi kepala figur; judul di sepertiga atas | **satu figur 62×61 %**, duduk di separuh bawah | kertas halftone + figur bertekstur cat |
+| Potret + cincin (k6) | 7,2 ("10") | 1,3–1,7 | judul di atas, label mengelilingi cincin | potret 57 % tinggi | 2 lapis + cincin |
+| Objek + teks (k7) | 8,1 ("PhD") | 1,85–2,3 | mengapit: kalimat di atas foto, kata kunci di bawah | foto 31×60 % di tengah | kertas + foto |
+| Teks biru (k8) | 4,8–7,7 | 2,0 | kalimat di tengah dengan tanda kutip | tanpa subjek | vignette radial kuat |
+
+- Rasio kata kunci : kata sambung **3–5 kali**; kata sambung satu ukuran saja (±1,6–1,9 %), tidak ada ukuran perantara.
+- Latar kertas `#F0F0F2`–`#F4F2F5` dengan titik halftone dan sudut ±7 % lebih gelap; latar gelap `#111111`; biru garis ±`#0F69DF`, biru ilustrasi `#193ECE`, biru penutup `#233993` → `#0C1644` di sudut.
+- Batas ukur: sumber 720p (±0,14 % per piksel); kata kecil bisa meleset ±10 %.
+
 ## Cek kemiripan (dipakai juri saat menyandingkan still)
 - Hanya satu aksen biru; sisanya hitam/arang dan putih kertas (lukisan dan wajah membawa warnanya sendiri).
 - Setiap adegan grafis punya tekstur kertas/cat yang terlihat dan menempel ke layernya.
@@ -74,6 +92,12 @@
 - Jenis adegan bergiliran dan tiap adegan cocok dengan peran kalimatnya (umumkan → wajah, jelaskan → tunjukkan).
 - Musik string pizzicato tanpa drum jauh di bawah suara; klik pada tiap teks.
 - Adegan teks penutup memakai tanda kutip.
+
+- Kata kunci 6–10 % tinggi frame (serif italic 4,5–7,5 %), kata sambung 1,5–2,3 %, rasio ≥ 3; kata sambung satu ukuran.
+- Adegan ilustrasi/objek: SATU subjek mengisi 55–62 % lebar frame, duduk di separuh bawah; teks memakai sepertiga atas. Bukan banyak objek kecil.
+- Teks di adegan lukisan/foto tokoh: kolom ≤ 40 % lebar di ruang kosong samping kepala, bukan di tengah atau di pita bawah.
+- Garis biru tebal (±7 % lebar), berhenti tepat di bawah kata kunci.
+- Latar kertas punya halftone dan sudut sedikit lebih gelap; adegan biru penuh punya vignette kuat.
 
 ## Catatan pakai
 - 11 Nov, Builder Trap: template turunan kartu ini (minimal-premium) dipakai; hasil dinilai Irfan belum menggambarkan ucapan dan terlalu banyak gradien biru. Lihat `../contoh-gagal/`.

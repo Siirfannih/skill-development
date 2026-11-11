@@ -8,12 +8,15 @@ Tujuan repo ini menaikkan mutu hasil dari prompt Irfan, bukan menyediakan templa
 | `PETA.md` | satu baris per referensi | selalu, untuk memilih kiblat |
 | `kartu/<ref>.md` | anatomi 8 bagian satu referensi | hanya kartu yang dipilih |
 | `RESEP-TEMPLATE.md` | resep 8 baris per video | disalin ke `projects/<proyek>/RESEP.md` |
+| `teknik/` | pola lintas referensi yang boleh dipinjam (kinetic typography, resep editing) | saat merancang bagian itu |
 | `contoh-gagal/` | frame yang pernah Irfan tolak + sebabnya | sebelum menilai still sendiri |
 
 ## Pengikat dan teknik
 Delapan bagian anatomi dibagi dua:
 - **Pengikat**: warna & tekstur, teks, ritme. Ketiganya diambil utuh dari **satu** sumber (kiblat). Inilah yang membuat video terasa satu keluarga.
 - **Teknik**: b-roll/footage, motion graphic, kamera & transisi, SFX, musik. Boleh dipinjam dari kartu lain bila kiblat tidak punya atau lemah di bagian itu. Teknik pinjaman selalu dikenakan pengikat kiblat (warna, huruf, tekstur, dan tempo kiblat), dan pinjamannya ditulis di resep.
+
+Yang dicatat kartu adalah hal yang tidak bergantung pada audio: proporsi (kata kunci berapa kali kata sambung, subjek mengisi berapa bagian frame), kedalaman (lapisan, buram, tekstur), dan watak gerak. **Kapan dan berapa lama** teks atau adegan tampil selalu diambil dari audio video yang sedang dikerjakan (timestamp kata), tidak dari kartu (Irfan 11 Nov).
 
 ## Urutan sumber
 1. **Prompt Irfan**: apa yang dibuat dan syaratnya.
