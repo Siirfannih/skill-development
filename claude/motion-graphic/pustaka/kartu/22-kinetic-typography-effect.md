@@ -88,4 +88,5 @@
 - ±22 cut/menit, shot median ±1,4 dtk; hook 4 dtk pertama lebih rapat dari sisanya.
 
 ## Catatan pakai
-- Belum pernah dipakai sebagai kiblat.
+- Belum pernah dipakai sebagai kiblat di video; baru diuji lewat rekonstruksi still.
+- 12 Nov, uji rekonstruksi (Irfan): paling mendekati sejauh ini; kurang bayangan dan pencahayaan supaya tulisan tampak menyala.

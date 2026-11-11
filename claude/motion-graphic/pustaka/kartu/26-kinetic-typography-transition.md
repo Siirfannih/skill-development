@@ -82,4 +82,5 @@
 - B-roll punya push-in pelan (5–30 % per shot); A-roll diam dengan punch-in.
 
 ## Catatan pakai
-- Belum pernah dipakai sebagai kiblat.
+- Belum pernah dipakai sebagai kiblat di video; baru diuji lewat rekonstruksi still.
+- 12 Nov, uji rekonstruksi (Irfan): tinggal ditambah sedikit efek dan disesuaikan dengan footage yang dipakai.

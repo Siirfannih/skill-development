@@ -97,4 +97,5 @@
 - Tiap kata/shape baru membawa pop SFX yang terdengar 10–25 dB di atas musik; riser jatuh tepat di cut.
 
 ## Catatan pakai
-- Belum pernah dipakai sebagai kiblat.
+- Belum pernah dipakai sebagai kiblat di video; baru diuji lewat rekonstruksi still.
+- 12 Nov, uji rekonstruksi (Irfan): sudah mendekati dan akurat; kesalahannya jarak antar kata terlalu jauh. Rapatkan spasi kata seperti frame asli.
