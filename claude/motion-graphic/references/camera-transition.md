@@ -4,9 +4,9 @@ Baca saat memilih gerak kamera (C) dan transisi (X) per potongan. Nomor § sama 
 
 ## 9. Kamera
 
-**Hemat dan tegas.**
-- Gerak kamera global ±10 % durasi (Holy Freak 9 %).
-- Adegan informasional (UI, workflow, checklist) diam atau drift ≤ 1,03×.
+**Tegas dan beralasan.**
+- Frame tidak datar: setiap shot lebih dari 2 detik punya gerak kamera yang disengaja, dan kamera mengikuti satu objek fokus per beat (`LANTAI.md` B10–B12, Irfan 9 Nov). Seberapa besar dan sering mengikuti kartu kiblat.
+- Adegan informasional (UI, workflow, checklist): push pelan ke bagian yang sedang dibicarakan, bukan diam. Kamera diam hanya bila kiblatnya berkamera diam dan itu tertulis di `RESEP.md`.
 - Establishing shot boleh bergerak.
 - Diam untuk dibaca 0,8–3 dtk; setelah reveal UI ≥ 4 dtk. Lalu bergerak besar: push ≥ 10 %, pan ≥ ½ frame, atau zoom ≥ 2×.
 - Gerak kecil terus-menerus terasa lemah. Gerak dalam shot pelan (3–8 dtk ease-in-out), transisi antar shot cepat (2–9 f).

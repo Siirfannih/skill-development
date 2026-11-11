@@ -1,6 +1,6 @@
 # 15 jefferson_fisher · "Card Caption Clean": guideline editing
 
-> Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di `sheets/`, scene detect ffmpeg, ebur128, spektrogram + onset librosa). Data referensi, bukan aturan: kalah dari `../../SKILL.md` dan `guide/` bila bertentangan; bagian "Benturan" berisi usulan yang belum disetujui.
+> Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di `sheets/`, scene detect ffmpeg, ebur128, spektrogram + onset librosa). Standar kualitas Irfan; kartu anatominya di `../../pustaka/kartu/`. Bila bertentangan dengan `../../LANTAI.md`, lantai menang; bagian "Benturan" berisi usulan yang belum disetujui.
 > Sumber: `jefferson_fisher_DfA5xGzxFRy.mp4` · 720×1280 (9:16) · 30 fps · 41,2 dtk · percakapan duduk (podcast/interview) + stock B-roll.
 > Status: guideline editing (tata bahasa), **bukan template**. Lihat §11 untuk benturan dengan aturan tetap Irfan.
 

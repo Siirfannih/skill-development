@@ -1,6 +1,6 @@
 # 16 markbrazil · "Noir Stage Podcast": guideline editing
 
-> Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di `sheets/`, scene detect ffmpeg, ebur128, spektrogram + onset librosa). Data referensi, bukan aturan: kalah dari `../../SKILL.md` dan `guide/` bila bertentangan; bagian "Benturan" berisi usulan yang belum disetujui.
+> Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di `sheets/`, scene detect ffmpeg, ebur128, spektrogram + onset librosa). Standar kualitas Irfan; kartu anatominya di `../../pustaka/kartu/`. Bila bertentangan dengan `../../LANTAI.md`, lantai menang; bagian "Benturan" berisi usulan yang belum disetujui.
 > Sumber: `markbrazil_DfXWojqtOb8.mp4` · 720×1280 (9:16) · 30 fps · 23,1 dtk · potongan podcast (Gary Vaynerchuk) dengan "panggung" wide shot + close-up.
 > Status: guideline editing (tata bahasa), **bukan template**. Lihat §11 untuk benturan dengan aturan tetap Irfan.
 

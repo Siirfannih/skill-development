@@ -1,6 +1,6 @@
 # 18 Joseph (Ultimate Editors) · gaya "minimal premium" Arthur Brooks + cara melatih Claude
 
-> Dibedah Claude 11 Nov dari video kiriman Irfan: YouTube `g9xoKm5DEeU` "How to Edit VIRAL Talking Head Videos Using ONLY Claude" (Joseph, 20:57). Bahan: transkrip faster-whisper, contact sheet tiap 8 dtk, frame kunci 720p, scene detect, `pace_read.py`, `earshot timeline`, `audio/ears.py` (stem demucs) pada potongan hasil akhir 17:56–18:53. Data referensi, bukan aturan: kalah dari `../../SKILL.md` dan `guide/`. Usulan yang menyentuh aturan ada di §8 dan di `PENDING.md`.
+> Dibedah Claude 11 Nov dari video kiriman Irfan: YouTube `g9xoKm5DEeU` "How to Edit VIRAL Talking Head Videos Using ONLY Claude" (Joseph, 20:57). Bahan: transkrip faster-whisper, contact sheet tiap 8 dtk, frame kunci 720p, scene detect, `pace_read.py`, `earshot timeline`, `audio/ears.py` (stem demucs) pada potongan hasil akhir 17:56–18:53. Standar kualitas Irfan; kartu anatominya `../../pustaka/kartu/18-arthur-brooks.md`. Bila bertentangan dengan `../../LANTAI.md`, lantai menang. Usulan yang menyentuh aturan ada di §8 dan di `PENDING.md`.
 > Contact sheet: `sheets/18-arthur-brooks-10-adegan.jpg` (contoh 10 jenis adegan), `sheets/18-arthur-brooks-hasil.jpg` (hasil edit akhir, tiap 2 dtk).
 > Video ini juga iklan kursus berbayar. Klaim angka (74 SFX, 225 animasi, waktu kerja) adalah kata Joseph, belum dicek kecuali yang ditandai "terukur".
 

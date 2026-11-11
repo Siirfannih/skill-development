@@ -9,8 +9,8 @@
 - 05: kinetik bertumpuk boleh **sebagai tekstur**, asal satu baris menyala yang jadi fokus.
 
 ## Cara (pilih yang cocok)
-- Dua lapis maksimal per momen: caption (ringan) + penekanan (berat). Penekanan muncul, caption mundur.
-- Caption ≤ 2 baris sekali tampil (boleh 4+ kata); lebih panjang → pecah jadi caption berurutan. Setiap kata yang diucapkan tampil (aturan 44, Irfan 9 Nov).
+- **Satu lapisan teks.** Semua ucapan tampil sebagai tipografi kinetik yang posisinya lahir dari komposisi shot; tidak ada baris subtitle terpisah di pita bawah, dan kata penekanan tidak diulang di tempat lain (`LANTAI.md` A1–A3, Irfan 11 Nov).
+- ≤ 2 baris sekali tampil (boleh 4+ kata); lebih panjang → pecah jadi tampilan berurutan. Setiap kata yang diucapkan tampil (aturan 44).
 - Waktu baca ≥ max(0,8 dtk; 0,30 + 0,06 × huruf); kata tersebar terbaca satu arah; teks/ikon/kartu tidak bertabrakan (aturan 46).
 - Satu baris satu ukuran; kata yang dibesarkan pindah baris sendiri.
 - Gaya teks dipilih sekali per video (2 font maks: satu display, satu caption) lalu konsisten.
