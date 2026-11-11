@@ -13,7 +13,7 @@ Render penuh adalah langkah paling mahal, jadi ia datang paling akhir (Irfan 6 N
 4. **Render penuh** hanya setelah 1–3 lulus, lalu jalankan skrip blok 1 sekali lagi pada MP4 final.
 
 Yang terbukti di Behindwork (Irfan 9 Nov):
-- **Draft cepat** untuk QC gerak: Remotion `--scale=0.5 --concurrency=8 --crf=28` (±1 mnt per short 60 dtk); still untuk QC layout. Render penuh (±1,5 mnt) hanya setelah visual dikunci.
+- **Draft cepat** untuk QC gerak: `scripts/juri/render.sh <proyek> draft <Comp>` (skala 0,5); still untuk QC layout lewat `render.sh … still`. Render penuh 1080p terukur ±8–18 menit per video ±97 dtk di PC server (log sesi 9–11 Nov), jadi hanya lewat `render.sh … final` setelah juri lulus (`pustaka/README.md` §Juri).
 - **QC tiga lapis berurutan**, lapis berikut hanya bila lapis sebelumnya lolos: (1) **visual saja** tanpa audio: urutan baca, waktu baca, terpotong, animasi, transisi, ilustrasi, tabrakan objek, zona aman; (2) **visual + SFX** tanpa musik: tiap SFX sesuai jenis gerak dan tepat waktu (±2 f), tidak ada event tanpa bunyi, tidak ada bunyi tanpa event; (3) **visual + SFX + musik**: bed kontinu dan sesuai emosi, suara jelas, level, tidak ada lubang.
 
 ## Blok 1: Hard Gate (semua harus "tidak")
@@ -28,7 +28,7 @@ Audio dicek lebih dulu, karena kesalahan terbanyak ada di audio (Irfan 8 Nov, V5
 | Referensi atau SFX tidak didengar (tidak ada log `earshot timeline` ref + `earshot describe` tiap file)? | log earshot di folder proyek | gerbang DENGAR `three-segment-gate.md` |
 | Suara sumber klip yang bersih diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | 38, §14.6 |
 | Kategori suasana tidak tertulis, musik tanpa laporan `music_fit.py` berstatus PAKAI (earshot aktif), kandidat < 8 atau dari < 2 sumber, atau track yang sama dipakai di semua klip/babak? | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 kandidat/*` | 25, 34, 45 |
-| Ada caption > 2 baris, kata yatim, teks terpotong tepi, atau ucapan tanpa caption? | `python3 scripts/gate/caption_lines.py render.mp4 --stills qc/` + keputusan per still yang ditandai | 44 |
+| Ada teks > 2 baris, kata yatim, teks terpotong tepi, ucapan tanpa teks, baris subtitle di pita bawah, atau kata yang tampil dua kali? | `python3 scripts/juri/teks_cek.py qc/stills/` + keputusan per still yang ditandai (`caption_lines.py` hanya menghitung baris) | 44, LANTAI A1–A4 |
 | Ada teks/angka layar yang tidak diucapkan? | transkrip vs daftar teks | 2 |
 | Ada UI karangan atau placeholder storyboard di render? | still | 4, 16, 19, 22 |
 | Ada adegan terkunci yang berubah? | `scripts/baseline_lock.py check` | 14 |
