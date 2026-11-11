@@ -1,0 +1,14 @@
+{"versi":"A","catatan":"src = detik di raw.mp4; jeda = hening sesudah potongan (dtk)",
+"potongan":[
+ {"id":"1","babak":"1 Tesis","src":[69.95,75.66],"jeda":0.30,"teks":"Semua orang tuh bisa membangun, semua orang tuh bisa membuat, semua orang tuh bisa bikin software."},
+ {"id":"2","babak":"1 Tesis","src":[75.80,79.40],"jeda":0.80,"teks":"Tapi gak semua orang bisa mempublikasikan apa yang mereka buat."},
+ {"id":"3","babak":"2 Siapa aku","src":[18.60,32.66],"jeda":0.30,"teks":"Memasuki usia 20-an, aku merasa aku perlu untuk melakukan sesuatu yang berbeda, sesuatu yang unik, sesuatu yang gak orang lain punya. Dan aku termakan kata-kata motivasi: kalau mau jadi sesuatu, harus menjadi sesuatu yang berbeda."},
+ {"id":"4","babak":"2 Siapa aku","src":[33.06,47.26],"jeda":0.35,"teks":"Karena itu aku gak mau mencoba hal-hal yang kelihatannya banyak orang coba. Aku gak mau jadi orang yang FOMO, dan akhirnya aku melakukan banyak investasi waktu pada AI untuk belajar, untuk melakukan sesuatu, build something."},
+ {"id":"5","babak":"2 Siapa aku","src":[58.88,65.64],"jeda":0.80,"teks":"Selama satu tahun aku mencoba untuk belajar, untuk memahami seperti apa industri ini, dan apa yang sudah aku buat."},
+ {"id":"6","babak":"3 Belokan","src":[47.44,55.86],"jeda":0.40,"teks":"Tapi satu hal yang aku lewatkan adalah: aku tidak menjual apapun, aku tidak mempublikasikan apapun, dan tidak mendokumentasikan apapun."},
+ {"id":"7","babak":"3 Belokan","src":[81.84,91.52],"jeda":0.45,"teks":"Dan ngebangun itu bikin kita jadi adiktif. Atau kecanduan untuk membangun sesuatu yang pada akhirnya gak pernah kita publish, dan gak pernah selesai."},
+ {"id":"8","babak":"3 Belokan","src":[1.08,12.30],"jeda":0.70,"teks":"Aku terobsesi sama kesempurnaan, dan aku merasa pengen sekali menjadi seorang otentik. Sampai akhirnya aku gak menjadi siapapun, dan aku gak melangkah jauh ke mana-mana."},
+ {"id":"9","babak":"4 Sadar & janji","src":[66.50,68.08],"jeda":0.60,"teks":"Sampai akhirnya aku sadar."},
+ {"id":"10","babak":"4 Sadar & janji","src":[95.00,108.70],"jeda":0.45,"teks":"Dan sekarang aku memutuskan untuk kembali ke titik awal, di mana mungkin aku harusnya gak sekedar membangun, tapi juga nge-share apa yang aku alami, apa yang aku buat, apa pengalaman yang aku dapatkan."},
+ {"id":"11","babak":"4 Sadar & janji","src":[79.44,81.86],"jeda":1.0,"teks":"Share. Ngebagiin apa yang belum sempurna."}
+]}

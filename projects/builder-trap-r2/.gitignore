@@ -1,0 +1,7 @@
+raw/
+out/
+qc/
+bedah/*.json
+edit/*.wav
+audio/*.wav
+bedah/tr.err
