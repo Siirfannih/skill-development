@@ -33,7 +33,7 @@ export const StackPair: React.FC<Base & { small: string; big: string; size: numb
   const k2 = interpolate(t, [at, at + f(12)], [0, 1], { ...C, easing: IN });
   const s = smear(t, out);
   return <div style={{ position: 'absolute', left: x, top: y, ...s }}>
-    <div style={{ overflow: 'hidden', height: size * 0.36 }}><div style={{ fontFamily: fonts.text, fontWeight: 500, fontSize: size * 0.3, color, opacity: 0.85, transform: `translateY(${(1 - k1) * 140}%)`, textShadow: sh(shadow) }}>{small}</div></div>
+    <div style={{ overflow: 'hidden', height: size * 0.5 }}><div style={{ fontFamily: fonts.text, fontWeight: 500, fontSize: size * 0.42, color, opacity: 0.85, transform: `translateY(${(1 - k1) * 140}%)`, textShadow: sh(shadow) }}>{small}</div></div>
     <div style={{ overflow: 'hidden', height: size * 1.12 }}><div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: size, lineHeight: 1.05, color, letterSpacing: '-0.035em', transform: `translateY(${(1 - k2) * 140}%)`, textShadow: sh(shadow), whiteSpace: 'nowrap' }}>{big}</div></div>
   </div>;
 };
@@ -102,7 +102,7 @@ export const SlotSwap: React.FC<{ t: number; lead: string; words: [string, numbe
   const lk = interpolate(t, [words[0][1] - f(6), words[0][1] + f(4)], [0, 1], { ...C, easing: IN });
   const ex = interpolate(t, [end - f(5), end], [0, 1], { ...C, easing: OUT });
   return <div style={{ position: 'absolute', left: x, top: y, width: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', transform: `translateY(${ex * -40}px)`, filter: `blur(${ex * 8}px)`, opacity: 1 - ex }}>
-    <div style={{ fontFamily: fonts.text, fontWeight: 500, fontSize: size * 0.28, color, whiteSpace: 'nowrap', transform: `translateY(${(1 - lk) * 30}px)`, opacity: lk }}>{lead}</div>
+    <div style={{ fontFamily: fonts.text, fontWeight: 500, fontSize: size * 0.4, color, whiteSpace: 'nowrap', transform: `translateY(${(1 - lk) * 30}px)`, opacity: lk }}>{lead}</div>
     <div style={{ position: 'relative', height: size * 1.15, overflow: 'hidden', width: 1600, marginTop: 6 }}>
       {words.map(([w, a], i) => {
         const next = words[i + 1]?.[1] ?? 1e9;
@@ -149,4 +149,14 @@ export const Label: React.FC<Base & { text: string; tx: number; ty: number }> = 
     <div style={{ position: 'absolute', left: x, top: y, width: len * k, height: 2, background: color, transformOrigin: '0 50%', transform: `rotate(${ang}deg)` }} />
     <div style={{ position: 'absolute', left: x, top: y, transform: `translate(-100%, -50%) translateX(-12px) scale(${0.8 + k * 0.2})`, transformOrigin: '100% 50%', opacity: k, fontFamily: fonts.mono, fontWeight: 500, fontSize: 26, letterSpacing: '0.14em', color: '#fff', background: color, borderRadius: 30, padding: '8px 18px', whiteSpace: 'nowrap' }}>{text}</div>
   </>;
+};
+
+// T29 swing Y from the left edge (10–14 f), exit smear
+export const SwingY: React.FC<Base & { text: string; size: number }> = ({ t, at, out, x, y, text, size, color = '#fff', fonts, shadow }) => {
+  if (!live(t, at, out)) return null;
+  const k = interpolate(t, [at, at + f(12)], [0, 1], { ...C, easing: IN });
+  const s = smear(t, out);
+  return <div style={{ position: 'absolute', left: x, top: y, transformOrigin: '0% 50%', transform: `perspective(900px) rotateY(${(1 - k) * 72}deg)`, opacity: Math.min(1, k * 3) }}>
+    <div style={{ fontFamily: fonts.display, fontWeight: 800, fontSize: size, color, letterSpacing: '-0.04em', lineHeight: 1, textShadow: sh(shadow), whiteSpace: 'nowrap', ...s }}>{text}</div>
+  </div>;
 };

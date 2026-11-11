@@ -7,16 +7,17 @@ import { loadFont as loadInter } from '@remotion/google-fonts/Inter';
 import { loadFont as loadOutfit } from '@remotion/google-fonts/Outfit';
 import { loadFont as loadMono } from '@remotion/google-fonts/JetBrainsMono';
 import { loadFont as loadSerif } from '@remotion/google-fonts/InstrumentSerif';
-import { SpinPop, StackPair, BlurScatter, Counter, ColorFlash, Slam, ScaleSettle, SlotSwap, Converge, Chaotic, Label } from './Type';
+import { SwingY, SpinPop, StackPair, BlurScatter, Counter, ColorFlash, Slam, ScaleSettle, SlotSwap, Converge, Chaotic, Label } from './Type';
 import CAPS from './captions.json';
 import REPOS from '../public/data/repos.json';
 import { AgentsWorld, Agent } from './Agents';
-import { Stage, Layer } from './Stage';
-import { ThreadsWeb, ThreadsModal, ThreadPostData, InstagramPhone, OpenBotWindow, OB_ROWS, CalendarCard, MiniMonth, Repo, monthKey, CUBES, Cube, Circuits, DeskScene, NightBG } from './Ui';
+import { Stage, Layer, PERSP as PERSP_ } from './Stage';
+import { World, Stand, Seat, C as FC } from './Flat';
+import { ThreadsWeb, ThreadsModal, ThreadPostData, InstagramPhone, OpenBotWindow, OB_ROWS, CalendarCard, MiniMonth, Repo, monthKey, DeskScene, NightBG } from './Ui';
 import type { AgentId } from './Agents';
 
 export const FPS = 30;
-export const TOTAL = 97.5;
+export const TOTAL = 96.0;
 
 const inter = loadInter('normal', { weights: ['400', '500', '600', '700'], subsets: ['latin'] }).fontFamily;
 const outfit = loadOutfit('normal', { weights: ['400', '500', '600', '700', '800'], subsets: ['latin'] }).fontFamily;
@@ -86,7 +87,7 @@ const BackPlate: React.FC<{ mood?: 'light' | 'dark' | 'blue'; grid?: boolean }> 
 );
 
 // pixel-block wipe (ref 03), blue family only
-const WIPES = [15.68, 40.18, 48.26, 51.9, 62.4, 82.4, 87.6];
+const WIPES = [15.68, 87.6]; // mosaic kept for 2 moments only; other joins use whip / push-through (rule 42)
 const BlockWipe: React.FC = () => {
   const t = useT();
   const at = WIPES.find((w) => Math.abs(t - w) < 0.5);
@@ -103,7 +104,7 @@ const BlockWipe: React.FC = () => {
       {Array.from({ length: rows * cols }).map((_, i) => {
         const c = i % cols, r = Math.floor(i / cols);
         const rnd = random(`w${at}-${i}`);
-        if (rnd < 0.18) return null;
+        if (rnd < 0.18 || (r + 1) * bh > 840) return null;
         const off = (c / (cols - 1) - 0.5) * 0.26 + (random(`o${at}-${i}`) - 0.5) * 0.12;
         const o = interpolate(Math.abs(t - at - off), [0, 0.22], [1, 0], { extrapolateRight: 'clamp' });
         if (o <= 0) return null;
@@ -114,22 +115,88 @@ const BlockWipe: React.FC = () => {
   );
 };
 
+// spatial transitions (rule 42): whip = topic change, push = into the next idea
+const Join: React.FC<{ from: number; to: number; inM?: 'whip' | 'push'; outM?: 'whip' | 'push'; children: React.ReactNode }> = ({ from, to, inM, outM, children }) => {
+  const t = useT() + from;
+  const ki = inM ? lerp(t, from, from + 0.22, 1, 0, Easing.out(Easing.cubic)) : 0;
+  const ko = outM ? lerp(t, to - 0.22, to, 0, 1, Easing.in(Easing.cubic)) : 0;
+  const x = (inM === 'whip' ? ki * 760 : 0) - (outM === 'whip' ? ko * 760 : 0);
+  const sc = (inM === 'push' ? 1 + ki * 0.3 : 1) * (outM === 'push' ? 1 + ko * 0.6 : 1);
+  const b = (ki + ko) * 26;
+  return <AbsoluteFill style={{ transform: `translateX(${x}px) scale(${sc})`, filter: b > 0.5 ? `blur(${b}px)` : undefined }}>{children}</AbsoluteFill>;
+};
+
+// the last post settles, then the frame breathes out to the page colour (review r4: hard last frame)
+const EndFade: React.FC = () => { const t = useT(); const o = lerp(t, 95.35, 95.95, 0, 1, Easing.in(Easing.quad)); return o > 0 ? <AbsoluteFill style={{ background: T.bg, opacity: o }} /> : null; };
+
 // ---------- captions (inside the safe frame) ----------
 const HIDE: [number, number][] = [[21.5, 25.75]];
 // emphasis windows: caption steps back while the big word carries the line
-const EMPH: [number, number][] = [[0, 1.6], [1.6, 6.4], [8.45, 10.9], [11.9, 15.4], [16.78, 19.68], [31.86, 32.7], [59.9, 62.3], [63.2, 67.5], [72.88, 73.62], [75.86, 77.4]];
+const EMPH: [number, number][] = [[67.6, 71.1], [0, 1.6], [1.6, 6.4], [8.45, 10.9], [11.9, 15.4], [16.78, 19.68], [31.86, 32.7], [59.9, 62.3], [63.2, 67.5], [72.88, 73.62], [75.86, 77.4]];
+// words already on screen as an emphasis or diegetic text are dropped from the subtitle (decision-guide §1: text and visual never say the same thing)
+const SUPP: [number, number, string[]][] = [
+  [0.5, 1.62, ['terobsesi']], [1.6, 6.4, ['sama', 'kesempurnaan']], [8.4, 10.9, ['siapa', 'pun', 'siapa pun']], [11.85, 15.4, ['20-an']],
+  [16.7, 19.68, ['unik']], [31.8, 32.7, ['fomo']], [39.3, 40.2, ['build', 'something']], [40.6, 44.3, ['satu', 'hal', 'yang', 'aku', 'lewatkan', 'adalah', 'menjual']], [87.6, 89.6, ['nggak', 'sekadar', 'membangun']], [59.85, 62.3, ['sadar']],
+  [63.2, 67.5, ['semua', 'orang', 'tuh', 'bisa', 'membangun', 'membuat', 'bikin', 'software']], [67.45, 71.1, ['nggak', 'semua', 'orang']],
+  [72.8, 73.62, ['belum', 'sempurna']], [75.8, 77.4, ['kecanduan']], [85.0, 87.6, ['titik', 'awal']],
+];
+const norm = (w: string) => w.toLowerCase().replace(/[.,?!]/g, '');
+// once a word has been carried by the emphasis text it stays out of its caption phrase (no word popping back in after the big word leaves)
+const shown = (t: number, ws: number, w: string) => !SUPP.some(([a, b, list]) => t >= a && ws >= a - 1.2 && ws < b && list.includes(norm(w)));
+// ---- one kinetic text layer (Lantai A1/A2, kiblat 55 k1/k8): each phrase sits where the shot leaves room ----
+// [from, to, x, y(top), align, maxWidth, tone (k = ink on light, w = white on dark), box only if contrast fails (A9)]
+type Slot = [number, number, number, number, 'l' | 'c', number, 'k' | 'w', boolean?];
+const SLOTS: Slot[] = [
+  [0, 15.68, 200, 560, 'l', 620, 'w'],          // confession: empty wall left of the face
+  [15.68, 19.68, 200, 150, 'l', 760, 'k'],      // above the crowd, opposite "unik."
+  [19.68, 25.8, 200, 430, 'l', 470, 'k'],       // beside the phone
+  [25.8, 32.66, 960, 640, 'c', 640, 'k', true], // inside the tunnel's clear core, under the figure
+  [32.66, 35.9, 200, 380, 'l', 560, 'w'],       // night wall, left of the desk
+  [35.9, 40.18, 960, 740, 'c', 900, 'k'],       // under the prompt box
+  [40.18, 44.8, 960, 150, 'c', 1100, 'w', true], // camera on the modal text: line sits on the dimmed page above (dark plate, A9)
+  [44.8, 48.26, 960, 850, 'c', 1100, 'w', true],  // camera moves to Post/Cancel at the top: line drops below
+  [48.26, 51.9, 960, 850, 'c', 1200, 'k'],      // under the calendar
+  [51.9, 56.45, 760, 600, 'l', 820, 'w'],       // empty chat pane of OpenBot
+  [56.45, 58.58, 960, 880, 'c', 1100, 'k'],     // page space under the contribution graph
+  [58.58, 62.4, 200, 560, 'l', 620, 'w'],       // the wall again, left of the face
+  [62.4, 71.0, 960, 345, 'c', 1200, 'k'],       // under the headline, above the builders
+  [71.0, 73.64, 960, 845, 'c', 1200, 'k'],      // logos take the centre: the line drops onto the veiled floor
+  [73.64, 82.4, 200, 740, 'l', 820, 'k'],       // under the repo form
+  [82.4, 87.6, 960, 830, 'c', 1200, 'k'],      // under the calendar
+  [87.6, 96.1, 190, 470, 'l', 330, 'k'],        // the empty left column of Threads
+];
+const STACK: Slot[] = [
+  [0.1, 1.62, 1213, 545, 'l', 560, 'w'],     // above "terobsesi"
+  [1.62, 6.4, 1150, 520, 'l', 560, 'w'],     // under "sama / kesempurnaan."
+  [8.4, 10.9, 1240, 570, 'l', 520, 'w'],     // above "siapa pun."
+  [11.85, 15.4, 1200, 470, 'l', 520, 'w'],   // under "20-an"
+  [16.7, 19.68, 1180, 290, 'l', 560, 'k'],   // under "unik." (two lines would hit the word from above)
+  [31.8, 32.66, 960, 770, 'c', 1100, 'k'],   // under the FOMO title card
+  [59.85, 62.3, 1240, 560, 'l', 480, 'w'],   // under "sadar."
+  [67.5, 71.0, 560, 330, 'l', 900, 'k'],     // under "nggak semua orang."
+  [72.85, 73.64, 960, 330, 'c', 1100, 'k'],  // under "belum sempurna."
+  [75.8, 77.4, 1200, 580, 'l', 520, 'k'],    // under "kecanduan."
+];
+// key words keep the line's size and take the accent colour (kiblat 55: emphasis = colour, not size)
+const KEY = new Set(['menjual', 'mempublikasikan', 'mendokumentasikan', 'publish', 'selesai', 'nge-share', 'belajar', 'ai', 'membangun', 'ngebangun']);
 const Captions: React.FC = () => {
   const t = useT();
   if (HIDE.some(([a, b]) => t >= a && t < b)) return null;
   const c = (CAPS as any).caps.find((x: any) => t >= x.s - 0.05 && t < x.e);
   if (!c) return null;
-  const dark = isDark(t);
-  const back = EMPH.some(([a, b]) => t >= a && t < b) ? 0.38 : 1;
+  const words = c.words.filter(([ws, w]: [number, string]) => shown(t, ws, w));
+  if (!words.length) return null;
+  const sl = STACK.find(([a, b]) => t >= a && t < b) ?? SLOTS.find(([a, b]) => t >= a && t < b) ?? SLOTS[SLOTS.length - 1];
+  const [, , x, y, al, mw, tone, box] = sl;
+  const ink = tone === 'w' ? '#FFFFFF' : T.ink;
+  const fresh = tone === 'w' ? 'rgba(255,255,255,0.5)' : '#A3A19A'; // newest word grey, then full (kiblat 55)
+  const k = lerp(t, c.s - 0.05, c.s + 0.18, 0, 1, Easing.out(Easing.cubic));
   return (
-    <div style={{ position: 'absolute', left: 0, right: 0, bottom: 1080 - SAFE.y1 + 10, display: 'flex', justifyContent: 'center' }}>
-      <div style={{ opacity: back, transform: `scale(${0.92 + back * 0.08})`, fontFamily: inter, fontWeight: 600, fontSize: 56, color: dark ? '#FFFFFF' : T.ink, textShadow: dark ? '0 2px 12px rgba(0,0,0,0.7)' : '0 1px 8px rgba(255,255,255,0.9)' }}>
-        {c.words.map(([ws, w]: [number, string], i: number) => (
-          <span key={i} style={{ opacity: lerp(t, ws - 0.06, ws + 0.06, 0, 1), marginRight: 10 }}>{w}</span>
+    <div style={{ position: 'absolute', left: al === 'c' ? x - mw / 2 : x, top: y, width: mw, display: 'flex', justifyContent: al === 'c' ? 'center' : 'flex-start', transform: `translateY(${(1 - k) * 18}px)`, opacity: k }}>
+      <div style={{ fontFamily: inter, fontWeight: 700, fontSize: 52, lineHeight: 1.16, letterSpacing: '-0.02em', textAlign: al === 'c' ? 'center' : 'left',
+        textShadow: tone === 'w' ? '0 2px 18px rgba(0,0,0,0.55)' : 'none', ...(box ? { background: tone === 'w' ? 'rgba(12,14,24,0.78)' : 'rgba(246,245,241,0.92)', borderRadius: 14, padding: '6px 18px' } : {}) }}>
+        {words.filter(([ws]: [number, string]) => !box || t >= ws - 0.06).map(([ws, w]: [number, string], i: number) => (
+          <span key={i} style={{ opacity: lerp(t, ws - 0.06, ws + 0.04, 0, 1), color: t < ws + 0.3 ? fresh : KEY.has(norm(w)) ? (tone === 'w' ? '#9DB2FF' : T.acc) : ink, marginRight: 13, display: 'inline-block' }}>{w}</span>
         ))}
       </div>
     </div>
@@ -244,18 +311,58 @@ const Face: React.FC = () => {
     <Stage cam={cam} mb={lerp(t, 15.1, 15.68, 0, 7, Easing.in(Easing.cubic))}>
       <Layer z={-150}>
         <AbsoluteFill style={{ transform: 'scale(1.08)' }}>
-          <OffthreadVideo src={staticFile('face.mp4')} muted style={{ width: 1920, height: 1080, filter: 'contrast(1.1) saturate(0.85) brightness(1.02)' }} />
+          <OffthreadVideo src={staticFile('face.mp4')} muted style={{ width: 1920, height: 1080, filter: 'contrast(1.08) saturate(0.88) brightness(1.14)' }} />
         </AbsoluteFill>
       </Layer>
       <Layer z={-120}>
-        <SpinPop t={t} at={-0.2} out={1.62} x={1213} y={630} text="terobsesi" size={84} shadow fonts={FONTS()} />
-        <StackPair t={t} at={1.66} out={6.4} x={1213} y={590} small="sama" big="kesempurnaan." size={70} shadow fonts={FONTS()} />
-        <BlurScatter t={t} at={8.45} out={10.75} x={1213} y={630} text="siapa pun." size={84} shadow fonts={FONTS()} />
-        <Counter t={t} at={11.9} out={15.4} x={1226} y={610} to={20} suffix="-an" size={110} shadow fonts={FONTS()} />
+        <SpinPop t={t} at={0.56} out={1.62} x={1213} y={630} text="terobsesi" size={84} shadow fonts={FONTS()} />
+        <StackPair t={t} at={1.66} out={6.4} x={1150} y={380} small="sama" big="kesempurnaan." size={78} shadow fonts={FONTS()} />
+        <BlurScatter t={t} at={8.45} out={10.75} x={1240} y={700} text="siapa pun." size={96} shadow fonts={FONTS()} />
+        <SwingY t={t} at={11.9} out={15.4} x={1200} y={300} text="20-an" size={150} shadow fonts={FONTS()} />
       </Layer>
     </Stage>
   );
 };
+
+// ---------- fish-eye ring (Irfan 11 Nov) ----------
+// Many pages wrap AROUND the focus like a fisheye lens: the centre stays clear for the word, cards grow,
+// come closer (z) and tilt toward the edges, and orbit slowly — they frame the text instead of competing with it.
+type FEItem = { x: number; y: number; z: number; ry: number; rx: number; s: number; a: number; rn: number };
+const fishEye = (n: number, t: number, o: { clear?: number; spin?: number; rx?: number; ry?: number; bulge?: number; phase?: number } = {}): FEItem[] => {
+  const { clear = 0.42, spin = 0.06, rx = 1250, ry = 760, bulge = 1.2, phase = 0 } = o;
+  return Array.from({ length: n }).map((_, i) => {
+    const rn = clear + (1 - clear) * Math.sqrt((i + 0.5) / n);
+    const a = i * 2.39996 + phase + t * spin;
+    const R = Math.pow(rn, 0.85);
+    return { x: 960 + Math.cos(a) * R * rx, y: 540 + Math.sin(a) * R * ry, z: (rn - 0.55) * 700, ry: -Math.cos(a) * 58 * rn, rx: Math.sin(a) * 46 * rn, s: 0.5 + bulge * rn * rn, a, rn };
+  });
+};
+const FECard: React.FC<{ p: FEItem; w: number; h: number; pop?: number; children: React.ReactNode }> = ({ p, w, h, pop = 1, children }) => (
+  <div style={{ position: 'absolute', left: 0, top: 0, width: w, height: h, transformStyle: 'preserve-3d',
+    transform: `translate3d(${p.x - w / 2}px, ${p.y - h / 2}px, ${p.z}px) rotateY(${p.ry}deg) rotateX(${p.rx}deg) scale(${p.s * pop})`, opacity: Math.min(1, pop * 1.5) }}>
+    {children}
+  </div>
+);
+const TrendCard: React.FC<{ i: number }> = ({ i }) => (
+  <div style={{ width: 230, height: 150, borderRadius: 12, background: '#FFFFFF', border: '1px solid rgba(40,39,35,0.08)', boxShadow: '0 10px 26px rgba(40,39,35,0.10)', position: 'relative', overflow: 'hidden' }}>
+    <div style={{ position: 'absolute', left: 10, top: 10, right: 10, height: 96, borderRadius: 8, background: `linear-gradient(180deg, ${T.soft}, #FFFFFF)` }}>
+      <svg width="210" height="96" viewBox="0 0 210 96"><circle cx="105" cy="40" r="16" fill={T.navy} /><path d="M73 96 C73 64 137 64 137 96 Z" fill={T.navy} /></svg>
+      <div style={{ position: 'absolute', left: 8, top: 8 }}><Logo name={['instagram', 'tiktok', 'youtube', 'threads'][i % 4]} size={18} color={T.ink} /></div>
+    </div>
+    <div style={{ position: 'absolute', left: 12, bottom: 12, display: 'flex', alignItems: 'center', gap: 6, fontFamily: inter, fontSize: 14, fontWeight: 600, color: T.ink }}><Icon d="M8 5v14l11-7z" s={16} c={T.ink} />Trending</div>
+    <div style={{ position: 'absolute', right: 10, bottom: 10 }}><Icon d="M3 17l6-6 4 4 8-8M15 7h6v6" s={20} c={T.acc} /></div>
+  </div>
+);
+const AppCard: React.FC<{ i: number; lit?: number; fly?: number }> = ({ i, lit = 0, fly = 0 }) => (
+  <div style={{ width: 220, height: 140, borderRadius: 12, background: '#FFFFFF', border: `1px solid ${lit > 0.5 ? T.acc : 'rgba(40,39,35,0.10)'}`, boxShadow: lit > 0.5 ? '0 14px 30px rgba(26,58,208,0.30)' : '0 8px 20px rgba(40,39,35,0.08)', position: 'relative', overflow: 'visible' }}>
+    <div style={{ height: 22, borderBottom: '1px solid rgba(40,39,35,0.08)', display: 'flex', gap: 5, alignItems: 'center', paddingLeft: 10 }}>{['#FF5F57', '#FEBC2E', '#28C840'].map((c) => <span key={c} style={{ width: 7, height: 7, borderRadius: 4, background: c }} />)}</div>
+    {[[16, 34, 0.55], [26, 50, 0.7], [16, 66, 0.45], [26, 82, 0.6], [16, 98, 0.35]].map(([x, y, w], k) => <div key={k} style={{ position: 'absolute', left: x, top: y, width: `${(w as number) * 100 * (0.7 + random(`ac${i}${k}`) * 0.5)}px`, height: 7, borderRadius: 4, background: k % 3 === 0 ? 'rgba(26,58,208,0.6)' : 'rgba(40,39,35,0.22)' }} />)}
+    {lit > 0.01 && <>
+      <div style={{ position: 'absolute', right: 10, bottom: 10, fontFamily: inter, fontWeight: 600, fontSize: 15, color: '#fff', background: T.acc, borderRadius: 14, padding: '4px 12px', transform: `scale(${0.6 + lit * 0.4})` }}>Post</div>
+      <svg viewBox="0 0 24 24" width="38" height="38" style={{ position: 'absolute', right: 30, bottom: 40, transform: `translate(${fly * 220}px, ${fly * -260}px) rotate(${fly * -15}deg)`, opacity: lit * (1 - fly * 0.85) }}><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z" fill="none" stroke={T.acc} strokeWidth="2.2" strokeLinejoin="round" /></svg>
+    </>}
+  </div>
+);
 
 // ---------- S2 unik (15.68 – 19.68) · L2 people · L3 word · L4 photo ----------
 const Person: React.FC<{ dim: number }> = ({ dim }) => (
@@ -266,39 +373,43 @@ const Person: React.FC<{ dim: number }> = ({ dim }) => (
     </svg>
   </div>
 );
+// Dreamina plate (L2): crop 10 % from the bottom-right anchor so the generator's corner label never shows
+// shared flat world (Irfan 11 Nov: no AI plates; flat 2D characters in a 2.5D space)
+const FLOOR_Y = 880;
+const Floor: React.FC<{ tone?: string }> = ({ tone = '#ECEAE3' }) => (
+  <div style={{ position: 'absolute', left: -3000, top: FLOOR_Y, width: 7920, height: 8000, background: tone, transformOrigin: '50% 0%', transform: 'translateZ(1200px) rotateX(-90deg)' }} />
+);
+const CROWD = (() => {
+  const out: { x: number; z: number; id: string; me?: boolean }[] = [];
+  for (let r = 0; r < 10; r++) {
+    const z = -2900 + r * 330;
+    for (let k = 0; k < 16; k++) {
+      const x = -380 + k * 175 + (r % 2) * 88 + (random(`cx${r}-${k}`) - 0.5) * 50;
+      if (z > -1760 && Math.abs(x - 960) < 230) continue; // the aisle the camera travels down
+      out.push({ x, z: z + (random(`cz${r}-${k}`) - 0.5) * 80, id: `${r}-${k}` });
+    }
+  }
+  out.push({ x: 960, z: -1600, id: 'me', me: true });
+  return out;
+})();
 const Unik: React.FC = () => {
   const t = useT() + 15.68;
-  const p = lerp(t, 15.68, 16.35, 0, 1, io);
-  const dim = lerp(t, 16.7, 17.2, 1, 0.45);
-  const push = lerp(t, 17.3, 19.68, 0, 1, io);
-  const cols = 9, rows = 4, gw = 176, gh = 218;
-  const top0 = 540 - (rows * gh) / 2 + 13;
-  const cardW = lerp(p, 0, 1, 1920, 150, Easing.linear), cardH = lerp(p, 0, 1, 1080, 190, Easing.linear);
-  const cam = { z: push * 980, y: push * -100, ry: lerp(t, 15.68, 19.68, -3, 2, Easing.linear) };
+  const lit = lerp(t, 16.72, 17.05, 0, 1, Easing.out(Easing.cubic));
+  const camz = lerp(t, 15.68, 19.68, 0, 1880, Easing.bezier(0.3, 0, 0.25, 1));
   return (
-    <Stage cam={cam}>
-      <Layer z={-900}><BackPlate /></Layer>
-      <Layer z={-300}>
-        <div style={{ position: 'absolute', left: 960 - (cols * gw) / 2 + 13, top: top0, opacity: p }}>
-          {Array.from({ length: rows }).map((_, r) => (
-            <div key={r} style={{ display: 'flex', gap: 26, marginBottom: 28 }}>
-              {Array.from({ length: cols }).map((__, c) => (
-                <div key={c} style={{ opacity: r === 1 && c === 4 ? 0 : 1 }}><Person dim={dim} /></div>
-              ))}
-            </div>
-          ))}
-        </div>
-      </Layer>
-      <Layer z={60}><ColorFlash t={t} at={16.78} out={19.7} x={1100} y={330} text="unik." size={110} color={T.ink} accent={T.acc} fonts={FONTS()} /></Layer>
-      <Layer z={150}>
-        <div style={{
-          position: 'absolute', left: 960 - cardW / 2, top: lerp(p, 0, 1, 0, top0 + gh), width: cardW, height: cardH, padding: p * 6, background: '#FFFFFF', boxSizing: 'border-box', borderRadius: p * 10,
-          transform: `rotate(${p * -2.5}deg)`, boxShadow: `0 ${p * 18}px ${p * 40}px rgba(40,39,35,0.22)`, outline: `${lerp(t, 16.7, 17.0, 0, 3)}px solid ${T.acc}`,
-        }}>
-          <Img src={staticFile('shots/face_end.jpg')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '53% 30%', borderRadius: p * 6 }} />
-        </div>
-      </Layer>
+    <>
+    <Stage cam={{ z: camz, rx: -7, y: lerp(t, 15.68, 19.68, -40, 60, Easing.linear), ry: lerp(t, 15.68, 19.68, -2.5, 1.5, Easing.linear) }}>
+      <Layer z={-7000}><BackPlate grid={false} /></Layer>
+      {/* light pool under him: a flat shape, not a glow */}
+      <div style={{ position: 'absolute', left: 960 - 170, top: FLOOR_Y - 60, width: 340, height: 120, borderRadius: '50%', background: FC.soft, opacity: lit, transform: 'translateZ(-1600px) rotateX(80deg)' }} />
+      {CROWD.map((p) => (
+        <World key={p.id} x={p.x} y={FLOOR_Y} z={p.z} w={120} h={300}>
+          <Stand id={p.id} t={t} lit={p.me ? lit : 0} tone={p.me ? 0 : random('tn' + p.id)} />
+        </World>
+      ))}
     </Stage>
+    <Stage cam={{}}><Layer z={60}><ColorFlash t={t} at={16.78} out={19.7} x={1180} y={150} text="unik." size={130} color={T.ink} accent={T.acc} fonts={FONTS()} /></Layer></Stage>
+    </>
   );
 };
 
@@ -310,11 +421,11 @@ const Motivasi: React.FC = () => {
   const out = lerp(t, 21.05, 21.6, 0, 1, io);
   // one focus: the feed first (centre), then one post lifts out and becomes the quote while the phone leaves
   const scroll = 2400 * (1 - Math.exp(-(t - 19.68) * 1.1));
-  const cam = { z: lerp(t, 19.68, 21.0, 0, 140, ease) + lerp(t, 21.0, 25.8, 0, 90, Easing.linear), ry: lerp(t, 19.68, 25.8, 3, -3, Easing.linear) };
+  const cam = { z: lerp(t, 19.68, 21.0, 0, 330, ease) + lerp(t, 21.0, 25.8, 0, 90, Easing.linear), ry: lerp(t, 19.68, 25.8, 3, -3, Easing.linear) };
   return (
     <Stage cam={cam}>
       <Layer z={-900}><BackPlate /></Layer>
-      <Layer z={-150}><div style={{ transform: `translate(${out * -900}px, ${out * 120}px) rotate(${out * -8}deg)`, filter: `blur(${out * 6}px)` }}><InstagramPhone font={inter} scroll={scroll} x={766} y={150} /></div></Layer>
+      <Layer z={-150}><div style={{ transform: `translate(${out * -900}px, ${out * 120}px) rotate(${out * -8}deg)`, filter: `blur(${out * 6}px)` }}><div style={{ transform: 'scale(1.0)', transformOrigin: '960px 110px' }}><InstagramPhone font={inter} scroll={scroll} x={766} y={130} /></div></div></Layer>
       <Layer z={0}>
         <div style={{
           position: 'absolute', left: 960 - 420, top: 330, width: 840, padding: '52px 60px', boxSizing: 'border-box', background: '#FFFFFF', color: T.ink, borderRadius: 18,
@@ -335,40 +446,55 @@ const Motivasi: React.FC = () => {
 };
 
 // ---------- S4 FOMO (25.8 – 32.66) · L2 trend rows at 5 depths · L4 photo · L3 slam ----------
+// FOMO tunnel (Irfan ref gambar 2): trend screens line a tunnel and orbit; he stands still at the far end
+const TR = 860, RINGS = 10, PER = 10;
 const Fomo: React.FC = () => {
   const t = useT() + 25.8;
   const slam = sp(t, 31.86, { damping: 11, stiffness: 220 });
-  const cam = { x: lerp(t, 25.8, 32.66, 0, -160, Easing.linear) + shake(t, 31.86, 14), z: lerp(t, 25.8, 31.8, 0, 140, Easing.linear) + slam * 60, ry: lerp(t, 25.8, 32.66, -4, 3, Easing.linear) };
-  const blur = lerp(t, 31.7, 31.9, 0, 4);
-  const ZR = [-1000, -720, -480, -280, -110];
+  const spinUp = lerp(t, 30.4, 31.86, 0, 1, Easing.in(Easing.quad));
+  const orbit = (t - 25.8) * 0.16 + spinUp * 1.4;
+  const camz = lerp(t, 25.8, 31.8, 0, 1700, Easing.bezier(0.25, 0, 0.3, 1)) + slam * 80;
+  const away = lerp(t, 31.6, 31.86, 0, 1, Easing.in(Easing.cubic));
   return (
-    <Stage cam={cam}>
-      <Layer z={-1100}><BackPlate /></Layer>
-      {ZR.map((z, r) => (
-        <Layer key={r} z={z}>
-          <div style={{ position: 'absolute', top: 60 + r * 200, left: -((t - 25.8) * (380 + r * 70)) % 260 - 900, display: 'flex', gap: 30, filter: `blur(${blur}px)`, opacity: lerp(t, 31.8, 32.0, 1, 0.5) }}>
-            {Array.from({ length: 16 }).map((__, i) => (
-              <div key={i} style={{ width: 230, height: 150, borderRadius: 10, background: '#FFFFFF', border: '1px solid rgba(40,39,35,0.08)', position: 'relative', boxShadow: '0 6px 16px rgba(40,39,35,0.06)' }}>
-                <div style={{ position: 'absolute', left: 12, top: 12, right: 12, height: 92, borderRadius: 6, background: `linear-gradient(180deg, ${T.soft}, #FFFFFF)`, overflow: 'hidden' }}>
-                  <svg width="206" height="92" viewBox="0 0 206 92"><circle cx="103" cy="38" r="15" fill={T.navy} /><path d="M73 92 C73 62 133 62 133 92 Z" fill={T.navy} /></svg>
-                  <div style={{ position: 'absolute', left: 8, top: 8 }}><Logo name={['instagram', 'tiktok', 'youtube', 'threads'][i % 4]} size={18} color={T.ink} /></div>
-                </div>
-                <div style={{ position: 'absolute', left: 14, bottom: 14, display: 'flex', alignItems: 'center', gap: 6, fontFamily: inter, fontSize: 14, fontWeight: 600, color: T.ink }}><Icon d="M8 5v14l11-7z" s={16} c={T.ink} />Trending</div>
-                <div style={{ position: 'absolute', right: 12, bottom: 12 }}><Icon d="M3 17l6-6 4 4 8-8M15 7h6v6" s={20} c={T.acc} /></div>
-              </div>
-            ))}
-          </div>
-        </Layer>
-      ))}
-      <Layer z={160}>
-        <div style={{ position: 'absolute', left: 960 - 95, top: 540 - 120, width: 190, height: 240, padding: 7, background: '#FFFFFF', boxSizing: 'border-box', borderRadius: 10, transform: `rotate(-2deg) translateX(${(t - 25.8) * 22}px)`, boxShadow: '0 20px 50px rgba(40,39,35,0.25)', outline: `3px solid ${T.acc}`, opacity: lerp(t, 31.8, 32.0, 1, 0.35) }}>
-          <Img src={staticFile('shots/face_end.jpg')} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: '53% 30%', borderRadius: 6 }} />
-        </div>
-      </Layer>
-      <Layer z={300}>
-        <Slam t={t} at={31.86} out={32.7} x={960} y={420} text="FOMO" size={230} color={T.ink} fonts={FONTS()} />
-      </Layer>
+    <>
+    <Stage cam={{ z: camz, rz: lerp(t, 25.8, 31.8, -4, 6, Easing.linear) + spinUp * 10, x: shake(t, 31.86, 14) }} mb={spinUp * 3 * (1 - lerp(t, 31.9, 32.2, 0, 1))}>
+      <Layer z={-7000}><BackPlate grid={false} /></Layer>
+      {Array.from({ length: RINGS }).map((_, r) => {
+        const z = -300 - r * 600;
+        const depthOp = Math.max(0, Math.min(1, (z + camz + 5200) / 2600));
+        const near = PERSP_ - (z + camz);
+        const op = depthOp * (near < 160 ? 0 : near < 700 ? (near - 160) / 540 : 1);
+        if (op <= 0) return null;
+        return Array.from({ length: PER }).map((__, k) => {
+          const a = (k / PER) * Math.PI * 2 + r * 0.27 + orbit * (r % 2 ? 1 : -0.6);
+          const pop = sp(t, 25.85 + r * 0.06 + k * 0.012);
+          return (
+            <div key={`${r}-${k}`} style={{ position: 'absolute', left: 960 + Math.cos(a) * TR - 170, top: 540 + Math.sin(a) * TR - 260, width: 340, height: 520, opacity: op * Math.min(1, pop * 1.5),
+              transform: `translateZ(${z}px) rotateZ(${a}rad) rotateY(-90deg) scale(${0.6 + pop * 0.4})` }}>
+              <div style={{ position: 'absolute', left: 170 - 259, top: 260 - 169, transform: 'rotate(-90deg) scale(2.25)', transformOrigin: '50% 50%', width: 230, height: 150, marginLeft: 0 }}><div style={{ transform: 'translate(-0px,0)' }}><TrendCard i={r * PER + k} /></div></div>
+            </div>
+          );
+        });
+      })}
+      {away < 1 && (
+        <World x={960} y={700} z={-3400} w={120} h={300} style={{ transform: `translate3d(${960 - 60}px, ${430 + away * 900}px, -3400px)` }}>
+          <Stand id="fomo-me" t={t} lit={1} />
+        </World>
+      )}
     </Stage>
+    {/* the word lives off the travelling camera (it was flying past the lens) */}
+    {t >= 31.86 && t < 32.7 && (() => {
+      const fr = (t - 31.86) * 30, sc = fr < 1 ? 1.6 : fr < 2 ? 1.15 : 1;
+      const ex = lerp(t, 32.45, 32.7, 0, 1, Easing.in(Easing.cubic));
+      return (
+        <AbsoluteFill style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', transform: `translate(${shake(t, 31.86, 14)}px, ${-40 - ex * 60}px) scale(${sc})`, filter: fr < 2 || ex > 0.05 ? `blur(${fr < 2 ? 3 : ex * 10}px)` : undefined, opacity: 1 - ex }}>
+          <div style={{ fontFamily: outfit, fontWeight: 800, fontSize: 470, lineHeight: 1, letterSpacing: '-0.02em', color: T.ink, whiteSpace: 'nowrap' }}>
+            F<span style={{ position: 'relative', display: 'inline-block' }}>O<div style={{ position: 'absolute', left: '50%', top: '53%', width: 120, height: 300, transform: 'translate(-50%, -50%) scale(0.62)' }}><Stand id="fomo-o" t={t} lit={1} /></div></span>MO
+          </div>
+        </AbsoluteFill>
+      );
+    })()}
+    </>
   );
 };
 
@@ -416,20 +542,22 @@ const Night: React.FC = () => {
   const dive = lerp(t, 34.9, 35.9, 0, 1, Easing.in(Easing.cubic));
   // monitor screen centre ≈ (985, 646)
   const cam = { z: lerp(t, 32.66, 34.9, 0, 260, Easing.linear) + dive * 1250, x: lerp(t, 32.66, 35.9, -80, 25, Easing.linear), y: lerp(t, 32.66, 35.9, 0, 106, ease), ry: lerp(t, 32.66, 34.9, 6, 0, Easing.linear) };
-  const near = CUBES.slice(0, 8), mid = CUBES.slice(8, 18), far = CUBES.slice(18);
   return (
     <AbsoluteFill>
       <NightBG />
       <Stage cam={cam} mb={dive * 6}>
-        <Layer z={-900}>{far.map((c, i) => <div key={i} style={{ position: 'absolute', left: c.x, top: c.y }}><Cube s={c.s * 1.4} t={t} ph={c.ph} r={c.r} /></div>)}</Layer>
-        <Layer z={-450}><Circuits t={t} t0={32.7} />{mid.map((c, i) => <div key={i} style={{ position: 'absolute', left: c.x, top: c.y - 120 }}><Cube s={c.s} t={t} ph={c.ph} r={c.r} /></div>)}</Layer>
         <Layer z={0}>
           <DeskScene t={t} screenA={lerp(t, 34.6, 35.6, 0, 1)} />
+          <svg width="1920" height="1080" style={{ position: 'absolute' }}>
+            <g transform="translate(1130 470) scale(1.7) translate(-1130 -470)"><circle cx="1130" cy="470" r="44" fill="#0B0E1E" stroke="#DCE4FF" strokeWidth="3" />
+            {Array.from({ length: 12 }).map((_, i) => <line key={i} x1={1130 + Math.cos(i * Math.PI / 6) * 36} y1={470 + Math.sin(i * Math.PI / 6) * 36} x2={1130 + Math.cos(i * Math.PI / 6) * 40} y2={470 + Math.sin(i * Math.PI / 6) * 40} stroke="#DCE4FF" strokeWidth="2" />)}
+            <line x1="1130" y1="470" x2={1130 + Math.sin((t - 32.66) * 12.6) * 34} y2={470 - Math.cos((t - 32.66) * 12.6) * 34} stroke="#FFFFFF" strokeWidth="2.5" strokeLinecap="round" />
+            <line x1="1130" y1="470" x2={1130 + Math.sin((t - 32.66) * 1.05) * 22} y2={470 - Math.cos((t - 32.66) * 1.05) * 22} stroke="#FFFFFF" strokeWidth="4" strokeLinecap="round" /></g>
+          </svg>
           <div style={{ position: 'absolute', left: 908, top: 598, width: 154, height: 96, overflow: 'hidden', borderRadius: 3, background: T.bg, opacity: lerp(t, 34.4, 34.9, 0, 1) }}>
             <div style={{ width: 1920, height: 1080, transform: 'scale(0.0802)', transformOrigin: '0 0', position: 'relative', background: T.bg }}><ChatWindow t={36.4} /></div>
           </div>
         </Layer>
-        <Layer z={380}>{near.map((c, i) => <div key={i} style={{ position: 'absolute', left: c.x < 960 ? c.x - 700 : c.x + 500, top: c.y - 200, filter: 'blur(2px)' }}><Cube s={c.s * 0.9} t={t} ph={c.ph} r={c.r} /></div>)}</Layer>
       </Stage>
     </AbsoluteFill>
   );
@@ -438,10 +566,10 @@ const Night: React.FC = () => {
 const Chat: React.FC = () => {
   const t = useT() + 35.9;
   const arrive = lerp(t, 35.9, 36.6, 0, 1, ease);
-  const dolly = lerp(t, 37.6, 40.18, 0, 1, Easing.bezier(0.5, 0, 0.75, 0));
+  const dolly = lerp(t, 37.55, 39.3, 0, 1, Easing.bezier(0.25, 0.6, 0.3, 1));
   const logo = sp(t, 36.2, { damping: 14 });
   const logoOut = lerp(t, 37.3, 37.75, 1, 0, Easing.in(Easing.cubic));
-  const cam = { z: 520 * (1 - arrive) + dolly * 650, x: dolly * 140, y: dolly * -28 };
+  const cam = { z: 520 * (1 - arrive) + dolly * 760, x: dolly * 110, y: dolly * 20 };
   return (
     <Stage cam={cam}>
       <Layer z={-900}><BackPlate /></Layer>
@@ -464,13 +592,13 @@ const Chat: React.FC = () => {
 // ---------- S6 the turn: Threads web, typed then saved to drafts (40.18 – 48.26) ----------
 const THREAD_USER = 'builder.diam'; // dummy username (lane siirfan rule)
 const BASE_FEED: ThreadPostData[] = [
-  { user: 'kreator.ai', tag: 'AI Threads', time: '11h', text: 'Fomo lihat akun yang bikin konten pakai AI, akhirnya coba sendiri. Ada yang workflow-nya sampai publish?', media: 2 },
-  { user: 'zyx.creator', tag: 'YouTube Creators', time: '13h', text: 'Udah ngikutin topik yang lagi happening tetap aja nggak viral. Saran dong?', media: 1 },
+  { user: 'kreator.ai', tag: 'AI Threads', time: '11h', text: 'Semua orang tuh bisa bikin software.', media: 2 },
+  { user: 'zyx.creator', tag: 'YouTube Creators', time: '13h', text: 'Melakukan sesuatu yang berbeda.', media: 1 },
 ];
 const Turn: React.FC = () => {
   const t = useT() + 40.18;
-  const L1 = 'Setahun belajar AI. Ini yang sudah aku bangun:';
-  const L2 = 'Buka jasa bikin agent AI, DM ya.';
+  const L1 = 'Satu hal yang aku lewatkan adalah…';
+  const L2 = 'menjual';
   const n1 = typeN(t, 40.7, 42.4, L1.length);
   const n2 = typeN(t, 43.34, 43.95, L2.length);
   const sel = t > 44.08 && t < 44.3;
@@ -484,15 +612,16 @@ const Turn: React.FC = () => {
   const pressC = t > 46.96 && t < 47.06 ? 1 : 0, pressS = t > 47.36 && t < 47.46 ? 1 : 0;
   // screen-recording zooms: page → modal text → Post → Cancel → dialog → page
   const k = (a: number, b: number) => lerp(t, a, b, 0, 1, io);
-  const zoom = 0 + 330 * k(40.5, 41.2) - 60 * k(44.8, 45.3) + 40 * k(46.5, 46.9) - 310 * k(47.5, 48.1);
+  const zoom = 0 + 600 * k(40.5, 41.2) - 120 * k(44.8, 45.3) + 40 * k(46.5, 46.9) - 520 * k(47.5, 48.1);
   const cxCam = -90 * k(40.5, 41.2) + 380 * k(44.8, 45.3) - 600 * k(46.5, 46.9) + 310 * k(46.98, 47.3) + 0;
   const cyCam = -100 * k(40.5, 41.2) + 220 * k(44.8, 45.3) - 280 * k(46.5, 46.9) + 120 * k(46.98, 47.3) + 40 * k(47.5, 48.1);
   const text = <>{L1.slice(0, n1)}{n2 > 0 && t < 44.3 && <><br /><span style={{ background: sel ? 'rgba(26,58,208,0.25)' : 'transparent' }}>{L2.slice(0, n2)}</span></>}</>;
   return (
     <Stage cam={{ z: zoom, x: cxCam, y: cyCam + shake(t, 40.18, 6) }}>
       <Layer z={0}>
+        <div style={{ position: 'absolute', left: -900, top: -700, width: 3720, height: 2480, background: '#FAFAFA' }} />
         <ThreadsWeb font={inter} feed={BASE_FEED} />
-        <AbsoluteFill style={{ background: `rgba(0,0,0,${0.5 * modal})` }} />
+        <div style={{ position: 'absolute', left: -900, top: -700, width: 3720, height: 2480, background: `rgba(0,0,0,${0.5 * modal})` }} />
         {modal > 0.01 && <div style={{ position: 'absolute', inset: 0, opacity: modal, transform: `scale(${0.96 + modal * 0.04})` }}>
           <ThreadsModal font={inter} user={THREAD_USER} text={n1 > 0 ? text : <span style={{ color: '#999' }}>What's new?</span>} caret={t < 47.0} postHover={hover} cancelPress={pressC} dialog={dialog} savePress={pressS} />
         </div>}
@@ -515,7 +644,7 @@ const CalFlip: React.FC<{ t: number; idx: number; local: number; dir?: 1 | -1; h
   const mo = PAGES[idx];
   const flip = lerp(local, 0, 0.16, 1, 0, ease);
   return (
-    <div style={{ position: 'absolute', left: 560, top: 150, transformOrigin: '50% 0%', transform: `perspective(1600px) rotateX(${dir * flip * -70}deg)`, opacity: 1 - flip * 0.6 }}>
+    <div style={{ position: 'absolute', left: 560, top: 112, transformOrigin: '50% 0%', transform: `perspective(1600px) rotateX(${dir * flip * -70}deg) scale(0.95)`, opacity: 1 - flip * 0.6 }}>
       <CalendarCard y={mo.y} m={mo.m} repos={mo.repos} font={inter} tileA={(i) => (full ? 1 : lerp(local, 0.08 + i * 0.05, 0.22 + i * 0.05, 0, 1))} hiName={hi} />
     </div>
   );
@@ -525,7 +654,7 @@ const Year: React.FC = () => {
   const idx = Math.min(PAGES.length - 1, Math.floor(Math.max(0, t - 48.4)));
   const local = t - 48.4 - idx;
   return (
-    <Stage cam={{ z: lerp(t, 48.26, 51.9, -40, 120, Easing.linear), ry: lerp(t, 48.26, 51.9, -5, 4, Easing.linear), rx: 3 }}>
+    <Stage cam={{ z: lerp(t, 48.26, 51.9, 120, 300, Easing.linear), ry: lerp(t, 48.26, 51.9, -5, 4, Easing.linear), rx: 3 }}>
       <Layer z={-900}><BackPlate /></Layer>
       <Layer z={0}><CalFlip t={t} idx={idx} local={local} /></Layer>
 
@@ -538,7 +667,7 @@ const rowY = (i: number) => 130 + 50 + 16 + 40 + 38 + i * 66 + (i >= 2 ? 26 : 0)
 const AgentsScene: React.FC = () => {
   const t = useT() + 51.9;
   const k = (a: number, b: number) => lerp(t, a, b, 0, 1, io);
-  const cam = { z: 260 - 60 * k(53.2, 53.8) - 200 * k(55.3, 56.3), x: -330 + 560 * k(53.2, 53.8) - 230 * k(55.3, 56.3), y: -30 + 30 * k(55.3, 56.3), ry: lerp(t, 51.9, 56.45, 5, -4, Easing.linear) };
+  const cam = { z: 600 - 90 * k(53.2, 53.8) - 210 * k(55.3, 56.3), x: -380 + 620 * k(53.2, 53.8) - 240 * k(55.3, 56.3), y: -30 + 30 * k(55.3, 56.3), ry: lerp(t, 51.9, 56.45, 5, -4, Easing.linear) };
   return (
     <Stage cam={cam}>
       <Layer z={-900}><BackPlate /></Layer>
@@ -560,26 +689,44 @@ const AgentsScene: React.FC = () => {
 };
 // ---------- S9 the whole year (56.45 – 58.58) ----------
 const AGENT_ROW: AgentId[] = ['fred', 'cloe', 'malu', 'vita', 'nexo', 'yoshi'];
+const CONTRIB = (() => {
+  // 53 weeks ending Nov 2026; a day is filled only if a repo was pushed that day (real pushed_at data, nothing invented)
+  const end = Date.UTC(2026, 10, 14), start = end - 53 * 7 * 864e5;
+  const days = new Set((REPOS as Repo[]).map((r) => r[2]));
+  const cnt: Record<string, number> = {};
+  (REPOS as Repo[]).forEach((r) => { cnt[r[2]] = (cnt[r[2]] || 0) + 1; });
+  return Array.from({ length: 53 * 7 }).map((_, i) => { const d = new Date(start + i * 864e5).toISOString().slice(0, 10); return days.has(d) ? cnt[d] : 0; });
+})();
 const Reveal: React.FC = () => {
   const t = useT() + 56.45;
-  const k = lerp(t, 56.45, 57.4, 0, 1, io);
-  // grid 5×3 of 250×~210 mini months, Nov 2026 is index 12 (row 2, col 2)
-  const cam = { z: 650 * (1 - k), y: 270 * (1 - k), rx: 4 };
-  const g = (cn: string) => (REPOS as Repo[]).filter((r) => monthKey(r[2]) === cn);
+  const k = lerp(t, 56.45, 57.5, 0, 1, io);
+  const GL = ['#EBEDF0', '#9BE9A8', '#40C463', '#30A14E', '#216E39'];
   return (
-    <Stage cam={cam}>
+    <Stage cam={{ z: 420 * (1 - k) + 240 * k, x: 120 * (1 - k) + 40 * k, y: -60 * (1 - k) + 40 * k, rx: 3 }}>
       <Layer z={-900}><BackPlate /></Layer>
       <Layer z={0}>
-        <div style={{ position: 'absolute', left: 960 - 680, top: 260, width: 1360, display: 'grid', gridTemplateColumns: 'repeat(5, 250px)', gap: 22, justifyContent: 'center' }}>
-          {ALL_MONTHS.map((mo, i) => <div key={i} style={{ gridColumn: i >= 10 ? (i - 10) + 2 : undefined }}><MiniMonth y={mo.y} m={mo.m} repos={g(`${mo.y}-${String(mo.m + 1).padStart(2, '0')}`)} font={inter} /></div>)}
-        </div>
-      </Layer>
-      <Layer z={120}>
-        <div style={{ position: 'absolute', left: 0, right: 0, top: SAFE.y0 + 14, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 16, opacity: lerp(t, 56.9, 57.4, 0, 1) }}>
-          <Logo name="github" size={42} color={T.ink} />
-          <div style={{ fontFamily: inter, fontWeight: 600, fontSize: 30, color: T.ink }}>Siirfannih · Repositories</div>
-          <div style={{ fontFamily: inter, fontWeight: 600, fontSize: 22, color: T.ink, background: 'rgba(40,39,35,0.08)', borderRadius: 20, padding: '2px 14px' }}>{(REPOS as Repo[]).length}</div>
-          <div style={{ display: 'flex', marginLeft: 16 }}>{AGENT_ROW.map((id, i) => <div key={id} style={{ transform: `scale(${sp(t, 57.1 + i * 0.06)})` }}><Agent id={id} size={64} t={t} seed={i} /></div>)}</div>
+        <div style={{ position: 'absolute', left: 220, top: 140, width: 1480, height: 790, background: '#FFFFFF', border: '1px solid #D1D9E0', borderRadius: 14, boxShadow: '0 30px 80px rgba(40,39,35,0.12)', fontFamily: inter, color: '#1F2328', overflow: 'hidden' }}>
+          <div style={{ height: 58, background: '#F6F8FA', borderBottom: '1px solid #D1D9E0', display: 'flex', alignItems: 'center', padding: '0 24px', gap: 14 }}><Logo name="github" size={32} color="#1F2328" /><span style={{ fontWeight: 600, fontSize: 18 }}>Siirfannih</span></div>
+          <div style={{ display: 'flex', gap: 34, padding: '0 300px', borderBottom: '1px solid #D1D9E0', fontSize: 17 }}>
+            {['Overview', 'Repositories', 'Projects', 'Packages', 'Stars'].map((x) => <div key={x} style={{ padding: '16px 0', fontWeight: x === 'Repositories' ? 600 : 400, borderBottom: x === 'Repositories' ? '2px solid #FD8C73' : '2px solid transparent' }}>{x}{x === 'Repositories' && <span style={{ marginLeft: 8, background: '#E6EAEF', borderRadius: 12, padding: '1px 9px', fontSize: 14 }}>{(REPOS as Repo[]).length}</span>}</div>)}
+          </div>
+          <div style={{ display: 'flex', padding: '26px 34px', gap: 36 }}>
+            <div style={{ width: 230 }}>
+              <Img src={staticFile('shots/face_end.jpg')} style={{ width: 230, height: 230, borderRadius: 115, objectFit: 'cover', objectPosition: '53% 30%', border: '1px solid #D1D9E0' }} />
+              <div style={{ fontSize: 24, fontWeight: 600, marginTop: 14 }}>Siirfannih</div>
+              <div style={{ display: 'flex', marginTop: 16 }}>{AGENT_ROW.map((id, i) => <div key={id} style={{ marginRight: -6, transform: `scale(${sp(t, 57.0 + i * 0.06)})` }}><Agent id={id} size={46} t={t} seed={i} /></div>)}</div>
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 17, marginBottom: 10 }}>Pinned</div>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 14 }}>
+                {[29, 26, 27, 21, 13, 0].map((ri, i) => <div key={ri} style={{ transform: `translateY(${(1 - sp(t, 56.6 + i * 0.05)) * 30}px)` }}><RepoCard r={(REPOS as any)[ri]} w={340} style={{ boxShadow: 'none' }} /></div>)}
+              </div>
+              <div style={{ fontSize: 17, margin: '22px 0 10px' }}>Contribution activity</div>
+              <div style={{ display: 'grid', gridTemplateRows: 'repeat(7, 14px)', gridAutoFlow: 'column', gap: 4, border: '1px solid #D1D9E0', borderRadius: 8, padding: 14, width: 'fit-content' }}>
+                {CONTRIB.map((v, i) => <div key={i} style={{ width: 14, height: 14, borderRadius: 3, background: GL[Math.min(4, v === 0 ? 0 : v + 1)], transform: v ? `scale(${sp(t, 56.7 + (i / CONTRIB.length) * 0.8)})` : undefined }} />)}
+              </div>
+            </div>
+          </div>
         </div>
       </Layer>
     </Stage>
@@ -590,48 +737,55 @@ const Sadar: React.FC = () => {
   const t = useT() + 58.58;
   return (
     <Stage cam={{ z: lerp(t, 58.58, 62.4, 120, 260, Easing.linear), x: 30, y: 30, ry: lerp(t, 58.58, 62.4, 1, -1, Easing.linear) }}>
-      <Layer z={-150}><AbsoluteFill style={{ transform: 'scale(1.08)' }}><OffthreadVideo src={staticFile('face2.mp4')} muted style={{ width: 1920, height: 1080, filter: 'contrast(1.1) saturate(0.85) brightness(1.02)' }} /></AbsoluteFill></Layer>
-      <Layer z={-120}><ScaleSettle t={t} at={59.9} out={62.3} x={1213} y={640} text="sadar." size={86} shadow fonts={FONTS()} /></Layer>
+      <Layer z={-150}><AbsoluteFill style={{ transform: 'scale(1.08)' }}><OffthreadVideo src={staticFile('face2.mp4')} muted style={{ width: 1920, height: 1080, filter: 'contrast(1.08) saturate(0.88) brightness(1.14)' }} /></AbsoluteFill></Layer>
+      <Layer z={-120}><ScaleSettle t={t} at={59.9} out={62.3} x={1240} y={420} text="sadar." size={120} shadow fonts={FONTS()} /></Layer>
     </Stage>
   );
 };
 
 // ---------- S9+S10 sea of builders (62.4 – 73.64) ----------
-const LIT = [[7, 3], [22, 9], [41, 5], [13, 14], [33, 12], [52, 15], [28, 2]];
+const LIT_IDX = [1, 4, 7, 11, 15, 18];
+// everyone builds: rows of flat builders light up on each verb; then only a few raise "Post"
+const BUILDERS = (() => {
+  const out: { x: number; z: number; id: string; row: number }[] = [];
+  for (let r = 0; r < 7; r++) {
+    const z = -2700 + r * 420;
+    for (let k = 0; k < 10; k++) out.push({ x: -420 + k * 300 + (r % 2) * 150 + (random(`bx${r}-${k}`) - 0.5) * 60, z, id: `b${r}-${k}`, row: r });
+  }
+  return out;
+})();
+const SEA_RX = -8;
+const POSTERS = ['b6-3', 'b5-4', 'b6-6', 'b4-2', 'b5-6', 'b4-7'];
 const Sea: React.FC = () => {
   const t = useT() + 62.4;
-  const k2 = sp(t, 64.92, { damping: 20 }), k3 = sp(t, 67.16, { damping: 22, stiffness: 90 });
-  const cell = 290 * (1 - 0.62 * k2) * (1 - 0.82 * k3);
-  const show = lerp(t, 63.2, 63.5, 0, 1);
-  const lit = lerp(t, 69.4, 70.0, 0, 1);
   const logoOut = lerp(t, 72.55, 72.85, 1, 0, io);
-  const ga = 1 - 0.6 * lit;
+  const dimNot = lerp(t, 67.55, 67.95, 0, 1);
+  const veil = lerp(t, 71.0, 71.4, 0, 0.62);
+  const camz = lerp(t, 62.4, 67.4, 900, -250, Easing.bezier(0.3, 0, 0.2, 1)) + lerp(t, 67.5, 70.2, 0, 900, io);
   return (
-    <Stage cam={{ z: lerp(t, 62.4, 73.64, 0, 200, Easing.linear), ry: lerp(t, 62.4, 73.64, 4, -4, Easing.linear), rx: 6 }}>
-      <Layer z={-900}><BackPlate grid={false} /></Layer>
-      <Layer z={-250}>
-        <svg width="3000" height="2000" style={{ position: 'absolute', left: -540, top: -460, opacity: show }}>
-          <defs>
-            <pattern id="cells" width={cell} height={cell * 0.62} patternUnits="userSpaceOnUse" x={1500 - cell / 2} y={1000 - cell * 0.31}>
-              <rect x={cell * 0.06} y={cell * 0.05} width={cell * 0.88} height={cell * 0.52} rx={cell * 0.03} fill={`rgba(255,255,255,${ga})`} stroke={`rgba(40,39,35,${0.12 * ga})`} strokeWidth={Math.max(0.5, cell * 0.004)} />
-              <rect x={cell * 0.06} y={cell * 0.05} width={cell * 0.88} height={cell * 0.08} rx={cell * 0.03} fill={`rgba(40,39,35,${0.06 * ga})`} />
-              {[0, 1, 2].map((k) => <circle key={k} cx={cell * (0.1 + k * 0.035)} cy={cell * 0.09} r={cell * 0.011} fill={['#FF5F57', '#FEBC2E', '#28C840'][k]} opacity={ga} />)}
-              {[[0.2, 0.22, 0.32], [0.3, 0.27, 0.42], [0.2, 0.32, 0.26], [0.3, 0.37, 0.36], [0.2, 0.42, 0.18], [0.12, 0.47, 0.5]].map(([x, y, w], k) => <rect key={'l' + k} x={cell * x} y={cell * y} width={cell * w} height={cell * 0.022} rx={cell * 0.01} fill={k % 3 === 0 ? `rgba(26,58,208,${0.55 * ga})` : `rgba(40,39,35,${0.25 * ga})`} />)}
-            </pattern>
-          </defs>
-          <rect width="3000" height="2000" fill="url(#cells)" />
-        </svg>
-      </Layer>
-      <Layer z={110}>
-        {lit > 0 && LIT.map(([cx, cy], i) => {
-          const x = 960 - cell / 2 + (cx - 26) * cell + cell * 0.06, y = 540 - cell * 0.31 + (cy - 8) * cell * 0.62 + cell * 0.05;
-          const a = lerp(t, 69.4 + i * 0.09, 69.9 + i * 0.09, 0, 1);
-          return <div key={i} style={{ position: 'absolute', left: x, top: y - a * 18, width: cell * 0.88, height: cell * 0.52, borderRadius: 3, background: T.acc, opacity: a, transform: `scale(${1 + a * 1.6})`, boxShadow: `0 ${10 * a}px ${24 * a}px rgba(26,58,208,0.35)` }} />;
-        })}
-      </Layer>
+    <>
+    <Stage cam={{ z: camz, rx: SEA_RX, y: lerp(t, 62.4, 73.64, -60, -120, Easing.linear), ry: lerp(t, 62.4, 73.64, 3, -3, Easing.linear) }}>
+      <Layer z={-7000}><BackPlate grid={false} /></Layer>
+      {BUILDERS.map((b) => {
+        const wave = b.row >= 5 ? 63.34 : b.row >= 3 ? 64.92 : 66.82; // membangun · membuat · bikin software
+        const on = lerp(t, wave + (b.x % 7) * 0.02, wave + 0.25 + (b.x % 7) * 0.02, 0, 1);
+        const app = sp(t, wave + 0.18 + random('ap' + b.id) * 0.25);
+        const pi = POSTERS.indexOf(b.id);
+        const post = pi >= 0 ? lerp(t, 69.4 + pi * 0.08, 69.75 + pi * 0.08, 0, 1, Easing.out(Easing.back(1.6))) : 0;
+        const fly = pi >= 0 ? lerp(t, 69.95 + pi * 0.09, 71.0 + pi * 0.09, 0, 1, Easing.in(Easing.cubic)) : 0;
+        return (
+          <World key={b.id} x={b.x} y={FLOOR_Y} z={b.z} w={260} h={230} style={{ filter: b.z + camz > -150 ? `blur(${Math.min(6, (b.z + camz + 150) / 70)}px)` : undefined }}>
+            <Seat id={b.id} t={t} on={on} app={app} post={post} fly={fly} dim={pi >= 0 ? 0 : dimNot} />
+          </World>
+        );
+      })}
+      <AbsoluteFill style={{ background: T.bg, opacity: veil, transform: 'translateZ(600px) scale(0.7)' }} />
+    </Stage>
+    <Stage cam={{}}>
       <Layer z={170}>
-        <SlotSwap t={t} lead="semua orang tuh bisa" words={[['membangun.', 63.34], ['membuat.', 64.92], ['bikin software.', 66.82]]} end={67.5} x={960} y={380} size={150} color={T.ink} fonts={FONTS()} />
-        <Converge t={t} at={72.88} out={73.62} x={960} y={430} text="belum sempurna." size={150} color={T.ink} fonts={FONTS()} />
+        <SlotSwap t={t} lead="semua orang tuh bisa" words={[['membangun.', 63.34], ['membuat.', 64.92], ['bikin software.', 66.82]]} end={67.5} x={960} y={170} size={120} color={T.ink} fonts={FONTS()} />
+        <ColorFlash t={t} at={67.6} out={71.1} x={560} y={190} text="nggak semua orang." size={115} color={T.ink} accent={T.acc} fonts={FONTS()} />
+        <Converge t={t} at={72.88} out={73.62} x={960} y={200} text="belum sempurna." size={112} color={T.ink} fonts={FONTS()} />
       </Layer>
       <Layer z={320}>
         {['instagram', 'youtube', 'tiktok', 'threads', 'x', 'linkedin'].map((n, i) => {
@@ -639,13 +793,14 @@ const Sea: React.FC = () => {
           if (t < 71.2 || a <= 0.001) return null;
           const ang = (-150 + i * 60) * (Math.PI / 180);
           return (
-            <div key={n} style={{ position: 'absolute', left: 960 + Math.cos(ang) * 360 - 52, top: 520 + Math.sin(ang) * 250 - 52, width: 104, height: 104, borderRadius: 52, background: '#FFFFFF', border: '1px solid rgba(40,39,35,0.1)', boxShadow: '0 10px 30px rgba(40,39,35,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: a, transform: `scale(${0.5 + a * 0.5})` }}>
+            <div key={n} style={{ position: 'absolute', left: 960 + Math.cos(ang) * 330 - 52, top: 520 + Math.sin(ang) * 210 - 52, width: 104, height: 104, borderRadius: 52, background: '#FFFFFF', border: '1px solid rgba(40,39,35,0.1)', boxShadow: '0 10px 30px rgba(40,39,35,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center', opacity: a, transform: `scale(${0.5 + a * 0.5})` }}>
               <Logo name={n} size={48} color={T.ink} />
             </div>
           );
         })}
       </Layer>
     </Stage>
+    </>
   );
 };
 
@@ -667,7 +822,8 @@ const Addiction: React.FC = () => {
   const rel = sp(t, 80.04, { damping: 14 });
   const frozen = t >= stop;
   return (
-    <Stage cam={{ z: lerp(t, 73.64, 81.0, 0, 180, Easing.linear) + shake(t, stop, 10), ry: lerp(t, 73.64, 81.0, 5, -3, Easing.linear), rx: 4 }}>
+    <>
+    <Stage cam={{ z: lerp(t, 73.64, 81.0, 170, 330, Easing.linear) + shake(t, stop, 10), x: -130, y: 30, ry: lerp(t, 73.64, 81.0, 5, -3, Easing.linear), rx: 4 }}>
       <Layer z={-900}><BackPlate /></Layer>
       {/* L2 the GitHub "new repository" form, rebuilt in code */}
       <Layer z={0}>
@@ -690,7 +846,6 @@ const Addiction: React.FC = () => {
         </div>
       </Layer>
       {/* L3 the word */}
-      <Layer z={90}><Chaotic t={t} at={75.86} out={77.4} x={1080} y={170} text="kecanduan." size={100} color={T.ink} accent={T.acc} fonts={FONTS()} /></Layer>
       {/* L4 the pile: every repo lands here, none released */}
       <Layer z={150}>
         {LOOP_NAMES.slice(0, made).map((n, i) => {
@@ -714,6 +869,8 @@ const Addiction: React.FC = () => {
         )}
       </Layer>
     </Stage>
+    <Stage cam={{}}><Layer z={90}><Chaotic t={t} at={75.86} out={77.4} x={1200} y={460} text="kecanduan." size={100} color={T.ink} accent={T.acc} fonts={FONTS()} /></Layer></Stage>
+    </>
   );
 };
 
@@ -727,16 +884,16 @@ const Decision: React.FC = () => {
     const local = t < 82.5 ? 1 : t - 82.5 - (step - 1);
     const ring = lerp(t, 85.12, 86.2, 0, 1);
     return (
-      <Stage cam={{ z: lerp(t, 82.4, 85.2, -150, 60, Easing.bezier(0.7, 0, 0.2, 1)) + lerp(t, 85.2, 87.6, 0, 260, Easing.linear), x: lerp(t, 85.2, 87.6, 0, -40, ease), ry: lerp(t, 82.4, 85.2, 8, 0, ease) }}>
+      <Stage cam={{ z: lerp(t, 82.4, 85.2, 0, 220, Easing.bezier(0.7, 0, 0.2, 1)) + lerp(t, 85.2, 87.6, 0, 260, Easing.linear), x: lerp(t, 85.2, 87.6, 0, -40, ease), ry: lerp(t, 82.4, 85.2, 8, 0, ease) }}>
         <Layer z={-900}><BackPlate /></Layer>
         <Layer z={0}><CalFlip t={t} idx={idx} local={local} dir={-1} full hi={t > 85.0 ? 'Jadisatu' : undefined} /></Layer>
-        <Layer z={60}><Label t={t} at={85.12} out={87.6} x={560} y={800} tx={750} ty={700} text="TITIK AWAL" fonts={FONTS()} /></Layer>
+        <Layer z={60}><Label t={t} at={85.12} out={87.6} x={560} y={760} tx={745} ty={655} text="TITIK AWAL" fonts={FONTS()} /></Layer>
         <Layer z={160}>{ring > 0 && <div style={{ position: 'absolute', left: 960 - 300, top: 540 - 300, width: 600, height: 600, borderRadius: 300, border: `3px solid ${T.acc}`, transform: `scale(${0.5 + ring * 0.7})`, opacity: 1 - ring }} />}</Layer>
       </Stage>
     );
   }
   // Threads again: this time the post goes out, then more posts follow
-  const L = 'Hari pertama. Mulai share prosesnya.';
+  const L = 'Nggak sekadar membangun.';
   const n = typeN(t, 87.9, 89.4, L.length);
   const posted = t >= 89.7;
   const ap = (at: number) => (t >= at ? sp(t, at) : 0);
@@ -756,8 +913,9 @@ const Decision: React.FC = () => {
   const feedA = [...shown.map(([at]) => ap(at)), ...BASE_FEED.map(() => 1)];
   return (
     <AbsoluteFill style={{ background: T.bg }}>
-      <Stage cam={{ z: lerp(t, 87.6, 88.4, 0, 260, ease) + lerp(t, 88.4, 97.5, 0, 120, Easing.linear), x: 5, y: lerp(t, 87.6, 88.4, 0, -60, ease), ry: lerp(t, 87.6, 97.5, -3, 2, Easing.linear) }}>
+      <Stage cam={{ z: lerp(t, 87.6, 88.4, 0, 260, ease) + lerp(t, 88.4, 93.9, 0, 80, Easing.linear) + lerp(t, 93.9, 96.0, 0, 420, Easing.inOut(Easing.cubic)), x: 5, y: lerp(t, 87.6, 88.4, 0, -60, ease) + lerp(t, 93.9, 96.0, 0, -250, Easing.inOut(Easing.cubic)), ry: lerp(t, 87.6, 96, -3, 2, Easing.linear) }}>
         <Layer z={0}>
+          <div style={{ position: 'absolute', left: -900, top: -700, width: 3720, height: 2480, background: '#FAFAFA' }} />
           <ThreadsWeb font={inter} feed={feed} feedAppear={feedA} composerText={posted ? undefined : L.slice(0, n)} composerPost={t > 89.5 && t < 89.7 ? 1 : 0} />
           {t > 89.0 && t < 89.9 && <Cursor x={lerp(t, 89.0, 89.45, 1200, 1300, io)} y={lerp(t, 89.0, 89.45, 260, 225, io)} press={t > 89.5 && t < 89.65 ? 1 : 0} />}
         </Layer>
@@ -774,17 +932,18 @@ export const Main: React.FC = () => (
     <Sequence {...S(19.68, 25.8)}><Motivasi /></Sequence>
     <Sequence {...S(25.8, 32.66)}><Fomo /></Sequence>
     <Sequence {...S(32.66, 35.9)}><Night /></Sequence>
-    <Sequence {...S(35.9, 40.18)}><Chat /></Sequence>
-    <Sequence {...S(40.18, 48.26)}><Turn /></Sequence>
-    <Sequence {...S(48.26, 51.9)}><Year /></Sequence>
-    <Sequence {...S(51.9, 56.45)}><AgentsScene /></Sequence>
-    <Sequence {...S(56.45, 58.58)}><Reveal /></Sequence>
-    <Sequence {...S(58.58, 62.4)}><Sadar /></Sequence>
-    <Sequence {...S(62.4, 73.64)}><Sea /></Sequence>
-    <Sequence {...S(73.64, 82.4)}><Addiction /></Sequence>
-    <Sequence {...S(82.4, TOTAL)}><Decision /></Sequence>
+    <Sequence {...S(35.9, 40.18)}><Join from={35.9} to={40.18} outM="whip"><Chat /></Join></Sequence>
+    <Sequence {...S(40.18, 48.26)}><Join from={40.18} to={48.26} inM="whip" outM="push"><Turn /></Join></Sequence>
+    <Sequence {...S(48.26, 51.9)}><Join from={48.26} to={51.9} inM="push" outM="whip"><Year /></Join></Sequence>
+    <Sequence {...S(51.9, 56.45)}><Join from={51.9} to={56.45} inM="whip"><AgentsScene /></Join></Sequence>
+    <Sequence {...S(56.45, 58.58)}><Join from={56.45} to={58.58} outM="push"><Reveal /></Join></Sequence>
+    <Sequence {...S(58.58, 62.4)}><Join from={58.58} to={62.4} inM="push" outM="whip"><Sadar /></Join></Sequence>
+    <Sequence {...S(62.4, 73.64)}><Join from={62.4} to={73.64} inM="whip"><Sea /></Join></Sequence>
+    <Sequence {...S(73.64, 82.4)}><Join from={73.64} to={82.4} outM="push"><Addiction /></Join></Sequence>
+    <Sequence {...S(82.4, TOTAL)}><Join from={82.4} to={TOTAL} inM="push"><Decision /></Join></Sequence>
     <BlockWipe />
     <Captions />
+    <EndFade />
     <Grain />
   </AbsoluteFill>
 );

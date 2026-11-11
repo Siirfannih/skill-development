@@ -17,5 +17,6 @@ Sumber: `[I]` = ada kata Irfan, `[A]` = analisis AI.
 - [A] Usul Lantai (12 Nov, dari uji rekonstruksi 30): "Objek 3D tidak tampil mentah: material halus, cahaya lembut, tepi tanpa gerigi; bila tidak bisa dihaluskan, pakai 2D." Baru muncul di satu kartu; menunggu video kedua dan persetujuan Irfan.
 - [A] Belum diputuskan Irfan (12 Nov): "gradient pink" dan "biru + putih" ditolak di semua video atau hanya di video tertentu? Sampai dijawab, disimpan sebagai contoh bersyarat, bukan larangan.
 
+- [A] Output Seedance (Dreamina) 11 Nov: 24 fps bertimestamp tidak rata + frame duplikat (vA 20/121) → judder 0,17 dtk di render 30 fps. Cara yang terbukti: buang duplikat dengan timestamp asli, `minterpolate` mci ke 30 fps, `tmix` 3-frame. Masukkan ke `build.md` sebagai langkah wajib plate AI?
 
 _Riwayat:_ 11 Nov: 4 usulan ref 18 (tabel penempatan, menu 3 opsi per beat, paket gaya, tekstur + daftar aset) diterapkan ke `templates/gaya/`, `analysis-qa.md` §2, `storyboard.md` §1 atas permintaan Irfan membuat template dari bedah itu. Daftar 4 Nov (16 pelajaran dari proyek Fore, kartu usulan 30 Okt, dan RETRO 2 Nov) ditolak Irfan 4 Nov: proyek Fore tidak selesai dan pelajarannya bersifat kasus.

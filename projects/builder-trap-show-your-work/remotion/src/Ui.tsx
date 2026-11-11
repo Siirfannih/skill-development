@@ -238,7 +238,7 @@ export const monthKey = (d: string) => d.slice(0, 7);
 const RepoTile: React.FC<{ r: Repo; size: number; font: string; hi?: number }> = ({ r, size, font, hi = 0 }) => (
   <div style={{ width: size, height: size, borderRadius: size * 0.22, background: '#FFFFFF', boxShadow: `0 8px 20px rgba(0,0,0,0.35), 0 0 0 ${hi * 4}px #6F8DFF`, transform: `rotate(${(random(r[0]) - 0.5) * 10}deg)`, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: size * 0.1, boxSizing: 'border-box', fontFamily: font }}>
     {MASK('github', size * 0.26, '#1F2328')}
-    <div style={{ fontSize: size * 0.12, fontWeight: 700, color: '#0969DA', lineHeight: 1.1, wordBreak: 'break-all' }}>{r[0]}</div>
+    <div style={{ fontSize: size * 0.15, fontWeight: 700, color: '#0969DA', lineHeight: 1.05, wordBreak: 'break-all' }}>{r[0]}</div>
   </div>
 );
 export const CalendarCard: React.FC<{ y: number; m: number; repos: Repo[]; font: string; tileA?: (i: number) => number; hiName?: string }> = ({ y, m, repos, font, tileA = () => 1, hiName }) => {
@@ -288,7 +288,7 @@ export const CUBES = Array.from({ length: 26 }).map((_, i) => ({
   x: (random('cx' + i) - 0.5) * 2600 + 960, y: (random('cy' + i) - 0.5) * 1500 + 480, s: 50 + random('cs' + i) * 170, r: (random('cr' + i) - 0.5) * 30, ph: random('cp' + i) * 6,
 }));
 export const Cube: React.FC<{ s: number; t: number; ph: number; r: number }> = ({ s, t, ph, r }) => (
-  <div style={{ width: s, height: s * 0.82, transform: `translateY(${Math.sin(t * 0.8 + ph) * 12}px) rotate(${r + Math.sin(t * 0.5 + ph) * 3}deg)`, background: 'linear-gradient(160deg, #2B47FF 0%, #13245E 55%, #0A0F2A 100%)', borderTop: '1px solid rgba(111,141,255,0.55)', borderLeft: '1px solid rgba(111,141,255,0.25)', boxShadow: '0 20px 40px rgba(0,0,0,0.35)' }} />
+  <div style={{ width: s, height: s * 0.82, transform: `translateY(${Math.sin(t * 0.8 + ph) * 12}px) rotate(${r + Math.sin(t * 0.5 + ph) * 3}deg)`, background: 'linear-gradient(160deg, #2B47FF 0%, #13245E 55%, #0A0F2A 100%)', borderTop: '2px solid rgba(220,228,255,0.85)', borderLeft: '1px solid rgba(220,228,255,0.45)', boxShadow: '0 20px 40px rgba(0,0,0,0.35)' }} />
 );
 export const Circuits: React.FC<{ t: number; t0: number }> = ({ t, t0 }) => (
   <svg width="1920" height="1080" style={{ position: 'absolute' }}>
@@ -314,7 +314,7 @@ export const DeskScene: React.FC<{ t: number; screenA: number }> = ({ t, screenA
     </defs>
     {/* floor light from the monitor (linear, not radial) */}
     <polygon points="900,640 1060,640 1260,930 700,930" fill="url(#beam)" opacity={0.45 + screenA * 0.4} />
-    <rect x="0" y="905" width="1920" height="200" fill="#070A18" />
+    <rect x="0" y="905" width="1920" height="200" fill="url(#beam)" opacity="0.25" />
     {/* desk */}
     <rect x="760" y="720" width="420" height="16" rx="4" fill="#0E1226" stroke="rgba(111,141,255,0.4)" />
     <rect x="780" y="736" width="12" height="170" fill="#0E1226" /><rect x="1148" y="736" width="12" height="170" fill="#0E1226" />
