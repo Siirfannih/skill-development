@@ -1,0 +1,1348 @@
+{
+ "lang": "id",
+ "segments": [
+  {
+   "start": 0.14,
+   "end": 6.5,
+   "text": "aku terobsesi sama kesempunaan dan aku merasa pengen sekali menjadi seorang autentik",
+   "words": [
+    [
+     0.14,
+     0.62,
+     " aku"
+    ],
+    [
+     0.62,
+     1.24,
+     " terobsesi"
+    ],
+    [
+     1.24,
+     1.66,
+     " sama"
+    ],
+    [
+     1.66,
+     3.14,
+     " kesempunaan"
+    ],
+    [
+     3.14,
+     3.44,
+     " dan"
+    ],
+    [
+     3.44,
+     3.78,
+     " aku"
+    ],
+    [
+     3.78,
+     4.2,
+     " merasa"
+    ],
+    [
+     4.2,
+     4.74,
+     " pengen"
+    ],
+    [
+     4.74,
+     4.98,
+     " sekali"
+    ],
+    [
+     4.98,
+     5.42,
+     " menjadi"
+    ],
+    [
+     5.42,
+     5.88,
+     " seorang"
+    ],
+    [
+     5.88,
+     6.5,
+     " autentik"
+    ]
+   ]
+  },
+  {
+   "start": 6.5,
+   "end": 11.02,
+   "text": "sampai akhirnya aku gak menjadi siapapun dan aku gak melangkah jauh kemana-mana",
+   "words": [
+    [
+     6.5,
+     6.74,
+     " sampai"
+    ],
+    [
+     6.74,
+     7.28,
+     " akhirnya"
+    ],
+    [
+     7.28,
+     8.0,
+     " aku"
+    ],
+    [
+     8.0,
+     8.18,
+     " gak"
+    ],
+    [
+     8.18,
+     8.48,
+     " menjadi"
+    ],
+    [
+     8.48,
+     9.06,
+     " siapapun"
+    ],
+    [
+     9.06,
+     9.22,
+     " dan"
+    ],
+    [
+     9.22,
+     9.42,
+     " aku"
+    ],
+    [
+     9.42,
+     9.64,
+     " gak"
+    ],
+    [
+     9.64,
+     10.12,
+     " melangkah"
+    ],
+    [
+     10.12,
+     10.52,
+     " jauh"
+    ],
+    [
+     10.52,
+     10.8,
+     " kemana"
+    ],
+    [
+     10.8,
+     11.02,
+     "-mana"
+    ]
+   ]
+  },
+  {
+   "start": 11.02,
+   "end": 16.2,
+   "text": "memasuknya usia 20an, aku merasa aku perlu untuk melakukan sesuatu yang berbeda",
+   "words": [
+    [
+     11.02,
+     11.9,
+     " memasuknya"
+    ],
+    [
+     11.9,
+     12.08,
+     " usia"
+    ],
+    [
+     12.08,
+     12.62,
+     " 20an,"
+    ],
+    [
+     12.72,
+     12.8,
+     " aku"
+    ],
+    [
+     12.8,
+     13.16,
+     " merasa"
+    ],
+    [
+     13.16,
+     13.82,
+     " aku"
+    ],
+    [
+     13.82,
+     14.18,
+     " perlu"
+    ],
+    [
+     14.18,
+     14.64,
+     " untuk"
+    ],
+    [
+     14.64,
+     15.0,
+     " melakukan"
+    ],
+    [
+     15.0,
+     15.48,
+     " sesuatu"
+    ],
+    [
+     15.48,
+     15.68,
+     " yang"
+    ],
+    [
+     15.68,
+     16.2,
+     " berbeda"
+    ]
+   ]
+  },
+  {
+   "start": 16.2,
+   "end": 19.68,
+   "text": "sesuatu yang unik, sesuatu yang gak orang lain punya",
+   "words": [
+    [
+     16.2,
+     16.54,
+     " sesuatu"
+    ],
+    [
+     16.54,
+     16.78,
+     " yang"
+    ],
+    [
+     16.78,
+     17.2,
+     " unik,"
+    ],
+    [
+     17.36,
+     17.62,
+     " sesuatu"
+    ],
+    [
+     17.62,
+     17.92,
+     " yang"
+    ],
+    [
+     17.92,
+     18.7,
+     " gak"
+    ],
+    [
+     18.7,
+     19.14,
+     " orang"
+    ],
+    [
+     19.14,
+     19.34,
+     " lain"
+    ],
+    [
+     19.34,
+     19.68,
+     " punya"
+    ]
+   ]
+  },
+  {
+   "start": 19.68,
+   "end": 25.8,
+   "text": "dan aku termakan kata-kata motivasi kalau mau jadi sesuatu, harus menjadi sesuatu yang berbeda",
+   "words": [
+    [
+     19.68,
+     19.92,
+     " dan"
+    ],
+    [
+     19.92,
+     20.2,
+     " aku"
+    ],
+    [
+     20.2,
+     20.56,
+     " termakan"
+    ],
+    [
+     20.56,
+     20.86,
+     " kata"
+    ],
+    [
+     20.86,
+     21.02,
+     "-kata"
+    ],
+    [
+     21.02,
+     21.56,
+     " motivasi"
+    ],
+    [
+     21.56,
+     21.9,
+     " kalau"
+    ],
+    [
+     21.9,
+     22.58,
+     " mau"
+    ],
+    [
+     22.58,
+     22.86,
+     " jadi"
+    ],
+    [
+     22.86,
+     23.5,
+     " sesuatu,"
+    ],
+    [
+     23.7,
+     23.9,
+     " harus"
+    ],
+    [
+     23.9,
+     24.22,
+     " menjadi"
+    ],
+    [
+     24.22,
+     24.6,
+     " sesuatu"
+    ],
+    [
+     24.6,
+     24.84,
+     " yang"
+    ],
+    [
+     24.84,
+     25.8,
+     " berbeda"
+    ]
+   ]
+  },
+  {
+   "start": 25.8,
+   "end": 30.52,
+   "text": "karena itu aku gak mau mencoba hal-hal yang keliatannya banyak orang coba",
+   "words": [
+    [
+     25.8,
+     26.58,
+     " karena"
+    ],
+    [
+     26.58,
+     26.84,
+     " itu"
+    ],
+    [
+     26.84,
+     27.08,
+     " aku"
+    ],
+    [
+     27.08,
+     27.26,
+     " gak"
+    ],
+    [
+     27.26,
+     27.5,
+     " mau"
+    ],
+    [
+     27.5,
+     27.98,
+     " mencoba"
+    ],
+    [
+     27.98,
+     28.44,
+     " hal"
+    ],
+    [
+     28.44,
+     28.74,
+     "-hal"
+    ],
+    [
+     28.74,
+     29.0,
+     " yang"
+    ],
+    [
+     29.0,
+     29.64,
+     " keliatannya"
+    ],
+    [
+     29.64,
+     29.92,
+     " banyak"
+    ],
+    [
+     29.92,
+     30.16,
+     " orang"
+    ],
+    [
+     30.16,
+     30.52,
+     " coba"
+    ]
+   ]
+  },
+  {
+   "start": 30.52,
+   "end": 36.84,
+   "text": "aku gak mau jadi orang yang FOMO dan akhirnya aku melakukan banyak investasi waktu pada EI",
+   "words": [
+    [
+     30.52,
+     30.76,
+     " aku"
+    ],
+    [
+     30.76,
+     30.94,
+     " gak"
+    ],
+    [
+     30.94,
+     31.18,
+     " mau"
+    ],
+    [
+     31.18,
+     31.4,
+     " jadi"
+    ],
+    [
+     31.4,
+     31.64,
+     " orang"
+    ],
+    [
+     31.64,
+     31.86,
+     " yang"
+    ],
+    [
+     31.86,
+     32.66,
+     " FOMO"
+    ],
+    [
+     32.66,
+     32.96,
+     " dan"
+    ],
+    [
+     32.96,
+     34.1,
+     " akhirnya"
+    ],
+    [
+     34.1,
+     34.38,
+     " aku"
+    ],
+    [
+     34.38,
+     34.72,
+     " melakukan"
+    ],
+    [
+     34.72,
+     35.2,
+     " banyak"
+    ],
+    [
+     35.2,
+     35.66,
+     " investasi"
+    ],
+    [
+     35.66,
+     35.92,
+     " waktu"
+    ],
+    [
+     35.92,
+     36.26,
+     " pada"
+    ],
+    [
+     36.26,
+     36.84,
+     " EI"
+    ]
+   ]
+  },
+  {
+   "start": 36.84,
+   "end": 40.18,
+   "text": "untuk belajar, untuk melakukan sesuatu, will, something",
+   "words": [
+    [
+     36.84,
+     37.22,
+     " untuk"
+    ],
+    [
+     37.22,
+     37.94,
+     " belajar,"
+    ],
+    [
+     38.14,
+     38.3,
+     " untuk"
+    ],
+    [
+     38.3,
+     38.58,
+     " melakukan"
+    ],
+    [
+     38.58,
+     39.16,
+     " sesuatu,"
+    ],
+    [
+     39.48,
+     39.72,
+     " will,"
+    ],
+    [
+     39.9,
+     40.18,
+     " something"
+    ]
+   ]
+  },
+  {
+   "start": 40.18,
+   "end": 46.34,
+   "text": "tapi satu hal yang aku lewatkan adalah aku tidak menjual apapun, aku tidak mempublikasikan apapun",
+   "words": [
+    [
+     40.18,
+     40.68,
+     " tapi"
+    ],
+    [
+     40.68,
+     41.44,
+     " satu"
+    ],
+    [
+     41.44,
+     41.64,
+     " hal"
+    ],
+    [
+     41.64,
+     41.76,
+     " yang"
+    ],
+    [
+     41.76,
+     41.92,
+     " aku"
+    ],
+    [
+     41.92,
+     42.36,
+     " lewatkan"
+    ],
+    [
+     42.36,
+     42.66,
+     " adalah"
+    ],
+    [
+     42.66,
+     43.08,
+     " aku"
+    ],
+    [
+     43.08,
+     43.34,
+     " tidak"
+    ],
+    [
+     43.34,
+     44.14,
+     " menjual"
+    ],
+    [
+     44.14,
+     44.6,
+     " apapun,"
+    ],
+    [
+     44.68,
+     44.76,
+     " aku"
+    ],
+    [
+     44.76,
+     45.0,
+     " tidak"
+    ],
+    [
+     45.0,
+     45.88,
+     " mempublikasikan"
+    ],
+    [
+     45.88,
+     46.34,
+     " apapun"
+    ]
+   ]
+  },
+  {
+   "start": 46.34,
+   "end": 51.1,
+   "text": "dan tidak mendokumentasikan apapun selama satu tahun perjalanan aku mempelajari hal ini",
+   "words": [
+    [
+     46.34,
+     46.46,
+     " dan"
+    ],
+    [
+     46.46,
+     46.64,
+     " tidak"
+    ],
+    [
+     46.64,
+     47.48,
+     " mendokumentasikan"
+    ],
+    [
+     47.48,
+     48.26,
+     " apapun"
+    ],
+    [
+     48.26,
+     48.66,
+     " selama"
+    ],
+    [
+     48.66,
+     48.92,
+     " satu"
+    ],
+    [
+     48.92,
+     49.18,
+     " tahun"
+    ],
+    [
+     49.18,
+     49.78,
+     " perjalanan"
+    ],
+    [
+     49.78,
+     49.96,
+     " aku"
+    ],
+    [
+     49.96,
+     50.64,
+     " mempelajari"
+    ],
+    [
+     50.64,
+     50.86,
+     " hal"
+    ],
+    [
+     50.86,
+     51.1,
+     " ini"
+    ]
+   ]
+  },
+  {
+   "start": 51.49,
+   "end": 56.5,
+   "text": "selama satu tahun aku mencoba untuk belajar, untuk memahami seperti apa industri ini",
+   "words": [
+    [
+     51.49,
+     51.8,
+     " selama"
+    ],
+    [
+     51.8,
+     52.06,
+     " satu"
+    ],
+    [
+     52.06,
+     52.34,
+     " tahun"
+    ],
+    [
+     52.34,
+     52.62,
+     " aku"
+    ],
+    [
+     52.62,
+     53.68,
+     " mencoba"
+    ],
+    [
+     53.68,
+     53.96,
+     " untuk"
+    ],
+    [
+     53.96,
+     54.5,
+     " belajar,"
+    ],
+    [
+     54.58,
+     54.74,
+     " untuk"
+    ],
+    [
+     54.74,
+     55.24,
+     " memahami"
+    ],
+    [
+     55.24,
+     55.48,
+     " seperti"
+    ],
+    [
+     55.48,
+     55.82,
+     " apa"
+    ],
+    [
+     55.82,
+     56.14,
+     " industri"
+    ],
+    [
+     56.14,
+     56.5,
+     " ini"
+    ]
+   ]
+  },
+  {
+   "start": 56.5,
+   "end": 57.9,
+   "text": "dan apa yang sudah aku buat",
+   "words": [
+    [
+     56.5,
+     56.7,
+     " dan"
+    ],
+    [
+     56.7,
+     57.02,
+     " apa"
+    ],
+    [
+     57.02,
+     57.18,
+     " yang"
+    ],
+    [
+     57.18,
+     57.34,
+     " sudah"
+    ],
+    [
+     57.34,
+     57.58,
+     " aku"
+    ],
+    [
+     57.58,
+     57.9,
+     " buat"
+    ]
+   ]
+  },
+  {
+   "start": 58.58,
+   "end": 61.82,
+   "text": "sampai akhirnya aku sadar kalau di era sekarang",
+   "words": [
+    [
+     58.58,
+     59.2,
+     " sampai"
+    ],
+    [
+     59.2,
+     59.82,
+     " akhirnya"
+    ],
+    [
+     59.82,
+     59.94,
+     " aku"
+    ],
+    [
+     59.94,
+     60.24,
+     " sadar"
+    ],
+    [
+     60.24,
+     60.66,
+     " kalau"
+    ],
+    [
+     60.66,
+     61.2,
+     " di"
+    ],
+    [
+     61.2,
+     61.36,
+     " era"
+    ],
+    [
+     61.36,
+     61.82,
+     " sekarang"
+    ]
+   ]
+  },
+  {
+   "start": 62.41,
+   "end": 65.38,
+   "text": "semua orang itu bisa membangun, semua orang itu bisa membuat",
+   "words": [
+    [
+     62.41,
+     62.72,
+     " semua"
+    ],
+    [
+     62.72,
+     63.02,
+     " orang"
+    ],
+    [
+     63.02,
+     63.14,
+     " itu"
+    ],
+    [
+     63.14,
+     63.34,
+     " bisa"
+    ],
+    [
+     63.34,
+     63.94,
+     " membangun,"
+    ],
+    [
+     64.1,
+     64.34,
+     " semua"
+    ],
+    [
+     64.34,
+     64.6,
+     " orang"
+    ],
+    [
+     64.6,
+     64.74,
+     " itu"
+    ],
+    [
+     64.74,
+     64.92,
+     " bisa"
+    ],
+    [
+     64.92,
+     65.38,
+     " membuat"
+    ]
+   ]
+  },
+  {
+   "start": 65.38,
+   "end": 67.48,
+   "text": "semua orang itu bisa bikin software",
+   "words": [
+    [
+     65.38,
+     65.72,
+     " semua"
+    ],
+    [
+     65.72,
+     66.08,
+     " orang"
+    ],
+    [
+     66.08,
+     66.28,
+     " itu"
+    ],
+    [
+     66.28,
+     66.82,
+     " bisa"
+    ],
+    [
+     66.82,
+     67.16,
+     " bikin"
+    ],
+    [
+     67.16,
+     67.48,
+     " software"
+    ]
+   ]
+  },
+  {
+   "start": 67.48,
+   "end": 71.24,
+   "text": "tapi gak semua orang bisa mempublikasikan apa yang mereka buat",
+   "words": [
+    [
+     67.48,
+     67.96,
+     " tapi"
+    ],
+    [
+     67.96,
+     68.7,
+     " gak"
+    ],
+    [
+     68.7,
+     68.88,
+     " semua"
+    ],
+    [
+     68.88,
+     69.2,
+     " orang"
+    ],
+    [
+     69.2,
+     69.46,
+     " bisa"
+    ],
+    [
+     69.46,
+     70.22,
+     " mempublikasikan"
+    ],
+    [
+     70.22,
+     70.48,
+     " apa"
+    ],
+    [
+     70.48,
+     70.62,
+     " yang"
+    ],
+    [
+     70.62,
+     70.82,
+     " mereka"
+    ],
+    [
+     70.82,
+     71.24,
+     " buat"
+    ]
+   ]
+  },
+  {
+   "start": 71.24,
+   "end": 73.64,
+   "text": "share, ngebagiin apa yang belum sempurna",
+   "words": [
+    [
+     71.24,
+     71.68,
+     " share,"
+    ],
+    [
+     71.82,
+     72.42,
+     " ngebagiin"
+    ],
+    [
+     72.42,
+     72.68,
+     " apa"
+    ],
+    [
+     72.68,
+     72.88,
+     " yang"
+    ],
+    [
+     72.88,
+     73.08,
+     " belum"
+    ],
+    [
+     73.08,
+     73.64,
+     " sempurna"
+    ]
+   ]
+  },
+  {
+   "start": 73.64,
+   "end": 76.66,
+   "text": "dan ngebangun itu bikin kita jadi kecanduan",
+   "words": [
+    [
+     73.64,
+     73.84,
+     " dan"
+    ],
+    [
+     73.84,
+     74.8,
+     " ngebangun"
+    ],
+    [
+     74.8,
+     74.98,
+     " itu"
+    ],
+    [
+     74.98,
+     75.28,
+     " bikin"
+    ],
+    [
+     75.28,
+     75.5,
+     " kita"
+    ],
+    [
+     75.5,
+     75.86,
+     " jadi"
+    ],
+    [
+     75.86,
+     76.66,
+     " kecanduan"
+    ]
+   ]
+  },
+  {
+   "start": 76.66,
+   "end": 78.44,
+   "text": "untuk membangun sesuatu",
+   "words": [
+    [
+     76.66,
+     77.58,
+     " untuk"
+    ],
+    [
+     77.58,
+     78.02,
+     " membangun"
+    ],
+    [
+     78.02,
+     78.44,
+     " sesuatu"
+    ]
+   ]
+  },
+  {
+   "start": 78.44,
+   "end": 82.48,
+   "text": "yang pada akhirnya gak pernah kita publish dan gak pernah selesai",
+   "words": [
+    [
+     78.44,
+     78.88,
+     " yang"
+    ],
+    [
+     78.88,
+     79.14,
+     " pada"
+    ],
+    [
+     79.14,
+     79.52,
+     " akhirnya"
+    ],
+    [
+     79.52,
+     79.66,
+     " gak"
+    ],
+    [
+     79.66,
+     79.88,
+     " pernah"
+    ],
+    [
+     79.88,
+     80.04,
+     " kita"
+    ],
+    [
+     80.04,
+     80.44,
+     " publish"
+    ],
+    [
+     80.44,
+     80.68,
+     " dan"
+    ],
+    [
+     80.68,
+     80.82,
+     " gak"
+    ],
+    [
+     80.82,
+     81.0,
+     " pernah"
+    ],
+    [
+     81.0,
+     82.48,
+     " selesai"
+    ]
+   ]
+  },
+  {
+   "start": 82.48,
+   "end": 85.72,
+   "text": "dan sekarang aku memutuskan untuk kembali ke titik awal",
+   "words": [
+    [
+     82.48,
+     82.74,
+     " dan"
+    ],
+    [
+     82.74,
+     83.34,
+     " sekarang"
+    ],
+    [
+     83.34,
+     83.7,
+     " aku"
+    ],
+    [
+     83.7,
+     84.22,
+     " memutuskan"
+    ],
+    [
+     84.22,
+     84.42,
+     " untuk"
+    ],
+    [
+     84.42,
+     84.92,
+     " kembali"
+    ],
+    [
+     84.92,
+     85.12,
+     " ke"
+    ],
+    [
+     85.12,
+     85.36,
+     " titik"
+    ],
+    [
+     85.36,
+     85.72,
+     " awal"
+    ]
+   ]
+  },
+  {
+   "start": 85.72,
+   "end": 89.1,
+   "text": "dimana mungkin aku harusnya gak sekedar membangun",
+   "words": [
+    [
+     85.72,
+     86.16,
+     " dimana"
+    ],
+    [
+     86.16,
+     87.0,
+     " mungkin"
+    ],
+    [
+     87.0,
+     87.2,
+     " aku"
+    ],
+    [
+     87.2,
+     87.62,
+     " harusnya"
+    ],
+    [
+     87.62,
+     87.9,
+     " gak"
+    ],
+    [
+     87.9,
+     88.58,
+     " sekedar"
+    ],
+    [
+     88.58,
+     89.1,
+     " membangun"
+    ]
+   ]
+  },
+  {
+   "start": 89.1,
+   "end": 92.4,
+   "text": "tapi juga ngeser apa yang aku alami, apa yang aku buat",
+   "words": [
+    [
+     89.1,
+     89.38,
+     " tapi"
+    ],
+    [
+     89.38,
+     89.66,
+     " juga"
+    ],
+    [
+     89.66,
+     90.08,
+     " ngeser"
+    ],
+    [
+     90.08,
+     90.3,
+     " apa"
+    ],
+    [
+     90.3,
+     90.6,
+     " yang"
+    ],
+    [
+     90.6,
+     91.1,
+     " aku"
+    ],
+    [
+     91.1,
+     91.54,
+     " alami,"
+    ],
+    [
+     91.74,
+     91.8,
+     " apa"
+    ],
+    [
+     91.8,
+     91.94,
+     " yang"
+    ],
+    [
+     91.94,
+     92.1,
+     " aku"
+    ],
+    [
+     92.1,
+     92.4,
+     " buat"
+    ]
+   ]
+  },
+  {
+   "start": 92.4,
+   "end": 94.0,
+   "text": "pengalaman yang aku dapatkan",
+   "words": [
+    [
+     92.4,
+     92.96,
+     " pengalaman"
+    ],
+    [
+     92.96,
+     93.18,
+     " yang"
+    ],
+    [
+     93.18,
+     93.5,
+     " aku"
+    ],
+    [
+     93.5,
+     94.0,
+     " dapatkan"
+    ]
+   ]
+  }
+ ]
+}

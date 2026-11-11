@@ -57,3 +57,6 @@ Dipakai untuk **memindai**, bukan melarang teknik. Satu tanda dengan alasan tert
 | S-V15 | Wajah Naval tampil saat host yang bicara (Irfan 9 Nov) | label pembicara per frasa vs shot | aturan 49 |
 | S-V16 | Logo/ikon buatan sendiri yang kasar (pesawat, simpul ChatGPT); glow/segitiga keluar dari kartu (Irfan 9 Nov) | still close-up tiap ikon dan sambungan | aturan 50 |
 | S-V17 | Gambar makin terlambat dari suara (lip-sync bergeser hingga ±0,5 dtk di akhir klip): tiap potongan video dibulatkan ke atas ke frame utuh sementara audio tepat, selisihnya menumpuk (Behindwork 9 Nov) | bandingkan durasi base.mp4 vs voice.wav dan posisi cut di video vs map | potong video per bagian dengan jumlah frame pas (`-frames:v` dari grid 30 fps kumulatif), audio dipotong terpisah |
+| S-V18 | Vignette/lingkaran gelap di atas latar putih/terang (Irfan 11 Nov) | still adegan terang: tepi tidak lebih gelap dari tengah | palette.md |
+| S-V19 | Kombinasi coklat + hitam sebagai palet dasar terasa murah (Irfan 11 Nov) | `palette_check.py`, still | palette.md |
+| S-V20 | Screenshot UI ditempel sebagai gambar diam, bukan UI kode yang dianimasikan (Irfan 11 Nov) | daftar aset: tidak ada PNG UI di adegan | 19 |

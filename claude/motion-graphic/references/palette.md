@@ -30,4 +30,5 @@ Dibaca di gerbang brief (1) saat mengunci palet, dan di QA (9). Data hex ada di 
 | putih-lavender | iklan produk ringan dan ramah |
 | biru-gradasi-terang | finansial/produk bersih dan terang |
 | hitam-navy | finansial premium, malam |
+| deep-space-gradien | premium tech/AI, cerita reflektif: gradient multi-warna kontras jelas #0A2353 · #112C70 · #5B58EB · #BB63FF · #56E1E9 (+ #0133FE); adegan terang lilac #EADDEF → pink #FDCBF2 → #A087FD tanpa vignette gelap; transisi blok piksel bergradient. Hindari coklat + hitam (Irfan 11 Nov, ref Deep Space + koushik ssspin) |
 | monokrom | minimal, puitis; penekanan lewat cahaya, bukan warna |

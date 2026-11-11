@@ -1,0 +1,189 @@
+{
+ "lang": "en",
+ "segments": [
+  {
+   "start": 0.0,
+   "end": 4.6,
+   "text": "My name is Hera Rose. I'm the CEO of Personal Brand Launch, the social media marketing agency.",
+   "words": [
+    [
+     0.0,
+     0.4,
+     " My"
+    ],
+    [
+     0.4,
+     0.56,
+     " name"
+    ],
+    [
+     0.56,
+     0.68,
+     " is"
+    ],
+    [
+     0.68,
+     0.9,
+     " Hera"
+    ],
+    [
+     0.9,
+     1.22,
+     " Rose."
+    ],
+    [
+     1.48,
+     1.58,
+     " I'm"
+    ],
+    [
+     1.58,
+     1.72,
+     " the"
+    ],
+    [
+     1.72,
+     2.0,
+     " CEO"
+    ],
+    [
+     2.0,
+     2.22,
+     " of"
+    ],
+    [
+     2.22,
+     2.5,
+     " Personal"
+    ],
+    [
+     2.5,
+     2.74,
+     " Brand"
+    ],
+    [
+     2.74,
+     3.06,
+     " Launch,"
+    ],
+    [
+     3.26,
+     3.34,
+     " the"
+    ],
+    [
+     3.34,
+     3.52,
+     " social"
+    ],
+    [
+     3.52,
+     3.8,
+     " media"
+    ],
+    [
+     3.8,
+     4.12,
+     " marketing"
+    ],
+    [
+     4.12,
+     4.6,
+     " agency."
+    ]
+   ]
+  },
+  {
+   "start": 5.22,
+   "end": 9.44,
+   "text": "Currently we are looking hard-working and committed editors who can edit our client's short-form content.",
+   "words": [
+    [
+     5.22,
+     5.48,
+     " Currently"
+    ],
+    [
+     5.48,
+     5.72,
+     " we"
+    ],
+    [
+     5.72,
+     5.8,
+     " are"
+    ],
+    [
+     5.8,
+     5.96,
+     " looking"
+    ],
+    [
+     5.96,
+     6.26,
+     " hard"
+    ],
+    [
+     6.26,
+     6.52,
+     "-working"
+    ],
+    [
+     6.52,
+     6.72,
+     " and"
+    ],
+    [
+     6.72,
+     7.02,
+     " committed"
+    ],
+    [
+     7.02,
+     7.42,
+     " editors"
+    ],
+    [
+     7.42,
+     7.68,
+     " who"
+    ],
+    [
+     7.68,
+     7.82,
+     " can"
+    ],
+    [
+     7.82,
+     8.0,
+     " edit"
+    ],
+    [
+     8.0,
+     8.2,
+     " our"
+    ],
+    [
+     8.2,
+     8.66,
+     " client's"
+    ],
+    [
+     8.66,
+     8.86,
+     " short"
+    ],
+    [
+     8.86,
+     9.06,
+     "-form"
+    ],
+    [
+     9.06,
+     9.44,
+     " content."
+    ]
+   ]
+  }
+ ]
+}

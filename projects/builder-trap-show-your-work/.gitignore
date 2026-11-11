@@ -1,0 +1,13 @@
+raw/
+ref/
+music/
+out/
+qc/
+remotion/public/
+remotion/node_modules
+edit/*.wav
+audio/*.wav
+bedah/*.png
+*.mp4
+*.wav
+*.webp

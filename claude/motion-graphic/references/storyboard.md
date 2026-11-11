@@ -39,7 +39,7 @@ Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkun
 
 Satu panel = frame + caption, seperti artboard Wonder.
 
-- **Frame** berukuran format master (16:9 1920×1080, atau orientasi footage). Isinya **visual yang benar-benar terbaca**: UI asli produk/aplikasi, teks layar final, posisi objek dalam px, tiga lapisan 2.5D (`L-bg` latar, `L-vis` visual, `L-txt` teks). Bukan sketsa kotak.
+- **Frame** berukuran format master (16:9 1920×1080, atau orientasi footage). Isinya **visual yang benar-benar terbaca**: UI asli produk/aplikasi, teks layar final, posisi objek dalam px, empat lapisan 2,5D di kedalaman berbeda: `L1` latar (paling jauh), `L2` footage/dunia (pembicara, video, grid), `L3` teks, `L4` objek visual (paling dekat). Kamera bergerak di ruang 3D melewati lapisan itu (dolly menembus teks/objek, parallax, DoF), jadi gambar tidak tipis satu lapis; tiap beat menulis isi L1–L4 + jalur kamera di tabel storyboard sejak awal (Irfan 11 Nov; contoh mesin: `projects/builder-trap-show-your-work/remotion/src/Stage.tsx`). Bukan sketsa kotak.
 - **Caption**: id beat, babak, waktu, kalimat VO, aksi (apa yang bergerak), kamera, transisi keluar, SFX per event (`peran` + `alasan`), dan musik per babak di judul baris.
 - **Papan**: satu baris per babak, beat dari kiri ke kanan; versi lama pindah ke area arsip, bukan dihapus.
 - Kode G, T, C, X diambil dari `typography.md` dan `camera-transition.md`; jangan menciptakan kode baru di storyboard.

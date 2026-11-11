@@ -1,0 +1,951 @@
+{
+"cues": [
+{
+"t": 1.66,
+"file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
+"db": -16,
+"peran": "teks",
+"alasan": "kata \"kesempurnaan.\" masuk blur"
+},
+{
+"t": 6.15,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -24,
+"peran": "teks keluar",
+"alasan": "kesempurnaan keluar"
+},
+{
+"t": 8.45,
+"file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
+"db": -18,
+"peran": "teks",
+"alasan": "\"siapa pun.\" masuk"
+},
+{
+"t": 11.07,
+"file": "/home/irfan/sfx/SFXIrfan/Cut.mp3",
+"db": -14,
+"peran": "cut",
+"alasan": "punch-in framing kedua"
+},
+{
+"t": 11.9,
+"file": "/home/irfan/sfx/Kenyset/soft-pop-sfx-433612.mp3",
+"db": -14,
+"peran": "teks",
+"alasan": "\"20-an\" masuk"
+},
+{
+"t": 15.0,
+"file": "/home/irfan/sfx/SFXIrfan/ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3",
+"db": -18,
+"peran": "kamera",
+"alasan": "kamera menembus teks 20-an"
+},
+{
+"t": 15.3,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -24,
+"peran": "teks keluar",
+"alasan": "20-an keluar"
+},
+{
+"t": 15.5,
+"file": "/home/irfan/sfx/SFXIrfan/Variasitransisiataucut.mp3",
+"db": -14,
+"peran": "transisi",
+"alasan": "sapuan blok piksel gradient (ref 03)"
+},
+{
+"t": 15.68,
+"file": "/home/irfan/sfx/SFXIrfan/Wooshcameramovementtransisi.mp3",
+"db": -12,
+"peran": "transisi",
+"alasan": "wajah live mengecil jadi foto"
+},
+{
+"t": 16.3,
+"file": "/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3",
+"db": -12,
+"peran": "objek",
+"alasan": "foto tertancap di papan"
+},
+{
+"t": 16.75,
+"file": "/home/irfan/sfx/Kenyset/benkirb-shine-1-268902.mp3",
+"db": -18,
+"peran": "cahaya",
+"alasan": "foto menyala, orang lain meredup"
+},
+{
+"t": 17.35,
+"file": "/home/irfan/sfx/SFXIrfan/Move.mp3",
+"db": -20,
+"peran": "kamera",
+"alasan": "push-in ke fotonya"
+},
+{
+"t": 19.68,
+"file": "/home/irfan/sfx/Kenyset/swoosh-010-352856.mp3",
+"db": -14,
+"peran": "cut",
+"alasan": "masuk feed motivasi"
+},
+{
+"t": 19.9,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -24,
+"peran": "objek",
+"alasan": "kartu feed lewat 1"
+},
+{
+"t": 20.3,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -24,
+"peran": "objek",
+"alasan": "kartu feed lewat 2"
+},
+{
+"t": 20.7,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -24,
+"peran": "objek",
+"alasan": "kartu feed lewat 3"
+},
+{
+"t": 21.1,
+"file": "/home/irfan/sfx/Kenyset/flipcard-91468.mp3",
+"db": -12,
+"peran": "objek",
+"alasan": "kartu kutipan kertas masuk"
+},
+{
+"t": 21.15,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -24,
+"peran": "objek",
+"alasan": "tanda kutip gradient (L4) melayang masuk"
+},
+{
+"t": 21.56,
+"file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
+"db": -16,
+"peran": "teks",
+"alasan": "kata pertama kutipan"
+},
+{
+"t": 23.7,
+"file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
+"db": -20,
+"peran": "teks",
+"alasan": "bagian kedua kutipan \"harus\""
+},
+{
+"t": 24.84,
+"file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+"db": -18,
+"peran": "teks",
+"alasan": "kata vonis \"berbeda.\""
+},
+{
+"t": 25.8,
+"file": "/home/irfan/sfx/Kenyset/whoosh-velocity-383019.mp3",
+"db": -14,
+"peran": "cut",
+"alasan": "arus kartu tren"
+},
+{
+"t": 26.6,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -27,
+"peran": "gerak",
+"alasan": "arus tren melintas 1"
+},
+{
+"t": 27.5,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -27,
+"peran": "gerak",
+"alasan": "arus tren melintas 2"
+},
+{
+"t": 28.4,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -27,
+"peran": "gerak",
+"alasan": "arus tren melintas 3"
+},
+{
+"t": 29.3,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -27,
+"peran": "gerak",
+"alasan": "arus tren melintas 4"
+},
+{
+"t": 30.2,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -27,
+"peran": "gerak",
+"alasan": "arus tren melintas 5"
+},
+{
+"t": 31.0,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -27,
+"peran": "gerak",
+"alasan": "arus tren melintas 6"
+},
+{
+"t": 31.7,
+"file": "/home/irfan/sfx/SFXIrfan/ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3",
+"db": -18,
+"peran": "antisipasi",
+"alasan": "blur sebelum FOMO"
+},
+{
+"t": 31.86,
+"file": "/home/irfan/sfx/SFXIrfan/ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz - Epidemic Sound.mp3",
+"db": -10,
+"peran": "slam",
+"alasan": "FOMO menghantam"
+},
+{
+"t": 31.88,
+"file": "/home/irfan/sfx/Kenyset/soft-pop-sfx-433612.mp3",
+"db": -14,
+"peran": "teks",
+"alasan": "FOMO muncul"
+},
+{
+"t": 32.66,
+"file": "/home/irfan/sfx/SFXIrfan/Cut.mp3",
+"db": -16,
+"peran": "cut",
+"alasan": "masuk layar gelap ChatGPT"
+},
+{
+"t": 32.85,
+"file": "/home/irfan/sfx/SFXIrfan/Popup user interface : AI.mp3",
+"db": -14,
+"peran": "objek",
+"alasan": "jendela ChatGPT naik"
+},
+{
+"t": 32.9,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -24,
+"peran": "objek",
+"alasan": "chip UI (L4) muncul di depan kamera"
+},
+{
+"t": 33.4,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -26,
+"peran": "UI",
+"alasan": "item sidebar muncul 1"
+},
+{
+"t": 33.9,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -26,
+"peran": "UI",
+"alasan": "item sidebar muncul 2"
+},
+{
+"t": 34.2,
+"file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+"db": -22,
+"peran": "teks",
+"alasan": "\"Where should we begin?\""
+},
+{
+"t": 34.25,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -26,
+"peran": "UI",
+"alasan": "item sidebar muncul 3"
+},
+{
+"t": 36.2,
+"file": "/home/irfan/sfx/SFXIrfan/ResponAI:AIpopup.mp3",
+"db": -10,
+"peran": "logo",
+"alasan": "logo ChatGPT asli dicap"
+},
+{
+"t": 37.3,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -22,
+"peran": "logo keluar",
+"alasan": "logo ChatGPT pergi"
+},
+{
+"t": 37.6,
+"file": "/home/irfan/sfx/SFXIrfan/Move.mp3",
+"db": -22,
+"peran": "kamera",
+"alasan": "push-in perlahan ke kolom input"
+},
+{
+"t": 39.4,
+"file": "/home/irfan/sfx/Kenyset/iphone-keyboard-typing-sound-effect-336778.mp3",
+"db": -14,
+"peran": "UI",
+"alasan": "mengetik \"build something\"",
+"dur": 0.65
+},
+{
+"t": 39.95,
+"file": "/home/irfan/sfx/SFXIrfan/Enter.mp3",
+"db": -12,
+"peran": "UI",
+"alasan": "tombol kirim"
+},
+{
+"t": 40.0,
+"file": "/home/irfan/sfx/SFXIrfan/Variasitransisiataucut.mp3",
+"db": -14,
+"peran": "transisi",
+"alasan": "sapuan blok piksel gradient (ref 03)"
+},
+{
+"t": 40.18,
+"file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+"db": -10,
+"peran": "belokan",
+"alasan": "potong keras ke merah"
+},
+{
+"t": 40.35,
+"file": "/home/irfan/sfx/SFXIrfan/Lasertransision.mp3",
+"db": -18,
+"peran": "garis",
+"alasan": "garis merah menggambar"
+},
+{
+"t": 43.34,
+"file": "/home/irfan/sfx/Kenyset/soft-pop-sfx-433612.mp3",
+"db": -12,
+"peran": "teks",
+"alasan": "\"menjual\" masuk"
+},
+{
+"t": 44.25,
+"file": "/home/irfan/sfx/Kenyset/quick-double-swish-sfx-230502.mp3",
+"db": -12,
+"peran": "coret",
+"alasan": "\"menjual\" dicoret"
+},
+{
+"t": 45.0,
+"file": "/home/irfan/sfx/Kenyset/soft-pop-sfx-433612.mp3",
+"db": -12,
+"peran": "teks",
+"alasan": "\"mempublikasikan\" masuk"
+},
+{
+"t": 45.95,
+"file": "/home/irfan/sfx/Kenyset/quick-double-swish-sfx-230502.mp3",
+"db": -12,
+"peran": "coret",
+"alasan": "\"mempublikasikan\" dicoret"
+},
+{
+"t": 46.64,
+"file": "/home/irfan/sfx/Kenyset/soft-pop-sfx-433612.mp3",
+"db": -12,
+"peran": "teks",
+"alasan": "\"mendokumentasikan\" masuk"
+},
+{
+"t": 47.6,
+"file": "/home/irfan/sfx/Kenyset/quick-double-swish-sfx-230502.mp3",
+"db": -12,
+"peran": "coret",
+"alasan": "\"mendokumentasikan\" dicoret"
+},
+{
+"t": 48.26,
+"file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
+"db": -14,
+"peran": "cut",
+"alasan": "masuk timeline setahun"
+},
+{
+"t": 48.4,
+"file": "/home/irfan/sfx/SFXIrfan/scaningfast.mp3",
+"db": -22,
+"peran": "kamera",
+"alasan": "kamera menyusuri tahun"
+},
+{
+"t": 48.95,
+"file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+"db": -21,
+"peran": "objek",
+"alasan": "kartu repo Jadisatu muncul"
+},
+{
+"t": 49.45,
+"file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+"db": -21,
+"peran": "objek",
+"alasan": "kartu repo JadisatuOS-Internal muncul"
+},
+{
+"t": 49.57,
+"file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+"db": -21,
+"peran": "objek",
+"alasan": "kartu repo openclaw-backup muncul"
+},
+{
+"t": 49.71,
+"file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+"db": -21,
+"peran": "objek",
+"alasan": "kartu repo JadisatuDashboardnew muncul"
+},
+{
+"t": 49.87,
+"file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+"db": -21,
+"peran": "objek",
+"alasan": "kartu repo jadisatu.cloud muncul"
+},
+{
+"t": 50.43,
+"file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+"db": -21,
+"peran": "objek",
+"alasan": "kartu repo Hermessambung muncul"
+},
+{
+"t": 50.55,
+"file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+"db": -21,
+"peran": "objek",
+"alasan": "kartu repo jadisatulanding-profile muncul"
+},
+{
+"t": 50.67,
+"file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+"db": -21,
+"peran": "objek",
+"alasan": "kartu repo jadisatu-skills muncul"
+},
+{
+"t": 50.81,
+"file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+"db": -21,
+"peran": "objek",
+"alasan": "kartu repo desaignn-landing-os muncul"
+},
+{
+"t": 50.97,
+"file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+"db": -21,
+"peran": "objek",
+"alasan": "kartu repo canvas-skill-library muncul"
+},
+{
+"t": 51.72,
+"file": "/home/irfan/sfx/SFXIrfan/Variasitransisiataucut.mp3",
+"db": -14,
+"peran": "transisi",
+"alasan": "sapuan blok piksel gradient (ref 03)"
+},
+{
+"t": 51.9,
+"file": "/home/irfan/sfx/SFXIrfan/ES_Particle Emission - Soundpembuka.mp3",
+"db": -14,
+"peran": "cut",
+"alasan": "masuk dunia agent (editorial terang)"
+},
+{
+"t": 51.95,
+"file": "/home/irfan/sfx/Kenyset/bubble_pop_1-476367.mp3",
+"db": -14,
+"peran": "objek",
+"alasan": "agent Creative Pro muncul"
+},
+{
+"t": 52.1,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -26,
+"peran": "kamera",
+"alasan": "kamera mundur perlahan"
+},
+{
+"t": 52.6,
+"file": "/home/irfan/sfx/Kenyset/bubble_pop_1-476367.mp3",
+"db": -14,
+"peran": "objek",
+"alasan": "agent Developer muncul"
+},
+{
+"t": 52.7,
+"file": "/home/irfan/sfx/Kenyset/mensaje-de-texto-iphone-218138.mp3",
+"db": -20,
+"peran": "pesan",
+"alasan": "bubble Creative Pro mulai mengetik real time"
+},
+{
+"t": 53.15,
+"file": "/home/irfan/sfx/Kenyset/bubble_pop_1-476367.mp3",
+"db": -14,
+"peran": "objek",
+"alasan": "agent Sales Ops muncul"
+},
+{
+"t": 53.35,
+"file": "/home/irfan/sfx/Kenyset/mensaje-de-texto-iphone-218138.mp3",
+"db": -20,
+"peran": "pesan",
+"alasan": "bubble Developer mulai mengetik real time"
+},
+{
+"t": 53.7,
+"file": "/home/irfan/sfx/Kenyset/bubble_pop_1-476367.mp3",
+"db": -14,
+"peran": "objek",
+"alasan": "agent Content Research muncul"
+},
+{
+"t": 53.9,
+"file": "/home/irfan/sfx/Kenyset/mensaje-de-texto-iphone-218138.mp3",
+"db": -20,
+"peran": "pesan",
+"alasan": "bubble Sales Ops mulai mengetik real time"
+},
+{
+"t": 54.2,
+"file": "/home/irfan/sfx/Kenyset/bubble_pop_1-476367.mp3",
+"db": -14,
+"peran": "objek",
+"alasan": "agent Content Strategy muncul"
+},
+{
+"t": 54.45,
+"file": "/home/irfan/sfx/Kenyset/mensaje-de-texto-iphone-218138.mp3",
+"db": -20,
+"peran": "pesan",
+"alasan": "bubble Content Research mulai mengetik real time"
+},
+{
+"t": 54.65,
+"file": "/home/irfan/sfx/Kenyset/bubble_pop_1-476367.mp3",
+"db": -14,
+"peran": "objek",
+"alasan": "agent Writing Partner muncul"
+},
+{
+"t": 54.95,
+"file": "/home/irfan/sfx/Kenyset/mensaje-de-texto-iphone-218138.mp3",
+"db": -20,
+"peran": "pesan",
+"alasan": "bubble Content Strategy mulai mengetik real time"
+},
+{
+"t": 55.4,
+"file": "/home/irfan/sfx/Kenyset/mensaje-de-texto-iphone-218138.mp3",
+"db": -20,
+"peran": "pesan",
+"alasan": "bubble Writing Partner mulai mengetik real time"
+},
+{
+"t": 56.27,
+"file": "/home/irfan/sfx/SFXIrfan/Variasitransisiataucut.mp3",
+"db": -14,
+"peran": "transisi",
+"alasan": "sapuan blok piksel gradient (ref 03)"
+},
+{
+"t": 56.45,
+"file": "/home/irfan/sfx/Kenyset/whoosh-end-384629.mp3",
+"db": -14,
+"peran": "kamera",
+"alasan": "zoom out ke semua repo"
+},
+{
+"t": 56.9,
+"file": "/home/irfan/sfx/Kenyset/universfield-computer-mouse-click-352734.mp3",
+"db": -18,
+"peran": "UI",
+"alasan": "header GitHub + jumlah repo"
+},
+{
+"t": 57.0,
+"file": "/home/irfan/sfx/Kenyset/multi-pop-2-188167.mp3",
+"db": -14,
+"peran": "objek",
+"alasan": "enam agent berbaris"
+},
+{
+"t": 58.58,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -20,
+"peran": "transisi",
+"alasan": "semua meredup dan blur"
+},
+{
+"t": 59.9,
+"file": "/home/irfan/sfx/Kenyset/shine-6-268910.mp3",
+"db": -14,
+"peran": "teks",
+"alasan": "\"sadar.\" muncul"
+},
+{
+"t": 63.34,
+"file": "/home/irfan/sfx/SFXIrfan/basmenyebar.mp3",
+"db": -12,
+"peran": "objek",
+"alasan": "grid kartu muncul"
+},
+{
+"t": 63.36,
+"file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
+"db": -18,
+"peran": "teks",
+"alasan": "\"membangun.\""
+},
+{
+"t": 64.92,
+"file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
+"db": -16,
+"peran": "kamera",
+"alasan": "zoom out kedua"
+},
+{
+"t": 64.94,
+"file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
+"db": -18,
+"peran": "teks",
+"alasan": "\"membuat.\""
+},
+{
+"t": 66.82,
+"file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
+"db": -18,
+"peran": "teks",
+"alasan": "\"bikin software.\""
+},
+{
+"t": 67.16,
+"file": "/home/irfan/sfx/Kenyset/whoosh-velocity-383019.mp3",
+"db": -14,
+"peran": "kamera",
+"alasan": "zoom out jadi lautan"
+},
+{
+"t": 69.4,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -22,
+"peran": "objek",
+"alasan": "sel yang publish menyala 1"
+},
+{
+"t": 69.4,
+"file": "/home/irfan/sfx/Kenyset/benkirb-shine-1-268902.mp3",
+"db": -18,
+"peran": "cahaya",
+"alasan": "yang publish naik dari grid"
+},
+{
+"t": 69.49,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -22,
+"peran": "objek",
+"alasan": "sel yang publish menyala 2"
+},
+{
+"t": 69.58,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -22,
+"peran": "objek",
+"alasan": "sel yang publish menyala 3"
+},
+{
+"t": 69.67,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -22,
+"peran": "objek",
+"alasan": "sel yang publish menyala 4"
+},
+{
+"t": 69.76,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -22,
+"peran": "objek",
+"alasan": "sel yang publish menyala 5"
+},
+{
+"t": 69.85,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -22,
+"peran": "objek",
+"alasan": "sel yang publish menyala 6"
+},
+{
+"t": 69.94,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -22,
+"peran": "objek",
+"alasan": "sel yang publish menyala 7"
+},
+{
+"t": 71.24,
+"file": "/home/irfan/sfx/Kenyset/multi-pop-2-188167.mp3",
+"db": -12,
+"peran": "logo",
+"alasan": "logo platform asli muncul melingkar"
+},
+{
+"t": 72.55,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -22,
+"peran": "logo keluar",
+"alasan": "logo platform pergi"
+},
+{
+"t": 72.88,
+"file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
+"db": -16,
+"peran": "teks",
+"alasan": "\"belum sempurna.\""
+},
+{
+"t": 73.64,
+"file": "/home/irfan/sfx/SFXIrfan/Cut.mp3",
+"db": -16,
+"peran": "cut",
+"alasan": "masuk lingkaran build"
+},
+{
+"t": 73.8,
+"file": "/home/irfan/sfx/Kenyset/ui-processing-data-sequence-modern-interface-progress-02-230495.mp3",
+"db": -20,
+"peran": "UI",
+"alasan": "progress bar building berjalan",
+"dur": 7.2
+},
+{
+"t": 75.069,
+"file": "/home/irfan/sfx/Kenyset/ui-sound-off-270300.mp3",
+"db": -20,
+"peran": "UI",
+"alasan": "progress reset ke 0 (putaran 1)"
+},
+{
+"t": 75.86,
+"file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
+"db": -16,
+"peran": "teks",
+"alasan": "\"kecanduan.\""
+},
+{
+"t": 76.205,
+"file": "/home/irfan/sfx/Kenyset/ui-sound-off-270300.mp3",
+"db": -20,
+"peran": "UI",
+"alasan": "progress reset ke 0 (putaran 2)"
+},
+{
+"t": 77.179,
+"file": "/home/irfan/sfx/Kenyset/ui-sound-off-270300.mp3",
+"db": -20,
+"peran": "UI",
+"alasan": "progress reset ke 0 (putaran 3)"
+},
+{
+"t": 77.45,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -24,
+"peran": "teks keluar",
+"alasan": "kecanduan keluar"
+},
+{
+"t": 78.044,
+"file": "/home/irfan/sfx/Kenyset/ui-sound-off-270300.mp3",
+"db": -20,
+"peran": "UI",
+"alasan": "progress reset ke 0 (putaran 4)"
+},
+{
+"t": 78.83,
+"file": "/home/irfan/sfx/Kenyset/ui-sound-off-270300.mp3",
+"db": -20,
+"peran": "UI",
+"alasan": "progress reset ke 0 (putaran 5)"
+},
+{
+"t": 79.556,
+"file": "/home/irfan/sfx/Kenyset/ui-sound-off-270300.mp3",
+"db": -20,
+"peran": "UI",
+"alasan": "progress reset ke 0 (putaran 6)"
+},
+{
+"t": 80.04,
+"file": "/home/irfan/sfx/Kenyset/universfield-computer-mouse-click-352734.mp3",
+"db": -18,
+"peran": "UI",
+"alasan": "tombol Publish (mati) muncul"
+},
+{
+"t": 80.234,
+"file": "/home/irfan/sfx/Kenyset/ui-sound-off-270300.mp3",
+"db": -20,
+"peran": "UI",
+"alasan": "progress reset ke 0 (putaran 7)"
+},
+{
+"t": 80.872,
+"file": "/home/irfan/sfx/Kenyset/ui-sound-off-270300.mp3",
+"db": -20,
+"peran": "UI",
+"alasan": "progress reset ke 0 (putaran 8)"
+},
+{
+"t": 81.0,
+"file": "/home/irfan/sfx/Kenyset/sfx-erreur-363728.mp3",
+"db": -14,
+"peran": "UI",
+"alasan": "progress membeku 99 %"
+},
+{
+"t": 81.02,
+"file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Glitch, Glitch Databend 04 - Epidemic Sound.mp3",
+"db": -20,
+"peran": "UI",
+"alasan": "lingkaran merah berhenti"
+},
+{
+"t": 82.22,
+"file": "/home/irfan/sfx/SFXIrfan/Variasitransisiataucut.mp3",
+"db": -14,
+"peran": "transisi",
+"alasan": "sapuan blok piksel gradient (ref 03)"
+},
+{
+"t": 82.4,
+"file": "/home/irfan/sfx/SFXIrfan/ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3",
+"db": -16,
+"peran": "transisi",
+"alasan": "rewind ke awal"
+},
+{
+"t": 82.5,
+"file": "/home/irfan/sfx/Kenyset/whoosh-velocity-383019.mp3",
+"db": -14,
+"peran": "kamera",
+"alasan": "timeline digulung mundur"
+},
+{
+"t": 84.6,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -20,
+"peran": "fokus",
+"alasan": "kartu lain meredup"
+},
+{
+"t": 85.12,
+"file": "/home/irfan/sfx/Kenyset/sonar-ping-95840.mp3",
+"db": -14,
+"peran": "objek",
+"alasan": "titik awal: repo Jadisatu Nov 2025"
+},
+{
+"t": 88.9,
+"file": "/home/irfan/sfx/Kenyset/swoosh-010-352856.mp3",
+"db": -16,
+"peran": "transisi",
+"alasan": "pindah ke grid profil"
+},
+{
+"t": 89.07,
+"file": "/home/irfan/sfx/SFXIrfan/Variasitransisiataucut.mp3",
+"db": -14,
+"peran": "transisi",
+"alasan": "sapuan blok piksel gradient (ref 03)"
+},
+{
+"t": 89.3,
+"file": "/home/irfan/sfx/Kenyset/universfield-computer-mouse-click-352734.mp3",
+"db": -20,
+"peran": "UI",
+"alasan": "header profil Instagram"
+},
+{
+"t": 89.66,
+"file": "/home/irfan/sfx/Kenyset/pop-up-notify-smooth-modern-332448.mp3",
+"db": -14,
+"peran": "objek",
+"alasan": "post 1 terunggah"
+},
+{
+"t": 91.1,
+"file": "/home/irfan/sfx/Kenyset/pop-up-notify-smooth-modern-332448.mp3",
+"db": -14,
+"peran": "objek",
+"alasan": "post 2 terunggah"
+},
+{
+"t": 92.1,
+"file": "/home/irfan/sfx/Kenyset/pop-up-notify-smooth-modern-332448.mp3",
+"db": -14,
+"peran": "objek",
+"alasan": "post 3 terunggah"
+},
+{
+"t": 92.45,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -18,
+"peran": "objek",
+"alasan": "post 4 terunggah"
+},
+{
+"t": 92.62,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -18,
+"peran": "objek",
+"alasan": "post 5 terunggah"
+},
+{
+"t": 92.79,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -18,
+"peran": "objek",
+"alasan": "post 6 terunggah"
+},
+{
+"t": 92.96,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -18,
+"peran": "objek",
+"alasan": "post 7 terunggah"
+},
+{
+"t": 93.13,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -18,
+"peran": "objek",
+"alasan": "post 8 terunggah"
+},
+{
+"t": 93.3,
+"file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+"db": -18,
+"peran": "objek",
+"alasan": "post 9 terunggah"
+},
+{
+"t": 96.4,
+"file": "/home/irfan/sfx/Kenyset/simple-whoosh-382724.mp3",
+"db": -26,
+"peran": "penutup",
+"alasan": "fade ke hitam"
+}
+]
+}
