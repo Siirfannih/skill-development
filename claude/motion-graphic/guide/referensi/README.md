@@ -17,6 +17,7 @@ Contact sheet per video di `sheets/` (24 frame bertimestamp). Angka diukur 6 Nov
 | 15 | jefferson_fisher | percakapan duduk, kartu rounded di hitam (9:16) | 20 · 3,0 dtk | 28 · fokus | tanpa musik, jeda senyap, LRA 5,3 | monokrom low-key · `jefferson-fisher.md` |
 | 16 | markbrazil "Noir Stage" | klip podcast, panggung wide + CU (9:16) | 16 · 2,7 dtk | 29 · fokus | drone kontinu, onset 2,35/dtk, 5/6 cut ber-hit | hitam + merah `#EC0002` satu-satunya warna · `markbrazil.md` |
 | 17 | _ganimate_ showreel 2×2 | 4 proyek explainer editorial-tech (16:9) | 46 (mosaik) · 1,2 dtk | 75 · energi | musik + SFX tonal, ganti di babak data | netral + 1 aksen per mode (teal/kuning/coral) · `ganimate.md` |
+| 18 | Joseph · gaya minimal Arthur Brooks (hasil akhir) | klip podcast 9:16 + adegan lukisan/garis/ilustrasi bertekstur | 27 · 1,7 dtk | 37 · energi (tempo), register tenang | string pizzicato ±108 bpm tanpa drum, −20 LUFS, LRA 2 | hitam + kertas putih + 1 aksen biru · `joseph-arthur-brooks.md` |
 
 Pola bersama: semua cepat (kecuali 06), musik 104–136 bpm mengikuti tempo cut; palet satu keluarga dominan kecuali 02 yang sengaja maksimalis; teks layar sedikit kata per momen.
 
@@ -57,3 +58,5 @@ Event visual/menit + kategori dari `scripts/audio/pace_read.py` (9 Nov). Kolom c
 - **16 markbrazil** (`markbrazil.md`) — panggung siluet terkunci sebagai "rumah", kata vonis serif italic merah menyala di belakang siluet, counter + dot meter, lower third mono ter-decode, bleep sensor sebagai kantong senyap.
 - **17 _ganimate_** (`ganimate.md`) — sistem explainer 4 mode (arsip sinematik, UI asli, editorial putih, data isometrik) dengan tag teal menempel objek dan kamera truck isometrik.
 
+## 18 Joseph / Arthur Brooks (dibedah Claude 11 Nov) · diambil: taksonomi adegan + logika penempatan + cara melatih gaya
+- `joseph-arthur-brooks.md`: 10 jenis adegan (caption, B-roll+teks, lukisan, garis+teks, garis+ilustrasi, adegan teks, ilustrasi tengah/samping, objek, grafik), logika "umumkan → wajah, jelaskan → tunjukkan", alur 20 video → papan Figma → skill gaya + pustaka animasi, rencana edit 3 opsi per beat, 6 revisi sebagai daftar cek, dan 7 celah skill kita (usulan di `PENDING.md`).
