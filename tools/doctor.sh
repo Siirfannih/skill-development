@@ -45,6 +45,9 @@ D="$(command -v demucs || ls "$HOME"/work/mg-venv/bin/demucs 2>/dev/null)"
 if [ -n "$D" ]; then ok "demucs siap ($D)"
 else note "demucs tidak terpasang: dipakai audio/ears.py untuk menilai musik dari stem (audio.md §14.0B); pasang saat tugas audio"; fi
 
+python3 "$REPO/tools/sync_lantai.py" --check >/dev/null 2>&1 && ok "lantai di SKILL.md sama dengan LANTAI.md" || bad "LANTAI.md berubah tetapi SKILL.md belum disalin ulang (python3 tools/sync_lantai.py)"
+command -v tesseract >/dev/null && ok "tesseract siap (scripts/juri/teks_cek.py)" || note "tesseract tidak terpasang: teks_cek.py tidak bisa membaca kata (sudo apt install tesseract-ocr)"
+
 ENTRY="${ENTRY_DIR:-$HOME/work}"
 if [ -d "$ENTRY" ]; then
   grep -q "skill-development/AGENTS.md" "$ENTRY/CLAUDE.md" 2>/dev/null && ok "folder masuk remote $ENTRY merujuk skill-development" \

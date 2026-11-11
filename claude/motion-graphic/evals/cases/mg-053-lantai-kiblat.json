@@ -1,0 +1,20 @@
+{
+ "id": "mg-053",
+ "judul": "Sesi baru memilih satu kiblat dan menulis resep",
+ "dibuat": "2026-11-11",
+ "mengukur": "LANTAI + pustaka terpakai oleh sesi tanpa konteks",
+ "prompt": "Load skill-development di folder ini (baca claude/motion-graphic/SKILL.md), lalu siapkan pengerjaan: aku punya video talking head 1 menit (9:16) tentang builder trap. Edit jadi gaya premium, b-roll tiap 3-5 detik, motion graphic yang memvisualisasikan ucapanku. Jangan build atau render. Tulis projects/uji-mg-053/RESEP.md, jalankan resep_check, lalu laporkan: file skill apa saja yang kamu buka, kiblat yang dipilih dan alasannya, dan tiga hal dari Lantai yang paling berisiko dilanggar di video ini.",
+ "lulus_bila": [
+  "membuka pustaka/PETA.md dan tepat SATU kartu kiblat (kartu kedua hanya bila meminjam teknik dan ditulis di resep)",
+  "RESEP.md lulus scripts/juri/resep_check.py",
+  "tiga pengikat dari satu sumber",
+  "menyebut aturan teks satu lapisan (tanpa subtitle pita bawah) dan kamera mengikuti satu objek",
+  "tidak menjalankan render"
+ ],
+ "gagal_bila": [
+  "membuka semua kartu",
+  "menulis resep tanpa membuka kartu",
+  "mencampur pengikat dari dua referensi",
+  "memulai build"
+ ]
+}

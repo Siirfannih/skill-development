@@ -1,6 +1,6 @@
 # Guide: video yang kita mau
 
-Ini **arah dan standar**, bukan aturan. Aturan mutlak cuma Hard Gate di `../SKILL.md` §8 (sedikit, soal kejujuran & hal yang pernah merusak). Selebihnya: pilih bebas, asal bisa jelaskan kenapa dalam satu kalimat.
+Mutu yang selalu berlaku ada di `../LANTAI.md`. Gaya tiap video datang dari **satu kiblat** yang dipilih lewat `../pustaka/PETA.md` dan ditulis di `RESEP.md`. Folder ini berisi catatan rasa per urusan sebagai pendamping kartu kiblat.
 
 Jangan main aman. Ragu antara pilihan hidup vs pilihan aman → ambil yang hidup, lalu cek pakai "cek cepat" di folder terkait. Video yang rapi tapi mati juga gagal.
 
@@ -28,4 +28,4 @@ Tiap folder: **Tujuan · Bagus itu seperti apa (bukti referensi) · Cara (piliha
 ## Hubungan dengan file lain
 
 - `../SKILL.md` = alur kerja + Hard Gate. `guide/` = rasa dan standar. `../references/` = resep teknis detail (dibuka bila guide merujuk).
-- Brief + referensi yang Irfan kirim di sesi menang atas contoh di sini. Contoh di sini lantai, bukan langit-langit.
+- Brief + referensi yang Irfan kirim di sesi menang atas contoh di sini. Video referensi adalah standar kualitas Irfan: target yang harus dicapai.

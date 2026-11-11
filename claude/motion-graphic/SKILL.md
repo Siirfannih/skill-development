@@ -1,13 +1,87 @@
 ---
 name: motion-graphic
-description: Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntunly, siirfan content) from brief to render — persona, gated workflow, core rules, plus branch files for direction, storyboard, copywriting, decisions, typography, camera/transitions, audio, After Effects build, and QA. Use for any video or motion request from Irfan, even a rough one: "bikin video", launch video, reel, promo, motion, animasi teks, storyboard, naskah VO, revisi video, bedah referensi, After Effects, or when he sends a reference video. Also for podcast/interview clip edits with motion overlays and captions.
+description: Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntunly, siirfan content) from brief to render — persona, gated workflow, core rules, an always-on quality floor (LANTAI), a reference library with one chosen direction per video (pustaka: PETA, anatomy cards, RESEP), a render gate and reviewer scripts (juri), plus branch files for storyboard, copywriting, typography, camera, audio, Remotion build, and QA. Use for any video or motion request from Irfan, even a rough one: "bikin video", launch video, reel, promo, motion, animasi teks, storyboard, naskah VO, revisi video, bedah referensi, After Effects, or when he sends a reference video. Also for podcast/interview clip edits with motion overlays and captions.
 ---
 
 # Motion Graphic (Irfan)
 
-Satu skill untuk semua video motion Irfan. File ini berisi persona, cara kerja, struktur, dan rules inti. Detail tiap pekerjaan ada di cabang `references/` dan hanya dibaca saat gerbangnya tiba (peta di §5).
+Skill ini menaikkan mutu video dari prompt Irfan. Ia bukan template. Tiga hal yang selalu dikerjakan, berurutan:
 
-Menggantikan `motion-director` v3, `motion-graphic-playbook`, dan `irfan-motion-director`. Nomor § di cabang sama dengan v3, jadi rujukan lama seperti "§7.3" tetap bisa ditemukan.
+1. **Lantai**: mutu yang berlaku di semua video, apa pun gayanya (di bawah ini, lengkap).
+2. **Kiblat**: tiap video punya SATU arah gaya, dipilih dari prompt, video referensi yang Irfan kirim, atau `pustaka/PETA.md`, lalu ditulis sebagai `RESEP.md`.
+3. **Juri**: still hasil disandingkan dengan kiblat sebelum render penuh.
+
+Bila bagian lain di skill ini bertentangan dengan Lantai atau resep, Lantai dan resep yang menang.
+
+## 0. Lantai (selalu berlaku)
+
+<!-- LANTAI:mulai (disalin dari LANTAI.md oleh tools/sync_lantai.py; jangan diedit di sini) -->
+Lantai menentukan **mutu**; kiblat (kartu di `pustaka/`) menentukan **gaya**. Bila kartu kiblat bertentangan dengan lantai, lantai menang dan penyesuaiannya ditulis di `RESEP.md`. Lantai tidak berisi font, warna, atau layout tertentu: itu urusan kiblat.
+
+Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berlaku untuk semua gaya dan sudah muncul di dua video berbeda (lihat `pustaka/README.md` §Tumbuh).
+
+### A. Teks di layar
+1. **Semua ucapan tampil sebagai teks, dalam SATU lapisan tipografi kinetik bergaya editorial.** Tidak ada baris subtitle terpisah di pita bawah seperti subtitle film (Irfan 2 Nov, 11 Nov).
+2. **Posisi teks lahir dari komposisi tiap shot**: dekat subjek, di ruang kosong, atau menempel objek yang dirujuk. Gagal bila 3 tampilan berturut-turut duduk di pita yang sama tanpa alasan komposisi.
+3. **Kata tidak tampil dua kali.** Kata yang sudah jadi penekanan tidak diulang di lapisan atau tempat lain pada saat yang sama.
+4. **Maksimal 2 baris per tampil**, tidak terpotong tepi, tidak ada kata yatim. Saat pembicara bertanya, tanda tanya tampil (Irfan 9 Nov).
+5. **Teks hanya dari ucapan.** Tidak menambah kalimat atau angka yang tidak diucapkan.
+6. **Satu baris satu ukuran.** Kata yang dibesarkan pindah ke barisnya sendiri. Dua gaya huruf tidak sama kuat dalam satu frasa (serif tidak seukuran dan sebobot dengan kata bold di sebelahnya) (Irfan 6 Nov).
+7. **Huruf menyatu dengan frame-nya.** Kontras ≥ 4,5 : 1, ukurannya berhubungan dengan subjek di frame, tidak menyentuh tepi. Jenis huruf ikut kiblat; serif tidak dilarang. Contoh gagal: `pustaka/contoh-gagal/01-serif-pucat-raksasa.jpg` (Irfan 11 Nov).
+8. **Terbaca berurutan dan cukup lama**: satu arah baca, tiap frasa tampil sampai selesai diucapkan, terbaca di layar HP (Irfan 9 Nov).
+9. **Kotak di belakang teks hanya bila kontras gagal**, bukan hiasan (Irfan 6 Nov).
+
+### B. Kamera dan gerak
+10. **Frame tidak datar.** Setiap shot lebih dari 2 detik punya gerak kamera yang disengaja (push/zoom pelan untuk fokus, pan, atau mengikuti objek). Pengecualian hanya bila kartu kiblat memang berkamera diam, dan itu ditulis di `RESEP.md` (Irfan 9 Nov).
+11. **Kamera mengikuti SATU objek fokus per beat**, dari objek itu muncul sampai selesai, tidak kembali ke posisi awal di tengah jalan (Irfan 9 Nov).
+12. **Elemen diam di dunianya, kamera yang bergerak.** Saat kamera zoom, ia melewati teks dan objek; teks tidak ikut bergeser sendiri (Irfan 25 Okt, 9 Nov).
+13. **Tidak ada pergantian yang mendadak atau malas**: yang masuk datang dari suatu arah atau berubah bentuk, gerak cepat memakai motion blur, easing tidak linear. Overlay/gradien masuk dan keluar dengan gerak (Irfan 9 Nov).
+
+### C. Komposisi
+14. **Satu fokus per momen.** Mata tahu harus melihat ke mana.
+15. **Teks, objek, dan visual satu kesatuan**: tidak tumpang tindih, tidak bertabrakan, tidak berjauhan seperti bagian terpisah (Irfan 9 Nov).
+16. **Tepi frame bersih.** Tidak ada objek penting di zona tepi kecuali karena gerak kamera; margin aman 5 % (Irfan 11 Nov).
+17. **Seimbang.** Ruang kosong disengaja; teks tidak menumpuk di bawah atau satu sisi sementara tengah atau sisi lain kosong tanpa alasan (Irfan 2 Nov).
+18. **Rapi**: garis berakhir di tepi bentuknya, jarak antar-elemen sama, stroke dan radius konsisten (Irfan 9 Nov).
+
+### D. Isi visual
+19. **Visual menggambarkan makna ucapan**, bukan bentuk atau hiasan. Penonton harus lebih mudah paham karena visual itu (Irfan 9 Nov, 11 Nov).
+20. **Tampilan platform dan logo adalah yang asli** (Threads, Instagram, ChatGPT, GitHub), dibangun ulang sebagai animasi, bukan UI karangan. Ikon memakai ikon jadi (Irfan 26 Okt, 9 Nov, 11 Nov).
+21. **Yang sedang bicara tampil di frame**, kecuali tertutup visual layar penuh (Irfan 9 Nov).
+22. **Tidak ada placeholder** di render.
+
+### E. Audio
+23. **Suara tidak dipercepat.** Tempo dirapatkan dengan memotong jeda mati (Irfan 6 Nov, 8 Nov).
+24. **Setiap gerak visual punya SFX yang cocok dengan jenis geraknya dan terdengar** (gain −4 sampai −10 dB), tanpa spam (Irfan 1, 8, 9 Nov).
+25. **Musik mengikuti tempo dan suasana video**, tidak bolong, tidak melawan emosi ucapan (Irfan 6, 8 Nov).
+
+### F. Cara kerja
+26. **Urutan render: still per beat → draft skala 0,5 → render penuh.** Semua lewat `scripts/juri/render.sh`; render penuh ditolak sebelum resep dan still lulus. Satu render penuh 1080p ±8–18 menit di PC server, jadi ia langkah terakhir.
+27. **Revisi = diff.** Adegan yang sudah disetujui tidak disentuh; yang dirender ulang hanya rentang yang berubah.
+28. **Tidak yakin = tanya, jangan menebak.**
+29. **Video baru dikirim setelah juri lulus** (`pustaka/README.md` §Juri), bersama lembar sanding still vs kiblat.
+<!-- LANTAI:selesai -->
+
+## 0a. Kiblat dan resep (sebelum build)
+
+1. Baca `pustaka/PETA.md` (satu baris per referensi; semuanya standar kualitas Irfan, target yang harus dicapai).
+2. Tentukan kiblat:
+   - Irfan mengirim video referensi di sesi → itu kiblatnya; bedah ke kartu baru (`pustaka/README.md` §Referensi baru).
+   - Prompt sudah jelas → pilih satu kartu yang cocok dan langsung jalan.
+   - Prompt kabur ("gaya premium") → maksimal 3 pertanyaan dengan pilihan dari peta, lalu pilih.
+3. Buka **hanya** kartu kiblat itu (`pustaka/kartu/…`). Jangan membuka semua kartu.
+4. Tulis `projects/<proyek>/RESEP.md` dari `pustaka/RESEP-TEMPLATE.md`: 8 bagian anatomi. **Pengikat** (warna & tekstur, teks, ritme) dari satu sumber; **teknik** (b-roll, motion graphic, kamera & transisi, SFX, musik) boleh dipinjam kartu lain dan dikenakan pengikat kiblat. Cek: `python3 scripts/juri/resep_check.py projects/<proyek>/RESEP.md`.
+
+## 0b. Render dan juri
+
+- Semua render lewat `scripts/juri/render.sh <proyek> still|draft|final …`. Render penuh ditolak sampai resep lulus, still terbaru ada, lembar sanding dibuat, dan `qc/JURI.md` berakhir `PUTUSAN: LULUS`.
+- Juri pada still: `scripts/juri/teks_cek.py` (pita bawah, kata ganda, tepi), `scripts/juri/sandingkan.py` (still kita vs frame kiblat), lalu nilai tiap butir "Cek kemiripan" kartu kiblat dan Lantai A–D. Rinci: `pustaka/README.md` §Juri. Bandingkan juga dengan `pustaka/contoh-gagal/`.
+- Revisi: perbarui still adegan itu saja dan render rentang framenya, bukan seluruh video.
+- Pelajaran dari Irfan disimpan menurut cakupannya (`pustaka/README.md` §Tumbuh).
+
+---
+
+**Bagian 1–8 di bawah adalah rujukan teknis** (alur kerja rinci, alat audio, indeks aturan lama). Dibaca saat dibutuhkan; kalah dari Lantai dan resep bila bertentangan. Menggantikan `motion-director` v3, `motion-graphic-playbook`, dan `irfan-motion-director`.
 
 ## 1. Persona
 
@@ -19,9 +93,9 @@ Skill ini adalah **titik start, bukan titik nol**: pengalaman yang sudah terbukt
 
 `canvas-skill-library` = **data referensi**, bukan aturan. Dibuka hanya bila brief butuh contoh gerak; kalah dari skill ini bila bertentangan (Irfan 6 Nov). Skill pendamping `external/anti-slop` dan `awesome-design-md` juga filter/acuan prinsip, bukan identitas merek.
 
-**Prinsip:** cerita dulu, baru gaya · referensi adalah lantai, bukan langit-langit (teknik yang tidak cocok diganti yang setara, bukan yang lebih kasar) · setiap potongan jatuh di ketukan (frasa, beat musik, puncak gerak) · lihat sendiri, ukur sendiri sebelum Irfan menunjuk · satu fokus per frame, efek tanpa alasan dihapus.
+**Prinsip:** cerita dulu, baru gaya · referensi adalah standar yang harus dicapai (teknik yang tidak cocok diganti yang setara, bukan yang lebih kasar) · setiap potongan jatuh di ketukan (frasa, beat musik, puncak gerak) · lihat sendiri, ukur sendiri sebelum Irfan menunjuk · satu fokus per frame, efek tanpa alasan dihapus.
 
-**Urutan menang:** instruksi langsung Irfan di sesi → `projects/<proyek>/` → file ini → gaya terpilih (`templates/gaya/`) → cabang `references/` → `external/` → canvas-skill-library.
+**Urutan menang:** instruksi langsung Irfan di sesi → Lantai (§0) → `projects/<proyek>/` termasuk `RESEP.md` dan kartu kiblatnya → file ini → cabang `references/` → `external/` → canvas-skill-library. `templates/gaya/` adalah turunan kartu 18 (minimal-premium) dan satu gaya klien (editorial-bold): dipakai hanya bila resep memilihnya.
 
 ## 2a. Dua peran: Sutradara dan Editor
 
@@ -29,7 +103,7 @@ Setiap pekerjaan video dipecah: **Sutradara** (sesi yang bicara dengan Irfan: in
 
 ## 2b. Guide: standar rasa, per urusan
 
-Sebelum keputusan kreatif, buka `guide/README.md` lalu **hanya** folder urusan yang sedang dikerjakan (`visual/`, `teks/`, `gerak/`, `audio/`, `sfx/`, `hindari/`, `referensi/`). Guide = arah + contoh terukur dari 6 video referensi Irfan, bukan aturan: pilih bebas asal bisa dijelaskan. Ragu → pilih yang hidup, lalu cek cepat; jangan main aman (Irfan 6 Nov).
+Sebelum keputusan kreatif, buka `guide/README.md` lalu **hanya** folder urusan yang sedang dikerjakan (`visual/`, `teks/`, `gerak/`, `audio/`, `sfx/`, `hindari/`, `referensi/`). Guide = catatan rasa per urusan, pendamping kartu kiblat (gaya datang dari resep, mutu dari Lantai). Ragu → pilih yang hidup, lalu cek cepat; jangan main aman (Irfan 6 Nov).
 
 ## 3. Satu standar untuk semua video
 
@@ -63,10 +137,13 @@ Revisi dari Irfan: baca `revision-log.md`, catat di `DECISIONS.md` (§21) dan RE
 
 ```
 motion-graphic/
-├── SKILL.md                 inti: gerbang, indeks aturan (file ini)
+├── SKILL.md                 inti: lantai, kiblat, juri, lalu rujukan teknis (file ini)
+├── LANTAI.md                mutu yang selalu berlaku (sumber blok §0)
+├── pustaka/                 PETA.md · kartu/ (anatomi 8 bagian per referensi) · RESEP-TEMPLATE.md · contoh-gagal/
+├── scripts/juri/            render.sh (gerbang render) · resep_check.py · teks_cek.py · sandingkan.py
 ├── guide/                   standar rasa per urusan (README → visual · teks · gerak · audio · sfx · hindari · referensi)
 ├── references/
-│   ├── core-rules.md        teks penuh aturan inti 1–46
+│   ├── core-rules.md        teks penuh aturan inti 1–50
 │   ├── music-profiles.json  profil musik per kategori suasana (kalibrasi dari referensi Irfan)
 │   ├── slop-catalog.md      tanda yang pernah Irfan tolak + cara mengeceknya
 │   ├── delivery-gate.md     preview-dulu + laporan PASS/FAIL berbukti sebelum kirim
@@ -111,7 +188,7 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 | Gaya teks, easing, animasi teks | `typography.md`, `smooth-motion.md` |
 | Kamera, transisi, cutout | `camera-transition.md`, `motion-mechanics.md` |
 | VO, SFX, musik, QA audio | `audio.md` (mulai §14.0A kategori suasana) + gerbang DENGAR `three-segment-gate.md` |
-| Build AE/engine kode | `build.md` |
+| Build (catatan: `build.md` masih berisi alur After Effects lama; untuk Remotion ikuti skill `remotion-best-practices` + `scripts/juri/render.sh`) | `build.md` |
 | Bedah referensi, QA render | `analysis-qa.md`, `delivery-gate.md` |
 | Revisi Irfan, kunci adegan | `revision-log.md` |
 
@@ -125,7 +202,7 @@ Tiga tingkat, mengikuti pola anti-slop: **Hard Gate** mutlak; **Purpose-Gate** t
 - 12 Tidak ada video ke Irfan sebelum verdict SHIP + Delivery Gate · 13 tidak yakin = tanya, jangan menebak
 - 14 Adegan disetujui tidak disentuh · 17 baca folder proyek sebelum build · 18 revisi = diff, bukan tulis ulang
 - 33 VO tidak dipercepat, jeda diukur · 38 Modul 1–5 standar mix · 47 satu dunia + kamera AE + teks menyatu · 48 visual menggambarkan ucapan · 49 yang bicara tampil · 50 logo asli + ikon jadi, rapi
-- **43 1 frame / 1 pesan / 1 objek visual / 1 gerakan = 1 SFX** · 44 Caption ≤ 2 baris, hadir selama ada ucapan, tidak terpotong · 45 audio ikut tempo video: kategori dari `pace_read.py`, musik lulus `music_fit.py`
+- **43 1 frame / 1 pesan / 1 objek visual / 1 gerakan = 1 SFX** · 44 semua ucapan tampil sebagai SATU lapisan teks kinetik (bukan subtitle pita bawah, kata tidak diulang), ≤ 2 baris, tidak terpotong · 45 audio ikut tempo video: kategori dari `pace_read.py`, musik lulus `music_fit.py`
 
 **Purpose-Gate**
 - 6 Kotak di belakang teks hanya bila kontras gagal · 7 setiap efek punya alasan · 24 efek karena fungsi (negative = transisi/before-after)
@@ -133,8 +210,8 @@ Tiga tingkat, mengikuti pola anti-slop: **Hard Gate** mutlak; **Purpose-Gate** t
 
 **Quality Lock**
 - 1 Satu fokus per momen · 46 teks berurutan, waktu baca cukup, tanpa tabrakan · 20 teks dan visual bergiliran · 31 visual mengikuti subjek kalimat · 3 tokoh/dunia konsisten
-- 5 Nol crossfade; overlay masuk/keluar bergerak · 42 transisi = logika ruang · 26 kamera = alat fokus, frame tidak datar · 29 kamera patuh VO · 9 motion blur di gerak cepat
-- 8 Keterbacaan HP · 15 tidak ada biru di latar gelap · 39 serif tidak sejajar bold; satu baris satu ukuran · 41 palet dikunci di brief
+- 5 Nol crossfade; overlay masuk/keluar bergerak · 42 transisi = logika ruang · 26 kamera = alat fokus, frame tidak datar: tiap shot > 2 dtk bergerak, ikuti satu objek per beat (Lantai B) · 29 kamera patuh VO · 9 motion blur di gerak cepat
+- 8 Keterbacaan HP · 15 tidak ada biru di latar gelap · 39 serif tidak seukuran-sebobot dengan bold di frasa yang sama (serif sendiri boleh; huruf harus menyatu dengan frame); satu baris satu ukuran · 41 palet dikunci di brief
 - 16 storyboard = struktur, bukan visual akhir · 21 format berulang beda framing · 23 uji logika dunia nyata + devil's advocate
 - 25 musik per babak · 27 tiga detik pertama · 32 backsound tidak bolong · 34 audio tidak dibatasi folder
 - 30 SFX terdengar · 35 uji speaker HP · 36 nyaman dulu baru keras · 37 SFX lahir bersama objeknya

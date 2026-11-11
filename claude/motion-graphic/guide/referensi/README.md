@@ -1,4 +1,6 @@
-# 6 video referensi (Irfan, 6 Nov)
+# Video referensi Irfan (catatan ukur)
+
+> Peta dan kartu anatomi tiap referensi sekarang di `../../pustaka/PETA.md` dan `../../pustaka/kartu/`. File ini menyimpan tabel ukur dan catatan awal.
 
 Contact sheet per video di `sheets/` (24 frame bertimestamp). Angka diukur 6 Nov (`scripts/audio/pace_read.py`, scene detect ffmpeg, histogram hue). Bedah Gemini untuk 01, 02, 04 dipakai sebagai catatan, **dicek ulang**: Gemini menyebut 04 "pacing lambat" padahal cut 65/menit; yang lambat cuma tempo baca teksnya.
 

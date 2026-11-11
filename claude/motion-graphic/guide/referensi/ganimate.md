@@ -1,6 +1,6 @@
 # 17 _ganimate_ · "Editorial Explainer System": guideline editing
 
-> Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di `sheets/`, scene detect ffmpeg, ebur128, spektrogram + onset librosa). Data referensi, bukan aturan: kalah dari `../../SKILL.md` dan `guide/` bila bertentangan; bagian "Benturan" berisi usulan yang belum disetujui.
+> Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di `sheets/`, scene detect ffmpeg, ebur128, spektrogram + onset librosa). Standar kualitas Irfan; kartu anatominya di `../../pustaka/kartu/`. Bila bertentangan dengan `../../LANTAI.md`, lantai menang; bagian "Benturan" berisi usulan yang belum disetujui.
 > Sumber: `_ganimate__DfICqhOvP-0.mp4` · 1280×720 (16:9) · 23,98 fps · 14,4 dtk · **showreel 2×2**: empat proyek motion explainer diputar bersamaan, panel bergantian isi.
 > Karena ini showreel studio, guideline ini merangkum **sistem bersama** + **4 mode** yang bisa dipilih per babak. Status: tata bahasa, **bukan template**. Lihat §11.
 

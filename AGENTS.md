@@ -13,7 +13,7 @@ Repo ini menyimpan cara kerja AI bersama Irfan. Mulai dari [INDEX.md](INDEX.md),
 
 ## Akhir sesi (wajib, sebelum menutup)
 
-1. Pelajaran yang Irfan setujui (termasuk jawaban "oke") ditulis **langsung ke file skill** tempat aturannya berlaku, bukan hanya ke RETRO, folder proyek, atau branch. Aturan lama yang bertentangan diganti di tempat, bukan ditambah kalimat "menggantikan…".
+1. Pelajaran yang Irfan setujui (termasuk jawaban "oke") disimpan di tempat yang cakupannya paling sempit dan masih benar. Untuk video ikuti `claude/motion-graphic/pustaka/README.md` §Tumbuh: koreksi satu video → `projects/<proyek>/DECISIONS.md`; cara memakai satu gaya → "Catatan pakai" di kartu kiblatnya; frame yang ditolak → `pustaka/contoh-gagal/`; hal yang berlaku di semua video → usul ke `PENDING.md`, dan baru masuk `LANTAI.md` setelah muncul di dua video berbeda dan Irfan menyetujui bunyinya. Satu koreksi tidak dijadikan larangan umum (gagal: "tanpa serif" 4 Nov, caption 9 Nov). Skill lain: tulis ke file skill tempat aturannya berlaku; aturan lama yang bertentangan diganti di tempat.
 2. Setiap aturan baru diakhiri tanda sumber singkat: `(Irfan 4 Nov)`, `(Irfan oke 4 Nov, dari ref X)`, atau `(gagal: proyek vN)`.
 3. Pelajaran yang belum disetujui masuk ke `PENDING.md`, satu baris.
 4. Perubahan skill masuk ke `main` di sesi yang sama (merge atau pull request yang disebut ke Irfan). Jangan tinggalkan pelajaran di branch.
