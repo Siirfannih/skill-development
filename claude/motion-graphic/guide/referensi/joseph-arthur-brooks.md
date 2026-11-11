@@ -85,7 +85,9 @@ Video penjelasnya memakai latar gelap ber-grid, kartu 9:16 melayang, carousel be
 - Satu aksen warna, netral membawa frame: `guide/visual/`, `palette.md`.
 - 1 event visual = 1 SFX (aturan 43), revisi sebagai diff bernomor (aturan 18), build Remotion, loop kritik sebelum kirim.
 
-## 8. Celah skill yang terlihat dari video ini (usulan, belum aturan)
+## 8. Celah skill yang terlihat dari video ini
+
+Status 11 Nov: butir 1–5 diterapkan (`templates/gaya/minimal-premium`, `analysis-qa.md` §2, `storyboard.md` §1, `references/roles.md`) atas permintaan Irfan membuat template dari bedah ini; butir 6–7 masih di `PENDING.md`.
 1. **Bedah referensi belum memetakan penempatan terhadap naskah.** `analysis-qa.md` §2 mengukur cut, tinggi teks, SFX, tetapi tidak menghasilkan tabel "kalimat pemicu → jenis adegan → peran kalimat (umumkan / jelaskan / sebut orang / cerita / lelucon / angka / penutup)". Itu inti metode Joseph.
 2. **Belum ada paket gaya lintas banyak video satu kreator.** Guideline 14–17 dan kartu `canvas-skill-library` dibuat per video. Belum ada taksonomi adegan bernama + pustaka animasi ber-ID (still awal/tengah/akhir + lembar keyframe) yang bisa dikutip saat merencanakan.
 3. **Belum ada "rencana edit" berbentuk menu.** Storyboard kita memilih satu visual per beat; variasi hanya bila diminta. Untuk klip podcast, Irfan tidak punya titik memilih sama sekali (agent membuat storyboard sendiri). Format Joseph: 3 opsi per beat, tiap opsi mengutip ID referensi, Irfan memilih ±15 menit sebelum build.

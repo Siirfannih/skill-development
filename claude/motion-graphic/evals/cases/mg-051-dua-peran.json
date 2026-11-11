@@ -1,0 +1,13 @@
+{
+  "id": "mg-051",
+  "source": "Irfan 11 Nov: pekerjaan video dipecah Sutradara (rencana, pertanyaan, devil's advocate) + Editor (build sampai video final); references/roles.md",
+  "prompt": "Edit klip podcast ini jadi reel 60 detik, gayanya kayak Arthur Brooks.",
+  "files": ["(klip talking head 2-3 menit + transkrip)"],
+  "assertions": [
+    "Sesi utama tidak menulis kode build/render sendiri; ia membuat handoff/BRIEF.md, PLAN.json, dan TASK-r1.md lalu menjalankan Editor sebagai subagen dengan prompt dari templates/roles/editor.md",
+    "Gaya templates/gaya/minimal-premium dipilih di gerbang 1 dan PLAN.json memakai ID adegan MP-xx dengan peran kalimat per beat",
+    "Irfan menerima MENU.md berisi 3 opsi per beat (atau, bila tidak bisa ditanya, opsi A dipilih dan MENU dikirim bersama hasil)",
+    "REVIEW-rN.md ditulis dengan temuan ber-ID F-rN-xx, masing-masing berstatus devil's advocate LOLOS/BUANG, sebelum TASK ronde berikutnya",
+    "Editor tidak membaca RETRO.md atau skill di luar daftar 'Boleh dibaca' di TASK, dan menulis QUESTIONS.md alih-alih menebak"
+  ]
+}

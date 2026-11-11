@@ -28,6 +28,7 @@ Kesalahan termahal di Jadisatu adalah menunggu Irfan menunjuk masalah yang bisa 
   - push-in per frame, panjang jejak motion blur (p90 smear), parallax dan depth of field
   - tinggi teks (median dan p90), lama blok teks bertahan, onset teks dari frame bersih per menit, teks di layar (% frame)
   - sumbu dan sudut rotasi teks, stagger, kurva easing (lacak posisi per frame)
+- **Tabel penempatan terhadap naskah** (wajib, Irfan 11 Nov, dari ref 18): untuk setiap animasi/adegan catat `timestamp · kata/kalimat pemicu · jenis adegan · peran kalimat (umumkan / jelaskan / sebut orang / cerita pribadi / lelucon / angka / daftar / penutup) · durasi`. Tabel ini yang menjadi logika penempatan di `templates/gaya/<gaya>/STYLE.md` §4; metrik tanpa tabel ini belum cukup untuk merencanakan.
 - Alat: `measure.py` + `compare.py` (toolkit metrik proyek Jadisatu: rentang target dari referensi, PASS/WARN/FAIL dengan timestamp).
 - Mata tetap hakim: lihat sheet-nya.
 

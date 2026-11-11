@@ -21,7 +21,11 @@ Skill ini adalah **titik start, bukan titik nol**: pengalaman yang sudah terbukt
 
 **Prinsip:** cerita dulu, baru gaya · referensi adalah lantai, bukan langit-langit (teknik yang tidak cocok diganti yang setara, bukan yang lebih kasar) · setiap potongan jatuh di ketukan (frasa, beat musik, puncak gerak) · lihat sendiri, ukur sendiri sebelum Irfan menunjuk · satu fokus per frame, efek tanpa alasan dihapus.
 
-**Urutan menang:** instruksi langsung Irfan di sesi → `projects/<proyek>/` → file ini → cabang `references/` → `external/` → canvas-skill-library.
+**Urutan menang:** instruksi langsung Irfan di sesi → `projects/<proyek>/` → file ini → gaya terpilih (`templates/gaya/`) → cabang `references/` → `external/` → canvas-skill-library.
+
+## 2a. Dua peran: Sutradara dan Editor
+
+Setiap pekerjaan video dipecah: **Sutradara** (sesi yang bicara dengan Irfan: intake, pertanyaan, bedah, rencana, review buta, devil's advocate, Delivery Gate) dan **Editor** (subagen dengan konteks ramping: build, render, gate mekanis, laporan berbukti). Keduanya berbicara hanya lewat file di `handoff/` (BRIEF, PLAN, TASK, REPORT, REVIEW). Protokol, peta gerbang, dan prompt Editor: `references/roles.md`, `templates/roles/` (Irfan 11 Nov).
 
 ## 2b. Guide: standar rasa, per urusan
 
@@ -38,10 +42,10 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Render penuh 
 | # | Gerbang | Baca cabang | Lolos jika |
 |---|---|---|---|
 | 0 | Muat konteks | — | §6 selesai; `earshot doctor` lulus di mesin kerja (tidak terpasang = lapor Irfan dulu, jangan lanjut) |
-| 1 | Brief | `decision.md`, `palette.md` | Brief Irfan disalin apa adanya; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari Irfan (gagal: V5 8 Nov). Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
+| 1 | Brief | `decision.md`, `palette.md`, `templates/gaya/README.md` | Brief Irfan disalin apa adanya; gaya dipilih dari `templates/gaya/` bila cocok (talking head: `minimal-premium` atau `editorial-bold`) dan menjadi rujukan visual utama; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari Irfan (gagal: V5 8 Nov). Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
 | 2 | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file (klip: daftar potongan + timestamp sumber) |
-| 3 | Bedah referensi | `analysis-qa.md` §2, `three-segment-gate.md` (gerbang DENGAR) | Metrik visual + peta audio dari `earshot timeline --detail high` (label, event/dtk, kepadatan SFX) |
-| 4 | Storyboard visual 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Papan panel (frame + caption) di `projects/<proyek>/storyboard/`, `scripts/storyboard/board.py` PASS, review papan + tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final. Tanpa storyboard dari Irfan (klip): agent membuatnya sendiri dan lanjut, papan dikirim bersama hasil (Irfan 8 Nov) |
+| 3 | Bedah referensi | `analysis-qa.md` §2, `three-segment-gate.md` (gerbang DENGAR) | Metrik visual + tabel kalimat → adegan → peran kalimat + peta audio dari `earshot timeline --detail high` (label, event/dtk, kepadatan SFX) |
+| 4 | Storyboard visual 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Papan panel (frame + caption) di `projects/<proyek>/storyboard/`, `scripts/storyboard/board.py` PASS, review papan + tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final. Tanpa storyboard dari Irfan (klip): agent membuatnya sendiri dan lanjut, papan dikirim bersama hasil (Irfan 8 Nov). Klip/talking head dengan gaya terpilih: rencana edit menu 3 opsi per beat (`templates/gaya/README.md`), Irfan memilih (Irfan 11 Nov) |
 | 5 | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
 | 6 | Suara dikunci | `audio.md` §14.0C | VO (setelah script final) atau audio sumber klip utuh; `gate/audio_order.py init --mode konten\|musik` + `lock suara`. Mode `musik` (video lirik, montage di ketukan): musik dipilih dan dikunci di sini lebih dulu, visual dipotong di ketukannya |
 | 7 | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum diterapkan ke semua |
@@ -71,6 +75,9 @@ motion-graphic/
 │   ├── audio.md · build.md · analysis-qa.md · revision-log.md · palette.md (+ palettes.json)
 │   └── hybrid-motion-standard.md · three-segment-gate.md
 ├── templates/storyboard/    contoh beats.json + tokens.css + panel (mulai dari salinan ini)
+├── templates/gaya/          template gaya terpilih di gerbang 1 (minimal-premium, editorial-bold) + format menu rencana edit
+├── templates/roles/        prompt Editor + kerangka folder handoff/ (dua peran, roles.md)
+├── engines/talking-head-reels/  engine EDL → reel 9:16 (Python + ffmpeg/libass), Mac + Linux
 └── scripts/
     ├── storyboard/board.py      panel HTML → PNG + papan per babak + cek caption/teks layar/waktu + cues.json
     ├── gate/audio_order.py      urutan sound design: suara → visual → SFX → musik, lapisan basi = FAIL
@@ -95,6 +102,8 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 | Kondisi | Cabang |
 |---|---|
 | Keputusan rasa (visual, teks, gerak, audio, SFX) | `guide/<urusan>/GUIDE.md` |
+| Mulai pekerjaan video: siapa mengerjakan apa | `roles.md` |
+| Memilih gaya edit, rencana menu per beat | `templates/gaya/` |
 | Memilih, aturan bertabrakan, ragu bertanya | `decision.md` |
 | Script, teks layar | `copywriting.md` |
 | Tokoh, metafora, family, palet | `direction.md`, `palette.md` |

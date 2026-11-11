@@ -57,3 +57,12 @@
 - A1 berpusat pada pembuat; A2 menjadi laporan perusahaan setelah insert Sam. Irfan menegaskan narator harus menceritakan keresahan bersama sesuai pusat cerita kandidat pertama.
 - [Bukti, kutipan koreksi, dan keputusan konten](../projects/ai-change-everything/NARRATOR-REVIEW.md) dicatat bersama RETRO motion-graphic dan [inbox evaluasi](../claude/motion-graphic/evals/inbox/2026-10-29-ai-change-everything-narrator.md).
 - Status: kedua draf ditolak; belum ada skrip final, patch skill, atau hasil performa. Penempatan akhir kutipan masih terbuka. Titik lanjut: pertahankan pusat persoalan sambil menilai fungsi tiap ucapan narator dan bukti.
+
+## 11 November 2026 · Template talking head + dua peran (claude2)
+
+- Permintaan Irfan: bedah video Joseph (YouTube `g9xoKm5DEeU`, gaya Arthur Brooks) jadi template baru, audit skill `talking-head-reels` (zip), rancang pembagian kerja Sutradara (rencana, pertanyaan, devil's advocate) + Editor (eksekusi sampai video final) sebagai layer komunikasi di atas skill.
+- Masuk `main`: `guide/referensi/joseph-arthur-brooks.md` (bedah ref 18), `references/roles.md`, `templates/roles/`, `templates/gaya/{minimal-premium,editorial-bold}`, `engines/talking-head-reels/` (engine zip + font OFL; diuji render penuh di PC Linux 11 Nov), eval mg-051/052.
+- Belum terbukti: dua peran lebih baik dari satu agen (uji A/B mg-052 belum dijalankan). Belum diuji: gaya minimal-premium dibangun utuh; engine untuk gaya minimal-premium.
+- Perlu keputusan: aturan 15 vs garis biru di latar gelap; profil musik premium-edukatif; matte engine di Linux (PENDING).
+- Titik lanjut: video talking head berikutnya dikerjakan dengan dua peran sebagai uji pertama, lalu jalankan mg-052.
+

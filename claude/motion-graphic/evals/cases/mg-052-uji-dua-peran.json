@@ -1,0 +1,12 @@
+{
+  "id": "mg-052",
+  "source": "Hipotesis Irfan 11 Nov (belum terbukti): satu agen yang merancang sekaligus membangun kualitasnya turun karena memuat semua konteks",
+  "prompt": "Uji A/B: brief + footage + gaya yang sama dikerjakan (A) satu agen penuh, (B) Sutradara + Editor sesuai roles.md.",
+  "files": ["(satu klip talking head 60-90 dtk, brief tertulis, gaya minimal-premium)"],
+  "assertions": [
+    "Kedua versi dirender dari brief dan footage yang sama; urutan pengerjaan dicatat",
+    "video-reviewer menilai rubrik R1-R7 (analysis-qa.md §16.4) tanpa tahu versi mana A atau B",
+    "Dicatat per versi: skor rubrik, pelanggaran Hard Gate, jumlah ronde sampai Delivery Gate PASS, waktu, token",
+    "Hasil ditulis di evals/results/ dan roles.md §8 diperbarui; tanpa hasil ini dua peran tidak dilaporkan lebih baik"
+  ]
+}
