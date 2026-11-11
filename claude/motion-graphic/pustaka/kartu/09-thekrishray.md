@@ -4,6 +4,7 @@
 > Sumber: @thekrishray, perkenalan diri dengan VO · frame persegi 1:1, ±0:33 (dari sheet) · Frame: `../../guide/referensi/sheets/09-thekrishray-motion-designer.jpg` · Bedah lengkap: tidak ada (catatan 7 Nov di `../../guide/referensi/README.md`)
 > Kedalaman bedah: **tipis** (tipis = isi dari contact sheet saja; ukur ulang dari video sumber sebelum dijadikan kiblat)
 
+> **Video yang sama dengan kartu 42** (`42-thekrishray-perkenalan-ui.md`), yang bedahnya lebih rinci per adegan. Pakai kartu 42 sebagai kiblat; kartu ini menyimpan catatan awal dan angka ritme.
 **DNA (satu kalimat):** Cerita diri yang dituturkan lewat komponen UI: tiap kalimat VO menjadi satu objek antarmuka yang berbunyi saat disentuh dan berubah menjadi objek berikutnya.
 **Cocok untuk:** perkenalan diri/jasa, cerita perjalanan dengan VO, penawaran yang bisa diperagakan sebagai UI · **Tidak cocok untuk:** talking head, dokumenter foto, konten yang butuh footage nyata
 **Kata kunci gaya:** UI sebagai cerita, bersih, lincah, biru lembut, taktil
