@@ -7,6 +7,7 @@
 **DNA (satu kalimat):** <apa yang membuat video ini terasa seperti dirinya>
 **Cocok untuk:** <jenis konten> · **Tidak cocok untuk:** <jenis konten>
 **Kata kunci gaya:** <3–6 kata: premium, tenang, noir, energik, editorial, ...>
+**Diambil untuk:** <bagian yang Irfan maksud saat memberi referensi ini; biasanya terbaca dari nama filenya: "Apple Style" → visual, "Sound efex" → SFX, "Kinetic typography" → teks. Tulis nama file aslinya.>
 
 ## PENGIKAT (diambil utuh dari SATU kiblat; ini yang membuat video terasa satu keluarga)
 
@@ -14,7 +15,7 @@
 <palet dengan hex bila terukur, latar, aksen, tekstur/grain/tepi, grade footage>
 
 ### 2. Teks
-<font + bobot, ukuran sebagai % tinggi frame, posisi terhadap subjek, berapa kata per tampil, cara masuk/keluar, cara penekanan. Tulis apa adanya dari referensi.>
+<font + bobot; proporsi: tinggi kata kunci sebagai % tinggi frame dan berapa kali kata sambungnya; posisi terhadap subjek; berapa kata per tampil; watak masuk/keluar (sigap atau pelan, dari arah mana); cara penekanan. Tulis apa adanya dari referensi. Kapan dan berapa lama teks tampil TIDAK dicatat di sini: itu selalu dari audio video yang sedang dikerjakan.>
 
 ### 3. Ritme
 <cut/menit, shot median, event visual/menit, kapan cepat/lambat, jeda>
@@ -25,7 +26,9 @@
 <jenis, seberapa sering, perlakuan (crop, grade, tekstur), hubungan dengan ucapan>
 
 ### 5. Motion graphic
-<jenis grafik/ilustrasi, bagaimana menggambarkan ucapan, pola animasi + durasi frame>
+<jenis grafik/ilustrasi dan bagaimana menggambarkan ucapan; watak geraknya>
+- **Skala subjek:** <subjek utama mengisi berapa bagian frame, mis. ±60 % tinggi; satu subjek besar atau banyak objek kecil>
+- **Kedalaman:** <berapa lapis (latar / subjek / depan), mana yang buram atau redup, ada tekstur atau tidak>
 
 ### 6. Kamera & transisi
 <gerak kamera (punch, push, pan, follow objek), seberapa sering, jenis transisi + durasi>
