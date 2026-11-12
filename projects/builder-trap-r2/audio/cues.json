@@ -1,0 +1,2980 @@
+{
+ "cues": [
+  {
+   "t": 0.0,
+   "peran": "shutter",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_shutter_0.mp3",
+   "gain_db": -7,
+   "alasan": "isi bingkai arsip berganti (foto montase = shutter)",
+   "sumber": "B01 isi bingkai → jensen_a",
+   "align": "onset"
+  },
+  {
+   "t": 0.1,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B01-K3 'semua orang tuh bisa'",
+   "align": "onset"
+  },
+  {
+   "t": 0.733,
+   "peran": "shutter",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_shutter_1.mp3",
+   "gain_db": -7,
+   "alasan": "isi bingkai arsip berganti (foto montase = shutter)",
+   "sumber": "B01 isi bingkai → replit_a",
+   "align": "onset"
+  },
+  {
+   "t": 0.81,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "orang",
+   "align": "onset"
+  },
+  {
+   "t": 1.01,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "tuh",
+   "align": "onset"
+  },
+  {
+   "t": 1.2,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B01-K3 'membangun'",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 1.267,
+   "peran": "shutter",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_shutter_2.mp3",
+   "gain_db": -7,
+   "alasan": "isi bingkai arsip berganti (foto montase = shutter)",
+   "sumber": "B01 isi bingkai → karpathy",
+   "align": "onset"
+  },
+  {
+   "t": 1.867,
+   "peran": "shutter",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_shutter_0.mp3",
+   "gain_db": -7,
+   "alasan": "isi bingkai arsip berganti (foto montase = shutter)",
+   "sumber": "B02 isi bingkai → teen",
+   "align": "onset"
+  },
+  {
+   "t": 1.99,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "Semua",
+   "align": "onset"
+  },
+  {
+   "t": 2.333,
+   "peran": "shutter",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_shutter_1.mp3",
+   "gain_db": -7,
+   "alasan": "isi bingkai arsip berganti (foto montase = shutter)",
+   "sumber": "B02 isi bingkai → suarez",
+   "align": "onset"
+  },
+  {
+   "t": 2.41,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "orang",
+   "align": "onset"
+  },
+  {
+   "t": 2.8,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B01-K3 'membuat'",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 2.867,
+   "peran": "shutter",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_shutter_2.mp3",
+   "gain_db": -7,
+   "alasan": "isi bingkai arsip berganti (foto montase = shutter)",
+   "sumber": "B02 isi bingkai → replit_ui",
+   "align": "onset"
+  },
+  {
+   "t": 3.367,
+   "peran": "shutter",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_shutter_0.mp3",
+   "gain_db": -7,
+   "alasan": "isi bingkai arsip berganti (foto montase = shutter)",
+   "sumber": "B03 isi bingkai → dohmke",
+   "align": "onset"
+  },
+  {
+   "t": 3.49,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "Semua",
+   "align": "onset"
+  },
+  {
+   "t": 3.81,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "orang",
+   "align": "onset"
+  },
+  {
+   "t": 4.09,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "tuh",
+   "align": "onset"
+  },
+  {
+   "t": 4.233,
+   "peran": "shutter",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_shutter_1.mp3",
+   "gain_db": -7,
+   "alasan": "isi bingkai arsip berganti (foto montase = shutter)",
+   "sumber": "B03 isi bingkai → jensen_b",
+   "align": "onset"
+  },
+  {
+   "t": 4.31,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "bisa",
+   "align": "onset"
+  },
+  {
+   "t": 4.867,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B01-K3 'bikin software.'",
+   "align": "onset"
+  },
+  {
+   "t": 5.21,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "software.",
+   "align": "onset"
+  },
+  {
+   "t": 5.433,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_0.mp3",
+   "gain_db": -10,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B03 kamera menembus bingkai (zoom-through 1,",
+   "align": "peak",
+   "peak": 0.021
+  },
+  {
+   "t": 5.45,
+   "peran": "riser",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_riser_1.mp3",
+   "gain_db": -11,
+   "alasan": "riser menuju jawaban \"Tapi\" (engsel hook)",
+   "sumber": "B03 PLAN",
+   "align": "peak",
+   "peak": 0.952
+  },
+  {
+   "t": 5.567,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B04-N 'Tapi'",
+   "align": "onset"
+  },
+  {
+   "t": 6.167,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B04-K4 'gak'",
+   "align": "onset"
+  },
+  {
+   "t": 6.3,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "gak",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 6.83,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "semua",
+   "align": "onset"
+  },
+  {
+   "t": 6.9,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B04-K4 'semua'",
+   "align": "onset"
+  },
+  {
+   "t": 7.067,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B04-K4 'orang'",
+   "align": "onset"
+  },
+  {
+   "t": 7.4,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B04-K4 'bisa'",
+   "align": "onset"
+  },
+  {
+   "t": 7.567,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B05 wajah → kartu judul \"mempublikasikan\"",
+   "align": "onset"
+  },
+  {
+   "t": 7.63,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "mempublikasikan",
+   "align": "onset"
+  },
+  {
+   "t": 7.867,
+   "peran": "slam",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_thud_1.mp3",
+   "gain_db": -5,
+   "alasan": "kata puncak jadi kartu judul",
+   "sumber": "B05-J 'mempublikasikan'",
+   "align": "peak",
+   "peak": 0.136
+  },
+  {
+   "t": 8.333,
+   "peran": "muncul",
+   "file": "/home/irfan/sfx/Kenyset/pop-up-notify-smooth-modern-332448.mp3",
+   "gain_db": -10,
+   "alasan": "UI/kartu muncul",
+   "sumber": "B05 kursor panah macOS masuk dari kanan bawa",
+   "align": "onset"
+  },
+  {
+   "t": 8.4,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B05-N 'apa yang mereka buat.'",
+   "align": "onset"
+  },
+  {
+   "t": 8.65,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "yang",
+   "align": "onset"
+  },
+  {
+   "t": 8.79,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "mereka",
+   "align": "onset"
+  },
+  {
+   "t": 8.8,
+   "peran": "hover",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_0.mp3",
+   "gain_db": -12,
+   "alasan": "kursor masuk tombol/thumbnail",
+   "sumber": "B05 kursor berhenti di atas kata judul",
+   "align": "onset"
+  },
+  {
+   "t": 8.99,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "buat.",
+   "align": "onset"
+  },
+  {
+   "t": 9.4,
+   "peran": "mosaik",
+   "file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Glitch, Glitch Databend 04 - Epidemic Sound.mp3",
+   "gain_db": -14,
+   "alasan": "mosaik piksel membangun",
+   "sumber": "B05 mosaik piksel aksen biru membangun babak",
+   "align": "onset"
+  },
+  {
+   "t": 10.067,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B06-N1 'Memasuki usia'",
+   "align": "onset"
+  },
+  {
+   "t": 10.1,
+   "peran": "pin",
+   "file": "audio/sfx_el/pin.mp3",
+   "gain_db": -9,
+   "alasan": "cetakan dipasang/disorot (pin)",
+   "sumber": "B06 foto cetak mendarat di alas lalu dipin",
+   "align": "peak",
+   "peak": 0.413
+  },
+  {
+   "t": 10.61,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "usia",
+   "align": "onset"
+  },
+  {
+   "t": 10.833,
+   "peran": "tulis",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_scribble_1.mp3",
+   "gain_db": -6,
+   "alasan": "tulisan tangan tergambar",
+   "sumber": "B06-H '20-an'",
+   "align": "onset"
+  },
+  {
+   "t": 10.87,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "20",
+   "align": "onset"
+  },
+  {
+   "t": 11.07,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "-an.",
+   "align": "onset"
+  },
+  {
+   "t": 11.433,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B06-N2 'Aku merasa aku perlu untuk / m'",
+   "align": "onset"
+  },
+  {
+   "t": 11.93,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "aku",
+   "align": "onset"
+  },
+  {
+   "t": 12.55,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "perlu",
+   "align": "onset"
+  },
+  {
+   "t": 12.95,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "untuk",
+   "align": "onset"
+  },
+  {
+   "t": 13.6,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "melakukan",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 13.79,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "sesuatu",
+   "align": "onset"
+  },
+  {
+   "t": 14.25,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "yang",
+   "align": "onset"
+  },
+  {
+   "t": 14.633,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "berbeda.",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 14.933,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B07 foto → wajah F1 (\"unik.\")",
+   "align": "onset"
+  },
+  {
+   "t": 15.033,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B07-K4 'sesuatu yang'",
+   "align": "onset"
+  },
+  {
+   "t": 15.37,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "yang",
+   "align": "onset"
+  },
+  {
+   "t": 15.53,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "unik.",
+   "align": "onset"
+  },
+  {
+   "t": 15.6,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B07-K4 'unik.'",
+   "align": "onset"
+  },
+  {
+   "t": 15.933,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B08 wajah → alas dengan 12 cetakan thumbnail",
+   "align": "onset"
+  },
+  {
+   "t": 16.0,
+   "peran": "kertas",
+   "file": "audio/sfx_el/paper_slide2.mp3",
+   "gain_db": -10,
+   "alasan": "cetakan thumbnail jatuh dari pin (satu bunyi per gelombang jatuh)",
+   "sumber": "B08 cetakan thumbnail 8Lz530r09WU lepas dari",
+   "align": "peak",
+   "peak": 0.638
+  },
+  {
+   "t": 16.033,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B08-N 'Sesuatu yang gak / orang lain '",
+   "align": "onset"
+  },
+  {
+   "t": 16.4,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_1.mp3",
+   "gain_db": -10,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B08 kamera pull −40 % (1,35 → 0,8) dari foto",
+   "align": "peak",
+   "peak": 0.154
+  },
+  {
+   "t": 16.45,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "yang",
+   "align": "onset"
+  },
+  {
+   "t": 16.65,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "gak",
+   "align": "onset"
+  },
+  {
+   "t": 16.733,
+   "peran": "kertas",
+   "file": "audio/sfx_el/paper_slide.mp3",
+   "gain_db": -10,
+   "alasan": "cetakan thumbnail jatuh dari pin (satu bunyi per gelombang jatuh)",
+   "sumber": "B08 cetakan thumbnail kXZYpA2Ur5o lepas dari",
+   "align": "peak",
+   "peak": 0.134
+  },
+  {
+   "t": 17.45,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "orang",
+   "align": "onset"
+  },
+  {
+   "t": 17.87,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "lain",
+   "align": "onset"
+  },
+  {
+   "t": 18.11,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "punya.",
+   "align": "onset"
+  },
+  {
+   "t": 18.4,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B09 alas → wajah F2 (B09, Editor B)",
+   "align": "onset"
+  },
+  {
+   "t": 18.567,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B09-N 'Dan aku termakan / kata-kata m'",
+   "align": "onset"
+  },
+  {
+   "t": 18.99,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "termakan",
+   "align": "onset"
+  },
+  {
+   "t": 19.37,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "kata",
+   "align": "onset"
+  },
+  {
+   "t": 19.65,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "-kata",
+   "align": "onset"
+  },
+  {
+   "t": 19.81,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "motivasi.",
+   "align": "onset"
+  },
+  {
+   "t": 20.2,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "Kalau",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 20.333,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B09 jendela Threads web terang di atas linen",
+   "align": "onset"
+  },
+  {
+   "t": 20.333,
+   "peran": "garis",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_glide_0.mp3",
+   "gain_db": -14,
+   "alasan": "halaman/modal bergerak",
+   "sumber": "B09 feed Threads bergulir ke post kutipan",
+   "align": "onset"
+  },
+  {
+   "t": 20.65,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "mau",
+   "align": "onset"
+  },
+  {
+   "t": 21.35,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "jadi",
+   "align": "onset"
+  },
+  {
+   "t": 21.59,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "sesuatu",
+   "align": "onset"
+  },
+  {
+   "t": 21.7,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_0.mp3",
+   "gain_db": -10,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B09 kamera punch-in ke teks post (1,06 → 5,3",
+   "align": "peak",
+   "peak": 0.021
+  },
+  {
+   "t": 22.31,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "harus",
+   "align": "onset"
+  },
+  {
+   "t": 22.59,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "menjadi",
+   "align": "onset"
+  },
+  {
+   "t": 23.167,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "sesuatu",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 23.41,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "yang",
+   "align": "onset"
+  },
+  {
+   "t": 23.59,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "berbeda.",
+   "align": "onset"
+  },
+  {
+   "t": 23.9,
+   "peran": "klik_ui",
+   "file": "/home/irfan/sfx/Kenyset/immersivecontrol-button-click-sound-463065.mp3",
+   "gain_db": -7,
+   "alasan": "kursor klik tombol",
+   "sumber": "B09 kursor klik like",
+   "align": "onset"
+  },
+  {
+   "t": 24.4,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B10 B09 → wajah F3 (\"Karena itu\")",
+   "align": "onset"
+  },
+  {
+   "t": 24.733,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B10-N1 'Karena itu aku / gak mau menco'",
+   "align": "onset"
+  },
+  {
+   "t": 25.27,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "itu",
+   "align": "onset"
+  },
+  {
+   "t": 25.733,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "aku",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 25.75,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "gak",
+   "align": "onset"
+  },
+  {
+   "t": 25.95,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "mau",
+   "align": "onset"
+  },
+  {
+   "t": 26.17,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "mencoba",
+   "align": "onset"
+  },
+  {
+   "t": 26.567,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B10 wajah → halaman hasil pencarian YouTube",
+   "align": "onset"
+  },
+  {
+   "t": 26.667,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B10-N2a 'hal-hal yang kelihatannya'",
+   "align": "onset"
+  },
+  {
+   "t": 26.933,
+   "peran": "hover",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_0.mp3",
+   "gain_db": -12,
+   "alasan": "kursor masuk tombol/thumbnail",
+   "sumber": "B10 kursor masuk thumbnail hasil 1",
+   "align": "onset"
+  },
+  {
+   "t": 27.13,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "-hal",
+   "align": "onset"
+  },
+  {
+   "t": 27.45,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "yang",
+   "align": "onset"
+  },
+  {
+   "t": 27.65,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "kelihatannya",
+   "align": "onset"
+  },
+  {
+   "t": 28.2,
+   "peran": "hover",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_0.mp3",
+   "gain_db": -12,
+   "alasan": "kursor masuk tombol/thumbnail",
+   "sumber": "B10 kursor pindah ke thumbnail hasil 2",
+   "align": "onset"
+  },
+  {
+   "t": 28.333,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B10-N2b 'banyak orang coba.'",
+   "align": "onset"
+  },
+  {
+   "t": 28.57,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "orang",
+   "align": "onset"
+  },
+  {
+   "t": 29.1,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "coba.",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 29.1,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B11 YouTube → wajah F1 (\"FOMO.\")",
+   "align": "onset"
+  },
+  {
+   "t": 29.233,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B11-K4 'aku gak mau jadi orang yang'",
+   "align": "onset"
+  },
+  {
+   "t": 29.43,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "gak",
+   "align": "onset"
+  },
+  {
+   "t": 29.433,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "mau",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 29.85,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "jadi",
+   "align": "onset"
+  },
+  {
+   "t": 30.07,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "orang",
+   "align": "onset"
+  },
+  {
+   "t": 30.33,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "yang",
+   "align": "onset"
+  },
+  {
+   "t": 30.433,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_2.mp3",
+   "gain_db": -10,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B11 punch kamera 1,015 → 1,08 di \"FOMO.\"",
+   "align": "peak",
+   "peak": 0.033
+  },
+  {
+   "t": 30.55,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "FOMO.",
+   "align": "onset"
+  },
+  {
+   "t": 30.6,
+   "peran": "slam",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_thud_1.mp3",
+   "gain_db": -8,
+   "alasan": "'FOMO.' dihantam bersama punch kamera",
+   "sumber": "B11-K4 'FOMO.'",
+   "align": "peak",
+   "peak": 0.136
+  },
+  {
+   "t": 31.0,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B12 wajah → jendela ChatGPT",
+   "align": "onset"
+  },
+  {
+   "t": 31.167,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B12-Na 'Dan akhirnya aku melakukan ban'",
+   "align": "onset"
+  },
+  {
+   "t": 31.2,
+   "peran": "rattle",
+   "file": "/home/irfan/sfx/Kenyset/ui-processing-data-sequence-modern-interface-progress-02-230495.mp3",
+   "gain_db": -16,
+   "alasan": "riwayat chat bertambah cepat = satu rattle berirama",
+   "sumber": "B12 baris riwayat chat bertambah di sidebar",
+   "align": "onset",
+   "dur": 3.467,
+   "offset": 8.0
+  },
+  {
+   "t": 31.69,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "akhirnya",
+   "align": "onset"
+  },
+  {
+   "t": 32.77,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "aku",
+   "align": "onset"
+  },
+  {
+   "t": 33.03,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "melakukan",
+   "align": "onset"
+  },
+  {
+   "t": 33.43,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "banyak",
+   "align": "onset"
+  },
+  {
+   "t": 33.9,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B12-Nb 'investasi waktu pada AI.'",
+   "align": "onset"
+  },
+  {
+   "t": 34.37,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "waktu",
+   "align": "onset"
+  },
+  {
+   "t": 34.57,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "pada",
+   "align": "onset"
+  },
+  {
+   "t": 34.7,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_0.mp3",
+   "gain_db": -10,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B12 kamera mundur dari kolom riwayat ke teng",
+   "align": "peak",
+   "peak": 0.021
+  },
+  {
+   "t": 34.833,
+   "peran": "cap",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_impact_1.mp3",
+   "gain_db": -5,
+   "alasan": "logo dicap di kata \"AI\"",
+   "sumber": "B12 logo OpenAI dicap besar di tengah jendel",
+   "align": "onset"
+  },
+  {
+   "t": 34.89,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "AI.",
+   "align": "onset"
+  },
+  {
+   "t": 35.1,
+   "peran": "muncul",
+   "file": "/home/irfan/sfx/Kenyset/ui-pop-up-2-197887.mp3",
+   "gain_db": -10,
+   "alasan": "UI/kartu muncul",
+   "sumber": "B12 logo menyusut terbang ke kepala sidebar ",
+   "align": "onset"
+  },
+  {
+   "t": 35.4,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B13 ChatGPT → wajah F2 (\"Untuk belajar.\")",
+   "align": "onset"
+  },
+  {
+   "t": 35.4,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B13-N1 'Untuk belajar.'",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 35.99,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "belajar.",
+   "align": "onset"
+  },
+  {
+   "t": 36.6,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B13 wajah → kotak prompt ChatGPT (dekat)",
+   "align": "onset"
+  },
+  {
+   "t": 36.7,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B13-N2 'Untuk melakukan sesuatu.'",
+   "align": "onset"
+  },
+  {
+   "t": 37.03,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "melakukan",
+   "align": "onset"
+  },
+  {
+   "t": 37.6,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "sesuatu.",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 37.8,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_1.mp3",
+   "gain_db": -10,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B13 punch-in 1,6× ke kotak prompt (2,0 → 3,2",
+   "align": "peak",
+   "peak": 0.154
+  },
+  {
+   "t": 37.9,
+   "peran": "ketik",
+   "file": "/home/irfan/sfx/Kenyset/iphone-keyboard-typing-sound-effect-336778.mp3",
+   "gain_db": -13,
+   "alasan": "teks UI diketik huruf demi huruf",
+   "sumber": "B13-UI 'build something'",
+   "align": "onset",
+   "dur": 0.833,
+   "offset": 2.0
+  },
+  {
+   "t": 37.95,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "Build",
+   "align": "onset"
+  },
+  {
+   "t": 38.37,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "something.",
+   "align": "onset"
+  },
+  {
+   "t": 38.8,
+   "peran": "klik_ui",
+   "file": "/home/irfan/sfx/Kenyset/universfield-computer-mouse-click-352734.mp3",
+   "gain_db": -7,
+   "alasan": "kursor klik tombol",
+   "sumber": "B13 tombol kirim ditekan",
+   "align": "onset"
+  },
+  {
+   "t": 38.8,
+   "peran": "mosaik",
+   "file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Glitch, Glitch Databend 04 - Epidemic Sound.mp3",
+   "gain_db": -14,
+   "alasan": "mosaik piksel membangun",
+   "sumber": "B13 mosaik piksel aksen dari kiri: prompt → ",
+   "align": "onset"
+  },
+  {
+   "t": 38.967,
+   "peran": "muncul",
+   "file": "/home/irfan/sfx/Kenyset/ui-pop-sound-316482.mp3",
+   "gain_db": -10,
+   "alasan": "UI/kartu muncul",
+   "sumber": "B14 dinding bukti terang (13 cetakan + foto ",
+   "align": "onset"
+  },
+  {
+   "t": 38.967,
+   "peran": "garis",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_glide_2.mp3",
+   "gain_db": -13,
+   "alasan": "benang tergambar",
+   "sumber": "B14 benang biru tergambar dari pin pertama k",
+   "align": "onset"
+  },
+  {
+   "t": 39.1,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B14-Na 'Selama'",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 39.667,
+   "peran": "pin",
+   "file": "audio/sfx_el/pin.mp3",
+   "gain_db": -9,
+   "alasan": "cetakan dipasang/disorot (pin)",
+   "sumber": "B14 pin / sorotan cetakan Jadisatu (Nov 2025",
+   "align": "peak",
+   "peak": 0.413
+  },
+  {
+   "t": 39.767,
+   "peran": "tulis",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_scribble_1.mp3",
+   "gain_db": -6,
+   "alasan": "tulisan tangan tergambar",
+   "sumber": "B14-H 'satu tahun'",
+   "align": "onset"
+  },
+  {
+   "t": 39.81,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "satu",
+   "align": "onset"
+  },
+  {
+   "t": 39.97,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "tahun",
+   "align": "onset"
+  },
+  {
+   "t": 40.333,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B14-Nb 'aku mencoba untuk belajar.'",
+   "align": "onset"
+  },
+  {
+   "t": 40.55,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "mencoba",
+   "align": "onset"
+  },
+  {
+   "t": 40.933,
+   "peran": "pin",
+   "file": "audio/sfx_el/pin.mp3",
+   "gain_db": -9,
+   "alasan": "cetakan dipasang/disorot (pin)",
+   "sumber": "B14 pin / sorotan cetakan ChatGPT \"Dot\"",
+   "align": "peak",
+   "peak": 0.413
+  },
+  {
+   "t": 41.65,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "untuk",
+   "align": "onset"
+  },
+  {
+   "t": 42.133,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "belajar.",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 42.133,
+   "peran": "pin",
+   "file": "audio/sfx_el/pin.mp3",
+   "gain_db": -9,
+   "alasan": "cetakan dipasang/disorot (pin)",
+   "sumber": "B14 pin / sorotan cetakan JadisatuOS-Interna",
+   "align": "peak",
+   "peak": 0.413,
+   "sinkron": true
+  },
+  {
+   "t": 42.467,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B14-N2 'Untuk memahami seperti / apa i'",
+   "align": "onset"
+  },
+  {
+   "t": 42.75,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "memahami",
+   "align": "onset"
+  },
+  {
+   "t": 43.23,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "seperti",
+   "align": "onset"
+  },
+  {
+   "t": 43.45,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "apa",
+   "align": "onset"
+  },
+  {
+   "t": 43.5,
+   "peran": "pin",
+   "file": "audio/sfx_el/pin.mp3",
+   "gain_db": -9,
+   "alasan": "cetakan dipasang/disorot (pin)",
+   "sumber": "B14 pin / sorotan cetakan jadisatu-narrative",
+   "align": "peak",
+   "peak": 0.413
+  },
+  {
+   "t": 43.73,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "industri",
+   "align": "onset"
+  },
+  {
+   "t": 44.05,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "ini.",
+   "align": "onset"
+  },
+  {
+   "t": 44.067,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_2.mp3",
+   "gain_db": -10,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B14 kamera mundur lebar ke seluruh dinding (",
+   "align": "peak",
+   "peak": 0.033
+  },
+  {
+   "t": 44.567,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B14-N3 'Dan apa yang / sudah aku buat.'",
+   "align": "onset"
+  },
+  {
+   "t": 44.95,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "yang",
+   "align": "onset"
+  },
+  {
+   "t": 45.067,
+   "peran": "pin",
+   "file": "audio/sfx_el/pin.mp3",
+   "gain_db": -9,
+   "alasan": "cetakan dipasang/disorot (pin)",
+   "sumber": "B14 pin / sorotan cetakan foto Irfan (ujung ",
+   "align": "peak",
+   "peak": 0.413
+  },
+  {
+   "t": 45.13,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "sudah",
+   "align": "onset"
+  },
+  {
+   "t": 45.29,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "aku",
+   "align": "onset"
+  },
+  {
+   "t": 45.53,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "buat.",
+   "align": "onset"
+  },
+  {
+   "t": 46.3,
+   "peran": "twist",
+   "file": "/home/irfan/sfx/SFXIrfan/ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz - Epidemic Sound.mp3",
+   "gain_db": -4,
+   "alasan": "twist: dinding menggelap, grade + musik berganti",
+   "sumber": "B15 wipe linear atas→bawah: dinding terang →",
+   "align": "peak",
+   "peak": 0.828
+  },
+  {
+   "t": 46.533,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B15-N 'Tapi satu hal yang aku / lewat'",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 47.5,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "satu",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 47.81,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "hal",
+   "align": "onset"
+  },
+  {
+   "t": 47.833,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "yang",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 48.17,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "aku",
+   "align": "onset"
+  },
+  {
+   "t": 48.31,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "lewatkan",
+   "align": "onset"
+  },
+  {
+   "t": 48.71,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "adalah.",
+   "align": "onset"
+  },
+  {
+   "t": 48.967,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B16 dinding gelap → wajah (B16, Editor B)",
+   "align": "onset"
+  },
+  {
+   "t": 49.133,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B16-K3 'aku tidak'",
+   "align": "onset"
+  },
+  {
+   "t": 49.43,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "tidak",
+   "align": "onset"
+  },
+  {
+   "t": 49.767,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B16-K3 'menjual'",
+   "align": "onset"
+  },
+  {
+   "t": 50.433,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B16-K3 'apapun.'",
+   "align": "onset"
+  },
+  {
+   "t": 50.733,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B17 Threads gelap: composer \"New thread\" ber",
+   "align": "onset"
+  },
+  {
+   "t": 50.733,
+   "peran": "hover",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_0.mp3",
+   "gain_db": -12,
+   "alasan": "kursor masuk tombol/thumbnail",
+   "sumber": "B17 kursor di atas tombol Post",
+   "align": "onset"
+  },
+  {
+   "t": 50.97,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "tidak",
+   "align": "onset"
+  },
+  {
+   "t": 51.067,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_1.mp3",
+   "gain_db": -15,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B17 kamera ikut kursor Post → Cancel",
+   "align": "peak",
+   "peak": 0.154
+  },
+  {
+   "t": 51.2,
+   "peran": "klik_ui",
+   "file": "/home/irfan/sfx/Kenyset/universfield-computer-mouse-click-352734.mp3",
+   "gain_db": -7,
+   "alasan": "kursor klik tombol",
+   "sumber": "B17 kursor klik Cancel",
+   "align": "onset"
+  },
+  {
+   "t": 51.267,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B16-K3 'mempublikasikan'",
+   "align": "onset"
+  },
+  {
+   "t": 51.9,
+   "peran": "klik_ui",
+   "file": "/home/irfan/sfx/Kenyset/immersivecontrol-button-click-sound-463065.mp3",
+   "gain_db": -7,
+   "alasan": "kursor klik tombol",
+   "sumber": "B17 kursor klik Save",
+   "align": "onset"
+  },
+  {
+   "t": 52.0,
+   "peran": "garis",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_glide_1.mp3",
+   "gain_db": -14,
+   "alasan": "halaman/modal bergerak",
+   "sumber": "B17 modal composer menyusut ke ikon Drafts d",
+   "align": "onset"
+  },
+  {
+   "t": 52.07,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "apapun.",
+   "align": "onset"
+  },
+  {
+   "t": 52.1,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_2.mp3",
+   "gain_db": -10,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B17 kamera mundur mengikuti modal ke ikon Dr",
+   "align": "peak",
+   "peak": 0.033
+  },
+  {
+   "t": 52.333,
+   "peran": "muncul",
+   "file": "/home/irfan/sfx/Kenyset/ui-pop-up-2-197887.mp3",
+   "gain_db": -10,
+   "alasan": "UI/kartu muncul",
+   "sumber": "B17 denyut cincin biru di ikon Drafts",
+   "align": "onset"
+  },
+  {
+   "t": 52.467,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B18 halaman repo GitHub gelap Siirfannih/Oto",
+   "align": "onset"
+  },
+  {
+   "t": 52.533,
+   "peran": "garis",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_glide_2.mp3",
+   "gain_db": -14,
+   "alasan": "halaman/modal bergerak",
+   "sumber": "B18 halaman repo bergulir ke kotak \"Add a RE",
+   "align": "onset"
+  },
+  {
+   "t": 52.567,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B18-K3dan 'dan'",
+   "align": "onset"
+  },
+  {
+   "t": 52.9,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B16-K3 'mendokumentasikan'",
+   "align": "onset"
+  },
+  {
+   "t": 53.1,
+   "peran": "hover",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_0.mp3",
+   "gain_db": -12,
+   "alasan": "kursor masuk tombol/thumbnail",
+   "sumber": "B18 kursor di tombol hijau \"Add a README\"",
+   "align": "onset"
+  },
+  {
+   "t": 53.367,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_0.mp3",
+   "gain_db": -10,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B18 kamera push ke kotak README (1,12 → 1,6)",
+   "align": "peak",
+   "peak": 0.021
+  },
+  {
+   "t": 53.69,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "apapun.",
+   "align": "onset"
+  },
+  {
+   "t": 54.233,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B19 form \"Create a new repository\" gelap",
+   "align": "onset"
+  },
+  {
+   "t": 54.267,
+   "peran": "hover",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_0.mp3",
+   "gain_db": -14,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max (whoosh < 1 dtk dari whoosh sebelumnya → tick)",
+   "sumber": "B19 kamera mendarat push ke field nama (1,25",
+   "align": "onset"
+  },
+  {
+   "t": 54.367,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B19-N1 'Dan ngebangun'",
+   "align": "onset"
+  },
+  {
+   "t": 54.6,
+   "peran": "ketik",
+   "file": "/home/irfan/sfx/Kenyset/iphone-keyboard-typing-sound-effect-336778.mp3",
+   "gain_db": -13,
+   "alasan": "nama repo diketik",
+   "sumber": "B19 nama repo \"MemoryPC\" diketik",
+   "align": "onset",
+   "dur": 0.533,
+   "offset": 6.0
+  },
+  {
+   "t": 54.81,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "ngebangun",
+   "align": "onset"
+  },
+  {
+   "t": 55.333,
+   "peran": "muncul",
+   "file": "/home/irfan/sfx/Kenyset/ui-pop-sound-316482.mp3",
+   "gain_db": -10,
+   "alasan": "UI/kartu muncul",
+   "sumber": "B19 centang hijau \"MemoryPC is available.\"",
+   "align": "onset"
+  },
+  {
+   "t": 55.767,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_2.mp3",
+   "gain_db": -10,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B19 kamera pan cepat field → tombol Create",
+   "align": "peak",
+   "peak": 0.033
+  },
+  {
+   "t": 55.933,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B19-N2 'itu bikin kita'",
+   "align": "onset"
+  },
+  {
+   "t": 56.033,
+   "peran": "hover",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_0.mp3",
+   "gain_db": -12,
+   "alasan": "kursor masuk tombol/thumbnail",
+   "sumber": "B19 kursor di tombol \"Create repository\"",
+   "align": "onset"
+  },
+  {
+   "t": 56.2,
+   "peran": "klik_ui",
+   "file": "/home/irfan/sfx/Kenyset/universfield-computer-mouse-click-352734.mp3",
+   "gain_db": -7,
+   "alasan": "kursor klik tombol",
+   "sumber": "B19 kursor klik \"Create repository\"",
+   "align": "onset"
+  },
+  {
+   "t": 56.39,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "kita",
+   "align": "onset"
+  },
+  {
+   "t": 56.5,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B19 wajah F1 gelap (\"jadi adiktif.\")",
+   "align": "onset"
+  },
+  {
+   "t": 56.567,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B19-K4 'jadi'",
+   "align": "onset"
+  },
+  {
+   "t": 56.8,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B19-K4 'adiktif.'",
+   "align": "onset"
+  },
+  {
+   "t": 57.833,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B20 dinding gelap + kartu repo GitHub",
+   "align": "onset"
+  },
+  {
+   "t": 57.833,
+   "peran": "mendarat",
+   "file": "/home/irfan/sfx/Kenyset/soft-subtle-ui-pop-sfx-348820.mp3",
+   "gain_db": -11,
+   "alasan": "halaman repo baru muncul",
+   "sumber": "B20 halaman repo JadisatuDashboardnew (1/19)",
+   "align": "onset"
+  },
+  {
+   "t": 57.933,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B20-K4 'atau'",
+   "align": "onset"
+  },
+  {
+   "t": 58.233,
+   "peran": "mendarat",
+   "file": "/home/irfan/sfx/Kenyset/soft-ui-pop-light-minimal-click-451232.mp3",
+   "gain_db": -11,
+   "alasan": "halaman repo baru muncul",
+   "sumber": "B20 halaman repo jadisatu.cloud (2/19)",
+   "align": "onset"
+  },
+  {
+   "t": 58.3,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B20-K4 'kecanduan.'",
+   "align": "onset"
+  },
+  {
+   "t": 58.7,
+   "peran": "mendarat",
+   "file": "/home/irfan/sfx/Kenyset/minimal-pop-click-ui-11-198311.mp3",
+   "gain_db": -11,
+   "alasan": "halaman repo baru muncul",
+   "sumber": "B20 halaman repo Hermessambung (3/19)",
+   "align": "onset"
+  },
+  {
+   "t": 59.133,
+   "peran": "rattle",
+   "file": "/home/irfan/sfx/Kenyset/ui-processing-data-sequence-modern-interface-progress-02-230495.mp3",
+   "gain_db": -15,
+   "alasan": "repo bertambah makin cepat = satu rattle berirama (bukan 16 pop)",
+   "sumber": "B20",
+   "align": "onset",
+   "dur": 3.95,
+   "offset": 8.0
+  },
+  {
+   "t": 59.233,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B20-N1 'Untuk membangun / sesuatu.'",
+   "align": "onset"
+  },
+  {
+   "t": 59.75,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "membangun",
+   "align": "onset"
+  },
+  {
+   "t": 60.13,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "sesuatu.",
+   "align": "onset"
+  },
+  {
+   "t": 60.633,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B20-N2 'Yang pada akhirnya / gak perna'",
+   "align": "onset"
+  },
+  {
+   "t": 60.91,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "pada",
+   "align": "onset"
+  },
+  {
+   "t": 61.25,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "akhirnya",
+   "align": "onset"
+  },
+  {
+   "t": 61.65,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "gak",
+   "align": "onset"
+  },
+  {
+   "t": 61.77,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "pernah",
+   "align": "onset"
+  },
+  {
+   "t": 61.97,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "kita",
+   "align": "onset"
+  },
+  {
+   "t": 62.17,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "publish.",
+   "align": "onset"
+  },
+  {
+   "t": 62.667,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B20-N3 'Dan gak pernah selesai.'",
+   "align": "onset"
+  },
+  {
+   "t": 62.93,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "pernah",
+   "align": "onset"
+  },
+  {
+   "t": 63.067,
+   "peran": "beku",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_impact_0.mp3",
+   "gain_db": -6,
+   "alasan": "semua membeku",
+   "sumber": "B20 semua kartu dan kamera berhenti mendadak",
+   "align": "onset"
+  },
+  {
+   "t": 63.11,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "selesai.",
+   "align": "onset"
+  },
+  {
+   "t": 63.6,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B21 wajah F3 grade gelap hangat",
+   "align": "onset"
+  },
+  {
+   "t": 64.7,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B21-K4a 'aku terobsesi sama'",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 65.01,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "terobsesi",
+   "align": "onset"
+  },
+  {
+   "t": 65.57,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "sama",
+   "align": "onset"
+  },
+  {
+   "t": 65.85,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "kesempurnaan.",
+   "align": "onset"
+  },
+  {
+   "t": 65.9,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B21-K4a 'kesempurnaan.'",
+   "align": "onset"
+  },
+  {
+   "t": 67.067,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B21 wajah F1 grade gelap hangat",
+   "align": "onset"
+  },
+  {
+   "t": 67.167,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B21-K4b 'dan aku merasa pengen sekali m'",
+   "align": "onset"
+  },
+  {
+   "t": 67.61,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "merasa",
+   "align": "onset"
+  },
+  {
+   "t": 68.15,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "pengen",
+   "align": "onset"
+  },
+  {
+   "t": 68.63,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "sekali",
+   "align": "onset"
+  },
+  {
+   "t": 68.77,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "menjadi",
+   "align": "onset"
+  },
+  {
+   "t": 69.13,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "seorang",
+   "align": "onset"
+  },
+  {
+   "t": 69.6,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B21-K4b 'autentik.'",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 69.71,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "autentik.",
+   "align": "onset"
+  },
+  {
+   "t": 70.267,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B22 profil Threads gelap \"No threads yet\"",
+   "align": "onset"
+  },
+  {
+   "t": 70.4,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B22-N1 'Sampai akhirnya aku / gak menj'",
+   "align": "onset"
+  },
+  {
+   "t": 70.69,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "akhirnya",
+   "align": "onset"
+  },
+  {
+   "t": 71.11,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "aku",
+   "align": "onset"
+  },
+  {
+   "t": 71.81,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "gak",
+   "align": "onset"
+  },
+  {
+   "t": 72.01,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "menjadi",
+   "align": "onset"
+  },
+  {
+   "t": 72.25,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "siapapun.",
+   "align": "onset"
+  },
+  {
+   "t": 72.433,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_0.mp3",
+   "gain_db": -10,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B22 kamera mundur jauh (1,36 → 0,54), timbun",
+   "align": "peak",
+   "peak": 0.021
+  },
+  {
+   "t": 72.933,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B22-N2 'Dan aku gak melangkah / jauh k'",
+   "align": "onset"
+  },
+  {
+   "t": 73.25,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "gak",
+   "align": "onset"
+  },
+  {
+   "t": 73.49,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "melangkah",
+   "align": "onset"
+  },
+  {
+   "t": 73.95,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "jauh",
+   "align": "onset"
+  },
+  {
+   "t": 74.35,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "kemana",
+   "align": "onset"
+  },
+  {
+   "t": 74.63,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "-mana.",
+   "align": "onset"
+  },
+  {
+   "t": 75.4,
+   "peran": "cahaya",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/swell_1.mp3",
+   "gain_db": -8,
+   "alasan": "cahaya kembali (wipe gelap→terang)",
+   "sumber": "B22→B23 wipe linear gelap→terang dari bawah (pro",
+   "align": "onset"
+  },
+  {
+   "t": 75.667,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B23-K4 'sampai akhirnya aku'",
+   "align": "onset"
+  },
+  {
+   "t": 76.033,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "akhirnya",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 76.77,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "aku",
+   "align": "onset"
+  },
+  {
+   "t": 76.9,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B23-K4 'sadar.'",
+   "align": "onset"
+  },
+  {
+   "t": 77.6,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B24 wajah F4 → dinding bukti terang (ujung b",
+   "align": "onset"
+  },
+  {
+   "t": 77.667,
+   "peran": "garis",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_glide_0.mp3",
+   "gain_db": -13,
+   "alasan": "benang tergambar",
+   "sumber": "B24 benang biru tergulung mundur dari foto I",
+   "align": "onset"
+  },
+  {
+   "t": 77.933,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B24-N1 'Dan sekarang aku memutuskan / '",
+   "align": "onset"
+  },
+  {
+   "t": 78.1,
+   "peran": "whoosh",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_whoosh_1.mp3",
+   "gain_db": -10,
+   "alasan": "gerak kamera cepat terlihat, puncak di v_max",
+   "sumber": "B24 whip pan mundur kanan-bawah → kiri-atas ",
+   "align": "peak",
+   "peak": 0.154
+  },
+  {
+   "t": 78.4,
+   "peran": "garis",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_glide_1.mp3",
+   "gain_db": -14,
+   "alasan": "kamera/modal bergerak pelan",
+   "sumber": "B24 kamera melambat menyusuri baris pertama ",
+   "align": "onset"
+  },
+  {
+   "t": 78.45,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "sekarang",
+   "align": "onset"
+  },
+  {
+   "t": 78.95,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "aku",
+   "align": "onset"
+  },
+  {
+   "t": 79.41,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "memutuskan",
+   "align": "onset"
+  },
+  {
+   "t": 79.89,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "untuk",
+   "align": "onset"
+  },
+  {
+   "t": 80.15,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "kembali",
+   "align": "onset"
+  },
+  {
+   "t": 80.69,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "ke",
+   "align": "onset"
+  },
+  {
+   "t": 80.767,
+   "peran": "tulis",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_scribble_1.mp3",
+   "gain_db": -6,
+   "alasan": "tulisan tangan tergambar",
+   "sumber": "B24-H 'titik awal'",
+   "align": "onset"
+  },
+  {
+   "t": 80.79,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "titik",
+   "align": "onset"
+  },
+  {
+   "t": 81.07,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "awal.",
+   "align": "onset"
+  },
+  {
+   "t": 81.367,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B24 dinding → sisipan wajah F2",
+   "align": "onset"
+  },
+  {
+   "t": 81.467,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B24-N2 'Dimana mungkin / aku harusnya'",
+   "align": "onset"
+  },
+  {
+   "t": 81.6,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "mungkin",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 82.69,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "aku",
+   "align": "onset"
+  },
+  {
+   "t": 82.91,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "harusnya",
+   "align": "onset"
+  },
+  {
+   "t": 83.2,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B24-N3 'gak sekedar membangun.'",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 83.333,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B24 wajah F2 → dinding (cetakan pertama dili",
+   "align": "onset"
+  },
+  {
+   "t": 84.29,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "membangun.",
+   "align": "onset"
+  },
+  {
+   "t": 84.733,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B25 dinding → wajah F3",
+   "align": "onset"
+  },
+  {
+   "t": 84.867,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B25-N1 'Tapi juga nge-share'",
+   "align": "onset"
+  },
+  {
+   "t": 85.3,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "juga",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 85.31,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "nge",
+   "align": "onset"
+  },
+  {
+   "t": 85.59,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "-share",
+   "align": "onset"
+  },
+  {
+   "t": 85.833,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B25-P1 'apa yang aku alami.'",
+   "align": "onset"
+  },
+  {
+   "t": 85.833,
+   "peran": "muncul",
+   "file": "/home/irfan/sfx/Kenyset/pop-up-notify-smooth-modern-332448.mp3",
+   "gain_db": -10,
+   "alasan": "UI/kartu muncul",
+   "sumber": "B25 modal \"New thread\" di atas profil (scrim",
+   "align": "onset"
+  },
+  {
+   "t": 86.133,
+   "peran": "klik_ui",
+   "file": "/home/irfan/sfx/Kenyset/immersivecontrol-button-click-sound-463065.mp3",
+   "gain_db": -7,
+   "alasan": "kursor klik tombol",
+   "sumber": "B25 kursor mengklik tombol Post",
+   "align": "onset"
+  },
+  {
+   "t": 86.23,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "aku",
+   "align": "onset"
+  },
+  {
+   "t": 86.333,
+   "peran": "garis",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_glide_2.mp3",
+   "gain_db": -14,
+   "alasan": "kamera/modal bergerak pelan",
+   "sumber": "B25 kamera ke post 1 + frasa",
+   "align": "onset"
+  },
+  {
+   "t": 86.333,
+   "peran": "muncul",
+   "file": "/home/irfan/sfx/Kenyset/ui-pop-up-2-197887.mp3",
+   "gain_db": -9,
+   "alasan": "post terbit",
+   "sumber": "B25 post 1: foto (\"apa yang aku alami.\")",
+   "align": "onset"
+  },
+  {
+   "t": 86.6,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "alami.",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 87.133,
+   "peran": "garis",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_glide_1.mp3",
+   "gain_db": -14,
+   "alasan": "halaman/modal bergerak",
+   "sumber": "B25 kamera pan turun ke post 2 (±525 px duni",
+   "align": "onset"
+  },
+  {
+   "t": 87.2,
+   "peran": "muncul",
+   "file": "/home/irfan/sfx/Kenyset/ui-pop-sound-316482.mp3",
+   "gain_db": -9,
+   "alasan": "post terbit",
+   "sumber": "B25 post 2: kartu repo + OpenBot (\"apa yang ",
+   "align": "onset"
+  },
+  {
+   "t": 87.3,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B25-P2 'apa yang aku buat.'",
+   "align": "onset"
+  },
+  {
+   "t": 87.65,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "aku",
+   "align": "onset"
+  },
+  {
+   "t": 87.81,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "buat.",
+   "align": "onset"
+  },
+  {
+   "t": 89.0,
+   "peran": "garis",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_glide_2.mp3",
+   "gain_db": -14,
+   "alasan": "halaman/modal bergerak",
+   "sumber": "B25 kamera pan turun ke post 3 (±522 px duni",
+   "align": "onset"
+  },
+  {
+   "t": 89.133,
+   "peran": "muncul",
+   "file": "/home/irfan/sfx/Kenyset/pop-up-notify-smooth-modern-332448.mp3",
+   "gain_db": -9,
+   "alasan": "post terbit",
+   "sumber": "B25 post 3: dinding benang (\"apa pengalaman ",
+   "align": "onset"
+  },
+  {
+   "t": 89.233,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B25-P3 'apa pengalaman / yang aku dapa'",
+   "align": "onset"
+  },
+  {
+   "t": 89.63,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "pengalaman",
+   "align": "onset"
+  },
+  {
+   "t": 90.07,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "yang",
+   "align": "onset"
+  },
+  {
+   "t": 90.25,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "aku",
+   "align": "onset"
+  },
+  {
+   "t": 90.55,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "dapatkan.",
+   "align": "onset"
+  },
+  {
+   "t": 91.2,
+   "peran": "cut",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_click_0.mp3",
+   "gain_db": -13,
+   "alasan": "ganti adegan tanpa gerak = klik cut pelan",
+   "sumber": "B26 Threads → wajah F4 penutup",
+   "align": "onset"
+  },
+  {
+   "t": 91.35,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "Share.",
+   "align": "onset"
+  },
+  {
+   "t": 91.4,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B26-K4a 'share.'",
+   "align": "onset"
+  },
+  {
+   "t": 92.167,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -16,
+   "alasan": "frasa narasi muncul (1 pesan = 1 bunyi)",
+   "sumber": "B26-K4b 'ngebagiin apa yang'",
+   "align": "onset"
+  },
+  {
+   "t": 92.5,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "Apa",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 92.99,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "yang",
+   "align": "onset"
+  },
+  {
+   "t": 93.267,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B26-K4b 'belum'",
+   "align": "onset"
+  },
+  {
+   "t": 93.4,
+   "peran": "kata_tick",
+   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_tick_1.mp3",
+   "gain_db": -19,
+   "alasan": "kata narasi muncul (per kata, sangat lembut)",
+   "sumber": "belum",
+   "align": "onset",
+   "sinkron": true
+  },
+  {
+   "t": 93.467,
+   "peran": "klik_kata",
+   "file": "/home/irfan/sfx/Kenyset/mouse-click-290204.mp3",
+   "gain_db": -9,
+   "alasan": "kata kinetik/penekanan muncul",
+   "sumber": "B26-K4b 'sempurna.'",
+   "align": "onset"
+  }
+ ]
+}
