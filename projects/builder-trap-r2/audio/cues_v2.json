@@ -8,95 +8,95 @@
    "gain_db": -6,
    "peran": "pembuka",
    "alasan": "kiblat: hantaman di frame 0 (stab orkestra ref02; SFXIrfan tidak punya stab)",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "punchy impact hit (v17)",
-   "mulai": 0.0
+   "mulai": -0.136
   },
   {
    "t": 0.733,
    "file": "/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3",
    "ss": 0.04,
    "dur": 0.35,
-   "gain_db": -13,
+   "gain_db": -9,
    "peran": "ganti_foto",
    "alasan": "isi bingkai arsip berganti (file Irfan \"Pergantianfoto\"); berselang supaya tidak jadi lapisan klik",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "pen click / toggle switch click (deretan klik foto)",
-   "mulai": 0.733
+   "mulai": 0.712
   },
   {
    "t": 1.367,
    "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -12,
+   "gain_db": -8,
    "peran": "kata_triad",
    "alasan": "kata kunci triad berganti: \"membangun\"",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "scroll wheel tick lembut",
-   "mulai": 1.367
+   "mulai": 1.343
   },
   {
    "t": 2.333,
    "file": "/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3",
    "ss": 1.24,
    "dur": 0.35,
-   "gain_db": -13,
+   "gain_db": -9,
    "peran": "ganti_foto",
    "alasan": "isi bingkai arsip berganti (file Irfan \"Pergantianfoto\"); berselang supaya tidak jadi lapisan klik",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "pen click / toggle switch click (deretan klik foto)",
-   "mulai": 2.333
+   "mulai": 2.312
   },
   {
    "t": 2.967,
    "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -12,
+   "gain_db": -8,
    "peran": "kata_triad",
    "alasan": "kata kunci triad berganti: \"membuat\"",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "scroll wheel tick lembut",
-   "mulai": 2.967
+   "mulai": 2.943
   },
   {
    "t": 3.367,
    "file": "/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3",
    "ss": 2.4000000000000004,
    "dur": 0.35,
-   "gain_db": -13,
+   "gain_db": -9,
    "peran": "ganti_foto",
    "alasan": "isi bingkai arsip berganti (file Irfan \"Pergantianfoto\"); berselang supaya tidak jadi lapisan klik",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "pen click / toggle switch click (deretan klik foto)",
-   "mulai": 3.367
+   "mulai": 3.31
   },
   {
    "t": 4.867,
    "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -12,
+   "gain_db": -8,
    "peran": "kata_triad",
    "alasan": "kata kunci triad berganti: \"bikin software\"",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "scroll wheel tick lembut",
-   "mulai": 4.867
+   "mulai": 4.843
   },
   {
    "t": 5.17,
    "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -11,
+   "gain_db": -5,
    "peran": "whoosh",
    "alasan": "kamera menembus bingkai ke babak berikut",
    "align": "peak",
@@ -108,14 +108,14 @@
    "t": 7.57,
    "file": "/home/irfan/sfx/SFXIrfan/basmenyebar.mp3",
    "ss": 0.0,
-   "dur": 2.2,
-   "gain_db": -8,
+   "dur": 3.4,
+   "gain_db": -4,
    "peran": "judul",
-   "alasan": "kartu judul \"mempublikasikan\" = jawaban hook (kiblat: hit di judul)",
-   "align": "onset",
-   "fout": 0.8,
+   "alasan": "kartu judul \"mempublikasikan\" = jawaban hook (kiblat: hit di judul); boom naik dari \"gak semua orang\"",
+   "align": "peak",
+   "fout": 0.9,
    "dengar": "deep cinematic boom / sub bass drop",
-   "mulai": 7.57
+   "mulai": 6.302
   },
   {
    "t": 9.4,
@@ -125,10 +125,10 @@
    "gain_db": -13,
    "peran": "transisi_babak",
    "alasan": "mosaik piksel membangun babak 2",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.2,
    "dengar": "digital glitch / stutter transition",
-   "mulai": 9.4
+   "mulai": 9.242
   },
   {
    "t": 10.1,
@@ -138,10 +138,10 @@
    "gain_db": -10,
    "peran": "cetakan",
    "alasan": "foto cetak mendarat di alas",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.15,
    "dengar": "cloth/paper rustling",
-   "mulai": 10.1
+   "mulai": 9.907
   },
   {
    "t": 10.83,
@@ -151,10 +151,10 @@
    "gain_db": -12,
    "peran": "tulis",
    "alasan": "label tangan \"20-an\"",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "goresan spidol (ElevenLabs proyek ini)",
-   "mulai": 10.83
+   "mulai": 9.742
   },
   {
    "t": 15.93,
@@ -177,10 +177,10 @@
    "gain_db": -15,
    "peran": "cetakan_jatuh",
    "alasan": "cetakan berjatuhan = satu rentetan klik, bukan 12 bunyi",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.3,
    "dengar": "pen click / toggle switch click (deretan klik foto)",
-   "mulai": 16.0
+   "mulai": 15.891
   },
   {
    "t": 21.2,
@@ -200,13 +200,13 @@
    "file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -10,
+   "gain_db": -8,
    "peran": "like",
    "alasan": "hati Threads terisi (benda yang dimaksud ucapan)",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "glass ting / kalimba (pop like)",
-   "mulai": 23.9
+   "mulai": 23.302
   },
   {
    "t": 26.57,
@@ -226,33 +226,33 @@
    "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_thud_0.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -10,
+   "gain_db": -6,
    "peran": "tekan",
    "alasan": "\"FOMO.\" punch + guncang kamera",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "punchy impact hit (v17)",
-   "mulai": 30.47
+   "mulai": 30.363
   },
   {
    "t": 34.83,
    "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_thud_2.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -8,
+   "gain_db": -5,
    "peran": "cap",
    "alasan": "logo OpenAI dicap besar + guncang",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "punchy impact hit (v17)",
-   "mulai": 34.83
+   "mulai": 34.734
   },
   {
    "t": 37.73,
    "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -14,
+   "gain_db": -9,
    "peran": "whoosh",
    "alasan": "punch-in ke kotak prompt",
    "align": "peak",
@@ -265,13 +265,13 @@
    "file": "/home/irfan/sfx/SFXIrfan/Keyboardtyping.mp3",
    "ss": 0.36,
    "dur": 0.85,
-   "gain_db": -15,
+   "gain_db": -9,
    "peran": "ketik",
    "alasan": "\"build something\" diketik di prompt",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.1,
    "dengar": "keyboard typing fast",
-   "mulai": 37.9
+   "mulai": 37.483
   },
   {
    "t": 38.8,
@@ -281,10 +281,10 @@
    "gain_db": -10,
    "peran": "kirim",
    "alasan": "tombol kirim ditekan",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "mechanical key press (klik tegas)",
-   "mulai": 38.8
+   "mulai": 38.782
   },
   {
    "t": 38.86,
@@ -294,23 +294,23 @@
    "gain_db": -14,
    "peran": "transisi_babak",
    "alasan": "mosaik: prompt → dinding bukti",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.2,
    "dengar": "digital glitch / stutter transition",
-   "mulai": 38.86
+   "mulai": 38.702
   },
   {
    "t": 39.67,
    "file": "audio/sfx_el/pin.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -13,
+   "gain_db": -8,
    "peran": "pin",
    "alasan": "pin cetakan disorot di dinding bukti (3 dari 5: awal, tengah, foto Irfan)",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "tusukan pin (ElevenLabs proyek ini)",
-   "mulai": 39.67
+   "mulai": 39.257
   },
   {
    "t": 39.77,
@@ -320,23 +320,23 @@
    "gain_db": -13,
    "peran": "tulis",
    "alasan": "tulisan tangan \"satu tahun\"",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "goresan spidol (ElevenLabs proyek ini)",
-   "mulai": 39.77
+   "mulai": 38.682
   },
   {
    "t": 42.33,
    "file": "audio/sfx_el/pin.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -13,
+   "gain_db": -8,
    "peran": "pin",
    "alasan": "pin cetakan disorot di dinding bukti (3 dari 5: awal, tengah, foto Irfan)",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "tusukan pin (ElevenLabs proyek ini)",
-   "mulai": 42.33
+   "mulai": 41.917
   },
   {
    "t": 43.33,
@@ -356,13 +356,13 @@
    "file": "audio/sfx_el/pin.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -13,
+   "gain_db": -8,
    "peran": "pin",
    "alasan": "pin cetakan disorot di dinding bukti (3 dari 5: awal, tengah, foto Irfan)",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "tusukan pin (ElevenLabs proyek ini)",
-   "mulai": 45.07
+   "mulai": 44.657
   },
   {
    "t": 46.3,
@@ -385,124 +385,124 @@
    "gain_db": -7,
    "peran": "drop",
    "alasan": "dinding berubah gelap (twist)",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.9,
    "dengar": "sub bass drop",
-   "mulai": 46.33
+   "mulai": 45.502
   },
   {
    "t": 49.77,
    "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -12,
+   "gain_db": -8,
    "peran": "kata_triad",
    "alasan": "triad babak 3 (rima babak 1): \"menjual\"",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "scroll wheel tick lembut",
-   "mulai": 49.77
+   "mulai": 49.746
   },
   {
    "t": 51.2,
    "file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Click, UI Buttons, Confirm, Menu - Epidemic Sound.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -15,
+   "gain_db": -9,
    "peran": "klik_ui",
    "alasan": "klik Cancel di composer Threads",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "notification ding pendek",
-   "mulai": 51.2
+   "mulai": 51.199
   },
   {
    "t": 51.27,
    "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -12,
+   "gain_db": -8,
    "peran": "kata_triad",
    "alasan": "triad babak 3 (rima babak 1): \"mempublikasikan\"",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "scroll wheel tick lembut",
-   "mulai": 51.27
+   "mulai": 51.246
   },
   {
    "t": 51.9,
    "file": "/home/irfan/sfx/SFXIrfan/Enter.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -12,
+   "gain_db": -8,
    "peran": "klik_ui",
    "alasan": "klik \"Save\" — draft disimpan, tidak terbit",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "mechanical key press (klik tegas)",
-   "mulai": 51.9
+   "mulai": 51.882
   },
   {
    "t": 52.9,
    "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -12,
+   "gain_db": -8,
    "peran": "kata_triad",
    "alasan": "triad babak 3 (rima babak 1): \"mendokumentasikan\"",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "scroll wheel tick lembut",
-   "mulai": 52.9
+   "mulai": 52.876
   },
   {
    "t": 54.6,
    "file": "/home/irfan/sfx/SFXIrfan/Keyboardtyping.mp3",
    "ss": 1.41,
    "dur": 0.65,
-   "gain_db": -16,
+   "gain_db": -10,
    "peran": "ketik",
    "alasan": "nama repo \"MemoryPC\" diketik",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.1,
    "dengar": "keyboard typing fast",
-   "mulai": 54.6
+   "mulai": 54.081
   },
   {
    "t": 56.2,
    "file": "/home/irfan/sfx/SFXIrfan/Enter.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -10,
+   "gain_db": -8,
    "peran": "klik_ui",
    "alasan": "klik \"Create repository\"",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "mechanical key press (klik tegas)",
-   "mulai": 56.2
+   "mulai": 56.182
   },
   {
    "t": 57.83,
    "file": "/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3",
    "ss": 0.0,
    "dur": 5.2,
-   "gain_db": -16,
+   "gain_db": -8,
    "peran": "repo_menumpuk",
    "alasan": "19 halaman repo menumpuk makin cepat = satu rentetan klik",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.4,
    "dengar": "pen click / toggle switch click (deretan klik foto)",
-   "mulai": 57.83
+   "mulai": 56.573
   },
   {
    "t": 63.07,
    "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_impact_1.mp3",
    "ss": 0.0,
    "dur": 1.8,
-   "gain_db": -9,
+   "gain_db": -6,
    "peran": "beku",
    "alasan": "semua kartu berhenti mendadak + guncang (\"gak pernah selesai\")",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.6,
    "dengar": "sub bass drop / hum (v17)",
    "mulai": 63.07
@@ -521,37 +521,24 @@
    "mulai": 70.721
   },
   {
-   "t": 75.4,
-   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/swell_1.mp3",
-   "ss": 0.0,
-   "dur": null,
-   "gain_db": -11,
-   "peran": "naik",
-   "alasan": "wipe gelap → terang menuju \"sadar.\"",
-   "align": "peak",
-   "fout": 0.03,
-   "dengar": "fast whoosh / reverse cymbal swell (v17)",
-   "mulai": 74.761
-  },
-  {
    "t": 76.9,
-   "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_impact_0.mp3",
+   "file": "/home/irfan/sfx/SFXIrfan/basmenyebar.mp3",
    "ss": 0.0,
-   "dur": 2.0,
-   "gain_db": -10,
+   "dur": 3.4,
+   "gain_db": -5,
    "peran": "puncak",
-   "alasan": "\"sadar.\" klimaks (sub, bukan boom judul yang sama)",
-   "align": "onset",
-   "fout": 0.7,
-   "dengar": "sub bass drop (v17)",
-   "mulai": 76.9
+   "alasan": "\"sadar.\" klimaks; boom naik dari wipe terang lalu memuncak di kata (peran hit besar sama dengan judul; sub v17 tidak terdengar di HP)",
+   "align": "peak",
+   "fout": 0.9,
+   "dengar": "deep cinematic boom / sub bass drop",
+   "mulai": 75.632
   },
   {
    "t": 77.73,
    "file": "/home/irfan/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -11,
+   "gain_db": -8,
    "peran": "whoosh",
    "alasan": "whip pan mundur menyusuri dinding",
    "align": "peak",
@@ -567,23 +554,23 @@
    "gain_db": -12,
    "peran": "tulis",
    "alasan": "lingkaran + \"titik awal\" ditulis tangan",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "goresan spidol (ElevenLabs proyek ini)",
-   "mulai": 80.77
+   "mulai": 79.682
   },
   {
    "t": 86.13,
    "file": "/home/irfan/sfx/SFXIrfan/Enter.mp3",
    "ss": 0.0,
    "dur": null,
-   "gain_db": -10,
+   "gain_db": -8,
    "peran": "klik_ui",
    "alasan": "klik Post — akhirnya terbit",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "mechanical key press (klik tegas)",
-   "mulai": 86.13
+   "mulai": 86.112
   },
   {
    "t": 86.33,
@@ -593,10 +580,10 @@
    "gain_db": -10,
    "peran": "post_terbit",
    "alasan": "post Threads terbit (satu per frasa); post 2 varian pop supaya file sama tidak berulang < 1 dtk",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "bubble pop",
-   "mulai": 86.33
+   "mulai": 86.264
   },
   {
    "t": 87.2,
@@ -606,10 +593,10 @@
    "gain_db": -10,
    "peran": "post_terbit",
    "alasan": "post Threads terbit (satu per frasa); post 2 varian pop supaya file sama tidak berulang < 1 dtk",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "glass ting / kalimba (pop like)",
-   "mulai": 87.2
+   "mulai": 86.602
   },
   {
    "t": 89.13,
@@ -619,10 +606,10 @@
    "gain_db": -10,
    "peran": "post_terbit",
    "alasan": "post Threads terbit (satu per frasa); post 2 varian pop supaya file sama tidak berulang < 1 dtk",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "bubble pop",
-   "mulai": 89.13
+   "mulai": 89.064
   },
   {
    "t": 93.47,
@@ -632,10 +619,10 @@
    "gain_db": -15,
    "peran": "penutup",
    "alasan": "\"belum sempurna.\" — ting lembut, ekor sunyi seperti kiblat",
-   "align": "onset",
+   "align": "peak",
    "fout": 0.03,
    "dengar": "triangle hit / glass ting",
-   "mulai": 93.47
+   "mulai": 93.469
   }
  ]
 }

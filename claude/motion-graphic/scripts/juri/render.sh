@@ -53,6 +53,8 @@ case "$MODE" in
     if [ -f "$QC/JURI.md" ] && [ "$(mtime "$QC/JURI.md")" -ge "$(mtime "$QC/sanding.jpg")" ] && tail -n 3 "$QC/JURI.md" | grep -q '^PUTUSAN: LULUS'; then :; else
       echo "GAGAL gerbang: qc/JURI.md belum berakhir 'PUTUSAN: LULUS' untuk sanding terbaru."; gagal=1; fi
     [ "$gagal" = 0 ] || { echo "Render penuh ditolak."; exit 1; }
+    free_mb=$(df --output=avail -BM "$P" | tail -1 | tr -dc 0-9)
+    [ "${free_mb:-0}" -ge 6000 ] || echo "PERINGATAN: disk kosong ${free_mb} MB (< 6 GB). Cache frame video Remotion bisa memakan ±2–5 GB; kehabisan ruang muncul sebagai \"Page crashed\" / ENOSPC (builder-trap-r2 v2, 14 Nov)."
     bundle; n=$(( $(grep -c '^final' "$QC/render.log" 2>/dev/null || true) + 1 ))
     echo "final $(date '+%F %T') ke-$n ${RANGE:-penuh} -> $OUT" >> "$QC/render.log"
     [ "$n" -le 2 ] || echo "PERINGATAN: ini render penuh ke-$n untuk video ini. Revisi cukup rentang yang berubah (argumen awal-akhir)."

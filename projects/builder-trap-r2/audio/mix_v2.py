@@ -34,15 +34,16 @@ place(music, dec(M, 92.25, T4 - T3 + 0.3, af='lowpass=f=1200,lowpass=f=1200'), T
 # babak 4: puncak Aware, masuk di "sadar"
 place(music, dec(M, 172.27, DUR - T4 + 0.1), T4, 0.0, fin=0.15)
 
-# v2: tidak ada auto-gain naik (v1 ±8 dB mengisi jeda). Duck ringan −2,5 dB saat bicara, envelope 150 ms.
-env = np.abs(voice.mean(1)); k = int(0.15 * SR)
-env = np.convolve(env, np.ones(k, np.float32) / k, mode='same')
-mask = np.clip((20 * np.log10(env + 1e-9) + 45) / 10, 0, 1)  # 0 = jeda (< −45 dB), 1 = bicara (> −35 dB)
-music *= (10 ** (-2.5 * mask / 20))[:, None].astype(np.float32)
 # level: suara gain linear ke −14,5 LUFS; musik ke target LUFS relatif (diukur di bagian yang ada musik)
 gv = -14.5 - lufs(voice); voice *= 10 ** (gv / 20)
 target_music = float(sys.argv[1]) if len(sys.argv) > 1 else -23.5
 gm = target_music - lufs(music); music *= 10 ** (gm / 20)
+# v2 (urutan diperbaiki 14 Nov: duck SESUDAH normalisasi musik, kalau sebelum, normalisasi mengembalikan duck): tidak ada auto-gain naik (v1 ±8 dB mengisi jeda). Duck −6 dB saat bicara; babak 4 −2 dB, envelope 150 ms.
+env = np.abs(voice.mean(1)); k = int(0.15 * SR)
+env = np.convolve(env, np.ones(k, np.float32) / k, mode='same')
+mask = np.clip((20 * np.log10(env + 1e-9) + 45) / 10, 0, 1)  # 0 = jeda (< −45 dB), 1 = bicara (> −35 dB)
+music *= (10 ** (-6.0 * mask / 20))[:, None].astype(np.float32)  # 14 Nov: −2,5 dB → −6 dB (audio_phone: 24 jendela VO < 8 dB)
+music[int(T4 * SR):] *= 10 ** (-2.0 / 20)  # babak 4 puncak Aware menutup suara (91,0 dtk −4,3 dB)
 # kantong EQ untuk suara di musik (−4 dB 2,8 kHz, −2 dB 450 Hz) — audio.md §14.10
 sf.write('/tmp/claude-1000/_m2.wav', music, SR)
 music = dec('/tmp/claude-1000/_m2.wav', af='equalizer=f=2800:t=q:w=1.2:g=-4,equalizer=f=450:t=q:w=1.0:g=-2')[:N]

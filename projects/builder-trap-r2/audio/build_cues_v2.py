@@ -1,4 +1,5 @@
-"""Cue sheet SFX v2 (koreksi Irfan 13 Nov: v1 berisik + salah pilih SFX).
+"""Cue sheet SFX v2 (gain dinaikkan 14 Nov: audio_phone 25/49 terdengar; Lantai E24 −4…−10 dB)
+Cue sheet SFX v2 (koreksi Irfan 13 Nov: v1 berisik + salah pilih SFX).
 Cara pilih (Sutradara, bukan kamus peran → file):
  1. Kepadatan dari kiblat 55: ±30 SFX berlabel dalam 46 dtk (≈ 0,65/dtk) → target ±0,5–0,7/dtk; bunyi di momen CERITA dan gerak besar.
  2. Tidak ada bunyi per kata. Kata kinetik berbunyi hanya di pergantian kata triad (k3) — rima babak 1 dan babak 3.
@@ -44,7 +45,7 @@ DENGAR = {
     'v17_impact_1.mp3': 'sub bass drop / hum (v17)',
 }
 cues = []
-def c(t, f, g, peran, alasan, ss=0.0, dur=None, align='onset', fout=0.03):
+def c(t, f, g, peran, alasan, ss=0.0, dur=None, align='peak', fout=0.03):  # 14 Nov: puncak bunyi di frame visual (pin.mp3 sunyi 0,41 dtk di depan; basmenyebar memuncak di 1,27 dtk)
     cues.append(dict(t=round(t, 3), file=f, ss=ss, dur=dur, gain_db=g, peran=peran, alasan=alasan, align=align, fout=fout,
                      dengar=DENGAR[f.split('/')[-1]]))
 
@@ -53,11 +54,11 @@ FOTO = [0.05, 1.25, 2.41, 6.06, 7.21, 9.61, 10.84]  # klik kuat di Pergantianfot
 c(0.00, V + 'v17_thud_1.mp3', -6, 'pembuka', 'kiblat: hantaman di frame 0 (stab orkestra ref02; SFXIrfan tidak punya stab)')
 # montase hook: klik foto hanya di pergantian berselang (0,73 · 2,33 · 3,37); pergantian lain dibawa kata triad + cut di suku kata
 for k, t in enumerate([0.733, 2.333, 3.367]):
-    c(t, I + 'Pergantianfoto.mp3', -13, 'ganti_foto', 'isi bingkai arsip berganti (file Irfan "Pergantianfoto"); berselang supaya tidak jadi lapisan klik', ss=FOTO[k] - 0.01, dur=0.35)
+    c(t, I + 'Pergantianfoto.mp3', -9, 'ganti_foto', 'isi bingkai arsip berganti (file Irfan "Pergantianfoto"); berselang supaya tidak jadi lapisan klik', ss=FOTO[k] - 0.01, dur=0.35)
 for t, w in [(1.367, 'membangun'), (2.967, 'membuat'), (4.867, 'bikin software')]:
-    c(t, I + 'Kinetictypography(gunakansecaraacak).mp3', -12, 'kata_triad', f'kata kunci triad berganti: "{w}"')
-c(5.17, I + 'Woosh.mp3', -11, 'whoosh', 'kamera menembus bingkai ke babak berikut', align='peak')
-c(7.57, I + 'basmenyebar.mp3', -8, 'judul', 'kartu judul "mempublikasikan" = jawaban hook (kiblat: hit di judul)', dur=2.2, fout=0.8)
+    c(t, I + 'Kinetictypography(gunakansecaraacak).mp3', -8, 'kata_triad', f'kata kunci triad berganti: "{w}"')
+c(5.17, I + 'Woosh.mp3', -5, 'whoosh', 'kamera menembus bingkai ke babak berikut', align='peak')
+c(7.57, I + 'basmenyebar.mp3', -4, 'judul', 'kartu judul "mempublikasikan" = jawaban hook (kiblat: hit di judul); boom naik dari "gak semua orang"', dur=3.4, fout=0.9)
 c(9.40, EP('ES_User Interface, Glitch, Glitch Databend 04'), -13, 'transisi_babak', 'mosaik piksel membangun babak 2', dur=0.9, fout=0.2)
 # --- Babak 2: belokan ke diri
 c(10.10, I + 'documenter.mp3', -10, 'cetakan', 'foto cetak mendarat di alas', ss=2.95, dur=0.5, fout=0.15)
@@ -65,36 +66,35 @@ c(10.83, E + 'marker.mp3', -12, 'tulis', 'label tangan "20-an"')
 c(15.93, I + 'scaningfast.mp3', -13, 'whoosh', 'kamera tarik mundur memperlihatkan 12 cetakan', align='peak')
 c(16.00, I + 'Pergantianfoto.mp3', -15, 'cetakan_jatuh', 'cetakan berjatuhan = satu rentetan klik, bukan 12 bunyi', ss=9.55, dur=1.4, fout=0.3)
 c(21.20, I + 'Wooshcameramovementtransisi.mp3', -12, 'whoosh', 'punch-in besar ke teks post Threads', align='peak')
-c(23.90, EP('ES_User Interface, Click, Pops, Glass, UI, Pops'), -10, 'like', 'hati Threads terisi (benda yang dimaksud ucapan)')
+c(23.90, EP('ES_User Interface, Click, Pops, Glass, UI, Pops'), -8, 'like', 'hati Threads terisi (benda yang dimaksud ucapan)')
 c(26.57, I + 'scaningfast.mp3', -15, 'whoosh', 'halaman YouTube masuk', align='peak')
-c(30.47, V + 'v17_thud_0.mp3', -10, 'tekan', '"FOMO." punch + guncang kamera')
-c(34.83, V + 'v17_thud_2.mp3', -8, 'cap', 'logo OpenAI dicap besar + guncang')
-c(37.73, I + 'Woosh.mp3', -14, 'whoosh', 'punch-in ke kotak prompt', align='peak')
-c(37.90, I + 'Keyboardtyping.mp3', -15, 'ketik', '"build something" diketik di prompt', ss=0.36, dur=0.85, fout=0.1)
+c(30.47, V + 'v17_thud_0.mp3', -6, 'tekan', '"FOMO." punch + guncang kamera')
+c(34.83, V + 'v17_thud_2.mp3', -5, 'cap', 'logo OpenAI dicap besar + guncang')
+c(37.73, I + 'Woosh.mp3', -9, 'whoosh', 'punch-in ke kotak prompt', align='peak')
+c(37.90, I + 'Keyboardtyping.mp3', -9, 'ketik', '"build something" diketik di prompt', ss=0.36, dur=0.85, fout=0.1)
 c(38.80, I + 'Enter.mp3', -10, 'kirim', 'tombol kirim ditekan')
 c(38.86, EP('ES_User Interface, Glitch, Glitch Databend 04'), -14, 'transisi_babak', 'mosaik: prompt → dinding bukti', dur=0.8, fout=0.2)
 for t in [39.67, 42.33, 45.07]:
-    c(t, E + 'pin.mp3', -13, 'pin', 'pin cetakan disorot di dinding bukti (3 dari 5: awal, tengah, foto Irfan)')
+    c(t, E + 'pin.mp3', -8, 'pin', 'pin cetakan disorot di dinding bukti (3 dari 5: awal, tengah, foto Irfan)')
 c(39.77, E + 'marker.mp3', -13, 'tulis', 'tulisan tangan "satu tahun"')
 c(43.33, I + 'Wooshcameramovementtransisi.mp3', -15, 'whoosh', 'kamera mundur lebar ke seluruh dinding', align='peak')
 # --- Babak 3: twist (kiblat: riser menuju jawaban, musik + grade berganti)
 c(46.30, EP('ES_Designed, Riser, Transition, Fast, Short, Clean 01'), -9, 'riser', 'menuju "Tapi" — twist', align='peak')
 c(46.33, EP('ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz'), -7, 'drop', 'dinding berubah gelap (twist)', dur=2.5, fout=0.9)
 for t, w in [(49.77, 'menjual'), (51.27, 'mempublikasikan'), (52.90, 'mendokumentasikan')]:
-    c(t, I + 'Kinetictypography(gunakansecaraacak).mp3', -12, 'kata_triad', f'triad babak 3 (rima babak 1): "{w}"')
-c(51.20, EP('ES_User Interface, Click, UI Buttons, Confirm, Menu'), -15, 'klik_ui', 'klik Cancel di composer Threads')
-c(51.90, I + 'Enter.mp3', -12, 'klik_ui', 'klik "Save" — draft disimpan, tidak terbit')
-c(54.60, I + 'Keyboardtyping.mp3', -16, 'ketik', 'nama repo "MemoryPC" diketik', ss=1.41, dur=0.65, fout=0.1)
-c(56.20, I + 'Enter.mp3', -10, 'klik_ui', 'klik "Create repository"')
-c(57.83, I + 'Pergantianfoto.mp3', -16, 'repo_menumpuk', '19 halaman repo menumpuk makin cepat = satu rentetan klik', ss=0.0, dur=5.2, fout=0.4)
-c(63.07, V + 'v17_impact_1.mp3', -9, 'beku', 'semua kartu berhenti mendadak + guncang ("gak pernah selesai")', dur=1.8, fout=0.6)
+    c(t, I + 'Kinetictypography(gunakansecaraacak).mp3', -8, 'kata_triad', f'triad babak 3 (rima babak 1): "{w}"')
+c(51.20, EP('ES_User Interface, Click, UI Buttons, Confirm, Menu'), -9, 'klik_ui', 'klik Cancel di composer Threads')
+c(51.90, I + 'Enter.mp3', -8, 'klik_ui', 'klik "Save" — draft disimpan, tidak terbit')
+c(54.60, I + 'Keyboardtyping.mp3', -10, 'ketik', 'nama repo "MemoryPC" diketik', ss=1.41, dur=0.65, fout=0.1)
+c(56.20, I + 'Enter.mp3', -8, 'klik_ui', 'klik "Create repository"')
+c(57.83, I + 'Pergantianfoto.mp3', -8, 'repo_menumpuk', '19 halaman repo menumpuk makin cepat = satu rentetan klik', ss=0.0, dur=5.2, fout=0.4)
+c(63.07, V + 'v17_impact_1.mp3', -6, 'beku', 'semua kartu berhenti mendadak + guncang ("gak pernah selesai")', dur=1.8, fout=0.6)
 c(71.93, I + 'Wooshcameramovementtransisi.mp3', -14, 'whoosh', 'kamera mundur jauh: timbunan draft terlihat', align='peak')
 # --- Babak 4: sadar & janji
-c(75.40, V + 'swell_1.mp3', -11, 'naik', 'wipe gelap → terang menuju "sadar."', align='peak')
-c(76.90, V + 'v17_impact_0.mp3', -10, 'puncak', '"sadar." klimaks (sub, bukan boom judul yang sama)', dur=2.0, fout=0.7)
-c(77.73, EP('ES_Swooshes, Whoosh, Big, Cinematic'), -11, 'whoosh', 'whip pan mundur menyusuri dinding', align='peak')
+c(76.90, I + 'basmenyebar.mp3', -5, 'puncak', '"sadar." klimaks; boom naik dari wipe terang lalu memuncak di kata (peran hit besar sama dengan judul; sub v17 tidak terdengar di HP)', dur=3.4, fout=0.9)
+c(77.73, EP('ES_Swooshes, Whoosh, Big, Cinematic'), -8, 'whoosh', 'whip pan mundur menyusuri dinding', align='peak')
 c(80.77, E + 'marker.mp3', -12, 'tulis', 'lingkaran + "titik awal" ditulis tangan')
-c(86.13, I + 'Enter.mp3', -10, 'klik_ui', 'klik Post — akhirnya terbit')
+c(86.13, I + 'Enter.mp3', -8, 'klik_ui', 'klik Post — akhirnya terbit')
 for t, f in [(86.33, I + 'pop up.mp3'), (87.20, EP('ES_User Interface, Click, Pops, Glass, UI, Pops')), (89.13, I + 'pop up.mp3')]:
     c(t, f, -10, 'post_terbit', 'post Threads terbit (satu per frasa); post 2 varian pop supaya file sama tidak berulang < 1 dtk')
 c(93.47, I + 'Lasertransision.mp3', -15, 'penutup', '"belum sempurna." — ting lembut, ekor sunyi seperti kiblat')
