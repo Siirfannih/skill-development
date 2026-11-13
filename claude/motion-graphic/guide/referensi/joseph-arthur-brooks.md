@@ -83,7 +83,7 @@ Video penjelasnya memakai latar gelap ber-grid, kartu 9:16 melayang, carousel be
 ## 7. Yang sudah ada di skill kita
 - Kata besar + kata pengantar kecil, serif hanya sebagai penekanan: `decision-guide.md` §2, `pedro-andradeok.md` §4.
 - Satu aksen warna, netral membawa frame: `guide/visual/`, `palette.md`.
-- 1 event visual = 1 SFX (aturan 43), revisi sebagai diff bernomor (aturan 18), build Remotion, loop kritik sebelum kirim.
+- SFX di momen cerita (aturan 43), revisi sebagai diff bernomor (aturan 18), build Remotion, loop kritik sebelum kirim.
 
 ## 8. Celah skill yang terlihat dari video ini
 

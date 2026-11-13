@@ -1,0 +1,21 @@
+# REVIEW v1 (evaluasi mandiri Sutradara, 13 Nov)
+
+Irfan sengaja tidak menyebut bagian visual yang salah (uji evaluasi mandiri). Bahan: still awal/tengah/akhir tiap beat dari `out/builder-trap-r2_v1.mp4` (`~/work/_downloads/r2eval/sheet1-3.jpg`), frame penuh di titik ragu. Diukur terhadap brief (BRIEF.md, DECISIONS R-005/R-007), LANTAI, aturan inti 8/15/21, kartu 55 dan 63. Audio dinilai terpisah (§Audio di bawah).
+
+| ID | Beat | Temuan | Bukti | Kriteria terukur | Devil's advocate | Status |
+|---|---|---|---|---|---|---|
+| F-v1-01 | B15–B22 | Babak gelap = navy `#13245E` + aksen biru `#6F8DFF` di teks, benang, sorot GitHub: frame hampir seluruhnya biru | 47.6, 49.8, 52.7, 60.7 | Tidak ada hue biru (200–250°) dengan saturasi > 25 % di > 5 % area frame babak 3; teks kunci tidak biru di latar gelap | R-005 kata Irfan sendiri ("terlalu banyak biru"), aturan 15. RESEP memilih navy, tapi larangan Irfan menang | LOLOS |
+| F-v1-02 | semua | Teks narasi kecil: 34–58 px (3–5 % tinggi), banyak kata sambung 34–46 px, tak terbaca di HP | 10.2 "Memasuki", 5.7 "Tapi", 33.2, 60.7 | Kata sambung ≥ 56 px, kata kunci ≥ 96 px (aturan inti 8); `teks_cek.py` lulus | Kiblat 55 caption 4,5 % (≈ 49 px) — tapi itu caption pita bawah yang Lantai A1 buang; narasi kita adalah satu-satunya lapisan teks, jadi harus terbaca | LOLOS |
+| F-v1-03 | 11 sisipan wajah | Semua sisipan wajah berframing sama (medium close-up, kepala penuh, dinding abu), teks selalu di pita kanan-tengah | B04, B07, B09, B11, B13, B16, B21, B23, B25, B26 | Brief: "nggak keseluruhan wajahku kelihatan, paling cuma sebagian" (R-007, RESEP: mata / mulut+tangan / profil / close-up berganti); aturan 21: tidak ada dua sisipan berurutan dengan crop sama; Lantai A2: teks tidak di pita sama 3× berturut | Wajah utuh membantu koneksi — tapi brief Irfan eksplisit; wajah utuh hanya untuk klimaks B23 dan penutup B26 | LOLOS |
+| F-v1-04 | B12, B19, B20, B22 | UI ditampilkan utuh tanpa punch-in: teks UI 1–2 % tinggi, fokus tak jelas | 33.2, 54.5, 60.7, 72.8 | Elemen UI yang dibicarakan (kotak prompt, tombol Create repository, "No releases published", "No threads yet") ≥ 6 % tinggi saat kata kuncinya diucapkan (kartu 63: punch ke prompt ±10,6 %) | UI kecil = "tekstur kerja nyata" (kartu 63) — boleh di awal shot, tapi kata kunci butuh fokus | LOLOS |
+| F-v1-05 | B06, B14, B20 | Teks melayang jauh dari fokus: "Memasuki" di kanan jauh, "Untuk" di dinding, "atau"/"Yang" sendirian di ruang gelap kiri sementara UI di kanan | 10.2, 42.6, 58.1, 60.7 | Lantai C15: teks menempel objek fokusnya (jarak ≤ 0,15 lebar frame dari tepi objek) | — | LOLOS |
+| F-v1-06 | B05, B06, B10, B17, B18, B19 | Kerapian: sisa blok mosaik biru di tepi kiri (10.2), kursor diam di tengah judul (8.72), thumbnail terpotong tepi atas (28.9), UI terpotong tepi kiri (54.5), celah lebar "mempublikasikan␣␣␣apapun." (52.7), "menjual" masih tampil saat ucapan sudah "mempublikasikan" (50.99) | frame tsb | Lantai C16/C18, A8 | — | LOLOS |
+| F-v1-07 | B21 | Benda hitam buram menutup ±1/3 kiri frame wajah | 70.08 | Crop menghindari benda itu | Mungkin kursi asli kamar — tetap mengganggu fokus | LOLOS |
+
+## Audio (koreksi Irfan 13 Nov: "sangat berisik", "kesalahan pemilihan sfx")
+| ID | Temuan | Bukti | Kriteria |
+|---|---|---|---|
+| A-v1-01 | 324 cue (3,41/dtk); 220 = klik/tick per kata | `audio/cues.json` | Kepadatan dari kiblat (kartu 55: ±30 SFX berlabel/46 dtk ≈ 0,65/dtk); tidak ada bunyi per kata |
+| A-v1-02 | Kosakata salah: bunyi UI (mouse click, notif, pin, glass pop, rattle) untuk cerita sinematik; 0 dari 22 SFX bernama-fungsi di `~/sfx/SFXIrfan` dipakai; 228 cue dari set ElevenLabs proyek lain (jadisatu-60s v17) | `build_cues.py` kamus tetap | Urutan sumber: SFXIrfan sesuai nama fungsi → kosakata kiblat (stab, riser, pop foto, snare/glitch judul, sub drop) → sumber lain; tiap file didengar (`earshot describe`) |
+| A-v1-03 | Jeda bicara berisik: mix saat jeda hanya ±5 dB di bawah saat bicara; room tone kotor disisipkan + gain linear; 10/11 jeda berisi transien keras (piring/klik) 20–28 dB di atas lantai | ukur stem 13 Nov | Mix di jeda ≥ 15 dB di bawah ucapan; tidak ada transien > lantai + 12 dB di jeda suara |
+| A-v1-04 | Bed musik auto-gain ±8 dB ikut naik di jeda | `audio/mix.py` | Musik tidak dinaikkan di jeda; duck di bawah ucapan |

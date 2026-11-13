@@ -162,7 +162,7 @@ Aturannya:
   | Kata kode | Bunyi |
   |---|---|
   | `:photo:` / gambar berganti | klik kamera (shutter), satu per gambar |
-  | kata kinetik muncul (`word:`) | klik mouse/tap |
+  | kata kunci berganti (bukan tiap kata) | tick lembut SFXIrfan |
   | kamera atau objek bergerak (`:cam:`, `push`, `wipe`, `drag`…) | satu whoosh udara tipis |
   | kartu/ikon muncul | pop UI |
   | centang/berhasil | nada pendek (marimba/pluck) |

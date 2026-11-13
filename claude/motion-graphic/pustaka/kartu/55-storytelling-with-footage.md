@@ -59,7 +59,7 @@
 - Transisi: cut keras di suku kata (78 % cut dalam 100 ms dari onset); masuk adegan foto lewat frame buram yang fokus (16,0; 30,8 dtk); kilatan cahaya oranye 1 frame (20,4 dtk); judul terbakar/api (2,6 dtk); glitch datamosh untuk judul bab (37,5 dtk).
 
 ### 7. SFX
-- earshot: 274 onset (5,9/dtk); berlabel 17 UI/pop, 4 riser, 3 whoosh, 4 snare, 2 hit (sub drop 43,8 dtk pada "grilled cheese"), stab orkestra di 0,0 dtk (+44 dB di atas bed).
+- earshot: ±30 SFX berlabel dalam 46 dtk (**±0,65/dtk**, angka kepadatan SFX yang dipakai): 17 UI/pop, 4 riser, 3 whoosh, 4 snare, 2 hit (sub drop 43,8 dtk pada "grilled cheese"), stab orkestra di 0,0 dtk (+44 dB di atas bed). Total 274 onset (5,9/dtk) termasuk ketukan musik — bukan target SFX (koreksi 13 Nov).
 - Pop untuk foto/teks muncul (32,5 dtk), whoosh untuk gerak fisheye (33,9 dtk), snare + glitch untuk judul bab (38,2–38,9 dtk), riser menuju jawaban (10,2; 13,7 dtk).
 - SFX sekeras suara (puncak −1 s/d −3 dBFS), bukan di bawahnya.
 

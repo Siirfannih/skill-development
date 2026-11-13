@@ -51,8 +51,8 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 22. **Tidak ada placeholder** di render.
 
 ### E. Audio
-23. **Suara tidak dipercepat.** Tempo dirapatkan dengan memotong jeda mati (Irfan 6 Nov, 8 Nov).
-24. **Setiap gerak visual punya SFX yang cocok dengan jenis geraknya dan terdengar** (gain −4 sampai −10 dB), tanpa spam (Irfan 1, 8, 9 Nov).
+23. **Suara tidak dipercepat, dan jedanya bersih.** Tempo dirapatkan dengan memotong jeda mati (Irfan 6 Nov, 8 Nov). Saat pembicara berhenti atau berpikir, tidak terdengar dengung kamar, piring, atau klik: jeda tidak diisi room tone kotor, stem suara di jeda ≤ −50 dBFS (`scripts/gate/pause_clean.py`) (Irfan 13 Nov).
+24. **SFX menandai momen cerita dan gerak yang terlihat, dengan kosakata dan kepadatan dari kiblat**, terdengar (gain −4 sampai −10 dB). Tidak ada bunyi per kata, tidak ada lapisan klik; hening yang disengaja boleh. File dari `~/sfx/SFXIrfan` dulu dan didengar sebelum dipakai (Irfan 1, 8, 9, 13 Nov).
 25. **Musik mengikuti tempo dan suasana video**, tidak bolong, tidak melawan emosi ucapan (Irfan 6, 8 Nov).
 
 ### F. Cara kerja
@@ -107,7 +107,7 @@ Sebelum keputusan kreatif, buka `guide/README.md` lalu **hanya** folder urusan y
 
 ## 3. Satu standar untuk semua video
 
-Tidak ada profil format. Motion ber-VO dan klip podcast/wawancara memakai aturan yang sama; yang berbeda hanya isinya. Suara sumber yang terukur bersih (podcast, wawancara) tidak diproses, cukup gain linear (`audio.md` §14.6). Profil "Format A/B" turunan penilaian klip DOAC 6 Nov dihapus: proyek itu belum selesai, jadi bukan standar (Irfan 8 Nov).
+Tidak ada profil format. Motion ber-VO dan klip podcast/wawancara memakai aturan yang sama; yang berbeda hanya isinya. Suara sumber yang terukur bersih (podcast, wawancara) tidak diproses, cukup gain linear; rekaman sendiri di kamar diukur dulu dan jedanya dibersihkan (`audio.md` §14.6, `gate/pause_clean.py`). Profil "Format A/B" turunan penilaian klip DOAC 6 Nov dihapus: proyek itu belum selesai, jadi bukan standar (Irfan 8 Nov).
 
 ## 4. Cara kerja (gerbang dikunci)
 
@@ -124,9 +124,9 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Render penuh 
 | 6 | Suara dikunci | `audio.md` §14.0C | VO (setelah script final) atau audio sumber klip utuh; `gate/audio_order.py init --mode konten\|musik` + `lock suara`. Mode `musik` (video lirik, montage di ketukan): musik dipilih dan dikunci di sini lebih dulu, visual dipotong di ketukannya |
 | 7 | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum diterapkan ke semua |
 | 8 | Build semua adegan → visual dikunci | `build.md` | Komponen sama untuk semua adegan; render tanpa audio, `audio_order.py lock visual` |
-| 9 | SFX dari event visual | `audio.md` §14.0C, §14.A–14.3, `three-segment-gate.md` (DENGAR) | Cue sheet disusun dari event render terkunci, 1 SFX per frame/pesan/objek/gerakan (aturan 43), tiap cue `peran` + `alasan`, lolos `earshot describe/match`; `lock sfx` (menjalankan `gate/sfx_density.py`) |
+| 9 | SFX dari event visual | `audio.md` §14.0C, §14.A–14.3, `three-segment-gate.md` (DENGAR) | Cue sheet dari momen cerita + gerak terlihat di render terkunci, kosakata dan kepadatan dari kiblat, tanpa bunyi per kata (aturan 43); file dari `~/sfx/SFXIrfan` dulu (`guide/sfx/SFXIRFAN.md`), tiap cue `peran` + `alasan` + `dengar` (label `earshot describe`); `lock sfx` (menjalankan `gate/sfx_density.py`) |
 | 10 | Musik paling akhir | `audio.md` §14.0A, §14.0B | Dipilih sambil mendengar preview visual + SFX: kategori suasana dari tipe video (`pace_read.py`), `music_fit.py` (≥ 8 kandidat, ≥ 2 sumber), `audio/ears.py` untuk mengenali kandidat, tiap klip/babak track berbeda (`gate/music_batch.py`); `lock musik --peran --alasan --didengar` |
-| 11 | Preview + QA | `delivery-gate.md` §0, `analysis-qa.md` §16 | **Audio diperiksa lebih dulu** (kesalahan V5 mayoritas audio, Irfan 8 Nov): `audio_order.py check` PASS (tidak ada lapisan basi), `gate/sfx_density.py`, `audio_phone.py`, `earshot timeline`. Still per beat + audio saja lulus, baru render penuh; ≥ 3 putaran kritik, skor ≥ 8; devil's advocate audio `delivery-gate.md` §4 |
+| 11 | Preview + QA | `delivery-gate.md` §0, `analysis-qa.md` §16 | **Audio diperiksa lebih dulu** (kesalahan V5 mayoritas audio, Irfan 8 Nov): `audio_order.py check` PASS (tidak ada lapisan basi), `gate/sfx_density.py`, `gate/pause_clean.py`, `audio_phone.py`, `earshot timeline`. Still per beat + audio saja lulus, baru render penuh; ≥ 3 putaran kritik, skor ≥ 8; devil's advocate audio `delivery-gate.md` §4 |
 | 12 | Kirim | `delivery-gate.md` | Video + laporan Delivery Gate (setiap PASS berbukti) + daftar penyimpangan |
 
 Beberapa video sekaligus: satu grup agen per video (Writing, SFX, Audio) + orkestrator QC; grup video berikutnya dibuat hanya setelah video ini lolos QC penuh. QC tiga lapis berurutan: visual saja → visual + SFX → visual + SFX + musik (`delivery-gate.md` §0) (Irfan 9 Nov, Behindwork).
@@ -159,7 +159,8 @@ motion-graphic/
     ├── storyboard/board.py      panel HTML → PNG + papan per babak + cek caption/teks layar/waktu + cues.json
     ├── gate/audio_order.py      urutan sound design: suara → visual → SFX → musik, lapisan basi = FAIL
     ├── audio/ears.py            telinga gabungan: demucs stem → earshot + ukuran → setuju/beda
-    ├── gate/sfx_density.py      1 SFX per event visual: kepadatan + cakupan + celah senyap
+    ├── gate/sfx_density.py      anti-spam SFX: kepadatan dari kiblat, tanpa bunyi per kata, tiap cue didengar
+    ├── gate/pause_clean.py      jeda bicara bersih: lantai stem suara + bunyi tajam di jeda
     ├── gate/voice_fidelity.py   alat ukur: suara sumber bersih tidak rusak (udara > 9 kHz, LRA)
     ├── gate/caption_lines.py    caption ≤ 2 baris, tidak terpotong tepi
     ├── audio/pace_read.py       tempo video → kategori suasana + rentang bpm musik
@@ -202,7 +203,7 @@ Tiga tingkat, mengikuti pola anti-slop: **Hard Gate** mutlak; **Purpose-Gate** t
 - 12 Tidak ada video ke Irfan sebelum verdict SHIP + Delivery Gate · 13 tidak yakin = tanya, jangan menebak
 - 14 Adegan disetujui tidak disentuh · 17 baca folder proyek sebelum build · 18 revisi = diff, bukan tulis ulang
 - 33 VO tidak dipercepat, jeda diukur · 38 Modul 1–5 standar mix · 47 satu dunia + kamera AE + teks menyatu · 48 visual menggambarkan ucapan · 49 yang bicara tampil · 50 logo asli + ikon jadi, rapi
-- **43 1 frame / 1 pesan / 1 objek visual / 1 gerakan = 1 SFX** · 44 semua ucapan tampil sebagai SATU lapisan teks kinetik (bukan subtitle pita bawah, kata tidak diulang), ≤ 2 baris, tidak terpotong · 45 audio ikut tempo video: kategori dari `pace_read.py`, musik lulus `music_fit.py`
+- **43 SFX = momen cerita + gerak terlihat, kepadatan dari kiblat, tanpa bunyi per kata, file didengar** · 44 semua ucapan tampil sebagai SATU lapisan teks kinetik (bukan subtitle pita bawah, kata tidak diulang), ≤ 2 baris, tidak terpotong · 45 audio ikut tempo video: kategori dari `pace_read.py`, musik lulus `music_fit.py`
 
 **Purpose-Gate**
 - 6 Kotak di belakang teks hanya bila kontras gagal · 7 setiap efek punya alasan · 24 efek karena fungsi (negative = transisi/before-after)

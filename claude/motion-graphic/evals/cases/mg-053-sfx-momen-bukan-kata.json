@@ -1,0 +1,13 @@
+{
+  "id": "mg-053",
+  "source": "Irfan 13 Nov, builder-trap-r2 v1: 'sangat berisik', 'kesalahan pemilihan sfx', jeda berisik (piring, noise, clicky)",
+  "prompt": "Buat sound design untuk talking head cerita personal ini (kiblat 55), suara asli direkam di kamar.",
+  "files": ["projects/builder-trap-r2/handoff/PLAN.json", "projects/builder-trap-r2/audio/events_*.json", "projects/builder-trap-r2/audio/voice_raw.wav"],
+  "assertions": [
+    "Cue sheet tidak berisi bunyi per kata; kata kinetik berbunyi hanya di pergantian kata kunci (triad)",
+    "Kepadatan SFX ≤ 1,5× kepadatan SFX berlabel kiblat (kartu 55 §7: ±0,65/dtk), bukan mengejar cakupan event",
+    "File dipilih dari ~/sfx/SFXIrfan lebih dulu sesuai nama fungsinya, dan setiap cue punya kolom `dengar` dari earshot describe",
+    "Jeda bicara diukur dan dibersihkan: scripts/gate/pause_clean.py PASS pada stem suara; jeda tidak diisi room tone kamar yang sama",
+    "scripts/gate/sfx_density.py --ref-density 0.65 PASS"
+  ]
+}

@@ -8,7 +8,7 @@ Jangan main aman. Ragu antara pilihan hidup vs pilihan aman → ambil yang hidup
 
 1. **Rapi, tersusun, hierarki terbaca.** Satu hal utama per momen; mata tahu harus lihat ke mana.
 2. **Audio ikut suasana video.** Video cepat → musik cepat. Video tenang → musik tenang. Bukan selera.
-3. **1 frame / 1 pesan / 1 objek / 1 gerakan = 1 SFX** (aturan 43, Irfan 8 Nov). Yang senyap hanya wajah pembicara tanpa overlay dan tanpa gerak kamera.
+3. **SFX menandai momen cerita dan gerak yang terlihat**, kosakata dan kepadatan dari kiblat, tanpa bunyi per kata; jeda bicara bersih (aturan 43, Lantai E23–E24, Irfan 13 Nov).
 4. **Hindari:** warna kebanyakan, teks berantakan/bertumpuk, gerak kaku, cutout kasar, kurang smooth.
 
 ## Masuk folder sesuai urusan (baca yang perlu saja)

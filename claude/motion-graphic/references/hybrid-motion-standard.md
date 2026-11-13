@@ -28,5 +28,5 @@ secara ketat memakai parameter produksi Hybrid Motion di bawah.
 Bagian audio standar ini dicabut (Irfan 6 Nov): whoosh rendah 40–80 Hz + sub-impact, glass ping/telemetry blip, panning wajib, dan ducking −6…−8 dB bertentangan dengan palet dan mix yang sudah lulus. Audio mengikuti `audio.md` (§14.A memilih suara, §14.5/§14.8 palet, §14.10 level).
 
 ## Catatan penerapan
-- Tetap berlaku aturan Irfan lain: no ear-fatigue 2–6 kHz, SFX tidak mendahului objek, 1 event 1 SFX, sumber SFX dari library (bukan sintesis).
+- Tetap berlaku aturan Irfan lain: no ear-fatigue 2–6 kHz, SFX tidak mendahului objek, SFX di momen cerita + gerak terlihat, tanpa bunyi per kata (aturan 43), sumber SFX dari library (bukan sintesis).
 - Transisi Apple style mulus: tidak boleh flash putih/radial blow-out yang menutup frame (temuan PKS v8 0:32).

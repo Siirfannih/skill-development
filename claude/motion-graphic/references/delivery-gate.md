@@ -24,7 +24,7 @@ Audio dicek lebih dulu, karena kesalahan terbanyak ada di audio (Irfan 8 Nov, V5
 |---|---|---|
 | Track musik yang sama dipakai di beberapa klip/babak dalam satu batch? | `python3 scripts/gate/music_batch.py musik_klipA.mp3 musik_klipB.mp3 …` | 25, S-A9 |
 | Ada cue SFX/musik tanpa `peran` + `alasan`, atau spam (whoosh > 1/dtk, file sama < 1 dtk)? | `scripts/gate/sfx_density.py` | 43, §14.3 |
-| Ada frame/pesan/objek/gerakan tanpa SFX (kepadatan < 1,5/dtk, cakupan < 85 %, atau celah senyap > 3 dtk saat ada gerak)? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json` | 43 |
+| SFX berlebih atau salah pilih (kepadatan > 1,5× kiblat, bunyi per kata, > 5 cue dalam 2 dtk, cue tanpa `dengar`)? Jeda bicara berisik? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json` | 43 |
 | Referensi atau SFX tidak didengar (tidak ada log `earshot timeline` ref + `earshot describe` tiap file)? | log earshot di folder proyek | gerbang DENGAR `three-segment-gate.md` |
 | Suara sumber klip yang bersih diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | 38, §14.6 |
 | Kategori suasana tidak tertulis, musik tanpa laporan `music_fit.py` berstatus PAKAI (earshot aktif), kandidat < 8 atau dari < 2 sumber, atau track yang sama dipakai di semua klip/babak? | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 kandidat/*` | 25, 34, 45 |
@@ -56,7 +56,7 @@ FAIL bila teknik ini ada tanpa alasan satu baris di tabel beat:
 
 Jawab dengan bukti, bukan klaim. Satu jawaban lemah = FAIL.
 1. Apakah referensi **didengar** dengan earshot? Berapa event/dtk dan kosakata bunyinya, dan berapa milik kita?
-2. Berapa event visual yang senyap, dan apa alasan masing-masing? (aturan 43: yang boleh senyap hanya wajah tanpa overlay dan tanpa gerak kamera)
+2. Apakah setiap SFX menandai momen cerita atau gerak yang terlihat, dari kosakata kiblat, dan sudah didengar? Adakah lapisan klik yang terdengar terus? (aturan 43)
 3. Kenapa track musik ini, bukan kandidat lain? Apakah track yang sama dipakai di klip/babak lain?
 4. Bila reviewer menandai "sepi", "datar", atau "tidak terdengar": yang diperbaiki **penyebabnya** (jumlah cue, track) atau hanya level?
 
@@ -64,7 +64,7 @@ Jawab dengan bukti, bukan klaim. Satu jawaban lemah = FAIL.
 
 ```
 DELIVERY GATE · <proyek> v<N>
-B1 sfx_density PASS: 2,04 SFX/dtk, cakupan 91 %, celah senyap terpanjang 1,8 dtk
+B1 sfx_density PASS: 0,52 SFX/dtk (kiblat 0,65), 0 bunyi per kata, rentetan maks 4/2 dtk · pause_clean PASS: jeda −64,7 dBFS
 B1 DENGAR PASS: earshot timeline ref (6,9 event/dtk) + describe 23 file, 0 label salah
 B1 caption_lines PASS: 0 frame > 2 baris, 0 tepi (304 frame @4 fps)
 B2 kotak beat 7 PASS: kontras 3,1 : 1 tanpa kotak (latar meja putih)
