@@ -1,0 +1,42 @@
+{
+ "mode": "konten",
+ "stages": {
+  "suara": {
+   "file": "/home/irfan/work/skill-development/projects/builder-trap-r2/edit/face_edit.mp4",
+   "sha": "aa43c0cba0bd9a91",
+   "waktu": "2026-11-12 06:00",
+   "hulu": {}
+  },
+  "visual": {
+   "file": "/home/irfan/work/skill-development/projects/builder-trap-r2/qc/draft.mp4",
+   "sha": "4d99779fb69cf222",
+   "waktu": "2026-11-12 07:52",
+   "hulu": {
+    "suara": "aa43c0cba0bd9a91"
+   }
+  },
+  "sfx": {
+   "file": "/home/irfan/work/skill-development/projects/builder-trap-r2/audio/cues.json",
+   "sha": "4931636e01878c95",
+   "waktu": "2026-11-12 07:59",
+   "hulu": {
+    "suara": "aa43c0cba0bd9a91",
+    "visual": "4d99779fb69cf222"
+   }
+  },
+  "musik": {
+   "file": "/home/irfan/work/skill-development/projects/builder-trap-r2/audio/stem_music.wav",
+   "sha": "ece61227d92053df",
+   "waktu": "2026-11-12 07:59",
+   "hulu": {
+    "suara": "aa43c0cba0bd9a91",
+    "visual": "4d99779fb69cf222",
+    "sfx": "4931636e01878c95"
+   },
+   "peran": "babak 1-2 Aware intro (uplifting orchestral) · babak 3 drone gelap + string tersaring · babak 4 puncak Aware sampai lagu meluruh",
+   "alasan": "pilihan Irfan (R-003); genre cinematic orchestral = musik kiblat 55 (ref02); musik berganti di twist seperti ref02; music_fit 'energi' menggugurkan karena membaca 143 bpm sebagai 71,8 (setengah tempo)",
+   "didengar": "qc/preview_visual_sfx.mp4"
+  }
+ },
+ "dibuat": "2026-11-12 06:00"
+}
