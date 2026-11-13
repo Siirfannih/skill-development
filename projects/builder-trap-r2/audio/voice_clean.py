@@ -1,11 +1,11 @@
 """Suara v2 (koreksi Irfan 13 Nov: jeda berisik — piring, klik, dengung kamar saat berhenti bicara).
-voice_raw.wav (suara terkunci, timeline program) → high-pass 70 Hz + peredam noise ringan → jeda antarkata diredam −36 dB (−24 dB masih menyisakan benturan keras, 88,4 dtk).
+voice_raw.wav (suara terkunci, timeline program) → high-pass 70 Hz + afftdn nr 3/nf −55 (nr 8 mengikis udara > 9 kHz: voice_fidelity 0,65 FAIL) → jeda antarkata diredam −36 dB (−24 dB masih menyisakan benturan keras, 88,4 dtk).
 Jeda = di luar [awal kata − 0,06; akhir kata + 0,12] (ekor whisper sering terlalu cepat) dan ≥ 0,15 dtk; ramp 25 ms.
 Tempo dan isi ucapan tidak diubah (Lantai E23). Keluaran float: audio/voice_clean.wav."""
 import json, subprocess, numpy as np, soundfile as sf
 SR = 48000
 raw = subprocess.run(['ffmpeg', '-v', 'error', '-i', 'audio/voice_raw.wav', '-af',
-                      'highpass=f=70,afftdn=nr=8:nf=-50:tn=1', '-ac', '2', '-ar', str(SR), '-f', 'f32le', '-'],
+                      'highpass=f=70,afftdn=nr=3:nf=-55', '-ac', '2', '-ar', str(SR), '-f', 'f32le', '-'],
                      capture_output=True, check=True).stdout
 x = np.frombuffer(raw, np.float32).reshape(-1, 2).copy()
 w = json.load(open('edit/words_final.json'))
