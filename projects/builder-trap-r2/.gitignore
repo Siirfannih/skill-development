@@ -16,3 +16,4 @@ assets/ref_ui/
 assets/fonts/
 remotion/node_modules
 remotion/public/
+audio/.numba/

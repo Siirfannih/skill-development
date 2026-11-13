@@ -14,7 +14,28 @@ import { AbsoluteFill, useCurrentFrame, getInputProps } from 'remotion';
 import { W, H } from './theme';
 import { Pose, REST, screenSpeed } from './camera';
 
-const StageCtx = createContext({ P: 1500 });
+const StageCtx = createContext<{ P: number; pose?: (f: number) => Pose }>({ P: 1500 });
+const LayerCtx = createContext<{ z: number } | null>(null);
+
+/**
+ * Skala layar (px layar per px dunia) lapisan saat ini pada frame f, dari kamera Stage dan z Layer.
+ * Dipakai TextLayer untuk lantai ukuran (r3a). Di luar Stage/Layer = null (tidak diketahui).
+ * Rotasi kamera dan transform induk lain (mis. rotasi Print) tidak dihitung.
+ */
+export function useScreenScale(): ((f: number) => { s: number; x: (wx: number) => number }) | null {
+  const st = useContext(StageCtx);
+  const ly = useContext(LayerCtx);
+  if (!st.pose || !ly) return null;
+  const { P, pose } = st;
+  const z = ly.z;
+  return (f: number) => {
+    const p = pose(f);
+    const dz = P * (1 - 1 / p.zoom);
+    const k = (P - z) / P;
+    const persp = P / (P - z - dz);
+    return { s: k * persp, x: (wx: number) => W / 2 + ((W / 2 + (wx - W / 2) * k + W / 2 - p.x) - W / 2) * persp };
+  };
+}
 
 const INPUT = getInputProps() as { mbSamples?: number };
 
@@ -56,7 +77,7 @@ export const Stage: React.FC<{
     );
   }
   return (
-    <StageCtx.Provider value={{ P }}>
+    <StageCtx.Provider value={{ P, pose: pose ?? (() => REST) }}>
       <AbsoluteFill style={{ backgroundColor: bg, overflow: 'hidden', ...style }}>
         {worlds}
         {overlay}
@@ -72,6 +93,7 @@ export const Layer: React.FC<{ z?: number; blur?: number; children: React.ReactN
   const { P } = useContext(StageCtx);
   const k = (P - z) / P; // kompensasi supaya tampil 1:1 pada pose diam
   return (
+    <LayerCtx.Provider value={{ z }}>
     <div
       data-layer={name}
       style={{
@@ -85,6 +107,7 @@ export const Layer: React.FC<{ z?: number; blur?: number; children: React.ReactN
     >
       {children}
     </div>
+    </LayerCtx.Provider>
   );
 };
 

@@ -47,7 +47,7 @@ export const TEXT_ACT4: TextBlock[] = [
   },
   // ---------- B25 · share ----------
   {
-    id: 'B25-N1', beat: 'B25', code: 'N', size: 66, x: 1000, y: 430, tone: 'dark',
+    id: 'B25-N1', beat: 'B25', code: 'N', size: 66, x: 940, y: 690, tone: 'dark', // r3b: crop M, pita bawah kanan
     lines: [[...T('Tapi juga', 84.7), joinTok(T('nge -share', 85.2), 'nge-share')]],
     until: F_B25_CUT, exit: 'cut', note: '"-share" selesai 85,72; cut 85,83 sebelum "apa" (Q-C03)',
   },

@@ -16,7 +16,8 @@ export const F_SEND = 1164; // 38,8 dtk tombol kirim
 
 export const TEXT_ACT2: TextBlock[] = [
   // ---------- B06 · foto cetak di alas ----------
-  { id: 'B06-N1', beat: 'B06', code: 'N', size: 40, x: 946, y: 452, lines: [T('Memasuki usia', 9.9)], until: 347 },
+  // r3a (F-v1-05): menempel tepi kanan foto (celah 26 px dunia), sejajar kepala; ukuran ≥ 56 px layar
+  { id: 'B06-N1', beat: 'B06', code: 'N', size: 50, x: 946, y: 330, lines: [T('Memasuki usia', 9.9)], until: 347 },
   {
     // label tulisan tangan di dalam foto (dirender di dalam <Print>, koordinat = isi foto)
     id: 'B06-H', beat: 'B06', code: 'H', size: 92, x: 252, y: 104, rot: -6, ink: '#FFFFFF',
@@ -24,15 +25,22 @@ export const TEXT_ACT2: TextBlock[] = [
     arrow: { d: 'M -4 60 C -24 72 -36 92 -40 122 M -40 122 L -53 101 M -40 122 L -20 109', box: [0, 0, 1, 1] },
     until: F_B06[1], exit: 'cut',
   },
+  // r3a: pada ≥ 56 px layar kalimat 2 baris tidak muat di samping foto sampai push 1,5×, jadi dibagi dua tampil
+  // berurutan di tempat yang sama (tiap tampil 2 baris pendek), isi dan urutan kata tetap.
   {
-    id: 'B06-N2', beat: 'B06', code: 'N', size: 36, x: 946, y: 590,
-    lines: [T('Aku merasa aku perlu untuk', 11.3), T('melakukan sesuatu yang berbeda.', 12.8)],
+    id: 'B06-N2a', beat: 'B06', code: 'N', size: 50, x: 946, y: 450,
+    lines: [T('Aku merasa aku', 11.3), T('perlu untuk', 12.4)],
+    until: 401, note: 'frasa "…perlu untuk" selesai f400; keluar f401 saat "melakukan" masuk di tempat yang sama (r3a)',
+  },
+  {
+    id: 'B06-N2b', beat: 'B06', code: 'N', size: 50, x: 946, y: 450,
+    lines: [T('melakukan sesuatu', 13.3), T('yang berbeda.', 14.1)],
     until: F_B06[1], exit: 'cut', note: 'kalimat selesai 14,92 tepat di cut ke B07 (PLAN, Q-10)',
   },
   // ---------- B07 · wajah F1 + K4 ----------
   {
     id: 'B07-K4', beat: 'B07', code: 'K4', order: 'small-big', bigSize: 170, ratio: 2.6, tone: 'dark',
-    x: 1150, y: 360, small: T('Sesuatu yang', 14.9, 'sesuatu yang'), big: T('unik.', 15.4),
+    x: 1110, y: 380, small: T('Sesuatu yang', 14.9, 'sesuatu yang'), big: T('unik.', 15.4), // r3a: crop M, pita tengah
     until: F_B07[1], exit: 'cut', note: 'kalimat selesai 15,94 = cut ke B08',
   },
   // ---------- B08 · cetakan lain disingkirkan ----------
@@ -43,7 +51,8 @@ export const TEXT_ACT2: TextBlock[] = [
   },
   // ---------- B10 · wajah F3 lalu YouTube ----------
   {
-    id: 'B10-N1', beat: 'B10', code: 'N', size: 60, x: 1010, y: 360, tone: 'dark',
+    // r3a: crop M, pita BAWAH kanan (dinding di bawah dagu)
+    id: 'B10-N1', beat: 'B10', code: 'N', size: 60, x: 1200, y: 640, tone: 'dark',
     lines: [T('Karena itu aku', 24.5), T('gak mau mencoba', 25.6)],
     until: F_B10_YT, exit: 'cut', note: '"mencoba" selesai 26,58 = cut (kalimat lanjut di YouTube)',
   },
@@ -60,8 +69,9 @@ export const TEXT_ACT2: TextBlock[] = [
   },
   // ---------- B11 · wajah F1 + K4 FOMO ----------
   {
-    id: 'B11-K4', beat: 'B11', code: 'K4', order: 'small-big', bigSize: 156, ratio: 3.7, tone: 'dark',
-    x: 1120, y: 380, small: T('Aku gak mau jadi orang yang', 29.1, 'aku gak mau jadi orang yang'), big: T('FOMO.', 30.4),
+    // r3a: crop P (s 1,8), pita tengah-atas kanan; kecil 56 px (lantai) sehingga rasio 2,32 (Q-A04 lama: 42 px, rasio 3,7)
+    id: 'B11-K4', beat: 'B11', code: 'K4', order: 'small-big', bigSize: 130, ratio: 2.32, tone: 'dark',
+    x: 1000, y: 300, small: T('Aku gak mau jadi orang yang', 29.1, 'aku gak mau jadi orang yang'), big: T('FOMO.', 30.4),
     until: F_B11[1], exit: 'cut', note: 'kalimat selesai 30,98 = cut ke B12',
   },
   // ---------- B12 · ChatGPT ----------
@@ -71,12 +81,15 @@ export const TEXT_ACT2: TextBlock[] = [
     lines: [T('Dan akhirnya aku melakukan banyak', 31.0)], until: 1019,
   },
   {
-    id: 'B12-Nb', beat: 'B12', code: 'N', size: 34, x: 452, y: 900,
-    lines: [T('investasi waktu pada AI.', 33.7)], until: F_B12[1], exit: 'cut',
+    // r3a (F-v1-04): menempel di bawah kotak prompt, rata kiri tepi kotak (kotak dunia x 705–1473, y 713–767);
+    // 2 baris supaya tidak menabrak chip "What can you do?" (x ≥ 1014)
+    id: 'B12-Nb', beat: 'B12', code: 'N', size: 39, x: 707, y: 787,
+    lines: [T('investasi waktu', 33.7), T('pada AI.', 34.4)], until: F_B12[1], exit: 'cut',
   },
   // ---------- B13 · wajah F2 lalu prompt ----------
   {
-    id: 'B13-N1', beat: 'B13', code: 'N', size: 64, x: 1300, y: 420, tone: 'dark',
+    // r3a: crop T (mulut + tangan), pita ATAS kanan
+    id: 'B13-N1', beat: 'B13', code: 'N', size: 64, x: 1060, y: 200, tone: 'dark',
     lines: [T('Untuk belajar.', 35.4)], until: F_B13_GPT, exit: 'cut',
   },
   {
@@ -100,7 +113,7 @@ export const TEXT_ACT2: TextBlock[] = [
     lines: [T('Untuk memahami seperti', 42.3), T('apa industri ini.', 43.3)], until: 1339,
   },
   {
-    id: 'B14-N3', beat: 'B14', code: 'N', size: 84, x: 2440, y: 1185,
+    id: 'B14-N3', beat: 'B14', code: 'N', size: 84, x: 2362, y: 1185,
     lines: [T('Dan apa yang', 44.4), T('sudah aku buat.', 45.0)], until: F_B14[1], exit: 'cut',
     note: 'kalimat selesai 45,70; tahan sampai 46,30 (cut ke B15)',
   },

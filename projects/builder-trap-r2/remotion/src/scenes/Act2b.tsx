@@ -16,12 +16,12 @@ import { TEXT_ACT2B, F_B09, F_B09_CUT, B09_QUOTE } from './Act2b.text';
 
 const txt = (...beats: string[]) => TEXT_ACT2B.filter((b) => beats.includes(b.beat) && b.code !== 'UI');
 
-// ---------- B09a: wajah F2 (mulut + tangan), teks di dinding kanan ----------
+// ---------- B09a: wajah T (mulut + tangan, r3a), teks di dinding kanan atas ----------
 const faceCam = camPath([{ f: F_B09[0], zoom: 1 }, { f: F_B09_CUT, zoom: 1.04, ease: 'smooth' }], { sigma: 0 });
 const B09Face: React.FC = () => (
   <Stage pose={faceCam} bg="#000">
     <Layer z={0} name="L1-L2">
-      <Face preset="F2" crop={{ cx: 1060, cy: 700 }} grade="terang" />
+      <Face preset="T" grade="terang" />
     </Layer>
     <Layer z={30} name="L3">
       <TextBlocks blocks={txt('B09')} />

@@ -14,6 +14,9 @@ const FACES: { family: string; file: string; weight: string; style?: string }[] 
 ];
 
 let started = false;
+let ready = false;
+/** true setelah semua font file termuat (TextLayer menyimpan ukuran hasil ukur hanya setelah ini). */
+export const fontsReady = () => ready;
 export function loadFonts() {
   if (started || typeof document === 'undefined') return;
   started = true;
@@ -25,6 +28,6 @@ export function loadFonts() {
       (document.fonts as unknown as { add: (f: FontFace) => void }).add(face);
     }),
   )
-    .then(() => continueRender(handle))
+    .then(() => { ready = true; continueRender(handle); })
     .catch((e) => cancelRender(new Error('Font gagal dimuat (Lantai A7): ' + e)));
 }

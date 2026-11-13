@@ -63,3 +63,19 @@ Format: `Q-nn · beat · pertanyaan · opsi (yang dipakai sementara = ✱)`. Sem
 - Q-r3a-04 (B06 kalimat dipecah jadi dua tampilan berurutan di tempat sama): **terima** (Lantai A4).
 - Q-r3a-05 (biru `hiColor` di `ui/GitHub.tsx`): Editor B mengoper `hiColor` netral (putih/abu `#C9CBD1`) sebagai prop dari Act3; `ui/GitHub.tsx` tidak diubah.
 - Q-r3a-06 (YouTube B10 bergulir 250 px): **terima**; gerak kamera disengaja (Lantai B10), isi tidak berubah.
+
+## Editor B · r3b (B14–B26)
+
+- **Q-r3b-01 · B14 · F-v1-05 "Untuk…" menempel cetakan yang disorot.** B14 ada di `Act2.tsx`/`Act2.text.ts` (milik Editor A; TASK r3b melarang mengubah file Act2*). Tidak dikerjakan. Still r3a B14b: "Untuk memahami seperti" di celah antar-baris cetakan, di bawah JadisatuOS-Internal. · Editor A memindahkan B14-N2 menempel cetakan yang sedang difokus · atau Sutradara memberi izin Editor B menyentuh blok B14.
+- **Q-r3b-02 · B20 · biru sorot Releases di `ui/GitHub.tsx`.** `hiColor` sudah dioper netral (`C.threadDark`), tetapi latar sorot `rgba(111,141,255,0,16·hi)` tertulis tetap di komponen (bukan prop) dan terhitung biru (S 0,52, V 0,24) saat punch. · ✱ kartu B20 didesaturasi `saturate(0.25)` di Act3.tsx (biru 0,00 %; avatar dan garis tab oranye ikut pudar) · atau Editor A menurunkan latar sorot dari `hiColor` lalu filter dibuang.
+- **Q-r3b-03 · B16–B18 · triad 96 px.** "dan tidak mendokumentasikan apapun." = 1650 px pada 96 px > safe frame. · ✱ 2 baris seperti K3 mesin (Q-r3a-01): baris 1 kepala abu "aku/dan tidak", baris 2 kunci putih + "apapun." abu; baris 2 keluar 2 f sebelum kalimat berikut ("Aku" f1524, "Dan" f1575), jadi saat "aku tidak" diucapkan ulang baris 2 kosong 12 f, lalu kunci baru masuk saat diucapkan dan "apapun." masuk lagi saat diucapkan · atau "apapun." tetap tampil di baris 2 dan hanya kunci yang diganti (baris 2 sempat terbaca "apapun." saja).
+- **Q-r3b-04 · B22 · punch + whip menggantikan "pull −70 % lambat" murni.** Supaya "No threads yet" ≥ 6 % dan lantai teks tidak membesarkan narasi (lantai dihitung dari skala terkecil selama blok tampil): profil 1,41× → punch 3,5–3,6× (f2140–2156) → whip 3,6→0,8× (f2184–2192, motion blur) → mundur lambat 0,8→0,44× sampai f2262. Kalimat "Sampai akhirnya aku / gak menjadi siapapun." dibagi dua blok (B22-N1a di kanan profil, B22-N1b di bawah "No threads yet"), kata sama. B22-N1b keluar tepat di akhir "siapapun." (f2185, tanpa +0,25 dtk); "Dan" B22-N2 terlihat f2188 (+2 f dari ucapan). · ✱ seperti dibangun · atau tanpa punch (UI teks ±2 %) dengan pull lambat seperti PLAN.
+- **Q-r3b-05 · B20 · kamera punch di akhir.** PLAN: "dolly mundur terus … guncang kecil saat beku". · ✱ dolly mundur sampai f1866, lalu punch 0,9→1,5× ke kotak "No releases published" kartu terdepan, tiba di f1892 saat membeku, lalu guncang; "Dan gak pernah selesai." di bawah kotak (PLAN: tengah bawah tumpukan) · atau tanpa punch (kotak ±117 px layar, 10,8 %, tetap ≥ 6 % tapi teks UI 24 px).
+- **Q-r3b-06 · "No threads yet" ≥ 6 %: ukuran yang dihitung.** · ✱ tinggi huruf UI (19,2 px dunia × 3,5–3,6 = 67–69 px layar, 6,2–6,4 %; kotak baris 1,34 em ±90 px) · atau ukur kontainer empty state seperti kotak prompt B12.
+
+### Jawaban Sutradara untuk r3b (14 Nov, setelah review buta `qc/r3b_sheet.jpg`)
+- Q-r3b-01 (B14): sudah ditangani r3a (kamera B14 diubah Editor A); di still r3a teks "Selama satu tahun…/Untuk memahami…" berada di antara cetakan yang disorot. Ditutup.
+- Q-r3b-02 (latar sorot Releases biru tertulis di `ui/GitHub.tsx`): `saturate(0.25)` diterima, biru B20 terukur 0 %. Ditutup.
+- Q-r3b-03 (baris 2 triad kosong 12 f saat "aku tidak" diulang): diterima; mengikuti ucapan.
+- Q-r3b-04, 05 (punch + whip B22, punch akhir B20 menggantikan dolly PLAN): diterima; memenuhi F-v1-04 (fokus pada yang diucapkan).
+- Q-r3b-06: ukuran = tinggi huruf (6,2 %) — lulus.

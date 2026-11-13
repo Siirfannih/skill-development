@@ -10,7 +10,8 @@ export const B09_QUOTE = T('Kalau mau jadi sesuatu harus menjadi sesuatu yang be
 
 export const TEXT_ACT2B: TextBlock[] = [
   {
-    id: 'B09-N', beat: 'B09', code: 'N', size: 54, x: 1150, y: 404, tone: 'dark',
+    // r3a: crop T (mulut + tangan), pita atas kanan di dinding di atas bahu
+    id: 'B09-N', beat: 'B09', code: 'N', size: 56, x: 930, y: 200, tone: 'dark',
     lines: [T('Dan aku termakan', 18.4), [joinTok(T('kata -kata', 19.2), 'kata-kata'), ...T('motivasi.', 19.7)]],
     until: F_B09_CUT, exit: 'cut',
     note: 'frasa selesai 20,30; cut ke Threads 20,33 (PLAN), kalimat berikut langsung jadi isi post',

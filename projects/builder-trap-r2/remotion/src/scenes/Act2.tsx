@@ -4,7 +4,7 @@ import { Img, staticFile, useCurrentFrame } from 'remotion';
 import { Stage, Layer } from '../engine/Stage';
 import { camPath, withShake, Pose } from '../engine/camera';
 import { TextBlocks, TextBlockView } from '../engine/TextLayer';
-import { Face } from '../engine/Face';
+import { Face, type FacePreset } from '../engine/Face';
 import { Print, Pin } from '../engine/Print';
 import { Linen } from '../engine/Surfaces';
 import { Cursor } from '../engine/Cursor';
@@ -28,9 +28,11 @@ const byId = (id: string) => TEXT_ACT2.find((b) => b.id === id)!;
 // ======================= B06 · foto cetak di alas linen =======================
 // REVIEW-r1 F-r1-01: foto ≥ 30 % lebar × 65 % tinggi sejak frame pertama; kamera 1,15 → 1,5.
 const PHOTO = { x: 400, y: 195, w: 520, h: 650, border: 18, rot: -2 };
+// r3a (F-v1-05): kamera berpusat di pasangan foto + teks (x 400–±1390) supaya teks tetap menempel dan dalam safe frame
+// sampai push 1,5× (foto ±1,5 × 520 px, tepi kiri layar ±240 px).
 const b06Cam = camPath([
-  { f: F_B06[0], x: 945, y: 520, zoom: 1.15 },
-  { f: F_B06[1], x: 960, y: 520, zoom: 1.5, ease: 'inOut' },
+  { f: F_B06[0], x: 872, y: 520, zoom: 1.15 },
+  { f: F_B06[1], x: 880, y: 500, zoom: 1.5, ease: 'inOut' },
 ]);
 const B06: React.FC = () => {
   const f = useCurrentFrame();
@@ -52,7 +54,7 @@ const B06: React.FC = () => {
 };
 
 // ======================= sisipan wajah (B07, B10a, B11, B13a) =======================
-const faceScene = (preset: 'F1' | 'F2' | 'F3' | 'F4', crop: { s?: number; cx?: number; cy?: number }, pose: (f: number) => Pose, beat: string, filter?: (b: TextBlock) => boolean) => {
+const faceScene = (preset: FacePreset, crop: { s?: number; cx?: number; cy?: number }, pose: (f: number) => Pose, beat: string, filter?: (b: TextBlock) => boolean) => {
   const S: React.FC = () => (
     <Stage pose={pose} bg="#000">
       <Layer z={0} name="L1-L2"><Face preset={preset} crop={crop} grade="terang" /></Layer>
@@ -61,12 +63,15 @@ const faceScene = (preset: 'F1' | 'F2' | 'F3' | 'F4', crop: { s?: number; cx?: n
   );
   return S;
 };
-// F1: pusat digeser ke kanan supaya wajah di kiri dan K4 punya dinding di kanan
-const B07 = faceScene('F1', { cx: 1100 }, camPath([{ f: F_B07[0], zoom: 1 }, { f: F_B07[1], zoom: 1.04, ease: 'smooth' }], { sigma: 0 }), 'B07');
-const B10a = faceScene('F3', { cx: 1250 }, camPath([{ f: F_B10[0], zoom: 1 }, { f: F_B10_YT, zoom: 1.06, ease: 'smooth' }], { sigma: 0 }), 'B10', (b) => b.id === 'B10-N1');
-// B11: punch 1 → 1,08 tepat di "FOMO." (30,48 dtk = f914), berpusat di awal teks (x 1120) supaya baris kecil
-// tetap di safe frame; lalu drift.
-const B11_ANCHOR = { x: 1120, y: 540 };
+// r3a (F-v1-03): urutan crop sisipan babak 1–2 = B04 P · B07 M · B09 T · B10 M · B11 P · B13 T (tidak ada dua berurutan
+// sama); pita teks = atas · tengah · atas · bawah · tengah · atas (tidak 3× berturut di pita yang sama).
+// B07: mata (M), "unik." di dinding kanan sejajar mata/hidung
+const B07 = faceScene('M', {}, camPath([{ f: F_B07[0], zoom: 1 }, { f: F_B07[1], zoom: 1.04, ease: 'smooth' }], { sigma: 0 }), 'B07');
+// B10a: mata (M) lagi tetapi setelah sisipan T; teks di pita bawah kanan
+const B10a = faceScene('M', {}, camPath([{ f: F_B10[0], zoom: 1 }, { f: F_B10_YT, zoom: 1.06, ease: 'smooth' }], { sigma: 0 }), 'B10', (b) => b.id === 'B10-N1');
+// B11: sisi (P, s 1,8). Punch 1 → 1,08 tepat di "FOMO." (30,48 dtk = f914), berjangkar di pojok kiri atas K4 sehingga
+// teks diam dan wajah membesar menjauh dari teks; lalu drift.
+const B11_ANCHOR = { x: 1000, y: 300 };
 const b11Zoom = camPath([
   { f: F_B11[0], zoom: 1 }, { f: 912, zoom: 1.015, ease: 'smooth' }, { f: 919, zoom: 1.08, ease: 'out' }, { f: F_B11[1], zoom: 1.09, ease: 'smooth' },
 ], { sigma: 0 });
@@ -74,8 +79,9 @@ const b11Cam = withShake((f: number): Pose => {
   const z = b11Zoom(f).zoom;
   return { x: B11_ANCHOR.x - (B11_ANCHOR.x - 960) / z, y: B11_ANCHOR.y - (B11_ANCHOR.y - 540) / z, zoom: z, rx: 0, ry: 0, rz: 0 };
 }, [{ f: 914, amp: 9, dur: 8 }]);
-const B11 = faceScene('F1', { s: 1.9, cx: 1100 }, b11Cam, 'B11');
-const B13a = faceScene('F2', {}, camPath([{ f: F_B13[0], zoom: 1 }, { f: F_B13_GPT, zoom: 1.05, ease: 'smooth' }], { sigma: 0 }), 'B13', (b) => b.id === 'B13-N1');
+const B11 = faceScene('P', { s: 1.8, cx: 1110 }, b11Cam, 'B11');
+// B13a: T dengan pusat lebih rendah (kepala turun di 36 dtk; mata tidak terpotong setengah di tepi atas)
+const B13a = faceScene('T', { cy: 840 }, camPath([{ f: F_B13[0], zoom: 1 }, { f: F_B13_GPT, zoom: 1.05, ease: 'smooth' }], { sigma: 0 }), 'B13', (b) => b.id === 'B13-N1');
 
 // ======================= B08 · Irfan di antara cetakan serupa =======================
 const THUMBS = ['kXZYpA2Ur5o', 'jdH8pgLDtho', 'mXluYosHxX4', '8Lz530r09WU', 'pe9tFLbdSAA', 'id-946PmzcY', 'KBPsHcsl1aY', 'dePCXPtZydE', 'yhC8RcAr9RY', 'u4I3EJOikjE', 'dQ-KQm51FMQ', 'Di_KJpu3NhE'];
@@ -124,9 +130,11 @@ const B08: React.FC = () => {
 // ======================= B10b · hasil pencarian YouTube =======================
 // REVIEW-r2a F-r2a-02: kamera dekat (skala total ≥ 1,5) sehingga 1–2 hasil mengisi frame dan judul ≥ 2,5 % tinggi.
 // Jendela skala 1: koordinat dunia = px desain halaman (bilah browser di y −40).
+// r3a (F-v1-06): tepi atas frame selalu di atas bilah browser (y dunia −110), jadi tidak ada thumbnail terpotong di
+// tepi atas; kamera terus bergerak (linear) sampai cut, pan menyamping menyusuri kolom hasil sambil push kecil.
 const b10Cam = camPath([
-  { f: F_B10_YT, x: 900, y: 330, zoom: 1.5, ry: 4 },
-  { f: F_B10[1], x: 915, y: 470, zoom: 1.56, ry: 1, ease: 'inOut' }, // pan diagonal pelan menyusuri hasil
+  { f: F_B10_YT, x: 860, y: -110 + 540 / 1.5, zoom: 1.5, ry: 4 },
+  { f: F_B10[1], x: 985, y: -110 + 540 / 1.56, zoom: 1.56, ry: 1, ease: 'linear' },
 ]);
 const B10b: React.FC = () => {
   const f = useCurrentFrame();
@@ -141,16 +149,23 @@ const B10b: React.FC = () => {
   const from = k <= 0 ? { x: 1150, y: 760 } : tgt(stops[k - 1].i);
   const to = tgt(s0.i);
   const m = prog(f, s0.f - 9, s0.f + 1, 'inOut');
-  cx = lerp(from.x, to.x, m); cy = lerp(from.y, to.y, m);
+  // r3a: halaman bergulir 250 px setelah hover ke-2 (frasa "banyak orang coba." menempel hasil ke-2 dan ikut bergulir),
+  // karena kamera kini menahan tepi atas di atas bilah browser.
+  const scroll = 250 * prog(f, 842, 866, 'inOut');
+  cx = lerp(from.x, to.x, m); cy = lerp(from.y, to.y, m) - (k >= 1 ? scroll : 0);
   return (
     <Stage pose={b10Cam} bg={C.linen}>
       <Layer z={-300} name="L1"><Linen /></Layer>
       <Layer z={0} name="L2">
         <Browser w={YT_W} h={YT_H} url="youtube.com/results?search_query=cara+dapat+uang+dari+AI+2026" style={{ left: 0, top: -BAR_H }}>
-          <YouTubeResults hover={hover} hoverP={hoverP} />
+          <YouTubeResults hover={hover} hoverP={hoverP} scroll={scroll} />
         </Browser>
       </Layer>
-      <Layer z={30} name="L3"><TextBlocks blocks={txt('B10', (b) => b.id.startsWith('B10-N2'))} /></Layer>
+      <Layer z={30} name="L3">
+        <div style={{ position: 'absolute', left: 0, top: -scroll, width: 1920, height: 1080 }}>
+          <TextBlocks blocks={txt('B10', (b) => b.id.startsWith('B10-N2'))} />
+        </div>
+      </Layer>
       <Layer z={60} name="L4"><Cursor x={cx} y={cy} size={64} /></Layer>
     </Stage>
   );
@@ -161,22 +176,26 @@ const B10b: React.FC = () => {
 // lalu mundur ke tengah untuk cap logo di "AI." (f1045).
 const G12 = { x: 160, y: 200 };
 const STAMP = 1045; // "AI." 34,82 dtk
+// r3a (F-v1-04): kamera mengikuti riwayat yang bertambah ("Dan akhirnya aku melakukan banyak"), lalu push ke kotak prompt
+// (1,9×: kotak 54 px desain → ±103 px layar = 9,5 % tinggi) sebelum "investasi" (f1015); logo dicap di atas prompt di "AI.",
+// lalu kamera mundur sedikit saat logo terbang ke kepala sidebar.
+const PROMPT12 = { x: G12.x + GPT_SIDEBAR + (GPT_W - GPT_SIDEBAR) / 2, y: G12.y + BAR_H + GPT_PROMPT.y }; // (1089.5, 740)
 const b12Cam = withShake(camPath([
-  // zoom 1,22: judul "Where should we begin?" tetap utuh di frame (C16), riwayat 15 px desain → ±18 px layar
   { f: F_B12[0], x: 680, y: 560, zoom: 1.22, ry: -6 },
-  { f: 1016, x: 680, y: 680, zoom: 1.22, ry: -3, ease: 'inOut' },
-  { f: 1036, x: 680, y: 760, zoom: 1.22, ry: -1, ease: 'inOut' },
-  { f: 1046, x: 960, y: 720, zoom: 0.98, ry: 0, ease: 'inOut' },
-  { f: F_B12[1], x: 960, y: 720, zoom: 1.0, ry: 0, ease: 'smooth' },
-], { cuts: [1036] }), [{ f: STAMP, amp: 10, dur: 9 }]);
+  { f: 994, x: 680, y: 700, zoom: 1.22, ry: -3, ease: 'inOut' },
+  { f: 1016, x: PROMPT12.x, y: PROMPT12.y + 8, zoom: 1.9, ry: 0, ease: 'inOut' },
+  { f: 1048, x: PROMPT12.x, y: PROMPT12.y + 8, zoom: 1.96, ry: 0, ease: 'smooth' },
+  { f: F_B12[1], x: 860, y: 640, zoom: 1.45, ry: 0, ease: 'in' },
+], { cuts: [1048] }), [{ f: STAMP, amp: 10, dur: 9 }]);
 const B12: React.FC = () => {
   const f = useCurrentFrame();
   const hist = Math.floor(20 * Math.pow(prog(f, 936, 1040, 'linear'), 1.6)); // bertambah makin cepat
-  const c = { x: G12.x + GPT_SIDEBAR + (GPT_W - GPT_SIDEBAR) / 2, y: G12.y + BAR_H + GPT_PROMPT.y - 40 };
+  // r3a: cap di ruang kanan judul "Where should we begin?", di atas setengah kanan kotak prompt (tidak menimpa judul)
+  const c = { x: PROMPT12.x + 240, y: PROMPT12.y - 115 };
   const head = { x: G12.x + 29, y: G12.y + BAR_H + 26 };
   const st = prog(f, STAMP, STAMP + 4, 'out');
   const mv = prog(f, STAMP + 8, STAMP + 16, 'inOut');
-  const size = lerp(lerp(560, 230, st), 22, mv);
+  const size = lerp(lerp(380, 170, st), 22, mv);
   const lx = lerp(c.x, head.x, mv), ly = lerp(c.y, head.y, mv);
   return (
     <Stage pose={b12Cam} bg={C.linen}>
@@ -233,13 +252,15 @@ const B13b: React.FC = () => {
 export const b14Cam = camPath([
   { f: F_B14[0], x: 600, y: 470, zoom: 1.3 },
   { f: 1240, x: 900, y: 490, zoom: 1.18, ease: 'inOut' },
-  { f: 1300, x: 1300, y: 540, zoom: 1.02, ease: 'inOut' },
-  { f: 1345, x: 1608, y: 875, zoom: 0.545, ease: 'inOut' },
+  // r3a: pull mundur dimulai setelah frasa "…industri ini." (f1315, dulu f1300) supaya narasi B14-N2 tidak perlu
+  // lantai 56 px pada zoom ±0,6 (yang membuatnya ±103 px dan keluar safe frame di awal)
+  { f: 1315, x: 1300, y: 540, zoom: 1.02, ease: 'inOut' },
+  { f: 1358, x: 1608, y: 875, zoom: 0.545, ease: 'inOut' },
   { f: F_B14[1], x: 1608, y: 875, zoom: 0.535, ease: 'smooth' }, // melambat lalu tahan
 ]);
 const B14: React.FC = () => {
   const f = useCurrentFrame();
-  const thread = prog(f, F_B14[0], 1345, 'smooth');
+  const thread = prog(f, F_B14[0], 1358, 'smooth');
   const focus = [{ i: 0, k: pulse(f, 1190, 30) }, { i: 1, k: pulse(f, 1228, 30) }, { i: 2, k: pulse(f, 1270, 30) }, { i: 3, k: pulse(f, 1305, 25) }, { i: WALL.length - 1, k: pulse(f, 1352, 40) }];
   return (
     <Stage pose={b14Cam} bg={C.linen}>

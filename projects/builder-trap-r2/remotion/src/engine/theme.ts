@@ -13,11 +13,19 @@ export const C = {
   inkNew: '#A8A69F', // kata terbaru, lalu menghitam
   accent: '#1A3AD0', // <= 15 % area
   accentSoft: '#DCE4FF',
-  dark0: '#0B0D0F',
-  dark1: '#13245E',
+  // r3a (REVIEW-v1-self F-v1-01): babak gelap = gelap NETRAL linear, tanpa biru. Hierarki di gelap = putih penuh
+  // (kunci) vs abu (kepala/sambung); biru #1A3AD0 hanya di latar terang.
+  dark0: '#0E0E10',
+  dark1: '#1B1B1F',
   inkDark: '#F4F5F7',
-  accentDark: '#6F8DFF',
+  accentDark: '#F4F4F5',
+  inkDarkDim: '#8E8E96', // kepala K3 / kata sambung di latar gelap (5,5:1 di atas #151518)
+  freshDark: '#B4B4BB', // kata terbaru di gelap, netral (dulu #B9BEC8 kebiruan)
+  threadDark: '#C9CBD1', // benang dinding mode gelap
 };
+
+/** Lantai ukuran teks dalam px LAYAR (aturan inti 8, REVIEW-v1-self F-v1-02). */
+export const TEXT_FLOOR = { n: 56, key: 96 };
 
 // Safe frame (BRIEF): x 165–1755, y 140–935
 export const SAFE = { x0: 165, x1: 1755, y0: 140, y1: 935 };

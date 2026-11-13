@@ -43,11 +43,12 @@ const B23: React.FC = () => (
 
 // Wipe linear gelap → terang dari bawah (PLAN B22 keluar, B23 lulus_bila). B22 milik Editor B dipakai apa adanya;
 // setelah beat B22 berakhir (f2262) frame terakhirnya ditahan di bawah wipe sampai tertutup (f2268).
-// REVIEW r2c F-r2c-01: teks B22 (y ±250–334) tidak boleh tembus pita feather di atas wajah. Pita mencapai teks di
+// REVIEW r2c F-r2c-01: teks B22 (y ±250–334; r3b: ±268–396) tidak boleh tembus pita feather di atas wajah. Pita mencapai teks di
 // ±f2262,2 dan menutupnya penuh di ±f2264, jadi frame tahan = f2262 (blok teks B22 sudah keluar, kamera sama)
 // dan teks dari frame f2261 hanya ditumpuk di pita atas sambil memudar habis f2262→f2264.
 const S_B22 = ACT3.find((s) => s.id === 'S-B22')?.Comp;
-const TEXT_BAND = 'linear-gradient(to bottom, black 0px, black 380px, transparent 440px)';
+// r3b: teks B22-N2 kini di atas jendela profil (layar y ±268–396 di akhir B22), pita diperlebar
+const TEXT_BAND = 'linear-gradient(to bottom, black 0px, black 420px, transparent 470px)';
 const WipeB22B23: React.FC = () => {
   const f = useCurrentFrame();
   const p = prog(f, F_WIPE[0], F_WIPE[1], 'inOut');
@@ -209,10 +210,12 @@ const B24b: React.FC = () => (
 // tiap frasa menempel di kanan post-nya; kamera ikut kursor ke Post lalu turun mengikuti post.
 // ============================================================================================
 const b25FaceCam = camPath([{ f: F_B25[0], zoom: 1 }, { f: F_B25_CUT, zoom: 1.03, ease: 'smooth' }], { sigma: 0 });
+// r3b (F-v1-03): crop M (mata) — beda dari sisipan sebelumnya (B24 F2 mulut + tangan) dan sesudahnya (B26 F4);
+// wajah digeser ke kiri, teks di pita bawah kanan (B24 atas, B26 tengah).
 const B25a: React.FC = () => (
   <Stage pose={b25FaceCam} bg="#000">
     <Layer z={0} name="L1-L2">
-      <Face preset="F3" grade="bersih" />
+      <Face preset="M" crop={{ cx: 1150 }} grade="bersih" />
     </Layer>
     <Layer z={30} name="L3">
       <TextBlocks blocks={txt('B25-N1')} />

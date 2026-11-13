@@ -25,7 +25,7 @@ export const Linen: React.FC<{ color?: string; scale?: number }> = ({ color = C.
   />
 );
 
-/** Babak 3: #0B0D0F → navy #13245E, gradien LINEAR (BRIEF). */
+/** Babak 3: gelap netral #0E0E10 → #1B1B1F, gradien LINEAR (r3a, REVIEW-v1-self F-v1-01: tanpa navy). */
 export const DarkWall: React.FC<{ angle?: number; scale?: number }> = ({ angle = 160, scale = 3 }) => (
   <div style={{ position: 'absolute', ...big(scale), backgroundImage: `${grain(0.12)}, linear-gradient(${angle}deg, ${C.dark0} 0%, ${C.dark0} 35%, ${C.dark1} 100%)` }} />
 );

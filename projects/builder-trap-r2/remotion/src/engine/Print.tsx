@@ -2,6 +2,14 @@
 import React from 'react';
 import { C } from './theme';
 
+/** campur warna hex dengan putih (t>0) atau hitam (t<0) */
+const shade = (hex: string, t: number) => {
+  const n = parseInt(hex.slice(1), 16);
+  const ch = [(n >> 16) & 255, (n >> 8) & 255, n & 255].map((v) => Math.round(t >= 0 ? v + (255 - v) * t : v * (1 + t)));
+  return `rgb(${ch.join(',')})`;
+};
+
+/** Pin: gradien diturunkan dari `color` (r3a: tidak lagi biru tetap #6F8DFF/#102480, jadi pin netral bisa dipakai di gelap). */
 export const Pin: React.FC<{ x: number; y: number; size?: number; color?: string }> = ({ x, y, size = 30, color = C.accent }) => (
   <div style={{ position: 'absolute', left: x - size / 2, top: y - size / 2, width: size, height: size }}>
     {/* bayangan pin di kertas */}
@@ -9,7 +17,7 @@ export const Pin: React.FC<{ x: number; y: number; size?: number; color?: string
     <div
       style={{
         position: 'absolute', inset: 0, borderRadius: '50%',
-        background: `linear-gradient(145deg, #6F8DFF 0%, ${color} 45%, #102480 100%)`,
+        background: `linear-gradient(145deg, ${shade(color, 0.38)} 0%, ${color} 45%, ${shade(color, -0.4)} 100%)`,
         boxShadow: `inset 0 -${size * 0.08}px ${size * 0.12}px rgba(0,0,0,0.25)`,
       }}
     />

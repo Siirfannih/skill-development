@@ -1,5 +1,5 @@
 // Dinding bukti (B14 terang, B15 gelap, B24 terang digulung mundur). Cetakan berurutan waktu dihubungkan
-// benang biru dari pin ke pin. Koordinat dunia; pakai di dalam <Layer z={0}> pada <Stage>.
+// benang biru dari pin ke pin (mode gelap: benang abu terang, pin netral). Koordinat dunia; pakai di dalam <Layer z={0}> pada <Stage>.
 //
 //   <Wall mode="terang" thread={0..1} focus={[i]} faceGrade="terang" />
 //   WALL[i]          posisi & ukuran cetakan ke-i (x,y = pusat)   -> kamera menuju cetakan ke-n
@@ -50,7 +50,9 @@ export const WALL: WallPrint[] = [
     return { ...it, x: COLS[c] + (rand(i + 11) - 0.5) * 40, y: ROWS[r] + (rand(i + 29) - 0.5) * 36, w: CW, h: CH, rot: (rand(i + 5) - 0.5) * 4 };
   }),
   // foto Irfan di ujung benang
-  { id: 'irfan', kind: 'face', x: 2200, y: 1300, w: 420, h: 540, rot: 1.5 },
+  // r3a: x 2200 → 2120 supaya narasi B14 "Dan apa yang / sudah aku buat." (lantai 56 px layar pada zoom 0,535) muat
+  // di kanan foto dalam safe frame
+  { id: 'irfan', kind: 'face', x: 2120, y: 1300, w: 420, h: 540, rot: 1.5 },
 ];
 export const wallPin = (i: number) => ({ x: WALL[i].x, y: WALL[i].y - WALL[i].h / 2 + 9 });
 export const WALL_BOUNDS = { x0: 150, y0: 170, x1: 3000, y1: 1590, cx: 1580, cy: 880 };
@@ -157,7 +159,7 @@ export const Wall: React.FC<{
   background?: boolean;
 }> = ({ mode = 'terang', thread = 1, focus = [], faceGrade, background = true }) => {
   const dark = mode === 'gelap';
-  const tc = dark ? C.accentDark : C.accent;
+  const tc = dark ? C.threadDark : C.accent; // r3a: benang gelap abu terang, bukan biru
   return (
     <>
       {background ? (dark ? <DarkWall scale={5} /> : <Linen scale={5} />) : null}
@@ -185,8 +187,8 @@ export const Wall: React.FC<{
       {WALL.map((p, i) => {
         const pin = wallPin(i);
         return (
-          <div key={p.id} style={{ position: 'absolute', left: 0, top: 0, zIndex: 4, filter: dark ? 'grayscale(1) brightness(0.6)' : undefined }}>
-            <Pin x={pin.x} y={pin.y} size={30} />
+          <div key={p.id} style={{ position: 'absolute', left: 0, top: 0, zIndex: 4 }}>
+            <Pin x={pin.x} y={pin.y} size={30} color={dark ? '#6E6E76' : C.accent} />
           </div>
         );
       })}

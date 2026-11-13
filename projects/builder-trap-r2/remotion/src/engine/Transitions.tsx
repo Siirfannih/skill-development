@@ -20,10 +20,12 @@ export const PixelMosaic: React.FC<{
     for (let c = 0; c < cols; c++) {
       const id = r * cols + c;
       const dir = from === 'right' ? 1 - c / cols : from === 'left' ? c / cols : from === 'top' ? r / rows : 1 - r / rows;
-      const tOn = clamp01(0.55 * dir + 0.45 * rand(id + 3));
-      const tOff = clamp01(0.55 * dir + 0.45 * rand(id + 91));
+      // r3a (F-v1-06): ambang dibatasi ≤ 0,85 dan progres pecah mencapai 1 satu frame sebelum brk[1], jadi tidak ada
+      // kotak tersisa di tepi saat transisi selesai.
+      const tOn = 0.85 * clamp01(0.55 * dir + 0.45 * rand(id + 3));
+      const tOff = 0.85 * clamp01(0.55 * dir + 0.45 * rand(id + 91));
       const pb = EASE.inOut(clamp01((f - build[0]) / (build[1] - build[0])));
-      const pk = EASE.inOut(clamp01((f - brk[0]) / (brk[1] - brk[0])));
+      const pk = EASE.inOut(clamp01((f - brk[0]) / Math.max(1, brk[1] - 1 - brk[0])));
       const on = pb > tOn && !(f >= brk[0] && pk > tOff);
       if (!on) continue;
       const age = (pb - tOn) * (build[1] - build[0]); // frame sejak muncul

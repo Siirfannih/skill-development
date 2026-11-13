@@ -34,7 +34,7 @@ const fit = (s = 1, o = 0) => Math.max(-((s - 1) / (2 * s)) * 100, Math.min(((s 
 
 // Kamera: push pelan 1 → 1,05 yang berpusat di jangkar kiri label K3, sehingga kepala kalimat diam di layar
 // (PLAN B02: ≤ 2 px) sementara dunia (kertas + bingkai) tetap terdorong (Lantai B10). Lalu zoom-through 5,17–5,47.
-const ANCHOR = { x: 220, y: 622 };
+const ANCHOR = { x: 220, y: 600 };
 const BY = 535; // pusat y bingkai
 const archCam = (f: number): Pose => {
   const z = lerp(1, 1.05, EASE.smooth(Math.min(1, Math.max(0, f / 155))));
@@ -90,13 +90,20 @@ const Archive: React.FC = () => {
   );
 };
 
-// ---------- B04: wajah F3 (pembuka wajah) + K4 ----------
-const b04Cam = camPath([{ f: F_B04[0], zoom: 1 }, { f: F_B04[1], zoom: 1.05, ease: 'smooth' }], { sigma: 0 });
+// ---------- B04: wajah P (pembuka wajah) + K4 di pita atas ----------
+// r3a (F-v1-03): crop sisi (P) longgar s 1,55, jendela sumber x 624–1863: kepala (bergerak x 540→1200 di sumber) di
+// sepertiga kiri, dinding kosong kanan (x ≥ 870 layar) untuk K4 112/56 px. Push 1→1,05 berjangkar di tepi kanan safe
+// frame (1755,330): ujung kanan "gak semua orang" tetap ≤ 1755 dan wajah membesar ke kiri, menjauhi teks.
+const B04_ANCHOR = { x: 1755, y: 330 };
+const b04Zoom = camPath([{ f: F_B04[0], zoom: 1 }, { f: F_B04[1], zoom: 1.05, ease: 'smooth' }], { sigma: 0 });
+const b04Cam = (f: number): Pose => {
+  const z = b04Zoom(f).zoom;
+  return { ...REST, zoom: z, x: B04_ANCHOR.x - (B04_ANCHOR.x - 960) / z, y: B04_ANCHOR.y - (B04_ANCHOR.y - 540) / z };
+};
 const B04: React.FC = () => (
   <Stage pose={b04Cam} bg="#000">
     <Layer z={0} name="L1-L2">
-      {/* pusat digeser ke kanan dari preset (1150 -> 1250) supaya wajah tetap di sepertiga kiri saat kepala bergerak */}
-      <Face preset="F3" crop={{ cx: 1250 }} grade="terang" />
+      <Face preset="P" crop={{ s: 1.55, cx: 1244, cy: 529 }} grade="terang" />
     </Layer>
     <Layer z={30} name="L3">
       <TextBlocks blocks={txt('B04')} />
@@ -108,13 +115,14 @@ const B04: React.FC = () => (
 const b05Cam = camPath([{ f: F_B05[0], zoom: 1 }, { f: F_B05[1], zoom: 1.04, ease: 'smooth' }], { sigma: 0 });
 const B05: React.FC = () => {
   const f = useCurrentFrame();
-  // kursor: masuk 8,33 dtk dari kanan bawah, berhenti di atas kata, ragu, mundur tanpa klik saat "buat." (8,92)
-  const pIn = prog(f, 250, 264, 'out');
-  const pOut = prog(f, 270, 292, 'inOut');
-  const hoverX = 1190, hoverY = 498;
-  const wob = f >= 262 && f < 272 ? Math.sin((f - 262) * 1.9) * 2 : 0;
-  const cx = lerp(lerp(1900, hoverX, pIn), 1530, pOut) + wob;
-  const cy = lerp(lerp(1110, hoverY, pIn), 840, pOut) + (f >= 262 && f < 272 ? Math.cos((f - 262) * 2.3) * 1.5 : 0);
+  // kursor: masuk 8,33 dtk dari kanan bawah SETELAH judul utuh (f236), berhenti di ujung kanan kata (huruf terakhir,
+  // bukan tengah judul), ragu, lalu keluar frame tanpa klik saat "buat." (8,92). r3a F-v1-06: tidak diam di tengah judul.
+  const pIn = prog(f, 250, 262, 'out');
+  const pOut = prog(f, 271, 287, 'inOut');
+  const hoverX = 1688, hoverY = 532;
+  const wob = f >= 262 && f < 271 ? Math.sin((f - 262) * 1.9) * 2 : 0;
+  const cx = lerp(lerp(1960, hoverX, pIn), 2010, pOut) + wob;
+  const cy = lerp(lerp(1010, hoverY, pIn), 1000, pOut) + (f >= 262 && f < 271 ? Math.cos((f - 262) * 2.3) * 1.5 : 0);
   return (
     <Stage pose={b05Cam} bg={C.paper}>
       <Layer z={-260} name="L1">
@@ -124,7 +132,7 @@ const B05: React.FC = () => {
         <TextBlocks blocks={txt('B05')} />
       </Layer>
       <Layer z={80} name="L4">
-        {f >= 250 ? <Cursor x={cx} y={cy} size={112} /> : null}
+        {f >= 250 && f < 288 ? <Cursor x={cx} y={cy} size={104} /> : null}
       </Layer>
     </Stage>
   );
