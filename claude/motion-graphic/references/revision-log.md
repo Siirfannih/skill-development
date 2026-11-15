@@ -2,6 +2,8 @@
 
 Baca saat Irfan memberi revisi: catat dulu, baru kerjakan. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.
 
+**Terapkan alasan, bukan contoh** (Irfan 15 Nov, jensen-pain-suffering r2): saat Irfan memberi alasan ("b-roll stok = pengisi, jadi teks di tengah"), contoh yang ia sebut hanya ilustrasi. Sebelum menulis TASK, buat tabel semua shot × kondisi alasan itu (mis. jenis footage: stok / bermakna / pembicara) dan terapkan ke setiap shot yang memenuhi kondisinya; pengecualian hanya dengan alasan komposisi tertulis. Gagal: B5 pria stres (stok) dibiarkan rata kiri karena tidak ada di daftar contoh → "aku udah kasih alasannya, kenapa masuk lagi".
+
 ## 19. Log revisi Irfan (memori gaya) — tambah baris setiap revisi
 | Tanggal | Revisi | Aturan |
 |---|---|---|
