@@ -21,8 +21,9 @@ def scr(s, f):
     if not s.get('talk'): return tuple(f)
     p = s.get('punch', 1.0) * 1.01; ox, oy = s.get('porigin', 1.0) * W, 0.45 * H
     return (ox + (f[0] - ox) * p, oy + (f[1] - oy) * p, f[2] * p)
+BACKS = {'d23/0642', 'd23/0640'}   # v10f: kamera di belakang penonton -> 'wajah' YOLO = belakang kepala (117 titik di 0642)
 def faces_in(a, b):
-    return [tuple(h) for h in heads_in(a, b)] + [scr(s, f) for s in SH if s['v0'] < b and s['v1'] > a for f in BM.get(str(s['id']), {}).get('faces', [])]
+    return [tuple(h) for h in heads_in(a, b)] + [scr(s, f) for s in SH if s['v0'] < b and s['v1'] > a for f in BM.get(str(s['id']), {}).get('faces', []) if s['clip'] not in BACKS]
 def hits(x, y, bw, bh, fs, m=1.0):
     return sum(1 for fx, fy, fr in fs if x - bw / 2 - m * fr < fx < x + bw / 2 + m * fr and y - m * fr < fy < y + bh + m * fr)
 G = {}
@@ -44,6 +45,7 @@ def busy(x, y, bw, bh, a, b):
             g = np.array(BM[str(s['id'])]['busy']); gx0, gx1 = int(max(0, (x - bw / 2) / 60)), int(min(31, (x + bw / 2) / 60))
             gy0, gy1 = int(max(0, y / 60)), int(min(17, (y + bh) / 60)); v = max(v, float(g[gy0:gy1 + 1, gx0:gx1 + 1].mean()))
     return v
+TGT_OVR = {'d23/0640': 0.80, 'd23/0642': 0.80, 'd23/0653': 0.42}
 scenes = {}
 for c in ph: scenes.setdefault(c['shot'], []).append(c)
 nbad = 0
@@ -61,6 +63,9 @@ for sc, cs in scenes.items():
             ch = sorted(BM.get(str(s['id']), {}).get('chest', []), key=lambda q: -q[2])
             if ch: pts += [q[1] + 0.45 * q[2] for q in ch[:4] if q[2] >= 0.5 * ch[0][2]]
         tgt = float(np.median(pts)) if pts else H * 0.55; how = 'dada orang' if pts else 'tengah frame'
+    # v10f (reviewer GPT 38,6 dtk): 0640 penonton bersiluet -> 'dada' jatuh di layar LED terang; teks putih ke kursi gelap
+    for s in shots:
+        if s['clip'] in TGT_OVR: tgt = TGT_OVR[s['clip']] * H; how = 'override ' + s['clip']
     tgt = min(max(tgt, LO), HI)
     for c in cs:
         bwc, bhc = c['bw'], int(c['size'] * 1.1 * len(c['lines']))

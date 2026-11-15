@@ -61,6 +61,16 @@ for d in big:
     if best is None: best = (W / 2, tgt)
     d['size'] = z; d['cx'], d['cy'] = round(best[0]), round(best[1])
     print(f"[BESAR] {d['text']:14s} {d['start']:6.2f}-{d['end']:6.2f} size={z} pos=({d['cx']},{d['cy']}) target_y={tgt:.0f} tabrak_wajah={hitc(best[0], best[1], F(z).getlength(d['text']), z * 1.05, fs)}/{len(fs)}")
+# v10f (Sonnet: 'juga' sebelum 'lebih pinter.' tidak pernah terbaca): kata frasa yang terucap < 0,22 dtk sebelum kata kunci
+# tetap tampil 0,22 dtk; kata kunci digeser maju sedikit
+for d in big:
+    for c in ph:
+        if c['start'] < d['start'] < c['end'] + 0.05:
+            lw = max([w['t'] for l in c['lines'] for w in l if w['t'] < d['start']], default=None)
+            if lw is not None and d['start'] - lw < 0.22:
+                sh = round(lw + 0.22 - d['start'], 3); d['start'] = round(d['start'] + sh, 3); d['end'] = round(d['end'] + sh, 3)
+                c['end'] = max(c['end'], round(d['start'] - 0.03, 3))
+                print('kata kunci digeser', d['text'], sh)
 # kata kunci tampil minimal 0,6 dtk: frasa berikutnya muncul sesudahnya (kata yang sudah terucap langsung tampil)
 for d in big:
     if d['end'] - d['start'] < 0.6:

@@ -17,6 +17,8 @@
 ## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
 - **Potong suara hanya di celah, bukan di gelombang.** Bila memangkas jeda/isian testimoni, titik potong harus berada di bagian tanpa gelombang (20 ms sisi yang dipakai sudah sunyi); kata yang gelombangnya masih naik/stabil dibiarkan habis dulu. Batas kata versi Whisper jatuh di penutupan /t/ /k/ ("dinikma|ti") dan memancung kata, jadi ukur gelombangnya, jangan percaya timestamp (Irfan 15 Nov, gagal: bdf26 v8–v9).
 - **Padat ≠ dipotong rapat.** Kepadatan seperti ref dokumenter dicapai dengan merapatkan jeda ANTAR pembicara (0,3 dtk) dan membuang isian "eee/eh" dari celah ke celah, bukan memendekkan vokal atau memotong napas di tengah kata (Irfan 15 Nov, bdf26 v10).
+- **Ujung bite di lembah energi belum tentu ujung kata.** Bila titik potong dipilih dari lembah gelombang (−30 dB), transkrip ulang jendela [ujung−1,6, ujung] dan versi diperpanjang 0,4 dtk; bila katanya berbeda ("10 persen" vs "10 per 10 deh", "ngatur gitu" vs "ngatur kita"), lembah itu penutupan /t/ atau jeda antarsuku ucapan cepat, jadi geser ujung ke sunyi berikutnya. Alasan: lolos cek gelombang 20 ms tetapi suku terakhir hilang (gagal: bdf26 v10 R2 & P1).
+- **Momen tanpa suara pembicara harus tetap berbunyi.** Bila ada jeda VO panjang (montase pitching 4,5 dtk) di atas lagu yang renggang, isi dengan suara momen itu sendiri yang masuk cepat (fade 0,2 dtk, mulai sedikit sebelum VO habis) ditambah perata bed lagu, supaya tidak ada jendela 100 ms di bawah −45 dBFS; fade 0,5 dtk meninggalkan lubang −48 dBFS (gagal: bdf26 v10).
 
 ## Cek cepat
 - Tempo musik searah dengan cut/bicara? (cepat-cepat, tenang-tenang)

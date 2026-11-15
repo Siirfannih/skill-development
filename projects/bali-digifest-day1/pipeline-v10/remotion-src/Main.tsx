@@ -31,7 +31,7 @@ const Shot: React.FC<{ id: number; dur: number; punch?: number; porigin?: number
 
 const Flash: React.FC<{ at: number }> = ({ at }) => {
   const fr = useCurrentFrame();
-  const o = interpolate(fr, [f(at) - 1, f(at) + 1, f(at) + 6], [0, 0.85, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
+  const o = interpolate(fr, [f(at) - 1, f(at) + 1, f(at) + 6], [0, 0.25, 0], { extrapolateLeft: 'clamp', extrapolateRight: 'clamp' });
   return <AbsoluteFill style={{ background: '#FFF6EA', opacity: o, mixBlendMode: 'screen' }} />;
 };
 

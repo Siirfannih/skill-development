@@ -9,6 +9,8 @@ _FF = {z: ImageFont.truetype('remotion/public/fonts/SFPRODISPLAYBOLD.OTF', z) fo
 def wl(ws, z=64): return sum(_FF[z].getlength(w['w']) + 0.24 * z for w in ws)
 heads = json.load(open('remotion/src/heads.json')); kt = json.load(open('remotion/src/kt.json'))
 edl = json.load(open('edl6.json')); SH = [s for s in edl['shots']]
+VO = sorted(edl['vo'], key=lambda v: v['v'])
+def spk_at(t): return next((v['clip'] for v in reversed(VO) if v['v'] <= t + 0.15), None)
 def shot_of(t): return next(s for s in SH if s['v0'] <= t < s['v1'])
 SCB = sorted({s['v0'] for i, s in enumerate(SH) if i == 0 or SH[i - 1]['scene'] != s['scene']})   # awal tiap adegan
 def hits(x, y, bw, bh, hs):
@@ -75,7 +77,59 @@ for c in new:
 # 1c) v6: frasa yang hanya mampir < 0,6 dtk di adegan sebelumnya dimulai di batas adegan (tidak pernah mampir di wajah lain)
 for c in new:
     cut = [v0 for v0 in SCB if c['start'] < v0 < c['end'] - 0.6]
+    # v10f: dari b-roll tanpa pembicara ke wajah penuturnya sendiri boleh menyeberang (reviewer: 'dan' telat 0,30 dtk di 81,0)
+    # v10f: aturan ini hanya untuk teks yang mampir di WAJAH ORANG LAIN; dari wajah penutur sendiri / b-roll tanpa pembicara boleh menyeberang
+    # (Sonnet: 'membuat' telat 0,52 dtk + layar kosong 0,5 dtk saat 0426 -> 0486 pengajar yang sama)
+    s0 = shot_of(c['start'])
+    if cut and not (s0.get('talk') and s0.get('spk') != spk_at(c['lines'][0][0]['t'])): cut = []
     if cut and cut[0] - c['start'] < 0.6: c['start'] = round(cut[0] + 0.02, 3)
+    mid = c['start'] + (c['end'] - c['start']) * 0.5; c['shot'] = shot_of(min(mid, c['end'] - 0.05))['scene']
+# 1d) v10f (reviewer: teks 'generasi penerus.' / 'di lingkungan ini.' / '10 per 10 deh.' mampir 0,1-0,2 dtk di shot orang lain):
+# frasa berakhir tepat di potongan bila shot berikutnya bukan wajah penuturnya sendiri dan kata terakhirnya sudah diucapkan
+for c in new:
+    sp = spk_at(c['lines'][0][0]['t']); lw = c['lines'][-1][-1]['t']
+    for s_ in SH:
+        v0 = s_['v0']
+        if c['start'] + 0.6 <= v0 < c['end'] and c['end'] - v0 <= 0.45 and lw + 0.3 < v0 and s_.get('spk') != sp:
+            print('1d potong', round(c['start'], 2), round(c['end'], 2), '->', round(v0 - 0.01, 2), s_['clip']); c['end'] = round(v0 - 0.01, 3)
+# 1e) v10f (reviewer: '10' muncul 0,1 dtk di atas guru sebelum potongan ke dua siswi): frasa yang mulai <= 0,25 dtk sebelum
+# potongan ke wajah penuturnya sendiri dimulai di potongan itu
+for c in new:
+    sp = spk_at(c['lines'][0][0]['t'])
+    for s_ in SH:
+        if c['start'] < s_['v0'] <= c['start'] + 0.25 and s_.get('spk') == sp and s_.get('talk'):
+            print('1e geser', round(c['start'], 2), '->', round(s_['v0'] + 0.01, 2), s_['clip']); c['start'] = round(s_['v0'] + 0.01, 3)
+# 1f) v10f (Sonnet: 'karena', 'juga', 'ngatur' tidak pernah terbaca): kata terakhir yang tampil < 0,2 dtk sebelum frasa berikutnya
+# pindah ke awal frasa berikutnya (bite sama, muat lebar) -> muncul tepat di waktunya bersama frasa baru
+for i in range(len(new) - 1):
+    p, q = new[i], new[i + 1]
+    while q['start'] - p['end'] < 0.1 and sum(len(l) for l in p['lines']) > 1 and p['lines'][-1][-1]['t'] > p['end'] - 0.2 \
+            and spk_at(p['lines'][0][0]['t']) == spk_at(q['lines'][0][0]['t']) and (len(q['lines']) == 1 or wl([p['lines'][-1][-1]] + q['lines'][0], q['size']) <= FIT[q['shot']][1] * 1.15):
+        w = p['lines'][-1].pop()
+        if not p['lines'][-1]: p['lines'].pop()
+        if wl([w] + q['lines'][0], q['size']) <= FIT[q['shot']][1] * 1.15: q['lines'][0].insert(0, w)
+        else: q['lines'].insert(0, [w])   # tidak muat -> baris sendiri di atas
+        q['start'] = round(w['t'] - 0.05, 3); p['end'] = round(q['start'] - 0.03, 3)
+        print('1f pindah', w['w'], w['t'])
+# 1g) sisa: frasa satu kata < 0,3 dtk digabung ke frasa berikutnya (penutur sama); kata terakhir yang masih < 0,2 dtk -> frasa
+# berikutnya mundur maks 0,15 dtk (masih di bawah ambang telat 0,25 dtk)
+i = 0
+while i < len(new) - 1:
+    p, q = new[i], new[i + 1]
+    pw = [w for l in p['lines'] for w in l]
+    if len(pw) == 1 and p['end'] - p['start'] < 0.3 and spk_at(pw[0]['t']) == spk_at(q['lines'][0][0]['t']) and q['start'] - p['end'] < 0.15:
+        if wl(pw + q['lines'][0], q['size']) <= FIT[q['shot']][1] * 1.15: q['lines'][0] = pw + q['lines'][0]
+        elif len(q['lines']) == 1: q['lines'].insert(0, pw)
+        else: i += 1; continue
+        q['start'] = p['start']; new.pop(i); print('1g gabung', pw[0]['w']); continue
+    lw = p['lines'][-1][-1]['t']
+    if p['end'] - lw < 0.2:
+        want = lw + 0.2
+        if q['start'] - 0.03 < want and q['lines'][0][0]['t'] + 0.15 >= want + 0.03: q['start'] = round(want + 0.03, 3)
+        p['end'] = round(min(q['start'] - 0.03, max(p['end'], want)), 3); print('1g tahan', p['lines'][-1][-1]['w'], round(p['end'] - lw, 2))
+    i += 1
+for c in new:
+    c['bw'] = round(max(wl(l, c['size']) for l in c['lines']) * 1.03, 1)
     mid = c['start'] + (c['end'] - c['start']) * 0.5; c['shot'] = shot_of(min(mid, c['end'] - 0.05))['scene']
 # 2) satu posisi per shot: ukur semua frame semua teks di shot itu
 BM = json.load(open('broll_map6.json'))

@@ -128,6 +128,13 @@ for a, b, db in edl.get('music_auto', []):
     env = np.ones(j - i, np.float32) * db; env[:r] = np.linspace(0, db, r); env[-r:] = np.linspace(db, 0, r)
     auto[i:j] = env
 mus *= (10 ** (auto / 20))[:, None]
+# v10f: di jendela music_auto lagu renggang (-46 dBFS di sela ketukan) -> isi naik maks +9 dB sampai RMS 200 ms ~ -27 dBFS, dihaluskan 250 ms
+for a_, b_, db in edl.get('music_auto', []):
+    i, j = int(a_ * SR), int(b_ * SR); hop = SR // 20; mono = mus[i:j].mean(1)
+    r = np.array([np.sqrt(np.mean(mono[k:k + 4 * hop] ** 2) + 1e-12) for k in range(0, len(mono), hop)])
+    g = np.clip(-27 - 20 * np.log10(r), 0, 9); g = np.convolve(np.pad(g, 2, mode='edge'), np.ones(5) / 5, 'valid')
+    env = np.interp(np.arange(j - i), np.arange(len(g)) * hop + 2 * hop, g); rr = int(0.3 * SR); env[:rr] *= np.linspace(0, 1, rr); env[-rr:] *= np.linspace(1, 0, rr)
+    mus[i:j] *= (10 ** (env / 20))[:, None]
 # bagian lagu yang lebih padat di bawah satu potongan VO: turunkan sampai -24,5 LUFS (ramp 300 ms di luar kata)
 duck = np.zeros(N, np.float32)
 for p in edl['vo']:
@@ -143,7 +150,7 @@ mus *= (10 ** (duck / 20))[:, None]
 gap = np.zeros(N, np.float32); vos = sorted(edl['vo'], key=lambda p: p['v'])
 for p, q in zip(vos, vos[1:]):
     e = p['v'] + p['b'] - p['a']; s_ = q['v']
-    if s_ - e < 0.4: continue
+    if s_ - e < 0.2: continue   # v10: jeda antar-pembicara 0,3 dtk juga diisi (lubang -37 dBFS di 22,4)
     a, b = int((e + 0.03) * SR), int((s_ - 0.03) * SR); r = int(0.12 * SR)
     lvl = 20 * np.log10(np.sqrt(np.mean((mus[a:b].mean(1) + nat[a:b]) ** 2)) + 1e-9)
     db = float(np.clip(-22.0 - lvl, 0, 12))

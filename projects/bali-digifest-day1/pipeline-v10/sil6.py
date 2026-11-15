@@ -17,8 +17,8 @@ B = [('H', '0361', 12.46, 15.26), ('D1', '0378', 12.26, 16.90), ('D2', '0530', 1
     , ('T2', '0531', 100.28, 109.42), ('C1', '0399', 39.70, 49.86), ('C2', '0399', 73.60, 75.36),
      ('C3', '0399', 54.80, 66.74),
      # v9 (Irfan 15 Nov): testimoni tambahan Day 2 — batas diukur dari lembah energi sebelum suara pewawancara
-     ('K1', '0712', 41.99, 48.56), ('K2', '0723', 14.06, 17.36), ('K3', '0713', 67.73, 76.41), ('K4', '0718', 293.99, 303.33),
-     ('P1', '0704', 62.90, 75.97), ('P2', '0712', 153.56, 154.88), ('R2', '0712', 127.00, 128.36)]   # v10: mulai di celah sesudah '1 per 10,' (candaan)
+     ('K1', '0712', 41.99, 48.56), ('K2', '0723', 14.06, 17.36), ('K3', '0713', 68.26, 76.41), ('K4', '0718', 293.99, 303.33),
+     ('P1', '0704', 62.90, 76.26), ('P2', '0712', 153.56, 154.88), ('R2', '0712', 127.00, 128.72)]   # v10: mulai di celah sesudah '1 per 10,' (candaan)
 # v8d (Irfan 14 Nov): b = perkiraan AKHIR KALIMAT; titik akhir sebenarnya dicari otomatis = awal sunyi >= 80 ms sesudahnya
 # (penutupan /t/ /k/ /p/ < 80 ms tidak dihitung sunyi: "dinikma|ti" 120,96-121,02 dan "Fes|t" 183,70-183,76 dulu terpancung).
 # D2 diperpanjang ke akhir kalimat "...yang bisa dinikmati oleh banyak orang."; C3 utuh tanpa potongan isi (Irfan: harapan jangan dipotong).
@@ -40,10 +40,10 @@ MANUAL_HOLD = {}
 END = {}   # "seni": ekor -ni sampai 119,95, lembah energi 120,00-120,10 sebelum "yang" (gagal v6: suara hilang mendadak)
 # batas yang diverifikasi manual (dengar-transkrip + pitch): C2 berhenti sebelum pewawancara "8,5 kenapa tuh?" (75,50);
 # C1 "elaborasi" = vokal s.d. 49,74 + desis '-si' tak bersuara s.d. ~49,95 (pitch 0, bukan suara pewawancara)
-FIXED = {'K1': (41.99, 48.56), 'K2': (14.06, 17.36), 'K3': (67.73, 76.41), 'K4': (293.99, 303.33), 'P1': (62.90, 75.97),
-         'P2': (153.56, 154.88), 'R2': (127.00, 128.36),   # P2 'da|teng' penutupan /t/ 154,60-154,67; K2 sampai 'pertama'
+FIXED = {'K1': (41.99, 48.56), 'K2': (14.06, 17.36), 'K3': (68.26, 76.41), 'K4': (293.99, 303.33), 'P1': (62.90, 76.26),
+         'P2': (153.56, 154.88), 'R2': (127.00, 128.72),   # v10f: 128,36 memotong 'deh' (whisper: '10 persen'); sunyi -47 dB di 128,70   # P2 'da|teng' penutupan /t/ 154,60-154,67; K2 sampai 'pertama'
          'C2': (73.33, 75.48), 'C1': (43.34, 49.98),   # v8g: 'sangat tertarik' dibuang (Irfan: kurang jernih, bertabrakan)
-          'T1a': (174.28, None), 'D2': (114.40, None)}   # D2: 114,02-114,32 masih 'luas'
+          'T1a': (174.31, None), 'D2': (114.40, None)}   # D2: 114,02-114,32 masih 'luas'   # v10f: T1a 174,28 membawa ekor 'dan' (whisper final: 'Dan untuk')
 # v8d awal kalimat utuh (bukan di tengah aliran): D1 "Jelas, Bali Digifest..."; D2 "Jadi, pastinya di sini..."; T2 mulai di "perasaan kami"
 # yang kedua (100,28; "izin diwakilkan" tidak ikut); I1 "Nah, dari dua dimensi..."; T1a "Pri-" mulai 174,58 (start 174,75 memancungnya)
 NOGAP = {'T1a'}

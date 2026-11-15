@@ -7,6 +7,8 @@ CACHE = 'cache/media'   # v8e: shot identik dipakai ulang (hardlink), hanya shot
 GRADE = {
     'pagi': "eq=contrast=0.97:saturation=0.90,colorbalance=rs=0.05:gs=0.01:bs=-0.05:rm=0.03:bm=-0.03,curves=all='0/0.045 1/0.97'",
     'ws': "eq=contrast=1.06:saturation=1.00,colorbalance=rs=0.01:bs=0.01,curves=all='0/0.03 0.5/0.5 1/0.98'",
+    'lift': "eq=contrast=1.02:saturation=1.00,colorbalance=rs=0.01:bs=0.01,curves=all='0/0.05 0.25/0.33 0.5/0.58 1/0.98'",   # v10f: b-roll gelap (reviewer: 0471 @7, 0498)
+    'redup': "eq=contrast=1.04:saturation=1.05,colorbalance=rs=0.01:bs=0.01,curves=all='0/0.02 0.5/0.40 1/0.66'",   # v10f: keyboard putih di bawah teks putih (Sonnet c08)
     'tutup': "eq=contrast=1.05:saturation=1.14,colorbalance=rs=0.05:gs=0.01:bs=-0.04:rm=0.04:bm=-0.03,curves=all='0/0.03 1/0.98'",
 }
 edl = json.load(open(sys.argv[1])); out = sys.argv[2]; only = set(map(int, sys.argv[3:]))
