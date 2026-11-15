@@ -93,7 +93,7 @@ export const TEXT_ACT4: TextBlock[] = [
   },
   {
     id: 'B26-N', beat: 'B26', code: 'N', size: 60, x: 940, y: 450, tone: 'dark',
-    lines: [T('Ngebagiin. Apa yang', 92.0, 'ngebagiin apa yang')], until: at('belum sempurna.', 93.0),
+    lines: [T('Ngebagiin. Apa yang', 92.0, 'ngebagiin apa yang')], until: at('belum sempurna.', 93.0) + 1, // r8: +1 f, tanpa frame kosong (f2447)
   },
   {
     id: 'B26-K4b', beat: 'B26', code: 'K4', order: 'small-big', bigSize: 100, ratio: 2.3, x: 940, y: 430, tone: 'dark',

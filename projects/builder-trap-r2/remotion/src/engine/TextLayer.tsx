@@ -40,9 +40,9 @@ export function measure(text: string, size: number, weight = 700, family = FONT.
 }
 
 /** Satu kata narasi: blur 6→0 + naik 8 px dalam 6 f; abu lalu menghitam dalam 8 f. */
-const Word: React.FC<{ tok: Tok; f: number; tn: Tone | undefined; kind?: 'n' | 'big' | 'key'; ink?: string; lead?: number }> = ({ tok, f, tn, kind = 'n', ink, lead = 0 }) => {
+const Word: React.FC<{ tok: Tok; f: number; tn: Tone | undefined; kind?: 'n' | 'big' | 'key'; ink?: string; lead?: number; fresh?: string }> = ({ tok, f, tn, kind = 'n', ink, lead = 0, fresh }) => {
   const a = tokIn(tok) - lead; // r7f: lead = mulai masuk lebih awal (frame), hanya kartu kunci K3 kanan
-  const pal = { ...tone(tn), ...(ink ? { ink } : {}) };
+  const pal = { ...tone(tn), ...(ink ? { ink } : {}), ...(fresh ? { fresh } : {}) };
   const dur = kind === 'big' ? 8 : kind === 'key' ? 5 : 6;
   const p = prog(f, a, a + dur, 'out');
   const rise = kind === 'big' ? 0 : kind === 'key' ? 0.42 : 8; // key: em
@@ -114,7 +114,7 @@ const NView: React.FC<{ b: NBlock; f: number; fit: Fit }> = ({ b, f, fit }) => {
     ln.map((t, k) => (
       <React.Fragment key={k}>
         {k > 0 ? ' ' : null}
-        <Word tok={t} f={f} tn={b.tone} kind={t.accent && b.dimHead ? 'key' : 'n'} ink={t.accent ? undefined : dim} />
+        <Word tok={t} f={f} tn={b.tone} kind={t.accent && b.dimHead ? 'key' : 'n'} ink={t.accent ? undefined : dim} fresh={b.fresh} />
       </React.Fragment>
     ));
   return (
@@ -360,7 +360,7 @@ const K4View: React.FC<{ b: K4Block; f: number; fit: Fit }> = ({ b, f, fit }) =>
   // r4 (KT-1): lebar baris kecil = lebar kata besar, rata sisi yang sama (tanpa geser 0,06em)
   const smallLine = b.small.length ? (
     <div style={{ fontSize: small, fontWeight: 700, lineHeight: 1.15, letterSpacing: TRACK, margin: b.order === 'small-big' ? '0 0 0.06em 0' : '0.16em 0 0 0' }}>
-      {words(b.small, f, b.tone)}
+      {words(b.small, f, b.tone, b.smallSolid ? 'key' : undefined)}
     </div>
   ) : null;
   return (
@@ -375,7 +375,7 @@ const K4View: React.FC<{ b: K4Block; f: number; fit: Fit }> = ({ b, f, fit }) =>
 /** J: kartu judul satu kata; huruf naik dari balik garis dasar (mask), total ±10 f. */
 const JView: React.FC<{ b: JBlock; f: number; fit: Fit }> = ({ b, f, fit }) => {
   const pal = tone(b.tone);
-  const a = tokIn(b.toks[0]);
+  const a = tokIn(b.toks[0]) - (b.lead ?? 0);
   const letters = b.toks.map((t) => t.t).join(' ').split('');
   const fam = b.font === 'sf' ? FONT.sf : FONT.playfair;
   return (

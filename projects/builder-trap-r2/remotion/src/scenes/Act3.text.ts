@@ -25,7 +25,7 @@ const stack = (id: string, beat: string, words: [string, number, string?][], key
   lines: words.map(([w, t, d], k) => T(w, t, d, k === key)), until, exit: 'rise', note,
 });
 export const TRIAD: NBlock[] = [
-  stack('B16-ST', 'B16', [['Aku', 49.0, 'aku'], ['tidak', 49.2], ['menjual', 49.5], ['apapun.', 50.3]], 2, 140, at('Aku tidak mempublikasikan', 50.7),
+  stack('B16-ST', 'B16', [['Aku', 49.0, 'aku'], ['tidak', 49.2], ['menjual', 49.5], ['apapun.', 50.3]], 2, 140, at('Aku tidak mempublikasikan', 50.7) + 1, // r8: +1 f, tanpa frame kosong (f1356)
     'kalimat diganti utuh saat "Aku" kalimat 2 masuk (50,76); keluar naik 5 f'),
   stack('B17-ST', 'B17', [['Aku', 50.7, 'aku'], ['tidak', 50.8], ['mempublikasikan', 51.0], ['apapun.', 51.9]], 2, 96, at('Dan tidak', 52.4),
     'diganti utuh saat "Dan" masuk (52,48)'),

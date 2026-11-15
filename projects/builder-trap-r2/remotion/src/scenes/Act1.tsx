@@ -5,6 +5,7 @@ import { Stage, Layer } from '../engine/Stage';
 import { camPath, Pose, REST } from '../engine/camera';
 import { TextBlocks } from '../engine/TextLayer';
 import { Face } from '../engine/Face';
+import { keBaru } from '../engine/timewarp';
 import { Paper } from '../engine/Surfaces';
 import { Cursor } from '../engine/Cursor';
 import { PixelMosaic } from '../engine/Transitions';
@@ -108,7 +109,7 @@ const b04Cam = (f: number): Pose => {
 const B04: React.FC = () => (
   <Stage pose={b04Cam} bg="#000">
     <Layer z={0} name="L1-L2">
-      <Face preset="P" crop={{ s: 1.55, cx: 1244, cy: 529 }} grade="terang" />
+      <Face preset="P" crop={{ s: 1.55, cx: 1244, cy: 529 }} grade="terang" jumpFrom={keBaru(F_B04[0])} />
     </Layer>
     <Layer z={30} name="L3">
       <TextBlocks blocks={txt('B04')} />

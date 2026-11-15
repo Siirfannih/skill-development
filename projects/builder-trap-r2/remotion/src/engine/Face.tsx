@@ -16,6 +16,27 @@ export const FACE_PRESETS = {
   P: { s: 1.9, cx: 1077, cy: 500 }, // sisi: wajah di sepertiga kiri, ruang dinding kanan ±700 px
 } as const;
 export type FacePreset = keyof typeof FACE_PRESETS;
+/** r8 (TASK-r8 butir 2): frame NYATA tempat video wajah melompat di DALAM sisipan wajah (titik potong suara dari
+ *  edit/v3/map.json; frame persisnya diukur dari selisih antar-frame face_edit_v3.mp4: lonjakan 2,0–21,5 vs median 1,2).
+ *  Titik map yang tidak terlihat meloncat di video (f2186, f2189: selisih 0,5/2,9) tidak dimasukkan; f2460 (audit) bukan
+ *  potongan (gerak kepala kontinu 4,7–5,2 per frame selama 4 f). Titik yang jatuh tepat di awal adegan wajah (f642, f951,
+ *  f1307) tertutup cut adegan. */
+export const FACE_JUMPS = [141, 166, 657, 969, 1332, 1532, 1709, 1764, 2406, 2414];
+/** punch-in di titik lompatan: +10 % skala crop per tingkat. Lompatan berganti masuk/keluar (1,0 ↔ 1,1); lompatan yang
+ *  berdekatan (< FACE_JUMP_NEAR frame dari lompatan sebelumnya dalam sisipan yang sama) LANJUT MASUK (1,1 → 1,2), tidak
+ *  keluar-masuk (putusan Sutradara r8 Q2, mis. f2406 → f2414). */
+export const FACE_JUMP_PUNCH = 0.1;
+export const FACE_JUMP_NEAR = 15; // < 0,5 dtk
+/** tingkat punch pada frame nyata `real` untuk sisipan yang mulai di `from` */
+export const faceJumpLevel = (from: number, real: number) => {
+  let level = 0, prev = -Infinity;
+  for (const j of FACE_JUMPS) {
+    if (j <= from || j > real) continue;
+    level = j - prev < FACE_JUMP_NEAR ? level + 1 : level > 0 ? 0 : 1;
+    prev = j;
+  }
+  return level;
+};
 export type FaceCrop = { s: number; cx: number; cy: number };
 
 /** Grade per babak: terang (babak 1–2), gelap (belokan), bersih (babak 4, paling hangat). */
@@ -35,10 +56,18 @@ export const Face: React.FC<{
   h?: number;
   grade?: FaceGrade;
   style?: React.CSSProperties;
-}> = ({ preset = 'F4', crop, w = 1920, h = 1080, grade = 'terang', style }) => {
+  /** r8: frame NYATA awal sisipan wajah ini. Bila diisi, tiap lompatan FACE_JUMPS sesudahnya mengganti ukuran crop
+   *  (punch-in/out 10 %) supaya terbaca sebagai potongan editor, bukan kepala meloncat. */
+  jumpFrom?: number;
+  /** r8: [a, v] = mulai frame nyata a tampilkan frame video v (beku), mis. menahan frame terakhir sebelum lompatan
+   *  video yang jatuh 2 f sebelum cut adegan */
+  hold?: [number, number];
+}> = ({ preset = 'F4', crop, w = 1920, h = 1080, grade = 'terang', style, jumpFrom, hold }) => {
   const real = useRealFrame();
   const cur = useCurrentFrame();
   const c = { ...FACE_PRESETS[preset], ...crop };
+  if (jumpFrom !== undefined) c.s *= 1 + FACE_JUMP_PUNCH * faceJumpLevel(jumpFrom, real);
+  const vf = hold && real >= hold[0] ? hold[1] : real;
   const base = Math.max(w / 1920, h / 1080);
   const sc = base * c.s;
   const vw = 1920 * sc, vh = 1080 * sc;
@@ -60,7 +89,7 @@ export const Face: React.FC<{
       ) : null}
       {/* r5: face_edit_v3.mp4 di frame NYATA (dipotong di rentang yang sama dengan suara v3 → bibir sinkron) */}
       {/* Sequence menggeser frame adegan (lama) ke frame nyata: di dalamnya useCurrentFrame() = real */}
-      <Sequence from={cur - Math.min(real, 2500)} layout="none">
+      <Sequence from={cur - Math.min(vf, 2500)} layout="none">
         <OffthreadVideo
           src={staticFile('face_edit_v3.mp4')}
           muted

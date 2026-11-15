@@ -6,6 +6,7 @@ import { Stage, Layer } from '../engine/Stage';
 import { camPath, withShake, Pose } from '../engine/camera';
 import { TextBlocks, TextBlockView } from '../engine/TextLayer';
 import { Face, type FacePreset } from '../engine/Face';
+import { keBaru } from '../engine/timewarp';
 import { Print, Pin } from '../engine/Print';
 import { Linen } from '../engine/Surfaces';
 import { Cursor } from '../engine/Cursor';
@@ -32,9 +33,11 @@ const byId = (id: string) => TEXT_ACT2.find((b) => b.id === id)!;
 const PHOTO = { x: 400, y: 195, w: 520, h: 650, border: 18, rot: -2 };
 // r3a (F-v1-05): kamera berpusat di pasangan foto + teks (x 400–±1390) supaya teks tetap menempel dan dalam safe frame
 // sampai push 1,5× (foto ±1,5 × 520 px, tepi kiri layar ±240 px).
+// r8 (TASK-r8 butir 7): pusat kamera digeser ke kanan (872 → 925) mengikuti blok teks yang lebih besar, sehingga pasangan
+// foto + teks berada di tengah frame (dulu berat kiri, kanan ±60 % kosong)
 const b06Cam = camPath([
-  { f: F_B06[0], x: 872, y: 520, zoom: 1.15 },
-  { f: F_B06[1], x: 880, y: 500, zoom: 1.5, ease: 'inOut' },
+  { f: F_B06[0], x: 925, y: 520, zoom: 1.15 },
+  { f: F_B06[1], x: 930, y: 500, zoom: 1.5, ease: 'inOut' },
 ]);
 const B06: React.FC = () => {
   const f = useCurrentFrame();
@@ -56,10 +59,11 @@ const B06: React.FC = () => {
 };
 
 // ======================= sisipan wajah (B07, B10a, B11, B13a) =======================
-const faceScene = (preset: FacePreset, crop: { s?: number; cx?: number; cy?: number }, pose: (f: number) => Pose, beat: string, filter?: (b: TextBlock) => boolean) => {
+// r8: `from` = frame lama awal sisipan → punch crop di lompatan video wajah (Face jumpFrom)
+const faceScene = (preset: FacePreset, crop: { s?: number; cx?: number; cy?: number }, pose: (f: number) => Pose, beat: string, filter?: (b: TextBlock) => boolean, from?: number) => {
   const S: React.FC = () => (
     <Stage pose={pose} bg="#000">
-      <Layer z={0} name="L1-L2"><Face preset={preset} crop={crop} grade="terang" /></Layer>
+      <Layer z={0} name="L1-L2"><Face preset={preset} crop={crop} grade="terang" jumpFrom={from === undefined ? undefined : keBaru(from)} /></Layer>
       <Layer z={30} name="L3"><TextBlocks blocks={txt(beat, filter)} /></Layer>
     </Stage>
   );
@@ -70,7 +74,7 @@ const faceScene = (preset: FacePreset, crop: { s?: number; cx?: number; cy?: num
 // B07: mata (M), "unik." di dinding kanan sejajar mata/hidung
 const B07 = faceScene('M', {}, camPath([{ f: F_B07[0], zoom: 1 }, { f: F_B07[1], zoom: 1.04, ease: 'smooth' }], { sigma: 0 }), 'B07');
 // B10a: mata (M) lagi tetapi setelah sisipan T; teks di pita bawah kanan
-const B10a = faceScene('M', {}, camPath([{ f: F_B10[0], zoom: 1 }, { f: F_B10_YT, zoom: 1.06, ease: 'smooth' }], { sigma: 0 }), 'B10', (b) => b.id.startsWith('B10-N1')); // r4: N1 + N1b
+const B10a = faceScene('M', {}, camPath([{ f: F_B10[0], zoom: 1 }, { f: F_B10_YT, zoom: 1.06, ease: 'smooth' }], { sigma: 0 }), 'B10', (b) => b.id.startsWith('B10-N1'), F_B10[0]); // r4: N1 + N1b
 // B11: sisi (P, s 1,8). Punch 1 → 1,08 tepat di "FOMO." (30,48 dtk = f914), berjangkar di pojok kiri atas K4 sehingga
 // teks diam dan wajah membesar menjauh dari teks; lalu drift.
 const B11_ANCHOR = { x: 1000, y: 300 };
@@ -83,7 +87,7 @@ const b11Cam = withShake((f: number): Pose => {
 }, [{ f: 914, amp: 9, dur: 8 }]);
 const B11 = faceScene('P', { s: 1.8, cx: 1110 }, b11Cam, 'B11');
 // B13a: T dengan pusat lebih rendah (kepala turun di 36 dtk; mata tidak terpotong setengah di tepi atas)
-const B13a = faceScene('T', { cy: 840 }, camPath([{ f: F_B13[0], zoom: 1 }, { f: F_B13_GPT, zoom: 1.05, ease: 'smooth' }], { sigma: 0 }), 'B13', (b) => b.id === 'B13-N1');
+const B13a = faceScene('T', { cy: 840 }, camPath([{ f: F_B13[0], zoom: 1 }, { f: F_B13_GPT, zoom: 1.05, ease: 'smooth' }], { sigma: 0 }), 'B13', (b) => b.id === 'B13-N1', F_B13[0]);
 
 // ======================= B08 · Irfan di antara cetakan serupa =======================
 const THUMBS = ['kXZYpA2Ur5o', 'jdH8pgLDtho', 'mXluYosHxX4', '8Lz530r09WU', 'pe9tFLbdSAA', 'id-946PmzcY', 'KBPsHcsl1aY', 'dePCXPtZydE', 'yhC8RcAr9RY', 'u4I3EJOikjE', 'dQ-KQm51FMQ', 'Di_KJpu3NhE'];
@@ -180,7 +184,8 @@ const B10b: React.FC = () => {
 // jendela (r7c, koreksi Irfan: satu UI, tidak ada elemen yang membesar sendiri; kartu 63 §6, D-026 dolly ke input) →
 // cap logo "AI." di dalam jendela → (B13b) ketik → kamera mundur → kirim → mosaik. TANPA KT (R2).
 // Semua bagian layar di bidang z=0 (layar Mac datar): dunia = layar pada kamera normal (zoom 1).
-// Peta waktu: suara v3 melompat lama f958→f970 di nyata f863; pantulan ikon selesai f956 dan jendela terbuka f973–985
+// Peta waktu v3b (r8): bekas lompatan lama f958→f970 kini rampa ±1,4× (nyata 848–879); konstanta di bawah dihitung supaya
+// durasi NYATA tetap: pantulan 2 × ±0,25 dtk, jendela terbuka 0,38 dtk (nyata 865–876,5).
 // (nyata 866–878 = 0,4 dtk) supaya tidak ada gerak yang terpotong lompatan.
 const WIN_S = 1114 / GPT_W; // 0,870: 1280 px desain → 1114 px layar (58 % lebar)
 const WIN = { x: (1920 - 1114) / 2, y: 200, w: 1114, h: (GPT_H + BAR_H) * WIN_S }; // x 403–1517, y 200–837 (59 %)
@@ -237,13 +242,13 @@ const GptWindow: React.FC<{ open?: number; ui: React.ComponentProps<typeof ChatG
 // ---------- B12 · desktop → klik ikon ChatGPT → pantul → jendela ke tengah → riwayat → punch "investasi" → cap "AI." ----------
 const STAMP = 1045; // "AI." 34,82 dtk (frame lama)
 const B12_CLICK = 945; // nyata 850
-const B12_BOUNCE: [number, number][] = [[947, 956], [971, 979]]; // 2 pantulan (yang kedua setelah lompatan peta waktu)
-const B12_OPEN: [number, number] = [973, 985]; // nyata 866–878 (0,4 dtk)
+const B12_BOUNCE: [number, number][] = [[946, 957], [957, 966]]; // 2 pantulan berurutan, nyata 850–858 dan 858–865
+const B12_OPEN: [number, number] = [966, 983]; // nyata 865–876,5 (0,38 dtk) di rampa 1,4×
+const B12_APP = 968; // menu bar "ChatGPT" + titik app aktif (nyata ±866)
 const B12_PUNCH: [number, number] = [1008, 1015]; // "investasi" f1015; masuk 7 f ease-out (motion blur Stage otomatis)
 const b12Cam = withShake(camPath([
   { f: F_B12[0], ...anch(DESK_A, 1.0) },
-  { f: 957, ...anch(DESK_A, 1.04), ease: 'smooth' }, // push pelan ke desktop
-  { f: 971, ...anch(DESK_A, 1.04), ease: 'linear' }, // (rentang lama f958–969 tidak tampil)
+  { f: 960, ...anch(DESK_A, 1.04), ease: 'smooth' }, // push pelan ke desktop (r8: tanpa tahan, rentang lama kini tampil)
   { f: 987, ...anch(PUNCH_A, 1.0), ease: 'inOut' }, // pull kecil saat jendela terbuka
   { f: B12_PUNCH[0], ...anch(PUNCH_A, 1.03), ease: 'smooth' }, // push pelan ke jendela
   { f: B12_PUNCH[1], ...punchPose(PUNCH_Z), ease: 'out' }, // punch kamera 1,03 → 3,8 (3,7×) ke kotak prompt
@@ -258,7 +263,7 @@ const B12: React.FC = () => {
   const f = useCurrentFrame();
   const pose = b12Cam(f);
   const open = prog(f, B12_OPEN[0], B12_OPEN[1], 'out');
-  const hist = Math.floor(20 * Math.pow(prog(f, 985, 1040, 'linear'), 1.6)); // bertambah makin cepat
+  const hist = Math.floor(20 * Math.pow(prog(f, 983, 1040, 'linear'), 1.6)); // bertambah makin cepat
   const st = prog(f, STAMP, STAMP + 4, 'out');
   const mv = prog(f, STAMP + 8, STAMP + 16, 'inOut');
   const size = lerp(lerp(120, 70, st), 22 * WIN_S, mv); // px dunia (ikut kamera)
@@ -275,17 +280,17 @@ const B12: React.FC = () => {
       <Stage pose={b12Cam}>
         <Layer z={0} name="L1-L2">
           <MacBack f={f} />
-          <Dock press={click} bounce={bounceAt(f)} chatgptRunning={prog(f, 975, 979, 'out')} />
+          <Dock press={click} bounce={bounceAt(f)} chatgptRunning={prog(f, B12_APP, B12_APP + 4, 'out')} />
           {open > 0 ? <GptWindow open={open} ui={{ history: hist, headerLogo: mv >= 1 ? 1 : 0 }} /> : null}
           {f >= STAMP && mv < 1 ? (
             <div style={{ position: 'absolute', left: lx - size / 2, top: ly - size / 2, opacity: Math.min(1, st * 3), filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.35))' }}>
               <Logo name="openai" size={size} color="#FFFFFF" />
             </div>
           ) : null}
-          <MenuBar app={f >= 975 ? 'ChatGPT' : 'Finder'} time="10:25 PM" />
+          <MenuBar app={f >= B12_APP ? 'ChatGPT' : 'Finder'} time="10:25 PM" />
         </Layer>
       </Stage>
-      {f < 981 ? <Cursor x={cur.x} y={cur.y} size={64} click={click} opacity={1 - prog(f, 973, 981, 'in')} /> : null}
+      {f < 978 ? <Cursor x={cur.x} y={cur.y} size={64} click={click} opacity={1 - prog(f, 968, 978, 'in')} /> : null}
     </AbsoluteFill>
   );
 };

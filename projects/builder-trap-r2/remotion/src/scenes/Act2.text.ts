@@ -27,10 +27,12 @@ export const KATA_TANPA_TEKS: { beat: string; toks: Tok[]; alasan: string }[] = 
 export const TEXT_ACT2: TextBlock[] = [
   // ---------- B06 · foto cetak di alas ----------
   // r3a (F-v1-05): menempel tepi kanan foto (celah 26 px dunia), sejajar kepala; ukuran ≥ 56 px layar
-  { id: 'B06-N1', beat: 'B06', code: 'N', size: 50, x: 946, y: 330, lines: [T('Memasuki usia', 9.9)], until: nb(347) },
+  // r8 (TASK-r8 butir 7, Lantai C17): frasa samping foto 50 → 72 px dunia supaya blok teks menyeimbangkan foto di kiri
+  { id: 'B06-N1', beat: 'B06', code: 'N', size: 72, x: 946, y: 330, lines: [T('Memasuki usia', 9.9)], until: nb(347) },
   {
     // label tulisan tangan di dalam foto (dirender di dalam <Print>, koordinat = isi foto)
-    id: 'B06-H', beat: 'B06', code: 'H', size: 92, x: 252, y: 104, rot: -6, ink: '#FFFFFF',
+    // r8: "20-an" 92 → 120 px supaya terbaca di foto
+    id: 'B06-H', beat: 'B06', code: 'H', size: 120, x: 200, y: 96, rot: -6, ink: '#FFFFFF',
     toks: [joinTok(T('20 -an.', 10.5), '20-an')],
     arrow: { d: 'M -4 60 C -24 72 -36 92 -40 122 M -40 122 L -53 101 M -40 122 L -20 109', box: [0, 0, 1, 1] },
     until: nb(F_B06[1]), exit: 'cut',
@@ -38,15 +40,15 @@ export const TEXT_ACT2: TextBlock[] = [
   // r4 (KT-2): kalimat dipecah 1–3 kata per tampil, frasa diganti utuh di tempat yang sama di samping foto; dua tampil
   // terakhir = blok seimbang (KT-4: mode berganti).
   {
-    id: 'B06-N2a', beat: 'B06', code: 'N', size: 50, x: 946, y: 450,
+    id: 'B06-N2a', beat: 'B06', code: 'N', size: 72, x: 946, y: 450,
     lines: [T('Aku merasa aku', 11.3, 'aku merasa aku')], until: at('perlu', 12.4),
   },
   {
-    id: 'B06-N2b', beat: 'B06', code: 'N', size: 50, x: 946, y: 450,
+    id: 'B06-N2b', beat: 'B06', code: 'N', size: 72, x: 946, y: 450,
     lines: [T('perlu untuk', 12.4)], until: at('melakukan', 13.3),
   },
   {
-    id: 'B06-N2c', beat: 'B06', code: 'N', size: 50, x: 946, y: 450, even: true,
+    id: 'B06-N2c', beat: 'B06', code: 'N', size: 72, x: 946, y: 450, even: true,
     lines: [T('melakukan', 13.3), T('sesuatu', 13.7)], until: at('yang', 14.1),
   },
   {

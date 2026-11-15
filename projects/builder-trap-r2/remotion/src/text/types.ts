@@ -39,6 +39,8 @@ export type NBlock = Base & {
   lineSizes?: number[];
   /** r4 (B01–B03, arahan Irfan 15 Nov): kartu kertas putih di belakang kata (tumbuh mengikuti kata yang sudah tampil) */
   card?: boolean;
+  /** r8: warna kata baru pengganti (mis. lebih terang di latar gelap) */
+  fresh?: string;
 };
 export type K3Block = Base & {
   code: 'K3'; size: number; head: Tok[]; keys: Tok[][]; tail?: Tok[];
@@ -54,12 +56,18 @@ export type K3Block = Base & {
 export type K4Block = Base & {
   code: 'K4'; big: Tok[]; small: Tok[]; bigSize: number; ratio?: number; order: 'small-big' | 'big-small';
   bigAccent?: boolean;
+  /** r8: baris kecil langsung tinta penuh (tanpa abu kata baru), untuk kata yang tampil sangat singkat */
+  smallSolid?: boolean;
   /** r4 (KT-1): sisi rata blok (default kiri). Lebar kata besar = lebar baris kecil (±5 %), jadi kedua sisi sejajar. */
   align?: 'left' | 'right';
   /** r4: tanpa penyeimbangan lebar (pengecualian KT-1: satu kata sambung 1 suku di atas kata hero) */
   free?: boolean;
 };
-export type JBlock = Base & { code: 'J'; size: number; toks: Tok[]; font?: 'playfair' | 'sf' };
+export type JBlock = Base & {
+  code: 'J'; size: number; toks: Tok[]; font?: 'playfair' | 'sf';
+  /** r8: huruf mulai naik `lead` frame sebelum kata masuk (mis. tepat di frame cut adegan, tanpa frame kosong) */
+  lead?: number;
+};
 export type HBlock = Base & {
   code: 'H'; size: number; toks: Tok[]; ink?: string; rot?: number;
   /** panah SVG relatif ke pojok kiri atas label (px), digambar setelah tulisan */

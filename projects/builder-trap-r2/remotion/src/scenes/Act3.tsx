@@ -8,6 +8,7 @@ import { camPath, Pose } from '../engine/camera';
 import { TextBlocks, measure, tokIn } from '../engine/TextLayer';
 import { wordIn } from '../engine/words';
 import { Face } from '../engine/Face';
+import { keBaru } from '../engine/timewarp';
 import { DarkWall } from '../engine/Surfaces';
 import { Cursor } from '../engine/Cursor';
 import { C, FONT, prog, lerp, clamp01, rand, EASE } from '../engine/theme';
@@ -41,7 +42,7 @@ const b16Cam = camPath([{ f: F_B16[0], zoom: 1 }, { f: F_B16[1], zoom: 1.04, eas
 const B16: React.FC = () => (
   <Stage pose={b16Cam} bg="#000">
     <Layer z={0} name="L1-L2">
-      <Face preset="F1" crop={{ cy: 450 }} grade="gelap" />
+      <Face preset="F1" crop={{ cy: 450 }} grade="gelap" jumpFrom={keBaru(F_B16[0])} />
     </Layer>
   </Stage>
 );
@@ -260,7 +261,7 @@ const b19FaceCam = camPath([{ f: F_B19_CUT, zoom: 1 }, { f: F_B19[1], zoom: 1.05
 const B19Face: React.FC = () => (
   <Stage pose={b19FaceCam} bg="#000">
     <Layer z={0} name="L1-L2">
-      <Face preset="P" grade="gelap" /> {/* r3b: sisi (beda dari B16 F1), dinding kanan untuk K4 */}
+      <Face preset="P" grade="gelap" jumpFrom={keBaru(F_B19_CUT)} /> {/* r3b: sisi (beda dari B16 F1), dinding kanan untuk K4 */}
     </Layer>
     <Layer z={30} name="L3">
       <TextBlocks blocks={txt('B19-K4')} />
@@ -372,7 +373,7 @@ const b21bCam = camPath([{ f: F_B21_CUT, zoom: 1.03 }, { f: F_B21[1], zoom: 1.08
 const B21a: React.FC = () => (
   <Stage pose={b21aCam} bg="#000">
     <Layer z={0} name="L1-L2">
-      <Face preset="M" crop={{ cx: 1200 }} grade="gelapHangat" />
+      <Face preset="M" crop={{ cx: 1200 }} grade="gelapHangat" jumpFrom={keBaru(F_B21[0])} />
     </Layer>
     <Layer z={30} name="L3">
       <TextBlocks blocks={txt('B21-K4a')} />
@@ -402,9 +403,12 @@ const b22Cam = camPath(
     { f: F_B22[0], x: 1200, y: 400, zoom: 1.41 },
     { f: 2140, x: 1190, y: 420, zoom: 1.52, ease: 'smooth' },
     { f: 2156, x: 1035, y: 625, zoom: 3.5, ease: 'inOut' },
-    { f: 2184, x: 1035, y: 627, zoom: 3.6, ease: 'smooth' },
-    { f: 2192, x: 1030, y: 385, zoom: 0.8, ease: 'out' },
-    { f: F_B22[1], x: 1000, y: 520, zoom: 0.44, ease: 'out' },
+    // r8 (TASK-r8 butir 4): whip mundur dengan rampa 6 f sebelum puncak (lama 2180–2186 = nyata 1945–1951), simetris
+    // dengan masuknya (nyata 1909–1921); dulu diam sampai nyata 1949 lalu langsung blur puncak di 1950
+    { f: 2180, x: 1035, y: 627, zoom: 3.6, ease: 'smooth' },
+    { f: 2186, x: 1033, y: 560, zoom: 2.0, ease: 'in' },
+    { f: 2194, x: 1030, y: 385, zoom: 0.8, ease: 'out' },
+    { f: F_B22[1], x: 1000, y: 520, zoom: 0.44, ease: 'smooth' },
   ],
   { sigma: 0 },
 );

@@ -43,9 +43,11 @@ const LIKE = 717; // 23,9 dtk
 
 const threadsCam = camPath(
   [
+    // r8 (TASK-r8 butir 8): punch ke post mulai nyata ±f541 (lama 618) dan selesai nyata ±f562 (lama 647), saat
+    // "Kalau mau jadi sesuatu" (nyata 536–567) diucapkan; dulu baru terbaca ±f565–570
     { f: F0, x: 960, y: 560, zoom: 1.0, ry: -7 },
-    { f: F0 + 26, x: 960, y: 548, zoom: 1.06, ry: 0, ease: 'out' },
-    { f: 664, x: QUOTE.x + 8, y: QUOTE.y + 16, zoom: 5.3, ease: 'inOut' },
+    { f: F0 + 8, x: 955, y: 552, zoom: 1.05, ry: -2, ease: 'out' },
+    { f: 647, x: QUOTE.x + 8, y: QUOTE.y + 16, zoom: 5.3, ry: 0, ease: 'inOut' },
     { f: F_B09[1], x: QUOTE.x + 6, y: QUOTE.y + 19, zoom: 5.42, ease: 'smooth' },
   ],
   { sigma: 2 },
@@ -72,7 +74,7 @@ const thumbs = ['KBPsHcsl1aY', 'yhC8RcAr9RY'];
 
 const B09Threads: React.FC = () => {
   const f = useCurrentFrame();
-  const scroll = lerp(0, SCROLL_END, prog(f, F0, F0 + 24, 'out'));
+  const scroll = lerp(0, SCROLL_END, prog(f, F0, F0 + 12, 'out')); // r8: gulir selesai sebelum punch
   const likeP = prog(f, LIKE, LIKE + 8, 'out');
   // kursor masuk dari kanan bawah (di dunia, ukuran mengikuti zoom supaya tampak ±70 px)
   const cIn = prog(f, 696, LIKE - 2, 'out');

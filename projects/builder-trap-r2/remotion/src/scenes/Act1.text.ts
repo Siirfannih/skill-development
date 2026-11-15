@@ -43,18 +43,22 @@ export const TEXT_ACT1: TextBlock[] = [
   // r5 (jawaban Q-r4-07): penekanan pada "gak semua orang" (besar); "tapi" kecil pengantar lalu diganti di tempat yang
   // sama oleh blok besar "gak semua orang" + "bisa" kecil di bawahnya (free: bukan penyeimbangan lebar).
   {
-    id: 'B04-N', beat: 'B04', code: 'N', size: 56, x: 912, y: 330, tone: 'dark',
-    lines: [T('Tapi', 5.4, 'tapi')],
+    // r8 (TASK-r8 butir 6): "tapi" 72 px tinta putih penuh sejak masuk (dulu 56 px, abu kata baru selama hampir seluruh
+    // masa tampilnya 12 f → hampir tak terbaca)
+    id: 'B04-N', beat: 'B04', code: 'N', size: 72, x: 912, y: 330, tone: 'dark', dimHead: true,
+    lines: [T('Tapi', 5.4, 'tapi', true)],
     until: at('gak semua', 5.9), note: 'pengantar diganti utuh saat "gak" masuk (r5)',
   },
   {
-    id: 'B04-K4', beat: 'B04', code: 'K4', order: 'big-small', bigSize: 112, ratio: 2.0, free: true,
+    // r8: "bisa" (tampil ±6 f sebelum cut) 112/1,6 = 70 px dan tinta penuh langsung (dulu 56 px abu)
+    id: 'B04-K4', beat: 'B04', code: 'K4', order: 'big-small', bigSize: 112, ratio: 1.6, free: true, smallSolid: true,
     x: 912, y: 330, tone: 'dark', big: T('gak semua orang', 5.9), small: T('bisa', 7.0),
     until: nb(F_B04[1]), exit: 'cut',
     note: 'kalimat lanjut di B05 (cut di "mempublikasikan" sesuai PLAN)',
   },
   {
-    id: 'B05-J', beat: 'B05', code: 'J', size: 178, x: 960, y: 372,
+    // r8 (TASK-r8 butir 5): huruf mulai naik 2 f lebih awal = di frame cut ke B05 (dulu 2 frame krem kosong)
+    id: 'B05-J', beat: 'B05', code: 'J', size: 178, x: 960, y: 372, lead: 2,
     toks: T('mempublikasikan', 7.4),
     until: nb(F_B05[1]), exit: 'cut',
   },
