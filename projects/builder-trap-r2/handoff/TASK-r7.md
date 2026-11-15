@@ -29,6 +29,17 @@ Kata Irfan: "refference card tidak menggunakan warna merah muda gradient dia men
 - R4. Alur seperti kartu: desktop + dock → kursor klik ikon ChatGPT → jendela terbuka di tengah → riwayat bertambah → punch ke prompt (1,4–1,8×, tepi jendela + wallpaper tetap terlihat) → ketik huruf demi huruf → kirim → mosaik ke B14. Cap logo di "AI." tetap.
 - Cek keseimbangan: jendela tengah = seimbang; `balance_check` tetap dijalankan.
 
+
+## Revisi Irfan 15 Nov #2 · layar Mac (menggantikan butir 1, 3, 4)
+Kata Irfan (dengan gambar `handoff/ref_mac_desktop_irfan.webp`): "Buat Mac screen seperti ini untuk frame tersebut kemudian animasikan Mac ini membuka Tab App Chatgpt, sisanya bisa mengikuti konsep animation yang sudah ada."
+- M1. **Wallpaper** = `P/remotion/public/wall_mac.jpg` (foto CC0 padang hijau + langit berawan + sapi, 3840×2563), tajam, cover. `wall_senja.jpg` tidak dipakai.
+- M2. **Layar macOS lengkap seperti gambar referensi**, dibangun sebagai kode (D-013, bukan screenshot):
+  - menu bar atas (±2,5–3 % tinggi, putih tembus buram): logo Apple, "Finder  File  Edit  View  Go  Window  Help"; kanan: ikon status, baterai, wifi, cari, control center, tanggal "Sat Nov 15  10:25 PM" (bahasa Inggris seperti referensi);
+  - ikon desktop kiri-atas (4 ikon + label kecil, 2×2), widget jam flip gelap (3 kotak angka) di tengah-atas, widget kalender bulan November 2026 di kanan-atas — posisi dan proporsi mengikuti referensi;
+  - dock kaca terang di bawah tengah (±8–9 % tinggi), ikon gaya macOS: Finder, Launchpad, Calendar, Notes, App Store, Settings, **ChatGPT**, Chrome, Notion, Spotify, pemisah, Trash; titik kecil di bawah app yang terbuka.
+- M3. **Animasi membuka app ChatGPT** (pembuka B12): desktop tampil (kamera push pelan) → kursor panah besar bergerak ke ikon ChatGPT di dock → klik (ikon tertekan) → ikon memantul 1–2 kali seperti macOS → jendela ChatGPT terbuka dari ikon ke **tengah** layar (skala + gerak 0,35–0,45 dtk, ease-out), menu bar berganti "ChatGPT  File  Edit  View  Window  Help", titik di bawah ikon muncul. Widget/ikon desktop tetap di belakang jendela.
+- Sisanya mengikuti konsep yang ada dan Revisi #1 (R1–R4): jendela utuh rata tengah, riwayat bertambah, cap logo di "AI.", punch ke prompt 1,4–1,8× dengan tepi jendela + desktop tetap terlihat, ketik "build something", kirim, mosaik ke B14; tanpa KT.
+
 ## Aset baru
 - `P/remotion/public/wall_senja.jpg`: foto CC0 "Sunset in the mountains" (Sergey Pesterev, Unsplash, lewat Wikimedia Commons), 3382×2263. Pegunungan berlapis dalam kabut oranye: langit gelap-oranye di atas kiri, kabut terang di tengah, siluet gelap di bawah.
 
