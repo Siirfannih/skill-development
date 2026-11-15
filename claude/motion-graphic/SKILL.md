@@ -101,6 +101,8 @@ Skill ini adalah **titik start, bukan titik nol**: pengalaman yang sudah terbukt
 
 Setiap pekerjaan video dipecah: **Sutradara** (sesi yang bicara dengan Irfan: intake, pertanyaan, bedah, rencana, review buta, devil's advocate, Delivery Gate) dan **Editor** (subagen dengan konteks ramping: build, render, gate mekanis, laporan berbukti). Keduanya berbicara hanya lewat file di `handoff/` (BRIEF, PLAN, TASK, REPORT, REVIEW). Protokol, peta gerbang, dan prompt Editor: `references/roles.md`, `templates/roles/` (Irfan 11 Nov).
 
+**Wajib sebelum build, render, atau QC:** baca `references/orkestrasi.md`. Isinya: model mana mengerjakan apa (Codex menulis kode, Gemini + ChatGPT memeriksa per detik), format TASK untuk pekerja, anggaran token, render cepat, dan gerbang disk.
+
 ## 2b. Guide: standar rasa, per urusan
 
 Sebelum keputusan kreatif, buka `guide/README.md` lalu **hanya** folder urusan yang sedang dikerjakan (`visual/`, `teks/`, `gerak/`, `audio/`, `sfx/`, `hindari/`, `referensi/`). Guide = catatan rasa per urusan, pendamping kartu kiblat (gaya datang dari resep, mutu dari Lantai). Ragu → pilih yang hidup, lalu cek cepat; jangan main aman (Irfan 6 Nov).
