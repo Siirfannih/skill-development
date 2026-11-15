@@ -45,6 +45,22 @@ def compare_transcript(expected, heard):
     return dict(pass_=target == actual, initial_prompt=None, target_tokens=len(target),
                 heard_tokens=len(actual), diff=list(difflib.ndiff(target, actual)))
 
+def whisper_audio(path, target_rate=16000):
+    """Decode WAV before faster-whisper so PyAV is never on this data path.
+
+    The shared PC currently has faster-whisper 1.2.1 with PyAV 19.0.2.
+    Its path decoder passes the removed ``metadata_errors`` keyword to
+    ``av.open``.  Existing working PC jobs avoid that incompatibility by
+    passing a float32 numpy waveform to ``transcribe``; v5 does the same.
+    """
+    audio, source_rate = sf.read(path, dtype='float32', always_2d=True)
+    mono = audio.mean(axis=1, dtype=np.float32)
+    if source_rate != target_rate:
+        from scipy.signal import resample_poly
+        divisor = math.gcd(source_rate, target_rate)
+        mono = resample_poly(mono, target_rate // divisor, source_rate // divisor)
+    return np.ascontiguousarray(mono, dtype=np.float32)
+
 def resource_gate():
     processes = subprocess.check_output(['ps', '-eo', 'pid=,pcpu=,comm=,args='], text=True)
     busy = []
@@ -162,7 +178,7 @@ def main():
         require_clean_provenance()
         from faster_whisper import WhisperModel
         model=WhisperModel('large-v3',device='cpu',compute_type='int8',cpu_threads=2,num_workers=1,local_files_only=True)
-        segments,info=model.transcribe(str(P/'edit/v5/voice_clean.wav'),language='id',word_timestamps=True,beam_size=5,condition_on_previous_text=False,initial_prompt=None)
+        segments,info=model.transcribe(whisper_audio(P/'edit/v5/voice_clean.wav'),language='id',word_timestamps=True,beam_size=5,condition_on_previous_text=False,initial_prompt=None)
         actual=[dict(w=w.word.strip(),s=w.start,e=w.end) for seg in segments for w in seg.words]
         save(P/'edit/v5/transcript.json',actual)
         comparison = compare_transcript(load(P/'edit/v5/words_actual.json'), actual)
