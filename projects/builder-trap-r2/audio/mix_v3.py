@@ -47,6 +47,7 @@ mask = np.clip((20 * np.log10(env + 1e-9) + 45) / 10, 0, 1)  # 0 = jeda (< −45
 mask = np.convolve(mask, np.ones(int(0.3 * SR), np.float32) / int(0.3 * SR), mode='same')
 music *= (10 ** (-1.5 * mask / 20))[:, None].astype(np.float32)
 music[int(T4 * SR):] *= 10 ** (-3.0 / 20)  # babak 4: puncak Aware rapat di pita suara (audio_phone 72–86 dtk < 8 dB); level tetap per babak, bukan pumping
+nf = int(0.5 * SR); music[-nf:] *= (np.linspace(1, 0, nf) ** 2)[:, None] if music.ndim > 1 else np.linspace(1, 0, nf) ** 2  # r8 audit c09: musik tidak terpotong di frame terakhir
 # kantong EQ untuk suara di musik (−4 dB 2,8 kHz, −2 dB 450 Hz) — audio.md §14.10
 sf.write('/tmp/claude-1000/_m2.wav', music, SR)
 music = dec('/tmp/claude-1000/_m2.wav', af='equalizer=f=2800:t=q:w=1.2:g=-4,equalizer=f=450:t=q:w=1.0:g=-2')[:N]

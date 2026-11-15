@@ -15,7 +15,7 @@
    "t_v2": 0.0
   },
   {
-   "t": 0.372,
+   "t": 0.386,
    "file": "/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3",
    "ss": 0.04,
    "dur": 0.35,
@@ -25,11 +25,11 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "pen click / toggle switch click (deretan klik foto)",
-   "mulai": 0.351,
+   "mulai": 0.365,
    "t_v2": 0.733
   },
   {
-   "t": 0.913,
+   "t": 0.915,
    "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
    "ss": 0.0,
    "dur": null,
@@ -39,11 +39,22 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "scroll wheel tick lembut",
-   "mulai": 0.889,
+   "mulai": 0.891,
    "t_v2": 1.367
   },
   {
-   "t": 1.866,
+   "t": 1.4,
+   "t_v2": 1.867,
+   "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+   "gain_db": -14,
+   "align": "peak",
+   "peran": "ganti_foto",
+   "alasan": "isi bingkai arsip berganti (c01 f42) (audit frame 15 Nov)",
+   "dengar": "pen click / key release",
+   "mulai": 1.372
+  },
+  {
+   "t": 1.831,
    "file": "/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3",
    "ss": 1.24,
    "dur": 0.35,
@@ -53,11 +64,11 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "pen click / toggle switch click (deretan klik foto)",
-   "mulai": 1.845,
+   "mulai": 1.81,
    "t_v2": 2.333
   },
   {
-   "t": 2.367,
+   "t": 2.391,
    "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
    "ss": 0.0,
    "dur": null,
@@ -67,8 +78,33 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "scroll wheel tick lembut",
-   "mulai": 2.343,
+   "mulai": 2.367,
    "t_v2": 2.967
+  },
+  {
+   "t": 2.77,
+   "t_v2": 3.37,
+   "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+   "gain_db": -14,
+   "align": "peak",
+   "peran": "ganti_foto",
+   "alasan": "isi bingkai arsip berganti (c01 f83) (audit frame 15 Nov)",
+   "dengar": "pen click / key release",
+   "mulai": 2.742
+  },
+  {
+   "t": 3.508,
+   "t_v2": 4.23,
+   "file": "/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3",
+   "gain_db": -12,
+   "align": "peak",
+   "peran": "ganti_foto",
+   "alasan": "isi bingkai kembali ke Jensen (c01 f103) (audit frame 15 Nov)",
+   "dengar": "pen click / toggle switch click",
+   "ss": 1.2,
+   "dur": 0.3,
+   "fout": 0.05,
+   "mulai": 3.451
   },
   {
    "t": 4.067,
@@ -85,7 +121,7 @@
    "t_v2": 4.867
   },
   {
-   "t": 4.37,
+   "t": 4.352,
    "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
    "ss": 0.0,
    "dur": null,
@@ -95,7 +131,7 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "fast whoosh / soft air whoosh",
-   "mulai": 4.075,
+   "mulai": 4.057,
    "t_v2": 5.17
   },
   {
@@ -113,7 +149,7 @@
    "t_v2": 7.57
   },
   {
-   "t": 8.233,
+   "t": 8.031,
    "file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Glitch, Glitch Databend 04 - Epidemic Sound.mp3",
    "ss": 0.0,
    "dur": 0.9,
@@ -123,11 +159,11 @@
    "align": "peak",
    "fout": 0.2,
    "dengar": "digital glitch / stutter transition",
-   "mulai": 8.075,
+   "mulai": 7.873,
    "t_v2": 9.4
   },
   {
-   "t": 8.333,
+   "t": 8.531,
    "file": "/home/irfan/sfx/SFXIrfan/documenter.mp3",
    "ss": 2.95,
    "dur": 0.5,
@@ -137,7 +173,7 @@
    "align": "peak",
    "fout": 0.15,
    "dengar": "cloth/paper rustling",
-   "mulai": 8.14,
+   "mulai": 8.338,
    "t_v2": 10.1
   },
   {
@@ -183,7 +219,18 @@
    "t_v2": 16.0
   },
   {
-   "t": 18.367,
+   "t": 14.816,
+   "t_v2": 17.107,
+   "file": "audio/sfx_el/paper_slide.mp3",
+   "gain_db": -15,
+   "align": "peak",
+   "peran": "kartu_jatuh",
+   "alasan": "gugus thumbnail kedua jatuh keluar frame (c02 f444–455) (audit frame 15 Nov)",
+   "dengar": "kertas meluncur",
+   "mulai": 14.682
+  },
+  {
+   "t": 18.476,
    "file": "/home/irfan/sfx/SFXIrfan/Wooshcameramovementtransisi.mp3",
    "ss": 0.0,
    "dur": null,
@@ -193,7 +240,7 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "fast whoosh / swoosh passing by",
-   "mulai": 17.158,
+   "mulai": 17.267,
    "t_v2": 21.2
   },
   {
@@ -239,24 +286,26 @@
    "t_v2": 30.47
   },
   {
-   "t": 28.333,
+   "t": 28.314,
    "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
    "gain_db": -12,
    "align": "peak",
    "peran": "klik",
    "alasan": "kursor klik ikon ChatGPT di dock (r7, f850)",
    "dengar": "pen click / key release",
-   "mulai": 28.305
+   "mulai": 28.286,
+   "t_v2": 31.5
   },
   {
-   "t": 28.88,
+   "t": 28.991,
    "file": "/home/irfan/sfx/SFXIrfan/pop up.mp3",
    "gain_db": -14,
    "align": "peak",
    "peran": "buka_app",
    "alasan": "jendela ChatGPT terbuka dari ikon ke tengah (r7, f866–878)",
    "dengar": "bubble pop",
-   "mulai": 28.814
+   "mulai": 28.925,
+   "t_v2": 32.447
   },
   {
    "t": 30.12,
@@ -266,7 +315,8 @@
    "peran": "whoosh",
    "alasan": "kamera punch ke kotak prompt di \"investasi\" (r7d, f901–908)",
    "dengar": "fast whoosh / soft air whoosh",
-   "mulai": 29.825
+   "mulai": 29.825,
+   "t_v2": 33.687
   },
   {
    "t": 31.263,
@@ -283,7 +333,7 @@
    "t_v2": 34.83
   },
   {
-   "t": 33.25,
+   "t": 33.797,
    "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
    "ss": 0.0,
    "dur": null,
@@ -293,11 +343,11 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "fast whoosh / soft air whoosh",
-   "mulai": 32.955,
+   "mulai": 33.502,
    "t_v2": 37.73
   },
   {
-   "t": 33.45,
+   "t": 33.967,
    "file": "/home/irfan/sfx/SFXIrfan/Keyboardtyping.mp3",
    "ss": 0.36,
    "dur": 1.2,
@@ -307,11 +357,11 @@
    "align": "peak",
    "fout": 0.12,
    "dengar": "keyboard typing fast",
-   "mulai": 33.033,
+   "mulai": 33.55,
    "t_v2": 37.9
   },
   {
-   "t": 34.784,
+   "t": 34.778,
    "file": "/home/irfan/sfx/SFXIrfan/Enter.mp3",
    "ss": 0.0,
    "dur": null,
@@ -321,11 +371,11 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "mechanical key press (klik tegas)",
-   "mulai": 34.766,
+   "mulai": 34.76,
    "t_v2": 38.8
   },
   {
-   "t": 34.83,
+   "t": 34.827,
    "file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Glitch, Glitch Databend 04 - Epidemic Sound.mp3",
    "ss": 0.0,
    "dur": 0.8,
@@ -335,7 +385,7 @@
    "align": "peak",
    "fout": 0.2,
    "dengar": "digital glitch / stutter transition",
-   "mulai": 34.672,
+   "mulai": 34.669,
    "t_v2": 38.86
   },
   {
@@ -367,18 +417,18 @@
    "t_v2": 42.33
   },
   {
-   "t": 38.73,
+   "t": 39.5,
    "file": "/home/irfan/sfx/SFXIrfan/Wooshcameramovementtransisi.mp3",
    "ss": 0.0,
    "dur": null,
    "gain_db": -15,
    "peran": "whoosh",
-   "alasan": "kamera mundur lebar ke seluruh dinding",
+   "alasan": "r8: kamera naik, kartu + potret masuk (audit c04 f1186–1199)",
    "align": "peak",
    "fout": 0.03,
    "dengar": "fast whoosh / swoosh passing by",
-   "mulai": 37.521,
-   "t_v2": 43.33
+   "mulai": 38.291,
+   "t_v2": 44.1
   },
   {
    "t": 40.47,
@@ -395,7 +445,7 @@
    "t_v2": 45.07
   },
   {
-   "t": 41.367,
+   "t": 41.443,
    "file": "/home/irfan/sfx/SFXIrfan/ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3",
    "ss": 0.0,
    "dur": null,
@@ -405,11 +455,11 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "reverse cymbal swell / riser",
-   "mulai": 37.238,
+   "mulai": 37.314,
    "t_v2": 46.3
   },
   {
-   "t": 41.367,
+   "t": 41.464,
    "file": "/home/irfan/sfx/SFXIrfan/ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz - Epidemic Sound.mp3",
    "ss": 0.0,
    "dur": 2.5,
@@ -419,11 +469,11 @@
    "align": "peak",
    "fout": 0.9,
    "dengar": "sub bass drop",
-   "mulai": 40.539,
+   "mulai": 40.636,
    "t_v2": 46.33
   },
   {
-   "t": 44.27,
+   "t": 44.233,
    "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
    "ss": 0.0,
    "dur": null,
@@ -433,7 +483,7 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "scroll wheel tick lembut",
-   "mulai": 44.246,
+   "mulai": 44.209,
    "t_v2": 49.77
   },
   {
@@ -493,7 +543,7 @@
    "t_v2": 52.9
   },
   {
-   "t": 48.867,
+   "t": 48.872,
    "file": "/home/irfan/sfx/SFXIrfan/Keyboardtyping.mp3",
    "ss": 1.41,
    "dur": 0.65,
@@ -503,8 +553,19 @@
    "align": "peak",
    "fout": 0.1,
    "dengar": "keyboard typing fast",
-   "mulai": 48.348,
+   "mulai": 48.353,
    "t_v2": 54.6
+  },
+  {
+   "t": 49.638,
+   "t_v2": 55.567,
+   "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
+   "gain_db": -14,
+   "align": "peak",
+   "peran": "whoosh",
+   "alasan": "halaman GitHub blur-geser keluar (c05 f1482–1494) (audit frame 15 Nov)",
+   "dengar": "soft air whoosh",
+   "mulai": 49.343
   },
   {
    "t": 50.133,
@@ -535,32 +596,66 @@
    "t_v2": 57.83
   },
   {
-   "t": 56.303,
+   "t": 52.0,
+   "t_v2": 58.217,
+   "file": "audio/sfx_el/kartu_rattle_r8.wav",
+   "gain_db": -13,
+   "align": "start",
+   "peran": "rentetan_kartu",
+   "alasan": "kartu repo B20 jatuh/ditumpuk satu per satu, 15 klik kertas di frame mendarat (c06; R-016 lama \"satu rattle\")",
+   "dengar": "deretan klik kertas lembut",
+   "mulai": 52.0
+  },
+  {
+   "t": 56.255,
    "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_impact_1.mp3",
    "ss": 0.0,
-   "dur": 1.8,
+   "dur": 0.55,
    "gain_db": -6,
    "peran": "beku",
-   "alasan": "semua kartu berhenti mendadak + guncang (\"gak pernah selesai\")",
+   "alasan": "semua kartu berhenti mendadak + guncang (\"gak pernah selesai\") · r8: ekor dipendekkan, tidak menutup \"Aku terobsesi\"",
    "align": "peak",
-   "fout": 0.6,
+   "fout": 0.25,
    "dengar": "sub bass drop / hum (v17)",
-   "mulai": 56.303,
+   "mulai": 56.255,
    "t_v2": 63.07
   },
   {
-   "t": 64.097,
+   "t": 63.839,
    "file": "/home/irfan/sfx/SFXIrfan/Wooshcameramovementtransisi.mp3",
    "ss": 0.0,
    "dur": null,
    "gain_db": -14,
    "peran": "whoosh",
-   "alasan": "kamera mundur jauh: timbunan draft terlihat",
+   "alasan": "r8: zoom-in blur ke \"Edit profile\" (audit c07 f1911–1916)",
    "align": "peak",
    "fout": 0.03,
    "dengar": "fast whoosh / swoosh passing by",
-   "mulai": 62.888,
-   "t_v2": 71.93
+   "mulai": 62.63,
+   "t_v2": 71.556
+  },
+  {
+   "t": 64.95,
+   "t_v2": 72.783,
+   "file": "/home/irfan/sfx/SFXIrfan/Wooshcameramovementtransisi.mp3",
+   "gain_db": -13,
+   "align": "peak",
+   "peran": "whoosh",
+   "alasan": "zoom-out lorong dari \"Edit profile\" ke dinding kartu (c07 f1950) (audit frame 15 Nov)",
+   "dengar": "fast whoosh lewat",
+   "fout": 0.03,
+   "mulai": 63.741
+  },
+  {
+   "t": 67.195,
+   "t_v2": 75.333,
+   "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
+   "gain_db": -15,
+   "align": "peak",
+   "peran": "whoosh",
+   "alasan": "wipe grafik → wajah (c07 f2017) (audit frame 15 Nov)",
+   "dengar": "soft air whoosh",
+   "mulai": 66.9
   },
   {
    "t": 68.533,
@@ -605,7 +700,7 @@
    "t_v2": 80.77
   },
   {
-   "t": 76.457,
+   "t": 76.444,
    "file": "/home/irfan/sfx/SFXIrfan/Enter.mp3",
    "ss": 0.0,
    "dur": null,
@@ -615,11 +710,11 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "mechanical key press (klik tegas)",
-   "mulai": 76.439,
+   "mulai": 76.426,
    "t_v2": 86.13
   },
   {
-   "t": 76.617,
+   "t": 76.609,
    "file": "/home/irfan/sfx/SFXIrfan/pop up.mp3",
    "ss": 0.0,
    "dur": null,
@@ -629,11 +724,11 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "bubble pop",
-   "mulai": 76.551,
+   "mulai": 76.543,
    "t_v2": 86.33
   },
   {
-   "t": 77.282,
+   "t": 77.305,
    "file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
    "ss": 0.0,
    "dur": null,
@@ -643,11 +738,11 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "glass ting / kalimba (pop like)",
-   "mulai": 76.684,
+   "mulai": 76.707,
    "t_v2": 87.2
   },
   {
-   "t": 78.512,
+   "t": 78.522,
    "file": "/home/irfan/sfx/SFXIrfan/pop up.mp3",
    "ss": 0.0,
    "dur": null,
@@ -657,7 +752,7 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "bubble pop",
-   "mulai": 78.446,
+   "mulai": 78.456,
    "t_v2": 89.13
   },
   {
