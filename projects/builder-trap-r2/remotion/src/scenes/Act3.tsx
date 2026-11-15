@@ -66,9 +66,9 @@ const B17_SAVE = 1557; // 51,9 dtk
 // r6 (butir 2): UI diperbesar mengisi separuh kanan: modal mulai layar x 960, zoom 1,2 → 1,24, terpotong tepi kanan
 const b17Cam = camPath(
   [
-    { f: F_B17[0], x: 568, y: 588, zoom: 1.2, ry: -2.5, rx: 1 },
-    { f: B17_SAVE, x: 568, y: 580, zoom: 1.22, ry: -1.8, rx: 0.7, ease: 'smooth' },
-    { f: F_B17[1], x: 590, y: 560, zoom: 1.24, ry: -1.2, rx: 0.5, ease: 'inOut' },
+    { f: F_B17[0], x: 650, y: 588, zoom: 1.2, ry: -2.5, rx: 1 },
+    { f: B17_SAVE, x: 650, y: 580, zoom: 1.22, ry: -1.8, rx: 0.7, ease: 'smooth' },
+    { f: F_B17[1], x: 660, y: 560, zoom: 1.24, ry: -1.2, rx: 0.5, ease: 'inOut' },
   ],
   { sigma: 1.5 },
 );
@@ -122,6 +122,8 @@ const B17: React.FC = () => {
         {pulse > 0 ? (
           <div style={{ position: 'absolute', left: DRAFT_ICON.x - 22, top: DRAFT_ICON.y - 22, width: 44, height: 44, borderRadius: 12, boxShadow: `0 0 0 ${2 + 3 * (1 - pulse)}px rgba(201,203,209,${0.9 * pulse})` }} />
         ) : null}
+      </Layer>
+      <Layer z={55} name="L2-modal">
         <div
           style={{
             position: 'absolute', left: sx - MODAL.w / 2, top: sy - 163, transformOrigin: '50% 50%',

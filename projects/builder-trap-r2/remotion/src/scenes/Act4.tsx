@@ -347,7 +347,7 @@ const B25b: React.FC = () => {
         <Paper scale={4} />
       </Layer>
       <Layer z={0} name="L2">
-        <div style={{ position: 'absolute', left: WIN.x, top: WIN.y, boxShadow: '0 32px 80px rgba(0,0,0,0.20)' }}>
+        <div style={{ position: 'absolute', left: WIN.x, top: WIN.y, width: WIN.w, height: WIN.h, borderRadius: 18, boxShadow: '0 32px 80px rgba(0,0,0,0.20)' }}>
           <ThreadsWindow
             mode="light" ui={TH_UI} w={WIN.w} h={WIN.h} colW={COL_W} header="Profile" active="profile"
             overlay={scrim > 0 ? <div style={{ position: 'absolute', inset: 0, background: `rgba(0,0,0,${0.36 * scrim})` }} /> : null}
@@ -355,6 +355,8 @@ const B25b: React.FC = () => {
             <ThProfile mode="light" ui={TH_UI} w={COL_W} name="I Gede Irfan" handle="siirfannih" avatar={AVATAR} posts={posts} />
           </ThreadsWindow>
         </div>
+      </Layer>
+      <Layer z={55} name="L2-modal">
         {close < 1 ? (
           <Place x={MODAL.x} y={MODAL.y} scale={1 - 0.05 * close} origin="50% 40%" style={{ opacity: 1 - close }}>
             <ThComposer mode="light" ui={TH_UI} user="siirfannih" avatar={AVATAR} attachments={attachments} postPress={press} postHover={hover} />
