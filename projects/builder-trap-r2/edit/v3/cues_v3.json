@@ -191,6 +191,17 @@
    "t_v2": 10.83
   },
   {
+   "t": 12.97,
+   "t_v2": 14.937,
+   "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 12.97 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "crisp click",
+   "mulai": 12.969
+  },
+  {
    "t": 13.963,
    "file": "/home/irfan/sfx/SFXIrfan/scaningfast.mp3",
    "ss": 0.0,
@@ -230,6 +241,28 @@
    "mulai": 14.682
   },
   {
+   "t": 15.9,
+   "t_v2": 18.4,
+   "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 15.90 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "crisp click",
+   "mulai": 15.899
+  },
+  {
+   "t": 17.83,
+   "t_v2": 20.33,
+   "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 17.83 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "crisp click",
+   "mulai": 17.829
+  },
+  {
    "t": 18.476,
    "file": "/home/irfan/sfx/SFXIrfan/Wooshcameramovementtransisi.mp3",
    "ss": 0.0,
@@ -258,6 +291,17 @@
    "t_v2": 23.9
   },
   {
+   "t": 21.4,
+   "t_v2": 24.5,
+   "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 21.40 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "crisp click",
+   "mulai": 21.399
+  },
+  {
    "t": 23.403,
    "file": "/home/irfan/sfx/SFXIrfan/scaningfast.mp3",
    "ss": 0.0,
@@ -272,6 +316,17 @@
    "t_v2": 26.57
   },
   {
+   "t": 25.93,
+   "t_v2": 29.097,
+   "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 25.93 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "pen click / key release",
+   "mulai": 25.902
+  },
+  {
    "t": 27.303,
    "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_thud_0.mp3",
    "ss": 0.0,
@@ -284,6 +339,17 @@
    "dengar": "punchy impact hit (v17)",
    "mulai": 27.196,
    "t_v2": 30.47
+  },
+  {
+   "t": 27.83,
+   "t_v2": 30.997,
+   "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 27.83 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "crisp click",
+   "mulai": 27.829
   },
   {
    "t": 28.314,
@@ -333,7 +399,29 @@
    "t_v2": 34.83
   },
   {
-   "t": 33.797,
+   "t": 31.7,
+   "t_v2": 35.467,
+   "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 31.70 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "pen click / key release",
+   "mulai": 31.672
+  },
+  {
+   "t": 32.7,
+   "t_v2": 36.617,
+   "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 32.70 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "crisp click",
+   "mulai": 32.699
+  },
+  {
+   "t": 33.2,
    "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
    "ss": 0.0,
    "dur": null,
@@ -343,11 +431,11 @@
    "align": "peak",
    "fout": 0.03,
    "dengar": "fast whoosh / soft air whoosh",
-   "mulai": 33.502,
-   "t_v2": 37.73
+   "mulai": 32.905,
+   "t_v2": 37.133
   },
   {
-   "t": 33.967,
+   "t": 33.43,
    "file": "/home/irfan/sfx/SFXIrfan/Keyboardtyping.mp3",
    "ss": 0.36,
    "dur": 1.2,
@@ -357,8 +445,8 @@
    "align": "peak",
    "fout": 0.12,
    "dengar": "keyboard typing fast",
-   "mulai": 33.55,
-   "t_v2": 37.9
+   "mulai": 33.013,
+   "t_v2": 37.363
   },
   {
    "t": 34.778,
@@ -473,6 +561,17 @@
    "t_v2": 46.33
   },
   {
+   "t": 43.57,
+   "t_v2": 49.07,
+   "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 43.57 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "pen click / key release",
+   "mulai": 43.542
+  },
+  {
    "t": 44.233,
    "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
    "ss": 0.0,
@@ -485,6 +584,17 @@
    "dengar": "scroll wheel tick lembut",
    "mulai": 44.209,
    "t_v2": 49.77
+  },
+  {
+   "t": 45.13,
+   "t_v2": 50.73,
+   "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 45.13 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "crisp click",
+   "mulai": 45.129
   },
   {
    "t": 45.6,
@@ -529,6 +639,17 @@
    "t_v2": 51.9
   },
   {
+   "t": 46.87,
+   "t_v2": 52.47,
+   "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 46.87 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "pen click / key release",
+   "mulai": 46.842
+  },
+  {
    "t": 47.3,
    "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
    "ss": 0.0,
@@ -541,6 +662,17 @@
    "dengar": "scroll wheel tick lembut",
    "mulai": 47.276,
    "t_v2": 52.9
+  },
+  {
+   "t": 48.57,
+   "t_v2": 54.234,
+   "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 48.57 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "crisp click",
+   "mulai": 48.569
   },
   {
    "t": 48.872,
@@ -599,7 +731,7 @@
    "t": 52.0,
    "t_v2": 58.217,
    "file": "audio/sfx_el/kartu_rattle_r8.wav",
-   "gain_db": -13,
+   "gain_db": -11,
    "align": "start",
    "peran": "rentetan_kartu",
    "alasan": "kartu repo B20 jatuh/ditumpuk satu per satu, 15 klik kertas di frame mendarat (c06; R-016 lama \"satu rattle\")",
@@ -619,6 +751,39 @@
    "dengar": "sub bass drop / hum (v17)",
    "mulai": 56.255,
    "t_v2": 63.07
+  },
+  {
+   "t": 56.63,
+   "t_v2": 63.595,
+   "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 56.63 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "pen click / key release",
+   "mulai": 56.602
+  },
+  {
+   "t": 59.5,
+   "t_v2": 67.067,
+   "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 59.50 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "crisp click",
+   "mulai": 59.499
+  },
+  {
+   "t": 62.7,
+   "t_v2": 70.267,
+   "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 62.70 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "pen click / key release",
+   "mulai": 62.672
   },
   {
    "t": 63.839,
@@ -700,6 +865,39 @@
    "t_v2": 80.77
   },
   {
+   "t": 72.27,
+   "t_v2": 81.37,
+   "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 72.27 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "crisp click",
+   "mulai": 72.269
+  },
+  {
+   "t": 73.77,
+   "t_v2": 83.337,
+   "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 73.77 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "pen click / key release",
+   "mulai": 73.742
+  },
+  {
+   "t": 75.1,
+   "t_v2": 84.733,
+   "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 75.10 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "crisp click",
+   "mulai": 75.099
+  },
+  {
    "t": 76.444,
    "file": "/home/irfan/sfx/SFXIrfan/Enter.mp3",
    "ss": 0.0,
@@ -754,6 +952,17 @@
    "dengar": "bubble pop",
    "mulai": 78.456,
    "t_v2": 89.13
+  },
+  {
+   "t": 80.0,
+   "t_v2": 91.21,
+   "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+   "gain_db": -17,
+   "align": "peak",
+   "peran": "potong_adegan",
+   "alasan": "potong adegan di 80.00 dtk tanpa bunyi (audit ulang r8, 15 Nov)",
+   "dengar": "pen click / key release",
+   "mulai": 79.972
   },
   {
    "t": 81.87,
