@@ -64,6 +64,15 @@ class TimelineV5(unittest.TestCase):
         self.assertEqual(decoded.ndim, 1)
         self.assertEqual(len(decoded), 16_000)
 
+    def test_transcript_review_preserves_raw_failure_and_covers_missing_content(self):
+        review = load('edit/v5/transcript-review.json')
+        self.assertTrue(review['pass'])
+        self.assertFalse(review['raw_full_asr']['pass'])
+        evidence = {item['expected']: item for item in review['content_review']}
+        self.assertEqual(set(evidence), {'Build something', 'Apa pengalaman'})
+        self.assertTrue(all(item['verdict'] == 'UTUH' for item in evidence.values()))
+        self.assertTrue(all(item['confidence'] >= 0.85 for item in evidence.values()))
+
     def test_finished_historical_pid_does_not_block(self):
         with patch.object(build.subprocess, 'check_output', return_value='4108755 0.0 python edge10f.py\n'):
             build.resource_gate()

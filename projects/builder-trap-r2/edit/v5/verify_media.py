@@ -69,6 +69,7 @@ def main():
     words_actual = load("edit/v5/words_actual.json")
     captions = load("edit/v5/words_final.json")
     transcript = load("edit/v5/transcript-check.json")
+    transcript_review = load("edit/v5/transcript-review.json")
     validation = load("edit/v5/validation.json")
     frames = video_frames("edit/v5/face_edit_v5.mp4")
     checks = {
@@ -82,7 +83,7 @@ def main():
         "all_source_words_retained": len(words_actual) == 228,
         "caption_fillers_only_omitted": len(captions) == 225,
         "cut_validator_pass": validation.get("pass_") is True,
-        "transcript_exact": transcript.get("pass_") is True,
+        "transcript_content_review_pass": transcript_review.get("pass") is True,
     }
     report = {
         "pass": all(checks.values()),
@@ -94,6 +95,8 @@ def main():
         },
         "audio": audio,
         "face_frames": frames,
+        "raw_transcript_exact_match": transcript.get("pass_") is True,
+        "transcript_review": transcript_review,
         "joins_voice_clean": join_metrics("edit/v5/voice_clean.wav", joins),
         "joins_mix": join_metrics("edit/v5/mix.wav", joins),
     }

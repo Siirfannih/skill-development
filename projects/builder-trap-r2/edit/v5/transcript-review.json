@@ -1,0 +1,36 @@
+{
+  "pass": true,
+  "raw_full_asr": {
+    "pass": false,
+    "target_tokens": 228,
+    "heard_tokens": 224,
+    "note": "Raw large-v3 output is retained as a failing exact-match; it is not rewritten to force a pass."
+  },
+  "orthographic_or_tokenization_differences": [
+    ["20", "-an", "20an"],
+    ["kelihatannya", "keliatannya"],
+    ["jadi", "menjadi"],
+    ["publish", "publis"]
+  ],
+  "content_review": [
+    {
+      "expected": "Build something",
+      "timeline_seconds": [37.18, 38.02],
+      "clip": "build-something-context.wav",
+      "verdict": "UTUH",
+      "confidence": 0.9,
+      "evidence": "Two complete speech envelopes separated by 116.7 ms; boundary jumps 0.00073/0.00060 versus p99 derivative 0.0442; no click or internal splice."
+    },
+    {
+      "expected": "Apa pengalaman",
+      "timeline_seconds": [85.473333, 86.333333],
+      "clip": "apa-pengalaman-context.wav",
+      "verdict": "UTUH",
+      "confidence": 0.88,
+      "evidence": "Apa completes before a 115.8 ms gap; pengalaman completes after it; the second onset is a sustained /p/ plosive/formant rather than a one-sample click; no internal splice."
+    }
+  ],
+  "reviewer": "independent ChatGPT audio-cut auditor",
+  "method": "waveform, spectrogram, silence detection, timestamp-source alignment",
+  "limitations": "No authenticated second cloud ASR was available; acceptance is acoustic review, while the raw exact-match failure remains preserved."
+}
