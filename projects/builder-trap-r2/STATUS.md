@@ -1,4 +1,4 @@
-# STATUS · builder-trap-r2 (diperbarui 15 Nov 22.40)
+# STATUS · builder-trap-r2 (diperbarui 16 Nov 00.50)
 
 ## Akses jalur (orkestrasi.md §2, dicek 15 Nov 22.38 di node-c-pc)
 - Codex: `~/.local/bin/codex`, login ChatGPT, `codex exec` OK → jalur builder + pemeriksa ChatGPT (jalur QC terpisah `-l qc-builder-trap-r2`).
@@ -9,7 +9,9 @@
 ## Posisi
 - v4: audit frame per frame 9/9 LULUS (pemeriksa subagen Sonnet — orkestrasi.md belum ada saat audit; mulai revisi berikutnya: Gemini + ChatGPT paralel, Sonnet hanya cadangan).
 - v4 DIKIRIM 15 Nov 23.50: Drive `Claude edit/builder-trap-r2/builder-trap-r2_v4.mp4`, 2501 frame, −14,9 LUFS (`DELIVERY-v4.md`). Kunci render dilepas, work-27 dikabari.
-- Menunggu umpan balik Irfan.
+- Revisi v5 berjalan (R-024/R-025). Audit awal menemukan 39 splice; `Apa` tersisa 27 ms, `Untuk` 247 ms, dan sejumlah kata lain kehilangan fonem karena rentang buang overlap kata isi. Tugas builder: `handoff/TASK-r9.md`.
+- PC 16 Nov 00.44: 15 GB kosong, 21 GB RAM tersedia; ada job Whisper 8-thread sesi lain, jadi render/Whisper v5 menunggu job itu selesai. Editing kode ringan boleh di workspace terisolasi.
+- RAEA: tidak kompatibel langsung dengan proyek ini (`OffthreadVideo`, `getInputProps`, `interpolateColors` belum parity); uji adapter 3 still + 10 dtk setelah Remotion v5 lulus.
 
 ## Ukuran (§9)
 - Ronde: r7 (B12–B13) 7 subronde; audit frame: v3 → r8 → r8b → r8c → r8d → r8e (5 putaran ulang).
