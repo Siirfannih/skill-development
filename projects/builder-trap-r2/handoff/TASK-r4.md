@@ -8,7 +8,7 @@ Editor KT. P = `projects/builder-trap-r2`, R = root repo. Versi v1 dan v2 sudah 
 ## Kerjakan (kriteria di `P/handoff/REVIEW-v2-irfan.md`)
 1. **Mesin (KT-1):** blok K4/K3/N dua baris atau lebih dihitung sebagai satu blok: ukur lebar tiap baris (fungsi `measure` sudah ada), skala kata besar sampai lebarnya = lebar baris kecil ±5 % (min 96 px, maks sampai safe frame x 165–1755), rata sisi yang sama. Bila baris kecil > 3 kata, pecah ke tampilan sebelumnya (KT-2), jangan kecilkan.
 2. **Pecah kalimat panjang (KT-2)** di semua beat: narasi 1–3 kata per tampil (maks 4), frasa diganti utuh di tempat yang sama. Prioritas: B09, B10, B11, B13, B14, B15, B19–B22, B24–B26.
-3. **Pembuka B01–B03 (KT-3):** hapus kotak putih di belakang "semua orang tuh bisa / kunci". Ganti dengan blok editorial seimbang tanpa kotak (tinta gelap di kertas), menempel bingkai arsip (≤ 0,15 lebar frame dari tepinya), kunci triad tetap berganti di tempat yang sama, aksen `#1A3AD0` hanya pada kunci.
+3. **Pembuka B01–B03 (arahan Irfan 15 Nov, menggantikan versi awal butir ini):** kartu (shape + teks) dipertahankan tapi dipecah per kata mengelilingi bingkai footage: kartu 1 "semua" kiri atas, kartu 2 "orang tuh" di kanannya, kartu 3 "bisa" di kanan kartu 2, kartu 4 kata kunci di bawah (posisi label sekarang) berganti membangun → membuat → bikin software. Kartu 1–3 konstan, muncul per kata; kartu ikut push bingkai.
 4. **Variasi mode (KT-4):** di sisipan wajah, selang-seling mode (hero satu kata, blok seimbang, frasa pendek) dan sisi/pita; tidak ada > 2 tampilan berturut dengan mode + posisi sama.
 5. **Catatan Irfan per frame (KT-5):**
    - B07: "unik." diskalakan sampai lebarnya ≥ lebar "sesuatu yang", ujung kanan sejajar.
