@@ -68,7 +68,7 @@ case "$MODE" in
     fi
     [ "$gagal" = 0 ] || { echo "Render penuh ditolak."; exit 1; }
     free_mb=$(df --output=avail -BM "$P" | tail -1 | tr -dc 0-9)
-    [ "${free_mb:-0}" -ge 6000 ] || echo "PERINGATAN: disk kosong ${free_mb} MB (< 6 GB). Cache frame video Remotion bisa memakan ±2–5 GB; kehabisan ruang muncul sebagai \"Page crashed\" / ENOSPC (builder-trap-r2 v2, 14 Nov)."
+    [ "${free_mb:-0}" -ge 8000 ] || echo "PERINGATAN: disk kosong ${free_mb} MB (< 8 GB). Render penuh memakai sampai ±3,6 GB di puncaknya dan proses lain di PC bersama bisa naik-turun 2–3 GB; kehabisan ruang muncul sebagai halaman render crash (builder-trap-r2 v2 14 Nov; v3 15 Nov dua kali, disk 561 MB saat crash). Bebaskan ruang dulu."
     bundle; n=$(( $(grep -c '^final' "$QC/render.log" 2>/dev/null || true) + 1 ))
     echo "final $(date '+%F %T') ke-$n ${RANGE:-penuh} -> $OUT" >> "$QC/render.log"
     [ "$n" -le 2 ] || echo "PERINGATAN: ini render penuh ke-$n untuk video ini. Revisi cukup rentang yang berubah (argumen awal-akhir)."
