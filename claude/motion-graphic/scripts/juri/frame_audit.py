@@ -23,7 +23,7 @@ Tanda otomatis (penapis, bukan putusan):
   KEDIP   satu frame berbeda dari kedua tetangganya yang mirip satu sama lain (frame kosong/dip 1 f)
   BEKU    ≥ 3 frame identik di antara frame yang bergerak (gerak tertahan)
   SFX?    potong/lompatan visual besar tanpa cue SFX dalam ±0,30 dtk (dinilai: perlu bunyi atau sengaja hening)
-Pakai:  python3 frame_audit.py qc/frames --fps 30 --cuts handoff/beats_v3_frames.txt --cues edit/v3/cues_v3.json \\
+Pakai:  python3 frame_audit.py qc/frames --src remotion/src --fps 30 --cuts handoff/beats_v3_frames.txt --cues edit/v3/cues_v3.json \\
           --words edit/v3/words_final.json --stems audio --out qc/frame_audit
 """
 import argparse, glob, json, os, re, sys
@@ -70,7 +70,7 @@ def stem_env(folder, fps, n):
         x, sr = sf.read(cands[-1], always_2d=True); x = x.mean(1)
         hop = sr / fps
         e = np.array([np.sqrt(np.mean(x[int(i * hop):int((i + 1) * hop)] ** 2) + 1e-12) for i in range(n)])
-        out[tag] = 20 * np.log10(e + 1e-9)
+        out[tag] = np.nan_to_num(20 * np.log10(e + 1e-9), nan=-90.0)  # frame melebihi panjang audio = senyap
     return out
 
 
@@ -79,8 +79,14 @@ def main():
     ap.add_argument("frames"); ap.add_argument("--fps", type=float, default=30)
     ap.add_argument("--cuts"); ap.add_argument("--cues"); ap.add_argument("--words"); ap.add_argument("--stems")
     ap.add_argument("--chunk", type=float, default=10.0); ap.add_argument("--out", default="qc/frame_audit")
+    ap.add_argument("--src", help="folder kode (mis. remotion/src): frame yang lebih tua dari perubahan kode terakhir = BASI → keluar")
     a = ap.parse_args()
     fs = load_frames(a.frames); n = len(fs); fps = a.fps
+    if a.src:  # gagal 15 Nov: render ulang sebagian (f520–610) menyambung frame lama f611+ → audit melihat "snap" palsu
+        newest = max(os.path.getmtime(os.path.join(r, f)) for r, _, fl in os.walk(a.src) for f in fl)
+        stale = [i for i, f in enumerate(fs) if os.path.getmtime(f) < newest]
+        if stale:
+            sys.exit(f"BASI: {len(stale)} frame lebih tua dari perubahan kode terakhir (mis. f{stale[0]}–f{stale[-1]}). Render ulang semua frame (render.sh frames), jangan menyambung rentang.")
     print(f"frame {n} ({n / fps:.2f} dtk) · menghitung jarak antar-frame …")
     v = np.stack([small(f) for f in fs])
     d = np.abs(np.diff(v, axis=0)).mean((1, 2))                     # d[i] = frame i → i+1
