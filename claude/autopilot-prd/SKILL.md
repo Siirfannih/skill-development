@@ -38,7 +38,7 @@ Untuk butir yang sudah ada di rencana tertulis:
 1. Ambil butir siap teratas (semua ketergantungan sudah merge).
 2. Worktree + branch sendiri. `pnpm install --frozen-lockfile --prefer-offline` setelah `git worktree add`.
 3. Baca hanya file acuan butir itu.
-4. Kerjakan. Delegasikan sub-tugas paralel yang tidak menyentuh file yang sama (subagent, Codex `exec`, worker PC siang hari).
+4. Kerjakan. Delegasikan sub-tugas paralel yang tidak menyentuh file yang sama (subagent, Codex `exec`, worker PC setelah cek kapasitas dan sesi aktif).
 5. Gerbang lapis 1. Gagal → perbaiki pada penyebabnya. Masalah yang sama gagal 3× → catat blocker, pindah butir.
 6. Baca ulang spek baris demi baris setelah tes hijau (pelajaran B6).
 7. EVALUASI.md, squash-merge, centang antrean, hapus cache `.next` worktree, kembali ke langkah 1.
