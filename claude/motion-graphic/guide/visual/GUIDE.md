@@ -23,6 +23,9 @@
 - **Bukan render three.js mentah** (Irfan 7 Nov: "bukan renderan three js mentah seperti sebelum-sebelumnya"). Visual akhir dibangun dengan React/CSS/SVG di Remotion atau AE; three.js hanya untuk plate 3D yang sudah final (material, cahaya, anti-alias) dan lolos still 100 % berdampingan dengan referensi.
 - Still per beat dibandingkan dengan frame referensi setara sebelum render penuh.
 
+## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
+- **Bila frame terasa flat atau b-roll pengisi terlihat seperti aset utama, beri footage "material"**, bukan menambah objek: lapisan film + glow (bloom, halation, halftone, aberasi kromatik dengan blur tepi, hitam terangkat, vignette, grain) membuat footage mundur menjadi tekstur/kenangan, sedangkan teks tajam bercahaya di atasnya jadi fokus dan frame terasa estetik. Takarannya mengikuti peran footage: stok pengisi paling kuat, arsip bermakna sedang (wajah tetap terbaca), pembicara paling ringan (wajah tajam); teks tidak pernah ikut tertutup lapisan itu (Irfan 15 Nov, jensen-pain-suffering r2, ref siirfannih_DfH6JYPqNjk; bedah: `projects/jensen-pain-suffering/ref/BEDAH-FILMGLOW.md`).
+
 ## Cek cepat
 - Blur still 10 px: ada satu gumpalan yang menang? Dua sama kuat = rapikan.
 - Hitung keluarga warna di frame: lebih dari aksen + netral tanpa alasan gaya = kebanyakan.
