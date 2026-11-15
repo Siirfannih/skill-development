@@ -38,6 +38,8 @@ for beat in plan["beats"]:
     beats.append({
         "id": beat["id"],
         "old_seconds": round(old_t, 6),
+        "start_frame": to_new_frame(start),
+        "end_frame": to_new_frame(end),
         "frame": to_new_frame(old_t),
     })
 
@@ -52,6 +54,10 @@ changed = {
 result = {"beats": beats, "changed_scenes": changed}
 out = P / "edit/v5/qc-plan.json"
 out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")
+frame_ranges = " ".join(
+    f"{item['id']}:{item['start_frame']}-{item['end_frame']}" for item in beats
+)
+(P / "handoff/beats_v5_frames.txt").write_text(frame_ranges + "\n")
 args = [f"J{item['id']}:{item['frame']}" for item in beats]
 args += [f"V5_{name}:{frame}" for name, frame in changed.items()]
 print(" ".join(args))
