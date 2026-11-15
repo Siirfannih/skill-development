@@ -12,6 +12,7 @@ out = []
 for q in C:
     if 't_v2' not in q: q['t_v2'] = round(W_old(q['t']), 3)
     t3 = q['t']
+    if q['peran'] == 'drop': q['dur'] = 0.9; q['fout'] = 0.4; q['alasan'] += ' · r8b: ekor 50 Hz dipendekkan, tidak menutup "satu hal yang" (audit c05)'
     if q['peran'] == 'beku': q['dur'] = 0.55; q['fout'] = 0.25; q['alasan'] += ' · r8: ekor dipendekkan, tidak menutup "Aku terobsesi"'
     if q['peran'] == 'whoosh' and abs(t3 - 38.73) < 0.01: q['t_v2'] = round(W_old(39.5), 3); q['alasan'] = 'r8: kamera naik, kartu + potret masuk (audit c04 f1186–1199)'
     if q['peran'] == 'whoosh' and abs(t3 - 64.097) < 0.01: q['t_v2'] = round(W_old(63.80), 3); q['alasan'] = 'r8: zoom-in blur ke "Edit profile" (audit c07 f1911–1916)'
@@ -31,14 +32,25 @@ W_new = lambda t: float(np.interp(t, new[:, 0], new[:, 1]))
 def add_new(tn, file, gain, peran, alasan, dengar, **kw):
     out.append(dict(t=round(tn, 3), t_v2=round(W_new(tn), 3), file=file, gain_db=gain, align=kw.pop('align', 'peak'), peran=peran,
                     alasan=alasan + ' (audit ulang r8, 15 Nov)', dengar=dengar, **kw))
-CUTS = [12.97, 15.90, 17.83, 21.40, 25.93, 27.83, 31.70, 32.70, 43.57, 45.13, 46.87, 48.57, 56.63, 59.50, 62.70, 72.27, 73.77, 75.10, 80.00]
-for k, tn in enumerate(CUTS):
-    near_wh = any(q['peran'] == 'whoosh' and abs(q['t'] - tn) < 1.05 for q in out)
-    f, dg = (S + 'Cutcontrastransision.mp3', 'pen click / key release') if (k % 2 == 0 and not near_wh) else (S + 'Katapertama.mp3', 'crisp click')
-    add_new(tn, f, -17, 'potong_adegan', f'potong adegan di {tn:.2f} dtk tanpa bunyi', dg)
+for q in out:   # r8d: punch Threads mulai di cut f535 → whoosh ke punch (menutup cut juga)
+    if q['peran'] == 'whoosh' and 18.2 < q['t'] < 18.7: q['t'] = 17.90; q['t_v2'] = round(W_new(17.90), 3); q['alasan'] = 'r8d: punch ke post Threads dari cut f535 (selesai f541)'
 for q in out:   # B13b: whoosh punch dan ketik ke frame visualnya (audit ulang c04: f996, f1003)
     if q['peran'] == 'whoosh' and 33.0 < q['t'] < 34.0: q['t'] = 33.20; q['t_v2'] = round(W_new(33.20), 3)
     if q['peran'] == 'ketik' and 33.0 < q['t'] < 34.2: q['t'] = 33.43; q['t_v2'] = round(W_new(33.43), 3)
+CUTS = [12.97, 15.90, 21.40, 25.93, 27.83, 31.70, 32.70, 43.57, 45.13, 46.87, 48.57, 56.63, 59.50, 62.70, 72.27, 73.77, 75.10, 80.00]
+for k, tn in enumerate(CUTS):
+    import re as _re
+    WH = _re.compile(r'whoosh|woosh|swoosh|swish|whip|transisi|transition', _re.I)
+    def ok(fn):
+        for q in out:
+            if abs(q['t'] - tn) >= 1.05: continue
+            if q['file'] == fn: return False
+            if WH.search(fn) and (WH.search(q['file']) or WH.search(q['peran'])): return False
+        return True
+    cands = [(S + 'Cutcontrastransision.mp3', 'pen click / key release'), (S + 'Katapertama.mp3', 'crisp click')]
+    if k % 2: cands.reverse()
+    f, dg = next((c for c in cands if ok(c[0])), cands[-1])
+    add_new(tn, f, -17, 'potong_adegan', f'potong adegan di {tn:.2f} dtk tanpa bunyi', dg)
 # rentetan kartu repo B20: satu cue panjang dari klik kertas per kartu yang mendarat (c06 f1559–1670)
 land3 = [1559, 1569, 1578, 1585, 1600, 1614, 1621, 1628, 1635, 1641, 1646, 1651, 1657, 1664, 1670]
 tn = [v3_to_new(f / 30) for f in land3]; t0 = tn[0]

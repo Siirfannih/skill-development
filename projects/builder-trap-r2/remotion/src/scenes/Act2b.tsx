@@ -43,12 +43,13 @@ const LIKE = 717; // 23,9 dtk
 
 const threadsCam = camPath(
   [
-    // r8 (TASK-r8 butir 8): punch ke post mulai nyata ±f541 (lama 618) dan selesai nyata ±f562 (lama 647), saat
-    // "Kalau mau jadi sesuatu" (nyata 536–567) diucapkan; dulu baru terbaca ±f565–570
-    { f: F0, x: 960, y: 560, zoom: 1.0, ry: -7 },
-    { f: F0 + 8, x: 955, y: 552, zoom: 1.05, ry: -2, ease: 'out' },
-    { f: 647, x: QUOTE.x + 8, y: QUOTE.y + 16, zoom: 5.3, ry: 0, ease: 'inOut' },
-    { f: F_B09[1], x: QUOTE.x + 6, y: QUOTE.y + 19, zoom: 5.42, ease: 'smooth' },
+    // r8d (audit c02): punch ke post langsung dari frame cut (nyata f535) dan selesai nyata f540–541 (lama 610 → 617,
+    // 6 f nyata, ease-out, motion blur Stage) sebelum "mau" (18,08); feed sudah tergulir, post di tengah frame dengan
+    // avatar utuh (zoom 4,7, pusat digeser ke kiri dari pusat kutipan)
+    { f: F0, x: 960, y: 560, zoom: 1.0, ry: -4 },
+    { f: F0 + 7, x: QUOTE.x - 28, y: QUOTE.y + 10, zoom: 4.7, ry: 0, ease: 'out' },
+    { f: 664, x: QUOTE.x - 24, y: QUOTE.y + 14, zoom: 4.82, ease: 'smooth' },
+    { f: F_B09[1], x: QUOTE.x - 22, y: QUOTE.y + 16, zoom: 4.9, ease: 'smooth' },
   ],
   { sigma: 2 },
 );
@@ -59,7 +60,8 @@ const QuoteBody: React.FC<{ f: number }> = () => {
   const t = thTheme('light');
   const words = B09_QUOTE.map((tok, k) => {
     const a = wordIn(tok.i[0]);
-    const col = interpolateColors(f, [a - 1, a + 4], [t.wordDim, t.text]);
+    // r8d: sorotan maju 3 f (dulu rata-rata telat 0,15 dtk); kata belum diucapkan #8A8A8A (3,4:1 di putih; dulu ±1,5:1)
+    const col = interpolateColors(f, [a - 4, a + 1], ['#8A8A8A', t.text]);
     return (
       <span key={k} style={{ color: col }}>
         {tok.t}
@@ -74,7 +76,7 @@ const thumbs = ['KBPsHcsl1aY', 'yhC8RcAr9RY'];
 
 const B09Threads: React.FC = () => {
   const f = useCurrentFrame();
-  const scroll = lerp(0, SCROLL_END, prog(f, F0, F0 + 12, 'out')); // r8: gulir selesai sebelum punch
+  const scroll = SCROLL_END; // r8d: tanpa gulir feed; post kutipan sudah di posisi saat cut
   const likeP = prog(f, LIKE, LIKE + 8, 'out');
   // kursor masuk dari kanan bawah (di dunia, ukuran mengikuti zoom supaya tampak ±70 px)
   const cIn = prog(f, 696, LIKE - 2, 'out');
@@ -111,7 +113,8 @@ const B09Threads: React.FC = () => {
             />
           </ThreadsWindow>
         </div>
-        {f >= 696 ? <Cursor x={cx} y={cy} size={16} click={press} /> : null}
+        {/* r8e: kursor masuk dengan fade 4 f (dulu muncul mendadak di nyata f610) */}
+        {f >= 696 ? <Cursor x={cx} y={cy} size={16} click={press} opacity={prog(f, 696, 700, 'out')} /> : null}
       </Layer>
     </Stage>
   );

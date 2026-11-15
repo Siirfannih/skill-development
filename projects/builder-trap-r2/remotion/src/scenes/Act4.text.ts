@@ -29,7 +29,7 @@ export const TEXT_ACT4: TextBlock[] = [
   // r4 (KT-2/KT-4): frasa → hero "memutuskan" → frasa, diganti utuh di tempat yang sama
   {
     id: 'B24-N1', beat: 'B24', code: 'N', size: 50, x: 760, y: 500,
-    lines: [T('Dan sekarang aku', 77.8, 'dan sekarang aku')], until: at('memutuskan', 79.2),
+    lines: [T('Dan sekarang aku', 77.8, 'dan sekarang aku')], until: at('memutuskan', 79.2) + 1, // r8c: +1 f, tanpa frame kosong (f2108)
   },
   {
     id: 'B24-N1.b', beat: 'B24', code: 'K4', order: 'small-big', bigSize: 96, small: [], x: 760, y: 480,
@@ -67,7 +67,8 @@ export const TEXT_ACT4: TextBlock[] = [
   },
   {
     // label menempel post (4 kata = batas KT-2; tetap utuh karena label ikut post sampai akhir beat)
-    id: 'B25-P1', beat: 'B25', code: 'N', size: 58, x: B25_TEXT_X, y: 470,
+    // r8c (audit c08 f2286–2299): tinta penuh sejak masuk (fresh = ink); abu kata baru menyatu dengan latar scrim modal
+    id: 'B25-P1', beat: 'B25', code: 'N', size: 58, x: B25_TEXT_X, y: 470, fresh: '#282723',
     lines: [T('apa yang aku alami.', 85.7)],
     until: nb(F_B25[1]), exit: 'cut',
   },

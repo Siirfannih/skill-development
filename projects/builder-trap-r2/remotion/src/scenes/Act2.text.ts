@@ -66,7 +66,9 @@ export const TEXT_ACT2: TextBlock[] = [
   },
   // ---------- B08 · cetakan lain disingkirkan ----------
   {
-    id: 'B08-N', beat: 'B08', code: 'N', size: 64, x: 1185, y: 440,
+    // r8c (audit c02 f419–433): "sesuatu" langsung tinta penuh di kartu kertas putih (seperti kartu B01–B03), sehingga
+    // terbaca sejak f421 dan thumbnail kolom kanan yang jatuh (nyata ±420–440) lewat DI BELAKANG kartu, bukan menimpa teks
+    id: 'B08-N', beat: 'B08', code: 'N', size: 64, x: 1185, y: 440, card: true, fresh: '#282723',
     lines: [T('Sesuatu yang gak', 15.9, 'sesuatu yang gak')], until: at('orang lain', 17.3),
   },
   {
