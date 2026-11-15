@@ -88,16 +88,16 @@ export const TEXT_ACT4: TextBlock[] = [
   },
   // ---------- B26 · share, belum sempurna ----------
   {
-    id: 'B26-K4a', beat: 'B26', code: 'K4', order: 'small-big', bigSize: 130, ratio: 2.3, x: 940, y: 430, tone: 'dark',
+    id: 'B26-K4a', beat: 'B26', code: 'K4', order: 'small-big', bigSize: 130, ratio: 2.3, x: 1120, y: 430, tone: 'dark',
     small: [], big: T('Share.', 91.2, 'share.'),
     until: nb(2764), note: 'keluar naik saat "ngebagiin" masuk di tempat yang sama (PLAN)',
   },
   {
-    id: 'B26-N', beat: 'B26', code: 'N', size: 60, x: 940, y: 450, tone: 'dark',
+    id: 'B26-N', beat: 'B26', code: 'N', size: 60, x: 1120, y: 450, tone: 'dark',
     lines: [T('Ngebagiin. Apa yang', 92.0, 'ngebagiin apa yang')], until: at('belum sempurna.', 93.0) + 1, // r8: +1 f, tanpa frame kosong (f2447)
   },
   {
-    id: 'B26-K4b', beat: 'B26', code: 'K4', order: 'small-big', bigSize: 100, ratio: 2.3, x: 940, y: 430, tone: 'dark',
+    id: 'B26-K4b', beat: 'B26', code: 'K4', order: 'small-big', bigSize: 100, ratio: 2.3, x: 1120, y: 430, tone: 'dark',
     small: [], big: T('belum sempurna.', 93.0),
     until: nb(F_B26[1]) + 1, exit: 'cut',
   },
