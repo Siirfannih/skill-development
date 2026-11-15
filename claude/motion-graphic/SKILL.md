@@ -22,14 +22,14 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 
 ### A. Teks di layar
 1. **Semua ucapan tampil sebagai teks, dalam SATU lapisan tipografi kinetik bergaya editorial.** Tidak ada baris subtitle terpisah di pita bawah seperti subtitle film (Irfan 2 Nov, 11 Nov).
-2. **Posisi teks lahir dari komposisi tiap shot**: dekat subjek, di ruang kosong, atau menempel objek yang dirujuk. Gagal bila 3 tampilan berturut-turut duduk di pita yang sama tanpa alasan komposisi.
+2. **Posisi teks lahir dari komposisi tiap shot**: dekat subjek, di ruang kosong, atau menempel objek yang dirujuk. Gagal bila 3 tampilan berturut-turut duduk di pita yang sama tanpa alasan komposisi. Teks menempel pada subjeknya: jarak teks ke subjek yang dirujuk paling jauh ±8 % tinggi frame, dan tidak lebih dekat ke tepi frame daripada ke subjek (Irfan oke 15 Nov, dari uji rekonstruksi 18 + Builder Trap).
 3. **Kata tidak tampil dua kali.** Kata yang sudah jadi penekanan tidak diulang di lapisan atau tempat lain pada saat yang sama.
-4. **Maksimal 2 baris per tampil**, tidak terpotong tepi, tidak ada kata yatim. Saat pembicara bertanya, tanda tanya tampil (Irfan 9 Nov).
+4. **Maksimal 2 baris per tampil, 1–3 kata per tampil, blok seimbang** (baris terpendek ≥ 85 % baris terpanjang; bukan satu kalimat dalam 2 baris seperti headline berita), tidak terpotong tepi, tidak ada kata yatim. Tumpuk kata (1 kata per baris) boleh. Saat pembicara bertanya, tanda tanya tampil (Irfan 9 Nov; Irfan oke 15 Nov, dari builder-trap-r2 v2 + jensen-pain-suffering).
 5. **Teks hanya dari ucapan.** Tidak menambah kalimat atau angka yang tidak diucapkan.
 6. **Satu baris satu ukuran.** Kata yang dibesarkan pindah ke barisnya sendiri. Dua gaya huruf tidak sama kuat dalam satu frasa (serif tidak seukuran dan sebobot dengan kata bold di sebelahnya) (Irfan 6 Nov).
 7. **Huruf menyatu dengan frame-nya.** Kontras ≥ 4,5 : 1, ukurannya berhubungan dengan subjek di frame, tidak menyentuh tepi. Jenis huruf ikut kiblat; serif tidak dilarang. Font yang dipakai termuat dari file (`fonts/README.md`), tidak jatuh ke font cadangan sistem (Irfan 12 Nov). Contoh gagal: `pustaka/contoh-gagal/01-serif-pucat-raksasa.jpg` (Irfan 11 Nov).
 8. **Terbaca berurutan dan cukup lama**: satu arah baca, tiap frasa tampil sampai selesai diucapkan, terbaca di layar HP (Irfan 9 Nov).
-9. **Kotak di belakang teks hanya bila kontras gagal**, bukan hiasan (Irfan 6 Nov).
+9. **Kotak di belakang teks hanya bila kontras gagal**, bukan hiasan; narasi kinetik tanpa kotak/shape di belakangnya (Irfan 6 Nov, 15 Nov).
 
 ### B. Kamera dan gerak
 10. **Frame tidak datar.** Setiap shot lebih dari 2 detik punya gerak kamera yang disengaja (push/zoom pelan untuk fokus, pan, atau mengikuti objek). Pengecualian hanya bila kartu kiblat memang berkamera diam, dan itu ditulis di `RESEP.md` (Irfan 9 Nov).

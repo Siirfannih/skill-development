@@ -145,5 +145,38 @@
     "snr_min": 12,
     "query": "warm hopeful uplifting acoustic track",
     "kalibrasi": null
+  },
+  "sinematik-emosional": {
+    "arti": "sinematik-emosional: cerita/kutipan tokoh, orkestra gelap yang membangun, ganti musik per babak (ref 55)",
+    "bpm": [
+      60,
+      140
+    ],
+    "onset": [
+      1.3,
+      4.5
+    ],
+    "centroid": [
+      900,
+      1800
+    ],
+    "build": [
+      0,
+      22
+    ],
+    "dyn": [
+      0,
+      23
+    ],
+    "mode": "minor",
+    "level": -24,
+    "snr_min": 12,
+    "query": "emotional cinematic orchestral strings building, dark minor, trailer underscore",
+    "kalibrasi": {
+      "sumber": "stem musik ref 55 (Refference02cinematic-story, demucs), jendela utuh/0-31/16-46",
+      "n": 1,
+      "catatan": "build, dyn, mode dari ukuran ref 55 (build 19,8, dyn 20,1, minor). bpm & onset & centroid dilebarkan manual: 1 referensi, bpm librosa ambigu setengah tempo (71,8 vs ±123 di kartu 55). Tambah 2 referensi bergaya sama untuk menyempitkan.",
+      "disetujui": "Irfan 15 Nov (jensen-pain-suffering)"
+    }
   }
 }
