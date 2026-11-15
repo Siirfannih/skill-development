@@ -49,11 +49,15 @@ def join_metrics(name: str, join_frames: list[int]):
         sample = frame * rate // 30
         step = float(abs(mono[sample] - mono[sample - 1]))
         window = mono[sample - rate // 200:sample + rate // 200]  # +/- 5 ms
+        context = mono[sample - rate // 20:sample + rate // 20]  # +/- 50 ms
+        p99_step = float(np.percentile(np.abs(np.diff(context)), 99))
         result.append({
             "frame": frame,
             "seconds": round(frame / 30, 6),
             "sample": sample,
             "sample_step_dbfs": dbfs(step),
+            "local_p99_step_dbfs": dbfs(p99_step),
+            "step_over_local_p99": round(step / max(p99_step, 1e-12), 4),
             "window_peak_dbfs": dbfs(float(np.max(np.abs(window)))),
             "window_rms_dbfs": dbfs(float(np.sqrt(np.mean(window * window)))),
         })
