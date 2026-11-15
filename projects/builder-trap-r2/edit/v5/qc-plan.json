@@ -1,0 +1,140 @@
+{
+  "beats": [
+    {
+      "id": "B01",
+      "old_seconds": 0.94,
+      "frame": 28
+    },
+    {
+      "id": "B02",
+      "old_seconds": 2.63,
+      "frame": 79
+    },
+    {
+      "id": "B03",
+      "old_seconds": 4.415,
+      "frame": 132
+    },
+    {
+      "id": "B04",
+      "old_seconds": 6.475,
+      "frame": 194
+    },
+    {
+      "id": "B05",
+      "old_seconds": 8.725,
+      "frame": 262
+    },
+    {
+      "id": "B06",
+      "old_seconds": 12.435,
+      "frame": 358
+    },
+    {
+      "id": "B07",
+      "old_seconds": 15.43,
+      "frame": 448
+    },
+    {
+      "id": "B08",
+      "old_seconds": 17.17,
+      "frame": 500
+    },
+    {
+      "id": "B09",
+      "old_seconds": 21.4,
+      "frame": 627
+    },
+    {
+      "id": "B10",
+      "old_seconds": 26.75,
+      "frame": 782
+    },
+    {
+      "id": "B11",
+      "old_seconds": 30.05,
+      "frame": 880
+    },
+    {
+      "id": "B12",
+      "old_seconds": 33.2,
+      "frame": 975
+    },
+    {
+      "id": "B13",
+      "old_seconds": 37.175,
+      "frame": 1094
+    },
+    {
+      "id": "B14",
+      "old_seconds": 42.625,
+      "frame": 1253
+    },
+    {
+      "id": "B15",
+      "old_seconds": 47.625,
+      "frame": 1391
+    },
+    {
+      "id": "B16",
+      "old_seconds": 49.845,
+      "frame": 1457
+    },
+    {
+      "id": "B17",
+      "old_seconds": 51.6,
+      "frame": 1510
+    },
+    {
+      "id": "B18",
+      "old_seconds": 53.35,
+      "frame": 1563
+    },
+    {
+      "id": "B19",
+      "old_seconds": 56.03,
+      "frame": 1643
+    },
+    {
+      "id": "B20",
+      "old_seconds": 60.71,
+      "frame": 1778
+    },
+    {
+      "id": "B21",
+      "old_seconds": 66.94,
+      "frame": 1949
+    },
+    {
+      "id": "B22",
+      "old_seconds": 72.84,
+      "frame": 2126
+    },
+    {
+      "id": "B23",
+      "old_seconds": 76.5,
+      "frame": 2222
+    },
+    {
+      "id": "B24",
+      "old_seconds": 81.16,
+      "frame": 2349
+    },
+    {
+      "id": "B25",
+      "old_seconds": 87.96,
+      "frame": 2546
+    },
+    {
+      "id": "B26",
+      "old_seconds": 93.085,
+      "frame": 2683
+    }
+  ],
+  "changed_scenes": {
+    "B17_composer": 1502,
+    "B17_dialog": 1526,
+    "B25_post1": 2520,
+    "B25_post2": 2554
+  }
+}
