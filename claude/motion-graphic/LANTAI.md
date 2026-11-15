@@ -35,7 +35,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 22. **Tidak ada placeholder** di render.
 
 ## E. Audio
-23. **Suara tidak dipercepat, dan jedanya bersih.** Tempo dirapatkan dengan memotong jeda mati (Irfan 6 Nov, 8 Nov). Saat pembicara berhenti atau berpikir, tidak terdengar dengung kamar, piring, atau klik: jeda tidak diisi room tone kotor, stem suara di jeda ≤ −50 dBFS (`scripts/gate/pause_clean.py`) (Irfan 13 Nov).
+23. **Suara tidak dipercepat, dan jedanya bersih.** Tempo dirapatkan dengan memotong jeda mati (Irfan 6 Nov, 8 Nov). Kata sampah (eee, emm, tuh, …) dan diam saat berpikir dibuang di tahap potong, termasuk diam yang tertelan ke durasi kata; `scripts/gate/cut_check.py` PASS sebelum suara dikunci (Irfan 15 Nov). Saat pembicara berhenti atau berpikir, tidak terdengar dengung kamar, piring, atau klik: jeda tidak diisi room tone kotor, stem suara di jeda ≤ −50 dBFS (`scripts/gate/pause_clean.py`) (Irfan 13 Nov).
 24. **SFX menandai momen cerita dan gerak yang terlihat, dengan kosakata dan kepadatan dari kiblat**, terdengar (gain −4 sampai −10 dB). Tidak ada bunyi per kata, tidak ada lapisan klik; hening yang disengaja boleh. File dari `~/sfx/SFXIrfan` dulu dan didengar sebelum dipakai (Irfan 1, 8, 9, 13 Nov).
 25. **Musik mengikuti tempo dan suasana video**, tidak bolong, tidak melawan emosi ucapan (Irfan 6, 8 Nov).
 

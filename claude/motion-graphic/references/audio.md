@@ -62,6 +62,17 @@ Langkah mode `konten`:
 
 Revisi visual setelah SFX/musik dikunci membuat lapisan sesudahnya **basi** (`check` = FAIL): SFX disinkron ulang ke render baru, musik didengar ulang. Ini yang mencegah "visual diubah, audio ketinggalan".
 
+### 14.0D Potong suara: bersih sebelum dikunci (Irfan 15 Nov, gagal: builder-trap-r2 v1–v2)
+Suara yang dikunci (gerbang 6) harus sudah bebas kata sampah dan diam saat berpikir. Bila tidak, sampah itu ikut ke teks layar ("tuh" tampil di pembuka), jeda terdengar seperti orang ragu, dan SFX/musik menutupi lubang yang seharusnya tidak ada.
+1. **Ukur dengan ambang relatif**, bukan angka mati: diam = energi 10 ms < median ucapan − 18 dB. Ambang −45 dB lama tidak melihat jeda di kamar yang lantai noise-nya −38 dB.
+2. **Diam di dalam kata dihitung.** Whisper menelan jeda ke durasi kata (builder-trap-r2: 24 kata menyimpan diam 0,15–0,45 dtk). Periksa energi di dalam setiap rentang kata, bukan hanya celah antarkata.
+3. **Kata sampah**: eee, emm, eh, hmm, uh, tuh, dan pengulangan/awal salah. Transkrip pancingan (`initial_prompt` berisi "eee, emm") membantu memunculkannya, tapi bisa berhalusinasi: setiap kandidat diverifikasi dengan energi/earshot, bukan dipercaya mentah.
+4. **Bunyi bersuara di luar kata** (gesekan mik, tangan, benda) dibuang bersama jedanya; dengar dulu dengan `earshot describe`.
+5. **Sisa jeda**: tengah kalimat 0,06 dtk; antarkalimat ±0,28 dtk; jeda dramatis yang disengaja (sebelum twist, setelah klimaks, antarbabak) ≤ 0,5 dtk dan ditulis di DECISIONS (aturan 33).
+6. **Alat**: `scripts/gate/cut_check.py suara.wav words.json --suggest potong.json` (FAIL bila ada sampah/diam) → dengar usulan → `scripts/audio/recut.py cut --audio … --video wajah.mp4 --remove potong.json --out DIR` (audio + video wajah dipotong di batas frame yang sama, fade 4 ms, `map.json`) → `recut.py remap` untuk kata, beat, event, dan cue. Kode adegan yang menulis frame langsung harus memakai peta yang sama.
+7. **Tidak mengisi jeda dengan room tone** dari kamar yang sama (§14.6).
+8. Setelah dipotong: `cut_check.py` PASS, transkrip ulang tanpa prompt = semua kata isi masih utuh, intonasi tiap sambungan didengar (ekor kata tidak terpotong).
+
 ### 14.A Memilih suara: logika (Irfan 6 Nov)
 Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber dan kualitas mix**. Pilihan diturunkan dari dua kolom tabel beat yang sudah ada: mekanik (`motion-mechanics.md`) dan nada (`pacing-map.md`). Suara lahir dari gerak, bukan dari kata.
 
@@ -285,6 +296,16 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
   - di cue, pakai `align:"peak"` + `peak` = detik puncak di file.
 - **Pop/klik kemunculan**: transien di +1…+2 f setelah skala melewati 0,6 (objek pertama kali terlihat jelas), bukan di frame 0.
 - **Stagger banyak item** (grid, barisan): satu cue rentetan/rattle untuk seluruh barisan, bukan satu bunyi per item (Irfan 13 Nov). Item yang muncul bersamaan dalam ≤ 2 frame dihitung sebagai satu event. Maksimal 2 bunyi per 100 ms, dan dua bunyi berperan sama tidak boleh jatuh dalam 100 ms (The Gap `sync_cues.py`). Kata tidak berbunyi per kata; subtitle tidak berbunyi (aturan 43).
+
+### 14.9b Resep mix yang terbukti (builder-trap-r2 v2, 14 Nov)
+Kesalahan yang sudah terjadi, dicek setiap mix:
+- **Tidak ada auto-gain yang menaikkan bed musik di jeda bicara** (v1: ±8 dB mengisi setiap jeda). Bed dibuat rata per babak dengan gain tetap.
+- **Kejernihan suara dicapai dengan bed yang lebih rendah dan tetap**, bukan duck dalam: duck ≤ 1,5 dB saat bicara, ramp ≥ 250 ms (§14.1 butir 3). Duck −6 dB di v2 melanggar aturan anti-pumping ini.
+- **Urutan proses**: normalisasi loudness musik dulu, baru envelope/duck. Bila duck dipasang sebelum normalisasi, normalisasi mengembalikan level yang di-duck (v2 awal: duck −6 dB hilang, gain musik −7,3 → −4,0).
+- **SFX diratakan di puncak bunyinya** (`align: peak` default): file dengan awalan sunyi (`pin.mp3` 0,41 dtk, `basmenyebar` memuncak di 1,27 dtk) berbunyi terlambat bila ditaruh di onset.
+- **Boom sub-bass tidak terdengar di speaker HP** (high-pass ±300 Hz): untuk momen yang harus terdengar di HP, pilih hit yang punya isi 300 Hz–3 kHz; sub murni hanya "terasa" di headphone.
+- **Stem ditulis float** (`subtype='FLOAT'`): WAV 16-bit memotong suara yang di-gain di atas 0 dBFS, lalu alat QA membaca clipping palsu.
+- **Uji HP dengan stem versi yang sama**: `audio/audio_phone.py --root <folder berisi stem_vo/stem_music/stem_sfx/mix/cues versi ini> --list` — target: setiap SFX momen terdengar di 50 %, jendela suara < 8 dB di atas bed ≤ 5.
 
 ### 14.10 Modul 5 — gerbang QA audio otomatis (wajib sebelum render/kirim final)
 ```

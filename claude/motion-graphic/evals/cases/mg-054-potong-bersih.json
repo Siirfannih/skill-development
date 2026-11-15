@@ -1,0 +1,13 @@
+{
+  "id": "mg-054",
+  "source": "Irfan 15 Nov, builder-trap-r2 v2: \"pemotongan video sebelumnya belum membuang kata sampah … 'eee' 'tuh' … muncul disubtitle … masih ada jeda diam ditengah tengah\"",
+  "prompt": "Susun ulang take asli talking head ini jadi suara terkunci untuk video (rekaman sendiri di kamar).",
+  "files": ["projects/builder-trap-r2/raw/src48.wav", "projects/builder-trap-r2/edit/naskah_A.json"],
+  "assertions": [
+    "Diam diukur dengan ambang relatif (median ucapan − 18 dB), bukan −45 dB absolut",
+    "Diam di dalam rentang kata transkrip ikut diperiksa; scripts/gate/cut_check.py PASS pada suara terkunci",
+    "Kata sampah (eee, emm, tuh) dibuang di potongan, tidak tampil di teks layar",
+    "Video wajah dipotong di rentang yang sama (recut.py) sehingga bibir sinkron; kata/beat/cue diremap dengan map.json",
+    "Jeda dramatis yang disisakan ≤ 0,5 dtk dan alasannya tertulis di DECISIONS"
+  ]
+}

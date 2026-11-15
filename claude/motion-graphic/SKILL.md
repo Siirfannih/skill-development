@@ -51,7 +51,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 22. **Tidak ada placeholder** di render.
 
 ### E. Audio
-23. **Suara tidak dipercepat, dan jedanya bersih.** Tempo dirapatkan dengan memotong jeda mati (Irfan 6 Nov, 8 Nov). Saat pembicara berhenti atau berpikir, tidak terdengar dengung kamar, piring, atau klik: jeda tidak diisi room tone kotor, stem suara di jeda ≤ −50 dBFS (`scripts/gate/pause_clean.py`) (Irfan 13 Nov).
+23. **Suara tidak dipercepat, dan jedanya bersih.** Tempo dirapatkan dengan memotong jeda mati (Irfan 6 Nov, 8 Nov). Kata sampah (eee, emm, tuh, …) dan diam saat berpikir dibuang di tahap potong, termasuk diam yang tertelan ke durasi kata; `scripts/gate/cut_check.py` PASS sebelum suara dikunci (Irfan 15 Nov). Saat pembicara berhenti atau berpikir, tidak terdengar dengung kamar, piring, atau klik: jeda tidak diisi room tone kotor, stem suara di jeda ≤ −50 dBFS (`scripts/gate/pause_clean.py`) (Irfan 13 Nov).
 24. **SFX menandai momen cerita dan gerak yang terlihat, dengan kosakata dan kepadatan dari kiblat**, terdengar (gain −4 sampai −10 dB). Tidak ada bunyi per kata, tidak ada lapisan klik; hening yang disengaja boleh. File dari `~/sfx/SFXIrfan` dulu dan didengar sebelum dipakai (Irfan 1, 8, 9, 13 Nov).
 25. **Musik mengikuti tempo dan suasana video**, tidak bolong, tidak melawan emosi ucapan (Irfan 6, 8 Nov).
 
@@ -121,7 +121,7 @@ Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Render penuh 
 | 3 | Bedah referensi | `analysis-qa.md` §2, `three-segment-gate.md` (gerbang DENGAR) | Metrik visual + tabel kalimat → adegan → peran kalimat + peta audio dari `earshot timeline --detail high` (label, event/dtk, kepadatan SFX) |
 | 4 | Storyboard visual 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Papan panel (frame + caption) di `projects/<proyek>/storyboard/`, `scripts/storyboard/board.py` PASS, review papan + tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final. Tanpa storyboard dari Irfan (klip): agent membuatnya sendiri dan lanjut, papan dikirim bersama hasil (Irfan 8 Nov). Klip/talking head dengan gaya terpilih: rencana edit menu 3 opsi per beat (`templates/gaya/README.md`), Irfan memilih (Irfan 11 Nov) |
 | 5 | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
-| 6 | Suara dikunci | `audio.md` §14.0C | VO (setelah script final) atau audio sumber klip utuh; `gate/audio_order.py init --mode konten\|musik` + `lock suara`. Mode `musik` (video lirik, montage di ketukan): musik dipilih dan dikunci di sini lebih dulu, visual dipotong di ketukannya |
+| 6 | Suara dikunci | `audio.md` §14.0C, §14.0D | VO (setelah script final) atau audio sumber klip utuh, dipotong bersih dari kata sampah dan diam saat berpikir: `gate/cut_check.py` PASS, potong dengan `audio/recut.py` (Irfan 15 Nov); `gate/audio_order.py init --mode konten\|musik` + `lock suara`. Mode `musik` (video lirik, montage di ketukan): musik dipilih dan dikunci di sini lebih dulu, visual dipotong di ketukannya |
 | 7 | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum diterapkan ke semua |
 | 8 | Build semua adegan → visual dikunci | `build.md` | Komponen sama untuk semua adegan; render tanpa audio, `audio_order.py lock visual` |
 | 9 | SFX dari event visual | `audio.md` §14.0C, §14.A–14.3, `three-segment-gate.md` (DENGAR) | Cue sheet dari momen cerita + gerak terlihat di render terkunci, kosakata dan kepadatan dari kiblat, tanpa bunyi per kata (aturan 43); file dari `~/sfx/SFXIrfan` dulu (`guide/sfx/SFXIRFAN.md`), tiap cue `peran` + `alasan` + `dengar` (label `earshot describe`); `lock sfx` (menjalankan `gate/sfx_density.py`) |
@@ -161,6 +161,8 @@ motion-graphic/
     ├── audio/ears.py            telinga gabungan: demucs stem → earshot + ukuran → setuju/beda
     ├── gate/sfx_density.py      anti-spam SFX: kepadatan dari kiblat, tanpa bunyi per kata, tiap cue didengar
     ├── gate/pause_clean.py      jeda bicara bersih: lantai stem suara + bunyi tajam di jeda
+    ├── gate/cut_check.py        potongan suara: kata sampah, diam di dalam kata/kalimat, jeda antarkalimat
+    ├── audio/recut.py           terapkan potongan ke suara + video wajah, peta waktu lama → baru (remap)
     ├── gate/voice_fidelity.py   alat ukur: suara sumber bersih tidak rusak (udara > 9 kHz, LRA)
     ├── gate/caption_lines.py    caption ≤ 2 baris, tidak terpotong tepi
     ├── audio/pace_read.py       tempo video → kategori suasana + rentang bpm musik
