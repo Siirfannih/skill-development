@@ -49,9 +49,9 @@ class TimelineV5(unittest.TestCase):
         self.assertFalse(build.compare_transcript(expected, no_filler)['pass_'])
         self.assertFalse(build.compare_transcript(expected, expected[1:])['pass_'])
 
-    def test_named_pid_blocks_even_at_zero_cpu(self):
+    def test_finished_historical_pid_does_not_block(self):
         with patch.object(build.subprocess, 'check_output', return_value='4108755 0.0 python edge10f.py\n'):
-            with self.assertRaises(SystemExit): build.resource_gate()
+            build.resource_gate()
 
     def test_any_high_cpu_job_blocks(self):
         with patch.object(build.subprocess, 'check_output', return_value='123 250.1 other job\n'):

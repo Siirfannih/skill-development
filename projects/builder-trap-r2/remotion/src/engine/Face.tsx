@@ -1,7 +1,6 @@
 // Sisipan wajah (BRIEF §Wajah). r5: face_edit_v5.mp4 diputar di frame NYATA timeline baru (useRealFrame), bukan frame
 // adegan yang di-warp, jadi lip-sync dengan mix_v5.wav. Jangan taruh <Face> di dalam <Sequence from=...>.
 import React from 'react';
-import EDIT from '../../../edit/v5/map.json';
 import { DUR_V5 } from './timewarp';
 import { OffthreadVideo, Sequence, staticFile, useCurrentFrame } from 'remotion';
 import { useRealFrame } from './realframe';
@@ -18,10 +17,9 @@ export const FACE_PRESETS = {
   P: { s: 1.9, cx: 1077, cy: 500 }, // sisi: wajah di sepertiga kiri, ruang dinding kanan ±700 px
 } as const;
 export type FacePreset = keyof typeof FACE_PRESETS;
-// Exact joins from the audio/video edit map; animation knots deliberately use eased ramps.
-export const FACE_JUMPS = EDIT.removed.map(([start], i, cuts) =>
-  Math.round((start - cuts.slice(0, i).reduce((sum, [a, b]) => sum + b - a, 0)) * EDIT.fps)
-);
+// Exact real-timeline join frames derived from edit/v5/map.json. Keep this list
+// inside the Remotion bundle so the renderer never depends on scratch/edit files.
+export const FACE_JUMPS = [282, 714, 1145, 1353, 1729, 1870, 2190, 2247, 2560];
 /** punch-in di titik lompatan: +10 % skala crop per tingkat. Lompatan berganti masuk/keluar (1,0 ↔ 1,1); lompatan yang
  *  berdekatan (< FACE_JUMP_NEAR frame dari lompatan sebelumnya dalam sisipan yang sama) LANJUT MASUK (1,1 → 1,2), tidak
  *  keluar-masuk (putusan Sutradara r8 Q2, mis. f2406 → f2414). */

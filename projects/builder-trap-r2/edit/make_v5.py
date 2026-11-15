@@ -5,7 +5,7 @@ are frame aligned, >=50ms from content timestamps and measured in a low energy
 2ms window. This deliberately rejects cuts when source timestamps leave no guard.
 """
 from pathlib import Path
-import argparse, importlib.util, json, math, os, subprocess, sys
+import argparse, hashlib, importlib.util, json, math, os, subprocess, sys
 for _key in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
     os.environ[_key] = "2"
 import numpy as np
@@ -19,6 +19,24 @@ def module(name, path):
 # recut's CLI executes at import; keep the exact no-overlap mapper here.
 def mapper(removed, t):
     return round(t-sum(max(0., min(t,b)-a) for a,b in removed if t>a),6)
+def sha256(path):
+    h = hashlib.sha256()
+    with open(path, 'rb') as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b''): h.update(chunk)
+    return h.hexdigest()
+def require_clean_provenance():
+    manifest = P/'edit/v5/voice_clean.provenance.json'
+    if not manifest.exists():
+        raise SystemExit('voice_clean provenance missing; run audio/voice_clean_v5.py first')
+    proof = load(manifest)
+    expected = {
+        'suara_sha256': sha256(P/'edit/v5/suara.wav'),
+        'words_actual_sha256': sha256(P/'edit/v5/words_actual.json'),
+    }
+    if any(proof.get(k) != v for k, v in expected.items()):
+        raise SystemExit('voice_clean is stale for the current suara/map; rebuild it before proxy/transcribe')
+    if proof.get('voice_clean_sha256') != sha256(P/'edit/v5/voice_clean.wav'):
+        raise SystemExit('voice_clean hash differs from its provenance record')
 def compare_transcript(expected, heard):
     import difflib, re
     def normalize(words):
@@ -35,7 +53,7 @@ def resource_gate():
         if len(fields) < 4: continue
         pid, cpu, comm, args = fields
         if int(pid) == os.getpid(): continue
-        if int(pid) == 4108755 or float(cpu) > 250 or comm == 'ffmpeg' or (
+        if float(cpu) > 250 or comm == 'ffmpeg' or (
             comm in ('node', 'python', 'python3') and any(q in args for q in ('remotion render', 'faster_whisper'))
         ):
             busy.append(dict(pid=int(pid), cpu=float(cpu), command=comm))
@@ -75,15 +93,16 @@ def main():
     if removed != frozen['removed'] or len(removed) != 9:
         raise SystemExit('r10 requires the exact nine r9 cuts; refusing to rewrite map')
     newdur=dur-sum(b-a for a,b in removed)
-    mapped=[dict(w=q['w'],s=mapper(removed,q['s']),e=mapper(removed,q['e'])) for q in content]
+    actual_mapped=[dict(w=q['w'],s=mapper(removed,q['s']),e=mapper(removed,q['e'])) for q in W]
+    mapped=[q for q in actual_mapped if q['w'].lower().strip('.?!') != 'tuh']
     gate=module('gate_v5',ROOT/'claude/motion-graphic/scripts/gate/cut_check.py')
-    result=gate.validate_cuts(W,removed,mapped)
+    result=gate.validate_cuts(W,removed,actual_mapped)
     if not result['pass_']: raise SystemExit('Cut validation FAIL; refusing to build media')
     save(P/'edit/potong_v5.json',out); save(P/'edit/v5/cut_decisions.json',decisions)
     mp=dict(removed=removed,fps=30,dur_old=dur,dur_new=newdur,overlap_samples=0,micro_fade_ms=2,edges=edges)
     save(P/'edit/v5/map.json',mp); save(P/'edit/v5/words_final.json',mapped); save(P/'edit/v5/validation.json',result)
     save(P/'remotion/src/data/words_v5.json',mapped)
-    save(P/'edit/v5/words_actual.json',[dict(w=q['w'],s=mapper(removed,q['s']),e=mapper(removed,q['e'])) for q in W])
+    save(P/'edit/v5/words_actual.json',actual_mapped)
     # Animation ramps reproduce v3b's continuous chase; face MUST use the exact edit map, never these ramps.
     knots=[[0.,0.]]; total=0.
     for i,(start,end) in enumerate(removed):
@@ -111,12 +130,21 @@ def main():
         filters = [f'[0:v]trim=start_frame={start}:end_frame={end},setpts=PTS-STARTPTS[v{i}]'
                    for i, (start, end) in enumerate(spans)]
         filters.append(''.join(f'[v{i}]' for i in range(len(spans))) + f'concat=n={len(spans)}:v=1:a=0[out]')
+        face_out = P/'edit/v5/face_edit_v5.mp4'
         subprocess.run(['ffmpeg', '-v', 'error', '-y', '-threads', '2', '-filter_complex_threads', '1',
             '-i', str(P/'edit/face_edit.mp4'), '-filter_complex', ';'.join(filters), '-map', '[out]',
             '-an', '-c:v', 'libx264', '-threads', '2', '-preset', 'fast', '-crf', '18',
-            str(P/'edit/v5/face_edit_v5.mp4')], check=True)
+            str(face_out)], check=True)
+        frames = int(subprocess.check_output([
+            'ffprobe', '-v', 'error', '-count_frames', '-select_streams', 'v:0',
+            '-show_entries', 'stream=nb_read_frames', '-of', 'default=nw=1:nk=1', str(face_out),
+        ], text=True).strip())
+        expected_frames = round(newdur * 30)
+        if frames != expected_frames:
+            raise SystemExit(f'face frame count FAIL: {frames} != {expected_frames}')
     if a.proxy:
         resource_gate()
+        require_clean_provenance()
         proxy=P/'edit/v5/face-proxy'
         subprocess.run([sys.executable,str(ROOT/'claude/motion-graphic/scripts/audio/recut.py'),'cut',
             '--audio',str(P/'audio/voice_raw.wav'),'--video',str(P/'edit/face_edit.mp4'),
@@ -127,6 +155,7 @@ def main():
             '-threads','2',str(P/'edit/v5/face-audio-proxy.mp4')],check=True)
     if a.transcribe:
         resource_gate()
+        require_clean_provenance()
         from faster_whisper import WhisperModel
         model=WhisperModel('large-v3',device='cpu',compute_type='int8',cpu_threads=2,num_workers=1,local_files_only=True)
         segments,info=model.transcribe(str(P/'edit/v5/voice_clean.wav'),language='id',word_timestamps=True,beam_size=5,condition_on_previous_text=False,initial_prompt=None)

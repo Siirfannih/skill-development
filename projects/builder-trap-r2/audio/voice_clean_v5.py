@@ -5,7 +5,7 @@ Tempo dan isi ucapan tidak diubah (Lantai E23). Keluaran float: audio/voice_clea
 import os
 for _key in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
     os.environ[_key] = "2"
-import json, subprocess, numpy as np, soundfile as sf
+import hashlib, json, subprocess, numpy as np, soundfile as sf
 import importlib.util
 from pathlib import Path
 _spec = importlib.util.spec_from_file_location('make_v5', Path(__file__).resolve().parents[1] / 'edit/make_v5.py')
@@ -41,5 +41,17 @@ k = np.ones(ramp, np.float32) / ramp
 g = np.convolve(g, k, mode='same').astype(np.float32)
 y = x * g[:, None]
 sf.write('edit/v5/voice_clean.wav', y, SR, subtype='FLOAT')
+def sha256(path):
+    h = hashlib.sha256()
+    with open(path, 'rb') as f:
+        for chunk in iter(lambda: f.read(1024 * 1024), b''): h.update(chunk)
+    return h.hexdigest()
+with open('edit/v5/voice_clean.provenance.json', 'w') as f:
+    json.dump({
+        'suara_sha256': sha256('edit/v5/suara.wav'),
+        'words_actual_sha256': sha256('edit/v5/words_actual.json'),
+        'voice_clean_sha256': sha256('edit/v5/voice_clean.wav'),
+    }, f, indent=2)
+    f.write('\n')
 gaps = [(round(b0, 2), round(a1, 2)) for (a0, b0), (a1, b1) in zip(keep, keep[1:]) if a1 - b0 >= 0.15]
 print('rentang ucapan', len(keep), '· jeda diredam', len(gaps), 'total', round(sum(b - a for a, b in gaps), 2), 'dtk · durasi', round(dur, 2))
