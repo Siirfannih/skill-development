@@ -6,7 +6,7 @@ Frame 1500–1799 · 50.00–60.00 dtk
 - f1513 (50.43 dtk): LOMPAT 37.5 (f1512→1513)
 - f1513 (50.43 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
 - f1560 (52.00 dtk): LOMPAT 7.2 (f1559→1560)
-- f1561 (52.03 dtk): LOMPAT 7.1 (f1560→1561)
+- f1561 (52.03 dtk): LOMPAT 7.0 (f1560→1561)
 - f1562 (52.07 dtk): LOMPAT 5.7 (f1561→1562)
 - f1570 (52.33 dtk): LOMPAT 8.0 (f1569→1570)
 - f1570 (52.33 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
@@ -22,5 +22,5 @@ kita@50.25 jadi@50.41 adiktif.@50.61 Atau@51.62 kecanduan.@51.98 Untuk@52.67 mem
 - 51.63 · repo_menumpuk · Pergantianfoto.mp3
 - 52.00 · rentetan_kartu · kartu_rattle_r8.wav
 - 56.26 · beku · v17_impact_1.mp3
-- 56.63 · potong_adegan · Cutcontrastransision.mp3
-- 59.50 · potong_adegan · Katapertama.mp3
+- 56.63 · potong_adegan · Katapertama.mp3
+- 59.50 · potong_adegan · Cutcontrastransision.mp3

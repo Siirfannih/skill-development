@@ -11,9 +11,9 @@ yang@20.47 berbeda.@20.65 Karena@21.54 itu@22.03 aku@22.27 gak@22.51 mau@22.71 m
 
 ## Cue SFX (dtk · peran · file)
 - 21.03 · like · ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3
-- 21.40 · potong_adegan · Katapertama.mp3
+- 21.40 · potong_adegan · Cutcontrastransision.mp3
 - 23.40 · whoosh · scaningfast.mp3
-- 25.93 · potong_adegan · Cutcontrastransision.mp3
+- 25.93 · potong_adegan · Katapertama.mp3
 - 27.30 · tekan · v17_thud_0.mp3
 - 27.83 · potong_adegan · Katapertama.mp3
 - 28.31 · klik · Cutcontrastransision.mp3

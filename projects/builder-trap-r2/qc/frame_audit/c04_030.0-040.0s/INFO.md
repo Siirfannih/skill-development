@@ -17,7 +17,7 @@ investasi@30.23 waktu@30.73 pada@30.93 AI.@31.25 Untuk@31.70 belajar.@32.15 Untu
 ## Cue SFX (dtk · peran · file)
 - 30.12 · whoosh · Woosh.mp3
 - 31.26 · cap · v17_thud_2.mp3
-- 31.70 · potong_adegan · Cutcontrastransision.mp3
+- 31.70 · potong_adegan · Katapertama.mp3
 - 32.70 · potong_adegan · Katapertama.mp3
 - 33.20 · whoosh · Woosh.mp3
 - 33.43 · ketik · Keyboardtyping.mp3

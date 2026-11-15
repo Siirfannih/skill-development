@@ -12,7 +12,7 @@ Tulis `VERDICT.md`: satu baris per masalah `dtk | frame | jenis | apa yang terli
 | Potongan | Frame | Tanda otomatis |
 |---|---|---|
 | `c01_000.0-010.0s` | 0–299 | 10 |
-| `c02_010.0-020.0s` | 300–599 | 2 |
+| `c02_010.0-020.0s` | 300–599 | 4 |
 | `c03_020.0-030.0s` | 600–899 | 2 |
 | `c04_030.0-040.0s` | 900–1199 | 7 |
 | `c05_040.0-050.0s` | 1200–1499 | 6 |

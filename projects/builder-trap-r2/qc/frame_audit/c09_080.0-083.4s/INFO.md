@@ -11,5 +11,5 @@ Frame 2400–2500 · 80.00–83.37 dtk
 Share.@80.08 Ngebagiin.@80.46 Apa@81.04 yang@81.32 belum@81.52 sempurna.@81.74
 
 ## Cue SFX (dtk · peran · file)
-- 80.00 · potong_adegan · Cutcontrastransision.mp3
+- 80.00 · potong_adegan · Katapertama.mp3
 - 81.87 · penutup · Lasertransision.mp3

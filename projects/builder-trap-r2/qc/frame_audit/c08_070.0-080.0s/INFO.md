@@ -5,7 +5,7 @@ Frame 2100–2399 · 70.00–80.00 dtk
 ## Tanda otomatis
 - f2168 (72.27 dtk): LOMPAT 158.6 (f2167→2168)
 - f2213 (73.77 dtk): LOMPAT 148.6 (f2212→2213)
-- f2286 (76.20 dtk): LOMPAT 108.7 (f2285→2286)
+- f2286 (76.20 dtk): LOMPAT 108.6 (f2285→2286)
 - f2299 (76.63 dtk): LOMPAT 29.3 (f2298→2299)
 
 ## Kata diucapkan (dtk)
@@ -13,9 +13,9 @@ memutuskan@70.24 untuk@70.72 kembali@70.98 ke@71.52 titik@71.62 awal.@71.90 Dima
 
 ## Cue SFX (dtk · peran · file)
 - 71.67 · tulis · marker.mp3
-- 72.27 · potong_adegan · Katapertama.mp3
-- 73.77 · potong_adegan · Cutcontrastransision.mp3
-- 75.10 · potong_adegan · Katapertama.mp3
+- 72.27 · potong_adegan · Cutcontrastransision.mp3
+- 73.77 · potong_adegan · Katapertama.mp3
+- 75.10 · potong_adegan · Cutcontrastransision.mp3
 - 76.44 · klik_ui · Enter.mp3
 - 76.61 · post_terbit · pop up.mp3
 - 77.31 · post_terbit · ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3

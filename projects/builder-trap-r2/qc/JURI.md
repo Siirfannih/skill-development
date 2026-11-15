@@ -30,7 +30,7 @@ cut_check PASS · pause_clean PASS (jeda stem suara bersih) · voice_fidelity PA
 | R-004 kiblat 55 + teknik kartu 63 | LULUS | sanding kiblat `qc/sanding.jpg`; kartu 63 di §Kartu 63 |
 | R-005 tanpa radial, tanpa biru berlebih | LULUS | draft: latar linear/kertas/foto; biru hanya aksen kartu B01–B03 dan mosaik |
 | R-006 mulai dari nol | LULUS | proyek ini |
-| R-007 wajah tiap 3–5 dtk | LULUS dengan catatan | draft: sisipan wajah f150, 390, 480, 645, 780, 960, 1320, 1515, 1710, 2025, 2175, 2265, 2400. Celah terpanjang f975→1320 (±11,5 dtk, B14 dinding bukti + B15 dinding gelap); foto Irfan tercetak di dinding tampil sejak f1200. Struktur ini sama dengan v2 yang sudah dilihat Irfan; tidak diubah di ronde ini. |
+| R-007 wajah tiap 3–5 dtk (jump cut wajah ditutup punch crop r8) | LULUS dengan catatan | draft: sisipan wajah f150, 390, 480, 645, 780, 960, 1320, 1515, 1710, 2025, 2175, 2265, 2400. Celah terpanjang f975→1320 (±11,5 dtk, B14 dinding bukti + B15 dinding gelap); foto Irfan tercetak di dinding tampil sejak f1200. Struktur ini sama dengan v2 yang sudah dilihat Irfan; tidak diubah di ronde ini. |
 | R-008 take asli, tanpa VO buatan | LULUS | `edit/v3/suara.wav` dari take asli |
 | R-009 putih utama, gelap di belokan | LULUS | draft: babak 1–2 terang, B15–B22 gelap, B23–B26 terang; B12–B13 foto + UI gelap (teknik kartu 63) |
 | R-010 bad feedback lama | LULUS | contoh-gagal dicek di juri v3 |
@@ -38,13 +38,13 @@ cut_check PASS · pause_clean PASS (jeda stem suara bersih) · voice_fidelity PA
 | R-012 isi dinding bukti | LULUS | B14 (draft f1065–1240) |
 | R-013 footage tokoh nyata | LULUS | JB01–JB03, B08/B10 thumbnail nyata (draft f420, f705) |
 | R-015 musik babak 3 drone | LULUS | `audio/mix_v3.py` |
-| R-017 audio bersih + SFX benar | LULUS | cut_check PASS, pause_clean PASS (jeda median −66,9 dBFS), sfx_density PASS (49 cue, 0,59/dtk, ref 0,65), mix −14,8 LUFS / puncak −1,4 dBFS; cue B12–B13 ditata ulang ke event r7 dan didengar (earshot) |
+| R-017 audio bersih + SFX benar (+ SFX merata, Irfan 15 Nov) | LULUS | r8b: 75 cue (0,90/dtk), setiap potong adegan dan momen jatuh/mendarat punya cue (audit frame), rentetan kartu B20, ekor drop/impact dipendekkan, fade musik akhir;  cut_check PASS, pause_clean PASS (jeda median −66,9 dBFS), sfx_density PASS (49 cue, 0,59/dtk, ref 0,65), mix −14,8 LUFS / puncak −1,4 dBFS; cue B12–B13 ditata ulang ke event r7 dan didengar (earshot) |
 | R-018 evaluasi visual mandiri | LULUS | REVIEW-v1-self, review buta r3–r7 |
 | R-019 KT seimbang, unik/FOMO, tumpuk B16–B18 | LULUS | draft f404, f825, f1335–1455 |
 | R-020 kartu per kata B01–B03 | LULUS | draft f15–f135; pergantian kata tanpa kartu kosong/tumpuk tajam, "bikin" tidak melompat (`qc/r7f_kartu.jpg`, r7f) |
 | R-021 B12–B13 kartu 63, foto asli, tengah, tanpa KT | LULUS | r7_01–r7_09, draft f840–1045 |
 | R-022 layar Mac + punch kamera | LULUS | r7_01–r7_05 (desktop, dock, klik, jendela), r7c_07/10/11 punch kamera 3,8–4×, `qc/r7d_motion_sheet.jpg` |
-| R-023 pastikan sebelum final | LULUS | bagian ini + draft penuh + r7e diperiksa sebelum `render.sh final` |
+| R-023 pastikan sebelum final | LULUS | audit frame per frame tanpa sampling (Irfan 15 Nov): semua 2501 frame dirender sebagai gambar, 9 potongan × 10 dtk, tiap detik diperiksa subagen lain → `qc/frame_audit/c*/VERDICT.md` semuanya `PUTUSAN: LULUS` (putaran v3 → r8 → r8b → r8c → r8d → r8e); draft penuh `qc/draft.mp4` dari kode terbaru |
 
 ## Kartu 63 (teknik pinjaman B12–B13, disandingkan `qc/r7_sanding.jpg`)
 - Wallpaper foto tajam LULUS (r7_01) · jendela utuh 58,0 × 58,9 % rata tengah LULUS (r7_05) · 3 lapis + dock + kursor LULUS (r7_02, r7_07) · UI gelap LULUS · punch 1,41–1,45×, teks prompt 9,4–9,6 %, desktop di 4 tepi LULUS (r7_07, r7_11) · kamera bergerak terus LULUS (draft `qc/draft_835-1047.mp4`, lembar gerak dilihat Sutradara) · aksi UI klik dock → pantul → jendela terbuka, ketik 12 huruf/dtk LULUS.

@@ -17,14 +17,14 @@ apa@40.04 yang@40.28 sudah@40.46 aku@40.62 buat.@40.86 Tapi@41.59 satu@42.15 hal
 - 40.47 · pin · pin.mp3
 - 41.44 · riser · ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3
 - 41.46 · drop · ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz - Epidemic Sound.mp3
-- 43.57 · potong_adegan · Cutcontrastransision.mp3
+- 43.57 · potong_adegan · Katapertama.mp3
 - 44.23 · kata_triad · Kinetictypography(gunakansecaraacak).mp3
-- 45.13 · potong_adegan · Katapertama.mp3
+- 45.13 · potong_adegan · Cutcontrastransision.mp3
 - 45.60 · klik_ui · ES_User Interface, Click, UI Buttons, Confirm, Menu - Epidemic Sound.mp3
 - 45.67 · kata_triad · Kinetictypography(gunakansecaraacak).mp3
 - 46.30 · klik_ui · Enter.mp3
-- 46.87 · potong_adegan · Cutcontrastransision.mp3
+- 46.87 · potong_adegan · Katapertama.mp3
 - 47.30 · kata_triad · Kinetictypography(gunakansecaraacak).mp3
-- 48.57 · potong_adegan · Katapertama.mp3
+- 48.57 · potong_adegan · Cutcontrastransision.mp3
 - 48.87 · ketik · Keyboardtyping.mp3
 - 49.64 · whoosh · Woosh.mp3
