@@ -53,6 +53,10 @@ def resource_gate():
         if len(fields) < 4: continue
         pid, cpu, comm, args = fields
         if int(pid) == os.getpid(): continue
+        # `ps` includes itself and very short-lived shell helpers in its own
+        # snapshot; their lifetime-normalized CPU can briefly exceed 250%.
+        # They are observers, not competing media/model workloads.
+        if comm in {'ps', 'bash', 'sh', 'ssh', 'sshd', 'head', 'tail', 'sed', 'grep'}: continue
         if float(cpu) > 250 or comm == 'ffmpeg' or (
             comm in ('node', 'python', 'python3') and any(q in args for q in ('remotion render', 'faster_whisper'))
         ):

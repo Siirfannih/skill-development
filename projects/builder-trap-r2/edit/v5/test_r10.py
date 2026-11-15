@@ -57,6 +57,10 @@ class TimelineV5(unittest.TestCase):
         with patch.object(build.subprocess, 'check_output', return_value='123 250.1 other job\n'):
             with self.assertRaises(SystemExit): build.resource_gate()
 
+    def test_ps_snapshot_does_not_block_itself(self):
+        with patch.object(build.subprocess, 'check_output', return_value='123 900.0 ps ps -eo pid,pcpu,comm,args\n'):
+            build.resource_gate()
+
     def test_idle_machine_passes(self):
         with patch.object(build.subprocess, 'check_output', return_value='123 10.0 other job\n'):
             build.resource_gate()
