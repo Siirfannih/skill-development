@@ -13,10 +13,14 @@ const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const a = parseFloat(process.argv[2] ?? '0'), b = parseFloat(process.argv[3] ?? '1e9');
 const files = readdirSync(join(root, 'src/scenes')).filter((f) => f.endsWith('.text.ts')).sort();
 const entry = files.map((f, k) => `import * as m${k} from './scenes/${f}';`).join('\n') +
-  `\nimport { WORDS } from './engine/words';\nexport const BLOCKS = [${files.map((_, k) => `...Object.values(m${k}).filter(Array.isArray).flat().filter(x => x && x.code)`).join(',')}];\nexport { WORDS };`;
+  `\nimport { WORDS } from './engine/words';\nexport const BLOCKS = [${files.map((_, k) => `...Object.values(m${k}).filter(Array.isArray).flat().filter(x => x && x.code)`).join(',')}];\nexport { WORDS };` +
+  // r7: kata yang sengaja tidak tampil (ekspor KATA_TANPA_TEKS di *.text.ts: { beat, toks, alasan }), mis. B12/B13b tanpa KT
+  `\nexport const EXEMPT = [${files.map((_, k) => `...(m${k}.KATA_TANPA_TEKS ?? [])`).join(',')}];`;
 const out = await build({ stdin: { contents: entry, resolveDir: join(root, 'src'), loader: 'ts' }, bundle: true, write: false, format: 'esm', platform: 'node', logLevel: 'error' });
 const mod = await import('data:text/javascript;base64,' + Buffer.from(out.outputFiles[0].text).toString('base64'));
-const { BLOCKS, WORDS } = mod;
+const { BLOCKS, WORDS, EXEMPT } = mod;
+const exempt = new Map(); // indeks kata -> 'beat: alasan'
+for (const e of EXEMPT) for (const t of e.toks) for (const i of t.i) exempt.set(i, `${e.beat}: ${e.alasan}`);
 
 const FPS = 30;
 const win = (i) => Math.round(WORDS[i].s * FPS) + 1;
@@ -48,14 +52,18 @@ for (const blk of BLOCKS) {
   if (last >= 0 && blk.until < wout(last) + 8) warn.push(['TAHAN', blk.id, `keluar f${blk.until}, kata terakhir selesai f${wout(last)} (+0,25 dtk = f${wout(last) + 8})${blk.note ? ' · catatan: ' + blk.note : ''}`]);
 }
 let n = 0;
+const skipped = [];
 WORDS.forEach((w, i) => {
   if (w.s < a || w.s >= b) return;
   n++;
   const u = uses.get(i) ?? [];
+  if (u.length === 0 && exempt.has(i)) { skipped.push(`#${i} "${w.w}" (${w.s.toFixed(2)} dtk) · ${exempt.get(i)}`); return; }
+  if (u.length > 0 && exempt.has(i)) flags.push(['DOBEL', `#${i}`, `"${w.w}" ada di KATA_TANPA_TEKS tetapi tampil: ${u.join(', ')}`]);
   if (u.length === 0) flags.push(['HILANG', `#${i}`, `"${w.w}" (${w.s.toFixed(2)} dtk) tidak tampil`]);
   if (u.length > 1) flags.push(['DOBEL', `#${i}`, `"${w.w}" tampil ${u.length}×: ${u.join(', ')}`]);
 });
 console.log(`kata dicek: ${n} (${a}–${b === 1e9 ? 'akhir' : b} dtk) · blok: ${BLOCKS.length} dari ${files.join(', ')}`);
+for (const x of skipped) console.log(`  TANPA   ${x}`);
 for (const f of flags) console.log(`  ${f[0].padEnd(7)} ${f[1].padEnd(10)} ${f[2]}`);
 for (const f of warn) if (BLOCKS.find((x) => x.id === f[1]) && WORDS[0]) console.log(`  ${f[0].padEnd(7)} ${f[1].padEnd(10)} ${f[2]}`);
 console.log(flags.length ? `ADA ${flags.length} MASALAH` : 'SEMUA KATA TAMPIL TEPAT SEKALI DAN TERLIHAT SAAT DIUCAPKAN');

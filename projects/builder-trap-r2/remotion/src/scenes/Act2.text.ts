@@ -1,5 +1,5 @@
 // Teks layar babak 2 milik Editor A: B06–B08, B10–B14 (B09 ada di Act2b.text.ts milik Editor B).
-import { T, at, nb, joinTok, type TextBlock } from '../text/types';
+import { T, at, nb, joinTok, type TextBlock, type Tok } from '../text/types';
 import { beatF } from '../engine/scenes';
 
 export const F_B06 = beatF('B06'); // 299–448
@@ -13,6 +13,16 @@ export const F_B13 = beatF('B13'); // 1062–1169
 export const F_B13_GPT = 1098; // wajah F2 35,4–36,6 lalu ChatGPT
 export const F_B14 = beatF('B14'); // 1169–1389
 export const F_SEND = 1164; // 38,8 dtk tombol kirim
+
+/**
+ * r7 (Revisi Irfan 15 Nov, TASK-r7 R2): B12 dan B13b tanpa KT — satu-satunya teks = teks UI yang diketik di prompt
+ * (kartu 63: "Tidak ada caption/subtitle"). Kata yang diucapkan di sana sengaja tidak tampil; cekkata membaca daftar ini
+ * sebagai pengecualian HILANG (bukan blok teks: tanpa `code`, jadi renderer mengabaikannya).
+ */
+export const KATA_TANPA_TEKS: { beat: string; toks: Tok[]; alasan: string }[] = [
+  { beat: 'B12', toks: T('Dan akhirnya aku melakukan banyak investasi waktu pada AI.', 31.0), alasan: 'R2: desktop ChatGPT tanpa KT' },
+  { beat: 'B13', toks: T('Untuk melakukan sesuatu.', 36.5), alasan: 'R2: desktop ChatGPT tanpa KT (B13b)' },
+];
 
 export const TEXT_ACT2: TextBlock[] = [
   // ---------- B06 · foto cetak di alas ----------
@@ -95,39 +105,14 @@ export const TEXT_ACT2: TextBlock[] = [
     x: 1000, y: 300, small: T('jadi orang yang', 29.7), big: T('FOMO.', 30.4),
     until: nb(F_B11[1]), exit: 'cut', note: 'kalimat selesai 30,98 = cut ke B12',
   },
-  // ---------- B12 · ChatGPT ----------
-  {
-    // r5 (butir 6): di wallpaper kiri jendela mengambang (koordinat dunia; jendela ChatGPT skala 1 di (160,200))
-    id: 'B12-Na', beat: 'B12', code: 'N', size: 34, x: -366, y: 560,
-    lines: [T('Dan akhirnya aku', 31.0, 'dan akhirnya aku')], until: at('melakukan banyak', 32.9),
-  },
-  {
-    // r5: wallpaper kiri, tetap di dalam frame dan kiri jendela selama push 0,68 → 0,84
-    id: 'B12-Na2', beat: 'B12', code: 'N', size: 34, x: -260, y: 600, even: true,
-    lines: [T('melakukan', 32.9), T('banyak', 33.3)], until: at('investasi', 33.7),
-  },
-  {
-    // r5: wallpaper kiri sejajar kotak prompt (dunia y ±740), tidak menimpa UI
-    id: 'B12-Nb', beat: 'B12', code: 'N', size: 39, x: -255, y: 712,
-    lines: [T('investasi waktu', 33.7)], until: at('pada AI.', 34.4),
-  },
-  {
-    id: 'B12-Nb2', beat: 'B12', code: 'N', size: 39, x: -255, y: 712,
-    lines: [T('pada AI.', 34.4)], until: nb(F_B12[1]), exit: 'cut',
-  },
   // ---------- B13 · wajah T lalu prompt ----------
   {
     id: 'B13-N1', beat: 'B13', code: 'N', size: 64, x: 1060, y: 200, tone: 'dark',
     lines: [T('Untuk belajar.', 35.4, 'untuk belajar.')], until: nb(F_B13_GPT), exit: 'cut',
   },
   {
-    // r5 (butir 6): wallpaper kiri jendela mengambang (dunia adegan B13b, zoom 0,39–0,41); 2 baris supaya tidak
-    // menyentuh jendela (tepi kiri layar x 690); "sesuatu." = kata bermakna yang dibesarkan
-    id: 'B13-N2', beat: 'B13', code: 'N', size: 30, x: -1454, y: 420, even: true,
-    lines: [T('Untuk melakukan', 36.5, 'untuk melakukan'), T('sesuatu.', 37.2)], until: nb(1142),
-  },
-  {
-    id: 'B13-UI', beat: 'B13', code: 'UI', x: 0, y: 0, toks: T('Build something.', 37.8, 'build something'), at: [nb(1137), nb(1148)],
+    // r7: diketik huruf demi huruf 12/dtk di panel prompt depan mulai f1125 lama ("b"), "something" = huruf ke-7 (f1140 lama)
+    id: 'B13-UI', beat: 'B13', code: 'UI', x: 0, y: 0, toks: T('Build something.', 37.8, 'build something'), at: [nb(1125), nb(1140)],
     until: nb(F_B13[1]), exit: 'cut',
   },
   // ---------- B14 · dinding bukti ----------

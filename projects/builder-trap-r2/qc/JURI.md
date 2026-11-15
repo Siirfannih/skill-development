@@ -3,7 +3,7 @@
 ## Perubahan v2 → v3 yang dinilai
 - Suara dipotong bersih: 39 rentang, 11,6 dtk (3 "tuh", diam di dalam kata, jeda antarkalimat, gesekan mik); `cut_check` PASS; wajah sinkron (face_edit_v3), teks di frame nyata (cekkata 225 kata exit 0).
 - KT: 1–3 kata per tampil, blok seimbang (unik./FOMO./sadar. ujung sejajar), tanpa kotak narasi kecuali kartu per kata pembuka (R-020), tumpuk kata triad dengan kunci terbesar, penekanan B04 "gak semua orang".
-- B01–B03 kartu kunci kanan-bawah (diagonal); B12–B13 ChatGPT jendela macOS besar di atas wallpaper, KT di wallpaper kiri; B17–B18 UI mengisi kanan.
+- B01–B03 kartu kunci kanan-bawah (diagonal); B12–B13 (r7, R-021) layar macOS lengkap di atas foto CC0, kursor buka app ChatGPT dari dock, jendela gelap utuh rata tengah, tanpa KT; B17–B18 UI mengisi kanan.
 
 ## Lantai A–D
 A1–A9 LULUS (satu lapisan, posisi dari komposisi, ≤ 2 baris kecuali tumpuk kata B16–B18 atas arahan Irfan R-019, lantai 56/96 px, kontras). B10–B13 LULUS. C14–C16, C18 LULUS. D19–D22 LULUS.
@@ -12,7 +12,7 @@ C17 keseimbangan: dinilai mata di 25/50/100 % pada frame frasa utuh (r6: 82 stil
 KESEIMBANGAN: JB01, JB02 — kartu kepala kiri-atas berseberangan dengan kartu kunci kanan-bawah (diagonal), bingkai di tengah; angka alat berbalik antar klip footage (0,75 ↔ 0,26) = isi footage, bukan tata letak.
 KESEIMBANGAN: JB06 — frame tengah frasa ("perlu"); frasa utuh B06 (r6 B06-H/K4) seimbang, teks menempel foto (C15).
 KESEIMBANGAN: JB09, JB10 — punch-in UI Threads (blur gerak) / halaman YouTube penuh layar; UI memenuhi frame.
-KESEIMBANGAN: JB12, JB13 — KT di wallpaper kiri, jendela ChatGPT putih besar di kanan (arahan Irfan 15 Nov); alat menilai UI putih jarang isi sebagai ringan.
+KESEIMBANGAN: r7_04 — frame transisi 0,4 dtk saat jendela keluar dari ikon dock; r7_10, r7_11 — teks prompt yang diketik rata kiri di panel depan (kartu 63: prompt di separuh kiri saat punch). Still jendela tengah 05/06/09 ok.
 KESEIMBANGAN: JB17, JB18 — tumpuk kata kiri, modal Threads / jendela GitHub mengisi kanan; UI gelap berkontras rendah dinilai ringan oleh alat.
 KESEIMBANGAN: JB22, JB23, JB24 — komposisi tengah (teks di atas UI profil) / wajah dengan teks di seberang / wajah tanpa teks.
 
@@ -20,5 +20,9 @@ KESEIMBANGAN: JB22, JB23, JB24 — komposisi tengah (teks di atas UI profil) / w
 
 ## Audio v3
 cut_check PASS · pause_clean PASS (jeda stem suara bersih) · voice_fidelity PASS (udara 0,85) · audio_phone 35/48 SFX terdengar, suara median 19,4 dB di atas bed, 7 jendela < 8 dB (riser twist 41 dtk) · duck ≤ 1,5 dB (§14.1) · −14,8 LUFS.
+
+## Kartu 63 (teknik pinjaman B12–B13, disandingkan `qc/r7_sanding.jpg`)
+- Wallpaper foto tajam LULUS (r7_01) · jendela utuh 58,0 × 58,9 % rata tengah LULUS (r7_05) · 3 lapis + dock + kursor LULUS (r7_02, r7_07) · UI gelap LULUS · punch 1,41–1,45×, teks prompt 9,4–9,6 %, desktop di 4 tepi LULUS (r7_07, r7_11) · kamera bergerak terus LULUS (draft `qc/draft_835-1047.mp4`, lembar gerak dilihat Sutradara) · aksi UI klik dock → pantul → jendela terbuka, ketik 12 huruf/dtk LULUS.
+- Catatan: mosaik B13→B14 tetap warna proyek (biru/putih), bukan oranye kartu 63: pengikat palet proyek (R-009) menang atas teknik pinjaman.
 
 PUTUSAN: LULUS

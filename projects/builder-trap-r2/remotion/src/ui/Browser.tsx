@@ -7,13 +7,15 @@ export const BAR_H = 40;
 
 export const Browser: React.FC<{
   w: number; h: number; url: string; dark?: boolean; scale?: number;
+  /** r7: bayangan pengganti (mis. jendela gelap di atas wallpaper foto) */
+  shadow?: string;
   children: React.ReactNode; style?: React.CSSProperties;
-}> = ({ w, h, url, dark = false, scale = 1, children, style }) => (
+}> = ({ w, h, url, dark = false, scale = 1, shadow, children, style }) => (
   <div
     style={{
       position: 'absolute', width: w, height: h + BAR_H, transform: `scale(${scale})`, transformOrigin: '0 0',
       borderRadius: 14, overflow: 'hidden', background: dark ? '#101010' : '#FFFFFF',
-      boxShadow: '0 40px 80px rgba(40,39,35,0.22), 0 10px 24px rgba(40,39,35,0.14), 0 0 0 1px rgba(40,39,35,0.10)',
+      boxShadow: shadow ?? '0 40px 80px rgba(40,39,35,0.22), 0 10px 24px rgba(40,39,35,0.14), 0 0 0 1px rgba(40,39,35,0.10)',
       ...style,
     }}
   >
