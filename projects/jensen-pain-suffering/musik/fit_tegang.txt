@@ -1,0 +1,111 @@
+Kategori: tegang (masalah, ancaman, urgensi, investigasi) · profil awal (belum dikalibrasi)
+ # skor   snr    bpm onset  cent build  dyn  mode  file
+ 1  100  -3.4  117.5  2.52  1138   7.4 10.4 minor  yt03.mp3  [tolak]  earshot z 0.06
+      - menutupi suara: selisih -3.4 dB di 500 Hz, butuh 15.4 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 11.4 dB lalu EQ -4 dB bila kategori masih terasa
+ 2   90  -1.7  112.3  3.82  1454   5.3  4.1 major  Sp8ce Owl - Stepping Into Eternity (Official Visualizer).mp3  [tolak]  earshot z 1.36
+      - mode major (target minor)
+      - menutupi suara: selisih -1.7 dB di 2500 Hz, butuh 13.7 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 9.7 dB lalu EQ -4 dB bila kategori masih terasa
+ 3   90  -3.3   95.7  4.64  1385   3.1  9.5 major  The Walking ｜ Forzisimo.mp3  [tolak]  earshot z 0.18
+      - mode major (target minor)
+      - menutupi suara: selisih -3.3 dB di 500 Hz, butuh 15.3 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 11.3 dB lalu EQ -4 dB bila kategori masih terasa
+ 4   88   1.7   92.3  2.48   947  11.5 14.9 minor  yt09.mp3  [tolak]  earshot z 0.64
+      - build 11.5 terlalu tinggi (target 0-10)
+      - dyn 14.9 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih 1.7 dB di 500 Hz, butuh 10.3 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 6.3 dB lalu EQ -4 dB bila kategori masih terasa
+ 5   83  -4.2  129.2  3.23  1357  48.6  5.5 minor  yt08.mp3  [tolak]  earshot z -0.49
+      - build 48.6 terlalu tinggi (target 0-10)
+      - menutupi suara: selisih -4.2 dB di 500 Hz, butuh 16.2 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 12.2 dB lalu EQ -4 dB bila kategori masih terasa
+ 6   83  -1.5  129.2  2.38   915  28.8  9.0 minor  S2a_Did_She_Call.mp3  [tolak]  earshot z -0.24
+      - build 28.8 terlalu tinggi (target 0-10)
+      - menutupi suara: selisih -1.5 dB di 500 Hz, butuh 13.5 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 9.5 dB lalu EQ -4 dB bila kategori masih terasa
+ 7   82  -1.2  107.7   3.8  1108  20.5 12.6 minor  yt20.mp3  [tolak]  earshot z -0.29
+      - build 20.5 terlalu tinggi (target 0-10)
+      - dyn 12.6 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih -1.2 dB di 500 Hz, butuh 13.2 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 9.2 dB lalu EQ -4 dB bila kategori masih terasa
+ 8   81  -2.4  117.5  2.68  1760  12.7 16.1 minor  yt04.mp3  [tolak]  earshot z -0.32
+      - build 12.7 terlalu tinggi (target 0-10)
+      - dyn 16.1 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih -2.4 dB di 3150 Hz, butuh 14.4 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 10.4 dB lalu EQ -4 dB bila kategori masih terasa
+ 9   67   0.8  117.5  3.58   994  18.5 18.8 minor  S1a_Lens_Flare_3.mp3  [tolak]  earshot z 0.45
+      - build 18.5 terlalu tinggi (target 0-10)
+      - dyn 18.8 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih 0.8 dB di 500 Hz, butuh 11.2 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 7.2 dB lalu EQ -4 dB bila kategori masih terasa
+10   66  -4.3   95.7  3.69   848  84.7 21.8 minor  yt07.mp3  [tolak]  earshot z -0.02
+      - centroid 848.0 terlalu rendah (target 900-2600)
+      - build 84.7 terlalu tinggi (target 0-10)
+      - dyn 21.8 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih -4.3 dB di 500 Hz, butuh 16.3 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 12.3 dB lalu EQ -4 dB bila kategori masih terasa
+11   57   5.0  107.7  2.48   441  31.2 30.7 minor  yt15.mp3  [tolak]  earshot z 0.4
+      - centroid 441.0 terlalu rendah (target 900-2600)
+      - build 31.2 terlalu tinggi (target 0-10)
+      - dyn 30.7 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih 5.0 dB di 630 Hz, butuh 7.0 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 3.0 dB lalu EQ -4 dB bila kategori masih terasa
+12   95  -2.4  136.0  1.41  1368   3.3  5.0 minor  yt17.mp3  [GUGUR bpm/onset]  earshot z -0.09
+      - bpm 136.0 terlalu tinggi (target 85-130)
+      - onset 1.41 terlalu rendah (target 1.5-5.0)
+      - menutupi suara: selisih -2.4 dB di 500 Hz, butuh 14.4 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 10.4 dB lalu EQ -4 dB bila kategori masih terasa
+13   95  -1.4   99.4  1.35   703   9.5  9.8 minor  yt19.mp3  [GUGUR onset]  earshot z -0.47
+      - onset 1.35 terlalu rendah (target 1.5-5.0)
+      - centroid 703.0 terlalu rendah (target 900-2600)
+      - menutupi suara: selisih -1.4 dB di 500 Hz, butuh 13.4 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 9.4 dB lalu EQ -4 dB bila kategori masih terasa
+14   91  -3.2   71.8  4.18  1428   5.7 10.8 minor  Aware ｜ Forzisimo.mp3  [GUGUR bpm]  earshot z 0.06
+      - bpm 71.8 terlalu rendah (target 85-130)
+      - menutupi suara: selisih -3.2 dB di 3150 Hz, butuh 15.2 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 11.2 dB lalu EQ -4 dB bila kategori masih terasa
+15   86  -3.0  136.0  1.59  1403   4.8 11.1 major  yt12.mp3  [GUGUR bpm]  earshot z 0.05
+      - bpm 136.0 terlalu tinggi (target 85-130)
+      - mode major (target minor)
+      - menutupi suara: selisih -3.0 dB di 3150 Hz, butuh 15.0 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 11.0 dB lalu EQ -4 dB bila kategori masih terasa
+16   78   1.7  120.2   1.4   893  32.9 13.4 minor  yt02.mp3  [GUGUR onset]  earshot z 0.29
+      - onset 1.4 terlalu rendah (target 1.5-5.0)
+      - centroid 893.0 terlalu rendah (target 900-2600)
+      - build 32.9 terlalu tinggi (target 0-10)
+      - dyn 13.4 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih 1.7 dB di 630 Hz, butuh 10.3 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 6.3 dB lalu EQ -4 dB bila kategori masih terasa
+17   78  -1.4  136.0  2.64  1172 136.9 12.3 minor  yt10.mp3  [GUGUR bpm]  earshot z 0.32
+      - bpm 136.0 terlalu tinggi (target 85-130)
+      - build 136.9 terlalu tinggi (target 0-10)
+      - dyn 12.3 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih -1.4 dB di 500 Hz, butuh 13.4 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 9.4 dB lalu EQ -4 dB bila kategori masih terasa
+18   78   0.6   95.7   1.3   787  10.4 23.3 minor  yt11.mp3  [GUGUR onset]  earshot z 0.11
+      - onset 1.3 terlalu rendah (target 1.5-5.0)
+      - centroid 787.0 terlalu rendah (target 900-2600)
+      - build 10.4 terlalu tinggi (target 0-10)
+      - dyn 23.3 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih 0.6 dB di 500 Hz, butuh 11.4 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 7.4 dB lalu EQ -4 dB bila kategori masih terasa
+19   65  -0.4  123.0  0.88   487   7.4 16.2 major  yt01.mp3  [GUGUR onset]  earshot z 0.71
+      - onset 0.88 terlalu rendah (target 1.5-5.0)
+      - centroid 487.0 terlalu rendah (target 900-2600)
+      - dyn 16.2 terlalu tinggi (target 0-12)
+      - mode major (target minor)
+      - menutupi suara: selisih -0.4 dB di 500 Hz, butuh 12.4 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 8.4 dB lalu EQ -4 dB bila kategori masih terasa
+20   58   2.7  117.5  0.55   887  18.4 23.2 minor  yt06.mp3  [GUGUR onset]  earshot z 0.04
+      - onset 0.55 terlalu rendah (target 1.5-5.0)
+      - centroid 887.0 terlalu rendah (target 900-2600)
+      - build 18.4 terlalu tinggi (target 0-10)
+      - dyn 23.2 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih 2.7 dB di 500 Hz, butuh 9.3 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 5.3 dB lalu EQ -4 dB bila kategori masih terasa
+21   58   1.2  123.0  0.87   746  30.1 25.3 minor  yt13.mp3  [GUGUR onset]  earshot z -0.09
+      - onset 0.87 terlalu rendah (target 1.5-5.0)
+      - centroid 746.0 terlalu rendah (target 900-2600)
+      - build 30.1 terlalu tinggi (target 0-10)
+      - dyn 25.3 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih 1.2 dB di 630 Hz, butuh 10.8 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 6.8 dB lalu EQ -4 dB bila kategori masih terasa
+22   55   0.1   80.7  2.04   482  76.3 24.4 major  yt14.mp3  [GUGUR bpm]  earshot z 0.6
+      - bpm 80.7 terlalu rendah (target 85-130)
+      - centroid 482.0 terlalu rendah (target 900-2600)
+      - build 76.3 terlalu tinggi (target 0-10)
+      - dyn 24.4 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih 0.1 dB di 3150 Hz, butuh 11.9 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 7.9 dB lalu EQ -4 dB bila kategori masih terasa
+23   54  -2.0  136.0  6.88  1167  31.4  9.3 major  yt05.mp3  [GUGUR bpm/onset]  earshot z 1.12
+      - bpm 136.0 terlalu tinggi (target 85-130)
+      - onset 6.88 terlalu tinggi (target 1.5-5.0)
+      - build 31.4 terlalu tinggi (target 0-10)
+      - mode major (target minor)
+      - menutupi suara: selisih -2.0 dB di 500 Hz, butuh 14.0 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 10.0 dB lalu EQ -4 dB bila kategori masih terasa
+24   52  -0.9  132.5  0.48   661  36.6 20.7 minor  S2b_Its_In_The_Trees.mp3  [GUGUR bpm/onset]  earshot z 0.77
+      - bpm 132.5 terlalu tinggi (target 85-130)
+      - onset 0.48 terlalu rendah (target 1.5-5.0)
+      - centroid 661.0 terlalu rendah (target 900-2600)
+      - build 36.6 terlalu tinggi (target 0-10)
+      - dyn 20.7 terlalu tinggi (target 0-12)
+      - menutupi suara: selisih -0.9 dB di 1000 Hz, butuh 12.9 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 8.9 dB lalu EQ -4 dB bila kategori masih terasa

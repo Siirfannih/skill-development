@@ -1,0 +1,900 @@
+[
+ {
+  "id": "T01",
+  "kata": [
+   0,
+   2
+  ],
+  "teks": "people with very",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 0.0,
+  "hilang": 1.12,
+  "durasi": 1.12
+ },
+ {
+  "id": "T02",
+  "kata": [
+   3,
+   4
+  ],
+  "teks": "HIGH|EXPECTATIONS",
+  "kunci": [
+   "HIGH",
+   "EXPECTATIONS"
+  ],
+  "gaya": "t",
+  "muncul": 1.12,
+  "hilang": 1.78,
+  "durasi": 0.66
+ },
+ {
+  "id": "T03",
+  "kata": [
+   5,
+   6
+  ],
+  "teks": "have very",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 1.78,
+  "hilang": 2.3,
+  "durasi": 0.52
+ },
+ {
+  "id": "T04",
+  "kata": [
+   7,
+   8
+  ],
+  "teks": "LOW|RESILIENCE",
+  "kunci": [
+   "LOW",
+   "RESILIENCE"
+  ],
+  "gaya": "t",
+  "muncul": 2.3,
+  "hilang": 3.473,
+  "durasi": 1.17
+ },
+ {
+  "id": "T05",
+  "kata": [
+   9,
+   9
+  ],
+  "teks": "unfortunately,",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 3.473,
+  "hilang": 4.387,
+  "durasi": 0.91
+ },
+ {
+  "id": "T06",
+  "kata": [
+   10,
+   11
+  ],
+  "teks": "resilience matters",
+  "kunci": [
+   "resilience"
+  ],
+  "gaya": "s",
+  "muncul": 4.387,
+  "hilang": 5.107,
+  "durasi": 0.72
+ },
+ {
+  "id": "T07",
+  "kata": [
+   12,
+   13
+  ],
+  "teks": "in success.",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 5.107,
+  "hilang": 6.1,
+  "durasi": 0.99
+ },
+ {
+  "id": "T08",
+  "kata": [
+   14,
+   16
+  ],
+  "teks": "I don't know",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 6.1,
+  "hilang": 6.42,
+  "durasi": 0.32
+ },
+ {
+  "id": "T09",
+  "kata": [
+   17,
+   19
+  ],
+  "teks": "how to teach",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 6.42,
+  "hilang": 6.86,
+  "durasi": 0.44
+ },
+ {
+  "id": "T10",
+  "kata": [
+   20,
+   22
+  ],
+  "teks": "it to you",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 6.86,
+  "hilang": 7.26,
+  "durasi": 0.4
+ },
+ {
+  "id": "T11",
+  "kata": [
+   23,
+   24
+  ],
+  "teks": "except for",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 7.26,
+  "hilang": 7.74,
+  "durasi": 0.48
+ },
+ {
+  "id": "T12",
+  "kata": [
+   25,
+   26
+  ],
+  "teks": "I hope",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 7.74,
+  "hilang": 8.1,
+  "durasi": 0.36
+ },
+ {
+  "id": "T13",
+  "kata": [
+   27,
+   27
+  ],
+  "teks": "suffering",
+  "kunci": [
+   "suffering"
+  ],
+  "gaya": "s",
+  "muncul": 8.1,
+  "hilang": 8.44,
+  "durasi": 0.34
+ },
+ {
+  "id": "T14",
+  "kata": [
+   28,
+   30
+  ],
+  "teks": "happens to you.",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 8.44,
+  "hilang": 9.153,
+  "durasi": 0.71
+ },
+ {
+  "id": "T15",
+  "kata": [
+   31,
+   34
+  ],
+  "teks": "And I was fortunate",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 9.153,
+  "hilang": 10.333,
+  "durasi": 1.18
+ },
+ {
+  "id": "T16",
+  "kata": [
+   35,
+   38
+  ],
+  "teks": "that I grew up",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 10.333,
+  "hilang": 11.173,
+  "durasi": 0.84
+ },
+ {
+  "id": "T17",
+  "kata": [
+   39,
+   41
+  ],
+  "teks": "with my parents",
+  "kunci": [
+   "parents"
+  ],
+  "gaya": "s",
+  "muncul": 11.173,
+  "hilang": 12.153,
+  "durasi": 0.98
+ },
+ {
+  "id": "T18",
+  "kata": [
+   42,
+   42
+  ],
+  "teks": "providing",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 12.153,
+  "hilang": 12.773,
+  "durasi": 0.62
+ },
+ {
+  "id": "T19",
+  "kata": [
+   43,
+   44
+  ],
+  "teks": "a condition",
+  "kunci": [
+   "condition"
+  ],
+  "gaya": "s",
+  "muncul": 12.773,
+  "hilang": 13.373,
+  "durasi": 0.6
+ },
+ {
+  "id": "T20",
+  "kata": [
+   45,
+   46
+  ],
+  "teks": "for us",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 13.373,
+  "hilang": 13.693,
+  "durasi": 0.32
+ },
+ {
+  "id": "T21",
+  "kata": [
+   47,
+   49
+  ],
+  "teks": "to be successful",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 13.693,
+  "hilang": 14.393,
+  "durasi": 0.7
+ },
+ {
+  "id": "T22",
+  "kata": [
+   50,
+   53
+  ],
+  "teks": "on the one hand,",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 14.393,
+  "hilang": 15.287,
+  "durasi": 0.89
+ },
+ {
+  "id": "T23",
+  "kata": [
+   54,
+   56
+  ],
+  "teks": "but there were",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 15.287,
+  "hilang": 16.307,
+  "durasi": 1.02
+ },
+ {
+  "id": "T24",
+  "kata": [
+   57,
+   59
+  ],
+  "teks": "plenty of opportunities",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 16.307,
+  "hilang": 17.087,
+  "durasi": 0.78
+ },
+ {
+  "id": "T25",
+  "kata": [
+   60,
+   62
+  ],
+  "teks": "for setbacks and",
+  "kunci": [
+   "setbacks"
+  ],
+  "gaya": "s",
+  "muncul": 17.087,
+  "hilang": 18.087,
+  "durasi": 1.0
+ },
+ {
+  "id": "T26",
+  "kata": [
+   63,
+   63
+  ],
+  "teks": "SUFFERING",
+  "kunci": [
+   "SUFFERING"
+  ],
+  "gaya": "judul",
+  "muncul": 18.087,
+  "hilang": 18.747,
+  "durasi": 0.66
+ },
+ {
+  "id": "T27",
+  "kata": [
+   64,
+   67
+  ],
+  "teks": "And to this day,",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 18.747,
+  "hilang": 19.507,
+  "durasi": 0.76
+ },
+ {
+  "id": "T28",
+  "kata": [
+   68,
+   71
+  ],
+  "teks": "I used the phrase",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 19.507,
+  "hilang": 19.97,
+  "durasi": 0.46
+ },
+ {
+  "id": "T29",
+  "kata": [
+   72,
+   74
+  ],
+  "teks": "pain and suffering",
+  "kunci": [
+   "pain",
+   "and",
+   "suffering"
+  ],
+  "gaya": "s",
+  "muncul": 19.97,
+  "hilang": 20.767,
+  "durasi": 0.86
+ },
+ {
+  "id": "T30",
+  "kata": [
+   75,
+   77
+  ],
+  "teks": "inside our company",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 20.767,
+  "hilang": 21.72,
+  "durasi": 0.95
+ },
+ {
+  "id": "T31",
+  "kata": [
+   78,
+   80
+  ],
+  "teks": "with great glee.",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 21.72,
+  "hilang": 22.86,
+  "durasi": 1.14
+ },
+ {
+  "id": "T32",
+  "kata": [
+   81,
+   84
+  ],
+  "teks": "And I mean that.",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 22.86,
+  "hilang": 23.88,
+  "durasi": 1.02
+ },
+ {
+  "id": "T33",
+  "kata": [
+   85,
+   85
+  ],
+  "teks": "Boy,",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 23.88,
+  "hilang": 24.14,
+  "durasi": 0.26
+ },
+ {
+  "id": "T34",
+  "kata": [
+   86,
+   89
+  ],
+  "teks": "this is gonna cause",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 24.14,
+  "hilang": 24.82,
+  "durasi": 0.68
+ },
+ {
+  "id": "T35",
+  "kata": [
+   90,
+   92
+  ],
+  "teks": "a lot of",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 24.82,
+  "hilang": 25.24,
+  "durasi": 0.42
+ },
+ {
+  "id": "T36",
+  "kata": [
+   93,
+   95
+  ],
+  "teks": "pain and suffering.",
+  "kunci": [
+   "pain",
+   "and",
+   "suffering."
+  ],
+  "gaya": "s",
+  "muncul": 25.24,
+  "hilang": 25.9,
+  "durasi": 0.66
+ },
+ {
+  "id": "T37",
+  "kata": [
+   96,
+   99
+  ],
+  "teks": "And I mean that",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 25.9,
+  "hilang": 26.56,
+  "durasi": 0.66
+ },
+ {
+  "id": "T38",
+  "kata": [
+   100,
+   103
+  ],
+  "teks": "in a happy way,",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 26.56,
+  "hilang": 27.24,
+  "durasi": 0.68
+ },
+ {
+  "id": "T39",
+  "kata": [
+   104,
+   106
+  ],
+  "teks": "Because you want",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 27.24,
+  "hilang": 27.9,
+  "durasi": 0.66
+ },
+ {
+  "id": "T40",
+  "kata": [
+   107,
+   108
+  ],
+  "teks": "to train,",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 27.9,
+  "hilang": 28.48,
+  "durasi": 0.58
+ },
+ {
+  "id": "T41",
+  "kata": [
+   109,
+   111
+  ],
+  "teks": "you want to",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 28.48,
+  "hilang": 28.88,
+  "durasi": 0.4
+ },
+ {
+  "id": "T42",
+  "kata": [
+   112,
+   112
+  ],
+  "teks": "refine",
+  "kunci": [
+   "refine"
+  ],
+  "gaya": "s",
+  "muncul": 28.88,
+  "hilang": 29.24,
+  "durasi": 0.36
+ },
+ {
+  "id": "T43",
+  "kata": [
+   113,
+   114
+  ],
+  "teks": "the character",
+  "kunci": [
+   "character"
+  ],
+  "gaya": "s",
+  "muncul": 29.24,
+  "hilang": 29.88,
+  "durasi": 0.64
+ },
+ {
+  "id": "T44",
+  "kata": [
+   115,
+   117
+  ],
+  "teks": "of your company.",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 29.88,
+  "hilang": 30.76,
+  "durasi": 0.88
+ },
+ {
+  "id": "T45",
+  "kata": [
+   118,
+   120
+  ],
+  "teks": "You want greatness",
+  "kunci": [
+   "greatness"
+  ],
+  "gaya": "s",
+  "muncul": 30.76,
+  "hilang": 31.48,
+  "durasi": 0.72
+ },
+ {
+  "id": "T46",
+  "kata": [
+   121,
+   123
+  ],
+  "teks": "out of them.",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 31.48,
+  "hilang": 32.253,
+  "durasi": 0.77
+ },
+ {
+  "id": "T47",
+  "kata": [
+   124,
+   125
+  ],
+  "teks": "And greatness",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 32.253,
+  "hilang": 32.633,
+  "durasi": 0.38
+ },
+ {
+  "id": "T48",
+  "kata": [
+   126,
+   128
+  ],
+  "teks": "is not intelligence,",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 32.633,
+  "hilang": 33.673,
+  "durasi": 1.04
+ },
+ {
+  "id": "T49",
+  "kata": [
+   129,
+   131
+  ],
+  "teks": "Greatness comes",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 33.673,
+  "hilang": 34.313,
+  "durasi": 0.64
+ },
+ {
+  "id": "T50",
+  "kata": [
+   132,
+   133
+  ],
+  "teks": "from character.",
+  "kunci": [
+   "character."
+  ],
+  "gaya": "s",
+  "muncul": 34.313,
+  "hilang": 35.133,
+  "durasi": 0.82
+ },
+ {
+  "id": "T51",
+  "kata": [
+   134,
+   135
+  ],
+  "teks": "And character",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 35.133,
+  "hilang": 35.553,
+  "durasi": 0.42
+ },
+ {
+  "id": "T52",
+  "kata": [
+   136,
+   137
+  ],
+  "teks": "isn't formed",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 35.553,
+  "hilang": 36.393,
+  "durasi": 0.84
+ },
+ {
+  "id": "T53",
+  "kata": [
+   138,
+   141
+  ],
+  "teks": "out of smart people,",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 36.393,
+  "hilang": 37.373,
+  "durasi": 0.98
+ },
+ {
+  "id": "T54",
+  "kata": [
+   142,
+   143
+  ],
+  "teks": "it's formed",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 37.373,
+  "hilang": 37.773,
+  "durasi": 0.4
+ },
+ {
+  "id": "T55",
+  "kata": [
+   144,
+   146
+  ],
+  "teks": "out of people",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 37.773,
+  "hilang": 38.293,
+  "durasi": 0.52
+ },
+ {
+  "id": "T56",
+  "kata": [
+   147,
+   148
+  ],
+  "teks": "who suffered.",
+  "kunci": [
+   "suffered."
+  ],
+  "gaya": "s",
+  "muncul": 38.293,
+  "hilang": 39.033,
+  "durasi": 0.74
+ },
+ {
+  "id": "T57",
+  "kata": [
+   149,
+   151
+  ],
+  "teks": "And so if",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 39.033,
+  "hilang": 39.433,
+  "durasi": 0.4
+ },
+ {
+  "id": "T58",
+  "kata": [
+   152,
+   154
+  ],
+  "teks": "I could wish",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 39.433,
+  "hilang": 39.893,
+  "durasi": 0.46
+ },
+ {
+  "id": "T59",
+  "kata": [
+   155,
+   156
+  ],
+  "teks": "upon you,",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 39.893,
+  "hilang": 40.593,
+  "durasi": 0.7
+ },
+ {
+  "id": "T60",
+  "kata": [
+   157,
+   159
+  ],
+  "teks": "I don't know",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 40.593,
+  "hilang": 40.913,
+  "durasi": 0.32
+ },
+ {
+  "id": "T61",
+  "kata": [
+   160,
+   163
+  ],
+  "teks": "how to do it.",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 40.913,
+  "hilang": 41.693,
+  "durasi": 0.78
+ },
+ {
+  "id": "T62",
+  "kata": [
+   164,
+   167
+  ],
+  "teks": "For all of you",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 41.693,
+  "hilang": 42.493,
+  "durasi": 0.8
+ },
+ {
+  "id": "T63",
+  "kata": [
+   168,
+   169
+  ],
+  "teks": "Stanford students,",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 42.493,
+  "hilang": 43.593,
+  "durasi": 1.1
+ },
+ {
+  "id": "T64",
+  "kata": [
+   170,
+   173
+  ],
+  "teks": "I wish upon you",
+  "kunci": [],
+  "gaya": "s",
+  "muncul": 43.593,
+  "hilang": 44.353,
+  "durasi": 0.76
+ },
+ {
+  "id": "T65",
+  "kata": [
+   174,
+   175
+  ],
+  "teks": "AMPLE|DOSES",
+  "kunci": [],
+  "gaya": "t",
+  "muncul": 44.353,
+  "hilang": 44.993,
+  "durasi": 0.64
+ },
+ {
+  "id": "T66",
+  "kata": [
+   176,
+   179
+  ],
+  "teks": "OF PAIN AND|SUFFERING.",
+  "kunci": [
+   "PAIN",
+   "AND",
+   "SUFFERING."
+  ],
+  "gaya": "d",
+  "muncul": 44.993,
+  "hilang": 47.6,
+  "durasi": 2.61
+ }
+]

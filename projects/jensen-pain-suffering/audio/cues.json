@@ -1,0 +1,158 @@
+{
+ "cues": [
+  {
+   "t": 0.0,
+   "mulai": 0.0,
+   "frame": 0,
+   "align": "onset",
+   "file": "orchestra_stab_1.mp3",
+   "gain_db": -12,
+   "peran": "stab pembuka",
+   "alasan": "ref 55: stab orkestra di frame 0",
+   "dengar": "strings ensemble / orchestral stab (z +5,0)"
+  },
+  {
+   "t": 3.467,
+   "mulai": 3.41,
+   "frame": 104,
+   "align": "onset",
+   "file": "Pergantianfoto.mp3",
+   "gain_db": -1,
+   "peran": "foto muncul",
+   "alasan": "bingkai foto wisuda masuk (nama SFXIrfan: Pergantianfoto)",
+   "dengar": "klik pen/toggle"
+  },
+  {
+   "t": 5.467,
+   "mulai": 5.41,
+   "frame": 164,
+   "align": "onset",
+   "file": "Pergantianfoto.mp3",
+   "gain_db": -1,
+   "peran": "foto muncul",
+   "alasan": "foto di bingkai berganti; satu peran satu bunyi",
+   "dengar": "klik pen/toggle"
+  },
+  {
+   "t": 7.733,
+   "mulai": 3.604,
+   "frame": 232,
+   "align": "peak",
+   "file": "ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3",
+   "gain_db": -7,
+   "peran": "menuju punch",
+   "alasan": "ref 55 riser menuju jawaban; memuncak di punch-in f232",
+   "dengar": "reverse cymbal / riser"
+  },
+  {
+   "t": 7.733,
+   "mulai": 7.582,
+   "frame": 232,
+   "align": "onset",
+   "file": "cinematic_impact_hit_4.mp3",
+   "gain_db": -9,
+   "peran": "hantaman punch",
+   "alasan": "punch-in 135 % + flash \"I hope suffering\"",
+   "dengar": "cinematic hit with long tail"
+  },
+  {
+   "t": 9.167,
+   "mulai": 9.167,
+   "frame": 275,
+   "align": "onset",
+   "file": "vintage_camera_flash_2.mp3",
+   "gain_db": -8,
+   "peran": "kilatan foto",
+   "alasan": "masuk babak II cetakan foto (ref 55 shutter di kilatan foto)",
+   "dengar": "camera shutter click (z +3)"
+  },
+  {
+   "t": 15.267,
+   "mulai": 15.24,
+   "frame": 458,
+   "align": "onset",
+   "file": "Cutcontrastransision.mp3",
+   "gain_db": -2,
+   "peran": "cut kontras",
+   "alasan": "twist ke monokrom (nama SFXIrfan: cut kontras)",
+   "dengar": "pen click / key release"
+  },
+  {
+   "t": 18.1,
+   "mulai": 17.686,
+   "frame": 543,
+   "align": "onset",
+   "file": "snare_hit_reverb_3.mp3",
+   "gain_db": -5,
+   "peran": "judul",
+   "alasan": "kartu judul SUFFERING (ref 55 snare di judul bab)",
+   "dengar": "cinematic hit / snare (z +4,5)"
+  },
+  {
+   "t": 23.867,
+   "mulai": 23.84,
+   "frame": 716,
+   "align": "onset",
+   "file": "Keyboardtyping.mp3",
+   "gain_db": -6,
+   "peran": "ketik",
+   "alasan": "tangan mengetik terlihat di shot keyboard (detail)",
+   "dengar": "keyboard typing fast"
+  },
+  {
+   "t": 30.767,
+   "mulai": 30.193,
+   "frame": 923,
+   "align": "peak",
+   "file": "ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+   "gain_db": -7,
+   "peran": "ledakan percik",
+   "alasan": "percikan api masuk, gerak besar terlihat",
+   "dengar": "big cinematic whoosh"
+  },
+  {
+   "t": 32.233,
+   "mulai": 31.716,
+   "frame": 967,
+   "align": "peak",
+   "file": "scaningfast.mp3",
+   "gain_db": -5,
+   "peran": "pan cepat",
+   "alasan": "PCB pan cepat (nama SFXIrfan: scaningfast)",
+   "dengar": "whoosh pendek"
+  },
+  {
+   "t": 34.59,
+   "mulai": 34.588,
+   "frame": 1038,
+   "align": "onset",
+   "file": "braam_1.mp3",
+   "gain_db": -5,
+   "peran": "puncak jawaban",
+   "alasan": "\"character.\" jawaban inti; basmenyebar (SFXIrfan) diganti karena hampir seluruhnya sub-bass, tidak terdengar di speaker HP (audio_phone -37 dB)",
+   "dengar": "cinematic hit with long tail / deep impact (z +3,8)"
+  },
+  {
+   "t": 44.333,
+   "mulai": 40.204,
+   "frame": 1330,
+   "align": "peak",
+   "file": "ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3",
+   "gain_db": -7,
+   "peran": "menuju punch",
+   "alasan": "riser menuju kartu hitam; satu peran satu bunyi",
+   "dengar": "reverse cymbal / riser"
+  },
+  {
+   "t": 44.333,
+   "mulai": 43.953,
+   "frame": 1330,
+   "align": "onset",
+   "file": "ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz - Epidemic Sound.mp3",
+   "gain_db": -5,
+   "peran": "punchline",
+   "alasan": "kartu \"AMPLE / DOSES\" (ref 55 sub drop di punchline)",
+   "dengar": "sub bass drop"
+  }
+ ]
+}

@@ -1,0 +1,11 @@
+# QUESTIONS r1 (Editor → Sutradara)
+
+| ID | Beat | Pertanyaan | Opsi | Default yang dipakai di r1 |
+|---|---|---|---|---|
+| Q1 | B7 | PLAN menulis 'this is going to cause', tetapi `audio/words.json` berisi "gonna" (BRIEF: teks persis words.json). | a) "gonna" (words.json) · b) "going to" (PLAN) | a) **"this is gonna cause"** |
+| Q2 | semua | Kapital di teks PLAN ('I hope SUFFERING', 'to REFINE', 'is not INTELLIGENCE') saya baca sebagai penanda kata kunci, bukan huruf kapital di layar. | a) huruf kecil + amber (kartu 55 "it's not **talent**") · b) KAPITAL di layar | a) **huruf kecil + amber**; KAPITAL hanya di teks tumpuk B1, B12 dan kartu judul SUFFERING. 'intelligence' putih Bold (tanpa amber, sesuai PLAN). 'refine' dan 'character' (B8) sama-sama amber. |
+| Q3 | B5 | Kartu judul "SUFFERING" ±50 % tinggi frame tidak muat dengan Poppins Bold satu baris (lebar huruf). | a) dibatasi lebar: ±82 % lebar, cap-height ±21 % tinggi · b) font condensed lain (melanggar kunci font) · c) dua baris | a) **font 300 px, lebar ±82 %, cap ±20 %** |
+| Q4 | B1 | Teks tumpuk k4 (kata besar ±10 % / kecil ±4,3 %) tidak muat di dinding kanan: 'HIGH EXPECTATIONS' pada ±10 % = ±1.900 px. | a) besar ±6 % (cap 65 px), kecil ±3 % (cap 32 px), rasio 2 · b) pecah 'HIGH' / 'EXPECTATIONS' (jadi >2 baris) | a). Dua blok @2 baris (kecil+besar) bertumpuk. teks_cek menandai GANDA 'very' (dua kali diucapkan, dua tempat): sesuai ucapan. |
+| Q5 | B3, B11 | Batas kanan safe frame + kepala Jensen (crop yang membuang garis putih) menyisakan ±950 px. 'how to teach it to you' dan blok B11 tidak muat pada 90 px. | a) 84 px (cap ±60 px, sedikit di bawah lantai 64) · b) pecah ke baris lain | a) 84 px. Push B11 diturunkan 108 % → 103 %, B1 106 % → 103 % agar teks dunia tidak keluar safe frame. |
+| Q6 | B3, B4, B6, B7, B11 | PLAN tidak menampilkan sebagian ucapan ('except for', 'that … providing … for us', 'I used the phrase', 'And I mean that' di B7, 'And so', 'I'). Lantai A1 meminta semua ucapan tampil. | a) ikut PLAN · b) tambahkan | a) ikut PLAN (tidak menambah teks). |
+| Q7 | B4 | Arsip Denny's disiapkan (TASK) tetapi PLAN meminta 2–3 cetakan; saya pakai meja, komputer, logo. | a) 3 cetakan tanpa Denny's · b) Denny's ganti salah satu · c) 4 cetakan | a) |

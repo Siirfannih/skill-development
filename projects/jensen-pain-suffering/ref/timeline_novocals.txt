@@ -1,0 +1,112 @@
+no_vocals.wav: 0:00.00-0:46.23 (46.2 s). Loudness -19.0 LUFS integrated, true peak -0.9 dBTP, LRA 16.8 LU; loudest 0:42.00-0:45.00 (-15.9 LUFS short-term). True peak -0.9 dBTP is above -1 dBTP (risk of overs after encoding). Quiet tail 1.5 s (drop). No steady beat grid (pulse clarity 0.12 < 0.15). 4 section(s): 0:00.00-0:07.15 classical string quartet, pizzicato strings | also: explosion, violin, fiddle (AST); 0:07.15-0:33.05 inspirational corporate background music, pizzicato strings, confident and cool | also: single-lens reflex camera, camera, crunch (AST); 0:33.05-0:39.25 jazz music?, pizzicato strings | also: double bass, bowed string instrument (AST); 0:39.25-0:46.23 glitch hop music, pizzicato strings | also: bowed string instrument, double bass, cello (AST). 199 events (4.3/s); 96 tagged (73 note, 6 riser, 5 whoosh, 5 drum, 4 voice, 1 ui, 1 key, 1 foley; tags are hints). Strongest accents over a running bed: 0:33.04 +22 dB (fast air whoosh), 0:36.23 +21 dB (plucked string note), 0:20.46 +18 dB (spacebar press).
+
+SECTIONS
+  0:00.00-0:07.15  classical string quartet, pizzicato strings | also: explosion, violin, fiddle (AST)  -22 LUFS  [AST music 0.37, speech 0.02]
+  0:07.15-0:33.05  inspirational corporate background music, pizzicato strings, confident and cool | also: single-lens reflex camera, camera, crunch (AST)  -27 LUFS  [AST music 0.61, speech 0.03]
+  0:33.05-0:39.25  jazz music?, pizzicato strings | also: double bass, bowed string instrument (AST)  -16 LUFS  [AST music 0.35, speech 0.09]
+  0:39.25-0:46.23  glitch hop music, pizzicato strings | also: bowed string instrument, double bass, cello (AST)  -16 LUFS  [AST music 0.64, speech 0.01]
+
+TRANSCRIPT   time  kind   what (CLAP tag / runner-up)                     peak  over bed  length  centroid  | sync
+== 0:00.00-0:07.15  classical string quartet, pizzicato strings | also: explosion, violin, fiddle (AST)  (+12 untagged onsets, 1.7/s)
+ 0:00.00  NOTE   orchestral stab                                 -14.9 dBFS   silent  2000 ms   419 Hz  [AST Bowed string instrument 0.25]
+ 0:00.07  NOTE   orchestral stab                                 -14.9 dBFS   silent   140 ms   310 Hz  [AST Musical instrument 0.29]
+ 0:00.18  NOTE?  plucked string note / short vocal sound         -15.6 dBFS  +2.5 dB   103 ms   164 Hz
+ 0:00.48  NOTE?  orchestral stab / rising riser building tensio  -14.5 dBFS  +9.1 dB   317 ms   582 Hz
+ 0:00.53  NOTE?  orchestral stab / reverse cymbal swell          -14.5 dBFS  +9.8 dB   269 ms   615 Hz
+ 0:00.56  NOTE?  orchestral stab / drum hit                      -14.7 dBFS  +9.4 dB    70 ms   637 Hz
+ 0:00.90  NOTE   orchestral stab                                  -9.4 dBFS +13.4 dB  2000 ms   430 Hz
+ 0:01.32  NOTE?  orchestral stab / rising riser building tensio  -11.0 dBFS  +7.6 dB   607 ms   329 Hz
+ 0:02.16  NOTE?  orchestral stab / reverse cymbal swell          -13.5 dBFS  +9.7 dB   320 ms   907 Hz
+ 0:02.57  NOTE?  orchestral stab / deep cinematic boom           -14.5 dBFS  +9.1 dB  2000 ms   442 Hz
+ 0:03.07  NOTE?  orchestral stab / breath                        -11.0 dBFS +10.4 dB  1465 ms   579 Hz
+ 0:04.04  NOTE?  orchestral stab / drum hit                       -8.9 dBFS  +4.0 dB    89 ms   507 Hz
+ 0:04.66  NOTE?  orchestral stab / chat message pop              -11.8 dBFS +11.6 dB   354 ms   565 Hz
+ 0:05.09  NOTE?  orchestral stab / rising riser building tensio  -10.3 dBFS +11.9 dB   691 ms   355 Hz
+ 0:05.92  NOTE?  orchestral stab                                 -12.1 dBFS  +9.1 dB   311 ms  1.0 kHz
+ 0:06.16  NOTE?  orchestral stab                                 -19.9 dBFS  +0.4 dB    68 ms   314 Hz
+ 0:06.57  NOTE   orchestral stab / spoken word                   -13.8 dBFS   silent  1000 ms   408 Hz  [AST Bowed string instrument 0.20]
+== 0:07.15-0:33.05  inspirational corporate background music, pizzicato strings, confident and cool | also: single-lens reflex camera, camera, crunch (AST)  (+50 untagged onsets, 1.9/s)
+ 0:07.15  NOTE?  orchestral stab / reverse cymbal swell          -15.5 dBFS  +5.4 dB  1912 ms   899 Hz
+ 0:08.50  NOTE?  plucked string note                             -13.2 dBFS  +4.3 dB   272 ms   676 Hz
+ 0:08.88  NOTE?  orchestral stab / rising riser building tensio  -13.6 dBFS  +5.1 dB   579 ms   570 Hz
+ 0:09.34  NOTE?  orchestral stab / typing on a computer keyboar  -14.4 dBFS  +1.5 dB   954 ms   886 Hz
+ 0:09.76  NOTE?  orchestral stab / rising riser building tensio  -12.7 dBFS  +6.4 dB  2000 ms   585 Hz
+ 0:10.00  NOTE?  orchestral stab / rising riser building tensio  -12.9 dBFS  +8.3 dB  1000 ms   648 Hz
+ 0:10.98  NOTE?  orchestral stab / rising riser building tensio  -12.8 dBFS  +6.5 dB   311 ms   654 Hz
+ 0:11.12  NOTE?  plucked string note / breath                    -15.5 dBFS  +1.8 dB    15 ms   471 Hz
+ 0:12.06  NOTE?  orchestral stab / reverse cymbal swell          -13.9 dBFS  +5.4 dB   140 ms   589 Hz
+ 0:12.25  NOTE?  orchestral stab / rising riser building tensio  -14.1 dBFS  +5.7 dB   577 ms   867 Hz
+ 0:12.67  NOTE?  orchestral stab / rising riser building tensio  -13.6 dBFS  +4.2 dB   812 ms   476 Hz
+ 0:13.11  RISER? rising riser building tension / orchestral sta  -14.7 dBFS  +1.1 dB   107 ms   879 Hz
+ 0:13.32  NOTE?  orchestral stab / rising riser building tensio  -14.1 dBFS  +3.8 dB   157 ms   425 Hz
+ 0:13.86  WHOOSH? whip pan whoosh transition / orchestral stab    -13.2 dBFS  +5.7 dB   171 ms   513 Hz
+ 0:13.94  NOTE?  orchestral stab / whip pan whoosh transition    -13.2 dBFS  +6.7 dB  1272 ms   407 Hz
+ 0:14.55  NOTE?  orchestral stab / uplifter sweep                -13.1 dBFS  +5.3 dB   553 ms   757 Hz
+ 0:14.75  NOTE?  plucked string note / rising riser building te  -13.9 dBFS  +4.8 dB   117 ms   895 Hz
+ 0:15.61  NOTE?  orchestral stab / hi-hat                        -22.6 dBFS  +3.1 dB    73 ms   552 Hz
+ 0:16.05  NOTE?  bell chime / chat message pop                   -25.7 dBFS  +2.4 dB  1221 ms   351 Hz
+ 0:16.37  VOICE  short vocal sound / chat message pop            -14.7 dBFS +16.3 dB   208 ms  1.7 kHz  [AST Speech 0.10]
+ 0:16.89  NOTE?  orchestral stab / short vocal sound             -21.7 dBFS +11.4 dB   240 ms   340 Hz
+ 0:17.20  NOTE?  orchestral stab / whip pan whoosh transition    -26.3 dBFS  +0.0 dB   167 ms  1.0 kHz
+ 0:17.83  NOTE   orchestral stab / breath                        -23.8 dBFS +14.3 dB   990 ms   544 Hz  [AST Speech 0.34]
+ 0:17.98  NOTE?  orchestral stab / short swish                   -26.7 dBFS  +0.0 dB    23 ms   442 Hz
+ 0:18.50  NOTE?  orchestral stab / whip pan whoosh transition    -22.3 dBFS  +4.9 dB   530 ms   746 Hz
+ 0:19.42  NOTE?  orchestral stab / drum hit                      -25.4 dBFS  +5.3 dB   216 ms   383 Hz
+ 0:19.78  NOTE   orchestral stab / uplifter sweep                -22.8 dBFS   silent   970 ms   920 Hz  [AST Musical instrument 0.15]
+ 0:19.97  NOTE?  orchestral stab / chat message pop              -22.8 dBFS  +2.8 dB    39 ms   719 Hz
+ 0:20.37  UI     camera shutter click / spacebar press            -2.0 dBFS +18.1 dB   131 ms  4.2 kHz
+ 0:20.46  KEY    spacebar press / toggle switch click             -2.0 dBFS +18.2 dB    39 ms  7.7 kHz  [AST Speech 0.06]  | strong accent (summary)
+ 0:20.77  NOTE?  orchestral stab / rising riser building tensio  -30.2 dBFS  +0.0 dB    12 ms   529 Hz
+ 0:20.99  RISER? uplifter sweep / orchestral stab                -25.5 dBFS  +5.7 dB   627 ms   899 Hz
+ 0:21.46  NOTE?  orchestral stab / short vocal sound             -24.1 dBFS  +6.4 dB   132 ms   364 Hz
+ 0:21.84  NOTE?  orchestral stab / rising riser building tensio  -20.4 dBFS  +9.1 dB   387 ms   427 Hz
+ 0:22.45  NOTE?  orchestral stab / rising riser building tensio  -23.0 dBFS  +2.6 dB   384 ms   910 Hz
+ 0:23.35  NOTE   orchestral stab / breath                        -27.3 dBFS   silent   240 ms   528 Hz  [AST Speech 0.14]
+ 0:24.08  VOICE? short vocal sound / orchestral stab             -28.3 dBFS  +4.7 dB   193 ms   280 Hz
+ 0:24.20  NOTE?  orchestral stab / breath                        -30.6 dBFS  +0.0 dB    11 ms   512 Hz
+ 0:24.75  NOTE?  orchestral stab / footsteps on grass            -25.0 dBFS  +6.3 dB   736 ms  1.2 kHz
+ 0:25.20  NOTE?  orchestral stab / whip pan whoosh transition    -17.6 dBFS  +8.9 dB  1088 ms   480 Hz
+ 0:25.83  NOTE?  plucked string note / rising riser building te  -25.1 dBFS  +1.2 dB    65 ms   782 Hz
+ 0:26.38  NOTE?  orchestral stab / rising riser building tensio  -23.9 dBFS  +2.2 dB   956 ms   524 Hz
+ 0:26.53  NOTE?  orchestral stab / chat message pop              -24.4 dBFS  +3.2 dB    54 ms   350 Hz
+ 0:27.21  RISER? reverse cymbal swell / whip pan whoosh transit  -25.4 dBFS  +1.9 dB    27 ms   273 Hz
+ 0:27.92  NOTE   orchestral stab / rising riser building tensio  -22.7 dBFS   silent   460 ms   454 Hz  [AST Musical instrument 0.16]
+ 0:28.16  NOTE   orchestral stab / rising riser building tensio  -22.7 dBFS   silent   220 ms   623 Hz
+ 0:28.59  WHOOSH? whip pan whoosh transition / reverse cymbal sw  -24.0 dBFS  +2.2 dB   488 ms   617 Hz
+ 0:29.34  NOTE?  orchestral stab / reverse cymbal swell          -19.7 dBFS  +5.5 dB    64 ms   608 Hz
+ 0:30.19  NOTE?  orchestral stab / chat message pop              -19.4 dBFS  +4.9 dB   676 ms   448 Hz
+ 0:31.01  NOTE?  orchestral stab / uplifter sweep                -24.7 dBFS  +4.8 dB   589 ms   902 Hz
+ 0:31.83  NOTE?  orchestral stab / rising riser building tensio  -22.2 dBFS  +9.5 dB   521 ms   506 Hz
+ 0:32.65  WHOOSH? whip pan whoosh transition / orchestral stab    -25.7 dBFS  +9.0 dB  2000 ms   304 Hz
+ 0:33.04  WHOOSH fast air whoosh / orchestral stab                -0.9 dBFS +21.7 dB  2000 ms   122 Hz  [AST Speech 0.10]  | strong accent (summary)
+== 0:33.05-0:39.25  jazz music?, pizzicato strings | also: double bass, bowed string instrument (AST)  (+29 untagged onsets, 4.7/s)
+ 0:33.19  DRUM   drum hit / punchy impact hit                     -0.9 dBFS +18.1 dB   554 ms   177 Hz  [AST Bang 0.23]
+ 0:33.75  RISER? rising riser building tension / orchestral sta   -5.7 dBFS  +1.0 dB   176 ms    71 Hz
+ 0:34.36  NOTE?  plucked string note / reverse cymbal swell       -5.4 dBFS  +6.8 dB   666 ms   138 Hz
+ 0:34.69  NOTE?  plucked string note / drum hit                   -7.0 dBFS  +7.0 dB    47 ms   239 Hz
+ 0:35.27  NOTE?  plucked string note / whip pan whoosh transiti   -8.2 dBFS  +7.1 dB   371 ms   235 Hz
+ 0:35.93  NOTE?  plucked string note / spoken word                -6.4 dBFS +10.4 dB   452 ms   275 Hz
+ 0:36.23  NOTE   plucked string note / reverse cymbal swell       -6.5 dBFS +21.1 dB   740 ms   211 Hz  [AST Musical instrument 0.21]  | strong accent (summary)
+ 0:36.74  NOTE?  plucked string note / water drop                 -7.5 dBFS  +8.4 dB   155 ms   272 Hz
+ 0:37.35  DRUM?  drum hit / sub bass drop                         -9.4 dBFS +10.9 dB  1591 ms   175 Hz
+ 0:38.41  DRUM   snare drum hit / breath                          -2.4 dBFS +13.8 dB   528 ms  1.3 kHz  [AST Knock 0.06]
+ 0:38.79  DRUM   kick drum                                        -1.3 dBFS +16.3 dB   138 ms   272 Hz
+ 0:38.88  FOLEY  wooden block hit / kick drum                     -1.3 dBFS +17.1 dB    46 ms   161 Hz  [AST Knock 0.26]
+ 0:38.98  WHOOSH whip pan whoosh transition / wooden block hit    -1.5 dBFS +15.5 dB    78 ms  1.6 kHz  [AST Speech 0.09]
+== 0:39.25-0:46.23  glitch hop music, pizzicato strings | also: bowed string instrument, double bass, cello (AST)  (+12 untagged onsets, 1.7/s)
+ 0:39.75  NOTE?  orchestral stab                                  -9.2 dBFS  +5.4 dB   358 ms   392 Hz
+ 0:39.85  NOTE?  plucked string note / drum hit                  -11.7 dBFS  +2.5 dB    33 ms   207 Hz
+ 0:40.31  NOTE?  plucked string note / reverse cymbal swell       -9.3 dBFS  +9.8 dB  2000 ms   202 Hz
+ 0:40.43  NOTE?  plucked string note                              -9.3 dBFS +10.7 dB   131 ms   288 Hz
+ 0:40.73  NOTE?  plucked string note / rising riser building te   -7.4 dBFS +10.3 dB  2000 ms   171 Hz
+ 0:41.24  NOTE?  plucked string note / rising riser building te   -8.3 dBFS  +8.9 dB   416 ms   191 Hz
+ 0:41.90  NOTE?  plucked string note / rising riser building te   -7.1 dBFS  +6.5 dB   509 ms   173 Hz
+ 0:42.50  VOICE? breath / kick drum                              -11.4 dBFS  +0.0 dB    43 ms   154 Hz
+ 0:42.72  NOTE?  plucked string note / drum hit                   -7.3 dBFS  +9.4 dB   256 ms   211 Hz
+ 0:43.31  RISER? reverse cymbal swell / breath                    -8.3 dBFS +10.6 dB  1427 ms   234 Hz
+ 0:43.82  RISER? reverse cymbal swell / swoosh passing by         -5.6 dBFS +10.1 dB   915 ms  1.3 kHz
+ 0:43.99  VOICE  breath / reverse cymbal swell                    -7.1 dBFS   silent   760 ms  1.1 kHz  [AST Speech 0.11]
+ 0:44.62  DRUM?  snare drum hit / breath                          -3.9 dBFS  +2.9 dB   111 ms  1.8 kHz
+ 0:44.75  GAP    drop 1.48 s (-69 LUFS) = tail
+
+NOTES  times, levels, loudness and sync offsets are measurements. Event kinds / tags are CLAP guesses: '?' = the event is less than 12 dB over its bed, so its excerpt is mostly bed and the tag a weak hint (right kind about 1 in 4 on the tuning mixes, 1 in 2 for exposed events; often wrong on music and voice). Where AST ran, its speech overrides the kind with VOICE. Section genres marked ? are weak. 'over bed' = how far the event rises over the level just before it; 'silent' = that bed was below -60 (after a gap the rise means nothing). Full data: --json.
