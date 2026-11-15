@@ -93,4 +93,5 @@
 - End card: logo ±18 % tinggi di tengah di atas UI yang diburamkan berat.
 
 ## Catatan pakai
-- Belum pernah dipakai sebagai kiblat.
+- Belum pernah dipakai sebagai kiblat. Dipakai sebagai **teknik** (UI mengambang di atas wallpaper) di builder-trap-show-your-work dan builder-trap-r2.
+- builder-trap-r2 v3 B12–B13 ditolak Irfan ("melenceng jauh", 15 Nov): wallpaper gradien pastel polos (bukan foto), jendela ChatGPT terang ±75 % lebar terpotong tepi kanan/bawah, tanpa dock/kursor, KT abu `#A8A69F` di latar oranye, punch 3,2× sampai konteks desktop hilang. Saat dipinjam, yang wajib terbawa: foto wallpaper tajam, jendela utuh 56–60 % lebar × 57–61 % tinggi dengan wallpaper di keempat sisi, UI gelap, dock + kursor beraksi, punch 1,4–1,8× yang masih menyisakan tepi jendela + wallpaper. Teks di ruang kosong mengambil tempat panel kiri k7 (jendela digeser kanan), warnanya dari kontras terukur di foto, tanpa abu muda.
