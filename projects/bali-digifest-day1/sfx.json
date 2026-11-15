@@ -1,0 +1,58 @@
+[
+ {
+  "t": 6.1,
+  "file": "~/sfx/Kenyset/universfield-swoosh-023-454830.mp3",
+  "peak": 0.44,
+  "gain": -9,
+  "visual": "cut ke testimoni pertama + musik jadi instrumental",
+  "role": "transisi babak"
+ },
+ {
+  "t": 25.4,
+  "file": "~/sfx/Kenyset/universfield-swoosh-023-454830.mp3",
+  "peak": 0.44,
+  "gain": -10,
+  "visual": "montase cut 1 slide SHOT LIST",
+  "role": "ritme montase"
+ },
+ {
+  "t": 26.81,
+  "file": "~/sfx/Kenyset/swoosh-014-383768.mp3",
+  "peak": 0.34,
+  "gain": -11,
+  "visual": "montase cut 3 menulis",
+  "role": "ritme montase"
+ },
+ {
+  "t": 28.23,
+  "file": "~/sfx/Kenyset/universfield-swoosh-023-454830.mp3",
+  "peak": 0.44,
+  "gain": -10,
+  "visual": "montase cut 5 slide <1 MIN SCRIPT",
+  "role": "ritme montase"
+ },
+ {
+  "t": 47.7,
+  "file": "~/sfx/SFXIrfan/ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3",
+  "peak": 4.1,
+  "gain": -7,
+  "visual": "menuju chorus",
+  "role": "riser"
+ },
+ {
+  "t": 47.8,
+  "file": "~/sfx/SFXIrfan/ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz - Epidemic Sound.mp3",
+  "peak": 0.56,
+  "gain": -6,
+  "visual": "chorus masuk + kilatan foto bersama",
+  "role": "hit"
+ },
+ {
+  "t": 56.31,
+  "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+  "peak": 0.62,
+  "gain": -8,
+  "visual": "logo masuk",
+  "role": "reveal"
+ }
+]

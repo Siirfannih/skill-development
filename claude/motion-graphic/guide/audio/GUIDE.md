@@ -14,6 +14,10 @@
 5. **Kandidat musik ≥ 20 dari ≥ 2 sumber** (lokal + YouTube via `yt-dlp`, Epidemic, ElevenLabs Music, folder Irfan); bukan hanya "yang pernah dipakai" (gerbang skrip FAIL di < 8). Satu track tidak dipakai untuk semua klip dalam satu batch; tiap klip genre berbeda (Irfan 8 Nov, gagal: V5 tiga klip memakai piano yang sama; Irfan 9 Nov, Behindwork).
 6. **Ukur potongan yang dipakai, bukan track utuh**: offset mulai mengubah onset (2,2 → 3,6). `earshot describe` potongan itu: instrumental, tidak sedih. Pilih bagian tanpa breakdown di dalam durasi klip. Mix: `audio.md` §14.10 resep Behindwork (Irfan 9 Nov).
 
+## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
+- **Potong suara hanya di celah, bukan di gelombang.** Bila memangkas jeda/isian testimoni, titik potong harus berada di bagian tanpa gelombang (20 ms sisi yang dipakai sudah sunyi); kata yang gelombangnya masih naik/stabil dibiarkan habis dulu. Batas kata versi Whisper jatuh di penutupan /t/ /k/ ("dinikma|ti") dan memancung kata, jadi ukur gelombangnya, jangan percaya timestamp (Irfan 15 Nov, gagal: bdf26 v8–v9).
+- **Padat ≠ dipotong rapat.** Kepadatan seperti ref dokumenter dicapai dengan merapatkan jeda ANTAR pembicara (0,3 dtk) dan membuang isian "eee/eh" dari celah ke celah, bukan memendekkan vokal atau memotong napas di tengah kata (Irfan 15 Nov, bdf26 v10).
+
 ## Cek cepat
 - Tempo musik searah dengan cut/bicara? (cepat-cepat, tenang-tenang)
 - Musik turun saat kalimat penting, tidak menutupi kata? (`music_fit` snr ≥ 12 dB)

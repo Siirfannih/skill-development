@@ -28,6 +28,9 @@
 - **Di frame tanpa subjek (kartu polos), berat ada di tengah.** Rata tengah dan samakan lebar baris; rata kiri dengan baris timpang membuat rongga dan kata terakhir terlihat lebih panjang/berat dari maksudnya (Irfan 15 Nov: "AMPLE DOSES / OF PAIN AND SUFFERING").
 - **Menghindari subjek jangan sampai menabrak tepi.** Saat teks digeser menjauhi wajah, tetap sisakan jarak ke tepi frame; teks yang mepet tepi terasa terdesak (Irfan 15 Nov: "with great glee" terlalu mepet atas).
 
+- **Teks testimoni di atas b-roll: pilih b-roll tanpa orang yang sedang bicara.** Bila suara pembicara A berlanjut di atas b-roll, jangan pakai shot orang lain yang memegang mik atau sedang bicara; penonton mengira orang di gambar itulah yang mengucapkan teksnya. Pakai reaksi, tangan, suasana, atau benda yang dibicarakan (Irfan 15 Nov, gagal: bdf26 v9 "rugi sih kalau gak dateng" di atas siswi bermik).
+- **Teks tidak menyeberang potongan shot.** Bila satu frasa melintasi pergantian shot, posisinya harus aman di dua komposisi sekaligus dan biasanya terlempar ke pojok; geser awal b-roll ke batas frasa (Irfan 15 Nov, gagal: bdf26 v9 "talkshow-talkshownya" di atas).
+
 ## Cek cepat
 - Lihat frame rapat (tiap 1–2 f) di setiap pergantian kata: ada kartu kosong, dua kata tajam bertumpuk, atau kata yang melompat? Perbaiki sebelum final.
 - Ada dua blok teks berbobot sama di satu frame? Pilih satu.
