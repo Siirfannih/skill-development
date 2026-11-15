@@ -40,7 +40,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 25. **Musik mengikuti tempo dan suasana video**, tidak bolong, tidak melawan emosi ucapan (Irfan 6, 8 Nov).
 
 ## F. Cara kerja
-26. **Urutan render: still per beat → draft skala 0,5 → render penuh.** Semua lewat `scripts/juri/render.sh`; render penuh ditolak sebelum resep dan still lulus. Satu render penuh 1080p ±8–18 menit di PC server, jadi ia langkah terakhir.
+26. **Urutan render: still per beat → draft skala 0,5 → semua frame diaudit → render penuh.** Semua lewat `scripts/juri/render.sh`; render penuh ditolak sebelum resep dan still lulus. Satu render penuh 1080p ±8–18 menit di PC server, jadi ia langkah terakhir. **Audit tanpa sampling sebelum MP4**: semua frame dirender sebagai gambar (`render.sh frames`), dipecah per ≤ 10 dtk, tiap detik (30 frame) diperiksa agen lain (subagen/model lain, paralel per potongan) untuk visual, audio/SFX, transisi, dan jarak antar-frame (`scripts/juri/frame_audit.py`); render penuh ditolak sampai semua potongan `PUTUSAN: LULUS` (Irfan 15 Nov; gagal: builder-trap-r2 v3 patahan di titik potong suara dan Bali Digifest, keduanya lolos cek sampel tiap 8–15 frame).
 27. **Revisi = diff.** Adegan yang sudah disetujui tidak disentuh; yang dirender ulang hanya rentang yang berubah.
 28. **Tidak yakin = tanya, jangan menebak.**
 29. **Video baru dikirim setelah juri lulus** (`pustaka/README.md` §Juri), bersama lembar sanding still vs kiblat.

@@ -32,6 +32,8 @@ Model sama, konteks beda: Sutradara memegang **kenapa**, Editor memegang **bagai
 | Menulis | `handoff/BRIEF.md`, `PLAN.json`, `TASK-rN.md`, `REVIEW-rN.md`, `DECISIONS.md` | Kode build, aset, render, `handoff/REPORT-rN.md`, `handoff/QUESTIONS.md` |
 | Tidak boleh | Menulis kode build atau render (kecuali skrip ukur), menyetujui hasil tanpa melihat still | Bicara ke Irfan, mengubah `PLAN.json`/`BRIEF.md`, menebak hal yang tidak ada di TASK, menulis "final", membaca RETRO atau seluruh skill |
 
+**Pemeriksa frame** (peran ketiga, Irfan 15 Nov): agen/model lain yang tidak membangun, satu per potongan ≤ 10 dtk, menilai semua frame per detik sebelum render MP4 (`templates/roles/pemeriksa-frame.md`, `scripts/juri/frame_audit.py`).
+
 Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat mentah Irfan; ia menerima TASK yang sudah diterjemahkan, ber-ID, dan terukur.
 
 ## 3. Peta gerbang

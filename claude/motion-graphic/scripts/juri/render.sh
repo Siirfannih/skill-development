@@ -3,6 +3,7 @@
 #
 #   render.sh <proyek> still <Comp> <label:frame> [<label:frame> ...]   still per beat  -> <proyek>/qc/stills/<label>.png (skala 0,5)
 #   render.sh <proyek> draft <Comp> [awal-akhir]                         draft gerak     -> <proyek>/qc/draft[_awal-akhir].mp4 (skala 0,5, tanpa audio)
+#   render.sh <proyek> frames <Comp>                                      SEMUA frame     -> <proyek>/qc/frames/ (jpeg skala 0,5) untuk frame_audit.py
 #   render.sh <proyek> final <Comp> <keluaran.mp4> [awal-akhir]          render penuh    -> hanya bila gerbang di bawah lulus
 #
 # <proyek> berisi RESEP.md dan folder remotion/ (src/index.ts). Bundle dibuat sekali dan dipakai ulang sampai src berubah.
@@ -13,6 +14,8 @@
 #   4. qc/JURI.md lebih baru daripada sanding dan baris terakhirnya "PUTUSAN: LULUS"
 #   5. balance_check.py pada qc/stills tidak FAIL (Lantai C17), atau JURI.md memuat baris 'KESEIMBANGAN: <alasan>'
 #   6. draft gerak sudah dilihat: qc/draft.mp4 (penuh) atau qc/draft_<awal-akhir>.mp4 (rentang yang sama) lebih baru daripada src
+#   8. audit frame per frame (Irfan 15 Nov, tanpa sampling): qc/frame_audit/INDEX.md lebih baru daripada src dan setiap
+#      potongan punya VERDICT.md berakhir 'PUTUSAN: LULUS' (agen lain memeriksa tiap detik; scripts/juri/frame_audit.py)
 #   7. setiap catatan Irfan berstatus Aktif di DECISIONS.md (R-NNN / D-NNN) disebut di qc/JURI.md dengan buktinya
 #      (Irfan 15 Nov: "Jika hasil belum pasti benar jangan langsung ngerender final … pastikan dulu semuanya")
 # Revisi satu adegan: perbarui still adegan itu, sanding, JURI, lalu `final` dengan rentang frame adegan itu saja
@@ -43,6 +46,10 @@ case "$MODE" in
         && echo "still $l (frame $f)" || echo "GAGAL still $l (lihat $QC/still.log)"
     done
     echo "Lanjut: teks_cek.py $QC/stills  ->  sandingkan.py $QC/stills <sheet kiblat> $QC/sanding.jpg  ->  isi $QC/JURI.md" ;;
+  frames)
+    bundle; FR="$QC/frames"; rm -rf "$FR"; mkdir -p "$FR"
+    (cd "$R" && npx remotion render "$QC/.bundle" "$COMP" "$FR" --sequence --image-format=jpeg --jpeg-quality=85 --scale=0.5 --concurrency="$K" --log=error)
+    echo "frames $FR ($(ls "$FR" | wc -l) gambar). Lanjut: python3 $HERE/frame_audit.py $FR --cuts … --cues … --words … --stems … --out $QC/frame_audit" ;;
   draft)
     bundle; RANGE="${1:-}"; OUT="$QC/draft${RANGE:+_$RANGE}.mp4"
     (cd "$R" && npx remotion render "$QC/.bundle" "$COMP" "$OUT" --scale=0.5 --crf=28 --muted --concurrency="$K" ${RANGE:+--frames=$RANGE} --log=error)
@@ -66,6 +73,12 @@ case "$MODE" in
       miss=$(grep -oE '^\| [RD]-[0-9]+ \|.*\| Aktif \|' "$P/DECISIONS.md" | grep -oE '^\| [RD]-[0-9]+' | tr -d '| ' | while read -r id; do grep -q "$id" "$QC/JURI.md" 2>/dev/null || printf '%s ' "$id"; done)
       [ -z "$miss" ] || { echo "GAGAL gerbang: catatan Irfan aktif belum diperiksa di qc/JURI.md: $miss"; gagal=1; }
     fi
+    FA="$QC/frame_audit"
+    if [ ! -f "$FA/INDEX.md" ] || [ "$(mtime "$FA/INDEX.md")" -lt "$ns" ]; then echo "GAGAL gerbang: audit frame per frame belum dibuat dari src terbaru (render.sh frames → frame_audit.py → agen pemeriksa per potongan)."; gagal=1
+    else
+      bad=$(for v in "$FA"/c*/VERDICT.md; do tail -n 3 "$v" | grep -q '^PUTUSAN: LULUS' || printf '%s ' "$(basename "$(dirname "$v")")"; done)
+      [ -z "$bad" ] || { echo "GAGAL gerbang: potongan belum LULUS di audit frame: $bad"; gagal=1; }
+    fi
     [ "$gagal" = 0 ] || { echo "Render penuh ditolak."; exit 1; }
     free_mb=$(df --output=avail -BM "$P" | tail -1 | tr -dc 0-9)
     [ "${free_mb:-0}" -ge 8000 ] || echo "PERINGATAN: disk kosong ${free_mb} MB (< 8 GB). Render penuh memakai sampai ±3,6 GB di puncaknya dan proses lain di PC bersama bisa naik-turun 2–3 GB; kehabisan ruang muncul sebagai halaman render crash (builder-trap-r2 v2 14 Nov; v3 15 Nov dua kali, disk 561 MB saat crash). Bebaskan ruang dulu."
@@ -74,5 +87,5 @@ case "$MODE" in
     [ "$n" -le 2 ] || echo "PERINGATAN: ini render penuh ke-$n untuk video ini. Revisi cukup rentang yang berubah (argumen awal-akhir)."
     (cd "$R" && npx remotion render "$QC/.bundle" "$COMP" "$OUT" --concurrency="$K" ${RANGE:+--frames=$RANGE} --log=error)
     echo "final $OUT" ;;
-  *) echo "mode tidak dikenal: $MODE (still | draft | final)"; exit 1 ;;
+  *) echo "mode tidak dikenal: $MODE (still | draft | frames | final)"; exit 1 ;;
 esac

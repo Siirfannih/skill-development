@@ -56,7 +56,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 25. **Musik mengikuti tempo dan suasana video**, tidak bolong, tidak melawan emosi ucapan (Irfan 6, 8 Nov).
 
 ### F. Cara kerja
-26. **Urutan render: still per beat → draft skala 0,5 → render penuh.** Semua lewat `scripts/juri/render.sh`; render penuh ditolak sebelum resep dan still lulus. Satu render penuh 1080p ±8–18 menit di PC server, jadi ia langkah terakhir.
+26. **Urutan render: still per beat → draft skala 0,5 → semua frame diaudit → render penuh.** Semua lewat `scripts/juri/render.sh`; render penuh ditolak sebelum resep dan still lulus. Satu render penuh 1080p ±8–18 menit di PC server, jadi ia langkah terakhir. **Audit tanpa sampling sebelum MP4**: semua frame dirender sebagai gambar (`render.sh frames`), dipecah per ≤ 10 dtk, tiap detik (30 frame) diperiksa agen lain (subagen/model lain, paralel per potongan) untuk visual, audio/SFX, transisi, dan jarak antar-frame (`scripts/juri/frame_audit.py`); render penuh ditolak sampai semua potongan `PUTUSAN: LULUS` (Irfan 15 Nov; gagal: builder-trap-r2 v3 patahan di titik potong suara dan Bali Digifest, keduanya lolos cek sampel tiap 8–15 frame).
 27. **Revisi = diff.** Adegan yang sudah disetujui tidak disentuh; yang dirender ulang hanya rentang yang berubah.
 28. **Tidak yakin = tanya, jangan menebak.**
 29. **Video baru dikirim setelah juri lulus** (`pustaka/README.md` §Juri), bersama lembar sanding still vs kiblat.
@@ -74,7 +74,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 
 ## 0b. Render dan juri
 
-- Semua render lewat `scripts/juri/render.sh <proyek> still|draft|final …`. Render penuh ditolak sampai resep lulus, still terbaru ada, lembar sanding dibuat, dan `qc/JURI.md` berakhir `PUTUSAN: LULUS`.
+- Semua render lewat `scripts/juri/render.sh <proyek> still|draft|frames|final …`. Render penuh ditolak sampai resep lulus, semua still terbaru, lembar sanding dibuat, draft gerak terbaru, audit frame per frame semua potongan LULUS (`frames` → `frame_audit.py` → agen pemeriksa per ≤ 10 dtk), dan `qc/JURI.md` berakhir `PUTUSAN: LULUS` dengan bukti tiap catatan Irfan aktif.
 - Juri pada still: `scripts/juri/teks_cek.py` (pita bawah, kata ganda, tepi), `scripts/juri/balance_check.py` (keseimbangan global per frame + lembar 25/50 %, Lantai C17), `scripts/juri/sandingkan.py` (still kita vs frame kiblat), lalu nilai tiap butir "Cek kemiripan" kartu kiblat dan Lantai A–D. Rinci: `pustaka/README.md` §Juri. Bandingkan juga dengan `pustaka/contoh-gagal/`.
 - Revisi: perbarui still adegan itu saja dan render rentang framenya, bukan seluruh video.
 - Pelajaran dari Irfan disimpan menurut cakupannya (`pustaka/README.md` §Tumbuh).
@@ -140,7 +140,7 @@ motion-graphic/
 ├── SKILL.md                 inti: lantai, kiblat, juri, lalu rujukan teknis (file ini)
 ├── LANTAI.md                mutu yang selalu berlaku (sumber blok §0)
 ├── pustaka/                 PETA.md · kartu/ (anatomi 8 bagian per referensi) · RESEP-TEMPLATE.md · contoh-gagal/
-├── scripts/juri/            render.sh (gerbang render) · resep_check.py · teks_cek.py · balance_check.py · sandingkan.py
+├── scripts/juri/            render.sh (gerbang render) · resep_check.py · teks_cek.py · balance_check.py · sandingkan.py · frame_audit.py (semua frame, per detik)
 ├── guide/                   standar rasa per urusan (README → visual · teks · gerak · audio · sfx · hindari · referensi)
 ├── references/
 │   ├── core-rules.md        teks penuh aturan inti 1–50
