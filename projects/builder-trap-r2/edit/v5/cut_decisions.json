@@ -1,0 +1,422 @@
+[
+  {
+    "source": [
+      0.18,
+      0.507
+    ],
+    "reason": "diam di dalam 'Semua' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      0.35,
+      0.5
+    ],
+    "reason": "diam di dalam 'Semua'",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      0.93,
+      1.08
+    ],
+    "reason": "sampah 'tuh'",
+    "status": "rejected: source filler touches content; full removal cannot retain 50ms guard without waveform alignment"
+  },
+  {
+    "source": [
+      2.55,
+      2.68
+    ],
+    "reason": "sampah 'tuh'",
+    "status": "rejected: source filler touches content; full removal cannot retain 50ms guard without waveform alignment"
+  },
+  {
+    "source": [
+      4.01,
+      4.2
+    ],
+    "reason": "sampah 'tuh'",
+    "status": "rejected: source filler touches content; full removal cannot retain 50ms guard without waveform alignment"
+  },
+  {
+    "source": [
+      5.543,
+      5.663
+    ],
+    "reason": "diam di dalam 'Tapi' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      6.543,
+      6.733
+    ],
+    "reason": "jeda tengah kalimat gak→semua (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      9.38,
+      9.99
+    ],
+    "reason": "jeda antarkalimat buat.→Memasuki",
+    "status": "kept with guarded measured endpoints",
+    "cut": [
+      9.4,
+      9.9
+    ]
+  },
+  {
+    "source": [
+      12.2,
+      12.39
+    ],
+    "reason": "diam di dalam 'aku'",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      16.817,
+      17.28
+    ],
+    "reason": "diam di dalam 'gak' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      17.13,
+      17.27
+    ],
+    "reason": "diam di dalam 'gak'",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      17.59,
+      17.69
+    ],
+    "reason": "diam di dalam 'orang' (ronde 2)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      20.88,
+      21.09
+    ],
+    "reason": "diam di dalam 'mau' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      21.09,
+      21.22
+    ],
+    "reason": "diam di dalam 'mau'",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      24.28,
+      24.5
+    ],
+    "reason": "jeda antarkalimat berbeda.→Karena",
+    "status": "kept with guarded measured endpoints",
+    "cut": [
+      24.3,
+      24.5
+    ]
+  },
+  {
+    "source": [
+      24.99,
+      25.08
+    ],
+    "reason": "diam di dalam 'Karena'",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      31.927,
+      32.067
+    ],
+    "reason": "diam di dalam 'akhirnya' (ronde 4)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      32.053,
+      32.333
+    ],
+    "reason": "diam di dalam 'akhirnya' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      35.25,
+      35.47
+    ],
+    "reason": "gesekan mik/tangan di celah (earshot: footsteps/digging, Speech 0)",
+    "status": "rejected: no guarded low-energy frame pair"
+  },
+  {
+    "source": [
+      36.08,
+      36.22
+    ],
+    "reason": "diam di dalam 'belajar.'",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      38.84,
+      39.07
+    ],
+    "reason": "jeda antarkalimat something.→Selama (ronde 3)",
+    "status": "kept with guarded measured endpoints",
+    "cut": [
+      38.86666666666667,
+      39.03333333333333
+    ]
+  },
+  {
+    "source": [
+      40.86,
+      41.29
+    ],
+    "reason": "diam di dalam 'mencoba' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      45.965,
+      46.395
+    ],
+    "reason": "jeda antarkalimat buat.→Tapi (dramatis, sisa 0,45: sebelum twist \"Tapi\")",
+    "status": "kept with guarded measured endpoints",
+    "cut": [
+      45.96666666666667,
+      46.36666666666667
+    ]
+  },
+  {
+    "source": [
+      47.403,
+      47.667
+    ],
+    "reason": "diam di dalam 'satu' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      47.54,
+      47.66
+    ],
+    "reason": "diam di dalam 'satu'",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      48.86,
+      49.05
+    ],
+    "reason": "gesekan mik/tangan di celah (earshot: footsteps/digging, Speech 0)",
+    "status": "rejected: no guarded low-energy frame pair"
+  },
+  {
+    "source": [
+      49.857,
+      49.967
+    ],
+    "reason": "diam di dalam 'menjual' (ronde 2)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      54.377,
+      54.497
+    ],
+    "reason": "diam di dalam 'Dan' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      55.127,
+      55.467
+    ],
+    "reason": "diam di dalam 'ngebangun' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      55.37,
+      55.47
+    ],
+    "reason": "diam di dalam 'ngebangun'",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      57.12,
+      57.27
+    ],
+    "reason": "diam di dalam 'adiktif.'",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      58.86,
+      59.42
+    ],
+    "reason": "jeda antarkalimat kecanduan.→Untuk (ronde 3)",
+    "status": "kept with guarded measured endpoints",
+    "cut": [
+      58.9,
+      59.06666666666667
+    ]
+  },
+  {
+    "source": [
+      63.745,
+      64.405
+    ],
+    "reason": "jeda antarkalimat selesai.→Aku (dramatis, sisa 0,45: pergantian babak setelah \"selesai.\")",
+    "status": "kept with guarded measured endpoints",
+    "cut": [
+      63.766666666666666,
+      64.3
+    ]
+  },
+  {
+    "source": [
+      66.22,
+      66.37
+    ],
+    "reason": "diam di dalam 'kesempurnaan.'",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      71.18,
+      71.3
+    ],
+    "reason": "diam di dalam 'aku' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      71.55,
+      71.67
+    ],
+    "reason": "diam di dalam 'aku' (ronde 5)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      74.94,
+      75.46
+    ],
+    "reason": "jeda antarkalimat -mana.→Sampai",
+    "status": "kept with guarded measured endpoints",
+    "cut": [
+      74.96666666666667,
+      75.43333333333334
+    ]
+  },
+  {
+    "source": [
+      77.315,
+      78.035
+    ],
+    "reason": "jeda antarkalimat sadar.→Dan (dramatis, sisa 0,45: setelah klimaks \"sadar.\")",
+    "status": "kept with guarded measured endpoints",
+    "cut": [
+      77.33333333333333,
+      77.76666666666667
+    ]
+  },
+  {
+    "source": [
+      81.977,
+      82.127
+    ],
+    "reason": "diam di dalam 'mungkin' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      82.227,
+      82.533
+    ],
+    "reason": "diam di dalam 'mungkin' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      82.38,
+      82.53
+    ],
+    "reason": "diam di dalam 'mungkin'",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      83.823,
+      83.913
+    ],
+    "reason": "diam di dalam 'sekedar' (ronde 2)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      86.35,
+      86.55
+    ],
+    "reason": "diam di dalam 'aku'",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      88.16,
+      89.0
+    ],
+    "reason": "jeda antarkalimat buat.→Apa",
+    "status": "kept with guarded measured endpoints",
+    "cut": [
+      88.2,
+      89.0
+    ]
+  },
+  {
+    "source": [
+      89.163,
+      89.537
+    ],
+    "reason": "jeda tengah kalimat Apa→pengalaman (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      89.41,
+      89.54
+    ],
+    "reason": "jeda tengah kalimat Apa→pengalaman",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      91.407,
+      91.617
+    ],
+    "reason": "diam di dalam 'Share.' (ronde 3)",
+    "status": "rejected: word interior"
+  },
+  {
+    "source": [
+      91.86,
+      92.04
+    ],
+    "reason": "gesekan mik/tangan di celah (earshot: footsteps/digging, Speech 0)",
+    "status": "rejected: no guarded low-energy frame pair"
+  }
+]

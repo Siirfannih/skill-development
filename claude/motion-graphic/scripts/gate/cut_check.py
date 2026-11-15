@@ -40,6 +40,37 @@ def load_words(p):
     return sorted(out, key=lambda q: q["s"])
 
 
+def validate_cuts(source, removed, mapped=None, guard=0.05):
+    """Validate against SOURCE words, never infer audible retention from entry count."""
+    failures = []
+    rows = []
+    norm = lambda w: re.sub(r"[^\w]", "", w.lower())
+    previous = -1.0
+    for a, b in removed:
+        if a < previous or b <= a:
+            failures.append(f"invalid/overlapping cut {a}:{b}")
+        previous = b
+    content = [q for q in source if norm(q['w']) != 'tuh']
+    if mapped is not None and [norm(q['w']) for q in mapped] != [norm(q['w']) for q in content]:
+        failures.append('mapped word sequence differs from source without explicit tuh fillers')
+    for i, q in enumerate(content):
+        duration = q['e'] - q['s']
+        overlap = sum(max(0., min(b, q['e']) - max(a, q['s'])) for a, b in removed)
+        ratio = (duration - overlap) / duration if duration > 0 else 0.
+        if overlap > 0.020 + 1e-7:
+            failures.append(f"overlap {q['w']}@{q['s']}: {overlap:.4f}s")
+        if ratio < .85 - 1e-7:
+            failures.append(f"retention {q['w']}@{q['s']}: {ratio:.3f}")
+        if any(a < q['e'] + guard - 1e-7 and b > q['s'] - guard + 1e-7 for a,b in removed):
+            failures.append(f"guard {q['w']}@{q['s']}: <{guard}s")
+        if mapped is not None and i < len(mapped):
+            actual = (mapped[i]['e'] - mapped[i]['s']) / duration if duration > 0 else 0.
+            if actual < .85 - 1e-7:
+                failures.append(f"mapped duration {q['w']}@{q['s']}: {actual:.3f}")
+        rows.append(dict(**q, overlap=round(overlap,6), retained=round(ratio,6)))
+    return dict(pass_=not failures, failures=failures, words=rows)
+
+
 def runs(mask, min_len):
     out, st = [], None
     for i, v in enumerate(list(mask) + [False]):
@@ -53,11 +84,18 @@ def runs(mask, min_len):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("audio"); ap.add_argument("words")
+    ap.add_argument("--source-words"); ap.add_argument("--map"); ap.add_argument("--validation-out")
     ap.add_argument("--filler", default=DEF_FILL)
     ap.add_argument("--max-inner", type=float, default=0.15)
     ap.add_argument("--max-sentence", type=float, default=0.50)
     ap.add_argument("--suggest")
     a = ap.parse_args()
+    if a.source_words or a.map:
+        if not (a.source_words and a.map): ap.error('--source-words and --map must be supplied together')
+        result = validate_cuts(load_words(a.source_words), json.load(open(a.map))['removed'], load_words(a.words))
+        if a.validation_out: json.dump(result, open(a.validation_out, 'w'), ensure_ascii=False, indent=2)
+        print('PASS source overlap/duration/guard' if result['pass_'] else 'FAIL: ' + '; '.join(result['failures']))
+        sys.exit(0 if result['pass_'] else 1)
     x, sr = sf.read(a.audio, always_2d=True); x = x.mean(1)
     hop = int(sr * 0.01)
     db = 20 * np.log10(np.array([np.sqrt(np.mean(x[i:i + hop] ** 2)) + 1e-9 for i in range(0, len(x) - hop, hop)]))
