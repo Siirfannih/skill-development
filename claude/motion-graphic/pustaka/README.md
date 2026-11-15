@@ -53,7 +53,11 @@ Saat Irfan mengirim video referensi:
 3. Kartu dipakai sebagai kiblat sesi itu. Setelah videonya lulus dari Irfan, tambahkan satu baris ke `PETA.md`.
 
 ## Tumbuh: ke mana pelajaran disimpan
-Koreksi Irfan disimpan di tempat yang cakupannya paling sempit dan masih benar:
+Skill ini mengajarkan **cara memutuskan** (kapan A, kapan B, dan kenapa), bukan template yang harus dipatuhi (Irfan 15 Nov). Setiap koreksi Irfan diproses dua kali, tanpa bertanya ke Irfan apakah koreksinya berlaku untuk video lain (jawabannya selalu tidak):
+1. **Koreksinya** (apa yang diubah) hanya berlaku untuk video itu → `projects/<proyek>/DECISIONS.md`.
+2. **Alasannya** (kenapa Irfan memilih begitu: peran footage, arah mata, ritme perhatian, keseimbangan) diturunkan menjadi learning keputusan berbentuk "bila <kondisi>, pilih <X>, karena <alasan>" di bagian **Cara memutuskan** pada `../guide/<urusan>/GUIDE.md`, dengan tanda sumber. Learning adalah rujukan menimbang, bukan aturan; kondisi video berikutnya bisa membawa keputusan lain.
+
+Koreksi itu sendiri disimpan di tempat yang cakupannya paling sempit dan masih benar:
 | Koreksi tentang | Simpan di |
 |---|---|
 | video ini saja | `projects/<proyek>/DECISIONS.md` |

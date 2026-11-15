@@ -21,6 +21,13 @@
 - Teks layar dari ucapan saja (aturan 2).
 - **Kata yang sudah tampil tidak bergeser** saat kata berikutnya masuk: dalam satu frasa, wadah (kartu/chip) dikunci di tepi frasa lengkap dan tumbuh ke arah kata baru. Saat kata berganti di tempat yang sama, tidak ada frame dengan dua kata tajam bertumpuk (kata lama blur/pudar dulu) dan tidak ada frame wadah kosong (gagal: builder-trap-r2 r7 B03, kartu kosong 2 f lalu "bikin" melompat 250 px; Irfan 15 Nov "pastikan dulu semuanya").
 
+## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
+- **Peran footage menentukan peran teks.** Bila footage hanya pengisi suasana (b-roll stok internet yang tidak membawa informasi), teks adalah pemeran utama: boleh menimpa footage, di tengah, besar, muncul per kata, supaya jadi hal pertama yang dibaca. Bila footage membawa informasi (pembicara, arsip yang dirujuk, foto dengan wajah), teks mengalah ke ruang kosong yang menempel subjek dan tidak menutup wajah. Alasan: mata harus langsung tahu apa yang dibaca dulu, dan menimpa footage pengisi tidak menghilangkan informasi (Irfan 15 Nov, jensen-pain-suffering r1: HQ udara + keyboard harus tengah; foto tim menghindari wajah sudah benar).
+- **Komposisi bisa membalik keputusan itu.** Bila subjek terang hanya di sebagian frame (siluet di atas, sisanya gelap), teks ditaruh di bidang kosong lawannya supaya frame seimbang, walau footage-nya stok (Irfan 15 Nov: teks bawah di siluet ruang gelap sudah benar).
+- **Variasi bentuk teks = alat mengarahkan perhatian.** Bentuk yang sama berulang (dua baris terus dari awal sampai akhir) membuat penonton bosan dan tegangnya hilang; berganti bentuk (kata per kata, besar-kecil, 2,5D, tumpuk) membuat penonton merasakan ritme dan tahu harus melihat ke mana tanpa berpikir. Pilih bentuk dari peran kalimat: penekanan → satu kata besar/kartu; daftar/rentetan → per kata; kalimat yang mengalir → tenang di samping subjek (Irfan 15 Nov).
+- **Di frame tanpa subjek (kartu polos), berat ada di tengah.** Rata tengah dan samakan lebar baris; rata kiri dengan baris timpang membuat rongga dan kata terakhir terlihat lebih panjang/berat dari maksudnya (Irfan 15 Nov: "AMPLE DOSES / OF PAIN AND SUFFERING").
+- **Menghindari subjek jangan sampai menabrak tepi.** Saat teks digeser menjauhi wajah, tetap sisakan jarak ke tepi frame; teks yang mepet tepi terasa terdesak (Irfan 15 Nov: "with great glee" terlalu mepet atas).
+
 ## Cek cepat
 - Lihat frame rapat (tiap 1–2 f) di setiap pergantian kata: ada kartu kosong, dua kata tajam bertumpuk, atau kata yang melompat? Perbaiki sebelum final.
 - Ada dua blok teks berbobot sama di satu frame? Pilih satu.
