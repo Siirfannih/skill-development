@@ -36,11 +36,12 @@ Yang dicatat kartu adalah hal yang tidak bergantung pada audio: proporsi (kata k
 ## Juri
 Dijalankan pada still per beat, sebelum render penuh:
 1. `python3 ../scripts/juri/teks_cek.py qc/stills/` : teks di pita bawah berturut-turut, kata tampil dua kali, teks menyentuh tepi.
-2. `python3 ../scripts/juri/sandingkan.py qc/stills/ <sheet kiblat> qc/sanding.jpg` : lembar sanding still kita vs frame kiblat.
-3. Lihat lembar sanding itu, lalu isi `qc/JURI.md`: tiap butir "Cek kemiripan" di kartu kiblat dan tiap butir `LANTAI.md` A–D diberi LULUS/GAGAL + nama still buktinya. Bandingkan juga dengan `contoh-gagal/`.
-4. Ada GAGAL = perbaiki adegan itu dan ulangi still-nya saja. Semua LULUS = baris terakhir `qc/JURI.md` ditulis `PUTUSAN: LULUS`, baru `render.sh final`.
+2. `python3 ../scripts/juri/balance_check.py qc/stills/` : keseimbangan global tiap frame (Lantai C17): teks dibobot ×8, objek/subjek disetarakan dengan massa teks; FAIL bila satu sisi membawa > 70 %. Buka `qc/stills/balance_sheet.jpg` (25 % dan 50 %) dan nilai urutan baca dengan mata (Irfan 15 Nov; kalibrasi: builder-trap-r2 r4 B01/B03 FAIL, wajah + teks berseberangan ok).
+3. `python3 ../scripts/juri/sandingkan.py qc/stills/ <sheet kiblat> qc/sanding.jpg` : lembar sanding still kita vs frame kiblat.
+4. Lihat lembar sanding itu, lalu isi `qc/JURI.md`: tiap butir "Cek kemiripan" di kartu kiblat dan tiap butir `LANTAI.md` A–D diberi LULUS/GAGAL + nama still buktinya. Bandingkan juga dengan `contoh-gagal/`.
+5. Ada GAGAL = perbaiki adegan itu dan ulangi still-nya saja. Semua LULUS = baris terakhir `qc/JURI.md` ditulis `PUTUSAN: LULUS`, baru `render.sh final`.
 
-Yang belum dicek otomatis (dinilai mata dari lembar sanding): keseimbangan komposisi, tabrakan objek, ada tidaknya gerak kamera, kecocokan visual dengan ucapan.
+Yang belum dicek otomatis (dinilai mata dari lembar sanding): urutan baca/hierarki, tabrakan objek, ada tidaknya gerak kamera, kecocokan visual dengan ucapan.
 
 ## Referensi baru
 Saat Irfan mengirim video referensi:

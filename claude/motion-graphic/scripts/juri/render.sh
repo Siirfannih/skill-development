@@ -11,6 +11,7 @@
 #   2. qc/stills/ berisi still yang lebih baru daripada perubahan terakhir di remotion/src
 #   3. qc/sanding.jpg (sandingkan.py) lebih baru daripada still itu
 #   4. qc/JURI.md lebih baru daripada sanding dan baris terakhirnya "PUTUSAN: LULUS"
+#   5. balance_check.py pada qc/stills tidak FAIL (Lantai C17), atau JURI.md memuat baris 'KESEIMBANGAN: <alasan>'
 # Revisi satu adegan: perbarui still adegan itu, sanding, JURI, lalu `final` dengan rentang frame adegan itu saja
 # dan sambung dengan ffmpeg; jangan render ulang seluruh video.
 # Lingkungan: KONKURENSI (default 4; ukur sekali dengan `npx remotion benchmark`), ENTRY (default src/index.ts).
@@ -50,6 +51,10 @@ case "$MODE" in
     ns="$(printf '%.0f' "$(newest_src)")"; st="$(find "$QC/stills" -name '*.png' -printf '%T@\n' 2>/dev/null | sort -n | tail -1)"; st="$(printf '%.0f' "${st:-0}")"
     [ "$st" -ge "$ns" ] && [ "$st" -gt 0 ] || { echo "GAGAL gerbang: still di qc/stills lebih lama daripada perubahan src (atau belum ada). Jalankan 'still' dulu."; gagal=1; }
     [ "$(mtime "$QC/sanding.jpg")" -ge "$st" ] && [ -f "$QC/sanding.jpg" ] || { echo "GAGAL gerbang: qc/sanding.jpg belum dibuat dari still terbaru (sandingkan.py)."; gagal=1; }
+    if ! python3 "$HERE/balance_check.py" "$QC/stills" > "$QC/balance.log" 2>&1; then
+      if grep -q '^KESEIMBANGAN:' "$QC/JURI.md" 2>/dev/null; then echo "balance_check FAIL, tetapi JURI.md memuat alasan KESEIMBANGAN: (lihat qc/balance.log)"
+      else grep -E '^FAIL' "$QC/balance.log" | head -8; echo "GAGAL gerbang: frame berat sebelah (Lantai C17). Pindahkan posisi teks/objek, atau tulis 'KESEIMBANGAN: <alasan>' di qc/JURI.md."; gagal=1; fi
+    fi
     if [ -f "$QC/JURI.md" ] && [ "$(mtime "$QC/JURI.md")" -ge "$(mtime "$QC/sanding.jpg")" ] && tail -n 3 "$QC/JURI.md" | grep -q '^PUTUSAN: LULUS'; then :; else
       echo "GAGAL gerbang: qc/JURI.md belum berakhir 'PUTUSAN: LULUS' untuk sanding terbaru."; gagal=1; fi
     [ "$gagal" = 0 ] || { echo "Render penuh ditolak."; exit 1; }

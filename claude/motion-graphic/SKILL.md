@@ -41,7 +41,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 14. **Satu fokus per momen.** Mata tahu harus melihat ke mana.
 15. **Teks, objek, dan visual satu kesatuan**: tidak tumpang tindih, tidak bertabrakan, tidak berjauhan seperti bagian terpisah (Irfan 9 Nov).
 16. **Tepi frame bersih.** Tidak ada objek penting di zona tepi kecuali karena gerak kamera; margin aman 5 % (Irfan 11 Nov).
-17. **Seimbang.** Ruang kosong disengaja; teks tidak menumpuk di bawah atau satu sisi sementara tengah atau sisi lain kosong tanpa alasan (Irfan 2 Nov).
+17. **Seimbang dan hierarkinya terbaca, dinilai global per frame**, bukan per ukuran objek: posisi teks, objek, KT, bingkai, dan b-roll dilihat bersama di zoom 25 %, 50 %, dan 100 %. Urutan baca di ukuran normal jelas: latar utama (#primary) → teks/objek utama → pengisi (objek pinggir, teks kecil). Satu sisi berisi teks + visual sementara sisi lain kosong = gagal; perbaikannya pindah posisi (mis. kunci ke kanan bawah, berseberangan dengan kepala di kiri atas). Dicek pada still **sebelum** render penuh (`scripts/juri/balance_check.py`, lembar 25/50 %) (Irfan 2 Nov, 15 Nov).
 18. **Rapi**: garis berakhir di tepi bentuknya, jarak antar-elemen sama, stroke dan radius konsisten (Irfan 9 Nov).
 
 ### D. Isi visual
@@ -75,7 +75,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 ## 0b. Render dan juri
 
 - Semua render lewat `scripts/juri/render.sh <proyek> still|draft|final …`. Render penuh ditolak sampai resep lulus, still terbaru ada, lembar sanding dibuat, dan `qc/JURI.md` berakhir `PUTUSAN: LULUS`.
-- Juri pada still: `scripts/juri/teks_cek.py` (pita bawah, kata ganda, tepi), `scripts/juri/sandingkan.py` (still kita vs frame kiblat), lalu nilai tiap butir "Cek kemiripan" kartu kiblat dan Lantai A–D. Rinci: `pustaka/README.md` §Juri. Bandingkan juga dengan `pustaka/contoh-gagal/`.
+- Juri pada still: `scripts/juri/teks_cek.py` (pita bawah, kata ganda, tepi), `scripts/juri/balance_check.py` (keseimbangan global per frame + lembar 25/50 %, Lantai C17), `scripts/juri/sandingkan.py` (still kita vs frame kiblat), lalu nilai tiap butir "Cek kemiripan" kartu kiblat dan Lantai A–D. Rinci: `pustaka/README.md` §Juri. Bandingkan juga dengan `pustaka/contoh-gagal/`.
 - Revisi: perbarui still adegan itu saja dan render rentang framenya, bukan seluruh video.
 - Pelajaran dari Irfan disimpan menurut cakupannya (`pustaka/README.md` §Tumbuh).
 
@@ -140,7 +140,7 @@ motion-graphic/
 ├── SKILL.md                 inti: lantai, kiblat, juri, lalu rujukan teknis (file ini)
 ├── LANTAI.md                mutu yang selalu berlaku (sumber blok §0)
 ├── pustaka/                 PETA.md · kartu/ (anatomi 8 bagian per referensi) · RESEP-TEMPLATE.md · contoh-gagal/
-├── scripts/juri/            render.sh (gerbang render) · resep_check.py · teks_cek.py · sandingkan.py
+├── scripts/juri/            render.sh (gerbang render) · resep_check.py · teks_cek.py · balance_check.py · sandingkan.py
 ├── guide/                   standar rasa per urusan (README → visual · teks · gerak · audio · sfx · hindari · referensi)
 ├── references/
 │   ├── core-rules.md        teks penuh aturan inti 1–50

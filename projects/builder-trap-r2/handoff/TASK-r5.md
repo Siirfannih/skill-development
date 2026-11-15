@@ -33,3 +33,8 @@ Isi kata, layout KT r4 selain butir 5, palet, UI, file audio.
 
 ## Keluaran (sebagai balasan; Sutradara yang menyimpan REPORT)
 Lembar `P/qc/r5_sheet.jpg`, path draft, keluaran cekkata/tsc apa adanya, daftar konstanta frame yang dikonversi, pertanyaan terbuka. Disk ±3,4 GB: hapus still sementaramu, jangan menjalankan render final.
+
+## Tambahan Irfan 15 Nov (masuk ronde ini)
+6. **B12–B13 ChatGPT di atas wallpaper macOS** (gambar referensi Irfan: jendela app macOS dengan sudut membulat, bayangan, traffic light, di atas wallpaper gradien ala macOS Sequoia; juga DNA kartu 63 "UI sungguhan mengambang di atas wallpaper"): ChatGPT tampil sebagai jendela/tab terbuka yang mengambang, tidak memenuhi frame, sehingga KT punya ruang sendiri di wallpaper dan **tidak menimpa UI ChatGPT**. Wallpaper: gradien hangat-sejuk lembut (oranye/ungu/biru muda), jangan didominasi biru (R-005). Punch-in ke kotak prompt tetap, tapi KT di ruang wallpaper di samping jendela.
+7. **B01–B03 keseimbangan**: kartu kepala "semua · orang · bisa" tetap di kiri atas bingkai; kartu kunci "membangun / membuat / bikin software." dipindah ke **kanan bawah** bingkai (diagonal), supaya bobot kiri dan kanan frame seimbang.
+8. **Keseimbangan global setiap frame (aturan Irfan, berlaku semua beat)**: sebelum melapor, lihat still dalam tiga ukuran (25 %, 50 %, 100 %) dan jalankan `python3 R/claude/motion-graphic/scripts/juri/balance_check.py P/qc/stills_r5` (alat dari Sutradara, menyusul di repo). Frame yang sisinya kosong sementara sisi lain berisi teks + visual = perbaiki posisi (teks/objek/kartu), bukan ukuran.
