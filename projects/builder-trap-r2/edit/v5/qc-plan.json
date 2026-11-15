@@ -53,7 +53,7 @@
     {
       "id": "B11",
       "old_seconds": 30.05,
-      "frame": 880
+      "frame": 881
     },
     {
       "id": "B12",
@@ -132,8 +132,10 @@
     }
   ],
   "changed_scenes": {
-    "B17_composer": 1502,
-    "B17_dialog": 1526,
+    "B17_post_hover": 1488,
+    "B17_dialog_stable": 1510,
+    "B17_draft_landing": 1522,
+    "B25_modal_open": 2500,
     "B25_post1": 2520,
     "B25_post2": 2554
   }

@@ -1,6 +1,7 @@
 """Prepare isolated, equal-timeline before/after stages; does not run any renderer."""
 from pathlib import Path
 import json
+import math
 import re
 import shutil
 
@@ -36,8 +37,15 @@ knots = json.loads((P / 'remotion/src/data/knots_v5.json').read_text())['knots']
 def frame(old):
     t = old / 30
     for (a, x), (b, y) in zip(knots, knots[1:]):
-        if x <= t <= y: return round((a + (t-x)/(y-x)*(b-a))*30)
+        if x <= t <= y: return math.floor((a + (t-x)/(y-x)*(b-a))*30 + .5)
     raise ValueError(t)
-plan = dict(B17_composer=frame(1540), B17_dialog=frame(1564), B25_post1=frame(2606), B25_post2=frame(2650))
+plan = dict(
+    B17_post_hover=frame(1526),
+    B17_dialog_stable=frame(1548),
+    B17_draft_landing=frame(1560),
+    B25_modal_open=frame(2586),
+    B25_post1=frame(2606),
+    B25_post2=frame(2650),
+)
 (P / 'edit/v5/still-plan-r10.json').write_text(json.dumps(plan, indent=2)+'\n')
 print(plan)
