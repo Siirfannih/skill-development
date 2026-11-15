@@ -10,5 +10,8 @@ if [ ! -e "$HERE/media" ]; then
   ln -s "$PROJECT/remotion/public" "$HERE/media"
 fi
 
-"${RAEA_BIN:-$HOME/.local/bin/raea}" install --in "$HERE"
+# RAEA 0.1.0-canary.2 cannot install a local `file:` compatibility package.
+# npm resolves the shim inside this isolated smoke directory without touching
+# either the active Remotion install or RAEA's own runtime.
+npm install --ignore-scripts
 
