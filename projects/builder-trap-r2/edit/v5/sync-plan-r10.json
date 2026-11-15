@@ -1,0 +1,225 @@
+{
+  "duration": 91.3,
+  "frames": 2739,
+  "joins": [
+    {
+      "join": 1,
+      "source_cut": [
+        9.4,
+        9.9
+      ],
+      "time": 9.4,
+      "frame": 282,
+      "words_before": [
+        "yang",
+        "mereka",
+        "buat."
+      ],
+      "words_after": [
+        "Memasuki",
+        "usia",
+        "20"
+      ],
+      "data_status": "exact same cut map for audio and face",
+      "listen_status": "pending resource gate",
+      "lip_sync_status": "pending full face asset and resource gate"
+    },
+    {
+      "join": 2,
+      "source_cut": [
+        24.3,
+        24.5
+      ],
+      "time": 23.8,
+      "frame": 714,
+      "words_before": [
+        "sesuatu",
+        "yang",
+        "berbeda."
+      ],
+      "words_after": [
+        "Karena",
+        "itu",
+        "aku"
+      ],
+      "data_status": "exact same cut map for audio and face",
+      "listen_status": "pending resource gate",
+      "lip_sync_status": "pending full face asset and resource gate"
+    },
+    {
+      "join": 3,
+      "source_cut": [
+        38.86666666666667,
+        39.03333333333333
+      ],
+      "time": 38.166667,
+      "frame": 1145,
+      "words_before": [
+        "sesuatu.",
+        "Build",
+        "something."
+      ],
+      "words_after": [
+        "Selama",
+        "satu",
+        "tahun"
+      ],
+      "data_status": "exact same cut map for audio and face",
+      "listen_status": "pending resource gate",
+      "lip_sync_status": "pending full face asset and resource gate"
+    },
+    {
+      "join": 4,
+      "source_cut": [
+        45.96666666666667,
+        46.36666666666667
+      ],
+      "time": 45.1,
+      "frame": 1353,
+      "words_before": [
+        "sudah",
+        "aku",
+        "buat."
+      ],
+      "words_after": [
+        "Tapi",
+        "satu",
+        "hal"
+      ],
+      "data_status": "exact same cut map for audio and face",
+      "listen_status": "pending resource gate",
+      "lip_sync_status": "pending full face asset and resource gate"
+    },
+    {
+      "join": 5,
+      "source_cut": [
+        58.9,
+        59.06666666666667
+      ],
+      "time": 57.633333,
+      "frame": 1729,
+      "words_before": [
+        "adiktif.",
+        "Atau",
+        "kecanduan."
+      ],
+      "words_after": [
+        "Untuk",
+        "membangun",
+        "sesuatu."
+      ],
+      "data_status": "exact same cut map for audio and face",
+      "listen_status": "pending resource gate",
+      "lip_sync_status": "pending full face asset and resource gate"
+    },
+    {
+      "join": 6,
+      "source_cut": [
+        63.766666666666666,
+        64.3
+      ],
+      "time": 62.333333,
+      "frame": 1870,
+      "words_before": [
+        "gak",
+        "pernah",
+        "selesai."
+      ],
+      "words_after": [
+        "Aku",
+        "terobsesi",
+        "sama"
+      ],
+      "data_status": "exact same cut map for audio and face",
+      "listen_status": "pending resource gate",
+      "lip_sync_status": "pending full face asset and resource gate"
+    },
+    {
+      "join": 7,
+      "source_cut": [
+        74.96666666666667,
+        75.43333333333334
+      ],
+      "time": 73.0,
+      "frame": 2190,
+      "words_before": [
+        "jauh",
+        "kemana",
+        "-mana."
+      ],
+      "words_after": [
+        "Sampai",
+        "akhirnya",
+        "aku"
+      ],
+      "data_status": "exact same cut map for audio and face",
+      "listen_status": "pending resource gate",
+      "lip_sync_status": "pending full face asset and resource gate"
+    },
+    {
+      "join": 8,
+      "source_cut": [
+        77.33333333333333,
+        77.76666666666667
+      ],
+      "time": 74.9,
+      "frame": 2247,
+      "words_before": [
+        "akhirnya",
+        "aku",
+        "sadar."
+      ],
+      "words_after": [
+        "Dan",
+        "sekarang",
+        "aku"
+      ],
+      "data_status": "exact same cut map for audio and face",
+      "listen_status": "pending resource gate",
+      "lip_sync_status": "pending full face asset and resource gate"
+    },
+    {
+      "join": 9,
+      "source_cut": [
+        88.2,
+        89.0
+      ],
+      "time": 85.333333,
+      "frame": 2560,
+      "words_before": [
+        "yang",
+        "aku",
+        "buat."
+      ],
+      "words_after": [
+        "Apa",
+        "pengalaman",
+        "yang"
+      ],
+      "data_status": "exact same cut map for audio and face",
+      "listen_status": "pending resource gate",
+      "lip_sync_status": "pending full face asset and resource gate"
+    }
+  ],
+  "spots": [
+    {
+      "time": 1,
+      "frame": 30,
+      "status": "pending listen and visual check"
+    },
+    {
+      "time": 45.65,
+      "frame": 1370,
+      "status": "pending listen and visual check"
+    },
+    {
+      "time": 89.5,
+      "frame": 2685,
+      "status": "pending listen and visual check"
+    }
+  ],
+  "end_fade_frames": [
+    2724,
+    2738
+  ]
+}

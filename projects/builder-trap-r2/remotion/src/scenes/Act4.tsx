@@ -10,7 +10,7 @@ import { wordOut } from '../engine/words';
 import { useRealFrame } from '../engine/realframe';
 import type { HBlock } from '../text/types';
 import { Face } from '../engine/Face';
-import { keBaru } from '../engine/timewarp';
+import { keBaru, DUR_V5 } from '../engine/timewarp';
 import { Paper } from '../engine/Surfaces';
 import { Cursor } from '../engine/Cursor';
 import { WipeLinear } from '../engine/Transitions';
@@ -33,12 +33,11 @@ const AVATAR = 'ui/avatar_siirfannih.jpg';
 // ============================================================================================
 const FACE_RIGHT_SPACE = { s: 1.3, cx: 1182, cy: 565 };
 const b23Cam = camPath([{ f: F_WIPE[0], zoom: 1 }, { f: F_B23[1], zoom: 1.05, ease: 'smooth' }], { sigma: 0 });
-// r8 (TASK-r8 butir 3): video wajah sudah melompat ke isi sesudah potongan di nyata f2066, 2 f sebelum cut adegan
-// (f2068) → f2066–2067 menahan frame video 2065 (dulu satu frame wajah lain: kepala berputar, tangan hilang)
+// r10: wajah berjalan kontinu; hold edit lama tidak berlaku pada map v5.
 const B23: React.FC = () => (
   <Stage pose={b23Cam} bg="#000">
     <Layer z={0} name="L1-L2">
-      <Face preset="F4" crop={FACE_RIGHT_SPACE} grade="bersih" hold={[2066, 2065]} />
+      <Face preset="F4" crop={FACE_RIGHT_SPACE} grade="bersih" />
     </Layer>
     <Layer z={30} name="L3">
       <TextBlocks blocks={txt('B23-K4')} />
@@ -376,11 +375,11 @@ const B25b: React.FC = () => {
 // push terus sampai frame terakhir (2848); r8: fade ke hitam 0,47 dtk di akhir (EndFade).
 // ============================================================================================
 const b26Cam = camPath([{ f: F_B26[0], zoom: 1 }, { f: F_B26[1] - 1, zoom: 1.06, ease: 'linear' }], { sigma: 0 });
-// r8 (TASK-r8 butir 9): ekor visual 0,47 dtk — fade ke hitam nyata f2486–2500 (frame nyata, bukan frame adegan yang
+// r10: ekor visual 0,47 dtk, 15 frame terakhir v5 (frame nyata, bukan frame adegan yang
 // dibekukan di ujung peta waktu), supaya video tidak berhenti di tengah gerak mulut
 const EndFade: React.FC = () => {
   const r = useRealFrame();
-  const o = prog(r, 2486, 2500, 'inOut');
+  const o = prog(r, DUR_V5 - 15, DUR_V5 - 1, 'inOut');
   return o > 0 ? <div style={{ position: 'absolute', inset: 0, background: '#000', opacity: o }} /> : null;
 };
 const B26: React.FC = () => (

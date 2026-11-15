@@ -3,16 +3,26 @@ Mix v2 (koreksi Irfan 13 Nov): suara = voice_clean.wav (jeda diredam), SFX = sfx
 Mix v1: suara (take asli, gain linear saja) + SFX stem + musik per babak (Aware; drone gelap di belokan).
 Musik: babak 1–2 = Aware 0,00→46,30 · babak 3 = drone_dark (ElevenLabs) + Aware 92,25→ low-pass 1,2 kHz · babak 4 = Aware 172,27→ (lagu meluruh sendiri ±93,5 dtk video).
 Level dari audio.md §14.10: suara ≈ −14 LUFS, musik di bawah suara −22…−25 LUFS, SFX −4…−10 dB setelah normalisasi puncak (di cues), akhir −14 LUFS, TP ≤ −1 dBTP."""
+import os
+for _key in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
+    os.environ[_key] = "2"
 import subprocess, numpy as np, soundfile as sf, json, sys
 from pathlib import Path
+import importlib.util
+_spec = importlib.util.spec_from_file_location('make_v5', Path(__file__).resolve().parents[1] / 'edit/make_v5.py')
+_build = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_build)
+_run = subprocess.run
+def guarded_run(*args, **kwargs):
+    _build.resource_gate()
+    return _run(*args, **kwargs)
 TMP = Path('edit/v5/tmp'); TMP.mkdir(parents=True, exist_ok=True)
 SR = 48000; DUR = json.load(open('edit/v5/map.json'))['dur_new']; N = int(round(DUR * SR))
 def dec(path, ss=0.0, t=None, af=None):
-    cmd = ['ffmpeg', '-threads', '2', '-v', 'error', '-ss', str(ss)] + (['-t', str(t)] if t else []) + ['-i', path] + (['-af', af] if af else []) + ['-ac', '2', '-ar', str(SR), '-f', 'f32le', '-']
-    return np.frombuffer(subprocess.run(cmd, capture_output=True, check=True).stdout, dtype=np.float32).reshape(-1, 2).copy()
+    cmd = ['ffmpeg', '-filter_threads', '1', '-filter_complex_threads', '1', '-threads', '2', '-v', 'error', '-ss', str(ss)] + (['-t', str(t)] if t else []) + ['-i', path] + (['-af', af] if af else []) + ['-ac', '2', '-ar', str(SR), '-f', 'f32le', '-']
+    return np.frombuffer(guarded_run(cmd, capture_output=True, check=True).stdout, dtype=np.float32).reshape(-1, 2).copy()
 def lufs(x):
     sf.write('edit/v5/tmp/lufs.wav', x, SR)
-    o = subprocess.run(['ffmpeg', '-threads', '2', '-v', 'info', '-i', 'edit/v5/tmp/lufs.wav', '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
+    o = guarded_run(['ffmpeg', '-filter_threads', '1', '-filter_complex_threads', '1', '-threads', '2', '-v', 'info', '-i', 'edit/v5/tmp/lufs.wav', '-af', 'ebur128', '-f', 'null', '-'], capture_output=True, text=True).stderr
     return float([l for l in o.splitlines() if 'I:' in l][-1].split('I:')[1].split('LUFS')[0])
 def place(buf, x, at, g_db=0.0, fin=0.0, fout=0.0):
     x = x * 10 ** (g_db / 20); i = int(round(at * SR))
@@ -70,5 +80,5 @@ sf.write('edit/v5/stem_voice.wav', voice, SR, **W); sf.write('edit/v5/stem_music
 sf.write('edit/v5/mix_raw.wav', mix, SR, **W)
 # satu limiter + true peak oversampled, target −14 LUFS
 g = -13.9 - lufs(mix); mix *= 10 ** (g / 20); sf.write('edit/v5/mix_pre.wav', mix, SR, **W)
-subprocess.run(['ffmpeg', '-threads', '2', '-v', 'error', '-y', '-i', 'edit/v5/mix_pre.wav', '-af', 'aresample=192000,alimiter=limit=0.85:attack=1:release=50:level=false,aresample=48000', '-c:a', 'pcm_s16le', 'edit/v5/mix.wav'], check=True)
+guarded_run(['ffmpeg', '-filter_threads', '1', '-filter_complex_threads', '1', '-threads', '2', '-v', 'error', '-y', '-i', 'edit/v5/mix_pre.wav', '-af', 'aresample=192000,alimiter=limit=0.85:attack=1:release=50:level=false,aresample=48000', '-threads', '2', '-c:a', 'pcm_s16le', 'edit/v5/mix.wav'], check=True)
 print('gain suara', round(gv, 1), 'gain musik', round(gm, 1), 'gain akhir', round(g, 1))

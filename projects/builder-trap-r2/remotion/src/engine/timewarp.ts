@@ -1,13 +1,13 @@
-// r5 · peta waktu potongan suara v3 (TASK-r5). Murni data (tanpa React) supaya bisa dipakai pengecek kata di node.
-// knots_v3.json: [t_baru, t_lama] detik, interpolasi linear; pasangan berselisih 0,0001 dtk = lompatan (rentang dibuang).
-import K from '../data/knots_v3.json';
+// r5 · peta waktu potongan suara v5 (TASK-r5). Murni data (tanpa React) supaya bisa dipakai pengecek kata di node.
+// knots_v5.json: [t_baru, t_lama] detik, interpolasi linear; pasangan berselisih 0,0001 dtk = lompatan (rentang dibuang).
+import K from '../data/knots_v5.json';
 
 const FPS = 30;
 const KN = (K as unknown as { knots: [number, number][] }).knots;
 const NEW = KN.map((k) => k[0]);
 const OLD = KN.map((k) => k[1]);
 /** durasi timeline baru (frame) */
-export const DUR_V3: number = (K as unknown as { dur_frames: number }).dur_frames;
+export const DUR_V5: number = (K as unknown as { dur_frames: number }).dur_frames;
 
 function interp(x: number, xs: number[], ys: number[]): number {
   if (x <= xs[0]) return ys[0] + (x - xs[0]);

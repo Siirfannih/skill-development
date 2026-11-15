@@ -2,9 +2,20 @@
 voice_raw.wav (suara terkunci, timeline program) → high-pass 70 Hz + afftdn nr 3/nf −55 (nr 8 mengikis udara > 9 kHz: voice_fidelity 0,65 FAIL) → jeda antarkata diredam −36 dB (−24 dB masih menyisakan benturan keras, 88,4 dtk).
 Jeda = di luar [awal kata − 0,06; akhir kata + 0,12] (ekor whisper sering terlalu cepat) dan ≥ 0,15 dtk; ramp 25 ms.
 Tempo dan isi ucapan tidak diubah (Lantai E23). Keluaran float: audio/voice_clean.wav."""
+import os
+for _key in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
+    os.environ[_key] = "2"
 import json, subprocess, numpy as np, soundfile as sf
+import importlib.util
+from pathlib import Path
+_spec = importlib.util.spec_from_file_location('make_v5', Path(__file__).resolve().parents[1] / 'edit/make_v5.py')
+_build = importlib.util.module_from_spec(_spec); _spec.loader.exec_module(_build)
+_run = subprocess.run
+def guarded_run(*args, **kwargs):
+    _build.resource_gate()
+    return _run(*args, **kwargs)
 SR = 48000
-raw = subprocess.run(['ffmpeg', '-threads', '2', '-v', 'error', '-i', 'edit/v5/suara.wav', '-af',
+raw = guarded_run(['ffmpeg', '-filter_threads', '1', '-filter_complex_threads', '1', '-threads', '2', '-v', 'error', '-i', 'edit/v5/suara.wav', '-af',
                       'highpass=f=70,afftdn=nr=3:nf=-55', '-ac', '2', '-ar', str(SR), '-f', 'f32le', '-'],
                      capture_output=True, check=True).stdout
 x = np.frombuffer(raw, np.float32).reshape(-1, 2).copy()

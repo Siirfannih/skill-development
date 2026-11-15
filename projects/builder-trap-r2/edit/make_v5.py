@@ -6,6 +6,8 @@ are frame aligned, >=50ms from content timestamps and measured in a low energy
 """
 from pathlib import Path
 import argparse, importlib.util, json, math, os, subprocess, sys
+for _key in ("OMP_NUM_THREADS", "OPENBLAS_NUM_THREADS", "MKL_NUM_THREADS"):
+    os.environ[_key] = "2"
 import numpy as np
 import soundfile as sf
 P = Path(__file__).resolve().parents[1]
@@ -17,20 +19,36 @@ def module(name, path):
 # recut's CLI executes at import; keep the exact no-overlap mapper here.
 def mapper(removed, t):
     return round(t-sum(max(0., min(t,b)-a) for a,b in removed if t>a),6)
+def compare_transcript(expected, heard):
+    import difflib, re
+    def normalize(words):
+        return re.findall(r'[a-z0-9]+', ' '.join(q['w'].lower() for q in words))
+    target, actual = normalize(expected), normalize(heard)
+    return dict(pass_=target == actual, initial_prompt=None, target_tokens=len(target),
+                heard_tokens=len(actual), diff=list(difflib.ndiff(target, actual)))
+
+def resource_gate():
+    processes = subprocess.check_output(['ps', '-eo', 'pid=,pcpu=,comm=,args='], text=True)
+    busy = []
+    for row in processes.splitlines():
+        fields = row.strip().split(None, 3)
+        if len(fields) < 4: continue
+        pid, cpu, comm, args = fields
+        if int(pid) == os.getpid(): continue
+        if int(pid) == 4108755 or float(cpu) > 250 or comm == 'ffmpeg' or (
+            comm in ('node', 'python', 'python3') and any(q in args for q in ('remotion render', 'faster_whisper'))
+        ):
+            busy.append(dict(pid=int(pid), cpu=float(cpu), command=comm))
+    if busy: raise SystemExit('Resource gate BLOCKED: ' + json.dumps(busy))
+
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('--audio', action='store_true')
+    ap.add_argument('--face', action='store_true')
+    ap.add_argument('--check-resources', action='store_true')
     ap.add_argument('--proxy', action='store_true'); ap.add_argument('--transcribe', action='store_true'); a=ap.parse_args()
-    if a.proxy or a.transcribe:
-        processes=subprocess.check_output(['ps','-eo','pid=,pcpu=,comm=,args='],text=True)
-        busy=[]
-        for row in processes.splitlines():
-            fields=row.strip().split(None,3)
-            if len(fields)<4: continue
-            pid,cpu,comm,args=fields
-            if int(pid)==os.getpid(): continue
-            if float(cpu)>250 or comm=='ffmpeg' or (comm in ('node','python','python3') and any(q in args for q in ('remotion render','faster_whisper'))):
-                busy.append(dict(pid=int(pid),cpu=float(cpu),command=comm))
-        if busy: raise SystemExit('Resource gate BLOCKED: '+json.dumps(busy))
+    if a.face or a.proxy or a.transcribe or a.check_resources: resource_gate()
+    if a.check_resources:
+        print('Resource gate PASS'); return
     x,sr=sf.read(P/'audio/voice_raw.wav',dtype='float32',always_2d=True)
     mono=x.mean(1); dur=len(x)/sr; W=load(P/'edit/words_final.json'); content=[q for q in W if q['w'].lower().strip('.?!')!='tuh']
     old=load(P/'edit/potong_v3.json'); out=[]; decisions=[]; edges=[]
@@ -52,10 +70,15 @@ def main():
         if out and lo<=out[-1][1]: continue
         out.append([lo,hi,reason]); edges.append(dict(start=lo,end=hi,start_db=db(lo),end_db=db(hi)))
         decisions.append(dict(source=[start,end],reason=reason,status='kept with guarded measured endpoints',cut=[lo,hi]))
-    removed=[q[:2] for q in out]; newdur=dur-sum(b-a for a,b in removed)
+    removed=[q[:2] for q in out]
+    frozen = load(P/'edit/v5/map.json')
+    if removed != frozen['removed'] or len(removed) != 9:
+        raise SystemExit('r10 requires the exact nine r9 cuts; refusing to rewrite map')
+    newdur=dur-sum(b-a for a,b in removed)
     mapped=[dict(w=q['w'],s=mapper(removed,q['s']),e=mapper(removed,q['e'])) for q in content]
     gate=module('gate_v5',ROOT/'claude/motion-graphic/scripts/gate/cut_check.py')
     result=gate.validate_cuts(W,removed,mapped)
+    if not result['pass_']: raise SystemExit('Cut validation FAIL; refusing to build media')
     save(P/'edit/potong_v5.json',out); save(P/'edit/v5/cut_decisions.json',decisions)
     mp=dict(removed=removed,fps=30,dur_old=dur,dur_new=newdur,overlap_samples=0,micro_fade_ms=2,edges=edges)
     save(P/'edit/v5/map.json',mp); save(P/'edit/v5/words_final.json',mapped); save(P/'edit/v5/validation.json',result)
@@ -80,7 +103,20 @@ def main():
             if i<len(keep)-1: seg[-fade:]*=ramp[::-1]
             parts.append(seg)
         sf.write(P/'edit/v5/suara.wav',np.concatenate(parts),sr,subtype='FLOAT')
+    if a.face:
+        # Decode once, trim exact frame spans, concatenate without audio or overlap.
+        resource_gate()
+        bounds = [0] + [round(t * 30) for pair in removed for t in pair] + [round(dur * 30)]
+        spans = list(zip(bounds[::2], bounds[1::2]))
+        filters = [f'[0:v]trim=start_frame={start}:end_frame={end},setpts=PTS-STARTPTS[v{i}]'
+                   for i, (start, end) in enumerate(spans)]
+        filters.append(''.join(f'[v{i}]' for i in range(len(spans))) + f'concat=n={len(spans)}:v=1:a=0[out]')
+        subprocess.run(['ffmpeg', '-v', 'error', '-y', '-threads', '2', '-filter_complex_threads', '1',
+            '-i', str(P/'edit/face_edit.mp4'), '-filter_complex', ';'.join(filters), '-map', '[out]',
+            '-an', '-c:v', 'libx264', '-threads', '2', '-preset', 'fast', '-crf', '18',
+            str(P/'edit/v5/face_edit_v5.mp4')], check=True)
     if a.proxy:
+        resource_gate()
         proxy=P/'edit/v5/face-proxy'
         subprocess.run([sys.executable,str(ROOT/'claude/motion-graphic/scripts/audio/recut.py'),'cut',
             '--audio',str(P/'audio/voice_raw.wav'),'--video',str(P/'edit/face_edit.mp4'),
@@ -90,15 +126,15 @@ def main():
             '-i',str(P/'edit/v5/voice_clean.wav'),'-map','0:v','-map','1:a','-c:v','copy','-c:a','aac',
             '-threads','2',str(P/'edit/v5/face-audio-proxy.mp4')],check=True)
     if a.transcribe:
+        resource_gate()
         from faster_whisper import WhisperModel
         model=WhisperModel('large-v3',device='cpu',compute_type='int8',cpu_threads=2,num_workers=1,local_files_only=True)
-        segments,info=model.transcribe(str(P/'edit/v5/voice_clean.wav'),language='id',word_timestamps=True,beam_size=5,condition_on_previous_text=False)
+        segments,info=model.transcribe(str(P/'edit/v5/voice_clean.wav'),language='id',word_timestamps=True,beam_size=5,condition_on_previous_text=False,initial_prompt=None)
         actual=[dict(w=w.word.strip(),s=w.start,e=w.end) for seg in segments for w in seg.words]
         save(P/'edit/v5/transcript.json',actual)
-        import difflib,re
-        normalize=lambda words: re.findall(r'[a-z0-9]+',' '.join(q['w'].lower() for q in words))
-        target,heard=normalize(content),normalize(actual)
-        save(P/'edit/v5/transcript-check.json',dict(pass_=target==heard,initial_prompt=None,
-            target_tokens=len(target),heard_tokens=len(heard),diff=list(difflib.ndiff(target,heard))))
+        comparison = compare_transcript(load(P/'edit/v5/words_actual.json'), actual)
+        save(P/'edit/v5/transcript-check.json', comparison)
+        if not comparison['pass_']:
+            raise SystemExit('Transcript comparison FAIL; inspect transcript-check.json before acceptance')
     print(json.dumps(dict(validator=result['pass_'],cuts=len(out),duration=newdur,frames=round(newdur*30),source_words=len(W),target_words=len(mapped),filler_cuts=sum('tuh' in q[2] for q in out))))
 if __name__=='__main__': main()
