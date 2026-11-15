@@ -71,6 +71,8 @@ Suara yang dikunci (gerbang 6) harus sudah bebas kata sampah dan diam saat berpi
 5. **Sisa jeda**: tengah kalimat 0,06 dtk; antarkalimat ±0,28 dtk; jeda dramatis yang disengaja (sebelum twist, setelah klimaks, antarbabak) ≤ 0,5 dtk dan ditulis di DECISIONS (aturan 33).
 6. **Alat**: `scripts/gate/cut_check.py suara.wav words.json --suggest potong.json` (FAIL bila ada sampah/diam) → dengar usulan → `scripts/audio/recut.py cut --audio … --video wajah.mp4 --remove potong.json --out DIR` (audio + video wajah dipotong di batas frame yang sama, fade 4 ms, `map.json`) → `recut.py remap` untuk kata, beat, event, dan cue. Kode adegan yang menulis frame langsung harus memakai peta yang sama.
 7. **Tidak mengisi jeda dengan room tone** dari kamar yang sama (§14.6).
+7b. **Potong ulang setelah visual dibangun** (builder-trap-r2 v3): jangan memotong video render di titik jeda (animasi melompat). Buat peta waktu W(t_baru) → t_lama: bekas jeda saat layar diam atau berisi cut keras = lompatan 1:1; bekas jeda di tengah animasi = disebar ±1,5× panjang jeda (contoh `projects/builder-trap-r2/edit/make_knots.py`). Adegan diputar di `<Freeze frame={W(f)}>`; video wajah dan **waktu tampil teks memakai frame nyata + kata di timeline baru** (teks yang ikut W bisa meleset sampai 20 frame).
+7c. Ambang diam di dalam kata: 0,18 dtk di rekaman kamar (0,15 menangkap konsonan/henti b-t-k); ulangi `cut_check` setelah tiap potong — diam yang lebih kecil baru terlihat setelah yang besar dibuang.
 8. Setelah dipotong: `cut_check.py` PASS, transkrip ulang tanpa prompt = semua kata isi masih utuh, intonasi tiap sambungan didengar (ekor kata tidak terpotong).
 
 ### 14.A Memilih suara: logika (Irfan 6 Nov)

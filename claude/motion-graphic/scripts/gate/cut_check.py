@@ -13,7 +13,8 @@ Mengukur suara (stem suara atau suara terkunci) + kata per kata (timeline yang s
   - diam_kal : celah antarkata di tengah kalimat (kata sebelumnya tanpa . ? !) >= --max-inner -> FAIL
   - antar_kal: celah antarkalimat > --max-sentence dtk (default 0,50; target ±0,28, aturan 33) -> FAIL
   - gumam    : bunyi bersuara >= 0,15 dtk di luar kata (calon "eee" yang tidak tertranskrip) -> PERIKSA (dengar)
-"Diam" = energi 10 ms < median ucapan - 18 dB (relatif, jadi tetap terdeteksi di kamar ber-noise).
+"Diam" = energi 10 ms < max(median ucapan - 18 dB, lantai noise (persentil 10) + 8 dB): relatif, dan tidak jatuh
+di bawah dengung kamar (gagal 15 Nov: ambang -46 dB di kamar -38 dB melewatkan diam berisi dengung).
 
 Pakai:
   python3 cut_check.py suara.wav words.json [--filler "eee,emm,tuh"] [--suggest potong.json]
@@ -62,7 +63,9 @@ def main():
     db = 20 * np.log10(np.array([np.sqrt(np.mean(x[i:i + hop] ** 2)) + 1e-9 for i in range(0, len(x) - hop, hop)]))
     W = load_words(a.words)
     speech = float(np.median(np.concatenate([db[int(q["s"] * 100):int(q["e"] * 100)] for q in W])))
-    quiet = db < speech - 18
+    floor = float(np.percentile(db, 10))
+    thr = max(speech - 18, floor + 8)  # di kamar ber-noise, median−18 bisa jatuh di bawah lantai noise (builder-trap-r2: −46 vs kamar −38)
+    quiet = db < thr
     fill = {f.strip().lower() for f in a.filler.split(",") if f.strip()}
     clean = lambda w: re.sub(r"[^\wÀ-ɏ-]", "", w.lower())
     found, sug = [], []
@@ -98,7 +101,7 @@ def main():
     hum = [(r0 / 100, (r1 - r0) / 100) for r0, r1 in runs((db > speech - 8) & ~cov, 15)]
     by = {}
     for kind, t, info in found: by.setdefault(kind, []).append((t, info))
-    print(f"kata {len(W)} · ucapan median {speech:.1f} dBFS · ambang diam {speech - 18:.1f} dBFS")
+    print(f"kata {len(W)} · ucapan median {speech:.1f} dBFS · lantai {floor:.1f} · ambang diam {thr:.1f} dBFS")
     for kind in ("sampah", "diam_kata", "diam_kal", "antar_kal"):
         items = by.get(kind, [])
         print(f"  {kind:9s} {len(items):3d}  " + "; ".join(f"{t}s {i}" for t, i in items[:8]) + (" …" if len(items) > 8 else ""))
