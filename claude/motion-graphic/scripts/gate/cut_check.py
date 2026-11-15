@@ -50,12 +50,24 @@ def validate_cuts(source, removed, mapped=None, guard=0.05):
         if a < previous or b <= a:
             failures.append(f"invalid/overlapping cut {a}:{b}")
         previous = b
+    def overlap_for(q):
+        return sum(max(0., min(b, q['e']) - max(a, q['s'])) for a, b in removed)
+    # A filler may disappear from the mapped sequence only when the cut actually
+    # covers it. This prevents a caption-only list from masquerading as proof
+    # that an audible filler was removed.
+    expected = []
+    for q in source:
+        duration = q['e'] - q['s']
+        filler_removed = norm(q['w']) == 'tuh' and overlap_for(q) >= max(0., duration - .020)
+        if not filler_removed:
+            expected.append(q)
     content = [q for q in source if norm(q['w']) != 'tuh']
-    if mapped is not None and [norm(q['w']) for q in mapped] != [norm(q['w']) for q in content]:
-        failures.append('mapped word sequence differs from source without explicit tuh fillers')
+    mapped_content = [q for q in mapped or [] if norm(q['w']) != 'tuh']
+    if mapped is not None and [norm(q['w']) for q in mapped] != [norm(q['w']) for q in expected]:
+        failures.append('mapped word sequence omits a source token not covered by a cut')
     for i, q in enumerate(content):
         duration = q['e'] - q['s']
-        overlap = sum(max(0., min(b, q['e']) - max(a, q['s'])) for a, b in removed)
+        overlap = overlap_for(q)
         ratio = (duration - overlap) / duration if duration > 0 else 0.
         if overlap > 0.020 + 1e-7:
             failures.append(f"overlap {q['w']}@{q['s']}: {overlap:.4f}s")
@@ -63,8 +75,8 @@ def validate_cuts(source, removed, mapped=None, guard=0.05):
             failures.append(f"retention {q['w']}@{q['s']}: {ratio:.3f}")
         if any(a < q['e'] + guard - 1e-7 and b > q['s'] - guard + 1e-7 for a,b in removed):
             failures.append(f"guard {q['w']}@{q['s']}: <{guard}s")
-        if mapped is not None and i < len(mapped):
-            actual = (mapped[i]['e'] - mapped[i]['s']) / duration if duration > 0 else 0.
+        if mapped is not None and i < len(mapped_content):
+            actual = (mapped_content[i]['e'] - mapped_content[i]['s']) / duration if duration > 0 else 0.
             if actual < .85 - 1e-7:
                 failures.append(f"mapped duration {q['w']}@{q['s']}: {actual:.3f}")
         rows.append(dict(**q, overlap=round(overlap,6), retained=round(ratio,6)))

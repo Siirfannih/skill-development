@@ -15,4 +15,9 @@ class CutSafety(unittest.TestCase):
         self.assertTrue(gate.validate_cuts(self.word, [[.5, .9]], self.word)['pass_'])
     def test_explicit_filler_allowed(self):
         self.assertTrue(gate.validate_cuts([dict(w='tuh',s=0.,e=.2)]+self.word, [[0.,.2]], self.word)['pass_'])
+    def test_uncut_filler_cannot_disappear_from_mapped_sequence(self):
+        self.assertFalse(gate.validate_cuts([dict(w='tuh',s=0.,e=.2)]+self.word, [], self.word)['pass_'])
+    def test_uncut_filler_passes_when_mapped_as_audible(self):
+        source = [dict(w='tuh',s=0.,e=.2)]+self.word
+        self.assertTrue(gate.validate_cuts(source, [], source)['pass_'])
 if __name__ == '__main__': unittest.main()

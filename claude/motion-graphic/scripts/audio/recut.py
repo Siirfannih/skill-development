@@ -77,10 +77,19 @@ def cmd_cut(a):
     import os; os.makedirs(a.out, exist_ok=True)
     sf.write(f"{a.out}/suara.wav", y, sr, subtype="FLOAT")
     if a.video:
-        fl = "".join(f"[0:v]trim=start={k0:.4f}:end={k1:.4f},setpts=PTS-STARTPTS[v{i}];" for i, (k0, k1) in enumerate(keep))
+        frame_keep = [(round(k0 * a.fps), round(k1 * a.fps)) for k0, k1 in keep]
+        fl = "".join(f"[0:v]trim=start_frame={f0}:end_frame={f1},setpts=PTS-STARTPTS[v{i}];" for i, (f0, f1) in enumerate(frame_keep))
         fl += "".join(f"[v{i}]" for i in range(len(keep))) + f"concat=n={len(keep)}:v=1:a=0,scale=iw*{a.video_scale}:ih*{a.video_scale}[v]"
-        subprocess.run(["ffmpeg", "-v", "error", "-y", "-threads", "2", "-i", a.video, "-threads", "2", "-filter_complex_threads", "1", "-filter_complex", fl, "-map", "[v]", "-r", str(a.fps),
-                        "-c:v", "libx264", "-threads", "2", "-crf", "14", "-preset", "medium", "-pix_fmt", "yuv420p", f"{a.out}/wajah.mp4"], check=True)
+        video_out = f"{a.out}/wajah.mp4"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-threads", "2", "-i", a.video, "-threads", "2", "-filter_complex_threads", "1", "-filter_complex", fl, "-map", "[v]", "-an",
+                        "-c:v", "libx264", "-threads", "2", "-crf", "14", "-preset", "medium", "-pix_fmt", "yuv420p", video_out], check=True)
+        frames = int(subprocess.check_output([
+            "ffprobe", "-v", "error", "-count_frames", "-select_streams", "v:0",
+            "-show_entries", "stream=nb_read_frames", "-of", "default=nw=1:nk=1", video_out,
+        ], text=True).strip())
+        expected_frames = round(len(y) / sr * a.fps)
+        if frames != expected_frames:
+            raise ValueError(f"Video/audio drift: {frames} video frames != {expected_frames} audio frames")
     mp = dict(removed=rem, fps=a.fps, dur_old=round(dur, 4), dur_new=round(len(y) / sr, 4))
     json.dump(mp, open(f"{a.out}/map.json", "w"), indent=0)
     print(f"buang {len(rem)} rentang = {dur - len(y) / sr:.2f} dtk · durasi {dur:.2f} -> {len(y) / sr:.2f} dtk · {a.out}")
