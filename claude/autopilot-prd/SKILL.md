@@ -61,7 +61,7 @@ Irfan menjawab dalam satu kali baca untuk semua keputusan, bukan satu per satu.
 
 ## Yang tetap dilarang
 
-Rahasia ke repo/log/laporan, perubahan global environment Mac, menghentikan proses aplikasi lain, PC server malam hari (20.00 sampai 07.30 WITA milik worker Candra).
+Rahasia ke repo/log/laporan, perubahan global environment Mac, dan menghentikan proses aplikasi atau sesi lain. PC server boleh dipakai kapan pun setelah mengecek kapasitas dan sesi aktif; pekerjaan baru tidak boleh mengganggu sesi yang sedang berjalan. (Irfan 16 Nov 2026)
 
 ## Delegasi ke Codex di PC server
 
