@@ -25,3 +25,7 @@ r7c: punch via kamera diterima; judul terpotong di tengah kata → r7d. r7d: dit
 
 ## Audio (Sutradara) untuk r7
 Cue B12–B13 ditata ulang ke event baru (frame nyata): klik dock 28,333 (Cutcontrastransision −12), jendela buka 28,88 (pop up −14), punch "investasi" 30,12 (Woosh −11), cap 31,263 tetap, punch B13b 33,25 (Woosh −9), ketik 33,45 (1,2 dtk), kirim 34,784, mosaik 34,83. Dibuang: Pergantianfoto 2,767 (file sama < 1 dtk) dan marker 35,603 (rentetan 6/2 dtk). 49 cue, 0,59/dtk. sfx_density PASS (ref 0,65), pause_clean PASS, cut_check PASS, mix −14,8 LUFS, puncak −1,4 dBFS.
+
+## r7e / r7f · kartu kunci B03 (review draft penuh Sutradara)
+r7e: kartu kosong f119–121 hilang, tetapi f121/f70 dua kata tajam bertumpuk dan "bikin" melompat ±250 px saat "software." masuk (kartu rata kanan).
+r7f: `K3CardRight` di `engine/TextLayer.tsx` (hanya `B01-K3`): kata lama keluar 2 f sebelum kata baru (blur 8 px), kata baru masuk di frame awal ucapan; satu frasa dikunci di tepi kiri frasa lengkap (x 1699) dan kartu tumbuh ke kanan. Lembar `qc/r7f_kartu.jpg` dilihat Sutradara: f68/69 dan f119/120 satu kata tajam, tanpa kartu kosong, "bikin" diam f121–136. tsc 0, cekkata 0. DITERIMA.

@@ -8,7 +8,7 @@
 # <proyek> berisi RESEP.md dan folder remotion/ (src/index.ts). Bundle dibuat sekali dan dipakai ulang sampai src berubah.
 # Gerbang `final` (semua harus benar):
 #   1. RESEP.md lulus resep_check.py
-#   2. qc/stills/ berisi still yang lebih baru daripada perubahan terakhir di remotion/src
+#   2. SEMUA still di qc/stills/ lebih baru daripada perubahan terakhir di remotion/src (still paling lama yang dinilai)
 #   3. qc/sanding.jpg (sandingkan.py) lebih baru daripada still itu
 #   4. qc/JURI.md lebih baru daripada sanding dan baris terakhirnya "PUTUSAN: LULUS"
 #   5. balance_check.py pada qc/stills tidak FAIL (Lantai C17), atau JURI.md memuat baris 'KESEIMBANGAN: <alasan>'
@@ -51,7 +51,7 @@ case "$MODE" in
     [ $# -ge 1 ] || { echo "beri nama file keluaran"; exit 1; }
     OUT="$1"; RANGE="${2:-}"; gagal=0
     python3 "$HERE/resep_check.py" "$P/RESEP.md" || gagal=1
-    ns="$(printf '%.0f' "$(newest_src)")"; st="$(find "$QC/stills" -name '*.png' -printf '%T@\n' 2>/dev/null | sort -n | tail -1)"; st="$(printf '%.0f' "${st:-0}")"
+    ns="$(printf '%.0f' "$(newest_src)")"; st="$(find "$QC/stills" -name '*.png' -printf '%T@\n' 2>/dev/null | sort -n | head -1)"; st="$(printf '%.0f' "${st:-0}")"  # still PALING LAMA: satu still basi = gagal (builder-trap-r2 r7: JB13 basi lolos)
     [ "$st" -ge "$ns" ] && [ "$st" -gt 0 ] || { echo "GAGAL gerbang: still di qc/stills lebih lama daripada perubahan src (atau belum ada). Jalankan 'still' dulu."; gagal=1; }
     [ "$(mtime "$QC/sanding.jpg")" -ge "$st" ] && [ -f "$QC/sanding.jpg" ] || { echo "GAGAL gerbang: qc/sanding.jpg belum dibuat dari still terbaru (sandingkan.py)."; gagal=1; }
     if ! python3 "$HERE/balance_check.py" "$QC/stills" > "$QC/balance.log" 2>&1; then

@@ -12,9 +12,9 @@ C17 keseimbangan: dinilai mata di 25/50/100 % pada frame frasa utuh (r6: 82 stil
 KESEIMBANGAN: JB01, JB02 — kartu kepala kiri-atas berseberangan dengan kartu kunci kanan-bawah (diagonal), bingkai di tengah; angka alat berbalik antar klip footage (0,75 ↔ 0,26) = isi footage, bukan tata letak.
 KESEIMBANGAN: JB06 — frame tengah frasa ("perlu"); frasa utuh B06 (r6 B06-H/K4) seimbang, teks menempel foto (C15).
 KESEIMBANGAN: JB09, JB10 — punch-in UI Threads (blur gerak) / halaman YouTube penuh layar; UI memenuhi frame.
-KESEIMBANGAN: r7_04 — frame transisi 0,4 dtk saat jendela keluar dari ikon dock; r7_10, r7_11 — teks prompt yang diketik rata kiri di panel depan (kartu 63: prompt di separuh kiri saat punch). Still jendela tengah 05/06/09 ok.
+KESEIMBANGAN: r7_04 — frame transisi 0,4 dtk saat jendela keluar dari ikon dock. JB12 (jendela tengah) ok; JB13 punch kamera ke kotak prompt (PERIKSA berat bawah: judul sengaja keluar frame atas, r7d).
 KESEIMBANGAN: JB17, JB18 — tumpuk kata kiri, modal Threads / jendela GitHub mengisi kanan; UI gelap berkontras rendah dinilai ringan oleh alat.
-KESEIMBANGAN: JB22, JB23, JB24 — komposisi tengah (teks di atas UI profil) / wajah dengan teks di seberang / wajah tanpa teks.
+KESEIMBANGAN: JB11, JB23, JB26 — wajah di kiri dengan teks di seberang kanan (pola terkalibrasi ok, alat membobot subjek footage berat). JB15, JB20 — dinding/UI gelap berkontras rendah dinilai ringan; frasa utuh r6 diterima. JB19, JB25 — frame tengah frasa/transisi (blur), frasa utuh r6 diterima. JB24 — lingkaran "titik awal" + kartu di kanan. Still 26 beat diambil di tengah beat (gerbang), penilaian keseimbangan utama tetap still frasa utuh r6 + r7 (Sutradara melihat lembar 25/50 %).
 
 ## teks_cek (5 tanda) — semua teks UI asli (hasil YouTube, dialog Threads, tab GitHub), bukan narasi.
 
@@ -24,7 +24,7 @@ cut_check PASS · pause_clean PASS (jeda stem suara bersih) · voice_fidelity PA
 ## Catatan Irfan (R-023: setiap catatan aktif diperiksa sebelum final; draft penuh `qc/draft.mp4` 2501 f dilihat per 15 f + rapat di B03, B12–B13)
 | Catatan | Putusan | Bukti |
 |---|---|---|
-| R-001 premium, tema builder trap | LULUS | draft penuh: 4 babak utuh, tanpa frame rusak kecuali B03 kartu kosong (diperbaiki r7e) |
+| R-001 premium, tema builder trap | LULUS | draft penuh: 4 babak utuh; B03 kartu kosong diperbaiki r7e/r7f |
 | R-002 real footage, logo asli | LULUS | B01–B03 footage nyata (JB01–JB03), logo ChatGPT asli di cap B12 (r7c_08) |
 | R-003 musik Aware | LULUS | `audio/mix_v3.py` M = assets/music_aware.wav |
 | R-004 kiblat 55 + teknik kartu 63 | LULUS | sanding kiblat `qc/sanding.jpg`; kartu 63 di §Kartu 63 |
@@ -41,7 +41,7 @@ cut_check PASS · pause_clean PASS (jeda stem suara bersih) · voice_fidelity PA
 | R-017 audio bersih + SFX benar | LULUS | cut_check PASS, pause_clean PASS (jeda median −66,9 dBFS), sfx_density PASS (49 cue, 0,59/dtk, ref 0,65), mix −14,8 LUFS / puncak −1,4 dBFS; cue B12–B13 ditata ulang ke event r7 dan didengar (earshot) |
 | R-018 evaluasi visual mandiri | LULUS | REVIEW-v1-self, review buta r3–r7 |
 | R-019 KT seimbang, unik/FOMO, tumpuk B16–B18 | LULUS | draft f404, f825, f1335–1455 |
-| R-020 kartu per kata B01–B03 | LULUS setelah r7e | draft f15–f135; kartu kosong f119–121 → r7e |
+| R-020 kartu per kata B01–B03 | LULUS | draft f15–f135; pergantian kata tanpa kartu kosong/tumpuk tajam, "bikin" tidak melompat (`qc/r7f_kartu.jpg`, r7f) |
 | R-021 B12–B13 kartu 63, foto asli, tengah, tanpa KT | LULUS | r7_01–r7_09, draft f840–1045 |
 | R-022 layar Mac + punch kamera | LULUS | r7_01–r7_05 (desktop, dock, klik, jendela), r7c_07/10/11 punch kamera 3,8–4×, `qc/r7d_motion_sheet.jpg` |
 | R-023 pastikan sebelum final | LULUS | bagian ini + draft penuh + r7e diperiksa sebelum `render.sh final` |

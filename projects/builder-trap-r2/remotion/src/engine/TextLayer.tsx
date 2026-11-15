@@ -3,7 +3,7 @@
 // atau <TextBlockView block={b}/> di dalam benda (mis. label H di dalam Print).
 import React from 'react';
 import { interpolateColors, getInputProps, useCurrentFrame } from 'remotion';
-import { C, FONT, prog, lerp, SAFE, TEXT_FLOOR } from './theme';
+import { C, FONT, prog, lerp, clamp01, SAFE, TEXT_FLOOR } from './theme';
 import { useScreenScale } from './Stage';
 import { fontsReady } from './fonts';
 import { useRealFrame } from './realframe';
@@ -40,8 +40,8 @@ export function measure(text: string, size: number, weight = 700, family = FONT.
 }
 
 /** Satu kata narasi: blur 6→0 + naik 8 px dalam 6 f; abu lalu menghitam dalam 8 f. */
-const Word: React.FC<{ tok: Tok; f: number; tn: Tone | undefined; kind?: 'n' | 'big' | 'key'; ink?: string }> = ({ tok, f, tn, kind = 'n', ink }) => {
-  const a = tokIn(tok);
+const Word: React.FC<{ tok: Tok; f: number; tn: Tone | undefined; kind?: 'n' | 'big' | 'key'; ink?: string; lead?: number }> = ({ tok, f, tn, kind = 'n', ink, lead = 0 }) => {
+  const a = tokIn(tok) - lead; // r7f: lead = mulai masuk lebih awal (frame), hanya kartu kunci K3 kanan
   const pal = { ...tone(tn), ...(ink ? { ink } : {}) };
   const dur = kind === 'big' ? 8 : kind === 'key' ? 5 : 6;
   const p = prog(f, a, a + dur, 'out');
@@ -180,6 +180,74 @@ const K3EvenView: React.FC<{ b: K3Block; f: number; fit: Fit }> = ({ b, f, fit }
   );
 };
 
+/** r7f (B01–B03, review Sutradara): kartu kunci K3 rata kanan tanpa kepala (`alignRight`, `label`, `head: []`).
+ *  - Pergantian kunci: kunci lama mulai keluar (naik + blur + pudar) 2 f sebelum kunci baru; kunci baru mulai masuk
+ *    1 f lebih awal dari biasanya (= frame awal ucapan), sehingga di tiap frame paling banyak satu kata tajam > 50 % dan
+ *    selalu ada satu kata ≥ 50 % terlihat (tidak ada kartu kosong).
+ *  - Dalam satu frasa ("bikin" → "bikin software."): tepi kiri teks dikunci di posisi frasa lengkap yang rata kanan di
+ *    b.x; kartu tumbuh ke kanan mengikuti kata yang sudah tampil (ease-out 6 f). Kata yang sudah tampil tidak bergeser.
+ *  - Antar-frasa: kartu berpindah dari geometri frasa lama ke frasa baru (sisi yang melebar: f−2…f+1; sisi yang menyempit
+ *    setelah kata lama habis: f+1…f+6). */
+const K3CardRight: React.FC<{ b: K3Block; f: number; fit: Fit }> = ({ b, f, fit }) => {
+  const size = fit.size;
+  const lh = 1.22;
+  const pad = [0.16 * size, 0.34 * size];
+  const txt = (k: Tok[]) => k.map((t) => t.t).join(' ');
+  const starts = b.keys.map((k) => tokIn(k[0]));
+  const fullW = (k: number) => measure(txt(b.keys[k]), size);
+  const leftOf = (k: number) => b.x - 2 * pad[1] - fullW(k);
+  const inc = (k: number) => b.keys[k].map((_, j) => measure(txt(b.keys[k].slice(0, j + 1)), size) - (j ? measure(txt(b.keys[k].slice(0, j)), size) : 0));
+  const curW = (k: number) => inc(k).reduce((acc, w, j) => acc + w * (j === 0 ? (k === 0 ? prog(f, starts[0] - 1, starts[0] + 5, 'out') : 1) : prog(f, tokIn(b.keys[k][j]) - 1, tokIn(b.keys[k][j]) + 5, 'out')), 0);
+  let cur = -1;
+  starts.forEach((s, k) => { if (f >= s - 2) cur = k; });
+  if (cur < 0) return null;
+  let left = leftOf(cur), right = left + 2 * pad[1] + curW(cur);
+  if (cur > 0) {
+    const a = starts[cur];
+    const lO = leftOf(cur - 1), rO = b.x;
+    const tG = prog(f, a - 2, a + 1, 'out'), tS = prog(f, a + 1, a + 6, 'out');
+    left = left < lO ? lerp(lO, left, tG) : lerp(lO, left, tS);
+    right = right > rO ? lerp(rO, right, tG) : lerp(rO, right, tS);
+  }
+  const labelP = prog(f, starts[0] - 2, starts[0] + 6, 'out');
+  const ex = exitStyle(b, f);
+  return (
+    <div style={{ position: 'absolute', left: 0, top: 0, ...ex }}>
+      <div
+        style={{
+          position: 'absolute', left, top: b.y, width: right - left, height: size * lh + 2 * pad[0],
+          background: '#FFFFFF', borderRadius: 4, boxShadow: '0 10px 24px rgba(40,39,35,0.22), 0 2px 4px rgba(40,39,35,0.16)',
+          transform: `scaleY(${labelP})`, transformOrigin: 'center bottom', opacity: labelP,
+        }}
+      />
+      {b.keys.map((k, idx) => {
+        const s = starts[idx];
+        const next = starts[idx + 1];
+        if (f < s - 2) return null;
+        const e = next !== undefined ? clamp01((f - (next - 2)) / 2.5) : 0;
+        if (e >= 1) return null;
+        return (
+          <div
+            key={idx}
+            style={{
+              position: 'absolute', left: leftOf(idx) + pad[1], top: b.y + pad[0], whiteSpace: 'nowrap', fontFamily: FONT.sf, fontWeight: 700,
+              fontSize: size, lineHeight: lh, letterSpacing: TRACK,
+              transform: `translateY(${-0.42 * e}em)`, opacity: 1 - e, filter: e > 0 ? `blur(${8 * e}px)` : undefined,
+            }}
+          >
+            {k.map((t, j) => (
+              <React.Fragment key={j}>
+                {j > 0 ? ' ' : null}
+                <Word tok={t} f={f} tn={b.tone} kind="key" lead={idx > 0 && j === 0 ? 1 : 0} />
+              </React.Fragment>
+            ))}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+
 /** K3: kepala tetap, kata kunci di slot (lama keluar ke atas, baru masuk dari bawah), lebar slot beranimasi.
  *  r3a: bila kepala + kunci terpanjang melewati lebar aman pada ukuran lantai, kunci pindah ke baris 2 (rata kiri,
  *  ukuran sama). Nada gelap: kepala abu C.inkDarkDim, kunci putih penuh. */
@@ -189,12 +257,21 @@ const K3View: React.FC<{ b: K3Block; f: number; fit: Fit }> = ({ b, f, fit }) =>
   const stacked = !!fit.stacked;
   const headInk = b.tone === 'dark' ? pal.dim : undefined;
   const starts = b.keys.map((k) => tokIn(k[0]));
-  let cur = -1;
-  starts.forEach((s, k) => { if (f >= s - 4) cur = k; });
   const txt = (k: Tok[]) => k.map((t) => t.t).join(' ');
-  const wKey = (k: number) => (k < 0 ? 0 : measure(txt(b.keys[k]), size));
-  const prevW = wKey(cur - 1), curW = wKey(cur);
-  const sw = cur < 0 ? 0 : lerp(prevW, curW, prog(f, starts[cur] - 4, starts[cur] + 5, 'out'));
+  // r7e (B03, review draft): lebar slot mengikuti kata yang SUDAH tampil, bukan seluruh kunci. Tiap token menambah
+  // lebarnya dengan ease-out 6 f mulai 1 f sebelum kata masuk; saat kunci berganti, lebar bertahan selebar kunci lama
+  // sampai kunci lama habis keluar (3 f), lalu bergerak ke lebar token pertama kunci baru (6 f) — kata lama tidak
+  // menjulur keluar kartu. Sebelumnya "bikin software." langsung selebar penuh saat "bikin".
+  const inc = (k: number) => b.keys[k].map((_, j) => measure(txt(b.keys[k].slice(0, j + 1)), size) - (j ? measure(txt(b.keys[k].slice(0, j)), size) : 0));
+  let cur = -1;
+  starts.forEach((s, k) => { if (f >= s - 1) cur = k; });
+  let sw = 0;
+  if (cur >= 0) {
+    const w = inc(cur);
+    const prevW = cur > 0 ? measure(txt(b.keys[cur - 1]), size) : 0;
+    sw = cur > 0 ? lerp(prevW, w[0], prog(f, starts[cur] + 3, starts[cur] + 9, 'out')) : w[0] * prog(f, starts[cur] - 1, starts[cur] + 5, 'out');
+    for (let j = 1; j < w.length; j++) sw += w[j] * prog(f, tokIn(b.keys[cur][j]) - 1, tokIn(b.keys[cur][j]) + 5, 'out');
+  }
   const space = stacked || !b.head.length ? 0 : measure(' ', size);
   const pad = b.label ? [0.16 * size, 0.34 * size] : [0, 0];
   const headIn = b.head.length ? tokIn(b.head[0]) : starts[0];
@@ -215,7 +292,9 @@ const K3View: React.FC<{ b: K3Block; f: number; fit: Fit }> = ({ b, f, fit }) =>
         const s = starts[idx];
         const next = starts[idx + 1];
         if (f < s - 1) return null;
-        const e = next !== undefined ? prog(f, next - 4, next, 'in') : 0;
+        // r7e: kunci lama baru keluar SAAT kunci baru masuk (tumpang-tindih 3 f), bukan habis sebelum kata baru tampil —
+        // dulu f119–121 kartu kosong (kata baru opasitas 0 di frame masuknya, kata lama sudah hilang)
+        const e = next !== undefined ? prog(f, next, next + 3, 'inOut') : 0;
         if (e >= 1) return null;
         return (
           <span
@@ -527,7 +606,7 @@ const FIT_DEBUG = !!(getInputProps() as { fitDebug?: boolean }).fitDebug;
 const viewOf = (block: TextBlock, f: number, fit: Fit) => {
   switch (block.code) {
     case 'N': return <NView b={block} f={f} fit={fit} />;
-    case 'K3': return block.even ? <K3EvenView b={block} f={f} fit={fit} /> : <K3View b={block} f={f} fit={fit} />;
+    case 'K3': return block.even ? <K3EvenView b={block} f={f} fit={fit} /> : block.alignRight && block.label && !block.head.length ? <K3CardRight b={block} f={f} fit={fit} /> : <K3View b={block} f={f} fit={fit} />;
     case 'K4': return <K4View b={block} f={f} fit={fit} />;
     case 'J': return <JView b={block} f={f} fit={fit} />;
     case 'H': return <HView b={block} f={f} fit={fit} />;
