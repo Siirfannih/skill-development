@@ -42,7 +42,7 @@ def frame(old):
 plan = dict(
     B17_post_hover=frame(1526),
     B17_dialog_stable=frame(1548),
-    B17_draft_landing=frame(1560),
+    B17_draft_landing=frame(1570),
     B25_modal_open=frame(2586),
     B25_post1=frame(2606),
     B25_post2=frame(2650),

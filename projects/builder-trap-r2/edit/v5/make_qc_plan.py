@@ -46,7 +46,7 @@ for beat in plan["beats"]:
 changed = {
     "B17_post_hover": to_new_frame(1526 / 30),
     "B17_dialog_stable": to_new_frame(1548 / 30),
-    "B17_draft_landing": to_new_frame(1560 / 30),
+    "B17_draft_landing": to_new_frame(1570 / 30),
     "B25_modal_open": to_new_frame(2586 / 30),
     "B25_post1": to_new_frame(2606 / 30),
     "B25_post2": to_new_frame(2650 / 30),
