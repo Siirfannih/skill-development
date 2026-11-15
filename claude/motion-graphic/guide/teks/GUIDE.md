@@ -9,6 +9,10 @@
 - 05: kinetik bertumpuk boleh **sebagai tekstur**, asal satu baris menyala yang jadi fokus.
 
 ## Cara (pilih yang cocok)
+- **Blok seimbang, bukan kalimat** (Irfan 15 Nov, builder-trap-r2 v2; bukti ref 17 ganimate, kartu 55/57/73/08): tampilan dua baris atau lebih adalah satu blok; baris terpendek ≥ 85 % lebar baris terpanjang. Kata besar diskalakan sampai lebarnya = lebar baris kecil di atasnya, ujungnya sejajar ("sesuatu yang / **unik.**"). Gagal: baris pengantar 5–6 kata di atas satu kata besar (atas panjang, bawah pendek).
+- **1–3 kata per tampil**, frasa diganti utuh di tempat yang sama ("By" → "By People" → "no smarter" → "than you"); kalimat panjang tidak ditumpuk jadi 2 baris subtitle.
+- **Tanpa kotak di belakang narasi.** Bentuk + teks dua baris = lower-third berita, nilai editorialnya hilang. Kotak hanya chip yang menempel dan ikut bergerak dengan objek, atau sorot satu kata hero.
+- **Mode berganti**: kata hero sendirian sangat besar, blok seimbang, frasa pendek, label menempel objek, tumpuk kata (satu kata per baris, muncul per kata); tidak > 2 tampilan berturut dengan mode + posisi sama.
 - **Satu lapisan teks.** Semua ucapan tampil sebagai tipografi kinetik yang posisinya lahir dari komposisi shot; tidak ada baris subtitle terpisah di pita bawah, dan kata penekanan tidak diulang di tempat lain (`LANTAI.md` A1–A3, Irfan 11 Nov).
 - ≤ 2 baris sekali tampil (boleh 4+ kata); lebih panjang → pecah jadi tampilan berurutan. Setiap kata yang diucapkan tampil (aturan 44).
 - Waktu baca ≥ max(0,8 dtk; 0,30 + 0,06 × huruf); kata tersebar terbaca satu arah; teks/ikon/kartu tidak bertabrakan (aturan 46).

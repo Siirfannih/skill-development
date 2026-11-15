@@ -171,3 +171,11 @@ Objek isometrik: SVG (bisa dianimasikan per bagian, sesuai aturan vektormu), dil
 - [ ] Weight teks ≤ Medium; tidak ada teks teal di navy.
 - [ ] Truck isometrik: kecepatan konstan, tidak ada objek masuk sebelum disebut.
 - [ ] 1 titik ganti musik per babak; SFX pop per objek baru (≥ 85 % event bersuara).
+
+## Mekanisme kinetic typography (dibedah ulang 15 Nov, 4 fps; atas koreksi Irfan pada builder-trap-r2 v2)
+- **Satuan tampil 1–3 kata**, frasa diganti utuh: "By" → "By People" → "no" → "no smarter" → "than" → "than you" (3,0–5,0 dtk); "in order" → "for a new industry" → "to immerge" → "energy".
+- **Blok dua baris seimbang**: "Graphic / tools" → "Graphic / AI tools" → "AI ✦ ◎ ⊛ ▲ tools" (0,25–2,5 dtk): dua baris berukuran sama, lebar setara, bertangga (atas kiri, bawah kanan); kata baru **disisipkan ke dalam blok** dan ikon menggantikan sebagian kata.
+- **Hero satu kata**: "Which" → "Which AI" → "Which AI **Source**" (6–7 dtk, ±15 % tinggi, satu baris, kata hero dengan blok sorot); "Wattage" sendirian di tengah.
+- **Chip label menempel objek**: "Schools", "Universities", "Hotels", "dealerships", "private investment", "then all 50 states" — chip teal kecil yang ikut bergerak dengan bangunan/peta, bukan caption mengambang.
+- **Teks dalam komposisi grafik**: "and its own power" duduk tepat di atas ilustrasi, lebar seimbang dengan grafik di bawahnya; "Are bringing **You**" kecil di tengah dengan satu kata disorot.
+- Tidak ada kalimat 2 baris di dalam kotak; tidak ada narasi panjang yang menumpuk.
