@@ -2,6 +2,7 @@
 import importlib.util
 import json
 from pathlib import Path
+import tempfile
 import unittest
 from unittest.mock import patch
 
@@ -48,6 +49,20 @@ class TimelineV5(unittest.TestCase):
         no_filler = [q for q in expected if q['w'].lower() != 'tuh']
         self.assertFalse(build.compare_transcript(expected, no_filler)['pass_'])
         self.assertFalse(build.compare_transcript(expected, expected[1:])['pass_'])
+
+    def test_whisper_audio_is_predecoded_float32_mono_16khz(self):
+        # faster-whisper's path decoder is incompatible with PyAV 19 on the
+        # PC worker.  A numpy input must bypass av.open completely.
+        with tempfile.TemporaryDirectory() as folder:
+            path = Path(folder) / 'stereo.wav'
+            signal = build.np.zeros((48_000, 2), dtype=build.np.float32)
+            signal[:, 0] = 0.25
+            signal[:, 1] = -0.25
+            build.sf.write(path, signal, 48_000, subtype='FLOAT')
+            decoded = build.whisper_audio(path)
+        self.assertEqual(decoded.dtype, build.np.float32)
+        self.assertEqual(decoded.ndim, 1)
+        self.assertEqual(len(decoded), 16_000)
 
     def test_finished_historical_pid_does_not_block(self):
         with patch.object(build.subprocess, 'check_output', return_value='4108755 0.0 python edge10f.py\n'):
