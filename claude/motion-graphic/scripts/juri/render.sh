@@ -37,6 +37,10 @@ bundle() {
     touch "$stamp"
   else echo "bundle: pakai ulang"; fi
 }
+# Kunci GLOBAL untuk render berat (frames/final): satu render di PC bersama pada satu waktu. Render final menulis
+# ±2 MB per frame ke /tmp; dua render bersamaan menghabiskan disk (gagal 15 Nov: builder-trap-r2 v4 crash di f1210 saat
+# jensen-pain-suffering render bersamaan, disk 106 MB). Bila disk sempit, render final per rentang lalu sambung.
+heavy_lock() { exec 9>/tmp/remotion-heavy-render.lock; echo "kunci render global: menunggu render lain selesai (bila ada)…"; flock 9; }
 case "$MODE" in
   still)
     [ $# -ge 1 ] || { echo "beri minimal satu <label:frame>"; exit 1; }
@@ -47,7 +51,7 @@ case "$MODE" in
     done
     echo "Lanjut: teks_cek.py $QC/stills  ->  sandingkan.py $QC/stills <sheet kiblat> $QC/sanding.jpg  ->  isi $QC/JURI.md" ;;
   frames)
-    bundle; FR="$QC/frames"; rm -rf "$FR"; mkdir -p "$FR"
+    heavy_lock; bundle; FR="$QC/frames"; rm -rf "$FR"; mkdir -p "$FR"
     (cd "$R" && npx remotion render "$QC/.bundle" "$COMP" "$FR" --sequence --image-format=jpeg --jpeg-quality=85 --scale=0.5 --concurrency="$K" --log=error)
     echo "frames $FR ($(ls "$FR" | wc -l) gambar). Lanjut: python3 $HERE/frame_audit.py $FR --cuts … --cues … --words … --stems … --out $QC/frame_audit" ;;
   draft)
@@ -82,6 +86,7 @@ case "$MODE" in
     [ "$gagal" = 0 ] || { echo "Render penuh ditolak."; exit 1; }
     free_mb=$(df --output=avail -BM "$P" | tail -1 | tr -dc 0-9)
     [ "${free_mb:-0}" -ge 8000 ] || echo "PERINGATAN: disk kosong ${free_mb} MB (< 8 GB). Render penuh memakai sampai ±3,6 GB di puncaknya dan proses lain di PC bersama bisa naik-turun 2–3 GB; kehabisan ruang muncul sebagai halaman render crash (builder-trap-r2 v2 14 Nov; v3 15 Nov dua kali, disk 561 MB saat crash). Bebaskan ruang dulu."
+    heavy_lock
     bundle; n=$(( $(grep -c '^final' "$QC/render.log" 2>/dev/null || true) + 1 ))
     echo "final $(date '+%F %T') ke-$n ${RANGE:-penuh} -> $OUT" >> "$QC/render.log"
     [ "$n" -le 2 ] || echo "PERINGATAN: ini render penuh ke-$n untuk video ini. Revisi cukup rentang yang berubah (argumen awal-akhir)."
