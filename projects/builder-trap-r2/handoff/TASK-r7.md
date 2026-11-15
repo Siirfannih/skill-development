@@ -20,6 +20,15 @@ Audit Sutradara (sumber `Motiongrapich.mp4` 7–30 dtk dan kartu `R/claude/motio
 
 Akar masalah: TASK-r5/r6 menulis tafsiran Sutradara ("gradien ala Sequoia", "jendela besar terpotong kanan") alih-alih angka kartu 63, dan juri tidak menyandingkan B12–B13 dengan frame kartu 63 (hanya kiblat 55).
 
+
+## Revisi Irfan 15 Nov (menggantikan butir 2, 5, 6 di bawah bila bertentangan)
+Kata Irfan: "refference card tidak menggunakan warna merah muda gradient dia menggunakan Footage Real Image dan kebetulan tonenya dibuat berwarna merah … Tab chatgpt tidak perlu dibuat disamping dari awal, buat saja dia rata tengah sehingga semua halaman chatgpt terlihat, untuk text? karena tidak ada space tidak perlu ada dan fokus ke visual saja … Untuk Background gunakan real image … Sebuah laptop berada dihamparan luas, atau UI Wallpaper Mac yang membuka Tab Chatgpt kemudian mengetik seperti dikartu refference."
+- R1. Jendela ChatGPT **rata tengah**, seluruh halaman terlihat (utuh, 56–60 % lebar × 57–61 % tinggi frame seperti k1/k7 tanpa panel), wallpaper foto terlihat di keempat sisi, dock di bawah.
+- R2. **Tidak ada KT** selama B12 dan B13b. Satu-satunya teks = teks UI asli yang diketik di kotak prompt (kartu 63: "Tidak ada caption/subtitle"). `cekkata` diberi daftar pengecualian kata B12/B13b (tulis daftarnya di laporan).
+- R3. Latar = foto asli (`wall_senja.jpg`), tanpa gradien warna. Tone foto bukan syaratnya; foto asli tajam itulah syaratnya.
+- R4. Alur seperti kartu: desktop + dock → kursor klik ikon ChatGPT → jendela terbuka di tengah → riwayat bertambah → punch ke prompt (1,4–1,8×, tepi jendela + wallpaper tetap terlihat) → ketik huruf demi huruf → kirim → mosaik ke B14. Cap logo di "AI." tetap.
+- Cek keseimbangan: jendela tengah = seimbang; `balance_check` tetap dijalankan.
+
 ## Aset baru
 - `P/remotion/public/wall_senja.jpg`: foto CC0 "Sunset in the mountains" (Sergey Pesterev, Unsplash, lewat Wikimedia Commons), 3382×2263. Pegunungan berlapis dalam kabut oranye: langit gelap-oranye di atas kiri, kabut terang di tengah, siluet gelap di bawah.
 
