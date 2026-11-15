@@ -12,6 +12,9 @@
 #   3. qc/sanding.jpg (sandingkan.py) lebih baru daripada still itu
 #   4. qc/JURI.md lebih baru daripada sanding dan baris terakhirnya "PUTUSAN: LULUS"
 #   5. balance_check.py pada qc/stills tidak FAIL (Lantai C17), atau JURI.md memuat baris 'KESEIMBANGAN: <alasan>'
+#   6. draft gerak sudah dilihat: qc/draft.mp4 (penuh) atau qc/draft_<awal-akhir>.mp4 (rentang yang sama) lebih baru daripada src
+#   7. setiap catatan Irfan berstatus Aktif di DECISIONS.md (R-NNN / D-NNN) disebut di qc/JURI.md dengan buktinya
+#      (Irfan 15 Nov: "Jika hasil belum pasti benar jangan langsung ngerender final … pastikan dulu semuanya")
 # Revisi satu adegan: perbarui still adegan itu, sanding, JURI, lalu `final` dengan rentang frame adegan itu saja
 # dan sambung dengan ffmpeg; jangan render ulang seluruh video.
 # Lingkungan: KONKURENSI (default 4; ukur sekali dengan `npx remotion benchmark`), ENTRY (default src/index.ts).
@@ -57,6 +60,12 @@ case "$MODE" in
     fi
     if [ -f "$QC/JURI.md" ] && [ "$(mtime "$QC/JURI.md")" -ge "$(mtime "$QC/sanding.jpg")" ] && tail -n 3 "$QC/JURI.md" | grep -q '^PUTUSAN: LULUS'; then :; else
       echo "GAGAL gerbang: qc/JURI.md belum berakhir 'PUTUSAN: LULUS' untuk sanding terbaru."; gagal=1; fi
+    dr="$QC/draft${RANGE:+_$RANGE}.mp4"
+    [ -f "$dr" ] && [ "$(mtime "$dr")" -ge "$ns" ] || { echo "GAGAL gerbang: draft gerak $(basename "$dr") belum dibuat dari src terbaru (render.sh draft${RANGE:+ $COMP $RANGE}); lihat geraknya dulu."; gagal=1; }
+    if [ -f "$P/DECISIONS.md" ]; then
+      miss=$(grep -oE '^\| [RD]-[0-9]+ \|.*\| Aktif \|' "$P/DECISIONS.md" | grep -oE '^\| [RD]-[0-9]+' | tr -d '| ' | while read -r id; do grep -q "$id" "$QC/JURI.md" 2>/dev/null || printf '%s ' "$id"; done)
+      [ -z "$miss" ] || { echo "GAGAL gerbang: catatan Irfan aktif belum diperiksa di qc/JURI.md: $miss"; gagal=1; }
+    fi
     [ "$gagal" = 0 ] || { echo "Render penuh ditolak."; exit 1; }
     free_mb=$(df --output=avail -BM "$P" | tail -1 | tr -dc 0-9)
     [ "${free_mb:-0}" -ge 6000 ] || echo "PERINGATAN: disk kosong ${free_mb} MB (< 6 GB). Cache frame video Remotion bisa memakan ±2–5 GB; kehabisan ruang muncul sebagai \"Page crashed\" / ENOSPC (builder-trap-r2 v2, 14 Nov)."
