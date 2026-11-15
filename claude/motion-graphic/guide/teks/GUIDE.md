@@ -19,8 +19,10 @@
 - Satu baris satu ukuran; kata yang dibesarkan pindah baris sendiri.
 - Gaya teks dipilih sekali per video (2 font maks: satu display, satu caption) lalu konsisten.
 - Teks layar dari ucapan saja (aturan 2).
+- **Kata yang sudah tampil tidak bergeser** saat kata berikutnya masuk: dalam satu frasa, wadah (kartu/chip) dikunci di tepi frasa lengkap dan tumbuh ke arah kata baru. Saat kata berganti di tempat yang sama, tidak ada frame dengan dua kata tajam bertumpuk (kata lama blur/pudar dulu) dan tidak ada frame wadah kosong (gagal: builder-trap-r2 r7 B03, kartu kosong 2 f lalu "bikin" melompat 250 px; Irfan 15 Nov "pastikan dulu semuanya").
 
 ## Cek cepat
+- Lihat frame rapat (tiap 1–2 f) di setiap pergantian kata: ada kartu kosong, dua kata tajam bertumpuk, atau kata yang melompat? Perbaiki sebelum final.
 - Ada dua blok teks berbobot sama di satu frame? Pilih satu.
 - Teks menutup wajah/objek yang dibicarakan? Pindah.
 - `scripts/gate/caption_lines.py render.mp4` lulus.
