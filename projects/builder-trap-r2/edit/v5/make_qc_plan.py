@@ -52,6 +52,9 @@ changed = {
     "B25_modal_open": to_new_frame(2586 / 30),
     "B25_post1": to_new_frame(2606 / 30),
     "B25_post2": to_new_frame(2650 / 30),
+    "B26_share_fix": 2630,
+    "B26_ngebagiin_fix": 2654,
+    "B26_belum_fix": 2686,
 }
 result = {"beats": beats, "changed_scenes": changed}
 out = P / "edit/v5/qc-plan.json"

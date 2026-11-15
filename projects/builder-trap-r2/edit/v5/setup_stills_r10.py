@@ -48,6 +48,9 @@ plan = dict(
     B25_modal_open=frame(2586),
     B25_post1=frame(2606),
     B25_post2=frame(2650),
+    B26_share_fix=2630,
+    B26_ngebagiin_fix=2654,
+    B26_belum_fix=2686,
 )
 (P / 'edit/v5/still-plan-r10.json').write_text(json.dumps(plan, indent=2)+'\n')
 print(plan)
