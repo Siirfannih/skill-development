@@ -20,6 +20,8 @@
 #      (Irfan 15 Nov: "Jika hasil belum pasti benar jangan langsung ngerender final … pastikan dulu semuanya")
 # Revisi satu adegan: perbarui still adegan itu, sanding, JURI, lalu `final` dengan rentang frame adegan itu saja
 # dan sambung dengan ffmpeg; jangan render ulang seluruh video.
+# Menyambung rentang: filter concat + encode ulang (CRF 14) lalu audio utuh dipasang sekali; `-c copy` (concat demuxer /
+# annexb) kehilangan 2–4 frame di sambungan (builder-trap-r2 v4). Cek jumlah frame = total rentang sebelum dikirim.
 # Lingkungan: KONKURENSI (default 4; ukur sekali dengan `npx remotion benchmark`), ENTRY (default src/index.ts).
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
