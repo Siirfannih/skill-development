@@ -3,7 +3,7 @@
 import React from 'react';
 import { AbsoluteFill, Img, staticFile, useCurrentFrame } from 'remotion';
 import { Stage, Layer } from '../engine/Stage';
-import { camPath, withShake, shake, Pose } from '../engine/camera';
+import { camPath, withShake, Pose } from '../engine/camera';
 import { TextBlocks, TextBlockView } from '../engine/TextLayer';
 import { Face, type FacePreset } from '../engine/Face';
 import { Print, Pin } from '../engine/Print';
@@ -14,7 +14,7 @@ import { MenuBar, DesktopIcons, FlipClock, CalendarWidget, Dock, DOCK_APPS, dock
 import { PixelMosaic } from '../engine/Transitions';
 import { Wall, WALL, pulse } from '../engine/Wall';
 import { Browser, BAR_H } from '../ui/Browser';
-import { ChatGPTDarkUI, GptComposer, GPTD_W as GPT_W, GPTD_H as GPT_H, GPTD_PROMPT as GPT_PROMPT, GPTD_HEAD_LOGO as GPT_HEAD_LOGO } from '../ui/ChatGPTDark';
+import { ChatGPTDarkUI, GPTD_W as GPT_W, GPTD_H as GPT_H, GPTD_PROMPT as GPT_PROMPT, GPTD_HEAD_LOGO as GPT_HEAD_LOGO } from '../ui/ChatGPTDark';
 import { YouTubeResults, YT_W, YT_H, ytThumb } from '../ui/YouTube';
 import { C, prog, lerp, rand, clamp01 } from '../engine/theme';
 import type { SceneEntry } from '../engine/scenes';
@@ -176,8 +176,9 @@ const B10b: React.FC = () => {
 // ======================= B12–B13b · layar macOS (r7 + Revisi Irfan 15 Nov #1 dan #2) =======================
 // TASK-r7 M1–M3 + R1–R4: layar Mac lengkap sebagai kode (ui/MacDesktop.tsx: wallpaper foto padang wall_mac.jpg, menu bar,
 // ikon desktop, jam flip, kalender, dock) → kursor klik ikon ChatGPT di dock → ikon memantul → jendela ChatGPT GELAP
-// terbuka dari ikon ke TENGAH (utuh 58 % lebar × 59 % tinggi) → riwayat bertambah → punch ke prompt yang terangkat ke depan
-// (teks ±10 % tinggi; tepi jendela + desktop tetap terlihat) → cap logo "AI." → (B13b) ketik → kirim → mosaik. TANPA KT (R2).
+// terbuka dari ikon ke TENGAH (utuh 58 % lebar × 59 % tinggi) → riwayat bertambah → punch KAMERA ke kotak prompt di dalam
+// jendela (r7c, koreksi Irfan: satu UI, tidak ada elemen yang membesar sendiri; kartu 63 §6, D-026 dolly ke input) →
+// cap logo "AI." di dalam jendela → (B13b) ketik → kamera mundur → kirim → mosaik. TANPA KT (R2).
 // Semua bagian layar di bidang z=0 (layar Mac datar): dunia = layar pada kamera normal (zoom 1).
 // Peta waktu: suara v3 melompat lama f958→f970 di nyata f863; pantulan ikon selesai f956 dan jendela terbuka f973–985
 // (nyata 866–878 = 0,4 dtk) supaya tidak ada gerak yang terpotong lompatan.
@@ -186,10 +187,20 @@ const WIN = { x: (1920 - 1114) / 2, y: 200, w: 1114, h: (GPT_H + BAR_H) * WIN_S 
 const GPT_DOCK = DOCK_APPS.indexOf('chatgpt');
 /** pusat kotak prompt di dalam jendela (dunia) */
 const PROMPT_W = { x: WIN.x + GPT_PROMPT.x * WIN_S, y: WIN.y + (BAR_H + GPT_PROMPT.y) * WIN_S };
-/** panel prompt depan saat punch (px LAYAR): teks 108 px (glyph ±10 % tinggi), tengah di slot prompt */
-const POP = { w: 1540, h: 250, fs: 108, x: (1920 - 1540) / 2, y: PROMPT_W.y - 125 };
-/** jangkar punch = tengah frame setinggi kotak prompt (jendela membesar simetris kiri-kanan, prompt tetap setinggi slotnya) */
+/** jangkar push/pull ringan = tengah frame setinggi kotak prompt */
 const PUNCH_A = { x: 960, y: PROMPT_W.y };
+/** awal teks prompt (dunia): kiri kotak + padding 0,3h + ikon + 1,25fs + celah 0,45fs (px desain × WIN_S) */
+const TEXT_X = PROMPT_W.x + (-GPT_PROMPT.w / 2 + 0.3 * GPT_PROMPT.h + 1.7 * GPT_PROMPT.fs) * WIN_S;
+/** tombol kirim (dunia) */
+const SEND_W = { x: PROMPT_W.x + (GPT_PROMPT.w / 2 - 0.5 * GPT_PROMPT.h) * WIN_S, y: PROMPT_W.y };
+/** pusat ikon "+" di kotak prompt (dunia) */
+const PLUS_X = PROMPT_W.x + (-GPT_PROMPT.w / 2 + 0.3 * GPT_PROMPT.h + 0.625 * GPT_PROMPT.fs) * WIN_S;
+/** pose punch (r7d): kotak prompt di tengah tinggi frame, "+" di layar x `sx` (±12 %), kotak terpotong di tepi kanan
+ *  seperti punch kartu 63 dtk 21; judul berada > setengah tinggi frame di atas kotak → keluar frame seluruhnya */
+const punchPose = (zoom: number, sx = 230) => ({ x: PLUS_X + (960 - sx) / zoom, y: PROMPT_W.y, zoom, rx: 0, ry: 0, rz: 0 });
+/** pose mundur: awal teks dan tombol kirim di frame, judul utuh di atasnya */
+const backPose = (zoom: number) => ({ x: (TEXT_X + SEND_W.x) / 2, y: PROMPT_W.y - 100, zoom, rx: 0, ry: 0, rz: 0 });
+const PUNCH_Z = 3.8;
 /** jangkar push desktop: dock tetap utuh di frame; menu bar keluar penuh di puncak push (bukan terpotong setengah),
  *  lalu masuk lagi saat pull dan sudah berganti "ChatGPT" */
 const DESK_A = { x: 960, y: 800 };
@@ -223,34 +234,24 @@ const GptWindow: React.FC<{ open?: number; ui: React.ComponentProps<typeof ChatG
   );
 };
 
-/** panel prompt depan (layar). t 0..1 = dari slot di jendela (mengikuti kamera) ke POP. */
-const PopPrompt: React.FC<{ pose: Pose; t: number; typed?: string; caret?: boolean; send?: number; jx?: number; jy?: number }> = ({ pose, t, typed, caret, send, jx = 0, jy = 0 }) => {
-  const c = toScreen(pose, PROMPT_W.x, PROMPT_W.y);
-  const s0 = WIN_S * c.s;
-  const from = { w: GPT_PROMPT.w * s0, h: GPT_PROMPT.h * s0, fs: GPT_PROMPT.fs * s0 };
-  const r = { x: lerp(c.x - from.w / 2, POP.x, t) + jx, y: lerp(c.y - from.h / 2, POP.y, t) + jy, w: lerp(from.w, POP.w, t), h: lerp(from.h, POP.h, t), fs: lerp(from.fs, POP.fs, t) };
-  return <GptComposer w={r.w} h={r.h} fs={r.fs} typed={typed} caret={caret} send={send} shadow style={{ position: 'absolute', left: r.x, top: r.y }} />;
-};
-/** tombol kirim panel POP (layar) */
-const POP_SEND = { x: POP.x + POP.w - POP.h * 0.14 - (POP.h * 0.72) / 2, y: POP.y + POP.h / 2 };
-
 // ---------- B12 · desktop → klik ikon ChatGPT → pantul → jendela ke tengah → riwayat → punch "investasi" → cap "AI." ----------
 const STAMP = 1045; // "AI." 34,82 dtk (frame lama)
 const B12_CLICK = 945; // nyata 850
 const B12_BOUNCE: [number, number][] = [[947, 956], [971, 979]]; // 2 pantulan (yang kedua setelah lompatan peta waktu)
 const B12_OPEN: [number, number] = [973, 985]; // nyata 866–878 (0,4 dtk)
-const B12_PUNCH: [number, number] = [1008, 1016]; // "investasi" f1015
+const B12_PUNCH: [number, number] = [1008, 1015]; // "investasi" f1015; masuk 7 f ease-out (motion blur Stage otomatis)
 const b12Cam = withShake(camPath([
   { f: F_B12[0], ...anch(DESK_A, 1.0) },
   { f: 957, ...anch(DESK_A, 1.04), ease: 'smooth' }, // push pelan ke desktop
   { f: 971, ...anch(DESK_A, 1.04), ease: 'linear' }, // (rentang lama f958–969 tidak tampil)
   { f: 987, ...anch(PUNCH_A, 1.0), ease: 'inOut' }, // pull kecil saat jendela terbuka
   { f: B12_PUNCH[0], ...anch(PUNCH_A, 1.03), ease: 'smooth' }, // push pelan ke jendela
-  { f: B12_PUNCH[1], ...anch(PUNCH_A, 1.45), ease: 'out' }, // punch 1,41×
-  { f: 1046, ...anch(PUNCH_A, 1.5), ease: 'smooth' },
-  { f: F_B12[1], ...anch(PUNCH_A, 1.43), ease: 'smooth' }, // mundur sedikit sampai cut
+  { f: B12_PUNCH[1], ...punchPose(PUNCH_Z), ease: 'out' }, // punch kamera 1,03 → 3,8 (3,7×) ke kotak prompt
+  { f: 1038, ...punchPose(3.95, 215), ease: 'smooth' }, // push pelan
+  { f: 1047, x: 1030, y: 540, zoom: 1.8, ease: 'inOut' }, // mundur di "AI." (logo dicap di dalam jendela)
+  { f: F_B12[1], x: 990, y: 540, zoom: 1.45, ease: 'smooth' }, // terus mundur pelan sampai cut
 ], { cuts: [B12_PUNCH[0]] }), [{ f: STAMP, amp: 10, dur: 9 }]);
-const LOGO12 = { x: 960, y: 345 }; // dunia: di atas jendela dan di atas panel prompt
+const LOGO12 = { x: 1060, y: 395 }; // dunia: di dalam jendela, di atas judul "Where should we begin?"
 const HEAD12 = { x: WIN.x + GPT_HEAD_LOGO.x * WIN_S, y: WIN.y + (BAR_H + GPT_HEAD_LOGO.y) * WIN_S };
 const bounceAt = (f: number) => B12_BOUNCE.reduce((a, [b0, b1], k) => a + (k === 0 ? 0.5 : 0.22) * Math.sin(Math.PI * clamp01((f - b0) / (b1 - b0))), 0);
 const B12: React.FC = () => {
@@ -258,10 +259,9 @@ const B12: React.FC = () => {
   const pose = b12Cam(f);
   const open = prog(f, B12_OPEN[0], B12_OPEN[1], 'out');
   const hist = Math.floor(20 * Math.pow(prog(f, 985, 1040, 'linear'), 1.6)); // bertambah makin cepat
-  const lift = prog(f, B12_PUNCH[0], B12_PUNCH[1], 'out');
   const st = prog(f, STAMP, STAMP + 4, 'out');
   const mv = prog(f, STAMP + 8, STAMP + 16, 'inOut');
-  const size = lerp(lerp(240, 130, st), 22 * WIN_S, mv);
+  const size = lerp(lerp(120, 70, st), 22 * WIN_S, mv); // px dunia (ikut kamera)
   const lx = lerp(LOGO12.x, HEAD12.x, mv), ly = lerp(LOGO12.y, HEAD12.y, mv);
   // kursor: dari kanan ke ikon ChatGPT di dock, klik, lalu menyingkir dan memudar setelah jendela terbuka
   const icw = dockIconAt(GPT_DOCK);
@@ -270,14 +270,13 @@ const B12: React.FC = () => {
   const m2 = prog(f, B12_CLICK + 5, 957, 'inOut');
   const cur = { x: lerp(lerp(1390, ic.x, m1), ic.x + 150, m2), y: lerp(lerp(760, ic.y, m1), ic.y - 90, m2) };
   const click = prog(f, B12_CLICK, B12_CLICK + 4, 'linear');
-  const sh = shake(f, STAMP, 10, 9);
   return (
     <AbsoluteFill style={{ backgroundColor: '#000' }}>
       <Stage pose={b12Cam}>
         <Layer z={0} name="L1-L2">
           <MacBack f={f} />
           <Dock press={click} bounce={bounceAt(f)} chatgptRunning={prog(f, 975, 979, 'out')} />
-          {open > 0 ? <GptWindow open={open} ui={{ history: hist, headerLogo: mv >= 1 ? 1 : 0, promptLifted: lift > 0 }} /> : null}
+          {open > 0 ? <GptWindow open={open} ui={{ history: hist, headerLogo: mv >= 1 ? 1 : 0 }} /> : null}
           {f >= STAMP && mv < 1 ? (
             <div style={{ position: 'absolute', left: lx - size / 2, top: ly - size / 2, opacity: Math.min(1, st * 3), filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.35))' }}>
               <Logo name="openai" size={size} color="#FFFFFF" />
@@ -286,22 +285,24 @@ const B12: React.FC = () => {
           <MenuBar app={f >= 975 ? 'ChatGPT' : 'Finder'} time="10:25 PM" />
         </Layer>
       </Stage>
-      {lift > 0 ? <PopPrompt pose={pose} t={lift} jx={sh.dx} jy={sh.dy} /> : null}
       {f < 981 ? <Cursor x={cur.x} y={cur.y} size={64} click={click} opacity={1 - prog(f, 973, 981, 'in')} /> : null}
     </AbsoluteFill>
   );
 };
 
-// ---------- B13b · set yang sama; klik prompt → punch → ketik "build something" ±12 huruf/dtk → klik kirim ----------
-const B13_CLICK = 1110, TYPE_AT = 1125, TYPE_CPS = 12;
-const B13_PUNCH: [number, number] = [1114, 1122]; // R4: punch dulu, lalu ketik (huruf pertama f1125)
+// ---------- B13b · set yang sama; klik prompt → punch kamera → ketik "build something" ±12 huruf/dtk → mundur → klik kirim ----------
+const B13_CLICK = 1110, TYPE_AT = 1121, TYPE_CPS = 12; // 15 huruf selesai f1156 (lama)
+const B13_PUNCH: [number, number] = [1114, 1120]; // R4: punch dulu (6 f ease-out), lalu ketik (huruf pertama f1121)
+const B13_BACK: [number, number] = [1158, 1163]; // mundur sebelum kirim/mosaik: awal teks + tombol kirim di frame
 const b13Cam = camPath([
   { f: F_B13_GPT, ...anch(DESK_A, 1.04) },
   { f: 1108, ...anch(PUNCH_A, 1.0), ease: 'inOut' }, // pull masuk babak (desktop + menu bar + dock terlihat)
   { f: B13_PUNCH[0], ...anch(PUNCH_A, 1.03), ease: 'smooth' }, // push pelan
-  { f: B13_PUNCH[1], ...anch(PUNCH_A, 1.45), ease: 'out' }, // punch 1,41×
-  { f: F_B13[1], ...anch(PUNCH_A, 1.53), ease: 'smooth' }, // dorong pelan sampai mosaik
-], { cuts: [B13_PUNCH[0]] });
+  { f: B13_PUNCH[1], ...punchPose(PUNCH_Z), ease: 'out' }, // punch kamera 1,03 → 3,8 (3,7×)
+  { f: B13_BACK[0], ...punchPose(4.0, 200), ease: 'smooth' }, // push pelan mengikuti caret
+  { f: B13_BACK[1], ...backPose(2.2), ease: 'inOut' }, // mundur
+  { f: F_B13[1], ...backPose(2.12), ease: 'smooth' },
+], { cuts: [B13_PUNCH[0], B13_BACK[0]] }); // penghalusan tidak menyeberang awal mundur (punch tertahan sampai f1158)
 const TYPE = 'build something';
 const B13b: React.FC = () => {
   const f = useCurrentFrame();
@@ -310,13 +311,16 @@ const B13b: React.FC = () => {
   const typed = TYPE.slice(0, n);
   const caret = f >= B13_CLICK + 3 && f < F_SEND && (n > 0 && n < TYPE.length ? true : Math.floor(f / 8) % 2 === 0); // berkedip saat diam, tetap saat mengetik
   const sent = prog(f, F_SEND, F_SEND + 4, 'out');
-  const lift = prog(f, B13_PUNCH[0], B13_PUNCH[1], 'out');
-  // kursor: masuk dari kanan bawah → klik kotak prompt di jendela → (punch) → tombol kirim panel depan, klik di F_SEND
-  const slot = toScreen(b13Cam(B13_CLICK), PROMPT_W.x - GPT_PROMPT.w * WIN_S * 0.3, PROMPT_W.y + 6);
+  // kursor (ukuran layar tetap, posisi mengikuti UI lewat kamera): masuk → klik kotak prompt → disembunyikan saat mengetik
+  // (seperti macOS) → muncul lagi saat kamera mundur → tombol kirim, klik di F_SEND
+  const clickW = { x: TEXT_X + 40, y: PROMPT_W.y + 8 };
+  const slot = toScreen(pose, clickW.x, clickW.y);
+  const send = toScreen(pose, SEND_W.x + 4, SEND_W.y + 8);
   const a1 = prog(f, F_B13_GPT, B13_CLICK - 1, 'out');
-  const a2 = prog(f, 1132, F_SEND - 4, 'inOut');
+  const a2 = prog(f, B13_BACK[0] + 2, F_SEND - 1, 'inOut');
   const p1 = { x: lerp(1400, slot.x, a1), y: lerp(1010, slot.y, a1) };
-  const cur = { x: lerp(p1.x, POP_SEND.x + 10, a2), y: lerp(p1.y, POP_SEND.y + 12, a2) };
+  const cur = f < B13_BACK[0] ? p1 : { x: lerp(send.x + 260, send.x, a2), y: lerp(send.y + 160, send.y, a2) };
+  const curOp = f < B13_BACK[0] ? 1 - prog(f, B13_CLICK + 4, B13_CLICK + 8, 'in') : prog(f, B13_BACK[0], B13_BACK[0] + 4, 'out');
   const click = f < F_SEND ? prog(f, B13_CLICK, B13_CLICK + 5, 'linear') * (f < B13_CLICK + 6 ? 1 : 0) : prog(f, F_SEND, F_SEND + 5, 'linear');
   return (
     <AbsoluteFill style={{ backgroundColor: '#000' }}>
@@ -324,12 +328,11 @@ const B13b: React.FC = () => {
         <Layer z={0} name="L1-L2">
           <MacBack f={f} />
           <Dock chatgptRunning={1} />
-          <GptWindow ui={{ history: 20, headerLogo: 1, typed, caret: lift <= 0 && caret, promptLifted: lift > 0 }} />
+          <GptWindow ui={{ history: 20, headerLogo: 1, typed, caret, send: sent }} />
           <MenuBar app="ChatGPT" time="10:25 PM" />
         </Layer>
       </Stage>
-      {lift > 0 ? <PopPrompt pose={pose} t={lift} typed={typed} caret={caret} send={sent} /> : null}
-      <Cursor x={cur.x} y={cur.y} size={64} click={click} />
+      {curOp > 0 ? <Cursor x={cur.x} y={cur.y} size={64} click={click} opacity={curOp} /> : null}
     </AbsoluteFill>
   );
 };

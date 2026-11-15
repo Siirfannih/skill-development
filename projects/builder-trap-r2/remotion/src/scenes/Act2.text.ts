@@ -111,8 +111,8 @@ export const TEXT_ACT2: TextBlock[] = [
     lines: [T('Untuk belajar.', 35.4, 'untuk belajar.')], until: nb(F_B13_GPT), exit: 'cut',
   },
   {
-    // r7: diketik huruf demi huruf 12/dtk di panel prompt depan mulai f1125 lama ("b"), "something" = huruf ke-7 (f1140 lama)
-    id: 'B13-UI', beat: 'B13', code: 'UI', x: 0, y: 0, toks: T('Build something.', 37.8, 'build something'), at: [nb(1125), nb(1140)],
+    // r7c: diketik huruf demi huruf 12/dtk di kotak prompt jendela mulai f1121 lama ("b"), "something" = huruf ke-7 (f1136 lama)
+    id: 'B13-UI', beat: 'B13', code: 'UI', x: 0, y: 0, toks: T('Build something.', 37.8, 'build something'), at: [nb(1121), nb(1136)],
     until: nb(F_B13[1]), exit: 'cut',
   },
   // ---------- B14 · dinding bukti ----------

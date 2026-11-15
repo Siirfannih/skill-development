@@ -71,20 +71,6 @@
    "t_v2": 2.967
   },
   {
-   "t": 2.767,
-   "file": "/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3",
-   "ss": 2.4000000000000004,
-   "dur": 0.35,
-   "gain_db": -9,
-   "peran": "ganti_foto",
-   "alasan": "isi bingkai arsip berganti (file Irfan \"Pergantianfoto\"); berselang supaya tidak jadi lapisan klik",
-   "align": "peak",
-   "fout": 0.03,
-   "dengar": "pen click / toggle switch click (deretan klik foto)",
-   "mulai": 2.71,
-   "t_v2": 3.367
-  },
-  {
    "t": 4.067,
    "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
    "ss": 0.0,
@@ -253,6 +239,36 @@
    "t_v2": 30.47
   },
   {
+   "t": 28.333,
+   "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+   "gain_db": -12,
+   "align": "peak",
+   "peran": "klik",
+   "alasan": "kursor klik ikon ChatGPT di dock (r7, f850)",
+   "dengar": "pen click / key release",
+   "mulai": 28.305
+  },
+  {
+   "t": 28.88,
+   "file": "/home/irfan/sfx/SFXIrfan/pop up.mp3",
+   "gain_db": -14,
+   "align": "peak",
+   "peran": "buka_app",
+   "alasan": "jendela ChatGPT terbuka dari ikon ke tengah (r7, f866–878)",
+   "dengar": "bubble pop",
+   "mulai": 28.814
+  },
+  {
+   "t": 30.12,
+   "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
+   "gain_db": -11,
+   "align": "peak",
+   "peran": "whoosh",
+   "alasan": "kamera punch ke kotak prompt di \"investasi\" (r7d, f901–908)",
+   "dengar": "fast whoosh / soft air whoosh",
+   "mulai": 29.825
+  },
+  {
    "t": 31.263,
    "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_thud_2.mp3",
    "ss": 0.0,
@@ -267,31 +283,31 @@
    "t_v2": 34.83
   },
   {
-   "t": 33.797,
+   "t": 33.25,
    "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
    "ss": 0.0,
    "dur": null,
    "gain_db": -9,
    "peran": "whoosh",
-   "alasan": "punch-in ke kotak prompt",
+   "alasan": "kamera punch ke kotak prompt (r7d, zoom 3,8×)",
    "align": "peak",
    "fout": 0.03,
    "dengar": "fast whoosh / soft air whoosh",
-   "mulai": 33.502,
+   "mulai": 32.955,
    "t_v2": 37.73
   },
   {
-   "t": 33.967,
+   "t": 33.45,
    "file": "/home/irfan/sfx/SFXIrfan/Keyboardtyping.mp3",
    "ss": 0.36,
-   "dur": 0.85,
+   "dur": 1.2,
    "gain_db": -9,
    "peran": "ketik",
-   "alasan": "\"build something\" diketik di prompt",
+   "alasan": "\"build something\" diketik 12 huruf/dtk (r7d f1003–1037)",
    "align": "peak",
-   "fout": 0.1,
+   "fout": 0.12,
    "dengar": "keyboard typing fast",
-   "mulai": 33.55,
+   "mulai": 33.033,
    "t_v2": 37.9
   },
   {
@@ -335,20 +351,6 @@
    "dengar": "tusukan pin (ElevenLabs proyek ini)",
    "mulai": 35.09,
    "t_v2": 39.67
-  },
-  {
-   "t": 35.603,
-   "file": "audio/sfx_el/marker.mp3",
-   "ss": 0.0,
-   "dur": null,
-   "gain_db": -13,
-   "peran": "tulis",
-   "alasan": "tulisan tangan \"satu tahun\"",
-   "align": "peak",
-   "fout": 0.03,
-   "dengar": "goresan spidol (ElevenLabs proyek ini)",
-   "mulai": 34.515,
-   "t_v2": 39.77
   },
   {
    "t": 37.73,

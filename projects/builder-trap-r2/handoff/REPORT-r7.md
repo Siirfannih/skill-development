@@ -10,3 +10,18 @@
 
 ## REVIEW Sutradara (buta, still dulu)
 Diterima. Q1 → "Sun". Q2 diterima (KESEIMBANGAN di JURI). Q3–Q5 diterima. Q6 → draft gerak 835–1047 (r7b).
+
+## r7b
+"Sun Nov 15" (MAC_DAY); draft gerak 835–1047 dilihat Sutradara: pembukaan jendela ±0,2 dtk dari dock, punch ber-motion-blur.
+
+## r7c (koreksi Irfan: "harusnya camera yang zoom in bukan textbar yang membesar")
+Panel prompt lapis depan dihapus; punch = kamera 1,03 → 3,8 (7 f / 6 f ease-out) ke kotak prompt di dalam jendela, push ke 3,95/4,0; teks prompt 22 px desain (statis); glyph 6,5 % tinggi. Cap logo di dalam jendela. Kursor B13b ikut UI, sembunyi saat mengetik.
+
+## r7d (framing)
+Tata letak keadaan kosong ChatGPT varian lama (judul di tengah area utama, kotak prompt di bawah jendela; `GPTD_PROMPT.y` 600, `GPTD_HEAD_Y` 270), supaya saat punch judul keluar frame utuh dan kotak di tengah tinggi frame; "+" x 10,8–11,8 %; glyph 6,5–6,7 %. balance: FAIL 1 (04 transisi), PERIKSA 3 (punch berat bawah). tsc 0, cekkata 0. Draft `qc/r7d_draft_835-1047.mp4`, lembar `qc/r7d_motion_sheet.jpg`.
+
+## REVIEW Sutradara r7c/r7d (lembar gerak dilihat dulu)
+r7c: punch via kamera diterima; judul terpotong di tengah kata → r7d. r7d: diterima; tata letak kotak-di-bawah = UI ChatGPT nyata (keadaan kosong versi lama), bukan elemen yang membesar.
+
+## Audio (Sutradara) untuk r7
+Cue B12–B13 ditata ulang ke event baru (frame nyata): klik dock 28,333 (Cutcontrastransision −12), jendela buka 28,88 (pop up −14), punch "investasi" 30,12 (Woosh −11), cap 31,263 tetap, punch B13b 33,25 (Woosh −9), ketik 33,45 (1,2 dtk), kirim 34,784, mosaik 34,83. Dibuang: Pergantianfoto 2,767 (file sama < 1 dtk) dan marker 35,603 (rentetan 6/2 dtk). 49 cue, 0,59/dtk. sfx_density PASS (ref 0,65), pause_clean PASS, cut_check PASS, mix −14,8 LUFS, puncak −1,4 dBFS.

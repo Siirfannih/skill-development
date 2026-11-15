@@ -11,15 +11,19 @@ export const GPTD_W = 1280;
 export const GPTD_H = 692;
 export const GPTD_SIDEBAR = 230;
 /** kotak prompt di dalam jendela (px desain): pusat, lebar, tinggi, ukuran teks */
-export const GPTD_PROMPT = { x: GPTD_SIDEBAR + (GPTD_W - GPTD_SIDEBAR) / 2, y: 340, w: 700, h: 54, fs: 17 };
+// r7c: teks prompt 22 px desain (= ChatGPT pada zoom browser ±130 %) supaya punch KAMERA ±3,8–4× memberi glyph ≥ 6 % tinggi
+// r7d: tata letak keadaan kosong ChatGPT dengan kotak prompt di BAWAH jendela dan judul di tengah area utama, supaya saat
+// punch kamera (±3,8×, kotak di tengah tinggi frame) judul keluar frame seluruhnya di atas (tidak ada kata terpotong)
+export const GPTD_PROMPT = { x: GPTD_SIDEBAR + (GPTD_W - GPTD_SIDEBAR) / 2, y: 600, w: 700, h: 60, fs: 22 };
+/** judul "Where should we begin?" (px desain, atas) */
+export const GPTD_HEAD_Y = 270;
 /** pusat logo kepala sidebar (px desain) */
 export const GPTD_HEAD_LOGO = { x: 18 + 11, y: 26 };
 
 export const GPT_DARK = { main: '#212121', side: '#171717', ink: '#ECECEC', sub: '#AFAFAF', faint: '#8F8F8F', box: '#303030', row: '#2E2E2E', hover: '#262626' };
 const D = GPT_DARK;
 
-/** Kotak prompt ChatGPT gelap; dipakai di dalam jendela (fs 17) dan sebagai panel depan saat punch (fs ±108).
- *  Semua ukuran turunan dari fs dan h supaya bentuknya sama di kedua skala. */
+/** Kotak prompt ChatGPT gelap di dalam jendela (satu-satunya; r7c: tidak ada panel depan, punch = kamera). */
 export const GptComposer: React.FC<{
   w: number; h: number; fs: number; typed?: string; caret?: boolean; send?: number; placeholder?: string;
   style?: React.CSSProperties; shadow?: boolean;
@@ -37,8 +41,10 @@ export const GptComposer: React.FC<{
     >
       <Plus size={fs * 1.25} strokeWidth={1.7} color={D.ink} style={{ flexShrink: 0 }} />
       <div style={{ flex: 1, fontSize: fs, lineHeight: 1.2, color: hasText ? D.ink : D.sub, whiteSpace: 'nowrap', overflow: 'hidden', letterSpacing: '-0.01em' }}>
+        {/* caret: sebelum placeholder saat kosong (seperti ChatGPT), sesudah teks saat mengetik */}
+        {caret && !hasText ? <span style={{ display: 'inline-block', width: Math.max(2, fs * 0.08), height: fs * 1.15, background: D.ink, marginRight: fs * 0.04, verticalAlign: 'middle' }} /> : null}
         {hasText ? typed : placeholder}
-        {caret ? <span style={{ display: 'inline-block', width: Math.max(2, fs * 0.08), height: fs * 1.15, background: D.ink, marginLeft: fs * 0.08, verticalAlign: 'middle' }} /> : null}
+        {caret && hasText ? <span style={{ display: 'inline-block', width: Math.max(2, fs * 0.08), height: fs * 1.15, background: D.ink, marginLeft: fs * 0.08, verticalAlign: 'middle' }} /> : null}
       </div>
       <Mic size={fs * 1.2} strokeWidth={1.6} color={D.ink} style={{ flexShrink: 0 }} />
       <div
@@ -70,9 +76,7 @@ export const ChatGPTDarkUI: React.FC<{
   send?: number;
   /** logo OpenAI tampil di kepala sidebar (setelah dicap) */
   headerLogo?: number;
-  /** r7: kotak prompt sedang "terangkat" ke depan (panel depan menggantikannya) → slot kosong */
-  promptLifted?: boolean;
-}> = ({ history = 0, typed = '', caret = false, send = 0, headerLogo = 0, promptLifted = false }) => {
+}> = ({ history = 0, typed = '', caret = false, send = 0, headerLogo = 0 }) => {
   const ic = { size: 18, strokeWidth: 1.7, color: D.ink };
   const rows = [];
   for (let k = 0; k < history; k++) {
@@ -106,10 +110,10 @@ export const ChatGPTDarkUI: React.FC<{
         <div style={{ position: 'absolute', left: 16, top: 14, display: 'flex', alignItems: 'center', gap: 4, fontSize: 17, fontWeight: 500 }}>
           ChatGPT <ChevronDown size={15} strokeWidth={2} color={D.sub} />
         </div>
-        <div style={{ position: 'absolute', left: 0, right: 0, top: GPTD_PROMPT.y - 96, textAlign: 'center', fontSize: 27, lineHeight: '34px', fontWeight: 400, letterSpacing: '-0.01em' }}>
+        <div style={{ position: 'absolute', left: 0, right: 0, top: GPTD_HEAD_Y, textAlign: 'center', fontSize: 27, lineHeight: '34px', fontWeight: 400, letterSpacing: '-0.01em' }}>
           Where should we begin?
         </div>
-        <div style={{ position: 'absolute', left: (GPTD_W - GPTD_SIDEBAR) / 2 - GPTD_PROMPT.w / 2, top: GPTD_PROMPT.y - GPTD_PROMPT.h / 2, opacity: promptLifted ? 0 : 1 }}>
+        <div style={{ position: 'absolute', left: (GPTD_W - GPTD_SIDEBAR) / 2 - GPTD_PROMPT.w / 2, top: GPTD_PROMPT.y - GPTD_PROMPT.h / 2 }}>
           <GptComposer w={GPTD_PROMPT.w} h={GPTD_PROMPT.h} fs={GPTD_PROMPT.fs} typed={typed} caret={caret} send={send} />
         </div>
         <div style={{ position: 'absolute', left: 0, right: 0, bottom: 12, textAlign: 'center', fontSize: 12, color: D.faint }}>
