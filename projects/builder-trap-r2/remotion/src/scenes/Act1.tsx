@@ -34,8 +34,13 @@ const fit = (s = 1, o = 0) => Math.max(-((s - 1) / (2 * s)) * 100, Math.min(((s 
 
 // Kamera: push pelan 1 → 1,05 yang berpusat di jangkar kiri label K3, sehingga kepala kalimat diam di layar
 // (PLAN B02: ≤ 2 px) sementara dunia (kertas + bingkai) tetap terdorong (Lantai B10). Lalu zoom-through 5,17–5,47.
-const ANCHOR = { x: 220, y: 600 };
-const BY = 535; // pusat y bingkai
+// r5 (butir 7): jangkar push di pusat bingkai (dulu pojok label kiri-bawah) → kartu kiri-atas dan kartu kunci kanan-bawah
+// bergerak simetris keluar dan tetap di safe frame
+const ANCHOR = { x: 960, y: 560 };
+// r4 (arahan Irfan 15 Nov): kartu per kata menempel bingkai — "semua" / "orang tuh" / "bisa" di tepi kiri-atas, kunci di
+// kiri-bawah. Supaya baris kartu atas tetap di safe frame (y ≥ 140) setelah push 1,05, bingkai 60 → 65,5 % lebar
+// (dulu 62 → 68,5 %) dan pusatnya turun ke y 560 (dulu 535).
+const BY = 560; // pusat y bingkai
 const archCam = (f: number): Pose => {
   const z = lerp(1, 1.05, EASE.smooth(Math.min(1, Math.max(0, f / 155))));
   const hold: Pose = { ...REST, zoom: z, x: ANCHOR.x - (ANCHOR.x - 960) / z, y: ANCHOR.y - (ANCHOR.y - 540) / z };
@@ -48,7 +53,7 @@ const Archive: React.FC = () => {
   const f = useCurrentFrame();
   // bingkai tumbuh terus 62 → 68,5 % lebar; bersama push kamera 1,05 tampil 62 → ±72 % (k1 ±5 %/dtk), rotasi 0 → −1°.
   // (74 % penuh di PLAN = tinggi 800 px, melewati safe frame y 140–935; dibatasi ±72 %)
-  const wPct = lerp(0.62, 0.685, Math.min(1, f / 156));
+  const wPct = lerp(0.6, 0.655, Math.min(1, f / 156));
   const bw = W * wPct, bh = (bw * 9) / 16;
   const rot = -1 * prog(f, 0, 56, 'inOut');
   const border = 14;

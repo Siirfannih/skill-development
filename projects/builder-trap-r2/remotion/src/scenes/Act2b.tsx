@@ -10,6 +10,7 @@ import { Linen } from '../engine/Surfaces';
 import { Cursor } from '../engine/Cursor';
 import { C, prog, lerp } from '../engine/theme';
 import { wordIn } from '../engine/words';
+import { useRealFrame } from '../engine/realframe';
 import type { SceneEntry } from '../engine/scenes';
 import { ThreadsWindow, ThComposeRow, ThPost, thTheme } from '../ui/Threads';
 import { TEXT_ACT2B, F_B09, F_B09_CUT, B09_QUOTE } from './Act2b.text';
@@ -51,7 +52,8 @@ const threadsCam = camPath(
 );
 
 /** Kata kutipan menyala dari abu ke hitam saat diucapkan. */
-const QuoteBody: React.FC<{ f: number }> = ({ f }) => {
+const QuoteBody: React.FC<{ f: number }> = () => {
+  const f = useRealFrame(); // r5: kata menyala di frame nyata (words_v3), bukan frame adegan yang di-warp
   const t = thTheme('light');
   const words = B09_QUOTE.map((tok, k) => {
     const a = wordIn(tok.i[0]);

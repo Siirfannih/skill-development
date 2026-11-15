@@ -68,7 +68,7 @@ const faceScene = (preset: FacePreset, crop: { s?: number; cx?: number; cy?: num
 // B07: mata (M), "unik." di dinding kanan sejajar mata/hidung
 const B07 = faceScene('M', {}, camPath([{ f: F_B07[0], zoom: 1 }, { f: F_B07[1], zoom: 1.04, ease: 'smooth' }], { sigma: 0 }), 'B07');
 // B10a: mata (M) lagi tetapi setelah sisipan T; teks di pita bawah kanan
-const B10a = faceScene('M', {}, camPath([{ f: F_B10[0], zoom: 1 }, { f: F_B10_YT, zoom: 1.06, ease: 'smooth' }], { sigma: 0 }), 'B10', (b) => b.id === 'B10-N1');
+const B10a = faceScene('M', {}, camPath([{ f: F_B10[0], zoom: 1 }, { f: F_B10_YT, zoom: 1.06, ease: 'smooth' }], { sigma: 0 }), 'B10', (b) => b.id.startsWith('B10-N1')); // r4: N1 + N1b
 // B11: sisi (P, s 1,8). Punch 1 → 1,08 tepat di "FOMO." (30,48 dtk = f914), berjangkar di pojok kiri atas K4 sehingga
 // teks diam dan wajah membesar menjauh dari teks; lalu drift.
 const B11_ANCHOR = { x: 1000, y: 300 };
@@ -180,26 +180,40 @@ const STAMP = 1045; // "AI." 34,82 dtk
 // (1,9×: kotak 54 px desain → ±103 px layar = 9,5 % tinggi) sebelum "investasi" (f1015); logo dicap di atas prompt di "AI.",
 // lalu kamera mundur sedikit saat logo terbang ke kepala sidebar.
 const PROMPT12 = { x: G12.x + GPT_SIDEBAR + (GPT_W - GPT_SIDEBAR) / 2, y: G12.y + BAR_H + GPT_PROMPT.y }; // (1089.5, 740)
+// r5 (TASK-r5 butir 6, arahan Irfan): jendela ChatGPT MENGAMBANG di atas wallpaper gradien ala macOS (tidak memenuhi
+// frame), di kanan; KT di ruang wallpaper kiri. Tepi kiri jendela dijaga di layar x ±650–690 (x kamera dihitung dari
+// zoom). Punch ke kotak prompt dibatasi 0,84–0,86× supaya kotak utuh dan wallpaper kiri tetap ada (Q-r5-01).
+const winCx = (z: number, left: number) => G12.x + (960 - left) / z;
+// r6 (TASK-r6 butir 1, referensi Irfan): jendela BESAR terpotong tepi kanan frame; tepi kiri jendela tetap di layar x 700,
+// KT di wallpaper kiri (layar x 165–±650). Punch 1,25–1,27× di "investasi": kotak prompt 54 px desain → ±68 px layar
+// (6,3 % tinggi); bagian kiri kotak ("+ Ask ChatGPT") di dalam frame, ujung kanannya terpotong tepi frame.
 const b12Cam = withShake(camPath([
-  { f: F_B12[0], x: 680, y: 560, zoom: 1.22, ry: -6 },
-  { f: 994, x: 680, y: 700, zoom: 1.22, ry: -3, ease: 'inOut' },
-  { f: 1016, x: PROMPT12.x, y: PROMPT12.y + 8, zoom: 1.9, ry: 0, ease: 'inOut' },
-  { f: 1048, x: PROMPT12.x, y: PROMPT12.y + 8, zoom: 1.96, ry: 0, ease: 'smooth' },
-  { f: F_B12[1], x: 860, y: 640, zoom: 1.45, ry: 0, ease: 'in' },
+  { f: F_B12[0], x: winCx(0.95, 700), y: G12.y + (540 - 130) / 0.95, zoom: 0.95, ry: -4 },
+  { f: 994, x: winCx(0.97, 700), y: G12.y + (540 - 120) / 0.97, zoom: 0.97, ry: -2, ease: 'inOut' },
+  { f: 1016, x: winCx(1.25, 700), y: PROMPT12.y, zoom: 1.25, ry: 0, ease: 'inOut' },
+  { f: 1048, x: winCx(1.27, 700), y: PROMPT12.y, zoom: 1.27, ry: 0, ease: 'smooth' },
+  { f: F_B12[1], x: winCx(1.05, 700), y: 680, zoom: 1.05, ry: 0, ease: 'in' },
 ], { cuts: [1048] }), [{ f: STAMP, amp: 10, dur: 9 }]);
+/** r5: wallpaper gradien hangat-sejuk ala macOS (peach → rose → lavender → biru muda), linear, terkunci layar */
+const MAC_WALL: React.CSSProperties = {
+  background: [
+    'linear-gradient(200deg, rgba(255,255,255,0.28) 0%, rgba(255,255,255,0) 45%)',
+    'linear-gradient(135deg, #F6C39B 0%, #EFA7A2 32%, #CDAEE2 64%, #AFCBEC 100%)',
+  ].join(','),
+};
 const B12: React.FC = () => {
   const f = useCurrentFrame();
   const hist = Math.floor(20 * Math.pow(prog(f, 936, 1040, 'linear'), 1.6)); // bertambah makin cepat
   // r3a: cap di ruang kanan judul "Where should we begin?", di atas setengah kanan kotak prompt (tidak menimpa judul)
-  const c = { x: PROMPT12.x + 240, y: PROMPT12.y - 115 };
+  // r6: cap di atas bagian kotak yang masih di dalam frame (jendela terpotong kanan)
+  const c = { x: 900, y: PROMPT12.y - 115 };
   const head = { x: G12.x + 29, y: G12.y + BAR_H + 26 };
   const st = prog(f, STAMP, STAMP + 4, 'out');
   const mv = prog(f, STAMP + 8, STAMP + 16, 'inOut');
   const size = lerp(lerp(380, 170, st), 22, mv);
   const lx = lerp(c.x, head.x, mv), ly = lerp(c.y, head.y, mv);
   return (
-    <Stage pose={b12Cam} bg={C.linen}>
-      <Layer z={-300} name="L1"><Linen /></Layer>
+    <Stage pose={b12Cam} bg={C.linen} style={MAC_WALL}>
       <Layer z={0} name="L2">
         <Browser w={GPT_W} h={GPT_H} url="chatgpt.com" style={{ left: G12.x, top: G12.y }}>
           <ChatGPTUI history={hist} headerLogo={mv >= 1 ? 1 : 0} />
@@ -222,9 +236,11 @@ const P13 = { x: 960, y: 600 };
 const G13_ORIGIN = { x: P13.x - GPT_PROMPT.x * G13.s, y: P13.y - (BAR_H + GPT_PROMPT.y) * G13.s };
 const typedStart = 399; // x dunia awal teks prompt
 const b13Cam = camPath([
-  // REVIEW-r2a F-r2a-03: judul "Where should we begin?" di luar frame penuh; chip utuh lalu di luar frame saat punch
-  { f: F_B13_GPT, x: 650, y: 768, zoom: 1.9 },
-  { f: 1132, x: 660, y: 770, zoom: 2.0, ease: 'smooth' },
+  // r5 (butir 6): jendela mengambang utuh di kanan di atas wallpaper (tepi kiri layar x 690), KT di wallpaper kiri;
+  // potong-masuk ke prompt di f1146 setelah KT "untuk melakukan sesuatu." keluar (f1142)
+  // r6: jendela besar terpotong kanan (tepi kiri layar x 700), KT di wallpaper kiri
+  { f: F_B13_GPT, x: G13_ORIGIN.x + (960 - 700) / 0.6, y: 566, zoom: 0.6 },
+  { f: 1145, x: G13_ORIGIN.x + (960 - 700) / 0.62, y: 566, zoom: 0.62, ease: 'smooth' },
   { f: 1146, x: 525, y: 653, zoom: 3.2, ease: 'out' }, // punch-in 1,6×: teks prompt ±10 % tinggi frame
   { f: 1163, x: 530, y: 653, zoom: 3.22, ease: 'smooth' }, // ikut caret
   { f: F_B13[1], x: 532, y: 653, zoom: 3.23, ease: 'smooth' },
@@ -236,8 +252,7 @@ const B13b: React.FC = () => {
   const typed = f >= 1137 ? TYPE.slice(0, n) : '';
   const sent = prog(f, F_SEND, F_SEND + 4, 'out');
   return (
-    <Stage pose={b13Cam} bg={C.linen}>
-      <Layer z={-300} name="L1"><Linen /></Layer>
+    <Stage pose={b13Cam} bg={C.linen} style={MAC_WALL}>
       <Layer z={0} name="L2">
         <Browser w={GPT_W} h={GPT_H} url="chatgpt.com" scale={G13.s} style={{ left: G13_ORIGIN.x, top: G13_ORIGIN.y }}>
           <ChatGPTUI history={20} headerLogo={1} typed={typed} caret={f >= 1110 && f < F_SEND && Math.floor(f / 8) % 2 === 0} send={sent} />

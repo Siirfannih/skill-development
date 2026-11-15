@@ -7,6 +7,7 @@ import { Stage, Layer, Place } from '../engine/Stage';
 import { camPath } from '../engine/camera';
 import { TextBlocks, tokIn } from '../engine/TextLayer';
 import { wordOut } from '../engine/words';
+import { useRealFrame } from '../engine/realframe';
 import type { HBlock } from '../text/types';
 import { Face } from '../engine/Face';
 import { Paper } from '../engine/Surfaces';
@@ -21,7 +22,8 @@ import {
   TEXT_ACT4, F_B23, F_B24, F_B24_FACE, F_B25, F_B25_CUT, F_B26, F_WIPE,
 } from './Act4.text';
 
-const txt = (...ids: string[]) => TEXT_ACT4.filter((b) => ids.includes(b.id));
+// r4: blok pecahan memakai id induk + '.x' dan ikut terpilih bersama induknya
+const txt = (...ids: string[]) => TEXT_ACT4.filter((b) => ids.includes(b.id.split('.')[0]));
 const AVATAR = 'ui/avatar_siirfannih.jpg';
 
 // ============================================================================================
@@ -144,7 +146,7 @@ const CIRCLE_F: [number, number] = [2423, 2441]; // "titik awal" diucapkan 80,72
  * tetapi kotak potong diberi ruang kanan/atas: ekor huruf "l" Caveat yang miring terpotong di HView (Q-C01).
  */
 const HLabel: React.FC<{ b: HBlock }> = ({ b }) => {
-  const f = useCurrentFrame();
+  const f = useRealFrame(); // r5: teks memakai frame nyata (words_v3)
   const a = tokIn(b.toks[0]);
   if (f < a - 2 || f >= b.until) return null;
   const z = Math.max(a + 10, wordOut(Math.max(...b.toks.flatMap((t) => t.i))));
@@ -375,7 +377,7 @@ const B26: React.FC = () => (
       <Face preset="F4" crop={FACE_RIGHT_SPACE} grade="bersih" />
     </Layer>
     <Layer z={30} name="L3">
-      <TextBlocks blocks={txt('B26-K4a', 'B26-K4b')} />
+      <TextBlocks blocks={txt('B26-K4a', 'B26-N', 'B26-K4b')} />
     </Layer>
   </Stage>
 );

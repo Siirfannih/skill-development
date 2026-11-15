@@ -1,7 +1,8 @@
-// Sisipan wajah dari face_edit.mp4 (BRIEF §Wajah). Video TIDAK dibungkus Sequence: waktu video = frame timeline,
-// jadi lip-sync otomatis. Jangan taruh <Face> di dalam <Sequence from=...>.
+// Sisipan wajah (BRIEF §Wajah). r5: face_edit_v3.mp4 diputar di frame NYATA timeline baru (useRealFrame), bukan frame
+// adegan yang di-warp, jadi lip-sync dengan mix_v3.wav. Jangan taruh <Face> di dalam <Sequence from=...>.
 import React from 'react';
-import { OffthreadVideo, staticFile } from 'remotion';
+import { OffthreadVideo, Sequence, staticFile, useCurrentFrame } from 'remotion';
+import { useRealFrame } from './realframe';
 
 /** Pusat dalam px sumber 1920×1080 dan skala relatif terhadap frame penuh. */
 export const FACE_PRESETS = {
@@ -35,6 +36,8 @@ export const Face: React.FC<{
   grade?: FaceGrade;
   style?: React.CSSProperties;
 }> = ({ preset = 'F4', crop, w = 1920, h = 1080, grade = 'terang', style }) => {
+  const real = useRealFrame();
+  const cur = useCurrentFrame();
   const c = { ...FACE_PRESETS[preset], ...crop };
   const base = Math.max(w / 1920, h / 1080);
   const sc = base * c.s;
@@ -55,11 +58,15 @@ export const Face: React.FC<{
           </filter>
         </svg>
       ) : null}
-      <OffthreadVideo
-        src={staticFile('face_edit.mp4')}
-        muted
-        style={{ position: 'absolute', left, top, width: vw, height: vh, filter: FACE_GRADE[grade], maxWidth: 'none' }}
-      />
+      {/* r5: face_edit_v3.mp4 di frame NYATA (dipotong di rentang yang sama dengan suara v3 → bibir sinkron) */}
+      {/* Sequence menggeser frame adegan (lama) ke frame nyata: di dalamnya useCurrentFrame() = real */}
+      <Sequence from={cur - Math.min(real, 2500)} layout="none">
+        <OffthreadVideo
+          src={staticFile('face_edit_v3.mp4')}
+          muted
+          style={{ position: 'absolute', left, top, width: vw, height: vh, filter: FACE_GRADE[grade], maxWidth: 'none' }}
+        />
+      </Sequence>
     </div>
   );
 };

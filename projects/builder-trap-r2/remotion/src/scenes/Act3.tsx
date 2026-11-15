@@ -17,11 +17,12 @@ import { ThreadsWindow, ThComposer, ThSaveDraftDialog, ThPost, ThProfile, ThComp
 import { GhRepoPage, GhNewRepo, GhRepoCard, BrowserBar, GH } from '../ui/GitHub';
 import REPOS from '../ui/repos.json'; // salinan assets/repos.json
 import {
-  TEXT_ACT3, B16_K3, B18_DAN, K3_POS,
+  TEXT_ACT3, TRIAD,
   F_B16, F_B17, F_B18, F_B19, F_B19_CUT, F_B20, F_B21, F_B21_CUT, F_B22,
 } from './Act3.text';
 
-const txt = (...ids: string[]) => TEXT_ACT3.filter((b) => ids.includes(b.id));
+// r4: blok pecahan memakai id induk + '.x' (mis. B20-N2.b) dan ikut terpilih bersama induknya
+const txt = (...ids: string[]) => TEXT_ACT3.filter((b) => ids.includes(b.id.split('.')[0]));
 const AVATAR = 'ui/avatar_siirfannih.jpg';
 const OWNER = 'Siirfannih';
 type Repo = [string, 'public' | 'private', string];
@@ -30,96 +31,8 @@ const vis = (r: Repo) => (r[1] === 'public' ? 'Public' : 'Private') as 'Public' 
 /** draft yang tidak pernah diposting (kata dari ucapan B14; tampil sebagai isi UI, bukan lapisan narasi) */
 const DRAFT_TEXT = 'Selama satu tahun aku mencoba untuk belajar';
 
-// ============================================================================================
-// K3 triad B16–B18: terkunci layar di pita atas, bertahan melewati cut (kiblat 55 k3).
-// r3b: 96 px (lantai kunci), 2 baris seperti K3 mesin (Q-r3a-01): baris 1 kepala "aku tidak" (abu C.inkDarkDim),
-// baris 2 kata kunci (putih penuh) + "apapun." (abu). Kepala tetap; baris 2 diganti per kalimat: kunci + "apapun."
-// kalimat sebelumnya keluar (naik + blur) dan selesai tepat sebelum kalimat berikut mulai diucapkan, kunci baru masuk dari
-// bawah saat diucapkan (REVIEW-v1-self F-v1-06: tidak ada kunci lama yang masih tampil, tidak ada celah lebar).
-// B18 kata pertama berganti "aku"→"dan" sesuai ucapan. (Mesin K3 belum mendukung kepala yang berganti; Q-B01.)
-// ============================================================================================
-const DARK = { key: C.accentDark, dim: C.inkDarkDim, fresh: C.freshDark };
-
-const KWord: React.FC<{ t: string; a: number; f: number; key3?: boolean; exitAt?: number }> = ({ t, a, f, key3, exitAt }) => {
-  const S = K3_POS.size;
-  const dur = key3 ? 5 : 6;
-  const p = prog(f, a, a + dur, 'out');
-  const e = exitAt !== undefined ? prog(f, exitAt - 4, exitAt, 'in') : 0;
-  if (f < a - 1 || e >= 1) return null;
-  const col = key3 ? DARK.key : lerpColor(f, a + 3, a + 11);
-  const rise = key3 ? 0.42 * S * (1 - p) : 8 * (1 - p);
-  const bl = (key3 ? 8 : 6) * (1 - p) + 8 * e;
-  return (
-    <span
-      style={{
-        position: 'absolute', left: 0, top: 0, whiteSpace: 'nowrap', color: col,
-        opacity: Math.min(1, p * 1.6) * (1 - e),
-        transform: `translateY(${rise - 0.42 * S * e}px)`,
-        filter: bl > 0.05 ? `blur(${bl}px)` : undefined,
-      }}
-    >
-      {t}
-    </span>
-  );
-};
-const hex = (h: string) => [1, 3, 5].map((k) => parseInt(h.slice(k, k + 2), 16));
-/** kata kepala/ekor baru: abu terang lalu turun ke abu kepala (tanpa biru) */
-const lerpColor = (f: number, a: number, b: number) => {
-  const t = clamp01((f - a) / (b - a));
-  const x = hex(DARK.fresh), y = hex(DARK.dim);
-  return `rgb(${x.map((v, k) => Math.round(lerp(v, y[k], t))).join(',')})`;
-};
-
-const K3Triad: React.FC = () => {
-  const f = useCurrentFrame();
-  const b = B16_K3;
-  const S = b.size;
-  const LH = 1.22;
-  const m = (s: string) => measure(s, S);
-  const sp = m(' ');
-  const danTok = B18_DAN.lines[0][0];
-  const danIn = tokIn(danTok);
-  // awal tiap kalimat: "Aku" (49,04), "Aku" (50,76), "Dan" (52,48)
-  const sIn = [wordIn(b.head[0].i[0]), wordIn(b.head[0].i[1]), danIn];
-  const keyIn = b.keys.map((k) => tokIn(k[0]));
-  const tail = (b.tail as Tok[])[0];
-  const tailIn = tail.i.map(wordIn);
-  const keyT = (k: number) => b.keys[k].map((t) => t.t).join(' ');
-  // baris 2 kalimat k selesai keluar 2 f sebelum kalimat k+1 mulai diucapkan
-  const out = (k: number) => (k + 1 < sIn.length ? sIn[k + 1] - 2 : undefined);
-  const w0 = lerp(m('aku'), m('dan'), prog(f, danIn - 4, danIn + 4, 'out'));
-  if (f < sIn[0] - 2 || f >= b.until) return null;
-  return (
-    <div
-      style={{
-        position: 'absolute', left: K3_POS.x, top: K3_POS.y, height: S * LH * 2, width: 1500,
-        fontFamily: FONT.sf, fontWeight: 700, fontSize: S, lineHeight: LH, letterSpacing: '-0.02em',
-        textShadow: '0 2px 18px rgba(0,0,0,0.35)',
-      }}
-    >
-      {/* baris 1: kepala */}
-      <div style={{ position: 'absolute', left: 0, top: 0 }}>
-        <KWord t="aku" a={sIn[0]} f={f} exitAt={danIn} />
-        <KWord t={danTok.t} a={danIn} f={f} />
-      </div>
-      <div style={{ position: 'absolute', left: w0 + sp, top: 0 }}>
-        <KWord t="tidak" a={tokIn(b.head[1])} f={f} />
-      </div>
-      {/* baris 2: kunci + "apapun." per kalimat */}
-      {b.keys.map((_, k) => (
-        <React.Fragment key={k}>
-          <div style={{ position: 'absolute', left: 0, top: S * LH }}>
-            <KWord t={keyT(k)} a={keyIn[k]} f={f} key3 exitAt={out(k)} />
-          </div>
-          <div style={{ position: 'absolute', left: m(keyT(k)) + sp, top: S * LH }}>
-            <KWord t={tail.t} a={tailIn[k]} f={f} exitAt={out(k)} />
-          </div>
-        </React.Fragment>
-      ))}
-    </div>
-  );
-};
-
+// r4: triad B16–B18 = tumpuk kata (blok N seimbang, Act3.text.ts TRIAD), terkunci layar melewati cut; dirender mesin
+// TextLayer (dulu renderer lokal K3Triad).
 // ============================================================================================
 // B16: wajah F1 gelap (beda dari sisipan sebelumnya B13 T); wajah diturunkan (cy 450) supaya pita atas (2 baris K3)
 // jatuh di rambut/dinding, bukan di mata.
@@ -147,17 +60,18 @@ const P_SAVE = { x: 948, y: 594 };
 const B17_CANCEL = 1536; // 51,2 dtk
 const B17_SAVE = 1557; // 51,9 dtk
 
+// r4: tumpuk kata triad (terkunci layar, kiri x 170–912) → kamera zoom 1,0 dan bergeser supaya modal mulai di kanan
+// tumpukan (layar x ≥ 950) dan jendela Threads dipotong mulai dunia x 640 (sidebar tidak tampil di bawah teks).
+// r6 (butir 2): UI diperbesar mengisi separuh kanan: modal mulai layar x 960, zoom 1,2 → 1,24, terpotong tepi kanan
 const b17Cam = camPath(
   [
-    // r3b: zoom 1,6 dan bingkai turun supaya modal/dialog mulai di bawah K3 2 baris (layar y ≥ 400) dan dialog utuh ≤ 935
-    { f: F_B17[0], x: 968, y: 508, zoom: 1.56 },
-    { f: 1528, x: 962, y: 508, zoom: 1.57, ease: 'smooth' },
-    { f: B17_CANCEL, x: 915, y: 509, zoom: 1.57, ease: 'inOut' },
-    { f: 1552, x: 960, y: 510, zoom: 1.56, ease: 'inOut' },
-    { f: F_B17[1], x: 1090, y: 470, zoom: 1.3, ease: 'inOut' },
+    { f: F_B17[0], x: 568, y: 588, zoom: 1.2 },
+    { f: B17_SAVE, x: 568, y: 580, zoom: 1.22, ease: 'smooth' },
+    { f: F_B17[1], x: 590, y: 560, zoom: 1.24, ease: 'inOut' },
   ],
   { sigma: 1.5 },
 );
+const TW_CROP = 640; // tepi kiri potongan jendela (dunia)
 
 const feedPosts = (mode: 'dark' | 'light', ui: number, colW: number) => (
   <>
@@ -193,13 +107,15 @@ const B17: React.FC = () => {
         <DarkWall />
       </Layer>
       <Layer z={0} name="L2">
-        <div style={{ position: 'absolute', left: TW.x, top: TW.y }}>
+        <div style={{ position: 'absolute', left: TW_CROP, top: TW.y, width: TW.x + TW.w - TW_CROP, height: TW.h, overflow: 'hidden', borderRadius: 18 }}>
+         <div style={{ position: 'absolute', left: TW.x - TW_CROP, top: 0 }}>
           <ThreadsWindow
             mode="dark" ui={1} w={TW.w} h={TW.h} colW={640} header="For you"
             overlay={<div style={{ position: 'absolute', inset: 0, background: `rgba(0,0,0,${0.62 * scrim})` }} />}
           >
             {feedPosts('dark', 1, 640)}
           </ThreadsWindow>
+         </div>
         </div>
         {/* denyut di ikon Drafts saat modal mendarat */}
         {pulse > 0 ? (
@@ -236,16 +152,19 @@ const B17: React.FC = () => {
 const B18_REPO = REPO_LIST.find((r) => r[0] === 'OtonomAgent')!;
 /** sorot netral untuk UI GitHub babak 3 (REVIEW r3a F-r3a-02; default komponen #6F8DFF biru) */
 const HI = C.threadDark;
-const GW = { x: 300, y: 330, w: 1330, h: 486 };
+const GW = { x: 300, y: 330, w: 1330, h: 820 }; // r6: jendela lebih tinggi (dulu 486) supaya mengisi separuh kanan
 const GH_UI = 1.25;
 const GH_SCROLL = 380; // awal; digulir ke GH_SCROLL1 (kotak README naik ke bawah bilah browser)
-const GH_SCROLL1 = 603;
+const GH_SCROLL1 = 470; // r6: dulu 603; daftar file + kotak README sama-sama tampil di jendela yang lebih tinggi
 const README_BTN = { x: 1072, y: 724 };
+// r4: tumpuk kata triad di kiri (layar x 170–1057) → jendela GitHub di kanan: tepi kiri jendela tetap di layar x 1095
+// (x kamera dihitung dari zoom), zoom 0,76 → 0,80; kotak README + tombol utuh di dalam frame.
+// r6 (butir 2): jendela diperbesar 0,93 → 0,97 mengisi separuh kanan (terpotong tepi kanan), tepi atas layar y ±170
+const B18_LEFT = 1085;
 const b18Cam = camPath(
   [
-    // r3b: bingkai turun supaya tepi atas jendela di bawah K3 2 baris (layar y ≥ 395)
-    { f: F_B18[0], x: 960, y: 455, zoom: 1.12, ry: 4 },
-    { f: F_B18[1], x: 762, y: 421, zoom: 1.6, ry: 0, ease: 'inOut' },
+    { f: F_B18[0], x: GW.x - (B18_LEFT - 960) / 0.93, y: GW.y + (540 - 170) / 0.93, zoom: 0.93, ry: 3 },
+    { f: F_B18[1], x: GW.x - (B18_LEFT - 960) / 0.97, y: GW.y + (540 - 160) / 0.97, zoom: 0.97, ry: 0, ease: 'inOut' },
   ],
   { sigma: 0 },
 );
@@ -535,7 +454,7 @@ const B22: React.FC = () => (
   </Stage>
 );
 
-const K3Over: React.FC = () => <K3Triad />;
+const K3Over: React.FC = () => <TextBlocks blocks={TRIAD} />;
 
 export const ACT3: SceneEntry[] = [
   { id: 'S-B16', beats: 'B16', from: F_B16[0], to: F_B16[1], Comp: B16 },
@@ -548,5 +467,5 @@ export const ACT3: SceneEntry[] = [
   { id: 'S-B21b', beats: 'B21', from: F_B21_CUT, to: F_B21[1], Comp: B21b },
   { id: 'S-B22', beats: 'B22', from: F_B22[0], to: F_B22[1], Comp: B22 },
   // K3 triad terkunci layar, bertahan melewati cut B16→B17→B18 (kiblat 55 k3)
-  { id: 'T-B16-18-K3', beats: 'B16–B18', from: F_B16[0], to: B16_K3.until, Comp: K3Over, over: true },
+  { id: 'T-B16-18-ST', beats: 'B16–B18', from: F_B16[0], to: F_B18[1], Comp: K3Over, over: true }, // r5: frame lama (TRIAD.until kini frame baru)
 ];

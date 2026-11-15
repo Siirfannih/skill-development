@@ -2,10 +2,12 @@
 // Pakai: <TextBlocks blocks={TEXT_ACT1.filter(b => b.beat === 'B04')} /> di dalam <Layer z={30}> pada Stage,
 // atau <TextBlockView block={b}/> di dalam benda (mis. label H di dalam Print).
 import React from 'react';
-import { useCurrentFrame, interpolateColors, getInputProps } from 'remotion';
+import { interpolateColors, getInputProps, useCurrentFrame } from 'remotion';
 import { C, FONT, prog, lerp, SAFE, TEXT_FLOOR } from './theme';
 import { useScreenScale } from './Stage';
 import { fontsReady } from './fonts';
+import { useRealFrame } from './realframe';
+import { W, keBaru } from './timewarp';
 import { wordIn, wordOut } from './words';
 import type { TextBlock, Tok, NBlock, K3Block, K4Block, JBlock, HBlock, Tone } from '../text/types';
 
@@ -82,22 +84,101 @@ const exitStyle = (b: TextBlock, f: number): React.CSSProperties => {
   return { transform: `translateY(${-16 * e}px)`, filter: `blur(${6 * e}px)`, opacity: 1 - e };
 };
 
-const NView: React.FC<{ b: NBlock; f: number; fit: Fit }> = ({ b, f, fit }) => (
-  <div
-    style={{
-      position: 'absolute', left: b.x, top: b.y, whiteSpace: 'nowrap',
-      transform: b.align === 'center' ? 'translateX(-50%)' : undefined,
-      textAlign: b.align ?? 'left',
-      fontFamily: FONT.sf, fontWeight: b.weight ?? 700, fontSize: fit.size, lineHeight: 1.14, letterSpacing: TRACK,
-    }}
-  >
-    <div style={exitStyle(b, f)}>
-      {(fit.lines ?? b.lines).map((ln, k) => (
-        <div key={k}>{words(ln, f, b.tone)}</div>
-      ))}
+/** r4: kartu kertas di belakang N satu baris; lebar tumbuh per kata yang sudah tampil (seperti label K3). */
+const NCard: React.FC<{ b: NBlock; f: number; size: number }> = ({ b, f, size }) => {
+  const toks = b.lines[0];
+  const pad = [0.16 * size, 0.34 * size];
+  let w = 0;
+  toks.forEach((t, k) => {
+    const full = measure(toks.slice(0, k + 1).map((x) => x.t).join(' '), size);
+    const prev = k === 0 ? 0 : measure(toks.slice(0, k).map((x) => x.t).join(' '), size);
+    w += (full - prev) * prog(f, tokIn(t) - 1, tokIn(t) + 5, 'out');
+  });
+  const a = tokIn(toks[0]);
+  const p = prog(f, a - 2, a + 6, 'out');
+  return (
+    <div
+      style={{
+        position: 'absolute', left: -pad[1], top: -pad[0], width: w + 2 * pad[1], height: size * 1.14 + 2 * pad[0],
+        background: '#FFFFFF', borderRadius: 4,
+        boxShadow: '0 10px 24px rgba(40,39,35,0.22), 0 2px 4px rgba(40,39,35,0.16)',
+        transform: `scaleY(${p})`, transformOrigin: 'center bottom', opacity: p,
+      }}
+    />
+  );
+};
+
+const NView: React.FC<{ b: NBlock; f: number; fit: Fit }> = ({ b, f, fit }) => {
+  const dim = b.dimHead ? tone(b.tone).dim : undefined;
+  const lineToks = (ln: Tok[]) =>
+    ln.map((t, k) => (
+      <React.Fragment key={k}>
+        {k > 0 ? ' ' : null}
+        <Word tok={t} f={f} tn={b.tone} kind={t.accent && b.dimHead ? 'key' : 'n'} ink={t.accent ? undefined : dim} />
+      </React.Fragment>
+    ));
+  return (
+    <div
+      style={{
+        position: 'absolute', left: b.x, top: b.y, whiteSpace: 'nowrap',
+        transform: b.align === 'center' ? 'translateX(-50%)' : b.align === 'right' ? 'translateX(-100%)' : undefined,
+        textAlign: b.align ?? 'left',
+        fontFamily: FONT.sf, fontWeight: b.weight ?? 700, fontSize: fit.size, lineHeight: 1.14, letterSpacing: TRACK,
+      }}
+    >
+      <div style={exitStyle(b, f)}>
+        {b.card ? <NCard b={b} f={f} size={fit.size} /> : null}
+        {(fit.lines ?? b.lines).map((ln, k) =>
+          fit.sizes ? (
+            <div key={k} style={{ fontSize: fit.sizes[k], lineHeight: b.lh ?? 1.0, letterSpacing: fit.sizes[k] > 140 ? '-0.03em' : TRACK }}>
+              {lineToks(ln)}
+            </div>
+          ) : (
+            <div key={k} style={{ position: 'relative' }}>{lineToks(ln)}</div>
+          ),
+        )}
+      </div>
     </div>
-  </div>
-);
+  );
+};
+
+/** r4 K3 seimbang (KT-1/KT-3): kepala baris 1 (ukuran fit.size), kunci baris 2 dengan ukuran per kunci (fit.keySizes) supaya
+ *  lebarnya = lebar kepala; kunci lama keluar naik + blur, kunci baru masuk dari bawah di tempat yang sama. Tanpa kotak. */
+const K3EvenView: React.FC<{ b: K3Block; f: number; fit: Fit }> = ({ b, f, fit }) => {
+  const pal = tone(b.tone);
+  const headInk = b.tone === 'dark' ? pal.dim : undefined;
+  const ks = fit.keySizes ?? b.keys.map(() => fit.size);
+  const kH = Math.max(...ks);
+  const starts = b.keys.map((k) => tokIn(k[0]));
+  return (
+    <div style={{ position: 'absolute', left: b.x, top: b.y, ...exitStyle(b, f) }}>
+      <div style={{ whiteSpace: 'nowrap', fontFamily: FONT.sf, fontWeight: 700, fontSize: fit.size, lineHeight: 1.12, letterSpacing: TRACK, color: headInk ?? pal.ink }}>
+        {words(b.head, f, b.tone, undefined, headInk)}
+      </div>
+      <div style={{ position: 'relative', height: kH * 1.02, marginTop: fit.size * 0.04 }}>
+        {b.keys.map((k, idx) => {
+          const s0 = starts[idx];
+          const next = starts[idx + 1];
+          if (f < s0 - 1) return null;
+          const e = next !== undefined ? prog(f, next - 4, next, 'in') : 0;
+          if (e >= 1) return null;
+          return (
+            <div
+              key={idx}
+              style={{
+                position: 'absolute', left: 0, bottom: 0, whiteSpace: 'nowrap', fontFamily: FONT.sf, fontWeight: 700,
+                fontSize: ks[idx], lineHeight: 1.0, letterSpacing: '-0.03em',
+                transform: `translateY(${-0.42 * e}em)`, opacity: 1 - e, filter: e > 0 ? `blur(${8 * e}px)` : undefined,
+              }}
+            >
+              {words(k, f, b.tone, 'key')}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 
 /** K3: kepala tetap, kata kunci di slot (lama keluar ke atas, baru masuk dari bawah), lebar slot beranimasi.
  *  r3a: bila kepala + kunci terpanjang melewati lebar aman pada ukuran lantai, kunci pindah ke baris 2 (rata kiri,
@@ -114,9 +195,9 @@ const K3View: React.FC<{ b: K3Block; f: number; fit: Fit }> = ({ b, f, fit }) =>
   const wKey = (k: number) => (k < 0 ? 0 : measure(txt(b.keys[k]), size));
   const prevW = wKey(cur - 1), curW = wKey(cur);
   const sw = cur < 0 ? 0 : lerp(prevW, curW, prog(f, starts[cur] - 4, starts[cur] + 5, 'out'));
-  const space = stacked ? 0 : measure(' ', size);
+  const space = stacked || !b.head.length ? 0 : measure(' ', size);
   const pad = b.label ? [0.16 * size, 0.34 * size] : [0, 0];
-  const headIn = tokIn(b.head[0]);
+  const headIn = b.head.length ? tokIn(b.head[0]) : starts[0];
   const labelP = prog(f, headIn - 2, headIn + 6, 'out');
   // lebar kepala yang sudah tampil (label tumbuh mengikuti kata, bukan kotak kosong di depan)
   let headW = 0;
@@ -150,8 +231,9 @@ const K3View: React.FC<{ b: K3Block; f: number; fit: Fit }> = ({ b, f, fit }) =>
       })}
     </span>
   );
+  const ex = exitStyle(b, f);
   return (
-    <div style={{ position: 'absolute', left: b.x, top: b.y, ...exitStyle(b, f) }}>
+    <div style={{ position: 'absolute', left: b.x, top: b.y, ...ex, transform: b.alignRight ? `translateX(-100%) ${ex.transform ?? ''}` : ex.transform }}>
       {b.label ? (
         <div
           style={{
@@ -196,13 +278,14 @@ const K4View: React.FC<{ b: K4Block; f: number; fit: Fit }> = ({ b, f, fit }) =>
       {words(b.bigAccent ? b.big.map((t) => ({ ...t, accent: true })) : b.big, f, b.tone, 'big')}
     </div>
   );
+  // r4 (KT-1): lebar baris kecil = lebar kata besar, rata sisi yang sama (tanpa geser 0,06em)
   const smallLine = b.small.length ? (
-    <div style={{ fontSize: small, fontWeight: 700, lineHeight: 1.15, letterSpacing: TRACK, margin: b.order === 'small-big' ? '0 0 0.12em 0.06em' : '0.22em 0 0 0.06em' }}>
+    <div style={{ fontSize: small, fontWeight: 700, lineHeight: 1.15, letterSpacing: TRACK, margin: b.order === 'small-big' ? '0 0 0.06em 0' : '0.16em 0 0 0' }}>
       {words(b.small, f, b.tone)}
     </div>
   ) : null;
   return (
-    <div style={{ position: 'absolute', left: b.x, top: b.y, whiteSpace: 'nowrap', fontFamily: FONT.sf }}>
+    <div style={{ position: 'absolute', left: b.x, top: b.y, whiteSpace: 'nowrap', fontFamily: FONT.sf, textAlign: b.align ?? 'left', transform: b.align === 'right' ? 'translateX(-100%)' : undefined }}>
       <div style={exitStyle(b, f)}>
         {b.order === 'small-big' ? <>{smallLine}{bigLine}</> : <>{bigLine}{smallLine}</>}
       </div>
@@ -270,9 +353,19 @@ const HView: React.FC<{ b: HBlock; f: number; fit: Fit }> = ({ b, f, fit }) => {
 // dihitung dengan skala layar TERKECIL selama blok tampil (ukuran dunia tetap; kamera yang memperbesar). Bila baris jadi
 // lebih lebar dari ruang aman (tepi kiri blok → SAFE.x1, pada frame semua kata sudah tampil), N dipecah/diseimbangkan
 // ke 2 baris dan kunci K3 turun ke baris 2. Tidak pernah dikecilkan di bawah lantai.
-type Fit = { size: number; small?: number; lines?: Tok[][]; stacked?: boolean; sMin?: number };
+type Fit = {
+  size: number; small?: number; lines?: Tok[][]; stacked?: boolean; sMin?: number;
+  /** r4: ukuran per baris (N seimbang) / per kunci (K3 seimbang) */
+  sizes?: number[]; keySizes?: number[];
+  /** r4: rasio lebar baris terpendek / terpanjang (KT-1), untuk label debug dan laporan */
+  ratio?: number;
+  /** r5: lebar aman dunia (debug) */
+  maxW?: number;
+};
 const FIT_CACHE = new Map<string, Fit>();
-const lineW = (toks: Tok[], size: number, weight = 700) => measure(toks.map((t) => t.t).join(' '), size, weight);
+const lineW = (toks: Tok[], size: number, weight = 700, tracking = -0.02) => measure(toks.map((t) => t.t).join(' '), size, weight, FONT.sf, tracking);
+/** lebar per 1 px ukuran (tracking ikut ukuran besar ≥ 140 px seperti renderer) */
+const w1 = (toks: Tok[], weight = 700, tracking = -0.02) => lineW(toks, 100, weight, tracking) / 100;
 
 /** pecah token jadi 2 baris dengan lebar maksimum terkecil */
 function balance2(toks: Tok[], size: number, weight: number): Tok[][] {
@@ -285,9 +378,32 @@ function balance2(toks: Tok[], size: number, weight: number): Tok[][] {
   return best;
 }
 
+/** r4 (KT-1) blok seimbang: tiap baris diberi ukuran sendiri sampai lebarnya = W (baris terlebar pada lantainya).
+ *  Batas: maxSize (px dunia) dan maxH (tinggi blok, px dunia; cari batas ukuran c dengan bagi dua), lebar aman maxW. */
+function evenFit(b: NBlock, nMin: number, kMin: number, maxW: number): Fit {
+  const lines = b.lines;
+  const lh = b.lh ?? 1.0;
+  const ws = lines.map((ln) => w1(ln));
+  const floor = lines.map((ln) => Math.max(ln.some((t) => t.accent) ? kMin : nMin, b.size));
+  let W = Math.max(...ws.map((w, k) => w * floor[k]));
+  if (W > maxW) { console.warn(`[r4] ${b.id}: blok seimbang ${Math.round(W)} > lebar aman ${Math.round(maxW)}`); }
+  const sz = (c: number) => ws.map((w, k) => Math.max(floor[k], Math.min(W / w, c, b.maxSize ?? Infinity)));
+  let sizes = sz(Infinity);
+  const hOf = (ss: number[]) => ss.reduce((a, v) => a + v * lh, 0);
+  if (b.maxH && hOf(sizes) > b.maxH) {
+    let lo = Math.min(...floor), hi = Math.max(...sizes);
+    for (let it = 0; it < 40; it++) { const mid = (lo + hi) / 2; if (hOf(sz(mid)) > b.maxH) hi = mid; else lo = mid; }
+    sizes = sz(lo);
+  }
+  const widths = ws.map((w, k) => w * sizes[k]);
+  return { size: Math.max(...sizes), sizes, ratio: Math.min(...widths) / Math.max(...widths) };
+}
+
 function computeFit(b: TextBlock, sc: ReturnType<typeof useScreenScale>): Fit {
   const base = b.code === 'K4' ? b.bigSize : b.code === 'UI' ? 0 : b.size;
-  if (!sc || b.code === 'UI') return { size: base, small: b.code === 'K4' ? b.bigSize / (b.ratio ?? 2.3) : undefined };
+  if (b.code === 'UI') return { size: base };
+  // r4: blok terkunci layar (di luar Stage) = skala 1, supaya lantai + blok seimbang tetap dihitung
+  if (!sc) return computeFit0(b, 1, TEXT_FLOOR.n, TEXT_FLOOR.key, b.code === 'N' && b.align === 'right' ? b.x - SAFE.x0 : SAFE.x1 - b.x);
   // seluruh masa tampil blok (kalimat bisa berlanjut di blok lain, jadi tidak dipotong di kata terakhir blok ini)
   const a = blockIn(b);
   const z = Math.max(a + 1, b.until);
@@ -295,19 +411,31 @@ function computeFit(b: TextBlock, sc: ReturnType<typeof useScreenScale>): Fit {
   for (let t = a; t < z; t += 2) sMin = Math.min(sMin, sc(t).s);
   sMin = Math.min(sMin, sc(z - 1).s);
   const nMin = TEXT_FLOOR.n / sMin, kMin = TEXT_FLOOR.key / sMin;
-  // ruang aman pada frame kata terakhir masuk
+  // ruang aman: r5 — lebar dunia terkecil yang muat di safe frame SELAMA blok tampil sesudah kata terakhir masuk
+  // (dulu hanya di frame kata terakhir; kamera yang terus mendorong bisa membawa ujung kanan keluar safe frame, B25)
   const ref = Math.min(z - 1, Math.max(...allIn(b)));
-  const r = sc(ref);
-  const sx = r.x(b.x);
   const center = b.code === 'N' && b.align === 'center';
-  const availScreen = center ? 2 * Math.min(sx - SAFE.x0, SAFE.x1 - sx) : SAFE.x1 - sx;
-  const maxW = Math.max(120, Math.min(availScreen, SAFE.x1 - SAFE.x0)) / r.s;
+  const right = ((b.code === 'N' || b.code === 'K4') && b.align === 'right') || (b.code === 'K3' && !!b.alignRight);
+  let maxW = Infinity;
+  for (let t = ref; t < z; t += 2) {
+    const r = sc(t);
+    const sx = r.x(b.x);
+    if (t > ref && (sx < SAFE.x0 || sx > SAFE.x1 - 100)) continue; // jangkar sudah keluar frame (kamera pindah objek)
+    const availScreen = center ? 2 * Math.min(sx - SAFE.x0, SAFE.x1 - sx) : right ? sx - SAFE.x0 : SAFE.x1 - sx;
+    maxW = Math.min(maxW, Math.max(120, Math.min(availScreen, SAFE.x1 - SAFE.x0)) / r.s);
+  }
+  if (!Number.isFinite(maxW)) maxW = (SAFE.x1 - SAFE.x0) / sc(ref).s;
   const f0 = computeFit0(b, sMin, nMin, kMin, maxW);
-  return { ...f0, sMin };
+  return { ...f0, sMin, maxW };
 }
 function computeFit0(b: TextBlock, sMin: number, nMin: number, kMin: number, maxW: number): Fit {
   switch (b.code) {
     case 'N': {
+      if (b.lineSizes) {
+        const sizes = b.lineSizes.map((v, k) => Math.max(v, b.lines[k].some((t) => t.accent) ? kMin : nMin));
+        return { size: Math.max(...sizes), sizes };
+      }
+      if (b.even) return evenFit(b, nMin, kMin, maxW);
       const size = Math.max(b.size, nMin);
       const wt = b.weight ?? 700;
       const over = b.lines.some((ln) => lineW(ln, size, wt) > maxW);
@@ -317,6 +445,18 @@ function computeFit0(b: TextBlock, sMin: number, nMin: number, kMin: number, max
       return { size, lines };
     }
     case 'K3': {
+      if (b.even) {
+        // kepala ≥ lantai narasi; tiap kunci ≥ lantai kunci → kepala dinaikkan sampai kunci terlebar muat di lebarnya
+        const hw = w1(b.head);
+        const kw = b.keys.map((k) => w1(k, 700, -0.03));
+        let sH = Math.max(b.size, nMin, ...kw.map((w) => (kMin * w) / hw));
+        if (hw * sH > maxW) { console.warn(`[r4] ${b.id}: kepala ${Math.round(hw * sH)} > lebar aman ${Math.round(maxW)}`); }
+        const W = hw * sH;
+        const cap = b.keyMax ?? Infinity;
+        const keySizes = kw.map((w) => Math.max(kMin, Math.min(W / w, cap)));
+        const ratio = Math.min(...kw.map((w, k) => (w * keySizes[k]) / W));
+        return { size: sH, keySizes, ratio };
+      }
       const size = Math.max(b.size, kMin);
       const pad = b.label ? 0.68 * size : 0;
       const head = lineW(b.head, size);
@@ -324,10 +464,22 @@ function computeFit0(b: TextBlock, sMin: number, nMin: number, kMin: number, max
       return { size, stacked: head + measure(' ', size) + key + pad > maxW };
     }
     case 'K4': {
-      const size = Math.max(b.bigSize, kMin);
-      const small = Math.max(size / (b.ratio ?? 2.3), nMin);
-      if (Math.max(lineW(b.big, size), lineW(b.small, small)) > maxW) console.warn(`[lantai] ${b.id}: K4 melewati lebar aman`);
-      return { size, small };
+      // r4 (KT-1): kata besar diskalakan sampai lebarnya = lebar baris kecil; bila kata besar pada lantai 96 sudah lebih
+      // lebar, baris kecil yang dinaikkan sampai sama lebar. Keduanya dibatasi lebar aman (tidak di bawah lantai).
+      const bw = w1(b.big, 700, -0.03);
+      if (!b.small.length) return { size: Math.min(Math.max(b.bigSize, kMin), Math.max(kMin, maxW / bw)) };
+      const sw = w1(b.small);
+      let small = Math.max(b.bigSize / (b.ratio ?? 2.3), nMin);
+      if (b.free) { const sz = Math.max(b.bigSize, kMin); return { size: sz, small: Math.max(sz / (b.ratio ?? 2.3), nMin), ratio: Math.min(sw * small, bw * sz) / Math.max(sw * small, bw * sz) }; }
+      // ×1,02: kata besar sedikit lebih lebar dari baris kecil (KT-5 "≥"), sisi bearing huruf besar memakan ±1 %
+      let size = (1.02 * sw * small) / bw;
+      if (size < kMin) { size = kMin; small = (bw * size) / (1.02 * sw); }
+      if (bw * size > maxW) {
+        const k = Math.max(maxW / (bw * size), kMin / size, nMin / small);
+        if (k > maxW / (bw * size)) console.warn(`[r4] ${b.id}: K4 melewati lebar aman pada lantai`);
+        size *= k; small *= k;
+      }
+      return { size, small, ratio: Math.min(bw * size, sw * small) / Math.max(bw * size, sw * small) };
     }
     case 'J': return { size: Math.max(b.size, kMin) };
     case 'H': return { size: Math.max(b.size, nMin) };
@@ -336,22 +488,33 @@ function computeFit0(b: TextBlock, sMin: number, nMin: number, kMin: number, max
 }
 
 export const TextBlockView: React.FC<{ block: TextBlock }> = ({ block }) => {
-  const f = useCurrentFrame();
-  const sc = useScreenScale();
+  // r5: teks hidup di frame NYATA (words_v3, until timeline baru); kamera adegan dibaca di frame lama W(f)
+  const fr = useRealFrame();
+  const fs = useCurrentFrame();
+  const f = block.sceneTime ? keBaru(fs) : fr;
+  const sc0 = useScreenScale();
+  const sc = sc0 ? (t: number) => sc0(W(t)) : null;
   if (f < blockIn(block) - 2) return null;
   if (f >= block.until) return null;
   let fit = FIT_CACHE.get(block.id);
   if (!fit) {
     fit = computeFit(block, sc);
     // simpan hanya bila font sudah dimuat (ukuran dari canvas); sebelum itu hitung ulang tiap render
-    if (fontsReady()) FIT_CACHE.set(block.id, fit);
+    if (fontsReady()) {
+      FIT_CACHE.set(block.id, fit);
+      if (FIT_DEBUG) {
+        const m = fit.sMin ?? 1;
+        const r = (v: number) => Math.round(v * m);
+        console.warn(`[fit] ${block.id} size=${r(fit.size)}${fit.sizes ? ' lines=' + fit.sizes.map(r).join('/') : ''}${fit.keySizes ? ' keys=' + fit.keySizes.map(r).join('/') : ''}${fit.small ? ' small=' + r(fit.small) : ''} ratio=${fit.ratio?.toFixed(3) ?? '-'}`);
+      }
+    }
   }
   const view = viewOf(block, f, fit);
   if (!FIT_DEBUG || !view || !sc) return view;
   // --props='{"fitDebug":true}': label ukuran LAYAR (px) blok di frame ini, untuk QC lantai ukuran
   const s = sc(f).s;
   const scr = (v: number) => (v * s).toFixed(0);
-  const tag = `${block.id} ${scr(fit.size)}${fit.small ? '/' + scr(fit.small) : ''}px min ${(fit.size * (fit.sMin ?? 1)).toFixed(0)}`;
+  const tag = `${block.id} ${fit.sizes ? fit.sizes.map(scr).join('/') : scr(fit.size)}${fit.keySizes ? ' k' + fit.keySizes.map(scr).join('/') : ''}${fit.small ? '/' + scr(fit.small) : ''}px min ${(fit.size * (fit.sMin ?? 1)).toFixed(0)}${fit.ratio ? ' r' + fit.ratio.toFixed(2) : ''} w${Math.round(fit.maxW ?? 0)}`;
   return (
     <>
       {view}
@@ -364,7 +527,7 @@ const FIT_DEBUG = !!(getInputProps() as { fitDebug?: boolean }).fitDebug;
 const viewOf = (block: TextBlock, f: number, fit: Fit) => {
   switch (block.code) {
     case 'N': return <NView b={block} f={f} fit={fit} />;
-    case 'K3': return <K3View b={block} f={f} fit={fit} />;
+    case 'K3': return block.even ? <K3EvenView b={block} f={f} fit={fit} /> : <K3View b={block} f={f} fit={fit} />;
     case 'K4': return <K4View b={block} f={f} fit={fit} />;
     case 'J': return <JView b={block} f={f} fit={fit} />;
     case 'H': return <HView b={block} f={f} fit={fit} />;
