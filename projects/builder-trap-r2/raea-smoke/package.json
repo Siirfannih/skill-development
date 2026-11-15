@@ -1,0 +1,11 @@
+{
+  "name": "builder-trap-r2-raea-smoke",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "lucide-react": "1.70.0",
+    "simple-icons": "^16.36.0",
+    "remotion": "file:./remotion-compat"
+  }
+}
+
