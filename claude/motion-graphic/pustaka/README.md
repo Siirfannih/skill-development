@@ -8,7 +8,7 @@ Tujuan repo ini menaikkan mutu hasil dari prompt Irfan, bukan menyediakan templa
 | `PETA.md` | satu baris per referensi | selalu, untuk memilih kiblat |
 | `kartu/<ref>.md` | anatomi 8 bagian satu referensi | hanya kartu yang dipilih |
 | `RESEP-TEMPLATE.md` | resep 8 baris per video | disalin ke `projects/<proyek>/RESEP.md` |
-| `teknik/` | pola lintas referensi yang boleh dipinjam (kinetic typography, resep editing, peluncuran produk/UI `launch-motion.md`) | saat merancang bagian itu |
+| `teknik/` | pola lintas referensi yang boleh dipinjam (kinetic typography, resep editing, peluncuran produk/UI `launch-motion.md`, animasi karakter maskot `animasi-karakter-clawd.md`) | saat merancang bagian itu |
 | `../fonts/README.md` | file font, pengganti, dan peran tiap jenis huruf | saat mengisi baris Teks di resep |
 | `contoh-gagal/` | frame yang pernah Irfan tolak + sebabnya | sebelum menilai still sendiri |
 
