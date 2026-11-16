@@ -24,7 +24,7 @@ Audio dicek lebih dulu, karena kesalahan terbanyak ada di audio (Irfan 8 Nov, V5
 |---|---|---|
 | Track musik yang sama dipakai di beberapa klip/babak dalam satu batch? | `python3 scripts/gate/music_batch.py musik_klipA.mp3 musik_klipB.mp3 …` | 25, S-A9 |
 | Ada cue SFX/musik tanpa `peran` + `alasan`, atau spam (whoosh > 1/dtk, file sama < 1 dtk)? | `scripts/gate/sfx_density.py` | 43, §14.3 |
-| SFX berlebih atau salah pilih (kepadatan > 1,5× kiblat, bunyi per kata, > 5 cue dalam 2 dtk, cue tanpa `dengar`, atau palet terlarang meski ada di folder SFXIrfan)? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json --ref-density <kartu>` | 43, Lantai E24 |
+| Objek/visual penting tanpa SFX, peran memakai > 1 file, bunyi < 100 ms bertumpuk, bunyi per kata KT, > 5 cue dalam 2 dtk, cue tanpa `dengar`, atau palet terlarang? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json --objects objects.json` | 43, Lantai E24 |
 | Suara masih membawa kata sampah/diam, atau cut menyentuh kata isi >20 ms, guard <50 ms, durasi kata <85 %, urutan ASR aktual berubah? Musik dipompa > 1,5 dB saat bicara? | `audio_order.py check` (mengulang `cut_check.py` dengan source words + cut map) · `audio/audio_phone.py --list` | PASS / jendela < 8 dB ≤ 5 |
 | Referensi atau SFX tidak didengar (tidak ada log `earshot timeline` ref + `earshot describe` tiap file)? | log earshot di folder proyek | gerbang DENGAR `three-segment-gate.md` |
 | Suara sumber klip yang bersih diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | 38, §14.6 |
@@ -33,7 +33,7 @@ Audio dicek lebih dulu, karena kesalahan terbanyak ada di audio (Irfan 8 Nov, V5
 | Ada teks/angka layar yang tidak diucapkan? | transkrip vs daftar teks | 2 |
 | Ada UI karangan atau placeholder storyboard di render? | still | 4, 16, 19, 22 |
 | Ada adegan terkunci yang berubah? | `scripts/baseline_lock.py check` | 14 |
-| Integrated di luar −14,0…−14,5 LUFS atau true peak > −1 dBTP (diukur di MP4 setelah mux AAC, bukan hanya WAV)? | ebur128 | §14.10 |
+| Suara asli diturunkan, ditekan (crest −2 dB), atau < −17 LUFS? True peak > −1 dBTP (diukur di MP4 setelah mux AAC)? | `python3 scripts/gate/voice_level.py suara_sumber.wav suara_hasil.wav` · ebur128 | §14.10, Lantai E23 |
 | `audio_qa.py --module5`, `audio_phone.py` (tiap SFX terdengar di HP 20/50/100 %), `visual_coverage.py` ada yang gagal? | keluaran skrip | 30, 35, 37, 38 |
 | Generate berbayar sebelum gerbangnya terbuka, atau biaya tidak disebut? | log sesi | 10 |
 

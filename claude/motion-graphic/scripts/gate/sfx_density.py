@@ -61,19 +61,22 @@ def load_cues(path):
 
 
 WHOOSH = re.compile(r"whoosh|woosh|swoosh|swish|whip|transisi|transition", re.I)
+# Batas kata (\b / pemisah nama file) supaya "Business" tidak terbaca "sine" dan "Hollywood" tidak terbaca "wood".
+# laser/sci-fi TIDAK dilarang: `Lasertransision` dan `ES_Scifi…Glitch` adalah fungsi yang Irfan tetapkan (Irfan 16 Nov).
+_B = r"(?:^|(?<=[\s_/.\-(),]))"
+_E = r"(?=$|[\s_/.\-(),0-9])"
 FORBIDDEN_SFX = [
-    ("kayu/woodblock", re.compile(r"wood(?:en|block)?|kayu", re.I)),
-    ("thock/felt knock", re.compile(r"thock|felt[ _-]*(?:knock|thock)", re.I)),
-    ("koin", re.compile(r"coin|koin", re.I)),
-    ("logam", re.compile(r"metal|logam", re.I)),
-    ("kartun", re.compile(r"cartoon|kartun", re.I)),
-    ("langkah kaki", re.compile(r"foot[ _-]*step|langkah[ _-]*kaki", re.I)),
-    ("laser/sci-fi", re.compile(r"laser|sci[ _-]*fi", re.I)),
-    ("8-bit", re.compile(r"8[ _-]*bit", re.I)),
-    ("noise mentah", re.compile(r"(?:white|pink)[ _-]*noise|noise[ _-]*generator", re.I)),
-    ("sinus sintetis", re.compile(r"sine|sinus", re.I)),
-    ("rope-creak", re.compile(r"rope[ _-]*creak", re.I)),
-    ("bank sintetis", re.compile(r"sfx[ _-]*render", re.I)),
+    ("kayu/woodblock", re.compile(_B + r"(?:wood(?:en|block)?|kayu)" + _E, re.I)),
+    ("thock/felt knock", re.compile(_B + r"(?:thock|felt[ _-]*(?:knock|thock))" + _E, re.I)),
+    ("koin", re.compile(_B + r"(?:coins?|koin)" + _E, re.I)),
+    ("logam", re.compile(_B + r"(?:metal(?:lic)?|logam)" + _E, re.I)),
+    ("kartun", re.compile(_B + r"(?:cartoon|kartun)" + _E, re.I)),
+    ("langkah kaki", re.compile(_B + r"(?:foot[ _-]*steps?|langkah[ _-]*kaki)" + _E, re.I)),
+    ("8-bit", re.compile(_B + r"8[ _-]*bit" + _E, re.I)),
+    ("noise mentah", re.compile(_B + r"(?:(?:white|pink)[ _-]*noise|noise[ _-]*generator)" + _E, re.I)),
+    ("sinus sintetis", re.compile(_B + r"(?:sine(?:[ _-]*wave)?|sinus)" + _E, re.I)),
+    ("rope-creak", re.compile(_B + r"rope[ _-]*creak" + _E, re.I)),
+    ("bank sintetis", re.compile(_B + r"sfx[ _-]*render" + _E, re.I)),
 ]
 
 
@@ -106,6 +109,44 @@ def spam_check(cues):
     return issues
 
 
+def role_issues(cues):
+    """Satu peran = satu file sepanjang video, dan satu file = satu peran (Irfan 16 Nov): bunyi yang sama selalu
+    berarti hal yang sama. Varian file (nama sama, akhiran _1/_2/-v2) dihitung file yang berbeda."""
+    by_role, by_file = {}, {}
+    for c in cues:
+        r, f = c["peran"].strip().lower(), c["file"].split("/")[-1]
+        if not r or not f:
+            continue
+        by_role.setdefault(r, set()).add(f)
+        by_file.setdefault(f, set()).add(r)
+    issues = [f"peran '{r}' memakai {len(fs)} file: {', '.join(sorted(fs))[:120]}" for r, fs in by_role.items() if len(fs) > 1]
+    issues += [f"file {f} dipakai {len(rs)} peran: {', '.join(sorted(rs))}" for f, rs in by_file.items() if len(rs) > 1]
+    return issues
+
+
+def flam_issues(cues, min_gap=0.10):
+    """Dua bunyi < 100 ms terdengar flam/numpuk: objek yang masuk <= 2 frame berjarak dihitung satu event."""
+    ts = [c["t"] for c in cues]
+    return [f"{a:.2f} & {b:.2f} dtk (< {int(min_gap * 1000)} ms)" for a, b in zip(ts, ts[1:]) if b - a < min_gap]
+
+
+def object_issues(cues, objects_path, tol=0.10):
+    """1 SFX untuk 1 objek/visual (Irfan 16 Nov): setiap objek yang muncul/bergerak di daftar objek wajib punya cue
+    dalam +-tol dtk, kecuali `senyap: true` + `alasan`. Daftar objek ditulis dari build (bukan kata subtitle/KT)."""
+    with open(objects_path, encoding="utf-8") as fh:
+        d = json.load(fh)
+    d = d.get("objects", d) if isinstance(d, dict) else d
+    ts = np.array([c["t"] for c in cues]) if cues else np.array([])
+    miss = []
+    for o in d:
+        if o.get("senyap") and str(o.get("alasan", "")).strip():
+            continue
+        t = float(o.get("t", o.get("start", 0)))
+        if not len(ts) or np.min(np.abs(ts - t)) > tol:
+            miss.append(f"{t:.2f}s {o.get('objek') or o.get('name') or '?'}")
+    return miss, len(d)
+
+
 def visual_events(video):
     raw = subprocess.run(["ffmpeg", "-v", "error", "-i", video, "-vf", f"fps={FPS},scale={W}:{H},format=gray",
                           "-f", "rawvideo", "-"], capture_output=True).stdout
@@ -125,7 +166,8 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("video"); ap.add_argument("cues")
     ap.add_argument("--min-density", type=float, default=0.0)
-    ap.add_argument("--max-density", type=float, default=1.2)
+    ap.add_argument("--max-density", type=float, default=0.0, help="0 = kepadatan hanya dilaporkan (tidak ada batas jumlah; batasnya spam)")
+    ap.add_argument("--objects", help="daftar objek/visual yang muncul atau bergerak [{t, objek, senyap?, alasan?}]")
     ap.add_argument("--ref-density", type=float, default=0.0, help="SFX berlabel/dtk di kiblat (kartu §7)")
     ap.add_argument("--min-coverage", type=float, default=0.0)
     ap.add_argument("--max-gap", type=float, default=0.0, help="0 = celah hanya dilaporkan")
@@ -148,10 +190,10 @@ def main():
         if hi - lo > (a.max_gap or 3.0) and n:
             gaps.append((round(float(lo), 2), round(float(hi), 2), n))
     fails = []
-    cap = min(a.max_density, 1.5 * a.ref_density) if a.ref_density else a.max_density
-    if density > cap:
+    cap = min(x for x in (a.max_density, 1.5 * a.ref_density if a.ref_density else 0) if x) if (a.max_density or a.ref_density) else 0
+    if cap and density > cap:
         fails.append(f"kepadatan {density:.2f}/dtk > {cap:.2f} (spam; kiblat {a.ref_density or '-'}/dtk)")
-    per_kata = [c for c in cue_rows if re.search(r"kata|word|tick", c["peran"], re.I) and not re.search(r"triad|kunci", c["peran"], re.I)]
+    per_kata = [c for c in cue_rows if re.search(r"kata|word|tick", c["peran"], re.I) and not re.search(r"triad|kunci|slam|penekanan|emph", c["peran"], re.I)]
     if len(per_kata) > 8 or (cue_rows and len(per_kata) > 0.2 * len(cue_rows)):
         fails.append(f"{len(per_kata)} cue bunyi per kata (maks 8 dan <= 20 %)")
     burst = max((int(((cues >= t) & (cues < t + 2.0)).sum()) for t in cues), default=0)
@@ -170,6 +212,16 @@ def main():
         fails.append(f"{len(no_role)} cue tanpa peran/alasan (mis. {no_role[0]['t']:.2f} dtk)")
     if spam:
         fails.append(f"{len(spam)} spam SFX: " + "; ".join(spam[:4]))
+    roles = role_issues(cue_rows)
+    if roles:
+        fails.append(f"{len(roles)} peran tidak konsisten: " + "; ".join(roles[:3]))
+    flam = flam_issues(cue_rows)
+    if flam:
+        fails.append(f"{len(flam)} bunyi bertumpuk: " + "; ".join(flam[:3]))
+    if a.objects:
+        miss, n_obj = object_issues(cue_rows, a.objects)
+        if miss:
+            fails.append(f"{len(miss)}/{n_obj} objek tanpa SFX: " + "; ".join(miss[:4]))
     if forbidden:
         fails.append(f"{len(forbidden)} SFX dari palet terlarang: " + "; ".join(forbidden[:4]))
 

@@ -81,11 +81,12 @@ def run_gate(command, failure):
         raise SystemExit(f"FAIL: {failure}\n{output[-1200:]}")
 
 
-def validate_voice(audio, words, source_words, cut_map):
+def validate_voice(audio, words, source_words, cut_map, voice_source):
     required = {
         "words": Path(words),
         "source_words": Path(source_words),
         "cut_map": Path(cut_map),
+        "voice_source": Path(voice_source),
     }
     missing = [f"{name}={path}" for name, path in required.items() if not path.exists()]
     if missing:
@@ -103,29 +104,26 @@ def validate_voice(audio, words, source_words, cut_map):
         [sys.executable, str(HERE / "pause_clean.py"), audio, words],
         "jeda suara masih berisik",
     )
+    run_gate(
+        [sys.executable, str(HERE / "voice_level.py"), voice_source, audio],
+        "suara asli diturunkan, ditekan, atau terlalu pelan (Lantai E23)",
+    )
     return {
         name: {"file": str(path.resolve()), "sha": sha(path)}
         for name, path in required.items()
     }
 
 
-def validate_sfx(state, cues, ref_density):
+def validate_sfx(state, cues, objects, ref_density=0.0):
     visual = state["stages"].get("visual")
     if not visual:
         raise SystemExit("FAIL: SFX disusun dari event visual; kunci visual dulu")
-    if ref_density <= 0:
-        raise SystemExit("FAIL: SFX wajib memakai --ref-density dari kartu kiblat")
-    run_gate(
-        [
-            sys.executable,
-            str(HERE / "sfx_density.py"),
-            visual["file"],
-            cues,
-            "--ref-density",
-            str(ref_density),
-        ],
-        "cue SFX belum cocok dengan visual atau memakai palet terlarang",
-    )
+    if not objects or not Path(objects).exists():
+        raise SystemExit("FAIL: SFX wajib memakai --objects objects.json (1 SFX per objek/visual penting, Lantai E24)")
+    cmd = [sys.executable, str(HERE / "sfx_density.py"), visual["file"], cues, "--objects", objects]
+    if ref_density > 0:
+        cmd += ["--ref-density", str(ref_density)]
+    run_gate(cmd, "objek tanpa SFX, peran tidak konsisten, spam, atau palet terlarang")
 
 
 def main():
@@ -141,7 +139,9 @@ def main():
     ap.add_argument("--words", default="", help="transkrip kata aktual pada suara terkunci")
     ap.add_argument("--source-words", default="", help="transkrip kata pada take sumber sebelum dipotong")
     ap.add_argument("--cut-map", default="", help="map.json berisi rentang sumber yang dibuang")
-    ap.add_argument("--ref-density", type=float, default=0.0, help="SFX berlabel/dtk pada kartu kiblat")
+    ap.add_argument("--ref-density", type=float, default=0.0, help="opsional: batas kepadatan bila Irfan memintanya")
+    ap.add_argument("--voice-source", default="", help="stem suara sumber sebelum proses (bukti level tidak diturunkan)")
+    ap.add_argument("--objects", default="", help="objects.json: objek/visual yang muncul atau bergerak")
     a = ap.parse_args()
     d = Path(a.dir)
     d.mkdir(parents=True, exist_ok=True)
@@ -168,11 +168,12 @@ def main():
             raise SystemExit("FAIL: tahap hulu basi, perbaiki dulu:\n  " + "\n  ".join(prob))
         evidence = {}
         if st == "suara" and s["mode"] == "konten":
-            if not (a.words and a.source_words and a.cut_map):
-                raise SystemExit("FAIL: lock suara wajib --words, --source-words, dan --cut-map")
-            evidence = validate_voice(f, a.words, a.source_words, a.cut_map)
+            if not (a.words and a.source_words and a.cut_map and a.voice_source):
+                raise SystemExit("FAIL: lock suara wajib --words, --source-words, --cut-map, dan --voice-source")
+            evidence = validate_voice(f, a.words, a.source_words, a.cut_map, a.voice_source)
         if st == "sfx":
-            validate_sfx(s, f, a.ref_density)
+            validate_sfx(s, f, a.objects, a.ref_density)
+            evidence = {"objects": {"file": str(Path(a.objects).resolve()), "sha": sha(a.objects)}}
         if st == "musik":
             if not a.peran.strip() or not a.alasan.strip():
                 raise SystemExit("FAIL: musik wajib punya --peran dan --alasan (mis. 'tipe video X, jadi musiknya Y')")
@@ -210,13 +211,15 @@ def main():
                 evidence["words"]["file"],
                 evidence["source_words"]["file"],
                 evidence["cut_map"]["file"],
+                evidence.get("voice_source", {}).get("file", ""),
             )
         except SystemExit as error:
             fails.append(str(error))
     sfx = s["stages"].get("sfx")
     if sfx and not fails:
         try:
-            validate_sfx(s, sfx["file"], float(sfx.get("ref_density", 0)))
+            validate_sfx(s, sfx["file"], sfx.get("evidence", {}).get("objects", {}).get("file", ""),
+                         float(sfx.get("ref_density", 0)))
         except SystemExit as error:
             fails.append(str(error))
     print(f"mode {s['mode']}: " + " -> ".join(f"{x}{'✓' if x in s['stages'] else '·'}" for x in seq))

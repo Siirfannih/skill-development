@@ -54,9 +54,9 @@ Pilih mode di brief dan tulis alasannya:
 | `musik` | musik → visual → SFX | Video yang digerakkan lagu/ketukan: video lirik, montage potong di ketukan. Musik menentukan timeline; visual dipotong di ketukannya; SFX menyusul event visual |
 
 Langkah mode `konten`:
-1. **Suara dikunci**: VO final (atau audio sumber klip utuh). `audio_order.py init --mode konten`, lalu `audio_order.py lock suara suara.wav --words words_actual.json --source-words words_source.json --cut-map map.json`. Lock menjalankan ulang pemeriksaan kata/jeda dan menyimpan hash semua buktinya.
+1. **Suara dikunci**: VO final (atau audio sumber klip utuh). `audio_order.py init --mode konten`, lalu `audio_order.py lock suara suara.wav --words words_actual.json --source-words words_source.json --cut-map map.json --voice-source suara_sumber.wav`. Lock menjalankan ulang pemeriksaan kata/jeda dan menyimpan hash semua buktinya.
 2. **Visual dibangun di atas timing suara**, render tanpa audio, `lock visual`.
-3. **SFX dari event visual terkunci**: mulai dari `cues.json` storyboard, lalu geser ke onset nyata di render (`sync_cues.py`); bunyi untuk momen cerita dan gerak terlihat (aturan 43), tiap cue punya peran + alasan. `lock sfx cues.json --ref-density <kartu>` menjalankan `sfx_density.py` terhadap render terkunci dan menolak palet terlarang.
+3. **SFX dari event visual terkunci**: mulai dari `cues.json` storyboard, lalu geser ke onset nyata di render (`sync_cues.py`); bunyi untuk momen cerita dan gerak terlihat (aturan 43), tiap cue punya peran + alasan. `lock sfx cues.json --objects objects.json` menjalankan `sfx_density.py` terhadap render terkunci: objek tanpa SFX, peran tidak konsisten, spam, dan palet terlarang ditolak.
 4. **Musik paling akhir**: render preview visual + SFX tanpa musik, dengarkan/ukur (`pace_read.py`), tentukan kategori suasana per babak, pilih kandidat (`music_fit.py`, kenali dengan `ears.py`), lalu `lock musik --peran --alasan --didengar preview.mp4`.
 5. **Mix dan QA**: `audio_order.py check` harus PASS sebelum render final.
 
@@ -172,7 +172,7 @@ Aturan:
   - Seri blip untuk item daftar: bunyi sama, interval tetap.
 - **UI micro-pop**: hanya klik/perubahan state UI yang dibicarakan ucapan (tombol yang ditekan, post terbit); hover dan perubahan kecil senyap.
 - Transien kecil yang jatuh di konsonan VO digeser ±2 f. Level: §14.10.
-- Kepadatan = SFX berlabel di kiblat (kartu §7), bukan onset total: angka onset referensi (4,7–7,7/dtk, PKS 2 Nov) memuat ketukan musik. Gerbang `scripts/gate/sfx_density.py --ref-density <kiblat>`: FAIL bila > 1,5× kiblat (default > 1,2/dtk), ada bunyi per kata, > 5 cue dalam 2 dtk, atau cue tanpa `dengar`. Acuan: kiblat 55 ±0,65/dtk; builder-trap-r2 v2 0,52/dtk (Irfan 13 Nov).
+- Kepadatan = SFX berlabel di kiblat (kartu §7), bukan onset total: angka onset referensi (4,7–7,7/dtk, PKS 2 Nov) memuat ketukan musik. Kepadatan kiblat hanya acuan rasa, bukan batas: jumlah SFX mengikuti jumlah objek/visual penting (Lantai E24, Irfan 16 Nov). Gerbang `scripts/gate/sfx_density.py render.mp4 cues.json --objects objects.json`: FAIL bila objek tanpa SFX (kecuali `senyap` + `alasan`), satu peran memakai > 1 file atau satu file > 1 peran, dua bunyi < 100 ms, bunyi per kata KT, > 5 cue dalam 2 dtk, cue tanpa `dengar`/`peran`/`alasan`, atau palet terlarang. `--ref-density`/`--max-density` hanya dipakai bila Irfan meminta batas. Acuan: kiblat 55 ±0,65/dtk; builder-trap-r2 v2 0,52/dtk (Irfan 13 Nov).
 - Sinkron: hit bunyi vs onset visual ±1–2 f (±45 ms), dicek per cue dari render.
 
 ### 14.4 Titik balik: turun, bukan hilang
@@ -192,7 +192,7 @@ Versi lama bagian ini mewajibkan bunyi thock/felt/wood dengan LPF 1,5–2,5 kHz.
   - tekstur: 400 Hz–2,6 kHz;
   - low: di bawah 2 kHz + body 150–450 Hz.
 - **Jangan menggelapkan klik dengan LPF 1,5–2,5 kHz.** Referensi Audio.mp4 terukur: klik/tick ber-centroid 8–10 kHz, whoosh berpusat di 1,4–1,9 kHz tanpa energi di atas 6 kHz. Yang dibuang adalah desis di atas 6 kHz, bukan kecerahan klik.
-- **Dilarang**: ketukan kayu/woodblock/thock, felt knock, koin, logam, kartun, langkah kaki kartun, laser/sci-fi/8-bit, white/pink noise atau sinus sintetis, `rope-creak`, bank `sfx_render`, salinan bunyi sistem Apple, dan potongan SFX yang "dipahat" dari video referensi orang lain. `sfx_density.py` menolak nama file atau label `dengar` yang cocok; keberadaan file di SFXIrfan tidak mengizinkannya (Irfan 16 Nov).
+- **Dilarang**: ketukan kayu/woodblock/thock, felt knock, koin, logam, kartun, langkah kaki kartun, 8-bit, white/pink noise atau sinus sintetis, `rope-creak`, bank `sfx_render`, salinan bunyi sistem Apple, dan potongan SFX yang "dipahat" dari video referensi orang lain. `sfx_density.py` menolak nama file atau label `dengar` yang cocok; keberadaan file di SFXIrfan tidak mengizinkannya (Irfan 16 Nov).
 - **QA telinga**: Gemini tidak andal untuk level dan timestamp, dan tabel aturannya tidak boleh menggantikan data proyek yang sudah lulus. Ukur dengan alat sendiri; telinga Irfan adalah hakim terakhir.
 - Sumber dan lisensi tiap file dicatat di `CREDITS.md`.
 
@@ -220,19 +220,18 @@ Akar masalah di v2:
 - **Musik dimatikan ke 0 di bawah Jensen** (aturan lama "hening total", sekarang dicabut).
 
 ### 14.6 Modul 1 — pre-processing klip narasumber
-Berlaku untuk klip eksternal (berita, wawancara, konferensi, podcast) yang **terukur buruk** (gema, boxy, level jauh dari narator). Klip yang sudah bersih cukup disamakan levelnya dengan gain linear, tanpa EQ/denoise/kompresor, dan dibuktikan dengan `scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` (udara > 9 kHz ≥ 70 % sumber, LRA turun ≤ 2 LU). Rantai untuk klip yang terukur buruk:
+Berlaku untuk klip eksternal (berita, wawancara, konferensi, podcast) yang **terukur buruk** (gema, boxy, level jauh dari narator). Klip yang sudah bersih tidak diproses; levelnya hanya boleh dinaikkan dengan gain linear bila terlalu pelan (tidak pernah diturunkan), tanpa EQ/denoise/kompresor, dan dibuktikan dengan `scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` (udara > 9 kHz ≥ 70 % sumber, LRA turun ≤ 2 LU). Rantai untuk klip yang terukur buruk:
 
 **Rekaman sendiri (talking head di kamar, Irfan 13 Nov).** Ukur dulu dengan `scripts/gate/pause_clean.py stem_suara.wav words.json`. Bila lantai jeda > −50 dBFS atau ada bunyi tajam di jeda (piring, klik, benturan): high-pass 70 Hz + `afftdn` sangat ringan (nr 3, nf −55; nr 8 mengikis udara > 9 kHz, `voice_fidelity.py` FAIL), lalu jeda antarkata ≥ 0,15 dtk diredam −36 dB dengan ramp 25 ms, rentang ucapan dilindungi [awal − 0,06; akhir + 0,12] dtk (resep: `projects/builder-trap-r2/audio/voice_clean.py`). Jangan mengisi jeda antarpotongan dengan room tone dari kamar yang sama. Gate yang dilarang di bawah ini berlaku untuk klip narasumber bergema, bukan untuk jeda rekaman sendiri.
 
 ```
-ffmpeg -y -i klip_mentah.mp4 -vn -af "pan=mono|c0=0.5*c0+0.5*c1,highpass=f=120:poles=2,equalizer=f=320:t=q:w=1.8:g=-5.0,equalizer=f=3200:t=q:w=1.4:g=2.5,lowpass=f=9000:poles=2,afftdn=nf=-25,acompressor=threshold=-20dB:ratio=3.5:attack=5:release=80:makeup=4dB,loudnorm=I=-15.5:TP=-2.0:LRA=5.0" -ar 48000 -ac 2 klip_bersih.wav
+ffmpeg -y -i klip_mentah.mp4 -vn -af "pan=mono|c0=0.5*c0+0.5*c1,highpass=f=120:poles=2,equalizer=f=320:t=q:w=1.8:g=-5.0,equalizer=f=3200:t=q:w=1.4:g=2.5,lowpass=f=9000:poles=2,afftdn=nf=-25,volume=<gain_naik>dB" -ar 48000 -ac 2 klip_bersih.wav
 ```
 - **mono**: side/mid = 0, menghapus gema fase ruangan;
 - **HPF 120 + mud cut −5 dB @320 Hz**: anti-boxy;
 - **+2,5 dB @3,2 kHz**: kejelasan;
-- **afftdn + kompresor + loudnorm −15,5**: setara narator.
-- **loudnorm dijalankan sebagai penyamaan level LINEAR** (gain terukur, atau `loudnorm` dua-pass `linear=true`), bukan mode dinamis.
-  - Pada klip pendek, mode dinamis bekerja seperti AGC dan mengangkat ekor ruangan. Hasil uji Altman: low-mid 61 → 70 %.
+- **afftdn** meredam noise; **tanpa kompresor, limiter, atau loudnorm** pada suara asli (Lantai E23, Irfan 16 Nov).
+- **Level**: gain linear NAIK saja (`volume=+X dB`), dihitung supaya suara ±−16 LUFS; tidak pernah diturunkan. Bila puncak akan > −1 dBFS, target gain diturunkan sedikit, bukan ditutup limiter. Bukti: `scripts/gate/voice_level.py`.
   - Tambahkan **mud cut kedua −3 dB @220 Hz** untuk suara pria/ruang konferensi. Hasil uji: low-mid Altman 56 → 41 %, Gates 51 → 33 %.
   - **Jangan pakai gate/expander**: tidak mengurangi gema, dan menambah potongan mendadak di dalam ucapan.
 - **Cara mengukur gema**: ekor energi 40–150 ms setelah akhir kata, relatif ke level kata (pakai timestamp STT).
@@ -261,7 +260,7 @@ ffmpeg -y -i klip_mentah.mp4 -vn -af "pan=mono|c0=0.5*c0+0.5*c1,highpass=f=120:p
 Dilarang:
 - whoosh dari white/pink noise mentah;
 - beep/blup sinus 8-bit;
-- laser sci-fi;
+- laser sci-fi sintetis (stok Irfan `Lasertransision` dan `ES_Scifi…Glitch 02` tetap boleh sesuai fungsinya, Irfan 16 Nov);
 - langkah kaki kartun.
 
 **Direvisi 1 Nov 2026.** Kolom "Wajib" versi Gemini dicabut: wood/felt, thock LPF 1,5 kHz, lapisan sub thump di bawah whoosh, dan micro-tick + felt pulse. Penyebabnya:
@@ -278,7 +277,7 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
 | Kursor/tombol ditekan | `mouse-click-290204` | |
 | Kartu/UI/agent muncul | `pop-up-notify-smooth-modern` | |
 | Kartu/tile mendarat | `soft-subtle-ui-pop` | |
-| Kamera patah / transisi dengan gerak cepat terlihat | whoosh gelombang (rotasi 3 sampel mirip), puncak di v_max | tanpa lapisan sub |
+| Kamera patah / transisi dengan gerak cepat terlihat | satu file whoosh yang sama sepanjang video, puncak di v_max | tanpa lapisan sub |
 | Cut / ganti frame / potongan antar pembicara tanpa gerak | klik cut pelan; senyap bila tertutup panel yang masuk | bukan whoosh (Irfan 9 Nov, Behindwork) |
 | Whip / cut on motion | `v17_whip_1/2` | |
 | Zoom-through / build | `riser` (ElevenLabs, video #2), berakhir di cut | |
@@ -297,7 +296,7 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
   - rumus: `sfxStart = camStart + round(0.28 × moveDur) − whooshPeakOffset`;
   - di cue, pakai `align:"peak"` + `peak` = detik puncak di file.
 - **Pop/klik kemunculan**: transien di +1…+2 f setelah skala melewati 0,6 (objek pertama kali terlihat jelas), bukan di frame 0.
-- **Stagger banyak item** (grid, barisan): satu cue rentetan/rattle untuk seluruh barisan, bukan satu bunyi per item (Irfan 13 Nov). Item yang muncul bersamaan dalam ≤ 2 frame dihitung sebagai satu event. Maksimal 2 bunyi per 100 ms, dan dua bunyi berperan sama tidak boleh jatuh dalam 100 ms (The Gap `sync_cues.py`). Kata tidak berbunyi per kata; subtitle tidak berbunyi (aturan 43).
+- **Stagger banyak item** (grid, barisan): item yang masuk terpisah (> 2 frame) masing-masing mendapat satu bunyi dari peran yang sama; item yang muncul bersamaan dalam ≤ 2 frame dihitung satu event (Irfan 16 Nov, menggantikan "satu rattle per barisan" 13 Nov). Maksimal 2 bunyi per 100 ms, dan dua bunyi berperan sama tidak boleh jatuh dalam 100 ms (The Gap `sync_cues.py`). Kata tidak berbunyi per kata; subtitle tidak berbunyi (aturan 43).
 
 ### 14.9b Resep mix yang terbukti (builder-trap-r2 v2, 14 Nov)
 Kesalahan yang sudah terjadi, dicek setiap mix:
@@ -318,14 +317,14 @@ Lulus bila semua terpenuhi:
 
 | Cek | Ambang |
 |---|---|
-| Integrated | −14,0…−14,5 LUFS |
+| Integrated | mengikuti suara (suara ±−16 LUFS, mix biasanya −14…−16); **tidak dikejar dengan loudnorm/limiter global** (Irfan 16 Nov) |
 | True peak | ≤ −1 dBTP |
 | Pita spektral | **dibandingkan dengan referensi segenre (video ber-VO), bukan angka tetap.** The Gap: sub 14 % / low-mid 63 %. Emotion: sub 18 % / low-mid 64 %. Angka lama (sub 25–55 %, low-mid < 42 %) berasal dari referensi musik tanpa VO (Krea 2, Renaissance) dan mendorong penambahan sub-pad sinus; dicabut 1 Nov 2026. |
 | Abrupt cutoff (> 18 dB/50 ms) di ujung klip narasumber | tidak ada celah mati: di potongan antar pembicara selalu ada jembatan (whoosh + musik/room tone), jendela 100 ms < −45 dBFS = 0. Penurunan di akhir kata VO kering itu normal (The Gap 46). |
 | Kepadatan & level SFX (demucs no_vocals, `refaudit/sfx_profile.py`) | event menonjol ±1,8–2,1/dtk; puncak SFX median ±−9…−10 dB dari puncak VO; bed −13…−15 dB di bawah VO (The Gap: 2,05/dtk, −10 dB, −14,8 dB) |
 | Gema VO | energi ekor 40–150 ms setelah kata ≤ −25 dB dari kata (`scripts/audio/vo_echo.py`) |
-| VO per blok | −14 LUFS ±1 |
-| Klip narasumber per blok | −15,0…−15,5 LUFS (±0,5) |
+| VO / suara asli per blok | ≥ −17 LUFS, tidak pernah lebih pelan dari sumbernya, crest turun ≤ 2 dB (`gate/voice_level.py`) |
+| Klip narasumber per blok | sama dengan baris di atas; antarnarasumber disamakan dengan gain naik, bukan turun |
 | Musik di bawah VO | −22…−25 LUFS |
 | Gain SFX setelah normalisasi puncak | −4…−10 dB (lantai −10; −33 dB tidak terdengar; Irfan 9 Nov, Behindwork) |
 | Sebaran RMS bed musik per 3 dtk | ≤ 4 dB, tanpa lubang (Behindwork 1,1–3,2 dB) |
@@ -336,7 +335,7 @@ Lulus bila semua terpenuhi:
 **Resep mix yang terbukti** (Irfan 9 Nov, Behindwork; alat: `behindwork/tools/mix.py`):
 - musik masuk di −15,5…−16,5 dB (track ber-beat/sub bass 1 dB lebih rendah); `dynaudnorm` + auto-gain RMS tahap 2 (1 dtk, maks ±8 dB; jangan menaikkan bed di jeda bicara, gagal: builder-trap-r2 v1) meratakan breakdown → sebaran bed 1,1–3,2 dB;
 - kantong EQ untuk suara (−4 dB 2,8 kHz, −2 dB 450 Hz), gerak musik saat kata ≤ 1,5 dB;
-- satu kali limiter (lebih banyak = dinamika pembicara gepeng, gagal LRA), target −14 LUFS;
+- limiter master hanya penangkap true peak (reduksi ≤ 1 dB), **tidak dipakai mengejar −14 LUFS**: limiter yang bekerja keras memipihkan suara ("mendem", Irfan 16 Nov). Loudness dicapai dengan menaikkan suara secara bersih, musik/SFX menyesuaikan;
 - setelah mix, langkah true peak oversampled (hanya menangkap puncak, gain tetap): `ffmpeg -i raw.wav -af "aresample=192000,alimiter=limit=0.85:attack=1:release=50:level=false,aresample=48000" -c:a pcm_s16le mix.wav`; puncak sampel dari skrip bukan true peak;
 - saat mux ke AAC turunkan −0,4 dB, karena AAC menaikkan puncak ±0,5 dB (N2 sebelum diperbaiki: −0,9 dBTP di MP4);
 - hasil 3 klip: −14,2 LUFS, −1,4 dBTP WAV, `voice_fidelity` PASS (ΔLRA −0,1…+0,2).

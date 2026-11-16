@@ -42,6 +42,21 @@ def mapper(removed):
     return m
 
 
+def endpoint_quiet(mono, sr, t, side, win=0.02):
+    """Gelombang tidak boleh dipancung (aturan Bali v10, qa_wave10): 20 ms di SISI YANG DIPAKAI dari batas potongan
+    harus sunyi relatif ke rekaman itu sendiri, bukan ke angka absolut (gagal: ambang -38 dBFS di kamar -38 dB,
+    builder-trap-r2; konsonan akhir -40 dBFS di VO bersih lolos padahal terpotong).
+    side="ujung": [t-20 ms, t] (akhir bagian yang disimpan sebelum potongan); side="awal": [t, t+20 ms]."""
+    hop = max(1, int(0.01 * sr))
+    frames = 20 * np.log10(np.sqrt(np.array([np.mean(mono[i:i + hop] ** 2) for i in range(0, len(mono) - hop, hop)])) + 1e-9)
+    ref, floor = float(np.percentile(frames, 90)), float(np.percentile(frames, 10))
+    lim = max(ref - 32.0, floor + 10.0)  # Bali v10 memakai ref-26; konsonan akhir (s, t, k) bisa ±30 dB di bawah vokal, jadi -32
+    a, b = (t - win, t) if side == "ujung" else (t, t + win)
+    seg = mono[max(0, int(round(a * sr))):min(len(mono), int(round(b * sr)))]
+    db = float(20 * np.log10(np.sqrt(np.mean(seg ** 2)) + 1e-9)) if len(seg) else -120.0
+    return db <= lim, f"{side} {db:.1f} dBFS > batas {lim:.1f} (puncak {ref:.1f}, lantai {floor:.1f})"
+
+
 def cmd_cut(a):
     x, sr = sf.read(a.audio, always_2d=True, dtype="float32")
     dur = len(x) / sr
@@ -56,12 +71,10 @@ def cmd_cut(a):
         raise ValueError("Unsafe source cuts: " + "; ".join(validation["failures"]))
     mono = x.mean(1)
     for start, end in rem:
-        for timestamp in (start, end):
-            sample = round(timestamp * sr)
-            window = mono[max(0, sample - round(0.001 * sr)):min(len(mono), sample + round(0.001 * sr))]
-            db = 20 * np.log10(np.sqrt(np.mean(window ** 2)) + 1e-9)
-            if db > -38:
-                raise ValueError(f"Endpoint {timestamp:.6f}s is not low energy ({db:.1f} dBFS); inspect waveform")
+        for timestamp, side in ((start, "ujung"), (end, "awal")):
+            ok, info = endpoint_quiet(mono, sr, timestamp, side)
+            if not ok:
+                raise ValueError(f"Endpoint {timestamp:.6f}s masih bergelombang ({info}); geser ke celah sunyi")
     keep, cur = [], 0.0
     for r0, r1 in rem:
         if r0 > cur: keep.append((cur, r0))

@@ -18,14 +18,15 @@ di bawah dengung kamar (gagal 15 Nov: ambang -46 dB di kamar -38 dB melewatkan d
 
 Pakai:
   python3 cut_check.py suara.wav words.json [--filler "eee,emm,tuh"] [--suggest potong.json]
---suggest menulis usulan rentang buang [[mulai, akhir, alasan], ...]: diam disisakan 0,06 dtk (tengah kalimat) atau
-0,28 dtk (antarkalimat); kata sampah dibuang dari awal kata sampai awal kata berikutnya (sisa 0,04 dtk).
+--suggest menulis usulan rentang buang [[mulai, akhir, alasan], ...]: diam disisakan max(0,06; 0,12) dtk (tengah kalimat:
+ekor 0,08 + napas 0,04 selalu dilindungi) atau 0,28 dtk (antarkalimat); kata sampah dibuang dari awal kata sampai awal kata berikutnya (sisa 0,04 dtk).
 Usulan wajib didengar sebelum dipakai (`scripts/audio/recut.py` menerapkannya + peta waktu). Exit 1 bila gagal.
 """
 import argparse, json, re, sys
 import numpy as np
 import soundfile as sf
 
+TAIL, PRE = 0.08, 0.04  # dtk: ekor kata setelah energi turun, napas/plosif sebelum kata berikut
 DEF_FILL = "e,ee,eee,eeee,em,emm,emmm,eh,ehm,hmm,hm,uh,uhm,ah,um,umm,mm,tuh"
 
 
@@ -156,8 +157,14 @@ def main():
         lim, keep = (a.max_sentence, 0.28) if end else (a.max_inner, 0.06)
         if gap >= lim:
             found.append(("antar_kal" if end else "diam_kal", round(a0 / 100, 2), f"{p['w']} → {q['w']} {gap:.2f} dtk"))
-            m = (a0 + b0) / 200
-            sug.append([round(m - (gap - keep) / 2, 3), round(m + (gap - keep) / 2, 3), f"jeda {'antarkalimat' if end else 'tengah kalimat'} {p['w']}→{q['w']}"])
+            # Ekor kata dilindungi: ambang diam (median-18 dB) jatuh sebelum ekor konsonan/napas habis, jadi potongan
+            # baru boleh mulai TAIL dtk setelah energi turun dan berakhir PRE dtk sebelum kata berikut naik
+            # (gagal: builder-trap-r2 v5, "kecanduan." & "buat." terpotong; Bali v10f "ngatur kita").
+            c0, c1 = a0 / 100 + TAIL, b0 / 100 - PRE
+            extra = (c1 - c0) - max(0.0, keep - TAIL - PRE)
+            if extra > 0.02:
+                m = (c0 + c1) / 2
+                sug.append([round(m - extra / 2, 3), round(m + extra / 2, 3), f"jeda {'antarkalimat' if end else 'tengah kalimat'} {p['w']}→{q['w']}"])
     cov = np.zeros(len(db), bool)
     for q in W: cov[int(q["s"] * 100):int(q["e"] * 100) + 1] = True
     hum = [(r0 / 100, (r1 - r0) / 100) for r0, r1 in runs((db > speech - 8) & ~cov, 15)]

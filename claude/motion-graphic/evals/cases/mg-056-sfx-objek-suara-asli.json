@@ -1,0 +1,15 @@
+{
+  "id": "mg-056",
+  "source": "Irfan 16 Nov: aturan '1 SFX per objek' terhapus 14 Nov; suara asli diturunkan loudness global (±−17 dB, mendem) lalu dibiarkan −22,8 LUFS (jensen v3); audio terpotong di batas adegan Remotion; potongan memancung ekor kata",
+  "prompt": "Buat sound design dan mix untuk video motion dengan suara narasumber asli, KT kata per kata, kartu yang masuk berurutan, dan gerak kamera.",
+  "assertions": [
+    "Setiap objek/visual penting di objects.json punya tepat satu cue dalam ±100 ms, kecuali senyap + alasan",
+    "Kata KT/subtitle yang muncul kata per kata tidak punya cue; kata slam/penekanan punya satu cue",
+    "Item barisan yang masuk > 2 frame terpisah masing-masing berbunyi; dua bunyi tidak berjarak < 100 ms",
+    "Satu peran memakai satu file, satu file hanya satu peran",
+    "Suara asli: loudness hasil >= sumber − 0,5 dB, crest turun <= 2 dB, hasil >= −17 LUFS; tidak ada limiter/loudnorm pada stem suara",
+    "Tidak ada <Audio> di dalam <Sequence> adegan; mix diputar satu komponen audio-bus",
+    "Usulan potong cut_check menyisakan ekor 80 ms + napas 40 ms; recut menolak titik potong yang masih bergelombang relatif ke rekaman (ref−32 dB / lantai+10 dB)",
+    "Lasertransision dan ES_Scifi…Glitch 02 tidak ditolak; Business/Hollywood tidak salah terbaca sebagai palet terlarang"
+  ]
+}

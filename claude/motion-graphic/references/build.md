@@ -48,7 +48,7 @@ Baca saat mulai build atau menulis ExtendScript/expression. Nomor § sama dengan
   - **teks di dunia 3D**: posisi dihitung dari titik layar yang dipilih (unproject di kamera tengah-shot) supaya pasti terlihat dan tidak saling tumpuk; skala slam diputar di pusat kata
 - Perakitan/edit akhir boleh di invideo (MCP) atau ekspor ke Premiere/DaVinci. Kredit AI invideo hanya untuk generate.
 
-**Audio:** mixer Python. Peta audio dibuat dengan librosa + Demucs (§2). Opsional: ekspor sesi REAPER `.RPP` dari `cues.json` supaya Irfan bisa menggeser SFX sendiri.
+**Audio:** mixer Python. Peta audio dibuat dengan librosa + Demucs (§2). Di Remotion, hasil mix (satu WAV) diputar oleh **satu** komponen di root komposisi berpenanda `// audio-bus`; tidak ada `<Audio>` di dalam `<Sequence>` adegan, karena audio di situ berhenti saat adegan selesai dan ekor kata/SFX terpotong (`scripts/juri/audio_bus_check.py`, dijalankan `render.sh final`; Irfan 16 Nov). Opsional: ekspor sesi REAPER `.RPP` dari `cues.json` supaya Irfan bisa menggeser SFX sendiri.
 
 **Transfer cloud ↔ Mac:**
 - Pakai nama file baru setiap kirim; nama yang sama bisa terkirim versi lama.
