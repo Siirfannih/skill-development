@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Gerbang potongan suara (gerbang 6, Lantai E23; Irfan 15 Nov): sebelum suara dikunci, potongan harus bersih dari
 kata sampah dan diam saat pembicara berpikir — termasuk diam yang ditelan transkrip ke dalam durasi kata.
+(editorial: skill-dev-journey 16 Nov)
 
 Gagal yang membentuk gerbang ini: builder-trap-r2 v1–v2. Pemotong lama hanya membuang jeda < -45 dB >= 0,30 dtk;
 lantai noise kamar -38 dB sehingga diam tidak terdeteksi, "tuh" x3 lolos ke teks layar, dan 24 kata menyimpan
@@ -48,8 +49,8 @@ def load_words(p):
     return sorted(out, key=lambda q: q["s"])
 
 
-def validate_cuts(source, removed, mapped=None, guard=0.05, fillers=None):
-    """Validate cuts against source words, not only a remapped transcript."""
+def validate_cuts(source, removed, mapped=None, guard=0.05, fillers=None, cuts=None):
+    """Editorial labels exempt wholly removed tokens; partial words still fail."""
     failures = []
     rows = []
     norm = lambda w: re.sub(r"[^\w]", "", w.lower())
@@ -61,6 +62,19 @@ def validate_cuts(source, removed, mapped=None, guard=0.05, fillers=None):
             failures.append(f"invalid/overlapping cut {a}:{b}")
         previous = b
 
+    editorial = []
+    for cut in cuts or []:
+        if cut.get("label") != "editorial":
+            continue
+        a, b = float(cut["source_start"]), float(cut["source_end"])
+        if not any(abs(a - c) < 1e-7 and abs(b - d) < 1e-7 for c, d in removed):
+            failures.append(f"editorial label outside removed ranges {a}:{b}")
+            continue
+        editorial.append((a, b))
+
+    def editorial_removed(word):
+        return any(a <= word["s"] + 1e-7 and b >= word["e"] - 1e-7 for a, b in editorial)
+
     def overlap_for(word):
         return sum(max(0.0, min(b, word["e"]) - max(a, word["s"])) for a, b in removed)
 
@@ -68,10 +82,10 @@ def validate_cuts(source, removed, mapped=None, guard=0.05, fillers=None):
     for word in source:
         duration = word["e"] - word["s"]
         filler_removed = norm(word["w"]) in filler_set and overlap_for(word) >= max(0.0, duration - 0.020)
-        if not filler_removed:
+        if not filler_removed and not editorial_removed(word):
             expected.append(word)
 
-    content = [word for word in source if norm(word["w"]) not in filler_set]
+    content = [word for word in source if norm(word["w"]) not in filler_set and not editorial_removed(word)]
     mapped_content = [word for word in mapped or [] if norm(word["w"]) not in filler_set]
     if mapped is not None and [norm(word["w"]) for word in mapped] != [norm(word["w"]) for word in expected]:
         failures.append("mapped word sequence omits a source token not covered by a cut")
@@ -116,7 +130,10 @@ def main():
     if a.source_words or a.map:
         if not (a.source_words and a.map):
             ap.error("--source-words and --map must be supplied together")
-        result = validate_cuts(load_words(a.source_words), json.load(open(a.map))["removed"], load_words(a.words), fillers=a.filler)
+        with open(a.map, encoding="utf-8") as handle:
+            cut_map = json.load(handle)
+        result = validate_cuts(load_words(a.source_words), cut_map["removed"], load_words(a.words),
+                               fillers=a.filler, cuts=cut_map.get("cuts"))
         if a.validation_out:
             json.dump(result, open(a.validation_out, "w"), ensure_ascii=False, indent=2)
         print("PASS source overlap/duration/guard" if result["pass_"] else "FAIL: " + "; ".join(result["failures"]))

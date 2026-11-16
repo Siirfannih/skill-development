@@ -19,6 +19,13 @@ Komponen dibangun sebelum RESEP ini dan dinilai di atas latar abu polos, bukan f
 
 **Mode B/C · visual & motion graphic (kiblat 07).** Bidang warna penuh + bentuk geometris raksasa (rounded-hexagon/blob/lingkaran 60–120 % tinggi frame) yang masuk-keluar sebagai transisi + UI besar (kartu/jendela ≥ 50 % lebar frame) yang di-zoom kamera. Bidang: biru `#2E5BFF` (beat solusi) atau putih hangat `#F6F5F0` (netral); bentuk sekunder biru muda `#C9D6FF`, kuning `#FFD54A`, coral `#F97066`. Teks di bidang biru = putih, besar (Poppins 800 ≥ 9 % tinggi). Transisi khas yang berulang (satu keluarga): **bentuk raksasa menyapu frame** (rounded-hexagon putih/biru membesar dari objek ke luar frame dalam 12–16 f, `whip`), dipakai di setiap pindah A↔B/C.
 
+**Karakter = gambar ulang karakter/ikon ASLI tiap AI (Irfan 16 Nov 20:55), bukan desain baru:**
+- **Claude** = crab pixel Claude Code (`sumber/ref/maskot-acuan-pixel-crab.png`), warna merah-coral bawaannya (ambil warna dari file acuan). Claude 1 dan Claude 2 = karakter sama + label.
+- **ChatGPT/Codex** = ikon aplikasi asli (`sumber/ref/chatgpt-codex-ikon-asli.png`): bunga/awan bergelombang biru dengan gradien putih seperti kilatan cahaya di kiri atas, simbol `>_` putih di tengah. Bukan kotak hitam (ditolak Irfan: `sumber/ref/k13-r1-ditandai-irfan.png`, tanda X). Session A dan B = karakter sama + label.
+- **Gemini** = bintang empat sudut Gemini dengan gradien biru→ungu aslinya.
+- Boleh ditambah mata kecil/gerak tubuh supaya hidup, tapi siluet dan warna harus langsung dikenali sebagai ikon aslinya. Versi 3D (B1b, di ruangan) dan 2D (B5, kanvas) satu keluarga.
+- Animasi wajib hidup, bukan geser datar: squash & stretch saat lompat/kirim pesan, kilatan cahaya menyapu badan ChatGPT, crab Claude berjalan dengan kaki bergantian, bintang Gemini berputar pelan + berkilau; amplop terbang dengan jejak busur dan tiba dengan pop; kamera ikut (07: kedalaman lapis, bentuk besar di belakang).
+
 **Tokoh (kiblat 37 + permintaan Irfan).** Maskot 3D di ruang (B1b) dan sprite pixel 2D di mode C (B5) adalah keluarga yang sama. Tokoh selalu besar: 20–35 % tinggi frame, tidak pernah ikon kecil berderet.
 
 ## 2. Per babak (usulan kerja, dikunci setelah storyboard Henti 1)
@@ -37,3 +44,26 @@ Tidak ada koneksi PC→Mac (tanpa host Mac di `~/.ssh/config`), jadi Apple Visio
 
 ## 4. Gerbang still (G2) mulai sekarang
 Lembar sanding: still kita **di atas footage/kanvas final** di kiri, keyframe kiblat yang setara di kanan, maks 960 px. Lulus bila: skala & kepadatan setara kiblat, tidak ada pelanggaran §0, arti warna benar, teks dari ucapan.
+
+## 5. Tambahan Irfan 16 Nov ±21:15 (menang atas §2 bila bertabrakan)
+- **Percakapan antar-agen = UI chat** (acuan `sumber/ref/chat-ui-putih-fun.png`, `chat-ui-langit.png`, `chat-ui-gelap-elegan.webp`). Dipilih: **gaya putih fun** (bubble besar membulat, avatar karakter asli, reaksi/pilihan seperti iMessage) untuk B5, karena serumpun dengan kanvas terang 07 dan lebih hidup; gaya gelap elegan (bubble berbingkai gradien, glow ungu di bawah) disimpan untuk kartu "Effort" B4. Avatar: Claude = crab coral, ChatGPT/Codex = bunga biru `>_`. Pesan = percakapan ASLI dari kerja video ini (`handoff/PAHAM-SKILL-DEV.md` §D), mis. Codex: "Boleh saya jalankan doctor --fix?" → Claude: "Sudah kujalankan, langsung kerjakan TASK." Bubble masuk dengan pop + indikator mengetik, bukan muncul diam. Bubble ≥ 7 % tinggi huruf terbaca (teks ±44 px), satu adegan maks 4 bubble di layar.
+- **Isi yang diceritakan = alur kerja skill-development yang sebenarnya** (`handoff/PAHAM-SKILL-DEV.md` §A–C): tiap pesan/objek dipecah dulu maknanya → cara visual (aturan repo di §B dokumen itu) sebelum TASK visual ditulis.
+- **Kartu "Effort" (mode kecerdasan model)** dari `sumber/ref/ref-woinlesss-spin.mp4` (lembar: `ref-woinlesss-spin-sheet.jpg`): kartu UI gelap, slider Faster↔Smarter, ikon otak sebagai pegangan, jejak titik pixel ungu-merah muda bercahaya. Dipakai di B4 pada "ChatGPT Pro Max yang 20 kali": slider meluncur Low→High→Max (label tiap tingkat mengganti dengan blur, `whip`), jejak pixel menyala; lalu kartu paket 20x/5x. Label tingkat hanya kata UI (Low/Medium/High/Max), bukan klaim baru.
+
+## 6. Koreksi Irfan atas storyboard Henti 1 (16 Nov ±21:30) — menang atas §1–§5
+- **Mode C bukan Baikov/07.** Irfan minta *storytelling*, bukan pameran struktur. Tabel keputusan + lima ubin + bentuk bertumpuk di B3-C ditolak ("kenapa Baikov? kenapa banyak shape? kenapa tabel?"). Mode C diganti kiblat **Apple-style motion** (kandidat kartu 28 "Cursor & Desktop" / 30 "Gradient Marketing" — finisher Opus memilih satu dan menulis alasannya): bersih, modern, satu ide per frame, ruang lega, kedalaman lembut, kamera mengikuti satu subjek. Workflow diceritakan sebagai **perjalanan** (satu subjek berpindah dari langkah ke langkah, sebab → akibat), bukan tabel/diagram statis.
+- **Kartu "Effort" dihapus.** `ref-woinlesss-spin.mp4` adalah contoh GAYA (UI gelap elegan, jejak cahaya pixel), bukan konten. Gayanya boleh dipinjam untuk menghaluskan objek lain; tidak ada kartu "Effort/Max" di video.
+- **Finishing render tokoh** (Claude crab, bunga Codex, bintang Gemini) masih kasar: tepi, material, cahaya, integrasi dengan kamar/kanvas harus setara produk Apple (halus, bersih), bukan hanya "bentuk benar".
+- Alur kerja baru: sketsa Sonnet/Codex → **finishing Opus** → G2 Sutradara → Irfan (`orkestrasi.md`).
+
+## 7. Koreksi Irfan kedua (16 Nov ±21:45) — menang atas §1–§6
+Irfan: storyboard-final (r3) = "cerminan AI slop"; sanding r1 (`handoff/henti1/sanding.jpg`) "secara visual better meskipun masih kurang". Aturan utama tetap skill-development; referensi hanya gaya.
+- **Kunci versi yang sudah benar** (jangan diturunkan lagi): B5 r1 "jendela + tokoh + loop" (dua jendela Claude Code & ChatGPT asli, crab + bunga, amplop, loop + centang) = BENAR; B1b r1 cincin kata (workflow · model · decision) = sesuai.
+- **B5:** pakai komposisi r1, tanpa judul "koordinasi" (visual sudah bercerita), tanpa garis/panah biru penghubung; pesan muncul pop-up berurutan (pesan 1 → Claude 2 merespons → Codex merespons lagi).
+- **B3-A "template":** jangan tag dicoret. Visualkan secara harfiah dengan UI Claude Code asli: kolom prompt, user mengetik "/" → menu slash-command muncul berisi template ("storytelling", "Apple style", "cinematic"…); karena skill ini bukan template, "/" tidak memunculkan apa-apa / daftar kosong ("nothing"). Makna: tidak ada template yang dipanggil.
+- **B1b:** kata cincin ("workflow") terlalu kecil dan maskot terlalu kecil. Perbesar maksimal seperti skala slab BALIK MODAL, tetap miring/melengkung mengikuti busur di sekitar kepala; maskot jauh lebih besar.
+- **B6:** "profesional?" / "masih kerasa AI?" = bubble chat seperti B5 (pop-up), bukan tag.
+- **Pelajaran Sutradara:** setiap revisi disanding juga dengan versi sebelumnya yang sudah disetujui; revisi yang menurunkan kualitas ditolak (gagal: storyboard r3 16 Nov).
+
+## 8. Karakter 2D gaya repo (Irfan 16 Nov ±22:00)
+Irfan memilih: semua karakter (Claude, Codex/ChatGPT, Gemini) = 2D gaya ClaudeAnimationBase (kuas, 5 sudut kunci + smear, sistem emosi/kedip/take), juga di kamar (B1b) — menggantikan maskot 3D K-12. Teknik: `claude/motion-graphic/pustaka/teknik/animasi-karakter-clawd.md`. B4 tetap "Claude Max" (Wajib GUIDELINE); latar B5 r1 tetap.
