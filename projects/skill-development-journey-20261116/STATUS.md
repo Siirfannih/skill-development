@@ -21,3 +21,8 @@ Berikutnya: sesi editing dapat mulai dari MP4 dan paket handoff; Irfan belum mem
 - Rough cut v1 di atas jadi arsip; fase 1a memotong ulang dari sumber DJI mengikuti `GUIDELINE.md` §3.
 - Berikutnya: fase 0 (doctor, akses, disk) lalu fase 1a oleh subagen Sonnet. Yang dibutuhkan dariku hanya lokasi file sumber DJI bila tidak ditemukan di PC.
 - Draf `CUT-SHEET.md` ditambahkan (format cut sheet + mapping visual); waktu dan naskah menunggu fase 1a.
+
+## 16 Nov 2026 malam · edit penuh, fase 1a + K-12
+- Sutradara: sesi claude2. Sumber DJI lokal diverifikasi = file Drive (952 MB awal identik byte, durasi 209,39 dtk, frame cocok).
+- Pekerja claude1 (Sonnet) kena limit 5 jam s.d. 22:10 WITA → TASK-1a-potong dialihkan ke Codex. TASK-K12-maskot di Codex.
+- Blok: disk ±1,2 GB bebas (gerbang 15 GB). Fase 3/5 (render) menunggu izin Irfan membebaskan ruang (kandidat `~/work/clips`).
