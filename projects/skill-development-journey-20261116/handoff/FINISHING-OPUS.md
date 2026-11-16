@@ -24,3 +24,9 @@ Teks besar hanya "workflow" (diucapkan). Tanpa tabel, ubin fase, bentuk Baikov. 
 - "Claude Max" di kartu B4 = nama paket asli; VO menyebut "Claude Pro yang 5 kali" (tidak diubah, B4 dikunci).
 - B3-C3 jejak kecil (zoom 0,33): label "pustaka/juri" ±30 px; kata utama "workflow" yang membawa makna.
 - Gerak hanya diperiksa lewat still; belum ada render video.
+
+## Ronde 2 · karakter 2D gaya ClaudeAnimationBase (keputusan Irfan, G2 Sutradara)
+- `remotion/src/papan/karakter2d/`: `gerak.ts` (port clawd-motion, EASE → CURVE), `Karakter2D.tsx` (Clawd/Codex/Gemini: SVG + filter kuas prosedural, garis tinta bergetar 12 gbr/dtk, 5 sudut kunci + smear, kedip 3,67 dtk, emosi via `emotions()`), `LembarKarakter.tsx`, `LICENSE-ClaudeAnimationBase` (MIT, atribusi di header).
+- Codex/Gemini: bahasa gambar sama (wash, tinta, mata kecil); `>_` dicerminkan balik saat tokoh menghadap kiri supaya tetap `>_`.
+- B1b: masuk tepat di nama (ChatGPT 0 dtk, Claude 0,75, Gemini 1,25: pop backOut + take), menoleh ke Irfan di "decision" (turn + smear); bayangan lembut ke dinding + gradien cahaya kamar. B5: crab & bunga 2D, kirim = lompat ber-antisipasi, terima = take.
+- B3-C3: titik jejak 2×, label 132 px dunia (±43 px layar) + label `Mode A`. B3-A: panel turun ke kiri-tengah.
