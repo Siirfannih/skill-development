@@ -155,6 +155,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | File | Isi / kapan dibuka |
 |---|---|
 | `tools/ELEVENLABS.md` | Kunci API tidak pernah ada di repo ini, di chat, atau di memori. |
+| `tools/codex-pc.sh` | Menjalankan Codex (ChatGPT) di PC server untuk tugas dari orkestrator. |
 | `tools/doctor.sh` | Cek apakah Claude Code dan Codex memuat skill-development dengan benar. Dijalankan di "Awal sesi" (AGENTS.md). |
 | `tools/peta.py` | Tulis PETA.md: peta repo supaya model membuka hanya file yang dibutuhkan (Irfan 16 Nov). |
 | `tools/sync.sh` | ## Tugas video, konten, naskah, storyboard, atau skill -> repo skill-development Folder ini adalah titik masuk remote, jadi aturan video tidak terbaca otomatis. Untuk tugas jenis ini: 1. Baca dulu `{r |

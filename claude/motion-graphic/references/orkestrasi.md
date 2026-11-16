@@ -15,7 +15,7 @@ Kamu adalah **sutradara, prompt engineer, dan QC**. Kamu merancang, menulis peri
 
 | Pekerjaan | Utama | Cadangan | Bagianmu |
 |---|---|---|---|
-| Menulis/ubah kode adegan Remotion, typecheck | **Codex (ChatGPT Pro 5x)** lewat `codex exec` di PC, atau `gpt-bridge` di Mac | Subagen `model: sonnet` | Jangan menulis kode adegan sendiri, kecuali perbaikan ≤ 10 baris |
+| Menulis/ubah kode adegan Remotion, typecheck | **Codex (ChatGPT Pro 5x)** lewat `tools/codex-pc.sh` di PC, atau `gpt-bridge` di Mac | Subagen `model: sonnet` | Jangan menulis kode adegan sendiri, kecuali perbaikan ≤ 10 baris |
 | Render still/draft/frames/final, `frame_audit.py`, mix, cek mekanis | Script (`render.sh`, runner) | — | Jalankan perintahnya saja, baca ≤ 20 baris log terakhir |
 | **Pemeriksaan per detik (30 frame)** | **Gemini (`agy`) DAN ChatGPT, keduanya** | Bila salah satu tidak bisa diakses: subagen `model: sonnet` menggantikannya | Hanya detik yang hasil kedua pemeriksanya berbeda (§4) |
 | Cari file, ringkas log, eksplorasi kode, cek diff baris per baris | Subagen `model: haiku` / `sonnet` | Codex | Tidak |
@@ -28,7 +28,7 @@ Pembuat dan penilai selalu model yang berbeda. Codex yang membangun adegan tidak
 Lakukan sekali di awal sesi dan catat hasilnya di `STATUS.md`:
 1. Di PC: `which codex && codex login status`. Bila tidak ada, pakai `gpt-bridge` di Mac (`~/AI-OPS/gpt-bridge/gpt`, lihat `autopilot-video/tools/gpt-bridge/README.md`) lewat koneksi PC→Mac yang sudah dipakai sesi sebelumnya. Cari caranya di riwayat atau skrip yang ada, jangan mengarang host.
 2. Gemini: `agy` ada di Mac. Cara memanggilnya ada di `experimental/dual-agent-sound/scripts/gemini_audio_director.py`. Cadangannya Gemini API (kunci di `$GEMINI_API_KEY` atau `~/Documents/Skill-Development/.secrets/gemini.key`, tidak pernah di repo).
-3a. Di PC, `codex exec -s read-only` tidak bisa membuka file di folder kerja ("bwrap: Operation not permitted"); tempel isi `INFO.md` langsung di prompt dan lampirkan lembar lewat `-i` (prompt ditaruh SEBELUM `-i`, karena `-i` menelan semua argumen sesudahnya). `agy -p` di PC kosong/timeout untuk lampiran 10 lembar (2× gagal) → jalur Gemini diganti subagen `model: sonnet` (gagal: bdf26 v10, 15–16 Nov).
+3a. Di PC, Codex dijalankan penuh di terminal lewat `tools/codex-pc.sh <folder proyek> handoff/TASK-xx.md [-i lampiran…]` (isinya `codex exec --sandbox danger-full-access -C <folder>`). Ini keputusanku (Irfan 16 Nov): sandbox bubblewrap tidak jalan di PC ("bwrap: Operation not permitted"), sehingga Codex ber-sandbox tidak bisa membuka folder kerja. Batasnya: TASK wajib memuat FILE BOLEH / FILE JANGAN (skrip menolak TASK tanpa itu), dan pembuat tidak memeriksa hasilnya sendiri. Lampiran gambar lewat `-i` ditaruh SESUDAH file TASK. `agy -p` di PC kosong/timeout untuk lampiran 10 lembar (2× gagal) → jalur Gemini diganti subagen `model: sonnet` (gagal: bdf26 v10, 15–16 Nov).
 3b. Dua pemeriksa saling melengkapi, bukan duplikat: di bdf26 v10 ChatGPT kuat di atribusi b-roll dan sinkron, subagen Sonnet menemukan kata yang tidak pernah tampil dan tepuk tangan yang putus. Banyak temuan ChatGPT positif palsu (penutur di shot wajah = pemilik suara, punch-in disengaja), jadi tiap temuan diverifikasi dengan frame/ukuran sebelum diperbaiki.
 3. Bila sebuah jalur gagal 2× berturut-turut, tandai jalur itu mati di `STATUS.md` dan pakai cadangannya. **Jangan diam-diam kembali mengerjakan semuanya sendiri.** Bila kedua jalur pemeriksa mati, laporkan ke aku dalam satu pesan, lalu lanjutkan pekerjaan lain yang tidak bergantung pada jalur itu.
 
