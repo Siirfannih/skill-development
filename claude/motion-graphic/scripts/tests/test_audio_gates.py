@@ -104,6 +104,73 @@ class CutSafetyTests(unittest.TestCase):
         self.assertTrue(result["pass_"], result["failures"])
 
 
+class EditorialCutTests(unittest.TestCase):
+    def setUp(self):
+        self.source = [
+            {"w": "Aku", "s": 0.0, "e": 0.3},
+            {"w": "ulang", "s": 0.5, "e": 0.8},
+            {"w": "aman.", "s": 1.0, "e": 1.3},
+        ]
+        self.mapped = [self.source[0], {"w": "aman.", "s": 0.4, "e": 0.7}]
+        self.cuts = [{"source_start": 0.35, "source_end": 0.95, "label": "editorial"}]
+
+    def test_whole_editorial_word_is_optional(self):
+        result = cut_check.validate_cuts(self.source, [[0.35, 0.95]], self.mapped, cuts=self.cuts)
+        self.assertTrue(result["pass_"], result["failures"])
+
+    def test_sliced_editorial_word_still_fails(self):
+        cuts = [{"source_start": 0.6, "source_end": 0.95, "label": "editorial"}]
+        result = cut_check.validate_cuts(self.source, [[0.6, 0.95]], self.mapped, cuts=cuts)
+        self.assertFalse(result["pass_"])
+        self.assertTrue(any("overlap ulang" in x for x in result["failures"]))
+
+    def test_missing_non_editorial_word_fails(self):
+        result = cut_check.validate_cuts(self.source, [[0.35, 0.95]], [], cuts=self.cuts)
+        self.assertFalse(result["pass_"])
+        self.assertTrue(any("sequence" in x for x in result["failures"]))
+
+    def test_label_cannot_exempt_a_word_outside_removed_ranges(self):
+        result = cut_check.validate_cuts(self.source, [], self.mapped, cuts=self.cuts)
+        self.assertFalse(result["pass_"])
+
+    def test_unlabelled_content_removal_still_fails(self):
+        result = cut_check.validate_cuts(self.source, [[0.35, 0.95]], self.mapped)
+        self.assertFalse(result["pass_"])
+
+    def test_editorial_cut_still_protects_adjacent_word_guard(self):
+        cuts = [{"source_start": 0.31, "source_end": 0.95, "label": "editorial"}]
+        result = cut_check.validate_cuts(self.source, [[0.31, 0.95]], self.mapped, cuts=cuts)
+        self.assertFalse(result["pass_"])
+        self.assertTrue(any("guard Aku" in x for x in result["failures"]))
+
+    def test_editorial_cli_and_audio_order_use_the_same_map(self):
+        with tempfile.TemporaryDirectory() as folder:
+            p = Path(folder)
+            voice, source, words, cut_map = [p / name for name in
+                ("voice.wav", "source.json", "words.json", "map.json")]
+            tt = np.arange(48_000) / 48_000
+            samples = 0.35 * np.sin(2 * np.pi * 220 * tt)
+            samples[14_400:19_200] = 0.0
+            samples[33_600:] = 0.0
+            sf.write(voice, samples, 48_000, subtype="FLOAT")
+            source.write_text(json.dumps(self.source))
+            words.write_text(json.dumps(self.mapped))
+            cut_map.write_text(json.dumps({"removed": [[0.35, 0.95]], "cuts": self.cuts}))
+            cli = subprocess.run([os.sys.executable, str(ROOT / "scripts/gate/cut_check.py"),
+                str(voice), str(words), "--source-words", str(source), "--map", str(cut_map)],
+                capture_output=True, text=True)
+            self.assertEqual(cli.returncode, 0, cli.stdout + cli.stderr)
+            script = ROOT / "scripts/gate/audio_order.py"
+            subprocess.run([os.sys.executable, str(script), "init", "--dir", str(p)],
+                check=True, capture_output=True)
+            lock = subprocess.run([os.sys.executable, str(script), "lock", "suara", str(voice),
+                "--dir", str(p), "--words", str(words), "--source-words", str(source),
+                "--cut-map", str(cut_map), "--voice-source", str(voice)],
+                capture_output=True, text=True)
+            self.assertEqual(lock.returncode, 0, lock.stdout + lock.stderr)
+            self.assertIn("suara", json.loads((p / "ORDER.json").read_text())["stages"])
+
+
 class SfxPolicyTests(unittest.TestCase):
     def test_rejects_forbidden_palette_even_when_metadata_is_complete(self):
         cues = [
