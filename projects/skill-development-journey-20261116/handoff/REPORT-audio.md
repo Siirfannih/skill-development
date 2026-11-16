@@ -26,3 +26,8 @@ Mix tiga varian dibangun ulang, tanpa limiter, suara ×1,0 (selisih float ≤9e-
 Cue baru: 66,066 dtk (f1980 pergantian adegan, whoosh transisi-dunia gain −8 dB, file sama); total 52 cue untuk 59 objek (`objects.json` baru). PUTUSAN sfx_density terhadap master baru: LULUS; `lock sfx` LULUS (7074eb5a).
 PUTUSAN lock musik A (59f69e9a) dan B (15646f62) diulang; `audio_order.py check` PASS di `audio/order-A|B`.
 Mix tiga varian dibangun ulang, tanpa limiter, suara ×1,0 (selisih float ≤9e-8): A/B/tanpa-musik −15,79 / −15,83 / −16,05 LUFS, puncak −1,0 dBFS, kejernihan suara ≥6,6 dB; PUTUSAN audio_phone 100/50/20 %: 41/41/39 dari 52 SFX (A dan B), SFX tajam 0. Tanpa commit.
+
+## Penutup (17 Nov, lock visual cf91c782)
+PUTUSAN lock sfx (7074eb5a, cue dan `objects.json` tidak berubah; objek identik, hanya penanda `senyap` pada salinan audio) dan lock musik A (59f69e9a) / B (15646f62) diulang tanpa mengubah cue/mix; `audio_order.py check` PASS di `audio/order-A|B`.
+PUTUSAN verifikasi `out/`: ketiganya 2496 f, 30000/1001, audio 83,264 dtk, stream video identik byte (md5 f0cfe90a) dengan `qc/master_gambar.mp4` terbaru, audio berkorelasi 0,9998–0,9999 dengan `audio/mix_*.wav` (offset 0); diganti nama menjadi `out/varian-A.mp4`, `varian-B.mp4`, `tanpa-musik.mp4`.
+PUTUSAN unggah: `rclone copy` ke "gdrive:Claude edit/2026-11-16 — Siirfan — Di Balik Skill Development/" selesai; `rclone ls` ukuran sama dengan lokal (varian-A 102.599.875, varian-B 102.608.656, tanpa-musik 101.923.332 byte); tanpa `rclone link`. Tanpa commit.

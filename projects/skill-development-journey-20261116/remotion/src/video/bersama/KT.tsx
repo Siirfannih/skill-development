@@ -78,11 +78,11 @@ const R2: React.FC<KTProps> = (p) => {
 const R3: React.FC<KTProps> = (p) => {
   const {f, out} = useKeluar(p.durasi, p.keluarAt, 6);
   const size = p.size ?? 96;
-  const bekuF = p.bekuAt !== undefined ? Math.round(p.bekuAt * 30) : 1e9;
+  const {fps} = useVideoConfig();
+  const bekuF = p.bekuAt !== undefined ? Math.round(p.bekuAt * fps) : 1e9;
   const ff = Math.min(f, bekuF);
   const chars = Array.from(p.teks);
   const viral = p.gaya === 'viral';
-  const fps = 30;
   // kata ke berapa tiap huruf (onset per kata)
   const kataKe = chars.reduce<number[]>((a, c, i) => { a.push(i === 0 ? 0 : a[i - 1] + (chars[i - 1] === ' ' ? 1 : 0)); return a; }, []);
   return <AbsoluteFill style={{...shell, clipPath: `inset(0 0 ${out * 100}% 0)`}}>
@@ -98,7 +98,7 @@ const R3: React.FC<KTProps> = (p) => {
         const jx = (hash(tick * 7 + i) - 0.5) * size * 0.16 * (k + keep);
         const jy = (hash(tick * 11 + i + 4) - 0.5) * size * 0.34 * (k + keep);
         const jr = (hash(tick * 13 + i + 8) - 0.5) * 24 * (k + keep);
-        const pop = move(f, o0 + react(i % 6, 30, 0.4), 5, 'land');
+        const pop = move(f, o0 + react(i % 6, fps, 0.4), 5, 'land');
         const warna = viral ? undefined : (p.warna ?? (p.gelap ? INK : HERO));
         const sty: React.CSSProperties = viral
           ? {backgroundImage: 'linear-gradient(180deg,#FF4FD8,#8E3BFF)', WebkitBackgroundClip: 'text', color: 'transparent',
@@ -132,7 +132,7 @@ const Putus: React.FC<KTProps> = (p) => {
 
 // ---------- R4 · T09 bubble chat pop-up (B6b); indikator mengetik dulu, lalu teks ----------
 const Bubble: React.FC<KTProps> = (p) => {
-  const {f, out} = useKeluar(p.durasi, p.keluarAt, 8);
+  const {f, fps, out} = useKeluar(p.durasi, p.keluarAt, 8);
   const size = p.size ?? 66;
   const kiri = p.sisi !== 'kanan';
   const enter = move(f, 0, 12, 'land');
@@ -146,7 +146,7 @@ const Bubble: React.FC<KTProps> = (p) => {
         boxShadow: '0 30px 60px rgba(0,0,0,.30), 0 8px 16px rgba(0,0,0,.16)'}}>
         {typing ? <Titik f={f}/> : <>
           <span style={{width: size * 0.5, height: size * 0.5, borderRadius: '50%', border: `${Math.round(size * 0.07)}px solid #B8BEC8`, flexShrink: 0}}/>
-          {p.teks.split(/\s+/).filter(Boolean).map((w, i, arr) => <span key={i} style={{visibility: f >= onsetF(p, i, 30, 0) ? 'visible' : 'hidden'}}>{w + (i < arr.length - 1 ? ' ' : '')}</span>)}</>}
+          {p.teks.split(/\s+/).filter(Boolean).map((w, i, arr) => <span key={i} style={{visibility: f >= onsetF(p, i, fps, 0) ? 'visible' : 'hidden'}}>{w + (i < arr.length - 1 ? ' ' : '')}</span>)}</>}
         <svg width="46" height="40" viewBox="0 0 46 40" style={{position: 'absolute', bottom: -2, [kiri ? 'left' : 'right']: -12, transform: kiri ? undefined : 'scaleX(-1)'}}>
           <path d="M30 0C30 18 22 32 0 40C24 40 40 34 46 22Z" fill="#FFFFFF"/>
         </svg>

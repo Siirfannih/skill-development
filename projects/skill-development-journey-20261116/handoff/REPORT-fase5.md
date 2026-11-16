@@ -33,3 +33,9 @@ frame_audit ulang: 3 potongan dipakai ulang (c01, c04, c05; HASH sama), 6 perlu 
 Hasil: Codex LULUS 6/6; Sonnet LULUS 6/6. Satu-satunya temuan tersisa di seluruh video: Sonnet 9s f286 'Claude,' vs maskot (c01, ulangan, sudah di-DISMISS Sutradara) -> c01 LULUS. Kesepakatan 87/88 detik = 99%. Semua 9 VERDICT.md PUTUSAN: LULUS; qc/VERDICT.md gabungan PUTUSAN: LULUS.
 Final: out/varian-A.mp4, out/varian-B.mp4, out/tanpa-musik.mp4 (-c:v copy dari master, AAC 320k 48 kHz). ffprobe: 2496 f 30000/1001, video 83,2832 dtk, audio 83,264 dtk (selisih 19 ms < 1 frame), stream video identik master, lag audio 0 sampel, korelasi 0,9998. out/kandidat-*.mp4 dihapus.
 Disk / ±4 GB; tidak ada penghapusan lain.
+
+## Ronde 5 (kurva kamera, 17 Nov, master 03:59 2496 f; mix tidak diulang)
+objects.json IDENTIK (builder), mix 02:58 dipakai. audio_order check audio/order-A|B: hanya tahap visual basi ('master_gambar.mp4 berubah sejak dikunci'); suara/sfx/musik tetap OK; belum dikunci ulang (urusan penata suara). Durasi mix 83,2832 = master.
+Audit ulang: c07 dipakai ulang (HASH sama, LULUS); 8 potongan diperiksa blind: Codex LULUS 9/9; Sonnet (claude1, tanpa fallback) LULUS c06-c09, GAGAL c01-c05. Disepakati 0; kesepakatan 81/88 detik = 92%.
+PERLU PUTUS (hanya Sonnet): 3s f95 'selesai' hijau di atas header commit; 14s f428 maskot ganti bentuk 1 frame; 21s f640 bingkai neon jatuh tanpa SFX; 37s f1129 lompat/blur wajah (ulangan, footage + punch) dan 37s f1135 caption 'Jadi' vs hero; 42s f1285 kepala loncat; 47s f1427 kartu masuk tanpa SFX; 48s f1439 hitung 20x telat. Codex tidak menemukan satu pun.
+Drive TIDAK diganti (tak ada keputusan LULUS). Kandidat siap: out/kandidat-{varian-A,varian-B,tanpa-musik}.mp4 (-c:v copy, AAC 320k; 2496 f, audio 83,264 dtk). out/varian-*.mp4 lama tetap. qc/VERDICT.md gabungan diubah jadi DITANGGUHKAN (GAGAL) sampai diputus. Disk 3 GB.

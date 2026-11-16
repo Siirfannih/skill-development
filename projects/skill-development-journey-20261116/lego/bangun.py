@@ -96,22 +96,41 @@ import punch as PU  # noqa: E402
 
 
 def base_clips():
-    """Kamera footage KONTINU (keyframe + ease): [(frame awal, frame akhir, z0, z1, kurva)]. Sambungan footage disamarkan oleh punch-in (punch.py), bukan oleh loncatan skala."""
+    """Kamera footage KONTINU, tiap klip utuh dengan kurva curves.ts (drift saat hold, heavy saat push bertujuan): [(frame awal, frame akhir, z0, z1, kurva)], setengah terbuka.
+    Di sekitar sambungan footage ada celah 12 frame [j-5, j+7) yang diisi klip punch (punch.py); zoom di celah = interpolasi antara akhir klip sebelumnya dan awal klip berikutnya."""
     tot = round(DURASI * FPSO)
-    b = [0, T["finally"], T["finally"] + 0.3, T["b1b"], T["decision"] - 0.25, T["b2a"], T["b2b"], T["b3a"], JOIN["j1"], T["b4b"], JOIN["j49"], JOIN["j53"], T["b5b"], T["b6a"], JOIN["j73"]]
-    z = [(1.00, 1.02, "drift"), (1.02, 1.12, "heavy"), (1.12, 1.06, "drift"), (1.00, 1.02, "drift"), (1.02, 1.06, "heavy"), (1.00, 1.03, "drift"),
-         (1.03, 1.00, "drift"), (1.00, 1.04, "drift"), (1.04, 1.10, "drift"), (1.10, 1.14, "drift"), (1.14, 1.16, "drift"), (1.16, 1.04, "drift"), (1.00, 1.03, "drift"),
-         (1.00, 1.04, "drift"), (1.04, 1.07, "drift")]
-    bs = [round(snapo(x) * FPSO) for x in b] + [tot]
-    return [(a, c, *z[i]) for i, (a, c) in enumerate(zip(bs, bs[1:]))]
+    fr = lambda t: round(snapo(t) * FPSO)
+    j1, j49, j53, j73 = JF
+    pr, po = PU.PRE, PU.POST + 1
+    spec = [(0, fr(T["finally"]), 1.00, 1.02, "drift"), (fr(T["finally"]), fr(T["finally"] + 0.3), 1.02, 1.12, "heavy"), (fr(T["finally"] + 0.3), fr(T["b1b"]), 1.12, 1.06, "drift"),
+            (fr(T["b1b"]), fr(T["decision"] - 0.25), 1.00, 1.02, "drift"), (fr(T["decision"] - 0.25), fr(T["b2a"]), 1.02, 1.06, "heavy"), (fr(T["b2a"]), fr(T["b2b"]), 1.00, 1.03, "drift"),
+            (fr(T["b2b"]), fr(T["b3a"]), 1.03, 1.00, "drift"), (fr(T["b3a"]), j1 - pr, 1.00, 1.04, "drift"), (j1 + po, fr(T["b4b"]), 1.04, 1.10, "drift"),
+            (fr(T["b4b"]), j49 - pr, 1.10, 1.14, "drift"), (j49 + po, j53 - pr, 1.14, 1.16, "drift"), (j53 + po, fr(T["b5b"]), 1.16, 1.04, "drift"),
+            (fr(T["b5b"]), fr(T["b6a"]), 1.00, 1.03, "drift"), (fr(T["b6a"]), j73 - pr, 1.00, 1.04, "drift"), (j73 + po, tot, 1.04, 1.07, "drift")]
+    return spec
+
+
+def _ease(kv, p):
+    """sama dengan compose.eased: linear / land (1-(1-p)^3) / lainnya smoothstep"""
+    if kv == "linear": return p
+    if kv == "land": return 1 - (1 - p) ** 3
+    return p * p * (3 - 2 * p)
+
+
+def z_base_n(n):
+    """zoom dasar pada frame master n, persis rumus compose (p = on/(N-1), klip setengah terbuka a <= n < c); celah punch: interpolasi antar-klip"""
+    cl = base_clips()
+    for a, c, z0, z1, kv in cl:
+        if a <= n < c:
+            return z0 + (z1 - z0) * _ease(kv, (n - a) / max(1, c - a - 1))
+    for (a, c, z0, z1, kv), (a2, c2, y0, y1, kv2) in zip(cl, cl[1:]):
+        if c <= n < a2:                                      # celah
+            return z1 + (y0 - z1) * (n - c + 1) / (a2 - c + 1)
+    return 1.0
 
 
 def z_base(t):
-    n = t * FPSO
-    for a, c, z0, z1, kv in base_clips():
-        if a - 1e-6 <= n <= c + 1e-6:
-            return z0 + (z1 - z0) * CURVE.get(kv, CURVE["drift"])(min(1, max(0, (n - a) / (c - a))))
-    return 1.0
+    return z_base_n(t * FPSO)
 
 
 def zoom_at(t):
@@ -120,33 +139,21 @@ def zoom_at(t):
     f = 1.0
     for j in JF:
         f *= PU.faktor(n, j)
-    return z_base(t) * f
+    return z_base_n(n) * f
 
 
 def dasar():
-    """klip dasar untuk compose: klip kamera kontinu, dengan 12 frame di tiap sambungan diganti klip punch (lossless, blur zoom)."""
+    """klip dasar untuk compose: klip kamera utuh berkurva (tanpa klip linear) + 12 frame punch lossless di tiap sambungan."""
     out = []
     src = os.path.join(P, W.EDIT, "wajah.mp4")
-    wins = sorted((PU.jendela(j)[0], PU.jendela(j)[1] + 1, j) for j in JF)          # [w0, w1) setengah terbuka, 12 frame
-    for a, c, z0, z1, kv in base_clips():
-        segs = [(a, c)]
-        for w0, w1, j in wins:
-            new = []
-            for s0, s1 in segs:
-                if w1 <= s0 or w0 >= s1: new.append((s0, s1)); continue
-                if s0 < w0: new.append((s0, w0))
-                if w1 < s1: new.append((w1, s1))
-            segs = new
-        items = [("c", s0, s1, 0) for s0, s1 in segs] + [("p", w0, w1, j) for w0, w1, j in wins if a <= w0 < c]
-        for kind, f0, f1, j in sorted(items, key=lambda x: x[1]):
-            if kind == "p":
-                path = PU.buat(j, z_base, src, W.EDIT)
-                out.append({"src": os.path.relpath(path, os.path.join(P, "lego")), "in": 0.0, "dur": round((f1 - f0) / FPSO, 5)})
-            else:
-                utuh = (f0, f1) == (a, c)
-                za, zb = (z0, z1) if utuh else (round(z_base(f0 / FPSO), 5), round(z_base(f1 / FPSO), 5))
-                out.append({"src": f"../{W.EDIT}/wajah.mp4", "in": round(f0 / FPSO, 5), "dur": round((f1 - f0) / FPSO, 5),
-                            "kamera": {"zoom": [za, zb], "pusat": [0.5, 0.45], "kurva": kv if utuh else "linear"}})
+    items = [("c", a, c, (z0, z1, kv)) for a, c, z0, z1, kv in base_clips()] + [("p", PU.jendela(j)[0], PU.jendela(j)[1] + 1, j) for j in JF]
+    for kind, f0, f1, x in sorted(items, key=lambda it: it[1]):
+        if kind == "p":
+            path = PU.buat(x, z_base, src, W.EDIT)
+            out.append({"src": os.path.relpath(path, os.path.join(P, "lego")), "in": 0.0, "dur": round((f1 - f0) / FPSO, 5)})
+        else:
+            z0, z1, kv = x
+            out.append({"src": f"../{W.EDIT}/wajah.mp4", "in": round(f0 / FPSO, 5), "dur": round((f1 - f0) / FPSO, 5), "kamera": {"zoom": [z0, z1], "pusat": [0.5, 0.45], "kurva": kv}})
     return out
 
 

@@ -38,40 +38,40 @@
    }
   },
   "visual": {
-   "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/qc/draft_lego.mp4",
-   "sha": "5ac97cd65f0a9edd",
-   "waktu": "2026-11-17 00:31",
+   "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/qc/master_gambar.mp4",
+   "sha": "cf91c782a6ba4726",
+   "waktu": "2026-11-17 03:59",
    "hulu": {
     "suara": "1ee4baa34bf86ee9"
    }
   },
   "sfx": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/cues.json",
-   "sha": "2b11a5e558ab45b2",
-   "waktu": "2026-11-17 01:11",
+   "sha": "7074eb5ac1d17423",
+   "waktu": "2026-11-17 04:09",
    "hulu": {
     "suara": "1ee4baa34bf86ee9",
-    "visual": "5ac97cd65f0a9edd"
+    "visual": "cf91c782a6ba4726"
    },
    "evidence": {
     "objects": {
      "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/objects.json",
-     "sha": "2ad8282dd49140ca"
+     "sha": "92e254669e27b509"
     }
    },
    "ref_density": 0.0
   },
   "musik": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/stem_musik_A.wav",
-   "sha": "6d447d07965731ab",
-   "waktu": "2026-11-17 01:11",
+   "sha": "59f69e9a39511bcd",
+   "waktu": "2026-11-17 04:09",
    "hulu": {
     "suara": "1ee4baa34bf86ee9",
-    "visual": "5ac97cd65f0a9edd",
-    "sfx": "2b11a5e558ab45b2"
+    "visual": "cf91c782a6ba4726",
+    "sfx": "7074eb5ac1d17423"
    },
    "peran": "pengisi sandwich Aware > With Some Malice > Aware di bawah suara",
-   "alasan": "tipe video: explainer personal bertempo cepat (pace_read=energi); Aware ringan di hook/B1b, Malice (86 bpm) B2-B4 di ketukan 1 pada B2 13,747 dtk (selisih -12 ms), strings Aware 0:30+ di push-through D_RELAY 58,572 dtk (0 ms); ducking -7 dB, EQ tengah dipotong, otomasi lokal untuk kejernihan suara >= 6,6 dB dan puncak mix <= -1 dBFS tanpa limiter",
+   "alasan": "tipe video: explainer personal bertempo cepat (pace_read=energi); Aware di hook/B1b, Malice B2-B4 di ketukan 1 pada 13,747 dtk, strings Aware 0:30+ di push-through 58,572 dtk; ducking -7 dB, EQ tengah, otomasi lokal tanpa limiter; visual dikunci ulang cf91c782 (kurva kamera)",
    "didengar": "projects/skill-development-journey-20261116/audio/preview_visual_sfx.mp4"
   }
  },

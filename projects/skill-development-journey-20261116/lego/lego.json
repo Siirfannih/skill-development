@@ -122,17 +122,17 @@
    "kamera": {
     "zoom": [
      1.0,
-     1.03999
+     1.04
     ],
     "pusat": [
      0.5,
      0.45
     ],
-    "kurva": "linear"
+    "kurva": "drift"
    }
   },
   {
-   "src": "cache/punch_1129_31d91f0a.mkv",
+   "src": "cache/punch_1129_2394ca7c.mkv",
    "in": 0.0,
    "dur": 0.4004
   },
@@ -142,14 +142,14 @@
    "dur": 4.8048,
    "kamera": {
     "zoom": [
-     1.04027,
+     1.04,
      1.1
     ],
     "pusat": [
      0.5,
      0.45
     ],
-    "kurva": "linear"
+    "kurva": "drift"
    }
   },
   {
@@ -159,17 +159,17 @@
    "kamera": {
     "zoom": [
      1.1,
-     1.13995
+     1.14
     ],
     "pusat": [
      0.5,
      0.45
     ],
-    "kurva": "linear"
+    "kurva": "drift"
    }
   },
   {
-   "src": "cache/punch_1476_d81239b6.mkv",
+   "src": "cache/punch_1476_52092db7.mkv",
    "in": 0.0,
    "dur": 0.4004
   },
@@ -179,18 +179,18 @@
    "dur": 3.67033,
    "kamera": {
     "zoom": [
-     1.14014,
-     1.15993
+     1.14,
+     1.16
     ],
     "pusat": [
      0.5,
      0.45
     ],
-    "kurva": "linear"
+    "kurva": "drift"
    }
   },
   {
-   "src": "cache/punch_1598_43ed581d.mkv",
+   "src": "cache/punch_1598_f3f74e85.mkv",
    "in": 0.0,
    "dur": 0.4004
   },
@@ -200,14 +200,14 @@
    "dur": 5.23857,
    "kamera": {
     "zoom": [
-     1.15954,
+     1.16,
      1.04
     ],
     "pusat": [
      0.5,
      0.45
     ],
-    "kurva": "linear"
+    "kurva": "drift"
    }
   },
   {
@@ -232,18 +232,18 @@
    "dur": 1.86853,
    "kamera": {
     "zoom": [
-     1.03,
-     1.03943
+     1.0,
+     1.04
     ],
     "pusat": [
      0.5,
      0.45
     ],
-    "kurva": "linear"
+    "kurva": "drift"
    }
   },
   {
-   "src": "cache/punch_2211_42e50ac9.mkv",
+   "src": "cache/punch_2211_7aaaf805.mkv",
    "in": 0.0,
    "dur": 0.4004
   },
@@ -253,14 +253,14 @@
    "dur": 9.27593,
    "kamera": {
     "zoom": [
-     1.04004,
+     1.04,
      1.07
     ],
     "pusat": [
      0.5,
      0.45
     ],
-    "kurva": "linear"
+    "kurva": "drift"
    }
   }
  ],
@@ -281,21 +281,21 @@
   },
   {
    "id": "D_RELAY",
-   "src": "cache/b65ef83839202cba.mp4",
+   "src": "cache/fc7d23150bda2a22.mp4",
    "t": 58.29156666666667,
    "x": 0,
    "y": 0
   },
   {
    "id": "D_REPO_WAJAH",
-   "src": "cache/48584fe6e05ebfbd.mov",
+   "src": "cache/b7c4103fe475714e.mov",
    "t": 1.2679333333333334,
    "x": 0,
    "y": 0
   },
   {
    "id": "D_APP_WAJAH",
-   "src": "cache/0854fa69cac15eaf.mov",
+   "src": "cache/5542800ebfe7abe7.mov",
    "t": 23.256566666666668,
    "x": 0,
    "y": 0

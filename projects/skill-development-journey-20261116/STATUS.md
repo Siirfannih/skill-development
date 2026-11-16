@@ -58,6 +58,9 @@ Codex 9/9 LULUS, Sonnet 4/9; 0 disepakati, 6 perlu putus (hanya Sonnet). Kandida
 Semua potongan LULUS (9 dtk DISMISS). Final: out/varian-A.mp4, out/varian-B.mp4, out/tanpa-musik.mp4; qc/VERDICT.md PUTUSAN: LULUS. Belum diunggah ke Drive.
 
 ## 17 Nov ±03:30 · SELESAI (menunggu penilaian Irfan)
-- Final: out/varian-A.mp4, out/varian-B.mp4, out/tanpa-musik.mp4 (2496 f 30000/1001, 83,28 dtk, AAC 320k), audit frame 4 ronde → qc/VERDICT.md PUTUSAN: LULUS (Codex + Sonnet blind, kesepakatan 99 %). Kredit lagu: musik/KREDIT.md. Diunggah ke Drive "Claude edit/2026-11-16 — Siirfan — Di Balik Skill Development".
+- Final (kurva kamera diperbaiki, ronde 5): out/varian-A.mp4, out/varian-B.mp4, out/tanpa-musik.mp4 — 2496 f 30000/1001, audit 5 ronde → qc/VERDICT.md PUTUSAN: LULUS (putusan Sutradara atas temuan tunggal). Drive diperbarui 17 Nov ±04:50 (ukuran cocok). Kredit: musik/KREDIT.md.
 - Pengecualian berbukti yang menunggu Irfan (PENDING.md): guard "tuh" ×7, --terima-pelan −19,3 LUFS (tanpa limiter).
 - Catatan jalur: tinjauan diff Opus ronde revisi audit dijadwalkan di claude1 03:45 (laporan saja, handoff/REPORT-opus-diff.md) karena claude1 limit 01:50–03:40.
+
+## 17 Nov ±04:20 · fase 5 ronde 5 (kurva kamera)
+Codex 9/9 LULUS; Sonnet (claude1) GAGAL c01-c05 (8 temuan, hanya satu pemeriksa). Drive belum diganti; kandidat di out/kandidat-*.mp4. Lihat REPORT-fase5.md.
