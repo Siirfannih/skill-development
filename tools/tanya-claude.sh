@@ -1,7 +1,10 @@
 #!/bin/bash
 # Codex (atau model lain) minta pendapat Claude untuk satu video, tanpa Claude membaca kode atau seluruh repo.
 #
-#   tools/tanya-claude.sh <folder proyek> <pertanyaan.md> [gambar/still …]
+#   tools/tanya-claude.sh <folder proyek> <pertanyaan.md> [lampiran …]
+#   lampiran = gambar yang SUDAH DIBEDAH secara visual, bernomor frame: folder potongan qc/frame_audit/cNN_… (semua
+#   s*.jpg = 30 frame bernomor per detik + strip audio, ditambah INFO.md), lembar sanding qc/sanding.jpg (still kita vs
+#   kiblat), lembar A/B (asli vs kandidat), atau still per beat (≤ 960 px). Gerak dinilai dari urutan frame bernomor.
 #
 # Claude menerima dosir yang DIRAKIT OTOMATIS dari dokumen arah yang memang sudah ditulis di awal setiap video
 # (gerbang brief → kiblat → resep → storyboard), jadi tidak ada dokumen baru yang harus dibuat:
@@ -21,7 +24,8 @@
 # berulang kali dan terus membesar (lead Claude rata-rata ±370 ribu token per respons; laporan investigasi 24 jam,
 # 16 Nov). Ingatan proyek disimpan di file (KONSUL.md, DECISIONS.md), bukan di riwayat chat.
 #
-# Lingkungan: CLAUDE_CONFIG_DIR (akun, mis. ~/.claude-2 di PC), KONSUL_MODEL (mis. opus), KONSUL_BARU=1 paksa sesi baru.
+# Lingkungan: CLAUDE_CONFIG_DIR (akun, mis. ~/.claude-2 di PC), KONSUL_MODEL (mis. opus), KONSUL_BARU=1 paksa sesi baru,
+# KONSUL_PANDUAN=teks,visual (guide/<urusan>/GUIDE.md yang ikut dosir sesuai pertanyaan: teks, visual, gerak, sfx, audio).
 set -uo pipefail
 [ $# -ge 2 ] || { sed -n '2,18p' "$0"; exit 1; }
 P="$(cd "$1" && pwd)"; Q="$(cd "$(dirname "$2")" && pwd)/$(basename "$2")"; shift 2
@@ -40,7 +44,11 @@ if m:
     cand = glob.glob(os.path.join(repo, "claude/motion-graphic/pustaka/kartu", os.path.basename(m.group(1))))
     kartu = baca(cand[0]) if cand else ""
 dec = "\n".join(l for l in baca(os.path.join(p, "DECISIONS.md")).splitlines() if re.match(r"^\| [RD]-\d+ \|", l) and "Aktif" in l)
-bag = [("LANTAI (mutu minimum semua video)", baca(os.path.join(repo, "claude/motion-graphic/LANTAI.md"))),
+mg = os.path.join(repo, "claude/motion-graphic")
+panduan = [x.strip() for x in os.environ.get("KONSUL_PANDUAN", "teks,visual").split(",") if x.strip()]
+bag = [("LANTAI (mutu minimum semua video)", baca(os.path.join(mg, "LANTAI.md"))),
+       ("CARA MENILAI FRAME", baca(os.path.join(mg, "templates/roles/pemeriksa-frame.md"))),
+       *[(f"PANDUAN {g.upper()} (cara memutuskan)", baca(os.path.join(mg, "guide", g, "GUIDE.md"))) for g in panduan],
        ("KARTU KIBLAT video ini", kartu or "(tidak ditemukan dari baris Kartu: di RESEP.md)"),
        ("RESEP video ini", resep), ("KEPUTUSAN & CATATAN IRFAN YANG AKTIF", dec or "(belum ada)"),
        ("STATUS", baca(os.path.join(p, "STATUS.md"))), ("CATATAN PENANYA", baca(os.path.join(p, "handoff/KONSUL.md")))]
@@ -49,7 +57,12 @@ PY
 }
 [ -f "$Q" ] || { echo "GAGAL: pertanyaan $Q tidak ada"; exit 1; }
 HANGAT="${KONSUL_HANGAT:-270}"; MAKS="${KONSUL_MAKS:-120000}"
-imgs=""; for g in "$@"; do [ -f "$g" ] && imgs+="- $(cd "$(dirname "$g")" && pwd)/$(basename "$g")"$'\n' || echo "AWAS: lampiran tidak ada: $g"; done
+imgs=""; abs() { echo "$(cd "$(dirname "$1")" && pwd)/$(basename "$1")"; }
+for g in "$@"; do
+  if [ -d "$g" ]; then for f in "$g"/INFO.md "$g"/s*.jpg; do [ -f "$f" ] && imgs+="- $(abs "$f")"$'\n'; done
+  elif [ -f "$g" ]; then imgs+="- $(abs "$g")"$'\n'
+  else echo "AWAS: lampiran tidak ada: $g"; fi
+done
 
 lanjut=""
 if [ -z "${KONSUL_BARU:-}" ] && [ -f "$ST" ]; then
@@ -67,10 +80,16 @@ Lampiran (buka dengan Read):
 $imgs}"
 else
   prompt="Kamu sutradara visual dan juri untuk satu video motion milikku. Kamu TIDAK membaca kode atau repo: yang kamu
-nilai hanya dosir, pertanyaan, dan gambar yang dilampirkan. Jawab ringkas dalam bahasa Indonesia:
-1) putusan (setuju / ubah / tolak), 2) alasan visual (hierarki, logika visual, keterbacaan, emosi adegan),
-3) perubahan konkret yang bisa langsung dikerjakan builder (posisi, ukuran, warna, kurva, timing dalam frame),
-4) risiko bila diterapkan. Bila informasinya kurang untuk memutuskan, katakan apa yang kurang, jangan menebak.
+nilai hanya dosir, pertanyaan, dan gambar yang dilampirkan. Langkahmu: baca dosir dulu (standar lulus, kiblat, resep, catatan Irfan), baru buka lampiran satu per satu.
+Lampiran adalah frame yang sudah dibedah: tiap petak bernomor frame; lembar 30 petak = 1 detik berurutan, jadi
+gerak, lompatan, dan kedip dinilai dari urutan petak itu. Jawab dalam bahasa Indonesia, hanya dalam format ini:
+
+| dtk | frame | jenis | yang terlihat | perbaikan konkret | dasar |
+satu baris per masalah. Kolom perbaikan konkret = yang bisa langsung dikerjakan builder (warna hex, posisi relatif ke
+subjek/kepala, jumlah baris, ukuran px @1080, kurva, geser frame). Kolom dasar = kode LANTAI, nomor catatan Irfan
+(R-/D-), atau bagian kartu kiblat. Masalah tanpa dasar ditulis dengan dasar: selera, dan dianggap usulan opsional.
+Lalu satu baris: PUTUSAN: LULUS (tidak ada masalah ber-dasar) atau PUTUSAN: GAGAL.
+Bila informasi kurang untuk memutuskan, tulis apa yang kurang, jangan menebak.
 
 Urutan yang menang bila bertentangan: catatan Irfan yang aktif > resep + kartu kiblat > LANTAI > pendapatmu.
 Usulanmu tidak boleh melanggar keputusan aktif; bila menurutmu keputusan itu salah, tulis sebagai catatan terpisah.
