@@ -65,7 +65,7 @@ Alur kerjanya mengikuti `templates/roles/pemeriksa-frame.md` dan `scripts/juri/f
    - Temuan tanpa nomor frame dibuang (tidak bisa diverifikasi).
 4. Tulis `VERDICT.md` gabungan, dengan baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`. Formatnya tetap seperti yang dibaca `render.sh final`.
 5. Catat di `STATUS.md` tingkat kesepakatan kedua model dan berapa kali kamu harus memutus.
-6. Potongan yang beat-nya tidak berubah sejak putusan LULUS terakhir (cek dengan `baseline_lock.py`) **tidak diaudit ulang**. Yang diaudit ulang hanya potongan yang berubah.
+6. Potongan yang isinya tidak berubah sejak putusan terakhir **tidak diaudit ulang**. `frame_audit.py` mengikat setiap VERDICT ke `HASH:` isi potongan (frame + kata + cue + energi audio) dan menandai di `INDEX.md` mana yang `dipakai ulang` dan mana yang `perlu periksa`; kirim ke pemeriksa hanya yang `perlu periksa`, bersama `VERDICT.prev.md` bila ada supaya temuan yang sudah diputuskan tidak diangkat lagi. `render.sh final` menolak LULUS yang HASH-nya tidak cocok dengan isi sekarang (laporan investigasi 24 jam, 16 Nov: bdf26 9 gelombang × 12 potongan diperiksa ulang semua).
 
 Klaim angka dari pemeriksa (waktu, level, jarak) selalu kamu verifikasi dengan alat ukur sebelum dikerjakan. Gemini pernah salah dengar angka (`experimental/dual-agent-sound/README.md`).
 
@@ -74,6 +74,7 @@ Klaim angka dari pemeriksa (waktu, level, jarak) selalu kamu verifikasi dengan a
 - Gambar maks 960 px. Angka dari script dulu, gambar hanya bila ada masalah.
 - Baca skill hanya cabang yang relevan. `RETRO.md` jangan dibaca utuh: pakai `grep` untuk topik beat yang sedang dikerjakan.
 - Render dan ffmpeg dijalankan di latar belakang. Baca ≤ 20 baris log terakhir.
+- Menunggu job panjang tanpa polling: `tools/tunggu.sh jalan <nama> -- <perintah>`, kerjakan hal lain, lalu **satu** panggilan `tools/tunggu.sh tunggu <nama> 1500` (timeout alat ≥ 1500 dtk). Jangan mengecek status berulang: tiap cek membangunkan model dengan seluruh konteksnya (sfx_builder_v6: 42 % token hanya polling, 16 Nov).
 - Subagen dan pekerja menerima brief ramping (§3), bukan disuruh "baca repo".
 - Video sumber panjang jangan ditonton. Transkrip Whisper di PC (`words.json`) → pilih segmen dari teks → `yt-dlp --download-sections` hanya untuk segmen itu.
 - `STATUS.md` selalu diperbarui, supaya sesi yang terputus bisa lanjut tanpa membaca ulang semuanya.
@@ -110,3 +111,4 @@ Urutannya: ukur dulu, baru ubah.
 - Jumlah ronde per beat, tingkat kesepakatan Gemini–ChatGPT, dan berapa kali kamu harus memutus.
 - Waktu revisi kecil: dari perintah perbaikan sampai potongan baru lulus audit.
 - Waktu render per menit video, sebelum dan sesudah §6.
+- Sumber angka waktu: `qc/jobs.jsonl` (ditulis `render.sh` tiap pemanggilan: `antre_dtk` di kunci render, `kerja_dtk`, `rc`, commit). Ringkas: `jq -s 'group_by(.mode)|map({mode:.[0].mode,n:length,antre:(map(.antre_dtk)|add),kerja:(map(.kerja_dtk)|add)})' qc/jobs.jsonl`.

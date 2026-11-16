@@ -18,6 +18,10 @@ Keluaran `--out` (default qc/frame_audit/):
   per potongan `cNN_<a>-<b>s/`: `s<detik>.jpg` (30 frame 6×5 + strip audio; frame bertanda diberi bingkai merah),
   `INFO.md` (tanda otomatis, kata yang diucapkan, cue SFX di potongan itu), `VERDICT.md` (diisi agen pemeriksa),
   dan `INDEX.md` (ringkasan + cara pemeriksaan). `render.sh final` menolak bila ada VERDICT tanpa `PUTUSAN: LULUS`.
+  Setiap VERDICT terikat `HASH:` isi potongannya (frame + kata + cue + energi audio). Ronde berikutnya: potongan yang
+  isinya sama memakai ulang verdict-nya; yang berubah diperiksa ulang dan verdict lamanya jadi `VERDICT.prev.md`
+  (gagal 16 Nov, laporan investigasi 24 jam: bdf26 9 gelombang × 12 potongan diperiksa ulang semua tiap ronde, dan
+  temuan yang sudah diputuskan muncul lagi).
 Tanda otomatis (penapis, bukan putusan):
   LOMPAT  beda frame→frame melonjak (> 4× median lokal + 1,5 dan > 3) di luar potong disengaja ±1 f = patahan
   KEDIP   satu frame berbeda dari kedua tetangganya yang mirip satu sama lain (frame kosong/dip 1 f)
@@ -26,7 +30,7 @@ Tanda otomatis (penapis, bukan putusan):
 Pakai:  python3 frame_audit.py qc/frames --src remotion/src --fps 30 --cuts handoff/beats_v3_frames.txt --cues edit/v3/cues_v3.json \\
           --words edit/v3/words_final.json --stems audio --out qc/frame_audit
 """
-import argparse, glob, json, os, re, sys
+import argparse, glob, hashlib, json, os, re, shutil, sys
 import numpy as np
 from PIL import Image, ImageDraw
 
@@ -119,6 +123,10 @@ def main():
     env = stem_env(a.stems, fps, n) if a.stems else {}
     os.makedirs(a.out, exist_ok=True)
     per = int(round(a.chunk * fps)); W, H = 256, 144
+    names = [f"c{c0 // per + 1:02d}_{c0 / fps:05.1f}-{min(n, c0 + per) / fps:05.1f}s" for c0 in range(0, n, per)]
+    for old in glob.glob(os.path.join(a.out, "c[0-9][0-9]_*")):    # potongan dari panjang video lama: hapus, jangan ikut dinilai gerbang
+        if os.path.isdir(old) and os.path.basename(old) not in names: shutil.rmtree(old)
+    reused = 0
     idx = ["# Audit frame per frame (tanpa sampling)", "",
            f"Sumber: `{a.frames}` · {n} frame · {n / fps:.2f} dtk · potongan {a.chunk:g} dtk · lembar = 1 detik (6×5 = 30 frame)", "",
            "Cara periksa (agen LAIN dari yang membangun; satu agen per potongan, paralel): buka SEMUA `s*.jpg` di potongan, baca `INFO.md`,",
@@ -126,8 +134,10 @@ def main():
            "jarak antar-frame (tidak ada lompatan/patahan di luar potong disengaja, gerak tidak tertahan), audio (cue SFX ada di momen cerita:",
            "jatuh/mendarat/klik/ganti adegan; suara tidak tertutup musik; strip energi), dan cocok dengan kata yang diucapkan.",
            "Tulis `VERDICT.md`: satu baris per masalah `dtk | frame | jenis | apa yang terlihat | usul`, lalu baris terakhir",
-           "`PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`. Tanda otomatis hanya penapis: tiap tanda dinilai, bukan disalin.", "",
-           "| Potongan | Frame | Tanda otomatis |", "|---|---|---|"]
+           "`PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`. Tanda otomatis hanya penapis: tiap tanda dinilai, bukan disalin.",
+           "Baris `HASH:` di VERDICT jangan diubah: verdict hanya berlaku untuk isi potongan itu. Periksa hanya potongan",
+           "berstatus `perlu periksa`; bila ada `VERDICT.prev.md`, baca temuan yang sudah diputuskan di ronde sebelumnya.", "",
+           "| Potongan | Frame | Tanda otomatis | Status |", "|---|---|---|---|"]
     for c0 in range(0, n, per):
         c1 = min(n, c0 + per); name = f"c{c0 // per + 1:02d}_{c0 / fps:05.1f}-{c1 / fps:05.1f}s"
         cd = os.path.join(a.out, name); os.makedirs(cd, exist_ok=True)
@@ -143,8 +153,29 @@ def main():
         cs = [q for q in cues if c0 / fps <= float(q["t"]) < c1 / fps]
         info += [f"- {float(q['t']):.2f} · {q.get('peran', '')} · {os.path.basename(q.get('file', ''))}" for q in cs] or ["- (tidak ada)"]
         open(os.path.join(cd, "INFO.md"), "w").write("\n".join(info) + "\n")
-        vp = os.path.join(cd, "VERDICT.md")
-        if not os.path.exists(vp): open(vp, "w").write(f"# VERDICT {name}\n\n(belum diperiksa)\n")
+        # Hash potongan = isi byte semua frame + kata, cue, energi audio, dan potong disengaja di potongan itu.
+        # Verdict hanya berlaku untuk hash yang dinilai: potongan yang tidak berubah tidak diperiksa ulang,
+        # potongan yang berubah selalu diperiksa ulang (verdict lama disimpan sebagai VERDICT.prev.md).
+        hs = hashlib.sha1()
+        for f in range(c0, c1): hs.update(hashlib.sha1(open(fs[f], "rb").read()).digest())
+        hs.update(json.dumps([ws, cs, sorted(c for c in cuts if c0 <= c < c1),
+                              {k: [round(float(x)) for x in e[c0:c1]] for k, e in sorted(env.items())}],
+                             sort_keys=True, default=str).encode())
+        h = hs.hexdigest()[:16]
+        open(os.path.join(cd, ".hash"), "w").write(h + "\n")
+        vp = os.path.join(cd, "VERDICT.md"); fresh = f"# VERDICT {name}\nHASH: {h}\n\n(belum diperiksa)\n"
+        old = open(vp, encoding="utf-8").read() if os.path.exists(vp) else ""
+        if (old and not re.search(r"^HASH: ", old, re.M) and re.search(r"^PUTUSAN: ", old, re.M)
+                and os.path.getmtime(vp) >= max(os.path.getmtime(fs[f]) for f in range(c0, c1))):
+            # verdict dari versi alat sebelum HASH, ditulis SESUDAH frame ini ada: berlaku untuk isi ini → beri HASH
+            old = re.sub(r"^(# VERDICT[^\n]*\n)", rf"\1HASH: {h}\n", old, count=1) if old.startswith("# VERDICT") else f"HASH: {h}\n" + old
+            open(vp, "w", encoding="utf-8").write(old)
+        if re.search(rf"^HASH: {h}$", old, re.M):
+            status = "dipakai ulang" if re.search(r"^PUTUSAN: (LULUS|GAGAL)", old, re.M) else "perlu periksa"
+            reused += status == "dipakai ulang"
+        else:
+            if "(belum diperiksa)" not in old and old.strip(): os.replace(vp, os.path.join(cd, "VERDICT.prev.md"))
+            open(vp, "w", encoding="utf-8").write(fresh); status = "perlu periksa"
         for s0 in range(c0, c1, int(fps)):
             s1 = min(c1, s0 + int(fps)); strip = 40 if env else 0
             sh = Image.new("RGB", (6 * W, 5 * H + 22 + strip), (18, 18, 18)); dr = ImageDraw.Draw(sh)
@@ -161,13 +192,14 @@ def main():
                     e = env[tag][s0:s1]; pts = [(int((k + 0.5) * 6 * W / fps), y0 + strip - 2 - int(np.clip((e[k] + 60) / 60, 0, 1) * (strip - 6))) for k in range(len(e))]
                     if len(pts) > 1: dr.line(pts, fill=colr, width=2)
             sh.save(os.path.join(cd, f"s{s0 / fps:05.1f}.jpg"), quality=82)
-        idx.append(f"| `{name}` | {c0}–{c1 - 1} | {nf} |")
+        idx.append(f"| `{name}` | {c0}–{c1 - 1} | {nf} | {status} |")
     open(os.path.join(a.out, "INDEX.md"), "w").write("\n".join(idx) + "\n")
     tot = sum(len(t) for t in flags.values())
     kinds = {}
     for t in sum(flags.values(), []): kinds[t.split()[0]] = kinds.get(t.split()[0], 0) + 1
     print(f"tanda otomatis {tot}: " + ", ".join(f"{k} {v}" for k, v in sorted(kinds.items())) + f" · keluaran {a.out}/INDEX.md")
-    print("Lanjut: satu agen pemeriksa per potongan (paralel), isi VERDICT.md tiap potongan.")
+    print(f"potongan {len(names)} · dipakai ulang {reused} (isi tidak berubah, verdict tetap) · perlu periksa {len(names) - reused}")
+    print("Lanjut: satu agen pemeriksa per potongan berstatus 'perlu periksa' (paralel), isi VERDICT.md-nya.")
 
 
 if __name__ == "__main__":

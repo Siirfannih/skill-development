@@ -144,7 +144,9 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/lego/kt_check.py` | Gerbang tipografi kinetik (Lantai A9a; Irfan 16 Nov: "animasi KT selalu sama, hampir semuanya fade"). |
 | `claude/motion-graphic/scripts/lego/lapisan.py` | Render lapisan lego satu per satu dengan cache (Irfan 16 Nov). Hanya lapisan yang berubah yang dirender ulang. |
 | `claude/motion-graphic/scripts/lego/teks_plan.py` | Kerangka teks.json dari transkrip (Irfan 16 Nov): isi teks KT/subtitle sudah pasti = ucapan, jadi yang dihitung mesin hanya WAKTU dan DURASI tiap blok. Peran, kode gerak (T..), gaya (G..), posisi, dan |
+| `claude/motion-graphic/scripts/remotion/Kursor.tsx` | Kursor.tsx — blok lego: kursor yang bergerak seperti tangan manusia (pustaka/teknik/launch-motion.md §2). |
 | `claude/motion-graphic/scripts/remotion/LightSweep.tsx` | LightSweep.tsx — gaya G8 "kilat cahaya" (typography.md §7.5; Irfan 16 Nov, ref siirfannih_DfRh4w0SfAk "Golden rule"). |
+| `claude/motion-graphic/scripts/remotion/Penghitung.tsx` | Penghitung.tsx — blok lego: angka yang naik/turun dan bisa dibaca (pustaka/teknik/launch-motion.md §2). |
 | `claude/motion-graphic/scripts/remotion/SmoothAudioClip.tsx` | SmoothAudioClip.tsx — audio motion-graphic §14.7 (Modul 2, audit 31 Okt 2026). |
 | `claude/motion-graphic/scripts/remotion/TeksBlok.tsx` | TeksBlok.tsx — satu blok teks KT sebagai lapisan lego ber-alpha (Lantai A9a, F26; Irfan 16 Nov). |
 | `claude/motion-graphic/scripts/remotion/curves.ts` | curves.ts — gerak dirancang per gerak, bukan preset (Lantai B13a, 16 Nov 2026). |
@@ -160,6 +162,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `tools/peta.py` | Tulis PETA.md: peta repo supaya model membuka hanya file yang dibutuhkan (Irfan 16 Nov). |
 | `tools/sync.sh` | ## Tugas video, konten, naskah, storyboard, atau skill -> repo skill-development Folder ini adalah titik masuk remote, jadi aturan video tidak terbaca otomatis. Untuk tugas jenis ini: 1. Baca dulu `{r |
 | `tools/sync_lantai.py` | Salin isi claude/motion-graphic/LANTAI.md ke dalam SKILL.md (di antara penanda LANTAI), supaya lantai ikut termuat setiap kali skill dimuat. Sumber kebenaran: LANTAI.md. Jalankan setelah mengubah LANT |
+| `tools/tunggu.sh` | Jalankan pekerjaan panjang (render, frames, Whisper, mix) lepas dari sesi model, lalu tunggu TANPA polling. |
 
 ## projects/ (keputusan per video; hanya untuk proyek itu)
 

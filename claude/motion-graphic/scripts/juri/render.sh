@@ -31,6 +31,16 @@ HERE="$(cd "$(dirname "$0")" && pwd)"
 [ $# -ge 3 ] || { sed -n '2,17p' "$0"; exit 1; }
 P="$(cd "$1" && pwd)"; MODE="$2"; COMP="$3"; shift 3
 R="$P/remotion"; QC="$P/qc"; ENTRY="${ENTRY:-src/index.ts}"; K="${KONKURENSI:-4}"
+# Ledger: setiap pemanggilan menulis satu baris JSON ke qc/jobs.jsonl (antre di kunci render, lama kerja, hasil, commit),
+# supaya waktu antre, render, dan revisi bisa dipisah tanpa menebak (laporan investigasi 24 jam, 16 Nov).
+T0=$(date +%s); ANTRE=0; ARGS="$(printf '%s ' "$@" | tr -d '"\\')"
+ledger() {
+  local rc=$? t1; t1=$(date +%s); mkdir -p "$QC"
+  printf '{"mode":"%s","comp":"%s","arg":"%s","mulai":"%s","antre_dtk":%d,"kerja_dtk":%d,"rc":%d,"commit":"%s","host":"%s","konkurensi":%s}\n' \
+    "$MODE" "$COMP" "${ARGS% }" "$(date -d "@$T0" '+%F %T')" "$ANTRE" "$(( t1 - T0 - ANTRE ))" "$rc" \
+    "$(git -C "$P" rev-parse --short HEAD 2>/dev/null || echo -)" "$(hostname)" "$K" >> "$QC/jobs.jsonl"
+}
+trap ledger EXIT
 
 audio_python() {
   if [ -n "${PYTHON:-}" ]; then
@@ -59,7 +69,8 @@ bundle() {
 # Kunci GLOBAL untuk render berat (frames/final): satu render di PC bersama pada satu waktu. Render final menulis
 # ±2 MB per frame ke /tmp; dua render bersamaan menghabiskan disk (gagal 15 Nov: builder-trap-r2 v4 crash di f1210 saat
 # jensen-pain-suffering render bersamaan, disk 106 MB). Bila disk sempit, render final per rentang lalu sambung.
-heavy_lock() { exec 9>/tmp/remotion-heavy-render.lock; echo "kunci render global: menunggu render lain selesai (bila ada)…"; flock 9; }
+heavy_lock() { exec 9>/tmp/remotion-heavy-render.lock; echo "kunci render global: menunggu render lain selesai (bila ada)…"
+  local q0; q0=$(date +%s); flock 9; ANTRE=$(( $(date +%s) - q0 )); [ "$ANTRE" -lt 5 ] || echo "antre ${ANTRE} dtk di kunci render"; }
 case "$MODE" in
   still)
     [ $# -ge 1 ] || { echo "beri minimal satu <label:frame>"; exit 1; }
@@ -118,7 +129,9 @@ case "$MODE" in
     FA="$QC/frame_audit"
     if [ ! -f "$FA/INDEX.md" ] || [ "$(mtime "$FA/INDEX.md")" -lt "$ns" ]; then echo "GAGAL gerbang: audit frame per frame belum dibuat dari src terbaru (render.sh frames → frame_audit.py → agen pemeriksa per potongan)."; gagal=1
     else
-      bad=$(for v in "$FA"/c*/VERDICT.md; do tail -n 3 "$v" | grep -q '^PUTUSAN: LULUS' || printf '%s ' "$(basename "$(dirname "$v")")"; done)
+      # LULUS hanya berlaku untuk isi potongan yang dinilai: HASH di VERDICT harus sama dengan .hash potongan sekarang.
+      bad=$(for v in "$FA"/c*/VERDICT.md; do d="$(dirname "$v")"
+        { tail -n 3 "$v" | grep -q '^PUTUSAN: LULUS' && grep -qx "HASH: $(cat "$d/.hash" 2>/dev/null)" "$v"; } || printf '%s ' "$(basename "$d")"; done)
       [ -z "$bad" ] || { echo "GAGAL gerbang: potongan belum LULUS di audit frame: $bad"; gagal=1; }
     fi
     [ "$gagal" = 0 ] || { echo "Render penuh ditolak."; exit 1; }
