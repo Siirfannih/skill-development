@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/home/irfan/work/mg-venv/bin/python",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/gate/voice_level.py",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/suara.wav",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/voice_clean.wav"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+  "exit_code": 1,
+  "started_ns": 1794829124167539629,
+  "ended_ns": 1794829125033377300,
+  "log": "qc/v6-finishing/logs/canonical-voice_level.log",
+  "log_sha256": "dd4392904b02468fafeac78530f92b140f21db5247c02db5e17c660f4ca6af1d"
+}

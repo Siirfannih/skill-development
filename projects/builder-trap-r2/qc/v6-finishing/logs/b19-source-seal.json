@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/irfan/work/mg-venv/bin/python",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/tools/finish_v6.py",
+    "migrate-snapshot",
+    "--approval",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/cache-migration-approval.json"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+  "exit_code": 0,
+  "started_ns": 1794829119204488076,
+  "ended_ns": 1794829136926332721,
+  "log": "qc/v6-finishing/logs/b19-source-seal.log",
+  "log_sha256": "ff619b6abd865d3c5884b9923ad13b4e7d264f94ef063a2e1e667cfe3e9cfa52"
+}

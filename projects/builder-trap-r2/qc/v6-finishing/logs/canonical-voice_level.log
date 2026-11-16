@@ -1,0 +1,2 @@
+sumber -23.8 LUFS -> hasil -21.7 LUFS (gain +2.1 dB) · crest 17.0 -> 17.4 dB · puncak -1.2 dBFS
+FAIL: pelan -21.7 LUFS < -17 (redam noise dulu, lalu gain naik bersih)

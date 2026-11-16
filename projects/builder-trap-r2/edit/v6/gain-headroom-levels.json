@@ -1,0 +1,10 @@
+{
+  "method": "ffmpeg aresample192000 resampler=soxr precision=28;4x from48k; max reconstructed float32 sample",
+  "voice_sha256": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f",
+  "old_wav_true_peak_dbtp": -0.9773953239581059,
+  "wav_true_peak_dbtp": -1.177395227458862,
+  "aac192_true_peak_dbtp": -1.200279547093043,
+  "final_lufs": -21.7,
+  "codec_file": "edit/v6/gain-headroom/voice-clean-peak1p25-aac192.m4a",
+  "codec_sha256": "09ed3ddf2a9383a947adcfa7daf8bc4b7c80c92d93bee4bdf93edfadd8d66ca5"
+}

@@ -3,16 +3,19 @@
 Frame 1800–2099 · 60.00–70.00 dtk
 
 ## Tanda otomatis
-- f1872 (62.40 dtk): LOMPAT 12.1 (f1871→1872)
-- f1872 (62.40 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
-- f1955 (65.17 dtk): LOMPAT 42.3 (f1954→1955)
+- f1938 (64.60 dtk): LOMPAT 7.5 (f1937→1938)
+- f1938 (64.60 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f1955 (65.17 dtk): LOMPAT 7.3 (f1954→1955)
+- f1955 (65.17 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f1992 (66.40 dtk): LOMPAT 7.9 (f1991→1992)
+- f2044 (68.13 dtk): LOMPAT 12.9 (f2043→2044)
+- f2044 (68.13 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
 
 ## Kata diucapkan (dtk)
-gak@60.21 pernah@60.33 kita@60.53 publish.@60.73 Dan@61.21 gak@61.35 pernah@61.49 selesai.@61.67 Aku@62.48 terobsesi@63.04 sama@63.60 kesempurnaan.@63.88 Dan@65.16 aku@65.34 merasa@65.64 pengen@66.18 sekali@66.66 menjadi@66.80 seorang@67.16 autentik.@67.74 Sampai@68.40 akhirnya@68.72 aku@69.14 gak@69.84
+sekali@60.20 menjadi@60.34 seorang@60.70 autentik.@61.28 Sampai@62.00 akhirnya@62.26 aku@62.87 gak@63.28 menjadi@63.48 siapapun.@63.72 Dan@64.38 aku@64.54 gak@64.72 melangkah@64.96 jauh@65.42 kemana@65.82 -mana.@66.10 Sampai@66.56 akhirnya@67.11 aku@67.67 sadar.@67.75 Dan@68.31 sekarang@68.43 aku@68.93 memutuskan@69.39 untuk@69.87
 
 ## Cue SFX (dtk · peran · file)
-- 61.70 · beku · v17_impact_1.mp3
-- 62.09 · potong_adegan · Katapertama.mp3
-- 65.17 · potong_adegan · Cutcontrastransision.mp3
-- 68.37 · potong_adegan · Katapertama.mp3
-- 69.66 · whoosh · Wooshcameramovementtransisi.mp3
+- 61.93 · screen_entry · Cutcontrastransision.mp3
+- 63.97 · camera · Wooshcameramovementtransisi.mp3
+- 66.49 · mosaic · Cut.mp3
+- 68.52 · camera · Wooshcameramovementtransisi.mp3

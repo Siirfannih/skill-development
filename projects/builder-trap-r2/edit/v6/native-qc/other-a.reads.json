@@ -1,0 +1,26 @@
+[
+  {
+    "name": "read_file",
+    "parameters": {
+      "Path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-04-source.wav"
+    }
+  },
+  {
+    "name": "read_file",
+    "parameters": {
+      "Path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-04-v6.wav"
+    }
+  },
+  {
+    "name": "read_file",
+    "parameters": {
+      "Path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-06-source.wav"
+    }
+  },
+  {
+    "name": "read_file",
+    "parameters": {
+      "Path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-06-v6.wav"
+    }
+  }
+]

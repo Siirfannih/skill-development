@@ -1,0 +1,51 @@
+```json
+{
+  "listened": [
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/raw-to-47.3833.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/raw-to-47.4000.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/raw-to-47.6000.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/raw-to-47.8000.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/raw-to-48.2000.wav"
+  ],
+  "files": [
+    {
+      "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/raw-to-47.3833.wav",
+      "transcript": "kata sesuatu, build something",
+      "english_word_complete": false,
+      "next_word_leak": false,
+      "defects": "Abrupt cutoff during the final nasal decay of 'something' (-ing ending clipped slightly short)"
+    },
+    {
+      "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/raw-to-47.4000.wav",
+      "transcript": "kata sesuatu, build something",
+      "english_word_complete": true,
+      "next_word_leak": false,
+      "defects": "None; preserves the full velar nasal decay (-ing) cleanly before the pause"
+    },
+    {
+      "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/raw-to-47.6000.wav",
+      "transcript": "kata sesuatu, build something",
+      "english_word_complete": true,
+      "next_word_leak": false,
+      "defects": "Longer trailing silence/pause"
+    },
+    {
+      "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/raw-to-47.8000.wav",
+      "transcript": "kata sesuatu, build something, tapi",
+      "english_word_complete": true,
+      "next_word_leak": true,
+      "defects": "Onset of next Indonesian word 'tapi' is audible at the end"
+    },
+    {
+      "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/raw-to-48.2000.wav",
+      "transcript": "kata sesuatu, build something, tapi",
+      "english_word_complete": true,
+      "next_word_leak": true,
+      "defects": "Clear articulation of following Indonesian word 'tapi'"
+    }
+  ],
+  "best_file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/raw-to-47.4000.wav",
+  "reason": "47.4000.wav is the shortest option that fully preserves the final syllable and nasal resonance of 'something' without prematurely truncating the acoustic decay (unlike 47.3833.wav) and safely terminates within the inter-word silence prior to the onset of 'tapi' (which leaks into 47.8000.wav and 48.2000.wav).",
+  "uncertainty": "None; acoustic boundary between the natural decay of '-ing' and the plosive onset /t/ of 'tapi' is distinct."
+}
+```

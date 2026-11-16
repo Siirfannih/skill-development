@@ -1,0 +1,25 @@
+{
+  "command": [
+    "env",
+    "TMPDIR=/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/tmp/finishing-v6/repair-2400-2492-1794827089627357812",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/runtime-bin/npx",
+    "remotion",
+    "render",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/builder-v6/qc/.bundle",
+    "Main",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/builder-v6/qc/v6-finishing/tail-exports/repair-1794826509649971641/f2400-2492",
+    "--sequence",
+    "--image-format=jpeg",
+    "--jpeg-quality=85",
+    "--scale=0.5",
+    "--concurrency=1",
+    "--frames=2400-2492",
+    "--log=verbose"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion",
+  "exit_code": 0,
+  "started_ns": 1794827089627703941,
+  "ended_ns": 1794827117803138320,
+  "log": "qc/v6-finishing/logs/render-tail-2400-2492.log",
+  "log_sha256": "be9cac7938c09a500aba9a2f2590e7a957b2593f3c60fb81061b62973b739e51"
+}

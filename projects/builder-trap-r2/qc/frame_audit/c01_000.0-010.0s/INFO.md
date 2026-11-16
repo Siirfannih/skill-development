@@ -3,33 +3,32 @@
 Frame 0–299 · 0.00–10.00 dtk
 
 ## Tanda otomatis
-- f22 (0.73 dtk): LOMPAT 25.5 (f21→22)
-- f38 (1.27 dtk): LOMPAT 30.4 (f37→38)
-- f70 (2.33 dtk): LOMPAT 28.9 (f69→70)
-- f86 (2.87 dtk): LOMPAT 39.2 (f85→86)
-- f127 (4.23 dtk): LOMPAT 37.2 (f126→127)
-- f227 (7.57 dtk): LOMPAT 164.0 (f226→227)
-- f282 (9.40 dtk): LOMPAT 5.6 (f281→282)
-- f283 (9.43 dtk): LOMPAT 10.4 (f282→283)
-- f284 (9.47 dtk): LOMPAT 15.0 (f283→284)
-- f285 (9.50 dtk): LOMPAT 12.9 (f284→285)
-- f292 (9.73 dtk): LOMPAT 56.8 (f291→292)
-- f293 (9.77 dtk): LOMPAT 5.6 (f292→293)
+- f9 (0.30 dtk): LOMPAT 25.7 (f8→9)
+- f25 (0.83 dtk): LOMPAT 32.1 (f24→25)
+- f57 (1.90 dtk): LOMPAT 28.9 (f56→57)
+- f73 (2.43 dtk): LOMPAT 39.3 (f72→73)
+- f114 (3.80 dtk): LOMPAT 37.3 (f113→114)
+- f149 (4.97 dtk): LOMPAT 16.4 (f148→149)
+- f151 (5.03 dtk): LOMPAT 32.1 (f150→151)
+- f151 (5.03 dtk): BEKU 3 f
+- f262 (8.73 dtk): LOMPAT 15.9 (f261→262)
+- f263 (8.77 dtk): LOMPAT 27.7 (f262→263)
+- f267 (8.90 dtk): LOMPAT 7.2 (f266→267)
+- f268 (8.93 dtk): LOMPAT 54.6 (f267→268)
 
 ## Kata diucapkan (dtk)
-Semua@0.00 orang@0.74 tuh@0.94 bisa@1.12 membangun.@1.26 Semua@1.92 orang@2.34 tuh@2.56 bisa@2.72 membuat.@2.86 Semua@3.42 orang@3.74 tuh@4.02 bisa@4.24 bikin@4.78 software.@5.14 Tapi@5.48 gak@6.04 semua@6.76 orang@6.94 bisa@7.30 mempublikasikan@7.56 apa@8.30 yang@8.58 mereka@8.72 buat.@8.92 Memasuki@9.51
+Semua@0.09 orang@0.29 tuh@0.49 bisa@0.67 membangun.@0.81 Semua@1.47 orang@1.89 tuh@2.11 bisa@2.27 membuat.@2.41 Semua@2.97 orang@3.29 tuh@3.57 bisa@3.79 bikin@4.33 software.@4.69 Tapi@5.20 gak@5.51 semua@6.13 orang@6.31 bisa@6.67 mempublikasikan@6.93 apa@7.67 yang@7.99 mereka@8.09 buat.@8.29 Memasuki@8.83 usia@9.24 20@9.50 -an.@9.70
 
 ## Cue SFX (dtk · peran · file)
-- 0.00 · pembuka · v17_thud_1.mp3
-- 0.73 · ganti_foto · Pergantianfoto.mp3
-- 1.37 · kata_triad · Kinetictypography(gunakansecaraacak).mp3
-- 1.87 · ganti_foto · Cutcontrastransision.mp3
-- 2.33 · ganti_foto · Pergantianfoto.mp3
-- 2.97 · kata_triad · Kinetictypography(gunakansecaraacak).mp3
-- 3.37 · ganti_foto · Cutcontrastransision.mp3
-- 4.23 · ganti_foto · Pergantianfoto.mp3
-- 4.87 · kata_triad · Kinetictypography(gunakansecaraacak).mp3
-- 5.17 · whoosh · Woosh.mp3
-- 7.57 · judul · basmenyebar.mp3
-- 9.24 · transisi_babak · ES_User Interface, Glitch, Glitch Databend 04 - Epidemic Sound.mp3
-- 9.74 · cetakan · documenter.mp3
+- 0.03 · footage_change · Pergantianfoto.mp3
+- 0.33 · footage_change · Pergantianfoto.mp3
+- 0.86 · footage_change · Pergantianfoto.mp3
+- 1.46 · footage_change · Pergantianfoto.mp3
+- 1.93 · footage_change · Pergantianfoto.mp3
+- 2.46 · footage_change · Pergantianfoto.mp3
+- 2.96 · footage_change · Pergantianfoto.mp3
+- 3.83 · footage_change · Pergantianfoto.mp3
+- 5.04 · camera · Wooshcameramovementtransisi.mp3
+- 6.95 · title · ES_Scifi, Computer, Short Beeps, Glitch 02 - Epidemic Sound.mp3
+- 8.69 · mosaic · Cut.mp3
+- 8.93 · card_motion · pop up.mp3

@@ -1,0 +1,33 @@
+```json
+{
+  "listened": true,
+  "entire_files_listened": true,
+  "transcript": "Semua orang tuh bisa membangun, semua orang tuh bisa membuat, semua orang tuh bisa bikin software, tapi nggak semua orang bisa mempublikasikan apa yang mereka buat. Memasuki usia 20-an, aku merasa aku perlu untuk melakukan sesuatu yang berbeda, sesuatu yang unik, sesuatu yang nggak orang lain punya, dan aku termakan kata-kata motivasi kalau mau jadi sesuatu, harus menjadi sesuatu yang",
+  "files": [
+    {
+      "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/mix-v6-chunks-native/nomusic-phone20-1/A.wav",
+      "voice_clear": true,
+      "sfx_audibility": "balanced",
+      "bed_balance": "no_music_bed",
+      "pumping": false,
+      "tail_cuts": false,
+      "harshness": false,
+      "defects": [],
+      "limitations": "none"
+    },
+    {
+      "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/mix-v6-chunks-native/nomusic-phone20-1/B.wav",
+      "voice_clear": true,
+      "sfx_audibility": "balanced",
+      "bed_balance": "audible_and_balanced",
+      "pumping": false,
+      "tail_cuts": false,
+      "harshness": false,
+      "defects": [],
+      "limitations": "mono band-limited phone model filter (320Hz-11kHz) and attenuation applied as specified"
+    }
+  ],
+  "ending_complete": null,
+  "uncertainty": "none"
+}
+```

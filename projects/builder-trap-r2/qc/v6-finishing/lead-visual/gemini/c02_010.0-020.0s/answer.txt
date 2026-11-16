@@ -1,0 +1,37 @@
+{
+  "native_images_available": true,
+  "all_panels_inspected": true,
+  "reviewed_sheets": [
+    "s010.0.jpg",
+    "s011.0.jpg",
+    "s012.0.jpg",
+    "s013.0.jpg",
+    "s014.0.jpg",
+    "s015.0.jpg",
+    "s016.0.jpg",
+    "s017.0.jpg",
+    "s018.0.jpg",
+    "s019.0.jpg"
+  ],
+  "coverage_frame_range": [300, 599],
+  "observations": "Inspected all 300 frames across 10 contact sheets (f300–f599, 10.00s–20.00s). The sequence progresses across five coherent segments: (1) f300–f403 displays a tilted polaroid frame with video playback and synced kinetic typography ('Memasuki usia aku', 'perlu untuk', 'melakukan sesuatu yang berbeda.'); (2) f404–f432 cleanly cuts to a full-screen face insert with text 'sesuatu yang unik.'; (3) f433–f486 transitions via cut-contrast to a central video card flanked by dashboard/profile card groups that sequentially exit with pop-up SFX, camera pan down to a single polaroid card with 'orang lain punya.'; (4) f487–f544 cuts to talking head footage with text 'dan aku termakan kata-kata motivasi.'; (5) f545–f599 executes a camera push-in with directional motion blur into a social feed UI post ('mindset.notes: Kalau mau jadi sesuatu, harus menjadi sesuatu yang berbeda.'), followed by an intentional steady hold as the voiceover delivers the quote. Visual hierarchy, text readability, and transitions are clean throughout.",
+  "issues": [],
+  "warnings_adjudicated": [
+    {
+      "frame": 404,
+      "decision": "intentional_cut",
+      "reason": "Intentional direct cut from polaroid layout to full-frame face insert synchronized with vocal phrase 'Sesuatu' at 13.47s. Direct cuts to live talking head do not require SFX cues."
+    },
+    {
+      "frame": 487,
+      "decision": "intentional_cut",
+      "reason": "Intentional direct cut from polaroid layout to close-up talking head synchronized with speech onset 'Dan aku termakan...' at 16.23s. Absence of SFX is normal for direct live-action cuts."
+    },
+    {
+      "frame": 561,
+      "decision": "intentional_hold",
+      "reason": "Intentional static hold on the social media post UI card after camera push-in settles (~f550), allowing the audience to read the quote while narration recites it."
+    }
+  ],
+  "uncertainty": "Minor sub-pixel UI elements (e.g., small secondary metadata and small icon glyphs in the overview state at f545) cannot be fully resolved at sheet resolution, but all primary text, cards, face inserts, and composition elements are sharp and clearly legible."
+}

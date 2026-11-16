@@ -1,0 +1,11 @@
+[
+  {
+    "case": "correct concat filter",
+    "pass_": true
+  },
+  {
+    "case": "lost frame at seam",
+    "rejected": true,
+    "reason": "poor seam correspondence at f29: 24.43dB"
+  }
+]

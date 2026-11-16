@@ -1,0 +1,1112 @@
+[
+  {
+    "case": 0,
+    "kind": "sampah",
+    "gate_time": 0.49,
+    "gate_info": "tuh",
+    "program_window": [
+      0,
+      1.29
+    ],
+    "source_montage_window": [
+      0.0,
+      1.29
+    ],
+    "word_context": [
+      {
+        "index": 0,
+        "w": "Semua",
+        "s": 0.085,
+        "e": 0.290033
+      },
+      {
+        "index": 1,
+        "w": "orang",
+        "s": 0.290033,
+        "e": 0.490033
+      },
+      {
+        "index": 2,
+        "w": "tuh",
+        "s": 0.490033,
+        "e": 0.670033
+      },
+      {
+        "index": 3,
+        "w": "bisa",
+        "s": 0.670033,
+        "e": 0.810033
+      },
+      {
+        "index": 4,
+        "w": "membangun.",
+        "s": 0.810033,
+        "e": 1.450033
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-00-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-00-source.wav"
+  },
+  {
+    "case": 1,
+    "kind": "sampah",
+    "gate_time": 2.11,
+    "gate_info": "tuh",
+    "program_window": [
+      1.5099999999999998,
+      2.91
+    ],
+    "source_montage_window": [
+      1.5099999999999998,
+      2.91
+    ],
+    "word_context": [
+      {
+        "index": 5,
+        "w": "Semua",
+        "s": 1.470033,
+        "e": 1.890033
+      },
+      {
+        "index": 6,
+        "w": "orang",
+        "s": 1.890033,
+        "e": 2.110033
+      },
+      {
+        "index": 7,
+        "w": "tuh",
+        "s": 2.110033,
+        "e": 2.270033
+      },
+      {
+        "index": 8,
+        "w": "bisa",
+        "s": 2.270033,
+        "e": 2.410033
+      },
+      {
+        "index": 9,
+        "w": "membuat.",
+        "s": 2.410033,
+        "e": 2.890033
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-01-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-01-source.wav"
+  },
+  {
+    "case": 2,
+    "kind": "sampah",
+    "gate_time": 3.57,
+    "gate_info": "tuh",
+    "program_window": [
+      2.9699999999999998,
+      4.37
+    ],
+    "source_montage_window": [
+      2.9699999999999998,
+      4.37
+    ],
+    "word_context": [
+      {
+        "index": 10,
+        "w": "Semua",
+        "s": 2.970033,
+        "e": 3.290033
+      },
+      {
+        "index": 11,
+        "w": "orang",
+        "s": 3.290033,
+        "e": 3.570033
+      },
+      {
+        "index": 12,
+        "w": "tuh",
+        "s": 3.570033,
+        "e": 3.790033
+      },
+      {
+        "index": 13,
+        "w": "bisa",
+        "s": 3.790033,
+        "e": 4.330033
+      },
+      {
+        "index": 14,
+        "w": "bikin",
+        "s": 4.330033,
+        "e": 4.690033
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-02-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-02-source.wav"
+  },
+  {
+    "case": 3,
+    "kind": "diam_kata",
+    "gate_time": 23.62,
+    "gate_info": "hal 0.15 dtk",
+    "program_window": [
+      23.02,
+      24.37
+    ],
+    "source_montage_window": [
+      25.78666666666666,
+      27.13666666666667
+    ],
+    "word_context": [
+      {
+        "index": 68,
+        "w": "mencoba",
+        "s": 22.89333333,
+        "e": 23.37333333
+      },
+      {
+        "index": 69,
+        "w": "hal",
+        "s": 23.37333333,
+        "e": 23.85333333
+      },
+      {
+        "index": 70,
+        "w": "-hal",
+        "s": 23.85333333,
+        "e": 24.17333333
+      },
+      {
+        "index": 71,
+        "w": "yang",
+        "s": 24.17333333,
+        "e": 24.37333333
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-03-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-03-source.wav"
+  },
+  {
+    "case": 4,
+    "kind": "diam_kata",
+    "gate_time": 28.12,
+    "gate_info": "Dan 0.17 dtk",
+    "program_window": [
+      27.52,
+      28.890000000000004
+    ],
+    "source_montage_window": [
+      30.28666666666666,
+      32.290000000000006
+    ],
+    "word_context": [
+      {
+        "index": 82,
+        "w": "FOMO.",
+        "s": 27.27333333,
+        "e": 27.73333333
+      },
+      {
+        "index": 83,
+        "w": "Dan",
+        "s": 27.89833333,
+        "e": 28.41333333
+      },
+      {
+        "index": 84,
+        "w": "akhirnya",
+        "s": 28.525,
+        "e": 28.86
+      },
+      {
+        "index": 85,
+        "w": "aku",
+        "s": 28.86,
+        "e": 29.12
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-04-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-04-source.wav"
+  },
+  {
+    "case": 5,
+    "kind": "diam_kata",
+    "gate_time": 34.02,
+    "gate_info": "Build 0.16 dtk",
+    "program_window": [
+      33.42,
+      34.78
+    ],
+    "source_montage_window": [
+      37.019999999999996,
+      38.379999999999995
+    ],
+    "word_context": [
+      {
+        "index": 96,
+        "w": "sesuatu.",
+        "s": 33.24,
+        "e": 33.695
+      },
+      {
+        "index": 97,
+        "w": "Build",
+        "s": 33.84,
+        "e": 34.26
+      },
+      {
+        "index": 98,
+        "w": "something.",
+        "s": 34.26,
+        "e": 35.0
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-05-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-05-source.wav"
+  },
+  {
+    "case": 6,
+    "kind": "diam_kata",
+    "gate_time": 66.76,
+    "gate_info": "Sampai 0.16 dtk",
+    "program_window": [
+      66.16000000000001,
+      67.52
+    ],
+    "source_montage_window": [
+      76.42666666666669,
+      78.35333333333332
+    ],
+    "word_context": [
+      {
+        "index": 184,
+        "w": "-mana.",
+        "s": 66.10333333,
+        "e": 66.34333333
+      },
+      {
+        "index": 185,
+        "w": "Sampai",
+        "s": 66.56166667,
+        "e": 67.10666667
+      },
+      {
+        "index": 186,
+        "w": "akhirnya",
+        "s": 67.10666667,
+        "e": 67.66666667
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-06-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-06-source.wav"
+  },
+  {
+    "case": 7,
+    "kind": "diam_kata",
+    "gate_time": 72.0,
+    "gate_info": "mungkin 0.23 dtk",
+    "program_window": [
+      71.4,
+      72.83
+    ],
+    "source_montage_window": [
+      83.16666666666667,
+      84.89666666666665
+    ],
+    "word_context": [
+      {
+        "index": 197,
+        "w": "awal.",
+        "s": 71.04996633,
+        "e": 71.42996633
+      },
+      {
+        "index": 198,
+        "w": "Dimana",
+        "s": 71.42996633,
+        "e": 71.76996633
+      },
+      {
+        "index": 199,
+        "w": "mungkin",
+        "s": 71.76996633,
+        "e": 72.24833333
+      },
+      {
+        "index": 200,
+        "w": "aku",
+        "s": 72.36996633,
+        "e": 72.58996633
+      },
+      {
+        "index": 201,
+        "w": "harusnya",
+        "s": 72.58996633,
+        "e": 73.04996633
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-07-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-07-source.wav"
+  },
+  {
+    "case": 8,
+    "kind": "diam_kata",
+    "gate_time": 73.53,
+    "gate_info": "sekedar 0.16 dtk",
+    "program_window": [
+      72.93,
+      74.28999999999999
+    ],
+    "source_montage_window": [
+      84.99666666666667,
+      86.35666666666663
+    ],
+    "word_context": [
+      {
+        "index": 201,
+        "w": "harusnya",
+        "s": 72.58996633,
+        "e": 73.04996633
+      },
+      {
+        "index": 202,
+        "w": "gak",
+        "s": 73.04996633,
+        "e": 73.26996633
+      },
+      {
+        "index": 203,
+        "w": "sekedar",
+        "s": 73.26996633,
+        "e": 73.96996633
+      },
+      {
+        "index": 204,
+        "w": "membangun.",
+        "s": 73.96996633,
+        "e": 74.44996633
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-08-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-08-source.wav"
+  },
+  {
+    "case": 9,
+    "kind": "diam_kal",
+    "gate_time": 10.86,
+    "gate_info": "aku \u2192 perlu 0.15 dtk",
+    "program_window": [
+      10.26,
+      11.61
+    ],
+    "source_montage_window": [
+      11.126666666666667,
+      12.643333333333334
+    ],
+    "word_context": [
+      {
+        "index": 31,
+        "w": "merasa",
+        "s": 10.20003333,
+        "e": 10.56003333
+      },
+      {
+        "index": 32,
+        "w": "aku",
+        "s": 10.56003333,
+        "e": 10.86833333
+      },
+      {
+        "index": 33,
+        "w": "perlu",
+        "s": 11.01336667,
+        "e": 11.41336667
+      },
+      {
+        "index": 34,
+        "w": "untuk",
+        "s": 11.41336667,
+        "e": 11.87336667
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-09-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-09-source.wav"
+  },
+  {
+    "case": 10,
+    "kind": "diam_kal",
+    "gate_time": 15.11,
+    "gate_info": "yang \u2192 gak 0.20 dtk",
+    "program_window": [
+      14.51,
+      15.909999999999998
+    ],
+    "source_montage_window": [
+      15.543333333333333,
+      17.64333333333333
+    ],
+    "word_context": [
+      {
+        "index": 42,
+        "w": "Sesuatu",
+        "s": 14.52166667,
+        "e": 14.85166667
+      },
+      {
+        "index": 43,
+        "w": "yang",
+        "s": 14.91336667,
+        "e": 15.11336667
+      },
+      {
+        "index": 44,
+        "w": "gak",
+        "s": 15.29833333,
+        "e": 15.38003333
+      },
+      {
+        "index": 45,
+        "w": "orang",
+        "s": 15.55166667,
+        "e": 15.63336667
+      },
+      {
+        "index": 46,
+        "w": "lain",
+        "s": 15.63336667,
+        "e": 15.87336667
+      },
+      {
+        "index": 47,
+        "w": "punya.",
+        "s": 15.87336667,
+        "e": 16.15336667
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-10-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-10-source.wav"
+  },
+  {
+    "case": 11,
+    "kind": "diam_kal",
+    "gate_time": 15.38,
+    "gate_info": "gak \u2192 orang 0.18 dtk",
+    "program_window": [
+      14.780000000000001,
+      16.16
+    ],
+    "source_montage_window": [
+      15.813333333333336,
+      17.89333333333333
+    ],
+    "word_context": [
+      {
+        "index": 42,
+        "w": "Sesuatu",
+        "s": 14.52166667,
+        "e": 14.85166667
+      },
+      {
+        "index": 43,
+        "w": "yang",
+        "s": 14.91336667,
+        "e": 15.11336667
+      },
+      {
+        "index": 44,
+        "w": "gak",
+        "s": 15.29833333,
+        "e": 15.38003333
+      },
+      {
+        "index": 45,
+        "w": "orang",
+        "s": 15.55166667,
+        "e": 15.63336667
+      },
+      {
+        "index": 46,
+        "w": "lain",
+        "s": 15.63336667,
+        "e": 15.87336667
+      },
+      {
+        "index": 47,
+        "w": "punya.",
+        "s": 15.87336667,
+        "e": 16.15336667
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-11-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-11-source.wav"
+  },
+  {
+    "case": 12,
+    "kind": "diam_kal",
+    "gate_time": 32.08,
+    "gate_info": "Untuk \u2192 belajar. 0.19 dtk",
+    "program_window": [
+      31.479999999999997,
+      32.87
+    ],
+    "source_montage_window": [
+      34.879999999999995,
+      36.469999999999985
+    ],
+    "word_context": [
+      {
+        "index": 92,
+        "w": "Untuk",
+        "s": 31.62,
+        "e": 32.08
+      },
+      {
+        "index": 93,
+        "w": "belajar.",
+        "s": 32.265,
+        "e": 32.56
+      },
+      {
+        "index": 94,
+        "w": "Untuk",
+        "s": 32.56,
+        "e": 32.92
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-12-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-12-source.wav"
+  },
+  {
+    "case": 13,
+    "kind": "diam_kal",
+    "gate_time": 36.49,
+    "gate_info": "aku \u2192 mencoba 0.24 dtk",
+    "program_window": [
+      35.89,
+      37.330000000000005
+    ],
+    "source_montage_window": [
+      39.79,
+      41.83
+    ],
+    "word_context": [
+      {
+        "index": 100,
+        "w": "satu",
+        "s": 35.753367,
+        "e": 35.913367
+      },
+      {
+        "index": 101,
+        "w": "tahun",
+        "s": 35.913367,
+        "e": 36.253367
+      },
+      {
+        "index": 102,
+        "w": "aku",
+        "s": 36.253367,
+        "e": 36.493367
+      },
+      {
+        "index": 103,
+        "w": "mencoba",
+        "s": 36.725,
+        "e": 36.993367
+      },
+      {
+        "index": 104,
+        "w": "untuk",
+        "s": 36.993367,
+        "e": 37.253367
+      },
+      {
+        "index": 105,
+        "w": "belajar.",
+        "s": 37.253367,
+        "e": 37.793367
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-13-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-13-source.wav"
+  },
+  {
+    "case": 14,
+    "kind": "diam_kal",
+    "gate_time": 41.91,
+    "gate_info": "Tapi \u2192 satu 0.24 dtk",
+    "program_window": [
+      41.309999999999995,
+      42.75
+    ],
+    "source_montage_window": [
+      46.44333333333333,
+      48.08333333333333
+    ],
+    "word_context": [
+      {
+        "index": 118,
+        "w": "Tapi",
+        "s": 41.39333367,
+        "e": 41.91166667
+      },
+      {
+        "index": 119,
+        "w": "satu",
+        "s": 42.03166667,
+        "e": 42.15166667
+      },
+      {
+        "index": 120,
+        "w": "hal",
+        "s": 42.31333367,
+        "e": 42.51333367
+      },
+      {
+        "index": 121,
+        "w": "yang",
+        "s": 42.51333367,
+        "e": 42.67333367
+      },
+      {
+        "index": 122,
+        "w": "aku",
+        "s": 42.67333367,
+        "e": 42.81333367
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-14-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-14-source.wav"
+  },
+  {
+    "case": 15,
+    "kind": "diam_kal",
+    "gate_time": 42.03,
+    "gate_info": "satu \u2192 hal 0.28 dtk",
+    "program_window": [
+      41.43,
+      42.910000000000004
+    ],
+    "source_montage_window": [
+      46.56333333333333,
+      48.24333333333334
+    ],
+    "word_context": [
+      {
+        "index": 118,
+        "w": "Tapi",
+        "s": 41.39333367,
+        "e": 41.91166667
+      },
+      {
+        "index": 119,
+        "w": "satu",
+        "s": 42.03166667,
+        "e": 42.15166667
+      },
+      {
+        "index": 120,
+        "w": "hal",
+        "s": 42.31333367,
+        "e": 42.51333367
+      },
+      {
+        "index": 121,
+        "w": "yang",
+        "s": 42.51333367,
+        "e": 42.67333367
+      },
+      {
+        "index": 122,
+        "w": "aku",
+        "s": 42.67333367,
+        "e": 42.81333367
+      },
+      {
+        "index": 123,
+        "w": "lewatkan",
+        "s": 42.81333367,
+        "e": 43.21333367
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-15-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-15-source.wav"
+  },
+  {
+    "case": 16,
+    "kind": "diam_kal",
+    "gate_time": 44.23,
+    "gate_info": "tidak \u2192 menjual 0.21 dtk",
+    "program_window": [
+      43.629999999999995,
+      45.04
+    ],
+    "source_montage_window": [
+      48.963333333333324,
+      51.27333333333333
+    ],
+    "word_context": [
+      {
+        "index": 125,
+        "w": "Aku",
+        "s": 43.61333367,
+        "e": 43.93333367
+      },
+      {
+        "index": 126,
+        "w": "tidak",
+        "s": 43.93333367,
+        "e": 44.23333367
+      },
+      {
+        "index": 127,
+        "w": "menjual",
+        "s": 44.43166667,
+        "e": 44.75333367
+      },
+      {
+        "index": 128,
+        "w": "apapun.",
+        "s": 44.75333367,
+        "e": 45.14166667
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-16-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-16-source.wav"
+  },
+  {
+    "case": 17,
+    "kind": "diam_kal",
+    "gate_time": 48.94,
+    "gate_info": "Dan \u2192 ngebangun 0.26 dtk",
+    "program_window": [
+      48.339999999999996,
+      49.8
+    ],
+    "source_montage_window": [
+      54.57333333333333,
+      57.166666666666664
+    ],
+    "word_context": [
+      {
+        "index": 136,
+        "w": "apapun.",
+        "s": 48.05333367,
+        "e": 48.63333367
+      },
+      {
+        "index": 137,
+        "w": "Dan",
+        "s": 48.85833333,
+        "e": 48.94663333
+      },
+      {
+        "index": 138,
+        "w": "ngebangun",
+        "s": 49.18833333,
+        "e": 49.51333333
+      },
+      {
+        "index": 139,
+        "w": "itu",
+        "s": 49.51333333,
+        "e": 49.65333333
+      },
+      {
+        "index": 140,
+        "w": "bikin",
+        "s": 49.65333333,
+        "e": 50.01333333
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-17-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-17-source.wav"
+  },
+  {
+    "case": 18,
+    "kind": "diam_kal",
+    "gate_time": 50.37,
+    "gate_info": "jadi \u2192 adiktif. 0.21 dtk",
+    "program_window": [
+      49.769999999999996,
+      51.18
+    ],
+    "source_montage_window": [
+      57.13666666666666,
+      59.28
+    ],
+    "word_context": [
+      {
+        "index": 140,
+        "w": "bikin",
+        "s": 49.65333333,
+        "e": 50.01333333
+      },
+      {
+        "index": 141,
+        "w": "kita",
+        "s": 50.01333333,
+        "e": 50.16833333
+      },
+      {
+        "index": 142,
+        "w": "jadi",
+        "s": 50.19833333,
+        "e": 50.37333333
+      },
+      {
+        "index": 143,
+        "w": "adiktif.",
+        "s": 50.575,
+        "e": 51.08
+      },
+      {
+        "index": 144,
+        "w": "Atau",
+        "s": 51.165,
+        "e": 51.46
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-18-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-18-source.wav"
+  },
+  {
+    "case": 19,
+    "kind": "diam_kal",
+    "gate_time": 57.59,
+    "gate_info": "sama \u2192 kesempurnaan. 0.45 dtk",
+    "program_window": [
+      56.99,
+      58.64000000000001
+    ],
+    "source_montage_window": [
+      66.55666666666666,
+      68.80666666666667
+    ],
+    "word_context": [
+      {
+        "index": 161,
+        "w": "terobsesi",
+        "s": 56.75333333,
+        "e": 57.31333333
+      },
+      {
+        "index": 162,
+        "w": "sama",
+        "s": 57.31333333,
+        "e": 57.59333333
+      },
+      {
+        "index": 163,
+        "w": "kesempurnaan.",
+        "s": 58.03833333,
+        "e": 58.64333333
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-19-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-19-source.wav"
+  },
+  {
+    "case": 20,
+    "kind": "diam_kal",
+    "gate_time": 62.68,
+    "gate_info": "akhirnya \u2192 aku 0.20 dtk",
+    "program_window": [
+      62.08,
+      63.480000000000004
+    ],
+    "source_montage_window": [
+      72.24666666666667,
+      73.74666666666668
+    ],
+    "word_context": [
+      {
+        "index": 172,
+        "w": "Sampai",
+        "s": 61.99833333,
+        "e": 62.26333333
+      },
+      {
+        "index": 173,
+        "w": "akhirnya",
+        "s": 62.26333333,
+        "e": 62.68333333
+      },
+      {
+        "index": 174,
+        "w": "aku",
+        "s": 62.86833333,
+        "e": 63.28333333
+      },
+      {
+        "index": 175,
+        "w": "gak",
+        "s": 63.28333333,
+        "e": 63.48333333
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-20-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-20-source.wav"
+  },
+  {
+    "case": 21,
+    "kind": "diam_kal",
+    "gate_time": 75.9,
+    "gate_info": "yang \u2192 aku 0.20 dtk",
+    "program_window": [
+      75.30000000000001,
+      76.7
+    ],
+    "source_montage_window": [
+      87.36666666666667,
+      88.99999999999999
+    ],
+    "word_context": [
+      {
+        "index": 208,
+        "w": "-share",
+        "s": 75.26996633,
+        "e": 75.46996633
+      },
+      {
+        "index": 209,
+        "w": "apa",
+        "s": 75.46996633,
+        "e": 75.68833333
+      },
+      {
+        "index": 210,
+        "w": "yang",
+        "s": 75.74833333,
+        "e": 75.90996633
+      },
+      {
+        "index": 211,
+        "w": "aku",
+        "s": 76.095,
+        "e": 76.195
+      },
+      {
+        "index": 212,
+        "w": "alami.",
+        "s": 76.225,
+        "e": 76.676633
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-21-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-21-source.wav"
+  },
+  {
+    "case": 22,
+    "kind": "gumam",
+    "gate_time": 31.42,
+    "gate_info": "0.15 dtk",
+    "program_window": [
+      30.82,
+      32.17
+    ],
+    "source_montage_window": [
+      34.22,
+      35.56999999999999
+    ],
+    "word_context": [
+      {
+        "index": 90,
+        "w": "pada",
+        "s": 30.66,
+        "e": 30.98
+      },
+      {
+        "index": 91,
+        "w": "AI.",
+        "s": 30.98,
+        "e": 31.36
+      },
+      {
+        "index": 92,
+        "w": "Untuk",
+        "s": 31.62,
+        "e": 32.08
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-22-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-22-source.wav"
+  },
+  {
+    "case": 23,
+    "kind": "gumam",
+    "gate_time": 43.44,
+    "gate_info": "0.17 dtk",
+    "program_window": [
+      42.839999999999996,
+      44.21
+    ],
+    "source_montage_window": [
+      48.17333333333333,
+      49.54333333333334
+    ],
+    "word_context": [
+      {
+        "index": 123,
+        "w": "lewatkan",
+        "s": 42.81333367,
+        "e": 43.21333367
+      },
+      {
+        "index": 124,
+        "w": "adalah.",
+        "s": 43.21333367,
+        "e": 43.43333367
+      },
+      {
+        "index": 125,
+        "w": "Aku",
+        "s": 43.61333367,
+        "e": 43.93333367
+      },
+      {
+        "index": 126,
+        "w": "tidak",
+        "s": 43.93333367,
+        "e": 44.23333367
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-23-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-23-source.wav"
+  },
+  {
+    "case": 24,
+    "kind": "gumam",
+    "gate_time": 80.01,
+    "gate_info": "0.16 dtk",
+    "program_window": [
+      79.41000000000001,
+      80.77
+    ],
+    "source_montage_window": [
+      93.21,
+      94.86999999999999
+    ],
+    "word_context": [
+      {
+        "index": 221,
+        "w": "dapatkan.",
+        "s": 78.906633,
+        "e": 79.446633
+      },
+      {
+        "index": 222,
+        "w": "Share.",
+        "s": 79.665,
+        "e": 80.000033
+      },
+      {
+        "index": 223,
+        "w": "Ngebagiin.",
+        "s": 80.225,
+        "e": 80.780033
+      }
+    ],
+    "result_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-24-v6.wav",
+    "source_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-qc/case-24-source.wav"
+  }
+]

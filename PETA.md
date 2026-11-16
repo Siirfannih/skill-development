@@ -167,7 +167,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 |---|---|
 | `projects/ai-change-everything/` | STATUS · ai-change-everything ("Pengganti kita sendiri") · mulai dari STATUS.md |
 | `projects/bali-digifest-day1/` | DECISIONS · Bali Digifest 2026 Day 1 (60 dtk) |
-| `projects/builder-trap-r2/` |  · mulai dari STATUS.md |
+| `projects/builder-trap-r2/` | STATUS · Builder Trap R2 v6 · 16 Nov 2026 · mulai dari STATUS.md |
 | `projects/builder-trap-show-your-work/` | Ledger · Builder trap / show your work (cinematic story) |
 | `projects/doac-5-klip/` |  |
 | `projects/jadisatu-60s/` | STATUS — The Gap (Jadisatu) · Remotion · mulai dari STATUS.md |
@@ -176,7 +176,6 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/jensen-pain-suffering/` | STATUS jensen-pain-suffering (orkestrasi.md §2, §9) · mulai dari STATUS.md |
 | `projects/pengganti-kita-sendiri/` | STATUS: Pengganti Kita Sendiri (@siirfannih) · mulai dari STATUS.md |
 | `projects/personal-brand-day-02/` | Ledger · Personal branding, konten kedua challenge |
-| `projects/uji-builder-trap-12nov/` | Ledger · uji-builder-trap-12nov |
 
 ## Lain-lain
 

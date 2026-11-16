@@ -41,6 +41,8 @@ const INPUT = getInputProps() as { mbSamples?: number };
 
 export const Stage: React.FC<{
   pose?: (f: number) => Pose;
+  frame?: number;
+  screenPose?: (f: number) => Pose;
   fov?: number; // derajat vertikal
   bg?: string;
   blurAbove?: number;
@@ -49,12 +51,13 @@ export const Stage: React.FC<{
   overlay?: React.ReactNode; // terkunci layar (hanya untuk transisi, bukan teks)
   children: React.ReactNode;
   style?: React.CSSProperties;
-}> = ({ pose, fov = 32, bg, blurAbove = 9, samples, shutter = 200, overlay, children, style }) => {
-  const f = useCurrentFrame();
+}> = ({ pose, frame, screenPose, fov = 32, bg, blurAbove = 9, samples, shutter = 200, overlay, children, style }) => {
+  const sceneFrame = useCurrentFrame();
+  const f = frame ?? sceneFrame;
   const P = H / 2 / Math.tan(((fov / 2) * Math.PI) / 180);
   const fn = pose ?? (() => REST);
   const speed = pose ? screenSpeed(fn, f) : 0;
-  const n = speed > blurAbove ? Math.max(2, samples ?? INPUT.mbSamples ?? 10) : 1;
+  const n = speed > blurAbove ? Math.max(2, samples ?? INPUT.mbSamples ?? 16) : 1;
   const span = shutter / 360;
   const worlds = [];
   for (let k = 0; k < n; k++) {
@@ -77,7 +80,7 @@ export const Stage: React.FC<{
     );
   }
   return (
-    <StageCtx.Provider value={{ P, pose: pose ?? (() => REST) }}>
+    <StageCtx.Provider value={{ P, pose: screenPose ?? pose ?? (() => REST) }}>
       <AbsoluteFill style={{ backgroundColor: bg, overflow: 'hidden', ...style }}>
         {worlds}
         {overlay}

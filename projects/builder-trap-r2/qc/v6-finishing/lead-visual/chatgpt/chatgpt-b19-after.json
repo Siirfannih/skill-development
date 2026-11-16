@@ -1,0 +1,100 @@
+{
+  "reviewer": "ChatGPT lead, independent of B19 patch author",
+  "source_snapshot_sha256": "4965f416e2deea839d85256419364b562b49721cd996b33fadfa15e16f8834ac",
+  "scope": {
+    "new_sheets": 3,
+    "new_cells": 90,
+    "changed_range": [
+      1461,
+      1506
+    ],
+    "unchanged_17_other_sheets_in_c05_c06_reused_only_by_exact_byte_hash": true
+  },
+  "sheets": [
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s048.0.jpg",
+      "sha256": "94c0720700f62c46d90f955823b518ac125fb8b91894be5d370e34e92a1e74bd",
+      "opened": true,
+      "all_30_cells_inspected": true,
+      "cells_inspected": 30,
+      "frame_start": 1440,
+      "frame_end": 1469
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s049.0.jpg",
+      "sha256": "8cdbf97733321b880737e21a7cf538839c6762a27873bdf648fd7afc5dde849e",
+      "opened": true,
+      "all_30_cells_inspected": true,
+      "cells_inspected": 30,
+      "frame_start": 1470,
+      "frame_end": 1499
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c06_050.0-060.0s/s050.0.jpg",
+      "sha256": "77fc8440d352dc8ff23aec886f36f92becf590602c3d0fc544cd1c808a83bb1d",
+      "opened": true,
+      "all_30_cells_inspected": true,
+      "cells_inspected": 30,
+      "frame_start": 1500,
+      "frame_end": 1529
+    }
+  ],
+  "info_files": [
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/INFO.md",
+      "sha256": "843083de91d11790b942ed9091ce14a098a570f8d654d941c941c08ca146369a",
+      "opened_and_read": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c06_050.0-060.0s/INFO.md",
+      "sha256": "2093ba8c65b01f23d2288134a4136ca35aeb1317f6ef841dfbb8060a52e2b90b",
+      "opened_and_read": true
+    }
+  ],
+  "opened_raw_jpegs": [
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1469.jpeg",
+      "sha256": "cda90a864b372a5c0ddf5c78d4102ff5eede37a7c01d0400cadb074364a1b9e8",
+      "opened": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1472.jpeg",
+      "sha256": "8f9c3859f73922efcaa9a27f8e14f6dd13b68eb5218cfb5cc465aa2412ec95e1",
+      "opened": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1475.jpeg",
+      "sha256": "d1ad5dd436b94e2acc90e28dc50a2916cca796ef454a1cb7602f9a559c846815",
+      "opened": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/stills/B19.png",
+      "sha256": "4cb100eba3ef83c9529ceeecbf7329b5bde3b3acd4f2ebf41469be58479fed3f",
+      "opened": true
+    }
+  ],
+  "findings": [
+    {
+      "id": "V-C05-01",
+      "status": "RESOLVED",
+      "reason": "All30cells in each of3new sheets opened. f1469 is sharp/slight movement, f1471–1473 move through blur at changing positions, f1474–1477 settle sharp; old seven-frame smeared plateau is gone. f1485–1489 continuous vertical pan reaches Create repository, sharp/readable from1490 through1506. No blank/frame flash/caption collision. Typing and button action remain intact."
+    }
+  ],
+  "automatic_flags": [
+    {
+      "frame": 1461,
+      "flag": "BEKU3f",
+      "disposition": "ACCEPT_INTENTIONAL_ESTABLISH",
+      "reason": "Fresh form arrives in a sharp, stable initial pose1461–1463 before the continuous push. This is an establishing hold without motion blur, distinct from the removed mid-push plateau."
+    }
+  ],
+  "unchanged_visual_flags": "All other currentc05/c06flags are covered by the historical full900cell review and unchanged sheets/INFO; c05 body before1461 unchanged. SFX? prompts adjudicated separately from actual cue inventory/nativeaudio; no audio heard from strips.",
+  "no_audio_listening": true,
+  "not_a_verdict_or_ship": true,
+  "evidence_hashes": {
+    "qc/v6-finishing/b19-audit-changes.json": "a12290be7b3f2031a59e581cc9af7533cde62d89da18cfd0a4745bae451a57b0",
+    "qc/v6-finishing/frames-provenance.json": "4ee4a264a187eb1030e0d423e2afc24e4b3f6d2ce035738900ba4502f45fa71d",
+    "qc/v6-finishing/stills-provenance.json": "efe31a3d4d1db05900924747c4cc1a0de10383fd2b327e604c5118175e1253b6"
+  },
+  "created_ns": 1794829383724585642
+}

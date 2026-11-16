@@ -1,0 +1,15 @@
+{
+  "command": [
+    "bash",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/juri/render.sh",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/builder-v6",
+    "frames",
+    "Main"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+  "exit_code": 0,
+  "started_ns": 1794825125823034818,
+  "ended_ns": 1794825965750740930,
+  "log": "qc/v6-finishing/logs/render-frames.log",
+  "log_sha256": "818699609fb8b3bdd62cb235211a807884ae6e442f3b08d54d13383fe4c29713"
+}

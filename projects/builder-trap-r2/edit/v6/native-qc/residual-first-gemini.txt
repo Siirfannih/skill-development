@@ -1,0 +1,79 @@
+```json
+{
+  "listened": [
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-00-source.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-00-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-01-source.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-01-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-02-source.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-02-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-03-source.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-03-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/build-something-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/apa-experience-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/closing-v6.wav"
+  ],
+  "method": "Native blind listening via direct multimodal read_file without referencing alignment maps, source code, or transcript JSONs.",
+  "windows": [
+    {
+      "label": "residual-00 (yang → gak)",
+      "source_transcript": "suatu yang... gak",
+      "v6_transcript": "suatu yang... gak",
+      "words_intact": true,
+      "residual_type": "hening berpikir / transisi jeda natural",
+      "recommendation": "Pertahankan (keep). Suku kata 'yang' (koda nasal /ŋ/) dan 'gak' (onset /g/) utuh. Jeda hening berpikir pada source telah dipadatkan secara wajar pada v6 tanpa memotong ekor fonem.",
+      "approx_window": "~160-240 ms pada v6 (source: ~450-550 ms)",
+      "confidence": 0.95
+    },
+    {
+      "label": "residual-01 (gak → orang)",
+      "source_transcript": "gak... orang",
+      "v6_transcript": "gak orang",
+      "words_intact": true,
+      "residual_type": "release/fonem",
+      "recommendation": "Pertahankan (keep). Letupan/pelepasan koda /k/ pada 'gak' sebelum vokal 'o' pada 'orang' adalah pelepasan artikulasi alami konsonan stop, bukan handling click atau noise. Pemangkasan lebih lanjut berisiko mencacah release 'gak' atau onset 'orang'.",
+      "approx_window": "~80-120 ms pada v6",
+      "confidence": 0.95
+    },
+    {
+      "label": "residual-02 (Untuk → belajar.)",
+      "source_transcript": "ai, untuk... belajar.",
+      "v6_transcript": "ai, untuk... belajar.",
+      "words_intact": true,
+      "residual_type": "hening berpikir",
+      "recommendation": "Pangkas lebih awal (tighten trim). Suku kata 'untuk' dan 'belajar' utuh. Namun, sebagai frasa preposisional ('untuk belajar'), sisa jeda hening berpikir antara 'untuk' dan 'belajar' pada v6 masih terasa agak renggang/menggantung dan dapat dirapatkan lebih lanjut.",
+      "approx_window": "~200-280 ms pada v6 (source: ~450-500 ms)",
+      "confidence": 0.9
+    },
+    {
+      "label": "residual-03 (aku → mencoba)",
+      "source_transcript": "tahun aku... mencoba",
+      "v6_transcript": "tahun aku... mencoba",
+      "words_intact": true,
+      "residual_type": "hening berpikir / transisi nafas",
+      "recommendation": "Pertahankan (keep). Pemotongan dari source ke v6 sudah cukup agresif mengeliminasi jeda ragu. Suku kata 'aku' (vokal terbuka /u/) dan 'mencoba' (nasal /m/) tetap utuh dengan transisi yang terdengar natural.",
+      "approx_window": "~120-180 ms pada v6 (source: ~550-650 ms)",
+      "confidence": 0.92
+    }
+  ],
+  "lexical": [
+    {
+      "file": "build-something-v6.wav",
+      "transcript": "buil sam... selama satu",
+      "defects": "Frasa bahasa Inggris 'build something' TIDAK utuh. Kata 'build' kehilangan release konsonan akhir /d/ ('buil'), dan kata 'something' terpotong parah menjadi 'sam' / 'some-' (suku kata '-thing' hilang sepenuhnya) sebelum langsung berpindah ke 'selama satu'."
+    },
+    {
+      "file": "apa-experience-v6.wav",
+      "transcript": "alami apa yang aku buat. Pengalaman yang aku dapatkan",
+      "defects": "Kata 'Apa' sebelum 'pengalaman' TIDAK ADA / hilang. Audio langsung melompat dari kalimat '...apa yang aku buat' ke 'Pengalaman yang aku dapatkan'; tidak terdengar kata 'Apa' yang berdiri sendiri sebagai penanda sebelum 'pengalaman'."
+    },
+    {
+      "file": "closing-v6.wav",
+      "transcript": "share ngebagiin apa yang belum sempurna",
+      "defects": "Penutup 'belum sempurna lengkap' TIDAK LENGKAP. Ucapan yang terdengar berhenti persis pada frasa 'apa yang belum sempurna'; kata 'lengkap' sama sekali tidak terucap atau terpotong di bagian akhir."
+    }
+  ],
+  "verdict": "Secara umum, pemangkasan jeda pada residual windows 00, 01, dan 03 sudah menjaga keutuhan fonem dan release stop konsonan dengan baik. Residual-02 masih menyisakan hening berpikir yang layak dirapatkan. Namun, pada aspek leksikal v6 ditemukan cacat signifikan: 'build something' terpotong ('buil sam...'), kata 'Apa' sebelum 'pengalaman' hilang, dan penutup berhenti di 'belum sempurna' tanpa kata 'lengkap'.",
+  "uncertainty": "Estimasi durasi jeda (approx_window) merupakan perkiraan pendengaran native model; engineer audio tetap perlu memverifikasi titik zero-crossing dan batas waveform milidetik aktual pada DAW/visualizer sebelum eksekusi pemotongan."
+}
+```

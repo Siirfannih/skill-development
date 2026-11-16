@@ -3,19 +3,17 @@
 Frame 300–599 · 10.00–20.00 dtk
 
 ## Tanda otomatis
-- f596 (19.87 dtk): LOMPAT 124.2 (f595→596)
-- f597 (19.90 dtk): LOMPAT 40.1 (f596→597)
-- f598 (19.93 dtk): LOMPAT 36.4 (f597→598)
-- f599 (19.97 dtk): LOMPAT 30.4 (f598→599)
+- f404 (13.47 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f487 (16.23 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f561 (18.70 dtk): BEKU 4 f
 
 ## Kata diucapkan (dtk)
-usia@10.07 20@10.33 -an.@10.53 Aku@10.87 merasa@11.03 aku@11.39 perlu@12.01 untuk@12.41 melakukan@12.87 sesuatu@13.25 yang@13.71 berbeda.@13.91 Sesuatu@14.47 yang@14.83 unik.@14.99 Sesuatu@15.47 yang@15.91 gak@16.11 orang@16.91 lain@17.33 punya.@17.57 Dan@17.99 aku@18.17 termakan@18.45 kata@18.83 -kata@19.11 motivasi.@19.27 Kalau@19.85
+Aku@10.04 merasa@10.20 aku@10.56 perlu@11.01 untuk@11.41 melakukan@11.87 sesuatu@12.25 yang@12.71 berbeda.@12.91 Sesuatu@13.47 yang@13.85 unik.@13.99 Sesuatu@14.52 yang@14.91 gak@15.30 orang@15.55 lain@15.63 punya.@15.87 Dan@16.29 aku@16.47 termakan@16.75 kata@17.13 -kata@17.41 motivasi.@17.57 Kalau@18.15 mau@18.41 jadi@18.81 sesuatu@19.05 harus@19.77
 
 ## Cue SFX (dtk · peran · file)
-- 10.36 · tulis · marker.mp3
-- 14.47 · potong_adegan · Katapertama.mp3
-- 15.46 · whoosh · scaningfast.mp3
-- 15.53 · cetakan_jatuh · Pergantianfoto.mp3
-- 16.64 · kartu_jatuh · paper_slide.mp3
-- 17.93 · potong_adegan · Katapertama.mp3
-- 19.95 · whoosh · Wooshcameramovementtransisi.mp3
+- 14.46 · screen_entry · Cutcontrastransision.mp3
+- 14.83 · card_motion · pop up.mp3
+- 15.03 · card_motion · pop up.mp3
+- 15.33 · card_motion · pop up.mp3
+- 15.77 · camera · Wooshcameramovementtransisi.mp3
+- 18.40 · camera · Wooshcameramovementtransisi.mp3

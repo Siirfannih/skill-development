@@ -1,0 +1,10 @@
+# Captured tool stdout is retained byte-for-byte for the audit hashes.
+qc/v6-finishing/logs/*.log -whitespace
+qc/v6-finishing/*-provenance.json linguist-generated=true
+qc/v6-finishing/draft-frame-*.json linguist-generated=true
+qc/v6-finishing/tail-before-after.json linguist-generated=true
+qc/v6-finishing/first6-preservation.json linguist-generated=true
+qc/v6-finishing/source-snapshot.json linguist-generated=true
+qc/v6-finishing/readiness.json linguist-generated=true
+qc/v6-finishing/preserved/** linguist-generated=true
+qc/v6-finishing/logs/** linguist-generated=true

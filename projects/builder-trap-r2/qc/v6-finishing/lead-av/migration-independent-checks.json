@@ -1,0 +1,11 @@
+{
+  "candidate_sha256": "df24a92410fac50c8bca05435074b77cf0184628d94cdeab36f8f511e0898c6e",
+  "checks": {
+    "inventory_baseline": "accepted",
+    "added_source": "rejected: migration dependency inventory changed (including added source files)",
+    "other_changed": "rejected: migration contains an unapproved dependency change",
+    "missing_source": "rejected: migration dependency inventory changed (including added source files)",
+    "fresh_frames_from_old_bundle": "ACCEPTED_UNEXPECTEDLY"
+  },
+  "limits": "Unit isolation for migration inventory and fresh render helper; migration_source preconditions supplied as valid context. No render, source mutation, media QA or final acceptance invoked."
+}

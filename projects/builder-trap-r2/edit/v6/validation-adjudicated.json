@@ -1,0 +1,19 @@
+{
+  "pass_for_scope": true,
+  "automatic_source_guard_pass": false,
+  "blocking_failures": [],
+  "exceptions": [
+    {
+      "id": "R-032",
+      "word_index": 217,
+      "raw_cut": [
+        105.65,
+        107.15
+      ],
+      "left_guard_ms": 0,
+      "reason": "native auditory option2: full Apa / zero false-start yang / natural; continuous word transition has no 50ms silent guard",
+      "authority": "Irfan cut saja + lead explicit scoped exception 16Nov2026",
+      "source_span_policy": "conservative coverage through105.65; no shortening labels to fabricate guard"
+    }
+  ]
+}

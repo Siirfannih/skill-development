@@ -1,0 +1,143 @@
+[
+  {
+    "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/qc-final/english-final-2493.wav",
+    "program_window": [
+      33.440000000000005,
+      35.4
+    ],
+    "word_indices": [
+      97,
+      98
+    ],
+    "words": [
+      {
+        "w": "Build",
+        "s": 33.84,
+        "e": 34.26
+      },
+      {
+        "w": "something.",
+        "s": 34.26,
+        "e": 35.0
+      }
+    ],
+    "source_audio_sha256": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806"
+  },
+  {
+    "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/qc-final/apa-final-2493.wav",
+    "program_window": [
+      76.316633,
+      79.84663300000001
+    ],
+    "word_indices": [
+      213,
+      221
+    ],
+    "words": [
+      {
+        "w": "Apa",
+        "s": 76.716633,
+        "e": 76.916633
+      },
+      {
+        "w": "yang",
+        "s": 76.916633,
+        "e": 77.096633
+      },
+      {
+        "w": "aku",
+        "s": 77.096633,
+        "e": 77.245
+      },
+      {
+        "w": "buat.",
+        "s": 77.275,
+        "e": 77.536633
+      },
+      {
+        "w": "Apa",
+        "s": 77.523333,
+        "e": 77.933333
+      },
+      {
+        "w": "pengalaman",
+        "s": 77.995,
+        "e": 78.426633
+      },
+      {
+        "w": "yang",
+        "s": 78.426633,
+        "e": 78.606633
+      },
+      {
+        "w": "aku",
+        "s": 78.606633,
+        "e": 78.875
+      },
+      {
+        "w": "dapatkan.",
+        "s": 78.906633,
+        "e": 79.446633
+      }
+    ],
+    "source_audio_sha256": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806"
+  },
+  {
+    "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/qc-final/closing-final-2493.wav",
+    "program_window": [
+      79.265,
+      82.46003300000001
+    ],
+    "word_indices": [
+      222,
+      227
+    ],
+    "words": [
+      {
+        "w": "Share.",
+        "s": 79.665,
+        "e": 80.000033
+      },
+      {
+        "w": "Ngebagiin.",
+        "s": 80.225,
+        "e": 80.780033
+      },
+      {
+        "w": "Apa",
+        "s": 80.780033,
+        "e": 81.060033
+      },
+      {
+        "w": "yang",
+        "s": 81.115,
+        "e": 81.260033
+      },
+      {
+        "w": "belum",
+        "s": 81.260033,
+        "e": 81.480033
+      },
+      {
+        "w": "sempurna.",
+        "s": 81.480033,
+        "e": 82.060033
+      }
+    ],
+    "source_audio_sha256": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806"
+  },
+  {
+    "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/qc-final/english-raw-context.wav",
+    "raw_window": [
+      45.8,
+      48.2
+    ]
+  },
+  {
+    "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/qc-final/apa-raw-context.wav",
+    "raw_window": [
+      104.4,
+      109.0
+    ]
+  }
+]

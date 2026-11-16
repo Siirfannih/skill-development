@@ -1,0 +1,17 @@
+{
+  "actual_class_mapping": {
+    "footage_change": "shutter",
+    "camera": "whoosh",
+    "impact": "impact",
+    "title": "text_pop",
+    "mosaic": "glitch",
+    "card_motion": "ui_pop",
+    "screen_entry": "ui_pop",
+    "ui_click": "ui_click",
+    "typing": "type_key",
+    "ui_confirm": "ui_pop"
+  },
+  "raw_mix_is_final_mix": true,
+  "reason": "no master gain or limiter; actual sum of immutable VO plus bed",
+  "mix_sha256": "a36a2819723fb7f76dc2d8bef2b24e6ac98ec78a6555ed440d0a5aabe4452e02"
+}

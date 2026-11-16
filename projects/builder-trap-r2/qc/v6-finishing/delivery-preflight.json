@@ -1,0 +1,22 @@
+{
+  "authority": "lead",
+  "source_snapshot_sha256": "4965f416e2deea839d85256419364b562b49721cd996b33fadfa15e16f8834ac",
+  "status": "PASS_PROJECT_PREFLIGHT",
+  "canonical_pass": false,
+  "audio_order_pass": false,
+  "exception_ids": [
+    "R-032",
+    "R-033"
+  ],
+  "actual_media_reviews_complete": true,
+  "final_rendered": false,
+  "requirement": "Final remains blocked without this readiness-bound lead SHIP. After export, verify native1080/30fps/2493frames, decode,8seams,allframeblankscan,AACtruepeak<=−1dBTP,sourceunchanged. Upload only actual verified output.",
+  "evidence_hashes": {
+    "qc/v6-finishing/voice-acceptance.json": "97577e81810aea5de8bd9a5971a595ca1fa142353d4a319f703608578e4be748",
+    "qc/v6-finishing/lead-adjudications.json": "27f649820a7d0f5c4dad1d67367ab9c7163a421e046692616e5c475c5b8d719a",
+    "qc/v6-finishing/lead-av/acceptance.json": "83251870a3cb26e6f4fbabe4ef3f242e0c2f05c6e6329653874b9d9921d96759",
+    "qc/v6-finishing/lead-audio/lead-dispositions.json": "e6c1c6f9cf88dd5769ae4a8fde034cd1f3b5e75574b97e771af6d404ed2766f9",
+    "qc/v6-finishing/QA-assets-ready.json": "25d6f1d2d9ed8e249dabc186cf102f8021e511f784c4391179738d847fb88cde"
+  },
+  "created_ns": 1794830756567928893
+}

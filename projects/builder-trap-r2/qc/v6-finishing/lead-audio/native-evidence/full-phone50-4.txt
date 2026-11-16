@@ -1,0 +1,33 @@
+```json
+{
+  "listened": true,
+  "entire_files_listened": true,
+  "transcript": "pengin sekali menjadi seorang autentik sampai akhirnya aku nggak menjadi siapapun dan aku nggak melangkah jauh ke mana-mana sampai akhirnya aku sadar dan sekarang aku memutuskan untuk kembali ke titik awal di mana mungkin aku harusnya nggak sekadar membangun tapi juga nge-share apa yang aku alami apa yang aku buat apa pengalaman yang aku dapatkan share ngebagiin apa yang belum sempurna",
+  "files": [
+    {
+      "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/mix-v6-chunks-native/full-phone50-4/A.wav",
+      "voice_clear": true,
+      "sfx_audibility": "balanced, clear sound effects and atmospheric layer supporting the voice without competition",
+      "bed_balance": "music bed remains well balanced beneath voice, ducking appropriately during dialogue",
+      "pumping": false,
+      "tail_cuts": false,
+      "harshness": false,
+      "defects": [],
+      "limitations": "none; clean full-spectrum stereo mix excerpt"
+    },
+    {
+      "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/mix-v6-chunks-native/full-phone50-4/B.wav",
+      "voice_clear": true,
+      "sfx_audibility": "audible and distinct despite bandwidth restriction and level attenuation",
+      "bed_balance": "intelligible dialogue with music bed and SFX maintaining good separation without masking",
+      "pumping": false,
+      "tail_cuts": false,
+      "harshness": false,
+      "defects": [],
+      "limitations": "mono band-limited (320Hz–11kHz) and attenuated 12dB phone model simulation; low-end weight reduced as expected"
+    }
+  ],
+  "ending_complete": null,
+  "uncertainty": "none; excerpt audio, transcription, and sound design layers are clean and fully audible"
+}
+```

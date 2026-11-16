@@ -1,0 +1,29 @@
+{
+  "command": [
+    "/home/irfan/work/mg-venv/bin/python",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/juri/frame_audit.py",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames",
+    "--src",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src",
+    "--fps",
+    "30",
+    "--chunk",
+    "10",
+    "--cuts",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/cuts_v6.json",
+    "--cues",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/cues_v6.json",
+    "--words",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/words_mapped.json",
+    "--stems",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/stems",
+    "--out",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/tail-audit-scratch-1794827299432951228"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+  "exit_code": 0,
+  "started_ns": 1794827299433337038,
+  "ended_ns": 1794827325507204019,
+  "log": "qc/v6-finishing/logs/frame-audit-tail-repair.log",
+  "log_sha256": "8eba687e1d949e091aa6d6cfc0c1a9653535df81f9d4a4005e08f50648688676"
+}

@@ -1,0 +1,83 @@
+```json
+{
+  "listened": [
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-02-source.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-02-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/untuk-tight.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-09-source.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-09-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/dimana-tight.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/dimana-middle.wav"
+  ],
+  "windows": [
+    {
+      "label": "residual-02",
+      "source_transcript": "ai untuk belajar",
+      "current_transcript": "ai untuk belajar",
+      "alternatives": [
+        {
+          "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-02-source.wav",
+          "transcript": "ai untuk belajar",
+          "phonemes_intact": true,
+          "natural": true,
+          "defects": "None; original raw pause before 'untuk'."
+        },
+        {
+          "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-02-v6.wav",
+          "transcript": "ai untuk belajar",
+          "phonemes_intact": true,
+          "natural": true,
+          "defects": "None; smooth transition preserving the initial vowel onset of /u/ in 'untuk' and natural prosody."
+        },
+        {
+          "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/untuk-tight.wav",
+          "transcript": "ai untuk belajar",
+          "phonemes_intact": false,
+          "natural": false,
+          "defects": "Abrupt edit right at the onset of 'untuk' cutting active voice energy/glottal onset of vowel /u/, creating a clipped, unnatural join."
+        }
+      ],
+      "best_file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-02-v6.wav",
+      "reason": "Preserves the complete vocalic onset of /u/ in 'untuk' and natural release without clipping active speech energy."
+    },
+    {
+      "label": "residual-09",
+      "source_transcript": "awal dimana mungkin aku harus",
+      "current_transcript": "awal dimana mungkin aku harus",
+      "alternatives": [
+        {
+          "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-09-source.wav",
+          "transcript": "awal dimana mungkin aku harus",
+          "phonemes_intact": true,
+          "natural": true,
+          "defects": "None; baseline source pause with complete sentence-boundary breath."
+        },
+        {
+          "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-09-v6.wav",
+          "transcript": "awal dimana mungkin aku harus",
+          "phonemes_intact": true,
+          "natural": true,
+          "defects": "None; preserves sentence break cadence, natural breath, and full phonemes."
+        },
+        {
+          "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/dimana-tight.wav",
+          "transcript": "awal dimana mungkin aku harus",
+          "phonemes_intact": false,
+          "natural": false,
+          "defects": "Truncates the trailing vocalic decay of 'dimana' and clips into the voiced bilabial nasal /m/ of 'mungkin', removing the natural inter-sentence breath."
+        },
+        {
+          "file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/dimana-middle.wav",
+          "transcript": "awal dimana mungkin aku harus",
+          "phonemes_intact": false,
+          "natural": false,
+          "defects": "Cuts the breath cycle unnaturally short and clips pre-voicing before 'mungkin', resulting in a stiff, artificial join."
+        }
+      ],
+      "best_file": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-09-v6.wav",
+      "reason": "Retains full phoneme integrity, the voiced nasal onset of /m/ in 'mungkin', and the natural conversational breath between clauses."
+    }
+  ],
+  "uncertainty": "none"
+}
+```

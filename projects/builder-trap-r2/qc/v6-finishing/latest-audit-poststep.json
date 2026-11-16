@@ -1,0 +1,53 @@
+{
+  "command": [
+    "/home/irfan/work/mg-venv/bin/python",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/latest-skill-0847f21/claude/motion-graphic/scripts/juri/frame_audit.py",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames",
+    "--src",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src",
+    "--fps",
+    "30",
+    "--chunk",
+    "10",
+    "--cuts",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/cuts_v6.json",
+    "--cues",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/cues_v6.json",
+    "--words",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/words_mapped.json",
+    "--stems",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/stems",
+    "--out",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit"
+  ],
+  "actual_prefix": [
+    "nice",
+    "-n",
+    "10"
+  ],
+  "exit_code": 0,
+  "started_ns": 1794827348920424425,
+  "lock_acquired_ns": 1794827348920458525,
+  "ended_ns": 1794827374625979863,
+  "source_snapshot_sha256": "429142e6d3268f5f01f9d3d08cea627e6ca5a34037f3dc800f9a29c636a2f4af",
+  "latest_commit": "0847f21a8a0af3204b8229f284bc673da93cc8e8",
+  "script_path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/latest-skill-0847f21/claude/motion-graphic/scripts/juri/frame_audit.py",
+  "script_sha256": "fcb977a10408cd54caa642fbaa65d516ea4d787ba26943679a86f271ab7eaa47",
+  "log": "qc/v6-finishing/logs/frame-audit-latest-hash.log",
+  "log_sha256": "59201f6ea4edfe93e78927dcbe86fd8a3bbbaf595b2ead71429bb832ca9039d7",
+  "original_provenance": "qc/v6-finishing/preserved/audit-before-latest-hash-1794827348919959316.json",
+  "original_provenance_sha256": "faeb076ead6007fa79a971ab6cada1160cdd1d47343b2175d04b911882949310",
+  "sheets_byte_identical": 84,
+  "info_files_byte_identical": 9,
+  "chunk_content_hashes": {
+    "c01_000.0-010.0s": "208743c11ab2b29e",
+    "c02_010.0-020.0s": "d21ec74dc0977d28",
+    "c03_020.0-030.0s": "15f4d0eb3a188418",
+    "c04_030.0-040.0s": "806b22a57c2138bf",
+    "c05_040.0-050.0s": "6a33786c22161934",
+    "c06_050.0-060.0s": "2fe6b5e6b2261f2b",
+    "c07_060.0-070.0s": "c8b02559f0cb6a10",
+    "c08_070.0-080.0s": "b992521d56548002",
+    "c09_080.0-083.1s": "07d1e4948641a1b6"
+  }
+}

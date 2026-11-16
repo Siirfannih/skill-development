@@ -2,7 +2,7 @@
 // lalu tambahkan SATU baris di ACTS di bawah. Adegan tidak memakai <Sequence>: useCurrentFrame() = frame absolut.
 import React from 'react';
 import { AbsoluteFill, Audio, Freeze, Sequence, staticFile, useCurrentFrame, getInputProps } from 'remotion';
-import { W, DUR_V5 } from './engine/timewarp';
+import { W, DUR_V6 } from './engine/timewarp';
 import { RealFrameProvider } from './engine/realframe';
 import { C } from './engine/theme';
 import type { SceneEntry } from './engine/scenes';
@@ -30,7 +30,7 @@ export const Main: React.FC = () => {
   const f = useCurrentFrame();
   const fo = W(f);
   const active = ACTS.filter((s) => fo >= s.from && fo < s.to);
-  const K = Math.max(0, fo - (DUR_V5 - 1));
+  const K = Math.max(0, fo - (DUR_V6 - 1));
   const scenes = (
     <>
       {active.filter((s) => !s.over).map((s) => <s.Comp key={s.id} />)}
@@ -47,8 +47,8 @@ export const Main: React.FC = () => {
         </Freeze>
       </RealFrameProvider>
       {DBG ? <div style={{ position: 'absolute', left: 20, top: 1030, fontSize: 30, fontFamily: 'monospace', color: '#FF00AA', background: '#000' }}>{`f${f} lama${fo} ${active.map((x) => x.id).join(',')}`}</div> : null}
-      {/* suara v5: mix final (suara + SFX + musik) */}
-      <Audio src={staticFile('mix_v5.wav')} />
+      {/* audio-bus: pinned kandidat mix v6 (suara + SFX + musik) */}
+      <Audio src={staticFile('v6/sfx/snapshot-v6/mix.wav')} />
     </AbsoluteFill>
   );
 };

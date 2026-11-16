@@ -1,0 +1,38 @@
+```json
+{
+  "listened": true,
+  "files": [
+    {
+      "file": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/peak-check/peak-00.wav",
+      "words_heard": "lah, aku tidak",
+      "sharp_event": {
+        "type": "consonant",
+        "t": "tengah-akhir (pada konsonan plosif 'k' di 'aku' dan 't' di 'tidak')",
+        "reason": "Hentakan akustik adalah pelepasan plosif alami (velar /k/ dan alveolar /t/), terikat penuh pada artikulasi vokal/kata, bukan mouth click, plate click, atau noise impulsif terpisah."
+      },
+      "recommendation": "keep (jangan di-declick atau dipotong, konsonan alami)"
+    },
+    {
+      "file": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/peak-check/peak-01.wav",
+      "words_heard": "satu hal yang",
+      "sharp_event": {
+        "type": "consonant",
+        "t": "awal-tengah (pada pelepasan konsonan 't' di kata 'satu')",
+        "reason": "Transien tajam murni merupakan burst letupan alveolar plosif /t/ yang wajar dalam fonotaktik vokal manusia, tidak terdengar artefak klik saliva/mekanikal."
+      },
+      "recommendation": "keep (artikulasi konsonan intak dan normal)"
+    },
+    {
+      "file": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/peak-check/peak-02.wav",
+      "words_heard": "karena itu",
+      "sharp_event": {
+        "type": "consonant",
+        "t": "awal (burst onset 'k' di 'karena') dan tengah-akhir (plosif 't' di 'itu')",
+        "reason": "Puncak transient berasal dari pelepasan konsonan letup velar /k/ dan alveolar /t/ serta transisi vokal alami; tidak ditemukan klik nonvokal independen."
+      },
+      "recommendation": "keep (energi transient adalah bagian organik pelafalan konsonan)"
+    }
+  ],
+  "uncertainty": "Rendah. Ketiga klip menunjukkan transien murni dari dinamika konsonan plosif (/k/, /t/) penutur tanpa anomali mouth click terpisah atau cacat sinyal digital."
+}
+```

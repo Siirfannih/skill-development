@@ -1,0 +1,1508 @@
+{
+  "schema_version": 1,
+  "reviewer": "ChatGPT visual_audit, independent image review",
+  "created_at_utc": "2026-11-16T10:57:57.609453+00:00",
+  "scope": {
+    "chunks": [
+      "c01_000.0-010.0s",
+      "c02_010.0-020.0s",
+      "c03_020.0-030.0s"
+    ],
+    "actual_frame_start": 0,
+    "actual_frame_end": 899,
+    "fps": 30,
+    "seconds_interval": "[0.00,30.00)",
+    "project_root": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+    "source_identity_supplied_by_lead": "429142; effective full film 2493f / 83.1s",
+    "provenance_claim": "Image byte identity is verified below. This review does not independently certify whole-film export provenance or phase 5/SHIP."
+  },
+  "coverage": {
+    "sheets_expected": 30,
+    "sheets_opened": 30,
+    "cells_expected": 900,
+    "cells_inspected": 900,
+    "all_cells_every_sheet": true,
+    "sheets_unchanged_before_after": true,
+    "raw_jpegs_opened": 17,
+    "automatic_flags_total": 20,
+    "automatic_flags_adjudicated_visually": 20,
+    "decision_counts": {
+      "intentional_visual_change": 14,
+      "verified_cadence_observation": 1,
+      "visual_cut_audio_unassessed": 4,
+      "intentional_visual_hold": 1
+    },
+    "full_film_2493_frame_review_complete": false,
+    "tail_reviewed": false,
+    "earlier_still70_review_repeated": false
+  },
+  "method": [
+    "Opened all original s*.jpg sheets via view_image, every row and cell; no frame sampling within the assigned interval.",
+    "Read each chunk INFO word/cue markers before adjudication; cue metadata and envelope strips are not treated as hearing audio.",
+    "Opened 17 canonical raw JPEGs at entire 960x540 frame view for punch freeze, B08 text/camera, Threads hold and app entrance.",
+    "Hashed all 30 sheets before and after inspection; all matched. All opened raw JPEG hashes recorded.",
+    "Read local source only to establish the clock cause of verified repeated punch poses. No source, VERDICT or JURI writes; no rendering."
+  ],
+  "limitations": [
+    "No audio playback or claim of hearing SFX/VO from envelope strips.",
+    "Sheet cells are small; uncertain details were checked in 960x540 canonical raw JPEGs, not original 1920x1080 render pixels.",
+    "This assigned interval ends at f899; B13 push/typing after f899 and all tail frames are outside this report.",
+    "Static every-frame images show pose continuity; natural-speed perceptual severity of the short opening freeze remains a native-playback judgment."
+  ],
+  "findings": [
+    {
+      "id": "C01-CADENCE-01",
+      "priority": "P3",
+      "kind": "short_repeated_motion_pose",
+      "frame_start": 149,
+      "frame_end": 153,
+      "seconds_start": 4.966666666666667,
+      "seconds_end_exclusive": 5.133333333333334,
+      "summary": "Dua pose punch pembuka yang masih blur ditahan 2 frame lalu 3 frame tepat sebelum cut wajah.",
+      "actual_evidence": [
+        "Raw f149 dan f150 memiliki SHA yang sama.",
+        "Raw f151, f152 dan f153 memiliki SHA yang sama.",
+        "Seluruh pose f151–153 masih menunjukkan directional motion blur; bukan hold baca tajam.",
+        "Raw f154 langsung cut ke wajah."
+      ],
+      "observation_confidence": 1.0,
+      "unintended_defect_confidence": 0.8,
+      "perceptual_severity_confidence": 0.6,
+      "scope": "cadence; tidak mengubah triad verb, footage arsip, layout atau wording yang sudah disetujui",
+      "source_cause": "Main memakai Freeze frame W(f); W membulatkan scene time; Archive/archCam membaca useCurrentFrame lama sehingga pose old162/163 berulang.",
+      "source_refs": [
+        {
+          "file": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/Main.tsx",
+          "line": 45
+        },
+        {
+          "file": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/scenes/Act1.tsx",
+          "line": 48
+        },
+        {
+          "file": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/scenes/Act1.tsx",
+          "line": 53
+        },
+        {
+          "file": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/engine/timewarp.ts",
+          "line": 28
+        }
+      ],
+      "clock_samples": [
+        {
+          "actual_frame": 147,
+          "scene_old_frame_W": 160
+        },
+        {
+          "actual_frame": 148,
+          "scene_old_frame_W": 161
+        },
+        {
+          "actual_frame": 149,
+          "scene_old_frame_W": 162
+        },
+        {
+          "actual_frame": 150,
+          "scene_old_frame_W": 162
+        },
+        {
+          "actual_frame": 151,
+          "scene_old_frame_W": 163
+        },
+        {
+          "actual_frame": 152,
+          "scene_old_frame_W": 163
+        },
+        {
+          "actual_frame": 153,
+          "scene_old_frame_W": 163
+        },
+        {
+          "actual_frame": 154,
+          "scene_old_frame_W": 164
+        },
+        {
+          "actual_frame": 155,
+          "scene_old_frame_W": 164
+        }
+      ],
+      "recommendation": "Lead dapat menilai cadence f142–154 pada playback native sebelum memutuskan polish lokal. Bila terlihat menahan punch, jalankan archCam/blur lokal dengan actual clock dan anchor cut yang sama; jangan mengubah peta global atau memperluas desain.",
+      "minimal_file_if_authorized": "remotion/src/scenes/Act1.tsx",
+      "blocks_review_scope_completion": false,
+      "automatic_ship_blocker": false,
+      "needs_more_fullframe_images": false,
+      "needs_native_playback_for_perceptual_severity": true,
+      "raw_evidence_frames": [
+        149,
+        150,
+        151,
+        152,
+        153,
+        154
+      ]
+    }
+  ],
+  "scope_observations": {
+    "blank_export": "No blank export observed in any of the 900 inspected cells.",
+    "foreground_text": "No new unintended foreground word clipping, destructive text overlap or camera-bound crop confirmed in this interval. Opening punch deliberately carries old label through frame edge; its repeated blurred pose is the cadence observation.",
+    "youtube_dummy": "B08 wall f433–476 and YouTube search f701–776 show flat vector thumbnails and generic creator placeholders; no new photographic creator thumbnail/avatar leak observed. Real archive footage at start and Irfan face inserts are intentional approved context.",
+    "B08": "All f433–486 cells inspected; raw f450/464/473/476/486 show full captions, fall/camera motion continuing, no teleport. The white label at f450 overlays a dummy card but all caption words remain visible. End phrase held before f487 cut.",
+    "Threads": "Foreground quote is sharp and complete after push and held through f653. BEKU f561 is settled reading context.",
+    "ChatGPT_in_scope": "Desktop cut f834, window entrance from dock f862–868, then wide framing through f899. No zoom-out/reset observed here. The single B13 heavy push and typing are later than this interval and are not re-certified by this report.",
+    "intentional_baseline": "Anticipatory empty NCard lead and repeated triad verb holds were not converted into style findings."
+  },
+  "info_files": [
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/INFO.md",
+      "sha256": "355c5282ae49a74167d3cf8aba122352a4f4af668d58f4520565e3a3cba3f1f5",
+      "opened_and_read": true,
+      "word_markers_read": true,
+      "cue_markers_read": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/INFO.md",
+      "sha256": "6d1fed1a677d8917f14745ed295142608a694bdab89b091b478b8e5847f937ca",
+      "opened_and_read": true,
+      "word_markers_read": true,
+      "cue_markers_read": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/INFO.md",
+      "sha256": "94e1be5a4544ed97b48ead9c75cd39b27d675373a9c976826cb6533bb77cb9c2",
+      "opened_and_read": true,
+      "word_markers_read": true,
+      "cue_markers_read": true
+    }
+  ],
+  "sheets": [
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s000.0.jpg",
+      "filename": "c01_000.0-010.0s/s000.0.jpg",
+      "size_bytes": 159096,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 0,
+      "frame_end": 29,
+      "opened": true,
+      "sha256_before": "9e1941e06576518256d5fc07cdd8cf1cb6b91a87cd8a3a133ac2bed8dc2fc3bf",
+      "sha256_after": "9e1941e06576518256d5fc07cdd8cf1cb6b91a87cd8a3a133ac2bed8dc2fc3bf",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s000.0.jpg",
+      "frames": [
+        0,
+        29
+      ],
+      "observed": "Seluruh 30 sel dibuka. Footage pembuka berganti f9 dan f25; kartu kata masuk bertahap. Kartu kosong singkat sebelum kata tidak berlebihan.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s001.0.jpg",
+      "filename": "c01_000.0-010.0s/s001.0.jpg",
+      "size_bytes": 189887,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 30,
+      "frame_end": 59,
+      "opened": true,
+      "sha256_before": "421ae652a358d3fe347b1a259353daa9220b3f3f017f3300cf73f63e79d8a0b8",
+      "sha256_after": "421ae652a358d3fe347b1a259353daa9220b3f3f017f3300cf73f63e79d8a0b8",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s001.0.jpg",
+      "frames": [
+        30,
+        59
+      ],
+      "observed": "Seluruh 30 sel dibuka. Cut footage f43 dan f57 stabil; verb membangun tetap terbaca, tidak ada clipping.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s002.0.jpg",
+      "filename": "c01_000.0-010.0s/s002.0.jpg",
+      "size_bytes": 172045,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 60,
+      "frame_end": 89,
+      "opened": true,
+      "sha256_before": "1a5b5f4efc914dd2038e04cfe6d4628dbfbf3395e4597c4941a263f37e3ded66",
+      "sha256_after": "1a5b5f4efc914dd2038e04cfe6d4628dbfbf3395e4597c4941a263f37e3ded66",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s002.0.jpg",
+      "frames": [
+        60,
+        89
+      ],
+      "observed": "Seluruh 30 sel dibuka. Cut f73 ke peta/UI, label membuat tetap di ruang bawah kanan. Cut f88 ke presenter bersih.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s003.0.jpg",
+      "filename": "c01_000.0-010.0s/s003.0.jpg",
+      "size_bytes": 180205,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 90,
+      "frame_end": 119,
+      "opened": true,
+      "sha256_before": "42492d100c1bce45e757ce63a4849ebb6dd187d57b241dc65a249839dea45aab",
+      "sha256_after": "42492d100c1bce45e757ce63a4849ebb6dd187d57b241dc65a249839dea45aab",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s003.0.jpg",
+      "frames": [
+        90,
+        119
+      ],
+      "observed": "Seluruh 30 sel dibuka. Pergantian footage f114, komposisi dan kata tetap utuh.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s004.0.jpg",
+      "filename": "c01_000.0-010.0s/s004.0.jpg",
+      "size_bytes": 216741,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 120,
+      "frame_end": 149,
+      "opened": true,
+      "sha256_before": "ff7ef4940064bdd3d14cf76629c586228a931f89035c569d5d835ac5dbd48b8e",
+      "sha256_after": "ff7ef4940064bdd3d14cf76629c586228a931f89035c569d5d835ac5dbd48b8e",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s004.0.jpg",
+      "frames": [
+        120,
+        149
+      ],
+      "observed": "Seluruh 30 sel dibuka. Transisi verb membuat→bikin→bikin software. f149 mulai punch dengan motion blur; harus dibaca bersama sel berikut.",
+      "issue_ids": [
+        "C01-CADENCE-01"
+      ]
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s005.0.jpg",
+      "filename": "c01_000.0-010.0s/s005.0.jpg",
+      "size_bytes": 175184,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 150,
+      "frame_end": 179,
+      "opened": true,
+      "sha256_before": "d05da8ba40efc70afb0e7369fe0379daa6d830179b30517ced0aef6541a341c8",
+      "sha256_after": "d05da8ba40efc70afb0e7369fe0379daa6d830179b30517ced0aef6541a341c8",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s005.0.jpg",
+      "frames": [
+        150,
+        179
+      ],
+      "observed": "Seluruh 30 sel dibuka. f151–153 pose punch/blur tampak identik sebelum cut ke wajah f154; perlu JPEG penuh dan clock source. Sesudah cut, kinetic caption tidak terpotong.",
+      "issue_ids": [
+        "C01-CADENCE-01"
+      ],
+      "followup_frames": [
+        149,
+        150,
+        151,
+        152,
+        153,
+        154
+      ]
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s006.0.jpg",
+      "filename": "c01_000.0-010.0s/s006.0.jpg",
+      "size_bytes": 176419,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 180,
+      "frame_end": 209,
+      "opened": true,
+      "sha256_before": "a52a2c72342fb28fbd0b99283d1502c365a2b77711154d021494a3a40b5e9c3b",
+      "sha256_after": "a52a2c72342fb28fbd0b99283d1502c365a2b77711154d021494a3a40b5e9c3b",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s006.0.jpg",
+      "frames": [
+        180,
+        209
+      ],
+      "observed": "Seluruh 30 sel dibuka. Caption di kanan wajah utuh, cut ke title f208 mulai reveal; clipping parsial awal judul sesuai reveal bertahap, bukan kata terpotong permanen.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s007.0.jpg",
+      "filename": "c01_000.0-010.0s/s007.0.jpg",
+      "size_bytes": 106234,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 210,
+      "frame_end": 239,
+      "opened": true,
+      "sha256_before": "343826a0f326ace8d9a761e6205a705c348a220fb9ba4524dd40051f07af41cc",
+      "sha256_after": "343826a0f326ace8d9a761e6205a705c348a220fb9ba4524dd40051f07af41cc",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s007.0.jpg",
+      "frames": [
+        210,
+        239
+      ],
+      "observed": "Seluruh 30 sel dibuka. Reveal judul selesai f215; sesudah itu mempublikasikan utuh dan held. Apa masuk sebagai baris kedua tanpa collision.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s008.0.jpg",
+      "filename": "c01_000.0-010.0s/s008.0.jpg",
+      "size_bytes": 175735,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 240,
+      "frame_end": 269,
+      "opened": true,
+      "sha256_before": "3bd71f85276aef985b974ccbb993ae9c262c80680ace87af34bbea321baa53b3",
+      "sha256_after": "3bd71f85276aef985b974ccbb993ae9c262c80680ace87af34bbea321baa53b3",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s008.0.jpg",
+      "frames": [
+        240,
+        269
+      ],
+      "observed": "Seluruh 30 sel dibuka. Kalimat title utuh sebelum mosaik f261–267; perubahan besar f262/263/267/268 merupakan wipe mosaik ke foto narator.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s009.0.jpg",
+      "filename": "c01_000.0-010.0s/s009.0.jpg",
+      "size_bytes": 132221,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 270,
+      "frame_end": 299,
+      "opened": true,
+      "sha256_before": "a7c1cc34c0cdf9a444be31750f21fed7985d44facc36c3bba3f8590d1d3152c1",
+      "sha256_after": "a7c1cc34c0cdf9a444be31750f21fed7985d44facc36c3bba3f8590d1d3152c1",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s009.0.jpg",
+      "frames": [
+        270,
+        299
+      ],
+      "observed": "Seluruh 30 sel dibuka. Memasuki usia dan tulisan 20-an masuk bertahap; bounds aman, wajah insert dan pin tetap stabil.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s010.0.jpg",
+      "filename": "c02_010.0-020.0s/s010.0.jpg",
+      "size_bytes": 144196,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 300,
+      "frame_end": 329,
+      "opened": true,
+      "sha256_before": "5d4dc078f12e90fc7e5874a22c76009cd6612166e7e5fd8f025fb6deb7473a2b",
+      "sha256_after": "5d4dc078f12e90fc7e5874a22c76009cd6612166e7e5fd8f025fb6deb7473a2b",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s010.0.jpg",
+      "frames": [
+        300,
+        329
+      ],
+      "observed": "Seluruh 30 sel dibuka. Narator dalam kartu dan caption aku merasa aku tampil bertahap dengan margin kanan luas.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s011.0.jpg",
+      "filename": "c02_010.0-020.0s/s011.0.jpg",
+      "size_bytes": 157174,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 330,
+      "frame_end": 359,
+      "opened": true,
+      "sha256_before": "c33161222047e68f93c73f6023986299a60da00aa1b6d456c94d559d93367459",
+      "sha256_after": "c33161222047e68f93c73f6023986299a60da00aa1b6d456c94d559d93367459",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s011.0.jpg",
+      "frames": [
+        330,
+        359
+      ],
+      "observed": "Seluruh 30 sel dibuka. Caption perlu untuk/melakukan tidak bersinggungan dengan kartu wajah atau bounds.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s012.0.jpg",
+      "filename": "c02_010.0-020.0s/s012.0.jpg",
+      "size_bytes": 172044,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 360,
+      "frame_end": 389,
+      "opened": true,
+      "sha256_before": "c0805a073f4198a406956c61ffaed9b64ce89b1a52e1a68d98430d639e68c2a2",
+      "sha256_after": "c0805a073f4198a406956c61ffaed9b64ce89b1a52e1a68d98430d639e68c2a2",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s012.0.jpg",
+      "frames": [
+        360,
+        389
+      ],
+      "observed": "Seluruh 30 sel dibuka. Caption melakukan sesuatu→yang berbeda berganti bersih; huruf utuh ketika opacity penuh.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s013.0.jpg",
+      "filename": "c02_010.0-020.0s/s013.0.jpg",
+      "size_bytes": 189164,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 390,
+      "frame_end": 419,
+      "opened": true,
+      "sha256_before": "c13f652e52042faad7ca86a7e7c46518200a1fe44724cdb84eda34bc792b1024",
+      "sha256_after": "c13f652e52042faad7ca86a7e7c46518200a1fe44724cdb84eda34bc792b1024",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s013.0.jpg",
+      "frames": [
+        390,
+        419
+      ],
+      "observed": "Seluruh 30 sel dibuka. f404 cut sengaja dari kartu narator ke close-up; SFX? tidak menunjukkan cacat visual. Caption di kanan wajah aman.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s014.0.jpg",
+      "filename": "c02_010.0-020.0s/s014.0.jpg",
+      "size_bytes": 226431,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 420,
+      "frame_end": 449,
+      "opened": true,
+      "sha256_before": "e92a8b5dcb52787f8b2149a5e9a7ba0fd208f339ab2ecc09ced5aef5e4bae941",
+      "sha256_after": "e92a8b5dcb52787f8b2149a5e9a7ba0fd208f339ab2ecc09ced5aef5e4bae941",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s014.0.jpg",
+      "frames": [
+        420,
+        449
+      ],
+      "observed": "Seluruh 30 sel dibuka. f433 cut ke wall dummy vector; foto narator tetap intentional. Wall established sebelum first card fall, teks sesuatu punya ruang.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s015.0.jpg",
+      "filename": "c02_010.0-020.0s/s015.0.jpg",
+      "size_bytes": 177970,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 450,
+      "frame_end": 479,
+      "opened": true,
+      "sha256_before": "267f5458d8cc406d73ff1c83f3ba2ebf81661742865b8259fb114add949f9ea8",
+      "sha256_after": "267f5458d8cc406d73ff1c83f3ba2ebf81661742865b8259fb114add949f9ea8",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s015.0.jpg",
+      "frames": [
+        450,
+        479
+      ],
+      "observed": "Seluruh 30 sel dibuka. B08 tiga fall wave bergerak berurutan; kamera berlanjut saat kartu kiri jatuh, kemudian orang lain punya tetap utuh. Raw f450/464/473/476/486 memastikan label tidak terpotong dan jarak kata aman; overlay foreground f450 tidak menghilangkan kata.",
+      "issue_ids": [],
+      "followup_frames": [
+        450,
+        464,
+        473
+      ]
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s016.0.jpg",
+      "filename": "c02_010.0-020.0s/s016.0.jpg",
+      "size_bytes": 187569,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 480,
+      "frame_end": 509,
+      "opened": true,
+      "sha256_before": "1e57be3a6d66ab423c1c87906af523c1eca00e2074af772c51bedd9fd20a9f8d",
+      "sha256_after": "1e57be3a6d66ab423c1c87906af523c1eca00e2074af772c51bedd9fd20a9f8d",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s016.0.jpg",
+      "frames": [
+        480,
+        509
+      ],
+      "observed": "Seluruh 30 sel dibuka. Caption orang lain punya held hingga cut f487 ke wajah; cut intentional dan tidak memotong tengah kata. SFX? memerlukan audiomix reviewer, bukan cacat gambar.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s017.0.jpg",
+      "filename": "c02_010.0-020.0s/s017.0.jpg",
+      "size_bytes": 208256,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 510,
+      "frame_end": 539,
+      "opened": true,
+      "sha256_before": "1d309bd64b6c1234e849d585d2e0a22b11f766ba5a6a16b07a2e6d3024811a77",
+      "sha256_after": "1d309bd64b6c1234e849d585d2e0a22b11f766ba5a6a16b07a2e6d3024811a77",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s017.0.jpg",
+      "frames": [
+        510,
+        539
+      ],
+      "observed": "Seluruh 30 sel dibuka. Caption dan aku termakan/kata-kata motivasi tidak collision dengan wajah; foreground kata utuh.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s018.0.jpg",
+      "filename": "c02_010.0-020.0s/s018.0.jpg",
+      "size_bytes": 198617,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 540,
+      "frame_end": 569,
+      "opened": true,
+      "sha256_before": "55b83017db19399cc8bd22efb9d51f1ed0d0f266bb341dacb7026ea8e887d61c",
+      "sha256_after": "55b83017db19399cc8bd22efb9d51f1ed0d0f266bb341dacb7026ea8e887d61c",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s018.0.jpg",
+      "frames": [
+        540,
+        569
+      ],
+      "observed": "Seluruh 30 sel dibuka. f545 Threads wide lalu push f546–551. Post quote menjadi tajam/utuh dan terus held; BEKU f561 berada pada settle/hold, bukan gerak terputus.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s019.0.jpg",
+      "filename": "c02_010.0-020.0s/s019.0.jpg",
+      "size_bytes": 214579,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 570,
+      "frame_end": 599,
+      "opened": true,
+      "sha256_before": "0d4652cc8111b597aeec86aec6413180a3e346ec92daf1f1bd15a694f4b72d69",
+      "sha256_after": "0d4652cc8111b597aeec86aec6413180a3e346ec92daf1f1bd15a694f4b72d69",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s019.0.jpg",
+      "frames": [
+        570,
+        599
+      ],
+      "observed": "Seluruh 30 sel dibuka. Post Threads foreground quote sepenuhnya terbaca; tepi post tetangga merupakan konteks scroll UI, tidak memotong quote utama.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s020.0.jpg",
+      "filename": "c03_020.0-030.0s/s020.0.jpg",
+      "size_bytes": 219937,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 600,
+      "frame_end": 629,
+      "opened": true,
+      "sha256_before": "0480f77df122f5264c5e6711e852f948c28a4303b6dcb244dbafc67a77b1fc06",
+      "sha256_after": "0480f77df122f5264c5e6711e852f948c28a4303b6dcb244dbafc67a77b1fc06",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s020.0.jpg",
+      "frames": [
+        600,
+        629
+      ],
+      "observed": "Seluruh 30 sel dibuka. Threads quote tetap seluruhnya di viewport; cursor mendekat ikon tanpa menutupi teks.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s021.0.jpg",
+      "filename": "c03_020.0-030.0s/s021.0.jpg",
+      "size_bytes": 210753,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 630,
+      "frame_end": 659,
+      "opened": true,
+      "sha256_before": "7b60c970c540a7891a7dc70149b5a6fb474f79b9526565dc920a67a2db4bd345",
+      "sha256_after": "7b60c970c540a7891a7dc70149b5a6fb474f79b9526565dc920a67a2db4bd345",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s021.0.jpg",
+      "frames": [
+        630,
+        659
+      ],
+      "observed": "Seluruh 30 sel dibuka. Like berubah merah f644, held sebelum cut wajah f654. Tidak ada satu-frame flash/blank.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s022.0.jpg",
+      "filename": "c03_020.0-030.0s/s022.0.jpg",
+      "size_bytes": 190082,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 660,
+      "frame_end": 689,
+      "opened": true,
+      "sha256_before": "36023b4f311b514c8f6d3b7ae47420fcbde88bc4d7e55d2224f852da313441bb",
+      "sha256_after": "36023b4f311b514c8f6d3b7ae47420fcbde88bc4d7e55d2224f852da313441bb",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s022.0.jpg",
+      "frames": [
+        660,
+        689
+      ],
+      "observed": "Seluruh 30 sel dibuka. Wajah/caption kanan berganti karena itu aku→gak mau mencoba; kata utuh dan ruang cukup.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s023.0.jpg",
+      "filename": "c03_020.0-030.0s/s023.0.jpg",
+      "size_bytes": 187518,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 690,
+      "frame_end": 719,
+      "opened": true,
+      "sha256_before": "13980c3b83d3b7027b197a8ef994cd1c07790f644aab3743301b5c0bf5376f04",
+      "sha256_after": "13980c3b83d3b7027b197a8ef994cd1c07790f644aab3743301b5c0bf5376f04",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s023.0.jpg",
+      "frames": [
+        690,
+        719
+      ],
+      "observed": "Seluruh 30 sel dibuka. f701 cut ke search YouTube; thumbnail flat vector dan metadata generik terlihat, caption hal-hal di area kanan thumbnail.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s024.0.jpg",
+      "filename": "c03_020.0-030.0s/s024.0.jpg",
+      "size_bytes": 189638,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 720,
+      "frame_end": 749,
+      "opened": true,
+      "sha256_before": "83fafae485bea35a99431a5868c2a7c237aa677bfd63e8c04d4976578447892c",
+      "sha256_after": "83fafae485bea35a99431a5868c2a7c237aa677bfd63e8c04d4976578447892c",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s024.0.jpg",
+      "frames": [
+        720,
+        749
+      ],
+      "observed": "Seluruh 30 sel dibuka. Search UI dan dummy thumbnail held, caption hal-hal yang kelihatannya muncul penuh; no foreground crop.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s025.0.jpg",
+      "filename": "c03_020.0-030.0s/s025.0.jpg",
+      "size_bytes": 177271,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 750,
+      "frame_end": 779,
+      "opened": true,
+      "sha256_before": "9ff6ca68f874978c8122c3bb61515f13052e9003f5060cb9bb32f4614b035f63",
+      "sha256_after": "9ff6ca68f874978c8122c3bb61515f13052e9003f5060cb9bb32f4614b035f63",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s025.0.jpg",
+      "frames": [
+        750,
+        779
+      ],
+      "observed": "Seluruh 30 sel dibuka. Search scroll menunjukkan dummy cards/metadata; banyak orang coba utuh sebelum cut wajah f777. SFX? ditandai metadata, cut visual bersih.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s026.0.jpg",
+      "filename": "c03_020.0-030.0s/s026.0.jpg",
+      "size_bytes": 156260,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 780,
+      "frame_end": 809,
+      "opened": true,
+      "sha256_before": "a1a911c0460c226f3fa30935d72de5ebf9b5eeaaccc2aaf4162fd123339e4f1b",
+      "sha256_after": "a1a911c0460c226f3fa30935d72de5ebf9b5eeaaccc2aaf4162fd123339e4f1b",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s026.0.jpg",
+      "frames": [
+        780,
+        809
+      ],
+      "observed": "Seluruh 30 sel dibuka. Caption aku gak mau→jadi orang tetap seluruhnya di kanan wajah.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s027.0.jpg",
+      "filename": "c03_020.0-030.0s/s027.0.jpg",
+      "size_bytes": 210191,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 810,
+      "frame_end": 839,
+      "opened": true,
+      "sha256_before": "42525d8d68493994aa51b06bb6a0868950068852cddd3cefa0a240dd1a909475",
+      "sha256_after": "42525d8d68493994aa51b06bb6a0868950068852cddd3cefa0a240dd1a909475",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s027.0.jpg",
+      "frames": [
+        810,
+        839
+      ],
+      "observed": "Seluruh 30 sel dibuka. FOMO utuh/held hingga cut desktop f834; desktop merupakan establishing shot sengaja, bukan blank.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s028.0.jpg",
+      "filename": "c03_020.0-030.0s/s028.0.jpg",
+      "size_bytes": 334937,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 840,
+      "frame_end": 869,
+      "opened": true,
+      "sha256_before": "232222a73d3acb8bce583cab565cbf443ecb92a7ebdf8f360b8169a442143ce4",
+      "sha256_after": "232222a73d3acb8bce583cab565cbf443ecb92a7ebdf8f360b8169a442143ce4",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s028.0.jpg",
+      "frames": [
+        840,
+        869
+      ],
+      "observed": "Seluruh 30 sel dibuka. Desktop + cursor/dock, f862–864 ChatGPT window membesar dari dock; raw f861–865 memastikan desktop tetap wide dan gerak merupakan entrance jendela, bukan reset zoom kamera. Tidak ada pembalikan/pull-out di rentang ini.",
+      "issue_ids": [],
+      "followup_frames": [
+        861,
+        862,
+        863,
+        864,
+        865
+      ]
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s029.0.jpg",
+      "filename": "c03_020.0-030.0s/s029.0.jpg",
+      "size_bytes": 270602,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 870,
+      "frame_end": 899,
+      "opened": true,
+      "sha256_before": "5977afd1878da4122f907a351a6e3ecc6d1752f6f3970a24283fb8e4f3d2862e",
+      "sha256_after": "5977afd1878da4122f907a351a6e3ecc6d1752f6f3970a24283fb8e4f3d2862e",
+      "bytes_stable": true,
+      "all_30_cells_inspected": true,
+      "view": "original sheet opened via view_image",
+      "cells_inspected": 30,
+      "scan_order": "row-major, all 5 rows x 6 columns",
+      "sheet": "s029.0.jpg",
+      "frames": [
+        870,
+        899
+      ],
+      "observed": "Seluruh 30 sel dibuka. ChatGPT tetap wide pada desktop tanpa zoom kembali atau typing prematur. Coverage ini berhenti sebelum push/typing B13.",
+      "issue_ids": []
+    }
+  ],
+  "opened_raw_jpegs": [
+    {
+      "frame": 149,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0149.jpeg",
+      "sha256": "21fbee54f7973dea73b5439f0b4307b628b09997e2176fdb6b408c92b29a4ba9",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 150,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0150.jpeg",
+      "sha256": "21fbee54f7973dea73b5439f0b4307b628b09997e2176fdb6b408c92b29a4ba9",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 151,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0151.jpeg",
+      "sha256": "198480468a349c366d09f33fca101f0f7de3ac4197952047ae09907b0be94542",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 152,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0152.jpeg",
+      "sha256": "198480468a349c366d09f33fca101f0f7de3ac4197952047ae09907b0be94542",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 153,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0153.jpeg",
+      "sha256": "198480468a349c366d09f33fca101f0f7de3ac4197952047ae09907b0be94542",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 154,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0154.jpeg",
+      "sha256": "04f8cdb1b26b4c6edab9b8517b291ac27b58a31b5e1531f23e53d4b1d7ea85ef",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 450,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0450.jpeg",
+      "sha256": "81eb483512a3529b0c4d45c6a772f034a1cf15ce6f67b036ba942118220c01e5",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 464,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0464.jpeg",
+      "sha256": "fe9e69923d2d6a2f2df51a3090f5c2028f3bb2706b3911310728799cdeab4827",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 473,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0473.jpeg",
+      "sha256": "cb9f70370f5dc69da4fb77c1c6f19f6d5c441db992367825525c49dbab216e6c",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 476,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0476.jpeg",
+      "sha256": "342eeeb1074c6100616479d724745ff95df2fd4203227a80dac32a0ee34de570",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 486,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0486.jpeg",
+      "sha256": "16975bef3d9258e3b513307dea083e814b5db49aa6439c921bffba0a96884c76",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 561,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0561.jpeg",
+      "sha256": "349bf00f419720fc33aefd38a253c08c63641fdc99835aa5d82e44e81d069db1",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 861,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0861.jpeg",
+      "sha256": "2efc06249a4911948eecc06331a4ff1fd06921460aace2fc6ea8cc28a2cc35b7",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 862,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0862.jpeg",
+      "sha256": "05b00813c53e2e5c208e5ae86dbe6b1721154613b48ed3541adb264e14da8ccb",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 863,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0863.jpeg",
+      "sha256": "38d4150a7bb58e6cfeb30407f3db075825064d662ac31efb5406ee732f6d810f",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 864,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0864.jpeg",
+      "sha256": "d2bec0644ee0e23e5c9e670521e30fcda93b8984aa9900628396e1d27b7d7901",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    },
+    {
+      "frame": 865,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-0865.jpeg",
+      "sha256": "183842870069337ffeb50b8b91ac0310967209ba2c2317ab3b7dadb5ed49869d",
+      "dimensions": [
+        960,
+        540
+      ],
+      "opened": true,
+      "view": "canonical raw JPEG, entire 960x540 frame"
+    }
+  ],
+  "source_files_read": [
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/Main.tsx",
+      "sha256": "d59df430cfd535ed7fe2f249cf14215d8b897ae0d27371dc7cb7b126382bb354",
+      "read_only": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/scenes/Act1.tsx",
+      "sha256": "08de198c5368346047b132eb2628c3952c9e8c762964324771d582999ea5c72e",
+      "read_only": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/scenes/Act2.tsx",
+      "sha256": "8f2cfe623f06c528187637ff018f8153a4e8eab53417cb5658b673b0b7eff678",
+      "read_only": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/engine/timewarp.ts",
+      "sha256": "58bd001dc8b2f4a6ddf44bcd21b5a64eb793b8beb6603f64647ecf0b9673365b",
+      "read_only": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/data/knots_v6.json",
+      "sha256": "ac6b9e2cf4929e557f7ca5554f74237016b120a5f9ba24af76b39c2f2378e7b6",
+      "read_only": true
+    }
+  ],
+  "automatic_flags": [
+    {
+      "chunk": "c01_000.0-010.0s",
+      "frame": 9,
+      "seconds": 0.3,
+      "metadata_text": "f9 (0.30 dtk): LOMPAT 25.7 (f8→9)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Cut arsip Jensen ke penonton. Framing putih dan kartu semua terus konsisten.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s000.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c01_000.0-010.0s",
+      "frame": 25,
+      "seconds": 0.8333333333333334,
+      "metadata_text": "f25 (0.83 dtk): LOMPAT 32.1 (f24→25)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Cut arsip ke presenter di latar hijau; onset label membangun masuk di langkah berikut, bukan export rusak.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s000.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c01_000.0-010.0s",
+      "frame": 57,
+      "seconds": 1.9,
+      "metadata_text": "f57 (1.90 dtk): LOMPAT 28.9 (f56→57)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Cut footage wawancara ke presenter panggung; kata membangun tetap utuh.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s001.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c01_000.0-010.0s",
+      "frame": 73,
+      "seconds": 2.433333333333333,
+      "metadata_text": "f73 (2.43 dtk): LOMPAT 39.3 (f72→73)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Cut arsip ke peta/UI dan label membuat, tanpa frame kosong.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s002.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c01_000.0-010.0s",
+      "frame": 114,
+      "seconds": 3.8,
+      "metadata_text": "f114 (3.80 dtk): LOMPAT 37.3 (f113→114)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Cut presenter ke Jensen; kartu/label tetap di komposisi.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s003.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c01_000.0-010.0s",
+      "frame": 149,
+      "seconds": 4.966666666666667,
+      "metadata_text": "f149 (4.97 dtk): LOMPAT 16.4 (f148→149)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Awal punch/blur menuju cut wajah. Perubahan ukuran memang terlihat; cadence hold terkait dicatat terpisah pada BEKU f151.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s004.0.jpg",
+      "raw_frames_opened": [
+        149,
+        150,
+        151,
+        152,
+        153,
+        154
+      ]
+    },
+    {
+      "chunk": "c01_000.0-010.0s",
+      "frame": 151,
+      "seconds": 5.033333333333333,
+      "metadata_text": "f151 (5.03 dtk): LOMPAT 32.1 (f150→151)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Langkah kedua punch/blur memang memperbesar kartu. Bukan teleport terpisah, tetapi pose ini berulang tiga frame; lihat C01-CADENCE-01.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s005.0.jpg",
+      "raw_frames_opened": [
+        149,
+        150,
+        151,
+        152,
+        153,
+        154
+      ]
+    },
+    {
+      "chunk": "c01_000.0-010.0s",
+      "frame": 151,
+      "seconds": 5.033333333333333,
+      "metadata_text": "f151 (5.03 dtk): BEKU 3 f",
+      "type": "BEKU",
+      "visual_decision": "verified_cadence_observation",
+      "image_based_reason": "Raw f151–153 byte-identik pada pose punch yang masih motion-blur, setelah f149–150 juga identik. Cut langsung f154. W memetakan 151–153 ke old163; ini hold gerak pendek, bukan hold baca. Perceptual severity P3, bukan blocker otomatis.",
+      "confidence": "high_observation_medium_severity",
+      "issue_id": "C01-CADENCE-01",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s005.0.jpg",
+      "raw_frames_opened": [
+        149,
+        150,
+        151,
+        152,
+        153,
+        154
+      ]
+    },
+    {
+      "chunk": "c01_000.0-010.0s",
+      "frame": 262,
+      "seconds": 8.733333333333333,
+      "metadata_text": "f262 (8.73 dtk): LOMPAT 15.9 (f261→262)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Pixel mosaic mulai menutupi title yang sebelumnya utuh/held; bagian dari wipe antarbabak.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s008.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c01_000.0-010.0s",
+      "frame": 263,
+      "seconds": 8.766666666666667,
+      "metadata_text": "f263 (8.77 dtk): LOMPAT 27.7 (f262→263)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Pixel mosaic menutup layar; desain transisi, bukan blank/flash export.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s008.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c01_000.0-010.0s",
+      "frame": 267,
+      "seconds": 8.9,
+      "metadata_text": "f267 (8.90 dtk): LOMPAT 7.2 (f266→267)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Pixel mosaic mulai membuka foto narator.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s008.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c01_000.0-010.0s",
+      "frame": 268,
+      "seconds": 8.933333333333334,
+      "metadata_text": "f268 (8.93 dtk): LOMPAT 54.6 (f267→268)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Akhir reveal mosaik ke kartu narator + Memasuki.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c01_000.0-010.0s/s008.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c02_010.0-020.0s",
+      "frame": 404,
+      "seconds": 13.466666666666667,
+      "metadata_text": "f404 (13.47 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk",
+      "type": "SFX?",
+      "visual_decision": "visual_cut_audio_unassessed",
+      "image_based_reason": "Cut yang bersih dari kartu narator ke close-up; gambar tidak memperlihatkan cacat. Tidak menyimpulkan ketiadaan/kehadiran SFX dari strip.",
+      "confidence": "high_visual",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s013.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c02_010.0-020.0s",
+      "frame": 487,
+      "seconds": 16.233333333333334,
+      "metadata_text": "f487 (16.23 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk",
+      "type": "SFX?",
+      "visual_decision": "visual_cut_audio_unassessed",
+      "image_based_reason": "Cut sengaja setelah orang lain punya ke wajah/caption dan. Tidak ada word crop; audio tidak dinilai.",
+      "confidence": "high_visual",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s016.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c02_010.0-020.0s",
+      "frame": 561,
+      "seconds": 18.7,
+      "metadata_text": "f561 (18.70 dtk): BEKU 4 f",
+      "type": "BEKU",
+      "visual_decision": "intentional_visual_hold",
+      "image_based_reason": "Kamera Threads sudah settle dan quote utuh untuk dibaca. Raw f561 tajam, tidak ada gerak aktif yang tersendat; hold berlanjut di frame berikut.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c02_010.0-020.0s/s018.0.jpg",
+      "raw_frames_opened": [
+        561
+      ]
+    },
+    {
+      "chunk": "c03_020.0-030.0s",
+      "frame": 777,
+      "seconds": 25.9,
+      "metadata_text": "f777 (25.90 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk",
+      "type": "SFX?",
+      "visual_decision": "visual_cut_audio_unassessed",
+      "image_based_reason": "Cut search YouTube ke wajah setelah caption banyak orang coba; tidak ada frame kosong atau crop kata. Audio tidak dinilai.",
+      "confidence": "high_visual",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s025.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c03_020.0-030.0s",
+      "frame": 834,
+      "seconds": 27.8,
+      "metadata_text": "f834 (27.80 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk",
+      "type": "SFX?",
+      "visual_decision": "visual_cut_audio_unassessed",
+      "image_based_reason": "Cut wajah/FOMO ke desktop establishing shot yang jelas; bukan blank. Audio tidak dinilai.",
+      "confidence": "high_visual",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s027.0.jpg",
+      "raw_frames_opened": []
+    },
+    {
+      "chunk": "c03_020.0-030.0s",
+      "frame": 862,
+      "seconds": 28.733333333333334,
+      "metadata_text": "f862 (28.73 dtk): LOMPAT 20.4 (f861→862)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "ChatGPT window mulai terbuka dari dock. Raw f861–865 menunjukkan latar desktop tetap wide; perubahan ada pada skala/posisi window.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s028.0.jpg",
+      "raw_frames_opened": [
+        861,
+        862,
+        863,
+        864,
+        865
+      ]
+    },
+    {
+      "chunk": "c03_020.0-030.0s",
+      "frame": 863,
+      "seconds": 28.766666666666666,
+      "metadata_text": "f863 (28.77 dtk): LOMPAT 20.0 (f862→863)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Window melanjutkan entrance menuju posisi tengah, tidak kembali kecil.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s028.0.jpg",
+      "raw_frames_opened": [
+        861,
+        862,
+        863,
+        864,
+        865
+      ]
+    },
+    {
+      "chunk": "c03_020.0-030.0s",
+      "frame": 864,
+      "seconds": 28.8,
+      "metadata_text": "f864 (28.80 dtk): LOMPAT 8.5 (f863→864)",
+      "type": "LOMPAT",
+      "visual_decision": "intentional_visual_change",
+      "image_based_reason": "Window mendekati ukuran menetap; seluruh shell utuh. Gerak adalah entrance app, bukan pull kamera.",
+      "confidence": "high",
+      "issue_id": null,
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c03_020.0-030.0s/s028.0.jpg",
+      "raw_frames_opened": [
+        861,
+        862,
+        863,
+        864,
+        865
+      ]
+    }
+  ],
+  "mutations": {
+    "project_source": false,
+    "verdict_or_juri": false,
+    "heavy_render": false,
+    "reports_only": true
+  }
+}

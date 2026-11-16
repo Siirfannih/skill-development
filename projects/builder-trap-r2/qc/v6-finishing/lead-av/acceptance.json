@@ -1,0 +1,67 @@
+{
+  "authority": "lead",
+  "source_snapshot_sha256": "4965f416e2deea839d85256419364b562b49721cd996b33fadfa15e16f8834ac",
+  "status": "ACCEPT_FOR_PROJECT",
+  "modes": {
+    "full-mix": {
+      "native_video_available": true,
+      "native_audio_available": true,
+      "entire_duration_reviewed": true,
+      "mode": "full-mix",
+      "sequence_observed": "Opening montage with archive footage/quotes on building software, cuts to speaker on camera reflecting on turning 20 and wanting to build uniquely. Slides through motivational posts, YouTube mockup query, and macOS desktop launch of ChatGPT. Speaker on camera leads into ChatGPT typing zoom-in ('build something'), panning out to pinned repository timeline cards connected by blue string. Sequence dims into dark mode reflection on not publishing or documenting; shows draft threads and empty GitHub repo creation. Transitions through cascading repo cards (freezing near 55.7s as intended) illustrating build addiction and obsession with perfection without shipping. Explores empty profile, returns to initial pinned board, concluding with speaker on camera committing to share in-progress learnings and experiences, ending on final fade to black.",
+      "speech_clear": true,
+      "context_intact": true,
+      "tail_cut": false,
+      "pumping": false,
+      "harsh": false,
+      "broad_av_coherence": true,
+      "defects": [],
+      "limits": "Sampled at 1fps native multimodal video/audio stream via read_file tool; fine sub-frame sync and precision waveform measurements are outside scope, but broad audiovisual alignment, dialogue clarity, and narrative coherence across all 83.1 seconds were thoroughly verified."
+    },
+    "voice-sfx-no-music": {
+      "native_video_available": true,
+      "native_audio_available": true,
+      "entire_duration_reviewed": true,
+      "mode": "voice-sfx-no-music",
+      "sequence_observed": "Archive tech/founder clips; protagonist talking head on non-building fear; social quote like; YouTube flat UI cards search; desktop open ChatGPT zoom & type; animated timeline card graph; dark mood shift; Threads/GitHub draft discard & new repo; cascading private repo stack freeze; monologue on perfectionism trap; profile screen fan-out zoom; return to starting pin 'Jadisatu' card; Threads posting montage; final direct to camera resolution & fade.",
+      "speech_clear": true,
+      "context_intact": true,
+      "tail_cut": false,
+      "pumping": false,
+      "harsh": false,
+      "broad_av_coherence": true,
+      "defects": [],
+      "limits": "Visual sampled up to ~1fps; separate frame-accurate & native WAV audits apply. Audio evaluated natively for voice-sfx-no-music mix balance and story coherence."
+    }
+  },
+  "input_hashes": {
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/av-review/review-preview.mp4": "2b0c4a48c5cc3a32579f43f34fb54b35fca188844ac6ffd1c1d777e0c8181fa7",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/mix.wav": "a36a2819723fb7f76dc2d8bef2b24e6ac98ec78a6555ed440d0a5aabe4452e02",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/native-media/full-mix/film.mp4": "0da207aabe4e7cf1d2f84aa76bcbdf39ff7bd76be6301f17b74bbc55d953dd7a",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/av-review/vo-sfx.wav": "5973c90bdeda03b8df260bcae964c5f1c66147e16828aa30b14b3830191e582a",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/native-media/voice-sfx-no-music/film.mp4": "36e145a480a2106655cf0771d49e8d213c6805b870007e54198277647bd7ea24"
+  },
+  "method": "Native muxed MP4 audiovisual review. Video copy retains2493/30fps/83.1 timing from verified preview; each audio derived once from frozen fullmix or VO+SFX. Original WAV-only listening and84sheet per-frame audits remain separate, complementary evidence.",
+  "limits": "Native video samples~1fps; no claim of frame-accurate sound judgement or physical phone. Prior failed dual-file jobs explicitly excluded; no false strict-read PASS.",
+  "evidence_hashes": {
+    "qc/v6-finishing/lead-av/preview-provenance.json": "84c3ce8fe52a5159042769a555de4de18bae57c09ec1e18c7892660bcdb52876",
+    "qc/v6-finishing/lead-av/codec-fade-review.md": "6eab7e11a24536c0e27defe165b5a7ffd0bc2e620167329ea9e72033e921404a",
+    "qc/v6-finishing/lead-av/full-mix.provenance.json": "790ab70b53bcfad201b726c272f10b77c9ba698259e85cd3bd0521b668141d9e",
+    "qc/v6-finishing/lead-av/migration-actual-hash-check.json": "cfc5b1722b55d0b653ec42afa20071bf24388f0359dd3827c9260e91ea0b02a0",
+    "qc/v6-finishing/lead-av/codec-fade-review.json": "4e8af28439062beb55aa6eb52e94df9468e0a15ae7d8189113404088d3392684",
+    "qc/v6-finishing/lead-av/full-mix.prompt.txt": "ef5bef634ca32cf025529ea4ecef7c57d652a395e946926e9161f4e3ef021058",
+    "qc/v6-finishing/lead-av/voice-sfx-no-music.prompt.txt": "75e3e75a856a6655238b84e9066afe237526406fb3604161f57ada339e8c98ed",
+    "qc/v6-finishing/lead-av/b19-migration-review.md": "c767d62a792e62f38af96708a8bd5b1b21934561b60007fbf5119bead8b197ba",
+    "qc/v6-finishing/lead-av/full-mix.txt": "3ae1fddb090f10f3da8e57f33b44851482a6ce5697353beb3bbadbb3a8425815",
+    "qc/v6-finishing/lead-av/full-mix.reads.json": "fd749d3d061ee7e3a92301178e43cca8249a5537f4b12a9a6537b56b4e70a46f",
+    "qc/v6-finishing/lead-av/voice-sfx-no-music.provenance.json": "9123b90c09bf9f87e4fc91a91568b368f3f191a8ad9c7313c3a5639230901d04",
+    "qc/v6-finishing/lead-av/migration-independent-checks.json": "ae30b0d5443e51af4431110473c767d7291219a7b2febfe7d84c1656b5c119b9",
+    "qc/v6-finishing/lead-av/full-mix.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "qc/v6-finishing/lead-av/voice-sfx-no-music.txt": "59e2d73234fbca848596b0340f405e79a31ff6be2b3466a6410b7e1abb4e8ab4",
+    "qc/v6-finishing/lead-av/full-mix.stream.jsonl": "feb38653f1cf9aebda9a4c85141ec7eed206e5b3820c790331d63a17ac48ab6b",
+    "qc/v6-finishing/lead-av/voice-sfx-no-music.stream.jsonl": "dc14c0176352bd30947a9a876602580c9183119cf60443eadfd032f56de60bec",
+    "qc/v6-finishing/lead-av/voice-sfx-no-music.reads.json": "87660112a56e1613e9b056cce74efedb99dce1fcde83ae8365eabadb92cac901",
+    "qc/v6-finishing/lead-av/voice-sfx-no-music.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "created_ns": 1794830511141620316
+}

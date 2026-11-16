@@ -1,0 +1,67 @@
+```json
+{
+  "listened": [
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-05-source.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-05-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-07-source.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-07-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-09-source.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/residual-09-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/build-something-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/apa-experience-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/residual-snapshot/closing-v6.wav"
+  ],
+  "method": "Native audio listening via read_file tool without external references, source code, transcripts, or network APIs. Performed blind phonetic and acoustic analysis of waveforms, boundaries, releases, and lexical fidelity.",
+  "windows": [
+    {
+      "label": "residual-05 (Dan → ngebangun)",
+      "source_transcript": "...na dan ... ngebangun itu...",
+      "v6_transcript": "...na dan ngebangun itu...",
+      "words_intact": true,
+      "residual_type": "room noise / transition cadence (jeda wajar)",
+      "recommendation": "Pertahankan. Kata kiri 'dan' mempertahankan ekor sengau /n/ secara penuh dan kata kanan 'ngebangun' mempertahankan onset velar /ŋ/ ('nge-'). Jeda tersisa sudah proporsional sebagai jeda frasa alami tanpa artifak klik maupun napas berat.",
+      "approx_window": "~0.20s - 0.30s di antara ekor 'dan' dan onset 'ngebangun'",
+      "confidence": 0.95
+    },
+    {
+      "label": "residual-07 (sama → kesempurnaan.)",
+      "source_transcript": "...obsesi sama ... kesempurnaan...",
+      "v6_transcript": "...obsesi sama kesempurnaan...",
+      "words_intact": true,
+      "residual_type": "tarikan napas / release fonem (pre-plosive breath)",
+      "recommendation": "Pertahankan. Vokal akhir /a/ pada 'sama' utuh, dan plosif tak bersuara /k/ pada 'kesempurnaan' memiliki burst dan closure alami. Bunyi pada jeda bukan handling click, melainkan tarikan napas mikro organik sesaat sebelum artikulasi /k/. Jangan dipotong lebih dalam agar burst awal 'ke-' tidak terpotong.",
+      "approx_window": "~0.15s - 0.25s di antara 'sama' dan burst letupan /k/ 'kesempurnaan'",
+      "confidence": 0.95
+    },
+    {
+      "label": "residual-09 (Dimana → mungkin)",
+      "source_transcript": "...awal di mana ... mungkin aku...",
+      "v6_transcript": "...awal di mana ... mungkin aku...",
+      "words_intact": true,
+      "residual_type": "hening berpikir (thinking pause / dead air)",
+      "recommendation": "Pangkas lebih awal. Suku kata akhir 'di mana' dan awalan bilabial nasal /m/ pada 'mungkin' keduanya utuh, tetapi sisa jeda di v6 masih menyisakan jeda hening berpikir (dead air) yang terasa terlalu renggang untuk ritme narasi. Disarankan merapatkan jeda sebesar ~150ms-250ms dengan tetap menjaga zero-crossing sebelum onset 'm-'.",
+      "approx_window": "~0.35s - 0.55s di antara 'di mana' dan onset 'mungkin'",
+      "confidence": 0.90
+    }
+  ],
+  "lexical": [
+    {
+      "file": "build-something-v6.wav",
+      "transcript": "buil sam... selama satu...",
+      "defects": "English 'build something' TIDAK utuh. Kata 'build' kehilangan letupan konsonan akhir /d/ ('buil'), dan 'something' mengalami pemotongan/truncation parah—hanya terdengar suku kata pertama 'som/sam', sedangkan suku kata kedua '-thing' (-θɪŋ) hilang total sebelum langsung masuk ke frasa 'selama satu'."
+    },
+    {
+      "file": "apa-experience-v6.wav",
+      "transcript": "...alami apa yang aku buat, a-pengalaman yang aku dapatkan...",
+      "defects": "Kata 'Apa' sebelum 'pengalaman' TIDAK utuh. Yang terdengar bukan kata 'apa' yang lengkap, melainkan false start / glottal stutter berupa suku kata terpotong 'a-' (atau 'ap-') yang langsung menempel ke 'pengalaman'."
+    },
+    {
+      "file": "closing-v6.wav",
+      "transcript": "...share, ngebagiin apa yang belum sempurna.",
+      "defects": "Kata 'sempurna' terucap lengkap secara fonetik ('sem-pur-na') dan peluruhan vokal akhirnya tuntas alami. Namun kata 'lengkap' TIDAK ada sama sekali di dalam rekaman audio ini; ucapan berakhir tuntas pada kata 'sempurna'."
+    }
+  ],
+  "verdict": "Secara akustik pada segmen residual (05, 07, 09), kata kiri dan kanan mempertahankan suku kata utuh tanpa kliping fonem. Residual-05 dan 07 bersih dan natural (jeda 07 terbukti tarikan napas pre-plosif organik, bukan klik). Residual-09 terkonfirmasi sebagai hening berpikir (dead air) yang layak dirapatkan lebih awal. Namun pada file verifikasi leksikal, ditemukan cacat serius: 'build something' terpotong parah menjadi 'buil sam' (kehilangan '-thing'), 'apa' sebelum pengalaman adalah false start 'a-', dan penutup berakhir di 'belum sempurna' tanpa adanya kata 'lengkap'.",
+  "uncertainty": "Estimasi rentang waktu (approx_window) merupakan perkiraan pendengaran psikoakustik native model. Engineer audio tetap perlu melakukan verifikasi visual dan snapping pada zero-crossing di waveform DAW sebelum mengeksekusi pemotongan."
+}
+```

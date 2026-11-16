@@ -1,0 +1,452 @@
+{
+  "fps": 30,
+  "duration_frames": 2493,
+  "method": "W round; first visible > ARRIVE for B20; wall onset is lift in real time, fall_realframe is drop start and peakframe is end of fall. All frames zero-based.",
+  "events": [
+    {
+      "oldframe": 478,
+      "realframe": 433,
+      "objek": "B08 wall",
+      "peran": "scene entry",
+      "peakframe": 433
+    },
+    {
+      "oldframe": 478,
+      "realframe": 433,
+      "objek": "B08 camera",
+      "peran": "camera movement",
+      "peakframe": 473,
+      "clock": "real",
+      "note": "maximum screen speed measured from actual-frame camera trajectory"
+    },
+    {
+      "oldframe": 496,
+      "realframe": 457,
+      "objek": "dummy01",
+      "peran": "wall fall",
+      "peakframe": 476,
+      "group_id": "wall-3",
+      "fall_oldframe": 499,
+      "fall_realframe": 460,
+      "clock": "real",
+      "duration_frames": 16
+    },
+    {
+      "oldframe": 496,
+      "realframe": 457,
+      "objek": "dummy02",
+      "peran": "wall fall",
+      "peakframe": 476,
+      "group_id": "wall-3",
+      "fall_oldframe": 499,
+      "fall_realframe": 460,
+      "clock": "real",
+      "duration_frames": 16
+    },
+    {
+      "oldframe": 492,
+      "realframe": 448,
+      "objek": "dummy03",
+      "peran": "wall fall",
+      "peakframe": 460,
+      "group_id": "wall-2",
+      "fall_oldframe": 495,
+      "fall_realframe": 451,
+      "clock": "real",
+      "duration_frames": 9
+    },
+    {
+      "oldframe": 487,
+      "realframe": 442,
+      "objek": "dummy04",
+      "peran": "wall fall",
+      "peakframe": 454,
+      "group_id": "wall-1",
+      "fall_oldframe": 490,
+      "fall_realframe": 445,
+      "clock": "real",
+      "duration_frames": 9
+    },
+    {
+      "oldframe": 496,
+      "realframe": 457,
+      "objek": "dummy05",
+      "peran": "wall fall",
+      "peakframe": 476,
+      "group_id": "wall-3",
+      "fall_oldframe": 499,
+      "fall_realframe": 460,
+      "clock": "real",
+      "duration_frames": 16
+    },
+    {
+      "oldframe": 496,
+      "realframe": 457,
+      "objek": "dummy06",
+      "peran": "wall fall",
+      "peakframe": 476,
+      "group_id": "wall-3",
+      "fall_oldframe": 499,
+      "fall_realframe": 460,
+      "clock": "real",
+      "duration_frames": 16
+    },
+    {
+      "oldframe": 492,
+      "realframe": 448,
+      "objek": "dummy07",
+      "peran": "wall fall",
+      "peakframe": 460,
+      "group_id": "wall-2",
+      "fall_oldframe": 495,
+      "fall_realframe": 451,
+      "clock": "real",
+      "duration_frames": 9
+    },
+    {
+      "oldframe": 487,
+      "realframe": 442,
+      "objek": "dummy08",
+      "peran": "wall fall",
+      "peakframe": 454,
+      "group_id": "wall-1",
+      "fall_oldframe": 490,
+      "fall_realframe": 445,
+      "clock": "real",
+      "duration_frames": 9
+    },
+    {
+      "oldframe": 496,
+      "realframe": 457,
+      "objek": "dummy09",
+      "peran": "wall fall",
+      "peakframe": 476,
+      "group_id": "wall-3",
+      "fall_oldframe": 499,
+      "fall_realframe": 460,
+      "clock": "real",
+      "duration_frames": 16
+    },
+    {
+      "oldframe": 496,
+      "realframe": 457,
+      "objek": "dummy10",
+      "peran": "wall fall",
+      "peakframe": 476,
+      "group_id": "wall-3",
+      "fall_oldframe": 499,
+      "fall_realframe": 460,
+      "clock": "real",
+      "duration_frames": 16
+    },
+    {
+      "oldframe": 492,
+      "realframe": 448,
+      "objek": "dummy11",
+      "peran": "wall fall",
+      "peakframe": 460,
+      "group_id": "wall-2",
+      "fall_oldframe": 495,
+      "fall_realframe": 451,
+      "clock": "real",
+      "duration_frames": 9
+    },
+    {
+      "oldframe": 487,
+      "realframe": 442,
+      "objek": "dummy12",
+      "peran": "wall fall",
+      "peakframe": 454,
+      "group_id": "wall-1",
+      "fall_oldframe": 490,
+      "fall_realframe": 445,
+      "clock": "real",
+      "duration_frames": 9
+    },
+    {
+      "oldframe": 610,
+      "realframe": 545,
+      "objek": "Threads feed",
+      "peran": "scene entry",
+      "peakframe": 545
+    },
+    {
+      "oldframe": 610,
+      "realframe": 545,
+      "objek": "Threads quote",
+      "peran": "camera punch",
+      "peakframe": 552
+    },
+    {
+      "oldframe": 717,
+      "realframe": 643,
+      "objek": "Threads like",
+      "peran": "click",
+      "peakframe": 651
+    },
+    {
+      "oldframe": 797,
+      "realframe": 701,
+      "objek": "YouTube search",
+      "peran": "scene entry",
+      "peakframe": 701
+    },
+    {
+      "oldframe": 808,
+      "realframe": 712,
+      "objek": "search result 1",
+      "peran": "hover",
+      "peakframe": 720
+    },
+    {
+      "oldframe": 846,
+      "realframe": 750,
+      "objek": "search result 2",
+      "peran": "hover",
+      "peakframe": 758
+    },
+    {
+      "oldframe": 842,
+      "realframe": 746,
+      "objek": "search results",
+      "peran": "scroll",
+      "peakframe": 770
+    },
+    {
+      "oldframe": 945,
+      "realframe": 849,
+      "objek": "ChatGPT dock",
+      "peran": "click",
+      "peakframe": 849
+    },
+    {
+      "oldframe": 946,
+      "realframe": 850,
+      "objek": "ChatGPT dock",
+      "peran": "bounce 1",
+      "peakframe": 857
+    },
+    {
+      "oldframe": 957,
+      "realframe": 859,
+      "objek": "ChatGPT dock",
+      "peran": "bounce 2",
+      "peakframe": 860
+    },
+    {
+      "oldframe": 966,
+      "realframe": 861,
+      "objek": "ChatGPT window",
+      "peran": "open",
+      "peakframe": 868
+    },
+    {
+      "oldframe": 983,
+      "realframe": 868,
+      "objek": "ChatGPT history",
+      "peran": "populate",
+      "peakframe": 925
+    },
+    {
+      "oldframe": 1110,
+      "realframe": 989,
+      "objek": "ChatGPT prompt",
+      "peran": "click",
+      "peakframe": 989
+    },
+    {
+      "oldframe": 1114,
+      "realframe": 993,
+      "objek": "ChatGPT prompt",
+      "peran": "camera punch",
+      "peakframe": 999
+    },
+    {
+      "oldframe": 1121,
+      "realframe": 1000,
+      "objek": "build something",
+      "peran": "typing start",
+      "peakframe": 1028
+    },
+    {
+      "oldframe": 1149,
+      "realframe": 1028,
+      "objek": "build something",
+      "peran": "typing complete hold",
+      "peakframe": 1028
+    },
+    {
+      "oldframe": 1164,
+      "realframe": 1051,
+      "objek": "prompt to wall",
+      "peran": "mosaic transition",
+      "peakframe": 1051
+    },
+    {
+      "oldframe": 1731,
+      "realframe": 1535,
+      "objek": "JadisatuDashboardnew",
+      "peran": "card entrance",
+      "peakframe": 1535,
+      "group_id": "repo-1"
+    },
+    {
+      "oldframe": 1731,
+      "realframe": 1535,
+      "objek": "jadisatu.cloud",
+      "peran": "card entrance",
+      "peakframe": 1535,
+      "group_id": "repo-1"
+    },
+    {
+      "oldframe": 1731,
+      "realframe": 1535,
+      "objek": "Hermessambung",
+      "peran": "card entrance",
+      "peakframe": 1539,
+      "group_id": "repo-1"
+    },
+    {
+      "oldframe": 1756,
+      "realframe": 1555,
+      "objek": "Nusantara-Dental-Klinik",
+      "peran": "card entrance",
+      "peakframe": 1557,
+      "group_id": "repo-2"
+    },
+    {
+      "oldframe": 1756,
+      "realframe": 1555,
+      "objek": "Aesthetic-KlinikTemplate",
+      "peran": "card entrance",
+      "peakframe": 1557,
+      "group_id": "repo-2"
+    },
+    {
+      "oldframe": 1756,
+      "realframe": 1555,
+      "objek": "Landingpagejadisatu-mobile",
+      "peran": "card entrance",
+      "peakframe": 1562,
+      "group_id": "repo-2"
+    },
+    {
+      "oldframe": 1794,
+      "realframe": 1575,
+      "objek": "Pandu-UI",
+      "peran": "card entrance",
+      "peakframe": 1577,
+      "group_id": "repo-3"
+    },
+    {
+      "oldframe": 1794,
+      "realframe": 1575,
+      "objek": "jadisatulanding-profile",
+      "peran": "card entrance",
+      "peakframe": 1577,
+      "group_id": "repo-3"
+    },
+    {
+      "oldframe": 1794,
+      "realframe": 1575,
+      "objek": "tuntunly-motion",
+      "peran": "card entrance",
+      "peakframe": 1583,
+      "group_id": "repo-3"
+    },
+    {
+      "oldframe": 1815,
+      "realframe": 1594,
+      "objek": "Pandu",
+      "peran": "card entrance",
+      "peakframe": 1598,
+      "group_id": "repo-4"
+    },
+    {
+      "oldframe": 1815,
+      "realframe": 1594,
+      "objek": "Dashboard-OS-forAgent",
+      "peran": "card entrance",
+      "peakframe": 1598,
+      "group_id": "repo-4"
+    },
+    {
+      "oldframe": 1815,
+      "realframe": 1594,
+      "objek": "jadisatu-skills",
+      "peran": "card entrance",
+      "peakframe": 1604,
+      "group_id": "repo-4"
+    },
+    {
+      "oldframe": 1834,
+      "realframe": 1615,
+      "objek": "motion-production-pc",
+      "peran": "card entrance",
+      "peakframe": 1617,
+      "group_id": "repo-5"
+    },
+    {
+      "oldframe": 1834,
+      "realframe": 1615,
+      "objek": "desaignn-landing-os",
+      "peran": "card entrance",
+      "peakframe": 1617,
+      "group_id": "repo-5"
+    },
+    {
+      "oldframe": 1834,
+      "realframe": 1615,
+      "objek": "jadisatu-canvas",
+      "peran": "card entrance",
+      "peakframe": 1623,
+      "group_id": "repo-5"
+    },
+    {
+      "oldframe": 1854,
+      "realframe": 1635,
+      "objek": "canvas-skill-library",
+      "peran": "card entrance",
+      "peakframe": 1637,
+      "group_id": "repo-6"
+    },
+    {
+      "oldframe": 1854,
+      "realframe": 1635,
+      "objek": "jadisatu-partner",
+      "peran": "card entrance",
+      "peakframe": 1637,
+      "group_id": "repo-6"
+    },
+    {
+      "oldframe": 1854,
+      "realframe": 1635,
+      "objek": "skill-development",
+      "peran": "card entrance",
+      "peakframe": 1643,
+      "group_id": "repo-6"
+    },
+    {
+      "oldframe": 1869,
+      "realframe": 1650,
+      "objek": "ops-report",
+      "peran": "card entrance",
+      "peakframe": 1658,
+      "group_id": "repo-7"
+    },
+    {
+      "oldframe": 1866,
+      "realframe": 1646,
+      "objek": "Releases",
+      "peran": "camera punch",
+      "peakframe": 1672
+    },
+    {
+      "oldframe": 1892,
+      "realframe": 1672,
+      "objek": "repo stack",
+      "peran": "freeze and shake",
+      "peakframe": 1672
+    }
+  ]
+}

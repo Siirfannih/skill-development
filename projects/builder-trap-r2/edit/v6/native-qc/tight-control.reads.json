@@ -1,0 +1,44 @@
+[
+  {
+    "name": "read_file",
+    "parameters": {
+      "Path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-02-source.wav"
+    }
+  },
+  {
+    "name": "read_file",
+    "parameters": {
+      "Path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-02-v6.wav"
+    }
+  },
+  {
+    "name": "read_file",
+    "parameters": {
+      "Path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/untuk-tight.wav"
+    }
+  },
+  {
+    "name": "read_file",
+    "parameters": {
+      "Path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-09-source.wav"
+    }
+  },
+  {
+    "name": "read_file",
+    "parameters": {
+      "Path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-09-v6.wav"
+    }
+  },
+  {
+    "name": "read_file",
+    "parameters": {
+      "Path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/dimana-tight.wav"
+    }
+  },
+  {
+    "name": "read_file",
+    "parameters": {
+      "Path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/dimana-middle.wav"
+    }
+  }
+]

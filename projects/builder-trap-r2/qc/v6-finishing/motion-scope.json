@@ -1,0 +1,20 @@
+{
+  "basis": "3312d16f5e8f9c8b21e30d63df6b34b864fe1841",
+  "files": [
+    "remotion/src/Main.tsx",
+    "remotion/src/Root.tsx",
+    "remotion/src/data/knots_v6.json",
+    "remotion/src/data/words_v6.json",
+    "remotion/src/data/yt_search.json",
+    "remotion/src/engine/Face.tsx",
+    "remotion/src/engine/Stage.tsx",
+    "remotion/src/engine/timewarp.ts",
+    "remotion/src/engine/words.ts",
+    "remotion/src/lib/curves.ts",
+    "remotion/src/scenes/Act2.tsx",
+    "remotion/src/scenes/Act2b.tsx",
+    "remotion/src/scenes/Act3.tsx",
+    "remotion/src/ui/DummyContent.tsx",
+    "remotion/src/ui/YouTube.tsx"
+  ]
+}

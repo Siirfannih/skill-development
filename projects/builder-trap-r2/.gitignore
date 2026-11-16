@@ -30,3 +30,15 @@ audio/*_v3.wav
 /assets/ref_ui
 /audio/music
 /raw
+
+# Generated v6 media; maps and audit evidence remain versioned.
+edit/v6/**/*.wav
+edit/v6/**/*.mp4
+edit/v6/**/*.npy
+edit/v6/**/*.m4a
+edit/v6/*.wav
+edit/v6/*.mp4
+edit/v6/*.npy
+edit/v6/*.m4a
+edit/v6/face-parts/
+edit/v6/*.log

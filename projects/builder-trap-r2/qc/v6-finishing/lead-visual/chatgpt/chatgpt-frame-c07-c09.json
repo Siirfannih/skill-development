@@ -1,0 +1,2538 @@
+{
+  "schema_version": 1,
+  "reviewer": "ChatGPT visual_audit independent review",
+  "created_at_utc": "2026-11-16T11:19:45.541932+00:00",
+  "scope": {
+    "chunks": [
+      "c07_060.0-070.0s",
+      "c08_070.0-080.0s",
+      "c09_080.0-083.1s"
+    ],
+    "actual_frame_start": 1800,
+    "actual_frame_end": 2492,
+    "fps": 30,
+    "seconds_interval": "[60.00,83.10)",
+    "source_identity_supplied_by_lead": "429142, effective 2493 frames / 83.1 seconds",
+    "corrected_tail_readiness": "Root explicitly confirmed installed stable INFO/JPG before this review opened tail media; tail-install SHA prefix supplied: 3392e5f0.",
+    "identity_limit": "Directly verifies image/INFO byte hashes below. Does not certify overall export provenance or issue a gate decision."
+  },
+  "coverage": {
+    "sheets_expected": 24,
+    "sheets_opened": 24,
+    "actual_frame_cells_expected": 693,
+    "actual_frame_cells_inspected": 693,
+    "unused_cells_in_last_sheet": 27,
+    "all_actual_cells_every_sheet": true,
+    "all_sheet_and_info_hashes_stable_before_after": true,
+    "raw_jpegs_opened_visually": 52,
+    "automatic_flag_entries": 23,
+    "unique_flagged_frames": 19,
+    "all_unique_flagged_raw_frames_opened": true,
+    "all_flag_entries_adjudicated_visually": true,
+    "automatic_decision_counts": {
+      "intentional_visual_motion": 12,
+      "visual_change_audio_unassessed": 8,
+      "cadence_watch": 2,
+      "short_animation_plateau_no_context_loss": 1
+    },
+    "numerical_pixel_scan_raw_frames": 693,
+    "earlier_two_reports_unchanged": true
+  },
+  "method": [
+    "Opened all 24 original s060.0.jpg–s083.0.jpg via view_image; all 30 actual cells per full sheet and all 3 actual cells in last sheet, no sampling.",
+    "Read INFO words/cues from all three chunks. Audio strips and cue markers were not treated as hearing audio.",
+    "Opened all 19 unique flagged raw JPEG frames plus neighbors/context/fade: 52 raw images total at entire 960x540 view.",
+    "Hashed every sheet and INFO before/after inspection. All unchanged. SHA for every visually opened raw frame recorded.",
+    "Performed lightweight read-only pixel extrema scan of all 693 raw JPEGs and brightness measurement across fade; this numerical scan is separate from visual opening proof.",
+    "Only reports/scratch were written. No project source, VERDICT or JURI writes; no renders."
+  ],
+  "limitations": [
+    "No audio was played or heard from strips. All eight SFX? entries remain audio-unassessed even where the visual event is explained.",
+    "Canonical raw JPEGs are 960x540; sheet cells are smaller. This is not 1920x1080 pixel-detail certification.",
+    "Natural-speed perceptual severity of the two short camera plateaus remains a native-playback judgment.",
+    "This report covers corrected c07–c09; it does not re-certify earlier chunks, B19 candidate changes or later film/audio provenance."
+  ],
+  "findings": [
+    {
+      "id": "C08-CADENCE-01",
+      "priority": "P3",
+      "kind": "repeated_camera_pose_with_motion_blur",
+      "classification": "cadence observation; no gate decision",
+      "ranges": [
+        {
+          "frame_start": 2122,
+          "frame_end": 2124,
+          "seconds_start": 70.73333333333333,
+          "seconds_end_exclusive": 70.83333333333333,
+          "scene_old_frame_W": 2422
+        },
+        {
+          "frame_start": 2338,
+          "frame_end": 2340,
+          "seconds_start": 77.93333333333334,
+          "seconds_end_exclusive": 78.03333333333333,
+          "scene_old_frame_W": 2687
+        }
+      ],
+      "summary": "Pose kamera ditahan tiga frame ketika blur gerak masih aktif sebelum gerak berlanjut.",
+      "evidence": "52 raw JPEG dibuka termasuk seluruh pasangan/neighbor yang disebut. f2123=f2124 byte-identik; f2122→2123 dan f2338→2339→2340 berubah sangat sedikit pada isi/teks, sementara pose kamera/blur tetap sama. Ini bukan full-frame freeze.",
+      "clock_evidence": [
+        {
+          "actual_frame": 2120,
+          "old_frame_W": 2418
+        },
+        {
+          "actual_frame": 2121,
+          "old_frame_W": 2420
+        },
+        {
+          "actual_frame": 2122,
+          "old_frame_W": 2422
+        },
+        {
+          "actual_frame": 2123,
+          "old_frame_W": 2422
+        },
+        {
+          "actual_frame": 2124,
+          "old_frame_W": 2422
+        },
+        {
+          "actual_frame": 2125,
+          "old_frame_W": 2423
+        },
+        {
+          "actual_frame": 2126,
+          "old_frame_W": 2424
+        },
+        {
+          "actual_frame": 2268,
+          "old_frame_W": 2576
+        },
+        {
+          "actual_frame": 2269,
+          "old_frame_W": 2577
+        },
+        {
+          "actual_frame": 2270,
+          "old_frame_W": 2578
+        },
+        {
+          "actual_frame": 2271,
+          "old_frame_W": 2578
+        },
+        {
+          "actual_frame": 2272,
+          "old_frame_W": 2578
+        },
+        {
+          "actual_frame": 2273,
+          "old_frame_W": 2579
+        },
+        {
+          "actual_frame": 2274,
+          "old_frame_W": 2580
+        },
+        {
+          "actual_frame": 2275,
+          "old_frame_W": 2582
+        },
+        {
+          "actual_frame": 2334,
+          "old_frame_W": 2671
+        },
+        {
+          "actual_frame": 2335,
+          "old_frame_W": 2675
+        },
+        {
+          "actual_frame": 2336,
+          "old_frame_W": 2679
+        },
+        {
+          "actual_frame": 2337,
+          "old_frame_W": 2683
+        },
+        {
+          "actual_frame": 2338,
+          "old_frame_W": 2687
+        },
+        {
+          "actual_frame": 2339,
+          "old_frame_W": 2687
+        },
+        {
+          "actual_frame": 2340,
+          "old_frame_W": 2687
+        },
+        {
+          "actual_frame": 2341,
+          "old_frame_W": 2688
+        },
+        {
+          "actual_frame": 2342,
+          "old_frame_W": 2689
+        },
+        {
+          "actual_frame": 2343,
+          "old_frame_W": 2690
+        }
+      ],
+      "pixel_evidence": [
+        {
+          "frame_a": 2122,
+          "frame_b": 2123,
+          "same_bytes": false,
+          "mean_abs_rgb_delta": 0.03429012345679012
+        },
+        {
+          "frame_a": 2123,
+          "frame_b": 2124,
+          "same_bytes": true,
+          "mean_abs_rgb_delta": 0.0
+        },
+        {
+          "frame_a": 2270,
+          "frame_b": 2271,
+          "same_bytes": false,
+          "mean_abs_rgb_delta": 0.12401170267489713
+        },
+        {
+          "frame_a": 2271,
+          "frame_b": 2272,
+          "same_bytes": false,
+          "mean_abs_rgb_delta": 0.1489210390946502
+        },
+        {
+          "frame_a": 2338,
+          "frame_b": 2339,
+          "same_bytes": false,
+          "mean_abs_rgb_delta": 0.028294753086419752
+        },
+        {
+          "frame_a": 2339,
+          "frame_b": 2340,
+          "same_bytes": false,
+          "mean_abs_rgb_delta": 0.043730709876543206
+        }
+      ],
+      "observation_confidence": 1.0,
+      "unintended_defect_confidence": 0.75,
+      "perceptual_severity_confidence": 0.6,
+      "context_impact": "Kata/frasa tetap utuh sesudah gerak; konteks Apa di B25 tetap tersedia dan tidak terpotong.",
+      "source_cause": "camPath b24Cam/b25Cam menerima useCurrentFrame lama di dalam Main Freeze(W); pembulatan W menahan old2422 dan old2687 selama tiga actual frame.",
+      "minimal_file_if_polish_is_authorized": "remotion/src/scenes/Act4.tsx",
+      "recommendation": "Nilai f2119–2130 dan f2334–2344 pada playback native untuk menentukan apakah plateau terasa menahan gerak. Jika perlu polish, interpolasi clock kamera/blur lokal dengan anchor dan cut tetap; jangan mengubah peta global, layout, wording, atau gaya scroll yang disetujui.",
+      "needs_additional_raw_frames": false,
+      "needs_native_playback_for_perceptual_severity": true,
+      "related_but_not_same_defect": "f2270–2272 juga mengulang old2578; footage wajah di lampiran tetap bergerak dan apa terbaca. Tidak dinilai sebagai kehilangan konteks atau full freeze."
+    }
+  ],
+  "scope_observations": {
+    "blank_flashing": "No unintended blank/full-black flash observed in any of the 693 cells. Independent extrema scan found only f2492 fully black; 692 tail frames contain nonblack pixels.",
+    "end_fade": "Raw f2477/2478/2480/2483/2486/2489/2490/2491/2492 opened. Brightness decreases from f2479 through f2492; f2491 max RGB still [2,2,3], f2492 all channels zero. EndFade source explicitly ends at duration-1.",
+    "B25_Apa": "Raw f2267 shows dark apa against scrim. First full phrase f2289; second full phrase f2320; apa pengalaman visible after scroll f2342–2353; yang aku dapatkan full f2369 and held through f2387. No context/crop defect confirmed.",
+    "B25_caption_change": "f2354 has a one-frame empty caption at phrase swap, while UI/wall stays visible; yang appears f2355. Treated as brief caption transition, not blank export or a new requested design change.",
+    "foreground_bounds": "No new destructive foreground word crop/collision confirmed. Text from earlier posts leaving the top during scroll follows completed readable context.",
+    "creator_leak": "No new external YouTube creator photo/name/avatar leak observed. Tail shows own repo/app UI and intentional Irfan face/avatar; no external YouTube content slot was newly visible here.",
+    "pauses": "Small old-clock plateaus measured; they do not remove caption context. f2270–2272 includes continuing face video, not a frozen full image."
+  },
+  "range_observations": [
+    {
+      "frames": [
+        1800,
+        1856
+      ],
+      "observation": "Footage wajah gelap + autentik, kata utuh."
+    },
+    {
+      "frames": [
+        1857,
+        1937
+      ],
+      "observation": "Threads profile→No threads yet punch→pull; caption tetap utuh, tidak kosong."
+    },
+    {
+      "frames": [
+        1938,
+        1993
+      ],
+      "observation": "Profile/draft pull, melangkah/kemana-mana utuh; flag berubah blur, tidak teleport."
+    },
+    {
+      "frames": [
+        1994,
+        2046
+      ],
+      "observation": "Wipe ke wajah dan sadar; join footage f2044 intentional."
+    },
+    {
+      "frames": [
+        2047,
+        2141
+      ],
+      "observation": "Wall terang, whip/pan menuju repo, titik awal selesai utuh; plateau clock kecil f2122–2124."
+    },
+    {
+      "frames": [
+        2142,
+        2191
+      ],
+      "observation": "Insert wajah + dimana mungkin aku harusnya, tanpa crop kata."
+    },
+    {
+      "frames": [
+        2192,
+        2233
+      ],
+      "observation": "Kembali repo terlingkar + gak sekedar membangun, utuh."
+    },
+    {
+      "frames": [
+        2234,
+        2266
+      ],
+      "observation": "Close-up wajah + tapi juga nge-share."
+    },
+    {
+      "frames": [
+        2267,
+        2288
+      ],
+      "observation": "Threads composer dan animasi Post; apa jelas pada scrim sejak f2267."
+    },
+    {
+      "frames": [
+        2289,
+        2303
+      ],
+      "observation": "Frasa apa yang aku alami lengkap dan tetap di viewport sebelum scroll."
+    },
+    {
+      "frames": [
+        2304,
+        2319
+      ],
+      "observation": "Scroll pertama; blur f2308/2311 lalu pulih menjelang frasa kedua lengkap."
+    },
+    {
+      "frames": [
+        2320,
+        2334
+      ],
+      "observation": "Apa yang aku buat lengkap, kemudian tint kata baru menggelap; raw f2329 tajam dan penuh."
+    },
+    {
+      "frames": [
+        2335,
+        2341
+      ],
+      "observation": "Scroll kedua ke post ketiga + apa; plateau blur f2338–2340, lanjut f2341."
+    },
+    {
+      "frames": [
+        2342,
+        2353
+      ],
+      "observation": "Apa pengalaman utuh; tint kata baru/blur pulih sepanjang settle."
+    },
+    {
+      "frames": [
+        2354,
+        2354
+      ],
+      "observation": "Satu frame caption kosong pada pergantian frasa; UI/wall tetap tampil. Tidak diklasifikasikan sebagai blank export."
+    },
+    {
+      "frames": [
+        2355,
+        2387
+      ],
+      "observation": "Yang aku dapatkan berkembang hingga lengkap f2369, held sampai cut."
+    },
+    {
+      "frames": [
+        2388,
+        2439
+      ],
+      "observation": "Wajah penutup, join/crop f2390, share→ngebagiin apa yang. Gambar tetap berisi."
+    },
+    {
+      "frames": [
+        2440,
+        2477
+      ],
+      "observation": "Belum sempurna muncul tanpa gap panjang lalu utuh/held; wajah tetap punya perubahan piksel."
+    },
+    {
+      "frames": [
+        2478,
+        2492
+      ],
+      "observation": "Fade akhir sesuai source; first nonzero opacity setelah f2478, brightness menurun ke exact black terakhir f2492."
+    }
+  ],
+  "info_files": [
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/INFO.md",
+      "sha256_before": "23b8ad718b1e475211da02d8d9f3bb5265767cfd55b5fa2846a6048fb301f33b",
+      "opened_and_read": true,
+      "sha256_after": "23b8ad718b1e475211da02d8d9f3bb5265767cfd55b5fa2846a6048fb301f33b",
+      "word_markers_read": true,
+      "cue_markers_read": true,
+      "bytes_stable": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/INFO.md",
+      "sha256_before": "9f34ce079e964cc5a72fa7288d9b0eceec476c1d91ec712e5eef688d2b87f5aa",
+      "opened_and_read": true,
+      "sha256_after": "9f34ce079e964cc5a72fa7288d9b0eceec476c1d91ec712e5eef688d2b87f5aa",
+      "word_markers_read": true,
+      "cue_markers_read": true,
+      "bytes_stable": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/INFO.md",
+      "sha256_before": "17682ed92da9cbd944b6bc92d982768f47321b866a8bebfc38c1ef43373c1404",
+      "opened_and_read": true,
+      "sha256_after": "17682ed92da9cbd944b6bc92d982768f47321b866a8bebfc38c1ef43373c1404",
+      "word_markers_read": true,
+      "cue_markers_read": true,
+      "bytes_stable": true
+    }
+  ],
+  "sheets": [
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s060.0.jpg",
+      "filename": "c07_060.0-070.0s/s060.0.jpg",
+      "sha256_before": "6e861d71edbf17b76b5ce48f11d1f6535ce03682a47fc068b856a6829c7df84a",
+      "bytes": 148467,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 1800,
+      "frame_end": 1829,
+      "opened": true,
+      "sha256_after": "6e861d71edbf17b76b5ce48f11d1f6535ce03682a47fc068b856a6829c7df84a",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s060.0.jpg",
+      "frames": [
+        1800,
+        1829
+      ],
+      "observed": "Seluruh 30 sel: footage wajah + caption pengen sekali/menjadi seorang bergerak; tidak ada blank, clipping atau creator baru.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s061.0.jpg",
+      "filename": "c07_060.0-070.0s/s061.0.jpg",
+      "sha256_before": "557495595df07ea4c61b6b5eb9eb07bdb94ebab7de6995dc40cdfbb68c806da9",
+      "bytes": 156402,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 1830,
+      "frame_end": 1859,
+      "opened": true,
+      "sha256_after": "557495595df07ea4c61b6b5eb9eb07bdb94ebab7de6995dc40cdfbb68c806da9",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s061.0.jpg",
+      "frames": [
+        1830,
+        1859
+      ],
+      "observed": "Seluruh 30 sel: autentik utuh dan held sebelum cut ke Threads dark f1857; wajah/avatar Irfan sengaja, bukan thumbnail creator YouTube.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s062.0.jpg",
+      "filename": "c07_060.0-070.0s/s062.0.jpg",
+      "sha256_before": "58e98825ecbc1920ff9403a390413d8edd70de87549bd76116fe52d033782788",
+      "bytes": 117413,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 1860,
+      "frame_end": 1889,
+      "opened": true,
+      "sha256_after": "58e98825ecbc1920ff9403a390413d8edd70de87549bd76116fe52d033782788",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s062.0.jpg",
+      "frames": [
+        1860,
+        1889
+      ],
+      "observed": "Seluruh 30 sel: profile Threads dark dan caption sampai akhirnya aku tetap terbaca/utuh di kanan, tanpa blank.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s063.0.jpg",
+      "filename": "c07_060.0-070.0s/s063.0.jpg",
+      "sha256_before": "003bd57811fcdda407997ff6dabc65257dd4ddc4cae1e82ed167aad1dd1330a8",
+      "bytes": 110984,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 1890,
+      "frame_end": 1919,
+      "opened": true,
+      "sha256_after": "003bd57811fcdda407997ff6dabc65257dd4ddc4cae1e82ed167aad1dd1330a8",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s063.0.jpg",
+      "frames": [
+        1890,
+        1919
+      ],
+      "observed": "Seluruh 30 sel: punch ke area No threads yet f1894–1900, caption gak menjadi siapapun utuh setelah settle; tepi UI keluar saat punch merupakan konteks.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s064.0.jpg",
+      "filename": "c07_060.0-070.0s/s064.0.jpg",
+      "sha256_before": "fe40621fd2a3b4bc9904cc0826f50a96925f4bf590d209b2996b46b6424c01ba",
+      "bytes": 117797,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 1920,
+      "frame_end": 1949,
+      "opened": true,
+      "sha256_after": "fe40621fd2a3b4bc9904cc0826f50a96925f4bf590d209b2996b46b6424c01ba",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s064.0.jpg",
+      "frames": [
+        1920,
+        1949
+      ],
+      "observed": "Seluruh 30 sel: caption gak menjadi siapapun held, pull ke profil multiwindow. Raw f1937/1938 mempertahankan susunan/posisi UI; perubahan blur dan penambahan aku menjelaskan flag, bukan teleport.",
+      "issue_ids": [],
+      "followup_frames": [
+        1937,
+        1938
+      ]
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s065.0.jpg",
+      "filename": "c07_060.0-070.0s/s065.0.jpg",
+      "sha256_before": "c9d2911e1312fab0a9af4b367c6e8ff0e1eee3149881e1f0777eced79bde35e8",
+      "bytes": 119153,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 1950,
+      "frame_end": 1979,
+      "opened": true,
+      "sha256_after": "c9d2911e1312fab0a9af4b367c6e8ff0e1eee3149881e1f0777eced79bde35e8",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s065.0.jpg",
+      "frames": [
+        1950,
+        1979
+      ],
+      "observed": "Seluruh 30 sel: pull profil/draft berlanjut, caption melangkah jauh lalu kemana-mana utuh. Raw f1954/1955 menunjukkan susunan sama dengan perubahan blur/pull kecil, bukan cut.",
+      "issue_ids": [],
+      "followup_frames": [
+        1954,
+        1955
+      ]
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s066.0.jpg",
+      "filename": "c07_060.0-070.0s/s066.0.jpg",
+      "sha256_before": "1ef3e113d0b00a93f701896685a300fd8262916f7b0dfe0d62d1603c2e67bfe8",
+      "bytes": 155564,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 1980,
+      "frame_end": 2009,
+      "opened": true,
+      "sha256_after": "1ef3e113d0b00a93f701896685a300fd8262916f7b0dfe0d62d1603c2e67bfe8",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s066.0.jpg",
+      "frames": [
+        1980,
+        2009
+      ],
+      "observed": "Seluruh 30 sel: kemana-mana held lalu wipe ke wajah f1994–1996; tidak ada blank hitam tunggal di sela. f1992 masih di komposisi pre-wipe.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s067.0.jpg",
+      "filename": "c07_060.0-070.0s/s067.0.jpg",
+      "sha256_before": "104f588937b37ce63f18d93407e4ae4b8a694d69568c91e560a1ad9ae9571cac",
+      "bytes": 195248,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2010,
+      "frame_end": 2039,
+      "opened": true,
+      "sha256_after": "104f588937b37ce63f18d93407e4ae4b8a694d69568c91e560a1ad9ae9571cac",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s067.0.jpg",
+      "frames": [
+        2010,
+        2039
+      ],
+      "observed": "Seluruh 30 sel: wajah terang + sampai akhirnya aku sadar utuh dan held; tidak ada flash atau creator leak.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s068.0.jpg",
+      "filename": "c07_060.0-070.0s/s068.0.jpg",
+      "sha256_before": "34e5230382ef26aa3a9ec49ed8877c1bc83e1bf2672a489c743a344db25bfda8",
+      "bytes": 195971,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2040,
+      "frame_end": 2069,
+      "opened": true,
+      "sha256_after": "34e5230382ef26aa3a9ec49ed8877c1bc83e1bf2672a489c743a344db25bfda8",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s068.0.jpg",
+      "frames": [
+        2040,
+        2069
+      ],
+      "observed": "Seluruh 30 sel: f2044 adalah join footage wajah yang juga tercatat di FACE_JUMPS; caption sadar tetap utuh. f2047 cut wall terang lalu whip/settle, tanpa flash kosong.",
+      "issue_ids": [],
+      "followup_frames": [
+        2043,
+        2044
+      ]
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s069.0.jpg",
+      "filename": "c07_060.0-070.0s/s069.0.jpg",
+      "sha256_before": "b38fe0ad73dc38a5da8c5953dbb11b6efb94f2eded19fd91332fe7275082d8a1",
+      "bytes": 188409,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2070,
+      "frame_end": 2099,
+      "opened": true,
+      "sha256_after": "b38fe0ad73dc38a5da8c5953dbb11b6efb94f2eded19fd91332fe7275082d8a1",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s069.0.jpg",
+      "frames": [
+        2070,
+        2099
+      ],
+      "observed": "Seluruh 30 sel: wall terang, frasa dan sekarang aku→memutuskan→untuk terlihat utuh di ruang antarkartu; tidak ada blank.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s070.0.jpg",
+      "filename": "c08_070.0-080.0s/s070.0.jpg",
+      "sha256_before": "f739f92799e1c715ff5fb3ef9d2b008853916bbb1df21d9a7f706a85c087c10e",
+      "bytes": 159543,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2100,
+      "frame_end": 2129,
+      "opened": true,
+      "sha256_after": "f739f92799e1c715ff5fb3ef9d2b008853916bbb1df21d9a7f706a85c087c10e",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s070.0.jpg",
+      "frames": [
+        2100,
+        2129
+      ],
+      "observed": "Seluruh 30 sel: untuk kembali ke utuh dan tulisan mulai masuk. Raw f2122–2124 menahan pose kamera old2422 dengan blur yang sama; hanya f2123/2124 byte-identik penuh. Observasi cadence kecil C08-CADENCE-01.",
+      "issue_ids": [
+        "C08-CADENCE-01"
+      ]
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s071.0.jpg",
+      "filename": "c08_070.0-080.0s/s071.0.jpg",
+      "sha256_before": "56cf09b537662492a0c6d38d36176eda04de656f0781a9d1f7dac2e6fb4a6ed5",
+      "bytes": 196351,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2130,
+      "frame_end": 2159,
+      "opened": true,
+      "sha256_after": "56cf09b537662492a0c6d38d36176eda04de656f0781a9d1f7dac2e6fb4a6ed5",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s071.0.jpg",
+      "frames": [
+        2130,
+        2159
+      ],
+      "observed": "Seluruh 30 sel: titik awal selesai dan held sebelum cut wajah f2142; tulisan tidak terpotong. Dimana mungkin tampil di ruang kanan wajah.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s072.0.jpg",
+      "filename": "c08_070.0-080.0s/s072.0.jpg",
+      "sha256_before": "32f036631bb5246b072b60599d9eda60d695bd4e4a93fc2f896520adb2475dec",
+      "bytes": 227924,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2160,
+      "frame_end": 2189,
+      "opened": true,
+      "sha256_after": "32f036631bb5246b072b60599d9eda60d695bd4e4a93fc2f896520adb2475dec",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s072.0.jpg",
+      "frames": [
+        2160,
+        2189
+      ],
+      "observed": "Seluruh 30 sel: wajah bergerak dan caption dimana mungkin→aku harusnya utuh; tidak ada blank atau flash.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s073.0.jpg",
+      "filename": "c08_070.0-080.0s/s073.0.jpg",
+      "sha256_before": "394dcc1c76194b65d7a8bbffabf277ad511118db2c0c0c8b348a2f2e2be931ea",
+      "bytes": 173648,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2190,
+      "frame_end": 2219,
+      "opened": true,
+      "sha256_after": "394dcc1c76194b65d7a8bbffabf277ad511118db2c0c0c8b348a2f2e2be931ea",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s073.0.jpg",
+      "frames": [
+        2190,
+        2219
+      ],
+      "observed": "Seluruh 30 sel: cut f2192 ke wall/repo terlingkar, caption gak sekedar utuh pada lower space; tidak menimpa tulisan titik awal.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s074.0.jpg",
+      "filename": "c08_070.0-080.0s/s074.0.jpg",
+      "sha256_before": "2424f87e745f142426ca4ea962d15e495959a566299ef47aad5dc9bb4df87ccb",
+      "bytes": 179018,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2220,
+      "frame_end": 2249,
+      "opened": true,
+      "sha256_after": "2424f87e745f142426ca4ea962d15e495959a566299ef47aad5dc9bb4df87ccb",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s074.0.jpg",
+      "frames": [
+        2220,
+        2249
+      ],
+      "observed": "Seluruh 30 sel: gak sekedar membangun selesai lalu held; cut f2234 ke close-up wajah, tapi juga masuk di kanan. Cut bersih, tidak blank.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s075.0.jpg",
+      "filename": "c08_070.0-080.0s/s075.0.jpg",
+      "sha256_before": "c6ae87b40bc64f66a76612835b103a77b0d71c4654952aa22ab245d3016a6478",
+      "bytes": 176052,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2250,
+      "frame_end": 2279,
+      "opened": true,
+      "sha256_after": "c6ae87b40bc64f66a76612835b103a77b0d71c4654952aa22ab245d3016a6478",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s075.0.jpg",
+      "frames": [
+        2250,
+        2279
+      ],
+      "observed": "Seluruh 30 sel: nge-share held sebelum cut composer f2267. Apa gelap/terbaca pada scrim. Raw f2270–2272 menunjukkan lampiran/camera pose tetap sementara video wajah bergerak; plateau singkat bukan full-frame freeze atau kehilangan kata.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s076.0.jpg",
+      "filename": "c08_070.0-080.0s/s076.0.jpg",
+      "sha256_before": "faec22c98c0690144050af34f1002fdcc5aa6f7c97bc749adba795152a928199",
+      "bytes": 164057,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2280,
+      "frame_end": 2309,
+      "opened": true,
+      "sha256_after": "faec22c98c0690144050af34f1002fdcc5aa6f7c97bc749adba795152a928199",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s076.0.jpg",
+      "frames": [
+        2280,
+        2309
+      ],
+      "observed": "Seluruh 30 sel: modal composer menutup f2284–2286, post pertama terbuka. Apa yang aku alami utuh sejak f2289; f2303 mulai post berikut/scroll, text tetap ditampilkan.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s077.0.jpg",
+      "filename": "c08_070.0-080.0s/s077.0.jpg",
+      "sha256_before": "d0a19fae11dec18f529c558ce5d394f9fa4a4c4fd1ff2ae0b589837c18b01a32",
+      "bytes": 171123,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2310,
+      "frame_end": 2339,
+      "opened": true,
+      "sha256_after": "d0a19fae11dec18f529c558ce5d394f9fa4a4c4fd1ff2ae0b589837c18b01a32",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s077.0.jpg",
+      "frames": [
+        2310,
+        2339
+      ],
+      "observed": "Seluruh 30 sel: scroll pertama blur lalu apa yang aku buat utuh/tajam. Scroll kedua f2335–2338. Raw f2338–2340 menahan pose kamera old2687 dengan vertical blur sebelum lanjut f2341; C08-CADENCE-01.",
+      "issue_ids": [
+        "C08-CADENCE-01"
+      ]
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s078.0.jpg",
+      "filename": "c08_070.0-080.0s/s078.0.jpg",
+      "sha256_before": "4d2824655f4fde65048f2464b152d08bb7f5831c4cb2e2099db06e500a8a4b75",
+      "bytes": 150380,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2340,
+      "frame_end": 2369,
+      "opened": true,
+      "sha256_after": "4d2824655f4fde65048f2464b152d08bb7f5831c4cb2e2099db06e500a8a4b75",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s078.0.jpg",
+      "frames": [
+        2340,
+        2369
+      ],
+      "observed": "Seluruh 30 sel: apa pengalaman tampil utuh setelah scroll sampai f2353; f2354 satu frame caption kosong pada pergantian frasa, yang mulai f2355 lalu yang aku dapatkan lengkap f2369. UI/wall tetap terlihat; ini bukan blank export.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s079.0.jpg",
+      "filename": "c08_070.0-080.0s/s079.0.jpg",
+      "sha256_before": "c92eead71edf9743e98635145f4f0e6aa8768cbe41ff6cfed4e02062d04f85e5",
+      "bytes": 177459,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2370,
+      "frame_end": 2399,
+      "opened": true,
+      "sha256_after": "c92eead71edf9743e98635145f4f0e6aa8768cbe41ff6cfed4e02062d04f85e5",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s079.0.jpg",
+      "frames": [
+        2370,
+        2399
+      ],
+      "observed": "Seluruh 30 sel: yang aku dapatkan utuh sampai f2387, cut wajah f2388 dan join footage/crop f2390 (ada di FACE_JUMPS) sebelum share masuk. Raw f2388–2390 berisi wajah utuh, bukan flash kosong.",
+      "issue_ids": [],
+      "followup_frames": [
+        2388,
+        2389,
+        2390
+      ]
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/s080.0.jpg",
+      "filename": "c09_080.0-083.1s/s080.0.jpg",
+      "sha256_before": "18b3c5ae36afd70df1f83704c2c105a51dbd24851a5fba36a99b062024697bd5",
+      "bytes": 195885,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2400,
+      "frame_end": 2429,
+      "opened": true,
+      "sha256_after": "18b3c5ae36afd70df1f83704c2c105a51dbd24851a5fba36a99b062024697bd5",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s080.0.jpg",
+      "frames": [
+        2400,
+        2429
+      ],
+      "observed": "Seluruh 30 sel: share held, lalu ngebagiin apa di kanan wajah; caption utuh dan tidak ada flash.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/s081.0.jpg",
+      "filename": "c09_080.0-083.1s/s081.0.jpg",
+      "sha256_before": "be17648b36c87530232b8249c9be3258befe8cf9c18279009964efe2dc910306",
+      "bytes": 202164,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2430,
+      "frame_end": 2459,
+      "opened": true,
+      "sha256_after": "be17648b36c87530232b8249c9be3258befe8cf9c18279009964efe2dc910306",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s081.0.jpg",
+      "frames": [
+        2430,
+        2459
+      ],
+      "observed": "Seluruh 30 sel: ngebagiin apa yang berganti belum sempurna tanpa gap kosong; frase utuh/held setelah f2446.",
+      "issue_ids": []
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/s082.0.jpg",
+      "filename": "c09_080.0-083.1s/s082.0.jpg",
+      "sha256_before": "23a212030daa33ba7559237d8aa1f7a284db754637b3574a08df915ba5f37436",
+      "bytes": 188839,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2460,
+      "frame_end": 2489,
+      "opened": true,
+      "sha256_after": "23a212030daa33ba7559237d8aa1f7a284db754637b3574a08df915ba5f37436",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 30,
+      "unused_cells": 0,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s082.0.jpg",
+      "frames": [
+        2460,
+        2489
+      ],
+      "observed": "Seluruh 30 sel: belum sempurna utuh, footage sangat tenang menuju fade. Fade menjadi gelap bertahap pada akhir; tidak ada satu-frame blackout terpisah.",
+      "issue_ids": [],
+      "followup_frames": [
+        2477,
+        2478,
+        2480,
+        2483,
+        2486,
+        2489
+      ]
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/s083.0.jpg",
+      "filename": "c09_080.0-083.1s/s083.0.jpg",
+      "sha256_before": "fe536189acd4ecdbf662a18ea763f67958332c1eabce90cec64e16b117898c2b",
+      "bytes": 25193,
+      "dimensions": [
+        1536,
+        782
+      ],
+      "frame_start": 2490,
+      "frame_end": 2492,
+      "opened": true,
+      "sha256_after": "fe536189acd4ecdbf662a18ea763f67958332c1eabce90cec64e16b117898c2b",
+      "view": "original full sheet opened via view_image",
+      "all_actual_cells_inspected": true,
+      "cells_inspected": 3,
+      "unused_cells": 27,
+      "scan_order": "all actual cells, row-major",
+      "bytes_stable": true,
+      "sheet": "s083.0.jpg",
+      "frames": [
+        2490,
+        2492
+      ],
+      "observed": "Ketiga sel aktual f2490/2491/2492 dibuka; dua sangat gelap lalu hitam akhir. 27 slot tak terpakai pada sheet tidak dihitung sebagai frame film.",
+      "issue_ids": [],
+      "followup_frames": [
+        2490,
+        2491,
+        2492
+      ]
+    }
+  ],
+  "opened_raw_jpegs": [
+    {
+      "frame": 1937,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1937.jpeg",
+      "sha256": "f2b62b98bd966613b1437e96e7b7002af7117eb648d8c9502771a834d0972b17",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "f2b62b98bd966613b1437e96e7b7002af7117eb648d8c9502771a834d0972b17",
+      "bytes_stable": true
+    },
+    {
+      "frame": 1938,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1938.jpeg",
+      "sha256": "e1fe06ca77e2f6f4befeabefc79b53461c42b6af061fbfbe246c5acb82b79ee7",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "e1fe06ca77e2f6f4befeabefc79b53461c42b6af061fbfbe246c5acb82b79ee7",
+      "bytes_stable": true
+    },
+    {
+      "frame": 1954,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1954.jpeg",
+      "sha256": "92c58a6572a3e8db5279f3ca4e5faf6edfdc429eb543ae687850c8b0ba06aa93",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "92c58a6572a3e8db5279f3ca4e5faf6edfdc429eb543ae687850c8b0ba06aa93",
+      "bytes_stable": true
+    },
+    {
+      "frame": 1955,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1955.jpeg",
+      "sha256": "1a2ba214c74a0d7a10e6311b1f3e4dfbbf70d8ee0481ea402b108eb66140993f",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "1a2ba214c74a0d7a10e6311b1f3e4dfbbf70d8ee0481ea402b108eb66140993f",
+      "bytes_stable": true
+    },
+    {
+      "frame": 1992,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1992.jpeg",
+      "sha256": "dccdd220aa37c63a09a7b8e11f130665f5c9b0d7fe688fec5e75522365651b2c",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "dccdd220aa37c63a09a7b8e11f130665f5c9b0d7fe688fec5e75522365651b2c",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2043,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2043.jpeg",
+      "sha256": "9f80f3cb6472709f28c8686e318823d262a02d8576e800278e24810d32954265",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "9f80f3cb6472709f28c8686e318823d262a02d8576e800278e24810d32954265",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2044,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2044.jpeg",
+      "sha256": "57a86916f5f29942cf162da71ed7f073e70d523bd1b0d8a1fb0c8d56449dfffa",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "57a86916f5f29942cf162da71ed7f073e70d523bd1b0d8a1fb0c8d56449dfffa",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2121,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2121.jpeg",
+      "sha256": "eb45a31255ead964cd5ac397f6ab2a3c6c5feb7de9435a3adff6281b31f7f912",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "eb45a31255ead964cd5ac397f6ab2a3c6c5feb7de9435a3adff6281b31f7f912",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2122,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2122.jpeg",
+      "sha256": "e578bd4f33fdf9b3519ff32c43afe763006911f721846c9b346fc75a85104297",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "e578bd4f33fdf9b3519ff32c43afe763006911f721846c9b346fc75a85104297",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2123,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2123.jpeg",
+      "sha256": "accd575675f2b7f363dd09d0f31b2a931f1cf3fa05efff169093e1aa0a66123a",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "accd575675f2b7f363dd09d0f31b2a931f1cf3fa05efff169093e1aa0a66123a",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2124,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2124.jpeg",
+      "sha256": "accd575675f2b7f363dd09d0f31b2a931f1cf3fa05efff169093e1aa0a66123a",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame"
+    },
+    {
+      "frame": 2142,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2142.jpeg",
+      "sha256": "8eeabb0e51eaddeb01e266d483e7489c77d74ba22aad421948e6556b28120377",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "8eeabb0e51eaddeb01e266d483e7489c77d74ba22aad421948e6556b28120377",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2192,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2192.jpeg",
+      "sha256": "3ed06d7ebd428ea22e945a5aebca0c44d075f34cef41948d8bde4bc6397d9549",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "3ed06d7ebd428ea22e945a5aebca0c44d075f34cef41948d8bde4bc6397d9549",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2234,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2234.jpeg",
+      "sha256": "cb1ac94e69ae3c72c52cd29865ceac97c23a91d56af4a4a4343a9e2520760dca",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "cb1ac94e69ae3c72c52cd29865ceac97c23a91d56af4a4a4343a9e2520760dca",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2267,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2267.jpeg",
+      "sha256": "eb83028eb48d9fbd9aec8aa6adfa6f5cd4c54c3b816041b633fbea0bd3d182ab",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "eb83028eb48d9fbd9aec8aa6adfa6f5cd4c54c3b816041b633fbea0bd3d182ab",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2270,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2270.jpeg",
+      "sha256": "dcd738bb765e41982fcde029805f521af5eae33241fbc27b13102edbd425bc26",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "dcd738bb765e41982fcde029805f521af5eae33241fbc27b13102edbd425bc26",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2271,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2271.jpeg",
+      "sha256": "8515e98c7b366610b37c0163336a3cbff50e3249d015ecf71c9df8632dddb756",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame"
+    },
+    {
+      "frame": 2272,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2272.jpeg",
+      "sha256": "07e430b7a75e8f36520b91fd5479853e4cfea64080c706f9fbba75b1b3ec6b20",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame"
+    },
+    {
+      "frame": 2275,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2275.jpeg",
+      "sha256": "260291b39c83dea1dd5190e882427606192b211822bbd60e3cc735616779427a",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "260291b39c83dea1dd5190e882427606192b211822bbd60e3cc735616779427a",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2284,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2284.jpeg",
+      "sha256": "d7affe13c7cf5f050991bba4de4721b91cc954d0e5202bed47e96cfb69d9dba4",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "d7affe13c7cf5f050991bba4de4721b91cc954d0e5202bed47e96cfb69d9dba4",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2285,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2285.jpeg",
+      "sha256": "3000bc158f37d6680d2822545057a9e185d9ed1810757b77dda681a92f8d46cc",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "3000bc158f37d6680d2822545057a9e185d9ed1810757b77dda681a92f8d46cc",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2286,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2286.jpeg",
+      "sha256": "1aec1103cdad63ea5e48cbc09dcfb90c09c8ad0a0b3ac6d74996eb1af3d23d46",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "1aec1103cdad63ea5e48cbc09dcfb90c09c8ad0a0b3ac6d74996eb1af3d23d46",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2289,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2289.jpeg",
+      "sha256": "eaaec04c9b991f2f80914edc9a8951f8f235bbe87d40f42f3e49e4a6ce4de956",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "eaaec04c9b991f2f80914edc9a8951f8f235bbe87d40f42f3e49e4a6ce4de956",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2308,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2308.jpeg",
+      "sha256": "c5b7c7ce9f42cf2d5bdc1c563980c08c08c2966c4a50b4b884f410b62f4afc44",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "c5b7c7ce9f42cf2d5bdc1c563980c08c08c2966c4a50b4b884f410b62f4afc44",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2311,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2311.jpeg",
+      "sha256": "ff303fd4faadd7cc3923972b5c65c8bfa614ca6159c7b91e79fcb9dd6f407c82",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "ff303fd4faadd7cc3923972b5c65c8bfa614ca6159c7b91e79fcb9dd6f407c82",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2318,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2318.jpeg",
+      "sha256": "69121eb610f33ea705b6b1c593096a78a0c049685f65abe2c588bc76339cd00d",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "69121eb610f33ea705b6b1c593096a78a0c049685f65abe2c588bc76339cd00d",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2320,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2320.jpeg",
+      "sha256": "2c9928c7eae2d391cb7eda06972a26605166dbcfea7e46307c5e3490e0dbbdf7",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "2c9928c7eae2d391cb7eda06972a26605166dbcfea7e46307c5e3490e0dbbdf7",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2329,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2329.jpeg",
+      "sha256": "f16527af560f72fa52dc945a13d9116a8795862ed6aafad8a8bb000e5aa5845f",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "f16527af560f72fa52dc945a13d9116a8795862ed6aafad8a8bb000e5aa5845f",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2335,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2335.jpeg",
+      "sha256": "0c2998fa38185896bbe24e940e2a5725aa6ab9700422159fc37c09610e16104b",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "0c2998fa38185896bbe24e940e2a5725aa6ab9700422159fc37c09610e16104b",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2336,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2336.jpeg",
+      "sha256": "4b19faf11e735b08bea1b03b9b46b113b0dc324af0faa730341eca0aa1d92540",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "4b19faf11e735b08bea1b03b9b46b113b0dc324af0faa730341eca0aa1d92540",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2337,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2337.jpeg",
+      "sha256": "ed2b3ada54358e28549d7b036c25047b64acc4eeb4974d29f8b2a30571062208",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "ed2b3ada54358e28549d7b036c25047b64acc4eeb4974d29f8b2a30571062208",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2338,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2338.jpeg",
+      "sha256": "74e81835eabc75c20e968774749b483a70f72bc6747d784d018be81f5792c41e",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "74e81835eabc75c20e968774749b483a70f72bc6747d784d018be81f5792c41e",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2339,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2339.jpeg",
+      "sha256": "b7ff9d916ee8a326db55bfee4d651f9eaabd15514abc0d63c08dd4e5167dad6d",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "b7ff9d916ee8a326db55bfee4d651f9eaabd15514abc0d63c08dd4e5167dad6d",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2340,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2340.jpeg",
+      "sha256": "ca27f7a99b7dc5505523a3de62c56189a7b7ebfcc0e0ffa9ec7725461bc3cefa",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "ca27f7a99b7dc5505523a3de62c56189a7b7ebfcc0e0ffa9ec7725461bc3cefa",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2341,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2341.jpeg",
+      "sha256": "13b76ad45ffea7d5bd150e7bc10f9091a0472cee6d2885cc3df4f3908bd05146",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "13b76ad45ffea7d5bd150e7bc10f9091a0472cee6d2885cc3df4f3908bd05146",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2342,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2342.jpeg",
+      "sha256": "480ef886d3db962bad2ff3de3e668ab09d56e5e4d8f4fecd9b1a3dcd92e21afc",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "480ef886d3db962bad2ff3de3e668ab09d56e5e4d8f4fecd9b1a3dcd92e21afc",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2353,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2353.jpeg",
+      "sha256": "26c9ef16bae726b16d56496d485ccec83bbeaef9ddfc1f6bafdf963543414889",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame"
+    },
+    {
+      "frame": 2354,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2354.jpeg",
+      "sha256": "27b54e1fed8b2c0e6eefb48b2a507e65f68bb7251ae528b9359ab1f8ab1bba9e",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "27b54e1fed8b2c0e6eefb48b2a507e65f68bb7251ae528b9359ab1f8ab1bba9e",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2355,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2355.jpeg",
+      "sha256": "c6ae762f1c537dc3ba213c141493dc674f7a0ff5f120605796c19fb0bff92015",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame"
+    },
+    {
+      "frame": 2369,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2369.jpeg",
+      "sha256": "89eae0d4e8edbf5ec9f4ed5983516d9d18b1a573066d14f6fc7a9937263a5fad",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "89eae0d4e8edbf5ec9f4ed5983516d9d18b1a573066d14f6fc7a9937263a5fad",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2388,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2388.jpeg",
+      "sha256": "602b292538c374206d147d8ead894775b363fc3961c6167f30ada218762990af",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "602b292538c374206d147d8ead894775b363fc3961c6167f30ada218762990af",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2389,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2389.jpeg",
+      "sha256": "5a076edeab56ae21e6706525c81cba5626df2ea21ff1e42ce6ba442302307a49",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "5a076edeab56ae21e6706525c81cba5626df2ea21ff1e42ce6ba442302307a49",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2390,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2390.jpeg",
+      "sha256": "c68c58792117a623c384ffff7b8ef95b410d5978b835ac09600143b2d7d98ed8",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "c68c58792117a623c384ffff7b8ef95b410d5978b835ac09600143b2d7d98ed8",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2477,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2477.jpeg",
+      "sha256": "43bcd496ffb7b06034329772d0172e8f3fb76e2a63d3862c7c707b409ac78067",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "43bcd496ffb7b06034329772d0172e8f3fb76e2a63d3862c7c707b409ac78067",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2478,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2478.jpeg",
+      "sha256": "132df4c828a142a0c1487655acd6f93c4b044d65a359fab83d330011fd19ba90",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "132df4c828a142a0c1487655acd6f93c4b044d65a359fab83d330011fd19ba90",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2480,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2480.jpeg",
+      "sha256": "f02cd88c2e48789936333b026f6a8251185a3c841a7790759bfacc3b3739c7cc",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "f02cd88c2e48789936333b026f6a8251185a3c841a7790759bfacc3b3739c7cc",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2483,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2483.jpeg",
+      "sha256": "35dcd185926d0f7d1011b2b2eb981721812006054fcb818840712a4bafb11516",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "35dcd185926d0f7d1011b2b2eb981721812006054fcb818840712a4bafb11516",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2486,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2486.jpeg",
+      "sha256": "cf6bb5728216bb98e9e1a5271320a16dcc772c352750ca27430aebd6126ae3f2",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "cf6bb5728216bb98e9e1a5271320a16dcc772c352750ca27430aebd6126ae3f2",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2489,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2489.jpeg",
+      "sha256": "7cb04ed64a8b943239883647717e7f81b31dd96a4df1993aff5e144da18678da",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "7cb04ed64a8b943239883647717e7f81b31dd96a4df1993aff5e144da18678da",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2490,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2490.jpeg",
+      "sha256": "a27ff7b517df1253a992dc84b44cd307bbf803d5ee4bcfa3e65f94bffed272f7",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "a27ff7b517df1253a992dc84b44cd307bbf803d5ee4bcfa3e65f94bffed272f7",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2491,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2491.jpeg",
+      "sha256": "3ef7352e4fd60b0608f5e77dc3a4ba2f6fb762a7ee851827832ab7e05c64badd",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "3ef7352e4fd60b0608f5e77dc3a4ba2f6fb762a7ee851827832ab7e05c64badd",
+      "bytes_stable": true
+    },
+    {
+      "frame": 2492,
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2492.jpeg",
+      "sha256": "6f3b5ca7ddaae92f73f246969d208d3bcad1d63ad018c868742eeadba5c286f4",
+      "opened": true,
+      "dimensions": [
+        960,
+        540
+      ],
+      "view": "canonical 960x540 raw JPEG, entire frame",
+      "sha256_before": "6f3b5ca7ddaae92f73f246969d208d3bcad1d63ad018c868742eeadba5c286f4",
+      "bytes_stable": true
+    }
+  ],
+  "automatic_flags": [
+    {
+      "chunk": "c07_060.0-070.0s",
+      "frame": 1938,
+      "seconds": 64.6,
+      "type": "LOMPAT",
+      "metadata_text": "f1938 (64.60 dtk): LOMPAT 7.5 (f1937→1938)",
+      "visual_decision": "intentional_visual_motion",
+      "image_based_reason": "Raw f1937/1938 mempertahankan susunan profil/draft. Aku ditambahkan pada caption dan blur/sharpness berubah selama pull; tidak ada teleport atau blank.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1938.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s064.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c07_060.0-070.0s",
+      "frame": 1938,
+      "seconds": 64.6,
+      "type": "SFX?",
+      "metadata_text": "f1938 (64.60 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk",
+      "visual_decision": "visual_change_audio_unassessed",
+      "image_based_reason": "Perubahan pull/blur dan caption; raw bukan cut baru. Tidak menyimpulkan kebutuhan atau terdengarnya cue dari strip.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1938.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s064.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c07_060.0-070.0s",
+      "frame": 1955,
+      "seconds": 65.16666666666667,
+      "type": "LOMPAT",
+      "metadata_text": "f1955 (65.17 dtk): LOMPAT 7.3 (f1954→1955)",
+      "visual_decision": "intentional_visual_motion",
+      "image_based_reason": "Raw f1954/1955 menunjukkan layout yang sama; langkah pull dan perbedaan blur menjelaskan delta. Melangkah tetap utuh.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1955.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s065.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c07_060.0-070.0s",
+      "frame": 1955,
+      "seconds": 65.16666666666667,
+      "type": "SFX?",
+      "metadata_text": "f1955 (65.17 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk",
+      "visual_decision": "visual_change_audio_unassessed",
+      "image_based_reason": "Bukan cut/flash pada gambar; pull profil berlanjut. Audio tidak didengar atau diputuskan.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1955.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s065.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c07_060.0-070.0s",
+      "frame": 1992,
+      "seconds": 66.4,
+      "type": "LOMPAT",
+      "metadata_text": "f1992 (66.40 dtk): LOMPAT 7.9 (f1991→1992)",
+      "visual_decision": "intentional_visual_motion",
+      "image_based_reason": "Masih profil/draft + kemana-mana utuh sebelum wipe. Wipe wajah baru berkembang f1994–1996; tidak ada blank.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-1992.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s066.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c07_060.0-070.0s",
+      "frame": 2044,
+      "seconds": 68.13333333333334,
+      "type": "LOMPAT",
+      "metadata_text": "f2044 (68.13 dtk): LOMPAT 12.9 (f2043→2044)",
+      "visual_decision": "intentional_visual_motion",
+      "image_based_reason": "Join footage wajah, juga tercantum di FACE_JUMPS. Raw f2043/2044 menunjukkan cut pose rekaman dengan sadar tetap utuh; bukan cacat export.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2044.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s068.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c07_060.0-070.0s",
+      "frame": 2044,
+      "seconds": 68.13333333333334,
+      "type": "SFX?",
+      "metadata_text": "f2044 (68.13 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk",
+      "visual_decision": "visual_change_audio_unassessed",
+      "image_based_reason": "Join footage narator, caption tetap stabil. Tidak menilai kehadiran/kebutuhan SFX.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2044.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c07_060.0-070.0s/s068.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2122,
+      "seconds": 70.73333333333333,
+      "type": "BEKU",
+      "metadata_text": "f2122 (70.73 dtk): BEKU 3 f",
+      "visual_decision": "cadence_watch",
+      "image_based_reason": "Raw f2122–2124 menahan pose kamera/blur yang sama; W=old2422 untuk ketiganya. Seluruh frame tidak identik: kata berubah pada f2122→2123, hanya f2123=f2124 byte-identik. C08-CADENCE-01, severity perseptual belum dipastikan.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2122.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s070.0.jpg",
+      "issue_id": "C08-CADENCE-01",
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2142,
+      "seconds": 71.4,
+      "type": "SFX?",
+      "metadata_text": "f2142 (71.40 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk",
+      "visual_decision": "visual_change_audio_unassessed",
+      "image_based_reason": "Cut sengaja dari repo titik awal ke wajah setelah label utuh; raw berisi footage normal. Audio di luar cakupan.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2142.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s071.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2192,
+      "seconds": 73.06666666666666,
+      "type": "SFX?",
+      "metadata_text": "f2192 (73.07 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk",
+      "visual_decision": "visual_change_audio_unassessed",
+      "image_based_reason": "Cut wajah kembali ke repo yang terlingkar; titik awal tetap utuh. Tidak ada flash kosong. Audio di luar cakupan.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2192.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s073.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2234,
+      "seconds": 74.46666666666667,
+      "type": "SFX?",
+      "metadata_text": "f2234 (74.47 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk",
+      "visual_decision": "visual_change_audio_unassessed",
+      "image_based_reason": "Cut dari wall/gak sekedar membangun ke close-up untuk Tapi juga nge-share; raw wajah normal, bukan blank. Audio di luar cakupan.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2234.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s074.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2270,
+      "seconds": 75.66666666666667,
+      "type": "BEKU",
+      "metadata_text": "f2270 (75.67 dtk): BEKU 3 f",
+      "visual_decision": "short_animation_plateau_no_context_loss",
+      "image_based_reason": "W old2578 mengulang pose kamera/lampiran f2270–2272, tetapi video wajah di lampiran tetap bergerak. Apa gelap dan jelas pada scrim. Plateau ringan dicatat; tidak menjadi full-frame freeze atau kehilangan konteks.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2270.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s075.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2275,
+      "seconds": 75.83333333333333,
+      "type": "LOMPAT",
+      "metadata_text": "f2275 (75.83 dtk): LOMPAT 17.8 (f2274→2275)",
+      "visual_decision": "intentional_visual_motion",
+      "image_based_reason": "Lampiran mencapai susunan composer dan cursor pada Post; apa yang utuh. Raw menunjukkan gerak UI yang dimaksud, tanpa crop kata.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2275.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s075.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2284,
+      "seconds": 76.13333333333334,
+      "type": "LOMPAT",
+      "metadata_text": "f2284 (76.13 dtk): LOMPAT 33.8 (f2283→2284)",
+      "visual_decision": "intentional_visual_motion",
+      "image_based_reason": "Post mulai hadir di belakang composer saat klik; scrim mulai terbuka. Caption tetap di kanan dan tidak hilang.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2284.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s076.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2285,
+      "seconds": 76.16666666666667,
+      "type": "LOMPAT",
+      "metadata_text": "f2285 (76.17 dtk): LOMPAT 40.7 (f2284→2285)",
+      "visual_decision": "intentional_visual_motion",
+      "image_based_reason": "Composer menghilang/mengungkap post pertama dalam animasi publikasi; double image berasal dari overlap opacity selama transisi, bukan flash export.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2285.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s076.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2286,
+      "seconds": 76.2,
+      "type": "LOMPAT",
+      "metadata_text": "f2286 (76.20 dtk): LOMPAT 29.2 (f2285→2286)",
+      "visual_decision": "intentional_visual_motion",
+      "image_based_reason": "Post pertama sudah terbuka, kamera melanjutkan push. Apa yang aku utuh, selanjutnya alami lengkap f2289.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2286.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s076.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2335,
+      "seconds": 77.83333333333333,
+      "type": "LOMPAT",
+      "metadata_text": "f2335 (77.83 dtk): LOMPAT 14.1 (f2334→2335)",
+      "visual_decision": "intentional_visual_motion",
+      "image_based_reason": "Scroll kedua mulai dan post ketiga terbit dari bawah. Frasa sebelumnya sudah utuh sebelum keluar, apa untuk post ketiga terlihat.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2335.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s077.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2336,
+      "seconds": 77.86666666666666,
+      "type": "LOMPAT",
+      "metadata_text": "f2336 (77.87 dtk): LOMPAT 26.8 (f2335→2336)",
+      "visual_decision": "intentional_visual_motion",
+      "image_based_reason": "Bagian cepat scroll vertikal dengan motion blur; UI bergerak searah tanpa reset. Caption keluar setelah sebelumnya terbaca.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2336.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s077.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2337,
+      "seconds": 77.9,
+      "type": "LOMPAT",
+      "metadata_text": "f2337 (77.90 dtk): LOMPAT 24.7 (f2336→2337)",
+      "visual_decision": "intentional_visual_motion",
+      "image_based_reason": "Scroll vertikal berlanjut menuju post ketiga. Blur merupakan bagian gerak; hold blur setelahnya dicatat pada BEKU f2338.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2337.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s077.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2338,
+      "seconds": 77.93333333333334,
+      "type": "BEKU",
+      "metadata_text": "f2338 (77.93 dtk): BEKU 3 f",
+      "visual_decision": "cadence_watch",
+      "image_based_reason": "Raw f2338–2340 menahan pose kamera/vertical blur yang sama di tengah scroll; W=old2687. Raw hanya berbeda tipis karena isi/teks, bukan identik penuh. Gerak lanjut f2341; C08-CADENCE-01.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2338.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s077.0.jpg",
+      "issue_id": "C08-CADENCE-01",
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2388,
+      "seconds": 79.6,
+      "type": "SFX?",
+      "metadata_text": "f2388 (79.60 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk",
+      "visual_decision": "visual_change_audio_unassessed",
+      "image_based_reason": "Cut post ketiga ke wajah untuk Share; raw f2388/2389 berisi wajah normal. Tidak ada black flash. Audio di luar cakupan.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2388.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s079.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2390,
+      "seconds": 79.66666666666667,
+      "type": "LOMPAT",
+      "metadata_text": "f2390 (79.67 dtk): LOMPAT 24.5 (f2389→2390)",
+      "visual_decision": "intentional_visual_motion",
+      "image_based_reason": "Join footage/crop narator tercantum dalam FACE_JUMPS; raw f2389→2390 menunjukkan edit pose/punch wajah, bukan blank atau reset UI.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2390.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s079.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    },
+    {
+      "chunk": "c08_070.0-080.0s",
+      "frame": 2390,
+      "seconds": 79.66666666666667,
+      "type": "SFX?",
+      "metadata_text": "f2390 (79.67 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk",
+      "visual_decision": "visual_change_audio_unassessed",
+      "image_based_reason": "Join footage narator setelah cut UI→wajah. Gambar normal; audio tidak dinilai.",
+      "flagged_raw_opened": true,
+      "raw_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames/element-2390.jpeg",
+      "sheet": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c08_070.0-080.0s/s079.0.jpg",
+      "issue_id": null,
+      "visual_observation_confidence": 0.99
+    }
+  ],
+  "source_files_read": [
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/Main.tsx",
+      "sha256_at_reporting": "d59df430cfd535ed7fe2f249cf14215d8b897ae0d27371dc7cb7b126382bb354",
+      "read_only": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/scenes/Act3.tsx",
+      "sha256_at_reporting": "ce39a779ae121eb6d372c58b87a00611a9d98a53f23a4887b3ca0d2aef59897d",
+      "read_only": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/scenes/Act4.tsx",
+      "sha256_at_reporting": "fa68b72fc5fbbe16f5d92de7b55aa7b5094312a3e007a45ddb4fb7bdc4881028",
+      "read_only": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/scenes/Act4.text.ts",
+      "sha256_at_reporting": "6bf69502a8f6ee89a77a2ec03c8b15c0df3d72c24b30b6e9baa93ed85688165c",
+      "read_only": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/engine/Face.tsx",
+      "sha256_at_reporting": "0075a621fdf0865f676d997cb6ac5114aa95495ac41abfe8bc99710d9087fd18",
+      "read_only": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/engine/timewarp.ts",
+      "sha256_at_reporting": "58bd001dc8b2f4a6ddf44bcd21b5a64eb793b8beb6603f64647ecf0b9673365b",
+      "read_only": true
+    },
+    {
+      "path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/src/data/knots_v6.json",
+      "sha256_at_reporting": "ac6b9e2cf4929e557f7ca5554f74237016b120a5f9ba24af76b39c2f2378e7b6",
+      "read_only": true
+    }
+  ],
+  "numeric_checks": {
+    "kind": "lightweight read-only numerical checks, not visual opening proof",
+    "raw_frame_range": [
+      1800,
+      2492
+    ],
+    "measured_raw_frames": 693,
+    "exact_all_black_frames": [
+      2492
+    ],
+    "nonblack_frame_count": 692,
+    "raw_leaf_aggregate_sha256": "2523b40e2429464bb8c42585013d1897e916d6bb270ec080ad321f0e5bf1db63",
+    "fade": [
+      {
+        "frame": 2477,
+        "mean_rgb": [
+          75.6212962962963,
+          75.43414351851852,
+          76.5441512345679
+        ],
+        "max_rgb": [
+          255,
+          255,
+          255
+        ],
+        "mean_rgb_average": 75.86653034979425
+      },
+      {
+        "frame": 2478,
+        "mean_rgb": [
+          75.62380787037037,
+          75.4343074845679,
+          76.52519097222222
+        ],
+        "max_rgb": [
+          255,
+          255,
+          255
+        ],
+        "mean_rgb_average": 75.86110210905349
+      },
+      {
+        "frame": 2479,
+        "mean_rgb": [
+          74.69949845679012,
+          74.47342978395062,
+          75.5573013117284
+        ],
+        "max_rgb": [
+          255,
+          255,
+          255
+        ],
+        "mean_rgb_average": 74.91007651748971
+      },
+      {
+        "frame": 2480,
+        "mean_rgb": [
+          73.61256558641975,
+          73.4752199074074,
+          74.56741705246914
+        ],
+        "max_rgb": [
+          255,
+          252,
+          255
+        ],
+        "mean_rgb_average": 73.8850675154321
+      },
+      {
+        "frame": 2481,
+        "mean_rgb": [
+          71.5805536265432,
+          71.4380574845679,
+          72.51316358024691
+        ],
+        "max_rgb": [
+          255,
+          245,
+          252
+        ],
+        "mean_rgb_average": 71.84392489711934
+      },
+      {
+        "frame": 2482,
+        "mean_rgb": [
+          67.82878472222222,
+          67.62794560185185,
+          68.67369212962963
+        ],
+        "max_rgb": [
+          250,
+          233,
+          242
+        ],
+        "mean_rgb_average": 68.04347415123458
+      },
+      {
+        "frame": 2483,
+        "mean_rgb": [
+          61.68800733024691,
+          61.431118827160496,
+          62.43309606481481
+        ],
+        "max_rgb": [
+          228,
+          211,
+          218
+        ],
+        "mean_rgb_average": 61.85074074074074
+      },
+      {
+        "frame": 2484,
+        "mean_rgb": [
+          51.8832388117284,
+          51.69361689814815,
+          52.73208912037037
+        ],
+        "max_rgb": [
+          193,
+          179,
+          188
+        ],
+        "mean_rgb_average": 52.1029816100823
+      },
+      {
+        "frame": 2485,
+        "mean_rgb": [
+          37.36623263888889,
+          37.38925925925926,
+          38.30438271604938
+        ],
+        "max_rgb": [
+          140,
+          133,
+          136
+        ],
+        "mean_rgb_average": 37.686624871399175
+      },
+      {
+        "frame": 2486,
+        "mean_rgb": [
+          23.2696875,
+          23.233721064814816,
+          23.106809413580248
+        ],
+        "max_rgb": [
+          88,
+          83,
+          87
+        ],
+        "mean_rgb_average": 23.203405992798356
+      },
+      {
+        "frame": 2487,
+        "mean_rgb": [
+          13.493804012345679,
+          13.870545910493828,
+          13.526670524691358
+        ],
+        "max_rgb": [
+          53,
+          51,
+          50
+        ],
+        "mean_rgb_average": 13.630340149176954
+      },
+      {
+        "frame": 2488,
+        "mean_rgb": [
+          7.263167438271605,
+          7.5526986882716045,
+          7.249378858024691
+        ],
+        "max_rgb": [
+          31,
+          29,
+          31
+        ],
+        "mean_rgb_average": 7.355081661522633
+      },
+      {
+        "frame": 2489,
+        "mean_rgb": [
+          3.3981828703703703,
+          3.570542052469136,
+          3.3401639660493827
+        ],
+        "max_rgb": [
+          15,
+          16,
+          15
+        ],
+        "mean_rgb_average": 3.4362962962962964
+      },
+      {
+        "frame": 2490,
+        "mean_rgb": [
+          1.2237249228395062,
+          1.2321817129629629,
+          1.0732600308641975
+        ],
+        "max_rgb": [
+          8,
+          8,
+          8
+        ],
+        "mean_rgb_average": 1.176388888888889
+      },
+      {
+        "frame": 2491,
+        "mean_rgb": [
+          0.10076195987654321,
+          0.10076195987654321,
+          0.09245177469135803
+        ],
+        "max_rgb": [
+          2,
+          2,
+          3
+        ],
+        "mean_rgb_average": 0.09799189814814814
+      },
+      {
+        "frame": 2492,
+        "mean_rgb": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "max_rgb": [
+          0,
+          0,
+          0
+        ],
+        "mean_rgb_average": 0.0
+      }
+    ],
+    "plateau_pixel_deltas": [
+      {
+        "frame_a": 2122,
+        "frame_b": 2123,
+        "same_bytes": false,
+        "mean_abs_rgb_delta": 0.03429012345679012
+      },
+      {
+        "frame_a": 2123,
+        "frame_b": 2124,
+        "same_bytes": true,
+        "mean_abs_rgb_delta": 0.0
+      },
+      {
+        "frame_a": 2270,
+        "frame_b": 2271,
+        "same_bytes": false,
+        "mean_abs_rgb_delta": 0.12401170267489713
+      },
+      {
+        "frame_a": 2271,
+        "frame_b": 2272,
+        "same_bytes": false,
+        "mean_abs_rgb_delta": 0.1489210390946502
+      },
+      {
+        "frame_a": 2338,
+        "frame_b": 2339,
+        "same_bytes": false,
+        "mean_abs_rgb_delta": 0.028294753086419752
+      },
+      {
+        "frame_a": 2339,
+        "frame_b": 2340,
+        "same_bytes": false,
+        "mean_abs_rgb_delta": 0.043730709876543206
+      }
+    ],
+    "clock_samples": [
+      {
+        "actual_frame": 2120,
+        "old_frame_W": 2418
+      },
+      {
+        "actual_frame": 2121,
+        "old_frame_W": 2420
+      },
+      {
+        "actual_frame": 2122,
+        "old_frame_W": 2422
+      },
+      {
+        "actual_frame": 2123,
+        "old_frame_W": 2422
+      },
+      {
+        "actual_frame": 2124,
+        "old_frame_W": 2422
+      },
+      {
+        "actual_frame": 2125,
+        "old_frame_W": 2423
+      },
+      {
+        "actual_frame": 2126,
+        "old_frame_W": 2424
+      },
+      {
+        "actual_frame": 2268,
+        "old_frame_W": 2576
+      },
+      {
+        "actual_frame": 2269,
+        "old_frame_W": 2577
+      },
+      {
+        "actual_frame": 2270,
+        "old_frame_W": 2578
+      },
+      {
+        "actual_frame": 2271,
+        "old_frame_W": 2578
+      },
+      {
+        "actual_frame": 2272,
+        "old_frame_W": 2578
+      },
+      {
+        "actual_frame": 2273,
+        "old_frame_W": 2579
+      },
+      {
+        "actual_frame": 2274,
+        "old_frame_W": 2580
+      },
+      {
+        "actual_frame": 2275,
+        "old_frame_W": 2582
+      },
+      {
+        "actual_frame": 2334,
+        "old_frame_W": 2671
+      },
+      {
+        "actual_frame": 2335,
+        "old_frame_W": 2675
+      },
+      {
+        "actual_frame": 2336,
+        "old_frame_W": 2679
+      },
+      {
+        "actual_frame": 2337,
+        "old_frame_W": 2683
+      },
+      {
+        "actual_frame": 2338,
+        "old_frame_W": 2687
+      },
+      {
+        "actual_frame": 2339,
+        "old_frame_W": 2687
+      },
+      {
+        "actual_frame": 2340,
+        "old_frame_W": 2687
+      },
+      {
+        "actual_frame": 2341,
+        "old_frame_W": 2688
+      },
+      {
+        "actual_frame": 2342,
+        "old_frame_W": 2689
+      },
+      {
+        "actual_frame": 2343,
+        "old_frame_W": 2690
+      }
+    ],
+    "face_jumps_relevant": [
+      2044,
+      2385,
+      2390
+    ]
+  },
+  "numeric_sidecar": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/chatgpt-frame-c07-c09-numeric.json",
+  "preserved_earlier_reports": [
+    {
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/chatgpt-frame-c01-c03.md",
+      "sha256": "9e3f891c38f1a6f4a30f5e23b2443852fc7aa6428300023e2236632a3c5a2a25",
+      "bytes": 10305,
+      "sha256_after": "9e3f891c38f1a6f4a30f5e23b2443852fc7aa6428300023e2236632a3c5a2a25",
+      "unchanged": true
+    },
+    {
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/chatgpt-frame-c01-c03.json",
+      "sha256": "59aec1fa38ad2068d4d433b3904157902c53f8eb119404489577be62e0e43e00",
+      "bytes": 60395,
+      "sha256_after": "59aec1fa38ad2068d4d433b3904157902c53f8eb119404489577be62e0e43e00",
+      "unchanged": true
+    },
+    {
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/chatgpt-frame-c04-c06.md",
+      "sha256": "32349cf74a8ddbfc3ec717231f81fa74789e1c5850cccc7dbb1d863930360cf8",
+      "bytes": 16731,
+      "sha256_after": "32349cf74a8ddbfc3ec717231f81fa74789e1c5850cccc7dbb1d863930360cf8",
+      "unchanged": true
+    },
+    {
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/chatgpt-frame-c04-c06.json",
+      "sha256": "878966e058406af9567768fa0a7449a388469548ad5662a95fe842f4027e66bc",
+      "bytes": 49643,
+      "sha256_after": "878966e058406af9567768fa0a7449a388469548ad5662a95fe842f4027e66bc",
+      "unchanged": true
+    }
+  ],
+  "mutations": {
+    "project_source": false,
+    "verdict_or_juri": false,
+    "renders": false,
+    "reports_and_scratch_only": true
+  }
+}

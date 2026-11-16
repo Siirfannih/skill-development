@@ -3,28 +3,37 @@
 Frame 1500–1799 · 50.00–60.00 dtk
 
 ## Tanda otomatis
-- f1656 (55.20 dtk): LOMPAT 37.5 (f1655→1656)
-- f1656 (55.20 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
-- f1699 (56.63 dtk): BEKU 7 f
-- f1720 (57.33 dtk): LOMPAT 7.2 (f1719→1720)
-- f1720 (57.33 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
-- f1721 (57.37 dtk): LOMPAT 6.4 (f1720→1721)
-- f1721 (57.37 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
-- f1722 (57.40 dtk): LOMPAT 5.6 (f1721→1722)
-- f1722 (57.40 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
-- f1723 (57.43 dtk): LOMPAT 5.6 (f1722→1723)
-- f1723 (57.43 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f1507 (50.23 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f1515 (50.50 dtk): LOMPAT 11.0 (f1514→1515)
+- f1515 (50.50 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f1555 (51.83 dtk): LOMPAT 8.6 (f1554→1555)
+- f1556 (51.87 dtk): LOMPAT 8.3 (f1555→1556)
+- f1557 (51.90 dtk): LOMPAT 7.3 (f1556→1557)
+- f1594 (53.13 dtk): LOMPAT 7.6 (f1593→1594)
+- f1597 (53.23 dtk): LOMPAT 8.6 (f1596→1597)
+- f1615 (53.83 dtk): LOMPAT 7.0 (f1614→1615)
+- f1616 (53.87 dtk): LOMPAT 6.6 (f1615→1616)
+- f1635 (54.50 dtk): LOMPAT 7.0 (f1634→1635)
+- f1636 (54.53 dtk): LOMPAT 6.6 (f1635→1636)
+- f1637 (54.57 dtk): LOMPAT 5.3 (f1636→1637)
+- f1638 (54.60 dtk): LOMPAT 4.9 (f1637→1638)
+- f1687 (56.23 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f1689 (56.30 dtk): LOMPAT 12.4 (f1688→1689)
+- f1689 (56.30 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f1739 (57.97 dtk): LOMPAT 10.2 (f1738→1739)
+- f1739 (57.97 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f1761 (58.70 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
 
 ## Kata diucapkan (dtk)
-apapun.@50.70 Dan@51.18 tidak@51.30 mendokumentasikan@51.50 apapun.@52.32 Dan@52.96 ngebangun@53.44 itu@54.52 bikin@54.66 kita@55.02 jadi@55.18 adiktif.@55.38 Atau@56.52 kecanduan.@56.88 Untuk@57.77 membangun@58.31 sesuatu.@58.69 Yang@59.15 pada@59.47 akhirnya@59.81
+kita@50.01 jadi@50.20 adiktif.@50.58 Atau@51.16 kecanduan.@51.46 Untuk@52.23 membangun@52.36 sesuatu.@52.74 Yang@53.20 pada@53.52 akhirnya@53.86 gak@54.26 pernah@54.38 kita@54.58 publish.@54.78 Dan@55.26 gak@55.40 pernah@55.54 selesai.@55.72 Aku@56.44 terobsesi@56.75 sama@57.31 kesempurnaan.@58.04 Dan@58.70 aku@58.88 merasa@59.20 pengen@59.72
 
 ## Cue SFX (dtk · peran · file)
-- 50.60 · klik_ui · Enter.mp3
-- 51.17 · potong_adegan · Katapertama.mp3
-- 51.60 · kata_triad · Kinetictypography(gunakansecaraacak).mp3
-- 52.93 · potong_adegan · Cutcontrastransision.mp3
-- 53.30 · ketik · Keyboardtyping.mp3
-- 54.27 · whoosh · Woosh.mp3
-- 54.90 · klik_ui · Enter.mp3
-- 56.53 · repo_menumpuk · Pergantianfoto.mp3
-- 56.92 · rentetan_kartu · kartu_rattle_r8.wav
+- 51.20 · card_motion · pop up.mp3
+- 51.86 · card_motion · pop up.mp3
+- 52.53 · card_motion · pop up.mp3
+- 53.16 · card_motion · pop up.mp3
+- 53.86 · card_motion · pop up.mp3
+- 54.53 · card_motion · pop up.mp3
+- 55.03 · card_motion · pop up.mp3
+- 55.33 · camera · Wooshcameramovementtransisi.mp3
+- 55.73 · impact · Move.mp3

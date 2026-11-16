@@ -1,0 +1,23 @@
+{
+  "exit_code": 0,
+  "model": "gemini-3.8-flash-low",
+  "read_paths": [
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/INFO.md",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/s080.0.jpg",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/s081.0.jpg",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/s082.0.jpg",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/s083.0.jpg"
+  ],
+  "missing_paths": [],
+  "unexpected_paths": [],
+  "forbidden_tools": [],
+  "input_hashes": {
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/INFO.md": "17682ed92da9cbd944b6bc92d982768f47321b866a8bebfc38c1ef43373c1404",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/s080.0.jpg": "18b3c5ae36afd70df1f83704c2c105a51dbd24851a5fba36a99b062024697bd5",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/s081.0.jpg": "be17648b36c87530232b8249c9be3258befe8cf9c18279009964efe2dc910306",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/s082.0.jpg": "23a212030daa33ba7559237d8aa1f7a284db754637b3574a08df915ba5f37436",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c09_080.0-083.1s/s083.0.jpg": "fe536189acd4ecdbf662a18ea763f67958332c1eabce90cec64e16b117898c2b"
+  },
+  "inputs_unchanged": true,
+  "strict_read_coverage": true
+}

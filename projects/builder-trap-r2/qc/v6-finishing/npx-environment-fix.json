@@ -1,0 +1,8 @@
+{
+  "source_snapshot_sha256": "41f4d1ee8e403aaaab9f93276f0aafad0bf40f5acda0bfe46465cc555c23ba73",
+  "shim_sha256": "00ac0c6b2556ff6997b6c16c4f69cf402ee2cce5b5cf3f8315aefba37620fdff",
+  "node": "/usr/bin/node",
+  "cli": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/node_modules/@remotion/cli/remotion-cli.js",
+  "scope": "task subprocess PATH only; installed local Remotion CLI; no install/network/global edit",
+  "selfcheck_exit": 0
+}

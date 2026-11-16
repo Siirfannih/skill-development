@@ -1,0 +1,7 @@
+{
+  "pid": 1015287,
+  "started_ns": 1794824634927410015,
+  "supervisor": "qc/v6-finishing/b25-temporal/run-range.py",
+  "stdout": "qc/v6-finishing/b25-temporal/supervisor.log",
+  "detached": true
+}
