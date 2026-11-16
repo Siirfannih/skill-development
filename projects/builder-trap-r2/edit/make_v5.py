@@ -90,6 +90,18 @@ def main():
     x,sr=sf.read(P/'audio/voice_raw.wav',dtype='float32',always_2d=True)
     mono=x.mean(1); dur=len(x)/sr; W=load(P/'edit/words_final.json'); content=[q for q in W if q['w'].lower().strip('.?!')!='tuh']
     old=load(P/'edit/potong_v3.json'); out=[]; decisions=[]; edges=[]
+    # Ronde audit independen v5 menemukan tiga kasus yang lolos pemeriksaan
+    # selisih satu sampel tetapi tidak lolos pemeriksaan energi dalam jendela:
+    # transien HF di 24,50 dtk, ekor ujaran sampai sekitar 58,99 dtk, dan
+    # lip-click sekitar 88,16 dtk.  Jendela ini tetap frame-aligned, tetap di
+    # luar guard kata, dan saling menyeimbangkan agar durasi program tetap
+    # persis 2739 frame.
+    audited_windows = {
+        'jeda antarkalimat buat.→Memasuki': (9.433333333333334, 9.99),
+        'jeda antarkalimat berbeda.→Karena': (24.28, 24.58),
+        'jeda antarkalimat kecanduan.→Untuk (ronde 3)': (58.99, 59.42),
+        'jeda antarkalimat buat.→Apa': (88.12, 89.0),
+    }
     def safe(t): return all(not(q['s']-.05-1e-8<t<q['e']+.05+1e-8) for q in content)
     def db(t):
         i=round(t*sr); v=mono[max(0,i-48):min(len(mono),i+48)]
@@ -100,7 +112,8 @@ def main():
         if "di dalam" in reason or 'tengah kalimat' in reason:
             decisions.append(dict(source=[start,end],reason=reason,status='rejected: word interior')); continue
         # Guard clipping happens BEFORE frame snapping; sample energy decides among valid frames.
-        valid=[f/30 for f in range(math.ceil(start*30),math.floor(end*30)+1) if safe(f/30) and db(f/30)<-38]
+        scan_start, scan_end = audited_windows.get(reason, (start, end))
+        valid=[f/30 for f in range(math.ceil(scan_start*30),math.floor(scan_end*30)+1) if safe(f/30) and db(f/30)<-38]
         if len(valid)<2 or valid[-1]-valid[0]<1/30:
             decisions.append(dict(source=[start,end],reason=reason,status='rejected: no guarded low-energy frame pair')); continue
         lo,hi=valid[0],valid[-1]
@@ -119,7 +132,18 @@ def main():
     result=gate.validate_cuts(W,removed,actual_mapped)
     if not result['pass_']: raise SystemExit('Cut validation FAIL; refusing to build media')
     save(P/'edit/potong_v5.json',out); save(P/'edit/v5/cut_decisions.json',decisions)
-    mp=dict(removed=removed,fps=30,dur_old=dur,dur_new=newdur,overlap_samples=0,micro_fade_ms=2,edges=edges)
+    # Join terakhir menyisakan ekor ujaran sampai 18 ms sebelum splice. Fade
+    # kiri 20 ms akan menyentuh dua milidetik terakhir fonem, jadi sisi kiri
+    # join itu dibatasi 5 ms. Sisi kanan tetap 20 ms dan semua join lain tetap
+    # memakai 20 ms yang sudah lolos pemeriksaan transien HF.
+    removed_before = 0.0
+    join_frames = []
+    for start, end in removed:
+        join_frames.append(round((start - removed_before) * 30))
+        removed_before += end - start
+    join_fade_out_ms_overrides = {str(join_frames[-1]): 5}
+    mp=dict(removed=removed,fps=30,dur_old=dur,dur_new=newdur,overlap_samples=0,
+            micro_fade_ms=20,join_fade_out_ms_overrides=join_fade_out_ms_overrides,edges=edges)
     save(P/'edit/v5/map.json',mp); save(P/'edit/v5/words_final.json',mapped); save(P/'edit/v5/validation.json',result)
     save(P/'remotion/src/data/words_v5.json',mapped)
     save(P/'edit/v5/words_actual.json',actual_mapped)
@@ -135,11 +159,14 @@ def main():
     if a.audio:
         keep=[]; cur=0
         for start,end in removed: keep.append((cur,start)); cur=end
-        keep.append((cur,dur)); parts=[]; fade=round(.002*sr)
+        keep.append((cur,dur)); parts=[]; fade=round(.020*sr)
         for i,(start,end) in enumerate(keep):
             seg=x[round(start*sr):round(end*sr)].copy(); ramp=np.linspace(0,1,fade,dtype=np.float32)[:,None]
             if i: seg[:fade]*=ramp
-            if i<len(keep)-1: seg[-fade:]*=ramp[::-1]
+            if i<len(keep)-1:
+                fade_out = round(join_fade_out_ms_overrides.get(str(join_frames[i]), 20) * sr / 1000)
+                ramp_out = np.linspace(1, 0, fade_out, dtype=np.float32)[:, None]
+                seg[-fade_out:]*=ramp_out
             parts.append(seg)
         sf.write(P/'edit/v5/suara.wav',np.concatenate(parts),sr,subtype='FLOAT')
     if a.face:

@@ -19,8 +19,8 @@ export const F_B22: [number, number] = [2108, 2262];
 // (≥ 56, kunci ≥ 1,3×), rata kiri. Kunci B16 140 px (sisipan wajah, ruang lega); B17/B18 96 px (modal Threads mulai layar
 // x 950, jendela GitHub x 1095 → "mendokumentasikan" 96 px berakhir x ±1057).
 export const ST_POS = { x: 170, y: 360, head: 72, lh: 1.0 }; // r5 (butir 8): tengah-kiri, bukan pita atas
-const stack = (id: string, beat: string, words: [string, number, string?][], key: number, keySize: number, until: number, note?: string): NBlock => ({
-  id, beat, code: 'N', size: ST_POS.head, x: ST_POS.x, y: ST_POS.y, tone: 'dark', dimHead: true, lh: ST_POS.lh,
+const stack = (id: string, beat: string, words: [string, number, string?][], key: number, keySize: number, until: number, note?: string, y = ST_POS.y): NBlock => ({
+  id, beat, code: 'N', size: ST_POS.head, x: ST_POS.x, y, tone: 'dark', dimHead: true, lh: ST_POS.lh,
   lineSizes: words.map((_, k) => (k === key ? keySize : ST_POS.head)),
   lines: words.map(([w, t, d], k) => T(w, t, d, k === key)), until, exit: 'rise', note,
 });
@@ -28,7 +28,7 @@ export const TRIAD: NBlock[] = [
   stack('B16-ST', 'B16', [['Aku', 49.0, 'aku'], ['tidak', 49.2], ['menjual', 49.5], ['apapun.', 50.3]], 2, 140, at('Aku tidak mempublikasikan', 50.7) + 1, // r8: +1 f, tanpa frame kosong (f1356)
     'kalimat diganti utuh saat "Aku" kalimat 2 masuk (50,76); keluar naik 5 f'),
   stack('B17-ST', 'B17', [['Aku', 50.7, 'aku'], ['tidak', 50.8], ['mempublikasikan', 51.0], ['apapun.', 51.9]], 2, 96, at('Dan tidak', 52.4),
-    'diganti utuh saat "Dan" masuk (52,48)'),
+    'diganti utuh saat "Dan" masuk (52,48); diturunkan supaya kata kunci tidak menimpa composer', 600),
   stack('B18-ST', 'B18', [['Dan', 52.4, 'dan'], ['tidak', 52.55], ['mendokumentasikan', 52.7], ['apapun.', 53.6]], 2, 96, nb(1627),
     'hilang bersama cut ke form B19 (kalimat selesai 54,20 = cut PLAN 54,24)'),
 ];
@@ -38,7 +38,7 @@ TRIAD[2].exit = 'cut';
 export const TEXT_ACT3: TextBlock[] = [
   // B19
   {
-    id: 'B19-N1', beat: 'B19', code: 'N', size: 42, x: 1362, y: 405, tone: 'dark',
+    id: 'B19-N1', beat: 'B19', code: 'N', size: 42, x: 1362, y: 405, tone: 'dark', dimHead: true, weight: 600,
     lines: [T('Dan ngebangun', 54.2, 'dan ngebangun')],
     until: nb(1677), note: 'di samping field nama; kamera pindah ke tombol Create saat "itu" (55,82)',
   },

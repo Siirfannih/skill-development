@@ -1,53 +1,68 @@
-# JURI v3 · Builder trap r2 (15 Nov) · still `qc/stills/JB01–JB26.png` (timeline v3, 2501 f), lembar `qc/sanding.jpg`, `qc/stills/balance_sheet.jpg`
+# JURI v5 r2 · Builder trap r2 · kandidat Remotion 2739 frame / 91,300 dtk
 
-## Perubahan v2 → v3 yang dinilai
-- Suara dipotong bersih: 39 rentang, 11,6 dtk (3 "tuh", diam di dalam kata, jeda antarkalimat, gesekan mik); `cut_check` PASS; wajah sinkron (face_edit_v3), teks di frame nyata (cekkata 225 kata exit 0).
-- KT: 1–3 kata per tampil, blok seimbang (unik./FOMO./sadar. ujung sejajar), tanpa kotak narasi kecuali kartu per kata pembuka (R-020), tumpuk kata triad dengan kunci terbesar, penekanan B04 "gak semua orang".
-- B01–B03 kartu kunci kanan-bawah (diagonal); B12–B13 (r7, R-021) layar macOS lengkap di atas foto CC0, kursor buka app ChatGPT dari dock, jendela gelap utuh rata tengah, tanpa KT; B17–B18 UI mengisi kanan.
+## Perubahan yang dinilai
 
-## Lantai A–D
-A1–A9 LULUS (satu lapisan, posisi dari komposisi, ≤ 2 baris kecuali tumpuk kata B16–B18 atas arahan Irfan R-019, lantai 56/96 px, kontras). B10–B13 LULUS. C14–C16, C18 LULUS. D19–D22 LULUS.
-C17 keseimbangan: dinilai mata di 25/50/100 % pada frame frasa utuh (r6: 82 still) dan JB01–JB26. FAIL alat diputuskan per frame di bawah.
+- Audio disusun ulang dari take asli dengan 9 cut konservatif pada jeda antarkata; semua 228 kata sumber dan tiga filler `tuh` dipertahankan. Caption tetap 225 kata karena filler disembunyikan secara visual.
+- Panjang suara, voice clean, dan mix tepat 4.382.400 sampel pada 48 kHz; wajah tepat 2739 frame pada 30 fps.
+- B17 dan B25 mendapat perspective selektif, elevation shadow, dan pemisahan z-plane. Framing B17 digeser ke safe-right; state post-hover, dialog, late-flight, dan landed diperiksa.
+- Draft terbaru `qc/draft.mp4` berisi tepat 2739 frame dari source r2. Final akan di-remux dari master `mix.wav` agar metadata priming AAC dipertahankan dan audio/video sama-sama tepat 91,300 dtk.
 
-KESEIMBANGAN: JB01, JB02 — kartu kepala kiri-atas berseberangan dengan kartu kunci kanan-bawah (diagonal), bingkai di tengah; angka alat berbalik antar klip footage (0,75 ↔ 0,26) = isi footage, bukan tata letak.
-KESEIMBANGAN: JB06 — frame tengah frasa ("perlu"); frasa utuh B06 (r6 B06-H/K4) seimbang, teks menempel foto (C15).
-KESEIMBANGAN: JB09, JB10 — punch-in UI Threads (blur gerak) / halaman YouTube penuh layar; UI memenuhi frame.
-KESEIMBANGAN: r7_04 — frame transisi 0,4 dtk saat jendela keluar dari ikon dock. JB12 (jendela tengah) ok; JB13 punch kamera ke kotak prompt (PERIKSA berat bawah: judul sengaja keluar frame atas, r7d).
-KESEIMBANGAN: JB17, JB18 — tumpuk kata kiri, modal Threads / jendela GitHub mengisi kanan; UI gelap berkontras rendah dinilai ringan oleh alat.
-KESEIMBANGAN: JB11, JB23, JB26 — wajah di kiri dengan teks di seberang kanan (pola terkalibrasi ok, alat membobot subjek footage berat). JB15, JB20 — dinding/UI gelap berkontras rendah dinilai ringan; frasa utuh r6 diterima. JB19, JB25 — frame tengah frasa/transisi (blur), frasa utuh r6 diterima. JB24 — lingkaran "titik awal" + kartu di kanan. Still 26 beat diambil di tengah beat (gerbang), penilaian keseimbangan utama tetap still frasa utuh r6 + r7 (Sutradara melihat lembar 25/50 %).
+## Audio v5 · R-024/R-026
 
-## teks_cek (5 tanda) — semua teks UI asli (hasil YouTube, dialog Threads, tab GitHub), bukan narasi.
+- `edit/v5/verify_media.py`: PASS untuk panjang audio/video, 9 guarded cuts, semua kata sumber, filler, cut validator, dan content review.
+- Kesembilan join r2: f283, 715, 1144, 1352, 1731, 1872, 2192, 2249, 2560. Semua berada di jeda antarkata; guard minimum tetap 53,3 ms. Empat batas disetel ulang berdasarkan energi waveform untuk mempertahankan ekor `kecanduan.`, membuang transien HF, dan menghindari lip-click tanpa mengubah durasi program.
+- Setiap join memakai fade kosinus 20 ms setelah filter. Audit jendela HF: f715 turun menjadi −79,3/−71,5 dBFS (5 ms sebelum/sesudah), f1731 tidak lagi memotong energi ujaran, dan klik f2560 turun menjadi puncak −51,0 dBFS. `verify_media.py`: PASS.
+- Audit Gemini pada proxy r1: PASS 5/5 gate. Master r2 diukur ulang secara lokal: −14,9 LUFS, LRA 3,1, true peak −1,4 dBFS; verdict delivery tetap menunggu audit independen Claude atas MP4 final r2.
+- Raw full ASR large-v3 tetap disimpan sebagai exact-match FAIL (228 target vs 224 keluaran). Ini tidak ditulis ulang untuk memaksa hijau: perbedaannya token/ortografi dan dua frasa yang kemudian diaudit akustik (`Build something`, `Apa pengalaman`) dinyatakan utuh.
 
-## Audio v3
-cut_check PASS · pause_clean PASS (jeda stem suara bersih) · voice_fidelity PASS (udara 0,85) · audio_phone 35/48 SFX terdengar, suara median 19,4 dB di atas bed, 7 jendela < 8 dB (riser twist 41 dtk) · duck ≤ 1,5 dB (§14.1) · −14,8 LUFS.
+## Visual v5 · R-025
 
-## Catatan Irfan (R-023: setiap catatan aktif diperiksa sebelum final; draft penuh `qc/draft.mp4` 2501 f dilihat per 15 f + rapat di B03, B12–B13)
-| Catatan | Putusan | Bukti |
+- Audit seluruh draft r2: PASS; 0 blank/glitch, 0 camera jump tak disengaja, UI/teks kritis aman. Kursor dekoratif B05 dihapus, tumpukan B17 diturunkan agar tidak menimpa modal, dan caption form B19 dibuat sekunder. f2736–2738 hitam adalah fade akhir.
+- B17: post-hover f1487 aman; dialog f1509 layering jelas; late-flight f1532 dan landed pulse Drafts f1533 membuktikan trajectory.
+- B25: modal f2502, post1 f2522, post2 f2555 terbaca dan memiliki depth tanpa distorsi.
+- `teks_cek.py` dan `balance_check.py` tidak dapat memakai Tesseract karena binary tidak tersedia di PC; tidak ada paket sistem dipasang pada mesin bersama. Pengganti buktinya adalah 37 still aktual, sanding, dan audit semua 2739 frame oleh tiga agent pemeriksa.
+KESEIMBANGAN: pola diagonal pembuka, UI full-frame, triad kiri + modal kanan, serta wajah kiri + teks kanan mempertahankan alasan komposisi v3/v4; still v5 baru B17/B25/B26 dinilai aman secara manual dan oleh dua auditor independen.
+
+## Catatan Irfan aktif
+
+| ID | Putusan v5 | Bukti |
 |---|---|---|
-| R-001 premium, tema builder trap | LULUS | draft penuh: 4 babak utuh; B03 kartu kosong diperbaiki r7e/r7f |
-| R-002 real footage, logo asli | LULUS | B01–B03 footage nyata (JB01–JB03), logo ChatGPT asli di cap B12 (r7c_08) |
-| R-003 musik Aware | LULUS | `audio/mix_v3.py` M = assets/music_aware.wav |
-| R-004 kiblat 55 + teknik kartu 63 | LULUS | sanding kiblat `qc/sanding.jpg`; kartu 63 di §Kartu 63 |
-| R-005 tanpa radial, tanpa biru berlebih | LULUS | draft: latar linear/kertas/foto; biru hanya aksen kartu B01–B03 dan mosaik |
-| R-006 mulai dari nol | LULUS | proyek ini |
-| R-007 wajah tiap 3–5 dtk (jump cut wajah ditutup punch crop r8) | LULUS dengan catatan | draft: sisipan wajah f150, 390, 480, 645, 780, 960, 1320, 1515, 1710, 2025, 2175, 2265, 2400. Celah terpanjang f975→1320 (±11,5 dtk, B14 dinding bukti + B15 dinding gelap); foto Irfan tercetak di dinding tampil sejak f1200. Struktur ini sama dengan v2 yang sudah dilihat Irfan; tidak diubah di ronde ini. |
-| R-008 take asli, tanpa VO buatan | LULUS | `edit/v3/suara.wav` dari take asli |
-| R-009 putih utama, gelap di belokan | LULUS | draft: babak 1–2 terang, B15–B22 gelap, B23–B26 terang; B12–B13 foto + UI gelap (teknik kartu 63) |
-| R-010 bad feedback lama | LULUS | contoh-gagal dicek di juri v3 |
-| R-011 kerja sampai selesai | LULUS | — |
-| R-012 isi dinding bukti | LULUS | B14 (draft f1065–1240) |
-| R-013 footage tokoh nyata | LULUS | JB01–JB03, B08/B10 thumbnail nyata (draft f420, f705) |
-| R-015 musik babak 3 drone | LULUS | `audio/mix_v3.py` |
-| R-017 audio bersih + SFX benar (+ SFX merata, Irfan 15 Nov) | LULUS | r8b: 75 cue (0,90/dtk), setiap potong adegan dan momen jatuh/mendarat punya cue (audit frame), rentetan kartu B20, ekor drop/impact dipendekkan, fade musik akhir;  cut_check PASS, pause_clean PASS (jeda median −66,9 dBFS), sfx_density PASS (49 cue, 0,59/dtk, ref 0,65), mix −14,8 LUFS / puncak −1,4 dBFS; cue B12–B13 ditata ulang ke event r7 dan didengar (earshot) |
-| R-018 evaluasi visual mandiri | LULUS | REVIEW-v1-self, review buta r3–r7 |
-| R-019 KT seimbang, unik/FOMO, tumpuk B16–B18 | LULUS | draft f404, f825, f1335–1455 |
-| R-020 kartu per kata B01–B03 | LULUS | draft f15–f135; pergantian kata tanpa kartu kosong/tumpuk tajam, "bikin" tidak melompat (`qc/r7f_kartu.jpg`, r7f) |
-| R-021 B12–B13 kartu 63, foto asli, tengah, tanpa KT | LULUS | r7_01–r7_09, draft f840–1045 |
-| R-022 layar Mac + punch kamera | LULUS | r7_01–r7_05 (desktop, dock, klik, jendela), r7c_07/10/11 punch kamera 3,8–4×, `qc/r7d_motion_sheet.jpg` |
-| R-023 pastikan sebelum final | LULUS | audit frame per frame tanpa sampling (Irfan 15 Nov): semua 2501 frame dirender sebagai gambar, 9 potongan × 10 dtk, tiap detik diperiksa subagen lain → `qc/frame_audit/c*/VERDICT.md` semuanya `PUTUSAN: LULUS` (putaran v3 → r8 → r8b → r8c → r8d → r8e); draft penuh `qc/draft.mp4` dari kode terbaru |
+| R-001 | LULUS | Struktur 26 beat, footage, kinetic text, UI, audio final. |
+| R-002 | LULUS | Footage nyata dan ikon/logo asli dipertahankan. |
+| R-003 | LULUS | `music_aware.wav` tetap menjadi musik utama. |
+| R-004 | LULUS | Sanding kiblat 55 dan teknik UI/kartu 63 dipertahankan. |
+| R-005 | LULUS | Tidak ada radial terlarang; biru hanya aksen proyek. |
+| R-006 | LULUS | Proyek Builder trap r2 berdiri sendiri. |
+| R-007 | LULUS dengan catatan | Wajah berkala; celah B14–B15 tetap bagian dinding bukti. |
+| R-008 | LULUS | Semua suara berasal dari take asli, tanpa VO buatan. |
+| R-009 | LULUS | Putih utama, gelap hanya pada belokan cerita. |
+| R-010 | LULUS | Larangan visual dan bad-feedback lama tetap diterapkan. |
+| R-011 | LULUS | Revisi dikerjakan otonom sampai delivery. |
+| R-012 | LULUS | Dinding bukti tetap berisi Dot/OpenBot yang benar. |
+| R-013 | LULUS | Footage tokoh dan thumbnail nyata dipertahankan. |
+| R-015 | LULUS | Musik Aware + babak 3 gelap dipertahankan. |
+| R-017 | LULUS | Voice clean dan cue semantik dipertahankan; mix r2 diukur ulang setelah revisi join. |
+| R-018 | LULUS | Visual diaudit ulang tanpa menunggu daftar kesalahan dari Irfan. |
+| R-019 | LULUS | Hierarki KT dan triad tetap sesuai revisi v3/v4. |
+| R-020 | LULUS | Pembuka tetap kartu per kata mengelilingi footage. |
+| R-021 | LULUS | B12–B13 tetap memakai foto asli dan UI ChatGPT tengah. |
+| R-022 | LULUS | Desktop Mac dan camera punch tetap satu UI utuh. |
+| R-023 | LULUS | Draft Remotion r2 2739 frame ditinjau seluruhnya; frame-audit terbaru 10/10 potongan lulus oleh tiga agent pemeriksa. |
+| R-024 | LULUS | 9 join konservatif r2, fade 20 ms setelah filter, 228 kata utuh; tiga temuan audio ronde pertama Claude sudah diperbaiki dan terukur. |
+| R-025 | LULUS REMOTION; RAEA BLOCKED EXECUTOR | Perspective/depth PASS. Canary RAEA gagal pada bug SDK; portable v0.1.4 yang memperbaiki bug itu tetap tidak dapat membuat frame karena host headless tidak memiliki adapter Vulkan/GL. Bukti: `handoff/RAEA-v5.md`. |
+| R-026 | LULUS | Tiga `tuh` dipertahankan; tidak ada filler dipotong tanpa alignment aman. |
 
-## Kartu 63 (teknik pinjaman B12–B13, disandingkan `qc/r7_sanding.jpg`)
-- Wallpaper foto tajam LULUS (r7_01) · jendela utuh 58,0 × 58,9 % rata tengah LULUS (r7_05) · 3 lapis + dock + kursor LULUS (r7_02, r7_07) · UI gelap LULUS · punch 1,41–1,45×, teks prompt 9,4–9,6 %, desktop di 4 tepi LULUS (r7_07, r7_11) · kamera bergerak terus LULUS (draft `qc/draft_835-1047.mp4`, lembar gerak dilihat Sutradara) · aksi UI klik dock → pantul → jendela terbuka, ketik 12 huruf/dtk LULUS.
-- Catatan: mosaik B13→B14 tetap warna proyek (biru/putih), bukan oranye kartu 63: pengikat palet proyek (R-009) menang atas teknik pinjaman.
+## Audit frame penuh
 
-PUTUSAN: LULUS
+- Seluruh 2739 frame r2 diekstrak dari draft source terbaru, dibagi menjadi 10 potongan waktu, lalu 92 lembar satu-detik dan semua 47 flag otomatis diperiksa oleh tiga agent berbeda. Hasil 10/10 `PUTUSAN: LULUS`.
+- c01–c08: seluruh flag adalah hard cut, zoom/push, wipe, card cascade, reframe, atau hold disengaja dan memiliki cue/alasannya.
+- c09–c10: B26 tetap aman di sisi kanan wajah; f2636 hanya 27 ms di luar jendela otomatis cue. Fade f2730–2738 kontinu dan disengaja.
+
+## Delivery r3 dan audit Claude
+
+- Final `builder-trap-r2_v5-remotion-r3.mp4`: H.264 1920×1080, 30 fps, 2739 frame; AAC 48 kHz stereo; kedua stream 91,300 detik; −15,0 LUFS, LRA 3,1, true peak −1,2 dBFS.
+- Ronde terakhir memperpendek fade sisi kiri f2560 menjadi 5 ms sehingga mulai setelah ekor `buat.` selesai, serta memperbaiki klik mulut 23,875–23,882 detik dengan interpolasi room-tone lokal.
+- Audit Claude ronde 3: `PASS_WITH_NOTES`; tidak ada BLOCKER/MAJOR. Sinkron +48 sampel / 1,0 ms di empat jendela. SHA-256 `143861a91b7902747730415bf2e804c3e82d94f3a0bf2abdce47b3fd8b288c06`.
+- MINOR tersisa: room-tone f2560 turun singkat namun tertutup musik; precursor kecil sebelum jendela de-click; 11/75 cue SFX di luar ±1 frame/cut tanpa cue; perspective tetap selektif.
+
+PUTUSAN: LULUS · AUDIT INDEPENDEN PASS_WITH_NOTES

@@ -3,18 +3,14 @@
 Frame 600–899 · 20.00–30.00 dtk
 
 ## Tanda otomatis
-- f702 (23.40 dtk): LOMPAT 159.9 (f701→702)
-- f867 (28.90 dtk): LOMPAT 23.0 (f866→867)
+- f775 (25.83 dtk): LOMPAT 159.2 (f774→775)
 
 ## Kata diucapkan (dtk)
-yang@20.47 berbeda.@20.65 Karena@21.54 itu@22.03 aku@22.27 gak@22.51 mau@22.71 mencoba@22.93 hal@23.41 -hal@23.89 yang@24.21 kelihatannya@24.41 banyak@25.07 orang@25.33 coba.@25.63 Aku@25.97 gak@26.19 mau@26.37 jadi@26.61 orang@26.83 yang@27.09 FOMO.@27.31 Dan@27.89 akhirnya@28.45 aku@29.13 melakukan@29.39 banyak@29.79
+mau@20.11 jadi@20.81 sesuatu@21.05 harus@21.77 menjadi@22.05 sesuatu@22.37 yang@22.87 berbeda.@23.05 Karena@23.91 itu@24.47 aku@24.71 gak@24.95 mau@25.15 mencoba@25.37 hal@25.85 -hal@26.33 yang@26.65 kelihatannya@26.85 banyak@27.51 orang@27.77 coba.@28.07 Aku@28.41 gak@28.63 mau@28.81 jadi@29.05 orang@29.27 yang@29.53 FOMO.@29.75
 
 ## Cue SFX (dtk · peran · file)
-- 21.03 · like · ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3
-- 21.40 · potong_adegan · Cutcontrastransision.mp3
-- 23.40 · whoosh · scaningfast.mp3
-- 25.93 · potong_adegan · Katapertama.mp3
-- 27.30 · tekan · v17_thud_0.mp3
-- 27.83 · potong_adegan · Katapertama.mp3
-- 28.31 · klik · Cutcontrastransision.mp3
-- 28.99 · buka_app · pop up.mp3
+- 23.41 · like · ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3
+- 23.89 · potong_adegan · Cutcontrastransision.mp3
+- 25.84 · whoosh · scaningfast.mp3
+- 28.36 · potong_adegan · Katapertama.mp3
+- 29.74 · tekan · v17_thud_0.mp3

@@ -92,7 +92,7 @@ case "$MODE" in
     bundle; n=$(( $(grep -c '^final' "$QC/render.log" 2>/dev/null || true) + 1 ))
     echo "final $(date '+%F %T') ke-$n ${RANGE:-penuh} -> $OUT" >> "$QC/render.log"
     [ "$n" -le 2 ] || echo "PERINGATAN: ini render penuh ke-$n untuk video ini. Revisi cukup rentang yang berubah (argumen awal-akhir)."
-    (cd "$R" && npx remotion render "$QC/.bundle" "$COMP" "$OUT" --concurrency="$K" ${RANGE:+--frames=$RANGE} --log=error)
+    (cd "$R" && npx remotion render "$QC/.bundle" "$COMP" "$OUT" --concurrency="$K" --timeout="${RENDER_TIMEOUT_MS:-180000}" ${RANGE:+--frames=$RANGE} --log=error)
     echo "final $OUT" ;;
   *) echo "mode tidak dikenal: $MODE (still | draft | frames | final)"; exit 1 ;;
 esac

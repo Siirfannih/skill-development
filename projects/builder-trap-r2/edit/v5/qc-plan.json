@@ -18,13 +18,13 @@
       "id": "B03",
       "old_seconds": 4.415,
       "start_frame": 101,
-      "end_frame": 163,
+      "end_frame": 164,
       "frame": 132
     },
     {
       "id": "B04",
       "old_seconds": 6.475,
-      "start_frame": 163,
+      "start_frame": 164,
       "end_frame": 225,
       "frame": 194
     },
@@ -32,148 +32,148 @@
       "id": "B05",
       "old_seconds": 8.725,
       "start_frame": 225,
-      "end_frame": 288,
+      "end_frame": 289,
       "frame": 262
     },
     {
       "id": "B06",
       "old_seconds": 12.435,
-      "start_frame": 288,
-      "end_frame": 433,
-      "frame": 358
+      "start_frame": 289,
+      "end_frame": 434,
+      "frame": 359
     },
     {
       "id": "B07",
       "old_seconds": 15.43,
-      "start_frame": 433,
-      "end_frame": 463,
-      "frame": 448
+      "start_frame": 434,
+      "end_frame": 464,
+      "frame": 449
     },
     {
       "id": "B08",
       "old_seconds": 17.17,
-      "start_frame": 463,
-      "end_frame": 537,
-      "frame": 500
+      "start_frame": 464,
+      "end_frame": 538,
+      "frame": 501
     },
     {
       "id": "B09",
       "old_seconds": 21.4,
-      "start_frame": 537,
+      "start_frame": 538,
       "end_frame": 714,
-      "frame": 627
+      "frame": 628
     },
     {
       "id": "B10",
       "old_seconds": 26.75,
       "start_frame": 714,
-      "end_frame": 852,
-      "frame": 782
+      "end_frame": 851,
+      "frame": 781
     },
     {
       "id": "B11",
       "old_seconds": 30.05,
-      "start_frame": 852,
-      "end_frame": 909,
-      "frame": 881
+      "start_frame": 851,
+      "end_frame": 908,
+      "frame": 880
     },
     {
       "id": "B12",
       "old_seconds": 33.2,
-      "start_frame": 909,
-      "end_frame": 1041,
-      "frame": 975
+      "start_frame": 908,
+      "end_frame": 1040,
+      "frame": 974
     },
     {
       "id": "B13",
       "old_seconds": 37.175,
-      "start_frame": 1041,
-      "end_frame": 1145,
-      "frame": 1094
+      "start_frame": 1040,
+      "end_frame": 1144,
+      "frame": 1093
     },
     {
       "id": "B14",
       "old_seconds": 42.625,
-      "start_frame": 1145,
-      "end_frame": 1356,
-      "frame": 1253
+      "start_frame": 1144,
+      "end_frame": 1355,
+      "frame": 1252
     },
     {
       "id": "B15",
       "old_seconds": 47.625,
-      "start_frame": 1356,
-      "end_frame": 1431,
-      "frame": 1391
+      "start_frame": 1355,
+      "end_frame": 1430,
+      "frame": 1390
     },
     {
       "id": "B16",
       "old_seconds": 49.845,
-      "start_frame": 1431,
-      "end_frame": 1484,
-      "frame": 1457
+      "start_frame": 1430,
+      "end_frame": 1483,
+      "frame": 1456
     },
     {
       "id": "B17",
       "old_seconds": 51.6,
-      "start_frame": 1484,
-      "end_frame": 1536,
-      "frame": 1510
+      "start_frame": 1483,
+      "end_frame": 1535,
+      "frame": 1509
     },
     {
       "id": "B18",
       "old_seconds": 53.35,
-      "start_frame": 1536,
-      "end_frame": 1589,
-      "frame": 1563
+      "start_frame": 1535,
+      "end_frame": 1588,
+      "frame": 1562
     },
     {
       "id": "B19",
       "old_seconds": 56.03,
-      "start_frame": 1589,
-      "end_frame": 1697,
-      "frame": 1643
+      "start_frame": 1588,
+      "end_frame": 1696,
+      "frame": 1642
     },
     {
       "id": "B20",
       "old_seconds": 60.71,
-      "start_frame": 1697,
-      "end_frame": 1861,
-      "frame": 1778
+      "start_frame": 1696,
+      "end_frame": 1863,
+      "frame": 1780
     },
     {
       "id": "B21",
       "old_seconds": 66.94,
-      "start_frame": 1861,
-      "end_frame": 2049,
-      "frame": 1949
+      "start_frame": 1863,
+      "end_frame": 2051,
+      "frame": 1951
     },
     {
       "id": "B22",
       "old_seconds": 72.84,
-      "start_frame": 2049,
-      "end_frame": 2194,
-      "frame": 2126
+      "start_frame": 2051,
+      "end_frame": 2196,
+      "frame": 2128
     },
     {
       "id": "B23",
       "old_seconds": 76.5,
-      "start_frame": 2194,
-      "end_frame": 2248,
-      "frame": 2222
+      "start_frame": 2196,
+      "end_frame": 2250,
+      "frame": 2224
     },
     {
       "id": "B24",
       "old_seconds": 81.16,
-      "start_frame": 2248,
-      "end_frame": 2456,
-      "frame": 2349
+      "start_frame": 2250,
+      "end_frame": 2458,
+      "frame": 2351
     },
     {
       "id": "B25",
       "old_seconds": 87.96,
-      "start_frame": 2456,
+      "start_frame": 2458,
       "end_frame": 2626,
-      "frame": 2546
+      "frame": 2547
     },
     {
       "id": "B26",
@@ -184,16 +184,13 @@
     }
   ],
   "changed_scenes": {
-    "B17_post_hover": 1488,
-    "B17_dialog_stable": 1510,
-    "B17_draft_landing": 1532,
-    "B17_late_flight": 1533,
-    "B17_landed": 1534,
-    "B25_modal_open": 2500,
-    "B25_post1": 2520,
-    "B25_post2": 2554,
-    "B26_share_fix": 2630,
-    "B26_ngebagiin_fix": 2654,
-    "B26_belum_fix": 2686
+    "B17_post_hover": 1487,
+    "B17_dialog_stable": 1509,
+    "B17_draft_landing": 1531,
+    "B17_late_flight": 1532,
+    "B17_landed": 1533,
+    "B25_modal_open": 2502,
+    "B25_post1": 2522,
+    "B25_post2": 2555
   }
 }

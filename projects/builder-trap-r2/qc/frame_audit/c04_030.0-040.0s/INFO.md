@@ -3,26 +3,26 @@
 Frame 900–1199 · 30.00–40.00 dtk
 
 ## Tanda otomatis
-- f901 (30.03 dtk): LOMPAT 64.5 (f900→901)
-- f969 (32.30 dtk): LOMPAT 18.4 (f968→969)
-- f969 (32.30 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
-- f981 (32.70 dtk): LOMPAT 85.4 (f980→981)
-- f996 (33.20 dtk): LOMPAT 65.8 (f995→996)
-- f1050 (35.00 dtk): LOMPAT 13.0 (f1049→1050)
-- f1051 (35.03 dtk): LOMPAT 22.9 (f1050→1051)
+- f986 (32.87 dtk): LOMPAT 64.6 (f985→986)
+- f1076 (35.87 dtk): LOMPAT 85.4 (f1075→1076)
+- f1092 (36.40 dtk): LOMPAT 66.0 (f1091→1092)
+- f1142 (38.07 dtk): LOMPAT 19.6 (f1141→1142)
+- f1147 (38.23 dtk): LOMPAT 13.0 (f1146→1147)
+- f1148 (38.27 dtk): LOMPAT 22.8 (f1147→1148)
 
 ## Kata diucapkan (dtk)
-investasi@30.23 waktu@30.73 pada@30.93 AI.@31.25 Untuk@31.70 belajar.@32.15 Untuk@32.67 melakukan@33.03 sesuatu.@33.35 Build@33.95 something.@34.37 Selama@35.01 satu@35.57 tahun@35.73 aku@36.07 mencoba@36.31 untuk@36.98 belajar.@37.24 Untuk@37.78 memahami@38.08 seperti@38.56 apa@38.78 industri@39.06 ini.@39.38 Dan@39.86
+Dan@30.33 akhirnya@30.89 aku@31.97 melakukan@32.23 banyak@32.63 investasi@33.07 waktu@33.57 pada@33.77 AI.@34.09 Untuk@34.73 belajar.@35.19 Untuk@35.87 melakukan@36.23 sesuatu.@36.55 Build@37.15 something.@37.57 Selama@38.28 satu@38.84 tahun@39.00 aku@39.34 mencoba@39.58
 
 ## Cue SFX (dtk · peran · file)
-- 30.12 · whoosh · Woosh.mp3
-- 31.26 · cap · v17_thud_2.mp3
-- 31.70 · potong_adegan · Katapertama.mp3
-- 32.70 · potong_adegan · Katapertama.mp3
-- 33.20 · whoosh · Woosh.mp3
-- 33.43 · ketik · Keyboardtyping.mp3
-- 34.78 · kirim · Enter.mp3
-- 34.83 · transisi_babak · ES_User Interface, Glitch, Glitch Databend 04 - Epidemic Sound.mp3
-- 35.50 · pin · pin.mp3
-- 37.73 · pin · pin.mp3
-- 39.50 · whoosh · Wooshcameramovementtransisi.mp3
+- 30.26 · potong_adegan · Katapertama.mp3
+- 30.77 · klik · Cutcontrastransision.mp3
+- 31.71 · buka_app · pop up.mp3
+- 32.95 · whoosh · Woosh.mp3
+- 34.10 · cap · v17_thud_2.mp3
+- 34.73 · potong_adegan · Katapertama.mp3
+- 35.88 · potong_adegan · Katapertama.mp3
+- 36.40 · whoosh · Woosh.mp3
+- 36.63 · ketik · Keyboardtyping.mp3
+- 38.00 · kirim · Enter.mp3
+- 38.06 · transisi_babak · ES_User Interface, Glitch, Glitch Databend 04 - Epidemic Sound.mp3
+- 38.77 · pin · pin.mp3

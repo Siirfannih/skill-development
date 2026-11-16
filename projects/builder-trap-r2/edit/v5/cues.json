@@ -149,7 +149,7 @@
       "t_v2": 7.57
     },
     {
-      "t": 9.221429,
+      "t": 9.242857,
       "file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Glitch, Glitch Databend 04 - Epidemic Sound.mp3",
       "ss": 0.0,
       "dur": 0.9,
@@ -163,7 +163,7 @@
       "t_v2": 9.4
     },
     {
-      "t": 9.721429,
+      "t": 9.742857,
       "file": "/home/irfan/sfx/SFXIrfan/documenter.mp3",
       "ss": 2.95,
       "dur": 0.5,
@@ -177,7 +177,7 @@
       "t_v2": 10.1
     },
     {
-      "t": 10.33,
+      "t": 10.363333,
       "file": "audio/sfx_el/marker.mp3",
       "ss": 0.0,
       "dur": null,
@@ -191,7 +191,7 @@
       "t_v2": 10.83
     },
     {
-      "t": 14.437,
+      "t": 14.470333,
       "t_v2": 14.937,
       "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
       "gain_db": -17,
@@ -202,7 +202,7 @@
       "mulai": 12.969
     },
     {
-      "t": 15.43,
+      "t": 15.463333,
       "file": "/home/irfan/sfx/SFXIrfan/scaningfast.mp3",
       "ss": 0.0,
       "dur": null,
@@ -216,7 +216,7 @@
       "t_v2": 15.93
     },
     {
-      "t": 15.5,
+      "t": 15.533333,
       "file": "/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3",
       "ss": 9.55,
       "dur": 1.4,
@@ -230,7 +230,7 @@
       "t_v2": 16.0
     },
     {
-      "t": 16.607,
+      "t": 16.640333,
       "t_v2": 17.107,
       "file": "audio/sfx_el/paper_slide.mp3",
       "gain_db": -15,
@@ -241,7 +241,7 @@
       "mulai": 14.682
     },
     {
-      "t": 17.9,
+      "t": 17.933333,
       "t_v2": 18.4,
       "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
       "gain_db": -17,
@@ -252,7 +252,7 @@
       "mulai": 15.899
     },
     {
-      "t": 19.912,
+      "t": 19.945333,
       "file": "/home/irfan/sfx/SFXIrfan/Wooshcameramovementtransisi.mp3",
       "ss": 0.0,
       "dur": null,
@@ -266,7 +266,7 @@
       "t_v2": 20.412
     },
     {
-      "t": 23.383333,
+      "t": 23.412281,
       "file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
       "ss": 0.0,
       "dur": null,
@@ -280,7 +280,7 @@
       "t_v2": 23.9
     },
     {
-      "t": 23.883333,
+      "t": 23.885965,
       "t_v2": 24.5,
       "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
       "gain_db": -17,
@@ -291,7 +291,7 @@
       "mulai": 21.372
     },
     {
-      "t": 25.87,
+      "t": 25.836667,
       "file": "/home/irfan/sfx/SFXIrfan/scaningfast.mp3",
       "ss": 0.0,
       "dur": null,
@@ -305,7 +305,7 @@
       "t_v2": 26.57
     },
     {
-      "t": 28.397,
+      "t": 28.363667,
       "t_v2": 29.097,
       "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
       "gain_db": -17,
@@ -316,7 +316,7 @@
       "mulai": 25.929
     },
     {
-      "t": 29.77,
+      "t": 29.736667,
       "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_thud_0.mp3",
       "ss": 0.0,
       "dur": null,
@@ -330,7 +330,7 @@
       "t_v2": 30.47
     },
     {
-      "t": 30.297,
+      "t": 30.263667,
       "t_v2": 30.997,
       "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
       "gain_db": -17,
@@ -341,7 +341,7 @@
       "mulai": 27.829
     },
     {
-      "t": 30.8,
+      "t": 30.766667,
       "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
       "gain_db": -12,
       "align": "peak",
@@ -352,7 +352,7 @@
       "t_v2": 31.5
     },
     {
-      "t": 31.747,
+      "t": 31.713667,
       "file": "/home/irfan/sfx/SFXIrfan/pop up.mp3",
       "gain_db": -14,
       "align": "peak",
@@ -363,7 +363,7 @@
       "t_v2": 32.447
     },
     {
-      "t": 32.987,
+      "t": 32.953667,
       "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
       "gain_db": -11,
       "align": "peak",
@@ -374,7 +374,7 @@
       "t_v2": 33.687
     },
     {
-      "t": 34.13,
+      "t": 34.096667,
       "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_thud_2.mp3",
       "ss": 0.0,
       "dur": null,
@@ -388,7 +388,7 @@
       "t_v2": 34.83
     },
     {
-      "t": 34.767,
+      "t": 34.733667,
       "t_v2": 35.467,
       "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
       "gain_db": -17,
@@ -399,7 +399,7 @@
       "mulai": 31.699
     },
     {
-      "t": 35.917,
+      "t": 35.883667,
       "t_v2": 36.617,
       "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
       "gain_db": -17,
@@ -410,7 +410,7 @@
       "mulai": 32.699
     },
     {
-      "t": 36.433,
+      "t": 36.399667,
       "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
       "ss": 0.0,
       "dur": null,
@@ -424,7 +424,7 @@
       "t_v2": 37.133
     },
     {
-      "t": 36.663,
+      "t": 36.629667,
       "file": "/home/irfan/sfx/SFXIrfan/Keyboardtyping.mp3",
       "ss": 0.36,
       "dur": 1.2,
@@ -438,7 +438,7 @@
       "t_v2": 37.363
     },
     {
-      "t": 38.038095,
+      "t": 38.004762,
       "file": "/home/irfan/sfx/SFXIrfan/Enter.mp3",
       "ss": 0.0,
       "dur": null,
@@ -452,7 +452,7 @@
       "t_v2": 38.8
     },
     {
-      "t": 38.089524,
+      "t": 38.05619,
       "file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Glitch, Glitch Databend 04 - Epidemic Sound.mp3",
       "ss": 0.0,
       "dur": 0.8,
@@ -466,7 +466,7 @@
       "t_v2": 38.86
     },
     {
-      "t": 38.803333,
+      "t": 38.77,
       "file": "audio/sfx_el/pin.mp3",
       "ss": 0.0,
       "dur": null,
@@ -480,7 +480,7 @@
       "t_v2": 39.67
     },
     {
-      "t": 41.463333,
+      "t": 41.43,
       "file": "audio/sfx_el/pin.mp3",
       "ss": 0.0,
       "dur": null,
@@ -494,7 +494,7 @@
       "t_v2": 42.33
     },
     {
-      "t": 43.233333,
+      "t": 43.2,
       "file": "/home/irfan/sfx/SFXIrfan/Wooshcameramovementtransisi.mp3",
       "ss": 0.0,
       "dur": null,
@@ -508,7 +508,7 @@
       "t_v2": 44.1
     },
     {
-      "t": 44.203333,
+      "t": 44.17,
       "file": "audio/sfx_el/pin.mp3",
       "ss": 0.0,
       "dur": null,
@@ -522,7 +522,7 @@
       "t_v2": 45.07
     },
     {
-      "t": 45.195238,
+      "t": 45.161905,
       "file": "/home/irfan/sfx/SFXIrfan/ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3",
       "ss": 0.0,
       "dur": null,
@@ -536,7 +536,7 @@
       "t_v2": 46.3
     },
     {
-      "t": 45.216667,
+      "t": 45.183333,
       "file": "/home/irfan/sfx/SFXIrfan/ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz - Epidemic Sound.mp3",
       "ss": 0.0,
       "dur": 0.9,
@@ -550,7 +550,7 @@
       "t_v2": 46.33
     },
     {
-      "t": 47.803333,
+      "t": 47.77,
       "t_v2": 49.07,
       "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
       "gain_db": -17,
@@ -561,7 +561,7 @@
       "mulai": 43.569
     },
     {
-      "t": 48.503333,
+      "t": 48.47,
       "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
       "ss": 0.0,
       "dur": null,
@@ -575,7 +575,7 @@
       "t_v2": 49.77
     },
     {
-      "t": 49.463333,
+      "t": 49.43,
       "t_v2": 50.73,
       "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
       "gain_db": -17,
@@ -586,7 +586,7 @@
       "mulai": 45.102
     },
     {
-      "t": 49.933333,
+      "t": 49.9,
       "file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Click, UI Buttons, Confirm, Menu - Epidemic Sound.mp3",
       "ss": 0.0,
       "dur": null,
@@ -600,7 +600,7 @@
       "t_v2": 51.2
     },
     {
-      "t": 50.003333,
+      "t": 49.97,
       "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
       "ss": 0.0,
       "dur": null,
@@ -614,7 +614,7 @@
       "t_v2": 51.27
     },
     {
-      "t": 50.633333,
+      "t": 50.6,
       "file": "/home/irfan/sfx/SFXIrfan/Enter.mp3",
       "ss": 0.0,
       "dur": null,
@@ -628,7 +628,7 @@
       "t_v2": 51.9
     },
     {
-      "t": 51.203333,
+      "t": 51.17,
       "t_v2": 52.47,
       "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
       "gain_db": -17,
@@ -639,7 +639,7 @@
       "mulai": 46.869
     },
     {
-      "t": 51.633333,
+      "t": 51.6,
       "file": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
       "ss": 0.0,
       "dur": null,
@@ -653,7 +653,7 @@
       "t_v2": 52.9
     },
     {
-      "t": 52.967333,
+      "t": 52.934,
       "t_v2": 54.234,
       "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
       "gain_db": -17,
@@ -664,7 +664,7 @@
       "mulai": 48.542
     },
     {
-      "t": 53.333333,
+      "t": 53.3,
       "file": "/home/irfan/sfx/SFXIrfan/Keyboardtyping.mp3",
       "ss": 1.41,
       "dur": 0.65,
@@ -678,7 +678,7 @@
       "t_v2": 54.6
     },
     {
-      "t": 54.300333,
+      "t": 54.267,
       "t_v2": 55.567,
       "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
       "gain_db": -14,
@@ -689,7 +689,7 @@
       "mulai": 49.343
     },
     {
-      "t": 54.933333,
+      "t": 54.9,
       "file": "/home/irfan/sfx/SFXIrfan/Enter.mp3",
       "ss": 0.0,
       "dur": null,
@@ -703,7 +703,7 @@
       "t_v2": 56.2
     },
     {
-      "t": 56.563333,
+      "t": 56.53,
       "file": "/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3",
       "ss": 0.0,
       "dur": 5.2,
@@ -717,7 +717,7 @@
       "t_v2": 57.83
     },
     {
-      "t": 56.950333,
+      "t": 56.917,
       "t_v2": 58.217,
       "file": "audio/sfx_el/kartu_rattle_r8.wav",
       "gain_db": -11,
@@ -728,7 +728,7 @@
       "mulai": 52.0
     },
     {
-      "t": 61.636667,
+      "t": 61.703333,
       "file": "/home/irfan/work/skill-development/projects/jadisatu-60s/remotion/sfx-el/v17_impact_1.mp3",
       "ss": 0.0,
       "dur": 0.55,
@@ -742,7 +742,7 @@
       "t_v2": 63.07
     },
     {
-      "t": 62.020238,
+      "t": 62.086905,
       "t_v2": 63.595,
       "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
       "gain_db": -17,
@@ -753,7 +753,7 @@
       "mulai": 56.629
     },
     {
-      "t": 65.100333,
+      "t": 65.167,
       "t_v2": 67.067,
       "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
       "gain_db": -17,
@@ -764,7 +764,7 @@
       "mulai": 59.472
     },
     {
-      "t": 68.300333,
+      "t": 68.367,
       "t_v2": 70.267,
       "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
       "gain_db": -17,
@@ -775,7 +775,7 @@
       "mulai": 62.699
     },
     {
-      "t": 69.589333,
+      "t": 69.656,
       "file": "/home/irfan/sfx/SFXIrfan/Wooshcameramovementtransisi.mp3",
       "ss": 0.0,
       "dur": null,
@@ -789,7 +789,7 @@
       "t_v2": 71.556
     },
     {
-      "t": 70.816333,
+      "t": 70.883,
       "t_v2": 72.783,
       "file": "/home/irfan/sfx/SFXIrfan/Wooshcameramovementtransisi.mp3",
       "gain_db": -13,
@@ -801,7 +801,7 @@
       "mulai": 63.741
     },
     {
-      "t": 73.095,
+      "t": 73.161667,
       "t_v2": 75.333,
       "file": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
       "gain_db": -15,
@@ -812,7 +812,7 @@
       "mulai": 66.9
     },
     {
-      "t": 74.435714,
+      "t": 74.502381,
       "file": "/home/irfan/sfx/SFXIrfan/basmenyebar.mp3",
       "ss": 0.0,
       "dur": 3.4,
@@ -826,7 +826,7 @@
       "t_v2": 76.9
     },
     {
-      "t": 75.028571,
+      "t": 75.095238,
       "file": "/home/irfan/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
       "ss": 0.0,
       "dur": null,
@@ -840,7 +840,7 @@
       "t_v2": 77.73
     },
     {
-      "t": 77.903333,
+      "t": 77.97,
       "file": "audio/sfx_el/marker.mp3",
       "ss": 0.0,
       "dur": null,
@@ -854,7 +854,7 @@
       "t_v2": 80.77
     },
     {
-      "t": 78.503333,
+      "t": 78.57,
       "t_v2": 81.37,
       "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
       "gain_db": -17,
@@ -865,7 +865,7 @@
       "mulai": 72.242
     },
     {
-      "t": 80.470333,
+      "t": 80.537,
       "t_v2": 83.337,
       "file": "/home/irfan/sfx/SFXIrfan/Katapertama.mp3",
       "gain_db": -17,
@@ -876,7 +876,7 @@
       "mulai": 73.769
     },
     {
-      "t": 81.866333,
+      "t": 81.933,
       "t_v2": 84.733,
       "file": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
       "gain_db": -17,
@@ -887,7 +887,7 @@
       "mulai": 75.072
     },
     {
-      "t": 83.263333,
+      "t": 83.33,
       "file": "/home/irfan/sfx/SFXIrfan/Enter.mp3",
       "ss": 0.0,
       "dur": null,
@@ -901,7 +901,7 @@
       "t_v2": 86.13
     },
     {
-      "t": 83.463333,
+      "t": 83.53,
       "file": "/home/irfan/sfx/SFXIrfan/pop up.mp3",
       "ss": 0.0,
       "dur": null,
@@ -915,7 +915,7 @@
       "t_v2": 86.33
     },
     {
-      "t": 84.333333,
+      "t": 84.357143,
       "file": "/home/irfan/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
       "ss": 0.0,
       "dur": null,
@@ -929,7 +929,7 @@
       "t_v2": 87.2
     },
     {
-      "t": 85.711905,
+      "t": 85.735714,
       "file": "/home/irfan/sfx/SFXIrfan/pop up.mp3",
       "ss": 0.0,
       "dur": null,

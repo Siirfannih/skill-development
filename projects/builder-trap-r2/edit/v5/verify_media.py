@@ -65,7 +65,12 @@ def join_metrics(name: str, join_frames: list[int]):
 
 
 def main():
-    joins = [282, 714, 1145, 1353, 1729, 1870, 2190, 2247, 2560]
+    cut_map = load("edit/v5/map.json")
+    removed_before = 0.0
+    joins = []
+    for start, end in cut_map["removed"]:
+        joins.append(round((start - removed_before) * 30))
+        removed_before += end - start
     audio = {
         name: media_info(name)
         for name in ("edit/v5/suara.wav", "edit/v5/voice_clean.wav", "edit/v5/mix.wav")

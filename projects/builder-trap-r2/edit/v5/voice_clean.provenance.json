@@ -1,0 +1,15 @@
+{
+  "suara_sha256": "d5bae1e92de0dc0675ea7176d4bd157a2ee4239fa5a0332b19cd284d5c03ef6e",
+  "words_actual_sha256": "173671c582ec575f8c578f10c716a326a93e3d3ad58147b7bb33c015839f07c1",
+  "voice_clean_sha256": "7e829d5ee9ff9b9d44b96ebb7240bac0e7c4a5c730fe0573a300e45391746217",
+  "post_filter_join_fade_ms": 20,
+  "post_filter_join_fade_out_ms_overrides": {
+    "2560": 5
+  },
+  "declick_repairs_seconds": [
+    [
+      23.873,
+      23.887
+    ]
+  ]
+}

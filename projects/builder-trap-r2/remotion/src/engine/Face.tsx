@@ -19,7 +19,7 @@ export const FACE_PRESETS = {
 export type FacePreset = keyof typeof FACE_PRESETS;
 // Exact real-timeline join frames derived from edit/v5/map.json. Keep this list
 // inside the Remotion bundle so the renderer never depends on scratch/edit files.
-export const FACE_JUMPS = [282, 714, 1145, 1353, 1729, 1870, 2190, 2247, 2560];
+export const FACE_JUMPS = [283, 715, 1144, 1352, 1731, 1872, 2192, 2249, 2560];
 /** punch-in di titik lompatan: +10 % skala crop per tingkat. Lompatan berganti masuk/keluar (1,0 ↔ 1,1); lompatan yang
  *  berdekatan (< FACE_JUMP_NEAR frame dari lompatan sebelumnya dalam sisipan yang sama) LANJUT MASUK (1,1 → 1,2), tidak
  *  keluar-masuk (putusan Sutradara r8 Q2, mis. f2406 → f2414). */

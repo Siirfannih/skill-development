@@ -3,20 +3,16 @@
 Frame 2100–2399 · 70.00–80.00 dtk
 
 ## Tanda otomatis
-- f2168 (72.27 dtk): LOMPAT 158.6 (f2167→2168)
-- f2213 (73.77 dtk): LOMPAT 148.6 (f2212→2213)
-- f2286 (76.20 dtk): LOMPAT 108.6 (f2285→2286)
-- f2299 (76.63 dtk): LOMPAT 29.3 (f2298→2299)
+- f2198 (73.27 dtk): LOMPAT 7.0 (f2197→2198)
+- f2357 (78.57 dtk): LOMPAT 159.1 (f2356→2357)
 
 ## Kata diucapkan (dtk)
-memutuskan@70.24 untuk@70.72 kembali@70.98 ke@71.52 titik@71.62 awal.@71.90 Dimana@72.28 mungkin@72.62 aku@73.05 harusnya@73.27 gak@73.73 sekedar@73.95 membangun.@74.59 Tapi@75.13 juga@75.39 nge@75.61 -share@75.89 apa@76.09 yang@76.31 aku@76.53 alami.@76.87 Apa@77.37 yang@77.57 aku@77.75 buat.@77.91 Apa@78.33 pengalaman@78.36 yang@78.80 aku@78.98 dapatkan.@79.28
+menjadi@70.04 siapapun.@70.28 Dan@70.94 aku@71.10 gak@71.28 melangkah@71.52 jauh@71.98 kemana@72.38 -mana.@72.66 Sampai@73.21 akhirnya@73.77 aku@74.33 sadar.@74.41 Dan@75.02 sekarang@75.58 aku@76.08 memutuskan@76.54 untuk@77.02 kembali@77.28 ke@77.82 titik@77.92 awal.@78.20 Dimana@78.58 mungkin@78.92 aku@79.82
 
 ## Cue SFX (dtk · peran · file)
-- 71.67 · tulis · marker.mp3
-- 72.27 · potong_adegan · Cutcontrastransision.mp3
-- 73.77 · potong_adegan · Katapertama.mp3
-- 75.10 · potong_adegan · Cutcontrastransision.mp3
-- 76.44 · klik_ui · Enter.mp3
-- 76.61 · post_terbit · pop up.mp3
-- 77.31 · post_terbit · ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3
-- 78.52 · post_terbit · pop up.mp3
+- 70.88 · whoosh · Wooshcameramovementtransisi.mp3
+- 73.16 · whoosh · Woosh.mp3
+- 74.50 · puncak · basmenyebar.mp3
+- 75.10 · whoosh · ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3
+- 77.97 · tulis · marker.mp3
+- 78.57 · potong_adegan · Cutcontrastransision.mp3
