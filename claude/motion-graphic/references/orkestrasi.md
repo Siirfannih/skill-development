@@ -34,6 +34,8 @@ Lakukan sekali di awal sesi dan catat hasilnya di `STATUS.md`:
 3b. Dua pemeriksa saling melengkapi, bukan duplikat: di bdf26 v10 ChatGPT kuat di atribusi b-roll dan sinkron, subagen Sonnet menemukan kata yang tidak pernah tampil dan tepuk tangan yang putus. Banyak temuan ChatGPT positif palsu (penutur di shot wajah = pemilik suara, punch-in disengaja), jadi tiap temuan diverifikasi dengan frame/ukuran sebelum diperbaiki.
 3. Bila sebuah jalur gagal 2× berturut-turut, tandai jalur itu mati di `STATUS.md` dan pakai cadangannya. **Jangan diam-diam kembali mengerjakan semuanya sendiri.** Bila kedua jalur pemeriksa mati, laporkan ke aku dalam satu pesan, lalu lanjutkan pekerjaan lain yang tidak bergantung pada jalur itu.
 
+- **Finishing Opus setelah sketsa (Irfan 16 Nov).** Storyboard/sketsa visual dari Sonnet atau Codex selalu dilanjutkan satu subagen **Opus** yang merapikan dan memfinishing visual sesuai prinsip motion Apple-style (bersih, modern, satu fokus per frame, ruang lega, cerita yang bisa diikuti) sebelum Sutradara menilai G2 dan sebelum ditunjukkan ke Irfan. Referensi yang diberi Irfan sebagai contoh gaya dipakai gayanya saja, bukan isinya (gagal: skill-dev-journey 16 Nov, kartu "Effort" disalin jadi konten).
+
 ## 3. Perintah untuk pekerja (prompt engineering)
 Setiap tugas untuk pekerja kamu tulis sebagai satu file `handoff/TASK-<beat>-<ronde>.md` dengan isi lengkap. Pekerja tidak boleh perlu bertanya atau menebak.
 
