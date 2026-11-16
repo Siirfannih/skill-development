@@ -1,0 +1,201 @@
+{
+  "builder_listened_directly": false,
+  "reviewer": "Gemini native audio via completed read_file calls; lead owns creative acceptance",
+  "final_media_snapshot_matches": [
+    {
+      "name": "voice_clean.wav",
+      "sha256": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806",
+      "native_snapshot_sha256": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806",
+      "same": true
+    },
+    {
+      "name": "english-final-2493.wav",
+      "sha256": "9647f26e4abfbfd114ae186a9ed9669beeeceda4606cbccae620f0250b35a360",
+      "native_snapshot_sha256": "9647f26e4abfbfd114ae186a9ed9669beeeceda4606cbccae620f0250b35a360",
+      "same": true
+    },
+    {
+      "name": "english-raw-context.wav",
+      "sha256": "f10b8011cb654a78cadae74c991980de890b2d4aa8571a23b18c093c23b5aa40",
+      "native_snapshot_sha256": "f10b8011cb654a78cadae74c991980de890b2d4aa8571a23b18c093c23b5aa40",
+      "same": true
+    },
+    {
+      "name": "apa-final-2493.wav",
+      "sha256": "cedbce38f6b152abf97c3d9d7a1df6a646a301b4513ecb167aaaeeb78507351e",
+      "native_snapshot_sha256": "cedbce38f6b152abf97c3d9d7a1df6a646a301b4513ecb167aaaeeb78507351e",
+      "same": true
+    },
+    {
+      "name": "apa-raw-context.wav",
+      "sha256": "5fc17c534208712f655a6c29311ab3dbde88383a39b067783c0585445b52b214",
+      "native_snapshot_sha256": "5fc17c534208712f655a6c29311ab3dbde88383a39b067783c0585445b52b214",
+      "same": true
+    }
+  ],
+  "reports": [
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/v6-opening-gemini.txt",
+      "archived": "edit/v6/native-qc/v6-opening-gemini.txt",
+      "sha256": "e88e751cb5196ecfdb3be5c176288e23490e7d05480804933fb15519921d1437"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/v6-opening-gemini.stream.jsonl",
+      "archived": "edit/v6/native-qc/v6-opening-gemini.stream.jsonl",
+      "sha256": "141ab08c452c96fa8a9895592e4bf37cda506b8d41ddabea455ea28f027e45ee"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/peaks-gemini.txt",
+      "archived": "edit/v6/native-qc/peaks-gemini.txt",
+      "sha256": "36c801d29585434e4be3967cfbcd2cc4705ae1a98040fd2da300c8c05e215a73"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/peaks-gemini.stream.jsonl",
+      "archived": "edit/v6/native-qc/peaks-gemini.stream.jsonl",
+      "sha256": "6530642e0d07e11795387b5458df73eeeee3e095cdea31bcfc5daf178afbd317"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/residual-first-gemini.txt",
+      "archived": "edit/v6/native-qc/residual-first-gemini.txt",
+      "sha256": "f24188b4c015d276ff3ccc886d290ca4ee23a9f6e1cff924de4e4f1147b7781f"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/residual-first-gemini.stream.jsonl",
+      "archived": "edit/v6/native-qc/residual-first-gemini.stream.jsonl",
+      "sha256": "b0dc711763f2bf03c3a9765be341eedc457568e2556aaa82adef9589bb776f9f"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/residual-major-gemini.txt",
+      "archived": "edit/v6/native-qc/residual-major-gemini.txt",
+      "sha256": "614b979abbda226577d6866598dea41137b6401d1de1e768d6432655fa66923a"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/residual-major-gemini.stream.jsonl",
+      "archived": "edit/v6/native-qc/residual-major-gemini.stream.jsonl",
+      "sha256": "cc5a39e5c95c962c5348c7617a2a9832258225b3d63a674db282a84e694115cc"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/other-a.txt",
+      "archived": "edit/v6/native-qc/other-a.txt",
+      "sha256": "7ebc8337f0655cbb7b9fc1d6e246df75695ab3339ebbe38d2da5ecbb07e4a6eb"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/other-a.reads.json",
+      "archived": "edit/v6/native-qc/other-a.reads.json",
+      "sha256": "f5f30e8627f8475189c38a70ae10c476e1686920a0259decca08ac9eaacaf96c"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/other-a.stream.jsonl",
+      "archived": "edit/v6/native-qc/other-a.stream.jsonl",
+      "sha256": "18129f9c3b838cb5aa5efb5d19ee82d0607eb751d99e31122f5781c130290b3b"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/other-b.txt",
+      "archived": "edit/v6/native-qc/other-b.txt",
+      "sha256": "db36d905c2f3daff9de78c3a6712ff7bd688d258bd6b9ed29e5c8708b82962f7"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/other-b.reads.json",
+      "archived": "edit/v6/native-qc/other-b.reads.json",
+      "sha256": "7bb2bed6644b6e27c28cad5b64db2c1ef8041d9bf9791165dd43f58617a9c9a8"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/other-b.stream.jsonl",
+      "archived": "edit/v6/native-qc/other-b.stream.jsonl",
+      "sha256": "ad2f91ca3b2ed1f890797b0eecb0d5871a81784bc63beb4385938dfd8c054df1"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/tight-control.txt",
+      "archived": "edit/v6/native-qc/tight-control.txt",
+      "sha256": "b6f4a7e08ee25b493f24272e921d816e9a98790a186900587f10f6bd9dbc4ce7"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/tight-control.reads.json",
+      "archived": "edit/v6/native-qc/tight-control.reads.json",
+      "sha256": "b2992f632fbf65a1f2f586b4c4a3e4b81f4ea336deb30b9adce458b77a0e9ccf"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/tight-control.stream.jsonl",
+      "archived": "edit/v6/native-qc/tight-control.stream.jsonl",
+      "sha256": "15a554ca60cc8653cc9201679f99e090d3c21e5449ccc9d0ce738e8122ff2b22"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/splice-options-gemini.txt",
+      "archived": "edit/v6/native-qc/splice-options-gemini.txt",
+      "sha256": "15768b35f562c9e0ede2769f91a35e803ae22980f96c5aef1c5b50d2516f14f9"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/splice-options-gemini.stream.jsonl",
+      "archived": "edit/v6/native-qc/splice-options-gemini.stream.jsonl",
+      "sha256": "0e9414d6a327b8e3a7b58ae34396f1eae580b1327cedbb0fbec2dd516c28ea59"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/english-control-r3.txt",
+      "archived": "edit/v6/native-qc/english-control-r3.txt",
+      "sha256": "72833db055b27fb76e907b98668515fd9e3210b7d858b9b32d1a866e3983659c"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/english-control-r3.stream.jsonl",
+      "archived": "edit/v6/native-qc/english-control-r3.stream.jsonl",
+      "sha256": "4f8c688e0aceadda630cc5956cc3bee8b47dc2e4163de374554b4241f3475514"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/english-tail.txt",
+      "archived": "edit/v6/native-qc/english-tail.txt",
+      "sha256": "2f9ecf2dd55863451bd8490bee0dbefcac932a63f0e3d65fe8f980229d1ba55d"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/english-tail.reads.json",
+      "archived": "edit/v6/native-qc/english-tail.reads.json",
+      "sha256": "e37eb497f18939255d755ca7856e7b576bf7b9fa98cf36f17707ab9739c49b13"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/english-tail.stream.jsonl",
+      "archived": "edit/v6/native-qc/english-tail.stream.jsonl",
+      "sha256": "f3925936d9975697ab116bbe5942470180a04b023c2b4887899104abcbecb84f"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/voice-final-whole.txt",
+      "archived": "edit/v6/native-qc/voice-final-whole.txt",
+      "sha256": "ccf6839448033d62273bdf25b4e45997f131fc1bfda44be5eecdb80d543222f6"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/voice-final-whole.reads.json",
+      "archived": "edit/v6/native-qc/voice-final-whole.reads.json",
+      "sha256": "a5c79f8ec86a673d17d93c21ce85e9e2d942552b511e79e5dcad6b9e9b2f974e"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/voice-final-whole.stream.jsonl",
+      "archived": "edit/v6/native-qc/voice-final-whole.stream.jsonl",
+      "sha256": "5276ea5d680d4fe9ba51bacc9a43699770642ec906ed83f6284dc071be93d67e"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/voice-final-critical.txt",
+      "archived": "edit/v6/native-qc/voice-final-critical.txt",
+      "sha256": "5d6e4dbc654e9f7d15dc1dc34048c9ffeb251da1783c93a222d8d13eabeefa60"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/voice-final-critical.reads.json",
+      "archived": "edit/v6/native-qc/voice-final-critical.reads.json",
+      "sha256": "dfff0823c4f613ce2e6aff55aa763ab0cc0a05af606c025a9406b2497c885e87"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/voice-final-critical.stream.jsonl",
+      "archived": "edit/v6/native-qc/voice-final-critical.stream.jsonl",
+      "sha256": "1f2c8128c3ef435b2024cf50551592542d9621610f61aa50efe95e7d1e255d98"
+    },
+    {
+      "original": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/reports/voice-gate-adjudication.md",
+      "archived": "edit/v6/native-qc/voice-gate-adjudication.md",
+      "sha256": "1515bd9bdb8cd4f1dbb60185ee5bfb08f2fda98c62e43801339788d2cbfea2e7"
+    }
+  ],
+  "comparison_scope": "final_media_snapshot_matches records the native-reviewed−1.05 gain variant at time of review; preserved copy is gain-headroom/voice-clean-peak1p05.wav",
+  "current_gain_variant": {
+    "sha256": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f",
+    "native_listened": false,
+    "reviewed_audio_sha256": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806",
+    "derived_applicability_proof": "edit/v6/gain-headroom-proof.json",
+    "proof_sha256": "b9d363fe6d317342d863d5e54a227822cac2e10b07548fd8e58b7ad4b51d4c68"
+  }
+}

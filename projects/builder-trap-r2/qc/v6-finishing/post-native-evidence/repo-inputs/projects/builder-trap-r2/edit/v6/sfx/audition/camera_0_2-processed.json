@@ -1,0 +1,384 @@
+{
+ "path": "edit/v6/sfx/camera_0_2.wav",
+ "start": null,
+ "end": null,
+ "duration": 0.85,
+ "measurements": {
+  "duration": 0.85,
+  "peak_dbfs": -22.0,
+  "true_peak_dbtp": -22.0,
+  "rms_dbfs": -37.4,
+  "lufs": -38.0,
+  "attack_ms": 88.0,
+  "decay_ms": 254.0,
+  "brightness_hz": 911,
+  "bandwidth_hz": 2031,
+  "flatness": 0.0,
+  "harmonic_ratio": 0.959,
+  "f0_hz": 50.0,
+  "onset_count": 1,
+  "onsets_per_s": 1.18,
+  "width": "mono",
+  "digital_silence_frac": 0.0131
+ },
+ "shape": "short one-shot, tonal, pitch ~50 Hz (G1) (attack 88 ms, decays in 254 ms)",
+ "top_tags": [
+  {
+   "term": "a soft air whoosh",
+   "category": "transitions",
+   "z": 4.23,
+   "cosine": 0.447,
+   "verdict": "strong"
+  },
+  {
+   "term": "a fast whoosh",
+   "category": "transitions",
+   "z": 3.31,
+   "cosine": 0.364,
+   "verdict": "strong"
+  },
+  {
+   "term": "a deep cinematic whoosh",
+   "category": "transitions",
+   "z": 3.07,
+   "cosine": 0.333,
+   "verdict": "strong"
+  },
+  {
+   "term": "a short swish",
+   "category": "transitions",
+   "z": 3.03,
+   "cosine": 0.39,
+   "verdict": "strong"
+  },
+  {
+   "term": "a big drum hit",
+   "category": "impacts",
+   "z": 2.68,
+   "cosine": 0.272,
+   "verdict": "plausible"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "a deep sub bass",
+   "category": "instruments",
+   "z": 1.71,
+   "cosine": 0.219
+  },
+  {
+   "term": "a person breathing",
+   "category": "voice",
+   "z": 1.37,
+   "cosine": 0.138
+  },
+  {
+   "term": "a woman speaking",
+   "category": "voice",
+   "z": 1.16,
+   "cosine": 0.038
+  },
+  {
+   "term": "a man speaking",
+   "category": "voice",
+   "z": 1.15,
+   "cosine": 0.023
+  },
+  {
+   "term": "a punchy kick drum pattern",
+   "category": "instruments",
+   "z": 1.1,
+   "cosine": 0.096
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "a soft air whoosh",
+    "z": 4.23,
+    "cosine": 0.447
+   },
+   {
+    "term": "a fast whoosh",
+    "z": 3.31,
+    "cosine": 0.364
+   },
+   {
+    "term": "a deep cinematic whoosh",
+    "z": 3.07,
+    "cosine": 0.333
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a big drum hit",
+    "z": 2.68,
+    "cosine": 0.272
+   },
+   {
+    "term": "a deep cinematic boom",
+    "z": 2.39,
+    "cosine": 0.249
+   },
+   {
+    "term": "a sub bass drop",
+    "z": 2.02,
+    "cosine": 0.238
+   }
+  ],
+  "ui": [
+   {
+    "term": "a phone vibration buzz",
+    "z": 1.75,
+    "cosine": 0.19
+   },
+   {
+    "term": "a soft UI button tap",
+    "z": 1.54,
+    "cosine": 0.195
+   },
+   {
+    "term": "an error buzz",
+    "z": 1.05,
+    "cosine": 0.132
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "a single mechanical keyboard key press",
+    "z": 0.92,
+    "cosine": 0.172
+   },
+   {
+    "term": "a soft key release click",
+    "z": 0.89,
+    "cosine": 0.128
+   },
+   {
+    "term": "a spacebar press",
+    "z": 0.03,
+    "cosine": 0.1
+   }
+  ],
+  "foley": [
+   {
+    "term": "a suction cup pop",
+    "z": 1.68,
+    "cosine": 0.264
+   },
+   {
+    "term": "a cork pop",
+    "z": 1.38,
+    "cosine": 0.229
+   },
+   {
+    "term": "a mouth pop",
+    "z": 1.21,
+    "cosine": 0.198
+   }
+  ],
+  "water": [
+   {
+    "term": "a water drop",
+    "z": 0.21,
+    "cosine": 0.111
+   },
+   {
+    "term": "being underwater",
+    "z": -0.07,
+    "cosine": 0.032
+   },
+   {
+    "term": "a liquid bloop",
+    "z": -0.25,
+    "cosine": 0.055
+   }
+  ],
+  "nature": [
+   {
+    "term": "an apple falling on grass",
+    "z": 1.5,
+    "cosine": 0.18
+   },
+   {
+    "term": "a small animal running through grass",
+    "z": 0.94,
+    "cosine": 0.12
+   },
+   {
+    "term": "something falling into bushes",
+    "z": 0.92,
+    "cosine": 0.124
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a celesta note",
+    "z": 0.17,
+    "cosine": 0.118
+   },
+   {
+    "term": "a triangle hit",
+    "z": 0.07,
+    "cosine": 0.01
+   },
+   {
+    "term": "a singing bowl",
+    "z": 0.04,
+    "cosine": -0.01
+   }
+  ],
+  "ambience": [
+   {
+    "term": "wind blowing",
+    "z": 1.01,
+    "cosine": 0.093
+   },
+   {
+    "term": "a gentle breeze in tall grass",
+    "z": 0.68,
+    "cosine": 0.076
+   },
+   {
+    "term": "an electrical hum",
+    "z": 0.66,
+    "cosine": 0.06
+   }
+  ],
+  "everyday": [
+   {
+    "term": "a spray can hissing",
+    "z": 1.99,
+    "cosine": 0.211
+   },
+   {
+    "term": "a heartbeat",
+    "z": 1.77,
+    "cosine": 0.215
+   },
+   {
+    "term": "a match being struck",
+    "z": 1.34,
+    "cosine": 0.137
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "hip hop beat with heavy bass",
+    "z": 0.44,
+    "cosine": 0.072
+   },
+   {
+    "term": "acoustic guitar music",
+    "z": 0.23,
+    "cosine": 0.108
+   },
+   {
+    "term": "jazz music",
+    "z": 0.16,
+    "cosine": 0.064
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "calm and relaxing music",
+    "z": 0.32,
+    "cosine": 0.086
+   },
+   {
+    "term": "dark and tense music",
+    "z": -0.33,
+    "cosine": 0.051
+   },
+   {
+    "term": "warm and cozy music",
+    "z": -0.41,
+    "cosine": 0.076
+   }
+  ],
+  "instruments": [
+   {
+    "term": "a deep sub bass",
+    "z": 1.71,
+    "cosine": 0.219
+   },
+   {
+    "term": "a punchy kick drum pattern",
+    "z": 1.1,
+    "cosine": 0.096
+   },
+   {
+    "term": "a bass guitar",
+    "z": 0.84,
+    "cosine": 0.144
+   }
+  ],
+  "voice": [
+   {
+    "term": "a person breathing",
+    "z": 1.37,
+    "cosine": 0.138
+   },
+   {
+    "term": "a woman speaking",
+    "z": 1.16,
+    "cosine": 0.038
+   },
+   {
+    "term": "a man speaking",
+    "z": 1.15,
+    "cosine": 0.023
+   }
+  ],
+  "quality": [
+   {
+    "term": "a boomy sound",
+    "z": 1.89,
+    "cosine": 0.262
+   },
+   {
+    "term": "a punchy sound",
+    "z": 1.42,
+    "cosine": 0.185
+   },
+   {
+    "term": "an airy sound",
+    "z": 1.28,
+    "cosine": 0.146
+   }
+  ],
+  "production": [
+   {
+    "term": "a real recording of a physical object",
+    "z": 1.19,
+    "cosine": 0.205
+   },
+   {
+    "term": "a low bitrate mp3 with artifacts",
+    "z": 0.74,
+    "cosine": 0.144
+   },
+   {
+    "term": "a distorted clipped recording",
+    "z": 0.68,
+    "cosine": 0.091
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Sound effect",
+   "p": 0.171
+  },
+  {
+   "label": "Whoosh, swoosh, swish",
+   "p": 0.072
+  },
+  {
+   "label": "Sigh",
+   "p": 0.065
+  }
+ ],
+ "character": [],
+ "summary": "0.85 s short one-shot, tonal, pitch ~50 Hz (G1) (attack 88 ms, decays in 254 ms). Sounds most like: a soft air whoosh (z +4.2), a fast whoosh (z +3.3), a deep cinematic whoosh (z +3.0) [clear reading]. Other readings: a big drum hit (impacts, z +2.6). AudioSet tagger unsure (Sound effect 0.17, Whoosh, swoosh, swish 0.07, Sigh 0.07). peak -22.0 dBFS, -38.0 LUFS, brightness 911 Hz, bandwidth 2.0 kHz, mono."
+}

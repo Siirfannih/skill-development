@@ -1,0 +1,343 @@
+{
+  "title": "Lead audio acceptance – evidence and unresolved machine results",
+  "status": "CONDITIONAL AUDIO REVIEW; NOT A FULL DELIVERY-GATE PASS",
+  "generated_utc": "2026-11-16T10:22:55.630280+00:00",
+  "binding": {
+    "mix_sha256": "a36a2819723fb7f76dc2d8bef2b24e6ac98ec78a6555ed440d0a5aabe4452e02",
+    "voice_sha256": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f",
+    "manifest_match": true,
+    "proofs_all_valid": true,
+    "logs_sha256": {
+      "audio-qa-module5.json": "57ed981cf018236e6f73b699e6b625b196149855298f49cbb17e29d2b347b5a1",
+      "audio-qa-module5.log": "23ce6ebd6519dd554f64fd241b3276baaf5906cf3535496162173cab8e2a98f5",
+      "audio-qa-module5-command.json": "4931b494e0ab946cb32fdf61391bd671cae665adea3261150cd77db3e2346ba2",
+      "voice-fidelity.json": "d1d41f5326ad60ebc4d81c8ca98d8aff3422d9cb415f89283933fb5a1c233da5",
+      "native-evidence/manifest.json": "2d46e5c6bc1151f4e177c352afd0f4eafda8c80de28a73c4bfb3e5ad8443ddd2",
+      "native-evidence/verification.json": "408a679cc226daec0ed31367b8b02fdd2f38f2004f2400b1123c69b308750083",
+      "native-evidence/SHA256SUMS": "02f56cd4bd1667fb70fe38802afee8dbee24b780816c4291bc9ffa1440dd1f9e"
+    },
+    "module5_inputs_sha256": {
+      "module5/mapping.json": "a2cf184b7c030ab5e70b35e782cd43d83957d270e6cb326013c11b422c336fa7",
+      "module5/placed.json": "d6a547f2241adb02775210120dab66becd69582b9a68ddf9c475b64b28fb612c",
+      "module5/timeline.json": "f17e8a56049ea317b4bd36f0914435259aaf164ff4c272c14e157bd271562ee7",
+      "module5/stem_dialog_g.wav": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f",
+      "module5/stem_music.wav": "5a1f434857e47a934bb1c6326e74eeb142d565229d8952dac7b05f13186a4e04",
+      "module5/stem_sfx.wav": "7ecef3317bebae655e28cd261ff445782d408b6bacfabe9afe3d0e7d5fc76644",
+      "module5/stem_mix_raw.wav": "a36a2819723fb7f76dc2d8bef2b24e6ac98ec78a6555ed440d0a5aabe4452e02"
+    }
+  },
+  "native": {
+    "model": "gemini-3.8-flash-low",
+    "jobs": 8,
+    "files_read": 16,
+    "mode": "media-only; model audio review, not physical phone test",
+    "coverage_seconds": [
+      [
+        0,
+        21
+      ],
+      [
+        20,
+        41
+      ],
+      [
+        40,
+        61
+      ],
+      [
+        60,
+        83.1
+      ]
+    ],
+    "excluded_original_timeout": "nomusic-phone20-2; actual successful retry used",
+    "full_phone50": "4 overlapping chunks, full mix and mono band-limited −12dB phone model",
+    "no_music_phone20": "4 overlapping chunks, voice+SFX and mono band-limited −26dB phone model",
+    "voice_clear": true,
+    "reported_pumping": false,
+    "reported_tail_cuts": false,
+    "reported_harshness": false,
+    "reported_defects": [],
+    "limitations": [
+      "No physical phone speaker or live listening test",
+      "No native all-frame video inspection",
+      "No-music 40–61s SFX was described as low; final no-music segment as subtle on phone",
+      "The retry reported consolidated fields, not a separate per-file verdict",
+      "Chunk boundaries contain truncated spoken fragments; overlapping chunks preserve timeline continuity",
+      "Native model assessment is not a per-cue intelligibility or calibrated loudness measurement"
+    ],
+    "source_chunk_consistency": [
+      {
+        "job": "full-phone50-1",
+        "max_abs_error": 0.0,
+        "samples": 1008000,
+        "sample_rate": 48000
+      },
+      {
+        "job": "full-phone50-2",
+        "max_abs_error": 0.0,
+        "samples": 1008000,
+        "sample_rate": 48000
+      },
+      {
+        "job": "full-phone50-3",
+        "max_abs_error": 0.0,
+        "samples": 1008000,
+        "sample_rate": 48000
+      },
+      {
+        "job": "full-phone50-4",
+        "max_abs_error": 0.0,
+        "samples": 1108800,
+        "sample_rate": 48000
+      },
+      {
+        "job": "nomusic-phone20-1",
+        "max_abs_error": 0.0,
+        "samples": 1008000,
+        "sample_rate": 48000
+      },
+      {
+        "job": "nomusic-phone20-2",
+        "max_abs_error": 0.0,
+        "samples": 1008000,
+        "sample_rate": 48000
+      },
+      {
+        "job": "nomusic-phone20-3",
+        "max_abs_error": 0.0,
+        "samples": 1008000,
+        "sample_rate": 48000
+      },
+      {
+        "job": "nomusic-phone20-4",
+        "max_abs_error": 0.0,
+        "samples": 1108800,
+        "sample_rate": 48000
+      }
+    ]
+  },
+  "machine": {
+    "module5_raw_status": "FAIL",
+    "module5_exit_code": 0,
+    "module5_gate_fails_verbatim": [
+      "I -18.6 (target −14,0…−14,5)",
+      "sub 6.4 % (target 25–55)",
+      "low-mid 59.6 % (target < 42)",
+      "VO act1 -18.3 LUFS (target −14 ±1)",
+      "VO act2 -18.6 LUFS (target −14 ±1)",
+      "VO act3 -19.4 LUFS (target −14 ±1)",
+      "VO act4 -18.3 LUFS (target −14 ±1)",
+      "musik di bawah VO -35.2 LUFS (target −22…−25)",
+      "SFX shutter median puncak -14.0 dBFS (target (-21, -16))",
+      "SFX text_pop median puncak -12.0 dBFS (target (-20, -16))"
+    ],
+    "module5_abrupt_drops": 108,
+    "module5_abrupt_timestamps_available": [
+      2.96,
+      3.18,
+      4.52,
+      5.42,
+      7.42,
+      7.91,
+      8.92,
+      9.23,
+      9.67,
+      10.77,
+      10.85,
+      11.01,
+      11.12,
+      11.69,
+      11.92,
+      12.67,
+      13.75,
+      14.39,
+      14.81,
+      15.44,
+      16.78,
+      17.05,
+      17.35,
+      17.56,
+      17.8,
+      19.63,
+      20.82,
+      21.51,
+      21.69,
+      22.13,
+      22.33,
+      24.78,
+      25.05,
+      25.41,
+      26.11,
+      26.79,
+      26.89,
+      28.43,
+      29.48,
+      30.85
+    ],
+    "module5_100ms_quiet": [
+      {
+        "time": 41.2,
+        "voice_rms_dbfs": -66.77262878417969,
+        "music_mono_rms_dbfs": -46.48680114746094,
+        "mix_mono_rms_dbfs": -46.49311065673828,
+        "music_stereo_rms_dbfs": -43.84904861450195
+      },
+      {
+        "time": 56.3,
+        "voice_rms_dbfs": -56.72875213623047,
+        "music_mono_rms_dbfs": -46.5003547668457,
+        "mix_mono_rms_dbfs": -45.4837760925293,
+        "music_stereo_rms_dbfs": -38.770835876464844
+      },
+      {
+        "time": 57.8,
+        "voice_rms_dbfs": -63.33783721923828,
+        "music_mono_rms_dbfs": -51.361385345458984,
+        "mix_mono_rms_dbfs": -50.95256423950195,
+        "music_stereo_rms_dbfs": -47.21000289916992
+      },
+      {
+        "time": 57.9,
+        "voice_rms_dbfs": -54.77587890625,
+        "music_mono_rms_dbfs": -55.338897705078125,
+        "mix_mono_rms_dbfs": -52.39447784423828,
+        "music_stereo_rms_dbfs": -47.045143127441406
+      }
+    ],
+    "voice_fidelity_exit": 0,
+    "voice_air_ratio": 0.97,
+    "voice_lra_delta_lu": -0.4,
+    "phone_50_audible": "46/63",
+    "phone_20_audible": "38/63",
+    "phone_50_predictor_fails": 17,
+    "phone_speech_band_median_db": 19.3,
+    "phone_speech_band_worst_db": 6.3,
+    "phone_windows_under_8db": 5,
+    "phone_windows_gate": "PASS at exact upper limit",
+    "phone_harsh_count": 0,
+    "aac_4x": {
+      "192": {
+        "dbtp_4x": -1.0973697900772095,
+        "peak_time": 36.00839583333333
+      },
+      "256": {
+        "dbtp_4x": -1.0718624591827393,
+        "peak_time": 43.93200520833334
+      },
+      "320": {
+        "dbtp_4x": -1.075758457183838,
+        "peak_time": 51.74192708333333
+      }
+    },
+    "cue_measures": {
+      "n_cues": 63,
+      "n_objects": 101,
+      "silent": 7,
+      "min_actual_onset_gap_seconds": 0.11706250000000296,
+      "max_onsets_2s": 5,
+      "min_camera_onset_gap_seconds": 2.0139375000000044,
+      "max_peak_error_frames": 0.9325000000003456
+    },
+    "E24_nominal_gain": {
+      "requirement": "−4 to −10 dB",
+      "metric": "gain_dbfs field on peak-normalized clip before local bed duck",
+      "count_outside": 62,
+      "total": 63,
+      "range_outside_db": [
+        -22,
+        -12
+      ],
+      "counts_by_role": {
+        "footage_change": 8,
+        "camera": 12,
+        "title": 1,
+        "mosaic": 4,
+        "card_motion": 20,
+        "screen_entry": 7,
+        "ui_click": 7,
+        "typing": 2,
+        "ui_confirm": 1
+      },
+      "status": "NOT PASS; distinct from module5 class findings; R033 did not explicitly waive SFX gain"
+    }
+  },
+  "adjudications": [
+    {
+      "finding": "mix_I",
+      "observed": "−18.6 LUFS",
+      "threshold": "−14.0 to −14.5 LUFS",
+      "machine": "FAIL",
+      "adjudication": "R033 explicitly accepts lower voice loudness to preserve natural dynamics. It does not convert the mix master target to a machine PASS; this is a related level tradeoff, not a general waiver."
+    },
+    {
+      "finding": "spectral_sub",
+      "observed": "6.4%",
+      "threshold": "25–55%",
+      "machine": "FAIL",
+      "adjudication": "Mix spectral ratio is content-dependent; voice fidelity source comparison passes. Native chunk review reports no harshness or defect, but this does not prove the spectrum meets the numerical threshold. No EQ applied."
+    },
+    {
+      "finding": "spectral_lowmid",
+      "observed": "59.6%",
+      "threshold": "<42%",
+      "machine": "FAIL",
+      "adjudication": "Content-dependent mix spectrum; fidelity passes on actual voice. Native review found no defect, but the numerical threshold remains unmet. No EQ applied."
+    },
+    {
+      "finding": "voice_act1",
+      "observed": "-18.3 LUFS",
+      "threshold": "−14 ±1 LUFS",
+      "machine": "FAIL",
+      "adjudication": "R033 explicitly accepts the quieter locked VO without compression or limiter; per-act numerical target remains FAIL."
+    },
+    {
+      "finding": "voice_act2",
+      "observed": "-18.6 LUFS",
+      "threshold": "−14 ±1 LUFS",
+      "machine": "FAIL",
+      "adjudication": "R033 explicitly accepts the quieter locked VO without compression or limiter; per-act numerical target remains FAIL."
+    },
+    {
+      "finding": "voice_act3",
+      "observed": "-19.4 LUFS",
+      "threshold": "−14 ±1 LUFS",
+      "machine": "FAIL",
+      "adjudication": "R033 explicitly accepts the quieter locked VO without compression or limiter; per-act numerical target remains FAIL."
+    },
+    {
+      "finding": "voice_act4",
+      "observed": "-18.3 LUFS",
+      "threshold": "−14 ±1 LUFS",
+      "machine": "FAIL",
+      "adjudication": "R033 explicitly accepts the quieter locked VO without compression or limiter; per-act numerical target remains FAIL."
+    },
+    {
+      "finding": "music_under_voice",
+      "observed": "−35.2 LUFS",
+      "threshold": "−22 to −25 LUFS",
+      "machine": "FAIL",
+      "adjudication": "Music was adjusted to the locked VO and SNR gate; lower level is related to R033 but R033 did not explicitly waive this numerical target. Native full/phone-model chunks describe balanced bed; machine finding remains FAIL."
+    },
+    {
+      "finding": "shutter",
+      "observed": "median peak −14.0 dBFS; 8 cues",
+      "threshold": "−21 to −16 dBFS",
+      "machine": "FAIL",
+      "adjudication": "Module5 measures the maximum of the summed SFX stem in a 250 ms window and returns a median; that is not a direct measurement of each cue gain required by E24. Native context reports no harshness; the numeric Module5 finding remains FAIL and separate E24 gains require explicit review."
+    },
+    {
+      "finding": "text_pop",
+      "observed": "median peak −12.0 dBFS; 1 cue",
+      "threshold": "−20 to −16 dBFS",
+      "machine": "FAIL",
+      "adjudication": "Module5 measures the maximum of the summed SFX stem in a 250 ms window, which can include another cue; that is not directly comparable to the gain field in E24. Native context reports no harshness; the numeric Module5 finding remains FAIL and E24 gains require explicit review."
+    }
+  ],
+  "other_observations": [
+    "Four mono 100 ms windows fall below −45 dBFS; music is present but quiet, with mono music down to roughly −55.3 dBFS in these specific windows. They are not established as audible dropouts; no-music/phone-model review and native context do not replace physical-phone checking.",
+    "108 abrupt RMS reductions are a diagnostic count, not a machine failure on their own; native chunk review reports no tail cuts or defects. Individual reductions have not all been independently attributed.",
+    "E24 object coverage is computed against the 101-item inventory, not an independent proof that every visual was inventoried; full v6 video density remains a finishing task.",
+    "Canonical audio ORDER has exceptions and is not a PASS; no canonical file was altered.",
+    "E24 nominal gain requires −4 to −10 dB; 62/63 cue gain_dbfs fields lie below −10 dB (−22 to −12), impact is −9. This is a separate measurable E24 concern; native contextual listening does not erase the threshold, and R033 is not an explicit waiver for SFX gain."
+  ]
+}

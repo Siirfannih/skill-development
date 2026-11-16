@@ -1,0 +1,31 @@
+{
+  "command": [
+    "/usr/bin/ffmpeg",
+    "-v",
+    "error",
+    "-threads",
+    "2",
+    "-filter_threads",
+    "1",
+    "-i",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/draft_2300-2355.mp4",
+    "-map",
+    "0:v:0",
+    "-an",
+    "-fps_mode",
+    "passthrough",
+    "-start_number",
+    "2300",
+    "-frames:v",
+    "56",
+    "-threads",
+    "2",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/b25-temporal/frames/f%04d.png"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+  "exit_code": 0,
+  "started_ns": 1794824765063049767,
+  "ended_ns": 1794824765655344195,
+  "log": "qc/v6-finishing/logs/extract-b25-frames.log",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

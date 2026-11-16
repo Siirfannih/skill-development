@@ -1,0 +1,17 @@
+```json
+{
+  "native_images_available": true,
+  "all_panels_inspected": true,
+  "reviewed_sheets": [
+    "s080.0.jpg",
+    "s081.0.jpg",
+    "s082.0.jpg",
+    "s083.0.jpg"
+  ],
+  "coverage_frame_range": [2400, 2492],
+  "observations": "Talking head footage with kinetic/synced typography placed on the right ('share.' -> 'ngebagiin' -> 'ngebagiin apa' -> 'ngebagiin apa yang' -> 'belum' -> 'belum sempurna.'). Video smoothly fades to black starting around frame 2484 through frame 2492. Motion, lip sync continuity, and camera positioning remain clean throughout the cut.",
+  "issues": [],
+  "warnings_adjudicated": [],
+  "uncertainty": "None. All text elements are legible, typography layout is well-balanced without clipping, and the concluding fade-out is clean."
+}
+```

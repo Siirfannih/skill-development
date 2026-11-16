@@ -1,0 +1,26 @@
+```json
+{
+  "listened": true,
+  "windows": [
+    {
+      "label": "residual-08",
+      "source_transcript": "sampai akhirnya aku",
+      "edited_transcript": "sampai akhirnya aku",
+      "words_intact": true,
+      "residual_type": "natural consonant release/breath",
+      "recommendation": "keep",
+      "confidence": 0.95
+    },
+    {
+      "label": "residual-10",
+      "source_transcript": "apa yang aku",
+      "edited_transcript": "apa yang aku",
+      "words_intact": true,
+      "residual_type": "natural consonant release/breath",
+      "recommendation": "keep",
+      "confidence": 0.95
+    }
+  ],
+  "uncertainty": "none"
+}
+```

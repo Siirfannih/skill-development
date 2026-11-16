@@ -1,0 +1,418 @@
+{
+ "path": "edit/v6/sfx/audition/document-end.wav",
+ "start": null,
+ "end": null,
+ "duration": 0.84,
+ "measurements": {
+  "duration": 0.84,
+  "peak_dbfs": -2.2,
+  "true_peak_dbtp": -2.2,
+  "rms_dbfs": -24.3,
+  "lufs": -21.7,
+  "attack_ms": 57.0,
+  "decay_ms": 81.0,
+  "brightness_hz": 3723,
+  "bandwidth_hz": 20480,
+  "flatness": 0.0044,
+  "harmonic_ratio": 0.002,
+  "onset_count": 3,
+  "onsets_per_s": 3.57,
+  "width": "mono",
+  "digital_silence_frac": 0.0427
+ },
+ "shape": "short one-shot (attack 57 ms, decays in 81 ms)",
+ "top_tags": [
+  {
+   "term": "digging in soil",
+   "category": "nature",
+   "z": 3.05,
+   "cosine": 0.2,
+   "verdict": "strong"
+  },
+  {
+   "term": "an old typewriter",
+   "category": "keyboard",
+   "z": 2.75,
+   "cosine": 0.231,
+   "verdict": "plausible"
+  },
+  {
+   "term": "a box lid closing",
+   "category": "foley",
+   "z": 2.58,
+   "cosine": 0.245,
+   "verdict": "plausible"
+  },
+  {
+   "term": "an apple falling on grass",
+   "category": "nature",
+   "z": 2.39,
+   "cosine": 0.186,
+   "verdict": "weak"
+  },
+  {
+   "term": "a body falling on the ground",
+   "category": "impacts",
+   "z": 2.01,
+   "cosine": 0.12,
+   "verdict": "weak"
+  },
+  {
+   "term": "a match being struck",
+   "category": "everyday",
+   "z": 1.97,
+   "cosine": 0.115,
+   "verdict": "no match"
+  },
+  {
+   "term": "a basketball bouncing",
+   "category": "everyday",
+   "z": 1.95,
+   "cosine": 0.173,
+   "verdict": "no match"
+  },
+  {
+   "term": "a metal scrape",
+   "category": "foley",
+   "z": 1.95,
+   "cosine": 0.106,
+   "verdict": "no match"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "crisp hi-hats",
+   "category": "instruments",
+   "z": 2.02,
+   "cosine": 0.167
+  },
+  {
+   "term": "pizzicato strings",
+   "category": "instruments",
+   "z": 1.49,
+   "cosine": 0.128
+  },
+  {
+   "term": "a ukulele",
+   "category": "instruments",
+   "z": 1.4,
+   "cosine": 0.126
+  },
+  {
+   "term": "a cymbal roll",
+   "category": "instruments",
+   "z": 1.38,
+   "cosine": 0.092
+  },
+  {
+   "term": "an acoustic guitar",
+   "category": "instruments",
+   "z": 1.09,
+   "cosine": 0.108
+  },
+  {
+   "term": "a snare roll",
+   "category": "instruments",
+   "z": 0.96,
+   "cosine": 0.012
+  },
+  {
+   "term": "a person coughing",
+   "category": "voice",
+   "z": 0.77,
+   "cosine": -0.04
+  },
+  {
+   "term": "a bass guitar",
+   "category": "instruments",
+   "z": 0.67,
+   "cosine": 0.035
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "a whip pan transition",
+    "z": 1.89,
+    "cosine": 0.191
+   },
+   {
+    "term": "a reverse cymbal swell",
+    "z": 1.77,
+    "cosine": 0.144
+   },
+   {
+    "term": "a tape stop slowing down",
+    "z": 1.59,
+    "cosine": 0.15
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a body falling on the ground",
+    "z": 2.01,
+    "cosine": 0.12
+   },
+   {
+    "term": "a punchy impact hit",
+    "z": 1.64,
+    "cosine": 0.049
+   },
+   {
+    "term": "a metallic clang",
+    "z": 1.63,
+    "cosine": 0.099
+   }
+  ],
+  "ui": [
+   {
+    "term": "an error buzz",
+    "z": 1.85,
+    "cosine": 0.127
+   },
+   {
+    "term": "a camera shutter click",
+    "z": 1.8,
+    "cosine": 0.163
+   },
+   {
+    "term": "a digital glitch",
+    "z": 1.37,
+    "cosine": 0.125
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "an old typewriter",
+    "z": 2.75,
+    "cosine": 0.231
+   },
+   {
+    "term": "a spacebar press",
+    "z": 1.84,
+    "cosine": 0.195
+   },
+   {
+    "term": "an enter key press",
+    "z": 1.5,
+    "cosine": 0.175
+   }
+  ],
+  "foley": [
+   {
+    "term": "a box lid closing",
+    "z": 2.58,
+    "cosine": 0.245
+   },
+   {
+    "term": "a metal scrape",
+    "z": 1.95,
+    "cosine": 0.106
+   },
+   {
+    "term": "a rubber stretch",
+    "z": 1.88,
+    "cosine": 0.134
+   }
+  ],
+  "water": [
+   {
+    "term": "an object plunging into water",
+    "z": 0.67,
+    "cosine": 0.032
+   },
+   {
+    "term": "a water drop",
+    "z": 0.15,
+    "cosine": 0.011
+   },
+   {
+    "term": "ice cubes in a glass",
+    "z": 0.08,
+    "cosine": -0.05
+   }
+  ],
+  "nature": [
+   {
+    "term": "digging in soil",
+    "z": 3.05,
+    "cosine": 0.2
+   },
+   {
+    "term": "an apple falling on grass",
+    "z": 2.39,
+    "cosine": 0.186
+   },
+   {
+    "term": "something falling into bushes",
+    "z": 1.8,
+    "cosine": 0.127
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a triangle hit",
+    "z": 1.81,
+    "cosine": 0.099
+   },
+   {
+    "term": "a doorbell",
+    "z": 0.78,
+    "cosine": 0.062
+   },
+   {
+    "term": "a kalimba note",
+    "z": 0.75,
+    "cosine": 0.039
+   }
+  ],
+  "ambience": [
+   {
+    "term": "a crackling fire",
+    "z": 0.75,
+    "cosine": 0.047
+   },
+   {
+    "term": "an electrical hum",
+    "z": 0.54,
+    "cosine": -0.045
+   },
+   {
+    "term": "an office ambience",
+    "z": 0.26,
+    "cosine": -0.093
+   }
+  ],
+  "everyday": [
+   {
+    "term": "a match being struck",
+    "z": 1.97,
+    "cosine": 0.115
+   },
+   {
+    "term": "a basketball bouncing",
+    "z": 1.95,
+    "cosine": 0.173
+   },
+   {
+    "term": "a sword being drawn",
+    "z": 1.68,
+    "cosine": 0.092
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "funk music",
+    "z": 0.65,
+    "cosine": 0.049
+   },
+   {
+    "term": "jazz music",
+    "z": 0.29,
+    "cosine": -0.016
+   },
+   {
+    "term": "acoustic guitar music",
+    "z": 0.19,
+    "cosine": 0.011
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "suspenseful build-up music",
+    "z": -0.32,
+    "cosine": -0.032
+   },
+   {
+    "term": "aggressive music",
+    "z": -0.47,
+    "cosine": -0.08
+   },
+   {
+    "term": "futuristic music",
+    "z": -0.87,
+    "cosine": -0.085
+   }
+  ],
+  "instruments": [
+   {
+    "term": "crisp hi-hats",
+    "z": 2.02,
+    "cosine": 0.167
+   },
+   {
+    "term": "pizzicato strings",
+    "z": 1.49,
+    "cosine": 0.128
+   },
+   {
+    "term": "a ukulele",
+    "z": 1.4,
+    "cosine": 0.126
+   }
+  ],
+  "voice": [
+   {
+    "term": "a person coughing",
+    "z": 0.77,
+    "cosine": -0.04
+   },
+   {
+    "term": "a woman speaking",
+    "z": 0.66,
+    "cosine": -0.103
+   },
+   {
+    "term": "a man speaking",
+    "z": 0.59,
+    "cosine": -0.124
+   }
+  ],
+  "quality": [
+   {
+    "term": "a metallic sound",
+    "z": 1.17,
+    "cosine": 0.023
+   },
+   {
+    "term": "a punchy sound",
+    "z": 0.85,
+    "cosine": 0.037
+   },
+   {
+    "term": "a dry close sound",
+    "z": 0.71,
+    "cosine": 0.123
+   }
+  ],
+  "production": [
+   {
+    "term": "a real recording of a physical object",
+    "z": 2.43,
+    "cosine": 0.247
+   },
+   {
+    "term": "a distorted clipped recording",
+    "z": 1.35,
+    "cosine": 0.07
+   },
+   {
+    "term": "a retro video game sound effect",
+    "z": 1.26,
+    "cosine": 0.101
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Sound effect",
+   "p": 0.085
+  },
+  {
+   "label": "Scrape",
+   "p": 0.052
+  }
+ ],
+ "character": [],
+ "summary": "0.84 s short one-shot (attack 57 ms, decays in 81 ms). Sounds most like: digging in soil (z +3.0), an old typewriter (z +2.7), a box lid closing (z +2.5) [clear reading]. Other readings: a body falling on the ground (impacts, z +2.0), a match being struck (everyday, z +1.9). AudioSet tagger unsure (Sound effect 0.09, Scrape 0.05). peak -2.2 dBFS, -21.7 LUFS, brightness 3.7 kHz, bandwidth 20.5 kHz, mono."
+}

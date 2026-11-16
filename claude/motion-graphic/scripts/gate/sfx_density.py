@@ -8,7 +8,7 @@ FAIL bila:
   - rentetan   : > 5 cue dalam jendela 2 dtk (rentetan sejenis dibuat satu cue panjang, mis. rattle)
   - dengar     : cue tanpa `dengar` (label earshot describe file itu) — file harus didengar sebelum dipakai
   - peran      : cue tanpa `peran` dan `alasan`
-  - spam       : whoosh < 1 dtk; file sama diulang < 1 dtk (kecuali ketik)
+  - spam       : whoosh < 1 dtk; dua bunyi < 100 ms (Lantai E24, Irfan 16 Nov)
 DILAPORKAN saja (bukan syarat lulus): cakupan event visual dan celah tanpa SFX — beri --min-coverage/--max-gap
 bila kiblat memang padat bunyi.
 
@@ -60,7 +60,7 @@ def load_cues(path):
     return sorted(out, key=lambda c: c["t"])
 
 
-WHOOSH = re.compile(r"whoosh|woosh|swoosh|swish|whip|transisi|transition", re.I)
+WHOOSH = re.compile(r"whoosh|woosh|swoosh|swish|whip", re.I)
 # Batas kata (\b / pemisah nama file) supaya "Business" tidak terbaca "sine" dan "Hollywood" tidak terbaca "wood".
 # laser/sci-fi TIDAK dilarang: `Lasertransision` dan `ES_Scifi…Glitch` adalah fungsi yang Irfan tetapkan (Irfan 16 Nov).
 _B = r"(?:^|(?<=[\s_/.\-(),]))"
@@ -93,19 +93,12 @@ def forbidden_palette_issues(cues):
 
 
 def spam_check(cues):
-    """Batas spam (Irfan 8 Nov): whoosh maks 1 per detik; file sama tidak diulang < 1 dtk kecuali kata kinetik."""
+    """Whoosh dari peran/file/dengar berjarak >= 1 dtk (Lantai E24, Irfan 16 Nov)."""
     issues = []
-    wh = [c for c in cues if WHOOSH.search(c["peran"] + " " + c["file"])]
+    wh = [c for c in cues if WHOOSH.search(f"{c['peran']} {c['file']} {c.get('dengar', '')}")]
     for a, b in zip(wh, wh[1:]):
         if b["t"] - a["t"] < 1.0:
             issues.append(f"whoosh {a['t']:.2f} & {b['t']:.2f} dtk (< 1 dtk)")
-    last = {}
-    for c in cues:
-        f = c["file"]
-        if f and not re.search(r"kata|kinetik|word|typing|ketik", c["peran"], re.I):
-            if f in last and c["t"] - last[f] < 1.0:
-                issues.append(f"file sama {f.split('/')[-1]} di {last[f]:.2f} & {c['t']:.2f} dtk")
-            last[f] = c["t"]
     return issues
 
 

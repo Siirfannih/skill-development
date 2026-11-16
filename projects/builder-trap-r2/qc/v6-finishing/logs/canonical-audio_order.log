@@ -1,0 +1,5 @@
+mode konten: suara✓ -> visual✓ -> sfx✓ -> musik✓
+FAIL:
+  visual: draft.mp4 berubah sejak dikunci -> kunci ulang visual dan semua tahap sesudahnya
+  musik: file /home/irfan/work/skill-development/projects/builder-trap-r2/audio/stem_music.wav hilang
+  suara: bukti words/source_words/cut_map belum dikunci

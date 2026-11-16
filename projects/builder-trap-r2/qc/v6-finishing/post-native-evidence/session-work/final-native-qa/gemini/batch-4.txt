@@ -1,0 +1,41 @@
+```json
+{
+  "native_images_available": true,
+  "all_pairs_inspected": true,
+  "reviewed_sheets": [
+    "pairs-22.jpg",
+    "pairs-23.jpg",
+    "pairs-24.jpg",
+    "pairs-25.jpg",
+    "pairs-26.jpg",
+    "pairs-27.jpg",
+    "pairs-28.jpg"
+  ],
+  "reviewed_full_pairs": [
+    "full-f1926.jpg",
+    "full-f2333.jpg",
+    "full-f2342.jpg",
+    "full-f2343.jpg",
+    "full-f2344.jpg",
+    "full-f2345.jpg",
+    "full-f2346.jpg",
+    "full-f2387.jpg"
+  ],
+  "reviewed_frame_indices": [
+    1901, 1902, 1903, 1904, 1905, 1906, 1907, 1908, 1909, 1910,
+    1911, 1912, 1913, 1914, 1915, 1916, 1917, 1918, 1919, 1920,
+    1921, 1922, 1923, 1924, 1925, 1926, 1927, 1928, 1929, 1930,
+    1931, 1932, 1933, 2331, 2332, 2333, 2334, 2335, 2336, 2337,
+    2338, 2339, 2340, 2341, 2342, 2343, 2344, 2345, 2346, 2347,
+    2348, 2349, 2350, 2351, 2352, 2353, 2354, 2355, 2356, 2357,
+    2358, 2359, 2360, 2361, 2362, 2363, 2364, 2365, 2366, 2367,
+    2368, 2369, 2370, 2371, 2372, 2373, 2374, 2375, 2376, 2377,
+    2378, 2379, 2380, 2381, 2382, 2383, 2384, 2385, 2386, 2387,
+    2388, 2389
+  ],
+  "visible_context_intact": true,
+  "observations": "Inspected all 92 requested frames across sheets pairs-22 through pairs-28 and 8 full pairs (f1926, f2333, f2342, f2343, f2344, f2345, f2346, f2387). Numeric diffs stem from: (1) typographic line-wrapping/tracking and subpixel rendering shifts in UI text cards and headers; (2) minor border subpixel antialiasing/filtering and contrast nuances on embedded app mockups and window frames; (3) slight layout horizontal margins in web mockup post cards. Continuous frame checks (f2331-f2342, f2343-f2346, f2346-f2387) confirm smooth, uninterrupted native motion with no frame drops, teleporting, or clipping. All typography, captions ('gak menjadi siapapun.', 'apa yang aku buat.', 'apa pengalaman', 'yang aku dapatkan.'), and media elements remain intact and legible without missing words, malformed containers, or unintended animation breaks.",
+  "issues": [],
+  "uncertainty": "None. Visual examination confirms all flagged numeric differences are benign rasterization, font-hinting, and subpixel rendering variances inherent to 1080p native downscaling versus 540p reference rendering."
+}
+```

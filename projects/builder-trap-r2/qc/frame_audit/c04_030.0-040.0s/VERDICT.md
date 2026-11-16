@@ -1,27 +1,27 @@
-# VERDICT c04_030.0-040.0s · audit r8d (pemeriksa: subagen Sonnet, paralel, 15 Nov)
+# VERDICT v6 · c04_030.0-040.0s
 
-POTONGAN c04_030.0-040.0s
-Tidak ada masalah yang menggagalkan.
+HASH: 929fc0db5e0a096a
+INFO_SHA256: 21a66374dde2d1adc7c3d7523816e80f2c8a91e6ff77e56a33175c449a1ba772
 
-catatan | 969 | crop wajah + SFX | Ukuran crop wajah berubah di f969 (tanda otomatis LOMPAT 18.4). Tidak ada cue SFX dalam ±0,3 dtk dari 32.30. | Frame 969 ada di daftar crop yang disengaja, jadi tidak digagalkan. Cue kecil boleh ditambah kalau ingin.
-catatan | 901-905 | artefak blur | Saat dorong-masuk dengan motion blur, ada pita vertikal gelap di tepi kiri dan kanan layar. | Sebaiknya tepi diperlebar atau di-clamp. Hanya muncul 3-4 frame.
-catatan | 1046-1049 | transisi | Hampir seluruh layar putih bermozaik biru selama sekitar 4 frame (0,13 dtk). | Wajar sebagai transisi piksel dan ada cue glitch 34.83. Tidak digagalkan.
-catatan | 1141-1146 | tumpukan kartu | Kartu bertumpuk saat papan bergeser. Teks kartu ("disatu", "Dnisatu") tampak terpotong dan bertabrakan sekitar 0,2 dtk. | Berupa latar yang sedang bergerak dan teks narasi tidak tertutup. Boleh dirapikan kalau ada waktu.
-catatan | 1158-1159 | teks narasi | "untuk memahami" hilang 2 frame sebelum "seperti" muncul. | Jeda singkat antar frasa, wajar.
-catatan | 1071-1077 | kecocokan teks | "satu tahun" mulai tampil sekitar 0,13-0,15 dtk setelah kata diucapkan (35.57 dan 35.73). | Masih dalam batas ≤0,2 dtk. Teks lain tampil 0,06-0,11 dtk setelah kata.
-catatan | 30.0-31.7 | teks narasi | Tidak ada teks narasi untuk "investasi waktu pada AI." | Sesuai pengecualian layar Mac (27,8-34,9).
+Lead Codex menerima 10 sheet dengan seluruh sel diperiksa oleh Gemini dan ChatGPT; proof/input exacthash tersedia di qc/v6-finishing/lead-visual/frame-review-index.json. Frame/sheet yang identik di-cache secara jujur dari source429142;3sheet B19 baru diperiksa ulang pada source4965.
 
-Tanda otomatis:
-- f901 LOMPAT 64.5: dorong-masuk dari layar Mac penuh ke ChatGPT dengan motion blur, dengan whoosh 30.12. Disengaja, lolos.
-- f969 LOMPAT 18.4: ganti ukuran crop wajah yang disengaja. Lolos.
-- f969 SFX?: cue tidak ada. Dicatat sebagai catatan di atas, tidak menggagalkan karena frame 969 termasuk crop yang disengaja.
-- f981 LOMPAT 85.4: potong dari wajah ke layar Mac. Cue potong_adegan 32.70 tepat. Lolos.
-- f996 LOMPAT 65.8: dorong-masuk berulang ke ChatGPT dengan whoosh 33.20 tepat. Lolos.
-- f1050 LOMPAT 13.0: mozaik piksel mulai terbuka ke papan. Cue Enter 34.78 dan glitch 34.83 sudah mengiringi. Lolos.
-- f1051 LOMPAT 22.9: papan kartu terlihat jelas. Bagian dari transisi yang sama. Lolos.
+Semua temuan otomatis currentINFO di bawah dipertahankan. Perubahan arsip/UI/caption dan hold baca dinilai dari gambar nyata; SFX? diadili melalui cue/objek dan native audio, bukan mendengar dari strip. P3 cadence tercatat di lead-adjudications.json, tidak dihapus. Native AV full/no-music seluruh83.1s tidak menemukan contextcut/tailcut/pumping/harshness.
 
-Lain-lain yang saya periksa:
-- Cue SFX: thud 31.26 jatuh di f938, saat logo ChatGPT muncul. Ketik 33.43 sejajar dengan huruf pertama di f1003. Pin 35.50 dan 37.73 serta whoosh kamera 39.50 sejajar dengan gerak visualnya. Tidak ada spam, dan suara tidak tertutup SFX atau musik.
-- Teks tampil terbaca utuh dan kontrasnya cukup. "untuk belajar.", "Selama satu tahun", "aku mencoba", "untuk belajar.", "untuk memahami seperti apa", "industri ini." dan "dan" muncul sesuai urutan kata.
+| Frame | Tanda aktual | Disposisi dan alasan |
+|---|---|---|
+| 947 | SFX? potong/gerak besar tanpa cue ±0,30 dtk | accepted_intentional_audio_design: Short mouth/microphone face insert between ChatGPT views. The single composer push and typing are sounded later at their actual events. |
+| 966 | LOMPAT 16.8 (f965→966) | accepted_visual_context: Pose mulut/tangan berubah pada splice pembicara; tidak ada frame rusak atau blank. Framing parsial konsisten. |
+| 966 | SFX? potong/gerak besar tanpa cue ±0,30 dtk | accepted_intentional_audio_design: Original-take pose splice inside speech. Added effects would emphasize the speech edit. |
+| 977 | BEKU 17 f | accepted_visual_context: Cut kembali ke app wide; komposisi stabil17frame sementara cursor bergerak, lalu satu push. Tidak ada freeze dalam blur. |
+| 977 | SFX? potong/gerak besar tanpa cue ±0,30 dtk | accepted_intentional_audio_design: Return to the unchanged wide ChatGPT window. Click/push/typing cues follow their actual actions; no duplicate app-open sound. |
+| 994 | LOMPAT 13.4 (f993→994) | accepted_visual_context: Tahap awal satu push ChatGPT; perubahan gambar mengikuti zoom yang sama. |
+| 995 | LOMPAT 28.4 (f994→995) | accepted_visual_context: Percepatan push ChatGPT dengan motion blur; tidak kembali ke wide. |
+| 996 | LOMPAT 44.4 (f995→996) | accepted_visual_context: Tahap cepat push menuju prompt; tajam kembali sebelum typing1000. |
+| 1052 | LOMPAT 16.3 (f1051→1052) | accepted_visual_context: Mosaic mulai menutup prompt setelah hold teks utuh; bukan flash acak. |
+| 1056 | LOMPAT 24.9 (f1055→1056) | accepted_visual_context: Mosaic selesai menuju wall kartu yang utuh; tidak ada frame kosong. |
+| 1094 | BEKU 8 f | accepted_visual_context: Hold8frame pada wall dengan teks satu tahun/aku masih sharp; bukan plateau blur. |
+| 1103 | LOMPAT 8.0 (f1102→1103) | accepted_visual_context: Pan wall dimulai lagi dalam arah yang konsisten; isi dan teks tetap utuh. |
+
+Putusan hanya penerimaan revisi proyek; canonical/audio_order/numericFAIL yang terdokumentasi tidak berubah. MP4final tetap wajib verifikasi codec/seam/truepeak sebelum kirim.
 
 PUTUSAN: LULUS

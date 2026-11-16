@@ -1,13 +1,14 @@
-// r5 · peta waktu potongan suara v3 (TASK-r5). Murni data (tanpa React) supaya bisa dipakai pengecek kata di node.
-// knots_v3.json: [t_baru, t_lama] detik, interpolasi linear; pasangan berselisih 0,0001 dtk = lompatan (rentang dibuang).
-import K from '../data/knots_v3.json';
+// Peta v6: [detik program, detik adegan lama]. Media wajah memakai frame program langsung.
+import K from '../data/knots_v6.json';
 
 const FPS = 30;
 const KN = (K as unknown as { knots: [number, number][] }).knots;
 const NEW = KN.map((k) => k[0]);
 const OLD = KN.map((k) => k[1]);
 /** durasi timeline baru (frame) */
-export const DUR_V3: number = (K as unknown as { dur_frames: number }).dur_frames;
+export const DUR_V6: number = (K as unknown as { dur_frames: number }).dur_frames;
+// Act4 masih mengimpor nama lama; durasinya tetap berasal dari peta v6.
+export const DUR_V5: number = DUR_V6;
 
 function interp(x: number, xs: number[], ys: number[]): number {
   if (x <= xs[0]) return ys[0] + (x - xs[0]);

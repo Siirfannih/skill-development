@@ -1,0 +1,17 @@
+```json
+{
+  "native_video_available": true,
+  "native_audio_available": true,
+  "entire_duration_reviewed": true,
+  "mode": "voice-sfx-no-music",
+  "sequence_observed": "Archive tech/founder clips; protagonist talking head on non-building fear; social quote like; YouTube flat UI cards search; desktop open ChatGPT zoom & type; animated timeline card graph; dark mood shift; Threads/GitHub draft discard & new repo; cascading private repo stack freeze; monologue on perfectionism trap; profile screen fan-out zoom; return to starting pin 'Jadisatu' card; Threads posting montage; final direct to camera resolution & fade.",
+  "speech_clear": true,
+  "context_intact": true,
+  "tail_cut": false,
+  "pumping": false,
+  "harsh": false,
+  "broad_av_coherence": true,
+  "defects": [],
+  "limits": "Visual sampled up to ~1fps; separate frame-accurate & native WAV audits apply. Audio evaluated natively for voice-sfx-no-music mix balance and story coherence."
+}
+```

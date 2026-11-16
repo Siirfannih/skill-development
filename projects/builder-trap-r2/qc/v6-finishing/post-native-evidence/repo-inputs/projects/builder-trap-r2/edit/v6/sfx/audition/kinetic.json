@@ -1,0 +1,386 @@
+{
+ "path": "projects/builder-trap-r2/edit/v6/sfx/audition/kinetic.wav",
+ "start": null,
+ "end": null,
+ "duration": 0.25,
+ "measurements": {
+  "duration": 0.25,
+  "peak_dbfs": -5.5,
+  "true_peak_dbtp": -5.4,
+  "rms_dbfs": -29.6,
+  "attack_ms": 22.0,
+  "decay_ms": 21.0,
+  "brightness_hz": 3766,
+  "bandwidth_hz": 20480,
+  "flatness": 0.002,
+  "harmonic_ratio": 0.0,
+  "onset_count": 1,
+  "onsets_per_s": 4.0,
+  "width": "mono",
+  "digital_silence_frac": 0.7127
+ },
+ "shape": "short one-shot (attack 22 ms, decays in 21 ms)",
+ "top_tags": [
+  {
+   "term": "a kalimba note",
+   "category": "chimes",
+   "z": 3.03,
+   "cosine": 0.245,
+   "verdict": "strong"
+  },
+  {
+   "term": "a wooden block hit",
+   "category": "foley",
+   "z": 2.83,
+   "cosine": 0.216,
+   "verdict": "plausible"
+  },
+  {
+   "term": "a glass ting",
+   "category": "chimes",
+   "z": 2.16,
+   "cosine": 0.171,
+   "verdict": "weak"
+  },
+  {
+   "term": "a digital glitch",
+   "category": "ui",
+   "z": 2.13,
+   "cosine": 0.179,
+   "verdict": "weak"
+  },
+  {
+   "term": "a soft key release click",
+   "category": "keyboard",
+   "z": 2.1,
+   "cosine": 0.139,
+   "verdict": "weak"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "a marimba",
+   "category": "instruments",
+   "z": 2.24,
+   "cosine": 0.224
+  },
+  {
+   "term": "a plucked synth arpeggio",
+   "category": "instruments",
+   "z": 1.88,
+   "cosine": 0.184
+  },
+  {
+   "term": "a punchy kick drum pattern",
+   "category": "instruments",
+   "z": 1.84,
+   "cosine": 0.061
+  },
+  {
+   "term": "a ukulele",
+   "category": "instruments",
+   "z": 1.58,
+   "cosine": 0.123
+  },
+  {
+   "term": "glitch hop music",
+   "category": "music_genre",
+   "z": 1.23,
+   "cosine": 0.109
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "a stutter glitch transition",
+    "z": 1.57,
+    "cosine": 0.144
+   },
+   {
+    "term": "a fast whoosh",
+    "z": 0.81,
+    "cosine": 0.007
+   },
+   {
+    "term": "a record scratch",
+    "z": 0.74,
+    "cosine": 0.029
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a punchy impact hit",
+    "z": 1.72,
+    "cosine": 0.034
+   },
+   {
+    "term": "a kick drum",
+    "z": 1.44,
+    "cosine": 0.048
+   },
+   {
+    "term": "a snare hit",
+    "z": 0.79,
+    "cosine": -0.037
+   }
+  ],
+  "ui": [
+   {
+    "term": "a digital glitch",
+    "z": 2.13,
+    "cosine": 0.179
+   },
+   {
+    "term": "a chat message pop",
+    "z": 2.02,
+    "cosine": 0.212
+   },
+   {
+    "term": "an error buzz",
+    "z": 1.87,
+    "cosine": 0.105
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "a soft key release click",
+    "z": 2.1,
+    "cosine": 0.139
+   },
+   {
+    "term": "a single mechanical keyboard key press",
+    "z": 1.99,
+    "cosine": 0.17
+   },
+   {
+    "term": "an enter key press",
+    "z": 1.76,
+    "cosine": 0.179
+   }
+  ],
+  "foley": [
+   {
+    "term": "a wooden block hit",
+    "z": 2.83,
+    "cosine": 0.216
+   },
+   {
+    "term": "a bubble pop",
+    "z": 1.88,
+    "cosine": 0.187
+   },
+   {
+    "term": "a mouth pop",
+    "z": 1.56,
+    "cosine": 0.124
+   }
+  ],
+  "water": [
+   {
+    "term": "bubbles underwater",
+    "z": 1.95,
+    "cosine": 0.11
+   },
+   {
+    "term": "a liquid bloop",
+    "z": 1.95,
+    "cosine": 0.166
+   },
+   {
+    "term": "ice cubes in a glass",
+    "z": 1.29,
+    "cosine": 0.057
+   }
+  ],
+  "nature": [
+   {
+    "term": "a horse galloping",
+    "z": 0.86,
+    "cosine": -0.006
+   },
+   {
+    "term": "digging in soil",
+    "z": -0.52,
+    "cosine": -0.181
+   },
+   {
+    "term": "insects buzzing",
+    "z": -0.79,
+    "cosine": -0.155
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a kalimba note",
+    "z": 3.03,
+    "cosine": 0.245
+   },
+   {
+    "term": "a glass ting",
+    "z": 2.16,
+    "cosine": 0.171
+   },
+   {
+    "term": "a triangle hit",
+    "z": 1.22,
+    "cosine": 0.018
+   }
+  ],
+  "ambience": [
+   {
+    "term": "a city street with traffic",
+    "z": 0.67,
+    "cosine": -0.086
+   },
+   {
+    "term": "a busy cafe",
+    "z": 0.13,
+    "cosine": -0.173
+   },
+   {
+    "term": "a crowd cheering",
+    "z": 0.05,
+    "cosine": -0.137
+   }
+  ],
+  "everyday": [
+   {
+    "term": "an alarm clock beeping",
+    "z": 1.53,
+    "cosine": 0.062
+   },
+   {
+    "term": "a basketball bouncing",
+    "z": 1.35,
+    "cosine": 0.09
+   },
+   {
+    "term": "a clock ticking",
+    "z": 1.3,
+    "cosine": 0.064
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "glitch hop music",
+    "z": 1.23,
+    "cosine": 0.109
+   },
+   {
+    "term": "chiptune video game music",
+    "z": 0.9,
+    "cosine": 0.067
+   },
+   {
+    "term": "cheerful ukulele music",
+    "z": 0.76,
+    "cosine": 0.043
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "playful and quirky music",
+    "z": 0.73,
+    "cosine": 0.072
+   },
+   {
+    "term": "celebratory and joyful music",
+    "z": 0.31,
+    "cosine": -0.014
+   },
+   {
+    "term": "futuristic music",
+    "z": -0.24,
+    "cosine": -0.025
+   }
+  ],
+  "instruments": [
+   {
+    "term": "a marimba",
+    "z": 2.24,
+    "cosine": 0.224
+   },
+   {
+    "term": "a plucked synth arpeggio",
+    "z": 1.88,
+    "cosine": 0.184
+   },
+   {
+    "term": "a punchy kick drum pattern",
+    "z": 1.84,
+    "cosine": 0.061
+   }
+  ],
+  "voice": [
+   {
+    "term": "a man shouting",
+    "z": 0.49,
+    "cosine": -0.151
+   },
+   {
+    "term": "people laughing",
+    "z": 0.48,
+    "cosine": -0.16
+   },
+   {
+    "term": "a person coughing",
+    "z": 0.32,
+    "cosine": -0.098
+   }
+  ],
+  "quality": [
+   {
+    "term": "a dry close sound",
+    "z": 1.83,
+    "cosine": 0.217
+   },
+   {
+    "term": "a punchy sound",
+    "z": 1.03,
+    "cosine": 0.039
+   },
+   {
+    "term": "a tight snappy sound",
+    "z": 0.94,
+    "cosine": 0.042
+   }
+  ],
+  "production": [
+   {
+    "term": "a cheap synthesized beep",
+    "z": 3.31,
+    "cosine": 0.231
+   },
+   {
+    "term": "an 8-bit sound effect",
+    "z": 2.83,
+    "cosine": 0.229
+   },
+   {
+    "term": "a square wave chiptune blip",
+    "z": 2.59,
+    "cosine": 0.183
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Sound effect",
+   "p": 0.104
+  },
+  {
+   "label": "Beep, bleep",
+   "p": 0.081
+  },
+  {
+   "label": "Music",
+   "p": 0.076
+  },
+  {
+   "label": "Speech",
+   "p": 0.056
+  }
+ ],
+ "character": [],
+ "summary": "0.25 s short one-shot (attack 22 ms, decays in 21 ms). Sounds most like: a kalimba note (z +3.0), a wooden block hit (z +2.8), a glass ting (z +2.1) [clear reading]. Other readings: a digital glitch (ui, z +2.1), a soft key release click (keyboard, z +2.1). AudioSet tagger unsure (Sound effect 0.10, Beep, bleep 0.08, Music 0.08). peak -5.5 dBFS, brightness 3.8 kHz, bandwidth 20.5 kHz, mono."
+}

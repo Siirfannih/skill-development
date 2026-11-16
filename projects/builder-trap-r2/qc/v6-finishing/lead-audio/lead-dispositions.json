@@ -1,0 +1,105 @@
+{
+  "authority": "lead",
+  "scope": "Exact frozen mix/VO hashes only; raw machine FAILs preserved, no canonical audio_order PASS",
+  "mix_sha256": "a36a2819723fb7f76dc2d8bef2b24e6ac98ec78a6555ed440d0a5aabe4452e02",
+  "voice_sha256": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f",
+  "evidence_sha256": {
+    "qc/v6-finishing/lead-audio/acceptance.json": "1443561bfe00ce495a66647ce8eba41ed0801c8550cc3c24e204a6ec64f6873f",
+    "qc/v6-finishing/lead-audio/acceptance.md": "2503d1cc092052683d150c03477396f39c6cc357a0991fc496acbce80f0af27d",
+    "qc/v6-finishing/lead-audio/audio-qa-module5.json": "57ed981cf018236e6f73b699e6b625b196149855298f49cbb17e29d2b347b5a1",
+    "qc/v6-finishing/lead-audio/voice-fidelity.json": "d1d41f5326ad60ebc4d81c8ca98d8aff3422d9cb415f89283933fb5a1c233da5",
+    "qc/v6-audit/sfx-phone-v6.log": "1d574811b8e55669a0079de6f2d3a639cc493670edf392728410a6f786b659ab",
+    "qc/v6-audit/sfx-v6-measurements.json": "4a5fcf071e45970909b88e75f815cdb86ceb54272ae09eb266fa126b480ec4e7"
+  },
+  "module5_dispositions": [
+    {
+      "finding": "I -18.6 (target −14,0…−14,5)",
+      "machine_status": "FAIL",
+      "lead_disposition": "ACCEPT_FOR_THIS_PROJECT",
+      "reason": "R-033: Irfan memilih dinamika alami dengan musik/SFX menyesuaikan. VO hanya gain positif tanpa kompresi/limiter. Mencapai target default memerlukan pengurangan crest yang bertentangan dengan pilihan tersebut. Target loudness lama tetap FAIL numerik."
+    },
+    {
+      "finding": "sub 6.4 % (target 25–55)",
+      "machine_status": "FAIL",
+      "lead_disposition": "ACCEPT_FOR_THIS_PROJECT",
+      "reason": "Adjudikasi sinyal spektrum mix: konten suara asli dan Aware yang dipilih R-003/R-015 dominan low-mid. Rasio udara VO0,97 dan LRA turun0,4LU; native seluruh83,1s menilai jelas. Menambah sub/mengikis low-mid demi rasio genre tidak dibutuhkan oleh defect aktual. Berlaku hanya mix hash ini; bukan PASS numerik."
+    },
+    {
+      "finding": "low-mid 59.6 % (target < 42)",
+      "machine_status": "FAIL",
+      "lead_disposition": "ACCEPT_FOR_THIS_PROJECT",
+      "reason": "Adjudikasi sinyal spektrum mix: konten suara asli dan Aware yang dipilih R-003/R-015 dominan low-mid. Rasio udara VO0,97 dan LRA turun0,4LU; native seluruh83,1s menilai jelas. Menambah sub/mengikis low-mid demi rasio genre tidak dibutuhkan oleh defect aktual. Berlaku hanya mix hash ini; bukan PASS numerik."
+    },
+    {
+      "finding": "VO act1 -18.3 LUFS (target −14 ±1)",
+      "machine_status": "FAIL",
+      "lead_disposition": "ACCEPT_FOR_THIS_PROJECT",
+      "reason": "R-033: Irfan memilih dinamika alami dengan musik/SFX menyesuaikan. VO hanya gain positif tanpa kompresi/limiter. Mencapai target default memerlukan pengurangan crest yang bertentangan dengan pilihan tersebut. Target loudness lama tetap FAIL numerik."
+    },
+    {
+      "finding": "VO act2 -18.6 LUFS (target −14 ±1)",
+      "machine_status": "FAIL",
+      "lead_disposition": "ACCEPT_FOR_THIS_PROJECT",
+      "reason": "R-033: Irfan memilih dinamika alami dengan musik/SFX menyesuaikan. VO hanya gain positif tanpa kompresi/limiter. Mencapai target default memerlukan pengurangan crest yang bertentangan dengan pilihan tersebut. Target loudness lama tetap FAIL numerik."
+    },
+    {
+      "finding": "VO act3 -19.4 LUFS (target −14 ±1)",
+      "machine_status": "FAIL",
+      "lead_disposition": "ACCEPT_FOR_THIS_PROJECT",
+      "reason": "R-033: Irfan memilih dinamika alami dengan musik/SFX menyesuaikan. VO hanya gain positif tanpa kompresi/limiter. Mencapai target default memerlukan pengurangan crest yang bertentangan dengan pilihan tersebut. Target loudness lama tetap FAIL numerik."
+    },
+    {
+      "finding": "VO act4 -18.3 LUFS (target −14 ±1)",
+      "machine_status": "FAIL",
+      "lead_disposition": "ACCEPT_FOR_THIS_PROJECT",
+      "reason": "R-033: Irfan memilih dinamika alami dengan musik/SFX menyesuaikan. VO hanya gain positif tanpa kompresi/limiter. Mencapai target default memerlukan pengurangan crest yang bertentangan dengan pilihan tersebut. Target loudness lama tetap FAIL numerik."
+    },
+    {
+      "finding": "musik di bawah VO -35.2 LUFS (target −22…−25)",
+      "machine_status": "FAIL",
+      "lead_disposition": "ACCEPT_FOR_THIS_PROJECT",
+      "reason": "Lead menerapkan arahan R-033 musik/SFX menyesuaikan suara alami pada bed: −35,2LUFS dipilih untuk kejernihan (5jendela<8dB vs19 sebelum attenuasi), native fullmix seimbang. Target absolut lama tetapFAIL; tidak dipaksa dengan kompresi VO."
+    },
+    {
+      "finding": "SFX shutter median puncak -14.0 dBFS (target (-21, -16))",
+      "machine_status": "FAIL",
+      "lead_disposition": "ACCEPT_FOR_THIS_PROJECT",
+      "reason": "Kelas legacy mengukur maksimum bus gabungan250ms, bukan peak percue/relasi perseptual VO. Semua8review native konteks tidak melaporkan harshness, modelphone0harsh. Onset/peak/tail tetap diperiksa terpisah. Adjudikasi hanya hash ini; tidak mengubah ambang global."
+    },
+    {
+      "finding": "SFX text_pop median puncak -12.0 dBFS (target (-20, -16))",
+      "machine_status": "FAIL",
+      "lead_disposition": "ACCEPT_FOR_THIS_PROJECT",
+      "reason": "Kelas legacy mengukur maksimum bus gabungan250ms, bukan peak percue/relasi perseptual VO. Semua8review native konteks tidak melaporkan harshness, modelphone0harsh. Onset/peak/tail tetap diperiksa terpisah. Adjudikasi hanya hash ini; tidak mengubah ambang global."
+    }
+  ],
+  "e24_level": {
+    "machine_status": "62/63 nominal absolute peak targets below legacy −4…−10dB gain range; not a numeric PASS",
+    "lead_disposition": "ACCEPT_FOR_THIS_PROJECT",
+    "authority_basis": "R-033 user chose natural dynamics with music/SFX adapting; lead applies this to bed gain",
+    "reason": "Final percue gains give VO clarity19.3dB median,5windows<8dB,0harsh; all majorcamera/card/impactaudible50%. Keep63cues/83.1s,10consistent sources. Loudness preset must not override user natural-voice balance. Explicit local editorial decision; canonical outcomes unchanged."
+  },
+  "phone_predictor": {
+    "audible_100": 46,
+    "audible_50": 46,
+    "audible_20": 38,
+    "total_cues": 63,
+    "lead_disposition": "ACCEPT_CONTEXTUAL_MIX",
+    "reason": "17minortransient/UI cue failures50% fixed160ms detector retained (shortclickdilution/speechmasking). Major motion predictor passes and8nativecontextjobs support clarity/tails. Does not claim all63predictor PASS or physicalphone test."
+  },
+  "diagnostics": {
+    "abrupt_rms_drops": 108,
+    "silent_100ms_windows": [
+      41.2,
+      56.3,
+      57.8,
+      57.9
+    ],
+    "lead_disposition": "ACCEPT_CONTEXTUAL_NONZERO_BED",
+    "reason": "Diagnostic RMS falls do not prove cut phoneme/tail. Phrase/cut provenance,63cueenvelopes,andnativecontexts validate content. Musicnonzeroeachquietwindow; no native dropout/tailcut/pumping. Counts unchanged."
+  },
+  "accepted_for_audio_phase": true,
+  "final_aac_true_peak_pending": true,
+  "visual_and_av_alignment_pending": true,
+  "created_ns": 1794824915088087475
+}

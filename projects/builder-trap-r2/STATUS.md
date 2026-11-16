@@ -1,18 +1,12 @@
-# STATUS · builder-trap-r2 (diperbarui 15 Nov 22.40)
+# STATUS · Builder Trap R2 v6 · 16 Nov 2026
 
-## Akses jalur (orkestrasi.md §2, dicek 15 Nov 22.38 di node-c-pc)
-- Codex: `~/.local/bin/codex`, login ChatGPT, `codex exec` OK → jalur builder + pemeriksa ChatGPT (jalur QC terpisah `-l qc-builder-trap-r2`).
-- Gemini: `~/.local/bin/agy` ada di PC (bukan hanya Mac), `agy -p … --output-format text` OK → pemeriksa Gemini.
-- GPU: Radeon RX 6600 (Navi 23) + Vega iGPU; 8 thread terlihat, RAM 29 GB. `npx remotion gpu` / uji `--gl` belum dijalankan.
-- Disk: 16 GB kosong (22.38).
-
-## Posisi
-- v4: audit frame per frame 9/9 LULUS (pemeriksa subagen Sonnet — orkestrasi.md belum ada saat audit; mulai revisi berikutnya: Gemini + ChatGPT paralel, Sonnet hanya cadangan).
-- v4 DIKIRIM 15 Nov 23.50: Drive `Claude edit/builder-trap-r2/builder-trap-r2_v4.mp4`, 2501 frame, −14,9 LUFS (`DELIVERY-v4.md`). Kunci render dilepas, work-27 dikabari.
-- Menunggu umpan balik Irfan.
-
-## Ukuran (§9)
-- Ronde: r7 (B12–B13) 7 subronde; audit frame: v3 → r8 → r8b → r8c → r8d → r8e (5 putaran ulang).
-- Pemeriksa: subagen Sonnet, 9 + 9 + 9 + 3 + 3 + 1 panggilan; Sutradara memutus 4 kali (frame basi f611, kartu "sesuatu", pita sidebar f901, crop B13).
-- Render final penuh: gagal 3× karena disk (v3 2×, v4 1×); v4 per 3 rentang: 22.23–23.36 (±73 menit untuk 83 dtk, konkurensi 1), sambung filter concat ±10 menit.
-- Kuota: tidak tercatat di awal video (catat mulai video berikutnya).
+V6 final terkirim ke Claude edit: 1920×1080 / 30 fps / 2493 frame / 83,1 detik; 76.725.360 byte.
+Video: https://drive.google.com/file/d/1126rFqqlBWw5d2-hm_fKWm0KaXckv0fK/view?usp=drivesdk
+SHA-256: f00c0201c7de748c3abf42085d1d85ecc9e2fc03841189347e05db09c7ccd074
+Dasar v5 r3: ujung ucapan/konteks dipulihkan, jeda berpikir dipadatkan; dummy vektor pada referensi YouTube/Threads, UI aplikasi tetap asli.
+ChatGPT satu push→typing→transisi; kamera B19 dan envelope/tail SFX diperbaiki. R032/R033: suara alami tanpa kompresi/limiter.
+QA acuan: Gemini+ChatGPT 84 sheet/2493 frame, 70 still dan 85 flag; native AV/audio sepanjang 83,1 detik.
+Ekspor: decode/blank/audio/48 frame seam lolos; peak −1,097 dBTP, lag audio 0. Tulisan f1083 diperbaiki eksplisit; 299 frame planar YUV lain dan delapan chunk dipertahankan.
+Pembanding 540–1080 tetap FAIL pada 301 frame, diterima terpisah lewat disposisi visual dan chunk asli identik; f1082–1084 aktual lolos dual review+ROI.
+Batas: FAIL source/cut/level/order dan 10 Modul 5 tetap tersimpan; 17/63 cue kecil FAIL prediktor 50%; beberapa hold minor; chroma/profile repair berbeda, tanpa klaim RGB identik.
+Bukti: qc/v6-finishing/final-export-closure-v3.json dan drive-delivery.json; kode/bukti pada https://github.com/Siirfannih/skill-development/pull/8 ; Perlu keputusan: —.

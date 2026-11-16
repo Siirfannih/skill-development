@@ -1,0 +1,250 @@
+{
+  "n_cues": 63,
+  "n_objects": 101,
+  "silent": 7,
+  "object_missing": [],
+  "min_actual_onset_gap_seconds": 0.11706250000000296,
+  "max_onsets_2s": 5,
+  "min_camera_onset_gap_seconds": 2.0139375000000044,
+  "max_peak_error_frames": 0.9325000000003456,
+  "peak_time_changes_seconds_vs_v5": [],
+  "role_source_counts": {
+    "footage_change": 1,
+    "camera": 1,
+    "title": 1,
+    "mosaic": 1,
+    "card_motion": 1,
+    "screen_entry": 1,
+    "ui_click": 1,
+    "typing": 1,
+    "ui_confirm": 1,
+    "impact": 1
+  },
+  "source_role_counts": {
+    "/home/irfan/sfx/SFXIrfan/Pergantianfoto.mp3": 1,
+    "/home/irfan/sfx/SFXIrfan/Wooshcameramovementtransisi.mp3": 1,
+    "/home/irfan/sfx/SFXIrfan/ES_Scifi, Computer, Short Beeps, Glitch 02 - Epidemic Sound.mp3": 1,
+    "/home/irfan/sfx/SFXIrfan/Cut.mp3": 1,
+    "/home/irfan/sfx/SFXIrfan/pop up.mp3": 1,
+    "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3": 1,
+    "/home/irfan/sfx/SFXIrfan/Enter.mp3": 1,
+    "/home/irfan/sfx/SFXIrfan/Keyboardtyping.mp3": 1,
+    "/home/irfan/sfx/SFXIrfan/Lasertransision.mp3": 1,
+    "/home/irfan/sfx/SFXIrfan/Move.mp3": 1
+  },
+  "gain_changes": [
+    {
+      "frame": 268,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -17
+    },
+    {
+      "frame": 460,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -17
+    },
+    {
+      "frame": 996,
+      "role": "camera",
+      "before_db": -16,
+      "after_db": -18
+    },
+    {
+      "frame": 1071,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -17
+    },
+    {
+      "frame": 1168,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -20
+    },
+    {
+      "frame": 1214,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -17
+    },
+    {
+      "frame": 1535,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -20
+    },
+    {
+      "frame": 1555,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -17
+    },
+    {
+      "frame": 1575,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -17
+    },
+    {
+      "frame": 1594,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -20
+    },
+    {
+      "frame": 1615,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -17
+    },
+    {
+      "frame": 1635,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -20
+    },
+    {
+      "frame": 1650,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -17
+    },
+    {
+      "frame": 2267,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -20
+    },
+    {
+      "frame": 2301,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -22
+    },
+    {
+      "frame": 2335,
+      "role": "card_motion",
+      "before_db": -14,
+      "after_db": -20
+    }
+  ],
+  "mix_sum_max_error": 5.960464477539063e-08,
+  "clips": {
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/footage_change.wav": {
+      "sha256": "26041974af2848bf47ce1be02c44d2c9e6eabd168394b90bdb883f0cb189fe97",
+      "first": 0.0,
+      "last": 0.0,
+      "tail10ms_dbfs": -240.0
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/camera_gm16_0_9.wav": {
+      "sha256": "be34fd4270270a690a67317e104ca7d7b20520efeb835e099faa6ce6f11a4dd4",
+      "first": 0.0,
+      "last": -2.428518341780274e-38,
+      "tail10ms_dbfs": -126.2474365234375
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/title.wav": {
+      "sha256": "f40ffd19d46166fbb5eebbb6b49aa7c554587eff585db678fa52f9cb25b1222a",
+      "first": -0.0,
+      "last": 6.797909045209336e-40,
+      "tail10ms_dbfs": -124.75997924804688
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/mosaic.wav": {
+      "sha256": "7e83a03919229c4728ad6a1a0ba67a06e15a99219a41c37069ee2f78849fc866",
+      "first": -0.0,
+      "last": 0.0,
+      "tail10ms_dbfs": -240.0
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/card_motion_gm17.wav": {
+      "sha256": "e06d3db71111bdea48e2cbe452d495211872c57c078405a61e66b728d214c7c0",
+      "first": -0.0,
+      "last": 0.0,
+      "tail10ms_dbfs": -240.0
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/screen_entry.wav": {
+      "sha256": "f8dc11ea380db36bc0462c8040af02cd93959e663c882bcf970c0671e617c733",
+      "first": 0.0,
+      "last": -1.2637245862912638e-39,
+      "tail10ms_dbfs": -126.21402740478516
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/card_motion_gm14.wav": {
+      "sha256": "a367083ef45095bafeb29761c286e17c1b958ef2ad3749b0113f522e2abd9c12",
+      "first": -0.0,
+      "last": 0.0,
+      "tail10ms_dbfs": -240.0
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/camera_gm16_0_99.wav": {
+      "sha256": "8864d42b01a5d1abcb407161f8d4df62bc6574db7c964f0389c96b4160651163",
+      "first": 0.0,
+      "last": -2.428518341780274e-38,
+      "tail10ms_dbfs": -126.2474365234375
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/ui_click.wav": {
+      "sha256": "eaa6b6cb2fcae81c27ec1a4963b88f9221fb64750ca48e9771223dca34c2ca47",
+      "first": -0.0,
+      "last": 4.3137810146514104e-39,
+      "tail10ms_dbfs": -84.06517791748047
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/camera_gm18_1_12.wav": {
+      "sha256": "529ed210c524e0e1fc577695849d4d318a5c2d692a1e17b5957b5d04fb07dbf6",
+      "first": -0.0,
+      "last": -1.9290406381951078e-38,
+      "tail10ms_dbfs": -128.24742126464844
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/typing.wav": {
+      "sha256": "10d2735887f380d1ec7a2e1e09dcd07bdaa0b278fe5078047f2b9efbc60dc20d",
+      "first": 0.0,
+      "last": -1.3347006898209473e-36,
+      "tail10ms_dbfs": -83.1778793334961
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/card_motion_gm20.wav": {
+      "sha256": "09d069afe85238c4ff12c730c0ea7f6a6e77b24fe4d7763f69aa6057e0ae96b5",
+      "first": -0.0,
+      "last": 0.0,
+      "tail10ms_dbfs": -240.0
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/camera_gm16_1_12.wav": {
+      "sha256": "5d98908eb4451a9afc4859f7bbfac18cf442648b5251d2cffc2ec1adddc2eda5",
+      "first": -0.0,
+      "last": -2.428518341780274e-38,
+      "tail10ms_dbfs": -126.2474365234375
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/typing_short.wav": {
+      "sha256": "bb6ccc1aeb80e70568a784349cf590d230d583f1e3617259859311a2240b839e",
+      "first": 0.0,
+      "last": -1.9373557078642693e-36,
+      "tail10ms_dbfs": -59.72519302368164
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/ui_confirm.wav": {
+      "sha256": "99178baa3c6831f3a6651ffc7fe69116ed1ddd87b2b00965848f323edb66f324",
+      "first": 0.0,
+      "last": 0.0,
+      "tail10ms_dbfs": -240.0
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/camera_gm16_1_15.wav": {
+      "sha256": "a59ae454ee043325a72c1098601c18db435158307239985e7496338143a01ded",
+      "first": -0.0,
+      "last": -2.428518341780274e-38,
+      "tail10ms_dbfs": -126.2474365234375
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/impact.wav": {
+      "sha256": "5e58aa553c0bce1a05e785821a87bebdd69eb6abb749b9b7e6709febaada19c1",
+      "first": -0.0,
+      "last": 5.093091687693184e-37,
+      "tail10ms_dbfs": -98.6343002319336
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/card_motion_gm14_polarity.wav": {
+      "sha256": "0cac476360f404e64d4fc414e61754d3b6738e6a1563bcfc68f41f268b94580c",
+      "first": 0.0,
+      "last": -0.0,
+      "tail10ms_dbfs": -240.0
+    },
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/clips/card_motion_gm22.wav": {
+      "sha256": "85d60ab537acba3b14877b67c5b1d7a1075a6136b13dfca42d3b7ca413cf804f",
+      "first": -0.0,
+      "last": 0.0,
+      "tail10ms_dbfs": -240.0
+    }
+  }
+}

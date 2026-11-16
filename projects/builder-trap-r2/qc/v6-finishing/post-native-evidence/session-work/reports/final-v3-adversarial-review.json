@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "created_ns": 1794839714414929036,
+  "reviewer": "ChatGPT / adversarial_plan",
+  "disposition": "NO_STOP_SHIP_FINDING_WITHIN_SCOPED_PROJECT_ACCEPTANCE",
+  "closure_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/final-export-closure-v3.json",
+  "closure_sha256": "bea368bda138454a1962a7620ddabca7564ee24d8b8bb7a4b4f20528c476473d",
+  "candidate_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/out/builder-trap-r2_v6.mp4",
+  "candidate_sha256": "f00c0201c7de748c3abf42085d1d85ecc9e2fc03841189347e05db09c7ccd074",
+  "checks": [
+    {
+      "name": "Closure exact supplied identity",
+      "pass_": true
+    },
+    {
+      "name": "Actual local final exact identity and size",
+      "pass_": true
+    },
+    {
+      "name": "Every closure proof leaf still matches actual bytes",
+      "pass_": true,
+      "detail": {
+        "manifest_entries": 5692,
+        "unique_paths": 5686,
+        "mismatches": []
+      }
+    },
+    {
+      "name": "All frozen pins and closure implementation unchanged",
+      "pass_": true
+    },
+    {
+      "name": "Raw comparator keeps exact301 old failures minus repaired1083",
+      "pass_": true
+    },
+    {
+      "name": "Current candidate shared by all main proof roots",
+      "pass_": true
+    },
+    {
+      "name": "Every current numeric failure has exact scoped unchanged native chunk",
+      "pass_": true
+    },
+    {
+      "name": "Blank and comparison cover every index0..2492",
+      "pass_": true
+    },
+    {
+      "name": "Final1920x1080/30/2493/83.1 and audio duration",
+      "pass_": true
+    },
+    {
+      "name": "All8 boundaries48 frames with passing recorded seam metrics",
+      "pass_": true
+    },
+    {
+      "name": "AAC and five-window audio metrics retained",
+      "pass_": true
+    },
+    {
+      "name": "Final assembly command unchanged from originally reviewed export",
+      "pass_": true
+    },
+    {
+      "name": "Actual third native derivation correctly bound",
+      "pass_": true
+    },
+    {
+      "name": "Both actual image review reports complete and exact",
+      "pass_": true
+    },
+    {
+      "name": "Actual fixed caption ROI passes3 while historical negatives reject",
+      "pass_": true
+    },
+    {
+      "name": "Exact one-frame preconcat repair and eight original chunks",
+      "pass_": true
+    },
+    {
+      "name": "Scoped claims preserve numerical/canonical failure and limitations",
+      "pass_": true
+    }
+  ],
+  "stop_ship_findings": [],
+  "scope": "Read-only actual closure and supporting proof integrity/consistency review. No re-export, media decode, gate change, closure execution or new fixture tests. Historical reviews not repeated. Third images assessed through bound actual dual-review reports; this reviewer makes no fresh image/hearing claim.",
+  "metrics": {
+    "frames": 2493,
+    "duration_seconds": 83.1,
+    "raw_numeric_failed_frames": 301,
+    "scoped_dispositions": 301,
+    "roi_min_corr": 0.9986991895851045,
+    "roi_max_mae": 1.0909185185185186,
+    "roi_min_blue_fraction": 1.0081571499916764,
+    "aac_truepeak_dbtp": -1.0973697829295257,
+    "minimum_seam_psnr_db": 50.493924375138235
+  },
+  "limitations": [
+    "This is scoped project acceptance; raw fixed-comparator301 failures and canonical/audio-order failures remain explicit.",
+    "Historical407 native paired-frame review plus exact original chunk reuse is a transfer of bounded visual evidence, not a fresh complete2493 native-frame human review.",
+    "Raw299 preconcat YUV equality is not RGB reconstruction equivalence; chroma_location center-to-left difference is recorded, actual final ROI/dual visual review covers1082\u20131084.",
+    "Whole160x90 metric demonstrably missed caption loss; retained negative-control failure is not an acceptance proof.",
+    "Remote upload was not independently fetched in this review; parent reports metadata readback without remote checksum. No remote byte-SHA verification is claimed."
+  ],
+  "proof_root_hashes": {
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/final-verification.json": "066e31eb7b2dcd6f9e9d9c92f1949508d4d644442d5f0ca71f57715fb182f1fa",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/final-all-frame-scan.json": "d0e71eb2588df21e6c6e592fa7a96d54040b1194cf6e08aa82f4e495363b6358",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/seam-verification.json": "d192c5716f85f9104a031127ca5e00704e6932ee07d6fbe425a793946d0ce1c6",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/audio-correspondence.json": "cf456570dbaa1b860297f37b5c279217760e8a9ca775006e9dfa8a38d92956d3",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/aac-truepeak.json": "983e00f07fde54aba55c9f4db0b45ad140b4d4d13ddb92cfdb084071adb59e78",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/final-all-frame-correspondence-additive.json": "732cc31c63e08373ebd23c109f2922f0be770acc19db373d7adc4707e0f44f8e",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/final-visual-disposition-additive.json": "3d97ea79a05f1176a5effae6f7826e1d10edbea08e9ac1ce0ddd0fd2eec2d773",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/single-frame-repair.json": "12772314ccc15c58fca2ff7556bc1a7961e1eec5b69380bc858db42625c52508",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/manifest.json": "1bc5f896c26cb013de2ff3517d2755dc25c7d410786e7409a32d64e553a4c107",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/chatgpt-review.json": "1bea925dfefc8879f478d2de5dd2e54f776de4ad5e3748b1030069512a124344",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/gemini-review.json": "f40745daf43138cca567ac84ad8cbd6a7f87e0f2222981e223f89d98bea0caee",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/roi-check.json": "10fb9b6b43be4850ec309984af8f09c21c74a51e55d6ce90c13251249e6966ad"
+  }
+}

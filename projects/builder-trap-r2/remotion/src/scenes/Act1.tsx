@@ -7,7 +7,6 @@ import { TextBlocks } from '../engine/TextLayer';
 import { Face } from '../engine/Face';
 import { keBaru } from '../engine/timewarp';
 import { Paper } from '../engine/Surfaces';
-import { Cursor } from '../engine/Cursor';
 import { PixelMosaic } from '../engine/Transitions';
 import { C, prog, lerp, W, EASE } from '../engine/theme';
 import type { SceneEntry } from '../engine/scenes';
@@ -117,32 +116,18 @@ const B04: React.FC = () => (
   </Stage>
 );
 
-// ---------- B05: kartu judul J + kursor ragu ----------
+// ---------- B05: kartu judul J ----------
 const b05Cam = camPath([{ f: F_B05[0], zoom: 1 }, { f: F_B05[1], zoom: 1.04, ease: 'smooth' }], { sigma: 0 });
-const B05: React.FC = () => {
-  const f = useCurrentFrame();
-  // kursor: masuk 8,33 dtk dari kanan bawah SETELAH judul utuh (f236), berhenti di ujung kanan kata (huruf terakhir,
-  // bukan tengah judul), ragu, lalu keluar frame tanpa klik saat "buat." (8,92). r3a F-v1-06: tidak diam di tengah judul.
-  const pIn = prog(f, 250, 262, 'out');
-  const pOut = prog(f, 271, 287, 'inOut');
-  const hoverX = 1688, hoverY = 532;
-  const wob = f >= 262 && f < 271 ? Math.sin((f - 262) * 1.9) * 2 : 0;
-  const cx = lerp(lerp(1960, hoverX, pIn), 2010, pOut) + wob;
-  const cy = lerp(lerp(1010, hoverY, pIn), 1000, pOut) + (f >= 262 && f < 271 ? Math.cos((f - 262) * 2.3) * 1.5 : 0);
-  return (
-    <Stage pose={b05Cam} bg={C.paper}>
-      <Layer z={-260} name="L1">
-        <Paper color={C.paper} />
-      </Layer>
-      <Layer z={30} name="L3">
-        <TextBlocks blocks={txt('B05')} />
-      </Layer>
-      <Layer z={80} name="L4">
-        {f >= 250 && f < 288 ? <Cursor x={cx} y={cy} size={104} /> : null}
-      </Layer>
-    </Stage>
-  );
-};
+const B05: React.FC = () => (
+  <Stage pose={b05Cam} bg={C.paper}>
+    <Layer z={-260} name="L1">
+      <Paper color={C.paper} />
+    </Layer>
+    <Layer z={30} name="L3">
+      <TextBlocks blocks={txt('B05')} />
+    </Layer>
+  </Stage>
+);
 
 export const ACT1: SceneEntry[] = [
   { id: 'S-arsip', beats: 'B01–B03', from: F_ARCH[0], to: F_ARCH[1], Comp: Archive },

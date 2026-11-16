@@ -1,0 +1,11 @@
+{
+  "source_guard_min_ms": 0.0,
+  "source_frames_exact": true,
+  "output_samples": 3988800,
+  "output_frames": 2493,
+  "audio_frame_exact": true,
+  "scene_time_monotonic": true,
+  "face_playback_no_reset": true,
+  "knots_duration_frames": 2493,
+  "no_time_stretch": true
+}

@@ -1,0 +1,1581 @@
+{
+  "pass_": true,
+  "failures": [],
+  "words": [
+    {
+      "w": "Semua",
+      "s": 0.0,
+      "e": 0.74,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "orang",
+      "s": 0.74,
+      "e": 0.94,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "bisa",
+      "s": 1.12,
+      "e": 1.26,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "membangun.",
+      "s": 1.26,
+      "e": 1.9,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Semua",
+      "s": 1.92,
+      "e": 2.34,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "orang",
+      "s": 2.34,
+      "e": 2.56,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "bisa",
+      "s": 2.72,
+      "e": 2.86,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "membuat.",
+      "s": 2.86,
+      "e": 3.34,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Semua",
+      "s": 3.42,
+      "e": 3.74,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "orang",
+      "s": 3.74,
+      "e": 4.02,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "bisa",
+      "s": 4.24,
+      "e": 4.78,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "bikin",
+      "s": 4.78,
+      "e": 5.14,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "software.",
+      "s": 5.14,
+      "e": 5.4,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Tapi",
+      "s": 5.48,
+      "e": 6.04,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "gak",
+      "s": 6.04,
+      "e": 6.76,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "semua",
+      "s": 6.76,
+      "e": 6.94,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "orang",
+      "s": 6.94,
+      "e": 7.3,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "bisa",
+      "s": 7.3,
+      "e": 7.56,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "mempublikasikan",
+      "s": 7.56,
+      "e": 8.3,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "apa",
+      "s": 8.3,
+      "e": 8.58,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 8.58,
+      "e": 8.72,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "mereka",
+      "s": 8.72,
+      "e": 8.92,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "buat.",
+      "s": 8.92,
+      "e": 9.24,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Memasuki",
+      "s": 9.98,
+      "e": 10.54,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "usia",
+      "s": 10.54,
+      "e": 10.8,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "20",
+      "s": 10.8,
+      "e": 11.0,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "-an.",
+      "s": 11.0,
+      "e": 11.3,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Aku",
+      "s": 11.34,
+      "e": 11.5,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "merasa",
+      "s": 11.5,
+      "e": 11.86,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 11.86,
+      "e": 12.48,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "perlu",
+      "s": 12.48,
+      "e": 12.88,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "untuk",
+      "s": 12.88,
+      "e": 13.34,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "melakukan",
+      "s": 13.34,
+      "e": 13.72,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "sesuatu",
+      "s": 13.72,
+      "e": 14.18,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 14.18,
+      "e": 14.38,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "berbeda.",
+      "s": 14.38,
+      "e": 14.92,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Sesuatu",
+      "s": 14.94,
+      "e": 15.3,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 15.3,
+      "e": 15.46,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "unik.",
+      "s": 15.46,
+      "e": 15.94,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Sesuatu",
+      "s": 15.94,
+      "e": 16.38,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 16.38,
+      "e": 16.58,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "gak",
+      "s": 16.58,
+      "e": 17.38,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "orang",
+      "s": 17.38,
+      "e": 17.8,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "lain",
+      "s": 17.8,
+      "e": 18.04,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "punya.",
+      "s": 18.04,
+      "e": 18.32,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Dan",
+      "s": 18.46,
+      "e": 18.64,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 18.64,
+      "e": 18.92,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "termakan",
+      "s": 18.92,
+      "e": 19.3,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "kata",
+      "s": 19.3,
+      "e": 19.58,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "-kata",
+      "s": 19.58,
+      "e": 19.74,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "motivasi.",
+      "s": 19.74,
+      "e": 20.3,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Kalau",
+      "s": 20.32,
+      "e": 20.58,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "mau",
+      "s": 20.58,
+      "e": 21.28,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "jadi",
+      "s": 21.28,
+      "e": 21.52,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "sesuatu",
+      "s": 21.52,
+      "e": 22.24,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "harus",
+      "s": 22.24,
+      "e": 22.52,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "menjadi",
+      "s": 22.52,
+      "e": 22.84,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "sesuatu",
+      "s": 22.84,
+      "e": 23.34,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 23.34,
+      "e": 23.52,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "berbeda.",
+      "s": 23.52,
+      "e": 24.14,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Karena",
+      "s": 24.64,
+      "e": 25.2,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "itu",
+      "s": 25.2,
+      "e": 25.44,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 25.44,
+      "e": 25.68,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "gak",
+      "s": 25.68,
+      "e": 25.88,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "mau",
+      "s": 25.88,
+      "e": 26.1,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "mencoba",
+      "s": 26.1,
+      "e": 26.58,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "hal",
+      "s": 26.58,
+      "e": 27.06,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "-hal",
+      "s": 27.06,
+      "e": 27.38,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 27.38,
+      "e": 27.58,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "kelihatannya",
+      "s": 27.58,
+      "e": 28.24,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "banyak",
+      "s": 28.24,
+      "e": 28.5,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "orang",
+      "s": 28.5,
+      "e": 28.8,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "coba.",
+      "s": 28.8,
+      "e": 29.14,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Aku",
+      "s": 29.14,
+      "e": 29.36,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "gak",
+      "s": 29.36,
+      "e": 29.54,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "mau",
+      "s": 29.54,
+      "e": 29.78,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "jadi",
+      "s": 29.78,
+      "e": 30.0,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "orang",
+      "s": 30.0,
+      "e": 30.26,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 30.26,
+      "e": 30.48,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "FOMO.",
+      "s": 30.48,
+      "e": 30.94,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Dan",
+      "s": 31.06,
+      "e": 31.62,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "akhirnya",
+      "s": 31.62,
+      "e": 32.7,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 32.7,
+      "e": 32.96,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "melakukan",
+      "s": 32.96,
+      "e": 33.36,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "banyak",
+      "s": 33.36,
+      "e": 33.8,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "investasi",
+      "s": 33.8,
+      "e": 34.3,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "waktu",
+      "s": 34.3,
+      "e": 34.5,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "pada",
+      "s": 34.5,
+      "e": 34.82,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "AI.",
+      "s": 34.82,
+      "e": 35.2,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Untuk",
+      "s": 35.46,
+      "e": 35.92,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "belajar.",
+      "s": 35.92,
+      "e": 36.6,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Untuk",
+      "s": 36.6,
+      "e": 36.96,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "melakukan",
+      "s": 36.96,
+      "e": 37.28,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "sesuatu.",
+      "s": 37.28,
+      "e": 37.8,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Build",
+      "s": 37.88,
+      "e": 38.3,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "something.",
+      "s": 38.3,
+      "e": 38.72,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Selama",
+      "s": 39.18,
+      "e": 39.74,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "satu",
+      "s": 39.74,
+      "e": 39.9,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "tahun",
+      "s": 39.9,
+      "e": 40.24,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 40.24,
+      "e": 40.48,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "mencoba",
+      "s": 40.48,
+      "e": 41.58,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "untuk",
+      "s": 41.58,
+      "e": 41.84,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "belajar.",
+      "s": 41.84,
+      "e": 42.38,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Untuk",
+      "s": 42.38,
+      "e": 42.68,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "memahami",
+      "s": 42.68,
+      "e": 43.16,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "seperti",
+      "s": 43.16,
+      "e": 43.38,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "apa",
+      "s": 43.38,
+      "e": 43.66,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "industri",
+      "s": 43.66,
+      "e": 43.98,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "ini.",
+      "s": 43.98,
+      "e": 44.36,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Dan",
+      "s": 44.46,
+      "e": 44.64,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "apa",
+      "s": 44.64,
+      "e": 44.88,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 44.88,
+      "e": 45.06,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "sudah",
+      "s": 45.06,
+      "e": 45.22,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 45.22,
+      "e": 45.46,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "buat.",
+      "s": 45.46,
+      "e": 45.74,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Tapi",
+      "s": 46.62,
+      "e": 47.18,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "satu",
+      "s": 47.18,
+      "e": 47.74,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "hal",
+      "s": 47.74,
+      "e": 47.94,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 47.94,
+      "e": 48.1,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 48.1,
+      "e": 48.24,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "lewatkan",
+      "s": 48.24,
+      "e": 48.64,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "adalah.",
+      "s": 48.64,
+      "e": 48.86,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Aku",
+      "s": 49.04,
+      "e": 49.36,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "tidak",
+      "s": 49.36,
+      "e": 49.66,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "menjual",
+      "s": 49.66,
+      "e": 50.32,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "apapun.",
+      "s": 50.32,
+      "e": 50.72,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Aku",
+      "s": 50.76,
+      "e": 50.9,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "tidak",
+      "s": 50.9,
+      "e": 51.16,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "mempublikasikan",
+      "s": 51.16,
+      "e": 52.0,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "apapun.",
+      "s": 52.0,
+      "e": 52.46,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Dan",
+      "s": 52.48,
+      "e": 52.6,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "tidak",
+      "s": 52.6,
+      "e": 52.8,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "mendokumentasikan",
+      "s": 52.8,
+      "e": 53.62,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "apapun.",
+      "s": 53.62,
+      "e": 54.2,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Dan",
+      "s": 54.26,
+      "e": 54.74,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "ngebangun",
+      "s": 54.74,
+      "e": 55.82,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "itu",
+      "s": 55.82,
+      "e": 55.96,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "bikin",
+      "s": 55.96,
+      "e": 56.32,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "kita",
+      "s": 56.32,
+      "e": 56.48,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "jadi",
+      "s": 56.48,
+      "e": 56.68,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "adiktif.",
+      "s": 56.68,
+      "e": 57.8,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Atau",
+      "s": 57.82,
+      "e": 58.18,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "kecanduan.",
+      "s": 58.18,
+      "e": 58.72,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Untuk",
+      "s": 59.14,
+      "e": 59.68,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "membangun",
+      "s": 59.68,
+      "e": 60.06,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "sesuatu.",
+      "s": 60.06,
+      "e": 60.52,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Yang",
+      "s": 60.52,
+      "e": 60.84,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "pada",
+      "s": 60.84,
+      "e": 61.18,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "akhirnya",
+      "s": 61.18,
+      "e": 61.58,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "gak",
+      "s": 61.58,
+      "e": 61.7,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "pernah",
+      "s": 61.7,
+      "e": 61.9,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "kita",
+      "s": 61.9,
+      "e": 62.1,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "publish.",
+      "s": 62.1,
+      "e": 62.58,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Dan",
+      "s": 62.58,
+      "e": 62.72,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "gak",
+      "s": 62.72,
+      "e": 62.86,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "pernah",
+      "s": 62.86,
+      "e": 63.04,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "selesai.",
+      "s": 63.04,
+      "e": 63.52,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Aku",
+      "s": 64.38,
+      "e": 64.94,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "terobsesi",
+      "s": 64.94,
+      "e": 65.5,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "sama",
+      "s": 65.5,
+      "e": 65.78,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "kesempurnaan.",
+      "s": 65.78,
+      "e": 67.0,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Dan",
+      "s": 67.06,
+      "e": 67.24,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 67.24,
+      "e": 67.54,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "merasa",
+      "s": 67.54,
+      "e": 68.08,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "pengen",
+      "s": 68.08,
+      "e": 68.56,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "sekali",
+      "s": 68.56,
+      "e": 68.7,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "menjadi",
+      "s": 68.7,
+      "e": 69.06,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "seorang",
+      "s": 69.06,
+      "e": 69.64,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "autentik.",
+      "s": 69.64,
+      "e": 70.26,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Sampai",
+      "s": 70.3,
+      "e": 70.62,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "akhirnya",
+      "s": 70.62,
+      "e": 71.04,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 71.04,
+      "e": 71.74,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "gak",
+      "s": 71.74,
+      "e": 71.94,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "menjadi",
+      "s": 71.94,
+      "e": 72.18,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "siapapun.",
+      "s": 72.18,
+      "e": 72.84,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Dan",
+      "s": 72.84,
+      "e": 73.0,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 73.0,
+      "e": 73.18,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "gak",
+      "s": 73.18,
+      "e": 73.42,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "melangkah",
+      "s": 73.42,
+      "e": 73.88,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "jauh",
+      "s": 73.88,
+      "e": 74.28,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "kemana",
+      "s": 74.28,
+      "e": 74.56,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "-mana.",
+      "s": 74.56,
+      "e": 74.8,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Sampai",
+      "s": 75.58,
+      "e": 76.14,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "akhirnya",
+      "s": 76.14,
+      "e": 76.7,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 76.7,
+      "e": 76.78,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "sadar.",
+      "s": 76.78,
+      "e": 77.1,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Dan",
+      "s": 77.82,
+      "e": 78.38,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "sekarang",
+      "s": 78.38,
+      "e": 78.88,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 78.88,
+      "e": 79.34,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "memutuskan",
+      "s": 79.34,
+      "e": 79.82,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "untuk",
+      "s": 79.82,
+      "e": 80.08,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "kembali",
+      "s": 80.08,
+      "e": 80.62,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "ke",
+      "s": 80.62,
+      "e": 80.72,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "titik",
+      "s": 80.72,
+      "e": 81.0,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "awal.",
+      "s": 81.0,
+      "e": 81.38,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Dimana",
+      "s": 81.38,
+      "e": 81.72,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "mungkin",
+      "s": 81.72,
+      "e": 82.62,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 82.62,
+      "e": 82.84,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "harusnya",
+      "s": 82.84,
+      "e": 83.3,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "gak",
+      "s": 83.3,
+      "e": 83.52,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "sekedar",
+      "s": 83.52,
+      "e": 84.22,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "membangun.",
+      "s": 84.22,
+      "e": 84.7,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Tapi",
+      "s": 84.76,
+      "e": 85.02,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "juga",
+      "s": 85.02,
+      "e": 85.24,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "nge",
+      "s": 85.24,
+      "e": 85.52,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "-share",
+      "s": 85.52,
+      "e": 85.72,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "apa",
+      "s": 85.72,
+      "e": 85.94,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 85.94,
+      "e": 86.16,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 86.16,
+      "e": 86.7,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "alami.",
+      "s": 86.7,
+      "e": 87.16,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Apa",
+      "s": 87.2,
+      "e": 87.4,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 87.4,
+      "e": 87.58,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 87.58,
+      "e": 87.74,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "buat.",
+      "s": 87.74,
+      "e": 88.02,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Apa",
+      "s": 89.14,
+      "e": 89.56,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "pengalaman",
+      "s": 89.56,
+      "e": 90.0,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 90.0,
+      "e": 90.18,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "aku",
+      "s": 90.18,
+      "e": 90.48,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "dapatkan.",
+      "s": 90.48,
+      "e": 91.02,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Share.",
+      "s": 91.28,
+      "e": 91.86,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Ngebagiin.",
+      "s": 92.06,
+      "e": 92.64,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "Apa",
+      "s": 92.64,
+      "e": 92.92,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "yang",
+      "s": 92.92,
+      "e": 93.12,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "belum",
+      "s": 93.12,
+      "e": 93.34,
+      "overlap": 0.0,
+      "retained": 1.0
+    },
+    {
+      "w": "sempurna.",
+      "s": 93.34,
+      "e": 93.92,
+      "overlap": 0.0,
+      "retained": 1.0
+    }
+  ]
+}

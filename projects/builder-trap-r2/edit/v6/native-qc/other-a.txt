@@ -1,0 +1,31 @@
+```json
+{
+  "listened": [
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-04-source.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-04-v6.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-06-source.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/residual-06-v6.wav"
+  ],
+  "windows": [
+    {
+      "label": "residual-04",
+      "source_transcript": "aku tidak [pause] menjual ap...",
+      "edited_transcript": "aku tidak [pause] menjual ap...",
+      "words_intact": true,
+      "residual_type": "natural prosodic pause following unreleased glottal stop /k/",
+      "recommendation": "accept",
+      "confidence": "high"
+    },
+    {
+      "label": "residual-06",
+      "source_transcript": "mungkin kita menjadi [pause] adiktif at...",
+      "edited_transcript": "mungkin kita menjadi [pause] adiktif at...",
+      "words_intact": true,
+      "residual_type": "natural breath / prosodic boundary pause between phrases",
+      "recommendation": "accept",
+      "confidence": "high"
+    }
+  ],
+  "uncertainty": "none; left and right word boundaries are clean and intact without clipped onsets, clipped vowel decays, or unnatural joins in both v6 files"
+}
+```

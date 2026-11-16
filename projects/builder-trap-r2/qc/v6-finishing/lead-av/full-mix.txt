@@ -1,0 +1,17 @@
+```json
+{
+  "native_video_available": true,
+  "native_audio_available": true,
+  "entire_duration_reviewed": true,
+  "mode": "full-mix",
+  "sequence_observed": "Opening montage with archive footage/quotes on building software, cuts to speaker on camera reflecting on turning 20 and wanting to build uniquely. Slides through motivational posts, YouTube mockup query, and macOS desktop launch of ChatGPT. Speaker on camera leads into ChatGPT typing zoom-in ('build something'), panning out to pinned repository timeline cards connected by blue string. Sequence dims into dark mode reflection on not publishing or documenting; shows draft threads and empty GitHub repo creation. Transitions through cascading repo cards (freezing near 55.7s as intended) illustrating build addiction and obsession with perfection without shipping. Explores empty profile, returns to initial pinned board, concluding with speaker on camera committing to share in-progress learnings and experiences, ending on final fade to black.",
+  "speech_clear": true,
+  "context_intact": true,
+  "tail_cut": false,
+  "pumping": false,
+  "harsh": false,
+  "broad_av_coherence": true,
+  "defects": [],
+  "limits": "Sampled at 1fps native multimodal video/audio stream via read_file tool; fine sub-frame sync and precision waveform measurements are outside scope, but broad audiovisual alignment, dialogue clarity, and narrative coherence across all 83.1 seconds were thoroughly verified."
+}
+```

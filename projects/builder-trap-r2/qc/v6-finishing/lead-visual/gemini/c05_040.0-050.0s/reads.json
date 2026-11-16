@@ -1,0 +1,35 @@
+{
+  "exit_code": 0,
+  "model": "gemini-3.8-flash-low",
+  "read_paths": [
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/INFO.md",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s040.0.jpg",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s041.0.jpg",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s042.0.jpg",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s043.0.jpg",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s044.0.jpg",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s045.0.jpg",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s046.0.jpg",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s047.0.jpg",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s048.0.jpg",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s049.0.jpg"
+  ],
+  "missing_paths": [],
+  "unexpected_paths": [],
+  "forbidden_tools": [],
+  "input_hashes": {
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/INFO.md": "843083de91d11790b942ed9091ce14a098a570f8d654d941c941c08ca146369a",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s040.0.jpg": "7bf7b8670e9e8bb599cfd536cc2148f66a340c34f77a2ce3355d927674d31e34",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s041.0.jpg": "dc4796a1f46b7b9aff9b48ed155e1fa062d4f561e9003cdcac87258c959b5a16",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s042.0.jpg": "e20702cd92010fe33e85ee33371f7f7e754d83988280fd1c540b2cce62315428",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s043.0.jpg": "ef542ac740cf0cce7a1ae8f1184369438c26a5021539bbdac37bcd82490d1c67",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s044.0.jpg": "1e6c08bc9a2aa36c027b060a4ad48c82cbd71b750b05a32c511a917d77ebf449",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s045.0.jpg": "ced3d6ab2b9e5eb74a754ce64c856f4dd4b4dc3ba248b70d7fee8c807216f083",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s046.0.jpg": "34993248eec3d90b2a2d67424ecc24fa5e539d0ea356a07985e2077b52b2d76b",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s047.0.jpg": "7f8663f870a7c9e27418e58c41c61615868348cae82c07cc3d8e76cd1f1a627d",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s048.0.jpg": "94c0720700f62c46d90f955823b518ac125fb8b91894be5d370e34e92a1e74bd",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit/c05_040.0-050.0s/s049.0.jpg": "8cdbf97733321b880737e21a7cf538839c6762a27873bdf648fd7afc5dde849e"
+  },
+  "inputs_unchanged": true,
+  "strict_read_coverage": true
+}

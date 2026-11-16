@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "scope": "Receipt/helper tests only; no final acceptance, no decode, no closure execution",
+  "checks": [
+    {
+      "name": "actual accepted repair receipt and logs reproduce",
+      "pass_": true
+    },
+    {
+      "name": "changed unaffected YUV hash",
+      "pass_": true
+    },
+    {
+      "name": "missing frame hash",
+      "pass_": true
+    },
+    {
+      "name": "replacement hash mismatch",
+      "pass_": true
+    },
+    {
+      "name": "wrong local repair index",
+      "pass_": true
+    },
+    {
+      "name": "wrong source snapshot",
+      "pass_": true
+    },
+    {
+      "name": "wrong timebase",
+      "pass_": true
+    },
+    {
+      "name": "nonzero start",
+      "pass_": true
+    },
+    {
+      "name": "false success with two changed frames",
+      "pass_": true
+    },
+    {
+      "name": "wrong output range",
+      "pass_": true
+    },
+    {
+      "name": "changed one of eight reused chunks",
+      "pass_": true
+    },
+    {
+      "name": "old2493 rows retain302 failures only1083 in repaired chunk",
+      "pass_": true
+    },
+    {
+      "name": "failed whole-frame negative-control sensitivity preserved",
+      "pass_": true
+    },
+    {
+      "name": "good encoded ROI1082",
+      "pass_": true
+    },
+    {
+      "name": "good encoded ROI1083",
+      "pass_": true
+    },
+    {
+      "name": "known bad ROI rejected old_first1083",
+      "pass_": true
+    },
+    {
+      "name": "known bad ROI rejected second1084",
+      "pass_": true
+    }
+  ],
+  "pass_": true,
+  "closure_sha256": "1e32e9ded15cbacc84c5294858887bbbfcd5d04d59bec47d2d20e62a7f845225",
+  "support_sha256": "77a45779791593aa1b1e7c19af2fbe2d6ee113284c0e83b50fff023a3bc5d693",
+  "repair_receipt_sha256": "12772314ccc15c58fca2ff7556bc1a7961e1eec5b69380bc858db42625c52508"
+}

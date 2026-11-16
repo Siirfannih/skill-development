@@ -1,0 +1,79 @@
+{
+  "defaults_unchanged": true,
+  "ffmpeg_wrapper": "thread limits only; no audio processing changes",
+  "capture_matches_direct_cli": true,
+  "inputs_unchanged": true,
+  "input_hashes": {
+    "projects/builder-trap-r2/edit/v6/source_raw.wav": "fd778a1e3211f708c1834e57f20e9a9fddc596a29bcb112ab46b1665909ddf9f",
+    "projects/builder-trap-r2/edit/v6/suara.wav": "a1838c6b7f6b287e6240b5a177e9f125ef273100989d5873be35fc817f1581b5",
+    "projects/builder-trap-r2/edit/v6/voice_clean.wav": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806",
+    "projects/builder-trap-r2/edit/v6/words_source.json": "3195d2b13fc9b852d84299a1023c3ef94b0b5b08420f1fd9471f9ccf465bca0b",
+    "projects/builder-trap-r2/edit/v6/words_mapped.json": "d4525f9d65152c7f3ecf4e72007266d0782534fdcedf692af2f7b615562ab422",
+    "projects/builder-trap-r2/edit/v6/map.json": "65bc52f10e535370fa1a66df72c0b90e263e8034022544b90a713b98448738f0",
+    "projects/builder-trap-r2/edit/v6/voice_clean.provenance.json": "c260709afa309509cfc0337fafebf2bd732c4f3af3174bf6dbbc3cdd16401e6b"
+  },
+  "gate_sha256": {
+    "audio_order.py": "ec359ad93ce7e31a52912c11e4e9234170554e3874407fe619ffb895ed247e2c",
+    "pause_clean.py": "e950b8894ee6c2175d7c4c8a05d9ff96c464053f24bfa7173ae5d1c0802280a2",
+    "voice_level.py": "6cf10000a06da7bb0f4172da46b7183314dce06fc54d614148df1e1aa1116bd0",
+    "cut_check.py": "d2d941633ce20d3f46efc975d59c4e466cbe93459676607b42332a8839d98163"
+  },
+  "results": [
+    {
+      "gate": "source_guard",
+      "command": [
+        "/usr/bin/python3",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/gate/cut_check.py",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/voice_clean.wav",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/words_mapped.json",
+        "--source-words",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/words_source.json",
+        "--map",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/map.json",
+        "--validation-out",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-source-validation.json"
+      ],
+      "exit_code": 1,
+      "stdout": "FAIL: guard Apa@89.823333: <0.05s\n",
+      "stderr": ""
+    },
+    {
+      "gate": "cut_check",
+      "command": [
+        "/usr/bin/python3",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/gate/cut_check.py",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/voice_clean.wav",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/words_mapped.json",
+        "--suggest",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-suggestions.json"
+      ],
+      "exit_code": 1,
+      "stdout": "kata 228 · ucapan median -24.6 dBFS · lantai -44.6 · ambang diam -36.6 dBFS\n  sampah      3  0.49s tuh; 2.11s tuh; 3.57s tuh\n  diam_kata   6  23.62s hal 0.15 dtk; 28.12s Dan 0.17 dtk; 34.02s Build 0.16 dtk; 66.76s Sampai 0.16 dtk; 72.0s mungkin 0.23 dtk; 73.53s sekedar 0.16 dtk\n  diam_kal   13  10.86s aku → perlu 0.15 dtk; 15.11s yang → gak 0.20 dtk; 15.38s gak → orang 0.18 dtk; 32.08s Untuk → belajar. 0.19 dtk; 36.49s aku → mencoba 0.24 dtk; 41.91s Tapi → satu 0.24 dtk; 42.03s satu → hal 0.28 dtk; 44.23s tidak → menjual 0.21 dtk …\n  antar_kal   0  \n  gumam       3  31.42s 0.15dtk; 43.44s 0.17dtk; 80.01s 0.16dtk  (PERIKSA: dengar)\nusulan buang 22 rentang, total 2.59 dtk -> /home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/canonical-suggestions.json\nFAIL: sampah 3, diam_kata 6, diam_kal 13\n",
+      "stderr": ""
+    },
+    {
+      "gate": "pause_clean",
+      "command": [
+        "/usr/bin/python3",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/gate/pause_clean.py",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/voice_clean.wav",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/words_mapped.json"
+      ],
+      "exit_code": 0,
+      "stdout": "jeda 1 · ucapan median -22.0 dBFS · jeda median -60.6 dBFS · selisih 38.6 dB\nPASS\n",
+      "stderr": ""
+    },
+    {
+      "gate": "voice_level",
+      "command": [
+        "/usr/bin/python3",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/gate/voice_level.py",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/suara.wav",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/voice_clean.wav"
+      ],
+      "exit_code": 1,
+      "stdout": "sumber -23.8 LUFS -> hasil -21.5 LUFS (gain +2.3 dB) · crest 17.0 -> 17.4 dB · puncak -1.0 dBFS\nFAIL: pelan -21.5 LUFS < -17 (redam noise dulu, lalu gain naik bersih)\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+```json
+{
+  "listened": true,
+  "entire_file_listened": true,
+  "transcript": "Semua orang tuh bisa membangun, semua orang tuh bisa membuat, semua orang tuh bisa bikin software, tapi enggak semua orang bisa mempublikasikan apa yang mereka buat. Memasuki usia 20-an, aku merasa aku perlu untuk melakukan sesuatu yang berbeda, sesuatu yang unik, sesuatu yang enggak orang lain punya, dan aku termakan kata-kata motivasi kalau mau jadi sesuatu, harus menjadi sesuatu yang berbeda. Karena itu, aku enggak mau mencoba hal-hal yang kelihatannya banyak orang coba. Aku enggak mau jadi orang yang FOMO, dan akhirnya aku melakukan banyak investasi waktu pada AI untuk belajar, untuk melakukan sesuatu, build something. Selama satu tahun aku mencoba untuk belajar, untuk memahami seperti apa industri ini dan apa yang sudah aku buat, tapi satu hal yang aku lewatkan adalah aku tidak menjual apapun, aku tidak mempublikasikan apapun, dan tidak mendokumentasikan apapun. Ngebangun itu bikin kita menjadi adiktif atau kecanduan untuk membangun sesuatu yang pada akhirnya enggak pernah kita publish dan enggak pernah selesai. Aku terobsesi sama kesempurnaan dan aku merasa pengin sekali menjadi seorang autentik sampai akhirnya aku enggak menjadi siapapun dan aku enggak melangkah jauh ke mana-mana. Sampai akhirnya aku sadar dan sekarang aku memutuskan untuk kembali ke titik awal di mana mungkin aku harusnya enggak sekadar membangun, tapi juga nge-share apa yang aku alami, apa yang aku buat, apa pengalaman yang aku dapatkan. Share, ngebagiin apa yang belum sempurna",
+  "defects": [],
+  "clarity": "high",
+  "ending_coherence": "coherent",
+  "uncertainty": "none"
+}
+```

@@ -1,0 +1,8 @@
+*.wav
+*.mp4
+face-proxy/*.wav
+face-proxy/*.mp4
+tmp/
+__pycache__/
+recut-check/*.wav
+render-stage/

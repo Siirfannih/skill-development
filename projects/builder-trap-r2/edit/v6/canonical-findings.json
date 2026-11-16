@@ -1,0 +1,132 @@
+{
+  "found": [
+    [
+      "sampah",
+      0.49,
+      "tuh"
+    ],
+    [
+      "sampah",
+      2.11,
+      "tuh"
+    ],
+    [
+      "sampah",
+      3.57,
+      "tuh"
+    ],
+    [
+      "diam_kata",
+      23.62,
+      "hal 0.15 dtk"
+    ],
+    [
+      "diam_kata",
+      28.12,
+      "Dan 0.17 dtk"
+    ],
+    [
+      "diam_kata",
+      34.02,
+      "Build 0.16 dtk"
+    ],
+    [
+      "diam_kata",
+      66.76,
+      "Sampai 0.16 dtk"
+    ],
+    [
+      "diam_kata",
+      72.0,
+      "mungkin 0.23 dtk"
+    ],
+    [
+      "diam_kata",
+      73.53,
+      "sekedar 0.16 dtk"
+    ],
+    [
+      "diam_kal",
+      10.86,
+      "aku → perlu 0.15 dtk"
+    ],
+    [
+      "diam_kal",
+      15.11,
+      "yang → gak 0.20 dtk"
+    ],
+    [
+      "diam_kal",
+      15.38,
+      "gak → orang 0.18 dtk"
+    ],
+    [
+      "diam_kal",
+      32.08,
+      "Untuk → belajar. 0.19 dtk"
+    ],
+    [
+      "diam_kal",
+      36.49,
+      "aku → mencoba 0.24 dtk"
+    ],
+    [
+      "diam_kal",
+      41.91,
+      "Tapi → satu 0.24 dtk"
+    ],
+    [
+      "diam_kal",
+      42.03,
+      "satu → hal 0.28 dtk"
+    ],
+    [
+      "diam_kal",
+      44.23,
+      "tidak → menjual 0.21 dtk"
+    ],
+    [
+      "diam_kal",
+      48.94,
+      "Dan → ngebangun 0.26 dtk"
+    ],
+    [
+      "diam_kal",
+      50.37,
+      "jadi → adiktif. 0.21 dtk"
+    ],
+    [
+      "diam_kal",
+      57.59,
+      "sama → kesempurnaan. 0.45 dtk"
+    ],
+    [
+      "diam_kal",
+      62.68,
+      "akhirnya → aku 0.20 dtk"
+    ],
+    [
+      "diam_kal",
+      75.9,
+      "yang → aku 0.20 dtk"
+    ]
+  ],
+  "hum": [
+    [
+      31.42,
+      0.15
+    ],
+    [
+      43.44,
+      0.17
+    ],
+    [
+      80.01,
+      0.16
+    ]
+  ],
+  "speech": -24.770222997332375,
+  "floor": -44.807146909981476,
+  "thr": -36.807146909981476,
+  "capture_method": "canonical main locals at SystemExit; script and defaults unchanged"
+}

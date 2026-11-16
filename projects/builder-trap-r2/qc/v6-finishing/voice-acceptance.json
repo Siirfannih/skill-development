@@ -1,0 +1,97 @@
+{
+  "project_voice_accepted": true,
+  "canonical_pass": false,
+  "audio_order_pass": false,
+  "canonical_results": [
+    {
+      "command": [
+        "/home/irfan/work/mg-venv/bin/python",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/gate/cut_check.py",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/voice_clean.wav",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/words_mapped.json",
+        "--source-words",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/words_source.json",
+        "--map",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/map.json",
+        "--validation-out",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/canonical/source-validation.json"
+      ],
+      "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+      "exit_code": 1,
+      "started_ns": 1794829123577563634,
+      "ended_ns": 1794829123729971975,
+      "log": "qc/v6-finishing/logs/canonical-source_guard.log",
+      "log_sha256": "d1c8716def6e2b21c55c58f446dd56279772e2d82941644dbd35c7c170200209"
+    },
+    {
+      "command": [
+        "/home/irfan/work/mg-venv/bin/python",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/gate/cut_check.py",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/voice_clean.wav",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/words_mapped.json",
+        "--suggest",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/canonical/suggestions.json"
+      ],
+      "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+      "exit_code": 1,
+      "started_ns": 1794829123731170036,
+      "ended_ns": 1794829123982972223,
+      "log": "qc/v6-finishing/logs/canonical-cut_check.log",
+      "log_sha256": "068b3afff23cf38557115e2c025d077286f57f0016c3426706847edf4d87e16c"
+    },
+    {
+      "command": [
+        "/home/irfan/work/mg-venv/bin/python",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/gate/pause_clean.py",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/voice_clean.wav",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/words_mapped.json"
+      ],
+      "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+      "exit_code": 0,
+      "started_ns": 1794829123983870554,
+      "ended_ns": 1794829124166300128,
+      "log": "qc/v6-finishing/logs/canonical-pause_clean.log",
+      "log_sha256": "f5ea9fc7faeca3af16b4e73ed2c96f412ac9b1b963ca1040820e1c198c6bb8f0"
+    },
+    {
+      "command": [
+        "/home/irfan/work/mg-venv/bin/python",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/gate/voice_level.py",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/suara.wav",
+        "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/voice_clean.wav"
+      ],
+      "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+      "exit_code": 1,
+      "started_ns": 1794829124167539629,
+      "ended_ns": 1794829125033377300,
+      "log": "qc/v6-finishing/logs/canonical-voice_level.log",
+      "log_sha256": "dd4392904b02468fafeac78530f92b140f21db5247c02db5e17c660f4ca6af1d"
+    }
+  ],
+  "audio_order_result": {
+    "command": [
+      "/home/irfan/work/mg-venv/bin/python",
+      "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/gate/audio_order.py",
+      "check",
+      "--dir",
+      "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/audio"
+    ],
+    "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+    "exit_code": 1,
+    "started_ns": 1794829125563377304,
+    "ended_ns": 1794829125699654147,
+    "log": "qc/v6-finishing/logs/canonical-audio_order.log",
+    "log_sha256": "31dc99e36c0d946d7b2d2fb8ac9d12e597d5d320eb66d63ed22fd6bc8ec681e9"
+  },
+  "artifact_count": 194,
+  "input_hashes": {
+    "edit/v6/adjudications.json": "cdee897f4c4b52ecc86cbb28a4b9a88b969ae6edd4ae70833e215e9acef9f883",
+    "edit/v6/timing-contract.json": "9252e5394e27ebb8a4984822d6b6fbd845228af6fc3ce6d3394cd949291702a5",
+    "edit/v6/voice_clean.wav": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f"
+  },
+  "exception_ids": [
+    "R-032",
+    "R-033"
+  ],
+  "order_sha256": "6ce3c558ca006f5cbe26c4c1e9517550939e4836872e45bb59142149671f088d"
+}

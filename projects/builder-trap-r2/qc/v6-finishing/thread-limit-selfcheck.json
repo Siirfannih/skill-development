@@ -1,0 +1,17 @@
+{
+  "pass_": true,
+  "args": [
+    "-threads",
+    "2",
+    "-filter_threads",
+    "1",
+    "-filter_complex_threads",
+    "1",
+    "-i",
+    "fixture",
+    "-threads",
+    "2",
+    "out.mp4"
+  ],
+  "scope": "only subprocess environment; no repo/global config edits"
+}

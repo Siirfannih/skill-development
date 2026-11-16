@@ -1,8 +1,8 @@
 // YouTube desktop, halaman hasil pencarian, terang. Tata letak diukur dari screenshot asli 1600×1000
 // (qc/ref_youtube_results.png, diambil headless Chromium 12 Nov 2026). Data hasil = pencarian nyata
-// (assets/yt/search_uang_ai.txt → src/data/yt_search.json). Logo: simple-icons YouTube.
+// Data hasil adalah konten fiktif. Logo: simple-icons YouTube.
 import React from 'react';
-import { Img, staticFile } from 'remotion';
+import { DummyContent } from './DummyContent';
 import { Menu, Search, Mic, X, EllipsisVertical, CircleUserRound, Home, SquarePlay, History, Clapperboard, ListVideo, Music2, Film, Gamepad2, ChevronDown, SlidersHorizontal } from 'lucide-react';
 import { FONT } from '../engine/theme';
 import { Logo } from '../engine/Logo';
@@ -44,7 +44,7 @@ export const YouTubeResults: React.FC<{ scroll?: number; hover?: number; hoverP?
                   transform: `scale(${1 + 0.03 * hv})`, transformOrigin: 'center', boxShadow: hv > 0 ? `0 ${12 * hv}px ${30 * hv}px rgba(0,0,0,${0.18 * hv})` : undefined,
                 }}
               >
-                <Img src={staticFile(`yt/${r.id}.jpg`)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <DummyContent variant={i} />
                 <div style={{ position: 'absolute', right: 8, bottom: 8, background: 'rgba(0,0,0,0.8)', color: '#FFF', fontSize: 12, fontWeight: 500, padding: '2px 5px', borderRadius: 4 }}>{r.dur}</div>
                 {hv > 0 ? (
                   <>

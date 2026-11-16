@@ -1,0 +1,72 @@
+FAIL    B01.png                      kiri 0.71 kanan 0.29 · atas 0.72 bawah 0.28 · pusat (0.37, 0.36)  ← berat kiri
+FAIL    B02.png                      kiri 0.77 kanan 0.23 · atas 0.77 bawah 0.23 · pusat (0.42, 0.34)  ← berat kiri
+ok      B03.png                      kiri 0.41 kanan 0.59 · atas 0.34 bawah 0.66 · pusat (0.56, 0.58)
+ok      B04.png                      kiri 0.69 kanan 0.31 · atas 0.67 bawah 0.33 · pusat (0.38, 0.48)
+ok      B05.png                      kiri 0.54 kanan 0.46 · atas 0.67 bawah 0.33 · pusat (0.48, 0.47)
+FAIL    B06.png                      kiri 1.00 kanan 0.00 · atas 0.51 bawah 0.49 · pusat (0.32, 0.50)  ← berat kiri
+ok      B07.png                      kiri 0.46 kanan 0.54 · atas 0.71 bawah 0.29 · pusat (0.49, 0.46)
+ok      B08.png                      kiri 0.48 kanan 0.52 · atas 0.43 bawah 0.57 · pusat (0.52, 0.53)
+ok      B09.png                      kiri 0.54 kanan 0.46 · atas 0.52 bawah 0.48 · pusat (0.49, 0.54)
+ok      B10.png                      kiri 0.70 kanan 0.30 · atas 0.52 bawah 0.48 · pusat (0.37, 0.45)
+FAIL    B11.png                      kiri 0.98 kanan 0.02 · atas 0.25 bawah 0.75 · pusat (0.29, 0.63)  ← berat kiri
+ok      B12.png                      kiri 0.43 kanan 0.57 · atas 0.49 bawah 0.51 · pusat (0.48, 0.60)
+PERIKSA B13.png                      kiri 0.51 kanan 0.49 · atas 0.12 bawah 0.88 · pusat (0.51, 0.76)
+ok      B14.png                      kiri 0.41 kanan 0.59 · atas 0.39 bawah 0.61 · pusat (0.56, 0.58)
+FAIL    B15.png                      kiri 0.77 kanan 0.23 · atas 0.79 bawah 0.21 · pusat (0.34, 0.40)  ← berat kiri
+FAIL    B16.png                      kiri 0.66 kanan 0.34 · atas 0.58 bawah 0.42 · pusat (0.33, 0.54)  ← berat kiri
+FAIL    B17.png                      kiri 0.82 kanan 0.18 · atas 0.06 bawah 0.94 · pusat (0.33, 0.68)  ← berat kiri
+FAIL    B18.png                      kiri 0.78 kanan 0.22 · atas 0.57 bawah 0.43 · pusat (0.36, 0.47)  ← berat kiri
+ok      B19.png                      kiri 0.45 kanan 0.55 · atas 0.55 bawah 0.45 · pusat (0.52, 0.42)
+FAIL    B20.png                      kiri 0.24 kanan 0.76 · atas 0.74 bawah 0.26 · pusat (0.57, 0.40)  ← berat kanan
+ok      B21.png                      kiri 0.40 kanan 0.60 · atas 0.60 bawah 0.40 · pusat (0.52, 0.42)
+ok      B22.png                      kiri 0.53 kanan 0.47 · atas 0.41 bawah 0.59 · pusat (0.47, 0.51)
+ok      B23.png                      kiri 0.48 kanan 0.52 · atas 0.64 bawah 0.36 · pusat (0.48, 0.51)
+ok      B24.png                      kiri 0.53 kanan 0.47 · atas 0.49 bawah 0.51 · pusat (0.55, 0.46)
+ok      B25.png                      kiri 0.39 kanan 0.61 · atas 0.71 bawah 0.29 · pusat (0.51, 0.45)
+FAIL    B26.png                      kiri 0.91 kanan 0.09 · atas 0.35 bawah 0.65 · pusat (0.32, 0.62)  ← berat kiri
+FAIL    critical-f0433.png           kiri 0.76 kanan 0.24 · atas 0.74 bawah 0.26 · pusat (0.48, 0.48)  ← berat kiri
+FAIL    critical-f0442.png           kiri 0.76 kanan 0.24 · atas 0.25 bawah 0.75 · pusat (0.36, 0.60)  ← berat kiri
+FAIL    critical-f0445.png           kiri 0.29 kanan 0.71 · atas 0.60 bawah 0.40 · pusat (0.63, 0.47)  ← berat kanan
+ok      critical-f0448.png           kiri 0.53 kanan 0.47 · atas 0.49 bawah 0.51 · pusat (0.47, 0.51)
+ok      critical-f0451.png           kiri 0.52 kanan 0.48 · atas 0.51 bawah 0.49 · pusat (0.49, 0.55)
+ok      critical-f0454.png           kiri 0.60 kanan 0.40 · atas 0.49 bawah 0.51 · pusat (0.43, 0.54)
+ok      critical-f0457.png           kiri 0.68 kanan 0.32 · atas 0.39 bawah 0.61 · pusat (0.39, 0.58)
+ok      critical-f0460.png           kiri 0.66 kanan 0.34 · atas 0.63 bawah 0.37 · pusat (0.40, 0.48)
+FAIL    critical-f0466.png           kiri 0.71 kanan 0.29 · atas 0.49 bawah 0.51 · pusat (0.41, 0.53)  ← berat kiri
+ok      critical-f0473.png           kiri 0.40 kanan 0.60 · atas 0.72 bawah 0.28 · pusat (0.50, 0.50)
+PERIKSA critical-f0476.png           kiri 0.38 kanan 0.62 · atas 0.78 bawah 0.22 · pusat (0.54, 0.46)
+ok      critical-f0486.png           kiri 0.42 kanan 0.58 · atas 0.47 bawah 0.53 · pusat (0.53, 0.50)
+ok      critical-f0545.png           kiri 0.66 kanan 0.34 · atas 0.65 bawah 0.35 · pusat (0.41, 0.41)
+ok      critical-f0552.png           kiri 0.56 kanan 0.44 · atas 0.52 bawah 0.48 · pusat (0.48, 0.52)
+ok      critical-f0560.png           kiri 0.52 kanan 0.48 · atas 0.54 bawah 0.46 · pusat (0.50, 0.52)
+ok      critical-f0651.png           kiri 0.54 kanan 0.46 · atas 0.53 bawah 0.47 · pusat (0.49, 0.53)
+FAIL    critical-f0701.png           kiri 0.84 kanan 0.16 · atas 0.55 bawah 0.45 · pusat (0.32, 0.47)  ← berat kiri
+FAIL    critical-f0710.png           kiri 0.72 kanan 0.28 · atas 0.46 bawah 0.54 · pusat (0.38, 0.48)  ← berat kiri
+ok      critical-f0770.png           kiri 0.61 kanan 0.39 · atas 0.46 bawah 0.54 · pusat (0.44, 0.52)
+ok      critical-f0849.png           kiri 0.50 kanan 0.50 · atas 0.52 bawah 0.48 · pusat (0.47, 0.54)
+ok      critical-f0861.png           kiri 0.33 kanan 0.67 · atas 0.69 bawah 0.31 · pusat (0.52, 0.43)
+ok      critical-f0868.png           kiri 0.33 kanan 0.67 · atas 0.76 bawah 0.24 · pusat (0.51, 0.46)
+ok      critical-f0925.png           kiri 0.39 kanan 0.61 · atas 0.75 bawah 0.25 · pusat (0.50, 0.47)
+ok      critical-f0989.png           kiri 0.34 kanan 0.66 · atas 0.75 bawah 0.25 · pusat (0.51, 0.47)
+ok      critical-f0993.png           kiri 0.34 kanan 0.66 · atas 0.75 bawah 0.25 · pusat (0.51, 0.47)
+PERIKSA critical-f0999.png           kiri 0.50 kanan 0.50 · atas 0.11 bawah 0.89 · pusat (0.51, 0.76)
+PERIKSA critical-f1000.png           kiri 0.32 kanan 0.68 · atas 0.00 bawah 1.00 · pusat (0.59, 0.81)
+PERIKSA critical-f1014.png           kiri 0.45 kanan 0.55 · atas 0.09 bawah 0.91 · pusat (0.53, 0.77)
+PERIKSA critical-f1028.png           kiri 0.51 kanan 0.49 · atas 0.12 bawah 0.88 · pusat (0.51, 0.76)
+PERIKSA critical-f1051.png           kiri 0.51 kanan 0.49 · atas 0.12 bawah 0.88 · pusat (0.51, 0.76)
+FAIL    critical-f1058.png           kiri 0.76 kanan 0.24 · atas 0.78 bawah 0.22 · pusat (0.43, 0.44)  ← berat kiri
+FAIL    critical-f1535.png           kiri 0.22 kanan 0.78 · atas 0.65 bawah 0.35 · pusat (0.60, 0.43)  ← berat kanan
+PERIKSA critical-f1555.png           kiri 0.49 kanan 0.51 · atas 0.85 bawah 0.15 · pusat (0.44, 0.30)
+ok      critical-f1575.png           kiri 0.42 kanan 0.58 · atas 0.76 bawah 0.24 · pusat (0.49, 0.39)
+ok      critical-f1594.png           kiri 0.64 kanan 0.36 · atas 0.53 bawah 0.47 · pusat (0.39, 0.44)
+ok      critical-f1635.png           kiri 0.42 kanan 0.58 · atas 0.69 bawah 0.31 · pusat (0.49, 0.40)
+PERIKSA critical-f1646.png           kiri 0.47 kanan 0.53 · atas 0.84 bawah 0.16 · pusat (0.45, 0.39)
+ok      critical-f1650.png           kiri 0.60 kanan 0.40 · atas 0.76 bawah 0.24 · pusat (0.39, 0.41)
+FAIL    critical-f1659.png           kiri 0.29 kanan 0.71 · atas 0.95 bawah 0.05 · pusat (0.49, 0.19)  ← berat kanan
+FAIL    critical-f1672.png           kiri 0.82 kanan 0.18 · atas 0.79 bawah 0.21 · pusat (0.35, 0.34)  ← berat kiri
+FAIL    critical-f1688.png           kiri 1.00 kanan 0.00 · atas 0.19 bawah 0.81 · pusat (0.12, 0.58)  ← berat kiri
+PERIKSA critical-f2337.png           kiri 0.36 kanan 0.64 · atas 0.92 bawah 0.08 · pusat (0.54, 0.39)
+PERIKSA critical-f2338.png           kiri 0.37 kanan 0.63 · atas 0.89 bawah 0.11 · pusat (0.54, 0.29)
+PERIKSA critical-f2339.png           kiri 0.37 kanan 0.63 · atas 0.89 bawah 0.11 · pusat (0.54, 0.29)
+lembar 25 %/50 %: /home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/stills/balance_sheet.jpg
+FAIL: 21 frame berat sebelah

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/irfan/work/mg-venv/bin/python",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/tools/finish_v6.py",
+    "audit",
+    "--stems",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/stems"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+  "exit_code": 0,
+  "started_ns": 1794829213937223311,
+  "ended_ns": 1794829253850609223,
+  "log": "qc/v6-finishing/logs/b19-latest-audit.log",
+  "log_sha256": "9e67a1a008f595580f4c967b8fccc01680ec7b37272b3485b89a75abeb39c68a"
+}

@@ -1,0 +1,28 @@
+{
+  "pass_": false,
+  "initial_prompt": null,
+  "target_tokens": 228,
+  "heard_tokens": 229,
+  "differences": [
+    "+ 20an",
+    "- 20",
+    "- an",
+    "- kelihatannya",
+    "?     -\n",
+    "+ keliatannya",
+    "- jadi",
+    "+ menjadi",
+    "- publish",
+    "?       -\n",
+    "+ publis",
+    "- autentik",
+    "? ^^\n",
+    "+ otentik",
+    "? ^\n",
+    "+ terima",
+    "+ kasih"
+  ],
+  "actual_asr_input_audio_sha256": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806",
+  "applies_to_derived_audio_sha256": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f",
+  "derived_transform_proof": "edit/v6/gain-headroom-proof.json"
+}

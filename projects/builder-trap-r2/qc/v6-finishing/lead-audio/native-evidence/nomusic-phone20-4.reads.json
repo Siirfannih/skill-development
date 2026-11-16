@@ -1,0 +1,15 @@
+{
+  "exit_code": 0,
+  "read_paths": [
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/mix-v6-chunks-native/nomusic-phone20-4/A.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/mix-v6-chunks-native/nomusic-phone20-4/B.wav"
+  ],
+  "unexpected_paths": [],
+  "missing_paths": [],
+  "forbidden_tools": [],
+  "input_files": {
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/mix-v6-chunks-native/nomusic-phone20-4/A.wav": "f54b7f9a02488263fa812dbf81c9be2efc25b8e344fc6eca2a519e93111b79cb",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/mix-v6-chunks-native/nomusic-phone20-4/B.wav": "786dc91c7664ec9044087e3faa4aa0885b6388f9045f3af75a002825af2dea5b"
+  },
+  "media_only_reads": true
+}

@@ -1,7 +1,8 @@
 // B09 (Editor B, TASK r2b): wajah F2 "Dan aku termakan kata-kata motivasi." lalu post kutipan di Threads web terang,
 // kamera punch-in ke teks post (kartu 63 k7) sampai teks ±9–10 % tinggi frame; like ditekan di akhir (termakan).
 import React from 'react';
-import { Img, interpolateColors, staticFile, useCurrentFrame } from 'remotion';
+import { interpolateColors, useCurrentFrame } from 'remotion';
+import { DummyContent } from '../ui/DummyContent';
 import { Stage, Layer } from '../engine/Stage';
 import { camPath } from '../engine/camera';
 import { TextBlocks } from '../engine/TextLayer';
@@ -72,7 +73,7 @@ const QuoteBody: React.FC<{ f: number }> = () => {
   return <>{words}</>;
 };
 
-const thumbs = ['KBPsHcsl1aY', 'yhC8RcAr9RY'];
+const thumbs = [1, 2];
 
 const B09Threads: React.FC = () => {
   const f = useCurrentFrame();
@@ -94,14 +95,14 @@ const B09Threads: React.FC = () => {
             <ThComposeRow mode="light" ui={UI} />
             <ThPost
               mode="light" ui={UI} w={COLW} user="cuan.ai.id" time="4h"
-              media={<Img src={staticFile('yt/mXluYosHxX4.jpg')} style={{ width: 268 * UI * 0.88, height: 151 * UI * 0.88, objectFit: 'cover', borderRadius: 8 * UI }} />}
+              media={<DummyContent variant={0} style={{ width: 268 * UI * 0.88, height: 151 * UI * 0.88, borderRadius: 8 * UI }} />}
             />
             <ThPost
               mode="light" ui={UI} w={COLW} user="growth.daily" time="2h"
               media={
                 <div style={{ display: 'flex', gap: 6 * UI }}>
                   {thumbs.map((id) => (
-                    <Img key={id} src={staticFile(`yt/${id}.jpg`)} style={{ width: 268 * UI * 0.88, height: 151 * UI * 0.88, objectFit: 'cover', borderRadius: 8 * UI }} />
+                    <DummyContent key={id} variant={id} style={{ width: 268 * UI * 0.88, height: 151 * UI * 0.88, borderRadius: 8 * UI }} />
                   ))}
                 </div>
               }
@@ -109,7 +110,7 @@ const B09Threads: React.FC = () => {
             <ThPost mode="light" ui={UI} w={COLW} user="mindset.notes" time="1h" body={<QuoteBody f={f} />} like={likeP} />
             <ThPost
               mode="light" ui={UI} w={COLW} user="buildinpublic.id" time="3h"
-              media={<Img src={staticFile('yt/8Lz530r09WU.jpg')} style={{ width: 400 * UI, height: 225 * UI, objectFit: 'cover', borderRadius: 8 * UI }} />}
+              media={<DummyContent variant={3} style={{ width: 400 * UI, height: 225 * UI, borderRadius: 8 * UI }} />}
             />
           </ThreadsWindow>
         </div>

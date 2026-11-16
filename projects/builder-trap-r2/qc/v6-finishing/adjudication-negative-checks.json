@@ -1,0 +1,16 @@
+[
+  {
+    "case": "changed voice hash",
+    "rejected": true,
+    "failures": [
+      "changed artifact: edit/v6/voice_clean.wav"
+    ]
+  },
+  {
+    "case": "missing disposition",
+    "rejected": true,
+    "failures": [
+      "finding inventory changed or incomplete"
+    ]
+  }
+]

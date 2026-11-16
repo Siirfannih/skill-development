@@ -1,0 +1,9 @@
+{
+  "name": "remotion",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./index.tsx"
+  }
+}
+

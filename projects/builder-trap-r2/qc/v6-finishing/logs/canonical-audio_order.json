@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/irfan/work/mg-venv/bin/python",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/gate/audio_order.py",
+    "check",
+    "--dir",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/audio"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+  "exit_code": 1,
+  "started_ns": 1794829125563377304,
+  "ended_ns": 1794829125699654147,
+  "log": "qc/v6-finishing/logs/canonical-audio_order.log",
+  "log_sha256": "31dc99e36c0d946d7b2d2fb8ac9d12e597d5d320eb66d63ed22fd6bc8ec681e9"
+}

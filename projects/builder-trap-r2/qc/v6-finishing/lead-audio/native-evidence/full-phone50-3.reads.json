@@ -1,0 +1,15 @@
+{
+  "exit_code": 0,
+  "read_paths": [
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/mix-v6-chunks-native/full-phone50-3/A.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/mix-v6-chunks-native/full-phone50-3/B.wav"
+  ],
+  "unexpected_paths": [],
+  "missing_paths": [],
+  "forbidden_tools": [],
+  "input_files": {
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/mix-v6-chunks-native/full-phone50-3/A.wav": "88fc979c476699a219c871974f820641530588d1f91fdfb65826591487bfeef8",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/mix-v6-chunks-native/full-phone50-3/B.wav": "995525068cdb0ea16fe9a490036c1a8f1a81d30817e8d50518f3955591f4c8ef"
+  },
+  "media_only_reads": true
+}

@@ -1,0 +1,23 @@
+```json
+{
+  "listened": [
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/english-final-2493.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/english-raw-context.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/apa-final-2493.wav",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/audio-audit/final-control/apa-raw-context.wav"
+  ],
+  "english": {
+    "raw": "... sesuatu build something tapi ...",
+    "final": "... sesuatu build something",
+    "complete": true,
+    "defects": "none"
+  },
+  "apa": {
+    "raw": "... alami apa yang aku buat apa yang ... pengalaman yang aku dapatkan ...",
+    "final": "... alami apa yang aku buat apa ... pengalaman yang aku dapatkan ...",
+    "complete": true,
+    "defects": "none"
+  },
+  "uncertainty": "none"
+}
+```

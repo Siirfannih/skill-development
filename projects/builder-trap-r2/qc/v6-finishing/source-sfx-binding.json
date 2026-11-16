@@ -1,0 +1,9 @@
+{
+  "source_snapshot_sha256": "429142e6d3268f5f01f9d3d08cea627e6ca5a34037f3dc800f9a29c636a2f4af",
+  "bound_input_count": 409,
+  "added_artifacts": 107,
+  "mix_sha256": "a36a2819723fb7f76dc2d8bef2b24e6ac98ec78a6555ed440d0a5aabe4452e02",
+  "processed_clips": 19,
+  "canonical_pass": false,
+  "audio_order_pass": false
+}

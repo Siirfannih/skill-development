@@ -1,0 +1,12 @@
+```json
+{
+  "listened": true,
+  "source_transcript": "...kaca suatu build something...",
+  "edited_transcript": "...suatu build sam...",
+  "build_intact": true,
+  "something_intact": false,
+  "edit_damage": true,
+  "evidence": "In the source recording ('build-something-raw-context.wav'), the speaker pronounces 'something' completely through to the final nasal syllable ('-thing'). In the edited recording ('build-something-proper-v6.wav'), the end of 'something' is prematurely truncated right after 'sam-', cutting off the second syllable /θɪŋ/ entirely.",
+  "uncertainty": "low"
+}
+```

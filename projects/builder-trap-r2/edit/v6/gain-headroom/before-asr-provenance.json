@@ -1,0 +1,10 @@
+{
+  "audio_sha256": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806",
+  "map_sha256": "65bc52f10e535370fa1a66df72c0b90e263e8034022544b90a713b98448738f0",
+  "model": "large-v3 cached local only",
+  "cpu_threads": 2,
+  "compute_type": "int8",
+  "initial_prompt": null,
+  "condition_on_previous_text": false,
+  "beam_size": 5
+}

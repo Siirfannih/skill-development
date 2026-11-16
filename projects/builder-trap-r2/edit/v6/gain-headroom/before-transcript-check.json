@@ -1,0 +1,25 @@
+{
+  "pass_": false,
+  "initial_prompt": null,
+  "target_tokens": 228,
+  "heard_tokens": 229,
+  "differences": [
+    "+ 20an",
+    "- 20",
+    "- an",
+    "- kelihatannya",
+    "?     -\n",
+    "+ keliatannya",
+    "- jadi",
+    "+ menjadi",
+    "- publish",
+    "?       -\n",
+    "+ publis",
+    "- autentik",
+    "? ^^\n",
+    "+ otentik",
+    "? ^\n",
+    "+ terima",
+    "+ kasih"
+  ]
+}

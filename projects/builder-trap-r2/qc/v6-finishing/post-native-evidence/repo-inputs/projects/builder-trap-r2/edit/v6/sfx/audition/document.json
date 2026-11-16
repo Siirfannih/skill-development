@@ -1,0 +1,375 @@
+{
+ "path": "projects/builder-trap-r2/edit/v6/sfx/audition/document.wav",
+ "start": null,
+ "end": null,
+ "duration": 0.75,
+ "measurements": {
+  "duration": 0.75,
+  "peak_dbfs": -12.3,
+  "true_peak_dbtp": -12.2,
+  "rms_dbfs": -42.5,
+  "lufs": -37.9,
+  "attack_ms": 112.0,
+  "decay_ms": 211.0,
+  "brightness_hz": 4440,
+  "bandwidth_hz": 20480,
+  "flatness": 0.0288,
+  "harmonic_ratio": 0.097,
+  "onset_count": 3,
+  "onsets_per_s": 4.0,
+  "width": "mono",
+  "digital_silence_frac": 0.0329
+ },
+ "shape": "short one-shot (attack 112 ms, decays in 211 ms)",
+ "top_tags": [
+  {
+   "term": "an apple falling on grass",
+   "category": "nature",
+   "z": 3.16,
+   "cosine": 0.283,
+   "verdict": "strong"
+  },
+  {
+   "term": "a body falling on the ground",
+   "category": "impacts",
+   "z": 2.96,
+   "cosine": 0.236,
+   "verdict": "plausible"
+  },
+  {
+   "term": "a single mechanical keyboard key press",
+   "category": "keyboard",
+   "z": 2.28,
+   "cosine": 0.245,
+   "verdict": "weak"
+  },
+  {
+   "term": "a box lid closing",
+   "category": "foley",
+   "z": 2.23,
+   "cosine": 0.228,
+   "verdict": "weak"
+  },
+  {
+   "term": "a punchy impact hit",
+   "category": "impacts",
+   "z": 2.21,
+   "cosine": 0.129,
+   "verdict": "weak"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "a woman speaking",
+   "category": "voice",
+   "z": 1.48,
+   "cosine": 0.005
+  },
+  {
+   "term": "people laughing",
+   "category": "voice",
+   "z": 0.97,
+   "cosine": -0.071
+  },
+  {
+   "term": "a man speaking",
+   "category": "voice",
+   "z": 0.91,
+   "cosine": -0.066
+  },
+  {
+   "term": "a person coughing",
+   "category": "voice",
+   "z": 0.7,
+   "cosine": -0.021
+  },
+  {
+   "term": "a crowd talking",
+   "category": "voice",
+   "z": 0.68,
+   "cosine": -0.093
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "cloth whipping through the air",
+    "z": 1.52,
+    "cosine": 0.109
+   },
+   {
+    "term": "a record scratch",
+    "z": 1.49,
+    "cosine": 0.145
+   },
+   {
+    "term": "a short swish",
+    "z": 0.81,
+    "cosine": 0.101
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a body falling on the ground",
+    "z": 2.96,
+    "cosine": 0.236
+   },
+   {
+    "term": "a punchy impact hit",
+    "z": 2.21,
+    "cosine": 0.129
+   },
+   {
+    "term": "a heavy thud",
+    "z": 2.18,
+    "cosine": 0.154
+   }
+  ],
+  "ui": [
+   {
+    "term": "a camera shutter click",
+    "z": 1.66,
+    "cosine": 0.17
+   },
+   {
+    "term": "an error buzz",
+    "z": 1.36,
+    "cosine": 0.098
+   },
+   {
+    "term": "a soft UI button tap",
+    "z": 1.07,
+    "cosine": 0.082
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "a single mechanical keyboard key press",
+    "z": 2.28,
+    "cosine": 0.245
+   },
+   {
+    "term": "a spacebar press",
+    "z": 1.89,
+    "cosine": 0.222
+   },
+   {
+    "term": "an enter key press",
+    "z": 1.69,
+    "cosine": 0.217
+   }
+  ],
+  "foley": [
+   {
+    "term": "a box lid closing",
+    "z": 2.23,
+    "cosine": 0.228
+   },
+   {
+    "term": "a plastic object falling on a table",
+    "z": 1.89,
+    "cosine": 0.191
+   },
+   {
+    "term": "paper rustling",
+    "z": 1.88,
+    "cosine": 0.162
+   }
+  ],
+  "water": [
+   {
+    "term": "an object plunging into water",
+    "z": 0.44,
+    "cosine": 0.035
+   },
+   {
+    "term": "a water drop",
+    "z": 0.29,
+    "cosine": 0.054
+   },
+   {
+    "term": "a liquid bloop",
+    "z": -0.08,
+    "cosine": 0.006
+   }
+  ],
+  "nature": [
+   {
+    "term": "an apple falling on grass",
+    "z": 3.16,
+    "cosine": 0.283
+   },
+   {
+    "term": "something falling into bushes",
+    "z": 2.17,
+    "cosine": 0.185
+   },
+   {
+    "term": "digging in soil",
+    "z": 1.91,
+    "cosine": 0.101
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a kalimba note",
+    "z": 0.05,
+    "cosine": -0.006
+   },
+   {
+    "term": "a celesta note",
+    "z": 0.04,
+    "cosine": 0.039
+   },
+   {
+    "term": "church bells",
+    "z": -0.41,
+    "cosine": -0.082
+   }
+  ],
+  "ambience": [
+   {
+    "term": "a crackling fire",
+    "z": 1.45,
+    "cosine": 0.143
+   },
+   {
+    "term": "a computer fan hum",
+    "z": 0.76,
+    "cosine": 0.014
+   },
+   {
+    "term": "an office ambience",
+    "z": 0.74,
+    "cosine": -0.017
+   }
+  ],
+  "everyday": [
+   {
+    "term": "a match being struck",
+    "z": 2.08,
+    "cosine": 0.147
+   },
+   {
+    "term": "a cash register",
+    "z": 1.44,
+    "cosine": 0.115
+   },
+   {
+    "term": "a microwave beep",
+    "z": 1.34,
+    "cosine": 0.098
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "chiptune video game music",
+    "z": 0.22,
+    "cosine": 0.04
+   },
+   {
+    "term": "acoustic guitar music",
+    "z": -0.23,
+    "cosine": -0.004
+   },
+   {
+    "term": "cinematic orchestral music",
+    "z": -0.44,
+    "cosine": -0.044
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "celebratory and joyful music",
+    "z": -0.23,
+    "cosine": -0.03
+   },
+   {
+    "term": "triumphant and heroic music",
+    "z": -0.43,
+    "cosine": -0.055
+   },
+   {
+    "term": "calm and relaxing music",
+    "z": -0.53,
+    "cosine": -0.064
+   }
+  ],
+  "instruments": [
+   {
+    "term": "a punchy kick drum pattern",
+    "z": 0.6,
+    "cosine": -0.019
+   },
+   {
+    "term": "a snare roll",
+    "z": 0.5,
+    "cosine": -0.01
+   },
+   {
+    "term": "an acoustic guitar",
+    "z": 0.36,
+    "cosine": 0.058
+   }
+  ],
+  "voice": [
+   {
+    "term": "a woman speaking",
+    "z": 1.48,
+    "cosine": 0.005
+   },
+   {
+    "term": "people laughing",
+    "z": 0.97,
+    "cosine": -0.071
+   },
+   {
+    "term": "a man speaking",
+    "z": 0.91,
+    "cosine": -0.066
+   }
+  ],
+  "quality": [
+   {
+    "term": "a punchy sound",
+    "z": 1.24,
+    "cosine": 0.101
+   },
+   {
+    "term": "a tight snappy sound",
+    "z": 1.19,
+    "cosine": 0.108
+   },
+   {
+    "term": "a dry close sound",
+    "z": 0.96,
+    "cosine": 0.174
+   }
+  ],
+  "production": [
+   {
+    "term": "an 8-bit sound effect",
+    "z": 1.59,
+    "cosine": 0.153
+   },
+   {
+    "term": "a square wave chiptune blip",
+    "z": 1.49,
+    "cosine": 0.121
+   },
+   {
+    "term": "a close-miked foley recording",
+    "z": 1.35,
+    "cosine": 0.133
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Sound effect",
+   "p": 0.053
+  }
+ ],
+ "character": [],
+ "summary": "0.75 s short one-shot (attack 112 ms, decays in 211 ms). Sounds most like: an apple falling on grass (z +3.1), a body falling on the ground (z +2.9), a single mechanical keyboard key press (z +2.2) [clear reading]. Other readings: a box lid closing (foley, z +2.2). AudioSet tagger unsure (Sound effect 0.05). peak -12.3 dBFS, -37.9 LUFS, brightness 4.4 kHz, bandwidth 20.5 kHz, mono."
+}

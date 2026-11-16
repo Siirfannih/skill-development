@@ -7,6 +7,7 @@ import { camPath, withShake, Pose } from '../engine/camera';
 import { TextBlocks, TextBlockView } from '../engine/TextLayer';
 import { Face, type FacePreset } from '../engine/Face';
 import { keBaru } from '../engine/timewarp';
+import { useRealFrame } from '../engine/realframe';
 import { Print, Pin } from '../engine/Print';
 import { Linen } from '../engine/Surfaces';
 import { Cursor } from '../engine/Cursor';
@@ -17,6 +18,8 @@ import { Wall, WALL, pulse } from '../engine/Wall';
 import { Browser, BAR_H } from '../ui/Browser';
 import { ChatGPTDarkUI, GPTD_W as GPT_W, GPTD_H as GPT_H, GPTD_PROMPT as GPT_PROMPT, GPTD_HEAD_LOGO as GPT_HEAD_LOGO } from '../ui/ChatGPTDark';
 import { YouTubeResults, YT_W, YT_H, ytThumb } from '../ui/YouTube';
+import { DummyContent } from '../ui/DummyContent';
+import { move } from '../lib/curves';
 import { C, prog, lerp, rand, clamp01 } from '../engine/theme';
 import type { SceneEntry } from '../engine/scenes';
 import type { TextBlock } from '../text/types';
@@ -90,26 +93,29 @@ const B11 = faceScene('P', { s: 1.8, cx: 1110 }, b11Cam, 'B11');
 const B13a = faceScene('T', { cy: 840 }, camPath([{ f: F_B13[0], zoom: 1 }, { f: F_B13_GPT, zoom: 1.05, ease: 'smooth' }], { sigma: 0 }), 'B13', (b) => b.id === 'B13-N1', F_B13[0]);
 
 // ======================= B08 · Irfan di antara cetakan serupa =======================
-const THUMBS = ['kXZYpA2Ur5o', 'jdH8pgLDtho', 'mXluYosHxX4', '8Lz530r09WU', 'pe9tFLbdSAA', 'id-946PmzcY', 'KBPsHcsl1aY', 'dePCXPtZydE', 'yhC8RcAr9RY', 'u4I3EJOikjE', 'dQ-KQm51FMQ', 'Di_KJpu3NhE'];
+const THUMBS = Array.from({ length: 12 }, (_, i) => `dummy${String(i + 1).padStart(2, '0')}`);
 const TCOLS = [200, 560, 1360, 1720];
 const TROWS = [230, 540, 850];
 const TW = 380, TH = 236;
 // kolom kanan (2,3) disingkirkan dulu untuk membuka ruang teks; kolom kiri saat "gak orang lain punya"
 const thumbs = THUMBS.map((id, i) => {
   const c = i % 4, r = Math.floor(i / 4);
-  const fallAt = c >= 2 ? 479 + (3 - c) * 3 + r * 3 + Math.round(rand(i) * 2) : 499 + r * 5 + c * 4 + Math.round(rand(i + 3) * 4);
-  return { id, x: TCOLS[c] + (rand(i + 1) - 0.5) * 24, y: TROWS[r] + (rand(i + 2) - 0.5) * 22, rot: (rand(i + 9) - 0.5) * 5, fallAt, dur: c >= 2 ? 9 : 16, spin: (rand(i + 17) - 0.5) * 50 };
+  const fallAt = c === 3 ? keBaru(490) : c === 2 ? keBaru(495) : keBaru(499) + 1;
+  return { id, variant: i, x: TCOLS[c] + (rand(i + 1) - 0.5) * 24, y: TROWS[r] + (rand(i + 2) - 0.5) * 22, rot: (rand(i + 9) - 0.5) * 5, fallAt, dur: c >= 2 ? 9 : 16, spin: (rand(i + 17) - 0.5) * 50 };
 });
-const b08Cam = camPath([
-  { f: F_B08[0], x: 960, y: 540, zoom: 1.35 },
-  { f: 506, x: 1000, y: 540, zoom: 0.8, ease: 'inOut' }, // pull −40 %
-  { f: F_B08[1], x: 1100, y: 545, zoom: 1.05, ease: 'inOut' }, // dorong ke foto + teks (satu-satunya fokus)
-]);
+const B08_REAL = [keBaru(F_B08[0]), keBaru(506), keBaru(F_B08[1])] as const;
+const b08Cam = (f: number): Pose => {
+  const [start, middle, end] = B08_REAL;
+  const t = move(f, start, middle - start, 'drift');
+  const u = move(f, middle, end - middle, 'heavy');
+  return { x: lerp(lerp(960, 1000, t), 1100, u), y: lerp(540, 545, u), zoom: lerp(lerp(0.8, 0.82, t), 1.05, u), rx: 0, ry: 0, rz: 0 };
+};
+const b08FitCam = (oldFrame: number) => b08Cam(keBaru(oldFrame));
 const IRFAN8 = { x: 760, y: 290, w: 400, h: 500 };
 const B08: React.FC = () => {
-  const f = useCurrentFrame();
+  const f = useRealFrame();
   return (
-    <Stage pose={b08Cam} bg={C.linen}>
+    <Stage pose={b08Cam} frame={f} screenPose={b08FitCam} bg={C.linen}>
       <Layer z={-300} name="L1"><Linen /></Layer>
       <Layer z={0} name="L2">
         {thumbs.map((t) => {
@@ -120,7 +126,7 @@ const B08: React.FC = () => {
           return (
             <Print key={t.id} x={t.x - TW / 2} y={t.y - TH / 2} w={TW} h={TH} border={12} pin
               style={{ transform: `translate(${p * t.spin * 3}px, ${-10 * lift + p * 1300}px) rotate(${t.rot + p * t.spin}deg)` }}>
-              <Img src={staticFile(`yt/${t.id}.jpg`)} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+              <DummyContent variant={t.variant} />
             </Print>
           );
         })}
@@ -239,35 +245,18 @@ const GptWindow: React.FC<{ open?: number; ui: React.ComponentProps<typeof ChatG
   );
 };
 
-// ---------- B12 · desktop → klik ikon ChatGPT → pantul → jendela ke tengah → riwayat → punch "investasi" → cap "AI." ----------
-const STAMP = 1045; // "AI." 34,82 dtk (frame lama)
+// ---------- B12 · desktop → klik ikon → jendela dan riwayat ----------
 const B12_CLICK = 945; // nyata 850
 const B12_BOUNCE: [number, number][] = [[946, 957], [957, 966]]; // 2 pantulan berurutan, nyata 850–858 dan 858–865
 const B12_OPEN: [number, number] = [966, 983]; // nyata 865–876,5 (0,38 dtk) di rampa 1,4×
 const B12_APP = 968; // menu bar "ChatGPT" + titik app aktif (nyata ±866)
-const B12_PUNCH: [number, number] = [1008, 1015]; // "investasi" f1015; masuk 7 f ease-out (motion blur Stage otomatis)
-const b12Cam = withShake(camPath([
-  { f: F_B12[0], ...anch(DESK_A, 1.0) },
-  { f: 960, ...anch(DESK_A, 1.04), ease: 'smooth' }, // push pelan ke desktop (r8: tanpa tahan, rentang lama kini tampil)
-  { f: 987, ...anch(PUNCH_A, 1.0), ease: 'inOut' }, // pull kecil saat jendela terbuka
-  { f: B12_PUNCH[0], ...anch(PUNCH_A, 1.03), ease: 'smooth' }, // push pelan ke jendela
-  { f: B12_PUNCH[1], ...punchPose(PUNCH_Z), ease: 'out' }, // punch kamera 1,03 → 3,8 (3,7×) ke kotak prompt
-  { f: 1038, ...punchPose(3.95, 215), ease: 'smooth' }, // push pelan
-  { f: 1047, x: 1030, y: 540, zoom: 1.8, ease: 'inOut' }, // mundur di "AI." (logo dicap di dalam jendela)
-  { f: F_B12[1], x: 990, y: 540, zoom: 1.45, ease: 'smooth' }, // terus mundur pelan sampai cut
-], { cuts: [B12_PUNCH[0]] }), [{ f: STAMP, amp: 10, dur: 9 }]);
-const LOGO12 = { x: 1060, y: 395 }; // dunia: di dalam jendela, di atas judul "Where should we begin?"
-const HEAD12 = { x: WIN.x + GPT_HEAD_LOGO.x * WIN_S, y: WIN.y + (BAR_H + GPT_HEAD_LOGO.y) * WIN_S };
+const b12Cam = camPath([{ f: F_B12[0], ...anch(DESK_A, 1.0) }, { f: F_B12[1], ...anch(DESK_A, 1.04), ease: 'smooth' }], { sigma: 0 });
 const bounceAt = (f: number) => B12_BOUNCE.reduce((a, [b0, b1], k) => a + (k === 0 ? 0.5 : 0.22) * Math.sin(Math.PI * clamp01((f - b0) / (b1 - b0))), 0);
 const B12: React.FC = () => {
   const f = useCurrentFrame();
   const pose = b12Cam(f);
   const open = prog(f, B12_OPEN[0], B12_OPEN[1], 'out');
   const hist = Math.floor(20 * Math.pow(prog(f, 983, 1040, 'linear'), 1.6)); // bertambah makin cepat
-  const st = prog(f, STAMP, STAMP + 4, 'out');
-  const mv = prog(f, STAMP + 8, STAMP + 16, 'inOut');
-  const size = lerp(lerp(120, 70, st), 22 * WIN_S, mv); // px dunia (ikut kamera)
-  const lx = lerp(LOGO12.x, HEAD12.x, mv), ly = lerp(LOGO12.y, HEAD12.y, mv);
   // kursor: dari kanan ke ikon ChatGPT di dock, klik, lalu menyingkir dan memudar setelah jendela terbuka
   const icw = dockIconAt(GPT_DOCK);
   const ic = toScreen(pose, icw.x - 4, icw.y - 6);
@@ -281,12 +270,7 @@ const B12: React.FC = () => {
         <Layer z={0} name="L1-L2">
           <MacBack f={f} />
           <Dock press={click} bounce={bounceAt(f)} chatgptRunning={prog(f, B12_APP, B12_APP + 4, 'out')} />
-          {open > 0 ? <GptWindow open={open} ui={{ history: hist, headerLogo: mv >= 1 ? 1 : 0 }} /> : null}
-          {f >= STAMP && mv < 1 ? (
-            <div style={{ position: 'absolute', left: lx - size / 2, top: ly - size / 2, opacity: Math.min(1, st * 3), filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.35))' }}>
-              <Logo name="openai" size={size} color="#FFFFFF" />
-            </div>
-          ) : null}
+          {open > 0 ? <GptWindow open={open} ui={{ history: hist, headerLogo: 1 }} /> : null}
           <MenuBar app={f >= B12_APP ? 'ChatGPT' : 'Finder'} time="10:25 PM" />
         </Layer>
       </Stage>
@@ -295,19 +279,14 @@ const B12: React.FC = () => {
   );
 };
 
-// ---------- B13b · set yang sama; klik prompt → punch kamera → ketik "build something" ±12 huruf/dtk → mundur → klik kirim ----------
-const B13_CLICK = 1110, TYPE_AT = 1121, TYPE_CPS = 12; // 15 huruf selesai f1156 (lama)
-const B13_PUNCH: [number, number] = [1114, 1120]; // R4: punch dulu (6 f ease-out), lalu ketik (huruf pertama f1121)
-const B13_BACK: [number, number] = [1158, 1163]; // mundur sebelum kirim/mosaik: awal teks + tombol kirim di frame
-const b13Cam = camPath([
-  { f: F_B13_GPT, ...anch(DESK_A, 1.04) },
-  { f: 1108, ...anch(PUNCH_A, 1.0), ease: 'inOut' }, // pull masuk babak (desktop + menu bar + dock terlihat)
-  { f: B13_PUNCH[0], ...anch(PUNCH_A, 1.03), ease: 'smooth' }, // push pelan
-  { f: B13_PUNCH[1], ...punchPose(PUNCH_Z), ease: 'out' }, // punch kamera 1,03 → 3,8 (3,7×)
-  { f: B13_BACK[0], ...punchPose(4.0, 200), ease: 'smooth' }, // push pelan mengikuti caret
-  { f: B13_BACK[1], ...backPose(2.2), ease: 'inOut' }, // mundur
-  { f: F_B13[1], ...backPose(2.12), ease: 'smooth' },
-], { cuts: [B13_PUNCH[0], B13_BACK[0]] }); // penghalusan tidak menyeberang awal mundur (punch tertahan sampai f1158)
+// ---------- B13b · satu punch, ketik, tahan hingga transisi ----------
+const B13_CLICK = 1110, TYPE_AT = 1121, TYPE_CPS = 15;
+const B13_PUNCH: [number, number] = [1114, 1120];
+const b13Cam = (f: number): Pose => {
+  const a = anch(DESK_A, 1.04), b = punchPose(PUNCH_Z);
+  const t = move(f, B13_PUNCH[0], B13_PUNCH[1] - B13_PUNCH[0], 'heavy');
+  return { x: lerp(a.x, b.x, t), y: lerp(a.y, b.y, t), zoom: Math.exp(lerp(Math.log(a.zoom), Math.log(b.zoom), t)), rx: 0, ry: 0, rz: 0 };
+};
 const TYPE = 'build something';
 const B13b: React.FC = () => {
   const f = useCurrentFrame();
@@ -320,13 +299,10 @@ const B13b: React.FC = () => {
   // (seperti macOS) → muncul lagi saat kamera mundur → tombol kirim, klik di F_SEND
   const clickW = { x: TEXT_X + 40, y: PROMPT_W.y + 8 };
   const slot = toScreen(pose, clickW.x, clickW.y);
-  const send = toScreen(pose, SEND_W.x + 4, SEND_W.y + 8);
   const a1 = prog(f, F_B13_GPT, B13_CLICK - 1, 'out');
-  const a2 = prog(f, B13_BACK[0] + 2, F_SEND - 1, 'inOut');
-  const p1 = { x: lerp(1400, slot.x, a1), y: lerp(1010, slot.y, a1) };
-  const cur = f < B13_BACK[0] ? p1 : { x: lerp(send.x + 260, send.x, a2), y: lerp(send.y + 160, send.y, a2) };
-  const curOp = f < B13_BACK[0] ? 1 - prog(f, B13_CLICK + 4, B13_CLICK + 8, 'in') : prog(f, B13_BACK[0], B13_BACK[0] + 4, 'out');
-  const click = f < F_SEND ? prog(f, B13_CLICK, B13_CLICK + 5, 'linear') * (f < B13_CLICK + 6 ? 1 : 0) : prog(f, F_SEND, F_SEND + 5, 'linear');
+  const cur = { x: lerp(1400, slot.x, a1), y: lerp(1010, slot.y, a1) };
+  const curOp = 1 - prog(f, B13_CLICK + 4, B13_CLICK + 8, 'in');
+  const click = prog(f, B13_CLICK, B13_CLICK + 5, 'linear') * (f < B13_CLICK + 6 ? 1 : 0);
   return (
     <AbsoluteFill style={{ backgroundColor: '#000' }}>
       <Stage pose={b13Cam}>

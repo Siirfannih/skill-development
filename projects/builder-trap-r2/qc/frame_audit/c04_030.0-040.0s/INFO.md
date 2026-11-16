@@ -3,26 +3,29 @@
 Frame 900–1199 · 30.00–40.00 dtk
 
 ## Tanda otomatis
-- f901 (30.03 dtk): LOMPAT 64.5 (f900→901)
-- f969 (32.30 dtk): LOMPAT 18.4 (f968→969)
-- f969 (32.30 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
-- f981 (32.70 dtk): LOMPAT 85.4 (f980→981)
-- f996 (33.20 dtk): LOMPAT 65.8 (f995→996)
-- f1050 (35.00 dtk): LOMPAT 13.0 (f1049→1050)
-- f1051 (35.03 dtk): LOMPAT 22.9 (f1050→1051)
+- f947 (31.57 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f966 (32.20 dtk): LOMPAT 16.8 (f965→966)
+- f966 (32.20 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f977 (32.57 dtk): BEKU 17 f
+- f977 (32.57 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f994 (33.13 dtk): LOMPAT 13.4 (f993→994)
+- f995 (33.17 dtk): LOMPAT 28.4 (f994→995)
+- f996 (33.20 dtk): LOMPAT 44.4 (f995→996)
+- f1052 (35.07 dtk): LOMPAT 16.3 (f1051→1052)
+- f1056 (35.20 dtk): LOMPAT 24.9 (f1055→1056)
+- f1094 (36.47 dtk): BEKU 8 f
+- f1103 (36.77 dtk): LOMPAT 8.0 (f1102→1103)
 
 ## Kata diucapkan (dtk)
-investasi@30.23 waktu@30.73 pada@30.93 AI.@31.25 Untuk@31.70 belajar.@32.15 Untuk@32.67 melakukan@33.03 sesuatu.@33.35 Build@33.95 something.@34.37 Selama@35.01 satu@35.57 tahun@35.73 aku@36.07 mencoba@36.31 untuk@36.98 belajar.@37.24 Untuk@37.78 memahami@38.08 seperti@38.56 apa@38.78 industri@39.06 ini.@39.38 Dan@39.86
+waktu@30.46 pada@30.66 AI.@30.98 Untuk@31.62 belajar.@32.27 Untuk@32.56 melakukan@32.92 sesuatu.@33.24 Build@33.84 something.@34.26 Selama@35.23 satu@35.75 tahun@35.91 aku@36.25 mencoba@36.73 untuk@36.99 belajar.@37.25 Untuk@37.79 memahami@38.09 seperti@38.57 apa@38.83 industri@39.07 ini.@39.39 Dan@39.87
 
 ## Cue SFX (dtk · peran · file)
-- 30.12 · whoosh · Woosh.mp3
-- 31.26 · cap · v17_thud_2.mp3
-- 31.70 · potong_adegan · Katapertama.mp3
-- 32.70 · potong_adegan · Katapertama.mp3
-- 33.20 · whoosh · Woosh.mp3
-- 33.43 · ketik · Keyboardtyping.mp3
-- 34.78 · kirim · Enter.mp3
-- 34.83 · transisi_babak · ES_User Interface, Glitch, Glitch Databend 04 - Epidemic Sound.mp3
-- 35.50 · pin · pin.mp3
-- 37.73 · pin · pin.mp3
-- 39.50 · whoosh · Wooshcameramovementtransisi.mp3
+- 32.98 · ui_click · Enter.mp3
+- 33.20 · camera · Wooshcameramovementtransisi.mp3
+- 34.11 · typing · Keyboardtyping.mp3
+- 35.06 · mosaic · Cut.mp3
+- 35.70 · card_motion · pop up.mp3
+- 36.83 · card_motion · pop up.mp3
+- 37.73 · card_motion · pop up.mp3
+- 38.93 · card_motion · pop up.mp3
+- 39.33 · camera · Wooshcameramovementtransisi.mp3

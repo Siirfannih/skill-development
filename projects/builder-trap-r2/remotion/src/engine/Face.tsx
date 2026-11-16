@@ -1,6 +1,7 @@
-// Sisipan wajah (BRIEF §Wajah). r5: face_edit_v3.mp4 diputar di frame NYATA timeline baru (useRealFrame), bukan frame
-// adegan yang di-warp, jadi lip-sync dengan mix_v3.wav. Jangan taruh <Face> di dalam <Sequence from=...>.
+// Wajah v6 mengikuti frame program (useRealFrame), sehingga potongannya sama dengan VO.
 import React from 'react';
+import { DUR_V6 } from './timewarp';
+import K from '../data/knots_v6.json';
 import { OffthreadVideo, Sequence, staticFile, useCurrentFrame } from 'remotion';
 import { useRealFrame } from './realframe';
 
@@ -16,12 +17,8 @@ export const FACE_PRESETS = {
   P: { s: 1.9, cx: 1077, cy: 500 }, // sisi: wajah di sepertiga kiri, ruang dinding kanan ±700 px
 } as const;
 export type FacePreset = keyof typeof FACE_PRESETS;
-/** r8 (TASK-r8 butir 2): frame NYATA tempat video wajah melompat di DALAM sisipan wajah (titik potong suara dari
- *  edit/v3/map.json; frame persisnya diukur dari selisih antar-frame face_edit_v3.mp4: lonjakan 2,0–21,5 vs median 1,2).
- *  Titik map yang tidak terlihat meloncat di video (f2186, f2189: selisih 0,5/2,9) tidak dimasukkan; f2460 (audit) bukan
- *  potongan (gerak kepala kontinu 4,7–5,2 per frame selama 4 f). Titik yang jatuh tepat di awal adegan wajah (f642, f951,
- *  f1307) tertutup cut adegan. */
-export const FACE_JUMPS = [141, 166, 657, 969, 1332, 1532, 1709, 1764, 2406, 2414];
+// Join berasal dari map v6 dan ikut dibundel bersama peta adegan.
+export const FACE_JUMPS = K.face_jumps;
 /** punch-in di titik lompatan: +10 % skala crop per tingkat. Lompatan berganti masuk/keluar (1,0 ↔ 1,1); lompatan yang
  *  berdekatan (< FACE_JUMP_NEAR frame dari lompatan sebelumnya dalam sisipan yang sama) LANJUT MASUK (1,1 → 1,2), tidak
  *  keluar-masuk (putusan Sutradara r8 Q2, mis. f2406 → f2414). */
@@ -87,11 +84,10 @@ export const Face: React.FC<{
           </filter>
         </svg>
       ) : null}
-      {/* r5: face_edit_v3.mp4 di frame NYATA (dipotong di rentang yang sama dengan suara v3 → bibir sinkron) */}
       {/* Sequence menggeser frame adegan (lama) ke frame nyata: di dalamnya useCurrentFrame() = real */}
-      <Sequence from={cur - Math.min(vf, 2500)} layout="none">
+      <Sequence from={cur - Math.max(0, Math.min(vf, DUR_V6 - 1))} layout="none">
         <OffthreadVideo
-          src={staticFile('face_edit_v3.mp4')}
+          src={staticFile('v6/face_edit_v6.mp4')}
           muted
           style={{ position: 'absolute', left, top, width: vw, height: vh, filter: FACE_GRADE[grade], maxWidth: 'none' }}
         />

@@ -1,0 +1,13 @@
+```json
+{
+  "listened": true,
+  "entire_files_listened": true,
+  "voice_clear": true,
+  "sfx_audible": true,
+  "pumping": false,
+  "tail_cuts": false,
+  "harshness": false,
+  "defects": [],
+  "uncertainty": "none"
+}
+```

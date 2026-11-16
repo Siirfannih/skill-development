@@ -1,0 +1,13 @@
+```json
+{
+  "native_images_available": true,
+  "all_frames_inspected": true,
+  "reviewed_frame_indices": [1082, 1083, 1084],
+  "blue_handwriting_continuous": false,
+  "observations": "At frame 1082, the scene shows pinned UI cards on a board with black text 'Selama' and partial blue handwriting 'satu ti'. At frame 1083, the camera and background remain consistent, and the blue handwriting advances progressively to 'satu tal' beside 'Selama'. However, at frame 1084, while the camera/scene framing and pinned cards remain unchanged and 'Selama' remains visible, the entire blue handwriting beside 'Selama' disappears completely instead of continuing or completing its reveal.",
+  "issues": [
+    "Blue handwriting beside 'Selama' completely vanishes at frame 1084 following progressive reveal across frames 1082 ('satu ti') and 1083 ('satu tal')."
+  ],
+  "uncertainty": "None regarding the visual disappearance between 1083 and 1084 in the inspected frames; per instructions, broader timeline behavior outside frames 1082-1084 is not evaluated."
+}
+```

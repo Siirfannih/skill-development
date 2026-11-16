@@ -1,0 +1,15 @@
+{
+  "command": [
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/runtime-bin/npx",
+    "remotion",
+    "bundle",
+    "src/index.ts",
+    "--out-dir=/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/builder-v6/qc/.bundle"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion",
+  "exit_code": 0,
+  "started_ns": 1794829144364327679,
+  "ended_ns": 1794829154821359701,
+  "log": "qc/v6-finishing/logs/b19-bundle-build.log",
+  "log_sha256": "04ca274ae616e949ee8353d6e302ef3f9c113f0afc27a77dc35930c85cf73be5"
+}

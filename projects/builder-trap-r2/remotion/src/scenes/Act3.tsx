@@ -9,6 +9,7 @@ import { TextBlocks, measure, tokIn } from '../engine/TextLayer';
 import { wordIn } from '../engine/words';
 import { Face } from '../engine/Face';
 import { keBaru } from '../engine/timewarp';
+import { useRealFrame } from '../engine/realframe';
 import { DarkWall } from '../engine/Surfaces';
 import { Cursor } from '../engine/Cursor';
 import { C, FONT, prog, lerp, clamp01, rand, EASE } from '../engine/theme';
@@ -66,9 +67,9 @@ const B17_SAVE = 1557; // 51,9 dtk
 // r6 (butir 2): UI diperbesar mengisi separuh kanan: modal mulai layar x 960, zoom 1,2 → 1,24, terpotong tepi kanan
 const b17Cam = camPath(
   [
-    { f: F_B17[0], x: 568, y: 588, zoom: 1.2 },
-    { f: B17_SAVE, x: 568, y: 580, zoom: 1.22, ease: 'smooth' },
-    { f: F_B17[1], x: 590, y: 560, zoom: 1.24, ease: 'inOut' },
+    { f: F_B17[0], x: 680, y: 588, zoom: 1.2, ry: -2.5, rx: 1 },
+    { f: B17_SAVE, x: 680, y: 580, zoom: 1.22, ry: -1.8, rx: 0.7, ease: 'smooth' },
+    { f: F_B17[1], x: 690, y: 560, zoom: 1.24, ry: -1.2, rx: 0.5, ease: 'inOut' },
   ],
   { sigma: 1.5 },
 );
@@ -108,7 +109,7 @@ const B17: React.FC = () => {
         <DarkWall />
       </Layer>
       <Layer z={0} name="L2">
-        <div style={{ position: 'absolute', left: TW_CROP, top: TW.y, width: TW.x + TW.w - TW_CROP, height: TW.h, overflow: 'hidden', borderRadius: 18 }}>
+        <div style={{ position: 'absolute', left: TW_CROP, top: TW.y, width: TW.x + TW.w - TW_CROP, height: TW.h, overflow: 'hidden', borderRadius: 18, boxShadow: '0 28px 65px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08)' }}>
          <div style={{ position: 'absolute', left: TW.x - TW_CROP, top: 0 }}>
           <ThreadsWindow
             mode="dark" ui={1} w={TW.w} h={TW.h} colW={640} header="For you"
@@ -122,6 +123,8 @@ const B17: React.FC = () => {
         {pulse > 0 ? (
           <div style={{ position: 'absolute', left: DRAFT_ICON.x - 22, top: DRAFT_ICON.y - 22, width: 44, height: 44, borderRadius: 12, boxShadow: `0 0 0 ${2 + 3 * (1 - pulse)}px rgba(201,203,209,${0.9 * pulse})` }} />
         ) : null}
+      </Layer>
+      <Layer z={55} name="L2-modal">
         <div
           style={{
             position: 'absolute', left: sx - MODAL.w / 2, top: sy - 163, transformOrigin: '50% 50%',
@@ -217,17 +220,19 @@ const b19Cam = camPath(
   [
     // r3b (F-v1-06): awal shot jendela utuh (tepi kiri di dalam frame), lalu push ke field nama (gerak terlihat);
     // (F-v1-04): punch ke tombol "Create repository" 1,85× saat diklik (tombol ±104 px layar)
-    { f: F_B19[0], x: 1080, y: 470, zoom: 1.22, rz: -0.6 },
-    { f: 1636, x: 1100, y: 474, zoom: 1.25, rz: -0.4, ease: 'smooth' },
-    { f: 1648, x: 1236, y: 489, zoom: 1.45, rz: 0, ease: 'inOut' },
-    { f: 1666, x: 1240, y: 495, zoom: 1.47, ease: 'smooth' },
-    { f: 1680, x: 1300, y: 1122, zoom: 1.8, ease: 'inOut' },
-    { f: F_B19_CUT, x: 1305, y: 1130, zoom: 1.86, ease: 'smooth' },
+    { f: keBaru(F_B19[0]), x: 1080, y: 470, zoom: 1.22, rz: -0.6 },
+    { f: keBaru(1636), x: 1100, y: 474, zoom: 1.25, rz: -0.4, ease: 'smooth' },
+    { f: keBaru(1648), x: 1236, y: 489, zoom: 1.45, rz: 0, ease: 'inOut' },
+    { f: keBaru(1666), x: 1240, y: 495, zoom: 1.47, ease: 'smooth' },
+    { f: keBaru(1680), x: 1300, y: 1122, zoom: 1.8, ease: 'inOut' },
+    { f: keBaru(F_B19_CUT), x: 1305, y: 1130, zoom: 1.86, ease: 'smooth' },
   ],
   { sigma: 0 },
 );
+const b19FitCam = (oldFrame: number) => b19Cam(keBaru(oldFrame));
 const B19Form: React.FC = () => {
   const f = useCurrentFrame();
+  const realFrame = useRealFrame();
   const name = B19_REPO[0];
   const n = Math.max(0, Math.min(name.length, Math.floor((f - TYPE0) / 2.2) + 1));
   const typed = f < TYPE0 ? '' : name.slice(0, n);
@@ -236,7 +241,7 @@ const B19Form: React.FC = () => {
   const cx = lerp(CREATE_BTN.x + 260, CREATE_BTN.x, cIn), cy = lerp(CREATE_BTN.y + 120, CREATE_BTN.y, cIn);
   const press = f >= CREATE - 2 && f <= CREATE + 5 ? (f - (CREATE - 2)) / 7 : 0;
   return (
-    <Stage pose={b19Cam} bg={C.dark0}>
+    <Stage pose={b19Cam} frame={realFrame} screenPose={b19FitCam} bg={C.dark0}>
       <Layer z={-300} name="L1">
         <DarkWall angle={150} />
       </Layer>
@@ -276,19 +281,7 @@ const B19Face: React.FC = () => (
 // ============================================================================================
 const STACK = REPO_LIST.slice(REPO_LIST.findIndex((r) => r[0] === 'MemoryPC') + 1); // 19 repo, JadisatuDashboardnew → ops-report
 const FREEZE = 1892; // 63,04 dtk
-const ARRIVE: number[] = (() => {
-  const n = STACK.length;
-  // r3c (F-r3b-01): kartu terakhir datang f1870 dan mendarat f1879 (= "Dan" masuk), jadi selama punch dan N3 tampil
-  // kartu terdepan (kotak Releases) diam di slot; dulu kartu terakhir masih meluncur naik dari bawah melewati N3
-  // sampai membeku setengah jalan (f1888–1892).
-  const first = F_B20[0] - 4, last = 1870; // kartu pertama sudah meluncur saat cut
-  const r = Math.pow(4 / 15, 1 / (n - 2));
-  const gaps = Array.from({ length: n - 1 }, (_, k) => 15 * Math.pow(r, k));
-  const tot = gaps.reduce((a, b) => a + b, 0);
-  const out = [first];
-  gaps.forEach((g) => out.push(out[out.length - 1] + (g * (last - first)) / tot));
-  return out;
-})();
+const ARRIVE: number[] = STACK.map((_, k) => [1731, 1756, 1794, 1815, 1834, 1854, 1869][Math.min(6, Math.floor(k / 3))]);
 const CARD = { w: 960, h: 770, ui: 1.7, x: 1363, y: 540 }; // pusat slot depan
 const STEP = { x: 26, y: -44, z: -56 };
 

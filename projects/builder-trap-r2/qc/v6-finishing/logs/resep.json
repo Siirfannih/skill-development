@@ -1,0 +1,13 @@
+{
+  "command": [
+    "/home/irfan/work/mg-venv/bin/python",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/claude/motion-graphic/scripts/juri/resep_check.py",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/RESEP.md"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development",
+  "exit_code": 0,
+  "started_ns": 1794830893041708946,
+  "ended_ns": 1794830893084789337,
+  "log": "qc/v6-finishing/logs/resep.log",
+  "log_sha256": "f4973955936c9ec365d252d14379e4f74ad1ed320d8987d236232b4b14667c6b"
+}

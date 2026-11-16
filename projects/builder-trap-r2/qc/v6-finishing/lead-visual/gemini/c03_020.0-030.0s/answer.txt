@@ -1,0 +1,49 @@
+```json
+{
+  "native_images_available": true,
+  "all_panels_inspected": true,
+  "reviewed_sheets": [
+    "s020.0.jpg",
+    "s021.0.jpg",
+    "s022.0.jpg",
+    "s023.0.jpg",
+    "s024.0.jpg",
+    "s025.0.jpg",
+    "s026.0.jpg",
+    "s027.0.jpg",
+    "s028.0.jpg",
+    "s029.0.jpg"
+  ],
+  "coverage_frame_range": [600, 899],
+  "observations": "f600-653 shows social feed UI with cursor movement and like interaction. Hard cut at f654 to talking-head speaker footage with synchronized animated captions. At f701, hard cut to YouTube search UI mockup where cursor navigates and scrolls down. At f777, hard cut back to talking-head footage. At f834, hard cut to desktop wallpaper where mouse cursor moves towards dock. At f862-864, ChatGPT window animates in (pop-up scale entrance). From f865 to f899, the ChatGPT window rests static on the desktop wallpaper.",
+  "issues": [],
+  "warnings_adjudicated": [
+    {
+      "frame": 777,
+      "decision": "intentional",
+      "reason": "Intentional scene cut from the YouTube search UI screen back to speaker talking-head footage on the word 'Aku'."
+    },
+    {
+      "frame": 834,
+      "decision": "intentional",
+      "reason": "Intentional scene transition/cut from speaker talking-head footage to desktop wallpaper scene, introducing the next setup."
+    },
+    {
+      "frame": 862,
+      "decision": "intentional",
+      "reason": "Onset of ChatGPT app window scale/pop entrance animation onto the desktop."
+    },
+    {
+      "frame": 863,
+      "decision": "intentional",
+      "reason": "Continuation of ChatGPT app window opening scale animation."
+    },
+    {
+      "frame": 864,
+      "decision": "intentional",
+      "reason": "Settling frame of ChatGPT app window scale animation reaching resting scale."
+    }
+  ],
+  "uncertainty": "Exact micro-text labels inside the macOS dock and small UI buttons cannot be fully resolved at contact sheet grid resolution, but overall structure, layout, typography, and motion continuity are clear and defect-free."
+}
+```

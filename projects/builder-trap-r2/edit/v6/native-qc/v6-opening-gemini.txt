@@ -1,0 +1,21 @@
+```json
+{
+  "listened": true,
+  "transcripts": {
+    "A": "...sekarang, Semua orang tuh bisa membangun, semua orang tuh bisa membuat, semua orang tuh bisa bikin software",
+    "B": "Semua orang tuh bisa membangun, semua orang tuh bisa membuat, semua orang tuh bisa bikin software, tapi nggak semua orang bisa mempublikasikan apa..."
+  },
+  "defects": [
+    {
+      "file": "A",
+      "t": "0.0s",
+      "word": "sekarang",
+      "reason": "Terdengar bocoran/sisa ekor kata dari kalimat sebelumnya ('...sekarang,') sebelum jeda dan kata 'Semua'."
+    }
+  ],
+  "opening_complete": true,
+  "word_tails_complete": true,
+  "verdict": "PASS",
+  "uncertainty": "none"
+}
+```

@@ -1,0 +1,26 @@
+{
+  "command": [
+    "/usr/bin/ffmpeg",
+    "-v",
+    "error",
+    "-threads",
+    "2",
+    "-filter_threads",
+    "1",
+    "-i",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/out/builder-trap-r2_v6.mp4",
+    "-vn",
+    "-af",
+    "aresample=192000:resampler=soxr:precision=28",
+    "-acodec",
+    "pcm_f32le",
+    "-f",
+    "f32le",
+    "-"
+  ],
+  "exit_code": 0,
+  "oversample": 4,
+  "resampler": "soxr precision28",
+  "peak_linear": 0.8813157081604004,
+  "truepeak_dbtp": -1.0973697829295257
+}

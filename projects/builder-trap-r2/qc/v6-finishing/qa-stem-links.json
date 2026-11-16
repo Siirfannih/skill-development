@@ -1,0 +1,9 @@
+{
+  "source_snapshot_sha256": "429142e6d3268f5f01f9d3d08cea627e6ca5a34037f3dc800f9a29c636a2f4af",
+  "hashes": {
+    "qc/v6-finishing/stems/stem_music.wav": "5a1f434857e47a934bb1c6326e74eeb142d565229d8952dac7b05f13186a4e04",
+    "qc/v6-finishing/stems/stem_sfx.wav": "7ecef3317bebae655e28cd261ff445782d408b6bacfabe9afe3d0e7d5fc76644",
+    "qc/v6-finishing/stems/stem_vo.wav": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f"
+  },
+  "scope": "QA-only links to frozen snapshot-v6 voice/music/SFX"
+}

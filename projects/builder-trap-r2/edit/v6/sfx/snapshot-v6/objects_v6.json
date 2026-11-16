@@ -1,0 +1,648 @@
+{
+  "objects": [
+    {
+      "t": 0.0,
+      "objek": "Arsip: isi bingkai berganti",
+      "frame": 0,
+      "visual_start_frame": 0
+    },
+    {
+      "t": 0.3,
+      "objek": "Arsip: isi bingkai berganti",
+      "frame": 9,
+      "visual_start_frame": 9
+    },
+    {
+      "t": 0.8333333333333334,
+      "objek": "Arsip: isi bingkai berganti",
+      "frame": 25,
+      "visual_start_frame": 25
+    },
+    {
+      "t": 1.4333333333333333,
+      "objek": "Arsip: isi bingkai berganti",
+      "frame": 43,
+      "visual_start_frame": 43
+    },
+    {
+      "t": 1.9,
+      "objek": "Arsip: isi bingkai berganti",
+      "frame": 57,
+      "visual_start_frame": 57
+    },
+    {
+      "t": 2.433333333333333,
+      "objek": "Arsip: isi bingkai berganti",
+      "frame": 73,
+      "visual_start_frame": 73
+    },
+    {
+      "t": 2.933333333333333,
+      "objek": "Arsip: isi bingkai berganti",
+      "frame": 88,
+      "visual_start_frame": 88
+    },
+    {
+      "t": 3.8,
+      "objek": "Arsip: isi bingkai berganti",
+      "frame": 114,
+      "visual_start_frame": 114
+    },
+    {
+      "t": 5.033333333333333,
+      "objek": "Kamera menembus bingkai arsip",
+      "frame": 151,
+      "visual_start_frame": 142
+    },
+    {
+      "t": 6.933333333333334,
+      "objek": "Judul mempublikasikan masuk",
+      "frame": 208,
+      "visual_start_frame": 208
+    },
+    {
+      "t": 8.666666666666666,
+      "objek": "Mosaik pembuka babak",
+      "frame": 260,
+      "visual_start_frame": 260
+    },
+    {
+      "t": 8.933333333333334,
+      "objek": "Foto cetak masuk dan mendarat",
+      "frame": 268,
+      "visual_start_frame": 265
+    },
+    {
+      "t": 14.433333333333334,
+      "objek": "B08 dinding dua belas cetakan muncul",
+      "frame": 433,
+      "visual_start_frame": 433
+    },
+    {
+      "t": 14.833333333333334,
+      "objek": "B08 kelompok cetakan terangkat dan jatuh",
+      "frame": 445,
+      "visual_start_frame": 442
+    },
+    {
+      "t": 15.033333333333333,
+      "objek": "B08 kelompok cetakan terangkat dan jatuh",
+      "frame": 451,
+      "visual_start_frame": 448
+    },
+    {
+      "t": 15.333333333333334,
+      "objek": "B08 kelompok cetakan terangkat dan jatuh",
+      "frame": 460,
+      "visual_start_frame": 457
+    },
+    {
+      "t": 15.766666666666667,
+      "objek": "B08 kamera mundur; puncak kecepatan hasil audit",
+      "frame": 473,
+      "visual_start_frame": 433
+    },
+    {
+      "t": 18.4,
+      "objek": "Threads feed menuju kutipan",
+      "frame": 552,
+      "visual_start_frame": 545
+    },
+    {
+      "t": 21.7,
+      "objek": "Threads like",
+      "frame": 651,
+      "visual_start_frame": 643
+    },
+    {
+      "t": 23.366666666666667,
+      "objek": "YouTube search muncul",
+      "frame": 701,
+      "visual_start_frame": 701
+    },
+    {
+      "t": 28.3,
+      "objek": "ChatGPT dock diklik",
+      "frame": 849,
+      "visual_start_frame": 849
+    },
+    {
+      "t": 28.933333333333334,
+      "objek": "ChatGPT jendela terbuka",
+      "frame": 868,
+      "visual_start_frame": 861
+    },
+    {
+      "t": 32.96666666666667,
+      "objek": "Prompt ChatGPT dipilih",
+      "frame": 989,
+      "visual_start_frame": 989
+    },
+    {
+      "t": 33.2,
+      "objek": "ChatGPT punch tunggal ke prompt",
+      "frame": 996,
+      "visual_start_frame": 993
+    },
+    {
+      "t": 34.1,
+      "objek": "Prompt build something diketik",
+      "frame": 1023,
+      "visual_start_frame": 1000
+    },
+    {
+      "t": 35.03333333333333,
+      "objek": "Transisi prompt ke dinding",
+      "frame": 1051,
+      "visual_start_frame": 1051
+    },
+    {
+      "t": 35.7,
+      "objek": "Cetakan dinding bukti terangkat saat disorot",
+      "frame": 1071,
+      "visual_start_frame": 1050
+    },
+    {
+      "t": 36.833333333333336,
+      "objek": "Cetakan dinding bukti terangkat saat disorot",
+      "frame": 1105,
+      "visual_start_frame": 1083
+    },
+    {
+      "t": 37.733333333333334,
+      "objek": "Cetakan dinding bukti terangkat saat disorot",
+      "frame": 1132,
+      "visual_start_frame": 1113
+    },
+    {
+      "t": 38.93333333333333,
+      "objek": "Cetakan dinding bukti terangkat saat disorot",
+      "frame": 1168,
+      "visual_start_frame": 1147
+    },
+    {
+      "t": 39.333333333333336,
+      "objek": "Kamera mundur ke dinding bukti",
+      "frame": 1180,
+      "visual_start_frame": 1162
+    },
+    {
+      "t": 40.46666666666667,
+      "objek": "Cetakan dinding bukti terangkat saat disorot",
+      "frame": 1214,
+      "visual_start_frame": 1193
+    },
+    {
+      "t": 41.333333333333336,
+      "objek": "Wipe dinding menuju babak gelap",
+      "frame": 1240,
+      "visual_start_frame": 1240
+    },
+    {
+      "t": 45.166666666666664,
+      "objek": "Composer Threads gelap muncul",
+      "frame": 1355,
+      "visual_start_frame": 1355
+    },
+    {
+      "t": 45.5,
+      "objek": "Kamera mengikuti kursor ke Cancel",
+      "frame": 1365,
+      "visual_start_frame": 1361
+    },
+    {
+      "t": 45.63333333333333,
+      "objek": "Cancel di Threads",
+      "frame": 1369,
+      "visual_start_frame": 1369
+    },
+    {
+      "t": 46.333333333333336,
+      "objek": "Save draft di Threads",
+      "frame": 1390,
+      "visual_start_frame": 1390
+    },
+    {
+      "t": 46.9,
+      "objek": "Halaman GitHub muncul",
+      "frame": 1407,
+      "visual_start_frame": 1407
+    },
+    {
+      "t": 47.8,
+      "objek": "Push ke README",
+      "frame": 1434,
+      "visual_start_frame": 1422
+    },
+    {
+      "t": 48.7,
+      "objek": "Form repositori muncul",
+      "frame": 1461,
+      "visual_start_frame": 1461
+    },
+    {
+      "t": 49.166666666666664,
+      "objek": "Nama repositori diketik",
+      "frame": 1475,
+      "visual_start_frame": 1468
+    },
+    {
+      "t": 49.36666666666667,
+      "objek": "Centang nama repositori tersedia",
+      "frame": 1481,
+      "visual_start_frame": 1481
+    },
+    {
+      "t": 49.56666666666667,
+      "objek": "Kamera bergerak menuju Create repository",
+      "frame": 1487,
+      "visual_start_frame": 1483
+    },
+    {
+      "t": 49.9,
+      "objek": "Create repository ditekan",
+      "frame": 1497,
+      "visual_start_frame": 1497
+    },
+    {
+      "t": 51.166666666666664,
+      "objek": "B20 gelombang kartu repo",
+      "frame": 1535,
+      "visual_start_frame": 1535
+    },
+    {
+      "t": 51.833333333333336,
+      "objek": "B20 gelombang kartu repo",
+      "frame": 1555,
+      "visual_start_frame": 1555
+    },
+    {
+      "t": 52.5,
+      "objek": "B20 gelombang kartu repo",
+      "frame": 1575,
+      "visual_start_frame": 1575
+    },
+    {
+      "t": 53.13333333333333,
+      "objek": "B20 gelombang kartu repo",
+      "frame": 1594,
+      "visual_start_frame": 1594
+    },
+    {
+      "t": 53.833333333333336,
+      "objek": "B20 gelombang kartu repo",
+      "frame": 1615,
+      "visual_start_frame": 1615
+    },
+    {
+      "t": 54.5,
+      "objek": "B20 gelombang kartu repo",
+      "frame": 1635,
+      "visual_start_frame": 1635
+    },
+    {
+      "t": 55.0,
+      "objek": "B20 gelombang kartu repo",
+      "frame": 1650,
+      "visual_start_frame": 1650
+    },
+    {
+      "t": 55.333333333333336,
+      "objek": "Punch ke Releases",
+      "frame": 1660,
+      "visual_start_frame": 1646
+    },
+    {
+      "t": 55.733333333333334,
+      "objek": "Tumpukan repo freeze dan shake",
+      "frame": 1672,
+      "visual_start_frame": 1646
+    },
+    {
+      "t": 61.9,
+      "objek": "Profil Threads tanpa post",
+      "frame": 1857,
+      "visual_start_frame": 1857
+    },
+    {
+      "t": 63.96666666666667,
+      "objek": "Kamera mundur memperlihatkan draft",
+      "frame": 1919,
+      "visual_start_frame": 1904
+    },
+    {
+      "t": 66.46666666666667,
+      "objek": "Wipe terang",
+      "frame": 1994,
+      "visual_start_frame": 1994
+    },
+    {
+      "t": 68.5,
+      "objek": "Whip kembali menyusuri dinding",
+      "frame": 2055,
+      "visual_start_frame": 2049
+    },
+    {
+      "t": 71.06666666666666,
+      "objek": "B24 kamera push ke cetakan pertama",
+      "frame": 2132,
+      "visual_start_frame": 2116
+    },
+    {
+      "t": 75.56666666666666,
+      "objek": "Composer Threads dan tiga lampiran masuk sebagai satu grup",
+      "frame": 2267,
+      "visual_start_frame": 2267
+    },
+    {
+      "t": 75.9,
+      "objek": "Tombol Post ditekan",
+      "frame": 2277,
+      "visual_start_frame": 2277
+    },
+    {
+      "t": 76.13333333333334,
+      "objek": "Post terbit",
+      "frame": 2284,
+      "visual_start_frame": 2284
+    },
+    {
+      "t": 76.7,
+      "objek": "Post terbit",
+      "frame": 2301,
+      "visual_start_frame": 2301
+    },
+    {
+      "t": 77.83333333333333,
+      "objek": "Post terbit",
+      "frame": 2335,
+      "visual_start_frame": 2335
+    },
+    {
+      "t": 15.333333333333334,
+      "objek": "dummy01",
+      "frame": 460,
+      "visual_start_frame": 457,
+      "group_id": "wall-3"
+    },
+    {
+      "t": 15.333333333333334,
+      "objek": "dummy02",
+      "frame": 460,
+      "visual_start_frame": 457,
+      "group_id": "wall-3"
+    },
+    {
+      "t": 15.033333333333333,
+      "objek": "dummy03",
+      "frame": 451,
+      "visual_start_frame": 448,
+      "group_id": "wall-2"
+    },
+    {
+      "t": 14.833333333333334,
+      "objek": "dummy04",
+      "frame": 445,
+      "visual_start_frame": 442,
+      "group_id": "wall-1"
+    },
+    {
+      "t": 15.333333333333334,
+      "objek": "dummy05",
+      "frame": 460,
+      "visual_start_frame": 457,
+      "group_id": "wall-3"
+    },
+    {
+      "t": 15.333333333333334,
+      "objek": "dummy06",
+      "frame": 460,
+      "visual_start_frame": 457,
+      "group_id": "wall-3"
+    },
+    {
+      "t": 15.033333333333333,
+      "objek": "dummy07",
+      "frame": 451,
+      "visual_start_frame": 448,
+      "group_id": "wall-2"
+    },
+    {
+      "t": 14.833333333333334,
+      "objek": "dummy08",
+      "frame": 445,
+      "visual_start_frame": 442,
+      "group_id": "wall-1"
+    },
+    {
+      "t": 15.333333333333334,
+      "objek": "dummy09",
+      "frame": 460,
+      "visual_start_frame": 457,
+      "group_id": "wall-3"
+    },
+    {
+      "t": 15.333333333333334,
+      "objek": "dummy10",
+      "frame": 460,
+      "visual_start_frame": 457,
+      "group_id": "wall-3"
+    },
+    {
+      "t": 15.033333333333333,
+      "objek": "dummy11",
+      "frame": 451,
+      "visual_start_frame": 448,
+      "group_id": "wall-2"
+    },
+    {
+      "t": 14.833333333333334,
+      "objek": "dummy12",
+      "frame": 445,
+      "visual_start_frame": 442,
+      "group_id": "wall-1"
+    },
+    {
+      "t": 51.166666666666664,
+      "objek": "JadisatuDashboardnew",
+      "frame": 1535,
+      "visual_start_frame": 1535,
+      "group_id": "repo-1"
+    },
+    {
+      "t": 51.166666666666664,
+      "objek": "jadisatu.cloud",
+      "frame": 1535,
+      "visual_start_frame": 1535,
+      "group_id": "repo-1"
+    },
+    {
+      "t": 51.166666666666664,
+      "objek": "Hermessambung",
+      "frame": 1535,
+      "visual_start_frame": 1535,
+      "group_id": "repo-1"
+    },
+    {
+      "t": 51.833333333333336,
+      "objek": "Nusantara-Dental-Klinik",
+      "frame": 1555,
+      "visual_start_frame": 1555,
+      "group_id": "repo-2"
+    },
+    {
+      "t": 51.833333333333336,
+      "objek": "Aesthetic-KlinikTemplate",
+      "frame": 1555,
+      "visual_start_frame": 1555,
+      "group_id": "repo-2"
+    },
+    {
+      "t": 51.833333333333336,
+      "objek": "Landingpagejadisatu-mobile",
+      "frame": 1555,
+      "visual_start_frame": 1555,
+      "group_id": "repo-2"
+    },
+    {
+      "t": 52.5,
+      "objek": "Pandu-UI",
+      "frame": 1575,
+      "visual_start_frame": 1575,
+      "group_id": "repo-3"
+    },
+    {
+      "t": 52.5,
+      "objek": "jadisatulanding-profile",
+      "frame": 1575,
+      "visual_start_frame": 1575,
+      "group_id": "repo-3"
+    },
+    {
+      "t": 52.5,
+      "objek": "tuntunly-motion",
+      "frame": 1575,
+      "visual_start_frame": 1575,
+      "group_id": "repo-3"
+    },
+    {
+      "t": 53.13333333333333,
+      "objek": "Pandu",
+      "frame": 1594,
+      "visual_start_frame": 1594,
+      "group_id": "repo-4"
+    },
+    {
+      "t": 53.13333333333333,
+      "objek": "Dashboard-OS-forAgent",
+      "frame": 1594,
+      "visual_start_frame": 1594,
+      "group_id": "repo-4"
+    },
+    {
+      "t": 53.13333333333333,
+      "objek": "jadisatu-skills",
+      "frame": 1594,
+      "visual_start_frame": 1594,
+      "group_id": "repo-4"
+    },
+    {
+      "t": 53.833333333333336,
+      "objek": "motion-production-pc",
+      "frame": 1615,
+      "visual_start_frame": 1615,
+      "group_id": "repo-5"
+    },
+    {
+      "t": 53.833333333333336,
+      "objek": "desaignn-landing-os",
+      "frame": 1615,
+      "visual_start_frame": 1615,
+      "group_id": "repo-5"
+    },
+    {
+      "t": 53.833333333333336,
+      "objek": "jadisatu-canvas",
+      "frame": 1615,
+      "visual_start_frame": 1615,
+      "group_id": "repo-5"
+    },
+    {
+      "t": 54.5,
+      "objek": "canvas-skill-library",
+      "frame": 1635,
+      "visual_start_frame": 1635,
+      "group_id": "repo-6"
+    },
+    {
+      "t": 54.5,
+      "objek": "jadisatu-partner",
+      "frame": 1635,
+      "visual_start_frame": 1635,
+      "group_id": "repo-6"
+    },
+    {
+      "t": 54.5,
+      "objek": "skill-development",
+      "frame": 1635,
+      "visual_start_frame": 1635,
+      "group_id": "repo-6"
+    },
+    {
+      "t": 55.0,
+      "objek": "ops-report",
+      "frame": 1650,
+      "visual_start_frame": 1650,
+      "group_id": "repo-7"
+    },
+    {
+      "t": 23.733333333333334,
+      "objek": "YouTube hover 1",
+      "frame": 712,
+      "senyap": true,
+      "alasan": "Hover tanpa klik"
+    },
+    {
+      "t": 25.0,
+      "objek": "YouTube hover 2",
+      "frame": 750,
+      "senyap": true,
+      "alasan": "Hover tanpa klik"
+    },
+    {
+      "t": 24.866666666666667,
+      "objek": "YouTube scroll",
+      "frame": 746,
+      "senyap": true,
+      "alasan": "Gerak halaman mengikuti interaksi; tidak ada impact baru"
+    },
+    {
+      "t": 28.333333333333332,
+      "objek": "Dock bounce 1",
+      "frame": 850,
+      "senyap": true,
+      "alasan": "Follow-through satu klik dock"
+    },
+    {
+      "t": 28.633333333333333,
+      "objek": "Dock bounce 2",
+      "frame": 859,
+      "senyap": true,
+      "alasan": "Follow-through satu klik dock"
+    },
+    {
+      "t": 28.933333333333334,
+      "objek": "ChatGPT history",
+      "frame": 868,
+      "senyap": true,
+      "alasan": "Isi jendela mengikuti pembukaan UI, bukan klik terpisah"
+    },
+    {
+      "t": 34.266666666666666,
+      "objek": "Prompt hold",
+      "frame": 1028,
+      "senyap": true,
+      "alasan": "Teks sudah selesai; tidak ada onset baru"
+    }
+  ]
+}

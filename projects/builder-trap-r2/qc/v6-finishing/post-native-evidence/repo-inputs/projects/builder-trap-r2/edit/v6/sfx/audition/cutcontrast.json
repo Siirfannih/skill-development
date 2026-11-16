@@ -1,0 +1,378 @@
+{
+ "path": "/home/irfan/sfx/SFXIrfan/Cutcontrastransision.mp3",
+ "start": null,
+ "end": null,
+ "duration": 0.334,
+ "measurements": {
+  "duration": 0.334,
+  "peak_dbfs": -0.6,
+  "true_peak_dbtp": -0.6,
+  "rms_dbfs": -34.2,
+  "attack_ms": 1.0,
+  "decay_ms": 46.0,
+  "brightness_hz": 7686,
+  "bandwidth_hz": 20480,
+  "flatness": 0.0884,
+  "harmonic_ratio": 0.0,
+  "onset_count": 2,
+  "onsets_per_s": 5.99,
+  "width": "side/mid -2 dB",
+  "digital_silence_frac": 0.021
+ },
+ "shape": "short transient (attack 1 ms, decays in 46 ms)",
+ "top_tags": [
+  {
+   "term": "a pen click",
+   "category": "foley",
+   "z": 3.22,
+   "cosine": 0.386,
+   "verdict": "strong"
+  },
+  {
+   "term": "a soft key release click",
+   "category": "keyboard",
+   "z": 3.06,
+   "cosine": 0.326,
+   "verdict": "strong"
+  },
+  {
+   "term": "a branch snapping",
+   "category": "nature",
+   "z": 2.47,
+   "cosine": 0.28,
+   "verdict": "weak"
+  },
+  {
+   "term": "scissors cutting",
+   "category": "foley",
+   "z": 2.43,
+   "cosine": 0.272,
+   "verdict": "weak"
+  },
+  {
+   "term": "lego bricks clicking",
+   "category": "foley",
+   "z": 2.37,
+   "cosine": 0.281,
+   "verdict": "weak"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "crisp hi-hats",
+   "category": "instruments",
+   "z": 1.9,
+   "cosine": 0.226
+  },
+  {
+   "term": "someone whispering",
+   "category": "voice",
+   "z": 1.0,
+   "cosine": 0.068
+  },
+  {
+   "term": "people laughing",
+   "category": "voice",
+   "z": 0.79,
+   "cosine": -0.032
+  },
+  {
+   "term": "a vocal chop",
+   "category": "instruments",
+   "z": 0.76,
+   "cosine": 0.174
+  },
+  {
+   "term": "a punchy kick drum pattern",
+   "category": "instruments",
+   "z": 0.66,
+   "cosine": 0.044
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "a quick swipe",
+    "z": 1.54,
+    "cosine": 0.213
+   },
+   {
+    "term": "a stutter glitch transition",
+    "z": 0.81,
+    "cosine": 0.168
+   },
+   {
+    "term": "a whip pan transition",
+    "z": 0.55,
+    "cosine": 0.135
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a hand clap",
+    "z": 1.6,
+    "cosine": 0.231
+   },
+   {
+    "term": "a punchy impact hit",
+    "z": 1.59,
+    "cosine": 0.118
+   },
+   {
+    "term": "a door slam",
+    "z": 0.75,
+    "cosine": 0.073
+   }
+  ],
+  "ui": [
+   {
+    "term": "a toggle switch click",
+    "z": 2.36,
+    "cosine": 0.311
+   },
+   {
+    "term": "a light switch flicked",
+    "z": 2.09,
+    "cosine": 0.273
+   },
+   {
+    "term": "a scroll wheel tick",
+    "z": 1.78,
+    "cosine": 0.249
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "a soft key release click",
+    "z": 3.06,
+    "cosine": 0.326
+   },
+   {
+    "term": "a single mechanical keyboard key press",
+    "z": 1.76,
+    "cosine": 0.243
+   },
+   {
+    "term": "an enter key press",
+    "z": 1.67,
+    "cosine": 0.267
+   }
+  ],
+  "foley": [
+   {
+    "term": "a pen click",
+    "z": 3.22,
+    "cosine": 0.386
+   },
+   {
+    "term": "scissors cutting",
+    "z": 2.43,
+    "cosine": 0.272
+   },
+   {
+    "term": "lego bricks clicking",
+    "z": 2.37,
+    "cosine": 0.281
+   }
+  ],
+  "water": [
+   {
+    "term": "a water drop",
+    "z": 0.87,
+    "cosine": 0.169
+   },
+   {
+    "term": "a dripping tap",
+    "z": 0.68,
+    "cosine": 0.126
+   },
+   {
+    "term": "ice cubes in a glass",
+    "z": 0.25,
+    "cosine": 0.055
+   }
+  ],
+  "nature": [
+   {
+    "term": "a branch snapping",
+    "z": 2.47,
+    "cosine": 0.28
+   },
+   {
+    "term": "insects buzzing",
+    "z": 0.69,
+    "cosine": 0.086
+   },
+   {
+    "term": "an apple falling on grass",
+    "z": 0.38,
+    "cosine": 0.061
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a glass ting",
+    "z": 1.04,
+    "cosine": 0.161
+   },
+   {
+    "term": "a triangle hit",
+    "z": 0.94,
+    "cosine": 0.088
+   },
+   {
+    "term": "a kalimba note",
+    "z": 0.31,
+    "cosine": 0.079
+   }
+  ],
+  "ambience": [
+   {
+    "term": "a city street with traffic",
+    "z": 1.23,
+    "cosine": 0.065
+   },
+   {
+    "term": "an electrical hum",
+    "z": 1.14,
+    "cosine": 0.098
+   },
+   {
+    "term": "crickets at night",
+    "z": 1.07,
+    "cosine": 0.086
+   }
+  ],
+  "everyday": [
+   {
+    "term": "a match being struck",
+    "z": 1.71,
+    "cosine": 0.161
+   },
+   {
+    "term": "a hammer hitting a nail",
+    "z": 1.35,
+    "cosine": 0.186
+   },
+   {
+    "term": "a clock ticking",
+    "z": 1.26,
+    "cosine": 0.156
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "funk music",
+    "z": -0.26,
+    "cosine": 0.046
+   },
+   {
+    "term": "glitch hop music",
+    "z": -0.3,
+    "cosine": 0.06
+   },
+   {
+    "term": "hip hop beat with heavy bass",
+    "z": -0.37,
+    "cosine": -0.013
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "calm and relaxing music",
+    "z": -0.23,
+    "cosine": 0.028
+   },
+   {
+    "term": "playful and quirky music",
+    "z": -0.33,
+    "cosine": 0.069
+   },
+   {
+    "term": "warm and cozy music",
+    "z": -0.64,
+    "cosine": 0.051
+   }
+  ],
+  "instruments": [
+   {
+    "term": "crisp hi-hats",
+    "z": 1.9,
+    "cosine": 0.226
+   },
+   {
+    "term": "a vocal chop",
+    "z": 0.76,
+    "cosine": 0.174
+   },
+   {
+    "term": "a punchy kick drum pattern",
+    "z": 0.66,
+    "cosine": 0.044
+   }
+  ],
+  "voice": [
+   {
+    "term": "someone whispering",
+    "z": 1.0,
+    "cosine": 0.068
+   },
+   {
+    "term": "people laughing",
+    "z": 0.79,
+    "cosine": -0.032
+   },
+   {
+    "term": "a man speaking",
+    "z": 0.64,
+    "cosine": -0.035
+   }
+  ],
+  "quality": [
+   {
+    "term": "a tight snappy sound",
+    "z": 2.41,
+    "cosine": 0.279
+   },
+   {
+    "term": "a punchy sound",
+    "z": 1.51,
+    "cosine": 0.182
+   },
+   {
+    "term": "a dry close sound",
+    "z": 0.91,
+    "cosine": 0.225
+   }
+  ],
+  "production": [
+   {
+    "term": "a distorted clipped recording",
+    "z": 1.51,
+    "cosine": 0.163
+   },
+   {
+    "term": "a real recording of a physical object",
+    "z": 1.38,
+    "cosine": 0.213
+   },
+   {
+    "term": "a field recording outdoors",
+    "z": 1.06,
+    "cosine": 0.098
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Cap gun",
+   "p": 0.064
+  },
+  {
+   "label": "Sound effect",
+   "p": 0.052
+  }
+ ],
+ "character": [],
+ "summary": "0.33 s short transient (attack 1 ms, decays in 46 ms). Sounds most like: a pen click (z +3.2), a soft key release click (z +3.0), a branch snapping (z +2.4) [clear reading]. AudioSet tagger unsure (Cap gun 0.06, Sound effect 0.05). peak -0.6 dBFS, brightness 7.7 kHz, bandwidth 20.5 kHz, side/mid -2 dB."
+}

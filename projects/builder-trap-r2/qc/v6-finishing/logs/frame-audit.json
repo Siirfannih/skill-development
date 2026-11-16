@@ -1,0 +1,27 @@
+{
+  "command": [
+    "/home/irfan/work/mg-venv/bin/python",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/latest-skill-4cde479/claude/motion-graphic/scripts/juri/frame_audit.py",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frames",
+    "--fps",
+    "30",
+    "--chunk",
+    "10",
+    "--cuts",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/cuts_v6.json",
+    "--cues",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/sfx/snapshot-v6/cues_v6.json",
+    "--words",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/edit/v6/words_mapped.json",
+    "--stems",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/stems",
+    "--out",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/frame_audit"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+  "exit_code": 0,
+  "started_ns": 1794829223795077775,
+  "ended_ns": 1794829249660934614,
+  "log": "qc/v6-finishing/logs/frame-audit.log",
+  "log_sha256": "4c1a16a585b1a260ee02919e0cf8e870cdccafa0c9816db06a864a3e12d9f1bc"
+}

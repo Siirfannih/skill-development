@@ -1,0 +1,56 @@
+```json
+{
+  "listened": true,
+  "english": {
+    "raw_transcript": "belajar untuk melakukan sesuatu, build something, tapi",
+    "candidate_transcript": "build some selama satu",
+    "content_removed_vs_raw": true,
+    "details": "In RAW, the speaker clearly articulates both syllables of 'something' ([sʌm.tɪŋ] with an unreleased/lightly released coronal stop and nasal). The word is NOT pre-shortened in RAW. In candidate-english.wav, the cut occurs prematurely after 'some' ([sʌm]), completely slicing out the second syllable '-thing' ([tɪŋ]) before immediately splicing into 'selama satu'. The candidate actively removed a real syllable rather than merely reflecting accented English pronunciation."
+  },
+  "apa": [
+    {
+      "file": "apa-option-1.wav",
+      "transcript": "...apa yang aku buat, apa pengalaman yang aku dapatkan...",
+      "apa_full": false,
+      "yang_remaining": "none",
+      "splice_natural": false,
+      "defects": "Cut is placed too early, clipping the final vowel /a/ of the second 'apa' prematurely and creating an abrupt, unnatural cutoff."
+    },
+    {
+      "file": "apa-option-2.wav",
+      "transcript": "...apa yang aku buat, apa pengalaman yang aku dapatkan...",
+      "apa_full": true,
+      "yang_remaining": "none",
+      "splice_natural": true,
+      "defects": "None. The second 'apa' has its full vowel duration and natural decay, while the false-start 'yang' is completely excised without audible onset glide or transient click."
+    },
+    {
+      "file": "apa-option-3.wav",
+      "transcript": "...apa yang aku buat, apa pengalaman yang aku dapatkan...",
+      "apa_full": true,
+      "yang_remaining": "trace",
+      "splice_natural": true,
+      "defects": "Cut point is slightly later than Option 2; while 'apa' is fully preserved, there is a very faint vocal tract transition/onset residue leading into 'yang' before the jump to 'pengalaman'."
+    },
+    {
+      "file": "apa-option-4.wav",
+      "transcript": "...apa yang aku buat, apa pengalaman yang aku dapatkan...",
+      "apa_full": true,
+      "yang_remaining": "partial",
+      "splice_natural": false,
+      "defects": "Retains an audible palatal glide onset (/j/ / 'y-') from the false-start 'yang' right before 'pengalaman', creating a noticeable speech artifact."
+    },
+    {
+      "file": "apa-option-5.wav",
+      "transcript": "...apa yang aku buat, apa yang pengalaman yang aku dapatkan...",
+      "apa_full": true,
+      "yang_remaining": "full",
+      "splice_natural": false,
+      "defects": "Fails to remove the false-start; the entire word 'yang' is clearly retained between 'apa' and 'pengalaman'."
+    }
+  ],
+  "best_apa": "apa-option-2.wav",
+  "reason": "Option 2 is the optimal splice point: it allows the final /a/ vowel in the second 'Apa' to ring out to its natural acoustic completion while cleanly cutting before the palatal glide onset /j/ of the false-start 'yang'. Option 1 cuts too early (clipping 'Apa'), Option 3 has a very slight onset trace, Option 4 retains an audible partial 'y-', and Option 5 retains 'yang' almost in its entirety.",
+  "uncertainty": "Acoustic margin between Option 2 and Option 3 is very fine (a matter of tens of milliseconds around the acoustic boundary); however, Option 2 is audibly cleaner with zero onset leakage from 'yang'."
+}
+```

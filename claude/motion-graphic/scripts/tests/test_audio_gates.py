@@ -1,10 +1,13 @@
 import importlib.util
+import io
 import json
 import os
 import subprocess
 import tempfile
 import unittest
+from contextlib import redirect_stdout
 from pathlib import Path
+from unittest.mock import patch
 
 import numpy as np
 import soundfile as sf
@@ -172,6 +175,106 @@ class EditorialCutTests(unittest.TestCase):
 
 
 class SfxPolicyTests(unittest.TestCase):
+    def _cues(self, times):
+        return [dict(t=t, peran="kartu_mendarat", alasan="kartu masuk terpisah",
+                     file="/sfx/ui-pop.wav", dengar="clean UI pop") for t in times]
+
+    def _run_gate(self, cues):
+        with tempfile.TemporaryDirectory() as folder:
+            cue_path = Path(folder) / "cues.json"
+            cue_path.write_text(json.dumps(cues))
+            output = io.StringIO()
+            with patch.object(sfx_density.sys, "argv", ["sfx_density.py", "unused.mp4", str(cue_path)]), \
+                    patch.object(sfx_density, "visual_events", return_value=(np.array([]), 6.0)), \
+                    redirect_stdout(output), self.assertRaises(SystemExit) as exited:
+                sfx_density.main()
+        return exited.exception.code, output.getvalue()
+
+    def test_same_role_same_file_passes_b08_and_b20_object_waves(self):
+        for beat, times in (("B08", [0, 0.23, 0.46]), ("B20", [i * 0.65 for i in range(7)])):
+            with self.subTest(beat=beat):
+                cues = self._cues(times)
+
+                self.assertEqual(sfx_density.spam_check(cues), [])
+                self.assertEqual(sfx_density.role_issues(cues), [])
+                code, output = self._run_gate(cues)
+
+                self.assertEqual(code, 0, output)
+
+    def test_whoosh_spacing_applies_across_different_files(self):
+        for gap, expected_issues in ((0.65, 1), (1.0, 0)):
+            with self.subTest(gap=gap):
+                cues = [dict(t=0, peran="transisi", file="whoosh-a.wav"),
+                        dict(t=gap, peran="transisi", file="whoosh-b.wav")]
+
+                self.assertEqual(len(sfx_density.spam_check(cues)), expected_issues)
+
+    def test_cut_click_and_laser_ting_transitions_are_not_whooshes(self):
+        sounds = [("Cutcontrastransision.mp3", "transisi_cut_kontras", "pen click / key release"),
+                  ("Lasertransision.mp3", "transisi_halus", "triangle / glass ting"),
+                  ("panel-transition.wav", "transition", "digital glitch")]
+        for file, role, heard in sounds:
+            with self.subTest(file=file):
+                cues = self._cues([0, 0.3])
+                for cue in cues:
+                    cue.update(file=file, peran=role, dengar=heard)
+
+                self.assertEqual(sfx_density.spam_check(cues), [])
+                code, output = self._run_gate(cues)
+                self.assertEqual(code, 0, output)
+
+    def test_whoosh_spacing_uses_role_filename_or_heard_label(self):
+        evidence = [("peran", dict(peran="kamera_whoosh", file="camera.wav", dengar="air movement")),
+                    ("file", dict(peran="gerak_kamera", file="whoosh.wav", dengar="air movement")),
+                    ("dengar", dict(peran="pan_cepat", file="scaningfast.wav", dengar="fast soft air whoosh")),
+                    ("dengar_file_cut", dict(peran="cut_kontras", file="Cutcontrastransision.mp3", dengar="air whoosh"))]
+        for field, sound in evidence:
+            for gap, expected_code in ((0.65, 1), (1.0, 0)):
+                with self.subTest(evidence=field, gap=gap):
+                    cues = self._cues([0, gap])
+                    for cue in cues:
+                        cue.update(sound)
+
+                    self.assertEqual(len(sfx_density.spam_check(cues)), expected_code)
+                    code, output = self._run_gate(cues)
+                    self.assertEqual(code, expected_code, output)
+                    if expected_code:
+                        self.assertIn("whoosh 0.00 & 0.65 dtk (< 1 dtk)", output)
+
+    def test_whoosh_aliases_remain_detected_in_each_metadata_field(self):
+        for field in ("peran", "file", "dengar"):
+            for label in ("whoosh", "woosh", "swoosh", "swish", "whip"):
+                with self.subTest(field=field, label=label):
+                    cues = self._cues([0, 0.65])
+                    for cue in cues:
+                        cue[field] = label
+
+                    self.assertEqual(len(sfx_density.spam_check(cues)), 1)
+
+    def test_flam_boundary_applies_to_same_and_different_click_files(self):
+        for second_file in ("click.wav", "click-2.wav"):
+            for gap, expected_issues in ((0.099, 1), (0.1, 0)):
+                with self.subTest(second_file=second_file, gap=gap):
+                    cues = [dict(t=0, peran="klik_ui", file="click.wav"),
+                            dict(t=gap, peran="klik_ui", file=second_file)]
+
+                    self.assertEqual(len(sfx_density.flam_issues(cues)), expected_issues)
+
+    def test_burst_allows_five_cues_and_rejects_six_within_two_seconds(self):
+        five = self._cues([0, 0.4, 0.8, 1.2, 1.6])
+        six = self._cues([0, 0.3, 0.6, 0.9, 1.2, 1.5])
+
+        code, output = self._run_gate(five)
+        self.assertEqual(code, 0, output)
+        code, output = self._run_gate(six)
+        self.assertEqual(code, 1, output)
+        self.assertIn("rentetan 6 cue dalam 2 dtk (maks 5)", output)
+
+    def test_burst_window_excludes_cue_exactly_two_seconds_after_start(self):
+        code, output = self._run_gate(self._cues([0, 0.4, 0.8, 1.2, 1.6, 2.0]))
+
+        self.assertEqual(code, 0, output)
+
     def test_rejects_forbidden_palette_even_when_metadata_is_complete(self):
         cues = [
             {

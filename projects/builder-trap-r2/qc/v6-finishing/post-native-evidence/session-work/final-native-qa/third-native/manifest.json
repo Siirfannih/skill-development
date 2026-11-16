@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "created_ns": 1794839406253954714,
+  "candidate_path": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/out/builder-trap-r2_v6.mp4",
+  "candidate_sha256": "f00c0201c7de748c3abf42085d1d85ecc9e2fc03841189347e05db09c7ccd074",
+  "final_verification_sha256": "066e31eb7b2dcd6f9e9d9c92f1949508d4d644442d5f0ca71f57715fb182f1fa",
+  "source_snapshot_sha256": "4965f416e2deea839d85256419364b562b49721cd996b33fadfa15e16f8834ac",
+  "creator_sha256": "6a4df6cb5f7cc619b580fde941ce0c61145ff3ce442b7d52f50be37e9a7966d0",
+  "decode": {
+    "command": [
+      "/usr/bin/ffmpeg",
+      "-nostdin",
+      "-v",
+      "error",
+      "-threads",
+      "2",
+      "-filter_threads",
+      "1",
+      "-i",
+      "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/out/builder-trap-r2_v6.mp4",
+      "-vf",
+      "select=between(n\\,1082\\,1084)",
+      "-vsync",
+      "0",
+      "-frames:v",
+      "3",
+      "-start_number",
+      "1082",
+      "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-%04d.png"
+    ],
+    "exit_code": 0,
+    "started_ns": 1794839397164254352,
+    "stderr_path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/decode.log",
+    "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "input_sha256_before": "f00c0201c7de748c3abf42085d1d85ecc9e2fc03841189347e05db09c7ccd074",
+    "input_sha256_after": "f00c0201c7de748c3abf42085d1d85ecc9e2fc03841189347e05db09c7ccd074"
+  },
+  "frames": [
+    {
+      "frame": 1082,
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1082.png",
+      "sha256": "cca48f678c84fbb43d92cb57a261c2d8c2ebb0cb7453a0aeada1720953b1f98d",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "frame": 1083,
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1083.png",
+      "sha256": "1e9c548b6502eb6adcbd49b08395846e7af2151cd8224f3cdadb0af69b4cdcb0",
+      "width": 1920,
+      "height": 1080
+    },
+    {
+      "frame": 1084,
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1084.png",
+      "sha256": "5ed2c2cab01f275cdee5dc8808a96d0c2ad313f9a9de3fa875d499855f734cbb",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "info_path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/INFO.md",
+  "info_sha256": "43d3733d13c36543b6c5d5471ae1425994fd3bcffec40a8ae30ac1b1b69fa96f"
+}

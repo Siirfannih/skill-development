@@ -1,0 +1,30 @@
+{
+  "authority": "lead",
+  "review": "fresh_compass",
+  "review_sha256": {
+    "fresh-compass.md": "752a10060e59e17aca35317ab26189a334d00022b8f5985ef4b1839d8ca8c0f5",
+    "fresh-compass.json": "68aac44660f753b577bbbbf94cbf866c03ec473cae7f79e9f63545dff4b94b28"
+  },
+  "native_stills_opened_by_lead": {
+    "qc/stills/B08.png": "6c9fa3930e1a4a4c9cca0600a0062d8e8427fe2436b9ed6ca86809ad67a20764",
+    "qc/stills/B10.png": "f79a2fe6cdcb3d3f03e3978aaf13a80663cc8c5a9af224281aef579e777da155"
+  },
+  "dispositions": [
+    {
+      "finding": "Repeated equal-weight B08 dummy cards",
+      "decision": "ACCEPT_INTENTIONAL",
+      "reason": "Four fictional thumbnail compositions repeated across12cards depict imitation by many people. The central real speaker portrait is taller and about2.5times the area of one side card; the repeated small cards establish the crowd before falling in three waves. R028 explicitly requests anonymous flat vector placeholders; no real creator/photo remains."
+    },
+    {
+      "finding": "B10 generic dummy thumbnail and competing hal-hal caption",
+      "decision": "ACCEPT_WITHIN_APPROVED_LAYOUT",
+      "reason": "Lead opened actual B10still. The narrative word sits in the white gap below the first result channel, not on the result title, thumbnail, search field or click target. Caption is foreground narration; authentic search result is context. Fictional simplified thumbnail is explicit user direction. No actual text collision was observed."
+    },
+    {
+      "finding": "Repeated B08 shadows and pins",
+      "decision": "RETAIN_APPROVED_V5_MATERIAL_WORLD",
+      "reason": "Pins and drop shadows belong to the inherited physical-photo wall from approvedv5. Changing all card depth would redesign unrequested baseline styling. The new vector content remains confined inside those physical prints."
+    }
+  ],
+  "limits": "Fresh reference contact sheet is too small for numerical showreel parity; no R6 numeric parity PASS is claimed. Still observations do not prove motion or audio. Motion/audio are independently covered by frame/cue/native reviews. This is scoped revision acceptance, not a claim every legacy genre/design metric passes."
+}

@@ -1,0 +1,15 @@
+{
+  "audio_sha256": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806",
+  "map_sha256": "65bc52f10e535370fa1a66df72c0b90e263e8034022544b90a713b98448738f0",
+  "model": "large-v3 cached local only",
+  "cpu_threads": 2,
+  "compute_type": "int8",
+  "initial_prompt": null,
+  "condition_on_previous_text": false,
+  "beam_size": 5,
+  "applies_to_audio_sha256": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f",
+  "transcription_rerun": false,
+  "derived_transform": "exact positive float32 scalar, same sample positions; only quantization error after gain normalization",
+  "derived_transform_proof_sha256": "b9d363fe6d317342d863d5e54a227822cac2e10b07548fd8e58b7ad4b51d4c68",
+  "words_actual_sha256": "74c3d98876bd7c817afda18986b4e2ae531be19a4857b2f26d312a248278c2ea"
+}

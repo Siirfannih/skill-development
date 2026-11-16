@@ -1,0 +1,7 @@
+{
+  "reviewed_program_audio_sha256": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806",
+  "current_program_audio_sha256": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f",
+  "clips_are": "retained historical−1.05 gain QC clips; native reports apply to reviewed variant",
+  "derived_applicability_proof": "edit/v6/gain-headroom-proof.json",
+  "new_variant_native_listened": false
+}

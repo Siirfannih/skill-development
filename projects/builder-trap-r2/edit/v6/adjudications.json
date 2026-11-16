@@ -1,0 +1,1077 @@
+{
+  "schema_version": 1,
+  "status": "DITERIMA UNTUK PROYEK DENGAN DEVIASI TERDAFTAR; GATE KANONIS MASIH FAIL",
+  "scope": "phase2 voice/frame spine only; canonical gates remain unchanged and failing",
+  "accepted_by": "lead director accepted listed source/editorial cases based on independent native audio and user R-032; Irfan explicitly retained natural dynamics under R-033",
+  "canonical_pass": false,
+  "audio_order_pass": false,
+  "legacy_order_modified": false,
+  "canonical_gate_exits": {
+    "source_guard": 1,
+    "cut_check": 1,
+    "pause_clean": 0,
+    "voice_level": 1
+  },
+  "normal_cut_min_source_guard_ms": 51.667,
+  "r032_exception": {
+    "id": "R-032",
+    "status": "accepted_scoped_deviation",
+    "authority": "user cut saja; lead explicitly accepts exact option2 and zero left guard",
+    "removed_raw_word": "one false-start yang in second Apa yang before pengalaman",
+    "raw_removed_window": [
+      105.65,
+      107.15
+    ],
+    "source_removed_window": [
+      90.23333333333333,
+      91.73333333333333
+    ],
+    "source_word_index": 217,
+    "conservative_source_word": {
+      "w": "Apa",
+      "s": 89.823333,
+      "e": 90.233333,
+      "index": 217,
+      "raw_s": 105.24,
+      "raw_e": 105.65,
+      "group": "10",
+      "old_s": 89.14,
+      "old_e": 89.56
+    },
+    "output_join_frame": 2338,
+    "left_guard_ms": 0.0,
+    "right_guard_ms": 61.667,
+    "endpoint_dbfs": [
+      -21.95400923593997,
+      -55.84341668943103
+    ],
+    "fade_ms": 3,
+    "fade_samples": 144,
+    "fade_curve": "sin² endpoint-inclusive per side; deliberate exception to50ms safe-space rule",
+    "canonical_failure": "guard Apa@89.823333: <0.05s",
+    "label_policy": "retain conservative Apa coverage through105.65; do not shorten labels to fabricate guard",
+    "evidence": [
+      "edit/v6/native-qc/splice-options-gemini.txt",
+      "edit/v6/native-qc/voice-final-critical.txt",
+      "edit/v6/native-qc/voice-final-whole.txt"
+    ]
+  },
+  "canonical_findings_dispositions": [
+    {
+      "case": 0,
+      "canonical_finding": [
+        "sampah",
+        0.49,
+        "tuh"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        0,
+        1.29
+      ],
+      "source_montage_window": [
+        0.0,
+        1.29
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-00-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-00-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "recorded director decision R-026 + TASK, not a direct user demand to retain tuh",
+      "disposition": "retain_this_occurrence",
+      "reason": "R-026 director decision and TASK retain exactly three tuh; no proven safe removal; captions hide them per baseline",
+      "source_word_index": 2,
+      "source_word": {
+        "w": "tuh",
+        "s": 0.490033,
+        "e": 0.670033,
+        "index": 2,
+        "raw_s": 71.1567,
+        "raw_e": 71.33670000000001,
+        "group": "1",
+        "old_s": 0.94,
+        "old_e": 1.12
+      },
+      "program_word": {
+        "w": "tuh",
+        "s": 0.490033,
+        "e": 0.670033
+      },
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 1,
+      "canonical_finding": [
+        "sampah",
+        2.11,
+        "tuh"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        1.5099999999999998,
+        2.91
+      ],
+      "source_montage_window": [
+        1.5099999999999998,
+        2.91
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-01-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-01-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "recorded director decision R-026 + TASK, not a direct user demand to retain tuh",
+      "disposition": "retain_this_occurrence",
+      "reason": "R-026 director decision and TASK retain exactly three tuh; no proven safe removal; captions hide them per baseline",
+      "source_word_index": 7,
+      "source_word": {
+        "w": "tuh",
+        "s": 2.110033,
+        "e": 2.270033,
+        "index": 7,
+        "raw_s": 72.7767,
+        "raw_e": 72.9367,
+        "group": "1",
+        "old_s": 2.56,
+        "old_e": 2.72
+      },
+      "program_word": {
+        "w": "tuh",
+        "s": 2.110033,
+        "e": 2.270033
+      },
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 2,
+      "canonical_finding": [
+        "sampah",
+        3.57,
+        "tuh"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        2.9699999999999998,
+        4.37
+      ],
+      "source_montage_window": [
+        2.9699999999999998,
+        4.37
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-02-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-02-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "recorded director decision R-026 + TASK, not a direct user demand to retain tuh",
+      "disposition": "retain_this_occurrence",
+      "reason": "R-026 director decision and TASK retain exactly three tuh; no proven safe removal; captions hide them per baseline",
+      "source_word_index": 12,
+      "source_word": {
+        "w": "tuh",
+        "s": 3.570033,
+        "e": 3.790033,
+        "index": 12,
+        "raw_s": 74.2367,
+        "raw_e": 74.4567,
+        "group": "1",
+        "old_s": 4.02,
+        "old_e": 4.24
+      },
+      "program_word": {
+        "w": "tuh",
+        "s": 3.570033,
+        "e": 3.790033
+      },
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 3,
+      "canonical_finding": [
+        "diam_kata",
+        23.62,
+        "hal 0.15 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        23.02,
+        24.37
+      ],
+      "source_montage_window": [
+        25.78666666666666,
+        27.13666666666667
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-03-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-03-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain under director full-context adjudication",
+      "reason": "Lead accepted this exact finding after final83.1s whole-file native QC transcribed its context and reported defects[]/clarity high. No claim that native separately named this span as release or breath.",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 4,
+      "canonical_finding": [
+        "diam_kata",
+        28.12,
+        "Dan 0.17 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        27.52,
+        28.890000000000004
+      ],
+      "source_montage_window": [
+        30.28666666666666,
+        32.290000000000006
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-04-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-04-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain under director full-context adjudication",
+      "reason": "Lead accepted this exact finding after final83.1s whole-file native QC transcribed its context and reported defects[]/clarity high. No claim that native separately named this span as release or breath.",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 5,
+      "canonical_finding": [
+        "diam_kata",
+        34.02,
+        "Build 0.16 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        33.42,
+        34.78
+      ],
+      "source_montage_window": [
+        37.019999999999996,
+        38.379999999999995
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-05-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-05-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain under director full-context adjudication",
+      "reason": "Lead accepted this exact finding after final83.1s whole-file native QC transcribed its context and reported defects[]/clarity high. No claim that native separately named this span as release or breath.",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 6,
+      "canonical_finding": [
+        "diam_kata",
+        66.76,
+        "Sampai 0.16 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        66.16000000000001,
+        67.52
+      ],
+      "source_montage_window": [
+        76.42666666666669,
+        78.35333333333332
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-06-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-06-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain under director full-context adjudication",
+      "reason": "Lead accepted this exact finding after final83.1s whole-file native QC transcribed its context and reported defects[]/clarity high. No claim that native separately named this span as release or breath.",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 7,
+      "canonical_finding": [
+        "diam_kata",
+        72.0,
+        "mungkin 0.23 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        71.4,
+        72.83
+      ],
+      "source_montage_window": [
+        83.16666666666667,
+        84.89666666666665
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-07-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-07-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain under director full-context adjudication",
+      "reason": "Lead accepted this exact finding after final83.1s whole-file native QC transcribed its context and reported defects[]/clarity high. No claim that native separately named this span as release or breath.",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 8,
+      "canonical_finding": [
+        "diam_kata",
+        73.53,
+        "sekedar 0.16 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        72.93,
+        74.28999999999999
+      ],
+      "source_montage_window": [
+        84.99666666666667,
+        86.35666666666663
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-08-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-08-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain under director full-context adjudication",
+      "reason": "Lead accepted this exact finding after final83.1s whole-file native QC transcribed its context and reported defects[]/clarity high. No claim that native separately named this span as release or breath.",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 9,
+      "canonical_finding": [
+        "diam_kal",
+        10.86,
+        "aku → perlu 0.15 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        10.26,
+        11.61
+      ],
+      "source_montage_window": [
+        11.126666666666667,
+        12.643333333333334
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-09-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-09-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain under director full-context adjudication",
+      "reason": "Lead accepted this exact finding after final83.1s whole-file native QC transcribed its context and reported defects[]/clarity high. No claim that native separately named this span as release or breath.",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 10,
+      "canonical_finding": [
+        "diam_kal",
+        15.11,
+        "yang → gak 0.20 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        14.51,
+        15.909999999999998
+      ],
+      "source_montage_window": [
+        15.543333333333333,
+        17.64333333333333
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-10-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-10-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt",
+        "edit/v6/native-qc/residual-first-gemini.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain native-reviewed current articulation/breath",
+      "reason": "Previously reviewed with source/current context; current phonemes and natural cadence accepted. Final whole-file QC binds acceptance to final media.",
+      "prior_review_case": "residual-00",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 11,
+      "canonical_finding": [
+        "diam_kal",
+        15.38,
+        "gak → orang 0.18 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        14.780000000000001,
+        16.16
+      ],
+      "source_montage_window": [
+        15.813333333333336,
+        17.89333333333333
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-11-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-11-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt",
+        "edit/v6/native-qc/residual-first-gemini.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain native-reviewed current articulation/breath",
+      "reason": "Previously reviewed with source/current context; current phonemes and natural cadence accepted. Final whole-file QC binds acceptance to final media.",
+      "prior_review_case": "residual-01",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 12,
+      "canonical_finding": [
+        "diam_kal",
+        32.08,
+        "Untuk → belajar. 0.19 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        31.479999999999997,
+        32.87
+      ],
+      "source_montage_window": [
+        34.879999999999995,
+        36.469999999999985
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-12-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-12-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt",
+        "edit/v6/native-qc/tight-control.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain native-reviewed current articulation/breath",
+      "reason": "Previously reviewed with source/current context; current phonemes and natural cadence accepted. Final whole-file QC binds acceptance to final media.",
+      "prior_review_case": "residual-02",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 13,
+      "canonical_finding": [
+        "diam_kal",
+        36.49,
+        "aku → mencoba 0.24 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        35.89,
+        37.330000000000005
+      ],
+      "source_montage_window": [
+        39.79,
+        41.83
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-13-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-13-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt",
+        "edit/v6/native-qc/residual-first-gemini.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain native-reviewed current articulation/breath",
+      "reason": "Previously reviewed with source/current context; current phonemes and natural cadence accepted. Final whole-file QC binds acceptance to final media.",
+      "prior_review_case": "residual-03",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 14,
+      "canonical_finding": [
+        "diam_kal",
+        41.91,
+        "Tapi → satu 0.24 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        41.309999999999995,
+        42.75
+      ],
+      "source_montage_window": [
+        46.44333333333333,
+        48.08333333333333
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-14-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-14-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain under director full-context adjudication",
+      "reason": "Lead accepted this exact finding after final83.1s whole-file native QC transcribed its context and reported defects[]/clarity high. No claim that native separately named this span as release or breath.",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 15,
+      "canonical_finding": [
+        "diam_kal",
+        42.03,
+        "satu → hal 0.28 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        41.43,
+        42.910000000000004
+      ],
+      "source_montage_window": [
+        46.56333333333333,
+        48.24333333333334
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-15-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-15-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain under director full-context adjudication",
+      "reason": "Lead accepted this exact finding after final83.1s whole-file native QC transcribed its context and reported defects[]/clarity high. No claim that native separately named this span as release or breath.",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 16,
+      "canonical_finding": [
+        "diam_kal",
+        44.23,
+        "tidak → menjual 0.21 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        43.629999999999995,
+        45.04
+      ],
+      "source_montage_window": [
+        48.963333333333324,
+        51.27333333333333
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-16-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-16-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt",
+        "edit/v6/native-qc/other-a.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain native-reviewed current articulation/breath",
+      "reason": "Previously reviewed with source/current context; current phonemes and natural cadence accepted. Final whole-file QC binds acceptance to final media.",
+      "prior_review_case": "residual-04",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 17,
+      "canonical_finding": [
+        "diam_kal",
+        48.94,
+        "Dan → ngebangun 0.26 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        48.339999999999996,
+        49.8
+      ],
+      "source_montage_window": [
+        54.57333333333333,
+        57.166666666666664
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-17-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-17-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt",
+        "edit/v6/native-qc/residual-major-gemini.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain native-reviewed current articulation/breath",
+      "reason": "Previously reviewed with source/current context; current phonemes and natural cadence accepted. Final whole-file QC binds acceptance to final media.",
+      "prior_review_case": "residual-05",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 18,
+      "canonical_finding": [
+        "diam_kal",
+        50.37,
+        "jadi → adiktif. 0.21 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        49.769999999999996,
+        51.18
+      ],
+      "source_montage_window": [
+        57.13666666666666,
+        59.28
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-18-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-18-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt",
+        "edit/v6/native-qc/other-a.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain native-reviewed current articulation/breath",
+      "reason": "Previously reviewed with source/current context; current phonemes and natural cadence accepted. Final whole-file QC binds acceptance to final media.",
+      "prior_review_case": "residual-06",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 19,
+      "canonical_finding": [
+        "diam_kal",
+        57.59,
+        "sama → kesempurnaan. 0.45 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        56.99,
+        58.64000000000001
+      ],
+      "source_montage_window": [
+        66.55666666666666,
+        68.80666666666667
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-19-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-19-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt",
+        "edit/v6/native-qc/residual-major-gemini.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain native-reviewed current articulation/breath",
+      "reason": "Previously reviewed with source/current context; current phonemes and natural cadence accepted. Final whole-file QC binds acceptance to final media.",
+      "prior_review_case": "residual-07",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 20,
+      "canonical_finding": [
+        "diam_kal",
+        62.68,
+        "akhirnya → aku 0.20 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        62.08,
+        63.480000000000004
+      ],
+      "source_montage_window": [
+        72.24666666666667,
+        73.74666666666668
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-20-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-20-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt",
+        "edit/v6/native-qc/other-b.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain native-reviewed current articulation/breath",
+      "reason": "Previously reviewed with source/current context; current phonemes and natural cadence accepted. Final whole-file QC binds acceptance to final media.",
+      "prior_review_case": "residual-08",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 21,
+      "canonical_finding": [
+        "diam_kal",
+        75.9,
+        "yang → aku 0.20 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        75.30000000000001,
+        76.7
+      ],
+      "source_montage_window": [
+        87.36666666666667,
+        88.99999999999999
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-21-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-21-source.wav",
+      "evidence": [
+        "edit/v6/native-qc/voice-final-whole.txt",
+        "edit/v6/native-qc/other-b.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "retain native-reviewed current articulation/breath",
+      "reason": "Previously reviewed with source/current context; current phonemes and natural cadence accepted. Final whole-file QC binds acceptance to final media.",
+      "prior_review_case": "residual-10",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 22,
+      "canonical_finding": [
+        "gumam",
+        31.42,
+        "0.15 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        30.82,
+        32.17
+      ],
+      "source_montage_window": [
+        34.22,
+        35.56999999999999
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-22-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-22-source.wav",
+      "evidence": [
+        "edit/v6/canonical-pause_clean.log",
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "diagnostic accepted after context QC",
+      "reason": "PERIKSA is not proof of dirty noise. Current pause_clean passes floor−60.8dBFS/drop38.6dB; prior native whole reports no dirty-gap defect, inherited through exact verified scalar transform. Lead accepted these exact three diagnostics.",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 23,
+      "canonical_finding": [
+        "gumam",
+        43.44,
+        "0.17 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        42.839999999999996,
+        44.21
+      ],
+      "source_montage_window": [
+        48.17333333333333,
+        49.54333333333334
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-23-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-23-source.wav",
+      "evidence": [
+        "edit/v6/canonical-pause_clean.log",
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "diagnostic accepted after context QC",
+      "reason": "PERIKSA is not proof of dirty noise. Current pause_clean passes floor−60.8dBFS/drop38.6dB; prior native whole reports no dirty-gap defect, inherited through exact verified scalar transform. Lead accepted these exact three diagnostics.",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    },
+    {
+      "case": 24,
+      "canonical_finding": [
+        "gumam",
+        80.01,
+        "0.16 dtk"
+      ],
+      "status": "accepted_for_project",
+      "program_window": [
+        79.41000000000001,
+        80.77
+      ],
+      "source_montage_window": [
+        93.21,
+        94.86999999999999
+      ],
+      "qc_result": "edit/v6/canonical-qc/case-24-v6.wav",
+      "qc_source": "edit/v6/canonical-qc/case-24-source.wav",
+      "evidence": [
+        "edit/v6/canonical-pause_clean.log",
+        "edit/v6/native-qc/voice-final-whole.txt"
+      ],
+      "authority": "lead explicit per-occurrence disposition 16Nov2026",
+      "disposition": "diagnostic accepted after context QC",
+      "reason": "PERIKSA is not proof of dirty noise. Current pause_clean passes floor−60.8dBFS/drop38.6dB; prior native whole reports no dirty-gap defect, inherited through exact verified scalar transform. Lead accepted these exact three diagnostics.",
+      "gain_variant_lineage": "QC clips/native reports describe old gain variant; gain-headroom-proof.json establishes sample-preserving applicability to current voice"
+    }
+  ],
+  "voice_level_deviation": {
+    "status": "accepted_by_user_R033",
+    "source_lufs": -23.8,
+    "output_lufs": -21.7,
+    "output_sample_peak_dbfs": -1.2499997018541005,
+    "source_crest_db": 17.0,
+    "output_crest_db": 17.4,
+    "static_upward_phrase_count": 25,
+    "min_phrase_gain_db": 0.9081899055240994,
+    "max_phrase_gain_db": 7.835120302931691,
+    "canonical_failure": "pelan -21.7 LUFS < -17",
+    "authority": "R-033 user retained natural dynamics; lead authorized technical gain ceiling−1.25 with every phrase still boosted above source",
+    "reason": "Natural plosives remain; ceiling−1.25dBFS provides measured codec headroom. All25static phrase gains still positive from source. Reaching−17LUFS would need≈4.7dB; no limiter/compression/source attenuation allowed.",
+    "evidence": [
+      "edit/v6/canonical-voice_level.log",
+      "edit/v6/voice_clean.provenance.json",
+      "edit/v6/native-qc/peaks-gemini.txt"
+    ],
+    "remaining": "final mixed preview and phone-speaker audibility in phase5; native stem clarity alone does not satisfy that check",
+    "wav_true_peak_dbtp": -1.177395227458862,
+    "aac192_true_peak_dbtp": -1.200279547093043
+  },
+  "asr_review": {
+    "exact_text_match": false,
+    "target_tokens": 228,
+    "heard_tokens": 229,
+    "unmodified_actual": "edit/v6/words_actual.json",
+    "provenance": "edit/v6/asr-provenance.json",
+    "raw_diff": [
+      "+ 20an",
+      "- 20",
+      "- an",
+      "- kelihatannya",
+      "?     -\n",
+      "+ keliatannya",
+      "- jadi",
+      "+ menjadi",
+      "- publish",
+      "?       -\n",
+      "+ publis",
+      "- autentik",
+      "? ^^\n",
+      "+ otentik",
+      "? ^\n",
+      "+ terima",
+      "+ kasih"
+    ],
+    "restored_words": {
+      "Build": [
+        33.74,
+        34.26
+      ],
+      "something": [
+        34.26,
+        34.6
+      ],
+      "Apa before pengalaman": [
+        77.54,
+        77.8
+      ]
+    },
+    "disposition": "final actual ASR now contains Build/something/Apa; source-native full/critical review accepts content, while exact transcript comparison remains FAIL",
+    "variants": [
+      "20 -an→20an",
+      "kelihatannya→keliatannya",
+      "jadi→menjadi",
+      "publish→publis",
+      "autentik→otentik"
+    ],
+    "ending_artifact": "ASR adds Terima82.00–82.16 over ending tail (RMS−19.90dBFS), kasih82.16–82.16 has zero duration. Native whole ending is only belum sempurna. Do not describe this interval as silent or add the hallucination to captions.",
+    "evidence": [
+      "edit/v6/native-qc/voice-final-critical.txt",
+      "edit/v6/native-qc/voice-final-whole.txt"
+    ],
+    "actual_input_audio_sha256": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806",
+    "applies_to_current_audio_sha256": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f",
+    "transcription_rerun": false,
+    "derived_applicability": "verify_adjudications.py recomputes exact float32 transform and SNR from preserved old/current samples; raw words_actual unchanged"
+  },
+  "unresolved_phase2_findings": [],
+  "remaining_phase5": [
+    "final mixed preview and phone-speaker audibility in phase5; native stem clarity alone does not satisfy that check",
+    "final composition visual/audio sync and mix QC; phase2 did not render it"
+  ],
+  "fail_closed_policy": "Accept only these hash-bound assets and exact listed findings. Any changed input/hash/gate version/finding or new defect requires reevaluation; this file cannot turn canonical FAIL into PASS.",
+  "sha256": {
+    "raw/raw.mp4": "3f8102bffbae0bc9d12bbf6f0a7c2921eac56eaf90e59a7f831e2f578a083c31",
+    "raw/src48.wav": "7e47e15413d1bd18a9c51b6f020bae51ee2be97a0e17791eb93242ed1acf920e",
+    "edit/v6/source_raw.wav": "fd778a1e3211f708c1834e57f20e9a9fddc596a29bcb112ab46b1665909ddf9f",
+    "edit/v6/source-origins.json": "8c023e76e83cbe83c3ee03d9a7f6eaa4d3971dcf091b6712d3ae3656062b1bbe",
+    "edit/v6/words_source.json": "3195d2b13fc9b852d84299a1023c3ef94b0b5b08420f1fd9471f9ccf465bca0b",
+    "edit/v6/words_mapped.json": "d4525f9d65152c7f3ecf4e72007266d0782534fdcedf692af2f7b615562ab422",
+    "edit/v6/suara.wav": "a1838c6b7f6b287e6240b5a177e9f125ef273100989d5873be35fc817f1581b5",
+    "edit/v6/voice_clean.wav": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f",
+    "edit/v6/voice_clean.provenance.json": "bec6a5b82e753126500d10b207df9812968c8ed426f344db45be15455ea951e2",
+    "edit/v6/map.json": "65bc52f10e535370fa1a66df72c0b90e263e8034022544b90a713b98448738f0",
+    "edit/v6/face_edit_v6.mp4": "59f0d32beb0fa0163a8b3a280fdc948d35f7ed555249d243186d14b56d731500",
+    "edit/v6/face-check.json": "8f310c2da51115874032ceb097fe060b8e704b474b3dbf94402174f8627a78db",
+    "edit/v6/words_actual.json": "74c3d98876bd7c817afda18986b4e2ae531be19a4857b2f26d312a248278c2ea",
+    "edit/v6/asr-provenance.json": "bbce9119882bb66ff8d58681f4d26b75ff1a11b8e9066a2064f7d930ea85749e",
+    "edit/v6/transcript-check.json": "9f2f768d21b1b602600bea7128adcaaf676d27abf22f567b57a4d7751b4a3895",
+    "edit/potong_v6.json": "b0ff63af2bc7774c2967364240c3f841b4e3415229b0a241c5daf562fabf1848",
+    "edit/make_v6.py": "90aae2d0b7f8ce190c1e0c2556e03d5a5a8a88c9fedcbc96eedc728045199dca",
+    "audio/voice_clean_v6.py": "3834d0a5a6dec8d28278b2392d060e0879e93d0d0ec8a04b8838dcebda0e3d49",
+    "remotion/src/data/knots_v6.json": "ac6b9e2cf4929e557f7ca5554f74237016b120a5f9ba24af76b39c2f2378e7b6",
+    "remotion/src/data/words_v6.json": "5cae155583f0188f0799d17846935d0c88e8263f76ca369d8d069940e9502362",
+    "edit/v6/canonical-gates.json": "8436699aa5d02de89d33ec02ba3af8b1cdc76deb9bd000c46f2f6a432e48bed9",
+    "edit/v6/canonical-findings.json": "bac4c76a251ceb098a742975dac064f34ffb2771e6f1c8dc5fc9245372194d94",
+    "edit/v6/canonical-source-validation.json": "7b32b3264eff8584af565a43ff0df56b1ef703db849a7e2aca78af25bf7cf63f",
+    "edit/v6/timeline-check.json": "8690c0c77b210d37cfb3e258735c6542ff96d045a52b4c7258878241ee4551e7",
+    "edit/v6/canonical-qc/windows.json": "caa4a26e0dfeb7ef18db513b521a0fb68de2b5ae5e2252c3be2871baa71ca0ab",
+    "edit/v6/qc-final/windows.json": "0fce96bffd889d71c72d1be5487632b76728d07d264ac542b8d8e3a0d40a3772",
+    "edit/v6/native-qc/manifest.json": "48816a8c57c5a35f03a161b4331eb4f54e4e134312cffb4122d446e1185e219f",
+    "edit/v6/typecheck.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "edit/v6/native-qc/v6-opening-gemini.txt": "e88e751cb5196ecfdb3be5c176288e23490e7d05480804933fb15519921d1437",
+    "edit/v6/native-qc/v6-opening-gemini.stream.jsonl": "141ab08c452c96fa8a9895592e4bf37cda506b8d41ddabea455ea28f027e45ee",
+    "edit/v6/native-qc/peaks-gemini.txt": "36c801d29585434e4be3967cfbcd2cc4705ae1a98040fd2da300c8c05e215a73",
+    "edit/v6/native-qc/peaks-gemini.stream.jsonl": "6530642e0d07e11795387b5458df73eeeee3e095cdea31bcfc5daf178afbd317",
+    "edit/v6/native-qc/residual-first-gemini.txt": "f24188b4c015d276ff3ccc886d290ca4ee23a9f6e1cff924de4e4f1147b7781f",
+    "edit/v6/native-qc/residual-first-gemini.stream.jsonl": "b0dc711763f2bf03c3a9765be341eedc457568e2556aaa82adef9589bb776f9f",
+    "edit/v6/native-qc/residual-major-gemini.txt": "614b979abbda226577d6866598dea41137b6401d1de1e768d6432655fa66923a",
+    "edit/v6/native-qc/residual-major-gemini.stream.jsonl": "cc5a39e5c95c962c5348c7617a2a9832258225b3d63a674db282a84e694115cc",
+    "edit/v6/native-qc/other-a.txt": "7ebc8337f0655cbb7b9fc1d6e246df75695ab3339ebbe38d2da5ecbb07e4a6eb",
+    "edit/v6/native-qc/other-a.reads.json": "f5f30e8627f8475189c38a70ae10c476e1686920a0259decca08ac9eaacaf96c",
+    "edit/v6/native-qc/other-a.stream.jsonl": "18129f9c3b838cb5aa5efb5d19ee82d0607eb751d99e31122f5781c130290b3b",
+    "edit/v6/native-qc/other-b.txt": "db36d905c2f3daff9de78c3a6712ff7bd688d258bd6b9ed29e5c8708b82962f7",
+    "edit/v6/native-qc/other-b.reads.json": "7bb2bed6644b6e27c28cad5b64db2c1ef8041d9bf9791165dd43f58617a9c9a8",
+    "edit/v6/native-qc/other-b.stream.jsonl": "ad2f91ca3b2ed1f890797b0eecb0d5871a81784bc63beb4385938dfd8c054df1",
+    "edit/v6/native-qc/tight-control.txt": "b6f4a7e08ee25b493f24272e921d816e9a98790a186900587f10f6bd9dbc4ce7",
+    "edit/v6/native-qc/tight-control.reads.json": "b2992f632fbf65a1f2f586b4c4a3e4b81f4ea336deb30b9adce458b77a0e9ccf",
+    "edit/v6/native-qc/tight-control.stream.jsonl": "15a554ca60cc8653cc9201679f99e090d3c21e5449ccc9d0ce738e8122ff2b22",
+    "edit/v6/native-qc/splice-options-gemini.txt": "15768b35f562c9e0ede2769f91a35e803ae22980f96c5aef1c5b50d2516f14f9",
+    "edit/v6/native-qc/splice-options-gemini.stream.jsonl": "0e9414d6a327b8e3a7b58ae34396f1eae580b1327cedbb0fbec2dd516c28ea59",
+    "edit/v6/native-qc/english-control-r3.txt": "72833db055b27fb76e907b98668515fd9e3210b7d858b9b32d1a866e3983659c",
+    "edit/v6/native-qc/english-control-r3.stream.jsonl": "4f8c688e0aceadda630cc5956cc3bee8b47dc2e4163de374554b4241f3475514",
+    "edit/v6/native-qc/english-tail.txt": "2f9ecf2dd55863451bd8490bee0dbefcac932a63f0e3d65fe8f980229d1ba55d",
+    "edit/v6/native-qc/english-tail.reads.json": "e37eb497f18939255d755ca7856e7b576bf7b9fa98cf36f17707ab9739c49b13",
+    "edit/v6/native-qc/english-tail.stream.jsonl": "f3925936d9975697ab116bbe5942470180a04b023c2b4887899104abcbecb84f",
+    "edit/v6/native-qc/voice-final-whole.txt": "ccf6839448033d62273bdf25b4e45997f131fc1bfda44be5eecdb80d543222f6",
+    "edit/v6/native-qc/voice-final-whole.reads.json": "a5c79f8ec86a673d17d93c21ce85e9e2d942552b511e79e5dcad6b9e9b2f974e",
+    "edit/v6/native-qc/voice-final-whole.stream.jsonl": "5276ea5d680d4fe9ba51bacc9a43699770642ec906ed83f6284dc071be93d67e",
+    "edit/v6/native-qc/voice-final-critical.txt": "5d6e4dbc654e9f7d15dc1dc34048c9ffeb251da1783c93a222d8d13eabeefa60",
+    "edit/v6/native-qc/voice-final-critical.reads.json": "dfff0823c4f613ce2e6aff55aa763ab0cc0a05af606c025a9406b2497c885e87",
+    "edit/v6/native-qc/voice-final-critical.stream.jsonl": "1f2c8128c3ef435b2024cf50551592542d9621610f61aa50efe95e7d1e255d98",
+    "edit/v6/native-qc/voice-gate-adjudication.md": "1515bd9bdb8cd4f1dbb60185ee5bfb08f2fda98c62e43801339788d2cbfea2e7",
+    "edit/v6/qc-final/apa-raw-context.wav": "5fc17c534208712f655a6c29311ab3dbde88383a39b067783c0585445b52b214",
+    "edit/v6/qc-final/english-final-2493.wav": "9647f26e4abfbfd114ae186a9ed9669beeeceda4606cbccae620f0250b35a360",
+    "edit/v6/qc-final/english-raw-context.wav": "f10b8011cb654a78cadae74c991980de890b2d4aa8571a23b18c093c23b5aa40",
+    "edit/v6/qc-final/closing-final-2493.wav": "2effeb1569b7b05962f1f69b5181b13b5477f6b15280c3b5829ad10a447bc211",
+    "edit/v6/qc-final/apa-final-2493.wav": "cedbce38f6b152abf97c3d9d7a1df6a646a301b4513ecb167aaaeeb78507351e",
+    "edit/v6/canonical-qc/case-23-v6.wav": "3c5fd4ba4e0bb3e241e1816c08a8c9b56b5acbce81f741305631e3e55042308b",
+    "edit/v6/canonical-qc/case-05-v6.wav": "ba7c51a6734b795e54a9393ee8f489e809c083373077ea58a42ab420a7f5d462",
+    "edit/v6/canonical-qc/case-14-v6.wav": "278f34816816d338d8e79a3103251283b5e3a4ea091a6fafcbf6cbc65fcbbb93",
+    "edit/v6/canonical-qc/case-10-v6.wav": "efe1d967572237d2a50a34b1fd0edc5ceb602877f42f5bb49185343877e7044b",
+    "edit/v6/canonical-qc/case-08-source.wav": "8b65286b344a12a2f72bcc3b6f4be69d1eadc864669e6c4f3a54f97bff90fcb4",
+    "edit/v6/canonical-qc/case-13-v6.wav": "f5afa9d30c57aee9353399ef660fe167d837faebe90385e7c150daddc1c423c0",
+    "edit/v6/canonical-qc/case-12-source.wav": "794342e3da31c7410108e7474a088cfb782780b181eda9941552f540e586376a",
+    "edit/v6/canonical-qc/case-17-v6.wav": "4e55790300664aa844a88fb1fc6c54f0845e939d0ce34e09afc1d99468eb265c",
+    "edit/v6/canonical-qc/case-06-source.wav": "c3c67190b22e32f5f6782fbb12474405aa5ecbbf4149d874af30622b24148c82",
+    "edit/v6/canonical-qc/case-18-v6.wav": "cc7f548846532e7b6020370fca2ce0bc49c93ea60639f1b8d936138f5c886ccd",
+    "edit/v6/canonical-qc/case-06-v6.wav": "f79d532f93d6a68f524a51b0c50fb6ea732f86280347f037d5e306dbaf4a1e05",
+    "edit/v6/canonical-qc/case-03-source.wav": "e7c63932341280b457c1e46c7c2e55498cb734b7206ecac8c92393aef0800c35",
+    "edit/v6/canonical-qc/case-15-source.wav": "5ff6b423cbdf2806a242e04d4eae4eef0ffa0396f6c3c45360c0036a29711669",
+    "edit/v6/canonical-qc/case-20-v6.wav": "22e8c3f0768d1a3fc0b278b4321f7ba3aef389bec21b3dfc09fc6b49f127469f",
+    "edit/v6/canonical-qc/case-16-source.wav": "17ee26b014f717565d5bdb1f3818edb6b26e82c3bf917d7669749f9f2207246a",
+    "edit/v6/canonical-qc/case-04-source.wav": "0886c748cee0722e56be9a2c8f9e63d41d21cc9d909b0e8f910112f9a6ddd9c7",
+    "edit/v6/canonical-qc/case-00-source.wav": "93c4f93dace0e5cd01f78776e3874a363b3b2478900a1575af366d943c48c353",
+    "edit/v6/canonical-qc/case-19-v6.wav": "4c78623ca25f4e8893dc8d43f384152a7a285fef97497a0a09388f987dc6c888",
+    "edit/v6/canonical-qc/case-09-source.wav": "54cd9b5d7ecbf18853fac51ad88861792505838a7199996b63b674f9f61295ab",
+    "edit/v6/canonical-qc/case-04-v6.wav": "0de07c5de164903c39c623e3b4973c7db6e7491807fbafe1a9e395226a8de9fa",
+    "edit/v6/canonical-qc/case-14-source.wav": "254d5dd93d99adace656e366fdd96ea2c6e64d527dc6f64162c7e96c6879fb9a",
+    "edit/v6/canonical-qc/case-24-v6.wav": "a33842582e251e700222b3462ebecd91245ea0a0faf623ddf3b2793948ea0c5b",
+    "edit/v6/canonical-qc/case-17-source.wav": "314db09b8bc212d6ec547460231dfa3819ea88e267f2fed0050b66bc800a1d9b",
+    "edit/v6/canonical-qc/case-01-source.wav": "b324845d67e95d0be4aff1304324c26f366c0f2b7c8bd60ac56f2b863b1bda64",
+    "edit/v6/canonical-qc/case-15-v6.wav": "41e931b241643190e48acb159f62d1ba52c6613d1fabd4a68697bd35ab7f2dc2",
+    "edit/v6/canonical-qc/case-05-source.wav": "18daa74d735b221104166cc86cae6b7a5081dcbb11b6fe9b7e1a3a311b1a803b",
+    "edit/v6/canonical-qc/case-07-source.wav": "b76205233af68d3e1f925f8bd1c00e446f57f7ffef6d30cd31535d1a0f22e0fc",
+    "edit/v6/canonical-qc/case-00-v6.wav": "0492015232ed3075b2fe9f371eedcc7fe20d270ba16eed2b6ed90b0eebf4fc91",
+    "edit/v6/canonical-qc/case-24-source.wav": "f9acbe6d4c8c9f14c086649ac3efddd6a95991e5478a89884506a5d1f03cad23",
+    "edit/v6/canonical-qc/case-19-source.wav": "f30bd0adfbd4cb6d29567394e748392adf961c882ecde6aa27b3400ecb34b567",
+    "edit/v6/canonical-qc/case-03-v6.wav": "d16bc4776f6c0f28cc3b1256c5a6a962909fb9e824a200a18c015d87b0899350",
+    "edit/v6/canonical-qc/case-09-v6.wav": "4b651456d0431f74c33fb121242a4020516d6b1922433c3d1e0d5bc41e80b232",
+    "edit/v6/canonical-qc/case-02-v6.wav": "24f4c33dfe76885d2ab16cfeb874a69b65573c93a5bb57a481f6b21b15cb84b1",
+    "edit/v6/canonical-qc/case-11-source.wav": "8f96d0ee01ae97439f545ff9267140df801aa21b4a68e337354566514b58efe2",
+    "edit/v6/canonical-qc/case-22-v6.wav": "88f4c87c4a121104682a1c0583a4e69ff7de74553ae34ad5d75d08e58ef36efa",
+    "edit/v6/canonical-qc/case-13-source.wav": "2940118a4b79928fa9f87e5f3b5325a686d834c1f36131a0224df0c4edbce97e",
+    "edit/v6/canonical-qc/case-02-source.wav": "645e0a9cacb490768ffb0ddd83402841c4dc5683d2ef866b2b88794b93f2c74b",
+    "edit/v6/canonical-qc/case-16-v6.wav": "98f131fa26f3386604019074ae5f047d2bec16271b9053732dee9e348eeeae87",
+    "edit/v6/canonical-qc/case-21-v6.wav": "a649844d9edd10c25f11d6912974550c5e119fcd81343b049dd4fa61b6b04674",
+    "edit/v6/canonical-qc/case-18-source.wav": "aa278ce635ab761a081e4aa5f9d7711af7bcbc0e253e2fd9141d4a2fb783367b",
+    "edit/v6/canonical-qc/case-23-source.wav": "019ff3bd24489423b11f1d4d20f291f646579534ce6b5c10b54e0e2c0fc196bf",
+    "edit/v6/canonical-qc/case-22-source.wav": "e5f038c84bdfa1a0c592c1a7403a2ebec53f5618d642c58e7e40bf330b4938f5",
+    "edit/v6/canonical-qc/case-07-v6.wav": "c8282790ee0de5d07b32bff1074137e9697f250ccac935cb589ece813ec0aa1a",
+    "edit/v6/canonical-qc/case-01-v6.wav": "72545460d4f08789b753163349da6158bf47476750cebc77c11fd399f0fa466a",
+    "edit/v6/canonical-qc/case-20-source.wav": "03662cbb735bbc0f6884cdcfc1cd42876c2385746833ae609bd99da213cd4305",
+    "edit/v6/canonical-qc/case-11-v6.wav": "1620b863b542b51018074060f755a0d83027f3d77a8c28c567644caa47974e31",
+    "edit/v6/canonical-qc/case-12-v6.wav": "a23d792f970f98093db2f025cee9c67d52fd66a8decdf06121d5bd4427a466dc",
+    "edit/v6/canonical-qc/case-10-source.wav": "d23178607ee70fbc933390ad72c29d5b9838b53e06ec9164227f0842f3196bd7",
+    "edit/v6/canonical-qc/case-08-v6.wav": "809b126d1741c7c6dfe6174ea3bd874c94d1a3e1e7c96acd0e570a332a416883",
+    "edit/v6/canonical-qc/case-21-source.wav": "b1e968348ec914af747941a9eb198c2880bca47bffb07e7682503bcf1caf248d",
+    "edit/v6/cut-windows/cut-11-v6.wav": "04f4ea76639bc3ff33441f8de70709c2d803a5b133eed5f1a09233f8d1561f9a",
+    "edit/v6/cut-windows/cut-10-v6.wav": "1027158bde1d2c5d20b4ecc3414052e1769f7f3fad5ead119e4d307cdcce3b79",
+    "edit/v6/cut-windows/cut-22-v6.wav": "e93e2176d05c292b9efbe21c53e33bbf6d45264b55026eae8b7ac45ffd56bfb0",
+    "edit/v6/cut-windows/cut-27-source.wav": "60ead53144a0cdc772f2ed48c3518fe7be0bbba5808464af5a72d7c17406000e",
+    "edit/v6/cut-windows/cut-18-source.wav": "cee90baaaa3b4a28c872884423a7a269c382ec35f079d34204894908faf9e241",
+    "edit/v6/cut-windows/cut-12-source.wav": "00af0b37a0938c06c8cf38a236d5ba3e4eaafd5ada2f30381760d0e949f9cc21",
+    "edit/v6/cut-windows/cut-01-v6.wav": "06346708077829888715e3a3240327ad52e0c02e62de4ff3604b2a8be497ada5",
+    "edit/v6/cut-windows/cut-14-v6.wav": "3a33695dc02daa04a8b58d1ac69e1a470cb32c97beef3772077014bea9ae937d",
+    "edit/v6/cut-windows/cut-02-v6.wav": "450d1bcc73e1984b2c65b80e22f7e65f68c5d916d574f58505cadb6a3bb55c96",
+    "edit/v6/cut-windows/cut-26-v6.wav": "17df7bb2924f3f31b2030f5320fed174ff998848135472917519e421f2f8a7b7",
+    "edit/v6/cut-windows/cut-27-v6.wav": "5df9c2f242e3dddaec5033e7992cbe951dc600d761f9573bea6a92cdd36598e3",
+    "edit/v6/cut-windows/cut-25-source.wav": "e34a865ddc3b9463371fc6005f56ef30eb5ee6373d3d69d65951cab0717574a8",
+    "edit/v6/cut-windows/cut-13-source.wav": "013d18ad416f55ca69eb90d6f1bb0a740c37224ec8f0f0d641ec831a7fd19c50",
+    "edit/v6/cut-windows/cut-12-v6.wav": "de84092ef0604c9eea47a3e588f74229129b008cc20cd88ceade13024ee82867",
+    "edit/v6/cut-windows/cut-00-source.wav": "a8b539618255dcd93b1567c23eeb64941952affd975b02377f0afca7f6fd8670",
+    "edit/v6/cut-windows/cut-18-v6.wav": "f6d3bd95d9e3d68142fcaf5130c51d8e0b9aa6f3fb9fe37a3abe9d0bab0ad9cd",
+    "edit/v6/cut-windows/cut-01-source.wav": "c62a8e364df7510e93e11b9b4da95a52adb44a283ca4aaab81e98d332d16e23c",
+    "edit/v6/cut-windows/cut-05-v6.wav": "499424af0e74a61ce01a2bbadd55da0a55f7d9c5d498bf307ca01e55911ff0b1",
+    "edit/v6/cut-windows/cut-04-v6.wav": "dc4eea0d24731f5ee9d234332c0daabebee37ed8e2a628db6f251a1bacaaebce",
+    "edit/v6/cut-windows/cut-05-source.wav": "99303f9e6169c854b308ea1f36768c7ed48e84a87a027d5407e1a05ed46b37bd",
+    "edit/v6/cut-windows/cut-19-source.wav": "b42cf43846b5545d39b98920105b6cdc1c9ac7dfcc195819e8b3ddcee7fea17d",
+    "edit/v6/cut-windows/cut-17-v6.wav": "d76ef00a38a98f223939f6f544445efde1aaa80a82e6e83684c2b24174e96a12",
+    "edit/v6/cut-windows/cut-14-source.wav": "b16d7c0a668ea223066367d64805bb32306cfb1e26fccb7bd072c98f16f2421e",
+    "edit/v6/cut-windows/cut-26-source.wav": "4304b788933f4dd3141a282facc2945eedb0da15c2d202408b3f2ce4d1199440",
+    "edit/v6/cut-windows/cut-16-source.wav": "8f583847257f803cab986676b1c80224b0b47b5062d5fb95252413d33a37adcd",
+    "edit/v6/cut-windows/cut-06-v6.wav": "e1cdbf8aa5f28c9b865caee1b80b5ee8fd471b33ccf292b707d9343a90544722",
+    "edit/v6/cut-windows/cut-16-v6.wav": "8dbc4dc35d2f0110f1d3199d6b0d17e9a1eddbc34602dcfe2b8f36fec13ace49",
+    "edit/v6/cut-windows/cut-15-source.wav": "88db35704e8c253d170ca7524ae17a973d8573fba2403394c86dd332f2ec206f",
+    "edit/v6/cut-windows/cut-08-source.wav": "1e30daa069568107af4ed4c439b248970143677a538226b6978b02f1be5f5ab6",
+    "edit/v6/cut-windows/cut-20-source.wav": "113c4ef9bbea73c954e20c0af3f52e204b65f188e0089517abbefa4ae772eba9",
+    "edit/v6/cut-windows/cut-23-v6.wav": "5b4ff6b3c1f8987e0d6b9220a7fe6acf9a43bd7e48faf9300e7f01acd3dfff1b",
+    "edit/v6/cut-windows/cut-20-v6.wav": "d179adaf4f35f712800436f3540249f56438908e8b15db19c862bb3f02c27654",
+    "edit/v6/cut-windows/cut-25-v6.wav": "8190b7fa789beaf8d332a61108c313ea2cd43b9847ad322949baa164932fae3b",
+    "edit/v6/cut-windows/cut-23-source.wav": "f727729cbb641a8d7164807a1370fd3845c2a9f391102ed7c9bc4a98ed8f21c0",
+    "edit/v6/cut-windows/cut-04-source.wav": "656d6636e26ac88811977a62c3dfa29f36ad56f4a1d13edfb5b8b9af6eaf3aa5",
+    "edit/v6/cut-windows/cut-09-source.wav": "5b0bfbed8cb5ad0997862f84bfbbf8f916b87bb1f7a59fa34ff21df39e78337b",
+    "edit/v6/cut-windows/cut-11-source.wav": "f303606487ca04082f1d7a5ac35fddedaa189c7fb9dbb4a4138092e940ca7c48",
+    "edit/v6/cut-windows/cut-24-v6.wav": "5d056d54d522b210c287b3567dae4a2963f153badd2c69f8396144fedd12b71e",
+    "edit/v6/cut-windows/cut-00-v6.wav": "47ebfb8dab1ce49de728a903bcc639244f7abc3d7e8191f1012b35c8c397bbcd",
+    "edit/v6/cut-windows/cut-08-v6.wav": "a508a577139a3b9c44d3c5bcb7c20d7543a242ffabf0f458a18434ba294138e9",
+    "edit/v6/cut-windows/cut-06-source.wav": "31ab109c38f67d24ec93ce18ecb0c282158cc704c135a32294f640f4a24a50e0",
+    "edit/v6/cut-windows/cut-10-source.wav": "6dc22a4af324687140d931ed2c19e03335445be043c1433c52f6934cfb0746e4",
+    "edit/v6/cut-windows/cut-19-v6.wav": "9c1271ab68a0fc4e021f0cb2fe5bb732d0b20eca6065348119789543a418cc80",
+    "edit/v6/cut-windows/cut-21-v6.wav": "a5468c43165315e69ca52a7b5e8855fcf6f4f1238537fc0f09c6ed8a2f1317d1",
+    "edit/v6/cut-windows/cut-17-source.wav": "1aca51123ae774bb51501871bcfad4b6d23a5ee131ce5642284c97f005e396f6",
+    "edit/v6/cut-windows/cut-07-v6.wav": "ac36fd242347dc5a8b76c2d97f19501cf03b629a0f580997818cb15546d99c3b",
+    "edit/v6/cut-windows/cut-02-source.wav": "636d311bd406a5594af11abef4cac26bb52685a7512332f376d89a92462b2923",
+    "edit/v6/cut-windows/cut-21-source.wav": "1b806cf94b29ef584b1a24b955136017a744148cc6e0bd33944f0dd6293cfc64",
+    "edit/v6/cut-windows/cut-13-v6.wav": "75be1fb2a7a1e08420e7b546f8629d915db8625de30aeb530b7d611535247bb1",
+    "edit/v6/cut-windows/cut-09-v6.wav": "62acdf5f857d623980204e98173cef72a70915944bf01b7e85c7ce7b194f3e2b",
+    "edit/v6/cut-windows/cut-07-source.wav": "e1fb68c8c0af098252748ee5430f7d72f1eb97073c5a025865678e71425bc57a",
+    "edit/v6/cut-windows/cut-03-v6.wav": "d454807868bbc39c75be369786caae087de45d53d0a6cfd87cd8280e784c6c7c",
+    "edit/v6/cut-windows/cut-24-source.wav": "140fe4bab58fd3cfe5b4e4582a6d554c2dcdf34f96bf08a2c1b9531551c5e61d",
+    "edit/v6/cut-windows/cut-22-source.wav": "97a505652d93eab95349fb083f4f993a559566490f0552d22722f830c4193514",
+    "edit/v6/cut-windows/cut-15-v6.wav": "5a564232f1f886d7a98e4e21221c2004376a0646702bcf58cd78767d98e28dba",
+    "edit/v6/cut-windows/cut-03-source.wav": "5f10914552ed35bb7b305f87740e60a4f40b515c5bc06d0d42b8f6d063b12e6d",
+    "edit/v6/source_clean_unity.wav": "3bcdf6cab4665799657aa97ee1981c592594eb88498d5aff68937cff1bc81724",
+    "edit/v6/voice_clean_unity.wav": "5185f06eaf6ccdb4d01a33f831dc59d12c970fdc5da49bb7c9eeeef5965e2a8b",
+    "edit/v6/verify_adjudications.py": "ae5e7a8b9971c0929464aa077260221b0267e2f0212dd8dae98f85b368fab650",
+    "edit/v6/run_gates.py": "e8f591b1696aed548ae2d7c782a146b0d49c2b51f3d50914dbc83655ead0d5ee",
+    "edit/v6/capture_cut.py": "caf9964b23ffdb07f8240e74ce088a11ea70720bcd2d3f44bf42b3fcb2759607",
+    "edit/v6/evidence.py": "4bbb1fbd6562d0977215767d52197669459b4cb6efaf9fee924312771bc1f406",
+    "edit/v6/gain-headroom-proof.json": "b9d363fe6d317342d863d5e54a227822cac2e10b07548fd8e58b7ad4b51d4c68",
+    "edit/v6/gain-headroom-levels.json": "4fd09b6c8c4c96925e18dc1f2a8457dddd764c380ee010148c9779afd0f78f0e",
+    "edit/v6/gain_headroom.py": "30fe1d6bfa40d434e61f9bce2fc4d4b627b10abbee5536265f77809d1c257b11",
+    "edit/v6/measure_headroom.py": "f1e32bf64b0b7cf928e1a38c8d5377876efb13a99703dfcb3a0536e3c60e04de",
+    "edit/v6/timing-contract.json": "9252e5394e27ebb8a4984822d6b6fbd845228af6fc3ce6d3394cd949291702a5",
+    "edit/v6/gain-headroom/before-asr-provenance.json": "c300a9326a98bc442e3ca6f09f146531e9b5c2875e899336b76464668ab0d1e2",
+    "edit/v6/gain-headroom/before-adjudications.json": "65c78f70445b0ddda053bd8dc48398caf3e9f867b6f3c0d8e2f4ad8af9111847",
+    "edit/v6/gain-headroom/before-transcript-check.json": "8fa13eb2c77c9383b1d5f67e2bff3cd82a4d75eee403032158a5223aae0da590",
+    "edit/v6/gain-headroom/before-voice_clean.provenance.json": "c260709afa309509cfc0337fafebf2bd732c4f3af3174bf6dbbc3cdd16401e6b",
+    "edit/v6/gain-headroom/voice-clean-peak1p25-aac192.m4a": "09ed3ddf2a9383a947adcfa7daf8bc4b7c80c92d93bee4bdf93edfadd8d66ca5",
+    "edit/v6/gain-headroom/before-timing-contract.json": "ee6917d988df2abf1fd05a8b07673b5c2731778d516563a418c03260e6e74714",
+    "edit/v6/gain-headroom/before-canonical-gates.json": "e554504f48c3e420ea010ac11404754875cc8027aa2a80fb816d56bb24621448",
+    "edit/v6/gain-headroom/REPORT-before-headroom.md": "99f9365b3a111bd54c6200db7eea9a0ee3c22f5a56cd7f6588f5b17d2c18f344",
+    "edit/v6/gain-headroom/before-canonical-findings.json": "30bf62e44ecbe6eba2ae455ec53c18e32bbb9b1ec1cc96bc68fe8f1b38049174",
+    "edit/v6/gain-headroom/voice-clean-peak1p05.wav": "d200737bed8d2ea23e3f300da2296c9f3b72861af15feb35ae73773c85929806",
+    "edit/v6/canonical-qc/variant-provenance.json": "a3ff35cdd2eaceb23eea89ed22c4f5ea6f5b63190df707c26d410aa15c6695e8",
+    "edit/v6/qc-final/variant-provenance.json": "a3ff35cdd2eaceb23eea89ed22c4f5ea6f5b63190df707c26d410aa15c6695e8",
+    "edit/v6/cut-windows/variant-provenance.json": "a3ff35cdd2eaceb23eea89ed22c4f5ea6f5b63190df707c26d410aa15c6695e8"
+  },
+  "canonical_gate_sha256": {
+    "audio_order.py": "ec359ad93ce7e31a52912c11e4e9234170554e3874407fe619ffb895ed247e2c",
+    "pause_clean.py": "e950b8894ee6c2175d7c4c8a05d9ff96c464053f24bfa7173ae5d1c0802280a2",
+    "voice_level.py": "6cf10000a06da7bb0f4172da46b7183314dce06fc54d614148df1e1aa1116bd0",
+    "cut_check.py": "d2d941633ce20d3f46efc975d59c4e466cbe93459676607b42332a8839d98163"
+  },
+  "pending_user_decisions": [],
+  "canonical_tooling_conflict": "audio_order has no adjudication input for these rebuilt-voice exceptions; no canonical lock or forged ORDER created",
+  "gain_headroom_derivation": "edit/v6/gain-headroom-proof.json",
+  "gain_headroom_levels": "edit/v6/gain-headroom-levels.json",
+  "native_evidence_scope": "native listened to oldSHA d200…9806; current d56…983f has not separately been listened to; lexical/timing applicability derives only through exact verified positive scalar float32 transform"
+}

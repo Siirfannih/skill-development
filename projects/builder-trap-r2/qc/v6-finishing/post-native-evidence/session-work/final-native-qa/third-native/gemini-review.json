@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "created_ns": 1794839501363946143,
+  "started_ns": 1794839421230811287,
+  "candidate_sha256": "f00c0201c7de748c3abf42085d1d85ecc9e2fc03841189347e05db09c7ccd074",
+  "manifest_sha256": "1bc5f896c26cb013de2ff3517d2755dc25c7d410786e7409a32d64e553a4c107",
+  "reviewer": "Gemini gemini-3.8-flash-low",
+  "creator_sha256": "de290301165b858334890776d8ef087e2bee3370f615af01c1d17992747824ae",
+  "opened_frames": [
+    {
+      "frame": 1082,
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1082.png",
+      "sha256": "cca48f678c84fbb43d92cb57a261c2d8c2ebb0cb7453a0aeada1720953b1f98d"
+    },
+    {
+      "frame": 1083,
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1083.png",
+      "sha256": "1e9c548b6502eb6adcbd49b08395846e7af2151cd8224f3cdadb0af69b4cdcb0"
+    },
+    {
+      "frame": 1084,
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1084.png",
+      "sha256": "5ed2c2cab01f275cdee5dc8808a96d0c2ad313f9a9de3fa875d499855f734cbb"
+    }
+  ],
+  "all_frames_inspected": true,
+  "pass_": true,
+  "issues": [],
+  "scope": "Actual encoded final frames1082\u20131084 only; no audio, all-frame or projectSHIP claim.",
+  "exit_code": 0,
+  "strict_read_coverage": true,
+  "input_hashes": {
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/INFO.md": "43d3733d13c36543b6c5d5471ae1425994fd3bcffec40a8ae30ac1b1b69fa96f",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1082.png": "cca48f678c84fbb43d92cb57a261c2d8c2ebb0cb7453a0aeada1720953b1f98d",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1083.png": "1e9c548b6502eb6adcbd49b08395846e7af2151cd8224f3cdadb0af69b4cdcb0",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1084.png": "5ed2c2cab01f275cdee5dc8808a96d0c2ad313f9a9de3fa875d499855f734cbb"
+  },
+  "read_paths": [
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/INFO.md",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1082.png",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1083.png",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1084.png"
+  ],
+  "forbidden_tools": [],
+  "inputs_unchanged": true,
+  "response": {
+    "native_images_available": true,
+    "all_frames_inspected": true,
+    "reviewed_frame_indices": [
+      1082,
+      1083,
+      1084
+    ],
+    "blue_handwriting_continuous": true,
+    "observations": "All three frames 1082, 1083, and 1084 depict the identical corkboard/wall context with pinned UI cards and a blue connecting line across the top pins. The printed black text 'Selama' remains stable across all three frames. To the right of 'Selama', the blue handwriting displays smooth, progressive reveal continuity: in frame 1082 it reads 'satu ti' (with the start of 't' and partial stroke); in frame 1083 it advances smoothly to 'satu tal' (the letters 'ta' completed, starting the stem of 'h'); in frame 1084 it advances to 'satu tah\u0131'. There is no disappearance, flicker, clipping, or visual disruption across frame 1083.",
+    "issues": [],
+    "uncertainty": "Inspection is strictly limited to the provided three frames (1082, 1083, 1084) and visually verifies continuity within this local window without broader video or audio assertions."
+  },
+  "stream_path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/gemini-stream.jsonl",
+  "stream_sha256": "99c746d513a1de710b836625b50cbbcc3cc4af338e4576af3f0fac7f8bf92001",
+  "stderr_path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/gemini.err",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

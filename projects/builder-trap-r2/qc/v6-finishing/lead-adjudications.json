@@ -1,0 +1,63 @@
+{
+  "authority": "lead",
+  "source_snapshot_sha256": "4965f416e2deea839d85256419364b562b49721cd996b33fadfa15e16f8834ac",
+  "acceptance_scope": "v6 revision of user-approved v5r3; no numerical claim of showreel parity",
+  "closed_defect": {
+    "id": "V-C05-01",
+    "frames": [
+      1461,
+      1506
+    ],
+    "status": "RESOLVED",
+    "reason": "Fresh46frame B19 render removes seven-frame blurred plateau. All3new sheets90cells and raw1469/1472/1475 inspected; actual motion continues, settles sharp, Create repository remains visible. New camera second peak1488 vs frozen cue1487 within1frame."
+  },
+  "minor_observations": [
+    {
+      "frames": [
+        149,
+        153
+      ],
+      "disposition": "ACCEPT_MINOR",
+      "reason": "Opening punch holds two then three frames before cut154. Brief cadence remains visible in raw and is disclosed; words/context complete."
+    },
+    {
+      "frames": [
+        2122,
+        2124
+      ],
+      "disposition": "ACCEPT_MINOR",
+      "reason": "100ms camera-pose hold while caption changes; readable phrase remains and motion resumes. No full-frame blank or story interruption."
+    },
+    {
+      "frames": [
+        2338,
+        2340
+      ],
+      "disposition": "ACCEPT_MINOR",
+      "reason": "100ms camera-pose hold during final scroll. Apa/pengalaman are readable before/after; restored speech context complete. All56frames2300–2355 reviewed."
+    },
+    {
+      "frames": [
+        2270,
+        2272
+      ],
+      "disposition": "ACCEPT_MINOR",
+      "reason": "100ms pose hold while inserted face video still moves; no full-frame freeze or lost context."
+    }
+  ],
+  "layout": "All70stills still byte-identical to prior root review, including newly rendered B19;19OCR flags resolved as native app text/viewport edges. B10 caption sits in empty white space, not on titles/thumbs. B20 publish crop only26ms after~1s reading accepted. Partial face/mic947–976 intentional.",
+  "palette": {
+    "raw_numeric_status": "FAIL",
+    "draft_vivid_percent": 0.9,
+    "dominant_percent": 48,
+    "disposition": "ACCEPT_AUTHORED_PALETTE",
+    "reason": "Tool explicitly calls this a signal. It counts natural skin/archive/wallpaper/UI. White/linen, ink, blue authored palette retained per R002/R009; no new radial/vignette/decoration. Do not desaturate real footage to manufacture numeric PASS."
+  },
+  "fresh_compass": "Terra subjective3/5 and concerns retained with root actual-image dispositions. Four repeated fictional compositions serve crowd/imitation and satisfy explicit dummy request. Existing pin/shadow style kept from approved v5. Tiny reference sheet cannot establish numericR6/showreel parity.",
+  "audio": "Frozen mix accepted via native full/no-music/WAV/phone-model context with natural VO. Raw source/cut/level/order/Module5 outcomes stay unchanged; R032/R033 and explicit local bed/cue-gain adjudications apply to exact hashes only.",
+  "technical": "Internal test export produced281background-only frames; fresh isolated tail export repaired them. No claim that this export incident existed in user v5. All2493currentraw frames scanned; only terminal2492 is full black. Losslessdraft decodes exactRGB against all2493JPEGs.",
+  "still_proof_sha256": "efe31a3d4d1db05900924747c4cc1a0de10383fd2b327e604c5118175e1253b6",
+  "current_flag_index_sha256": "04ddc14b268b17a5af0bc6e92ed734a9ddc89e54f6d3a2838d05fe101bda89e0",
+  "native_av_sha256": "83251870a3cb26e6f4fbabe4ef3f242e0c2f05c6e6329653874b9d9921d96759",
+  "created_ns": 1794830756566307161
+}
