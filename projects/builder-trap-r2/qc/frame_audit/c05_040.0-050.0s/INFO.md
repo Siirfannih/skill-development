@@ -3,28 +3,21 @@
 Frame 1200–1499 · 40.00–50.00 dtk
 
 ## Tanda otomatis
-- f1248 (41.60 dtk): LOMPAT 28.8 (f1247→1248)
-- f1249 (41.63 dtk): LOMPAT 24.0 (f1248→1249)
-- f1250 (41.67 dtk): LOMPAT 59.2 (f1249→1250)
-- f1251 (41.70 dtk): LOMPAT 22.7 (f1250→1251)
-- f1370 (45.67 dtk): LOMPAT 3.1 (f1369→1370)
-- f1460 (48.67 dtk): LOMPAT 5.8 (f1459→1460)
+- f1361 (45.37 dtk): LOMPAT 54.0 (f1360→1361)
+- f1362 (45.40 dtk): LOMPAT 29.5 (f1361→1362)
+- f1364 (45.47 dtk): LOMPAT 30.1 (f1363→1364)
 
 ## Kata diucapkan (dtk)
-apa@40.04 yang@40.28 sudah@40.46 aku@40.62 buat.@40.86 Tapi@41.59 satu@42.15 hal@42.44 yang@42.64 aku@42.80 lewatkan@42.94 adalah.@43.34 Aku@43.57 tidak@43.86 menjual@44.16 apapun.@44.72 Aku@45.16 tidak@45.30 mempublikasikan@45.56 apapun.@46.40 Dan@46.88 tidak@47.00 mendokumentasikan@47.20 apapun.@48.02 Dan@48.66 ngebangun@49.01 itu@49.75 bikin@49.89
+untuk@40.68 belajar.@40.94 Untuk@41.48 memahami@41.78 seperti@42.26 apa@42.48 industri@42.76 ini.@43.08 Dan@43.56 apa@43.74 yang@43.98 sudah@44.16 aku@44.32 buat.@44.56 Tapi@45.32 satu@45.88 hal@46.44 yang@46.64 aku@46.80 lewatkan@46.94 adalah.@47.34 Aku@47.74 tidak@48.06 menjual@48.36 apapun.@49.02 Aku@49.46 tidak@49.60 mempublikasikan@49.86
 
 ## Cue SFX (dtk · peran · file)
-- 40.47 · pin · pin.mp3
-- 41.44 · riser · ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3
-- 41.46 · drop · ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz - Epidemic Sound.mp3
-- 43.57 · potong_adegan · Katapertama.mp3
-- 44.23 · kata_triad · Kinetictypography(gunakansecaraacak).mp3
-- 45.13 · potong_adegan · Cutcontrastransision.mp3
-- 45.60 · klik_ui · ES_User Interface, Click, UI Buttons, Confirm, Menu - Epidemic Sound.mp3
-- 45.67 · kata_triad · Kinetictypography(gunakansecaraacak).mp3
-- 46.30 · klik_ui · Enter.mp3
-- 46.87 · potong_adegan · Katapertama.mp3
-- 47.30 · kata_triad · Kinetictypography(gunakansecaraacak).mp3
-- 48.57 · potong_adegan · Cutcontrastransision.mp3
-- 48.87 · ketik · Keyboardtyping.mp3
-- 49.64 · whoosh · Woosh.mp3
+- 41.43 · pin · pin.mp3
+- 43.20 · whoosh · Wooshcameramovementtransisi.mp3
+- 44.17 · pin · pin.mp3
+- 45.16 · riser · ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3
+- 45.18 · drop · ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz - Epidemic Sound.mp3
+- 47.77 · potong_adegan · Katapertama.mp3
+- 48.47 · kata_triad · Kinetictypography(gunakansecaraacak).mp3
+- 49.43 · potong_adegan · Cutcontrastransision.mp3
+- 49.90 · klik_ui · ES_User Interface, Click, UI Buttons, Confirm, Menu - Epidemic Sound.mp3
+- 49.97 · kata_triad · Kinetictypography(gunakansecaraacak).mp3

@@ -23,3 +23,10 @@ edit/v3/motion_v2.npy
 remotion/public/face_edit_v3.mp4
 remotion/public/mix_v3.wav
 audio/*_v3.wav
+
+# Local read-only source links.
+/assets/fonts
+/assets/footage
+/assets/ref_ui
+/audio/music
+/raw

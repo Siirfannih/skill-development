@@ -1,0 +1,279 @@
+{
+  "pass": true,
+  "checks": {
+    "audio_exact_length": true,
+    "face_exact_frames": true,
+    "root_exact_frames": true,
+    "nine_guarded_cuts": true,
+    "all_source_words_retained": true,
+    "caption_fillers_only_omitted": true,
+    "cut_validator_pass": true,
+    "transcript_content_review_pass": true
+  },
+  "expected": {
+    "duration_seconds": 91.3,
+    "frames": 2739,
+    "samples": 4382400
+  },
+  "audio": {
+    "edit/v5/suara.wav": {
+      "samples": 4382400,
+      "sample_rate": 48000,
+      "channels": 1,
+      "duration": 91.3
+    },
+    "edit/v5/voice_clean.wav": {
+      "samples": 4382400,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration": 91.3
+    },
+    "edit/v5/mix.wav": {
+      "samples": 4382400,
+      "sample_rate": 48000,
+      "channels": 2,
+      "duration": 91.3
+    }
+  },
+  "face_frames": 2739,
+  "raw_transcript_exact_match": false,
+  "transcript_review": {
+    "pass": true,
+    "raw_full_asr": {
+      "pass": false,
+      "target_tokens": 228,
+      "heard_tokens": 224,
+      "note": "Raw large-v3 output is retained as a failing exact-match; it is not rewritten to force a pass."
+    },
+    "orthographic_or_tokenization_differences": [
+      [
+        "20",
+        "-an",
+        "20an"
+      ],
+      [
+        "kelihatannya",
+        "keliatannya"
+      ],
+      [
+        "jadi",
+        "menjadi"
+      ],
+      [
+        "publish",
+        "publis"
+      ]
+    ],
+    "content_review": [
+      {
+        "expected": "Build something",
+        "timeline_seconds": [
+          37.18,
+          38.02
+        ],
+        "clip": "build-something-context.wav",
+        "verdict": "UTUH",
+        "confidence": 0.9,
+        "evidence": "Two complete speech envelopes separated by 116.7 ms; boundary jumps 0.00073/0.00060 versus p99 derivative 0.0442; no click or internal splice."
+      },
+      {
+        "expected": "Apa pengalaman",
+        "timeline_seconds": [
+          85.473333,
+          86.333333
+        ],
+        "clip": "apa-pengalaman-context.wav",
+        "verdict": "UTUH",
+        "confidence": 0.88,
+        "evidence": "Apa completes before a 115.8 ms gap; pengalaman completes after it; the second onset is a sustained /p/ plosive/formant rather than a one-sample click; no internal splice."
+      }
+    ],
+    "reviewer": "independent ChatGPT audio-cut auditor",
+    "method": "waveform, spectrogram, silence detection, timestamp-source alignment",
+    "limitations": "No authenticated second cloud ASR was available; acceptance is acoustic review, while the raw exact-match failure remains preserved."
+  },
+  "joins_voice_clean": [
+    {
+      "frame": 283,
+      "seconds": 9.433333,
+      "sample": 452800,
+      "sample_step_dbfs": -240.0,
+      "local_p99_step_dbfs": -57.4,
+      "step_over_local_p99": 0.0,
+      "window_peak_dbfs": -61.72,
+      "window_rms_dbfs": -73.38
+    },
+    {
+      "frame": 715,
+      "seconds": 23.833333,
+      "sample": 1144000,
+      "sample_step_dbfs": -240.0,
+      "local_p99_step_dbfs": -50.95,
+      "step_over_local_p99": 0.0,
+      "window_peak_dbfs": -61.69,
+      "window_rms_dbfs": -73.31
+    },
+    {
+      "frame": 1144,
+      "seconds": 38.133333,
+      "sample": 1830400,
+      "sample_step_dbfs": -240.0,
+      "local_p99_step_dbfs": -41.39,
+      "step_over_local_p99": 0.0,
+      "window_peak_dbfs": -69.55,
+      "window_rms_dbfs": -80.5
+    },
+    {
+      "frame": 1352,
+      "seconds": 45.066667,
+      "sample": 2163200,
+      "sample_step_dbfs": -240.0,
+      "local_p99_step_dbfs": -83.17,
+      "step_over_local_p99": 0.0,
+      "window_peak_dbfs": -105.57,
+      "window_rms_dbfs": -116.64
+    },
+    {
+      "frame": 1731,
+      "seconds": 57.7,
+      "sample": 2769600,
+      "sample_step_dbfs": -240.0,
+      "local_p99_step_dbfs": -67.3,
+      "step_over_local_p99": 0.0,
+      "window_peak_dbfs": -79.05,
+      "window_rms_dbfs": -92.03
+    },
+    {
+      "frame": 1872,
+      "seconds": 62.4,
+      "sample": 2995200,
+      "sample_step_dbfs": -240.0,
+      "local_p99_step_dbfs": -43.05,
+      "step_over_local_p99": 0.0,
+      "window_peak_dbfs": -51.14,
+      "window_rms_dbfs": -66.87
+    },
+    {
+      "frame": 2192,
+      "seconds": 73.066667,
+      "sample": 3507200,
+      "sample_step_dbfs": -240.0,
+      "local_p99_step_dbfs": -47.01,
+      "step_over_local_p99": 0.0,
+      "window_peak_dbfs": -66.13,
+      "window_rms_dbfs": -79.63
+    },
+    {
+      "frame": 2249,
+      "seconds": 74.966667,
+      "sample": 3598400,
+      "sample_step_dbfs": -240.0,
+      "local_p99_step_dbfs": -47.18,
+      "step_over_local_p99": 0.0,
+      "window_peak_dbfs": -69.68,
+      "window_rms_dbfs": -80.58
+    },
+    {
+      "frame": 2560,
+      "seconds": 85.333333,
+      "sample": 4096000,
+      "sample_step_dbfs": -240.0,
+      "local_p99_step_dbfs": -44.13,
+      "step_over_local_p99": 0.0,
+      "window_peak_dbfs": -48.35,
+      "window_rms_dbfs": -58.9
+    }
+  ],
+  "joins_mix": [
+    {
+      "frame": 283,
+      "seconds": 9.433333,
+      "sample": 452800,
+      "sample_step_dbfs": -34.82,
+      "local_p99_step_dbfs": -17.81,
+      "step_over_local_p99": 0.141,
+      "window_peak_dbfs": -16.8,
+      "window_rms_dbfs": -26.86
+    },
+    {
+      "frame": 715,
+      "seconds": 23.833333,
+      "sample": 1144000,
+      "sample_step_dbfs": -67.39,
+      "local_p99_step_dbfs": -40.34,
+      "step_over_local_p99": 0.0444,
+      "window_peak_dbfs": -36.25,
+      "window_rms_dbfs": -43.12
+    },
+    {
+      "frame": 1144,
+      "seconds": 38.133333,
+      "sample": 1830400,
+      "sample_step_dbfs": -42.32,
+      "local_p99_step_dbfs": -25.33,
+      "step_over_local_p99": 0.1414,
+      "window_peak_dbfs": -21.08,
+      "window_rms_dbfs": -29.93
+    },
+    {
+      "frame": 1352,
+      "seconds": 45.066667,
+      "sample": 2163200,
+      "sample_step_dbfs": -24.97,
+      "local_p99_step_dbfs": -23.52,
+      "step_over_local_p99": 0.8466,
+      "window_peak_dbfs": -11.52,
+      "window_rms_dbfs": -18.35
+    },
+    {
+      "frame": 1731,
+      "seconds": 57.7,
+      "sample": 2769600,
+      "sample_step_dbfs": -68.37,
+      "local_p99_step_dbfs": -30.8,
+      "step_over_local_p99": 0.0132,
+      "window_peak_dbfs": -33.66,
+      "window_rms_dbfs": -40.83
+    },
+    {
+      "frame": 1872,
+      "seconds": 62.4,
+      "sample": 2995200,
+      "sample_step_dbfs": -65.7,
+      "local_p99_step_dbfs": -33.17,
+      "step_over_local_p99": 0.0236,
+      "window_peak_dbfs": -22.29,
+      "window_rms_dbfs": -28.05
+    },
+    {
+      "frame": 2192,
+      "seconds": 73.066667,
+      "sample": 3507200,
+      "sample_step_dbfs": -62.89,
+      "local_p99_step_dbfs": -32.31,
+      "step_over_local_p99": 0.0296,
+      "window_peak_dbfs": -22.15,
+      "window_rms_dbfs": -27.33
+    },
+    {
+      "frame": 2249,
+      "seconds": 74.966667,
+      "sample": 3598400,
+      "sample_step_dbfs": -59.18,
+      "local_p99_step_dbfs": -30.63,
+      "step_over_local_p99": 0.0373,
+      "window_peak_dbfs": -13.65,
+      "window_rms_dbfs": -20.25
+    },
+    {
+      "frame": 2560,
+      "seconds": 85.333333,
+      "sample": 4096000,
+      "sample_step_dbfs": -49.4,
+      "local_p99_step_dbfs": -33.82,
+      "step_over_local_p99": 0.1664,
+      "window_peak_dbfs": -26.25,
+      "window_rms_dbfs": -33.27
+    }
+  ]
+}

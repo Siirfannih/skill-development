@@ -1,6 +1,7 @@
-// Sisipan wajah (BRIEF §Wajah). r5: face_edit_v3.mp4 diputar di frame NYATA timeline baru (useRealFrame), bukan frame
-// adegan yang di-warp, jadi lip-sync dengan mix_v3.wav. Jangan taruh <Face> di dalam <Sequence from=...>.
+// Sisipan wajah (BRIEF §Wajah). r5: face_edit_v5.mp4 diputar di frame NYATA timeline baru (useRealFrame), bukan frame
+// adegan yang di-warp, jadi lip-sync dengan mix_v5.wav. Jangan taruh <Face> di dalam <Sequence from=...>.
 import React from 'react';
+import { DUR_V5 } from './timewarp';
 import { OffthreadVideo, Sequence, staticFile, useCurrentFrame } from 'remotion';
 import { useRealFrame } from './realframe';
 
@@ -16,12 +17,9 @@ export const FACE_PRESETS = {
   P: { s: 1.9, cx: 1077, cy: 500 }, // sisi: wajah di sepertiga kiri, ruang dinding kanan ±700 px
 } as const;
 export type FacePreset = keyof typeof FACE_PRESETS;
-/** r8 (TASK-r8 butir 2): frame NYATA tempat video wajah melompat di DALAM sisipan wajah (titik potong suara dari
- *  edit/v3/map.json; frame persisnya diukur dari selisih antar-frame face_edit_v3.mp4: lonjakan 2,0–21,5 vs median 1,2).
- *  Titik map yang tidak terlihat meloncat di video (f2186, f2189: selisih 0,5/2,9) tidak dimasukkan; f2460 (audit) bukan
- *  potongan (gerak kepala kontinu 4,7–5,2 per frame selama 4 f). Titik yang jatuh tepat di awal adegan wajah (f642, f951,
- *  f1307) tertutup cut adegan. */
-export const FACE_JUMPS = [141, 166, 657, 969, 1332, 1532, 1709, 1764, 2406, 2414];
+// Exact real-timeline join frames derived from edit/v5/map.json. Keep this list
+// inside the Remotion bundle so the renderer never depends on scratch/edit files.
+export const FACE_JUMPS = [283, 715, 1144, 1352, 1731, 1872, 2192, 2249, 2560];
 /** punch-in di titik lompatan: +10 % skala crop per tingkat. Lompatan berganti masuk/keluar (1,0 ↔ 1,1); lompatan yang
  *  berdekatan (< FACE_JUMP_NEAR frame dari lompatan sebelumnya dalam sisipan yang sama) LANJUT MASUK (1,1 → 1,2), tidak
  *  keluar-masuk (putusan Sutradara r8 Q2, mis. f2406 → f2414). */
@@ -87,11 +85,11 @@ export const Face: React.FC<{
           </filter>
         </svg>
       ) : null}
-      {/* r5: face_edit_v3.mp4 di frame NYATA (dipotong di rentang yang sama dengan suara v3 → bibir sinkron) */}
+      {/* r5: face_edit_v5.mp4 di frame NYATA (dipotong di rentang yang sama dengan suara v5 → bibir sinkron) */}
       {/* Sequence menggeser frame adegan (lama) ke frame nyata: di dalamnya useCurrentFrame() = real */}
-      <Sequence from={cur - Math.min(vf, 2500)} layout="none">
+      <Sequence from={cur - Math.max(0, Math.min(vf, DUR_V5 - 1))} layout="none">
         <OffthreadVideo
-          src={staticFile('face_edit_v3.mp4')}
+          src={staticFile('face_edit_v5.mp4')}
           muted
           style={{ position: 'absolute', left, top, width: vw, height: vh, filter: FACE_GRADE[grade], maxWidth: 'none' }}
         />

@@ -66,9 +66,9 @@ const B17_SAVE = 1557; // 51,9 dtk
 // r6 (butir 2): UI diperbesar mengisi separuh kanan: modal mulai layar x 960, zoom 1,2 → 1,24, terpotong tepi kanan
 const b17Cam = camPath(
   [
-    { f: F_B17[0], x: 568, y: 588, zoom: 1.2 },
-    { f: B17_SAVE, x: 568, y: 580, zoom: 1.22, ease: 'smooth' },
-    { f: F_B17[1], x: 590, y: 560, zoom: 1.24, ease: 'inOut' },
+    { f: F_B17[0], x: 680, y: 588, zoom: 1.2, ry: -2.5, rx: 1 },
+    { f: B17_SAVE, x: 680, y: 580, zoom: 1.22, ry: -1.8, rx: 0.7, ease: 'smooth' },
+    { f: F_B17[1], x: 690, y: 560, zoom: 1.24, ry: -1.2, rx: 0.5, ease: 'inOut' },
   ],
   { sigma: 1.5 },
 );
@@ -108,7 +108,7 @@ const B17: React.FC = () => {
         <DarkWall />
       </Layer>
       <Layer z={0} name="L2">
-        <div style={{ position: 'absolute', left: TW_CROP, top: TW.y, width: TW.x + TW.w - TW_CROP, height: TW.h, overflow: 'hidden', borderRadius: 18 }}>
+        <div style={{ position: 'absolute', left: TW_CROP, top: TW.y, width: TW.x + TW.w - TW_CROP, height: TW.h, overflow: 'hidden', borderRadius: 18, boxShadow: '0 28px 65px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08)' }}>
          <div style={{ position: 'absolute', left: TW.x - TW_CROP, top: 0 }}>
           <ThreadsWindow
             mode="dark" ui={1} w={TW.w} h={TW.h} colW={640} header="For you"
@@ -122,6 +122,8 @@ const B17: React.FC = () => {
         {pulse > 0 ? (
           <div style={{ position: 'absolute', left: DRAFT_ICON.x - 22, top: DRAFT_ICON.y - 22, width: 44, height: 44, borderRadius: 12, boxShadow: `0 0 0 ${2 + 3 * (1 - pulse)}px rgba(201,203,209,${0.9 * pulse})` }} />
         ) : null}
+      </Layer>
+      <Layer z={55} name="L2-modal">
         <div
           style={{
             position: 'absolute', left: sx - MODAL.w / 2, top: sy - 163, transformOrigin: '50% 50%',

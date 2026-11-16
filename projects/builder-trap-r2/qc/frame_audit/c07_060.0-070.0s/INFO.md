@@ -3,15 +3,16 @@
 Frame 1800–2099 · 60.00–70.00 dtk
 
 ## Tanda otomatis
-- f2019 (67.30 dtk): LOMPAT 6.7 (f2018→2019)
+- f1872 (62.40 dtk): LOMPAT 12.1 (f1871→1872)
+- f1872 (62.40 dtk): SFX? potong/gerak besar tanpa cue ±0,30 dtk
+- f1955 (65.17 dtk): LOMPAT 42.3 (f1954→1955)
 
 ## Kata diucapkan (dtk)
-pengen@60.51 sekali@60.99 menjadi@61.13 seorang@61.49 autentik.@62.07 Sampai@62.73 akhirnya@63.05 aku@63.47 gak@63.91 menjadi@64.11 siapapun.@64.35 Dan@65.01 aku@65.17 gak@65.35 melangkah@65.59 jauh@66.05 kemana@66.45 -mana.@66.73 Sampai@67.21 akhirnya@67.77 aku@68.33 sadar.@68.41 Dan@68.93 sekarang@69.28 aku@69.78
+gak@60.21 pernah@60.33 kita@60.53 publish.@60.73 Dan@61.21 gak@61.35 pernah@61.49 selesai.@61.67 Aku@62.48 terobsesi@63.04 sama@63.60 kesempurnaan.@63.88 Dan@65.16 aku@65.34 merasa@65.64 pengen@66.18 sekali@66.66 menjadi@66.80 seorang@67.16 autentik.@67.74 Sampai@68.40 akhirnya@68.72 aku@69.14 gak@69.84
 
 ## Cue SFX (dtk · peran · file)
-- 62.70 · potong_adegan · Katapertama.mp3
-- 63.84 · whoosh · Wooshcameramovementtransisi.mp3
-- 64.95 · whoosh · Wooshcameramovementtransisi.mp3
-- 67.19 · whoosh · Woosh.mp3
-- 68.53 · puncak · basmenyebar.mp3
-- 68.93 · whoosh · ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3
+- 61.70 · beku · v17_impact_1.mp3
+- 62.09 · potong_adegan · Katapertama.mp3
+- 65.17 · potong_adegan · Cutcontrastransision.mp3
+- 68.37 · potong_adegan · Katapertama.mp3
+- 69.66 · whoosh · Wooshcameramovementtransisi.mp3
