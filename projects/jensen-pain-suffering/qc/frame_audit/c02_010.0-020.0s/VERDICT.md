@@ -1,3 +1,3 @@
-# VERDICT gabungan c02 (Sutradara)
-Gemini LULUS; GPT GAGAL hanya karena geser cetakan f369/f429 tanpa SFX. Diputus: whoosh SFXIrfan ditambah di puncak geser f377 (12,567 dtk); geser kedua f435 senyap karena < 1 dtk dari cut kontras twist (gate spam). Tidak ada temuan visual (D-018).
+# VERDICT gabungan c02 (Sutradara, revisi v4)
+Gemini LULUS, GPT LULUS. Termasuk B4 "providing" tetap di dunia saat kamera lewat dan kilat SUFFERING. Rentang yang diubah di revisi ini (f104–181, f271–457, f543–560, f813–922, f1330–1427) tanpa temuan masalah dari kedua pemeriksa.
 PUTUSAN: LULUS

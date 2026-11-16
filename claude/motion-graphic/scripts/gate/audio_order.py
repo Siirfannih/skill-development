@@ -211,7 +211,10 @@ def main():
     fails += stale(s, d)
     voice = s["stages"].get("suara")
     if s["mode"] == "konten" and voice and not voice.get("evidence"):
-        fails.append("suara: bukti words/source_words/cut_map belum dikunci")
+        if a.warisan:  # video lama (qc/revisi.json): suara dikunci sebelum aturan bukti; spine tidak diubah, tidak dimigrasi (Lantai F27)
+            print("warisan: suara dikunci sebelum aturan bukti potong; tidak diuji ulang (lapisan tidak dikunci ulang)")
+        else:
+            fails.append("suara: bukti words/source_words/cut_map belum dikunci")
     elif s["mode"] == "konten" and voice and not fails:
         evidence = voice["evidence"]
         try:

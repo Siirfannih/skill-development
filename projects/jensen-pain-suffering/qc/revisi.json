@@ -1,0 +1,6 @@
+{
+  "basis": "ca3df35",
+  "alasan": "Revisi Irfan 16 Nov atas v3 (visual = commit ca3df35 jensen v1; v2/v3 hanya mix audio, tidak di-commit). DECISIONS.md tidak menandai persetujuan eksplisit; ca3df35 = versi terakhir yang dikirim dan direvisi Irfan.",
+  "diubah": ["canvas latar B2/B4/B12 (Paper) lebih bersih", "B2 T06 RESILIENCE multiply", "B4 teks tidak ikut kamera (keepLeft dihapus)", "B5 kartu SUFFERING kilat cahaya kiri-bawah ke kanan-atas (G8)", "B8a teks diturunkan", "audio: suara naik bersih ke ±−16 LUFS (E23), musik+SFX menyesuaikan"],
+  "rentang_frame": ["99-182", "271-458", "543-560", "813-922", "1330-1427"]
+}

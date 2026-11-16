@@ -1,0 +1,114 @@
+{
+ "objects": [
+  {
+   "t": 0.0,
+   "objek": "B1 pembuka talking head"
+  },
+  {
+   "t": 0.333,
+   "objek": "B1 reframe f10",
+   "senyap": true,
+   "alasan": "reframe kecil di dalam shot yang sama; kiblat kartu 55 jarang (D-018)"
+  },
+  {
+   "t": 3.467,
+   "objek": "B2 bingkai foto wisuda masuk"
+  },
+  {
+   "t": 4.367,
+   "objek": "B2 RESILIENCE naik (multiply)"
+  },
+  {
+   "t": 5.467,
+   "objek": "B2 foto berganti (tepuk tangan)"
+  },
+  {
+   "t": 6.067,
+   "objek": "B3 cut ke Jensen",
+   "senyap": true,
+   "alasan": "cut biasa senyap (RESEP: SFX jarang, cut biasa senyap)"
+  },
+  {
+   "t": 7.733,
+   "objek": "B3 punch-in 135 % + flash"
+  },
+  {
+   "t": 9.033,
+   "objek": "B4 kilatan masuk cetakan arsip"
+  },
+  {
+   "t": 12.567,
+   "objek": "B4 kamera menyusuri cetakan 1→2 (providing tetap di dunia)"
+  },
+  {
+   "t": 14.267,
+   "objek": "B4 kamera ke cetakan 3",
+   "senyap": true,
+   "alasan": "< 1 dtk dari cut kontras twist; gate spam (D-018)"
+  },
+  {
+   "t": 15.267,
+   "objek": "B5 cut kontras monokrom"
+  },
+  {
+   "t": 18.1,
+   "objek": "B5 kartu SUFFERING"
+  },
+  {
+   "t": 18.4,
+   "objek": "B5 kilat cahaya melintasi SUFFERING",
+   "senyap": true,
+   "alasan": "gaya G8 pada objek yang sama (kartu SUFFERING); satu objek satu SFX = snare 18,10"
+  },
+  {
+   "t": 18.7,
+   "objek": "B6 NVIDIA",
+   "senyap": true,
+   "alasan": "warisan basis ca3df35: adegan disetujui, SFX tidak dimigrasi (Lantai F27)"
+  },
+  {
+   "t": 23.633,
+   "objek": "B7 tangan mengetik"
+  },
+  {
+   "t": 27.1,
+   "objek": "B8a tempa (teks diturunkan)",
+   "senyap": true,
+   "alasan": "cut ke b-roll tempa; posisi teks berubah, bukan objek baru; cut biasa senyap"
+  },
+  {
+   "t": 30.767,
+   "objek": "B8b percikan api"
+  },
+  {
+   "t": 32.233,
+   "objek": "B9 PCB pan cepat"
+  },
+  {
+   "t": 34.59,
+   "objek": "B9 jawaban character."
+  },
+  {
+   "t": 35.1,
+   "objek": "B10 siluet",
+   "senyap": true,
+   "alasan": "warisan basis ca3df35: adegan disetujui, SFX tidak dimigrasi (Lantai F27)"
+  },
+  {
+   "t": 39.0,
+   "objek": "B11 Jensen lebar",
+   "senyap": true,
+   "alasan": "warisan basis ca3df35: adegan disetujui, SFX tidak dimigrasi (Lantai F27)"
+  },
+  {
+   "t": 44.333,
+   "objek": "B12 kartu AMPLE DOSES"
+  },
+  {
+   "t": 44.993,
+   "objek": "B12 OF PAIN AND SUFFERING.",
+   "senyap": true,
+   "alasan": "baris kedua kartu yang sama; satu objek satu SFX (sub drop 44,33)"
+  }
+ ]
+}

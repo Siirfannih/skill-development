@@ -1,30 +1,33 @@
 PERIKSA B01a.png                     kiri 0.51 kanan 0.49 · atas 0.89 bawah 0.11 · pusat (0.46, 0.36)
 PERIKSA B01b.png                     kiri 0.52 kanan 0.48 · atas 0.89 bawah 0.11 · pusat (0.45, 0.32)
 FAIL    B01c.png                     kiri 0.74 kanan 0.26 · atas 0.83 bawah 0.17 · pusat (0.35, 0.32)  ← berat kiri
-ok      B02a.png                     kiri 0.47 kanan 0.53 · atas 0.70 bawah 0.30 · pusat (0.50, 0.43)
-ok      B02b.png                     kiri 0.49 kanan 0.51 · atas 0.64 bawah 0.36 · pusat (0.49, 0.38)
+FAIL    B02a.png                     kiri 0.28 kanan 0.72 · atas 0.65 bawah 0.35 · pusat (0.54, 0.44)  ← berat kanan
+ok      B02b.png                     kiri 0.49 kanan 0.51 · atas 0.63 bawah 0.37 · pusat (0.49, 0.39)
+ok      B02c.png                     kiri 0.57 kanan 0.43 · atas 0.47 bawah 0.53 · pusat (0.47, 0.44)
 PERIKSA B03a.png                     kiri 0.54 kanan 0.46 · atas 0.89 bawah 0.11 · pusat (0.44, 0.36)
 PERIKSA B03b.png                     kiri 0.48 kanan 0.52 · atas 0.79 bawah 0.21 · pusat (0.48, 0.42)
 ok      B03c.png                     kiri 0.60 kanan 0.40 · atas 0.68 bawah 0.32 · pusat (0.39, 0.46)
-ok      B04a.png                     kiri 0.34 kanan 0.66 · atas 0.35 bawah 0.65 · pusat (0.56, 0.53)
+ok      B04a.png                     kiri 0.35 kanan 0.65 · atas 0.35 bawah 0.65 · pusat (0.56, 0.53)
 ok      B04b.png                     kiri 0.44 kanan 0.56 · atas 0.77 bawah 0.23 · pusat (0.53, 0.37)
 FAIL    B04c.png                     kiri 0.72 kanan 0.28 · atas 0.39 bawah 0.61 · pusat (0.42, 0.53)  ← berat kiri
 FAIL    B05a.png                     kiri 0.74 kanan 0.26 · atas 0.39 bawah 0.61 · pusat (0.38, 0.55)  ← berat kiri
 ok      B05b.png                     kiri 0.50 kanan 0.50 · atas 0.50 bawah 0.50 · pusat (0.50, 0.50)
+ok      B05c.png                     kiri 0.50 kanan 0.50 · atas 0.50 bawah 0.50 · pusat (0.50, 0.50)
 FAIL    B06a.png                     kiri 0.27 kanan 0.73 · atas 0.72 bawah 0.28 · pusat (0.56, 0.39)  ← berat kanan
 ok      B06b.png                     kiri 0.61 kanan 0.39 · atas 0.51 bawah 0.49 · pusat (0.46, 0.49)
 PERIKSA B06c.png                     kiri 0.54 kanan 0.46 · atas 0.85 bawah 0.15 · pusat (0.46, 0.39)
 FAIL    B07a.png                     kiri 0.73 kanan 0.27 · atas 0.25 bawah 0.75 · pusat (0.34, 0.60)  ← berat kiri
 FAIL    B07b.png                     kiri 0.85 kanan 0.15 · atas 0.89 bawah 0.11 · pusat (0.35, 0.35)  ← berat kiri
-ok      B08a.png                     kiri 0.44 kanan 0.56 · atas 0.30 bawah 0.70 · pusat (0.54, 0.48)
-FAIL    B08b.png                     kiri 0.78 kanan 0.22 · atas 0.72 bawah 0.28 · pusat (0.26, 0.44)  ← berat kiri
+FAIL    B08a.png                     kiri 0.79 kanan 0.21 · atas 0.73 bawah 0.27 · pusat (0.44, 0.36)  ← berat kiri
+FAIL    B08b.png                     kiri 0.20 kanan 0.80 · atas 0.14 bawah 0.86 · pusat (0.68, 0.51)  ← berat kanan
 ok      B08c.png                     kiri 0.67 kanan 0.33 · atas 0.35 bawah 0.65 · pusat (0.42, 0.57)
+ok      B08d.png                     kiri 0.40 kanan 0.60 · atas 0.38 bawah 0.62 · pusat (0.54, 0.47)
 FAIL    B09a.png                     kiri 0.73 kanan 0.27 · atas 0.63 bawah 0.37 · pusat (0.38, 0.36)  ← berat kiri
 PERIKSA B09b.png                     kiri 0.60 kanan 0.40 · atas 0.79 bawah 0.21 · pusat (0.41, 0.36)
 ok      B10.png                      kiri 0.47 kanan 0.53 · atas 0.44 bawah 0.56 · pusat (0.51, 0.46)
 PERIKSA B11.png                      kiri 0.47 kanan 0.53 · atas 0.91 bawah 0.09 · pusat (0.46, 0.31)
 PERIKSA B11b.png                     kiri 0.46 kanan 0.54 · atas 0.92 bawah 0.08 · pusat (0.50, 0.31)
-ok      B12a.png                     kiri 0.50 kanan 0.50 · atas 0.50 bawah 0.50 · pusat (0.50, 0.50)
+ok      B12a.png                     kiri 0.49 kanan 0.51 · atas 0.51 bawah 0.49 · pusat (0.50, 0.50)
 ok      B12b.png                     kiri 0.52 kanan 0.48 · atas 0.51 bawah 0.49 · pusat (0.49, 0.48)
 lembar 25 %/50 %: /home/irfan/work/skill-development/projects/jensen-pain-suffering/qc/stills/balance_sheet.jpg
-FAIL: 8 frame berat sebelah
+FAIL: 10 frame berat sebelah

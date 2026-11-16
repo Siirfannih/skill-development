@@ -9,33 +9,40 @@
   },
   "visual": {
    "file": "/home/irfan/work/skill-development/projects/jensen-pain-suffering/qc/draft.mp4",
-   "sha": "4d0dbec81a65e32c",
-   "waktu": "2026-11-16 09:53",
+   "sha": "f9db85c2f74098f3",
+   "waktu": "2026-11-16 15:17",
    "hulu": {
     "suara": "d933fcb831ed90bb"
    }
   },
   "sfx": {
    "file": "/home/irfan/work/skill-development/projects/jensen-pain-suffering/audio/cues.json",
-   "sha": "84de21bf3b041616",
-   "waktu": "2026-11-16 09:53",
+   "sha": "20e7da105625723c",
+   "waktu": "2026-11-16 15:17",
    "hulu": {
     "suara": "d933fcb831ed90bb",
-    "visual": "4d0dbec81a65e32c"
-   }
+    "visual": "f9db85c2f74098f3"
+   },
+   "evidence": {
+    "objects": {
+     "file": "/home/irfan/work/skill-development/projects/jensen-pain-suffering/audio/objects.json",
+     "sha": "924b4aa5c95103ec"
+    }
+   },
+   "ref_density": 0.0
   },
   "musik": {
    "file": "/home/irfan/work/skill-development/projects/jensen-pain-suffering/audio/stem_musik.wav",
    "sha": "b4df383bdef016c8",
-   "waktu": "2026-11-16 09:53",
+   "waktu": "2026-11-16 15:17",
    "hulu": {
     "suara": "d933fcb831ed90bb",
-    "visual": "4d0dbec81a65e32c",
-    "sfx": "84de21bf3b041616"
+    "visual": "f9db85c2f74098f3",
+    "sfx": "20e7da105625723c"
    },
-   "peran": "track1 strings melankolis, track2 epic membangun",
-   "alasan": "arc pain→greatness; ref 55 ganti musik di twist",
-   "didengar": "out/preview_visual_sfx.mp4"
+   "peran": "track1 strings melankolis, track2 epic membangun (tidak berubah dari v1, D-010/D-011)",
+   "alasan": "arc pain→greatness; ref 55 ganti musik di twist; v4 hanya level ikut suara (−2 dB relasi v1)",
+   "didengar": "out/preview_v4_visual_sfx.mp4"
   }
  },
  "dibuat": "2026-11-15 16:24"

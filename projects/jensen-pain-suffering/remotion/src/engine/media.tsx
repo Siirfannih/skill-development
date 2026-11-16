@@ -53,24 +53,9 @@ export const Scrim: React.FC<{ dir: string; a?: number; to?: number }> = ({ dir,
   <AbsoluteFill style={{ background: `linear-gradient(${dir}, rgba(14,13,12,${a}) 0%, rgba(14,13,12,${a * 0.6}) ${to * 0.5}%, rgba(14,13,12,0) ${to}%)`, pointerEvents: 'none' }} />
 );
 
-/** Meja kertas gelap #0E0D0C bertekstur (statis, di dunia kamera). */
+/** Canvas hitam rata; statis di dunia kamera. */
 export const Paper: React.FC<{ x: number; y: number; w: number; h: number }> = ({ x, y, w, h }) => (
-  <div style={{ position: 'absolute', left: x, top: y, width: w, height: h, background: C.hitam }}>
-    <svg width={w} height={h} style={{ position: 'absolute', inset: 0, opacity: 0.55, mixBlendMode: 'screen' }}>
-      <filter id="paper">
-        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves={4} seed={7} />
-        <feColorMatrix type="matrix" values="0 0 0 0 0.16  0 0 0 0 0.145  0 0 0 0 0.13  0 0 0 0.9 -0.25" />
-      </filter>
-      <rect width={w} height={h} filter="url(#paper)" />
-    </svg>
-    <svg width={w} height={h} style={{ position: 'absolute', inset: 0, opacity: 0.35, mixBlendMode: 'screen' }}>
-      <filter id="fiber">
-        <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves={1} seed={3} />
-        <feColorMatrix type="matrix" values="0 0 0 0 0.2  0 0 0 0 0.19  0 0 0 0 0.17  0 0 0 1.2 -0.55" />
-      </filter>
-      <rect width={w} height={h} filter="url(#fiber)" />
-    </svg>
-  </div>
+  <div style={{ position: 'absolute', left: x, top: y, width: w, height: h, background: C.hitam }} />
 );
 
 /** Cetakan foto fisik: bingkai putih #F4F1EA, bayangan jatuh di meja gelap, kilap tipis. Anak = isi foto (video). */

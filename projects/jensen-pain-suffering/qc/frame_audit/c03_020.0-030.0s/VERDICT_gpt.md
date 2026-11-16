@@ -5,29 +5,29 @@
       "detik": 20.77,
       "frame": 623,
       "jenis": "tanda otomatis — bukan masalah",
-      "terlihat": "Potongan jelas dari gedung ke foto tim. Teks 'inside' sesuai ucapan dan berada di atas wajah. Tidak ada frame kosong atau kedip.",
-      "usul": "Pertahankan; SFX tidak wajib untuk pergantian gambar ini."
+      "terlihat": "Cut gedung ke foto karyawan tepat saat 'inside'. Pergantian adegan jelas disengaja; teks utuh.",
+      "usul": "Pertahankan; cut batas beat tidak memerlukan SFX."
     },
     {
       "detik": 22.87,
       "frame": 686,
       "jenis": "tanda otomatis — bukan masalah",
-      "terlihat": "Foto tim berganti ke talking head saat ucapan 'And'. Teks berada di samping kepala dengan jarak yang memadai; perubahan adegan disengaja.",
-      "usul": "Pertahankan tanpa tambahan SFX."
+      "terlihat": "Cut foto karyawan ke Jensen bertepatan dengan 'And'. Tidak terlihat frame kosong atau patahan wajah.",
+      "usul": "Pertahankan; SFX tambahan tidak diperlukan."
     },
     {
-      "detik": 25.9,
+      "detik": 25.90,
       "frame": 777,
       "jenis": "tanda otomatis — bukan masalah",
-      "terlihat": "B-roll keyboard berganti ke talking head tepat pada 'And'. Tidak terlihat patahan gerak dalam adegan atau dua teks sama-sama tajam.",
-      "usul": "Pertahankan; potongan dialog ini tidak memerlukan SFX."
+      "terlihat": "Cut keyboard ke Jensen saat 'And'. Cue ketik 23.63 cocok dengan masuknya b-roll keyboard pada f709.",
+      "usul": "Pertahankan; cut kembali ke pembicara tidak memerlukan bunyi."
     },
     {
-      "detik": 27.1,
+      "detik": 27.10,
       "frame": 813,
       "jenis": "tanda otomatis — bukan masalah",
-      "terlihat": "Talking head berganti ke b-roll logam panas. Frasa 'in a happy way,' tetap berlanjut sebelum 'Because'; tidak ada teks terputus. Tidak terlihat benturan benda tepat pada potongan.",
-      "usul": "Pertahankan; SFX pergantian adegan tidak wajib. Bunyi logam hanya diperlukan jika ada benturan yang ingin ditekankan."
+      "terlihat": "Cut Jensen ke tempa disengaja. Teks berada di atas batang membara, terbaca dan tidak terpotong. Sisa frasa 'in a happy way,' lalu berganti ke 'Because' dengan transisi singkat.",
+      "usul": "Pertahankan; tidak terlihat benturan alat yang membutuhkan cue SFX tersendiri."
     }
   ],
   "putusan": "LULUS"

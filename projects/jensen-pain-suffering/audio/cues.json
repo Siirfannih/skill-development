@@ -23,6 +23,17 @@
    "dengar": "klik pen/toggle"
   },
   {
+   "t": 4.367,
+   "mulai": 4.362,
+   "frame": 131,
+   "align": "onset",
+   "file": "Kinetictypography(gunakansecaraacak).mp3",
+   "gain_db": -8,
+   "peran": "penekanan kunci",
+   "alasan": "RESILIENCE (R6 hero, multiply di foto) naik dari mask di onset kata; satu-satunya penekanan baru di revisi v4 (Lantai E24)",
+   "dengar": "tick/scroll lembut (katalog SFXIRFAN.md)"
+  },
+  {
    "t": 5.467,
    "mulai": 5.41,
    "frame": 164,
@@ -34,14 +45,14 @@
    "dengar": "klik pen/toggle"
   },
   {
-   "t": 7.733,
-   "mulai": 3.604,
-   "frame": 232,
+   "t": 7.623,
+   "mulai": 3.494,
+   "frame": 229,
    "align": "peak",
    "file": "ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3",
    "gain_db": -7,
    "peran": "menuju punch",
-   "alasan": "ref 55 riser menuju jawaban; memuncak di punch-in f232",
+   "alasan": "ref 55 riser menuju jawaban; memuncak 0,1 dtk sebelum punch-in f232 (v4: tidak numpuk dengan hantaman, Lantai E24)",
    "dengar": "reverse cymbal / riser"
   },
   {
@@ -144,9 +155,9 @@
    "dengar": "cinematic hit with long tail / deep impact (z +3,8)"
   },
   {
-   "t": 44.333,
-   "mulai": 40.204,
-   "frame": 1330,
+   "t": 44.223,
+   "mulai": 40.094,
+   "frame": 1327,
    "align": "peak",
    "file": "ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3",
    "gain_db": -7,
