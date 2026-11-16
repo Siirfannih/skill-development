@@ -87,6 +87,7 @@ case "$MODE" in
       exit 1
     fi
     python3 "$HERE/resep_check.py" "$P/RESEP.md" || gagal=1
+    python3 "$HERE/motion_lint.py" "$R/src" || { echo "GAGAL gerbang: gerak preset/stagger rata/blur masuk (Lantai B13a); pakai curves.ts."; gagal=1; }
     python3 "$HERE/audio_bus_check.py" "$R/src" || { echo "GAGAL gerbang: audio di dalam <Sequence> adegan terpotong di batas adegan; putar mix lewat satu komponen '// audio-bus' di root."; gagal=1; }
     ns="$(printf '%.0f' "$(newest_src)")"; st="$(find "$QC/stills" -name '*.png' -printf '%T@\n' 2>/dev/null | sort -n | head -1)"; st="$(printf '%.0f' "${st:-0}")"  # still PALING LAMA: satu still basi = gagal (builder-trap-r2 r7: JB13 basi lolos)
     [ "$st" -ge "$ns" ] && [ "$st" -gt 0 ] || { echo "GAGAL gerbang: still di qc/stills lebih lama daripada perubahan src (atau belum ada). Jalankan 'still' dulu."; gagal=1; }

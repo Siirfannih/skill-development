@@ -15,6 +15,8 @@
 - UI = UI asli (05: post IG, lock screen, notes). Bangun ukuran asli, kamera yang zoom.
 - Ruang kosong = struktur, bukan sisa.
 
+- **Bentuk penjelas situasi (Lantai D19b):** isi/cara kerja benda → exploded view (benda terurai per lapis, tiap bagian diberi garis label tipis dan nomor; resep acuan `breakdown` di artemnovitckii/claude-animation-skills) atau potongan melintang; perilaku manusia → stick figure/piktogram yang bergerak (`stick-figure`); satu metafora tenang → line-art minimal (`minimalistic-graphics`); angka → `graph`; rute → `map-route`. Gayanya tetap dari kiblat proyek; yang diambil hanya bentuknya.
+
 ## Brand dulu, gaya referensi kedua
 - Video untuk brand: palet dan gaya ikon dari brand (token di repo produk). Dari referensi ambil struktur, gerak, dan komposisi; warna, emoji 3D, kaca, atau gradien hanya kalau brief menyebutnya (Irfan 7 Nov: "collor Brand video kita adalah White, Biru sebagai icon … kita ga punya permintaan 3d ke semua bagian termasuk efek glasses berwarna biru"; gagal: trojan v4 v2).
 - Cek: `scripts/palette_check.py render.mp4 --max 1` untuk brand satu aksen.

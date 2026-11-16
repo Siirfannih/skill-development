@@ -26,6 +26,8 @@ sfx_density = load_module("sfx_density", "scripts/gate/sfx_density.py")
 voice_level = load_module("voice_level", "scripts/gate/voice_level.py")
 recut = load_module("recut", "scripts/audio/recut.py")
 audio_bus = load_module("audio_bus", "scripts/juri/audio_bus_check.py")
+motion_lint = load_module("motion_lint", "scripts/juri/motion_lint.py")
+board = load_module("board", "scripts/storyboard/board.py")
 
 
 class CutSafetyTests(unittest.TestCase):
@@ -314,6 +316,26 @@ class Rules16NovTests(unittest.TestCase):
             _, bad = audio_bus.check(src)
         self.assertEqual(ok, [])
         self.assertEqual(len(bad), 1)
+
+
+    def test_motion_lint_flags_presets_even_stagger_and_blur_in(self):
+        with tempfile.TemporaryDirectory() as folder:
+            src = Path(folder)
+            (src / "A.tsx").write_text(
+                "const o = interpolate(frame, [0, 10], [0, 1], { easing: Easing.inOut(Easing.ease) });\n"
+                "const start = i * 3;\n"
+                "const style = { filter: `blur(${(1 - p) * 8}px)` };\n"
+                "const ok = interpolate(frame, [0, 10], [0, 1], { easing: CURVE.land });\n"
+                "const left = i * 120;\n"
+                "const delay = i * 3; // motion-ok: grid ritmis disengaja\n")
+            issues = motion_lint.lint(src)
+        self.assertEqual(len(issues), 3, issues)
+
+    def test_storyboard_beat_needs_metaphor(self):
+        good = {"id": "a", "metafora": {"makna": "m", "emosi": "e", "aksi": "membuka", "metafora": "x",
+                                        "objek": ["1", "2", "3"], "urutan": "u", "bentuk": "exploded view"}}
+        self.assertEqual(board.metafora_issues(good), [])
+        self.assertTrue(board.metafora_issues({"id": "b"}))
 
 
 if __name__ == "__main__":

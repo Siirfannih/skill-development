@@ -20,6 +20,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 11. **Kamera mengikuti SATU objek fokus per beat**, dari objek itu muncul sampai selesai, tidak kembali ke posisi awal di tengah jalan (Irfan 9 Nov).
 12. **Elemen diam di dunianya, kamera yang bergerak.** Saat kamera zoom, ia melewati teks dan objek; teks tidak ikut bergeser sendiri (Irfan 25 Okt, 9 Nov).
 13. **Tidak ada pergantian yang mendadak atau malas**: yang masuk datang dari suatu arah atau berubah bentuk, gerak cepat memakai motion blur, easing tidak linear. Overlay/gradien masuk dan keluar dengan gerak (Irfan 9 Nov).
+13a. **Gerak dirancang per gerak, bukan preset.** Kurva dipilih menurut apa geraknya dari `scripts/remotion/curves.ts` (`land` masuk dari luar frame, `heavy` objek besar dan kamera, `whip` ganti keadaan, `reveal` teks dari mask, `leave` keluar, `drift` hold), bukan `Easing.ease`/`inOut(cubic)`. Durasi dihitung dari jarak dan bobot (`dur(px, fps, bobot)`), bukan kebiasaan 0,4–0,6 dtk. Satu gerak utama diikuti reaksi berjeda tidak rata (`react(i)`: 0, 67, 150, 250, 367, 500 ms), bukan stagger i × konstanta. Gerak keluar ±0,65× masuk dan makin cepat. Hold > 1 dtk tetap hidup (drift/napas kamera) kecuali diam disengaja. Tidak ada fade-up atau blur-in sebagai cara masuk bawaan; blur hanya untuk gerak cepat. Satu transisi khas per video. `scripts/juri/motion_lint.py` PASS (Irfan 16 Nov, metode dari motion-kit MIT).
 
 ## C. Komposisi
 14. **Satu fokus per momen.** Mata tahu harus melihat ke mana.
@@ -30,6 +31,8 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 
 ## D. Isi visual
 19. **Visual menggambarkan makna ucapan**, bukan bentuk atau hiasan. Penonton harus lebih mudah paham karena visual itu (Irfan 9 Nov, 11 Nov).
+19a. **Metafora dulu, baru gambar.** Sebelum panel digambar, tiap kalimat VO diperas di `beats.json → metafora`: makna inti (apa yang harus dipahami penonton), emosi, aksi (kata kerja: membuka, menyambung, bocor, menekan, menumpuk), **satu** metafora, 3–6 objek kunci, dan urutan rakitnya. Teks VO tidak disalin ke gambar. `board.py` FAIL bila kosong (Irfan 16 Nov, metode dari gbro-collage-broll MIT).
+19b. **Situasi digambar dengan bentuk yang menjelaskannya** (`metafora.bentuk`): isi atau cara kerja benda → exploded view atau potongan (lapis terurai + garis label); perilaku/perasaan manusia → piktogram/stick figure, bukan produk; sebab-akibat → satu elemen menggerakkan elemen lain; angka → grafik; perjalanan/lokasi → peta rute; aplikasi → UI asli (D20). Bentuk dipilih dari `aksi`, bukan dari gaya yang sedang disukai (Irfan 16 Nov, dari claude-animation-skills MIT).
 20. **Tampilan platform dan logo adalah yang asli** (Threads, Instagram, ChatGPT, GitHub), dibangun ulang sebagai animasi, bukan UI karangan. Ikon memakai ikon jadi (Irfan 26 Okt, 9 Nov, 11 Nov).
 21. **Yang sedang bicara tampil di frame**, kecuali tertutup visual layar penuh (Irfan 9 Nov).
 22. **Tidak ada placeholder** di render.

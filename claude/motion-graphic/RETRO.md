@@ -341,3 +341,8 @@ Status: menunggu persetujuan
 - Akar: koreksi sempit 13 Nov ("jangan bunyi per kata") menghapus aturan 43 utuh pada 14 Nov; aturan konsistensi hanya di guide; tiga aturan level suara bertabrakan (§14.6 loudnorm, delivery −14 LUFS, guide gain 0).
 - Diterapkan: Lantai E23/E24, `voice_level.py`, `sfx_density.py --objects` + konsistensi peran, ekor kata dilindungi di `cut_check`/`recut`, `audio_bus_check.py`, lima fase subagen. Rincian: `evals/results/2026-11-16-sfx-objek-suara-asli.md`.
 - Pelajaran: koreksi Irfan atas satu gejala diterapkan pada gejala itu saja; aturan yang lebih luas tidak dihapus tanpa ditanyakan.
+
+## 16 Nov · Metode animasi dari luar langsung ke main, bukan experimental (Irfan)
+- Kata Irfan: aturan yang menentukan hasil video harus masuk `main` dan berlaku sejak sesi pertama; di `experimental/` model akan melewatinya.
+- Diterapkan: Lantai B13a (kurva per gerak, durasi dari jarak, reaksi tidak rata; `scripts/remotion/curves.ts` + `juri/motion_lint.py` di `render.sh final`, dari motion-kit MIT), D19a (metafora per kalimat di `beats.json`, `board.py` FAIL bila kosong, dari gbro-collage-broll MIT), D19b (bentuk penjelas: exploded/potongan, piktogram, sebab-akibat, grafik, peta, UI asli, dari claude-animation-skills MIT). `experimental/animasi-situasi` dihapus.
+- Belum diuji di video nyata: uji pertama = video berikutnya; motion_lint bisa salah tangkap, kecualikan per baris dengan `motion-ok: <alasan>`.

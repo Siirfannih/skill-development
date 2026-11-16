@@ -10,7 +10,7 @@
 
 ## Cara (pilih yang cocok)
 - Cut di ketukan: kata, beat musik, atau puncak gerak.
-- Easing ekspresif (spring / ease-out kuat); linear hanya untuk drift dan loop.
+- Easing ekspresif (spring / ease-out kuat); linear hanya untuk drift dan loop. Kurvanya dipilih per gerak dari `scripts/remotion/curves.ts` (Lantai B13a): tentukan dulu geraknya apa (dilempar masuk, mendarat berat, ganti keadaan, keluar), baru kurvanya; satu gerak utama + reaksi berjeda tidak rata.
 - Motion blur di gerak cepat. Teks masuk dengan blur→tajam atau mask, bukan fade polos.
 - Footage diam terlalu lama → beri drift/zoom kecil.
 - Cutout: matte bersih (rambut, tepi), feather 1–2 px, warna & cahaya disamakan, atau beri outline sebagai gaya. Cek di 100 %.

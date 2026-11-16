@@ -1,33 +1,144 @@
 {
   "project": "Contoh: Trojan v4 pembuka (dari kanvas Wonder 7 Nov)",
-  "format": {"w": 1920, "h": 1080, "fps": 30},
+  "format": {
+    "w": 1920,
+    "h": 1080,
+    "fps": 30
+  },
   "arah": {
     "register": "iklan sosial, ringan",
-    "kata_karakter": ["akrab", "sigap", "sedikit jahil"],
+    "kata_karakter": [
+      "akrab",
+      "sigap",
+      "sedikit jahil"
+    ],
     "detail_khas": "mouse karakter Jadisatu yang berhenti di bawah kata yang diucap",
     "sumber_gaya": "brief Irfan + 3 referensi (Instagram, Baikov, Mosycreate)"
   },
   "babak": [
-    {"id": "B1", "nama": "Hook", "musik": {"peran": "denyut ringan pembuka", "alasan": "hook cepat, penonton harus merasa diajak ngobrol, bukan diceramahi"}}
+    {
+      "id": "B1",
+      "nama": "Hook",
+      "musik": {
+        "peran": "denyut ringan pembuka",
+        "alasan": "hook cepat, penonton harus merasa diajak ngobrol, bukan diceramahi"
+      }
+    }
   ],
   "beats": [
-    {"id": "01a", "babak": "B1", "t": [0.0, 1.2],
-     "vo": "Gimana kalau nyatet keuangan usaha itu", "layar": "Gimana",
-     "aksi": "Satu kata per baris di tengah. Mouse masuk dari kanan bawah dan berhenti di bawah kata yang diucap",
-     "kamera": "diam", "keluar": "kata baru mendorong kata lama keluar ke atas",
-     "sfx": [{"t": 0.0, "peran": "kata kinetik muncul", "alasan": "kata pertama = event visual pertama"},
-             {"t": 0.6, "peran": "mouse mendarat", "alasan": "mouse berhenti di bawah kata"}]},
-    {"id": "01b", "babak": "B1", "t": [1.2, 2.9],
-     "vo": "semudah chattingan sama ayang", "layar": "chattingan",
-     "aksi": "Mouse mengklik kata chattingan, kata melebar jadi ruang chat WhatsApp layar penuh (2 frame: klik lalu melebar)",
-     "kamera": "push 4 % ke kata lalu tahan", "keluar": "kata melebar jadi ruang chat",
-     "sfx": [{"t": 1.2, "peran": "kata kinetik muncul", "alasan": "kata baru"},
-             {"t": 1.9, "peran": "klik mouse", "alasan": "mouse mengklik kata"},
-             {"t": 2.1, "peran": "transisi melebar", "alasan": "kata berubah jadi ruang chat"}]},
-    {"id": "01c", "babak": "B1", "t": [2.9, 4.5],
-     "vo": "di WhatsApp", "layar": "",
-     "aksi": "Ruang chat WhatsApp asli (header, wallpaper, centang biru). Bubble ayang masuk: udah makan belum",
-     "kamera": "diam", "keluar": "bubble balasan masuk",
-     "sfx": [{"t": 3.1, "peran": "notif chat masuk", "alasan": "bubble pertama muncul"}]}
+    {
+      "id": "01a",
+      "babak": "B1",
+      "t": [
+        0.0,
+        1.2
+      ],
+      "vo": "Gimana kalau nyatet keuangan usaha itu",
+      "layar": "Gimana",
+      "aksi": "Satu kata per baris di tengah. Mouse masuk dari kanan bawah dan berhenti di bawah kata yang diucap",
+      "kamera": "diam",
+      "keluar": "kata baru mendorong kata lama keluar ke atas",
+      "sfx": [
+        {
+          "t": 0.0,
+          "peran": "kata slam",
+          "alasan": "kata pembuka = penekanan, bukan bunyi per kata (Lantai E24)"
+        },
+        {
+          "t": 0.6,
+          "peran": "mouse mendarat",
+          "alasan": "mouse berhenti di bawah kata"
+        }
+      ],
+      "metafora": {
+        "makna": "nyatet keuangan usaha terasa ribet",
+        "emosi": "ragu",
+        "aksi": "menimbang",
+        "metafora": "pertanyaan yang ditunjuk kursor, seperti sedang memilih",
+        "objek": [
+          "kata pertanyaan",
+          "kursor mouse",
+          "garis bawah kata aktif"
+        ],
+        "urutan": "kata muncul → kursor masuk → kursor berhenti di kata yang diucap",
+        "bentuk": "ui-asli (kursor macOS)"
+      }
+    },
+    {
+      "id": "01b",
+      "babak": "B1",
+      "t": [
+        1.2,
+        2.9
+      ],
+      "vo": "semudah chattingan sama ayang",
+      "layar": "chattingan",
+      "aksi": "Mouse mengklik kata chattingan, kata melebar jadi ruang chat WhatsApp layar penuh (2 frame: klik lalu melebar)",
+      "kamera": "push 4 % ke kata lalu tahan",
+      "keluar": "kata melebar jadi ruang chat",
+      "sfx": [
+        {
+          "t": 1.2,
+          "peran": "kata slam",
+          "alasan": "kata 'chattingan' = penekanan beat, satu bunyi (Lantai E24)"
+        },
+        {
+          "t": 1.9,
+          "peran": "klik mouse",
+          "alasan": "mouse mengklik kata"
+        },
+        {
+          "t": 2.1,
+          "peran": "transisi melebar",
+          "alasan": "kata berubah jadi ruang chat"
+        }
+      ],
+      "metafora": {
+        "makna": "mencatat bisa semudah chat",
+        "emosi": "lega",
+        "aksi": "membuka",
+        "metafora": "kata 'chattingan' diklik lalu terbuka jadi ruang chat",
+        "objek": [
+          "kata chattingan",
+          "kursor",
+          "ruang chat WhatsApp"
+        ],
+        "urutan": "klik → kata melebar → ruang chat penuh",
+        "bentuk": "ui-asli (WhatsApp) + sebab-akibat (klik membuka)"
+      }
+    },
+    {
+      "id": "01c",
+      "babak": "B1",
+      "t": [
+        2.9,
+        4.5
+      ],
+      "vo": "di WhatsApp",
+      "layar": "",
+      "aksi": "Ruang chat WhatsApp asli (header, wallpaper, centang biru). Bubble ayang masuk: udah makan belum",
+      "kamera": "diam",
+      "keluar": "bubble balasan masuk",
+      "sfx": [
+        {
+          "t": 3.1,
+          "peran": "notif chat masuk",
+          "alasan": "bubble pertama muncul"
+        }
+      ],
+      "metafora": {
+        "makna": "tempatnya di aplikasi yang sudah dipakai tiap hari",
+        "emosi": "akrab",
+        "aksi": "menerima",
+        "metafora": "chat ayang yang biasa masuk",
+        "objek": [
+          "header WhatsApp",
+          "bubble chat",
+          "centang biru"
+        ],
+        "urutan": "header → bubble masuk → centang biru",
+        "bentuk": "ui-asli (WhatsApp)"
+      }
+    }
   ]
 }

@@ -79,6 +79,25 @@ BOARD_CSS = """body{margin:0;width:max-content;min-width:100%;background:#f2f2f0
 .sfx{margin:8px 0 0;padding-left:18px;font-size:13px;color:#333}"""
 
 
+BENTUK = ("exploded", "potongan", "piktogram", "stick", "sebab-akibat", "grafik", "peta", "ui-asli", "orang", "benda")
+
+
+def metafora_issues(b):
+    """Gerbang metafora (Lantai D19a; Irfan 16 Nov, metode dari gbro-collage-broll): sebelum menggambar, satu kalimat VO
+    diperas jadi makna, emosi, aksi (kata kerja), satu metafora, 3–6 objek kunci, urutan rakit, dan bentuk penjelas."""
+    m = b.get("metafora")
+    if not isinstance(m, dict):
+        return [f"{b.get('id')}: belum ada metafora {{makna, emosi, aksi, metafora, objek, urutan, bentuk}}"]
+    out = [f"{b.get('id')}: metafora.{k} kosong" for k in ("makna", "emosi", "aksi", "metafora", "urutan", "bentuk")
+           if not str(m.get(k, "")).strip()]
+    obj = m.get("objek") or []
+    if not (3 <= len(obj) <= 6):
+        out.append(f"{b.get('id')}: metafora.objek {len(obj)} (harus 3–6 objek kunci)")
+    if m.get("bentuk") and not any(k in str(m["bentuk"]).lower() for k in BENTUK):
+        out.append(f"{b.get('id')}: metafora.bentuk '{m['bentuk']}' bukan bentuk penjelas (Lantai D19b)")
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("folder")
@@ -106,6 +125,7 @@ def main():
         miss = [k for k in CAPTION_KEYS if not str(b.get(k, "")).strip()]
         if miss:
             fails.append(f"{b['id']}: caption kosong {', '.join(miss)}")
+        fails += metafora_issues(b)
         for c in b.get("sfx", []):
             if not c.get("peran", "").strip() or not c.get("alasan", "").strip():
                 fails.append(f"{b['id']}: sfx {c.get('t', '?')} tanpa peran/alasan")
