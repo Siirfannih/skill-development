@@ -26,3 +26,6 @@ Berikutnya: sesi editing dapat mulai dari MP4 dan paket handoff; Irfan belum mem
 - Sutradara: sesi claude2. Sumber DJI lokal diverifikasi = file Drive (952 MB awal identik byte, durasi 209,39 dtk, frame cocok).
 - Pekerja claude1 (Sonnet) kena limit 5 jam s.d. 22:10 WITA → TASK-1a-potong dialihkan ke Codex. TASK-K12-maskot di Codex.
 - Blok: disk ±1,2 GB bebas (gerbang 15 GB). Fase 3/5 (render) menunggu izin Irfan membebaskan ruang (kandidat `~/work/clips`).
+- G2 still: K08 LULUS (ronde 3). K01 r2, K05/K06 r2, K07/K11 r2 berjalan. K12 (Codex sisa claude1), K13, potong 1a berjalan.
+- G2 still: K05 LULUS (r2), K06 LULUS (r3, centang margin ±200 px @1080).
+- G2 still: K07 LULUS (r2), K11 LULUS (r3; hero 132 px x≥115, pil kontras 14:1 terhitung — ukur ulang di still final).

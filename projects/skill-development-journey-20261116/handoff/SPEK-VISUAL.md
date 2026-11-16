@@ -23,3 +23,6 @@ Poppins (teks kinetik, 600–800), Anton (kata hero), Inter (UI), JetBrains Mono
 
 ## Teks
 Hanya dari ucapan Irfan atau data UI asli/log asli yang dikutip di TASK. Tidak ada kata karangan Inggris ("AI WORKFLOW", "LEARNING LOOP", dll.). Kontras ≥ 4,5:1.
+
+## Konvensi props (Sutradara, 16 Nov malam)
+Semua props waktu = **frame absolut** di linimasa tuan rumah; `mulai` = frame pertama komponen tampil. (K08 ronde 1–3 memakai relatif terhadap `mulai`: diseragamkan saat integrasi.)
