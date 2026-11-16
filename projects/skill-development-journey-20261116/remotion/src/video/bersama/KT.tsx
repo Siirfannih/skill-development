@@ -20,7 +20,12 @@ export type KTProps = {
   sapu?: boolean;
   /** jarak huruf hero (em, negatif = rapat); FINALLY -0,03 supaya tinggi 20 % muat di ruang kiri */
   spasi?: number;
+  /** detik (relatif lapisan) saat TIAP kata tampil = onset kata di words.json + 2 f; kosong = semua kata muncul bersama blok */
+  wt?: number[];
 };
+
+/** frame onset kata ke-i (relatif lapisan); tanpa wt jatuh ke `cadangan` */
+const onsetF = (p: KTProps, i: number, fps: number, cadangan = 0) => (p.wt && p.wt[Math.min(i, p.wt.length - 1)] !== undefined ? Math.round(p.wt[Math.min(i, p.wt.length - 1)] * fps) : cadangan);
 
 const useKeluar = (durasi: number, keluarAt?: number, banyak = 6) => {
   const f = useCurrentFrame();
@@ -42,7 +47,7 @@ const R1: React.FC<KTProps> = (p) => {
     <div style={{fontFamily: FONT.poppins, fontWeight: 700, fontSize: size, color: warna, lineHeight: 1, letterSpacing: '-0.02em',
       textShadow: p.gelap ? 'none' : BAYANG_TEKS, whiteSpace: 'pre'}}>
       {words.map((w, i) => {
-        const q = move(f, react(i, fps, 0.55), 4, 'land');
+        const q = move(f, onsetF(p, i, fps, react(i, fps, 0.55)), 4, 'land');
         return <span key={i} style={{display: 'inline-block', opacity: q > 0.02 ? 1 : 0,
           transform: `translateY(${(1 - q) * 0.36 * size}px) scale(${0.85 + 0.15 * q})`}}>{w + (i < words.length - 1 ? ' ' : '')}</span>;
       })}
@@ -52,16 +57,20 @@ const R1: React.FC<KTProps> = (p) => {
 
 // ---------- R2 · T03 slam kecil (2,0 → 1,3 → 1,06 → 1,0 dalam 3 frame) ----------
 const R2: React.FC<KTProps> = (p) => {
-  const {f, out} = useKeluar(p.durasi, p.keluarAt, 5);
+  const {f, fps, out} = useKeluar(p.durasi, p.keluarAt, 5);
   const size = p.size ?? 88;
-  const s = interpolate(f, [0, 1, 2, 3], [2.0, 1.3, 1.06, 1.0], {extrapolateRight: 'clamp', easing: CURVE.heavy});
-  const cepat = f < 3;
-  const g = getar(f, 3, 6, size * 0.05, p.seed ?? 3);
+  const words = p.teks.split(/\s+/).filter(Boolean);
   return <AbsoluteFill style={{...shell, clipPath: `inset(0 0 ${out * 100}% 0)`}}>
     <div style={{fontFamily: FONT.poppins, fontWeight: 800, fontSize: size, color: p.warna ?? (p.gelap ? INK : HERO), lineHeight: 1, letterSpacing: '-0.025em',
-      textShadow: p.gelap ? 'none' : BAYANG_TEKS, whiteSpace: 'pre',
-      transform: `translate(${g.x}px, ${g.y - out * 0.3 * size}px) scale(${s})`,
-      filter: cepat ? `blur(${(3 - f) * 2.2}px)` : undefined /* motion-ok: gerak cepat T03 */}}>{p.teks}</div>
+      textShadow: p.gelap ? 'none' : BAYANG_TEKS, whiteSpace: 'pre', transform: `translateY(${-out * 0.3 * size}px)`}}>
+      {words.map((w, i) => {
+        const lf = f - onsetF(p, i, fps, 0);       // slam per kata, mulai di onset kata itu
+        const s = interpolate(Math.max(0, lf), [0, 1, 2, 3], [2.0, 1.3, 1.06, 1.0], {extrapolateRight: 'clamp', easing: CURVE.heavy});
+        const g = getar(Math.max(0, lf), 3, 6, size * 0.05, (p.seed ?? 3) + i);
+        return <span key={i} style={{display: 'inline-block', transformOrigin: i === 0 ? '50% 50%' : '0% 50%', visibility: lf >= 0 ? 'visible' : 'hidden', transform: `translate(${g.x}px, ${g.y}px) scale(${s})`,
+          filter: lf >= 0 && lf < 3 ? `blur(${(3 - lf) * 2.2}px)` : undefined /* motion-ok: gerak cepat T03 */}}>{w + (i < words.length - 1 ? ' ' : '')}</span>;
+      })}
+    </div>
   </AbsoluteFill>;
 };
 
@@ -73,24 +82,29 @@ const R3: React.FC<KTProps> = (p) => {
   const ff = Math.min(f, bekuF);
   const chars = Array.from(p.teks);
   const viral = p.gaya === 'viral';
-  const settle = move(f, 10, 8, 'land');
+  const fps = 30;
+  // kata ke berapa tiap huruf (onset per kata)
+  const kataKe = chars.reduce<number[]>((a, c, i) => { a.push(i === 0 ? 0 : a[i - 1] + (chars[i - 1] === ' ' ? 1 : 0)); return a; }, []);
   return <AbsoluteFill style={{...shell, clipPath: `inset(0 0 ${out * 100}% 0)`}}>
     <div style={{fontFamily: FONT.poppins, fontWeight: 800, fontSize: size, lineHeight: 1, letterSpacing: '-0.02em', whiteSpace: 'pre',
       transform: `rotate(${viral ? -5 : 0}deg)`, textAlign: 'center'}}>
       {chars.map((c, i) => {
         const tick = Math.floor(ff / 2);
+        const o0 = onsetF(p, kataKe[i], fps, 0);
+        const settle = move(f, o0 + 10, 8, 'land');
         const k = 1 - Math.min(1, settle);
         const keep = viral ? 0.25 : 0;
-        const jx = (hash(tick * 7 + i) - 0.5) * size * 0.3 * (k + keep);
+        if (c === ' ') return null;                       // jarak antar-kata lewat margin (audit V6: "habis banget" tidak boleh rapat)
+        const jx = (hash(tick * 7 + i) - 0.5) * size * 0.16 * (k + keep);
         const jy = (hash(tick * 11 + i + 4) - 0.5) * size * 0.34 * (k + keep);
         const jr = (hash(tick * 13 + i + 8) - 0.5) * 24 * (k + keep);
-        const pop = move(f, react(i % 6, 30, 0.4), 5, 'land');
+        const pop = move(f, o0 + react(i % 6, 30, 0.4), 5, 'land');
         const warna = viral ? undefined : (p.warna ?? (p.gelap ? INK : HERO));
         const sty: React.CSSProperties = viral
           ? {backgroundImage: 'linear-gradient(180deg,#FF4FD8,#8E3BFF)', WebkitBackgroundClip: 'text', color: 'transparent',
             filter: 'drop-shadow(0 7px 0 #2A0A5E) drop-shadow(0 14px 0 #FFD400) drop-shadow(0 0 22px rgba(255,80,220,.9))'}
           : {color: warna, textShadow: p.gelap ? 'none' : BAYANG_TEKS};
-        return <span key={i} style={{display: 'inline-block', opacity: pop > 0.02 ? 1 : 0, ...sty,
+        return <span key={i} style={{display: 'inline-block', marginLeft: i > 0 && chars[i - 1] === ' ' ? size * 0.34 : 0, opacity: pop > 0.02 ? 1 : 0, ...sty,
           transform: `translate(${jx}px, ${jy + (1 - pop) * size * 0.4}px) rotate(${jr}deg) scale(${0.6 + 0.4 * pop})`}}>{c}</span>;
       })}
     </div>
@@ -132,7 +146,7 @@ const Bubble: React.FC<KTProps> = (p) => {
         boxShadow: '0 30px 60px rgba(0,0,0,.30), 0 8px 16px rgba(0,0,0,.16)'}}>
         {typing ? <Titik f={f}/> : <>
           <span style={{width: size * 0.5, height: size * 0.5, borderRadius: '50%', border: `${Math.round(size * 0.07)}px solid #B8BEC8`, flexShrink: 0}}/>
-          {p.teks}</>}
+          {p.teks.split(/\s+/).filter(Boolean).map((w, i, arr) => <span key={i} style={{visibility: f >= onsetF(p, i, 30, 0) ? 'visible' : 'hidden'}}>{w + (i < arr.length - 1 ? ' ' : '')}</span>)}</>}
         <svg width="46" height="40" viewBox="0 0 46 40" style={{position: 'absolute', bottom: -2, [kiri ? 'left' : 'right']: -12, transform: kiri ? undefined : 'scaleX(-1)'}}>
           <path d="M30 0C30 18 22 32 0 40C24 40 40 34 46 22Z" fill="#FFFFFF"/>
         </svg>
@@ -146,6 +160,9 @@ export const Titik: React.FC<{f: number; warna?: string}> = ({f, warna = '#8A8F9
       transform: `translateY(${-6 * Math.sin(f * 0.34 - i * 0.9)}px)`, opacity: 0.55 + 0.45 * Math.sin(f * 0.34 - i * 0.9)}}/>)}
   </span>
 );
+
+/** gelombang huruf slab: offset posisi per huruf (bukan jeda waktu) */
+const gelombang = (i: number, f: number, fs: number, tenang: number) => Math.sin(i * 0.84 + f * 0.09) * fs * 0.035 * tenang; // motion-ok: offset spasial per huruf
 
 // ---------- R6 · T04 hero: kata raksasa menyusut dan mendarat (finally / slab / busur) ----------
 const Hero: React.FC<KTProps> = (p) => {
@@ -162,6 +179,7 @@ const Hero: React.FC<KTProps> = (p) => {
   const g = p.getarAt !== undefined ? getar(f, Math.round(p.getarAt * fps), 6, 12, p.seed ?? 2) : {x: 0, y: 0};
   const warna = p.warna ?? HERO;
   const chars = Array.from(p.teks);
+  const kataKe = chars.reduce<number[]>((a, c, i) => { a.push(i === 0 ? 0 : a[i - 1] + (chars[i - 1] === ' ' ? 1 : 0)); return a; }, []);
   const kilat = p.sapu ? move(f, 14, 20, 'whip') : 0;
   return <AbsoluteFill style={{background: 'transparent', overflow: 'hidden'}}>
     <svg width={p.w} height={p.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible',
@@ -174,7 +192,7 @@ const Hero: React.FC<KTProps> = (p) => {
       </defs>
       <text x="0" y={fs * 0.98} letterSpacing={spasi * fs} fill={p.sapu && kilat > 0 && kilat < 1 ? 'url(#kilat)' : warna} fontFamily={FONT.anton} fontSize={fs}
         style={{textShadow: '0 12px 22px rgba(0,0,0,.28)'}}>
-        {chars.map((c, i) => <tspan key={i} dy={i === 0 ? 0 : Math.sin(i * 0.84 + f * 0.09) * fs * 0.035 * tenang}>{c}</tspan>)}
+        {chars.map((c, i) => <tspan key={i} fillOpacity={f >= onsetF(p, kataKe[i], fps, 0) ? 1 : 0} dy={i === 0 ? 0 : gelombang(i, f, fs, tenang)}>{c}</tspan>)}
       </text>
     </svg>
   </AbsoluteFill>;
@@ -196,7 +214,7 @@ const Busur: React.FC<KTProps> = (p) => {
         <filter id="lunak" x="-10%" y="-30%" width="120%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="14" floodColor="#000" floodOpacity=".42"/></filter></defs>
       <text fill={p.warna ?? HERO} fontSize={size} fontFamily={FONT.poppins} fontWeight={800} letterSpacing={-4} filter="url(#lunak)"
         style={{transform: `translateY(${out * 220}px)`}}>
-        <textPath href={`#arch-${p.seed ?? 0}`} startOffset={`${geser - 3 * (1 - q)}%`}>{p.teks}</textPath>
+        <textPath href={`#arch-${p.seed ?? 0}`} startOffset={`${geser - 3 * (1 - q)}%`}>{p.teks.split(' ').map((w, i, arr) => <tspan key={i} fillOpacity={f >= onsetF(p, i, fps, 0) ? 1 : 0}>{w + (i < arr.length - 1 ? ' ' : '')}</tspan>)}</textPath>
       </text>
     </svg>
   </AbsoluteFill>;

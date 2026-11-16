@@ -75,9 +75,10 @@ const Amplop: React.FC<{f: number; mulai: number; dari: {x: number; y: number}; 
 const kamera = (tw: number, K: RelayProps['kunci']) => {
   // Push 1,62× ke jendela PENERIMA pesan: kedua tepi (kiri-kanan) jendela itu, tepi atas dan bawahnya tetap terlihat (fokus y 413 menjaga
   // jarak ke teks R1 di atas); jendela seberang hanya tampak sebagai potongan lebar di tepi frame. Teks pesan 41 px × 1,62 ≈ 66 px (6,1 %).
-  const keys: [number, number, number, number][] = [[0, 1.0, 960, 540], [K.pesan1 - 0.25, 1.62, 1390, 413], [K.pesan1 + 0.8, 1.66, 1390, 413], [K.amplop1 + 0.2, 1.04, 960, 560],
-    [K.pesan2 - 0.25, 1.62, 530, 413], [K.pesan2 + 0.8, 1.66, 530, 413], [K.amplop2 + 0.2, 1.04, 960, 560],
-    [K.pesan3 - 0.25, 1.62, 1390, 413], [K.pesan3 + 1.3, 1.66, 1390, 413], [K.catat - 0.3, 1.1, 960, 640], [K.loop, 1.0, 960, 560], [K.keluar, 1.03, 960, 560]];
+  // Fokus y selalu ≤ 500 saat zoom < 1,7: tepi atas jendela tidak pernah naik ke pita teks R1 (y 59–125), juga di tengah pull-back (audit R3).
+  const keys: [number, number, number, number][] = [[0, 1.0, 960, 540], [K.pesan1 - 0.25, 1.62, 1390, 413], [K.pesan1 + 0.8, 1.66, 1390, 413], [K.amplop1 + 0.2, 1.04, 960, 500],
+    [K.pesan2 - 0.25, 1.62, 530, 413], [K.pesan2 + 0.8, 1.66, 530, 413], [K.amplop2 + 0.2, 1.04, 960, 500],
+    [K.pesan3 - 0.25, 1.62, 1390, 413], [K.pesan3 + 1.3, 1.66, 1390, 413], [K.catat - 0.3, 1.06, 960, 500], [K.loop, 1.0, 960, 540], [K.keluar, 1.03, 960, 540]];
   let i = 0; while (i + 1 < keys.length && tw >= keys[i + 1][0]) i++;
   if (i + 1 >= keys.length) return {s: keys[i][1], x: keys[i][2], y: keys[i][3]};
   const [a, s0, x0, y0] = keys[i], [b, s1, x1, y1] = keys[i + 1];
@@ -92,7 +93,8 @@ const Isi: React.FC<RelayProps & {f: number}> = ({kunci: K, f, durasi}) => {
   const cam = kamera(t, K);
   const masuk = move(f, 0, 16, 'heavy');
   const keluar = move(f, F(K.keluar), F(durasi - K.keluar), 'heavy');
-  const sc = cam.s * (1 + 0.55 * (1 - masuk) + 0.5 * keluar);
+  // push-through mendarat di DUA jendela utuh (latar biru terlihat 4 sisi): faktor masuk/keluar kecil (audit V10), dorongan besar dikerjakan WajahDorong
+  const sc = cam.s * (1 + 0.10 * (1 - masuk) + 0.12 * keluar);
   const dd = drift(f, fps, 5, 2);
   const clawdJump = jump(t, K.amplop2 - 0.07, K.amplop2 + 0.3, 1.4);
   const codexJump = jump(t, K.amplop1 - 0.07, K.amplop1 + 0.3, 1.2);

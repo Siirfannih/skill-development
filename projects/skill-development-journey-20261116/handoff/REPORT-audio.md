@@ -8,3 +8,21 @@ PUTUSAN audio_phone (20/50/100 %, setelah putusan M1-M5): A 38/38/37 dari 46, B 
 Mix: `audio/mix_A.wav`, `mix_B.wav`, `mix_tanpa-musik.wav` (48 kHz stereo 24-bit): −15,8 / −15,9 / −16,1 LUFS (float 32-bit agar sampel suara tak terkuantisasi), puncak −1,0 dBFS (TANPA limiter/penangkap peak: puncak diturunkan hanya lewat otomasi gain lokal pada stem SFX/musik; suara = stem terkunci × 1,0, selisih float ≤9e-8), suara −16,3 LUFS stereo; stem `stem_suara.wav`, `stem_sfx.wav`, `stem_musik_A/B.wav`; pratinjau `preview_mix_A/B.mp4`, `preview_visual_sfx.mp4` (draft 960×540).
 PUTUSAN titik sambung (onset terkuat ±120 ms): A Malice@13,747 −12 ms, strings@58,572 0 ms; B Ticking→Malice@13,747 −1 ms (tik digeser 57 ms), strings 0 ms. PUTUSAN lock musik per varian (diulang setelah stem berubah): LULUS (A 6d447d07, B 69193e69; sfx 2b11a5e5; `audio/order-A|B/ORDER.json`) dan `audio_order.py check` PASS (suara+visual+sfx+musik, termasuk pengecualian guard dan --terima-pelan). KREDIT: `musik/KREDIT.md`.
 Tidak diaudit dengan telinga manusia: semua angka dari alat; titik sambung dan pilihan Ticking perlu didengar Opus/Irfan. Sumber lagu di `musik/sumber/*.wav` (±100 MB). Tanpa commit.
+
+## Revisi audit (17 Nov, master 29,97 fps / 2496 f)
+Cue baru (peran dan file SAMA): 34,268 dtk f1027 transisi-dunia (Woosh), 49,950 dtk f1497 objek-mendarat (pop up), 71,605 dtk f2146 transisi-dunia; total 49 cue untuk 59 objek, `objects.json` baru (frame 29,97) dipakai ulang.
+PUTUSAN sfx_density terhadap `qc/master_gambar.mp4` (lock visual fa08ce68): LULUS (maks 5 cue/2 dtk, jarak minimum 0,18 dtk, whoosh ≥1 dtk). `lock sfx`: LULUS (cd85161b).
+PUTUSAN lock musik A (88605732) dan B (39f5d5f9) diulang terhadap master baru dan `audio_order.py check` PASS di `audio/order-A|B`; pratinjau `preview_visual_sfx.mp4` = master + suara + SFX (98 MB; pratinjau A/B dihapus demi disk 4,0 GB).
+Mix tiga varian dibangun ulang tanpa limiter, suara ×1,0 (selisih float ≤9e-8): A/B/tanpa-musik −15,80 / −15,83 / −16,06 LUFS, puncak −1,0 dBFS, kejernihan suara ≥6,6 dB (A) dan 6,6 (B) di semua jendela.
+PUTUSAN audio_phone: A dan B 41/41/39 dari 49 SFX (100/50/20 %), SFX tajam 0; sisa tak terdengar sama dengan sebelumnya (thud sub kata-hero diterima, whoosh <30 dB SPL karena batas −4 dB) plus dua cue baru yang tertutup; kejernihan median 11,9 (A)/12,5 (B) dB. Tanpa commit.
+
+## Revisi audit 2 (17 Nov, master lock visual 86e41e8d)
+Cue baru: 53,153 dtk (f1593 kartu keluar, whoosh transisi-dunia gain −9 dB) dan 62,763 dtk (f1881 pergantian adegan kartu Claude → dua kartu, whoosh gain −7 dB di frame puncak; cue pesan 62,271 dipertahankan karena objek "amplop Clawd ke Codex" ada di sana). Total 51 cue untuk 59 objek (`objects.json` baru), file peran sama, whoosh ≥1 dtk.
+PUTUSAN sfx_density terhadap master baru: LULUS (maks 5 cue/2 dtk, jarak minimum 0,18 dtk); `lock sfx` LULUS (bd774e6c).
+PUTUSAN lock musik A (b64567f8) dan B (27e0f27f) diulang; `audio_order.py check` PASS di `audio/order-A|B`.
+Mix tiga varian dibangun ulang, tanpa limiter, suara ×1,0 (selisih float ≤9e-8): A/B/tanpa-musik −15,79 / −15,83 / −16,05 LUFS, puncak −1,0 dBFS, kejernihan suara ≥6,6 dB; PUTUSAN audio_phone 100/50/20 %: 41/41/39 dari 51 SFX (A dan B), SFX tajam 0. Tanpa commit.
+
+## Revisi audit 3 (17 Nov, master lock visual ba0fdd9e)
+Cue baru: 66,066 dtk (f1980 pergantian adegan, whoosh transisi-dunia gain −8 dB, file sama); total 52 cue untuk 59 objek (`objects.json` baru). PUTUSAN sfx_density terhadap master baru: LULUS; `lock sfx` LULUS (7074eb5a).
+PUTUSAN lock musik A (59f69e9a) dan B (15646f62) diulang; `audio_order.py check` PASS di `audio/order-A|B`.
+Mix tiga varian dibangun ulang, tanpa limiter, suara ×1,0 (selisih float ≤9e-8): A/B/tanpa-musik −15,79 / −15,83 / −16,05 LUFS, puncak −1,0 dBFS, kejernihan suara ≥6,6 dB; PUTUSAN audio_phone 100/50/20 %: 41/41/39 dari 52 SFX (A dan B), SFX tajam 0. Tanpa commit.

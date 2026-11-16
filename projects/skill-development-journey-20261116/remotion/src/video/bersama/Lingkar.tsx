@@ -26,9 +26,13 @@ const Isi: React.FC<LingkarProps & {fr: number}> = ({t0, tumbuhAt, langsung, fr,
   const p = shrink * (1 - grow);                    // 0 = wajah penuh, 1 = lingkaran
   const R = Math.hypot(960, 540) * (1 - p) + (d / 2) * p;
   const zAwal = z0 + (z1 - z0) * grow;                 // zoom dasar: awal (menyusut) -> akhir (tumbuh)
-  const sc = zAwal + (s - zAwal) * p;
-  const ox = 960 * (1 - zAwal) * (1 - p) + (cx - fx * s) * p, oy = 540 * (1 - zAwal) * (1 - p) + (cy - fy * s) * p;
   const cxp = 960 + (cx - 960) * p, cyp = 540 + (cy - 540) * p;
+  // titik wajah (fx,fy) berjalan dari posisinya di bingkai penuh (dengan zoom dasar) ke pusat lingkaran
+  const tx = (fx * zAwal + 960 * (1 - zAwal)) * (1 - p) + cx * p, ty = (fy * zAwal + 540 * (1 - zAwal)) * (1 - p) + cy * p;
+  // skala minimum supaya gambar wajah SELALU menutup seluruh lingkaran di dalam bingkai (audit V5: tidak ada bidang putih di dalam masker)
+  const perlu = Math.max((tx - Math.max(0, cxp - R)) / fx, (Math.min(1920, cxp + R) - tx) / (1920 - fx), (ty - Math.max(0, cyp - R)) / fy, (Math.min(1080, cyp + R) - ty) / (1080 - fy));
+  const sc = Math.max(zAwal + (s - zAwal) * p, perlu * 1.01);
+  const ox = tx - fx * sc, oy = ty - fy * sc;
   const penuh = p < 0.02;
   return <AbsoluteFill style={{background: 'transparent'}}>
     {!penuh && <div style={{position: 'absolute', left: cxp - R - 7, top: cyp - R - 7, width: 2 * R + 14, height: 2 * R + 14, borderRadius: '50%',

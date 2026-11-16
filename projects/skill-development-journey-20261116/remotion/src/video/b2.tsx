@@ -87,7 +87,8 @@ export const Slop: React.FC<SlopProps> = (p) => {
   const tick = Math.floor(ff / 2);
   const wob = p.jenis === 'bingkai' || p.jenis === 'grade' ? 0 : 1;
   const rot = p.rot + wob * (hash(tick * 3 + p.seed) - 0.5) * 6;
-  const sc = (0.7 + 0.5 * lewat) * (1 + wob * (hash(tick * 5 + p.seed) - 0.5) * 0.06);
+  // bingkai neon (layar penuh): masuk 0,88 → 1,0 dengan land tanpa overshoot, supaya tidak keluar frame dan bertahan sampai runtuh (audit V9)
+  const sc = p.jenis === 'bingkai' ? 0.88 + 0.12 * pop : (0.7 + 0.5 * lewat) * (1 + wob * (hash(tick * 5 + p.seed) - 0.5) * 0.06);
   const g = getar(f, bekuF, 6, 12, p.seed);
   const k = f - runtuhF;
   const jatuh = k > 0 ? tersendat(k, 7, p.seed) * p.jatuh : 0;

@@ -109,7 +109,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
+   1090,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -119,16 +119,16 @@
   "id": "T007",
   "kata": [
    8,
-   10
+   8
   ],
-  "teks": "aku baru aja",
+  "teks": "aku",
   "t": 4.64,
-  "dur": 0.535,
+  "dur": 0.225,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
+   1090,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -137,17 +137,17 @@
  {
   "id": "T008",
   "kata": [
-   11,
+   9,
    11
   ],
-  "teks": "ngebikin",
-  "t": 5.175,
-  "dur": 0.628,
+  "teks": "baru aja ngebikin",
+  "t": 4.865,
+  "dur": 0.938,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
+   1090,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -184,7 +184,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
+   1090,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -212,16 +212,16 @@
   "id": "T012",
   "kata": [
    17,
-   19
+   18
   ],
-  "teks": "yang kita pake,",
+  "teks": "yang kita",
   "t": 7.658,
-  "dur": 0.51,
+  "dur": 0.275,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
+   1090,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -230,17 +230,17 @@
  {
   "id": "T013",
   "kata": [
-   20,
+   19,
    21
   ],
-  "teks": "entah itu",
-  "t": 8.168,
-  "dur": 0.405,
+  "teks": "pake, entah itu",
+  "t": 7.933,
+  "dur": 0.64,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
+   1090,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -278,8 +278,8 @@
   "kode": "T03",
   "gaya": "r2",
   "pos": [
-   520,
-   560
+   480,
+   415
   ],
   "alasan": "nama menempel Clawd yang melompat",
   "gelap": false
@@ -297,8 +297,8 @@
   "kode": "T03",
   "gaya": "r2",
   "pos": [
-   1530,
-   335
+   1636,
+   290
   ],
   "alasan": "nama menempel bintang Gemini yang berputar",
   "gelap": false
@@ -316,7 +316,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
+   1090,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -335,7 +335,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
+   1090,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -372,7 +372,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
+   1090,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -382,16 +382,16 @@
   "id": "T021",
   "kata": [
    33,
-   33
+   35
   ],
-  "teks": "gitu.",
+  "teks": "gitu. Karena belakangan",
   "t": 13.576,
-  "dur": 0.255,
+  "dur": 0.926,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
+   1090,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -400,12 +400,12 @@
  {
   "id": "T022",
   "kata": [
-   34,
-   36
+   36,
+   38
   ],
-  "teks": "Karena belakangan ini",
-  "t": 13.831,
-  "dur": 0.891,
+  "teks": "ini kan lagi",
+  "t": 14.502,
+  "dur": 0.575,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -418,25 +418,6 @@
  },
  {
   "id": "T023",
-  "kata": [
-   37,
-   38
-  ],
-  "teks": "kan lagi",
-  "t": 14.722,
-  "dur": 0.355,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   770
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T024",
   "kata": [
    39,
    39
@@ -456,7 +437,7 @@
   "gelap": false
  },
  {
-  "id": "T025",
+  "id": "T024",
   "kata": [
    40,
    42
@@ -475,7 +456,7 @@
   "gelap": false
  },
  {
-  "id": "T026",
+  "id": "T025",
   "kata": [
    43,
    45
@@ -494,7 +475,7 @@
   "gelap": false
  },
  {
-  "id": "T027",
+  "id": "T026",
   "kata": [
    46,
    46
@@ -513,7 +494,7 @@
   "gelap": false
  },
  {
-  "id": "T028",
+  "id": "T027",
   "kata": [
    47,
    49
@@ -532,7 +513,7 @@
   "gelap": false
  },
  {
-  "id": "T029",
+  "id": "T028",
   "kata": [
    50,
    50
@@ -551,7 +532,7 @@
   "gelap": false
  },
  {
-  "id": "T030",
+  "id": "T029",
   "kata": [
    51,
    53
@@ -570,7 +551,7 @@
   "gelap": false
  },
  {
-  "id": "T031",
+  "id": "T030",
   "kata": [
    54,
    55
@@ -590,7 +571,7 @@
   "gelap": false
  },
  {
-  "id": "T032",
+  "id": "T031",
   "kata": [
    56,
    58
@@ -609,7 +590,7 @@
   "gelap": false
  },
  {
-  "id": "T033",
+  "id": "T032",
   "kata": [
    59,
    60
@@ -628,7 +609,7 @@
   "gelap": false
  },
  {
-  "id": "T034",
+  "id": "T033",
   "kata": [
    61,
    61
@@ -647,7 +628,7 @@
   "gelap": false
  },
  {
-  "id": "T035",
+  "id": "T034",
   "kata": [
    62,
    64
@@ -666,7 +647,7 @@
   "gelap": true
  },
  {
-  "id": "T036",
+  "id": "T035",
   "kata": [
    65,
    65
@@ -685,7 +666,7 @@
   "gelap": true
  },
  {
-  "id": "T037",
+  "id": "T036",
   "kata": [
    66,
    66
@@ -704,7 +685,7 @@
   "gelap": true
  },
  {
-  "id": "T038",
+  "id": "T037",
   "kata": [
    67,
    69
@@ -723,7 +704,7 @@
   "gelap": true
  },
  {
-  "id": "T039",
+  "id": "T038",
   "kata": [
    70,
    72
@@ -742,14 +723,33 @@
   "gelap": true
  },
  {
-  "id": "T040",
+  "id": "T039",
   "kata": [
    73,
-   75
+   74
   ],
-  "teks": "bilang edit kayak",
+  "teks": "bilang edit",
   "t": 27.555,
-  "dur": 0.973,
+  "dur": 0.684,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   760,
+   1000
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": true
+ },
+ {
+  "id": "T040",
+  "kata": [
+   75,
+   77
+  ],
+  "teks": "kayak Apple style,",
+  "t": 28.239,
+  "dur": 1.14,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -762,25 +762,6 @@
  },
  {
   "id": "T041",
-  "kata": [
-   76,
-   77
-  ],
-  "teks": "Apple style,",
-  "t": 28.529,
-  "dur": 0.85,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   760,
-   1000
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true
- },
- {
-  "id": "T042",
   "kata": [
    78,
    80
@@ -799,7 +780,7 @@
   "gelap": true
  },
  {
-  "id": "T043",
+  "id": "T042",
   "kata": [
    81,
    82
@@ -818,33 +799,14 @@
   "gelap": true
  },
  {
-  "id": "T044",
+  "id": "T043",
   "kata": [
    83,
-   83
-  ],
-  "teks": "Nah,",
-  "t": 31.798,
-  "dur": 0.2,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   760,
-   1000
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true
- },
- {
-  "id": "T045",
-  "kata": [
-   84,
    84
   ],
-  "teks": "aku",
-  "t": 31.998,
-  "dur": 0.201,
+  "teks": "Nah, aku",
+  "t": 31.798,
+  "dur": 0.401,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -856,7 +818,7 @@
   "gelap": true
  },
  {
-  "id": "T046",
+  "id": "T044",
   "kata": [
    85,
    85
@@ -875,7 +837,7 @@
   "gelap": true
  },
  {
-  "id": "T047",
+  "id": "T045",
   "kata": [
    86,
    88
@@ -894,7 +856,7 @@
   "gelap": true
  },
  {
-  "id": "T048",
+  "id": "T046",
   "kata": [
    89,
    91
@@ -913,14 +875,14 @@
   "gelap": false
  },
  {
-  "id": "T049",
+  "id": "T047",
   "kata": [
    92,
-   94
+   93
   ],
-  "teks": "AI ini cuman",
+  "teks": "AI ini",
   "t": 35.288,
-  "dur": 0.986,
+  "dur": 0.736,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -932,14 +894,14 @@
   "gelap": false
  },
  {
-  "id": "T050",
+  "id": "T048",
   "kata": [
-   95,
+   94,
    95
   ],
-  "teks": "mempelajari",
-  "t": 36.274,
-  "dur": 0.693,
+  "teks": "cuman mempelajari",
+  "t": 36.024,
+  "dur": 0.943,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -951,7 +913,7 @@
   "gelap": false
  },
  {
-  "id": "T051",
+  "id": "T049",
   "kata": [
    96,
    96
@@ -971,7 +933,7 @@
   "gelap": false
  },
  {
-  "id": "T052",
+  "id": "T050",
   "kata": [
    97,
    99
@@ -990,7 +952,7 @@
   "gelap": false
  },
  {
-  "id": "T053",
+  "id": "T051",
   "kata": [
    100,
    102
@@ -1009,7 +971,7 @@
   "gelap": false
  },
  {
-  "id": "T054",
+  "id": "T052",
   "kata": [
    103,
    105
@@ -1028,7 +990,7 @@
   "gelap": false
  },
  {
-  "id": "T055",
+  "id": "T053",
   "kata": [
    106,
    108
@@ -1047,7 +1009,7 @@
   "gelap": false
  },
  {
-  "id": "T056",
+  "id": "T054",
   "kata": [
    109,
    110
@@ -1066,7 +1028,7 @@
   "gelap": false
  },
  {
-  "id": "T057",
+  "id": "T055",
   "kata": [
    111,
    112
@@ -1086,7 +1048,7 @@
   "gelap": false
  },
  {
-  "id": "T058",
+  "id": "T056",
   "kata": [
    113,
    113
@@ -1105,7 +1067,7 @@
   "gelap": false
  },
  {
-  "id": "T059",
+  "id": "T057",
   "kata": [
    114,
    114
@@ -1124,7 +1086,7 @@
   "gelap": false
  },
  {
-  "id": "T060",
+  "id": "T058",
   "kata": [
    115,
    116
@@ -1143,7 +1105,7 @@
   "gelap": false
  },
  {
-  "id": "T061",
+  "id": "T059",
   "kata": [
    117,
    119
@@ -1162,7 +1124,7 @@
   "gelap": false
  },
  {
-  "id": "T062",
+  "id": "T060",
   "kata": [
    120,
    122
@@ -1181,14 +1143,14 @@
   "gelap": false
  },
  {
-  "id": "T063",
+  "id": "T061",
   "kata": [
    123,
-   125
+   124
   ],
-  "teks": "langganan ChatGPT Pro",
+  "teks": "langganan ChatGPT",
   "t": 45.97,
-  "dur": 1.636,
+  "dur": 1.528,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1200,14 +1162,14 @@
   "gelap": false
  },
  {
-  "id": "T064",
+  "id": "T062",
   "kata": [
-   126,
+   125,
    127
   ],
-  "teks": "Max yang",
-  "t": 47.683,
-  "dur": 0.395,
+  "teks": "Pro Max yang",
+  "t": 47.498,
+  "dur": 0.58,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1219,7 +1181,7 @@
   "gelap": false
  },
  {
-  "id": "T065",
+  "id": "T063",
   "kata": [
    128,
    129
@@ -1239,7 +1201,7 @@
   "gelap": false
  },
  {
-  "id": "T066",
+  "id": "T064",
   "kata": [
    130,
    132
@@ -1258,7 +1220,7 @@
   "gelap": false
  },
  {
-  "id": "T067",
+  "id": "T065",
   "kata": [
    133,
    133
@@ -1277,7 +1239,7 @@
   "gelap": false
  },
  {
-  "id": "T068",
+  "id": "T066",
   "kata": [
    134,
    135
@@ -1297,7 +1259,7 @@
   "gelap": false
  },
  {
-  "id": "T069",
+  "id": "T067",
   "kata": [
    136,
    138
@@ -1316,7 +1278,7 @@
   "gelap": false
  },
  {
-  "id": "T070",
+  "id": "T068",
   "kata": [
    139,
    141
@@ -1335,7 +1297,7 @@
   "gelap": false
  },
  {
-  "id": "T071",
+  "id": "T069",
   "kata": [
    142,
    142
@@ -1354,7 +1316,7 @@
   "gelap": false
  },
  {
-  "id": "T072",
+  "id": "T070",
   "kata": [
    143,
    145
@@ -1373,7 +1335,7 @@
   "gelap": false
  },
  {
-  "id": "T073",
+  "id": "T071",
   "kata": [
    146,
    148
@@ -1392,7 +1354,7 @@
   "gelap": false
  },
  {
-  "id": "T074",
+  "id": "T072",
   "kata": [
    149,
    150
@@ -1411,7 +1373,7 @@
   "gelap": false
  },
  {
-  "id": "T075",
+  "id": "T073",
   "kata": [
    151,
    152
@@ -1430,14 +1392,14 @@
   "gelap": false
  },
  {
-  "id": "T076",
+  "id": "T074",
   "kata": [
    153,
-   155
+   154
   ],
-  "teks": "Kayak yang kalian",
+  "teks": "Kayak yang",
   "t": 57.287,
-  "dur": 0.887,
+  "dur": 0.692,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1449,14 +1411,14 @@
   "gelap": false
  },
  {
-  "id": "T077",
+  "id": "T075",
   "kata": [
-   156,
+   155,
    157
   ],
-  "teks": "lihat ini.",
-  "t": 58.174,
-  "dur": 0.673,
+  "teks": "kalian lihat ini.",
+  "t": 57.979,
+  "dur": 0.593,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1468,7 +1430,7 @@
   "gelap": false
  },
  {
-  "id": "T078",
+  "id": "T076",
   "kata": [
    158,
    160
@@ -1487,7 +1449,7 @@
   "gelap": false
  },
  {
-  "id": "T079",
+  "id": "T077",
   "kata": [
    161,
    163
@@ -1506,7 +1468,7 @@
   "gelap": false
  },
  {
-  "id": "T080",
+  "id": "T078",
   "kata": [
    164,
    166
@@ -1525,7 +1487,7 @@
   "gelap": false
  },
  {
-  "id": "T081",
+  "id": "T079",
   "kata": [
    167,
    167
@@ -1544,7 +1506,7 @@
   "gelap": false
  },
  {
-  "id": "T082",
+  "id": "T080",
   "kata": [
    168,
    170
@@ -1563,7 +1525,7 @@
   "gelap": false
  },
  {
-  "id": "T083",
+  "id": "T081",
   "kata": [
    171,
    173
@@ -1582,7 +1544,7 @@
   "gelap": false
  },
  {
-  "id": "T084",
+  "id": "T082",
   "kata": [
    174,
    176
@@ -1601,7 +1563,7 @@
   "gelap": false
  },
  {
-  "id": "T085",
+  "id": "T083",
   "kata": [
    177,
    178
@@ -1620,7 +1582,7 @@
   "gelap": false
  },
  {
-  "id": "T086",
+  "id": "T084",
   "kata": [
    179,
    179
@@ -1636,10 +1598,10 @@
    92
   ],
   "alasan": "kesalahan berulang yang diminimalkan: kata kacau lalu mendarat (DESAIN B5b)",
-  "gelap": true
+  "gelap": false
  },
  {
-  "id": "T087",
+  "id": "T085",
   "kata": [
    180,
    181
@@ -1658,7 +1620,7 @@
   "gelap": false
  },
  {
-  "id": "T088",
+  "id": "T086",
   "kata": [
    182,
    183
@@ -1677,7 +1639,7 @@
   "gelap": false
  },
  {
-  "id": "T089",
+  "id": "T087",
   "kata": [
    184,
    185
@@ -1693,48 +1655,48 @@
    92
   ],
   "alasan": "kata kunci saat loop menutup + centang (DESAIN B5b)",
-  "gelap": true
+  "gelap": false
+ },
+ {
+  "id": "T088",
+  "kata": [
+   186,
+   187
+  ],
+  "teks": "yang terjadi",
+  "t": 70.371,
+  "dur": 0.75,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   92
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false
+ },
+ {
+  "id": "T089",
+  "kata": [
+   188,
+   189
+  ],
+  "teks": "di sini.",
+  "t": 71.121,
+  "dur": 0.673,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   92
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false
  },
  {
   "id": "T090",
-  "kata": [
-   186,
-   188
-  ],
-  "teks": "yang terjadi di",
-  "t": 70.371,
-  "dur": 0.935,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   92
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T091",
-  "kata": [
-   189,
-   189
-  ],
-  "teks": "sini.",
-  "t": 71.306,
-  "dur": 0.488,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   92
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T092",
   "kata": [
    190,
    190
@@ -1753,7 +1715,7 @@
   "gelap": false
  },
  {
-  "id": "T093",
+  "id": "T091",
   "kata": [
    191,
    194
@@ -1774,7 +1736,7 @@
   "gelap": false
  },
  {
-  "id": "T094",
+  "id": "T092",
   "kata": [
    195,
    197
@@ -1793,7 +1755,7 @@
   "gelap": false
  },
  {
-  "id": "T095",
+  "id": "T093",
   "kata": [
    198,
    200
@@ -1812,7 +1774,7 @@
   "gelap": false
  },
  {
-  "id": "T096",
+  "id": "T094",
   "kata": [
    201,
    203
@@ -1831,7 +1793,7 @@
   "gelap": false
  },
  {
-  "id": "T097",
+  "id": "T095",
   "kata": [
    204,
    204
@@ -1850,7 +1812,7 @@
   "gelap": false
  },
  {
-  "id": "T098",
+  "id": "T096",
   "kata": [
    205,
    205
@@ -1871,33 +1833,14 @@
   "gelap": false
  },
  {
-  "id": "T099",
+  "id": "T097",
   "kata": [
    206,
-   206
-  ],
-  "teks": "gak?",
-  "t": 78.745,
-  "dur": 0.135,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   690
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T100",
-  "kata": [
-   207,
    207
   ],
-  "teks": "Atau",
-  "t": 78.88,
-  "dur": 0.205,
+  "teks": "gak? Atau",
+  "t": 78.745,
+  "dur": 0.34,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1909,7 +1852,7 @@
   "gelap": false
  },
  {
-  "id": "T101",
+  "id": "T098",
   "kata": [
    208,
    210
@@ -1930,7 +1873,7 @@
   "gelap": false
  },
  {
-  "id": "T102",
+  "id": "T099",
   "kata": [
    211,
    213
@@ -1949,7 +1892,7 @@
   "gelap": false
  },
  {
-  "id": "T103",
+  "id": "T100",
   "kata": [
    214,
    216
@@ -1968,7 +1911,7 @@
   "gelap": false
  },
  {
-  "id": "T104",
+  "id": "T101",
   "kata": [
    217,
    218
@@ -1987,7 +1930,7 @@
   "gelap": false
  },
  {
-  "id": "T105",
+  "id": "T102",
   "kata": [
    219,
    221

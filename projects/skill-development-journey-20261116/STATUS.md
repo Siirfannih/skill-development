@@ -44,3 +44,20 @@ Disk ±6 GB: render final per rentang bila < 8 GB (orkestrasi §7).
 - Suara TERKUNCI (edit/ORDER.json, 1ee4baa3): R6 83,283 dtk, 7 pengecualian guard "tuh" berbukti, --terima-pelan −19,3 LUFS (tanpa limiter). Dua usulan [A] di PENDING untuk Irfan.
 - Visual: Sonnet build → Opus rapikan (claude1) LULUS arah G2. Sonnet sekarang: sinkron ke R6 + B3a lingkaran/tombol, B5b pan, B6b bubble → draft 0,5 → lock visual + objects.json.
 - Berikutnya: SFX (Penata suara, objects.json, SFXIrfan) → musik dua varian + tanpa-musik (GUIDELINE §7.1 kandidat lagu, sebagai usulan) → render.sh frames + frame_audit (Codex + Sonnet, blind) → lego final → Drive "Claude edit/2026-11-16 — Siirfan — Di Balik Skill Development".
+
+## 17 Nov ±01:30 · fase 5 audit dua pemeriksa
+Master gambar qc/master_gambar.mp4 (2500 f). 9 potongan, kesepakatan 76%/detik; 6 temuan disepakati, 25 PERLU PUTUS. Lihat handoff/REPORT-fase5.md. Disk 5 GB, tidak ada penghapusan.
+
+## 17 Nov ±02:05 · fase 5 ronde 2
+Audit ulang 9 potongan: kesepakatan 90%, 3 disepakati + 9 perlu putus, hanya c09 LULUS; varian belum digabung. Lihat handoff/REPORT-fase5.md.
+
+## 17 Nov ±02:45 · fase 5 ronde 3
+Codex 9/9 LULUS, Sonnet 4/9; 0 disepakati, 6 perlu putus (hanya Sonnet). Kandidat: out/kandidat-{varian-A,varian-B,tanpa-musik}.mp4. Lihat handoff/REPORT-fase5.md.
+
+## 17 Nov ±03:10 · fase 5 ronde 4: LULUS
+Semua potongan LULUS (9 dtk DISMISS). Final: out/varian-A.mp4, out/varian-B.mp4, out/tanpa-musik.mp4; qc/VERDICT.md PUTUSAN: LULUS. Belum diunggah ke Drive.
+
+## 17 Nov ±03:30 · SELESAI (menunggu penilaian Irfan)
+- Final: out/varian-A.mp4, out/varian-B.mp4, out/tanpa-musik.mp4 (2496 f 30000/1001, 83,28 dtk, AAC 320k), audit frame 4 ronde → qc/VERDICT.md PUTUSAN: LULUS (Codex + Sonnet blind, kesepakatan 99 %). Kredit lagu: musik/KREDIT.md. Diunggah ke Drive "Claude edit/2026-11-16 — Siirfan — Di Balik Skill Development".
+- Pengecualian berbukti yang menunggu Irfan (PENDING.md): guard "tuh" ×7, --terima-pelan −19,3 LUFS (tanpa limiter).
+- Catatan jalur: tinjauan diff Opus ronde revisi audit dijadwalkan di claude1 03:45 (laporan saja, handoff/REPORT-opus-diff.md) karena claude1 limit 01:50–03:40.
