@@ -61,6 +61,32 @@ def load_cues(path):
 
 
 WHOOSH = re.compile(r"whoosh|woosh|swoosh|swish|whip|transisi|transition", re.I)
+FORBIDDEN_SFX = [
+    ("kayu/woodblock", re.compile(r"wood(?:en|block)?|kayu", re.I)),
+    ("thock/felt knock", re.compile(r"thock|felt[ _-]*(?:knock|thock)", re.I)),
+    ("koin", re.compile(r"coin|koin", re.I)),
+    ("logam", re.compile(r"metal|logam", re.I)),
+    ("kartun", re.compile(r"cartoon|kartun", re.I)),
+    ("langkah kaki", re.compile(r"foot[ _-]*step|langkah[ _-]*kaki", re.I)),
+    ("laser/sci-fi", re.compile(r"laser|sci[ _-]*fi", re.I)),
+    ("8-bit", re.compile(r"8[ _-]*bit", re.I)),
+    ("noise mentah", re.compile(r"(?:white|pink)[ _-]*noise|noise[ _-]*generator", re.I)),
+    ("sinus sintetis", re.compile(r"sine|sinus", re.I)),
+    ("rope-creak", re.compile(r"rope[ _-]*creak", re.I)),
+    ("bank sintetis", re.compile(r"sfx[ _-]*render", re.I)),
+]
+
+
+def forbidden_palette_issues(cues):
+    """Return forbidden final-palette matches from file names or heard labels."""
+    issues = []
+    for cue in cues:
+        evidence = f"{cue.get('file', '')} {cue.get('dengar', '')}"
+        for label, pattern in FORBIDDEN_SFX:
+            if pattern.search(evidence):
+                issues.append(f"{cue.get('t', 0):.2f}s {label}: {cue.get('file', '')}")
+                break
+    return issues
 
 
 def spam_check(cues):
@@ -110,6 +136,7 @@ def main():
     cues = np.array([c["t"] for c in cue_rows])
     no_role = [c for c in cue_rows if not c["peran"].strip() or not c["alasan"].strip()]
     spam = spam_check(cue_rows)
+    forbidden = forbidden_palette_issues(cue_rows)
     ev, dur = visual_events(a.video)
     density = len(cues) / dur if dur else 0.0
     covered = [e for e in ev if len(cues) and np.min(np.abs(cues - e)) <= 5 / FPS]
@@ -143,6 +170,8 @@ def main():
         fails.append(f"{len(no_role)} cue tanpa peran/alasan (mis. {no_role[0]['t']:.2f} dtk)")
     if spam:
         fails.append(f"{len(spam)} spam SFX: " + "; ".join(spam[:4]))
+    if forbidden:
+        fails.append(f"{len(forbidden)} SFX dari palet terlarang: " + "; ".join(forbidden[:4]))
 
     print(f"durasi {dur:.1f} dtk · cue {len(cues)} · kepadatan {density:.2f}/dtk · event visual {len(ev)} "
           f"· cakupan {coverage:.0f} % (info) · celah tanpa SFX terpanjang "
@@ -152,7 +181,7 @@ def main():
     print("PASS" if not fails else "FAIL: " + "; ".join(fails))
     if a.json:
         json.dump(dict(duration=dur, cues=len(cues), density=density, events=len(ev), coverage=coverage,
-                       gaps=gaps, no_role=len(no_role), spam=spam, fails=fails), open(a.json, "w"), indent=1)
+                       gaps=gaps, no_role=len(no_role), spam=spam, forbidden=forbidden, fails=fails), open(a.json, "w"), indent=1)
     sys.exit(1 if fails else 0)
 
 

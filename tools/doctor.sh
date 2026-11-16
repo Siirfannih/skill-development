@@ -1,10 +1,11 @@
 #!/bin/bash
-# Cek apakah Claude Code di mesin ini memuat skill-development dengan benar. Dijalankan di "Awal sesi" (AGENTS.md).
+# Cek apakah Claude Code dan Codex memuat skill-development dengan benar. Dijalankan di "Awal sesi" (AGENTS.md).
 #   ./tools/doctor.sh            cek saja; exit 1 bila ada yang perlu diperbaiki
 #   ./tools/doctor.sh --fix      jalankan tools/sync.sh lalu cek ulang
 # Folder akun diambil dari CLAUDE_CONFIG_DIR (claude2 di PC server mengisinya otomatis), bawaan ~/.claude.
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 CFG="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"; DEST="$CFG/skills"
+CODEX_CFG="${CODEX_CONFIG_DIR:-$HOME/.codex}"; CODEX_DEST="$CODEX_CFG/skills"
 fail=0; warn=0
 bad()  { echo "GAGAL  $*"; fail=1; }
 note() { echo "AWAS   $*"; warn=1; }
@@ -25,6 +26,15 @@ for d in "$REPO"/claude/*/; do n=$(basename "$d")
 done
 [ "$fail" -eq 0 ] && ok "skill claude/* terpasang sebagai symlink"
 
+echo "Akun Codex: $CODEX_CFG"
+codex_fail=0
+for d in "$REPO"/claude/*/; do n=$(basename "$d")
+  if [ -L "$CODEX_DEST/$n" ] && [ "$(readlink "$CODEX_DEST/$n")" = "${d%/}" ]; then :
+  elif [ -e "$CODEX_DEST/$n" ]; then bad "skill Codex $n terpasang sebagai salinan, bukan symlink ke repo (membeku)"; codex_fail=1
+  else bad "skill Codex $n tidak terpasang"; codex_fail=1; fi
+done
+[ "$codex_fail" -eq 0 ] && ok "skill Codex claude/* terpasang sebagai symlink"
+
 nrem=$(ls -d "$DEST"/remotion-*/ 2>/dev/null | wc -l | tr -d ' ')
 [ "$nrem" -ge 5 ] && ok "skill Remotion: $nrem" || bad "skill Remotion resmi tidak terpasang ($nrem)"
 
@@ -36,6 +46,15 @@ done
 for s in "$DEST"/synced/*/; do for n in motion-graphic irfan-creative-workflow script-workshop; do
   [ -e "$s$n" ] && note "pustaka akun claude.ai memuat salinan lama $n; salinan repo (symlink) yang berlaku di Claude Code, salinan akun dipakai claude.ai web"
 done; done
+
+audio_python=""
+for candidate in "$HOME/work/mg-venv/bin/python" python3 /usr/bin/python3; do
+  command -v "$candidate" >/dev/null 2>&1 || continue
+  "$candidate" -c 'import numpy, soundfile' >/dev/null 2>&1 || continue
+  audio_python="$candidate"; break
+done
+[ -n "$audio_python" ] && ok "runtime gate audio siap ($audio_python)" \
+  || bad "tidak ada Python dengan numpy + soundfile; pasang requirements.txt atau venv ~/work/mg-venv"
 
 E="$(command -v earshot || ls "$HOME"/work/mg-venv/bin/earshot 2>/dev/null)"
 if [ -n "$E" ]; then

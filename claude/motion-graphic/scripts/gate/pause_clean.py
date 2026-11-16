@@ -20,10 +20,17 @@ import soundfile as sf
 
 
 def words(path):
-    d = json.load(open(path))
+    with open(path, encoding="utf-8") as handle:
+        d = json.load(handle)
     d = d if isinstance(d, list) else (d.get("words") or d.get("segments") or [])
-    out = []
+    flat = []
     for q in d:
+        nested = q.get("words") if isinstance(q, dict) else None
+        flat.extend(nested if isinstance(nested, list) else [q])
+    out = []
+    for q in flat:
+        if not isinstance(q, dict):
+            continue
         s = q.get("s", q.get("start")); e = q.get("e", q.get("end"))
         if s is not None and e is not None:
             out.append((float(s), float(e)))

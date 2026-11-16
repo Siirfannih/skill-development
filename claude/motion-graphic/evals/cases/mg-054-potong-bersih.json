@@ -7,7 +7,8 @@
     "Diam diukur dengan ambang relatif (median ucapan − 18 dB), bukan −45 dB absolut",
     "Diam di dalam rentang kata transkrip ikut diperiksa; scripts/gate/cut_check.py PASS pada suara terkunci",
     "Kata sampah (eee, emm, tuh) dibuang di potongan, tidak tampil di teks layar",
-    "Video wajah dipotong di rentang yang sama (recut.py) sehingga bibir sinkron; kata/beat/cue diremap dengan map.json",
-    "Jeda dramatis yang disisakan ≤ 0,5 dtk dan alasannya tertulis di DECISIONS"
+    "Video wajah dipotong di batas frame yang sama (recut.py --source-words) sehingga jumlah frame sama dengan audio; endpoint bersuara, overlap kata isi >20 ms, guard <50 ms, dan retensi kata <85% ditolak",
+    "Transkrip ulang suara hasil tanpa prompt dibandingkan dengan take sumber; jumlah entri JSON hasil remap tidak dipakai sebagai bukti fonem masih utuh",
+    "Jeda dramatis yang disisakan ≤ 0,5 dtk dan alasannya tertulis di DECISIONS; render final ditolak bila audio_order.py check belum PASS"
   ]
 }

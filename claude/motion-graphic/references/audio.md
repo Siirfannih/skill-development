@@ -54,9 +54,9 @@ Pilih mode di brief dan tulis alasannya:
 | `musik` | musik → visual → SFX | Video yang digerakkan lagu/ketukan: video lirik, montage potong di ketukan. Musik menentukan timeline; visual dipotong di ketukannya; SFX menyusul event visual |
 
 Langkah mode `konten`:
-1. **Suara dikunci**: VO final (atau audio sumber klip utuh). `audio_order.py init --mode konten` lalu `lock suara`.
+1. **Suara dikunci**: VO final (atau audio sumber klip utuh). `audio_order.py init --mode konten`, lalu `audio_order.py lock suara suara.wav --words words_actual.json --source-words words_source.json --cut-map map.json`. Lock menjalankan ulang pemeriksaan kata/jeda dan menyimpan hash semua buktinya.
 2. **Visual dibangun di atas timing suara**, render tanpa audio, `lock visual`.
-3. **SFX dari event visual terkunci**: mulai dari `cues.json` storyboard, lalu geser ke onset nyata di render (`sync_cues.py`); bunyi untuk momen cerita dan gerak terlihat (aturan 43), tiap cue punya peran + alasan. `lock sfx` menjalankan `sfx_density.py` terhadap render terkunci.
+3. **SFX dari event visual terkunci**: mulai dari `cues.json` storyboard, lalu geser ke onset nyata di render (`sync_cues.py`); bunyi untuk momen cerita dan gerak terlihat (aturan 43), tiap cue punya peran + alasan. `lock sfx cues.json --ref-density <kartu>` menjalankan `sfx_density.py` terhadap render terkunci dan menolak palet terlarang.
 4. **Musik paling akhir**: render preview visual + SFX tanpa musik, dengarkan/ukur (`pace_read.py`), tentukan kategori suasana per babak, pilih kandidat (`music_fit.py`, kenali dengan `ears.py`), lalu `lock musik --peran --alasan --didengar preview.mp4`.
 5. **Mix dan QA**: `audio_order.py check` harus PASS sebelum render final.
 
@@ -69,11 +69,11 @@ Suara yang dikunci (gerbang 6) harus sudah bebas kata sampah dan diam saat berpi
 3. **Kata sampah**: eee, emm, eh, hmm, uh, tuh, dan pengulangan/awal salah. Transkrip pancingan (`initial_prompt` berisi "eee, emm") membantu memunculkannya, tapi bisa berhalusinasi: setiap kandidat diverifikasi dengan energi/earshot, bukan dipercaya mentah.
 4. **Bunyi bersuara di luar kata** (gesekan mik, tangan, benda) dibuang bersama jedanya; dengar dulu dengan `earshot describe`.
 5. **Sisa jeda**: tengah kalimat 0,06 dtk; antarkalimat ±0,28 dtk; jeda dramatis yang disengaja (sebelum twist, setelah klimaks, antarbabak) ≤ 0,5 dtk dan ditulis di DECISIONS (aturan 33).
-6. **Alat**: `scripts/gate/cut_check.py suara.wav words.json --suggest potong.json` (FAIL bila ada sampah/diam) → dengar usulan → `scripts/audio/recut.py cut --audio … --video wajah.mp4 --remove potong.json --out DIR` (audio + video wajah dipotong di batas frame yang sama, fade 4 ms, `map.json`) → `recut.py remap` untuk kata, beat, event, dan cue. Kode adegan yang menulis frame langsung harus memakai peta yang sama.
+6. **Alat**: `scripts/gate/cut_check.py suara.wav words_source.json --suggest potong.json` (FAIL bila ada sampah/diam) → dengar/edit usulan → `scripts/audio/recut.py cut --audio … --video wajah.mp4 --remove potong.json --source-words words_source.json --out DIR` (menolak endpoint bersuara, overlap kata, guard < 50 ms, dan drift; audio/video dipotong pada frame sama, micro-fade maksimal 2 ms, `map.json`) → `recut.py remap` untuk kata, beat, event, dan cue. Kode adegan yang menulis frame langsung harus memakai peta yang sama.
 7. **Tidak mengisi jeda dengan room tone** dari kamar yang sama (§14.6).
 7b. **Potong ulang setelah visual dibangun** (builder-trap-r2 v3): jangan memotong video render di titik jeda (animasi melompat). Buat peta waktu W(t_baru) → t_lama: bekas jeda saat layar diam atau berisi cut keras = lompatan 1:1; bekas jeda di tengah animasi = disebar ±1,5× panjang jeda (contoh `projects/builder-trap-r2/edit/make_knots.py`). Adegan diputar di `<Freeze frame={W(f)}>`; video wajah dan **waktu tampil teks memakai frame nyata + kata di timeline baru** (teks yang ikut W bisa meleset sampai 20 frame).
 7c. Ambang diam di dalam kata: 0,18 dtk di rekaman kamar (0,15 menangkap konsonan/henti b-t-k); ulangi `cut_check` setelah tiap potong — diam yang lebih kecil baru terlihat setelah yang besar dibuang.
-8. Setelah dipotong: `cut_check.py` PASS, transkrip ulang tanpa prompt = semua kata isi masih utuh, intonasi tiap sambungan didengar (ekor kata tidak terpotong).
+8. Setelah dipotong: transkrip ulang tanpa prompt menjadi `words_actual.json`; `cut_check.py suara.wav words_actual.json --source-words words_source.json --map map.json` PASS. Semua kata isi dan durasi fonem harus benar-benar ada—daftar kata hasil remap/caption tersembunyi tidak membuktikan audio utuh. Dengar setiap sambungan dan cek ekor kata, onset kata berikut, serta lubang fade-to-zero (Irfan 16 Nov; builder-trap-r2 v5 perlu tiga ronde audit karena `kecanduan.` dan `buat.` terpotong).
 
 ### 14.A Memilih suara: logika (Irfan 6 Nov)
 Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber dan kualitas mix**. Pilihan diturunkan dari dua kolom tabel beat yang sudah ada: mekanik (`motion-mechanics.md`) dan nada (`pacing-map.md`). Suara lahir dari gerak, bukan dari kata.
@@ -192,7 +192,7 @@ Versi lama bagian ini mewajibkan bunyi thock/felt/wood dengan LPF 1,5–2,5 kHz.
   - tekstur: 400 Hz–2,6 kHz;
   - low: di bawah 2 kHz + body 150–450 Hz.
 - **Jangan menggelapkan klik dengan LPF 1,5–2,5 kHz.** Referensi Audio.mp4 terukur: klik/tick ber-centroid 8–10 kHz, whoosh berpusat di 1,4–1,9 kHz tanpa energi di atas 6 kHz. Yang dibuang adalah desis di atas 6 kHz, bukan kecerahan klik.
-- **Dilarang**: ketukan kayu/woodblock, felt knock, koin, logam, kartun, langkah kaki kartun, salinan bunyi sistem Apple, potongan SFX yang "dipahat" dari video referensi orang lain.
+- **Dilarang**: ketukan kayu/woodblock/thock, felt knock, koin, logam, kartun, langkah kaki kartun, laser/sci-fi/8-bit, white/pink noise atau sinus sintetis, `rope-creak`, bank `sfx_render`, salinan bunyi sistem Apple, dan potongan SFX yang "dipahat" dari video referensi orang lain. `sfx_density.py` menolak nama file atau label `dengar` yang cocok; keberadaan file di SFXIrfan tidak mengizinkannya (Irfan 16 Nov).
 - **QA telinga**: Gemini tidak andal untuk level dan timestamp, dan tabel aturannya tidak boleh menggantikan data proyek yang sudah lulus. Ukur dengan alat sendiri; telinga Irfan adalah hakim terakhir.
 - Sumber dan lisensi tiap file dicatat di `CREDITS.md`.
 

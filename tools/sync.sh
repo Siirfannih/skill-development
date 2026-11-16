@@ -1,5 +1,5 @@
 #!/bin/bash
-# Pasang skill aktif dari repo ke Claude Code sebagai SYMLINK, supaya selalu ikut `git pull`
+# Pasang skill aktif dari repo ke Claude Code dan Codex sebagai SYMLINK, supaya selalu ikut `git pull`
 # (salinan lama membeku: Mac masih 27 Okt, PC server tidak punya sama sekali; gagal: V5 8 Nov).
 #
 #   ./tools/sync.sh                                   # Mac / akun default (~/.claude)
@@ -7,6 +7,7 @@
 #
 # Yang dilakukan:
 #   1. claude/*                          -> <config>/skills/<nama>  (symlink)
+#      claude/*                          -> ~/.codex/skills/<nama> (symlink; tanpa skill Remotion eksternal)
 #   2. external/remotion-skills/skills/* -> <config>/skills/<nama>  (skill Remotion resmi, symlink)
 #   3. skill di archive/                 -> dicabut dari <config>/skills
 #   4. hook SessionStart: git pull repo ini setiap sesi baru
@@ -17,6 +18,8 @@ set -euo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 CFG="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"; DEST="$CFG/skills"
 BK="$CFG/skills-backup/$(date +%Y%m%d-%H%M%S)"
+CODEX_CFG="${CODEX_CONFIG_DIR:-$HOME/.codex}"; CODEX_DEST="$CODEX_CFG/skills"
+CODEX_BK="$CODEX_CFG/skills-backup/$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$DEST"
 git -C "$REPO" submodule update --init -q external/remotion-skills external/earshot || echo "PERINGATAN: submodule gagal di-init"
 
@@ -28,6 +31,21 @@ for d in "$REPO"/claude/*/; do link "$d"; done
 for d in "$REPO"/external/remotion-skills/skills/*/; do [ -f "$d/SKILL.md" ] && link "$d"; done
 for d in "$REPO"/archive/*/; do n=$(basename "$d")
   if [ -e "$DEST/$n" ] || [ -L "$DEST/$n" ]; then mkdir -p "$BK"; mv "$DEST/$n" "$BK/"; echo "dicabut  $n"; fi; done
+
+# Codex memakai skill Irfan yang sama. Salinan lama dipindah, bukan dihapus; skill bawaan/plugin lain tidak disentuh.
+mkdir -p "$CODEX_DEST"
+for d in "$REPO"/claude/*/; do
+  n="$(basename "$d")"; src="${d%/}"
+  if [ -e "$CODEX_DEST/$n" ] && [ ! -L "$CODEX_DEST/$n" ]; then
+    mkdir -p "$CODEX_BK"; mv "$CODEX_DEST/$n" "$CODEX_BK/"
+  fi
+  ln -sfn "$src" "$CODEX_DEST/$n"; echo "symlink Codex  $n"
+done
+for d in "$REPO"/archive/*/; do n="$(basename "$d")"
+  if [ -e "$CODEX_DEST/$n" ] || [ -L "$CODEX_DEST/$n" ]; then
+    mkdir -p "$CODEX_BK"; mv "$CODEX_DEST/$n" "$CODEX_BK/"; echo "dicabut Codex  $n"
+  fi
+done
 
 python3 - "$CFG/settings.json" "$REPO" <<'EOF'
 import json, os, sys
@@ -66,4 +84,5 @@ open(p, "w").write(s[:i] + block + s[i:])
 print(f"folder masuk remote: rujukan skill-development ditambahkan ke {p}")
 EOF
 fi
-echo "Selesai. Cadangan (bila ada): $BK"
+echo "Selesai. Cadangan Claude (bila ada): $BK"
+echo "Cadangan Codex (bila ada): $CODEX_BK"

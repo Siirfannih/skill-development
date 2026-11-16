@@ -30,14 +30,67 @@ DEF_FILL = "e,ee,eee,eeee,em,emm,emmm,eh,ehm,hmm,hm,uh,uhm,ah,um,umm,mm,tuh"
 
 
 def load_words(p):
-    d = json.load(open(p))
-    d = d if isinstance(d, list) else (d.get("words") or [])
-    out = []
+    with open(p, encoding="utf-8") as handle:
+        d = json.load(handle)
+    d = d if isinstance(d, list) else (d.get("words") or d.get("segments") or [])
+    flat = []
     for q in d:
+        nested = q.get("words") if isinstance(q, dict) else None
+        flat.extend(nested if isinstance(nested, list) else [q])
+    out = []
+    for q in flat:
+        if not isinstance(q, dict):
+            continue
         s = q.get("s", q.get("start")); e = q.get("e", q.get("end")); w = q.get("w", q.get("word", ""))
         if s is not None and e is not None:
             out.append(dict(w=str(w).strip(), s=float(s), e=float(e)))
     return sorted(out, key=lambda q: q["s"])
+
+
+def validate_cuts(source, removed, mapped=None, guard=0.05, fillers=None):
+    """Validate cuts against source words, not only a remapped transcript."""
+    failures = []
+    rows = []
+    norm = lambda w: re.sub(r"[^\w]", "", w.lower())
+    filler_values = fillers.split(",") if isinstance(fillers, str) else (fillers or DEF_FILL.split(","))
+    filler_set = {norm(value) for value in filler_values if str(value).strip()}
+    previous = -1.0
+    for a, b in removed:
+        if a < previous or b <= a:
+            failures.append(f"invalid/overlapping cut {a}:{b}")
+        previous = b
+
+    def overlap_for(word):
+        return sum(max(0.0, min(b, word["e"]) - max(a, word["s"])) for a, b in removed)
+
+    expected = []
+    for word in source:
+        duration = word["e"] - word["s"]
+        filler_removed = norm(word["w"]) in filler_set and overlap_for(word) >= max(0.0, duration - 0.020)
+        if not filler_removed:
+            expected.append(word)
+
+    content = [word for word in source if norm(word["w"]) not in filler_set]
+    mapped_content = [word for word in mapped or [] if norm(word["w"]) not in filler_set]
+    if mapped is not None and [norm(word["w"]) for word in mapped] != [norm(word["w"]) for word in expected]:
+        failures.append("mapped word sequence omits a source token not covered by a cut")
+
+    for index, word in enumerate(content):
+        duration = word["e"] - word["s"]
+        overlap = overlap_for(word)
+        ratio = (duration - overlap) / duration if duration > 0 else 0.0
+        if overlap > 0.020 + 1e-7:
+            failures.append(f"overlap {word['w']}@{word['s']}: {overlap:.4f}s")
+        if ratio < 0.85 - 1e-7:
+            failures.append(f"retention {word['w']}@{word['s']}: {ratio:.3f}")
+        if any(a < word["e"] + guard - 1e-7 and b > word["s"] - guard + 1e-7 for a, b in removed):
+            failures.append(f"guard {word['w']}@{word['s']}: <{guard}s")
+        if mapped is not None and index < len(mapped_content):
+            actual = (mapped_content[index]["e"] - mapped_content[index]["s"]) / duration if duration > 0 else 0.0
+            if actual < 0.85 - 1e-7:
+                failures.append(f"mapped duration {word['w']}@{word['s']}: {actual:.3f}")
+        rows.append(dict(**word, overlap=round(overlap, 6), retained=round(ratio, 6)))
+    return {"pass_": not failures, "failures": failures, "words": rows}
 
 
 def runs(mask, min_len):
@@ -53,11 +106,20 @@ def runs(mask, min_len):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("audio"); ap.add_argument("words")
+    ap.add_argument("--source-words"); ap.add_argument("--map"); ap.add_argument("--validation-out")
     ap.add_argument("--filler", default=DEF_FILL)
     ap.add_argument("--max-inner", type=float, default=0.15)
     ap.add_argument("--max-sentence", type=float, default=0.50)
     ap.add_argument("--suggest")
     a = ap.parse_args()
+    if a.source_words or a.map:
+        if not (a.source_words and a.map):
+            ap.error("--source-words and --map must be supplied together")
+        result = validate_cuts(load_words(a.source_words), json.load(open(a.map))["removed"], load_words(a.words), fillers=a.filler)
+        if a.validation_out:
+            json.dump(result, open(a.validation_out, "w"), ensure_ascii=False, indent=2)
+        print("PASS source overlap/duration/guard" if result["pass_"] else "FAIL: " + "; ".join(result["failures"]))
+        sys.exit(0 if result["pass_"] else 1)
     x, sr = sf.read(a.audio, always_2d=True); x = x.mean(1)
     hop = int(sr * 0.01)
     db = 20 * np.log10(np.array([np.sqrt(np.mean(x[i:i + hop] ** 2)) + 1e-9 for i in range(0, len(x) - hop, hop)]))

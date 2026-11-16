@@ -24,8 +24,8 @@ Audio dicek lebih dulu, karena kesalahan terbanyak ada di audio (Irfan 8 Nov, V5
 |---|---|---|
 | Track musik yang sama dipakai di beberapa klip/babak dalam satu batch? | `python3 scripts/gate/music_batch.py musik_klipA.mp3 musik_klipB.mp3 …` | 25, S-A9 |
 | Ada cue SFX/musik tanpa `peran` + `alasan`, atau spam (whoosh > 1/dtk, file sama < 1 dtk)? | `scripts/gate/sfx_density.py` | 43, §14.3 |
-| SFX berlebih atau salah pilih (kepadatan > 1,5× kiblat, bunyi per kata, > 5 cue dalam 2 dtk, cue tanpa `dengar`)? Jeda bicara berisik? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json` | 43 |
-| Suara masih membawa kata sampah (eee, tuh) atau diam saat berpikir, termasuk diam di dalam rentang kata? Musik dipompa > 1,5 dB saat bicara? | `python3 scripts/gate/cut_check.py stem_suara.wav words.json` · `audio/audio_phone.py --list` | PASS / jendela < 8 dB ≤ 5 |
+| SFX berlebih atau salah pilih (kepadatan > 1,5× kiblat, bunyi per kata, > 5 cue dalam 2 dtk, cue tanpa `dengar`, atau palet terlarang meski ada di folder SFXIrfan)? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json --ref-density <kartu>` | 43, Lantai E24 |
+| Suara masih membawa kata sampah/diam, atau cut menyentuh kata isi >20 ms, guard <50 ms, durasi kata <85 %, urutan ASR aktual berubah? Musik dipompa > 1,5 dB saat bicara? | `audio_order.py check` (mengulang `cut_check.py` dengan source words + cut map) · `audio/audio_phone.py --list` | PASS / jendela < 8 dB ≤ 5 |
 | Referensi atau SFX tidak didengar (tidak ada log `earshot timeline` ref + `earshot describe` tiap file)? | log earshot di folder proyek | gerbang DENGAR `three-segment-gate.md` |
 | Suara sumber klip yang bersih diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | 38, §14.6 |
 | Kategori suasana tidak tertulis, musik tanpa laporan `music_fit.py` berstatus PAKAI (earshot aktif), kandidat < 8 atau dari < 2 sumber, atau track yang sama dipakai di semua klip/babak? | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 kandidat/*` | 25, 34, 45 |

@@ -11,7 +11,7 @@
 ## Cara
 1. **Kosakata dan kepadatan dari kiblat.** Baca §7 kartu kiblat: jenis bunyi apa, di momen apa, berapa SFX berlabel per detik (bukan onset total; onset musik ikut terhitung di situ). Target ±1× kepadatan itu, maks 1,5×.
 2. **Daftar momen, bukan daftar event.** Dari naskah dan PLAN: pembuka, judul/jawaban hook, twist, puncak, penutup, gerak kamera besar, benda yang muncul/mendarat/diklik karena ucapan. Event lain (cut di suku kata, sisipan wajah, kata yang muncul) boleh senyap.
-3. **Pilih file berurutan:**
+3. **Pilih file berurutan. Folder adalah kumpulan kandidat, bukan allowlist; palet terlarang tetap ditolak:**
    1. `~/sfx/SFXIrfan`: nama file adalah fungsi yang Irfan tetapkan (`Pergantianfoto`, `Katapertama`, `Kinetictypography(gunakansecaraacak)`, `Wooshcameramovementtransisi`, `basmenyebar`, `documenter`, …). Katalog + label dengar: `SFXIRFAN.md`.
    2. Kosakata kiblat yang tidak ada di SFXIrfan (stab, snare, hit): Epidemic di SFXIrfan, Kenyset, lalu ElevenLabs SFX (biaya disebut dulu, aturan 10).
    3. Set SFX milik proyek lain (mis. `jadisatu-60s` v17) hanya untuk peran yang tidak ada di atas, dengan alasan tertulis.
@@ -22,7 +22,7 @@
 8. **Level**: normalisasi puncak dulu, gain −4…−10 dB untuk momen, −12…−16 dB untuk detail (ketik, klik UI); −33 dB tidak terdengar (Irfan 9 Nov).
 
 ## Cek cepat
-- `scripts/gate/sfx_density.py render.mp4 cues.json --ref-density <kiblat>`: FAIL bila kepadatan > 1,5× kiblat (atau > 1,2/dtk), bunyi per kata, > 5 cue dalam 2 dtk, atau cue tanpa `dengar`.
+- `scripts/gate/sfx_density.py render.mp4 cues.json --ref-density <kiblat>`: FAIL bila kepadatan > 1,5× kiblat (atau > 1,2/dtk), bunyi per kata, > 5 cue dalam 2 dtk, cue tanpa `dengar`, atau nama/label dengar cocok palet terlarang (kayu/thock/felt, koin/logam, kartun/langkah kaki, laser/sci-fi/8-bit, noise/sinus sintetis, rope-creak).
 - Dengar 10 detik paling padat dengan mata tertutup: ada lapisan klik yang terus-menerus? Hapus.
 - Dengar di speaker HP 50 %: tiap bunyi momen terdengar, tidak ada yang tajam (`audio_phone.py`, `sfx_comfort.py`).
 - Jeda bicara bersih: `scripts/gate/pause_clean.py` (Lantai E23).

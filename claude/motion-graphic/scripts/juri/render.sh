@@ -8,6 +8,7 @@
 #
 # <proyek> berisi RESEP.md dan folder remotion/ (src/index.ts). Bundle dibuat sekali dan dipakai ulang sampai src berubah.
 # Gerbang `final` (semua harus benar):
+#   0. audio/ORDER.json lulus audio_order.py check; bukti potongan sumber, jeda, palet SFX, dan urutan lapisan diuji ulang
 #   1. RESEP.md lulus resep_check.py
 #   2. SEMUA still di qc/stills/ lebih baru daripada perubahan terakhir di remotion/src (still paling lama yang dinilai)
 #   3. qc/sanding.jpg (sandingkan.py) lebih baru daripada still itu
@@ -28,6 +29,20 @@ HERE="$(cd "$(dirname "$0")" && pwd)"
 [ $# -ge 3 ] || { sed -n '2,17p' "$0"; exit 1; }
 P="$(cd "$1" && pwd)"; MODE="$2"; COMP="$3"; shift 3
 R="$P/remotion"; QC="$P/qc"; ENTRY="${ENTRY:-src/index.ts}"; K="${KONKURENSI:-4}"
+
+audio_python() {
+  if [ -n "${PYTHON:-}" ]; then
+    "$PYTHON" -c 'import numpy, soundfile' >/dev/null 2>&1 && { echo "$PYTHON"; return; }
+    return 1
+  fi
+  local candidate
+  for candidate in "$HOME/work/mg-venv/bin/python" python3 /usr/bin/python3; do
+    command -v "$candidate" >/dev/null 2>&1 || continue
+    "$candidate" -c 'import numpy, soundfile' >/dev/null 2>&1 || continue
+    echo "$candidate"; return
+  done
+  return 1
+}
 [ -d "$R/src" ] || { echo "GAGAL: $R/src tidak ada"; exit 1; }
 mkdir -p "$QC/stills"
 newest_src() { find "$R/src" "$R/public" -type f -printf '%T@\n' 2>/dev/null | sort -n | tail -1; }
@@ -63,6 +78,14 @@ case "$MODE" in
   final)
     [ $# -ge 1 ] || { echo "beri nama file keluaran"; exit 1; }
     OUT="$1"; RANGE="${2:-}"; gagal=0
+    PYTHON_BIN="$(audio_python)" || {
+      echo "GAGAL gerbang audio: Python dengan numpy + soundfile tidak ditemukan. Pasang requirements.txt atau set PYTHON=/path/venv/bin/python."
+      exit 1
+    }
+    if ! "$PYTHON_BIN" "$HERE/../gate/audio_order.py" check --dir "$P/audio"; then
+      echo "GAGAL gerbang audio: kunci suara dengan bukti source words + cut map, lalu visual, SFX, dan musik sebelum render final."
+      exit 1
+    fi
     python3 "$HERE/resep_check.py" "$P/RESEP.md" || gagal=1
     ns="$(printf '%.0f' "$(newest_src)")"; st="$(find "$QC/stills" -name '*.png' -printf '%T@\n' 2>/dev/null | sort -n | head -1)"; st="$(printf '%.0f' "${st:-0}")"  # still PALING LAMA: satu still basi = gagal (builder-trap-r2 r7: JB13 basi lolos)
     [ "$st" -ge "$ns" ] && [ "$st" -gt 0 ] || { echo "GAGAL gerbang: still di qc/stills lebih lama daripada perubahan src (atau belum ada). Jalankan 'still' dulu."; gagal=1; }

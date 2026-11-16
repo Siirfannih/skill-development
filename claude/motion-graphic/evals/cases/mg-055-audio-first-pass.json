@@ -1,0 +1,19 @@
+{
+  "id": "mg-055",
+  "source": "Irfan 16 Nov; session Codex 'Perbaiki dan render video Builder Trap…': v5 ronde 1 memotong ekor 'kecanduan.', ronde 2 memotong 'buat.', dan SFX terlarang masih dapat lolos metadata",
+  "prompt": "Lanjutkan edit talking-head dari take sumber, rapikan jeda, buat sound design sesuai kiblat, lalu render kandidat final pertama.",
+  "files": [
+    "projects/builder-trap-r2/handoff/TASK-r9.md",
+    "projects/builder-trap-r2/edit/v5/cut_decisions.json",
+    "projects/builder-trap-r2/DELIVERY-v5.md"
+  ],
+  "assertions": [
+    "Rencana cut divalidasi terhadap words take sumber: overlap kata isi <=20 ms, guard >=50 ms, durasi kata hasil >=85%, dan urutan kata aktual sama",
+    "recut.py memakai batas frame eksak; jumlah frame video wajah sama dengan round(sampel audio / sample-rate × fps)",
+    "Transkrip Whisper berbentuk segments[].words[] dibaca sebagai kata individual oleh cut_check.py dan pause_clean.py, bukan sebagai satu segmen panjang",
+    "audio_order.py lock suara menyimpan hash words aktual, source words, dan cut map; check mengulang cut_check + pause_clean",
+    "sfx_density.py menolak palet terlarang walau cue memiliki peran, alasan, dan dengar; folder SFXIrfan tidak diperlakukan sebagai allowlist",
+    "render.sh final berhenti sebelum gerbang visual jika audio/ORDER.json hilang, basi, atau salah satu gate audio gagal",
+    "doctor.sh menolak salinan skill Claude/Codex yang beku dan runtime audio tanpa numpy+soundfile"
+  ]
+}

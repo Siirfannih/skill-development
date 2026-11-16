@@ -1,6 +1,6 @@
 # Katalog `~/sfx/SFXIrfan` (didengar 13 Nov dengan `earshot describe`)
 
-Sumber pertama untuk SFX (aturan 43). Nama file adalah fungsi yang Irfan tetapkan; kolom "terdengar" adalah label earshot (z ≥ 2,5 = jelas/plausible). Di Mac: `~/Downloads/SFXIrfan`; di PC: `/home/irfan/sfx/SFXIrfan` (alias `~/work/sfx/SFXIrfan`). Larangan dari `~/sfx/README.md`: tidak ada file kayu/wooden, tidak memakai `rope-creak-01`.
+Sumber pertama untuk SFX (aturan 43), **bukan allowlist**. Nama file adalah fungsi yang Irfan tetapkan; kolom "terdengar" adalah label earshot (z ≥ 2,5 = jelas/plausible). Di Mac: `~/Downloads/SFXIrfan`; di PC: `/home/irfan/sfx/SFXIrfan` (alias `~/work/sfx/SFXIrfan`). `sfx_density.py` tetap menolak kayu/woodblock/thock/felt, koin/logam, kartun/langkah kaki, laser/sci-fi/8-bit, white/pink noise atau sinus sintetis, `rope-creak`, dan bank `sfx_render`. Karena itu `Lasertransision.mp3` dan `ES_Scifi, Computer, Short Beeps, Glitch 02` berstatus **DILARANG**, walaupun file-nya ada di folder (Irfan 16 Nov).
 
 | File | Durasi | Terdengar | Pakai untuk |
 |---|---|---|---|
@@ -14,7 +14,7 @@ Sumber pertama untuk SFX (aturan 43). Nama file adalah fungsi yang Irfan tetapka
 | `Woosh.mp3` | 2,5 | fast/soft air whoosh | gerak kamera sedang |
 | `Wooshcameramovementtransisi.mp3` | 3,5 | fast whoosh / swoosh lewat | gerak kamera besar, transisi |
 | `scaningfast.mp3` | 1,0 | whoosh pendek | pan/scan cepat |
-| `Lasertransision.mp3` | 0,4 | triangle / glass ting | ting penutup, transisi halus |
+| `Lasertransision.mp3` | 0,4 | triangle / glass ting | **DILARANG — jangan dipakai** (laser masuk palet terlarang) |
 | `Scanning dan gerak kurva.mp3` | 2,4 | digital glitch / stutter | garis/kurva bergerak, scan |
 | `basmenyebar.mp3` | 6,3 | deep cinematic boom / sub | judul, jawaban hook, puncak |
 | `documenter.mp3` | 16,6 | kertas/kain bergemerisik (kepakan kuat ±3,1 dtk) | foto/cetakan kertas mendarat, dokumen |
@@ -30,7 +30,7 @@ Sumber pertama untuk SFX (aturan 43). Nama file adalah fungsi yang Irfan tetapka
 | `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` | 3,6 | sub bass drop | twist, punchline |
 | `ES_Swooshes, Whoosh, Big, Cinematic` | 3,5 | whoosh besar | whip pan |
 | `ES_User Interface, Glitch, Glitch Databend 04` | 2,2 | digital glitch | transisi mosaik/glitch antarbabak |
-| `ES_Scifi, Computer, Short Beeps, Glitch 02` | 0,8 | glitch beep | UI sci-fi |
+| `ES_Scifi, Computer, Short Beeps, Glitch 02` | 0,8 | glitch beep | **DILARANG — jangan dipakai** (sci-fi masuk palet terlarang) |
 | `ES_User Interface, Click, Pops, Glass, UI, Pops` | 0,7 | glass ting / kalimba | like, pop lembut |
 | `ES_User Interface, Click, UI Buttons, Confirm, Menu` | 0,6 | ding pendek | konfirmasi UI |
 | `ES_User Interface, Alert, Notification, Message, Text` | 1,1 | success chime | pesan masuk |
