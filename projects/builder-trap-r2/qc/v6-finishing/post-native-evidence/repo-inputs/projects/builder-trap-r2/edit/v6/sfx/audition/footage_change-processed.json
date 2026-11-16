@@ -1,0 +1,386 @@
+{
+ "path": "edit/v6/sfx/footage_change.wav",
+ "start": null,
+ "end": null,
+ "duration": 0.27,
+ "measurements": {
+  "duration": 0.27,
+  "peak_dbfs": -20.0,
+  "true_peak_dbtp": -20.0,
+  "rms_dbfs": -55.4,
+  "attack_ms": 0.0,
+  "decay_ms": 15.0,
+  "brightness_hz": 12017,
+  "bandwidth_hz": 20480,
+  "flatness": 0.2264,
+  "harmonic_ratio": 0.0,
+  "onset_count": 1,
+  "onsets_per_s": 3.7,
+  "width": "mono",
+  "digital_silence_frac": 0.5311
+ },
+ "shape": "short transient (attack 0 ms, decays in 15 ms)",
+ "top_tags": [
+  {
+   "term": "a single mechanical keyboard key press",
+   "category": "keyboard",
+   "z": 3.32,
+   "cosine": 0.407,
+   "verdict": "strong"
+  },
+  {
+   "term": "a soft key release click",
+   "category": "keyboard",
+   "z": 3.16,
+   "cosine": 0.352,
+   "verdict": "strong"
+  },
+  {
+   "term": "a light switch flicked",
+   "category": "ui",
+   "z": 2.7,
+   "cosine": 0.35,
+   "verdict": "plausible"
+  },
+  {
+   "term": "a toggle switch click",
+   "category": "ui",
+   "z": 2.57,
+   "cosine": 0.35,
+   "verdict": "plausible"
+  },
+  {
+   "term": "a scroll wheel tick",
+   "category": "ui",
+   "z": 2.39,
+   "cosine": 0.327,
+   "verdict": "weak"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "children laughing",
+   "category": "voice",
+   "z": 1.21,
+   "cosine": 0.074
+  },
+  {
+   "term": "crisp hi-hats",
+   "category": "instruments",
+   "z": 1.0,
+   "cosine": 0.17
+  },
+  {
+   "term": "a woman speaking",
+   "category": "voice",
+   "z": 1.0,
+   "cosine": 0.042
+  },
+  {
+   "term": "a man speaking",
+   "category": "voice",
+   "z": 0.98,
+   "cosine": 0.027
+  },
+  {
+   "term": "a crowd talking",
+   "category": "voice",
+   "z": 0.96,
+   "cosine": 0.02
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "a stutter glitch transition",
+    "z": 1.3,
+    "cosine": 0.242
+   },
+   {
+    "term": "a short swish",
+    "z": 1.03,
+    "cosine": 0.208
+   },
+   {
+    "term": "a quick swipe",
+    "z": 0.76,
+    "cosine": 0.169
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a hand clap",
+    "z": 1.74,
+    "cosine": 0.269
+   },
+   {
+    "term": "a soft thump",
+    "z": 1.18,
+    "cosine": 0.131
+   },
+   {
+    "term": "a kick drum",
+    "z": 1.15,
+    "cosine": 0.146
+   }
+  ],
+  "ui": [
+   {
+    "term": "a light switch flicked",
+    "z": 2.7,
+    "cosine": 0.35
+   },
+   {
+    "term": "a toggle switch click",
+    "z": 2.57,
+    "cosine": 0.35
+   },
+   {
+    "term": "a scroll wheel tick",
+    "z": 2.39,
+    "cosine": 0.327
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "a single mechanical keyboard key press",
+    "z": 3.32,
+    "cosine": 0.407
+   },
+   {
+    "term": "a soft key release click",
+    "z": 3.16,
+    "cosine": 0.352
+   },
+   {
+    "term": "an enter key press",
+    "z": 1.58,
+    "cosine": 0.284
+   }
+  ],
+  "foley": [
+   {
+    "term": "a pen click",
+    "z": 2.3,
+    "cosine": 0.32
+   },
+   {
+    "term": "a latch clicking shut",
+    "z": 2.0,
+    "cosine": 0.251
+   },
+   {
+    "term": "a plastic click",
+    "z": 1.99,
+    "cosine": 0.288
+   }
+  ],
+  "water": [
+   {
+    "term": "a water drop",
+    "z": 1.25,
+    "cosine": 0.233
+   },
+   {
+    "term": "a dripping tap",
+    "z": 1.14,
+    "cosine": 0.198
+   },
+   {
+    "term": "a waterfall",
+    "z": 0.78,
+    "cosine": 0.168
+   }
+  ],
+  "nature": [
+   {
+    "term": "insects buzzing",
+    "z": 0.66,
+    "cosine": 0.114
+   },
+   {
+    "term": "a branch snapping",
+    "z": 0.2,
+    "cosine": 0.098
+   },
+   {
+    "term": "a horse galloping",
+    "z": -0.24,
+    "cosine": 0.024
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a triangle hit",
+    "z": 2.01,
+    "cosine": 0.213
+   },
+   {
+    "term": "a small bell",
+    "z": 0.76,
+    "cosine": 0.156
+   },
+   {
+    "term": "a glass ting",
+    "z": 0.69,
+    "cosine": 0.158
+   }
+  ],
+  "ambience": [
+   {
+    "term": "crickets at night",
+    "z": 1.85,
+    "cosine": 0.184
+   },
+   {
+    "term": "a computer fan hum",
+    "z": 1.69,
+    "cosine": 0.185
+   },
+   {
+    "term": "an electrical hum",
+    "z": 1.34,
+    "cosine": 0.144
+   }
+  ],
+  "everyday": [
+   {
+    "term": "a clock ticking",
+    "z": 2.17,
+    "cosine": 0.266
+   },
+   {
+    "term": "a microwave beep",
+    "z": 1.38,
+    "cosine": 0.183
+   },
+   {
+    "term": "a bird chirping",
+    "z": 1.33,
+    "cosine": 0.125
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "classical string quartet",
+    "z": 0.09,
+    "cosine": 0.069
+   },
+   {
+    "term": "lo-fi hip hop beat",
+    "z": -0.1,
+    "cosine": 0.112
+   },
+   {
+    "term": "acoustic guitar music",
+    "z": -0.11,
+    "cosine": 0.107
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "calm and relaxing music",
+    "z": 0.08,
+    "cosine": 0.093
+   },
+   {
+    "term": "playful and quirky music",
+    "z": -0.5,
+    "cosine": 0.091
+   },
+   {
+    "term": "dreamy and ethereal music",
+    "z": -0.62,
+    "cosine": 0.037
+   }
+  ],
+  "instruments": [
+   {
+    "term": "crisp hi-hats",
+    "z": 1.0,
+    "cosine": 0.17
+   },
+   {
+    "term": "a plucked synth arpeggio",
+    "z": 0.92,
+    "cosine": 0.218
+   },
+   {
+    "term": "a punchy kick drum pattern",
+    "z": 0.82,
+    "cosine": 0.091
+   }
+  ],
+  "voice": [
+   {
+    "term": "children laughing",
+    "z": 1.21,
+    "cosine": 0.074
+   },
+   {
+    "term": "a woman speaking",
+    "z": 1.0,
+    "cosine": 0.042
+   },
+   {
+    "term": "a man speaking",
+    "z": 0.98,
+    "cosine": 0.027
+   }
+  ],
+  "quality": [
+   {
+    "term": "a tight snappy sound",
+    "z": 0.79,
+    "cosine": 0.156
+   },
+   {
+    "term": "a dry close sound",
+    "z": 0.68,
+    "cosine": 0.235
+   },
+   {
+    "term": "a quiet sound",
+    "z": 0.63,
+    "cosine": 0.082
+   }
+  ],
+  "production": [
+   {
+    "term": "a cheap synthesized beep",
+    "z": 1.5,
+    "cosine": 0.178
+   },
+   {
+    "term": "white noise",
+    "z": 1.01,
+    "cosine": 0.132
+   },
+   {
+    "term": "a field recording outdoors",
+    "z": 0.99,
+    "cosine": 0.121
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Finger snapping",
+   "p": 0.147
+  },
+  {
+   "label": "Tick",
+   "p": 0.113
+  },
+  {
+   "label": "Tick-tock",
+   "p": 0.068
+  },
+  {
+   "label": "Sound effect",
+   "p": 0.067
+  }
+ ],
+ "character": [],
+ "summary": "0.27 s short transient (attack 0 ms, decays in 15 ms). Sounds most like: a single mechanical keyboard key press (z +3.3), a soft key release click (z +3.1), a light switch flicked (z +2.7) [clear reading]. AudioSet tagger unsure (Finger snapping 0.15, Tick 0.11, Tick-tock 0.07). peak -20.0 dBFS, brightness 12.0 kHz, bandwidth 20.5 kHz, mono."
+}

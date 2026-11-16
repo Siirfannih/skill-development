@@ -1,0 +1,22 @@
+{
+  "command": [
+    "node",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion/node_modules/@remotion/cli/remotion-cli.js",
+    "render",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/.bundle",
+    "Main",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/out/v6-chunks/f2100-2399.mp4",
+    "--frames",
+    "2100-2399",
+    "--concurrency=2",
+    "--muted",
+    "--crf=18",
+    "--log=error"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/remotion",
+  "exit_code": 0,
+  "started_ns": 1794834699758047651,
+  "ended_ns": 1794835296831233990,
+  "log": "qc/v6-finishing/logs/final-chunk-2100.log",
+  "log_sha256": "0801201dad17f7477eeb383a4be2b16db97740da189977ed4351380223a34462"
+}

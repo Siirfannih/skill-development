@@ -1,0 +1,417 @@
+{
+ "path": "edit/v6/sfx/audition/doc_alt2.wav",
+ "start": null,
+ "end": null,
+ "duration": 0.5,
+ "measurements": {
+  "duration": 0.5,
+  "peak_dbfs": -2.5,
+  "true_peak_dbtp": -2.4,
+  "rms_dbfs": -20.3,
+  "lufs": -19.2,
+  "attack_ms": 223.0,
+  "brightness_hz": 5728,
+  "bandwidth_hz": 20480,
+  "flatness": 0.0355,
+  "harmonic_ratio": 0.241,
+  "onset_count": 4,
+  "onsets_per_s": 8.0,
+  "width": "mono",
+  "digital_silence_frac": 0.0448
+ },
+ "shape": "busy, 8.0 onsets/s (attack 223 ms)",
+ "top_tags": [
+  {
+   "term": "a record scratch",
+   "category": "transitions",
+   "z": 3.1,
+   "cosine": 0.338,
+   "verdict": "strong"
+  },
+  {
+   "term": "an old typewriter",
+   "category": "keyboard",
+   "z": 2.49,
+   "cosine": 0.244,
+   "verdict": "weak"
+  },
+  {
+   "term": "digging in soil",
+   "category": "nature",
+   "z": 2.27,
+   "cosine": 0.156,
+   "verdict": "weak"
+  },
+  {
+   "term": "a spacebar press",
+   "category": "keyboard",
+   "z": 2.23,
+   "cosine": 0.275,
+   "verdict": "weak"
+  },
+  {
+   "term": "a camera shutter click",
+   "category": "ui",
+   "z": 2.19,
+   "cosine": 0.241,
+   "verdict": "weak"
+  },
+  {
+   "term": "a punchy impact hit",
+   "category": "impacts",
+   "z": 2.13,
+   "cosine": 0.137,
+   "verdict": "weak"
+  },
+  {
+   "term": "a tape stop slowing down",
+   "category": "transitions",
+   "z": 2.01,
+   "cosine": 0.23,
+   "verdict": "weak"
+  },
+  {
+   "term": "an enter key press",
+   "category": "keyboard",
+   "z": 1.99,
+   "cosine": 0.263,
+   "verdict": "no match"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "crisp hi-hats",
+   "category": "instruments",
+   "z": 1.57,
+   "cosine": 0.152
+  },
+  {
+   "term": "a snare roll",
+   "category": "instruments",
+   "z": 1.22,
+   "cosine": 0.068
+  },
+  {
+   "term": "glitch hop music",
+   "category": "music_genre",
+   "z": 1.1,
+   "cosine": 0.141
+  },
+  {
+   "term": "a punchy kick drum pattern",
+   "category": "instruments",
+   "z": 0.98,
+   "cosine": 0.021
+  },
+  {
+   "term": "an acoustic guitar",
+   "category": "instruments",
+   "z": 0.53,
+   "cosine": 0.071
+  },
+  {
+   "term": "chiptune video game music",
+   "category": "music_genre",
+   "z": 0.34,
+   "cosine": 0.045
+  },
+  {
+   "term": "a bass guitar",
+   "category": "instruments",
+   "z": 0.16,
+   "cosine": 0.001
+  },
+  {
+   "term": "a deep sub bass",
+   "category": "instruments",
+   "z": 0.14,
+   "cosine": -0.015
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "a record scratch",
+    "z": 3.1,
+    "cosine": 0.338
+   },
+   {
+    "term": "a tape stop slowing down",
+    "z": 2.01,
+    "cosine": 0.23
+   },
+   {
+    "term": "a stutter glitch transition",
+    "z": 1.85,
+    "cosine": 0.229
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a punchy impact hit",
+    "z": 2.13,
+    "cosine": 0.137
+   },
+   {
+    "term": "a heavy thud",
+    "z": 1.78,
+    "cosine": 0.126
+   },
+   {
+    "term": "a body falling on the ground",
+    "z": 1.75,
+    "cosine": 0.126
+   }
+  ],
+  "ui": [
+   {
+    "term": "a camera shutter click",
+    "z": 2.19,
+    "cosine": 0.241
+   },
+   {
+    "term": "a digital glitch",
+    "z": 1.93,
+    "cosine": 0.22
+   },
+   {
+    "term": "an error buzz",
+    "z": 1.51,
+    "cosine": 0.123
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "an old typewriter",
+    "z": 2.49,
+    "cosine": 0.244
+   },
+   {
+    "term": "a spacebar press",
+    "z": 2.23,
+    "cosine": 0.275
+   },
+   {
+    "term": "an enter key press",
+    "z": 1.99,
+    "cosine": 0.263
+   }
+  ],
+  "foley": [
+   {
+    "term": "a zipper",
+    "z": 1.99,
+    "cosine": 0.201
+   },
+   {
+    "term": "a box lid closing",
+    "z": 1.93,
+    "cosine": 0.212
+   },
+   {
+    "term": "a squishy wet squelch",
+    "z": 1.9,
+    "cosine": 0.143
+   }
+  ],
+  "water": [
+   {
+    "term": "an object plunging into water",
+    "z": 0.7,
+    "cosine": 0.059
+   },
+   {
+    "term": "a liquid bloop",
+    "z": 0.41,
+    "cosine": 0.05
+   },
+   {
+    "term": "bubbles underwater",
+    "z": 0.27,
+    "cosine": -0.022
+   }
+  ],
+  "nature": [
+   {
+    "term": "digging in soil",
+    "z": 2.27,
+    "cosine": 0.156
+   },
+   {
+    "term": "an apple falling on grass",
+    "z": 1.71,
+    "cosine": 0.148
+   },
+   {
+    "term": "a small animal running through grass",
+    "z": 1.45,
+    "cosine": 0.114
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a triangle hit",
+    "z": -0.11,
+    "cosine": -0.086
+   },
+   {
+    "term": "a kalimba note",
+    "z": -0.14,
+    "cosine": -0.038
+   },
+   {
+    "term": "a magic sparkle chime",
+    "z": -0.38,
+    "cosine": -0.028
+   }
+  ],
+  "ambience": [
+   {
+    "term": "a crackling fire",
+    "z": 1.11,
+    "cosine": 0.113
+   },
+   {
+    "term": "an electrical hum",
+    "z": 0.48,
+    "cosine": -0.029
+   },
+   {
+    "term": "a computer fan hum",
+    "z": 0.15,
+    "cosine": -0.058
+   }
+  ],
+  "everyday": [
+   {
+    "term": "a printer printing",
+    "z": 1.82,
+    "cosine": 0.162
+   },
+   {
+    "term": "a microwave beep",
+    "z": 1.21,
+    "cosine": 0.089
+   },
+   {
+    "term": "a basketball bouncing",
+    "z": 1.13,
+    "cosine": 0.114
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "glitch hop music",
+    "z": 1.1,
+    "cosine": 0.141
+   },
+   {
+    "term": "chiptune video game music",
+    "z": 0.34,
+    "cosine": 0.045
+   },
+   {
+    "term": "hip hop beat with heavy bass",
+    "z": 0.08,
+    "cosine": -0.04
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "futuristic music",
+    "z": -0.13,
+    "cosine": 0.009
+   },
+   {
+    "term": "aggressive music",
+    "z": -0.67,
+    "cosine": -0.09
+   },
+   {
+    "term": "suspenseful build-up music",
+    "z": -0.79,
+    "cosine": -0.071
+   }
+  ],
+  "instruments": [
+   {
+    "term": "crisp hi-hats",
+    "z": 1.57,
+    "cosine": 0.152
+   },
+   {
+    "term": "a snare roll",
+    "z": 1.22,
+    "cosine": 0.068
+   },
+   {
+    "term": "a punchy kick drum pattern",
+    "z": 0.98,
+    "cosine": 0.021
+   }
+  ],
+  "voice": [
+   {
+    "term": "a man speaking",
+    "z": -0.12,
+    "cosine": -0.183
+   },
+   {
+    "term": "a man shouting",
+    "z": -0.22,
+    "cosine": -0.198
+   },
+   {
+    "term": "a person breathing",
+    "z": -0.27,
+    "cosine": -0.107
+   }
+  ],
+  "quality": [
+   {
+    "term": "a punchy sound",
+    "z": 1.6,
+    "cosine": 0.148
+   },
+   {
+    "term": "a tight snappy sound",
+    "z": 1.42,
+    "cosine": 0.14
+   },
+   {
+    "term": "a harsh sound",
+    "z": 0.71,
+    "cosine": 0.049
+   }
+  ],
+  "production": [
+   {
+    "term": "an 8-bit sound effect",
+    "z": 2.27,
+    "cosine": 0.24
+   },
+   {
+    "term": "a distorted clipped recording",
+    "z": 2.24,
+    "cosine": 0.202
+   },
+   {
+    "term": "a low bitrate mp3 with artifacts",
+    "z": 1.9,
+    "cosine": 0.21
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Breaking",
+   "p": 0.28
+  },
+  {
+   "label": "Crack",
+   "p": 0.122
+  }
+ ],
+ "character": [],
+ "summary": "0.50 s busy, 8.0 onsets/s (attack 223 ms). Sounds most like: a record scratch (z +3.1), an old typewriter (z +2.4), digging in soil (z +2.2) [clear reading]. Other readings: a camera shutter click (ui, z +2.1), a punchy impact hit (impacts, z +2.1). AudioSet: Breaking 0.28, Crack 0.12. peak -2.5 dBFS, -19.2 LUFS, brightness 5.7 kHz, bandwidth 20.5 kHz, mono."
+}

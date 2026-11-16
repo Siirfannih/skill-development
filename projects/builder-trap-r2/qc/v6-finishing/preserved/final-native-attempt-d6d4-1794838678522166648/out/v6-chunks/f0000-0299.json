@@ -1,0 +1,14 @@
+{
+  "source_snapshot_sha256": "4965f416e2deea839d85256419364b562b49721cd996b33fadfa15e16f8834ac",
+  "readiness_sha256": "0534167061e9c3a73c525987397b63f49e8ea768ba6aac431595d9cb8e6cd877",
+  "chunk": {
+    "path": "out/v6-chunks/f0000-0299.mp4",
+    "start": 0,
+    "end": 299,
+    "sha256": "e3ff7f4527c98daff0c5383440bbe7b4bba4c19a8949fa31bf92e16f3da0decb",
+    "frames": 300
+  },
+  "crf": 18,
+  "muted": true,
+  "render_log": "qc/v6-finishing/logs/final-chunk-0000.json"
+}

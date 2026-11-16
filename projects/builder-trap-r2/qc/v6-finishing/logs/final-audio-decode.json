@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/usr/bin/ffmpeg",
+    "-v",
+    "error",
+    "-threads",
+    "2",
+    "-i",
+    "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/out/builder-trap-r2_v6.mp4",
+    "-vn",
+    "-c:a",
+    "pcm_f32le",
+    "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/tmp/finishing-v6/final-aac-decoded.wav"
+  ],
+  "cwd": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
+  "exit_code": 0,
+  "started_ns": 1794839372908454026,
+  "ended_ns": 1794839373391113417,
+  "log": "qc/v6-finishing/logs/final-audio-decode.log",
+  "log_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+}

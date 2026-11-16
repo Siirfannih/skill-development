@@ -1,0 +1,384 @@
+{
+ "path": "/home/irfan/sfx/SFXIrfan/Kinetictypography(gunakansecaraacak).mp3",
+ "start": null,
+ "end": null,
+ "duration": 1.237,
+ "measurements": {
+  "duration": 1.237,
+  "peak_dbfs": -3.8,
+  "true_peak_dbtp": -3.2,
+  "rms_dbfs": -33.1,
+  "lufs": -28.8,
+  "attack_ms": 22.0,
+  "decay_ms": 21.0,
+  "brightness_hz": 11595,
+  "bandwidth_hz": 20480,
+  "noise_floor_dbfs": -200.0,
+  "flatness": 0.1904,
+  "harmonic_ratio": 0.0,
+  "onset_count": 3,
+  "onsets_per_s": 2.43,
+  "width": "side/mid -6 dB",
+  "digital_silence_frac": 0.7921
+ },
+ "shape": "short one-shot (attack 22 ms, decays in 21 ms)",
+ "top_tags": [
+  {
+   "term": "a squishy wet squelch",
+   "category": "foley",
+   "z": 3.01,
+   "cosine": 0.22,
+   "verdict": "strong"
+  },
+  {
+   "term": "a scroll wheel tick",
+   "category": "ui",
+   "z": 2.74,
+   "cosine": 0.276,
+   "verdict": "plausible"
+  },
+  {
+   "term": "ice cubes in a glass",
+   "category": "water",
+   "z": 2.44,
+   "cosine": 0.201,
+   "verdict": "weak"
+  },
+  {
+   "term": "a clock ticking",
+   "category": "everyday",
+   "z": 2.17,
+   "cosine": 0.182,
+   "verdict": "weak"
+  },
+  {
+   "term": "a liquid bloop",
+   "category": "water",
+   "z": 2.17,
+   "cosine": 0.221,
+   "verdict": "weak"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "crisp hi-hats",
+   "category": "instruments",
+   "z": 2.2,
+   "cosine": 0.193
+  },
+  {
+   "term": "a punchy kick drum pattern",
+   "category": "instruments",
+   "z": 1.97,
+   "cosine": 0.109
+  },
+  {
+   "term": "glitch hop music",
+   "category": "music_genre",
+   "z": 1.92,
+   "cosine": 0.211
+  },
+  {
+   "term": "minimal electronic music",
+   "category": "music_genre",
+   "z": 1.56,
+   "cosine": 0.203
+  },
+  {
+   "term": "a marimba",
+   "category": "instruments",
+   "z": 1.41,
+   "cosine": 0.183
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "a stutter glitch transition",
+    "z": 1.63,
+    "cosine": 0.188
+   },
+   {
+    "term": "a quick swipe",
+    "z": 1.2,
+    "cosine": 0.125
+   },
+   {
+    "term": "a short swish",
+    "z": 0.91,
+    "cosine": 0.114
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a kick drum",
+    "z": 1.18,
+    "cosine": 0.065
+   },
+   {
+    "term": "a punchy impact hit",
+    "z": 0.39,
+    "cosine": -0.048
+   },
+   {
+    "term": "a hand clap",
+    "z": 0.16,
+    "cosine": 0.044
+   }
+  ],
+  "ui": [
+   {
+    "term": "a scroll wheel tick",
+    "z": 2.74,
+    "cosine": 0.276
+   },
+   {
+    "term": "a toggle switch click",
+    "z": 1.96,
+    "cosine": 0.212
+   },
+   {
+    "term": "a digital glitch",
+    "z": 1.92,
+    "cosine": 0.195
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "a soft key release click",
+    "z": 1.67,
+    "cosine": 0.135
+   },
+   {
+    "term": "an enter key press",
+    "z": 1.62,
+    "cosine": 0.204
+   },
+   {
+    "term": "a single mechanical keyboard key press",
+    "z": 1.2,
+    "cosine": 0.135
+   }
+  ],
+  "foley": [
+   {
+    "term": "a squishy wet squelch",
+    "z": 3.01,
+    "cosine": 0.22
+   },
+   {
+    "term": "a can opening",
+    "z": 1.99,
+    "cosine": 0.21
+   },
+   {
+    "term": "high heels walking",
+    "z": 1.97,
+    "cosine": 0.09
+   }
+  ],
+  "water": [
+   {
+    "term": "ice cubes in a glass",
+    "z": 2.44,
+    "cosine": 0.201
+   },
+   {
+    "term": "a liquid bloop",
+    "z": 2.17,
+    "cosine": 0.221
+   },
+   {
+    "term": "bubbles underwater",
+    "z": 2.15,
+    "cosine": 0.163
+   }
+  ],
+  "nature": [
+   {
+    "term": "a horse galloping",
+    "z": 1.52,
+    "cosine": 0.097
+   },
+   {
+    "term": "digging in soil",
+    "z": 0.99,
+    "cosine": 0.009
+   },
+   {
+    "term": "insects buzzing",
+    "z": -0.11,
+    "cosine": -0.038
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a kalimba note",
+    "z": 2.15,
+    "cosine": 0.194
+   },
+   {
+    "term": "a glass ting",
+    "z": 0.83,
+    "cosine": 0.087
+   },
+   {
+    "term": "a music box melody",
+    "z": 0.22,
+    "cosine": 0.044
+   }
+  ],
+  "ambience": [
+   {
+    "term": "a city street with traffic",
+    "z": 1.06,
+    "cosine": -0.005
+   },
+   {
+    "term": "heavy rain",
+    "z": 0.34,
+    "cosine": 0.054
+   },
+   {
+    "term": "an electrical hum",
+    "z": 0.29,
+    "cosine": -0.033
+   }
+  ],
+  "everyday": [
+   {
+    "term": "a clock ticking",
+    "z": 2.17,
+    "cosine": 0.182
+   },
+   {
+    "term": "a heartbeat",
+    "z": 1.43,
+    "cosine": 0.113
+   },
+   {
+    "term": "an alarm clock beeping",
+    "z": 1.29,
+    "cosine": 0.079
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "glitch hop music",
+    "z": 1.92,
+    "cosine": 0.211
+   },
+   {
+    "term": "minimal electronic music",
+    "z": 1.56,
+    "cosine": 0.203
+   },
+   {
+    "term": "funk music",
+    "z": 1.2,
+    "cosine": 0.13
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "playful and quirky music",
+    "z": 0.75,
+    "cosine": 0.118
+   },
+   {
+    "term": "futuristic music",
+    "z": 0.37,
+    "cosine": 0.082
+   },
+   {
+    "term": "dark and tense music",
+    "z": -0.47,
+    "cosine": -0.011
+   }
+  ],
+  "instruments": [
+   {
+    "term": "crisp hi-hats",
+    "z": 2.2,
+    "cosine": 0.193
+   },
+   {
+    "term": "a punchy kick drum pattern",
+    "z": 1.97,
+    "cosine": 0.109
+   },
+   {
+    "term": "a marimba",
+    "z": 1.41,
+    "cosine": 0.183
+   }
+  ],
+  "voice": [
+   {
+    "term": "someone whispering",
+    "z": 0.68,
+    "cosine": -0.015
+   },
+   {
+    "term": "a person coughing",
+    "z": 0.56,
+    "cosine": -0.029
+   },
+   {
+    "term": "people laughing",
+    "z": 0.21,
+    "cosine": -0.137
+   }
+  ],
+  "quality": [
+   {
+    "term": "a dry close sound",
+    "z": 1.25,
+    "cosine": 0.202
+   },
+   {
+    "term": "a tight snappy sound",
+    "z": 1.24,
+    "cosine": 0.112
+   },
+   {
+    "term": "a punchy sound",
+    "z": 0.67,
+    "cosine": 0.048
+   }
+  ],
+  "production": [
+   {
+    "term": "a cheap synthesized beep",
+    "z": 1.49,
+    "cosine": 0.094
+   },
+   {
+    "term": "a low bitrate mp3 with artifacts",
+    "z": 1.4,
+    "cosine": 0.142
+   },
+   {
+    "term": "an 8-bit sound effect",
+    "z": 1.28,
+    "cosine": 0.12
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Tick",
+   "p": 0.221
+  },
+  {
+   "label": "Sound effect",
+   "p": 0.093
+  },
+  {
+   "label": "Tick-tock",
+   "p": 0.079
+  }
+ ],
+ "character": [],
+ "summary": "1.24 s short one-shot (attack 22 ms, decays in 21 ms). Sounds most like: a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4) [clear reading]. Other readings: a clock ticking (everyday, z +2.1). AudioSet: Tick 0.22, Sound effect 0.09, Tick-tock 0.08. peak -3.8 dBFS, -28.8 LUFS, brightness 11.6 kHz, bandwidth 20.5 kHz, digital silence between sounds, side/mid -6 dB."
+}

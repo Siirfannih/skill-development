@@ -1,0 +1,384 @@
+{
+ "path": "/home/irfan/sfx/SFXIrfan/Woosh.mp3",
+ "start": null,
+ "end": null,
+ "duration": 2.478,
+ "measurements": {
+  "duration": 2.478,
+  "peak_dbfs": -8.0,
+  "true_peak_dbtp": -8.0,
+  "rms_dbfs": -25.2,
+  "lufs": -23.8,
+  "attack_ms": 187.0,
+  "decay_ms": 254.0,
+  "brightness_hz": 1043,
+  "bandwidth_hz": 10240,
+  "noise_floor_dbfs": -115.1,
+  "flatness": 0.0,
+  "harmonic_ratio": 0.38,
+  "onset_count": 5,
+  "onsets_per_s": 2.02,
+  "width": "side/mid -1 dB",
+  "digital_silence_frac": 0.1194
+ },
+ "shape": "busy, 2.0 onsets/s (attack 187 ms, decays in 254 ms)",
+ "top_tags": [
+  {
+   "term": "a fast whoosh",
+   "category": "transitions",
+   "z": 4.75,
+   "cosine": 0.451,
+   "verdict": "strong"
+  },
+  {
+   "term": "a soft air whoosh",
+   "category": "transitions",
+   "z": 4.15,
+   "cosine": 0.38,
+   "verdict": "strong"
+  },
+  {
+   "term": "a deep cinematic whoosh",
+   "category": "transitions",
+   "z": 3.89,
+   "cosine": 0.356,
+   "verdict": "strong"
+  },
+  {
+   "term": "a short swish",
+   "category": "transitions",
+   "z": 3.83,
+   "cosine": 0.41,
+   "verdict": "strong"
+  },
+  {
+   "term": "a stick swung fast through the air",
+   "category": "transitions",
+   "z": 3.8,
+   "cosine": 0.353,
+   "verdict": "strong"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "a punchy kick drum pattern",
+   "category": "instruments",
+   "z": 1.34,
+   "cosine": 0.054
+  },
+  {
+   "term": "funk music",
+   "category": "music_genre",
+   "z": 1.29,
+   "cosine": 0.138
+  },
+  {
+   "term": "a deep sub bass",
+   "category": "instruments",
+   "z": 1.26,
+   "cosine": 0.107
+  },
+  {
+   "term": "a woman speaking",
+   "category": "voice",
+   "z": 0.96,
+   "cosine": -0.049
+  },
+  {
+   "term": "a cymbal roll",
+   "category": "instruments",
+   "z": 0.96,
+   "cosine": 0.069
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "a fast whoosh",
+    "z": 4.75,
+    "cosine": 0.451
+   },
+   {
+    "term": "a soft air whoosh",
+    "z": 4.15,
+    "cosine": 0.38
+   },
+   {
+    "term": "a deep cinematic whoosh",
+    "z": 3.89,
+    "cosine": 0.356
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a deep cinematic boom",
+    "z": 2.05,
+    "cosine": 0.151
+   },
+   {
+    "term": "a punchy impact hit",
+    "z": 1.88,
+    "cosine": 0.095
+   },
+   {
+    "term": "a cinematic hit with a long tail",
+    "z": 1.75,
+    "cosine": 0.107
+   }
+  ],
+  "ui": [
+   {
+    "term": "a phone vibration buzz",
+    "z": 1.44,
+    "cosine": 0.093
+   },
+   {
+    "term": "a crisp interface click",
+    "z": 0.6,
+    "cosine": 0.085
+   },
+   {
+    "term": "a soft UI button tap",
+    "z": 0.59,
+    "cosine": 0.031
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "a single mechanical keyboard key press",
+    "z": 0.62,
+    "cosine": 0.075
+   },
+   {
+    "term": "a soft key release click",
+    "z": 0.4,
+    "cosine": 0.01
+   },
+   {
+    "term": "an old typewriter",
+    "z": 0.36,
+    "cosine": 0.004
+   }
+  ],
+  "foley": [
+   {
+    "term": "a cork pop",
+    "z": 1.32,
+    "cosine": 0.157
+   },
+   {
+    "term": "a suction cup pop",
+    "z": 1.29,
+    "cosine": 0.159
+   },
+   {
+    "term": "a mouth pop",
+    "z": 1.16,
+    "cosine": 0.127
+   }
+  ],
+  "water": [
+   {
+    "term": "an object plunging into water",
+    "z": 0.23,
+    "cosine": 0.01
+   },
+   {
+    "term": "being underwater",
+    "z": 0.1,
+    "cosine": -0.021
+   },
+   {
+    "term": "a water drop",
+    "z": -0.3,
+    "cosine": -0.011
+   }
+  ],
+  "nature": [
+   {
+    "term": "a bee flying by",
+    "z": 0.9,
+    "cosine": 0.043
+   },
+   {
+    "term": "an apple falling on grass",
+    "z": 0.64,
+    "cosine": 0.025
+   },
+   {
+    "term": "something falling into bushes",
+    "z": 0.51,
+    "cosine": 0.014
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a singing bowl",
+    "z": 0.04,
+    "cosine": -0.079
+   },
+   {
+    "term": "a triangle hit",
+    "z": -0.14,
+    "cosine": -0.081
+   },
+   {
+    "term": "a wine glass ring",
+    "z": -0.26,
+    "cosine": -0.089
+   }
+  ],
+  "ambience": [
+   {
+    "term": "wind blowing",
+    "z": 0.95,
+    "cosine": 0.02
+   },
+   {
+    "term": "an office ambience",
+    "z": 0.63,
+    "cosine": -0.031
+   },
+   {
+    "term": "a dog barking",
+    "z": 0.54,
+    "cosine": -0.04
+   }
+  ],
+  "everyday": [
+   {
+    "term": "a spray can hissing",
+    "z": 1.9,
+    "cosine": 0.137
+   },
+   {
+    "term": "a sword being drawn",
+    "z": 1.62,
+    "cosine": 0.108
+   },
+   {
+    "term": "a heartbeat",
+    "z": 1.19,
+    "cosine": 0.091
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "funk music",
+    "z": 1.29,
+    "cosine": 0.138
+   },
+   {
+    "term": "jazz music",
+    "z": 0.7,
+    "cosine": 0.05
+   },
+   {
+    "term": "tech house music",
+    "z": 0.44,
+    "cosine": 0.093
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "futuristic music",
+    "z": 0.18,
+    "cosine": 0.051
+   },
+   {
+    "term": "playful and quirky music",
+    "z": 0.11,
+    "cosine": 0.046
+   },
+   {
+    "term": "suspenseful build-up music",
+    "z": 0.04,
+    "cosine": 0.031
+   }
+  ],
+  "instruments": [
+   {
+    "term": "a punchy kick drum pattern",
+    "z": 1.34,
+    "cosine": 0.054
+   },
+   {
+    "term": "a deep sub bass",
+    "z": 1.26,
+    "cosine": 0.107
+   },
+   {
+    "term": "a cymbal roll",
+    "z": 0.96,
+    "cosine": 0.069
+   }
+  ],
+  "voice": [
+   {
+    "term": "a woman speaking",
+    "z": 0.96,
+    "cosine": -0.049
+   },
+   {
+    "term": "a person breathing",
+    "z": 0.71,
+    "cosine": 0.005
+   },
+   {
+    "term": "a man speaking",
+    "z": 0.66,
+    "cosine": -0.093
+   }
+  ],
+  "quality": [
+   {
+    "term": "a boomy sound",
+    "z": 1.39,
+    "cosine": 0.145
+   },
+   {
+    "term": "a punchy sound",
+    "z": 1.24,
+    "cosine": 0.1
+   },
+   {
+    "term": "an airy sound",
+    "z": 1.1,
+    "cosine": 0.061
+   }
+  ],
+  "production": [
+   {
+    "term": "a real recording of a physical object",
+    "z": 1.33,
+    "cosine": 0.153
+   },
+   {
+    "term": "a high quality studio recording",
+    "z": 1.02,
+    "cosine": 0.224
+   },
+   {
+    "term": "a professionally mixed and mastered music track",
+    "z": 0.9,
+    "cosine": 0.221
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Whoosh, swoosh, swish",
+   "p": 0.653
+  },
+  {
+   "label": "Sound effect",
+   "p": 0.135
+  },
+  {
+   "label": "Sigh",
+   "p": 0.05
+  }
+ ],
+ "character": [],
+ "summary": "2.48 s busy, 2.0 onsets/s (attack 187 ms, decays in 254 ms). Sounds most like: a fast whoosh (z +4.7), a soft air whoosh (z +4.1), a deep cinematic whoosh (z +3.8) [clear reading]. AudioSet: Whoosh, swoosh, swish 0.65, Sound effect 0.14, Sigh 0.05. peak -8.0 dBFS, -23.8 LUFS, brightness 1.0 kHz, bandwidth 10.2 kHz, noise floor -115 dBFS, side/mid -1 dB."
+}

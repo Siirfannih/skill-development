@@ -1,0 +1,382 @@
+{
+ "path": "/home/irfan/sfx/SFXIrfan/Lasertransision.mp3",
+ "start": null,
+ "end": null,
+ "duration": 0.36,
+ "measurements": {
+  "duration": 0.36,
+  "peak_dbfs": -9.5,
+  "true_peak_dbtp": -9.5,
+  "rms_dbfs": -32.9,
+  "attack_ms": 0.0,
+  "decay_ms": 111.0,
+  "brightness_hz": 8430,
+  "bandwidth_hz": 16254,
+  "flatness": 0.0,
+  "harmonic_ratio": 0.0,
+  "onset_count": 1,
+  "onsets_per_s": 2.78,
+  "width": "side/mid -2 dB",
+  "digital_silence_frac": 0.6404
+ },
+ "shape": "short transient (attack 0 ms, decays in 111 ms)",
+ "top_tags": [
+  {
+   "term": "a triangle hit",
+   "category": "chimes",
+   "z": 4.48,
+   "cosine": 0.337,
+   "verdict": "strong"
+  },
+  {
+   "term": "a glass ting",
+   "category": "chimes",
+   "z": 3.58,
+   "cosine": 0.319,
+   "verdict": "strong"
+  },
+  {
+   "term": "a kalimba note",
+   "category": "chimes",
+   "z": 3.03,
+   "cosine": 0.259,
+   "verdict": "strong"
+  },
+  {
+   "term": "a bicycle bell",
+   "category": "everyday",
+   "z": 2.43,
+   "cosine": 0.178,
+   "verdict": "weak"
+  },
+  {
+   "term": "ice cubes in a glass",
+   "category": "water",
+   "z": 2.28,
+   "cosine": 0.173,
+   "verdict": "weak"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "crisp hi-hats",
+   "category": "instruments",
+   "z": 4.25,
+   "cosine": 0.363
+  },
+  {
+   "term": "a punchy kick drum pattern",
+   "category": "instruments",
+   "z": 2.24,
+   "cosine": 0.12
+  },
+  {
+   "term": "a marimba",
+   "category": "instruments",
+   "z": 2.03,
+   "cosine": 0.225
+  },
+  {
+   "term": "trap beat",
+   "category": "music_genre",
+   "z": 1.96,
+   "cosine": 0.201
+  },
+  {
+   "term": "a ukulele",
+   "category": "instruments",
+   "z": 1.37,
+   "cosine": 0.129
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "a stutter glitch transition",
+    "z": 0.71,
+    "cosine": 0.093
+   },
+   {
+    "term": "a quick swipe",
+    "z": 0.71,
+    "cosine": 0.067
+   },
+   {
+    "term": "a reverse cymbal swell",
+    "z": 0.48,
+    "cosine": 0.029
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a kick drum",
+    "z": 2.0,
+    "cosine": 0.125
+   },
+   {
+    "term": "a punchy impact hit",
+    "z": 1.38,
+    "cosine": 0.028
+   },
+   {
+    "term": "a snare hit",
+    "z": 1.21,
+    "cosine": 0.031
+   }
+  ],
+  "ui": [
+   {
+    "term": "a success chime",
+    "z": 1.87,
+    "cosine": 0.203
+   },
+   {
+    "term": "a notification ding",
+    "z": 1.51,
+    "cosine": 0.125
+   },
+   {
+    "term": "a crisp interface click",
+    "z": 1.49,
+    "cosine": 0.161
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "a soft key release click",
+    "z": 1.84,
+    "cosine": 0.137
+   },
+   {
+    "term": "a single mechanical keyboard key press",
+    "z": 1.47,
+    "cosine": 0.146
+   },
+   {
+    "term": "an enter key press",
+    "z": 0.97,
+    "cosine": 0.132
+   }
+  ],
+  "foley": [
+   {
+    "term": "glass clinking",
+    "z": 2.1,
+    "cosine": 0.127
+   },
+   {
+    "term": "coins dropping",
+    "z": 1.44,
+    "cosine": 0.094
+   },
+   {
+    "term": "a finger squeaking on glass",
+    "z": 1.16,
+    "cosine": 0.028
+   }
+  ],
+  "water": [
+   {
+    "term": "ice cubes in a glass",
+    "z": 2.28,
+    "cosine": 0.173
+   },
+   {
+    "term": "a dripping tap",
+    "z": 0.78,
+    "cosine": 0.069
+   },
+   {
+    "term": "a water drop",
+    "z": 0.56,
+    "cosine": 0.074
+   }
+  ],
+  "nature": [
+   {
+    "term": "insects buzzing",
+    "z": 0.33,
+    "cosine": -0.012
+   },
+   {
+    "term": "a horse galloping",
+    "z": 0.1,
+    "cosine": -0.043
+   },
+   {
+    "term": "a bird flapping its wings",
+    "z": -0.18,
+    "cosine": -0.078
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a triangle hit",
+    "z": 4.48,
+    "cosine": 0.337
+   },
+   {
+    "term": "a glass ting",
+    "z": 3.58,
+    "cosine": 0.319
+   },
+   {
+    "term": "a kalimba note",
+    "z": 3.03,
+    "cosine": 0.259
+   }
+  ],
+  "ambience": [
+   {
+    "term": "crickets at night",
+    "z": 1.28,
+    "cosine": 0.037
+   },
+   {
+    "term": "a summer meadow with insects",
+    "z": 0.88,
+    "cosine": 0.033
+   },
+   {
+    "term": "a city street with traffic",
+    "z": 0.75,
+    "cosine": -0.046
+   }
+  ],
+  "everyday": [
+   {
+    "term": "a bicycle bell",
+    "z": 2.43,
+    "cosine": 0.178
+   },
+   {
+    "term": "keys jingling",
+    "z": 1.17,
+    "cosine": 0.061
+   },
+   {
+    "term": "a bird chirping",
+    "z": 1.03,
+    "cosine": 0.001
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "trap beat",
+    "z": 1.96,
+    "cosine": 0.201
+   },
+   {
+    "term": "glitch hop music",
+    "z": 1.0,
+    "cosine": 0.116
+   },
+   {
+    "term": "cheerful ukulele music",
+    "z": 0.95,
+    "cosine": 0.09
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "celebratory and joyful music",
+    "z": 0.67,
+    "cosine": 0.053
+   },
+   {
+    "term": "playful and quirky music",
+    "z": 0.23,
+    "cosine": 0.06
+   },
+   {
+    "term": "uplifting and hopeful music",
+    "z": 0.06,
+    "cosine": 0.047
+   }
+  ],
+  "instruments": [
+   {
+    "term": "crisp hi-hats",
+    "z": 4.25,
+    "cosine": 0.363
+   },
+   {
+    "term": "a punchy kick drum pattern",
+    "z": 2.24,
+    "cosine": 0.12
+   },
+   {
+    "term": "a marimba",
+    "z": 2.03,
+    "cosine": 0.225
+   }
+  ],
+  "voice": [
+   {
+    "term": "a man shouting",
+    "z": 0.8,
+    "cosine": -0.09
+   },
+   {
+    "term": "a baby crying",
+    "z": 0.51,
+    "cosine": -0.05
+   },
+   {
+    "term": "a man speaking",
+    "z": 0.42,
+    "cosine": -0.12
+   }
+  ],
+  "quality": [
+   {
+    "term": "a bright sound",
+    "z": 0.88,
+    "cosine": 0.089
+   },
+   {
+    "term": "a metallic sound",
+    "z": 0.84,
+    "cosine": 0.003
+   },
+   {
+    "term": "a satisfying sound",
+    "z": 0.77,
+    "cosine": 0.104
+   }
+  ],
+  "production": [
+   {
+    "term": "a computer-generated electronic tone",
+    "z": 1.62,
+    "cosine": 0.13
+   },
+   {
+    "term": "a cheap synthesized beep",
+    "z": 1.29,
+    "cosine": 0.063
+   },
+   {
+    "term": "an 8-bit sound effect",
+    "z": 1.26,
+    "cosine": 0.104
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Beep, bleep",
+   "p": 0.071
+  },
+  {
+   "label": "Clang",
+   "p": 0.059
+  },
+  {
+   "label": "Ding",
+   "p": 0.053
+  }
+ ],
+ "character": [],
+ "summary": "0.36 s short transient (attack 0 ms, decays in 111 ms). Sounds most like: a triangle hit (z +4.4), a glass ting (z +3.5), a kalimba note (z +3.0) [clear reading]. Other readings: a bicycle bell (everyday, z +2.4), ice cubes in a glass (water, z +2.2). Unvalidated hint: crisp hi-hats (z +4.2). AudioSet tagger unsure (Beep, bleep 0.07, Clang 0.06, Ding 0.05). peak -9.5 dBFS, brightness 8.4 kHz, bandwidth 16.3 kHz, side/mid -2 dB."
+}

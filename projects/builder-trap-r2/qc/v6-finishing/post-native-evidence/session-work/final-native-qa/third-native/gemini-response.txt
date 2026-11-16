@@ -1,0 +1,11 @@
+```json
+{
+  "native_images_available": true,
+  "all_frames_inspected": true,
+  "reviewed_frame_indices": [1082, 1083, 1084],
+  "blue_handwriting_continuous": true,
+  "observations": "All three frames 1082, 1083, and 1084 depict the identical corkboard/wall context with pinned UI cards and a blue connecting line across the top pins. The printed black text 'Selama' remains stable across all three frames. To the right of 'Selama', the blue handwriting displays smooth, progressive reveal continuity: in frame 1082 it reads 'satu ti' (with the start of 't' and partial stroke); in frame 1083 it advances smoothly to 'satu tal' (the letters 'ta' completed, starting the stem of 'h'); in frame 1084 it advances to 'satu tahı'. There is no disappearance, flicker, clipping, or visual disruption across frame 1083.",
+  "issues": [],
+  "uncertainty": "Inspection is strictly limited to the provided three frames (1082, 1083, 1084) and visually verifies continuity within this local window without broader video or audio assertions."
+}
+```

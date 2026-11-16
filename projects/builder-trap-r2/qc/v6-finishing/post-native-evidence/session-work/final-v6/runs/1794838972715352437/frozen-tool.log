@@ -1,0 +1,14 @@
+waiting for global heavy-render lock
+reuse verified chunk f0-299
+reuse verified chunk f300-599
+reuse verified chunk f600-899
+reuse verified chunk f900-1199
+reuse verified chunk f1200-1499
+reuse verified chunk f1500-1799
+reuse verified chunk f1800-2099
+reuse verified chunk f2100-2399
+reuse verified chunk f2400-2492
+final-concat: exit 0 (qc/v6-finishing/logs/final-concat.log)
+final-decode: exit 0 (qc/v6-finishing/logs/final-decode.log)
+final-audio-decode: exit 0 (qc/v6-finishing/logs/final-audio-decode.log)
+final verification: project PASS, 1920x1080 /30fps /2493frames; canonical audio exceptions retained

@@ -1,0 +1,50 @@
+{
+  "pass_": true,
+  "mix_sha256": "a36a2819723fb7f76dc2d8bef2b24e6ac98ec78a6555ed440d0a5aabe4452e02",
+  "decoded_samples": 3989504,
+  "windows": [
+    {
+      "seconds": [
+        1,
+        1.5
+      ],
+      "lag_samples": 0,
+      "normalized_correlation": 0.9993985940107395
+    },
+    {
+      "seconds": [
+        18,
+        18.5
+      ],
+      "lag_samples": 0,
+      "normalized_correlation": 0.9990153027480922
+    },
+    {
+      "seconds": [
+        34,
+        34.5
+      ],
+      "lag_samples": 0,
+      "normalized_correlation": 0.9997977228061736
+    },
+    {
+      "seconds": [
+        55,
+        55.5
+      ],
+      "lag_samples": 0,
+      "normalized_correlation": 0.9996230882014328
+    },
+    {
+      "seconds": [
+        78,
+        78.5
+      ],
+      "lag_samples": 0,
+      "normalized_correlation": 0.9991898097524975
+    }
+  ],
+  "snr_db": 28.572901421748753,
+  "source_vo_sha256": "d56ab12f772c35f7c7c037243974d95c84eb6b60c786523d03dfb1a574e8983f",
+  "note": "AAC is lossy; original VO and provenance hashes are unchanged"
+}

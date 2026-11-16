@@ -1,0 +1,36 @@
+{
+  "candidate_sha256": "d6d4cbcc12943fc6a70e0ea25e878c659ce7bacaf4c45bf8e75134e7c4a51320",
+  "manifest_sha256": "94afc6bf98219a40a84e6e494ca8e516cd73707a62c95bda26a614277e4364fd",
+  "reviewer": "ChatGPT / visual_audit",
+  "opened_frames": [
+    {
+      "frame": 1082,
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/second-native/native-1082.png",
+      "sha256": "84f4b8e7e768b5321ec1bac915f5733ce55f7631a9c346ab0dfd2a98fa7b05cb"
+    },
+    {
+      "frame": 1083,
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/second-native/native-1083.png",
+      "sha256": "991da53af5772da8256ca7dc3e69c21611c89c7d594c8f82b4165954fb30d77e"
+    },
+    {
+      "frame": 1084,
+      "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/second-native/native-1084.png",
+      "sha256": "d57278bab0b6ca2806882aa7712a49e34400516639559b7b9659e8cf6d61e4ca"
+    }
+  ],
+  "all_frames_inspected": true,
+  "pass_": false,
+  "issues": [
+    {
+      "frame": 1084,
+      "seconds": 36.13333333333333,
+      "priority": "P2",
+      "confidence": "high",
+      "description": "The entire blue handwritten satu tahun reveal is absent at1084 after being visible at1082 and1083. Black Selama and the wall/browser cards remain. This is a new visible caption dropout in the actual second encoded final, not a gradual partial-word reveal.",
+      "duration_limit": "At least frame1084 is affected; duration and recovery beyond1084 are outside this review."
+    }
+  ],
+  "scope": "actual encoded frames1082–1084 only, decoded1920x1080 PNGs from the second final candidate. No whole-project, complete2493-frame, audio, numerical correspondence or SHIP acceptance.",
+  "observations": "All three full images were independently opened with view_image. Blue handwriting progresses from1082 to1083, then disappears entirely at1084. The black Selama caption remains and the wall/camera composition advances consistently. No additional wrong scene, newly clipped foreground word or malformed UI was observed in these three images. The original1083 dropout is absent at1083, but the new1084 dropout prevents this bounded continuity review from passing."
+}

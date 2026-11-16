@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-11-16T14:33:39.244Z",
+  "status": "UPLOADED_AND_METADATA_READ_BACK",
+  "local_media": {
+    "path": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/outputs/builder-trap-r2_v6.mp4",
+    "sha256": "f00c0201c7de748c3abf42085d1d85ecc9e2fc03841189347e05db09c7ccd074",
+    "md5": "53b9291493dded044a90acd9c6a6d632",
+    "bytes": 76725360
+  },
+  "closure_sha256": "bea368bda138454a1962a7620ddabca7564ee24d8b8bb7a4b4f20528c476473d",
+  "drive": {
+    "id": "1126rFqqlBWw5d2-hm_fKWm0KaXckv0fK",
+    "url": "https://drive.google.com/file/d/1126rFqqlBWw5d2-hm_fKWm0KaXckv0fK/view?usp=drivesdk",
+    "title": "builder-trap-r2_v6.mp4",
+    "parent_id": "1Ij1AcDNrshgf469Tq-XDVoQuawW8IZXo",
+    "bytes": 76725360,
+    "mime_type": "video/mp4"
+  },
+  "readback_checks": {
+    "id": true,
+    "name": true,
+    "mime_type": true,
+    "size": true,
+    "parent": true,
+    "url": true,
+    "remote_checksum_available": false,
+    "remote_checksum_claimed": false
+  },
+  "upload_result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1126rFqqlBWw5d2-hm_fKWm0KaXckv0fK",
+      "title": "builder-trap-r2_v6.mp4",
+      "file_name": "builder-trap-r2_v6.mp4",
+      "mime_type": "video/mp4",
+      "url": "https://drive.google.com/file/d/1126rFqqlBWw5d2-hm_fKWm0KaXckv0fK/view?usp=drivesdk",
+      "parent_id": "1Ij1AcDNrshgf469Tq-XDVoQuawW8IZXo",
+      "structuredContent": {
+        "accepted_input": "file_uri",
+        "success": true,
+        "id": "1126rFqqlBWw5d2-hm_fKWm0KaXckv0fK",
+        "title": "builder-trap-r2_v6.mp4",
+        "file_name": "builder-trap-r2_v6.mp4",
+        "mime_type": "video/mp4",
+        "url": "https://drive.google.com/file/d/1126rFqqlBWw5d2-hm_fKWm0KaXckv0fK/view?usp=drivesdk",
+        "parent_id": "1Ij1AcDNrshgf469Tq-XDVoQuawW8IZXo"
+      }
+    },
+    "isError": false
+  },
+  "metadata_result": {
+    "content": [
+      {
+        "type": "text",
+        "text": "Action completed."
+      }
+    ],
+    "structuredContent": {
+      "id": "1126rFqqlBWw5d2-hm_fKWm0KaXckv0fK",
+      "title": "builder-trap-r2_v6.mp4",
+      "mime_type": "video/mp4",
+      "size": "76725360",
+      "url": "https://drive.google.com/file/d/1126rFqqlBWw5d2-hm_fKWm0KaXckv0fK/view?usp=drivesdk",
+      "display_url": "https://drive.google.com/file/d/1126rFqqlBWw5d2-hm_fKWm0KaXckv0fK/view?usp=drivesdk",
+      "file_or_folder": "file",
+      "created_time": null,
+      "modified_time": null,
+      "parent_ids": [
+        "1Ij1AcDNrshgf469Tq-XDVoQuawW8IZXo"
+      ],
+      "drive_id": null,
+      "current_user_can_share": null,
+      "has_augmented_permissions": null,
+      "shared": null,
+      "permissions": null,
+      "source_visibility_status": "access_not_verified"
+    },
+    "isError": false
+  }
+}

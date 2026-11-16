@@ -1,0 +1,8 @@
+Independent VISUAL review of actual encoded final export repair neighbors. Read ONLY the listed INFO.md and EVERY listed PNG using read_file. No commands, source files, other reviewers, editing, network or other tools.
+Inspect ALL three full images in exact chronological frame order1082,1083,1084. Describe the actual blue handwriting beside black Selama and its continuity, scene/camera/context, and any new missing/clipped content. Progressive partial word reveal is intended. Do not presume the repair succeeded. No audio judgement, no broader2493-frame claim, numeric comparator or SHIP judgement.
+Return ONLY JSON {"native_images_available":true,"all_frames_inspected":true,"reviewed_frame_indices":[1082,1083,1084],"blue_handwriting_continuous":true,"observations":"...","issues":[],"uncertainty":"..."}.
+FILES:
+/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/INFO.md
+/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1082.png
+/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1083.png
+/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/final-native-qa/third-native/native-1084.png

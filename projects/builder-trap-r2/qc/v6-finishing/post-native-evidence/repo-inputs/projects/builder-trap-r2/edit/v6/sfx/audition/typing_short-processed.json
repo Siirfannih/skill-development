@@ -1,0 +1,374 @@
+{
+ "path": "edit/v6/sfx/typing_short.wav",
+ "start": null,
+ "end": null,
+ "duration": 0.32,
+ "measurements": {
+  "duration": 0.32,
+  "peak_dbfs": -25.0,
+  "true_peak_dbtp": -24.2,
+  "rms_dbfs": -52.6,
+  "attack_ms": 246.0,
+  "decay_ms": 60.0,
+  "brightness_hz": 9170,
+  "bandwidth_hz": 20480,
+  "flatness": 0.202,
+  "harmonic_ratio": 0.058,
+  "onset_count": 4,
+  "onsets_per_s": 12.5,
+  "width": "mono",
+  "digital_silence_frac": 0.0105
+ },
+ "shape": "busy, 12.5 onsets/s (attack 246 ms, decays in 60 ms)",
+ "top_tags": [
+  {
+   "term": "a soft key release click",
+   "category": "keyboard",
+   "z": 4.51,
+   "cosine": 0.489,
+   "verdict": "strong"
+  },
+  {
+   "term": "a single mechanical keyboard key press",
+   "category": "keyboard",
+   "z": 4.31,
+   "cosine": 0.511,
+   "verdict": "strong"
+  },
+  {
+   "term": "a clicky mechanical keyboard",
+   "category": "keyboard",
+   "z": 3.46,
+   "cosine": 0.408,
+   "verdict": "strong"
+  },
+  {
+   "term": "a pen click",
+   "category": "foley",
+   "z": 3.05,
+   "cosine": 0.39,
+   "verdict": "strong"
+  },
+  {
+   "term": "a keyboard typing fast",
+   "category": "keyboard",
+   "z": 2.97,
+   "cosine": 0.359,
+   "verdict": "plausible"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "crisp hi-hats",
+   "category": "instruments",
+   "z": 0.95,
+   "cosine": 0.149
+  },
+  {
+   "term": "a crowd talking",
+   "category": "voice",
+   "z": 0.89,
+   "cosine": -0.002
+  },
+  {
+   "term": "a man speaking",
+   "category": "voice",
+   "z": 0.71,
+   "cosine": -0.016
+  },
+  {
+   "term": "people laughing",
+   "category": "voice",
+   "z": 0.6,
+   "cosine": -0.038
+  },
+  {
+   "term": "a deep sub bass",
+   "category": "instruments",
+   "z": 0.57,
+   "cosine": 0.109
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "a stutter glitch transition",
+    "z": 2.16,
+    "cosine": 0.313
+   },
+   {
+    "term": "a record scratch",
+    "z": 0.97,
+    "cosine": 0.161
+   },
+   {
+    "term": "a quick swipe",
+    "z": 0.65,
+    "cosine": 0.14
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a hand clap",
+    "z": 0.75,
+    "cosine": 0.163
+   },
+   {
+    "term": "a heavy thud",
+    "z": 0.69,
+    "cosine": 0.073
+   },
+   {
+    "term": "a low rumble",
+    "z": 0.67,
+    "cosine": 0.081
+   }
+  ],
+  "ui": [
+   {
+    "term": "a typing cursor blip",
+    "z": 2.67,
+    "cosine": 0.339
+   },
+   {
+    "term": "a scroll wheel tick",
+    "z": 2.6,
+    "cosine": 0.345
+   },
+   {
+    "term": "a camera shutter click",
+    "z": 2.35,
+    "cosine": 0.306
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "a soft key release click",
+    "z": 4.51,
+    "cosine": 0.489
+   },
+   {
+    "term": "a single mechanical keyboard key press",
+    "z": 4.31,
+    "cosine": 0.511
+   },
+   {
+    "term": "a clicky mechanical keyboard",
+    "z": 3.46,
+    "cosine": 0.408
+   }
+  ],
+  "foley": [
+   {
+    "term": "a pen click",
+    "z": 3.05,
+    "cosine": 0.39
+   },
+   {
+    "term": "a ratchet clicking",
+    "z": 2.05,
+    "cosine": 0.261
+   },
+   {
+    "term": "a plastic click",
+    "z": 1.99,
+    "cosine": 0.282
+   }
+  ],
+  "water": [
+   {
+    "term": "ice cubes in a glass",
+    "z": 0.83,
+    "cosine": 0.123
+   },
+   {
+    "term": "a water drop",
+    "z": 0.19,
+    "cosine": 0.114
+   },
+   {
+    "term": "a dripping tap",
+    "z": -0.02,
+    "cosine": 0.069
+   }
+  ],
+  "nature": [
+   {
+    "term": "a bird flapping its wings",
+    "z": 0.77,
+    "cosine": 0.086
+   },
+   {
+    "term": "insects buzzing",
+    "z": 0.51,
+    "cosine": 0.081
+   },
+   {
+    "term": "a horse galloping",
+    "z": 0.25,
+    "cosine": 0.045
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a triangle hit",
+    "z": 1.04,
+    "cosine": 0.112
+   },
+   {
+    "term": "a small bell",
+    "z": 0.11,
+    "cosine": 0.074
+   },
+   {
+    "term": "a celesta note",
+    "z": 0.08,
+    "cosine": 0.114
+   }
+  ],
+  "ambience": [
+   {
+    "term": "a crackling fire",
+    "z": 1.54,
+    "cosine": 0.22
+   },
+   {
+    "term": "a computer fan hum",
+    "z": 1.05,
+    "cosine": 0.112
+   },
+   {
+    "term": "an office ambience",
+    "z": 0.93,
+    "cosine": 0.071
+   }
+  ],
+  "everyday": [
+   {
+    "term": "keys jingling",
+    "z": 2.16,
+    "cosine": 0.241
+   },
+   {
+    "term": "a clock ticking",
+    "z": 1.13,
+    "cosine": 0.158
+   },
+   {
+    "term": "a motorcycle revving",
+    "z": 0.7,
+    "cosine": 0.095
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "classical string quartet",
+    "z": 0.47,
+    "cosine": 0.082
+   },
+   {
+    "term": "glitch hop music",
+    "z": 0.28,
+    "cosine": 0.126
+   },
+   {
+    "term": "solo piano music",
+    "z": 0.06,
+    "cosine": 0.086
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "triumphant and heroic music",
+    "z": -0.1,
+    "cosine": 0.05
+   },
+   {
+    "term": "sad and melancholic music",
+    "z": -0.14,
+    "cosine": 0.081
+   },
+   {
+    "term": "dark and tense music",
+    "z": -0.25,
+    "cosine": 0.066
+   }
+  ],
+  "instruments": [
+   {
+    "term": "crisp hi-hats",
+    "z": 0.95,
+    "cosine": 0.149
+   },
+   {
+    "term": "a deep sub bass",
+    "z": 0.57,
+    "cosine": 0.109
+   },
+   {
+    "term": "a grand piano",
+    "z": 0.31,
+    "cosine": 0.091
+   }
+  ],
+  "voice": [
+   {
+    "term": "a crowd talking",
+    "z": 0.89,
+    "cosine": -0.002
+   },
+   {
+    "term": "a man speaking",
+    "z": 0.71,
+    "cosine": -0.016
+   },
+   {
+    "term": "people laughing",
+    "z": 0.6,
+    "cosine": -0.038
+   }
+  ],
+  "quality": [
+   {
+    "term": "a tight snappy sound",
+    "z": 1.31,
+    "cosine": 0.189
+   },
+   {
+    "term": "a muffled sound",
+    "z": 0.37,
+    "cosine": 0.012
+   },
+   {
+    "term": "a quiet sound",
+    "z": 0.36,
+    "cosine": 0.036
+   }
+  ],
+  "production": [
+   {
+    "term": "a square wave chiptune blip",
+    "z": 0.97,
+    "cosine": 0.137
+   },
+   {
+    "term": "a cheap synthesized beep",
+    "z": 0.78,
+    "cosine": 0.096
+   },
+   {
+    "term": "an 8-bit sound effect",
+    "z": 0.68,
+    "cosine": 0.131
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Sound effect",
+   "p": 0.1
+  }
+ ],
+ "character": [],
+ "summary": "0.32 s busy, 12.5 onsets/s (attack 246 ms, decays in 60 ms). Sounds most like: a soft key release click (z +4.5), a single mechanical keyboard key press (z +4.3), a clicky mechanical keyboard (z +3.4) [clear reading]. Other readings: a pen click (foley, z +3.0). AudioSet tagger unsure (Sound effect 0.10). peak -25.0 dBFS, brightness 9.2 kHz, bandwidth 20.5 kHz, mono."
+}

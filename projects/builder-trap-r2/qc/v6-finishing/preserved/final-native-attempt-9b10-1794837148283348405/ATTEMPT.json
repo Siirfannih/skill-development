@@ -1,0 +1,333 @@
+{
+  "schema_version": 1,
+  "created_ns": 1794837148680534257,
+  "authority": "lead",
+  "disposition": "REJECT_FOR_DELIVERY_SINGLE_FRAME_HANDWRITING_DROP",
+  "reason": "Actual native frame1083 loses blue handwriting despite positive reveal; independently observed by ChatGPT, Gemini and lead. Other301numeric flags reviewed as render-scale observations.",
+  "final_sha256": "9b10b624b344bba533bf960cd09bbba44248c017712276701de869be32d2596f",
+  "defect_frame": 1083,
+  "rerender_range": [
+    900,
+    1199
+  ],
+  "unchanged_source_snapshot_sha256": "4965f416e2deea839d85256419364b562b49721cd996b33fadfa15e16f8834ac",
+  "unchanged_readiness_sha256": "0534167061e9c3a73c525987397b63f49e8ea768ba6aac431595d9cb8e6cd877",
+  "unchanged_ship_sha256": "cbecc296607769e6ffb99796d3a7e459c5dae5b6ac66115855d875b69e74475e",
+  "readiness_evidence_overlap": [],
+  "entries": [
+    {
+      "original_path": "out/builder-trap-r2_v6.mp4",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/builder-trap-r2_v6.mp4",
+      "sha256": "9b10b624b344bba533bf960cd09bbba44248c017712276701de869be32d2596f",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "out/v6-chunks/f0900-1199.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f0900-1199.json",
+      "sha256": "35176f86ca83d39e9ed7636d7befff1095f93b9263a18cc071af8777a2f34726",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "out/v6-chunks/f0900-1199.mp4",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f0900-1199.mp4",
+      "sha256": "0f45154aea7b715fc79f3678be0d66c5260e4e9d7e035d451ed3b25441fe5ad3",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/aac-truepeak.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/aac-truepeak.json",
+      "sha256": "983e00f07fde54aba55c9f4db0b45ad140b4d4d13ddb92cfdb084071adb59e78",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/audio-correspondence.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/audio-correspondence.json",
+      "sha256": "cf456570dbaa1b860297f37b5c279217760e8a9ca775006e9dfa8a38d92956d3",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/chunks.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/chunks.json",
+      "sha256": "836bf43f673b683529b799b1e26e33ec21028ef6278522573c726fac78e44d48",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/final-all-frame-correspondence-additive.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/final-all-frame-correspondence-additive.json",
+      "sha256": "366759355f19165097805c575c5640bd5e93a6713840fcd4ce8ae79d8869c0fe",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/final-all-frame-scan.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/final-all-frame-scan.json",
+      "sha256": "47adc6212cab15f04e57369e77bd3cdbb37ca91baa186670fe2c57191807a307",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/final-verification.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/final-verification.json",
+      "sha256": "192b6b660ef82c4407e82d2bcf861f02e60961a22cda76c2246817e09873cb09",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-all-frame-scan.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-all-frame-scan.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-audio-decode.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-audio-decode.json",
+      "sha256": "24b5bd95fcc949bdd0b93ae6461e66fd1a2258aed357de6751cb9fdd5732ea32",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-audio-decode.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-audio-decode.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-0000.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-0000.json",
+      "sha256": "b93758b532d73652ee866ab0de279f2aa14476b46f82c3b4cb68c1e773838c45",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-0000.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-0000.log",
+      "sha256": "8ee6d7cfb7c7c8446851ad6197e98339c6fe9d0b8a1aa73c807845483467c760",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-0300.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-0300.json",
+      "sha256": "5791a139ee377ee8a764aab5ce42dcb414b564a7778fec99dc5cdc3de2685621",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-0300.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-0300.log",
+      "sha256": "9b380e164f34cc8abe5581873144977c03ff602c80b728eaa6281344b6b9c971",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-0600.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-0600.json",
+      "sha256": "4848a6d85bdeb33a826ac2d95024f0140a9703642abee9fd5306b8853b924b2d",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-0600.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-0600.log",
+      "sha256": "7437da53ef6fb09be78cdf8927eba30c0d5dbd0a178490d906344952dac4f2d4",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-0900.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-0900.json",
+      "sha256": "e866c505448e58a99edaa82e67274074f4ccdaa8a0d8b979c0384773767d7727",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-0900.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-0900.log",
+      "sha256": "dbbc6fa94194b02cdedaa93996ee18f42ec5abea4d1658bc9e4a1643eeff9756",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-1200.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-1200.json",
+      "sha256": "7327459f50fdee69dda0d98d6a1fbe87fd46fcc813b8740365e2295841738246",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-1200.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-1200.log",
+      "sha256": "24917cf886deff48a831fef9bfc2be154320d406ed2eeca15ffb0525c2a16bf6",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-1500.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-1500.json",
+      "sha256": "aac364f2398ff05afa831cc6195710ad01596731c4c78d98e2a2158d0f9e4f1b",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-1500.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-1500.log",
+      "sha256": "baa1762c242d9c699fbb747d9d8f5be4d04c99e5a9f9d9683bf5b09484111658",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-1800.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-1800.json",
+      "sha256": "77bca55367813ab203bad29391aef186593c1499e27743af8136089774dc05af",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-1800.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-1800.log",
+      "sha256": "05d9b4f330b78b9ac6f276923df7a12a2a80ad7f01c07e50d3e337aef941fa8a",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-2100.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-2100.json",
+      "sha256": "783e50a0b4331efbbb3752c841fec945202d76f28bab2c755cdd5080afe3f2d7",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-2100.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-2100.log",
+      "sha256": "0801201dad17f7477eeb383a4be2b16db97740da189977ed4351380223a34462",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-2400.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-2400.json",
+      "sha256": "9afed49ef14703395dd82e526898c6e8a4b076c7847906cd2bd59042191123ed",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-chunk-2400.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-chunk-2400.log",
+      "sha256": "f1b3f916dc1982b8c892a869607131db98d613e280788b3e7616d345f908dde3",
+      "action": "copied_exact_reused_receipt"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-concat.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-concat.json",
+      "sha256": "59f87f9ceae4cc2241648795420796690d23253641064090021e7fa55bce8715",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-concat.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-concat.log",
+      "sha256": "90a872f181d5c5136a9c720e7b5d01dd6c6ae5ba1a040518f327a915975f06ce",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-decode.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-decode.json",
+      "sha256": "4025999296e361c84fb4d0322de28e60fe1b28d2193c5e2ad3d198bb838cba6e",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-decode.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-decode.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/logs/final-truepeak-exact.log",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/logs/final-truepeak-exact.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "qc/v6-finishing/seam-verification.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/qc/v6-finishing/seam-verification.json",
+      "sha256": "3d258f07f7badc72a39f52112b928c511b18e3ed13ae50dd6f2b4e672d92e10b",
+      "action": "moved_exact"
+    },
+    {
+      "original_path": "out/v6-chunks/f0000-0299.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f0000-0299.json",
+      "sha256": "1badbd2e061f9948bfd28b11da45bfc96c5a0a9ccf87615390dda9c51edb1121",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f0000-0299.mp4",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f0000-0299.mp4",
+      "sha256": "e3ff7f4527c98daff0c5383440bbe7b4bba4c19a8949fa31bf92e16f3da0decb",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f0300-0599.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f0300-0599.json",
+      "sha256": "f0a5ac2319a94f96be263966a3a1b9ce6d7dbe8a5aa9ef05333b793a730091ea",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f0300-0599.mp4",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f0300-0599.mp4",
+      "sha256": "9f03a99761282c59636c92d6839b7213439fe5512d1ecb853908130157c97c48",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f0600-0899.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f0600-0899.json",
+      "sha256": "a681fb6e7151997efce808f7286a6627bc388b237ee7d05f1f660354cbc72a93",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f0600-0899.mp4",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f0600-0899.mp4",
+      "sha256": "0740eabe06eaef65762df24399ceedabc314660f3508048479b63623a81b2980",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f1200-1499.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f1200-1499.json",
+      "sha256": "1d310b57f73f5f0f90b57d8005ab50ce2d2a83a01fffc38386a1d9d80c49a571",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f1200-1499.mp4",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f1200-1499.mp4",
+      "sha256": "068dfa7cb95948595a27aa894a7bddd4f8715791d2c9b822a82ce5d4ee4bca4d",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f1500-1799.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f1500-1799.json",
+      "sha256": "325535615da465add8c6c71edf780bd27ee23763a67c5aaa412d4ace89742ded",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f1500-1799.mp4",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f1500-1799.mp4",
+      "sha256": "325abb99a05f50b35c8da4d3b2ea2a84777b038071666a327f2e25499bcbcb9e",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f1800-2099.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f1800-2099.json",
+      "sha256": "d724f2a7c51a729ed90d87a4c0faecc97561c9fc83faab1ae53b38ee8268f6a9",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f1800-2099.mp4",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f1800-2099.mp4",
+      "sha256": "e6383cf2a4dea81f95659ead154832521af655202601a46ad8dfdd097ea5e207",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f2100-2399.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f2100-2399.json",
+      "sha256": "ba386e52bfa1de9c6dd24b85d0ed9b9d5d9f80c28745658def706da76889d3e2",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f2100-2399.mp4",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f2100-2399.mp4",
+      "sha256": "bb9defb7d681f5fbe409a94e6e1ea1df0833e4046246090323e559717cba6482",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f2400-2492.json",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f2400-2492.json",
+      "sha256": "114fe72f4856231fe9eaaa55b1c7c04331e1d107cd23e81a6d9a80feb1ef8f03",
+      "action": "copied_exact_reused_chunk"
+    },
+    {
+      "original_path": "out/v6-chunks/f2400-2492.mp4",
+      "archived_path": "qc/v6-finishing/preserved/final-native-attempt-9b10-1794837148283348405/out/v6-chunks/f2400-2492.mp4",
+      "sha256": "d16c42a17c01c07c948de28c8fdd19465423360a935d8b88207c0a7affa3e18b",
+      "action": "copied_exact_reused_chunk"
+    }
+  ],
+  "alias_note": "Historical proof paths remain as captured. This map resolves their original relative paths to preserved exact bytes; active post-render paths will contain a later attempt.",
+  "planned_method": "Resume the unchanged frozen native renderer;8remaining current chunks are hash-identical. Inspect repaired1082..1084 and same-resolution correspondence before delivery."
+}

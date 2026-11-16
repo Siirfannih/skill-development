@@ -1,0 +1,418 @@
+{
+ "path": "edit/v6/sfx/audition/paper_slide2-crop.wav",
+ "start": null,
+ "end": null,
+ "duration": 0.62,
+ "measurements": {
+  "duration": 0.62,
+  "peak_dbfs": -12.7,
+  "true_peak_dbtp": -12.7,
+  "rms_dbfs": -42.1,
+  "lufs": -38.9,
+  "attack_ms": 9.0,
+  "decay_ms": 274.0,
+  "brightness_hz": 1372,
+  "bandwidth_hz": 10240,
+  "flatness": 0.0001,
+  "harmonic_ratio": 0.026,
+  "onset_count": 1,
+  "onsets_per_s": 1.61,
+  "width": "mono",
+  "digital_silence_frac": 0.0963
+ },
+ "shape": "short transient (attack 9 ms, decays in 274 ms)",
+ "top_tags": [
+  {
+   "term": "a stick swung fast through the air",
+   "category": "transitions",
+   "z": 3.17,
+   "cosine": 0.252,
+   "verdict": "strong"
+  },
+  {
+   "term": "a record scratch",
+   "category": "transitions",
+   "z": 2.75,
+   "cosine": 0.246,
+   "verdict": "plausible"
+  },
+  {
+   "term": "a short swish",
+   "category": "transitions",
+   "z": 2.52,
+   "cosine": 0.252,
+   "verdict": "plausible"
+  },
+  {
+   "term": "a fast whoosh",
+   "category": "transitions",
+   "z": 2.52,
+   "cosine": 0.198,
+   "verdict": "plausible"
+  },
+  {
+   "term": "paper rustling",
+   "category": "foley",
+   "z": 2.41,
+   "cosine": 0.196,
+   "verdict": "weak"
+  },
+  {
+   "term": "a page turning",
+   "category": "foley",
+   "z": 2.4,
+   "cosine": 0.213,
+   "verdict": "weak"
+  },
+  {
+   "term": "cloth whipping through the air",
+   "category": "transitions",
+   "z": 2.35,
+   "cosine": 0.174,
+   "verdict": "weak"
+  },
+  {
+   "term": "a sword being drawn",
+   "category": "everyday",
+   "z": 2.3,
+   "cosine": 0.159,
+   "verdict": "weak"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "crisp hi-hats",
+   "category": "instruments",
+   "z": 2.53,
+   "cosine": 0.217
+  },
+  {
+   "term": "a snare roll",
+   "category": "instruments",
+   "z": 2.48,
+   "cosine": 0.169
+  },
+  {
+   "term": "a cymbal roll",
+   "category": "instruments",
+   "z": 1.5,
+   "cosine": 0.123
+  },
+  {
+   "term": "pizzicato strings",
+   "category": "instruments",
+   "z": 1.15,
+   "cosine": 0.12
+  },
+  {
+   "term": "a punchy kick drum pattern",
+   "category": "instruments",
+   "z": 1.01,
+   "cosine": 0.029
+  },
+  {
+   "term": "funk music",
+   "category": "music_genre",
+   "z": 1.0,
+   "cosine": 0.117
+  },
+  {
+   "term": "a plucked synth arpeggio",
+   "category": "instruments",
+   "z": 0.91,
+   "cosine": 0.14
+  },
+  {
+   "term": "brass section",
+   "category": "instruments",
+   "z": 0.78,
+   "cosine": 0.077
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "a stick swung fast through the air",
+    "z": 3.17,
+    "cosine": 0.252
+   },
+   {
+    "term": "a record scratch",
+    "z": 2.75,
+    "cosine": 0.246
+   },
+   {
+    "term": "a short swish",
+    "z": 2.52,
+    "cosine": 0.252
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a snare hit",
+    "z": 2.14,
+    "cosine": 0.125
+   },
+   {
+    "term": "a deep cinematic boom",
+    "z": 2.03,
+    "cosine": 0.136
+   },
+   {
+    "term": "a punchy impact hit",
+    "z": 1.77,
+    "cosine": 0.076
+   }
+  ],
+  "ui": [
+   {
+    "term": "a digital glitch",
+    "z": 0.68,
+    "cosine": 0.092
+   },
+   {
+    "term": "an error buzz",
+    "z": 0.65,
+    "cosine": 0.041
+   },
+   {
+    "term": "a soft UI button tap",
+    "z": 0.49,
+    "cosine": 0.04
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "an old typewriter",
+    "z": 1.05,
+    "cosine": 0.083
+   },
+   {
+    "term": "a single mechanical keyboard key press",
+    "z": 0.75,
+    "cosine": 0.102
+   },
+   {
+    "term": "a soft key release click",
+    "z": 0.54,
+    "cosine": 0.043
+   }
+  ],
+  "foley": [
+   {
+    "term": "paper rustling",
+    "z": 2.41,
+    "cosine": 0.196
+   },
+   {
+    "term": "a page turning",
+    "z": 2.4,
+    "cosine": 0.213
+   },
+   {
+    "term": "dominoes falling",
+    "z": 1.54,
+    "cosine": 0.121
+   }
+  ],
+  "water": [
+   {
+    "term": "an object plunging into water",
+    "z": 0.61,
+    "cosine": 0.066
+   },
+   {
+    "term": "water splashing",
+    "z": 0.57,
+    "cosine": 0.033
+   },
+   {
+    "term": "pouring water",
+    "z": 0.3,
+    "cosine": -0.003
+   }
+  ],
+  "nature": [
+   {
+    "term": "leaves rustling",
+    "z": 1.46,
+    "cosine": 0.111
+   },
+   {
+    "term": "walking through dry leaves",
+    "z": 1.35,
+    "cosine": 0.087
+   },
+   {
+    "term": "a bird flapping its wings",
+    "z": 1.23,
+    "cosine": 0.065
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a celesta note",
+    "z": 0.94,
+    "cosine": 0.138
+   },
+   {
+    "term": "church bells",
+    "z": 0.06,
+    "cosine": -0.01
+   },
+   {
+    "term": "a triangle hit",
+    "z": -0.02,
+    "cosine": -0.038
+   }
+  ],
+  "ambience": [
+   {
+    "term": "wind blowing",
+    "z": 1.42,
+    "cosine": 0.068
+   },
+   {
+    "term": "a crowd cheering",
+    "z": 0.55,
+    "cosine": -0.034
+   },
+   {
+    "term": "an airplane flying overhead",
+    "z": 0.48,
+    "cosine": 0.014
+   }
+  ],
+  "everyday": [
+   {
+    "term": "a sword being drawn",
+    "z": 2.3,
+    "cosine": 0.159
+   },
+   {
+    "term": "a match being struck",
+    "z": 1.58,
+    "cosine": 0.092
+   },
+   {
+    "term": "a cat meowing",
+    "z": 0.89,
+    "cosine": 0.014
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "funk music",
+    "z": 1.0,
+    "cosine": 0.117
+   },
+   {
+    "term": "solo piano music",
+    "z": 0.75,
+    "cosine": 0.096
+   },
+   {
+    "term": "classical string quartet",
+    "z": 0.63,
+    "cosine": 0.042
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "triumphant and heroic music",
+    "z": 0.07,
+    "cosine": 0.02
+   },
+   {
+    "term": "aggressive music",
+    "z": -0.42,
+    "cosine": -0.01
+   },
+   {
+    "term": "playful and quirky music",
+    "z": -0.43,
+    "cosine": 0.029
+   }
+  ],
+  "instruments": [
+   {
+    "term": "crisp hi-hats",
+    "z": 2.53,
+    "cosine": 0.217
+   },
+   {
+    "term": "a snare roll",
+    "z": 2.48,
+    "cosine": 0.169
+   },
+   {
+    "term": "a cymbal roll",
+    "z": 1.5,
+    "cosine": 0.123
+   }
+  ],
+  "voice": [
+   {
+    "term": "a man shouting",
+    "z": 0.75,
+    "cosine": -0.074
+   },
+   {
+    "term": "someone whispering",
+    "z": 0.47,
+    "cosine": -0.024
+   },
+   {
+    "term": "a woman speaking",
+    "z": 0.28,
+    "cosine": -0.095
+   }
+  ],
+  "quality": [
+   {
+    "term": "a satisfying sound",
+    "z": 1.19,
+    "cosine": 0.159
+   },
+   {
+    "term": "a punchy sound",
+    "z": 1.12,
+    "cosine": 0.094
+   },
+   {
+    "term": "a tight snappy sound",
+    "z": 0.72,
+    "cosine": 0.074
+   }
+  ],
+  "production": [
+   {
+    "term": "an 8-bit sound effect",
+    "z": 2.12,
+    "cosine": 0.192
+   },
+   {
+    "term": "a square wave chiptune blip",
+    "z": 1.51,
+    "cosine": 0.119
+   },
+   {
+    "term": "a retro video game sound effect",
+    "z": 1.08,
+    "cosine": 0.112
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Scratch",
+   "p": 0.085
+  },
+  {
+   "label": "Sound effect",
+   "p": 0.053
+  }
+ ],
+ "character": [],
+ "summary": "0.62 s short transient (attack 9 ms, decays in 274 ms). Sounds most like: a stick swung fast through the air (z +3.1), a record scratch (z +2.7), a short swish (z +2.5) [clear reading]. Other readings: paper rustling (foley, z +2.4), a sword being drawn (everyday, z +2.3). AudioSet tagger unsure (Scratch 0.09, Sound effect 0.05). peak -12.7 dBFS, -38.9 LUFS, brightness 1.4 kHz, bandwidth 10.2 kHz, mono."
+}

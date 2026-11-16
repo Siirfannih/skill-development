@@ -1,0 +1,374 @@
+{
+ "path": "edit/v6/sfx/screen_entry.wav",
+ "start": null,
+ "end": null,
+ "duration": 0.334,
+ "measurements": {
+  "duration": 0.334,
+  "peak_dbfs": -21.0,
+  "true_peak_dbtp": -20.6,
+  "rms_dbfs": -53.7,
+  "attack_ms": 1.0,
+  "decay_ms": 46.0,
+  "brightness_hz": 7686,
+  "bandwidth_hz": 20480,
+  "flatness": 0.0884,
+  "harmonic_ratio": 0.0,
+  "onset_count": 2,
+  "onsets_per_s": 5.99,
+  "width": "mono",
+  "digital_silence_frac": 0.1468
+ },
+ "shape": "short transient (attack 1 ms, decays in 46 ms)",
+ "top_tags": [
+  {
+   "term": "a soft key release click",
+   "category": "keyboard",
+   "z": 3.18,
+   "cosine": 0.365,
+   "verdict": "strong"
+  },
+  {
+   "term": "a pen click",
+   "category": "foley",
+   "z": 2.81,
+   "cosine": 0.376,
+   "verdict": "plausible"
+  },
+  {
+   "term": "a single mechanical keyboard key press",
+   "category": "keyboard",
+   "z": 2.18,
+   "cosine": 0.315,
+   "verdict": "weak"
+  },
+  {
+   "term": "a soft UI button tap",
+   "category": "ui",
+   "z": 2.01,
+   "cosine": 0.258,
+   "verdict": "weak"
+  },
+  {
+   "term": "a toggle switch click",
+   "category": "ui",
+   "z": 1.98,
+   "cosine": 0.306,
+   "verdict": "no match"
+  }
+ ],
+ "music_hints": [
+  {
+   "term": "crisp hi-hats",
+   "category": "instruments",
+   "z": 1.45,
+   "cosine": 0.217
+  },
+  {
+   "term": "someone whispering",
+   "category": "voice",
+   "z": 1.3,
+   "cosine": 0.131
+  },
+  {
+   "term": "a man speaking",
+   "category": "voice",
+   "z": 1.24,
+   "cosine": 0.056
+  },
+  {
+   "term": "a woman speaking",
+   "category": "voice",
+   "z": 1.06,
+   "cosine": 0.053
+  },
+  {
+   "term": "people laughing",
+   "category": "voice",
+   "z": 1.05,
+   "cosine": 0.027
+  }
+ ],
+ "tags": {
+  "transitions": [
+   {
+    "term": "a quick swipe",
+    "z": 1.36,
+    "cosine": 0.228
+   },
+   {
+    "term": "a short swish",
+    "z": 0.8,
+    "cosine": 0.193
+   },
+   {
+    "term": "a stutter glitch transition",
+    "z": 0.78,
+    "cosine": 0.201
+   }
+  ],
+  "impacts": [
+   {
+    "term": "a hand clap",
+    "z": 1.54,
+    "cosine": 0.259
+   },
+   {
+    "term": "a soft thump",
+    "z": 1.32,
+    "cosine": 0.149
+   },
+   {
+    "term": "a punchy impact hit",
+    "z": 1.16,
+    "cosine": 0.112
+   }
+  ],
+  "ui": [
+   {
+    "term": "a soft UI button tap",
+    "z": 2.01,
+    "cosine": 0.258
+   },
+   {
+    "term": "a toggle switch click",
+    "z": 1.98,
+    "cosine": 0.306
+   },
+   {
+    "term": "a light switch flicked",
+    "z": 1.9,
+    "cosine": 0.286
+   }
+  ],
+  "keyboard": [
+   {
+    "term": "a soft key release click",
+    "z": 3.18,
+    "cosine": 0.365
+   },
+   {
+    "term": "a single mechanical keyboard key press",
+    "z": 2.18,
+    "cosine": 0.315
+   },
+   {
+    "term": "an enter key press",
+    "z": 1.15,
+    "cosine": 0.251
+   }
+  ],
+  "foley": [
+   {
+    "term": "a pen click",
+    "z": 2.81,
+    "cosine": 0.376
+   },
+   {
+    "term": "a plastic toy snapping together",
+    "z": 1.76,
+    "cosine": 0.29
+   },
+   {
+    "term": "a latch clicking shut",
+    "z": 1.74,
+    "cosine": 0.235
+   }
+  ],
+  "water": [
+   {
+    "term": "a water drop",
+    "z": 1.19,
+    "cosine": 0.233
+   },
+   {
+    "term": "a dripping tap",
+    "z": 0.94,
+    "cosine": 0.185
+   },
+   {
+    "term": "water splashing",
+    "z": -0.04,
+    "cosine": 0.056
+   }
+  ],
+  "nature": [
+   {
+    "term": "a branch snapping",
+    "z": 1.9,
+    "cosine": 0.257
+   },
+   {
+    "term": "insects buzzing",
+    "z": 1.12,
+    "cosine": 0.161
+   },
+   {
+    "term": "an apple falling on grass",
+    "z": 0.56,
+    "cosine": 0.114
+   }
+  ],
+  "chimes": [
+   {
+    "term": "a triangle hit",
+    "z": 1.42,
+    "cosine": 0.168
+   },
+   {
+    "term": "a glass ting",
+    "z": 0.93,
+    "cosine": 0.185
+   },
+   {
+    "term": "a small bell",
+    "z": 0.6,
+    "cosine": 0.147
+   }
+  ],
+  "ambience": [
+   {
+    "term": "an electrical hum",
+    "z": 1.55,
+    "cosine": 0.17
+   },
+   {
+    "term": "crickets at night",
+    "z": 1.55,
+    "cosine": 0.164
+   },
+   {
+    "term": "a city street with traffic",
+    "z": 1.34,
+    "cosine": 0.109
+   }
+  ],
+  "everyday": [
+   {
+    "term": "a clock ticking",
+    "z": 1.46,
+    "cosine": 0.209
+   },
+   {
+    "term": "a bird chirping",
+    "z": 1.45,
+    "cosine": 0.142
+   },
+   {
+    "term": "a match being struck",
+    "z": 1.36,
+    "cosine": 0.161
+   }
+  ],
+  "music_genre": [
+   {
+    "term": "classical string quartet",
+    "z": -0.2,
+    "cosine": 0.045
+   },
+   {
+    "term": "acoustic guitar music",
+    "z": -0.7,
+    "cosine": 0.055
+   },
+   {
+    "term": "solo piano music",
+    "z": -0.71,
+    "cosine": 0.043
+   }
+  ],
+  "music_mood": [
+   {
+    "term": "calm and relaxing music",
+    "z": 0.19,
+    "cosine": 0.105
+   },
+   {
+    "term": "playful and quirky music",
+    "z": -0.34,
+    "cosine": 0.107
+   },
+   {
+    "term": "warm and cozy music",
+    "z": -0.8,
+    "cosine": 0.077
+   }
+  ],
+  "instruments": [
+   {
+    "term": "crisp hi-hats",
+    "z": 1.45,
+    "cosine": 0.217
+   },
+   {
+    "term": "a grand piano",
+    "z": 0.64,
+    "cosine": 0.147
+   },
+   {
+    "term": "a vocal chop",
+    "z": 0.6,
+    "cosine": 0.195
+   }
+  ],
+  "voice": [
+   {
+    "term": "someone whispering",
+    "z": 1.3,
+    "cosine": 0.131
+   },
+   {
+    "term": "a man speaking",
+    "z": 1.24,
+    "cosine": 0.056
+   },
+   {
+    "term": "a woman speaking",
+    "z": 1.06,
+    "cosine": 0.053
+   }
+  ],
+  "quality": [
+   {
+    "term": "a tight snappy sound",
+    "z": 1.88,
+    "cosine": 0.261
+   },
+   {
+    "term": "a quiet sound",
+    "z": 0.94,
+    "cosine": 0.115
+   },
+   {
+    "term": "a soft sound",
+    "z": 0.89,
+    "cosine": 0.125
+   }
+  ],
+  "production": [
+   {
+    "term": "a field recording outdoors",
+    "z": 1.15,
+    "cosine": 0.141
+   },
+   {
+    "term": "a distorted clipped recording",
+    "z": 0.85,
+    "cosine": 0.134
+   },
+   {
+    "term": "a cheap synthesized beep",
+    "z": 0.67,
+    "cosine": 0.109
+   }
+  ]
+ },
+ "audioset": [
+  {
+   "label": "Sound effect",
+   "p": 0.038
+  }
+ ],
+ "character": [],
+ "summary": "0.33 s short transient (attack 1 ms, decays in 46 ms). Sounds most like: a soft key release click (z +3.1), a pen click (z +2.8), a single mechanical keyboard key press (z +2.1) [clear reading]. Other readings: a soft UI button tap (ui, z +2.0). AudioSet tagger unsure (Sound effect 0.04). peak -21.0 dBFS, brightness 7.7 kHz, bandwidth 20.5 kHz, mono."
+}
