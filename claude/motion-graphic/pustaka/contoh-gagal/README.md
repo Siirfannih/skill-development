@@ -35,3 +35,7 @@ Enam lembar still dari versi-versi Builder Trap (11 Nov) yang ditolak Irfan.
   7. Satu cara tampil teks dari awal sampai akhir.
 - **Dugaan frame yang baik (belum dikonfirmasi Irfan):** sosok biru di antara kerumunan abu dengan orang buram di depan; terowongan kartu dengan sosok di tengah. Keduanya punya satu fokus, satu aksen, dan kedalaman.
 - **Bukan pelajarannya:** "ilustrasi orang dilarang" atau "latar putih salah". Masalahnya skala, kedalaman, dan teks yang tidak menyatu.
+
+## 08 · BDF26 P1: kontras lokal dan berat frame
+
+[Kasus dan bukti lokal](08-bdf26-p1-kontras-balance.md): dark text di pilar gelap, lalu koreksi semua teks ke kanan yang membuat frame berat kanan. Aturan bersyarat: bedah seluruh frame dan geraknya; warna/posisi/outline dipilih dari gambar aktual. Media/testimoni tidak disalin ke repo.

@@ -34,6 +34,8 @@ Model sama, konteks beda: Sutradara memegang **kenapa**, Editor memegang **bagai
 
 **Pemeriksa frame** (peran ketiga, Irfan 15 Nov): agen/model lain yang tidak membangun, satu per potongan ≤ 10 dtk, menilai semua frame per detik sebelum render MP4 (`templates/roles/pemeriksa-frame.md`, `scripts/juri/frame_audit.py`).
 
+**Pemetaan penempatan teks** (sesi khusus sebelum build footage, Irfan 16 Nov): satu sesi melihat frame aktual, memilih area dari fungsi objek → whitespace terdekat wajah/tubuh/fokus → keseimbangan frame, lalu menulis `placement-map.json`. Setiap entri memuat sumber/rentang waktu, objek dan fungsi, fokus, area bukti yang dilindungi, kandidat/area terpilih, koordinat/anchor, alasan, kontras, serta transform kamera. Editor menerima peta koordinat ini dalam TASK dan tidak perlu mengulang pencarian visual; bila shot/crop berubah, petakan ulang entri yang terdampak. Juri tetap memeriksa hasil render. Panduan keputusan: `../guide/teks/GUIDE.md` (Irfan 16 Nov, koreksi BDF26 v11).
+
 Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat mentah Irfan; ia menerima TASK yang sudah diterjemahkan, ber-ID, dan terukur.
 
 ## 3. Peta gerbang
