@@ -378,5 +378,14 @@ class Rules16NovTests(unittest.TestCase):
             self.assertLess(abs(px(10)[0] - px(10)[2]), 20)  # abu-abu sebelum lapisan
 
 
+    def test_motion_lint_revision_mode_only_checks_changed_files(self):
+        with tempfile.TemporaryDirectory() as folder:
+            src = Path(folder)
+            (src / "Old.tsx").write_text("const o = interpolate(f, [0, 9], [0, 1], { easing: Easing.inOut(Easing.ease) });\n")
+            (src / "New.tsx").write_text("const ok = interpolate(f, [0, 9], [0, 1], { easing: CURVE.land });\n")
+            self.assertEqual(len(motion_lint.lint(src)), 1)
+            self.assertEqual(motion_lint.lint(src, {(src / "New.tsx").resolve()}), [])
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -24,7 +24,7 @@ RUTE = f"""## Rute: pekerjaan → buka ini (urut, berhenti bila cukup)
 | Fase 3 visual: teks/KT, kamera, kurva, lapisan lego | `{MG}/references/typography.md` §8a, `{MG}/references/build.md` (Rakit lego), `scripts/lego/teks_plan.py` → `kt_check.py`, `scripts/remotion/curves.ts`, `TeksBlok.tsx`, `LightSweep.tsx`, `{MG}/references/camera-transition.md` | audio |
 | Fase 4 SFX lalu musik | `{MG}/guide/sfx/GUIDE.md`, `{MG}/guide/sfx/SFXIRFAN.md`, `{MG}/references/audio.md` §14.3–14.9, `scripts/gate/sfx_density.py`, `{MG}/guide/audio/GUIDE.md` | tipografi |
 | Fase 5 finishing: mix, QA, render sekali | `{MG}/references/delivery-gate.md`, `scripts/juri/render.sh` (`lego` untuk video berfootage), `scripts/juri/frame_audit.py` | storyboard |
-| Revisi dari Irfan | `{MG}/references/revision-log.md`, `projects/<proyek>/DECISIONS.md`, `scripts/baseline_lock.py` | menulis ulang dari nol |
+| Revisi dari Irfan | `{MG}/references/revision-log.md`, `projects/<proyek>/DECISIONS.md` + `STATUS.md`, `scripts/baseline_lock.py`; video lama: `qc/revisi.json` (Lantai F27) | menulis ulang dari nol, memigrasi adegan yang sudah disetujui |
 | Orkestrasi subagen / model lain | `{MG}/references/orkestrasi.md`, `{MG}/templates/handoff-fase.md` | — |
 | Tulisan konten (caption, hook, carousel) | `claude/script-workshop/SKILL.md` | skill video |
 | Proyek dengan PRD/QUEUE | `claude/autopilot-prd/SKILL.md` | — |

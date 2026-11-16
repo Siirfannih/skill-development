@@ -22,9 +22,11 @@ RULES = [
 TIMING = re.compile(r"delay|start|from=|offset|fps|frame|\bt0\b|\bat\b|stagger|appear|muncul|masuk", re.I)
 
 
-def lint(src):
+def lint(src, only=None):
     out = []
     for f in sorted(Path(src).rglob("*.[jt]s*")):
+        if only is not None and f.resolve() not in only:
+            continue
         if "node_modules" in f.parts or f.name.startswith("curves."):
             continue
         for n, line in enumerate(f.read_text(encoding="utf-8", errors="ignore").splitlines(), 1):
@@ -39,7 +41,11 @@ def lint(src):
 
 
 if __name__ == "__main__":
-    issues = lint(sys.argv[1] if len(sys.argv) > 1 else "src")
+    args = sys.argv[1:]
+    only = None
+    if "--hanya" in args:  # revisi video lama: hanya file yang berubah sejak versi disetujui
+        i = args.index("--hanya"); only = {Path(p).resolve() for p in args[i + 1:]}; args = args[:i]
+    issues = lint(args[0] if args else "src", only)
     for i in issues[:40]:
         print(" ", i)
     print("PASS" if not issues else f"FAIL: {len(issues)} gerak preset/stagger rata/blur masuk (pakai curves.ts, atau tulis `motion-ok: <alasan>`)")

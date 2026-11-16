@@ -81,13 +81,15 @@ def run_gate(command, failure):
         raise SystemExit(f"FAIL: {failure}\n{output[-1200:]}")
 
 
-def validate_voice(audio, words, source_words, cut_map, voice_source):
+def validate_voice(audio, words, source_words, cut_map, voice_source, warisan=False):
     required = {
         "words": Path(words),
         "source_words": Path(source_words),
         "cut_map": Path(cut_map),
         "voice_source": Path(voice_source),
     }
+    if warisan and not voice_source:
+        required.pop("voice_source")  # video lama (qc/revisi.json): suara tidak diubah, level dinilai saat dikunci dulu
     missing = [f"{name}={path}" for name, path in required.items() if not path.exists()]
     if missing:
         raise SystemExit("FAIL: bukti potongan suara tidak lengkap: " + ", ".join(missing))
@@ -104,20 +106,25 @@ def validate_voice(audio, words, source_words, cut_map, voice_source):
         [sys.executable, str(HERE / "pause_clean.py"), audio, words],
         "jeda suara masih berisik",
     )
-    run_gate(
-        [sys.executable, str(HERE / "voice_level.py"), voice_source, audio],
-        "suara asli diturunkan, ditekan, atau terlalu pelan (Lantai E23)",
-    )
+    if "voice_source" in required:
+        run_gate(
+            [sys.executable, str(HERE / "voice_level.py"), voice_source, audio],
+            "suara asli diturunkan, ditekan, atau terlalu pelan (Lantai E23)",
+        )
     return {
         name: {"file": str(path.resolve()), "sha": sha(path)}
         for name, path in required.items()
     }
 
 
-def validate_sfx(state, cues, objects, ref_density=0.0):
+def validate_sfx(state, cues, objects, ref_density=0.0, warisan=False):
     visual = state["stages"].get("visual")
     if not visual:
         raise SystemExit("FAIL: SFX disusun dari event visual; kunci visual dulu")
+    if warisan and not objects:
+        cmd = [sys.executable, str(HERE / "sfx_density.py"), visual["file"], cues]
+        run_gate(cmd, "spam atau palet terlarang (video lama: daftar objek belum ada)")
+        return
     if not objects or not Path(objects).exists():
         raise SystemExit("FAIL: SFX wajib memakai --objects objects.json (1 SFX per objek/visual penting, Lantai E24)")
     cmd = [sys.executable, str(HERE / "sfx_density.py"), visual["file"], cues, "--objects", objects]
@@ -142,6 +149,8 @@ def main():
     ap.add_argument("--ref-density", type=float, default=0.0, help="opsional: batas kepadatan bila Irfan memintanya")
     ap.add_argument("--voice-source", default="", help="stem suara sumber sebelum proses (bukti level tidak diturunkan)")
     ap.add_argument("--objects", default="", help="objects.json: objek/visual yang muncul atau bergerak")
+    ap.add_argument("--warisan", action="store_true", help="check video lama (qc/revisi.json): bukti yang belum ada di aturan "
+                    "lama (voice_source, objects) tidak diwajibkan selama lapisan itu tidak dikunci ulang")
     a = ap.parse_args()
     d = Path(a.dir)
     d.mkdir(parents=True, exist_ok=True)
@@ -212,6 +221,7 @@ def main():
                 evidence["source_words"]["file"],
                 evidence["cut_map"]["file"],
                 evidence.get("voice_source", {}).get("file", ""),
+                warisan=a.warisan,
             )
         except SystemExit as error:
             fails.append(str(error))
@@ -219,7 +229,7 @@ def main():
     if sfx and not fails:
         try:
             validate_sfx(s, sfx["file"], sfx.get("evidence", {}).get("objects", {}).get("file", ""),
-                         float(sfx.get("ref_density", 0)))
+                         float(sfx.get("ref_density", 0)), warisan=a.warisan)
         except SystemExit as error:
             fails.append(str(error))
     print(f"mode {s['mode']}: " + " -> ".join(f"{x}{'✓' if x in s['stages'] else '·'}" for x in seq))

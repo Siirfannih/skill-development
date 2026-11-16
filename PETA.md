@@ -13,7 +13,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | Fase 3 visual: teks/KT, kamera, kurva, lapisan lego | `claude/motion-graphic/references/typography.md` §8a, `claude/motion-graphic/references/build.md` (Rakit lego), `scripts/lego/teks_plan.py` → `kt_check.py`, `scripts/remotion/curves.ts`, `TeksBlok.tsx`, `LightSweep.tsx`, `claude/motion-graphic/references/camera-transition.md` | audio |
 | Fase 4 SFX lalu musik | `claude/motion-graphic/guide/sfx/GUIDE.md`, `claude/motion-graphic/guide/sfx/SFXIRFAN.md`, `claude/motion-graphic/references/audio.md` §14.3–14.9, `scripts/gate/sfx_density.py`, `claude/motion-graphic/guide/audio/GUIDE.md` | tipografi |
 | Fase 5 finishing: mix, QA, render sekali | `claude/motion-graphic/references/delivery-gate.md`, `scripts/juri/render.sh` (`lego` untuk video berfootage), `scripts/juri/frame_audit.py` | storyboard |
-| Revisi dari Irfan | `claude/motion-graphic/references/revision-log.md`, `projects/<proyek>/DECISIONS.md`, `scripts/baseline_lock.py` | menulis ulang dari nol |
+| Revisi dari Irfan | `claude/motion-graphic/references/revision-log.md`, `projects/<proyek>/DECISIONS.md` + `STATUS.md`, `scripts/baseline_lock.py`; video lama: `qc/revisi.json` (Lantai F27) | menulis ulang dari nol, memigrasi adegan yang sudah disetujui |
 | Orkestrasi subagen / model lain | `claude/motion-graphic/references/orkestrasi.md`, `claude/motion-graphic/templates/handoff-fase.md` | — |
 | Tulisan konten (caption, hook, carousel) | `claude/script-workshop/SKILL.md` | skill video |
 | Proyek dengan PRD/QUEUE | `claude/autopilot-prd/SKILL.md` | — |

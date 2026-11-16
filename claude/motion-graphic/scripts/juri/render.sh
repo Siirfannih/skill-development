@@ -85,12 +85,20 @@ case "$MODE" in
       echo "GAGAL gerbang audio: Python dengan numpy + soundfile tidak ditemukan. Pasang requirements.txt atau set PYTHON=/path/venv/bin/python."
       exit 1
     }
-    if ! "$PYTHON_BIN" "$HERE/../gate/audio_order.py" check --dir "$P/audio"; then
+    WARIS=""; CHANGED=""
+    if [ -f "$QC/revisi.json" ]; then
+      # Revisi video lama (Lantai F27): aturan baru berlaku untuk bagian yang diubah sejak versi yang disetujui.
+      BASIS="$("$PYTHON_BIN" -c 'import json,sys;print(json.load(open(sys.argv[1]))["basis"])' "$QC/revisi.json")"
+      WARIS="--warisan"
+      CHANGED="$(cd "$R" && git diff --name-only --relative "$BASIS" -- src 2>/dev/null | sed "s#^#$R/#" | tr '\n' ' ')"
+      echo "mode revisi: basis $BASIS · file berubah: ${CHANGED:-(tidak ada)}"
+    fi
+    if ! "$PYTHON_BIN" "$HERE/../gate/audio_order.py" check --dir "$P/audio" $WARIS; then
       echo "GAGAL gerbang audio: kunci suara dengan bukti source words + cut map, lalu visual, SFX, dan musik sebelum render final."
       exit 1
     fi
     python3 "$HERE/resep_check.py" "$P/RESEP.md" || gagal=1
-    python3 "$HERE/motion_lint.py" "$R/src" || { echo "GAGAL gerbang: gerak preset/stagger rata/blur masuk (Lantai B13a); pakai curves.ts."; gagal=1; }
+    python3 "$HERE/motion_lint.py" "$R/src" ${WARIS:+--hanya $CHANGED} || { echo "GAGAL gerbang: gerak preset/stagger rata/blur masuk (Lantai B13a); pakai curves.ts."; gagal=1; }
     python3 "$HERE/audio_bus_check.py" "$R/src" || { echo "GAGAL gerbang: audio di dalam <Sequence> adegan terpotong di batas adegan; putar mix lewat satu komponen '// audio-bus' di root."; gagal=1; }
     ns="$(printf '%.0f' "$(newest_src)")"; st="$(find "$QC/stills" -name '*.png' -printf '%T@\n' 2>/dev/null | sort -n | head -1)"; st="$(printf '%.0f' "${st:-0}")"  # still PALING LAMA: satu still basi = gagal (builder-trap-r2 r7: JB13 basi lolos)
     [ "$st" -ge "$ns" ] && [ "$st" -gt 0 ] || { echo "GAGAL gerbang: still di qc/stills lebih lama daripada perubahan src (atau belum ada). Jalankan 'still' dulu."; gagal=1; }
