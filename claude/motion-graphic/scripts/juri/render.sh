@@ -5,6 +5,8 @@
 #   render.sh <proyek> draft <Comp> [awal-akhir]                         draft gerak     -> <proyek>/qc/draft[_awal-akhir].mp4 (skala 0,5, tanpa audio)
 #   render.sh <proyek> frames <Comp>                                      SEMUA frame     -> <proyek>/qc/frames/ (jpeg skala 0,5) untuk frame_audit.py
 #   render.sh <proyek> final <Comp> <keluaran.mp4> [awal-akhir]          render penuh    -> hanya bila gerbang di bawah lulus
+#   render.sh <proyek> lego lego/lego.json                               rakit lego      -> gerbang yang sama, lalu ffmpeg sekali
+#                                                                        (scripts/lego/; jalur utama untuk video berfootage)
 #
 # <proyek> berisi RESEP.md dan folder remotion/ (src/index.ts). Bundle dibuat sekali dan dipakai ulang sampai src berubah.
 # Gerbang `final` (semua harus benar):
@@ -75,9 +77,10 @@ case "$MODE" in
     bundle; RANGE="${1:-}"; OUT="$QC/draft${RANGE:+_$RANGE}.mp4"
     (cd "$R" && npx remotion render "$QC/.bundle" "$COMP" "$OUT" --scale=0.5 --crf=28 --muted --concurrency="$K" ${RANGE:+--frames=$RANGE} --log=error)
     echo "draft $OUT (skala 0,5; hanya untuk menilai gerak dan kamera)" ;;
-  final)
-    [ $# -ge 1 ] || { echo "beri nama file keluaran"; exit 1; }
-    OUT="$1"; RANGE="${2:-}"; gagal=0
+  final|lego)
+    if [ "$MODE" = lego ]; then LEGO="$P/${COMP}"; [ -f "$LEGO" ] || { echo "GAGAL: $LEGO tidak ada (render.sh <proyek> lego lego/lego.json)"; exit 1; }; OUT="(lego)"; RANGE=""
+    else [ $# -ge 1 ] || { echo "beri nama file keluaran"; exit 1; }; OUT="$1"; RANGE="${2:-}"; fi
+    gagal=0
     PYTHON_BIN="$(audio_python)" || {
       echo "GAGAL gerbang audio: Python dengan numpy + soundfile tidak ditemukan. Pasang requirements.txt atau set PYTHON=/path/venv/bin/python."
       exit 1
@@ -113,11 +116,16 @@ case "$MODE" in
     [ "$gagal" = 0 ] || { echo "Render penuh ditolak."; exit 1; }
     free_mb=$(df --output=avail -BM "$P" | tail -1 | tr -dc 0-9)
     [ "${free_mb:-0}" -ge 8000 ] || echo "PERINGATAN: disk kosong ${free_mb} MB (< 8 GB). Render penuh memakai sampai ±3,6 GB di puncaknya dan proses lain di PC bersama bisa naik-turun 2–3 GB; kehabisan ruang muncul sebagai halaman render crash (builder-trap-r2 v2 14 Nov; v3 15 Nov dua kali, disk 561 MB saat crash). Bebaskan ruang dulu."
+    if [ "$MODE" = lego ]; then
+      # Rakit lego: lapisan sudah dirender terpisah (scripts/lego/lapisan.py, cache); di sini hanya ffmpeg sekali.
+      "$PYTHON_BIN" "$HERE/../lego/compose.py" "$LEGO" --cek && "$PYTHON_BIN" "$HERE/../lego/compose.py" "$LEGO"
+      echo "final(lego) $(date '+%F %T') $LEGO" >> "$QC/render.log"; exit $?
+    fi
     heavy_lock
     bundle; n=$(( $(grep -c '^final' "$QC/render.log" 2>/dev/null || true) + 1 ))
     echo "final $(date '+%F %T') ke-$n ${RANGE:-penuh} -> $OUT" >> "$QC/render.log"
     [ "$n" -le 2 ] || echo "PERINGATAN: ini render penuh ke-$n untuk video ini. Revisi cukup rentang yang berubah (argumen awal-akhir)."
     (cd "$R" && npx remotion render "$QC/.bundle" "$COMP" "$OUT" --concurrency="$K" ${RANGE:+--frames=$RANGE} --log=error)
     echo "final $OUT" ;;
-  *) echo "mode tidak dikenal: $MODE (still | draft | frames | final)"; exit 1 ;;
+  *) echo "mode tidak dikenal: $MODE (still | draft | frames | final | lego)"; exit 1 ;;
 esac

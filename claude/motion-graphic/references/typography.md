@@ -82,6 +82,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 | G5 | Berperspektif | Layer 3D menempel bidang ruang (rotasi X 55–70° sesuai bidang); blur hanya dari gerak/DoF kamera |
 | G6 | Dalam adegan | Di antara latar dan objek depan (satu ruang) |
 | G7 | Label/pil | Inter SemiBold XS–S, pil rounded; tidak pernah jadi fokus kedua sejajar headline |
+| G8 | Kilat cahaya (acuan siirfannih_DfRh4w0SfAk "Golden rule", "Excitement") | Isi huruf gradien warna (atas terang → bawah lebih dalam), satu pita cahaya miring menyapu huruf sekali (kurva `land`, durasi dari lebar teks), glow lembut paling kuat saat pita di tengah. Komponen: `scripts/remotion/LightSweep.tsx`. Hanya untuk kata hero/penekanan, maksimal 1 per 10 dtk. **Bukan** footage/tekstur di dalam huruf (gagal: jensen-pain-suffering T26, percikan grayscale terbaca bayangan daun) |
 
 ---
 
@@ -94,6 +95,24 @@ Peran teks dibedakan lewat GERAK. Peran yang sama selalu bergerak dengan cara ya
 - **R4 label** = T23/T10
 - **R5 UI diketik** = T11
 - **R6 kata pahlawan** = T04/C05, maksimal 2× per video
+
+### 8a. Cara memilih gerak teks (Lantai A9a; Irfan 16 Nov)
+
+Isi teks KT/subtitle sudah pasti = ucapan (`scripts/lego/teks_plan.py` menghitung waktu dan durasi). Yang diputuskan per blok: **peran → gerak → gaya → posisi**, ditulis di `teks.json` beserta alasannya. Fade bukan pilihan bawaan; fade hanya untuk peran `sub` (eyebrow/sub-line kecil).
+
+| Situasi kalimat | Peran | Pilih A bila… | Pilih B bila… | Pilih C bila… |
+|---|---|---|---|---|
+| Narasi berjalan | R1 | T19 word-pop: tempo cepat, banyak kata | T01 word rise dari mask: kalimat tenang/serius | T28 flip-up X: kiblat 2.5D/3D, kata pendek |
+| Kata yang membawa emosi (kata hero) | R6 | T02 blur-to-focus + G8 kilat: emosi naik, harapan, "Excitement" | T04 scale-down settle: kata berdiri sendiri di layar penuh | T03 slam: kejutan, kontras keras |
+| Kata kunci di tengah narasi | R2 | G4/T20 color flash: kiblat memakai warna sebagai penekanan | T03 slam kecil: klaim tegas | T13 tracking converge: dua hal yang bertemu/menyatu |
+| Klaim keras / peringatan | R3 | T03 + shake | T25 chaotic: frustrasi, kacau | T14 letter scatter: sesuatu runtuh/hilang |
+| Angka, persen, uang | R2 | T16 counter | T27 huruf naik dari bar: angka di grafik | — |
+| Daftar, pilihan, langkah | R4 | T10 card stack / G7 pil: item sejajar ("Face Challenge · Get Tired") | T09 sticker drop: nada ringan | T18 silinder: daftar panjang bergiliran |
+| Sesuatu berganti / A lawan B | R2 | T07 slot swap | T32 word swap 3D: kiblat 3D | T24 anchor word: satu kata tetap, latar berganti |
+| Teks di layar aplikasi / prompt | R5 | T11 typewriter (huruf per huruf + caret) | T12 big type typing: momen mengetik jadi fokus | T21 decode: data teknis/ID |
+| Label pada objek | R4 | T23 diegetik + garis tipis | G6 dalam adegan | — |
+
+Huruf per huruf dipakai bila maknanya memang "sedang terbentuk": diketik (T11), terbalik satu per satu (T28 per karakter), atau runtuh (T14). Narasi biasa tidak dibuat per huruf.
 
 | Kode | Nama | Cara kerja & angka | Build AE |
 |---|---|---|---|
@@ -131,7 +150,7 @@ Peran teks dibedakan lewat GERAK. Peran yang sama selalu bergerak dengan cara ya
 | T32 | **Word swap 3D** | Kata lama flip menjauh di X, kata baru flip masuk (carousel 3D) | Dua layer, Rotation X |
 
 Aturan pemakaian:
-- 4–6 teknik berbeda per 15 dtk; teknik sama maksimal 2× berturut.
+- Variasi datang dari PERAN, bukan dari mengacak gerak: satu peran = satu gerak di seluruh video, dan tiap 15 dtk berisi ≥ 3 gerak berbeda karena ada kata kunci, hero, angka, atau daftar di antara narasi (`scripts/lego/kt_check.py`, Lantai A9a). Untuk peran penekanan, teknik sama maksimal 2× berturut.
 - Masuk lebih lambat dari keluar (masuk 8–14 f, keluar 4–8 f).
 - Teks keluar bersama transisi shot (2–6 f) atau lewat mask 4–6 f, tidak fade.
 - Opacity saja tidak dihitung animasi. Opacity hanya menemani gerak, kecuali eyebrow/sub-line kecil yang boleh fade.
@@ -155,10 +174,10 @@ Aturan pemakaian:
   - heavy 0.5/1.0, tanpa overshoot (teks besar, logo)
   - playful 0.5/0.45 (maskot saja)
 - **Overshoot ≤ 1,05** pada UI. Tidak ada overshoot pada teks besar. Settle 6–10 f, tidak berhenti mendadak.
-- Satu keluarga easing per video. Tidak ada linear kecuali drift/rotasi loop.
+- Satu register gerak per video (teknis, editorial, premium, ekspresif, tenang); di dalamnya kurva dipilih per gerak dari `scripts/remotion/curves.ts` (Lantai B13a). Tidak ada linear kecuali drift/rotasi loop.
 - Ritme:
   - satu event baru tiap 12–24 f; sesuatu yang baru tiap 2–4 dtk
   - hold teks = 0,25 dtk + 0,3 dtk/kata (0,8–2,5 dtk)
-  - stagger 2–4 f dengan variasi ±1 f
+  - reaksi berjeda tidak rata `react(i)` (0, 2, 5, 8, 11, 15 f @30), bukan stagger rata (Lantai B13a)
 - **Puncak visual memimpin ketukan** supaya terbaca tepat di beat. Bunyi tetap di grid; apex gerak, bukan awal adegan, yang menabrak beat.
 - Swap berurutan: yang lama keluar penuh sebelum yang baru mendarat.

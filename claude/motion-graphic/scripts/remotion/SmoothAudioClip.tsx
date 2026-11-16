@@ -36,7 +36,7 @@ const Env: React.FC<{ src: string; total: number; fadeIn: number; fadeOut: numbe
   src, total, fadeIn, fadeOut, base, trimBefore,
 }) => {
   const frame = useCurrentFrame();
-  const vin = interpolate(frame, [0, fadeIn], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.quad) });
-  const vout = interpolate(frame, [total - fadeOut, total], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.cubic) });
+  const vin = interpolate(frame, [0, fadeIn], [0, 1], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.quad) });  // motion-ok: envelope volume audio, bukan gerak
+  const vout = interpolate(frame, [total - fadeOut, total], [1, 0], { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.cubic) });  // motion-ok: envelope volume audio, bukan gerak
   return <Audio src={src} trimBefore={Math.max(0, trimBefore)} volume={base * vin * vout} />;
 };

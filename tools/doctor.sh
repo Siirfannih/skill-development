@@ -64,6 +64,7 @@ D="$(command -v demucs || ls "$HOME"/work/mg-venv/bin/demucs 2>/dev/null)"
 if [ -n "$D" ]; then ok "demucs siap ($D)"
 else note "demucs tidak terpasang: dipakai audio/ears.py untuk menilai musik dari stem (audio.md §14.0B); pasang saat tugas audio"; fi
 
+python3 "$REPO/tools/peta.py" --check >/dev/null 2>&1 && ok "PETA.md terbaru" || bad "PETA.md basi (python3 tools/peta.py)"
 python3 "$REPO/tools/sync_lantai.py" --check >/dev/null 2>&1 && ok "lantai di SKILL.md sama dengan LANTAI.md" || bad "LANTAI.md berubah tetapi SKILL.md belum disalin ulang (python3 tools/sync_lantai.py)"
 nf=$(ls "$REPO"/claude/motion-graphic/fonts/*/*.woff2 2>/dev/null | wc -l | tr -d ' ')
 [ "$nf" -ge 200 ] && ok "font repo: $nf file (claude/motion-graphic/fonts)" || bad "folder font repo tidak lengkap ($nf file)"

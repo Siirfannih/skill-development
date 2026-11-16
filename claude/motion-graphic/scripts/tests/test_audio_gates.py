@@ -28,6 +28,8 @@ recut = load_module("recut", "scripts/audio/recut.py")
 audio_bus = load_module("audio_bus", "scripts/juri/audio_bus_check.py")
 motion_lint = load_module("motion_lint", "scripts/juri/motion_lint.py")
 board = load_module("board", "scripts/storyboard/board.py")
+kt_check = load_module("kt_check", "scripts/lego/kt_check.py")
+compose = load_module("compose", "scripts/lego/compose.py")
 
 
 class CutSafetyTests(unittest.TestCase):
@@ -336,6 +338,44 @@ class Rules16NovTests(unittest.TestCase):
                                         "objek": ["1", "2", "3"], "urutan": "u", "bentuk": "exploded view"}}
         self.assertEqual(board.metafora_issues(good), [])
         self.assertTrue(board.metafora_issues({"id": "b"}))
+
+
+    def test_kt_check_rejects_fade_everywhere_and_accepts_role_based_variety(self):
+        fade = [{"id": f"T{i}", "teks": "x", "t": i * 1.0, "dur": 0.9, "peran": "R1", "kode": "FADE",
+                 "alasan": "a", "pos": [540, 960]} for i in range(8)]
+        self.assertTrue(any("fade hanya" in f for f in kt_check.check(fade)))
+        mix = []
+        roles = [("R1", "T19"), ("R1", "T19"), ("R6", "T02"), ("R1", "T19"), ("R2", "T16"), ("R1", "T19"), ("R1", "T19")]
+        for i, (r, k) in enumerate(roles):
+            mix.append({"id": f"T{i}", "teks": "x", "t": i * 1.0, "dur": 0.9, "peran": r, "kode": k, "alasan": "a", "pos": [540, 960]})
+        self.assertEqual(kt_check.check(mix), [])
+        mix[3]["kode"] = "T01"
+        self.assertTrue(any("peran R1" in f for f in kt_check.check(mix)))
+
+    def test_compose_overlays_a_cached_layer_at_its_time(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            (root / "lego").mkdir(); (root / "edit").mkdir()
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-f", "lavfi", "-i", "color=c=gray:s=320x180:r=30:d=2",
+                            "-pix_fmt", "yuv420p", str(root / "edit/a.mp4")], check=True)
+            box = np.zeros((40, 80, 4), np.uint8); box[...] = (255, 220, 0, 255)
+            from PIL import Image
+            Image.fromarray(box, "RGBA").save(root / "box.png")
+            subprocess.run(["ffmpeg", "-v", "error", "-y", "-loop", "1", "-t", "0.5", "-r", "30", "-i", str(root / "box.png"),
+                            "-c:v", "prores_ks", "-profile:v", "4444", "-pix_fmt", "yuva444p10le", str(root / "lego/b.mov")], check=True)
+            L = {"fps": 30, "w": 320, "h": 180, "dasar": [{"src": "edit/a.mp4", "in": 0, "dur": 2}],
+                 "lapisan": [{"id": "B", "src": "lego/b.mov", "t": 1.0, "x": 100, "y": 60}], "keluar": "out/f.mp4"}
+            (root / "lego.json").write_text(json.dumps(L))
+            r = subprocess.run([os.sys.executable, str(ROOT / "scripts/lego/compose.py"), str(root / "lego.json")],
+                               capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+            def px(n):
+                raw = subprocess.run(["ffmpeg", "-v", "error", "-i", str(root / "out/f.mp4"), "-vf", f"select=eq(n\\,{n}),crop=40:20:120:70",
+                                      "-frames:v", "1", "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True).stdout
+                return np.frombuffer(raw, np.uint8).reshape(-1, 3).mean(0)
+            self.assertLess(px(10)[2] - px(40)[2], 5 + px(10)[2])
+            self.assertGreater(px(40)[0] - px(40)[2], 150)  # kuning saat lapisan tampil
+            self.assertLess(abs(px(10)[0] - px(10)[2]), 20)  # abu-abu sebelum lapisan
 
 
 if __name__ == "__main__":

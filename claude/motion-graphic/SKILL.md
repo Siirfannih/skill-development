@@ -30,6 +30,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 7. **Huruf menyatu dengan frame-nya.** Kontras ≥ 4,5 : 1, ukurannya berhubungan dengan subjek di frame, tidak menyentuh tepi. Jenis huruf ikut kiblat; serif tidak dilarang. Font yang dipakai termuat dari file (`fonts/README.md`), tidak jatuh ke font cadangan sistem (Irfan 12 Nov). Contoh gagal: `pustaka/contoh-gagal/01-serif-pucat-raksasa.jpg` (Irfan 11 Nov).
 8. **Terbaca berurutan dan cukup lama**: satu arah baca, tiap frasa tampil sampai selesai diucapkan, terbaca di layar HP (Irfan 9 Nov).
 9. **Kotak di belakang teks hanya bila kontras gagal**, bukan hiasan; narasi kinetik tanpa kotak/shape di belakangnya (Irfan 6 Nov, 15 Nov).
+9a. **Gerak teks dipilih dari peran kalimatnya, bukan fade untuk semua.** Isi teks = ucapan (waktu dan durasi dihitung `scripts/lego/teks_plan.py`); tiap blok diberi peran (R1 narasi, R2 kata kunci, R3 klaim, R4 label/daftar, R5 UI, R6 hero, sub), satu gerak T dari tabel `typography.md` §8a, gaya G, posisi, dan alasan. Satu peran = satu gerak di seluruh video; tiap 15 dtk ≥ 3 gerak berbeda dan ≥ 1 penekanan, kecuali adegan tenang yang alasannya ditulis. Fade hanya untuk sub-line kecil. Efek pada huruf adalah gaya terdefinisi (mis. G8 kilat cahaya), bukan footage/tekstur yang dimasukkan ke huruf. `scripts/lego/kt_check.py teks.json` PASS (Irfan 16 Nov; gagal: KT hampir semua fade, jensen T26 "bayangan daun").
 
 ### B. Kamera dan gerak
 10. **Frame tidak datar.** Setiap shot lebih dari 2 detik punya gerak kamera yang disengaja (push/zoom pelan untuk fokus, pan, atau mengikuti objek). Pengecualian hanya bila kartu kiblat memang berkamera diam, dan itu ditulis di `RESEP.md` (Irfan 9 Nov).
@@ -59,7 +60,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 25. **Musik mengikuti tempo dan suasana video**, tidak bolong, tidak melawan emosi ucapan (Irfan 6, 8 Nov).
 
 ### F. Cara kerja
-26. **Urutan render: still per beat → draft skala 0,5 → semua frame diaudit → render penuh.** Semua lewat `scripts/juri/render.sh`; render penuh ditolak sebelum resep dan still lulus. Satu render penuh 1080p ±8–18 menit di PC server, jadi ia langkah terakhir. **Audit tanpa sampling sebelum MP4**: semua frame dirender sebagai gambar (`render.sh frames`), dipecah per ≤ 10 dtk, tiap detik (30 frame) diperiksa agen lain (subagen/model lain, paralel per potongan) untuk visual, audio/SFX, transisi, dan jarak antar-frame (`scripts/juri/frame_audit.py`); render penuh ditolak sampai semua potongan `PUTUSAN: LULUS` (Irfan 15 Nov; gagal: builder-trap-r2 v3 patahan di titik potong suara dan Bali Digifest, keduanya lolos cek sampel tiap 8–15 frame).
+26. **Urutan render: still per beat → draft skala 0,5 → semua frame diaudit → render penuh.** Semua lewat `scripts/juri/render.sh`; render penuh ditolak sebelum resep dan still lulus. Satu render penuh 1080p ±8–18 menit di PC server, jadi ia langkah terakhir. **Audit tanpa sampling sebelum MP4**: semua frame dirender sebagai gambar (`render.sh frames`), dipecah per ≤ 10 dtk, tiap detik (30 frame) diperiksa agen lain (subagen/model lain, paralel per potongan) untuk visual, audio/SFX, transisi, dan jarak antar-frame (`scripts/juri/frame_audit.py`); render penuh ditolak sampai semua potongan `PUTUSAN: LULUS` (Irfan 15 Nov; gagal: builder-trap-r2 v3 patahan di titik potong suara dan Bali Digifest, keduanya lolos cek sampel tiap 8–15 frame). **Video berfootage dirakit seperti lego**: footage dan kamera footage dikerjakan ffmpeg, teks/KT dan visual dirender terpisah sebagai lapisan ber-alpha seukuran kotaknya dan di-cache (`scripts/lego/lapisan.py`), lalu dirakit sekali (`render.sh <proyek> lego lego/lego.json`). Revisi waktu/posisi teks = ubah `lego.json`, tanpa render ulang lapisan (Irfan 16 Nov).
 27. **Revisi = diff.** Adegan yang sudah disetujui tidak disentuh; yang dirender ulang hanya rentang yang berubah.
 28. **Tidak yakin = tanya, jangan menebak.**
 29. **Video baru dikirim setelah juri lulus** (`pustaka/README.md` §Juri), bersama lembar sanding still vs kiblat.
@@ -126,9 +127,9 @@ Gerbang di bawah dikelompokkan jadi lima fase. Batas fase = titik kunci, bukan j
 |---|---|---|---|
 | 1 Pra-produksi: konsep, script, bedah referensi, storyboard, aset, footage, B-roll | 0–5 | sesi utama bersama Irfan (script dan storyboard butuh kata "final" darinya) | storyboard final; aset/footage/B-roll terpilih di `projects/<proyek>/aset/` dengan alasan per beat |
 | 2 Spine suara: potong VO/suara asli, ekor kata, level | 6 | subagen baru | `audio_order.py lock suara` PASS |
-| 3 Visual: susunan footage, teks, kamera, transisi, kurva, KT | 7–8 | subagen baru; bila dipecah, per adegan, bukan per layer | `lock visual` + `objects.json` ditulis |
+| 3 Visual: susunan footage, teks, kamera, transisi, kurva, KT | 7–8 | subagen baru; bila dipecah, per adegan, bukan per layer | `teks.json` lulus `kt_check.py`, lapisan lego di cache, `lock visual` + `objects.json` ditulis |
 | 4 Audio: SFX dulu, musik paling akhir | 9–10 | subagen baru | `lock sfx`, `lock musik` |
-| 5 Finishing: mix, QA, render final, kirim | 11–12 | subagen baru untuk mix/QA/render; sesi utama menilai dan mengirim | Delivery Gate PASS |
+| 5 Finishing: mix, QA, render final, kirim | 11–12 | subagen baru untuk mix/QA/render; sesi utama menilai dan mengirim | `render.sh … lego` (video berfootage) atau `final` sekali; Delivery Gate PASS |
 
 - Sesi utama = sutradara dan QC (`references/orkestrasi.md`). Fase 2–5 dijalankan otomatis sebagai subagen baru tanpa menunggu "lanjut?": konteks per fase pendek dan bagian depan prompt (file skill) tetap sama sehingga cache terjaga.
 - Serah terima hanya lewat file: `handoff/FASE-<n>.md` dari `templates/handoff-fase.md`, `STATUS.md`, `contract.json`, `audio/ORDER.json`. Subagen tidak mewarisi percakapan; yang tidak tertulis di file dianggap tidak ada.
@@ -186,6 +187,11 @@ motion-graphic/
     ├── juri/audio_bus_check.py  audio Remotion hanya lewat satu bus di root, tidak di dalam <Sequence>
     ├── juri/motion_lint.py      gerak preset, stagger rata, blur masuk (Lantai B13a)
     ├── remotion/curves.ts       kurva per gerak, dur(jarak), react(i), drift: disalin ke src/lib proyek
+    ├── remotion/LightSweep.tsx  gaya G8 kilat cahaya pada huruf
+    ├── lego/teks_plan.py        transkrip → teks.json (waktu + durasi blok KT)
+    ├── lego/kt_check.py         gerak teks dari peran, variasi per 15 dtk, fade hanya sub (Lantai A9a)
+    ├── lego/lapisan.py          render lapisan ber-alpha dengan cache (hanya yang berubah)
+    ├── lego/compose.py          rakit footage + lapisan + audio sekali dengan ffmpeg (render.sh … lego)
     ├── gate/pause_clean.py      jeda bicara bersih: lantai stem suara + bunyi tajam di jeda
     ├── gate/cut_check.py        potongan suara: kata sampah, diam di dalam kata/kalimat, jeda antarkalimat
     ├── audio/recut.py           terapkan potongan ke suara + video wajah, peta waktu lama → baru (remap)

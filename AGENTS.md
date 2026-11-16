@@ -1,6 +1,6 @@
 # Bekerja di Skill Development
 
-Repo ini menyimpan cara kerja AI bersama Irfan. Mulai dari [INDEX.md](INDEX.md), lalu baca hanya skill dan dokumen proyek yang relevan. Urutan otoritas mengikuti katalog; instruksi langsung Irfan tetap menang.
+Repo ini menyimpan cara kerja AI bersama Irfan. Mulai dari [PETA.md](PETA.md): tabel Rute-nya menunjuk file yang dibuka untuk pekerjaanmu, jadi buka hanya itu, bukan seluruh repo. [INDEX.md](INDEX.md) adalah katalog skill. Urutan otoritas mengikuti katalog; instruksi langsung Irfan tetap menang.
 
 ## Awal sesi (wajib, sebelum bekerja)
 
@@ -19,6 +19,7 @@ Repo ini menyimpan cara kerja AI bersama Irfan. Mulai dari [INDEX.md](INDEX.md),
 4. Perubahan skill masuk ke `main` di sesi yang sama (merge atau pull request yang disebut ke Irfan). Jangan tinggalkan pelajaran di branch.
 5. Pesan commit menyebut agen: `Agent: Claude`, `Agent: Codex`, dsb.
 6. Skill tetap ringkas: satu aturan satu baris bila bisa, detail di `references/`.
+7. File ditambah/diubah/dihapus → `python3 tools/peta.py` sebelum commit (doctor menandai PETA.md basi).
 
 ## Jadisatu Canvas · semua klien MCP
 
