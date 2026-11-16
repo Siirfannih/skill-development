@@ -1,0 +1,72 @@
+Kunci Palet jadisatu-gelap & Font
+Latar & Kaca: #0F172A (surface utama / kanvas Beat 5), kaca kartu rgba(15, 23, 42, 0.78) dengan backdrop-filter: blur(16px) dan border 1px solid rgba(250, 248, 236, 0.14)
+
+Teks Dasar: #FAF8EC (putih hangat, kontras > 4,5:1) dan #94A3B8 (teks sekunder/label)
+
+Aksen Aktif / Sistem: #6F8DFF (sinyal workflow, progress bar, kata kunci)
+
+Aksen Terverifikasi: #34C759 (ikon centang selesai pada node)
+
+Font: Outfit (Display/Hero), Inter (UI/Narasi), JetBrains Mono (label status & metrik, tracking +0.14em)
+
+1. Kartu Hook — Beat 1 (00:00 – 00:04 | f0 – f120)
+Kartu ini ditempatkan di ruang negatif atas-kiri atau atas-kanan (jarak ke kepala/subjek maksimal ±8% tinggi frame atau ~150 px) agar tidak menutupi ekspresi wajahmu di detik pembuka.
+
+Ukuran & Struktur Komponen:
+
+Kontainer Kartu: 460 × 148 px, border-radius: 16px, padding 20px 24px, 1px border kaca, dan satu drop shadow lembut (0 20px 40px rgba(0, 0, 0, 0.35)).
+
+Baris Atas (Label Mono): JetBrains Mono, 14px, warna #94A3B8, teks 100% AI WORKFLOW + titik indikator #6F8DFF (8 × 8 px).
+
+Baris Tengah (Hero Text): Outfit Bold, 36px, KAPITAL (PROJECT SELESAI.), warna #FAF8EC dengan efek G8 Kilat Cahaya (LightSweep) menyapu dari kiri ke kanan.
+
+Baris Bawah (Progress Bar): Track lebar penuh (412 × 6 px, border-radius: 999px, warna rgba(250, 248, 236, 0.12)), isi bar #6F8DFF bergerak dari 92% ke 100%, disertai angka mono 100% (14px, #6F8DFF).
+
+Animasi & Kamera (curves.ts):
+
+f0 – f14 (Kamera C09 Snap Punch-In): Skala footage talking head melompat halus dari 1.00x → 1.12x menggunakan kurva heavy.
+
+f2 – f16 (Masuk Kartu): Kartu meluncur masuk dari luar/samping ruang negatif dengan kurva land (tanpa fade-up lambat).
+
+f16 – f42 (Progress & Kilat): Progress bar mengisi ke 100% dalam 18 frame (reveal), lalu LightSweep menyapu teks PROJECT SELESAI. selama 14 frame saat bar menyentuh 100% (1 cue SFX konfirmasi di f34).
+
+f42 – f108 (Hold Aktif): Kartu dan kamera bertahan dengan drift sangat halus (1.12x → 1.14x) agar frame tetap terasa hidup.
+
+f109 – f120 (Keluar): Kartu keluar menggunakan kurva leave (durasi ~0.65x durasi masuk, yaitu ~9–11 frame) tepat sebelum cut ke Beat 2.
+
+2. Diagram Node Lintas Agent — Beat 5 (00:53 – 01:10 | f0 – f510 lokal beat)
+Saat kamu bilang "kayak yang kalian lihat ini", adegan masuk layar penuh ke kanvas #0F172A dengan grid titik halus (rgba(250, 248, 236, 0.05), jarak 32px). Layout disusun vertikal (mengikuti kanvas 1080 × 1920) dengan 3 node berurutan dari atas ke bawah agar keterbacaan di layar ponsel tetap tajam.
+
+Ukuran & Struktur Komponen (Total Area Diagram: 880 × 980 px di tengah layar):
+
+Header Label (di atas diagram): JetBrains Mono, 16px, #6F8DFF, teks AGENT RELAY // LEARNING LOOP.
+
+3 Kartu Node (Identik secara ukuran): 760 × 176 px, border-radius: 18px, padding 24px 28px, jarak vertikal antar-node 110 px.
+
+Node 1: Ikon/Logo rekonstruksi ChatGPT (44 × 44 px) + Judul ChatGPT · Session A (Outfit SemiBold, 28px, #FAF8EC) + Sub-status Drafting decision rules... → berubah ke Synced (Inter, 20px, #94A3B8).
+
+Node 2: Ikon/Logo rekonstruksi Claude (44 × 44 px) + Judul Claude · Review & Build + Sub-status Evaluating motion logic... → berubah ke Verified.
+
+Node 3: Ikon ChatGPT (Session B) + Judul ChatGPT · Session B + Sub-status Eliminating repeat errors... → berubah ke Zero Error.
+
+Badge Status Kanan Tiap Node: Kapsul 36 × 36 px berisi spinner biru (#6F8DFF) saat aktif, lalu berubah menjadi centang hijau (#34C759) saat selesai.
+
+Garis Sinyal Penghubung (SVG Path): Garis vertikal 2.5 px menghubungkan bagian bawah Node 1 → atas Node 2 → atas Node 3 (plus satu garis lengkung balik di sisi kanan dari Node 3 ke Node 1 sebagai metafora learning loop), warna dasar rgba(250, 248, 236, 0.14) dan sinyal aktif #6F8DFF.
+
+Animasi & Kamera (curves.ts & Koreografi Relay):
+
+f0 – f18 (Kamera C03 Push-Through): Transisi masuk ke dalam kanvas #0F172A menggunakan kurva whip / eksponensial, diakhiri 2 frame focus settle.
+
+f18 – f48 (Kemunculan Node dengan react(i)): Node 1, 2, dan 3 muncul berurutan dengan jeda tidak rata (0f, 5f, 11f / setara 0, 150, 367 ms) menggunakan kurva land.
+
+f48 – f240 (Aliran Sinyal & Shimmer):
+
+Garis sinyal biru (stroke-dashoffset) mengalir dari Node 1 ke Node 2 (f48–f95), diikuti sapuan white shimmer (rgba(250, 248, 236, 0.16), sudut miring 20°) di atas Node 2.
+
+Di f115, ikon spinner Node 2 berubah jadi centang hijau #34C759 dan sub-status berganti ke Verified (1 cue konfirmasi bersih).
+
+Sinyal berlanjut ke Node 3 (f125–f175), lalu garis lengkung kanan menyala balik ke Node 1 (f185–f235) menutup loop, diikuti centang hijau di Node 3 (f240).
+
+f48 – f495 (Kamera Gear 1 — Reading Drift): Selama diagram berjalan dan bertahan untuk dibaca, kamera melakukan drift sangat pelan (1.00x → 1.03x) tanpa gerakan mendadak.
+
+f495 – f510 (Kamera C06 Reveal-Out): Diagram menarik mundur/keluar frame kembali ke footage talking head di Beat 6.

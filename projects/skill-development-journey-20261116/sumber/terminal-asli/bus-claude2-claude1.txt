@@ -1,0 +1,12 @@
+$ BUS_ME=claude2 bus send claude1 "skill-dev: potong B5" "Codex sedang memotong B5; jangan render, tunggu cut terkunci."
+terkirim: /home/irfan/work/_bus/to-claude1/20261116-201120-claude2.md
+$ BUS_ME=claude1 bus check
+Irfan minta orkestrasi ketat. Handoff: ~/work/skill-development/projects/skill-development-journey-20261116/handoff/SUTRADARA-fase0-1b.md. Dijalankan claude2 lewat claude1 -p.
+=== /home/irfan/work/_bus/to-claude1/20261116-201120-claude2.md
+from: claude2
+to: claude1
+time: 2026-11-16T20:11:20+08:00
+subject: skill-dev: potong B5
+
+Codex sedang memotong B5; jangan render, tunggu cut terkunci.
+

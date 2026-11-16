@@ -8,3 +8,7 @@
 .el_key
 __pycache__/
 *.pyc
+
+# bench render (tools/bench-render)
+tools/bench-render/node_modules/
+tools/bench-render/out/

@@ -1,0 +1,15 @@
+AWAL SESI: Sutradara sudah menjalankan doctor --fix (izin Irfan 16 Nov). Bila doctor GAGAL HANYA karena "skill Codex … salinan", jalankan ./tools/doctor.sh --fix sekali lalu lanjut; jangan bertanya.
+
+# TASK-papan · Storyboard 7 still di atas footage asli · Builder Codex (Sol 6.1 High) · pemberi: Sutradara claude2
+TUJUAN       7 still papan (B1, B1b, B2, B3-A, B3-C, B4, B5, B6 → pilih 7 terkuat, minimal satu per babak kecuali B3 dua) yang setara kualitas kiblat, dibangun di Remotion di atas frame footage asli.
+KONTEKS      WAJIB baca utuh: RESEP.md (G1; §0 larangan, §1 bahasa visual, §2 per babak). Kiblat: claude/motion-graphic/pustaka/kartu/83-barsolmedia-kt-talking-head.md §2 + keyframes claude/motion-graphic/guide/referensi/sheets/keyframes/83-k1..k6.jpg; lembar 07: claude/motion-graphic/guide/referensi/sheets/07-baikov-shapes.jpg; lembar 37: .../37-pixel-character-skill-file.jpg. Buka gambar-gambar itu dan tiru skala, kepadatan, kedalaman, cara teks hidup di sekitar kepala.
+             Footage: sumber ~/.codex/attachments/d9062ade-e728-4775-b6cd-1b2e61bfd5b8/DJI_20261116162607_0603_D.MP4 (detik sumber per babak: B1 2,5; B1b 9,5; B2 21,0; B3 45,0; B4 104,0; B5 —(kanvas); B6 200,5). Ekstrak frame 1920×1080 ke remotion/public/papan/ (raster footage satu-satunya yang boleh).
+             Matte untuk efek belakang kepala (K1 cincin, K3 slab): buat matte per still dengan Robust Video Matting (torch di ~/work/mg-venv; unduh bobot rvm_mobilenetv3 dari rilis resmi GitHub PeterL1n/RobustVideoMatting) → PNG alpha di public/papan/ (raster matte boleh). Bila RVM gagal, catat dan pakai segmentasi lain yang tersedia; jangan lewati efek belakang kepala.
+             Komponen yang ada (src/komponen/K01..K13, MaskotAI) boleh dipakai ulang sebagai bahan, tapi WAJIB disesuaikan dengan RESEP §0–§1 (mis. rel fase jadi ubin besar, kartu paket jadi kartu 3D miring tanpa stroke, slab di belakang kepala, bidang biru 07 dengan bentuk raksasa). Ubah tampilan lewat props/komposisi papan di folder papan sendiri; bila komponen harus diubah, salin ke src/papan/ dan ubah salinannya.
+             Teks hanya dari ucapan (lihat RESEP §2 dan ~/Documents/Codex/2026-11-16/files-mentioned-by-the-user-dji/work/transcript-source.txt).
+FILE BOLEH   remotion/src/papan/**, remotion/public/papan/**, remotion/src/uji/papan-entry.tsx, handoff/henti1/**, handoff/REPORT-papan.md
+FILE JANGAN  file komponen lain di src/komponen/**, Root.tsx, index.ts, package.json (paket python untuk RVM boleh di mg-venv).
+LARANGAN     RESEP §0 seluruhnya; semua gerak keyframe + ease; tanpa raster selain footage + matte; tidak ada stroke tebal di teks; biru tidak di latar gelap.
+LULUS BILA   handoff/henti1/papan-B*.jpg (lebar 960) + handoff/henti1/sanding.jpg: tiap baris = still kita kiri, keyframe kiblat setara kanan (maks 960 px lebar total per baris); tsc lulus.
+JANGAN       render video, commit/push, menilai lulus sendiri.
+LAPORAN      handoff/REPORT-papan.md ≤ 15 baris: still mana, kiblat pembanding, cara matte, apa yang belum setara.

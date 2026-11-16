@@ -71,6 +71,13 @@ nf=$(ls "$REPO"/claude/motion-graphic/fonts/*/*.woff2 2>/dev/null | wc -l | tr -
 [ -d "$HOME/fonts-lokal" ] && ok "font lokal berlisensi ada (~/fonts-lokal)" || note "~/fonts-lokal tidak ada: SF Pro/Helvetica Neue/Satoshi dll. diganti padanan (fonts/README.md §B)"
 command -v tesseract >/dev/null && ok "tesseract siap (scripts/juri/teks_cek.py)" || note "tesseract tidak terpasang: teks_cek.py tidak bisa membaca kata (sudo apt install tesseract-ocr)"
 
+RP="${RENDER_PROFILE:-$HOME/work/render-profile.json}"
+if [ -f "$RP" ] && python3 -c 'import json,socket,sys;sys.exit(json.load(open(sys.argv[1])).get("host")!=socket.gethostname())' "$RP" 2>/dev/null; then
+  ok "profil render mesin ini: $(python3 -c 'import json,sys;p=json.load(open(sys.argv[1]));print("gl=%(gl)s konkurensi=%(konkurensi)s · %(dtk_per_frame_1080p)s dtk/frame · %(tanggal)s" % p)' "$RP")"
+elif command -v npx >/dev/null; then
+  note "mesin ini belum dibenchmark: sesi video pertama menjalankan tools/bench-render/bench.sh sekali (±10–15 menit, memakai kunci render), lalu render.sh otomatis memakai --gl + konkurensi tercepat (orkestrasi.md §6)"
+fi
+
 ENTRY="${ENTRY_DIR:-$HOME/work}"
 if [ -d "$ENTRY" ]; then
   grep -q "skill-development/AGENTS.md" "$ENTRY/CLAUDE.md" 2>/dev/null && ok "folder masuk remote $ENTRY merujuk skill-development" \

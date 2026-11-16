@@ -22,6 +22,8 @@ Kamu adalah **sutradara, prompt engineer, dan QC**. Kamu merancang, menulis peri
 | Riset aset/referensi | Maximus (Grok) | Codex | Tidak |
 | Juri still vs referensi (R6), devil's advocate, putusan konflik, `DECISIONS.md`, Delivery Gate, bicara denganku | — | — | **Ya, ini inti kerjamu** |
 
+**Codex minta pendapat visual Claude** (sesi yang sudah dipegang Codex tidak dipindah; Irfan 16 Nov): `tools/tanya-claude.sh <proyek> <pertanyaan.md> [still …]`. Syaratnya arah video sudah tertulis dan disetujui (RESEP.md + kiblat; alat menolak bila belum). Claude tidak membaca kode; ia menerima dosir yang dirakit otomatis dari dokumen arah yang sudah ada (`LANTAI.md`, kartu kiblat, `RESEP.md`, baris Aktif `DECISIONS.md`, `STATUS.md`, opsional `handoff/KONSUL.md` dari `templates/roles/konsul.md` untuk "sudah dicoba dan gagal"), ±14 ribu token, ditambah `LANTAI`, cara menilai (`templates/roles/pemeriksa-frame.md`), dan panduan urusan yang ditanya (`KONSUL_PANDUAN=teks,visual` bawaan; gerak/sfx/audio sesuai pertanyaan). Lampirannya **frame yang sudah dibedah secara visual dan bernomor**, bukan kode: folder potongan `qc/frame_audit/cNN_…` (30 frame bernomor per detik + strip audio + INFO.md; gerak dinilai dari urutannya), `qc/sanding.jpg` (kita vs kiblat), lembar A/B asli vs kandidat, atau still (≤ 960 px). Claude menjawab dalam tabel `dtk | frame | jenis | yang terlihat | perbaikan konkret | dasar` (dasar = kode LANTAI, R-/D-, atau bagian kartu; tanpa dasar = "selera", opsional) + `PUTUSAN`, lalu Codex merevisi frame yang disebut. Urutan menang: catatan Irfan aktif > resep + kiblat > LANTAI > pendapat Claude. Satu sesi Claude dilanjutkan hanya selama cache hangat (< 270 dtk) dan konteks < 120 ribu token; di luar itu sesi baru dari dosir, karena sesi panjang mengirim ulang seluruh riwayatnya di setiap panggilan. Kumpulkan pertanyaan satu ronde lalu tanyakan berurutan. Jawaban yang diterapkan dicatat sebagai baris baru di `DECISIONS.md` (sumber: konsul NN), supaya konsultasi berikutnya ikut membacanya. Pemakaian token: `handoff/konsul/konsul.jsonl`.
+
 Pembuat dan penilai selalu model yang berbeda. Codex yang membangun adegan tidak boleh memeriksa adegan itu sendiri. Pemeriksa ChatGPT dijalankan di jalur terpisah dari builder (`-l qc-<proyek>`, bukan jalur builder).
 
 ## 2. Cek akses dulu, jangan menebak
@@ -65,7 +67,7 @@ Alur kerjanya mengikuti `templates/roles/pemeriksa-frame.md` dan `scripts/juri/f
    - Temuan tanpa nomor frame dibuang (tidak bisa diverifikasi).
 4. Tulis `VERDICT.md` gabungan, dengan baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`. Formatnya tetap seperti yang dibaca `render.sh final`.
 5. Catat di `STATUS.md` tingkat kesepakatan kedua model dan berapa kali kamu harus memutus.
-6. Potongan yang beat-nya tidak berubah sejak putusan LULUS terakhir (cek dengan `baseline_lock.py`) **tidak diaudit ulang**. Yang diaudit ulang hanya potongan yang berubah.
+6. Potongan yang isinya tidak berubah sejak putusan terakhir **tidak diaudit ulang**. `frame_audit.py` mengikat setiap VERDICT ke `HASH:` isi potongan (frame + kata + cue + energi audio) dan menandai di `INDEX.md` mana yang `dipakai ulang` dan mana yang `perlu periksa`; kirim ke pemeriksa hanya yang `perlu periksa`, bersama `VERDICT.prev.md` bila ada supaya temuan yang sudah diputuskan tidak diangkat lagi. `render.sh final` menolak LULUS yang HASH-nya tidak cocok dengan isi sekarang (laporan investigasi 24 jam, 16 Nov: bdf26 9 gelombang × 12 potongan diperiksa ulang semua).
 
 Klaim angka dari pemeriksa (waktu, level, jarak) selalu kamu verifikasi dengan alat ukur sebelum dikerjakan. Gemini pernah salah dengar angka (`experimental/dual-agent-sound/README.md`).
 
@@ -74,14 +76,14 @@ Klaim angka dari pemeriksa (waktu, level, jarak) selalu kamu verifikasi dengan a
 - Gambar maks 960 px. Angka dari script dulu, gambar hanya bila ada masalah.
 - Baca skill hanya cabang yang relevan. `RETRO.md` jangan dibaca utuh: pakai `grep` untuk topik beat yang sedang dikerjakan.
 - Render dan ffmpeg dijalankan di latar belakang. Baca ≤ 20 baris log terakhir.
+- Menunggu job panjang tanpa polling: `tools/tunggu.sh jalan <nama> -- <perintah>`, kerjakan hal lain, lalu **satu** panggilan `tools/tunggu.sh tunggu <nama> 1500` (timeout alat ≥ 1500 dtk). Jangan mengecek status berulang: tiap cek membangunkan model dengan seluruh konteksnya (sfx_builder_v6: 42 % token hanya polling, 16 Nov).
 - Subagen dan pekerja menerima brief ramping (§3), bukan disuruh "baca repo".
 - Video sumber panjang jangan ditonton. Transkrip Whisper di PC (`words.json`) → pilih segmen dari teks → `yt-dlp --download-sections` hanya untuk segmen itu.
 - `STATUS.md` selalu diperbarui, supaya sesi yang terputus bisa lanjut tanpa membaca ulang semuanya.
 
 ## 6. Render lebih cepat
 Urutannya: ukur dulu, baru ubah.
-1. **GPU lokal.** PC server-ku memakai Ryzen 5 5600, Radeon RX 6600, dan RAM 32 GB. Verifikasi dengan `lspci | grep -i vga` dan `npx remotion gpu`. Lalu render satu beat yang berat (banyak `blur`/`filter`) dengan default, dengan `--gl=angle-egl`, dan dengan `--gl=vulkan`. Bandingkan waktu dan selisih piksel (`compare.py`). Pakai opsi yang paling cepat dan hasilnya sama. Bila salah satu opsi menang, **satu sesi saja** yang menambahkan variabel `GL` ke `scripts/juri/render.sh`.
-2. **Konkurensi.** Jalankan `npx remotion benchmark` sekali di PC, lalu set `KONKURENSI` dari hasilnya (default 4 belum pernah diukur; CPU 6 core/12 thread).
+1–2. **GPU dan konkurensi: sudah otomatis.** Bila `doctor.sh` melaporkan "mesin ini belum dibenchmark", sesi video pertama di mesin itu menjalankan `tools/bench-render/bench.sh` sekali (±10–15 menit, memakai kunci render global, jadi aman bila sesi lain sedang render): adegan uji berat (blur, glow, grain) dirender dengan `--gl` default, angle-egl, vulkan, swangle, angle; opsi yang gagal atau gambarnya beda (PSNR < 35 dB) dibuang, opsi non-default dipilih hanya bila ≥ 10 % lebih cepat; lalu konkurensi 2, 4, … sampai jumlah thread diuji. Hasilnya `~/work/render-profile.json`, dibaca otomatis oleh `render.sh` dan `lego/lapisan.py` (hanya di mesin yang sama; env `GL`/`KONKURENSI` tetap menang) dan dicatat di `qc/jobs.jsonl`. Ulangi benchmark hanya bila hardware/driver/versi Remotion berubah. PC server: Ryzen 5 5600, Radeon RX 6600, RAM 32 GB.
 3. **Render ulang hanya yang berubah.** Revisi satu adegan = still adegan itu → `frames` hanya untuk rentang beat itu → audit potongan itu → `final` dengan rentang itu → sambung dengan ffmpeg. Jangan merender ulang seluruh video.
 4. **Efek mahal.** Bila GPU tidak bisa dipakai, `blur`/`filter` pada lapisan yang diam diganti gambar yang sudah di-blur (pre-render sekali). Blur yang ikut gerak kamera tetap dibiarkan.
 5. **Render di mesin lain (Manda di cloud Grok, atau VPS)** hanya bila langkah 1 gagal **dan** mesin itu terbukti punya GPU:
@@ -110,3 +112,4 @@ Urutannya: ukur dulu, baru ubah.
 - Jumlah ronde per beat, tingkat kesepakatan Gemini–ChatGPT, dan berapa kali kamu harus memutus.
 - Waktu revisi kecil: dari perintah perbaikan sampai potongan baru lulus audit.
 - Waktu render per menit video, sebelum dan sesudah §6.
+- Sumber angka waktu: `qc/jobs.jsonl` (ditulis `render.sh` tiap pemanggilan: `antre_dtk` di kunci render, `kerja_dtk`, `rc`, commit). Ringkas: `jq -s 'group_by(.mode)|map({mode:.[0].mode,n:length,antre:(map(.antre_dtk)|add),kerja:(map(.kerja_dtk)|add)})' qc/jobs.jsonl`.

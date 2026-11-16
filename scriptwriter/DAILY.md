@@ -66,3 +66,11 @@
 - Perlu keputusan: aturan 15 vs garis biru di latar gelap; profil musik premium-edukatif; matte engine di Linux (PENDING).
 - Titik lanjut: video talking head berikutnya dikerjakan dengan dua peran sebagai uji pertama, lalu jalankan mg-052.
 
+
+
+## 16 November 2026 · potongan personal Skill Development
+- Take 3:29 dipadatkan menjadi 60,34 detik; hook biaya uji coba, satu cerita workflow dan riset, 1080p59.94.
+- MP4 dan handoff terunggah serta diverifikasi di Drive/Claude edit: https://drive.google.com/drive/folders/1se_NvnbjKXJeCKaoXtxdL9qfbHUC5Sx4.
+- Bukti: projects/skill-development-journey-20261116/STATUS.md, CUT-MAP.json, VERIFICATION.json; ASR/waveform/QC independen dan overview final.
+- Default scope: potongan dasar, format sumber, tanpa grafis/sound design; tahap visual pada sesi lain sesuai instruksi Irfan.
+- Jalur skill terisolasi memakai main terbaru saat mulai; sesi/checkout PC lain tidak diubah. Tidak ada keputusan tertahan atau biaya API baru.

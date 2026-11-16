@@ -30,6 +30,8 @@ Alasannya: setiap proyek punya pesan, audiens, dan brand sendiri. Template lama 
 
 Ketika Irfan berkata "pastikan kamu bawa skill workflow-nya", artinya: bawa cara kerjanya, bukan isi proyeknya.
 
+**Kanvas kosong = satu konteks baru, bukan nol aset (Irfan 16 Nov).** Video talking head disusun sebagai talking head, bukan di atas template motion graphic. Tapi potongan yang sudah jadi dan terbukti bagus dari editan sebelumnya (gerak kamera zoom in/out, b-roll, animasi, kursor, counter, transisi, beserta SFX pasangannya) **dipakai ulang seperti Lego**: disalin dari hasil editing yang tersimpan, tidak dibangun ulang tiap sesi. Tes pembedanya: cabut potongan itu dari video lamanya; bila masih masuk akal tanpa brand dan cerita lamanya, itu **blok** (boleh dipakai, warna/font/tempo diambil dari proyek baru, alasannya ditulis di resep); bila tidak, itu **template** (tidak dibawa). Blok kode ada di `motion-graphic/scripts/remotion/` (`curves.ts`, `Kursor.tsx`, `Penghitung.tsx`, `TeksBlok.tsx`, `LightSweep.tsx`); pola gerak lintas referensi di `motion-graphic/pustaka/teknik/`.
+
 ---
 
 ## 2. Urutan gerbang (dikunci)
