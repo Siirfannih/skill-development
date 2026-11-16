@@ -1,0 +1,100 @@
+{
+  "source_file": "DJI_20261116162607_0603_D.MP4",
+  "fps_numerator": 60000,
+  "fps_denominator": 1001,
+  "final_frames": 3617,
+  "duration_seconds": 60.34361666666667,
+  "audio_samples": 2896494,
+  "sample_rate": 48000,
+  "segments": [
+    {
+      "id": "H01",
+      "source_start_frame": 6454,
+      "source_end_frame": 7039,
+      "source_start": 107.67423333333333,
+      "source_end": 117.43398333333333,
+      "final_start_frame": 0,
+      "final_end_frame": 585,
+      "final_start": 0.0,
+      "final_end": 9.75975
+    },
+    {
+      "id": "B01",
+      "source_start_frame": 898,
+      "source_end_frame": 1538,
+      "source_start": 14.981633333333333,
+      "source_end": 25.658966666666668,
+      "final_start_frame": 585,
+      "final_end_frame": 1225,
+      "final_start": 9.75975,
+      "final_end": 20.437083333333334
+    },
+    {
+      "id": "B02",
+      "source_start_frame": 275,
+      "source_end_frame": 900,
+      "source_start": 4.587916666666667,
+      "source_end": 15.015,
+      "final_start_frame": 1225,
+      "final_end_frame": 1850,
+      "final_start": 20.437083333333334,
+      "final_end": 30.864166666666666
+    },
+    {
+      "id": "B03",
+      "source_start_frame": 3713,
+      "source_end_frame": 4201,
+      "source_start": 61.94521666666667,
+      "source_end": 70.08668333333334,
+      "final_start_frame": 1850,
+      "final_end_frame": 2338,
+      "final_start": 30.864166666666666,
+      "final_end": 39.005633333333336
+    },
+    {
+      "id": "B06",
+      "source_start_frame": 5135,
+      "source_end_frame": 5207,
+      "source_start": 85.66891666666666,
+      "source_end": 86.87011666666666,
+      "final_start_frame": 2338,
+      "final_end_frame": 2410,
+      "final_start": 39.005633333333336,
+      "final_end": 40.206833333333336
+    },
+    {
+      "id": "B06",
+      "source_start_frame": 5229,
+      "source_end_frame": 5786,
+      "source_start": 87.23715,
+      "source_end": 96.52976666666666,
+      "final_start_frame": 2410,
+      "final_end_frame": 2967,
+      "final_start": 40.206833333333336,
+      "final_end": 49.49945
+    },
+    {
+      "id": "E01",
+      "source_start_frame": 5782,
+      "source_end_frame": 6198,
+      "source_start": 96.46303333333333,
+      "source_end": 103.4033,
+      "final_start_frame": 2967,
+      "final_end_frame": 3383,
+      "final_start": 49.49945,
+      "final_end": 56.43971666666667
+    },
+    {
+      "id": "E01",
+      "source_start_frame": 6222,
+      "source_end_frame": 6456,
+      "source_start": 103.8037,
+      "source_end": 107.7076,
+      "final_start_frame": 3383,
+      "final_end_frame": 3617,
+      "final_start": 56.43971666666667,
+      "final_end": 60.34361666666667
+    }
+  ],
+  "voice_and_video_use_same_frame_boundaries": true
+}

@@ -176,7 +176,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/jensen-pain-suffering/` | STATUS jensen-pain-suffering (orkestrasi.md §2, §9) · mulai dari STATUS.md |
 | `projects/pengganti-kita-sendiri/` | STATUS: Pengganti Kita Sendiri (@siirfannih) · mulai dari STATUS.md |
 | `projects/personal-brand-day-02/` | Ledger · Personal branding, konten kedua challenge |
-| `projects/uji-builder-trap-12nov/` | Ledger · uji-builder-trap-12nov |
+| `projects/skill-development-journey-20261116/` | Status · Skill Development · potongan personal 16 November 2026 · mulai dari STATUS.md |
 
 ## Lain-lain
 
