@@ -25,16 +25,22 @@ const Flash: React.FC<{ at: number; color?: string; len?: number }> = ({ at, col
   return f >= at && f < at + len ? <AbsoluteFill style={{ background: color }} /> : null;
 };
 
-// ---------- B1 0–99 · hook: T01–T04 ----------
+// ---------- B1 0–104 · hook: T01–T04 ----------
 const P1 = push(FACE_A, 0, 104, 1.0, 1.03, 'linear'); // r6: cut ke B2 di onset 'unfortunately' (f104)
-export const B1: React.FC = () => (
-  <Cam pose={P1} film="ringan" text={<TeksSet pose={P1} until={104} start={0} items={[
-      ['T01', TH], ['T02', { sy: 175, width: 720, head: true }], ['T03', TH], ['T04', { sy: 165, width: 720, head: true }],
-    ]} />}>
-    <Wajah crop={CROP_A} />
-    <Scrim dir="270deg" a={0.6} to={58} />
-  </Cam>
-);
+const P1Close = push(FACE_A, 0, 104, 1.12, 1.1536, 'linear');
+export const B1: React.FC = () => {
+  const f = useCurrentFrame();
+  // Pilih seluruh jalur per frame agar sampling motion blur tidak melintasi cut f10.
+  const pose = f < 10 ? P1Close : P1;
+  return (
+    <Cam pose={pose} film="ringan" text={<TeksSet pose={P1} until={104} start={0} items={[
+        ['T01', { ...TH, mode: 'kata' }], ['T02', { sy: 175, width: 720, head: true }], ['T03', TH], ['T04', { sy: 165, width: 720, head: true }],
+      ]} />}>
+      <Wajah crop={CROP_A} />
+      <Scrim dir="270deg" a={0.6} to={58} />
+    </Cam>
+  );
+};
 
 // ---------- B2 99–182 · bingkai putih tumbuh 62 → 72 % lebar: T05–T07 ----------
 const FR = { cx: 960, cy: 465, w: 1154, h: 649 }; // luar 1190 = 62 % lebar pada zoom 1; 72 % pada zoom 1,161
@@ -62,9 +68,9 @@ const P3 = path([
 ], { sigma: 0 });
 export const B3: React.FC = () => (
   <AbsoluteFill>
-    <Cam pose={P3} film="ringan" text={<TeksSet pose={P3} until={275} start={182} items={[
+    <Cam pose={P3} film="ringan" text={<TeksSet pose={P3} until={271} start={182} items={[
         ...ids(['T08', 'T09', 'T10', 'T11'], TH),
-        ['T12', { sy: 400, size: 92, anchor: 240, head: true }], ['T13', { sy: 330, size: 92, big: 190, anchor: 240, mode: 'skala', head: true }], ['T14', { sy: 400, size: 92, anchor: 240, head: true }],
+        ['T12', { sy: 400, size: 92, anchor: 240, head: true }], ['T13', { sy: 330, size: 92, big: 160, anchor: 240, mode: 'skala', head: true, dx: 56 }], ['T14', { sy: 400, size: 92, anchor: 240, head: true, mode: 'kata' }],
       ]} />}>
       <Wajah crop={CROP_A} />
       <Scrim dir="270deg" a={0.6} to={58} />
@@ -76,26 +82,26 @@ export const B3: React.FC = () => (
 // ---------- B4 275–458 · babak II: cetakan ±42–45 % lebar, satu gerak menyusuri: T15–T22 ----------
 const PW = 780, PH = 439, PB = 20; // isi cetakan; luar 820
 const PR = [
-  { cx: 900, cy: 470, rot: -2.5, src: 'arsip_meja.mp4', start: 275, dur: 5.2 },
+  { cx: 900, cy: 470, rot: -2.5, src: 'arsip_meja.mp4', start: 271, dur: 5.2 },
   { cx: 2350, cy: 560, rot: 2, src: 'arsip_komputer.mp4', start: 345, dur: 6.0 },
   { cx: 3800, cy: 480, rot: -1.5, src: 'arsip_logo.mp4', start: 405, dur: 4.5 },
 ];
 const P4 = path([
-  { f: 275, x: 830, y: 600, zoom: 1.06 },
+  { f: 271, x: 830, y: 600, zoom: 1.06 },
   { f: 368, ease: 'smooth', x: 1000, y: 600, zoom: 1.03 },
   { f: 386, ease: 'inOut', x: 2290, y: 690, zoom: 1.04 },
   { f: 428, ease: 'smooth', x: 2430, y: 690, zoom: 1.02 },
   { f: 442, ease: 'inOut', x: 3730, y: 610, zoom: 1.02 },
   { f: 458, ease: 'smooth', x: 3800, y: 605, zoom: 1.0 },
 ], { sigma: 3.6 });
-const under = (i: number): Place => ({ wx: PR[i].cx - PW / 2 - PB, wy: PR[i].cy + PH / 2 + PB + 28, size: BR, mode: 'kata' });
+const under = (i: number): Place => ({ wx: PR[i].cx - PW / 2 - PB, wy: PR[i].cy + PH / 2 + PB + 28, size: BR, mode: 'kata', keepLeft: 140 });
 export const B4: React.FC = () => {
   const f = useCurrentFrame();
-  const blur = lerp(16, 0, prog(f, 275, 281, 'out'));
+  const blur = lerp(16, 0, prog(f, 271, 277, 'out'));
   return (
     <AbsoluteFill style={{ filter: blur > 0.1 ? `blur(${blur}px)` : undefined }}>
-      <Cam pose={P4} bg={C.hitam} film="sedang" text={<TeksSet pose={P4} until={458} start={275} items={[
-          ...ids(['T15', 'T16', 'T17', 'T18'], under(0)), ...ids(['T19', 'T20', 'T21'], under(1)), ['T22', under(2)],
+      <Cam pose={P4} bg={C.hitam} film="sedang" textSharp text={<TeksSet pose={P4} until={458} start={271} items={[
+          ['T14', under(0)], ...ids(['T15', 'T16', 'T17', 'T18'], under(0)), ...ids(['T19', 'T20', 'T21'], under(1)), ['T22', under(2)],
         ]} />}>
         <Paper x={-400} y={-300} w={5600} h={1700} />
         {PR.map((p, i) => (
@@ -105,7 +111,7 @@ export const B4: React.FC = () => {
         ))}
       </Cam>
       <Vignette strength={0.75} />
-      <Flash at={275} color="#FFE2B8" />
+      <Flash at={271} color="#FFE2B8" />
     </AbsoluteFill>
   );
 };
@@ -154,7 +160,7 @@ export const B5: React.FC = () => {
 const NV = 'contrast(1.25) brightness(0.66) saturate(0.7)';
 const P6a = path([{ f: 561, x: 1085, y: 560, zoom: 1.22 }, { f: 623, ease: 'linear', x: 1130, y: 555, zoom: 1.23 }], { sigma: 0 });
 const P6b = path([{ f: 623, x: 1085, y: 445, zoom: 1.22 }, { f: 686, ease: 'linear', x: 1130, y: 445, zoom: 1.23 }], { sigma: 0 });
-const P6c = push(FACE_A, 686, 716, 1.0, 1.03, 'linear');
+const P6c = push(FACE_A, 686, 709, 1.0, 1.03, 'linear');
 export const B6: React.FC = () => {
   const f = useCurrentFrame();
   if (f < 623)
@@ -178,7 +184,7 @@ export const B6: React.FC = () => {
       </AbsoluteFill>
     );
   return (
-    <Cam pose={P6c} film="ringan" text={<TeksSet pose={P6c} until={716} start={686} items={[['T32', TH]]} />}>
+    <Cam pose={P6c} film="ringan" text={<TeksSet pose={P6c} until={709} start={686} items={[['T32', { ...TH, mode: 'kata' }]]} />}>
       <Wajah crop={CROP_A} />
       <Scrim dir="270deg" a={0.6} to={58} />
     </Cam>
@@ -186,22 +192,22 @@ export const B6: React.FC = () => {
 };
 
 // ---------- B7 716–816 · ketik di gelap, lalu Jensen: T33–T38 ----------
-const P7a = path([{ f: 716, ...zoomAt(1300, 260, 1.0) }, { f: 777, ease: 'linear', ...zoomAt(1300, 260, 1.08) }], { sigma: 0 });
-const P7b = push(FACE_A, 777, 816, 1.0, 1.03, 'linear');
+const P7a = path([{ f: 709, ...zoomAt(1300, 260, 1.0) }, { f: 777, ease: 'linear', ...zoomAt(1300, 260, 1.08) }], { sigma: 0 });
+const P7b = push(FACE_A, 777, 813, 1.0, 1.03, 'linear');
 export const B7: React.FC = () => {
   const f = useCurrentFrame();
   if (f < 777)
     return (
       <AbsoluteFill>
-        <Cam pose={P7a} film="penuh" text={<TeksSet pose={P7a} until={777} start={716} items={[...ids(['T33', 'T35'], { sx: 960, sy: 470, size: 130, align: 'center', mode: 'skala' }), ['T34', { sx: 960, sy: 470, size: 130, align: 'center', mode: 'kata' }], ['T36', { sx: 960, sy: 440, size: 175, big: 175, align: 'center', mode: 'skala', giant: ['pain', 'and', 'suffering.'] }]]} />}>
-          <Clip src="ketik.mp4" start={716} dur={3} filter="contrast(1.2) brightness(1.05) saturate(0.7)" />
+        <Cam pose={P7a} film="penuh" text={<TeksSet pose={P7a} until={777} start={709} items={[['T32', { sx: 960, sy: 470, size: 130, align: 'center' }], ...ids(['T33', 'T35'], { sx: 960, sy: 470, size: 130, align: 'center', mode: 'skala' }), ['T34', { sx: 960, sy: 470, size: 130, align: 'center', mode: 'kata' }], ['T36', { sx: 960, sy: 440, size: 175, align: 'center', mode: 'kata' }]]} />}>
+          <Clip src="ketik.mp4" start={709} dur={3} filter="contrast(1.2) brightness(1.05) saturate(0.7)" />
           <Scrim dir="90deg" a={0.7} to={60} />
         </Cam>
         <Vignette strength={0.5} />
       </AbsoluteFill>
     );
   return (
-    <Cam pose={P7b} film="ringan" text={<TeksSet pose={P7b} until={816} start={777} items={ids(['T37', 'T38'], TH)} />}>
+    <Cam pose={P7b} film="ringan" text={<TeksSet pose={P7b} until={813} start={777} items={ids(['T37', 'T38'], { ...TH, mode: 'kata' })} />}>
       <Wajah crop={CROP_A} />
       <Scrim dir="270deg" a={0.6} to={58} />
     </Cam>
@@ -209,15 +215,15 @@ export const B7: React.FC = () => {
 };
 
 // ---------- B8 816–967 · tempa lalu percikan: T39–T46 ----------
-const P8a = path([{ f: 816, ...zoomAt(1150, 450, 1.0) }, { f: 923, ease: 'linear', ...zoomAt(1150, 450, 1.12) }], { sigma: 0 });
+const P8a = path([{ f: 813, ...zoomAt(1150, 450, 1.0) }, { f: 923, ease: 'linear', ...zoomAt(1150, 450, 1.12) }], { sigma: 0 });
 const P8b = path([{ f: 923, x: 960, y: 540, zoom: 1.0 }, { f: 967, ease: 'out', x: 960, y: 540, zoom: 1.06 }], { sigma: 0 });
 export const B8: React.FC = () => {
   const f = useCurrentFrame();
   if (f < 923)
     return (
       <AbsoluteFill>
-        <Cam pose={P8a} film="penuh" text={<TeksSet pose={P8a} until={923} start={816} items={[...ids(['T39', 'T40', 'T41', 'T43', 'T44'], { sx: 960, sy: 250, size: 120, align: 'center', mode: 'kata' }), ['T42', { sx: 960, sy: 140, size: 120, big: 290, align: 'center', mode: 'skala' }]]} />}>
-          <Clip src="tempa.mp4" start={816} dur={5} filter="contrast(1.2) brightness(0.85) saturate(1.1)" />
+        <Cam pose={P8a} film="penuh" text={<TeksSet pose={P8a} until={923} start={813} items={[['T38', { sx: 960, sy: 250, size: 120, align: 'center', mode: 'kata' }], ...ids(['T39', 'T40', 'T41', 'T43', 'T44'], { sx: 960, sy: 250, size: 120, align: 'center', mode: 'kata' }), ['T42', { sx: 960, sy: 140, size: 120, big: 290, align: 'center', mode: 'skala' }]]} />}>
+          <Clip src="tempa.mp4" start={813} dur={5} filter="contrast(1.2) brightness(0.85) saturate(1.1)" />
           <Scrim dir="180deg" a={0.9} to={55} />
         </Cam>
         <Vignette strength={0.6} />
@@ -225,7 +231,7 @@ export const B8: React.FC = () => {
     );
   return (
     <AbsoluteFill>
-      <Cam pose={P8b} film="penuh" text={<TeksSet pose={P8b} until={967} start={923} items={[['T45', { sx: 960, sy: 465, size: 150, align: 'center', mode: '25d', tilt: [14, 6] }], ['T46', { sx: 960, sy: 475, size: 130, align: 'center', mode: '25d', tilt: [14, 6] }]]} />}>
+      <Cam pose={P8b} film="penuh" text={<TeksSet pose={P8b} until={967} start={923} items={[['T45', { sx: 960, sy: 470, size: 132, align: 'center', mode: '25d', tilt: [14, 6] }], ['T46', { sx: 960, sy: 475, size: 130, align: 'center', mode: '25d', tilt: [14, 6] }]]} />}>
         <Clip src="percik.mp4" start={923} dur={3} filter="contrast(1.15) brightness(0.8)" />
         <AbsoluteFill style={{ background: 'rgba(14,13,12,0.62)' }} />
         <AbsoluteFill style={{ background: 'linear-gradient(180deg, rgba(14,13,12,0) 28%, rgba(14,13,12,0.6) 42%, rgba(14,13,12,0.6) 60%, rgba(14,13,12,0) 74%)' }} />
@@ -243,7 +249,7 @@ export const B9: React.FC = () => {
   if (f < 1010)
     return (
       <AbsoluteFill>
-        <Cam pose={P9a} film="penuh" text={<TeksSet pose={P9a} until={1010} start={967} items={[['T47', { sx: 960, sy: 400, size: 130, big: 250, align: 'center', mode: 'skala', giant: ['greatness'] }], ['T48', { sx: 960, sy: 470, size: 130, align: 'center', mode: 'kata' }]]} />}>
+        <Cam pose={P9a} film="penuh" text={<TeksSet pose={P9a} until={1010} start={967} items={[['T47', { sx: 960, sy: 400, size: 130, big: 250, align: 'center', mode: 'skala', giant: ['greatness'] }], ['T48', { sx: 960, sy: 470, size: 130, align: 'center', mode: 'kata', hold: 1013 }]]} />}>
           <Clip src="pcb.mp4" start={967} dur={2} filter="contrast(1.35) brightness(0.5) saturate(0.55)" />
           <Scrim dir="20deg" a={0.8} to={60} />
         </Cam>
@@ -251,7 +257,7 @@ export const B9: React.FC = () => {
       </AbsoluteFill>
     );
   return (
-    <Cam pose={P9b} film="ringan" text={<TeksSet pose={P9b} until={1053} start={1010} items={[['T49', { sy: 400, size: 92, head: true }], ['T50', { sy: 250, width: 640, mode: 'tumpuk', head: true }]]} />}>
+    <Cam pose={P9b} film="ringan" text={<TeksSet pose={P9b} until={1053} start={1010} items={[['T48', { sy: 400, size: 92, head: true, mode: 'kata', hold: 1013 }], ['T49', { sy: 400, size: 92, head: true, mode: 'kata' }], ['T50', { sy: 250, width: 640, mode: 'tumpuk', head: true }]]} />}>
       <Wajah crop={CROP_CLOSE} />
       <Scrim dir="270deg" a={0.82} to={62} />
     </Cam>

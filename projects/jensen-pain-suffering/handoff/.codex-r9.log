@@ -1,0 +1,790 @@
+Reading additional input from stdin...
+OpenAI Codex v0.160.1
+--------
+workdir: /home/irfan/work/skill-development/projects/jensen-pain-suffering
+model: gpt-6.1-sol
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: none
+reasoning summaries: none
+session id: 01a1e1fd-6ebc-7701-9758-bf46fc0e3447
+--------
+user
+Kamu PEKERJA builder untuk satu tugas sempit. Sutradara sudah menjalankan protokol Awal sesi repo (doctor, git pull, PENDING) — JANGAN jalankan doctor, git pull, git apa pun, atau membaca AGENTS.md/INDEX.md/skill. Langsung kerjakan tugas berikut.
+
+TUJUAN       Lompatan pose sumber di f9→f10 (tangan Jensen hilang dari depan mulut) tidak terbaca sebagai patahan, tetapi sebagai reframe yang disengaja.
+
+KONTEKS      Remotion 1920×1080 30 fps, komposisi `Main`. B1 talking head f0–104 (`remotion/src/shots.tsx`, beat B1, kamera push pelan). Sumber `wajah.mp4` melompat pose di f10 (lihat qc/frames/element-0009.jpeg dan element-0010.jpeg). Teks T01 "people with very" modus kata, mulai f0.
+
+FILE BOLEH   remotion/src/shots.tsx (hanya beat B1)
+
+TEMUAN       F-r8-01 f10: kedua pemeriksa (Gemini, ChatGPT) menandai patahan gerak. Perbaikan: jadikan f10 sebuah cut framing. f0–9 memakai framing lebih rapat (skala ±1,12, fokus wajah), lalu dari f10 framing B1 yang sekarang dengan push pelan tetap jalan. Pergantian skala keras tepat di f10, tanpa tween. Teks T01 tetap di posisi dunia yang aman di kedua framing (tidak menempel kepala, ≥ 4 % lebar dari tepi kepala) atau dijangkar ke layar selama f0–9.
+
+LARANGAN     Teks hanya dari ucapan; jarak teks ke kepala ≥ 4 % lebar (Lantai A2); kamera yang bergerak, elemen diam di dunia (B12); jangan ubah beat lain; jangan pakai `will-change`.
+
+LULUS BILA   `cd remotion && npx tsc --noEmit` lulus; f0–9 framing rapat, f10 framing lama; T01 utuh dan berjarak dari kepala di keduanya; beat lain tidak berubah (diff hanya di B1).
+
+JANGAN       render, ubah audio/, TEKS.json, beat lain.
+
+LAPORAN      handoff/REPORT-r9.md: diff singkat, nilai skala/fokus yang dipakai, hasil typecheck.
+
+Ubah hanya file di FILE BOLEH. Tulis handoff/REPORT-r9.md.
+2026-11-16T01:34:06.552174Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when AuthRequired(AuthRequiredError { www_authenticate_header: "Bearer resource_metadata=\"https://mcp.consensus.app/.well-known/oauth-protected-resource\", scope=\"search\"" })
+hook: SessionStart
+hook: SessionStart Completed
+hook: UserPromptSubmit
+hook: UserPromptSubmit Completed
+codex
+Saya akan mengubah framing B1 tepat di f10, memeriksa posisi T01, lalu menjalankan typecheck tanpa render.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "sed -n '1,260p' remotion/src/shots.tsx" in /home/irfan/work/skill-development/projects/jensen-pain-suffering
+ succeeded in 0ms:
+// Shot per beat (PLAN.json). Frame absolut (30 fps). r2: lapisan teks = handoff/TEKS.json (engine/Teks.tsx).
+import React from 'react';
+import { AbsoluteFill, useCurrentFrame } from 'remotion';
+import { C, FONT, W, H, prog, lerp } from './engine/theme';
+import { Cam, zoomAt, path } from './engine/Cam';
+import { TeksSet, Place } from './engine/Teks';
+import { Clip, Wajah, Crop, Vignette, Scrim, Paper, Print } from './engine/media';
+
+// Crop wajah (sumber 1280×720 ternormal). Garis putih diagonal kiri atas sumber (tepi x ≈ 0,26·(1 − y/0,6)) di luar jendela.
+const CROP_A: Crop = { left: 0.332, top: 0.052, cw: 0.66 };
+const CROP_CLOSE: Crop = { left: 0.3825, top: 0.075, cw: 0.55 };
+const CROP_WIDE: Crop = { left: 0.24, top: 0.06, cw: 0.74 };
+const FACE_A = { x: 547, y: 308 }, FACE_CLOSE = { x: 480, y: 324 }, FACE_WIDE = { x: 675, y: 263 };
+
+// Penempatan teks. TH = talking head (dinding di seberang wajah, sejajar mata–dagu), BR = b-roll (font 106, cap ±76 px).
+const TH: Place = { sy: 380, size: 92, head: true }; // r6: sx dari tepi kanan kepala per tampil
+const BR = 106;
+const ids = (list: string[], pl: Place) => list.map((id) => [id, pl] as [string, Place]);
+
+const push = (fc: { x: number; y: number }, f0: number, f1: number, z0: number, z1: number, ease: 'smooth' | 'linear' | 'inOut' = 'smooth') =>
+  path([{ f: f0, ...zoomAt(fc.x, fc.y, z0) }, { f: f1, ease, ...zoomAt(fc.x, fc.y, z1) }], { sigma: 0 });
+
+const Flash: React.FC<{ at: number; color?: string; len?: number }> = ({ at, color = '#FFFFFF', len = 1 }) => {
+  const f = useCurrentFrame();
+  return f >= at && f < at + len ? <AbsoluteFill style={{ background: color }} /> : null;
+};
+
+// ---------- B1 0–99 · hook: T01–T04 ----------
+const P1 = push(FACE_A, 0, 104, 1.0, 1.03, 'linear'); // r6: cut ke B2 di onset 'unfortunately' (f104)
+export const B1: React.FC = () => (
+  <Cam pose={P1} film="ringan" text={<TeksSet pose={P1} until={104} start={0} items={[
+      ['T01', { ...TH, mode: 'kata' }], ['T02', { sy: 175, width: 720, head: true }], ['T03', TH], ['T04', { sy: 165, width: 720, head: true }],
+    ]} />}>
+    <Wajah crop={CROP_A} />
+    <Scrim dir="270deg" a={0.6} to={58} />
+  </Cam>
+);
+
+// ---------- B2 99–182 · bingkai putih tumbuh 62 → 72 % lebar: T05–T07 ----------
+const FR = { cx: 960, cy: 465, w: 1154, h: 649 }; // luar 1190 = 62 % lebar pada zoom 1; 72 % pada zoom 1,161
+const P2 = path([{ f: 99, ...zoomAt(FR.cx, FR.cy, 1.0) }, { f: 182, ease: 'linear', ...zoomAt(FR.cx, FR.cy, 1.161) }], { sigma: 0 });
+export const B2: React.FC = () => {
+  const f = useCurrentFrame();
+  const mid: Place = { wx: FR.cx, wy: FR.cy - 75, size: 130, align: 'center', anchor: 99, mode: 'kata' };
+  return (
+    <Cam pose={P2} bg={C.hitam} film="penuh" text={<TeksSet pose={P2} until={182} start={104} items={[['T05', mid], ['T06', { ...mid, wy: FR.cy - 150, mode: 'skala', big: 250 }], ['T07', mid]]} />}>
+      <Paper x={-200} y={-200} w={W + 400} h={H + 400} />
+      <Print cx={FR.cx} cy={FR.cy} w={FR.w} h={FR.h} border={18}>
+        {f < 164 ? <Clip src="grad_pose.mp4" start={99} dur={4} filter="contrast(1.06) saturate(0.9) sepia(0.08) brightness(0.7)" /> : <Clip src="grad_clap.mp4" start={164} dur={3} filter="contrast(1.06) saturate(0.9) sepia(0.08) brightness(0.7)" />}
+      </Print>
+      <Vignette strength={0.55} />
+    </Cam>
+  );
+};
+
+// ---------- B3 182–275 · push pelan, punch-in 135 % di "I hope" + flash: T08–T14 ----------
+const P3 = path([
+  { f: 182, ...zoomAt(FACE_A.x, FACE_A.y, 1.0) },
+  { f: 232, ease: 'smooth', ...zoomAt(FACE_A.x, FACE_A.y, 1.03) },
+  { f: 240, ease: 'out', ...zoomAt(FACE_A.x, FACE_A.y + 4, 1.35) },
+  { f: 275, ease: 'linear', ...zoomAt(FACE_A.x, FACE_A.y + 4, 1.38) },
+], { sigma: 0 });
+export const B3: React.FC = () => (
+  <AbsoluteFill>
+    <Cam pose={P3} film="ringan" text={<TeksSet pose={P3} until={271} start={182} items={[
+        ...ids(['T08', 'T09', 'T10', 'T11'], TH),
+        ['T12', { sy: 400, size: 92, anchor: 240, head: true }], ['T13', { sy: 330, size: 92, big: 160, anchor: 240, mode: 'skala', head: true, dx: 56 }], ['T14', { sy: 400, size: 92, anchor: 240, head: true, mode: 'kata' }],
+      ]} />}>
+      <Wajah crop={CROP_A} />
+      <Scrim dir="270deg" a={0.6} to={58} />
+    </Cam>
+    <Flash at={240} />
+  </AbsoluteFill>
+);
+
+// ---------- B4 275–458 · babak II: cetakan ±42–45 % lebar, satu gerak menyusuri: T15–T22 ----------
+const PW = 780, PH = 439, PB = 20; // isi cetakan; luar 820
+const PR = [
+  { cx: 900, cy: 470, rot: -2.5, src: 'arsip_meja.mp4', start: 271, dur: 5.2 },
+  { cx: 2350, cy: 560, rot: 2, src: 'arsip_komputer.mp4', start: 345, dur: 6.0 },
+  { cx: 3800, cy: 480, rot: -1.5, src: 'arsip_logo.mp4', start: 405, dur: 4.5 },
+];
+const P4 = path([
+  { f: 271, x: 830, y: 600, zoom: 1.06 },
+  { f: 368, ease: 'smooth', x: 1000, y: 600, zoom: 1.03 },
+  { f: 386, ease: 'inOut', x: 2290, y: 690, zoom: 1.04 },
+  { f: 428, ease: 'smooth', x: 2430, y: 690, zoom: 1.02 },
+  { f: 442, ease: 'inOut', x: 3730, y: 610, zoom: 1.02 },
+  { f: 458, ease: 'smooth', x: 3800, y: 605, zoom: 1.0 },
+], { sigma: 3.6 });
+const under = (i: number): Place => ({ wx: PR[i].cx - PW / 2 - PB, wy: PR[i].cy + PH / 2 + PB + 28, size: BR, mode: 'kata', keepLeft: 140 });
+export const B4: React.FC = () => {
+  const f = useCurrentFrame();
+  const blur = lerp(16, 0, prog(f, 271, 277, 'out'));
+  return (
+    <AbsoluteFill style={{ filter: blur > 0.1 ? `blur(${blur}px)` : undefined }}>
+      <Cam pose={P4} bg={C.hitam} film="sedang" textSharp text={<TeksSet pose={P4} until={458} start={271} items={[
+          ['T14', under(0)], ...ids(['T15', 'T16', 'T17', 'T18'], under(0)), ...ids(['T19', 'T20', 'T21'], under(1)), ['T22', under(2)],
+        ]} />}>
+        <Paper x={-400} y={-300} w={5600} h={1700} />
+        {PR.map((p, i) => (
+          <Print key={i} cx={p.cx} cy={p.cy} w={PW} h={PH} rot={p.rot} border={PB}>
+            <Clip src={p.src} start={p.start} dur={p.dur} filter="contrast(1.05) saturate(0.85) sepia(0.12)" />
+          </Print>
+        ))}
+      </Cam>
+      <Vignette strength={0.75} />
+      <Flash at={271} color="#FFE2B8" />
+    </AbsoluteFill>
+  );
+};
+
+// ---------- B5 458–561 · babak III monokrom (kepala di sepertiga kanan) + kartu judul: T23–T26 ----------
+const MONO = 'grayscale(1) contrast(1.55) brightness(0.62)';
+// kepala pria di sumber x 710–1150, y 160–560; dinding kosong di atas kepala → teks satu baris tepat di atas rambut.
+const P5 = path([{ f: 458, ...zoomAt(930, 100, 1.0) }, { f: 543, ease: 'linear', ...zoomAt(930, 100, 1.08) }], { sigma: 0 });
+const P5t = path([{ f: 543, x: 960, y: 540, zoom: 1.04 }, { f: 561, ease: 'out', x: 960, y: 540, zoom: 1.0 }], { sigma: 0 });
+export const B5: React.FC = () => {
+  const f = useCurrentFrame();
+  if (f < 543)
+    return (
+      <AbsoluteFill>
+        <Cam pose={P5} film="penuh" text={<TeksSet pose={P5} until={543} start={458} items={[
+            ...ids(['T23', 'T24'], { sx: 960, sy: 466, size: 146, align: 'center', mode: 'kata' }),
+            ['T25', { sx: 960, sy: 380, size: 146, big: 260, align: 'center', mode: 'skala', giant: ['setbacks'] }],
+          ]} />}>
+          <Clip src="stres.mp4" start={458} dur={5} filter={MONO} />
+          <AbsoluteFill style={{ background: 'rgba(14,13,12,0.55)' }} />
+        </Cam>
+        <Vignette strength={0.7} />
+      </AbsoluteFill>
+    );
+  // T26 'SUFFERING' (gaya judul): huruf berisi percikan api monokrom, dicat amber
+  return (
+    <AbsoluteFill style={{ background: C.hitam }}>
+      <Cam pose={P5t} bg={C.hitam} film="kartu">
+        <AbsoluteFill style={{ isolation: 'isolate', background: '#000' }}>
+          <Clip src="percik.mp4" start={540} dur={3} filter="grayscale(1) brightness(1.75) contrast(1.1)" style={{ transform: 'scale(1.15)' }} />
+          <AbsoluteFill data-teks="T26" style={{ mixBlendMode: 'multiply', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ fontFamily: FONT, fontWeight: 700, fontSize: 300, letterSpacing: '-0.03em', color: C.amber, lineHeight: 1 }}>SUFFERING</div>
+          </AbsoluteFill>
+          <AbsoluteFill style={{ mixBlendMode: 'lighten', background: C.hitam }} />
+        </AbsoluteFill>
+        {/* r5: glow judul */}
+        <AbsoluteFill style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mixBlendMode: 'screen', opacity: 0.32, filter: 'blur(26px)' }}>
+          <div style={{ fontFamily: FONT, fontWeight: 700, fontSize: 300, letterSpacing: '-0.03em', color: C.amber, lineHeight: 1 }}>SUFFERING</div>
+        </AbsoluteFill>
+      </Cam>
+    </AbsoluteFill>
+  );
+};
+
+// ---------- B6 561–716 · NVIDIA (bug 60 Minutes di luar crop), lalu Jensen: T27–T32 ----------
+const NV = 'contrast(1.25) brightness(0.66) saturate(0.7)';
+const P6a = path([{ f: 561, x: 1085, y: 560, zoom: 1.22 }, { f: 623, ease: 'linear', x: 1130, y: 555, zoom: 1.23 }], { sigma: 0 });
+const P6b = path([{ f: 623, x: 1085, y: 445, zoom: 1.22 }, { f: 686, ease: 'linear', x: 1130, y: 445, zoom: 1.23 }], { sigma: 0 });
+const P6c = push(FACE_A, 686, 709, 1.0, 1.03, 'linear');
+export const B6: React.FC = () => {
+  const f = useCurrentFrame();
+  if (f < 623)
+    return (
+      <AbsoluteFill>
+        <Cam pose={P6a} film="penuh" text={<TeksSet pose={P6a} until={623} start={561} items={[...ids(['T27', 'T28'], { sx: 960, sy: 470, size: 130, align: 'center', mode: '25d', tilt: [-12, 6] }), ['T29', { sx: 960, sy: 450, size: 150, align: 'center', mode: '25d', tilt: [-12, 6] }]]} />}>
+          <Clip src="nv_hq.mp4" start={561} dur={3} filter={NV} />
+          <AbsoluteFill style={{ background: 'rgba(14,13,12,0.38)' }} />
+        </Cam>
+        <Vignette strength={0.55} />
+      </AbsoluteFill>
+    );
+  if (f < 686)
+    return (
+      <AbsoluteFill>
+        <Cam pose={P6b} film="sedang" text={<TeksSet pose={P6b} until={686} start={623} items={ids(['T30', 'T31'], { sx: 960, sy: 100, size: BR, align: 'center', mode: 'kata' })} />}>
+          <Clip src="nv_tim.mp4" start={623} dur={5} filter={NV} />
+          <Scrim dir="180deg" a={0.85} to={34} />
+        </Cam>
+        <Vignette strength={0.55} />
+      </AbsoluteFill>
+    );
+  return (
+    <Cam pose={P6c} film="ringan" text={<TeksSet pose={P6c} until={709} start={686} items={[['T32', { ...TH, mode: 'kata' }]]} />}>
+      <Wajah crop={CROP_A} />
+      <Scrim dir="270deg" a={0.6} to={58} />
+    </Cam>
+  );
+};
+
+// ---------- B7 716–816 · ketik di gelap, lalu Jensen: T33–T38 ----------
+const P7a = path([{ f: 709, ...zoomAt(1300, 260, 1.0) }, { f: 777, ease: 'linear', ...zoomAt(1300, 260, 1.08) }], { sigma: 0 });
+const P7b = push(FACE_A, 777, 813, 1.0, 1.03, 'linear');
+export const B7: React.FC = () => {
+  const f = useCurrentFrame();
+  if (f < 777)
+    return (
+      <AbsoluteFill>
+        <Cam pose={P7a} film="penuh" text={<TeksSet pose={P7a} until={777} start={709} items={[['T32', { sx: 960, sy: 470, size: 130, align: 'center' }], ...ids(['T33', 'T35'], { sx: 960, sy: 470, size: 130, align: 'center', mode: 'skala' }), ['T34', { sx: 960, sy: 470, size: 130, align: 'center', mode: 'kata' }], ['T36', { sx: 960, sy: 440, size: 175, align: 'center', mode: 'kata' }]]} />}>
+          <Clip src="ketik.mp4" start={709} dur={3} filter="contrast(1.2) brightness(1.05) saturate(0.7)" />
+          <Scrim dir="90deg" a={0.7} to={60} />
+        </Cam>
+        <Vignette strength={0.5} />
+      </AbsoluteFill>
+    );
+  return (
+    <Cam pose={P7b} film="ringan" text={<TeksSet pose={P7b} until={813} start={777} items={ids(['T37', 'T38'], { ...TH, mode: 'kata' })} />}>
+      <Wajah crop={CROP_A} />
+      <Scrim dir="270deg" a={0.6} to={58} />
+    </Cam>
+  );
+};
+
+// ---------- B8 816–967 · tempa lalu percikan: T39–T46 ----------
+const P8a = path([{ f: 813, ...zoomAt(1150, 450, 1.0) }, { f: 923, ease: 'linear', ...zoomAt(1150, 450, 1.12) }], { sigma: 0 });
+const P8b = path([{ f: 923, x: 960, y: 540, zoom: 1.0 }, { f: 967, ease: 'out', x: 960, y: 540, zoom: 1.06 }], { sigma: 0 });
+export const B8: React.FC = () => {
+  const f = useCurrentFrame();
+  if (f < 923)
+    return (
+      <AbsoluteFill>
+        <Cam pose={P8a} film="penuh" text={<TeksSet pose={P8a} until={923} start={813} items={[['T38', { sx: 960, sy: 250, size: 120, align: 'center', mode: 'kata' }], ...ids(['T39', 'T40', 'T41', 'T43', 'T44'], { sx: 960, sy: 250, size: 120, align: 'center', mode: 'kata' }), ['T42', { sx: 960, sy: 140, size: 120, big: 290, align: 'center', mode: 'skala' }]]} />}>
+          <Clip src="tempa.mp4" start={813} dur={5} filter="contrast(1.2) brightness(0.85) saturate(1.1)" />
+          <Scrim dir="180deg" a={0.9} to={55} />
+        </Cam>
+        <Vignette strength={0.6} />
+      </AbsoluteFill>
+    );
+  return (
+    <AbsoluteFill>
+      <Cam pose={P8b} film="penuh" text={<TeksSet pose={P8b} until={967} start={923} items={[['T45', { sx: 960, sy: 470, size: 132, align: 'center', mode: '25d', tilt: [14, 6] }], ['T46', { sx: 960, sy: 475, size: 130, align: 'center', mode: '25d', tilt: [14, 6] }]]} />}>
+        <Clip src="percik.mp4" start={923} dur={3} filter="contrast(1.15) brightness(0.8)" />
+        <AbsoluteFill style={{ background: 'rgba(14,13,12,0.62)' }} />
+        <AbsoluteFill style={{ background: 'linear-gradient(180deg, rgba(14,13,12,0) 28%, rgba(14,13,12,0.6) 42%, rgba(14,13,12,0.6) 60%, rgba(14,13,12,0) 74%)' }} />
+      </Cam>
+      <Vignette strength={0.6} />
+    </AbsoluteFill>
+  );
+};
+
+// ---------- B9 967–1053 · PCB, cut tegas ke Jensen close: T47–T50 ----------
+const P9a = path([{ f: 967, x: 860, y: 540, zoom: 1.1 }, { f: 1010, ease: 'linear', x: 1060, y: 540, zoom: 1.1 }], { sigma: 0 });
+const P9b = push(FACE_CLOSE, 1010, 1053, 1.0, 1.04, 'linear');
+export const B9: React.FC = () => {
+  const f = useCurrentFrame();
+  if (f < 1010)
+    return (
+      <AbsoluteFill>
+        <Cam pose={P9a} film="penuh" text={<TeksSet pose={P9a} until={1010} start={967} items={[['T47', { sx: 960, sy: 400, size: 130, big: 250, align: 'center', mode: 'skala', giant: ['greatness'] }], ['T48', { sx: 960, sy: 470, size: 130, align: 'center', mode: 'kata', hold: 1013 }]]} />}>
+          <Clip src="pcb.mp4" start={967} dur={2} filter="contrast(1.35) brightness(0.5) saturate(0.55)" />
+          <Scrim dir="20deg" a={0.8} to={60} />
+        </Cam>
+        <Vignette strength={0.55} />
+      </AbsoluteFill>
+    );
+  return (
+    <Cam pose={P9b} film="ringan" text={<TeksSet pose={P9b} until={1053} start={1010} items={[['T48', { sy: 400, size: 92, head: true, mode: 'kata', hold: 1013 }], ['T49', { sy: 400, size: 92, head: true, mode: 'kata' }], ['T50', { sy: 250, width: 640, mode: 'tumpuk', head: true }]]} />}>
+      <Wajah crop={CROP_CLOSE} />
+      <Scrim dir="270deg" a={0.82} to={62} />
+    </Cam>
+  );
+};
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'cat remotion/src/engine/Cam.tsx remotion/src/engine/Teks.tsx' in /home/irfan/work/skill-development/projects/jensen-pain-suffering
+ succeeded in 0ms:
+// Kamera 2D: (x, y) = titik dunia di tengah layar, zoom = skala. Semua anak (video, cetakan, TEKS) ada di dunia yang sama,
+// jadi kamera melewati teks (Lantai B12). Motion blur: bila kecepatan layar > blurAbove px/f, dunia digambar `samples`
+// kali pada subframe dalam rana 200° (smooth-motion.md §1, §6).
+import React from 'react';
+import { AbsoluteFill, getInputProps, useCurrentFrame } from 'remotion';
+import { W, H } from './theme';
+import { Pose, Key, camPath, screenSpeed } from './camera';
+import { FilmLook, FilmLevel } from './Film';
+
+const INPUT = getInputProps() as { mbSamples?: number };
+
+/** pose yang menahan titik dunia (fx, fy) di posisi layarnya sendiri saat zoom z (push ke objek). */
+export const zoomAt = (fx: number, fy: number, z: number) => ({ x: fx - (fx - W / 2) / z, y: fy - (fy - H / 2) / z, zoom: z });
+
+export const path = (keys: Key[], opts?: { sigma?: number; cuts?: number[] }) => camPath(keys, opts);
+
+/** titik layar (sx, sy) pada pose p -> titik dunia */
+export const toWorld = (p: Pose, sx: number, sy: number) => ({ x: p.x + (sx - W / 2) / p.zoom, y: p.y + (sy - H / 2) / p.zoom });
+
+const tf = (p: Pose) => `translate(${W / 2}px, ${H / 2}px) scale(${p.zoom}) translate(${-p.x}px, ${-p.y}px)`;
+
+export const Cam: React.FC<{
+  pose: (f: number) => Pose; bg?: string; blurAbove?: number; samples?: number; style?: React.CSSProperties;
+  film?: FilmLevel; // r5: lapisan film di atas footage
+  text?: React.ReactNode; // r5: teks digambar di atas lapisan film, di dunia kamera yang sama
+  textSharp?: boolean; // r7: teks satu salinan (tanpa motion blur subframe), dipakai B4 saat teks ditahan di layar
+  children: React.ReactNode;
+}> = ({ pose, bg, blurAbove = 7, samples, style, film, text, textSharp, children }) => {
+  const f = useCurrentFrame();
+  const speed = screenSpeed(pose, f);
+  const n = speed > blurAbove ? Math.max(2, samples ?? INPUT.mbSamples ?? 8) : 1;
+  const span = 200 / 360;
+  const worlds = (content: React.ReactNode, key: string, single = false) => {
+    const out = [];
+    const m = single ? 1 : n;
+    for (let k = 0; k < m; k++) {
+      const t = m === 1 ? f : f - span / 2 + (span * k) / (m - 1);
+      out.push(
+        <div key={key + k} style={{ position: 'absolute', left: 0, top: 0, width: W, height: H, transformOrigin: '0 0', transform: tf(pose(t)), opacity: 1 / (k + 1) }}>
+          {content}
+        </div>,
+      );
+    }
+    return out;
+  };
+  const foot = <AbsoluteFill style={{ backgroundColor: bg }}>{worlds(children, 'w')}</AbsoluteFill>;
+  return (
+    <AbsoluteFill style={{ backgroundColor: bg, overflow: 'hidden', ...style }}>
+      {film ? <FilmLook level={film}>{foot}</FilmLook> : foot}
+      {text ? worlds(text, 't', textSharp) : null}
+    </AbsoluteFill>
+  );
+};
+// Lapisan teks r2: persis handoff/TEKS.json (66 tampil, satu tampil di layar pada satu waktu). Gaya:
+//   s = satu baris (Poppins 600, kunci 700 amber, ukuran sama) · t = tumpuk 1 kata/baris rata lebar, kapital 700
+//   d = dua baris seimbang kapital 700 · judul = kartu SUFFERING (dibangun di shot B5, bukan di sini).
+// Posisi diberi dalam px LAYAR pada frame `muncul` lalu dikunci ke dunia kamera (Lantai B12).
+import React from 'react';
+import { useCurrentFrame } from 'remotion';
+import { C, FONT, prog, W } from './theme';
+import { Pose } from './camera';
+import { toWorld } from './Cam';
+import RAW from '../data/teks.json';
+import HEAD from '../data/head.json';
+const HEADX = HEAD as Record<string, number>;
+import { WORDS, norm } from './words';
+
+export type Tampil = { id: string; kata: [number, number]; teks: string; kunci: string[]; gaya: 's' | 't' | 'd' | 'judul'; muncul: number; hilang: number };
+export const TEKS: Tampil[] = RAW as unknown as Tampil[];
+const byId = new Map(TEKS.map((t) => [t.id, t]));
+
+// Pengaman Lantai A5: kata di layar = kata words.json pada indeks `kata`.
+for (const t of TEKS) {
+  const shown = t.teks.replace('|', ' ').split(/\s+/).map(norm).filter(Boolean);
+  // BRIEF: "it's" @33,67 (indeks 129) salah dengar, tidak ditampilkan
+  const said = WORDS.slice(t.kata[0], t.kata[1] + 1).map((w, k) => (t.kata[0] + k === 129 ? '' : norm(w.w))).filter(Boolean);
+  if (shown.join(' ') !== said.join(' ')) throw new Error(`TEKS ${t.id} "${t.teks}" != ucapan "${said.join(' ')}"`);
+}
+
+export const fIn = (t: Tampil) => Math.round(t.muncul * 30);
+export const fOut = (t: Tampil) => Math.round(t.hilang * 30);
+
+export const SHADOW = '0 0 28px rgba(14,13,12,0.62), 0 2px 8px rgba(14,13,12,0.5)';
+// r5: glow teks lembut warna huruf (halo ±26 px @1080, opasitas ±0,3) di atas bayangan gelap untuk kontras
+const glow = (amber: boolean) =>
+  `0 0 26px ${amber ? 'rgba(232,163,61,0.34)' : 'rgba(244,241,234,0.30)'}, 0 0 22px rgba(14,13,12,0.55), 0 2px 8px rgba(14,13,12,0.5)`;
+const TRACK = -0.015;
+const CAPS_TRACK = -0.02;
+
+let ctx: CanvasRenderingContext2D | null = null;
+const measure = (text: string, size: number, weight: number, track: number) => {
+  if (typeof document === 'undefined') return text.length * size * 0.6;
+  if (!ctx) ctx = document.createElement('canvas').getContext('2d');
+  ctx!.font = `${weight} ${size}px Poppins`;
+  return ctx!.measureText(text).width + track * size * text.length;
+};
+
+export type Mode = 'tenang' | 'kata' | 'skala' | '25d' | 'tumpuk' | 'judul';
+export type Place = {
+  sx?: number; sy?: number; wx?: number; wy?: number; align?: 'left' | 'right' | 'center'; size?: number; width?: number; anchor?: number;
+  mode?: Mode; // r2b: modus tipografi (default: tenang untuk gaya s, tumpuk untuk t/d)
+  big?: number; // skala: ukuran kata raksasa (px layar)
+  giant?: string[];
+  head?: boolean; // r6: sx = tepi kanan kepala (data/head.json, maks selama tampil) + 80 px layar (≥ 4 % lebar, ≤ 8 % tinggi)
+  br?: number;
+  dx?: number; // r8: geser kanan (px layar) di atas jarak kepala
+  hold?: number; // r8: frame saat tampil ini selesai memudar (keluar 3 f sebelumnya); menahan tampil lintas cut sampai tampil berikut masuk
+  keepLeft?: number; // r7: tepi kiri teks tidak keluar dari x layar ini (B4: teks tidak ikut terseret keluar saat kamera pindah cetakan) // r6: modus kata dua baris, patah sebelum kata ke-br // skala: kata yang dibuat raksasa (default: kata kunci, atau kata terakhir)
+  tilt?: [number, number]; // 25d: rotateY, rotateX (derajat)
+};
+
+const isKey = (t: Tampil, w: string) => t.kunci.some((k) => norm(k) === norm(w));
+
+export const Teks: React.FC<{ id: string; place: Place; pose: (f: number) => Pose; until?: number; start?: number }> = ({ id, place, pose, until, start }) => {
+  const f = useCurrentFrame();
+  const t = byId.get(id);
+  if (!t) throw new Error('TEKS tidak ada: ' + id);
+  // r6: silang 3–4 f. Tampil masuk mulai 2 f sebelum onset (tidak ada frame kosong), tampil lama keluar 4 f sesudah
+  // tampil berikut mulai (opasitas + blur), kecuali dipotong batas shot.
+  // r7: masuk di onset kata pertama yang TAMPIL (T49: 'it's' @33,67 tidak tampil → mulai di 'Greatness' 33,79)
+  const firstShown = (() => { for (let i = t.kata[0]; i <= t.kata[1]; i++) if (i !== 129) return i; return t.kata[0]; })();
+  const a = Math.round(WORDS[firstShown].s * 30), b = fOut(t);
+  const lo = Math.max(a - 2, start ?? -1e9), hi = Math.min(place.hold !== undefined ? place.hold : b + 2, until ?? 1e9);
+  if (f < lo || f >= hi) return null;
+  const p = pose(place.anchor ?? a);
+  const hx = place.head ? HEADX[id] : undefined;
+  if (place.head && hx === undefined) throw new Error('head.json tidak memuat ' + id);
+  const sx = hx !== undefined ? W / 2 + (hx - p.x) * p.zoom + 110 + (place.dx ?? 0) : place.sx!; // r7: +110 px dari tepi kepala terdeteksi (kacamata/telinga ±30 px di luar deteksi)
+  const w0 = place.wx !== undefined ? { x: place.wx, y: place.wy! } : toWorld(p, sx, place.sy!);
+  const pf = pose(f);
+  const w = place.keepLeft !== undefined ? { x: Math.max(w0.x, pf.x + (place.keepLeft - W / 2) / pf.zoom), y: w0.y } : w0;
+  const z = p.zoom;
+  const xo = place.hold !== undefined ? place.hold - 3 : b - 2;
+  const ex = f >= xo ? prog(f, xo, xo + 3, 'linear') : 0; // keluar 3 f, bersamaan dengan masuk tampil berikut // keluar 4 f, mulai bersamaan dengan masuk tampil berikut
+  const em = prog(f, a - 2, a + 5, 'out'); // gerak/blur masuk
+  const e = prog(f, a - 2, a + 1, 'linear') * (1 - ex); // opasitas: silang linear 3 f
+  const tx = place.align === 'right' ? '-100%' : place.align === 'center' ? '-50%' : '0';
+  const lines = t.teks.split('|');
+  let body: React.ReactNode;
+  // indeks kata words.json untuk tiap kata yang tampil (lewati "it's" @129)
+  const idxs: number[] = [];
+  for (let i = t.kata[0]; i <= t.kata[1]; i++) if (i !== 129) idxs.push(i);
+  const wIn = (k: number) => Math.round(WORDS[idxs[k]].s * 30);
+  const wordAnim = (k: number) => {
+    const q = prog(f, wIn(k) - 2, wIn(k) + 4, 'out');
+    return { opacity: prog(f, wIn(k) - 2, wIn(k) + 1, 'linear'), transform: `translateY(${(1 - q) * 0.25}em)`, filter: q < 0.98 ? `blur(${(1 - q) * 6}px)` : undefined, display: 'inline-block' } as React.CSSProperties;
+  };
+  const mode: Mode = place.mode ?? (t.gaya === 's' ? 'tenang' : 'tumpuk');
+  const words = lines.join(' ').split(' ');
+  if (mode === 'skala') {
+    // segmen: kata raksasa sendiri, kata sambung berkelompok; tiap segmen tampil sendiri dari onset kata pertamanya
+    const giant = (w: string) => (place.giant ? place.giant.some((g) => norm(g) === norm(w)) : isKey(t, w));
+    const segs: { k0: number; k1: number; g: boolean }[] = [];
+    words.forEach((w, k) => {
+      const g = giant(w);
+      const last = segs[segs.length - 1];
+      if (last && g === last.g) last.k1 = k; else segs.push({ k0: k, k1: k, g });
+    });
+    let cur = 0;
+    segs.forEach((sg, i) => { if (f >= wIn(sg.k0)) cur = i; });
+    // kata raksasa yang sudah tampil tetap di layar; kata sambung sesudahnya muncul kecil di bawahnya
+    let keep = -1;
+    for (let i = 0; i < cur; i++) if (segs[i].g) keep = i;
+    const show = keep >= 0 ? [keep, cur] : [cur];
+    body = show.map((si) => {
+      const sg = segs[si];
+      const sz = (sg.g ? place.big ?? 260 : place.size ?? 106) / z;
+      const q = prog(f, wIn(sg.k0) - 2, wIn(sg.k0) + 5, 'out');
+      return (
+        <div key={si} style={{ fontSize: sz, lineHeight: 1, letterSpacing: `${sg.g ? -0.03 : TRACK}em`, opacity: q, transform: `scale(${1.12 - 0.12 * q})`, transformOrigin: (place.align ?? 'left') === 'left' ? '0% 50%' : place.align === 'right' ? '100% 50%' : '50% 50%', filter: q < 0.98 ? `blur(${(1 - q) * 8}px)` : undefined }}>
+          {words.slice(sg.k0, sg.k1 + 1).map((word, j, arr) => (
+            <span key={j} style={{ fontWeight: isKey(t, word) || sg.g ? 700 : 600, color: isKey(t, word) ? C.amber : C.putih, textShadow: glow(isKey(t, word)), marginRight: j < arr.length - 1 ? '0.26em' : 0 }}>{word}</span>
+          ))}
+        </div>
+      );
+    });
+  } else if (mode === 'tenang' || mode === 'kata' || mode === '25d') {
+    const sz = (place.size ?? 92) / z;
+    const perWord = mode !== 'tenang';
+    const tilt = place.tilt ?? [-16, 7];
+    const span = (word: string, k: number, last: boolean) => (
+      <span key={k} style={{ fontWeight: isKey(t, word) ? 700 : 600, color: isKey(t, word) ? C.amber : C.putih, textShadow: glow(isKey(t, word)), marginRight: last ? 0 : '0.26em', ...(perWord ? wordAnim(k) : {}) }}>{word}</span>
+    );
+    const groups = place.br ? [words.slice(0, place.br).map((w, k) => [w, k] as const), words.slice(place.br).map((w, k) => [w, k + place.br!] as const)] : [words.map((w, k) => [w, k] as const)];
+    const line = (
+      <>
+        {groups.map((g, gi) => (
+          <div key={gi} style={{ fontSize: sz, lineHeight: 1.05, letterSpacing: `${TRACK}em` }}>
+            {g.map(([word, k], j) => span(word, k, j === g.length - 1))}
+          </div>
+        ))}
+      </>
+    );
+    body = mode === '25d' ? <div style={{ transform: `perspective(${1400 / z}px) rotateY(${tilt[0]}deg) rotateX(${tilt[1]}deg)`, transformOrigin: '50% 50%' }}>{line}</div> : line;
+  } else if (t.gaya === 't' || place.width) {
+    // tumpuk rata lebar: ukuran tiap baris = lebar target / lebar terukur pada 100 px
+    const target = (place.width ?? 720) / z;
+    const L = lines.length === 1 ? words : lines; // satu baris di TEKS (mis. T50) → 1 kata per baris
+    // r6: tiap baris masuk di onset kata pertamanya (T50 'character.' baru di 34,59)
+    let wk = 0;
+    const firstIdx = L.map((ln) => { const i0 = wk; wk += ln.split(' ').length; return i0; });
+    body = L.map((word, k) => {
+      const sz = (target / measure(word, 100, 700, CAPS_TRACK)) * 100;
+      return (
+        <div key={k} style={{ fontSize: sz, lineHeight: 0.84, fontWeight: 700, letterSpacing: `${CAPS_TRACK}em`, marginTop: k ? 0.06 * sz : 0, ...wordAnim(firstIdx[k]), display: 'block' }}>
+          {word.split(' ').map((w, j, arr) => (
+            <span key={j} style={{ color: isKey(t, w) ? C.amber : C.putih, textShadow: glow(isKey(t, w)), marginRight: j < arr.length - 1 ? '0.24em' : 0 }}>{w}</span>
+          ))}
+        </div>
+      );
+    });
+  } else {
+    const sz = (place.size ?? 135) / z;
+    body = lines.map((line, k) => (
+      <div key={k} style={{ fontSize: sz, lineHeight: 1.0, fontWeight: 700, letterSpacing: `${CAPS_TRACK}em` }}>
+        {line.split(' ').map((word, j, arr) => (
+          <span key={j} style={{ color: isKey(t, word) ? C.amber : C.putih, textShadow: glow(isKey(t, word)), marginRight: j < arr.length - 1 ? '0.24em' : 0 }}>{word}</span>
+        ))}
+      </div>
+    ));
+  }
+  return (
+    <div
+      data-teks={id}
+      style={{
+        position: 'absolute', left: w.x, top: w.y, whiteSpace: 'nowrap', fontFamily: FONT, textAlign: place.align ?? 'left', textShadow: SHADOW,
+        transform: `translateX(${tx}) translateY(${(1 - em) * (30 / z)}px)`, opacity: e, filter: em < 0.98 || ex > 0 ? `blur(${(1 - em) * 10 + ex * 14}px)` : undefined,
+      }}
+    >
+      {body}
+    </div>
+  );
+};
+
+/** Render beberapa tampil dengan penempatan masing-masing. */
+export const TeksSet: React.FC<{ items: [string, Place][]; pose: (f: number) => Pose; until?: number; start?: number }> = ({ items, pose, until, start }) => (
+  <>{items.map(([id, pl]) => <Teks key={id} id={id} place={pl} pose={pose} until={until} start={start} />)}</>
+);
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'cat remotion/src/data/head.json | head -c 650; cat remotion/src/engine/camera.ts | head -80; ls qc/frames/element-000{9}.jpeg' in /home/irfan/work/skill-development/projects/jensen-pain-suffering
+ exited 2 in 0ms:
+{
+"T01": 806.9,
+"T02": 779.6,
+"T03": 761.5,
+"T04": 761.5,
+"T08": 779.6,
+"T09": 779.6,
+"T10": 770.5,
+"T11": 761.5,
+"T12": 770.5,
+"T13": 761.5,
+"T14": 770.5,
+"T32": 770.5,
+"T37": 770.5,
+"T38": 743.3,
+"T48": 704.7,
+"T49": 704.7,
+"T50": 693.8,
+"T57": 982.7,
+"T58": 925.9,
+"T59": 861.1,
+"T60": 853.0,
+"T61": 877.3,
+"T62": 877.3,
+"T63": 1031.4,
+"T64": 942.2
+}// Jalur kamera: keyframe -> pose per frame -> (opsional) gaussian σ per segmen (references/smooth-motion.md §4).
+import { EASE, EaseName, lerp, clamp01, W, H } from './theme';
+
+/** Pose kamera. (x, y) = titik dunia yang tampil di tengah layar; zoom = skala bidang z=0 di layar;
+ *  rx/ry/rz derajat (pitch, yaw, roll) mengorbit titik itu. */
+export type Pose = { x: number; y: number; zoom: number; rx: number; ry: number; rz: number };
+export const REST: Pose = { x: W / 2, y: H / 2, zoom: 1, rx: 0, ry: 0, rz: 0 };
+
+/** Keyframe: frame absolut + nilai yang berubah. `ease` = easing MENUJU kunci ini. */
+export type Key = { f: number; ease?: EaseName } & Partial<Pose>;
+
+function rawPath(keys: Key[]) {
+  const full: (Pose & { f: number; ease: EaseName })[] = [];
+  let prev: Pose = { ...REST };
+  for (const k of keys) {
+    const p = { ...prev, ...k, ease: k.ease ?? 'inOut' } as Pose & { f: number; ease: EaseName };
+    full.push(p);
+    prev = p;
+  }
+  return (f: number): Pose => {
+    if (f <= full[0].f) return full[0];
+    const last = full[full.length - 1];
+    if (f >= last.f) return last;
+    let i = 0;
+    while (f > full[i + 1].f) i++;
+    const a = full[i], b = full[i + 1];
+    const t = EASE[b.ease](clamp01((f - a.f) / (b.f - a.f)));
+    return {
+      x: lerp(a.x, b.x, t),
+      y: lerp(a.y, b.y, t),
+      zoom: Math.exp(lerp(Math.log(a.zoom), Math.log(b.zoom), t)), // zoom di ruang log
+      rx: lerp(a.rx, b.rx, t),
+      ry: lerp(a.ry, b.ry, t),
+      rz: lerp(a.rz, b.rz, t),
+    };
+  };
+}
+
+const cache = new Map<string, (f: number) => Pose>();
+
+/**
+ * Bangun fungsi pose per frame (boleh pecahan, untuk motion blur).
+ * opts.sigma: σ gaussian dalam frame (default 3.6 = 0,12 dtk); 0 = tanpa penghalusan.
+ * opts.cuts: frame tempat penghalusan tidak boleh menyeberang (cut / HOLD keras).
+ */
+export function camPath(keys: Key[], opts: { sigma?: number; cuts?: number[] } = {}): (f: number) => Pose {
+  const id = JSON.stringify([keys, opts]);
+  const hit = cache.get(id);
+  if (hit) return hit;
+  const raw = rawPath(keys);
+  const sigma = opts.sigma ?? 3.6;
+  if (sigma <= 0) { cache.set(id, raw); return raw; }
+  const f0 = Math.floor(keys[0].f), f1 = Math.ceil(keys[keys.length - 1].f);
+  const cuts = [f0, ...(opts.cuts ?? []).filter((c) => c > f0 && c < f1), f1 + 1];
+  const n = f1 - f0 + 1;
+  const samples: Pose[] = [];
+  for (let i = 0; i < n; i++) samples.push(raw(f0 + i));
+  const rad = Math.ceil(sigma * 3);
+  const wts = Array.from({ length: 2 * rad + 1 }, (_, k) => Math.exp(-((k - rad) ** 2) / (2 * sigma * sigma)));
+  const sm: Pose[] = samples.map((_, i) => {
+    const fAbs = f0 + i;
+    let segA = f0, segB = f1;
+    for (let c = 0; c < cuts.length - 1; c++) if (fAbs >= cuts[c] && fAbs < cuts[c + 1]) { segA = cuts[c]; segB = cuts[c + 1] - 1; }
+    const acc = { x: 0, y: 0, lz: 0, rx: 0, ry: 0, rz: 0 };
+    let ws = 0;
+    for (let k = -rad; k <= rad; k++) {
+      const j = Math.min(segB, Math.max(segA, fAbs + k)) - f0; // tepi segmen ditahan (edge pad)
+      const p = samples[j], w = wts[k + rad];
+      acc.x += p.x * w; acc.y += p.y * w; acc.lz += Math.log(p.zoom) * w;
+      acc.rx += p.rx * w; acc.ry += p.ry * w; acc.rz += p.rz * w; ws += w;
+    }
+    return { x: acc.x / ws, y: acc.y / ws, zoom: Math.exp(acc.lz / ws), rx: acc.rx / ws, ry: acc.ry / ws, rz: acc.rz / ws };
+  });
+  const fn = (f: number): Pose => {
+    if (f <= f0) return sm[0];
+    if (f >= f1) return sm[n - 1];
+    const i = Math.floor(f - f0), t = f - f0 - i;
+    const a = sm[i], b = sm[Math.min(n - 1, i + 1)];
+    return { x: lerp(a.x, b.x, t), y: lerp(a.y, b.y, t), zoom: Math.exp(lerp(Math.log(a.zoom), Math.log(b.zoom), t)), rx: lerp(a.rx, b.rx, t), ry: lerp(a.ry, b.ry, t), rz: lerp(a.rz, b.rz, t) };
+  };
+ls: cannot access 'qc/frames/element-000{9}.jpeg': No such file or directory
+
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "python3 - <<'PY'
+from pathlib import Path
+p=Path('remotion/src/shots.tsx')
+s=p.read_text(); Path('/tmp/jensen-r9-shots-before.tsx').write_text(s)
+a=s.index('// ---------- B1 '); b=s.index('// ---------- B2 ',a)
+s=s[:a]+'''// ---------- B1 0–104 · hook: T01–T04 ----------
+const P1 = push(FACE_A, 0, 104, 1.0, 1.03, 'linear'); // r6: cut ke B2 di onset 'unfortunately' (f104)
+const P1Close = push(FACE_A, 0, 104, 1.12, 1.1536, 'linear');
+export const B1: React.FC = () => {
+  const f = useCurrentFrame();
+  // Pilih seluruh jalur per frame agar sampling motion blur tidak melintasi cut f10.
+  const pose = f < 10 ? P1Close : P1;
+  return (
+    <Cam pose={pose} film=\"ringan\" text={<TeksSet pose={P1} until={104} start={0} items={[
+        ['T01', { ...TH, mode: 'kata' }], ['T02', { sy: 175, width: 720, head: true }], ['T03', TH], ['T04', { sy: 165, width: 720, head: true }],
+      ]} />}>
+      <Wajah crop={CROP_A} />
+      <Scrim dir=\"270deg\" a={0.6} to={58} />
+    </Cam>
+  );
+};
+
+'''+s[b:];p.write_text(s)
+PY
+" in /home/irfan/work/skill-development/projects/jensen-pain-suffering
+ succeeded in 0ms:
+hook: PostToolUse
+hook: PostToolUse Completed
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc 'npx tsc --noEmit' in /home/irfan/work/skill-development/projects/jensen-pain-suffering/remotion
+ succeeded in 2562ms:
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+Typecheck lulus. B1 kini memakai framing 12% lebih rapat selama f0–9, lalu kembali ke jalur kamera lama tepat di f10. T01 tetap di koordinat dunia yang sama; sampling motion blur juga tidak melintasi cut.
+hook: PreToolUse
+hook: PreToolUse Completed
+exec
+/bin/bash -lc "python3 - <<'PY'
+from pathlib import Path
+import difflib, math
+old=Path('/tmp/jensen-r9-shots-before.tsx').read_text(); new=Path('remotion/src/shots.tsx').read_text()
+a='// ---------- B1 '; b='// ---------- B2 '
+assert old.split(a)[0] == new.split(a)[0]
+assert old.split(b,1)[1] == new.split(b,1)[1]
+print('PASS: seluruh isi di luar B1 identik.')
+print(''.join(difflib.unified_diff(old.splitlines(True),new.splitlines(True),fromfile='before',tofile='after')))
+z9=1.12*1.03**(9/104); z10=1.03**(10/104)
+Path('handoff/REPORT-r9.md').write_text(f'''# REPORT r9 — B1 reframe f10
+
+- Diff hanya blok B1 di "'`remotion/src/shots.tsx`; isi sebelum B1 dan mulai B2 hingga akhir diverifikasi identik dengan salinan sebelum edit.
+- f0–9: jalur close dengan fokus FACE_A = (547, 308), skala 1,12 pada f0 → {z9:.6f} pada f9. Jalur close mempertahankan laju push lama (target 1,1536 pada f104).
+- Tepat f10: beralih keras ke P1 lama, skala {z10:.6f}; push lama 1,00 → 1,03 tetap berjalan. Tidak ada tween antar framing. Jalur dipilih dari frame utama, sehingga sampel shutter Cam tidak menyeberangi cut.
+- T01 tetap modus kata dan memakai pose penempatan P1 lama: posisi serta ukuran dunia tetap. Tidak ada perubahan teks. Jarak dari batas kepala data T01 (x=806,9) adalah 110 px dunia: sekitar 123,2–123,5 px layar pada close, dan 110,3 px pada f10; ambang 4% layar = 76,8 px. Cadangan 30 px untuk telinga/kacamata tetap menyisakan sekitar 89,6 px pada close dan 80,2 px pada f10. Frasa utuh tetap satu baris; pemeriksaan geometri berdasarkan penempatan yang ada, bukan render baru.
+- Validasi: `cd remotion && npx tsc --noEmit` **PASS**, exit 0. Tidak melakukan render; hasil visual akhir belum diverifikasi lewat render.
+- File keluaran: `remotion/src/shots.tsx` (B1 saja), `handoff/REPORT-r9.md`.
+'"''')
+PY" in /home/irfan/work/skill-development/projects/jensen-pain-suffering
+ succeeded in 0ms:
+PASS: seluruh isi di luar B1 identik.
+--- before
++++ after
+@@ -25,16 +25,22 @@
+   return f >= at && f < at + len ? <AbsoluteFill style={{ background: color }} /> : null;
+ };
+ 
+-// ---------- B1 0–99 · hook: T01–T04 ----------
++// ---------- B1 0–104 · hook: T01–T04 ----------
+ const P1 = push(FACE_A, 0, 104, 1.0, 1.03, 'linear'); // r6: cut ke B2 di onset 'unfortunately' (f104)
+-export const B1: React.FC = () => (
+-  <Cam pose={P1} film="ringan" text={<TeksSet pose={P1} until={104} start={0} items={[
+-      ['T01', { ...TH, mode: 'kata' }], ['T02', { sy: 175, width: 720, head: true }], ['T03', TH], ['T04', { sy: 165, width: 720, head: true }],
+-    ]} />}>
+-    <Wajah crop={CROP_A} />
+-    <Scrim dir="270deg" a={0.6} to={58} />
+-  </Cam>
+-);
++const P1Close = push(FACE_A, 0, 104, 1.12, 1.1536, 'linear');
++export const B1: React.FC = () => {
++  const f = useCurrentFrame();
++  // Pilih seluruh jalur per frame agar sampling motion blur tidak melintasi cut f10.
++  const pose = f < 10 ? P1Close : P1;
++  return (
++    <Cam pose={pose} film="ringan" text={<TeksSet pose={P1} until={104} start={0} items={[
++        ['T01', { ...TH, mode: 'kata' }], ['T02', { sy: 175, width: 720, head: true }], ['T03', TH], ['T04', { sy: 165, width: 720, head: true }],
++      ]} />}>
++      <Wajah crop={CROP_A} />
++      <Scrim dir="270deg" a={0.6} to={58} />
++    </Cam>
++  );
++};
+ 
+ // ---------- B2 99–182 · bingkai putih tumbuh 62 → 72 % lebar: T05–T07 ----------
+ const FR = { cx: 960, cy: 465, w: 1154, h: 649 }; // luar 1190 = 62 % lebar pada zoom 1; 72 % pada zoom 1,161
+
+
+hook: PostToolUse
+hook: PostToolUse Completed
+codex
+Selesai. B1 memakai skala 1,12 selama f0–9, lalu cut keras ke framing lama di f10. T01 tetap di dunia dengan jarak geometris ≥4% dari kepala.
+
+Typecheck lulus; beat lain identik. Tidak render.
+
+Laporan: [handoff/REPORT-r9.md](handoff/REPORT-r9.md).
+hook: Stop
+hook: Stop Completed
+tokens used
+26,069
+Selesai. B1 memakai skala 1,12 selama f0–9, lalu cut keras ke framing lama di f10. T01 tetap di dunia dengan jarak geometris ≥4% dari kepala.
+
+Typecheck lulus; beat lain identik. Tidak render.
+
+Laporan: [handoff/REPORT-r9.md](handoff/REPORT-r9.md).

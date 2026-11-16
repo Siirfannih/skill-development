@@ -56,15 +56,26 @@
    "dengar": "cinematic hit with long tail"
   },
   {
-   "t": 9.167,
-   "mulai": 9.167,
-   "frame": 275,
+   "t": 9.033,
+   "mulai": 9.033,
+   "frame": 271,
    "align": "onset",
    "file": "vintage_camera_flash_2.mp3",
    "gain_db": -8,
    "peran": "kilatan foto",
    "alasan": "masuk babak II cetakan foto (ref 55 shutter di kilatan foto)",
    "dengar": "camera shutter click (z +3)"
+  },
+  {
+   "t": 12.567,
+   "mulai": 12.272,
+   "frame": 377,
+   "align": "peak",
+   "file": "Woosh.mp3",
+   "gain_db": -9,
+   "peran": "geser cetakan",
+   "alasan": "kamera menyusuri cetakan arsip dengan motion blur (gerak kamera besar terlihat; nama SFXIrfan: Woosh = gerak kamera sedang)",
+   "dengar": "fast/soft air whoosh"
   },
   {
    "t": 15.267,
@@ -89,9 +100,9 @@
    "dengar": "cinematic hit / snare (z +4,5)"
   },
   {
-   "t": 23.867,
-   "mulai": 23.84,
-   "frame": 716,
+   "t": 23.633,
+   "mulai": 23.606,
+   "frame": 709,
    "align": "onset",
    "file": "Keyboardtyping.mp3",
    "gain_db": -6,

@@ -49,7 +49,10 @@ export type Place = {
   big?: number; // skala: ukuran kata raksasa (px layar)
   giant?: string[];
   head?: boolean; // r6: sx = tepi kanan kepala (data/head.json, maks selama tampil) + 80 px layar (≥ 4 % lebar, ≤ 8 % tinggi)
-  br?: number; // r6: modus kata dua baris, patah sebelum kata ke-br // skala: kata yang dibuat raksasa (default: kata kunci, atau kata terakhir)
+  br?: number;
+  dx?: number; // r8: geser kanan (px layar) di atas jarak kepala
+  hold?: number; // r8: frame saat tampil ini selesai memudar (keluar 3 f sebelumnya); menahan tampil lintas cut sampai tampil berikut masuk
+  keepLeft?: number; // r7: tepi kiri teks tidak keluar dari x layar ini (B4: teks tidak ikut terseret keluar saat kamera pindah cetakan) // r6: modus kata dua baris, patah sebelum kata ke-br // skala: kata yang dibuat raksasa (default: kata kunci, atau kata terakhir)
   tilt?: [number, number]; // 25d: rotateY, rotateX (derajat)
 };
 
@@ -61,16 +64,21 @@ export const Teks: React.FC<{ id: string; place: Place; pose: (f: number) => Pos
   if (!t) throw new Error('TEKS tidak ada: ' + id);
   // r6: silang 3–4 f. Tampil masuk mulai 2 f sebelum onset (tidak ada frame kosong), tampil lama keluar 4 f sesudah
   // tampil berikut mulai (opasitas + blur), kecuali dipotong batas shot.
-  const a = fIn(t), b = fOut(t);
-  const lo = Math.max(a - 2, start ?? -1e9), hi = Math.min(b + 2, until ?? 1e9);
+  // r7: masuk di onset kata pertama yang TAMPIL (T49: 'it's' @33,67 tidak tampil → mulai di 'Greatness' 33,79)
+  const firstShown = (() => { for (let i = t.kata[0]; i <= t.kata[1]; i++) if (i !== 129) return i; return t.kata[0]; })();
+  const a = Math.round(WORDS[firstShown].s * 30), b = fOut(t);
+  const lo = Math.max(a - 2, start ?? -1e9), hi = Math.min(place.hold !== undefined ? place.hold : b + 2, until ?? 1e9);
   if (f < lo || f >= hi) return null;
   const p = pose(place.anchor ?? a);
   const hx = place.head ? HEADX[id] : undefined;
   if (place.head && hx === undefined) throw new Error('head.json tidak memuat ' + id);
-  const sx = hx !== undefined ? W / 2 + (hx - p.x) * p.zoom + 80 : place.sx!;
-  const w = place.wx !== undefined ? { x: place.wx, y: place.wy! } : toWorld(p, sx, place.sy!);
+  const sx = hx !== undefined ? W / 2 + (hx - p.x) * p.zoom + 110 + (place.dx ?? 0) : place.sx!; // r7: +110 px dari tepi kepala terdeteksi (kacamata/telinga ±30 px di luar deteksi)
+  const w0 = place.wx !== undefined ? { x: place.wx, y: place.wy! } : toWorld(p, sx, place.sy!);
+  const pf = pose(f);
+  const w = place.keepLeft !== undefined ? { x: Math.max(w0.x, pf.x + (place.keepLeft - W / 2) / pf.zoom), y: w0.y } : w0;
   const z = p.zoom;
-  const ex = f >= b - 2 ? prog(f, b - 2, b + 1, 'linear') : 0; // keluar 3 f, bersamaan dengan masuk tampil berikut // keluar 4 f, mulai bersamaan dengan masuk tampil berikut
+  const xo = place.hold !== undefined ? place.hold - 3 : b - 2;
+  const ex = f >= xo ? prog(f, xo, xo + 3, 'linear') : 0; // keluar 3 f, bersamaan dengan masuk tampil berikut // keluar 4 f, mulai bersamaan dengan masuk tampil berikut
   const em = prog(f, a - 2, a + 5, 'out'); // gerak/blur masuk
   const e = prog(f, a - 2, a + 1, 'linear') * (1 - ex); // opasitas: silang linear 3 f
   const tx = place.align === 'right' ? '-100%' : place.align === 'center' ? '-50%' : '0';
@@ -106,7 +114,7 @@ export const Teks: React.FC<{ id: string; place: Place; pose: (f: number) => Pos
       const sz = (sg.g ? place.big ?? 260 : place.size ?? 106) / z;
       const q = prog(f, wIn(sg.k0) - 2, wIn(sg.k0) + 5, 'out');
       return (
-        <div key={si} style={{ fontSize: sz, lineHeight: 1, letterSpacing: `${sg.g ? -0.03 : TRACK}em`, opacity: q, transform: `scale(${1.12 - 0.12 * q})`, filter: q < 0.98 ? `blur(${(1 - q) * 8}px)` : undefined }}>
+        <div key={si} style={{ fontSize: sz, lineHeight: 1, letterSpacing: `${sg.g ? -0.03 : TRACK}em`, opacity: q, transform: `scale(${1.12 - 0.12 * q})`, transformOrigin: (place.align ?? 'left') === 'left' ? '0% 50%' : place.align === 'right' ? '100% 50%' : '50% 50%', filter: q < 0.98 ? `blur(${(1 - q) * 8}px)` : undefined }}>
           {words.slice(sg.k0, sg.k1 + 1).map((word, j, arr) => (
             <span key={j} style={{ fontWeight: isKey(t, word) || sg.g ? 700 : 600, color: isKey(t, word) ? C.amber : C.putih, textShadow: glow(isKey(t, word)), marginRight: j < arr.length - 1 ? '0.26em' : 0 }}>{word}</span>
           ))}

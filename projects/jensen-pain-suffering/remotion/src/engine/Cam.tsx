@@ -23,16 +23,18 @@ export const Cam: React.FC<{
   pose: (f: number) => Pose; bg?: string; blurAbove?: number; samples?: number; style?: React.CSSProperties;
   film?: FilmLevel; // r5: lapisan film di atas footage
   text?: React.ReactNode; // r5: teks digambar di atas lapisan film, di dunia kamera yang sama
+  textSharp?: boolean; // r7: teks satu salinan (tanpa motion blur subframe), dipakai B4 saat teks ditahan di layar
   children: React.ReactNode;
-}> = ({ pose, bg, blurAbove = 7, samples, style, film, text, children }) => {
+}> = ({ pose, bg, blurAbove = 7, samples, style, film, text, textSharp, children }) => {
   const f = useCurrentFrame();
   const speed = screenSpeed(pose, f);
   const n = speed > blurAbove ? Math.max(2, samples ?? INPUT.mbSamples ?? 8) : 1;
   const span = 200 / 360;
-  const worlds = (content: React.ReactNode, key: string) => {
+  const worlds = (content: React.ReactNode, key: string, single = false) => {
     const out = [];
-    for (let k = 0; k < n; k++) {
-      const t = n === 1 ? f : f - span / 2 + (span * k) / (n - 1);
+    const m = single ? 1 : n;
+    for (let k = 0; k < m; k++) {
+      const t = m === 1 ? f : f - span / 2 + (span * k) / (m - 1);
       out.push(
         <div key={key + k} style={{ position: 'absolute', left: 0, top: 0, width: W, height: H, transformOrigin: '0 0', transform: tf(pose(t)), opacity: 1 / (k + 1) }}>
           {content}
@@ -45,7 +47,7 @@ export const Cam: React.FC<{
   return (
     <AbsoluteFill style={{ backgroundColor: bg, overflow: 'hidden', ...style }}>
       {film ? <FilmLook level={film}>{foot}</FilmLook> : foot}
-      {text ? worlds(text, 't') : null}
+      {text ? worlds(text, 't', textSharp) : null}
     </AbsoluteFill>
   );
 };

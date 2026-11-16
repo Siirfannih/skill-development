@@ -9,7 +9,7 @@ import { W, H } from './theme';
 // Lapisan blur dihitung pada skala 1/4 lalu diperbesar (TASK-r5: blur penuh > 2× lebih lambat).
 const LowRes: React.FC<{ filter?: string; k?: number; style?: React.CSSProperties; children: React.ReactNode }> = ({ filter, k = 4, style, children }) => (
   <div style={{ position: 'absolute', left: 0, top: 0, width: W, height: H, overflow: 'hidden', ...style }}>
-    <div style={{ position: 'absolute', left: 0, top: 0, width: W / k, height: H / k, transform: `scale(${k})`, transformOrigin: '0 0', willChange: 'transform' }}>
+    <div style={{ position: 'absolute', left: 0, top: 0, width: W / k, height: H / k, transform: `scale(${k})`, transformOrigin: '0 0' }}>
       <div style={{ position: 'absolute', left: 0, top: 0, width: W / k, height: H / k, overflow: 'hidden', filter }}>
         <div style={{ position: 'absolute', left: 0, top: 0, width: W, height: H, transform: `scale(${1 / k})`, transformOrigin: '0 0' }}>{children}</div>
       </div>
