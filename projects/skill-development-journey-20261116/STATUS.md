@@ -30,3 +30,4 @@ Berikutnya: sesi editing dapat mulai dari MP4 dan paket handoff; Irfan belum mem
 - G2 still: K05 LULUS (r2), K06 LULUS (r3, centang margin ±200 px @1080).
 - G2 still: K07 LULUS (r2), K11 LULUS (r3; hero 132 px x≥115, pil kontras 14:1 terhitung — ukur ulang di still final).
 - G2: K01 LULUS (r2, sanding vs GitHub asli). K12 r3: Claude LULUS, ChatGPT/Gemini revisi r4.
+- G2: K12 LULUS (r5: Gemini bintang cekung). Storyboard r3 berjalan (B5 avatar vektor, B1b maskot final).
