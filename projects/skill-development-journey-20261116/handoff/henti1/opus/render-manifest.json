@@ -1,0 +1,47 @@
+[
+  {
+    "id": "B1b",
+    "frame": 84
+  },
+  {
+    "id": "B2",
+    "frame": 84
+  },
+  {
+    "id": "B3-A",
+    "frame": 44,
+    "suffix": "1"
+  },
+  {
+    "id": "B3-A",
+    "frame": 100,
+    "suffix": "2"
+  },
+  {
+    "id": "B3-C",
+    "frame": 92,
+    "suffix": "1"
+  },
+  {
+    "id": "B3-C",
+    "frame": 160,
+    "suffix": "2"
+  },
+  {
+    "id": "B3-C",
+    "frame": 288,
+    "suffix": "3"
+  },
+  {
+    "id": "B4",
+    "frame": 84
+  },
+  {
+    "id": "B5",
+    "frame": 120
+  },
+  {
+    "id": "B6",
+    "frame": 84
+  }
+]

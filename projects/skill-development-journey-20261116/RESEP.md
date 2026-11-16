@@ -64,3 +64,6 @@ Irfan: storyboard-final (r3) = "cerminan AI slop"; sanding r1 (`handoff/henti1/s
 - **B1b:** kata cincin ("workflow") terlalu kecil dan maskot terlalu kecil. Perbesar maksimal seperti skala slab BALIK MODAL, tetap miring/melengkung mengikuti busur di sekitar kepala; maskot jauh lebih besar.
 - **B6:** "profesional?" / "masih kerasa AI?" = bubble chat seperti B5 (pop-up), bukan tag.
 - **Pelajaran Sutradara:** setiap revisi disanding juga dengan versi sebelumnya yang sudah disetujui; revisi yang menurunkan kualitas ditolak (gagal: storyboard r3 16 Nov).
+
+## 8. Karakter 2D gaya repo (Irfan 16 Nov ±22:00)
+Irfan memilih: semua karakter (Claude, Codex/ChatGPT, Gemini) = 2D gaya ClaudeAnimationBase (kuas, 5 sudut kunci + smear, sistem emosi/kedip/take), juga di kamar (B1b) — menggantikan maskot 3D K-12. Teknik: `claude/motion-graphic/pustaka/teknik/animasi-karakter-clawd.md`. B4 tetap "Claude Max" (Wajib GUIDELINE); latar B5 r1 tetap.
