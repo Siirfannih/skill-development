@@ -1,6 +1,6 @@
 # DELIVERY jensen-pain-suffering v4 · 16 Nov 2026 (revisi R-007, basis ca3df35)
 
-**File:** `out/jensen-pain-suffering_v4.mp4` (PC, tidak di-commit) · 1920×1080 · 30 fps · 1428 frame · 47,6 dtk · H.264 CRF 14 + AAC 320k · −15,9 LUFS, true peak −1,0 dBTP
+**File:** `out/jensen-pain-suffering_v4.mp4` (PC, tidak di-commit) · Drive: Claude edit/jensen-pain-suffering/jensen-pain-suffering_v4.mp4 · 1920×1080 · 30 fps · 1428 frame · 47,6 dtk · H.264 CRF 14 + AAC 320k · −15,9 LUFS, true peak −1,0 dBTP
 
 | Gerbang | Hasil | Bukti |
 |---|---|---|
