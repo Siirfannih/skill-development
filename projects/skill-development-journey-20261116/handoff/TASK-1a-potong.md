@@ -1,4 +1,4 @@
-# TASK-1a-potong · Pemotong (Sonnet, akun claude1) · pemberi: Sutradara claude2
+# TASK-1a-potong · Pemotong (Codex; claude1 kena limit 5 jam s.d. 22:10 WITA) · pemberi: Sutradara claude2
 
 TUJUAN       Potongan suara+wajah ±1:25–1:35 dari sumber DJI, 7 babak (B1, B1b, B2–B6), terkunci di batas kata asli dan lulus gerbang potong.
 KONTEKS      Sumber: ~/.codex/attachments/d9062ade-e728-4775-b6cd-1b2e61bfd5b8/DJI_20261116162607_0603_D.MP4 (3:29, 1080p 59,94, mono 48k; sudah diverifikasi = file Drive Irfan).

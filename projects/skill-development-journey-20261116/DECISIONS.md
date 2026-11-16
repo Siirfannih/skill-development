@@ -24,3 +24,9 @@ Bukti QC berada pada paket handoff Drive. Pemeriksaan ASR, waveform, jumlah fram
 - Tiga mode bergantian: wajah penuh, wajah di pojok + visual, motion graphic penuh; mode per kalimat diputuskan model dari transkrip dan still.
 - Guideline berisi hasil yang dimau + sedikit wajib + usulan; model memutuskan di lapangan dan mencatat alasannya.
 - Musik dua varian dipasang paling akhir di atas satu render gambar (gabung `-c:v copy`): A sandwich Aware → With Some Malice → Aware strings; B pembuka Ecosystem (cadangan Ticking Tension). Lagu adalah usulan: model memilih bagian yang paling cocok dengan suasana video jadi (kandidat pembuka B: Ecosystem, Ticking Tension, depan Back To Black). Publikasi akun personal dengan kredit di caption; versi tanpa musik selalu diekspor sebagai cadangan.
+
+## Arah Sutradara claude2 (16 Nov malam)
+- Kiblat MG: 07 Baikov/Shapes untuk mode B/C (kanvas terang, UI sebagai subjek); tokoh pixel dari kartu 37 (cocok persis dengan permintaan Irfan "karakter versi 2D di kanvas putih"); KT di wajah dari kartu 83.
+- B5: UI dummy koordinasi atas permintaan Irfan — jendela transkrip Claude Code terang (teks jawaban + baris alat "Ran 2 commands ›" + spinner oranye + timer) dan chat ChatGPT "Sent by ChatGPT from another chat"; teks diambil dari sesi asli + log bus asli; tokoh pixel 2D ChatGPT/Claude/Claude 2/ChatGPT session B; loop + centang hijau.
+- Orkestrasi: Codex Sol 6.1 High (K-01, K-13, potong 1a), subagen Sonnet akun claude2 (K-05/06, K-07/11, K-08), Codex K-12 (proses sisa sesi claude1, tidak bisa dihentikan; dinilai di G2). claude1 tidak dipakai sementara (kapasitas kecil).
+- Rel fase K-07 diambil dari SKILL.md (bukan PETA.md seperti usulan §5) karena PETA berisi peta kiblat, bukan fase kerja.
