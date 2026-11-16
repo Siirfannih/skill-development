@@ -17,7 +17,8 @@ People@0.00 with@0.66 very@0.86 high@1.12 expectations@1.24 have@1.78 very@1.98 
 ## Cue SFX (dtk · peran · file)
 - 0.00 · stab pembuka · orchestra_stab_1.mp3
 - 3.47 · foto muncul · Pergantianfoto.mp3
+- 4.37 · penekanan kunci · Kinetictypography(gunakansecaraacak).mp3
 - 5.47 · foto muncul · Pergantianfoto.mp3
-- 7.73 · menuju punch · ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3
+- 7.62 · menuju punch · ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3
 - 7.73 · hantaman punch · cinematic_impact_hit_4.mp3
 - 9.03 · kilatan foto · vintage_camera_flash_2.mp3

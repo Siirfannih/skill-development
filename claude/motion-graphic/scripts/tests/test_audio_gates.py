@@ -386,6 +386,19 @@ class Rules16NovTests(unittest.TestCase):
             self.assertEqual(len(motion_lint.lint(src)), 1)
             self.assertEqual(motion_lint.lint(src, {(src / "New.tsx").resolve()}), [])
 
+    def test_audio_order_warisan_accepts_voice_locked_before_evidence_rule(self):
+        with tempfile.TemporaryDirectory() as folder:
+            d = Path(folder)
+            voice = d / "suara.wav"
+            sf.write(voice, np.zeros(4800, np.float32), 48000)
+            import hashlib
+            sha = hashlib.sha256(voice.read_bytes()).hexdigest()[:16]
+            (d / "ORDER.json").write_text(json.dumps({"mode": "konten", "stages": {"suara": {"file": str(voice), "sha": sha, "waktu": "2026-11-15 16:24", "hulu": {}}}}))
+            tool = ROOT / "scripts/gate/audio_order.py"
+            run = lambda *extra: subprocess.run([os.sys.executable, str(tool), "check", "--dir", str(d), *extra], capture_output=True, text=True)
+            self.assertIn("bukti words/source_words/cut_map", run().stdout)
+            self.assertNotIn("bukti words/source_words/cut_map", run("--warisan").stdout)
+
 
 if __name__ == "__main__":
     unittest.main()

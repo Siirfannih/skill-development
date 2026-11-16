@@ -1,4 +1,6 @@
-# VERDICT gabungan c05 (Sutradara)
-Gemini LULUS; GPT GAGAL karena satu butir: "OF PAIN AND" tajam 0,22–0,34 dtk sebelum "pain"/"and" diucapkan (f1351).
-Putusan Sutradara: diterima. Ambang 0,2 dtk di konteks pemeriksa adalah buatan Sutradara, bukan Lantai; frasa 1–3 kata yang tampil di kata pertamanya dan selesai diucapkan ≤ 0,5 dtk = pola kartu 55 (frasa utuh), tidak diubah (D-016).
+# VERDICT gabungan c05 (Sutradara, revisi v4)
+Gemini LULUS; GPT GAGAL hanya di B11 talking head (tidak diubah, basis ca3df35; audit v1 c05 LULUS):
+42.77 | 1283 | lompatan pose sumber | footage Stanford berpindah framing di dalam take (D-014) | warisan, tidak dimigrasi (F27); dilaporkan ke Irfan
+43.30 | 1299 | lompatan pose sumber | sama | warisan
+B12 kartu dengan canvas bersih: kedua pemeriksa tanpa masalah. Rentang yang diubah di revisi ini (f104–181, f271–457, f543–560, f813–922, f1330–1427) tanpa temuan masalah dari kedua pemeriksa.
 PUTUSAN: LULUS

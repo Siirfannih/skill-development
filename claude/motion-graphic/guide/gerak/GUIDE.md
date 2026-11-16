@@ -15,6 +15,10 @@
 - Footage diam terlalu lama → beri drift/zoom kecil.
 - Cutout: matte bersih (rambut, tepi), feather 1–2 px, warna & cahaya disamakan, atau beri outline sebagai gaya. Cek di 100 %.
 - Transisi dari logika ruang: masuk ke dalam = push-through; mundur = pull-back; ganti topik = whip.
+## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
+- **Bila kamera pindah dari satu objek ke objek berikut sementara teksnya masih diucapkan, pilih teks tetap di posisi dunianya dan biarkan kamera melewatinya**, bukan menjepit teks di tepi layar supaya tidak keluar: teks yang ikut bergeser terbaca "melayang" dan memutus ilusi satu dunia (Irfan 16 Nov, jensen-pain-suffering B4 "providing"; gagal r7: `keepLeft` menjepit teks).
+- **Bila efek kilat cahaya diminta melintas pada kartu judul yang pendek (< 20 frame), pilih sapuan berkurva rata (`drift`) sepanjang hampir seluruh kartu dengan pita yang menyeberang dari pojok ke pojok**, bukan kurva `land`: `land` menghabiskan sapuan dalam 3 frame lalu pita mengendap di luar huruf, sehingga kilatnya tidak terlihat bergerak (Irfan 16 Nov, jensen-pain-suffering kartu SUFFERING kiri bawah → kanan atas).
+
 
 ## Cek cepat
 - Putar 0,5×: ada lompatan, frame kosong, atau objek berhenti mendadak?

@@ -1,60 +1,19 @@
-      "detik": 44.6,
-      "frame": 1338,
-      "jenis": "LOMPAT — bukan masalah",
-      "terlihat": "DOSES mulai masuk di bawah AMPLE sebagai susunan satu frasa, tanpa benturan atau teks terpotong.",
-      "usul": "Pertahankan."
-    },
-    {
-      "detik": 44.63,
-      "frame": 1339,
-      "jenis": "LOMPAT + SFX? — bukan masalah",
-      "terlihat": "DOSES menguat sesuai waktu pengucapan 44.63. Cue 44.33 berada dalam toleransi 0.30 detik.",
-      "usul": "Pertahankan; tidak perlu cue tambahan."
-    },
-    {
-      "detik": 44.67,
-      "frame": 1340,
-      "jenis": "LOMPAT + SFX? — bukan masalah",
-      "terlihat": "DOSES menyelesaikan animasi masuk; bukan peristiwa cerita baru setelah f1339.",
-      "usul": "Pertahankan; tidak perlu SFX tambahan."
-    },
-    {
-      "detik": 44.97,
-      "frame": 1349,
-      "jenis": "LOMPAT + SFX? — bukan masalah",
-      "terlihat": "AMPLE DOSES mulai memudar dan blur saat frasa berikutnya masuk. Tidak terlihat dua frasa sama-sama tajam.",
-      "usul": "Pertahankan transisi silang; tidak perlu SFX tersendiri."
-    },
-    {
-      "detik": 45,
-      "frame": 1350,
-      "jenis": "LOMPAT + SFX? — bukan masalah",
-      "terlihat": "Frasa lama tampak blur di belakang frasa baru yang masih masuk; sesuai transisi silang yang disengaja.",
-      "usul": "Pertahankan bentuk transisi; perbaiki waktu kata pada f1351."
-    },
-    {
-      "detik": 45.03,
-      "frame": 1351,
-      "jenis": "LOMPAT + SFX? — bukan masalah; kecocokan — masalah",
-      "terlihat": "OF PAIN AND sudah tajam. PAIN mendahului ucapan 45.25 sekitar 0.22 detik dan AND mendahului ucapan 45.37 sekitar 0.34 detik, melewati batas 0.20 detik. Pergantian frasa sendiri tidak membutuhkan SFX tambahan.",
-      "usul": "Tampilkan OF dahulu; masukkan PAIN dan AND mengikuti waktu pengucapannya."
-    },
-    {
-      "detik": 45.63,
-      "frame": 1369,
-      "jenis": "LOMPAT + SFX? — bukan masalah",
-      "terlihat": "SUFFERING menguat tepat saat kata diucapkan 45.63, melengkapi frasa yang sama.",
-      "usul": "Pertahankan; penambahan kata tidak memerlukan SFX tersendiri."
-    },
-    {
-      "detik": 45.67,
-      "frame": 1370,
-      "jenis": "LOMPAT + SFX? — bukan masalah",
-      "terlihat": "SUFFERING selesai masuk, tetap utuh dan terbaca; tidak ada kedip atau perpindahan posisi mendadak.",
-      "usul": "Pertahankan."
-    }
+```json
+{
+  "temuan": [
+    {"detik":42.77,"frame":1283,"jenis":"LOMPAT — masalah; SFX? — bukan masalah","terlihat":"Kepala dan badan Jensen bergeser mendadak dari f1282, sementara latar dan caption tetap. Tidak terlihat pergantian adegan yang menjelaskan patahan. Gerakan wajah tidak membutuhkan SFX.","usul":"Rapikan sambungan footage agar posisi dan arah gerak berlanjut; jangan menutup patahan dengan SFX."},
+    {"detik":43.3,"frame":1299,"jenis":"LOMPAT — masalah; SFX? — bukan masalah","terlihat":"Posisi kepala dan arah pandang berubah mendadak dari f1298 dalam komposisi dan caption yang sama. Gerakan wajah sendiri tidak membutuhkan SFX.","usul":"Pilih sambungan dengan pose berdekatan atau buat pergantian shot yang jelas disengaja."},
+    {"detik":44.4,"frame":1332,"jenis":"LOMPAT — bukan masalah","terlihat":"AMPLE mencapai terang penuh setelah masuk bertahap pada f1330–1331. Cut menuju kartu penutup jelas disengaja; cue punchline 44.33 berada dalam toleransi.","usul":"Pertahankan."},
+    {"detik":44.6,"frame":1338,"jenis":"LOMPAT — bukan masalah","terlihat":"DOSES mulai muncul di bawah AMPLE; perubahan berupa opacity teks, bukan posisi yang patah. Mendahului ucapan 0.03 detik.","usul":"Pertahankan."},
+    {"detik":44.63,"frame":1339,"jenis":"LOMPAT dan SFX? — bukan masalah","terlihat":"DOSES bertambah terang secara berurutan dan sesuai waktu ucapan. Cue 44.33 berjarak 0.30 detik.","usul":"Pertahankan; tidak perlu cue tambahan."},
+    {"detik":44.67,"frame":1340,"jenis":"LOMPAT dan SFX? — bukan masalah","terlihat":"DOSES selesai masuk dan tetap utuh. Ini kelanjutan animasi yang sama, bukan peristiwa baru yang membutuhkan bunyi tersendiri.","usul":"Pertahankan."},
+    {"detik":44.97,"frame":1349,"jenis":"LOMPAT dan SFX? — bukan masalah","terlihat":"AMPLE DOSES mulai kabur saat frasa berikutnya masuk. Teks yang bertumpuk berupa transisi kabur, bukan dua teks tajam.","usul":"Pertahankan; SFX tambahan tidak wajib untuk pergantian frasa ini."},
+    {"detik":45,"frame":1350,"jenis":"LOMPAT dan SFX? — bukan masalah","terlihat":"OF PAIN AND menggantikan AMPLE DOSES yang sedang kabur. Tidak ada frame kosong atau kedip. Frasa mendahului ucapan dalam batas D-016.","usul":"Pertahankan."},
+    {"detik":45.03,"frame":1351,"jenis":"LOMPAT dan SFX? — bukan masalah","terlihat":"Transisi selesai menjadi OF PAIN AND yang tajam dan terbaca; teks lama hilang. Tidak ada peristiwa fisik baru yang memerlukan SFX.","usul":"Pertahankan."},
+    {"detik":45.63,"frame":1369,"jenis":"LOMPAT dan SFX? — bukan masalah","terlihat":"SUFFERING bertambah terang di baris kedua tepat saat ucapan. Tidak bertabrakan atau terpotong; penambahan kata tidak wajib diberi SFX.","usul":"Pertahankan."},
+    {"detik":45.67,"frame":1370,"jenis":"LOMPAT dan SFX? — bukan masalah","terlihat":"SUFFERING mencapai terang penuh secara berurutan, lalu bertahan stabil sepanjang detik 46 sebelum fade penutup pada detik 47.","usul":"Pertahankan."}
   ],
-  "putusan": "GAGAL"
+  "putusan":"GAGAL"
 }
 ```
 PUTUSAN: GAGAL

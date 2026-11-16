@@ -23,6 +23,7 @@
 | r8 | jump cut sumber ditutup, frame kosong, modus kata (Sonnet; Codex sandbox gagal) | dual: c03 LULUS, c01 GAGAL (f10) |
 | r9 | reframe f10 (Codex tanpa sandbox) | dual c01 LULUS → 5/5 |
 | final v1 | 1428 f, 47,6 dtk, −14,5 LUFS | DELIVERY.md |
+| r10 / v4 | revisi R-007 (canvas bersih, RESILIENCE multiply, providing diam, kilat SUFFERING, teks tempa turun, audio E23) — Codex lewat `tools/codex-pc.sh` (tanpa sandbox, berhasil) + koreksi Sutradara; render 5 rentang + sambung | dual: c02–c04 LULUS keduanya; c01/c05 temuan hanya di adegan warisan → LULUS; baseline_lock 9/9 |
 
 ## Kuota
 Belum tercatat di awal video (orkestrasi.md dibaca di tengah sesi); catat di akhir.

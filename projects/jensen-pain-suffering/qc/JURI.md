@@ -1,4 +1,4 @@
-# JURI jensen-pain-suffering · r9 · 16 Nov 2026
+# JURI jensen-pain-suffering · r10 (revisi v4, basis ca3df35) · 16 Nov 2026
 
 Bahan: 28 still `qc/stills/` (frame di `handoff/stills.txt`, dirender dari kode r9), `qc/sanding.jpg` (still vs sheet kartu 55), `qc/draft.mp4` (1428 frame dari `render.sh frames`), audit frame `qc/frame_audit/` (5 potongan, Gemini + ChatGPT), `qc/balance.log`, `qc/teks_cek.log`, `audio/ORDER.json`.
 
@@ -53,5 +53,17 @@ c01 LULUS (Gemini + GPT, r9) · c02 LULUS (diputus: whoosh geser cetakan) · c03
 teks_cek: TIDAK ADA TANDA (28 still) · audio_order check PASS · sfx_density PASS · mix −14,5 LUFS, true peak −1,4 dBTP · voice_fidelity PASS.
 
 KESEIMBANGAN: 8 still FAIL balance_check (B01c, B04c, B05a, B06a, B07a, B07b, B08b, B09a) dinilai mata lolos — 7 tertangkap di tengah frasa yang dibangun per kata (kata pertama duduk di posisi akhir baris rata tengah: "plenty of", "pain", "this is gonna cause", "in a", "the", "is not"), B04c saat kamera bergeser antar-cetakan, B01c kepala kiri diimbangi "LOW RESILIENCE" kanan; teks tengah di b-roll stok adalah arahan Irfan (R-001).
+
+## Revisi v4 (R-007, mode revisi qc/revisi.json)
+- Canvas B2/B4/B12 bersih: still B02a–c, B04a–c, B12a–b (`qc/stills`), audit c01/c02/c05 tanpa temuan.
+- RESILIENCE multiply kapital: still B02c f145 — foto (palem, topi wisuda) terlihat di dalam huruf, kata terbaca; amber lebih dalam #D9782A karena amber brand di-multiply nyaris hilang (r10 pertama). Kontras < 4,5:1 disengaja atas permintaan Irfan (efek bercampur).
+- "providing" tetap di dunia, kamera melewati: draft f362–389 (`qc/r10/prov.jpg`), keepLeft dihapus untuk semua tampil B4.
+- Kilat SUFFERING kiri bawah → kanan atas: `qc/r10/sweep.jpg` f545–557 (S → F → N), kurva drift 15 f, tanpa footage di huruf (A9a G8).
+- B8a teks turun sy 250 → 332 (raksasa 200): ≥ 40 px di atas batang di semua frame (REPORT-r10, `qc/r10/bounds.json`).
+- Audio v4: suara −23,9 → −17,0 LUFS gain bersih, crest 15,5 → 15,4 (`voice_level` PASS), frasa awal +2,4 dB; mix −15,9 LUFS, true peak −1,0; SFX 16 cue, riser digeser 0,11 dtk sebelum hantaman (E24 flam), RESILIENCE diberi "penekanan kunci"; `sfx_density --objects` PASS.
+- R-005/R-006 (keluhan mendem/desis) dijawab oleh v4: tanpa limiter pada suara, rak HF −2 dB @7,5 kHz.
+- Gerbang revisi: motion_lint (file berubah) PASS, audio_order check --warisan PASS, audio_bus PASS, tsc PASS.
+
+KESEIMBANGAN: 10 still FAIL balance_check (B01c, B02a, B04c, B05a, B06a, B07a, B07b, B08a, B08b, B09a) dinilai mata lolos — 8 sama dengan putusan r9 di atas; B02a bingkai foto di tengah canvas bersih (berat dari isi foto, bukan tata letak); B08a teks tengah di atas batang membara (arahan Irfan R-001 + R-007).
 
 PUTUSAN: LULUS

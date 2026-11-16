@@ -11,8 +11,9 @@ def load(f, trim=None):
 C=[ # t, file, align, gain_dB, trim, peran, alasan, dengar
  (0.0,   N+'orchestra_stab_1.mp3','onset',-12,(0,1.6),'stab pembuka','ref 55: stab orkestra di frame 0','strings ensemble / orchestral stab (z +5,0)'),
  (3.467, I+'Pergantianfoto.mp3','onset',-1,(0.0,0.35),'foto muncul','bingkai foto wisuda masuk (nama SFXIrfan: Pergantianfoto)','klik pen/toggle'),
+ (4.367, I+'Kinetictypography(gunakansecaraacak).mp3','onset',-8,None,'penekanan kunci','RESILIENCE (R6 hero, multiply di foto) naik dari mask di onset kata; satu-satunya penekanan baru di revisi v4 (Lantai E24)','tick/scroll lembut (katalog SFXIRFAN.md)'),
  (5.467, I+'Pergantianfoto.mp3','onset',-1,(0.0,0.35),'foto muncul','foto di bingkai berganti; satu peran satu bunyi','klik pen/toggle'),
- (7.733, I+'ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3','peak',-7,None,'menuju punch','ref 55 riser menuju jawaban; memuncak di punch-in f232','reverse cymbal / riser'),
+ (7.623, I+'ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3','peak',-7,None,'menuju punch','ref 55 riser menuju jawaban; memuncak 0,1 dtk sebelum punch-in f232 (v4: tidak numpuk dengan hantaman, Lantai E24)','reverse cymbal / riser'),
  (7.733, N+'cinematic_impact_hit_4.mp3','onset',-9,(0,1.3),'hantaman punch','punch-in 135 % + flash "I hope suffering"','cinematic hit with long tail'),
  (9.033, N+'vintage_camera_flash_2.mp3','onset',-8,None,'kilatan foto','masuk babak II cetakan foto (ref 55 shutter di kilatan foto)','camera shutter click (z +3)'),
  (12.567,I+'Woosh.mp3','peak',-9,None,'geser cetakan','kamera menyusuri cetakan arsip dengan motion blur (gerak kamera besar terlihat; nama SFXIrfan: Woosh = gerak kamera sedang)','fast/soft air whoosh'),
@@ -22,7 +23,7 @@ C=[ # t, file, align, gain_dB, trim, peran, alasan, dengar
  (30.767,I+'ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3','peak',-7,None,'ledakan percik','percikan api masuk, gerak besar terlihat','big cinematic whoosh'),
  (32.233,I+'scaningfast.mp3','peak',-5,None,'pan cepat','PCB pan cepat (nama SFXIrfan: scaningfast)','whoosh pendek'),
  (34.590,N+'braam_1.mp3','onset',-5,None,'puncak jawaban','"character." jawaban inti; basmenyebar (SFXIrfan) diganti karena hampir seluruhnya sub-bass, tidak terdengar di speaker HP (audio_phone -37 dB)','cinematic hit with long tail / deep impact (z +3,8)'),
- (44.333,I+'ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3','peak',-7,None,'menuju punch','riser menuju kartu hitam; satu peran satu bunyi','reverse cymbal / riser'),
+ (44.223,I+'ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3','peak',-7,None,'menuju punch','riser menuju kartu hitam; satu peran satu bunyi','reverse cymbal / riser'),
  (44.333,I+'ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz - Epidemic Sound.mp3','onset',-5,None,'punchline','kartu "AMPLE / DOSES" (ref 55 sub drop di punchline)','sub bass drop'),
 ]
 out=np.zeros((int(DUR*SR)+SR,2),np.float32); cues=[]

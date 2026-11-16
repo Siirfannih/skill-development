@@ -1,3 +1,3 @@
-# VERDICT gabungan c04 (Sutradara)
-Gemini LULUS; GPT GAGAL hanya karena "it's" (33,67) tidak tampil. Diverifikasi Whisper medium/large-v3: salah ulang ("it's—greatness comes"), diperlakukan seperti gagap lain, tidak ditampilkan (D-018). Frame kosong f1010–1012 dan "comes" mendahului sudah ditutup r8; kedua model tidak menandainya lagi.
+# VERDICT gabungan c04 (Sutradara, revisi v4)
+Gemini LULUS, GPT LULUS. Rentang yang diubah di revisi ini (f104–181, f271–457, f543–560, f813–922, f1330–1427) tanpa temuan masalah dari kedua pemeriksa.
 PUTUSAN: LULUS

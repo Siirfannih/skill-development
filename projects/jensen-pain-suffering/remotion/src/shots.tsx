@@ -3,8 +3,12 @@ import React from 'react';
 import { AbsoluteFill, useCurrentFrame } from 'remotion';
 import { C, FONT, W, H, prog, lerp } from './engine/theme';
 import { Cam, zoomAt, path } from './engine/Cam';
-import { TeksSet, Place } from './engine/Teks';
+import { TEKS, TeksSet, Place } from './engine/Teks';
 import { Clip, Wajah, Crop, Vignette, Scrim, Paper, Print } from './engine/media';
+
+import { WORDS } from './engine/words';
+import { move, dur } from './lib/curves';
+import { LightSweep } from './lib/LightSweep';
 
 // Crop wajah (sumber 1280×720 ternormal). Garis putih diagonal kiri atas sumber (tepi x ≈ 0,26·(1 − y/0,6)) di luar jendela.
 const CROP_A: Crop = { left: 0.332, top: 0.052, cw: 0.66 };
@@ -49,11 +53,26 @@ export const B2: React.FC = () => {
   const f = useCurrentFrame();
   const mid: Place = { wx: FR.cx, wy: FR.cy - 75, size: 130, align: 'center', anchor: 99, mode: 'kata' };
   return (
-    <Cam pose={P2} bg={C.hitam} film="penuh" text={<TeksSet pose={P2} until={182} start={104} items={[['T05', mid], ['T06', { ...mid, wy: FR.cy - 150, mode: 'skala', big: 250 }], ['T07', mid]]} />}>
+    <Cam pose={P2} bg={C.hitam} film="penuh" text={<><TeksSet pose={P2} until={182} start={104} items={[['T05', mid], ['T07', mid]]} />{(() => {
+      const t = TEKS.find((item) => item.id === 'T06')!;
+      const onset = Math.round(WORDS[t.kata[0] + 1].s * 30);
+      return f >= onset && f < 153 ? <div data-teks="T06-matters" style={{ position: 'absolute', left: FR.cx, top: FR.cy - 150 + 196 / P2(132).zoom, transform: 'translateX(-50%)', fontFamily: FONT, fontWeight: 600, fontSize: 130 / P2(132).zoom, lineHeight: 1, color: C.putih }}>{t.teks.split(' ')[1]}</div> : null;
+    })()}</>}>
       <Paper x={-200} y={-200} w={W + 400} h={H + 400} />
       <Print cx={FR.cx} cy={FR.cy} w={FR.w} h={FR.h} border={18}>
         {f < 164 ? <Clip src="grad_pose.mp4" start={99} dur={4} filter="contrast(1.06) saturate(0.9) sepia(0.08) brightness(0.7)" /> : <Clip src="grad_clap.mp4" start={164} dur={3} filter="contrast(1.06) saturate(0.9) sepia(0.08) brightness(0.7)" />}
       </Print>
+      {f >= 130 && f < 153 ? (() => {
+        const t = TEKS.find((item) => item.id === 'T06')!;
+        const words = t.teks.split(' ');
+        const onset = Math.round(WORDS[t.kata[0]].s * 30);
+        const z = P2(onset).zoom;
+        const size = 182 / z; // naik 75 px dunia (r10b): separuh atas huruf di langit, multiply jadi oranye terbaca · RESILIENCE kapital ±6,1 em → ±1100 px, di dalam bingkai foto (tanpa memipihkan huruf)
+        const rise = move(f, onset - 2, dur(size * 1.4, 30, 1.35), 'reveal');
+        return <div data-teks="T06" style={{ position: 'absolute', left: FR.cx, top: FR.cy - 225, transform: 'translateX(-50%)', mixBlendMode: 'multiply', overflow: 'hidden', fontFamily: FONT, fontWeight: 700, fontSize: size, lineHeight: 1, letterSpacing: '-0.03em', whiteSpace: 'nowrap', color: '#D9782A' }}>{/* amber lebih dalam: multiply amber terang hanya mewarnai foto (r10: nyaris tak terlihat) */}
+          <div style={{ transform: `translateY(${140 * (1 - rise)}%)`, textTransform: 'uppercase' }}>{words[0]}</div>
+        </div>;
+      })() : null}
       <Vignette strength={0.55} />
     </Cam>
   );
@@ -94,7 +113,7 @@ const P4 = path([
   { f: 442, ease: 'inOut', x: 3730, y: 610, zoom: 1.02 },
   { f: 458, ease: 'smooth', x: 3800, y: 605, zoom: 1.0 },
 ], { sigma: 3.6 });
-const under = (i: number): Place => ({ wx: PR[i].cx - PW / 2 - PB, wy: PR[i].cy + PH / 2 + PB + 28, size: BR, mode: 'kata', keepLeft: 140 });
+const under = (i: number): Place => ({ wx: PR[i].cx - PW / 2 - PB, wy: PR[i].cy + PH / 2 + PB + 28, size: BR, mode: 'kata' });
 export const B4: React.FC = () => {
   const f = useCurrentFrame();
   const blur = lerp(16, 0, prog(f, 271, 277, 'out'));
@@ -136,20 +155,11 @@ export const B5: React.FC = () => {
         <Vignette strength={0.7} />
       </AbsoluteFill>
     );
-  // T26 'SUFFERING' (gaya judul): huruf berisi percikan api monokrom, dicat amber
   return (
     <AbsoluteFill style={{ background: C.hitam }}>
-      <Cam pose={P5t} bg={C.hitam} film="kartu">
-        <AbsoluteFill style={{ isolation: 'isolate', background: '#000' }}>
-          <Clip src="percik.mp4" start={540} dur={3} filter="grayscale(1) brightness(1.75) contrast(1.1)" style={{ transform: 'scale(1.15)' }} />
-          <AbsoluteFill data-teks="T26" style={{ mixBlendMode: 'multiply', background: '#000', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <div style={{ fontFamily: FONT, fontWeight: 700, fontSize: 300, letterSpacing: '-0.03em', color: C.amber, lineHeight: 1 }}>SUFFERING</div>
-          </AbsoluteFill>
-          <AbsoluteFill style={{ mixBlendMode: 'lighten', background: C.hitam }} />
-        </AbsoluteFill>
-        {/* r5: glow judul */}
-        <AbsoluteFill style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', mixBlendMode: 'screen', opacity: 0.32, filter: 'blur(26px)' }}>
-          <div style={{ fontFamily: FONT, fontWeight: 700, fontSize: 300, letterSpacing: '-0.03em', color: C.amber, lineHeight: 1 }}>SUFFERING</div>
+      <Cam pose={P5t} bg={C.hitam}>
+        <AbsoluteFill data-teks="T26" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+          <LightSweep text={TEKS.find((item) => item.id === 'T26')!.teks} fontFamily={FONT} fontSize={300} sweepStart={544} sweepFrames={15} angleDeg={65} curve="drift" />{/* kartu 18 f: pita harus terlihat melintas kiri bawah → kanan atas, bukan lewat dalam 3 f lalu mengendap */}
         </AbsoluteFill>
       </Cam>
     </AbsoluteFill>
@@ -222,7 +232,7 @@ export const B8: React.FC = () => {
   if (f < 923)
     return (
       <AbsoluteFill>
-        <Cam pose={P8a} film="penuh" text={<TeksSet pose={P8a} until={923} start={813} items={[['T38', { sx: 960, sy: 250, size: 120, align: 'center', mode: 'kata' }], ...ids(['T39', 'T40', 'T41', 'T43', 'T44'], { sx: 960, sy: 250, size: 120, align: 'center', mode: 'kata' }), ['T42', { sx: 960, sy: 140, size: 120, big: 290, align: 'center', mode: 'skala' }]]} />}>
+        <Cam pose={P8a} film="penuh" text={<TeksSet pose={P8a} until={923} start={813} items={[['T38', { sx: 960, sy: 332, size: 120, align: 'center', mode: 'kata' }], ...ids(['T39', 'T40', 'T41', 'T43', 'T44'], { sx: 960, sy: 332, size: 120, align: 'center', mode: 'kata' }), ['T42', { sx: 960, sy: 200, size: 120, big: 290, align: 'center', mode: 'skala' }]]} />}>
           <Clip src="tempa.mp4" start={813} dur={5} filter="contrast(1.2) brightness(0.85) saturate(1.1)" />
           <Scrim dir="180deg" a={0.9} to={55} />
         </Cam>

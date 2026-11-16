@@ -16,7 +16,7 @@ export const Main: React.FC = () => {
   return (
     <AbsoluteFill style={{ backgroundColor: C.hitam }}>
       {S ? <S /> : null}
-      <Audio src={staticFile('suara.wav')} />
+      <Audio src={staticFile('suara.wav')} /> {/* audio-bus: satu-satunya audio di root; mix final (audio/mix_v4.wav) dipasang saat sambung */}
     </AbsoluteFill>
   );
 };
