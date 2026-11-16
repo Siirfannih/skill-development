@@ -55,3 +55,12 @@ Lembar sanding: still kita **di atas footage/kanvas final** di kiri, keyframe ki
 - **Kartu "Effort" dihapus.** `ref-woinlesss-spin.mp4` adalah contoh GAYA (UI gelap elegan, jejak cahaya pixel), bukan konten. Gayanya boleh dipinjam untuk menghaluskan objek lain; tidak ada kartu "Effort/Max" di video.
 - **Finishing render tokoh** (Claude crab, bunga Codex, bintang Gemini) masih kasar: tepi, material, cahaya, integrasi dengan kamar/kanvas harus setara produk Apple (halus, bersih), bukan hanya "bentuk benar".
 - Alur kerja baru: sketsa Sonnet/Codex → **finishing Opus** → G2 Sutradara → Irfan (`orkestrasi.md`).
+
+## 7. Koreksi Irfan kedua (16 Nov ±21:45) — menang atas §1–§6
+Irfan: storyboard-final (r3) = "cerminan AI slop"; sanding r1 (`handoff/henti1/sanding.jpg`) "secara visual better meskipun masih kurang". Aturan utama tetap skill-development; referensi hanya gaya.
+- **Kunci versi yang sudah benar** (jangan diturunkan lagi): B5 r1 "jendela + tokoh + loop" (dua jendela Claude Code & ChatGPT asli, crab + bunga, amplop, loop + centang) = BENAR; B1b r1 cincin kata (workflow · model · decision) = sesuai.
+- **B5:** pakai komposisi r1, tanpa judul "koordinasi" (visual sudah bercerita), tanpa garis/panah biru penghubung; pesan muncul pop-up berurutan (pesan 1 → Claude 2 merespons → Codex merespons lagi).
+- **B3-A "template":** jangan tag dicoret. Visualkan secara harfiah dengan UI Claude Code asli: kolom prompt, user mengetik "/" → menu slash-command muncul berisi template ("storytelling", "Apple style", "cinematic"…); karena skill ini bukan template, "/" tidak memunculkan apa-apa / daftar kosong ("nothing"). Makna: tidak ada template yang dipanggil.
+- **B1b:** kata cincin ("workflow") terlalu kecil dan maskot terlalu kecil. Perbesar maksimal seperti skala slab BALIK MODAL, tetap miring/melengkung mengikuti busur di sekitar kepala; maskot jauh lebih besar.
+- **B6:** "profesional?" / "masih kerasa AI?" = bubble chat seperti B5 (pop-up), bukan tag.
+- **Pelajaran Sutradara:** setiap revisi disanding juga dengan versi sebelumnya yang sudah disetujui; revisi yang menurunkan kualitas ditolak (gagal: storyboard r3 16 Nov).
