@@ -1,5 +1,6 @@
 """Verdict audit frame terikat HASH potongan: potongan yang tidak berubah dipakai ulang, yang berubah diperiksa ulang."""
 import os
+import json
 import subprocess
 import sys
 import tempfile
@@ -20,8 +21,8 @@ def write_frames(d, n, changed=()):
         Image.new("RGB", (64, 36), (shade, 80, 120)).save(os.path.join(d, f"f{i:05d}.jpg"), quality=90)
 
 
-def run(frames, out):
-    r = subprocess.run([sys.executable, str(FA), frames, "--fps", "10", "--chunk", "2", "--out", out],
+def run(frames, out, *extra):
+    r = subprocess.run([sys.executable, str(FA), frames, "--fps", "10", "--chunk", "2", "--out", out, *extra],
                        capture_output=True, text=True)
     assert r.returncode == 0, r.stderr
     return r.stdout
@@ -51,19 +52,64 @@ class FrameAuditHash(unittest.TestCase):
             self.assertIn("(belum diperiksa)", v2)
             self.assertTrue(os.path.exists(os.path.join(out, names[1], "VERDICT.prev.md")))
 
-    def test_legacy_verdict_adopted_only_if_newer_than_frames(self):
+    def test_hashless_verdict_always_requires_new_audit_despite_old_frames(self):
+        for changed in (None, "words", "cues"):
+            with self.subTest(changed=changed), tempfile.TemporaryDirectory() as t:
+                fr, out = Path(t) / "frames", Path(t) / "fa"
+                write_frames(fr, 20)
+                for frame in fr.glob("*.jpg"):
+                    os.utime(frame, (time.time() - 60, time.time() - 60))
+                words, cues = Path(t) / "words.json", Path(t) / "cues.json"
+                words.write_text(json.dumps({"words": [{"w": "lama", "s": .5, "e": 1.0}]}))
+                cues.write_text(json.dumps({"cues": [{"t": .5, "peran": "click", "file": "old.wav"}]}))
+                args = ("--words", str(words), "--cues", str(cues))
+                run(str(fr), str(out), *args)
+                chunk = next(out.glob("c*"))
+                verdict = chunk / "VERDICT.md"
+                legacy = f"# VERDICT {chunk.name}\n\nok\nPUTUSAN: LULUS\n"
+                verdict.write_text(legacy)
+                self.assertGreaterEqual(verdict.stat().st_mtime, max(f.stat().st_mtime for f in fr.glob("*.jpg")))
+                if changed == "words":
+                    words.write_text(json.dumps({"words": [{"w": "baru", "s": .7, "e": 1.0}]}))
+                elif changed == "cues":
+                    cues.write_text(json.dumps({"cues": [{"t": .8, "peran": "hit", "file": "new.wav"}]}))
+                stdout = run(str(fr), str(out), *args)
+                self.assertIn("dipakai ulang 0", stdout)
+                self.assertIn("(belum diperiksa)", verdict.read_text())
+                self.assertNotIn("PUTUSAN: LULUS", verdict.read_text())
+                self.assertEqual((chunk / "VERDICT.prev.md").read_text(), legacy)
+
+    def test_unchanged_lulus_and_gagal_are_both_reused(self):
         with tempfile.TemporaryDirectory() as t:
-            fr, out = os.path.join(t, "frames"), os.path.join(t, "fa")
-            write_frames(fr, 20)
-            run(fr, out)
-            name = sorted(x for x in os.listdir(out) if x.startswith("c"))[0]
-            vp = os.path.join(out, name, "VERDICT.md")
-            open(vp, "w").write(f"# VERDICT {name}\n\nok\nPUTUSAN: LULUS\n")     # format lama, tanpa HASH
-            time.sleep(0.05)
-            run(fr, out)
-            txt = open(vp).read()
-            self.assertRegex(txt, r"(?m)^HASH: [0-9a-f]{16}$")
-            self.assertIn("PUTUSAN: LULUS", txt)
+            fr, out = Path(t) / "frames", Path(t) / "fa"
+            write_frames(fr, 40)
+            run(str(fr), str(out))
+            chunks = sorted(out.glob("c*"))
+            for chunk, verdict in zip(chunks, ("LULUS", "GAGAL")):
+                judge(str(out), chunk.name, verdict)
+            before = [(chunk / "VERDICT.md").read_bytes() for chunk in chunks]
+            self.assertIn("dipakai ulang 2", run(str(fr), str(out)))
+            self.assertEqual([(chunk / "VERDICT.md").read_bytes() for chunk in chunks], before)
+
+    def test_neighbor_changes_info_and_invalidates_unchanged_chunk_frames(self):
+        with tempfile.TemporaryDirectory() as t:
+            fr, out = Path(t) / "frames", Path(t) / "fa"
+            write_frames(fr, 60)
+            run(str(fr), str(out))
+            chunk = sorted(out.glob("c*"))[1]  # frames20..39; predecessor19 is outside
+            judge(str(out), chunk.name)
+            old_hash = (chunk / ".hash").read_text()
+            old_info = (chunk / "INFO.md").read_text()
+            old_verdict = (chunk / "VERDICT.md").read_bytes()
+            unchanged = [(fr / f"f{i:05d}.jpg").read_bytes() for i in range(20, 40)]
+            Image.new("RGB", (64, 36), (255, 255, 255)).save(fr / "f00019.jpg", quality=90)
+            run(str(fr), str(out))
+            self.assertEqual([(fr / f"f{i:05d}.jpg").read_bytes() for i in range(20, 40)], unchanged)
+            self.assertNotEqual((chunk / "INFO.md").read_text(), old_info)
+            self.assertIn("- f20 ", (chunk / "INFO.md").read_text())
+            self.assertNotEqual((chunk / ".hash").read_text(), old_hash)
+            self.assertIn("(belum diperiksa)", (chunk / "VERDICT.md").read_text())
+            self.assertEqual((chunk / "VERDICT.prev.md").read_bytes(), old_verdict)
 
     def test_shorter_video_removes_stale_chunks(self):
         with tempfile.TemporaryDirectory() as t:

@@ -18,7 +18,8 @@ Keluaran `--out` (default qc/frame_audit/):
   per potongan `cNN_<a>-<b>s/`: `s<detik>.jpg` (30 frame 6×5 + strip audio; frame bertanda diberi bingkai merah),
   `INFO.md` (tanda otomatis, kata yang diucapkan, cue SFX di potongan itu), `VERDICT.md` (diisi agen pemeriksa),
   dan `INDEX.md` (ringkasan + cara pemeriksaan). `render.sh final` menolak bila ada VERDICT tanpa `PUTUSAN: LULUS`.
-  Setiap VERDICT terikat `HASH:` isi potongannya (frame + kata + cue + energi audio). Ronde berikutnya: potongan yang
+  Setiap VERDICT terikat `HASH:` isi potongannya (frame + INFO/tanda aktual + kata + cue + energi audio). Verdict
+  lama tanpa HASH wajib diperiksa sekali lagi, tanpa adopsi berdasarkan waktu file. Ronde berikutnya: potongan yang
   isinya sama memakai ulang verdict-nya; yang berubah diperiksa ulang dan verdict lamanya jadi `VERDICT.prev.md`
   (gagal 16 Nov, laporan investigasi 24 jam: bdf26 9 gelombang × 12 potongan diperiksa ulang semua tiap ronde, dan
   temuan yang sudah diputuskan muncul lagi).
@@ -152,11 +153,14 @@ def main():
         info += ["", "## Cue SFX (dtk · peran · file)"]
         cs = [q for q in cues if c0 / fps <= float(q["t"]) < c1 / fps]
         info += [f"- {float(q['t']):.2f} · {q.get('peran', '')} · {os.path.basename(q.get('file', ''))}" for q in cs] or ["- (tidak ada)"]
-        open(os.path.join(cd, "INFO.md"), "w").write("\n".join(info) + "\n")
-        # Hash potongan = isi byte semua frame + kata, cue, energi audio, dan potong disengaja di potongan itu.
+        info_text = "\n".join(info) + "\n"
+        open(os.path.join(cd, "INFO.md"), "w").write(info_text)
+        # INFO mengikat tanda aktual yang dapat berubah akibat frame/cue di luar batas potongan.
+        # Hash juga mencakup byte frame lokal, kata, cue, energi audio, dan potong disengaja.
         # Verdict hanya berlaku untuk hash yang dinilai: potongan yang tidak berubah tidak diperiksa ulang,
         # potongan yang berubah selalu diperiksa ulang (verdict lama disimpan sebagai VERDICT.prev.md).
         hs = hashlib.sha1()
+        hs.update(info_text.encode("utf-8"))
         for f in range(c0, c1): hs.update(hashlib.sha1(open(fs[f], "rb").read()).digest())
         hs.update(json.dumps([ws, cs, sorted(c for c in cuts if c0 <= c < c1),
                               {k: [round(float(x)) for x in e[c0:c1]] for k, e in sorted(env.items())}],
@@ -165,11 +169,6 @@ def main():
         open(os.path.join(cd, ".hash"), "w").write(h + "\n")
         vp = os.path.join(cd, "VERDICT.md"); fresh = f"# VERDICT {name}\nHASH: {h}\n\n(belum diperiksa)\n"
         old = open(vp, encoding="utf-8").read() if os.path.exists(vp) else ""
-        if (old and not re.search(r"^HASH: ", old, re.M) and re.search(r"^PUTUSAN: ", old, re.M)
-                and os.path.getmtime(vp) >= max(os.path.getmtime(fs[f]) for f in range(c0, c1))):
-            # verdict dari versi alat sebelum HASH, ditulis SESUDAH frame ini ada: berlaku untuk isi ini → beri HASH
-            old = re.sub(r"^(# VERDICT[^\n]*\n)", rf"\1HASH: {h}\n", old, count=1) if old.startswith("# VERDICT") else f"HASH: {h}\n" + old
-            open(vp, "w", encoding="utf-8").write(old)
         if re.search(rf"^HASH: {h}$", old, re.M):
             status = "dipakai ulang" if re.search(r"^PUTUSAN: (LULUS|GAGAL)", old, re.M) else "perlu periksa"
             reused += status == "dipakai ulang"
