@@ -31,3 +31,9 @@ Berikutnya: sesi editing dapat mulai dari MP4 dan paket handoff; Irfan belum mem
 - G2 still: K07 LULUS (r2), K11 LULUS (r3; hero 132 px x≥115, pil kontras 14:1 terhitung — ukur ulang di still final).
 - G2: K01 LULUS (r2, sanding vs GitHub asli). K12 r3: Claude LULUS, ChatGPT/Gemini revisi r4.
 - G2: K12 LULUS (r5: Gemini bintang cekung). Storyboard r3 berjalan (B5 avatar vektor, B1b maskot final).
+
+## 16 Nov ±22:45 · titik lanjut (bila sesi Sutradara terputus karena kuota; reset 07:00)
+Otoritas: DESAIN.md (visual) > MENU.md (disetujui) > RESEP.md §7–§8 > DECISIONS.md. Gaya MG layar penuh: kartu 63 → handoff/MG63-ADENDUM.md (claude1). Jalur wajib: Sutradara → SATU Sonnet (kode semua, remotion/src/video/) → SATU Opus (rapikan semua) → Sutradara QC → render (orkestrasi.md).
+Berjalan: (1) Sonnet builder semua beat (REPORT-build-sonnet.md); (2) Sonnet pemotong forced alignment MMS_FA (REPORT-1a-potong.md Ronde 5) → kunci suara; (3) claude1 MG63-ADENDUM.
+Berikutnya: adendum → Sonnet bangun adegan MG → Opus rapikan semua → still + sanding (G2 Sutradara) → fase 2 suara (pause_clean/voice_level: level −19,3 LUFS, puncak 0 dBFS) → lock visual → SFX (objects.json) → musik dua varian (GUIDELINE §7.1 lagu kandidat) → render.sh frames + frame_audit (2 pemeriksa) → lego final → Drive.
+Disk ±6 GB: render final per rentang bila < 8 GB (orkestrasi §7).

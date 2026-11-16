@@ -13,6 +13,8 @@ Disetujui Irfan: MENU (semua opsi A) + perubahan B1 (DECISIONS 16 Nov ±22:20). 
 - **Teks kinetik (Lantai A1/A9a):** SEMUA ucapan tampil dalam satu lapisan KT editorial; `teks.json` dari `scripts/lego/teks_plan.py`, peran per blok: R1 narasi (kata kecil 1–3 kata menempel subjek, ≤ 8 % jarak), R2 kata kunci, R6 hero (slab/kata besar yang ditulis di bawah). Kata yang sedang jadi hero tidak tampil dua kali. `kt_check.py teks.json` PASS.
 - **Karakter (masukan Irfan):** ikon asli 2D gaya ClaudeAnimationBase — pakai `remotion/src/papan/karakter2d/` (Clawd crab merah, Codex bunga biru `>_`, Gemini bintang) + sistem gerak `claude/motion-graphic/pustaka/teknik/animasi-karakter-clawd.md` (5 sudut kunci + smear, kedip 3,67 dtk, emosi dengan antisipasi + overshoot + take, lompat dengan squash). Di kamar: bayangan lembut ke dinding/bahu, sedikit warna cahaya kamar, tidak menutupi wajah (zona wajah x 36–64 %, y 8–62 %). Ukuran 15–20 % tinggi frame. Mereka hidup: selalu idle bernapas, melirik Irfan, bereaksi ke ucapannya.
 
+- **Gaya dunia motion graphic (c)** = `handoff/MG63-ADENDUM.md` (kiblat kartu 63, disetujui Sutradara 16 Nov 22:50; bentrok [B] diputus: DESAIN menang). Berlaku untuk B1 dunia repo, B3a/B3b, B4b, B5b, dan penyatuan wajah ↔ dunia (§4 adendum).
+
 ## 1. Per beat
 ### B1 · 0,0–4,5 · "Oke, finally akhirnya proyek ini selesai juga."
 - 0,0: wajah penuh. Tiga karakter SUDAH ada, melayang di sekeliling Irfan: Clawd kiri bawah dekat bahu (x ±24 %, y ±64 %), Codex kanan atas bahu (x ±74 %, y ±34 %), Gemini kanan atas kepala (x ±66 %, y ±12 %). Idle, menatap Irfan. Kamera drift 1,00→1,02.
