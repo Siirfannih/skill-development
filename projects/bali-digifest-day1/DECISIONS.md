@@ -1,6 +1,6 @@
 # DECISIONS · Bali Digifest 2026 · Recap Day 1–3 · v11
 
-Snapshot 2026-11-16T11:16:07+00:00 Tabel ini adalah otoritas aktif proyek; log versi lama di bawah bersifat historis. ID R-001–R-023 dipertahankan dari pekerjaan lokal; baris yang diganti ditandai eksplisit.
+Snapshot 2026-11-16T14:58:40.773510+00:00. Tabel ini adalah otoritas aktif proyek; log versi lama di bawah bersifat historis. ID R-001–R-023 dipertahankan dari pekerjaan lokal; baris yang diganti ditandai eksplisit.
 
 | ID | Tanggal | Keputusan | Sumber | Status |
 |---|---|---|---|---|
@@ -10,14 +10,14 @@ Snapshot 2026-11-16T11:16:07+00:00 Tabel ini adalah otoritas aktif proyek; log v
 | D-004 | 2026-11-16 | Sumber/baseline read-only; revisi terisolasi. Media, transkrip dan data testimoni tidak masuk Git; hanya dokumen dan metadata bukti. | Revisi.md + kebijakan pipeline-v10/README | Aktif |
 | D-005 | 2026-11-16 | Urutan konten: suara → visual → SFX → musik. VO tidak di-retime oleh desain. SFX/musik menunggu gambar dan event aktual terkunci. | Revisi.md dialog dahulu + workflow konten | Aktif |
 | D-006 | 2026-11-16 | 16 bite editorial dari 11 rekaman testimoni; jumlah ini bukan hitungan orang. Rekaman 0712 dipakai sebagai pembuka, callback dan rating. | EDL v11 + source map | Aktif |
-| D-007 | 2026-11-16 | Timeline 3708 frame/123,600 detik. P1 gambar [2965,3247), 282 frame; gambar 3,333 ms sesudah awal suara fisik. P2 mulai 3247. Sumber/cut harus mengikuti map fisik. | Boundary final dan integrasi R5 | Aktif |
-| D-008 | 2026-11-16 | LEGO alpha per blok+FFmpeg footage; native matching source/matte, bukan upscale proof 540. Nice 10/2 thread, cache sendiri dan kapasitas disk dijaga. | Repo motion-graphic + keputusan implementasi | Aktif |
+| D-007 | 2026-11-16 | Timeline 3708 frame/123,600 detik. P1 gambar [2965,3247), 282 frame; gambar 3,333 ms sesudah awal suara fisik. P2 mulai 3247. Sumber/cut harus mengikuti map fisik. | Boundary final dan integrasi R6 | Aktif |
+| D-008 | 2026-11-16 | LEGO alpha per blok+FFmpeg footage; native matching source/matte, bukan upscale proof 540. Nice 10/19 dengan 2 thread, cache sendiri dan kapasitas disk dijaga; lock/job render chat lain tidak diambil. | Repo motion-graphic + keputusan implementasi | Aktif |
 | D-009 | 2026-11-16 | Codex mengerjakan; Gemini via Agy dan DeepSeek audit independen. Claude QC dilewati karena limit sesuai user. Model/hasil API tidak disamakan dengan putusan director. | Irfan 16 Nov langsung | Aktif |
 | D-010 | 2026-11-16 | Audit setiap frame dari MP4 visual penuh terkunci, lalu buktikan video tak berubah saat mux final. Verdict terikat hash frame + INFO/kata/cue/energi; hanya input berubah yang diperiksa ulang. Hitung render penuh terpisah dari preview/chunk. | Mandat QC + Irfan permintaan dokumentasi | Aktif |
 | D-011 | 2026-11-16 | Pertahankan wide audiens 0619, jeda pitching 5,1 detik dengan ambience relevan, insert batik 0744 di bawah “kalau jujur” sesuai permintaan lama, urutan sketsa → clay, grup/mosaik dan gerak logo resmi. Tema sama dengan v10. | Revisi.md timeline; log v10 | Aktif |
-| D-012 | 2026-11-16 | P1 R5 dipilih sementara: crop uniform 5/3 [352,432,1504,1080], hero oranye kontur 2 px pada baseline 530. Partial head occlusion diterima; tidak mengklaim semua huruf tampak atau whole-P1 sudah lulus. | Director memilih still dari R-022/R-023 | Aktif |
+| D-012 | 2026-11-16 | P1 memakai R5b margin final: crop uniform 5/3 [352,432,1504,1080], hero oranye kontur 2 px pada baseline 530. Semua 25 kata tercakup; partial head occlusion diterima termasuk U tertutup penuh. Native 282 frame dan alur AV ditinjau dengan batas pada JURI. | R-022/R-023; native R5b 7a38316e… dan alur AV R6 | Aktif |
 | D-013 | 2026-11-16 | Studio 0353–0357 tetap tidak dipakai; instruktur clay 0426 termasuk cakupan v11. | Log 13 Nov/v6 | Aktif |
-| D-014 | 2026-11-16 | Jangan mengulang insert/source footage yang identik. Callback boleh memakai orang yang sama pada momen berbeda. | Log v9 | Aktif |
+| D-014 | 2026-11-16 | Jangan mengulang insert/source footage identik pada rangkaian gambar utama. Callback orang yang sama boleh memakai momen berbeda. Mosaic penutup dipertahankan sebagai pengecualian yang diminta Revisi.md: ingatan singkat, termasuk pengulangan momen yang dicatat di audit; tidak mengklaim seluruh film unik. | Log v9 + Revisi.md penutup + audit D014 16 Nov | Aktif |
 | R-001 | 2026-11-16 | Cold open K1: satu pikiran utuh dan ekspresi sejak awal; hapus duplikasi lama; lanjut ucapan terima kasih utuh dan gerbang saat nama acara. | Revisi.md §00:00–00:08/B4/A2 | Aktif |
 | R-002 | 2026-11-16 | Pulihkan fonem/napas dari handles sumber, solo sebelum/sesudah cut; microcrossfade hanya di celah aman. Fade tidak memperbaiki kata teriris. | Revisi.md §Perbaikan dialog/noise | Aktif |
 | R-003 | 2026-11-16 | Tiga gerak nyata menurut fungsi: narasi mask reveal tenang, perubahan ide directional, emosi/rating punch→settle. Hindari fade-up seragam. | Revisi.md tabel A1/A2 + §Tipografi | Aktif |
@@ -52,6 +52,7 @@ Snapshot 2026-11-16T11:16:07+00:00 Tabel ini adalah otoritas aktif proyek; log v
 | R-032 | 2026-11-16 | Sanding v10/revisi pada HP: pembuka, sketsa → clay, T2, pesan AI→rating; audio only, visual only, speaker HP, logo/endtail. Jangan menyamakan gambar statis dengan preview alur. | Revisi.md §Kapan siap ditonton | Aktif |
 | R-033 | 2026-11-16 | Delivery wajib timecode lama→baru, sumber pengganti aktual dan known issues; catat file/Drive/durasi/LUFS/audit/jumlah render tanpa mengarang final. | Revisi.md penyerahan + user dokumentasi | Aktif |
 | R-034 | 2026-11-16 | Fade in awal 3–5 frame hanya jika handle aman setelah fonem dipulihkan; fade tidak boleh menutupi kata teriris. Ini bukan kewajiban memasang preset pada setiap head. | Revisi.md B4/akhir | Aktif |
+| R-035 | 2026-11-16 | Gunakan J pada awal K2 karena versi potongan baru terdengar lebih bersih menurut Irfan. Hilangkan prefix 3026 sampel pada interval master [1035200,1038226) tanpa menggeser sampel/waktu berikutnya; sumber mentah asli tetap utuh, source assembly/map dan bukti VO diperbarui. | Irfan jawaban audisi H/J: “J — versi potongan baru lebih bersih” | Aktif |
 
 Semua temuan Revisi.md tercakup: B4→R-001/R-002/R-018/R-031; A1/A2→R-003/R-017/R-022/R-030; A3→R-004/R-015/R-030; D11→R-006; D10→R-025; B5/B6→R-008/R-014/R-028/R-029; C7/C8→R-012/R-026/R-027. Timecode di Revisi.md mengacu ke v10; v11 memakai source map fisik, bukan menyalin detik lama.
 
