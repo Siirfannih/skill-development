@@ -1,0 +1,391 @@
+{
+ "proyek": "skill-development-journey-20261116",
+ "catatan": "t = perkiraan dari REPORT-1a ronde 1; dikunci ulang dari transkrip-hasil.md setelah potong r2",
+ "beats": [
+  {
+   "id": "01a",
+   "babak": "B1",
+   "t": [
+    0,
+    1.6
+   ],
+   "vo": "Oke, finally akhirnya proyek ini selesai juga",
+   "mode": "A",
+   "metafora": {
+    "makna": "garis finis",
+    "emosi": "lega + bangga",
+    "aksi": "menuntaskan",
+    "metafora": "garis finis: commit terakhir di repo berubah jadi centang hijau",
+    "objek": [
+     "wajah Irfan",
+     "kata 'finally'",
+     "repo GitHub skill-development",
+     "baris commit terakhir",
+     "centang hijau"
+    ],
+    "urutan": "wajah + K4 'finally' → punch → sapuan hexagon → repo penuh, wajah jadi lingkaran → kamera push ke commit → centang di 'selesai'",
+    "bentuk": "ui-asli"
+   }
+  },
+  {
+   "id": "01b",
+   "babak": "B1",
+   "t": [
+    1.6,
+    4.07
+   ],
+   "vo": "proyek ini selesai juga",
+   "mode": "B",
+   "metafora": {
+    "makna": "repo yang tersegel selesai",
+    "emosi": "puas",
+    "aksi": "mengunci",
+    "metafora": "repo yang tersegel selesai",
+    "objek": [
+     "repo GitHub",
+     "centang hijau",
+     "slab 'SELESAI'",
+     "lingkaran wajah"
+    ],
+    "urutan": "centang pop + cincin → slab SELESAI putih di atas repo",
+    "bentuk": "ui-asli"
+   }
+  },
+  {
+   "id": "02a",
+   "babak": "B1b",
+   "t": [
+    4.07,
+    9.0
+   ],
+   "vo": "aku baru aja ngebikin workflow gimana biar AI model yang kita pake, entah itu ChatGPT, Claude, Gemini",
+   "mode": "A",
+   "metafora": {
+    "makna": "tiga karakter AI asli datang ke kamar satu per satu saat namanya dipanggil",
+    "emosi": "antusias",
+    "aksi": "memanggil",
+    "metafora": "tiga karakter AI asli datang ke kamar satu per satu saat namanya dipanggil",
+    "objek": [
+     "wajah Irfan",
+     "maskot ChatGPT (bunga biru >_)",
+     "maskot Claude (crab coral)",
+     "maskot Gemini (bintang)",
+     "cincin kata"
+    ],
+    "urutan": "tiap nama → maskotnya masuk berputar + pop di kedalaman berbeda → melayang hidup",
+    "bentuk": "benda"
+   }
+  },
+  {
+   "id": "02b",
+   "babak": "B1b",
+   "t": [
+    9.0,
+    14.41
+   ],
+   "vo": "itu bisa ngebuat sebuah decision dalam ngebuat video",
+   "mode": "A",
+   "metafora": {
+    "makna": "tiga maskot menoleh ke satu pilihan yang menyala (bukan mengikuti cetakan)",
+    "emosi": "yakin",
+    "aksi": "memutuskan",
+    "metafora": "tiga maskot menoleh ke satu pilihan yang menyala (bukan mengikuti cetakan)",
+    "objek": [
+     "tiga maskot",
+     "kata 'decision'",
+     "cincin kata di sekitar kepala"
+    ],
+    "urutan": "cincin kata narasi → 'decision' jadi kata aksen → maskot menoleh ke kata itu",
+    "bentuk": "benda"
+   }
+  },
+  {
+   "id": "03a",
+   "babak": "B2",
+   "t": [
+    14.41,
+    19.5
+   ],
+   "vo": "belakangan ini lagi viral banget soal ngedit video pake AI. Tapi hasilnya tuh masih terasa AI slop",
+   "mode": "A",
+   "metafora": {
+    "makna": "hasil AI yang generik = 'AI SLOP' raksasa di belakang kepala, ruang sedikit meredup",
+    "emosi": "skeptis",
+    "aksi": "menolak",
+    "metafora": "hasil AI yang generik = 'AI SLOP' raksasa di belakang kepala, ruang sedikit meredup",
+    "objek": [
+     "wajah Irfan",
+     "slab 'AI SLOP' coral",
+     "guncangan kecil"
+    ],
+    "urutan": "slab naik di belakang kepala bergelombang → tenang → guncangan di 'slop'",
+    "bentuk": "benda"
+   }
+  },
+  {
+   "id": "03b",
+   "babak": "B2",
+   "t": [
+    19.5,
+    25.16
+   ],
+   "vo": "dan beberapa bagian masih putus-putus",
+   "mode": "A",
+   "metafora": {
+    "makna": "timeline editor yang patah",
+    "emosi": "kecewa",
+    "aksi": "mematahkan",
+    "metafora": "timeline editor yang patah: klip terpisah celah merah",
+    "objek": [
+     "kartu timeline 3D",
+     "klip warna",
+     "celah merah",
+     "kata 'putus-putus' per suku kata"
+    ],
+    "urutan": "kartu timeline mendarat miring → klip patah turun → suku kata muncul terputus",
+    "bentuk": "sebab-akibat"
+   }
+  },
+  {
+   "id": "04a",
+   "babak": "B3",
+   "t": [
+    25.16,
+    33.0
+   ],
+   "vo": "ini bukan sebuah template, orang sering bilang edit kayak Apple style, edit kayak cinematic storytelling",
+   "mode": "A→C",
+   "metafora": {
+    "makna": "tag cetakan gaya bertumpuk lalu dicoret dan dilempar keluar",
+    "emosi": "tegas",
+    "aksi": "menyingkirkan",
+    "metafora": "tag cetakan gaya bertumpuk lalu dicoret dan dilempar keluar",
+    "objek": [
+     "tangga tag 'Apple style'",
+     "tag 'cinematic storytelling'",
+     "tag klimaks 'template'",
+     "coretan coral"
+    ],
+    "urutan": "tag naik diagonal di sisi wajah → 'template' dicoret → semua tag dilempar",
+    "bentuk": "benda"
+   }
+  },
+  {
+   "id": "04b",
+   "babak": "B3",
+   "t": [
+    33.0,
+    38.0
+   ],
+   "vo": "aku ngebalik: gimana caranya biar AI ini cuman mempelajari workflow-nya",
+   "mode": "C",
+   "metafora": {
+    "makna": "bukan cetakan, tapi tabel keputusan",
+    "emosi": "terang",
+    "aksi": "membalik",
+    "metafora": "bukan cetakan, tapi tabel keputusan: model memilih baris yang cocok (typography §8a asli)",
+    "objek": [
+     "bidang biru 07",
+     "jendela tabel keputusan",
+     "baris menyala",
+     "bentuk hexagon raksasa"
+    ],
+    "urutan": "sapuan hexagon → jendela tabel → kamera zoom ke baris menyala",
+    "bentuk": "ui-asli"
+   }
+  },
+  {
+   "id": "04c",
+   "babak": "B3",
+   "t": [
+    38.0,
+    42.81
+   ],
+   "vo": "mempelajari workflow-nya",
+   "mode": "C",
+   "metafora": {
+    "makna": "rel 5 fase asli dirakit jadi ubin besar → kata 'workflow' raksasa",
+    "emosi": "mantap",
+    "aksi": "merakit",
+    "metafora": "rel 5 fase asli dirakit jadi ubin besar → kata 'workflow' raksasa",
+    "objek": [
+     "ubin Pra-produksi",
+     "ubin Spine suara",
+     "ubin Visual",
+     "ubin Audio",
+     "ubin Finishing",
+     "kata 'workflow'"
+    ],
+    "urutan": "ubin masuk berurutan kiri→kanan, kamera truck → reveal-out ke rel penuh + 'workflow'",
+    "bentuk": "piktogram"
+   }
+  },
+  {
+   "id": "05a",
+   "babak": "B4",
+   "t": [
+    42.81,
+    50.5
+   ],
+   "vo": "jadi gak usah ditanya kenapa aku gak langsung publish dan open source. Karena perlu balik modal, Pak.",
+   "mode": "A",
+   "metafora": {
+    "makna": "slab 'BALIK MODAL' bergelombang di belakang kepala; ekspresi yang menguasai frame",
+    "emosi": "jenaka",
+    "aksi": "menagih",
+    "metafora": "slab 'BALIK MODAL' bergelombang di belakang kepala; ekspresi yang menguasai frame",
+    "objek": [
+     "wajah Irfan",
+     "slab 'BALIK MODAL'",
+     "zoom pelan"
+    ],
+    "urutan": "zoom pelan ke wajah → slab naik bergelombang di 'balik modal' → tenang",
+    "bentuk": "benda"
+   }
+  },
+  {
+   "id": "05b",
+   "babak": "B4",
+   "t": [
+    50.5,
+    61.06
+   ],
+   "vo": "aku sampe harus langganan ChatGPT Pro Max yang 20 kali sama Claude Pro yang 5 kali, hanya untuk uji coba sistem ini",
+   "mode": "A",
+   "metafora": {
+    "makna": "kartu Effort gelap",
+    "emosi": "berkorban",
+    "aksi": "menaikkan",
+    "metafora": "kartu Effort gelap: slider kecerdasan meluncur ke Max (biaya naik), lalu kartu paket 20x dan 5x mendarat di bahu",
+    "objek": [
+     "kartu Effort (slider + ikon otak)",
+     "jejak pixel bercahaya",
+     "kartu ChatGPT Pro 20x",
+     "kartu Claude Max 5x"
+    ],
+    "urutan": "kartu Effort mendarat → slider Low→Max → kartu paket mendarat berurutan, angka naik",
+    "bentuk": "ui-asli"
+   }
+  },
+  {
+   "id": "06a",
+   "babak": "B5",
+   "t": [
+    61.06,
+    65.5
+   ],
+   "vo": "sistem workflow ini memungkinkan sistem kerja lintas agent. Kayak yang kalian lihat ini.",
+   "mode": "A→C",
+   "metafora": {
+    "makna": "masuk ke ruang chat tempat para agen bekerja",
+    "emosi": "bangga",
+    "aksi": "memperlihatkan",
+    "metafora": "masuk ke ruang chat tempat para agen bekerja",
+    "objek": [
+     "wajah Irfan",
+     "sapuan hexagon",
+     "kanvas chat putih",
+     "avatar crab & bunga"
+    ],
+    "urutan": "di 'kayak yang kalian lihat ini' kamera menembus → kanvas chat putih",
+    "bentuk": "ui-asli"
+   }
+  },
+  {
+   "id": "06b",
+   "babak": "B5",
+   "t": [
+    65.5,
+    75.0
+   ],
+   "vo": "ChatGPT bisa koordinasi ke Claude, Claude bisa sebaliknya, beda session pun bisa koordinasi",
+   "mode": "C",
+   "metafora": {
+    "makna": "percakapan chat asli",
+    "emosi": "kagum",
+    "aksi": "berkoordinasi",
+    "metafora": "percakapan chat asli: Codex bertanya izin, Claude menjawab, Claude 2 mengirim ke Claude 1",
+    "objek": [
+     "bubble Codex 'Boleh menjalankan --fix?'",
+     "bubble Claude 'AWAL SESI: sudah kujalankan…'",
+     "bubble bus Claude 2→Claude 1",
+     "indikator mengetik",
+     "avatar karakter asli"
+    ],
+    "urutan": "indikator mengetik → bubble pop bergantian kiri-kanan → kamera ikut bubble terbaru",
+    "bentuk": "ui-asli"
+   }
+  },
+  {
+   "id": "06c",
+   "babak": "B5",
+   "t": [
+    75.0,
+    80.81
+   ],
+   "vo": "meminimalisir kesalahan yang sama, sehingga ada loop pembelajaran",
+   "mode": "C",
+   "metafora": {
+    "makna": "kesalahan dicatat → sesi lain tidak mengulang",
+    "emosi": "lega",
+    "aksi": "menutup lingkaran",
+    "metafora": "kesalahan dicatat → sesi lain tidak mengulang: bubble 'dicatat' menyambung ke awal, loop menutup + centang",
+    "objek": [
+     "bubble 'Dicatat: gagal … 8 Nov'",
+     "garis loop",
+     "titik sinyal",
+     "centang hijau"
+    ],
+    "urutan": "bubble catatan masuk → garis loop ditarik ke bubble pertama → sinyal berjalan → centang",
+    "bentuk": "sebab-akibat"
+   }
+  },
+  {
+   "id": "07a",
+   "babak": "B6",
+   "t": [
+    80.81,
+    84.5
+   ],
+   "vo": "Ini 100% full pakai AI",
+   "mode": "A",
+   "metafora": {
+    "makna": "slab '100% FULL AI' di belakang kepala + kilat (rima dengan B1)",
+    "emosi": "bangga",
+    "aksi": "mengungkap",
+    "metafora": "slab '100% FULL AI' di belakang kepala + kilat (rima dengan B1)",
+    "objek": [
+     "wajah Irfan",
+     "slab '100% FULL AI'",
+     "kilat cahaya"
+    ],
+    "urutan": "punch → slab naik → kilat menyapu sekali",
+    "bentuk": "benda"
+   }
+  },
+  {
+   "id": "07b",
+   "babak": "B6",
+   "t": [
+    84.5,
+    93.59
+   ],
+   "vo": "menurut kalian udah kerasa video editing profesional gak? Atau masih kerasa AI slop? Comment di bawah, nanti aku kasih skill gratis",
+   "mode": "A",
+   "metafora": {
+    "makna": "dua pilihan 3D yang bisa dipilih penonton + ajakan komen",
+    "emosi": "mengajak",
+    "aksi": "bertanya",
+    "metafora": "dua pilihan 3D yang bisa dipilih penonton + ajakan komen",
+    "objek": [
+     "pil 3D 'profesional?'",
+     "pil 3D 'masih kerasa AI slop?'",
+     "kata dada 'comment di bawah'",
+     "wajah Irfan"
+    ],
+    "urutan": "pil kiri masuk → pil kanan masuk → 'comment di bawah' di dada → tahan",
+    "bentuk": "benda"
+   }
+  }
+ ]
+}
