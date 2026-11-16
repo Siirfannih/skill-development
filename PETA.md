@@ -171,7 +171,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | Proyek | Isi |
 |---|---|
 | `projects/ai-change-everything/` | STATUS · ai-change-everything ("Pengganti kita sendiri") · mulai dari STATUS.md |
-| `projects/bali-digifest-day1/` | DECISIONS · Bali Digifest 2026 Day 1 (60 dtk) |
+| `projects/bali-digifest-day1/` | STATUS · Recap Day 1–3 · v11 · mulai dari STATUS.md |
 | `projects/builder-trap-r2/` | STATUS · builder-trap-r2 (diperbarui 15 Nov 22.40) · mulai dari STATUS.md |
 | `projects/builder-trap-show-your-work/` | Ledger · Builder trap / show your work (cinematic story) |
 | `projects/doac-5-klip/` |  |

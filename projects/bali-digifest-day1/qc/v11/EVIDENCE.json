@@ -1,0 +1,463 @@
+{
+  "schema": "bdf26-v11-documentation-evidence-1",
+  "as_of_utc": "2026-11-16T11:16:07+00:00",
+  "scope": "Snapshot documentation before further video work; partial evidence is not final-film approval.",
+  "project": "BDF26 Recap Day1-3 v11",
+  "fps": 30,
+  "frames": 3708,
+  "duration_seconds": 123.6,
+  "pc_project": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11",
+  "revisi_source": {
+    "pc_path": "/home/irfan/.codex/attachments/c0ec0e0b-8d9f-4d69-9157-c0e4bc257081/Revisi.md",
+    "sha256": "e9d48b99d8474c34c9d26b9d8fdf0928218f7633b6d06c823a16490fa8db862e",
+    "copied_to_git": false
+  },
+  "E01_audio": {
+    "samples": 5932800,
+    "sample_rate": 48000,
+    "channels": 2,
+    "format": "PCM_24",
+    "integrated_LUFS": -15.8,
+    "LRA_LU": 2.9,
+    "true_peak_dBTP": -1.3,
+    "stem_sha256": "779cd53d2bf68683b450fdafd752df8ef0b2a51fb92c9eb0d1931cccff60f2b0",
+    "fidelity_residual_max": 1.189691829495132e-07,
+    "default_gates": {
+      "voice_level": {
+        "passed": 3,
+        "failed": 13
+      },
+      "cut_check": {
+        "passed": 3,
+        "failed": 13
+      },
+      "source_validation": {
+        "passed": 5,
+        "failed": 11
+      }
+    },
+    "canonical_gate_PASS": false,
+    "project_R014_static_leveling_exception": true,
+    "reports": [
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/audio/final-evidence.json",
+        "sha256": "d9b3d1a8011a465bcde62b2bd4952fd609e7188977097f0de2da2cf7c3953d70",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/audio/gates/evidence.json",
+        "sha256": "0f8eb2adad1fbaa618fae793a702d9aaa5d272209717b26281c6a3061beef111",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/handoff/REPORT-audio.md",
+        "sha256": "d536a036873df3672d8edd3baf9beadf3308273570e1676ce36578cc5b04b3f8",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/handoff/DIRECTOR-AUDIO.md",
+        "sha256": "f375b04ad5256a4f5ef6a8fdac1804e4f3cde888246ed57326fd4c91a745c572",
+        "exists": true
+      }
+    ],
+    "open_concern": "Conflicting native reports of a faint nasal before K2; no final sound lock."
+  },
+  "E02_display": {
+    "bites": 16,
+    "display_words": 251,
+    "raw_ASR_words": 248,
+    "timing_review_words": 7,
+    "raw_ASR_not_overwritten": true,
+    "files": [
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/words11_display.json",
+        "sha256": "c7dcba010473c65e23d04693d4feb6c581d4123adc82984950fcab5ceb083b88",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/audio/display-adjudication.json",
+        "sha256": "5d647d809b6024c0b70689e483a1b0375739ef26b6436c9d4158713142f3a65e",
+        "exists": true
+      }
+    ]
+  },
+  "E03_placement": {
+    "inspection_stills": 171,
+    "schema_geometry_errors": 0,
+    "geometry_is_not_taste_PASS": true,
+    "files": [
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/placement-map.json",
+        "sha256": "e2f201dfe1428cb3bcf50c44a476b565f46ca6ca0215feeb0d3199e4905a01ad",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/handoff/REPORT-placement.md",
+        "sha256": "03fef53fe7fbcd4716deb222b178fb76894e545d26fcbe6233517c9eb48cba93",
+        "exists": true
+      }
+    ]
+  },
+  "E04_nonP1": {
+    "native_video_assets": [
+      {
+        "id": "nonP1-A",
+        "global_frames": [
+          0,
+          2965
+        ],
+        "path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/visual/visual11_nonP1-A_silent.mp4",
+        "frames": 2965,
+        "sha256": "1e436a94ca9995ae88856c45427fde56006c0a48098deca8a04bf3ad5ec22fdb",
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1",
+            "nb_frames": "2965"
+          }
+        ],
+        "argv": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-y",
+          "-f",
+          "concat",
+          "-safe",
+          "0",
+          "-i",
+          "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/visual/tmp/visual11_nonP1-A_silent-concat.txt",
+          "-map",
+          "0:v:0",
+          "-an",
+          "-frames:v",
+          "2965",
+          "-r",
+          "30",
+          "-c:v",
+          "libx264",
+          "-threads",
+          "2",
+          "-filter_threads",
+          "2",
+          "-preset",
+          "veryfast",
+          "-crf",
+          "14",
+          "-pix_fmt",
+          "yuv420p",
+          "-movflags",
+          "+faststart",
+          "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/visual/visual11_nonP1-A_silent.mp4"
+        ]
+      },
+      {
+        "id": "nonP1-B",
+        "global_frames": [
+          3247,
+          3708
+        ],
+        "path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/visual/visual11_nonP1-B_silent.mp4",
+        "frames": 461,
+        "sha256": "696960e13708261c21a91551d328a13bf1ed2b42453a41fad152314825ec75c1",
+        "streams": [
+          {
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1",
+            "nb_frames": "461"
+          }
+        ],
+        "argv": [
+          "ffmpeg",
+          "-v",
+          "error",
+          "-nostdin",
+          "-y",
+          "-f",
+          "concat",
+          "-safe",
+          "0",
+          "-i",
+          "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/visual/tmp/visual11_nonP1-B_silent-concat.txt",
+          "-map",
+          "0:v:0",
+          "-an",
+          "-frames:v",
+          "461",
+          "-r",
+          "30",
+          "-c:v",
+          "libx264",
+          "-threads",
+          "2",
+          "-filter_threads",
+          "2",
+          "-preset",
+          "veryfast",
+          "-crf",
+          "14",
+          "-pix_fmt",
+          "yuv420p",
+          "-movflags",
+          "+faststart",
+          "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/visual/visual11_nonP1-B_silent.mp4"
+        ]
+      }
+    ],
+    "logical_blocks": 107,
+    "cropped_layouts": 120,
+    "words": 226,
+    "minimum_fully_revealed_frames": 6,
+    "actual_alpha_failures": 0,
+    "protected_collisions": 0,
+    "encoded_carry_test_frames": 88,
+    "encoded_carry_failures": 0,
+    "sources": "Emitted alpha before assembly plus frames decoded from encoded partial MP4s; not final-film frame audit.",
+    "files": [
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/visual/visibility-all-tight.json",
+        "sha256": "e700c453b903cead307239b2cbcb478e2d655b64164d34716a18a92a071b0fd4",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/visual/visibility-all-tight-geometry.json",
+        "sha256": "92f823de3894cce611e022a9ec5e35543b1d29c2d70213d9acb1ec3582527a94",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/visual/encoded-carry-cuts-chroma-grid.json",
+        "sha256": "ece3c1f5508a00ec760f03cc09e5cbdd1d67602e4872bd1a30ddcc679fa6ca2b",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/visual/objects-freeze.json",
+        "sha256": "ebaaa21fa757385b6fde2c7d3ab59681553caf9da3014bbe2212e205549d4292",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/handoff/REPORT-visual.md",
+        "sha256": "98c4cc955478af62426c0bf172fd38ea87e89d9b71c3247bc125256a30a2c4ed",
+        "exists": true
+      }
+    ],
+    "encoded_carry_cut_groups": 11
+  },
+  "E05_P1_R5": {
+    "range_frames": [
+      2965,
+      3247
+    ],
+    "frames": 282,
+    "duration_seconds": 9.4,
+    "native_video": {
+      "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/typography-proof/r5_full_P1/P1_R5_NATIVE1080_VIDEO_ONLY_282f.mp4",
+      "sha256": "187fab34afca3531600d40acd4dfe4f348a1774232ffa1561654b1ea2e32a1d1",
+      "exists": true
+    },
+    "preview": {
+      "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/typography-proof/r5_full_P1/P1_R5_FULL_NATIVE_VO_960.mp4",
+      "sha256": "a6251015500a563872fcb0e2a185004cf849eaefde2fc2f4c570e0248f17eff2",
+      "exists": true
+    },
+    "words": 25,
+    "camera_crop": [
+      352,
+      432,
+      1504,
+      1080
+    ],
+    "camera_scale": 1.6666666666666667,
+    "hero_fill": "#F7922E",
+    "hero_contour_native_px": 2,
+    "hero_baseline": 530,
+    "partial_head_occlusion_allowed_by_user": true,
+    "all_letters_visible": false,
+    "limits": [
+      "U fully covered in head-row hero; accepted intended depth, not all-glyph PASS.",
+      "Some early top hair is cropped; face/mic retained.",
+      "Dark bridge fragments approach/cross the dark pillar; contrast not approved."
+    ],
+    "files": [
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/typography-proof/r5_full_P1/INTEGRATION_1080.json",
+        "sha256": "f1689c00759b7e7ad301ccbca829742c8730ea9fa26bfcc79711bbd679098072",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/typography-proof/r5_full_P1/WORDS_AND_STATES.json",
+        "sha256": "5b30b3cc0aee7dbc78e7dd5f84784b4796ad656b35dd7d85d796ee66c4d3123b",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/typography-proof/r5_full_P1/RENDER_INVENTORY.json",
+        "sha256": "1d755cb0ed0d5d07a17f55786e3066226bb6410717a03d603f350f465ced4502",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/handoff/REPORT-P1-R5.md",
+        "sha256": "d1cb164af25ff2e4ea00563fc3560017bcd71a2684713419a6bb1e3198dd6566",
+        "exists": true
+      }
+    ]
+  },
+  "E06_review_infrastructure": {
+    "project_harness_offline_tests_passed": 29,
+    "shared_audit_hash_tests_passed": 5,
+    "production_full_film_started": false,
+    "profiles_planned": {
+      "Gemini": "gemini-3.8-flash-medium,max2sheets",
+      "DeepSeek": "low8192,max1sheet"
+    },
+    "Claude_QC": "Skipped by direct user instruction",
+    "files": [
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/handoff/REPORT-review-readiness.md",
+        "sha256": "4ce6ea50d2784c4df761937c15b649d26391aaa214fd9ebe20aa0c37309547ad",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/tools/review11.py",
+        "sha256": "9d4fd1dc24f8a80900e64c1263c2d31f6fd35cba6cd2f682e08bc277926ee598",
+        "exists": true
+      }
+    ],
+    "shared_audit_hash_tests_command": "python3 -W ignore::ResourceWarning -B claude/motion-graphic/scripts/tests/test_frame_audit_hash.py",
+    "shared_audit_hash_tests_root_result": "5 tests,3.846s,OK",
+    "shared_audit_script_sha256": "96953cfcd3220d25328fe5d4467c26850592b04b9808c1e66ec23dd1ce0b4b84"
+  },
+  "E07_sound": {
+    "preflight_assets": 3,
+    "placed_cues": 0,
+    "sfx_stem": false,
+    "music_stem": false,
+    "nat_stem": false,
+    "master": false,
+    "official_theme_selected_from_v10": true,
+    "files": [
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/sound/hold-state.json",
+        "sha256": "0f41b77eef343d03f2388d3f930981a99d691b96a5da9feb23cf7ce5235722e3",
+        "exists": true
+      },
+      {
+        "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/handoff/REPORT-sound.md",
+        "sha256": "37c28abd1cb2300ad549a571b711452eed33803aeb32b7b3b2d80cdd94fe17bc",
+        "exists": true
+      }
+    ]
+  },
+  "E08_final_frame_audit": {
+    "created": false,
+    "input_source_actual": null,
+    "chunks_created": 0,
+    "chunks_judged": 0,
+    "chunks_reexamined": 0,
+    "all_3708_frames_judged": false,
+    "plan": "Decode every frame from the locked full visual MP4, then verify video is unchanged through final audio mux. Never label alpha/partial proofs as full-film audit.",
+    "pilot": "One135frame/4.5s phaseA partial MP4 was independently examined and failed; local clock fix later tested, not a full-film PASS."
+  },
+  "E09_color": {
+    "adjacent_pairs_tested": 3,
+    "applied_grade_filters": 0,
+    "decision": "Original local lighting retained after bounded alternatives; no claim of completed all-film color-match approval.",
+    "file": {
+      "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/visual/color/three-pair-AB.json",
+      "sha256": "ab50a60b4fc8913e731e475eb3090d8e97e449063dcae7b187804f157531304f",
+      "exists": true
+    }
+  },
+  "E10_delivery_render_counts": {
+    "full_recap_v11_render_count": 0,
+    "full_recap_v11_concat_count": 0,
+    "final_export_exists": false,
+    "final_master_LUFS": null,
+    "Drive_v11_URL": null,
+    "partial_nonP1_chunks": 17,
+    "partial_nonP1_assembled_assets": 2,
+    "P1_completed_preview_versions": 5,
+    "P1_native_video_only_assets": 2,
+    "render_count_scope": "Current v11 work only. Completed artifacts, not abandoned process attempts. Legacy v10 renders excluded.",
+    "inventory": {
+      "pc_path": "/home/irfan/.codex/worktrees/bdf26-v11-revision/skill-development/projects/bali-digifest-day1/revision-v11/qc/typography-proof/r5_full_P1/RENDER_INVENTORY.json",
+      "sha256": "1d755cb0ed0d5d07a17f55786e3066226bb6410717a03d603f350f465ced4502",
+      "exists": true
+    },
+    "component_native_coverage_frames": 3708,
+    "full_recap_definition": "One complete123.6s MP4 export or full-timeline concat; partial components already cover the timeline and are inventoried separately, not hidden as zero work."
+  },
+  "documentation_active_IDs": [
+    "D-001",
+    "D-002",
+    "D-003",
+    "D-004",
+    "D-005",
+    "D-006",
+    "D-007",
+    "D-008",
+    "D-009",
+    "D-010",
+    "D-011",
+    "D-012",
+    "D-013",
+    "D-014",
+    "R-001",
+    "R-002",
+    "R-003",
+    "R-004",
+    "R-005",
+    "R-006",
+    "R-007",
+    "R-008",
+    "R-009",
+    "R-011",
+    "R-012",
+    "R-014",
+    "R-015",
+    "R-016",
+    "R-017",
+    "R-018",
+    "R-019",
+    "R-021",
+    "R-022",
+    "R-023",
+    "R-024",
+    "R-025",
+    "R-026",
+    "R-027",
+    "R-028",
+    "R-029",
+    "R-030",
+    "R-031",
+    "R-032",
+    "R-033",
+    "R-034"
+  ],
+  "documentation_replaced_IDs": [
+    "R-010",
+    "R-013",
+    "R-020"
+  ],
+  "repo_refresh": {
+    "pulled_main": "29f14e1",
+    "method": "git pull --ff-only origin main",
+    "audit_hash_fix_commit": "3f536c6",
+    "note": "Later documentation/learning commits are identified by Git history rather than a self-referencing commit hash."
+  },
+  "E00_baseline": {
+    "pc_path": "/home/irfan/work/bdf26/v6/out/BDF26_Recap_Day1-3_v10f.mp4",
+    "sha256": "9e8e954f7fde750599dc90f354868f08aeaa99d4172e87a1f39dc732b5ed60ad",
+    "duration_seconds": 119.552,
+    "frames": 3585,
+    "width": 1920,
+    "height": 1080,
+    "fps": 30,
+    "probe_format_size_bytes": 162462572,
+    "historical_Drive_filename": "BDF26_Recap_Day1-3_v10.mp4",
+    "evidence_scope": "Local read-only baseline identification; no v11 approval."
+  }
+}

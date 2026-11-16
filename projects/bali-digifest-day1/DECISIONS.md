@@ -1,3 +1,64 @@
+# DECISIONS · Bali Digifest 2026 · Recap Day 1–3 · v11
+
+Snapshot 2026-11-16T11:16:07+00:00 Tabel ini adalah otoritas aktif proyek; log versi lama di bawah bersifat historis. ID R-001–R-023 dipertahankan dari pekerjaan lokal; baris yang diganti ditandai eksplisit.
+
+| ID | Tanggal | Keputusan | Sumber | Status |
+|---|---|---|---|---|
+| D-001 | 2026-11-16 | Satu recap pengalaman peserta Day 1–3, versi v11; testimoni memimpin cerita, b-roll memberi bukti/suasana. Mandat lama satu sesi Day 1/60 detik/2–3 orang sudah diganti. | Irfan 15–16 Nov; Revisi.md pembuka | Aktif |
+| D-002 | 2026-11-16 | Master pembanding adalah v10f lokal 119,552 detik yang dahulu diunggah dengan nama v10. File lokal tanpa f 119,296 detik bukan baseline ini. | Log v10f 16 Nov + ffprobe | Aktif |
+| D-003 | 2026-11-16 | Kiblat tetap kartu 55 Storytelling with footage; 16:9, 1920×1080, 30 fps; SF Pro Display Bold, aksen #F7922E, logo dan tema resmi. Font/warna mengikuti identitas acara. | Brief awal + Irfan terbaru | Aktif |
+| D-004 | 2026-11-16 | Sumber/baseline read-only; revisi terisolasi. Media, transkrip dan data testimoni tidak masuk Git; hanya dokumen dan metadata bukti. | Revisi.md + kebijakan pipeline-v10/README | Aktif |
+| D-005 | 2026-11-16 | Urutan konten: suara → visual → SFX → musik. VO tidak di-retime oleh desain. SFX/musik menunggu gambar dan event aktual terkunci. | Revisi.md dialog dahulu + workflow konten | Aktif |
+| D-006 | 2026-11-16 | 16 bite editorial dari 11 rekaman testimoni; jumlah ini bukan hitungan orang. Rekaman 0712 dipakai sebagai pembuka, callback dan rating. | EDL v11 + source map | Aktif |
+| D-007 | 2026-11-16 | Timeline 3708 frame/123,600 detik. P1 gambar [2965,3247), 282 frame; gambar 3,333 ms sesudah awal suara fisik. P2 mulai 3247. Sumber/cut harus mengikuti map fisik. | Boundary final dan integrasi R5 | Aktif |
+| D-008 | 2026-11-16 | LEGO alpha per blok+FFmpeg footage; native matching source/matte, bukan upscale proof 540. Nice 10/2 thread, cache sendiri dan kapasitas disk dijaga. | Repo motion-graphic + keputusan implementasi | Aktif |
+| D-009 | 2026-11-16 | Codex mengerjakan; Gemini via Agy dan DeepSeek audit independen. Claude QC dilewati karena limit sesuai user. Model/hasil API tidak disamakan dengan putusan director. | Irfan 16 Nov langsung | Aktif |
+| D-010 | 2026-11-16 | Audit setiap frame dari MP4 visual penuh terkunci, lalu buktikan video tak berubah saat mux final. Verdict terikat hash frame + INFO/kata/cue/energi; hanya input berubah yang diperiksa ulang. Hitung render penuh terpisah dari preview/chunk. | Mandat QC + Irfan permintaan dokumentasi | Aktif |
+| D-011 | 2026-11-16 | Pertahankan wide audiens 0619, jeda pitching 5,1 detik dengan ambience relevan, insert batik 0744 di bawah “kalau jujur” sesuai permintaan lama, urutan sketsa → clay, grup/mosaik dan gerak logo resmi. Tema sama dengan v10. | Revisi.md timeline; log v10 | Aktif |
+| D-012 | 2026-11-16 | P1 R5 dipilih sementara: crop uniform 5/3 [352,432,1504,1080], hero oranye kontur 2 px pada baseline 530. Partial head occlusion diterima; tidak mengklaim semua huruf tampak atau whole-P1 sudah lulus. | Director memilih still dari R-022/R-023 | Aktif |
+| D-013 | 2026-11-16 | Studio 0353–0357 tetap tidak dipakai; instruktur clay 0426 termasuk cakupan v11. | Log 13 Nov/v6 | Aktif |
+| D-014 | 2026-11-16 | Jangan mengulang insert/source footage yang identik. Callback boleh memakai orang yang sama pada momen berbeda. | Log v9 | Aktif |
+| R-001 | 2026-11-16 | Cold open K1: satu pikiran utuh dan ekspresi sejak awal; hapus duplikasi lama; lanjut ucapan terima kasih utuh dan gerbang saat nama acara. | Revisi.md §00:00–00:08/B4/A2 | Aktif |
+| R-002 | 2026-11-16 | Pulihkan fonem/napas dari handles sumber, solo sebelum/sesudah cut; microcrossfade hanya di celah aman. Fade tidak memperbaiki kata teriris. | Revisi.md §Perbaikan dialog/noise | Aktif |
+| R-003 | 2026-11-16 | Tiga gerak nyata menurut fungsi: narasi mask reveal tenang, perubahan ide directional, emosi/rating punch→settle. Hindari fade-up seragam. | Revisi.md tabel A1/A2 + §Tipografi | Aktif |
+| R-004 | 2026-11-16 | Satu lapisan semua ucapan, default 1–3 kata/maks 2 baris; satu ukuran per baris, margin 5%, tanpa duplikat; periksa kontras glyph aktual dan urutan baca. Pindah posisi dahulu; scrim bukan otomatis dan dilarang di P1. | Revisi.md A3/Tipografi + R-019/R-022 | Aktif |
+| R-005 | 2026-11-16 | K2 wajah pelajar berkacamata sejak pengalaman personal sampai akhir; insert tidak boleh menyembunyikan kesimpulan. Meja harus menunjukkan aksi yang dapat diikuti. | Revisi.md §00:19–00:30 | Aktif |
+| R-006 | 2026-11-16 | K3 sebab→friendly dan ekspresi utuh; K4 wajah sejak awal pikiran, wide 0619 dipertahankan. Identitas clay baru sesudah pikiran sebelumnya selesai. B-roll bukan orang lain yang sedang berbicara. | Revisi.md §00:30–00:47/D11 | Aktif |
+| R-007 | 2026-11-16 | Instruktur→sketsa 0486→ clay 0530; teks di sisi tangan, hasil/tekstur karya tetap terbuka, arah baca konsisten dan shot ditahan. | Revisi.md §00:48–00:57 | Aktif |
+| R-008 | 2026-11-16 | Pisahkan 0530 berudeng putih dari 0531 kelompok biru. T2 diproses dari take yang tepat; A-B s/ng/ekor vokal; kembali ke kelompok pada manfaat sosial. | Revisi.md §00:58–01:13/B5/B6 | Aktif |
+| R-009 | 2026-11-16 | C1 bukti budaya+teknologi atau wajah penutur; C3 harapan daerah tetap pendapat pribadi dan pengantarnya utuh, bukan pengumuman lokasi acara. | Revisi.md §01:13–01:35 | Aktif |
+| R-010 | 2026-11-16 | Arahan awal P1 satu jangkar/two-group lama digantikan komposisi bertahap R-022–R-023. Stabilitas kata dalam masing-masing frasa tetap berlaku. | Revisi.md §01:35–01:46; koreksi chat | Diganti |
+| R-011 | 2026-11-16 | Rating pada wajah masing-masing; angka pertama di bidang kontras, bukan motif kaus; rating kedua menyelesaikan deh dan ekspresi. Grup/mosaik menjadi pelepasan sebelum logo. | Revisi.md §01:46–01:59,55 | Aktif |
+| R-012 | 2026-11-16 | Aksen suara selektif untuk transisi/momen penting; kata biasa tetap senyap. Satu fungsi memakai satu file baku; bukan setiap kata oranye wajib bunyi. | Revisi.md C7/C8 + §Tipografi | Aktif |
+| R-013 | 2026-11-16 | Koordinat awal kiri wajah P1/longshot digantikan framing dan penempatan langsung di belakang kepala pada R-023. | Irfan 16 Nov gambar garis merah awal | Diganti |
+| R-014 | 2026-11-16 | Leveling statis linear per bite termasuk attenuasi penutur keras untuk permintaan volume setara; tanpa VO compressor/limiter/master loudnorm. Simpan source dan hasil FAIL mentah voice_level; pengecualian lokal, bukan mengubah E23. | Director implementasi Revisi.md loudness | Aktif |
+| R-015 | 2026-11-16 | Object selection/fungsi→whitespace dekat wajah/tubuh/fokus→balance seluruh frame. Satu sesi pemetaan visual memberi koordinat, source/range/camera; crop berubah harus dipetakan ulang. | Irfan 16 Nov penjelasan pemetaan | Aktif |
+| R-016 | 2026-11-16 | Buang kedua penggunaan keyboard 0653 yang tidak menambah cerita. Pengganti harus meriah atau membuktikan audio, tanpa klaim isi headset yang tak terlihat. | Irfan 16 Nov gambar 0653 | Aktif |
+| R-017 | 2026-11-16 | Hero NGATUR KITA satu baris CAPS besar, muncul per kata, baseline/ukuran/spasi alami konsisten; kata pertama tidak bergeser, tanpa shadow. Larangan outline awal diganti R-022. | Irfan 16 Nov font/ZIP/Jensen | Aktif |
+| R-018 | 2026-11-16 | Pulihkan Festival pada T1a, kayak/kita pada K2 dan Ini pada T1b dari sumber; buang sisa ujung kalimat sebelumnya. Final 3708 frame; raw ASR dipisahkan dari koreksi display. | Native A-B/waveform + R-002 | Aktif |
+| R-019 | 2026-11-16 | Footage P1 asli tanpa background hitam/dip/dimming/shadow/scrim; preview seluruh 25 kata, bukan hero-only. White-only lama tidak menjadi kewajiban setelah R-022. | Irfan 16 Nov menolak background gelap | Aktif |
+| R-020 | 2026-11-16 | Pilihan wajib putih dan semua narasi kanan setelah frame hitam kiri ditolak; pendekatan ini kemudian ditolak lagi karena berat kanan dan putih kalah lampu. Diganti R-022. | Irfan 16 Nov dua koreksi berurutan | Diganti |
+| R-021 | 2026-11-16 | Frasa C3 sesudah Klungkung adalah atau di daerah-daerah; konfirmasi user mengalahkan tebakan model. Audio/timing/raw ASR tidak diubah. | Irfan jawaban cuplikan audio 16 Nov | Aktif |
+| R-022 | 2026-11-16 | Bedah axes 50%x/50%y dan berat objek seluruh frame. Bangun gagasan AI kiri/manusia kanan, subjek sebagai spasi, lalu hapus teks sebelumnya untuk hero tengah. Aksen warna atau stroke tipis boleh bila putih kalah lampu; no shadow/dimming. | Irfan 16 Nov kritik berat kanan/taste | Aktif |
+| R-023 | 2026-11-16 | Framing awal dekat sesuai gambar user; kepala/tubuh lebih besar, plafon berkurang. Hero sejajar kepala/atas bahu LANGSUNG di belakang kepala tanpa gap; sebagian tertutup diperbolehkan. | Irfan 16 Nov gambar framing dekat yang dilampirkan | Aktif |
+| R-024 | 2026-11-16 | Sebelum melanjutkan edit: dokumen utama proyek harus mencerminkan Recap Day 1–3 v11, riwayat lama disimpan; juri setiap ID aktif+evidence, jumlah render/audit jujur; pull, peta, commit Agent Codex, push main. | Irfan permintaan dokumentasi terbaru | Aktif |
+| R-025 | 2026-11-16 | Cek dan match WB/exposure/skin tone antar hari/lighting sebelum ekspor; jangan menggelapkan P1 untuk menyelamatkan teks. Evaluasi kandidat pada pasangan sumber aktual. | Revisi.md D10 + R-019 | Aktif |
+| R-026 | 2026-11-16 | Ukur jarak SFX ≥100 ms, whoosh tidak rapat; pantau 2–6 kHz supaya tidak tajam/menutupi konsonan. Palet konsisten dan rendah. | Revisi.md C8/penegasan akhir | Aktif |
+| R-027 | 2026-11-16 | Satu aksen akhir pada gerak/lockup logo resmi yang sudah ada, tail selesai bersih. Jangan tumpuk riser+bassdrop+whoosh tanpa fungsi. | Revisi.md C7 logo + timeline akhir | Aktif |
+| R-028 | 2026-11-16 | Samakan loudness penutur sekitar −16 sampai −14 LUFS tanpa kompresi berlebih; musik tema mundur 3–5 dB lebih dalam pada T2 suara pelan. Ukur per penutur, jangan pakai angka master v10 sebagai bukti VO v11. | Revisi.md B5/B6/loudness/ducking | Aktif |
+| R-029 | 2026-11-16 | NR/highpass awal 80–100 Hz, EQ mud 250–400/presence 3–4 k dan de-esser hanya hipotesis jika terdengar perlu, bukan preset. A-B raw/VO menjaga s/ng/vokal; ambience relevan tetap. | Revisi.md pembuka/noise/EQ | Aktif |
+| R-030 | 2026-11-16 | Onset kata mengikuti audio final; kata cepat tetap sempat dibaca ≥6 frame, phrasing/hold tidak menimpa kata berikutnya. Jangan preset 0,3–0,4 detik tail pada semua frasa. | Revisi.md A3 + §Tipografi | Aktif |
+| R-031 | 2026-11-16 | Napas rating 4–6 frame dan onset/ekor rating utuh; jangan mengiris angka/deh untuk mengejar ritme. | Revisi.md A2/B4 rating/penegasan akhir | Aktif |
+| R-032 | 2026-11-16 | Sanding v10/revisi pada HP: pembuka, sketsa → clay, T2, pesan AI→rating; audio only, visual only, speaker HP, logo/endtail. Jangan menyamakan gambar statis dengan preview alur. | Revisi.md §Kapan siap ditonton | Aktif |
+| R-033 | 2026-11-16 | Delivery wajib timecode lama→baru, sumber pengganti aktual dan known issues; catat file/Drive/durasi/LUFS/audit/jumlah render tanpa mengarang final. | Revisi.md penyerahan + user dokumentasi | Aktif |
+| R-034 | 2026-11-16 | Fade in awal 3–5 frame hanya jika handle aman setelah fonem dipulihkan; fade tidak boleh menutupi kata teriris. Ini bukan kewajiban memasang preset pada setiap head. | Revisi.md B4/akhir | Aktif |
+
+Semua temuan Revisi.md tercakup: B4→R-001/R-002/R-018/R-031; A1/A2→R-003/R-017/R-022/R-030; A3→R-004/R-015/R-030; D11→R-006; D10→R-025; B5/B6→R-008/R-014/R-028/R-029; C7/C8→R-012/R-026/R-027. Timecode di Revisi.md mengacu ke v10; v11 memakai source map fisik, bukan menyalin detik lama.
+
+## Log versi lama · arsip, bukan keputusan aktif
+
+Bagian di bawah dipertahankan dari dokumen lama. Mandat 60 detik/Day 1/satu sesi/2–3 orang, teks dihapus v2, dan putusan/QC audio versi lama tidak berlaku sebagai v11.
+
 # DECISIONS · Bali Digifest 2026 Day 1 (60 dtk)
 
 Media mentah tidak di-commit: `~/work/bdf26/` di PC server (raw/, transkrip, stem). Build: `tools/extract_shots.py` → `tools/mix.py` → Remotion `BDF26Day1` lewat `scripts/juri/render.sh`.
