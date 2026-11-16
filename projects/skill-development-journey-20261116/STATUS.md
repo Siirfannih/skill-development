@@ -37,3 +37,10 @@ Otoritas: DESAIN.md (visual) > MENU.md (disetujui) > RESEP.md §7–§8 > DECISI
 Berjalan: (1) Sonnet builder semua beat (REPORT-build-sonnet.md); (2) Sonnet pemotong forced alignment MMS_FA (REPORT-1a-potong.md Ronde 5) → kunci suara; (3) claude1 MG63-ADENDUM.
 Berikutnya: adendum → Sonnet bangun adegan MG → Opus rapikan semua → still + sanding (G2 Sutradara) → fase 2 suara (pause_clean/voice_level: level −19,3 LUFS, puncak 0 dBFS) → lock visual → SFX (objects.json) → musik dua varian (GUIDELINE §7.1 lagu kandidat) → render.sh frames + frame_audit (2 pemeriksa) → lego final → Drive.
 Disk ±6 GB: render final per rentang bila < 8 GB (orkestrasi §7).
+
+16 Nov malam · build Sonnet selesai: semua beat B1–B6 (wajah + MG63) sebagai 129 lapisan lego di `lego/lego.json` (cek PASS), still di `qc/still/`, matte RVM `qc/matte/wajah-matte.mkv`; temuan dan yang belum sesuai DESAIN di `handoff/REPORT-build-sonnet.md`.
+
+## 17 Nov ±00:05 · posisi
+- Suara TERKUNCI (edit/ORDER.json, 1ee4baa3): R6 83,283 dtk, 7 pengecualian guard "tuh" berbukti, --terima-pelan −19,3 LUFS (tanpa limiter). Dua usulan [A] di PENDING untuk Irfan.
+- Visual: Sonnet build → Opus rapikan (claude1) LULUS arah G2. Sonnet sekarang: sinkron ke R6 + B3a lingkaran/tombol, B5b pan, B6b bubble → draft 0,5 → lock visual + objects.json.
+- Berikutnya: SFX (Penata suara, objects.json, SFXIrfan) → musik dua varian + tanpa-musik (GUIDELINE §7.1 kandidat lagu, sebagai usulan) → render.sh frames + frame_audit (Codex + Sonnet, blind) → lego final → Drive "Claude edit/2026-11-16 — Siirfan — Di Balik Skill Development".

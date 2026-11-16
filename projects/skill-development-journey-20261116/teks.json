@@ -6,8 +6,8 @@
    0
   ],
   "teks": "Oke,",
-  "t": 0.597,
-  "dur": 0.55,
+  "t": 0.323,
+  "dur": 0.51,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -25,8 +25,8 @@
    1
   ],
   "teks": "finally",
-  "t": 1.177,
-  "dur": 0.4,
+  "t": 0.833,
+  "dur": 0.515,
   "peran": "R6",
   "kode": "T04",
   "gaya": "finally",
@@ -45,8 +45,8 @@
    4
   ],
   "teks": "akhirnya proyek ini",
-  "t": 1.577,
-  "dur": 1.643,
+  "t": 1.348,
+  "dur": 1.641,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -64,8 +64,8 @@
    5
   ],
   "teks": "selesai",
-  "t": 3.237,
-  "dur": 0.943,
+  "t": 3.11,
+  "dur": 0.55,
   "peran": "R2",
   "kode": "T03",
   "gaya": "r2",
@@ -84,8 +84,8 @@
    6
   ],
   "teks": "juga.",
-  "t": 4.197,
-  "dur": 0.38,
+  "t": 3.71,
+  "dur": 0.55,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -103,8 +103,8 @@
    7
   ],
   "teks": "Ya,",
-  "t": 4.577,
-  "dur": 0.5,
+  "t": 4.32,
+  "dur": 0.32,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -122,8 +122,8 @@
    10
   ],
   "teks": "aku baru aja",
-  "t": 5.077,
-  "dur": 0.64,
+  "t": 4.64,
+  "dur": 0.535,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -141,8 +141,8 @@
    11
   ],
   "teks": "ngebikin",
-  "t": 5.717,
-  "dur": 0.55,
+  "t": 5.175,
+  "dur": 0.628,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -160,8 +160,8 @@
    12
   ],
   "teks": "workflow",
-  "t": 6.277,
-  "dur": 0.44,
+  "t": 5.938,
+  "dur": 0.52,
   "peran": "R6",
   "kode": "T04",
   "gaya": "busur",
@@ -178,8 +178,8 @@
    14
   ],
   "teks": "gimana biar",
-  "t": 6.717,
-  "dur": 0.883,
+  "t": 6.458,
+  "dur": 0.575,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -197,8 +197,8 @@
    16
   ],
   "teks": "AI model",
-  "t": 7.617,
-  "dur": 0.42,
+  "t": 7.033,
+  "dur": 0.625,
   "peran": "R6",
   "kode": "T04",
   "gaya": "busur",
@@ -214,9 +214,9 @@
    17,
    19
   ],
-  "teks": "yang kita pake.",
-  "t": 8.037,
-  "dur": 0.72,
+  "teks": "yang kita pake,",
+  "t": 7.658,
+  "dur": 0.51,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -233,9 +233,9 @@
    20,
    21
   ],
-  "teks": "Entah itu",
-  "t": 8.757,
-  "dur": 0.3,
+  "teks": "entah itu",
+  "t": 8.168,
+  "dur": 0.405,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -253,8 +253,8 @@
    22
   ],
   "teks": "ChatGPT,",
-  "t": 9.057,
-  "dur": 0.913,
+  "t": 8.573,
+  "dur": 0.733,
   "peran": "R2",
   "kode": "T03",
   "gaya": "r2",
@@ -272,8 +272,8 @@
    23
   ],
   "teks": "Claude,",
-  "t": 10.087,
-  "dur": 0.35,
+  "t": 9.44,
+  "dur": 0.375,
   "peran": "R2",
   "kode": "T03",
   "gaya": "r2",
@@ -290,9 +290,9 @@
    24,
    24
   ],
-  "teks": "Gemini.",
-  "t": 10.437,
-  "dur": 0.46,
+  "teks": "Gemini,",
+  "t": 9.815,
+  "dur": 0.55,
   "peran": "R2",
   "kode": "T03",
   "gaya": "r2",
@@ -309,9 +309,9 @@
    25,
    27
   ],
-  "teks": "Itu bisa ngebuat",
-  "t": 10.897,
-  "dur": 1.517,
+  "teks": "itu bisa ngebuat",
+  "t": 10.499,
+  "dur": 1.18,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -329,8 +329,8 @@
    28
   ],
   "teks": "sebuah",
-  "t": 12.43,
-  "dur": 0.3,
+  "t": 11.721,
+  "dur": 0.275,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -348,8 +348,8 @@
    29
   ],
   "teks": "decision",
-  "t": 12.73,
-  "dur": 0.28,
+  "t": 11.996,
+  "dur": 0.525,
   "peran": "R6",
   "kode": "T04",
   "gaya": "busur",
@@ -366,8 +366,8 @@
    32
   ],
   "teks": "dalam ngebuat video",
-  "t": 13.01,
-  "dur": 1.243,
+  "t": 12.521,
+  "dur": 1.055,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -385,8 +385,8 @@
    33
   ],
   "teks": "gitu.",
-  "t": 14.27,
-  "dur": 0.34,
+  "t": 13.576,
+  "dur": 0.255,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -404,8 +404,8 @@
    36
   ],
   "teks": "Karena belakangan ini",
-  "t": 14.61,
-  "dur": 1.04,
+  "t": 13.831,
+  "dur": 0.891,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -423,8 +423,8 @@
    38
   ],
   "teks": "kan lagi",
-  "t": 15.65,
-  "dur": 0.28,
+  "t": 14.722,
+  "dur": 0.355,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -442,8 +442,8 @@
    39
   ],
   "teks": "viral",
-  "t": 15.93,
-  "dur": 0.28,
+  "t": 15.077,
+  "dur": 0.205,
   "peran": "R3",
   "kode": "T25",
   "gaya": "viral",
@@ -462,8 +462,8 @@
    42
   ],
   "teks": "banget soal ngedit",
-  "t": 16.21,
-  "dur": 1.163,
+  "t": 15.282,
+  "dur": 1.135,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -481,8 +481,8 @@
    45
   ],
   "teks": "video pake AI.",
-  "t": 17.39,
-  "dur": 0.9,
+  "t": 16.417,
+  "dur": 0.99,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -497,11 +497,11 @@
   "id": "T027",
   "kata": [
    46,
-   48
+   46
   ],
-  "teks": "Tapi kalau dari",
-  "t": 18.29,
-  "dur": 0.86,
+  "teks": "Tapi,",
+  "t": 17.407,
+  "dur": 0.532,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -515,12 +515,12 @@
  {
   "id": "T028",
   "kata": [
-   49,
-   51
+   47,
+   49
   ],
-  "teks": "pandanganku sendiri hasilnya",
-  "t": 19.15,
-  "dur": 1.303,
+  "teks": "kalau dari pandanganku",
+  "t": 17.939,
+  "dur": 0.835,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -534,12 +534,12 @@
  {
   "id": "T029",
   "kata": [
-   52,
-   53
+   50,
+   50
   ],
-  "teks": "masih terasa",
-  "t": 20.47,
-  "dur": 0.56,
+  "teks": "sendiri,",
+  "t": 18.774,
+  "dur": 0.545,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -553,12 +553,31 @@
  {
   "id": "T030",
   "kata": [
+   51,
+   53
+  ],
+  "teks": "hasilnya masih terasa",
+  "t": 19.319,
+  "dur": 0.757,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   770
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false
+ },
+ {
+  "id": "T031",
+  "kata": [
    54,
    55
   ],
   "teks": "AI slop.",
-  "t": 21.03,
-  "dur": 0.66,
+  "t": 20.076,
+  "dur": 0.76,
   "peran": "R6",
   "kode": "T04",
   "gaya": "slab",
@@ -571,33 +590,14 @@
   "gelap": false
  },
  {
-  "id": "T031",
+  "id": "T032",
   "kata": [
    56,
    58
   ],
   "teks": "Dan ya beberapa",
-  "t": 21.69,
-  "dur": 1.02,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   770
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T032",
-  "kata": [
-   59,
-   61
-  ],
-  "teks": "bagian itu masih",
-  "t": 22.71,
-  "dur": 0.52,
+  "t": 20.836,
+  "dur": 1.003,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -611,12 +611,31 @@
  {
   "id": "T033",
   "kata": [
-   62,
-   62
+   59,
+   60
+  ],
+  "teks": "bagian masih",
+  "t": 21.839,
+  "dur": 0.631,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   770
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false
+ },
+ {
+  "id": "T034",
+  "kata": [
+   61,
+   61
   ],
   "teks": "putus-putus.",
-  "t": 23.23,
-  "dur": 0.674,
+  "t": 22.47,
+  "dur": 0.733,
   "peran": "R3",
   "kode": "T25",
   "gaya": "putus",
@@ -628,33 +647,14 @@
   "gelap": false
  },
  {
-  "id": "T034",
-  "kata": [
-   63,
-   65
-  ],
-  "teks": "Dan itu bukan",
-  "t": 24.025,
-  "dur": 0.578,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   760,
-   1000
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true
- },
- {
   "id": "T035",
   "kata": [
-   66,
-   66
+   62,
+   64
   ],
-  "teks": "sebuah",
-  "t": 24.603,
-  "dur": 0.683,
+  "teks": "Dan ini bukan",
+  "t": 23.447,
+  "dur": 0.797,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -668,31 +668,12 @@
  {
   "id": "T036",
   "kata": [
-   67,
-   67
+   65,
+   65
   ],
-  "teks": "template.",
-  "t": 25.303,
-  "dur": 0.52,
-  "peran": "R2",
-  "kode": "T03",
-  "gaya": "r2",
-  "pos": [
-   760,
-   1000
-  ],
-  "alasan": "kata kunci di dekat kolom ketik saat '/' diketik (DESAIN B3a)",
-  "gelap": true
- },
- {
-  "id": "T037",
-  "kata": [
-   68,
-   68
-  ],
-  "teks": "Jadi,",
-  "t": 25.823,
-  "dur": 0.313,
+  "teks": "sebuah",
+  "t": 24.244,
+  "dur": 0.38,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -704,14 +685,33 @@
   "gelap": true
  },
  {
+  "id": "T037",
+  "kata": [
+   66,
+   66
+  ],
+  "teks": "template.",
+  "t": 24.624,
+  "dur": 0.55,
+  "peran": "R2",
+  "kode": "T03",
+  "gaya": "r2",
+  "pos": [
+   760,
+   1000
+  ],
+  "alasan": "kata kunci di dekat kolom ketik saat '/' diketik (DESAIN B3a)",
+  "gelap": true
+ },
+ {
   "id": "T038",
   "kata": [
-   69,
-   71
+   67,
+   69
   ],
-  "teks": "kalau orang-orang kan",
-  "t": 26.137,
-  "dur": 1.423,
+  "teks": "Jadi kalau orang-orang",
+  "t": 25.229,
+  "dur": 1.55,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -725,12 +725,12 @@
  {
   "id": "T039",
   "kata": [
-   72,
-   74
+   70,
+   72
   ],
-  "teks": "sering banget bilang",
-  "t": 27.577,
-  "dur": 0.766,
+  "teks": "kan sering banget",
+  "t": 26.846,
+  "dur": 0.709,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -744,12 +744,12 @@
  {
   "id": "T040",
   "kata": [
-   75,
-   77
+   73,
+   75
   ],
-  "teks": "edit kayak Apple",
-  "t": 28.343,
-  "dur": 1.17,
+  "teks": "bilang edit kayak",
+  "t": 27.555,
+  "dur": 0.973,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -763,12 +763,12 @@
  {
   "id": "T041",
   "kata": [
-   78,
-   78
+   76,
+   77
   ],
-  "teks": "style,",
-  "t": 29.53,
-  "dur": 0.22,
+  "teks": "Apple style,",
+  "t": 28.529,
+  "dur": 0.85,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -782,12 +782,12 @@
  {
   "id": "T042",
   "kata": [
-   79,
-   81
+   78,
+   80
   ],
-  "teks": "Edit kayak Cinematic",
-  "t": 29.75,
-  "dur": 1.31,
+  "teks": "edit kayak Cinematic",
+  "t": 29.519,
+  "dur": 1.222,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -801,12 +801,12 @@
  {
   "id": "T043",
   "kata": [
-   82,
-   84
+   81,
+   82
   ],
-  "teks": "Storytelling gitu Nah",
-  "t": 31.077,
-  "dur": 1.91,
+  "teks": "Storytelling gitu.",
+  "t": 30.788,
+  "dur": 0.863,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -820,12 +820,12 @@
  {
   "id": "T044",
   "kata": [
-   85,
-   85
+   83,
+   83
   ],
-  "teks": "itu",
-  "t": 33.003,
-  "dur": 0.16,
+  "teks": "Nah,",
+  "t": 31.798,
+  "dur": 0.2,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -839,12 +839,31 @@
  {
   "id": "T045",
   "kata": [
-   86,
-   86
+   84,
+   84
+  ],
+  "teks": "aku",
+  "t": 31.998,
+  "dur": 0.201,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   760,
+   1000
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": true
+ },
+ {
+  "id": "T046",
+  "kata": [
+   85,
+   85
   ],
   "teks": "ngebalik.",
-  "t": 33.163,
-  "dur": 0.603,
+  "t": 32.199,
+  "dur": 0.55,
   "peran": "R2",
   "kode": "T03",
   "gaya": "r2",
@@ -856,14 +875,14 @@
   "gelap": true
  },
  {
-  "id": "T046",
+  "id": "T047",
   "kata": [
-   87,
-   89
+   86,
+   88
   ],
-  "teks": "progress dibaliknya Gimana",
-  "t": 34.145,
-  "dur": 1.328,
+  "teks": "Progress di dibaliknya",
+  "t": 32.894,
+  "dur": 1.15,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -875,33 +894,14 @@
   "gelap": true
  },
  {
-  "id": "T047",
-  "kata": [
-   90,
-   92
-  ],
-  "teks": "caranya biar AI",
-  "t": 35.49,
-  "dur": 1.177,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   770
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
   "id": "T048",
   "kata": [
-   93,
-   95
+   89,
+   91
   ],
-  "teks": "itu Cuman mempelajari",
-  "t": 36.683,
-  "dur": 1.383,
+  "teks": "Gimana caranya biar",
+  "t": 34.089,
+  "dur": 1.15,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -915,12 +915,50 @@
  {
   "id": "T049",
   "kata": [
+   92,
+   94
+  ],
+  "teks": "AI ini cuman",
+  "t": 35.288,
+  "dur": 0.986,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   770
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false
+ },
+ {
+  "id": "T050",
+  "kata": [
+   95,
+   95
+  ],
+  "teks": "mempelajari",
+  "t": 36.274,
+  "dur": 0.693,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   770
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false
+ },
+ {
+  "id": "T051",
+  "kata": [
    96,
    96
   ],
-  "teks": "workflow-nya",
-  "t": 38.084,
-  "dur": 0.663,
+  "teks": "workflow-nya.",
+  "t": 37.019,
+  "dur": 0.588,
   "peran": "R6",
   "kode": "T04",
   "gaya": "slab",
@@ -933,52 +971,14 @@
   "gelap": false
  },
  {
-  "id": "T050",
-  "kata": [
-   97,
-   97
-  ],
-  "teks": "Jadi,",
-  "t": 38.763,
-  "dur": 0.2,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   1090,
-   770
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T051",
-  "kata": [
-   98,
-   100
-  ],
-  "teks": "gak usah ditanya",
-  "t": 38.964,
-  "dur": 0.86,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   1090,
-   770
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
   "id": "T052",
   "kata": [
-   101,
-   103
+   97,
+   99
   ],
-  "teks": "Kenapa aku gak",
-  "t": 39.824,
-  "dur": 0.799,
+  "teks": "Jadi gak usah",
+  "t": 37.847,
+  "dur": 0.535,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -992,12 +992,12 @@
  {
   "id": "T053",
   "kata": [
-   104,
-   106
+   100,
+   102
   ],
-  "teks": "langsung publish dan",
-  "t": 40.623,
-  "dur": 0.84,
+  "teks": "ditanya kenapa aku",
+  "t": 38.382,
+  "dur": 0.923,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1011,12 +1011,12 @@
  {
   "id": "T054",
   "kata": [
-   107,
-   108
+   103,
+   105
   ],
-  "teks": "open source.",
-  "t": 41.464,
-  "dur": 0.56,
+  "teks": "gak langsung publish",
+  "t": 39.305,
+  "dur": 0.96,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1030,12 +1030,12 @@
  {
   "id": "T055",
   "kata": [
-   109,
-   110
+   106,
+   108
   ],
-  "teks": "Karena perlu",
-  "t": 42.024,
-  "dur": 0.957,
+  "teks": "dan open source.",
+  "t": 40.265,
+  "dur": 1.06,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1049,12 +1049,31 @@
  {
   "id": "T056",
   "kata": [
+   109,
+   110
+  ],
+  "teks": "Karena perlu",
+  "t": 41.325,
+  "dur": 0.589,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   1090,
+   770
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false
+ },
+ {
+  "id": "T057",
+  "kata": [
    111,
    112
   ],
-  "teks": "balik modal",
-  "t": 42.997,
-  "dur": 0.38,
+  "teks": "balik modal,",
+  "t": 41.914,
+  "dur": 0.515,
   "peran": "R6",
   "kode": "T04",
   "gaya": "slab",
@@ -1067,14 +1086,14 @@
   "gelap": false
  },
  {
-  "id": "T057",
+  "id": "T058",
   "kata": [
    113,
-   114
+   113
   ],
-  "teks": "Pak Ini",
-  "t": 43.377,
-  "dur": 0.5,
+  "teks": "Pak.",
+  "t": 42.429,
+  "dur": 0.352,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1086,33 +1105,14 @@
   "gelap": false
  },
  {
-  "id": "T058",
-  "kata": [
-   115,
-   116
-  ],
-  "teks": "habis banget",
-  "t": 43.877,
-  "dur": 0.733,
-  "peran": "R3",
-  "kode": "T25",
-  "gaya": "r3",
-  "pos": [
-   700,
-   790
-  ],
-  "alasan": "biaya terkuras: kata kacau/frustrasi (DESAIN B4b)",
-  "gelap": false
- },
- {
   "id": "T059",
   "kata": [
-   117,
-   119
+   114,
+   114
   ],
-  "teks": "gitu buat biayanya",
-  "t": 44.61,
-  "dur": 1.12,
+  "teks": "Ini",
+  "t": 42.781,
+  "dur": 0.313,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1126,31 +1126,31 @@
  {
   "id": "T060",
   "kata": [
-   120,
-   122
+   115,
+   116
   ],
-  "teks": "Itu sampai harus",
-  "t": 45.73,
-  "dur": 0.827,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
+  "teks": "habis banget",
+  "t": 43.094,
+  "dur": 0.64,
+  "peran": "R3",
+  "kode": "T25",
+  "gaya": "r3",
   "pos": [
    700,
    790
   ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "alasan": "biaya terkuras: kata kacau/frustrasi (DESAIN B4b)",
   "gelap": false
  },
  {
   "id": "T061",
   "kata": [
-   123,
-   125
+   117,
+   119
   ],
-  "teks": "langganan ChatGPT Pro",
-  "t": 46.557,
-  "dur": 1.937,
+  "teks": "gitu buat biayanya.",
+  "t": 43.734,
+  "dur": 1.15,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1164,12 +1164,12 @@
  {
   "id": "T062",
   "kata": [
-   126,
-   127
+   120,
+   122
   ],
-  "teks": "Max yang",
-  "t": 48.51,
-  "dur": 0.42,
+  "teks": "Aku sampai harus",
+  "t": 44.964,
+  "dur": 1.006,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1183,32 +1183,31 @@
  {
   "id": "T063",
   "kata": [
-   128,
-   129
+   123,
+   125
   ],
-  "teks": "20 kali",
-  "t": 48.93,
-  "dur": 0.56,
-  "peran": "R2",
-  "kode": "T03",
-  "gaya": "kartu",
+  "teks": "langganan ChatGPT Pro",
+  "t": 45.97,
+  "dur": 1.636,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
   "pos": [
-   1520,
-   360
+   700,
+   790
   ],
-  "alasan": "angka tampil SEBAGAI kartu ChatGPT (20× besar, mendarat di kata ini); tidak ada KT kedua supaya kata tidak dobel (Lantai A3, DESAIN B4b)",
-  "teks_vis": "20×",
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
  },
  {
   "id": "T064",
   "kata": [
-   130,
-   132
+   126,
+   127
   ],
-  "teks": "Sama Claude Pro",
-  "t": 49.49,
-  "dur": 1.263,
+  "teks": "Max yang",
+  "t": 47.683,
+  "dur": 0.395,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1222,12 +1221,32 @@
  {
   "id": "T065",
   "kata": [
-   133,
-   133
+   128,
+   129
   ],
-  "teks": "yang",
-  "t": 50.77,
-  "dur": 0.44,
+  "teks": "20 kali",
+  "t": 48.078,
+  "dur": 0.71,
+  "peran": "R2",
+  "kode": "T03",
+  "gaya": "kartu",
+  "pos": [
+   1520,
+   360
+  ],
+  "alasan": "angka tampil SEBAGAI kartu ChatGPT (20× besar, mendarat di kata ini); tidak ada KT kedua supaya kata tidak dobel (Lantai A3, DESAIN B4b)",
+  "teks_vis": "20×",
+  "gelap": false
+ },
+ {
+  "id": "T066",
+  "kata": [
+   130,
+   132
+  ],
+  "teks": "sama Claude Pro",
+  "t": 48.788,
+  "dur": 1.28,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1239,34 +1258,14 @@
   "gelap": false
  },
  {
-  "id": "T066",
-  "kata": [
-   134,
-   135
-  ],
-  "teks": "5 kali",
-  "t": 51.21,
-  "dur": 0.44,
-  "peran": "R2",
-  "kode": "T03",
-  "gaya": "kartu",
-  "pos": [
-   1590,
-   740
-  ],
-  "alasan": "angka tampil SEBAGAI kartu Claude (5× besar, mendarat di kata ini); tidak dobel (Lantai A3, DESAIN B4b)",
-  "teks_vis": "5×",
-  "gelap": false
- },
- {
   "id": "T067",
   "kata": [
-   136,
-   138
+   133,
+   133
   ],
-  "teks": "Hanya untuk uji",
-  "t": 51.65,
-  "dur": 1.14,
+  "teks": "yang",
+  "t": 50.203,
+  "dur": 0.15,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1280,31 +1279,32 @@
  {
   "id": "T068",
   "kata": [
-   139,
-   141
+   134,
+   135
   ],
-  "teks": "coba sistem ini",
-  "t": 52.79,
-  "dur": 1.02,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
+  "teks": "5 kali.",
+  "t": 50.353,
+  "dur": 0.759,
+  "peran": "R2",
+  "kode": "T03",
+  "gaya": "kartu",
   "pos": [
-   700,
-   790
+   1590,
+   740
   ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "alasan": "angka tampil SEBAGAI kartu Claude (5× besar, mendarat di kata ini); tidak dobel (Lantai A3, DESAIN B4b)",
+  "teks_vis": "5×",
   "gelap": false
  },
  {
   "id": "T069",
   "kata": [
-   142,
-   142
+   136,
+   138
   ],
-  "teks": "gitu.",
-  "t": 53.81,
-  "dur": 0.451,
+  "teks": "Hanya untuk uji",
+  "t": 51.112,
+  "dur": 0.9,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1318,18 +1318,18 @@
  {
   "id": "T070",
   "kata": [
-   143,
-   143
+   139,
+   141
   ],
-  "teks": "Dan,",
-  "t": 54.262,
-  "dur": 0.292,
+  "teks": "coba sistem ini,",
+  "t": 52.012,
+  "dur": 1.141,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
-   770
+   700,
+   790
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1337,18 +1337,18 @@
  {
   "id": "T071",
   "kata": [
-   144,
-   146
+   142,
+   142
   ],
-  "teks": "bahkan sistem workflow",
-  "t": 54.554,
-  "dur": 1.0,
+  "teks": "gitu.",
+  "t": 53.153,
+  "dur": 0.379,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
-   770
+   700,
+   790
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1356,12 +1356,12 @@
  {
   "id": "T072",
   "kata": [
-   147,
-   149
+   143,
+   145
   ],
-  "teks": "itu memungkinkan sistem",
-  "t": 55.554,
-  "dur": 1.357,
+  "teks": "Dan bahkan sistem",
+  "t": 53.532,
+  "dur": 0.86,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1375,12 +1375,12 @@
  {
   "id": "T073",
   "kata": [
-   150,
-   150
+   146,
+   148
   ],
-  "teks": "kerja",
-  "t": 56.927,
-  "dur": 0.5,
+  "teks": "workflow ini memungkinkan",
+  "t": 54.392,
+  "dur": 1.385,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1394,31 +1394,12 @@
  {
   "id": "T074",
   "kata": [
-   151,
-   152
+   149,
+   150
   ],
-  "teks": "lintas agent.",
-  "t": 57.427,
-  "dur": 0.48,
-  "peran": "R3",
-  "kode": "T25",
-  "gaya": "r3",
-  "pos": [
-   960,
-   770
-  ],
-  "alasan": "banyak agen saling silang: kata kacau lalu mendarat (variasi gerak B5a)",
-  "gelap": false
- },
- {
-  "id": "T075",
-  "kata": [
-   153,
-   155
-  ],
-  "teks": "Kayak yang kalian",
-  "t": 57.907,
-  "dur": 1.08,
+  "teks": "sistem kerja",
+  "t": 55.907,
+  "dur": 0.675,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1430,14 +1411,33 @@
   "gelap": false
  },
  {
+  "id": "T075",
+  "kata": [
+   151,
+   152
+  ],
+  "teks": "lintas agent.",
+  "t": 56.582,
+  "dur": 0.705,
+  "peran": "R3",
+  "kode": "T25",
+  "gaya": "r3",
+  "pos": [
+   960,
+   770
+  ],
+  "alasan": "banyak agen saling silang: kata kacau lalu mendarat (variasi gerak B5a)",
+  "gelap": false
+ },
+ {
   "id": "T076",
   "kata": [
-   156,
-   157
+   153,
+   155
   ],
-  "teks": "lihat ini.",
-  "t": 58.987,
-  "dur": 0.85,
+  "teks": "Kayak yang kalian",
+  "t": 57.287,
+  "dur": 0.887,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1451,18 +1451,18 @@
  {
   "id": "T077",
   "kata": [
-   158,
-   160
+   156,
+   157
   ],
-  "teks": "Bahkan ChatGPT itu",
-  "t": 59.991,
-  "dur": 0.876,
+  "teks": "lihat ini.",
+  "t": 58.174,
+  "dur": 0.673,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
    960,
-   92
+   770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1470,12 +1470,12 @@
  {
   "id": "T078",
   "kata": [
-   161,
-   163
+   158,
+   160
   ],
-  "teks": "bisa koordinasi ke",
-  "t": 60.867,
-  "dur": 0.88,
+  "teks": "Bahkan ChatGPT bisa",
+  "t": 58.847,
+  "dur": 1.154,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1489,12 +1489,12 @@
  {
   "id": "T079",
   "kata": [
-   164,
-   166
+   161,
+   163
   ],
-  "teks": "Claude Claude bisa",
-  "t": 61.747,
-  "dur": 0.8,
+  "teks": "koordinasi ke Claude.",
+  "t": 60.053,
+  "dur": 1.125,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1508,12 +1508,12 @@
  {
   "id": "T080",
   "kata": [
-   167,
-   169
+   164,
+   166
   ],
-  "teks": "dikoordinasi sebaliknya Bahkan",
-  "t": 62.547,
-  "dur": 1.583,
+  "teks": "Claude bisa dikoordinasi",
+  "t": 61.178,
+  "dur": 1.15,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1527,12 +1527,12 @@
  {
   "id": "T081",
   "kata": [
-   170,
-   172
+   167,
+   167
   ],
-  "teks": "ChatGPT dengan session",
-  "t": 64.147,
-  "dur": 1.303,
+  "teks": "sebaliknya.",
+  "t": 62.338,
+  "dur": 0.455,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1546,12 +1546,12 @@
  {
   "id": "T082",
   "kata": [
-   173,
-   175
+   168,
+   170
   ],
-  "teks": "yang berbeda pun",
-  "t": 65.467,
-  "dur": 0.78,
+  "teks": "Bahkan ChatGPT dengan",
+  "t": 62.793,
+  "dur": 1.458,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1565,12 +1565,12 @@
  {
   "id": "T083",
   "kata": [
-   176,
-   178
+   171,
+   173
   ],
-  "teks": "bisa koordinasi Untuk",
-  "t": 66.247,
-  "dur": 1.163,
+  "teks": "session yang berbeda",
+  "t": 64.288,
+  "dur": 0.825,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1584,12 +1584,12 @@
  {
   "id": "T084",
   "kata": [
-   179,
-   179
+   174,
+   176
   ],
-  "teks": "meminimalisir",
-  "t": 67.427,
-  "dur": 0.683,
+  "teks": "pun bisa koordinasi",
+  "t": 65.113,
+  "dur": 0.85,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1603,31 +1603,12 @@
  {
   "id": "T085",
   "kata": [
-   180,
-   180
+   177,
+   178
   ],
-  "teks": "kesalahan",
-  "t": 68.127,
-  "dur": 0.5,
-  "peran": "R3",
-  "kode": "T25",
-  "gaya": "r3",
-  "pos": [
-   960,
-   92
-  ],
-  "alasan": "kesalahan berulang yang diminimalkan: kata kacau lalu mendarat (DESAIN B5b)",
-  "gelap": true
- },
- {
-  "id": "T086",
-  "kata": [
-   181,
-   182
-  ],
-  "teks": "yang sama.",
-  "t": 68.627,
-  "dur": 0.85,
+  "teks": "untuk meminimalisir",
+  "t": 65.963,
+  "dur": 1.088,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1639,14 +1620,33 @@
   "gelap": false
  },
  {
+  "id": "T086",
+  "kata": [
+   179,
+   179
+  ],
+  "teks": "kesalahan",
+  "t": 67.153,
+  "dur": 0.375,
+  "peran": "R3",
+  "kode": "T25",
+  "gaya": "r3",
+  "pos": [
+   960,
+   92
+  ],
+  "alasan": "kesalahan berulang yang diminimalkan: kata kacau lalu mendarat (DESAIN B5b)",
+  "gelap": true
+ },
+ {
   "id": "T087",
   "kata": [
-   183,
-   184
+   180,
+   181
   ],
-  "teks": "Sehingga ada",
-  "t": 69.571,
-  "dur": 0.81,
+  "teks": "yang sama.",
+  "t": 67.528,
+  "dur": 0.768,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1660,31 +1660,12 @@
  {
   "id": "T088",
   "kata": [
-   185,
-   186
+   182,
+   183
   ],
-  "teks": "loop pembelajaran",
-  "t": 70.381,
-  "dur": 1.143,
-  "peran": "R2",
-  "kode": "T03",
-  "gaya": "r2",
-  "pos": [
-   960,
-   92
-  ],
-  "alasan": "kata kunci saat loop menutup + centang (DESAIN B5b)",
-  "gelap": true
- },
- {
-  "id": "T089",
-  "kata": [
-   187,
-   189
-  ],
-  "teks": "yang terjadi di",
-  "t": 71.541,
-  "dur": 0.86,
+  "teks": "Sehingga ada",
+  "t": 68.296,
+  "dur": 1.123,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1696,14 +1677,33 @@
   "gelap": false
  },
  {
+  "id": "T089",
+  "kata": [
+   184,
+   185
+  ],
+  "teks": "loop pembelajaran",
+  "t": 69.476,
+  "dur": 0.85,
+  "peran": "R2",
+  "kode": "T03",
+  "gaya": "r2",
+  "pos": [
+   960,
+   92
+  ],
+  "alasan": "kata kunci saat loop menutup + centang (DESAIN B5b)",
+  "gelap": true
+ },
+ {
   "id": "T090",
   "kata": [
-   190,
-   192
+   186,
+   188
   ],
-  "teks": "sini Ini Ini",
-  "t": 72.401,
-  "dur": 0.676,
+  "teks": "yang terjadi di",
+  "t": 70.371,
+  "dur": 0.935,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1717,12 +1717,50 @@
  {
   "id": "T091",
   "kata": [
-   193,
-   196
+   189,
+   189
+  ],
+  "teks": "sini.",
+  "t": 71.306,
+  "dur": 0.488,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   92
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false
+ },
+ {
+  "id": "T092",
+  "kata": [
+   190,
+   190
+  ],
+  "teks": "Ini",
+  "t": 71.794,
+  "dur": 0.28,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   770
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false
+ },
+ {
+  "id": "T093",
+  "kata": [
+   191,
+   194
   ],
   "teks": "100% full pakai AI.",
-  "t": 73.077,
-  "dur": 1.682,
+  "t": 72.074,
+  "dur": 1.683,
   "peran": "R6",
   "kode": "T04",
   "gaya": "slab",
@@ -1736,52 +1774,14 @@
   "gelap": false
  },
  {
-  "id": "T092",
-  "kata": [
-   197,
-   199
-  ],
-  "teks": "Dan menurut kalian",
-  "t": 74.888,
-  "dur": 0.672,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   690
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T093",
-  "kata": [
-   200,
-   202
-  ],
-  "teks": "videonya kayak gimana?",
-  "t": 75.56,
-  "dur": 1.15,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   690
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
   "id": "T094",
   "kata": [
-   203,
-   205
+   195,
+   197
   ],
-  "teks": "Udah kerasa video",
-  "t": 76.893,
-  "dur": 1.17,
+  "teks": "Dan menurut kalian",
+  "t": 73.978,
+  "dur": 0.925,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1795,12 +1795,12 @@
  {
   "id": "T095",
   "kata": [
-   206,
-   206
+   198,
+   200
   ],
-  "teks": "editing",
-  "t": 78.08,
-  "dur": 0.663,
+  "teks": "videonya kayak gimana?",
+  "t": 74.903,
+  "dur": 1.095,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1814,33 +1814,31 @@
  {
   "id": "T096",
   "kata": [
-   207,
-   207
+   201,
+   203
   ],
-  "teks": "profesional",
-  "t": 78.76,
-  "dur": 0.44,
-  "peran": "R4",
-  "kode": "T09",
-  "gaya": "bubble",
+  "teks": "Udah kerasa video",
+  "t": 75.998,
+  "dur": 1.666,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
   "pos": [
-   390,
-   815
+   960,
+   690
   ],
-  "alasan": "bubble pilihan kiri wajah (DESAIN B6b)",
-  "teks_vis": "profesional?",
-  "sisi": "kiri",
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
  },
  {
   "id": "T097",
   "kata": [
-   208,
-   208
+   204,
+   204
   ],
-  "teks": "gak?",
-  "t": 79.2,
-  "dur": 0.48,
+  "teks": "editing",
+  "t": 77.745,
+  "dur": 0.38,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1854,12 +1852,33 @@
  {
   "id": "T098",
   "kata": [
-   209,
-   209
+   205,
+   205
   ],
-  "teks": "Atau",
-  "t": 79.68,
-  "dur": 0.24,
+  "teks": "profesional",
+  "t": 78.125,
+  "dur": 0.603,
+  "peran": "R4",
+  "kode": "T09",
+  "gaya": "bubble",
+  "pos": [
+   400,
+   815
+  ],
+  "alasan": "bubble pilihan kiri wajah (DESAIN B6b)",
+  "teks_vis": "profesional?",
+  "sisi": "kiri",
+  "gelap": false
+ },
+ {
+  "id": "T099",
+  "kata": [
+   206,
+   206
+  ],
+  "teks": "gak?",
+  "t": 78.745,
+  "dur": 0.135,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1871,35 +1890,14 @@
   "gelap": false
  },
  {
-  "id": "T099",
-  "kata": [
-   210,
-   212
-  ],
-  "teks": "masih kerasa AI?",
-  "t": 79.92,
-  "dur": 0.86,
-  "peran": "R4",
-  "kode": "T09",
-  "gaya": "bubble",
-  "pos": [
-   1500,
-   815
-  ],
-  "alasan": "bubble pilihan kanan wajah (DESAIN B6b)",
-  "teks_vis": "masih kerasa AI?",
-  "sisi": "kanan",
-  "gelap": false
- },
- {
   "id": "T100",
   "kata": [
-   213,
-   215
+   207,
+   207
   ],
-  "teks": "Comment di bawah.",
-  "t": 80.78,
-  "dur": 1.106,
+  "teks": "Atau",
+  "t": 78.88,
+  "dur": 0.205,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1913,12 +1911,33 @@
  {
   "id": "T101",
   "kata": [
-   216,
-   218
+   208,
+   210
   ],
-  "teks": "Nanti aku kasih",
-  "t": 81.886,
-  "dur": 0.548,
+  "teks": "masih kerasa AI?",
+  "t": 79.085,
+  "dur": 1.15,
+  "peran": "R4",
+  "kode": "T09",
+  "gaya": "bubble",
+  "pos": [
+   1520,
+   815
+  ],
+  "alasan": "bubble pilihan kanan wajah (DESAIN B6b)",
+  "teks_vis": "masih kerasa AI?",
+  "sisi": "kanan",
+  "gelap": false
+ },
+ {
+  "id": "T102",
+  "kata": [
+   211,
+   213
+  ],
+  "teks": "Comment di bawah.",
+  "t": 80.323,
+  "dur": 0.8,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1930,14 +1949,33 @@
   "gelap": false
  },
  {
-  "id": "T102",
+  "id": "T103",
   "kata": [
-   219,
-   220
+   214,
+   216
+  ],
+  "teks": "Nanti aku kasih",
+  "t": 81.123,
+  "dur": 0.75,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   690
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false
+ },
+ {
+  "id": "T104",
+  "kata": [
+   217,
+   218
   ],
   "teks": "skill gratis",
-  "t": 82.434,
-  "dur": 0.82,
+  "t": 81.873,
+  "dur": 0.615,
   "peran": "R2",
   "kode": "T03",
   "gaya": "r2",
@@ -1949,14 +1987,14 @@
   "gelap": false
  },
  {
-  "id": "T103",
+  "id": "T105",
   "kata": [
-   221,
-   223
+   219,
+   221
   ],
-  "teks": "bagi yang beruntung",
-  "t": 83.254,
-  "dur": 0.897,
+  "teks": "bagi yang beruntung.",
+  "t": 82.488,
+  "dur": 0.795,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
