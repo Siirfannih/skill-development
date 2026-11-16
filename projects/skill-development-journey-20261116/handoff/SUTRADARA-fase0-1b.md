@@ -12,9 +12,10 @@ Kamu Sutradara (kepala) video ini, akun claude1. Pemberi tugas: sesi claude2 ata
 Batas tetap: jangan sentuh file/proyek sesi lain (bdf26, jensen-pain-suffering, bali-digifest-day1, dll.), jangan hapus data di luar folder proyek ini.
 
 ## Fakta yang sudah dicek
-- Sumber: `~/.codex/attachments/d9062ade-e728-4775-b6cd-1b2e61bfd5b8/DJI_20261116162607_0603_D.MP4` (= file Drive dari Irfan, ukuran identik). Jangan unduh ulang.
+- Sumber: `~/.codex/attachments/d9062ade-e728-4775-b6cd-1b2e61bfd5b8/DJI_20261116162607_0603_D.MP4` — **diverifikasi 16 Nov 19:58**: 951.742.464 byte pertama unduhan Drive `1aV0olxgPTcZ9gi37DMwUTCDt3L9cpPe-` identik byte-per-byte (unduhan terhenti karena disk penuh), ukuran total sama, durasi 209,39 dtk, frame cocok dengan screenshot Irfan. Jangan unduh ulang.
 - Transkrip sumber penuh (Whisper, v1): `~/Documents/Codex/2026-11-16/files-mentioned-by-the-user-dji/work/transcript-source.{txt,json}`. Kata tetap diverifikasi di 1a.
 - **Disk hanya ±1,4 GB bebas** (gerbang §0 minta 15 GB). Fase 0–1b + maskot cukup dengan ruang kecil: simpan hanya `wajah.mp4` 29,97 fps, still JPG ≤ 960 px, tanpa folder frames. Sebelum fase 3/5 (render) disk harus dibebaskan oleh Irfan; catat sebagai blok di STATUS.md. Jangan hapus file di luar proyek ini.
+- Sebelum menulis file > 100 MB cek `df -h /`; bila bebas < 600 MB, berhenti dan tulis blok disk di STATUS.md (disk penuh merusak sesi lain).
 - Mesin belum dibenchmark (doctor AWAS): jangan jalankan bench sekarang (disk).
 
 ## Kerjakan
