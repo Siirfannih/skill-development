@@ -22,6 +22,8 @@ Kamu adalah **sutradara, prompt engineer, dan QC**. Kamu merancang, menulis peri
 | Riset aset/referensi | Maximus (Grok) | Codex | Tidak |
 | Juri still vs referensi (R6), devil's advocate, putusan konflik, `DECISIONS.md`, Delivery Gate, bicara denganku | — | — | **Ya, ini inti kerjamu** |
 
+**Codex minta pendapat visual Claude** (sesi yang sudah dipegang Codex tidak dipindah; Irfan 16 Nov): `tools/tanya-claude.sh <proyek> <pertanyaan.md> [still …]`. Claude hanya menerima dosir `handoff/KONSUL.md` (≤ 2 halaman, dari `templates/roles/konsul.md`), pertanyaan, dan still (≤ 960 px), tanpa kode. Satu sesi Claude dilanjutkan hanya selama cache masih hangat (< 270 dtk) dan konteksnya < 120 ribu token; di luar itu sesi baru dari dosir, karena sesi panjang mengirim ulang seluruh riwayatnya di setiap panggilan. Kumpulkan beberapa pertanyaan satu ronde lalu tanyakan berurutan dalam beberapa menit. Setelah jawaban diterapkan, perbarui `KONSUL.md` (keputusan baru masuk "Keputusan yang sudah berlaku"). Pemakaian token tercatat di `handoff/konsul/konsul.jsonl`.
+
 Pembuat dan penilai selalu model yang berbeda. Codex yang membangun adegan tidak boleh memeriksa adegan itu sendiri. Pemeriksa ChatGPT dijalankan di jalur terpisah dari builder (`-l qc-<proyek>`, bukan jalur builder).
 
 ## 2. Cek akses dulu, jangan menebak
@@ -81,8 +83,7 @@ Klaim angka dari pemeriksa (waktu, level, jarak) selalu kamu verifikasi dengan a
 
 ## 6. Render lebih cepat
 Urutannya: ukur dulu, baru ubah.
-1. **GPU lokal.** PC server-ku memakai Ryzen 5 5600, Radeon RX 6600, dan RAM 32 GB. Verifikasi dengan `lspci | grep -i vga` dan `npx remotion gpu`. Lalu render satu beat yang berat (banyak `blur`/`filter`) dengan default, dengan `--gl=angle-egl`, dan dengan `--gl=vulkan`. Bandingkan waktu dan selisih piksel (`compare.py`). Pakai opsi yang paling cepat dan hasilnya sama. Bila salah satu opsi menang, **satu sesi saja** yang menambahkan variabel `GL` ke `scripts/juri/render.sh`.
-2. **Konkurensi.** Jalankan `npx remotion benchmark` sekali di PC, lalu set `KONKURENSI` dari hasilnya (default 4 belum pernah diukur; CPU 6 core/12 thread).
+1–2. **GPU dan konkurensi: sudah otomatis.** Bila `doctor.sh` melaporkan "mesin ini belum dibenchmark", sesi video pertama di mesin itu menjalankan `tools/bench-render/bench.sh` sekali (±10–15 menit, memakai kunci render global, jadi aman bila sesi lain sedang render): adegan uji berat (blur, glow, grain) dirender dengan `--gl` default, angle-egl, vulkan, swangle, angle; opsi yang gagal atau gambarnya beda (PSNR < 35 dB) dibuang, opsi non-default dipilih hanya bila ≥ 10 % lebih cepat; lalu konkurensi 2, 4, … sampai jumlah thread diuji. Hasilnya `~/work/render-profile.json`, dibaca otomatis oleh `render.sh` dan `lego/lapisan.py` (hanya di mesin yang sama; env `GL`/`KONKURENSI` tetap menang) dan dicatat di `qc/jobs.jsonl`. Ulangi benchmark hanya bila hardware/driver/versi Remotion berubah. PC server: Ryzen 5 5600, Radeon RX 6600, RAM 32 GB.
 3. **Render ulang hanya yang berubah.** Revisi satu adegan = still adegan itu → `frames` hanya untuk rentang beat itu → audit potongan itu → `final` dengan rentang itu → sambung dengan ffmpeg. Jangan merender ulang seluruh video.
 4. **Efek mahal.** Bila GPU tidak bisa dipakai, `blur`/`filter` pada lapisan yang diam diganti gambar yang sudah di-blur (pre-render sekali). Blur yang ikut gerak kamera tetap dibiarkan.
 5. **Render di mesin lain (Manda di cloud Grok, atau VPS)** hanya bila langkah 1 gagal **dan** mesin itu terbukti punya GPU:

@@ -98,6 +98,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/templates/handoff-fase.md` | **Handoff fase <n> · <proyek> · <tanggal>** — Kamu subagen untuk satu fase saja. |
 | `claude/motion-graphic/templates/roles/editor.md` | **Prompt Editor (diisi Sutradara, dikirim lewat Agent / SendMessage)** — Ganti <…>. Jangan menambah cerita proses, pendapat, atau kutipan chat Irfan; Editor hanya perlu fakta, keputusan, dan tugas (roles.md §1). |
 | `claude/motion-graphic/templates/roles/handoff.md` | **Kerangka folder `handoff/`** — Salin bagian yang dibutuhkan ke projects/<proyek>/handoff/. |
+| `claude/motion-graphic/templates/roles/konsul.md` | **KONSUL · <proyek>** — Dosir untuk tools/tanya-claude.sh. |
 | `claude/motion-graphic/templates/roles/pemeriksa-frame.md` | **Pemeriksa frame (satu agen per potongan ≤ 10 dtk)** — Dipanggil Sutradara setelah render.sh <proyek> frames dan scripts/juri/frame_audit.py. |
 
 ## motion-graphic · skrip (alat dan gerbang)
@@ -162,6 +163,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `tools/peta.py` | Tulis PETA.md: peta repo supaya model membuka hanya file yang dibutuhkan (Irfan 16 Nov). |
 | `tools/sync.sh` | ## Tugas video, konten, naskah, storyboard, atau skill -> repo skill-development Folder ini adalah titik masuk remote, jadi aturan video tidak terbaca otomatis. Untuk tugas jenis ini: 1. Baca dulu `{r |
 | `tools/sync_lantai.py` | Salin isi claude/motion-graphic/LANTAI.md ke dalam SKILL.md (di antara penanda LANTAI), supaya lantai ikut termuat setiap kali skill dimuat. Sumber kebenaran: LANTAI.md. Jalankan setelah mengubah LANT |
+| `tools/tanya-claude.sh` | Codex (atau model lain) minta pendapat Claude untuk satu video, tanpa Claude membaca kode atau seluruh repo. |
 | `tools/tunggu.sh` | Jalankan pekerjaan panjang (render, frames, Whisper, mix) lepas dari sesi model, lalu tunggu TANPA polling. |
 
 ## projects/ (keputusan per video; hanya untuk proyek itu)

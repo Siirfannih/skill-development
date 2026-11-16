@@ -16,6 +16,19 @@ import argparse, hashlib, json, os, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
 
 
+def gl_arg():
+    """Opsi --gl dari profil mesin (tools/bench-render/bench.sh), sama seperti render.sh; env GL menang."""
+    gl = os.environ.get("GL")
+    if not gl:
+        try:
+            import socket
+            p = json.load(open(os.environ.get("RENDER_PROFILE", os.path.expanduser("~/work/render-profile.json"))))
+            gl = p.get("gl") if p.get("host") == socket.gethostname() else None
+        except (OSError, ValueError):
+            gl = None
+    return [f"--gl={gl}"] if gl and gl != "default" else []
+
+
 def key(stamp, item, fps):
     raw = json.dumps([stamp, item["comp"], item.get("props", {}), item.get("durasi"), fps], sort_keys=True)
     return hashlib.sha1(raw.encode()).hexdigest()[:16]
@@ -47,7 +60,7 @@ def main():
         frames = max(1, round(float(it["durasi"]) * a.fps))
         cmd = ["npx", "remotion", "render", bundle, it["comp"], out, "--props", json.dumps(it.get("props", {})),
                "--codec=prores", "--prores-profile=4444", "--pixel-format=yuva444p10le", "--image-format=png",
-               f"--frames=0-{frames - 1}", "--concurrency=1", "--log=error"]
+               f"--frames=0-{frames - 1}", "--concurrency=1", "--log=error"] + gl_arg()
         todo.append((it["id"], cmd))
     print(f"lapisan {len(items)} · cache dipakai {len(items) - len(todo)} · dirender {len(todo)}")
 
