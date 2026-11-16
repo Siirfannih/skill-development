@@ -1,0 +1,79 @@
+{
+ "mode": "konten",
+ "stages": {
+  "suara": {
+   "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/edit/suara.wav",
+   "sha": "1ee4baa34bf86ee9",
+   "waktu": "2026-11-16 23:55",
+   "hulu": {},
+   "evidence": {
+    "words": {
+     "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/edit/words.json",
+     "sha": "4fd92a78168c919a"
+    },
+    "source_words": {
+     "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/edit/r5-source-words.json",
+     "sha": "0370585cfd4603a4"
+    },
+    "cut_map": {
+     "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/CUT-MAP-v2.json",
+     "sha": "c029aaebb114b896"
+    },
+    "voice_source": {
+     "file": "/home/irfan/Documents/Codex/2026-11-16/files-mentioned-by-the-user-dji/work/source.wav",
+     "sha": "3e594e1fef5edd74"
+    },
+    "guard_exceptions": {
+     "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/edit/guard-exceptions.json",
+     "sha": "d92b65b2a14403db"
+    }
+   },
+   "terima_pelan": {
+    "alasan": "rekaman sendiri: sumber -19,9 LUFS, puncak ucapan wajar -1,2..-2,5 dBFS dan tiga puncak terpotong saat rekam; gain bersih maksimum +0,24 dB; tanpa limiter/kompresor/declip global; musik/SFX menyesuaikan di bawah suara (Putusan Sutradara 16 Nov)",
+    "src_lufs": -19.9,
+    "out_lufs": -19.3,
+    "peak_dbfs": -1.24,
+    "headroom_db": 0.24,
+    "gain_dibutuhkan_db": 2.3
+   }
+  },
+  "visual": {
+   "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/qc/draft_lego.mp4",
+   "sha": "5ac97cd65f0a9edd",
+   "waktu": "2026-11-17 00:31",
+   "hulu": {
+    "suara": "1ee4baa34bf86ee9"
+   }
+  },
+  "sfx": {
+   "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/cues.json",
+   "sha": "2b11a5e558ab45b2",
+   "waktu": "2026-11-17 01:11",
+   "hulu": {
+    "suara": "1ee4baa34bf86ee9",
+    "visual": "5ac97cd65f0a9edd"
+   },
+   "evidence": {
+    "objects": {
+     "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/objects.json",
+     "sha": "2ad8282dd49140ca"
+    }
+   },
+   "ref_density": 0.0
+  },
+  "musik": {
+   "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/stem_musik_B.wav",
+   "sha": "69193e69e4010cdb",
+   "waktu": "2026-11-17 01:11",
+   "hulu": {
+    "suara": "1ee4baa34bf86ee9",
+    "visual": "5ac97cd65f0a9edd",
+    "sfx": "2b11a5e558ab45b2"
+   },
+   "peran": "pengisi: pembuka Ticking Tension > With Some Malice > Aware di bawah suara",
+   "alasan": "pembuka berbeda dari A: Ticking Tension (skor music_fit tertinggi 97, 117 bpm, tik 1 dtk di FINALLY dan onset kuat di B2 13,746 dtk, selisih -1 ms); B2 ke akhir sama dengan A; ducking -7 dB, EQ tengah, otomasi lokal, tanpa limiter",
+   "didengar": "projects/skill-development-journey-20261116/audio/preview_visual_sfx.mp4"
+  }
+ },
+ "dibuat": "2026-11-16 20:46"
+}

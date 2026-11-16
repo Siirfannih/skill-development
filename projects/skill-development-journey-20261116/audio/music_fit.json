@@ -1,0 +1,165 @@
+{
+  "category": "energi",
+  "profile": {
+    "arti": "hype, cepat, motivasi, launch",
+    "bpm": [
+      100,
+      140
+    ],
+    "onset": [
+      3.0,
+      8.0
+    ],
+    "centroid": [
+      1700,
+      3800
+    ],
+    "build": [
+      0,
+      15
+    ],
+    "dyn": [
+      0,
+      10
+    ],
+    "mode": "any",
+    "level": -22,
+    "snr_min": 12,
+    "query": "upbeat energetic electronic track with punchy drums",
+    "kalibrasi": {
+      "sumber": "6 video referensi Irfan 6 Nov (guide/referensi), bpm dari mix ±10",
+      "n": 6,
+      "fitur": [
+        "bpm"
+      ]
+    }
+  },
+  "pool_fail": [
+    "kandidat 5 < 8",
+    "kandidat dari < 2 folder sumber"
+  ],
+  "earshot": true,
+  "ranked": [
+    {
+      "file": "../musik/sumber/ticking.wav",
+      "dur": 100.0,
+      "lufs": -11.1,
+      "bpm": 117.5,
+      "onset": 3.63,
+      "centroid": 2030.0,
+      "build": 13.1,
+      "dyn": 11.0,
+      "mode": "minor",
+      "mode_margin": 0.015,
+      "score": 97,
+      "snr": 4.3,
+      "snr_ok": false,
+      "eq_fix": null,
+      "why": [
+        "dyn 11.0 terlalu tinggi (target 0-10)",
+        "menutupi suara: selisih 4.3 dB di 3150 Hz, butuh 7.7 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 3.7 dB lalu EQ -4 dB bila kategori masih terasa"
+      ],
+      "gugur": [],
+      "earshot_z": 2.03
+    },
+    {
+      "file": "../musik/sumber/ecosystem.wav",
+      "dur": 100.0,
+      "lufs": -14.8,
+      "bpm": 103.4,
+      "onset": 6.31,
+      "centroid": 1489.0,
+      "build": 7.3,
+      "dyn": 19.0,
+      "mode": "minor",
+      "mode_margin": 0.08,
+      "score": 75,
+      "snr": 2.3,
+      "snr_ok": false,
+      "eq_fix": null,
+      "why": [
+        "centroid 1489.0 terlalu rendah (target 1700-3800)",
+        "dyn 19.0 terlalu tinggi (target 0-10)",
+        "menutupi suara: selisih 2.3 dB di 1000 Hz, butuh 9.7 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 5.7 dB lalu EQ -4 dB bila kategori masih terasa"
+      ],
+      "gugur": [],
+      "earshot_z": 1.62
+    },
+    {
+      "file": "../musik/sumber/backtoblack.wav",
+      "dur": 100.0,
+      "lufs": -9.9,
+      "bpm": 123.0,
+      "onset": 2.66,
+      "centroid": 1284.0,
+      "build": 1.7,
+      "dyn": 3.8,
+      "mode": "minor",
+      "mode_margin": 0.046,
+      "score": 86,
+      "snr": 3.9,
+      "snr_ok": false,
+      "eq_fix": null,
+      "why": [
+        "onset 2.66 terlalu rendah (target 3.0-8.0)",
+        "centroid 1284.0 terlalu rendah (target 1700-3800)",
+        "menutupi suara: selisih 3.9 dB di 1600 Hz, butuh 8.1 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 4.1 dB lalu EQ -4 dB bila kategori masih terasa"
+      ],
+      "gugur": [
+        "onset"
+      ],
+      "earshot_z": 1.34
+    },
+    {
+      "file": "../musik/sumber/malice.wav",
+      "dur": 120.0,
+      "lufs": -16.5,
+      "bpm": 86.1,
+      "onset": 3.85,
+      "centroid": 1356.0,
+      "build": 6.8,
+      "dyn": 6.0,
+      "mode": "major",
+      "mode_margin": 0.017,
+      "score": 80,
+      "snr": -4.6,
+      "snr_ok": false,
+      "eq_fix": null,
+      "why": [
+        "bpm 86.1 terlalu rendah (target 100-140)",
+        "centroid 1356.0 terlalu rendah (target 1700-3800)",
+        "menutupi suara: selisih -4.6 dB di 1000 Hz, butuh 16.6 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 12.6 dB lalu EQ -4 dB bila kategori masih terasa"
+      ],
+      "gugur": [
+        "bpm"
+      ],
+      "earshot_z": 0.97
+    },
+    {
+      "file": "../musik/sumber/aware.wav",
+      "dur": 130.0,
+      "lufs": -16.9,
+      "bpm": 71.8,
+      "onset": 4.32,
+      "centroid": 1286.0,
+      "build": 5.7,
+      "dyn": 10.2,
+      "mode": "minor",
+      "mode_margin": 0.067,
+      "score": 69,
+      "snr": 0.8,
+      "snr_ok": false,
+      "eq_fix": null,
+      "why": [
+        "bpm 71.8 terlalu rendah (target 100-140)",
+        "centroid 1286.0 terlalu rendah (target 1700-3800)",
+        "dyn 10.2 terlalu tinggi (target 0-10)",
+        "menutupi suara: selisih 0.8 dB di 1600 Hz, butuh 11.2 dB (> 4 dB cekungan): ganti track, atau turunkan level musik 7.2 dB lalu EQ -4 dB bila kategori masih terasa"
+      ],
+      "gugur": [
+        "bpm"
+      ],
+      "earshot_z": 1.4
+    }
+  ]
+}

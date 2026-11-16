@@ -1,0 +1,419 @@
+[
+ {
+  "nama": "Clawd",
+  "peran": "karakter",
+  "t": 0,
+  "frame": 0,
+  "lapisan": "K_Clawd0"
+ },
+ {
+  "nama": "Codex",
+  "peran": "karakter",
+  "t": 0,
+  "frame": 0,
+  "lapisan": "K_Codex"
+ },
+ {
+  "nama": "Gemini",
+  "peran": "karakter",
+  "t": 0,
+  "frame": 0,
+  "lapisan": "K_Gemini"
+ },
+ {
+  "nama": "FINALLY",
+  "peran": "hero",
+  "t": 0.833,
+  "frame": 25,
+  "lapisan": "T002"
+ },
+ {
+  "nama": "halaman repo + timeline",
+  "peran": "dunia-transisi",
+  "t": 1.281,
+  "frame": 38,
+  "lapisan": "D_REPO"
+ },
+ {
+  "nama": "lingkaran wajah",
+  "peran": "wajah-lingkaran",
+  "t": 1.281,
+  "frame": 38,
+  "lapisan": "D_REPO_WAJAH"
+ },
+ {
+  "nama": "selesai",
+  "peran": "kata-kunci-slam",
+  "t": 3.11,
+  "frame": 93,
+  "lapisan": "T004"
+ },
+ {
+  "nama": "Clawd",
+  "peran": "karakter",
+  "t": 4.204,
+  "frame": 126,
+  "lapisan": "K_Clawd"
+ },
+ {
+  "nama": "workflow",
+  "peran": "kata-cincin",
+  "t": 5.938,
+  "frame": 178,
+  "lapisan": "T009"
+ },
+ {
+  "nama": "AI model",
+  "peran": "kata-cincin",
+  "t": 7.033,
+  "frame": 211,
+  "lapisan": "T011"
+ },
+ {
+  "nama": "ChatGPT,",
+  "peran": "kata-kunci-slam",
+  "t": 8.573,
+  "frame": 257,
+  "lapisan": "T014"
+ },
+ {
+  "nama": "Claude,",
+  "peran": "kata-kunci-slam",
+  "t": 9.44,
+  "frame": 283,
+  "lapisan": "T015"
+ },
+ {
+  "nama": "Gemini,",
+  "peran": "kata-kunci-slam",
+  "t": 9.815,
+  "frame": 294,
+  "lapisan": "T016"
+ },
+ {
+  "nama": "decision",
+  "peran": "kata-cincin",
+  "t": 11.996,
+  "frame": 360,
+  "lapisan": "T019"
+ },
+ {
+  "nama": "gradien ungu-pink",
+  "peran": "slop-dekor",
+  "t": 15.067,
+  "frame": 452,
+  "lapisan": "S01"
+ },
+ {
+  "nama": "VIRAL!!",
+  "peran": "slop-teks",
+  "t": 15.077,
+  "frame": 452,
+  "lapisan": "T024"
+ },
+ {
+  "nama": "emoji api",
+  "peran": "slop-dekor",
+  "t": 15.2,
+  "frame": 456,
+  "lapisan": "S02"
+ },
+ {
+  "nama": "bingkai neon",
+  "peran": "slop-dekor",
+  "t": 16.1,
+  "frame": 483,
+  "lapisan": "S03"
+ },
+ {
+  "nama": "panah merah",
+  "peran": "slop-dekor",
+  "t": 16.233,
+  "frame": 487,
+  "lapisan": "S04"
+ },
+ {
+  "nama": "emoji kaget",
+  "peran": "slop-dekor",
+  "t": 16.533,
+  "frame": 496,
+  "lapisan": "S05"
+ },
+ {
+  "nama": "gradien ungu-pink",
+  "peran": "slop-dekor",
+  "t": 17.433,
+  "frame": 523,
+  "lapisan": "S06"
+ },
+ {
+  "nama": "stiker !!",
+  "peran": "slop-dekor",
+  "t": 17.533,
+  "frame": 526,
+  "lapisan": "S07"
+ },
+ {
+  "nama": "lens flare",
+  "peran": "slop-dekor",
+  "t": 18.033,
+  "frame": 541,
+  "lapisan": "S08"
+ },
+ {
+  "nama": "emoji api",
+  "peran": "slop-dekor",
+  "t": 18.333,
+  "frame": 550,
+  "lapisan": "S09",
+  "senyap": true,
+  "alasan": "rentetan tumpukan slop: dua elemen dibiarkan senyap supaya tidak >5 cue dalam 2 dtk (Lantai E24); bunyi slop tetangga (+-0,3 dtk) menutupnya"
+ },
+ {
+  "nama": "emoji kaget",
+  "peran": "slop-dekor",
+  "t": 18.967,
+  "frame": 569,
+  "lapisan": "S10"
+ },
+ {
+  "nama": "glow",
+  "peran": "slop-dekor",
+  "t": 19.267,
+  "frame": 578,
+  "lapisan": "S11"
+ },
+ {
+  "nama": "kilau",
+  "peran": "slop-dekor",
+  "t": 19.467,
+  "frame": 584,
+  "lapisan": "S12",
+  "senyap": true,
+  "alasan": "rentetan tumpukan slop: dua elemen dibiarkan senyap supaya tidak >5 cue dalam 2 dtk (Lantai E24); bunyi slop tetangga (+-0,3 dtk) menutupnya"
+ },
+ {
+  "nama": "stiker !!",
+  "peran": "slop-dekor",
+  "t": 19.767,
+  "frame": 593,
+  "lapisan": "S13"
+ },
+ {
+  "nama": "panah merah",
+  "peran": "slop-dekor",
+  "t": 19.9,
+  "frame": 597,
+  "lapisan": "S14"
+ },
+ {
+  "nama": "grade -15%",
+  "peran": "grade",
+  "t": 20.009,
+  "frame": 600,
+  "lapisan": "GRADE"
+ },
+ {
+  "nama": "AI SLOP",
+  "peran": "slab-di-belakang-kepala",
+  "t": 20.076,
+  "frame": 602,
+  "lapisan": "T031"
+ },
+ {
+  "nama": "putus-putus",
+  "peran": "kata-terputus",
+  "t": 22.47,
+  "frame": 674,
+  "lapisan": "T034"
+ },
+ {
+  "nama": "aplikasi Claude terang",
+  "peran": "dunia-transisi",
+  "t": 23.267,
+  "frame": 698,
+  "lapisan": "D_APP"
+ },
+ {
+  "nama": "lingkaran wajah",
+  "peran": "wajah-lingkaran",
+  "t": 23.267,
+  "frame": 698,
+  "lapisan": "D_APP_WAJAH"
+ },
+ {
+  "nama": "template.",
+  "peran": "kata-kunci-slam",
+  "t": 24.624,
+  "frame": 739,
+  "lapisan": "T037"
+ },
+ {
+  "nama": "/apple-style",
+  "peran": "item-ui",
+  "t": 28.462,
+  "frame": 854,
+  "lapisan": "O_/apple-style"
+ },
+ {
+  "nama": "/cinematic-storytelling",
+  "peran": "item-ui",
+  "t": 30.091,
+  "frame": 903,
+  "lapisan": "O_/cinematic-storytelling"
+ },
+ {
+  "nama": "daftar terhapus",
+  "peran": "item-ui",
+  "t": 32.132,
+  "frame": 964,
+  "lapisan": "O_daftar terhapus"
+ },
+ {
+  "nama": "ngebalik.",
+  "peran": "kata-kunci-slam",
+  "t": 32.199,
+  "frame": 966,
+  "lapisan": "T046"
+ },
+ {
+  "nama": "WORKFLOW-NYA",
+  "peran": "slab-di-belakang-kepala",
+  "t": 37.019,
+  "frame": 1111,
+  "lapisan": "T051"
+ },
+ {
+  "nama": "BALIK MODAL",
+  "peran": "slab-di-belakang-kepala",
+  "t": 41.914,
+  "frame": 1257,
+  "lapisan": "T057"
+ },
+ {
+  "nama": "habis banget",
+  "peran": "kata-kacau",
+  "t": 43.094,
+  "frame": 1293,
+  "lapisan": "T060"
+ },
+ {
+  "nama": "kartu ChatGPT Pro 20x",
+  "peran": "kartu-mendarat",
+  "t": 48.011,
+  "frame": 1440,
+  "lapisan": "KARTU1"
+ },
+ {
+  "nama": "kartu Claude Max 5x",
+  "peran": "kartu-mendarat",
+  "t": 50.286,
+  "frame": 1509,
+  "lapisan": "KARTU2"
+ },
+ {
+  "nama": "lintas agent.",
+  "peran": "kata-kacau",
+  "t": 56.582,
+  "frame": 1697,
+  "lapisan": "T075"
+ },
+ {
+  "nama": "dua jendela Claude + ChatGPT",
+  "peran": "dunia-transisi",
+  "t": 58.572,
+  "frame": 1757,
+  "lapisan": "D_RELAY"
+ },
+ {
+  "nama": "pesan doctor.sh gagal",
+  "peran": "item-ui",
+  "t": 59.986,
+  "frame": 1800,
+  "lapisan": "O_pesan doctor.sh gagal"
+ },
+ {
+  "nama": "amplop Codex ke Clawd",
+  "peran": "item-ui",
+  "t": 60.511,
+  "frame": 1815,
+  "lapisan": "O_amplop Codex ke Clawd"
+ },
+ {
+  "nama": "pesan Sudah kujalankan doctor --fix",
+  "peran": "item-ui",
+  "t": 61.941,
+  "frame": 1858,
+  "lapisan": "O_pesan Sudah kujalankan doctor --fix"
+ },
+ {
+  "nama": "amplop Clawd ke Codex",
+  "peran": "item-ui",
+  "t": 62.271,
+  "frame": 1868,
+  "lapisan": "O_amplop Clawd ke Codex"
+ },
+ {
+  "nama": "pesan Revisi kamera selesai",
+  "peran": "item-ui",
+  "t": 64.521,
+  "frame": 1936,
+  "lapisan": "O_pesan Revisi kamera selesai"
+ },
+ {
+  "nama": "kartu Dicatat",
+  "peran": "item-ui",
+  "t": 67.086,
+  "frame": 2013,
+  "lapisan": "O_kartu Dicatat"
+ },
+ {
+  "nama": "kesalahan",
+  "peran": "kata-kacau",
+  "t": 67.153,
+  "frame": 2015,
+  "lapisan": "T086"
+ },
+ {
+  "nama": "loop pembelajaran",
+  "peran": "kata-kunci-slam",
+  "t": 69.476,
+  "frame": 2084,
+  "lapisan": "T089"
+ },
+ {
+  "nama": "loop + centang hijau",
+  "peran": "item-ui",
+  "t": 70.074,
+  "frame": 2102,
+  "lapisan": "O_loop + centang hijau"
+ },
+ {
+  "nama": "100% FULL AI",
+  "peran": "slab-di-belakang-kepala",
+  "t": 72.074,
+  "frame": 2162,
+  "lapisan": "T093"
+ },
+ {
+  "nama": "profesional?",
+  "peran": "bubble-pilihan",
+  "t": 78.125,
+  "frame": 2344,
+  "lapisan": "T098"
+ },
+ {
+  "nama": "masih kerasa AI?",
+  "peran": "bubble-pilihan",
+  "t": 79.085,
+  "frame": 2373,
+  "lapisan": "T101"
+ },
+ {
+  "nama": "skill gratis",
+  "peran": "kata-kunci-slam",
+  "t": 81.873,
+  "frame": 2456,
+  "lapisan": "T104"
+ }
+]

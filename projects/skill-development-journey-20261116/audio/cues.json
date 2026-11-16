@@ -1,0 +1,610 @@
+[
+ {
+  "t": 0.0,
+  "peran": "objek-mendarat",
+  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [Clawd + Codex + Gemini]",
+  "file": "pop up.mp3",
+  "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "K_Clawd0",
+   "K_Codex",
+   "K_Gemini"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 0.833,
+  "peran": "kata-hero",
+  "alasan": "slab/kata raksasa masuk: thud sub tunggal, satu-satunya hentakan berat per kata hero [FINALLY]",
+  "file": "Move.mp3",
+  "dengar": "a body falling on the ground (z +2.7), a punchy impact hit (z +2.7), a heavy thud (z +2.6)",
+  "dB": -10,
+  "terikat_ke_visual": [
+   "T002"
+  ],
+  "offset_puncak_s": 0.008,
+  "mode": "onset"
+ },
+ {
+  "t": 1.281,
+  "peran": "transisi-dunia",
+  "alasan": "dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian [halaman repo + timeline + lingkaran wajah]",
+  "file": "Woosh.mp3",
+  "dengar": "a fast whoosh (z +4.7), a soft air whoosh (z +4.1), a deep cinematic whoosh (z +3.8)",
+  "dB": -4,
+  "terikat_ke_visual": [
+   "D_REPO",
+   "D_REPO_WAJAH"
+  ],
+  "offset_puncak_s": 0.294,
+  "mode": "peak"
+ },
+ {
+  "t": 3.11,
+  "peran": "kunci-slam",
+  "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [selesai]",
+  "file": "Kinetictypography(gunakansecaraacak).mp3",
+  "dengar": "a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4)",
+  "dB": -6,
+  "terikat_ke_visual": [
+   "T004"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 4.204,
+  "peran": "objek-mendarat",
+  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [Clawd]",
+  "file": "pop up.mp3",
+  "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "K_Clawd"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 5.938,
+  "peran": "kinetik-cincin",
+  "alasan": "kata cincin di belakang kepala masuk: klik pena kontras tipis [workflow]",
+  "file": "Cutcontrastransision.mp3",
+  "dengar": "a pen click (z +3.2), a soft key release click (z +3.0), a branch snapping (z +2.4)",
+  "dB": -6,
+  "terikat_ke_visual": [
+   "T009"
+  ],
+  "offset_puncak_s": 0.002,
+  "mode": "onset"
+ },
+ {
+  "t": 7.033,
+  "peran": "kinetik-cincin",
+  "alasan": "kata cincin di belakang kepala masuk: klik pena kontras tipis [AI model]",
+  "file": "Cutcontrastransision.mp3",
+  "dengar": "a pen click (z +3.2), a soft key release click (z +3.0), a branch snapping (z +2.4)",
+  "dB": -6,
+  "terikat_ke_visual": [
+   "T011"
+  ],
+  "offset_puncak_s": 0.002,
+  "mode": "onset"
+ },
+ {
+  "t": 8.573,
+  "peran": "kunci-slam",
+  "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [ChatGPT,]",
+  "file": "Kinetictypography(gunakansecaraacak).mp3",
+  "dengar": "a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4)",
+  "dB": -6,
+  "terikat_ke_visual": [
+   "T014"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 9.44,
+  "peran": "kunci-slam",
+  "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [Claude,]",
+  "file": "Kinetictypography(gunakansecaraacak).mp3",
+  "dengar": "a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4)",
+  "dB": -6,
+  "terikat_ke_visual": [
+   "T015"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 9.815,
+  "peran": "kunci-slam",
+  "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [Gemini,]",
+  "file": "Kinetictypography(gunakansecaraacak).mp3",
+  "dengar": "a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4)",
+  "dB": -6,
+  "terikat_ke_visual": [
+   "T016"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 11.996,
+  "peran": "kinetik-cincin",
+  "alasan": "kata cincin di belakang kepala masuk: klik pena kontras tipis [decision]",
+  "file": "Cutcontrastransision.mp3",
+  "dengar": "a pen click (z +3.2), a soft key release click (z +3.0), a branch snapping (z +2.4)",
+  "dB": -6,
+  "terikat_ke_visual": [
+   "T019"
+  ],
+  "offset_puncak_s": 0.002,
+  "mode": "onset"
+ },
+ {
+  "t": 15.133,
+  "peran": "slop",
+  "alasan": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [gradien ungu-pink + VIRAL!! + emoji api]",
+  "file": "ES_Scifi, Computer, Short Beeps, Glitch 02 - Epidemic Sound.mp3",
+  "dengar": "a digital glitch (z +3.8), a stutter glitch transition (z +2.9), an error buzz (z +2.9)",
+  "dB": -8,
+  "terikat_ke_visual": [
+   "S01",
+   "T024",
+   "S02"
+  ],
+  "offset_puncak_s": 0.003,
+  "mode": "onset"
+ },
+ {
+  "t": 16.166,
+  "peran": "slop",
+  "alasan": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [bingkai neon + panah merah]",
+  "file": "ES_Scifi, Computer, Short Beeps, Glitch 02 - Epidemic Sound.mp3",
+  "dengar": "a digital glitch (z +3.8), a stutter glitch transition (z +2.9), an error buzz (z +2.9)",
+  "dB": -8,
+  "terikat_ke_visual": [
+   "S03",
+   "S04"
+  ],
+  "offset_puncak_s": 0.003,
+  "mode": "onset"
+ },
+ {
+  "t": 16.533,
+  "peran": "slop",
+  "alasan": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [emoji kaget]",
+  "file": "ES_Scifi, Computer, Short Beeps, Glitch 02 - Epidemic Sound.mp3",
+  "dengar": "a digital glitch (z +3.8), a stutter glitch transition (z +2.9), an error buzz (z +2.9)",
+  "dB": -8,
+  "terikat_ke_visual": [
+   "S05"
+  ],
+  "offset_puncak_s": 0.003,
+  "mode": "onset"
+ },
+ {
+  "t": 17.483,
+  "peran": "slop",
+  "alasan": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [gradien ungu-pink + stiker !!]",
+  "file": "ES_Scifi, Computer, Short Beeps, Glitch 02 - Epidemic Sound.mp3",
+  "dengar": "a digital glitch (z +3.8), a stutter glitch transition (z +2.9), an error buzz (z +2.9)",
+  "dB": -8,
+  "terikat_ke_visual": [
+   "S06",
+   "S07"
+  ],
+  "offset_puncak_s": 0.003,
+  "mode": "onset"
+ },
+ {
+  "t": 18.033,
+  "peran": "slop",
+  "alasan": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [lens flare]",
+  "file": "ES_Scifi, Computer, Short Beeps, Glitch 02 - Epidemic Sound.mp3",
+  "dengar": "a digital glitch (z +3.8), a stutter glitch transition (z +2.9), an error buzz (z +2.9)",
+  "dB": -8,
+  "terikat_ke_visual": [
+   "S08"
+  ],
+  "offset_puncak_s": 0.003,
+  "mode": "onset"
+ },
+ {
+  "t": 18.967,
+  "peran": "slop",
+  "alasan": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [emoji kaget]",
+  "file": "ES_Scifi, Computer, Short Beeps, Glitch 02 - Epidemic Sound.mp3",
+  "dengar": "a digital glitch (z +3.8), a stutter glitch transition (z +2.9), an error buzz (z +2.9)",
+  "dB": -8,
+  "terikat_ke_visual": [
+   "S10"
+  ],
+  "offset_puncak_s": 0.003,
+  "mode": "onset"
+ },
+ {
+  "t": 19.267,
+  "peran": "slop",
+  "alasan": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [glow]",
+  "file": "ES_Scifi, Computer, Short Beeps, Glitch 02 - Epidemic Sound.mp3",
+  "dengar": "a digital glitch (z +3.8), a stutter glitch transition (z +2.9), an error buzz (z +2.9)",
+  "dB": -8,
+  "terikat_ke_visual": [
+   "S11"
+  ],
+  "offset_puncak_s": 0.003,
+  "mode": "onset"
+ },
+ {
+  "t": 19.834,
+  "peran": "slop",
+  "alasan": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [stiker !! + panah merah]",
+  "file": "ES_Scifi, Computer, Short Beeps, Glitch 02 - Epidemic Sound.mp3",
+  "dengar": "a digital glitch (z +3.8), a stutter glitch transition (z +2.9), an error buzz (z +2.9)",
+  "dB": -8,
+  "terikat_ke_visual": [
+   "S13",
+   "S14"
+  ],
+  "offset_puncak_s": 0.003,
+  "mode": "onset"
+ },
+ {
+  "t": 20.013,
+  "peran": "runtuh",
+  "alasan": "tumpukan AI slop runtuh saat grade turun dan slab AI SLOP masuk (B2b) [grade -15% + AI SLOP]",
+  "file": "ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz - Epidemic Sound.mp3",
+  "dengar": "a sub bass drop (z +5.1), a deep cinematic boom (z +2.7), a phone vibration buzz (z +2.4)",
+  "dB": -8,
+  "terikat_ke_visual": [
+   "GRADE",
+   "T031"
+  ],
+  "offset_puncak_s": 0.01,
+  "mode": "onset"
+ },
+ {
+  "t": 22.47,
+  "peran": "putus",
+  "alasan": "kata putus-putus terpecah: glitch digital tipis [putus-putus]",
+  "file": "ES_User Interface, Glitch, Glitch Databend 04 - Epidemic Sound.mp3",
+  "dengar": "a digital glitch (z +3.9), a stutter glitch transition (z +3.6), a squishy wet squelch (z +2.2)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "T034"
+  ],
+  "offset_puncak_s": 0.006,
+  "mode": "onset"
+ },
+ {
+  "t": 23.267,
+  "peran": "transisi-dunia",
+  "alasan": "dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian [aplikasi Claude terang + lingkaran wajah]",
+  "file": "Woosh.mp3",
+  "dengar": "a fast whoosh (z +4.7), a soft air whoosh (z +4.1), a deep cinematic whoosh (z +3.8)",
+  "dB": -4,
+  "terikat_ke_visual": [
+   "D_APP",
+   "D_APP_WAJAH"
+  ],
+  "offset_puncak_s": 0.294,
+  "mode": "peak"
+ },
+ {
+  "t": 24.624,
+  "peran": "kunci-slam",
+  "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [template.]",
+  "file": "Kinetictypography(gunakansecaraacak).mp3",
+  "dengar": "a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4)",
+  "dB": -6,
+  "terikat_ke_visual": [
+   "T037"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 28.462,
+  "peran": "ketik",
+  "alasan": "\"/\" diketik di kolom perintah (B3a): ketikan keyboard pendek [/apple-style]",
+  "file": "Keyboardtyping.mp3",
+  "dengar": "a single mechanical keyboard key press (z +4.1), a keyboard typing fast (z +3.8), a clicky mechanical keyboard (z +3.7)",
+  "dB": -6,
+  "terikat_ke_visual": [
+   "O_/apple-style"
+  ],
+  "offset_puncak_s": 0.0,
+  "mode": "onset"
+ },
+ {
+  "t": 30.091,
+  "peran": "ketik",
+  "alasan": "\"/\" diketik di kolom perintah (B3a): ketikan keyboard pendek [/cinematic-storytelling]",
+  "file": "Keyboardtyping.mp3",
+  "dengar": "a single mechanical keyboard key press (z +4.1), a keyboard typing fast (z +3.8), a clicky mechanical keyboard (z +3.7)",
+  "dB": -6,
+  "terikat_ke_visual": [
+   "O_/cinematic-storytelling"
+  ],
+  "offset_puncak_s": 0.0,
+  "mode": "onset"
+ },
+ {
+  "t": 32.165,
+  "peran": "objek-mendarat",
+  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [daftar terhapus + ngebalik.]",
+  "file": "pop up.mp3",
+  "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "O_daftar terhapus",
+   "T046"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 37.019,
+  "peran": "kata-hero",
+  "alasan": "slab/kata raksasa masuk: thud sub tunggal, satu-satunya hentakan berat per kata hero [WORKFLOW-NYA]",
+  "file": "Move.mp3",
+  "dengar": "a body falling on the ground (z +2.7), a punchy impact hit (z +2.7), a heavy thud (z +2.6)",
+  "dB": -10,
+  "terikat_ke_visual": [
+   "T051"
+  ],
+  "offset_puncak_s": 0.008,
+  "mode": "onset"
+ },
+ {
+  "t": 41.914,
+  "peran": "kata-hero",
+  "alasan": "slab/kata raksasa masuk: thud sub tunggal, satu-satunya hentakan berat per kata hero [BALIK MODAL]",
+  "file": "Move.mp3",
+  "dengar": "a body falling on the ground (z +2.7), a punchy impact hit (z +2.7), a heavy thud (z +2.6)",
+  "dB": -10,
+  "terikat_ke_visual": [
+   "T057"
+  ],
+  "offset_puncak_s": 0.008,
+  "mode": "onset"
+ },
+ {
+  "t": 43.094,
+  "peran": "kacau",
+  "alasan": "kata kacau (habis banget, lintas agent, kesalahan): klik glitch renyah [habis banget]",
+  "file": "Katapertama.mp3",
+  "dengar": "a digital glitch (z +2.6), a stutter glitch transition (z +2.6), a crisp interface click (z +2.4)",
+  "dB": -8,
+  "terikat_ke_visual": [
+   "T060"
+  ],
+  "offset_puncak_s": 0.0,
+  "mode": "onset"
+ },
+ {
+  "t": 48.011,
+  "peran": "objek-mendarat",
+  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [kartu ChatGPT Pro 20x]",
+  "file": "pop up.mp3",
+  "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "KARTU1"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 50.286,
+  "peran": "objek-mendarat",
+  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [kartu Claude Max 5x]",
+  "file": "pop up.mp3",
+  "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "KARTU2"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 56.582,
+  "peran": "kacau",
+  "alasan": "kata kacau (habis banget, lintas agent, kesalahan): klik glitch renyah [lintas agent.]",
+  "file": "Katapertama.mp3",
+  "dengar": "a digital glitch (z +2.6), a stutter glitch transition (z +2.6), a crisp interface click (z +2.4)",
+  "dB": -8,
+  "terikat_ke_visual": [
+   "T075"
+  ],
+  "offset_puncak_s": 0.0,
+  "mode": "onset"
+ },
+ {
+  "t": 58.572,
+  "peran": "transisi-dunia",
+  "alasan": "dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian [dua jendela Claude + ChatGPT]",
+  "file": "Woosh.mp3",
+  "dengar": "a fast whoosh (z +4.7), a soft air whoosh (z +4.1), a deep cinematic whoosh (z +3.8)",
+  "dB": -4,
+  "terikat_ke_visual": [
+   "D_RELAY"
+  ],
+  "offset_puncak_s": 0.294,
+  "mode": "peak"
+ },
+ {
+  "t": 59.986,
+  "peran": "pesan",
+  "alasan": "pesan/amplop agen masuk (B5b): ding notifikasi lembut [pesan doctor.sh gagal]",
+  "file": "ES_User Interface, Alert, Notification, Message, Text - Epidemic Sound.mp3",
+  "dengar": "a success chime (z +3.3), a notification ding (z +2.6), a kalimba note (z +2.4)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "O_pesan doctor.sh gagal"
+  ],
+  "offset_puncak_s": 0.005,
+  "mode": "onset"
+ },
+ {
+  "t": 60.511,
+  "peran": "pesan",
+  "alasan": "pesan/amplop agen masuk (B5b): ding notifikasi lembut [amplop Codex ke Clawd]",
+  "file": "ES_User Interface, Alert, Notification, Message, Text - Epidemic Sound.mp3",
+  "dengar": "a success chime (z +3.3), a notification ding (z +2.6), a kalimba note (z +2.4)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "O_amplop Codex ke Clawd"
+  ],
+  "offset_puncak_s": 0.005,
+  "mode": "onset"
+ },
+ {
+  "t": 61.941,
+  "peran": "pesan",
+  "alasan": "pesan/amplop agen masuk (B5b): ding notifikasi lembut [pesan Sudah kujalankan doctor --fix]",
+  "file": "ES_User Interface, Alert, Notification, Message, Text - Epidemic Sound.mp3",
+  "dengar": "a success chime (z +3.3), a notification ding (z +2.6), a kalimba note (z +2.4)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "O_pesan Sudah kujalankan doctor --fix"
+  ],
+  "offset_puncak_s": 0.005,
+  "mode": "onset"
+ },
+ {
+  "t": 62.271,
+  "peran": "pesan",
+  "alasan": "pesan/amplop agen masuk (B5b): ding notifikasi lembut [amplop Clawd ke Codex]",
+  "file": "ES_User Interface, Alert, Notification, Message, Text - Epidemic Sound.mp3",
+  "dengar": "a success chime (z +3.3), a notification ding (z +2.6), a kalimba note (z +2.4)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "O_amplop Clawd ke Codex"
+  ],
+  "offset_puncak_s": 0.005,
+  "mode": "onset"
+ },
+ {
+  "t": 64.521,
+  "peran": "pesan",
+  "alasan": "pesan/amplop agen masuk (B5b): ding notifikasi lembut [pesan Revisi kamera selesai]",
+  "file": "ES_User Interface, Alert, Notification, Message, Text - Epidemic Sound.mp3",
+  "dengar": "a success chime (z +3.3), a notification ding (z +2.6), a kalimba note (z +2.4)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "O_pesan Revisi kamera selesai"
+  ],
+  "offset_puncak_s": 0.005,
+  "mode": "onset"
+ },
+ {
+  "t": 67.12,
+  "peran": "objek-mendarat",
+  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [kartu Dicatat + kesalahan]",
+  "file": "pop up.mp3",
+  "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "O_kartu Dicatat",
+   "T086"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 69.476,
+  "peran": "kunci-slam",
+  "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [loop pembelajaran]",
+  "file": "Kinetictypography(gunakansecaraacak).mp3",
+  "dengar": "a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4)",
+  "dB": -6,
+  "terikat_ke_visual": [
+   "T089"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 70.074,
+  "peran": "terverifikasi",
+  "alasan": "centang hijau loop pembelajaran tertutup: satu konfirmasi bersih [loop + centang hijau]",
+  "file": "ES_User Interface, Click, UI Buttons, Confirm, Menu - Epidemic Sound.mp3",
+  "dengar": "an error buzz (z +2.6), a notification ding (z +2.6), a success chime (z +2.6)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "O_loop + centang hijau"
+  ],
+  "offset_puncak_s": 0.0,
+  "mode": "onset"
+ },
+ {
+  "t": 72.074,
+  "peran": "kata-hero",
+  "alasan": "slab/kata raksasa masuk: thud sub tunggal, satu-satunya hentakan berat per kata hero [100% FULL AI]",
+  "file": "Move.mp3",
+  "dengar": "a body falling on the ground (z +2.7), a punchy impact hit (z +2.7), a heavy thud (z +2.6)",
+  "dB": -10,
+  "terikat_ke_visual": [
+   "T093"
+  ],
+  "offset_puncak_s": 0.008,
+  "mode": "onset"
+ },
+ {
+  "t": 78.125,
+  "peran": "objek-mendarat",
+  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [profesional?]",
+  "file": "pop up.mp3",
+  "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "T098"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 79.085,
+  "peran": "objek-mendarat",
+  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [masih kerasa AI?]",
+  "file": "pop up.mp3",
+  "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "T101"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 81.873,
+  "peran": "kunci-slam",
+  "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [skill gratis]",
+  "file": "Kinetictypography(gunakansecaraacak).mp3",
+  "dengar": "a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4)",
+  "dB": -6,
+  "terikat_ke_visual": [
+   "T104"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
+  "t": 83.02,
+  "peran": "penutup",
+  "alasan": "setelah kalimat terakhir: ting penutup tenang [ekor setelah kalimat terakhir]",
+  "file": "Lasertransision.mp3",
+  "dengar": "a triangle hit (z +4.4), a glass ting (z +3.5), a kalimba note (z +3.0)",
+  "dB": -8,
+  "terikat_ke_visual": [],
+  "offset_puncak_s": 0.0,
+  "mode": "onset"
+ }
+]
