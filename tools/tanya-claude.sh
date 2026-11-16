@@ -3,8 +3,15 @@
 #
 #   tools/tanya-claude.sh <folder proyek> <pertanyaan.md> [gambar/still …]
 #
-# Claude menerima: handoff/KONSUL.md (dosir proyek ≤ 2 halaman, dirawat penanya; contoh di
-# claude/motion-graphic/templates/roles/konsul.md) + pertanyaan + gambar yang dilampirkan (dibuka dengan Read).
+# Claude menerima dosir yang DIRAKIT OTOMATIS dari dokumen arah yang memang sudah ditulis di awal setiap video
+# (gerbang brief → kiblat → resep → storyboard), jadi tidak ada dokumen baru yang harus dibuat:
+#   1. claude/motion-graphic/LANTAI.md         mutu minimum semua video (bagian skill-development yang menilai hasil)
+#   2. kartu kiblat dari baris "Kartu:" di RESEP.md   gaya video ini (warna, huruf, ritme, teknik)
+#   3. RESEP.md                                resep 8 bagian video ini + syarat dari prompt Irfan
+#   4. DECISIONS.md, hanya baris berstatus Aktif   koreksi/keputusan Irfan untuk video ini
+#   5. STATUS.md                               posisi kerja sekarang
+#   6. handoff/KONSUL.md (opsional)            catatan tambahan penanya: yang sudah dicoba dan gagal, dsb.
+# Ditambah pertanyaan + still yang dilampirkan (dibuka dengan Read). Claude tidak membaca kode.
 # Jawaban: handoff/konsul/<n>-jawaban.md · pemakaian token: handoff/konsul/konsul.jsonl.
 #
 # Sesi: satu sesi Claude DILANJUTKAN (--resume) hanya bila panggilan sebelumnya < KONSUL_HANGAT dtk lalu (bawaan 270,
@@ -19,7 +26,27 @@ set -uo pipefail
 [ $# -ge 2 ] || { sed -n '2,18p' "$0"; exit 1; }
 P="$(cd "$1" && pwd)"; Q="$(cd "$(dirname "$2")" && pwd)/$(basename "$2")"; shift 2
 D="$P/handoff/konsul"; mkdir -p "$D"; DOS="$P/handoff/KONSUL.md"; ST="$D/.sesi"
-[ -f "$DOS" ] || { echo "GAGAL: $DOS belum ada. Salin claude/motion-graphic/templates/roles/konsul.md lalu isi (≤ 2 halaman)."; exit 1; }
+[ -f "$P/RESEP.md" ] || { echo "GAGAL: $P/RESEP.md belum ada. Arah video (kiblat + resep) harus ditulis dan disetujui sebelum minta pendapat Claude."; exit 1; }
+REPO="$(cd "$(dirname "$0")/.." && pwd)"
+dosir() {  # rakit dosir dari dokumen arah proyek; urutan tetap (LANTAI dulu) supaya awalan prompt sama dan ter-cache
+  python3 - "$REPO" "$P" <<'PY'
+import glob, os, re, sys
+repo, p = sys.argv[1:3]
+def baca(path): return open(path, encoding="utf-8").read().strip() if path and os.path.exists(path) else ""
+resep = baca(os.path.join(p, "RESEP.md"))
+m = re.search(r"Kartu:\*{0,2}\s*`([^`]+)`", resep)
+kartu = ""
+if m:
+    cand = glob.glob(os.path.join(repo, "claude/motion-graphic/pustaka/kartu", os.path.basename(m.group(1))))
+    kartu = baca(cand[0]) if cand else ""
+dec = "\n".join(l for l in baca(os.path.join(p, "DECISIONS.md")).splitlines() if re.match(r"^\| [RD]-\d+ \|", l) and "Aktif" in l)
+bag = [("LANTAI (mutu minimum semua video)", baca(os.path.join(repo, "claude/motion-graphic/LANTAI.md"))),
+       ("KARTU KIBLAT video ini", kartu or "(tidak ditemukan dari baris Kartu: di RESEP.md)"),
+       ("RESEP video ini", resep), ("KEPUTUSAN & CATATAN IRFAN YANG AKTIF", dec or "(belum ada)"),
+       ("STATUS", baca(os.path.join(p, "STATUS.md"))), ("CATATAN PENANYA", baca(os.path.join(p, "handoff/KONSUL.md")))]
+print("\n\n".join(f"=== {judul} ===\n{isi}" for judul, isi in bag if isi))
+PY
+}
 [ -f "$Q" ] || { echo "GAGAL: pertanyaan $Q tidak ada"; exit 1; }
 HANGAT="${KONSUL_HANGAT:-270}"; MAKS="${KONSUL_MAKS:-120000}"
 imgs=""; for g in "$@"; do [ -f "$g" ] && imgs+="- $(cd "$(dirname "$g")" && pwd)/$(basename "$g")"$'\n' || echo "AWAS: lampiran tidak ada: $g"; done
@@ -45,8 +72,10 @@ nilai hanya dosir, pertanyaan, dan gambar yang dilampirkan. Jawab ringkas dalam 
 3) perubahan konkret yang bisa langsung dikerjakan builder (posisi, ukuran, warna, kurva, timing dalam frame),
 4) risiko bila diterapkan. Bila informasinya kurang untuk memutuskan, katakan apa yang kurang, jangan menebak.
 
-=== DOSIR PROYEK ===
-$(cat "$DOS")
+Urutan yang menang bila bertentangan: catatan Irfan yang aktif > resep + kartu kiblat > LANTAI > pendapatmu.
+Usulanmu tidak boleh melanggar keputusan aktif; bila menurutmu keputusan itu salah, tulis sebagai catatan terpisah.
+
+$(dosir)
 
 === PERTANYAAN ===
 $(cat "$Q")

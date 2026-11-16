@@ -98,7 +98,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/templates/handoff-fase.md` | **Handoff fase <n> · <proyek> · <tanggal>** — Kamu subagen untuk satu fase saja. |
 | `claude/motion-graphic/templates/roles/editor.md` | **Prompt Editor (diisi Sutradara, dikirim lewat Agent / SendMessage)** — Ganti <…>. Jangan menambah cerita proses, pendapat, atau kutipan chat Irfan; Editor hanya perlu fakta, keputusan, dan tugas (roles.md §1). |
 | `claude/motion-graphic/templates/roles/handoff.md` | **Kerangka folder `handoff/`** — Salin bagian yang dibutuhkan ke projects/<proyek>/handoff/. |
-| `claude/motion-graphic/templates/roles/konsul.md` | **KONSUL · <proyek>** — Dosir untuk tools/tanya-claude.sh. |
+| `claude/motion-graphic/templates/roles/konsul.md` | **KONSUL · <proyek> (opsional)** — Catatan tambahan untuk tools/tanya-claude.sh. |
 | `claude/motion-graphic/templates/roles/pemeriksa-frame.md` | **Pemeriksa frame (satu agen per potongan ≤ 10 dtk)** — Dipanggil Sutradara setelah render.sh <proyek> frames dan scripts/juri/frame_audit.py. |
 
 ## motion-graphic · skrip (alat dan gerbang)
