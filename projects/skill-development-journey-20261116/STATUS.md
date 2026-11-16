@@ -29,3 +29,4 @@ Berikutnya: sesi editing dapat mulai dari MP4 dan paket handoff; Irfan belum mem
 - G2 still: K08 LULUS (ronde 3). K01 r2, K05/K06 r2, K07/K11 r2 berjalan. K12 (Codex sisa claude1), K13, potong 1a berjalan.
 - G2 still: K05 LULUS (r2), K06 LULUS (r3, centang margin ±200 px @1080).
 - G2 still: K07 LULUS (r2), K11 LULUS (r3; hero 132 px x≥115, pil kontras 14:1 terhitung — ukur ulang di still final).
+- G2: K01 LULUS (r2, sanding vs GitHub asli). K12 r3: Claude LULUS, ChatGPT/Gemini revisi r4.

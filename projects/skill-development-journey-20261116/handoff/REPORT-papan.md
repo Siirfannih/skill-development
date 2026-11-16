@@ -1,0 +1,14 @@
+# TASK-papan · Codex · Henti 1
+- Tujuh still 960×540: `handoff/henti1/papan-B*.jpg`; sanding lebar 960: `handoff/henti1/sanding.jpg` (kita kiri, kiblat kanan; tinggi gambar disamakan, rasio asli dipertahankan).
+- B1b → 83-k1: cincin lewat matte; Claude crab, bunga Codex `>_`, Gemini dibangun sebagai mesh extrude 3D.
+- B2 → 83-k3: slab coral di belakang kepala + timeline patah pada kartu perspektif.
+- B3-A → 83-k2: tangga tag di kiri kepala, template bevel kuning dicoret coral.
+- B3-C → 07-k5: biru penuh, bentuk raksasa, tabel §8a asli, lima ubin fase besar.
+- B4 → 83-k4: BALIK MODAL di belakang kepala; kartu 20× dan 5× miring, berbevel, tanpa stroke.
+- B5 → 07-k6 (+ `sanding-B5-tokoh.jpg` vs 37-k7): dua jendela besar, bentuk 07, Claude pixel + bunga Codex, amplop, loop dan centang.
+- B6 → 83-k3: slab putih 100% FULL AI di belakang kepala + tag pertanyaan kiri/kanan.
+- Matte: RVM MobileNetV3 FP32 TorchScript rilis resmi PeterL1n v1.0.0, CPU mg-venv, downsample .25, 5 iterasi/still; 6 PNG RGBA + alpha, tanpa fallback. Bukti/hash: `remotion/public/papan/*provenance.json`, `handoff/henti1/matte-edges.jpg`.
+- Pemeriksaan mekanis: `npx tsc --noEmit` exit 0; 7 JPEG 960×540, sanding 960 px; ekstraksi keenam timestamp cocok piksel persis (MAE 0). Log/manifest di `handoff/henti1/`.
+- Belum setara/teruji: pantulan/contact shadow tokoh B1b belum menyatu dengan kamar; slab belum memiliki material neon 83-k3; kedalaman set voxel 37 tidak direplikasi; gerak/sinkron belum diperiksa lewat video.
+- B1 repo tidak dipilih agar tujuh panel mencakup B1b dan dua mode B3. Narasi dari ucapan; isi UI dari tabel skill/log K13 asli. Peta panel: `handoff/henti1/panel-map.json`.
+- Entry: `remotion/src/uji/papan-entry.tsx`; bangun ulang still: `cd remotion && node src/papan/render-papan.mjs`, sanding: `python3 src/papan/sanding.py`. Tanpa video, commit/push, atau verdict mutu dari builder; menunggu Sutradara.
