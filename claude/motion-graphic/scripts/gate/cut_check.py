@@ -24,6 +24,7 @@ ekor 0,08 + napas 0,04 selalu dilindungi) atau 0,28 dtk (antarkalimat); kata sam
 Usulan wajib didengar sebelum dipakai (`scripts/audio/recut.py` menerapkannya + peta waktu). Exit 1 bila gagal.
 """
 import argparse, json, re, sys
+from pathlib import Path
 import numpy as np
 import soundfile as sf
 
@@ -49,10 +50,66 @@ def load_words(p):
     return sorted(out, key=lambda q: q["s"])
 
 
-def validate_cuts(source, removed, mapped=None, guard=0.05, fillers=None, cuts=None):
-    """Editorial labels exempt wholly removed tokens; partial words still fail."""
+GUARD_EX_MIN_RETENTION = 0.95   # pengecualian guard: retensi alignment kata tetangga >= 95 %
+GUARD_EX_MAX_OVERLAP = 0.020    # dan irisan <= 20 ms (Putusan Sutradara 16 Nov, skill-dev-journey)
+
+
+def load_guard_exceptions(path):
+    """Baca daftar pengecualian guard bernama-berbukti. Path bukti relatif dibaca dari folder berkas ini."""
+    p = Path(path)
+    with open(p, encoding="utf-8") as handle:
+        data = json.load(handle)
+    data = data.get("exceptions", data) if isinstance(data, dict) else data
+    out = []
+    for entry in data:
+        entry = dict(entry)
+        entry["_base"] = str(p.resolve().parent)
+        out.append(entry)
+    return out
+
+
+def _exception_problem(entry):
+    """None bila entri lengkap; selain itu alasan penolakan. Entri tanpa bukti lengkap = tetap GAGAL."""
+    for key in ("detik", "kata_kiri", "kata_kanan", "alasan", "bukti"):
+        if entry.get(key) in (None, "", {}):
+            return f"field {key} kosong"
+    proof = entry["bukti"]
+    if not isinstance(proof, dict):
+        return "bukti bukan objek"
+    try:
+        retention, overlap = float(proof["retensi"]), float(proof["irisan_ms"]) / 1000.0
+    except (KeyError, TypeError, ValueError):
+        return "bukti wajib retensi (0-1) dan irisan_ms"
+    if retention < GUARD_EX_MIN_RETENTION - 1e-9:
+        return f"retensi bukti {retention:.3f} < {GUARD_EX_MIN_RETENTION}"
+    if overlap > GUARD_EX_MAX_OVERLAP + 1e-9:
+        return f"irisan bukti {overlap * 1000:.1f} ms > {GUARD_EX_MAX_OVERLAP * 1000:.0f} ms"
+    path = Path(str(proof.get("path", "")))
+    if not str(proof.get("path", "")).strip():
+        return "bukti.path kosong"
+    if not path.is_absolute():
+        path = Path(entry.get("_base", ".")) / path
+    if not path.exists():
+        return f"bukti.path tidak ada: {path}"
+    return None
+
+
+def validate_cuts(source, removed, mapped=None, guard=0.05, fillers=None, cuts=None, guard_exceptions=None):
+    """Editorial labels exempt wholly removed tokens; partial words still fail.
+    guard_exceptions: entri {detik, kata_kiri, kata_kanan, alasan, bukti{retensi, irisan_ms, path}}; hanya kegagalan `guard`
+    pada kata kiri/kanan sambungan itu yang dibebaskan, dan hanya bila retensi/irisan YANG DIUKUR alat juga memenuhi
+    (retensi >= 0,95, irisan <= 20 ms). Overlap/retention/urutan tidak pernah dibebaskan."""
     failures = []
     rows = []
+    exceptions_used = []
+    exception_notes = []
+    valid_exceptions = []
+    for entry in guard_exceptions or []:
+        problem = _exception_problem(entry)
+        if problem:
+            exception_notes.append(f"guard-exception {entry.get('detik')} {entry.get('kata_kiri')}|{entry.get('kata_kanan')} ditolak: {problem}")
+        else:
+            valid_exceptions.append(entry)
     norm = lambda w: re.sub(r"[^\w]", "", w.lower())
     filler_values = fillers.split(",") if isinstance(fillers, str) else (fillers or DEF_FILL.split(","))
     filler_set = {norm(value) for value in filler_values if str(value).strip()}
@@ -98,14 +155,33 @@ def validate_cuts(source, removed, mapped=None, guard=0.05, fillers=None, cuts=N
             failures.append(f"overlap {word['w']}@{word['s']}: {overlap:.4f}s")
         if ratio < 0.85 - 1e-7:
             failures.append(f"retention {word['w']}@{word['s']}: {ratio:.3f}")
-        if any(a < word["e"] + guard - 1e-7 and b > word["s"] - guard + 1e-7 for a, b in removed):
-            failures.append(f"guard {word['w']}@{word['s']}: <{guard}s")
+        hit = [(a, b) for a, b in removed if a < word["e"] + guard - 1e-7 and b > word["s"] - guard + 1e-7]
+        if hit:
+            uncovered = []
+            for a, b in hit:
+                match = None
+                for entry in valid_exceptions:
+                    side_ok = (norm(entry["kata_kiri"]) == norm(word["w"]) and word["e"] <= a + 0.020 + 1e-7) or \
+                              (norm(entry["kata_kanan"]) == norm(word["w"]) and word["s"] >= b - 0.020 - 1e-7)
+                    if side_ok and a - 1e-3 <= float(entry["detik"]) <= b + 1e-3 and ratio >= GUARD_EX_MIN_RETENTION - 1e-9 \
+                            and overlap <= GUARD_EX_MAX_OVERLAP + 1e-9:
+                        match = entry
+                        break
+                if match is None:
+                    uncovered.append((a, b))
+                else:
+                    exceptions_used.append(dict(detik=match["detik"], kata_kiri=match["kata_kiri"], kata_kanan=match["kata_kanan"],
+                                                kata=word["w"], alasan=match["alasan"], retensi_terukur=round(ratio, 4),
+                                                irisan_ms_terukur=round(overlap * 1000, 1), bukti=match["bukti"]["path"]))
+            if uncovered:
+                failures.append(f"guard {word['w']}@{word['s']}: <{guard}s")
         if mapped is not None and index < len(mapped_content):
             actual = (mapped_content[index]["e"] - mapped_content[index]["s"]) / duration if duration > 0 else 0.0
             if actual < 0.85 - 1e-7:
                 failures.append(f"mapped duration {word['w']}@{word['s']}: {actual:.3f}")
         rows.append(dict(**word, overlap=round(overlap, 6), retained=round(ratio, 6)))
-    return {"pass_": not failures, "failures": failures, "words": rows}
+    failures += exception_notes
+    return {"pass_": not failures, "failures": failures, "words": rows, "exceptions_used": exceptions_used}
 
 
 def runs(mask, min_len):
@@ -122,6 +198,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("audio"); ap.add_argument("words")
     ap.add_argument("--source-words"); ap.add_argument("--map"); ap.add_argument("--validation-out")
+    ap.add_argument("--guard-exceptions", help="JSON pengecualian guard 50 ms bernama-berbukti (hanya bersama --source-words/--map)")
     ap.add_argument("--filler", default=DEF_FILL)
     ap.add_argument("--max-inner", type=float, default=0.15)
     ap.add_argument("--max-sentence", type=float, default=0.50)
@@ -133,7 +210,11 @@ def main():
         with open(a.map, encoding="utf-8") as handle:
             cut_map = json.load(handle)
         result = validate_cuts(load_words(a.source_words), cut_map["removed"], load_words(a.words),
-                               fillers=a.filler, cuts=cut_map.get("cuts"))
+                               fillers=a.filler, cuts=cut_map.get("cuts"),
+                               guard_exceptions=load_guard_exceptions(a.guard_exceptions) if a.guard_exceptions else None)
+        for used in result["exceptions_used"]:
+            print(f"PENGECUALIAN guard dipakai: {used['kata_kiri']}|{used['kata_kanan']} @ {used['detik']} (kata {used['kata']}): "
+                  f"{used['alasan']} · retensi {used['retensi_terukur']:.3f} · irisan {used['irisan_ms_terukur']} ms · bukti {used['bukti']}")
         if a.validation_out:
             json.dump(result, open(a.validation_out, "w"), ensure_ascii=False, indent=2)
         print("PASS source overlap/duration/guard" if result["pass_"] else "FAIL: " + "; ".join(result["failures"]))

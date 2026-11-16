@@ -1,0 +1,3464 @@
+{
+ "source": "/home/irfan/.codex/attachments/d9062ade-e728-4775-b6cd-1b2e61bfd5b8/DJI_20261116162607_0603_D.MP4",
+ "fps": 29.97002997002997,
+ "fps_rational": "30000/1001",
+ "source_fps_rational": "60000/1001",
+ "dur_old": 209.38666666666666,
+ "dur_new": 83.28320833333333,
+ "frames": 2496,
+ "sample_rate": 48000,
+ "samples": 3997594,
+ "audio_processing": "Unity source PCM; filler/loud-edge equal-power 10ms joins; quiet endpoint microfades <=2ms. No gain/loudness/limiter/denoise/speed/pitch changes. R5: cut points on 59.94 fps source grid, per-segment frame parity.",
+ "kept": [
+  {
+   "act": "B1",
+   "f0": 0,
+   "f1": 71,
+   "cursor": 0,
+   "source_start": 0.6089,
+   "source_end": 2.977933333333334,
+   "timeline_start": 0.0,
+   "timeline_end": 2.3690333333333333,
+   "source_frames_5994": [
+    36,
+    178
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0083,
+   "video_source_start": 0.6006,
+   "video_source_end": 2.969633333333334,
+   "source_frames_2997": [
+    18.0,
+    89.0
+   ],
+   "timeline_frames": [
+    0,
+    71
+   ],
+   "samples": 113714
+  },
+  {
+   "act": "B1",
+   "f0": 71,
+   "f1": 174,
+   "cursor": 71,
+   "source_start": 2.9905166666666667,
+   "source_end": 6.4272833333333335,
+   "timeline_start": 2.3690333333333333,
+   "timeline_end": 5.8058000000000005,
+   "source_frames_5994": [
+    179,
+    385
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0042,
+   "video_source_start": 2.9863166666666667,
+   "video_source_end": 6.4230833333333335,
+   "source_frames_2997": [
+    89.5,
+    192.5
+   ],
+   "timeline_frames": [
+    71,
+    174
+   ],
+   "samples": 164964
+  },
+  {
+   "act": "B1b",
+   "f0": 174,
+   "f1": 279,
+   "cursor": 174,
+   "source_start": 6.439766666666667,
+   "source_end": 9.943266666666668,
+   "timeline_start": 5.8058000000000005,
+   "timeline_end": 9.3093,
+   "source_frames_5994": [
+    386,
+    596
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 6.439766666666667,
+   "video_source_end": 9.943266666666668,
+   "source_frames_2997": [
+    193.0,
+    298.0
+   ],
+   "timeline_frames": [
+    174,
+    279
+   ],
+   "samples": 168168
+  },
+  {
+   "act": "B1b",
+   "f0": 279,
+   "f1": 311,
+   "cursor": 279,
+   "source_start": 10.05585,
+   "source_end": 11.123583333333334,
+   "timeline_start": 9.3093,
+   "timeline_end": 10.377033333333333,
+   "source_frames_5994": [
+    603,
+    667
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": -0.0042,
+   "video_source_start": 10.06005,
+   "video_source_end": 11.127783333333335,
+   "source_frames_2997": [
+    301.5,
+    333.5
+   ],
+   "timeline_frames": [
+    279,
+    311
+   ],
+   "samples": 51252
+  },
+  {
+   "act": "B1b",
+   "f0": 311,
+   "f1": 334,
+   "cursor": 311,
+   "source_start": 11.344666666666667,
+   "source_end": 12.112100000000002,
+   "timeline_start": 10.377033333333333,
+   "timeline_end": 11.144466666666666,
+   "source_frames_5994": [
+    680,
+    726
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 11.344666666666667,
+   "video_source_end": 12.112100000000002,
+   "source_frames_2997": [
+    340.0,
+    363.0
+   ],
+   "timeline_frames": [
+    311,
+    334
+   ],
+   "samples": 36836
+  },
+  {
+   "act": "B1b",
+   "f0": 334,
+   "f1": 422,
+   "cursor": 334,
+   "source_start": 12.399916666666668,
+   "source_end": 15.336183333333336,
+   "timeline_start": 11.144466666666666,
+   "timeline_end": 14.080733333333333,
+   "source_frames_5994": [
+    743,
+    919
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0042,
+   "video_source_start": 12.395716666666667,
+   "video_source_end": 15.331983333333335,
+   "source_frames_2997": [
+    371.5,
+    459.5
+   ],
+   "timeline_frames": [
+    334,
+    422
+   ],
+   "samples": 140941
+  },
+  {
+   "act": "B2",
+   "f0": 422,
+   "f1": 534,
+   "cursor": 422,
+   "source_start": 15.490516666666668,
+   "source_end": 19.227583333333335,
+   "timeline_start": 14.080733333333333,
+   "timeline_end": 17.817800000000002,
+   "source_frames_5994": [
+    929,
+    1153
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": -0.0083,
+   "video_source_start": 15.498816666666668,
+   "video_source_end": 19.235883333333334,
+   "source_frames_2997": [
+    464.5,
+    576.5
+   ],
+   "timeline_frames": [
+    422,
+    534
+   ],
+   "samples": 179379
+  },
+  {
+   "act": "B2",
+   "f0": 534,
+   "f1": 587,
+   "cursor": 534,
+   "source_start": 19.5153,
+   "source_end": 21.283733333333334,
+   "timeline_start": 17.817800000000002,
+   "timeline_end": 19.586233333333332,
+   "source_frames_5994": [
+    1170,
+    1276
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": -0.0042,
+   "video_source_start": 19.5195,
+   "video_source_end": 21.287933333333335,
+   "source_frames_2997": [
+    585.0,
+    638.0
+   ],
+   "timeline_frames": [
+    534,
+    587
+   ],
+   "samples": 84885
+  },
+  {
+   "act": "B2",
+   "f0": 587,
+   "f1": 634,
+   "cursor": 587,
+   "source_start": 21.517300000000002,
+   "source_end": 23.085533333333334,
+   "timeline_start": 19.586233333333332,
+   "timeline_end": 21.154466666666668,
+   "source_frames_5994": [
+    1290,
+    1384
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": -0.0042,
+   "video_source_start": 21.521500000000003,
+   "video_source_end": 23.089733333333335,
+   "source_frames_2997": [
+    645.0,
+    692.0
+   ],
+   "timeline_frames": [
+    587,
+    634
+   ],
+   "samples": 75275
+  },
+  {
+   "act": "B2",
+   "f0": 634,
+   "f1": 664,
+   "cursor": 634,
+   "source_start": 23.327500000000004,
+   "source_end": 24.328500000000002,
+   "timeline_start": 21.154466666666668,
+   "timeline_end": 22.155466666666666,
+   "source_frames_5994": [
+    1398,
+    1458
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0042,
+   "video_source_start": 23.323300000000003,
+   "video_source_end": 24.3243,
+   "source_frames_2997": [
+    699.0,
+    729.0
+   ],
+   "timeline_frames": [
+    634,
+    664
+   ],
+   "samples": 48048
+  },
+  {
+   "act": "B2",
+   "f0": 664,
+   "f1": 696,
+   "cursor": 664,
+   "source_start": 24.587033333333334,
+   "source_end": 25.654766666666667,
+   "timeline_start": 22.155466666666666,
+   "timeline_end": 23.223200000000002,
+   "source_frames_5994": [
+    1474,
+    1538
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": -0.0042,
+   "video_source_start": 24.591233333333335,
+   "video_source_end": 25.658966666666668,
+   "source_frames_2997": [
+    737.0,
+    769.0
+   ],
+   "timeline_frames": [
+    664,
+    696
+   ],
+   "samples": 51252
+  },
+  {
+   "act": "B3",
+   "f0": 696,
+   "f1": 713,
+   "cursor": 696,
+   "source_start": 42.89285,
+   "source_end": 43.46008333333334,
+   "timeline_start": 23.223200000000002,
+   "timeline_end": 23.790433333333333,
+   "source_frames_5994": [
+    2571,
+    2605
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0,
+   "video_source_start": 42.89285,
+   "video_source_end": 43.46008333333334,
+   "source_frames_2997": [
+    1285.5,
+    1302.5
+   ],
+   "timeline_frames": [
+    696,
+    713
+   ],
+   "samples": 27227
+  },
+  {
+   "act": "B3",
+   "f0": 713,
+   "f1": 768,
+   "cursor": 713,
+   "source_start": 43.722816666666674,
+   "source_end": 45.55798333333334,
+   "timeline_start": 23.790433333333333,
+   "timeline_end": 25.625600000000002,
+   "source_frames_5994": [
+    2621,
+    2731
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": -0.0042,
+   "video_source_start": 43.72701666666667,
+   "video_source_end": 45.56218333333334,
+   "source_frames_2997": [
+    1310.5,
+    1365.5
+   ],
+   "timeline_frames": [
+    713,
+    768
+   ],
+   "samples": 88088
+  },
+  {
+   "act": "B3",
+   "f0": 768,
+   "f1": 788,
+   "cursor": 768,
+   "source_start": 46.41303333333334,
+   "source_end": 47.08036666666667,
+   "timeline_start": 25.625600000000002,
+   "timeline_end": 26.292933333333334,
+   "source_frames_5994": [
+    2782,
+    2822
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 46.41303333333334,
+   "video_source_end": 47.08036666666667,
+   "source_frames_2997": [
+    1391.0,
+    1411.0
+   ],
+   "timeline_frames": [
+    768,
+    788
+   ],
+   "samples": 32032
+  },
+  {
+   "act": "B3",
+   "f0": 788,
+   "f1": 822,
+   "cursor": 788,
+   "source_start": 47.693450000000006,
+   "source_end": 48.827916666666674,
+   "timeline_start": 26.292933333333334,
+   "timeline_end": 27.427400000000002,
+   "source_frames_5994": [
+    2859,
+    2927
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": -0.0042,
+   "video_source_start": 47.69765,
+   "video_source_end": 48.83211666666667,
+   "source_frames_2997": [
+    1429.5,
+    1463.5
+   ],
+   "timeline_frames": [
+    788,
+    822
+   ],
+   "samples": 54454
+  },
+  {
+   "act": "B3",
+   "f0": 822,
+   "f1": 834,
+   "cursor": 822,
+   "source_start": 48.89885,
+   "source_end": 49.29925,
+   "timeline_start": 27.427400000000002,
+   "timeline_end": 27.8278,
+   "source_frames_5994": [
+    2931,
+    2955
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0,
+   "video_source_start": 48.89885,
+   "video_source_end": 49.29925,
+   "source_frames_2997": [
+    1465.5,
+    1477.5
+   ],
+   "timeline_frames": [
+    822,
+    834
+   ],
+   "samples": 19219
+  },
+  {
+   "act": "B3",
+   "f0": 834,
+   "f1": 900,
+   "cursor": 834,
+   "source_start": 49.31593333333334,
+   "source_end": 51.51813333333334,
+   "timeline_start": 27.8278,
+   "timeline_end": 30.03,
+   "source_frames_5994": [
+    2956,
+    3088
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 49.31593333333334,
+   "video_source_end": 51.51813333333334,
+   "source_frames_2997": [
+    1478.0,
+    1544.0
+   ],
+   "timeline_frames": [
+    834,
+    900
+   ],
+   "samples": 105706
+  },
+  {
+   "act": "B3",
+   "f0": 900,
+   "f1": 963,
+   "cursor": 900,
+   "source_start": 52.519133333333336,
+   "source_end": 54.621233333333336,
+   "timeline_start": 30.03,
+   "timeline_end": 32.1321,
+   "source_frames_5994": [
+    3148,
+    3274
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 52.519133333333336,
+   "video_source_end": 54.621233333333336,
+   "source_frames_2997": [
+    1574.0,
+    1637.0
+   ],
+   "timeline_frames": [
+    900,
+    963
+   ],
+   "samples": 100901
+  },
+  {
+   "act": "B3",
+   "f0": 963,
+   "f1": 981,
+   "cursor": 963,
+   "source_start": 54.72133333333334,
+   "source_end": 55.32193333333334,
+   "timeline_start": 32.1321,
+   "timeline_end": 32.7327,
+   "source_frames_5994": [
+    3280,
+    3316
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 54.72133333333334,
+   "video_source_end": 55.32193333333334,
+   "source_frames_2997": [
+    1640.0,
+    1658.0
+   ],
+   "timeline_frames": [
+    963,
+    981
+   ],
+   "samples": 28829
+  },
+  {
+   "act": "B3",
+   "f0": 981,
+   "f1": 1054,
+   "cursor": 981,
+   "source_start": 55.705650000000006,
+   "source_end": 58.14141666666667,
+   "timeline_start": 32.7327,
+   "timeline_end": 35.16846666666667,
+   "source_frames_5994": [
+    3339,
+    3485
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0,
+   "video_source_start": 55.705650000000006,
+   "video_source_end": 58.14141666666667,
+   "source_frames_2997": [
+    1669.5,
+    1742.5
+   ],
+   "timeline_frames": [
+    981,
+    1054
+   ],
+   "samples": 116916
+  },
+  {
+   "act": "B3",
+   "f0": 1054,
+   "f1": 1076,
+   "cursor": 1054,
+   "source_start": 58.59186666666667,
+   "source_end": 59.32593333333334,
+   "timeline_start": 35.16846666666667,
+   "timeline_end": 35.90253333333333,
+   "source_frames_5994": [
+    3512,
+    3556
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 58.59186666666667,
+   "video_source_end": 59.32593333333334,
+   "source_frames_2997": [
+    1756.0,
+    1778.0
+   ],
+   "timeline_frames": [
+    1054,
+    1076
+   ],
+   "samples": 35236
+  },
+  {
+   "act": "B3",
+   "f0": 1076,
+   "f1": 1129,
+   "cursor": 1076,
+   "source_start": 60.16010000000001,
+   "source_end": 61.92853333333334,
+   "timeline_start": 35.90253333333333,
+   "timeline_end": 37.670966666666665,
+   "source_frames_5994": [
+    3606,
+    3712
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 60.16010000000001,
+   "video_source_end": 61.92853333333334,
+   "source_frames_2997": [
+    1803.0,
+    1856.0
+   ],
+   "timeline_frames": [
+    1076,
+    1129
+   ],
+   "samples": 84884
+  },
+  {
+   "act": "B4",
+   "f0": 1129,
+   "f1": 1162,
+   "cursor": 1129,
+   "source_start": 99.01558333333334,
+   "source_end": 100.11668333333334,
+   "timeline_start": 37.670966666666665,
+   "timeline_end": 38.77206666666667,
+   "source_frames_5994": [
+    5935,
+    6001
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0,
+   "video_source_start": 99.01558333333334,
+   "video_source_end": 100.11668333333334,
+   "source_frames_2997": [
+    2967.5,
+    3000.5
+   ],
+   "timeline_frames": [
+    1129,
+    1162
+   ],
+   "samples": 52853
+  },
+  {
+   "act": "B4",
+   "f0": 1162,
+   "f1": 1247,
+   "cursor": 1162,
+   "source_start": 100.43366666666668,
+   "source_end": 103.26983333333334,
+   "timeline_start": 38.77206666666667,
+   "timeline_end": 41.60823333333333,
+   "source_frames_5994": [
+    6020,
+    6190
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 100.43366666666668,
+   "video_source_end": 103.26983333333334,
+   "source_frames_2997": [
+    3010.0,
+    3095.0
+   ],
+   "timeline_frames": [
+    1162,
+    1247
+   ],
+   "samples": 136136
+  },
+  {
+   "act": "B4",
+   "f0": 1247,
+   "f1": 1276,
+   "cursor": 1247,
+   "source_start": 103.96633333333334,
+   "source_end": 104.93396666666668,
+   "timeline_start": 41.60823333333333,
+   "timeline_end": 42.57586666666667,
+   "source_frames_5994": [
+    6232,
+    6290
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": -0.0042,
+   "video_source_start": 103.97053333333334,
+   "video_source_end": 104.93816666666667,
+   "source_frames_2997": [
+    3116.0,
+    3145.0
+   ],
+   "timeline_frames": [
+    1247,
+    1276
+   ],
+   "samples": 46447
+  },
+  {
+   "act": "B4",
+   "f0": 1276,
+   "f1": 1288,
+   "cursor": 1276,
+   "source_start": 105.32188333333335,
+   "source_end": 105.72228333333334,
+   "timeline_start": 42.57586666666667,
+   "timeline_end": 42.97626666666667,
+   "source_frames_5994": [
+    6313,
+    6337
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0,
+   "video_source_start": 105.32188333333335,
+   "video_source_end": 105.72228333333334,
+   "source_frames_2997": [
+    3156.5,
+    3168.5
+   ],
+   "timeline_frames": [
+    1276,
+    1288
+   ],
+   "samples": 19219
+  },
+  {
+   "act": "B4",
+   "f0": 1288,
+   "f1": 1351,
+   "cursor": 1288,
+   "source_start": 105.81408333333334,
+   "source_end": 107.91618333333334,
+   "timeline_start": 42.97626666666667,
+   "timeline_end": 45.07836666666667,
+   "source_frames_5994": [
+    6343,
+    6469
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": -0.0083,
+   "video_source_start": 105.82238333333335,
+   "video_source_end": 107.92448333333334,
+   "source_frames_2997": [
+    3171.5,
+    3234.5
+   ],
+   "timeline_frames": [
+    1288,
+    1351
+   ],
+   "samples": 100901
+  },
+  {
+   "act": "B4",
+   "f0": 1351,
+   "f1": 1374,
+   "cursor": 1351,
+   "source_start": 108.03706666666668,
+   "source_end": 108.80450000000002,
+   "timeline_start": 45.07836666666667,
+   "timeline_end": 45.845800000000004,
+   "source_frames_5994": [
+    6476,
+    6522
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": -0.0042,
+   "video_source_start": 108.04126666666667,
+   "video_source_end": 108.80870000000002,
+   "source_frames_2997": [
+    3238.0,
+    3261.0
+   ],
+   "timeline_frames": [
+    1351,
+    1374
+   ],
+   "samples": 36836
+  },
+  {
+   "act": "B4",
+   "f0": 1374,
+   "f1": 1399,
+   "cursor": 1374,
+   "source_start": 109.04226666666668,
+   "source_end": 109.87643333333334,
+   "timeline_start": 45.845800000000004,
+   "timeline_end": 46.679966666666665,
+   "source_frames_5994": [
+    6536,
+    6586
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 109.04226666666668,
+   "video_source_end": 109.87643333333334,
+   "source_frames_2997": [
+    3268.0,
+    3293.0
+   ],
+   "timeline_frames": [
+    1374,
+    1399
+   ],
+   "samples": 40040
+  },
+  {
+   "act": "B4",
+   "f0": 1399,
+   "f1": 1405,
+   "cursor": 1399,
+   "source_start": 109.88891666666667,
+   "source_end": 110.08911666666668,
+   "timeline_start": 46.679966666666665,
+   "timeline_end": 46.88016666666667,
+   "source_frames_5994": [
+    6587,
+    6599
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": -0.0042,
+   "video_source_start": 109.89311666666667,
+   "video_source_end": 110.09331666666668,
+   "source_frames_2997": [
+    3293.5,
+    3299.5
+   ],
+   "timeline_frames": [
+    1399,
+    1405
+   ],
+   "samples": 9610
+  },
+  {
+   "act": "B4",
+   "f0": 1405,
+   "f1": 1476,
+   "cursor": 1405,
+   "source_start": 110.11420000000001,
+   "source_end": 112.48323333333335,
+   "timeline_start": 46.88016666666667,
+   "timeline_end": 49.2492,
+   "source_frames_5994": [
+    6600,
+    6742
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0042,
+   "video_source_start": 110.11000000000001,
+   "video_source_end": 112.47903333333335,
+   "source_frames_2997": [
+    3300.0,
+    3371.0
+   ],
+   "timeline_frames": [
+    1405,
+    1476
+   ],
+   "samples": 113714
+  },
+  {
+   "act": "B4",
+   "f0": 1476,
+   "f1": 1488,
+   "cursor": 1476,
+   "source_start": 112.79601666666667,
+   "source_end": 113.19641666666668,
+   "timeline_start": 49.2492,
+   "timeline_end": 49.6496,
+   "source_frames_5994": [
+    6761,
+    6785
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0,
+   "video_source_start": 112.79601666666667,
+   "video_source_end": 113.19641666666668,
+   "source_frames_2997": [
+    3380.5,
+    3392.5
+   ],
+   "timeline_frames": [
+    1476,
+    1488
+   ],
+   "samples": 19219
+  },
+  {
+   "act": "B4",
+   "f0": 1488,
+   "f1": 1501,
+   "cursor": 1488,
+   "source_start": 113.24646666666668,
+   "source_end": 113.68023333333335,
+   "timeline_start": 49.6496,
+   "timeline_end": 50.08336666666667,
+   "source_frames_5994": [
+    6788,
+    6814
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 113.24646666666668,
+   "video_source_end": 113.68023333333335,
+   "source_frames_2997": [
+    3394.0,
+    3407.0
+   ],
+   "timeline_frames": [
+    1488,
+    1501
+   ],
+   "samples": 20821
+  },
+  {
+   "act": "B4",
+   "f0": 1501,
+   "f1": 1525,
+   "cursor": 1501,
+   "source_start": 113.79701666666668,
+   "source_end": 114.59781666666667,
+   "timeline_start": 50.08336666666667,
+   "timeline_end": 50.884166666666665,
+   "source_frames_5994": [
+    6821,
+    6869
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0,
+   "video_source_start": 113.79701666666668,
+   "video_source_end": 114.59781666666667,
+   "source_frames_2997": [
+    3410.5,
+    3434.5
+   ],
+   "timeline_frames": [
+    1501,
+    1525
+   ],
+   "samples": 38438
+  },
+  {
+   "act": "B4",
+   "f0": 1525,
+   "f1": 1569,
+   "cursor": 1525,
+   "source_start": 114.96905000000001,
+   "source_end": 116.43718333333334,
+   "timeline_start": 50.884166666666665,
+   "timeline_end": 52.3523,
+   "source_frames_5994": [
+    6891,
+    6979
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0042,
+   "video_source_start": 114.96485000000001,
+   "video_source_end": 116.43298333333334,
+   "source_frames_2997": [
+    3445.5,
+    3489.5
+   ],
+   "timeline_frames": [
+    1525,
+    1569
+   ],
+   "samples": 70470
+  },
+  {
+   "act": "B4",
+   "f0": 1569,
+   "f1": 1598,
+   "cursor": 1569,
+   "source_start": 116.47055,
+   "source_end": 117.43818333333334,
+   "timeline_start": 52.3523,
+   "timeline_end": 53.31993333333333,
+   "source_frames_5994": [
+    6981,
+    7039
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0042,
+   "video_source_start": 116.46635,
+   "video_source_end": 117.43398333333334,
+   "source_frames_2997": [
+    3490.5,
+    3519.5
+   ],
+   "timeline_frames": [
+    1569,
+    1598
+   ],
+   "samples": 46447
+  },
+  {
+   "act": "B5",
+   "f0": 1598,
+   "f1": 1647,
+   "cursor": 1598,
+   "source_start": 159.35920000000002,
+   "source_end": 160.99416666666667,
+   "timeline_start": 53.31993333333333,
+   "timeline_end": 54.9549,
+   "source_frames_5994": [
+    9552,
+    9650
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 159.35920000000002,
+   "video_source_end": 160.99416666666667,
+   "source_frames_2997": [
+    4776.0,
+    4825.0
+   ],
+   "timeline_frames": [
+    1598,
+    1647
+   ],
+   "samples": 78478
+  },
+  {
+   "act": "B5",
+   "f0": 1647,
+   "f1": 1672,
+   "cursor": 1647,
+   "source_start": 161.07758333333334,
+   "source_end": 161.91175,
+   "timeline_start": 54.9549,
+   "timeline_end": 55.78906666666667,
+   "source_frames_5994": [
+    9655,
+    9705
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0,
+   "video_source_start": 161.07758333333334,
+   "video_source_end": 161.91175,
+   "source_frames_2997": [
+    4827.5,
+    4852.5
+   ],
+   "timeline_frames": [
+    1647,
+    1672
+   ],
+   "samples": 40040
+  },
+  {
+   "act": "B5",
+   "f0": 1672,
+   "f1": 1734,
+   "cursor": 1672,
+   "source_start": 162.12863333333334,
+   "source_end": 164.19736666666668,
+   "timeline_start": 55.78906666666667,
+   "timeline_end": 57.857800000000005,
+   "source_frames_5994": [
+    9718,
+    9842
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 162.12863333333334,
+   "video_source_end": 164.19736666666668,
+   "source_frames_2997": [
+    4859.0,
+    4921.0
+   ],
+   "timeline_frames": [
+    1672,
+    1734
+   ],
+   "samples": 99299
+  },
+  {
+   "act": "B5",
+   "f0": 1734,
+   "f1": 1757,
+   "cursor": 1734,
+   "source_start": 164.33083333333335,
+   "source_end": 165.0982666666667,
+   "timeline_start": 57.857800000000005,
+   "timeline_end": 58.625233333333334,
+   "source_frames_5994": [
+    9850,
+    9896
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 164.33083333333335,
+   "video_source_end": 165.0982666666667,
+   "source_frames_2997": [
+    4925.0,
+    4948.0
+   ],
+   "timeline_frames": [
+    1734,
+    1757
+   ],
+   "samples": 36837
+  },
+  {
+   "act": "B5",
+   "f0": 1757,
+   "f1": 1794,
+   "cursor": 1757,
+   "source_start": 165.6697,
+   "source_end": 166.90426666666667,
+   "timeline_start": 58.625233333333334,
+   "timeline_end": 59.8598,
+   "source_frames_5994": [
+    9930,
+    10004
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0042,
+   "video_source_start": 165.6655,
+   "video_source_end": 166.90006666666667,
+   "source_frames_2997": [
+    4965.0,
+    5002.0
+   ],
+   "timeline_frames": [
+    1757,
+    1794
+   ],
+   "samples": 59259
+  },
+  {
+   "act": "B5",
+   "f0": 1794,
+   "f1": 2040,
+   "cursor": 1794,
+   "source_start": 167.13363333333334,
+   "source_end": 175.34183333333334,
+   "timeline_start": 59.8598,
+   "timeline_end": 68.068,
+   "source_frames_5994": [
+    10018,
+    10510
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 167.13363333333334,
+   "video_source_end": 175.34183333333334,
+   "source_frames_2997": [
+    5009.0,
+    5255.0
+   ],
+   "timeline_frames": [
+    1794,
+    2040
+   ],
+   "samples": 393994
+  },
+  {
+   "act": "B5",
+   "f0": 2040,
+   "f1": 2088,
+   "cursor": 2040,
+   "source_start": 178.32815000000002,
+   "source_end": 179.92975,
+   "timeline_start": 68.068,
+   "timeline_end": 69.6696,
+   "source_frames_5994": [
+    10689,
+    10785
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0,
+   "video_source_start": 178.32815000000002,
+   "video_source_end": 179.92975,
+   "source_frames_2997": [
+    5344.5,
+    5392.5
+   ],
+   "timeline_frames": [
+    2040,
+    2088
+   ],
+   "samples": 76877
+  },
+  {
+   "act": "B5",
+   "f0": 2088,
+   "f1": 2147,
+   "cursor": 2088,
+   "source_start": 180.53035000000003,
+   "source_end": 182.49898333333334,
+   "timeline_start": 69.6696,
+   "timeline_end": 71.63823333333333,
+   "source_frames_5994": [
+    10821,
+    10939
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0,
+   "video_source_start": 180.53035000000003,
+   "video_source_end": 182.49898333333334,
+   "source_frames_2997": [
+    5410.5,
+    5469.5
+   ],
+   "timeline_frames": [
+    2088,
+    2147
+   ],
+   "samples": 94494
+  },
+  {
+   "act": "B6",
+   "f0": 2147,
+   "f1": 2211,
+   "cursor": 2147,
+   "source_start": 187.8209666666667,
+   "source_end": 189.95643333333334,
+   "timeline_start": 71.63823333333333,
+   "timeline_end": 73.7737,
+   "source_frames_5994": [
+    11258,
+    11386
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 187.8209666666667,
+   "video_source_end": 189.95643333333334,
+   "source_frames_2997": [
+    5629.0,
+    5693.0
+   ],
+   "timeline_frames": [
+    2147,
+    2211
+   ],
+   "samples": 102503
+  },
+  {
+   "act": "B6",
+   "f0": 2211,
+   "f1": 2307,
+   "cursor": 2211,
+   "source_start": 197.9978,
+   "source_end": 201.20100000000002,
+   "timeline_start": 73.7737,
+   "timeline_end": 76.9769,
+   "source_frames_5994": [
+    11868,
+    12060
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 197.9978,
+   "video_source_end": 201.20100000000002,
+   "source_frames_2997": [
+    5934.0,
+    6030.0
+   ],
+   "timeline_frames": [
+    2211,
+    2307
+   ],
+   "samples": 153753
+  },
+  {
+   "act": "B6",
+   "f0": 2307,
+   "f1": 2400,
+   "cursor": 2307,
+   "source_start": 201.61808333333335,
+   "source_end": 204.72118333333336,
+   "timeline_start": 76.9769,
+   "timeline_end": 80.08,
+   "source_frames_5994": [
+    12085,
+    12271
+   ],
+   "source_frame_parity": 1,
+   "audio_offset_s": 0.0,
+   "video_source_start": 201.61808333333335,
+   "video_source_end": 204.72118333333336,
+   "source_frames_2997": [
+    6042.5,
+    6135.5
+   ],
+   "timeline_frames": [
+    2307,
+    2400
+   ],
+   "samples": 148949
+  },
+  {
+   "act": "B6",
+   "f0": 2400,
+   "f1": 2496,
+   "cursor": 2400,
+   "source_start": 205.13826666666668,
+   "source_end": 208.3414666666667,
+   "timeline_start": 80.08,
+   "timeline_end": 83.28320000000001,
+   "source_frames_5994": [
+    12296,
+    12488
+   ],
+   "source_frame_parity": 0,
+   "audio_offset_s": 0.0,
+   "video_source_start": 205.13826666666668,
+   "video_source_end": 208.3414666666667,
+   "source_frames_2997": [
+    6148.0,
+    6244.0
+   ],
+   "timeline_frames": [
+    2400,
+    2496
+   ],
+   "samples": 153754
+  }
+ ],
+ "removed": [
+  [
+   2.977933333333334,
+   2.9905166666666667
+  ],
+  [
+   6.4272833333333335,
+   6.439766666666667
+  ],
+  [
+   9.943266666666668,
+   10.05585
+  ],
+  [
+   11.123583333333334,
+   11.344666666666667
+  ],
+  [
+   12.112100000000002,
+   12.399916666666668
+  ],
+  [
+   15.336183333333336,
+   15.490516666666668
+  ],
+  [
+   19.227583333333335,
+   19.5153
+  ],
+  [
+   21.283733333333334,
+   21.517300000000002
+  ],
+  [
+   23.085533333333334,
+   23.327500000000004
+  ],
+  [
+   24.328500000000002,
+   24.587033333333334
+  ],
+  [
+   25.654766666666667,
+   42.89285
+  ],
+  [
+   43.46008333333334,
+   43.722816666666674
+  ],
+  [
+   45.55798333333334,
+   46.41303333333334
+  ],
+  [
+   47.08036666666667,
+   47.693450000000006
+  ],
+  [
+   48.827916666666674,
+   48.89885
+  ],
+  [
+   49.29925,
+   49.31593333333334
+  ],
+  [
+   51.51813333333334,
+   52.519133333333336
+  ],
+  [
+   54.621233333333336,
+   54.72133333333334
+  ],
+  [
+   55.32193333333334,
+   55.705650000000006
+  ],
+  [
+   58.14141666666667,
+   58.59186666666667
+  ],
+  [
+   59.32593333333334,
+   60.16010000000001
+  ],
+  [
+   61.92853333333334,
+   99.01558333333334
+  ],
+  [
+   100.11668333333334,
+   100.43366666666668
+  ],
+  [
+   103.26983333333334,
+   103.96633333333334
+  ],
+  [
+   104.93396666666668,
+   105.32188333333335
+  ],
+  [
+   105.72228333333334,
+   105.81408333333334
+  ],
+  [
+   107.91618333333334,
+   108.03706666666668
+  ],
+  [
+   108.80450000000002,
+   109.04226666666668
+  ],
+  [
+   109.87643333333334,
+   109.88891666666667
+  ],
+  [
+   110.08911666666668,
+   110.11420000000001
+  ],
+  [
+   112.48323333333335,
+   112.79601666666667
+  ],
+  [
+   113.19641666666668,
+   113.24646666666668
+  ],
+  [
+   113.68023333333335,
+   113.79701666666668
+  ],
+  [
+   114.59781666666667,
+   114.96905000000001
+  ],
+  [
+   116.43718333333334,
+   116.47055
+  ],
+  [
+   117.43818333333334,
+   159.35920000000002
+  ],
+  [
+   160.99416666666667,
+   161.07758333333334
+  ],
+  [
+   161.91175,
+   162.12863333333334
+  ],
+  [
+   164.19736666666668,
+   164.33083333333335
+  ],
+  [
+   165.0982666666667,
+   165.6697
+  ],
+  [
+   166.90426666666667,
+   167.13363333333334
+  ],
+  [
+   175.34183333333334,
+   178.32815000000002
+  ],
+  [
+   179.92975,
+   180.53035000000003
+  ],
+  [
+   182.49898333333334,
+   187.8209666666667
+  ],
+  [
+   189.95643333333334,
+   197.9978
+  ],
+  [
+   201.20100000000002,
+   201.61808333333335
+  ],
+  [
+   204.72118333333336,
+   205.13826666666668
+  ],
+  [
+   208.3414666666667,
+   209.38666666666666
+  ]
+ ],
+ "acts": [
+  {
+   "id": "B1",
+   "start": 0.0,
+   "end": 4.070733333333333,
+   "frames": 122,
+   "duration": 4.070733333333333,
+   "f0": 0,
+   "f1": 122
+  },
+  {
+   "id": "B1b",
+   "start": 4.070733333333333,
+   "end": 13.747066666666667,
+   "frames": 290,
+   "duration": 9.676333333333334,
+   "f0": 122,
+   "f1": 412
+  },
+  {
+   "id": "B2",
+   "start": 13.747066666666667,
+   "end": 23.223200000000002,
+   "frames": 284,
+   "duration": 9.476133333333333,
+   "f0": 412,
+   "f1": 696
+  },
+  {
+   "id": "B3",
+   "start": 23.223200000000002,
+   "end": 37.670966666666665,
+   "frames": 433,
+   "duration": 14.447766666666666,
+   "f0": 696,
+   "f1": 1129
+  },
+  {
+   "id": "B4",
+   "start": 37.670966666666665,
+   "end": 53.31993333333333,
+   "frames": 469,
+   "duration": 15.648966666666666,
+   "f0": 1129,
+   "f1": 1598
+  },
+  {
+   "id": "B5",
+   "start": 53.31993333333333,
+   "end": 71.63823333333333,
+   "frames": 549,
+   "duration": 18.3183,
+   "f0": 1598,
+   "f1": 2147
+  },
+  {
+   "id": "B6",
+   "start": 71.63823333333333,
+   "end": 83.28320000000001,
+   "frames": 349,
+   "duration": 11.644966666666667,
+   "f0": 2147,
+   "f1": 2496
+  }
+ ],
+ "editorial_notes": [
+  "B3 25.39-34.75 omitted because B1b already explains decisions.",
+  "B3 optional canvas passage omitted to meet duration.",
+  "B5 repetitive same-session explanation omitted."
+ ],
+ "round": 5,
+ "cuts": [
+  {
+   "source_start": 2.977933333333334,
+   "source_end": 2.9905166666666667,
+   "label": "pause",
+   "reason": "proyek→ini",
+   "source_frames_5994": [
+    178,
+    179
+   ],
+   "prev_token": 3,
+   "next_token": 4,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 6.4272833333333335,
+   "source_end": 6.439766666666667,
+   "label": "pause",
+   "reason": "ngebikin→workflow",
+   "source_frames_5994": [
+    385,
+    386
+   ],
+   "prev_token": 11,
+   "next_token": 12,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 9.943266666666668,
+   "source_end": 10.05585,
+   "label": "pause",
+   "reason": "CGPT,→Claude,",
+   "source_frames_5994": [
+    596,
+    603
+   ],
+   "prev_token": 22,
+   "next_token": 23,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 11.123583333333334,
+   "source_end": 11.344666666666667,
+   "label": "pause",
+   "reason": "Gemini,→itu",
+   "source_frames_5994": [
+    667,
+    680
+   ],
+   "prev_token": 24,
+   "next_token": 25,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 12.112100000000002,
+   "source_end": 12.399916666666668,
+   "label": "pause",
+   "reason": "bisa→ngebuat",
+   "source_frames_5994": [
+    726,
+    743
+   ],
+   "prev_token": 26,
+   "next_token": 27,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 15.336183333333336,
+   "source_end": 15.490516666666668,
+   "label": "pause",
+   "reason": "Karena→belakangan",
+   "source_frames_5994": [
+    919,
+    929
+   ],
+   "prev_token": 34,
+   "next_token": 35,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 19.227583333333335,
+   "source_end": 19.5153,
+   "label": "pause",
+   "reason": "Tapi,→kalo",
+   "source_frames_5994": [
+    1153,
+    1170
+   ],
+   "prev_token": 46,
+   "next_token": 47,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 21.283733333333334,
+   "source_end": 21.517300000000002,
+   "label": "filler tuh",
+   "reason": "filler tuh",
+   "source_frames_5994": [
+    1276,
+    1290
+   ],
+   "prev_token": 51,
+   "next_token": 53,
+   "removed_tokens": [
+    52
+   ]
+  },
+  {
+   "source_start": 23.085533333333334,
+   "source_end": 23.327500000000004,
+   "label": "pause",
+   "reason": "dan→ya",
+   "source_frames_5994": [
+    1384,
+    1398
+   ],
+   "prev_token": 57,
+   "next_token": 58,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 24.328500000000002,
+   "source_end": 24.587033333333334,
+   "label": "filler tuh",
+   "reason": "filler tuh",
+   "source_frames_5994": [
+    1458,
+    1474
+   ],
+   "prev_token": 60,
+   "next_token": 62,
+   "removed_tokens": [
+    61
+   ]
+  },
+  {
+   "source_start": 25.654766666666667,
+   "source_end": 42.89285,
+   "label": "editorial",
+   "reason": "seleksi babak diterima ronde 1; buang bagian di luar cerita",
+   "source_frames_5994": [
+    1538,
+    2571
+   ],
+   "prev_token": 64,
+   "next_token": 104,
+   "removed_tokens": [
+    65,
+    66,
+    67,
+    68,
+    69,
+    70,
+    71,
+    72,
+    73,
+    74,
+    75,
+    76,
+    77,
+    78,
+    79,
+    80,
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100,
+    101,
+    102,
+    103
+   ]
+  },
+  {
+   "source_start": 43.46008333333334,
+   "source_end": 43.722816666666674,
+   "label": "filler tuh",
+   "reason": "filler tuh",
+   "source_frames_5994": [
+    2605,
+    2621
+   ],
+   "prev_token": 105,
+   "next_token": 107,
+   "removed_tokens": [
+    106
+   ]
+  },
+  {
+   "source_start": 45.55798333333334,
+   "source_end": 46.41303333333334,
+   "label": "pause",
+   "reason": "jadi→kalo",
+   "source_frames_5994": [
+    2731,
+    2782
+   ],
+   "prev_token": 110,
+   "next_token": 111,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 47.08036666666667,
+   "source_end": 47.693450000000006,
+   "label": "pause",
+   "reason": "kalo→orang",
+   "source_frames_5994": [
+    2822,
+    2859
+   ],
+   "prev_token": 111,
+   "next_token": 112,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 48.827916666666674,
+   "source_end": 48.89885,
+   "label": "pause",
+   "reason": "banget→bilang",
+   "source_frames_5994": [
+    2927,
+    2931
+   ],
+   "prev_token": 116,
+   "next_token": 117,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 49.29925,
+   "source_end": 49.31593333333334,
+   "label": "pause",
+   "reason": "bilang→edit",
+   "source_frames_5994": [
+    2955,
+    2956
+   ],
+   "prev_token": 117,
+   "next_token": 118,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 51.51813333333334,
+   "source_end": 52.519133333333336,
+   "label": "pause",
+   "reason": "kayak→Cinematic",
+   "source_frames_5994": [
+    3088,
+    3148
+   ],
+   "prev_token": 123,
+   "next_token": 124,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 54.621233333333336,
+   "source_end": 54.72133333333334,
+   "label": "filler tuh",
+   "reason": "filler tuh",
+   "source_frames_5994": [
+    3274,
+    3280
+   ],
+   "prev_token": 128,
+   "next_token": 130,
+   "removed_tokens": [
+    129
+   ]
+  },
+  {
+   "source_start": 55.32193333333334,
+   "source_end": 55.705650000000006,
+   "label": "pause",
+   "reason": "ngebalik.→progres",
+   "source_frames_5994": [
+    3316,
+    3339
+   ],
+   "prev_token": 130,
+   "next_token": 134,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 58.14141666666667,
+   "source_end": 58.59186666666667,
+   "label": "pause",
+   "reason": "biar→AI",
+   "source_frames_5994": [
+    3485,
+    3512
+   ],
+   "prev_token": 139,
+   "next_token": 140,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 59.32593333333334,
+   "source_end": 60.16010000000001,
+   "label": "filler tuh",
+   "reason": "filler tuh",
+   "source_frames_5994": [
+    3556,
+    3606
+   ],
+   "prev_token": 141,
+   "next_token": 143,
+   "removed_tokens": [
+    142
+   ]
+  },
+  {
+   "source_start": 61.92853333333334,
+   "source_end": 99.01558333333334,
+   "label": "editorial",
+   "reason": "seleksi babak diterima ronde 1; buang bagian di luar cerita",
+   "source_frames_5994": [
+    3712,
+    5935
+   ],
+   "prev_token": 146,
+   "next_token": 241,
+   "removed_tokens": [
+    147,
+    148,
+    149,
+    150,
+    151,
+    152,
+    153,
+    154,
+    155,
+    156,
+    157,
+    158,
+    159,
+    160,
+    161,
+    162,
+    163,
+    164,
+    165,
+    166,
+    167,
+    168,
+    169,
+    170,
+    171,
+    172,
+    173,
+    174,
+    175,
+    176,
+    177,
+    178,
+    179,
+    180,
+    181,
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201,
+    202,
+    203,
+    204,
+    205,
+    206,
+    207,
+    208,
+    209,
+    210,
+    211,
+    212,
+    213,
+    214,
+    215,
+    216,
+    217,
+    218,
+    219,
+    220,
+    221,
+    222,
+    223,
+    224,
+    225,
+    226,
+    227,
+    228,
+    229,
+    230,
+    231,
+    232,
+    233,
+    234,
+    235,
+    236,
+    237,
+    238,
+    239,
+    240
+   ]
+  },
+  {
+   "source_start": 100.11668333333334,
+   "source_end": 100.43366666666668,
+   "label": "pause",
+   "reason": "ditanya→kenapa",
+   "source_frames_5994": [
+    6001,
+    6020
+   ],
+   "prev_token": 244,
+   "next_token": 245,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 103.26983333333334,
+   "source_end": 103.96633333333334,
+   "label": "pause",
+   "reason": "Karena→perlu",
+   "source_frames_5994": [
+    6190,
+    6232
+   ],
+   "prev_token": 253,
+   "next_token": 254,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 104.93396666666668,
+   "source_end": 105.32188333333335,
+   "label": "pause",
+   "reason": "Pak.→Ini",
+   "source_frames_5994": [
+    6290,
+    6313
+   ],
+   "prev_token": 257,
+   "next_token": 258,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 105.72228333333334,
+   "source_end": 105.81408333333334,
+   "label": "pause",
+   "reason": "Ini→abis",
+   "source_frames_5994": [
+    6337,
+    6343
+   ],
+   "prev_token": 258,
+   "next_token": 259,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 107.91618333333334,
+   "source_end": 108.03706666666668,
+   "label": "filler tuh",
+   "reason": "filler tuh",
+   "source_frames_5994": [
+    6469,
+    6476
+   ],
+   "prev_token": 264,
+   "next_token": 266,
+   "removed_tokens": [
+    265
+   ]
+  },
+  {
+   "source_start": 108.80450000000002,
+   "source_end": 109.04226666666668,
+   "label": "pause",
+   "reason": "harus→langganan",
+   "source_frames_5994": [
+    6522,
+    6536
+   ],
+   "prev_token": 267,
+   "next_token": 268,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 109.87643333333334,
+   "source_end": 109.88891666666667,
+   "label": "pause",
+   "reason": "langganan→chat",
+   "source_frames_5994": [
+    6586,
+    6587
+   ],
+   "prev_token": 268,
+   "next_token": 269,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 110.08911666666668,
+   "source_end": 110.11420000000001,
+   "label": "pause",
+   "reason": "chat→GPT",
+   "source_frames_5994": [
+    6599,
+    6600
+   ],
+   "prev_token": 269,
+   "next_token": 270,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 112.48323333333335,
+   "source_end": 112.79601666666667,
+   "label": "pause",
+   "reason": "sama→Cloud",
+   "source_frames_5994": [
+    6742,
+    6761
+   ],
+   "prev_token": 276,
+   "next_token": 277,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 113.19641666666668,
+   "source_end": 113.24646666666668,
+   "label": "pause",
+   "reason": "Cloud→Pro",
+   "source_frames_5994": [
+    6785,
+    6788
+   ],
+   "prev_token": 277,
+   "next_token": 278,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 113.68023333333335,
+   "source_end": 113.79701666666668,
+   "label": "pause",
+   "reason": "Pro→yang",
+   "source_frames_5994": [
+    6814,
+    6821
+   ],
+   "prev_token": 278,
+   "next_token": 279,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 114.59781666666667,
+   "source_end": 114.96905000000001,
+   "label": "pause",
+   "reason": "kali.→Hanya",
+   "source_frames_5994": [
+    6869,
+    6891
+   ],
+   "prev_token": 281,
+   "next_token": 282,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 116.43718333333334,
+   "source_end": 116.47055,
+   "label": "pause",
+   "reason": "coba→sistem",
+   "source_frames_5994": [
+    6979,
+    6981
+   ],
+   "prev_token": 285,
+   "next_token": 286,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 117.43818333333334,
+   "source_end": 159.35920000000002,
+   "label": "editorial",
+   "reason": "seleksi babak diterima ronde 1; buang bagian di luar cerita",
+   "source_frames_5994": [
+    7039,
+    9552
+   ],
+   "prev_token": 288,
+   "next_token": 381,
+   "removed_tokens": [
+    289,
+    290,
+    291,
+    292,
+    293,
+    294,
+    295,
+    296,
+    297,
+    298,
+    299,
+    300,
+    301,
+    302,
+    303,
+    304,
+    305,
+    306,
+    307,
+    308,
+    309,
+    310,
+    311,
+    312,
+    313,
+    314,
+    315,
+    316,
+    317,
+    318,
+    319,
+    320,
+    321,
+    322,
+    323,
+    324,
+    325,
+    326,
+    327,
+    328,
+    329,
+    330,
+    331,
+    332,
+    333,
+    334,
+    335,
+    336,
+    337,
+    338,
+    339,
+    340,
+    341,
+    342,
+    343,
+    344,
+    345,
+    346,
+    347,
+    348,
+    349,
+    350,
+    351,
+    352,
+    353,
+    354,
+    355,
+    356,
+    357,
+    358,
+    359,
+    360,
+    361,
+    362,
+    363,
+    364,
+    365,
+    366,
+    367,
+    368,
+    369,
+    370,
+    371,
+    372,
+    373,
+    374,
+    375,
+    376,
+    377,
+    378,
+    379,
+    380
+   ]
+  },
+  {
+   "source_start": 160.99416666666667,
+   "source_end": 161.07758333333334,
+   "label": "filler tuh",
+   "reason": "filler tuh",
+   "source_frames_5994": [
+    9650,
+    9655
+   ],
+   "prev_token": 385,
+   "next_token": 387,
+   "removed_tokens": [
+    386
+   ]
+  },
+  {
+   "source_start": 161.91175,
+   "source_end": 162.12863333333334,
+   "label": "pause",
+   "reason": "memungkinkan→sistem",
+   "source_frames_5994": [
+    9705,
+    9718
+   ],
+   "prev_token": 387,
+   "next_token": 388,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 164.19736666666668,
+   "source_end": 164.33083333333335,
+   "label": "pause",
+   "reason": "yang→kalian",
+   "source_frames_5994": [
+    9842,
+    9850
+   ],
+   "prev_token": 393,
+   "next_token": 394,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 165.0982666666667,
+   "source_end": 165.6697,
+   "label": "pause",
+   "reason": "ini.→Bahkan",
+   "source_frames_5994": [
+    9896,
+    9930
+   ],
+   "prev_token": 396,
+   "next_token": 397,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 166.90426666666667,
+   "source_end": 167.13363333333334,
+   "label": "filler tuh",
+   "reason": "filler tuh",
+   "source_frames_5994": [
+    10004,
+    10018
+   ],
+   "prev_token": 399,
+   "next_token": 401,
+   "removed_tokens": [
+    400
+   ]
+  },
+  {
+   "source_start": 175.34183333333334,
+   "source_end": 178.32815000000002,
+   "label": "editorial",
+   "reason": "seleksi babak diterima ronde 1; buang bagian di luar cerita",
+   "source_frames_5994": [
+    10510,
+    10689
+   ],
+   "prev_token": 423,
+   "next_token": 432,
+   "removed_tokens": [
+    424,
+    425,
+    426,
+    427,
+    428,
+    429,
+    430,
+    431
+   ]
+  },
+  {
+   "source_start": 179.92975,
+   "source_end": 180.53035000000003,
+   "label": "pause",
+   "reason": "look→pembelajaran",
+   "source_frames_5994": [
+    10785,
+    10821
+   ],
+   "prev_token": 434,
+   "next_token": 435,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 182.49898333333334,
+   "source_end": 187.8209666666667,
+   "label": "editorial",
+   "reason": "seleksi babak diterima ronde 1; buang bagian di luar cerita",
+   "source_frames_5994": [
+    10939,
+    11258
+   ],
+   "prev_token": 439,
+   "next_token": 447,
+   "removed_tokens": [
+    440,
+    441,
+    442,
+    443,
+    444,
+    445,
+    446
+   ]
+  },
+  {
+   "source_start": 189.95643333333334,
+   "source_end": 197.9978,
+   "label": "editorial",
+   "reason": "seleksi babak diterima ronde 1; buang bagian di luar cerita",
+   "source_frames_5994": [
+    11386,
+    11868
+   ],
+   "prev_token": 452,
+   "next_token": 474,
+   "removed_tokens": [
+    453,
+    454,
+    455,
+    456,
+    457,
+    458,
+    459,
+    460,
+    461,
+    462,
+    463,
+    464,
+    465,
+    466,
+    467,
+    468,
+    469,
+    470,
+    471,
+    472,
+    473
+   ]
+  },
+  {
+   "source_start": 201.20100000000002,
+   "source_end": 201.61808333333335,
+   "label": "pause",
+   "reason": "kerasa→video",
+   "source_frames_5994": [
+    12060,
+    12085
+   ],
+   "prev_token": 481,
+   "next_token": 482,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 204.72118333333336,
+   "source_end": 205.13826666666668,
+   "label": "pause",
+   "reason": "AI?→Comment",
+   "source_frames_5994": [
+    12271,
+    12296
+   ],
+   "prev_token": 489,
+   "next_token": 490,
+   "removed_tokens": []
+  },
+  {
+   "source_start": 208.3414666666667,
+   "source_end": 209.38666666666666,
+   "label": "pause",
+   "reason": "ekor setelah kalimat terakhir",
+   "source_frames_5994": [
+    12488,
+    null
+   ]
+  }
+ ],
+ "joins": [
+  {
+   "timeline": 2.3690333333333333,
+   "source_cut": [
+    2.977933333333334,
+    2.9905166666666667
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 2.9759375,
+     "rms_dbfs": -48.3680534362793,
+     "applied": true
+    },
+    {
+     "source": 2.9905208333333335,
+     "rms_dbfs": -54.9355354309082,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 5.8058000000000005,
+   "source_cut": [
+    6.4272833333333335,
+    6.439766666666667
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 6.425291666666666,
+     "rms_dbfs": -55.1631965637207,
+     "applied": true
+    },
+    {
+     "source": 6.439770833333333,
+     "rms_dbfs": -58.737937927246094,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 9.3093,
+   "source_cut": [
+    9.943266666666668,
+    10.05585
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 9.941270833333334,
+     "rms_dbfs": -48.672489166259766,
+     "applied": true
+    },
+    {
+     "source": 10.055854166666666,
+     "rms_dbfs": -55.32860565185547,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 10.377033333333333,
+   "source_cut": [
+    11.123583333333334,
+    11.344666666666667
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 11.121583333333334,
+     "rms_dbfs": -44.408653259277344,
+     "applied": true
+    },
+    {
+     "source": 11.344666666666667,
+     "rms_dbfs": -49.27571105957031,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 11.144466666666666,
+   "source_cut": [
+    12.112100000000002,
+    12.399916666666668
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 12.110104166666666,
+     "rms_dbfs": -51.2852897644043,
+     "applied": true
+    },
+    {
+     "source": 12.399916666666666,
+     "rms_dbfs": -60.36007308959961,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 14.080733333333333,
+   "source_cut": [
+    15.336183333333336,
+    15.490516666666668
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    15.3360625,
+    15.490583333333333
+   ],
+   "edge_rms_dbfs": [
+    -35.87638473510742,
+    -52.47706604003906
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 17.817800000000002,
+   "source_cut": [
+    19.227583333333335,
+    19.5153
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 19.225583333333333,
+     "rms_dbfs": -43.51302719116211,
+     "applied": true
+    },
+    {
+     "source": 19.515291666666666,
+     "rms_dbfs": -51.1899528503418,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 19.586233333333332,
+   "source_cut": [
+    21.283733333333334,
+    21.517300000000002
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    21.2845,
+    21.51725
+   ],
+   "edge_rms_dbfs": [
+    -34.90926742553711,
+    -30.660812377929688
+   ],
+   "kind": "filler"
+  },
+  {
+   "timeline": 21.154466666666668,
+   "source_cut": [
+    23.085533333333334,
+    23.327500000000004
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 23.083541666666665,
+     "rms_dbfs": -44.32157897949219,
+     "applied": true
+    },
+    {
+     "source": 23.3275,
+     "rms_dbfs": -53.41542053222656,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 22.155466666666666,
+   "source_cut": [
+    24.328500000000002,
+    24.587033333333334
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    24.327125,
+    24.587
+   ],
+   "edge_rms_dbfs": [
+    -47.185691833496094,
+    -26.567543029785156
+   ],
+   "kind": "filler"
+  },
+  {
+   "timeline": 23.223200000000002,
+   "source_cut": [
+    25.654766666666667,
+    42.89285
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 25.652770833333335,
+     "rms_dbfs": -55.42917251586914,
+     "applied": true
+    },
+    {
+     "source": 42.892854166666666,
+     "rms_dbfs": -46.097930908203125,
+     "applied": true
+    }
+   ],
+   "kind": "editorial"
+  },
+  {
+   "timeline": 23.790433333333333,
+   "source_cut": [
+    43.46008333333334,
+    43.722816666666674
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    43.45977083333333,
+    43.7223125
+   ],
+   "edge_rms_dbfs": [
+    -43.337013244628906,
+    -43.01047897338867
+   ],
+   "kind": "filler"
+  },
+  {
+   "timeline": 25.625600000000002,
+   "source_cut": [
+    45.55798333333334,
+    46.41303333333334
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    45.5579375,
+    46.413020833333334
+   ],
+   "edge_rms_dbfs": [
+    -41.36661148071289,
+    -60.943912506103516
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 26.292933333333334,
+   "source_cut": [
+    47.08036666666667,
+    47.693450000000006
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 47.078375,
+     "rms_dbfs": -47.253170013427734,
+     "applied": true
+    },
+    {
+     "source": 47.69345833333333,
+     "rms_dbfs": -52.612464904785156,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 27.427400000000002,
+   "source_cut": [
+    48.827916666666674,
+    48.89885
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 48.825916666666664,
+     "rms_dbfs": -52.999229431152344,
+     "applied": true
+    },
+    {
+     "source": 48.898854166666666,
+     "rms_dbfs": -58.350826263427734,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 27.8278,
+   "source_cut": [
+    49.29925,
+    49.31593333333334
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 49.29725,
+     "rms_dbfs": -49.8018684387207,
+     "applied": true
+    },
+    {
+     "source": 49.3159375,
+     "rms_dbfs": -48.88486862182617,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 30.03,
+   "source_cut": [
+    51.51813333333334,
+    52.519133333333336
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 51.516125,
+     "rms_dbfs": -46.608787536621094,
+     "applied": true
+    },
+    {
+     "source": 52.519125,
+     "rms_dbfs": -50.64583206176758,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 32.1321,
+   "source_cut": [
+    54.621233333333336,
+    54.72133333333334
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    54.62147916666667,
+    54.721333333333334
+   ],
+   "edge_rms_dbfs": [
+    -46.87678527832031,
+    -27.61001968383789
+   ],
+   "kind": "filler"
+  },
+  {
+   "timeline": 32.7327,
+   "source_cut": [
+    55.32193333333334,
+    55.705650000000006
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 55.3199375,
+     "rms_dbfs": -58.6357421875,
+     "applied": true
+    },
+    {
+     "source": 55.705645833333335,
+     "rms_dbfs": -59.71175765991211,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 35.16846666666667,
+   "source_cut": [
+    58.14141666666667,
+    58.59186666666667
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 58.13941666666667,
+     "rms_dbfs": -50.362831115722656,
+     "applied": true
+    },
+    {
+     "source": 58.591875,
+     "rms_dbfs": -56.219486236572266,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 35.90253333333333,
+   "source_cut": [
+    59.32593333333334,
+    60.16010000000001
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    59.32522916666667,
+    60.160916666666665
+   ],
+   "edge_rms_dbfs": [
+    -59.0950927734375,
+    -58.37437438964844
+   ],
+   "kind": "filler"
+  },
+  {
+   "timeline": 37.670966666666665,
+   "source_cut": [
+    61.92853333333334,
+    99.01558333333334
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    61.92854166666667,
+    99.01552083333333
+   ],
+   "edge_rms_dbfs": [
+    -41.65210723876953,
+    -42.89008331298828
+   ],
+   "kind": "editorial"
+  },
+  {
+   "timeline": 38.77206666666667,
+   "source_cut": [
+    100.11668333333334,
+    100.43366666666668
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 100.1146875,
+     "rms_dbfs": -51.86027526855469,
+     "applied": true
+    },
+    {
+     "source": 100.43366666666667,
+     "rms_dbfs": -53.64373779296875,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 41.60823333333333,
+   "source_cut": [
+    103.26983333333334,
+    103.96633333333334
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 103.26783333333333,
+     "rms_dbfs": -49.959224700927734,
+     "applied": true
+    },
+    {
+     "source": 103.96633333333334,
+     "rms_dbfs": -59.451480865478516,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 42.57586666666667,
+   "source_cut": [
+    104.93396666666668,
+    105.32188333333335
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 104.93195833333333,
+     "rms_dbfs": -52.6860237121582,
+     "applied": true
+    },
+    {
+     "source": 105.321875,
+     "rms_dbfs": -60.67855453491211,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 42.97626666666667,
+   "source_cut": [
+    105.72228333333334,
+    105.81408333333334
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 105.72029166666667,
+     "rms_dbfs": -54.30876922607422,
+     "applied": true
+    },
+    {
+     "source": 105.81408333333333,
+     "rms_dbfs": -56.789222717285156,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 45.07836666666667,
+   "source_cut": [
+    107.91618333333334,
+    108.03706666666668
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    107.916,
+    108.03741666666667
+   ],
+   "edge_rms_dbfs": [
+    -30.37538719177246,
+    -35.697044372558594
+   ],
+   "kind": "filler"
+  },
+  {
+   "timeline": 45.845800000000004,
+   "source_cut": [
+    108.80450000000002,
+    109.04226666666668
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 108.8025,
+     "rms_dbfs": -46.87453842163086,
+     "applied": true
+    },
+    {
+     "source": 109.04227083333333,
+     "rms_dbfs": -46.36474609375,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 46.679966666666665,
+   "source_cut": [
+    109.87643333333334,
+    109.88891666666667
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 109.8744375,
+     "rms_dbfs": -60.11766052246094,
+     "applied": true
+    },
+    {
+     "source": 109.88891666666666,
+     "rms_dbfs": -59.95281219482422,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 46.88016666666667,
+   "source_cut": [
+    110.08911666666668,
+    110.11420000000001
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    110.08877083333333,
+    110.11485416666666
+   ],
+   "edge_rms_dbfs": [
+    -24.654314041137695,
+    -25.691524505615234
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 49.2492,
+   "source_cut": [
+    112.48323333333335,
+    112.79601666666667
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 112.48122916666667,
+     "rms_dbfs": -55.63276672363281,
+     "applied": true
+    },
+    {
+     "source": 112.79602083333333,
+     "rms_dbfs": -56.01986312866211,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 49.6496,
+   "source_cut": [
+    113.19641666666668,
+    113.24646666666668
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    113.1968125,
+    113.24608333333333
+   ],
+   "edge_rms_dbfs": [
+    -41.878360748291016,
+    -55.99856948852539
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 50.08336666666667,
+   "source_cut": [
+    113.68023333333335,
+    113.79701666666668
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 113.67822916666667,
+     "rms_dbfs": -52.54393768310547,
+     "applied": true
+    },
+    {
+     "source": 113.79702083333333,
+     "rms_dbfs": -54.43996810913086,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 50.884166666666665,
+   "source_cut": [
+    114.59781666666667,
+    114.96905000000001
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    114.59775,
+    114.96902083333333
+   ],
+   "edge_rms_dbfs": [
+    -46.1652717590332,
+    -41.67499923706055
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 52.3523,
+   "source_cut": [
+    116.43718333333334,
+    116.47055
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    116.43702083333334,
+    116.47091666666667
+   ],
+   "edge_rms_dbfs": [
+    -42.18373107910156,
+    -54.086341857910156
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 53.31993333333333,
+   "source_cut": [
+    117.43818333333334,
+    159.35920000000002
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    117.43827083333333,
+    159.35902083333335
+   ],
+   "edge_rms_dbfs": [
+    -43.53202438354492,
+    -37.0490608215332
+   ],
+   "kind": "editorial"
+  },
+  {
+   "timeline": 54.9549,
+   "source_cut": [
+    160.99416666666667,
+    161.07758333333334
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    160.994625,
+    161.07810416666666
+   ],
+   "edge_rms_dbfs": [
+    -43.32904815673828,
+    -22.53166389465332
+   ],
+   "kind": "filler"
+  },
+  {
+   "timeline": 55.78906666666667,
+   "source_cut": [
+    161.91175,
+    162.12863333333334
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 161.90975,
+     "rms_dbfs": -50.27021026611328,
+     "applied": true
+    },
+    {
+     "source": 162.128625,
+     "rms_dbfs": -56.9530029296875,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 57.857800000000005,
+   "source_cut": [
+    164.19736666666668,
+    164.33083333333335
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 164.195375,
+     "rms_dbfs": -46.753421783447266,
+     "applied": true
+    },
+    {
+     "source": 164.33083333333335,
+     "rms_dbfs": -60.431640625,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 58.625233333333334,
+   "source_cut": [
+    165.0982666666667,
+    165.6697
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 165.09627083333334,
+     "rms_dbfs": -48.829376220703125,
+     "applied": true
+    },
+    {
+     "source": 165.66970833333335,
+     "rms_dbfs": -56.86324691772461,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 59.8598,
+   "source_cut": [
+    166.90426666666667,
+    167.13363333333334
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    166.90472916666667,
+    167.13360416666666
+   ],
+   "edge_rms_dbfs": [
+    -38.720298767089844,
+    -30.279245376586914
+   ],
+   "kind": "filler"
+  },
+  {
+   "timeline": 68.068,
+   "source_cut": [
+    175.34183333333334,
+    178.32815000000002
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    175.34158333333335,
+    178.32802083333334
+   ],
+   "edge_rms_dbfs": [
+    -56.85649490356445,
+    -33.613704681396484
+   ],
+   "kind": "editorial"
+  },
+  {
+   "timeline": 69.6696,
+   "source_cut": [
+    179.92975,
+    180.53035000000003
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 179.92775,
+     "rms_dbfs": -48.46721649169922,
+     "applied": true
+    },
+    {
+     "source": 180.53035416666665,
+     "rms_dbfs": -57.29719543457031,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 71.63823333333333,
+   "source_cut": [
+    182.49898333333334,
+    187.8209666666667
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    182.49833333333333,
+    187.8205
+   ],
+   "edge_rms_dbfs": [
+    -59.22062683105469,
+    -41.529178619384766
+   ],
+   "kind": "editorial"
+  },
+  {
+   "timeline": 73.7737,
+   "source_cut": [
+    189.95643333333334,
+    197.9978
+   ],
+   "type": "equal-power",
+   "duration_ms": 10,
+   "handles_ms": 5,
+   "nearest_zero_crossings": [
+    189.95622916666667,
+    197.99772916666666
+   ],
+   "edge_rms_dbfs": [
+    -49.856956481933594,
+    -36.43478775024414
+   ],
+   "kind": "editorial"
+  },
+  {
+   "timeline": 76.9769,
+   "source_cut": [
+    201.20100000000002,
+    201.61808333333335
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 201.199,
+     "rms_dbfs": -46.07196044921875,
+     "applied": true
+    },
+    {
+     "source": 201.61808333333335,
+     "rms_dbfs": -54.34368896484375,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  },
+  {
+   "timeline": 80.08,
+   "source_cut": [
+    204.72118333333336,
+    205.13826666666668
+   ],
+   "type": "microfade",
+   "duration_ms": 2,
+   "sides": [
+    {
+     "source": 204.7191875,
+     "rms_dbfs": -51.15087127685547,
+     "applied": true
+    },
+    {
+     "source": 205.13827083333334,
+     "rms_dbfs": -54.890663146972656,
+     "applied": true
+    }
+   ],
+   "kind": "pause"
+  }
+ ],
+ "source_token_accounting": {
+  "source_word_count": 501,
+  "note": "R5: forced alignment MMS_FA words (edit/r5-source-words.json); kept tokens = approved transcript."
+ }
+}

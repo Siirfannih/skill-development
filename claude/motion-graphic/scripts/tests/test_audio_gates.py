@@ -174,6 +174,131 @@ class EditorialCutTests(unittest.TestCase):
             self.assertIn("suara", json.loads((p / "ORDER.json").read_text())["stages"])
 
 
+class GuardExceptionTests(unittest.TestCase):
+    """Pengecualian guard 50 ms bernama-berbukti (Putusan Sutradara 16 Nov, skill-dev-journey)."""
+
+    def setUp(self):
+        self.source = [
+            {"w": "ini", "s": 0.0, "e": 0.30},
+            {"w": "tuh", "s": 0.34, "e": 0.46},
+            {"w": "bukan", "s": 0.48, "e": 0.90},
+        ]
+        self.mapped = [{"w": "ini", "s": 0.0, "e": 0.30}, {"w": "bukan", "s": 0.35, "e": 0.77}]
+        self.removed = [[0.33, 0.47]]
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.proof = Path(self.tmp.name) / "r5-retention-audit.json"
+        self.proof.write_text("{}")
+
+    def entry(self, **over):
+        entry = {"detik": 0.33, "kata_kiri": "ini", "kata_kanan": "bukan", "alasan": "tuh menempel kata tetangga, jeda nyata <50 ms",
+                 "bukti": {"retensi": 0.97, "irisan_ms": 3.0, "path": str(self.proof)}}
+        entry.update(over)
+        return entry
+
+    def test_named_exception_with_proof_passes_and_is_reported(self):
+        result = cut_check.validate_cuts(self.source, self.removed, self.mapped, guard_exceptions=[self.entry()])
+        self.assertTrue(result["pass_"], result["failures"])
+        self.assertEqual(sorted(u["kata"] for u in result["exceptions_used"]), ["bukan", "ini"])
+
+    def test_non_excepted_guard_still_fails(self):
+        result = cut_check.validate_cuts(self.source, self.removed, self.mapped)
+        self.assertFalse(result["pass_"])
+        self.assertTrue(any("guard ini" in x for x in result["failures"]))
+        other = self.entry(detik=5.0)
+        result = cut_check.validate_cuts(self.source, self.removed, self.mapped, guard_exceptions=[other])
+        self.assertFalse(result["pass_"])
+        wrong_word = self.entry(kata_kanan="lain")
+        result = cut_check.validate_cuts(self.source, self.removed, self.mapped, guard_exceptions=[wrong_word])
+        self.assertFalse(result["pass_"])
+
+    def test_entry_without_complete_proof_fails(self):
+        for bad in (
+            self.entry(bukti={"retensi": 0.97, "irisan_ms": 3.0}),
+            self.entry(bukti={"retensi": 0.97, "irisan_ms": 3.0, "path": str(self.proof) + ".hilang"}),
+            self.entry(bukti={"retensi": 0.90, "irisan_ms": 3.0, "path": str(self.proof)}),
+            self.entry(bukti={"retensi": 0.97, "irisan_ms": 25.0, "path": str(self.proof)}),
+            self.entry(alasan=""),
+        ):
+            result = cut_check.validate_cuts(self.source, self.removed, self.mapped, guard_exceptions=[bad])
+            self.assertFalse(result["pass_"], bad)
+            self.assertTrue(any("ditolak" in x for x in result["failures"]), result["failures"])
+
+    def test_exception_never_excuses_overlap_into_neighbour(self):
+        # potongan masuk 30 ms ke "ini": irisan terukur > 20 ms, jadi pengecualian tidak berlaku
+        result = cut_check.validate_cuts(self.source, [[0.27, 0.47]], self.mapped, guard_exceptions=[self.entry(detik=0.27)])
+        self.assertFalse(result["pass_"])
+        self.assertTrue(any("overlap ini" in x for x in result["failures"]))
+
+    def test_cli_and_audio_order_pass_exceptions_and_print_them(self):
+        with tempfile.TemporaryDirectory() as folder:
+            p = Path(folder)
+            voice, source, words, cut_map, exc = [p / n for n in ("voice.wav", "source.json", "words.json", "map.json", "exc.json")]
+            tt = np.arange(48_000) / 48_000
+            samples = 0.35 * np.sin(2 * np.pi * 220 * tt)
+            samples[14_400:16_800] = 0.0   # hasil: ini | 50 ms jeda | bukan (sudah dipotong)
+            samples[36_960:] = 0.0
+            sf.write(voice, samples, 48_000, subtype="FLOAT")
+            source.write_text(json.dumps(self.source)); words.write_text(json.dumps(self.mapped))
+            cut_map.write_text(json.dumps({"removed": self.removed, "cuts": [{"source_start": 0.33, "source_end": 0.47, "label": "filler tuh"}]}))
+            exc.write_text(json.dumps([self.entry()]))
+            base = [os.sys.executable, str(ROOT / "scripts/gate/cut_check.py"), str(voice), str(words), "--source-words", str(source), "--map", str(cut_map)]
+            no = subprocess.run(base, capture_output=True, text=True)
+            self.assertNotEqual(no.returncode, 0)
+            yes = subprocess.run(base + ["--guard-exceptions", str(exc)], capture_output=True, text=True)
+            self.assertEqual(yes.returncode, 0, yes.stdout + yes.stderr)
+            self.assertIn("PENGECUALIAN guard dipakai", yes.stdout)
+            script = ROOT / "scripts/gate/audio_order.py"
+            subprocess.run([os.sys.executable, str(script), "init", "--dir", str(p)], check=True, capture_output=True)
+            lock_args = [os.sys.executable, str(script), "lock", "suara", str(voice), "--dir", str(p), "--words", str(words),
+                         "--source-words", str(source), "--cut-map", str(cut_map), "--voice-source", str(voice)]
+            self.assertNotEqual(subprocess.run(lock_args, capture_output=True, text=True).returncode, 0)
+            ok = subprocess.run(lock_args + ["--guard-exceptions", str(exc)], capture_output=True, text=True)
+            self.assertEqual(ok.returncode, 0, ok.stdout + ok.stderr)
+            self.assertIn("PENGECUALIAN guard dipakai", ok.stdout)
+            state = json.loads((p / "ORDER.json").read_text())["stages"]["suara"]["evidence"]
+            self.assertIn("guard_exceptions", state)
+
+
+class TerimaPelanTests(unittest.TestCase):
+    """voice_level --terima-pelan (Putusan Sutradara 16 Nov): level sumber diterima bila gain bersih mustahil."""
+
+    def make(self, folder, name, gain_db=0.0):
+        rng = np.random.default_rng(3)
+        tt = np.arange(48_000 * 4) / 48_000
+        x = 0.01 * np.sin(2 * np.pi * 200 * tt) * (1 + 0.3 * rng.standard_normal(len(tt)) * 0)
+        x[::9_600] = 0.87            # puncak ucapan -1,2 dBFS: crest tinggi, headroom hanya +0,2 dB
+        x = x * 10 ** (gain_db / 20)
+        path = Path(folder) / name
+        sf.write(path, x.astype("float32"), 48_000, subtype="FLOAT")
+        return path
+
+    def test_accepts_source_level_when_clean_gain_is_impossible(self):
+        with tempfile.TemporaryDirectory() as folder:
+            src = self.make(folder, "src.wav")
+            result = voice_level.check(str(src), str(src), terima_pelan="rekaman sendiri, puncak terpotong, tanpa limiter")
+            self.assertEqual(result["fails"], [], result)
+            self.assertEqual(result["accepted"]["alasan"], "rekaman sendiri, puncak terpotong, tanpa limiter")
+            self.assertLess(result["accepted"]["headroom_db"], result["accepted"]["gain_dibutuhkan_db"])
+
+    def test_fails_when_result_is_quieter_than_source(self):
+        with tempfile.TemporaryDirectory() as folder:
+            src = self.make(folder, "src.wav"); out = self.make(folder, "out.wav", gain_db=-3.0)
+            result = voice_level.check(str(src), str(out), terima_pelan="alasan apa pun")
+            self.assertTrue(any("turun" in f for f in result["fails"]), result["fails"])
+            self.assertTrue(any("terima-pelan ditolak" in f for f in result["fails"]), result["fails"])
+
+    def test_fails_without_written_reason_or_when_clean_gain_is_possible(self):
+        with tempfile.TemporaryDirectory() as folder:
+            src = self.make(folder, "src.wav")
+            self.assertTrue(any("pelan" in f for f in voice_level.check(str(src), str(src), terima_pelan="  ")["fails"]))
+            quiet = Path(folder) / "quiet.wav"
+            tt = np.arange(48_000 * 4) / 48_000
+            sf.write(quiet, (0.02 * np.sin(2 * np.pi * 200 * tt)).astype("float32"), 48_000, subtype="FLOAT")
+            result = voice_level.check(str(quiet), str(quiet), terima_pelan="ingin lolos")
+            self.assertTrue(any("gain bersih masih mungkin" in f for f in result["fails"]), result["fails"])
+
+
 class SfxPolicyTests(unittest.TestCase):
     def _cues(self, times):
         return [dict(t=t, peran="kartu_mendarat", alasan="kartu masuk terpisah",

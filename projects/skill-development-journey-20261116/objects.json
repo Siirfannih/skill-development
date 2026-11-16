@@ -1,0 +1,356 @@
+[
+ {
+  "nama": "Clawd",
+  "peran": "karakter",
+  "t": 0,
+  "lapisan": "K_Clawd0"
+ },
+ {
+  "nama": "Codex",
+  "peran": "karakter",
+  "t": 0,
+  "lapisan": "K_Codex"
+ },
+ {
+  "nama": "Gemini",
+  "peran": "karakter",
+  "t": 0,
+  "lapisan": "K_Gemini"
+ },
+ {
+  "nama": "FINALLY",
+  "peran": "hero",
+  "t": 1.177,
+  "lapisan": "T002"
+ },
+ {
+  "nama": "halaman repo + timeline",
+  "peran": "dunia-transisi",
+  "t": 1.51,
+  "lapisan": "D_REPO"
+ },
+ {
+  "nama": "lingkaran wajah",
+  "peran": "wajah-lingkaran",
+  "t": 1.51,
+  "lapisan": "D_REPO_WAJAH"
+ },
+ {
+  "nama": "selesai",
+  "peran": "kata-kunci-slam",
+  "t": 3.237,
+  "lapisan": "T004"
+ },
+ {
+  "nama": "Clawd",
+  "peran": "karakter",
+  "t": 4.46,
+  "lapisan": "K_Clawd"
+ },
+ {
+  "nama": "workflow",
+  "peran": "kata-cincin",
+  "t": 6.277,
+  "lapisan": "T009"
+ },
+ {
+  "nama": "AI model",
+  "peran": "kata-cincin",
+  "t": 7.617,
+  "lapisan": "T011"
+ },
+ {
+  "nama": "ChatGPT,",
+  "peran": "kata-kunci-slam",
+  "t": 9.057,
+  "lapisan": "T014"
+ },
+ {
+  "nama": "Claude,",
+  "peran": "kata-kunci-slam",
+  "t": 10.087,
+  "lapisan": "T015"
+ },
+ {
+  "nama": "Gemini.",
+  "peran": "kata-kunci-slam",
+  "t": 10.437,
+  "lapisan": "T016"
+ },
+ {
+  "nama": "decision",
+  "peran": "kata-cincin",
+  "t": 12.73,
+  "lapisan": "T019"
+ },
+ {
+  "nama": "gradien ungu-pink",
+  "peran": "slop-dekor",
+  "t": 15.9,
+  "lapisan": "S01"
+ },
+ {
+  "nama": "VIRAL!!",
+  "peran": "slop-teks",
+  "t": 15.93,
+  "lapisan": "T024"
+ },
+ {
+  "nama": "emoji api",
+  "peran": "slop-dekor",
+  "t": 16.067,
+  "lapisan": "S02"
+ },
+ {
+  "nama": "bingkai neon",
+  "peran": "slop-dekor",
+  "t": 16.967,
+  "lapisan": "S03"
+ },
+ {
+  "nama": "panah merah",
+  "peran": "slop-dekor",
+  "t": 17.133,
+  "lapisan": "S04"
+ },
+ {
+  "nama": "emoji kaget",
+  "peran": "slop-dekor",
+  "t": 17.433,
+  "lapisan": "S05"
+ },
+ {
+  "nama": "gradien ungu-pink",
+  "peran": "slop-dekor",
+  "t": 18.333,
+  "lapisan": "S06"
+ },
+ {
+  "nama": "stiker !!",
+  "peran": "slop-dekor",
+  "t": 18.433,
+  "lapisan": "S07"
+ },
+ {
+  "nama": "lens flare",
+  "peran": "slop-dekor",
+  "t": 18.933,
+  "lapisan": "S08"
+ },
+ {
+  "nama": "emoji api",
+  "peran": "slop-dekor",
+  "t": 19.233,
+  "lapisan": "S09"
+ },
+ {
+  "nama": "emoji kaget",
+  "peran": "slop-dekor",
+  "t": 19.6,
+  "lapisan": "S10"
+ },
+ {
+  "nama": "glow",
+  "peran": "slop-dekor",
+  "t": 19.9,
+  "lapisan": "S11"
+ },
+ {
+  "nama": "kilau",
+  "peran": "slop-dekor",
+  "t": 20.1,
+  "lapisan": "S12"
+ },
+ {
+  "nama": "stiker !!",
+  "peran": "slop-dekor",
+  "t": 20.4,
+  "lapisan": "S13"
+ },
+ {
+  "nama": "panah merah",
+  "peran": "slop-dekor",
+  "t": 20.567,
+  "lapisan": "S14"
+ },
+ {
+  "nama": "grade -15%",
+  "peran": "grade",
+  "t": 20.963,
+  "lapisan": "GRADE"
+ },
+ {
+  "nama": "AI SLOP",
+  "peran": "slab-di-belakang-kepala",
+  "t": 21.03,
+  "lapisan": "T030"
+ },
+ {
+  "nama": "putus-putus",
+  "peran": "kata-terputus",
+  "t": 23.23,
+  "lapisan": "T033"
+ },
+ {
+  "nama": "aplikasi Claude terang",
+  "peran": "dunia-transisi",
+  "t": 23.867,
+  "lapisan": "D_APP"
+ },
+ {
+  "nama": "lingkaran wajah",
+  "peran": "wajah-lingkaran",
+  "t": 23.867,
+  "lapisan": "D_APP_WAJAH"
+ },
+ {
+  "nama": "template.",
+  "peran": "kata-kunci-slam",
+  "t": 25.303,
+  "lapisan": "T036"
+ },
+ {
+  "nama": "/apple-style",
+  "peran": "item-ui",
+  "t": 28.923,
+  "lapisan": "O_/apple-style"
+ },
+ {
+  "nama": "/cinematic-storytelling",
+  "peran": "item-ui",
+  "t": 30.377,
+  "lapisan": "O_/cinematic-storytelling"
+ },
+ {
+  "nama": "daftar terhapus",
+  "peran": "item-ui",
+  "t": 33.097,
+  "lapisan": "O_daftar terhapus"
+ },
+ {
+  "nama": "ngebalik.",
+  "peran": "kata-kunci-slam",
+  "t": 33.163,
+  "lapisan": "T045"
+ },
+ {
+  "nama": "WORKFLOW-NYA",
+  "peran": "slab-di-belakang-kepala",
+  "t": 38.084,
+  "lapisan": "T049"
+ },
+ {
+  "nama": "BALIK MODAL",
+  "peran": "slab-di-belakang-kepala",
+  "t": 42.997,
+  "lapisan": "T056"
+ },
+ {
+  "nama": "habis banget",
+  "peran": "kata-kacau",
+  "t": 43.877,
+  "lapisan": "T058"
+ },
+ {
+  "nama": "kartu ChatGPT Pro 20x",
+  "peran": "kartu-mendarat",
+  "t": 48.864,
+  "lapisan": "KARTU1"
+ },
+ {
+  "nama": "kartu Claude Max 5x",
+  "peran": "kartu-mendarat",
+  "t": 51.144,
+  "lapisan": "KARTU2"
+ },
+ {
+  "nama": "lintas agent.",
+  "peran": "kata-kacau",
+  "t": 57.427,
+  "lapisan": "T074"
+ },
+ {
+  "nama": "dua jendela Claude + ChatGPT",
+  "peran": "dunia-transisi",
+  "t": 59.501,
+  "lapisan": "D_RELAY"
+ },
+ {
+  "nama": "pesan doctor.sh gagal",
+  "peran": "item-ui",
+  "t": 60.92,
+  "lapisan": "O_pesan doctor.sh gagal"
+ },
+ {
+  "nama": "amplop Codex ke Clawd",
+  "peran": "item-ui",
+  "t": 61.48,
+  "lapisan": "O_amplop Codex ke Clawd"
+ },
+ {
+  "nama": "pesan Sudah kujalankan doctor --fix",
+  "peran": "item-ui",
+  "t": 62.88,
+  "lapisan": "O_pesan Sudah kujalankan doctor --fix"
+ },
+ {
+  "nama": "amplop Clawd ke Codex",
+  "peran": "item-ui",
+  "t": 63.24,
+  "lapisan": "O_amplop Clawd ke Codex"
+ },
+ {
+  "nama": "pesan Revisi kamera selesai",
+  "peran": "item-ui",
+  "t": 65.42,
+  "lapisan": "O_pesan Revisi kamera selesai"
+ },
+ {
+  "nama": "kartu Dicatat",
+  "peran": "item-ui",
+  "t": 68.06,
+  "lapisan": "O_kartu Dicatat"
+ },
+ {
+  "nama": "kesalahan",
+  "peran": "kata-kacau",
+  "t": 68.127,
+  "lapisan": "T085"
+ },
+ {
+  "nama": "loop pembelajaran",
+  "peran": "kata-kunci-slam",
+  "t": 70.381,
+  "lapisan": "T088"
+ },
+ {
+  "nama": "loop + centang hijau",
+  "peran": "item-ui",
+  "t": 71.204,
+  "lapisan": "O_loop + centang hijau"
+ },
+ {
+  "nama": "100% FULL AI",
+  "peran": "slab-di-belakang-kepala",
+  "t": 73.077,
+  "lapisan": "T091"
+ },
+ {
+  "nama": "profesional?",
+  "peran": "bubble-pilihan",
+  "t": 78.76,
+  "lapisan": "T096"
+ },
+ {
+  "nama": "masih kerasa AI?",
+  "peran": "bubble-pilihan",
+  "t": 79.92,
+  "lapisan": "T099"
+ },
+ {
+  "nama": "skill gratis",
+  "peran": "kata-kunci-slam",
+  "t": 82.434,
+  "lapisan": "T102"
+ }
+]

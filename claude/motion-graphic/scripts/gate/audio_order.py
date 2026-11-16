@@ -76,18 +76,24 @@ def run_gate(command, failure):
     result = subprocess.run(command, capture_output=True, text=True)
     output = (result.stdout + result.stderr).strip()
     if output:
+        for line in output.splitlines():
+            if line.startswith(("PENGECUALIAN guard dipakai", "TERIMA-PELAN")):
+                print(line)  # setiap pengecualian yang dipakai wajib terlihat di laporan
         print(output.splitlines()[-1])
     if result.returncode:
         raise SystemExit(f"FAIL: {failure}\n{output[-1200:]}")
+    return output
 
 
-def validate_voice(audio, words, source_words, cut_map, voice_source, warisan=False):
+def validate_voice(audio, words, source_words, cut_map, voice_source, warisan=False, guard_exceptions="", terima_pelan=""):
     required = {
         "words": Path(words),
         "source_words": Path(source_words),
         "cut_map": Path(cut_map),
         "voice_source": Path(voice_source),
     }
+    if guard_exceptions:
+        required["guard_exceptions"] = Path(guard_exceptions)
     if warisan and not voice_source:
         required.pop("voice_source")  # video lama (qc/revisi.json): suara tidak diubah, level dinilai saat dikunci dulu
     missing = [f"{name}={path}" for name, path in required.items() if not path.exists()]
@@ -98,23 +104,30 @@ def validate_voice(audio, words, source_words, cut_map, voice_source, warisan=Fa
         [sys.executable, cut, audio, words],
         "suara terkunci masih memuat kata sampah atau jeda berpikir",
     )
-    run_gate(
-        [sys.executable, cut, audio, words, "--source-words", source_words, "--map", cut_map],
-        "peta potong menyentuh kata isi, guard 50 ms, atau urutan kata sumber",
-    )
+    source_cmd = [sys.executable, cut, audio, words, "--source-words", source_words, "--map", cut_map]
+    if guard_exceptions:
+        source_cmd += ["--guard-exceptions", guard_exceptions]
+    run_gate(source_cmd, "peta potong menyentuh kata isi, guard 50 ms, atau urutan kata sumber")
     run_gate(
         [sys.executable, str(HERE / "pause_clean.py"), audio, words],
         "jeda suara masih berisik",
     )
+    accepted = None
     if "voice_source" in required:
-        run_gate(
-            [sys.executable, str(HERE / "voice_level.py"), voice_source, audio],
-            "suara asli diturunkan, ditekan, atau terlalu pelan (Lantai E23)",
-        )
-    return {
+        level_cmd = [sys.executable, str(HERE / "voice_level.py"), voice_source, audio]
+        if terima_pelan:
+            level_cmd += ["--terima-pelan", terima_pelan]
+        out = run_gate(level_cmd, "suara asli diturunkan, ditekan, atau terlalu pelan (Lantai E23)")
+        for line in (out or "").splitlines():
+            if line.startswith("TERIMA-PELAN: "):
+                accepted = json.loads(line[len("TERIMA-PELAN: "):])
+    evidence = {
         name: {"file": str(path.resolve()), "sha": sha(path)}
         for name, path in required.items()
     }
+    if accepted:
+        evidence["_terima_pelan"] = accepted
+    return evidence
 
 
 def validate_sfx(state, cues, objects, ref_density=0.0, warisan=False):
@@ -147,6 +160,8 @@ def main():
     ap.add_argument("--source-words", default="", help="transkrip kata pada take sumber sebelum dipotong")
     ap.add_argument("--cut-map", default="", help="map.json berisi rentang sumber yang dibuang")
     ap.add_argument("--ref-density", type=float, default=0.0, help="opsional: batas kepadatan bila Irfan memintanya")
+    ap.add_argument("--guard-exceptions", default="", help="JSON pengecualian guard 50 ms bernama-berbukti (cut_check --guard-exceptions)")
+    ap.add_argument("--terima-pelan", default="", help="alasan tertulis menerima level sumber (voice_level --terima-pelan); hanya lulus bila gain bersih tidak mungkin")
     ap.add_argument("--voice-source", default="", help="stem suara sumber sebelum proses (bukti level tidak diturunkan)")
     ap.add_argument("--objects", default="", help="objects.json: objek/visual yang muncul atau bergerak")
     ap.add_argument("--warisan", action="store_true", help="check video lama (qc/revisi.json): bukti yang belum ada di aturan "
@@ -179,7 +194,8 @@ def main():
         if st == "suara" and s["mode"] == "konten":
             if not (a.words and a.source_words and a.cut_map and a.voice_source):
                 raise SystemExit("FAIL: lock suara wajib --words, --source-words, --cut-map, dan --voice-source")
-            evidence = validate_voice(f, a.words, a.source_words, a.cut_map, a.voice_source)
+            evidence = validate_voice(f, a.words, a.source_words, a.cut_map, a.voice_source, guard_exceptions=a.guard_exceptions, terima_pelan=a.terima_pelan)
+            accepted = evidence.pop("_terima_pelan", None)
         if st == "sfx":
             validate_sfx(s, f, a.objects, a.ref_density)
             evidence = {"objects": {"file": str(Path(a.objects).resolve()), "sha": sha(a.objects)}}
@@ -193,6 +209,8 @@ def main():
                "hulu": {x: s["stages"][x]["sha"] for x in before if x in s["stages"]}}
         if evidence:
             rec["evidence"] = evidence
+        if st == "suara" and s["mode"] == "konten" and accepted:
+            rec["terima_pelan"] = accepted
         if st == "sfx":
             rec["ref_density"] = a.ref_density
         if st == "musik":
@@ -225,6 +243,8 @@ def main():
                 evidence["cut_map"]["file"],
                 evidence.get("voice_source", {}).get("file", ""),
                 warisan=a.warisan,
+                guard_exceptions=evidence.get("guard_exceptions", {}).get("file", ""),
+                terima_pelan=voice.get("terima_pelan", {}).get("alasan", ""),
             )
         except SystemExit as error:
             fails.append(str(error))
