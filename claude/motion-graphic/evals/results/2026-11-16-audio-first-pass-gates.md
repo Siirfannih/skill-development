@@ -24,5 +24,7 @@
 - Artefak nyata `edit/v5/map.json` terhadap transkrip take sumber: **FAIL yang benar**, termasuk overlap `Apa` 166,7 ms dan `yang.` 260 ms. Ini membuktikan klaim lama “semua kata retained” tidak boleh dipakai sebagai pengganti validasi sumber.
 - Uji `render.sh final` tanpa variabel `PYTHON` di Mac memilih `/usr/bin/python3` yang memiliki numpy/soundfile, lalu menghentikan proyek lama sebelum render karena bukti `ORDER.json` hilang/basi. Tidak ada MP4 dibuat.
 - Audit distribusi: Codex Mac memakai salinan beku 27 Okt (15 file) sementara repo punya 38 file. `sync.sh` dan `doctor.sh` kini mengharuskan symlink Claude+Codex ke checkout `main` yang sama serta memeriksa runtime audio.
+- Deployment Mac: `doctor.sh --fix` pada checkout kanonik `main` **PASS** untuk repo terbaru, symlink Claude+Codex, 12 skill Remotion, runtime audio `/usr/bin/python3`, Lantai, dan font. Earshot/demucs tetap tidak dipasang lokal; tugas audio berat diarahkan ke PC.
+- Deployment PC `node-c-pc`: checkout kerja lama yang kotor tidak diubah. Worktree bersih `/home/irfan/work/skill-development-main-audio-20261116` pada `c6ad7ce` dipasang ke `~/.claude/skills` dan `~/.codex/skills`; doctor **PASS**, runtime `~/work/mg-venv/bin/python`, earshot, demucs siap, dan **10/10 tes PASS**. Ruang disk tetap 12 GiB; tidak ada render berat dijalankan.
 
 Status: **PASS untuk perubahan gerbang; kandidat video lama sengaja tidak diluluskan.**
