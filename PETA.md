@@ -92,6 +92,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 
 | File | Isi / kapan dibuka |
 |---|---|
+| `claude/motion-graphic/templates/cut-sheet.md` | **Timeline Cut Sheet & Mapping Visual · <proyek>** — Satu tabel untuk seluruh video. |
 | `claude/motion-graphic/templates/gaya/README.md` | **Template gaya** — Satu folder = satu gaya edit yang bisa dipilih di gerbang 1. |
 | `claude/motion-graphic/templates/gaya/editorial-bold/STYLE.md` | **Gaya: editorial-bold (talking head cepat)** — Template gaya untuk reel talking head yang cepat dan tegas: Anton besar, aksen merah, B-roll hitam-putih, split screen, transisi kamera. |
 | `claude/motion-graphic/templates/gaya/minimal-premium/STYLE.md` | **Gaya: minimal-premium (talking head edukatif)** — Template gaya untuk klip podcast/talking head yang tenang dan "mahal": wajah pembicara bergantian dengan adegan bertekstur kertas (lukisan, garis biru, ilustrasi kasar, grafik bercahaya). |
@@ -182,6 +183,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/pengganti-kita-sendiri/` | STATUS: Pengganti Kita Sendiri (@siirfannih) · mulai dari STATUS.md |
 | `projects/personal-brand-day-02/` | Ledger · Personal branding, konten kedua challenge |
 | `projects/skill-development-journey-20261116/` | Status · Skill Development · potongan personal 16 November 2026 · mulai dari STATUS.md |
+| `projects/uji-builder-trap-12nov/` | Ledger · uji-builder-trap-12nov |
 
 ## Lain-lain
 

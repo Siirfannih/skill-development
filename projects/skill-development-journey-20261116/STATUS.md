@@ -15,3 +15,9 @@ Selesai: take 209,392517 detik dipadatkan menjadi **60,343617 detik** untuk akun
 - Batas QA: ASR/waveform serta preview gambar, bukan klaim penilaian dengar subjektif. File sumber asli dan transkrip penuh yang tidak dipakai berada di workspace sesi.
 
 Berikutnya: sesi editing dapat mulai dari MP4 dan paket handoff; Irfan belum memberi penilaian terhadap hasil potongan ini.
+
+## 16 Nov 2026 · arah baru: edit penuh ±1:25
+- Guideline edit penuh: `GUIDELINE.md` (alur 6 babak, peran model, palet terukur, KT dari kiblat 83, SFX per peran). Masukan mentah: `sumber/`.
+- Rough cut v1 di atas jadi arsip; fase 1a memotong ulang dari sumber DJI mengikuti `GUIDELINE.md` §3.
+- Berikutnya: fase 0 (doctor, akses, disk) lalu fase 1a oleh subagen Sonnet. Yang dibutuhkan dariku hanya lokasi file sumber DJI bila tidak ditemukan di PC.
+- Draf `CUT-SHEET.md` ditambahkan (format cut sheet + mapping visual); waktu dan naskah menunggu fase 1a.

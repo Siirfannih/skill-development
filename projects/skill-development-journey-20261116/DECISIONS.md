@@ -13,3 +13,14 @@
 - Aturan dibaca dari main GitHub terbaru saat mulai (b981940), dalam clone dan konfigurasi skill khusus sesi. Jalur skill global PC dan checkout sesi lain tidak diubah.
 
 Bukti QC berada pada paket handoff Drive. Pemeriksaan ASR, waveform, jumlah frame, sinkronisasi durasi, dan preview visual dibedakan dari penilaian dengar subjektif; tidak ada klaim listening PASS.
+
+## Edit penuh (16 Nov 2026)
+- Alur 6 babak ±1:25 dariku menggantikan struktur rough cut v1; v1 tidak dipakai sebagai dasar (hook dan urutan berbeda).
+- Orkestrasi video ini: Opus kepala (sesi baru per fase, aturan hemat §1.4), subagen minimal Sonnet, tanpa Haiku, Fable opsional sekali, Codex builder + pemeriksa #1, Gemini pemeriksa #2 (`GUIDELINE.md` §1). Alasan: spec yang lemah dari kepala lebih mahal daripada selisih token Opus.
+- Semua UI, logo, kartu paket, dan terminal dibangun di kode tanpa raster, meniru tampilan asli, supaya bisa dianimasikan.
+- Kartu paket B4 menampilkan tier ChatGPT 20x (dipakai bulan lalu saat skill development dibangun) + Claude Max 5x.
+- Output 1920×1080 29,97 fps (sumber 59,94 dibuang selang-seling).
+- Kartu 83 Barsol Media hanya menyumbang teknik: teks kinetik, kamera, transisi. Ruang meredup tidak ditiru (itu pencahayaan syuting). Kiblat motion graphic dipilih dari pustaka di G1.
+- Tiga mode bergantian: wajah penuh, wajah di pojok + visual, motion graphic penuh; mode per kalimat diputuskan model dari transkrip dan still.
+- Guideline berisi hasil yang dimau + sedikit wajib + usulan; model memutuskan di lapangan dan mencatat alasannya.
+- Musik dua varian dipasang paling akhir di atas satu render gambar (gabung `-c:v copy`): A sandwich Aware → With Some Malice → Aware strings; B pembuka Ecosystem (cadangan Ticking Tension). Lagu adalah usulan: model memilih bagian yang paling cocok dengan suasana video jadi (kandidat pembuka B: Ecosystem, Ticking Tension, depan Back To Black). Publikasi akun personal dengan kredit di caption; versi tanpa musik selalu diekspor sebagai cadangan.
