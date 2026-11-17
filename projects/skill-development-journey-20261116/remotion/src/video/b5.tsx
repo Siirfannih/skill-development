@@ -217,7 +217,7 @@ const Isi: React.FC<RelayProps & {f: number; durasiDunia: number}> = ({kunci: K,
   const t = f / fps;
   const F = (s: number) => Math.round(s * fps);
   // urutan lahir (detik dunia), semua turunan dari kunci ucapan
-  const lahirA = Math.max(0.3, K.ketik1 - 0.5);
+  const lahirA = Math.min(0.35, Math.max(0.3, K.ketik1 - 0.5));   // Irfan 17 Nov: dunia masuk di jentikan -> papan ChatGPT lahir segera, dunia tidak kosong
   const lahirB = K.amplop1 + 0.05;
   const lahirD = K.pesan3 - 0.35;
   const terbang = K.catat + 0.55;                         // kartu Dicatat mulai terbang turun ke rak

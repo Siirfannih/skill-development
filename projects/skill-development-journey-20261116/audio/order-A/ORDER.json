@@ -39,40 +39,40 @@
   },
   "visual": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/qc/master_gambar.mp4",
-   "sha": "c273a67646bfdfde",
-   "waktu": "2026-11-17 18:49",
+   "sha": "4ef9b9733e6469a2",
+   "waktu": "2026-11-17 21:14",
    "hulu": {
     "suara": "c23e53d9df676dc7"
    }
   },
   "sfx": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/cues.json",
-   "sha": "03f2b287ac3352e7",
-   "waktu": "2026-11-17 18:50",
+   "sha": "7050a9eda6363fad",
+   "waktu": "2026-11-17 21:14",
    "hulu": {
     "suara": "c23e53d9df676dc7",
-    "visual": "c273a67646bfdfde"
+    "visual": "4ef9b9733e6469a2"
    },
    "evidence": {
     "objects": {
      "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/objects.json",
-     "sha": "c0889630b8ae2dc7"
+     "sha": "eff16dd2997f5035"
     }
    },
    "ref_density": 0.0
   },
   "musik": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/stem_musik_A.wav",
-   "sha": "a0bf3b9b5c6dc0d5",
-   "waktu": "2026-11-17 18:50",
+   "sha": "bfbcc7feac812dae",
+   "waktu": "2026-11-17 21:14",
    "hulu": {
     "suara": "c23e53d9df676dc7",
-    "visual": "c273a67646bfdfde",
-    "sfx": "03f2b287ac3352e7"
+    "visual": "4ef9b9733e6469a2",
+    "sfx": "7050a9eda6363fad"
    },
-   "peran": "pengisi sandwich Aware > With Some Malice > Aware di bawah suara",
-   "alasan": "tipe video: explainer personal bertempo cepat (pace_read=energi); Aware di hook/B1b, Malice B2-B4 di ketukan 1 pada 13,747 dtk, strings Aware 0:30+ di push-through D_RELAY 58,972 dtk; ducking -7 dB, EQ tengah, otomasi lokal tanpa limiter; dikunci ulang terhadap visual c273a676 tanpa perubahan mix",
-   "didengar": "projects/skill-development-journey-20261116/audio/preview_visual_sfx.mp4"
+   "peran": "pengisi sandwich Aware → With Some Malice → Aware strings",
+   "alasan": "talking head personal yang cerita lalu memuncak; strings Aware masuk di jentikan jari saat dunia agen muncul",
+   "didengar": "out/tanpa-musik.mp4"
   }
  },
  "dibuat": "2026-11-16 20:46"

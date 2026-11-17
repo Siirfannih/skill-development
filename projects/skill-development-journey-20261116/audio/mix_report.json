@@ -37,30 +37,30 @@
     14.0
    ],
    [
-    58.972,
+    57.919,
     "transisi-dunia",
-    11.1
+    8.7
    ],
    [
-    74.441,
+    72.139,
     "transisi-dunia",
-    3.8
+    5.6
    ],
    [
     76.41,
     "transisi-dunia",
-    5.9
+    2.2
    ]
   ],
   "clarity_iterations": 4,
-  "clarity_min_db": 6.62,
+  "clarity_min_db": 6.67,
   "music_dip_max_db": 9.78,
   "sfx_dip_max_db": 14.0,
   "peak_after_dbfs": -1.002,
   "peak_iterations": 2,
   "mix_lufs": -15.75,
   "peak_dbfs": -1.0,
-  "music_lufs": -27.74,
+  "music_lufs": -27.79,
   "voice_max_abs_diff": 8.940696716308594e-08,
   "limiter": false
  },
@@ -97,35 +97,35 @@
     14.0
    ],
    [
-    58.972,
+    57.919,
     "transisi-dunia",
-    11.1
+    8.7
    ],
    [
-    74.441,
+    72.139,
     "transisi-dunia",
-    3.8
+    5.6
    ],
    [
     76.41,
     "transisi-dunia",
-    5.9
+    2.2
    ]
   ],
   "clarity_iterations": 4,
-  "clarity_min_db": 6.62,
+  "clarity_min_db": 6.69,
   "music_dip_max_db": 9.78,
   "sfx_dip_max_db": 14.0,
   "peak_after_dbfs": -1.002,
   "peak_iterations": 2,
   "mix_lufs": -15.78,
   "peak_dbfs": -1.0,
-  "music_lufs": -28.29,
+  "music_lufs": -28.36,
   "voice_max_abs_diff": 8.940696716308594e-08,
   "limiter": false
  },
  "tanpa-musik": {
-  "mix_lufs": -15.99,
+  "mix_lufs": -16.0,
   "peak_dbfs": -1.0,
   "voice_max_abs_diff": 5.960464477539063e-08,
   "whoosh_dips": [],

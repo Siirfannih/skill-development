@@ -2,14 +2,12 @@
  {
   "t": 0.0,
   "peran": "objek-mendarat",
-  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [Claude + Codex + Gemini]",
+  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [Claude]",
   "file": "pop up.mp3",
   "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
   "dB": -7,
   "terikat_ke_visual": [
-   "K_Clawd0",
-   "K_Codex",
-   "K_Gemini"
+   "K_Clawd0"
   ],
   "offset_puncak_s": 0.004,
   "mode": "onset"
@@ -55,7 +53,7 @@
   "mode": "onset"
  },
  {
-  "t": 4.204,
+  "t": 4.468,
   "peran": "objek-mendarat",
   "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [Claude]",
   "file": "pop up.mp3",
@@ -94,6 +92,19 @@
   "mode": "onset"
  },
  {
+  "t": 8.306,
+  "peran": "objek-mendarat",
+  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [Codex]",
+  "file": "pop up.mp3",
+  "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
+  "dB": -7,
+  "terikat_ke_visual": [
+   "K_Codex"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
   "t": 8.573,
   "peran": "kunci-slam",
   "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [ChatGPT,]",
@@ -107,14 +118,15 @@
   "mode": "onset"
  },
  {
-  "t": 9.44,
-  "peran": "kunci-slam",
-  "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [Claude,]",
-  "file": "Kinetictypography(gunakansecaraacak).mp3",
-  "dengar": "a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4)",
-  "dB": -6,
+  "t": 9.494,
+  "peran": "objek-mendarat",
+  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [Claude, + Gemini]",
+  "file": "pop up.mp3",
+  "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
+  "dB": -7,
   "terikat_ke_visual": [
-   "T015"
+   "T015",
+   "K_Gemini"
   ],
   "offset_puncak_s": 0.004,
   "mode": "onset"
@@ -531,7 +543,7 @@
   "mode": "onset"
  },
  {
-  "t": 58.972,
+  "t": 57.919,
   "peran": "transisi-dunia",
   "alasan": "dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian [desktop Mac + jaringan agen]",
   "file": "Woosh.mp3",
@@ -544,7 +556,7 @@
   "mode": "peak"
  },
  {
-  "t": 59.272,
+  "t": 58.269,
   "peran": "objek-mendarat",
   "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [papan ChatGPT lahir (2,5D, tajam)]",
   "file": "pop up.mp3",
@@ -727,19 +739,6 @@
   ],
   "offset_puncak_s": 0.008,
   "mode": "onset"
- },
- {
-  "t": 74.441,
-  "peran": "transisi-dunia",
-  "alasan": "dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian [lingkaran wajah]",
-  "file": "Woosh.mp3",
-  "dengar": "a fast whoosh (z +4.7), a soft air whoosh (z +4.1), a deep cinematic whoosh (z +3.8)",
-  "dB": -4,
-  "terikat_ke_visual": [
-   "D_EDIT_WAJAH"
-  ],
-  "offset_puncak_s": 0.294,
-  "mode": "peak"
  },
  {
   "t": 75.645,

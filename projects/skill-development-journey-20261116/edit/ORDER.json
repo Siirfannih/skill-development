@@ -39,24 +39,24 @@
   },
   "visual": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/qc/master_gambar.mp4",
-   "sha": "c273a67646bfdfde",
-   "waktu": "2026-11-17 18:49",
+   "sha": "4ef9b9733e6469a2",
+   "waktu": "2026-11-17 21:13",
    "hulu": {
     "suara": "c23e53d9df676dc7"
    }
   },
   "sfx": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/cues.json",
-   "sha": "03f2b287ac3352e7",
-   "waktu": "2026-11-17 18:50",
+   "sha": "7050a9eda6363fad",
+   "waktu": "2026-11-17 21:14",
    "hulu": {
     "suara": "c23e53d9df676dc7",
-    "visual": "c273a67646bfdfde"
+    "visual": "4ef9b9733e6469a2"
    },
    "evidence": {
     "objects": {
      "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/objects.json",
-     "sha": "c0889630b8ae2dc7"
+     "sha": "eff16dd2997f5035"
     }
    },
    "ref_density": 0.0

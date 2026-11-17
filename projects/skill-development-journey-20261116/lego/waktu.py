@@ -86,7 +86,24 @@ T["workflow2"] = s("workflow-nya"); T["workflow2_e"] = e("workflow-nya")
 T["b4a"] = s("Jadi", 38.5); T["balik"] = s("balik"); T["balik_e"] = e("modal"); T["b4b"] = s("Ini", 43)
 T["dua0"] = s("20"); T["dua0_e"] = e("kali", 48.5); T["lima"] = s("5"); T["lima_e"] = e("kali", 51)
 T["gitu_b4"] = e("gitu.", 53)
-T["b5a"] = s("Dan,", 54); T["kayak"] = s("Kayak", 57); T["lihat_e"] = e("ini.", 59)
+T["b5a"] = s("Dan,", 54); T["kayak"] = s("Kayak", 57); T["ini_e"] = e("ini.", 59)
+
+
+def jentik(a, b):
+    """detik transien jentikan jari (energi 3–12 kHz naik paling tajam, rasio HF/LF > 1) di antara a..b, diukur dari suara.wav"""
+    import numpy as np, soundfile as sf
+    x, sr = sf.read(os.path.join(P, EDIT, "suara.wav")); x = x if x.ndim == 1 else x.mean(1)
+    i0, i1 = int(a * sr), int(b * sr); x = x[i0:i1]
+    n, hop = 512, 256
+    fr = np.lib.stride_tricks.sliding_window_view(x, n)[::hop] * np.hanning(n)
+    S = np.abs(np.fft.rfft(fr, axis=1)); f = np.fft.rfftfreq(n, 1 / sr)
+    hf = S[:, (f > 3000) & (f < 12000)].sum(1); lf = S[:, (f > 100) & (f < 1500)].sum(1) + 1e-9
+    sc = np.maximum(0, np.diff(hf, prepend=hf[0])) * (hf / lf > 1.0)
+    return a + int(np.argmax(sc)) * hop / sr
+
+
+# Irfan 17 Nov: dunia agen masuk TEPAT di jentikan jari ("kayak yang kalian lihat ini" + jentik), bukan di akhir "ini."
+T["lihat_e"] = jentik(T["kayak"], T["ini_e"])
 T["b5b"] = s("Bahkan", 59.5); T["koordinasi1"] = s("koordinasi", 60); T["claude2"] = s("Claude", 61.5); T["sebaliknya"] = s("sebaliknya")
 T["session"] = s("session"); T["kesalahan"] = s("kesalahan"); T["loop"] = s("loop"); T["loop_e"] = e("pembelajaran"); T["sini_e"] = e("sini")
 T["b6a"] = s("Ini", 72.5); T["pct"] = s("100%"); T["ai_e"] = e("AI.", 74)

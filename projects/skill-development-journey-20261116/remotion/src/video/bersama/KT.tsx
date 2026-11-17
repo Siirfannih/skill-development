@@ -28,12 +28,30 @@ export type KTProps = {
   depan?: boolean;
   /** lebar isi teks persp (kotak lapisan selebar frame supaya AGENT yang mendekat tidak terpotong) */
   lebarIsi?: number;
+  /** tinggi kotak teks hero; kotak lapisan (h) diperpanjang sampai tepi bawah frame supaya hero naik dari bawah frame (Irfan 17 Nov) */
+  hTeks?: number;
+  /** detik relatif: warna teks berpindah putih -> tinta (teks lahir di atas footage, lalu dunia terang menutup) */
+  gelapAt?: number;
+  v?: number;
+};
+
+/** keluar halus semua KT (Irfan 17 Nov: tidak hilang tiba-tiba): pudar + blur + naik sedikit */
+const gayaKeluar = (out: number, size: number): React.CSSProperties => ({
+  opacity: 1 - out, transform: `translateY(${-out * 0.28 * size}px)`, filter: out > 0.01 ? `blur(${(out * 9).toFixed(2)}px)` : undefined,
+});
+/** masuk halus per kata: pudar + blur + naik */
+const gayaMasuk = (q: number, size: number, skala = 0.9): React.CSSProperties => ({
+  opacity: q, transform: `translateY(${(1 - q) * 0.32 * size}px) scale(${skala + (1 - skala) * q})`, filter: q < 0.99 ? `blur(${((1 - q) * 7).toFixed(2)}px)` : undefined,
+});
+const campur = (a: string, b: string, k: number) => {
+  const h = (c: string, i: number) => parseInt(c.slice(1 + 2 * i, 3 + 2 * i), 16);
+  return '#' + [0, 1, 2].map((i) => Math.round(h(a, i) + (h(b, i) - h(a, i)) * k).toString(16).padStart(2, '0')).join('');
 };
 
 /** frame onset kata ke-i (relatif lapisan); tanpa wt jatuh ke `cadangan` */
 const onsetF = (p: KTProps, i: number, fps: number, cadangan = 0) => (p.wt && p.wt[Math.min(i, p.wt.length - 1)] !== undefined ? Math.round(p.wt[Math.min(i, p.wt.length - 1)] * fps) : cadangan);
 
-const useKeluar = (durasi: number, keluarAt?: number, banyak = 6) => {
+const useKeluar = (durasi: number, keluarAt?: number, banyak = 7) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const total = Math.round(durasi * fps);
@@ -45,17 +63,17 @@ const shell: React.CSSProperties = {display: 'flex', alignItems: 'center', justi
 
 // ---------- R1 · T19 word-pop ikut VO ----------
 const R1: React.FC<KTProps> = (p) => {
-  const {f, fps, out} = useKeluar(p.durasi, p.keluarAt, 5);
+  const {f, fps, out} = useKeluar(p.durasi, p.keluarAt);
   const size = p.size ?? 66;
   const words = p.teks.split(/\s+/).filter(Boolean);
-  const warna = p.warna ?? (p.gelap ? INK : HERO);
-  return <AbsoluteFill style={{...shell, clipPath: `inset(0 0 ${out * 100}% 0)`, transform: `translateY(${-out * 0.35 * size}px)`}}>
+  const g = p.gelapAt !== undefined ? move(f, Math.round(p.gelapAt * fps), 6, 'drift') : (p.gelap ? 1 : 0);
+  const warna = p.warna ?? (p.gelapAt !== undefined ? campur(HERO, INK, g) : p.gelap ? INK : HERO);
+  return <AbsoluteFill style={{...shell, ...gayaKeluar(out, size)}}>
     <div style={{fontFamily: FONT.poppins, fontWeight: 700, fontSize: size, color: warna, lineHeight: 1, letterSpacing: '-0.02em',
-      textShadow: p.gelap ? 'none' : BAYANG_TEKS, whiteSpace: 'pre'}}>
+      textShadow: g > 0.5 ? 'none' : BAYANG_TEKS, whiteSpace: 'pre'}}>
       {words.map((w, i) => {
-        const q = move(f, onsetF(p, i, fps, react(i, fps, 0.55)), 4, 'land');
-        return <span key={i} style={{display: 'inline-block', opacity: q > 0.02 ? 1 : 0,
-          transform: `translateY(${(1 - q) * 0.36 * size}px) scale(${0.85 + 0.15 * q})`}}>{w + (i < words.length - 1 ? ' ' : '')}</span>;
+        const q = move(f, onsetF(p, i, fps, react(i, fps, 0.55)), 6, 'land');
+        return <span key={i} style={{display: 'inline-block', ...gayaMasuk(q, size)}}>{w + (i < words.length - 1 ? ' ' : '')}</span>;
       })}
     </div>
   </AbsoluteFill>;
@@ -63,17 +81,17 @@ const R1: React.FC<KTProps> = (p) => {
 
 // ---------- R2 · T03 slam kecil (2,0 → 1,3 → 1,06 → 1,0 dalam 3 frame) ----------
 const R2: React.FC<KTProps> = (p) => {
-  const {f, fps, out} = useKeluar(p.durasi, p.keluarAt, 5);
+  const {f, fps, out} = useKeluar(p.durasi, p.keluarAt);
   const size = p.size ?? 88;
   const words = p.teks.split(/\s+/).filter(Boolean);
-  return <AbsoluteFill style={{...shell, clipPath: `inset(0 0 ${out * 100}% 0)`}}>
+  return <AbsoluteFill style={{...shell, ...gayaKeluar(out, size)}}>
     <div style={{fontFamily: FONT.poppins, fontWeight: 800, fontSize: size, color: p.warna ?? (p.gelap ? INK : HERO), lineHeight: 1, letterSpacing: '-0.025em',
-      textShadow: p.gelap ? 'none' : BAYANG_TEKS, whiteSpace: 'pre', transform: `translateY(${-out * 0.3 * size}px)`}}>
+      textShadow: p.gelap ? 'none' : BAYANG_TEKS, whiteSpace: 'pre'}}>
       {words.map((w, i) => {
         const lf = f - onsetF(p, i, fps, 0);       // slam per kata, mulai di onset kata itu
         const s = interpolate(Math.max(0, lf), [0, 1, 2, 3], i === 0 ? [2.0, 1.3, 1.06, 1.0] : [1.3, 1.16, 1.05, 1.0], {extrapolateRight: 'clamp', easing: CURVE.heavy});   // kata ke-2+ berjangkar kiri: skala awal kecil supaya tepi kanan tetap dalam safe area (ronde 9 X2)
         const g = getar(Math.max(0, lf), 3, 6, size * 0.05, (p.seed ?? 3) + i);
-        return <span key={i} style={{display: 'inline-block', transformOrigin: i === 0 ? '50% 50%' : '0% 50%', visibility: lf >= 0 ? 'visible' : 'hidden', transform: `translate(${g.x}px, ${g.y}px) scale(${s})`,
+        return <span key={i} style={{display: 'inline-block', transformOrigin: i === 0 ? '50% 50%' : '0% 50%', visibility: lf >= 0 ? 'visible' : 'hidden', opacity: Math.min(1, 0.45 + 0.55 * Math.max(0, lf) / 2), transform: `translate(${g.x}px, ${g.y}px) scale(${s})`,
           filter: lf >= 0 && lf < 3 ? `blur(${(3 - lf) * 2.2}px)` : undefined /* motion-ok: gerak cepat T03 */}}>{w + (i < words.length - 1 ? ' ' : '')}</span>;
       })}
     </div>
@@ -82,7 +100,7 @@ const R2: React.FC<KTProps> = (p) => {
 
 // ---------- R3 · T25 kacau: huruf lompat tak rata lalu mendarat (kacau/frustrasi/viral) ----------
 const R3: React.FC<KTProps> = (p) => {
-  const {f, out} = useKeluar(p.durasi, p.keluarAt, 6);
+  const {f, out} = useKeluar(p.durasi, p.keluarAt);
   const size = p.size ?? 96;
   const {fps} = useVideoConfig();
   const bekuF = p.bekuAt !== undefined ? Math.round(p.bekuAt * fps) : 1e9;
@@ -91,7 +109,7 @@ const R3: React.FC<KTProps> = (p) => {
   const viral = p.gaya === 'viral';
   // kata ke berapa tiap huruf (onset per kata)
   const kataKe = chars.reduce<number[]>((a, c, i) => { a.push(i === 0 ? 0 : a[i - 1] + (chars[i - 1] === ' ' ? 1 : 0)); return a; }, []);
-  return <AbsoluteFill style={{...shell, clipPath: `inset(0 0 ${out * 100}% 0)`}}>
+  return <AbsoluteFill style={{...shell, ...gayaKeluar(out, size)}}>
     <div style={{fontFamily: FONT.poppins, fontWeight: 800, fontSize: size, lineHeight: 1, letterSpacing: '-0.02em', whiteSpace: 'pre',
       transform: `rotate(${viral ? -5 : 0}deg)`, textAlign: 'center'}}>
       {chars.map((c, i) => {
@@ -110,7 +128,7 @@ const R3: React.FC<KTProps> = (p) => {
           ? {backgroundImage: 'linear-gradient(180deg,#FF4FD8,#8E3BFF)', WebkitBackgroundClip: 'text', color: 'transparent',
             filter: 'drop-shadow(0 7px 0 #2A0A5E) drop-shadow(0 14px 0 #FFD400) drop-shadow(0 0 22px rgba(255,80,220,.9))'}
           : {color: warna, textShadow: p.gelap ? 'none' : BAYANG_TEKS};
-        return <span key={i} style={{display: 'inline-block', marginLeft: i > 0 && chars[i - 1] === ' ' ? size * 0.34 : 0, opacity: pop > 0.02 ? 1 : 0, ...sty,
+        return <span key={i} style={{display: 'inline-block', marginLeft: i > 0 && chars[i - 1] === ' ' ? size * 0.34 : 0, opacity: Math.min(1, pop * 1.4), ...sty,
           transform: `translate(${jx}px, ${jy + (1 - pop) * size * 0.4}px) rotate(${jr}deg) scale(${0.6 + 0.4 * pop})`}}>{c}</span>;
       })}
     </div>
@@ -119,17 +137,17 @@ const R3: React.FC<KTProps> = (p) => {
 
 // ---------- putus-putus (R3): suku kata muncul terputus satu per satu, jeda tak rata ----------
 const Putus: React.FC<KTProps> = (p) => {
-  const {f, out} = useKeluar(p.durasi, p.keluarAt, 6);
+  const {f, out} = useKeluar(p.durasi, p.keluarAt);
   const size = p.size ?? 124;
   const parts = ['pu', 'tus', '-pu', 'tus'];
   const at = [0, 5, 11, 15];
-  return <AbsoluteFill style={{...shell, clipPath: `inset(0 0 ${out * 100}% 0)`}}>
+  return <AbsoluteFill style={{...shell, ...gayaKeluar(out, size)}}>
     <div style={{display: 'flex', alignItems: 'baseline', fontFamily: FONT.poppins, fontWeight: 800, fontSize: size, color: p.warna ?? CORAL, lineHeight: 1,
       letterSpacing: '-0.02em', textShadow: BAYANG_TEKS}}>
       {parts.map((s, i) => {
         const q = move(f, at[i], 3, 'land');
         const patah = Math.floor(f / 4) % 2;
-        return <span key={i} style={{display: 'inline-block', opacity: q > 0.02 ? 1 : 0, marginLeft: i === 2 ? size * 0.16 : 0,
+        return <span key={i} style={{display: 'inline-block', opacity: Math.min(1, q * 1.5), marginLeft: i === 2 ? size * 0.16 : 0,
           transform: `translate(${(i % 2 ? 1 : -1) * (1 - q) * size * 0.5}px, ${(patah ? 1 : -1) * size * 0.02}px) rotate(${(i - 1.5) * 2.2 * q}deg)`}}>{s}</span>;
       })}
     </div>
@@ -184,21 +202,24 @@ const HeroDatar: React.FC<KTProps> = (p) => {
   const fs = useFitSize(p.teks, FONT.anton, 400, lebar, spasi);
   const keluarF = p.keluarAt !== undefined ? Math.round(p.keluarAt * fps) : Math.round(p.durasi * fps) - 12;
   const depan = !!p.depan;
-  const enter = depan ? move(f, 0, 10, 'land') : move(f, 0, slab ? 19 : 8, 'heavy');
+  const enter = depan ? move(f, 0, 10, 'land') : move(f, 0, 16, 'land');
   const tenang = 1 - move(f, 18, 72, 'drift');
   const out = move(f, keluarF, depan ? 8 : 12, 'leave');
+  const ht = p.hTeks ?? p.h;
+  const turun = p.h;                                    // dari/ke tepi bawah frame: kotak lapisan berakhir di tepi bawah frame
   const g = p.getarAt !== undefined ? getar(f, Math.round(p.getarAt * fps), 6, 12, p.seed ?? 2) : {x: 0, y: 0};
   const warna = p.warna ?? HERO;
   const chars = Array.from(p.teks);
   const kataKe = chars.reduce<number[]>((a, c, i) => { a.push(i === 0 ? 0 : a[i - 1] + (chars[i - 1] === ' ' ? 1 : 0)); return a; }, []);
   const kilat = p.sapu ? move(f, 14, 20, 'whip') : 0;
   return <AbsoluteFill style={{background: 'transparent', overflow: 'hidden'}}>
-    <svg width={p.w} height={p.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible',
+    <svg width={p.w} height={ht} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible',
       transformOrigin: '50% 60%',
       transform: depan
-        ? `translate(${g.x}px, ${g.y + out * p.h * 0.08}px) rotate(${-2 * enter}deg) scale(${(0.8 + 0.2 * enter) * (1 - 0.1 * out)})`
-        : `translate(${g.x}px, ${g.y + (1 - enter) * p.h * 0.55 + out * p.h * 0.7}px) rotate(${(slab ? -2 : -5) * enter}deg) scaleY(${0.9 + 0.1 * enter})`,
-      opacity: (enter > 0.01 ? 1 : 0) * (depan ? 1 - out : 1), clipPath: out > 0 && !depan ? `inset(0 0 ${out * 60}% 0)` : undefined}}>
+        ? `translate(${g.x}px, ${g.y + out * ht * 0.08}px) rotate(${-2 * enter}deg) scale(${(0.8 + 0.2 * enter) * (1 - 0.1 * out)})`
+        : `translate(${g.x}px, ${g.y + (1 - enter) * turun + out * turun}px) rotate(${(slab ? -2 : -5) * enter}deg)`,
+      opacity: depan ? enter * (1 - out) : 1,
+      filter: depan ? (enter < 0.99 || out > 0.01 ? `blur(${((1 - enter) * 10 + out * 8).toFixed(2)}px)` : undefined) : (enter < 0.97 || out > 0.03 ? `blur(${((1 - enter + out) * 3).toFixed(2)}px)` : undefined)}}>
       <defs>
         <linearGradient id="kilat" gradientUnits="userSpaceOnUse" x1={`${-30 + 140 * kilat}%`} y1="0" x2={`${-10 + 140 * kilat}%`} y2="0">
           <stop offset="0" stopColor={warna}/><stop offset=".5" stopColor="#FFFFFF"/><stop offset="1" stopColor={warna}/>
@@ -220,7 +241,7 @@ const HeroPersp: React.FC<KTProps> = (p) => {
   const {fps} = useVideoConfig();
   const fs = useFitSize(p.teks, FONT.anton, 400, p.lebarIsi ?? 1500, 0);
   const keluarF = p.keluarAt !== undefined ? Math.round(p.keluarAt * fps) : Math.round(p.durasi * fps) - 12;
-  const out = move(f, keluarF, 6, 'leave');
+  const out = move(f, keluarF, 8, 'leave');
   const [w1, w2] = p.teks.split(' ');
   const o1 = onsetF(p, 0, fps, 0), o2 = onsetF(p, 1, fps, 6);
   const a1 = move(f, o1, 16, 'heavy'), a2 = move(f, o2, 14, 'land');
@@ -232,8 +253,8 @@ const HeroPersp: React.FC<KTProps> = (p) => {
   const t2 = `translateX(${30 * a2 + 36 * tahan2 + 260 * out}px) translateZ(${-520 * (1 - a2) + 60 * tahan2}px) rotateY(${-30 * a2 - 4 * tahan2}deg)`;
   return <AbsoluteFill style={{background: 'transparent', perspective: 1300, perspectiveOrigin: `${p.w / 2}px ${p.h / 2}px`, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
     <div style={{display: 'flex', gap: fs * 0.22, alignItems: 'center', transformStyle: 'preserve-3d'}}>
-      <span style={{...huruf, transformOrigin: '0% 50%', opacity: f >= o1 ? 1 - out : 0, transform: t1}}>{w1}</span>
-      <span style={{...huruf, transformOrigin: '100% 50%', opacity: f >= o2 ? 1 - out : 0, transform: t2}}>{w2}</span>
+      <span style={{...huruf, transformOrigin: '0% 50%', opacity: f >= o1 ? Math.min(1, a1 * 1.6) * (1 - out) : 0, filter: a1 < 0.6 ? `blur(${((0.6 - a1) * 14).toFixed(2)}px)` : undefined, transform: t1}}>{w1}</span>
+      <span style={{...huruf, transformOrigin: '100% 50%', opacity: f >= o2 ? Math.min(1, a2 * 1.6) * (1 - out) : 0, filter: a2 < 0.6 ? `blur(${((0.6 - a2) * 14).toFixed(2)}px)` : undefined, transform: t2}}>{w2}</span>
     </div>
   </AbsoluteFill>;
 };
@@ -249,11 +270,11 @@ const Busur: React.FC<KTProps> = (p) => {
   const geser = b.mulai + b.geser * move(f, 0, Math.round(p.durasi * fps), 'drift');
   const size = (p.size ?? 150) * (1 + 1.5 * (1 - q));
   return <AbsoluteFill style={{background: 'transparent'}}>
-    <svg width={p.w} height={p.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', opacity: q > 0.01 ? 1 : 0}}>
+    <svg width={p.w} height={p.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', opacity: Math.min(1, q * 1.5) * (1 - out), filter: out > 0.01 ? `blur(${(out * 8).toFixed(2)}px)` : undefined}}>
       <defs><path id={`arch-${p.seed ?? 0}`} d={b.d}/>
         <filter id="lunak" x="-10%" y="-30%" width="120%" height="160%"><feDropShadow dx="0" dy="10" stdDeviation="14" floodColor="#000" floodOpacity=".42"/></filter></defs>
       <text fill={p.warna ?? HERO} fontSize={size} fontFamily={FONT.poppins} fontWeight={800} letterSpacing={-4} filter="url(#lunak)"
-        style={{transform: `translateY(${out * 220}px)`}}>
+        style={{transform: `translateY(${-out * 60}px)`}}>
         <textPath href={`#arch-${p.seed ?? 0}`} startOffset={`${geser - 3 * (1 - q)}%`}>{p.teks.split(' ').map((w, i, arr) => <tspan key={i} fillOpacity={f >= onsetF(p, i, fps, 0) ? 1 : 0}>{w + (i < arr.length - 1 ? ' ' : '')}</tspan>)}</textPath>
       </text>
     </svg>

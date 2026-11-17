@@ -52,10 +52,11 @@
   "gaya": "r1",
   "pos": [
    760,
-   1000
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true
+  "gelap": true,
+  "gelapAt": 0.263
  },
  {
   "id": "T004",
@@ -93,7 +94,7 @@
   "gaya": "r1",
   "pos": [
    760,
-   1000
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": true
@@ -111,8 +112,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1010,
+   905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -130,8 +131,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1010,
+   905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -149,8 +150,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1010,
+   905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -186,8 +187,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1010,
+   905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -223,8 +224,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1010,
+   905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -242,8 +243,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1010,
+   905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -261,8 +262,8 @@
   "kode": "T03",
   "gaya": "r2",
   "pos": [
-   1450,
-   735
+   1380,
+   905
   ],
   "alasan": "nama menempel tokoh Codex yang lambai",
   "gelap": false
@@ -299,8 +300,8 @@
   "kode": "T03",
   "gaya": "r2",
   "pos": [
-   1636,
-   290
+   1670,
+   440
   ],
   "alasan": "nama menempel bintang Gemini yang berputar",
   "gelap": false
@@ -318,8 +319,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1010,
+   905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -337,8 +338,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1010,
+   905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -742,7 +743,7 @@
   "gaya": "r1",
   "pos": [
    760,
-   1000
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": true
@@ -761,7 +762,7 @@
   "gaya": "r1",
   "pos": [
    760,
-   1000
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": true
@@ -780,7 +781,7 @@
   "gaya": "r2",
   "pos": [
    760,
-   1000
+   945
   ],
   "alasan": "kata kunci di dekat kolom ketik saat '/' diketik (DESAIN B3a)",
   "gelap": true
@@ -799,7 +800,7 @@
   "gaya": "r1",
   "pos": [
    760,
-   1000
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": true
@@ -818,7 +819,7 @@
   "gaya": "r1",
   "pos": [
    760,
-   1000
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": true
@@ -837,7 +838,7 @@
   "gaya": "r1",
   "pos": [
    760,
-   1000
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": true
@@ -856,7 +857,7 @@
   "gaya": "r1",
   "pos": [
    760,
-   1000
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": true
@@ -875,7 +876,7 @@
   "gaya": "r2",
   "pos": [
    760,
-   1000
+   945
   ],
   "alasan": "kata kunci saat daftar terhapus (DESAIN B3b)",
   "gelap": true
@@ -894,7 +895,7 @@
   "gaya": "r1",
   "pos": [
    760,
-   1000
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": true
@@ -989,8 +990,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1400,
-   790
+   960,
+   800
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1008,8 +1009,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1400,
-   790
+   960,
+   800
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1027,8 +1028,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1290,
-   790
+   960,
+   800
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1046,8 +1047,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1290,
-   790
+   960,
+   800
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1065,8 +1066,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1400,
-   790
+   960,
+   800
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1104,8 +1105,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1330,
-   790
+   960,
+   800
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1484,7 +1485,7 @@
   ],
   "teks": "Kayak yang",
   "t": 57.687,
-  "dur": 0.692,
+  "dur": 0.232,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1503,13 +1504,13 @@
   ],
   "teks": "kalian lihat ini.",
   "t": 58.379,
-  "dur": 0.593,
+  "dur": 0.873,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1250,
-   650
+   960,
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1528,7 +1529,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "buang": [
@@ -1552,7 +1553,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "buang": [
@@ -1576,7 +1577,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "buang": [
@@ -1600,7 +1601,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1619,7 +1620,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "buang": [
@@ -1643,7 +1644,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "buang": [
@@ -1667,7 +1668,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1686,7 +1687,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1705,7 +1706,7 @@
   "gaya": "r3",
   "pos": [
    1400,
-   1010
+   950
   ],
   "alasan": "kesalahan berulang yang diminimalkan: kata kacau lalu mendarat (DESAIN B5b)",
   "gelap": false
@@ -1724,7 +1725,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1743,7 +1744,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1762,7 +1763,7 @@
   "gaya": "r2",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "kata kunci saat loop menutup + centang (DESAIN B5b)",
   "gelap": false
@@ -1781,7 +1782,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1800,7 +1801,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   1010
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1840,9 +1841,11 @@
    960,
    380
   ],
-  "alasan": "slab di belakang kepala + kilat cahaya sekali (DESAIN B6a); 'pakai' tampil sebagai R1 kecil di bawah slab sisi kiri saat diucapkan (Lantai A1), sekaligus penyeimbang 'FULL AI' di kanan",
+  "alasan": "slab di belakang kepala + kilat cahaya sekali (DESAIN B6a); 'pakai' tidak ditampilkan (Irfan 17 Nov: 'pakai' di bawah sementara AI di atas)",
   "teks_vis": "100% FULL AI",
-  "sisip": "pakai",
+  "buang": [
+   "pakai"
+  ],
   "gelap": false
  },
  {
@@ -1859,7 +1862,7 @@
   "gaya": "r1",
   "pos": [
    760,
-   1005
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1878,7 +1881,7 @@
   "gaya": "r1",
   "pos": [
    760,
-   1005
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false

@@ -169,7 +169,7 @@ const Isi: React.FC<DuniaRepoProps & {f: number}> = ({kunci: K, f, durasi}) => {
         <Halaman f={f} kSelesai={sel}/>
         <Panel tw={t} K={K}/>
         {t < K.tekan - 0.07 && <Klip x={k5x} y={k5y} w={CELAH.w} h={KH} c={CORAL_K[4]} c2={CORAL_K[4]} rot={bawa ? -2 + 4 * Math.sin(t * 9) * 0.25 : 0}/>}
-        {t >= 0.2 && <div style={{position: 'absolute', inset: 0, filter: 'drop-shadow(8px 22px 16px rgba(20,30,60,.30))'}}><Karakter2D model="claude" id="b1-clawd" x={walk.x} y={GROUND} u={U} t={t} seed={1} lantai sudut={walk.walk > 0 && t < K.tekan ? 0.125 : 0.125}
+        {false && t >= 0.2 && <div style={{position: 'absolute', inset: 0, filter: 'drop-shadow(8px 22px 16px rgba(20,30,60,.30))'}}><Karakter2D model="claude" id="b1-clawd" x={walk.x} y={GROUND} u={U} t={t} seed={1} lantai sudut={walk.walk > 0 && t < K.tekan ? 0.125 : 0.125}
           emosi={emo.map(([a, n]) => [a, n] as [number, string])}
           ekstra={{sq: tekan.sq + senang.sq, dy: tekan.dy + senang.dy + (walk.dy ?? 0) - 12 * (1 - drop)}}/></div>}
       </div>
