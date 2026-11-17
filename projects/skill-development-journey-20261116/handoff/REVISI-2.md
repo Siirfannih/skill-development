@@ -20,3 +20,21 @@ skill-development BUKAN router (beda dengan OpenBot). Ia **perpustakaan/library 
 - "skill-development" digambar sebagai **rak/perpustakaan** (lapis belakang, mis. deretan kartu/buku skill bernama asli: LANTAI, kartu kiblat, RESEP, orkestrasi) — saat agen bekerja, satu kartu menyala dan "dibaca" (garis tipis berbeda gaya dari garis pesan, mis. cahaya lembut dari rak ke agen), bukan diteruskan lewat rak.
 - Loop pembelajaran = kesalahan **ditulis ke perpustakaan**: kartu "Dicatat: … supaya tidak terulang" terbang dari percakapan masuk ke rak (rak bertambah satu kartu), lalu agen/session berikutnya membaca kartu itu dan langsung benar (centang). Itulah "loop".
 - Urutan lahir (tetap satu papan fokus, 2,5D): (1) ChatGPT + pesannya; (2) pesan langsung ke Claude, Claude + balasan lahir (ChatGPT mundur); (3) session B lahir + pesannya; (4) kartu "Dicatat…" ditulis masuk rak; (5) session berikutnya membaca kartu → centang; (6) pull-back: lebih banyak agen lahir, semua membaca rak yang sama = "workspace kerja".
+
+## R2-4 · Koreksi Irfan atas versi Opus REVISI-1 (17 Nov ±12:15) + evaluasi QC Sutradara
+Irfan: versi ini sudah difinishing Opus dan lolos QC Sutradara, padahal salah. Perbaiki SEMUA:
+a. **SELESAI**: kata hero BESAR di DEPAN (seperti FINALLY tapi di lapis depan, bukan di belakang kepala/UI), Anton, mengisi area kosong bawah timeline B1 dunia repo, seimbang dengan latar putih dan tidak bertabrakan (hijau `#1A7F37` atau tinta, kontras ≥ 4,5).
+b. **Kartu paket B4b**: logo ChatGPT sudah benar; bentuk/UI kartu dibuat Apple-style (bersih, modern, elegan: radius lembut, putih/abu sangat muda, tipografi SF/Inter rapi, bayangan lembut berlapis, tanpa kotak kasar). POSISI: kartu ChatGPT di KANAN, lalu kartu Claude muncul di KIRI (bukan bertumpuk di kanan) → kartu mengapit Irfan, seimbang.
+c. **LINTAS AGENT**: perspektif 3D — "LINTAS" masuk menjauh ke dalam (vanishing ke belakang kepala), "AGENT" keluar ke kanan (mendekat); tetap di belakang kepala lewat matte, tahan.
+d. **B3a**: hapus KT "kayak Apple style"/"Storytelling"/kata yang sama dengan isi UI; fokus ke UI Claude. Lantai A3: kata yang sudah tampil di UI tidak boleh tampil lagi sebagai KT (tanda GANDA `teks_cek` antara KT dan UI = GAGAL, bukan dimaafkan).
+e. **Ukuran KT konsisten**: R1 narasi satu ukuran sepanjang video (mis. "gitu" di B4 tiba-tiba kecil, "Kayak" di bawah LINTAS AGENT kecil) → samakan; R1 tidak boleh lebih kecil dari tinggi huruf minimum Lantai (narasi ≥ 56 px @1080).
+f. **KT tertutup/terpotong**: "masih ker…" terpotong panel Instagram di B10; "kayak Apple style" terpotong tepi bawah → tidak boleh ada KT terpotong panel/tepi.
+g. "dalam" di B4 tidak di kiri atas.
+h. Semua tanda `balance_check` diperbaiki komposisinya, bukan diberi alasan, kecuali frame transisi ≤ 12 f.
+
+## Gerbang QC sebelum render final (Irfan: bersihkan → perbaiki → audit → perbaiki lagi → baru render)
+1. Builder: gerbang otomatis 0 tanda yang dimaafkan untuk GANDA KT-vs-UI, ukuran KT, terpotong, balance.
+2. Opus: rapikan + cek ulang sendiri daftar a–h dengan still per butir.
+3. Sutradara: lembar sanding per butir vs coretan Irfan; daftar a–h dicentang satu per satu dengan bukti still.
+4. Audit frame dua pemeriksa; temuan diperbaiki; audit ulang potongan berubah.
+5. Baru render final + Drive.
