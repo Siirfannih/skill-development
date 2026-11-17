@@ -1,15 +1,17 @@
-// B5b · REVISI-1 B11 (diganti): desktop Mac (bilah menu macOS + wallpaper hutan) dengan SATU jendela gelap berisi jaringan agen (gaya openbot.run, hanya gaya).
-// Pusat = node "skill-development"; agen = karakter 2D kita + lencana logo asli (Claude, ChatGPT, Gemini), garis titik-titik ke pusat.
-// Pesan ASLI (handoff/PAHAM-SKILL-DEV.md §D) di gelembung gelap kecil di samping agen pengirim; satu gelembung aktif per saat, kamera pindah antar-gelembung (heavy).
-// "session berbeda" -> node ChatGPT kedua "session B"; "loop pembelajaran" -> garis menutup jadi loop + kartu "Dicatat…" + centang; lalu node merapat jadi bingkai workspace.
-// Tata letak dijaga supaya pita KT bawah (y > 940 layar) selalu kosong.
+// B5b · REVISI-2 R2-2/R2-3: dunia agen 2,5D berlapis di desktop Mac (bilah menu macOS + wallpaper hutan, satu jendela gelap).
+// Satu PAPAN aktif per saat, SELALU di TENGAH frame (tajam, skala 1, terang); papan lama mundur berlapis ke kiri-atas / kanan-atas (skala 0,86 lalu 0,76,
+// blur 8–12 px, opasitas 0,4–0,56, lebih gelap); rak perpustakaan di lapis paling belakang BAWAH (putusan Sutradara REVISI-2: tidak ada sisi kosong sementara sisi lain penuh).
+// skill-development = PERPUSTAKAAN (rak kartu: LANTAI, kartu kiblat, RESEP, orkestrasi, DESAIN) di lapis belakang, BUKAN router. Agen berbicara LANGSUNG (garis titik putih);
+// agen MEMBACA rak lewat berkas cahaya lavender tipis (gaya garis berbeda). Lahir berurutan mengikuti ucapan: ChatGPT -> Claude -> session B -> kartu "Dicatat…" ditulis ke rak
+// -> session berikutnya membaca kartunya -> centang -> kamera mundur, jaringan tumbuh (banyak agen membaca rak yang sama).
+// Pesan asli: handoff/PAHAM-SKILL-DEV.md §D. Tata letak menjaga pita KT bawah (layar y > 940) kosong.
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
 import {CameraMotionBlur} from '@remotion/motion-blur';
 import {siApple, siClaude, siGooglegemini} from 'simple-icons';
-import {CURVE, drift, move} from '../lib/curves';
-import {Karakter2D} from '../papan/karakter2d/Karakter2D';
+import {CURVE, drift, move, react} from '../lib/curves';
 import {Fonts} from './bersama/Fonts';
+import {KarakterX} from './bersama/KarakterPixel';
 import {LogoChatGPT} from './bersama/LogoChatGPT';
 import {Titik} from './bersama/Jendela';
 import {FONT, HIJAU} from './bersama/tema';
@@ -19,18 +21,48 @@ export type RelayProps = {
   /** total frame lapisan = pre + dunia + post; durasi (detik) = total */
   durasi: number;
   pre: number; post: number; preT0: number; postT0: number; zPre: number;
+  /** skala kamera saat satu papan jadi fokus (1,25 default) */
+  zb?: number;
   kunci: {ketik1: number; pesan1: number; amplop1: number; ketik2: number; pesan2: number; amplop2: number; pesan3: number; catat: number; loop: number; selesai: number; keluar: number};
 };
 
 type Pt = {x: number; y: number};
 const WIN = {x: 150, y: 64, w: 1620, h: 880};             // jendela gelap (koordinat layar 1920x1080 sebelum kamera)
 const BAR = 40;
-// kaki karakter / pusat node, koordinat layar
-const C0: Pt = {x: 960, y: 520};
-const A0: Pt = {x: 450, y: 700}, B0: Pt = {x: 1470, y: 700}, D0: Pt = {x: 450, y: 330}, G0: Pt = {x: 1490, y: 300};
-// posisi rapat (workspace)
-const A1: Pt = {x: 700, y: 660}, B1: Pt = {x: 1220, y: 660}, D1: Pt = {x: 700, y: 400}, G1: Pt = {x: 1220, y: 400}, C1: Pt = {x: 960, y: 520};
+const LAV = '#C9B6F2';                                     // warna perpustakaan (garis baca, kartu menyala)
+// papan AKTIF selalu di tengah; koordinat isi papan = koordinat slot aktif
+const AK = {x: 730, y: 128, w: 460, h: 500};
+const AC: Pt = {x: AK.x + AK.w / 2, y: AK.y + AK.h / 2};
+const FY = AK.y + 432;                                     // kaki karakter di papan aktif
+// rak perpustakaan: lapis paling belakang, bawah tengah (di atas pita KT y > 940)
+const RAK = {x: 430, y: 690, w: 1060, h: 166};
+const JUDUL = ['LANTAI', 'kartu kiblat', 'RESEP', 'orkestrasi', 'DESAIN', 'Dicatat'];
+const kartuPos = (i: number) => ({x: RAK.x + 26 + i * 170, y: RAK.y + 46, w: 154, h: 104});
 const tx = (s: number, w = 400, c = '#ECECEC'): React.CSSProperties => ({fontFamily: FONT.inter, fontSize: s, fontWeight: w, color: c, letterSpacing: -0.2});
+const bayang = '0 2px 5px rgba(0,0,0,.5), 0 16px 36px rgba(0,0,0,.42), 0 46px 90px rgba(0,0,0,.45)';
+
+/** posisi kedalaman papan: aktif (tengah) · kiri/kanan atas (satu lapis mundur) · jauh kiri-atas (dua lapis) */
+type Slot = {cx: number; cy: number; s: number; blur: number; op: number; br: number};
+const SLOT: Record<'akt' | 'kiri' | 'kanan' | 'jauh', Slot> = {
+  akt: {cx: AC.x, cy: AC.y, s: 1, blur: 0, op: 1, br: 1},
+  kiri: {cx: 478, cy: 318, s: 0.86, blur: 8, op: 0.56, br: 0.8},
+  kanan: {cx: 1442, cy: 318, s: 0.86, blur: 8, op: 0.56, br: 0.8},
+  jauh: {cx: 960, cy: 196, s: 0.72, blur: 13, op: 0.34, br: 0.66},    // lapis terdalam: tepat di belakang papan aktif (atas tengah) supaya kiri = kanan
+};
+type Jalur = [number, keyof typeof SLOT][];
+/** keadaan papan pada frame f: pindah slot dengan kurva heavy 18 f; saat kamera mundur (angkat) papan lama sedikit terangkat (blur berkurang) */
+const keadaan = (f: number, jalur: Jalur, angkat: number): Slot => {
+  let s = SLOT[jalur[0][1]];
+  for (let i = 1; i < jalur.length; i++) {
+    const k = move(f, jalur[i][0], 18, 'heavy');
+    if (k <= 0) break;
+    const b = SLOT[jalur[i][1]];
+    s = {cx: s.cx + (b.cx - s.cx) * k, cy: s.cy + (b.cy - s.cy) * k, s: s.s + (b.s - s.s) * k, blur: s.blur + (b.blur - s.blur) * k, op: s.op + (b.op - s.op) * k, br: s.br + (b.br - s.br) * k};
+  }
+  const a = move(f, angkat, 24, 'drift');
+  return {...s, blur: s.blur * (1 - 0.45 * a), op: s.op + (0.82 - s.op) * 0.55 * a * (s.s < 1 ? 1 : 0), br: s.br + (0.92 - s.br) * 0.5 * a * (s.s < 1 ? 1 : 0)};
+};
+const pusatDi = (k: Slot): Pt => ({x: k.cx, y: k.cy});
 
 const Badge: React.FC<{jenis: 'claude' | 'chatgpt' | 'gemini'; s?: number}> = ({jenis, s = 40}) => (
   <div style={{width: s, height: s, borderRadius: s / 2, background: '#232323', border: '1.5px solid #3C3C3C', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 4px 10px rgba(0,0,0,.4)'}}>
@@ -40,22 +72,40 @@ const Badge: React.FC<{jenis: 'claude' | 'chatgpt' | 'gemini'; s?: number}> = ({
   </div>
 );
 
-const Label: React.FC<{p: Pt; dy: number; children: React.ReactNode; o?: number}> = ({p, dy, children, o = 1}) => (
-  <div style={{position: 'absolute', left: p.x - 200, top: p.y + dy, width: 400, textAlign: 'center', opacity: o, ...tx(25, 500, '#D6D6D6')}}>{children}</div>
+const Label: React.FC<{x: number; y: number; children: React.ReactNode}> = ({x, y, children}) => (
+  <div style={{position: 'absolute', left: x - 200, top: y, width: 400, textAlign: 'center', ...tx(25, 500, '#D6D6D6')}}>{children}</div>
 );
 
-/** gelembung gelap kecil (openbot): muncul dari sisi agen, keluar ke atas; satu aktif per saat */
-const Gelembung: React.FC<{f: number; mulai: number; selesai: number; x: number; y: number; lebar: number; asal: 'bawah' | 'kiri'; label?: boolean; children: React.ReactNode}> =
-  ({f, mulai, selesai, x, y, lebar, asal, label = true, children}) => {
-    if (f < mulai - 1 || f >= selesai + 8) return null;
-    const e = move(f, mulai, 9, 'reveal'), k = move(f, selesai, 7, 'leave');
-    const o = asal === 'bawah' ? '30% 100%' : '0% 70%';
-    return <div style={{position: 'absolute', left: x, top: y, width: lebar, opacity: e > 0.02 && k < 0.98 ? 1 : 0, filter: `blur(${(1 - e) * 8 + k * 6}px)`, transformOrigin: o, // motion-ok: MG63 §2 masuk blur→tajam ±6–9 f (reveal)
-      transform: `translate(${asal === 'kiri' ? -18 * (1 - e) : 0}px, ${(asal === 'bawah' ? 16 * (1 - e) : 0) - 14 * k}px) scale(${0.9 + 0.1 * e})`}}>
-      {label && <div style={{display: 'flex', alignItems: 'center', gap: 8, ...tx(19, 400, '#8E8E8E'), marginBottom: 8, paddingLeft: 4}}><LogoChatGPT size={18} warna="#8E8E8E"/>Sent by ChatGPT from another chat</div>}
-      <div style={{padding: '16px 22px', borderRadius: 18, background: '#1E1E1E', border: '1.5px solid #333333', ...tx(31), lineHeight: 1.32, boxShadow: '0 14px 34px rgba(0,0,0,.45)'}}>{children}</div>
-    </div>;
-  };
+/**
+ * Satu papan 2,5D. Isi digambar di koordinat slot aktif (AK); papan lahir dengan pop dari titik asal (land 14 f), lalu pindah slot kedalaman (heavy 18 f).
+ */
+const Papan: React.FC<{f: number; lahir: number; asal: Pt; jalur: Jalur; angkat: number; children: React.ReactNode}> = ({f, lahir, asal, jalur, angkat, children}) => {
+  if (f < lahir - 1) return null;
+  const e = move(f, lahir, 14, 'land');
+  const k = keadaan(f, jalur, angkat);
+  return <div style={{position: 'absolute', inset: 0, zIndex: Math.round(k.s * 100), transformOrigin: `${AC.x}px ${AC.y}px`,
+    transform: `translate(${k.cx - AC.x}px, ${k.cy - AC.y}px) scale(${k.s})`,
+    filter: `blur(${k.blur}px) brightness(${k.br})`, opacity: (e > 0.02 ? 1 : 0) * k.op}}>{/* motion-ok: blur = kedalaman 2,5D (papan mundur), bukan blur masuk */}
+    <div style={{position: 'absolute', inset: 0, transformOrigin: `${AC.x}px ${AC.y}px`,
+      transform: `translate(${(asal.x - k.cx) / k.s * (1 - e)}px, ${(asal.y - k.cy) / k.s * (1 - e)}px) scale(${0.5 + 0.5 * e})`}}>{children}</div>
+  </div>;
+};
+
+const Plat: React.FC<{x: number; y: number; w: number; h: number; baca?: number}> = ({x, y, w, h, baca = 0}) => (
+  <div style={{position: 'absolute', left: x, top: y, width: w, height: h, borderRadius: 26, background: 'linear-gradient(#232323, #181818)',
+    border: `1.5px solid ${baca > 0.05 ? LAV : '#3A3A3A'}`, boxShadow: `${bayang}${baca > 0.05 ? `, 0 0 ${34 * baca}px rgba(201,182,242,${0.5 * baca})` : ''}`}}/>
+);
+
+/** gelembung gelap kecil di dalam papan: tetap tampil (papan yang mundur tetap memuat pesannya) */
+const Gelembung: React.FC<{f: number; mulai: number; x: number; y: number; lebar: number; label?: boolean; children: React.ReactNode}> = ({f, mulai, x, y, lebar, label = true, children}) => {
+  if (f < mulai - 1) return null;
+  const e = move(f, mulai, 9, 'reveal');
+  return <div style={{position: 'absolute', left: x, top: y, width: lebar, opacity: e > 0.02 ? 1 : 0, filter: `blur(${(1 - e) * 8}px)`, transformOrigin: '30% 100%', // motion-ok: MG63 §2 masuk blur→tajam ±6–9 f (reveal)
+    transform: `translateY(${16 * (1 - e)}px) scale(${0.92 + 0.08 * e})`}}>
+    {label && <div style={{display: 'flex', alignItems: 'center', gap: 8, ...tx(17, 400, '#8E8E8E'), marginBottom: 8, paddingLeft: 4}}><LogoChatGPT size={17} warna="#8E8E8E"/>Sent by ChatGPT from another chat</div>}
+    <div style={{padding: '14px 20px', borderRadius: 18, background: '#1E1E1E', border: '1.5px solid #333333', ...tx(28), lineHeight: 1.32, boxShadow: '0 14px 34px rgba(0,0,0,.45)'}}>{children}</div>
+  </div>;
+};
 
 /** indikator mengetik 3 titik sebelum gelembung */
 const Ketik: React.FC<{f: number; mulai: number; selesai: number; x: number; y: number}> = ({f, mulai, selesai, x, y}) => {
@@ -66,37 +116,52 @@ const Ketik: React.FC<{f: number; mulai: number; selesai: number; x: number; y: 
   </div>;
 };
 
-/** garis titik-titik + aliran titik terang (pesan berjalan) */
-const Garis: React.FC<{a: Pt; b: Pt; p: number; aliran?: number}> = ({a, b, p, aliran}) => {
-  const L = Math.hypot(b.x - a.x, b.y - a.y);
-  const d = `M${a.x} ${a.y} L${a.x + (b.x - a.x) * p} ${a.y + (b.y - a.y) * p}`;
-  return <>
-    {p > 0.01 && <path d={d} fill="none" stroke="#585858" strokeWidth="5" strokeLinecap="round" strokeDasharray="0.1 13"/>}
+/** garis pesan LANGSUNG antar-agen: titik-titik putih + aliran titik terang */
+const Pesan: React.FC<{a: Pt; b: Pt; p: number; aliran?: number}> = ({a, b, p, aliran}) => (
+  <>
+    {p > 0.01 && <path d={`M${a.x} ${a.y} L${a.x + (b.x - a.x) * p} ${a.y + (b.y - a.y) * p}`} fill="none" stroke="#6A6A6A" strokeWidth="5" strokeLinecap="round" strokeDasharray="0.1 13"/>}
     {aliran !== undefined && aliran > 0 && aliran < 1 && [0, 0.07, 0.14].map((o, i) => {
       const q = Math.min(1, Math.max(0, aliran - o));
       return <circle key={i} cx={a.x + (b.x - a.x) * q} cy={a.y + (b.y - a.y) * q} r={7 - i * 1.6} fill="#FFFFFF" opacity={q > 0 && q < 1 ? 0.95 - i * 0.25 : 0}/>;
     })}
-    <desc>{L}</desc>
-  </>;
-};
+  </>
+);
 
-/** kurva tertutup halus melewati titik-titik (Catmull-Rom -> Bezier) */
-const loopD = (ps: Pt[]) => {
-  const n = ps.length; let d = `M${ps[0].x} ${ps[0].y}`;
-  for (let i = 0; i < n; i++) {
-    const p0 = ps[(i - 1 + n) % n], p1 = ps[i], p2 = ps[(i + 1) % n], p3 = ps[(i + 2) % n];
-    d += ` C${p1.x + (p2.x - p0.x) / 6} ${p1.y + (p2.y - p0.y) / 6} ${p2.x - (p3.x - p1.x) / 6} ${p2.y - (p3.y - p1.y) / 6} ${p2.x} ${p2.y}`;
-  }
-  return d + 'Z';
+/** berkas baca: cahaya lavender tipis dari kartu rak (bawah) naik ke agen (BUKAN garis pesan), titik terang berjalan di atasnya */
+type Baca = {kartu: number; t0: number; ke: Pt; dari?: Pt; lama?: number};
+const bez = (a: Pt, c1: Pt, c2: Pt, b: Pt, q: number): Pt => {
+  const u = 1 - q;
+  return {x: u * u * u * a.x + 3 * u * u * q * c1.x + 3 * u * q * q * c2.x + q * q * q * b.x, y: u * u * u * a.y + 3 * u * u * q * c1.y + 3 * u * q * q * c2.y + q * q * q * b.y};
 };
+const Berkas: React.FC<{f: number; fps: number; b: Baca}> = ({f, fps, b}) => {
+  const a = b.dari ?? {x: kartuPos(b.kartu).x + kartuPos(b.kartu).w / 2, y: kartuPos(b.kartu).y};
+  const c1 = {x: a.x, y: a.y - 70}, c2 = {x: b.ke.x, y: b.ke.y + 70};
+  const p = move(f, b.t0, 12, 'land'), o = 1 - move(f, b.t0 + (b.lama ?? 1) * fps, 10, 'drift');
+  if (p < 0.01 || o < 0.01) return null;
+  const d = `M${a.x} ${a.y} C${c1.x} ${c1.y} ${c2.x} ${c2.y} ${b.ke.x} ${b.ke.y}`;
+  const dot = bez(a, c1, c2, b.ke, p);
+  return <g opacity={o}>
+    <path d={d} fill="none" stroke={LAV} strokeWidth="9" strokeLinecap="round" pathLength={1} strokeDasharray={`${p} 1`} opacity={0.22} style={{filter: 'blur(4px)'}}/>
+    <path d={d} fill="none" stroke={LAV} strokeWidth="2.2" strokeLinecap="round" pathLength={1} strokeDasharray={`${p} 1`}/>
+    <circle cx={dot.x} cy={dot.y} r={5} fill="#F3ECFF" style={{filter: 'drop-shadow(0 0 6px rgba(201,182,242,.95))'}}/>
+  </g>;
+};
+const nyala = (f: number, fps: number, bs: Baca[], i: number) => bs.filter((b) => b.kartu === i).reduce((m, b) => {
+  const k = move(f, b.t0 + 6, 8, 'land') * (1 - move(f, b.t0 + (b.lama ?? 1) * fps + 4, 14, 'drift'));
+  return Math.max(m, k);
+}, 0);
 
-/** kamera [detik, skala, pusat x, pusat y]; skala 1,45 menjaga tepi wallpaper (pusat x 662–1258, y 372–708) */
-const kamera = (tw: number, K: RelayProps['kunci']) => {
+/** kamera [detik, skala, pusat x, pusat y, kurva]: selalu berpusat di papan aktif (tengah), push kecil tiap kelahiran, ikut kartu Dicatat turun ke rak, lalu mundur */
+const kamera = (tw: number, K: RelayProps['kunci'], lahir: {A: number; B: number; D: number; C: number; terbang: number}, zb = 1.12) => {
+  const kz = (zb - 1) / 0.12;
   const keys: [number, number, number, number, 'heavy' | 'drift'][] = [
-    [0, 1.0, 960, 540, 'drift'], [K.ketik1 - 0.25, 1.02, 960, 540, 'heavy'], [K.ketik1 + 0.25, 1.45, 680, 540, 'drift'], [K.amplop1 - 0.05, 1.47, 690, 540, 'heavy'],
-    [K.amplop1 + 0.55, 1.18, 960, 560, 'drift'], [K.ketik2 - 0.05, 1.18, 960, 560, 'heavy'], [K.ketik2 + 0.4, 1.45, 1240, 540, 'drift'], [K.pesan3 - 0.55, 1.47, 1230, 540, 'heavy'],
-    [K.pesan3 - 0.05, 1.45, 790, 390, 'drift'], [K.catat - 0.45, 1.47, 800, 395, 'heavy'], [K.catat + 0.1, 1.08, 960, 530, 'drift'], [K.loop - 0.1, 1.1, 960, 530, 'heavy'],
-    [K.selesai + 0.5, 1.0, 960, 540, 'drift'], [K.keluar, 1.04, 960, 540, 'drift']];   // loop + workspace: kembali ke desktop utuh (bilah menu + wallpaper terlihat)
+    [0, 1.0, 960, 540, 'drift'], [lahir.A + 0.1, 1.02, 960, 530, 'heavy'], [lahir.A + 0.7, 1.09, 960, 515, 'drift'],
+    [lahir.B, 1.09, 960, 515, 'heavy'], [lahir.B + 0.55, 1.12, 960, 505, 'drift'], [K.amplop2, 1.11, 960, 510, 'drift'],
+    [lahir.D, 1.09, 960, 515, 'heavy'], [lahir.D + 0.55, 1.12, 960, 505, 'drift'],
+    [lahir.terbang - 0.1, 1.12, 960, 520, 'heavy'], [lahir.terbang + 0.7, 1.1, 960, 560, 'drift'],
+    [lahir.C - 0.1, 1.1, 960, 556, 'heavy'], [lahir.C + 0.5, 1.12, 960, 505, 'drift'],
+    [K.selesai - 0.1, 1.13, 960, 505, 'heavy'], [K.selesai + 0.65, 1.0, 960, 540, 'drift'], [K.keluar, 1.02, 960, 540, 'drift']];
+  for (const k of keys) { k[1] = 1 + (k[1] - 1) * kz; k[2] = Math.min(1920 - 960 / k[1], Math.max(960 / k[1], k[2])); k[3] = Math.min(1080 - 540 / k[1], Math.max(540 / k[1], k[3])); }
   let i = 0; while (i + 1 < keys.length && tw >= keys[i + 1][0]) i++;
   if (i + 1 >= keys.length) return {s: keys[i][1], x: keys[i][2], y: keys[i][3]};
   const [a, s0, x0, y0, kv] = keys[i], [b, s1, x1, y1] = keys[i + 1];
@@ -130,32 +195,81 @@ const MenuBar: React.FC = () => (
   </div>
 );
 
-const Isi: React.FC<RelayProps & {f: number; durasiDunia: number}> = ({kunci: K, f, durasiDunia}) => {
+
+/** satu kartu rak */
+const KartuRak: React.FC<{i: number; nyala: number; tampil?: number; centang?: number}> = ({i, nyala: n, tampil = 1, centang = 0}) => {
+  const p = kartuPos(i);
+  return <div style={{position: 'absolute', left: p.x, top: p.y, width: p.w, height: p.h, boxSizing: 'border-box', borderRadius: 12, background: '#28243A', border: `1.5px solid ${n > 0.05 ? LAV : '#4C4468'}`, opacity: tampil,
+    transform: `translateY(${-8 * n}px) scale(${1 + 0.06 * n})`, boxShadow: `0 8px 16px rgba(0,0,0,.45)${n > 0.05 ? `, 0 0 ${30 * n}px rgba(201,182,242,${0.7 * n})` : ''}`, ...tx(20, 700, '#E6DDFF'), padding: '12px 14px'}}>
+    {JUDUL[i]}
+    {[0, 1, 2].map((k) => <div key={k} style={{height: 7, borderRadius: 4, background: '#3F3A58', marginTop: k ? 9 : 14, width: `${86 - k * 22}%`}}/>)}
+    {centang > 0.02 && <svg width="30" height="30" viewBox="0 0 100 100" style={{position: 'absolute', right: 8, bottom: 8, transform: `scale(${centang})`}}><circle cx="50" cy="50" r="46" fill={HIJAU}/><path d="M27 51L44 68 75 33" fill="none" stroke="white" strokeWidth="11" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+  </div>;
+};
+
+// jaringan tumbuh: agen kecil di kiri dan kanan rak (seimbang 4 | 4), lahir bergelombang
+const MINI: {m: 'claude' | 'codex' | 'gemini'; s: number; p: Pt}[] = [
+  {m: 'claude', s: 5, p: {x: 300, y: 760}}, {m: 'codex', s: 6, p: {x: 1620, y: 760}}, {m: 'gemini', s: 7, p: {x: 180, y: 640}}, {m: 'gemini', s: 8, p: {x: 1740, y: 640}},
+  {m: 'codex', s: 9, p: {x: 190, y: 890}}, {m: 'claude', s: 10, p: {x: 1730, y: 890}}, {m: 'claude', s: 11, p: {x: 355, y: 560}}, {m: 'codex', s: 12, p: {x: 1565, y: 560}}];
+
+const Isi: React.FC<RelayProps & {f: number; durasiDunia: number}> = ({kunci: K, f, durasiDunia, zb}) => {
   const {fps} = useVideoConfig();
   const t = f / fps;
   const F = (s: number) => Math.round(s * fps);
-  const cam = kamera(t, K);
+  // urutan lahir (detik dunia), semua turunan dari kunci ucapan
+  const lahirA = Math.max(0.3, K.ketik1 - 0.5);
+  const lahirB = K.amplop1 + 0.05;
+  const lahirD = K.pesan3 - 0.35;
+  const terbang = K.catat + 0.55;                         // kartu Dicatat mulai terbang turun ke rak
+  const mendarat = terbang + 0.95;
+  const lahirC = Math.max(mendarat + 0.35, K.loop - 0.55);
+  const tumbuh = K.selesai - 0.1;                          // kamera mundur, jaringan tumbuh
+  const cam = kamera(t, K, {A: lahirA, B: lahirB, D: lahirD, C: lahirC, terbang}, zb);
   const masuk = move(f, 0, 16, 'heavy');
   const keluar = move(f, F(K.keluar), F(durasiDunia - K.keluar), 'heavy');
   const sc = cam.s * (1 + 0.10 * (1 - masuk) + 0.12 * keluar);
   const dd = drift(f, fps, 3, 2);
-  const rapat = move(f, F(K.selesai + 0.25), 22, 'heavy');
-  const mix = (a: Pt, b: Pt): Pt => ({x: a.x + (b.x - a.x) * rapat, y: a.y + (b.y - a.y) * rapat});
-  const A = mix(A0, A1), B = mix(B0, B1), D = mix(D0, D1), G = mix(G0, G1), C = mix(C0, C1);
-  // garis ke pusat (dari tengah badan, bukan kaki)
-  const badan = (p: Pt, h: number): Pt => ({x: p.x, y: p.y - h});
-  const gA = move(f, 6, 14, 'land'), gB = move(f, 10, 14, 'land'), gG = move(f, 14, 14, 'land');
-  const dMuncul = move(f, F(K.pesan3 - 0.55), 12, 'land');
-  const gD = move(f, F(K.pesan3 - 0.4), 12, 'land');
-  const al1 = (t - K.amplop1) / 0.75, al2 = (t - K.amplop2) / 0.75;      // Codex -> pusat -> Claude, lalu balik
-  const loopP = move(f, F(K.loop), 26, 'land');
+  const angkat = F(tumbuh);
+  // jalur kedalaman tiap papan: aktif di tengah -> mundur ke kiri/kanan atas -> lebih jauh
+  const jA: Jalur = [[0, 'akt'], [F(lahirB + 0.12), 'kiri'], [F(lahirC + 0.1), 'jauh']];
+  const jB: Jalur = [[0, 'akt'], [F(lahirD + 0.1), 'kanan']];
+  const jD: Jalur = [[0, 'akt'], [F(lahirC + 0.1), 'kiri']];
+  const jC: Jalur = [[0, 'akt']];
+  const kA = keadaan(f, jA, angkat), kB = keadaan(f, jB, angkat), kD = keadaan(f, jD, angkat);
+  const aktBawah: Pt = {x: AC.x, y: AK.y + AK.h};
+  // berkas baca: dari kartu rak NAIK ke papan aktif
+  const baca: Baca[] = [
+    {kartu: 0, t0: F(lahirA + 0.55), ke: aktBawah}, {kartu: 1, t0: F(lahirB + 0.9), ke: aktBawah}, {kartu: 2, t0: F(lahirD + 0.7), ke: aktBawah},
+    {kartu: 5, t0: F(K.loop), ke: aktBawah, lama: 1.2},
+    ...MINI.map((m, i): Baca => {
+      const kiri = m.p.x < 960;
+      return {kartu: i % 5, t0: F(tumbuh + 0.15) + react(i, fps), ke: {x: m.p.x + (kiri ? 50 : -50), y: m.p.y - 40}, dari: {x: kiri ? RAK.x : RAK.x + RAK.w, y: RAK.y + 50 + (i % 4) * 26}, lama: 2};
+    }),
+  ];
+  const bacaP = (b: Baca) => move(f, b.t0 + 6, 8, 'land') * (1 - move(f, b.t0 + (b.lama ?? 1) * fps + 4, 14, 'drift'));
+  const ln = (kartu: number) => nyala(f, fps, baca, kartu);
+  const palA = bacaP(baca[0]), palB = bacaP(baca[1]), palD = bacaP(baca[2]), palC = bacaP(baca[3]);
+  // garis pesan LANGSUNG antar-agen, dari pusat papan ke pusat papan (tertutup papan, hanya celahnya terlihat)
+  const gAB = move(f, F(K.amplop1 - 0.2), 14, 'land');
+  const gDB = move(f, F(K.pesan3 - 0.1), 14, 'land');
+  const al1 = (t - K.amplop1) / 0.7, al2 = (t - K.amplop2) / 0.7, al3 = (t - (K.pesan3 + 0.2)) / 0.8;
+  // kartu Dicatat: lahir di papan session B (aktif, tengah), terbang TURUN masuk slot rak
+  const kRev = move(f, F(K.catat), 10, 'reveal'), kFly = move(f, F(terbang), F(0.95), 'heavy');
+  const slot = kartuPos(5);
+  const pill = {x: AC.x - 190, y: AK.y + 150, w: 380, h: 88};
+  const kx = pill.x + (slot.x - pill.x) * kFly, ky = pill.y + (slot.y - pill.y) * kFly, kw = pill.w + (slot.w - pill.w) * kFly, kh = pill.h + (slot.h - pill.h) * kFly;
   const chk = move(f, F(K.selesai), 8, 'land');
-  const catat = move(f, F(K.catat), 12, 'reveal');
-  const bingkai = move(f, F(K.selesai + 0.45), 16, 'land');
-  const luar = (p: Pt, h: number): Pt => {const q = badan(p, h); return {x: q.x + (q.x - C.x) * 0.16, y: q.y + (q.y - C.y) * 0.16};};
-  const loopPts = [luar(A, 70), luar(D, 70), luar(G, 60), luar(B, 60)];
-  const terbit = (d: number) => move(f, d, 12, 'land');
-  const mask = (p: number): React.CSSProperties => ({opacity: p > 0.02 ? 1 : 0, transform: `scale(${0.8 + 0.2 * p})`});
+  const landed = move(f, F(mendarat), 6, 'land');
+  const chkRak = move(f, F(K.selesai + 0.1), 8, 'land');
+  const eMini = (i: number) => move(f, F(tumbuh + 0.1) + react(i, fps), 14, 'land');
+  const rakA = move(f, angkat, 24, 'drift');
+  const isiPapan = (o: {model: 'claude' | 'codex'; id: string; seed: number; sudut: number; badge: 'claude' | 'chatgpt'; nama: string; emosi: [number, string][]; pal: number}) => <>
+    <Plat x={AK.x} y={AK.y} w={AK.w} h={AK.h} baca={o.pal}/>
+    <Karakter x={AC.x} model={o.model} id={o.id} seed={o.seed} u={15} t={t} sudut={o.sudut} emosi={o.emosi}/>
+    <div style={{position: 'absolute', left: AK.x + AK.w - 62, top: AK.y + AK.h - 62}}><Badge jenis={o.badge}/></div>
+    <Label x={AC.x} y={FY + 8}>{o.nama}</Label>
+    {o.pal > 0.05 && <Chip x={AC.x + 84} y={FY - 180} k={o.pal} f={f}/>}
+  </>;
   return <AbsoluteFill style={{background: '#121C10', overflow: 'hidden'}}>
     <div style={{position: 'absolute', inset: 0, transformOrigin: '0 0', transform: `translate(${960 - cam.x * sc + dd.x}px, ${540 - cam.y * sc + dd.y}px) scale(${sc})`}}>
       <Wallpaper/><MenuBar/>
@@ -167,54 +281,79 @@ const Isi: React.FC<RelayProps & {f: number; durasiDunia: number}> = ({kunci: K,
           <rect width={WIN.w} height={WIN.h} fill="url(#dot)"/>
         </svg>
       </div>
-      {/* isi jaringan (koordinat layar; jendela tidak memotong karena semua di dalam batasnya) */}
-      <svg width="1920" height="1080" style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}>
-        <Garis a={badan(A, 70)} b={C} p={gA} aliran={al1 < 0.5 ? al1 * 2 : al2 > 0.5 ? (al2 - 0.5) * 2 : undefined}/>
-        <Garis a={C} b={badan(B, 60)} p={gB} aliran={al1 >= 0.5 ? (al1 - 0.5) * 2 : al2 < 0.5 ? al2 * 2 : undefined}/>
-        <Garis a={badan(G, 60)} b={C} p={gG}/>
-        <Garis a={badan(D, 70)} b={C} p={gD}/>
-        {loopP > 0 && <path d={loopD(loopPts)} fill="none" stroke="#7A7A7A" strokeWidth="4" strokeLinecap="round" pathLength={1} strokeDasharray={`${loopP} 1`} opacity={0.9}/>}
-        {loopP > 0 && <path d={loopD(loopPts)} fill="none" stroke="#FFFFFF" strokeWidth="5" strokeLinecap="round" pathLength={1} strokeDasharray="0.05 0.95" strokeDashoffset={-((t - K.loop) * 0.45) % 1} opacity={loopP * 0.9}/>}
-        {bingkai > 0.01 && <rect x={C1.x - 400} y={C1.y - 312} width={800} height={567} rx={28} fill="none" stroke="#6E6E6E" strokeWidth="2.5" opacity={bingkai}
-          transform={`translate(${C1.x} ${C1.y}) scale(${1.08 - 0.08 * bingkai}) translate(${-C1.x} ${-C1.y})`}/>}
-      </svg>
-      {bingkai > 0.01 && <div style={{position: 'absolute', left: C1.x - 392, top: C1.y + 266, opacity: bingkai, ...tx(22, 500, '#9A9A9A')}}>workspace</div>}
-      {/* node pusat */}
-      <div style={{position: 'absolute', left: C.x - 52, top: C.y - 52, width: 104, height: 104, borderRadius: 24, background: '#C9B6F2', display: 'flex', alignItems: 'center', justifyContent: 'center', ...mask(terbit(0))}}>
-        <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 3h14v18H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 14h14M7 3v10M7 20h6"/></svg></div>
-      <Label p={C} dy={66}>skill-development</Label>
-      {/* agen */}
-      <Karakter2D model="codex" id="b5-codex" x={A.x} y={A.y} u={15} t={t} sudut={0.125} seed={2} emosi={[[0, 'thinking'], [K.pesan1 - 0.1, 'neutral'], [K.pesan2, 'surprised'], [K.pesan2 + 0.6, 'happy'], [K.selesai, 'excited']]}/>
-      <div style={{position: 'absolute', left: A.x + 44, top: A.y - 168}}><Badge jenis="chatgpt"/></div>
-      <Label p={A} dy={-12}>ChatGPT</Label>
-      <Karakter2D model="claude" id="b5-claude" x={B.x} y={B.y} u={17} t={t} sudut={-0.125} seed={1} emosi={[[0, 'neutral'], [K.amplop1 + 0.4, 'surprised'], [K.ketik2, 'thinking'], [K.pesan2 + 0.2, 'neutral'], [K.selesai, 'happy']]}/>
-      <div style={{position: 'absolute', left: B.x + 58, top: B.y - 158}}><Badge jenis="claude"/></div>
-      <Label p={B} dy={6}>Claude</Label>
-      <div style={mask(terbit(8))}>
-        <Karakter2D model="gemini" id="b5-gemini" x={G.x} y={G.y} u={12} t={t} sudut={-0.125} seed={3} emosi={[[0, 'neutral'], [K.selesai, 'happy']]}/>
-        <div style={{position: 'absolute', left: G.x + 40, top: G.y - 140}}><Badge jenis="gemini"/></div>
-        <Label p={G} dy={-8}>Gemini</Label>
+      {/* lapis paling belakang: rak perpustakaan di bawah tengah (sedikit redup; menyala bila dibaca; terangkat saat kamera mundur) */}
+      <div style={{position: 'absolute', inset: 0, zIndex: 10, transformOrigin: `${RAK.x + RAK.w / 2}px ${RAK.y + RAK.h / 2}px`, transform: 'scale(0.96)',
+        filter: `blur(${1.4 * (1 - rakA)}px) brightness(${0.86 + 0.14 * rakA})` /* motion-ok: kedalaman rak lapis belakang, bukan blur masuk */}}>
+        <div style={{position: 'absolute', left: RAK.x, top: RAK.y, width: RAK.w, height: RAK.h, borderRadius: 22, background: 'linear-gradient(#1F1B2C, #171421)', border: '1.5px solid #3A3550', boxShadow: bayang}}/>
+        <div style={{position: 'absolute', left: RAK.x, width: RAK.w, top: RAK.y + 10, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 10, ...tx(22, 600, LAV)}}>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={LAV} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 3h14v18H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 14h14M7 3v10M7 20h6"/></svg>skill-development</div>
+        {[0, 1, 2, 3, 4].map((i) => <KartuRak key={i} i={i} nyala={ln(i)}/>)}
+        <div style={{position: 'absolute', left: slot.x, top: slot.y, width: slot.w, height: slot.h, boxSizing: 'border-box', borderRadius: 12, border: '2px dashed #3F3A58', opacity: 1 - landed}}/>
+        {kFly > 0.97 && <KartuRak i={5} nyala={Math.max(ln(5), 0.9 * (1 - move(f, F(mendarat + 0.35), 14, 'drift')))} tampil={landed} centang={chkRak}/>}
       </div>
-      {dMuncul > 0.02 && <div style={{opacity: dMuncul > 0.02 ? 1 : 0, transform: `scale(${0.7 + 0.3 * dMuncul})`, transformOrigin: `${D.x}px ${D.y - 70}px`}}>
-        <Karakter2D model="codex" id="b5-codex-b" x={D.x} y={D.y} u={15} t={t} sudut={0.125} seed={4} emosi={[[0, 'neutral'], [K.pesan3 + 0.1, 'happy']]}/>
-        <div style={{position: 'absolute', left: D.x + 44, top: D.y - 168}}><Badge jenis="chatgpt"/></div>
-        <Label p={D} dy={-12}>session B</Label></div>}
-      {/* pesan asli: satu aktif per saat, di samping pengirim */}
-      <Ketik f={f} mulai={F(K.ketik1)} selesai={F(K.pesan1)} x={A0.x - 230} y={A0.y - 270}/>
-      <Gelembung f={f} mulai={F(K.pesan1)} selesai={F(K.ketik2 - 0.1)} x={A0.x - 240} y={A0.y - 395} lebar={560} asal="bawah">doctor.sh gagal: 8 skill berupa salinan, bukan symlink. Boleh menjalankan --fix?</Gelembung>
-      <Ketik f={f} mulai={F(K.ketik2)} selesai={F(K.pesan2)} x={B0.x - 300} y={B0.y - 270}/>
-      <Gelembung f={f} mulai={F(K.pesan2)} selesai={F(K.pesan3 - 0.6)} x={B0.x - 310} y={B0.y - 360} lebar={560} asal="bawah" label={false}>Sudah kujalankan doctor --fix. Jangan bertanya, langsung kerjakan TASK.</Gelembung>
-      <Gelembung f={f} mulai={F(K.pesan3)} selesai={F(K.catat - 0.45)} x={D0.x + 110} y={D0.y - 175} lebar={540} asal="kiri">Revisi kamera selesai; lima still tersedia.</Gelembung>
-      {f >= F(K.catat) && <div style={{position: 'absolute', left: 960 - 390, top: 96, width: 780, opacity: catat > 0.02 ? 1 : 0, filter: `blur(${(1 - catat) * 8}px)`, transform: `translateY(${-16 * (1 - catat)}px)`, // motion-ok: MG63 §2 masuk blur→tajam (reveal)
-        display: 'flex', alignItems: 'center', gap: 18, padding: '16px 24px', borderRadius: 18, background: '#1E1E1E', border: '1.5px solid #333333', boxShadow: '0 14px 34px rgba(0,0,0,.45)', ...tx(28, 500)}}>
-        <div style={{width: 44, height: 44, flexShrink: 0, position: 'relative'}}>
-          <svg width="44" height="44" viewBox="0 0 100 100" style={{position: 'absolute', transform: `scale(${chk})`}}><circle cx="50" cy="50" r="46" fill={HIJAU}/><path d="M27 51L44 68 75 33" fill="none" stroke="white" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/></svg>
-          <svg width="44" height="44" viewBox="0 0 100 100" style={{position: 'absolute', opacity: 1 - chk}}><circle cx="50" cy="50" r="44" fill="none" stroke="#555" strokeWidth="5"/></svg>
-        </div>
-        <span>Dicatat: jangan menyalin, pakai tautan supaya tidak terulang</span></div>}
+      {/* garis pesan langsung + berkas baca (di atas rak, di belakang papan) */}
+      <svg width="1920" height="1080" style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', zIndex: 20}}>
+        <Pesan a={pusatDi(kA)} b={pusatDi(kB)} p={gAB} aliran={al1 > 0 && al1 < 1 ? al1 : al2 > 0 && al2 < 1 ? 1 - al2 : undefined}/>
+        {f >= F(lahirD) && <Pesan a={pusatDi(kD)} b={pusatDi(kB)} p={gDB} aliran={al3 > 0 && al3 < 1 ? al3 : undefined}/>}
+        {baca.map((b, i) => <Berkas key={i} f={f} fps={fps} b={b}/>)}
+      </svg>
+      {/* papan ChatGPT: lahir pertama, sendirian di tengah */}
+      <Papan f={f} lahir={F(lahirA)} asal={AC} jalur={jA} angkat={angkat}>
+        {isiPapan({model: 'codex', id: 'b5-codex', seed: 2, sudut: 0.125, badge: 'chatgpt', nama: 'ChatGPT', pal: palA,
+          emosi: [[0, 'thinking'], [K.pesan1 - 0.1, 'neutral'], [K.pesan2, 'surprised'], [K.pesan2 + 0.6, 'happy'], [K.selesai, 'excited']]})}
+        <Ketik f={f} mulai={F(K.ketik1)} selesai={F(K.pesan1)} x={AK.x + 20} y={AK.y + 70}/>
+        <Gelembung f={f} mulai={F(K.pesan1)} x={AK.x + 20} y={AK.y + 16} lebar={AK.w - 40}>doctor.sh gagal: 8 skill berupa salinan, bukan symlink. Boleh menjalankan --fix?</Gelembung>
+      </Papan>
+      {/* papan Claude: lahir dari ujung garis pesan (kanan), ChatGPT mundur ke kiri-atas */}
+      <Papan f={f} lahir={F(lahirB)} asal={{x: 1500, y: AC.y}} jalur={jB} angkat={angkat}>
+        {isiPapan({model: 'claude', id: 'b5-claude', seed: 1, sudut: -0.125, badge: 'claude', nama: 'Claude', pal: palB,
+          emosi: [[0, 'neutral'], [K.amplop1 + 0.4, 'surprised'], [K.ketik2, 'thinking'], [K.pesan2 + 0.2, 'neutral'], [K.selesai, 'happy']]})}
+        <Ketik f={f} mulai={F(K.ketik2)} selesai={F(K.pesan2)} x={AK.x + 20} y={AK.y + 70}/>
+        <Gelembung f={f} mulai={F(K.pesan2)} x={AK.x + 20} y={AK.y + 16} lebar={AK.w - 40} label={false}>Sudah kujalankan doctor --fix. Jangan bertanya, langsung kerjakan TASK.</Gelembung>
+      </Papan>
+      {/* papan session B (ChatGPT di sesi lain): lahir dari kiri, Claude mundur ke kanan-atas */}
+      <Papan f={f} lahir={F(lahirD)} asal={{x: 420, y: AC.y}} jalur={jD} angkat={angkat}>
+        {isiPapan({model: 'codex', id: 'b5-codex-b', seed: 4, sudut: 0.125, badge: 'chatgpt', nama: 'session B', pal: palD, emosi: [[0, 'neutral'], [K.pesan3 + 0.1, 'happy']]})}
+        <Gelembung f={f} mulai={F(K.pesan3)} x={AK.x + 20} y={AK.y + 16} lebar={AK.w - 40}>Revisi kamera selesai; lima still tersedia.</Gelembung>
+      </Papan>
+      {/* kartu Dicatat: ditulis di papan session B lalu terbang turun masuk rak */}
+      {f >= F(K.catat) && kFly < 0.995 && <div style={{position: 'absolute', zIndex: 200, left: kx, top: ky, width: kw, height: kh, opacity: kRev > 0.02 ? 1 : 0, filter: `blur(${(1 - kRev) * 8}px)`, // motion-ok: MG63 §2 masuk blur→tajam (reveal)
+        boxSizing: 'border-box', borderRadius: 18 - 6 * kFly, background: kFly > 0.6 ? '#28243A' : '#1E1E1E', border: `1.5px solid ${LAV}`, boxShadow: `0 14px 34px rgba(0,0,0,.45), 0 0 ${22 + 10 * kFly}px rgba(201,182,242,.5)`,
+        display: 'flex', alignItems: 'center', gap: 12, padding: '0 16px', overflow: 'hidden', ...tx(kFly > 0.6 ? 20 : 21, 600), lineHeight: 1.25}}>
+        {kFly <= 0.6 ? <><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke={LAV} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{flexShrink: 0}}><path d="M4 3h14v18H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 14h14M7 3v10M7 20h6"/></svg><span>Dicatat: jangan menyalin, pakai tautan supaya tidak terulang</span></>
+          : <span style={{color: '#E6DDFF'}}>Dicatat</span>}
+      </div>}
+      {/* papan session C: naik dari kartu baru di rak ke tengah, membaca kartu -> langsung benar (centang); session B mundur ke kiri-atas, ChatGPT lebih jauh */}
+      <Papan f={f} lahir={F(lahirC)} asal={{x: slot.x + slot.w / 2, y: slot.y + slot.h / 2}} jalur={jC} angkat={angkat}>
+        {isiPapan({model: 'codex', id: 'b5-codex-c', seed: 6, sudut: -0.125, badge: 'chatgpt', nama: 'session C', pal: palC, emosi: [[0, 'thinking'], [K.loop + 0.4, 'surprised'], [K.selesai, 'happy']]})}
+        <Gelembung f={f} mulai={F(K.loop + 0.35)} x={AK.x + 20} y={AK.y + 16} lebar={AK.w - 40} label={false}>Dicatat: jangan menyalin, pakai tautan supaya tidak terulang</Gelembung>
+        {chk > 0.02 && <svg width="64" height="64" viewBox="0 0 100 100" style={{position: 'absolute', left: AK.x + AK.w - 150, top: FY - 120, transform: `scale(${chk})`}}><circle cx="50" cy="50" r="46" fill={HIJAU}/><path d="M27 51L44 68 75 33" fill="none" stroke="white" strokeWidth="9" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+      </Papan>
+      {/* jaringan tumbuh: agen-agen kecil lahir bergelombang di kiri & kanan rak, semua membaca rak yang sama */}
+      {MINI.map((m, i) => {
+        const e = eMini(i);
+        if (e < 0.02) return null;
+        const ax = m.p.x < 960 ? RAK.x : RAK.x + RAK.w;
+        return <div key={i} style={{position: 'absolute', inset: 0, zIndex: 300, transformOrigin: `${m.p.x}px ${m.p.y - 20}px`, opacity: e,
+          transform: `translate(${(ax - m.p.x) * (1 - e) * 0.5}px, ${(RAK.y + 80 - m.p.y) * (1 - e) * 0.5}px) scale(${0.4 + 0.6 * e})`}}>
+          <KarakterX model={m.m} id={`b5-mini-${i}`} x={m.p.x} y={m.p.y} u={6.4} t={t} sudut={m.p.x < 960 ? 0.125 : -0.125} seed={m.s} emosi={[[0, 'neutral'], [K.selesai + 0.5 + i * 0.05, 'happy']]}/>
+        </div>;
+      })}
     </div>
   </AbsoluteFill>;
 };
+
+/** kartu kecil lavender yang melayang dekat kepala agen yang sedang membaca */
+const Chip: React.FC<{x: number; y: number; k: number; f: number}> = ({x, y, k, f}) => (
+  <div style={{position: 'absolute', left: x, top: y - 6 * Math.sin(f * 0.18), width: 34, height: 44, borderRadius: 7, background: '#28243A', border: `2px solid ${LAV}`, opacity: k, transform: `scale(${0.6 + 0.4 * k})`,
+    boxShadow: '0 0 16px rgba(201,182,242,.7)'}}>
+    {[0, 1, 2].map((i) => <div key={i} style={{height: 4, borderRadius: 2, background: LAV, margin: `${i ? 5 : 9}px 6px 0`, opacity: 0.8}}/>)}
+  </div>
+);
+
+/** karakter di dalam papan: kaki di (x, fy) koordinat layar */
+const Karakter: React.FC<{x: number; fy?: number; model: 'claude' | 'codex' | 'gemini'; id: string; seed: number; u: number; t: number; sudut: number; emosi: [number, string][]}> = ({x, fy = FY, ...p}) =>
+  <KarakterX x={x} y={fy} {...p}/>;
 
 export const RelayDunia: React.FC<RelayProps> = (p) => {
   const fAll = useCurrentFrame();

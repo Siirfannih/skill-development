@@ -11,5 +11,9 @@ M = {"B1_a": T["finally"] + 0.55, "B1_b": T["selesai"] + 0.35, "B1_c": T["b1b"] 
      "B5b_e": T["loop"] + 1.9, "B6a_a": T["pct"] + 1.2, "B6a_b": T["ai_e"] - 0.1, "B6b_a": T["profesional"] + 0.7, "B6b_b": T["masih2"] + 1.1, "B6b_c": T["skill"] + 0.8,
      "tr_wajah_dunia": T["akhirnya"] + 0.3, "tr_dunia_wajah": T["b1b"] + 0.2, "tr_app_masuk": T["b3a"] + 0.15, "tr_app_keluar": T["gimana"] + 0.05,
      "tr_b5b_masuk": T["lihat_e"] + 0.1, "tr_b5b_keluar": T["sini_e"] + 0.1}
+M.update({"r01_finally": T["finally"] + 0.55, "r02_clawd_flip": T["finally"] + 0.45, "r03_selesai": T["selesai"] + 0.5, "r04_decision": T["decision"] + 0.8, "r05_putus": T["putus"] + 0.5,
+          "r06_app_apple": T["apple"] + 1.0, "r06_app_cine": T["cinematic"] + 1.5, "r07_habis": T["habis"] + 0.9, "r08_logo_kartu": T["dua0"] + 0.9, "r09_lintas": T["lintas"] + 0.7,
+          "r10_edit": T["kayak_v"] + 0.1, "r10_ig_k1": T["masih2"] + 0.6, "r10_ig_k2": T["masih2"] + 1.6, "r10_ig_field": T["comment_w"] + 1.0,
+          "r11_mac_1": T["lihat_e"] + 1.7, "r11_mac_2": T["lihat_e"] + 4.2, "r11_mac_3": T["lihat_e"] + 7.0, "r11_mac_4": T["loop"] + 1.9, "r12_zoom_a": T["slop"] + 0.2, "r12_zoom_b": T["balik"] + 0.9, "r10_edit_b": T["kayak_v"] + 0.5, "r10_gimana": T["gimana_v"] + 0.2})
 want = sys.argv[1:] or list(M)
 subprocess.run([sys.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), "still.py")] + [f"{k}={M[k]:.3f}" for k in want])

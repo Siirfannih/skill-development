@@ -76,7 +76,7 @@ const VID = {x: MODAL.x, y: MODAL.y + (MODAL.h - 540) / 2, w: 960, h: 540};
 const kameraIG = (t: number, K: IGProps['kunci']) => {
   // KT pertanyaan tinggal di pita hitam bawah video (650, 812 layar); pusat x kamera <= 1040 menjaga batas media/panel di kanan teks
   const keys: [number, number, number, number, 'heavy' | 'drift'][] = [[0, 1.0, 960, 540, 'drift'], [0.7, 1.0, 960, 540, 'drift'], [K.k1 - 0.15, 1.05, 900, 500, 'heavy'],
-    [K.k1 + 0.25, 1.28, 1040, 420, 'drift'], [K.k2 - 0.12, 1.29, 1040, 420, 'heavy'], [K.k2 + 0.25, 1.32, 1040, 470, 'drift'], [K.field - 0.35, 1.33, 1040, 472, 'heavy'],
+    [K.k1 + 0.25, 1.17, 1040, 440, 'drift'], [K.k2 - 0.12, 1.18, 1040, 440, 'heavy'], [K.k2 + 0.25, 1.2, 1040, 470, 'drift'], [K.field - 0.35, 1.2, 1040, 472, 'heavy'],
     [K.field + 0.1, 1.0, 960, 540, 'drift'], [K.field + 3.5, 1.04, 960, 560, 'drift']];
   let i = 0; while (i + 1 < keys.length && t >= keys[i + 1][0]) i++;
   if (i + 1 >= keys.length) return {s: keys[i][1], x: keys[i][2], y: keys[i][3]};

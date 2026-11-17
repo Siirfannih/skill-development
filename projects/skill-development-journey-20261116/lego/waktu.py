@@ -53,7 +53,7 @@ def nrm(s):
 
 # Petunjuk `after` di teks.py/waktu.py ditulis untuk potongan R4 (84,15 dtk). Pada potongan lain petunjuk diskalakan dengan rasio durasi dan diberi
 # kelonggaran 0,6 dtk, supaya kata yang bergeser ±1 dtk tetap ditemukan (kata yang sama sebelumnya masih >0,6 dtk jauhnya).
-SC = DURASI / 84.150729 if EDIT.rstrip("/") == "edit" else 1.0
+SC = DURASI / 84.150729 if EDIT.rstrip("/") in ("edit", "lego/_r6") else 1.0     # lego/_r6 = salinan kata R6 (footage R6 belum diganti A1)
 
 
 def idx(txt, after=0.0, nth=0):
@@ -92,3 +92,9 @@ T["session"] = s("session"); T["kesalahan"] = s("kesalahan"); T["loop"] = s("loo
 T["b6a"] = s("Ini", 72.5); T["pct"] = s("100%"); T["ai_e"] = e("AI.", 74)
 T["b6b"] = s("Dan", 74.5); T["profesional"] = s("profesional"); T["masih2"] = s("masih", 79.5); T["ai2_e"] = e("AI?", 80)
 T["comment"] = s("Comment"); T["skill"] = s("skill"); T["gratis_e"] = e("gratis")
+
+# --- jangkar tambahan untuk penekanan kamera dan REVISI-1 ---
+T["mempelajari"] = s("mempelajari"); T["publish"] = s("publish"); T["habis"] = s("habis", 42.5); T["langganan"] = s("langganan"); T["uji"] = s("uji", 51)
+T["lintas"] = s("lintas", 56); T["claude_b4"] = s("Claude", 48.5); T["comment_w"] = s("Comment")
+T["udah"] = s("Udah", 75); T["videonya"] = s("videonya", 74); T["gimana_v"] = s("gimana", 75)
+T["kayak_v"] = s("kayak", 74.5)

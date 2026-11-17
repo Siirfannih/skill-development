@@ -1,6 +1,6 @@
 [
  {
-  "nama": "Clawd",
+  "nama": "Claude",
   "peran": "karakter",
   "t": 0,
   "frame": 0,
@@ -42,14 +42,14 @@
   "lapisan": "D_REPO_WAJAH"
  },
  {
-  "nama": "selesai",
-  "peran": "kata-kunci-slam",
+  "nama": "SELESAI",
+  "peran": "slab-di-depan",
   "t": 3.11,
   "frame": 93,
   "lapisan": "T004"
  },
  {
-  "nama": "Clawd",
+  "nama": "Claude",
   "peran": "karakter",
   "t": 4.204,
   "frame": 126,
@@ -91,8 +91,8 @@
   "lapisan": "T016"
  },
  {
-  "nama": "decision",
-  "peran": "kata-cincin",
+  "nama": "DECISION",
+  "peran": "slab-di-depan",
   "t": 11.996,
   "frame": 360,
   "lapisan": "T019"
@@ -109,7 +109,7 @@
   "peran": "slop-teks",
   "t": 15.077,
   "frame": 452,
-  "lapisan": "T023"
+  "lapisan": "T025"
  },
  {
   "nama": "emoji api",
@@ -205,211 +205,302 @@
  {
   "nama": "grade -15%",
   "peran": "grade",
-  "t": 20.009,
-  "frame": 600,
+  "t": 20.138,
+  "frame": 604,
   "lapisan": "GRADE"
  },
  {
   "nama": "AI SLOP",
   "peran": "slab-di-belakang-kepala",
-  "t": 20.076,
-  "frame": 602,
-  "lapisan": "T030"
+  "t": 20.205,
+  "frame": 606,
+  "lapisan": "T034"
  },
  {
   "nama": "putus-putus",
   "peran": "kata-terputus",
-  "t": 22.47,
-  "frame": 673,
-  "lapisan": "T033"
+  "t": 22.8,
+  "frame": 683,
+  "lapisan": "T038"
  },
  {
   "nama": "aplikasi Claude terang",
   "peran": "dunia-transisi",
-  "t": 23.267,
-  "frame": 697,
+  "t": 23.6,
+  "frame": 707,
   "lapisan": "D_APP"
  },
  {
   "nama": "lingkaran wajah",
   "peran": "wajah-lingkaran",
-  "t": 23.267,
-  "frame": 697,
+  "t": 23.6,
+  "frame": 707,
   "lapisan": "D_APP_WAJAH"
  },
  {
   "nama": "template.",
   "peran": "kata-kunci-slam",
-  "t": 24.624,
-  "frame": 738,
-  "lapisan": "T036"
+  "t": 25.091,
+  "frame": 752,
+  "lapisan": "T041"
  },
  {
-  "nama": "/apple-style",
+  "nama": "saran /apple-style",
   "peran": "item-ui",
-  "t": 28.462,
-  "frame": 853,
-  "lapisan": "O_/apple-style"
+  "t": 29.349,
+  "frame": 880,
+  "lapisan": "O_saran /apple-style"
  },
  {
-  "nama": "/cinematic-storytelling",
+  "nama": "klik /apple-style",
   "peran": "item-ui",
-  "t": 30.091,
-  "frame": 902,
-  "lapisan": "O_/cinematic-storytelling"
+  "t": 29.879,
+  "frame": 895,
+  "lapisan": "O_klik /apple-style"
  },
  {
-  "nama": "daftar terhapus",
+  "nama": "saran /cinematic-storytelling",
   "peran": "item-ui",
-  "t": 32.132,
-  "frame": 963,
-  "lapisan": "O_daftar terhapus"
+  "t": 31.194,
+  "frame": 935,
+  "lapisan": "O_saran /cinematic-storytelling"
+ },
+ {
+  "nama": "klik /cinematic-storytelling",
+  "peran": "item-ui",
+  "t": 31.904,
+  "frame": 956,
+  "lapisan": "O_klik /cinematic-storytelling"
+ },
+ {
+  "nama": "teks diketik dihapus",
+  "peran": "item-ui",
+  "t": 32.568,
+  "frame": 976,
+  "lapisan": "O_teks diketik dihapus"
  },
  {
   "nama": "ngebalik.",
   "peran": "kata-kunci-slam",
-  "t": 32.199,
-  "frame": 965,
-  "lapisan": "T044"
+  "t": 32.634,
+  "frame": 978,
+  "lapisan": "T046"
  },
  {
   "nama": "WORKFLOW-NYA",
   "peran": "slab-di-belakang-kepala",
-  "t": 37.019,
-  "frame": 1109,
-  "lapisan": "T049"
+  "t": 37.453,
+  "frame": 1122,
+  "lapisan": "T051"
  },
  {
   "nama": "BALIK MODAL",
   "peran": "slab-di-belakang-kepala",
-  "t": 41.914,
-  "frame": 1256,
-  "lapisan": "T055"
+  "t": 42.347,
+  "frame": 1269,
+  "lapisan": "T057"
  },
  {
   "nama": "habis banget",
   "peran": "kata-kacau",
-  "t": 43.094,
-  "frame": 1292,
-  "lapisan": "T058"
+  "t": 43.532,
+  "frame": 1305,
+  "lapisan": "T060"
  },
  {
   "nama": "kartu ChatGPT Pro 20x",
   "peran": "kartu-mendarat",
-  "t": 48.011,
-  "frame": 1439,
+  "t": 48.445,
+  "frame": 1452,
   "lapisan": "KARTU1"
  },
  {
   "nama": "kartu Claude Max 5x",
   "peran": "kartu-mendarat",
-  "t": 50.286,
-  "frame": 1507,
+  "t": 50.72,
+  "frame": 1520,
   "lapisan": "KARTU2"
  },
  {
-  "nama": "lintas agent.",
-  "peran": "kata-kacau",
-  "t": 56.582,
-  "frame": 1696,
-  "lapisan": "T073"
+  "nama": "LINTAS AGENT",
+  "peran": "slab-di-belakang-kepala",
+  "t": 56.982,
+  "frame": 1708,
+  "lapisan": "T077"
  },
  {
-  "nama": "dua jendela Claude + ChatGPT",
+  "nama": "desktop Mac + jaringan agen",
   "peran": "dunia-transisi",
-  "t": 58.572,
-  "frame": 1755,
+  "t": 58.972,
+  "frame": 1767,
   "lapisan": "D_RELAY"
+ },
+ {
+  "nama": "papan ChatGPT lahir (2,5D, tajam)",
+  "peran": "item-ui",
+  "t": 59.272,
+  "frame": 1776,
+  "lapisan": "O_papan ChatGPT lahir (2,5D, tajam)"
  },
  {
   "nama": "pesan doctor.sh gagal",
   "peran": "item-ui",
-  "t": 59.986,
-  "frame": 1798,
+  "t": 60.515,
+  "frame": 1814,
   "lapisan": "O_pesan doctor.sh gagal"
  },
  {
-  "nama": "amplop Codex ke Clawd",
+  "nama": "aliran titik ChatGPT ke Claude (pesan langsung)",
   "peran": "item-ui",
-  "t": 60.511,
-  "frame": 1814,
-  "lapisan": "O_amplop Codex ke Clawd"
+  "t": 61.04,
+  "frame": 1829,
+  "lapisan": "O_aliran titik ChatGPT ke Claude (pesan langsung)"
+ },
+ {
+  "nama": "papan Claude lahir, ChatGPT mundur",
+  "peran": "item-ui",
+  "t": 61.09,
+  "frame": 1831,
+  "lapisan": "O_papan Claude lahir, ChatGPT mundur"
  },
  {
   "nama": "pesan Sudah kujalankan doctor --fix",
   "peran": "item-ui",
-  "t": 61.941,
-  "frame": 1856,
+  "t": 62.47,
+  "frame": 1872,
   "lapisan": "O_pesan Sudah kujalankan doctor --fix"
  },
  {
-  "nama": "amplop Clawd ke Codex",
+  "nama": "aliran titik Claude ke ChatGPT",
   "peran": "item-ui",
-  "t": 62.271,
-  "frame": 1866,
-  "lapisan": "O_amplop Clawd ke Codex"
+  "t": 62.8,
+  "frame": 1882,
+  "lapisan": "O_aliran titik Claude ke ChatGPT"
+ },
+ {
+  "nama": "papan session B lahir, papan lain mundur",
+  "peran": "item-ui",
+  "t": 64.7,
+  "frame": 1939,
+  "lapisan": "O_papan session B lahir, papan lain mundur"
  },
  {
   "nama": "pesan Revisi kamera selesai",
   "peran": "item-ui",
-  "t": 64.521,
-  "frame": 1934,
+  "t": 65.05,
+  "frame": 1950,
   "lapisan": "O_pesan Revisi kamera selesai"
  },
  {
-  "nama": "kartu Dicatat",
+  "nama": "kartu Dicatat ditulis",
   "peran": "item-ui",
-  "t": 67.086,
-  "frame": 2011,
-  "lapisan": "O_kartu Dicatat"
+  "t": 67.615,
+  "frame": 2026,
+  "lapisan": "O_kartu Dicatat ditulis"
  },
  {
   "nama": "kesalahan",
   "peran": "kata-kacau",
-  "t": 67.153,
-  "frame": 2013,
-  "lapisan": "T084"
+  "t": 67.682,
+  "frame": 2028,
+  "lapisan": "T088"
+ },
+ {
+  "nama": "kartu Dicatat terbang ke rak skill-development",
+  "peran": "item-ui",
+  "t": 68.165,
+  "frame": 2043,
+  "lapisan": "O_kartu Dicatat terbang ke rak skill-development"
+ },
+ {
+  "nama": "papan session C lahir, membaca kartu baru (berkas lavender)",
+  "peran": "item-ui",
+  "t": 69.465,
+  "frame": 2082,
+  "lapisan": "O_papan session C lahir, membaca kartu baru (berkas lavender)"
  },
  {
   "nama": "loop pembelajaran",
   "peran": "kata-kunci-slam",
-  "t": 69.476,
-  "frame": 2082,
-  "lapisan": "T087"
+  "t": 70.01,
+  "frame": 2098,
+  "lapisan": "T091"
  },
  {
-  "nama": "loop + centang hijau",
+  "nama": "jaringan tumbuh: agen kecil membaca rak",
   "peran": "item-ui",
-  "t": 70.074,
-  "frame": 2100,
-  "lapisan": "O_loop + centang hijau"
+  "t": 70.508,
+  "frame": 2113,
+  "lapisan": "O_jaringan tumbuh: agen kecil membaca rak"
+ },
+ {
+  "nama": "centang hijau (langsung benar)",
+  "peran": "item-ui",
+  "t": 70.608,
+  "frame": 2116,
+  "lapisan": "O_centang hijau (langsung benar)"
  },
  {
   "nama": "100% FULL AI",
   "peran": "slab-di-belakang-kepala",
-  "t": 72.074,
-  "frame": 2160,
-  "lapisan": "T091"
+  "t": 72.608,
+  "frame": 2176,
+  "lapisan": "T095"
  },
  {
-  "nama": "profesional?",
-  "peran": "bubble-pilihan",
-  "t": 78.125,
-  "frame": 2341,
-  "lapisan": "T096"
+  "nama": "lingkaran wajah",
+  "peran": "wajah-lingkaran",
+  "t": 74.441,
+  "frame": 2231,
+  "lapisan": "D_EDIT_WAJAH"
  },
  {
-  "nama": "masih kerasa AI?",
-  "peran": "bubble-pilihan",
-  "t": 79.085,
-  "frame": 2370,
-  "lapisan": "T098"
+  "nama": "slot b10a_meja3d (meja 3D, onset 'kayak gimana?')",
+  "peran": "slot-opaque",
+  "t": 75.645,
+  "frame": 2267,
+  "lapisan": "O_slot b10a"
+ },
+ {
+  "nama": "postingan Instagram desktop",
+  "peran": "dunia-transisi",
+  "t": 76.41,
+  "frame": 2290,
+  "lapisan": "D_IG"
+ },
+ {
+  "nama": "profesional",
+  "peran": "kata-kacau",
+  "t": 78.659,
+  "frame": 2357,
+  "lapisan": "T100"
+ },
+ {
+  "nama": "komentar 'masih kerasa AI slop'",
+  "peran": "item-ui",
+  "t": 79.553,
+  "frame": 2384,
+  "lapisan": "O_komentar 'masih kerasa AI slop'"
+ },
+ {
+  "nama": "komentar 'Keren editan profesional'",
+  "peran": "item-ui",
+  "t": 80.118,
+  "frame": 2401,
+  "lapisan": "O_komentar 'Keren editan profesional'"
+ },
+ {
+  "nama": "kolom Add a comment",
+  "peran": "item-ui",
+  "t": 80.791,
+  "frame": 2421,
+  "lapisan": "O_kolom Add a comment"
  },
  {
   "nama": "skill gratis",
   "peran": "kata-kunci-slam",
-  "t": 81.873,
-  "frame": 2454,
-  "lapisan": "T101"
+  "t": 82.407,
+  "frame": 2470,
+  "lapisan": "T104"
  }
 ]

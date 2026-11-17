@@ -27,6 +27,7 @@ EA = {"heavy": bez(.75, 0, .18, 1), "drift": bez(.4, 0, .6, 1), "land": bez(.1, 
 def frame(src, t, alpha=False):
     cmd = ["ffmpeg", "-v", "error", "-ss", f"{max(0, t):.4f}", "-i", src, "-frames:v", "1", "-pix_fmt", "rgba" if alpha else "rgb24", "-f", "image2pipe", "-vcodec", "png", "-"]
     r = subprocess.run(cmd, capture_output=True)
+    if not r.stdout and t > 0.1: return frame(src, t - 0.05, alpha)       # ujung klip: mundur satu frame
     return Image.open(io.BytesIO(r.stdout)).convert("RGBA") if r.stdout else None
 
 

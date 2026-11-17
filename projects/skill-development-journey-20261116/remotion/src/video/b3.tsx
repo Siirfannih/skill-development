@@ -101,7 +101,7 @@ const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
         </div>
         <div style={{position: 'absolute', left: 270, top: 26, width: 620, ...ink(20), lineHeight: 1.55}}>
           <div style={{color: T.muted, marginBottom: 14}}>Read cutting round 3 result ›</div>
-          <div style={{marginBottom: 18}}>Potongan pertama sudah lolos pemeriksaan durasi dan sinkronisasi. Satu gerbang masih gagal, jadi saya kirim putaran berikutnya khusus untuk batas kata.</div>
+          <div style={{marginBottom: 18}}>Potongan pertama sudah lolos pemeriksaan durasi dan sinkronisasi. Satu gerbang masih gagal, jadi saya kirim putaran berikutnya khusus untuk batas kalimat.</div>
           <div style={{color: T.muted, marginBottom: 14}}>Checking the next pass ›</div>
           <div>Hasil terbaru hampir selesai: tidak ada kata sampah, tanpa jeda berlebih, wajah dan suara sejajar.</div>
         </div>

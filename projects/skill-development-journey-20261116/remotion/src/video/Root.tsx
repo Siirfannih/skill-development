@@ -2,6 +2,7 @@ import React from 'react';
 import {Composition} from 'remotion';
 import {KT, type KTProps} from './bersama/KT';
 import {KarakterLayer, type KarakterProps, kotak} from './bersama/KarakterLayer';
+import {LembarPixel} from './bersama/LembarPixel';
 import {Lingkar, type LingkarProps} from './bersama/Lingkar';
 import {DuniaRepo, type DuniaRepoProps} from './b1';
 import {Slop, type SlopProps} from './b2';
@@ -38,4 +39,5 @@ export const VideoRoot: React.FC = () => <>
     defaultProps={{durasi: 7.5, t0: 75.9, z0: 1.04, kunci: {k1: 3.1, k2: 4.1, field: 4.4}} satisfies IGProps} calculateMetadata={meta as never}/>
   <Composition id="Tanda" component={Tanda as React.FC<any>} fps={30} width={230} height={230} durationInFrames={40}
     defaultProps={{durasi: 1.3, w: 230, h: 230}} calculateMetadata={meta as never}/>
+  <Composition id="LembarPixel" component={LembarPixel} fps={30} width={1740} height={980} durationInFrames={30}/>
 </>;

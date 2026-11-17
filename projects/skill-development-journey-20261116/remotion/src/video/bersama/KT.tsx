@@ -22,6 +22,12 @@ export type KTProps = {
   spasi?: number;
   /** detik (relatif lapisan) saat TIAP kata tampil = onset kata di words.json + 2 f; kosong = semua kata muncul bersama blok */
   wt?: number[];
+  /** hero 3D: sisi kiri menjauh ke dalam (menghilang di belakang kepala), sisi kanan mendekat ke kanan (LINTAS AGENT, REVISI-2 R2-4c) */
+  persp?: boolean;
+  /** hero di DEPAN (SELESAI, DECISION): masuk mendarat di tempat (skala), keluar menyusut — tidak meluncur dari tepi kotak (REVISI-2 f/g: tidak ada KT terpotong) */
+  depan?: boolean;
+  /** lebar isi teks persp (kotak lapisan selebar frame supaya AGENT yang mendekat tidak terpotong) */
+  lebarIsi?: number;
 };
 
 /** frame onset kata ke-i (relatif lapisan); tanpa wt jatuh ke `cadangan` */
@@ -98,7 +104,7 @@ const R3: React.FC<KTProps> = (p) => {
         const jx = (hash(tick * 7 + i) - 0.5) * size * 0.16 * (k + keep);
         const jy = (hash(tick * 11 + i + 4) - 0.5) * size * 0.34 * (k + keep);
         const jr = (hash(tick * 13 + i + 8) - 0.5) * 24 * (k + keep);
-        const pop = move(f, o0 + react(i % 6, fps, 0.4), 5, 'land');
+        const pop = move(f, o0 + react(i % 6, fps, 0.25), 4, 'land');
         const warna = viral ? undefined : (p.warna ?? (p.gelap ? INK : HERO));
         const sty: React.CSSProperties = viral
           ? {backgroundImage: 'linear-gradient(180deg,#FF4FD8,#8E3BFF)', WebkitBackgroundClip: 'text', color: 'transparent',
@@ -166,6 +172,10 @@ const gelombang = (i: number, f: number, fs: number, tenang: number) => Math.sin
 
 // ---------- R6 · T04 hero: kata raksasa menyusut dan mendarat (finally / slab / busur) ----------
 const Hero: React.FC<KTProps> = (p) => {
+  if (p.persp) return <HeroPersp {...p}/>;
+  return <HeroDatar {...p}/>;
+};
+const HeroDatar: React.FC<KTProps> = (p) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const slab = p.gaya === 'slab';
@@ -173,9 +183,10 @@ const Hero: React.FC<KTProps> = (p) => {
   const spasi = p.spasi ?? 0;
   const fs = useFitSize(p.teks, FONT.anton, 400, lebar, spasi);
   const keluarF = p.keluarAt !== undefined ? Math.round(p.keluarAt * fps) : Math.round(p.durasi * fps) - 12;
-  const enter = move(f, 0, slab ? 19 : 8, 'heavy');
+  const depan = !!p.depan;
+  const enter = depan ? move(f, 0, 10, 'land') : move(f, 0, slab ? 19 : 8, 'heavy');
   const tenang = 1 - move(f, 18, 72, 'drift');
-  const out = move(f, keluarF, 12, 'leave');
+  const out = move(f, keluarF, depan ? 8 : 12, 'leave');
   const g = p.getarAt !== undefined ? getar(f, Math.round(p.getarAt * fps), 6, 12, p.seed ?? 2) : {x: 0, y: 0};
   const warna = p.warna ?? HERO;
   const chars = Array.from(p.teks);
@@ -183,8 +194,11 @@ const Hero: React.FC<KTProps> = (p) => {
   const kilat = p.sapu ? move(f, 14, 20, 'whip') : 0;
   return <AbsoluteFill style={{background: 'transparent', overflow: 'hidden'}}>
     <svg width={p.w} height={p.h} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible',
-      transform: `translate(${g.x}px, ${g.y + (1 - enter) * p.h * 0.55 + out * p.h * 0.7}px) rotate(${(slab ? -2 : -5) * enter}deg) scaleY(${0.9 + 0.1 * enter})`,
-      opacity: enter > 0.01 ? 1 : 0, clipPath: out > 0 ? `inset(0 0 ${out * 60}% 0)` : undefined}}>
+      transformOrigin: '50% 60%',
+      transform: depan
+        ? `translate(${g.x}px, ${g.y + out * p.h * 0.08}px) rotate(${-2 * enter}deg) scale(${(0.8 + 0.2 * enter) * (1 - 0.1 * out)})`
+        : `translate(${g.x}px, ${g.y + (1 - enter) * p.h * 0.55 + out * p.h * 0.7}px) rotate(${(slab ? -2 : -5) * enter}deg) scaleY(${0.9 + 0.1 * enter})`,
+      opacity: (enter > 0.01 ? 1 : 0) * (depan ? 1 - out : 1), clipPath: out > 0 && !depan ? `inset(0 0 ${out * 60}% 0)` : undefined}}>
       <defs>
         <linearGradient id="kilat" gradientUnits="userSpaceOnUse" x1={`${-30 + 140 * kilat}%`} y1="0" x2={`${-10 + 140 * kilat}%`} y2="0">
           <stop offset="0" stopColor={warna}/><stop offset=".5" stopColor="#FFFFFF"/><stop offset="1" stopColor={warna}/>
@@ -195,6 +209,32 @@ const Hero: React.FC<KTProps> = (p) => {
         {chars.map((c, i) => <tspan key={i} fillOpacity={f >= onsetF(p, kataKe[i], fps, 0) ? 1 : 0} dy={i === 0 ? 0 : gelombang(i, f, fs, tenang)}>{c}</tspan>)}
       </text>
     </svg>
+  </AbsoluteFill>;
+};
+
+
+/** LINTAS AGENT 3D (REVISI-2 R2-4c): dua bidang berengsel di kepala. LINTAS (kiri) berputar menjauh ke dalam dan terus mundur menuju belakang kepala;
+ * AGENT (kanan) lahir dari kedalaman lalu keluar mendekat ke kanan. Kotak lapisan selebar frame supaya ujung AGENT yang membesar tidak terpotong. */
+const HeroPersp: React.FC<KTProps> = (p) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const fs = useFitSize(p.teks, FONT.anton, 400, p.lebarIsi ?? 1500, 0);
+  const keluarF = p.keluarAt !== undefined ? Math.round(p.keluarAt * fps) : Math.round(p.durasi * fps) - 12;
+  const out = move(f, keluarF, 12, 'leave');
+  const [w1, w2] = p.teks.split(' ');
+  const o1 = onsetF(p, 0, fps, 0), o2 = onsetF(p, 1, fps, 6);
+  const a1 = move(f, o1, 16, 'heavy'), a2 = move(f, o2, 14, 'land');
+  const tahan1 = move(f, o1 + 16, Math.max(1, keluarF - o1 - 16), 'drift'), tahan2 = move(f, o2 + 14, Math.max(1, keluarF - o2 - 14), 'drift');
+  const huruf: React.CSSProperties = {display: 'inline-block', fontFamily: FONT.anton, fontSize: fs, lineHeight: 1, color: p.warna ?? HERO, textShadow: '0 12px 22px rgba(0,0,0,.28)', whiteSpace: 'pre'};
+  // LINTAS: engsel di ujung luar (kiri), ujung dalam (dekat kepala) menjauh
+  const t1 = `translateX(${-40 * a1}px) translateZ(${-140 * a1 - 160 * tahan1 - 700 * out}px) rotateY(${34 * a1 + 4 * tahan1}deg) scale(${0.9 + 0.1 * a1})`;
+  // AGENT: engsel di ujung luar (kanan), ujung dalam menjauh; seluruh kata maju mendekat & bergeser ke kanan
+  const t2 = `translateX(${30 * a2 + 36 * tahan2 + 260 * out}px) translateZ(${-520 * (1 - a2) + 60 * tahan2}px) rotateY(${-30 * a2 - 4 * tahan2}deg)`;
+  return <AbsoluteFill style={{background: 'transparent', perspective: 1300, perspectiveOrigin: `${p.w / 2}px ${p.h / 2}px`, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+    <div style={{display: 'flex', gap: fs * 0.22, alignItems: 'center', transformStyle: 'preserve-3d'}}>
+      <span style={{...huruf, transformOrigin: '0% 50%', opacity: f >= o1 ? 1 - out : 0, transform: t1}}>{w1}</span>
+      <span style={{...huruf, transformOrigin: '100% 50%', opacity: f >= o2 ? 1 - out : 0, transform: t2}}>{w2}</span>
+    </div>
   </AbsoluteFill>;
 };
 

@@ -95,9 +95,10 @@ def gap(a, b):
     return math.hypot(dx, dy) if (dx > 0 and dy > 0) else max(dx, dy) if (dx > 0 or dy > 0) else -1
 
 
-KT = [i for i in lego if lap[i]["comp"] == "KT" and lap[i]["props"].get("gaya") in ("r1", "r2", "r3", "putus", "bubble", "viral")]
-SL = [i for i in lego if lap[i]["comp"] == "Slop"]
-CH = [i for i in lego if lap[i]["comp"] == "Karakter"]
+KT = [i for i in lego if i in lap and lap[i]["comp"] == "KT" and lap[i]["props"].get("gaya") in ("r1", "r2", "r3", "putus", "bubble", "viral")]
+SL = [i for i in lego if i in lap and lap[i]["comp"] == "Slop"]
+KOM = [i for i in lego if i in lap and lap[i]["comp"] == "Komentar"]
+CH = [i for i in lego if i in lap and lap[i]["comp"] == "Karakter"]
 bad = {}
 T = 0.0
 while T < W.DURASI:
@@ -108,6 +109,10 @@ while T < W.DURASI:
         for i, b in bx.items():
             for j in SL:
                 if act(j) and (s := slop_box(j, t)) and gap(b, s) < 4: bad.setdefault(("KT-slop", i, j), t)
+            for j in KOM:
+                if act(j):
+                    e2 = lego[j]; x2, y2 = pos(e2, t); w2, h2 = lap[j]["props"]["w"], lap[j]["props"]["h"]
+                    if gap(b, (x2 + 40, y2 + 40, x2 + w2 - 40, y2 + h2 - 40)) < 4: bad.setdefault(("KT-komentar", i, j), t)
             for j in CH:
                 if act(j) and gap(b, char_box(j, t)) < 24: bad.setdefault(("KT-karakter", i, j), t)
             for j, b2 in bx.items():

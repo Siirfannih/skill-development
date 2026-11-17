@@ -38,25 +38,40 @@ def jendela(j):
     return j - PRE, j + POST
 
 
-def buat(j, zfn, src, edit_key=""):
-    a, b = jendela(j)
-    zs = [zfn((n) / F) * faktor(n, j) for n in range(a - 1, b + 1)]
-    h = hashlib.sha1(json.dumps([j, [round(z, 5) for z in zs], edit_key, AMP]).encode()).hexdigest()[:8]
-    out = os.path.join(P, "lego/cache", f"punch_{j}_{h}.mkv")
+def em_env(n, n0, amp):
+    """penekanan kata kunci: naik 6 f (heavy), tahan 8 f, turun 16 f (land); jendela [n0, n0+30)"""
+    k = n - n0
+    if 0 <= k < 6: return 1 + amp * HEAVY((k + 1) / 6)
+    if 6 <= k < 14: return 1 + amp
+    if 14 <= k < 30: return 1 + amp * (1 - LAND((k - 13) / 17))
+    return 1.0
+
+
+def jendela_em(n0):
+    return n0, n0 + 29
+
+
+def buat(nama, a, b, fk, zfn, src, edit_key="", blur_extra=()):
+    """klip baked frame master [a, b] (inklusif); fk(n) = pengali zoom; zfn(t) = zoom dasar; blur zoom antar-frame + ekstra di blur_extra.
+    Codec H.264 crf 4 (hampir lossless, ±0,3 MB/frame) supaya disk cukup."""
+    zs = [zfn(n / F) * fk(n) for n in range(a - 1, b + 1)]
+    h = hashlib.sha1(json.dumps([nama, a, b, [round(z, 5) for z in zs], edit_key]).encode()).hexdigest()[:8]
+    out = os.path.join(P, "lego/cache", f"punch_{nama}_{h}.mkv")
     if os.path.exists(out): return out
     r = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{a / F:.5f}", "-i", src, "-frames:v", str(b - a + 1), "-f", "rawvideo", "-pix_fmt", "rgb24", "-"], capture_output=True)
     W, H = 1920, 1080
     fr = np.frombuffer(r.stdout, np.uint8)
-    assert fr.size >= (b - a + 1) * W * H * 3, f"frame wajah tidak cukup untuk punch {j}"
-    enc = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", "30000/1001", "-i", "-", "-c:v", "ffv1", "-level", "3", out], stdin=subprocess.PIPE)
+    assert fr.size >= (b - a + 1) * W * H * 3, f"frame wajah tidak cukup untuk {nama}"
+    enc = subprocess.Popen(["ffmpeg", "-y", "-v", "error", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}", "-r", "30000/1001", "-i", "-", "-c:v", "libx264", "-crf", "4",
+                            "-preset", "medium", "-pix_fmt", "yuv420p", "-g", "1", out], stdin=subprocess.PIPE)
     for k, n in enumerate(range(a, b + 1)):
         im = Image.fromarray(fr[k * W * H * 3:(k + 1) * W * H * 3].reshape(H, W, 3))
         z = zs[k + 1]; zp = zs[k]
         dz = abs(z - zp) / 2
-        if n in (j - 1, j): dz = max(dz, 0.035)          # motion blur 2 frame di puncak
-        acc = np.zeros((H, W, 3), np.float32); K = 7
+        if n in blur_extra: dz = max(dz, 0.035)
+        acc = np.zeros((H, W, 3), np.float32); K = 7 if dz > 1e-4 else 1
         for q in range(K):
-            zq = z + dz * (2 * q / (K - 1) - 1)
+            zq = z + (dz * (2 * q / (K - 1) - 1) if K > 1 else 0)
             x0, y0 = (W - W / zq) * 0.5, (H - H / zq) * 0.45
             acc += np.asarray(im.resize((W, H), Image.LANCZOS, box=(x0, y0, x0 + W / zq, y0 + H / zq)), np.float32)
         enc.stdin.write((acc / K).round().astype(np.uint8).tobytes())
