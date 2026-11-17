@@ -4,7 +4,7 @@
 // Props = Karakter2DProps; Claude tetap digambar Karakter2D (papan/karakter2d, tidak diubah).
 import React from 'react';
 import {blinking, emotions, onTwos, spinView, squashScale, type View} from '../../papan/karakter2d/gerak';
-import {Karakter2D, type Karakter2DProps, WAJAH, type Wajah} from '../../papan/karakter2d/Karakter2D';
+import {Karakter2D, type Karakter2DProps, WAJAH, type Wajah, EmoteX, emoteAktif} from '../../papan/karakter2d/Karakter2D';
 
 const INK = '#241913';
 type Pose = ReturnType<typeof emotions> & {blink: boolean};
@@ -12,12 +12,21 @@ type Peta = {grid: string[]; ton: (x: number, y: number, n: number, m: number) =
 
 // awan Codex 11x8 (+ dua kaki 1x1,5), bintang Gemini 11x11
 const AWAN = ['..XXX.XXX..', '.XXXXXXXXX.', 'XXXXXXXXXXX', 'XXXXXXXXXXX', 'XXXXXXXXXXX', 'XXXXXXXXXXX', '.XXXXXXXXX.', '..XXXXXXX..'];
-const BINTANG = ['......X......', '.....XXX.....', '.....XXX.....', '....XXXXX....', '..XXXXXXXXX..', '..XXXXXXXXX..', 'XXXXXXXXXXXXX', '..XXXXXXXXX..', '..XXXXXXXXX..', '....XXXXX....', '.....XXX.....', '.....XXX.....', '......X......'];
+const BINTANG = ['........X........', '........X........', '.......XXX.......', '.......XXX.......', '......XXXXX......', '.....XXXXXXX.....', '....XXXXXXXXX....', '..XXXXXXXXXXXXX..', 'XXXXXXXXXXXXXXXXX', '..XXXXXXXXXXXXX..', '....XXXXXXXXX....', '.....XXXXXXX.....', '......XXXXX......', '.......XXX.......', '.......XXX.......', '........X........', '........X........'];
+/** indeks warna logo Gemini per sel (pusat 8,8): atas merah, kiri-atas oranye, kiri kuning, kiri-bawah hijau-kuning, bawah hijau, tengah + separuh kanan biru */
+const warnaGemini = (x: number, y: number) => {
+  const dx = x - 8, dy = 8 - y;
+  if (Math.hypot(dx, dy) <= 2.6) return 7;
+  if (dx > 0) return x >= 15 ? 8 : 7;
+  if (dx === 0) return dy > 0 ? (y <= 1 ? 1 : 0) : 6;
+  let a = Math.atan2(dy, dx) * 180 / Math.PI; if (a < 0) a += 360;
+  return a < 125 ? 0 : a < 160 ? 2 : a < 200 ? (x <= 1 ? 4 : 3) : a < 235 ? 5 : 6;
+};
 const PETA: Record<'codex' | 'gemini', Peta> = {
   // biru brand #3E6BFF -> #8FB2FF, tiga tingkat datar (terang kiri-atas, gelap kanan-bawah)
   codex: {grid: AWAN, warna: ['#8FB2FF', '#6A92FF', '#3E6BFF'], ton: (x, y) => { const k = x / 11 * 0.45 + y / 8 * 0.55; return k < 0.3 ? 0 : k < 0.62 ? 1 : 2; }, mata: [[3, 2], [7, 2]], mataGap: 2, mataY: 2},
-  // biru #4285F4 -> ungu #9B72CB, tiga tingkat datar
-  gemini: {grid: BINTANG, warna: ['#4285F4', '#6F7FDD', '#9B72CB'], ton: (x, y) => { const k = (x + y) / 24; return k < 0.4 ? 0 : k < 0.62 ? 1 : 2; }, mata: [[4, 5], [8, 5]], mataGap: 2, mataY: 5},
+  // logo asli Gemini: bintang empat sudut bersisi cekung (astroid), warna merek per sel menurut posisi (datar, tanpa gradien halus)
+  gemini: {grid: BINTANG, warna: ['#F94543', '#F27B85', '#F98A1F', '#F9BC15', '#F2D023', '#A8D84A', '#0EBC5F', '#3186FF', '#7FB2FF'], ton: (x, y) => warnaGemini(x, y), mata: [[6, 7], [10, 7]], mataGap: 2, mataY: 7},
 };
 const VIEWS_PX: Record<View, {w: number; strip: number; face: {cx: number; fw: number; sides: number[]} | null}> = {
   front: {w: 1, strip: 0, face: {cx: 0, fw: 1, sides: [-1, 1]}}, q: {w: .86, strip: -1, face: {cx: 1.3, fw: .74, sides: [-1, 1]}},
@@ -104,7 +113,7 @@ const Badan: React.FC<{id: string; model: 'codex' | 'gemini'; view: View; p: Pos
   </g>;
 };
 
-export const KarakterPixel: React.FC<Karakter2DProps & {model: 'codex' | 'gemini'}> = ({model, id, x, y, u, t, sudut = 'front', smear = 0, emosi = [[0, 'neutral']], ekstra = {}, seed = 0, kamar = false, lantai = true}) => {
+export const KarakterPixel: React.FC<Karakter2DProps & {model: 'codex' | 'gemini'}> = ({model, id, x, y, u, t, sudut = 'front', smear = 0, emosi = [[0, 'neutral']], ekstra = {}, seed = 0, kamar = false, lantai = true, emote}) => {
   const e = emotions(t, emosi);
   const p: Pose = {...e, blink: blinking(t, seed)};
   const wajah = WAJAH[e.emo] ?? 'neutral';
@@ -118,14 +127,16 @@ export const KarakterPixel: React.FC<Karakter2DProps & {model: 'codex' | 'gemini
   const W = 22, H = 20;
   const rig = `translate(${dx} ${dy - lift}) rotate(${rot}) scale(${(flip ? -1 : 1) * sx * sc} ${sy * sc})`;
   const ground = Math.max(.35, 1 + dy / 6 - lift * .08);
-  const tinggi = model === 'codex' ? 9.5 : 13;
+  const tinggi = model === 'codex' ? 9.5 : 17;
   return <svg width={W * u} height={H * u} viewBox={`${-W / 2} ${-H + 3} ${W} ${H}`} data-karakter={model}
     style={{position: 'absolute', left: x - W * u / 2, top: y - (H - 3) * u, overflow: 'visible', pointerEvents: 'none'}}>
     <Tepi id={id} boil={boil}/>
     {lantai && <ellipse cx={dx * .5} cy={.15} rx={(model === 'codex' ? 5 : 4) * ground} ry={.55 * ground} fill={INK} opacity={kamar ? .2 : .14} filter={`url(#${id}-lembut)`}/>}
     {kamar && <g transform={`translate(1.1 .7) ${rig}`} opacity=".34" filter={`url(#${id}-bayang)`}><Badan id={id} model={model} view={view} p={p} wajah={wajah} shadow flip={flip}/></g>}
     <g transform={rig}><Badan id={id} model={model} view={view} p={p} wajah={wajah} shadow={false} flip={flip}/></g>
-    <g transform={`translate(${dx + (flip ? -1 : 1) * 3.8} ${dy - lift - tinggi - .6})`}><Emote wajah={wajah} k={e.emoteK}/></g>
+    <g transform={`translate(${dx + (flip ? -1 : 1) * (model === 'gemini' ? 7.2 : 3.8)} ${dy - lift - (model === 'gemini' ? 13.2 : tinggi + .6)})`}>
+      {emoteAktif(t, emote) ? <EmoteX kind={emoteAktif(t, emote)!.kind} a={emoteAktif(t, emote)!.a} lama={emoteAktif(t, emote)!.lama} skala={emoteAktif(t, emote)!.skala}/> : emote?.length ? null : <Emote wajah={wajah} k={e.emoteK}/>}
+    </g>
   </svg>;
 };
 

@@ -83,3 +83,12 @@ Codex 9/9 LULUS; Sonnet 7/9; 2 temuan satu-pemeriksa (59s f1788 caption, 76s f22
 
 ## 17 Nov ±19:30 · fase 5 LULUS (G3 ronde 9)
 qc/VERDICT.md PUTUSAN: LULUS (2 temuan Sonnet di-DISMISS). Final: out/varian-A.mp4, out/varian-B.mp4, out/tanpa-musik.mp4 (2512 f, 83,817 dtk, video = master, lag audio 0, decode bersih). Diunggah menimpa ke Drive.
+- 18 Nov putaran 4: hapus 863 file cache lapisan lama tak dirujuk (lego/cache, 6,5 GB) untuk ruang render.
+
+## 18 Nov · putaran 4 (versi A saja) — berjalan
+- Sutradara: sesi claude2. Ledger D-401…D-409 (DECISIONS.md), audit H1–H11 (evaluation.md §Putaran 4, lembar qc/r4-audit/).
+- Pekerja kode: satu Sonnet (handoff/TASK-R4-visual.md → REPORT-R4-visual.md). Audio: sfx_build.py diberi peran `sapa` (marimba-bloop-3) dan `coretan` (decit message-envoye), tulisan tangan senyap.
+- Anggaran render final: maks 3 (D-407), tiap final versi A diunggah ke Drive "Claude edit/2026-11-16 — Siirfan — Di Balik Skill Development/" sebagai varian-A_r4-final-1..3.mp4 (file lama tidak ditimpa).
+- Akses: codex login OK (pemeriksa frame #1), Sonnet subagen pemeriksa #2. Disk 12 GB setelah hapus cache lama.
+- 18 Nov: Sutradara sempat membangun ulang qc/.bundle dengan entry src/index.ts (render.sh still tanpa ENTRY); dipulihkan ke src/video/index.ts. Stamp berubah: render ulang lapisan berikutnya pakai lapisan.py --hanya <id> (lock lama tetap dirujuk bangun.py). Pakai ENTRY=src/video/index.ts untuk render.sh di proyek ini.
+- 18 Nov ±06:35 · putaran 4 SELESAI (menunggu penilaian Irfan): final 1 dari 3 = out/varian-A_r4-final-1.mp4, di Drive. Final 2/3 tidak diperlukan (tidak ada kesalahan terlewat). Bundle Remotion proyek ini: ENTRY=src/video/index.ts. Kunci audio versi A: audio/order-A (disalin ke audio/ORDER.json untuk gerbang render.sh).

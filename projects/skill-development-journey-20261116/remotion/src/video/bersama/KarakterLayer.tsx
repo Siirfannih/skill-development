@@ -2,7 +2,7 @@
 // Pose, emosi, lompat, take, putar semua dihitung murni dari waktu (gerak.ts, ClaudeAnimationBase MIT).
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
-import {type Model} from '../../papan/karakter2d/Karakter2D';
+import {type Model, type EmoteJadwal} from '../../papan/karakter2d/Karakter2D';
 import {KarakterX} from './KarakterPixel';
 import {type Key, EASE, jump, kf, seg, take} from '../../papan/karakter2d/gerak';
 import {Fonts} from './Fonts';
@@ -22,6 +22,8 @@ export type KarakterProps = {
   kamar?: boolean; lantai?: boolean;
   /** kilau Gemini / lambai Codex */
   lambai?: [number, number][];
+  /** emote terjadwal [detik, jenis, lama, skala] */
+  emote?: EmoteJadwal[];
 };
 
 export const kotak = (u: number) => ({w: Math.ceil(22 * u) + 80, h: Math.ceil(20 * u) + 80});
@@ -49,7 +51,7 @@ export const KarakterLayer: React.FC<KarakterProps> = (p) => {
   const dyU = sq0.dy + tk.dy + land.dy;
   return <AbsoluteFill style={{background: 'transparent'}}><Fonts/>
     <KarakterX model={p.model} id={`k-${p.model}-${p.seed}`} x={w / 2} y={17 * p.u + 40} u={p.u} t={t} seed={p.seed} kamar={p.kamar} lantai={p.lantai ?? true}
-      sudut={heading} smear={smear} emosi={p.emosi}
+      sudut={heading} smear={smear} emosi={p.emosi} emote={p.emote}
       ekstra={{sq: sq0.sq + tk.sq + land.sq, dy: dyU, rot, scale: sc}}/>
   </AbsoluteFill>;
 };

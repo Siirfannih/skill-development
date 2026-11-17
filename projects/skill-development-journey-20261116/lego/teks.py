@@ -22,9 +22,9 @@ SPEK = [
     sp("selesai", 2.5, 1, peran="R6", kode="T04", gaya="slab", teks_vis="SELESAI", depan=True, warna=HIJAU, alasan="kata hero BESAR di DEPAN (Anton, hijau #1A7F37) mengisi area kosong bawah timeline B1 (REVISI-2 R2-4a)"),
     sp("workflow", 6, 1, peran="R6", kode="T04", gaya="busur", alasan="kata cincin besar di busur kepala (DESAIN B1b)"),
     sp("AI", 7.4, 2, peran="R6", kode="T04", gaya="busur", alasan="kata cincin besar di busur kepala (DESAIN B1b)"),
-    sp("ChatGPT", 8.5, 1, peran="R2", kode="T03", gaya="r2", alasan="nama menempel tokoh Codex yang lambai"),
-    sp("Claude", 9.8, 1, peran="R2", kode="T03", gaya="r2", alasan="nama menempel Claude (crab) yang melompat"),
-    sp("Gemini", 10.2, 1, peran="R2", kode="T03", gaya="r2", alasan="nama menempel bintang Gemini yang berputar"),
+    sp("ChatGPT", 8.5, 1, peran="R2", kode="T03", gaya="r2", sapa="codex", alasan="nama tampil sebagai bubble sapaan tokoh Codex (D-401): tidak ada KT nama"),
+    sp("Claude", 9.8, 1, peran="R2", kode="T03", gaya="r2", sapa="claude", alasan="nama tampil sebagai bubble sapaan Clawd (D-401): tidak ada KT nama"),
+    sp("Gemini", 10.2, 1, peran="R2", kode="T03", gaya="r2", sapa="gemini", alasan="nama tampil sebagai bubble sapaan Gemini (D-401): tidak ada KT nama"),
     sp("decision", 12, 1, peran="R6", kode="T04", gaya="slab", teks_vis="DECISION", depan=True, alasan="kata hero besar di DEPAN, kotak dada, + push kamera kecil 1,00→1,06 (REVISI-1 B4)"),
     sp("viral", 15, 1, peran="R3", kode="T25", gaya="viral", teks_vis="VIRAL!!", alasan="parodi slop: kata viral berbayang tebal di tumpukan (DESAIN B2a)"),
     sp("AI", 20.5, 2, peran="R6", kode="T04", gaya="slab", teks_vis="AI SLOP", alasan="slab coral di belakang kepala, ruang di-grade (DESAIN B2a)"),
@@ -42,11 +42,16 @@ SPEK = [
     sp("100%", 72.8, 4, peran="R6", kode="T04", gaya="slab", teks_vis="100% FULL AI", buang=["pakai"], depan=True, alasan="hero di DEPAN di atas dinding gelap shot meja 3D (Irfan 17 Nov: shot Claude mengedit mulai di kalimat ini); 'pakai' tidak ditampilkan (Irfan 17 Nov)"),
     sp("profesional", 78.3, 1, peran="R3", kode="T25", gaya="r3", ukuran=80, alasan="pertanyaan pertama yang menusuk: kata kacau lalu mendarat (REVISI-2 Opus: perlakuan R3 pindah dari 'masih kerasa AI?' yang kini tampil sebagai komentar IG)"),
     sp("masih", 79.5, 3, peran="R3", kode="T25", gaya="r3", alasan="pertanyaan yang menusuk: kata kacau lalu mendarat; komentar penonton menyusul (REVISI-1 B10)"),
-    sp("skill", 82, 2, peran="R2", kode="T03", gaya="r2", alasan="kata kunci hadiah"),
+    sp("skill", 82, 1, peran="R2", kode="T03", gaya="r2", alasan="kata kunci hadiah"),
+    sp("gratis", 82.4, 1, peran="R2", kode="T03", gaya="tulis", alasan="tulisan tangan kuning + garis bawah goresan (D-406)"),
 ]
+
+KOREKSI = {86: "Progres", 88: "baliknya", 94: "cuma"}     # ASR ulang 18 Nov: 'Progres di baliknya'; Irfan: 'cuma'
 
 # ---- posisi R1 menurut adegan (pusat teks, px). Wajah: kepala di x 36-64 % y 8-62 %, dada di bawahnya. ----
 def r1_pos(t):
+    if T["kayak"] - 0.05 <= t < T["lihat_e"] - 0.05: return [960, 950], False      # D-405: 'Kayak yang' tidak di bahu: satu jalur pita bawah, tidak menimpa deret kartu B11
+    if T["b4b"] - 0.4 <= t < T["habis"]: return [960, 805], False                 # D-404: 'Pak.' dan 'Ini' di tempat yang SAMA (saling menggantikan)
     if T["b4b"] <= t < T["dua0"] - 0.3: return [960, 930], False                  # B4b awal: rata tengah dada (Irfan 17 Nov), di bawah 'habis banget'
     if T["dua0"] - 0.3 <= t < T["lima"] - 0.3: return [960, 930], False          # kartu ChatGPT di kanan, kiri masih kosong
     if T["lima"] - 0.3 <= t < T["gitu_b4"] + 0.1: return [960, 930], False       # kartu mengapit Irfan (ChatGPT kanan, Claude kiri): narasi di dada bawah, di antara kartu (REVISI-2 R2-4b)
@@ -60,7 +65,7 @@ def r1_pos(t):
     if T["b6b"] <= t: return [960, 740], False
     if T["decision"] - 0.05 <= t < T["b2a"] + 0.9: return [960, 735], False                  # DECISION mengisi dada: narasi di atas DECISION dengan jarak (Opus: tidak menempel), di bawah dagu (REVISI-2 R2-4g: bukan kiri atas)
     if 17.9 <= t < 19.6: return [960, 770], False                  # B2: sticker api/emoji kanan (x>1440): narasi geser kiri (cek_tumpuk)
-    if 21.0 <= t < 22.3: return [960, 770], False                 # B2: burst kiri bawah (x<640): narasi geser kanan
+    if 21.0 <= t < 22.3: return [1010, 702], False                 # B2: burst kiri bawah (x<640): narasi geser kanan
     if T["lintas"] - 0.2 <= t < T["lintas"] + 2.4: return [960, 760], False   # LINTAS AGENT: narasi di bahu kanan di bawah AGENT (Opus: balance_check, LINTAS menjauh = ringan di kiri)
     if T["b1b"] <= t < T["b2a"]: return [960, 905], False        # B1b: dada tengah di antara Clawd (bahu kiri) dan Codex (bahu kanan)
     if not DUNIA:
@@ -87,7 +92,7 @@ POS_KHUSUS = {   # pusat blok khusus; nilai dari DESAIN per adegan (kunci dicoco
     "balik modal": [960, 400], "100% full pakai AI.": [600, 215], "putus-putus.": [1080, 800],
     "habis banget": [950, 810], "20 kali": [1520, 360], "5 kali": [1590, 740], "kesalahan": [960, 950], "loop pembelajaran": [960, 950],
     "viral": [1480, 250], "profesional": [700, 840], "masih kerasa AI?": [620, 812], "skill gratis": [620, 812],
-    "lintas agent.": [960, 400], "decision": [960, 860],
+    "lintas agent.": [960, 400], "decision": [960, 860], "skill": [470, 812],
 }
 
 
@@ -162,7 +167,7 @@ def bangun():
             ws = U[i:i + s_["n"]]
             b = plan(ws, FPS, 9)[0]                 # satu blok utuh (maks-kata longgar), waktu mengikuti rumus teks_plan
             b = dict(b); b["kata"] = [i, i + s_["n"] - 1]; b["teks"] = " ".join(w["w"] for w in ws)
-            for key in ("peran", "kode", "gaya", "alasan", "gelap", "teks_vis", "sisi", "warna", "sisip", "ukuran", "tahan", "depan", "buang"):
+            for key in ("peran", "kode", "gaya", "alasan", "gelap", "teks_vis", "sisi", "warna", "sisip", "ukuran", "tahan", "depan", "buang", "sapa"):
                 if key in s_: b[key] = s_[key]
             blocks.append(b); i += s_["n"]
         else:
@@ -206,13 +211,19 @@ def bangun():
     hasil = []
     for b in blocks:
         if b["peran"] == "R1" and T["b5b"] - 0.5 <= b["t"] < T["sini_e"]:
-            ws = b["teks"].split(); keep = [k for k, w in enumerate(ws) if W.nrm(w) not in ("chatgpt", "claude", "session")]
+            ws = b["teks"].split(); ada = b["kata"][0] <= 169 <= b["kata"][1] and len(ws) == b["kata"][1] - b["kata"][0] + 1       # R5/B1: "ChatGPT" (kata 169, "Bahkan ChatGPT dengan session...") diucapkan sebagai subjek dan WAJIB tampil
+            keep = [k for k, w in enumerate(ws) if W.nrm(w) not in ("chatgpt", "claude", "session") or (ada and b["kata"][0] + k == 169)]
+            end = b["t"] + b["dur"]
             if len(keep) != len(ws):
                 if not keep: continue
-                end = b["t"] + b["dur"]
-                b["buang"] = ["chatgpt", "claude", "session"]
+                b["buang"] = ["claude", "session"] if ada else ["chatgpt", "claude", "session"]
                 b["teks"] = " ".join(ws[k] for k in keep)
                 b["t"] = max(b["t"], onset(b["kata"][0] + keep[0]) - 0.05); b["dur"] = round(end - b["t"], 3)
+            if ada and b["kata"] == [168, 170]:       # "Bahkan ChatGPT" lalu "dengan" (blok terpisah, onset per kata)
+                b2 = dict(b, teks="dengan", kata=[170, 170], t=round(onset(170), 3)); b2.pop("buang", None)
+                b2["dur"] = round(end - b2["t"], 3)
+                b["teks"] = "Bahkan ChatGPT"; b["kata"] = [168, 169]; b["dur"] = round(b2["t"] - b["t"], 3); b.pop("buang", None)
+                hasil.append(b); hasil.append(b2); continue
         hasil.append(b)
     blocks = hasil
     # tidak bertabrakan: akhir blok <= awal blok berikutnya (kt_check A8)
@@ -223,6 +234,10 @@ def bangun():
         if b["peran"] == "R1" and b["t"] < T["lihat_e"] < b["t"] + b["dur"] - 0.001:
             b["dur"] = round(T["lihat_e"] - b["t"], 3)
     blocks[-1]["dur"] = round(min(blocks[-1]["dur"], waktu_akhir() - blocks[-1]["t"]), 3)
+    for b in blocks:      # D-402/D-403: peta koreksi visual (indeks kata -> teks tampil); words.json tidak diubah
+        ws = b["teks"].split()
+        if b["peran"] == "R1" and len(ws) == b["kata"][1] - b["kata"][0] + 1:
+            b["teks"] = " ".join(KOREKSI.get(b["kata"][0] + k, w) for k, w in enumerate(ws))
     for n, b in enumerate(blocks):
         b["id"] = f"T{n + 1:03d}"
         pos, gelap = r1_pos(b["t"])
@@ -240,6 +255,7 @@ def bangun():
             if not DUNIA: b["gelap"] = False
         if b["teks"].startswith("Comment") and b["t"] > T["udah"]:     # menempel di bawah kolom "Add a comment…" postingan IG, tinta gelap di halaman putih (REVISI-1 B10)
             b["pos"], b["gelap"] = [1380, 945], True
+            b["coret"] = "ig"
         if b["peran"] == "R1" and T["akhirnya"] - 0.05 <= b["t"] < T["akhirnya"] + 0.6:     # E9: lahir saat lingkaran masih menyusut di atas footage -> putih dulu, lalu tinta
             b["gelapAt"] = round(max(0.0, T["dunia1"] + 0.33 - b["t"]), 3)
         b["t"] = round(b["t"], 3)

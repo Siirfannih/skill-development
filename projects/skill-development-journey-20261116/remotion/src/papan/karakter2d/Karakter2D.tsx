@@ -32,7 +32,11 @@ export type Karakter2DProps = {
   kamar?: boolean;
   /** Bayangan kontak di bawah dasar. */
   lantai?: boolean;
+  /** Emote terjadwal [detik, jenis, lama, skala]: pop 3 f, tahan, keluar 3 f; menggantikan emote otomatis selama tampil. */
+  emote?: EmoteJadwal[];
 };
+export type EmoteKind = 'seru' | 'bintang' | 'tanya' | 'centang' | 'nada';
+export type EmoteJadwal = [number, EmoteKind, number?, number?];
 
 const INK = '#241913';
 type ViewDef = {L: number; R: number; strip?: [number, number]; face: {cx: number; fw: number; sides: number[]} | null;
@@ -91,6 +95,26 @@ const Eyes: React.FC<{cx: number; fw: number; sides: number[]; y: number; gap: n
       {light && closed > .6 && <circle cx={ex + .1 * fw} cy={y - hh / 2 + ly + .3} r={.13} fill={light} opacity=".9"/>}
     </g>;
   })}</>;
+};
+
+
+/** Emote terjadwal (D-401): pop 3 f (skala .5 -> 1,15 -> 1), tahan, keluar 3 f. Satuan u; dasar emote di (0,0), tinggi ±2,6u. */
+export const EmoteX: React.FC<{kind: EmoteKind; a: number; lama: number; skala?: number}> = ({kind, a, lama, skala = 1}) => {
+  const fpsE = 30, pin = Math.min(1, a * fpsE / 3), pout = Math.min(1, Math.max(0, (lama - a) * fpsE / 3));
+  const k = Math.min(pin, pout);
+  const pop = (0.5 + 0.65 * Math.min(1, pin * 1.3) - 0.15 * Math.max(0, pin * 1.3 - 1)) * (0.4 + 0.6 * pout) * skala;
+  const A = '#F5C443', tipis = {stroke: INK, strokeWidth: .16, strokeLinejoin: 'round' as const};
+  const isi = kind === 'seru' ? <g><path d="M-.45 -2.6L.45 -2.6L.25 -.8L-.25 -.8Z" fill={A} {...tipis}/><circle cx="0" cy="-.3" r=".38" fill={A} {...tipis}/></g>
+    : kind === 'bintang' ? <path d="M0 -2.8C.14 -1.7 .4 -1.45 1.5 -1.4C.4 -1.3 .14 -1.05 0 .1C-.14 -1.05 -.4 -1.3 -1.5 -1.4C-.4 -1.45 -.14 -1.7 0 -2.8Z" fill="#FFF3C4" {...tipis}/>
+    : kind === 'tanya' ? <g><rect x="-1.7" y="-2.5" width="3.4" height="1.9" rx=".5" fill="#FFFFFF" {...tipis}/><path d="M-.5 -.62L-.9 -.1L.1 -.62Z" fill="#FFFFFF" {...tipis}/>{[-.85, 0, .85].map((x) => <circle key={x} cx={x} cy="-1.55" r=".27" fill={INK}/>)}</g>
+    : kind === 'centang' ? <g><circle cx="0" cy="-1.3" r="1.25" fill="#2FB457" {...tipis}/><path d="M-.65 -1.25L-.15 -.7L.75 -1.95" fill="none" stroke="#FFFFFF" strokeWidth=".34" strokeLinecap="round" strokeLinejoin="round"/></g>
+    : <g><ellipse cx="-.45" cy="-.45" rx=".6" ry=".42" fill={INK}/><path d="M.1 -.5L.1 -2.5Q.9 -2.3 1.1 -1.6" fill="none" stroke={INK} strokeWidth=".24" strokeLinecap="round"/></g>;
+  return k > 0.01 ? <g transform={`scale(${pop})`} opacity={Math.min(1, k * 1.6)}>{isi}</g> : null;
+};
+/** emote terjadwal yang sedang aktif pada waktu t (atau null) */
+export const emoteAktif = (t: number, daftar?: EmoteJadwal[]) => {
+  for (const [t0, kind, lama = 0.4, skala = 1] of daftar ?? []) if (t >= t0 && t <= t0 + lama) return {kind, a: t - t0, lama, skala};
+  return null;
 };
 
 const Mouth: React.FC<{x: number; y: number; wajah: Wajah; s?: number}> = ({x, y, wajah, s = 1}) => wajah === 'happy'
@@ -195,7 +219,7 @@ const RoundBody: React.FC<{id: string; model: 'codex' | 'gemini'; view: View; p:
   </g>;
 };
 
-export const Karakter2D: React.FC<Karakter2DProps> = ({model, id, x, y, u, t, sudut = 'front', smear = 0, emosi = [[0, 'neutral']], ekstra = {}, seed = 0, kamar = false, lantai = true}) => {
+export const Karakter2D: React.FC<Karakter2DProps> = ({model, id, x, y, u, t, sudut = 'front', smear = 0, emosi = [[0, 'neutral']], ekstra = {}, seed = 0, kamar = false, lantai = true, emote}) => {
   const e = emotions(t, emosi);
   const p: Pose = {...e, blink: blinking(t, seed)};
   const wajah = WAJAH[e.emo] ?? 'neutral';
@@ -234,7 +258,7 @@ export const Karakter2D: React.FC<Karakter2DProps> = ({model, id, x, y, u, t, su
     {kamar && <g transform={`translate(1.1 .7) ${rig}`} opacity=".34" filter={`url(#${id}-bayang)`}>{body(true)}</g>}
     <g transform={rig}>{body(false)}</g>
     <g transform={`translate(${dx + (flip ? -1 : 1) * (model === 'claude' ? 4.4 : 3.6)} ${dy - lift - (model === 'claude' ? 8.6 : 11)})`}>
-      <Emote wajah={wajah} k={e.emoteK} x={0} y={0}/>
+      {emoteAktif(t, emote) ? <EmoteX kind={emoteAktif(t, emote)!.kind} a={emoteAktif(t, emote)!.a} lama={emoteAktif(t, emote)!.lama} skala={emoteAktif(t, emote)!.skala}/> : emote?.length ? null : <Emote wajah={wajah} k={e.emoteK} x={0} y={0}/>}
     </g>
   </svg>;
 };

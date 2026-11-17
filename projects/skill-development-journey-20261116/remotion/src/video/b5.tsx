@@ -12,6 +12,7 @@ import {siApple, siClaude, siGooglegemini} from 'simple-icons';
 import {CURVE, drift, move, react} from '../lib/curves';
 import {Fonts} from './bersama/Fonts';
 import {KarakterX} from './bersama/KarakterPixel';
+import {type EmoteJadwal} from '../papan/karakter2d/Karakter2D';
 import {LogoChatGPT} from './bersama/LogoChatGPT';
 import {Titik} from './bersama/Jendela';
 import {FONT, HIJAU} from './bersama/tema';
@@ -226,7 +227,8 @@ const Isi: React.FC<RelayProps & {f: number; durasiDunia: number}> = ({kunci: K,
   const tumbuh = K.selesai - 0.1;                          // kamera mundur, jaringan tumbuh
   const cam = kamera(t, K, {A: lahirA, B: lahirB, D: lahirD, C: lahirC, terbang}, zb);
   const masuk = move(f, 0, 16, 'heavy');
-  const keluar = move(f, F(K.keluar), F(durasiDunia - K.keluar), 'heavy');
+  const kMulai = durasiDunia - 0.5;                         // A3 ronde 4: dorongan keluar 0,5 dtk, kurva drift (tanpa percepatan mendadak) sampai frame terakhir dunia
+  const keluar = move(f, F(kMulai), F(0.5), 'drift');
   const sc = cam.s * (1 + 0.10 * (1 - masuk) + 0.12 * keluar);
   const dd = drift(f, fps, 3, 2);
   const angkat = F(tumbuh);
@@ -264,7 +266,7 @@ const Isi: React.FC<RelayProps & {f: number; durasiDunia: number}> = ({kunci: K,
   const rakA = move(f, angkat, 24, 'drift');
   const isiPapan = (o: {model: 'claude' | 'codex'; id: string; seed: number; sudut: number; badge: 'claude' | 'chatgpt'; nama: string; emosi: [number, string][]; pal: number}) => <>
     <Plat x={AK.x} y={AK.y} w={AK.w} h={AK.h} baca={o.pal}/>
-    <Karakter x={AC.x} model={o.model} id={o.id} seed={o.seed} u={15} t={t} sudut={o.sudut} emosi={o.emosi}/>
+    <Karakter x={AC.x} model={o.model} id={o.id} seed={o.seed} u={15} t={t} sudut={o.sudut} emosi={o.emosi} selesai={K.selesai}/>
     <div style={{position: 'absolute', left: AK.x + AK.w - 62, top: AK.y + AK.h - 62}}><Badge jenis={o.badge}/></div>
     <Label x={AC.x} y={FY + 8}>{o.nama}</Label>
     {o.pal > 0.05 && <Chip x={AC.x + 84} y={FY - 180} k={o.pal} f={f}/>}
@@ -351,8 +353,15 @@ const Chip: React.FC<{x: number; y: number; k: number; f: number}> = ({x, y, k, 
 );
 
 /** karakter di dalam papan: kaki di (x, fy) koordinat layar */
-const Karakter: React.FC<{x: number; fy?: number; model: 'claude' | 'codex' | 'gemini'; id: string; seed: number; u: number; t: number; sudut: number; emosi: [number, string][]}> = ({x, fy = FY, ...p}) =>
-  <KarakterX x={x} y={fy} {...p}/>;
+/** D-401: tiap pergantian emosi tokoh di papan memunculkan emote yang terbaca (!, bubble ..., ✦, ♪, ✓ saat selesai); skala disesuaikan ukuran papan (>= 22 px tinggi) */
+const emoteDari = (emosi: [number, string][], selesai: number): EmoteJadwal[] => emosi.slice(1).map(([t, e], i): EmoteJadwal => {
+  const nxt = emosi[i + 2] ? emosi[i + 2][0] : Infinity;                       // emote tidak melewati pergantian emosi berikut (satu emote per waktu)
+  const lama = (d: number) => Math.max(0.18, Math.min(d, nxt - t - 0.08));
+  return Math.abs(t - selesai) < 0.02 ? [t + 0.05, 'centang', lama(1.3), 1.1]
+    : e === 'surprised' ? [t + 0.05, 'seru', lama(1.0), 1.25] : e === 'thinking' ? [t + 0.05, 'tanya', lama(1.0), 1.25] : e === 'excited' ? [t + 0.05, 'nada', lama(0.9), 1.2] : [t + 0.05, 'bintang', lama(0.9), 1.15];
+});
+const Karakter: React.FC<{x: number; fy?: number; model: 'claude' | 'codex' | 'gemini'; id: string; seed: number; u: number; t: number; sudut: number; emosi: [number, string][]; selesai: number}> = ({x, fy = FY, selesai, ...p}) =>
+  <KarakterX x={x} y={fy} {...p} emote={emoteDari(p.emosi, selesai)}/>;
 
 export const RelayDunia: React.FC<RelayProps> = (p) => {
   const fAll = useCurrentFrame();
@@ -361,6 +370,6 @@ export const RelayDunia: React.FC<RelayProps> = (p) => {
   if (fAll < p.pre) return <AbsoluteFill><Fonts/><WajahDorong f={fAll} t0={p.preT0} dari={p.zPre} ke={1.7} frames={p.pre}/></AbsoluteFill>;
   const f = fAll - p.pre;
   if (f >= dunia) return <AbsoluteFill><Fonts/><WajahDorong f={f - dunia} t0={p.postT0} dari={1.7} ke={1.0} frames={p.post}/></AbsoluteFill>;
-  const blur = f < 18 || f >= Math.round(p.kunci.keluar * fps) - 2;
+  const blur = f < 18 || f >= Math.round((dunia / fps - 0.5) * fps) - 2;
   return <AbsoluteFill><Fonts/>{blur ? <CameraMotionBlur shutterAngle={220} samples={8}><Isi {...p} durasiDunia={dunia / fps} f={f}/></CameraMotionBlur> : <Isi {...p} durasiDunia={dunia / fps} f={f}/>}</AbsoluteFill>;
 };

@@ -1,0 +1,1 @@
+{"temuan":[],"tanda_otomatis":[{"frame":93,"putusan":"bukan masalah","alasan":"Teks hero SELESAI masuk sesuai ucapan 3,04 detik dan cue SFX 3,11 detik; gerak wajah tetap berlanjut."}],"putusan":"LULUS"}

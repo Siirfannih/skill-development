@@ -1,3 +1,29 @@
+# RESEP · Skill Development journey (format template, ditambahkan putaran 4, 18 Nov)
+
+**Prompt Irfan (disalin apa adanya):**
+> "dari awalkan aku sudah brief video talking headnya menggunakan gaya talking head proffesional + Apple styele motion" (Irfan 18 Nov, merangkum brief GUIDELINE.md 16 Nov)
+
+**Jenis video:** talking head + motion graphic layar penuh · **Rasio, durasi target:** 16:9 1920×1080 29,97 fps, ±1:25
+**Kiblat:** Barsol Media KT talking head (mode A, wajah) · **Kartu:** `kartu/83-barsolmedia-kt-talking-head.md` · **Asal kiblat:** referensi baru dari Irfan (16 Nov)
+**Alasan memilih (satu kalimat):** Irfan menunjuk cara kinetic typography, kamera, dan transisi kartu 83 sebagai acuan teks talking head; mode layar penuh berkiblat lain dengan register gerak Apple-style yang sama (kiblat per mode diizinkan Irfan 18 Nov asal gaya konsisten).
+
+| Bagian | Jenis | Sumber | Catatan |
+|---|---|---|---|
+| Warna & tekstur | pengikat | kartu 83 | warna kartu tidak diambil (Catatan pakai kartu 83); palet proyek terukur GUIDELINE §4 dipakai di semua mode |
+| Teks | pengikat | kartu 83 | K1 cincin, K3 slab belakang kepala, K4 kata di dada; masuk 2–4 f, tahan per kata, keluar potongan/mask (Catatan pakai 18 Nov) |
+| Ritme | pengikat | kartu 83 | tenang (K1/K4) → ledakan K3 di kata kunci → tenang |
+| B-roll / footage | teknik | kartu 83 | footage wajah sendiri + sisipan meja 3D Blender dan postingan IG (DESAIN B10/B6), disesuaikan ke palet proyek |
+| Motion graphic | teknik | kartu 63 | layar penuh Apple-style (MG63-ADENDUM): repo, app Claude, papan agen B11; satu fokus per frame, bidang terang/gelap palet proyek |
+| Kamera & transisi | teknik | kartu 83 | punch-in di kata kunci, cut framing di sambungan; transisi khas lingkaran wajah ↔ dunia layar penuh |
+| SFX | teknik | guide/sfx + SFXIrfan | satu peran satu file (audio/sfx_build.py ROLES), KT per kata senyap |
+| Musik | teknik | GUIDELINE §7.1 | varian A Aware → With Some Malice → Aware (musik/KREDIT.md) |
+
+**Penyesuaian karena LANTAI:** busur K1 maksimal 3 kata terlihat (A4); flash putih akhir frase diganti sapuan/potongan tanpa blow-out (X12); ruang tidak diredupkan (pencahayaan syuting kartu tidak bisa ditiru); "Cek kemiripan: ruang lebih gelap saat slab" dinilai terhadap versi disesuaikan = grade −12…−18 % hanya selama slab.
+**Kamera diam?** tidak
+**Syarat dari prompt yang harus terpenuhi:** talking head profesional; motion Apple-style bersih satu fokus; semua ucapan tampil sebagai KT; karakter Claude/ChatGPT/Gemini sesuai ikon asli.
+
+---
+
 # RESEP · Skill Development (G1, Sutradara claude2, 16 Nov malam)
 
 Kartu: 83-barsolmedia-kt-talking-head (mode A, teks di sekitar kepala) · 07-baikov-shapes (mode B/C, bidang & bentuk besar) · 37-pixel-character-skill-file (tokoh pixel)

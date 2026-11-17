@@ -1,0 +1,5 @@
+```json
+{"temuan":[{"detik":19,"frame":596,"jenis":"visual","terlihat":"Subtitle 'hasilnya masih terasa' bertabrakan dengan kartu burst kuning '!!' kedua yang muncul di f593; kata 'terasa' tertimpa burst dan sulit terbaca sampai f599.","usul":"Geser burst kedua ke atas atau ke kanan, atau naikkan subtitle di atas burst, supaya kata terakhir terbaca utuh."},{"detik":18,"frame":552,"jenis":"visual","terlihat":"Ujung subtitle 'kalau dari pandanganku' (suku 'ku') menyentuh dan tertimpa burst kuning '!!' di kanan sepanjang f550-560.","usul":"Geser burst sedikit ke kanan atau perpendek lebar subtitle agar tidak bersinggungan."}],
+ "tanda_otomatis":[{"frame":350,"putusan":"bukan masalah","alasan":"Tidak ada potongan atau gerak besar di f348-351. Yang berubah hanya pose tangan, dan subtitle kosong 3 frame di antara dua frasa. Cue SFX 12,00 dtk sudah mengiringi kemunculan 'decision' (f362)."},{"frame":413,"putusan":"bukan masalah","alasan":"Hanya gerak tangan dan mulut pembicara, tidak ada potongan atau kartu baru. Tidak perlu SFX."}],
+ "putusan":"GAGAL"}
+```

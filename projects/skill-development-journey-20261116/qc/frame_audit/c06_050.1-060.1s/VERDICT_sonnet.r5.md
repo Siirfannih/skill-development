@@ -1,0 +1,3 @@
+```json
+{"temuan":[],"tanda_otomatis":[{"frame":1605,"putusan":"bukan masalah","alasan":"Tidak ada pergantian adegan. Pembicara masih satu shot yang sama, dengan sedikit geser kamera genggam. Gerak antar-frame 1604→1606 mulus, tanpa loncatan wajah atau objek. Tidak ada momen visual yang perlu cue SFX di sini. Woosh 53.15 sudah menutup kartu yang keluar di f1592-1594."},{"frame":1755,"putusan":"bukan masalah","alasan":"Ini pergantian adegan yang jelas disengaja, dari pembicara ke kartu penjelas biru (Claude Code dan ChatGPT). Sebelumnya ada punch-in wajah di f1751-1754. Cue Woosh 58.57 jatuh tepat di f1755 (58.56). Kartu tampil utuh dan tidak terpotong."}],"putusan":"LULUS"}
+```

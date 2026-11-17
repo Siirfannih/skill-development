@@ -1,0 +1,28 @@
+{
+ "basis": "d12fd9b",
+ "alasan": "revisi Irfan putaran 4 (18 Nov): bubble karakter, sinkron KT, cuma, tabrakan Pak/Ini, KT kartu 83 (masuk 2-4 f, keluar tanpa fade)",
+ "boleh_berubah": [
+  {
+   "id": "*",
+   "atribut": [
+    "isi",
+    "t",
+    "gerak",
+    "pos"
+   ],
+   "ledger": "D-405"
+  },
+  {
+   "id": "*",
+   "atribut": [
+    "hilang",
+    "baru"
+   ],
+   "ledger": "D-401"
+  },
+  {
+   "dasar": true,
+   "ledger": "D-410"
+  }
+ ]
+}

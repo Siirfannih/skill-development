@@ -1,0 +1,79 @@
+{
+ "mode": "konten",
+ "stages": {
+  "suara": {
+   "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/edit/suara.wav",
+   "sha": "c23e53d9df676dc7",
+   "waktu": "2026-11-17 12:11",
+   "hulu": {},
+   "evidence": {
+    "words": {
+     "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/edit/words.json",
+     "sha": "1bfa72aaa304cb44"
+    },
+    "source_words": {
+     "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/edit/r5-source-words.json",
+     "sha": "98ac8c78eea201e7"
+    },
+    "cut_map": {
+     "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/CUT-MAP-v2.json",
+     "sha": "0fbc739ea5a803e5"
+    },
+    "voice_source": {
+     "file": "/home/irfan/Documents/Codex/2026-11-16/files-mentioned-by-the-user-dji/work/source.wav",
+     "sha": "3e594e1fef5edd74"
+    },
+    "guard_exceptions": {
+     "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/edit/guard-exceptions.json",
+     "sha": "d76c9de0d49edf07"
+    }
+   },
+   "terima_pelan": {
+    "alasan": "rekaman sendiri: sumber -19,9 LUFS, puncak ucapan wajar -1,2..-2,5 dBFS dan tiga puncak terpotong saat rekam; gain bersih maksimum +0,24 dB; tanpa limiter/kompresor/declip global; musik/SFX menyesuaikan di bawah suara (Putusan Sutradara 16 Nov)",
+    "src_lufs": -19.9,
+    "out_lufs": -19.2,
+    "peak_dbfs": -1.24,
+    "headroom_db": 0.24,
+    "gain_dibutuhkan_db": 2.2
+   }
+  },
+  "visual": {
+   "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/qc/master_gambar.mp4",
+   "sha": "2fbaa86557754b5c",
+   "waktu": "2026-11-18 06:10",
+   "hulu": {
+    "suara": "c23e53d9df676dc7"
+   }
+  },
+  "sfx": {
+   "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/cues.json",
+   "sha": "1966f67ba4095d4e",
+   "waktu": "2026-11-18 06:11",
+   "hulu": {
+    "suara": "c23e53d9df676dc7",
+    "visual": "2fbaa86557754b5c"
+   },
+   "evidence": {
+    "objects": {
+     "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/objects.json",
+     "sha": "bdadd820a390361e"
+    }
+   },
+   "ref_density": 0.0
+  },
+  "musik": {
+   "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/stem_musik_A.wav",
+   "sha": "17f8ae712583a15d",
+   "waktu": "2026-11-18 06:17",
+   "hulu": {
+    "suara": "c23e53d9df676dc7",
+    "visual": "2fbaa86557754b5c",
+    "sfx": "1966f67ba4095d4e"
+   },
+   "peran": "pengisi sandwich Aware → With Some Malice → Aware strings",
+   "alasan": "talking head personal yang cerita lalu memuncak; strings Aware masuk di jentikan jari saat dunia agen muncul",
+   "didengar": "out/tanpa-musik.mp4"
+  }
+ },
+ "dibuat": "2026-11-16 20:46"
+}

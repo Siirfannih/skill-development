@@ -13,6 +13,8 @@ for o in O0:
         o['senyap']=True;o['alasan']='rentetan tumpukan slop: dua elemen dibiarkan senyap supaya tidak >5 cue dalam 2 dtk (Lantai E24); bunyi slop tetangga (+-0,3 dtk) menutupnya'
     if o['nama'].startswith('kartu Dicatat terbang'):
         o['catatan']='audit 6: cue digeser ke frame puncak (tooltip mendarat di dock) 68,80 dtk; t builder %.3f = awal terbang'%o['t'];o['t']=68.80;o['frame']=2062
+    if o['peran']=='tulisan-tangan':
+        o['senyap']=True;o['alasan']='tulisan tangan = teks KT yang ditulis mengikuti ucapan: senyap seperti KT per kata (Lantai E24)'
     O.append(o)
 json.dump(O,open(P/'objects.json','w'),ensure_ascii=False,indent=1)
 OUT_ALL=O
@@ -34,13 +36,17 @@ ROLES={ # file, mode, pre, length, dB, fade, alasan
  'putus':dict(file=ES('User Interface, Glitch, Glitch Databend 04'),mode='onset',pre=0.01,len=0.5,db=-7,fade=0.25,why='kata putus-putus terpecah: glitch digital tipis'),
  'kacau':dict(file='Katapertama.mp3',mode='onset',pre=0.002,len=0.3,db=-8,fade=0.1,why='kata kacau (habis banget, lintas agent, kesalahan): klik glitch renyah'),
  'klik':dict(file='Enter.mp3',mode='onset',pre=0.003,len=0.19,db=-8,fade=0.05,why='kursor mengklik saran perintah (B3a): ketukan tombol tegas'),
+ 'sapa':dict(file='../Kenyset/marimba-bloop-3-188151.mp3',mode='onset',pre=0.004,len=0.45,db=-8,fade=0.15,why='tokoh menyapa lewat bubble "Hi, aku …" (D-401): bloop marimba ceria, beda dari pop objek'),
+ 'coretan':dict(file='../Kenyset/message-envoye-iphone-apple-391098.mp3',mode='onset',pre=0.004,len=0.4,db=-10,fade=0.12,why='panah goresan digambar (D-406): decit seperti spidol di permukaan licin (earshot: finger squeaking on glass); pustaka lokal tidak punya SFX spidol'),
  'penutup':dict(file='Lasertransision.mp3',mode='onset',pre=0.002,len=0.36,db=-8,fade=0.2,why='setelah kalimat terakhir: ting penutup tenang'),
 }
 import os
 RUNTUH_SHIFT=float(os.environ.get('RUNTUH_SHIFT','-0.03'))
-PRI=['runtuh','transisi-dunia','kata-hero','kertas','terverifikasi','pesan','slop','ketik','klik','objek-mendarat','kunci-slam','kinetik-cincin','putus','kacau']
+PRI=['runtuh','transisi-dunia','kata-hero','sapa','coretan','kertas','terverifikasi','pesan','slop','ketik','klik','objek-mendarat','kunci-slam','kinetik-cincin','putus','kacau']
 def role_of(o):
     p,n=o['peran'],o['nama']
+    if p=='bubble-sapa':return 'sapa'
+    if p=='coretan':return 'coretan'
     if p in('karakter','kartu-mendarat','bubble-pilihan'):return 'objek-mendarat'
     if p in('hero','slab-di-belakang-kepala','slab-di-depan'):return 'kata-hero'
     if p=='slot-opaque':return 'objek-mendarat'   # onset slot meja 3D: bunyi lembut (whoosh masuk/keluar ada di lingkaran wajah dan postingan IG; jarak whoosh >=1 dtk)
@@ -75,7 +81,7 @@ for g in groups:
     cues.append(dict(t=t,role=role,objs=[o['nama'] for o in g],lapisan=[o['lapisan'] for o in g]))
 # temuan audit 17 Nov (frame 29,97): peran yang sama dengan cue sejenis (satu peran satu file)
 for t,role,why,db,ln in ((34.731,'transisi-dunia','transisi lingkaran wajah <-> layar (audit 1, digeser +0,463 dtk ke suara R7)',None,None),(50.384,'objek-mendarat','kartu paket kedua masuk (audit 1, +0,434)',None,None),
-    (53.558,'transisi-dunia','kartu keluar (audit 2, +0,405): whoosh gain rendah',-9,None),(72.139,'transisi-dunia','zoom kartu ke wajah menuju B6 (audit 1, +0,534)',None,None),
+    (53.558,'transisi-dunia','kartu keluar (audit 2, +0,405): whoosh gain rendah',-9,None),(72.075,'transisi-dunia','zoom kartu ke wajah menuju B6 (audit 1, +0,534; R4 ronde 3: digeser ke frame cut slot f2160)',None,None),
     (28.929,'ketik','"/apple" diketik di kolom perintah (f867, audit 6): ketikan halus',-10,0.40),(30.554,'ketik','"cinematic" diketik di kolom perintah (audit 6): ketikan halus',-10,0.66),
     (21.55,'runtuh','bingkai neon jatuh (f646, audit 6): sub-drop rendah',-10,None)):
     cues.append(dict(t=t,role=role,objs=[why],lapisan=['audit'],db=db,len=ln))
@@ -84,9 +90,10 @@ for o in OUT_ALL:
     if o['nama']=='AI SLOP':cues.append(dict(t=round(o['t']+0.13,3),role='kata-hero',objs=['AI SLOP (klik penekanan, >=100 ms setelah runtuh)'],lapisan=[o['lapisan']]))
     if o['lapisan']=='O_slot b10a':pass
 for o in OUT_ALL:
-    if o['peran']=='slot-opaque':   # shot meja 3D: Claude mengetik sebelum menoleh (Irfan 17 Nov: shot dipanjangkan) -> ketikan lembut
-        import json as _j;_t0=_j.load(open('/mnt/storage-projects/skill-dev-journey/b10a/timing.json'))['start']
-        cues.append(dict(t=round(_t0+0.1,3),role='ketik',objs=['Claude mengetik di meja 3D'],lapisan=[o['lapisan']],db=-12,len=1.6))
+    if o['peran']=='slot-opaque':
+        SLOT_WHOOSH=72.075  # transisi-dunia (f2160): ketik harus >=100 ms sesudahnya (gerbang E24)   # shot meja 3D: Claude mengetik sebelum menoleh (Irfan 17 Nov: shot dipanjangkan) -> ketikan lembut
+        import json as _j;_t0=[l for l in _j.load(open(R/'lego/lego.json'))['lapisan'] if l['id']=='b10a_meja3d'][0]['t']+0.0056  # R4 ronde 2: ikut t slot (offset timing.start - slot lama 72,2055)
+        cues.append(dict(t=round(max(_t0+0.1,SLOT_WHOOSH+0.102),3),role='ketik',objs=['Claude mengetik di meja 3D'],lapisan=[o['lapisan']],db=-12,len=1.6))
 cues.sort(key=lambda c:c['t'])
 cues.append(dict(t=83.55,role='penutup',objs=['ekor setelah kalimat terakhir'],lapisan=[]))
 # render stem

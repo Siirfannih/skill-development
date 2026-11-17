@@ -42,9 +42,9 @@
     8.7
    ],
    [
-    72.139,
+    72.075,
     "transisi-dunia",
-    5.6
+    3.3
    ],
    [
     76.41,
@@ -52,15 +52,15 @@
     2.2
    ]
   ],
-  "clarity_iterations": 4,
-  "clarity_min_db": 6.65,
+  "clarity_iterations": 7,
+  "clarity_min_db": 6.6,
   "music_dip_max_db": 9.78,
   "sfx_dip_max_db": 14.0,
   "peak_after_dbfs": -1.002,
-  "peak_iterations": 2,
-  "mix_lufs": -15.75,
+  "peak_iterations": 3,
+  "mix_lufs": -15.78,
   "peak_dbfs": -1.0,
-  "music_lufs": -27.85,
+  "music_lufs": -28.02,
   "voice_max_abs_diff": 8.940696716308594e-08,
   "limiter": false
  },
@@ -102,9 +102,9 @@
     8.7
    ],
    [
-    72.139,
+    72.075,
     "transisi-dunia",
-    5.6
+    3.3
    ],
    [
     76.41,
@@ -112,15 +112,15 @@
     2.2
    ]
   ],
-  "clarity_iterations": 4,
-  "clarity_min_db": 6.65,
+  "clarity_iterations": 7,
+  "clarity_min_db": 6.6,
   "music_dip_max_db": 9.78,
   "sfx_dip_max_db": 14.0,
   "peak_after_dbfs": -1.002,
-  "peak_iterations": 2,
-  "mix_lufs": -15.79,
+  "peak_iterations": 3,
+  "mix_lufs": -15.82,
   "peak_dbfs": -1.0,
-  "music_lufs": -28.4,
+  "music_lufs": -28.57,
   "voice_max_abs_diff": 8.940696716308594e-08,
   "limiter": false
  },

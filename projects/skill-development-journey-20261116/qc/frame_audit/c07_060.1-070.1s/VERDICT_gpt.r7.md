@@ -1,0 +1,1 @@
+{"temuan":[],"tanda_otomatis":[{"frame":2023,"putusan":"bukan masalah","alasan":"Caption 'untuk meminimalisir' selesai sebelum animasi 'kesalahan'; posisi kartu tetap berkesinambungan, tanpa lompatan objek."}],"putusan":"LULUS"}

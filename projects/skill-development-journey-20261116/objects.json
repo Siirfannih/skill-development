@@ -63,18 +63,18 @@
   "lapisan": "K_Codex"
  },
  {
-  "nama": "ChatGPT,",
-  "peran": "kata-kunci-slam",
-  "t": 8.573,
+  "nama": "bubble sapaan Codex 'Hi, aku ChatGPT!'",
+  "peran": "bubble-sapa",
+  "t": 8.575,
   "frame": 257,
-  "lapisan": "T014"
+  "lapisan": "B_Codex"
  },
  {
-  "nama": "Claude,",
-  "peran": "kata-kunci-slam",
-  "t": 9.44,
+  "nama": "bubble sapaan Clawd 'Hi, aku Claude!'",
+  "peran": "bubble-sapa",
+  "t": 9.443,
   "frame": 283,
-  "lapisan": "T015"
+  "lapisan": "B_Clawd"
  },
  {
   "nama": "Gemini",
@@ -84,11 +84,11 @@
   "lapisan": "K_Gemini"
  },
  {
-  "nama": "Gemini,",
-  "peran": "kata-kunci-slam",
-  "t": 9.815,
+  "nama": "bubble sapaan Gemini 'Hi, aku Gemini!'",
+  "peran": "bubble-sapa",
+  "t": 9.81,
   "frame": 294,
-  "lapisan": "T016"
+  "lapisan": "B_Gemini"
  },
  {
   "nama": "DECISION",
@@ -343,6 +343,13 @@
   "lapisan": "O_papan ChatGPT lahir (2,5D, tajam)"
  },
  {
+  "nama": "panah goresan 'kalian lihat ini' ke papan ChatGPT",
+  "peran": "coretan",
+  "t": 58.559,
+  "frame": 1755,
+  "lapisan": "C_lihat"
+ },
+ {
   "nama": "pesan doctor.sh gagal",
   "peran": "item-ui",
   "t": 60.515,
@@ -403,7 +410,7 @@
   "peran": "kata-kunci-slam",
   "t": 67.682,
   "frame": 2028,
-  "lapisan": "T088"
+  "lapisan": "T089"
  },
  {
   "nama": "kartu Dicatat terbang ke rak skill-development",
@@ -424,7 +431,7 @@
   "peran": "kata-kunci-slam",
   "t": 70.01,
   "frame": 2098,
-  "lapisan": "T091"
+  "lapisan": "T092"
  },
  {
   "nama": "jaringan tumbuh: agen kecil membaca rak",
@@ -445,12 +452,12 @@
   "peran": "slab-di-depan",
   "t": 72.608,
   "frame": 2176,
-  "lapisan": "T095"
+  "lapisan": "T096"
  },
  {
   "nama": "slot b10a_meja3d (meja 3D, onset 'kayak gimana?')",
   "peran": "slot-opaque",
-  "t": 75.644,
+  "t": 75.645,
   "frame": 2267,
   "lapisan": "O_slot b10a"
  },
@@ -466,7 +473,7 @@
   "peran": "kata-kacau",
   "t": 78.659,
   "frame": 2357,
-  "lapisan": "T100"
+  "lapisan": "T101"
  },
  {
   "nama": "komentar 'masih kerasa AI slop'",
@@ -490,10 +497,31 @@
   "lapisan": "O_kolom Add a comment"
  },
  {
-  "nama": "skill gratis",
+  "nama": "tulisan tangan 'Comment di bawah.'",
+  "peran": "tulisan-tangan",
+  "t": 80.858,
+  "frame": 2423,
+  "lapisan": "O_tulisan tangan 'Comment di bawah.'"
+ },
+ {
+  "nama": "panah goresan ke kolom 'Add a comment'",
+  "peran": "coretan",
+  "t": 81.153,
+  "frame": 2432,
+  "lapisan": "O_panah goresan ke kolom 'Add a comment'"
+ },
+ {
+  "nama": "skill",
   "peran": "kata-kunci-slam",
   "t": 82.407,
   "frame": 2470,
-  "lapisan": "T104"
+  "lapisan": "T105"
+ },
+ {
+  "nama": "tulisan tangan 'gratis' + garis bawah",
+  "peran": "tulisan-tangan",
+  "t": 82.652,
+  "frame": 2477,
+  "lapisan": "T106"
  }
 ]

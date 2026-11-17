@@ -116,3 +116,38 @@ T["mempelajari"] = s("mempelajari"); T["publish"] = s("publish"); T["habis"] = s
 T["lintas"] = s("lintas", 56); T["claude_b4"] = s("Claude", 48.5); T["comment_w"] = s("Comment")
 T["udah"] = s("Udah", 75); T["videonya"] = s("videonya", 74); T["gimana_v"] = s("gimana", 75)
 T["kayak_v"] = s("kayak", 74.5)
+
+
+# --- POTONG ADEGAN (D-402/D-405): detik layar saat adegan baru menutup frame. Dihitung dengan rumus yang sama dengan bangun.dunia() (snap 29,97 fps). ---
+FPSO = 30000 / 1001
+
+
+def _so(t):
+    return round(t * FPSO) / FPSO
+
+
+# R3/P3 + R4b: meja 3D (slot b10a) mulai TEPAT di frame pertama setelah dunia B11 (D_RELAY) berakhir. Dunia B11 berakhir di postT0 (= sini_e disnap 30 fps).
+# Semua lapisan kini ditempatkan menurut frame MASTER (bangun.idx_t: pts dasar pasca klip 1-frame), jadi tidak ada lagi kompensasi 2 frame di sini.
+SLOT_T = _so(round(T["sini_e"] * FPS) / FPS)
+SLOT_VIS = SLOT_T
+
+
+def _potong():
+    w1 = T["dunia1"]; dur1 = round(T["b1b"] + 0.2 - w1, 2); tum = round(dur1 - 0.48, 3)
+    w3 = round((T["b3a"] - 0.1) * FPS) / FPS; dur3 = round(T["gimana"] - 0.1 - w3 + 0.75, 2); k3 = round(T["gimana"] - 0.1 - w3, 3)
+    w5s = round((T["lihat_e"] - 8 / FPS) * FPS) / FPS
+    s0 = SLOT_VIS
+    return [(_so(w1), "masuk dunia repo"), (_so(w1) + round(tum * FPS) / FPS, "kembali ke wajah dari repo"), (_so(T["decision"]), "cut decision"),
+            (_so(w3), "masuk app Claude"), (_so(w3) + round((k3 + 0.04) * FPS) / FPS, "kembali ke wajah dari app"), (_so(w5s), "masuk B11"),
+            (s0, "masuk meja 3D"), (_so(T["udah"] - 0.05), "keluar ke postingan IG")]
+
+
+POTONG = sorted(_potong())
+
+
+# Jendela transisi WIPE = lingkaran wajah menyusut/tumbuh DI ATAS latar terang (halaman repo, app Claude). Hanya itu; masuk B11 (push di footage gelap), meja 3D, dan IG
+# adalah potongan/dorong biasa. Panjang efektif = 70 % durasi gerak (heavy: lingkaran sudah menutup frame; diukur di master: T006 onset 4,32 sudah bersih).
+# Durasi gerak: Lingkar MENYUSUT 18 f / TUMBUH 14 f.
+_DUR_WIPE = {"masuk dunia repo": 18 / FPS, "kembali ke wajah dari repo": 14 / FPS, "masuk app Claude": 18 / FPS, "kembali ke wajah dari app": 14 / FPS}
+WIPE = [(p, p + 0.7 * _DUR_WIPE[nm], nm) for p, nm in POTONG if nm in _DUR_WIPE]
+TUNDA_MAKS = 0.25

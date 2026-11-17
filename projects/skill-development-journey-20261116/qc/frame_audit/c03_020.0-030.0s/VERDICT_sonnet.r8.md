@@ -1,0 +1,3 @@
+```json
+{"temuan":[],"tanda_otomatis":[{"frame":634,"putusan":"bukan masalah","alasan":"Frame 633–635 hampir identik. Gerak besar baru mulai di f641–652, saat kartu miring dan runtuh, dan itu dekat cue 'runtuh' di 21.55 dtk (f645). Tidak ada lompatan di f634."},{"frame":752,"putusan":"bukan masalah","alasan":"Kata 'template.' menghantam dengan blur di f752 dan tajam di f753. Ini efek slam yang disengaja, bertepatan dengan cue kunci-slam di 25.09 dtk (f752). Tidak ada teks yang muncul, hilang, lalu muncul lagi."},{"frame":753,"putusan":"bukan masalah","alasan":"Lanjutan slam yang sama: blur berubah jadi tajam. Posisi teks stabil dan tidak ada dua teks tajam bertumpuk. Kata 'template.' diucapkan di 25.02 dtk, jadi teks dan suara cocok."}],"putusan":"LULUS"}
+```

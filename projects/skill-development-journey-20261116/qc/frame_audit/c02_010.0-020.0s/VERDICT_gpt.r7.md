@@ -1,0 +1,1 @@
+{"temuan":[],"tanda_otomatis":[{"frame":350,"putusan":"bukan masalah","alasan":"Gerak tangan dan wajah berlanjut mulus dari frame sebelumnya; tidak ada potongan atau kejadian yang memerlukan SFX."},{"frame":413,"putusan":"bukan masalah","alasan":"Pembicara bergerak wajar tanpa lompatan kamera atau objek masuk; teks DECISION sudah menghilang melalui fade."}],"putusan":"LULUS"}

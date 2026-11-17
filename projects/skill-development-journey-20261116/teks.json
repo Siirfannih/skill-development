@@ -265,7 +265,8 @@
    1530,
    700
   ],
-  "alasan": "nama menempel tokoh Codex yang lambai",
+  "alasan": "nama tampil sebagai bubble sapaan tokoh Codex (D-401): tidak ada KT nama",
+  "sapa": "codex",
   "gelap": false
  },
  {
@@ -284,7 +285,8 @@
    650,
    540
   ],
-  "alasan": "nama menempel Claude (crab) yang melompat",
+  "alasan": "nama tampil sebagai bubble sapaan Clawd (D-401): tidak ada KT nama",
+  "sapa": "claude",
   "gelap": false
  },
  {
@@ -303,7 +305,8 @@
    1560,
    520
   ],
-  "alasan": "nama menempel bintang Gemini yang berputar",
+  "alasan": "nama tampil sebagai bubble sapaan Gemini (D-401): tidak ada KT nama",
+  "sapa": "gemini",
   "gelap": false
  },
  {
@@ -684,8 +687,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
-   770
+   1010,
+   702
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -887,7 +890,7 @@
    86,
    88
   ],
-  "teks": "Progress di dibaliknya",
+  "teks": "Progres di baliknya",
   "t": 33.327,
   "dur": 1.15,
   "peran": "R1",
@@ -944,7 +947,7 @@
    94,
    95
   ],
-  "teks": "cuman mempelajari",
+  "teks": "cuma mempelajari",
   "t": 36.458,
   "dur": 0.943,
   "peran": "R1",
@@ -1106,7 +1109,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   800
+   805
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1125,7 +1128,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   930
+   805
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1491,7 +1494,7 @@
   "gaya": "r1",
   "pos": [
    960,
-   760
+   950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1610,11 +1613,11 @@
   "id": "T084",
   "kata": [
    168,
-   170
+   169
   ],
-  "teks": "Bahkan dengan",
+  "teks": "Bahkan ChatGPT",
   "t": 63.322,
-  "dur": 1.458,
+  "dur": 1.2,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1623,15 +1626,29 @@
    950
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "buang": [
-   "chatgpt",
-   "claude",
-   "session"
-  ],
   "gelap": false
  },
  {
   "id": "T085",
+  "kata": [
+   170,
+   170
+  ],
+  "teks": "dengan",
+  "t": 64.522,
+  "dur": 0.258,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   950
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false
+ },
+ {
+  "id": "T086",
   "kata": [
    171,
    173
@@ -1655,7 +1672,7 @@
   "gelap": false
  },
  {
-  "id": "T086",
+  "id": "T087",
   "kata": [
    174,
    176
@@ -1674,7 +1691,7 @@
   "gelap": false
  },
  {
-  "id": "T087",
+  "id": "T088",
   "kata": [
    177,
    178
@@ -1693,7 +1710,7 @@
   "gelap": false
  },
  {
-  "id": "T088",
+  "id": "T089",
   "kata": [
    179,
    179
@@ -1712,7 +1729,7 @@
   "gelap": false
  },
  {
-  "id": "T089",
+  "id": "T090",
   "kata": [
    180,
    181
@@ -1731,7 +1748,7 @@
   "gelap": false
  },
  {
-  "id": "T090",
+  "id": "T091",
   "kata": [
    182,
    183
@@ -1750,7 +1767,7 @@
   "gelap": false
  },
  {
-  "id": "T091",
+  "id": "T092",
   "kata": [
    184,
    185
@@ -1769,7 +1786,7 @@
   "gelap": false
  },
  {
-  "id": "T092",
+  "id": "T093",
   "kata": [
    186,
    187
@@ -1788,7 +1805,7 @@
   "gelap": false
  },
  {
-  "id": "T093",
+  "id": "T094",
   "kata": [
    188,
    189
@@ -1807,7 +1824,7 @@
   "gelap": false
  },
  {
-  "id": "T094",
+  "id": "T095",
   "kata": [
    190,
    190
@@ -1826,7 +1843,7 @@
   "gelap": false
  },
  {
-  "id": "T095",
+  "id": "T096",
   "kata": [
    191,
    194
@@ -1850,7 +1867,7 @@
   "gelap": false
  },
  {
-  "id": "T096",
+  "id": "T097",
   "kata": [
    195,
    197
@@ -1869,7 +1886,7 @@
   "gelap": false
  },
  {
-  "id": "T097",
+  "id": "T098",
   "kata": [
    198,
    200
@@ -1888,7 +1905,7 @@
   "gelap": false
  },
  {
-  "id": "T098",
+  "id": "T099",
   "kata": [
    201,
    203
@@ -1907,7 +1924,7 @@
   "gelap": false
  },
  {
-  "id": "T099",
+  "id": "T100",
   "kata": [
    204,
    204
@@ -1926,7 +1943,7 @@
   "gelap": false
  },
  {
-  "id": "T100",
+  "id": "T101",
   "kata": [
    205,
    205
@@ -1946,7 +1963,7 @@
   "gelap": false
  },
  {
-  "id": "T101",
+  "id": "T102",
   "kata": [
    206,
    207
@@ -1965,7 +1982,7 @@
   "gelap": false
  },
  {
-  "id": "T102",
+  "id": "T103",
   "kata": [
    211,
    213
@@ -1981,10 +1998,11 @@
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true
+  "gelap": true,
+  "coret": "ig"
  },
  {
-  "id": "T103",
+  "id": "T104",
   "kata": [
    214,
    216
@@ -2003,26 +2021,45 @@
   "gelap": false
  },
  {
-  "id": "T104",
+  "id": "T105",
   "kata": [
    217,
-   218
+   217
   ],
-  "teks": "skill gratis",
+  "teks": "skill",
   "t": 82.407,
-  "dur": 0.615,
+  "dur": 0.245,
   "peran": "R2",
   "kode": "T03",
   "gaya": "r2",
   "pos": [
-   620,
+   470,
    812
   ],
   "alasan": "kata kunci hadiah",
   "gelap": false
  },
  {
-  "id": "T105",
+  "id": "T106",
+  "kata": [
+   218,
+   218
+  ],
+  "teks": "gratis",
+  "t": 82.652,
+  "dur": 0.37,
+  "peran": "R2",
+  "kode": "T03",
+  "gaya": "tulis",
+  "pos": [
+   660,
+   812
+  ],
+  "alasan": "tulisan tangan kuning + garis bawah goresan (D-406)",
+  "gelap": false
+ },
+ {
+  "id": "T107",
   "kata": [
    219,
    221

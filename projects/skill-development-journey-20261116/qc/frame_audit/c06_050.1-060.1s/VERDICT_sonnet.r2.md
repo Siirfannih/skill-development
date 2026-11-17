@@ -1,0 +1,5 @@
+```json
+{"temuan":[{"detik":53,"frame":1593,"jenis":"audio","terlihat":"Dua kartu (ChatGPT Pro 20× dan Claude Max 5×) meluncur keluar ke kanan dalam sekitar 4 frame (f1592–1596) dan hilang. Tidak ada cue SFX di sekitar 53,1–53,3 dtk. Cue terdekat adalah pop up di 50,29 dan kacau di 56,58, jadi keluarnya kartu tanpa bunyi.","usul":"Tambah SFX swoosh atau whoosh pendek di sekitar f1592 (53,12 dtk) untuk keluarnya kartu. Alternatifnya, perlambat keluarnya kartu dan beri bunyi lembut."}],
+"tanda_otomatis":[{"frame":1598,"putusan":"bukan masalah","alasan":"Frame 1598 adalah keadaan setelah kartu keluar. Kartu sudah lewat di f1596 dan pembicara hampir tidak bergerak antara f1597 dan f1598, jadi tidak ada patahan baru. Ketiadaan SFX di sini sudah dicatat sebagai temuan audio di f1593, saat kartu meluncur keluar."},{"frame":1755,"putusan":"bukan masalah","alasan":"Ini pergantian adegan yang disengaja, dari wajah (punch-in f1750–1754) ke adegan kartu putih di latar biru. Cue Woosh 'transisi-dunia' di 58,57 dtk jatuh tepat di f1755. Caption 'lihat ini.' tetap terbaca dan cocok dengan kata 'lihat ini' di 58,11–58,31."}],
+"putusan":"GAGAL"}
+```

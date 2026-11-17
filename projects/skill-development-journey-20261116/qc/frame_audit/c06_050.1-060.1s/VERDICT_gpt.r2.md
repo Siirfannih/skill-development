@@ -1,0 +1,1 @@
+{"temuan":[],"tanda_otomatis":[{"frame":1598,"putusan":"bukan masalah","alasan":"Sambungan take pembicara saat jeda menuju kata 'Dan'; tidak ada aksi objek yang memerlukan SFX."},{"frame":1755,"putusan":"bukan masalah","alasan":"Pergantian adegan disengaja ke tampilan aplikasi, disertai cue Woosh 58,57 detik yang sesuai waktunya."}],"putusan":"LULUS"}

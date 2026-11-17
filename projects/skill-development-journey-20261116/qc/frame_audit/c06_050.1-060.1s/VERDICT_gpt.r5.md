@@ -1,0 +1,1 @@
+{"temuan":[],"tanda_otomatis":[{"frame":1605,"putusan":"bukan masalah","alasan":"Gerak kepala dan tangan berlanjut wajar; tidak terlihat potongan atau aksi yang memerlukan SFX tambahan."},{"frame":1755,"putusan":"bukan masalah","alasan":"Pergantian adegan disengaja dari pembicara ke dua jendela, disertai cue Woosh pada 58,57 detik."}],"putusan":"LULUS"}

@@ -97,3 +97,57 @@ QC tambahan: skrip cek per KT (durasi tampil penuh ≥ 0,35 dtk, tidak keluar se
 ## Hasil putaran 3 (18 Nov ±00:45)
 - FINALLY di kepala ±0,8 dtk (dunia repo +0,25 dtk); VIRAL!! ±6,4 dtk dan "habis banget" ditahan seperti semula; busur 150/146 keluar sebelum nama; DECISION, "uji coba / sistem ini", "kesalahan", narasi meja rata tengah; keluar teks di tempat (tanpa naik).
 - Master 2512 f (lock visual 94c91ef3), SFX lock e279adfb, musik A/B dikunci ulang, check PASS; mix −15,75 / −15,79 / −16,0 LUFS, suara ×1,0 tanpa limiter.
+
+---
+# Putaran 4 · catatan Irfan 18 Nov (versi A saja) — audit dulu, baru perbaiki
+
+Basis: d12fd9b (`out/varian-A.mp4`, 2512 f). Cara audit: lembar kontak 4 frame/dtk seluruh video (`qc/r4-audit/sheet_*.jpg`), strip 6 frame/dtk di titik yang Irfan tunjuk, ASR ulang segmen yang teksnya diragukan, posisi lapisan dari `lego/lego.json`.
+Akar masalah bersama (#2 dan #4 Irfan + sebagian besar temuan audit): KT keluar dengan **pudar 5–7 f** sementara blok berikut sudah masuk → dua teks bertumpuk sebagai "hantu"; aturan jalur hanya melihat blok berdekatan (dy < 110 px), dan tidak ada batas potongan adegan, sehingga blok terbawa ke adegan berikutnya. Kartu 83 (Catatan pakai 18 Nov, jawaban Irfan) sudah menetapkan: masuk 2–4 f, tahan per kata, **keluar tanpa fade (potongan/mask)**.
+
+| # | Detik | Temuan | Penyebab | Perbaikan (ledger) |
+|---|---|---|---|---|
+| H1 | 34,46–34,9 | "Progress di dibaliknya" terbawa ke shot wajah, menimpa "Gimana" | blok tidak dibatasi potongan adegan (app Claude → wajah) | semua KT berakhir paling lambat di potongan adegan berikutnya (D-402) |
+| H2 | 33,3 | teks "Progress di dibaliknya" ≠ ucapan "progres di baliknya" (ASR ulang) | kata ASR ganda | teks "Progres di baliknya" (D-402) |
+| H3 | 72,05–72,3 | "di sini." terbawa ke shot meja 3D | sama dengan H1 | sama (D-402) |
+| H4 | 43,2–43,8 | "Pak." + "Ini" + "habis" bertumpuk; slab BALIK MODAL turun melewati teks dada | "Ini" di y 930, "Pak." y 800 (beda jalur); slab keluar meluncur ke bawah | "Ini" menggantikan "Pak." di tempat yang sama, "habis banget" menggantikan "Ini"; slab keluar mask di tempat (D-404) |
+| H5 | 13,5 · 18,25 · 19,25 · 28,0 · 41,75 · 44,5 · 54,0–54,25 · 64,75 · 69,5–70,0 · 78,25 | blok lama memudar sambil blok baru masuk → kata hantu bertumpuk | keluar pudar 5–7 f (`gayaKeluar`) | keluar = potongan tepat di frame blok berikut masuk; satu narasi per waktu (D-405, kartu 83) |
+| H6 | 58,4–58,9 | "Kayak yang" + "kalian lihat" dua baris bertumpuk di atas deret kartu agen (B11) | dua blok di jalur pita bawah, aturan jalur dy < 110 tidak menangkap | satu narasi per waktu; teks tidak menimpa deret kartu (D-405) |
+| H7 | 8,6–9,2 | "ChatGPT," masuk dengan slam 2,0× + blur → hantu besar menutupi lengan Codex | slam R2 untuk nama | nama diganti bubble sapaan tokoh (D-401) |
+| H8 | 4,25–4,5 | kepala Clawd terpotong tepi atas saat lingkaran wajah membesar | Clawd melompat ke rambut di koordinat lingkaran | Clawd tetap di dalam margin aman 5 % selama lingkaran membesar (D-405, Lantai C16) |
+| H9 | 4,3 | "juga." pudar-blur di atas wajah saat lingkaran membesar | keluar pudar | ikut H1/H5: potong di awal transisi (D-405) |
+| H10 | 36,4 | "cuman" | teks ASR | "cuma" (D-403) |
+| H11 | 81 | "Comment di bawah." tanpa penunjuk ke kolom komentar | — | tulisan tangan + panah ke "Add a comment…" (D-406) |
+
+Dibiarkan (sudah disetujui, tidak dikeluhkan): VIRAL!! + panah merah slop, AI SLOP, kartu 20×/5×, B11 papan, shot Blender, IG + komentar. Masuk slab/FINALLY/DECISION tidak diubah (pelajaran putaran 2: jangan ubah gerak yang disetujui secara global); hanya cara KELUARnya yang memudar diganti mask (kartu 83).
+
+## QC Sutradara atas REPORT-R4-visual (strip + lembar qc/r4/) — dikembalikan ke pekerja
+- Q1 · 8,5–11,9 · bubble sapaan terlalu kecil: tinggi huruf ±40 px @1080 (di HP ±8 px) → perbesar ±1,45× (huruf 60–64 px), jarak antar-bubble ≥ 24 px, tetap di margin 5 %.
+- Q2 · 81,0–81,6 · "Comment di bawah." + panah dipotong di 81,6 (hanya ±0,4 dtk utuh) karena jalur narasi; tulisan tangan mulai 0,2 dtk setelah kata → mulai di onset+2 f, tahan minimal mulai + 0,25 + 0,3×3 (±81,95).
+- Q3 · 34,46–34,65 · "Gimana" muncul pucat di atas jendela putih selama lingkaran wajah membesar → blok yang onsetnya jatuh di dalam transisi wipe ditunda sampai wipe menutup (≤ 0,25 dtk), atau dimask ke lingkaran.
+- Diterima: Pak./Ini/habis (satu per waktu), panah B11, "gratis", tidak ada hantu pudar di 9 lembar, B11 emote, Gemini astroid warna merek.
+- QC ronde 2 (Sutradara): Q1 bubble huruf 60 px (1,25×; 1,45× tidak muat di margin), Q2 coretan IG 80,86–82,01, Q3 lima blok ditunda sampai wipe menutup (≤0,23 dtk) — DITERIMA. Visual dikunci untuk fase audio.
+
+## Putusan Sutradara atas audit frame R4 (Codex + Sonnet buta, 81/84 dtk sepakat bersih, 0 disepakati, 4 perlu putus)
+- P1 · 38,4 f1150 (Codex) · ASLI: keluar mask hero WORKFLOW-NYA tampil 6 f penuh lalu 1 f irisan garis horizontal lalu hilang = terbaca glitch, bukan sapuan. Perbaikan: mask keluar = sapuan bersih satu arah, terlihat ≥ 4 f berurutan; berlaku semua hero yang keluar dengan mask (FINALLY, SELESAI, DECISION, AI SLOP, WORKFLOW-NYA, BALIK MODAL, LINTAS AGENT, 100% FULL AI, busur).
+- P2 · 59,7 f1788 (Sonnet) · DISMISS: "ChatGPT" tampil sebagai label kartu node B11; KT kedua = kata ganda (Lantai A3). Putusan sama dengan ronde 9 basis.
+- P3 · 72,1 f2162–2165 (Codex) · ASLI (sudah ada di basis, terlewat ronde lama): wajah layar penuh menyelip 4 f antara B11 dan meja 3D; "di sini." ikut menyeberang. Perbaikan: meja 3D mulai tepat di frame B11 berakhir (tanpa frame wajah), "di sini." berakhir di potongan itu.
+- P4 · 80,0 f2399 (Codex) · ASLI: "gak? Atau" bertahan sampai ±80,06 sementara "masih kerasa AI?" sudah diucapkan sejak 79,55 dan tampil sebagai komentar IG. Perbaikan: "gak? Atau" berakhir di onset "masih" + 2 f (komentar membawa kalimat berikutnya).
+
+## Putusan Sutradara atas audit frame R4 ronde 2 (79/84 dtk sepakat; 1 disepakati, 5 perlu putus)
+- A1 · 76,8 f2303 (DISEPAKATI) · ASLI: "Udah" tampil 76,88, diucapkan 76,46. Q3 menunda T098 seolah ada wipe, padahal meja 3D → wajah di 76,46 adalah potongan biasa. Perbaikan: T098 di onset + 2 f.
+- A2 · 11,9 f357 (Sonnet) · ASLI: tepat 1 frame tiga tokoh + bubble + "sebuah" hilang lalu tokoh muncul lagi di f358 (cut decision). Perbaikan: tidak ada frame kosong; tokoh terus tampil sampai melompat pergi, bubble pop-out selesai sebelum/di cut tanpa celah.
+- A3 · 72,0 f2157→2158 (Codex) · ASLI: papan B11 membesar mendadak 1 frame (sambungan segmen post D_RELAY). Perbaikan: gerak kontinu sampai f2161, atau tahan tanpa lompatan.
+- D1 · 29,2 f874 (Sonnet) · DISMISS: "apple style … edit" tampil sebagai ketikan "/apple-style" di kolom app Claude; KT kedua = kata ganda (A3), sama dengan basis.
+- D2 · 34,8 f1043 (Codex) · DISMISS: tunda ≤ 0,25 dtk dari awal blok saat lingkaran wajah menutup frame (Q3, disengaja, agar teks tidak pucat di atas jendela putih).
+- D3 · 38,1 f1142 (Codex) · DISMISS: potongan footage dari edit suara terkunci (batas klip dasar 38,105 = akhir kalimat "workflow-nya."), sama dengan basis.
+- 18 Nov · temuan pekerja 4b (diterima Sutradara, D-402): dua klip dasar 1-frame (f625, f1292) menggandakan pts → footage wajah tertinggal 1 f setelah f626 dan 2 f setelah f1293 (sudah ada sejak basis). Ronde 4c memperbaiki dasar() supaya pts = n/29,97 di seluruh video.
+
+## Putusan Sutradara atas audit frame R4 ronde 3 (81/84 dtk sepakat bersih; 0 disepakati, 3 perlu putus)
+- B1 · 63,7 f1910 (Sonnet) · ASLI (sudah ada di basis): "ChatGPT" (kata 169, 63,61–64,34) diucapkan tanpa tampil di mana pun; kartu aktif saat itu milik Claude, label ChatGPT hanya node kecil. Beda dengan 59,7 (kartu ChatGPT sedang fokus). Perbaikan: blok narasi "Bahkan ChatGPT" (Lantai A1).
+- B2 · 73,9 f2214 (Sonnet) · DISMISS: "pakai" sengaja tidak ditampilkan di 100% FULL AI (Irfan 17 Nov, DECISIONS).
+- B3 · 83,8 f2511 (Codex) · ASLI: frame terakhir kartu IG hilang dan wajah memenuhi layar 1 frame (D_IG berakhir 1 f sebelum akhir). Perbaikan: dunia IG menutup sampai frame 2511.
+
+## Hasil putaran 4 (18 Nov ±06:35) — render final 1 dari 3
+- `out/varian-A_r4-final-1.mp4` lewat `render.sh lego` (semua gerbang: revisi_cek, audio check order-A, resep, motion_lint mode revisi F27, still/sanding/JURI, draft, audit frame 9/9 LULUS). 2512 f 29,97, 83,817 dtk, AAC 48 kHz; audio lag 0 sampel vs mix_A (korelasi 0,9995); PSNR vs master teraudit rata-rata 50,3 dB, minimum 46,6 dB; decode bersih. Diunggah ke Drive "Claude edit/2026-11-16 — Siirfan — Di Balik Skill Development/varian-A_r4-final-1.mp4" (79 264 789 byte, cocok).
+- Pemeriksaan pasca-render (Sutradara, lembar 4 fps seluruh final + audit dua model atas frame identik): tidak ada kesalahan terlewat → render final 2 dan 3 tidak dipakai (D-407: tidak mengarang kesalahan).
+- Kesalahan yang tertangkap SEBELUM final (tidak masuk hitungan 3 render): audit frame 4 ronde menemukan 9 hal asli yang lolos QC still/strip Sutradara: mask keluar 1 f terbaca glitch, 4 f wajah menyelip B11→meja (sejak basis), "gak? Atau" telat, "Udah" telat 0,4 dtk, kedip 1 f di cut decision, papan B11 melompat 1 f, teks 1 f di frame cut, footage wajah tertinggal 1–2 f dari suara (sejak basis, klip dasar 1-frame), "ChatGPT" 63,6 tidak tampil (sejak basis). Kenapa lolos QC Sutradara: lembar 4–6 fps tidak memperlihatkan peristiwa 1–4 frame, dan sinkron footage-suara tidak diukur sebelumnya (kini `lego/base_pts.py` + `cek_master.py`).

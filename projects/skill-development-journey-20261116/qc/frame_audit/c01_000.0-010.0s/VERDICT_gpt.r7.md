@@ -1,0 +1,1 @@
+{"temuan":[],"tanda_otomatis":[{"frame":93,"putusan":"bukan masalah","alasan":"Perubahan f92→93 berasal dari masuknya kata “SELESAI”, sesuai ucapan dan cue SFX 3,11 detik. Teks terbaca di area putih; gerak wajah tetap berlanjut wajar."}],"putusan":"LULUS"}

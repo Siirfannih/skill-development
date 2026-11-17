@@ -1,0 +1,1 @@
+{"temuan":[],"tanda_otomatis":[],"putusan":"LULUS"}

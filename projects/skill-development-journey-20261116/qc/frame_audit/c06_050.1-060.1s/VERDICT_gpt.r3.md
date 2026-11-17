@@ -1,0 +1,1 @@
+{"temuan":[],"tanda_otomatis":[{"frame":1605,"putusan":"bukan masalah","alasan":"Gerak pembicara berlanjut wajar tanpa transisi baru. Keluarnya kartu sebelumnya sudah diiringi whoosh pada 53,15 dtk."},{"frame":1755,"putusan":"bukan masalah","alasan":"Pergantian adegan disengaja dari pembicara ke tampilan aplikasi, dengan cue whoosh pada 58,57 dtk."}],"putusan":"LULUS"}

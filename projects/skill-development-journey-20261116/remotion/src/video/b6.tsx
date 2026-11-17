@@ -5,6 +5,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {move} from '../lib/curves';
 import {Fonts} from './bersama/Fonts';
 import {FONT, INK} from './bersama/tema';
+import {BoilDefs, PanahGoresan, TulisTangan, type PanahProps, type TulisProps} from './bersama/Coretan';
 
 export type KomentarProps = {nama: string; teks: string; sisi: 'kiri' | 'kanan'; warna: string; durasi: number; w: number; h: number; size: number};
 
@@ -39,7 +40,9 @@ import {OffthreadVideo, staticFile, useVideoConfig} from 'remotion';
 import {siInstagram} from 'simple-icons';
 import {CURVE} from '../lib/curves';
 
-export type IGProps = {durasi: number; t0: number; z0: number; kunci: {k1: number; k2: number; field: number}};
+/** coretan di dalam dunia IG (ikut kamera): tulisan tangan + panah ke kolom komentar; tampil [awal, akhir) detik relatif lapisan, keluar = potongan */
+export type CoretanIG = {awal: number; akhir: number; tulis: TulisProps; panah: PanahProps};
+export type IGProps = {durasi: number; t0: number; z0: number; kunci: {k1: number; k2: number; field: number}; coret?: CoretanIG; rev?: number};
 
 const IGC = {ink: '#262626', abu: '#737373', garis: '#DBDBDB', biru: '#0095F6'};
 const ig = (s: number, w = 400, c = IGC.ink): React.CSSProperties => ({fontFamily: FONT.inter, fontSize: s, fontWeight: w, color: c});
@@ -84,7 +87,7 @@ const kameraIG = (t: number, K: IGProps['kunci']) => {
   return {s: s0 + (s1 - s0) * k, x: x0 + (x1 - x0) * k, y: y0 + (y1 - y0) * k};
 };
 
-const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f}) => {
+const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret}) => {
   const {fps} = useVideoConfig();
   const t = f / fps;
   const F = (s: number) => Math.round(s * fps);
@@ -142,6 +145,10 @@ const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f}) => {
         <div style={{position: 'absolute', left: (rw - 1920 * vs) / 2, top: (rh - 1080 * vs) * 0.45, width: 1920, height: 1080, transformOrigin: '0 0', transform: `scale(${vs})`}}>
           <OffthreadVideo src={staticFile('video/wajah-proxy.mp4')} startFrom={Math.round(t0 * fps)} muted style={{width: 1920, height: 1080}}/></div>
       </div>
+      {coret && f >= F(coret.awal) && f < F(coret.akhir) && <>
+        <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}><BoilDefs id="boil-ig" f={f}/><PanahGoresan id="boil-ig" {...coret.panah}/></svg>
+        <TulisTangan id="boil-ig-t" {...coret.tulis}/>
+      </>}
     </div>
   </AbsoluteFill>;
 };

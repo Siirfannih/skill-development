@@ -9,6 +9,9 @@ import {Slop, type SlopProps} from './b2';
 import {AppClaude, type AppProps} from './b3';
 import {Kartu, type KartuProps, KARTU} from './b4';
 import {RelayDunia, type RelayProps} from './b5';
+import {BubbleSapa, type BubbleProps} from './bersama/BubbleSapa';
+import {ModelGemini} from './bersama/BubbleModelGemini';
+import {Coretan, type CoretanProps} from './bersama/Coretan';
 import {Komentar, type KomentarProps, DuniaIG, type IGProps, Tanda} from './b6';
 
 type Dim = {w?: number; h?: number; durasi?: number};
@@ -39,5 +42,10 @@ export const VideoRoot: React.FC = () => <>
     defaultProps={{durasi: 7.5, t0: 75.9, z0: 1.04, kunci: {k1: 3.1, k2: 4.1, field: 4.4}} satisfies IGProps} calculateMetadata={meta as never}/>
   <Composition id="Tanda" component={Tanda as React.FC<any>} fps={30} width={230} height={230} durationInFrames={40}
     defaultProps={{durasi: 1.3, w: 230, h: 230}} calculateMetadata={meta as never}/>
+  <Composition id="Bubble" component={BubbleSapa as React.FC<any>} fps={30} width={500} height={300} durationInFrames={90}
+    defaultProps={{baris: [[{t: 'Hi, aku'}], [{t: 'Claude', warna: '#D97757'}, {t: '!'}]], ekor: 'kiri', bw: 300, bh: 150, size: 48, w: 460, h: 262, durasi: 3} satisfies BubbleProps} calculateMetadata={meta as never}/>
+  <Composition id="Coretan" component={Coretan as React.FC<any>} fps={30} width={800} height={300} durationInFrames={90}
+    defaultProps={{w: 800, h: 300, durasi: 3} satisfies CoretanProps} calculateMetadata={meta as never}/>
+  <Composition id="ModelGemini" component={ModelGemini} fps={30} width={1920} height={1080} durationInFrames={30}/>
   <Composition id="LembarPixel" component={LembarPixel} fps={30} width={1740} height={980} durationInFrames={30}/>
 </>;

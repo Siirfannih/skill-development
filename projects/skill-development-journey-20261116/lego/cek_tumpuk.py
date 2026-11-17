@@ -27,6 +27,12 @@ for i, e in lego.items():
     dur[i] = float(r.stdout.strip() or 0)
 
 
+dur = {i: d - 1 / 30 for i, d in dur.items()}
+_w = json.load(open(os.path.join(P, "lego/tampil_rencana.json")))
+for i, (a_, b_) in _w.items():      # R4b: tampil di master = rencana frame
+    if i in lego: lego[i] = dict(lego[i], t=a_ / F); dur[i] = (b_ - a_) / F
+
+
 def pw(keys, t):
     keys = sorted(keys)
     if t <= keys[0][0]: return keys[0][1]
@@ -85,8 +91,8 @@ def char_box(i, t):
     e, p = lego[i], lap[i]["props"]; u = p["u"]; x, y = pos(e, t)
     w, h = math.ceil(22 * u) + 80, math.ceil(20 * u) + 80
     fx, fy = x + w / 2, y + 17 * u + 40
-    half = 7.2 * u if p["model"] == "claude" else 5.6 * u
-    top = fy - (12.4 * u if p["model"] == "claude" else 13.4 * u)      # tinggi tubuh + lompat + emote
+    half = {"claude": 7.2, "codex": 5.6, "gemini": 8.8}[p["model"]] * u
+    top = fy - {"claude": 12.4, "codex": 13.4, "gemini": 20.0}[p["model"]] * u      # tinggi tubuh + lompat + emote (Gemini logo asli 17 sel)
     return (fx - half, top, fx + half, fy + 0.6 * u)
 
 
@@ -99,6 +105,22 @@ KT = [i for i in lego if i in lap and lap[i]["comp"] == "KT" and lap[i]["props"]
 SL = [i for i in lego if i in lap and lap[i]["comp"] == "Slop"]
 KOM = [i for i in lego if i in lap and lap[i]["comp"] == "Komentar"]
 CH = [i for i in lego if i in lap and lap[i]["comp"] == "Karakter"]
+BU = [i for i in lego if i in lap and lap[i]["comp"] == "Bubble"]
+CO = [i for i in lego if i in lap and lap[i]["comp"] == "Coretan"]
+BM = 56
+def bu_box(i, t):
+    e, p = lego[i], lap[i]["props"]; x, y = pos(e, t)
+    k = p.get("k", 1)
+    return (x + BM * k, y + BM * k, x + (BM + p["bw"]) * k, y + (BM + p["bh"]) * k)
+def co_box(i, t):
+    """kotak Coretan: tulisan = kotak teks; panah = bbox titik kontrol (hanya untuk irisan dengan karakter/bubble)"""
+    e, p = lego[i], lap[i]["props"]; x, y = pos(e, t)
+    if "tulis" in p:
+        tl = p["tulis"]; w = wem(" ".join(k["t"] for k in tl["kata"]), "poppins-latin-700-normal.woff2") * tl["size"] * 0.9
+        return (x + tl["x"], y + tl["y"] + tl["size"] * 0.1, x + tl["x"] + w, y + tl["y"] + tl["size"] * 1.1)
+    import re
+    n = [float(v) for v in re.findall(r"-?\d+\.?\d*", p["panah"]["d"])]; xs, ys = n[0::2], n[1::2]
+    return (x + min(xs), y + min(ys), x + max(xs), y + max(ys))
 bad = {}
 T = 0.0
 while T < W.DURASI:
@@ -120,6 +142,26 @@ while T < W.DURASI:
                 if tahan_i and t < lego[j]["t"] + 2.5 / 30: continue
                 if j > i and gap(b, b2) < 0 + 1e-9 and lap[i]["props"].get("gaya") != "viral" and lap[j]["props"].get("gaya") != "viral":
                     bad.setdefault(("KT-KT", i, j), t)
+        for i in BU:
+            if not act(i): continue
+            b = bu_box(i, t)
+            if b[0] < 96 or b[2] > 1824 or b[1] < 54 or b[3] > 1026: bad.setdefault(("bubble-margin", i, i), t)
+            for j in BU:
+                if j > i and act(j) and gap(b, bu_box(j, t)) < 24: bad.setdefault(("bubble-bubble", i, j), t)
+            for j in KT:
+                if act(j) and (kb := kt_box(j, t)) and gap(b, kb) < 4: bad.setdefault(("bubble-KT", i, j), t)
+            for j in CH:
+                if act(j) and j.split("_")[1][:5] != i.split("_")[1][:5] and gap(b, char_box(j, t)) < 8: bad.setdefault(("bubble-karakter", i, j), t)
+        for i in CO:
+            if not act(i): continue
+            b = co_box(i, t)
+            for j in BU:
+                if act(j) and gap(b, bu_box(j, t)) < 8: bad.setdefault(("coretan-bubble", i, j), t)
+            for j in CH:
+                if act(j) and gap(b, char_box(j, t)) < 8: bad.setdefault(("coretan-karakter", i, j), t)
+            if "tulis" in lap[i]["props"]:
+                for j in KT:
+                    if act(j) and (kb := kt_box(j, t)) and gap(b, kb) < 4: bad.setdefault(("tulisan-KT", i, j), t)
     T += 0.1
 # ---- UI postingan Instagram (D_IG) sebagai objek (audit ronde 6 V5): KT putih harus tetap di dalam media hitam/video (x 180..1140 pada kamera 1,0), tidak meluber ke panel putih/ikon
 def _bz(x1, y1, x2, y2):
@@ -152,7 +194,7 @@ if "D_IG" in lego and "D_IG" in lap:
                 b = kt_box(i, tt)
                 if b and (b[0] < sx0 + 8 or b[2] > sx1 - 8): bad.setdefault(("KT-UI-IG", i, "D_IG"), tt)
         tt += 0.1
-print(f"KT {len(KT)} · slop {len(SL)} · karakter {len(CH)} · irisan: {len(bad)}")
+print(f"KT {len(KT)} · slop {len(SL)} · karakter {len(CH)} · bubble {len(BU)} · coretan {len(CO)} · irisan: {len(bad)}")
 for k, t in sorted(bad.items(), key=lambda x: x[1])[:40]:
-    print(f"  {t:6.2f} dtk  {k[0]:12} {k[1]} ({lap[k[1]]['props']['teks'][:18]}) x {k[2]}")
+    print(f"  {t:6.2f} dtk  {k[0]:12} {k[1]} ({str(lap[k[1]]['props'].get('teks', ''))[:18]}) x {k[2]}")
 sys.exit(1 if bad else 0)

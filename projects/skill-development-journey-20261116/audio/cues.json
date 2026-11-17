@@ -105,41 +105,41 @@
   "mode": "onset"
  },
  {
-  "t": 8.573,
-  "peran": "kunci-slam",
-  "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [ChatGPT,]",
-  "file": "Kinetictypography(gunakansecaraacak).mp3",
-  "dengar": "a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4)",
-  "dB": -6,
+  "t": 8.575,
+  "peran": "sapa",
+  "alasan": "tokoh menyapa lewat bubble \"Hi, aku …\" (D-401): bloop marimba ceria, beda dari pop objek [bubble sapaan Codex 'Hi, aku ChatGPT!']",
+  "file": "../Kenyset/marimba-bloop-3-188151.mp3",
+  "dengar": "a liquid bloop (z +2.6), a notification ding (z +2.6), a success chime (z +2.5)",
+  "dB": -8,
   "terikat_ke_visual": [
-   "T014"
+   "B_Codex"
   ],
   "offset_puncak_s": 0.004,
   "mode": "onset"
  },
  {
-  "t": 9.494,
-  "peran": "objek-mendarat",
-  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [Claude, + Gemini]",
-  "file": "pop up.mp3",
-  "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
-  "dB": -7,
+  "t": 9.495,
+  "peran": "sapa",
+  "alasan": "tokoh menyapa lewat bubble \"Hi, aku …\" (D-401): bloop marimba ceria, beda dari pop objek [bubble sapaan Clawd 'Hi, aku Claude!' + Gemini]",
+  "file": "../Kenyset/marimba-bloop-3-188151.mp3",
+  "dengar": "a liquid bloop (z +2.6), a notification ding (z +2.6), a success chime (z +2.5)",
+  "dB": -8,
   "terikat_ke_visual": [
-   "T015",
+   "B_Clawd",
    "K_Gemini"
   ],
   "offset_puncak_s": 0.004,
   "mode": "onset"
  },
  {
-  "t": 9.815,
-  "peran": "kunci-slam",
-  "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [Gemini,]",
-  "file": "Kinetictypography(gunakansecaraacak).mp3",
-  "dengar": "a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4)",
-  "dB": -6,
+  "t": 9.81,
+  "peran": "sapa",
+  "alasan": "tokoh menyapa lewat bubble \"Hi, aku …\" (D-401): bloop marimba ceria, beda dari pop objek [bubble sapaan Gemini 'Hi, aku Gemini!']",
+  "file": "../Kenyset/marimba-bloop-3-188151.mp3",
+  "dengar": "a liquid bloop (z +2.6), a notification ding (z +2.6), a success chime (z +2.5)",
+  "dB": -8,
   "terikat_ke_visual": [
-   "T016"
+   "B_Gemini"
   ],
   "offset_puncak_s": 0.004,
   "mode": "onset"
@@ -608,6 +608,19 @@
   "mode": "onset"
  },
  {
+  "t": 58.559,
+  "peran": "coretan",
+  "alasan": "panah goresan digambar (D-406): decit seperti spidol di permukaan licin (earshot: finger squeaking on glass); pustaka lokal tidak punya SFX spidol [panah goresan 'kalian lihat ini' ke papan ChatGPT]",
+  "file": "../Kenyset/message-envoye-iphone-apple-391098.mp3",
+  "dengar": "a finger squeaking on glass (z +2.9), a glass ting (z +2.7), a kalimba note (z +2.6)",
+  "dB": -10,
+  "terikat_ke_visual": [
+   "C_lihat"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
   "t": 60.515,
   "peran": "pesan",
   "alasan": "pesan/amplop agen masuk (B5b): ding notifikasi lembut [pesan doctor.sh gagal]",
@@ -695,7 +708,7 @@
   "dB": -7,
   "terikat_ke_visual": [
    "O_kartu Dicatat ditulis",
-   "T088"
+   "T089"
   ],
   "offset_puncak_s": 0.004,
   "mode": "onset"
@@ -734,7 +747,7 @@
   "dengar": "a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4)",
   "dB": -6,
   "terikat_ke_visual": [
-   "T091"
+   "T092"
   ],
   "offset_puncak_s": 0.004,
   "mode": "onset"
@@ -754,9 +767,9 @@
   "mode": "onset"
  },
  {
-  "t": 72.139,
+  "t": 72.075,
   "peran": "transisi-dunia",
-  "alasan": "dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian [zoom kartu ke wajah menuju B6 (audit 1, +0,534)]",
+  "alasan": "dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian [zoom kartu ke wajah menuju B6 (audit 1, +0,534; R4 ronde 3: digeser ke frame cut slot f216]",
   "file": "Woosh.mp3",
   "dengar": "a fast whoosh (z +4.7), a soft air whoosh (z +4.1), a deep cinematic whoosh (z +3.8)",
   "dB": -4,
@@ -767,7 +780,7 @@
   "mode": "peak"
  },
  {
-  "t": 72.311,
+  "t": 72.181,
   "peran": "ketik",
   "alasan": "\"/\" diketik di kolom perintah (B3a): ketikan keyboard pendek [Claude mengetik di meja 3D]",
   "file": "Keyboardtyping.mp3",
@@ -787,13 +800,13 @@
   "dengar": "an error buzz (z +3.1), a digital glitch (z +2.6), a crisp interface click (z +2.4)",
   "dB": -5,
   "terikat_ke_visual": [
-   "T095"
+   "T096"
   ],
   "offset_puncak_s": 0.0,
   "mode": "onset"
  },
  {
-  "t": 75.644,
+  "t": 75.645,
   "peran": "objek-mendarat",
   "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [slot b10a_meja3d (meja 3D, onset 'kayak gimana?')]",
   "file": "pop up.mp3",
@@ -826,7 +839,7 @@
   "dengar": "a digital glitch (z +2.6), a stutter glitch transition (z +2.6), a crisp interface click (z +2.4)",
   "dB": -8,
   "terikat_ke_visual": [
-   "T100"
+   "T101"
   ],
   "offset_puncak_s": 0.0,
   "mode": "onset"
@@ -871,14 +884,27 @@
   "mode": "onset"
  },
  {
+  "t": 81.153,
+  "peran": "coretan",
+  "alasan": "panah goresan digambar (D-406): decit seperti spidol di permukaan licin (earshot: finger squeaking on glass); pustaka lokal tidak punya SFX spidol [panah goresan ke kolom 'Add a comment']",
+  "file": "../Kenyset/message-envoye-iphone-apple-391098.mp3",
+  "dengar": "a finger squeaking on glass (z +2.9), a glass ting (z +2.7), a kalimba note (z +2.6)",
+  "dB": -10,
+  "terikat_ke_visual": [
+   "O_panah goresan ke kolom 'Add a comment'"
+  ],
+  "offset_puncak_s": 0.004,
+  "mode": "onset"
+ },
+ {
   "t": 82.407,
   "peran": "kunci-slam",
-  "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [skill gratis]",
+  "alasan": "kata kunci slam tampil (bukan per kata): tick lembut [skill]",
   "file": "Kinetictypography(gunakansecaraacak).mp3",
   "dengar": "a squishy wet squelch (z +3.0), a scroll wheel tick (z +2.7), ice cubes in a glass (z +2.4)",
   "dB": -6,
   "terikat_ke_visual": [
-   "T104"
+   "T105"
   ],
   "offset_puncak_s": 0.004,
   "mode": "onset"

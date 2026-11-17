@@ -1,0 +1,3 @@
+```json
+{"temuan":[],"tanda_otomatis":[{"frame":350,"putusan":"bukan masalah","alasan":"Ini hanya pergantian kata teks layar ('itu bisa ngebuat' ke 'sebuah', kata 'sebuah' diucapkan di 11,65 dtk). Wajah dan kamera tidak melompat, gerak tangan pembicara halus, dan elemen layar tidak berubah mendadak, jadi tidak perlu SFX."},{"frame":413,"putusan":"bukan masalah","alasan":"Ini awal kata 'Karena' (13,76 dtk). Pergantian teks dari 'gitu.' ke 'Karena' terjadi halus, 'DECISION' sudah memudar lebih dulu di f405-410, dan wajah serta maskot stabil. Tidak ada cut atau gerak besar yang butuh cue."}],"putusan":"LULUS"}
+```

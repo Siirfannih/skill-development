@@ -44,11 +44,11 @@ const Isi: React.FC<LingkarProps & {fr: number}> = ({t0, tumbuhAt, langsung, fr,
     const k = move(fr, 2, 16, 'heavy');                      // pindah bahu -> rambut bersamaan lingkaran menyusut
     const X = c.x0 + (c.x1 - c.x0) * k, Y = c.y0 + (c.y1 - c.y0) * k;
     const {w, h} = kotak(c.u);
-    const b = 1 + ((c.besar ?? 1) - 1) * k;               // membesar sedikit saat di dalam lingkaran supaya terbaca (skala footage 0,62)
+    const b = 1 + ((c.besar ?? 1) - 1) * k * (1 - grow);               // membesar sedikit saat di dalam lingkaran supaya terbaca (skala footage 0,62)
     clawdEl = <div style={{position: 'absolute', left: X - w / 2, top: Y - (17 * c.u + 40), width: w, height: h, transformOrigin: `${w / 2}px ${17 * c.u + 40}px`, transform: `scale(${b})`}}>
       <KarakterLayer model="claude" u={c.u} durasi={c.sampai + 0.1} seed={1} kamar
         emosi={[[0, 'happy'], [0.6, 'excited'], [1.2, 'happy']] as never} sudut={[[0, -0.125], [0.5, -0.125], [0.9, 0.125]]}
-        lompat={[[0.07, 0.6, 3.2]]}/>
+        lompat={[[0.07, 0.6, 3.2]]} emote={[[999, 'seru', 0.1]]}/>
     </div>;
   }
   return <AbsoluteFill style={{background: 'transparent'}}>

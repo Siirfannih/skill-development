@@ -1,0 +1,5 @@
+```json
+{"temuan":[{"detik":16,"frame":483,"jenis":"kedip","terlihat":"Kotak outline cyan muncul hanya 2 frame (f483-484) di sekitar wajah saat kata 'ngedit'. Ukurannya membesar lalu langsung hilang, jadi terbaca sebagai kedip glitch, bukan elemen yang bisa dibaca. Cue SFX di 16.17 ada, tapi visualnya terlalu singkat.","usul":"Perpanjang kotak jadi sekitar 6-10 frame dengan fade-out, atau hapus. Bila ingin tetap kilat glitch, pasangkan jelas dengan cue 16.17 dan beri satu frame hold."}],
+ "tanda_otomatis":[{"frame":350,"putusan":"bukan masalah","alasan":"Tidak ada potongan atau gerak besar di f349-351. Pembicara, teks 'workflow AI model' dan maskot kontinu, hanya gerak tangan biasa. Subtitle 'sebuah' muncul f352 sesuai ucapan 11.65."},{"frame":413,"putusan":"bukan masalah","alasan":"Tidak ada peristiwa visual di f412-414. Hanya gerak wajah dan tangan pembicara, subtitle 'gitu.' stabil. Maskot baru mulai bergerak keluar sekitar f416, dan itu gerak halus yang tidak butuh SFX."}],
+ "putusan":"GAGAL"}
+```

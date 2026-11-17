@@ -1,0 +1,1 @@
+{"temuan":[],"tanda_otomatis":[{"frame":350,"putusan":"bukan masalah","alasan":"Gerakan tangan dan wajah berlanjut wajar; tidak ada potongan atau benturan yang memerlukan SFX."},{"frame":413,"putusan":"bukan masalah","alasan":"Perubahan ekspresi dan gestur alami; tidak ada pergantian adegan atau objek masuk yang memerlukan SFX."}],"putusan":"LULUS"}

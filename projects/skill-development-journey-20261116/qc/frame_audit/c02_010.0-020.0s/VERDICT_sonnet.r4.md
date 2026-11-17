@@ -1,0 +1,3 @@
+```json
+{"temuan":[],"tanda_otomatis":[{"frame":350,"putusan":"bukan masalah","alasan":"Tidak ada potongan atau gerak besar. Shot kamera sama dan wajah mulus dari f349 ke f351. Yang berubah hanya teks bawah: 'itu bisa ngebuat' habis di f350, lalu 'sebuah' muncul di f352 (kata diucapkan 11,65 dtk). Cue SFX kinetik 12,00 dtk cocok dengan masuknya 'decision' di f362 (12,07 dtk)."},{"frame":413,"putusan":"bukan masalah","alasan":"Tidak ada potongan. Hanya pergantian teks 'dalam ngebuat video' menjadi 'gitu.' (f408) lalu 'gitu. Karena' di f416, sesuai kata 13,51 dan 13,76 dtk. Maskot dan tangan bergerak wajar tanpa lompatan. Tidak butuh bunyi."}],"putusan":"LULUS"}
+```

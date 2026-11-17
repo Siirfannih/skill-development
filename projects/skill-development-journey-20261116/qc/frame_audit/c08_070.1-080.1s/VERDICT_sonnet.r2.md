@@ -1,0 +1,3 @@
+```json
+{"temuan":[],"tanda_otomatis":[{"frame":2139,"putusan":"bukan masalah","alasan":"Lompatan 38,3 adalah zoom-in cepat (f2138–2142) pada kartu chat sebagai transisi disengaja. Gerakannya mulus dan membesar bertahap."},{"frame":2143,"putusan":"bukan masalah","alasan":"Lompatan 131,8 adalah potongan keras dari kartu yang di-zoom ke wajah pembicara. Itu pergantian adegan yang jelas disengaja. Cue Woosh 71,61 dtk jatuh +0,11 dtk setelah potongan, masih dalam ±0,3 dtk."},{"frame":2211,"putusan":"bukan masalah","alasan":"Tidak ada potongan atau kartu baru, hanya gerak tangan dan kepala pembicara. Teks '100% FULL AI' tetap stabil, jadi tidak perlu SFX."}],"putusan":"LULUS"}
+```
