@@ -93,3 +93,7 @@ Bukti QC berada pada paket handoff Drive. Pemeriksaan ASR, waveform, jumlah fram
 - 17 Nov · revisi audit audio: 3 cue ditambah (34,268 dan 71,605 transisi-dunia, 49,950 objek-mendarat; file peran sama), frame cue disinkron ke `objects.json` 29,97 fps; lock sfx + musik A/B + check diulang terhadap master fa08ce68. (Penata suara)
 - 17 Nov · audit audio 2: cue ditambah di 53,153 (kartu keluar, whoosh −9 dB) dan 62,763 (ganti adegan f1881, whoosh −7 dB; cue pesan 62,271 tetap karena terikat objek); lock sfx + musik A/B + check diulang terhadap master 86e41e8d. (Penata suara)
 - 17 Nov · audit audio 3: cue whoosh transisi-dunia ditambah di 66,066 (f1980, gain −8 dB); lock sfx + musik A/B + check diulang terhadap master ba0fdd9e. (Penata suara)
+
+## 17 Nov pagi · Revisi Irfan 1 → handoff/REVISI-1.md
+- Irfan: "secara garis besar sudah oke, perbaikan mini". Putusan Sutradara untuk pilihan "decision": pindah ke depan (dada) sebagai hero + push kecil — satu fokus paling kuat, cincin atas tidak berebut.
+- Teks komentar penutup "masih AI slop" / "Lumayan nih" diberikan Irfan (instruksi Irfan menang atas Lantai A5).
