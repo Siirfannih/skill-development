@@ -3,7 +3,7 @@
   "detik": 21.283733,
   "kata_kiri": "hasilnya",
   "kata_kanan": "masih",
-  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri -11 ms, kanan 8 ms < 50 ms); potongan memuat tuh utuh (alignment MMS_FA) tanpa menyentuh kata isi",
+  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri -11 ms, kanan 5 ms < 50 ms); batas dipilih dari skor forced alignment + ASR jendela-sambung (r7-overrides.json: skor kata kanan 0.38, ASR 'sendiri, hasil niat masih terasa ya') sehingga kata tetangga utuh",
   "bukti": {
    "retensi": 0.9673,
    "irisan_ms": 11.3,
@@ -12,14 +12,15 @@
    "kata_id": [
     51,
     53
-   ]
+   ],
+   "integritas": "r7-integrity-after.json"
   }
  },
  {
   "detik": 24.3285,
   "kata_kiri": "bagian",
   "kata_kanan": "masih",
-  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri 4 ms, kanan 8 ms < 50 ms); potongan memuat tuh utuh (alignment MMS_FA) tanpa menyentuh kata isi",
+  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri 4 ms, kanan 24 ms < 50 ms); batas dipilih dari skor forced alignment + ASR jendela-sambung (r7-overrides.json: skor kata kanan 0.36, ASR 'beberapa bagian masih putus -putus') sehingga kata tetangga utuh",
   "bukti": {
    "retensi": 1.0,
    "irisan_ms": 0.0,
@@ -28,87 +29,93 @@
    "kata_id": [
     60,
     62
-   ]
+   ],
+   "integritas": "r7-integrity-after.json"
   }
  },
  {
-  "detik": 43.460083,
+  "detik": 43.476767,
   "kata_kiri": "ini",
   "kata_kanan": "bukan",
-  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri 35 ms, kanan 7 ms < 50 ms); potongan memuat tuh utuh (alignment MMS_FA) tanpa menyentuh kata isi",
+  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri 52 ms, kanan -9 ms < 50 ms); batas dipilih dari skor forced alignment + ASR jendela-sambung (r7-overrides.json: skor kata kanan 0.5, ASR 'Dan ini bukan sebuah') sehingga kata tetangga utuh",
   "bukti": {
-   "retensi": 1.0,
-   "irisan_ms": 0.0,
+   "retensi": 0.9807,
+   "irisan_ms": 9.2,
    "path": "r5-retention-audit.json",
-   "rasio_durasi_hasil_min": 0.9996,
+   "rasio_durasi_hasil_min": 0.9808,
    "kata_id": [
     105,
     107
-   ]
+   ],
+   "integritas": "r7-integrity-after.json"
   }
  },
  {
-  "detik": 54.621233,
+  "detik": 54.592067,
   "kata_kiri": "aku",
   "kata_kanan": "ngebalik.",
-  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri 46 ms, kanan -2 ms < 50 ms); potongan memuat tuh utuh (alignment MMS_FA) tanpa menyentuh kata isi",
+  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri 17 ms, kanan 2 ms < 50 ms); batas dipilih dari skor forced alignment + ASR jendela-sambung (r7-overrides.json: skor kata kanan 0.41, ASR 'Nahut ngebalik') sehingga kata tetangga utuh",
   "bukti": {
-   "retensi": 0.9954,
-   "irisan_ms": 2.2,
+   "retensi": 1.0,
+   "irisan_ms": 0.0,
    "path": "r5-retention-audit.json",
-   "rasio_durasi_hasil_min": 0.9954,
+   "rasio_durasi_hasil_min": 1.0,
    "kata_id": [
     128,
     130
-   ]
+   ],
+   "integritas": "r7-integrity-after.json"
   }
  },
  {
-  "detik": 107.916183,
+  "detik": 107.878633,
   "kata_kiri": "Aku",
   "kata_kanan": "sampai",
-  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri 36 ms, kanan 3 ms < 50 ms); potongan memuat tuh utuh (alignment MMS_FA) tanpa menyentuh kata isi",
+  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri -1 ms, kanan 0 ms < 50 ms); batas dipilih dari skor forced alignment + ASR jendela-sambung (r7-overrides.json: skor kata kanan 0.268, ASR '-') sehingga kata tetangga utuh",
   "bukti": {
-   "retensi": 1.0,
-   "irisan_ms": 0.0,
+   "retensi": 0.9906,
+   "irisan_ms": 1.4,
    "path": "r5-retention-audit.json",
-   "rasio_durasi_hasil_min": 1.0,
+   "rasio_durasi_hasil_min": 0.991,
    "kata_id": [
     264,
     266
-   ]
+   ],
+   "integritas": "r7-integrity-after.json"
   }
  },
  {
-  "detik": 160.994167,
+  "detik": 160.9608,
   "kata_kiri": "ini",
   "kata_kanan": "memungkinkan",
-  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri 29 ms, kanan 12 ms < 50 ms); potongan memuat tuh utuh (alignment MMS_FA) tanpa menyentuh kata isi",
+  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri -4 ms, kanan 16 ms < 50 ms); batas dipilih dari skor forced alignment + ASR jendela-sambung (r7-overrides.json: skor kata kanan 0.34, ASR 'workflow ini memungkinkan di') sehingga kata tetangga utuh",
   "bukti": {
-   "retensi": 1.0,
-   "irisan_ms": 0.0,
+   "retensi": 0.965,
+   "irisan_ms": 4.2,
    "path": "r5-retention-audit.json",
-   "rasio_durasi_hasil_min": 1.0,
+   "rasio_durasi_hasil_min": 0.965,
    "kata_id": [
     385,
     387
-   ]
+   ],
+   "integritas": "r7-integrity-after.json"
   }
  },
  {
-  "detik": 166.904267,
+  "detik": 166.8667,
   "kata_kiri": "GPT",
   "kata_kanan": "bisa",
-  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri 34 ms, kanan 6 ms < 50 ms); potongan memuat tuh utuh (alignment MMS_FA) tanpa menyentuh kata isi",
+  "alasan": "buang-filler 'tuh' menempel kata tetangga (jeda nyata kiri -3 ms, kanan 28 ms < 50 ms); batas dipilih dari skor forced alignment + ASR jendela-sambung (r7-overrides.json: skor kata kanan 0.37, ASR 'chat GPT bisa koordinasi') sehingga kata tetangga utuh",
   "bukti": {
-   "retensi": 1.0,
-   "irisan_ms": 0.0,
+   "retensi": 0.9908,
+   "irisan_ms": 3.3,
    "path": "r5-retention-audit.json",
-   "rasio_durasi_hasil_min": 1.0,
+   "rasio_durasi_hasil_min": 0.9908,
    "kata_id": [
     399,
     401
-   ]
+   ],
+   "integritas": "r7-integrity-after.json"
   }
  }
 ]

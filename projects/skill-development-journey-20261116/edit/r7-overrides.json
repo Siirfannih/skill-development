@@ -1,0 +1,92 @@
+{
+ "52": {
+  "prev": 51,
+  "next": 53,
+  "A": 21.3,
+  "B": 21.393,
+  "dLL": 8.0,
+  "score_left": 0.33,
+  "score_right": 0.38,
+  "prev_e": 21.295,
+  "next_fa_s": 21.403,
+  "asr": "sendiri, hasil niat masih terasa ya",
+  "dipilih_oleh": "skor FA + ASR jendela-sambung (r7-asr-pick.json, ASR tidak membaca tuh dan membaca kata kanan)"
+ },
+ "61": {
+  "prev": 60,
+  "next": 62,
+  "A": 24.345,
+  "B": 24.395,
+  "dLL": 11.3,
+  "score_left": 0.48,
+  "score_right": 0.36,
+  "prev_e": 24.325,
+  "next_fa_s": 24.435,
+  "asr": "beberapa bagian masih putus -putus",
+  "dipilih_oleh": "skor FA + ASR jendela-sambung (r7-asr-pick.json, ASR tidak membaca tuh dan membaca kata kanan)"
+ },
+ "106": {
+  "prev": 105,
+  "next": 107,
+  "A": 43.47,
+  "B": 43.58,
+  "dLL": 13.9,
+  "score_left": 0.5,
+  "score_right": 0.5,
+  "prev_e": 43.425,
+  "next_fa_s": 43.6,
+  "asr": "Dan ini bukan sebuah",
+  "dipilih_oleh": "skor FA + ASR jendela-sambung (r7-asr-pick.json, ASR tidak membaca tuh dan membaca kata kanan)"
+ },
+ "129": {
+  "prev": 128,
+  "next": 130,
+  "A": 54.59,
+  "B": 54.719,
+  "dLL": 10.2,
+  "score_left": 0.3,
+  "score_right": 0.41,
+  "prev_e": 54.575,
+  "next_fa_s": 54.719,
+  "asr": "Nahut ngebalik",
+  "dipilih_oleh": "skor FA + ASR jendela-sambung (r7-asr-pick.json, ASR tidak membaca tuh dan membaca kata kanan)"
+ },
+ "265": {
+  "prev": 264,
+  "next": 266,
+  "A": 107.873,
+  "B": 108.004,
+  "dLL": 24.9,
+  "score_left": 0.391,
+  "score_right": 0.268,
+  "prev_e": 107.88,
+  "next_fa_s": 108.023,
+  "dipilih_oleh": "skor FA + ASR jendela-sambung (r7-asr-pick.json, ASR tidak membaca tuh dan membaca kata kanan)"
+ },
+ "386": {
+  "prev": 385,
+  "next": 387,
+  "A": 160.955,
+  "B": 161.065,
+  "dLL": 21.8,
+  "score_left": 0.41,
+  "score_right": 0.34,
+  "prev_e": 160.965,
+  "next_fa_s": 161.105,
+  "asr": "workflow ini memungkinkan di",
+  "dipilih_oleh": "skor FA + ASR jendela-sambung (r7-asr-pick.json, ASR tidak membaca tuh dan membaca kata kanan)"
+ },
+ "400": {
+  "prev": 399,
+  "next": 401,
+  "A": 166.869,
+  "B": 166.979,
+  "dLL": 12.8,
+  "score_left": 0.21,
+  "score_right": 0.37,
+  "prev_e": 166.87,
+  "next_fa_s": 167.019,
+  "asr": "chat GPT bisa koordinasi",
+  "dipilih_oleh": "skor FA + ASR jendela-sambung (r7-asr-pick.json, ASR tidak membaca tuh dan membaca kata kanan)"
+ }
+}
