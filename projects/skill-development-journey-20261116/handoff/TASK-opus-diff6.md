@@ -1,0 +1,2 @@
+# TASK-opus-diff6 · SATU Opus (claude1) · LAPORAN SAJA
+Tinjau diff perbaikan audit ronde 6 Sonnet (`git diff HEAD -- remotion/src/video lego` dari root repo; laporan handoff/REPORT-build-sonnet.md "Ronde 6 fix"; still qc/still/ronde6/) terhadap kode yang kamu rapikan (REPORT-opus-revisi2.md) dan REVISI-2/DESAIN: konsistensi, kurva, tidak ada regresi, finishing Apple-style. JANGAN ubah file apa pun (lock visual & audio sudah final). Temuan yang mengubah visual → tulis detik/frame/usul. Laporan handoff/REPORT-opus-diff6.md ≤ 8 baris. Balas ≤ 3 baris.

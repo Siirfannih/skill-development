@@ -39,3 +39,40 @@ objects.json IDENTIK (builder), mix 02:58 dipakai. audio_order check audio/order
 Audit ulang: c07 dipakai ulang (HASH sama, LULUS); 8 potongan diperiksa blind: Codex LULUS 9/9; Sonnet (claude1, tanpa fallback) LULUS c06-c09, GAGAL c01-c05. Disepakati 0; kesepakatan 81/88 detik = 92%.
 PERLU PUTUS (hanya Sonnet): 3s f95 'selesai' hijau di atas header commit; 14s f428 maskot ganti bentuk 1 frame; 21s f640 bingkai neon jatuh tanpa SFX; 37s f1129 lompat/blur wajah (ulangan, footage + punch) dan 37s f1135 caption 'Jadi' vs hero; 42s f1285 kepala loncat; 47s f1427 kartu masuk tanpa SFX; 48s f1439 hitung 20x telat. Codex tidak menemukan satu pun.
 Drive TIDAK diganti (tak ada keputusan LULUS). Kandidat siap: out/kandidat-{varian-A,varian-B,tanpa-musik}.mp4 (-c:v copy, AAC 320k; 2496 f, audio 83,264 dtk). out/varian-*.mp4 lama tetap. qc/VERDICT.md gabungan diubah jadi DITANGGUHKAN (GAGAL) sampai diputus. Disk 3 GB.
+
+## Ronde 6 (17 Nov, master 15:33 2512 f / 83,817 dtk, mix 15:38-15:39, sinkron Revisi-2)
+Frame/lembar dibuat ulang (9 potongan, semua HASH berubah); words dari edit/words.json, cues audio/cues.json, stem suara + SFX tanpa-musik; prompt blind + VERDICT.prev.md + catatan (teks di belakang kepala, Apple style, komentar IG dan nama akun generik, meja 3D Blender, karakter pixel). Sonnet via claude2 (claude1 gagal) di semua potongan. Codex c09 membalas prosa LULUS (dibaca sebagai tanpa temuan).
+LULUS dua-duanya: c01, c02, c04, c09. Kesepakatan 79/88 detik = 90%. Final TIDAK digabung/diunggah (ada temuan).
+DISEPAKATI (1): 76s f2289 kedip (Codex+Sonnet) | usul: Ganti isi f2289 dengan kelanjutan shot pembicara. | lembar c08_070.1-080.1s/s075.9.jpg
+PERLU PUTUS (9, satu pemeriksa; G=Codex S=Sonnet):
+ - 21s f646 audio S | usul: Tambah whoosh/slide pendek atau glitch ringan di sekitar f644–f650 supaya runtuhnya bingkai terdengar. Jangan  | lembar c03_020.0-030.0s/s021.0.jpg
+ - 28s f867 audio S | usul: Tambah bunyi ketikan keyboard pendek, satu klik per huruf atau satu rentetan, pada f867–f878, dengan level ren | lembar c03_020.0-030.0s/s028.7.jpg
+ - 29s f889 kedip S | usul: Pastikan isi input tetap '/apple' sampai f896 (klik Enter), lalu ganti jadi '/apple-style' dan jangan kembali  | lembar c03_020.0-030.0s/s028.7.jpg
+ - 48s f1458 kecocokan S | usul: Majukan hitungan naik supaya mulai sekitar f1445–1450 dan mencapai 20× tepat di f1452–1455 (kata "20" dan "kal | lembar c05_040.0-050.1s/s047.8.jpg
+ - 50s f1515 kecocokan G | usul: Samakan nama paket pada kartu dengan ucapan dan caption. | lembar c06_050.1-060.1s/s050.1.jpg
+ - 58s f1766 visual S | usul: Hapus teks LINTAS AGENT tepat di potong adegan f1766 (teks sudah hilang saat Woosh 58.97). Atau lepas matte ke | lembar c06_050.1-060.1s/s058.8.jpg
+ - 68s f2042 audio S | usul: Geser cue 68,17 ke sekitar 68,75–68,85 dtk (f2060–2062), saat tooltip mendarat di dock. Atau tambah satu cue p | lembar c07_060.1-070.1s/s067.8.jpg
+ - 69s f2070 kedip G | usul: Pertahankan visibilitas kartu pada kedua frame tersebut agar tidak berkedip. | lembar c07_060.1-070.1s/s068.8.jpg
+ - 79s f2368 visual G | usul: Geser seluruh kata ke dalam bidang video agar terbaca dan tidak menimpa ikon. | lembar c08_070.1-080.1s/s078.8.jpg
+Catatan: 28s/29s soal '/apple' (S) menyangkut layar ketik; 50s G: kartu berlabel 'Claude Max' vs ucapan/caption 'Claude Pro'; 76s f2289 satu frame meja 3D menyela shot wajah = temuan kuat (dua pemeriksa). qc/VERDICT.md tetap DITANGGUHKAN/GAGAL. Disk 3 GB.
+
+## Ronde 7 (17 Nov, master 16:38 2512 f, mix 16:18 tak berubah menurut REPORT-audio, lock b208562a, kunci ulang PASS)
+frame_audit ulang: c01, c02 dipakai ulang (HASH sama, LULUS); c03-c09 diperiksa blind Codex + Sonnet (claude2 langsung, claude1 dipakai Opus) dengan VERDICT.prev.md, semua catatan disengaja, dan dismiss 48s (hitung 20x) + 50s ('Claude Max').
+Codex LULUS 6/7, Sonnet LULUS 6/7; DISEPAKATI 0; kesepakatan 86/88 detik = 98%. Dua temuan BARU, masing-masing satu pemeriksa:
+ - 39s f1187 kedip (Codex, c04): caption 'gak langsung publish' lenyap f1187-1189 lalu 'dan' di f1190 (jeda 3 frame tanpa caption; saya cek montase: benar ada celah, tampak pergantian frasa). Usul: majukan/tahan frasa sampai pergantian berikutnya. Lembar c04_030.0-040.0s/s039.0.jpg.
+ - 76s f2300 transisi (Sonnet, c08): saat video menyusut ke kartu IG (f2298-2302) kotak hitam di belakang video tertinggal/menonjol atas-bawah ~5 frame. Usul: satukan gerak kotak hitam dengan video. Lembar c08_070.1-080.1s/s075.9.jpg (di montase saya kotak hitam tampak di atas video, bentuk stabil).
+Ada temuan baru, maka final TIDAK digabung dan TIDAK diunggah; qc/VERDICT.md tetap GAGAL/ditangguhkan; Drive tetap versi lama. Disk 3 GB.
+
+
+## Ronde 8 (17 Nov petang; master 18:26 2512 f, mix 16:18 tak berubah, lock visual 761053891751d179)
+Semua 9 HASH berubah (re-encode) maka 9 potongan diaudit blind: Codex LULUS 8/9 dan Sonnet LULUS 8/9 (claude2 langsung), dengan VERDICT.prev.md, semua catatan disengaja (+B4a berbobot kiri) dan dismiss 48s/50s. Disepakati 0; hanya c01-c05 dan c07 LULUS dua-duanya. Perbaikan ronde 7 (39s celah KT, 76s kotak hitam) tidak diangkat lagi.
+3 temuan baru satu-pemeriksa: (1) 58s f1766 transisi, Codex (c06): sisa judul 'LINTAS AGENT'/matte satu frame setelah cut; lembar c06_050.1-060.1s/s058.8.jpg; montase f1764-1768 saya tidak menunjukkan sisa teks (tampak bersih, caption 'Bahkan'). (2) 70s f2107 visual, Codex (c08): 'pembelajaran' membesar lewat tepi kanan 1 frame; lembar c08_070.1-080.1s/s070.1.jpg (montase f2105-2109 tidak memperlihatkan kata itu). (3) 80s f2418 lompat, Sonnet (c09): bingkai kartu komentar bergeser 1 frame (skor 26,1, ikon sidebar muncul); lembar c09_080.1-083.8s/s080.1.jpg; Codex menilai itu penataan ulang disengaja di ronde 6 dan 8.
+Temuan baru maka final TIDAK digabung/diunggah; qc/VERDICT.md tetap GAGAL/ditangguhkan; Drive tetap versi lama. Disk 11 GB.
+
+## Ronde 9 (17 Nov malam; master 18:47 2512 f, mix 16:18 tak berubah, lock visual c273a676, kunci audio PASS)
+frame_audit: c01-c05 HASH sama, c06-c09 berubah; semua 9 tetap diperiksa blind Codex + Sonnet (claude2) dengan VERDICT.prev.md, semua catatan disengaja, dismiss 48s/50s. Codex LULUS 9/9; Sonnet LULUS 7/9. Disepakati 0. Perbaikan 58s/70s/80s tidak diangkat lagi.
+2 temuan, satu pemeriksa (Sonnet): (1) 59s f1788 kecocokan (c06): caption tetap 'Bahkan' sampai f1799 padahal 'chat' diucap 59,70 dtk (f1788) dan 'GPT' 59,87; usul 'Bahkan chat' di f1788 lalu 'Bahkan chat GPT' ±59,87; lembar c06_050.1-060.1s/s058.8.jpg (ulangan item ronde 1-2 di area ini). (2) 76s f2282 audio (c08): lingkaran wajah membesar jadi layar penuh (f2280-2285) tanpa cue SFX +-0,3 dtk (pop up 75,64 dan Woosh 76,41 sekitar 0,3-0,4 dtk dari momen); usul Woosh pendek atau geser Woosh 76,41 ke ±76,0; lembar c08_070.1-080.1s/s075.9.jpg.
+Karena ada temuan: final TIDAK digabung/diunggah; qc/VERDICT.md tetap GAGAL/ditangguhkan; Drive tetap versi lama. Disk 11 GB.
+
+## Keputusan akhir (17 Nov malam)
+G3: kedua temuan ronde 9 di-DISMISS Sutradara; qc/VERDICT.md PUTUSAN: LULUS. Final dibuat dari master c273a676 (-c:v copy, AAC 320k 48 kHz): 2512 f, 83,817 dtk, stream video identik master, lag audio 0 sampel, korelasi 0,9998, decode tanpa galat. Diunggah menimpa ke Drive.

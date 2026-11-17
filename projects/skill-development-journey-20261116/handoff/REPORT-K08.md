@@ -1,0 +1,13 @@
+# REPORT K08 KartuPaket (Builder, 16 Nov)
+- File: `remotion/src/komponen/K08-KartuPaket.tsx`, uji `remotion/src/uji/K08-entry.tsx` (UjiK08, 300 f, latar #6C787C).
+- Props: mulai, kBalik, kChatgpt, kClaude. Semua k* RELATIF ke `mulai` (komponen kosong sebelum mulai). Ekspor `K08KartuPaket`, `objekK08`.
+- objekK08: BALIK MODAL (kata-hero, k+0), kartu ChatGPT Pro (objek-mendarat, k+7), kartu Claude Max (objek-mendarat, k+7). Hapus baris hero bila tak dipakai SFX.
+- Hero: Anton 224 px, #FAF8EC + garis tepi tinta 10 px + bayangan. Kontras isian vs dinding hanya 4,27; terbaca karena garis tepi tinta (isian/tepi 14:1). Keluar (leave 10 f) 12 f sebelum kChatgpt agar ruang kiri kosong.
+- Gerak semua lewat CURVE/move/drift di curves.ts; blur arah SVG ≤ 3 px saat gerak cepat.
+- Logo: Claude = path `siClaude` (#D97757). `siOpenai` TIDAK ada di simple-icons 16.x, jadi simpul OpenAI = geometri sendiri (enam pil), mirip tapi bukan path resmi.
+- Badge Claude: teks tinta di #D97757 (5,06:1); putih hanya 3,12.
+- Font: salinan woff2 Anton + Inter 500-800 ke `remotion/public/fonts-K08/` (file baru, isolasi).
+- Ronde 3 (safe zone): kartu 440x430 px (40 % tinggi), tepi kiri ≈ 124 px, atas ≈ 130, bawah ≈ 970 (diukur di f200, termasuk rotasi); origin kamera 450,560 dan hentak 5 %. Ronde 2: sebelumnya 520x490, hanya logo + nama (Pro/Max) + lencana angka dominan (font 230 px). Baris fitur Inggris dan label usage DIHAPUS. Kanan kartu maks x ≈ 41 % (camera hentak dikecilkan jadi 6 % agar tidak lewat 42 %).
+- Jalur masuk: dari kiri luar frame (ChatGPT dari kiri+bawah 90 px, Claude dari kiri+bawah 220 px), land 16 f + blur arah; tidak pernah melintas x 45-75 %.
+- Hitung naik mulai k+6, 16 f (kurva reveal), lalu pulse kecil. objekK08 mendarat k+6.
+- tsc lulus. Still lebar 960 di `handoff/stills-K08/`: f030 f060 f130 f150 f170 f200 f260.jpg.

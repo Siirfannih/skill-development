@@ -1,0 +1,14 @@
+# REPORT · TASK-K13-relay · Codex
+- Dibangun: `K13-RelayAgen.tsx`, `K13/{Panel.tsx,gerak.ts,fonts.ts,*-LICENSE.txt}`, `PixelTokoh2D.tsx`, `uji/K13-entry.tsx`.
+- Dua panel terang: transkrip Claude streaming, alat, tiga titik coral, timer; chat ChatGPT dengan bubble hitam dan shimmer.
+- Relay ChatGPT↔Claude, log bus Claude 2→1, session A→B, kemudian loop tertutup dan empat centang hijau.
+- `UjiK13`: 1920×1080, 30000/1001 fps, 420 frame = 14,014 dtk; jangkar contoh 0/90/150/220/330.
+- Semua waktu melalui props; `objekK13(props)` mengekspor 19 event dengan offset `mulai`.
+- TypeScript: `npx tsc --noEmit` lulus; pencarian raster di K13 dan sprite kosong.
+- Cek mekanis lulus: jangkar, durasi, 19 event dalam adegan, offset mulai, hold seluruh centang penuh f360–419 = 2,002 dtk.
+- Gerak memakai `curves.ts`; push-through heavy 3×, blur cepat 3 frame, amplop land, drift penutup 1,00→1,04.
+- Still 960×540: `stills-K13/f010.jpg`, `f060.jpg`, `f120.jpg`, `f180.jpg`, `f260.jpg`, `f380.jpg`.
+- Font Inter dan JetBrains Mono lokal disematkan di K13 beserta lisensi; simpul OpenAI digambar geometri SVG.
+- Cache Webpack bersama sempat memberi peringatan; still akhir memakai satu bundle tanpa cache, bukan video.
+- Jangkar VO asli dan penilaian estetika menunggu Sutradara; tidak ada render video, commit/push, pemasangan paket, atau perubahan di luar izin.
+- Token sesi: metrik runtime tidak tersedia.

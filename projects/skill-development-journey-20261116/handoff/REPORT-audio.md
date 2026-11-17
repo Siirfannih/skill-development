@@ -31,3 +31,26 @@ Mix tiga varian dibangun ulang, tanpa limiter, suara ×1,0 (selisih float ≤9e-
 PUTUSAN lock sfx (7074eb5a, cue dan `objects.json` tidak berubah; objek identik, hanya penanda `senyap` pada salinan audio) dan lock musik A (59f69e9a) / B (15646f62) diulang tanpa mengubah cue/mix; `audio_order.py check` PASS di `audio/order-A|B`.
 PUTUSAN verifikasi `out/`: ketiganya 2496 f, 30000/1001, audio 83,264 dtk, stream video identik byte (md5 f0cfe90a) dengan `qc/master_gambar.mp4` terbaru, audio berkorelasi 0,9998–0,9999 dengan `audio/mix_*.wav` (offset 0); diganti nama menjadi `out/varian-A.mp4`, `varian-B.mp4`, `tanpa-musik.mp4`.
 PUTUSAN unggah: `rclone copy` ke "gdrive:Claude edit/2026-11-16 — Siirfan — Di Balik Skill Development/" selesai; `rclone ls` ukuran sama dengan lokal (varian-A 102.599.875, varian-B 102.608.656, tanpa-musik 101.923.332 byte); tanpa `rclone link`. Tanpa commit.
+
+## Revisi-2 (17 Nov, suara c23e53d9, visual 55b0e625)
+Cue disinkron ke `objects.json` baru (72 objek, 61 cue): peran baru "klik" (Enter.mp3) untuk klik saran perintah, saran/papan lahir/kartu Dicatat/komentar-kolom = objek-mendarat atau pesan (komentar pop-up = pesan), "diketik dihapus" = ketik, lingkaran wajah 74,44 dtk = whoosh masuk meja Blender, slot meja 75,645 = pop lembut, postingan IG 76,41 = whoosh keluar (whoosh ≥1 dtk menahan whoosh ke-2 di slot; audit lama f1881/f1980 dilepas karena adegan itu diganti papan lahir; audit lain digeser mengikuti suara baru). PUTUSAN sfx_density terhadap master baru: LULUS; `lock sfx` LULUS (a9c549d7).
+PUTUSAN titik sambung: A dan B Malice@13,747 −12/−1 ms, strings Aware di push-through D_RELAY 58,972 dtk −11 ms. PUTUSAN lock musik A (5b30ea69) dan B (e13d5510) LULUS; `audio_order.py check` PASS di `audio/order-A|B`.
+Mix tiga varian tanpa limiter, suara ×1,0 (selisih float ≤9e-8): A/B/tanpa-musik −15,78 / −15,81 / −16,02 LUFS, puncak −1,0 dBFS, kejernihan suara ≥6,6 dB; `stem_suara.wav` diperbarui ke suara R7.
+PUTUSAN audio_phone (100/50/20 %): A 45/45/43 dan B 46/46/44 dari 61 SFX, SFX tajam 0; tak terdengar: thud sub kata-hero dan runtuh (sub-bass di bawah 320 Hz), whoosh <30 dB SPL (batas −4 dB), dua klik. Tanpa commit.
+
+## Audit 6 (17 Nov, visual 810b491a)
+Cue baru: ketik "/apple" 28,929 dtk (f867, 0,40 dtk) dan "cinematic" 30,554 dtk (0,66 dtk), file Keyboardtyping yang sama, gain −10 dB; runtuh kedua 21,55 dtk (bingkai neon jatuh f646, bass-drop sama, gain −10 dB; jendela spam longgar: tidak ada cue lain ±1 dtk); cue objek "kartu Dicatat terbang ke rak" digeser 68,165 → 68,80 dtk (frame puncak tooltip mendarat; salinan `audio/objects.json` mencatat t builder 68,165 sebagai awal terbang). 64 cue untuk 72 objek.
+PUTUSAN sfx_density terhadap master baru: LULUS (maks 4 cue/2 dtk, jarak minimum 0,30 dtk); `lock sfx` LULUS (03f2b287). PUTUSAN lock musik A (a0bf3b9b) dan B (734b8cb3) LULUS; `audio_order.py check` PASS di `audio/order-A|B`.
+Mix tiga varian dibangun ulang tanpa limiter, suara ×1,0 (selisih float ≤9e-8): A/B/tanpa-musik −15,75 / −15,78 / −15,99 LUFS, puncak −1,0 dBFS, kejernihan suara ≥6,6 dB; PUTUSAN audio_phone: A 45/45/43 dan B 46/46/44 dari 64 SFX, SFX tajam 0. Tanpa commit.
+
+## Kunci ulang terhadap visual b208562a (17 Nov)
+PUTUSAN lock sfx (03f2b287) dan lock musik A (a0bf3b9b) / B (734b8cb3) diulang terhadap visual b208562a tanpa mengubah cue atau mix (`sfx_density` LULUS; hash lock sfx dan musik identik dengan sebelumnya); `audio_order.py check` PASS di `audio/order-A|B`.
+Verifikasi mix tetap: `cues.json`, `mix_A.wav`, `mix_B.wav`, `mix_tanpa-musik.wav` md5 identik sebelum dan sesudah; master 2512 f, 30000/1001. Tanpa commit.
+
+## Ronde 8 (17 Nov, lock visual 76105389)
+PUTUSAN lock sfx (03f2b287) dan lock musik A (a0bf3b9b) / B (734b8cb3) diulang terhadap visual 76105389 tanpa mengubah cue atau mix; `audio_order.py check` PASS di `audio/order-A|B`.
+Verifikasi mix tetap: md5 `cues.json`, `mix_A.wav`, `mix_B.wav`, `mix_tanpa-musik.wav` identik sebelum dan sesudah; master 2512 f. Tanpa commit.
+
+## Ronde 9 (17 Nov, lock visual c273a676)
+PUTUSAN lock sfx (03f2b287) dan lock musik A (a0bf3b9b) / B (734b8cb3) diulang terhadap visual c273a676 tanpa mengubah cue atau mix; `audio_order.py check` PASS di `audio/order-A|B`.
+Verifikasi mix tetap: md5 `cues.json`, `mix_A.wav`, `mix_B.wav`, `mix_tanpa-musik.wav` identik sebelum dan sesudah; master 2512 f. Tanpa commit.

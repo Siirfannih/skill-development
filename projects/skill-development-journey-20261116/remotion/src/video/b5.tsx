@@ -259,7 +259,6 @@ const Isi: React.FC<RelayProps & {f: number; durasiDunia: number}> = ({kunci: K,
   const pill = {x: AC.x - 190, y: AK.y + 150, w: 380, h: 88};
   const kx = pill.x + (slot.x - pill.x) * kFly, ky = pill.y + (slot.y - pill.y) * kFly, kw = pill.w + (slot.w - pill.w) * kFly, kh = pill.h + (slot.h - pill.h) * kFly;
   const chk = move(f, F(K.selesai), 8, 'land');
-  const landed = move(f, F(mendarat), 6, 'land');
   const chkRak = move(f, F(K.selesai + 0.1), 8, 'land');
   const eMini = (i: number) => move(f, F(tumbuh + 0.1) + react(i, fps), 14, 'land');
   const rakA = move(f, angkat, 24, 'drift');
@@ -288,8 +287,8 @@ const Isi: React.FC<RelayProps & {f: number; durasiDunia: number}> = ({kunci: K,
         <div style={{position: 'absolute', left: RAK.x, width: RAK.w, top: RAK.y + 10, display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 10, ...tx(22, 600, LAV)}}>
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke={LAV} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 3h14v18H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm0 14h14M7 3v10M7 20h6"/></svg>skill-development</div>
         {[0, 1, 2, 3, 4].map((i) => <KartuRak key={i} i={i} nyala={ln(i)}/>)}
-        <div style={{position: 'absolute', left: slot.x, top: slot.y, width: slot.w, height: slot.h, boxSizing: 'border-box', borderRadius: 12, border: '2px dashed #3F3A58', opacity: 1 - landed}}/>
-        {kFly > 0.97 && <KartuRak i={5} nyala={Math.max(ln(5), 0.9 * (1 - move(f, F(mendarat + 0.35), 14, 'drift')))} tampil={landed} centang={chkRak}/>}
+        <div style={{position: 'absolute', left: slot.x, top: slot.y, width: slot.w, height: slot.h, boxSizing: 'border-box', borderRadius: 12, border: '2px dashed #3F3A58', opacity: kFly > 0.97 ? 0 : 1}}/>
+        {kFly > 0.97 && <KartuRak i={5} nyala={Math.max(ln(5), 0.9 * (1 - move(f, F(mendarat + 0.35), 14, 'drift')))} tampil={1} centang={chkRak}/>}
       </div>
       {/* garis pesan langsung + berkas baca (di atas rak, di belakang papan) */}
       <svg width="1920" height="1080" style={{position: 'absolute', left: 0, top: 0, overflow: 'visible', zIndex: 20}}>

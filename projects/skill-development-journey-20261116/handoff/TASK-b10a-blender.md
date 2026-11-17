@@ -1,4 +1,4 @@
-AWAL SESI: Sutradara sudah menjalankan doctor --fix (izin Irfan 16 Nov). Bila doctor GAGAL HANYA karena "skill Codex … salinan", jalankan ./tools/doctor.sh --fix sekali lalu lanjut; jangan bertanya.
+AWAL SESI: Sutradara sudah menjalankan doctor --fix dan regenerasi PETA (izin Irfan 16 Nov: "semua akses diizinkan"). Bila doctor GAGAL karena "skill Codex … salinan" ATAU "PETA.md basi", jalankan `python3 tools/peta.py` dan `./tools/doctor.sh --fix` sekali lalu langsung kerjakan TASK; branch belum-merge cukup dicatat di laporan; jangan bertanya.
 
 # TASK-b10a-blender · Builder Codex (Sol 6.1 High) · pemberi: Sutradara claude2
 TUJUAN       Shot meja 3D realistis (±3–4 dtk) untuk penutup "Dan menurut kalian videonya kayak gimana?": karakter Claude voxel seperti mainan fisik di meja kerja malam, sedang merevisi timeline video ini di monitor. Dibangun di Blender lewat skrip Python headless.

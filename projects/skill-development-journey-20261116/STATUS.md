@@ -64,3 +64,22 @@ Semua potongan LULUS (9 dtk DISMISS). Final: out/varian-A.mp4, out/varian-B.mp4,
 
 ## 17 Nov ±04:20 · fase 5 ronde 5 (kurva kamera)
 Codex 9/9 LULUS; Sonnet (claude1) GAGAL c01-c05 (8 temuan, hanya satu pemeriksa). Drive belum diganti; kandidat di out/kandidat-*.mp4. Lihat REPORT-fase5.md.
+Revisi-1 (17 Nov 11:10): B1–B12 selesai di master_gambar (2496 f, visual terkunci); slot b10a_meja3d kosong; A1 (Pemotong) belum tiba, sinkron ulang menunggu.
+Revisi-2 + sinkron A1 (17 Nov 15:20): R2-1..R2-4 selesai, master 2512 f terkunci; B11 3 frame balance tersisa (lihat REPORT).
+
+## 17 Nov ±16:20 · fase 5 ronde 6 (revisi 1-2)
+Audit semua potongan master 2512 f: LULUS c01,c02,c04,c09; 1 temuan disepakati (76s f2289 meja 3D 1 frame) + 9 perlu putus. Final belum digabung/diunggah. Lihat REPORT-fase5.md Ronde 6.
+Ronde 6 fix (17 Nov 16:45): V1–V5 selesai, cek_frame_tunggal 0, master 2512 f terkunci (b208562a).
+
+## 17 Nov ±17:10 · fase 5 ronde 7
+Sisa 2 temuan baru satu-pemeriksa (39s f1187 caption kedip; 76s f2300 kotak hitam transisi). Final belum digabung/diunggah. Lihat REPORT-fase5.md Ronde 7.
+Ronde 7 fix (17 Nov 17:30): W1 cek_celah_kt 0, W2 kotak hitam IG satu gerak; master 2512 f terkunci.
+
+## 17 Nov ±19:00 · fase 5 ronde 8
+3 temuan baru satu-pemeriksa (58s f1766, 70s f2107, 80s f2418); final belum digabung/diunggah. Lihat REPORT-fase5.md Ronde 8.
+
+## 17 Nov ±19:10 · fase 5 ronde 9
+Codex 9/9 LULUS; Sonnet 7/9; 2 temuan satu-pemeriksa (59s f1788 caption, 76s f2282 SFX). Final belum digabung. Lihat REPORT-fase5.md Ronde 9.
+
+## 17 Nov ±19:30 · fase 5 LULUS (G3 ronde 9)
+qc/VERDICT.md PUTUSAN: LULUS (2 temuan Sonnet di-DISMISS). Final: out/varian-A.mp4, out/varian-B.mp4, out/tanpa-musik.mp4 (2512 f, 83,817 dtk, video = master, lag audio 0, decode bersih). Diunggah menimpa ke Drive.

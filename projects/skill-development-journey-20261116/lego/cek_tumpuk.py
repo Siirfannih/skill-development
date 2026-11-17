@@ -116,9 +116,42 @@ while T < W.DURASI:
             for j in CH:
                 if act(j) and gap(b, char_box(j, t)) < 24: bad.setdefault(("KT-karakter", i, j), t)
             for j, b2 in bx.items():
+                tahan_i = lap[i]["props"].get("keluarAt") is not None and lap[i]["props"]["keluarAt"] >= dur[i]      # blok ditahan sampai blok berikut masuk (ronde 7 W1): tumpang tindih <= 2 frame pertama blok berikut = transisi langsung
+                if tahan_i and t < lego[j]["t"] + 2.5 / 30: continue
                 if j > i and gap(b, b2) < 0 + 1e-9 and lap[i]["props"].get("gaya") != "viral" and lap[j]["props"].get("gaya") != "viral":
                     bad.setdefault(("KT-KT", i, j), t)
     T += 0.1
+# ---- UI postingan Instagram (D_IG) sebagai objek (audit ronde 6 V5): KT putih harus tetap di dalam media hitam/video (x 180..1140 pada kamera 1,0), tidak meluber ke panel putih/ikon
+def _bz(x1, y1, x2, y2):
+    def f(p):
+        lo, hi = 0.0, 1.0
+        for _ in range(40):
+            m = (lo + hi) / 2; x = 3 * (1 - m) ** 2 * m * x1 + 3 * (1 - m) * m * m * x2 + m ** 3
+            lo, hi = (m, hi) if x < p else (lo, m)
+        m = (lo + hi) / 2
+        return 3 * (1 - m) ** 2 * m * y1 + 3 * (1 - m) * m * m * y2 + m ** 3
+    return f
+_EA = {"heavy": _bz(.75, 0, .18, 1), "drift": _bz(.4, 0, .6, 1)}
+def _cam_ig(t, K):      # sinkron dengan kameraIG di remotion/src/video/b6.tsx
+    ks = [(0, 1.0, 960, 540, "drift"), (0.7, 1.0, 960, 540, "drift"), (K["k1"] - 0.15, 1.05, 900, 500, "heavy"), (K["k1"] + 0.25, 1.17, 1040, 440, "drift"), (K["k2"] - 0.12, 1.18, 1040, 440, "heavy"),
+          (K["k2"] + 0.25, 1.2, 1040, 470, "drift"), (K["field"] + 0.2, 1.0, 960, 540, "drift"), (K["field"] + 3.5, 1.04, 960, 560, "drift")]
+    i = 0
+    while i + 1 < len(ks) and t >= ks[i + 1][0]: i += 1
+    if i + 1 >= len(ks): return ks[i][1], ks[i][2]
+    a, s0, x0, y0, kv = ks[i]; b, s1, x1, y1, _ = ks[i + 1]
+    k = _EA[kv](min(1, max(0, (t - a) / max(0.01, b - a))))
+    return s0 + (s1 - s0) * k, x0 + (x1 - x0) * k
+if "D_IG" in lego and "D_IG" in lap:
+    Kig = lap["D_IG"]["props"]["kunci"]; wi = lego["D_IG"]["t"]
+    tt = wi + 0.8
+    while tt < wi + dur["D_IG"] - 0.1:
+        s_, cx_ = _cam_ig(tt - wi, Kig)
+        sx0, sx1 = 960 + (180 - cx_) * s_, 960 + (1140 - cx_) * s_
+        for i in KT:
+            if lego[i]["t"] <= tt < lego[i]["t"] + dur[i] and not lap[i]["props"].get("gelap"):
+                b = kt_box(i, tt)
+                if b and (b[0] < sx0 + 8 or b[2] > sx1 - 8): bad.setdefault(("KT-UI-IG", i, "D_IG"), tt)
+        tt += 0.1
 print(f"KT {len(KT)} · slop {len(SL)} · karakter {len(CH)} · irisan: {len(bad)}")
 for k, t in sorted(bad.items(), key=lambda x: x[1])[:40]:
     print(f"  {t:6.2f} dtk  {k[0]:12} {k[1]} ({lap[k[1]]['props']['teks'][:18]}) x {k[2]}")

@@ -321,7 +321,7 @@ def slab_end(b):
     if b.get("teks_vis") == "AI SLOP": return T["putus"] + 0.3
     if b.get("teks_vis") == "SELESAI": return min(b["t"] + 1.35, T["b1b"] - 0.12)     # SELESAI di depan dunia repo: keluar sebelum dunia berganti ke kamar
     if b.get("depan"): return b["t"] + 1.7                                   # DECISION di depan: sampai Clawd/Claude dkk keluar
-    if b.get("tahan"): return b["t"] + b["dur"] + b["tahan"] + 0.35            # LINTAS AGENT: tahan diam ±1 dtk sebelum keluar
+    if b.get("tahan"): return round(snap(T["lihat_e"] - 8 / FPS) + 6.5 / FPS, 4)    # LINTAS AGENT: tahan diam ±1,1 dtk (ronde 8 T2); keluar 8 f BERSAMA push dunia B11 (= transisi masuk), selesai tepat saat dunia penuh: 0 frame sisa
     return max(b["t"] + b["dur"] + 0.35, b["t"] + 1.05)
 SLAB_Y = {"AI SLOP": 420, "WORKFLOW-NYA": 380, "BALIK MODAL": 400, "100% FULL AI": 380, "LINTAS AGENT": 400, "DECISION": 918, "SELESAI": 770}
 
@@ -339,10 +339,10 @@ def hero(b):
         wd, end = SLAB_W[vis], slab_end(b)
         fs = wd / wem(vis, ANT); h = math.ceil(1.1 * fs)
         dur = end - t0
-        kw = dict(teks=vis, kode=b["kode"], gaya="slab", w=wd, h=h, keluarAt=round(dur - (0.3 if b.get("depan") else 0.45), 3), warna="#F97066" if vis == "AI SLOP" else b.get("warna", "#FAF8EC"), wt=wt_of(b, vis))
+        kw = dict(teks=vis, kode=b["kode"], gaya="slab", w=wd, h=h, keluarAt=round(dur - (0.3 if b.get("depan") else 6 / 30 if vis == "LINTAS AGENT" else 0.45), 3), warna="#F97066" if vis == "AI SLOP" else b.get("warna", "#FAF8EC"), wt=wt_of(b, vis))
         xs = ((1920 - wd) / 2) if not b.get("depan") else b["pos"][0] - wd / 2
         if vis == "LINTAS AGENT":       # REVISI-2 R2-4c (Opus): dua bidang 3D berengsel di kepala; kotak selebar frame supaya AGENT yang mendekat tidak terpotong
-            h = math.ceil(1.7 * fs); kw.update(persp=True, w=1920, h=h, lebarIsi=wd, rev=5); xs = 0
+            h = math.ceil(1.7 * fs); kw.update(persp=True, w=1920, h=h, lebarIsi=wd, rev=7); xs = 0
         if vis == "AI SLOP": kw["getarAt"] = 0.0
         if vis == "100% FULL AI": kw["sapu"] = True
         if b.get("depan"): kw["depan"] = True; kw["rev"] = 2       # REVISI-2 f/g (Opus): mendarat di tempat, tidak meluncur dari tepi kotak
@@ -387,11 +387,11 @@ def kt(b):
         add(b["id"], "KT", dict(teks=vis, kode="T19", gaya="r1", w=int(w), h=int(h), size=size, gelap=bool(b.get("gelap")), wt=wt_of(b, vis)), round(dur - 0.04, 3), t0, cx - w / 2, cy - h / 2)    # -1 frame: tidak menempel blok berikutnya setelah snap 29,97
     elif g == "r2":
         size = b.get("ukuran", 88); w = (wem(vis, POP8) * size) * 2.1 + 80; h = size * 2.7
-        kw = dict(teks=vis, kode="T03", gaya="r2", w=int(w), h=int(h), size=size, gelap=bool(b.get("gelap")), wt=wt_of(b, vis), rev=2)
+        kw = dict(teks=vis, kode="T03", gaya="r2", w=int(w), h=int(h), size=size, gelap=bool(b.get("gelap")), wt=wt_of(b, vis), rev=3)
         if b.get("warna"): kw["warna"] = b["warna"]
         add(b["id"], "KT", kw, max(dur, 0.1), t0, cx - w / 2, cy - h / 2, objek=dict(nama=vis, peran="kata-kunci-slam", t=t0))
     elif g == "r3":
-        size = 96; w = wem(vis, POP8) * size + size * 1.2; h = size * 2.0
+        size = b.get("ukuran", 96); w = wem(vis, POP8) * size + size * 1.2; h = size * 2.0
         add(b["id"], "KT", dict(teks=vis, kode="T25", gaya="r3", w=int(w), h=int(h), size=size, gelap=bool(b.get("gelap")), warna=b.get("warna"), wt=wt_of(b, vis), rev=2), max(dur + b.get("tahan", 0), 0.1), t0, cx - w / 2, cy - h / 2,
             objek=dict(nama=vis, peran="kata-kacau", t=t0))
     elif g == "viral":
@@ -476,7 +476,7 @@ def dunia():
     w3 = snap(T["b3a"] - 0.1); dur3 = round(T["gimana"] - 0.1 - w3 + 0.75, 2)
     ap, ci = T["apple"] - w3, T["cinematic"] - w3
     kun3 = dict(klik=1.0, slash=round(T["template"] - w3, 3), apple=round(ap, 3), aKlik=round(ap + 0.95, 3), bs=round(ap + 1.2, 3), cine=round(ci, 3), cKlik=round(ci + 1.35, 3), hapus=round(T["ngebalik"] - w3, 3), keluar=round(T["gimana"] - 0.1 - w3, 3))
-    add("D_APP", "AppClaude", dict(w=1920, h=1080, rev=6, kunci=kun3), dur3, w3, 0, 0, opaque=True, objek=dict(nama="aplikasi Claude terang", peran="dunia-transisi", t=w3))
+    add("D_APP", "AppClaude", dict(w=1920, h=1080, rev=8, kunci=kun3), dur3, w3, 0, 0, opaque=True, objek=dict(nama="aplikasi Claude terang", peran="dunia-transisi", t=w3))
     add("D_APP_WAJAH", "Lingkar", dict(w=1920, h=1080, rev=3, t0=w3, tumbuhAt=round(kun3["keluar"] + 0.04, 3), z0=round(zoom_at(w3), 4), z1=round(zoom_at(w3 + dur3 + 0.1), 4)), dur3 + 0.1, w3, 0, 0,
         objek=dict(nama="lingkaran wajah", peran="wajah-lingkaran", t=w3))
     for nm, tt in (("saran /apple-style", w3 + kun3["apple"] + 0.42), ("klik /apple-style", w3 + kun3["aKlik"]), ("saran /cinematic-storytelling", w3 + kun3["cine"] + 0.64), ("klik /cinematic-storytelling", w3 + kun3["cKlik"]), ("teks diketik dihapus", T["ngebalik"])):
@@ -488,14 +488,14 @@ def dunia():
     SLOT = "/mnt/storage-projects/skill-dev-journey/b10a/out/b10a.mov"
     if os.path.exists(SLOT):
         SLOT_L.append(dict(id="b10a_meja3d", src=SLOT, t=s0, x=0, y=0))
-    add("D_EDIT_WAJAH", "Lingkar", dict(w=1920, h=1080, rev=3, t0=snapo(s0), tumbuhAt=round(dure - 0.5, 3), z0=round(zoom_at(s0), 4), z1=round(zoom_at(wi0), 4)), dure, s0, 0, 0,
+    add("D_EDIT_WAJAH", "Lingkar", dict(w=1920, h=1080, rev=3, t0=snapo(s0), tumbuhAt=round(dure - 0.5, 3), z0=round(zoom_at(s0), 4), z1=round(zoom_at(wi0), 4)), round(dure + 3 / 30, 4), s0, 0, 0,   # +3 f menimpa awal D_IG (di atasnya): tidak ada frame kosong di batas (audit ronde 6 V1)
         objek=dict(nama="lingkaran wajah", peran="wajah-lingkaran", t=s0))
     L.append(dict(id="O_slot b10a", comp="-", props={}, durasi=0, t=s0, x=0, y=0, gerak=None, lubang=False, opaque=False, objek=dict(nama="slot b10a_meja3d (meja 3D, onset 'kayak gimana?')", peran="slot-opaque", t=s0 + kk), skip=True))
     # B6b REVISI-1 B10: postingan Instagram desktop (frame video mengecil masuk, footage berjalan, komentar acak pop-up)
     wi = snapo(T["udah"] - 0.05); duri = round((DURASI - wi) * 30) / 30
     k1 = round(T["masih2"] - wi, 3)
     k2 = round(W.s("AI?", T["masih2"]) - wi, 3)          # komentar kedua pop di "AI?" (urutan Irfan: "masih kerasa AI slop" lalu "Keren editan profesional")
-    add("D_IG", "DuniaIG", dict(w=1920, h=1080, rev=4, t0=snapo(wi), z0=round(zoom_at(wi), 4), kunci=dict(k1=k1, k2=k2, field=round(T["comment_w"] - wi, 3))), duri, wi, 0, 0, opaque=True,
+    add("D_IG", "DuniaIG", dict(w=1920, h=1080, rev=6, t0=snapo(wi), z0=round(zoom_at(wi), 4), kunci=dict(k1=k1, k2=k2, field=round(T["comment_w"] - wi, 3))), duri, wi, 0, 0, opaque=True,
         objek=dict(nama="postingan Instagram desktop", peran="dunia-transisi", t=wi))
     for nm, tt in (("komentar 'masih kerasa AI slop'", T["masih2"]), ("komentar 'Keren editan profesional'", W.s("AI?", T["masih2"])), ("kolom Add a comment", T["comment_w"])):
         L.append(dict(id="O_" + nm, comp="-", props={}, durasi=0, t=tt, x=0, y=0, gerak=None, lubang=False, opaque=False, objek=dict(nama=nm, peran="item-ui", t=tt), skip=True))
@@ -507,7 +507,7 @@ def dunia():
     kun5 = dict(ketik1=round(s_("ChatGPT", 59.9), 3), pesan1=round(s_("koordinasi", 60), 3), amplop1=round(s_("ke", 61), 3), ketik2=round(s_("ke", 61) + 0.9, 3),
                 pesan2=round(s_("dikoordinasi", 62) + 0.4, 3), amplop2=round(s_("sebaliknya", 63), 3), pesan3=round(s_("session", 64) + 0.3, 3), catat=round(s_("kesalahan", 67), 3),
                 loop=round(s_("loop", 70), 3), selesai=round(s_("pembelajaran", 70) + 0.35, 3), keluar=round(dun - 0.3, 3))
-    add("D_RELAY", "RelayDunia", dict(w=1920, h=1080, rev=19, pre=pre, post=post, preT0=w5s, postT0=snap(T["sini_e"]), zPre=round(zoom_at(w5s), 4), kunci=kun5), dun + (pre + post) / FPS, w5s, 0, 0, opaque=True,
+    add("D_RELAY", "RelayDunia", dict(w=1920, h=1080, rev=20, pre=pre, post=post, preT0=w5s, postT0=snap(T["sini_e"]), zPre=round(zoom_at(w5s), 4), kunci=kun5), dun + (pre + post) / FPS, w5s, 0, 0, opaque=True,
         objek=dict(nama="desktop Mac + jaringan agen", peran="dunia-transisi", t=w5))
     lA = max(0.3, kun5["ketik1"] - 0.5); lD = kun5["pesan3"] - 0.35; tb = kun5["catat"] + 0.55
     for nm, tt in (("papan ChatGPT lahir (2,5D, tajam)", w5 + lA), ("pesan doctor.sh gagal", w5 + kun5["pesan1"]), ("aliran titik ChatGPT ke Claude (pesan langsung)", w5 + kun5["amplop1"]), ("papan Claude lahir, ChatGPT mundur", w5 + kun5["amplop1"] + 0.05),
@@ -563,6 +563,16 @@ def main():
         return 6
     L.sort(key=lambda l: (z(l), l["t"]))
     SK = [l for l in L if l.get("skip")]; L[:] = [l for l in L if not l.get("skip")]
+    # audit ronde 7 W1: jeda 1–5 frame antar blok KT berurutan = kedip -> blok sebelumnya DITAHAN (tanpa animasi keluar) sampai blok berikutnya masuk; onset tidak berubah
+    _LV = {"r1": 5, "r2": 5, "r3": 6, "putus": 6, "bubble": 6, "viral": 6}
+    ktl = sorted([l for l in L if l["comp"] == "KT" and l["props"].get("gaya") in _LV], key=lambda l: l["t"])
+    for a, b in zip(ktl, ktl[1:]):
+        pa = a["props"]; ka = pa.get("keluarAt"); d = a["durasi"]
+        if ka is not None and ka >= d: continue
+        vis = a["t"] + (ka if ka is not None else d - (_LV[pa["gaya"]] - 2) / 30)
+        if 0.5 <= (b["t"] - vis) * FPSO < 5.5:
+            nd = round((b["t"] - a["t"] + 1 / 30) * 30) / 30
+            a["durasi"] = nd; a["props"] = dict(pa, durasi=nd, keluarAt=round(nd + 1, 3))
     os.makedirs(os.path.join(P, "lego"), exist_ok=True)
     json.dump([dict(id=l["id"], comp=l["comp"], props=l["props"], durasi=l["durasi"]) for l in L if not l["opaque"]], open(os.path.join(P, "lego/lapisan.json"), "w"), indent=1, ensure_ascii=False)
     json.dump([dict(id=l["id"], comp=l["comp"], props=l["props"], durasi=l["durasi"]) for l in L if l["opaque"]], open(os.path.join(P, "lego/lapisan_opaque.json"), "w"), indent=1, ensure_ascii=False)

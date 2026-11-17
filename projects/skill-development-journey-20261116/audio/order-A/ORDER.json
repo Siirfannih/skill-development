@@ -3,21 +3,21 @@
  "stages": {
   "suara": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/edit/suara.wav",
-   "sha": "1ee4baa34bf86ee9",
-   "waktu": "2026-11-16 23:55",
+   "sha": "c23e53d9df676dc7",
+   "waktu": "2026-11-17 12:11",
    "hulu": {},
    "evidence": {
     "words": {
      "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/edit/words.json",
-     "sha": "4fd92a78168c919a"
+     "sha": "1bfa72aaa304cb44"
     },
     "source_words": {
      "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/edit/r5-source-words.json",
-     "sha": "0370585cfd4603a4"
+     "sha": "98ac8c78eea201e7"
     },
     "cut_map": {
      "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/CUT-MAP-v2.json",
-     "sha": "c029aaebb114b896"
+     "sha": "0fbc739ea5a803e5"
     },
     "voice_source": {
      "file": "/home/irfan/Documents/Codex/2026-11-16/files-mentioned-by-the-user-dji/work/source.wav",
@@ -25,53 +25,53 @@
     },
     "guard_exceptions": {
      "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/edit/guard-exceptions.json",
-     "sha": "d92b65b2a14403db"
+     "sha": "d76c9de0d49edf07"
     }
    },
    "terima_pelan": {
     "alasan": "rekaman sendiri: sumber -19,9 LUFS, puncak ucapan wajar -1,2..-2,5 dBFS dan tiga puncak terpotong saat rekam; gain bersih maksimum +0,24 dB; tanpa limiter/kompresor/declip global; musik/SFX menyesuaikan di bawah suara (Putusan Sutradara 16 Nov)",
     "src_lufs": -19.9,
-    "out_lufs": -19.3,
+    "out_lufs": -19.2,
     "peak_dbfs": -1.24,
     "headroom_db": 0.24,
-    "gain_dibutuhkan_db": 2.3
+    "gain_dibutuhkan_db": 2.2
    }
   },
   "visual": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/qc/master_gambar.mp4",
-   "sha": "cf91c782a6ba4726",
-   "waktu": "2026-11-17 03:59",
+   "sha": "c273a67646bfdfde",
+   "waktu": "2026-11-17 18:49",
    "hulu": {
-    "suara": "1ee4baa34bf86ee9"
+    "suara": "c23e53d9df676dc7"
    }
   },
   "sfx": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/cues.json",
-   "sha": "7074eb5ac1d17423",
-   "waktu": "2026-11-17 04:09",
+   "sha": "03f2b287ac3352e7",
+   "waktu": "2026-11-17 18:50",
    "hulu": {
-    "suara": "1ee4baa34bf86ee9",
-    "visual": "cf91c782a6ba4726"
+    "suara": "c23e53d9df676dc7",
+    "visual": "c273a67646bfdfde"
    },
    "evidence": {
     "objects": {
      "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/objects.json",
-     "sha": "92e254669e27b509"
+     "sha": "c0889630b8ae2dc7"
     }
    },
    "ref_density": 0.0
   },
   "musik": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/stem_musik_A.wav",
-   "sha": "59f69e9a39511bcd",
-   "waktu": "2026-11-17 04:09",
+   "sha": "a0bf3b9b5c6dc0d5",
+   "waktu": "2026-11-17 18:50",
    "hulu": {
-    "suara": "1ee4baa34bf86ee9",
-    "visual": "cf91c782a6ba4726",
-    "sfx": "7074eb5ac1d17423"
+    "suara": "c23e53d9df676dc7",
+    "visual": "c273a67646bfdfde",
+    "sfx": "03f2b287ac3352e7"
    },
    "peran": "pengisi sandwich Aware > With Some Malice > Aware di bawah suara",
-   "alasan": "tipe video: explainer personal bertempo cepat (pace_read=energi); Aware di hook/B1b, Malice B2-B4 di ketukan 1 pada 13,747 dtk, strings Aware 0:30+ di push-through 58,572 dtk; ducking -7 dB, EQ tengah, otomasi lokal tanpa limiter; visual dikunci ulang cf91c782 (kurva kamera)",
+   "alasan": "tipe video: explainer personal bertempo cepat (pace_read=energi); Aware di hook/B1b, Malice B2-B4 di ketukan 1 pada 13,747 dtk, strings Aware 0:30+ di push-through D_RELAY 58,972 dtk; ducking -7 dB, EQ tengah, otomasi lokal tanpa limiter; dikunci ulang terhadap visual c273a676 tanpa perubahan mix",
    "didengar": "projects/skill-development-journey-20261116/audio/preview_visual_sfx.mp4"
   }
  },

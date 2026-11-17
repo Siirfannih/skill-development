@@ -71,7 +71,7 @@ const R2: React.FC<KTProps> = (p) => {
       textShadow: p.gelap ? 'none' : BAYANG_TEKS, whiteSpace: 'pre', transform: `translateY(${-out * 0.3 * size}px)`}}>
       {words.map((w, i) => {
         const lf = f - onsetF(p, i, fps, 0);       // slam per kata, mulai di onset kata itu
-        const s = interpolate(Math.max(0, lf), [0, 1, 2, 3], [2.0, 1.3, 1.06, 1.0], {extrapolateRight: 'clamp', easing: CURVE.heavy});
+        const s = interpolate(Math.max(0, lf), [0, 1, 2, 3], i === 0 ? [2.0, 1.3, 1.06, 1.0] : [1.3, 1.16, 1.05, 1.0], {extrapolateRight: 'clamp', easing: CURVE.heavy});   // kata ke-2+ berjangkar kiri: skala awal kecil supaya tepi kanan tetap dalam safe area (ronde 9 X2)
         const g = getar(Math.max(0, lf), 3, 6, size * 0.05, (p.seed ?? 3) + i);
         return <span key={i} style={{display: 'inline-block', transformOrigin: i === 0 ? '50% 50%' : '0% 50%', visibility: lf >= 0 ? 'visible' : 'hidden', transform: `translate(${g.x}px, ${g.y}px) scale(${s})`,
           filter: lf >= 0 && lf < 3 ? `blur(${(3 - lf) * 2.2}px)` : undefined /* motion-ok: gerak cepat T03 */}}>{w + (i < words.length - 1 ? ' ' : '')}</span>;
@@ -220,7 +220,7 @@ const HeroPersp: React.FC<KTProps> = (p) => {
   const {fps} = useVideoConfig();
   const fs = useFitSize(p.teks, FONT.anton, 400, p.lebarIsi ?? 1500, 0);
   const keluarF = p.keluarAt !== undefined ? Math.round(p.keluarAt * fps) : Math.round(p.durasi * fps) - 12;
-  const out = move(f, keluarF, 12, 'leave');
+  const out = move(f, keluarF, 6, 'leave');
   const [w1, w2] = p.teks.split(' ');
   const o1 = onsetF(p, 0, fps, 0), o2 = onsetF(p, 1, fps, 6);
   const a1 = move(f, o1, 16, 'heavy'), a2 = move(f, o2, 14, 'land');

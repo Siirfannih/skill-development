@@ -76,8 +76,7 @@ const VID = {x: MODAL.x, y: MODAL.y + (MODAL.h - 540) / 2, w: 960, h: 540};
 const kameraIG = (t: number, K: IGProps['kunci']) => {
   // KT pertanyaan tinggal di pita hitam bawah video (650, 812 layar); pusat x kamera <= 1040 menjaga batas media/panel di kanan teks
   const keys: [number, number, number, number, 'heavy' | 'drift'][] = [[0, 1.0, 960, 540, 'drift'], [0.7, 1.0, 960, 540, 'drift'], [K.k1 - 0.15, 1.05, 900, 500, 'heavy'],
-    [K.k1 + 0.25, 1.17, 1040, 440, 'drift'], [K.k2 - 0.12, 1.18, 1040, 440, 'heavy'], [K.k2 + 0.25, 1.2, 1040, 470, 'drift'], [K.field - 0.35, 1.2, 1040, 472, 'heavy'],
-    [K.field + 0.1, 1.0, 960, 540, 'drift'], [K.field + 3.5, 1.04, 960, 560, 'drift']];
+    [K.k1 + 0.25, 1.17, 1040, 440, 'drift'], [K.k2 - 0.12, 1.18, 1040, 440, 'heavy'], [K.k2 + 0.25, 1.2, 1040, 470, 'drift'], [K.field + 0.2, 1.0, 960, 540, 'drift'], /* tarik mundur satu gerak drift ±19 f (ronde 9 X3) */ [K.field + 3.5, 1.04, 960, 560, 'drift']];
   let i = 0; while (i + 1 < keys.length && t >= keys[i + 1][0]) i++;
   if (i + 1 >= keys.length) return {s: keys[i][1], x: keys[i][2], y: keys[i][3]};
   const [a, s0, x0, y0, kv] = keys[i], [b, s1, x1, y1] = keys[i + 1];
@@ -108,7 +107,6 @@ const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f}) => {
       {/* modal postingan */}
       <div style={{position: 'absolute', left: MODAL.x, top: MODAL.y, width: MODAL.w, height: MODAL.h, borderRadius: 12, background: '#FFFFFF', overflow: 'hidden', opacity: modal > 0.02 ? 1 : 0,
         boxShadow: '0 0 0 1px #E3E3E3, 0 10px 24px rgba(0,0,0,.08), 0 30px 70px rgba(0,0,0,.12)'}}>
-        <div style={{position: 'absolute', left: 0, top: 0, width: MEDIA_W, height: MODAL.h, background: '#000'}}/>
         <div style={{position: 'absolute', left: MEDIA_W, top: 0, width: MODAL.w - MEDIA_W, height: MODAL.h, background: '#FFFFFF', transform: `translateX(${40 * (1 - panel)}px)`, opacity: panel}}>
           <div style={{display: 'flex', alignItems: 'center', gap: 16, padding: '20px 24px', borderBottom: `1px solid ${IGC.garis}`}}>
             <div style={{width: 52, height: 52, borderRadius: 26, overflow: 'hidden', position: 'relative', flexShrink: 0, background: '#222'}}>
@@ -137,6 +135,8 @@ const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f}) => {
           </div>
         </div>
       </div>
+      {/* kotak hitam latar video: SATU gerak dengan video (p yang sama, bersarang di dalamnya) dari layar penuh ke kotak media; tidak ada tepi hitam tertinggal (audit ronde 7 W2) */}
+      <div style={{position: 'absolute', left: MODAL.x * p, top: MODAL.y * p, width: 1920 + (MEDIA_W - 1920) * p, height: 1080 + (MODAL.h - 1080) * p, background: '#000', borderRadius: `${12 * p}px 0 0 ${12 * p}px`}}/>
       {/* video: mengecil dari layar penuh ke kotak media 16:9; footage terus berjalan (proxy wajah) */}
       <div style={{position: 'absolute', left: rx, top: ry, width: rw, height: rh, overflow: 'hidden', background: '#000'}}>
         <div style={{position: 'absolute', left: (rw - 1920 * vs) / 2, top: (rh - 1080 * vs) * 0.45, width: 1920, height: 1080, transformOrigin: '0 0', transform: `scale(${vs})`}}>

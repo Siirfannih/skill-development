@@ -62,7 +62,7 @@ const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
   const sc = cam.s * (1 + 0.55 * (1 - masuk) + 0.5 * keluar);
   const dd = drift(f, fps, 3, 4);
   const ketik = f >= F(K.slash);
-  const caret = Math.floor(f / 15) % 2 === 0;
+  const caret = (t >= K.slash && t < K.hapus + 0.6) || Math.floor(f / 15) % 2 === 0;      // kursor menyala tetap hanya saat mengetik/memilih saran (K.slash..hapus+0,6); selain itu berkedip idle (sebelum mengetik dan setelah hapus)
   const isi = teksKetik(t, K);
   // satu saran yang cocok dengan ketikan; tumbuh dari kolom ketik, hilang saat diklik
   const saran = [{teks: '/apple-style', on: K.apple + 0.42, off: K.aKlik + 0.1}, {teks: '/cinematic-storytelling', on: K.cine + 0.64, off: K.cKlik + 0.1}];

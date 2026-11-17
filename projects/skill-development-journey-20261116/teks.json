@@ -989,8 +989,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1400,
+   790
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1008,8 +1008,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1400,
+   790
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1027,8 +1027,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1290,
+   790
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1046,8 +1046,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1290,
+   790
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1065,8 +1065,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1400,
+   790
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1104,8 +1104,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1090,
-   770
+   1330,
+   790
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1896,7 +1896,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   620,
+   660,
    812
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -1915,7 +1915,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   620,
+   660,
    812
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -1934,10 +1934,11 @@
   "kode": "T25",
   "gaya": "r3",
   "pos": [
-   1110,
-   812
+   700,
+   840
   ],
   "alasan": "pertanyaan pertama yang menusuk: kata kacau lalu mendarat (REVISI-2 Opus: perlakuan R3 pindah dari 'masih kerasa AI?' yang kini tampil sebagai komentar IG)",
+  "ukuran": 80,
   "gelap": false
  },
  {
@@ -1953,7 +1954,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   620,
+   660,
    812
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -1991,7 +1992,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   620,
+   660,
    812
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -2029,7 +2030,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   620,
+   660,
    812
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",

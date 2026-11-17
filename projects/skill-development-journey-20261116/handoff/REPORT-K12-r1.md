@@ -1,0 +1,25 @@
+TASK-K12-r1 · Codex · 16 November 2026
+
+- Komponen: `remotion/src/komponen/MaskotAI.tsx`; pembantu `maskot/{geometry,material,motion}.ts`.
+- Uji: `src/uji/UjiMaskot.tsx`, `src/Root.tsx`, `src/index.ts`; tiga latar disalin identik ke `public/uji/{cgpt,claude,gemini}.jpg`.
+- Konfigurasi: `remotion.config.ts` dan `tsconfig.json`; memakai `package.json` yang sudah ada. `src/lib/curves.ts` identik byte dengan sumber resmi proyek.
+- Komposisi `Uji-CGPT`, `Uji-Claude`, `Uji-Gemini`: 1920×1080, 30 fps; f0 = sumber 9,30 dtk; onset lokal f0/f23/f38.
+- `qc/maskot/still-{cgpt,claude,gemini}.jpg`: 960×540, JPEG q94, masing-masing f8/f31/f46; berisi 1/2/3 maskot.
+- `idle-2dtk.jpg`: 1920×896, 8 sel 480×448; f61,69,78,86,95,103,112,120 dalam jendela 60 frame. Crop dinding mempertahankan proporsi.
+- `crop100.jpg`: 480×480 tanpa resize dari render native CGPT f8; antialias aktif dan canvas DPR 2. JPEG q96; lembar kontak q94.
+- `node_modules` folder asli; paket dasar yang versinya sama menjadi symlink per entri ke proyek pinjaman, termasuk subpaket `@remotion` dan entri `.bin`; 265 entri dipulihkan setelah instalasi sesi paralel menggantinya.
+- Paket 3D sudah tersedia saat mulai; K12 memasang 0 paket, tidak memakai `/tmp/k12-3d`. React tunggal terverifikasi melalui enam pemakai, menuju React 18.3.1 pinjaman.
+- Disk saat cek: node_modules lokal 215,8 MiB termasuk cache/sesi paralel, dibanding 577,1 MiB awal (turun 361,3 MiB); QC 2,94 MiB + salinan latar 324 KiB + kode. Paket berbeda versi milik sesi lain dipertahankan.
+- WebGL: `--gl=angle` berhasil; `swangle` tidak diperlukan. Still Gemini akhir 960×540 dengan tiga maskot: 5,20 dtk di batch browser hangat, di luar bundling/startup; CGPT 2,56 dtk, Claude 3,76 dtk.
+- ChatGPT: pusat (1424,440), tinggiPx 174, kedalaman 0,08, lihat Irfan; digeser dari x1330 untuk menjaga jarak wajah saat puncak pop.
+- Claude: pusat (1585,260), tinggiPx 168, kedalaman 0,68, lihat Irfan; diposisikan lebih atas dan lebih kecil di belakang.
+- Gemini: pusat (1640,632), tinggiPx 166, kedalaman 0,36, lihat kamera; digeser kiri/bawah untuk margin kanan dan ruang antarmaskot.
+- Batas konservatif selama 160 f: jarak wajah minimum 130,19 px; margin kanan minimum 104,01 px; y terbawah 742,22 (<760). Bukti: `bounds-check.json`.
+- Lampu directional posisi [18,22,30], #EEF3F5, intensitas 2,1; hemisphere #8A979A/#4A4F50 intensitas 1,15; ambient #8A979A intensitas 0,32; ACES exposure 0,68.
+- Material roughness 0,82, metalness 0; bevel voxel 0,035 unit, tebal 5 voxel; warna Gemini lewat atribut vertex color; simpul dan sparkle adalah extrude geometry.
+- Bayangan dinding siluet alpha hitam 20% (setara multiply hitam), offset kiri/bawah dan blur 17–28 px menurut kedalaman; self-shadow PCF 1024² dan cavity tint 0,94.
+- Grade: desaturasi 7,5%, batas luminans 0,565, black lift; blur kedalaman 0,26+0,7d px. Sampel kaki hitam crop: mean RGB [27,06;28,80;29,81], std [3,27;3,20;3,23].
+- Gerak memakai land/whip/drift dan react(i), pop 12 f; bob ±10 px, napas ±1,5%, fase/periode/kedip berbeda. Pemeriksaan 24/30/60 fps dan scrub terbalik lulus (`motion-check.json`).
+- `npx tsc --noEmit` lulus; motion lint khusus berkas K12 lulus; grep raster seluruh `src/komponen` kosong. Dimensi/hash sumber dan keluaran tercatat di `verification.json`; waktu di `render-times.json`.
+- Scope: pohon git sudah kotor dan terus ditulis sesi lain (berkas lepas src, K01/K05–K13, font, lockfile); status lengkap di `qc/maskot/git-status.txt`. K12 hanya menulis path izinnya; tanpa commit/push atau video penuh.
+- Batas: posisi tetap pada still, belum tracking footage bergerak; bayangan dinding bukan proyeksi ke mesh kamar; kompensasi grain setelah blur memakai pendekatan Gaussian, bukan kalibrasi seluruh permukaan. API: [ThreeCanvas](https://www.remotion.dev/docs/three-canvas), [RoundedBoxGeometry](https://threejs.org/docs/pages/RoundedBoxGeometry.html).
