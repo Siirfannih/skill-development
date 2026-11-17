@@ -104,6 +104,7 @@ def jentik(a, b):
 
 # Irfan 17 Nov: dunia agen masuk TEPAT di jentikan jari ("kayak yang kalian lihat ini" + jentik), bukan di akhir "ini."
 T["lihat_e"] = jentik(T["kayak"], T["ini_e"])
+T["dunia1"] = T["akhirnya"] + 0.25      # Irfan 17 Nov (putaran 3): dunia repo masuk sedikit lebih lambat supaya FINALLY sempat terbaca di kepala
 T["b5b"] = s("Bahkan", 59.5); T["koordinasi1"] = s("koordinasi", 60); T["claude2"] = s("Claude", 61.5); T["sebaliknya"] = s("sebaliknya")
 T["session"] = s("session"); T["kesalahan"] = s("kesalahan"); T["loop"] = s("loop"); T["loop_e"] = e("pembelajaran"); T["sini_e"] = e("sini")
 T["b6a"] = s("Ini", 72.5); T["pct"] = s("100%"); T["ai_e"] = e("AI.", 74)

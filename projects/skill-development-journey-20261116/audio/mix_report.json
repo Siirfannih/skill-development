@@ -2,9 +2,9 @@
  "A": {
   "whoosh_dips": [
    [
-    1.281,
+    1.531,
     "transisi-dunia",
-    2.6
+    5.3
    ],
    [
     23.6,
@@ -60,7 +60,7 @@
   "peak_iterations": 2,
   "mix_lufs": -15.75,
   "peak_dbfs": -1.0,
-  "music_lufs": -27.82,
+  "music_lufs": -27.85,
   "voice_max_abs_diff": 8.940696716308594e-08,
   "limiter": false
  },
@@ -118,7 +118,7 @@
   "sfx_dip_max_db": 14.0,
   "peak_after_dbfs": -1.002,
   "peak_iterations": 2,
-  "mix_lufs": -15.78,
+  "mix_lufs": -15.79,
   "peak_dbfs": -1.0,
   "music_lufs": -28.4,
   "voice_max_abs_diff": 8.940696716308594e-08,

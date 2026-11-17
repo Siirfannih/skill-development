@@ -70,3 +70,30 @@ Dibiarkan: kartu "Claude Max" (nama paket asli, menunggu Irfan); Codex/Gemini te
 - Master 2512 f (lock visual a44e19fe), SFX lock 4cd7548f (kata hero = klik Cut.mp3 di FINALLY, SELESAI, DECISION, AI SLOP, WORKFLOW-NYA, BALIK MODAL, LINTAS AGENT, 100% FULL AI; kertas di "habis banget"; tick 10× dan 4× di hitungan kartu), musik A/B dikunci ulang, `check` PASS.
 - Mix A/B/tanpa-musik −15,75 / −15,78 / −16,0 LUFS, suara ×1,0, tanpa limiter.
 - Kamera: tidak ada lagi pulsa masuk-keluar; sambungan footage = cut framing; dunia aplikasi push 1,04 → 1,12.
+
+---
+# Putaran 3 · catatan Irfan 17 Nov ±23:50 — REGRESI dari putaran 2 (kesalahan Sutradara)
+
+Akar masalah: perubahan putaran 2 diterapkan GLOBAL (aturan tahan/gulir ke semua gaya KT, animasi naik-dari-bawah ke FINALLY, busur dirapatkan tanpa cek tokoh/nama) dan QC sampling still 2 dtk tidak bisa melihat durasi tampil/gerak. Diukur dari lapisan:
+
+| # | Temuan Irfan | Ukuran | Penyebab | Perbaikan |
+|---|---|---|---|---|
+| G1 | FINALLY muncul-hilang terlalu cepat, turun ke bahu | tampil 0,50 dtk, keluar mulai 0,09 dtk; tidak pernah mendarat | naik-dari-bawah 16 f + keluar 12 f di kata 0,5 dtk | FINALLY kembali di kepala, masuk di tempat 5 f (pudar+blur+skala), keluar pudar 6 f; dunia repo mulai 0,25 dtk lebih lambat → FINALLY tampil ±0,8 dtk |
+| G2 | VIRAL hilang kecepetan | 0,37 dtk (sebelumnya ±5 dtk) | aturan narasi ikut menimpa gaya viral | aturan tahan/gulir HANYA untuk narasi R1; R2/R3/viral/putus kembali ke waktu asal |
+| G3 | "habis banget" kecepetan | 0,80 dtk, tahan 0,7 hilang | sama | sama |
+| G4 | "workflow" mengecil; bertabrakan dengan "Claude," dan Gemini | ukuran 150→124; busur aktif sampai "decision" | busur dirapatkan tanpa cek nama/tokoh | ukuran kembali 150/146; busur keluar sebelum "ChatGPT" (nama + tokoh datang setelahnya); nama "Claude," di atas Clawd, "Gemini," di samping Gemini |
+| G5 | KT hilang dengan naik ke atas / menumpuk | gulir naik 1,05 baris | gaya gulir | keluar DI TEMPAT (pudar + blur + mengecil sedikit), tanpa naik |
+| G6 | DECISION, "uji coba / sistem ini", "kesalahan" masih di kanan | x 1110 / 1180 / 1400 | posisi tidak diubah putaran 2 | semua narasi + DECISION + kesalahan rata tengah x 960 (kecuali di dalam jendela UI) |
+
+QC tambahan: skrip cek per KT (durasi tampil penuh ≥ 0,35 dtk, tidak keluar sebelum kata terakhir selesai untuk narasi, pusat x narasi 960 ± 40) + strip frame di FINALLY, VIRAL, habis banget, B1b — bukan hanya still 2 dtk.
+
+## Temuan QC putaran 3 (strip frame berurutan + cek angka per KT, bukan hanya still 2 dtk)
+- Nama "Claude,"/"Gemini," tampil penuh 0,03–0,20 dtk (diucapkan beruntun) → tiga nama bertahan bersama sampai cut "decision" (posisi berbeda, tidak bertabrakan); "ChatGPT," dipindah ke kanan Codex supaya tidak menimpa narasi tengah.
+- Narasi "sebuah" bertahan melewati cut "decision" dan menimpa DECISION (juga dilaporkan Irfan dari versi Drive putaran 2) → narasi yang melewati cut keluar di cut. Cek frame 356–367: "sebuah" terakhir f359, cut kamera f358, DECISION masuk f361.
+- "untuk meminimalisir" menimpa "kesalahan" setelah kesalahan dipindah ke tengah → aturan tahan narasi melihat blok apa pun di jalur yang sama (bukan hanya narasi).
+- "kesalahan" hanya 0,37 dtk di jalur tengah; gaya kacau butuh ±0,6 dtk untuk mendarat → slam kata kunci 3 f.
+- Cek angka akhir: 0 narasi keluar sebelum kata terakhir selesai, 0 tumpuk di jalur yang sama.
+
+## Hasil putaran 3 (18 Nov ±00:45)
+- FINALLY di kepala ±0,8 dtk (dunia repo +0,25 dtk); VIRAL!! ±6,4 dtk dan "habis banget" ditahan seperti semula; busur 150/146 keluar sebelum nama; DECISION, "uji coba / sistem ini", "kesalahan", narasi meja rata tengah; keluar teks di tempat (tanpa naik).
+- Master 2512 f (lock visual 94c91ef3), SFX lock e279adfb, musik A/B dikunci ulang, check PASS; mix −15,75 / −15,79 / −16,0 LUFS, suara ×1,0 tanpa limiter.

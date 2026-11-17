@@ -87,7 +87,7 @@ L = []          # lapisan: dict(id, comp, props, durasi, t, x, y, gerak, lubang,
 def add(id, comp, props, durasi, t, x, y, gerak=None, lubang=False, opaque=False, objek=None):
     t = snapo(t); durasi = max(0.1, round(durasi * FPS) / FPS)
     props = dict(props, durasi=durasi)
-    if comp in ("KT", "Lingkar"): props["v"] = 11 if comp == "KT" else 10          # Irfan 17 Nov malam: sistem masuk/keluar KT baru, Clawd di lingkaran
+    if comp in ("KT", "Lingkar"): props["v"] = 12 if comp == "KT" else 10          # Irfan 17 Nov malam: sistem masuk/keluar KT baru, Clawd di lingkaran
     L.append(dict(id=id, comp=comp, props=props, durasi=durasi, t=t, x=int(round(x)), y=int(round(y)), gerak=gerak, lubang=lubang, opaque=opaque, objek=objek))
 
 
@@ -349,7 +349,7 @@ def bangun_karakter():
     gy = gabung([[0, A[1]], [fin - 0.08, A[1]]], jalur("heavy", A[1], B[1], fin - 0.08, 0.5), [[T["b1b"] - 0.2, B[1]]], jalur("land", B[1], A[1], T["b1b"] - 0.2, 0.7),
                 [[keluar[0], A[1]]], jalur("leave", A[1], A[1] + 120, keluar[0], 0.45, 8))
     if DUNIA:   # Clawd di bahu kanan diserahkan ke lingkaran wajah (Lingkar merender Clawd di koordinat footage: ikut menyusut, melompat ke rambut); kembali ke kamar di B1b
-        w1 = T["akhirnya"]
+        w1 = T["dunia1"]
         gx = gabung([[0, A[0]], [fin - 0.08, A[0]]], jalur("heavy", A[0], B[0], fin - 0.08, 0.5), [[w1 + 0.1, B[0]]])
         gy = gabung([[0, A[1]], [fin - 0.08, A[1]]], jalur("heavy", A[1], B[1], fin - 0.08, 0.5), [[w1 + 0.1, B[1]]])
         karakter("Clawd0", "claude", UC, 1, 0, w1 + 1 / 30, A, [[0, "neutral"], [fin, "surprised"], [fin + 0.5, "happy"]], [[0, 0.125], [fin - 0.05, 0.125], [fin + 0.2, -0.125]],     # badan di-flip supaya wajah tetap melihat Irfan saat pindah kiri → kanan
@@ -414,9 +414,9 @@ def hero(b):
     if b["gaya"] == "finally":
         wd = 1460                                          # REVISI-1 B1: huruf raksasa memenuhi x 12–88 %, di belakang kepala (matte), bersamaan zoom-in kamera
         fs = wd / wem(vis, ANT); h = math.ceil(1.1 * fs)
-        dur = (T["akhirnya"] + 0.04) - t0
-        y0 = b["pos"][1] - 0.55 * fs
-        add(b["id"], "KT", dict(teks=vis, kode=b["kode"], gaya="finally", w=wd, h=int(1080 - y0), hTeks=h, keluarAt=round(dur - 12 / 30, 3), seed=1, wt=wt_of(b, vis), rev=2), dur, t0, 230, y0, lubang=True,
+        dur = (T["dunia1"] + 0.04) - t0
+        y0 = b["pos"][1] - 0.55 * fs          # di kepala (posisi asal yang Irfan setujui); masuk/keluar DI TEMPAT, bukan naik dari bawah (putaran 3)
+        add(b["id"], "KT", dict(teks=vis, kode=b["kode"], gaya="finally", w=wd, h=h, keluarAt=round(dur - 6 / 30, 3), seed=1, wt=wt_of(b, vis), rev=3), dur, t0, 230, y0, lubang=True,
             objek=dict(nama="FINALLY", peran="hero", t=t0))
     elif b["gaya"] == "slab":
         wd, end = SLAB_W[vis], slab_end(b)
@@ -443,7 +443,7 @@ def hero(b):
         size = r["size"]
         wpct = wem(b["teks"], POP8) * size - 4 * len(b["teks"])
         _, plen = TK.arch_at(50)
-        end = T["decision"] + 1.2 if b["teks"] == "decision" else T["decision"] + 0.6
+        end = T["chatgpt1"] - 0.05      # putaran 3: busur keluar sebelum nama + tokoh datang (tidak bertabrakan dengan "Claude,", Codex, Gemini)
         dur = end - t0
         pct = wpct / plen * 100
         pts = []
@@ -474,6 +474,8 @@ def kt(b):
         add(b["id"], "KT", kw, round(dur - 0.04, 3), t0, cx - w / 2, cy - h / 2)    # -1 frame: tidak menempel blok berikutnya setelah snap 29,97
     elif g == "r2":
         size = b.get("ukuran", 88); w = (wem(vis, POP8) * size) * 2.1 + 80; h = size * 2.7
+        if T["chatgpt1"] - 0.2 < t0 < T["decision"] and W.nrm(vis) in ("chatgpt", "claude", "gemini"):
+            dur = T["decision"] - t0          # putaran 3: nama di posisi masing-masing bertahan bersama sampai cut "decision" (sebelumnya 0,03–0,2 dtk penuh)
         kw = dict(teks=vis, kode="T03", gaya="r2", w=int(w), h=int(h), size=size, gelap=bool(b.get("gelap")), wt=wt_of(b, vis), rev=3)
         if b.get("warna"): kw["warna"] = b["warna"]
         add(b["id"], "KT", kw, max(dur, 0.1), t0, cx - w / 2, cy - h / 2, objek=dict(nama=vis, peran="kata-kunci-slam", t=t0))
@@ -552,7 +554,7 @@ def slop():
 # ====================== dunia layar penuh (MG63): repo+timeline, app Claude, dua jendela ======================
 def dunia():
     # B1: dunia repo + lingkaran wajah
-    w1 = T["akhirnya"]; dur1 = round(T["b1b"] + 0.2 - w1, 2)
+    w1 = T["dunia1"]; dur1 = round(T["b1b"] + 0.2 - w1, 2)
     kun = dict(lift=0.5, geser=0.7, tekan=round(T["selesai"] - 0.12 - w1 - 0.0 - 0.2, 3), selesai=round(T["selesai"] + 0.07 - w1, 3), keluar=round(dur1 - 0.5, 3))
     kun["tekan"] = round(kun["selesai"] - 0.46, 3)
     add("D_REPO", "DuniaRepo", dict(w=1920, h=1080, rev=5, kunci=kun), dur1, w1, 0, 0, opaque=True, objek=dict(nama="halaman repo + timeline", peran="dunia-transisi", t=w1))
@@ -657,13 +659,19 @@ def main():
     # Irfan 17 Nov (putaran 2): teks tampil sampai kata terakhirnya SELESAI diucapkan (GUIDELINE §4.2.4).
     #  - kalimat mengalir (blok berikut masuk < 0,45 dtk setelah kata terakhir): blok lama bertahan sampai blok baru masuk, lalu BERGULIR naik + pudar 5 f (blok baru masuk dari bawah)
     #  - ada jeda: bertahan >= 0,45 dtk setelah kata terakhir (tetap selesai keluar sebelum blok berikut), keluar pudar 7 f
-    _LV = ("r1", "r2", "r3", "putus", "viral")
+    _LV = ("r1",)          # putaran 3: HANYA narasi; R2/R3/viral/putus kembali ke waktu asal (VIRAL, habis banget, nama tokoh)
     BB = {b["id"]: b for b in bl}
     ktl = sorted([l for l in L if l["comp"] == "KT" and l["props"].get("gaya") in _LV and l["id"] in BB], key=lambda l: l["t"])
-    for a, b in zip(ktl, ktl[1:] + [None]):
+    semua = sorted([l for l in L if l["comp"] == "KT" and l["props"].get("gaya") in ("r1", "r2", "r3", "putus", "viral") and l["id"] in BB], key=lambda l: l["t"])
+    cxy = lambda l: (l["x"] + l["props"]["w"] / 2, l["y"] + l["props"]["h"] / 2)
+    for a in ktl:
         pa = a["props"]; blk = BB[a["id"]]
         akhir_kata = W.U[blk["kata"][1]]["e"]
+        ax, ay = cxy(a)
+        # blok berikut di JALUR yang sama (narasi atau R2/R3 di posisi berdekatan): putaran 3, "untuk meminimalisir" menimpa "kesalahan"
+        b = next((l for l in semua if l["t"] > a["t"] + 0.01 and abs(cxy(l)[1] - ay) < 110 and abs(cxy(l)[0] - ax) < 520), None)
         nb = b["t"] if b else DURASI + 0.04
+        if a["t"] < T["decision"] - 0.1 < nb: nb = T["decision"] + 1 / 30         # putaran 3: cut "decision" = adegan reset -> narasi keluar di cut (tidak menimpa DECISION)
         if b and nb - akhir_kata < 0.45 + 7 / 30:
             ka = round(round((nb - a["t"]) * 30) / 30, 4); nd = round(ka + 5 / 30, 4); pa = dict(pa, gulir=True)
         else:

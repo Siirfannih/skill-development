@@ -39,7 +39,7 @@ export type KTProps = {
 
 /** keluar halus semua KT (Irfan 17 Nov: tidak hilang tiba-tiba): pudar + blur + naik sedikit */
 const gayaKeluar = (out: number, size: number, gulir?: boolean): React.CSSProperties => ({
-  opacity: 1 - out, transform: `translateY(${-out * (gulir ? 1.05 : 0.28) * size}px)`, filter: out > 0.01 ? `blur(${(out * 9).toFixed(2)}px)` : undefined,
+  opacity: 1 - out, transform: `scale(${1 - (gulir ? 0.08 : 0.05) * out})`,   // putaran 3: keluar DI TEMPAT, tidak naik filter: out > 0.01 ? `blur(${(out * 9).toFixed(2)}px)` : undefined,
 });
 /** masuk halus per kata: pudar + blur + naik */
 const gayaMasuk = (q: number, size: number, skala = 0.9): React.CSSProperties => ({
@@ -204,9 +204,10 @@ const HeroDatar: React.FC<KTProps> = (p) => {
   const fs = useFitSize(p.teks, FONT.anton, 400, lebar, spasi);
   const keluarF = p.keluarAt !== undefined ? Math.round(p.keluarAt * fps) : Math.round(p.durasi * fps) - 12;
   const depan = !!p.depan;
-  const enter = depan ? move(f, 0, 10, 'land') : move(f, 0, 16, 'land');
+  const fin = p.gaya === 'finally';
+  const enter = depan ? move(f, 0, 10, 'land') : fin ? move(f, 0, 5, 'land') : move(f, 0, 16, 'land');
   const tenang = 1 - move(f, 18, 72, 'drift');
-  const out = move(f, keluarF, depan ? 8 : 12, 'leave');
+  const out = move(f, keluarF, depan ? 8 : p.gaya === 'finally' ? 6 : 12, 'leave');
   const ht = p.hTeks ?? p.h;
   const turun = p.h;                                    // dari/ke tepi bawah frame: kotak lapisan berakhir di tepi bawah frame
   const g = p.getarAt !== undefined ? getar(f, Math.round(p.getarAt * fps), 6, 12, p.seed ?? 2) : {x: 0, y: 0};
@@ -217,11 +218,11 @@ const HeroDatar: React.FC<KTProps> = (p) => {
   return <AbsoluteFill style={{background: 'transparent', overflow: 'hidden'}}>
     <svg width={p.w} height={ht} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible',
       transformOrigin: '50% 60%',
-      transform: depan
+      transform: depan || fin
         ? `translate(${g.x}px, ${g.y + out * ht * 0.08}px) rotate(${-2 * enter}deg) scale(${(0.8 + 0.2 * enter) * (1 - 0.1 * out)})`
         : `translate(${g.x}px, ${g.y + (1 - enter) * turun + out * turun}px) rotate(${(slab ? -2 : -5) * enter}deg)`,
-      opacity: depan ? enter * (1 - out) : 1,
-      filter: depan ? (enter < 0.99 || out > 0.01 ? `blur(${((1 - enter) * 10 + out * 8).toFixed(2)}px)` : undefined) : (enter < 0.97 || out > 0.03 ? `blur(${((1 - enter + out) * 3).toFixed(2)}px)` : undefined)}}>
+      opacity: depan || fin ? enter * (1 - out) : 1,
+      filter: depan || fin ? (enter < 0.99 || out > 0.01 ? `blur(${((1 - enter) * 10 + out * 8).toFixed(2)}px)` : undefined) : (enter < 0.97 || out > 0.03 ? `blur(${((1 - enter + out) * 3).toFixed(2)}px)` : undefined)}}>
       <defs>
         <linearGradient id="kilat" gradientUnits="userSpaceOnUse" x1={`${-30 + 140 * kilat}%`} y1="0" x2={`${-10 + 140 * kilat}%`} y2="0">
           <stop offset="0" stopColor={warna}/><stop offset=".5" stopColor="#FFFFFF"/><stop offset="1" stopColor={warna}/>

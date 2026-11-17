@@ -56,7 +56,7 @@
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": true,
-  "gelapAt": 0.263
+  "gelapAt": 0.513
  },
  {
   "id": "T004",
@@ -112,7 +112,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1010,
+   960,
    905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -131,7 +131,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1010,
+   960,
    905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -150,7 +150,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1010,
+   960,
    905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -187,7 +187,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1010,
+   960,
    905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -206,8 +206,8 @@
   "kode": "T04",
   "gaya": "busur",
   "pos": [
-   1259,
-   333
+   1223,
+   324
   ],
   "alasan": "kata cincin besar di busur kepala (DESAIN B1b)"
  },
@@ -224,7 +224,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1010,
+   960,
    905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -243,7 +243,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1010,
+   960,
    905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -262,8 +262,8 @@
   "kode": "T03",
   "gaya": "r2",
   "pos": [
-   1380,
-   905
+   1530,
+   700
   ],
   "alasan": "nama menempel tokoh Codex yang lambai",
   "gelap": false
@@ -281,8 +281,8 @@
   "kode": "T03",
   "gaya": "r2",
   "pos": [
-   480,
-   415
+   650,
+   540
   ],
   "alasan": "nama menempel Claude (crab) yang melompat",
   "gelap": false
@@ -300,8 +300,8 @@
   "kode": "T03",
   "gaya": "r2",
   "pos": [
-   1670,
-   440
+   1560,
+   520
   ],
   "alasan": "nama menempel bintang Gemini yang berputar",
   "gelap": false
@@ -319,7 +319,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1010,
+   960,
    905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -338,7 +338,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1010,
+   960,
    905
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -357,7 +357,7 @@
   "kode": "T04",
   "gaya": "slab",
   "pos": [
-   1110,
+   960,
    860
   ],
   "alasan": "kata hero besar di DEPAN, kotak dada, + push kamera kecil 1,00→1,06 (REVISI-1 B4)",
@@ -378,7 +378,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1130,
+   960,
    735
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -397,7 +397,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1130,
+   960,
    735
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -416,7 +416,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1130,
+   960,
    735
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -435,7 +435,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1130,
+   960,
    735
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -569,7 +569,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   887,
+   960,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -588,7 +588,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   887,
+   960,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -607,7 +607,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   887,
+   960,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -684,7 +684,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1040,
+   960,
    770
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -1297,8 +1297,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   700,
-   790
+   960,
+   930
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1316,8 +1316,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1180,
-   905
+   960,
+   930
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1355,8 +1355,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1180,
-   905
+   960,
+   930
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1374,8 +1374,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1180,
-   905
+   960,
+   930
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1393,8 +1393,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1180,
-   905
+   960,
+   930
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1490,8 +1490,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1250,
-   650
+   960,
+   760
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1701,11 +1701,11 @@
   "teks": "kesalahan",
   "t": 67.682,
   "dur": 0.375,
-  "peran": "R3",
-  "kode": "T25",
-  "gaya": "r3",
+  "peran": "R2",
+  "kode": "T03",
+  "gaya": "r2",
   "pos": [
-   1400,
+   960,
    950
   ],
   "alasan": "kesalahan berulang yang diminimalkan: kata kacau lalu mendarat (DESAIN B5b)",
@@ -1819,7 +1819,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   760,
+   960,
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -1862,7 +1862,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   760,
+   960,
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
@@ -1881,7 +1881,7 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   760,
+   960,
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",

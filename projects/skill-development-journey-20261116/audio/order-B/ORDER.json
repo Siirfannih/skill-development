@@ -39,36 +39,36 @@
   },
   "visual": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/qc/master_gambar.mp4",
-   "sha": "a44e19fea8eedf4a",
-   "waktu": "2026-11-17 22:59",
+   "sha": "94c91ef3b38ee89a",
+   "waktu": "2026-11-17 23:49",
    "hulu": {
     "suara": "c23e53d9df676dc7"
    }
   },
   "sfx": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/cues.json",
-   "sha": "4cd7548fde1e82f0",
-   "waktu": "2026-11-17 23:05",
+   "sha": "e279adfb1f3b52d5",
+   "waktu": "2026-11-17 23:49",
    "hulu": {
     "suara": "c23e53d9df676dc7",
-    "visual": "a44e19fea8eedf4a"
+    "visual": "94c91ef3b38ee89a"
    },
    "evidence": {
     "objects": {
      "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/objects.json",
-     "sha": "b648d092a3896498"
+     "sha": "d75a22b7cdda550a"
     }
    },
    "ref_density": 0.0
   },
   "musik": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/stem_musik_B.wav",
-   "sha": "16dc1ab2d68c5ac1",
-   "waktu": "2026-11-17 23:05",
+   "sha": "7807c806cd6aa3c7",
+   "waktu": "2026-11-17 23:49",
    "hulu": {
     "suara": "c23e53d9df676dc7",
-    "visual": "a44e19fea8eedf4a",
-    "sfx": "4cd7548fde1e82f0"
+    "visual": "94c91ef3b38ee89a",
+    "sfx": "e279adfb1f3b52d5"
    },
    "peran": "pengisi: pembuka Ticking Tension, selebihnya sama dengan A",
    "alasan": "varian pembuka berdetak; titik strings di jentikan sama dengan A",

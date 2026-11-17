@@ -16,15 +16,15 @@
  {
   "nama": "halaman repo + timeline",
   "peran": "dunia-transisi",
-  "t": 1.281,
-  "frame": 38,
+  "t": 1.531,
+  "frame": 46,
   "lapisan": "D_REPO"
  },
  {
   "nama": "lingkaran wajah",
   "peran": "wajah-lingkaran",
-  "t": 1.281,
-  "frame": 38,
+  "t": 1.531,
+  "frame": 46,
   "lapisan": "D_REPO_WAJAH"
  },
  {
@@ -404,7 +404,7 @@
  },
  {
   "nama": "kesalahan",
-  "peran": "kata-kacau",
+  "peran": "kata-kunci-slam",
   "t": 67.682,
   "frame": 2028,
   "lapisan": "T088"
