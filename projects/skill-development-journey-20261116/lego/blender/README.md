@@ -1,6 +1,6 @@
-# B10a Blender · still gate
+# B10a Blender · still gate and shot render
 
-Scope: `handoff/TASK-b10a-blender.md` + `REVISI-1.md` §B10a-3D. No final animation render, no lego integration.
+Scope: `handoff/TASK-b10a-blender.md` + `REVISI-1.md` §B10a-3D, followed by approved `handoff/TASK-b10a-render.md`. The full shot is a standalone asset; lego integration belongs to the builder.
 
 Run from project root: `bash lego/blender/run_stills.sh`.
 
@@ -21,3 +21,13 @@ The revision keeps the project footage, timeline texture, warm practical light a
 The 46 mm camera holds the entire toy at 51.9–58.4% of image height through a slow 3 cm push, with f/2 depth of field. Focus moves from Claude over frames 31–45, holds the monitor over 45–52, and returns over 52–67; the onset is frame 46. The head returns to 28° yaw and nods after focus reaches Claude. All animated channels use clamped Bézier curves.
 
 `bash lego/blender/run_stills.sh --build-only` builds and checks without rendering. `check_scene.py` projects every toy and monitor corner across all 77 frames and rejects cropping, an incorrect size, a changed silhouette, or a focus return outside the intended window. This verifies geometry and keys; three stills still need the director's visual judgment. Ronde 1 files are preserved under storage `b10a/round1/`.
+
+## Render penuh · TASK-b10a-render
+
+`bash lego/blender/run_full.sh --test` renders frames 1, 46 and 77; after their visual and timing check, `bash lego/blender/run_full.sh` reuses those three and renders the remaining frames. Run through `tools/tunggu.sh jalan …` and one `tunggu` call. Cycles CPU uses 10 samples, OpenImageDenoise Accurate, eight threads and persistent scene data; the round-2 lighting/materials and composited Fog Glow remain unchanged. HIP was unavailable in the approved setup; Eevee equivalence is unproven, so this render keeps Cycles.
+
+The camera is 9% closer to Claude with a small aim adjustment to preserve framing. Geometry verification across all 77 frames requires at least 5% toy margin; rack focus remains at the approved frame keys. The old 60% height ceiling belonged to the previous framing; the closer-camera check permits up to 68% while retaining the stricter 5% margin.
+
+`finish.py --sequence` applies the existing grain/vignette treatment to every rendered frame, with deterministic frame-specific grain; glare is already baked once by Blender. The runner encodes a ProRes 422 HQ movie from the finished PNG sequence, then `verify_full.py` decodes all 77 movie frames, checks every PNG for corruption/black frames, checks source hashes and timing, and creates the 960 px, 12-frame sheet. Output: storage `b10a/out/b10a.mov`; evidence: `full-render-times.json`, `full-check.json`, `finished/`, `raw/`. Exact output duration is 77×1001/30000 = 2.569233 s; the word window is 2.565 s (4.233 ms of frame quantization).
+
+The upstream words, audio and footage changed during the full render. All 77 rendered/decoded frames pass artifact checks; the original source-freshness guard remains FAIL and the runner exited 1. `full-check.json` keeps these results separate instead of treating changed hashes as a pass. The latest window is 74.1448–76.7098 s with onset at 75.6448 s: the 77-frame length and local onset at frame 46 are unchanged. `placement-current.json` records this compatible placement; the rendered monitor retains the approved G2 footage, which differs from the latest face footage. `timing.json` retains the actual render-input version. Do not report the movie as refreshed against the latest media.

@@ -151,7 +151,7 @@ bpy.ops.object.camera_add();cam=bpy.context.object;s.camera=cam;cam.name='Macro 
 focus=empty('Rack focus subject',(-.105,-.065,.115));cam.data.dof.focus_object=focus
 # The macro composition stays on Claude during the focus handoff.
 for f,pos in [(1,(-.105,-.73,.23)),(N,(-.105,-.70,.225))]:
- cam.location=Vector((-.105,-.065,.115))+.90*(Vector(pos)-Vector((-.105,-.065,.115)));aim(cam,(-.030,-.040,.113));key(cam,'location',f);key(cam,'rotation_euler',f)
+ cam.location=Vector((-.105,-.065,.115))+.91*(Vector(pos)-Vector((-.105,-.065,.115)));aim(cam,(-.058,-.040,.113));key(cam,'location',f);key(cam,'rotation_euler',f)
 # Half a second into the monitor, then back to the toy within 0.7 s.
 for f,fp in [(1,(-.105,-.065,.115)),(ON-15,(-.105,-.065,.115)),
              (ON-1,(mx,my-.0064,.122)),(ON+6,(mx,my-.0064,.122)),
