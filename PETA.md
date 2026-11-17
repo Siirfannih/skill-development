@@ -5,7 +5,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 ## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo ini)
 
 - `LANTAI.md` = berlaku di semua video. `guide/` + kartu `pustaka/kartu/` = cara memutuskan bersyarat dan kiblat gaya. `projects/<proyek>/DECISIONS.md` = satu video saja.
-- Cocokkan setiap pesan Irfan dengan satu baris Rute sebelum edit pertama, juga di tengah sesi.
+- Cocokkan setiap pesan baru dengan satu baris Rute sebelum edit pertama, juga di tengah sesi.
 - File rute dibaca utuh; `grep` bukan membaca. "Aturannya tidak ada" hanya setelah LANTAI, kartu kiblat proyek, dan skrip jurinya dibaca.
 
 ## Rute: pekerjaan → buka ini (urut, berhenti bila cukup)

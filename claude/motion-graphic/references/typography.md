@@ -151,10 +151,10 @@ Huruf per huruf dipakai bila maknanya memang "sedang terbentuk": diketik (T11), 
 
 Aturan pemakaian:
 - Variasi datang dari PERAN, bukan dari mengacak gerak: satu peran = satu gerak di seluruh video, dan tiap 15 dtk berisi ≥ 3 gerak berbeda karena ada kata kunci, hero, angka, atau daftar di antara narasi (`scripts/lego/kt_check.py`, Lantai A9a). Untuk peran penekanan, teknik sama maksimal 2× berturut.
-- Masuk lebih lambat dari keluar (masuk 8–14 f, keluar 4–8 f).
-- Teks keluar bersama transisi shot (2–6 f) atau lewat mask 4–6 f, tidak fade.
+- Masuk lebih lambat dari keluar (masuk 8–14 f, keluar 4–8 f). Urutan dan angka ini bawaan: bila kartu yang dipakai di `RESEP.md` memberi angkanya sendiri (kartu 83: masuk 2–4 f), angka kartu yang dipakai. Kapan teks masuk tetap dari audio (timestamp kata), bukan dari kartu (Irfan 18 Nov).
+- Teks keluar bersama transisi shot (2–6 f) atau lewat mask 4–6 f, tidak fade. Berlaku juga di talking head: tidak ada fade (Irfan 18 Nov).
 - Opacity saja tidak dihitung animasi. Opacity hanya menemani gerak, kecuali eyebrow/sub-line kecil yang boleh fade.
-- Pada adegan tenang, fade 2D elegan boleh untuk kalimat serius (contoh: "Hasilnya harus terbukti.").
+- Pada adegan tenang, fade 2D elegan boleh untuk kalimat serius (contoh: "Hasilnya harus terbukti."); tidak di talking head (Irfan 18 Nov).
 
 ---
 
@@ -177,7 +177,7 @@ Aturan pemakaian:
 - Satu register gerak per video (teknis, editorial, premium, ekspresif, tenang); di dalamnya kurva dipilih per gerak dari `scripts/remotion/curves.ts` (Lantai B13a). Tidak ada linear kecuali drift/rotasi loop.
 - Ritme:
   - satu event baru tiap 12–24 f; sesuatu yang baru tiap 2–4 dtk
-  - hold teks = 0,25 dtk + 0,3 dtk/kata (0,8–2,5 dtk)
+  - hold teks dihitung per bagian. Kartu yang dipakai di bagian itu menentukan **bentuk** hitungannya (per kata atau per frasa); **nilainya** dihitung dari kata di audio video ini, tidak disalin dari kartu. Gaya kata-per-kata (kartu 83): 0,25 dtk + 0,3 dtk/kata (`scripts/lego/teks_plan.py`). Bagian tanpa ketentuan kartu: aturan 46 di `core-rules.md` (Irfan 18 Nov)
   - reaksi berjeda tidak rata `react(i)` (0, 2, 5, 8, 11, 15 f @30), bukan stagger rata (Lantai B13a)
 - **Puncak visual memimpin ketukan** supaya terbaca tepat di beat. Bunyi tetap di grid; apex gerak, bukan awal adegan, yang menabrak beat.
 - Swap berurutan: yang lama keluar penuh sebelum yang baru mendarat.

@@ -4,9 +4,9 @@ Baca saat Irfan memberi revisi: catat dulu, baru kerjakan. Nomor § sama dengan 
 
 ## 0. Urutan saat pesan revisi masuk (sebelum edit pertama)
 
-Mengurutkan yang sudah diatur di §21 dan Lantai F27 (gagal: skill-dev-journey 17 Nov, tiga putaran revisi tanpa membuka file ini; rinciannya di `RETRO.md` 18 Nov).
+Urutan kerja untuk §21 dan Lantai F27. Tanpa urutan ini, perbaikan satu keluhan mudah ikut mengubah adegan yang sudah disetujui.
 
-1. **Ledger.** Tiap butir pesan Irfan = satu baris `DECISIONS.md` (§21.1): kata Irfan verbatim + cakupan. Keluhan satu blok berlaku ke blok itu. Keluhan yang ternyata pelanggaran aturan yang sudah ada (Lantai, kartu kiblat) disapu ke **semua** blok yang melanggar aturan yang sama, dan daftarnya ditulis di ledger ("alasan, bukan contoh", di bawah).
+1. **Ledger.** Tiap butir pesan Irfan = satu baris `DECISIONS.md` (§21.1): kata Irfan verbatim + cakupan. Keluhan satu blok berlaku ke blok itu. Hanya bila keluhan itu pelanggaran aturan yang sudah tertulis (Lantai, kartu yang dipakai), ia disapu ke **semua** blok yang melanggar aturan yang sama, dan ledger menyebut aturannya (path:baris) serta daftar bloknya ("alasan, bukan contoh", di bawah). Cakupan di dalam video ditulis balik di delta, tidak ditanyakan; apakah koreksi berlaku di video lain tidak pernah ditanyakan (`pustaka/README.md` §Tumbuh).
 2. **Tulis balik delta** (§21.2): yang berubah, dan yang dijamin tidak berubah. Yang tidak disebut Irfan dianggap disetujui (SKILL.md §4).
 3. **Kunci basis.** `scripts/juri/revisi_cek.py mulai projects/<proyek> --basis <commit yang disetujui> --alasan "…"`, isi `boleh_berubah` dengan ID ledger, `scripts/baseline_lock.py approve` untuk adegan yang tidak disentuh (§21.3). Arsipkan master versi yang disetujui.
 4. **Baca ulang utuh** `LANTAI.md`, kartu kiblat proyek, dan docstring skrip juri yang mengukur hal yang dikeluhkan.

@@ -63,7 +63,7 @@ def main():
         if any(len(v) > 2 for v in nl.values()): tanda.append(("BARIS", f, "satu blok teks > 2 baris"))
     print(f"still dicek: {len(files)}")
     for t in tanda: print(f"  {t[0]:6} {t[1]:38} {t[2]}")
-    print("TIDAK ADA TANDA" if not tanda else f"ADA {len(tanda)} TANDA: cek still-nya, perbaiki, atau tulis alasannya di qc/JURI.md")
+    print("TIDAK ADA TANDA" if not tanda else f"ADA {len(tanda)} TANDA: cek still-nya dan perbaiki (GANDA teks kinetik vs teks UI tidak bisa diberi alasan)")
     sys.exit(1 if tanda else 0)
 
 if __name__ == "__main__":

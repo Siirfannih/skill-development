@@ -57,3 +57,4 @@ Lima perilaku teks, semua dari ucapan, dipilih menurut peran kalimat:
 
 ## Catatan pakai
 - 16 Nov 2026 · skill-development-journey-20261116: dipakai sebagai sumber teknik (teks, kamera, transisi), bukan pengikat; pengikat motion graphic dari kartu lain. Penyesuaian Lantai: busur K1 maksimal 3 kata terlihat (A4); flash akhir frase diganti glow lembut tanpa blow-out putih (X12, aturan Apple-style); warna merah-putih diganti palet proyek.
+- 18 Nov 2026 · Irfan: bila kartu ini dipakai, angka masuk (2–4 f) dari kartu ini yang berlaku, bukan angka bawaan `typography.md`; tahan dihitung per kata (rumusnya di `typography.md` §11, nilainya dari kata di audio video itu); kapan teks muncul dari audio; keluar tanpa fade (potongan atau mask).
