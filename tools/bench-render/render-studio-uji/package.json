@@ -1,0 +1,3 @@
+{ "name": "render-studio-uji", "private": true,
+  "dependencies": { "@remotion/cli": "4.0.380", "remotion": "4.0.380", "@remotion/three": "4.0.380",
+    "react": "18.3.1", "react-dom": "18.3.1", "three": "0.169.0", "@react-three/fiber": "8.17.10", "gsap": "3.13.0" } }

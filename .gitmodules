@@ -16,3 +16,6 @@
 [submodule "external/earshot"]
 	path = external/earshot
 	url = https://github.com/Leonxlnx/earshot.git
+[submodule "external/gsap-skills"]
+	path = external/gsap-skills
+	url = https://github.com/greensock/gsap-skills.git
