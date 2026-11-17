@@ -36,6 +36,8 @@ Lakukan sekali di awal sesi dan catat hasilnya di `STATUS.md`:
 
 - **Satu jalur, satu pandangan visual:** Sutradara (sesi utama) yang memutuskan apa yang dibangun, bentuk visual, aset, dan QC. **Satu subagen Sonnet** menulis kode SEMUA komponen dan adegan video itu dari awal sampai akhir. **Satu subagen Opus** lalu merapikan seluruh kode Sonnet itu (prinsip motion Apple-style: bersih, modern, satu fokus per frame, ruang lega) sebelum diserahkan ke Sutradara untuk dirakit jadi video utuh. Urutan Sutradara → Sonnet → Opus → Sutradara tidak boleh dibalik, dilewati, atau dipecah: pekerjaan visual tidak dibagi ke beberapa model/pekerja (komponen A oleh Sonnet, B oleh Codex, C oleh Opus), karena hasilnya pasti tidak konsisten. Referensi yang Irfan beri sebagai contoh gaya dipakai gayanya saja, bukan isinya.
 
+- **RESEP dulu, baru builder.** TASK komponen visual baru dikirim setelah `RESEP.md` tertulis dan lulus `resep_check.py`. Gerbang still (G2) hanya menerima lembar sanding: still di atas footage/kanvas final berdampingan dengan keyframe kiblat, bukan still di latar uji polos.
+
 ## 3. Perintah untuk pekerja (prompt engineering)
 Setiap tugas untuk pekerja kamu tulis sebagai satu file `handoff/TASK-<beat>-<ronde>.md` dengan isi lengkap. Pekerja tidak boleh perlu bertanya atau menebak.
 

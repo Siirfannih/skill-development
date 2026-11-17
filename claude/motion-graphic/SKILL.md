@@ -72,7 +72,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 2. Tentukan kiblat:
    - Irfan mengirim video referensi di sesi → itu kiblatnya; bedah ke kartu baru (`pustaka/README.md` §Referensi baru).
    - Prompt sudah jelas → pilih satu kartu yang cocok dan langsung jalan.
-   - Prompt kabur ("gaya premium") → maksimal 3 pertanyaan dengan pilihan dari peta, lalu pilih.
+   - Prompt tanpa perintah gaya spesifik → ikuti gaya global brief (gaya bawaan `templates/gaya/` boleh bila cocok); tanpa gaya di brief → kartu paling mirip atau gaya sendiri yang sesuai brief, alasan di `RESEP.md`. Video bermode ganda boleh berkiblat berbeda per mode asal gayanya konsisten (`pustaka/README.md`).
 3. Buka **hanya** kartu kiblat itu (`pustaka/kartu/…`). Jangan membuka semua kartu.
 4. Tulis `projects/<proyek>/RESEP.md` dari `pustaka/RESEP-TEMPLATE.md`: 8 bagian anatomi. **Pengikat** (warna & tekstur, teks, ritme) dari satu sumber; **teknik** (b-roll, motion graphic, kamera & transisi, SFX, musik) boleh dipinjam kartu lain dan dikenakan pengikat kiblat. Cek: `python3 scripts/juri/resep_check.py projects/<proyek>/RESEP.md`.
 

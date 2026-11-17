@@ -53,6 +53,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §Lima fase, satu subagen baru per fase (Irfan 16 No · "Beberapa video sekaligus: satu grup agen…" | Irfan 9 Nov, Behindwork |
 | §3 Satu standar untuk semua video | Profil "Format A/B" turunan penilaian klip DOAC 6 Nov dihapus Irfan 8 Nov: proyek itu belum selesai, jadi bukan standar |
 | §4 gerbang 11 | Kesalahan V5 mayoritas audio (Irfan 8 Nov) |
+| §0a butir 2 · prompt tanpa perintah gaya spesifik, kiblat per mode | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4) |
 
 ## `fonts/README.md`
 
@@ -153,6 +154,8 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 |---|---|
 | §PETA pustaka referensi · "Nama referensi menunjukkan apa yang diambil…" | Irfan 11 Nov |
 | baris "07" | Irfan 7 Nov: iklan & onboarding Workspace |
+| baris "83" | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4): kartu dipakai aktif tetapi belum ada di peta |
+| §Cara memilih butir 3 · prompt tanpa perintah gaya spesifik | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4): "sesuaikan gaya dengan gaya global yang dipakai … yang ga ada perintah spesifik cari gaya yang paling mirip atau buat gaya sendiri" |
 
 ## `pustaka/README.md`
 
@@ -168,6 +171,9 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §Tumbuh: ke mana pelajaran disimpan · "Skill ini mengajarkan cara memutuskan (kapan…" | Irfan 15 Nov |
 | §Juri butir 2 · still di frame frasa utuh | builder-trap-r2 r5: 19 FAIL palsu |
 | §Juri butir 6 · render ulang semua frame | Gagal builder-trap-r2 r8d: sambungan frame lama-baru terlihat seperti patahan |
+| pembuka · kiblat berbeda per mode | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4): "kiblat berbeda diperbolehkan asal styele masih konsisten" |
+| §Alur butir 4 · gaya global brief | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4); menggantikan "3 still lalu tunggu" |
+| §Juri butir 4 · Cek kemiripan vs Lantai dicatat | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4): "Dicatat" |
 
 ## `pustaka/kartu/07-baikov-shapes.md`
 
@@ -260,6 +266,8 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §14.0D butir 2 | builder-trap-r2: 24 kata menyimpan diam 0,15–0,45 dtk |
 | §14.0D butir 7b | builder-trap-r2 v3 |
 | §14.0 Gerbang sumber SFX | Kesalahan terbesar di Pengganti Kita Sendiri: bank bunyi sintetis + Mixkit dipakai, sumber Irfan tidak dicek, 2 jam kerja audio terbuang |
+| §14.0C butir 6a · pengecualian guard 50 ms bernama-berbukti | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4); kasus: skill-dev-journey 16 Nov, 7 sambungan "tuh" |
+| §14.6 · sumber pelan terima level, tanpa limiter/declip; limiter hanya musik/SFX; tanpa limiter bus master | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4): "Jangan ada limiter suara harus jelas dan clean, limiter hanya digunakan untuk audio" |
 
 ## `references/build.md`
 
@@ -364,6 +372,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §audit butir 6 · potongan tidak berubah tidak diaudit ulang | Laporan investigasi 24 jam, 16 Nov: bdf26 9 gelombang × 12 potongan diperiksa ulang semua |
 | "Menunggu job panjang tanpa polling" | sfx_builder_v6: 42 % token hanya polling, 16 Nov |
 | butir 3b | Diamati di bdf26 v10 |
+| §2 · RESEP dulu, baru builder; G2 hanya lembar sanding | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4); gagal: skill-dev-journey 16 Nov, komponen dibangun sebelum RESEP dan dinilai di latar abu |
 
 ## `references/pacing-map.md`
 
@@ -388,6 +397,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §21 pembuka | Audit Jadisatu 25 Okt: KEPUTUSAN_TERKINI.md identik di 8 versi V7→V14, feedback V8–V14 tidak pernah menjadi keputusan; status storyboard berbalik minimal 7 kali |
 | §21.3 baseline_lock | Diuji 25 Okt pada render Jadisatu: V13 vs V14 lolos (piksel identik), V13 vs V10 di adegan pixel gagal 80 %, dengan --shift +3,3 lolos |
 | §21.5 | Di Jadisatu label "v5" dan "v7" sempat berarti tiga render berbeda |
+| §0 butir 5 · gerak teks dari masukan Irfan dibatasi + cek angka; audit independen tidak terikat | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4); gagal: regresi putaran 2 skill-dev-journey 17 Nov (FINALLY, VIRAL, habis banget) |
 
 ## `references/roles.md`
 

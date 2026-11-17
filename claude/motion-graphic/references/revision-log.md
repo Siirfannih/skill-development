@@ -10,7 +10,7 @@ Urutan kerja untuk §21 dan Lantai F27. Tanpa urutan ini, perbaikan satu keluhan
 2. **Tulis balik delta** (§21.2): yang berubah, dan yang dijamin tidak berubah. Yang tidak disebut Irfan dianggap disetujui (SKILL.md §4).
 3. **Kunci basis.** `scripts/juri/revisi_cek.py mulai projects/<proyek> --basis <commit yang disetujui> --alasan "…"`, isi `boleh_berubah` dengan ID ledger, `scripts/baseline_lock.py approve` untuk adegan yang tidak disentuh (§21.3). Arsipkan master versi yang disetujui.
 4. **Baca ulang utuh** `LANTAI.md`, kartu kiblat proyek, dan docstring skrip juri yang mengukur hal yang dikeluhkan.
-5. **Perbaiki di tingkat yang dikeluhkan**: data blok itu (posisi, tahan, ukuran), bukan komponen atau aturan bersama.
+5. **Perbaiki di tingkat yang dikeluhkan**: data blok itu (posisi, tahan, ukuran), bukan komponen atau aturan bersama. Perubahan gerak teks (masuk, tahan, keluar) yang lahir dari masukan Irfan dibatasi ke gaya/adegan yang ia keluhkan dan dicek angka per KT sebelum render (durasi tampil penuh, keluar setelah kata terakhir selesai, tidak bertumpuk sejalur); still per 2 dtk tidak cukup untuk menilai gerak. Temuan audit independen (audit sendiri sebelum render) tidak terikat batas ini: temuan yang melanggar aturan tertulis disapu ke semua blok yang melanggar aturan yang sama.
 6. **Sebelum melapor:** `revisi_cek.py cek` dan `baseline_lock.py check` lulus, rakit lewat `scripts/juri/render.sh`, gerak tiap butir dilihat di draft (`pustaka/README.md` §Juri 7). Laporan: "siap ditinjau" + angka yang diukur (§21.4).
 
 Uji: setiap lapisan yang berubah bisa ditunjuk ke satu butir ledger. Yang tidak bisa, dipulihkan ke basis.

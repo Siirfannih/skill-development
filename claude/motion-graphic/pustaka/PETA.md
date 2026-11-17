@@ -7,7 +7,7 @@ Semua video di sini adalah **standar kualitas Irfan**: target yang harus dicapai
 ## Cara memilih
 1. **Irfan mengirim video referensi baru di sesi ini** → itulah kiblatnya. Bedah ke kartu baru dulu (`README.md` §Referensi baru); pustaka hanya mengisi bagian yang tidak dimiliki video itu.
 2. **Prompt menyebut gaya atau referensi dengan jelas** → cocokkan ke "Cocok untuk", "Kata kunci gaya", dan "Diambil untuk", pilih satu, tulis alasannya di `RESEP.md`, lalu jalan.
-3. **Prompt kabur** ("gaya premium") → maksimal 3 pertanyaan, tiap pertanyaan dengan 2–3 pilihan dari tabel ini dan satu default, baru tulis resep.
+3. **Prompt tanpa perintah gaya spesifik** → ikuti gaya global di brief (mis. talking head profesional + Apple-style motion; gaya bawaan `templates/gaya/` boleh dipakai bila cocok); bila brief juga tidak menyebut gaya, pilih kartu yang paling mirip dengan isi brief atau susun gaya sendiri yang sesuai brief, tulis alasannya di `RESEP.md`, lalu jalan.
 4. Pilih dari Tabel A lebih dulu. Kartu Tabel B belum diukur dari videonya: boleh dipilih bila paling cocok, tetapi ukur dulu (`README.md` §Referensi baru).
 
 Tiap kartu Tabel A punya frame kunci ukuran penuh di `../guide/referensi/sheets/keyframes/<no>-k*.jpg` (pakai ini untuk lembar sanding), contact sheet di `../guide/referensi/sheets/<slug>.jpg`, dan catatan ukur + laporan pengukur independen di `../guide/referensi/ukuran/`.
@@ -16,7 +16,7 @@ Kolom "Periksa": hasil ukur ulang 6 klaim oleh pengukur independen (GPT). "ada k
 Teknik lintas referensi (boleh dipinjam, selalu dikenakan pengikat kiblat): `teknik/kinetic-typography.md`.
 Video sumber: PC server `~/work/pustaka-video/` dan `~/work/canvas-skill-library-20261102/data/`. Tidak disimpan di GitHub.
 
-## Tabel A · bedah dalam, diukur dari video sumber (69 kartu)
+## Tabel A · bedah dalam, diukur dari video sumber (70 kartu)
 
 | No | Referensi | Cocok untuk | Kata kunci gaya | Diambil untuk | Periksa | Kartu |
 |---|---|---|---|---|---|---|
@@ -89,6 +89,7 @@ Video sumber: PC server `~/work/pustaka-video/` dan `~/work/canvas-skill-library
 | 80 | siirfannih IG De9apo4TnUi "The Gap" (taste gap, Ira Glass → AI → jadi… | esai ide/opini, launch produk AI, explainer bernarasi | editorial, Apple-ish, bersih, kinetik, satu-tarikan, gelap-terang | nama file "siirfannih_De9apo4TnUi. Cek PETA.md, bila sama dengan kartu lama sebut nomornya di header". Nama t… | GPT: ada koreksi | `kartu/80-ig-De9apo4TnUi.md` |
 | 81 | ig-DfSXjlOobvX "wonderful AI OS / Gateway" (peluncuran produk AI) | launch produk SaaS/AI/fintech, fitur biaya/anggaran, demo dashboard | premium, editorial, kolase taktil, tenang-cepat, Apple-ish | nama file "siirfannih_DfSXjlOobvX" tidak menyebut bagian; lihat bagian terkuat. Bagian terkuat: motion graphi… | GPT: ada koreksi | `kartu/81-ig-DfSXjlOobvX.md` |
 | 82 | Merantau (motion design 2D/2,5D, Dyanee) — file `2dmotion.mp4`, BUKAN… | pembuka/teaser cerita, brand film emosional, intro tanpa VO, video perjalanan/perubahan hidup | sinematik, hangat-ke-dingin, simbolik, 2,5D, cahaya bocor, tenang | "2dmotion.mp4" → motion graphic 2D (ilustrasi, skala dan kedalaman subjek, gerak kamera, transisi). Bagian in… | GPT: ada koreksi | `kartu/82-merantau-2d-motion.md` |
+| 83 | Barsol Media kinetic typography talking head (IG DcytmYFzR8Q) | talking head promosi/opini 30–90 dtk, personal brand, pitch jasa | kinetik, 2.5D, cincin kata, slab raksasa, merah-putih, sinematik gelap | file `barsolmedia_DcytmYFzR8Q.mp4` → **teks kinetik, gerak kamera, transisi** (cincin kata di kepala, tangga tag, slab di belakang kepala, kata tunggal di dada); tidak diambil: warna, musik, peredupan ruang | belum diperiksa | `kartu/83-barsolmedia-kt-talking-head.md` |
 
 ## Tabel B · belum diukur dari video (video sumber belum ada, atau hanya still)
 

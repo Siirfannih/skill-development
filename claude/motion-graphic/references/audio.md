@@ -70,6 +70,7 @@ Suara yang dikunci (gerbang 6) harus sudah bebas kata sampah dan diam saat berpi
 4. **Bunyi bersuara di luar kata** (gesekan mik, tangan, benda) dibuang bersama jedanya; dengar dulu dengan `earshot describe`.
 5. **Sisa jeda**: tengah kalimat 0,06 dtk; antarkalimat ±0,28 dtk; jeda dramatis yang disengaja (sebelum twist, setelah klimaks, antarbabak) ≤ 0,5 dtk dan ditulis di DECISIONS (aturan 33).
 6. **Alat**: `scripts/gate/cut_check.py suara.wav words_source.json --suggest potong.json` (FAIL bila ada sampah/diam) → dengar/edit usulan → `scripts/audio/recut.py cut --audio … --video wajah.mp4 --remove potong.json --source-words words_source.json --out DIR` (menolak endpoint bersuara, overlap kata, guard < 50 ms, dan drift; audio/video dipotong pada frame sama, micro-fade maksimal 2 ms, `map.json`) → `recut.py remap` untuk kata, beat, event, dan cue. Kode adegan yang menulis frame langsung harus memakai peta yang sama.
+6a. **Pengecualian guard 50 ms bernama-berbukti.** Bila kata sampah (mis. "tuh") menempel kata tetangga sehingga jeda nyatanya < 50 ms, batas itu boleh dikecualikan per sambungan lewat `--guard-exceptions <file.json>` (`cut_check.py`, `audio_order.py lock suara`). Tiap entri: {detik, kata_kiri, kata_kanan, alasan, bukti{retensi ≥ 0,95, irisan_ms ≤ 20, path}}, dan angka yang DIUKUR alat harus memenuhi syarat itu. Overlap kata, retensi, dan urutan tidak pernah dikecualikan; setiap pengecualian tercetak di laporan.
 7. **Tidak mengisi jeda dengan room tone** dari kamar yang sama (§14.6).
 7b. **Potong ulang setelah visual dibangun**: jangan memotong video render di titik jeda (animasi melompat). Buat peta waktu W(t_baru) → t_lama: bekas jeda saat layar diam atau berisi cut keras = lompatan 1:1; bekas jeda di tengah animasi = disebar ±1,5× panjang jeda (contoh `projects/builder-trap-r2/edit/make_knots.py`). Adegan diputar di `<Freeze frame={W(f)}>`; video wajah dan **waktu tampil teks memakai frame nyata + kata di timeline baru** (teks yang ikut W bisa meleset sampai 20 frame).
 7c. Ambang diam di dalam kata: 0,18 dtk di rekaman kamar (0,15 menangkap konsonan/henti b-t-k); ulangi `cut_check` setelah tiap potong — diam yang lebih kecil baru terlihat setelah yang besar dibuang.
@@ -229,6 +230,8 @@ ffmpeg -y -i klip_mentah.mp4 -vn -af "pan=mono|c0=0.5*c0+0.5*c1,highpass=f=120:p
 - **+2,5 dB @3,2 kHz**: kejelasan;
 - **afftdn** meredam noise; **tanpa kompresor, limiter, atau loudnorm** pada suara asli (Lantai E23).
 - **Level**: gain linear NAIK saja (`volume=+X dB`), dihitung supaya suara ±−16 LUFS; tidak pernah diturunkan. Bila puncak akan > −1 dBFS, target gain diturunkan sedikit, bukan ditutup limiter. Bukti: `scripts/gate/voice_level.py`.
+  - **Sumber rekaman sendiri pelan dengan puncak terpotong saat rekam** (headroom < gain yang dibutuhkan): terima level sumber lewat `voice_level.py --terima-pelan "<alasan>"`; suara tetap tanpa limiter, kompresor, atau declip. Suara harus jelas dan bersih dari peredam noise + EQ di atas; musik/SFX yang turun menyesuaikan.
+  - Limiter hanya untuk stem musik/SFX, tidak pernah untuk suara.
   - Tambahkan **mud cut kedua −3 dB @220 Hz** untuk suara pria/ruang konferensi. Hasil uji: low-mid Altman 56 → 41 %, Gates 51 → 33 %.
   - **Jangan pakai gate/expander**: tidak mengurangi gema, dan menambah potongan mendadak di dalam ucapan.
 - **Cara mengukur gema**: ekor energi 40–150 ms setelah akhir kata, relatif ke level kata (pakai timestamp STT).
@@ -332,8 +335,8 @@ Lulus bila semua terpenuhi:
 **Resep mix yang terbukti**:
 - musik masuk di −15,5…−16,5 dB (track ber-beat/sub bass 1 dB lebih rendah); `dynaudnorm` + auto-gain RMS tahap 2 (1 dtk, maks ±8 dB; jangan menaikkan bed di jeda bicara) meratakan breakdown → sebaran bed 1,1–3,2 dB;
 - kantong EQ untuk suara (−4 dB 2,8 kHz, −2 dB 450 Hz), gerak musik saat kata ≤ 1,5 dB;
-- limiter master hanya penangkap true peak (reduksi ≤ 1 dB), **tidak dipakai mengejar −14 LUFS**: limiter yang bekerja keras memipihkan suara ("mendem"). Loudness dicapai dengan menaikkan suara secara bersih, musik/SFX menyesuaikan;
-- setelah mix, langkah true peak oversampled (hanya menangkap puncak, gain tetap): `ffmpeg -i raw.wav -af "aresample=192000,alimiter=limit=0.85:attack=1:release=50:level=false,aresample=48000" -c:a pcm_s16le mix.wav`; puncak sampel dari skrip bukan true peak;
+- tidak ada limiter di bus master yang memuat suara: limiter yang bekerja memipihkan suara ("mendem"). Loudness dicapai dengan menaikkan suara secara bersih, musik/SFX menyesuaikan;
+- puncak mix ≤ −1 dBTP dicapai dengan otomasi gain lokal dan penangkap true peak oversampled pada stem musik/SFX saja (sebelum dijumlah dengan suara): `ffmpeg -i stem_musik.wav -af "aresample=192000,alimiter=limit=0.85:attack=1:release=50:level=false,aresample=48000" stem_musik_tp.wav`; suara = stem terkunci × 1,0; puncak sampel dari skrip bukan true peak;
 - saat mux ke AAC turunkan −0,4 dB, karena AAC menaikkan puncak ±0,5 dB (N2 sebelum diperbaiki: −0,9 dBTP di MP4);
 - hasil 3 klip: −14,2 LUFS, −1,4 dBTP WAV, `voice_fidelity` PASS (ΔLRA −0,1…+0,2).
 

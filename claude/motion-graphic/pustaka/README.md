@@ -1,6 +1,6 @@
 # Pustaka: cara memakai referensi
 
-Tujuan repo ini menaikkan mutu hasil dari prompt Irfan, bukan menyediakan template. Caranya: tiap video punya **satu kiblat** yang dipilih sadar, dan hasilnya dibandingkan dengan kiblat itu sebelum dikirim.
+Tujuan repo ini menaikkan mutu hasil dari prompt Irfan, bukan menyediakan template. Caranya: tiap video punya **satu kiblat** yang dipilih sadar, dan hasilnya dibandingkan dengan kiblat itu sebelum dikirim. Video yang punya beberapa mode (mis. talking head dan motion graphic layar penuh) boleh memakai kiblat berbeda per mode, asal gayanya tetap konsisten: palet, huruf, dan register gerak satu keluarga, dan `RESEP.md` menulis kiblat tiap mode beserta pengikat bersamanya.
 
 | File | Isi | Kapan dibaca |
 |---|---|---|
@@ -29,7 +29,7 @@ Yang dicatat kartu adalah hal yang tidak bergantung pada audio: proporsi (kata k
 1. Baca `../LANTAI.md` dan `PETA.md`.
 2. Tentukan kiblat (`PETA.md` §Cara memilih). Buka kartunya.
 3. Salin `RESEP-TEMPLATE.md` ke `projects/<proyek>/RESEP.md`, isi 8 baris. Jalankan `python3 ../scripts/juri/resep_check.py projects/<proyek>/RESEP.md`.
-4. Prompt menyebut gaya atau membawa referensi: langsung jalan dan kirim resep bersama hasil. Prompt tidak menyebut arah gaya: pilih 3 calon kiblat yang cocok dengan jenis videonya, buat satu still pembuka dari video itu untuk tiap calon (`render.sh still`, bukan render video), kirim ketiganya ke Irfan dalam satu pesan dan tunggu ia memilih.
+4. Prompt menyebut gaya atau membawa referensi: langsung jalan dan kirim resep bersama hasil. Bagian yang tidak punya perintah gaya spesifik mengikuti gaya global brief video itu (mis. brief "talking head profesional + Apple-style motion" → gaya bawaan yang cocok, seperti `templates/gaya/minimal-premium`, boleh dipakai); bila brief juga tidak menyebut gaya, pilih kartu yang paling mirip dengan isi brief, atau susun gaya sendiri yang sesuai brief, tulis alasannya di `RESEP.md`, lalu jalan tanpa menunggu.
 5. Build. Render hanya lewat `../scripts/juri/render.sh` (still → draft → final).
 6. **Juri** sebelum kirim (di bawah).
 
@@ -38,7 +38,7 @@ Dijalankan pada still per beat, sebelum render penuh:
 1. `python3 ../scripts/juri/teks_cek.py qc/stills/` : teks di pita bawah berturut-turut, kata tampil dua kali, teks menyentuh tepi. Tanda GANDA antara teks kinetik dan teks UI = GAGAL, diperbaiki, tidak diberi alasan.
 2. `python3 ../scripts/juri/balance_check.py qc/stills/` : keseimbangan global tiap frame (Lantai C17): teks dibobot ×8, objek/subjek disetarakan dengan massa teks; FAIL bila satu sisi membawa > 70 %. FAIL hanya boleh diterima untuk frame transisi ≤ 12 f, ditulis `KESEIMBANGAN: transisi f<awal>-<akhir> <alasan>` di `qc/JURI.md`; selain itu posisinya diperbaiki. Still diambil di frame **frasa utuh** (kata terakhir tampilan sudah muncul), bukan tengah frasa (frame yang baru menampilkan 1 kata memberi FAIL palsu). Buka `qc/stills/balance_sheet.jpg` (25 % dan 50 %) dan nilai urutan baca dengan mata.
 3. `python3 ../scripts/juri/sandingkan.py qc/stills/ <sheet kiblat> qc/sanding.jpg` : lembar sanding still kita vs frame kiblat.
-4. Lihat lembar sanding itu, lalu isi `qc/JURI.md`: tiap butir "Cek kemiripan" di kartu kiblat dan tiap butir `LANTAI.md` A–D diberi LULUS/GAGAL + nama still buktinya. Bandingkan juga dengan `contoh-gagal/`.
+4. Lihat lembar sanding itu, lalu isi `qc/JURI.md`: tiap butir "Cek kemiripan" di kartu kiblat dan tiap butir `LANTAI.md` A–D diberi LULUS/GAGAL + nama still buktinya. Butir "Cek kemiripan" yang bertabrakan dengan Lantai tidak gugur diam-diam: dicatat di `RESEP.md` §Penyesuaian karena LANTAI (bunyi butir → versi yang disesuaikan), lalu dinilai terhadap versi yang disesuaikan itu. Bandingkan juga dengan `contoh-gagal/`.
    Beat yang meminjam **teknik** dari kartu lain (baris teknik di `RESEP.md`) disandingkan juga dengan sheet kartu itu, dan butir "Cek kemiripan" kartu itu yang menyangkut teknik pinjaman (skala subjek, lapisan, latar, kamera, transisi) masuk `qc/JURI.md` dengan angka terukur. Kiblat lulus tidak menutupi teknik pinjaman yang meleset.
 5. Ada GAGAL = perbaiki adegan itu dan ulangi still-nya saja. Semua LULUS = baris terakhir `qc/JURI.md` ditulis `PUTUSAN: LULUS`, baru `render.sh final`.
 6. **Audit frame per frame, tanpa sampling (sebelum MP4)**: `render.sh <proyek> frames <Comp>` (semua frame, jpeg skala 0,5) → `python3 ../scripts/juri/frame_audit.py qc/frames --src remotion/src --cuts <beats> --cues <cues> --words <words> --stems audio --out qc/frame_audit`. Satu agen pemeriksa per potongan ≤ 10 dtk (subagen/model lain, paralel; bukan agen yang membangun) membuka SEMUA lembar per detik (30 frame + strip audio) dan menulis `VERDICT.md` (masalah per baris + `PUTUSAN: LULUS/GAGAL`). Yang dinilai: visual, audio/SFX (momen jatuh/mendarat/klik/ganti adegan punya bunyi), transisi (tanpa kedip/frame kosong), jarak antar-frame (tanpa patahan di luar potong disengaja). GAGAL = perbaiki, render ulang SEMUA frame (bukan rentang: sambungan frame lama-baru terlihat seperti patahan palsu), audit ulang potongan yang berubah.
