@@ -87,7 +87,7 @@ L = []          # lapisan: dict(id, comp, props, durasi, t, x, y, gerak, lubang,
 def add(id, comp, props, durasi, t, x, y, gerak=None, lubang=False, opaque=False, objek=None):
     t = snapo(t); durasi = max(0.1, round(durasi * FPS) / FPS)
     props = dict(props, durasi=durasi)
-    if comp in ("KT", "Lingkar"): props["v"] = 10          # Irfan 17 Nov malam: sistem masuk/keluar KT baru, Clawd di lingkaran
+    if comp in ("KT", "Lingkar"): props["v"] = 11 if comp == "KT" else 10          # Irfan 17 Nov malam: sistem masuk/keluar KT baru, Clawd di lingkaran
     L.append(dict(id=id, comp=comp, props=props, durasi=durasi, t=t, x=int(round(x)), y=int(round(y)), gerak=gerak, lubang=lubang, opaque=opaque, objek=objek))
 
 
@@ -127,33 +127,33 @@ def _akhir_kalimat(t):
 
 @functools.lru_cache(maxsize=None)
 def langkah():
-    """[(frame kata, frame kembali, pengali)] punch-in bertingkat. B1b: ChatGPT/Claude/Gemini masing-masing +4 % (bertumpuk), CUT ke 1,00 tepat di 'decision' (Irfan 17 Nov)."""
+    """[(frame awal, frame kembali, pengali, frame ramp)] punch kamera. B1b: ChatGPT/Claude/Gemini masing-masing +4 % (bertumpuk), CUT ke 1,00 tepat di 'decision'.
+    Kata kunci lain: punch-in 14 f ditahan sampai akhir kalimat lalu kembali lewat potongan. Sambungan footage (jump cut) = CUT framing (ramp 0), tidak lagi pulsa masuk-keluar (Irfan 17 Nov)."""
     fr = lambda t: round(snapo(t) * FPSO)
-    ev = [(fr(T[k]), fr(T["decision"]), 1 + 0.04 * (n + 1)) for n, k in enumerate(("chatgpt1", "claude1", "gemini1"))]
-    dunia = [(T["akhirnya"] - 0.3, T["b1b"] + 0.4), (T["b3a"] - 0.5, T["gimana"] + 0.9), (T["lihat_e"] - 0.5, T["sini_e"] + 0.5), (T["b6b"] - 0.2, 999)]
-    joins = [(PU.jendela(j)[0] - 2, PU.jendela(j)[1] + 3) for j in JF]
+    rantai = [(fr(T[k]), fr(T["decision"]), 1 + 0.04 * (n + 1), RAMP) for n, k in enumerate(("chatgpt1", "claude1", "gemini1"))]
+    dunia = [(T["akhirnya"] - 0.3, T["b1b"] + 0.4), (T["b3a"] - 0.5, T["gimana"] + 0.9), (T["lihat_e"] - 0.5, T["sini_e"] + 0.5), (T["b6a"] - 0.2, 999)]
+    di_dunia = lambda t0, t1: any(not (t1 < a or t0 > b) for a, b in dunia)
     lain = []
     for key, amp in LANGKAH_KATA:
         t = T[key]; r = _akhir_kalimat(t)
-        if any(not (r < a or t > b) for a, b in dunia): continue
-        a, b = fr(t), fr(r)
-        for x0, x1 in joins:
-            if a < x1 and b > x0:
-                b = x0 if a + RAMP + 8 <= x0 else -1
-        if b > 0: lain.append([a, b, 1 + amp])
+        if not di_dunia(t, r): lain.append([fr(t), fr(r), 1 + amp, RAMP])
+    for jn in JF:                         # sambungan footage: harus ada pergantian framing tepat di frame sambungan
+        e = next((x for x in lain if x[0] < jn < x[1]), None) or next((x for x in lain if jn - 24 <= x[1] <= jn), None)
+        if e: e[1] = jn                   # sedang punch (atau baru saja kembali) -> kembali tepat di sambungan
+        elif not di_dunia(jn / FPSO, jn / FPSO + 0.5): lain.append([jn, fr(_akhir_kalimat(jn / FPSO + 0.05)), 1.08, 0])
     lain.sort()
     for x, y in zip(lain, lain[1:]):
         x[1] = min(x[1], y[0])
-    return tuple(ev) + tuple(tuple(v) for v in lain)
+    return tuple(rantai) + tuple(tuple(v) for v in lain if v[1] > v[0])
 
 
 def _pengali(n):
-    """faktor punch pada frame n: tiap langkah naik dari level sebelumnya ke levelnya dalam RAMP frame (land), ditahan sampai frame kembali"""
-    aktif = sorted((a, b, m) for a, b, m in langkah() if a <= n < b)
+    """faktor punch pada frame n: tiap langkah naik dari level sebelumnya ke levelnya dalam ramp frame (land; ramp 0 = cut), ditahan sampai frame kembali"""
+    aktif = sorted(x for x in langkah() if x[0] <= n < x[1])
     if not aktif: return 1.0
     lv = 1.0
-    for a, b, m in aktif:
-        p = min(1.0, (n - a) / RAMP); p = 1 - (1 - p) ** 3
+    for a, b, m, rp in aktif:
+        p = 1.0 if rp == 0 else min(1.0, (n - a) / rp); p = 1 - (1 - p) ** 3
         lv = lv + (m - lv) * p
     return lv
 
@@ -162,14 +162,14 @@ def _pengali(n):
 def base_clips():
     """klip dasar dipecah di titik langkah punch: potongan ramp = kurva land, potongan tahan = kurva klip asal; z = zoom dasar x pengali langkah"""
     out = []
-    cuts = sorted({x for a, b, m in langkah() for x in (a, a + RAMP, b)})
+    cuts = sorted({x for a, b, m, rp in langkah() for x in (a, a + rp, b)})
     for a, c, z0, z1, kv in base_clips0():
         pts = [a] + [x for x in cuts if a < x < c] + [c]
         if len(pts) == 2 and _pengali(a) == 1.0 and _pengali(c - 1) == 1.0:
             out.append((a, c, z0, z1, kv)); continue
         zb = lambda n: z0 + (z1 - z0) * _ease(kv, (n - a) / max(1, c - a - 1))
         for x, y in zip(pts, pts[1:]):
-            ramp = any(x == la and y <= la + RAMP for la, lb, m in langkah())
+            ramp = any(rp and x == la and y <= la + rp for la, lb, m, rp in langkah())
             out.append((x, y, round(zb(x) * _pengali(x), 5), round(zb(y - 1) * _pengali(y - 1), 5), "land" if ramp else kv))
     return out
 
@@ -181,7 +181,7 @@ def base_clips0():
     tot = round(DURASI * FPSO)
     fr = lambda t: round(snapo(t) * FPSO)
     j1, j49, j53, j73 = JF
-    pr, po = PU.PRE, PU.POST + 1
+    pr, po = 0, 0                 # Irfan 17 Nov: tanpa pulsa punch di sambungan; sambungan = cut framing di langkah()
     return [(0, fr(T["finally"]), 1.00, 1.02, "drift"), (fr(T["finally"]), fr(T["finally"] + 0.3), 1.02, 1.16, "heavy"), (fr(T["finally"] + 0.3), fr(T["b1b"]), 1.16, 1.06, "drift"),
             (fr(T["b1b"]), fr(T["decision"]), 1.00, 1.01, "drift"), (fr(T["decision"]), fr(T["b2a"]), 1.00, 1.02, "drift"), (fr(T["b2a"]), fr(T["b2b"]), 1.00, 1.03, "drift"),
             (fr(T["b2b"]), fr(T["b3a"]), 1.03, 1.00, "drift"), (fr(T["b3a"]), j1 - pr, 1.00, 1.04, "drift"), (j1 + po, fr(T["b4b"]), 1.04, 1.10, "drift"),
@@ -211,7 +211,7 @@ def orig_z(n):
 @functools.lru_cache(maxsize=None)
 def jendela_baked():
     """[(w0, w1 setengah terbuka, nama, pengali zoom fn, frame blur ekstra)]: 4 sambungan + pulsa penekanan yang tidak menabrak sambungan atau adegan dunia"""
-    out = [(PU.jendela(j)[0], PU.jendela(j)[1] + 1, f"j{j}", (lambda n, j=j: PU.faktor(n, j)), (j - 1, j)) for j in JF]
+    out = []                                  # Irfan 17 Nov: pulsa punch masuk-keluar di sambungan dihapus (lihat langkah())
     dunia = [(T["akhirnya"] - 0.3, T["b1b"] + 0.4), (T["b3a"] - 0.5, T["gimana"] + 0.9), (T["lihat_e"] - 0.5, T["sini_e"] + 0.5), (T["b6b"] - 0.2, 999)]
     for key, amp in EMF:
         n0 = round(snapo(T[key]) * FPSO); w0, w1 = PU.jendela_em(n0); w1 += 1
@@ -394,7 +394,7 @@ def bangun_karakter():
                  lompat=[(fl, fl + 0.3, lompat_h)], denyut=[(fl, fl + 0.15, fl + 0.6, 1.08)], lambai=([(fl + 0.1, fl + 0.9)] if nama == "Codex" else []), gx=gx, gy=gy)
 
 # ====================== hero, slab, cincin ======================
-SLAB_W = {"AI SLOP": 1560, "WORKFLOW-NYA": 1700, "BALIK MODAL": 1690, "100% FULL AI": 1700, "LINTAS AGENT": 1560, "DECISION": 840, "SELESAI": 820}
+SLAB_W = {"AI SLOP": 1560, "WORKFLOW-NYA": 1700, "BALIK MODAL": 1690, "100% FULL AI": 980, "LINTAS AGENT": 1560, "DECISION": 840, "SELESAI": 820}
 
 
 def slab_end(b):
@@ -405,7 +405,7 @@ def slab_end(b):
     if b.get("depan"): return b["t"] + 1.7                                   # DECISION di depan: sampai Clawd/Claude dkk keluar
     if b.get("tahan"): return round(snap(T["lihat_e"] - 8 / FPS) + 6.5 / FPS, 4)    # LINTAS AGENT: tahan diam ±1,1 dtk (ronde 8 T2); keluar 8 f BERSAMA push dunia B11 (= transisi masuk), selesai tepat saat dunia penuh: 0 frame sisa
     return max(b["t"] + b["dur"] + 0.35, b["t"] + 1.05)
-SLAB_Y = {"AI SLOP": 420, "WORKFLOW-NYA": 380, "BALIK MODAL": 400, "100% FULL AI": 380, "LINTAS AGENT": 400, "DECISION": 900, "SELESAI": 720}
+SLAB_Y = {"AI SLOP": 420, "WORKFLOW-NYA": 380, "BALIK MODAL": 400, "100% FULL AI": 215, "LINTAS AGENT": 400, "DECISION": 900, "SELESAI": 720}
 
 
 def hero(b):
@@ -567,13 +567,14 @@ def dunia():
     w3 = snap(T["b3a"] - 0.1); dur3 = round(T["gimana"] - 0.1 - w3 + 0.75, 2)
     ap, ci = T["apple"] - w3, T["cinematic"] - w3
     kun3 = dict(klik=1.0, slash=round(T["template"] - w3, 3), apple=round(ap, 3), aKlik=round(ap + 0.95, 3), bs=round(ap + 1.2, 3), cine=round(ci, 3), cKlik=round(ci + 1.35, 3), hapus=round(T["ngebalik"] - w3, 3), keluar=round(T["gimana"] - 0.1 - w3, 3))
-    add("D_APP", "AppClaude", dict(w=1920, h=1080, rev=8, kunci=kun3), dur3, w3, 0, 0, opaque=True, objek=dict(nama="aplikasi Claude terang", peran="dunia-transisi", t=w3))
+    add("D_APP", "AppClaude", dict(w=1920, h=1080, rev=9, kunci=kun3), dur3, w3, 0, 0, opaque=True, objek=dict(nama="aplikasi Claude terang", peran="dunia-transisi", t=w3))
     add("D_APP_WAJAH", "Lingkar", dict(w=1920, h=1080, rev=3, t0=w3, tumbuhAt=round(kun3["keluar"] + 0.04, 3), z0=round(zoom_at(w3), 4), z1=round(zoom_at(w3 + dur3 + 0.1), 4)), dur3 + 0.1, w3, 0, 0,
         objek=dict(nama="lingkaran wajah", peran="wajah-lingkaran", t=w3))
     for nm, tt in (("saran /apple-style", w3 + kun3["apple"] + 0.42), ("klik /apple-style", w3 + kun3["aKlik"]), ("saran /cinematic-storytelling", w3 + kun3["cine"] + 0.64), ("klik /cinematic-storytelling", w3 + kun3["cKlik"]), ("teks diketik dihapus", T["ngebalik"])):
         L.append(dict(id="O_" + nm, comp="-", props={}, durasi=0, t=tt, x=0, y=0, gerak=None, lubang=False, opaque=False, objek=dict(nama=nm, peran="item-ui", t=tt), skip=True))
     # B6b REVISI-1 B10a: meja kerja hangat + timeline editor, Claude menyeret blok teks "kayak gimana?" tepat di onset kata; wajah di lingkaran
-    s0 = snapo(T["b6b"]); wi0 = snapo(T["udah"] - 0.05); dure = round((wi0 - s0) * 30) / 30
+    _tm = "/mnt/storage-projects/skill-dev-journey/b10a/timing.json"      # shot meja 3D mulai di "Ini 100% full pakai AI" (Irfan 17 Nov); waktu dari prepare.py
+    s0 = snapo(json.load(open(_tm))["start"] if os.path.exists(_tm) else T["b6a"] - 0.05); wi0 = snapo(T["udah"] - 0.05); dure = round((wi0 - s0) * 30) / 30
     kk = round(T["kayak_v"] - s0, 3)
     # SLOT b10a_meja3d (Blender dikerjakan Codex terpisah): bila /mnt/.../b10a/out/b10a.mov ada, dirakit sebagai lapisan opaque pada jendela kalimat; bila belum, footage wajah biasa (dasar)
     SLOT = "/mnt/storage-projects/skill-dev-journey/b10a/out/b10a.mov"
@@ -653,16 +654,21 @@ def main():
         return 6
     L.sort(key=lambda l: (z(l), l["t"]))
     SK = [l for l in L if l.get("skip")]; L[:] = [l for l in L if not l.get("skip")]
-    # audit ronde 7 W1: jeda 1–5 frame antar blok KT berurutan = kedip -> blok sebelumnya DITAHAN (tanpa animasi keluar) sampai blok berikutnya masuk; onset tidak berubah
-    _LV = {"r1": 5, "r2": 5, "r3": 6, "putus": 6, "bubble": 6, "viral": 6}
-    ktl = sorted([l for l in L if l["comp"] == "KT" and l["props"].get("gaya") in _LV], key=lambda l: l["t"])
-    for a, b in zip(ktl, ktl[1:]):
-        pa = a["props"]; ka = pa.get("keluarAt"); d = a["durasi"]
-        if ka is not None and ka >= d: continue
-        vis = a["t"] + (ka if ka is not None else d - (_LV[pa["gaya"]] - 2) / 30)
-        if 0.5 <= (b["t"] - vis) * FPSO < 5.5:      # Irfan 17 Nov: blok lama keluar (fade+blur+naik 7 f) BERSAMAAN blok baru masuk, bukan hilang di frame yang sama
-            ka2 = round(round((b["t"] - a["t"]) * 30 - 5) / 30, 4); nd = round(ka2 + 7 / 30, 4)    # keluar mulai 5 f sebelum blok baru: hanya ±2 f silang di opacity rendah (sampling: 7 f silang = teks bertumpuk)
-            a["durasi"] = nd; a["props"] = dict(pa, durasi=nd, keluarAt=ka2)
+    # Irfan 17 Nov (putaran 2): teks tampil sampai kata terakhirnya SELESAI diucapkan (GUIDELINE §4.2.4).
+    #  - kalimat mengalir (blok berikut masuk < 0,45 dtk setelah kata terakhir): blok lama bertahan sampai blok baru masuk, lalu BERGULIR naik + pudar 5 f (blok baru masuk dari bawah)
+    #  - ada jeda: bertahan >= 0,45 dtk setelah kata terakhir (tetap selesai keluar sebelum blok berikut), keluar pudar 7 f
+    _LV = ("r1", "r2", "r3", "putus", "viral")
+    BB = {b["id"]: b for b in bl}
+    ktl = sorted([l for l in L if l["comp"] == "KT" and l["props"].get("gaya") in _LV and l["id"] in BB], key=lambda l: l["t"])
+    for a, b in zip(ktl, ktl[1:] + [None]):
+        pa = a["props"]; blk = BB[a["id"]]
+        akhir_kata = W.U[blk["kata"][1]]["e"]
+        nb = b["t"] if b else DURASI + 0.04
+        if b and nb - akhir_kata < 0.45 + 7 / 30:
+            ka = round(round((nb - a["t"]) * 30) / 30, 4); nd = round(ka + 5 / 30, 4); pa = dict(pa, gulir=True)
+        else:
+            ka = round(round((min(nb - 7 / 30, max(akhir_kata + 0.45, a["t"] + (pa.get("keluarAt") or a["durasi"] - 7 / 30))) - a["t"]) * 30) / 30, 4); nd = round(ka + 7 / 30, 4)
+        a["durasi"] = nd; a["props"] = dict(pa, durasi=nd, keluarAt=ka)
     os.makedirs(os.path.join(P, "lego"), exist_ok=True)
     json.dump([dict(id=l["id"], comp=l["comp"], props=l["props"], durasi=l["durasi"]) for l in L if not l["opaque"]], open(os.path.join(P, "lego/lapisan.json"), "w"), indent=1, ensure_ascii=False)
     json.dump([dict(id=l["id"], comp=l["comp"], props=l["props"], durasi=l["durasi"]) for l in L if l["opaque"]], open(os.path.join(P, "lego/lapisan_opaque.json"), "w"), indent=1, ensure_ascii=False)

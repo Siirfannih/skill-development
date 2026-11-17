@@ -33,7 +33,8 @@ if '--sequence' in sys.argv:
  # Fog Glow is already baked by the unchanged Blender compositor; the grade adds only a soft wide bloom.
  timing=json.loads((OUT/'timing.json').read_text());dest=OUT/'finished';dest.mkdir(exist_ok=True)
  for frame in range(1,timing['frames']+1):
-  im=Image.open(OUT/'raw'/f'{frame:04d}.png').convert('RGB');assert im.size==(1920,1080)
+  im=Image.open(OUT/'raw'/f'{frame:04d}.png').convert('RGB')
+  if im.size!=(1920,1080): im=im.resize((1920,1080),Image.Resampling.LANCZOS)
   s=grade(np.asarray(im,dtype=np.float32)/255,frame)
   Image.fromarray(np.uint8(s*255+.5)).save(dest/f'{frame:04d}.png')
  print('Finished',timing['frames'],'frames: Opus grade + bloom + sharpen + grain + vignette')

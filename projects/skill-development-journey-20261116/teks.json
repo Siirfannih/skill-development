@@ -169,8 +169,8 @@
   "kode": "T04",
   "gaya": "busur",
   "pos": [
-   141,
-   687
+   466,
+   492
   ],
   "alasan": "kata cincin besar di busur kepala (DESAIN B1b)"
  },
@@ -206,8 +206,8 @@
   "kode": "T04",
   "gaya": "busur",
   "pos": [
-   676,
-   212
+   1259,
+   333
   ],
   "alasan": "kata cincin besar di busur kepala (DESAIN B1b)"
  },
@@ -1124,8 +1124,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1500,
-   915
+   960,
+   930
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1163,8 +1163,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1500,
-   915
+   960,
+   930
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1182,8 +1182,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1500,
-   915
+   960,
+   930
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1201,8 +1201,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1500,
-   915
+   960,
+   930
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1220,8 +1220,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1500,
-   915
+   960,
+   930
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1239,8 +1239,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1500,
-   915
+   960,
+   930
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1258,8 +1258,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1500,
-   915
+   960,
+   930
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1819,8 +1819,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
-   770
+   760,
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1838,11 +1838,12 @@
   "kode": "T04",
   "gaya": "slab",
   "pos": [
-   960,
-   380
+   600,
+   215
   ],
-  "alasan": "slab di belakang kepala + kilat cahaya sekali (DESAIN B6a); 'pakai' tidak ditampilkan (Irfan 17 Nov: 'pakai' di bawah sementara AI di atas)",
+  "alasan": "hero di DEPAN di atas dinding gelap shot meja 3D (Irfan 17 Nov: shot Claude mengedit mulai di kalimat ini); 'pakai' tidak ditampilkan (Irfan 17 Nov)",
   "teks_vis": "100% FULL AI",
+  "depan": true,
   "buang": [
    "pakai"
   ],

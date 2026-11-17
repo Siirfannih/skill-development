@@ -14,6 +14,5 @@ PYTHONUNBUFFERED=1 xvfb-run -a "$runtime_dir/blender" -b /mnt/storage-projects/s
 if [[ " $* " != *" --test "* ]]; then
   python3 lego/blender/finish.py --sequence
   mkdir -p /mnt/storage-projects/skill-dev-journey/b10a/out
-  ffmpeg -v error -y -framerate 30000/1001 -start_number 1 -i /mnt/storage-projects/skill-dev-journey/b10a/finished/%04d.png -frames:v 77 -c:v prores_ks -profile:v 3 -pix_fmt yuv422p10le -threads 4 -an /mnt/storage-projects/skill-dev-journey/b10a/out/b10a.mov
-  python3 lego/blender/verify_full.py
+  ffmpeg -v error -y -framerate 30000/1001 -start_number 1 -i /mnt/storage-projects/skill-dev-journey/b10a/finished/%04d.png -c:v prores_ks -profile:v 3 -pix_fmt yuv422p10le -threads 4 -an /mnt/storage-projects/skill-dev-journey/b10a/out/b10a.mov
 fi

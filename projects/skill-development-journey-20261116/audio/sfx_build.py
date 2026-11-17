@@ -20,7 +20,8 @@ O=[o for o in O if not o.get('senyap')]
 DEN=json.load(open(P/'sfx_dengar.json'))
 ES=lambda s:f"ES_{s} - Epidemic Sound.mp3"
 ROLES={ # file, mode, pre, length, dB, fade, alasan
- 'kata-hero':dict(file='Move.mp3',mode='onset',pre=0.008,len=0.9,db=-10,fade=0.35,why='slab/kata raksasa masuk: thud sub tunggal, satu-satunya hentakan berat per kata hero'),
+ 'kata-hero':dict(file='Cut.mp3',mode='onset',pre=0.003,len=0.45,db=-5,fade=0.15,why='slab/kata raksasa masuk: klik penekanan renyah (Cut.mp3: crisp interface click) yang terdengar di HP (Irfan 17 Nov: AI SLOP/DECISION harus berbunyi; thud sub lama tak terdengar)'),
+ 'kertas':dict(file='../Kenyset/flipcard-91468.mp3',mode='onset',pre=0.005,len=0.6,db=-6,fade=0.2,why='"habis banget": bunyi kertas dibalik (Irfan 17 Nov)'),
  'transisi-dunia':dict(file='Woosh.mp3',mode='peak',pre=0.45,len=1.0,db=-4,fade=0.35,why='dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian'),
  'runtuh':dict(file=ES('Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz'),mode='onset',pre=0.01,len=1.6,db=-8,fade=0.6,why='tumpukan AI slop runtuh saat grade turun dan slab AI SLOP masuk (B2b)'),
  'objek-mendarat':dict(file='pop up.mp3',mode='onset',pre=0.004,len=0.25,db=-7,fade=0.05,why='kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek'),
@@ -37,7 +38,7 @@ ROLES={ # file, mode, pre, length, dB, fade, alasan
 }
 import os
 RUNTUH_SHIFT=float(os.environ.get('RUNTUH_SHIFT','-0.03'))
-PRI=['runtuh','transisi-dunia','kata-hero','terverifikasi','pesan','slop','ketik','klik','objek-mendarat','kunci-slam','kinetik-cincin','putus','kacau']
+PRI=['runtuh','transisi-dunia','kata-hero','kertas','terverifikasi','pesan','slop','ketik','klik','objek-mendarat','kunci-slam','kinetik-cincin','putus','kacau']
 def role_of(o):
     p,n=o['peran'],o['nama']
     if p in('karakter','kartu-mendarat','bubble-pilihan'):return 'objek-mendarat'
@@ -49,7 +50,7 @@ def role_of(o):
     if p in('slop-dekor','slop-teks'):return 'slop'
     if p=='grade':return 'runtuh'
     if p=='kata-terputus':return 'putus'
-    if p=='kata-kacau':return 'kacau'
+    if p=='kata-kacau':return 'kertas' if n.lower().startswith('habis') else 'kacau'
     if p=='item-ui':
         if n.startswith('klik'):return 'klik'
         if n.startswith('saran'):return 'objek-mendarat'
@@ -78,6 +79,14 @@ for t,role,why,db,ln in ((34.731,'transisi-dunia','transisi lingkaran wajah <-> 
     (28.929,'ketik','"/apple" diketik di kolom perintah (f867, audit 6): ketikan halus',-10,0.40),(30.554,'ketik','"cinematic" diketik di kolom perintah (audit 6): ketikan halus',-10,0.66),
     (21.55,'runtuh','bingkai neon jatuh (f646, audit 6): sub-drop rendah',-10,None)):
     cues.append(dict(t=t,role=role,objs=[why],lapisan=['audit'],db=db,len=ln))
+# Irfan 17 Nov: AI SLOP masuk bersamaan grade/runtuh (bass dive tak terdengar di HP) -> klik penekanan tersendiri
+for o in OUT_ALL:
+    if o['nama']=='AI SLOP':cues.append(dict(t=round(o['t']+0.13,3),role='kata-hero',objs=['AI SLOP (klik penekanan, >=100 ms setelah runtuh)'],lapisan=[o['lapisan']]))
+    if o['lapisan']=='O_slot b10a':pass
+for o in OUT_ALL:
+    if o['peran']=='slot-opaque':   # shot meja 3D: Claude mengetik sebelum menoleh (Irfan 17 Nov: shot dipanjangkan) -> ketikan lembut
+        import json as _j;_t0=_j.load(open('/mnt/storage-projects/skill-dev-journey/b10a/timing.json'))['start']
+        cues.append(dict(t=round(_t0+0.1,3),role='ketik',objs=['Claude mengetik di meja 3D'],lapisan=[o['lapisan']],db=-12,len=1.6))
 cues.sort(key=lambda c:c['t'])
 cues.append(dict(t=83.55,role='penutup',objs=['ekor setelah kalimat terakhir'],lapisan=[]))
 # render stem
@@ -113,6 +122,24 @@ for c in cues:
     end=min(len(stem),i+len(seg));stem[i:end]+=seg[:end-i]
     f=s['file'];out.append(dict(t=c['t'],peran=c['role'],alasan=f"{s['why']} [{' + '.join(c['objs'])[:90]}]",file=f,dengar=DEN[f].split('Sounds most like: ')[1].split(' [')[0] if 'Sounds most like' in DEN.get(f,'') else '',
         dB=s['db'],terikat_ke_visual=c['lapisan'],offset_puncak_s=round(pk,3),mode=s['mode']))
+def _rev(p):
+    lo,hi=0.0,1.0
+    for _ in range(40):
+        m=(lo+hi)/2;x=3*(1-m)**2*m*.22+3*(1-m)*m*m*.36+m**3
+        lo,hi=(m,hi) if x<p else (lo,m)
+    m=(lo+hi)/2;return 3*(1-m)**2*m*1+3*(1-m)*m*m*1+m**3
+tick=load('../Kenyset/immersivecontrol-button-click-sound-463065.mp3');tick=tick/(np.abs(tick).max()+1e-9)*10**(-13/20)
+for o in OUT_ALL:
+    if o['peran']!='kartu-mendarat':continue
+    angka=int(o['nama'].split()[-1].rstrip('x×'));t0=o['t']-0.43;fl=round(0.45*30)
+    prev=1;ts=[]
+    for f in range(fl+4,fl+4+23):
+        v=round(1+(angka-1)*_rev(min(1,(f-fl-4)/22)))
+        if v>prev:ts.append(t0+f/30);prev=v
+    for t in ts:
+        i=int(round(t*SR));stem[i:i+len(tick)]+=tick[:len(stem)-i]
+    out.append(dict(t=round(ts[0],3),peran='hitung',alasan=f'hitungan angka kartu naik ke {angka}: tick per kenaikan ({len(ts)} tick, Irfan 17 Nov)',file='../Kenyset/immersivecontrol-button-click-sound-463065.mp3',dengar=DEN['../Kenyset/immersivecontrol-button-click-sound-463065.mp3'].split('Sounds most like: ')[1].split(' [')[0],dB=-13,terikat_ke_visual=[o['lapisan']],offset_puncak_s=0.0,mode='onset'))
+out.sort(key=lambda c:c['t'])
 stem=stem[:NS]
 sf.write(P/'stem_sfx.wav',stem,SR,subtype='FLOAT')
 json.dump(out,open(P/'cues.json','w'),ensure_ascii=False,indent=1)

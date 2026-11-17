@@ -314,7 +314,7 @@
    "kamera": {
     "zoom": [
      1.0,
-     1.03906
+     1.03883
     ],
     "pusat": [
      0.5,
@@ -329,8 +329,8 @@
    "dur": 0.46713,
    "kamera": {
     "zoom": [
-     1.0391,
-     1.09156
+     1.03889,
+     1.0914
     ],
     "pusat": [
      0.5,
@@ -342,10 +342,10 @@
   {
    "src": "../edit/wajah.mp4",
    "in": 37.10373,
-   "dur": 0.76743,
+   "dur": 1.001,
    "kamera": {
     "zoom": [
-     1.09162,
+     1.09146,
      1.092
     ],
     "pusat": [
@@ -357,33 +357,12 @@
   },
   {
    "src": "../edit/wajah.mp4",
-   "in": 37.87117,
-   "dur": 0.06673,
+   "in": 38.10473,
+   "dur": 2.13547,
    "kamera": {
     "zoom": [
      1.04,
-     1.04
-    ],
-    "pusat": [
-     0.5,
-     0.45
-    ],
-    "kurva": "drift"
-   }
-  },
-  {
-   "src": "cache/punch_j1142_5ef8fe09.mkv",
-   "in": 0.0,
-   "dur": 0.4004
-  },
-  {
-   "src": "../edit/wajah.mp4",
-   "in": 38.3383,
-   "dur": 1.9019,
-   "kamera": {
-    "zoom": [
-     1.04,
-     1.0604
+     1.06286
     ],
     "pusat": [
      0.5,
@@ -398,8 +377,8 @@
    "dur": 0.46713,
    "kamera": {
     "zoom": [
-     1.061,
-     1.13318
+     1.06345,
+     1.13545
     ],
     "pusat": [
      0.5,
@@ -414,8 +393,8 @@
    "dur": 0.96763,
    "kamera": {
     "zoom": [
-     1.13387,
-     1.15164
+     1.13611,
+     1.15279
     ],
     "pusat": [
      0.5,
@@ -430,8 +409,8 @@
    "dur": 0.6006,
    "kamera": {
     "zoom": [
-     1.08699,
-     1.09477
+     1.08803,
+     1.09522
     ],
     "pusat": [
      0.5,
@@ -446,8 +425,8 @@
    "dur": 0.46713,
    "kamera": {
     "zoom": [
-     1.09514,
-     1.17569
+     1.09556,
+     1.17581
     ],
     "pusat": [
      0.5,
@@ -462,7 +441,7 @@
    "dur": 0.36703,
    "kamera": {
     "zoom": [
-     1.17592,
+     1.17601,
      1.17699
     ],
     "pusat": [
@@ -495,7 +474,7 @@
    "kamera": {
     "zoom": [
      1.1,
-     1.10026
+     1.10025
     ],
     "pusat": [
      0.5,
@@ -510,8 +489,8 @@
    "dur": 0.46713,
    "kamera": {
     "zoom": [
-     1.10032,
-     1.21174
+     1.1003,
+     1.21165
     ],
     "pusat": [
      0.5,
@@ -526,8 +505,8 @@
    "dur": 1.36803,
    "kamera": {
     "zoom": [
-     1.21193,
-     1.22161
+     1.21184,
+     1.22111
     ],
     "pusat": [
      0.5,
@@ -542,8 +521,8 @@
    "dur": 1.03437,
    "kamera": {
     "zoom": [
-     1.11084,
-     1.12
+     1.11037,
+     1.11923
     ],
     "pusat": [
      0.5,
@@ -558,8 +537,8 @@
    "dur": 0.46713,
    "kamera": {
     "zoom": [
-     1.12032,
-     1.18059
+     1.11954,
+     1.17968
     ],
     "pusat": [
      0.5,
@@ -571,11 +550,11 @@
   {
    "src": "../edit/wajah.mp4",
    "in": 46.81343,
-   "dur": 2.63597,
+   "dur": 2.86953,
    "kamera": {
     "zoom": [
-     1.18093,
-     1.19699
+     1.18002,
+     1.197
     ],
     "pusat": [
      0.5,
@@ -586,33 +565,12 @@
   },
   {
    "src": "../edit/wajah.mp4",
-   "in": 49.4494,
-   "dur": 0.06673,
+   "in": 49.68297,
+   "dur": 2.5025,
    "kamera": {
     "zoom": [
      1.14,
-     1.14
-    ],
-    "pusat": [
-     0.5,
-     0.45
-    ],
-    "kurva": "drift"
-   }
-  },
-  {
-   "src": "cache/punch_j1489_6229f845.mkv",
-   "in": 0.0,
-   "dur": 0.4004
-  },
-  {
-   "src": "../edit/wajah.mp4",
-   "in": 49.91653,
-   "dur": 2.26893,
-   "kamera": {
-    "zoom": [
-     1.14,
-     1.15338
+     1.15329
     ],
     "pusat": [
      0.5,
@@ -627,8 +585,8 @@
    "dur": 0.46713,
    "kamera": {
     "zoom": [
-     1.15364,
-     1.21453
+     1.15353,
+     1.21414
     ],
     "pusat": [
      0.5,
@@ -640,11 +598,11 @@
   {
    "src": "../edit/wajah.mp4",
    "in": 52.6526,
-   "dur": 0.86753,
+   "dur": 1.1011,
    "kamera": {
     "zoom": [
-     1.21477,
-     1.21798
+     1.21437,
+     1.218
     ],
     "pusat": [
      0.5,
@@ -655,29 +613,8 @@
   },
   {
    "src": "../edit/wajah.mp4",
-   "in": 53.52013,
-   "dur": 0.06673,
-   "kamera": {
-    "zoom": [
-     1.15999,
-     1.16
-    ],
-    "pusat": [
-     0.5,
-     0.45
-    ],
-    "kurva": "drift"
-   }
-  },
-  {
-   "src": "cache/punch_j1611_109396f1.mkv",
-   "in": 0.0,
-   "dur": 0.4004
-  },
-  {
-   "src": "../edit/wajah.mp4",
-   "in": 53.98727,
-   "dur": 5.2052,
+   "in": 53.7537,
+   "dur": 5.43877,
    "kamera": {
     "zoom": [
      1.16,
@@ -709,7 +646,7 @@
   {
    "src": "../edit/wajah.mp4",
    "in": 72.2722,
-   "dur": 1.86853,
+   "dur": 2.03537,
    "kamera": {
     "zoom": [
      1.0,
@@ -723,14 +660,9 @@
    }
   },
   {
-   "src": "cache/punch_j2227_bab8390d.mkv",
-   "in": 0.0,
-   "dur": 0.4004
-  },
-  {
    "src": "../edit/wajah.mp4",
-   "in": 74.54113,
-   "dur": 9.27593,
+   "in": 74.30757,
+   "dur": 9.5095,
    "kamera": {
     "zoom": [
      1.04,
@@ -754,14 +686,14 @@
   },
   {
    "id": "D_APP",
-   "src": "cache/3ad96e1428cec19f.mp4",
+   "src": "cache/0c8b4613c292e683.mp4",
    "t": 23.590233333333334,
    "x": 0,
    "y": 0
   },
   {
    "id": "D_RELAY",
-   "src": "cache/a8af3b4ce5d97431.mp4",
+   "src": "cache/1b6e009a1184b2b8.mp4",
    "t": 57.6576,
    "x": 0,
    "y": 0
@@ -775,7 +707,7 @@
   },
   {
    "id": "D_APP_WAJAH",
-   "src": "cache/18017c515cded526.mov",
+   "src": "cache/2bc3187c3a82a904.mov",
    "t": 23.590233333333334,
    "x": 0,
    "y": 0
@@ -783,23 +715,23 @@
   {
    "id": "b10a_meja3d",
    "src": "/mnt/storage-projects/skill-dev-journey/b10a/out/b10a.mov",
-   "t": 74.44103333333334,
+   "t": 72.20546666666667,
    "x": 0,
    "y": 0
   },
   {
    "id": "T009",
-   "src": "cache/775061686a41d4d6-lubangz-5939-0-0.mov",
+   "src": "cache/badf5749596a2b1e-lubangz-5939-114-45.mov",
    "t": 5.939266666666667,
-   "x": 0,
-   "y": 0
+   "x": 114,
+   "y": 45
   },
   {
    "id": "T011",
-   "src": "cache/840ce3a74c44e011-lubangz-7040-108-0.mov",
+   "src": "cache/211f23f2d0f46250-lubangz-7040-804-49.mov",
    "t": 7.040366666666666,
-   "x": 108,
-   "y": 0
+   "x": 804,
+   "y": 49
   },
   {
    "id": "GRADE",
@@ -810,52 +742,52 @@
   },
   {
    "id": "T004",
-   "src": "cache/2002a1f251b35052.mov",
+   "src": "cache/8185e1ab4ccc35a7.mov",
    "t": 3.1031,
    "x": 330,
    "y": 562
   },
   {
    "id": "T019",
-   "src": "cache/46fc761dea5edc0e.mov",
+   "src": "cache/dbe40d54512dc619.mov",
    "t": 12.012,
    "x": 690,
    "y": 759
   },
   {
    "id": "T034",
-   "src": "cache/b404810c4720e544-lubangz-20220-180-110.mov",
+   "src": "cache/ef4f8ddec3bed2c3-lubangz-20220-180-110.mov",
    "t": 20.220200000000002,
    "x": 180,
    "y": 110
   },
   {
    "id": "T051",
-   "src": "cache/a26f36d0a4676c52-lubangz-37437-110-221.mov",
+   "src": "cache/a886e63b64b7b039-lubangz-37437-110-221.mov",
    "t": 37.437400000000004,
    "x": 110,
    "y": 221
   },
   {
    "id": "T057",
-   "src": "cache/b09dba867037540a-lubangz-42342-115-210.mov",
+   "src": "cache/15aed70ec574e779-lubangz-42342-115-210.mov",
    "t": 42.3423,
    "x": 115,
    "y": 210
   },
   {
    "id": "T077",
-   "src": "cache/3f0e3e9fd66d01e9-lubangz-56990-0-133.mov",
+   "src": "cache/f21358f3049c75c0-lubangz-56990-0-133.mov",
    "t": 56.99026666666667,
    "x": 0,
    "y": 133
   },
   {
    "id": "T095",
-   "src": "cache/1fc7f4f6e5eb52cc-lubangz-72605-110-201.mov",
+   "src": "cache/5090f7409691c43b.mov",
    "t": 72.60586666666667,
    "x": 110,
-   "y": 201
+   "y": 112
   },
   {
    "id": "KARTU1",
@@ -1967,665 +1899,665 @@
   },
   {
    "id": "T001",
-   "src": "cache/b010a5c8f564b862.mov",
+   "src": "cache/268503b0ed0a6de0.mov",
    "t": 0.33366666666666667,
    "x": 795,
    "y": 694
   },
   {
    "id": "T002",
-   "src": "cache/27e650ede3576042-lubangz-834-230-98.mov",
+   "src": "cache/184e50b94adbea7a-lubangz-834-230-98.mov",
    "t": 0.8341666666666667,
    "x": 230,
    "y": 98
   },
   {
    "id": "T003",
-   "src": "cache/605c4aa1b2461366.mov",
+   "src": "cache/1e4bb1d37cada306.mov",
    "t": 1.3346666666666667,
    "x": 279,
    "y": 869
   },
   {
    "id": "T005",
-   "src": "cache/addd28d363f66a31.mov",
+   "src": "cache/e410cefefb04bf0c.mov",
    "t": 3.7037,
    "x": 583,
    "y": 869
   },
   {
    "id": "T006",
-   "src": "cache/9a12ff38487c27b0.mov",
+   "src": "cache/c02a7a8f5a63a98b.mov",
    "t": 4.3043000000000005,
    "x": 873,
    "y": 829
   },
   {
    "id": "T007",
-   "src": "cache/e6f5ad48e76f1068.mov",
+   "src": "cache/112328ebc9b25265.mov",
    "t": 4.637966666666666,
    "x": 859,
    "y": 829
   },
   {
    "id": "T008",
-   "src": "cache/25b1b8ecf089d90b.mov",
+   "src": "cache/792507cdba55cf5a.mov",
    "t": 4.871533333333334,
    "x": 567,
    "y": 829
   },
   {
    "id": "T010",
-   "src": "cache/48613a98c83b620c.mov",
+   "src": "cache/f0d2a24fa2c742b0.mov",
    "t": 6.473133333333333,
    "x": 678,
    "y": 829
   },
   {
    "id": "T012",
-   "src": "cache/b67a211b73b0560c.mov",
+   "src": "cache/471e427773f06381.mov",
    "t": 7.674333333333333,
    "x": 739,
    "y": 829
   },
   {
    "id": "T013",
-   "src": "cache/dd00a7b5f73998db.mov",
+   "src": "cache/fa3fcc7fbe9e989f.mov",
    "t": 7.9412666666666665,
    "x": 622,
    "y": 829
   },
   {
    "id": "T014",
-   "src": "cache/31c3078c4e4f25e0.mov",
+   "src": "cache/3a881865bf7d874f.mov",
    "t": 8.575233333333333,
    "x": 891,
    "y": 786
   },
   {
    "id": "T015",
-   "src": "cache/1d24865443e44b62.mov",
+   "src": "cache/ebf021e64a18a157.mov",
    "t": 9.442766666666667,
    "x": 67,
    "y": 296
   },
   {
    "id": "T016",
-   "src": "cache/808b70c2efc832cd.mov",
+   "src": "cache/4c5dc1498310b334.mov",
    "t": 9.809800000000001,
    "x": 1255,
    "y": 321
   },
   {
    "id": "T017",
-   "src": "cache/4579ff4db5b6278d.mov",
+   "src": "cache/fa8dccf7057908be.mov",
    "t": 10.5105,
    "x": 594,
    "y": 829
   },
   {
    "id": "T018",
-   "src": "cache/8be04cc4a91ad952.mov",
+   "src": "cache/ed55183ea538c1e3.mov",
    "t": 11.7117,
    "x": 780,
    "y": 829
   },
   {
    "id": "T020",
-   "src": "cache/87b51aa9ff0ce693.mov",
+   "src": "cache/5fa108b26ffdb969.mov",
    "t": 12.512500000000001,
    "x": 604,
    "y": 659
   },
   {
    "id": "T021",
-   "src": "cache/2733c86865572a16.mov",
+   "src": "cache/1b582a259055fc2e.mov",
    "t": 13.580233333333334,
    "x": 964,
    "y": 659
   },
   {
    "id": "T022",
-   "src": "cache/a5da5de5d8099fc1.mov",
+   "src": "cache/191a0b66febdfc09.mov",
    "t": 13.847166666666666,
    "x": 638,
    "y": 659
   },
   {
    "id": "T023",
-   "src": "cache/1bdd1456fff5cec5.mov",
+   "src": "cache/53a67bee6c348ad9.mov",
    "t": 14.5145,
    "x": 1008,
    "y": 659
   },
   {
    "id": "T024",
-   "src": "cache/d811387f93451bba.mov",
+   "src": "cache/815d253ef0da36e2.mov",
    "t": 14.7147,
    "x": 720,
    "y": 694
   },
   {
    "id": "T025",
-   "src": "cache/1c04207bad0d2bc1.mov",
+   "src": "cache/d03b485bc5015736.mov",
    "t": 15.081733333333334,
    "x": 1044,
    "y": 100
   },
   {
    "id": "T026",
-   "src": "cache/1c95f211dde01990.mov",
+   "src": "cache/2b6ba31a9157e18c.mov",
    "t": 15.281933333333333,
    "x": 638,
    "y": 694
   },
   {
    "id": "T027",
-   "src": "cache/b13f5e3d397e6669.mov",
+   "src": "cache/b35dc1b409210719.mov",
    "t": 16.149466666666665,
    "x": 626,
    "y": 694
   },
   {
    "id": "T028",
-   "src": "cache/199ce07fee8f35fd.mov",
+   "src": "cache/c9a89dfc2c6d5254.mov",
    "t": 16.683333333333334,
    "x": 721,
    "y": 694
   },
   {
    "id": "T029",
-   "src": "cache/26187790866185fc.mov",
+   "src": "cache/b859bb23822dac11.mov",
    "t": 17.4174,
    "x": 786,
    "y": 694
   },
   {
    "id": "T030",
-   "src": "cache/db1637dda8ad18e1.mov",
+   "src": "cache/f18fc429480753b4.mov",
    "t": 17.951266666666665,
    "x": 601,
    "y": 694
   },
   {
    "id": "T031",
-   "src": "cache/99a01fd5d73c3f74.mov",
+   "src": "cache/824131a3de32cb54.mov",
    "t": 18.351666666666667,
    "x": 346,
    "y": 694
   },
   {
    "id": "T032",
-   "src": "cache/67a78d3ff830d090.mov",
+   "src": "cache/80f994b494727396.mov",
    "t": 19.319300000000002,
    "x": 632,
    "y": 694
   },
   {
    "id": "T033",
-   "src": "cache/162a94f1c2e48291.mov",
+   "src": "cache/eeebcb6c21feee72.mov",
    "t": 19.652966666666668,
    "x": 608,
    "y": 694
   },
   {
    "id": "T035",
-   "src": "cache/f22dbae0b8219fc9.mov",
+   "src": "cache/e1a31730953950c1.mov",
    "t": 20.954266666666665,
    "x": 742,
    "y": 694
   },
   {
    "id": "T036",
-   "src": "cache/e36d14c978ec2231.mov",
+   "src": "cache/37dd85f9dd2d1c10.mov",
    "t": 21.588233333333335,
    "x": 602,
    "y": 694
   },
   {
    "id": "T037",
-   "src": "cache/3cd8052218e25866.mov",
+   "src": "cache/0957cb9fa5bfb79c.mov",
    "t": 22.389033333333334,
    "x": 756,
    "y": 694
   },
   {
    "id": "T038",
-   "src": "cache/3330970c53579319.mov",
+   "src": "cache/7762c1b335eb0800.mov",
    "t": 22.789433333333335,
    "x": 517,
    "y": 676
   },
   {
    "id": "T039",
-   "src": "cache/258aff65ca21b75b.mov",
+   "src": "cache/3e2c6c547b829d85.mov",
    "t": 23.757066666666667,
    "x": 398,
    "y": 869
   },
   {
    "id": "T040",
-   "src": "cache/2e53c726dad0fa31.mov",
+   "src": "cache/210d3b5ac613358d.mov",
    "t": 24.724700000000002,
    "x": 530,
    "y": 869
   },
   {
    "id": "T041",
-   "src": "cache/ca5e872d34f92686.mov",
+   "src": "cache/fdae6cae41049ccb.mov",
    "t": 25.091733333333334,
    "x": 248,
    "y": 826
   },
   {
    "id": "T042",
-   "src": "cache/f5ca1918df9f8442.mov",
+   "src": "cache/8de5188a6c3b7a16.mov",
    "t": 25.692333333333334,
    "x": 181,
    "y": 869
   },
   {
    "id": "T043",
-   "src": "cache/a4062f2989a10678.mov",
+   "src": "cache/cffa0f3a23a09377.mov",
    "t": 27.3273,
    "x": 304,
    "y": 869
   },
   {
    "id": "T044",
-   "src": "cache/4ac2cdc7d8e1f0dd.mov",
+   "src": "cache/1184dd2fc66af9c4.mov",
    "t": 28.028000000000002,
    "x": 322,
    "y": 869
   },
   {
    "id": "T045",
-   "src": "cache/e97a671f19a3098e.mov",
+   "src": "cache/e3239c3bc7185136.mov",
    "t": 32.265566666666665,
    "x": 502,
    "y": 869
   },
   {
    "id": "T046",
-   "src": "cache/35564180ec313625.mov",
+   "src": "cache/b5de55c06d423026.mov",
    "t": 32.632600000000004,
    "x": 267,
    "y": 826
   },
   {
    "id": "T047",
-   "src": "cache/6bc296e22029d693.mov",
+   "src": "cache/3e15c2649fda22c9.mov",
    "t": 33.3333,
    "x": 219,
    "y": 869
   },
   {
    "id": "T048",
-   "src": "cache/6bfd68815bd8c19c.mov",
+   "src": "cache/763932df28d8a451.mov",
    "t": 34.5345,
    "x": 436,
    "y": 694
   },
   {
    "id": "T049",
-   "src": "cache/1e11d0ad9f9aa865.mov",
+   "src": "cache/20ffa7a5d49064d0.mov",
    "t": 35.7357,
    "x": 787,
    "y": 694
   },
   {
    "id": "T050",
-   "src": "cache/012d2cf520e94249.mov",
+   "src": "cache/853668f8332825c4.mov",
    "t": 36.469766666666665,
    "x": 454,
    "y": 694
   },
   {
    "id": "T052",
-   "src": "cache/4e3082fa479bec91.mov",
+   "src": "cache/e925c797bb13b74e.mov",
    "t": 38.271566666666665,
    "x": 593,
    "y": 724
   },
   {
    "id": "T053",
-   "src": "cache/5e72bc4165d93157.mov",
+   "src": "cache/0ca88e800f3342eb.mov",
    "t": 38.80543333333333,
    "x": 463,
    "y": 724
   },
   {
    "id": "T054",
-   "src": "cache/155c644eedfebe19.mov",
+   "src": "cache/7c5a4ac0c598d11a.mov",
    "t": 39.7397,
    "x": 430,
    "y": 724
   },
   {
    "id": "T055",
-   "src": "cache/833f7e687823ef63.mov",
+   "src": "cache/1ec14118297d1fe2.mov",
    "t": 40.70733333333333,
    "x": 525,
    "y": 724
   },
   {
    "id": "T056",
-   "src": "cache/bbd324477f3b488b.mov",
+   "src": "cache/5b273d9d486b1a16.mov",
    "t": 41.77506666666667,
    "x": 615,
    "y": 724
   },
   {
    "id": "T058",
-   "src": "cache/7702d89d7a2212aa.mov",
+   "src": "cache/ed3ea0422134afd2.mov",
    "t": 42.87616666666667,
    "x": 799,
    "y": 724
   },
   {
    "id": "T059",
-   "src": "cache/2857ec8d46979147.mov",
+   "src": "cache/dd2aad7d55703236.mov",
    "t": 43.209833333333336,
-   "x": 1378,
-   "y": 839
+   "x": 838,
+   "y": 854
   },
   {
    "id": "T060",
-   "src": "cache/551ada1ec6f4c078.mov",
+   "src": "cache/8795a824e7cf22fc.mov",
    "t": 43.5435,
    "x": 562,
    "y": 714
   },
   {
    "id": "T061",
-   "src": "cache/9fbc861a41f6f52d.mov",
+   "src": "cache/9e93adf8cc0425e5.mov",
    "t": 44.17746666666667,
-   "x": 1345,
-   "y": 839
+   "x": 805,
+   "y": 854
   },
   {
    "id": "T062",
-   "src": "cache/75ee868994d3cfd6.mov",
+   "src": "cache/bed8bb096eaac271.mov",
    "t": 44.51113333333333,
-   "x": 1106,
-   "y": 839
+   "x": 566,
+   "y": 854
   },
   {
    "id": "T063",
-   "src": "cache/ff2db0075a139ae2.mov",
+   "src": "cache/faa68e75d474a337.mov",
    "t": 45.41203333333333,
-   "x": 1175,
-   "y": 839
+   "x": 635,
+   "y": 854
   },
   {
    "id": "T064",
-   "src": "cache/151197c976cfc3a3.mov",
+   "src": "cache/cecb67525435b26d.mov",
    "t": 45.845800000000004,
-   "x": 1062,
-   "y": 839
+   "x": 522,
+   "y": 854
   },
   {
    "id": "T065",
-   "src": "cache/21fb541989f48b05.mov",
+   "src": "cache/8411d7bd8fb3d306.mov",
    "t": 47.2472,
-   "x": 1167,
-   "y": 839
+   "x": 627,
+   "y": 854
   },
   {
    "id": "T066",
-   "src": "cache/dadb5dd1f047e25b.mov",
+   "src": "cache/bc8dfebffd293eb4.mov",
    "t": 48.114733333333334,
-   "x": 1222,
-   "y": 839
+   "x": 682,
+   "y": 854
   },
   {
    "id": "T068",
-   "src": "cache/43ad032bde71c8db.mov",
+   "src": "cache/c87999b2fa67f2cd.mov",
    "t": 49.215833333333336,
    "x": 268,
    "y": 714
   },
   {
    "id": "T069",
-   "src": "cache/cda524822a3cfb7b.mov",
+   "src": "cache/54d7d8c2ffa10c8b.mov",
    "t": 50.650600000000004,
    "x": 1000,
    "y": 829
   },
   {
    "id": "T071",
-   "src": "cache/4830ce65c6708f5b.mov",
+   "src": "cache/f2f6cab4d5d0cd25.mov",
    "t": 51.551500000000004,
    "x": 775,
    "y": 829
   },
   {
    "id": "T072",
-   "src": "cache/4f126e8f0293b3bc.mov",
+   "src": "cache/4f5a37ebbc563282.mov",
    "t": 52.452400000000004,
    "x": 778,
    "y": 829
   },
   {
    "id": "T073",
-   "src": "cache/af2c1fe4edf55d33.mov",
+   "src": "cache/8c4e0d024bbf9d9a.mov",
    "t": 53.586866666666666,
    "x": 1014,
    "y": 829
   },
   {
    "id": "T074",
-   "src": "cache/9ea8a6681e5ce9a7.mov",
+   "src": "cache/857f02c7fc4e169a.mov",
    "t": 53.953900000000004,
    "x": 478,
    "y": 694
   },
   {
    "id": "T075",
-   "src": "cache/c5ec5b924f21c82f.mov",
+   "src": "cache/ac39c1b5117fa724.mov",
    "t": 54.82143333333333,
    "x": 284,
    "y": 694
   },
   {
    "id": "T076",
-   "src": "cache/d590bb411d5ab8a4.mov",
+   "src": "cache/37655df802449570.mov",
    "t": 56.32293333333333,
    "x": 629,
    "y": 694
   },
   {
    "id": "T078",
-   "src": "cache/5b7c8a1d4215f32e.mov",
+   "src": "cache/5b349ab80d1d265d.mov",
    "t": 57.69096666666667,
    "x": 926,
    "y": 574
   },
   {
    "id": "T079",
-   "src": "cache/c052fc5aaa36c4ad.mov",
+   "src": "cache/3d036d3699657e17.mov",
    "t": 58.391666666666666,
    "x": 579,
    "y": 874
   },
   {
    "id": "T080",
-   "src": "cache/2fa128c95b0cf12b.mov",
+   "src": "cache/9cc42863be7bebc9.mov",
    "t": 59.2592,
    "x": 626,
    "y": 874
   },
   {
    "id": "T081",
-   "src": "cache/024afc44d23e5339.mov",
+   "src": "cache/ae4d54d3663d9b77.mov",
    "t": 60.59386666666667,
    "x": 604,
    "y": 874
   },
   {
    "id": "T082",
-   "src": "cache/8f1ada13b179c608.mov",
+   "src": "cache/d2f14b9651c9138e.mov",
    "t": 61.79506666666667,
    "x": 524,
    "y": 874
   },
   {
    "id": "T083",
-   "src": "cache/9e0abbf2be515324.mov",
+   "src": "cache/0f411274578998aa.mov",
    "t": 62.8628,
    "x": 643,
    "y": 874
   },
   {
    "id": "T084",
-   "src": "cache/abc3132a7e76b673.mov",
+   "src": "cache/146daf329c1671af.mov",
    "t": 63.32993333333334,
    "x": 553,
    "y": 874
   },
   {
    "id": "T085",
-   "src": "cache/4a75f4d645ef44f7.mov",
+   "src": "cache/3cbe07cbe7658d73.mov",
    "t": 64.99826666666667,
    "x": 592,
    "y": 874
   },
   {
    "id": "T086",
-   "src": "cache/bf0f6852804ed3eb.mov",
+   "src": "cache/2120e551b67f67ed.mov",
    "t": 65.63223333333333,
    "x": 472,
    "y": 874
   },
   {
    "id": "T087",
-   "src": "cache/26167e3190ec6b1b.mov",
+   "src": "cache/d65123fe7b8e7198.mov",
    "t": 66.49976666666667,
    "x": 443,
    "y": 874
   },
   {
    "id": "T088",
-   "src": "cache/e9d0e3ecb73969d8.mov",
+   "src": "cache/9d7a96122429554f.mov",
    "t": 67.66760000000001,
    "x": 1076,
    "y": 854
   },
   {
    "id": "T089",
-   "src": "cache/f501e2f77f691784.mov",
+   "src": "cache/c394613eb512c6bb.mov",
    "t": 68.068,
    "x": 638,
    "y": 874
   },
   {
    "id": "T090",
-   "src": "cache/8af7b98d355c2047.mov",
+   "src": "cache/1881019de804a4f5.mov",
    "t": 68.83543333333334,
    "x": 595,
    "y": 874
   },
   {
    "id": "T091",
-   "src": "cache/78f963a17cab1d4a.mov",
+   "src": "cache/190d1d7e2e0a20aa.mov",
    "t": 70.00326666666666,
    "x": 5,
    "y": 831
   },
   {
    "id": "T092",
-   "src": "cache/ef73bc65206496e5.mov",
+   "src": "cache/a68234e6bf244887.mov",
    "t": 70.90416666666667,
    "x": 632,
    "y": 874
   },
   {
    "id": "T093",
-   "src": "cache/25bd264848a9fa82.mov",
+   "src": "cache/9074c474b50b18e3.mov",
    "t": 71.6716,
    "x": 755,
    "y": 874
   },
   {
    "id": "T094",
-   "src": "cache/b1a8ac62e968e75c.mov",
+   "src": "cache/8863f5049cde42ac.mov",
    "t": 72.33893333333333,
-   "x": 838,
-   "y": 694
+   "x": 638,
+   "y": 869
   },
   {
    "id": "T096",
-   "src": "cache/1e268820b2026b09.mov",
+   "src": "cache/0db4b2b8fd223814.mov",
    "t": 74.50776666666667,
    "x": 267,
    "y": 869
   },
   {
    "id": "T097",
-   "src": "cache/fd80a931fbc21188.mov",
+   "src": "cache/e3d1744138e8bfb8.mov",
    "t": 75.44203333333334,
    "x": 151,
    "y": 869
   },
   {
    "id": "D_IG",
-   "src": "cache/9c8b64f06970a5b4.mp4",
+   "src": "cache/743d4bb4f2ad1197.mp4",
    "t": 76.40966666666667,
    "x": 0,
    "y": 0
   },
   {
    "id": "T098",
-   "src": "cache/54cea0f09acf00dc.mov",
+   "src": "cache/7cc53033429b75ac.mov",
    "t": 76.54313333333333,
    "x": 195,
    "y": 736
   },
   {
    "id": "T099",
-   "src": "cache/37981e594762aca1.mov",
+   "src": "cache/ca24afc5a060d90a.mov",
    "t": 78.2782,
    "x": 440,
    "y": 736
   },
   {
    "id": "T100",
-   "src": "cache/324fa9e8b0b3c3ce.mov",
+   "src": "cache/def2b3c9d996ff44.mov",
    "t": 78.64523333333334,
    "x": 414,
    "y": 760
   },
   {
    "id": "T101",
-   "src": "cache/8a4ceb392e175829.mov",
+   "src": "cache/ed4930f6cc1b1867.mov",
    "t": 79.2792,
    "x": 375,
    "y": 736
   },
   {
    "id": "T102",
-   "src": "cache/9c2a59dd82f39dd5.mov",
+   "src": "cache/ee7ed1ff6a52a41b.mov",
    "t": 80.84743333333333,
    "x": 879,
    "y": 869
   },
   {
    "id": "T103",
-   "src": "cache/08b056fbddc37b53.mov",
+   "src": "cache/21f17352c571f378.mov",
    "t": 81.64823333333334,
    "x": 260,
    "y": 736
   },
   {
    "id": "T104",
-   "src": "cache/c853bdcca2236cc5.mov",
+   "src": "cache/2134fe0ca107b7a3.mov",
    "t": 82.41566666666667,
    "x": 78,
    "y": 693
   },
   {
    "id": "T105",
-   "src": "cache/3835aea35ba1b126.mov",
+   "src": "cache/a29b29b743120b55.mov",
    "t": 83.01626666666667,
    "x": 129,
    "y": 736

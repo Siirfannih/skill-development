@@ -33,11 +33,13 @@ export type KTProps = {
   /** detik relatif: warna teks berpindah putih -> tinta (teks lahir di atas footage, lalu dunia terang menutup) */
   gelapAt?: number;
   v?: number;
+  /** pergantian blok di kalimat mengalir: blok lama bergulir naik + pudar 5 f saat blok baru masuk (Irfan 17 Nov) */
+  gulir?: boolean;
 };
 
 /** keluar halus semua KT (Irfan 17 Nov: tidak hilang tiba-tiba): pudar + blur + naik sedikit */
-const gayaKeluar = (out: number, size: number): React.CSSProperties => ({
-  opacity: 1 - out, transform: `translateY(${-out * 0.28 * size}px)`, filter: out > 0.01 ? `blur(${(out * 9).toFixed(2)}px)` : undefined,
+const gayaKeluar = (out: number, size: number, gulir?: boolean): React.CSSProperties => ({
+  opacity: 1 - out, transform: `translateY(${-out * (gulir ? 1.05 : 0.28) * size}px)`, filter: out > 0.01 ? `blur(${(out * 9).toFixed(2)}px)` : undefined,
 });
 /** masuk halus per kata: pudar + blur + naik */
 const gayaMasuk = (q: number, size: number, skala = 0.9): React.CSSProperties => ({
@@ -51,24 +53,24 @@ const campur = (a: string, b: string, k: number) => {
 /** frame onset kata ke-i (relatif lapisan); tanpa wt jatuh ke `cadangan` */
 const onsetF = (p: KTProps, i: number, fps: number, cadangan = 0) => (p.wt && p.wt[Math.min(i, p.wt.length - 1)] !== undefined ? Math.round(p.wt[Math.min(i, p.wt.length - 1)] * fps) : cadangan);
 
-const useKeluar = (durasi: number, keluarAt?: number, banyak = 7) => {
+const useKeluar = (durasi: number, keluarAt?: number, banyak = 7, kurva: 'leave' | 'reveal' = 'leave') => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const total = Math.round(durasi * fps);
   const mulai = keluarAt !== undefined ? Math.round(keluarAt * fps) : total - banyak;
-  return {f, fps, total, out: move(f, mulai, banyak, 'leave'), mulai};
+  return {f, fps, total, out: move(f, mulai, banyak, kurva), mulai};
 };
 
 const shell: React.CSSProperties = {display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'transparent'};
 
 // ---------- R1 · T19 word-pop ikut VO ----------
 const R1: React.FC<KTProps> = (p) => {
-  const {f, fps, out} = useKeluar(p.durasi, p.keluarAt);
+  const {f, fps, out} = useKeluar(p.durasi, p.keluarAt, p.gulir ? 4 : 7, p.gulir ? 'reveal' : 'leave');
   const size = p.size ?? 66;
   const words = p.teks.split(/\s+/).filter(Boolean);
   const g = p.gelapAt !== undefined ? move(f, Math.round(p.gelapAt * fps), 6, 'drift') : (p.gelap ? 1 : 0);
   const warna = p.warna ?? (p.gelapAt !== undefined ? campur(HERO, INK, g) : p.gelap ? INK : HERO);
-  return <AbsoluteFill style={{...shell, ...gayaKeluar(out, size)}}>
+  return <AbsoluteFill style={{...shell, ...gayaKeluar(out, size, p.gulir)}}>
     <div style={{fontFamily: FONT.poppins, fontWeight: 700, fontSize: size, color: warna, lineHeight: 1, letterSpacing: '-0.02em',
       textShadow: g > 0.5 ? 'none' : BAYANG_TEKS, whiteSpace: 'pre'}}>
       {words.map((w, i) => {
@@ -81,10 +83,10 @@ const R1: React.FC<KTProps> = (p) => {
 
 // ---------- R2 · T03 slam kecil (2,0 → 1,3 → 1,06 → 1,0 dalam 3 frame) ----------
 const R2: React.FC<KTProps> = (p) => {
-  const {f, fps, out} = useKeluar(p.durasi, p.keluarAt);
+  const {f, fps, out} = useKeluar(p.durasi, p.keluarAt, p.gulir ? 4 : 7, p.gulir ? 'reveal' : 'leave');
   const size = p.size ?? 88;
   const words = p.teks.split(/\s+/).filter(Boolean);
-  return <AbsoluteFill style={{...shell, ...gayaKeluar(out, size)}}>
+  return <AbsoluteFill style={{...shell, ...gayaKeluar(out, size, p.gulir)}}>
     <div style={{fontFamily: FONT.poppins, fontWeight: 800, fontSize: size, color: p.warna ?? (p.gelap ? INK : HERO), lineHeight: 1, letterSpacing: '-0.025em',
       textShadow: p.gelap ? 'none' : BAYANG_TEKS, whiteSpace: 'pre'}}>
       {words.map((w, i) => {
@@ -100,7 +102,7 @@ const R2: React.FC<KTProps> = (p) => {
 
 // ---------- R3 · T25 kacau: huruf lompat tak rata lalu mendarat (kacau/frustrasi/viral) ----------
 const R3: React.FC<KTProps> = (p) => {
-  const {f, out} = useKeluar(p.durasi, p.keluarAt);
+  const {f, out} = useKeluar(p.durasi, p.keluarAt, p.gulir ? 4 : 7, p.gulir ? 'reveal' : 'leave');
   const size = p.size ?? 96;
   const {fps} = useVideoConfig();
   const bekuF = p.bekuAt !== undefined ? Math.round(p.bekuAt * fps) : 1e9;
@@ -109,7 +111,7 @@ const R3: React.FC<KTProps> = (p) => {
   const viral = p.gaya === 'viral';
   // kata ke berapa tiap huruf (onset per kata)
   const kataKe = chars.reduce<number[]>((a, c, i) => { a.push(i === 0 ? 0 : a[i - 1] + (chars[i - 1] === ' ' ? 1 : 0)); return a; }, []);
-  return <AbsoluteFill style={{...shell, ...gayaKeluar(out, size)}}>
+  return <AbsoluteFill style={{...shell, ...gayaKeluar(out, size, p.gulir)}}>
     <div style={{fontFamily: FONT.poppins, fontWeight: 800, fontSize: size, lineHeight: 1, letterSpacing: '-0.02em', whiteSpace: 'pre',
       transform: `rotate(${viral ? -5 : 0}deg)`, textAlign: 'center'}}>
       {chars.map((c, i) => {
@@ -137,11 +139,11 @@ const R3: React.FC<KTProps> = (p) => {
 
 // ---------- putus-putus (R3): suku kata muncul terputus satu per satu, jeda tak rata ----------
 const Putus: React.FC<KTProps> = (p) => {
-  const {f, out} = useKeluar(p.durasi, p.keluarAt);
+  const {f, out} = useKeluar(p.durasi, p.keluarAt, p.gulir ? 4 : 7, p.gulir ? 'reveal' : 'leave');
   const size = p.size ?? 124;
   const parts = ['pu', 'tus', '-pu', 'tus'];
   const at = [0, 5, 11, 15];
-  return <AbsoluteFill style={{...shell, ...gayaKeluar(out, size)}}>
+  return <AbsoluteFill style={{...shell, ...gayaKeluar(out, size, p.gulir)}}>
     <div style={{display: 'flex', alignItems: 'baseline', fontFamily: FONT.poppins, fontWeight: 800, fontSize: size, color: p.warna ?? CORAL, lineHeight: 1,
       letterSpacing: '-0.02em', textShadow: BAYANG_TEKS}}>
       {parts.map((s, i) => {

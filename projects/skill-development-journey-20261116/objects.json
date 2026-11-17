@@ -442,7 +442,7 @@
  },
  {
   "nama": "100% FULL AI",
-  "peran": "slab-di-belakang-kepala",
+  "peran": "slab-di-depan",
   "t": 72.608,
   "frame": 2176,
   "lapisan": "T095"
@@ -450,7 +450,7 @@
  {
   "nama": "slot b10a_meja3d (meja 3D, onset 'kayak gimana?')",
   "peran": "slot-opaque",
-  "t": 75.645,
+  "t": 75.644,
   "frame": 2267,
   "lapisan": "O_slot b10a"
  },

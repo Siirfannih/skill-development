@@ -12,7 +12,8 @@ timing = json.loads((OUT / 'timing.json').read_text())
 for name, key in [('words.json', 'words_sha256'), ('suara.wav', 'audio_sha256')]:
     assert hashlib.sha256((ROOT / 'edit' / name).read_bytes()).hexdigest() == timing[key], name
 scene = bpy.context.scene
-assert scene.frame_end == timing['frames'] == 77
+assert scene.frame_end == timing['frames']
+scene.render.resolution_percentage = 75   # 1440x810 lalu dinaikkan ke 1080p di finish.py (DOF dangkal; hemat ±45 % waktu)
 scene.render.engine = 'CYCLES'
 scene.cycles.device = 'CPU'
 scene.cycles.samples = 10
@@ -33,8 +34,8 @@ signature = hashlib.sha256((OUT / 'b10a.blend').read_bytes() + Path(__file__).re
 proof = json.loads(proof_path.read_text()) if proof_path.exists() else dict(signature=signature, frames=[])
 assert proof['signature'] == signature, 'Render configuration changed; preserve the old run before restarting'
 proof.update(engine='Cycles CPU', samples=10, denoiser='OpenImageDenoise', prefilter='ACCURATE',
-             threads=8, resolution=[1920, 1080], fps='30000/1001', camera_distance_factor=.91)
-frames = [1, timing['onset_frame'], 77] if '--test' in sys.argv else range(1, 78)
+             threads=8, resolution=[1440, 810], fps='30000/1001', camera_distance_factor=.91)
+frames = [1, timing['onset_frame'], timing['frames']] if '--test' in sys.argv else range(1, timing['frames'] + 1)
 for frame in frames:
     path = OUT / 'raw' / f'{frame:04d}.png'
     if path.exists() and any(x['frame'] == frame for x in proof['frames']):

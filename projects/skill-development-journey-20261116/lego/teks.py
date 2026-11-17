@@ -39,7 +39,7 @@ SPEK = [
     sp("kesalahan", 67.5, 1, peran="R3", kode="T25", gaya="r3", alasan="kesalahan berulang yang diminimalkan: kata kacau lalu mendarat (DESAIN B5b)"),
     sp("loop", 70, 2, peran="R2", kode="T03", gaya="r2", alasan="kata kunci saat loop menutup + centang (DESAIN B5b)"),
     sp("lintas", 57, 2, peran="R6", kode="T04", gaya="slab", teks_vis="LINTAS AGENT", tahan=1.1, alasan="kata hero besar di BELAKANG kepala (matte), tahan ±1 dtk (REVISI-1 B9)"),
-    sp("100%", 72.8, 4, peran="R6", kode="T04", gaya="slab", teks_vis="100% FULL AI", buang=["pakai"], alasan="slab di belakang kepala + kilat cahaya sekali (DESAIN B6a); 'pakai' tidak ditampilkan (Irfan 17 Nov: 'pakai' di bawah sementara AI di atas)"),
+    sp("100%", 72.8, 4, peran="R6", kode="T04", gaya="slab", teks_vis="100% FULL AI", buang=["pakai"], depan=True, alasan="hero di DEPAN di atas dinding gelap shot meja 3D (Irfan 17 Nov: shot Claude mengedit mulai di kalimat ini); 'pakai' tidak ditampilkan (Irfan 17 Nov)"),
     sp("profesional", 78.3, 1, peran="R3", kode="T25", gaya="r3", ukuran=80, alasan="pertanyaan pertama yang menusuk: kata kacau lalu mendarat (REVISI-2 Opus: perlakuan R3 pindah dari 'masih kerasa AI?' yang kini tampil sebagai komentar IG)"),
     sp("masih", 79.5, 3, peran="R3", kode="T25", gaya="r3", alasan="pertanyaan yang menusuk: kata kacau lalu mendarat; komentar penonton menyusul (REVISI-1 B10)"),
     sp("skill", 82, 2, peran="R2", kode="T03", gaya="r2", alasan="kata kunci hadiah"),
@@ -47,7 +47,7 @@ SPEK = [
 
 # ---- posisi R1 menurut adegan (pusat teks, px). Wajah: kepala di x 36-64 % y 8-62 %, dada di bawahnya. ----
 def r1_pos(t):
-    if T["b4b"] <= t < T["dua0"] - 0.3: return [1500, 915], False                 # B4b awal: narasi ke kanan, 'habis banget' ditahan di kiri (REVISI-1 B7)
+    if T["b4b"] <= t < T["dua0"] - 0.3: return [960, 930], False                  # B4b awal: rata tengah dada (Irfan 17 Nov), di bawah 'habis banget'
     if T["dua0"] - 0.3 <= t < T["lima"] - 0.3: return [700, 790], False          # kartu ChatGPT di kanan, kiri masih kosong
     if T["lima"] - 0.3 <= t < T["gitu_b4"] + 0.1: return [1180, 905], False       # kartu mengapit Irfan (ChatGPT kanan, Claude kiri): narasi di dada bawah, di antara kartu (REVISI-2 R2-4b)
     if DUNIA:   # adegan layar penuh: teks di pita bawah jendela, menempel subjek (jendela / karakter), tinta gelap di permukaan terang
@@ -56,7 +56,7 @@ def r1_pos(t):
         if T["lihat_e"] - 0.05 <= t < T["sini_e"]:     # B11: KT di pita bawah sejak jentikan (Irfan 17 Nov)
             return [960, 950], False      # REVISI-2 (Opus): papan aktif selalu di tengah -> KT di tengah pita bawah
     if T["udah"] - 0.6 <= t: return [660, 812], False       # pita hitam bawah video postingan IG, putih seperti teks di video (REVISI-1 B10); "Comment di bawah." diatur di bangun()
-    if T["b6b"] - 0.05 <= t < T["udah"] - 0.1: return [760, 945], False          # B10a: pita bawah meja kerja (lingkaran wajah di kanan)                                # area hitam di bawah video postingan
+    if T["b6a"] - 0.1 <= t < T["udah"] - 0.1: return [760, 945], False      # shot meja 3D kini mulai di "Ini 100% full pakai AI" (Irfan 17 Nov)          # B10a: pita bawah meja kerja (lingkaran wajah di kanan)                                # area hitam di bawah video postingan
     if T["b6b"] <= t: return [960, 740], False
     if T["decision"] - 0.05 <= t < T["b2a"] + 0.9: return [1130, 735], False                  # DECISION mengisi dada: narasi di atas DECISION dengan jarak (Opus: tidak menempel), di bawah dagu (REVISI-2 R2-4g: bukan kiri atas)
     if 17.9 <= t < 19.6: return [887, 770], False                  # B2: sticker api/emoji kanan (x>1440): narasi geser kiri (cek_tumpuk)
@@ -84,7 +84,7 @@ def r1_pos(t):
 POS_KHUSUS = {   # pusat blok khusus; nilai dari DESAIN per adegan (kunci dicocokkan tanpa tanda baca)
     "finally": [960, 380], "selesai": [650, 790], "ChatGPT,": [1380, 905], "Claude,": [480, 415], "Gemini.": [1670, 440],
     "template.": [760, 945], "ngebalik.": [760, 945], "AI slop.": [960, 420], "workflow-nya": [960, 380],
-    "balik modal": [960, 400], "100% full pakai AI.": [960, 380], "putus-putus.": [1080, 800],
+    "balik modal": [960, 400], "100% full pakai AI.": [600, 215], "putus-putus.": [1080, 800],
     "habis banget": [950, 810], "20 kali": [1520, 360], "5 kali": [1590, 740], "kesalahan": [1400, 950], "loop pembelajaran": [960, 950],
     "viral": [1480, 250], "profesional": [700, 840], "masih kerasa AI?": [620, 812], "skill gratis": [620, 812],
     "lintas agent.": [960, 400], "decision": [1110, 860],
@@ -94,9 +94,9 @@ POS_KHUSUS = {   # pusat blok khusus; nilai dari DESAIN per adegan (kunci dicoco
 POS_N = {W.nrm(k): v for k, v in POS_KHUSUS.items()}
 
 # ---- busur cincin (koordinat frame penuh) ----
-ARCH = [(150, 1010), (40, 390), (430, 195), (900, 195), (1370, 195), (1800, 390), (1690, 1010)]
-ARCH_D = "M150 1010 C40 390 430 195 900 195 C1370 195 1800 390 1690 1010"
-RING = {"workflow": dict(mulai=4.0, geser=2.0, size=150), "AI model": dict(mulai=33.0, geser=1.5, size=146),
+ARCH = [(370, 860), (300, 450), (690, 300), (1000, 300), (1310, 300), (1650, 430), (1620, 780)]     # Irfan 17 Nov: garis merah, dekat kepala
+ARCH_D = "M370 860 C300 450 690 300 1000 300 C1310 300 1650 430 1620 780"
+RING = {"workflow": dict(mulai=13.0, geser=2.0, size=124), "AI model": dict(mulai=58.0, geser=1.5, size=120),     # kiri naik / kanan turun, kepala di tengah
         "decision": dict(mulai=60.5, geser=1.5, size=150)}
 
 

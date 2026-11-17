@@ -39,36 +39,36 @@
   },
   "visual": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/qc/master_gambar.mp4",
-   "sha": "4ef9b9733e6469a2",
-   "waktu": "2026-11-17 21:14",
+   "sha": "a44e19fea8eedf4a",
+   "waktu": "2026-11-17 22:59",
    "hulu": {
     "suara": "c23e53d9df676dc7"
    }
   },
   "sfx": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/cues.json",
-   "sha": "7050a9eda6363fad",
-   "waktu": "2026-11-17 21:14",
+   "sha": "4cd7548fde1e82f0",
+   "waktu": "2026-11-17 23:05",
    "hulu": {
     "suara": "c23e53d9df676dc7",
-    "visual": "4ef9b9733e6469a2"
+    "visual": "a44e19fea8eedf4a"
    },
    "evidence": {
     "objects": {
      "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/objects.json",
-     "sha": "eff16dd2997f5035"
+     "sha": "b648d092a3896498"
     }
    },
    "ref_density": 0.0
   },
   "musik": {
    "file": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/audio/stem_musik_A.wav",
-   "sha": "bfbcc7feac812dae",
-   "waktu": "2026-11-17 21:14",
+   "sha": "5d750fcbeb8bfbd8",
+   "waktu": "2026-11-17 23:05",
    "hulu": {
     "suara": "c23e53d9df676dc7",
-    "visual": "4ef9b9733e6469a2",
-    "sfx": "7050a9eda6363fad"
+    "visual": "a44e19fea8eedf4a",
+    "sfx": "4cd7548fde1e82f0"
    },
    "peran": "pengisi sandwich Aware → With Some Malice → Aware strings",
    "alasan": "talking head personal yang cerita lalu memuncak; strings Aware masuk di jentikan jari saat dunia agen muncul",

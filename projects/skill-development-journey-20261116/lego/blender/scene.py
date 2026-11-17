@@ -104,11 +104,13 @@ for sign in [-1,1]:
   for y in range(3):
    for z in range(3):vox('Arm voxel',(sign*x*.01,(y-1)*.01,z*.01),a)
  a.rotation_euler[1]=0;arms.append(a)
-for f,ang,nod in [(1,28,0),(ON-16,28,0),(ON-6,112,0),(ON+3,125,0),(ON+13,72,0),(ON+21,28,0),(ON+25,28,9),(ON+29,28,-3),(N,28,0)]:
+# Irfan 17 Nov: shot mulai lebih awal ("Ini 100% full pakai AI") -> sebelum onset Claude sedang mengedit: angguk kecil berirama, tangan mengetik bergantian
+_pre=[(f,28,(3 if k%2 else 0)) for k,f in enumerate(range(9,ON-18,9))]
+for f,ang,nod in [(1,28,0)]+_pre+[(ON-16,28,0),(ON-6,112,0),(ON+3,125,0),(ON+13,72,0),(ON+21,28,0),(ON+25,28,9),(ON+29,28,-3),(N,28,0)]:
  body.rotation_euler=(math.radians(nod),0,math.radians(ang));key(body,'rotation_euler',f)
 smooth(body)
 for j,a in enumerate(arms):
- for f,ang in [(1,-18),(12+j*3,-28),(16+j*3,6),(20+j*3,-18),(ON-8,-25),(ON,8),(ON+5,-18),(N,-18)]:
+ for f,ang in [(1,-18)]+[(f+j*3,(-30 if k%2==0 else -6)) for k,f in enumerate(range(6,ON-14,6))]+[(ON-8,-25),(ON,8),(ON+5,-18),(N,-18)]:
   a.rotation_euler[0]=math.radians(ang);key(a,'rotation_euler',f)
  smooth(a)
 # Monitor plane is the generated project timeline movie, facing towards the camera.

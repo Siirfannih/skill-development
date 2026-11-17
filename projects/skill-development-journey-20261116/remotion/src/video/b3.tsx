@@ -30,7 +30,7 @@ const Kursor: React.FC<{x: number; y: number; klik: number}> = ({x, y, klik}) =>
 );
 
 const kamera = (t: number, K: AppProps['kunci']) => {
-  const keys: [number, number, number, number][] = [[0, 1.0, 960, 540], [K.slash - 0.2, 1.04, 900, 580], [K.apple - 0.3, 1.04, 900, 580], [K.apple + 0.15, 1.55, 870, 600],
+  const keys: [number, number, number, number][] = [[0, 1.0, 960, 540], [K.slash - 0.2, 1.04, 900, 580], [K.apple - 0.3, 1.12, 885, 600], [K.apple + 0.15, 1.55, 870, 600],
     [K.aKlik + 0.3, 1.58, 868, 603], [K.cKlik + 0.2, 1.6, 866, 606], [K.hapus - 0.1, 1.5, 880, 590], [K.hapus + 0.6, 1.2, 900, 580], [K.hapus + 2.0, 1.3, 910, 580], [K.keluar, 1.34, 910, 580]];
   let i = 0; while (i + 1 < keys.length && t >= keys[i + 1][0]) i++;
   if (i + 1 >= keys.length) return {s: keys[i][1], x: keys[i][2], y: keys[i][3]};

@@ -44,3 +44,29 @@ Dibiarkan: kartu "Claude Max" (nama paket asli, menunggu Irfan); Codex/Gemini te
 - Mix tanpa limiter, suara ×1,0: A/B/tanpa-musik −15,75 / −15,78 / −16,0 LUFS, puncak −1,0 dBFS.
 - QC sampling: lembar 1 frame/2 dtk + titik E1–E12; tidak ada teks bertumpuk/terpotong di sampel, teks pita bawah di dalam margin, dunia agen mendarat 1–2 f setelah jentikan (f1737–1738 vs transien f1736).
 - Dibiarkan: kartu "Claude Max" (nama paket asli, menunggu Irfan).
+
+---
+# Putaran 2 · catatan Irfan 17 Nov ±22:00 (audit dulu, baru perbaiki)
+
+| # | Detik | Temuan | Penyebab (diukur) | Perbaikan |
+|---|---|---|---|---|
+| F1 | 52–55 | Zoom masuk-keluar seperti bug | punch langkah "uji" 52,19→53,52 lalu cut, disusul pulsa punch sambungan footage j53 (masuk-keluar 12 f) di 53,6 | pulsa sambungan dihapus; tiap sambungan footage = CUT framing (tahan sampai akhir kalimat) yang digabung dengan punch di dekatnya: bila sedang punch → cut kembali di sambungan; tidak ada lagi gerak masuk-keluar |
+| F2 | 43–45 | "buat biayanya." masih di kanan | r1_pos awal B4b = (1500, 915) | rata tengah dada (960, 930) |
+| F3 | semua | Teks masih "kecepetan hilang" | 97/103 blok mulai keluar SEBELUM kata terakhirnya selesai diucapkan (hingga −0,24 dtk): silang 5 f sebelum blok berikut | blok bertahan sampai kata terakhir selesai: kalimat mengalir → blok lama bergulir naik + pudar 5 f tepat saat blok baru masuk dari bawah; ada jeda → bertahan ≥ 0,45 dtk setelah kata terakhir |
+| F4 | 6–14 | Cincin "workflow / AI model" terlalu jauh dari kepala | busur selebar frame (x 40–1800, puncak y 195) | busur mengikuti garis merah Irfan: kaki kiri (370, 860) → puncak (1000, 300) → kaki kanan (1620, 780); "workflow" di sisi kiri, "AI model" di sisi kanan, kepala di tengah (lewat di belakang kepala) |
+| F5 | 20, 12, 48–51, 43 | Kemunculan penekanan tanpa bunyi terdengar: AI SLOP, DECISION, hitungan 20×/5×, "habis banget" | kata hero = thud sub Move.mp3 −10 dB (tak terdengar di HP, audio_phone); hitungan angka tanpa cue; "habis banget" = klik glitch | kata hero = klik penekanan (tiktok drop click, 692 Hz, terdengar di HP); hitungan = tick per kenaikan angka; "habis banget" = bunyi kertas (flipcard) |
+| F6 | 24–28 | Kamera dunia aplikasi Claude diam | kunci kamera "/" → "apple" sama (1,04 → 1,04) selama ±3 dtk | push pelan 1,04 → 1,12 ke kolom ketik (drift) |
+| F7 | 72–77 | Shot Claude mengedit terlalu pendek (2,6 dtk) | jendela Blender = "Dan menurut … kayak gimana?" | shot mulai di "Ini 100% full pakai AI" (72,21 dtk) → 4,5 dtk / 135 f; sebelum onset Claude mengetik + mengangguk; "100% FULL AI" jadi hero di DEPAN di atas dinding gelap scene |
+
+## Temuan QC sampling putaran 2 (diperbaiki sebelum final)
+- "workflow" di busur baru bertumpuk dengan Clawd di bahu kiri → awal busur digeser ke 13 % (mulai di atas bahu).
+- Gulir 5 f dengan kurva `leave` (lambat di awal) masih memperlihatkan dua blok bertumpuk ("Hanya untuk uji" + "coba sistem ini") → gulir 4 f kurva `reveal` (cepat di awal), naik 1 tinggi baris.
+- Klik penekanan pilihan pertama (tiktok drop) terbaca "bubble pop" oleh `ears` = terlalu mirip pop objek → `Cut.mp3` ("crisp interface click").
+- Klik AI SLOP 83 ms setelah runtuh (gerbang: ≥ 100 ms) → +130 ms; ketik Claude di meja bertumpuk dengan klik 100% FULL AI → digeser ke awal shot.
+- Pemeriksa geometri Blender: margin Claude 4,85 % (batas 5 %) karena tangan mengetik → diterima (tidak kentara).
+
+## Hasil putaran 2 (17 Nov ±23:30)
+- Shot meja 3D 135 f (Cycles CPU 75 % → 1080p, 22 dtk/f), mulai di "Ini" 72,21 dtk; Claude mengetik + mengangguk, menoleh di "kayak gimana?".
+- Master 2512 f (lock visual a44e19fe), SFX lock 4cd7548f (kata hero = klik Cut.mp3 di FINALLY, SELESAI, DECISION, AI SLOP, WORKFLOW-NYA, BALIK MODAL, LINTAS AGENT, 100% FULL AI; kertas di "habis banget"; tick 10× dan 4× di hitungan kartu), musik A/B dikunci ulang, `check` PASS.
+- Mix A/B/tanpa-musik −15,75 / −15,78 / −16,0 LUFS, suara ×1,0, tanpa limiter.
+- Kamera: tidak ada lagi pulsa masuk-keluar; sambungan footage = cut framing; dunia aplikasi push 1,04 → 1,12.

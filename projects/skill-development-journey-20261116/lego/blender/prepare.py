@@ -8,7 +8,8 @@ OUT=Path('/mnt/storage-projects/skill-dev-journey/b10a'); (OUT/'textures').mkdir
 worddata=(ROOT/'edit/words.json').read_bytes()
 words=json.loads(worddata)['words']
 i=next(i for i,w in enumerate(words) if w['w'].lower()=='menurut')
-start=words[i-1]['s']-.3; end=words[i+4]['e']+.5; onset=words[i+3]['s']; fps=30000/1001
+j=next(k for k,w in enumerate(words) if w['w'].lower()=='ini' and 70<w['s']<i and words[k+1]['w'].startswith('100'))
+start=words[j]['s']-.05; end=words[i+4]['e']+.5; onset=words[i+3]['s']; fps=30000/1001
 count=math.ceil((end-start)*fps)
 meta=dict(start=start,end=end,duration=end-start,onset=onset,onset_local=onset-start,fps=fps,frames=count,onset_frame=math.ceil((onset-start)*fps)+1,words_sha256=hashlib.sha256(worddata).hexdigest(),audio_sha256=hashlib.sha256((ROOT/'edit/suara.wav').read_bytes()).hexdigest())
 (OUT/'timing.json').write_text(json.dumps(meta,indent=2))
