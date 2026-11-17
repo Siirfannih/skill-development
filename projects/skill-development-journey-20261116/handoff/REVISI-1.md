@@ -38,3 +38,10 @@ Acuan GAYA: `sumber/revisi1/irfan-acuan-claude-mengedit.png` (dipilih) — bukan
 - Wajah Irfan tetap terlihat (lingkaran kanan bawah atau preview di monitor editor yang sedang memutar footage asli) — Lantai D21.
 - Kamera: masuk `heavy` + zoom-in ke tangan/aksi Claude saat blok teks ditambahkan, lalu pull; tidak datar.
 - Lalu transisi ke B10 (postingan Instagram, frame mengecil).
+
+## B10a-3D (Irfan 17 Nov ±10:30: OPSI A = Blender; bila hasil kurang → opsi B three.js) · menggantikan gaya 2D di B10a
+Acuan GAYA: `sumber/revisi1/acuan-3d-claude.mp4` (+ lembar `acuan-3d-claude-sheet.jpg`): Claude voxel merah-terakota seperti mainan fisik di meja kerja malam, monitor/laptop menyala di belakang, lampu meja hangat, depth of field kuat, bloom lembut, grain halus, kamera makro pelan. Teks/merek di acuan TIDAK disalin.
+- Alat: Blender portable (versi LTS terbaru stabil dari download.blender.org, Linux x64) dipasang di `/mnt/storage-projects/skill-dev-journey/blender/`; semua file kerja/render di `/mnt/storage-projects/skill-dev-journey/b10a/` (disk root hampir penuh). Render Cycles (GPU HIP RX 6600 bila jalan, kalau tidak Eevee Next), 1920×1080, 30000/1001 fps, durasi = jendela kalimat "Dan menurut kalian videonya kayak gimana?" + transisi (±3–4 dtk), keluaran PNG sequence/ProRes lalu masuk lego sebagai lapisan opaque.
+- Isi shot: meja kayu gelap, keyboard, monitor di belakang memutar **timeline editor video ini** (tekstur video: render timeline kita dengan thumbnail footage Irfan + track teks + waveform). Claude voxel (geometri karakter kita/K-12 Claude, bevel kecil, material doff terakota, mata kotak gelap) berdiri di keyboard, menoleh ke monitor, mengetuk; tepat di onset "kayak gimana?" blok teks baru masuk ke track teks di monitor dan Claude mengangguk puas. Kamera makro push pelan + rack focus dari Claude ke monitor (`heavy`, tanpa linear).
+- Wajah Irfan: tetap terlihat — lingkaran kanan bawah di atas shot (Lantai D21), atau footage Irfan diputar di monitor kedua.
+- Gerbang: still 3 frame (awal, onset, akhir) disanding dengan lembar acuan; Sutradara menilai sebelum render penuh shot. Bila setelah 2 percobaan masih jauh dari acuan → opsi B.
