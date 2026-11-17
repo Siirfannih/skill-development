@@ -154,7 +154,7 @@ Gerbang di bawah dikelompokkan jadi lima fase. Batas fase = titik kunci, bukan j
 
 Beberapa video sekaligus: satu grup agen per video (Writing, SFX, Audio) + orkestrator QC; grup video berikutnya dibuat hanya setelah video ini lolos QC penuh. QC tiga lapis berurutan: visual saja → visual + SFX → visual + SFX + musik (`delivery-gate.md` §0) (Irfan 9 Nov, Behindwork).
 
-Revisi dari Irfan: baca `revision-log.md`, catat di `DECISIONS.md` (§21) dan RETRO, baru kerjakan; `scripts/baseline_lock.py check` wajib lolos. Pekerjaan dalam rencana yang Irfan setujui dianggap disetujui; yang menunggu kata "final" hanya script dan storyboard.
+Revisi dari Irfan (pesan apa pun yang mengeluhkan atau mengubah video yang sudah dirender): baca `revision-log.md` utuh dan ikuti §0, catat di `DECISIONS.md` (§21) dan RETRO, baru kerjakan; `scripts/juri/revisi_cek.py cek` dan `scripts/baseline_lock.py check` wajib lolos. Pekerjaan dalam rencana yang Irfan setujui dianggap disetujui; yang menunggu kata "final" hanya script dan storyboard.
 
 ## 5. Struktur
 

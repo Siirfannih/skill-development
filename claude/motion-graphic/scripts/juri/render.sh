@@ -110,6 +110,10 @@ case "$MODE" in
       CHANGED="$(cd "$R" && git diff --name-only --relative "$BASIS" -- src 2>/dev/null | sed "s#^#$R/#" | tr '\n' ' ')"
       echo "mode revisi: basis $BASIS · file berubah: ${CHANGED:-(tidak ada)}"
     fi
+    if [ -f "$QC/cakupan-revisi.json" ] && [ -f "$P/lego/lego.json" ]; then
+      # Revisi atas versi yang disetujui: lapisan di luar cakupan ledger tidak boleh berubah (Lantai F27, revision-log §21.2).
+      python3 "$HERE/revisi_cek.py" cek "$P" || { echo "GAGAL gerbang revisi: lihat daftar lapisan di atas."; exit 1; }
+    fi
     if ! "$PYTHON_BIN" "$HERE/../gate/audio_order.py" check --dir "$P/audio" $WARIS; then
       echo "GAGAL gerbang audio: kunci suara dengan bukti source words + cut map, lalu visual, SFX, dan musik sebelum render final."
       exit 1

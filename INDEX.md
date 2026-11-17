@@ -1,6 +1,6 @@
 # Katalog perpustakaan skill
 
-Pintu masuk untuk setiap model yang bekerja dengan Irfan. Untuk tahu file mana yang dibuka per pekerjaan, pakai [PETA.md](PETA.md) (Rute). Baca file ini dulu, lalu buka **hanya** skill yang cocok dengan pekerjaan. Jangan memuat semua skill sekaligus.
+Katalog skill untuk setiap model yang bekerja dengan Irfan. Pintu masuk repo adalah [AGENTS.md](AGENTS.md) (cara membaca + awal sesi); file yang dibuka per pekerjaan ada di [PETA.md](PETA.md) (Rute). Buka **hanya** skill yang cocok dengan pekerjaan. Jangan memuat semua skill sekaligus.
 
 ## Cara memakai
 

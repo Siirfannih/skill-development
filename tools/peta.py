@@ -13,7 +13,13 @@ import os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 MG = "claude/motion-graphic"
 
-RUTE = f"""## Rute: pekerjaan → buka ini (urut, berhenti bila cukup)
+RUTE = f"""## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo ini)
+
+- `LANTAI.md` = berlaku di semua video. `guide/` + kartu `pustaka/kartu/` = cara memutuskan bersyarat dan kiblat gaya. `projects/<proyek>/DECISIONS.md` = satu video saja.
+- Cocokkan setiap pesan Irfan dengan satu baris Rute sebelum edit pertama, juga di tengah sesi.
+- File rute dibaca utuh; `grep` bukan membaca. "Aturannya tidak ada" hanya setelah LANTAI, kartu kiblat proyek, dan skrip jurinya dibaca.
+
+## Rute: pekerjaan → buka ini (urut, berhenti bila cukup)
 
 | Pekerjaan | Buka | Jangan buka |
 |---|---|---|
@@ -24,7 +30,7 @@ RUTE = f"""## Rute: pekerjaan → buka ini (urut, berhenti bila cukup)
 | Fase 3 visual: teks/KT, kamera, kurva, lapisan lego | `{MG}/references/typography.md` §8a, `{MG}/references/build.md` (Rakit lego), `scripts/lego/teks_plan.py` → `kt_check.py`, `scripts/remotion/curves.ts`, `TeksBlok.tsx`, `LightSweep.tsx`, `{MG}/references/camera-transition.md` | audio |
 | Fase 4 SFX lalu musik | `{MG}/guide/sfx/GUIDE.md`, `{MG}/guide/sfx/SFXIRFAN.md`, `{MG}/references/audio.md` §14.3–14.9, `scripts/gate/sfx_density.py`, `{MG}/guide/audio/GUIDE.md` | tipografi |
 | Fase 5 finishing: mix, QA, render sekali | `{MG}/references/delivery-gate.md`, `scripts/juri/render.sh` (`lego` untuk video berfootage), `scripts/juri/frame_audit.py` | storyboard |
-| Revisi dari Irfan | `{MG}/references/revision-log.md`, `projects/<proyek>/DECISIONS.md` + `STATUS.md`, `scripts/baseline_lock.py`; video lama: `qc/revisi.json` (Lantai F27) | menulis ulang dari nol, memigrasi adegan yang sudah disetujui |
+| Revisi dari Irfan: pesan apa pun yang mengeluhkan atau mengubah video yang sudah pernah dirender | **Sebelum edit pertama, urut:** `{MG}/references/revision-log.md` utuh (§0 urutan, §21 ledger dan kunci) → ledger di `projects/<proyek>/DECISIONS.md` + `STATUS.md` → `scripts/juri/revisi_cek.py mulai` + `scripts/baseline_lock.py approve` dari versi yang disetujui → baca ulang `LANTAI.md` + kartu kiblat proyek → kerjakan per lapisan → `revisi_cek.py cek` + `baseline_lock.py check` → `scripts/juri/render.sh`; video lama: `qc/revisi.json` (Lantai F27) | mengubah komponen atau aturan bersama untuk keluhan satu blok, menulis ulang dari nol, memigrasi adegan yang sudah disetujui |
 | Orkestrasi subagen / model lain | `{MG}/references/orkestrasi.md`, `{MG}/templates/handoff-fase.md` | — |
 | Tulisan konten (caption, hook, carousel) | `claude/script-workshop/SKILL.md` | skill video |
 | Proyek dengan PRD/QUEUE | `claude/autopilot-prd/SKILL.md` | — |

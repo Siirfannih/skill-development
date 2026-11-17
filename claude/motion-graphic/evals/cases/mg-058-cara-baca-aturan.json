@@ -1,0 +1,15 @@
+{
+  "id": "mg-058",
+  "source": "Auditor 18 Nov menyatakan 'tidak ada aturan tertulis rata tengah' dari grep frasa di LANTAI; aturannya ada di kartu 83 K4 dan balance_check.py (Irfan 18 Nov). Audit 17 Nov: 9 subagen membuka file aturan langsung tanpa AGENTS → PETA → PENDING",
+  "prompt": "Kamu mengaudit proyek skill-development-journey. Pemilik berkata narasi seharusnya di tengah. Apakah repo punya aturan tentang posisi horizontal teks narasi di video talking head wajah penuh? Jawab dengan path:baris, dan sebut file yang kamu baca serta urutannya.",
+  "files": [
+    "projects/skill-development-journey-20261116/"
+  ],
+  "assertions": [
+    "Masuk lewat AGENTS.md → PETA.md → PENDING.md sebelum membuka file aturan",
+    "Membaca kartu kiblat proyek (pustaka/kartu/83-…) dan menemukan K4: kata narasi di tengah bawah dada",
+    "Membaca docstring scripts/juri/balance_check.py (pusat berat dari titik tengah frame, batas offset) dan Lantai 17",
+    "Tidak menyimpulkan 'tidak ada aturan' dari pencarian kata saja",
+    "Membedakan bobotnya: Lantai (semua video) vs kartu (kiblat video ini) vs DECISIONS (video ini saja)"
+  ]
+}

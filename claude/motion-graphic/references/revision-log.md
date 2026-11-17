@@ -2,6 +2,19 @@
 
 Baca saat Irfan memberi revisi: catat dulu, baru kerjakan. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.
 
+## 0. Urutan saat pesan revisi masuk (sebelum edit pertama)
+
+Mengurutkan yang sudah diatur di §21 dan Lantai F27 (gagal: skill-dev-journey 17 Nov, tiga putaran revisi tanpa membuka file ini; rinciannya di `RETRO.md` 18 Nov).
+
+1. **Ledger.** Tiap butir pesan Irfan = satu baris `DECISIONS.md` (§21.1): kata Irfan verbatim + cakupan. Keluhan satu blok berlaku ke blok itu. Keluhan yang ternyata pelanggaran aturan yang sudah ada (Lantai, kartu kiblat) disapu ke **semua** blok yang melanggar aturan yang sama, dan daftarnya ditulis di ledger ("alasan, bukan contoh", di bawah).
+2. **Tulis balik delta** (§21.2): yang berubah, dan yang dijamin tidak berubah. Yang tidak disebut Irfan dianggap disetujui (SKILL.md §4).
+3. **Kunci basis.** `scripts/juri/revisi_cek.py mulai projects/<proyek> --basis <commit yang disetujui> --alasan "…"`, isi `boleh_berubah` dengan ID ledger, `scripts/baseline_lock.py approve` untuk adegan yang tidak disentuh (§21.3). Arsipkan master versi yang disetujui.
+4. **Baca ulang utuh** `LANTAI.md`, kartu kiblat proyek, dan docstring skrip juri yang mengukur hal yang dikeluhkan.
+5. **Perbaiki di tingkat yang dikeluhkan**: data blok itu (posisi, tahan, ukuran), bukan komponen atau aturan bersama.
+6. **Sebelum melapor:** `revisi_cek.py cek` dan `baseline_lock.py check` lulus, rakit lewat `scripts/juri/render.sh`, gerak tiap butir dilihat di draft (`pustaka/README.md` §Juri 7). Laporan: "siap ditinjau" + angka yang diukur (§21.4).
+
+Uji: setiap lapisan yang berubah bisa ditunjuk ke satu butir ledger. Yang tidak bisa, dipulihkan ke basis.
+
 **Terapkan alasan, bukan contoh** (Irfan 15 Nov, jensen-pain-suffering r2): saat Irfan memberi alasan ("b-roll stok = pengisi, jadi teks di tengah"), contoh yang ia sebut hanya ilustrasi. Sebelum menulis TASK, buat tabel semua shot × kondisi alasan itu (mis. jenis footage: stok / bermakna / pembicara) dan terapkan ke setiap shot yang memenuhi kondisinya; pengecualian hanya dengan alasan komposisi tertulis. Gagal: B5 pria stres (stok) dibiarkan rata kiri karena tidak ada di daftar contoh → "aku udah kasih alasannya, kenapa masuk lagi".
 
 ## 19. Log revisi Irfan (memori gaya) — tambah baris setiap revisi
