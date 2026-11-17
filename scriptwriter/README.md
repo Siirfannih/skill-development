@@ -2,7 +2,7 @@
 
 Ruang kerja untuk mengembangkan ide Irfan menjadi naskah dan storyboard yang dapat diteruskan kepada agent produksi video. Folder ini menampung pengembangan cara kita berpikir, memilih, menulis, mengkritik, dan memperbaiki hasilnya.
 
-## 1. Mandat Irfan · 27 Oktober 2026
+## 1. Mandat Irfan
 
 Irfan ingin workflow kreatif yang dapat digunakan berbagai AI, dengan kemajuan yang disimpan ke GitHub agar agent berikutnya dapat meneruskan cara kerjanya. Yang diwariskan adalah proses kreatif dan alasan keputusan. Keberhasilannya dinilai dengan bukti dari pemakaian, bukan dari banyaknya dokumen yang dibuat.
 

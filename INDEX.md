@@ -54,14 +54,14 @@ Detail versi dan peta pemakaian ada di `external/README.md`.
 
 | Proyek | Isi |
 |---|---|
-| `jadisatu-60s` | Video 60-90 dtk (proyek baru 25 Okt): `DECISIONS.md` ledger, `REFERENSI.md` peran referensi. Gerbang script. |
+| `jadisatu-60s` | Video 60-90 dtk: `DECISIONS.md` ledger, `REFERENSI.md` peran referensi. Gerbang script. |
 | `jadisatu-launch` | `AUTHORITY.md` (urutan menang, peran storyboard, gerbang per adegan), `ART-DIRECTION.md` (dunia Pixel vs Apple, peta adegan, transisi antar dunia, audio, peran referensi) |
 
 ## Data referensi (repo terpisah)
 
 | Repo | Peran |
 |---|---|
-| `Siirfannih/canvas-skill-library` | Bukti referensi riset untuk Canvas (kartu video, resep kinetik, profil audio). **Data, bukan aturan**: dibuka hanya bila brief butuh contoh, kalah dari skill `claude/` bila bertentangan, tidak dimuat otomatis di sesi produksi (Irfan 6 Nov: library belum stabil) |
+| `Siirfannih/canvas-skill-library` | Bukti referensi riset untuk Canvas (kartu video, resep kinetik, profil audio). **Data, bukan aturan**: dibuka hanya bila brief butuh contoh, kalah dari skill `claude/` bila bertentangan, tidak dimuat otomatis di sesi produksi |
 
 ## Arsip (`archive/`)
 

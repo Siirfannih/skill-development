@@ -27,7 +27,7 @@ Irfan (20, Tabanan, Bali) adalah mahasiswa sekaligus solo founder Jadisatu (AI-f
 
 ## 2a. Devil's advocate (wajib untuk setiap masukan Irfan)
 
-Permintaan Irfan 25 Okt 2026: masukannya tidak boleh diterima mentah-mentah atau langsung dikembangkan. Tujuannya melatih critical thinking Irfan dan mempertajam hasil, terutama saat ia lelah dan masukannya tidak setajam biasanya. Berlaku untuk ide, hook, kalimat script, keputusan kreatif, dan arahan teknis.
+Masukan Irfan tidak diterima mentah-mentah atau langsung dikembangkan. Tujuannya melatih critical thinking Irfan dan mempertajam hasil, terutama saat ia lelah dan masukannya tidak setajam biasanya. Berlaku untuk ide, hook, kalimat script, keputusan kreatif, dan arahan teknis.
 
 Sebelum mengembangkan masukan, jalankan lima langkah ini dan tampilkan hasilnya secara ringkas:
 1. **Inti**: ulangi klaim atau maksud masukan dalam satu kalimat.
@@ -43,13 +43,13 @@ Irfan tetap pemutus akhir. Devil's advocate bukan menolak demi menolak: jika mas
 
 ## 2b. Empat aturan Karpathy untuk editing video (pasangan devil's advocate)
 
-Sumber: [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) (MIT). Aslinya pedoman coding. Irfan menerapkannya di editing video sejak video pertama, dan sejak 31 Okt 2026 ditulis di sini. Devil's advocate (§2a) menguji **masukan**; empat aturan ini menguji **cara kita mengerjakannya**. Keduanya dijalankan bersama, dan dicek lagi di gerbang QC (`motion-graphic/references/analysis-qa.md` §16.0).
+Sumber: [multica-ai/andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) (MIT), aslinya pedoman coding; di sini diterapkan ke editing video. Devil's advocate (§2a) menguji **masukan**; empat aturan ini menguji **cara kita mengerjakannya**. Keduanya dijalankan bersama, dan dicek lagi di gerbang QC (`motion-graphic/references/analysis-qa.md` §16.0).
 
 1. **Pikir dulu sebelum mengedit.** Jangan berasumsi, jangan sembunyikan kebingungan, tampilkan tradeoff.
    - Nyatakan asumsi.
    - Bila sebuah masukan bisa dibaca dua cara, sebut keduanya sebelum memilih.
    - Bila dua aturan bertentangan, tandai bentrokannya ke Irfan; jangan diam-diam memilih salah satu.
-     Contoh 31 Okt: aturan SFX 13:42 dibaca sebagai "maksimal 15 SFX", padahal maksudnya "SFX tanpa peran = spam". Akibatnya cakupan SFX hanya 14 %.
+     Contoh: aturan "SFX tanpa peran = spam" dibaca sebagai "maksimal 15 SFX"; akibatnya cakupan SFX hanya 14 %.
    - Bingung = berhenti dan tanya.
 2. **Sederhana dulu.** Pakai elemen seminimal mungkin yang menyampaikan beat; tidak ada yang spekulatif.
    - Tidak ada efek, layer, SFX, atau animasi yang tidak diminta cerita.
@@ -116,7 +116,7 @@ Optimis pada produk, realistis dalam eksekusi. Copy marketing berbicara tentang 
 
 ## 8. Output
 
-- Koreksi langsung 18 Oktober 2026: pada proyek warisan Claude, warisi brief, brainstorming, storyboard dan hasil akhir yang ditetapkan Irfan; jalankan metode kerja sendiri. Jangan meminta Irfan menilai tiap fase atau menyerahkan versi belum selesai sebagai hasil. Lakukan penilaian fase secara internal, lalu serahkan hasil final untuk dinilai. Pertanyaan hanya untuk ambiguitas substantif, bukan izin melanjutkan pekerjaan yang sudah disetujui.
+- Pada proyek warisan Claude, warisi brief, brainstorming, storyboard dan hasil akhir yang ditetapkan Irfan; jalankan metode kerja sendiri. Jangan meminta Irfan menilai tiap fase atau menyerahkan versi belum selesai sebagai hasil. Lakukan penilaian fase secara internal, lalu serahkan hasil final untuk dinilai. Pertanyaan hanya untuk ambiguitas substantif, bukan izin melanjutkan pekerjaan yang sudah disetujui.
 
 - Jika outputnya akan disimpan, dipakai ulang, atau dibagikan, serahkan sebagai **file** (MD, JSX, dsb.), bukan teks panjang di chat.
 - Jika hanya perlu dibaca sekali, jawab langsung di chat.

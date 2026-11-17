@@ -1,6 +1,6 @@
 #!/bin/bash
 # Pasang skill aktif dari repo ke Claude Code dan Codex sebagai SYMLINK, supaya selalu ikut `git pull`
-# (salinan lama membeku: Mac masih 27 Okt, PC server tidak punya sama sekali; gagal: V5 8 Nov).
+# (salinan membeku di versi lama dan tidak ikut pull).
 #
 #   ./tools/sync.sh                                   # Mac / akun default (~/.claude)
 #   CLAUDE_CONFIG_DIR=~/.claude-2 ./tools/sync.sh     # PC server, akun claude2
@@ -62,7 +62,7 @@ EOF
 ls "$DEST/synced"/*/ 2>/dev/null | grep -x -E "motion-director|motion-graphic-playbook|motion-graphic|irfan-motion-director|motion-reel" \
   | sed 's/^/PERINGATAN pustaka akun claude.ai masih memuat: /' || true
 # 5. folder masuk remote (default ~/work di PC server): sesi remote mulai di sana, jadi CLAUDE.md-nya harus
-#    merujuk repo ini untuk tugas video/konten/skill (Irfan 8 Nov). Lewati bila foldernya tidak ada.
+# merujuk repo ini untuk tugas video/konten/skill. Lewati bila foldernya tidak ada.
 ENTRY="${ENTRY_DIR:-$HOME/work}"
 if [ -d "$ENTRY" ]; then
   python3 - "$ENTRY/CLAUDE.md" "$REPO" <<'EOF'

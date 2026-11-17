@@ -5,7 +5,7 @@
 > Kedalaman bedah: **dalam** (teks, warna, skala, cut, SFX diukur dari piksel/audio). Batas: sumber hanya 736×414 (1 px = 0,24 % tinggi), bitrate 258–290 kbps sehingga grain tidak bisa dinilai.
 
 **DNA (satu kalimat):** Pertanyaan raksasa dibangun kata per kata dengan warna berbeda tiap kata lalu ditarik kecil, kemudian satu kata kunci kecil di pusat dikepung shape flat raksasa yang punya fungsi, dan UI yang lahir bertahap; tiap kata dan tiap shape dapat "pop" sendiri di atas musik house.
-**Cocok untuk:** iklan produk, onboarding, product film (Irfan 7 Nov: iklan & onboarding Workspace) · **Tidak cocok untuk:** klip wawancara/talking head, cerita emosional bernarasi panjang (tidak ada VO dan footage wajah)
+**Cocok untuk:** iklan produk, onboarding, product film · **Tidak cocok untuk:** klip wawancara/talking head, cerita emosional bernarasi panjang (tidak ada VO dan footage wajah)
 **Kata kunci gaya:** product film, shape flat, cerah, energik, UI sebagai subjek, rapi
 **Diambil untuk:** teks, SFX, dan cut (nama file "02_Baikov_TEKS-SFX-CUT.mp4"). File ssspin.io: nama tidak menyebut bagian; lihat bagian terkuat (teks kinetik di latar gelap bercahaya).
 

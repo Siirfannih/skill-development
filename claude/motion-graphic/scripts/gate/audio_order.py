@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gerbang urutan sound design: tiap lapisan audio dikunci berurutan ke lapisan sebelumnya (Irfan 8 Nov).
+"""Gerbang urutan sound design: tiap lapisan audio dikunci berurutan ke lapisan sebelumnya.
 
 Gagal yang ditangkap: V5 8 Nov, visual + SFX + musik dikerjakan paralel, tidak ada tahap mencocokkan.
 SFX tidak terikat ke event visual (cakupan 5-11 %), musik dipilih tanpa mendengar hasil visual + SFX.

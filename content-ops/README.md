@@ -1,10 +1,10 @@
 # Content Ops · sistem kerja produksi konten harian
 
-Dibuat 27 Okt 2026 dari arahan Irfan. Berlaku untuk tiga jalur: **@siirfannih**, **Jadisatu**, dan **akun affiliate** (TikTok + Facebook). Pintu masuk untuk agent riset/naskah (saat ini Grok Bot "Maximus") dan untuk agent produksi (saat ini Claude).
+Berlaku untuk tiga jalur: **@siirfannih**, **Jadisatu**, dan **akun affiliate** (TikTok + Facebook). Pintu masuk untuk agent riset/naskah (saat ini Grok Bot "Maximus") dan untuk agent produksi (saat ini Claude).
 
 Repo ini tetap satu sumber kebenaran. Folder ini hanya mengatur **operasi harian**: siapa mengerjakan apa, urutan, format serah terima, dan cara mengukur. Cara menulis dan membangun video tetap di skill aktif (`claude/script-workshop`, `claude/motion-graphic`, `claude/working-with-irfan`).
 
-## 1. Arahan Irfan (verbatim, 27 Okt 2026)
+## 1. Arahan Irfan (verbatim)
 
 | ID | Kata Irfan | Arti operasional |
 |---|---|---|

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Hitung jumlah baris caption di render. Gagal bila ada caption > 2 baris (aturan 44, Irfan 9 Nov) atau terpotong di tepi.
+"""Hitung jumlah baris caption di render. Gagal bila ada caption > 2 baris (aturan 44) atau terpotong di tepi.
 
 Pakai:  python3 caption_lines.py render.mp4 [--fps 4] [--band 0.55 0.95] [--max-lines 2]
 Deteksi: piksel putih (min RGB > 215, saturasi rendah) di pita bawah, proyeksi per baris,

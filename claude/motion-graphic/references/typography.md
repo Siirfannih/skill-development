@@ -25,7 +25,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 | Data | Angka, kode | Silkscreen (dunia pixel) / JetBrains Mono (UI) | 60–140 px |
 | Label | Kategori, callout | JetBrains Mono / Inter SemiBold | 36–48 px |
 
-**Serif tidak sejajar dengan bold** (Irfan 6 Nov): serif tidak seukuran dan sebobot kata bold dalam satu frasa; boleh sebagai penekanan atau penutup. Konten Jadisatu: Outfit (display) + Inter (teks). Verifikasi PostScript name sebelum build.
+**Serif tidak sejajar dengan bold**: serif tidak seukuran dan sebobot kata bold dalam satu frasa; boleh sebagai penekanan atau penutup. Konten Jadisatu: Outfit (display) + Inter (teks). Verifikasi PostScript name sebelum build.
 
 ### 7.2 Skala & hierarki
 - Level (relatif tinggi H): XS 1,5–2,5 %, S 3–5 %, M 7–10 %, L 14–20 %, XL 35–80 % (boleh bleed).
@@ -69,7 +69,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
   - bevel halus, material dan cahaya yang matang, bayangan kontak
   - divalidasi berdampingan dengan frame referensi di TYPE-TEST
 
-  Ekstrusi gelap polos tanpa cahaya terlihat "kurang matang" dan menurunkan kualitas (revisi 18 Okt, "Jadisatu" dan "COBA").
+  Ekstrusi gelap polos tanpa cahaya terlihat "kurang matang" dan menurunkan kualitas.
 - Teks yang "tidur di lantai lalu diangkat" bukan 3D yang dimaksud.
 
 ### 7.5 Gaya teks (TYPE-TEST)
@@ -82,7 +82,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 | G5 | Berperspektif | Layer 3D menempel bidang ruang (rotasi X 55–70° sesuai bidang); blur hanya dari gerak/DoF kamera |
 | G6 | Dalam adegan | Di antara latar dan objek depan (satu ruang) |
 | G7 | Label/pil | Inter SemiBold XS–S, pil rounded; tidak pernah jadi fokus kedua sejajar headline |
-| G8 | Kilat cahaya (acuan siirfannih_DfRh4w0SfAk "Golden rule", "Excitement") | Isi huruf gradien warna (atas terang → bawah lebih dalam), satu pita cahaya miring menyapu huruf sekali (kurva `land`, durasi dari lebar teks), glow lembut paling kuat saat pita di tengah. Komponen: `scripts/remotion/LightSweep.tsx`. Hanya untuk kata hero/penekanan, maksimal 1 per 10 dtk. **Bukan** footage/tekstur di dalam huruf (gagal: jensen-pain-suffering T26, percikan grayscale terbaca bayangan daun) |
+| G8 | Kilat cahaya (acuan siirfannih_DfRh4w0SfAk "Golden rule", "Excitement") | Isi huruf gradien warna (atas terang → bawah lebih dalam), satu pita cahaya miring menyapu huruf sekali (kurva `land`, durasi dari lebar teks), glow lembut paling kuat saat pita di tengah. Komponen: `scripts/remotion/LightSweep.tsx`. Hanya untuk kata hero/penekanan, maksimal 1 per 10 dtk. **Bukan** footage/tekstur di dalam huruf |
 
 ---
 
@@ -96,7 +96,7 @@ Peran teks dibedakan lewat GERAK. Peran yang sama selalu bergerak dengan cara ya
 - **R5 UI diketik** = T11
 - **R6 kata pahlawan** = T04/C05, maksimal 2× per video
 
-### 8a. Cara memilih gerak teks (Lantai A9a; Irfan 16 Nov)
+### 8a. Cara memilih gerak teks (Lantai A9a)
 
 Isi teks KT/subtitle sudah pasti = ucapan (`scripts/lego/teks_plan.py` menghitung waktu dan durasi). Yang diputuskan per blok: **peran → gerak → gaya → posisi**, ditulis di `teks.json` beserta alasannya. Fade bukan pilihan bawaan; fade hanya untuk peran `sub` (eyebrow/sub-line kecil).
 
@@ -151,10 +151,10 @@ Huruf per huruf dipakai bila maknanya memang "sedang terbentuk": diketik (T11), 
 
 Aturan pemakaian:
 - Variasi datang dari PERAN, bukan dari mengacak gerak: satu peran = satu gerak di seluruh video, dan tiap 15 dtk berisi ≥ 3 gerak berbeda karena ada kata kunci, hero, angka, atau daftar di antara narasi (`scripts/lego/kt_check.py`, Lantai A9a). Untuk peran penekanan, teknik sama maksimal 2× berturut.
-- Masuk lebih lambat dari keluar (masuk 8–14 f, keluar 4–8 f). Urutan dan angka ini bawaan: bila kartu yang dipakai di `RESEP.md` memberi angkanya sendiri (kartu 83: masuk 2–4 f), angka kartu yang dipakai. Kapan teks masuk tetap dari audio (timestamp kata), bukan dari kartu (Irfan 18 Nov).
-- Teks keluar bersama transisi shot (2–6 f) atau lewat mask 4–6 f, tidak fade. Berlaku juga di talking head: tidak ada fade (Irfan 18 Nov).
+- Masuk lebih lambat dari keluar (masuk 8–14 f, keluar 4–8 f). Urutan dan angka ini bawaan: bila kartu yang dipakai di `RESEP.md` memberi angkanya sendiri (kartu 83: masuk 2–4 f), angka kartu yang dipakai. Kapan teks masuk tetap dari audio (timestamp kata), bukan dari kartu.
+- Teks keluar bersama transisi shot (2–6 f) atau lewat mask 4–6 f, tidak fade. Berlaku juga di talking head: tidak ada fade.
 - Opacity saja tidak dihitung animasi. Opacity hanya menemani gerak, kecuali eyebrow/sub-line kecil yang boleh fade.
-- Pada adegan tenang, fade 2D elegan boleh untuk kalimat serius (contoh: "Hasilnya harus terbukti."); tidak di talking head (Irfan 18 Nov).
+- Pada adegan tenang, fade 2D elegan boleh untuk kalimat serius (contoh: "Hasilnya harus terbukti."); tidak di talking head.
 
 ---
 
@@ -177,7 +177,7 @@ Aturan pemakaian:
 - Satu register gerak per video (teknis, editorial, premium, ekspresif, tenang); di dalamnya kurva dipilih per gerak dari `scripts/remotion/curves.ts` (Lantai B13a). Tidak ada linear kecuali drift/rotasi loop.
 - Ritme:
   - satu event baru tiap 12–24 f; sesuatu yang baru tiap 2–4 dtk
-  - hold teks dihitung per bagian. Kartu yang dipakai di bagian itu menentukan **bentuk** hitungannya (per kata atau per frasa); **nilainya** dihitung dari kata di audio video ini, tidak disalin dari kartu. Gaya kata-per-kata (kartu 83): 0,25 dtk + 0,3 dtk/kata (`scripts/lego/teks_plan.py`). Bagian tanpa ketentuan kartu: aturan 46 di `core-rules.md` (Irfan 18 Nov)
+  - hold teks dihitung per bagian. Kartu yang dipakai di bagian itu menentukan **bentuk** hitungannya (per kata atau per frasa); **nilainya** dihitung dari kata di audio video ini, tidak disalin dari kartu. Gaya kata-per-kata (kartu 83): 0,25 dtk + 0,3 dtk/kata (`scripts/lego/teks_plan.py`). Bagian tanpa ketentuan kartu: aturan 46 di `core-rules.md`
   - reaksi berjeda tidak rata `react(i)` (0, 2, 5, 8, 11, 15 f @30), bukan stagger rata (Lantai B13a)
 - **Puncak visual memimpin ketukan** supaya terbaca tepat di beat. Bunyi tetap di grid; apex gerak, bukan awal adegan, yang menabrak beat.
 - Swap berurutan: yang lama keluar penuh sebelum yang baru mendarat.

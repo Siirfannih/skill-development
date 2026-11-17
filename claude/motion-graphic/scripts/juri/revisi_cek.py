@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
 """Gerbang revisi video lego: lapisan yang berubah sejak versi yang disetujui harus tercakup ledger (Lantai F27, revision-log §21.2).
 
-Gagal yang membentuk alat ini (skill-dev-journey 17 Nov): tiga putaran revisi mengubah 53, 96, lalu 50 dari 103 blok
-teks untuk ±8 butir permintaan per putaran. Aturan "adegan yang sudah disetujui tidak disentuh" sudah tertulis, tetapi
-tidak ada yang menghitung lapisan mana yang ikut berubah, jadi VIRAL, FINALLY, dan busur workflow rusak tanpa diminta.
+Aturan "adegan yang sudah disetujui tidak disentuh" butuh hitungan: tanpa menghitung lapisan mana yang ikut berubah,
+revisi beberapa butir bisa mengubah separuh blok teks dan merusak adegan yang tidak diminta.
 
 Yang dibandingkan: `lego/lego.json` proyek pada commit basis (versi yang Irfan setujui) dengan yang sekarang, per `id`
 lapisan: isi (`src` = hash cache, berubah bila props/kode lapisan berubah), waktu `t`, posisi `x`/`y`; dan trek `dasar`
 (potongan footage + kamera). Lapisan yang berubah, hilang, atau baru harus cocok dengan satu baris `boleh_berubah` di
 `qc/cakupan-revisi.json`, yang menunjuk ID ledger di `DECISIONS.md` (kata Irfan verbatim + cakupan).
 
-  python3 revisi_cek.py mulai projects/<proyek> --basis <commit> --alasan "revisi Irfan 17 Nov"
+  python3 revisi_cek.py mulai projects/<proyek> --basis <commit> --alasan "revisi D-031"
       tulis qc/cakupan-revisi.json (basis + daftar boleh_berubah kosong). Jalankan SEBELUM edit pertama.
   python3 revisi_cek.py cek projects/<proyek> [--daftar]
       exit 1 bila ada lapisan berubah di luar cakupan. --daftar mencetak semua lapisan berubah, bukan hanya pelanggar.

@@ -12,8 +12,8 @@ Pakai:
 
 Profil: ../../references/music-profiles.json. Keluaran: peringkat, skor 0-100, dan alasan per fitur.
 Lulus pakai = skor >= 70 DAN snr_min terpenuhi DAN bpm/onset di dalam rentang kategori (di luar = GUGUR, bukan
-penalti). earshot rank wajib jalan; bila tidak terpasang skrip berhenti (gerbang DENGAR, Irfan 8 Nov).
-Kandidat < 8 file atau dari < 2 folder sumber = FAIL (aturan 34; gagal: V5 8 Nov, tiga klip memakai satu piano).
+penalti). earshot rank wajib jalan; bila tidak terpasang skrip berhenti (gerbang DENGAR).
+Kandidat < 8 file atau dari < 2 folder sumber = FAIL (aturan 34).
 Telinga Irfan tetap hakim terakhir.
 """
 import argparse, json, os, subprocess, sys
@@ -139,7 +139,7 @@ def earshot_rank(query, paths):
         res = json.loads(out.stdout)
         items = res.get("results") or res.get("ranked") or []
         return {os.path.abspath(r.get("path", r.get("file", ""))): r.get("z") for r in items}
-    except Exception as e:  # gerbang DENGAR: tidak boleh dilewati diam-diam (gagal: V5 8 Nov, earshot_z null)
+    except Exception as e:  # gerbang DENGAR: tidak boleh dilewati diam-diam
         raise SystemExit(f"FAIL earshot rank tidak jalan ({e.__class__.__name__}: {e}). Pasang earshot "
                          "(three-segment-gate.md gerbang DENGAR) atau lapor ke Irfan; jangan pilih musik tanpa didengar.")
 

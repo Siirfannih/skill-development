@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Kerangka teks.json dari transkrip (Irfan 16 Nov): isi teks KT/subtitle sudah pasti = ucapan, jadi yang dihitung
+"""Kerangka teks.json dari transkrip: isi teks KT/subtitle sudah pasti = ucapan, jadi yang dihitung
 mesin hanya WAKTU dan DURASI tiap blok. Peran, kode gerak (T..), gaya (G..), posisi, dan alasan diputuskan model
 dengan tabel `references/typography.md` §8a, lalu `kt_check.py` memeriksanya.
 

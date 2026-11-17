@@ -1,6 +1,6 @@
 # Standar Hybrid Motion (barrier minimum, bukan nilai absolut)
 
-Diekstrak Irfan (1 Nov 2026) dari video referensi yang selama ini jadi acuan (`GrokAgent/reference-videos/`).
+Diekstrak dari video referensi acuan (`GrokAgent/reference-videos/`).
 Ini **standar minimum yang wajib dipenuhi**, tetapi angka dan aturannya boleh berubah kapan saja sesuai
 situasi dan kondisi proyek. Kalau sebuah adegan sengaja melanggar, catat alasannya di dokumen proyek.
 
@@ -25,8 +25,8 @@ secara ketat memakai parameter produksi Hybrid Motion di bawah.
 - **Depth of Field**: blur selektif (bukan blur statis penuh) pada foreground/background untuk memaksa fokus ke subjek.
 
 ## Audio
-Bagian audio standar ini dicabut (Irfan 6 Nov): whoosh rendah 40–80 Hz + sub-impact, glass ping/telemetry blip, panning wajib, dan ducking −6…−8 dB bertentangan dengan palet dan mix yang sudah lulus. Audio mengikuti `audio.md` (§14.A memilih suara, §14.5/§14.8 palet, §14.10 level).
+Bagian audio standar ini dicabut: whoosh rendah 40–80 Hz + sub-impact, glass ping/telemetry blip, panning wajib, dan ducking −6…−8 dB bertentangan dengan palet dan mix yang sudah lulus. Audio mengikuti `audio.md` (§14.A memilih suara, §14.5/§14.8 palet, §14.10 level).
 
 ## Catatan penerapan
 - Tetap berlaku aturan Irfan lain: no ear-fatigue 2–6 kHz, SFX tidak mendahului objek, SFX di momen cerita + gerak terlihat, tanpa bunyi per kata (aturan 43), sumber SFX dari library (bukan sintesis).
-- Transisi Apple style mulus: tidak boleh flash putih/radial blow-out yang menutup frame (temuan PKS v8 0:32).
+- Transisi Apple style mulus: tidak boleh flash putih/radial blow-out yang menutup frame.

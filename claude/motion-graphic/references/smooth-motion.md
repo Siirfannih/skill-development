@@ -2,7 +2,7 @@
 
 Baca saat membangun animasi teks, mengatur motion blur, atau saat Irfan bilang gerak "kurang smooth", "patah-patah", atau "kamera berantakan".
 
-Resep ini diambil dari proyek Tuntunly (repo `Tuntunly-Video/tuntunly-motion`), bukan dari teori. Di sana teks dan kamera akhirnya dinilai halus. Proyek Jadisatu tidak membawanya, dan hasilnya terlihat: motion blur 4–6 subframe meninggalkan "gema" (RETRO Jadisatu 24 Okt).
+Resep ini terbukti di proyek Tuntunly (repo `Tuntunly-Video/tuntunly-motion`), bukan dari teori. Tanpa resep ini, motion blur 4–6 subframe meninggalkan "gema".
 
 | Bagian | Sumber | Tanggal |
 |---|---|---|

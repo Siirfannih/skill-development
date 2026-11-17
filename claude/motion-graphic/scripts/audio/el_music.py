@@ -49,7 +49,7 @@ def plan():
         'sections': secs,
     }
 
-CUES = {  # per-act cues (Irfan 17:52: each part of the backsound has its own job). (t0, t1, tail, sections)
+CUES = {  # per-act cues (each part of the backsound has its own job). (t0, t1, tail, sections)
     'c1_opening': (0.0, T('c02', 'Bertahun'), 1.5, [ACTS[0][1:]]),
     'c2_longing': (T('c02', 'Bertahun'), T('c03', 'Sekarang'), 6.0, [ACTS[1][1:]]),
     'c3_accel': (T('c03', 'Sekarang'), T('c03', 'berhenti'), 5.0, [ACTS[2][1:]]),

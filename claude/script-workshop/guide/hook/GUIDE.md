@@ -9,29 +9,29 @@ Hook = opini yang kita yakini, argumentatif, membawa emosi (marah, sedih, tegang
 3. Vonis tegas yang membantahnya.
 4. Jawab "kenapa" secukupnya; tahan "bagaimana" untuk badan konten.
 
-Lolos (Jadisatu 60s, 25 Okt): "Ada jarak antara seleramu dan kemampuanmu. Ira Glass menyebutnya the gap. … Sekarang, AI menutup jarak itu dalam tiga detik. … Dan taste-mu berhenti tumbuh."
+Contoh lolos: "Ada jarak antara seleramu dan kemampuanmu. Ira Glass menyebutnya the gap. … Sekarang, AI menutup jarak itu dalam tiga detik. … Dan taste-mu berhenti tumbuh."
 
 ## Format hook yang bikin berhenti scroll (pilih yang jujur untuk topik itu)
 - **Kontras identitas**: siapa Irfan vs apa yang ia lakukan ("kedengarannya nggak nyambung, tapi…").
 - **Celah penasaran**: keputusan yang terdengar aneh lalu ditahan alasannya ("aku kasih gratis, dan ini alasannya").
 - **Pertanyaan yang langsung menunjuk penonton**: dijawab "iya juga ya" oleh ketiga audiens.
 - **Loop terbuka**: janji jawaban yang baru dibayar di tengah/akhir.
-**Analogi relate harus menunjuk langsung ke produk**: "gimana kalau nyatet keuangan usaha semudah chattingan sama ayang di WhatsApp?" (Irfan 7 Nov) menang atas hook universal yang tidak berkorelasi dengan produk ("nyatet hal penting di chat" = bisa apa saja). Trojan horse ada di analoginya, pesannya tetap niche.
+**Analogi relate harus menunjuk langsung ke produk**: "gimana kalau nyatet keuangan usaha semudah chattingan sama ayang di WhatsApp?" menang atas hook universal yang tidak berkorelasi dengan produk ("nyatet hal penting di chat" = bisa apa saja). Trojan horse ada di analoginya, pesannya tetap niche.
 Hook informatif (angka, studi) jarang viral untuk akun kecil; pakai sebagai bukti di badan, bukan pembuka.
 
-**Hook = janji value yang ditulis langsung (Irfan 8 Nov).** Kalimat "value yang dibawa pulang" sering sudah jadi hook terbaik karena lebih natural dan bebas daripada pertanyaan panjang "[usaha], [masalah]? Ini …". Contoh lolos: "3 setelan kamera HP biar foto menu kafemu nggak pucat kena lampu kuning", "6 hal yang wajib tertulis sebelum kamu bayar jasa konten". Tulis value-nya dulu di kartu 5W1H (`../audiens/`), lalu pakai sebagai hook dengan sedikit penyesuaian; pastikan siapa yang disasar tetap terbaca ("kafemu", "usahamu", "roti").
+**Hook = janji value yang ditulis langsung.** Kalimat "value yang dibawa pulang" sering sudah jadi hook terbaik karena lebih natural dan bebas daripada pertanyaan panjang "[usaha], [masalah]? Ini …". Contoh lolos: "3 setelan kamera HP biar foto menu kafemu nggak pucat kena lampu kuning", "6 hal yang wajib tertulis sebelum kamu bayar jasa konten". Tulis value-nya dulu di kartu 5W1H (`../audiens/`), lalu pakai sebagai hook dengan sedikit penyesuaian; pastikan siapa yang disasar tetap terbaca ("kafemu", "usahamu", "roti").
 
 ## Bila basisnya hipotesis (Irfan belum mengalami/mewawancarai)
-Hook berbentuk **pertanyaan atau dugaan yang diuji**, bukan temuan. Contoh arah: "Aku curiga masalah UMKM yang buka cabang bukan di penjualan, tapi di pencatatan. Ini datanya." Data dari `../riset/` jadi jangkar (Irfan 6 Nov).
+Hook berbentuk **pertanyaan atau dugaan yang diuji**, bukan temuan. Contoh arah: "Aku curiga masalah UMKM yang buka cabang bukan di penjualan, tapi di pencatatan. Ini datanya." Data dari `../riset/` jadi jangkar.
 
 ## Ditolak Irfan (jangan diulang)
 | Pola | Contoh | Kenapa |
 |---|---|---|
 | Klaim tanpa bukti | "Orang yang paling sering pakai AI, sering paling sedikit hasilnya" | Bagaimana kita tahu? |
-| Temuan palsu dari hipotesis | "Ternyata musuh terbesar owner UMKM pas buka cabang itu sistem mereka sendiri" | Irfan tidak ngobrol dengan UMKM; harusnya pertanyaan (Irfan 6 Nov) |
-| Hook staccato/fragmen bertitik | "Tiga belas cabang. Satu buku tulis hilang. Dan waktu mau ngajuin pinjaman…" | Penonton susah menangkap; harus jadi satu cerita mengalir (Irfan 7 Nov) |
-| Topik populer yang sudah berulang | "Pernah nggak kamu mikir kenapa banyak UMKM … tutup di tahun pertama?" | Benar tapi sudah dipakai banyak orang = slop; perlu sudut beda dengan urgensi (Irfan 6 Nov) |
-| Satu audiens saja | hook yang hanya bicara ke owner | Follower, non-follower, dan pembangun bisnis kecil ikut ditinggal (Irfan 6 Nov) |
+| Temuan palsu dari hipotesis | "Ternyata musuh terbesar owner UMKM pas buka cabang itu sistem mereka sendiri" | Irfan tidak ngobrol dengan UMKM; harusnya pertanyaan |
+| Hook staccato/fragmen bertitik | "Tiga belas cabang. Satu buku tulis hilang. Dan waktu mau ngajuin pinjaman…" | Penonton susah menangkap; harus jadi satu cerita mengalir |
+| Topik populer yang sudah berulang | "Pernah nggak kamu mikir kenapa banyak UMKM … tutup di tahun pertama?" | Benar tapi sudah dipakai banyak orang = slop; perlu sudut beda dengan urgensi |
+| Satu audiens saja | hook yang hanya bicara ke owner | Follower, non-follower, dan pembangun bisnis kecil ikut ditinggal |
 | Pengakuan tanpa konteks | "Aku pernah berminggu-minggu membangun pakai AI" | Membangun apa? Terus kenapa? |
 | Tema penjual kelas/prompt | "Video ini 100% dibuat AI" | Sudah dipakai penjual template |
 | Angka kaku | "Lebih dari 20 versi. Tujuh hari." | Tidak natural |

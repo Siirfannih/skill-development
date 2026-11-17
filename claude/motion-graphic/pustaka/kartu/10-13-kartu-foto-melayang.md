@@ -1,7 +1,7 @@
 # 10–13 · Kartu di tengah + foto melayang (4 still komposisi)
 
 > **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
-> Sumber: 10 thesoutline (situs), 11 "Perspectives on Pride", 12 Cosmos search, 13 gather onboarding · still landscape, bukan video · Frame: `../../guide/referensi/sheets/10-thesoutline-floating-work.png`, `11-floating-photos-words.png`, `12-cosmos-search-orbit.png`, `13-gather-onboarding-tiles.png` · Bedah lengkap: tidak ada (catatan Irfan 7 Nov di `../../guide/referensi/README.md`)
+> Sumber: 10 thesoutline (situs), 11 "Perspectives on Pride", 12 Cosmos search, 13 gather onboarding · still landscape, bukan video · Frame: `../../guide/referensi/sheets/10-thesoutline-floating-work.png`, `11-floating-photos-words.png`, `12-cosmos-search-orbit.png`, `13-gather-onboarding-tiles.png` · Bedah lengkap: tidak ada (catatan di `../../guide/referensi/README.md`)
 > Kedalaman bedah: **tipis** (tipis = isi dari contact sheet saja; ukur ulang dari video sumber sebelum dijadikan kiblat)
 
 **DNA (satu kalimat):** Satu kartu atau kalimat UI di tengah, foto berbingkai tersebar di sekelilingnya dengan ukuran dan blur berbeda sebagai kedalaman, di latar terang netral yang lega.

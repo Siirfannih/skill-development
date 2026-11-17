@@ -1,6 +1,6 @@
 # Peta nada → gerak (dari transkrip + audio)
 
-Dibaca di gerbang storyboard (4), sebelum `motion-mechanics.md`. Nada kalimat menentukan **kapan dan seberapa kuat** gerak; `motion-mechanics.md` menentukan **mekanik mana** dari hubungan dua adegan. Hasilnya ditulis ke tabel beat (kolom: nada · bukti · gerak · cut · tipografi) supaya Irfan bisa mengoreksi nada sebelum render (Irfan 6 Nov).
+Dibaca di gerbang storyboard (4), sebelum `motion-mechanics.md`. Nada kalimat menentukan **kapan dan seberapa kuat** gerak; `motion-mechanics.md` menentukan **mekanik mana** dari hubungan dua adegan. Hasilnya ditulis ke tabel beat (kolom: nada · bukti · gerak · cut · tipografi) supaya Irfan bisa mengoreksi nada sebelum render.
 
 ## 1. Alat (pasang sendiri di mesin kerja)
 ```sh
@@ -45,7 +45,7 @@ Teks menentukan **kategori**, audio menentukan **intensitas** (lemah / sedang / 
 | Penutup / CTA | pull-back, wide | melambat | CTA paling terbaca |
 
 ## 4. Kekuatan per jenis video
-Angka shot diukur dari referensi yang Irfan setujui (6 Nov); angka zoom adalah titik awal.
+Angka shot diukur dari referensi yang Irfan setujui; angka zoom adalah titik awal.
 
 | Jenis video | Rata-rata shot | Punch-in serius | Cut in/out penjelasan |
 |---|---|---|---|

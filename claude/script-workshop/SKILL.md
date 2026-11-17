@@ -7,7 +7,7 @@ description: Menulis konten Irfan dari ide sampai naskah siap take: script reels
 
 Satu skill untuk semua tulisan konten Irfan. File ini alur kerja + aturan mutlak. Rasa dan contoh ada di `guide/` (buka folder urusan yang sedang dikerjakan saja). Naskah video yang sudah final diteruskan ke `motion-graphic`.
 
-Menggantikan `irfan-content-engine` v1/v2 yang dibuat di Gemini (6 Nov). Kesalahan berulangnya dicatat di `guide/hindari/` supaya tidak terulang.
+Menggantikan `irfan-content-engine`. Pola kesalahan yang dihindari ada di `guide/hindari/`.
 
 ## 1. Aturan mutlak (sedikit, karena pernah merusak)
 
@@ -65,6 +65,6 @@ script-workshop/
     ├── suara/        suara Irfan, kata & pola haram
     ├── struktur/     reels, carousel, caption; jembatan antar bagian; durasi
     ├── produk/       FAKTA.md: fitur & penawaran Jadisatu yang boleh diklaim
-    └── hindari/      pola kesalahan berulang (Gemini 6 Nov, proyek sebelumnya)
+    └── hindari/      pola kesalahan berulang
 ```
 Bedah video referensi untuk editing: `motion-graphic` (`references/analysis-qa.md`, `guide/referensi/`), bukan skill ini.

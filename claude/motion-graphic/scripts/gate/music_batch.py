@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
-"""Gerbang: satu track musik tidak boleh dipakai untuk semua klip/babak dalam satu batch (Irfan 8 Nov).
-Gagal pertama: V5 8 Nov, tiga klip podcast memakai Mixkit #22 "Piano Reflections" yang sama.
+"""Gerbang: satu track musik tidak boleh dipakai untuk semua klip/babak dalam satu batch.
 
 Membandingkan file musik yang dipakai (sumber atau stem musik, bukan mix dengan suara):
   - sha256 sama                         -> SAMA

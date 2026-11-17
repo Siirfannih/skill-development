@@ -1,6 +1,6 @@
 # Template gaya
 
-Satu folder = satu gaya edit yang bisa dipilih di gerbang 1. Gaya terpilih menjadi rujukan visual utama untuk video itu: Sutradara memakainya untuk merencanakan, Editor untuk membangun (Irfan 11 Nov). Urutan menang tetap: instruksi Irfan → `projects/<proyek>/` → `SKILL.md` → gaya terpilih → `guide/`.
+Satu folder = satu gaya edit yang bisa dipilih di gerbang 1. Gaya terpilih menjadi rujukan visual utama untuk video itu: Sutradara memakainya untuk merencanakan, Editor untuk membangun. Urutan menang tetap: instruksi Irfan → `projects/<proyek>/` → `SKILL.md` → gaya terpilih → `guide/`.
 
 | Gaya | Untuk | Engine |
 |---|---|---|

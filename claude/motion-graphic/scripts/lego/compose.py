@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Rakit video seperti lego (Irfan 16 Nov): footage dasar + lapisan (teks/KT, visual, overlay) yang sudah dirender
+"""Rakit video seperti lego: footage dasar + lapisan (teks/KT, visual, overlay) yang sudah dirender
 TERPISAH dan disimpan di cache digabung SEKALI dengan ffmpeg. Lapisan yang tidak berubah tidak dirender ulang; teks
 dari transkrip hanya digeser waktu, durasi, dan posisinya saat dirakit.
 
@@ -25,8 +25,8 @@ Aturan:
   - Lapisan yang harus ikut gerak kamera 2.5D atau berubah skala dirender dengan gerak itu sudah di dalamnya
     (kotak penuh/frame penuh ber-alpha). compose hanya memindah x/y dan menggeser waktu.
   - Efek glow/blend dirender di dalam lapisan; compose hanya overlay normal (alpha), supaya warna tidak bergeser.
-  - Warna: semua lapisan dirakit di RGB (gbrap) lalu dikonversi sekali ke yuv420p bt709 (gagal: bdf26 v10, overlay
-    PNG/still menggeser rentang warna +4 kecerahan).
+  - Warna: semua lapisan dirakit di RGB (gbrap) lalu dikonversi sekali ke yuv420p bt709; overlay
+    PNG/still langsung di YUV menggeser rentang warna.
 Pakai:
   python3 compose.py lego.json            # tulis video final
   python3 compose.py lego.json --cek      # hanya validasi (file ada, waktu dalam durasi, lapisan tidak di luar frame)

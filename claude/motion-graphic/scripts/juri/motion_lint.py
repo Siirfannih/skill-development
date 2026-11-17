@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gerak dirancang per gerak, bukan preset (Lantai B13a; Irfan 16 Nov; diadaptasi dari motion-kit, MIT).
+"""Gerak dirancang per gerak, bukan preset (Lantai B13a; diadaptasi dari motion-kit, MIT).
 
 Memindai src Remotion dan menolak tiga tanda gerak "default AI":
   - preset : Easing.ease / Easing.inOut(Easing.ease|quad|cubic) / Easing.out(Easing.cubic…) / 'ease-in-out' / power3

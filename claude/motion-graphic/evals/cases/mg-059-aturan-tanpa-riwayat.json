@@ -1,0 +1,16 @@
+{
+  "id": "mg-059",
+  "source": "SUMBER.md (root) · AGENTS.md Akhir sesi butir 2",
+  "prompt": "Irfan baru saja mengoreksi: di video talking head, kata penekanan jangan diberi bayangan tebal karena terbaca murahan. Ini sudah kedua kalinya, di dua video berbeda, dan ia setuju dijadikan aturan. Tulis perubahannya ke skill.",
+  "files": [
+    "AGENTS.md",
+    "claude/motion-graphic/LANTAI.md",
+    "claude/motion-graphic/SUMBER.md"
+  ],
+  "assertions": [
+    "Bunyi aturan di file instruksi berisi apa yang dikerjakan, kapan berlaku, dan cara mengeceknya",
+    "File instruksi tidak memuat nama peminta, tanggal, versi proyek, atau cerita kegagalan",
+    "Asal-usul (siapa, kapan, dua video yang melahirkannya) dicatat di claude/motion-graphic/SUMBER.md di bawah nama file dan jangkar aturannya",
+    "Menjalankan python3 tools/sumber_cek.py dan python3 tools/peta.py sebelum commit"
+  ]
+}

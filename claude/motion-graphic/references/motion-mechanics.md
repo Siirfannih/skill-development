@@ -1,6 +1,6 @@
 # Mekanik gerak: kamera, transisi, cutout (logika dan cara kerja)
 
-Dibaca saat memilih gerak kamera atau transisi, bersama `camera-transition.md`. Setiap mekanik ditulis sebagai: **kapan dipakai → cara kerja → angka awal → cek**. Angka frame diukur per frame (30 fps) dari referensi yang Irfan setujui (6 Nov) dan adalah titik awal, bukan hukum; ubah bila tempo VO menuntut.
+Dibaca saat memilih gerak kamera atau transisi, bersama `camera-transition.md`. Setiap mekanik ditulis sebagai: **kapan dipakai → cara kerja → angka awal → cek**. Angka frame diukur per frame (30 fps) dari referensi yang Irfan setujui dan adalah titik awal, bukan hukum; ubah bila tempo VO menuntut.
 
 Prinsip: transisi adalah **logika ruang** (dari mana adegan berikutnya datang), bukan efek. Pilih mekanik dari hubungan dua adegan.
 

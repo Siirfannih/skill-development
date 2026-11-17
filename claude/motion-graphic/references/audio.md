@@ -4,8 +4,8 @@ Baca hanya di gerbang audio (setelah script dan storyboard final) dan saat QA au
 
 ## 14. Audio
 
-### 14.0A Kategori suasana dulu, baru cari audio (Irfan 6 Nov)
-Sebelum memilih musik atau SFX apa pun, tulis di brief **satu kategori suasana per babak** (juga untuk klip podcast: musik per babak, aturan 25). Kategori diturunkan dari **tempo video**, bukan selera siapa pun: video cepat (cut rapat, bicara cepat) butuh musik cepat yang menyaingi tempo; video tenang butuh musik tenang (Irfan 6 Nov). Ukur dulu: `python3 scripts/audio/pace_read.py video.mp4 [--words words.json]` (cut/menit, event visual, laju bicara → usulan kategori + rentang bpm). Lalu cek isi: masalah/ancaman → `tegang`, harapan/CTA → `hangat`. Tulis alasannya satu baris.
+### 14.0A Kategori suasana dulu, baru cari audio
+Sebelum memilih musik atau SFX apa pun, tulis di brief **satu kategori suasana per babak** (juga untuk klip podcast: musik per babak, aturan 25). Kategori diturunkan dari **tempo video**, bukan selera siapa pun: video cepat (cut rapat, bicara cepat) butuh musik cepat yang menyaingi tempo; video tenang butuh musik tenang. Ukur dulu: `python3 scripts/audio/pace_read.py video.mp4 [--words words.json]` (cut/menit, event visual, laju bicara → usulan kategori + rentang bpm). Lalu cek isi: masalah/ancaman → `tegang`, harapan/CTA → `hangat`. Tulis alasannya satu baris.
 
 | Kategori | Kapan | Musik (profil terukur di `music-profiles.json`) | Karakter SFX (jumlah dari kiblat, aturan 43) |
 |---|---|---|---|
@@ -19,9 +19,9 @@ Lalu **ukur, jangan percaya label**. Kata "lofi" atau "EDM" di nama file, tag si
 ```
 python3 scripts/audio/music_fit.py --category fokus --voice sumber.mp4 --duration 76 kandidat/*.mp3
 ```
-Skrip mengukur tempo yang dirasakan, kepadatan ketukan, kecerahan, build/drop, dinamika, mayor/minor, dan **benturan dengan suara**: selisih suara vs musik di pita 500–4000 Hz pada level rencana (min 12 dB; ≤ 4 dB kurang = boleh diatasi EQ −4 dB §14.1, lebih dari itu ganti track). Pakai track teratas yang `PAKAI`; tulis keluarannya di laporan Delivery Gate. bpm/onset di luar rentang = `GUGUR`; earshot rank wajib jalan (skrip berhenti bila tidak terpasang); kandidat < 8 file atau dari < 2 folder sumber = FAIL (Irfan 8 Nov).
+Skrip mengukur tempo yang dirasakan, kepadatan ketukan, kecerahan, build/drop, dinamika, mayor/minor, dan **benturan dengan suara**: selisih suara vs musik di pita 500–4000 Hz pada level rencana (min 12 dB; ≤ 4 dB kurang = boleh diatasi EQ −4 dB §14.1, lebih dari itu ganti track). Pakai track teratas yang `PAKAI`; tulis keluarannya di laporan Delivery Gate. bpm/onset di luar rentang = `GUGUR`; earshot rank wajib jalan (skrip berhenti bila tidak terpasang); kandidat < 8 file atau dari < 2 folder sumber = FAIL.
 
-**Cara memilih backsound yang terbukti** (Irfan 9 Nov, Behindwork: "pemilihan audio tepat, penggunaan backsound tepat"; 3 short Naval):
+**Cara memilih backsound yang terbukti**:
 1. Kumpulkan **≥ 20 kandidat dari ≥ 2 sumber** (pustaka lokal + YouTube lewat `yt-dlp`, sumber dicatat di `SOURCES.md`). Gerbang skrip tetap FAIL di < 8; 20 adalah target kerja.
 2. Peringkat dengan `music_fit.py` pada **potongan yang benar-benar dipakai** (`--duration` = durasi video, mulai dari offset yang akan dipakai), bukan track utuh: onset bisa berayun 2,2 → 3,6 hanya karena titik mulai bergeser (N3 Embrace: mulai 32 dtk = 2,22, 34–44 dtk = 3,1–3,6).
 3. Kenali dengan `earshot describe` pada potongan itu: instrumental (tanpa tag Speech/Singing AudioSet) dan mood sesuai brief.
@@ -31,9 +31,9 @@ Skrip mengukur tempo yang dirasakan, kepadatan ketukan, kecerahan, build/drop, d
 
 Profil di `music-profiles.json`: `energi` disesuaikan dengan 6 video referensi Irfan (musik ±104–136 bpm, `guide/referensi/`); kategori lain masih hipotesis. Kalibrasi dari **stem musik video referensi yang suasananya cocok** (bukan dari track favorit): `music_fit.py --calibrate <k> stem1 stem2 stem3`. SFX untuk kandidat: `earshot rank "<peran>" kandidat/*` untuk karakter, `sfx_comfort.py` untuk desis; jumlahnya mengikuti event visual (aturan 43), bukan kategori.
 
-### 14.0B Mengenali audio: earshot = skor pertama, lalu divalidasi (Irfan 8 Nov)
+### 14.0B Mengenali audio: earshot = skor pertama, lalu divalidasi
 Claude tidak mendengar sendiri. Setiap alat telinga punya titik buta, jadi kesimpulan "audio ini seperti apa" diambil dari beberapa sumber yang saling dicek, bukan dari satu label.
-1. **Input bersih dulu.** Label musik diambil dari **stem musik** (stem proyek, atau pisahkan suara dengan `demucs` untuk referensi), bukan dari mix yang ada suaranya. Bukti 8 Nov, track piano V5: track asli → "jazz, solo piano, sedih"; stem musik → "solo piano +3,5, sedih +3,7"; mix dengan suara podcast → "funk, vocal chop +3,1". Earshot benar; inputnya yang tercampur.
+1. **Input bersih dulu.** Label musik diambil dari **stem musik** (stem proyek, atau pisahkan suara dengan `demucs` untuk referensi), bukan dari mix yang ada suaranya. Contoh satu track piano: track asli → "jazz, solo piano, sedih"; stem musik → "solo piano +3,5, sedih +3,7"; mix dengan suara podcast → "funk, vocal chop +3,1". Earshot benar; inputnya yang tercampur.
 2. **Earshot memberi skor awal** (`describe`, `match`, `timeline`): label + z. Itu hipotesis, bukan putusan.
 3. **Cek dengan minimal satu sumber lain yang independen:**
    - ukuran: `music_fit.py` / `pace_read.py` (bpm, mayor/minor, kecerahan, kepadatan ketukan, dinamika per babak);
@@ -43,8 +43,8 @@ Claude tidak mendengar sendiri. Setiap alat telinga punya titik buta, jadi kesim
 4. **Sepakat → pakai. Berbeda → cari sebabnya** (input tercampur suara? jendela waktu salah? label di luar kosakata earshot? metadata salah?), lalu tulis mana yang benar dan buktinya. Jangan memilih diam-diam salah satu.
 5. Laporan audio memuat tabel kecil: klaim → sumber yang setuju → sumber yang tidak → putusan.
 
-### 14.0C Urutan sound design: satu lapisan dikunci, baru lapisan berikutnya (Irfan 8 Nov)
-Sound design = suara (VO/vokal), SFX, dan musik latar sebagai satu kesatuan. Lapisannya dikerjakan **berurutan**, setiap lapisan dicocokkan ke lapisan yang sudah terkunci. Gagal V5: visual, SFX, dan musik dikerjakan paralel tanpa tahap mencocokkan, sehingga SFX tidak terikat ke gerak (cakupan 5–11 %) dan musik dipilih tanpa mendengar videonya.
+### 14.0C Urutan sound design: satu lapisan dikunci, baru lapisan berikutnya
+Sound design = suara (VO/vokal), SFX, dan musik latar sebagai satu kesatuan. Lapisannya dikerjakan **berurutan**, setiap lapisan dicocokkan ke lapisan yang sudah terkunci. Bila dikerjakan paralel tanpa tahap mencocokkan, SFX tidak terikat ke gerak dan musik dipilih tanpa mendengar videonya.
 
 Pilih mode di brief dan tulis alasannya:
 
@@ -62,20 +62,20 @@ Langkah mode `konten`:
 
 Revisi visual setelah SFX/musik dikunci membuat lapisan sesudahnya **basi** (`check` = FAIL): SFX disinkron ulang ke render baru, musik didengar ulang. Ini yang mencegah "visual diubah, audio ketinggalan".
 
-### 14.0D Potong suara: bersih sebelum dikunci (Irfan 15 Nov, gagal: builder-trap-r2 v1–v2)
+### 14.0D Potong suara: bersih sebelum dikunci
 Suara yang dikunci (gerbang 6) harus sudah bebas kata sampah dan diam saat berpikir. Bila tidak, sampah itu ikut ke teks layar ("tuh" tampil di pembuka), jeda terdengar seperti orang ragu, dan SFX/musik menutupi lubang yang seharusnya tidak ada.
 1. **Ukur dengan ambang relatif**, bukan angka mati: diam = energi 10 ms < median ucapan − 18 dB. Ambang −45 dB lama tidak melihat jeda di kamar yang lantai noise-nya −38 dB.
-2. **Diam di dalam kata dihitung.** Whisper menelan jeda ke durasi kata (builder-trap-r2: 24 kata menyimpan diam 0,15–0,45 dtk). Periksa energi di dalam setiap rentang kata, bukan hanya celah antarkata.
+2. **Diam di dalam kata dihitung.** Whisper menelan jeda ke durasi kata (bisa 0,15–0,45 dtk per kata). Periksa energi di dalam setiap rentang kata, bukan hanya celah antarkata.
 3. **Kata sampah**: eee, emm, eh, hmm, uh, tuh, dan pengulangan/awal salah. Transkrip pancingan (`initial_prompt` berisi "eee, emm") membantu memunculkannya, tapi bisa berhalusinasi: setiap kandidat diverifikasi dengan energi/earshot, bukan dipercaya mentah.
 4. **Bunyi bersuara di luar kata** (gesekan mik, tangan, benda) dibuang bersama jedanya; dengar dulu dengan `earshot describe`.
 5. **Sisa jeda**: tengah kalimat 0,06 dtk; antarkalimat ±0,28 dtk; jeda dramatis yang disengaja (sebelum twist, setelah klimaks, antarbabak) ≤ 0,5 dtk dan ditulis di DECISIONS (aturan 33).
 6. **Alat**: `scripts/gate/cut_check.py suara.wav words_source.json --suggest potong.json` (FAIL bila ada sampah/diam) → dengar/edit usulan → `scripts/audio/recut.py cut --audio … --video wajah.mp4 --remove potong.json --source-words words_source.json --out DIR` (menolak endpoint bersuara, overlap kata, guard < 50 ms, dan drift; audio/video dipotong pada frame sama, micro-fade maksimal 2 ms, `map.json`) → `recut.py remap` untuk kata, beat, event, dan cue. Kode adegan yang menulis frame langsung harus memakai peta yang sama.
 7. **Tidak mengisi jeda dengan room tone** dari kamar yang sama (§14.6).
-7b. **Potong ulang setelah visual dibangun** (builder-trap-r2 v3): jangan memotong video render di titik jeda (animasi melompat). Buat peta waktu W(t_baru) → t_lama: bekas jeda saat layar diam atau berisi cut keras = lompatan 1:1; bekas jeda di tengah animasi = disebar ±1,5× panjang jeda (contoh `projects/builder-trap-r2/edit/make_knots.py`). Adegan diputar di `<Freeze frame={W(f)}>`; video wajah dan **waktu tampil teks memakai frame nyata + kata di timeline baru** (teks yang ikut W bisa meleset sampai 20 frame).
+7b. **Potong ulang setelah visual dibangun**: jangan memotong video render di titik jeda (animasi melompat). Buat peta waktu W(t_baru) → t_lama: bekas jeda saat layar diam atau berisi cut keras = lompatan 1:1; bekas jeda di tengah animasi = disebar ±1,5× panjang jeda (contoh `projects/builder-trap-r2/edit/make_knots.py`). Adegan diputar di `<Freeze frame={W(f)}>`; video wajah dan **waktu tampil teks memakai frame nyata + kata di timeline baru** (teks yang ikut W bisa meleset sampai 20 frame).
 7c. Ambang diam di dalam kata: 0,18 dtk di rekaman kamar (0,15 menangkap konsonan/henti b-t-k); ulangi `cut_check` setelah tiap potong — diam yang lebih kecil baru terlihat setelah yang besar dibuang.
-8. Setelah dipotong: transkrip ulang tanpa prompt menjadi `words_actual.json`; `cut_check.py suara.wav words_actual.json --source-words words_source.json --map map.json` PASS. Semua kata isi dan durasi fonem harus benar-benar ada—daftar kata hasil remap/caption tersembunyi tidak membuktikan audio utuh. Dengar setiap sambungan dan cek ekor kata, onset kata berikut, serta lubang fade-to-zero (Irfan 16 Nov; builder-trap-r2 v5 perlu tiga ronde audit karena `kecanduan.` dan `buat.` terpotong).
+8. Setelah dipotong: transkrip ulang tanpa prompt menjadi `words_actual.json`; `cut_check.py suara.wav words_actual.json --source-words words_source.json --map map.json` PASS. Semua kata isi dan durasi fonem harus benar-benar ada—daftar kata hasil remap/caption tersembunyi tidak membuktikan audio utuh. Dengar setiap sambungan dan cek ekor kata, onset kata berikut, serta lubang fade-to-zero.
 
-### 14.A Memilih suara: logika (Irfan 6 Nov)
+### 14.A Memilih suara: logika
 Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber dan kualitas mix**. Pilihan diturunkan dari dua kolom tabel beat yang sudah ada: mekanik (`motion-mechanics.md`) dan nada (`pacing-map.md`). Suara lahir dari gerak, bukan dari kata.
 
 **Mekanik visual → SFX**
@@ -105,18 +105,15 @@ Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber
 Satu event satu suara; tidak ada suara yang tidak terikat ke sesuatu di layar. Setiap cue di lembar cue menyebut mekanik atau nada yang melahirkannya.
 
 
-### 14.0 Gerbang sumber SFX (WAJIB sebelum menyusun cue apa pun; Irfan 31 Okt 23:38)
-Kesalahan terbesar di proyek *Pengganti Kita Sendiri*:
-- Agent memakai bank bunyi **sintetis** (earshot `pool/bank`) dan bunyi Mixkit yang tidak sesuai gaya.
-- Sumber milik Irfan tidak dicek lebih dulu.
-- Akibatnya 2 jam kerja audio terbuang.
+### 14.0 Gerbang sumber SFX (WAJIB sebelum menyusun cue apa pun)
+Yang dicegah gerbang ini: memakai bank bunyi **sintetis** (earshot `pool/bank`) atau bunyi Mixkit yang tidak sesuai gaya sebelum sumber milik Irfan dicek.
 
 Aturan:
-1. **Inventaris dulu, dalam urutan ini**, dan tulis hasilnya di `STATUS.md` proyek. Urutan = urutan mencari, **bukan batas**: bila tidak ada file yang cocok untuk satu peran, lanjut ke sumber berikutnya (Irfan 8 Nov):
+1. **Inventaris dulu, dalam urutan ini**, dan tulis hasilnya di `STATUS.md` proyek. Urutan = urutan mencari, **bukan batas**: bila tidak ada file yang cocok untuk satu peran, lanjut ke sumber berikutnya:
    - (a) folder SFX Irfan: PC server `~/sfx/SFXIrfan` dan `~/sfx/Kenyset` (Mac: `~/Downloads/SFXIrfan`, `~/Downloads/Kenyset`);
    - (b) folder `sfx/` proyek yang sudah disetujui, misalnya `projects/jadisatu-60s/remotion/sfx-el` di repo ini;
    - (c) Epidemic Sound (MCP `Epidemic_Sound`, SFX dan musik), sumber internet berlisensi (Pixabay, Freesound CC0, Mixkit), ElevenLabs SFX dan Music.
-   Musik mengikuti urutan yang sama: kandidat ≥ 8 dari ≥ 2 sumber. Brief atau orkestrator tidak boleh mempersempit sumber audio ("hanya pustaka yang sudah dipakai") tanpa alasan tertulis dari Irfan (gagal: V5 8 Nov).
+   Musik mengikuti urutan yang sama: kandidat ≥ 8 dari ≥ 2 sumber. Brief atau orkestrator tidak boleh mempersempit sumber audio ("hanya pustaka yang sudah dipakai") tanpa alasan tertulis dari Irfan.
 2. **Akses dipastikan di awal.** Folder belum terhubung, kredensial belum ada, atau situs memblokir: minta izin atau lapor ke Irfan **sebelum** bekerja. Jangan lanjut dengan pengganti karangan.
 3. **Dilarang memakai bunyi sintetis/karangan sebagai SFX final.** Termasuk bank earshot `sfx_render`, sinus, dan noise generator. Bank earshot hanya untuk analisis/QA.
 4. **Gaya Apple motion** = rekaman UI nyata:
@@ -129,8 +126,8 @@ Aturan:
 ### 14.1 Hierarki mix
 1. **VO pemilik panggung**: VO narator kompresi ringan, +2 dB di 3 kHz. Suara sumber klip yang terukur bersih tidak diproses; rekaman sendiri di kamar dibersihkan jedanya (§14.6).
 2. **SFX penekan**: SFX besar jatuh di sela kata; dynamic EQ 200–500 Hz pada SFX saat VO; HPF 40 Hz bus SFX.
-3. **Musik pembangun emosi**: diletakkan tetap di bawah VO (level di §14.10), −4 dB di 3 kHz. **Tidak ada ducking kompresor 6–12 dB**: musik bergerak ≤ 1,5 dB saat kata diucapkan (anti-pumping) dan hanya naik di jeda panjang/antarbabak lewat automation ramp ≥ 250 ms. Alasan: musik yang sudah duduk di level yang benar tidak perlu dipompa, dan pompaan terdengar (The Gap v17, Irfan 26 Okt; diputuskan 6 Nov).
-4. **Semua angka level ada di satu tempat: tabel §14.10.** Bagian lain tidak menulis angka level sendiri (Irfan 6 Nov).
+3. **Musik pembangun emosi**: diletakkan tetap di bawah VO (level di §14.10), −4 dB di 3 kHz. **Tidak ada ducking kompresor 6–12 dB**: musik bergerak ≤ 1,5 dB saat kata diucapkan (anti-pumping) dan hanya naik di jeda panjang/antarbabak lewat automation ramp ≥ 250 ms. Alasan: musik yang sudah duduk di level yang benar tidak perlu dipompa, dan pompaan terdengar.
+4. **Semua angka level ada di satu tempat: tabel §14.10.** Bagian lain tidak menulis angka level sendiri.
 
 ### 14.2 Musik: beberapa cue sesuai babak (tidak pernah satu bed dari awal sampai akhir)
 - Dua babak energi (Holy Freak):
@@ -142,16 +139,16 @@ Aturan:
 - Bass putus ±1 dtk sebelum atau tepat di cut ke end card.
 
 ### 14.3 Penempatan SFX (acuan Baikov: "SFX mendukung semua visual")
-- **SFX menandai momen cerita dan gerak yang terlihat; kosakata dan kepadatan dari kiblat** (aturan 43, Irfan 13 Nov):
+- **SFX menandai momen cerita dan gerak yang terlihat; kosakata dan kepadatan dari kiblat** (aturan 43):
   - momen: pembuka, judul/jawaban hook, twist (riser → drop), puncak, penutup;
   - gerak kamera besar dan benda yang muncul/mendarat/diklik karena ucapan;
   - kata kinetik hanya di pergantian kata kunci (triad), **tidak per kata**; subtitle tidak berbunyi;
   - rentetan sejenis = satu cue panjang (rattle); cut di suku kata dan sisipan wajah boleh senyap.
 
-  Cakupan event (`scripts/audio/visual_coverage.py`) hanya informasi, bukan target (gagal: builder-trap-r2 v1, cakupan 87 % lewat 220 klik per kata).
-- **Peran + alasan wajib di setiap cue SFX dan musik** (Irfan 8 Nov): `{t, peran, alasan, file, terikat_ke_visual, offset, dB}`. `peran` = fungsinya (mis. `kata_kinetik`, `kartu_mendarat`, `transisi`, `musik_babak2`); `alasan` = satu kalimat kenapa bunyi itu ada di titik itu (mis. "kata 'worthy' mendarat, penekanan emosi babak 3"). Cue tanpa peran atau alasan = FAIL di `gate/sfx_density.py`. Tidak ada bunyi yang "sekadar ada".
-- **Batasnya spam, bukan jumlah** (Irfan 8 Nov): whoosh/swoosh/whip maksimal 1 per detik dan puncaknya tidak melebihi puncak VO −6 dB; satu file yang sama tidak diulang dalam 1 detik; maksimal 2 bunyi per 100 ms (§14.9). `gate/sfx_density.py` menandai pelanggaran.
-- **Peta SFX yang terbukti** (Irfan 9 Nov, Behindwork, 3 short Naval ±110–120 cue/60 dtk):
+  Cakupan event (`scripts/audio/visual_coverage.py`) hanya informasi, bukan target.
+- **Peran + alasan wajib di setiap cue SFX dan musik**: `{t, peran, alasan, file, terikat_ke_visual, offset, dB}`. `peran` = fungsinya (mis. `kata_kinetik`, `kartu_mendarat`, `transisi`, `musik_babak2`); `alasan` = satu kalimat kenapa bunyi itu ada di titik itu (mis. "kata 'worthy' mendarat, penekanan emosi babak 3"). Cue tanpa peran atau alasan = FAIL di `gate/sfx_density.py`. Tidak ada bunyi yang "sekadar ada".
+- **Batasnya spam, bukan jumlah**: whoosh/swoosh/whip maksimal 1 per detik dan puncaknya tidak melebihi puncak VO −6 dB; satu file yang sama tidak diulang dalam 1 detik; maksimal 2 bunyi per 100 ms (§14.9). `gate/sfx_density.py` menandai pelanggaran.
+- **Peta SFX yang terbukti**:
   - `t` cue dihitung supaya **puncak** bunyi jatuh di frame visual (t = frame − offset puncak file setelah trim);
   - whoosh **hanya** di gerak cepat yang terlihat (panel wipe, dash, sapuan, slide), puncak di kecepatan tertinggi; tidak pernah di cut;
   - satu pop per elemen ilustrasi yang mendarat; garis tergambar senyap;
@@ -159,11 +156,11 @@ Aturan:
   - tanda rapat yang berulang (mis. 50 tanda X) = satu rattle berirama, bukan 50 tick;
   - dua event < 0,1 dtk (3 f) berbunyi satu (peran prioritas membawa keduanya), supaya tidak flam;
   - mixer mengubah cue gerak yang mulai < 1 dtk setelah cue gerak sebelumnya jadi tick: rencanakan jarak whoosh ≥ 1 dtk.
-- **Satu event satu bunyi.** Tidak ada layering beberapa file untuk satu event; pilih satu file yang karakternya sudah lengkap (Irfan 6 Nov).
+- **Satu event satu bunyi.** Tidak ada layering beberapa file untuk satu event; pilih satu file yang karakternya sudah lengkap.
 - **Waktu @30 fps** (SFX tidak pernah mendahului objek, aturan inti 37):
   - pop: +1…+2 f setelah objek terlihat jelas (§14.9)
   - dentum/impact: di frame mendarat
-  - hard cut / ganti frame: klik (`cut_click`), atau senyap bila tertutup panel/kanvas yang sedang masuk; **bukan whoosh** (Irfan 9 Nov, Behindwork)
+  - hard cut / ganti frame: klik (`cut_click`), atau senyap bila tertutup panel/kanvas yang sedang masuk; **bukan whoosh**
   - push-through / zoom-through: satu riser kontinu yang berakhir di cut, lalu impact di pendaratan
   - slam: impact di frame mendarat; sebelumnya musik turun ke drone, bukan senyap
   - whoosh/riser memuncak di landing, cut, atau v_max kamera (§14.9)
@@ -172,14 +169,14 @@ Aturan:
   - Seri blip untuk item daftar: bunyi sama, interval tetap.
 - **UI micro-pop**: hanya klik/perubahan state UI yang dibicarakan ucapan (tombol yang ditekan, post terbit); hover dan perubahan kecil senyap.
 - Transien kecil yang jatuh di konsonan VO digeser ±2 f. Level: §14.10.
-- Kepadatan = SFX berlabel di kiblat (kartu §7), bukan onset total: angka onset referensi (4,7–7,7/dtk, PKS 2 Nov) memuat ketukan musik. Kepadatan kiblat hanya acuan rasa, bukan batas: jumlah SFX mengikuti jumlah objek/visual penting (Lantai E24, Irfan 16 Nov). Gerbang `scripts/gate/sfx_density.py render.mp4 cues.json --objects objects.json`: FAIL bila objek tanpa SFX (kecuali `senyap` + `alasan`), satu peran memakai > 1 file atau satu file > 1 peran, dua bunyi < 100 ms, bunyi per kata KT, > 5 cue dalam 2 dtk, cue tanpa `dengar`/`peran`/`alasan`, atau palet terlarang. `--ref-density`/`--max-density` hanya dipakai bila Irfan meminta batas. Acuan: kiblat 55 ±0,65/dtk; builder-trap-r2 v2 0,52/dtk (Irfan 13 Nov).
+- Kepadatan = SFX berlabel di kiblat (kartu §7), bukan onset total: angka onset referensi (4,7–7,7/dtk) memuat ketukan musik. Kepadatan kiblat hanya acuan rasa, bukan batas: jumlah SFX mengikuti jumlah objek/visual penting (Lantai E24). Gerbang `scripts/gate/sfx_density.py render.mp4 cues.json --objects objects.json`: FAIL bila objek tanpa SFX (kecuali `senyap` + `alasan`), satu peran memakai > 1 file atau satu file > 1 peran, dua bunyi < 100 ms, bunyi per kata KT, > 5 cue dalam 2 dtk, cue tanpa `dengar`/`peran`/`alasan`, atau palet terlarang. `--ref-density`/`--max-density` hanya dipakai bila Irfan meminta batas. Acuan: kiblat 55 ±0,65/dtk.
 - Sinkron: hit bunyi vs onset visual ±1–2 f (±45 ms), dicek per cue dari render.
 
 ### 14.4 Titik balik: turun, bukan hilang
-Penekanan di titik balik dibuat dengan **musik turun ke drone/room tone** (stop-down ≤ 0,5 dtk), lalu hantaman atau drop di kata pivot. Tidak ada hening total (digital silence), dan musik tidak pernah 0 di bawah klip narasumber (§14.7). Alasan: hening total terdengar seperti audio rusak dan memutus perhatian (aturan inti 32; diputuskan Irfan 6 Nov). Panjang turunnya mengikuti nada di `pacing-map.md`, bukan resep frame tetap.
+Penekanan di titik balik dibuat dengan **musik turun ke drone/room tone** (stop-down ≤ 0,5 dtk), lalu hantaman atau drop di kata pivot. Tidak ada hening total (digital silence), dan musik tidak pernah 0 di bawah klip narasumber (§14.7). Alasan: hening total terdengar seperti audio rusak dan memutus perhatian (aturan inti 32). Panjang turunnya mengikuti nada di `pacing-map.md`, bukan resep frame tetap.
 
-### 14.5 Standar "Nyaman, jelas, tanpa ear-fatigue" (direvisi 1 Nov 2026)
-Versi lama bagian ini mewajibkan bunyi thock/felt/wood dengan LPF 1,5–2,5 kHz. Bersama tabel Gemini §14.8, aturan itu menghasilkan palet gelap seperti ketukan kayu di Pengganti Kita Sendiri v3, yang ditolak Irfan pada 31 Okt pukul 23.34. **Acuan sekarang adalah palet yang terbukti lulus**, yaitu The Gap v17/v18 dan Jadisatu #2 (`projects/jadisatu-60s/remotion/tools/audio_build.py`):
+### 14.5 Standar "Nyaman, jelas, tanpa ear-fatigue"
+**Acuannya palet yang terbukti lulus** (`projects/jadisatu-60s/remotion/tools/audio_build.py`). Bunyi thock/felt/wood ber-LPF 1,5–2,5 kHz tidak dipakai: hasilnya palet gelap seperti ketukan kayu.
 
 - **Sumber**: hanya stok nyata (§14.0), yaitu Kenyset, SFX proyek Irfan, dan ElevenLabs dengan prompt "dry, clean". Tidak ada SFX yang disintesis di kode.
 - **Apple-style** berarti:
@@ -192,15 +189,15 @@ Versi lama bagian ini mewajibkan bunyi thock/felt/wood dengan LPF 1,5–2,5 kHz.
   - tekstur: 400 Hz–2,6 kHz;
   - low: di bawah 2 kHz + body 150–450 Hz.
 - **Jangan menggelapkan klik dengan LPF 1,5–2,5 kHz.** Referensi Audio.mp4 terukur: klik/tick ber-centroid 8–10 kHz, whoosh berpusat di 1,4–1,9 kHz tanpa energi di atas 6 kHz. Yang dibuang adalah desis di atas 6 kHz, bukan kecerahan klik.
-- **Dilarang**: ketukan kayu/woodblock/thock, felt knock, koin, logam, kartun, langkah kaki kartun, 8-bit, white/pink noise atau sinus sintetis, `rope-creak`, bank `sfx_render`, salinan bunyi sistem Apple, dan potongan SFX yang "dipahat" dari video referensi orang lain. `sfx_density.py` menolak nama file atau label `dengar` yang cocok; keberadaan file di SFXIrfan tidak mengizinkannya (Irfan 16 Nov).
+- **Dilarang**: ketukan kayu/woodblock/thock, felt knock, koin, logam, kartun, langkah kaki kartun, 8-bit, white/pink noise atau sinus sintetis, `rope-creak`, bank `sfx_render`, salinan bunyi sistem Apple, dan potongan SFX yang "dipahat" dari video referensi orang lain. `sfx_density.py` menolak nama file atau label `dengar` yang cocok; keberadaan file di SFXIrfan tidak mengizinkannya.
 - **QA telinga**: Gemini tidak andal untuk level dan timestamp, dan tabel aturannya tidak boleh menggantikan data proyek yang sudah lulus. Ukur dengan alat sendiri; telinga Irfan adalah hakim terakhir.
 - Sumber dan lisensi tiap file dicatat di `CREDITS.md`.
 
 ---
 
-## 14.6–14.10 Aturan audit audio 31 Okt 2026 (Modul 1–5)
+## 14.6–14.10 Standar mix (Modul 1–5)
 
-Sumber: audit DSP Gemini atas `PenggantiKitaSendiri_v2`, diminta dan diadopsi Irfan sebagai masukannya sendiri. Angka diverifikasi ulang dengan `scripts/audio_qa.py`. Hasil ukur v2 dibandingkan referensi:
+Angka diukur dengan `scripts/audio_qa.py`. Contoh hasil ukur satu video (v2) dibandingkan referensi:
 
 | Video | Sub | Low-mid | Penurunan mendadak |
 |---|---|---|---|
@@ -208,7 +205,7 @@ Sumber: audit DSP Gemini atas `PenggantiKitaSendiri_v2`, diminta dan diadopsi Ir
 | Ref Krea 2 | 55,4 % | 33,6 % | 3 |
 | Ref Renaissance | 39,3 % | 35,2 % | 17 |
 
-> Catatan 1 Nov 2026: Krea 2 dan Renaissance adalah referensi musik/motion **tanpa VO**, jadi tidak bisa dipakai sebagai target pita untuk video ber-narasi. Referensi ber-VO terukur: The Gap sub 14 % / low-mid 63 %, Emotion 18 % / 64 %. Lihat §14.10.
+> Krea 2 dan Renaissance adalah referensi musik/motion **tanpa VO**, jadi tidak bisa dipakai sebagai target pita untuk video ber-narasi. Referensi ber-VO terukur: The Gap sub 14 % / low-mid 63 %, Emotion 18 % / 64 %. Lihat §14.10.
 
 Implementasi rujukan ada di `experimental/dual-agent-sound/examples/pengganti-kita-sendiri/v13/`: `assemble12.py`, `mix13.py`, `sfx_rules.py`, `roomtone.py`.
 
@@ -222,7 +219,7 @@ Akar masalah di v2:
 ### 14.6 Modul 1 — pre-processing klip narasumber
 Berlaku untuk klip eksternal (berita, wawancara, konferensi, podcast) yang **terukur buruk** (gema, boxy, level jauh dari narator). Klip yang sudah bersih tidak diproses; levelnya hanya boleh dinaikkan dengan gain linear bila terlalu pelan (tidak pernah diturunkan), tanpa EQ/denoise/kompresor, dan dibuktikan dengan `scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` (udara > 9 kHz ≥ 70 % sumber, LRA turun ≤ 2 LU). Rantai untuk klip yang terukur buruk:
 
-**Rekaman sendiri (talking head di kamar, Irfan 13 Nov).** Ukur dulu dengan `scripts/gate/pause_clean.py stem_suara.wav words.json`. Bila lantai jeda > −50 dBFS atau ada bunyi tajam di jeda (piring, klik, benturan): high-pass 70 Hz + `afftdn` sangat ringan (nr 3, nf −55; nr 8 mengikis udara > 9 kHz, `voice_fidelity.py` FAIL), lalu jeda antarkata ≥ 0,15 dtk diredam −36 dB dengan ramp 25 ms, rentang ucapan dilindungi [awal − 0,06; akhir + 0,12] dtk (resep: `projects/builder-trap-r2/audio/voice_clean.py`). Jangan mengisi jeda antarpotongan dengan room tone dari kamar yang sama. Gate yang dilarang di bawah ini berlaku untuk klip narasumber bergema, bukan untuk jeda rekaman sendiri.
+**Rekaman sendiri (talking head di kamar).** Ukur dulu dengan `scripts/gate/pause_clean.py stem_suara.wav words.json`. Bila lantai jeda > −50 dBFS atau ada bunyi tajam di jeda (piring, klik, benturan): high-pass 70 Hz + `afftdn` sangat ringan (nr 3, nf −55; nr 8 mengikis udara > 9 kHz, `voice_fidelity.py` FAIL), lalu jeda antarkata ≥ 0,15 dtk diredam −36 dB dengan ramp 25 ms, rentang ucapan dilindungi [awal − 0,06; akhir + 0,12] dtk (resep: `projects/builder-trap-r2/audio/voice_clean.py`). Jangan mengisi jeda antarpotongan dengan room tone dari kamar yang sama. Gate yang dilarang di bawah ini berlaku untuk klip narasumber bergema, bukan untuk jeda rekaman sendiri.
 
 ```
 ffmpeg -y -i klip_mentah.mp4 -vn -af "pan=mono|c0=0.5*c0+0.5*c1,highpass=f=120:poles=2,equalizer=f=320:t=q:w=1.8:g=-5.0,equalizer=f=3200:t=q:w=1.4:g=2.5,lowpass=f=9000:poles=2,afftdn=nf=-25,volume=<gain_naik>dB" -ar 48000 -ac 2 klip_bersih.wav
@@ -230,7 +227,7 @@ ffmpeg -y -i klip_mentah.mp4 -vn -af "pan=mono|c0=0.5*c0+0.5*c1,highpass=f=120:p
 - **mono**: side/mid = 0, menghapus gema fase ruangan;
 - **HPF 120 + mud cut −5 dB @320 Hz**: anti-boxy;
 - **+2,5 dB @3,2 kHz**: kejelasan;
-- **afftdn** meredam noise; **tanpa kompresor, limiter, atau loudnorm** pada suara asli (Lantai E23, Irfan 16 Nov).
+- **afftdn** meredam noise; **tanpa kompresor, limiter, atau loudnorm** pada suara asli (Lantai E23).
 - **Level**: gain linear NAIK saja (`volume=+X dB`), dihitung supaya suara ±−16 LUFS; tidak pernah diturunkan. Bila puncak akan > −1 dBFS, target gain diturunkan sedikit, bukan ditutup limiter. Bukti: `scripts/gate/voice_level.py`.
   - Tambahkan **mud cut kedua −3 dB @220 Hz** untuk suara pria/ruang konferensi. Hasil uji: low-mid Altman 56 → 41 %, Gates 51 → 33 %.
   - **Jangan pakai gate/expander**: tidak mengurangi gema, dan menambah potongan mendadak di dalam ucapan.
@@ -260,10 +257,10 @@ ffmpeg -y -i klip_mentah.mp4 -vn -af "pan=mono|c0=0.5*c0+0.5*c1,highpass=f=120:p
 Dilarang:
 - whoosh dari white/pink noise mentah;
 - beep/blup sinus 8-bit;
-- laser sci-fi sintetis (stok Irfan `Lasertransision` dan `ES_Scifi…Glitch 02` tetap boleh sesuai fungsinya, Irfan 16 Nov);
+- laser sci-fi sintetis (stok Irfan `Lasertransision` dan `ES_Scifi…Glitch 02` tetap boleh sesuai fungsinya);
 - langkah kaki kartun.
 
-**Direvisi 1 Nov 2026.** Kolom "Wajib" versi Gemini dicabut: wood/felt, thock LPF 1,5 kHz, lapisan sub thump di bawah whoosh, dan micro-tick + felt pulse. Penyebabnya:
+**Tidak dipakai:** wood/felt, thock LPF 1,5 kHz, lapisan sub thump di bawah whoosh, dan micro-tick + felt pulse, karena:
 - dua bunyi untuk satu event melanggar aturan "1 adegan 1 pesan 1 SFX";
 - palet gelap bertentangan dengan referensi dan dengan palet The Gap.
 
@@ -271,18 +268,18 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
 
 | Visual | Bunyi (stok Irfan) | Catatan |
 |---|---|---|
-| Kata kunci berganti (triad), bukan tiap kata | `Kinetictypography(gunakansecaraacak)` (SFXIrfan) | tidak per kata (Irfan 13 Nov); klik mouse hanya untuk kursor yang benar-benar mengklik |
+| Kata kunci berganti (triad), bukan tiap kata | `Kinetictypography(gunakansecaraacak)` (SFXIrfan) | tidak per kata; klik mouse hanya untuk kursor yang benar-benar mengklik |
 | Kata slam/penekanan | `v17_thud_1` (dentum pendek) | satu bunyi, bukan pop + sub |
 | Ketikan | `iphone-keyboard-typing`, satu rentang per kalimat yang diketik | keyboard digital, bukan thock mekanik |
 | Kursor/tombol ditekan | `mouse-click-290204` | |
 | Kartu/UI/agent muncul | `pop-up-notify-smooth-modern` | |
 | Kartu/tile mendarat | `soft-subtle-ui-pop` | |
 | Kamera patah / transisi dengan gerak cepat terlihat | satu file whoosh yang sama sepanjang video, puncak di v_max | tanpa lapisan sub |
-| Cut / ganti frame / potongan antar pembicara tanpa gerak | klik cut pelan; senyap bila tertutup panel yang masuk | bukan whoosh (Irfan 9 Nov, Behindwork) |
+| Cut / ganti frame / potongan antar pembicara tanpa gerak | klik cut pelan; senyap bila tertutup panel yang masuk | bukan whoosh |
 | Whip / cut on motion | `v17_whip_1/2` | |
 | Zoom-through / build | `riser` (ElevenLabs, video #2), berakhir di cut | |
 | Beat drop / pendaratan besar | `v17_impact_1`, ekor ≤ 0,9 dtk | tidak ada hantaman di frame 0 (The Gap D-038) |
-| Foto montase berganti / gambar berganti | `Pergantianfoto` (SFXIrfan, satu klik) atau shutter; di montase cepat (< 0,7 dtk/shot) berselang, bukan 1:1 | bukan whoosh/swipe (Irfan 2 Nov 12.36, 13 Nov) |
+| Foto montase berganti / gambar berganti | `Pergantianfoto` (SFXIrfan, satu klik) atau shutter; di montase cepat (< 0,7 dtk/shot) berselang, bukan 1:1 | bukan whoosh/swipe |
 | Bidang cahaya menyala/padam | `switch` (klik saklar) | |
 | Garis/grafik tergambar | `v17_glide_2` | |
 | Penutup | jeda pra-drop −18 dB (bukan hening mati) → bass drop + ekor musik asli | tanpa akor sinus |
@@ -296,11 +293,11 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
   - rumus: `sfxStart = camStart + round(0.28 × moveDur) − whooshPeakOffset`;
   - di cue, pakai `align:"peak"` + `peak` = detik puncak di file.
 - **Pop/klik kemunculan**: transien di +1…+2 f setelah skala melewati 0,6 (objek pertama kali terlihat jelas), bukan di frame 0.
-- **Stagger banyak item** (grid, barisan): item yang masuk terpisah (> 2 frame) masing-masing mendapat satu bunyi dari peran yang sama; item yang muncul bersamaan dalam ≤ 2 frame dihitung satu event (Irfan 16 Nov, menggantikan "satu rattle per barisan" 13 Nov). Maksimal 2 bunyi per 100 ms, dan dua bunyi berperan sama tidak boleh jatuh dalam 100 ms (The Gap `sync_cues.py`). Kata tidak berbunyi per kata; subtitle tidak berbunyi (aturan 43).
+- **Stagger banyak item** (grid, barisan): item yang masuk terpisah (> 2 frame) masing-masing mendapat satu bunyi dari peran yang sama; item yang muncul bersamaan dalam ≤ 2 frame dihitung satu event. Maksimal 2 bunyi per 100 ms, dan dua bunyi berperan sama tidak boleh jatuh dalam 100 ms (The Gap `sync_cues.py`). Kata tidak berbunyi per kata; subtitle tidak berbunyi (aturan 43).
 
-### 14.9b Resep mix yang terbukti (builder-trap-r2 v2, 14 Nov)
-Kesalahan yang sudah terjadi, dicek setiap mix:
-- **Tidak ada auto-gain yang menaikkan bed musik di jeda bicara** (v1: ±8 dB mengisi setiap jeda). Bed dibuat rata per babak dengan gain tetap.
+### 14.9b Resep mix yang terbukti
+Dicek setiap mix:
+- **Tidak ada auto-gain yang menaikkan bed musik di jeda bicara**. Bed dibuat rata per babak dengan gain tetap.
 - **Kejernihan suara dicapai dengan bed yang lebih rendah dan tetap**, bukan duck dalam: duck ≤ 1,5 dB saat bicara, ramp ≥ 250 ms (§14.1 butir 3). Duck −6 dB di v2 melanggar aturan anti-pumping ini.
 - **Urutan proses**: normalisasi loudness musik dulu, baru envelope/duck. Bila duck dipasang sebelum normalisasi, normalisasi mengembalikan level yang di-duck (v2 awal: duck −6 dB hilang, gain musik −7,3 → −4,0).
 - **SFX diratakan di puncak bunyinya** (`align: peak` default): file dengan awalan sunyi (`pin.mp3` 0,41 dtk, `basmenyebar` memuncak di 1,27 dtk) berbunyi terlambat bila ditaruh di onset.
@@ -317,25 +314,25 @@ Lulus bila semua terpenuhi:
 
 | Cek | Ambang |
 |---|---|
-| Integrated | mengikuti suara (suara ±−16 LUFS, mix biasanya −14…−16); **tidak dikejar dengan loudnorm/limiter global** (Irfan 16 Nov) |
+| Integrated | mengikuti suara (suara ±−16 LUFS, mix biasanya −14…−16); **tidak dikejar dengan loudnorm/limiter global** |
 | True peak | ≤ −1 dBTP |
-| Pita spektral | **dibandingkan dengan referensi segenre (video ber-VO), bukan angka tetap.** The Gap: sub 14 % / low-mid 63 %. Emotion: sub 18 % / low-mid 64 %. Angka lama (sub 25–55 %, low-mid < 42 %) berasal dari referensi musik tanpa VO (Krea 2, Renaissance) dan mendorong penambahan sub-pad sinus; dicabut 1 Nov 2026. |
+| Pita spektral | **dibandingkan dengan referensi segenre (video ber-VO), bukan angka tetap.** The Gap: sub 14 % / low-mid 63 %. Emotion: sub 18 % / low-mid 64 %. Jangan memakai sub 25–55 % / low-mid < 42 %: angka itu dari referensi musik tanpa VO dan mendorong penambahan sub-pad sinus. |
 | Abrupt cutoff (> 18 dB/50 ms) di ujung klip narasumber | tidak ada celah mati: di potongan antar pembicara selalu ada jembatan (whoosh + musik/room tone), jendela 100 ms < −45 dBFS = 0. Penurunan di akhir kata VO kering itu normal (The Gap 46). |
 | Kepadatan & level SFX (demucs no_vocals, `refaudit/sfx_profile.py`) | event menonjol ±1,8–2,1/dtk; puncak SFX median ±−9…−10 dB dari puncak VO; bed −13…−15 dB di bawah VO (The Gap: 2,05/dtk, −10 dB, −14,8 dB) |
 | Gema VO | energi ekor 40–150 ms setelah kata ≤ −25 dB dari kata (`scripts/audio/vo_echo.py`) |
 | VO / suara asli per blok | ≥ −17 LUFS, tidak pernah lebih pelan dari sumbernya, crest turun ≤ 2 dB (`gate/voice_level.py`) |
 | Klip narasumber per blok | sama dengan baris di atas; antarnarasumber disamakan dengan gain naik, bukan turun |
 | Musik di bawah VO | −22…−25 LUFS |
-| Gain SFX setelah normalisasi puncak | −4…−10 dB (lantai −10; −33 dB tidak terdengar; Irfan 9 Nov, Behindwork) |
+| Gain SFX setelah normalisasi puncak | −4…−10 dB (lantai −10; −33 dB tidak terdengar) |
 | Sebaran RMS bed musik per 3 dtk | ≤ 4 dB, tanpa lubang (Behindwork 1,1–3,2 dB) |
 | Median puncak SFX UI per kelas | −16…−20 dBFS |
 | Median puncak ketikan | −22…−25 dBFS |
 | Hit terbesar video (puncak) | ≈ setara puncak VO, maksimal 1–2 per video |
 
-**Resep mix yang terbukti** (Irfan 9 Nov, Behindwork; alat: `behindwork/tools/mix.py`):
-- musik masuk di −15,5…−16,5 dB (track ber-beat/sub bass 1 dB lebih rendah); `dynaudnorm` + auto-gain RMS tahap 2 (1 dtk, maks ±8 dB; jangan menaikkan bed di jeda bicara, gagal: builder-trap-r2 v1) meratakan breakdown → sebaran bed 1,1–3,2 dB;
+**Resep mix yang terbukti**:
+- musik masuk di −15,5…−16,5 dB (track ber-beat/sub bass 1 dB lebih rendah); `dynaudnorm` + auto-gain RMS tahap 2 (1 dtk, maks ±8 dB; jangan menaikkan bed di jeda bicara) meratakan breakdown → sebaran bed 1,1–3,2 dB;
 - kantong EQ untuk suara (−4 dB 2,8 kHz, −2 dB 450 Hz), gerak musik saat kata ≤ 1,5 dB;
-- limiter master hanya penangkap true peak (reduksi ≤ 1 dB), **tidak dipakai mengejar −14 LUFS**: limiter yang bekerja keras memipihkan suara ("mendem", Irfan 16 Nov). Loudness dicapai dengan menaikkan suara secara bersih, musik/SFX menyesuaikan;
+- limiter master hanya penangkap true peak (reduksi ≤ 1 dB), **tidak dipakai mengejar −14 LUFS**: limiter yang bekerja keras memipihkan suara ("mendem"). Loudness dicapai dengan menaikkan suara secara bersih, musik/SFX menyesuaikan;
 - setelah mix, langkah true peak oversampled (hanya menangkap puncak, gain tetap): `ffmpeg -i raw.wav -af "aresample=192000,alimiter=limit=0.85:attack=1:release=50:level=false,aresample=48000" -c:a pcm_s16le mix.wav`; puncak sampel dari skrip bukan true peak;
 - saat mux ke AAC turunkan −0,4 dB, karena AAC menaikkan puncak ±0,5 dB (N2 sebelum diperbaiki: −0,9 dBTP di MP4);
 - hasil 3 klip: −14,2 LUFS, −1,4 dBTP WAV, `voice_fidelity` PASS (ΔLRA −0,1…+0,2).
@@ -344,8 +341,8 @@ Catatan pengukuran:
 - Stem dialog mono harus diukur sebagai stereo (+3 dB), karena diputar di kedua kanal.
 - Angka gerbang dilaporkan apa adanya ke Irfan.
 
-**Aturan lama yang digantikan per 31 Okt 2026**:
-- gerbang LRA ≥ 7 LU (blueprint 31 Okt pagi);
+**Tidak dipakai lagi** (abaikan bila masih tertulis di proyek lama):
+- gerbang LRA ≥ 7 LU;
 - "musik mati / hening total saat klip Jensen";
 - beat drop ke hening 1 dtk sebelum klip;
 - dinamika narator per babak (−2,5 / −4 dB).

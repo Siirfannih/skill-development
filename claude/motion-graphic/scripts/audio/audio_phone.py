@@ -1,4 +1,4 @@
-"""v16 audio QA (Irfan 18:52): does every SFX survive a phone speaker at 20 / 50 / 100 % volume, is the VO always clear,
+"""v16 audio QA: does every SFX survive a phone speaker at 20 / 50 / 100 % volume, is the VO always clear,
 and is any SFX harsh (2–6 kHz)?  Uses render/mix.wav + stems + render/cues.json.
 
 Phone model: mono, 4th-order HPF 320 Hz (small speakers reproduce almost nothing below), LPF 11 kHz.
@@ -9,7 +9,7 @@ An SFX cue counts as audible when, in its 160 ms window on the phone model,
   (b) its own level is ≥ 30 dB SPL (quiet-room threshold for a short mid-band sound).
 Usage: python3 audio_phone.py --root <folder> [--list] [--fix]
   <folder> berisi stem_vo.wav, stem_music.wav, stem_sfx.wav, mix.wav, cues.json (list {t, peran|kind, alasan|visual}).
-  Tanpa --root: $MG_ROOT/render (cara lama). Gagal pertama: Behindwork 8 Nov, default /home/claude/thegap tidak ada."""
+  Tanpa --root: $MG_ROOT/render (cara lama)."""
 import json, sys, numpy as np, soundfile as sf, scipy.signal as ss
 
 import os as _os

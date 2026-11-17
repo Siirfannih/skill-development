@@ -21,7 +21,7 @@ Standar penulis: bayangkan storyteller berpengalaman 10+ tahun (penulis naskah A
 
 Irfan sering membawa draft kasar yang strukturnya sudah benar. Tugasmu **mempertajam kata**, bukan menulis ulang.
 - Pertahankan urutan, ide, dan frasa terkuatnya. Jangan hilangkan satu ide pun tanpa menyebutkannya.
-- Setelah merapikan, cocokkan ide per ide dengan draft aslinya. Kegagalan nyata: "kami tidak membangun AI agent/model/sesuatu yang inspiratif" dan "aman dan terencana" hilang saat dirapikan (Jadisatu, 17 Okt).
+- Setelah merapikan, cocokkan ide per ide dengan draft aslinya. Contoh yang dicegah: "kami tidak membangun AI agent/model/sesuatu yang inspiratif" dan "aman dan terencana" hilang saat dirapikan.
 - Sertakan catatan singkat: apa yang diubah, kenapa, dan apa yang masih terbuka.
 
 Setiap masukan Irfan (hook, kalimat, struktur) melewati devil's advocate di `working-with-irfan` §2a sebelum dikembangkan.
@@ -45,7 +45,7 @@ Setiap masukan Irfan (hook, kalimat, struktur) melewati devil's advocate di `wor
 ## 5. Teks layar
 
 Teks layar adalah turunan script, bukan tulisan baru. Alasannya: teks yang tidak diucapkan memecah perhatian penonton antara mendengar dan membaca.
-- Hanya bersumber dari `voiceover.full_text` (frasa VO atau terjemahannya). Tidak ada kalimat atau angka tambahan. Kegagalan nyata: "Rp47.000.000" dan "belum cukup bagus" muncul di layar padahal tidak ada di VO.
+- Hanya bersumber dari `voiceover.full_text` (frasa VO atau terjemahannya). Tidak ada kalimat atau angka tambahan. Contoh yang dicegah: "Rp47.000.000" dan "belum cukup bagus" muncul di layar padahal tidak ada di VO.
 - 2–6 kata per frasa, bertahan 1–3 detik. Kata kerja, pendek, bertitik ("Baca." "Catat. Hafal."). Kalimat panjang hanya untuk tagline penutup.
 - Sentence case untuk narasi. KAPITAL hanya untuk kata vonis satu-dua kata (slam) dan label mono.
 - Satu kata aksen per frase, hanya pada kata yang membawa makna atau manfaat. Tidak pernah otomatis di kata pertama.

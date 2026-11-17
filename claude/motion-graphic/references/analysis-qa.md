@@ -28,14 +28,14 @@ Kesalahan termahal di Jadisatu adalah menunggu Irfan menunjuk masalah yang bisa 
   - push-in per frame, panjang jejak motion blur (p90 smear), parallax dan depth of field
   - tinggi teks (median dan p90), lama blok teks bertahan, onset teks dari frame bersih per menit, teks di layar (% frame)
   - sumbu dan sudut rotasi teks, stagger, kurva easing (lacak posisi per frame)
-- **Tabel penempatan terhadap naskah** (wajib, Irfan 11 Nov, dari ref 18): untuk setiap animasi/adegan catat `timestamp · kata/kalimat pemicu · jenis adegan · peran kalimat (umumkan / jelaskan / sebut orang / cerita pribadi / lelucon / angka / daftar / penutup) · durasi`. Tabel ini yang menjadi logika penempatan di `templates/gaya/<gaya>/STYLE.md` §4; metrik tanpa tabel ini belum cukup untuk merencanakan.
+- **Tabel penempatan terhadap naskah** (wajib): untuk setiap animasi/adegan catat `timestamp · kata/kalimat pemicu · jenis adegan · peran kalimat (umumkan / jelaskan / sebut orang / cerita pribadi / lelucon / angka / daftar / penutup) · durasi`. Tabel ini yang menjadi logika penempatan di `templates/gaya/<gaya>/STYLE.md` §4; metrik tanpa tabel ini belum cukup untuk merencanakan.
 - Alat: `measure.py` + `compare.py` (toolkit metrik proyek Jadisatu: rentang target dari referensi, PASS/WARN/FAIL dengan timestamp).
 - Mata tetap hakim: lihat sheet-nya.
 
 **Audio (alat sendiri; Gemini hanya data tambahan)**
-- **Audit audio lebih dulu, baru visual** (Irfan 8 Nov: kesalahan V5 mayoritas audio). Sebutkan di 3 temuan teratas: musik (genre/tempo per babak, track sama antar klip), kepadatan SFX, dan level.
-- **Label earshot = skor pertama, lalu divalidasi** (`audio.md` §14.0B, Irfan 8 Nov): label musik dari stem, bukan dari mix bersuara (di V5 mix dengan suara terbaca "funk", stem-nya "solo piano"); cek dengan ukuran, Gemini, atau metadata; identitas track lewat `gate/music_batch.py`.
-- **Dengar dulu dengan earshot** (wajib, gerbang DENGAR): `earshot timeline ref.mp4 --detail high` untuk label tiap event, event/dtk, dan prominence. Analisis spektrogram tanpa earshot tidak cukup untuk menyimpulkan instrumen, genre, atau kepadatan SFX; bila earshot tidak tersedia, berhenti dan lapor ke Irfan (gagal: V5 8 Nov, ref ditebak "piano/biola" dan "SFX jarang").
+- **Audit audio lebih dulu, baru visual**. Sebutkan di 3 temuan teratas: musik (genre/tempo per babak, track sama antar klip), kepadatan SFX, dan level.
+- **Label earshot = skor pertama, lalu divalidasi** (`audio.md` §14.0B): label musik dari stem, bukan dari mix bersuara (mix bersuara bisa terbaca "funk" padahal stem-nya "solo piano"); cek dengan ukuran, Gemini, atau metadata; identitas track lewat `gate/music_batch.py`.
+- **Dengar dulu dengan earshot** (wajib, gerbang DENGAR): `earshot timeline ref.mp4 --detail high` untuk label tiap event, event/dtk, dan prominence. Analisis spektrogram tanpa earshot tidak cukup untuk menyimpulkan instrumen, genre, atau kepadatan SFX; bila earshot tidak tersedia, berhenti dan lapor ke Irfan.
 - Pemisahan stem: **Demucs** (htdemucs) memisahkan VO / musik / sisa. Cadangan: `librosa.decompose.hpss`.
 - **librosa** sebagai inti analisis:
   - `onset_strength`/`onset_detect` (dengan backtrack) untuk SFX
@@ -131,7 +131,7 @@ Kompas premium:
 6. kedalaman dan tekstur halus
 7. UI besar didemokan seperti dipakai
 8. elemen kecil yang hidup
-9. konsistensi palet = satu family, bukan satu warna; warna asli objek/foto tetap (Irfan 4 Nov)
+9. konsistensi palet = satu family, bukan satu warna; warna asli objek/foto tetap
 10. akhir yang mulus
 
 Gagal salah satu = R6 tidak lulus.

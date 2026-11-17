@@ -3,11 +3,11 @@
 
 Pakai:
   approve: simpan frame acuan satu adegan
-    python3 baseline_lock.py approve render.mp4 S08 12.0,13.5,15.2 --dir locks --note "Irfan 25 Okt: S08 final"
+    python3 baseline_lock.py approve render.mp4 S08 12.0,13.5,15.2 --dir locks --note "D-014"
   check: bandingkan render baru dengan semua adegan terkunci
     python3 baseline_lock.py check render_baru.mp4 --dir locks [--shift S08=+2.3] [--tol 0.5]
   unlock: lepas kunci (hanya atas perintah Irfan)
-    python3 baseline_lock.py unlock S08 --dir locks --note "Irfan 26 Okt: ubah S08"
+    python3 baseline_lock.py unlock S08 --dir locks --note "D-020"
 
 Waktu disimpan absolut. Kalau adegan bergeser karena adegan lain diubah, pakai --shift ADEGAN=+detik.
 Butuh ffmpeg, Pillow, numpy. Kode keluar 1 bila ada adegan terkunci yang berubah.

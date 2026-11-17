@@ -4,7 +4,7 @@ Lembar TEKNIK: pola gerak/akting karakter yang boleh dipinjam untuk maskot apa p
 
 ## 1. Sumber, lisensi, status
 - Repo `JohnHeibel/ClaudeAnimationBase`, commit `0ac8bf2` (dikloning 16 Nov). **MIT, (c) 2026 John Heibel**: boleh dipakai ulang, diubah, dijual; syarat satu: **sertakan notis hak cipta + teks lisensi di salinan/bagian substansial** (`animasi-karakter-clawd/LICENSE`). Karakter "Clawd" adalah maskot Claude Code (merek Anthropic): untuk video Jadisatu/Tuntunly pakai polanya, bukan menjiplak tokoh sebagai identitas kita.
-- Status: **teknik pinjaman (Irfan 16 Nov: pelajari untuk animasi karakter)**. Belum diuji pada video kita; `clawd-motion.ts` baru dicek numerik (tanpa NaN, kurva sesuai asli), belum dirender di Remotion.
+- Status: **teknik pinjaman **. Belum diuji pada video kita; `clawd-motion.ts` baru dicek numerik (tanpa NaN, kurva sesuai asli), belum dirender di Remotion.
 - Aset di `animasi-karakter-clawd/`: `LICENSE`, `docs/emotions.jpg` (31 emosi), `docs/views.jpg` (5 sudut, gerak, 15 topi), `src/motion-excerpt.js` (kutipan verbatim, hanya matematika gerak), `src/clawd-motion.ts` (port TS murni-dari-waktu, tanpa p5). Lihat gambar dulu; angka di bawah dari kode.
 
 ## 2. Cara repo membangun karakter (PENTING: bukan voxel, bukan 3D)

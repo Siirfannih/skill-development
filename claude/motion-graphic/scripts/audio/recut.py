@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Terapkan rentang buang ke suara + video wajah (sinkron bibir) dan buat peta waktu lama -> baru (Irfan 15 Nov).
+"""Terapkan rentang buang ke suara + video wajah (sinkron bibir) dan buat peta waktu lama -> baru.
 
   python3 recut.py cut  --audio suara.wav --video wajah.mp4 --remove potong.json --source-words words.json --out DIR [--fps 30]
   python3 recut.py remap --map DIR/map.json IN.json OUT.json [--keys t,s,e,start,end,mulai] [--fps 30]
@@ -43,9 +43,9 @@ def mapper(removed):
 
 
 def endpoint_quiet(mono, sr, t, side, win=0.02):
-    """Gelombang tidak boleh dipancung (aturan Bali v10, qa_wave10): 20 ms di SISI YANG DIPAKAI dari batas potongan
-    harus sunyi relatif ke rekaman itu sendiri, bukan ke angka absolut (gagal: ambang -38 dBFS di kamar -38 dB,
-    builder-trap-r2; konsonan akhir -40 dBFS di VO bersih lolos padahal terpotong).
+    """Gelombang tidak boleh dipancung : 20 ms di SISI YANG DIPAKAI dari batas potongan
+    harus sunyi relatif ke rekaman itu sendiri, bukan ke angka absolut (ambang absolut meloloskan
+    konsonan akhir yang terpotong di VO bersih dan gagal di kamar yang bising).
     side="ujung": [t-20 ms, t] (akhir bagian yang disimpan sebelum potongan); side="awal": [t, t+20 ms]."""
     hop = max(1, int(0.01 * sr))
     frames = 20 * np.log10(np.sqrt(np.array([np.mean(mono[i:i + hop] ** 2) for i in range(0, len(mono) - hop, hop)])) + 1e-9)

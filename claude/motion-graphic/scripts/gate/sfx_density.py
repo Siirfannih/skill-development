@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gerbang aturan 43 (Irfan 13 Nov): SFX menandai momen cerita dan gerak yang terlihat, kepadatan dari kiblat,
+"""Gerbang aturan 43: SFX menandai momen cerita dan gerak yang terlihat, kepadatan dari kiblat,
 tanpa bunyi per kata dan tanpa spam. Hening yang disengaja boleh.
 
 FAIL bila:
@@ -8,7 +8,7 @@ FAIL bila:
   - rentetan   : > 5 cue dalam jendela 2 dtk (rentetan sejenis dibuat satu cue panjang, mis. rattle)
   - dengar     : cue tanpa `dengar` (label earshot describe file itu) — file harus didengar sebelum dipakai
   - peran      : cue tanpa `peran` dan `alasan`
-  - spam       : whoosh < 1 dtk; dua bunyi < 100 ms (Lantai E24, Irfan 16 Nov)
+  - spam       : whoosh < 1 dtk; dua bunyi < 100 ms (Lantai E24)
 DILAPORKAN saja (bukan syarat lulus): cakupan event visual dan celah tanpa SFX — beri --min-coverage/--max-gap
 bila kiblat memang padat bunyi.
 
@@ -16,8 +16,7 @@ Pakai:
   python3 sfx_density.py render.mp4 cues.json [--ref-density 0.65] [--max-density 1.2] [--min-coverage 0] [--max-gap 0]
 cues: JSON list [{"t": detik, ...}] atau {"cues": [...]} / {"placed": [...]}; atau tabel Markdown yang kolom
 pertamanya detik (| 12.40 | ...). Exit 1 bila ada yang gagal.
-Gagal yang membentuk gerbang ini: V5 8 Nov (terlalu jarang) lalu builder-trap-r2 v1 12 Nov (324 cue/95 dtk, 220 klik per kata,
-lulus versi lama padahal berisik: Irfan 13 Nov).
+Dua arah gagal yang dijaga: terlalu jarang, dan berisik (bunyi per kata).
 """
 import argparse, json, re, subprocess, sys
 import numpy as np
@@ -62,7 +61,7 @@ def load_cues(path):
 
 WHOOSH = re.compile(r"whoosh|woosh|swoosh|swish|whip", re.I)
 # Batas kata (\b / pemisah nama file) supaya "Business" tidak terbaca "sine" dan "Hollywood" tidak terbaca "wood".
-# laser/sci-fi TIDAK dilarang: `Lasertransision` dan `ES_Scifi…Glitch` adalah fungsi yang Irfan tetapkan (Irfan 16 Nov).
+# laser/sci-fi TIDAK dilarang: `Lasertransision` dan `ES_Scifi…Glitch` adalah fungsi yang Irfan tetapkan.
 _B = r"(?:^|(?<=[\s_/.\-(),]))"
 _E = r"(?=$|[\s_/.\-(),0-9])"
 FORBIDDEN_SFX = [
@@ -93,7 +92,7 @@ def forbidden_palette_issues(cues):
 
 
 def spam_check(cues):
-    """Whoosh dari peran/file/dengar berjarak >= 1 dtk (Lantai E24, Irfan 16 Nov)."""
+    """Whoosh dari peran/file/dengar berjarak >= 1 dtk (Lantai E24)."""
     issues = []
     wh = [c for c in cues if WHOOSH.search(f"{c['peran']} {c['file']} {c.get('dengar', '')}")]
     for a, b in zip(wh, wh[1:]):
@@ -103,7 +102,7 @@ def spam_check(cues):
 
 
 def role_issues(cues):
-    """Satu peran = satu file sepanjang video, dan satu file = satu peran (Irfan 16 Nov): bunyi yang sama selalu
+    """Satu peran = satu file sepanjang video, dan satu file = satu peran: bunyi yang sama selalu
     berarti hal yang sama. Varian file (nama sama, akhiran _1/_2/-v2) dihitung file yang berbeda."""
     by_role, by_file = {}, {}
     for c in cues:
@@ -124,7 +123,7 @@ def flam_issues(cues, min_gap=0.10):
 
 
 def object_issues(cues, objects_path, tol=0.10):
-    """1 SFX untuk 1 objek/visual (Irfan 16 Nov): setiap objek yang muncul/bergerak di daftar objek wajib punya cue
+    """1 SFX untuk 1 objek/visual: setiap objek yang muncul/bergerak di daftar objek wajib punya cue
     dalam +-tol dtk, kecuali `senyap: true` + `alasan`. Daftar objek ditulis dari build (bukan kata subtitle/KT)."""
     with open(objects_path, encoding="utf-8") as fh:
         d = json.load(fh)

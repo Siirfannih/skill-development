@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gerbang tipografi kinetik (Lantai A9a; Irfan 16 Nov: "animasi KT selalu sama, hampir semuanya fade").
+"""Gerbang tipografi kinetik (Lantai A9a).
 
 Memeriksa teks.json (dari teks_plan.py, diisi model):
   - lengkap   : setiap blok punya peran (R1–R6, sub), kode (T01–T32), alasan, pos [x, y] -> FAIL bila kosong

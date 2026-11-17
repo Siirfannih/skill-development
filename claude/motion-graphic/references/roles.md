@@ -1,6 +1,6 @@
 # Dua peran: Sutradara dan Editor (layer komunikasi)
 
-Dibaca di gerbang 0 setiap pekerjaan video. Gerbang 0–12 di `SKILL.md` §4 tidak berubah; file ini hanya mengatur **siapa** mengerjakan gerbang mana dan **bagaimana** keduanya berbicara (Irfan 11 Nov).
+Dibaca di gerbang 0 setiap pekerjaan video. Gerbang 0–12 di `SKILL.md` §4 tidak berubah; file ini hanya mengatur **siapa** mengerjakan gerbang mana dan **bagaimana** keduanya berbicara.
 
 ## Isi
 1. Kenapa dipecah
@@ -14,7 +14,7 @@ Dibaca di gerbang 0 setiap pekerjaan video. Gerbang 0–12 di `SKILL.md` §4 tid
 
 ## 1. Kenapa dipecah
 
-- **Hipotesis Irfan (11 Nov, belum terbukti):** satu agen yang merancang sekaligus membangun memuat semua file dan kualitasnya turun.
+- **Hipotesis (belum terbukti):** satu agen yang merancang sekaligus membangun memuat semua file dan kualitasnya turun.
 - **Angka beban konteks (diukur 11 Nov):** `SKILL.md` + `references/` + `guide/` + `guide/referensi/` + `RETRO.md` + `working-with-irfan` = ±306 KB, ±78 ribu token, sebelum transkrip, kode, dan log render. Editor hanya butuh ±25 % dari itu.
 - **Pelajaran yang sudah ada di repo:**
   - Kritik yang diberi catatan pembuat cenderung menyetujui; kritik buta lebih jujur (`experimental/dual-agent-sound`).
@@ -32,9 +32,9 @@ Model sama, konteks beda: Sutradara memegang **kenapa**, Editor memegang **bagai
 | Menulis | `handoff/BRIEF.md`, `PLAN.json`, `TASK-rN.md`, `REVIEW-rN.md`, `DECISIONS.md` | Kode build, aset, render, `handoff/REPORT-rN.md`, `handoff/QUESTIONS.md` |
 | Tidak boleh | Menulis kode build atau render (kecuali skrip ukur), menyetujui hasil tanpa melihat still | Bicara ke Irfan, mengubah `PLAN.json`/`BRIEF.md`, menebak hal yang tidak ada di TASK, menulis "final", membaca RETRO atau seluruh skill |
 
-**Pemeriksa frame** (peran ketiga, Irfan 15 Nov): agen/model lain yang tidak membangun, satu per potongan ≤ 10 dtk, menilai semua frame per detik sebelum render MP4 (`templates/roles/pemeriksa-frame.md`, `scripts/juri/frame_audit.py`).
+**Pemeriksa frame** (peran ketiga): agen/model lain yang tidak membangun, satu per potongan ≤ 10 dtk, menilai semua frame per detik sebelum render MP4 (`templates/roles/pemeriksa-frame.md`, `scripts/juri/frame_audit.py`).
 
-**Pemetaan penempatan teks** (sesi khusus sebelum build footage, Irfan 16 Nov): satu sesi melihat frame aktual, memilih area dari fungsi objek → whitespace terdekat wajah/tubuh/fokus → keseimbangan frame, lalu menulis `placement-map.json`. Setiap entri memuat sumber/rentang waktu, objek dan fungsi, fokus, area bukti yang dilindungi, kandidat/area terpilih, koordinat/anchor, alasan, kontras, serta transform kamera. Editor menerima peta koordinat ini dalam TASK dan tidak perlu mengulang pencarian visual; bila shot/crop berubah, petakan ulang entri yang terdampak. Juri tetap memeriksa hasil render. Panduan keputusan: `../guide/teks/GUIDE.md` (Irfan 16 Nov, koreksi BDF26 v11).
+**Pemetaan penempatan teks** (sesi khusus sebelum build footage): satu sesi melihat frame aktual, memilih area dari fungsi objek → whitespace terdekat wajah/tubuh/fokus → keseimbangan frame, lalu menulis `placement-map.json`. Setiap entri memuat sumber/rentang waktu, objek dan fungsi, fokus, area bukti yang dilindungi, kandidat/area terpilih, koordinat/anchor, alasan, kontras, serta transform kamera. Editor menerima peta koordinat ini dalam TASK dan tidak perlu mengulang pencarian visual; bila shot/crop berubah, petakan ulang entri yang terdampak. Juri tetap memeriksa hasil render. Panduan keputusan: `../guide/teks/GUIDE.md`.
 
 Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat mentah Irfan; ia menerima TASK yang sudah diterjemahkan, ber-ID, dan terukur.
 
@@ -72,7 +72,7 @@ Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat men
 
 ## 5. Protokol satu ronde
 
-1. Sutradara menulis `TASK-rN.md`. Satu TASK = satu tujuan yang bisa dicek (mis. "B01–B05 still + render tanpa audio"). Bagian yang meminjam teknik kartu ditulis dengan **angka kartu itu** (skala, lapisan, warna, kamera) yang dikutip, bukan parafrase Sutradara. Gambar referensi Irfan diterjemahkan ke angka kartu; bila gambar dan kartu bertentangan, tulis keduanya dan tanyakan, jangan memilih diam-diam. Pertanyaan Editor yang menafsirkan ulang cara kerja kartu ("teks 10 % dicapai dengan …") dicocokkan dulu dengan kalimat kartunya sebelum diterima (gagal: builder-trap-r2 r7 Q3, panel prompt diperbesar padahal kartu menulis kamera punch; Irfan 15 Nov). (Gagal sebelumnya: builder-trap-r2 TASK-r5/r6 "gradien ala Sequoia", "jendela besar terpotong kanan" melawan kartu 63; Irfan 15 Nov).
+1. Sutradara menulis `TASK-rN.md`. Satu TASK = satu tujuan yang bisa dicek (mis. "B01–B05 still + render tanpa audio"). Bagian yang meminjam teknik kartu ditulis dengan **angka kartu itu** (skala, lapisan, warna, kamera) yang dikutip, bukan parafrase Sutradara. Gambar referensi Irfan diterjemahkan ke angka kartu; bila gambar dan kartu bertentangan, tulis keduanya dan tanyakan, jangan memilih diam-diam. Pertanyaan Editor yang menafsirkan ulang cara kerja kartu ("teks 10 % dicapai dengan …") dicocokkan dulu dengan kalimat kartunya sebelum diterima.
 2. Editor membangun, menjalankan gate mekanis yang disebut TASK, menulis `REPORT-rN.md`. Ragu = `QUESTIONS.md`, lalu lanjut ke beat lain.
 3. **Review buta:** Sutradara melihat still/render dan mengukur sendiri **sebelum** membaca REPORT. Setelah itu baru REPORT dibaca untuk mencocokkan angka.
 4. **Devil's advocate per temuan** (`working-with-irfan` §2a): apakah melanggar BRIEF/PLAN/Hard Gate, atau hanya selera? Bisakah diukur? Apakah merusak beat yang sudah lolos? Temuan yang tidak lolos dibuang dan dicatat.

@@ -1,4 +1,4 @@
-"""v18 (Irfan 19:33): SFX must land WITH the object — not before it appears, not after — and not pile up.
+"""v18: SFX must land WITH the object — not before it appears, not after — and not pile up.
 For every cue in render/cues.json, look at the picture around it (cells of an 8×6 grid, so a small label counts) and
 find the visual onset within ±MAXF frames: the frame where something starts to change (rise of frame difference).
   · cue near an onset  → shift so the sound starts on it (align='end' cues: so they land on it)

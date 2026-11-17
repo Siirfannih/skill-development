@@ -1,11 +1,8 @@
 #!/usr/bin/env python3
-"""Juri keseimbangan visual per frame (Lantai C17, Irfan 15 Nov). Dijalankan pada still SEBELUM render penuh.
+"""Juri keseimbangan visual per frame (Lantai C17). Dijalankan pada still SEBELUM render penuh.
 
-Irfan 15 Nov: "QC melewatkan Hierarki Visual Balance sehingga membuat frame disebelah kiri jauh lebih berat (berisi text,
-Visual) dan membiarkan bagian kanan kosong … Keseimbangan disini tidak dinilai dari besar volume atau ukuran perobject tapi
-dinilai secara global perframe … Lihat Posisi Object / Text / Visual dalam berbagai versi frame global versi zoom 25%, 50%
-atau versi normal". Gagal yang membentuk alat ini: builder-trap-r2 r4 B01–B03 (kartu kepala + kartu kunci + bingkai di kiri,
-kanan kosong).
+Keseimbangan dinilai global per frame, bukan dari volume atau ukuran per objek: posisi objek, teks, dan visual dilihat
+bersama di zoom 25 %, 50 %, dan normal. Contoh gagal: kartu kepala + kartu kunci + bingkai semua di kiri, kanan kosong.
 
 Cara ukur (per still):
   - latar utama tidak ditimbang (kertas/wallpaper polos, atau footage penuh); yang ditimbang: teks (OCR, bobot ×3),
@@ -25,7 +22,7 @@ from PIL import Image, ImageDraw, ImageFilter
 
 
 def weight_map(img, text_gain=8.0):
-    """Bobot elemen di atas latar utama (Irfan: latar = #primary, yang dibaca = teks/objek di atasnya).
+    """Bobot elemen di atas latar utama (latar = #primary, yang dibaca = teks/objek di atasnya).
     - latar polos (warna tepi dominan > 35 % frame): elemen = area yang berbeda dari latar, bobot = luas × kontras;
     - footage penuh: subjek = kepadatan detail di luar teks, total bobotnya = total bobot teks;
     - teks (OCR tesseract): bobot luas × text_gain di atas keduanya (mata membaca teks lebih dulu)."""

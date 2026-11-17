@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Storyboard visual: render panel HTML -> PNG, susun papan (pola kanvas Wonder), lalu periksa (Irfan 8 Nov).
+"""Storyboard visual: render panel HTML -> PNG, susun papan (pola kanvas Wonder), lalu periksa.
 
 Isi folder storyboard (contoh di templates/storyboard/):
   beats.json      proyek, format, babak (musik per babak), beats (VO, aksi, kamera, keluar, sfx[peran,alasan])
@@ -83,7 +83,7 @@ BENTUK = ("exploded", "potongan", "piktogram", "stick", "sebab-akibat", "grafik"
 
 
 def metafora_issues(b):
-    """Gerbang metafora (Lantai D19a; Irfan 16 Nov, metode dari gbro-collage-broll): sebelum menggambar, satu kalimat VO
+    """Gerbang metafora (Lantai D19a): sebelum menggambar, satu kalimat VO
     diperas jadi makna, emosi, aksi (kata kerja), satu metafora, 3–6 objek kunci, urutan rakit, dan bentuk penjelas."""
     m = b.get("metafora")
     if not isinstance(m, dict):

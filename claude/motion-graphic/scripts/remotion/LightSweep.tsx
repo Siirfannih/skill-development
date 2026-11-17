@@ -1,8 +1,7 @@
-// LightSweep.tsx — gaya G8 "kilat cahaya" (typography.md §7.5; Irfan 16 Nov, ref siirfannih_DfRh4w0SfAk "Golden rule").
+// LightSweep.tsx — gaya G8 "kilat cahaya" (typography.md §7.5).
 // Isi huruf = gradien warna (atas terang -> bawah lebih dalam); satu pita cahaya miring menyapu huruf sekali;
 // glow lembut mengikuti pita. Semua dari frame (deterministik), tanpa footage di dalam huruf.
-// Gagal yang membentuk komponen ini: jensen-pain-suffering T26 memasukkan klip percikan grayscale ke huruf
-// (multiply) -> terbaca seperti bayangan daun, bukan kilat.
+// Jangan memasukkan klip footage (mis. percikan grayscale, multiply) ke huruf: terbaca seperti bayangan, bukan kilat.
 import React from "react";
 import { interpolate, useCurrentFrame } from "remotion";
 import { CURVE } from "./curves";

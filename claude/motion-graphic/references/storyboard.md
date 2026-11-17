@@ -1,6 +1,6 @@
 # Storyboard visual: dari script atau daftar potongan ke papan panel
 
-Baca di gerbang 4–5. Storyboard adalah gerbang review termurah: satu panel diperbaiki dalam menit, satu render dalam jam. Metodenya diturunkan dari cara kerja Wonder (skill `new-design`, `new-design-arrange`, `design-review`) dan dari 4 sesi storyboard Irfan di Wonder 1–7 Nov (Marketing, Motion Lagu, Pengganti Kita Sendiri, Trojan v4) (Irfan 8 Nov).
+Baca di gerbang 4–5. Storyboard adalah gerbang review termurah: satu panel diperbaiki dalam menit, satu render dalam jam. Metodenya diturunkan dari cara kerja Wonder (skill `new-design`, `new-design-arrange`, `design-review`).
 
 ## Isi
 
@@ -18,9 +18,9 @@ Baca di gerbang 4–5. Storyboard adalah gerbang review termurah: satu panel dip
 | Kondisi | Yang dilakukan |
 |---|---|
 | Irfan memberi storyboard atau panel contoh | Lanjutkan seperti §6; panel contoh adalah arah gaya, bukan batas |
-| Tidak ada storyboard (klip podcast, brief + video saja) | Agent membuat storyboard sendiri dengan metode ini dari daftar potongan + transkrip; tidak menunggu kata "final", papan dikirim bersama hasil (Irfan 8 Nov) |
-| Klip/talking head dengan gaya dari `templates/gaya/` | Rencana edit menu: 3 opsi per beat dari menu adegan gaya itu, opsi A = rekomendasi + alasan, tiap opsi menyebut contoh referensinya; Irfan memilih (±15 menit) lalu pilihan masuk `handoff/PLAN.json`. Format: `templates/gaya/README.md` (Irfan 11 Nov) |
-| Tidak ada video referensi | Ambil paket ≤ 5 kartu dari repo `Siirfannih/canvas-skill-library` (`skills/canvas-reference-director/SKILL.md`, `references/cards.json`) + `guide/referensi/` sesuai goal; tulis di `beats.json → arah.sumber_gaya` mana yang dipakai dan kenapa (Irfan 8 Nov) |
+| Tidak ada storyboard (klip podcast, brief + video saja) | Agent membuat storyboard sendiri dengan metode ini dari daftar potongan + transkrip; tidak menunggu kata "final", papan dikirim bersama hasil |
+| Klip/talking head dengan gaya dari `templates/gaya/` | Rencana edit menu: 3 opsi per beat dari menu adegan gaya itu, opsi A = rekomendasi + alasan, tiap opsi menyebut contoh referensinya; Irfan memilih (±15 menit) lalu pilihan masuk `handoff/PLAN.json`. Format: `templates/gaya/README.md` |
+| Tidak ada video referensi | Ambil paket ≤ 5 kartu dari repo `Siirfannih/canvas-skill-library` (`skills/canvas-reference-director/SKILL.md`, `references/cards.json`) + `guide/referensi/` sesuai goal; tulis di `beats.json → arah.sumber_gaya` mana yang dipakai dan kenapa |
 
 Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkunci, referensi sudah dibedah per frame (`analysis-qa.md` §2).
 
@@ -29,10 +29,10 @@ Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkun
 1. **Bedah referensi per frame** menjadi kartu "yang terlihat → aturan yang diturunkan". Daftar nama file bukan pengganti melihat gambar.
 2. **Arah visual sebelum menggambar.** Sumber gaya menurut prioritas: brief Irfan → token/UI produk asli → panel yang sudah ada di papan → tangan bebas. Tulis di `beats.json → arah`: register, 2–3 kata karakter yang lolos uji "hanya cocok untuk proyek ini" (clean, modern, premium gagal karena cocok untuk apa pun), peran palet dengan nilai di `tokens.css`, pasangan font, tulang layout, satu detail khas yang hanya dimiliki proyek ini (contoh: mouse karakter Jadisatu di Trojan v4).
 2a. **Metafora per kalimat (Lantai D19a, D19b).** Untuk tiap beat isi `metafora`: makna, emosi, aksi, satu metafora, 3–6 objek, urutan rakit, dan bentuk penjelas (exploded/potongan, piktogram/stick, sebab-akibat, grafik, peta, UI asli). Contoh dari gbro: makna "pengalaman habis terus", aksi "memotong", metafora "editor memotong pita film di jam raksasa, satu putaran hanya menghasilkan potongan pendek", objek jam-film, editor, gunting, potongan pita. Satu kalimat satu metafora; lebih dari 6 objek melemahkan makna.
-3. **Beat dari VO kata per kata.** Satu beat = satu pesan; urutan panel dicocokkan dengan VO sebelum menggambar (gagal: Trojan v4 R1, panel acak dari urutan VO).
+3. **Beat dari VO kata per kata.** Satu beat = satu pesan; urutan panel dicocokkan dengan VO sebelum menggambar.
 4. **Kerangka dulu.** `board.py --skeleton` membuat satu panel kosong berlabel per beat; isi satu per satu; kerangka tidak boleh tersisa.
 5. **Gambar panel** (§3), render, lihat hasilnya, perbaiki. Jangan menilai dari kode.
-6. **Gerak yang tidak terbaca dari satu frame dipecah jadi 2–4 frame** (`<id>-1.html`, `<id>-2.html`) supaya editor motion paham (Irfan 7 Nov: hook dipecah satu kata per frame, tombol "Gratis" jadi tiga tahap gelap → disentuh → menyala).
+6. **Gerak yang tidak terbaca dari satu frame dipecah jadi 2–4 frame** (`<id>-1.html`, `<id>-2.html`) supaya editor motion paham.
 7. **Review papan sekali** (§5), perbaiki temuan, jalankan `board.py` sampai PASS.
 8. **Serah terima** (§8).
 
@@ -40,7 +40,7 @@ Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkun
 
 Satu panel = frame + caption, seperti artboard Wonder.
 
-- **Frame** berukuran format master (16:9 1920×1080, atau orientasi footage). Isinya **visual yang benar-benar terbaca**: UI asli produk/aplikasi, teks layar final, posisi objek dalam px, empat lapisan 2,5D di kedalaman berbeda: `L1` latar (paling jauh), `L2` footage/dunia (pembicara, video, grid), `L3` teks, `L4` objek visual (paling dekat). Kamera bergerak di ruang 3D melewati lapisan itu (dolly menembus teks/objek, parallax, DoF), jadi gambar tidak tipis satu lapis; tiap beat menulis isi L1–L4 + jalur kamera di tabel storyboard sejak awal (Irfan 11 Nov; contoh mesin: `projects/builder-trap-show-your-work/remotion/src/Stage.tsx`). Bukan sketsa kotak. Objek dan teks berada di dalam safe frame (16:9 1080p: x 165–1755, y 140–935; tepi luar = red zone), kecuali keluar karena dolly/zoom kamera; untuk talking head, teks ditaruh di ruang kosong samping kepala (Irfan 11 Nov).
+- **Frame** berukuran format master (16:9 1920×1080, atau orientasi footage). Isinya **visual yang benar-benar terbaca**: UI asli produk/aplikasi, teks layar final, posisi objek dalam px, empat lapisan 2,5D di kedalaman berbeda: `L1` latar (paling jauh), `L2` footage/dunia (pembicara, video, grid), `L3` teks, `L4` objek visual (paling dekat). Kamera bergerak di ruang 3D melewati lapisan itu (dolly menembus teks/objek, parallax, DoF), jadi gambar tidak tipis satu lapis; tiap beat menulis isi L1–L4 + jalur kamera di tabel storyboard sejak awal. Bukan sketsa kotak. Objek dan teks berada di dalam safe frame (16:9 1080p: x 165–1755, y 140–935; tepi luar = red zone), kecuali keluar karena dolly/zoom kamera; untuk talking head, teks ditaruh di ruang kosong samping kepala.
 - **Caption**: id beat, babak, waktu, kalimat VO, aksi (apa yang bergerak), kamera, transisi keluar, SFX per event (`peran` + `alasan`), dan musik per babak di judul baris.
 - **Papan**: satu baris per babak, beat dari kiri ke kanan; versi lama pindah ke area arsip, bukan dihapus.
 - Kode G, T, C, X diambil dari `typography.md` dan `camera-transition.md`; jangan menciptakan kode baru di storyboard.
@@ -57,7 +57,7 @@ Satu panel = frame + caption, seperti artboard Wonder.
 
 ## 4. Cara Irfan menilai panel
 
-Bagian ini meniru **cara Irfan berpikir saat menilai**, bukan daftar gaya. Setiap pertanyaan diikuti kasus nyata dari sesi storyboard-nya. Kasus itu adalah jawaban untuk konteksnya sendiri (motion Apple-style, iklan Jadisatu, video lirik), bukan aturan tetap. Di konteks lain, ajukan pertanyaan yang sama, dan jawabannya boleh berbeda; tulis alasannya di caption panel. Yang tetap hanya standar yang Irfan nyatakan berlaku umum (aturan inti di `SKILL.md` dan `core-rules.md`, mis. teks layar satu baris tanpa tanda baca) (Irfan 8 Nov).
+Bagian ini meniru **cara Irfan berpikir saat menilai**, bukan daftar gaya. Setiap pertanyaan diikuti kasus nyata dari sesi storyboard-nya. Kasus itu adalah jawaban untuk konteksnya sendiri (motion Apple-style, iklan Jadisatu, video lirik), bukan aturan tetap. Di konteks lain, ajukan pertanyaan yang sama, dan jawabannya boleh berbeda; tulis alasannya di caption panel. Yang tetap hanya standar yang Irfan nyatakan berlaku umum (aturan inti di `SKILL.md` dan `core-rules.md`, mis. teks layar satu baris tanpa tanda baca).
 
 1. **Apakah ini masuk akal di dunia nyata?** Penonton langsung merasa ada yang janggal walau tidak bisa menyebutnya.
    - Kasus Trojan v4: chat sama ayang, kedua pihak sama-sama bertanya → tidak nyambung; pesan "jual risol" masuk ke chat ayang, padahal seharusnya ke chat Jadisatu.
@@ -87,7 +87,7 @@ Bagian ini meniru **cara Irfan berpikir saat menilai**, bukan daftar gaya. Setia
    - bagian yang ia puji atau tidak ia komentari tidak diubah;
    - revisi mengubah panel yang ada, bukan membangun ulang;
    - versi lama tetap bisa dikembalikan.
-   (gagal: Trojan v4, elemen yang Irfan hapus dipasang ulang agent.)
+
 
 Saat ragu, tanyakan: **"Kalau Irfan melihat panel ini, pertanyaan mana yang akan ia ajukan dulu?"**, lalu jawab sebelum ia sempat bertanya.
 
@@ -130,5 +130,5 @@ Dibuat setelah storyboard lolos review:
 
 - **Default, semua mesin**: panel HTML + `scripts/storyboard/board.py` (render PNG, `board.html`/`board.png`, `cues.json`, cek otomatis: caption lengkap, peran/alasan SFX dan musik, waktu tanpa celah/tumpang tindih, teks layar satu baris tanpa tanda baca dan di dalam frame, kerangka tersisa, elemen terpotong). Mulai dari salinan `templates/storyboard/`.
 - **Wonder** (Mac Irfan, MCP `mcp__wonder__*`): format panel sama, artboard = frame + caption, babak per baris. Alur: `get_skills(new-design)` → `create_page` → `create_artboard` → `take_screenshot` → `update_elements`. Panel final tetap diekspor ke folder repo.
-- **Simpan di repo**: `projects/<proyek>/storyboard/` berisi `beats.json`, `tokens.css`, `panels/`, `png/`, `board.html`. Irfan berkali-kali harus bertanya "storyboard disimpan di mana?"; jawabannya selalu folder ini, ditulis di laporan (Irfan, Pengganti dan Trojan v4).
+- **Simpan di repo**: `projects/<proyek>/storyboard/` berisi `beats.json`, `tokens.css`, `panels/`, `png/`, `board.html`. Lokasi folder ini ditulis di laporan.
 - Kirim `board.png` + daftar keputusan yang menyimpang dari referensi. Storyboard adalah gerbang persetujuan, kecuali jalur tanpa storyboard di §1.

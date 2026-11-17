@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render lapisan lego satu per satu dengan cache (Irfan 16 Nov). Hanya lapisan yang berubah yang dirender ulang.
+"""Render lapisan lego satu per satu dengan cache. Hanya lapisan yang berubah yang dirender ulang.
 
 lapisan.json: [{"id": "T01", "comp": "TeksBlok", "props": {...}, "durasi": 1.4}, ...]
   - comp = komposisi Remotion berlatar TRANSPARAN yang hanya menggambar lapisan itu, seukuran kotaknya

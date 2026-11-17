@@ -1,6 +1,6 @@
 # Pemeriksa frame (satu agen per potongan ≤ 10 dtk)
 
-Dipanggil Sutradara setelah `render.sh <proyek> frames` dan `scripts/juri/frame_audit.py`. Satu agen untuk satu potongan, semua potongan paralel; agen ini BUKAN agen yang membangun adegan (model/subagen lain) (Irfan 15 Nov).
+Dipanggil Sutradara setelah `render.sh <proyek> frames` dan `scripts/juri/frame_audit.py`. Satu agen untuk satu potongan, semua potongan paralel; agen ini BUKAN agen yang membangun adegan (model/subagen lain).
 
 Prompt (isi `<…>`):
 

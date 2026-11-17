@@ -1,4 +1,4 @@
-"""v16 (Irfan: every object, visual and text gets its own sound, no exceptions).
+"""v16 (every object, visual and text gets its own sound, no exceptions).
 Finds visual events in the rendered picture (frame-difference onsets: something appears, moves off, cuts, lands)
 and checks that a cue in render/cues.json sits within ±5 frames. Prints the uncovered events.
 Usage: python3 tools/visual_coverage.py render/v16_silent.mp4"""

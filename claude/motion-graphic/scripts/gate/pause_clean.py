@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gerbang jeda bersih (Lantai E23, Irfan 13 Nov): saat pembicara berhenti/berpikir, stem suara tidak membawa
+"""Gerbang jeda bersih (Lantai E23): saat pembicara berhenti/berpikir, stem suara tidak membawa
 dengung kamar, piring, klik, atau room tone kotor yang ikut dikeraskan.
 
 Mengukur stem SUARA (sebelum musik/SFX) di jeda antarkata >= --min-gap dtk, dengan margin [akhir kata + 0,15; awal kata - 0,06]
@@ -11,7 +11,6 @@ Mengukur stem SUARA (sebelum musik/SFX) di jeda antarkata >= --min-gap dtk, deng
 Pakai:
   python3 pause_clean.py stem_suara.wav words.json [--min-gap 0.35] [--max-floor -50] [--min-drop 25]
 words.json: list [{"w"|"word", "s"|"start", "e"|"end"}] di timeline yang sama dengan stem. Exit 1 bila gagal.
-Gagal yang membentuk gerbang ini: builder-trap-r2 v1 (jeda -31,7 dBFS, hanya 13 dB di bawah ucapan, 10/11 jeda berisi transien).
 Perbaikan yang terbukti: projects/builder-trap-r2/audio/voice_clean.py (high-pass 70 Hz, afftdn ringan, jeda diredam -24 dB, ramp 25 ms).
 """
 import argparse, json, sys

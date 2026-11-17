@@ -23,7 +23,7 @@ Pakai → Catat → Jadikan kasus → Usul perbaikan → Uji → Setujui → Sin
 | 1. Pakai | Agent di sesi kerja | Memakai skill seperti biasa |
 | 2. Catat | Agent di sesi kerja | Setiap revisi Irfan atau kegagalan yang ditemukan sendiri ditulis ke `RETRO.md` (sudah ada di skill) **dan** ke `evals/inbox/<tanggal>-<id>.md`: apa yang diminta, apa yang salah, bukti (file + timestamp) |
 | 3. Jadikan kasus | Sesi perbaikan | Inbox diubah menjadi kasus uji `evals/cases/<id>.json`: prompt realistis, file pendukung, dan 2–5 assertion yang bisa dicek |
-| 4. Usul perbaikan | Sesi perbaikan | Analis membaca kasus yang gagal, lalu menulis patch ke cabang yang tepat, bukan ke inti kecuali memang aturan inti. Setiap patch menyebut sumbernya |
+| 4. Usul perbaikan | Sesi perbaikan | Analis membaca kasus yang gagal, lalu menulis patch ke cabang yang tepat, bukan ke inti kecuali memang aturan inti. Sumber tiap patch dicatat di `SUMBER.md` skill itu, bukan di file aturan |
 | 5. Uji | Runner | Agent segar tanpa konteks menjalankan semua kasus dua kali, dengan skill lama dan dengan patch. Grader menilai assertion |
 | 6. Setujui | Gerbang otomatis + Irfan | Lihat aturan gerbang di bawah |
 | 7. Sinkron | Skrip | Merge ke `main` → `sync.sh` menyalin ke `~/.claude/skills` dan mengemas untuk cloud |
@@ -87,7 +87,7 @@ tools/
 
 ## Titik awal untuk motion-graphic
 
-Log revisi Irfan (`revision-log.md` §19) sudah berisi ± 25 kegagalan nyata dengan aturan yang lahir darinya. Masing-masing langsung bisa menjadi kasus uji, jadi set eval pertama tidak perlu dikarang.
+Log revisi Irfan (`claude/motion-graphic/SUMBER.md` §Log revisi) sudah berisi ± 25 kegagalan nyata dengan aturan yang lahir darinya. Masing-masing langsung bisa menjadi kasus uji, jadi set eval pertama tidak perlu dikarang.
 
 ## Jadwal
 

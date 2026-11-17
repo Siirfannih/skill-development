@@ -18,16 +18,16 @@
 - **Bentuk penjelas situasi (Lantai D19b):** isi/cara kerja benda → exploded view (benda terurai per lapis, tiap bagian diberi garis label tipis dan nomor; resep acuan `breakdown` di artemnovitckii/claude-animation-skills) atau potongan melintang; perilaku manusia → stick figure/piktogram yang bergerak (`stick-figure`); satu metafora tenang → line-art minimal (`minimalistic-graphics`); angka → `graph`; rute → `map-route`. Gayanya tetap dari kiblat proyek; yang diambil hanya bentuknya.
 
 ## Brand dulu, gaya referensi kedua
-- Video untuk brand: palet dan gaya ikon dari brand (token di repo produk). Dari referensi ambil struktur, gerak, dan komposisi; warna, emoji 3D, kaca, atau gradien hanya kalau brief menyebutnya (Irfan 7 Nov: "collor Brand video kita adalah White, Biru sebagai icon … kita ga punya permintaan 3d ke semua bagian termasuk efek glasses berwarna biru"; gagal: trojan v4 v2).
+- Video untuk brand: palet dan gaya ikon dari brand (token di repo produk). Dari referensi ambil struktur, gerak, dan komposisi; warna, emoji 3D, kaca, atau gradien hanya kalau brief menyebutnya.
 - Cek: `scripts/palette_check.py render.mp4 --max 1` untuk brand satu aksen.
 
 ## Kualitas render
-- **Bukan render three.js mentah** (Irfan 7 Nov: "bukan renderan three js mentah seperti sebelum-sebelumnya"). Visual akhir dibangun dengan React/CSS/SVG di Remotion atau AE; three.js hanya untuk plate 3D yang sudah final (material, cahaya, anti-alias) dan lolos still 100 % berdampingan dengan referensi.
+- **Bukan render three.js mentah**. Visual akhir dibangun dengan React/CSS/SVG di Remotion atau AE; three.js hanya untuk plate 3D yang sudah final (material, cahaya, anti-alias) dan lolos still 100 % berdampingan dengan referensi.
 - Still per beat dibandingkan dengan frame referensi setara sebelum render penuh.
 
 ## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
-- **Bila frame terasa flat atau b-roll pengisi terlihat seperti aset utama, beri footage "material"**, bukan menambah objek: lapisan film + glow (bloom, halation, halftone, aberasi kromatik dengan blur tepi, hitam terangkat, vignette, grain) membuat footage mundur menjadi tekstur/kenangan, sedangkan teks tajam bercahaya di atasnya jadi fokus dan frame terasa estetik. Takarannya mengikuti peran footage: stok pengisi paling kuat, arsip bermakna sedang (wajah tetap terbaca), pembicara paling ringan (wajah tajam); teks tidak pernah ikut tertutup lapisan itu (Irfan 15 Nov, jensen-pain-suffering r2, ref siirfannih_DfH6JYPqNjk; bedah: `projects/jensen-pain-suffering/ref/BEDAH-FILMGLOW.md`).
-- **Bila latar canvas/kertas gelap dipakai di belakang foto atau teks, pilih bidang rata yang bersih** (butir halus sangat tipis paling banyak), bukan tekstur bercak frekuensi rendah: bercak terang-gelap terbaca "kasar" dan bersaing dengan foto, sementara lapisan film sudah memberi materialnya (Irfan 16 Nov, jensen-pain-suffering v3 → v4).
+- **Bila frame terasa flat atau b-roll pengisi terlihat seperti aset utama, beri footage "material"**, bukan menambah objek: lapisan film + glow (bloom, halation, halftone, aberasi kromatik dengan blur tepi, hitam terangkat, vignette, grain) membuat footage mundur menjadi tekstur/kenangan, sedangkan teks tajam bercahaya di atasnya jadi fokus dan frame terasa estetik. Takarannya mengikuti peran footage: stok pengisi paling kuat, arsip bermakna sedang (wajah tetap terbaca), pembicara paling ringan (wajah tajam); teks tidak pernah ikut tertutup lapisan itu.
+- **Bila latar canvas/kertas gelap dipakai di belakang foto atau teks, pilih bidang rata yang bersih** (butir halus sangat tipis paling banyak), bukan tekstur bercak frekuensi rendah: bercak terang-gelap terbaca "kasar" dan bersaing dengan foto, sementara lapisan film sudah memberi materialnya.
 
 ## Cek cepat
 - Blur still 10 px: ada satu gumpalan yang menang? Dua sama kuat = rapikan.

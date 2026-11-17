@@ -1,4 +1,4 @@
-# Gerbang 3 Segmen (Irfan, 2 Nov 2026 06.48)
+# Gerbang 3 Segmen
 
 Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis seperti visualnya sendiri: tiap objek bernama sesuai isinya, punya timecode, perannya di layar, dan bunyinya. Kesalahan ditangkap di tahap paling murah. Setiap segmen harus lolos sebelum segmen berikutnya dimulai. Target: putaran perbaikan ≤ 30 menit, karena yang diperbaiki hanya temuan kecil, bukan seluruh video.
 
@@ -26,11 +26,11 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
   - **CLASH:** dua teks bertumpuk.
   - **CONTR:** kontras teks vs latar < 4,5:1.
     - Perbaikannya lewat warna teks, posisi di area tenang, atau text-shadow lembut.
-    - **Dilarang menambah pita/scrim gradien hitam di belakang baris** (Irfan 07.30: kasar, tepinya terlihat, menurunkan estetika).
+    - **Dilarang menambah pita/scrim gradien hitam di belakang baris** (kasar, tepinya terlihat, menurunkan estetika).
     - Teks narasumber di atas footage yang sudah terbaca dengan shadow lembut boleh diterima walau angka checker rendah. Keputusan mata Irfan menang atas metrik. Teks yang tak terbaca atau bertabrakan dengan warna di belakangnya mengurangi 1 poin estetika.
 - Lihat contact sheet still ≤ 960 px untuk estetika: ruang kosong, hierarki, variasi.
 - **Lolos jika** laporan LOLOS dan contact sheet bersih.
-- **Gerbang kedip teks per frame (wajib, Irfan 3 Nov 05.31).** Contact sheet per detik tidak bisa melihat kedip 1–15 frame. Jalankan probe untuk SETIAP frame (`node seg2_probe.mjs <dir> 0 <durasi> 1 0.1`), lalu `tools/text_flicker_check.py` (proyek PKS). Lolos hanya jika temuan berikut nol:
+- **Gerbang kedip teks per frame (wajib).** Contact sheet per detik tidak bisa melihat kedip 1–15 frame. Jalankan probe untuk SETIAP frame (`node seg2_probe.mjs <dir> 0 <durasi> 1 0.1`), lalu `tools/text_flicker_check.py` (proyek PKS). Lolos hanya jika temuan berikut nol:
   - **DIP:** teks yang sama tampil, hilang ≤ 15 f, lalu tampil lagi;
   - **CEPAT:** blok tampil < max(1,0 dtk; 0,4 + 0,2 × jumlah kata dtk);
   - **DULUAN HILANG:** blok hilang sebelum VO selesai mengucapkan kata terakhirnya + 0,25 dtk;
@@ -54,7 +54,7 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
   - gerbang audio (keterdengaran SFX, VO di atas latar pada volume HP).
 - Render final sekali, setelah reviewer segar memberi SHIP.
 
-## Hierarki kerja dengan subagent (Irfan, 2 Nov 07.33)
+## Hierarki kerja dengan subagent
 Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worker bukan keputusan.
 - **Tingkat 0 · mekanis:** worker boleh langsung mengerjakan, dengan bukti still sebelum/sesudah. Contohnya:
   - geser koordinat ke safe zone;
@@ -80,21 +80,18 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
   - aturan skill.
 - **Biaya:** proposal ringan (beberapa ratus token + 1 thumbnail). Itu jauh lebih murah dari membatalkan perubahan yang salah setelah menyebar dan setelah dilihat Irfan.
   - Proposal dikirim sekaligus per worker, tidak satu per satu.
-- **Kasus pelajaran (2 Nov):**
-  - Brief worker menyebut "scrim boleh", lalu worker menambah pita gradien hitam tanpa uji visual.
-  - Irfan menolaknya: kasar, menurunkan estetika.
-  - Kesalahannya ada di brief, yang memberi wewenang desain tanpa gerbang.
+- **Brief worker tidak memberi wewenang desain tanpa gerbang.** Contoh yang dicegah: brief menyebut "scrim boleh", lalu worker menambah pita gradien hitam tanpa uji visual.
 
 ## Aturan teks (terkunci)
 - **Teks = penekanan, prioritas 2.** Visual kuat tidak butuh teks.
-  - Contoh salah di PKS v9: "8 jam", "45 menit", "TIDAK BERHENTI", "PERSIS".
+  - Contoh salah: "8 jam", "45 menit", "TIDAK BERHENTI", "PERSIS".
   - Cara yang benar: kalender padat yang bloknya muncul perlahan sudah cukup menjelaskan.
-- **Satu baris = satu ukuran** (Irfan 6 Nov). Besar-kecil acak dalam satu baris membuat baris tidak seimbang. Kata yang dibesarkan pindah ke barisnya sendiri; pembeda di dalam baris lewat warna aksen, bobot, atau KAPITAL.
+- **Satu baris = satu ukuran**. Besar-kecil acak dalam satu baris membuat baris tidak seimbang. Kata yang dibesarkan pindah ke barisnya sendiri; pembeda di dalam baris lewat warna aksen, bobot, atau KAPITAL.
 - **Hindari pola "blok di kiri + teks di kanan" di atas latar hitam polos.** Pola ini menyisakan ruang kosong besar di atas dan bawah, jadi melanggar gaya Apple yang modern dan elegan. Isi frame dengan visualnya, dan kamera fokus ke objek.
 
-## Running text + penekanan (Irfan 2 Nov 14.18)
-- **Mode teks per beat dipilih lewat `decision-guide.md` §1** (visual saja / penekanan / diegetik / caption / label). Caption hanya bila mode caption video nyala; bila nyala, ia berjalan per klausa mengikuti VO (Irfan 6 Nov).
-  - **Koreksi v21 (Irfan 2 Nov 22.25):** satu baris datar di pita bawah = subtitle, bukan kinetic. Tiap frasa VO butuh KOMPOSISI sendiri
+## Running text + penekanan
+- **Mode teks per beat dipilih lewat `decision-guide.md` §1** (visual saja / penekanan / diegetik / caption / label). Caption hanya bila mode caption video nyala; bila nyala, ia berjalan per klausa mengikuti VO.
+  - **Koreksi v21:** satu baris datar di pita bawah = subtitle, bukan kinetic. Tiap frasa VO butuh KOMPOSISI sendiri
     (`lib/KineticVO.tsx` PKS): posisi di ruang kosong atau menempel objek yang dirujuk, 1–2 baris (line/stair/column/drop), kata kunci
     (redup sisanya, kotak sorot, baris besar), kata baru lahir di ujung baris lalu baris bergeser bersama, enter/exit dirotasi,
     frasa berikut di tempat sama menukar (tidak menumpuk) dan keluar tidak menyeberang cut. Kontras lewat tinta per latar + chip padat
@@ -106,13 +103,13 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
 - **SFX family:** satu file SFX sering berisi beberapa varian. Potong per varian (`ears/family.py`), dengarkan tiap varian, dan pakai yang paling cocok, bukan seluruh file. Peran yang Irfan tandai "acak" (mis. Kinetictypography) dirotasi di antara variannya.
 - **Setiap objek/visual punya bunyinya.** Contoh kasus v10: ketikan tanpa bunyi ketik. Ketikan memancarkan `type:start|end` → potongan Keyboardtyping sepanjang ketikan + Enter.
 
-## Sesi otonom/terjadwal (Irfan 2 Nov 23.49)
+## Sesi otonom/terjadwal
 - Proses panjang (render, probe seluruh film, earshot banyak file) wajib dijalankan di **latar belakang**, jangan sebagai perintah foreground yang menunggu.
   - Kasus v21: satu perintah menahan sesi 1 jam 15 menit. Pesan Irfan tidak terbaca dan tidak ada laporan.
 - Kirim **progres singkat minimal setiap 15–20 menit** lewat SendUserMessage: apa yang selesai, apa yang berjalan, dan perkiraan selesai.
 - Sesi yang dibuat untuk Irfan selalu membawa dua instruksi di atas dalam prompt-nya.
 
-## Kinetic typography: teknik dipilih menurut PERAN teks (prinsip dari audit referensi 2 Nov, bukan aturan mutlak)
+## Kinetic typography: teknik dipilih menurut PERAN teks (prinsip, bukan aturan mutlak)
 Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. Referensi memilih teknik menurut fungsi teks.
 - **Ucapan (VO/narasumber):**
   - Kata ditambah satu per satu dengan jeda sekitar 3 f.
@@ -140,17 +137,17 @@ Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. 
   - VO tetap di atas latar pada volume HP 20/50/100 %;
   - tidak ada 2–6 kHz yang menusuk.
 
-- **Gerbang DENGAR wajib sebelum SFX atau musik masuk mix, di semua video dan semua mesin (Irfan 2 Nov 12.02; diperluas Irfan 8 Nov).** Tersambung ke gerbang 0, 3, 9, 10, 11 di `SKILL.md` §4. Earshot tidak terpasang atau gagal = berhenti dan lapor, bukan lanjut tanpa telinga (gagal: V5 8 Nov di PC server, submodule tidak pernah di-init). Angka level/spektrum tidak memberi tahu bunyinya seperti apa. Langkahnya:
+- **Gerbang DENGAR wajib sebelum SFX atau musik masuk mix, di semua video dan semua mesin.** Tersambung ke gerbang 0, 3, 9, 10, 11 di `SKILL.md` §4. Earshot tidak terpasang atau gagal = berhenti dan lapor, bukan lanjut tanpa telinga. Angka level/spektrum tidak memberi tahu bunyinya seperti apa. Langkahnya:
   1. Jalankan `git submodule update --init external/earshot` lalu pasang earshot; di Mac bila disk cloud sempit, dengan Python 3.12. PC server (`node-c-pc`): earshot terpasang di `~/work/mg-venv` (`earshot doctor` harus lulus).
   2. `earshot describe` tiap file.
   3. `earshot match` dengan deskripsi peran plus `--alts` pembanding salah, misalnya "car engine starting", "motorcycle revving", "error buzz", "record scratch".
   4. Hanya kandidat "strong" yang tidak kalah dari pembandingnya yang boleh dipakai.
   5. Simpan laporannya di proyek.
   6. Setelah mix, `earshot timeline` seluruh film untuk mencari label yang salah.
-- Kasus 2 Nov: whoosh transisi terdengar "record scratch/tape stop" dan pop UI terdengar "error buzz". Keduanya lolos semua gerbang angka, tapi Irfan mendengarnya seperti starter mobil.
+- Lolos gerbang angka belum berarti enak didengar: whoosh transisi bisa terdengar "record scratch/tape stop" dan pop UI seperti "error buzz". Label earshot yang salah diperbaiki sebelum kirim.
 
-### Kata kode = bunyi (Irfan 2 Nov 12.36/12.41, pola The Gap v18 + video #2 "20 konten")
-Kasus PKS v10b: semua SFX lolos gerbang angka dan label earshot, tetapi Irfan tetap menolaknya. Ada tiga penyebab:
+### Kata kode = bunyi
+SFX yang lolos gerbang angka dan label earshot masih bisa ditolak telinga. Tiga penyebab yang dicek:
 1. Pergantian foto memakai swipe/whoosh.
 2. Whoosh terlambat. File ditaruh mulai di frame penanda, padahal puncak whoosh baru datang 200–400 ms kemudian.
 3. Bunyi dirotasi acak dan deep (`sub-cinematic`, 28×).
@@ -178,7 +175,7 @@ Aturannya:
   - Ada gerak → **puncak** file jatuh di frame v_max (`align:"peak"` di mixer).
   - Transien klik/pop jatuh di onset objek (`align:"onset"`).
 - **Mixer wajib menyelaraskan isi file, bukan awal file.** `mix_v10c.py` menghitung offset onset/puncak tiap file.
-- **Bedah referensi dengan earshot sebelum memilih palet (Irfan 12.57):**
+- **Bedah referensi dengan earshot sebelum memilih palet:**
   1. Jalankan `earshot timeline <ref.mp4> --detail high` pada tiap referensi dan proyek yang lulus.
   2. Ringkas dengan `ears/tl_sum.py`: label per jenis, centroid, prominence di atas bed, potongan tanpa bunyi.
   3. `earshot profile` lalu `critique --profile` mix sendiri.
@@ -189,7 +186,7 @@ Aturannya:
   - Contoh: `projects/pengganti-kita-sendiri/audio-v19/EARSHOT-REFS-2NOV.md`.
 - Penanda kata dipasang otomatis di `AnchorWord`/`SpeakerWords` (`word:<teks>:<frame>`). Klik kata dilebur bila event lain jatuh ≤ 2 f.
 
-## Referensi = prinsip dan studi kasus, bukan aturan tetap (Irfan, 2 Nov 07.03)
+## Referensi = prinsip dan studi kasus, bukan aturan tetap
 - Angka dari video referensi (level SFX +X dB, BGM −Y dB, durasi transisi, ukuran font) dipakai sebagai **simulasi**: apa yang terjadi pada angka itu, dan apa dampaknya ke penonton.
 - Angka referensi tidak disalin menjadi aturan mutlak untuk proyek lain, karena karakteristik suara, tone dan tema berbeda.
 - Keputusan akhir selalu diuji pada materi proyek sendiri.

@@ -1,13 +1,9 @@
 #!/usr/bin/env python3
-"""Audit SEMUA frame sebelum render MP4 (Irfan 15 Nov): tanpa sampling, video dipecah per <=10 dtk, tiap potongan
+"""Audit SEMUA frame sebelum render MP4: tanpa sampling, video dipecah per <=10 dtk, tiap potongan
 diperiksa per detik (30 frame) oleh agen lain (subagen/model lain), mencakup visual, audio/SFX, transisi, dan jarak
 antar-frame.
-
-Irfan: "pengecekannya tidak lagi menggunakan sampling, tapi menggunakan semua data sebelum proses rendering … saat
-penyusunan frame per frame … untuk mengecek visual, audio, transisi, dan jarak frame antar frame … frame per 1 detiknya
-… dilakukan oleh model agent yang berbeda … video itu harus sudah dipecah dulu setiap 1 detik sampai 10 detiknya."
-Gagal yang membentuk alat ini: builder-trap-r2 v3 (patahan di titik potong suara f312/1270/1481/1708/2405, jump cut
-wajah, SFX tidak ada saat konten berjatuhan) lolos karena cek memakai sampel tiap 8–15 frame; Bali Digifest (sama).
+Cek sampel tiap 8–15 frame meloloskan patahan di titik potong suara, jump cut wajah, dan SFX yang hilang; karena itu
+semua frame diperiksa.
 
 Masukan: urutan gambar dari `render.sh <proyek> frames <Comp>` (qc/frames/, skala 0,5), opsional:
   --cuts  file teks/JSON berisi frame potong yang DISENGAJA (batas beat, ganti adegan): lompatan di sana tidak ditandai

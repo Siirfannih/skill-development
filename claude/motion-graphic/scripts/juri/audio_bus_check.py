@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Audio di Remotion hanya lewat satu bus global (Irfan 16 Nov). <Audio> yang ditaruh di dalam <Sequence> adegan ikut
+"""Audio di Remotion hanya lewat satu bus global. <Audio> yang ditaruh di dalam <Sequence> adegan ikut
 berhenti saat adegan selesai, sehingga ekor kata/SFX/musik terpotong di setiap batas adegan (penyebab "audio dari model
 AI sering terpotong" di repo baru, 16 Nov).
 

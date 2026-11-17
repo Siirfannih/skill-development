@@ -1,6 +1,6 @@
 # Gaya: editorial-bold (talking head cepat)
 
-Template gaya untuk reel talking head yang cepat dan tegas: Anton besar, aksen merah, B-roll hitam-putih, split screen, transisi kamera. Diturunkan dari skill `talking-head-reels` kiriman Irfan (11 Nov), yang aturannya lahir dari 68 ronde catatan klien. Detail lengkap dan alat ada di engine-nya: `engines/talking-head-reels/` (`ENGINE.md` + `references/`). File ini hanya ringkasan untuk Sutradara dan tempat menulis perbedaan dengan skill kita. `SKILL.md` Hard Gate tetap menang.
+Template gaya untuk reel talking head yang cepat dan tegas: Anton besar, aksen merah, B-roll hitam-putih, split screen, transisi kamera. Diturunkan dari skill `talking-head-reels` kiriman Irfan. Detail lengkap dan alat ada di engine-nya: `engines/talking-head-reels/` (`ENGINE.md` + `references/`). File ini hanya ringkasan untuk Sutradara dan tempat menulis perbedaan dengan skill kita. `SKILL.md` Hard Gate tetap menang.
 
 Cocok: opini, cerita eksperimen, berita, hook provokatif, konten 45–90 dtk. Tidak cocok: suasana tenang/reflektif (pakai `minimal-premium`).
 

@@ -4,11 +4,11 @@ Mutu yang selalu berlaku ada di `../LANTAI.md`. Gaya tiap video datang dari **sa
 
 Jangan main aman. Ragu antara pilihan hidup vs pilihan aman → ambil yang hidup, lalu cek pakai "cek cepat" di folder terkait. Video yang rapi tapi mati juga gagal.
 
-## Target (dari Irfan, 6 Nov)
+## Target
 
 1. **Rapi, tersusun, hierarki terbaca.** Satu hal utama per momen; mata tahu harus lihat ke mana.
 2. **Audio ikut suasana video.** Video cepat → musik cepat. Video tenang → musik tenang. Bukan selera.
-3. **SFX menandai momen cerita dan gerak yang terlihat**, kosakata dan kepadatan dari kiblat, tanpa bunyi per kata; jeda bicara bersih (aturan 43, Lantai E23–E24, Irfan 13 Nov).
+3. **SFX menandai momen cerita dan gerak yang terlihat**, kosakata dan kepadatan dari kiblat, tanpa bunyi per kata; jeda bicara bersih (aturan 43, Lantai E23–E24).
 4. **Hindari:** warna kebanyakan, teks berantakan/bertumpuk, gerak kaku, cutout kasar, kurang smooth.
 
 ## Masuk folder sesuai urusan (baca yang perlu saja)

@@ -1,4 +1,4 @@
-"""v15: real SFX from ElevenLabs sound generation for the kinds that were code-synthesized (Irfan 17:52).
+"""v15: real SFX from ElevenLabs sound generation for the kinds that were code-synthesized.
 Warm / thock / no ear-fatigue brief baked into every prompt. Writes sfx/el/<kind>_<n>.mp3.  Key from .el_key."""
 import json, os, sys, urllib.request, urllib.error, concurrent.futures as cf
 
@@ -46,7 +46,7 @@ def gen(job):
             return f'{kind}_{i} HTTP {e.code} {e.read()[:200]}'
     return f'{kind}_{i} gave up'
 
-# v17 (Irfan 19:20): comfort first, using his reference keywords. Every prompt asks for a soft, smooth version.
+# v17: comfort first, using his reference keywords. Every prompt asks for a soft, smooth version.
 SOFT = ', soft and smooth, gentle on the ears, no hiss, no harsh highs, no distortion, clean studio recording, single isolated sound, no music'
 LIB.update({
     'v17_pop': ('minimalist bubble pop, round and soft' + SOFT, 0.5, 4),

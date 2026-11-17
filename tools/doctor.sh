@@ -66,6 +66,7 @@ else note "demucs tidak terpasang: dipakai audio/ears.py untuk menilai musik dar
 
 python3 "$REPO/tools/peta.py" --check >/dev/null 2>&1 && ok "PETA.md terbaru" || bad "PETA.md basi (python3 tools/peta.py)"
 python3 "$REPO/tools/sync_lantai.py" --check >/dev/null 2>&1 && ok "lantai di SKILL.md sama dengan LANTAI.md" || bad "LANTAI.md berubah tetapi SKILL.md belum disalin ulang (python3 tools/sync_lantai.py)"
+python3 "$REPO/tools/sumber_cek.py" >/dev/null 2>&1 && ok "file instruksi tanpa tanda sumber" || bad "tanda sumber atau cerita gagal di file instruksi (python3 tools/sumber_cek.py; pindahkan ke SUMBER.md)"
 nf=$(ls "$REPO"/claude/motion-graphic/fonts/*/*.woff2 2>/dev/null | wc -l | tr -d ' ')
 [ "$nf" -ge 200 ] && ok "font repo: $nf file (claude/motion-graphic/fonts)" || bad "folder font repo tidak lengkap ($nf file)"
 [ -d "$HOME/fonts-lokal" ] && ok "font lokal berlisensi ada (~/fonts-lokal)" || note "~/fonts-lokal tidak ada: SF Pro/Helvetica Neue/Satoshi dll. diganti padanan (fonts/README.md §B)"

@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
-"""Gerbang potongan suara (gerbang 6, Lantai E23; Irfan 15 Nov): sebelum suara dikunci, potongan harus bersih dari
+"""Gerbang potongan suara (gerbang 6, Lantai E23): sebelum suara dikunci, potongan harus bersih dari
 kata sampah dan diam saat pembicara berpikir — termasuk diam yang ditelan transkrip ke dalam durasi kata.
 (editorial: skill-dev-journey 16 Nov)
 
-Gagal yang membentuk gerbang ini: builder-trap-r2 v1–v2. Pemotong lama hanya membuang jeda < -45 dB >= 0,30 dtk;
-lantai noise kamar -38 dB sehingga diam tidak terdeteksi, "tuh" x3 lolos ke teks layar, dan 24 kata menyimpan
-diam 0,15–0,45 dtk di dalam rentangnya (Whisper menelan jeda ke durasi kata). Irfan: "harusnya dari cut editornya
-sudah diperiksa supaya intonasi suara, keterbacaan jelas dan tidak ada jeda waktu aku mikir atau diem".
+Yang dijaga: jeda yang tidak terdeteksi karena lantai noise kamar tinggi, kata sampah yang lolos ke teks layar, dan diam
+di dalam rentang kata (Whisper menelan jeda ke durasi kata).
 
 Mengukur suara (stem suara atau suara terkunci) + kata per kata (timeline yang sama):
   - sampah   : kata yang cocok --filler (default: eee/emm/eh/hmm/uh/ah/um/tuh) -> FAIL
@@ -257,7 +255,7 @@ def main():
             found.append(("antar_kal" if end else "diam_kal", round(a0 / 100, 2), f"{p['w']} → {q['w']} {gap:.2f} dtk"))
             # Ekor kata dilindungi: ambang diam (median-18 dB) jatuh sebelum ekor konsonan/napas habis, jadi potongan
             # baru boleh mulai TAIL dtk setelah energi turun dan berakhir PRE dtk sebelum kata berikut naik
-            # (gagal: builder-trap-r2 v5, "kecanduan." & "buat." terpotong; Bali v10f "ngatur kita").
+            #.
             c0, c1 = a0 / 100 + TAIL, b0 / 100 - PRE
             extra = (c1 - c0) - max(0.0, keep - TAIL - PRE)
             if extra > 0.02:

@@ -3,7 +3,7 @@
 Ini lembar TEKNIK: pola di sini boleh dipinjam untuk video apa pun yang menampilkan UI, angka, atau alur kerja produk.
 Warna, font, tekstur, dan tempo selalu dari kartu kiblat proyek (pengikat). Timing dari audio/storyboard proyek. LANTAI tetap berlaku.
 
-Asal: skill `launch-motion` + blog "How to Make SaaS Launch Videos With Claude" (@sanjii, Higgsfield, Okt 2026); dibedah 16 Nov atas permintaan Irfan ("animation yang dia buat beneran bagus … ambil bagian yang bagus"). Skill itu tidak butuh Higgsfield: 4 file markdown + Remotion. Status: kandidat, dilihat dari blog dan skill, belum diuji pada video kita. Videonya **tanpa suara** (Irfan 16 Nov): tidak ada SFX untuk ditiru; audio tetap mengikuti aturan kita (`references/audio.md`).
+Asal: skill `launch-motion` + blog "How to Make SaaS Launch Videos With Claude" (@sanjii, Higgsfield, Okt 2026). Skill itu tidak butuh Higgsfield: 4 file markdown + Remotion. Status: kandidat, dilihat dari blog dan skill, belum diuji pada video kita. Videonya **tanpa suara**: tidak ada SFX untuk ditiru; audio tetap mengikuti aturan kita (`references/audio.md`).
 
 ## 1. Kenapa hasilnya bagus: Fix dipisah dari Polish
 Render pertama mereka jelek (font jatuh ke Times New Roman, teks bertumpuk, counter lompat 0→200 dalam 1 frame, kartu menumpuk, pan terlalu cepat). Mutu datang dari dua putaran yang jenisnya berbeda:
@@ -53,7 +53,7 @@ Angka, copy, dan warna di satu file config. "Counter jadi 999" = ubah satu nilai
 - Elemen kunci di dalam kotak tengah 1080×1080, judul 5 % dari tepi, posisi dari tengah kanvas → versi 9:16 dan 1:1 hampir gratis.
 
 ## 4. Audio
-Tidak ada yang dipinjam: video sumbernya bisu (Irfan 16 Nov). Bila pola gerak di atas dipakai, bunyinya dirancang dengan aturan kita sendiri (1 SFX untuk 1 objek/visual, musik per babak).
+Tidak ada yang dipinjam: video sumbernya bisu. Bila pola gerak di atas dipakai, bunyinya dirancang dengan aturan kita sendiri (1 SFX untuk 1 objek/visual, musik per babak).
 
 ## 5. Jangan dipinjam
 - Struktur 5 babak sebagai template untuk video yang bukan peluncuran produk.

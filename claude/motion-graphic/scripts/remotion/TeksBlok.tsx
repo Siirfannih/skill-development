@@ -1,4 +1,4 @@
-// TeksBlok.tsx — satu blok teks KT sebagai lapisan lego ber-alpha (Lantai A9a, F26; Irfan 16 Nov).
+// TeksBlok.tsx — satu blok teks KT sebagai lapisan lego ber-alpha (Lantai A9a, F26).
 // Dirender oleh scripts/lego/lapisan.py: latar transparan, ukuran = kotak blok, waktu & posisi diatur lego.json.
 // Gerak dipilih dari teks.json (`kode`), BUKAN fade bawaan. Kode yang belum ada di sini melempar error supaya builder
 // menambah implementasinya (dengan curves.ts), bukan diam-diam jatuh ke fade.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tulis PETA.md: peta repo supaya model membuka hanya file yang dibutuhkan (Irfan 16 Nov).
+"""Tulis PETA.md: peta repo supaya model membuka hanya file yang dibutuhkan.
 
 Bagian atas (RUTE) ditulis tangan di sini: pekerjaan → file yang dibuka, berurutan. Bagian bawah dibuat otomatis dari
 isi file: judul + kalimat pertama tiap referensi/guide, baris pertama docstring/komentar tiap skrip, dan `description`
@@ -34,7 +34,7 @@ RUTE = f"""## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo 
 | Orkestrasi subagen / model lain | `{MG}/references/orkestrasi.md`, `{MG}/templates/handoff-fase.md` | — |
 | Tulisan konten (caption, hook, carousel) | `claude/script-workshop/SKILL.md` | skill video |
 | Proyek dengan PRD/QUEUE | `claude/autopilot-prd/SKILL.md` | — |
-| Mengubah skill | `AGENTS.md` §Akhir sesi, `EVALS-DESIGN.md`, `{MG}/pustaka/README.md` §Tumbuh, lalu `python3 tools/peta.py` | — |
+| Mengubah skill | `AGENTS.md` §Akhir sesi, `EVALS-DESIGN.md`, `{MG}/pustaka/README.md` §Tumbuh; asal-usul aturan ke `SUMBER.md` skill itu; lalu `python3 tools/sumber_cek.py` dan `python3 tools/peta.py` | menulis nama, tanggal, atau cerita gagal di file instruksi |
 """
 
 
@@ -77,6 +77,11 @@ def script_desc(path):
         if s.startswith(("//", "#")) and not s.startswith("#!") and len(s) > 4:
             return s.lstrip("/# ").strip()[:200]
     return ""
+
+
+def bersih(s):
+    """Buang tanda sumber dari judul file proyek supaya PETA tetap berisi instruksi saja."""
+    return re.sub(r"\s*\([^()]*Irfan[^()]*\d[^()]*\)", "", s)
 
 
 def rel(p):
@@ -139,11 +144,12 @@ def build():
         st = os.path.join(ROOT, "projects", d, "STATUS.md")
         dec = os.path.join(ROOT, "projects", d, "DECISIONS.md")
         src = st if os.path.exists(st) else dec if os.path.exists(dec) else None
-        rows.append((f"projects/{d}/", (first_sentence(open(src, encoding="utf-8").read())[0] if src else "")
+        rows.append((f"projects/{d}/", (bersih(first_sentence(open(src, encoding="utf-8").read())[0]) if src else "")
                      + (" · mulai dari STATUS.md" if os.path.exists(st) else "")))
     parts += ["## projects/ (keputusan per video; hanya untuk proyek itu)", "", table(rows, ("Proyek", "Isi")), ""]
     top = [("INDEX.md", "katalog skill dan folder"), ("AGENTS.md", "aturan awal/akhir sesi untuk semua model"),
            ("PENDING.md", "pelajaran yang belum disetujui; bukan aturan"), ("EVALS-DESIGN.md", "cara menguji perubahan skill"),
+           ("SUMBER.md, claude/<skill>/SUMBER.md", "asal-usul aturan; bukan instruksi, jangan dibuka saat mengerjakan tugas"),
            ("experimental/", "alur sampingan yang belum terbukti; bukan aturan"), ("archive/", "skill lama; jangan dimuat")]
     parts += ["## Lain-lain", "", table(top), ""]
     return "\n".join(parts).rstrip() + "\n"

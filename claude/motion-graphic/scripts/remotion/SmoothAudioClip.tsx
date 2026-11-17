@@ -1,4 +1,4 @@
-// SmoothAudioClip.tsx — audio motion-graphic §14.7 (Modul 2, audit 31 Okt 2026).
+// SmoothAudioClip.tsx — audio motion-graphic §14.7 (Modul 2).
 // Wajib untuk klip narasumber/VO/SFX panjang bila audio ditaruh di Remotion (bukan pre-mix):
 // pre-roll (J-cut) + post-roll (L-cut) + envelope fade, sehingga <Sequence> tidak memenggal ekor/room tone.
 import React from "react";

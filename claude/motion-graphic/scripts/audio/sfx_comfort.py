@@ -1,4 +1,4 @@
-"""v17 (Irfan 19:20: some SFX feel rough/kasar). Comfort scorecard for SFX files:
+"""Comfort scorecard for SFX files:
   hiss   = share of energy above 6 kHz (desis)
   bite   = share in 2–6 kHz (where harshness lives)
   rough  = envelope modulation 30–150 Hz relative to the mean envelope (grit / scratchiness, sensory roughness)

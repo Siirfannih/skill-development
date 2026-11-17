@@ -1,6 +1,6 @@
 # Panduan keputusan: teks, visual, kotak, warna (logika, bukan contoh)
 
-Dibaca di gerbang storyboard (4) dan QA (9). Setiap keputusan per beat diambil dengan urutan di bawah, lalu dicatat di tabel beat dengan kolom **mode · alasan · cek**. Untuk keputusan teks dan visual, file ini menang atas `three-segment-gate.md` dan `typography.md` bila bertentangan; gerbang DENGAR (audio) di `three-segment-gate.md` tetap wajib dan tidak dikalahkan file ini, dan atas `canvas-skill-library` yang hanya data referensi (Irfan 6 Nov).
+Dibaca di gerbang storyboard (4) dan QA (9). Setiap keputusan per beat diambil dengan urutan di bawah, lalu dicatat di tabel beat dengan kolom **mode · alasan · cek**. Untuk keputusan teks dan visual, file ini menang atas `three-segment-gate.md` dan `typography.md` bila bertentangan; gerbang DENGAR (audio) di `three-segment-gate.md` tetap wajib dan tidak dikalahkan file ini, dan atas `canvas-skill-library` yang hanya data referensi.
 
 Prinsip dasarnya: penonton HP hanya menangkap **satu hal per momen**. Semua aturan di bawah adalah cara memilih hal itu.
 
@@ -21,13 +21,13 @@ Tentukan dulu jenis kalimat VO-nya, baru modenya.
 
 **Teks dan visual tidak mengatakan hal yang sama.** Bila gambar sudah jelas (ponsel grayscale), kata "GRAY" dihapus. Bila gambar lemah atau abstrak, teks yang menang dan gambarnya mundur.
 
-**Teks muncul satu per satu mengikuti VO**, bukan sekaligus. Elemen boleh menumpuk menjadi komposisi asal yang baru masuk selalu menjadi fokus (Irfan 6 Nov: arti "1 teks + 1 subjek").
+**Teks muncul satu per satu mengikuti VO**, bukan sekaligus. Elemen boleh menumpuk menjadi komposisi asal yang baru masuk selalu menjadi fokus.
 
 ### Caption: diputuskan per video, bukan per beat
 - **Nyala** bila: video ditonton di feed tanpa suara, formatnya wawancara/pembicara, atau penonton bukan penutur bahasa VO.
 - **Mati** bila: VO narator dan setiap beat sudah punya visual, penekanan, atau teks diegetik.
 - Bila nyala:
-  - **≤ 2 baris**: boleh 4 kata atau lebih per tampil asal tidak lebih dari 2 baris sekaligus, tidak ada kata yatim, tidak terpotong tepi; klausa yang lebih panjang dipecah jadi caption berurutan (aturan 44, Irfan 9 Nov, Behindwork);
+  - **≤ 2 baris**: boleh 4 kata atau lebih per tampil asal tidak lebih dari 2 baris sekaligus, tidak ada kata yatim, tidak terpotong tepi; klausa yang lebih panjang dipecah jadi caption berurutan (aturan 44);
   - per klausa 2–5 kata, tidak per kata dan tidak memotong kata;
   - posisinya tetap selama satu shot, boleh pindah antar shot ke area tenang;
   - menghilang saat beat visual atau penekanan;
@@ -35,9 +35,9 @@ Tentukan dulu jenis kalimat VO-nya, baru modenya.
 - Alasan: caption yang bobotnya sama dengan grafik membuat keduanya berebut, dan teks terbaca sebagai subtitle.
 
 ## 2. Ukuran dan hierarki teks
-- **Satu baris = satu ukuran.** Kata yang dibesarkan pindah ke barisnya sendiri (ditumpuk), maksimal satu kata kunci per frasa, dan harus kata yang membawa makna inti. Alasan: besar-kecil-besar dalam satu baris tanpa alasan membuat baris tidak seimbang (Irfan 6 Nov, "Aku mau makan").
+- **Satu baris = satu ukuran.** Kata yang dibesarkan pindah ke barisnya sendiri (ditumpuk), maksimal satu kata kunci per frasa, dan harus kata yang membawa makna inti. Alasan: besar-kecil-besar dalam satu baris tanpa alasan membuat baris tidak seimbang.
 - Lompatan skala antar level (sambung kecil → kunci besar) terjadi **antar baris atau antar momen**, tidak di dalam baris.
-- **Serif tidak sejajar dengan bold.** Dalam satu frasa, serif tidak boleh seukuran dan sebobot kata bold. Serif boleh sebagai penekanan (satu kata, kontras jelas) atau penutup; serif italic kecil juga boleh untuk kata sambung bila kata kuncinya sans bold. Alasan: dua gaya yang sama kuat membuat mata bingung mana yang utama (Irfan 6 Nov).
+- **Serif tidak sejajar dengan bold.** Dalam satu frasa, serif tidak boleh seukuran dan sebobot kata bold. Serif boleh sebagai penekanan (satu kata, kontras jelas) atau penutup; serif italic kecil juga boleh untuk kata sambung bila kata kuncinya sans bold. Alasan: dua gaya yang sama kuat membuat mata bingung mana yang utama.
 
 ## 3. Posisi teks
 - Posisi lahir dari komposisi frame itu: ruang kosong, di belakang subjek (matte), atau menempel objek yang dirujuk.
@@ -45,13 +45,13 @@ Tentukan dulu jenis kalimat VO-nya, baru modenya.
 - Teks tidak menutupi wajah atau objek yang sedang dibicarakan.
 
 ## 4. Kotak, scrim, dan glow
-Kotak di belakang teks adalah **alat keterbacaan**, bukan dekorasi (Irfan 6 Nov).
+Kotak di belakang teks adalah **alat keterbacaan**, bukan dekorasi.
 1. Ukur kontras teks terhadap latar di area teks **selama teks tampil**. Bila ≥ 4,5 : 1 dan latarnya stabil, tanpa kotak.
 2. Bila gagal: pindahkan teks ke area tenang, ganti warna teks, atau beri bayangan lembut.
 3. Bila masih gagal (latar terlalu terang/gelap/ramai, atau berganti cut di bawah teks): baru pakai kotak atau scrim.
 4. Kotak sebagai **gaya** (label, chip) hanya bila ditetapkan di brief sebagai elemen sistem dan dipakai konsisten sepanjang video.
 
-Glow boleh. Syaratnya HD: dibuat di compositing (AE, CSS, shader resolusi penuh), bukan bloom three.js yang hasilnya banding/8-bit. Warna glow mengikuti hue aksen. Cek still 100 % (Irfan 6 Nov).
+Glow boleh. Syaratnya HD: dibuat di compositing (AE, CSS, shader resolusi penuh), bukan bloom three.js yang hasilnya banding/8-bit. Warna glow mengikuti hue aksen. Cek still 100 %.
 
 ## 5. Grafik di atas footage
 Pilih satu dari dua, jangan di tengah-tengah:

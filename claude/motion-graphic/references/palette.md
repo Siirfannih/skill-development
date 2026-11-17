@@ -1,6 +1,6 @@
 # Palet: cara memilih dan memakai warna
 
-Dibaca di gerbang brief (1) saat mengunci palet, dan di QA (9). Data hex ada di `palettes.json` (10 palet, diukur dari referensi yang Irfan setujui + token Jadisatu, 6 Nov).
+Dibaca di gerbang brief (1) saat mengunci palet, dan di QA (9). Data hex ada di `palettes.json` (10 palet, diukur dari referensi yang Irfan setujui + token Jadisatu).
 
 ## Logika
 
@@ -30,5 +30,5 @@ Dibaca di gerbang brief (1) saat mengunci palet, dan di QA (9). Data hex ada di 
 | putih-lavender | iklan produk ringan dan ramah |
 | biru-gradasi-terang | finansial/produk bersih dan terang |
 | hitam-navy | finansial premium, malam |
-| (semua palet) | Putih sebagai latar utama; gradient biru atau hitam hanya di momen tertentu dan **linear**, tidak pernah radial/blob blur; tanpa vignette gelap di latar terang; tanpa coklat + hitam (Irfan 11 Nov, builder-trap) |
+| (semua palet) | Putih sebagai latar utama; gradient biru atau hitam hanya di momen tertentu dan **linear**, tidak pernah radial/blob blur; tanpa vignette gelap di latar terang; tanpa coklat + hitam |
 | monokrom | minimal, puitis; penekanan lewat cahaya, bukan warna |

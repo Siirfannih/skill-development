@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
-"""Gerbang level suara asli (Lantai E23; Irfan 16 Nov): suara asli (narasumber, rekaman sendiri, VO) tidak pernah
+"""Gerbang level suara asli (Lantai E23): suara asli (narasumber, rekaman sendiri, VO) tidak pernah
 diturunkan, di-loudness-kan, atau di-limit. Yang boleh: peredam noise, lalu gain NAIK yang bersih sampai sekitar
 -16 LUFS bila sumbernya terlalu pelan atau kalah dari musik/SFX. Musik dan SFX yang menyesuaikan ke suara.
 
-Gagal yang membentuk gerbang ini:
-  - sesi lain: loudness global/limiter mix untuk mengejar -14 LUFS -> suara turun ±-17 dB dan "mendem";
-  - jensen-pain-suffering v1-v2: limiter master memipihkan hentakan pembicara; v3: gain 0 dB -> -22,8 LUFS, terlalu pelan.
+Yang dijaga: loudness global/limiter yang menurunkan suara sampai "mendem", limiter master yang memipihkan hentakan
+pembicara, dan gain 0 dB pada sumber yang terlalu pelan.
 
 Mengukur stem suara sumber (sebelum proses) vs stem suara sesudah proses (yang masuk mix, tanpa musik/SFX):
   - turun   : loudness hasil < sumber - 0,5 dB                       -> FAIL (suara diturunkan)

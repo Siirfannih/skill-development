@@ -5,7 +5,7 @@ description: "Pengaturan VO narator Inggris Jadisatu yang sudah disetujui Irfan 
 
 # VO Narator Jadisatu (Inggris) — pengaturan yang disetujui
 
-Disetujui Irfan pada 17 Okt 2026 untuk video launching Jadisatu. Berlaku untuk semua konten marketing/promo Jadisatu berbahasa Inggris. Konten engagement berbahasa Indonesia memakai suara lain (kandidat: Zeplyn `3mAVBNEqop5UbHtD8oxQ`).
+Berlaku untuk semua konten marketing/promo Jadisatu berbahasa Inggris. Konten engagement berbahasa Indonesia memakai suara lain (kandidat: Zeplyn `3mAVBNEqop5UbHtD8oxQ`).
 
 ## Suara
 - **Nama:** Jadisatu Narrator (draft V3) — hasil Voice Design ElevenLabs, tersimpan di akun Irfan.

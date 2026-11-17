@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Telinga gabungan: earshot = skor pertama, lalu dicek ukuran independen (audio.md §14.0B, Irfan 8 Nov).
+"""Telinga gabungan: earshot = skor pertama, lalu dicek ukuran independen (audio.md §14.0B).
 
 Langkah:
   1. Audio diambil dari file (audio atau video).

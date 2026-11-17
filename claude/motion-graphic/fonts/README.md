@@ -36,8 +36,8 @@ File: woff2 subset latin dari paket `@fontsource/*`. `fonts.css` dibuat otomatis
 ## B. Hanya di PC server: `~/fonts-lokal/` (lisensi tidak mengizinkan dibagikan di repo publik)
 | Font | Sumber | Bila tidak ada, pakai |
 |---|---|---|
-| SF Pro Display | file dari Irfan (12 Nov) | Inter |
-| Helvetica Neue | file dari Irfan (12 Nov) | Inter (tracking −1 sampai −2 %) |
+| SF Pro Display | file dari Irfan | Inter |
+| Helvetica Neue | file dari Irfan | Inter (tracking −1 sampai −2 %) |
 | Satoshi, General Sans, Clash Display | Fontshare (gratis, unduh resmi) | Manrope / DM Sans; Clash → Bricolage Grotesque 700–800 |
 | Gilroy | belum ada file berlisensi | Montserrat 700–800 atau Archivo Black |
 | Druk (Condensed/Wide) | belum ada | Anton (condensed); Archivo Black (lebar) |
@@ -47,7 +47,7 @@ File: woff2 subset latin dari paket `@fontsource/*`. `fonts.css` dibuat otomatis
 Kartu tetap menyebut font aslinya; resep menulis font yang benar-benar dipakai.
 
 ## C. Kapan dipakai: peran huruf yang muncul di kartu
-Ini rangkuman dari 78 kartu (Irfan minta 12 Nov), bukan aturan baru: kiblat tetap menang. Angka dalam kurung = nomor kartu tempat peran itu terlihat.
+Ini rangkuman dari 78 kartu, bukan aturan baru: kiblat tetap menang. Angka dalam kurung = nomor kartu tempat peran itu terlihat.
 
 | Peran | Watak | Font | Terlihat di | Dipakai saat |
 |---|---|---|---|---|

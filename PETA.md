@@ -23,7 +23,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | Orkestrasi subagen / model lain | `claude/motion-graphic/references/orkestrasi.md`, `claude/motion-graphic/templates/handoff-fase.md` | — |
 | Tulisan konten (caption, hook, carousel) | `claude/script-workshop/SKILL.md` | skill video |
 | Proyek dengan PRD/QUEUE | `claude/autopilot-prd/SKILL.md` | — |
-| Mengubah skill | `AGENTS.md` §Akhir sesi, `EVALS-DESIGN.md`, `claude/motion-graphic/pustaka/README.md` §Tumbuh, lalu `python3 tools/peta.py` | — |
+| Mengubah skill | `AGENTS.md` §Akhir sesi, `EVALS-DESIGN.md`, `claude/motion-graphic/pustaka/README.md` §Tumbuh; asal-usul aturan ke `SUMBER.md` skill itu; lalu `python3 tools/sumber_cek.py` dan `python3 tools/peta.py` | menulis nama, tanggal, atau cerita gagal di file instruksi |
 
 ## Skill aktif (`claude/`)
 
@@ -61,7 +61,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/decision.md` | **Decision — memilih, memutuskan, dan kapan bertanya** — Baca saat harus memilih di antara beberapa pilihan (family, gaya teks, teknik, transisi), saat dua aturan terasa bertabrakan, atau saat ragu apakah perlu bertanya ke Irfan. |
 | `claude/motion-graphic/references/delivery-gate.md` | **Delivery Gate (wajib sebelum video ditunjukkan ke Irfan)** — Laporan PASS/FAIL ini dikirim bersama video. |
 | `claude/motion-graphic/references/direction.md` | **Direction — prinsip sutradara, family visual, elemen, warna** — Baca saat menentukan apa yang terjadi di setiap beat: tokoh, subjek, metafora, family visual, palet. |
-| `claude/motion-graphic/references/hybrid-motion-standard.md` | **Standar Hybrid Motion (barrier minimum, bukan nilai absolut)** — Diekstrak Irfan (1 Nov 2026) dari video referensi yang selama ini jadi acuan (GrokAgent/reference-videos/). |
+| `claude/motion-graphic/references/hybrid-motion-standard.md` | **Standar Hybrid Motion (barrier minimum, bukan nilai absolut)** — Diekstrak dari video referensi acuan (GrokAgent/reference-videos/). |
 | `claude/motion-graphic/references/motion-mechanics.md` | **Mekanik gerak: kamera, transisi, cutout (logika dan cara kerja)** — Dibaca saat memilih gerak kamera atau transisi, bersama camera-transition.md. |
 | `claude/motion-graphic/references/orkestrasi.md` | **Orkestrasi: kamu memimpin, model lain yang mengulang** — Baca file ini sampai habis sebelum mengerjakan build, render, atau QC video. |
 | `claude/motion-graphic/references/pacing-map.md` | **Peta nada → gerak (dari transkrip + audio)** — Dibaca di gerbang storyboard (4), sebelum motion-mechanics.md. |
@@ -71,7 +71,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/slop-catalog.md` | **Katalog slop (tanda yang pernah Irfan tolak)** — Dipakai untuk memindai, bukan melarang teknik. |
 | `claude/motion-graphic/references/smooth-motion.md` | **Smooth motion — resep motion blur, teks, dan kamera yang terbukti** — Baca saat membangun animasi teks, mengatur motion blur, atau saat Irfan bilang gerak "kurang smooth", "patah-patah", atau "kamera berantakan". |
 | `claude/motion-graphic/references/storyboard.md` | **Storyboard visual: dari script atau daftar potongan ke papan panel** — Baca di gerbang 4–5. Storyboard adalah gerbang review termurah: satu panel diperbaiki dalam menit, satu render dalam jam. |
-| `claude/motion-graphic/references/three-segment-gate.md` | **Gerbang 3 Segmen (Irfan, 2 Nov 2026 06.48)** — Claude tidak melihat video saat menulis kode. |
+| `claude/motion-graphic/references/three-segment-gate.md` | **Gerbang 3 Segmen** — Claude tidak melihat video saat menulis kode. |
 | `claude/motion-graphic/references/typography.md` | **Typography & kinetic text** — Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. |
 
 ## motion-graphic · guide (rasa per urusan)
@@ -116,50 +116,50 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/baseline_lock.py` | Kunci adegan yang sudah disetujui Irfan sebagai frame baseline, lalu gagalkan render yang mengubahnya. |
 | `claude/motion-graphic/scripts/bedah-kamera.py` | Bedah gerak kamera dari video jadi: transform kemiripan antar-frame (ORB + RANSAC) → zoom, geser, putar per frame. |
 | `claude/motion-graphic/scripts/palette_check.py` | QC palet: hitung keluarga warna aksen di sebuah render. Gagal bila keluarga > 2, atau keluarga terbesar < 70 % piksel vivid (tidak ada warna dominan). |
-| `claude/motion-graphic/scripts/audio/audio_phone.py` | v16 audio QA (Irfan 18:52): does every SFX survive a phone speaker at 20 / 50 / 100 % volume, is the VO always clear, and is any SFX harsh (2–6 kHz)? Uses render/mix.wav + stems + render/cues.json. |
-| `claude/motion-graphic/scripts/audio/ears.py` | Telinga gabungan: earshot = skor pertama, lalu dicek ukuran independen (audio.md §14.0B, Irfan 8 Nov). |
+| `claude/motion-graphic/scripts/audio/audio_phone.py` | v16 audio QA: does every SFX survive a phone speaker at 20 / 50 / 100 % volume, is the VO always clear, and is any SFX harsh (2–6 kHz)? Uses render/mix.wav + stems + render/cues.json. |
+| `claude/motion-graphic/scripts/audio/ears.py` | Telinga gabungan: earshot = skor pertama, lalu dicek ukuran independen (audio.md §14.0B). |
 | `claude/motion-graphic/scripts/audio/el_music.py` | v15 score: one continuous ElevenLabs Music composition whose sections are timed to the VO acts (vo.json). Usage: python3 tools/el_music.py <out.mp3> [plan.json] — key read from .el_key (never printed) |
-| `claude/motion-graphic/scripts/audio/el_sfx.py` | v15: real SFX from ElevenLabs sound generation for the kinds that were code-synthesized (Irfan 17:52). Warm / thock / no ear-fatigue brief baked into every prompt. Writes sfx/el/<kind>_<n>.mp3. Key fr |
+| `claude/motion-graphic/scripts/audio/el_sfx.py` | v15: real SFX from ElevenLabs sound generation for the kinds that were code-synthesized. Warm / thock / no ear-fatigue brief baked into every prompt. Writes sfx/el/<kind>_<n>.mp3. Key from .el_key. |
 | `claude/motion-graphic/scripts/audio/env.py` |  |
 | `claude/motion-graphic/scripts/audio/music_check.py` | Check a generated score against the act plan: duration, loudness per section, energy jump at boundaries. |
 | `claude/motion-graphic/scripts/audio/music_fit.py` | Seleksi musik terukur: kandidat diukur dan diberi peringkat terhadap kategori suasana + suara video. |
 | `claude/motion-graphic/scripts/audio/pace_read.py` | Baca tempo video lalu usulkan kategori suasana untuk audio (aturan 45). |
-| `claude/motion-graphic/scripts/audio/recut.py` | Terapkan rentang buang ke suara + video wajah (sinkron bibir) dan buat peta waktu lama -> baru (Irfan 15 Nov). |
-| `claude/motion-graphic/scripts/audio/sfx_comfort.py` | v17 (Irfan 19:20: some SFX feel rough/kasar). Comfort scorecard for SFX files: hiss = share of energy above 6 kHz (desis) bite = share in 2–6 kHz (where harshness lives) rough = envelope modulation 30 |
+| `claude/motion-graphic/scripts/audio/recut.py` | Terapkan rentang buang ke suara + video wajah (sinkron bibir) dan buat peta waktu lama -> baru. |
+| `claude/motion-graphic/scripts/audio/sfx_comfort.py` | Comfort scorecard for SFX files: hiss = share of energy above 6 kHz (desis) bite = share in 2–6 kHz (where harshness lives) rough = envelope modulation 30–150 Hz relative to the mean envelope (grit /  |
 | `claude/motion-graphic/scripts/audio/sfx_profile.py` | Profil SFX referensi: dari stem no_vocals (demucs) cari transien, ukur level relatif VO, durasi, pita, kelas kasar. Pakai: python3 sfx_profile.py <nama> [<nama> ...] (membaca sep/htdemucs/<nama>/{voca |
-| `claude/motion-graphic/scripts/audio/sync_cues.py` | v18 (Irfan 19:33): SFX must land WITH the object — not before it appears, not after — and not pile up. For every cue in render/cues.json, look at the picture around it (cells of an 8×6 grid, so a smal |
-| `claude/motion-graphic/scripts/audio/tighten.py` | v14 finishing: shorten the video by tightening the VO — never by cutting speech. 1. tempo: TEMPO is locked at 1.0; the VO is never sped up (Irfan 6 Nov). Only pauses are tightened. 2. pauses: every qu |
-| `claude/motion-graphic/scripts/audio/visual_coverage.py` | v16 (Irfan: every object, visual and text gets its own sound, no exceptions). Finds visual events in the rendered picture (frame-difference onsets: something appears, moves off, cuts, lands) and check |
+| `claude/motion-graphic/scripts/audio/sync_cues.py` | v18: SFX must land WITH the object — not before it appears, not after — and not pile up. For every cue in render/cues.json, look at the picture around it (cells of an 8×6 grid, so a small label counts |
+| `claude/motion-graphic/scripts/audio/tighten.py` | v14 finishing: shorten the video by tightening the VO — never by cutting speech. 1. tempo: TEMPO is locked at 1.0; the VO is never sped up. Only pauses are tightened. 2. pauses: every quiet run inside |
+| `claude/motion-graphic/scripts/audio/visual_coverage.py` | v16 (every object, visual and text gets its own sound, no exceptions). Finds visual events in the rendered picture (frame-difference onsets: something appears, moves off, cuts, lands) and checks that  |
 | `claude/motion-graphic/scripts/audio/vo_echo.py` | Cek gema VO (audio.md §14.10): energi ekor 40-150 ms setelah akhir kata, relatif ke level kata. |
 | `claude/motion-graphic/scripts/audio/vo_gaps.py` | List every silent run in the assembled VO (from vo.json chunk starts + trim wavs). usage: vo_gaps.py vo.json vodir |
-| `claude/motion-graphic/scripts/gate/audio_order.py` | Gerbang urutan sound design: tiap lapisan audio dikunci berurutan ke lapisan sebelumnya (Irfan 8 Nov). |
-| `claude/motion-graphic/scripts/gate/caption_lines.py` | Hitung jumlah baris caption di render. Gagal bila ada caption > 2 baris (aturan 44, Irfan 9 Nov) atau terpotong di tepi. |
-| `claude/motion-graphic/scripts/gate/cut_check.py` | Gerbang potongan suara (gerbang 6, Lantai E23; Irfan 15 Nov): sebelum suara dikunci, potongan harus bersih dari kata sampah dan diam saat pembicara berpikir — termasuk diam yang ditelan transkrip ke d |
-| `claude/motion-graphic/scripts/gate/music_batch.py` | Gerbang: satu track musik tidak boleh dipakai untuk semua klip/babak dalam satu batch (Irfan 8 Nov). Gagal pertama: V5 8 Nov, tiga klip podcast memakai Mixkit #22 "Piano Reflections" yang sama. |
-| `claude/motion-graphic/scripts/gate/pause_clean.py` | Gerbang jeda bersih (Lantai E23, Irfan 13 Nov): saat pembicara berhenti/berpikir, stem suara tidak membawa dengung kamar, piring, klik, atau room tone kotor yang ikut dikeraskan. |
-| `claude/motion-graphic/scripts/gate/sfx_density.py` | Gerbang aturan 43 (Irfan 13 Nov): SFX menandai momen cerita dan gerak yang terlihat, kepadatan dari kiblat, tanpa bunyi per kata dan tanpa spam. Hening yang disengaja boleh. |
+| `claude/motion-graphic/scripts/gate/audio_order.py` | Gerbang urutan sound design: tiap lapisan audio dikunci berurutan ke lapisan sebelumnya. |
+| `claude/motion-graphic/scripts/gate/caption_lines.py` | Hitung jumlah baris caption di render. Gagal bila ada caption > 2 baris (aturan 44) atau terpotong di tepi. |
+| `claude/motion-graphic/scripts/gate/cut_check.py` | Gerbang potongan suara (gerbang 6, Lantai E23): sebelum suara dikunci, potongan harus bersih dari kata sampah dan diam saat pembicara berpikir — termasuk diam yang ditelan transkrip ke dalam durasi ka |
+| `claude/motion-graphic/scripts/gate/music_batch.py` | Gerbang: satu track musik tidak boleh dipakai untuk semua klip/babak dalam satu batch. |
+| `claude/motion-graphic/scripts/gate/pause_clean.py` | Gerbang jeda bersih (Lantai E23): saat pembicara berhenti/berpikir, stem suara tidak membawa dengung kamar, piring, klik, atau room tone kotor yang ikut dikeraskan. |
+| `claude/motion-graphic/scripts/gate/sfx_density.py` | Gerbang aturan 43: SFX menandai momen cerita dan gerak yang terlihat, kepadatan dari kiblat, tanpa bunyi per kata dan tanpa spam. Hening yang disengaja boleh. |
 | `claude/motion-graphic/scripts/gate/voice_fidelity.py` | Gerbang suara asli pembicara (format klip podcast/wawancara). |
-| `claude/motion-graphic/scripts/gate/voice_level.py` | Gerbang level suara asli (Lantai E23; Irfan 16 Nov): suara asli (narasumber, rekaman sendiri, VO) tidak pernah diturunkan, di-loudness-kan, atau di-limit. Yang boleh: peredam noise, lalu gain NAIK yan |
-| `claude/motion-graphic/scripts/juri/audio_bus_check.py` | Audio di Remotion hanya lewat satu bus global (Irfan 16 Nov). <Audio> yang ditaruh di dalam <Sequence> adegan ikut berhenti saat adegan selesai, sehingga ekor kata/SFX/musik terpotong di setiap batas  |
-| `claude/motion-graphic/scripts/juri/balance_check.py` | Juri keseimbangan visual per frame (Lantai C17, Irfan 15 Nov). Dijalankan pada still SEBELUM render penuh. |
-| `claude/motion-graphic/scripts/juri/frame_audit.py` | Audit SEMUA frame sebelum render MP4 (Irfan 15 Nov): tanpa sampling, video dipecah per <=10 dtk, tiap potongan diperiksa per detik (30 frame) oleh agen lain (subagen/model lain), mencakup visual, audi |
-| `claude/motion-graphic/scripts/juri/motion_lint.py` | Gerak dirancang per gerak, bukan preset (Lantai B13a; Irfan 16 Nov; diadaptasi dari motion-kit, MIT). |
+| `claude/motion-graphic/scripts/gate/voice_level.py` | Gerbang level suara asli (Lantai E23): suara asli (narasumber, rekaman sendiri, VO) tidak pernah diturunkan, di-loudness-kan, atau di-limit. Yang boleh: peredam noise, lalu gain NAIK yang bersih sampa |
+| `claude/motion-graphic/scripts/juri/audio_bus_check.py` | Audio di Remotion hanya lewat satu bus global. <Audio> yang ditaruh di dalam <Sequence> adegan ikut berhenti saat adegan selesai, sehingga ekor kata/SFX/musik terpotong di setiap batas adegan (penyeba |
+| `claude/motion-graphic/scripts/juri/balance_check.py` | Juri keseimbangan visual per frame (Lantai C17). Dijalankan pada still SEBELUM render penuh. |
+| `claude/motion-graphic/scripts/juri/frame_audit.py` | Audit SEMUA frame sebelum render MP4: tanpa sampling, video dipecah per <=10 dtk, tiap potongan diperiksa per detik (30 frame) oleh agen lain (subagen/model lain), mencakup visual, audio/SFX, transisi |
+| `claude/motion-graphic/scripts/juri/motion_lint.py` | Gerak dirancang per gerak, bukan preset (Lantai B13a; diadaptasi dari motion-kit, MIT). |
 | `claude/motion-graphic/scripts/juri/render.sh` | Satu pintu render Remotion: still dulu, draft kecil, render penuh paling akhir (LANTAI F26). |
 | `claude/motion-graphic/scripts/juri/resep_check.py` | Cek RESEP.md sebelum build: 8 bagian terisi, tiga pengikat dari SATU sumber, kartu kiblat ada. |
 | `claude/motion-graphic/scripts/juri/revisi_cek.py` | Gerbang revisi video lego: lapisan yang berubah sejak versi yang disetujui harus tercakup ledger (Lantai F27, revision-log §21.2). |
 | `claude/motion-graphic/scripts/juri/sandingkan.py` | Lembar sanding: still kita di kiri, frame kiblat di kanan, supaya selisihnya terlihat sebelum render penuh. |
 | `claude/motion-graphic/scripts/juri/teks_cek.py` | Cek teks di still per beat (LANTAI A1-A4, A7): bukan subtitle film, tidak ganda, tidak menyentuh tepi. |
-| `claude/motion-graphic/scripts/lego/compose.py` | Rakit video seperti lego (Irfan 16 Nov): footage dasar + lapisan (teks/KT, visual, overlay) yang sudah dirender TERPISAH dan disimpan di cache digabung SEKALI dengan ffmpeg. Lapisan yang tidak berubah |
-| `claude/motion-graphic/scripts/lego/kt_check.py` | Gerbang tipografi kinetik (Lantai A9a; Irfan 16 Nov: "animasi KT selalu sama, hampir semuanya fade"). |
-| `claude/motion-graphic/scripts/lego/lapisan.py` | Render lapisan lego satu per satu dengan cache (Irfan 16 Nov). Hanya lapisan yang berubah yang dirender ulang. |
-| `claude/motion-graphic/scripts/lego/teks_plan.py` | Kerangka teks.json dari transkrip (Irfan 16 Nov): isi teks KT/subtitle sudah pasti = ucapan, jadi yang dihitung mesin hanya WAKTU dan DURASI tiap blok. Peran, kode gerak (T..), gaya (G..), posisi, dan |
+| `claude/motion-graphic/scripts/lego/compose.py` | Rakit video seperti lego: footage dasar + lapisan (teks/KT, visual, overlay) yang sudah dirender TERPISAH dan disimpan di cache digabung SEKALI dengan ffmpeg. Lapisan yang tidak berubah tidak dirender |
+| `claude/motion-graphic/scripts/lego/kt_check.py` | Gerbang tipografi kinetik (Lantai A9a). |
+| `claude/motion-graphic/scripts/lego/lapisan.py` | Render lapisan lego satu per satu dengan cache. Hanya lapisan yang berubah yang dirender ulang. |
+| `claude/motion-graphic/scripts/lego/teks_plan.py` | Kerangka teks.json dari transkrip: isi teks KT/subtitle sudah pasti = ucapan, jadi yang dihitung mesin hanya WAKTU dan DURASI tiap blok. Peran, kode gerak (T..), gaya (G..), posisi, dan alasan diputus |
 | `claude/motion-graphic/scripts/remotion/Kursor.tsx` | Kursor.tsx — blok lego: kursor yang bergerak seperti tangan manusia (pustaka/teknik/launch-motion.md §2). |
-| `claude/motion-graphic/scripts/remotion/LightSweep.tsx` | LightSweep.tsx — gaya G8 "kilat cahaya" (typography.md §7.5; Irfan 16 Nov, ref siirfannih_DfRh4w0SfAk "Golden rule"). |
+| `claude/motion-graphic/scripts/remotion/LightSweep.tsx` | LightSweep.tsx — gaya G8 "kilat cahaya" (typography.md §7.5). |
 | `claude/motion-graphic/scripts/remotion/Penghitung.tsx` | Penghitung.tsx — blok lego: angka yang naik/turun dan bisa dibaca (pustaka/teknik/launch-motion.md §2). |
-| `claude/motion-graphic/scripts/remotion/SmoothAudioClip.tsx` | SmoothAudioClip.tsx — audio motion-graphic §14.7 (Modul 2, audit 31 Okt 2026). |
-| `claude/motion-graphic/scripts/remotion/TeksBlok.tsx` | TeksBlok.tsx — satu blok teks KT sebagai lapisan lego ber-alpha (Lantai A9a, F26; Irfan 16 Nov). |
+| `claude/motion-graphic/scripts/remotion/SmoothAudioClip.tsx` | SmoothAudioClip.tsx — audio motion-graphic §14.7 (Modul 2). |
+| `claude/motion-graphic/scripts/remotion/TeksBlok.tsx` | TeksBlok.tsx — satu blok teks KT sebagai lapisan lego ber-alpha (Lantai A9a, F26). |
 | `claude/motion-graphic/scripts/remotion/curves.ts` | curves.ts — gerak dirancang per gerak, bukan preset (Lantai B13a, 16 Nov 2026). |
-| `claude/motion-graphic/scripts/storyboard/board.py` | Storyboard visual: render panel HTML -> PNG, susun papan (pola kanvas Wonder), lalu periksa (Irfan 8 Nov). |
+| `claude/motion-graphic/scripts/storyboard/board.py` | Storyboard visual: render panel HTML -> PNG, susun papan (pola kanvas Wonder), lalu periksa. |
 
 ## tools/ (perawatan repo)
 
@@ -168,7 +168,8 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `tools/ELEVENLABS.md` | Kunci API tidak pernah ada di repo ini, di chat, atau di memori. |
 | `tools/codex-pc.sh` | Menjalankan Codex (ChatGPT) di PC server untuk tugas dari orkestrator. |
 | `tools/doctor.sh` | Cek apakah Claude Code dan Codex memuat skill-development dengan benar. Dijalankan di "Awal sesi" (AGENTS.md). |
-| `tools/peta.py` | Tulis PETA.md: peta repo supaya model membuka hanya file yang dibutuhkan (Irfan 16 Nov). |
+| `tools/peta.py` | Tulis PETA.md: peta repo supaya model membuka hanya file yang dibutuhkan. |
+| `tools/sumber_cek.py` | Tolak tanda sumber dan cerita kegagalan di file instruksi (AGENTS.md §Akhir sesi butir 2). |
 | `tools/sync.sh` | ## Tugas video, konten, naskah, storyboard, atau skill -> repo skill-development Folder ini adalah titik masuk remote, jadi aturan video tidak terbaca otomatis. Untuk tugas jenis ini: 1. Baca dulu `{r |
 | `tools/sync_lantai.py` | Salin isi claude/motion-graphic/LANTAI.md ke dalam SKILL.md (di antara penanda LANTAI), supaya lantai ikut termuat setiap kali skill dimuat. Sumber kebenaran: LANTAI.md. Jalankan setelah mengubah LANT |
 | `tools/tanya-claude.sh` | Codex (atau model lain) minta pendapat Claude untuk satu video, tanpa Claude membaca kode atau seluruh repo. |
@@ -185,7 +186,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/doac-5-klip/` |  |
 | `projects/jadisatu-60s/` | STATUS — The Gap (Jadisatu) · Remotion · mulai dari STATUS.md |
 | `projects/jadisatu-launch/` |  |
-| `projects/jadisatu-trojan-v4/` | Keputusan yang diambil sendiri · Trojan v4 (mandat jalan otomatis, Irfan 7 Nov) |
+| `projects/jadisatu-trojan-v4/` | Keputusan yang diambil sendiri · Trojan v4 |
 | `projects/jensen-pain-suffering/` | STATUS jensen-pain-suffering (orkestrasi.md §2, §9) · mulai dari STATUS.md |
 | `projects/pengganti-kita-sendiri/` | STATUS: Pengganti Kita Sendiri (@siirfannih) · mulai dari STATUS.md |
 | `projects/personal-brand-day-02/` | Ledger · Personal branding, konten kedua challenge |
@@ -199,5 +200,6 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `AGENTS.md` | aturan awal/akhir sesi untuk semua model |
 | `PENDING.md` | pelajaran yang belum disetujui; bukan aturan |
 | `EVALS-DESIGN.md` | cara menguji perubahan skill |
+| `SUMBER.md, claude/<skill>/SUMBER.md` | asal-usul aturan; bukan instruksi, jangan dibuka saat mengerjakan tugas |
 | `experimental/` | alur sampingan yang belum terbukti; bukan aturan |
 | `archive/` | skill lama; jangan dimuat |
