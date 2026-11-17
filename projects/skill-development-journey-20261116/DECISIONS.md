@@ -97,3 +97,4 @@ Bukti QC berada pada paket handoff Drive. Pemeriksaan ASR, waveform, jumlah fram
 ## 17 Nov pagi · Revisi Irfan 1 → handoff/REVISI-1.md
 - Irfan: "secara garis besar sudah oke, perbaikan mini". Putusan Sutradara untuk pilihan "decision": pindah ke depan (dada) sebagai hero + push kecil — satu fokus paling kuat, cincin atas tidak berebut.
 - Teks komentar penutup "masih AI slop" / "Lumayan nih" diberikan Irfan (instruksi Irfan menang atas Lantai A5).
+- 17 Nov ±10:40 · B10a shot meja 3D = Blender (opsi A), putusan Sutradara atas izin Irfan: tampilan acuan (mainan fisik, GI, DOF asli) butuh renderer realistis; three.js berisiko "game look" dan kerja dua kali. Render: Eevee Next (GPU) bila HIP/Cycles GPU tidak tersedia; Cycles CPU sebagai pilihan mutu.
