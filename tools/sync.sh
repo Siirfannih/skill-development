@@ -53,7 +53,7 @@ p, repo = sys.argv[1], sys.argv[2]
 d = json.load(open(p)) if os.path.exists(p) else {}
 cmd = f'git -C "{repo}" pull -q --no-rebase --no-edit >/dev/null 2>&1; true'
 ss = d.setdefault("hooks", {}).setdefault("SessionStart", [])
-if not any("pull -q --no-rebase" in h.get("command", "") and repo in h.get("command", "") for e in ss for h in e.get("hooks", [])):
+if not any("pull -q --no-rebase" in h.get("command", "") and f'"{repo}"' in h.get("command", "") for e in ss for h in e.get("hooks", [])):
     ss.append({"hooks": [{"type": "command", "command": cmd}]})
     json.dump(d, open(p, "w"), indent=2); print("hook SessionStart: git pull dipasang")
 else:
