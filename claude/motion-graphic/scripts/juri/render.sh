@@ -136,7 +136,7 @@ case "$MODE" in
     dr="$QC/draft${RANGE:+_$RANGE}.mp4"
     [ -f "$dr" ] && [ "$(mtime "$dr")" -ge "$ns" ] || { echo "GAGAL gerbang: draft gerak $(basename "$dr") belum dibuat dari src terbaru (render.sh draft${RANGE:+ $COMP $RANGE}); lihat geraknya dulu."; gagal=1; }
     if [ -f "$P/DECISIONS.md" ]; then
-      miss=$(grep -oE '^\| [RD]-[0-9]+ \|.*\| Aktif \|' "$P/DECISIONS.md" | grep -oE '^\| [RD]-[0-9]+' | tr -d '| ' | while read -r id; do grep -q "$id" "$QC/JURI.md" 2>/dev/null || printf '%s ' "$id"; done)
+      miss=$( { grep -oE '^\| [RD]-[0-9]+ \|.*\| Aktif \|' "$P/DECISIONS.md" || true; } | { grep -oE '^\| [RD]-[0-9]+' || true; } | tr -d '| ' | while read -r id; do grep -q "$id" "$QC/JURI.md" 2>/dev/null || printf '%s ' "$id"; done)
       [ -z "$miss" ] || { echo "GAGAL gerbang: catatan Irfan aktif belum diperiksa di qc/JURI.md: $miss"; gagal=1; }
     fi
     FA="$QC/frame_audit"

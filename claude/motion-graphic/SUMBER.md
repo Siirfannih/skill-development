@@ -138,6 +138,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | "Nilai kontras di bawah huruf aktual" | Koreksi Irfan pada `juga lebih / pinter.` (BDF26 P1 R-020, 16 Nov) |
 | "Jika koreksi satu sisi membuat sisi lain terlalu berat" | Irfan 16 Nov, BDF26 P1 R022 menolak R4H berat kanan/polos dan putih kalah lampu |
 | "Bila kata besar perlu melewati kepala" | Irfan 16 Nov, BDF26 P1 R023; narasi biasa: Irfan 16 Nov, BDF26 P1 |
+| §Cara memutuskan · potongan bukan pudar, satu narasi per waktu, tidak melewati potongan adegan | Irfan 18 Nov skill-dev-journey putaran 4 ("Progres dibaliknya masih dibawa", "kata bertabrakan dan berebut atensi") + kartu 83 Catatan pakai |
 
 ## `guide/visual/GUIDE.md`
 
@@ -147,6 +148,9 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §Kualitas render · "Bukan render three.js mentah (Irfan 7…" | Irfan 7 Nov: "bukan renderan three js mentah seperti sebelum-sebelumnya" |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Bila frame terasa flat atau b-roll…" | Irfan 15 Nov, jensen-pain-suffering r2, ref siirfannih_DfH6JYPqNjk; bedah: `projects/jensen-pain-suffering/ref/BEDAH-FILMGLOW.md` |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Bila latar canvas/kertas gelap dipakai di…" | Irfan 16 Nov, jensen-pain-suffering v3 → v4 |
+| §Cara memutuskan · bubble sapaan tokoh | Irfan 18 Nov skill-dev-journey ("buble chat … seolah olah karakternya memperkenalkan diri") |
+| §Cara memutuskan · maskot = siluet logo + warna merek asli | Irfan 18 Nov skill-dev-journey (Gemini "seperti logo aslinya") |
+| §Cara memutuskan · panah goresan / tulisan tangan | Irfan 18 Nov skill-dev-journey ("efek panahan … handwriting … jangan memaksa") |
 
 ## `pustaka/PETA.md`
 

@@ -28,6 +28,9 @@
 ## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
 - **Bila frame terasa flat atau b-roll pengisi terlihat seperti aset utama, beri footage "material"**, bukan menambah objek: lapisan film + glow (bloom, halation, halftone, aberasi kromatik dengan blur tepi, hitam terangkat, vignette, grain) membuat footage mundur menjadi tekstur/kenangan, sedangkan teks tajam bercahaya di atasnya jadi fokus dan frame terasa estetik. Takarannya mengikuti peran footage: stok pengisi paling kuat, arsip bermakna sedang (wajah tetap terbaca), pembicara paling ringan (wajah tajam); teks tidak pernah ikut tertutup lapisan itu.
 - **Bila latar canvas/kertas gelap dipakai di belakang foto atau teks, pilih bidang rata yang bersih** (butir halus sangat tipis paling banyak), bukan tekstur bercak frekuensi rendah: bercak terang-gelap terbaca "kasar" dan bersaing dengan foto, sementara lapisan film sudah memberi materialnya.
+- **Bila tokoh/maskot AI disebut namanya, pilih tokoh itu memperkenalkan diri lewat bubble sapaan yang menggantikan teks nama, dengan reaksi emosi saat bubble muncul.** Label nama di samping tokoh terasa statis; sapaan dari tokoh membuat interaksi hidup dan kata tidak tampil dua kali. Bubble ikut keluarga gaya tokohnya dan cukup besar untuk HP (huruf ±60 px @1080).
+- **Bila maskot merek dibuat ulang dalam gaya keluarga tokoh, pilih siluet logo asli dan warna merek aslinya, bukan bentuk turunan.** Penonton mengenali logo dari siluet + warna; bentuk umum (plus/berlian) dengan warna mirip terbaca sebagai tokoh lain.
+- **Bila ucapan menunjuk sesuatu di layar ("lihat ini", "comment di bawah") atau satu kata perlu sentuhan personal, pilih panah goresan atau tulisan tangan yang ditulis mengikuti ucapan, di dalam dunia adegan.** Panah membawa mata ke objek yang dirujuk; dipakai hanya di tempat yang maknanya menunjuk, tidak dipaksakan.
 
 ## Cek cepat
 - Blur still 10 px: ada satu gumpalan yang menang? Dua sama kuat = rapikan.
