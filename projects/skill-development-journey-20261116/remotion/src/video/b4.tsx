@@ -6,6 +6,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {siClaude} from 'simple-icons';
 import {CURVE, drift, move} from '../lib/curves';
 import {Fonts} from './bersama/Fonts';
+import {LogoChatGPT} from './bersama/LogoChatGPT';
 import {FONT, INK} from './bersama/tema';
 import {BAYANG_JENDELA, Titik} from './bersama/Jendela';
 
@@ -17,12 +18,6 @@ export type KartuProps = {
   kanan?: boolean;
 };
 export const KARTU = {w: 460, h: 400, margin: 90};
-
-const Knot: React.FC<{s: number}> = ({s}) => (
-  <svg width={s} height={s} viewBox="-50 -50 100 100" fill="none" stroke="#0D0D0D" strokeWidth={6.4} strokeLinejoin="round">
-    {[0, 1, 2, 3, 4, 5].map((k) => <g key={k} transform={`rotate(${k * 60})`}><rect x={-12.5} y={-45} width={25} height={52} rx={12.5}/></g>)}
-  </svg>
-);
 
 export const Kartu: React.FC<KartuProps> = (p) => {
   const f = useCurrentFrame();
@@ -45,7 +40,7 @@ export const Kartu: React.FC<KartuProps> = (p) => {
         <div style={{height: 28, display: 'flex', alignItems: 'center', padding: '0 14px', background: '#F4F4F1'}}><Titik/></div>
         <div style={{padding: '28px 34px'}}>
           <div style={{display: 'flex', alignItems: 'center', gap: 16, height: 57}}>
-            {claude ? <svg width="56" height="56" viewBox="0 0 24 24"><path d={siClaude.path} fill="#D97757"/></svg> : <Knot s={56}/>}
+            {claude ? <svg width="56" height="56" viewBox="0 0 24 24"><path d={siClaude.path} fill="#D97757"/></svg> : <LogoChatGPT size={56}/>}
             <span style={{fontSize: 33, fontWeight: 700, whiteSpace: 'nowrap'}}>{p.label}</span>
           </div>
           <div style={{fontSize: 172, fontWeight: 700, lineHeight: 1.2, letterSpacing: -9, marginTop: 14, color: INK, transform: `scale(${1 + pulse})`, transformOrigin: '0 60%'}}>

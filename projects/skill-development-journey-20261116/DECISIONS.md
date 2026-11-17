@@ -99,3 +99,4 @@ Bukti QC berada pada paket handoff Drive. Pemeriksaan ASR, waveform, jumlah fram
 - Teks komentar penutup "masih AI slop" / "Lumayan nih" diberikan Irfan (instruksi Irfan menang atas Lantai A5).
 - 17 Nov ±10:40 · B10a shot meja 3D = Blender (opsi A), putusan Sutradara atas izin Irfan: tampilan acuan (mainan fisik, GI, DOF asli) butuh renderer realistis; three.js berisiko "game look" dan kerja dua kali. Render: Eevee Next (GPU) bila HIP/Cycles GPU tidak tersedia; Cycles CPU sebagai pilihan mutu.
 - 17 Nov ±10:45 · Irfan: hemat token Claude → shot Blender B10a dibangun Codex (ChatGPT) lalu dirapikan SATU model Claude (Opus akun claude1), sebagai aset terpisah; builder Sonnet tetap memegang semua adegan lain dan menyisakan slot lapisan `b10a_meja3d`.
+- 17 Nov ±11:45 · G2 Sutradara REVISI-1 (qc/revisi1-opus-sheet.jpg): LULUS semua butir B1–B12 (B10 Instagram, B11 dunia Mac). Catatan sinkron: KT "dalam" di B4 jatuh di kiri atas → pindah.

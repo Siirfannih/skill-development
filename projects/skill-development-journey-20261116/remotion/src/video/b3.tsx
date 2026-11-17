@@ -13,8 +13,8 @@ import {FONT} from './bersama/tema';
 
 export type AppProps = {
   durasi: number;
-  /** detik relatif dunia: kursor klik kolom ketik, "/" diketik, item 1, item 2, hapus mulai, keluar */
-  kunci: {klik: number; slash: number; item1: number; item2: number; hapus: number; keluar: number};
+  /** detik relatif dunia: kursor klik kolom ketik, "/" diketik, "apple" mulai diketik, klik saran 1, backspace mulai, "cinematic" mulai diketik, klik saran 2, hapus semua (ngebalik), keluar */
+  kunci: {klik: number; slash: number; apple: number; aKlik: number; bs: number; cine: number; cKlik: number; hapus: number; keluar: number};
 };
 
 const AKSEN = '#D97757';
@@ -30,13 +30,26 @@ const Kursor: React.FC<{x: number; y: number; klik: number}> = ({x, y, klik}) =>
 );
 
 const kamera = (t: number, K: AppProps['kunci']) => {
-  const keys: [number, number, number, number][] = [[0, 1.0, 960, 540], [K.slash - 0.2, 1.04, 900, 580], [K.item1 - 0.3, 1.04, 900, 580], [K.item1 + 0.2, 1.55, 870, 600],
-    [K.item2 + 1.0, 1.58, 868, 603], [K.hapus - 0.1, 1.6, 866, 606], [K.hapus + 0.5, 1.2, 900, 580], [K.hapus + 2.0, 1.3, 910, 580], [K.keluar, 1.34, 910, 580]];
+  const keys: [number, number, number, number][] = [[0, 1.0, 960, 540], [K.slash - 0.2, 1.04, 900, 580], [K.apple - 0.3, 1.04, 900, 580], [K.apple + 0.15, 1.55, 870, 600],
+    [K.aKlik + 0.3, 1.58, 868, 603], [K.cKlik + 0.2, 1.6, 866, 606], [K.hapus - 0.1, 1.5, 880, 590], [K.hapus + 0.6, 1.2, 900, 580], [K.hapus + 2.0, 1.3, 910, 580], [K.keluar, 1.34, 910, 580]];
   let i = 0; while (i + 1 < keys.length && t >= keys[i + 1][0]) i++;
   if (i + 1 >= keys.length) return {s: keys[i][1], x: keys[i][2], y: keys[i][3]};
   const [a, s0, x0, y0] = keys[i], [b, s1, x1, y1] = keys[i + 1];
   const k = ([2, 6].includes(i) ? CURVE.heavy : CURVE.drift)(Math.min(1, Math.max(0, (t - a) / (b - a))));
   return {s: s0 + (s1 - s0) * k, x: x0 + (x1 - x0) * k, y: y0 + (y1 - y0) * k};
+};
+
+/** isi kolom ketik pada waktu t: "/" -> "/apple" (diketik) -> klik saran -> "/apple-style" -> backspace per huruf -> "/cinematic" -> klik -> "/cinematic-storytelling" -> backspace semua -> "/" */
+const teksKetik = (t: number, K: AppProps['kunci']) => {
+  const A = '/apple-style', C = '/cinematic-storytelling';
+  if (t < K.slash) return '';
+  if (t < K.apple) return '/';
+  if (t < K.aKlik + 0.1) return '/' + 'apple'.slice(0, Math.min(5, Math.floor((t - K.apple) * 14) + 1));
+  if (t < K.bs) return A;
+  if (t < K.cine) return A.slice(0, Math.max(1, A.length - Math.floor((t - K.bs) * 28)));
+  if (t < K.cKlik + 0.1) return '/' + 'cinematic'.slice(0, Math.min(9, Math.floor((t - K.cine) * 14) + 1));
+  if (t < K.hapus) return C;
+  return C.slice(0, Math.max(1, C.length - Math.floor((t - K.hapus) * 34)));
 };
 
 const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
@@ -50,18 +63,28 @@ const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
   const dd = drift(f, fps, 3, 4);
   const ketik = f >= F(K.slash);
   const caret = Math.floor(f / 15) % 2 === 0;
-  const items = ['/apple-style', '/cinematic-storytelling'];
-  const at = [K.item1, K.item2];
-  const pop = items.map((_, i) => move(f, F(at[i]), 6, 'reveal'));
-  const leave = items.map((_, i) => move(f, F(K.hapus) + Math.round(react(i, fps, 1.4) * 1.4), 5, 'leave'));
+  const isi = teksKetik(t, K);
+  // satu saran yang cocok dengan ketikan; tumbuh dari kolom ketik, hilang saat diklik
+  const saran = [{teks: '/apple-style', on: K.apple + 0.42, off: K.aKlik + 0.1}, {teks: '/cinematic-storytelling', on: K.cine + 0.64, off: K.cKlik + 0.1}];
+  const aktif = saran.findIndex((x) => t >= x.on && t < x.off + 0.1);
+  const tumbuh = aktif >= 0 ? move(f, F(saran[aktif].on), 6, 'reveal') * (1 - move(f, F(saran[aktif].off), 5, 'leave')) : 0;
   const baris = 78;
-  const nItem = items.reduce((a, _, i) => a + pop[i] * (1 - leave[i]), 0);
-  const kartuH = nItem > 0.02 ? 20 + baris * nItem : 0;
-  // kursor: klik kolom ketik lalu menepi (tidak menutupi teks)
-  const kur = arc(f, 0, F(K.klik), {x: WIN.x + 860, y: WIN.y + 560}, {x: WIN.x + 520, y: WIN.y + 560});
-  const pergi = move(f, F(K.slash + 0.2), 14, 'heavy');
-  const kx = kur.x + (WIN.x + 900 - kur.x) * pergi, ky = kur.y + (WIN.y + 410 - kur.y) * pergi;
-  const klik = move(f, F(K.klik), 4, 'land') - move(f, F(K.klik) + 4, 6, 'heavy');
+  const kartuH = tumbuh > 0.02 ? 20 + baris * tumbuh : 0;
+  // kursor: dari titik tepi ke baris saran, klik, lalu menepi
+  const target = {x: WIN.x + 282 + 300, y: WIN.y + 28 + 462 - 10 - 78 / 2 - 6};
+  const rest = {x: WIN.x + 900, y: WIN.y + 410};
+  const nKlik = [K.aKlik, K.cKlik];
+  let kx = rest.x, ky = rest.y, klik = 0;
+  const klikCur = nKlik.findIndex((c) => t > c - 0.5 && t < c + 0.7);
+  if (klikCur >= 0) {
+    const c = nKlik[klikCur];
+    const ke = move(f, F(c - 0.45), 12, 'heavy') * (1 - move(f, F(c + 0.2), 12, 'heavy'));
+    kx = rest.x + (target.x - rest.x) * ke; ky = rest.y + (target.y - rest.y) * ke;
+    klik = move(f, F(c), 4, 'land') - move(f, F(c) + 4, 6, 'heavy');
+  } else if (t < K.slash) {
+    const kur0 = arc(f, 0, F(K.klik), {x: WIN.x + 860, y: WIN.y + 560}, {x: WIN.x + 520, y: WIN.y + 560});
+    kx = kur0.x; ky = kur0.y; klik = move(f, F(K.klik), 4, 'land') - move(f, F(K.klik) + 4, 6, 'heavy');
+  }
   // koordinat isi jendela (di bawah bar 28 px)
   const CX = WIN.x, CY = WIN.y + 28;
   return <AbsoluteFill style={{background: '#ECEAE4', overflow: 'hidden'}}>
@@ -85,7 +108,7 @@ const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
         <div style={{position: 'absolute', left: 262, top: 462, width: 620, height: 92, borderRadius: 22, border: `1.5px solid ${T.line}`, background: '#FFFFFF', boxShadow: '0 4px 16px rgba(0,0,0,.05)'}}>
           <span style={{position: 'absolute', left: 22, bottom: 24, ...ink(32, 300, '#4A4944')}}>+</span>
           <span style={{position: 'absolute', left: 66, bottom: 26, ...ink(24, 400, ketik ? T.ink : T.muted), display: 'flex', alignItems: 'center'}}>
-            {ketik ? <><span>/</span><span style={{width: 2, height: 28, background: AKSEN, opacity: caret ? 1 : 0, marginLeft: 1}}/><span style={{color: T.muted, marginLeft: 4}}>Type to filter</span></> : <span>Reply to Claude…</span>}
+            {ketik ? <><span>{isi}</span><span style={{width: 2, height: 28, background: AKSEN, opacity: caret ? 1 : 0, marginLeft: 1}}/>{isi.length <= 1 && <span style={{color: T.muted, marginLeft: 4}}>Type to filter</span>}</> : <span>Reply to Claude…</span>}
           </span>
           <span style={{position: 'absolute', right: 16, bottom: 20, width: 44, height: 44, borderRadius: 22, background: ketik ? AKSEN : '#E6E4DE', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
@@ -94,8 +117,7 @@ const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
         {/* daftar perintah: tumbuh dari kolom ketik ke atas */}
         {kartuH > 0 && <div style={{position: 'absolute', left: 282, top: 462 - 10 - kartuH, width: 650, height: kartuH, borderRadius: 16, background: '#FFFFFF',
           boxShadow: '0 12px 36px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.08)', padding: 10, overflow: 'hidden', boxSizing: 'border-box'}}>
-          {items.map((it, i) => <div key={it} style={{height: baris * pop[i] * (1 - leave[i]), opacity: pop[i] > 0.02 && leave[i] < 0.98 ? 1 : 0, overflow: 'hidden', transform: `translateX(${-100 * leave[i]}px)`}}>
-            <div style={{height: baris - 6, margin: '3px 0', borderRadius: 10, background: i === 0 ? T.sel : 'transparent', display: 'flex', alignItems: 'center', padding: '0 18px', ...ink(46, 400)}}>{it}</div></div>)}
+          <div style={{height: baris - 6, margin: '3px 0', borderRadius: 10, background: T.sel, display: 'flex', alignItems: 'center', padding: '0 18px', ...ink(46, 400)}}>{saran[Math.max(0, aktif)].teks}</div>
         </div>}
         <div style={{position: 'absolute', left: 930, top: 0, width: 210, height: WIN.h - 28, borderLeft: `1px solid ${T.line}`, padding: '20px 18px', ...ink(15, 500)}}>
           <div style={{color: T.muted, fontWeight: 400, marginBottom: 8}}>Environment</div><div style={{marginBottom: 18}}>work · node-c-pc</div>
@@ -113,6 +135,6 @@ const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
 export const AppClaude: React.FC<AppProps> = (p) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
-  const blur = f < 18 || f >= Math.round(p.kunci.keluar * fps) - 2 || (f >= Math.round((p.kunci.item1 - 0.3) * fps) && f < Math.round((p.kunci.item1 + 0.2) * fps) + 1) /* blur hanya selama punch (MG63 §2) */;
+  const blur = f < 18 || f >= Math.round(p.kunci.keluar * fps) - 2 || (f >= Math.round((p.kunci.apple - 0.3) * fps) && f < Math.round((p.kunci.apple + 0.15) * fps) + 1) /* blur hanya selama punch (MG63 §2) */;
   return <AbsoluteFill><Fonts/>{blur ? <CameraMotionBlur shutterAngle={180} samples={8}><Isi {...p} f={f}/></CameraMotionBlur> : <Isi {...p} f={f}/>}</AbsoluteFill>;
 };
