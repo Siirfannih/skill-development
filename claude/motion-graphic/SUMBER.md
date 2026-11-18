@@ -926,3 +926,9 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | Aturan | Asal-usul |
 |---|---|
 | empat warna merek dikontrol, turunan ≤ 25° dari induk, tanpa literal di adegan, UI asli di bersama/ui-asli | Irfan 18 Nov: warna yang dikontrol hanya merek, primer, sekunder, latar; warna UI asli aplikasi rujukan mengikuti aplikasinya; di skill-dev-journey file adegan menulis 99 warna dan 14 ukuran huruf langsung |
+
+## `scripts/juri/kt_ocr.py` · gerbang di `render.sh final` · `pustaka/README.md` §Juri
+- Irfan 18 Nov 2026 "Ya tambahkan agar sama" setelah kesalahan terlewat K2 skill-dev-journey ("profesional" huruf belum lengkap selama diucapkan; alat lama hanya mengukur geometri). Diuji di master skill-dev-journey: menangkap "profesional"; efek masuk panjang yang sudah disetujui masuk daftar terima proyek.
+
+## `scripts/juri/profil_cek.py` · `templates/merek/BRAND.md` (logo "tidak ada")
+- Irfan 18 Nov 2026 "Siirfan ga punya logo jadi memang kosong": merek tanpa logo sah bila user memastikannya; nilai eksplisit "tidak ada" membedakannya dari "?" (belum ditanyakan).

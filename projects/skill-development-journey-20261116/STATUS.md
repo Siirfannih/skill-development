@@ -53,9 +53,10 @@ Diperbarui 18 Nov 2026 sore oleh Sutradara (claude2), main 3795b31. Audit sesi b
 **Audio:** dihentikan sebelum relock. `audio/order-A` masih kunci putaran 4 (visual lama). Semua langkah audio harus diulang setelah visual selesai.
 
 ## 5. Langkah berikutnya (urut)
-0. **Profil merek** (D-429): `~/work/data-video/merek/siirfan/` dari templates/merek, `profil_cek.py` LULUS.
-0b. **Sistem desain** (D-428/D-430): Sutradara menulis `remotion/src/video/bersama/tema.ts` format baru dari warna yang sudah dipakai; satu pekerja Codex (`tools/codex-pc.sh`, cadangan subagen Sonnet) memindahkan Root + b1–b7 ke token dan warna UI asli ke `bersama/ui-asli/<aplikasi>/`. Lulus bila `tema_cek.py` LULUS, `tsc` bersih, dan still A/B/C/G identik piksel dengan master 12:08 (PSNR). Lalu papan acuan komponen di atas footage.
-1. **Selesaikan visual R5b** sesuai `handoff/TASK-R5b-visual.md`, dipecah per adegan (D, E, F, narasi B): satu TASK = satu pekerja baru, hanya dari token + komponen bersama + papan acuan (orkestrasi §1, roles §6).
+Selesai 18 Nov sore (evaluation §Putaran 5c): D satu sesi Claude, latar A/B polos, E Blender D-437, F + "habis banget", kt_ocr. Draft suara-saja di Drive `draft-r5c/`, menunggu tanggapan Irfan.
+0. **Tanggapan Irfan atas draft R5c** → rute Revisi bila ada koreksi.
+0b. **Refactor token b1–b6** (D-428): pekerja Codex baru, identik piksel A/B(kecuali latar)/C/G; `tema_cek` LULUS (gerbang render.sh aktif karena tema.ts sudah ber-MEREK).
+1. (Visual R5b) selesai kecuali refactor di atas.
 2. **QC Sutradara** tiap still resolusi penuh di atas footage (5 cek: massa kiri-kanan, satu fokus, urutan baca, satu permukaan, ruang dekat subjek + sekeluarga dengan kiblat) dan strip transisi masuk/keluar tiap adegan yang diubah. Bandingkan dengan frame kunci 07/49/63/65 dan contoh gagal 09–11. Catat di `evaluation.md`.
 3. **Audit frame semua detik** (penilai satu: Sutradara, `templates/roles/pemeriksa-frame.md`, `frame_audit.py`) → `qc/frame_audit/*/VERDICT.md` dengan HASH.
 4. **Audio** (pekerja audio, `handoff/TASK-R4-audio.md` sebagai pola):

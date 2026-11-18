@@ -150,6 +150,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/gate/voice_level.py` | Gerbang level suara asli (Lantai E23): suara asli (narasumber, rekaman sendiri, VO) tidak pernah diturunkan, di-loudness-kan, atau di-limit. Yang boleh: peredam noise, lalu gain NAIK yang bersih sampa |
 | `claude/motion-graphic/scripts/juri/audio_bus_check.py` | Audio di Remotion hanya lewat satu bus global. <Audio> yang ditaruh di dalam <Sequence> adegan ikut berhenti saat adegan selesai, sehingga ekor kata/SFX/musik terpotong di setiap batas adegan (penyeba |
 | `claude/motion-graphic/scripts/juri/frame_audit.py` | Audit SEMUA frame sebelum render MP4, tanpa sampling, dalam dua fase yang terpisah. |
+| `claude/motion-graphic/scripts/juri/kt_ocr.py` | Cek teks kinetik sudah lengkap dan terbaca beberapa frame setelah blok masuk (LANTAI A1). |
 | `claude/motion-graphic/scripts/juri/motion_lint.py` | Gerak dirancang per gerak, bukan preset (Lantai B13a; diadaptasi dari motion-kit, MIT). |
 | `claude/motion-graphic/scripts/juri/profil_cek.py` | Cek profil merek (tahap 1): BRAND.md dan EDITING.md terisi, nilai pasti benar bentuknya, aset yang dirujuk ada. |
 | `claude/motion-graphic/scripts/juri/render.sh` | Satu pintu render Remotion: still dulu, draft kecil, render penuh paling akhir (LANTAI F26). |

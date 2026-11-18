@@ -322,95 +322,116 @@
   "lapisan": "T077"
  },
  {
-  "nama": "desktop hitam-glow: jendela ChatGPT session A, Claude, session B + dok skill-development",
+  "nama": "satu sesi chat Claude: update ChatGPT A/B, terminal, pelajaran bersama; Clawd bekerja",
   "peran": "dunia-transisi",
   "t": 57.919,
   "frame": 1736,
   "lapisan": "D_RELAY"
  },
  {
-  "nama": "panah goresan 'kalian lihat ini' ke papan ChatGPT",
-  "peran": "coretan",
-  "t": 58.559,
-  "frame": 1755,
-  "lapisan": "C_lihat"
- },
- {
-  "nama": "ChatGPT mengetik instruksi",
+  "nama": "mosaik oranye membuka sesi Claude dan prompt Irfan",
   "peran": "item-ui",
-  "t": 59.445,
-  "frame": 1782,
-  "lapisan": "O_ChatGPT mengetik instruksi"
+  "t": 57.919,
+  "frame": 1736,
+  "lapisan": "O_mosaik oranye membuka sesi Claude dan prompt Irfan"
  },
  {
-  "nama": "tombol kirim ditekan, pesan meluncur ke Claude",
+  "nama": "Update dari ChatGPT session A",
   "peran": "item-ui",
-  "t": 61.04,
-  "frame": 1829,
-  "lapisan": "O_tombol kirim ditekan, pesan meluncur ke Claude"
+  "t": 59.7,
+  "frame": 1789,
+  "lapisan": "O_Update dari ChatGPT session A"
  },
  {
-  "nama": "avatar Claude bete (pesan tiba)",
+  "nama": "Claude melaporkan satu gerbang gagal",
+  "peran": "item-ui",
+  "t": 59.82,
+  "frame": 1793,
+  "lapisan": "O_Claude melaporkan satu gerbang gagal"
+ },
+ {
+  "nama": "Claude memerintahkan perbaikan session A",
   "peran": "item-ui",
   "t": 61.64,
   "frame": 1847,
-  "lapisan": "O_avatar Claude bete (pesan tiba)"
+  "lapisan": "O_Claude memerintahkan perbaikan session A"
  },
  {
-  "nama": "Claude membalas, avatar lega",
+  "nama": "Messaged ChatGPT session A dan terminal bus send",
   "peran": "item-ui",
   "t": 62.8,
   "frame": 1882,
-  "lapisan": "O_Claude membalas, avatar lega"
+  "lapisan": "O_Messaged ChatGPT session A dan terminal bus send"
  },
  {
-  "nama": "jendela session B masuk dari kanan, mendorong yang lain",
+  "nama": "Claude meminta pemeriksaan session B",
   "peran": "item-ui",
   "t": 63.605,
   "frame": 1906,
-  "lapisan": "O_jendela session B masuk dari kanan, mendorong yang lain"
+  "lapisan": "O_Claude meminta pemeriksaan session B"
  },
  {
-  "nama": "kesalahan",
-  "peran": "kata-kunci-slam",
-  "t": 67.682,
-  "frame": 2028,
-  "lapisan": "T089"
- },
- {
-  "nama": "catatan Dicatat mendarat ke tab dok",
+  "nama": "Messaged ChatGPT session B",
   "peran": "item-ui",
-  "t": 68.415,
-  "frame": 2050,
-  "lapisan": "O_catatan Dicatat mendarat ke tab dok"
+  "t": 64.75,
+  "frame": 1941,
+  "lapisan": "O_Messaged ChatGPT session B"
  },
  {
-  "nama": "cincin jalur menyambung, titik berjalan",
+  "nama": "Update dari ChatGPT session B",
   "peran": "item-ui",
-  "t": 69.263,
-  "frame": 2076,
-  "lapisan": "O_cincin jalur menyambung, titik berjalan"
+  "t": 65.925,
+  "frame": 1976,
+  "lapisan": "O_Update dari ChatGPT session B"
  },
  {
-  "nama": "loop pembelajaran",
-  "peran": "kata-kunci-slam",
-  "t": 70.01,
-  "frame": 2098,
-  "lapisan": "T092"
- },
- {
-  "nama": "centang hijau, avatar ChatGPT senang",
+  "nama": "Claude melaporkan masukan session B",
   "peran": "item-ui",
-  "t": 70.608,
-  "frame": 2116,
-  "lapisan": "O_centang hijau, avatar ChatGPT senang"
+  "t": 66.075,
+  "frame": 1980,
+  "lapisan": "O_Claude melaporkan masukan session B"
+ },
+ {
+  "nama": "Edit guide teks",
+  "peran": "item-ui",
+  "t": 68.763,
+  "frame": 2061,
+  "lapisan": "O_Edit guide teks"
+ },
+ {
+  "nama": "diff hijau pelajaran potong di jeda",
+  "peran": "item-ui",
+  "t": 69.448,
+  "frame": 2081,
+  "lapisan": "O_diff hijau pelajaran potong di jeda"
+ },
+ {
+  "nama": "Ran cut_check.py",
+  "peran": "item-ui",
+  "t": 69.943,
+  "frame": 2096,
+  "lapisan": "O_Ran cut_check.py"
+ },
+ {
+  "nama": "PASS dan Clawd lega",
+  "peran": "item-ui",
+  "t": 70.378,
+  "frame": 2109,
+  "lapisan": "O_PASS dan Clawd lega"
+ },
+ {
+  "nama": "Claude merangkum aturan bersama A dan B",
+  "peran": "item-ui",
+  "t": 70.528,
+  "frame": 2114,
+  "lapisan": "O_Claude merangkum aturan bersama A dan B"
  },
  {
   "nama": "100% FULL AI",
   "peran": "slab-di-depan",
   "t": 72.608,
   "frame": 2176,
-  "lapisan": "T096"
+  "lapisan": "T081"
  },
  {
   "nama": "slot b10a_meja3d (meja 3D, onset 'kayak gimana?')",
@@ -428,10 +449,10 @@
  },
  {
   "nama": "profesional",
-  "peran": "kata-kacau",
+  "peran": "kata-kunci-slam",
   "t": 78.659,
   "frame": 2357,
-  "lapisan": "T101"
+  "lapisan": "T086"
  },
  {
   "nama": "komentar 'masih kerasa AI slop'",
@@ -459,13 +480,13 @@
   "peran": "kata-kunci-slam",
   "t": 82.407,
   "frame": 2470,
-  "lapisan": "T107"
+  "lapisan": "T092"
  },
  {
   "nama": "tulisan tangan 'gratis' + garis bawah",
   "peran": "tulisan-tangan",
   "t": 82.652,
   "frame": 2477,
-  "lapisan": "T108"
+  "lapisan": "T093"
  }
 ]

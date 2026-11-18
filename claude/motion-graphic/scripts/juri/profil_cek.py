@@ -7,7 +7,7 @@ Yang dicek (bentuk, bukan selera):
   - BRAND.md dan EDITING.md ada, masing-masing punya blok YAML di atas (--- … ---)
   - BRAND: merek, slug, warna.latar/teks/aksen, huruf.judul/isi, logo.terang/gelap terisi (bukan "?" atau "<…>")
   - semua warna yang terisi berbentuk hex #RRGGBB
-  - file font dan logo yang dirujuk benar-benar ada di folder merek
+  - file font dan logo yang dirujuk benar-benar ada di folder merek (logo "tidak ada" = user memastikan merek tanpa logo)
   - EDITING: kiblat_kartu terisi minimal satu
   - tidak ada placeholder template ("<…>") tersisa di teks
 Nilai opsional boleh "?". Exit 1 bila ada yang gagal; pesan menyebut apa yang harus ditanyakan ke user.
@@ -60,7 +60,7 @@ def main():
             if not KOSONG(v) and not HEX.match(str(v)): gagal.append(f"BRAND warna.{k} = {v!r} bukan hex #RRGGBB")
         rujukan = [ambil(b, f"huruf.{p}.file") for p in ("judul", "isi", "aksen")] + [ambil(b, "logo.terang"), ambil(b, "logo.gelap")]
         for r in rujukan:
-            if not KOSONG(r) and not os.path.exists(os.path.join(folder, str(r))):
+            if not KOSONG(r) and str(r).strip() != "tidak ada" and not os.path.exists(os.path.join(folder, str(r))):
                 gagal.append(f"BRAND merujuk {r} tetapi filenya tidak ada di {folder}")
         if b_teks and re.search(r"<[^>\n]{2,}>", b_teks): gagal.append("BRAND masih berisi placeholder <…> di teks")
     if e is not None:

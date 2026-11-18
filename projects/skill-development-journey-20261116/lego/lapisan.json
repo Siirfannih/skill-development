@@ -1,5 +1,43 @@
 [
  {
+  "id": "D_RELAY",
+  "comp": "RelayDunia",
+  "props": {
+   "w": 1920,
+   "h": 1080,
+   "rev": 32,
+   "pre": 8,
+   "post": 8,
+   "preT0": 57.666666666666664,
+   "postT0": 72.06666666666666,
+   "zPre": 1.0626,
+   "kunci": {
+    "updateA": 1.781,
+    "laporanA": 1.901,
+    "perintahA": 3.721,
+    "kirimA": 4.881,
+    "terminalA": 4.981,
+    "terkirimA": 5.531,
+    "mintaB": 5.686,
+    "kirimB": 6.831,
+    "updateB": 8.006,
+    "masukanB": 8.156,
+    "edit": 10.844,
+    "diff": 11.529,
+    "cek": 12.024,
+    "ringkas": 12.609,
+    "lega": 12.459,
+    "keluar": 13.634,
+    "pass": 12.459
+   },
+   "durasi": 14.666666666666666
+  },
+  "durasi": 14.666666666666666,
+  "t": 57.6576,
+  "x": 0,
+  "y": 0
+ },
+ {
   "id": "D_REPO_WAJAH",
   "comp": "Lingkar",
   "props": {
@@ -247,7 +285,7 @@
   "y": 133
  },
  {
-  "id": "T096",
+  "id": "T081",
   "comp": "KT",
   "props": {
    "teks": "100% FULL AI",
@@ -2428,399 +2466,7 @@
   "y": 174
  },
  {
-  "id": "T078",
-  "comp": "KT",
-  "props": {
-   "teks": "Kayak yang",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 648,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.0,
-    0.157
-   ],
-   "durasi": 0.7333333333333333,
-   "v": 15
-  },
-  "durasi": 0.7333333333333333,
-  "t": 57.70768,
-  "x": 636,
-  "y": 874
- },
- {
-  "id": "T079",
-  "comp": "KT",
-  "props": {
-   "teks": "kalian lihat ini.",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 762,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.0,
-    0.182,
-    0.387
-   ],
-   "durasi": 0.9,
-   "v": 15
-  },
-  "durasi": 0.9,
-  "t": 58.40838,
-  "x": 579,
-  "y": 874
- },
- {
   "id": "T080",
-  "comp": "KT",
-  "props": {
-   "teks": "Bahkan bisa",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 667,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.0,
-    1.062
-   ],
-   "durasi": 1.3666666666666667,
-   "v": 15
-  },
-  "durasi": 1.3666666666666667,
-  "t": 59.27588,
-  "x": 626,
-  "y": 874
- },
- {
-  "id": "T081",
-  "comp": "KT",
-  "props": {
-   "teks": "koordinasi ke",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 711,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.0,
-    0.514
-   ],
-   "durasi": 1.2333333333333334,
-   "v": 15
-  },
-  "durasi": 1.2333333333333334,
-  "t": 60.61058,
-  "x": 604,
-  "y": 874
- },
- {
-  "id": "T082",
-  "comp": "KT",
-  "props": {
-   "teks": "bisa dikoordinasi",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 872,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.052,
-    0.342
-   ],
-   "durasi": 1.1,
-   "v": 15
-  },
-  "durasi": 1.1,
-  "t": 61.81178,
-  "x": 524,
-  "y": 874
- },
- {
-  "id": "T083",
-  "comp": "KT",
-  "props": {
-   "teks": "sebaliknya.",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 634,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.005
-   ],
-   "durasi": 0.5,
-   "v": 15
-  },
-  "durasi": 0.5,
-  "t": 62.87948,
-  "x": 643,
-  "y": 874
- },
- {
-  "id": "T084",
-  "comp": "KT",
-  "props": {
-   "teks": "Bahkan ChatGPT",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 855,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.0,
-    0.343
-   ],
-   "durasi": 1.2333333333333334,
-   "v": 15
-  },
-  "durasi": 1.2333333333333334,
-  "t": 63.34658,
-  "x": 532,
-  "y": 874
- },
- {
-  "id": "T085",
-  "comp": "KT",
-  "props": {
-   "teks": "dengan",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 469,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.0
-   ],
-   "durasi": 0.5,
-   "v": 15
-  },
-  "durasi": 0.5,
-  "t": 64.54778,
-  "x": 725,
-  "y": 874
- },
- {
-  "id": "T086",
-  "comp": "KT",
-  "props": {
-   "teks": "yang berbeda",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 736,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.049,
-    0.239
-   ],
-   "durasi": 0.6666666666666666,
-   "v": 15
-  },
-  "durasi": 0.6666666666666666,
-  "t": 65.01498,
-  "x": 592,
-  "y": 874
- },
- {
-  "id": "T087",
-  "comp": "KT",
-  "props": {
-   "teks": "pun bisa koordinasi",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 976,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.01,
-    0.16,
-    0.36
-   ],
-   "durasi": 0.9,
-   "v": 15
-  },
-  "durasi": 0.9,
-  "t": 65.64888,
-  "x": 472,
-  "y": 874
- },
- {
-  "id": "T088",
-  "comp": "KT",
-  "props": {
-   "teks": "untuk meminimalisir",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 1034,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.0,
-    0.383
-   ],
-   "durasi": 1.2,
-   "v": 15
-  },
-  "durasi": 1.2,
-  "t": 66.51648,
-  "x": 443,
-  "y": 874
- },
- {
-  "id": "T089",
-  "comp": "KT",
-  "props": {
-   "teks": "kesalahan",
-   "kode": "T03",
-   "gaya": "r2",
-   "w": 1105,
-   "h": 237,
-   "size": 88,
-   "gelap": false,
-   "wt": [
-    0.015
-   ],
-   "rev": 3,
-   "durasi": 0.43333333333333335,
-   "v": 15
-  },
-  "durasi": 0.43333333333333335,
-  "t": 67.68428,
-  "x": 407,
-  "y": 831
- },
- {
-  "id": "T090",
-  "comp": "KT",
-  "props": {
-   "teks": "yang sama.",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 644,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.0,
-    0.304
-   ],
-   "durasi": 0.8,
-   "v": 15
-  },
-  "durasi": 0.8,
-  "t": 68.08468,
-  "x": 638,
-  "y": 874
- },
- {
-  "id": "T091",
-  "comp": "KT",
-  "props": {
-   "teks": "Sehingga ada",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 729,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.0,
-    0.68
-   ],
-   "durasi": 1.2,
-   "v": 15
-  },
-  "durasi": 1.2,
-  "t": 68.85208,
-  "x": 595,
-  "y": 874
- },
- {
-  "id": "T092",
-  "comp": "KT",
-  "props": {
-   "teks": "loop pembelajaran",
-   "kode": "T03",
-   "gaya": "r2",
-   "w": 1909,
-   "h": 237,
-   "size": 88,
-   "gelap": false,
-   "wt": [
-    0.007,
-    0.322
-   ],
-   "rev": 3,
-   "durasi": 0.9333333333333333,
-   "v": 15
-  },
-  "durasi": 0.9333333333333333,
-  "t": 70.01998,
-  "x": 5,
-  "y": 831
- },
- {
-  "id": "T093",
-  "comp": "KT",
-  "props": {
-   "teks": "yang terjadi",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 656,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.001,
-    0.271
-   ],
-   "durasi": 0.8,
-   "v": 15
-  },
-  "durasi": 0.8,
-  "t": 70.92088,
-  "x": 632,
-  "y": 874
- },
- {
-  "id": "T094",
-  "comp": "KT",
-  "props": {
-   "teks": "di sini.",
-   "kode": "T19",
-   "gaya": "r1",
-   "w": 410,
-   "h": 151,
-   "size": 84,
-   "gelap": false,
-   "wt": [
-    0.0,
-    0.168
-   ],
-   "durasi": 0.43333333333333335,
-   "v": 15
-  },
-  "durasi": 0.43333333333333335,
-  "t": 71.68828,
-  "x": 755,
-  "y": 874
- },
- {
-  "id": "T095",
   "comp": "KT",
   "props": {
    "teks": "Ini",
@@ -2842,7 +2488,7 @@
   "y": 869
  },
  {
-  "id": "T097",
+  "id": "T082",
   "comp": "KT",
   "props": {
    "teks": "Dan menurut kalian",
@@ -2866,7 +2512,7 @@
   "y": 869
  },
  {
-  "id": "T098",
+  "id": "T083",
   "comp": "KT",
   "props": {
    "teks": "videonya kayak gimana?",
@@ -2890,7 +2536,7 @@
   "y": 869
  },
  {
-  "id": "T099",
+  "id": "T084",
   "comp": "KT",
   "props": {
    "teks": "Udah kerasa",
@@ -2913,7 +2559,7 @@
   "y": 240
  },
  {
-  "id": "T100",
+  "id": "T085",
   "comp": "KT",
   "props": {
    "teks": "video editing",
@@ -2932,35 +2578,34 @@
   },
   "durasi": 1.0333333333333334,
   "t": 77.66088,
-  "x": 709,
+  "x": 702,
   "y": 348
  },
  {
-  "id": "T101",
+  "id": "T086",
   "comp": "KT",
   "props": {
    "teks": "profesional",
-   "kode": "T25",
-   "gaya": "r3",
-   "w": 442,
-   "h": 124,
+   "kode": "T03",
+   "gaya": "r2",
+   "w": 853,
+   "h": 167,
    "size": 62,
    "gelap": false,
-   "warna": "#F97066",
    "wt": [
     0.014
    ],
-   "rev": 2,
+   "rev": 3,
    "durasi": 0.6666666666666666,
    "v": 15
   },
   "durasi": 0.6666666666666666,
   "t": 78.66188,
-  "x": 752,
-  "y": 338
+  "x": 383,
+  "y": 317
  },
  {
-  "id": "T102",
+  "id": "T087",
   "comp": "KT",
   "props": {
    "teks": "gak? Atau",
@@ -2983,7 +2628,7 @@
   "y": 345
  },
  {
-  "id": "T103",
+  "id": "T088",
   "comp": "KT",
   "props": {
    "teks": "Comment",
@@ -3005,7 +2650,7 @@
   "y": 345
  },
  {
-  "id": "T104",
+  "id": "T089",
   "comp": "KT",
   "props": {
    "teks": "di bawah.",
@@ -3028,7 +2673,7 @@
   "y": 352
  },
  {
-  "id": "T105",
+  "id": "T090",
   "comp": "KT",
   "props": {
    "teks": "Nanti",
@@ -3050,7 +2695,7 @@
   "y": 349
  },
  {
-  "id": "T106",
+  "id": "T091",
   "comp": "KT",
   "props": {
    "teks": "aku kasih",
@@ -3073,7 +2718,7 @@
   "y": 347
  },
  {
-  "id": "T107",
+  "id": "T092",
   "comp": "KT",
   "props": {
    "teks": "skill",
@@ -3091,12 +2736,12 @@
    "v": 15
   },
   "durasi": 0.6333333333333333,
-  "t": 82.42237,
+  "t": 82.43238,
   "x": 798,
   "y": 314
  },
  {
-  "id": "T109",
+  "id": "T094",
   "comp": "KT",
   "props": {
    "teks": "bagi",
@@ -3118,7 +2763,7 @@
   "y": 342
  },
  {
-  "id": "T110",
+  "id": "T095",
   "comp": "KT",
   "props": {
    "teks": "yang beruntung.",
@@ -3132,12 +2777,12 @@
     0.0,
     0.044
    ],
-   "durasi": 0.5333333333333333,
+   "durasi": 0.5666666666666667,
    "v": 15
   },
-  "durasi": 0.5333333333333333,
-  "t": 83.29988,
-  "x": 649,
+  "durasi": 0.5666666666666667,
+  "t": 83.28987,
+  "x": 596,
   "y": 340
  },
  {
@@ -3242,44 +2887,7 @@
   "y": 200
  },
  {
-  "id": "C_lihat",
-  "comp": "Coretan",
-  "props": {
-   "w": 1920,
-   "h": 1080,
-   "panah": {
-    "d": "M590 962 C270 990 190 470 690 352",
-    "kepala": {
-     "tip": [
-      690,
-      352
-     ],
-     "a": [
-      645.5,
-      340.3
-     ],
-     "b": [
-      655.4,
-      382.3
-     ]
-    },
-    "warna": "#FFFFFF",
-    "tebal": 9,
-    "at": 0.0,
-    "gambar": 9,
-    "headF": 3
-   },
-   "kata0": 156,
-   "rev": 2,
-   "durasi": 0.7333333333333333
-  },
-  "durasi": 0.7333333333333333,
-  "t": 58.57518,
-  "x": 0,
-  "y": 0
- },
- {
-  "id": "T108",
+  "id": "T093",
   "comp": "Coretan",
   "props": {
    "w": 520,

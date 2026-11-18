@@ -52,6 +52,7 @@ Juri visual adalah mata, dan penilainya satu: Sutradara melihat gambarnya, denga
 
 Dijalankan pada still per beat, sebelum render penuh:
 1. `python3 ../scripts/juri/teks_cek.py qc/stills/` (alat bantu, bukan putusan): menunjuk still yang mungkin punya teks di pita bawah berturut-turut, kata tampil dua kali, atau teks menyentuh tepi. Tiap still yang ditunjuk dibuka dan diputus dengan mata. Kata ganda antara teks kinetik dan teks UI = GAGAL, diperbaiki, tidak diberi alasan.
+   Proyek lego: `python3 ../scripts/juri/kt_ocr.py <proyek>/lego` membaca tiap kata KT pada onsetnya + 4 f dari render lapisannya; kata yang belum utuh/terbaca = GAGAL di `render.sh final`. OCR yang salah baca huruf bergaya ditulis ke `qc/kt_ocr_terima.json` dengan frame yang dicek mata.
 2. **Keseimbangan dan tata letak dinilai dengan mata** (Lantai C17), bukan skor skrip. Buka tiap still di frame **frasa utuh** pada ukuran normal dan kecil (±25 %), lalu jawab per still di `qc/JURI.md`:
    - **Massa kiri-kanan:** elemen yang ditaruh (teks, kartu, tokoh, wajah/lingkaran) mengimbangi sisi lawannya; satu sisi penuh sementara sisi lain kosong = gagal. Detail latar footage (pintu, perabot) bukan massa yang ditaruh.
    - **Satu fokus:** mata tahu harus melihat ke mana; dua teks sama kuat yang tampil bersamaan = gagal.

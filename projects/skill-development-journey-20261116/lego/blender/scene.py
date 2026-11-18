@@ -1,7 +1,7 @@
 """Procedural B10a set. Default invocation saves a .blend and renders three stills only."""
 import bpy, math, random, json, sys, time
 from pathlib import Path
-from mathutils import Vector
+from mathutils import Vector, Matrix
 random.seed(10)
 OUT=Path('/mnt/storage-projects/skill-dev-journey/b10a'); T=json.loads((OUT/'timing.json').read_text()); FPS=T['fps']; N=T['frames']; ON=T['onset_frame']
 bpy.ops.object.select_all(action='SELECT'); bpy.ops.object.delete(use_global=False)
@@ -83,7 +83,8 @@ def vox(name,pos,parent,material=None):
   for sl in o.material_slots:sl.link='OBJECT';sl.material=random.choice(clays)
  return o
 # R5b/E (D-420): Claude menghadap MONITOR (yaw 138°, terlihat 3/4 dari belakang), di tepi kiri frame sebagai lapis depan; tak menatap kamera.
-CL0=(-.235,-.05,.065)
+# R5c (D-437): Claude bekerja di atas sisi kiri keyboard (tangan di tuts), tetap lapis depan kiri, menghadap monitor.
+CL0=(-.165,-.085,.065)
 body=empty('Claude body turn and nod',CL0)
 body['body_width_height_ratio']=1.9
 body['reference']='sumber/ref/maskot-acuan-pixel-crab.png'
@@ -107,7 +108,7 @@ for sign in [-1,1]:
    for z in range(3):vox('Arm voxel',(sign*x*.01,(y-1)*.01,z*.01),a)
  a.rotation_euler[1]=0;arms.append(a)
 # Irfan 17 Nov: shot mulai lebih awal ("Ini 100% full pakai AI") -> sebelum onset Claude sedang mengedit: angguk kecil berirama, tangan mengetik bergantian
-YAW=138
+YAW=round(math.degrees(math.atan2(.075+.03-CL0[0],-( .135-.02-CL0[1]))),1)   # depan Claude (-y lokal) menunjuk monitor yang sudah diputar (D-437)
 _pre=[(f,YAW+(-3 if k%2 else 3),(2 if k%2 else 0)) for k,f in enumerate(range(9,ON-18,9))]
 for f,ang,nod in [(1,YAW,0)]+_pre+[(ON-16,YAW,0),(ON-6,YAW+7,3),(ON+3,YAW+9,4),(ON+13,YAW+3,1),(ON+21,YAW,0),(ON+25,YAW,3),(ON+29,YAW,-1),(N,YAW,0)]:
  body.rotation_euler=(math.radians(nod),0,math.radians(ang));key(body,'rotation_euler',f)
@@ -126,6 +127,15 @@ me=bpy.data.meshes.new('Screen mesh');me.from_pydata(verts,[],[(0,1,2,3)]);me.uv
 for uv,co in zip(me.uv_layers.active.data,[(0,0),(1,0),(1,1),(0,1)]):uv.uv=co
 screen=bpy.data.objects.new('Monitor project footage and editor',me);s.collection.objects.link(screen)
 m=bpy.data.materials.new('Live project editor image sequence');m.use_nodes=True;n=m.node_tree.nodes;n.clear();out=n.new('ShaderNodeOutputMaterial');em=n.new('ShaderNodeEmission');em.inputs['Strength'].default_value=.65;im=n.new('ShaderNodeTexImage');im.image=bpy.data.images.load(str(OUT/'textures/editor-001.png'));im.image.source='SEQUENCE';im.image_user.frame_duration=N;im.image_user.frame_start=1;im.image_user.use_auto_refresh=True;m.node_tree.links.new(im.outputs['Color'],em.inputs[0]);m.node_tree.links.new(em.outputs[0],out.inputs['Surface']);screen.data.materials.append(m)
+# R5c (D-437): monitor diputar sedikit menghadap Claude (pivot di kaki monitor).
+MON_ROT=math.radians(-16)
+piv=empty('Monitor menghadap Claude',(mx,my,0))
+for nm in ('Monitor thin bezel','Monitor neck','Monitor foot','Monitor project footage and editor'):
+ o=bpy.data.objects[nm];o.parent=piv;o.matrix_parent_inverse=Matrix.Translation((-mx,-my,0))
+piv.rotation_euler[2]=MON_ROT
+def rotz(p):
+ dx,dy=p[0]-mx,p[1]-my;c,sn=math.cos(MON_ROT),math.sin(MON_ROT)
+ return (mx+dx*c-dy*sn,my+dx*sn+dy*c,p[2])
 # The practical lamp motivates the amber key and a restrained pool on the wood.
 cylinder('Lamp base',(-.31,.09,.008),.05,.014,brass)
 rod('Lamp lower arm',(-.31,.09,.012),(-.32,.13,.23),.005,brass)
@@ -155,9 +165,9 @@ o=bpy.data.objects.new('Keyboard cable',cu);s.collection.objects.link(o);o.data.
 # Camera advances towards the action, then transfers attention to the new text block.
 bpy.ops.object.camera_add();cam=bpy.context.object;s.camera=cam;cam.name='Push-in ke monitor';cam.data.lens=46;cam.data.sensor_width=36;cam.data.clip_start=.01;cam.data.clip_end=10;cam.data.dof.use_dof=True;cam.data.dof.aperture_fstop=3.4;cam.data.dof.aperture_blades=9
 # R5b/E: fokus tetap di wajah Irfan pada timeline monitor; kamera push-in pelan kontinu 1,15x -> 1,30x (linear, tanpa ease supaya terus bergerak).
-FACE=(mx+.050,my-.0064,mz+.033)
+FACE=rotz((mx+.050,my-.0064,mz+.033))
 focus=empty('Fokus wajah di timeline',FACE);cam.data.dof.focus_object=focus
-AIM=Vector((mx-.090,my-.0064,mz-.030));DIRC=Vector((-.10,-.92,.10)).normalized();DB=.80
+AIM=Vector(rotz((mx-.120,my-.0064,mz-.055)));DIRC=Vector((-.22,-.92,.30)).normalized();DB=1.05   # D-437: Claude + tangan di keyboard + monitor dalam satu frame
 for f,z in [(1,1.15),(N,1.30)]:
  cam.location=AIM+DIRC*(DB/z);aim(cam,AIM);key(cam,'location',f);key(cam,'rotation_euler',f)
 for fc in action_curves(cam.animation_data.action):

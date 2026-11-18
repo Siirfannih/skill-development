@@ -1,0 +1,25 @@
+**R5c-D · siap ditinjau; build lego biasa masih tertahan.**
+
+- Kode: `b7.tsx`, `bangun.py` hanya B5b; baru `bersama/chat/{Conversation,Chrome}.tsx`, `ui-asli/claude/{LogoClaude,MosaikClaude}.tsx`; turunan JSON (termasuk `teks.json` dari perintah wajib), bukti `qc/r5c/D/`.
+- `s57.6.png`: wajah pada pre; sampel sebelum awal lapisan dijepit ke frame 0.
+- `s58.6.png`: satu jendela, prompt Irfan kanan, Clawd bekerja, kolom Opus 5.5 · Medium.
+- `s59.6.png`: prompt tetap, spinner/kursor dan Clawd berjalan.
+- `s60.6.png`: Update ChatGPT A; Claude mengetik laporan gerbang gagal.
+- `s61.6.png`: laporan A lengkap, jeda 68,7 dtk terbaca.
+- `s62.6.png`: Claude sudah memerintahkan session A memperbaiki batas kalimat.
+- `s63.6.png`: Messaged A, terminal bus send dan terkirim.
+- `s64.6.png`: Claude meminta pemeriksaan session B.
+- `s65.6.png`: Messaged B berputar; indikator Mengirim….
+- `s66.6.png`: Update B masuk; Claude mulai melaporkan masukan.
+- `s67.6.png`: laporan masukan B mengalir per kata.
+- `s68.6.png`: masukan B lengkap; kesalahan pernah terjadi dan akan dicatat.
+- `s69.6.png`: Edit guide/teks/GUIDE.md dan diff hijau.
+- `s70.6.png`: Ran cut_check.py, PASS; Clawd lega/centang; ringkasan mulai.
+- `s71.6.png`: ringkasan aturan bersama A/B lengkap; Clawd lega.
+- `s72.1.png`: post kembali ke wajah; endpoint tambahan di luar 15 sampel per detik.
+- Strip dilihat: `intro-f00…11.png` (frame 8–19, mosaik) dan `outro-f00…11.png` (428–439, UI→wajah); semua 40 PNG 1920×1080.
+- PASS: tsc exit 0 (`tsc.log`); motion lint PASS (`motion-lint.log`); tema tidak menyebut b7 (`tema.log`, file lain masih gagal).
+- PASS: runtime 406 frame, satu jendela/Clawd, font termuat, nol overflow/error; preview 440 frame, nol frame penuh identik, crop kerja maksimal 4 frame diam; durasi 14,666667 dtk dan pre/post 8/8 tetap.
+- TERTAHAN: build biasa StopIteration `panah_lihat():604`; fixture tanpa panah D exit 0, kunci baru ada di `lego/lapisan.json`, hanya D_RELAY di dunia inti; `panah-lihat-guard.patch` siap dan belum diterapkan, menunggu izin keluar B5b.
+- Token baru: tidak ada; ukuran/keluarga/warna dari token, logo/mosaik asli hanya di `ui-asli/claude/`; diff/PASS 22 px/700, kontras ≥3,33:1.
+- Catatan: doctor masih menandai PETA repo basi; logo siirfan dikecualikan D-436; tanpa commit/push atau render master. Preview: `qc/r5c/D/preview-current.mp4`; log fixture dibedakan dari build biasa.

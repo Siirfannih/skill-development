@@ -10,7 +10,7 @@ import {CURVE, move, react} from '../lib/curves';
 import {Karakter2D} from '../papan/karakter2d/Karakter2D';
 import {jump, stroll} from '../papan/karakter2d/gerak';
 import {Fonts} from './bersama/Fonts';
-import {FONT, HIJAU, INK, MUTED} from './bersama/tema';
+import {MEREK, FONT, HIJAU, INK, MUTED} from './bersama/tema';
 import {Jendela} from './bersama/Jendela';
 
 export type DuniaRepoProps = {durasi: number; /** detik relatif: waktu kunci dari words.json */ kunci: {lift: number; geser: number; tekan: number; selesai: number; keluar: number};
@@ -166,8 +166,7 @@ const Isi: React.FC<DuniaRepoProps & {f: number}> = ({kunci: K, kata, f, durasi}
   const lega = move(f, sel, 8, 'land');
   const centang = move(f, sel + 2, 8, 'land') - 0.06 * move(f, sel + 10, 8, 'heavy');
   const wm = move(f, sel, 10, 'land');             // jendela meredup halus supaya kata selesai terbaca (satu fokus)
-  return <AbsoluteFill style={{background: '#05060A', overflow: 'hidden'}}>
-    <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(circle at 18% 112%, rgba(228,85,15,.75), rgba(228,85,15,0) 58%), radial-gradient(circle at 86% -8%, rgba(228,85,15,.28), rgba(228,85,15,0) 50%)', transform: `translate(${-30 * dorong}px, ${12 * dorong}px)`}}/>
+  return <AbsoluteFill style={{background: MEREK.latar, overflow: 'hidden'}}>
     <div style={{position: 'absolute', inset: 0, transformOrigin: '50% 50%', transform: `scale(${sc})`}}>
       <div style={{position: 'absolute', left: 275 + 155, top: 290 - 75, width: 1, height: 1, transform: 'translate(-275px, -290px)'}}>
         <div style={{position: 'absolute', left: 0, top: 0, width: 1920, height: 1080, transformOrigin: '1000px 560px', transform: 'perspective(2400px) rotateY(-9deg) rotateX(5deg) rotateZ(-1deg)',

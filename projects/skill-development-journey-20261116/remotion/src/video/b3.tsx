@@ -9,7 +9,7 @@ import {CameraMotionBlur} from '@remotion/motion-blur';
 import {CURVE, arc, drift, move, react} from '../lib/curves';
 import {Fonts} from './bersama/Fonts';
 import {Jendela} from './bersama/Jendela';
-import {FONT} from './bersama/tema';
+import {MEREK, FONT} from './bersama/tema';
 
 export type AppProps = {
   durasi: number;
@@ -92,8 +92,7 @@ const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
   const CX = WIN.x, CY = WIN.y + 28;
   const bal = t >= K.hapus;
   const lf0 = f;
-  return <AbsoluteFill style={{background: '#05060A', overflow: 'hidden'}}>
-    <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(circle at 22% 108%, rgba(228,85,15,.7), rgba(228,85,15,0) 55%), radial-gradient(circle at 92% -6%, rgba(228,85,15,.25), rgba(228,85,15,0) 48%)'}}/>
+  return <AbsoluteFill style={{background: MEREK.latar, overflow: 'hidden'}}>
     <div style={{position: 'absolute', inset: 0, transformOrigin: '0 0', transform: `translate(${960 - cam.x * sc + dd.x}px, ${540 - cam.y * sc + dd.y}px) scale(${sc})`}}>
       <div style={{filter: 'invert(0.93) hue-rotate(180deg)'}}><Jendela x={WIN.x} y={WIN.y} w={WIN.w} h={WIN.h} bar="#F2F1ED" judul={<span style={{...ink(15, 500, '#55544F'), margin: '0 auto', paddingRight: 70}}>Claude Code</span>}>
         <div style={{position: 'absolute', left: 0, top: 0, width: 230, height: WIN.h - 28, background: T.soft, borderRight: `1px solid ${T.line}`, paddingTop: 16}}>

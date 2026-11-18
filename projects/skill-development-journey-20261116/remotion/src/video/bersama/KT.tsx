@@ -121,14 +121,15 @@ const R3: React.FC<KTProps> = (p) => {
       {chars.map((c, i) => {
         const tick = Math.floor(ff / 2);
         const o0 = onsetF(p, kataKe[i], fps, 0);
-        const settle = move(f, o0 + 10, 8, 'land');
+        // D-433: selain parodi 'viral', semua huruf tampil bersama ≤ 3 f dan guncang reda ≤ 6 f setelah onset (kata utuh saat diucapkan)
+        const settle = viral ? move(f, o0 + 10, 8, 'land') : move(f, o0 + 2, 4, 'land');
         const k = 1 - Math.min(1, settle);
         const keep = viral ? 0.25 : 0;
         if (c === ' ') return null;                       // jarak antar-kata lewat margin (audit V6: "habis banget" tidak boleh rapat)
         const jx = (hash(tick * 7 + i) - 0.5) * size * 0.16 * (k + keep);
         const jy = (hash(tick * 11 + i + 4) - 0.5) * size * 0.34 * (k + keep);
         const jr = (hash(tick * 13 + i + 8) - 0.5) * 24 * (k + keep);
-        const pop = move(f, o0 + react(i % 6, fps, 0.25), 4, 'land');
+        const pop = viral ? move(f, o0 + react(i % 6, fps, 0.25), 4, 'land') : move(f, o0, 3, 'land');
         const warna = viral ? undefined : (p.warna ?? (p.gelap ? INK : HERO));
         const sty: React.CSSProperties = viral
           ? {backgroundImage: 'linear-gradient(180deg,#FF4FD8,#8E3BFF)', WebkitBackgroundClip: 'text', color: 'transparent',

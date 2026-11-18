@@ -1,0 +1,11 @@
+{
+  "T009": "dicek mata qc/kt_ocr/T009.png: busur 'workflow' sengaja tumbuh di sepanjang cincin (disetujui G2 16 Nov, D-425 KT wajah tidak diubah)",
+  "T011": "dicek mata qc/kt_ocr/T011_1.png, T011_2.png: busur 'AI model' tumbuh di cincin; 'AI' utuh, OCR tidak membaca huruf melengkung",
+  "T034": "dicek mata qc/kt_ocr/T034_1.png, T034_2.png: slab Anton 'AI SLOP' utuh; OCR gagal pada Anton rapat",
+  "T051": "dicek mata qc/kt_ocr/T051.png: sapuan masuk slab WORKFLOW-NYA (disetujui putaran 4, D-412)",
+  "T081#3": "dicek mata qc/kt_ocr/T081_3.png: 'AI' Anton utuh; OCR membaca 'al'",
+  "T002": "dicek mata qc/kt_ocr/T002.png: sapuan masuk hero FINALLY (disetujui G2 16 Nov)",
+  "T025": "dicek mata qc/kt_ocr/T025.png: getar parodi 'VIRAL!!' di adegan AI slop, disengaja (DESAIN B2)",
+  "T028#2": "dicek mata qc/kt_ocr/T028_2.png: 'AI.' utuh; OCR membaca 'al'",
+  "T038": "dicek mata qc/kt_ocr/T038.png: 'putus-putus' sengaja muncul per suku kata sesuai maknanya (DESAIN B2)"
+}

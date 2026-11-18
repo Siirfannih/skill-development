@@ -15,7 +15,7 @@ huruf:
   aksen:   {keluarga: "?", bobot: "?", file: "?"}   # opsional: serif/script untuk penekanan
 logo:
   terang: aset/logo/logo-terang.svg   # dipakai di latar terang
-  gelap:  aset/logo/logo-gelap.svg    # dipakai di latar gelap
+  gelap:  aset/logo/logo-gelap.svg    # dipakai di latar gelap · merek tanpa logo (dipastikan user): tulis "tidak ada" di keduanya
   ruang_kosong_min: "?"               # mis. "tinggi huruf J di sekeliling logo"
 format_utama: ["9:16 1080x1920"]      # rasio yang paling sering dibuat
 ---

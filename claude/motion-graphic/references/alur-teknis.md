@@ -78,7 +78,7 @@ motion-graphic/
 ├── SKILL.md                 inti: lantai, kiblat, juri, lalu rujukan teknis (file ini)
 ├── LANTAI.md                satu-satunya daftar mutu yang selalu berlaku (sumber blok §0)
 ├── pustaka/                 PETA.md · kartu/ (anatomi 8 bagian per referensi) · RESEP-TEMPLATE.md · contoh-gagal/
-├── scripts/juri/            render.sh (gerbang render) · resep_check.py · sandingkan.py · frame_audit.py (semua frame: fase visual, lalu fase audio) · teks_cek.py (penunjuk, bukan putusan)
+├── scripts/juri/            render.sh (gerbang render) · resep_check.py · sandingkan.py · frame_audit.py (semua frame: fase visual, lalu fase audio) · teks_cek.py (penunjuk, bukan putusan) · kt_ocr.py (kata KT utuh pada onset + 4 f, proyek lego)
 ├── guide/                   standar rasa per urusan (README → visual · teks · gerak · audio · sfx · hindari · referensi)
 ├── references/
 │   ├── music-profiles.json  profil musik per kategori suasana (kalibrasi dari referensi Irfan)

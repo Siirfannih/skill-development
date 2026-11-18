@@ -743,15 +743,27 @@ def dunia():
     w5 = T["lihat_e"]; w5s = snap(w5 - pre / FPS)
     dun = round(T["sini_e"] - w5 - 0.0, 3)
     s_ = lambda txt, a, n=0: W.s(txt, a, n) - w5
-    # R5b/D (D-418/D-419/D-426): desktop hitam + glow, tiga jendela app asli; kunci = onset kata ucapan (dunia mulai di w5)
-    kun5 = dict(ketik1=round(s_("Bahkan", 59.0) + 0.26, 3), kirim1=round(s_("ke", 61) - 0.0, 3), tiba1=round(s_("ke", 61) + 0.6, 3), ketik2=round(s_("dikoordinasi", 62) - 0.12, 3),
-                kirim2=round(s_("sebaliknya", 62.5), 3), tiba2=round(s_("sebaliknya", 62.5) + 0.6, 3), masukB=round(s_("ChatGPT", 63.4), 3), ketikN=round(s_("session", 64.5), 3),
-                kirimN=round(s_("kesalahan", 67), 3), tibaN=round(s_("kesalahan", 67) + 0.8, 3), loop=round(s_("Sehingga", 68), 3), ok=round(s_("pembelajaran", 70) + 0.35, 3), keluar=round(dun - 0.5, 3))
-    add("D_RELAY", "RelayDunia", dict(w=1920, h=1080, rev=31, pre=pre, post=post, preT0=w5s, postT0=snap(T["sini_e"]), zPre=round(zoom_at(w5s), 4), kunci=kun5), dun + (pre + post) / FPS, w5s, 0, 0, opaque=True,
-        objek=dict(nama="desktop hitam-glow: jendela ChatGPT session A, Claude, session B + dok skill-development", peran="dunia-transisi", t=w5))
-    for nm, tt in (("ChatGPT mengetik instruksi", w5 + kun5["ketik1"]), ("tombol kirim ditekan, pesan meluncur ke Claude", w5 + kun5["kirim1"]), ("avatar Claude bete (pesan tiba)", w5 + kun5["tiba1"]),
-                   ("Claude membalas, avatar lega", w5 + kun5["kirim2"]), ("jendela session B masuk dari kanan, mendorong yang lain", w5 + kun5["masukB"]), ("catatan Dicatat mendarat ke tab dok", w5 + kun5["tibaN"]),
-                   ("cincin jalur menyambung, titik berjalan", w5 + kun5["loop"] + 0.5), ("centang hijau, avatar ChatGPT senang", w5 + kun5["ok"])):
+    # D-431/D-432/D-435/D-436: satu sesi Claude; semua kerja ChatGPT dilaporkan Claude.
+    for block in BLK:
+        if w5s <= block["t"] < T["sini_e"]: block["dunia"] = True
+    kun5 = dict(updateA=round(s_("ChatGPT", 59.5), 3), laporanA=round(s_("ChatGPT", 59.5) + 0.12, 3),
+                perintahA=round(s_("Claude", 62.1), 3), kirimA=round(s_("sebaliknya", 62.5), 3),
+                terminalA=round(s_("sebaliknya", 62.5) + 0.1, 3), terkirimA=round(s_("sebaliknya", 62.5) + 0.65, 3),
+                mintaB=round(s_("ChatGPT", 63.4), 3), kirimB=round(s_("session", 64.5), 3),
+                updateB=round(s_("koordinasi", 65.6), 3), masukanB=round(s_("koordinasi", 65.6) + 0.15, 3),
+                edit=round(s_("Sehingga", 68), 3), diff=round(s_("ada", 69), 3), cek=round(s_("loop", 69), 3),
+                pass_=round(s_("pembelajaran", 70) + 0.12, 3), ringkas=round(s_("pembelajaran", 70) + 0.27, 3),
+                lega=round(s_("pembelajaran", 70) + 0.12, 3), keluar=round(dun - 0.5, 3))
+    kun5["pass"] = kun5.pop("pass_")
+    add("D_RELAY", "RelayDunia", dict(w=1920, h=1080, rev=32, pre=pre, post=post, preT0=w5s, postT0=snap(T["sini_e"]), zPre=round(zoom_at(w5s), 4), kunci=kun5), dun + (pre + post) / FPS, w5s, 0, 0, opaque=False,
+        objek=dict(nama="satu sesi chat Claude: update ChatGPT A/B, terminal, pelajaran bersama; Clawd bekerja", peran="dunia-transisi", t=w5))
+    for nm, tt in (("mosaik oranye membuka sesi Claude dan prompt Irfan", w5), ("Update dari ChatGPT session A", w5 + kun5["updateA"]),
+                   ("Claude melaporkan satu gerbang gagal", w5 + kun5["laporanA"]), ("Claude memerintahkan perbaikan session A", w5 + kun5["perintahA"]),
+                   ("Messaged ChatGPT session A dan terminal bus send", w5 + kun5["kirimA"]), ("Claude meminta pemeriksaan session B", w5 + kun5["mintaB"]),
+                   ("Messaged ChatGPT session B", w5 + kun5["kirimB"]), ("Update dari ChatGPT session B", w5 + kun5["updateB"]),
+                   ("Claude melaporkan masukan session B", w5 + kun5["masukanB"]), ("Edit guide teks", w5 + kun5["edit"]),
+                   ("diff hijau pelajaran potong di jeda", w5 + kun5["diff"]), ("Ran cut_check.py", w5 + kun5["cek"]),
+                   ("PASS dan Clawd lega", w5 + kun5["pass"]), ("Claude merangkum aturan bersama A dan B", w5 + kun5["ringkas"])):
         L.append(dict(id="O_" + nm, comp="-", props={}, durasi=0, t=tt, x=0, y=0, gerak=None, lubang=False, opaque=False, objek=dict(nama=nm, peran="item-ui", t=tt), skip=True))
 
 
@@ -791,7 +803,9 @@ def ig_ikut():
         xs, ys = [], []
         for f in list(range(S, E, 2)) + [E - 1]:
             sx, sy = _ig_layar((f - S_ig) / FPSO, ax, ay); r = round((f - S) / FPSO, 4)
-            xs.append([r, round(sx - off[0], 1)]); ys.append([r, round(sy - off[1], 1)])
+            xr = _ig_layar((f - S_ig) / FPSO, 0.96, ay)[0]          # R5c: tepi kanan teks (kotak - 70 px padding) tidak melewati 96 % lebar video
+            x = min(sx - off[0], xr - w + 70) if l["comp"] == "KT" else sx - off[0]
+            xs.append([r, round(x, 1)]); ys.append([r, round(sy - off[1], 1)])
         l["gerak"] = dict(x=xs, y=ys); l["x"], l["y"] = int(round(xs[0][1])), int(round(ys[0][1])); n_ok += 1
     return n_ok
 
@@ -926,7 +940,7 @@ def main():
     if DUNIA: dunia()
     for b in bl:
         if not (b["peran"] == "R6"): kt(b)
-    sapa(); panah_lihat()
+    sapa()          # D-419: panah goresan 'kalian lihat ini' dihapus (panah_lihat tidak dipanggil); D-435: adegan D tanpa KT
     # urutan tumpuk (z): lubang/slab/cincin/grade/kartu/karakter/slop/KT kecil
     zorder = {"busur": 0, "GRADE": 1, "slab": 2, "Kartu": 3, "Karakter": 4, "Slop": 5}
     def z(l):

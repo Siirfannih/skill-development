@@ -27,6 +27,12 @@ class ProfilCek(unittest.TestCase):
     def test_template_kosong_gagal(self): self.assertEqual(self.cek().returncode, 1)
     def test_terisi_lulus(self): self.isi(); r = self.cek(); self.assertEqual(r.returncode, 0, r.stdout)
     def test_warna_bukan_hex_gagal(self): self.isi(aksen="biru"); self.assertEqual(self.cek().returncode, 1)
+    def ganti_logo(self, nilai):
+        f = os.path.join(self.d, "BRAND.md"); b = open(f).read()
+        b = b.replace("terang: aset/logo/logo-terang.svg", f"terang: {nilai}").replace("gelap:  aset/logo/logo-gelap.svg", f"gelap:  {nilai}")
+        open(f, "w").write(b)
+    def test_merek_tanpa_logo_lulus(self): self.isi(); self.ganti_logo('"tidak ada"'); r = self.cek(); self.assertEqual(r.returncode, 0, r.stdout)
+    def test_logo_hilang_gagal(self): self.isi(); self.ganti_logo("aset/logo/tidak-ada-file.svg"); self.assertEqual(self.cek().returncode, 1)
 
 
 if __name__ == "__main__":

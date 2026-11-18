@@ -40,7 +40,7 @@ SPEK = [
     sp("loop", 70, 2, peran="R2", kode="T03", gaya="r2", alasan="kata kunci saat loop menutup + centang (DESAIN B5b)"),
     sp("lintas", 57, 2, peran="R6", kode="T04", gaya="slab", teks_vis="LINTAS AGENT", tahan=1.1, alasan="kata hero besar di BELAKANG kepala (matte), tahan ±1 dtk (REVISI-1 B9)"),
     sp("100%", 72.8, 4, peran="R6", kode="T04", gaya="slab", teks_vis="100% FULL AI", buang=["pakai"], depan=True, alasan="hero di DEPAN di atas dinding gelap shot meja 3D (Irfan 17 Nov: shot Claude mengedit mulai di kalimat ini); 'pakai' tidak ditampilkan (Irfan 17 Nov)"),
-    sp("profesional", 78.3, 1, peran="R3", kode="T25", gaya="r3", ukuran=97, warna=CORAL, alasan="pertanyaan pertama yang menusuk: kata kacau lalu mendarat (REVISI-2 Opus: perlakuan R3 pindah dari 'masih kerasa AI?' yang kini tampil sebagai komentar IG)"),
+    sp("profesional", 78.3, 1, peran="R2", kode="T03", gaya="r2", alasan="D-434: peran kata kunci yang sama dengan template/ngebalik/skill (putih, ukuran peran, tanpa warna/ukuran khusus); emosi menggoda dibawa dorong kamera ke video, posisi di dinding bidang video (ig_ikut)"),
     sp("masih", 79.5, 3, peran="R3", kode="T25", gaya="r3", alasan="pertanyaan yang menusuk: kata kacau lalu mendarat; komentar penonton menyusul (REVISI-1 B10)"),
     sp("skill", 82, 1, peran="R2", kode="T03", gaya="r2", alasan="kata kunci hadiah"),
     sp("gratis", 82.4, 1, peran="R2", kode="T03", gaya="tulis", alasan="tulisan tangan kuning + garis bawah goresan (D-406)"),
@@ -192,6 +192,8 @@ def bangun():
     blocks = [b for b in blocks if not (b["peran"] == "R1" and T["b3a"] <= b["t"] < T["appx"] and any(k in W.nrm(b["teks"]) for k in ("apple", "cinematic", "storytelling")))]
     # Lantai A3 / REVISI-2 (Opus): komentar IG "masih kerasa AI slop" (UI, urutan Irfan REVISI-1 B10) lahir tepat di "masih" -> KT "masih kerasa AI?" tidak diulang (GANDA KT-vs-UI)
     blocks = [b for b in blocks if not (T["masih2"] - 0.3 <= b["t"] < T["masih2"] + 0.6 and W.nrm(b["teks"]).startswith("masihkerasa"))]
+    # D-435: adegan D (sesi chat Claude) menceritakan ucapannya lewat UI; KT narasi/R2 di rentang ini tidak ditampilkan
+    blocks = [b for b in blocks if not (T["lihat_e"] - 0.02 <= b["t"] < T["sini_e"])]
     rechunk(blocks)
     # Irfan 17 Nov: dunia agen masuk di jentikan -> blok narasi yang menyeberanginya dipecah di kata pertama sesudah jentikan
     hasil = []

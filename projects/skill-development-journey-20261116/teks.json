@@ -1506,11 +1506,11 @@
   "id": "T079",
   "kata": [
    155,
-   157
+   155
   ],
-  "teks": "kalian lihat ini.",
+  "teks": "kalian",
   "t": 58.379,
-  "dur": 0.873,
+  "dur": 0.195,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
@@ -1523,311 +1523,6 @@
  },
  {
   "id": "T080",
-  "kata": [
-   158,
-   160
-  ],
-  "teks": "Bahkan bisa",
-  "t": 59.252,
-  "dur": 1.279,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "buang": [
-   "chatgpt",
-   "claude",
-   "session"
-  ],
-  "gelap": false
- },
- {
-  "id": "T081",
-  "kata": [
-   161,
-   163
-  ],
-  "teks": "koordinasi ke",
-  "t": 60.582,
-  "dur": 1.125,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "buang": [
-   "chatgpt",
-   "claude",
-   "session"
-  ],
-  "gelap": false
- },
- {
-  "id": "T082",
-  "kata": [
-   164,
-   166
-  ],
-  "teks": "bisa dikoordinasi",
-  "t": 61.797,
-  "dur": 1.06,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "buang": [
-   "chatgpt",
-   "claude",
-   "session"
-  ],
-  "gelap": false
- },
- {
-  "id": "T083",
-  "kata": [
-   167,
-   167
-  ],
-  "teks": "sebaliknya.",
-  "t": 62.867,
-  "dur": 0.455,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T084",
-  "kata": [
-   168,
-   169
-  ],
-  "teks": "Bahkan ChatGPT",
-  "t": 63.322,
-  "dur": 1.2,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T085",
-  "kata": [
-   170,
-   170
-  ],
-  "teks": "dengan",
-  "t": 64.522,
-  "dur": 0.258,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T086",
-  "kata": [
-   171,
-   173
-  ],
-  "teks": "yang berbeda",
-  "t": 64.997,
-  "dur": 0.645,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "buang": [
-   "chatgpt",
-   "claude",
-   "session"
-  ],
-  "gelap": false
- },
- {
-  "id": "T087",
-  "kata": [
-   174,
-   176
-  ],
-  "teks": "pun bisa koordinasi",
-  "t": 65.642,
-  "dur": 0.85,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T088",
-  "kata": [
-   177,
-   178
-  ],
-  "teks": "untuk meminimalisir",
-  "t": 66.492,
-  "dur": 1.088,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T089",
-  "kata": [
-   179,
-   179
-  ],
-  "teks": "kesalahan",
-  "t": 67.682,
-  "dur": 0.375,
-  "peran": "R2",
-  "kode": "T03",
-  "gaya": "r2",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "kesalahan berulang yang diminimalkan: kata kacau lalu mendarat (DESAIN B5b)",
-  "gelap": false
- },
- {
-  "id": "T090",
-  "kata": [
-   180,
-   181
-  ],
-  "teks": "yang sama.",
-  "t": 68.057,
-  "dur": 0.773,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T091",
-  "kata": [
-   182,
-   183
-  ],
-  "teks": "Sehingga ada",
-  "t": 68.83,
-  "dur": 1.123,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T092",
-  "kata": [
-   184,
-   185
-  ],
-  "teks": "loop pembelajaran",
-  "t": 70.01,
-  "dur": 0.85,
-  "peran": "R2",
-  "kode": "T03",
-  "gaya": "r2",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "kata kunci saat loop menutup + centang (DESAIN B5b)",
-  "gelap": false
- },
- {
-  "id": "T093",
-  "kata": [
-   186,
-   187
-  ],
-  "teks": "yang terjadi",
-  "t": 70.905,
-  "dur": 0.75,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T094",
-  "kata": [
-   188,
-   189
-  ],
-  "teks": "di sini.",
-  "t": 71.655,
-  "dur": 0.673,
-  "peran": "R1",
-  "kode": "T19",
-  "gaya": "r1",
-  "pos": [
-   960,
-   950
-  ],
-  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
- },
- {
-  "id": "T095",
   "kata": [
    190,
    190
@@ -1846,7 +1541,7 @@
   "gelap": false
  },
  {
-  "id": "T096",
+  "id": "T081",
   "kata": [
    191,
    194
@@ -1870,7 +1565,7 @@
   "gelap": false
  },
  {
-  "id": "T097",
+  "id": "T082",
   "kata": [
    195,
    197
@@ -1889,7 +1584,7 @@
   "gelap": false
  },
  {
-  "id": "T098",
+  "id": "T083",
   "kata": [
    198,
    200
@@ -1908,7 +1603,7 @@
   "gelap": false
  },
  {
-  "id": "T099",
+  "id": "T084",
   "kata": [
    201,
    202
@@ -1928,7 +1623,7 @@
   "ig": true
  },
  {
-  "id": "T100",
+  "id": "T085",
   "kata": [
    203,
    204
@@ -1948,7 +1643,7 @@
   "ig": true
  },
  {
-  "id": "T101",
+  "id": "T086",
   "kata": [
    205,
    205
@@ -1956,21 +1651,20 @@
   "teks": "profesional",
   "t": 78.659,
   "dur": 0.603,
-  "peran": "R3",
-  "kode": "T25",
-  "gaya": "r3",
+  "peran": "R2",
+  "kode": "T03",
+  "gaya": "r2",
   "pos": [
-   700,
-   840
+   960,
+   812
   ],
-  "alasan": "pertanyaan pertama yang menusuk: kata kacau lalu mendarat (REVISI-2 Opus: perlakuan R3 pindah dari 'masih kerasa AI?' yang kini tampil sebagai komentar IG)",
-  "warna": "#F97066",
-  "ukuran": 62,
+  "alasan": "D-434: peran kata kunci yang sama dengan template/ngebalik/skill (putih, ukuran peran, tanpa warna/ukuran khusus); emosi menggoda dibawa dorong kamera ke video, posisi di dinding bidang video (ig_ikut)",
   "gelap": false,
-  "ig": true
+  "ig": true,
+  "ukuran": 62
  },
  {
-  "id": "T102",
+  "id": "T087",
   "kata": [
    206,
    207
@@ -1990,7 +1684,7 @@
   "ig": true
  },
  {
-  "id": "T103",
+  "id": "T088",
   "kata": [
    211,
    211
@@ -2010,7 +1704,7 @@
   "ig": true
  },
  {
-  "id": "T104",
+  "id": "T089",
   "kata": [
    212,
    213
@@ -2030,7 +1724,7 @@
   "ig": true
  },
  {
-  "id": "T105",
+  "id": "T090",
   "kata": [
    214,
    214
@@ -2050,7 +1744,7 @@
   "ig": true
  },
  {
-  "id": "T106",
+  "id": "T091",
   "kata": [
    215,
    216
@@ -2070,7 +1764,7 @@
   "ig": true
  },
  {
-  "id": "T107",
+  "id": "T092",
   "kata": [
    217,
    217
@@ -2091,7 +1785,7 @@
   "ukuran": 62
  },
  {
-  "id": "T108",
+  "id": "T093",
   "kata": [
    218,
    218
@@ -2111,7 +1805,7 @@
   "ig": true
  },
  {
-  "id": "T109",
+  "id": "T094",
   "kata": [
    219,
    219
@@ -2131,7 +1825,7 @@
   "ig": true
  },
  {
-  "id": "T110",
+  "id": "T095",
   "kata": [
    220,
    221
