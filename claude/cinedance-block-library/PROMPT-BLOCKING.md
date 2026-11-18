@@ -88,4 +88,4 @@ FINAL OUTPUT: one continuous <N>-second 9:16 shot of <ringkasan>, photorealistic
 
 ## 5. Contoh terisi
 
-Prompt per shot video perkenalanku (18 Nov 2026) memakai template ini: lihat `EDITING-GUIDELINE` proyek itu di Drive `Claude edit/Siap edit/Video Perkenalan Irfan/` §6.
+Prompt per shot video perkenalanku (18 Nov 2026) memakai template ini: lihat `EDITING-GUIDELINE` proyek itu di Drive `Claude edit/Siap edit/2026-11-18 — Video Perkenalan Irfan/` (§6 prompt Omni).
