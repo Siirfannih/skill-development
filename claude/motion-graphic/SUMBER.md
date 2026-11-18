@@ -838,3 +838,9 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | satu penilai (Sutradara), tanpa dua pemeriksa | Irfan 18 Nov: karena Sutradara wajib melihat, QC sebelum Sutradara tidak diperlukan; dua model bisa konflik pendapat dan boros token |
 | frame lemah diberi solusi desain dari kartu, bukan geseran | Irfan 18 Nov, frame DECISION skill-dev-journey: usul model hanya "naikkan sedikit"; Irfan memberi dua solusi (kata hero di belakang kepala dan dibesarkan; b-roll latar oranye dengan DECISION putih memenuhi frame). Keduanya ada di pustaka: kartu 83 k3/k4 (kiblat proyek itu sendiri) dan kartu 23/53 k3 |
 | kartu = perpustakaan referensi gaya; pilih yang terdekat dengan melihat frame kunci | Irfan 18 Nov: kartu disusun supaya ia tidak perlu mengajari model atau mengirim referensi tiap sesi; cukup menyebut gaya (mis. 2,5D kinetic typography mengelilingi pembicara) dan model mencari kartu terdekat. Visi ini belum tertulis di skill |
+
+## `guide/teks/GUIDE.md` · `guide/visual/GUIDE.md` (pelajaran bersyarat dari contoh-gagal 09–11)
+
+| Aturan | Asal-usul |
+|---|---|
+| kata hero rendah di depan dada → belakang kepala atau b-roll tipografi; teks masuk ke bidang video yang "diposting"; goresan tangan harus sekeluarga dengan adegan | Irfan 18 Nov, tiga frame skill-dev-journey putaran 4. Irfan: pelajaran ditulis bersyarat ("dalam kondisi ini tidak boleh; alternatifnya boleh karena visualnya bagus, ada di kartu, terbaca, dan masuk gaya"), karena kesalahan di satu proyek bisa jadi keputusan benar di proyek lain. Pelajaran panah/tulisan tangan sebelumnya (putaran 4) dipersempit syaratnya, bukan dicabut |
