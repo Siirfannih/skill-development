@@ -629,10 +629,12 @@ class Rules16NovTests(unittest.TestCase):
         self.assertEqual(len(issues), 3, issues)
 
     def test_storyboard_beat_needs_metaphor(self):
-        good = {"id": "a", "metafora": {"makna": "m", "emosi": "e", "aksi": "membuka", "metafora": "x",
+        good = {"id": "a", "metafora": {"makna": "m", "emosi": "e", "gerak_pembawa": "kamera mundur saat lega", "aksi": "membuka", "metafora": "x",
                                         "objek": ["1", "2", "3"], "urutan": "u", "bentuk": "exploded view"}}
         self.assertEqual(board.metafora_issues(good), [])
         self.assertTrue(board.metafora_issues({"id": "b"}))
+        tanpa_gerak = {"id": "c", "metafora": {k: v for k, v in good["metafora"].items() if k != "gerak_pembawa"}}
+        self.assertEqual(board.metafora_issues(tanpa_gerak), ["c: metafora.gerak_pembawa kosong"])
 
 
     def test_kt_check_rejects_fade_everywhere_and_accepts_role_based_variety(self):

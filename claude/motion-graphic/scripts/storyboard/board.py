@@ -84,11 +84,12 @@ BENTUK = ("exploded", "potongan", "piktogram", "stick", "sebab-akibat", "grafik"
 
 def metafora_issues(b):
     """Gerbang metafora (Lantai D19a): sebelum menggambar, satu kalimat VO
-    diperas jadi makna, emosi, aksi (kata kerja), satu metafora, 3–6 objek kunci, urutan rakit, dan bentuk penjelas."""
+    diperas jadi makna, emosi, aksi (kata kerja), satu metafora, 3–6 objek kunci, urutan rakit, dan bentuk penjelas.
+    Emosi dibawa SATU gerak (`gerak_pembawa`): apa yang bergerak dan bagaimana, sehingga penonton merasakan emosi itu."""
     m = b.get("metafora")
     if not isinstance(m, dict):
         return [f"{b.get('id')}: belum ada metafora {{makna, emosi, aksi, metafora, objek, urutan, bentuk}}"]
-    out = [f"{b.get('id')}: metafora.{k} kosong" for k in ("makna", "emosi", "aksi", "metafora", "urutan", "bentuk")
+    out = [f"{b.get('id')}: metafora.{k} kosong" for k in ("makna", "emosi", "gerak_pembawa", "aksi", "metafora", "urutan", "bentuk")
            if not str(m.get(k, "")).strip()]
     obj = m.get("objek") or []
     if not (3 <= len(obj) <= 6):

@@ -53,6 +53,7 @@
       "metafora": {
         "makna": "nyatet keuangan usaha terasa ribet",
         "emosi": "ragu",
+        "gerak_pembawa": "kursor berhenti ±1 dtk di antara dua pilihan sebelum bergerak",
         "aksi": "menimbang",
         "metafora": "pertanyaan yang ditunjuk kursor, seperti sedang memilih",
         "objek": [
@@ -96,6 +97,7 @@
       "metafora": {
         "makna": "mencatat bisa semudah chat",
         "emosi": "lega",
+        "gerak_pembawa": "kamera mundur pelan tepat saat masalah terakhir hilang",
         "aksi": "membuka",
         "metafora": "kata 'chattingan' diklik lalu terbuka jadi ruang chat",
         "objek": [
@@ -129,6 +131,7 @@
       "metafora": {
         "makna": "tempatnya di aplikasi yang sudah dipakai tiap hari",
         "emosi": "akrab",
+        "gerak_pembawa": "kartu condong sedikit ke arah pembicara lalu mengendap",
         "aksi": "menerima",
         "metafora": "chat ayang yang biasa masuk",
         "objek": [

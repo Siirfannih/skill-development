@@ -28,7 +28,7 @@ Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkun
 
 1. **Bedah referensi per frame** menjadi kartu "yang terlihat → aturan yang diturunkan". Daftar nama file bukan pengganti melihat gambar.
 2. **Arah visual sebelum menggambar.** Sumber gaya menurut prioritas: brief Irfan → token/UI produk asli → panel yang sudah ada di papan → tangan bebas. Tulis di `beats.json → arah`: register, 2–3 kata karakter yang lolos uji "hanya cocok untuk proyek ini" (clean, modern, premium gagal karena cocok untuk apa pun), peran palet dengan nilai di `tokens.css`, pasangan font, tulang layout, satu detail khas yang hanya dimiliki proyek ini (contoh: mouse karakter Jadisatu di Trojan v4).
-2a. **Metafora per kalimat (Lantai D19a, D19b).** Untuk tiap beat isi `metafora`: makna, emosi, aksi, satu metafora, 3–6 objek, urutan rakit, dan bentuk penjelas (exploded/potongan, piktogram/stick, sebab-akibat, grafik, peta, UI asli). Contoh dari gbro: makna "pengalaman habis terus", aksi "memotong", metafora "editor memotong pita film di jam raksasa, satu putaran hanya menghasilkan potongan pendek", objek jam-film, editor, gunting, potongan pita. Satu kalimat satu metafora; lebih dari 6 objek melemahkan makna.
+2a. **Metafora per kalimat (Lantai D19a, D19b).** Untuk tiap beat isi `metafora`: makna, emosi, gerak pembawa (SATU gerak yang membuat penonton merasakan emosi itu; bunyinya di `sfx` beat yang sama), aksi, satu metafora, 3–6 objek, urutan rakit, dan bentuk penjelas (exploded/potongan, piktogram/stick, sebab-akibat, grafik, peta, UI asli). Contoh dari gbro: makna "pengalaman habis terus", aksi "memotong", metafora "editor memotong pita film di jam raksasa, satu putaran hanya menghasilkan potongan pendek", objek jam-film, editor, gunting, potongan pita. Satu kalimat satu metafora; lebih dari 6 objek melemahkan makna.
 3. **Beat dari VO kata per kata.** Satu beat = satu pesan; urutan panel dicocokkan dengan VO sebelum menggambar.
 4. **Kerangka dulu.** `board.py --skeleton` membuat satu panel kosong berlabel per beat; isi satu per satu; kerangka tidak boleh tersisa.
 5. **Gambar panel** (§3), render, lihat hasilnya, perbaiki. Jangan menilai dari kode.
@@ -50,7 +50,7 @@ Satu panel = frame + caption, seperti artboard Wonder.
 {project, format:{w,h,fps}, arah:{register, kata_karakter, detail_khas, sumber_gaya},
  babak:[{id, nama, musik:{peran, alasan}}],
  beats:[{id, babak, t:[mulai, selesai], vo, layar, aksi, kamera, keluar,
-        metafora:{makna, emosi, aksi, metafora, objek:[3–6], urutan, bentuk},
+        metafora:{makna, emosi, gerak_pembawa, aksi, metafora, objek:[3–6], urutan, bentuk},
         sfx:[{t, peran, alasan}]}]}
 ```
 `cues.json` hasil `board.py` adalah bahan awal cue sheet gerbang 9: setiap event visual di storyboard sudah punya bunyi (Lantai E24).

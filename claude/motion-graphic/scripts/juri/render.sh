@@ -26,12 +26,15 @@
 # dan sambung dengan ffmpeg; jangan render ulang seluruh video.
 # Menyambung rentang: filter concat + encode ulang (CRF 14) lalu audio utuh dipasang sekali; `-c copy` (concat demuxer /
 # annexb) kehilangan 2–4 frame di sambungan (builder-trap-r2 v4). Cek jumlah frame = total rentang sebelum dikirim.
-# Lingkungan: KONKURENSI (default 4; ukur sekali dengan `npx remotion benchmark`), ENTRY (default src/index.ts).
+# Lingkungan: KONKURENSI (default 4; ukur sekali dengan `npx remotion benchmark`), ENTRY (default: isi file remotion/.entry bila ada,
+#   selain itu src/index.ts), VARIAN (mis. A: gerbang audio memakai audio/order-A; tanpa VARIAN dan tanpa audio/ORDER.json,
+#   satu-satunya folder audio/order-* yang dipakai).
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 [ $# -ge 3 ] || { sed -n '2,17p' "$0"; exit 1; }
 P="$(cd "$1" && pwd)"; MODE="$2"; COMP="$3"; shift 3
-R="$P/remotion"; QC="$P/qc"; ENTRY="${ENTRY:-src/index.ts}"
+R="$P/remotion"; QC="$P/qc"
+if [ -z "${ENTRY:-}" ]; then if [ -f "$R/.entry" ]; then ENTRY="$(tr -d '[:space:]' < "$R/.entry")"; else ENTRY="src/index.ts"; fi; fi
 # Profil mesin dari tools/bench-render/bench.sh (sekali per mesin): opsi --gl dan konkurensi tercepat yang hasilnya sama.
 # Dipakai hanya bila hostname cocok; variabel GL / KONKURENSI di lingkungan tetap menang.
 PROFILE="${RENDER_PROFILE:-$HOME/work/render-profile.json}"; PGL=""; PK=""
@@ -68,8 +71,10 @@ newest_src() { find "$R/src" "$R/public" -type f -printf '%T@\n' 2>/dev/null | s
 mtime() { stat -c %Y "$1" 2>/dev/null || echo 0; }
 bundle() {
   local stamp="$QC/.bundle_stamp"
-  if [ ! -d "$QC/.bundle" ] || [ ! -f "$stamp" ] || [ "$(printf '%.0f' "$(newest_src)")" -gt "$(mtime "$stamp")" ]; then
-    echo "bundle: membuat ulang (src berubah)"; (cd "$R" && npx remotion bundle "$ENTRY" --out-dir="$QC/.bundle" >"$QC/bundle.log" 2>&1) || { tail -20 "$QC/bundle.log"; exit 1; }
+  # Bundle dari entry lain (mis. src/index.ts padahal proyek memakai src/video/index.ts) berisi komposisi yang salah: bangun ulang.
+  local beda=0; if [ -f "$QC/.bundle_entry" ] && [ "$(cat "$QC/.bundle_entry")" != "$ENTRY" ]; then beda=1; echo "bundle: entry berubah ($(cat "$QC/.bundle_entry") -> $ENTRY)"; fi
+  if [ "$beda" = 1 ] || [ ! -d "$QC/.bundle" ] || [ ! -f "$stamp" ] || [ "$(printf '%.0f' "$(newest_src)")" -gt "$(mtime "$stamp")" ]; then
+    echo "bundle: membuat ulang (src berubah)"; (cd "$R" && npx remotion bundle "$ENTRY" --out-dir="$QC/.bundle" >"$QC/bundle.log" 2>&1) || { tail -20 "$QC/bundle.log"; exit 1; }; printf '%s' "$ENTRY" > "$QC/.bundle_entry"
     touch "$stamp"
   else echo "bundle: pakai ulang"; fi
 }
@@ -115,7 +120,17 @@ case "$MODE" in
       # Revisi atas versi yang disetujui: lapisan di luar cakupan ledger tidak boleh berubah (Lantai F27, revision-log §21.2).
       python3 "$HERE/revisi_cek.py" cek "$P" || { echo "GAGAL gerbang revisi: lihat daftar lapisan di atas."; exit 1; }
     fi
-    if ! "$PYTHON_BIN" "$HERE/../gate/audio_order.py" check --dir "$P/audio" $WARIS; then
+    AUDIO_DIR="$P/audio"
+    if [ -n "${VARIAN:-}" ]; then
+      [ -d "$P/audio/order-$VARIAN" ] || { echo "GAGAL gerbang audio: audio/order-$VARIAN tidak ada (VARIAN=$VARIAN)."; exit 1; }
+      AUDIO_DIR="$P/audio/order-$VARIAN"
+    elif [ ! -f "$P/audio/ORDER.json" ]; then
+      ord=( "$P"/audio/order-*/ORDER.json )
+      if [ "${#ord[@]}" -eq 1 ] && [ -f "${ord[0]}" ]; then AUDIO_DIR="$(dirname "${ord[0]}")"
+      elif [ "${#ord[@]}" -gt 1 ]; then echo "GAGAL gerbang audio: beberapa varian terkunci (audio/order-*); pilih dengan VARIAN=<A|B>."; exit 1; fi
+    fi
+    echo "gerbang audio: $AUDIO_DIR"
+    if ! "$PYTHON_BIN" "$HERE/../gate/audio_order.py" check --dir "$AUDIO_DIR" $WARIS; then
       echo "GAGAL gerbang audio: kunci suara dengan bukti source words + cut map, lalu visual, SFX, dan musik sebelum render final."
       exit 1
     fi

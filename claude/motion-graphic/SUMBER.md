@@ -864,3 +864,10 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | Aturan | Asal-usul |
 |---|---|
 | watak dan kalimat berbeda per tokoh; tokoh yang bekerja menghadap pekerjaannya, kamera ke objek kerja; tanpa panah goresan kedua bila sudah ada penunjuk | Irfan 18 Nov, skill-dev-journey putaran 5 (bubble "Hai, aku Claude/ChatGPT" terasa template; Claude di meja 100% menatap kamera; panah B11 di atas panah yang sudah ada). Ledger proyek D-417, D-419, D-420 |
+
+## `scripts/storyboard/board.py` · `templates/storyboard/beats.json` · `references/storyboard.md` §2a (gerak pembawa) · `scripts/juri/render.sh` (ENTRY, VARIAN)
+
+| Aturan | Asal-usul |
+|---|---|
+| tiap beat storyboard wajib `metafora.gerak_pembawa`: satu gerak yang membawa emosi beat | usul dari bedah teknik launch-motion (16 Nov) disetujui Irfan 18 Nov ("Ya"), setelah skill-dev-journey putaran 5: visual, audio, teks, dan objek "berjalan sendiri-sendiri dan sekadar ada" |
+| `render.sh` membaca entry dari `remotion/.entry` dan membangun ulang bundle bila entry berubah; gerbang audio memilih `audio/order-<VARIAN>` | skill-dev-journey 18 Nov: bundle `src/index.ts` mengganti stamp cache lapisan proyek berentry `src/video/index.ts`; varian dikunci di `audio/order-A`. Disetujui Irfan 18 Nov ("Ya") |
