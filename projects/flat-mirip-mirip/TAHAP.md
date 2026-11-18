@@ -3,10 +3,10 @@
 Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Kerjakan berurutan. Di tiap langkah, baca **hanya** file/bagian yang disebut langkah itu, saat itu juga. Langkah selesai = `- [x]` + bukti setelah `→` (perintah dan keluarannya, atau path file). Lihat langkah berikutnya: `python3 claude/motion-graphic/scripts/juri/tahap.py projects/<proyek>`.
 
 ## Tahap 1 · Profil merek
-- [ ] Profil merek ada dan lulus · baca: `templates/merek/README.md` §Tahap 1 · bukti: keluaran `profil_cek.py` LULUS →
+- [ ] Profil merek ada dan lulus · baca: `templates/merek/README.md` §Tahap 1 · bukti: keluaran `profil_cek.py` LULUS → draf `~/work/data-video/merek/behindwork/`; GAGAL 2 butir (logo terang/gelap) menunggu jawaban Irfan
 
 ## Tahap 2 · Editing guideline + preview
-- [ ] Brief user disalin verbatim ke `RESEP.md`; kiblat dipilih (2–3 kartu terdekat ditunjukkan bila tema masih kabur) · baca: `pustaka/PETA.md` baris kartu terkait, `pustaka/RESEP-TEMPLATE.md` · bukti: `resep_check.py` LULUS →
+- [x] Brief user disalin verbatim ke `RESEP.md`; kiblat dipilih (2–3 kartu terdekat ditunjukkan bila tema masih kabur) · baca: `pustaka/PETA.md` baris kartu terkait, `pustaka/RESEP-TEMPLATE.md` · bukti: `resep_check.py` LULUS → `python3 claude/motion-graphic/scripts/juri/resep_check.py projects/flat-mirip-mirip/RESEP.md` = LULUS (kiblat 86), 18 Nov
 - [ ] Suara dipotong dan dikunci · baca: `references/audio.md` §14.0C–14.0D · bukti: `audio_order.py lock suara` PASS →
 - [ ] Preview dikirim di percakapan: still per beat di atas footage asli + klip draft untuk gerak kamera/transisi · baca: `references/storyboard.md` §1, `templates/merek/README.md` §Tahap 2 · bukti: path still/klip yang dikirim →
 - [ ] Masukan user atas preview dicatat dan disetujui · baca: `references/revision-log.md` §21.1 · bukti: ID baris `DECISIONS.md` →

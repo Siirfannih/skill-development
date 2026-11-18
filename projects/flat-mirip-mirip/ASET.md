@@ -39,3 +39,16 @@ Catatan akses (dicek 18 Nov 2026): `curl` ke Pixabay dan Pexels dijawab HTTP 403
 
 ## D. Aset OpenBot
 `~/work/assets-script-final-3/` milik user `openbot` (izin 700). Irfan sudah mengizinkan sesi ini membacanya; akses baca perlu satu perintah sudo dari Irfan (lihat chat). Isinya dicek dulu sebelum dipakai.
+
+## E. Pakai ulang dari skill-development-journey (D-07, basis `f054dec`)
+
+Disalin ke `remotion/src/pinjam/` (+ `src/lib`, `src/komponen/K01`, `src/papan/karakter2d`, `src/papan/kit.tsx`, `public/fonts`). Folder asal tidak diubah. Still uji: `media/acuan/pinjam/*.png` (semua render tanpa galat, tsc lulus).
+
+| Asal | Isi | Dipakai untuk | Penyesuaian |
+|---|---|---|---|
+| `b1.tsx` DuniaRepo | panel timeline editor + Clawd membawa klip, playhead jalan | P02, P08 | kulit timeline diganti Remotion Studio asli (acuan U4); lantai repo GitHub dibuang; di atas kanvas putih |
+| `b3.tsx` AppClaude + `bersama/chat/*`, `bersama/ui-asli/claude/*` | aplikasi Claude desktop, sidebar, composer, ketik, status model | P04, P08 (U1) | tema terang sesuai acuan `sumber/ref/claude-code-slash-irfan.png` (2000×1228); judul sesi netral (bukan nama proyek pribadi); tambah chip lampiran `video.mp4`, ketik prompt persis, flash saat kirim |
+| `b6.tsx` DuniaIG | UI Instagram terang (header, ikon, baris komentar, avatar) | P05, P06, P09 (U2) | tata letak diubah ke beranda iOS (feed vertikal, tab bar, status bar); isi media = kartu slop SVG, bukan wajah |
+| `bersama/LembarPixel`, `KarakterPixel`, `KarakterLayer` | Clawd piksel dengan pose dan emosi (depan, samping, belakang, senang, kaget) | P02, P08 (G1) | ukuran dan posisi di kanvas putih |
+| `b2.tsx` Slop | stiker parodi "slop" (api, VIRAL, emoji) | P01, P05 (G2, ragam neon-thumbnail) | dicampur dengan kartu slop krem-siluet |
+| `lego/blender/` + `/mnt/storage-projects/skill-dev-journey/b10a/b10a.blend` | Clawd 3D voxel di meja depan monitor (Blender 5.2, runtime `/dev/shm/b10a-blender-5.2-runtime/`) | kandidat P08 | isi monitor diganti timeline proyek ini; render ulang shot pendek |

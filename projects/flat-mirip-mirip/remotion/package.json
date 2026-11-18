@@ -1,0 +1,30 @@
+{
+  "name": "skill-development-journey-k12",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio",
+    "still": "remotion still",
+    "render": "remotion render"
+  },
+  "dependencies": {
+    "@react-three/fiber": "8.18.0",
+    "@remotion/cli": "4.0.380",
+    "@remotion/motion-blur": "4.0.380",
+    "@remotion/three": "4.0.380",
+    "lucide-react": "1.70.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.380",
+    "simple-icons": "^16.36.0",
+    "three": "0.180.0",
+    "typescript": "5.6.3"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.30",
+    "@types/react": "18.3.20",
+    "@types/react-dom": "18.3.6",
+    "@types/three": "0.180.0",
+    "esbuild": "0.25.5"
+  }
+}
