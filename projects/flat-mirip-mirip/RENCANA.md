@@ -50,10 +50,10 @@ Kartu di pustaka yang dipakai:
 | P08 | dan AI bikin kita … lebih cepat | match cut playhead → chat Claude → timeline Remotion tersusun sendiri | **rekaman Remotion Studio asli dari proyek video ini** |
 | P09 | Masalahnya … mirip dan familiar | 2 kartu brand → mundur ke grid 4×2 identik | buatan sendiri |
 | P10 | dan yang mirip? … susah diingat … | grid memudar baris demi baris sampai putih kosong (pengecualian fade yang disengaja) | – |
-| P11 | Founder itu jualan kepercayaan | usul: footage manusia nyata (bukan kartu 2D) | stok berlisensi |
-| P12 | … ingat orangnya, bukan videonya | "orangnya" merah raksasa di samping orang nyata; feed generik memudar | stok berlisensi |
+| P11 | Founder itu jualan kepercayaan | footage nyata (D-12): pelayanan hangat di meja, teks putih kata per kata | F1-a |
+| P12 | … ingat orangnya, bukan videonya | potret nyata menatap kamera; "orangnya" merah; kartu slop kecil memudar ("videonya") | F2-b + KartuSlop |
 | P13 | Jadi apa … mudah diingat? | kembali ke kanvas P01, ruang orbit kosong | tipografi |
-| P14 | ceritamu, sudut pandangmu, hal yang cuma kamu alami | 3 hard cut: foto asli → POV kamera → detail benda | **foto/benda asli Irfan** |
+| P14 | ceritamu, sudut pandangmu, hal yang cuma kamu alami | 3 hard cut: foto arsip → POV jendela bidik → detail buku harian | F3-a, F4-a, F5-b |
 | P15 | Seleramu | merah raksasa, tahan 1,2 dtk, selesai | tipografi |
 
 ## 5. Rencana build
@@ -78,7 +78,7 @@ Keputusan Irfan yang mengikat ada di `DECISIONS.md` (D-01…D-06); daftar aset d
 
 ## 6. Yang perlu keputusan Irfan
 
-1. **Nada visual P07–P12.** Storyboard REVISI memakai kartu 2D datar (segitiga, lingkaran merah) untuk P07–P12. Reel referensi ±95 % footage nyata, dengan 53 cut. Kalau babak "jawaban" juga 2D datar, videonya bisa terlihat sama dengan konten yang ia kritik. Usul: P01–P10 sintetis (sengaja), P11–P14 footage/foto nyata. Pilihan: (a) usulan ini, (b) ikuti REVISI apa adanya.
+1. ~~**Nada visual P07–P12.**~~ Dijawab D-12: P11–P14 footage nyata; grafik/UI SVG. Storyboard REVISI memakai kartu 2D datar (segitiga, lingkaran merah) untuk P07–P12. Reel referensi ±95 % footage nyata, dengan 53 cut. Kalau babak "jawaban" juga 2D datar, videonya bisa terlihat sama dengan konten yang ia kritik. Usul: P01–P10 sintetis (sengaja), P11–P14 footage/foto nyata. Pilihan: (a) usulan ini, (b) ikuti REVISI apa adanya.
 2. **Profil Behindwork**: font, watermark/handle (P15 di brief menulis `@siirfannih`, tapi video diposting ke Behindwork), dan outro logo seperti reel (4 dtk) atau tidak. Kalau ada outro, VO harus ≤ 56 dtk.
 3. ~~P04 Claude chat~~: dijawab D-01 (dibangun ulang, sama persis).
 4. **Durasi**: 131 kata ≈ 58–62 dtk. Bila VO lewat 60 dtk, boleh memotong "bisa sangat" dan "seringkali"?

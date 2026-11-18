@@ -52,3 +52,14 @@ Disalin ke `remotion/src/pinjam/` (+ `src/lib`, `src/komponen/K01`, `src/papan/k
 | `bersama/LembarPixel`, `KarakterPixel`, `KarakterLayer` | Clawd piksel dengan pose dan emosi (depan, samping, belakang, senang, kaget) | P02, P08 (G1) | ukuran dan posisi di kanvas putih |
 | `b2.tsx` Slop | stiker parodi "slop" (api, VIRAL, emoji) | P01, P05 (G2, ragam neon-thumbnail) | dicampur dengan kartu slop krem-siluet |
 | `lego/blender/` + `/mnt/storage-projects/skill-dev-journey/b10a/b10a.blend` | Clawd 3D voxel di meja depan monitor (Blender 5.2, runtime `/dev/shm/b10a-blender-5.2-runtime/`) | kandidat P08 | isi monitor diganti timeline proyek ini; render ulang shot pendek |
+
+## F. Pilihan footage (D-12, Sutradara 18 Nov)
+| Adegan | File | Alasan |
+|---|---|---|
+| P07–P08 isi monitor editor | F6-b (Coverr, 1080p) | sinematik netral, terbaca kecil di monitor |
+| P11 | F1-a (Mixkit, 720p) | layanan hangat di meja; tangan dan cangkir jadi fokus |
+| P12 | F2-b (Mixkit, 1080p) | potret menatap kamera, cahaya hangat, 1080p |
+| P14 ceritamu | F3-a (Commons, domain publik) | foto keluarga 1910 |
+| P14 sudut pandangmu | F4-a (Mixkit, 1080p) | jendela bidik kamera tua |
+| P14 hal yang cuma kamu alami | F5-b (Mixkit, 720p) | tulisan tangan di buku harian |
+Footage dipakai sebagai video/foto (Remotion `OffthreadVideo`/`Img` dari `media/`), bukan dikonversi ke SVG; semua grafik di sekitarnya SVG.
