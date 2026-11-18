@@ -45,8 +45,8 @@ FILE BOLEH   daftar path persis yang boleh diubah; selain itu dilarang
 TEMUAN       ID temuan + detik/frame + yang terlihat + perbaikan yang diminta (dari §4)
 KARTU        ringkasan kartu untuk beat ini (tabel: kartu · yang diambil · frame kunci) + pelajaran guide yang cocok + contoh gagal yang mirip
 LARANGAN     aturanku yang relevan untuk beat ini saja (maks 8 baris, salin dari LANTAI/SKILL/DECISIONS)
-LULUS BILA   kriteria terukur: mis. "teks 'build' terlihat penuh f312–f340", "typecheck lulus", "tidak mengubah beat lain (baseline_lock)"
-JANGAN       render final, ubah kontrak, sentuh beat lain, merancang komponen baru
+LULUS BILA   kriteria terukur: mis. "teks 'build' terlihat penuh f312–f340", "typecheck lulus", "tidak mengubah beat lain (baseline_lock)". Ronde revisi: klip rentang yang berubah + lembar still sebelum/sesudah, bukan master penuh (`revision-log.md` §0 butir 6)
+JANGAN       render final, ubah kontrak, sentuh beat lain, merancang komponen baru; ubah atribut terlihat yang tidak disebut di sini (warna, huruf, ukuran, posisi, waktu, gerak); menafsir kata kabur sendiri (tanya Sutradara saat itu juga)
 LAPORAN      tulis handoff/REPORT-<beat>-<ronde>.md: file yang diubah, alasan per temuan, hasil typecheck
 ```
 

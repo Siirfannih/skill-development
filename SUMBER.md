@@ -57,3 +57,9 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | Aturan | Asal-usul |
 |---|---|
 | §1 Mandat Irfan | Mandat diberikan 27 Oktober 2026 |
+
+## `AGENTS.md` · Cara membaca butir 2 dan 6, Akhir sesi butir 1
+
+| Aturan | Asal-usul |
+|---|---|
+| empat lapis (brief → proyek ini → kartu → pelajaran global); koreksi bawaan di proyek | Irfan 18 Nov: "aturan global adalah pembelajaran… bukan aturan kaku… Aturan perproject adalah aturan situasional" |

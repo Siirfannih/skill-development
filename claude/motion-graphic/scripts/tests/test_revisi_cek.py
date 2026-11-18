@@ -20,7 +20,7 @@ class RevisiCek(unittest.TestCase):
     def cek(self): return self.alat("cek", self.p)
 
     def izin(self, daftar):
-        f = os.path.join(self.p, "qc/cakupan-revisi.json"); d = json.load(open(f)); d["boleh_berubah"] = daftar; json.dump(d, open(f, "w"))
+        f = os.path.join(self.p, "qc/cakupan-revisi.json"); d = json.load(open(f)); d["boleh_berubah"] = [dict(z, sumber=z.get("sumber", "Irfan")) for z in daftar]; json.dump(d, open(f, "w"))
 
     def ubah(self):
         d = json.loads(json.dumps(BASIS)); d["dasar"][1]["in"] = 1.5; d["lapisan"][0]["x"] = 500; d["lapisan"][1]["src"] = "c/2b.mov"; self.tulis(d)

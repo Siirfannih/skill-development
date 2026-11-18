@@ -1,6 +1,6 @@
 # Menilai frame · fase visual (satu penilai: Sutradara)
 
-Dijalankan setelah visual selesai disusun dan **sebelum** SFX dan musik dibuat: `render.sh <proyek> frames` → `scripts/juri/frame_audit.py qc/frames` (fase visual). Penilainya satu: Sutradara, yang tidak menulis kode adegan. Tidak ada pemeriksa lain di depannya dan tidak ada skor skrip; dua penilai menghasilkan beda pendapat yang harus ditengahi dan menghabiskan token tanpa menambah mata. Audio dinilai sesudah SFX dikunci (`pemeriksa-audio.md`).
+Dijalankan setelah visual selesai disusun dan **sebelum** SFX dan musik dibuat: `render.sh <proyek> frames` → `scripts/juri/frame_audit.py qc/frames` (fase visual). Penilainya satu: Sutradara, yang tidak menulis kode adegan. Tidak ada pemeriksa lain di depannya dan tidak ada skor skrip; dua penilai menghasilkan beda pendapat yang harus ditengahi dan menghabiskan token tanpa menambah mata. Audio dinilai sesudah SFX dikunci (`pemeriksa-audio.md`). Setelah penilaian ini lulus, sekali sebelum render final, satu Creative Devil's Advocate dari luar memberi usul (`devils-advocate.md`); itu bukan penilai kedua dan tidak memberi LULUS/GAGAL.
 
 Caranya sederhana: **lihat framenya, katakan apa yang salah, usulkan desain yang lebih baik dari kartu.**
 
@@ -11,6 +11,7 @@ Caranya sederhana: **lihat framenya, katakan apa yang salah, usulkan desain yang
    - Teks: di dalam bidang gambar, di ruang kosong dekat subjeknya, cukup jauh dari batas bawah/atas/samping, tidak menutup wajah, tangan, atau objek yang sedang bercerita; kata terkecil terbaca di HP.
    - Gaya: sekeluarga dengan frame kunci kiblat (warna, huruf, skala kata hero, kedalaman)? Ada elemen yang terasa tempelan?
    - Makna: teks = kata yang diucapkan di detik itu (`INFO.md`); tampilan yang ditiru masuk akal dengan ceritanya.
+   - Ada elemen yang terasa dipaksakan, atau bisa dihapus tanpa kehilangan makna? Hapus lebih dulu daripada menambah.
    - Mirip entri `contoh-gagal/`? Itu GAGAL.
 3. **Frame yang lemah diberi solusi desain, bukan geseran kecil.** Tulis 1–2 pilihan, masing-masing menyebut kartu/frame kunci tempat prinsipnya terlihat, dan pilih satu. Contoh untuk kata hero yang duduk terlalu bawah, menumpuk di tengah dengan wajah dan tangan sementara kiri-kanan kosong:
    - (a) kata hero pindah ke **belakang kepala** dan dibesarkan sampai jadi fokus, kata kecil pengantarnya tetap di tengah (kartu 83, frame kunci k3/k4);
