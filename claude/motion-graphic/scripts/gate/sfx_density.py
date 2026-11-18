@@ -4,7 +4,7 @@ tanpa bunyi per kata dan tanpa spam. Hening yang disengaja boleh.
 
 FAIL bila:
   - kepadatan  : cue/dtk > --max-density (default 1,2) atau > 1,5 x --ref-density (SFX berlabel di kiblat, bukan onset musiknya)
-  - per kata   : cue berperan kata/word/tick lebih dari 8, atau > 20 % cue (bunyi per kata = lapisan klik)
+  - per kata   : cue berperan kata/word/tick lebih dari 8, atau > 20 % cue (bunyi per kata = lapisan klik); peran slam/penekanan/kunci/hero (satu bunyi untuk satu kata besar) tidak dihitung
   - rentetan   : > 5 cue dalam jendela 2 dtk (rentetan sejenis dibuat satu cue panjang, mis. rattle)
   - dengar     : cue tanpa `dengar` (label earshot describe file itu) — file harus didengar sebelum dipakai
   - peran      : cue tanpa `peran` dan `alasan`
@@ -185,7 +185,7 @@ def main():
     cap = min(x for x in (a.max_density, 1.5 * a.ref_density if a.ref_density else 0) if x) if (a.max_density or a.ref_density) else 0
     if cap and density > cap:
         fails.append(f"kepadatan {density:.2f}/dtk > {cap:.2f} (spam; kiblat {a.ref_density or '-'}/dtk)")
-    per_kata = [c for c in cue_rows if re.search(r"kata|word|tick", c["peran"], re.I) and not re.search(r"triad|kunci|slam|penekanan|emph", c["peran"], re.I)]
+    per_kata = [c for c in cue_rows if re.search(r"kata|word|tick", c["peran"], re.I) and not re.search(r"triad|kunci|slam|penekanan|emph|hero", c["peran"], re.I)]
     if len(per_kata) > 8 or (cue_rows and len(per_kata) > 0.2 * len(cue_rows)):
         fails.append(f"{len(per_kata)} cue bunyi per kata (maks 8 dan <= 20 %)")
     burst = max((int(((cues >= t) & (cues < t + 2.0)).sum()) for t in cues), default=0)

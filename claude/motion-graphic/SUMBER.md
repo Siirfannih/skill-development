@@ -566,6 +566,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 
 | Aturan | Asal-usul |
 |---|---|
+| peran hero tidak dihitung sebagai bunyi per kata | skill-dev-journey putaran 6, 19 Nov: slab kata besar ke-9 ("PROFESIONAL") membuat gerbang gagal padahal LANTAI E24 memberi bunyi untuk kata slam/penekanan; patch Codex + uji regresi 8/8 |
 | """"Gerbang aturan 43:…" | Irfan 13 Nov |
 | "laser/sci-fi TIDAK dilarang: Lasertransision dan ESScifi…Glitch…" | Irfan 16 Nov |
 | """"Satu peran = satu file sepanjang…" | Irfan 16 Nov |
