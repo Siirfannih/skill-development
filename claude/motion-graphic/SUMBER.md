@@ -121,6 +121,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 
 | Aturan | Asal-usul |
 |---|---|
+| §Bentuk dan variasi · "Bila perlakuan sebuah kata dipindah … putus ulang tiap atribut" + contoh gagal 12 | Kesalahan terlewat K2 skill-dev-journey, ditemukan Irfan 18 Nov 2026 ("profesional": kenapa merah, kenapa di bawah, kenapa ukurannya segitu) |
 | §Cara (pilih yang cocok) · "Blok seimbang, bukan kalimat (Irfan 15…" | Irfan 15 Nov, builder-trap-r2 v2; bukti ref 17 ganimate, kartu 55/57/73/08 |
 | §Cara (pilih yang cocok) · "Satu lapisan teks. Semua ucapan tampil…" | Irfan 11 Nov |
 | §Cara (pilih yang cocok) · "Kata yang sudah tampil tidak bergeser…" | gagal: builder-trap-r2 r7 B03, kartu kosong 2 f lalu "bikin" melompat 250 px; Irfan 15 Nov "pastikan dulu semuanya" |

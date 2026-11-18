@@ -1,12 +1,12 @@
 # STATUS · Skill Development journey (siirfan) · titik lanjut sesi baru
 
-Diperbarui 18 Nov 2026 ±12:45 WITA oleh Sutradara (claude2). Semua pekerja dihentikan atas permintaan Irfan ("Stop semua progresmu"). Riwayat putaran 1–4: `STATUS-arsip.md`.
+Diperbarui 18 Nov 2026 sore oleh Sutradara (claude2), main 3795b31. Audit sesi baru: `evaluation.md` §Audit mandiri sesi baru. Keputusan baru: D-428 (aturan sistem desain penuh, tanpa ubah piksel), D-429 (profil merek siirfan), D-430 (satu tema gelap-glow). Langkah berikutnya: `tahap.py` + §5. Riwayat putaran 1–4: `STATUS-arsip.md`.
 
 ## 0. Mulai di sini (sesi baru)
 1. Ikuti `~/work/skill-development/AGENTS.md` §Awal sesi: `git pull` main, `CLAUDE_CONFIG_DIR=~/.claude-2 ./tools/doctor.sh`. Bila doctor GAGAL hanya karena "PETA.md basi" akibat folder lokal `projects/uji-builder-trap-12nov/` milik sesi lain, itu bukan masalah repo. Setelah `tools/peta.py`, hapus baris itu dari PETA.md sebelum commit.
 2. Rute: **Revisi dari Irfan** (PETA). Baca utuh: `claude/motion-graphic/references/revision-log.md`, `LANTAI.md`, `pustaka/README.md` §Juri, `pustaka/contoh-gagal/README.md` (09–11 dari video ini), `guide/visual/GUIDE.md` + `guide/teks/GUIDE.md` §Cara memutuskan.
 3. Di folder ini, baca: `DECISIONS.md` **D-401…D-427** (putaran 4–5), `RESEP.md` (arah putaran 5), `evaluation.md` §Putaran 5 + §QC Sutradara R5, `handoff/TASK-R5-visual.md`, `handoff/TASK-R5b-visual.md`, `handoff/REPORT-R5-visual.md`.
-4. Lanjutkan dari §5 "Langkah berikutnya". Jangan bangun ulang dari nol (D-425).
+4. Lanjutkan dari §5 "Langkah berikutnya" dan `TAHAP.md` (`python3 claude/motion-graphic/scripts/juri/tahap.py projects/skill-development-journey-20261116`). Jangan bangun ulang dari nol (D-425).
 
 ## 1. Proyek
 - **Video:** talking head Irfan, "di balik skill-development" (workflow AI sebagai pengambil keputusan editing), akun personal siirfan. 16:9 1920×1080, 29,97 fps, **2512 frame = 83,817 dtk**. **Hanya versi A** (Irfan: "kita pakai versi A only").
@@ -53,7 +53,9 @@ Diperbarui 18 Nov 2026 ±12:45 WITA oleh Sutradara (claude2). Semua pekerja dihe
 **Audio:** dihentikan sebelum relock. `audio/order-A` masih kunci putaran 4 (visual lama). Semua langkah audio harus diulang setelah visual selesai.
 
 ## 5. Langkah berikutnya (urut)
-1. **Selesaikan visual R5b** sesuai `handoff/TASK-R5b-visual.md` (B-narasi, D, E, F). Semua keputusan desain sudah final di file itu. Pekerja: satu subagen Sonnet (orkestrasi.md: Sutradara → Sonnet → Opus rapikan → Sutradara). Pekerja sebelumnya habis jatah; pakai pekerja baru dengan TASK itu.
+0. **Profil merek** (D-429): `~/work/data-video/merek/siirfan/` dari templates/merek, `profil_cek.py` LULUS.
+0b. **Sistem desain** (D-428/D-430): Sutradara menulis `remotion/src/video/bersama/tema.ts` format baru dari warna yang sudah dipakai; satu pekerja Codex (`tools/codex-pc.sh`, cadangan subagen Sonnet) memindahkan Root + b1–b7 ke token dan warna UI asli ke `bersama/ui-asli/<aplikasi>/`. Lulus bila `tema_cek.py` LULUS, `tsc` bersih, dan still A/B/C/G identik piksel dengan master 12:08 (PSNR). Lalu papan acuan komponen di atas footage.
+1. **Selesaikan visual R5b** sesuai `handoff/TASK-R5b-visual.md`, dipecah per adegan (D, E, F, narasi B): satu TASK = satu pekerja baru, hanya dari token + komponen bersama + papan acuan (orkestrasi §1, roles §6).
 2. **QC Sutradara** tiap still resolusi penuh di atas footage (5 cek: massa kiri-kanan, satu fokus, urutan baca, satu permukaan, ruang dekat subjek + sekeluarga dengan kiblat) dan strip transisi masuk/keluar tiap adegan yang diubah. Bandingkan dengan frame kunci 07/49/63/65 dan contoh gagal 09–11. Catat di `evaluation.md`.
 3. **Audit frame semua detik** (penilai satu: Sutradara, `templates/roles/pemeriksa-frame.md`, `frame_audit.py`) → `qc/frame_audit/*/VERDICT.md` dengan HASH.
 4. **Audio** (pekerja audio, `handoff/TASK-R4-audio.md` sebagai pola):

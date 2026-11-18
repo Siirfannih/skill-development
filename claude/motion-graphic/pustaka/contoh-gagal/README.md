@@ -52,3 +52,12 @@ Tiga frame dari video talking head + kinetic typography (kiblat kartu 83). Ketig
 - **Tampilan Instagram-nya sendiri terlalu polos.** Pustaka sudah punya kartu yang membangun tampilan Instagram (kartu 65/08: UI dibangun ulang, satu objek UI dominan, kalimat inline dengan objek UI, 2–3 lapis kedalaman, kamera masuk ke UI; kartu 05: post IG sebagai panggung kalimat). Adegan ini dibangun tanpa membuka kartu-kartu itu.
 - **Bukan pelajarannya:** "tulisan tangan dilarang", "panah dilarang", atau "kata hero tidak boleh di dada". Masalahnya warna yang menabrak tampilan netral, teks di luar bidang gambar saat ada ruang di dalamnya, dan posisi yang terlalu dekat batas bawah.
 - **Lantai terkait:** A1, A2, C15, C16, C17.
+
+## 12 · Skill-dev journey: atribut teks pindahan tanpa alasan
+
+| Frame | Kenapa jelek | Yang benar |
+|---|---|---|
+| ![](12-skilldev-huruf-acak-tak-terbaca.jpg) | Kata "profesional" merah coral, ukuran khusus, gaya "kacau", di pita hitam bawah video. Perlakuan ini milik kalimat keraguan lain yang dipindah utuh saat naskah berubah: warna peran "negatif" dipakai untuk kata positif, gaya frustrasi untuk pertanyaan menggoda, ukurannya satu-satunya di luar skala, dan letaknya posisi subtitle. Merahnya juga menabrak tampilan Instagram yang netral. Hurufnya pun baru lengkap ±18 f setelah onset. | Tiap atribut diputus ulang dari makna kata dan adegannya: peran teks yang sudah ada di video (ukuran dan warna dari token), di dalam bidang gambar dekat subjek, emosi lewat satu gerak. |
+
+- **Bukan pelajarannya:** "coral dilarang" atau "efek per huruf dilarang". Masalahnya atribut yang tidak punya alasan di adegan ini.
+- **Lantai terkait:** A1, A6, A7; sistem desain (`templates/sistem-desain/README.md`: satu peran teks = satu ukuran).

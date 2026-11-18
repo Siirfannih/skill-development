@@ -9,11 +9,11 @@
 
 | Bagian | Jenis | Sumber | Catatan |
 |---|---|---|---|
-| Warna & tekstur | pengikat | kartu 07 | putih hangat #F6F5F0 (07 #FBF7F4), biru #2E5BFF (07 #3A5BFE), coral #F97066 (07 #E84F47), kuning #FFD54A (07 #FCC64C); satu adegan = satu keluarga hue + 1–2 aksen; shape flat, gradien/bloom hanya di adegan UI |
+| Warna & tekstur | pengikat | kartu 07 + D-426/D-430 | adegan UI: gelap-glow, latar #05060A–#0C090D + glow oranye #E4550F (primer); coral #F97066 = turunan primer (kartu angka); biru #2E5BFF = sekunder; putih hangat #F6F5F0 netral terang; satu adegan = satu keluarga hue + 1–2 aksen; IG = UI asli terang. Semua nilai hanya dari `remotion/src/video/bersama/tema.ts` |
 | Teks | pengikat | kartu 07 | huruf dan skala dari 07; BENTUK KT dipinjam dari kartu 83 (D-415): SF Pro Display Medium (narasi) / Bold (hero), fallback Inter 500/700; tracking −1…−3 %; bentuk 83: cincin, slab belakang kepala, kata di dada, label pengantar atas-kiri |
 | Ritme | pengikat | kartu 07 | cut menggerombol lalu shot kontinu hidup dari kamera; jeda (musik stop-down) sebagai titik sebelum momen besar |
 | B-roll / footage | teknik | kartu 07 + 02 | footage wajah sendiri; teks/elemen menempel ke dunia kamera dan ikut push (02), minimal satu elemen di belakang subjek (02) |
-| Motion graphic | teknik | kartu 63 + 07 | UI asli sebagai tokoh di desktop premium (jendela miring tipis, bayangan lembut, latar gradien biru 07 k5); UI lahir bertahap; kartu angka 07 k7 |
+| Motion graphic | teknik | kartu 63 + 07 | UI asli sebagai tokoh di desktop premium gelap-glow (jendela gelap, bayangan lembut, muncul glitch/mosaik 63 k3, D-426); UI lahir bertahap; kartu angka 07 k7 |
 | Kamera & transisi | teknik | kartu 49 + 63 + 07 | punch-in ±1,8–4,5× ke kata/prompt (49), push/pull terus di UI (63), bentuk besar menyapu frame sebagai transisi (07) |
 | SFX | teknik | kartu 07 + guide/sfx | pop per objek/shape baru, riser di cut besar; bunyi per tokoh sesuai wataknya; KT per kata senyap |
 | Musik | teknik | kartu 07 (D-424) | house/tech ringan per babak, stop-down 0,6–0,8 dtk sebelum momen besar; dipilih `music_fit.py` |
