@@ -1,17 +1,17 @@
-# Audio · Video Perkenalan (18 Nov 2026, v6, 66,43 dtk)
+# Audio · Video Perkenalan (18 Nov 2026, v6, 66,86 dtk)
 
 Semua musik dan SFX untuk video perkenalanku (vertikal 9:16). Worker di PC server tidak terhubung ke Epidemic, jadi file di sini adalah satu-satunya sumber audio. Peran dan frame cue ada di `EDITING-GUIDELINE-FINAL.md` §5 (Drive `Claude edit/Siap edit/2026-11-18 — Video Perkenalan Irfan/`). Kalau sebuah peran belum ada filenya, catat di laporan dan tanya aku; jangan cari bunyi lain.
 
 Sumber: Epidemic Sound (akun Irfan) kecuali Otis (file dari Irfan). File disimpan untuk produksi, bukan untuk dibagikan ulang.
 
 ## Musik
-Konvensi level: LUFS stereo; suara v6 diputar dual-mono = −16,7 LUFS.
+Konvensi level: LUFS stereo; suara v6 diputar dual-mono = −16,6 LUFS.
 
 | File | Dipakai | Catatan |
 |---|---|---|
 | `musik/potongan_bed_v6_RainInLA_0-25.60.wav` | f0–768 (0–25,60 dtk) | Auxjack – Rain in L.A. (90 BPM, ±C mayor). Intro dinaikkan +6 dB di 0–19,5 dtk, normal lagi di 21 dtk saat drum masuk. 0–20 dtk ±−27,7 LUFS. Pakai apa adanya, duck −3 dB saat bicara (ramp 60 ms) |
-| `musik/potongan_otis_v6_25.725-66.43.wav` | f772–1993 (25,725–66,43 dtk) | Otis 0,07–20,94 dtk (8 bar sebelum energi naik), sisanya loop bar 5–8, crossfade 20 ms, fade out 0,4 dtk. ±−26,7 LUFS. Pakai apa adanya, duck −6 dB + EQ dip −4 dB di 1–4 kHz saat bicara (vokal sampel bersaing dengan ucapan) |
-| `mix_referensi_v6c_suara+musik.mp3` | Acuan dengar | Suara v6 + kedua potongan dengan duck/EQ di atas. −16,6 LUFS, puncak −0,73 dBFS. Ini kebenaran mix musik; SFX belum ada |
+| `musik/potongan_otis_v6_25.725-66.86.wav` | f772–2006 (25,725–66,86 dtk) | Otis 0,07–20,94 dtk (8 bar sebelum energi naik), sisanya loop bar 5–8, crossfade 20 ms, fade out 0,4 dtk. ±−26,7 LUFS. Pakai apa adanya, duck −6 dB + EQ dip −4 dB di 1–4 kHz saat bicara (vokal sampel bersaing dengan ucapan) |
+| `mix_referensi_v6d_suara+musik.mp3` | Acuan dengar | Suara v6 + kedua potongan dengan duck/EQ di atas. −16,6 LUFS, puncak −0,73 dBFS. Ini kebenaran mix musik; SFX belum ada |
 | `musik/Auxjack - Rain in L.A.mp3` | Sumber bed | Epidemic id `4cd02e2c-61fb-483b-8f21-d84a420d8e06` |
 | `musik/Auxjack - Another Christmas Alone.mp3` | Cadangan bed | 90 BPM, G mayor. Id `b780c380-825a-4bba-9d67-4889ea6c3541` |
 | `musik/JAY-Z & Kanye West - Otis.mp3` | Sumber Otis | 92,3 BPM |
