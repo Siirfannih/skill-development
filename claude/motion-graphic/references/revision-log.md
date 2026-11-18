@@ -1,6 +1,6 @@
 # Revision log & RETRO
 
-Baca saat Irfan memberi revisi: catat dulu, baru kerjakan. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.
+Baca saat Irfan memberi revisi: catat dulu, baru kerjakan. Revisi bawaan terjadi sekali, atas render 1: semua masukan dikumpulkan menjadi satu ronde dan dikerjakan sekaligus menjadi render 2 (finishing). Ronde di luar itu hanya bila user memintanya. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.
 
 ## 0. Urutan saat pesan revisi masuk (sebelum edit pertama)
 

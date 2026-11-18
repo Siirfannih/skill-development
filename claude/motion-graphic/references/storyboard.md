@@ -18,7 +18,7 @@ Baca di gerbang 4–5. Storyboard adalah gerbang review termurah: satu panel dip
 | Kondisi | Yang dilakukan |
 |---|---|
 | Irfan memberi storyboard atau panel contoh | Lanjutkan seperti §6; panel contoh adalah arah gaya, bukan batas |
-| Tidak ada storyboard (klip podcast, brief + video saja) | Agent membuat storyboard sendiri dengan metode ini dari daftar potongan + transkrip; tidak menunggu kata "final", papan dikirim bersama hasil |
+| Tidak ada storyboard (klip podcast, talking head, brief + video saja) | Agent membuat preview tahap 2 sendiri: still per beat di atas frame footage asli dari kode yang sama dengan video final (`render.sh still`) + klip draft untuk beat yang punya gerak kamera/transisi, dikirim langsung di percakapan. Produksi penuh dimulai setelah user menyetujui preview (`../templates/merek/README.md` §Tahap 2) |
 | Klip/talking head dengan gaya dari `templates/gaya/` | Rencana edit menu: 3 opsi per beat dari menu adegan gaya itu, opsi A = rekomendasi + alasan, tiap opsi menyebut contoh referensinya; Irfan memilih (±15 menit) lalu pilihan masuk `handoff/PLAN.json`. Format: `templates/gaya/README.md` |
 | Tidak ada video referensi | Ambil paket ≤ 5 kartu dari repo `Siirfannih/canvas-skill-library` (`skills/canvas-reference-director/SKILL.md`, `references/cards.json`) + `guide/referensi/` sesuai goal; tulis di `beats.json → arah.sumber_gaya` mana yang dipakai dan kenapa |
 

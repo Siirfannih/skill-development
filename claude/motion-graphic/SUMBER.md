@@ -39,6 +39,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | butir 17 · frame tahan + kiblat + contoh gagal; butir 26 · visual lulus dulu, audio sesudahnya | Irfan 18 Nov (sesi audit QC): penilaian frame terasa dinilai skrip, bukan mata. Temuan: gerbang hanya membaca teks JURI.md, Sutradara dilarang membuka gambar bila dua pemeriksa LULUS, pemeriksa menilai thumbnail 256×144 tanpa kiblat, 83/84 detik skill-dev-journey putaran 4 lulus tanpa dilihat Sutradara. Irfan: visual murni visual; audio punya fasenya sendiri sesudah visual selesai |
 | butir 26 · Devil's Advocate sebelum final; butir 27 · atribut + revisi per rentang | Irfan 18 Nov (audit skill-dev-journey: 'profesional' berubah koral tanpa diminta, tulisan tangan biru lolos karena brief pemeriksa menyebutnya 'disengaja', 172 rakit master penuh tanpa --rentang) |
 
+| butir 26 · lima tahap dua render; butir 27 · satu ronde revisi | Irfan 18 Nov: brand guideline + editing guideline di awal, preview di percakapan sebelum produksi, masukan hanya setelah render 1, dua render; repo = perpustakaan cara kerja, data user disimpan di folder yang user pilih |
 ## `SKILL.md`
 
 | Aturan | Asal-usul |
@@ -59,6 +60,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §0a butir 2 · prompt tanpa perintah gaya spesifik, kiblat per mode | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4) |
 | §0a butir 3a · bentuk visual dicari di kartu; §0b juri visual adalah mata | Irfan 18 Nov: "model itu bisa mencari referensi yang bagus … sehingga dia nggak berimajinasi bebas atau mengarang"; bila bingung: (1) buka lagi kartu yang sudah ada, (2) tanya user. Kasus: tampilan Instagram skill-dev-journey dibangun polos padahal kartu 65/08/05 memuatnya |
 
+| §0c Alur kerja: lima tahap, dua render | Irfan 18 Nov: brand guideline + editing guideline di awal, preview di percakapan sebelum produksi, masukan hanya setelah render 1, dua render; repo = perpustakaan cara kerja, data user disimpan di folder yang user pilih |
 ## `fonts/README.md`
 
 | Aturan | Asal-usul |
@@ -412,6 +414,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §0 butir 5 · gerak teks dari masukan Irfan dibatasi + cek angka; audit independen tidak terikat | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4); gagal: regresi putaran 2 skill-dev-journey 17 Nov (FINALLY, VIRAL, habis banget) |
 | §0 butir 1, 5, 6 · usul ditawarkan, ronde revisi cepat; §21.1 kolom Sumber | Irfan 18 Nov (audit skill-dev-journey: 'profesional' berubah koral tanpa diminta, tulisan tangan biru lolos karena brief pemeriksa menyebutnya 'disengaja', 172 rakit master penuh tanpa --rentang) |
 
+| pembuka · revisi sekali atas render 1 | Irfan 18 Nov: brand guideline + editing guideline di awal, preview di percakapan sebelum produksi, masukan hanya setelah render 1, dua render; repo = perpustakaan cara kerja, data user disimpan di folder yang user pilih |
 ## `references/roles.md`
 
 | Aturan | Asal-usul |
@@ -469,6 +472,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | pembuka | Metode juga diturunkan dari 4 sesi storyboard Irfan di Wonder 1–7 Nov (Marketing, Motion Lagu, Pengganti Kita Sendiri, Trojan v4) |
 | "Simpan di repo" | Irfan berkali-kali harus bertanya "storyboard disimpan di mana?" (Pengganti Kita Sendiri dan Trojan v4) |
 
+| §1 jalur talking head → preview tahap 2 wajib | Irfan 18 Nov: brand guideline + editing guideline di awal, preview di percakapan sebelum produksi, masukan hanya setelah render 1, dua render; repo = perpustakaan cara kerja, data user disimpan di folder yang user pilih |
 ## `references/three-segment-gate.md`
 
 | Aturan | Asal-usul |
@@ -888,3 +892,15 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | Aturan | Asal-usul |
 |---|---|
 | cek atribut blok teks + sumber Irfan/usul-dipilih | Irfan 18 Nov (audit skill-dev-journey: 'profesional' berubah koral tanpa diminta, tulisan tangan biru lolos karena brief pemeriksa menyebutnya 'disengaja', 172 rakit master penuh tanpa --rentang) |
+
+## `templates/merek/`
+
+| Aturan | Asal-usul |
+|---|---|
+| README, BRAND.md, EDITING.md | Irfan 18 Nov: brand guideline + editing guideline di awal, preview di percakapan sebelum produksi, masukan hanya setelah render 1, dua render; repo = perpustakaan cara kerja, data user disimpan di folder yang user pilih; format dari DESIGN.md (Google Stitch, token YAML + alasan) dan frame.md HyperFrames (design system untuk kamera) |
+
+## `scripts/juri/profil_cek.py`
+
+| Aturan | Asal-usul |
+|---|---|
+| cek profil tahap 1 | Irfan 18 Nov: brand guideline + editing guideline di awal, preview di percakapan sebelum produksi, masukan hanya setelah render 1, dua render; repo = perpustakaan cara kerja, data user disimpan di folder yang user pilih |

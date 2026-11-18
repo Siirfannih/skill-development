@@ -15,7 +15,7 @@ MG = "claude/motion-graphic"
 
 RUTE = f"""## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo ini)
 
-- Urut menang: brief Irfan di sesi → `projects/<proyek ini>/` (hanya video ini; proyek lain tidak dibuka) → kartu `pustaka/kartu/` (selera Irfan; keputusan kecil yang tidak dijawab brief diambil dari kartu terdekat) → pelajaran global `LANTAI.md`, `guide/`, `references/` (kesalahan yang pernah terjadi; untuk menimbang dan mengecek mutu).
+- Urut menang: brief Irfan di sesi → `projects/<proyek ini>/` (hanya video ini; proyek lain tidak dibuka) → profil merek `BRAND.md` + `EDITING.md` → kartu `pustaka/kartu/` (selera Irfan; keputusan kecil yang tidak dijawab brief diambil dari kartu terdekat) → pelajaran global `LANTAI.md`, `guide/`, `references/` (kesalahan yang pernah terjadi; untuk menimbang dan mengecek mutu).
 - Cocokkan setiap pesan baru dengan satu baris Rute sebelum edit pertama, juga di tengah sesi.
 - File rute dibaca utuh; `grep` bukan membaca. "Aturannya tidak ada" hanya setelah LANTAI, kartu kiblat proyek, dan skrip jurinya dibaca.
 
@@ -24,7 +24,7 @@ RUTE = f"""## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo 
 | Pekerjaan | Buka | Jangan buka |
 |---|---|---|
 | Awal sesi apa pun | `AGENTS.md` → `PETA.md` (file ini) → `PENDING.md` | seluruh `references/` sekaligus |
-| Video apa pun | `{MG}/SKILL.md` (Lantai termuat di dalamnya) → `projects/<proyek>/STATUS.md` | skill di `archive/` |
+| Video apa pun | `{MG}/SKILL.md` §0c (lima tahap, dua render; Lantai termuat di dalamnya) → profil merek: `{MG}/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md` | skill di `archive/` |
 | Fase 1 pra-produksi: script, bedah referensi, storyboard | `{MG}/pustaka/README.md` (§Kartu itu apa, §Alur) → `{MG}/pustaka/PETA.md` → kartu kiblat **dan frame kuncinya** (`guide/referensi/sheets/keyframes/`), `{MG}/pustaka/contoh-gagal/README.md`, `{MG}/references/storyboard.md`, `claude/script-workshop/SKILL.md` | `audio.md`, `build.md` |
 | Fase 2 suara: potong, ekor kata, level | `{MG}/references/audio.md` §14.0C–14.0D, §14.6, `scripts/gate/cut_check.py`, `scripts/audio/recut.py`, `scripts/gate/voice_level.py` | tipografi, kamera |
 | Fase 3 visual: teks/KT, kamera, kurva, lapisan lego | **Rasa dulu:** `projects/<proyek>/RESEP.md` → kartu kiblat + frame kuncinya (dan kartu lain untuk bentuk di luar kiblat) → `{MG}/guide/teks/GUIDE.md`, `{MG}/guide/visual/GUIDE.md`, `{MG}/guide/gerak/GUIDE.md` (§Cara memutuskan: pelajaran "bila…, pilih…, karena…") → `{MG}/pustaka/contoh-gagal/README.md`. **Lalu teknik:** `{MG}/references/typography.md` §8a, `{MG}/references/build.md` (Rakit lego), `scripts/lego/teks_plan.py` → `kt_check.py`, `scripts/remotion/curves.ts`, `TeksBlok.tsx`, `LightSweep.tsx`, `{MG}/references/camera-transition.md`. **Sebelum kunci visual:** `{MG}/templates/roles/pemeriksa-frame.md` (menilai frame, satu penilai). Builder hanya mengerjakan TASK dan bertanya langsung ke Sutradara (`{MG}/references/roles.md` §5) | audio; `tools/AFTER-EFFECTS.md` kecuali diminta |

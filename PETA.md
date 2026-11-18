@@ -4,7 +4,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 
 ## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo ini)
 
-- Urut menang: brief Irfan di sesi → `projects/<proyek ini>/` (hanya video ini; proyek lain tidak dibuka) → kartu `pustaka/kartu/` (selera Irfan; keputusan kecil yang tidak dijawab brief diambil dari kartu terdekat) → pelajaran global `LANTAI.md`, `guide/`, `references/` (kesalahan yang pernah terjadi; untuk menimbang dan mengecek mutu).
+- Urut menang: brief Irfan di sesi → `projects/<proyek ini>/` (hanya video ini; proyek lain tidak dibuka) → profil merek `BRAND.md` + `EDITING.md` → kartu `pustaka/kartu/` (selera Irfan; keputusan kecil yang tidak dijawab brief diambil dari kartu terdekat) → pelajaran global `LANTAI.md`, `guide/`, `references/` (kesalahan yang pernah terjadi; untuk menimbang dan mengecek mutu).
 - Cocokkan setiap pesan baru dengan satu baris Rute sebelum edit pertama, juga di tengah sesi.
 - File rute dibaca utuh; `grep` bukan membaca. "Aturannya tidak ada" hanya setelah LANTAI, kartu kiblat proyek, dan skrip jurinya dibaca.
 
@@ -13,7 +13,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | Pekerjaan | Buka | Jangan buka |
 |---|---|---|
 | Awal sesi apa pun | `AGENTS.md` → `PETA.md` (file ini) → `PENDING.md` | seluruh `references/` sekaligus |
-| Video apa pun | `claude/motion-graphic/SKILL.md` (Lantai termuat di dalamnya) → `projects/<proyek>/STATUS.md` | skill di `archive/` |
+| Video apa pun | `claude/motion-graphic/SKILL.md` §0c (lima tahap, dua render; Lantai termuat di dalamnya) → profil merek: `claude/motion-graphic/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md` | skill di `archive/` |
 | Fase 1 pra-produksi: script, bedah referensi, storyboard | `claude/motion-graphic/pustaka/README.md` (§Kartu itu apa, §Alur) → `claude/motion-graphic/pustaka/PETA.md` → kartu kiblat **dan frame kuncinya** (`guide/referensi/sheets/keyframes/`), `claude/motion-graphic/pustaka/contoh-gagal/README.md`, `claude/motion-graphic/references/storyboard.md`, `claude/script-workshop/SKILL.md` | `audio.md`, `build.md` |
 | Fase 2 suara: potong, ekor kata, level | `claude/motion-graphic/references/audio.md` §14.0C–14.0D, §14.6, `scripts/gate/cut_check.py`, `scripts/audio/recut.py`, `scripts/gate/voice_level.py` | tipografi, kamera |
 | Fase 3 visual: teks/KT, kamera, kurva, lapisan lego | **Rasa dulu:** `projects/<proyek>/RESEP.md` → kartu kiblat + frame kuncinya (dan kartu lain untuk bentuk di luar kiblat) → `claude/motion-graphic/guide/teks/GUIDE.md`, `claude/motion-graphic/guide/visual/GUIDE.md`, `claude/motion-graphic/guide/gerak/GUIDE.md` (§Cara memutuskan: pelajaran "bila…, pilih…, karena…") → `claude/motion-graphic/pustaka/contoh-gagal/README.md`. **Lalu teknik:** `claude/motion-graphic/references/typography.md` §8a, `claude/motion-graphic/references/build.md` (Rakit lego), `scripts/lego/teks_plan.py` → `kt_check.py`, `scripts/remotion/curves.ts`, `TeksBlok.tsx`, `LightSweep.tsx`, `claude/motion-graphic/references/camera-transition.md`. **Sebelum kunci visual:** `claude/motion-graphic/templates/roles/pemeriksa-frame.md` (menilai frame, satu penilai). Builder hanya mengerjakan TASK dan bertanya langsung ke Sutradara (`claude/motion-graphic/references/roles.md` §5) | audio; `tools/AFTER-EFFECTS.md` kecuali diminta |
@@ -103,6 +103,9 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/templates/gaya/editorial-bold/STYLE.md` | **Gaya: editorial-bold (talking head cepat)** — Template gaya untuk reel talking head yang cepat dan tegas: Anton besar, aksen merah, B-roll hitam-putih, split screen, transisi kamera. |
 | `claude/motion-graphic/templates/gaya/minimal-premium/STYLE.md` | **Gaya: minimal-premium (talking head edukatif)** — Template gaya untuk klip podcast/talking head yang tenang dan "mahal": wajah pembicara bergantian dengan adegan bertekstur kertas (lukisan, garis biru, ilustrasi kasar, grafik bercahaya). |
 | `claude/motion-graphic/templates/handoff-fase.md` | **Handoff fase <n> · <proyek> · <tanggal>** — Kamu subagen untuk satu fase saja. |
+| `claude/motion-graphic/templates/merek/BRAND.md` | **<nama merek>** — ## Siapa dan untuk siapa <2–3 kalimat: apa mereknya, penontonnya, kesan yang harus tertinggal setelah video selesai.> |
+| `claude/motion-graphic/templates/merek/EDITING.md` | **Editing <nama merek>** — ## Arah yang dipilih user <Tema yang user sebut (mis. |
+| `claude/motion-graphic/templates/merek/README.md` | **Profil merek dan folder data user** — Repo ini hanya menyimpan cara kerja dan cetakan kosong. |
 | `claude/motion-graphic/templates/roles/devils-advocate.md` | **Creative Devil's Advocate · mata luar sebelum render final** — Pembuat video selalu cenderung meloloskan karyanya sendiri. |
 | `claude/motion-graphic/templates/roles/editor.md` | **Prompt Editor (diisi Sutradara, dikirim lewat Agent / SendMessage)** — Ganti <…>. Jangan menambah cerita proses, pendapat, atau kutipan chat Irfan; Editor hanya perlu fakta, keputusan, dan tugas (roles.md §1). |
 | `claude/motion-graphic/templates/roles/handoff.md` | **Kerangka folder `handoff/`** — Salin bagian yang dibutuhkan ke projects/<proyek>/handoff/. |
@@ -145,6 +148,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/juri/audio_bus_check.py` | Audio di Remotion hanya lewat satu bus global. <Audio> yang ditaruh di dalam <Sequence> adegan ikut berhenti saat adegan selesai, sehingga ekor kata/SFX/musik terpotong di setiap batas adegan (penyeba |
 | `claude/motion-graphic/scripts/juri/frame_audit.py` | Audit SEMUA frame sebelum render MP4, tanpa sampling, dalam dua fase yang terpisah. |
 | `claude/motion-graphic/scripts/juri/motion_lint.py` | Gerak dirancang per gerak, bukan preset (Lantai B13a; diadaptasi dari motion-kit, MIT). |
+| `claude/motion-graphic/scripts/juri/profil_cek.py` | Cek profil merek (tahap 1): BRAND.md dan EDITING.md terisi, nilai pasti benar bentuknya, aset yang dirujuk ada. |
 | `claude/motion-graphic/scripts/juri/render.sh` | Satu pintu render Remotion: still dulu, draft kecil, render penuh paling akhir (LANTAI F26). |
 | `claude/motion-graphic/scripts/juri/resep_check.py` | Cek RESEP.md sebelum build: 8 bagian terisi, tiga pengikat dari SATU sumber, kartu kiblat ada. |
 | `claude/motion-graphic/scripts/juri/revisi_cek.py` | Gerbang revisi video lego: lapisan yang berubah sejak versi yang disetujui harus tercakup ledger (Lantai F27, revision-log §21.2). |
