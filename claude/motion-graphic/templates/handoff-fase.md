@@ -5,6 +5,7 @@ Kamu subagen untuk **satu fase saja**. Kamu tidak melihat percakapanku dengan su
 ## Baca dulu (urut, hanya ini)
 1. `claude/motion-graphic/LANTAI.md`
 2. Cabang fase ini: <mis. `references/audio.md` §14.0C–14.0D untuk fase 2>
+   Fase 3 (visual) selalu memuat, sebelum cabang teknik: `projects/<proyek>/RESEP.md`, kartu kiblat **dan frame kuncinya** (buka gambarnya), `guide/teks/GUIDE.md` + `guide/visual/GUIDE.md` + `guide/gerak/GUIDE.md` §Cara memutuskan, dan `pustaka/contoh-gagal/README.md`. Subagen yang membangun visual tanpa melihat ini belum siap membangun.
 3. `projects/<proyek>/STATUS.md`, `contract.json`, `audio/ORDER.json`
 
 ## Tujuan fase

@@ -11,6 +11,8 @@ Berlaku untuk pekerja, subagen, dan auditor. Tujuannya: setiap keputusan diambil
 3. **Setiap pesan baru memilih rute.** Cocokkan dengan satu baris Rute sebelum edit pertama, juga di tengah sesi panjang. Keluhan atas video yang sudah dirender selalu masuk rute revisi, sekecil apa pun.
 4. **Baca file rute sampai habis.** `grep` hanya untuk menemukan lokasi.
 5. **Cari jawabannya di repo sebelum bertanya.** Bila tetap harus bertanya, sebut file yang sudah dibaca dan apa yang tidak terjawab.
+6. **Koreksi dicatat saat diterima, dalam pola bersyarat.** Setiap koreksi Irfan langsung ditulis dua kali (rinci: §Akhir sesi butir 1): koreksinya untuk video itu, dan alasannya sebagai pelajaran "bila <kondisi>, jangan/pilih <X>, karena <alasan>; yang boleh: <alternatif>" di `guide/<urusan>/GUIDE.md` §Cara memutuskan. Kesalahan di satu video bisa jadi keputusan benar di video lain, jadi pelajaran selalu menyebut kondisinya dan tidak pernah menjadi larangan umum.
+7. **Aturan rasa tinggal di tiga tempat, dan ketiganya dibuka sebelum merancang atau menilai visual:** frame kunci kartu (yang bagus), `pustaka/contoh-gagal/` (yang jelek), dan `guide/<urusan>/GUIDE.md` §Cara memutuskan (pelajaran bersyarat).
 
 | Sebelum menulis | Butuh | Tidak cukup |
 |---|---|---|

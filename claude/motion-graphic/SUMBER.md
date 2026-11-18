@@ -844,3 +844,9 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | Aturan | Asal-usul |
 |---|---|
 | kata hero rendah di depan dada → belakang kepala atau b-roll tipografi; teks masuk ke bidang video yang "diposting"; goresan tangan harus sekeluarga dengan adegan | Irfan 18 Nov, tiga frame skill-dev-journey putaran 4. Irfan: pelajaran ditulis bersyarat ("dalam kondisi ini tidak boleh; alternatifnya boleh karena visualnya bagus, ada di kartu, terbaca, dan masuk gaya"), karena kesalahan di satu proyek bisa jadi keputusan benar di proyek lain. Pelajaran panah/tulisan tangan sebelumnya (putaran 4) dipersempit syaratnya, bukan dicabut |
+
+## Keterbacaan aturan rasa (rute `tools/peta.py`, `AGENTS.md` §Cara membaca 6–7, `SKILL.md` §0a 3b, `templates/handoff-fase.md`, `templates/roles/editor.md`, `guide/README.md`, `guide/teks/GUIDE.md` pengelompokan)
+
+| Aturan | Asal-usul |
+|---|---|
+| guide, frame kunci, dan contoh-gagal masuk rute fase 1/3/5 dan brief pekerja visual; koreksi dicatat saat diterima; pelajaran teks dikelompokkan per situasi | Irfan 18 Nov: pola "jika X maka Y" sudah ada di repo tetapi terlewat, juga oleh model yang mengaudit; minta audit keterbacaan seluruh repo. Temuan: `guide/teks`, `guide/visual`, `guide/gerak`, `contoh-gagal`, dan `pemeriksa-frame.md` tidak ada di baris Rute mana pun, sementara AGENTS menyuruh membuka hanya file rute; brief fase dan Editor tidak memuatnya; aturan pencatatan pelajaran hanya ada di §Akhir sesi; 24 pelajaran teks tersusun sebagai satu daftar tanpa kelompok |

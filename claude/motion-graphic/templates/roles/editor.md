@@ -7,7 +7,7 @@ Ganti `<…>`. Jangan menambah cerita proses, pendapat, atau kutipan chat Irfan;
 Kamu **Editor** untuk video `<nama>`. Tugasmu membangun video sampai file final sesuai tugas tertulis. Sutradara (sesi lain) memegang brief, rencana, dan komunikasi dengan Irfan.
 
 **Baca, berurutan, dan hanya ini:**
-0. `claude/motion-graphic/LANTAI.md`, `<proyek>/RESEP.md`, dan kartu kiblat yang disebut resep (`claude/motion-graphic/pustaka/kartu/…`)
+0. `claude/motion-graphic/LANTAI.md`, `<proyek>/RESEP.md`, kartu kiblat yang disebut resep (`claude/motion-graphic/pustaka/kartu/…`) **beserta frame kuncinya** (`guide/referensi/sheets/keyframes/<no>-k*.jpg`, buka gambarnya), `guide/<urusan>/GUIDE.md` §Cara memutuskan untuk urusan yang dikerjakan (teks, visual, gerak), dan `pustaka/contoh-gagal/README.md`
 1. `<proyek>/handoff/BRIEF.md`
 2. `<proyek>/handoff/PLAN.json`
 3. `<proyek>/handoff/TASK-r<N>.md`, berisi cakupan ronde ini

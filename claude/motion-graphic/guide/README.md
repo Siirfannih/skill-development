@@ -23,7 +23,9 @@ Jangan main aman. Ragu antara pilihan hidup vs pilihan aman → ambil yang hidup
 | Cek akhir: tanda video "AI" / ditolak Irfan | `hindari/` |
 | Contoh nyata + angka terukur 6 video referensi | `referensi/` |
 
-Tiap folder: **Tujuan · Bagus itu seperti apa (bukti referensi) · Cara (pilihan) · Cek cepat · Bebas diputuskan · Detail lanjut**.
+Tiap folder: **Tujuan · Bagus itu seperti apa (bukti referensi) · Cara (pilihan) · Cara memutuskan · Cek cepat · Bebas diputuskan · Detail lanjut**.
+
+**Cara memutuskan** adalah bagian terpenting: pelajaran bersyarat dari koreksi Irfan, berbentuk "bila <kondisi>, jangan/pilih <X>, karena <alasan>; yang boleh: <alternatif>", dikelompokkan per situasi. Baca kelompok yang cocok dengan adegan yang sedang dirancang atau dinilai, sebelum memutuskan. Pelajaran adalah rujukan menimbang: kondisinya harus cocok dulu.
 
 ## Hubungan dengan file lain
 

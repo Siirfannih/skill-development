@@ -49,7 +49,7 @@ JANGAN       render final, ubah kontrak, sentuh beat lain, merancang komponen ba
 LAPORAN      tulis handoff/REPORT-<beat>-<ronde>.md: file yang diubah, alasan per temuan, hasil typecheck
 ```
 
-Konteks pekerja sengaja ramping. Jangan suruh pekerja membaca `SKILL.md`, `RETRO.md`, atau `LANTAI.md` penuh. Kamu yang memilih baris yang relevan.
+Konteks pekerja sengaja ramping. Jangan suruh pekerja membaca `SKILL.md`, `RETRO.md`, atau `LANTAI.md` penuh. Kamu yang memilih baris yang relevan. **Yang tidak boleh dipangkas untuk pekerja visual:** frame kunci kartu kiblat (gambarnya, bukan teks kartu saja), pelajaran `guide/<urusan>/GUIDE.md` §Cara memutuskan yang menyangkut beat itu, dan entri `pustaka/contoh-gagal/` yang mirip; tanpa itu pekerja membangun dari bayangannya sendiri.
 
 Saat menilai hasil pekerja, baca `REPORT` + `git diff --stat` + paling banyak 3 file kunci + hasil gerbang. Jangan membaca transkrip pekerja.
 

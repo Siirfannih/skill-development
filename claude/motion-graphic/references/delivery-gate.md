@@ -18,7 +18,7 @@ Yang terbukti:
 
 ## Blok 1: Hard Gate (semua harus "tidak")
 
-Audio dicek lebih dulu, karena kesalahan terbanyak ada di audio.
+Di blok ini cek mekanis audio dijalankan lebih dulu. Penilaian visual (gaya, posisi, estetika) sudah lulus sebelum audio disusun (Lantai F26) dan tidak diulang di sini.
 
 | Cek | Bukti | Aturan |
 |---|---|---|
