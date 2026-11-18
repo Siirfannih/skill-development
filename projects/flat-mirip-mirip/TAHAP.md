@@ -3,7 +3,7 @@
 Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Kerjakan berurutan. Di tiap langkah, baca **hanya** file/bagian yang disebut langkah itu, saat itu juga. Langkah selesai = `- [x]` + bukti setelah `→` (perintah dan keluarannya, atau path file). Lihat langkah berikutnya: `python3 claude/motion-graphic/scripts/juri/tahap.py projects/<proyek>`.
 
 ## Tahap 1 · Profil merek
-- [ ] Profil merek ada dan lulus · baca: `templates/merek/README.md` §Tahap 1 · bukti: keluaran `profil_cek.py` LULUS → draf `~/work/data-video/merek/behindwork/`; GAGAL 2 butir (logo terang/gelap) menunggu jawaban Irfan
+- [x] Profil merek ada dan lulus · baca: `templates/merek/README.md` §Tahap 1 · bukti: keluaran `profil_cek.py` LULUS → `profil_cek.py ~/work/data-video/merek/behindwork` = LULUS (D-09), 18 Nov
 
 ## Tahap 2 · Editing guideline + preview
 - [x] Brief user disalin verbatim ke `RESEP.md`; kiblat dipilih (2–3 kartu terdekat ditunjukkan bila tema masih kabur) · baca: `pustaka/PETA.md` baris kartu terkait, `pustaka/RESEP-TEMPLATE.md` · bukti: `resep_check.py` LULUS → `python3 claude/motion-graphic/scripts/juri/resep_check.py projects/flat-mirip-mirip/RESEP.md` = LULUS (kiblat 86), 18 Nov

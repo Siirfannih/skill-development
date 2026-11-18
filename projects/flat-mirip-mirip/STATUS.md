@@ -14,8 +14,15 @@ Titik lanjut sesi. Sutradara: claude2. Diperbarui 18 Nov 2026 malam.
 | footage-r1 | Codex | 13 kandidat F1–F6, 170 MB, `media/footage/LOG.md`; pilihan awal F1-a, F2-b, F3-a, F4-a, F5-b, F6-b (final setelah keputusan nada P11–P14) |
 | studio-acuan-r1 | Codex | 5 PNG Remotion Studio asli + ukuran panel/warna/font; rekonstruksi pakai SF Pro (tampilan Mac Irfan) |
 
-RESEP LULUS (kiblat 86). Profil Behindwork: draf, tinggal logo.
+RESEP LULUS (kiblat 86). Profil Behindwork LULUS (gaya baru, tanpa logo, D-09). tema.ts ditulis (tema_cek: tema bersih; 19 butir hanya di kode pinjaman yang akan dipindah).
+
+## Berjalan
+| TASK | Pekerja | Isi |
+|---|---|---|
+| komponen-A-r1 | Codex | Fonts, Kanvas, KataKecil/Tekan/Raksasa, Invert, Flash, KartuSlop, PapanA |
+| komponen-B-r1 | Codex | AppClaudeTerang, StudioRemotion, Clawd, UjiB |
+| komponen-C-r1 | Codex | BerandaIG iOS + wordmark + BingkaiIPhone, PremierePro, UjiC |
 
 ## Berikutnya
 1. `tema.ts` (Sutradara) dari RESEP + profil → TASK komponen bersama (satu pekerja Codex) → papan acuan untuk Irfan.
-2. Menunggu Irfan: logo Behindwork; brief putih+merah vs gaya Behindwork lama (hitam hangat + amber, Poppins); nada P07–P12; acuan resolusi penuh IG beranda + Premiere; ejaan prompt P04; durasi.
+2. Menunggu Irfan: nada P07–P12 (2D vs footage nyata P11–P14); potong kata bila VO > 60 dtk.
