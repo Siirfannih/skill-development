@@ -1,0 +1,56 @@
+{
+ "film-burn.wav": {
+  "durasi_dtk": 0.901,
+  "onset_ms": 115,
+  "puncak_ms": 398,
+  "puncak_dbfs": -12.3
+ },
+ "hantam-sub.wav": {
+  "durasi_dtk": 2.126,
+  "onset_ms": 76,
+  "puncak_ms": 223,
+  "puncak_dbfs": -4.9
+ },
+ "kamera-klik_negative.wav": {
+  "durasi_dtk": 0.758,
+  "onset_ms": 25,
+  "puncak_ms": 76,
+  "puncak_dbfs": -7.4
+ },
+ "kardus-mendarat.wav": {
+  "durasi_dtk": 0.63,
+  "onset_ms": 87,
+  "puncak_ms": 231,
+  "puncak_dbfs": -3.0
+ },
+ "kertas-polaroid.wav": {
+  "durasi_dtk": 0.526,
+  "onset_ms": 68,
+  "puncak_ms": 163,
+  "puncak_dbfs": -1.0
+ },
+ "mouse-klik.wav": {
+  "durasi_dtk": 0.203,
+  "onset_ms": 10,
+  "puncak_ms": 97,
+  "puncak_dbfs": -1.1
+ },
+ "ui-pop.wav": {
+  "durasi_dtk": 0.197,
+  "onset_ms": 8,
+  "puncak_ms": 34,
+  "puncak_dbfs": -15.9
+ },
+ "ui-tutup.wav": {
+  "durasi_dtk": 0.253,
+  "onset_ms": 22,
+  "puncak_ms": 97,
+  "puncak_dbfs": -3.1
+ },
+ "whoosh-kamera.wav": {
+  "durasi_dtk": 0.546,
+  "onset_ms": 99,
+  "puncak_ms": 327,
+  "puncak_dbfs": -19.5
+ }
+}
