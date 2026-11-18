@@ -8,7 +8,7 @@ Baca file ini sampai habis sebelum mengerjakan build, render, atau QC video. Kal
 - Revisi kecil saja bisa menunggu render 1–2 jam.
 - Disk sempit membuat render crash. Pembersihan cache bisa membebaskan lebih dari 8 GB, tapi sesi sebelumnya tidak melakukannya.
 
-Audit semua frame per detik sebelum render final, tanpa sampling, tetap wajib. Pemeriksaan gerak 30 frame per detik dikerjakan dua model lain; **penilaian rasa tetap kamu yang melihat**, pada frame tahan (satu per detik).
+Audit semua frame per detik sebelum render final, tanpa sampling, tetap wajib. **Penilainya satu, yaitu kamu**, dan caranya melihat: frame tahan (satu per detik) di semua potongan, lembar 30 frame hanya di detik bertanda otomatis. Token dihemat dengan tidak memakai penilai kedua, bukan dengan tidak melihat.
 
 ## 1. Peran
 Kamu adalah **sutradara, prompt engineer, dan QC**. Kamu merancang, menulis perintah yang tepat dan lengkap untuk model pekerja, lalu menilai hasilnya. Semua pekerjaan yang berulang dikerjakan model lain atau script.
@@ -17,22 +17,19 @@ Kamu adalah **sutradara, prompt engineer, dan QC**. Kamu merancang, menulis peri
 |---|---|---|---|
 | Menulis/ubah kode adegan Remotion, typecheck | **Codex (ChatGPT Pro 5x)** lewat `tools/codex-pc.sh` di PC, atau `gpt-bridge` di Mac | Subagen `model: sonnet` | Jangan menulis kode adegan sendiri, kecuali perbaikan ≤ 10 baris |
 | Render still/draft/frames/final, `frame_audit.py`, mix, cek mekanis | Script (`render.sh`, runner) | — | Jalankan perintahnya saja, baca ≤ 20 baris log terakhir |
-| **Pemeriksaan visual per detik** (frame tahan + 30 frame) | **Gemini (`agy`) DAN ChatGPT, keduanya** | Bila salah satu tidak bisa diakses: subagen `model: sonnet` atau `haiku` menggantikannya | Membuka semua frame tahan (§4.3); lembar 30 frame hanya di detik yang hasil kedua pemeriksanya berbeda |
 | Cari file, ringkas log, eksplorasi kode, cek diff baris per baris | Subagen `model: haiku` / `sonnet` | Codex | Tidak |
 | Riset aset/referensi | Maximus (Grok) | Codex | Tidak |
-| Juri still vs referensi (R6), menilai frame tahan terhadap kiblat dan contoh gagal, devil's advocate, putusan konflik, `DECISIONS.md`, Delivery Gate, bicara denganku | — | — | **Ya, ini inti kerjamu** |
+| Juri still vs referensi (R6), **menilai semua frame tahan** terhadap kiblat dan contoh gagal + solusi desain dari kartu (§4), devil's advocate, putusan konflik, `DECISIONS.md`, Delivery Gate, bicara denganku | — | — | **Ya, ini inti kerjamu** |
 
 **Codex minta pendapat visual Claude** (sesi yang sudah dipegang Codex tidak dipindah): `tools/tanya-claude.sh <proyek> <pertanyaan.md> [still …]`. Syaratnya arah video sudah tertulis dan disetujui (RESEP.md + kiblat; alat menolak bila belum). Claude tidak membaca kode; ia menerima dosir yang dirakit otomatis dari dokumen arah yang sudah ada (`LANTAI.md`, kartu kiblat, `RESEP.md`, baris Aktif `DECISIONS.md`, `STATUS.md`, opsional `handoff/KONSUL.md` dari `templates/roles/konsul.md` untuk "sudah dicoba dan gagal"), ±14 ribu token, ditambah `LANTAI`, cara menilai (`templates/roles/pemeriksa-frame.md`), dan panduan urusan yang ditanya (`KONSUL_PANDUAN=teks,visual` bawaan; gerak/sfx/audio sesuai pertanyaan). Lampirannya **frame yang sudah dibedah secara visual dan bernomor**, bukan kode: folder potongan `qc/frame_audit/cNN_…` (30 frame bernomor per detik + strip audio + INFO.md; gerak dinilai dari urutannya), `qc/sanding.jpg` (kita vs kiblat), lembar A/B asli vs kandidat, atau still (≤ 960 px). Claude menjawab dalam tabel `dtk | frame | jenis | yang terlihat | perbaikan konkret | dasar` (dasar = kode LANTAI, R-/D-, atau bagian kartu; tanpa dasar = "selera", opsional) + `PUTUSAN`, lalu Codex merevisi frame yang disebut. Urutan menang: catatan Irfan aktif > resep + kiblat > LANTAI > pendapat Claude. Satu sesi Claude dilanjutkan hanya selama cache hangat (< 270 dtk) dan konteks < 120 ribu token; di luar itu sesi baru dari dosir, karena sesi panjang mengirim ulang seluruh riwayatnya di setiap panggilan. Kumpulkan pertanyaan satu ronde lalu tanyakan berurutan. Jawaban yang diterapkan dicatat sebagai baris baru di `DECISIONS.md` (sumber: konsul NN), supaya konsultasi berikutnya ikut membacanya. Pemakaian token: `handoff/konsul/konsul.jsonl`.
 
-Pembuat dan penilai selalu model yang berbeda. Codex yang membangun adegan tidak boleh memeriksa adegan itu sendiri. Pemeriksa ChatGPT dijalankan di jalur terpisah dari builder (`-l qc-<proyek>`, bukan jalur builder).
+Pembuat tidak menilai hasilnya sendiri: yang membangun adegan adalah pekerja, yang menilai adalah kamu.
 
 ## 2. Cek akses dulu, jangan menebak
 Lakukan sekali di awal sesi dan catat hasilnya di `STATUS.md`:
 1. Di PC: `which codex && codex login status`. Bila tidak ada, pakai `gpt-bridge` di Mac (`~/AI-OPS/gpt-bridge/gpt`, lihat `autopilot-video/tools/gpt-bridge/README.md`) lewat koneksi PC→Mac yang sudah dipakai sesi sebelumnya. Cari caranya di riwayat atau skrip yang ada, jangan mengarang host.
-2. Gemini: `agy` ada di Mac. Cara memanggilnya ada di `experimental/dual-agent-sound/scripts/gemini_audio_director.py`. Cadangannya Gemini API (kunci di `$GEMINI_API_KEY` atau `~/Documents/Skill-Development/.secrets/gemini.key`, tidak pernah di repo).
 3a. Di PC, Codex dijalankan penuh di terminal lewat `tools/codex-pc.sh <folder proyek> handoff/TASK-xx.md [-i lampiran…]` (isinya `codex exec --sandbox danger-full-access -C <folder>`). Ini keputusanku: sandbox bubblewrap tidak jalan di PC ("bwrap: Operation not permitted"), sehingga Codex ber-sandbox tidak bisa membuka folder kerja. Batasnya: TASK wajib memuat FILE BOLEH / FILE JANGAN (skrip menolak TASK tanpa itu), dan pembuat tidak memeriksa hasilnya sendiri. Lampiran gambar lewat `-i` ditaruh SESUDAH file TASK. `agy -p` di PC kosong/timeout untuk lampiran 10 lembar (2× gagal) → jalur Gemini diganti subagen `model: sonnet`.
-3b. Dua pemeriksa saling melengkapi, bukan duplikat: ChatGPT kuat di atribusi b-roll dan sinkron, subagen Sonnet di kata yang tidak pernah tampil dan audio yang putus. Banyak temuan ChatGPT positif palsu (penutur di shot wajah = pemilik suara, punch-in disengaja), jadi tiap temuan diverifikasi dengan frame/ukuran sebelum diperbaiki.
-3. Bila sebuah jalur gagal 2× berturut-turut, tandai jalur itu mati di `STATUS.md` dan pakai cadangannya. **Jangan diam-diam kembali mengerjakan semuanya sendiri.** Bila kedua jalur pemeriksa mati, laporkan ke aku dalam satu pesan, lalu lanjutkan pekerjaan lain yang tidak bergantung pada jalur itu.
+3. Bila sebuah jalur gagal 2× berturut-turut, tandai jalur itu mati di `STATUS.md` dan pakai cadangannya. **Jangan diam-diam kembali menulis kode adegan sendiri.**
 
 - **Satu jalur, satu pandangan visual:** Sutradara (sesi utama) yang memutuskan apa yang dibangun, bentuk visual, aset, dan QC. **Satu subagen Sonnet** menulis kode SEMUA komponen dan adegan video itu dari awal sampai akhir. **Satu subagen Opus** lalu merapikan seluruh kode Sonnet itu (prinsip motion Apple-style: bersih, modern, satu fokus per frame, ruang lega) sebelum diserahkan ke Sutradara untuk dirakit jadi video utuh. Urutan Sutradara → Sonnet → Opus → Sutradara tidak boleh dibalik, dilewati, atau dipecah: pekerjaan visual tidak dibagi ke beberapa model/pekerja (komponen A oleh Sonnet, B oleh Codex, C oleh Opus), karena hasilnya pasti tidak konsisten. Referensi yang Irfan beri sebagai contoh gaya dipakai gayanya saja, bukan isinya.
 
@@ -56,27 +53,17 @@ Konteks pekerja sengaja ramping. Jangan suruh pekerja membaca `SKILL.md`, `RETRO
 
 Saat menilai hasil pekerja, baca `REPORT` + `git diff --stat` + paling banyak 3 file kunci + hasil gerbang. Jangan membaca transkrip pekerja.
 
-## 4. Pemeriksaan visual per detik oleh dua model
-Alur kerjanya mengikuti `templates/roles/pemeriksa-frame.md` dan `scripts/juri/frame_audit.py`. Dijalankan setelah visual selesai dan sebelum SFX/musik disusun; audio diperiksa terpisah sesudah SFX dikunci (`frame_audit.py --fase audio`, `templates/roles/pemeriksa-audio.md`, alur gabung yang sama).
+## 4. Menilai frame: satu penilai
+Caranya ada di `templates/roles/pemeriksa-frame.md`; alatnya `scripts/juri/frame_audit.py`. Dijalankan setelah visual selesai dan sebelum SFX/musik disusun; audio dinilai terpisah sesudah SFX dikunci (`frame_audit.py --fase audio`, `templates/roles/pemeriksa-audio.md`).
 1. `render.sh <proyek> frames` → `frame_audit.py`. Hasilnya per potongan ≤ 10 dtk: `tahan/t<detik>_f<frame>.jpg` (satu frame tenang per detik, ukuran besar), `s<detik>.jpg` (30 frame kecil), plus `INFO.md`.
-2. Kirim **setiap potongan** ke **Gemini dan ChatGPT secara paralel**, masing-masing tanpa konteks pembuatan (blind):
-   - prompt = isi prompt di `pemeriksa-frame.md`;
-   - lampiran = semua `tahan/*.jpg` + `s*.jpg` + `INFO.md` potongan itu, **dan pembandingnya**: frame kunci kartu kiblat (+ kartu yang tekniknya dipinjam), `RESEP.md`, baris Aktif `DECISIONS.md`, dan `pustaka/contoh-gagal/`;
-   - minta keluaran JSON: `[{detik, frame, jenis, terlihat, usul}]` + `putusan: LULUS|GAGAL`;
-   - simpan ke `VERDICT_gemini.md` dan `VERDICT_gpt.md` di folder potongan.
-3. Gabungkan per detik:
-   - **Keduanya LULUS** → gerak dan transisi detik itu lulus; lembar 30 frame-nya tidak perlu kamu buka. **Frame tahannya tetap kamu buka**: lulus dari dua pemeriksa tidak menggantikan penilaianmu atas gaya, posisi, dan estetika. Buka `tahan/*.jpg` tiap potongan berdampingan dengan frame kunci kiblat, dan tulis putusanmu per potongan di `VERDICT.md` (yang terlihat, bukan angka).
-   - **Keduanya GAGAL di frame dan jenis yang sama** → langsung jadi temuan di TASK. Cukup jalankan devil's advocate dari teksnya.
-   - **Berbeda** → hanya di sini kamu membuka lembar detik itu (maks 960 px), memutus, lalu menulis alasannya.
-   - Temuan tanpa nomor frame dibuang (tidak bisa diverifikasi).
-4. Tulis `VERDICT.md` gabungan, dengan baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`. Formatnya tetap seperti yang dibaca `render.sh final`.
-5. Catat di `STATUS.md` tingkat kesepakatan kedua model dan berapa kali kamu harus memutus.
-6. Potongan yang isinya tidak berubah sejak putusan terakhir **tidak diaudit ulang**. `frame_audit.py` mengikat setiap VERDICT ke `HASH:` isi potongan (frame + kata + cue + energi audio) dan menandai di `INDEX.md` mana yang `dipakai ulang` dan mana yang `perlu periksa`; kirim ke pemeriksa hanya yang `perlu periksa`, bersama `VERDICT.prev.md` bila ada supaya temuan yang sudah diputuskan tidak diangkat lagi. `render.sh final` menolak LULUS yang HASH-nya tidak cocok dengan isi sekarang.
-
-Klaim angka dari pemeriksa (waktu, level, jarak) selalu kamu verifikasi dengan alat ukur sebelum dikerjakan. Gemini pernah salah dengar angka (`experimental/dual-agent-sound/README.md`).
+2. Buka frame kunci kiblat dan `pustaka/contoh-gagal/`, lalu semua frame tahan. Lihat, katakan apa yang salah, dan beri solusi desain dari kartu untuk frame yang lemah.
+3. Lembar 30 frame dibuka hanya di detik bertanda otomatis (LOMPAT/KEDIP/BEKU) atau yang geraknya kamu ragukan.
+4. Tulis `VERDICT.md` tiap potongan, baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL` (format yang dibaca `render.sh final`). Baris GAGAL menjadi TASK pekerja.
+5. Tidak ada pemeriksa lain di depan atau di belakangmu. Bila kuotamu sempit, serahkan penilaian satu video utuh ke **satu** subagen dengan brief yang sama, dan pakai hasilnya langsung.
+6. Potongan yang isinya tidak berubah sejak putusan terakhir **tidak dinilai ulang**. `frame_audit.py` mengikat setiap VERDICT ke `HASH:` isi potongan dan menandai di `INDEX.md` mana yang `dipakai ulang` dan mana yang `perlu periksa`; `VERDICT.prev.md` memuat temuan ronde sebelumnya. `render.sh final` menolak LULUS yang HASH-nya tidak cocok dengan isi sekarang.
 
 ## 5. Anggaran token (wajib)
-- Yang kamu buka: still juri R6, semua frame tahan (satu per detik), dan lembar 30 frame hanya di detik yang hasilnya berbeda (§4.3). Lembar 30 frame lainnya tidak dibuka.
+- Yang kamu buka: still juri R6, semua frame tahan (satu per detik), dan lembar 30 frame hanya di detik bertanda otomatis (§4.3). Lembar 30 frame lainnya tidak dibuka.
 - Gambar maks 960 px. Untuk hal yang terlihat (gaya, posisi, keterbacaan, keseimbangan), gambar dulu; angka skrip hanya untuk yang tidak terlihat di gambar (sinkron frame, level audio).
 - Baca skill hanya cabang yang relevan. `RETRO.md` jangan dibaca utuh: pakai `grep` untuk topik beat yang sedang dikerjakan.
 - Render dan ffmpeg dijalankan di latar belakang. Baca ≤ 20 baris log terakhir.
@@ -113,7 +100,7 @@ Urutannya: ukur dulu, baru ubah.
 
 ## 9. Ukuran berhasil (catat per video di `STATUS.md`)
 - Porsi kuota yang terpakai (persentase 5 jam dan mingguan, dari `/status` atau `/usage`) di awal dan akhir video.
-- Jumlah ronde per beat, tingkat kesepakatan Gemini–ChatGPT, dan berapa kali kamu harus memutus.
+- Jumlah ronde per beat dan jumlah frame yang kamu gagalkan per ronde.
 - Waktu revisi kecil: dari perintah perbaikan sampai potongan baru lulus audit.
 - Waktu render per menit video, sebelum dan sesudah §6.
 - Sumber angka waktu: `qc/jobs.jsonl` (ditulis `render.sh` tiap pemanggilan: `antre_dtk` di kunci render, `kerja_dtk`, `rc`, commit). Ringkas: `jq -s 'group_by(.mode)|map({mode:.[0].mode,n:length,antre:(map(.antre_dtk)|add),kerja:(map(.kerja_dtk)|add)})' qc/jobs.jsonl`.

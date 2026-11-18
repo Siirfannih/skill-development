@@ -18,7 +18,7 @@
 #   5. gaya, posisi, dan keseimbangan (Lantai C17) dinilai dengan mata di qc/JURI.md (pustaka/README.md §Juri 2); tanpa skor skrip
 #   6. draft gerak sudah dilihat: qc/draft.mp4 (penuh) atau qc/draft_<awal-akhir>.mp4 (rentang yang sama) lebih baru daripada src
 # 8. audit visual semua frame: qc/frame_audit/INDEX.md lebih baru daripada src dan setiap
-#      potongan punya VERDICT.md berakhir 'PUTUSAN: LULUS' (agen lain + Sutradara melihat tiap detik; scripts/juri/frame_audit.py)
+#      potongan punya VERDICT.md berakhir 'PUTUSAN: LULUS' (Sutradara melihat frame tahan tiap detik; scripts/juri/frame_audit.py)
 #   9. mode lego saja: lego/base_pts.py dan lego/cek_master.py lulus (pts dasar tanpa ganda; lapisan tampil di frame rencana)
 #   7. setiap catatan Irfan berstatus Aktif di DECISIONS.md (R-NNN / D-NNN) disebut di qc/JURI.md dengan buktinya
 #

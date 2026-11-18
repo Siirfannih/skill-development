@@ -2,7 +2,7 @@
 
 Dipanggil setelah fase visual lulus (`pemeriksa-frame.md`) dan SFX dikunci (`audio_order.py lock sfx`). Audio menyesuaikan visual: bunyi disusun dari gerak yang sudah final (kapan objek muncul, pop, bergeser, kamera bergerak), jadi pemeriksaan ini tidak menilai ulang gambar.
 
-Siapkan: `scripts/juri/frame_audit.py qc/frames --fase audio --cuts … --words … --cues <cues.json> --stems audio` → `qc/audio_audit/`. Satu agen per potongan, bukan agen yang menyusun SFX.
+Siapkan: `scripts/juri/frame_audit.py qc/frames --fase audio --cuts … --words … --cues <cues.json> --stems audio` → `qc/audio_audit/`. Satu penilai (Sutradara, atau satu subagen yang tidak menyusun SFX); hasilnya dipakai langsung, tanpa penilai kedua.
 
 Prompt (isi `<…>`):
 

@@ -9,7 +9,9 @@ Skill ini menaikkan mutu video dari prompt Irfan. Ia bukan template. Tiga hal ya
 
 1. **Lantai**: mutu yang berlaku di semua video, apa pun gayanya (di bawah ini, lengkap).
 2. **Kiblat**: tiap video punya SATU arah gaya, dipilih dari prompt, video referensi yang Irfan kirim, atau `pustaka/PETA.md`, lalu ditulis sebagai `RESEP.md`.
-3. **Juri**: still hasil disandingkan dengan kiblat sebelum render penuh.
+3. **Juri**: hasil dilihat dan dibandingkan dengan kiblat sebelum render penuh.
+
+`pustaka/` adalah perpustakaan referensi gaya Irfan: kartu dan frame kuncinya menunjukkan yang bagus, `contoh-gagal/` yang jelek. Model belajar dari sana saat memilih arah, merancang tiap adegan, dan memperbaiki frame, supaya Irfan cukup menyebut gaya dengan kata-kata (`pustaka/README.md` §Kartu itu apa).
 
 Bila bagian lain di skill ini bertentangan dengan Lantai atau resep, Lantai dan resep yang menang.
 
@@ -60,7 +62,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 25. **Musik mengikuti tempo dan suasana video**, tidak bolong, tidak melawan emosi ucapan.
 
 ### F. Cara kerja
-26. **Urutan: still per beat → draft skala 0,5 → audit visual semua frame → SFX → musik → audit audio → render penuh.** Visual selesai dan lulus dulu; audio disusun sesudahnya dan menyesuaikan gerak yang sudah final. Semua lewat `scripts/juri/render.sh`; render penuh ditolak sebelum resep dan still lulus. Satu render penuh 1080p ±8–18 menit di PC server, jadi ia langkah terakhir. **Audit tanpa sampling sebelum MP4**: semua frame dirender sebagai gambar (`render.sh frames`), dipecah per ≤ 10 dtk, tiap detik diperiksa agen lain (subagen/model lain, paralel per potongan) **dengan mata**: gaya terhadap kiblat, posisi teks dan objek, keterbacaan, transisi, dan jarak antar-frame (`scripts/juri/frame_audit.py`, `templates/roles/pemeriksa-frame.md`); Sutradara membuka sendiri frame tahan tiap detik. Render penuh ditolak sampai semua potongan `PUTUSAN: LULUS`. Kecocokan bunyi dengan gerak diperiksa di fase audio (`frame_audit.py --fase audio`, `templates/roles/pemeriksa-audio.md`), bukan di audit visual. **Video berfootage dirakit seperti lego**: footage dan kamera footage dikerjakan ffmpeg, teks/KT dan visual dirender terpisah sebagai lapisan ber-alpha seukuran kotaknya dan di-cache (`scripts/lego/lapisan.py`), lalu dirakit sekali (`render.sh <proyek> lego lego/lego.json`). Revisi waktu/posisi teks = ubah `lego.json`, tanpa render ulang lapisan.
+26. **Urutan: still per beat → draft skala 0,5 → audit visual semua frame → SFX → musik → audit audio → render penuh.** Visual selesai dan lulus dulu; audio disusun sesudahnya dan menyesuaikan gerak yang sudah final. Semua lewat `scripts/juri/render.sh`; render penuh ditolak sebelum resep dan still lulus. Satu render penuh 1080p ±8–18 menit di PC server, jadi ia langkah terakhir. **Audit tanpa sampling sebelum MP4**: semua frame dirender sebagai gambar (`render.sh frames`), dipecah per ≤ 10 dtk, tiap detik dinilai **dengan mata oleh satu penilai (Sutradara)**: gaya terhadap kiblat, posisi teks dan objek, keterbacaan, transisi, dan jarak antar-frame, dan tiap frame yang lemah diberi solusi desain dari kartu (`scripts/juri/frame_audit.py`, `templates/roles/pemeriksa-frame.md`). Render penuh ditolak sampai semua potongan `PUTUSAN: LULUS`. Kecocokan bunyi dengan gerak diperiksa di fase audio (`frame_audit.py --fase audio`, `templates/roles/pemeriksa-audio.md`), bukan di audit visual. **Video berfootage dirakit seperti lego**: footage dan kamera footage dikerjakan ffmpeg, teks/KT dan visual dirender terpisah sebagai lapisan ber-alpha seukuran kotaknya dan di-cache (`scripts/lego/lapisan.py`), lalu dirakit sekali (`render.sh <proyek> lego lego/lego.json`). Revisi waktu/posisi teks = ubah `lego.json`, tanpa render ulang lapisan.
 27. **Revisi = diff.** Adegan yang sudah disetujui tidak disentuh; yang dirender ulang hanya rentang yang berubah. **Revisi video yang dibuat sebelum aturan baru**: tulis `qc/revisi.json` {"basis": "<commit versi yang disetujui>", "alasan": …}; aturan dan gerbang baru (B13a, A9a, E23/E24, lego) berlaku untuk bagian yang diubah saja, bagian yang disetujui tidak dimigrasi kecuali Irfan memintanya. `render.sh final` lalu memeriksa motion_lint hanya pada file yang berubah dan `audio_order.py check --warisan`.
 28. **Tidak yakin = tanya, jangan menebak.**
 29. **Video baru dikirim setelah juri lulus** (`pustaka/README.md` §Juri), bersama lembar sanding still vs kiblat.
@@ -79,8 +81,8 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 
 ## 0b. Render dan juri
 
-- Semua render lewat `scripts/juri/render.sh <proyek> still|draft|frames|final …`. Render penuh ditolak sampai resep lulus, semua still terbaru, lembar sanding dibuat, draft gerak terbaru, audit visual semua potongan LULUS (`frames` → `frame_audit.py` → agen pemeriksa per ≤ 10 dtk), dan `qc/JURI.md` berakhir `PUTUSAN: LULUS` dengan bukti tiap catatan Irfan aktif.
-- **Juri visual adalah mata, bukan skrip.** Gaya, posisi teks dan objek, keseimbangan, dan estetika dinilai dengan melihat gambarnya, berdampingan dengan frame kunci kiblat (yang bagus) dan `pustaka/contoh-gagal/` (yang jelek): pada still per beat (daftar cek `pustaka/README.md` §Juri 2, `scripts/juri/sandingkan.py` untuk lembar sanding, lalu tiap butir "Cek kemiripan" kartu kiblat dan Lantai A–D) dan pada frame tahan tiap detik di audit visual. `scripts/juri/teks_cek.py` hanya penunjuk still yang perlu dilihat. Rinci: `pustaka/README.md` §Juri.
+- Semua render lewat `scripts/juri/render.sh <proyek> still|draft|frames|final …`. Render penuh ditolak sampai resep lulus, semua still terbaru, lembar sanding dibuat, draft gerak terbaru, audit visual semua potongan LULUS (`frames` → `frame_audit.py` → Sutradara menilai frame tahan tiap detik; satu penilai), dan `qc/JURI.md` berakhir `PUTUSAN: LULUS` dengan bukti tiap catatan Irfan aktif.
+- **Juri visual adalah mata, bukan skrip.** Gaya, posisi teks dan objek, keseimbangan, dan estetika dinilai dengan melihat gambarnya, berdampingan dengan frame kunci kiblat (yang bagus) dan `pustaka/contoh-gagal/` (yang jelek): pada still per beat (daftar cek `pustaka/README.md` §Juri 2, `scripts/juri/sandingkan.py` untuk lembar sanding, lalu tiap butir "Cek kemiripan" kartu kiblat dan Lantai A–D) dan pada frame tahan tiap detik di audit visual, oleh satu penilai (Sutradara, `templates/roles/pemeriksa-frame.md`); frame yang lemah diberi solusi desain dari kartu. `scripts/juri/teks_cek.py` hanya penunjuk still yang perlu dilihat. Rinci: `pustaka/README.md` §Juri.
 - **Visual dulu, audio sesudahnya.** Audit visual dijalankan setelah visual selesai dan sebelum SFX/musik disusun; kecocokan bunyi dengan gerak diperiksa di fase audio (`frame_audit.py --fase audio`, `templates/roles/pemeriksa-audio.md`).
 - Revisi: perbarui still adegan itu saja dan render rentang framenya, bukan seluruh video.
 - Pelajaran dari Irfan disimpan menurut cakupannya (`pustaka/README.md` §Tumbuh).
@@ -107,7 +109,7 @@ Skill ini adalah **titik start, bukan titik nol**: pengalaman yang sudah terbukt
 
 Setiap pekerjaan video dipecah: **Sutradara** (sesi yang bicara dengan Irfan: intake, pertanyaan, bedah, rencana, review buta, devil's advocate, Delivery Gate) dan **Editor** (subagen dengan konteks ramping: build, render, gate mekanis, laporan berbukti). Keduanya berbicara hanya lewat file di `handoff/` (BRIEF, PLAN, TASK, REPORT, REVIEW). Protokol, peta gerbang, dan prompt Editor: `references/roles.md`, `templates/roles/`.
 
-**Wajib sebelum build, render, atau QC:** baca `references/orkestrasi.md`. Isinya: model mana mengerjakan apa (Codex menulis kode, Gemini + ChatGPT memeriksa per detik), format TASK untuk pekerja, anggaran token, render cepat, dan gerbang disk.
+**Wajib sebelum build, render, atau QC:** baca `references/orkestrasi.md`. Isinya: model mana mengerjakan apa (pekerja menulis kode, Sutradara menilai frame sendiri sebagai satu penilai), format TASK untuk pekerja, anggaran token, render cepat, dan gerbang disk.
 
 ## 2b. Guide: standar rasa, per urusan
 
@@ -178,7 +180,7 @@ motion-graphic/
 │   └── hybrid-motion-standard.md · three-segment-gate.md
 ├── templates/storyboard/    contoh beats.json + tokens.css + panel (mulai dari salinan ini)
 ├── templates/gaya/          template gaya terpilih di gerbang 1 (minimal-premium, editorial-bold) + format menu rencana edit
-├── templates/roles/        prompt Editor, pemeriksa-frame (visual), pemeriksa-audio + kerangka folder handoff/ (roles.md)
+├── templates/roles/        prompt Editor, cara menilai frame (pemeriksa-frame, satu penilai), pemeriksa-audio + kerangka folder handoff/ (roles.md)
 ├── engines/talking-head-reels/  engine EDL → reel 9:16 (Python + ffmpeg/libass), Mac + Linux
 └── scripts/
     ├── storyboard/board.py      panel HTML → PNG + papan per babak + cek caption/teks layar/waktu + cues.json

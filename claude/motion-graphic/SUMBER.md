@@ -830,3 +830,11 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | Aturan | Asal-usul |
 |---|---|
 | tiga frame skill-dev-journey putaran 4 | Irfan 18 Nov, tiga tangkapan layar + penjelasannya di sesi audit QC; lulus JURI (D-406 ✓) dan audit frame sebelumnya |
+
+## Satu penilai · kartu sebagai perpustakaan referensi (`pemeriksa-frame.md`, `orkestrasi.md` §4, `pustaka/README.md` §Kartu itu apa, `pustaka/PETA.md`, LANTAI butir 26)
+
+| Aturan | Asal-usul |
+|---|---|
+| satu penilai (Sutradara), tanpa dua pemeriksa | Irfan 18 Nov: karena Sutradara wajib melihat, QC sebelum Sutradara tidak diperlukan; dua model bisa konflik pendapat dan boros token |
+| frame lemah diberi solusi desain dari kartu, bukan geseran | Irfan 18 Nov, frame DECISION skill-dev-journey: usul model hanya "naikkan sedikit"; Irfan memberi dua solusi (kata hero di belakang kepala dan dibesarkan; b-roll latar oranye dengan DECISION putih memenuhi frame). Keduanya ada di pustaka: kartu 83 k3/k4 (kiblat proyek itu sendiri) dan kartu 23/53 k3 |
+| kartu = perpustakaan referensi gaya; pilih yang terdekat dengan melihat frame kunci | Irfan 18 Nov: kartu disusun supaya ia tidak perlu mengajari model atau mengirim referensi tiap sesi; cukup menyebut gaya (mis. 2,5D kinetic typography mengelilingi pembicara) dan model mencari kartu terdekat. Visi ini belum tertulis di skill |

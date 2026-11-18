@@ -107,7 +107,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/templates/roles/handoff.md` | **Kerangka folder `handoff/`** — Salin bagian yang dibutuhkan ke projects/<proyek>/handoff/. |
 | `claude/motion-graphic/templates/roles/konsul.md` | **KONSUL · <proyek> (opsional)** — Catatan tambahan untuk tools/tanya-claude.sh. |
 | `claude/motion-graphic/templates/roles/pemeriksa-audio.md` | **Pemeriksa audio terhadap frame · fase audio (satu agen per potongan ≤ 10 dtk)** — Dipanggil setelah fase visual lulus (pemeriksa-frame.md) dan SFX dikunci (audio_order.py lock sfx). |
-| `claude/motion-graphic/templates/roles/pemeriksa-frame.md` | **Pemeriksa frame · fase visual (satu agen per potongan ≤ 10 dtk)** — Dipanggil Sutradara setelah visual selesai disusun dan sebelum SFX dan musik dibuat: render.sh <proyek> frames → scripts/juri/frame_audit.py qc/frames (fase visual). |
+| `claude/motion-graphic/templates/roles/pemeriksa-frame.md` | **Menilai frame · fase visual (satu penilai: Sutradara)** — Dijalankan setelah visual selesai disusun dan sebelum SFX dan musik dibuat: render.sh <proyek> frames → scripts/juri/frame_audit.py qc/frames (fase visual). |
 
 ## motion-graphic · skrip (alat dan gerbang)
 

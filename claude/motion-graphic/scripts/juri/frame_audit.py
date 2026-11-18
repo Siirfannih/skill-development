@@ -8,7 +8,7 @@
                           audio dan daftar cue, untuk menilai apakah bunyi jatuh di gerak yang terlihat. Keluaran bawaan
                           qc/audio_audit/. Verdict fase visual tidak ikut berubah saat cue atau stem berubah.
 
-Video dipecah per <= 10 dtk; tiap potongan diperiksa agen lain dari yang membangun.
+Video dipecah per <= 10 dtk; tiap potongan dinilai satu penilai (Sutradara), bukan yang membangun adegannya.
 
 Masukan: urutan gambar dari `render.sh <proyek> frames <Comp>` (qc/frames/, skala 0,5), opsional:
   --cuts  file teks/JSON berisi frame potong yang DISENGAJA (batas beat, ganti adegan): lompatan di sana tidak ditandai
@@ -22,7 +22,7 @@ Keluaran per potongan `cNN_<a>-<b>s/`:
                                  dengan frame kunci kiblat dan contoh gagal
   `s<detik>.jpg`                 30 frame 6×5 berukuran kecil: hanya untuk gerak, transisi, dan jarak antar-frame
                                  (frame bertanda diberi bingkai merah; fase audio menambah strip energi audio)
-  `INFO.md` (tanda otomatis, kata yang diucapkan; fase audio: cue SFX), `VERDICT.md` (diisi agen pemeriksa),
+  `INFO.md` (tanda otomatis, kata yang diucapkan; fase audio: cue SFX), `VERDICT.md` (diisi penilai),
   dan `INDEX.md` (ringkasan + cara pemeriksaan). `render.sh final` menolak bila ada VERDICT tanpa `PUTUSAN: LULUS`.
   Setiap VERDICT terikat `HASH:` isi potongannya. Verdict tanpa HASH wajib diperiksa sekali lagi, tanpa adopsi
   berdasarkan waktu file. Ronde berikutnya: potongan yang isinya sama memakai ulang verdict-nya; yang berubah diperiksa
@@ -142,15 +142,15 @@ def main():
                 "Buka `s*.jpg` (strip: biru suara, hijau musik, oranye SFX) dan `INFO.md`; nilai apakah tiap gerak yang terlihat",
                 "punya bunyinya di frame itu, dan tidak ada bunyi tanpa gerak."]
     else:
-        cara = ["Cara periksa (fase VISUAL, gambar saja): prompt `templates/roles/pemeriksa-frame.md`. Pemeriksa menerima frame",
-                "kunci kartu kiblat, `RESEP.md`, dan `pustaka/contoh-gagal/` sebagai pembanding.",
+        cara = ["Cara menilai (fase VISUAL, gambar saja): `templates/roles/pemeriksa-frame.md`. Buka dulu frame kunci kartu kiblat,",
+                "`RESEP.md`, dan `pustaka/contoh-gagal/` sebagai pembanding.",
                 "`tahan/*.jpg` (ukuran besar, satu per detik) → gaya, posisi teks dan objek, keterbacaan, estetika.",
                 "`s*.jpg` (30 frame kecil per detik) → gerak, transisi, jarak antar-frame saja."]
     idx = ["# Audit frame per frame (tanpa sampling) · fase " + a.fase, "",
            f"Sumber: `{a.frames}` · {n} frame · {n / fps:.2f} dtk · potongan {a.chunk:g} dtk · lembar = 1 detik (6×5 = 30 frame)", "",
            *cara,
-           "Agen LAIN dari yang membangun; satu agen per potongan, paralel. Tulis `VERDICT.md`: satu baris per masalah",
-           "`dtk | frame | jenis | apa yang terlihat | usul`, lalu baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`.",
+           "Satu penilai (Sutradara), tanpa pemeriksa kedua. Tulis `VERDICT.md`: satu baris per masalah",
+           "`dtk | frame | apa yang terlihat | solusi | pembanding`, lalu baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`.",
            "Tanda otomatis hanya penunjuk: tiap tanda dinilai, bukan disalin.",
            "Baris `HASH:` di VERDICT jangan diubah: verdict hanya berlaku untuk isi potongan itu. Periksa hanya potongan",
            "berstatus `perlu periksa`; bila ada `VERDICT.prev.md`, baca temuan yang sudah diputuskan di ronde sebelumnya.", "",
@@ -222,7 +222,7 @@ def main():
     for t in sum(flags.values(), []): kinds[t.split()[0]] = kinds.get(t.split()[0], 0) + 1
     print(f"tanda otomatis {tot}: " + ", ".join(f"{k} {v}" for k, v in sorted(kinds.items())) + f" · keluaran {a.out}/INDEX.md")
     print(f"potongan {len(names)} · dipakai ulang {reused} (isi tidak berubah, verdict tetap) · perlu periksa {len(names) - reused}")
-    print(f"Lanjut (fase {a.fase}): satu agen pemeriksa per potongan berstatus 'perlu periksa' (paralel), isi VERDICT.md-nya.")
+    print(f"Lanjut (fase {a.fase}): nilai tiap potongan berstatus 'perlu periksa' dan isi VERDICT.md-nya (satu penilai).")
 
 
 if __name__ == "__main__":

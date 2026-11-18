@@ -1,12 +1,12 @@
 # PETA pustaka referensi
 
-Semua video di sini adalah **standar kualitas Irfan**: target yang harus dicapai, dan nilainya setara. Baca tabel ini, pilih **satu** kiblat, lalu buka **hanya** kartu itu. Jangan membuka semua kartu.
+Semua video di sini adalah **standar kualitas Irfan**: target yang harus dicapai, dan nilainya setara. Tabel ini adalah katalog perpustakaan referensi gaya Irfan (fungsinya: `README.md` §Kartu itu apa). Pilih **satu** kiblat; kartu lain dibuka saat sebuah adegan butuh bentuk atau teknik di luar kiblat. Jangan membuka semua kartu sekaligus.
 
 **Nama referensi menunjukkan apa yang diambil**: "Apple Style" → visual, "Sound efex" → SFX, "Audio" → musik, "Kinetic typography" → teks. Kolom "Diambil untuk" mencatatnya. Bila prompt meminta satu bagian saja (mis. "SFX seperti referensi Sound efex"), kartu itu dipinjam sebagai **teknik**; pengikat tetap dari kiblat.
 
 ## Cara memilih
 1. **Irfan mengirim video referensi baru di sesi ini** → itulah kiblatnya. Bedah ke kartu baru dulu (`README.md` §Referensi baru); pustaka hanya mengisi bagian yang tidak dimiliki video itu.
-2. **Prompt menyebut gaya atau referensi dengan jelas** → cocokkan ke "Cocok untuk", "Kata kunci gaya", dan "Diambil untuk", pilih satu, tulis alasannya di `RESEP.md`, lalu jalan.
+2. **Prompt menyebut gaya atau referensi dengan jelas** → cocokkan ke "Cocok untuk", "Kata kunci gaya", dan "Diambil untuk". Gaya yang disebut dengan kata-kata jarang tertulis persis: ambil 2–3 kartu **terdekat**, buka frame kuncinya, pilih satu dengan mata, tulis alasannya di `RESEP.md`, lalu jalan.
 3. **Prompt tanpa perintah gaya spesifik** → ikuti gaya global di brief (mis. talking head profesional + Apple-style motion; gaya bawaan `templates/gaya/` boleh dipakai bila cocok); bila brief juga tidak menyebut gaya, pilih kartu yang paling mirip dengan isi brief atau susun gaya sendiri yang sesuai brief, tulis alasannya di `RESEP.md`, lalu jalan.
 4. Pilih dari Tabel A lebih dulu. Kartu Tabel B belum diukur dari videonya: boleh dipilih bila paling cocok, tetapi ukur dulu (`README.md` §Referensi baru).
 
