@@ -1,6 +1,7 @@
 # Dependensi skrip di claude/*/scripts (pasang: python3 -m pip install -r requirements.txt)
 # Juga butuh ffmpeg di PATH.
 numpy
+pyyaml        # motion-graphic/scripts/juri/profil_cek.py
 Pillow
 opencv-python   # motion-graphic/scripts/bedah-kamera.py
 # motion-graphic/scripts/audio (kit QA audio & sinkron, aturan 33–37)

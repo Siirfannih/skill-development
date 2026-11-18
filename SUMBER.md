@@ -63,3 +63,4 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | Aturan | Asal-usul |
 |---|---|
 | empat lapis (brief → proyek ini → kartu → pelajaran global); koreksi bawaan di proyek | Irfan 18 Nov: "aturan global adalah pembelajaran… bukan aturan kaku… Aturan perproject adalah aturan situasional" |
+| Awal sesi butir 2 · cek profil merek; Cara membaca butir 2 · lapis profil merek | Irfan 18 Nov: brand guideline + editing guideline di awal, preview di percakapan sebelum produksi, masukan hanya setelah render 1, dua render; repo = perpustakaan cara kerja, data user disimpan di folder yang user pilih |
