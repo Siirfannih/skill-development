@@ -135,6 +135,7 @@ case "$MODE" in
       exit 1
     fi
     python3 "$HERE/resep_check.py" "$P/RESEP.md" || gagal=1
+    TEMA="$(ls -d "$R"/src/*/bersama/tema.ts 2>/dev/null | head -1)"; if [ -n "$TEMA" ] && grep -q "export const MEREK" "$TEMA"; then python3 "$HERE/tema_cek.py" "$(dirname "$(dirname "$TEMA")")" || { echo "GAGAL gerbang: gaya adegan di luar tema.ts (templates/sistem-desain)."; gagal=1; }; fi
     if [ -f "$P/TAHAP.md" ]; then python3 "$HERE/tahap.py" "$P" cek 3 || { echo "GAGAL gerbang: langkah tahap 1–3 belum selesai berbukti (TAHAP.md); jalankan tahap.py untuk langkah berikutnya."; gagal=1; }; fi
     python3 "$HERE/motion_lint.py" "$R/src" ${WARIS:+--hanya $CHANGED} || { echo "GAGAL gerbang: gerak preset/stagger rata/blur masuk (Lantai B13a); pakai curves.ts."; gagal=1; }
     python3 "$HERE/audio_bus_check.py" "$R/src" || { echo "GAGAL gerbang: audio di dalam <Sequence> adegan terpotong di batas adegan; putar mix lewat satu komponen '// audio-bus' di root."; gagal=1; }

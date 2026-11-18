@@ -919,3 +919,9 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | Aturan | Asal-usul |
 |---|---|
 | kategori token warna (MEREK, NETRAL, TURUNAN, UI_ASLI, PENGECUALIAN) | Irfan 18 Nov: pekerja per adegan dengan konsistensi lewat sistem bersama (tema.ts berkategori ditulis Sutradara, komponen oleh satu pekerja, papan acuan); di skill-dev-journey tema.ts 8 warna sementara file adegan memakai 99 warna dan 14 ukuran huruf langsung |
+
+## `scripts/juri/tema_cek.py` · `templates/sistem-desain/tema.ts`
+
+| Aturan | Asal-usul |
+|---|---|
+| empat warna merek dikontrol, turunan ≤ 25° dari induk, tanpa literal di adegan, UI asli di bersama/ui-asli | Irfan 18 Nov: warna yang dikontrol hanya merek, primer, sekunder, latar; warna UI asli aplikasi rujukan mengikuti aplikasinya; di skill-dev-journey file adegan menulis 99 warna dan 14 ukuran huruf langsung |
