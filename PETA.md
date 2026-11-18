@@ -13,7 +13,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | Pekerjaan | Buka | Jangan buka |
 |---|---|---|
 | Awal sesi apa pun | `AGENTS.md` → `PETA.md` (file ini) → `PENDING.md` | seluruh `references/` sekaligus |
-| Video apa pun | `claude/motion-graphic/SKILL.md` §0c (lima tahap, dua render; Lantai termuat di dalamnya) → profil merek: `claude/motion-graphic/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md` | skill di `archive/` |
+| Video apa pun | `claude/motion-graphic/SKILL.md` (Lantai termuat di dalamnya; jangan baca `LANTAI.md` terpisah) → `projects/<proyek>/TAHAP.md` dari `claude/motion-graphic/templates/TAHAP.md` + `scripts/juri/tahap.py` (langkah berikutnya dan bagian yang dibaca) → profil merek: `claude/motion-graphic/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md` | skill di `archive/` |
 | Fase 1 pra-produksi: script, bedah referensi, storyboard | `claude/motion-graphic/pustaka/README.md` (§Kartu itu apa, §Alur) → `claude/motion-graphic/pustaka/PETA.md` → kartu kiblat **dan frame kuncinya** (`guide/referensi/sheets/keyframes/`), `claude/motion-graphic/pustaka/contoh-gagal/README.md`, `claude/motion-graphic/references/storyboard.md`, `claude/script-workshop/SKILL.md` | `audio.md`, `build.md` |
 | Fase 2 suara: potong, ekor kata, level | `claude/motion-graphic/references/audio.md` §14.0C–14.0D, §14.6, `scripts/gate/cut_check.py`, `scripts/audio/recut.py`, `scripts/gate/voice_level.py` | tipografi, kamera |
 | Fase 3 visual: teks/KT, kamera, kurva, lapisan lego | **Rasa dulu:** `projects/<proyek>/RESEP.md` → kartu kiblat + frame kuncinya (dan kartu lain untuk bentuk di luar kiblat) → `claude/motion-graphic/guide/teks/GUIDE.md`, `claude/motion-graphic/guide/visual/GUIDE.md`, `claude/motion-graphic/guide/gerak/GUIDE.md` (§Cara memutuskan: pelajaran "bila…, pilih…, karena…") → `claude/motion-graphic/pustaka/contoh-gagal/README.md`. **Lalu teknik:** `claude/motion-graphic/references/typography.md` §8a, `claude/motion-graphic/references/build.md` (Rakit lego), `scripts/lego/teks_plan.py` → `kt_check.py`, `scripts/remotion/curves.ts`, `TeksBlok.tsx`, `LightSweep.tsx`, `claude/motion-graphic/references/camera-transition.md`. **Sebelum kunci visual:** `claude/motion-graphic/templates/roles/pemeriksa-frame.md` (menilai frame, satu penilai). Builder hanya mengerjakan TASK dan bertanya langsung ke Sutradara (`claude/motion-graphic/references/roles.md` §5) | audio; `tools/AFTER-EFFECTS.md` kecuali diminta |
@@ -52,6 +52,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 
 | File | Isi / kapan dibuka |
 |---|---|
+| `claude/motion-graphic/references/alur-teknis.md` | **Alur teknis motion-graphic (rujukan)** — Dipindah dari SKILL.md supaya bacaan awal kecil. |
 | `claude/motion-graphic/references/analysis-qa.md` | **Analysis & QA — bedah referensi dan gerbang kirim** — Baca saat membedah referensi (gerbang 3) dan sebelum mengirim render (gerbang 11). |
 | `claude/motion-graphic/references/audio.md` | **Audio — VO, SFX, musik** — Baca hanya di gerbang audio (setelah script dan storyboard final) dan saat QA audio. |
 | `claude/motion-graphic/references/build.md` | **Build — Remotion, rakit lego, dan engine kode** — Baca saat mulai build. |
@@ -98,6 +99,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 
 | File | Isi / kapan dibuka |
 |---|---|
+| `claude/motion-graphic/templates/TAHAP.md` | **TAHAP · <proyek>** — Disalin ke projects/<proyek>/TAHAP.md di awal video. |
 | `claude/motion-graphic/templates/cut-sheet.md` | **Timeline Cut Sheet & Mapping Visual · <proyek>** — Satu tabel untuk seluruh video. |
 | `claude/motion-graphic/templates/gaya/README.md` | **Template gaya** — Satu folder = satu gaya edit yang bisa dipilih di gerbang 1. |
 | `claude/motion-graphic/templates/gaya/editorial-bold/STYLE.md` | **Gaya: editorial-bold (talking head cepat)** — Template gaya untuk reel talking head yang cepat dan tegas: Anton besar, aksen merah, B-roll hitam-putih, split screen, transisi kamera. |
@@ -153,6 +155,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/juri/resep_check.py` | Cek RESEP.md sebelum build: 8 bagian terisi, tiga pengikat dari SATU sumber, kartu kiblat ada. |
 | `claude/motion-graphic/scripts/juri/revisi_cek.py` | Gerbang revisi video lego: lapisan yang berubah sejak versi yang disetujui harus tercakup ledger (Lantai F27, revision-log §21.2). |
 | `claude/motion-graphic/scripts/juri/sandingkan.py` | Lembar sanding: still kita di kiri, frame kiblat di kanan, supaya selisihnya terlihat sebelum render penuh. |
+| `claude/motion-graphic/scripts/juri/tahap.py` | Langkah berikutnya dari TAHAP.md proyek: apa yang dikerjakan dan file/bagian mana yang dibaca SEKARANG. |
 | `claude/motion-graphic/scripts/juri/teks_cek.py` | Cek teks di still per beat (LANTAI A1-A4, A7): bukan subtitle film, tidak ganda, tidak menyentuh tepi. |
 | `claude/motion-graphic/scripts/lego/base_pts.py` | Ukur pts tiap frame DASAR (tanpa lapisan, tanpa audio) lewat compose.py yang sama. |
 | `claude/motion-graphic/scripts/lego/cek_master.py` | Ukur frame master tempat tiap lapisan ber-alpha benar-benar tampil dan bandingkan dengan rencana lego.json. |

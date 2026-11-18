@@ -1,6 +1,6 @@
 # Dua peran: Sutradara dan Editor (layer komunikasi)
 
-Dibaca di gerbang 0 setiap pekerjaan video. Gerbang 0–12 di `SKILL.md` §4 tidak berubah; file ini hanya mengatur **siapa** mengerjakan gerbang mana dan **bagaimana** keduanya berbicara.
+Dibaca di gerbang 0 setiap pekerjaan video. Gerbang 0–12 di `references/alur-teknis.md` §4 tidak berubah; file ini hanya mengatur **siapa** mengerjakan gerbang mana dan **bagaimana** keduanya berbicara.
 
 ## Isi
 1. Kenapa dipecah
@@ -40,7 +40,7 @@ Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat men
 
 ## 3. Peta gerbang
 
-| Gerbang (`SKILL.md` §4) | Sutradara | Editor |
+| Gerbang (`references/alur-teknis.md` §4) | Sutradara | Editor |
 |---|---|---|
 | 0 Muat konteks | ✔ | memuat `handoff/` saja |
 | 1 Brief (+ pilih gaya) | ✔ | — |
@@ -83,10 +83,12 @@ Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat men
 
 ## 6. Menjalankan Editor
 
-- **Claude Code:** `Agent` (subagent_type `general-purpose`), prompt = isi `templates/roles/editor.md` dengan path proyek dan TASK terisi. Ronde berikutnya diteruskan ke Editor yang sama (`SendMessage`) supaya konteks build tetap ada. Editor mati atau konteks penuh = Editor baru membaca `handoff/` dari awal; semua status ada di file, bukan di chat.
+- **Claude Code:** `Agent` (subagent_type `general-purpose`), prompt = isi `templates/roles/editor.md` dengan path proyek dan TASK terisi. **Satu TASK = satu Editor baru.** Ronde berikutnya tidak diteruskan ke Editor yang sama: semua status ada di `handoff/` dan `STATUS.md`, jadi Editor baru membaca TASK + STATUS saja. Editor lama yang dibiarkan hidup lintas ronde membawa seluruh riwayatnya (kode, log, gambar) ke setiap giliran, dan biayanya naik setara ukuran konteks × jumlah giliran.
+- **Batas konteks.** Sesi atau subagen yang konteksnya sudah besar (±200 ribu token, atau sudah melewati satu ronde/tahap penuh) menulis `STATUS.md` (selesai, berikutnya, file kunci) lalu diganti sesi/subagen baru. Sutradara diganti di tiap pergantian tahap `SKILL.md` §0c.
+- **Gambar dilihat di subagen sekali pakai.** Penilaian frame, sanding, dan Devil's Advocate dikerjakan subagen baru yang membuka gambar lalu mengembalikan teks temuan (`dtk | yang terlihat | usul`). Sesi Sutradara dan Editor hanya membuka gambar beat yang sedang diubah, satu lembar sebelum/sesudah, dan tidak membuka ulang gambar yang sudah dinilai.
 - **Render panjang:** Editor menjalankannya di latar belakang dan melapor saat selesai.
 - **Klien lain** (Codex, `claude -p`): prompt yang sama; folder serah terima sama.
-- Sutradara tidak memanggil lebih dari satu Editor untuk beat yang sama. Beberapa video sekaligus: satu Editor per video (`SKILL.md` §4).
+- Sutradara tidak memanggil lebih dari satu Editor untuk beat yang sama. Beberapa video sekaligus: satu Editor per video (`references/alur-teknis.md` §4).
 
 ## 7. Kapan boleh satu peran
 

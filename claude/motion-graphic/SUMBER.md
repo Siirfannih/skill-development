@@ -61,6 +61,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §0a butir 3a · bentuk visual dicari di kartu; §0b juri visual adalah mata | Irfan 18 Nov: "model itu bisa mencari referensi yang bagus … sehingga dia nggak berimajinasi bebas atau mengarang"; bila bingung: (1) buka lagi kartu yang sudah ada, (2) tanya user. Kasus: tampilan Instagram skill-dev-journey dibangun polos padahal kartu 65/08/05 memuatnya |
 
 | §0c Alur kerja: lima tahap, dua render | Irfan 18 Nov: brand guideline + editing guideline di awal, preview di percakapan sebelum produksi, masukan hanya setelah render 1, dua render; repo = perpustakaan cara kerja, data user disimpan di folder yang user pilih |
+| rujukan teknis §1–7 dipindah ke references/alur-teknis.md; TAHAP.md di §0c | Irfan 18 Nov: evaluasi token sesi skill-dev-journey (Editor dipakai ulang lintas ronde sampai 968 ribu token, Sutradara 678 ribu, 82 gambar menumpuk, bacaan awal 168 ribu di giliran 17) dan model sering melewatkan tahap |
 ## `fonts/README.md`
 
 | Aturan | Asal-usul |
@@ -427,6 +428,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §handoff butir 1 · TASK memakai angka kartu | Gagal: builder-trap-r2 TASK-r5/r6 "gradien ala Sequoia", "jendela besar terpotong kanan" melawan kartu 63 |
 | §2, §4, §5 butir 2–2a · Builder tidak memutuskan, tanya langsung Builder→Sutradara→Irfan, kartu untuk keputusan kecil, usul boleh | Irfan 18 Nov: "jangan ditanyakan di Report tapi tanyakan langsung ke user"; "untuk keputusan kecil seperti font… kartu boleh diambil berdasarkan kemiripan terdekat"; "Usul model itu diperbolehkan" |
 
+| §6 satu TASK satu Editor baru, batas konteks, gambar di subagen sekali pakai | Irfan 18 Nov: evaluasi token sesi skill-dev-journey (Editor dipakai ulang lintas ronde sampai 968 ribu token, Sutradara 678 ribu, 82 gambar menumpuk, bacaan awal 168 ribu di giliran 17) dan model sering melewatkan tahap |
 ## `references/slop-catalog.md`
 
 | Aturan | Asal-usul |
@@ -904,3 +906,9 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | Aturan | Asal-usul |
 |---|---|
 | cek profil tahap 1 | Irfan 18 Nov: brand guideline + editing guideline di awal, preview di percakapan sebelum produksi, masukan hanya setelah render 1, dua render; repo = perpustakaan cara kerja, data user disimpan di folder yang user pilih |
+
+## `templates/TAHAP.md` · `scripts/juri/tahap.py` · `references/alur-teknis.md`
+
+| Aturan | Asal-usul |
+|---|---|
+| langkah berurutan dengan bacaan per langkah + bukti; alur teknis dipisah dari SKILL.md | Irfan 18 Nov: evaluasi token sesi skill-dev-journey (Editor dipakai ulang lintas ronde sampai 968 ribu token, Sutradara 678 ribu, 82 gambar menumpuk, bacaan awal 168 ribu di giliran 17) dan model sering melewatkan tahap |

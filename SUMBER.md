@@ -64,3 +64,4 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 |---|---|
 | empat lapis (brief → proyek ini → kartu → pelajaran global); koreksi bawaan di proyek | Irfan 18 Nov: "aturan global adalah pembelajaran… bukan aturan kaku… Aturan perproject adalah aturan situasional" |
 | Awal sesi butir 2 · cek profil merek; Cara membaca butir 2 · lapis profil merek | Irfan 18 Nov: brand guideline + editing guideline di awal, preview di percakapan sebelum produksi, masukan hanya setelah render 1, dua render; repo = perpustakaan cara kerja, data user disimpan di folder yang user pilih |
+| Cara membaca butir 1 dan 4 · bacaan awal kecil, bacaan per langkah TAHAP.md | Irfan 18 Nov: evaluasi token sesi skill-dev-journey (Editor dipakai ulang lintas ronde sampai 968 ribu token, Sutradara 678 ribu, 82 gambar menumpuk, bacaan awal 168 ribu di giliran 17) dan model sering melewatkan tahap |
