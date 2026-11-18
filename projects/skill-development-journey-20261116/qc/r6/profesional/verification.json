@@ -1,0 +1,23 @@
+{
+  "status": "QA teknis lolos",
+  "frames": 223,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "audio_streams": 0,
+  "outside_frames_compared": 204,
+  "outside_PSNR_dB": "+inf",
+  "outside_max_MSE": 0,
+  "render_command": "npx remotion render src/video/index.ts DuniaIG ../lego/cache/D_IG_r6.mp4 --props=../qc/r6/profesional/props.json --codec=h264 --crf=12 --jpeg-quality=95 --muted",
+  "preservation": "CRF12 render archived as qc/r6/profesional/render-crf12.mp4; local frames0:67 and86:223 are decoded from old cache, patch67:86 from CRF12 render, then H264 lossless encoded without audio",
+  "sha256": {
+    "remotion/src/video/b6.tsx": "4b0412f9586fb6e9c6004b61393911521627d88f61d268ebf152789ca29bad93",
+    "remotion/src/video/bersama/KataBelakang.tsx": "e1edf858edac2f92e1b8462adf68be7f288cc392f52781c0e9d8f1a6fc8ebea0",
+    "remotion/src/video/bersama/tema.ts": "6b021daf63baa7a7b53c070dfabf29ebe5a83b8f260756ff1ad1987a2ee0a41a",
+    "remotion/public/video/matte-ig-r6.webm": "15ad3f295a741ab4161c13d52350f8f39c165b8af0a84ed8f377a0159ee4b0b1",
+    "lego/cache/D_IG_r6.mp4": "f57dcb6e50530cbd660bf951aa9e24cd0ffd8f3649732f4aa759f5714bf09522",
+    "lego/cache/78a68954a56d0122-an.mp4": "68c9005e08793242fc9da3f4ae7b6136ab32f2e2677bbbb68bdd0aa5fafbc24a"
+  },
+  "typecheck_exit_code": 0
+}

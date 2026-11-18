@@ -5,6 +5,7 @@ import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import {move} from '../lib/curves';
 import {Fonts} from './bersama/Fonts';
 import {FONT, INK} from './bersama/tema';
+import {KataBelakang} from './bersama/KataBelakang';
 import {BoilDefs, PanahGoresan, TulisTangan, type PanahProps, type TulisProps} from './bersama/Coretan';
 
 export type KomentarProps = {nama: string; teks: string; sisi: 'kiri' | 'kanan'; warna: string; durasi: number; w: number; h: number; size: number};
@@ -149,7 +150,8 @@ const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kam
       {/* video: mengecil dari layar penuh ke kotak media 16:9; footage terus berjalan (proxy wajah) */}
       <div style={{position: 'absolute', left: rx, top: ry, width: rw, height: rh, overflow: 'hidden', background: '#000'}}>
         <div style={{position: 'absolute', left: (rw - 1920 * vs) / 2, top: (rh - 1080 * vs) * 0.45, width: 1920, height: 1080, transformOrigin: '0 0', transform: `scale(${vs})`}}>
-          <OffthreadVideo src={staticFile('video/wajah-proxy.mp4')} startFrom={Math.round(t0 * fps)} muted style={{width: 1920, height: 1080}}/></div>
+          {f >= 67 && f < 86 ? <KataBelakang t0={t0}/> :
+            <OffthreadVideo src={staticFile('video/wajah-proxy.mp4')} startFrom={Math.round(t0 * fps)} muted style={{width: 1920, height: 1080}}/>}</div>
       </div>
       {coret && f >= F(coret.awal) && f < F(coret.akhir) && <>
         <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}><BoilDefs id="boil-ig" f={f}/><PanahGoresan id="boil-ig" {...coret.panah}/></svg>
