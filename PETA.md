@@ -198,6 +198,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/builder-trap-r2/` | STATUS · Builder Trap R2 v6 · 16 Nov 2026 · mulai dari STATUS.md |
 | `projects/builder-trap-show-your-work/` | Ledger · Builder trap / show your work (cinematic story) |
 | `projects/doac-5-klip/` |  |
+| `projects/flat-mirip-mirip/` |  |
 | `projects/jadisatu-60s/` | STATUS — The Gap (Jadisatu) · Remotion · mulai dari STATUS.md |
 | `projects/jadisatu-launch/` |  |
 | `projects/jadisatu-trojan-v4/` | Keputusan yang diambil sendiri · Trojan v4 |
@@ -205,6 +206,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/pengganti-kita-sendiri/` | STATUS: Pengganti Kita Sendiri (@siirfannih) · mulai dari STATUS.md |
 | `projects/personal-brand-day-02/` | Ledger · Personal branding, konten kedua challenge |
 | `projects/skill-development-journey-20261116/` | STATUS · Skill Development journey (siirfan) · titik lanjut sesi baru · mulai dari STATUS.md |
+| `projects/uji-builder-trap-12nov/` | Ledger · uji-builder-trap-12nov |
 
 ## Lain-lain
 
