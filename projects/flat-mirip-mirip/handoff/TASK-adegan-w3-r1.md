@@ -1,3 +1,5 @@
+CATATAN AWAL SESI (dari Sutradara): doctor.sh sudah dijalankan Sutradara dan LULUS. Bila saat kamu jalankan doctor gagal HANYA karena "PETA.md basi" (file baru dari pekerja paralel), lanjutkan tugas: jangan menjalankan --fix, jangan mengubah PETA.md, cukup catat di REPORT. Untuk kegagalan doctor jenis lain, berhenti dan laporkan.
+
 TUJUAN
 Bangun adegan P08,P09,P10 video flat-mirip-mirip sesuai desain Sutradara, dari komponen bersama yang sudah lulus, dengan still per kelompok kata untuk dinilai.
 

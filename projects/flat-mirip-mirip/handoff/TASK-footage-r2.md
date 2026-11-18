@@ -1,3 +1,5 @@
+CATATAN AWAL SESI (dari Sutradara): doctor.sh sudah dijalankan Sutradara dan LULUS. Bila saat kamu jalankan doctor gagal HANYA karena "PETA.md basi" (file baru dari pekerja paralel), lanjutkan tugas: jangan menjalankan --fix, jangan mengubah PETA.md, cukup catat di REPORT. Untuk kegagalan doctor jenis lain, berhenti dan laporkan.
+
 TUJUAN
 Tambah stok footage dan foto arsip supaya adegan footage bisa dipotong rapat ala reel Tesla (3–4 shot per frasa) dan bagian lain mendapat gambar dokumenter, untuk video flat-mirip-mirip.
 
