@@ -1,0 +1,16 @@
+{
+  "format": {"width":1920,"height":1080,"fps":29.97002997002997,"still_width":960},
+  "source": "DJI_20261116162607_0603_D.MP4",
+  "chosen": ["B1b","B2","B3-A","B3-C","B4","B5","B6"],
+  "omitted": {"B1":"Jatah tujuh: B1b mewakili babak 1 sekaligus menguji cincin dan tiga ikon asli; hook repo bukan panel terpilih."},
+  "panels": [
+    {"id":"B1b","source_seconds":9.5,"reference":"83-k1.jpg","voice":"workflow gimana biar AI model ... sebuah decision","layers":["footage","busur kata + Codex 3D","matte kepala","Claude 3D + Gemini 3D"],"motion":"cincin reveal mengikuti ucapan; tokoh extrude mendarat dengan land/heavy, squash dan putar drift"},
+    {"id":"B2","source_seconds":21,"reference":"83-k3.jpg","voice":"hasilnya tuh masih terasa AI slop ... putus-putus","layers":["footage brightness .84","slab coral","matte","timeline 3D miring"],"motion":"slab heavy, wave lalu settle; kartu heavy dari bawah"},
+    {"id":"B3-A","source_seconds":45,"reference":"83-k2.jpg","voice":"bukan sebuah template ... Apple style ... cinematic storytelling","layers":["footage punch 1.24","tag gelap diagonal","template bevel kuning + coretan coral"],"motion":"tag land dengan jeda tidak rata; coretan whip"},
+    {"id":"B3-C","source_seconds":null,"reference":"07-k5-ui-dashboard.jpg","voice":"AI ini tuh cuman mempelajari workflow-nya","layers":["bidang biru","rounded shape raksasa","workflow","jendela typography.md §8a","lima ubin fase"],"motion":"kamera drift; ubin heavy, reaksi tidak rata"},
+    {"id":"B4","source_seconds":104,"reference":"83-k4.jpg","voice":"perlu balik modal ... ChatGPT ... 20 kali ... Claude ... 5 kali","layers":["footage brightness .86","slab putih","matte","dua kartu paket bevel 3D"],"motion":"wave slab settle; kartu heavy di perspektif berbeda"},
+    {"id":"B5","source_seconds":null,"reference":"07-k6-chat-maskot.jpg","secondary_reference":"37-k7-panggung-ikon-alur.jpg","voice":"chatGPT tuh bisa koordinasi ke Claude ... sebaliknya ... loop pembelajaran","layers":["biru penuh","bentuk 07 raksasa + loop","dua jendela log asli dari K13/Panel.tsx","Claude pixel + bunga Codex 2D","amplop + centang"],"motion":"kamera push drift; amplop busur land/heavy; squash penerimaan"},
+    {"id":"B6","source_seconds":200.5,"reference":"83-k3.jpg","voice":"100% full pakai AI ... profesional gak? ... masih kerasa AI?","layers":["footage brightness .86","slab putih","matte","dua tag voting"],"motion":"slab heavy/wave, tag land; still adalah susunan Henti 1, bukan sinkron final"}
+  ],
+  "boundary":"Still storyboard. Teks narasi dari ucapan; teks dalam UI dari file skill/log asli. Gerak, urutan tag dan sinkron audio belum dinilai dari video. Tidak ada verdict mutu dari builder."
+}

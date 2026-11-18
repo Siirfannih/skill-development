@@ -1,0 +1,66 @@
+{
+  "source": "/home/irfan/.codex/attachments/d9062ade-e728-4775-b6cd-1b2e61bfd5b8/DJI_20261116162607_0603_D.MP4",
+  "extraction": "ffmpeg -ss <seconds> -frames:v 1 -vf scale=1920:1080 -q:v 2",
+  "records": [
+    {
+      "still": "B1",
+      "source_seconds": 2.5,
+      "size": [
+        1920,
+        1080
+      ],
+      "jpeg_difference_mae": 0.0,
+      "frame_sha256": "a67b3f012949f147d9d3bfd5b9d5171cc1b8be84922813a9049856918903c360"
+    },
+    {
+      "still": "B1b",
+      "source_seconds": 9.5,
+      "size": [
+        1920,
+        1080
+      ],
+      "jpeg_difference_mae": 0.0,
+      "frame_sha256": "d679cb2fc7df514585b14927114310db38a7b5832f03e5a059f74c9c05a10695"
+    },
+    {
+      "still": "B2",
+      "source_seconds": 21.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "jpeg_difference_mae": 0.0,
+      "frame_sha256": "b341504f02134d8ae8203d157f8d6d072955cc842f36b441cbddf12d72bee9e9"
+    },
+    {
+      "still": "B3",
+      "source_seconds": 45.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "jpeg_difference_mae": 0.0,
+      "frame_sha256": "78369ec0f2911f0cc7efd63a60895168c8bb6e457e2fc97106f8dde2e99e6ae7"
+    },
+    {
+      "still": "B4",
+      "source_seconds": 104.0,
+      "size": [
+        1920,
+        1080
+      ],
+      "jpeg_difference_mae": 0.0,
+      "frame_sha256": "bafafaa4fe5761c1a942dd9811d0ab645e2d7806140360207ecd30c3ca3c1f86"
+    },
+    {
+      "still": "B6",
+      "source_seconds": 200.5,
+      "size": [
+        1920,
+        1080
+      ],
+      "jpeg_difference_mae": 0.0,
+      "frame_sha256": "aaf911aa6f6a9ff60d6be050ea610e532620cbb0069e2b7d4adca43cac9e1f29"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "kind": "mechanical checks only; visual verdict reserved for Sutradara",
+  "stills": [
+    {
+      "still": "B1b",
+      "file": "papan-B1b.jpg",
+      "size": [
+        960,
+        540
+      ],
+      "reference": "claude/motion-graphic/guide/referensi/sheets/keyframes/83-k1.jpg",
+      "sha256": "01197d9ff6f2ad0d15a018c0466e4e98bb28c8e493c628a46f6bf2e400ccb609"
+    },
+    {
+      "still": "B2",
+      "file": "papan-B2.jpg",
+      "size": [
+        960,
+        540
+      ],
+      "reference": "claude/motion-graphic/guide/referensi/sheets/keyframes/83-k3.jpg",
+      "sha256": "774cb261d8b3a8fc0365cb15a88663edc1b4ff916da840ccabe41cda564c6b71"
+    },
+    {
+      "still": "B3-A",
+      "file": "papan-B3-A.jpg",
+      "size": [
+        960,
+        540
+      ],
+      "reference": "claude/motion-graphic/guide/referensi/sheets/keyframes/83-k2.jpg",
+      "sha256": "15899e0c1abae353adca9ef3c8f5c60f26b4cd138062c5d11e62703d9444cee1"
+    },
+    {
+      "still": "B3-C",
+      "file": "papan-B3-C.jpg",
+      "size": [
+        960,
+        540
+      ],
+      "reference": "claude/motion-graphic/guide/referensi/sheets/keyframes/07-k5-ui-dashboard.jpg",
+      "sha256": "eced5b45e1b325775f3debf0e98b596a2a5b3a6c278384dc7c3388046c623237"
+    },
+    {
+      "still": "B4",
+      "file": "papan-B4.jpg",
+      "size": [
+        960,
+        540
+      ],
+      "reference": "claude/motion-graphic/guide/referensi/sheets/keyframes/83-k4.jpg",
+      "sha256": "7da1ae5a5ffcfdcaecb1f6ae8d8121047f3153067aef824c2b486f11795c558f"
+    },
+    {
+      "still": "B5",
+      "file": "papan-B5.jpg",
+      "size": [
+        960,
+        540
+      ],
+      "reference": "claude/motion-graphic/guide/referensi/sheets/keyframes/07-k6-chat-maskot.jpg",
+      "sha256": "e461c1deb30da0e098cf0a7b7111d02dda555cc33421d630a90c8086892d5aed"
+    },
+    {
+      "still": "B6",
+      "file": "papan-B6.jpg",
+      "size": [
+        960,
+        540
+      ],
+      "reference": "claude/motion-graphic/guide/referensi/sheets/keyframes/83-k3.jpg",
+      "sha256": "cea7cdedd178df28e561beb2eae609be73f2ddd8fc2af59e459c77a1b164497d"
+    }
+  ],
+  "sanding_size": [
+    960,
+    2304
+  ],
+  "reference_aspect_ratio": "preserved; equal image height per pair; no stretching or cropping"
+}

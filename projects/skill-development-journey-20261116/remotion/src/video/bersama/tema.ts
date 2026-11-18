@@ -3,6 +3,7 @@
 // Dicek: python3 claude/motion-graphic/scripts/juri/tema_cek.py <folder src/video>
 
 export const MEREK = {
+  hijauMerek: '#C8E64A', // D-463: hijau merek untuk SELESAI dan aksen repo.
   merek: '#E4550F',    // oranye glow (BRAND siirfan aksen)
   primer: '#E4550F',   // aksen utama: tombol kirim, indikator kerja, titik fokus
   sekunder: '#2E5BFF', // biru, aksen kedua
@@ -55,3 +56,23 @@ export const BAYANG_KARTU = '0 30px 60px rgba(15,25,65,.24), 0 8px 14px rgba(15,
 export const FPS = 30;
 // Wajah tetap dalam lingkaran dunia (B1, B3): diameter DESAIN ±380 px, pusat x 1650 y 850.
 export const LINGKAR = {cx: 1650, cy: 850, d: 380, fx: 950, fy: 430, s: 0.62};
+
+// D-462: bentuk kartu 83 untuk narasi wajah, pengikat merek D-446.
+export const KT83 = {
+  huruf: FONT.poppins, teks: NETRAL.hangat, biru: MEREK.sekunder,
+  ukuran: 60, ukuranParodi: 56, ukuranPil: 76,
+  radius: 15, radiusPil: 25, paddingX: 14, paddingY: 6, blur: 18, jarakTokoh: 12,
+  verre: 'rgba(250,248,236,.16)', verreGelap: 'rgba(8,6,8,.72)', garis: 'rgba(250,248,236,.30)',
+  bayang: '0 2px 3px rgba(8,6,8,.95), 0 4px 12px rgba(8,6,8,.7)',
+  bayangTag: '0 5px 14px rgba(8,6,8,.24)',
+  encreCincin: 'rgba(8,6,8,.80)', traitCincin: 2,
+  bayangCincin: 'drop-shadow(0 2px 2px rgba(8,6,8,.95)) drop-shadow(0 4px 7px rgba(8,6,8,.7))',
+};
+
+// D-454/D-455/D-456: narasi di video IG, pembesaran komentar, dan slab hadiah.
+export const IG_R7 = {
+  narasi: {warna: NETRAL.hangat, keluarga: FONT.poppins, bobot: 700, ukuran: 112, dekatKomentar: 58,
+    bayangan: '0 2px 4px rgba(0,0,0,.9), 0 5px 16px rgba(0,0,0,.6)',
+    panel: {warna: NETRAL.hitam, keluarga: FONT.sf, bobot: 700, ukuran: 48, bayangan: 'none'}}, // D-455: narasi menempel pada ruang putih thread.
+  gratis: {latar: MEREK.sekunder, tinta: NETRAL.putih, ukuran: 356, label: 80},
+};

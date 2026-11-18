@@ -1,0 +1,83 @@
+{
+  "size": [
+    960,
+    1176
+  ],
+  "columns": 2,
+  "panels": [
+    {
+      "panel": "B1b",
+      "source": "papan-B1b.jpg",
+      "sha256": "cd8845d11c6afbb6f35dffec143c4d8baeda75acacf16f07b04eb6859f2d0454",
+      "xy": [
+        0,
+        0
+      ]
+    },
+    {
+      "panel": "B2",
+      "source": "papan-B2.jpg",
+      "sha256": "774cb261d8b3a8fc0365cb15a88663edc1b4ff916da840ccabe41cda564c6b71",
+      "xy": [
+        480,
+        0
+      ]
+    },
+    {
+      "panel": "B3-A",
+      "source": "papan-B3-A.jpg",
+      "sha256": "15899e0c1abae353adca9ef3c8f5c60f26b4cd138062c5d11e62703d9444cee1",
+      "xy": [
+        0,
+        294
+      ]
+    },
+    {
+      "panel": "B3-C",
+      "source": "papan-B3-C.jpg",
+      "sha256": "3af40e7804ee6c650fbbb351b48da03796cc9f58c513269795caa5f9ca0bd707",
+      "xy": [
+        480,
+        294
+      ]
+    },
+    {
+      "panel": "B4",
+      "source": "papan-B4.jpg",
+      "sha256": "7da1ae5a5ffcfdcaecb1f6ae8d8121047f3153067aef824c2b486f11795c558f",
+      "xy": [
+        0,
+        588
+      ]
+    },
+    {
+      "panel": "B4-effort",
+      "source": "papan-B4-effort.jpg",
+      "sha256": "66a39dcbf508825b93a208d9135381bdea86d8f8cdec74897b11dca85954ea0d",
+      "xy": [
+        480,
+        588
+      ]
+    },
+    {
+      "panel": "B5",
+      "source": "papan-B5.jpg",
+      "sha256": "9f95545a5c3ea45e9d65da3675957b46f06277ac4dd76eaff10a0ec5a2c58ce7",
+      "xy": [
+        0,
+        882
+      ]
+    },
+    {
+      "panel": "B6",
+      "source": "papan-B6.jpg",
+      "sha256": "cea7cdedd178df28e561beb2eae609be73f2ddd8fc2af59e459c77a1b164497d",
+      "xy": [
+        480,
+        882
+      ]
+    }
+  ],
+  "reference_columns": 0,
+  "label_height": 24
+}

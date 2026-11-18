@@ -1,4 +1,10 @@
 import React from 'react';
+import {DuniaRepoUI, type DuniaRepoProps as RepoUIProps} from './r4/DuniaRepoUI';
+import {AppClaudeUI, type AppProps as AppUIProps} from './r4/AppClaudeUI';
+import {KartuUI} from './r4/KartuUI';
+import {SurfaceText} from './r4/SurfaceText';
+import {DuniaRepoR4, type DuniaRepoProps as DuniaRepoR4Props} from './r4/DuniaRepoR4';
+import {AppClaudeR4, type AppProps as AppClaudeR4Props} from './r4/AppClaudeR4';
 import {Composition} from 'remotion';
 import {KT, type KTProps} from './bersama/KT';
 import {KarakterLayer, type KarakterProps, kotak} from './bersama/KarakterLayer';
@@ -13,11 +19,20 @@ import {BubbleSapa, type BubbleProps} from './bersama/BubbleSapa';
 import {ModelGemini} from './bersama/BubbleModelGemini';
 import {Coretan, type CoretanProps} from './bersama/Coretan';
 import {Komentar, type KomentarProps, DuniaIG, type IGProps, Tanda} from './b6';
+import {TokohR7, type TokohR7Props} from './bersama/tokoh/TokohR7';
+import {KT83Layer} from './bersama/kt83';
+import type {KT83Props} from './bersama/kt83/types';
 
 type Dim = {w?: number; h?: number; durasi?: number};
 const meta = ({props}: {props: Dim}) => ({width: props.w ?? 1920, height: props.h ?? 1080, durationInFrames: Math.max(1, Math.round((props.durasi ?? 1) * 30))});
 
 export const VideoRoot: React.FC = () => <>
+  <Composition id="R7Tokoh" component={TokohR7 as React.FC<any>} fps={30000 / 1001} width={1920} height={1080} durationInFrames={1}
+    defaultProps={{jenis: 'tokoh', w: 1920, h: 1080, durasi: 1, frames: [{x: 650, y: 760, s: 1}]} satisfies TokohR7Props}
+    calculateMetadata={(({props}: {props: TokohR7Props}) => ({width: props.w, height: props.h, durationInFrames: props.frames.length})) as never}/>
+  <Composition id="R7KTWajah" component={KT83Layer} fps={30000 / 1001} width={1920} height={1080} durationInFrames={30}
+    defaultProps={{w: 1920, h: 1080, frames: 30, kepala: [], blok: []} satisfies KT83Props}
+    calculateMetadata={({props}) => ({width: props.w, height: props.h, durationInFrames: props.frames})}/>
   <Composition id="KT" component={KT as React.FC<any>} fps={30} width={1000} height={200} durationInFrames={45}
     defaultProps={{teks: 'finally', kode: 'T19', gaya: 'r1', w: 1000, h: 200, durasi: 1.5} satisfies KTProps} calculateMetadata={meta as never}/>
   <Composition id="Karakter" component={KarakterLayer as React.FC<any>} fps={30} width={kotak(24).w} height={kotak(24).h} durationInFrames={90}
@@ -48,4 +63,16 @@ export const VideoRoot: React.FC = () => <>
     defaultProps={{w: 800, h: 300, durasi: 3} satisfies CoretanProps} calculateMetadata={meta as never}/>
   <Composition id="ModelGemini" component={ModelGemini} fps={30} width={1920} height={1080} durationInFrames={30}/>
   <Composition id="LembarPixel" component={LembarPixel} fps={30} width={1740} height={980} durationInFrames={30}/>
+  <Composition id="DuniaRepoR4" component={DuniaRepoR4 as React.FC<any>} fps={30} width={1920} height={1080} durationInFrames={88}
+    defaultProps={{durasi: 88/30, kunci: {lift: .5, geser: .7, tekan: 1.122, selesai: 1.582, keluar: 2.42}} satisfies DuniaRepoR4Props} calculateMetadata={meta as never}/>
+  <Composition id="AppClaudeR4" component={AppClaudeR4 as React.FC<any>} fps={30} width={1920} height={1080} durationInFrames={345}
+    defaultProps={{durasi: 11.5, kunci: {klik: 1, slash: 1.425, apple: 5.329, aKlik: 6.279, bs: 6.529, cine: 6.954, cKlik: 8.304, hapus: 8.968, keluar: 10.756}} satisfies AppClaudeR4Props} calculateMetadata={meta as never}/>
+  <Composition id="DuniaRepoUI" component={DuniaRepoUI as React.FC<any>} fps={30} width={1920} height={1080} durationInFrames={88}
+    defaultProps={{durasi: 88/30, t0: 1.53821, cues: [], kunci: {lift: .5, geser: .7, tekan: 1.122, selesai: 1.582, keluar: 2.42}} satisfies RepoUIProps} calculateMetadata={meta as never}/>
+  <Composition id="AppClaudeUI" component={AppClaudeUI as React.FC<any>} fps={30} width={1920} height={1080} durationInFrames={345}
+    defaultProps={{durasi: 11.5, t0: 23.59354, cues: [], kunci: {klik: 1, slash: 1.425, apple: 5.329, aKlik: 6.279, bs: 6.529, cine: 6.954, cKlik: 8.304, hapus: 8.968, keluar: 10.756}} satisfies AppUIProps} calculateMetadata={meta as never}/>
+  <Composition id="KartuUI" component={KartuUI as React.FC<any>} fps={30} width={640} height={580} durationInFrames={180}
+    defaultProps={{durasi: 6, w: 640, h: 580, t0: 0, numberT0: 1, model: 'chatgpt', label: 'ChatGPT Pro', angka: 20, terbang: .45, jarak: 900, cue: {id: 'T065', start: 0, end: 6, words: []}}} calculateMetadata={meta as never}/>
+  <Composition id="SurfaceTextUI" component={SurfaceText as React.FC<any>} fps={30} width={1920} height={1080} durationInFrames={130}
+    defaultProps={{durasi: 4.33, t0: 72.07534, cues: [], kind: 'blender'}} calculateMetadata={meta as never}/>
 </>;

@@ -1,0 +1,67 @@
+{
+  "approved_jpeg_hashes": "PASS: B1b, B2, B3-A, B4, B6 unchanged",
+  "protected_definitions": [
+    "poppins",
+    "inter",
+    "Ring",
+    "B1b",
+    "BrokenTimeline",
+    "B2",
+    "Tag",
+    "B3A",
+    "DecisionWindow",
+    "PhaseIcon",
+    "PackageCard",
+    "B4",
+    "B6",
+    "Papan"
+  ],
+  "kit_hash_unchanged": true,
+  "avatar_sha256": {
+    "chatgpt-codex-ikon-asli.png": "6a98dfaf6f299ba7480ce62b5a1dac46aa004935fa361857924932188654ce37",
+    "maskot-acuan-pixel-crab.png": "68576f03b271fa49edc4b661883d7309c2fcb7575bb93283d6458079772504c6"
+  },
+  "effort_source": {
+    "seconds": 109,
+    "extraction": "ffmpeg -ss 109.0, scale=1920:1080, JPEG q2",
+    "sha256": "a75767764f042df7cde71bd4093fcba3bdb99fcb477d4a85b06bab37299033f6"
+  },
+  "contrast": [
+    {
+      "fg": "FFFFFF",
+      "bg": "2E5BFF",
+      "ratio": 5.18
+    },
+    {
+      "fg": "202D4D",
+      "bg": "FFE0D6",
+      "ratio": 10.94
+    },
+    {
+      "fg": "202D4D",
+      "bg": "FFFFFF",
+      "ratio": 13.6
+    },
+    {
+      "fg": "536581",
+      "bg": "DFEDFF",
+      "ratio": 4.99
+    },
+    {
+      "fg": "354665",
+      "bg": "FFFFFF",
+      "ratio": 9.48
+    },
+    {
+      "fg": "ADA8B3",
+      "bg": "222124",
+      "ratio": 6.89
+    },
+    {
+      "fg": "BAB3C4",
+      "bg": "222124",
+      "ratio": 7.88
+    }
+  ],
+  "scope": "R2 panels only; no MP4; no commit/push; no G2 verdict from builder"
+}

@@ -1,0 +1,49 @@
+{
+  "sample_rate": 48000,
+  "channels": 2,
+  "samples": 4023219,
+  "duration_s": 83.8170625,
+  "peak_dbfs": -1.005855898975169,
+  "peak_at_s": 21.731083333333334,
+  "samples_above_minus1": 0,
+  "mix_lufs": -15.801980803690713,
+  "r4_lufs": -15.859987061970449,
+  "music_lufs": -27.631870795350586,
+  "voice_gain": 1.0,
+  "sfx_gain": 1.0,
+  "master_processing": false,
+  "voice_recovery_max_abs_error": 2.9802322387695312e-08,
+  "old_mix_byte_identical": true,
+  "bed_windows_below_minus45": [
+    {
+      "t": 56.8,
+      "rms_dbfs": -46.886197842489885
+    },
+    {
+      "t": 83.1,
+      "rms_dbfs": -46.51547261404565
+    },
+    {
+      "t": 83.3,
+      "rms_dbfs": -49.070229142243036
+    },
+    {
+      "t": 83.4,
+      "rms_dbfs": -49.099906178423936
+    },
+    {
+      "t": 83.5,
+      "rms_dbfs": -47.930687236729355
+    },
+    {
+      "t": 83.6,
+      "rms_dbfs": -56.3524779526618
+    },
+    {
+      "t": 83.7,
+      "rms_dbfs": -57.54202698139014
+    }
+  ],
+  "inputs_unchanged": true,
+  "delta_r4_lu": 0.058006258279736045
+}

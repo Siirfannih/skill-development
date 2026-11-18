@@ -1,0 +1,51 @@
+[
+  {
+    "composition": "Papan-B1b",
+    "frame": 84,
+    "output": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/handoff/henti1/papan-B1b.jpg",
+    "width": 960,
+    "height": 540
+  },
+  {
+    "composition": "Papan-B2",
+    "frame": 84,
+    "output": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/handoff/henti1/papan-B2.jpg",
+    "width": 960,
+    "height": 540
+  },
+  {
+    "composition": "Papan-B3-A",
+    "frame": 84,
+    "output": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/handoff/henti1/papan-B3-A.jpg",
+    "width": 960,
+    "height": 540
+  },
+  {
+    "composition": "Papan-B3-C",
+    "frame": 84,
+    "output": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/handoff/henti1/papan-B3-C.jpg",
+    "width": 960,
+    "height": 540
+  },
+  {
+    "composition": "Papan-B4",
+    "frame": 84,
+    "output": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/handoff/henti1/papan-B4.jpg",
+    "width": 960,
+    "height": 540
+  },
+  {
+    "composition": "Papan-B5",
+    "frame": 87,
+    "output": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/handoff/henti1/papan-B5.jpg",
+    "width": 960,
+    "height": 540
+  },
+  {
+    "composition": "Papan-B6",
+    "frame": 84,
+    "output": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/handoff/henti1/papan-B6.jpg",
+    "width": 960,
+    "height": 540
+  }
+]

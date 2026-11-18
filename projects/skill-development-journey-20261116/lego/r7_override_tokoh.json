@@ -1,0 +1,55 @@
+{
+ "ganti": [
+  {
+   "id": "K_Clawd0",
+   "src": "cache/r7_tokoh_K_Clawd0.mov",
+   "t": 0.0,
+   "x": 271,
+   "y": 372
+  },
+  {
+   "id": "K_Clawd",
+   "src": "cache/r7_tokoh_K_Clawd.mov",
+   "t": 4.471133333333333,
+   "x": 300,
+   "y": 342
+  },
+  {
+   "id": "K_Codex",
+   "src": "cache/r7_tokoh_K_Codex.mov",
+   "t": 8.308300000000001,
+   "x": 1002,
+   "y": 326
+  },
+  {
+   "id": "K_Gemini",
+   "src": "cache/r7_tokoh_K_Gemini.mov",
+   "t": 9.542866666666667,
+   "x": 1180,
+   "y": 336
+  },
+  {
+   "id": "B_Codex",
+   "src": "cache/r7_tokoh_B_Codex.mov",
+   "t": 8.608600000000001,
+   "x": 1238,
+   "y": 313
+  },
+  {
+   "id": "B_Clawd",
+   "src": "cache/r7_tokoh_B_Clawd.mov",
+   "t": 9.476133333333333,
+   "x": 153,
+   "y": 303
+  },
+  {
+   "id": "B_Gemini",
+   "src": "cache/r7_tokoh_B_Gemini.mov",
+   "t": 9.843166666666667,
+   "x": 1158,
+   "y": 194
+  }
+ ],
+ "tambah": [],
+ "buang": []
+}

@@ -1,0 +1,31 @@
+[
+  {
+    "id": "B3-C",
+    "frame": 84,
+    "output": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/handoff/henti1/papan-B3-C.jpg",
+    "width": 960,
+    "height": 540
+  },
+  {
+    "id": "B4-effort",
+    "frame": 96,
+    "output": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/handoff/henti1/papan-B4-effort.jpg",
+    "width": 960,
+    "height": 540
+  },
+  {
+    "id": "B5",
+    "frame": 120,
+    "output": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/handoff/henti1/papan-B5.jpg",
+    "width": 960,
+    "height": 540
+  },
+  {
+    "id": "B5",
+    "frame": 83,
+    "suffix": "-typing",
+    "output": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/handoff/henti1/papan-B5-typing.jpg",
+    "width": 960,
+    "height": 540
+  }
+]

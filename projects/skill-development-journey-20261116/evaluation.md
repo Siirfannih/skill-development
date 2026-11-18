@@ -224,3 +224,8 @@ Pertanyaan: apakah lanjutan STATUS §5 masih sesuai permintaan awal Irfan dan at
 - Catatan: "cuma mempelajari" mulai 0,15 dtk lebih lambat dari R4 (lapisan R5c); D→Blender tetap potong keras (ditinjau di fase transisi D-448).
 - Temuan Codex: `qc/matte/wajah-matte-r6.mkv` = 2496 frame (bukan 2512) dan cocok dengan proxy pada offset −16 frame sumber. Lapisan slab ber-lubang (T051/T057/T077, GRADE) dibuat dari matte sebelum r6 (`wajah-matte.mkv`); periksa offsetnya sebelum fase KT memakai matte lagi.
 - Audio (Codex, `handoff/REPORT-R6-audio.md`): suara ×1,0 identik, musik R4, SFX R4 identik per sampel di luar rentang berubah; sfx_density + voice_level PASS; audio_phone global belum lulus (15 jendela < 8 dB, R4 20).
+
+## Kesalahan terlewat K3 · "skill" + "gratis" (83,2 dtk), ditemukan Irfan 19 Nov (D-465)
+- Yang terlihat: "skill" (putih, kecil) dan "gratis" (tulisan tangan kuning bergaris) berjauhan, sama-sama kecil, di kanan bidang video; bersamaan dengan wajah dan kolom komentar → tiga fokus berebut, berat ke kanan.
+- Kenapa lolos QC: (1) adegan IG diambil apa adanya dari R5c karena masuk "koreksi IG" yang dibawa (D-440); QC Sutradara putaran 6 hanya membandingkan sumber per rentang (PSNR) dan sampel still yang tidak jatuh di 83,0–83,3, jadi frame itu tidak pernah dinilai dengan mata; (2) gaya `tulis` (tulisan tangan) adalah sisa yang lolos dari D-414 karena D-414 menyebut "Comment di bawah" saja, bukan semua tulisan tangan; (3) tidak ada cek "jumlah fokus per frame" di daftar QC still.
+- Perbaikan: TASK-R7-ig F-I4 (punchline, bukan tulisan tangan) + aturan satu fokus; audit frame tahan tiap detik sebelum render (bukan sampel).

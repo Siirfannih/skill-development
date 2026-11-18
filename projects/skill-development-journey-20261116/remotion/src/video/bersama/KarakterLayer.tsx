@@ -4,7 +4,7 @@ import React from 'react';
 import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
 import {type Model, type EmoteJadwal} from '../../papan/karakter2d/Karakter2D';
 import {KarakterX} from './KarakterPixel';
-import {type Key, EASE, jump, kf, seg, take} from '../../papan/karakter2d/gerak';
+import {type Key, EASE, emotions, jump, kf, seg, squashScale, take} from '../../papan/karakter2d/gerak';
 import {Fonts} from './Fonts';
 
 export type KarakterProps = {
@@ -24,6 +24,11 @@ export type KarakterProps = {
   lambai?: [number, number][];
   /** emote terjadwal [detik, jenis, lama, skala] */
   emote?: EmoteJadwal[];
+  /** Kaki terkunci pada titik tumpu; reaksi tetap melalui pose dan squash. */
+  ancre?: boolean;
+  mendarat?: number[];
+  /** Kaki yang menyentuh kontur, dalam satuan grid dari pusat rig. */
+  tumpuX?: number;
 };
 
 export const kotak = (u: number) => ({w: Math.ceil(22 * u) + 80, h: Math.ceil(20 * u) + 80});
@@ -41,7 +46,7 @@ export const KarakterLayer: React.FC<KarakterProps> = (p) => {
   }
   const heading = kf(t, p.sudut.map(([a, v]) => [a, v] as [number, number]), EASE.soft) as number;
   const moving = p.sudut.some(([a], i) => i > 0 && t > p.sudut[i - 1][0] && t < a);
-  const smear = moving ? 0.35 * Math.abs(Math.sin(Math.PI * ((t % 0.4) / 0.4))) : 0;
+  const smear = moving && !p.ancre ? 0.35 * Math.abs(Math.sin(Math.PI * ((t % 0.4) / 0.4))) : 0;
   // masuk: tokoh jatuh dari atas kotak lalu mendarat dengan jongkok
   const masuk = p.masukAt ?? -1;
   const land = masuk >= 0 ? jump(t, masuk, masuk + 0.01, 0) : {sq: 0, dy: 0};
@@ -49,9 +54,19 @@ export const KarakterLayer: React.FC<KarakterProps> = (p) => {
   let rot = 0;
   for (const [a, b] of p.lambai ?? []) if (t >= a && t <= b) rot += 0.07 * Math.sin((t - a) * 22) * (1 - seg(t, b - 0.2, b));
   const dyU = sq0.dy + tk.dy + land.dy;
+  const pose = emotions(t, p.emosi);
+  const impact = (p.mendarat ?? []).reduce((s, at) => {
+    const age = t - at;
+    return s + (age >= 0 && age < 0.3 ? 0.2 * Math.exp(-10 * age) * Math.sin(Math.PI * Math.min(1, age / 0.1)) : 0);
+  }, 0);
+  const sq = sq0.sq + tk.sq + land.sq + impact;
+  const {sx} = squashScale(pose.sq + sq, smear);
+  const bottom = p.model === 'claude' ? 0.25 : p.model === 'codex' ? 0.11 : 0.15;
+  const footOffset = p.ancre ? bottom * p.u * (1 - pose.sq - sq) * sc : 0;
   return <AbsoluteFill style={{background: 'transparent'}}><Fonts/>
-    <KarakterX model={p.model} id={`k-${p.model}-${p.seed}`} x={w / 2} y={17 * p.u + 40} u={p.u} t={t} seed={p.seed} kamar={p.kamar} lantai={p.lantai ?? true}
+    <KarakterX model={p.model} id={`k-${p.model}-${p.seed}`} x={w / 2} y={17 * p.u + 40 - footOffset} u={p.u} t={t} seed={p.seed} kamar={p.kamar} lantai={p.lantai ?? true}
       sudut={heading} smear={smear} emosi={p.emosi} emote={p.emote}
-      ekstra={{sq: sq0.sq + tk.sq + land.sq, dy: dyU, rot, scale: sc}}/>
+      ekstra={{sq, dy: p.ancre ? (p.model === 'gemini' ? 1.4 : 0) - pose.dy : dyU,
+        dx: p.ancre ? -pose.dx + (p.tumpuX ?? 0) * (1 - sx * sc) : 0, rot: p.ancre ? -pose.rot : rot, scale: sc}}/>
   </AbsoluteFill>;
 };

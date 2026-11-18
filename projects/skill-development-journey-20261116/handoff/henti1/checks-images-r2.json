@@ -1,0 +1,57 @@
+{
+  "kind": "mechanical checks; G2 visual verdict belongs to Sutradara",
+  "files": [
+    {
+      "file": "papan-B5.jpg",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "ac7474f922653e3b3f221c78d30e26ca8a6c083dffea77546cf7d55ee1bd0b8a"
+    },
+    {
+      "file": "papan-B3-C.jpg",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "3af40e7804ee6c650fbbb351b48da03796cc9f58c513269795caa5f9ca0bd707"
+    },
+    {
+      "file": "papan-B4-effort.jpg",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "66a39dcbf508825b93a208d9135381bdea86d8f8cdec74897b11dca85954ea0d"
+    },
+    {
+      "file": "papan-B5-typing.jpg",
+      "size": [
+        960,
+        540
+      ],
+      "sha256": "327a521359ef9681f7e304ac3ed4228fcbeccb20aaa7365fef05e023ea95d01d"
+    },
+    {
+      "file": "sanding-r2.jpg",
+      "size": [
+        960,
+        966
+      ],
+      "sha256": "0f335a32f0219692d41d5ce7009d2a33a8fcb3300100b828a4f2472fb91457b8"
+    }
+  ],
+  "comparison_rows": 3,
+  "layout": "kita kiri, acuan kanan",
+  "reference_aspect_ratios": "preserved",
+  "effort_reference": {
+    "source": "/home/irfan/work/skill-development/projects/skill-development-journey-20261116/sumber/ref/ref-woinlesss-spin-sheet.jpg",
+    "crop_xyxy": [
+      404,
+      213,
+      558,
+      308
+    ]
+  }
+}

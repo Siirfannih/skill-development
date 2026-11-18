@@ -1,5 +1,6 @@
 # STATUS · Skill Development journey (siirfan) · titik lanjut sesi baru
 
+> **PUTARAN 7 (19 Nov, sedang berjalan):** masukan Irfan D-452…D-467 atas `out/varian-A_r6-pemulihan.mp4`. Resep `lego/r7_gabung.py` (kamera tanpa jeda D-464 + override `lego/r7_override_*.json`) → `lego/lego_r7.json` → `qc/r7/visual_r7.mp4`. Pekerja Codex paralel: `handoff/TASK-R7-{ktwajah,ui,ig,tokoh,bgm}.md` (brief bersama `handoff/R7-BERSAMA.md`), Sutradara: transisi grid di jentikan (b7.tsx, `lego/r7_override_d.json`). Sesudahnya: rakit r7 → QC Sutradara (frame tahan tiap detik) → SFX resync (Codex) → audit independen sekali (D-467) → putus ya/tidak → render (dua versi: BGM baru + BGM lama) → Drive.
 > **PUTARAN 6 (19 Nov, menggantikan arah putaran 5):** Irfan membatalkan arah gelap-glow R5 dan kembali ke R4 final 1 (D-438). Resep: `lego/r6_gabung.py` → `lego/lego_r6.json` → `qc/r6/visual_r6.mp4`; audio `audio/r6/mix_r6.wav` (`audio/r6_audio.py`, Codex). Ledger D-438…D-451, log `evaluation.md` §Putaran 6. Berikutnya setelah render pemulihan dikirim: fase KT + transisi (`handoff/RANCANGAN-KT-R6.md`, still dulu untuk persetujuan Irfan). Bagian di bawah ini riwayat putaran 5.
 
 

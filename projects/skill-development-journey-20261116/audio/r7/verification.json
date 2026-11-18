@@ -1,0 +1,76 @@
+{
+  "checks": {
+    "48k_stereo_4023219": true,
+    "voice_1_and_sfx_1_sum": true,
+    "voice_recovery_error_below_6e-8": true,
+    "peak_at_most_minus1": true,
+    "loudness_within_1_LU_R4": true,
+    "phone_median_at_least12": true,
+    "old_mix_byte_identical": true,
+    "readonly_inputs_unchanged": true,
+    "video_packets_and_pts_identical": true,
+    "bed_from_frame0": true,
+    "no_digital_silence_100ms": true,
+    "no_unplanned_music_100ms_below_minus45": true
+  },
+  "all_task_checks_pass": true,
+  "input_hashes": {
+    "audio/stem_suara.wav": "09f5bc7a63bf3e691152145b4b8ed9bc1cf4f4f9c46a98a002c506fbfd850091",
+    "audio/stem_musik_A.wav": "eac66809b9355a5076e8794770461914e7c7c3f87b95662dd4537ac2ec332a87",
+    "audio/mix_A.wav": "42ad31c0c9dde3ff730dac55518b7b2a4b49bf7708655eeddad926c78658da2e",
+    "audio/r6/stem_sfx_r6.wav": "655009ccc376ffbc69dfea4d0d894943b134e5bf6ed71e97c4fecc2797bb4941",
+    "audio/r6/mix_r6.wav": "73714899730a5f8d4e0bd8d74be4b3d5c63c4d4a6ef87af45f81644c216a1591",
+    "qc/r6/visual_r6.mp4": "00912a5bc4f6250843946f9ffc7c1fd71684f47d927d77872b2f9f4675bb4b7b",
+    "edit/suara.wav": "c23e53d9df676dc7355a04013f130becc5f634a498b125e89255f017ba0c397a",
+    "edit/words.json": "1bfa72aaa304cb44a26f66c16e4091855e79d154651d33f126863ef0673ae32a"
+  },
+  "voice_fit_gain": 1.0000000000077933,
+  "voice_max_abs_recovery_error": 2.9802322387695312e-08,
+  "peak_dbfs": -1.005855898975169,
+  "music_peak_dbfs": -9.255636027474093,
+  "video_packets": 2512,
+  "video_packet_sha256": "51d20fd4a5228ae864742382f107cb4bc03a6b21c15693b4862feb63a1c6b6e0",
+  "output_sha256": {
+    "stem_musik_r7.wav": "89babc4be01dc2affda12b519376f19c775da6fb2324cb435e5033fa1ee370ce",
+    "mix_r7_bgmbaru.wav": "b73d2c8904069127f4e26d851b64ed1dd372b5c4e24013638ca2ef116a83cf58",
+    "mix_r7_bgmlama.wav": "73714899730a5f8d4e0bd8d74be4b3d5c63c4d4a6ef87af45f81644c216a1591",
+    "pratinjau_bgmbaru.mp4": "f10b9611ab4db8fd50de0c15dd746229e43af8829b1d818478254e24cba88a18"
+  },
+  "phone_median_db": 17.3,
+  "phone_worst_db": 5.8,
+  "phone_worst_at": 80.0,
+  "phone_windows_below8": 5,
+  "music_100ms_below45": [
+    {
+      "t": 56.8,
+      "rms_dbfs": -46.886197842489885
+    },
+    {
+      "t": 83.1,
+      "rms_dbfs": -46.51547261404565
+    },
+    {
+      "t": 83.3,
+      "rms_dbfs": -49.070229142243036
+    },
+    {
+      "t": 83.4,
+      "rms_dbfs": -49.099906178423936
+    },
+    {
+      "t": 83.5,
+      "rms_dbfs": -47.930687236729355
+    },
+    {
+      "t": 83.6,
+      "rms_dbfs": -56.3524779526618
+    },
+    {
+      "t": 83.7,
+      "rms_dbfs": -57.54202698139014
+    }
+  ],
+  "music_100ms_below45_outside_stops_or_coda": [],
+  "first_100ms_music_dbfs": -32.81773313493766,
+  "limitations": "True peak, AAC overshoots, inherited SFX audibility and individual word windows reported separately; task pass is not whole-film creative approval."
+}

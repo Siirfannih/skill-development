@@ -5,9 +5,8 @@ import {Fonts} from './bersama/Fonts';
 import {MEREK} from './bersama/tema';
 import {WajahDorong} from './bersama/WajahDorong';
 import {ChatRow, type ChatItem} from './bersama/chat/Conversation';
-import {CHAT_VIEW, CHAT_WINDOW, SessionWindow, TOMBOL_KIRIM} from './bersama/chat/Chrome';
-import {CameraMotionBlur} from '@remotion/motion-blur';
-import {GelombangGrid, type Gelombang} from './bersama/ui-asli/claude/GelombangGrid';
+import {CHAT_VIEW, SessionWindow} from './bersama/chat/Chrome';
+import {GelombangGrid, maskGelombang, type Gelombang} from './bersama/ui-asli/claude/GelombangGrid';
 
 type KunciChat = {
   updateA: number; laporanA: number; perintahA: number; kirimA: number;
@@ -37,11 +36,12 @@ const kunciChat = (k: DesktopProps['kunci']): KunciChat => 'updateA' in k ? k : 
   cek: k.loop + 0.9, pass: k.ok, ringkas: k.ok + 0.12, lega: k.ok, keluar: k.keluar,
 });
 
-// D-449: jendela mendarat (zoom 1,25 → 1, blur gerak), kursor mengklik kirim di frame KLIK dunia, dan klik itu
-// memicu gelombang grid dari tombol kirim. Prompt pindah dari kolom input ke percakapan saat diklik.
-const KLIK = 12;
+// D-452: gelombang grid ADALAH transisi wajah → jendela Claude, dimulai di jentikan jari Irfan (57,92 dtk = awal
+// dunia) dan memancar dari tangan yang menjentik. Di dalam dunia, kursor mengklik kirim (aksi UI, tanpa gelombang
+// kedua); prompt pindah dari kolom input ke percakapan saat diklik. Zoom dunia tidak pernah diam (D-464).
+const KLIK = 24;
 const PROMPT = 'Revisi potongan ronde 3, cek semua gerbang.';
-const GELOMBANG: Gelombang = {asal: {x: CHAT_WINDOW.x + TOMBOL_KIRIM.x, y: CHAT_WINDOW.y + TOMBOL_KIRIM.y}, frames: 26};
+const GELOMBANG: Gelombang = {asal: {x: 220, y: 550}, frames: 20}; // tangan kiri yang menjentik, layar 1920×1080
 
 const messages = (k: KunciChat, duration: number): ChatItem[] => [
   {id: 'irfan', type: 'prompt', at: KLIK / 30, height: 90,
@@ -90,7 +90,7 @@ const Isi: React.FC<DesktopProps & {f: number; durasiDunia: number}> = ({kunci, 
     previousTarget = target;
     return {item, y};
   });
-  const zoom = (1 + 0.25 * (1 - move(f, 0, 12, 'heavy'))) * (1 + 0.06 * move(f, 0, Math.round(durasiDunia * fps), 'drift'));
+  const zoom = (1 + 0.08 * (1 - move(f, 0, GELOMBANG.frames, 'land'))) * (1 + 0.06 * f / Math.round(durasiDunia * fps));
   const phase = t >= k.lega ? 'Selesai' : t >= k.cek ? 'Memeriksa…' : t >= k.edit ? 'Mencatat pelajaran…'
     : (t >= k.kirimA && t < k.terkirimA) || (t >= k.kirimB && t < k.updateB) ? 'Mengirim…' : 'Working…';
   return <AbsoluteFill style={{background: MEREK.latar, overflow: 'hidden'}}>
@@ -100,7 +100,6 @@ const Isi: React.FC<DesktopProps & {f: number; durasiDunia: number}> = ({kunci, 
           {rows.map(({item, y}) => <ChatRow key={item.id} item={item} top={y} scroll={scroll} frame={f} fps={fps}/>)}
         </div>
       </SessionWindow>
-      <GelombangGrid frame={f - KLIK} g={GELOMBANG}/>
     </div>
   </AbsoluteFill>;
 };
@@ -109,9 +108,14 @@ export const DesktopAgen: React.FC<DesktopProps> = (p) => {
   const fAll = useCurrentFrame();
   const {fps} = useVideoConfig();
   const dunia = Math.round(p.durasi * fps) - p.pre - p.post;
-  if (fAll < p.pre) return <AbsoluteFill><Fonts/><WajahDorong f={fAll} t0={p.preT0} dari={p.zPre} ke={1.7} frames={p.pre}/></AbsoluteFill>;
+  if (fAll < p.pre) return <AbsoluteFill/>;           // wajah asli (lapisan dasar) tetap tampil sampai jentikan
   const f = fAll - p.pre;
   if (f >= dunia) return <AbsoluteFill><Fonts/><WajahDorong f={f - dunia} t0={p.postT0} dari={1.7} ke={1.0} frames={p.post}/></AbsoluteFill>;
   const isi = <Isi {...p} durasiDunia={dunia / fps} f={f}/>;
-  return <AbsoluteFill><Fonts/>{f < 12 ? <CameraMotionBlur shutterAngle={180} samples={8}>{isi}</CameraMotionBlur> : isi}</AbsoluteFill>;
+  if (f >= GELOMBANG.frames) return <AbsoluteFill><Fonts/>{isi}</AbsoluteFill>;
+  const mask = maskGelombang(f, GELOMBANG);
+  return <AbsoluteFill><Fonts/>
+    <AbsoluteFill style={{WebkitMaskImage: mask, maskImage: mask, WebkitMaskSize: '100% 100%', maskSize: '100% 100%'}}>{isi}</AbsoluteFill>
+    <GelombangGrid frame={f} g={GELOMBANG}/>
+  </AbsoluteFill>;
 };

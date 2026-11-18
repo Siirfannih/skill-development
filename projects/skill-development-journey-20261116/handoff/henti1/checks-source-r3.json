@@ -1,0 +1,27 @@
+{
+  "protected_files_unchanged": 59,
+  "approved_panels_unchanged": [
+    "B2",
+    "B3-A",
+    "B3-C",
+    "B4",
+    "B4-effort",
+    "B6"
+  ],
+  "maskot_component_unchanged": true,
+  "codex_pose": {
+    "frame": 84,
+    "age": 90,
+    "yaw_degrees": 22.548940202016617,
+    "front_facing_fraction": 0.922158826194841
+  },
+  "runtime_raster_references": [
+    {
+      "file": "kit.tsx",
+      "line": 23,
+      "text": "src={staticFile(`papan/${name}-${matte ? 'matte.png' : 'footage.jpg'}`)}"
+    }
+  ],
+  "no_video_rendered": true,
+  "boundary": "Mechanical verification only; G2 visual verdict belongs to Sutradara."
+}

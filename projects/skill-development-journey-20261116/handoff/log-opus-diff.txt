@@ -1,0 +1,4 @@
+Laporan ada di `handoff/REPORT-opus-diff.md` (8 butir). Saya tidak mengubah file lain, tidak render, tidak commit.
+- **Kamera jadi linear:** 7 potongan footage, sekitar 56 dtk, bergerak linear, bukan memakai kurva curves.ts. Penyebabnya klip yang dipotong punch di sambungan. Di batas antarklip, zoom di frame batas ambigu, jadi klip b6a mulai 1,03 (desain 1,00).
+- **Risiko kalau R5 dikunci:** empat frame sambungan ditulis tetap di kode, dan cache klip punch tidak ikut berubah kalau `wajah.mp4` diganti. Akibatnya 12 frame per sambungan bisa memakai footage lama.
+- **Kecil, untuk revisi berikut:** fps campur 30 dan 29,97, rumus kurva disalin tiga kali, durasi minimum R2/R3 kini 0,1 dtk, toleransi `cek_onset` lebih longgar 1 frame dari pesannya. Tidak ada regresi pada kode yang saya rapikan sebelumnya.

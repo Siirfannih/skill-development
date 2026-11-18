@@ -1,0 +1,5 @@
+Adendum gaya kartu 63 untuk dunia (c) sudah ditulis: `projects/skill-development-journey-20261116/handoff/MG63-ADENDUM.md` (65 baris). Bahannya kartu 63 dan 2 lembar keyframe (fps 2) dari video referensi yang saya lihat sendiri. Bagian §1–§5 lengkap sesuai TASK.
+- Ada 4 bentrok dengan referensi; semuanya ditandai [B] dan DESAIN yang dipakai: UI terang (referensi gelap), transisi push-through (referensi mosaik), dua jendela ±40 % di B5b (referensi satu jendela 56–60 %), latar berupa permukaan repo/app (referensi foto wallpaper).
+- Ukuran jendela 56–60 % bisa bertabrakan dengan lingkaran wajah di kanan bawah. Usulan di adendum: geser jendela ke pusat x ±44 %.
+- Angka radius, bayangan, dan kursor hanya perkiraan dari frame 414 px (ditandai ≈). Angka kamera dan skala diambil dari kartu 63.
+- Tidak ada kode yang ditulis, tidak ada file lain yang diubah, dan tidak ada commit/push. Lembar keyframe hanya ada di `/tmp/mg63.bi8j/`.

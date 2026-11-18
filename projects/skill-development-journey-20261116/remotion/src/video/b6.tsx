@@ -6,6 +6,8 @@ import {move} from '../lib/curves';
 import {Fonts} from './bersama/Fonts';
 import {FONT, INK} from './bersama/tema';
 import {KataBelakang} from './bersama/KataBelakang';
+import {NarasiIG} from './bersama/ig/NarasiIG';
+import {IG_EVENT, komentarIG} from './bersama/ig/waktu';
 import {BoilDefs, PanahGoresan, TulisTangan, type PanahProps, type TulisProps} from './bersama/Coretan';
 
 export type KomentarProps = {nama: string; teks: string; sisi: 'kiri' | 'kanan'; warna: string; durasi: number; w: number; h: number; size: number};
@@ -43,7 +45,7 @@ import {CURVE} from '../lib/curves';
 
 /** coretan di dalam dunia IG (ikut kamera): tulisan tangan + panah ke kolom komentar; tampil [awal, akhir) detik relatif lapisan, keluar = potongan */
 export type CoretanIG = {awal: number; akhir: number; tulis: TulisProps; panah: PanahProps};
-export type IGProps = {durasi: number; t0: number; z0: number; kunci: {k1: number; k2: number; field: number}; /** detik relatif: denyut ring biru kolom komentar (2x) */ ring?: number[]; coret?: CoretanIG; rev?: number;
+export type IGProps = {durasi: number; t0: number; z0: number; kunci: {k1: number; k2: number; field: number}; coret?: CoretanIG; rev?: number;
   /** kunci kamera [detik, skala, pusat x, pusat y, kurva menuju kunci berikut]; sumber tunggal (bangun.py + cek_tumpuk) */
   kamera?: [number, number, number, number, 'heavy' | 'drift'][]};
 
@@ -61,7 +63,32 @@ const Avatar: React.FC<{s: number; w: string; huruf?: string}> = ({s, w, huruf})
   <div style={{width: s, height: s, borderRadius: s / 2, background: w, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', ...ig(s * 0.42, 600, '#fff'), flexShrink: 0}}>{huruf}</div>
 );
 
-const Komen: React.FC<{f: number; mulai: number; y: number; nama: string; teks: string; w: string; huruf: string; jenis?: 'slop' | 'puji'}> = ({f, mulai, y, nama, teks, w, huruf, jenis}) => {
+const AvatarIrfan: React.FC<{t0: number; s?: number}> = ({t0, s = 52}) => {
+  const {fps} = useVideoConfig();
+  const z = s / 52 * 0.125;
+  return <div style={{width: s, height: s, borderRadius: s / 2, overflow: 'hidden', position: 'relative', flexShrink: 0, background: '#222'}}>
+    <div style={{position: 'absolute', left: s / 2 - 960 * z, top: s / 2 - 380 * z, width: 1920, height: 1080, transformOrigin: '0 0', transform: `scale(${z})`}}>
+      <OffthreadVideo src={staticFile('video/wajah-proxy.mp4')} startFrom={Math.round(t0 * fps)} muted style={{width: 1920, height: 1080}}/>
+    </div>
+  </div>;
+};
+
+const BalasanIG: React.FC<{f: number; t0: number}> = ({f, t0}) => {
+  const state = komentarIG(f);
+  if (!state.dibalas) return null;
+  const e = move(f, IG_EVENT.balasan, 3, 'reveal');
+  return <div style={{position: 'absolute', left: 88, right: 24, top: 326, display: 'flex', gap: 12,
+    transform: `translateY(${12 * (1 - e)}px)`, overflow: 'hidden'}}>
+    <AvatarIrfan t0={t0} s={42}/>
+    <div style={{flex: 1, ...ig(27), lineHeight: 1.3}}>
+      <div><span style={{fontWeight: 600}}>siirfannih</span> oke cek dm ya</div>
+      <div style={{display: 'flex', gap: 22, marginTop: 6, ...ig(21, 500, IGC.abu)}}><span>now</span><span>Reply</span></div>
+    </div>
+    <div style={{paddingTop: 10}}><Ikon d={HATI} s={24} c={IGC.abu}/></div>
+  </div>;
+};
+
+const Komen: React.FC<{f: number; mulai: number; y: number; nama: string; teks: string; w: string; huruf: string; jenis?: 'slop' | 'puji'; age?: string}> = ({f, mulai, y, nama, teks, w, huruf, jenis, age = '1m'}) => {
   if (f < mulai - 1) return null;
   // slop: pop pelan (drift 14 f) + getar kecil yang meredam; puji: pop cepat (land) + overshoot, hati memantul merah
   const e = jenis === 'slop' ? move(f, mulai, 14, 'drift') : move(f, mulai, 9, 'reveal');
@@ -74,7 +101,7 @@ const Komen: React.FC<{f: number; mulai: number; y: number; nama: string; teks: 
     <Avatar s={52} w={w} huruf={huruf}/>
     <div style={{flex: 1, paddingTop: 2}}>
       <div style={{...ig(27), lineHeight: 1.3}}><span style={{fontWeight: 600}}>{nama}</span> {teks}</div>
-      <div style={{display: 'flex', gap: 22, marginTop: 6, ...ig(21, 500, IGC.abu)}}><span>1m</span><span>Reply</span></div>
+      <div style={{display: 'flex', gap: 22, marginTop: 6, ...ig(21, 500, IGC.abu)}}><span>{age}</span><span>Reply</span></div>
     </div>
     <div style={{paddingTop: 10, transform: `translateY(${-14 * lompat}px) scale(${1 + 0.5 * lompat})`}}>{hati > 0.3 ? <Ikon d={HATI} s={26} c="#ED4956" isi/> : <Ikon d={HATI} s={24} c={IGC.abu}/>}</div>
   </div>;
@@ -84,28 +111,30 @@ const Komen: React.FC<{f: number; mulai: number; y: number; nama: string; teks: 
 const MODAL = {x: 180, y: 56, w: 1560, h: 824}, MEDIA_W = 960;
 const VID = {x: MODAL.x, y: MODAL.y + (MODAL.h - 540) / 2, w: 960, h: 540};
 
-const kameraIG = (t: number, keys: NonNullable<IGProps['kamera']>) => {
+const kameraIG = (t: number, keys: NonNullable<IGProps['kamera']>, lanjutZoom: boolean) => {
   let i = 0; while (i + 1 < keys.length && t >= keys[i + 1][0]) i++;
   if (i + 1 >= keys.length) return {s: keys[i][1], x: keys[i][2], y: keys[i][3]};
   const [a, s0, x0, y0, kv] = keys[i], [b, s1, x1, y1] = keys[i + 1];
-  const k = CURVE[kv](Math.min(1, Math.max(0, (t - a) / Math.max(0.01, b - a))));
-  return {s: s0 + (s1 - s0) * k, x: x0 + (x1 - x0) * k, y: y0 + (y1 - y0) * k};
+  const p = Math.min(1, Math.max(0, (t - a) / Math.max(0.01, b - a)));
+  const k = CURVE[kv](p);
+  return {s: s0 + (s1 - s0) * (lanjutZoom && a >= 3.003 ? p : k), x: x0 + (x1 - x0) * k, y: y0 + (y1 - y0) * k};
 };
 
-const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kamera, ring}) => {
+const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kamera, rev}) => {
   const {fps} = useVideoConfig();
   const t = f / fps;
   const F = (s: number) => Math.round(s * fps);
   const p = move(f, 0, 18, 'heavy');                                      // frame video mengecil ke kotak video postingan
-  const cam = kameraIG(t, kamera ?? [[0, 1, 960, 540, 'drift']]);
+  const cam = kameraIG(t, kamera ?? [[0, 1, 960, 540, 'drift']], (rev ?? 0) >= 27);
   const zz = z0 + (1 - z0) * p;
   const rx = VID.x * p, ry = VID.y * p, rw = 1920 + (VID.w - 1920) * p, rh = 1080 + (VID.h - 1080) * p;
   const modal = move(f, 6, 14, 'land');
   const panel = move(f, 10, 14, 'land');
   const caret = Math.floor((f - F(K.field)) / 15) % 2 === 0;
-  const aktif = t >= K.field;
+  const r7 = (rev ?? 0) >= 27;
+  const komentar = komentarIG(f);
+  const aktif = r7 ? komentar.aktif : t >= K.field;
   const vs = (rw / 1920) * zz;
-  const denyut = (ring ?? []).reduce((m, r) => { const q = (f - F(r)) / 14; return q >= 0 && q < 1 ? Math.max(m, q) : m; }, -1);
   return <AbsoluteFill style={{background: '#ECECEC', overflow: 'hidden'}}>
     <div style={{position: 'absolute', inset: 0, transformOrigin: '0 0', transform: `translate(${960 - cam.x * cam.s}px, ${540 - cam.y * cam.s}px) scale(${cam.s})`}}>
       {/* navigasi kiri Instagram desktop */}
@@ -118,9 +147,7 @@ const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kam
         boxShadow: '0 0 0 1px #E3E3E3, 0 10px 24px rgba(0,0,0,.08), 0 30px 70px rgba(0,0,0,.12)'}}>
         <div style={{position: 'absolute', left: MEDIA_W, top: 0, width: MODAL.w - MEDIA_W, height: MODAL.h, background: '#FFFFFF', transform: `translateX(${40 * (1 - panel)}px)`, opacity: panel}}>
           <div style={{display: 'flex', alignItems: 'center', gap: 16, padding: '20px 24px', borderBottom: `1px solid ${IGC.garis}`}}>
-            <div style={{width: 52, height: 52, borderRadius: 26, overflow: 'hidden', position: 'relative', flexShrink: 0, background: '#222'}}>
-              <div style={{position: 'absolute', left: 26 - 960 * 0.125, top: 26 - 380 * 0.125, width: 1920, height: 1080, transformOrigin: '0 0', transform: 'scale(0.125)'}}>
-                <OffthreadVideo src={staticFile('video/wajah-proxy.mp4')} startFrom={Math.round(t0 * fps)} muted style={{width: 1920, height: 1080}}/></div></div>
+            <AvatarIrfan t0={t0}/>
             <div style={{flex: 1}}><div style={ig(26, 600)}>siirfannih</div><div style={ig(21, 400)}>Original audio</div></div>
             <svg width="30" height="8" viewBox="0 0 34 10"><circle cx="5" cy="5" r="3" fill={IGC.ink}/><circle cx="17" cy="5" r="3" fill={IGC.ink}/><circle cx="29" cy="5" r="3" fill={IGC.ink}/></svg>
           </div>
@@ -131,27 +158,32 @@ const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kam
           <div style={{position: 'absolute', left: 0, right: 0, top: 210}}>
             <Komen f={f} mulai={F(K.k1)} y={0} nama="andi_prasetyo" teks="masih kerasa AI slop" w="#8E7CC3" huruf="a" jenis="slop"/>
             <Komen f={f} mulai={F(K.k2)} y={118} nama="salsa.kirana" teks="Keren editan profesional" w="#E58E5B" huruf="s" jenis="puji"/>
+            {r7 && komentar.terkirim && <Komen f={f} mulai={IG_EVENT.komentar - 2} y={232} nama="dimas.creates" teks="Skill" w={IGC.abu} huruf="d" age="now"/>}
+            {r7 && <BalasanIG f={f} t0={t0}/>}
           </div>
           <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, borderTop: `1px solid ${IGC.garis}`}}>
             <div style={{display: 'flex', gap: 22, padding: '16px 24px 6px', alignItems: 'center'}}><Ikon d={HATI} s={34}/><Ikon d={KOMEN} s={32}/><Ikon d={KIRIM} s={32}/><span style={{marginLeft: 'auto'}}><Ikon d={SIMPAN} s={32}/></span></div>
             <div style={{padding: '4px 24px 14px', ...ig(19, 400, IGC.abu)}}>November 17</div>
-            <div style={{display: 'flex', alignItems: 'center', gap: 16, padding: '14px 24px 18px', borderTop: `1px solid ${IGC.garis}`, boxShadow: aktif ? 'inset 0 0 0 3px #0095F6' : undefined, background: aktif ? '#F5FAFF' : undefined}}>
+            <div style={{display: 'flex', alignItems: 'center', gap: 16, padding: '14px 24px 18px', borderTop: `1px solid ${IGC.garis}`}}>
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={IGC.ink} strokeWidth="1.8" strokeLinecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M8 14c1.2 2 6.8 2 8 0M9 9.5v.5M15 9.5v.5"/></svg>
-              <span style={{...ig(25, 400, IGC.abu), display: 'flex', alignItems: 'center'}}>
-                {aktif && <span style={{width: 2, height: 28, background: IGC.ink, marginRight: 2, opacity: caret ? 1 : 0}}/>}Add a comment…</span>
+              <span style={{...ig(25, 400, komentar.isi ? IGC.ink : IGC.abu), display: 'flex', alignItems: 'center'}}>
+                {r7 && komentar.isi ? komentar.isi : 'Add a comment…'}{aktif && <span style={{width: 2, height: 28, background: IGC.ink, marginLeft: 2, opacity: caret ? 1 : 0}}/>}</span>
               <span style={{marginLeft: 'auto', ...ig(24, 600, aktif ? '#0095F6' : '#B2DFFC')}}>Post</span>
             </div>
           </div>
+          {r7 && <NarasiIG f={f} panel/>}
         </div>
       </div>
-      {denyut >= 0 && <div style={{position: 'absolute', left: 1140 - (8 + 30 * denyut), top: 800 - (8 + 30 * denyut), width: 600 + 2 * (8 + 30 * denyut), height: 80 + 2 * (8 + 30 * denyut), borderRadius: 14 + 20 * denyut, border: `4px solid rgba(0,149,246,${1 - denyut})`, pointerEvents: 'none'}}/>}
       {/* kotak hitam latar video: SATU gerak dengan video (p yang sama, bersarang di dalamnya) dari layar penuh ke kotak media; tidak ada tepi hitam tertinggal (audit ronde 7 W2) */}
       <div style={{position: 'absolute', left: MODAL.x * p, top: MODAL.y * p, width: 1920 + (MEDIA_W - 1920) * p, height: 1080 + (MODAL.h - 1080) * p, background: '#000', borderRadius: `${12 * p}px 0 0 ${12 * p}px`}}/>
       {/* video: mengecil dari layar penuh ke kotak media 16:9; footage terus berjalan (proxy wajah) */}
       <div style={{position: 'absolute', left: rx, top: ry, width: rw, height: rh, overflow: 'hidden', background: '#000'}}>
         <div style={{position: 'absolute', left: (rw - 1920 * vs) / 2, top: (rh - 1080 * vs) * 0.45, width: 1920, height: 1080, transformOrigin: '0 0', transform: `scale(${vs})`}}>
           {f >= 67 && f < 86 ? <KataBelakang t0={t0}/> :
-            <OffthreadVideo src={staticFile('video/wajah-proxy.mp4')} startFrom={Math.round(t0 * fps)} muted style={{width: 1920, height: 1080}}/>}</div>
+            r7 && f >= IG_EVENT.gratis && f < IG_EVENT.gratisAkhir ? <KataBelakang t0={t0} gratis/> :
+            <OffthreadVideo src={staticFile('video/wajah-proxy.mp4')} startFrom={Math.round(t0 * fps)} muted style={{width: 1920, height: 1080}}/>}
+          {r7 && <NarasiIG f={f}/>}
+        </div>
       </div>
       {coret && f >= F(coret.awal) && f < F(coret.akhir) && <>
         <svg width={1920} height={1080} style={{position: 'absolute', left: 0, top: 0, overflow: 'visible'}}><BoilDefs id="boil-ig" f={f}/><PanahGoresan id="boil-ig" {...coret.panah}/></svg>
@@ -163,7 +195,8 @@ const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kam
 
 export const DuniaIG: React.FC<IGProps> = (p) => {
   const f = useCurrentFrame();
-  return <AbsoluteFill><Fonts/>{f <= 20 ? <CameraMotionBlur shutterAngle={200} samples={8}><IsiIG {...p} f={f}/></CameraMotionBlur> : <IsiIG {...p} f={f}/>}</AbsoluteFill>;
+  const pan = (p.rev ?? 0) >= 27 && ((f >= 90 && f <= 110) || (f >= 168 && f <= 181));
+  return <AbsoluteFill><Fonts/>{f <= 20 || pan ? <CameraMotionBlur shutterAngle={pan ? 140 : 200} samples={pan ? 3 : 8}><IsiIG {...p} f={f}/></CameraMotionBlur> : <IsiIG {...p} f={f}/>}</AbsoluteFill>;
 };
 
 // ---------- tanda tanya kecil yang memantul di dekat kepala ("menurut kalian videonya kayak gimana?") ----------
