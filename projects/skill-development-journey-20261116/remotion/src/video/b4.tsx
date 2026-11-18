@@ -25,10 +25,13 @@ export const Kartu: React.FC<KartuProps> = (p) => {
   const kec = Math.abs(CURVE.land(Math.min(1, f / fl)) - CURVE.land(Math.min(1, Math.max(0, (f - 1) / fl)))) * p.jarak;     // px/frame
   const claude = p.model === 'claude';
   const cermin = p.kanan ? -1 : 1;
-  const rot = cermin * ((claude ? 4 : -3) * (1 - land) + (claude ? 3 : -3.5) * land);
+  const getar = f >= fl + 34 && f < fl + 40 ? Math.sin((f - fl - 34) * 2.1) * 2 * (1 - (f - fl - 34) / 6) : 0;   // R5/G: 6 f rot ±2° lalu tenang
+  const rot = cermin * ((claude ? 4 : -3) * (1 - land) + (claude ? 3 : -3.5) * land) + getar;
   const rotY = cermin * ((claude ? -6 : 7) * land + (claude ? 0 : -3) * (1 - land));
   const tekan = move(f, fl, 6, 'land') - move(f, fl + 6, 14, 'heavy');
-  const naik = f < fl + 4 ? 1 : Math.round(1 + (p.angka - 1) * move(f, fl + 4, 22, 'reveal'));
+  const hit = move(f, fl + 4, 30, 'reveal');        // R5/G: count-up ±1 dtk ease-out
+  const naik = f < fl + 4 ? 1 : Math.round(1 + (p.angka - 1) * hit);
+  const panas = hit;                                // warna memanas tinta -> coral mengikuti nilai
   const d = drift(f, 30, 3, claude ? 5 : 3);
   const pulse = 0.07 * (move(f, fl + 26, 5, 'land') - move(f, fl + 31, 14, 'drift'));
   return <AbsoluteFill style={{background: 'transparent'}}><Fonts/>
@@ -44,11 +47,11 @@ export const Kartu: React.FC<KartuProps> = (p) => {
             <div style={{width: 68, height: 68, borderRadius: 20, background: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 1px 2px rgba(0,0,0,.08), 0 6px 14px rgba(0,0,0,.08)'}}>
               {claude ? <svg width="40" height="40" viewBox="0 0 24 24"><path d={siClaude.path} fill="#D97757"/></svg> : <LogoChatGPT size={40}/>}
             </div>
-            <span style={{fontSize: 34, fontWeight: 600, letterSpacing: -0.6, whiteSpace: 'nowrap'}}>{p.label}</span>
+            <span style={{fontFamily: FONT.sf, fontSize: 36, fontWeight: 700, letterSpacing: -1, whiteSpace: 'nowrap'}}>{p.label}</span>
           </div>
           <div style={{height: 1, background: 'rgba(0,0,0,.07)', margin: '30px 0 8px'}}/>
-          <div style={{fontSize: 182, fontWeight: 600, lineHeight: 1.18, letterSpacing: -9, color: '#1D1D1F', transform: `scale(${1 + pulse})`, transformOrigin: '0 60%'}}>
-            {naik}<span style={{fontSize: 112, letterSpacing: -4, color: '#86868B', fontWeight: 500}}>×</span></div>
+          <div style={{fontFamily: FONT.sf, fontSize: 196, fontWeight: 700, lineHeight: 1.18, letterSpacing: -9, color: `rgb(${Math.round(29 + (249 - 29) * panas)},${Math.round(29 + (112 - 29) * panas)},${Math.round(31 + (102 - 31) * panas)})`, transform: `scale(${1 + pulse})`, transformOrigin: '0 60%'}}>
+            {naik}<span style={{fontSize: 120, letterSpacing: -4, color: '#86868B', fontWeight: 500}}>×</span></div>
         </div>
       </div>
     </div>

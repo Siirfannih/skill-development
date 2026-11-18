@@ -14,7 +14,7 @@
   "lapisan": "T002"
  },
  {
-  "nama": "halaman repo + timeline",
+  "nama": "jendela timeline premium (gradien biru 07) + kata selesai",
   "peran": "dunia-transisi",
   "t": 1.531,
   "frame": 46,
@@ -26,13 +26,6 @@
   "t": 1.531,
   "frame": 46,
   "lapisan": "D_REPO_WAJAH"
- },
- {
-  "nama": "SELESAI",
-  "peran": "slab-di-depan",
-  "t": 3.11,
-  "frame": 93,
-  "lapisan": "T004"
  },
  {
   "nama": "Claude",
@@ -63,14 +56,14 @@
   "lapisan": "K_Codex"
  },
  {
-  "nama": "bubble sapaan Codex 'Hi, aku ChatGPT!'",
+  "nama": "bubble sapaan Codex",
   "peran": "bubble-sapa",
   "t": 8.575,
   "frame": 257,
   "lapisan": "B_Codex"
  },
  {
-  "nama": "bubble sapaan Clawd 'Hi, aku Claude!'",
+  "nama": "bubble sapaan Clawd",
   "peran": "bubble-sapa",
   "t": 9.443,
   "frame": 283,
@@ -84,7 +77,7 @@
   "lapisan": "K_Gemini"
  },
  {
-  "nama": "bubble sapaan Gemini 'Hi, aku Gemini!'",
+  "nama": "bubble sapaan Gemini",
   "peran": "bubble-sapa",
   "t": 9.81,
   "frame": 294,
@@ -329,18 +322,11 @@
   "lapisan": "T077"
  },
  {
-  "nama": "desktop Mac + jaringan agen",
+  "nama": "desktop hitam-glow: jendela ChatGPT session A, Claude, session B + dok skill-development",
   "peran": "dunia-transisi",
   "t": 57.919,
   "frame": 1736,
   "lapisan": "D_RELAY"
- },
- {
-  "nama": "papan ChatGPT lahir (2,5D, tajam)",
-  "peran": "item-ui",
-  "t": 58.269,
-  "frame": 1746,
-  "lapisan": "O_papan ChatGPT lahir (2,5D, tajam)"
  },
  {
   "nama": "panah goresan 'kalian lihat ini' ke papan ChatGPT",
@@ -350,60 +336,39 @@
   "lapisan": "C_lihat"
  },
  {
-  "nama": "pesan doctor.sh gagal",
+  "nama": "ChatGPT mengetik instruksi",
   "peran": "item-ui",
-  "t": 60.515,
-  "frame": 1814,
-  "lapisan": "O_pesan doctor.sh gagal"
+  "t": 59.445,
+  "frame": 1782,
+  "lapisan": "O_ChatGPT mengetik instruksi"
  },
  {
-  "nama": "aliran titik ChatGPT ke Claude (pesan langsung)",
+  "nama": "tombol kirim ditekan, pesan meluncur ke Claude",
   "peran": "item-ui",
   "t": 61.04,
   "frame": 1829,
-  "lapisan": "O_aliran titik ChatGPT ke Claude (pesan langsung)"
+  "lapisan": "O_tombol kirim ditekan, pesan meluncur ke Claude"
  },
  {
-  "nama": "papan Claude lahir, ChatGPT mundur",
+  "nama": "avatar Claude bete (pesan tiba)",
   "peran": "item-ui",
-  "t": 61.09,
-  "frame": 1831,
-  "lapisan": "O_papan Claude lahir, ChatGPT mundur"
+  "t": 61.64,
+  "frame": 1847,
+  "lapisan": "O_avatar Claude bete (pesan tiba)"
  },
  {
-  "nama": "pesan Sudah kujalankan doctor --fix",
-  "peran": "item-ui",
-  "t": 62.47,
-  "frame": 1872,
-  "lapisan": "O_pesan Sudah kujalankan doctor --fix"
- },
- {
-  "nama": "aliran titik Claude ke ChatGPT",
+  "nama": "Claude membalas, avatar lega",
   "peran": "item-ui",
   "t": 62.8,
   "frame": 1882,
-  "lapisan": "O_aliran titik Claude ke ChatGPT"
+  "lapisan": "O_Claude membalas, avatar lega"
  },
  {
-  "nama": "papan session B lahir, papan lain mundur",
+  "nama": "jendela session B masuk dari kanan, mendorong yang lain",
   "peran": "item-ui",
-  "t": 64.7,
-  "frame": 1939,
-  "lapisan": "O_papan session B lahir, papan lain mundur"
- },
- {
-  "nama": "pesan Revisi kamera selesai",
-  "peran": "item-ui",
-  "t": 65.05,
-  "frame": 1950,
-  "lapisan": "O_pesan Revisi kamera selesai"
- },
- {
-  "nama": "kartu Dicatat ditulis",
-  "peran": "item-ui",
-  "t": 67.615,
-  "frame": 2026,
-  "lapisan": "O_kartu Dicatat ditulis"
+  "t": 63.605,
+  "frame": 1906,
+  "lapisan": "O_jendela session B masuk dari kanan, mendorong yang lain"
  },
  {
   "nama": "kesalahan",
@@ -413,18 +378,18 @@
   "lapisan": "T089"
  },
  {
-  "nama": "kartu Dicatat terbang ke rak skill-development",
+  "nama": "catatan Dicatat mendarat ke tab dok",
   "peran": "item-ui",
-  "t": 68.165,
-  "frame": 2043,
-  "lapisan": "O_kartu Dicatat terbang ke rak skill-development"
+  "t": 68.415,
+  "frame": 2050,
+  "lapisan": "O_catatan Dicatat mendarat ke tab dok"
  },
  {
-  "nama": "papan session C lahir, membaca kartu baru (berkas lavender)",
+  "nama": "cincin jalur menyambung, titik berjalan",
   "peran": "item-ui",
-  "t": 69.465,
-  "frame": 2082,
-  "lapisan": "O_papan session C lahir, membaca kartu baru (berkas lavender)"
+  "t": 69.263,
+  "frame": 2076,
+  "lapisan": "O_cincin jalur menyambung, titik berjalan"
  },
  {
   "nama": "loop pembelajaran",
@@ -434,18 +399,11 @@
   "lapisan": "T092"
  },
  {
-  "nama": "jaringan tumbuh: agen kecil membaca rak",
-  "peran": "item-ui",
-  "t": 70.508,
-  "frame": 2113,
-  "lapisan": "O_jaringan tumbuh: agen kecil membaca rak"
- },
- {
-  "nama": "centang hijau (langsung benar)",
+  "nama": "centang hijau, avatar ChatGPT senang",
   "peran": "item-ui",
   "t": 70.608,
   "frame": 2116,
-  "lapisan": "O_centang hijau (langsung benar)"
+  "lapisan": "O_centang hijau, avatar ChatGPT senang"
  },
  {
   "nama": "100% FULL AI",
@@ -497,31 +455,17 @@
   "lapisan": "O_kolom Add a comment"
  },
  {
-  "nama": "tulisan tangan 'Comment di bawah.'",
-  "peran": "tulisan-tangan",
-  "t": 80.858,
-  "frame": 2423,
-  "lapisan": "O_tulisan tangan 'Comment di bawah.'"
- },
- {
-  "nama": "panah goresan ke kolom 'Add a comment'",
-  "peran": "coretan",
-  "t": 80.858,
-  "frame": 2423,
-  "lapisan": "O_panah goresan ke kolom 'Add a comment'"
- },
- {
   "nama": "skill",
   "peran": "kata-kunci-slam",
   "t": 82.407,
   "frame": 2470,
-  "lapisan": "T105"
+  "lapisan": "T107"
  },
  {
   "nama": "tulisan tangan 'gratis' + garis bawah",
   "peran": "tulisan-tangan",
   "t": 82.652,
   "frame": 2477,
-  "lapisan": "T106"
+  "lapisan": "T108"
  }
 ]

@@ -55,6 +55,7 @@
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "dunia": true,
   "gelap": true,
   "gelapAt": 0.513
  },
@@ -78,6 +79,7 @@
   "teks_vis": "SELESAI",
   "warna": "#1A7F37",
   "depan": true,
+  "dunia": true,
   "gelap": false
  },
  {
@@ -97,6 +99,7 @@
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "dunia": true,
   "gelap": true
  },
  {
@@ -749,7 +752,7 @@
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true
+  "gelap": false
  },
  {
   "id": "T040",
@@ -768,7 +771,7 @@
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true
+  "gelap": false
  },
  {
   "id": "T041",
@@ -787,7 +790,7 @@
    945
   ],
   "alasan": "kata kunci di dekat kolom ketik saat '/' diketik (DESAIN B3a)",
-  "gelap": true
+  "gelap": false
  },
  {
   "id": "T042",
@@ -806,7 +809,7 @@
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true
+  "gelap": false
  },
  {
   "id": "T043",
@@ -825,7 +828,7 @@
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true
+  "gelap": false
  },
  {
   "id": "T044",
@@ -844,7 +847,7 @@
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true
+  "gelap": false
  },
  {
   "id": "T045",
@@ -863,7 +866,7 @@
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true
+  "gelap": false
  },
  {
   "id": "T046",
@@ -882,7 +885,7 @@
    945
   ],
   "alasan": "kata kunci saat daftar terhapus (DESAIN B3b)",
-  "gelap": true
+  "gelap": false
  },
  {
   "id": "T047",
@@ -901,7 +904,7 @@
    945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true
+  "gelap": false
  },
  {
   "id": "T048",
@@ -916,8 +919,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
-   770
+   760,
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -935,8 +938,8 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   960,
-   770
+   760,
+   945
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
   "gelap": false
@@ -1908,39 +1911,41 @@
   "id": "T099",
   "kata": [
    201,
-   203
+   202
   ],
-  "teks": "Udah kerasa video",
+  "teks": "Udah kerasa",
   "t": 76.531,
-  "dur": 1.666,
+  "dur": 0.963,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   660,
+   960,
    812
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
+  "gelap": false,
+  "ig": true
  },
  {
   "id": "T100",
   "kata": [
-   204,
+   203,
    204
   ],
-  "teks": "editing",
-  "t": 78.279,
-  "dur": 0.38,
+  "teks": "video editing",
+  "t": 77.629,
+  "dur": 0.983,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   660,
+   960,
    812
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
+  "gelap": false,
+  "ig": true
  },
  {
   "id": "T101",
@@ -1960,8 +1965,9 @@
   ],
   "alasan": "pertanyaan pertama yang menusuk: kata kacau lalu mendarat (REVISI-2 Opus: perlakuan R3 pindah dari 'masih kerasa AI?' yang kini tampil sebagai komentar IG)",
   "warna": "#F97066",
-  "ukuran": 97,
-  "gelap": false
+  "ukuran": 62,
+  "gelap": false,
+  "ig": true
  },
  {
   "id": "T102",
@@ -1976,53 +1982,95 @@
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   660,
+   960,
    812
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
+  "gelap": false,
+  "ig": true
  },
  {
   "id": "T103",
   "kata": [
    211,
-   213
+   211
   ],
-  "teks": "Comment di bawah.",
+  "teks": "Comment",
   "t": 80.857,
-  "dur": 0.8,
+  "dur": 0.295,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   1380,
-   945
+   960,
+   812
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": true,
-  "coret": "ig"
+  "gelap": false,
+  "ig": true
  },
  {
   "id": "T104",
   "kata": [
-   214,
-   216
+   212,
+   213
   ],
-  "teks": "Nanti aku kasih",
-  "t": 81.657,
-  "dur": 0.75,
+  "teks": "di bawah.",
+  "t": 81.152,
+  "dur": 0.505,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   660,
+   960,
    812
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
+  "gelap": false,
+  "ig": true
  },
  {
   "id": "T105",
+  "kata": [
+   214,
+   214
+  ],
+  "teks": "Nanti",
+  "t": 81.657,
+  "dur": 0.255,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   812
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false,
+  "ig": true
+ },
+ {
+  "id": "T106",
+  "kata": [
+   215,
+   216
+  ],
+  "teks": "aku kasih",
+  "t": 81.912,
+  "dur": 0.495,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   812
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false,
+  "ig": true
+ },
+ {
+  "id": "T107",
   "kata": [
    217,
    217
@@ -2034,14 +2082,16 @@
   "kode": "T03",
   "gaya": "r2",
   "pos": [
-   470,
+   960,
    812
   ],
   "alasan": "kata kunci hadiah",
-  "gelap": false
+  "gelap": false,
+  "ig": true,
+  "ukuran": 62
  },
  {
-  "id": "T106",
+  "id": "T108",
   "kata": [
    218,
    218
@@ -2053,29 +2103,51 @@
   "kode": "T03",
   "gaya": "tulis",
   "pos": [
-   660,
+   960,
    812
   ],
   "alasan": "tulisan tangan kuning + garis bawah goresan (D-406)",
-  "gelap": false
+  "gelap": false,
+  "ig": true
  },
  {
-  "id": "T107",
+  "id": "T109",
   "kata": [
    219,
-   221
+   219
   ],
-  "teks": "bagi yang beruntung.",
+  "teks": "bagi",
   "t": 83.022,
-  "dur": 0.795,
+  "dur": 0.245,
   "peran": "R1",
   "kode": "T19",
   "gaya": "r1",
   "pos": [
-   660,
+   960,
    812
   ],
   "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
-  "gelap": false
+  "gelap": false,
+  "ig": true
+ },
+ {
+  "id": "T110",
+  "kata": [
+   220,
+   221
+  ],
+  "teks": "yang beruntung.",
+  "t": 83.267,
+  "dur": 0.55,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "r1",
+  "pos": [
+   960,
+   812
+  ],
+  "alasan": "narasi berjalan, tempo cepat: word-pop ikut VO",
+  "gelap": false,
+  "ig": true
  }
 ]

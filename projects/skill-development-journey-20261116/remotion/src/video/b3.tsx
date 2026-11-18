@@ -31,7 +31,7 @@ const Kursor: React.FC<{x: number; y: number; klik: number}> = ({x, y, klik}) =>
 
 const kamera = (t: number, K: AppProps['kunci']) => {
   const keys: [number, number, number, number][] = [[0, 1.0, 960, 540], [K.slash - 0.2, 1.04, 900, 580], [K.apple - 0.3, 1.12, 885, 600], [K.apple + 0.15, 1.55, 870, 600],
-    [K.aKlik + 0.3, 1.58, 868, 603], [K.cKlik + 0.2, 1.6, 866, 606], [K.hapus - 0.1, 1.5, 880, 590], [K.hapus + 0.6, 1.2, 900, 580], [K.hapus + 2.0, 1.3, 910, 580], [K.keluar, 1.34, 910, 580]];
+    [K.aKlik + 0.3, 1.58, 868, 603], [K.cKlik + 0.2, 1.6, 866, 606], [K.hapus - 0.1, 1.4, 880, 600], [K.hapus + 0.6, 1.12, 900, 600], [K.hapus + 2.0, 1.15, 905, 600], [K.keluar, 1.15, 905, 600]];
   let i = 0; while (i + 1 < keys.length && t >= keys[i + 1][0]) i++;
   if (i + 1 >= keys.length) return {s: keys[i][1], x: keys[i][2], y: keys[i][3]};
   const [a, s0, x0, y0] = keys[i], [b, s1, x1, y1] = keys[i + 1];
@@ -49,8 +49,11 @@ const teksKetik = (t: number, K: AppProps['kunci']) => {
   if (t < K.cine) return A.slice(0, Math.max(1, A.length - Math.floor((t - K.bs) * 28)));
   if (t < K.cKlik + 0.1) return '/' + 'cinematic'.slice(0, Math.min(9, Math.floor((t - K.cine) * 14) + 1));
   if (t < K.hapus) return C;
-  return C.slice(0, Math.max(1, C.length - Math.floor((t - K.hapus) * 34)));
+  if (t < K.hapus + 0.3) return C.slice(0, Math.max(0, C.length - Math.floor((t - K.hapus) * 90)));
+  if (t < K.hapus + 1.5) return PROMPT.slice(0, Math.floor((t - K.hapus - 0.3) / 1.2 * PROMPT.length));
+  return '';
 };
+const PROMPT = 'Bikin video talking head perjalanan bikin skill-development. Gaya premium, penonton ngerasa: oh, begini di baliknya.';
 
 const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
   const {fps} = useVideoConfig();
@@ -69,7 +72,7 @@ const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
   const aktif = saran.findIndex((x) => t >= x.on && t < x.off + 0.1);
   const tumbuh = aktif >= 0 ? move(f, F(saran[aktif].on), 6, 'reveal') * (1 - move(f, F(saran[aktif].off), 5, 'leave')) : 0;
   const baris = 78;
-  const kartuH = tumbuh > 0.02 ? 20 + baris * tumbuh : 0;
+  const kartuH = tumbuh > 0.02 ? 98 : 0;
   // kursor: dari titik tepi ke baris saran, klik, lalu menepi
   const target = {x: WIN.x + 282 + 300, y: WIN.y + 28 + 462 - 10 - 78 / 2 - 6};
   const rest = {x: WIN.x + 900, y: WIN.y + 410};
@@ -87,19 +90,27 @@ const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
   }
   // koordinat isi jendela (di bawah bar 28 px)
   const CX = WIN.x, CY = WIN.y + 28;
-  return <AbsoluteFill style={{background: '#ECEAE4', overflow: 'hidden'}}>
+  const bal = t >= K.hapus;
+  const lf0 = f;
+  return <AbsoluteFill style={{background: '#05060A', overflow: 'hidden'}}>
+    <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(circle at 22% 108%, rgba(228,85,15,.7), rgba(228,85,15,0) 55%), radial-gradient(circle at 92% -6%, rgba(228,85,15,.25), rgba(228,85,15,0) 48%)'}}/>
     <div style={{position: 'absolute', inset: 0, transformOrigin: '0 0', transform: `translate(${960 - cam.x * sc + dd.x}px, ${540 - cam.y * sc + dd.y}px) scale(${sc})`}}>
-      <svg width="1920" height="1080" style={{position: 'absolute', left: 0, top: 0}}>
-        <defs><linearGradient id="lt" x1="0" y1="0" x2="1" y2="1"><stop stopColor="#F6F5F1"/><stop offset="1" stopColor="#E4E2DA"/></linearGradient></defs>
-        <rect width="1920" height="1080" fill="url(#lt)"/>
-        <rect x="-200" y="620" width="900" height="900" rx="220" transform="rotate(-24 250 1000)" fill="#EFE6DC"/>
-        <rect x="1250" y="-300" width="900" height="900" rx="220" transform="rotate(18 1700 100)" fill="#F1EEE8"/>
-      </svg>
-      <Jendela x={WIN.x} y={WIN.y} w={WIN.w} h={WIN.h} bar="#F2F1ED" judul={<span style={{...ink(15, 500, '#55544F'), margin: '0 auto', paddingRight: 70}}>Claude Code</span>}>
+      <div style={{filter: 'invert(0.93) hue-rotate(180deg)'}}><Jendela x={WIN.x} y={WIN.y} w={WIN.w} h={WIN.h} bar="#F2F1ED" judul={<span style={{...ink(15, 500, '#55544F'), margin: '0 auto', paddingRight: 70}}>Claude Code</span>}>
         <div style={{position: 'absolute', left: 0, top: 0, width: 230, height: WIN.h - 28, background: T.soft, borderRight: `1px solid ${T.line}`, paddingTop: 16}}>
           {SESI.map((s, i) => <div key={s} style={{margin: '0 8px', padding: '8px 10px', borderRadius: 8, background: i === 0 ? T.sel : 'transparent', ...ink(15, i === 0 ? 500 : 400)}}>{s}</div>)}
         </div>
-        <div style={{position: 'absolute', left: 270, top: 26, width: 620, ...ink(20), lineHeight: 1.55}}>
+        {bal && <div style={{position: 'absolute', left: 270, top: 20, width: 640, ...ink(20), lineHeight: 1.5}}>
+          {(() => { const g = (d: number) => move(f, F(K.hapus + d), 3, 'land'); const sh = (d: number): React.CSSProperties => ({opacity: t >= K.hapus + d ? 1 : 0, transform: `translateY(${(1 - g(d)) * 10}px)`});
+            const BR = [['Tujuan', 'video perjalanan skill-development'], ['Gaya', 'premium, gelap'], ['Kiblat', 'kartu 07, 49, 63'], ['Durasi', '60 detik']];
+            return <>
+            <div style={{...sh(1.7), background: T.sel, borderRadius: 14, padding: '10px 16px', marginBottom: 12, fontSize: 17}}>{PROMPT}</div>
+            <div style={{...sh(2.0), color: AKSEN, marginBottom: 8, fontSize: 18}}>● Memuat skill-development …</div>
+            <div style={{...sh(2.35), marginBottom: 10}}>Untuk siapa, dan durasinya berapa?</div>
+            <div style={{border: `1px solid ${T.line}`, borderRadius: 10, fontSize: 17, overflow: 'hidden', opacity: t >= K.hapus + 2.6 ? 1 : 0}}>
+              {BR.map(([x, y], i) => { const d = 2.6 + i * 0.14; return <div key={x} style={{...sh(d), display: 'flex', padding: '7px 14px', borderBottom: i < 3 ? `1px solid ${T.line}` : 'none'}}><span style={{width: 110, color: T.muted}}>{x}</span><span>{y}</span></div>; })}</div>
+            <div style={{...sh(3.3), color: T.muted, marginTop: 10, fontSize: 17}}>Mengambil referensi: kartu 07, 49, 63 ›</div></>; })()}
+        </div>}
+        <div style={{position: 'absolute', left: 270, top: 26, width: 620, ...ink(20), lineHeight: 1.55, display: bal ? 'none' : 'block'}}>
           <div style={{color: T.muted, marginBottom: 14}}>Read cutting round 3 result ›</div>
           <div style={{marginBottom: 18}}>Potongan pertama sudah lolos pemeriksaan durasi dan sinkronisasi. Satu gerbang masih gagal, jadi saya kirim putaran berikutnya khusus untuk batas kalimat.</div>
           <div style={{color: T.muted, marginBottom: 14}}>Checking the next pass ›</div>
@@ -108,14 +119,14 @@ const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
         <div style={{position: 'absolute', left: 262, top: 462, width: 620, height: 92, borderRadius: 22, border: `1.5px solid ${T.line}`, background: '#FFFFFF', boxShadow: '0 4px 16px rgba(0,0,0,.05)'}}>
           <span style={{position: 'absolute', left: 22, bottom: 24, ...ink(32, 300, '#4A4944')}}>+</span>
           <span style={{position: 'absolute', left: 66, bottom: 26, ...ink(24, 400, ketik ? T.ink : T.muted), display: 'flex', alignItems: 'center'}}>
-            {ketik ? <><span>{isi}</span><span style={{width: 2, height: 28, background: AKSEN, opacity: caret ? 1 : 0, marginLeft: 1}}/>{isi.length <= 1 && <span style={{color: T.muted, marginLeft: 4}}>Type to filter</span>}</> : <span>Reply to Claude…</span>}
+            {ketik && isi === '' && t >= K.hapus + 1.5 ? null : ketik ? <><span style={{fontSize: isi.length > 30 ? 17 : 24, maxWidth: 520, whiteSpace: 'normal', lineHeight: 1.2}}>{isi}</span><span style={{width: 2, height: 28, background: AKSEN, opacity: caret ? 1 : 0, marginLeft: 1}}/>{isi.length <= 1 && <span style={{color: T.muted, marginLeft: 4}}>Type to filter</span>}</> : <span>Reply to Claude…</span>}
           </span>
-          <span style={{position: 'absolute', right: 16, bottom: 20, width: 44, height: 44, borderRadius: 22, background: ketik ? AKSEN : '#E6E4DE', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+          <span style={{position: 'absolute', right: 16, bottom: 20, width: 44, height: 44, borderRadius: 22, transform: `scale(${1 - 0.04 * (move(f, F(K.hapus + 1.5), 3, 'land') - move(f, F(K.hapus + 1.62), 4, 'heavy'))})`, background: ketik ? AKSEN : '#E6E4DE', display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></span>
         </div>
         <div style={{position: 'absolute', left: 470, top: 574, ...ink(14, 400, T.muted)}}>Opus 5.5 <span style={{marginLeft: 8}}>High</span><span style={{marginLeft: 12}}>Auto</span></div>
         {/* daftar perintah: tumbuh dari kolom ketik ke atas */}
-        {kartuH > 0 && <div style={{position: 'absolute', left: 282, top: 462 - 10 - kartuH, width: 650, height: kartuH, borderRadius: 16, background: '#FFFFFF',
+        {kartuH > 0 && <div style={{position: 'absolute', left: 282, top: 462 - 10 - kartuH, width: 650, height: kartuH, borderRadius: 16, background: '#FFFFFF', opacity: tumbuh, transform: `translateY(${(1 - tumbuh) * 12}px)`,
           boxShadow: '0 12px 36px rgba(0,0,0,.14), 0 2px 8px rgba(0,0,0,.08)', padding: 10, overflow: 'hidden', boxSizing: 'border-box'}}>
           <div style={{height: baris - 6, margin: '3px 0', borderRadius: 10, background: T.sel, display: 'flex', alignItems: 'center', padding: '0 18px', ...ink(46, 400)}}>{saran[Math.max(0, aktif)].teks}</div>
         </div>}
@@ -125,7 +136,10 @@ const Isi: React.FC<AppProps & {f: number}> = ({kunci: K, f, durasi}) => {
           <div style={{color: T.muted, fontWeight: 400, borderTop: `1px solid ${T.line}`, paddingTop: 14, marginBottom: 8}}>Outputs</div>
           {['sanding.jpg', 'RESEP.md', 'DESAIN.md'].map((x) => <div key={x} style={{padding: '5px 0', fontWeight: 400}}>{x}</div>)}
         </div>
-      </Jendela>
+      </Jendela></div>
+      {/* UI muncul dengan glitch mosaik piksel (kartu 63 k3): sel 40 px gelap/oranye hilang acak dalam 14 f */}
+      {f < 18 && Array.from({length: 18 * 17}, (_, n) => { const cx = n % 18, cy = Math.floor(n / 18); const hh = ((cx * 7919 + cy * 104729 + 13) % 97) / 97; const off = 3 + Math.floor(hh * 13);
+        return f < off ? <div key={n} style={{position: 'absolute', left: WIN.x - 10 + cx * 64, top: WIN.y - 10 + cy * 40, width: 64, height: 40, background: hh > 0.8 ? '#E4550F' : hh > 0.55 ? '#1A1D26' : '#0B0D12'}}/> : null; })}
       <Kursor x={kx} y={ky} klik={klik}/>
     </div>
     <div style={{display: 'none'}}>{CX}{CY}</div>

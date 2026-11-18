@@ -8,7 +8,7 @@ import {DuniaRepo, type DuniaRepoProps} from './b1';
 import {Slop, type SlopProps} from './b2';
 import {AppClaude, type AppProps} from './b3';
 import {Kartu, type KartuProps, KARTU} from './b4';
-import {RelayDunia, type RelayProps} from './b5';
+import {DesktopAgen, type DesktopProps} from './b7';
 import {BubbleSapa, type BubbleProps} from './bersama/BubbleSapa';
 import {ModelGemini} from './bersama/BubbleModelGemini';
 import {Coretan, type CoretanProps} from './bersama/Coretan';
@@ -34,8 +34,8 @@ export const VideoRoot: React.FC = () => <>
   <Composition id="Kartu" component={Kartu as React.FC<any>} fps={30} width={KARTU.w + 2 * KARTU.margin} height={KARTU.h + 2 * KARTU.margin} durationInFrames={150}
     defaultProps={{model: 'chatgpt', label: 'ChatGPT Pro', angka: 20, durasi: 5, terbang: 0.45, jarak: 900} satisfies KartuProps}
     calculateMetadata={meta as never}/>
-  <Composition id="RelayDunia" component={RelayDunia as React.FC<any>} fps={30} width={1920} height={1080} durationInFrames={400}
-    defaultProps={{pre: 8, post: 8, preT0: 59.2, postT0: 72.65, zPre: 1.04, durasi: 13.7, kunci: {ketik1: 0.7, pesan1: 1.42, amplop1: 1.98, ketik2: 2.7, pesan2: 3.5, amplop2: 3.74, pesan3: 5.9, catat: 8.56, loop: 10.8, selesai: 11.4, keluar: 12.8}} satisfies RelayProps} calculateMetadata={meta as never}/>
+  <Composition id="RelayDunia" component={DesktopAgen as React.FC<any>} fps={30} width={1920} height={1080} durationInFrames={440}
+    defaultProps={{pre: 8, post: 8, preT0: 57.66, postT0: 72.07, zPre: 1.06, durasi: 14.67, kunci: {ketik1: 1.5, kirim1: 3.1, tiba1: 3.7, ketik2: 4.0, kirim2: 4.9, tiba2: 5.5, masukB: 5.7, ketikN: 6.8, kirimN: 9.7, tibaN: 10.5, loop: 10.9, ok: 12.9, keluar: 13.7}} satisfies DesktopProps} calculateMetadata={meta as never}/>
   <Composition id="Komentar" component={Komentar as React.FC<any>} fps={30} width={700} height={260} durationInFrames={90}
     defaultProps={{nama: '@pengguna', teks: 'Lumayan nih', sisi: 'kiri', warna: '#9AA3B2', durasi: 3, w: 700, h: 260, size: 56} satisfies KomentarProps} calculateMetadata={meta as never}/>
   <Composition id="DuniaIG" component={DuniaIG as React.FC<any>} fps={30} width={1920} height={1080} durationInFrames={225}

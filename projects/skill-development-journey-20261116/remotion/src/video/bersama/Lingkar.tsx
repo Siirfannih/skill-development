@@ -17,7 +17,7 @@ export type LingkarProps = {
   /** zoom kamera dasar saat lapisan mulai (dan saat berakhir) supaya tidak ada loncatan */
   z0?: number; z1?: number;
   /** Clawd ikut masuk lingkaran (Irfan 17 Nov): koordinat FOOTAGE; dari bahu (x0,y0) melompat ke rambut (x1,y1) selama menyusut; tampil sampai `sampai` dtk */
-  clawd?: {u: number; x0: number; y0: number; x1: number; y1: number; sampai: number; besar?: number};
+  clawd?: {u: number; x0: number; y0: number; x1: number; y1: number; sampai: number; besar?: number; proud?: number};
   v?: number;
 };
 
@@ -47,7 +47,7 @@ const Isi: React.FC<LingkarProps & {fr: number}> = ({t0, tumbuhAt, langsung, fr,
     const b = 1 + ((c.besar ?? 1) - 1) * k * (1 - grow);               // membesar sedikit saat di dalam lingkaran supaya terbaca (skala footage 0,62)
     clawdEl = <div style={{position: 'absolute', left: X - w / 2, top: Y - (17 * c.u + 40), width: w, height: h, transformOrigin: `${w / 2}px ${17 * c.u + 40}px`, transform: `scale(${b})`}}>
       <KarakterLayer model="claude" u={c.u} durasi={c.sampai + 0.1} seed={1} kamar
-        emosi={[[0, 'happy'], [0.6, 'excited'], [1.2, 'happy']] as never} sudut={[[0, -0.125], [0.5, -0.125], [0.9, 0.125]]}
+        emosi={([[0, 'happy'], [0.6, 'excited'], [1.2, 'happy'], ...(c.proud !== undefined ? [[c.proud, 'proud']] : [])]) as never} sudut={[[0, -0.125], [0.5, -0.125], [0.9, 0.125]]}
         lompat={[[0.07, 0.6, 3.2]]} emote={[[999, 'seru', 0.1]]}/>
     </div>;
   }

@@ -112,7 +112,7 @@ T["b6b"] = s("Dan", 74.5); T["profesional"] = s("profesional"); T["masih2"] = s(
 T["comment"] = s("Comment"); T["skill"] = s("skill"); T["gratis_e"] = e("gratis")
 
 # --- jangkar tambahan untuk penekanan kamera dan REVISI-1 ---
-T["mempelajari"] = s("mempelajari"); T["publish"] = s("publish"); T["habis"] = s("habis", 42.5); T["langganan"] = s("langganan"); T["uji"] = s("uji", 51)
+T["mempelajari"] = s("mempelajari"); T["appx"] = round(T["mempelajari"] - 0.35, 3); T["publish"] = s("publish"); T["habis"] = s("habis", 42.5); T["langganan"] = s("langganan"); T["uji"] = s("uji", 51)
 T["lintas"] = s("lintas", 56); T["claude_b4"] = s("Claude", 48.5); T["comment_w"] = s("Comment")
 T["udah"] = s("Udah", 75); T["videonya"] = s("videonya", 74); T["gimana_v"] = s("gimana", 75)
 T["kayak_v"] = s("kayak", 74.5)
@@ -134,7 +134,7 @@ SLOT_VIS = SLOT_T
 
 def _potong():
     w1 = T["dunia1"]; dur1 = round(T["b1b"] + 0.2 - w1, 2); tum = round(dur1 - 0.48, 3)
-    w3 = round((T["b3a"] - 0.1) * FPS) / FPS; dur3 = round(T["gimana"] - 0.1 - w3 + 0.75, 2); k3 = round(T["gimana"] - 0.1 - w3, 3)
+    w3 = round((T["b3a"] - 0.1) * FPS) / FPS; dur3 = round(T["appx"] - w3 + 0.75, 2); k3 = round(T["appx"] - w3, 3)
     w5s = round((T["lihat_e"] - 8 / FPS) * FPS) / FPS
     s0 = SLOT_VIS
     return [(_so(w1), "masuk dunia repo"), (_so(w1) + round(tum * FPS) / FPS, "kembali ke wajah dari repo"), (_so(T["decision"]), "cut decision"),

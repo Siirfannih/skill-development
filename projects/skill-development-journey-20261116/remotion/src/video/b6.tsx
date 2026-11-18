@@ -42,7 +42,7 @@ import {CURVE} from '../lib/curves';
 
 /** coretan di dalam dunia IG (ikut kamera): tulisan tangan + panah ke kolom komentar; tampil [awal, akhir) detik relatif lapisan, keluar = potongan */
 export type CoretanIG = {awal: number; akhir: number; tulis: TulisProps; panah: PanahProps};
-export type IGProps = {durasi: number; t0: number; z0: number; kunci: {k1: number; k2: number; field: number}; coret?: CoretanIG; rev?: number;
+export type IGProps = {durasi: number; t0: number; z0: number; kunci: {k1: number; k2: number; field: number}; /** detik relatif: denyut ring biru kolom komentar (2x) */ ring?: number[]; coret?: CoretanIG; rev?: number;
   /** kunci kamera [detik, skala, pusat x, pusat y, kurva menuju kunci berikut]; sumber tunggal (bangun.py + cek_tumpuk) */
   kamera?: [number, number, number, number, 'heavy' | 'drift'][]};
 
@@ -60,17 +60,22 @@ const Avatar: React.FC<{s: number; w: string; huruf?: string}> = ({s, w, huruf})
   <div style={{width: s, height: s, borderRadius: s / 2, background: w, color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', ...ig(s * 0.42, 600, '#fff'), flexShrink: 0}}>{huruf}</div>
 );
 
-const Komen: React.FC<{f: number; mulai: number; y: number; nama: string; teks: string; w: string; huruf: string}> = ({f, mulai, y, nama, teks, w, huruf}) => {
+const Komen: React.FC<{f: number; mulai: number; y: number; nama: string; teks: string; w: string; huruf: string; jenis?: 'slop' | 'puji'}> = ({f, mulai, y, nama, teks, w, huruf, jenis}) => {
   if (f < mulai - 1) return null;
-  const e = move(f, mulai, 9, 'reveal'), pop = move(f, mulai + 3, 6, 'heavy') - move(f, mulai + 9, 8, 'heavy');
+  // slop: pop pelan (drift 14 f) + getar kecil yang meredam; puji: pop cepat (land) + overshoot, hati memantul merah
+  const e = jenis === 'slop' ? move(f, mulai, 14, 'drift') : move(f, mulai, 9, 'reveal');
+  const pop = move(f, mulai + 3, 6, 'heavy') - move(f, mulai + 9, 8, 'heavy');
+  const getar = jenis === 'slop' ? Math.sin((f - mulai) * 1.9) * 5 * (1 - move(f, mulai + 8, 14, 'drift')) * move(f, mulai + 4, 3, 'land') : 0;
+  const hati = jenis === 'puji' ? move(f, mulai + 10, 5, 'land') : 0;
+  const lompat = jenis === 'puji' ? (move(f, mulai + 10, 6, 'land') - move(f, mulai + 16, 8, 'heavy')) : 0;
   return <div style={{position: 'absolute', left: 24, right: 24, top: y, display: 'flex', gap: 16, alignItems: 'flex-start', opacity: e > 0.02 ? 1 : 0, filter: `blur(${(1 - e) * 6}px)`, // motion-ok: MG63 §2 masuk blur→tajam (reveal)
-    transform: `translateY(${18 * (1 - e)}px) scale(${0.96 + 0.04 * e + 0.015 * pop})`, transformOrigin: '0 50%'}}>
+    transform: `translateX(${getar}px) translateY(${18 * (1 - e)}px) scale(${(jenis === 'slop' ? 0.9 : 0.96) + (jenis === 'slop' ? 0.1 : 0.04) * e + 0.015 * pop + (jenis === 'puji' ? 0.04 * lompat : 0)})`, transformOrigin: '0 50%'}}>
     <Avatar s={52} w={w} huruf={huruf}/>
     <div style={{flex: 1, paddingTop: 2}}>
       <div style={{...ig(27), lineHeight: 1.3}}><span style={{fontWeight: 600}}>{nama}</span> {teks}</div>
       <div style={{display: 'flex', gap: 22, marginTop: 6, ...ig(21, 500, IGC.abu)}}><span>1m</span><span>Reply</span></div>
     </div>
-    <div style={{paddingTop: 10}}><Ikon d={HATI} s={24} c={IGC.abu}/></div>
+    <div style={{paddingTop: 10, transform: `translateY(${-14 * lompat}px) scale(${1 + 0.5 * lompat})`}}>{hati > 0.3 ? <Ikon d={HATI} s={26} c="#ED4956" isi/> : <Ikon d={HATI} s={24} c={IGC.abu}/>}</div>
   </div>;
 };
 
@@ -86,7 +91,7 @@ const kameraIG = (t: number, keys: NonNullable<IGProps['kamera']>) => {
   return {s: s0 + (s1 - s0) * k, x: x0 + (x1 - x0) * k, y: y0 + (y1 - y0) * k};
 };
 
-const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kamera}) => {
+const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kamera, ring}) => {
   const {fps} = useVideoConfig();
   const t = f / fps;
   const F = (s: number) => Math.round(s * fps);
@@ -99,7 +104,8 @@ const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kam
   const caret = Math.floor((f - F(K.field)) / 15) % 2 === 0;
   const aktif = t >= K.field;
   const vs = (rw / 1920) * zz;
-  return <AbsoluteFill style={{background: '#FFFFFF', overflow: 'hidden'}}>
+  const denyut = (ring ?? []).reduce((m, r) => { const q = (f - F(r)) / 14; return q >= 0 && q < 1 ? Math.max(m, q) : m; }, -1);
+  return <AbsoluteFill style={{background: '#ECECEC', overflow: 'hidden'}}>
     <div style={{position: 'absolute', inset: 0, transformOrigin: '0 0', transform: `translate(${960 - cam.x * cam.s}px, ${540 - cam.y * cam.s}px) scale(${cam.s})`}}>
       {/* navigasi kiri Instagram desktop */}
       <div style={{position: 'absolute', left: 0, top: 0, width: 110, height: 1080, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 46, paddingTop: 60, opacity: modal}}>
@@ -122,21 +128,22 @@ const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kam
             <div style={{...ig(27), lineHeight: 1.3}}><span style={{fontWeight: 600}}>siirfannih</span> 100% full pakai AI<div style={{...ig(21, 400, IGC.abu), marginTop: 6}}>2w</div></div>
           </div>
           <div style={{position: 'absolute', left: 0, right: 0, top: 210}}>
-            <Komen f={f} mulai={F(K.k1)} y={0} nama="andi_prasetyo" teks="masih kerasa AI slop" w="#8E7CC3" huruf="a"/>
-            <Komen f={f} mulai={F(K.k2)} y={118} nama="salsa.kirana" teks="Keren editan profesional" w="#E58E5B" huruf="s"/>
+            <Komen f={f} mulai={F(K.k1)} y={0} nama="andi_prasetyo" teks="masih kerasa AI slop" w="#8E7CC3" huruf="a" jenis="slop"/>
+            <Komen f={f} mulai={F(K.k2)} y={118} nama="salsa.kirana" teks="Keren editan profesional" w="#E58E5B" huruf="s" jenis="puji"/>
           </div>
           <div style={{position: 'absolute', left: 0, right: 0, bottom: 0, borderTop: `1px solid ${IGC.garis}`}}>
             <div style={{display: 'flex', gap: 22, padding: '16px 24px 6px', alignItems: 'center'}}><Ikon d={HATI} s={34}/><Ikon d={KOMEN} s={32}/><Ikon d={KIRIM} s={32}/><span style={{marginLeft: 'auto'}}><Ikon d={SIMPAN} s={32}/></span></div>
             <div style={{padding: '4px 24px 14px', ...ig(19, 400, IGC.abu)}}>November 17</div>
-            <div style={{display: 'flex', alignItems: 'center', gap: 16, padding: '14px 24px 18px', borderTop: `1px solid ${IGC.garis}`}}>
+            <div style={{display: 'flex', alignItems: 'center', gap: 16, padding: '14px 24px 18px', borderTop: `1px solid ${IGC.garis}`, boxShadow: aktif ? 'inset 0 0 0 3px #0095F6' : undefined, background: aktif ? '#F5FAFF' : undefined}}>
               <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke={IGC.ink} strokeWidth="1.8" strokeLinecap="round"><circle cx="12" cy="12" r="9.5"/><path d="M8 14c1.2 2 6.8 2 8 0M9 9.5v.5M15 9.5v.5"/></svg>
               <span style={{...ig(25, 400, IGC.abu), display: 'flex', alignItems: 'center'}}>
                 {aktif && <span style={{width: 2, height: 28, background: IGC.ink, marginRight: 2, opacity: caret ? 1 : 0}}/>}Add a comment…</span>
-              <span style={{marginLeft: 'auto', ...ig(24, 600, '#B2DFFC')}}>Post</span>
+              <span style={{marginLeft: 'auto', ...ig(24, 600, aktif ? '#0095F6' : '#B2DFFC')}}>Post</span>
             </div>
           </div>
         </div>
       </div>
+      {denyut >= 0 && <div style={{position: 'absolute', left: 1140 - (8 + 30 * denyut), top: 800 - (8 + 30 * denyut), width: 600 + 2 * (8 + 30 * denyut), height: 80 + 2 * (8 + 30 * denyut), borderRadius: 14 + 20 * denyut, border: `4px solid rgba(0,149,246,${1 - denyut})`, pointerEvents: 'none'}}/>}
       {/* kotak hitam latar video: SATU gerak dengan video (p yang sama, bersarang di dalamnya) dari layar penuh ke kotak media; tidak ada tepi hitam tertinggal (audit ronde 7 W2) */}
       <div style={{position: 'absolute', left: MODAL.x * p, top: MODAL.y * p, width: 1920 + (MEDIA_W - 1920) * p, height: 1080 + (MODAL.h - 1080) * p, background: '#000', borderRadius: `${12 * p}px 0 0 ${12 * p}px`}}/>
       {/* video: mengecil dari layar penuh ke kotak media 16:9; footage terus berjalan (proxy wajah) */}

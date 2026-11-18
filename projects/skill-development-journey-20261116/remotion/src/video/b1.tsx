@@ -6,21 +6,22 @@ import {AbsoluteFill, interpolate, useCurrentFrame, useVideoConfig} from 'remoti
 import {CameraMotionBlur} from '@remotion/motion-blur';
 import {Icon} from '../komponen/K01/icons';
 import {REPO} from '../komponen/K01/data';
-import {CURVE, move} from '../lib/curves';
+import {CURVE, move, react} from '../lib/curves';
 import {Karakter2D} from '../papan/karakter2d/Karakter2D';
 import {jump, stroll} from '../papan/karakter2d/gerak';
 import {Fonts} from './bersama/Fonts';
 import {FONT, HIJAU, INK, MUTED} from './bersama/tema';
 import {Jendela} from './bersama/Jendela';
 
-export type DuniaRepoProps = {durasi: number; /** detik relatif: waktu kunci dari words.json */ kunci: {lift: number; geser: number; tekan: number; selesai: number; keluar: number}};
+export type DuniaRepoProps = {durasi: number; /** detik relatif: waktu kunci dari words.json */ kunci: {lift: number; geser: number; tekan: number; selesai: number; keluar: number};
+  /** R5/A: onset kata (detik relatif dunia, onset + 2 f) */ kata?: {akhirnya: number; proyek: number; ini: number; selesai: number; juga: number}; rev?: number};
 
 const C = {line: '#D0D7DE', soft: '#F6F8FA', blue: '#0969DA'};
 const flex: React.CSSProperties = {display: 'flex', alignItems: 'center'};
 const ell: React.CSSProperties = {overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'};
 
 // ---- panel timeline (koordinat halaman) ----
-const PANEL = {x: 275, y: 290, w: 1140, h: 640};
+const PANEL = {x: 275, y: 290, w: 1140, h: 440};
 const V1 = [{x: 24, w: 150}, {x: 184, w: 220}, {x: 414, w: 130}, {x: 554, w: 190}, {x: 754, w: 150}];
 const CORAL_K = ['#FFB5AE', '#FFC7C1', '#FFA79F', '#FFD0CB', '#FFB5AE'];
 const CELAH = {x: 914, w: 160};
@@ -62,7 +63,7 @@ const Panel: React.FC<{tw: number; K: DuniaRepoProps['kunci']}> = ({tw, K}) => {
     {/* tiga track warna lembut (merah / kuning / teal) + playhead tipis; klip bertinggi ±3 % frame */}
     {track(VY - 28, '#FFE08A', [{x: 120, w: 180}, {x: 330, w: 240}, {x: 640, w: 200}, {x: 880, w: 130}])}
     <div style={{position: 'absolute', left: 0, right: 0, top: VY - 8 + 20, height: KH + 16, background: '#F3F5FA'}}>
-      {V1.map((k, i) => <Klip key={i} x={k.x} y={8} w={k.w} h={KH} c={CORAL_K[i]} c2={CORAL_K[i]}/>)}
+      {V1.map((k, i) => { const e = move(f, 4 + react(i, 30, 0.9), 12, 'land'); return <Klip key={i} x={k.x + 260 * (1 - e)} y={8} w={k.w} h={KH} c={CORAL_K[i]} c2={CORAL_K[i]} kunci={e > 0.98 ? move(f, 4 + react(i, 30, 0.9) + 12, 3, 'land') * (1 - move(f, 4 + react(i, 30, 0.9) + 15, 6, 'heavy')) : 0}/>; })}
       <div style={{position: 'absolute', left: CELAH.x, top: 8, width: CELAH.w, height: KH, borderRadius: 12, border: '3px dashed #B9C2D6', opacity: 1 - lock, boxSizing: 'border-box'}}/>
       <div style={{position: 'absolute', left: CELAH.x - 10, top: -2, width: CELAH.w + 20, height: KH + 20, borderRadius: 18, border: `3px solid ${HIJAU}`,
         opacity: (1 - ring) * ring * 4, transform: `scale(${1 + 0.12 * ring})`}}/>
@@ -142,37 +143,49 @@ const kamera = (tw: number, K: DuniaRepoProps['kunci']) => {
   return {s: s0 + (s1 - s0) * k, x: x0 + (x1 - x0) * k, y: y0 + (y1 - y0) * k};
 };
 
-const Isi: React.FC<DuniaRepoProps & {f: number}> = ({kunci: K, f, durasi}) => {
+const SF = (w: number): React.CSSProperties => ({fontFamily: FONT.sf, fontWeight: w, letterSpacing: '-0.03em'});
+const Kata: React.FC<{f: number; at: number; warna: string; size: number; children: string}> = ({f, at, warna, size, children}) => {
+  const lf = f - Math.round(at * 30);
+  if (lf < 0) return null;
+  const q = CURVE.land(Math.min(1, lf / 3));
+  return <span style={{display: 'inline-block', color: warna, fontSize: size, lineHeight: 1, opacity: lf >= 2 ? 1 : 0.45 + 0.28 * lf, transform: `translateY(${(1 - q) * 0.15 * size}px) scale(${0.92 + 0.08 * q})`,
+    filter: lf < 2 ? `blur(${lf < 1 ? 3 : 1.5}px)` : undefined /* motion-ok: masuk cepat 3 f */}}>{children}</span>;
+};
+
+const Isi: React.FC<DuniaRepoProps & {f: number}> = ({kunci: K, kata, f, durasi}) => {
   const {fps} = useVideoConfig();
   const t = f / fps;
-  const cam = kamera(t, K);
-  const masuk = move(f, 0, 16, 'heavy');                 // dorong menembus: dunia datang dari skala 1,55
+  const kt = kata ?? {akhirnya: 0.2, proyek: 0.8, ini: 1.4, selesai: K.selesai, juga: K.selesai + 0.6};
+  const masuk = move(f, 0, 16, 'heavy');
   const keluar = move(f, Math.round(K.keluar * fps), Math.round((durasi - K.keluar) * fps), 'heavy');
-  const sc = cam.s * (1 + 0.55 * (1 - masuk) + 0.5 * keluar);
-  const sel = Math.round(K.selesai * fps);
-  // Clawd: mendarat (0,35), mengangkat klip, berjalan ke kanan membawa klip, melompat menekan, lalu melompat senang
-  const mulaiX = PANEL.x + 700, akhirX = PANEL.x + CELAH.x + CELAH.w / 2 + 4;
-  const walk = stroll(t, K.geser, K.tekan - 0.12, mulaiX, akhirX, U);
-  const drop = move(f, 6, 14, 'heavy');
-  const tekan = jump(t, K.tekan - 0.12, K.tekan - 0.02, 2.2);
-  const senang = jump(t, K.selesai + 0.04, K.selesai + 0.4, 3.2);
-  const emo: [number, string][] = [[0, 'neutral'], [K.lift - 0.05, 'idea'], [K.tekan - 0.02, 'excited'], [K.selesai + 0.02, 'happy']];
-  const bawa = t >= K.lift && t < K.tekan - 0.02;
-  const carryY = GROUND - U * 8.4 - 20 - KH;
-  // klip terakhir: di lantai -> diangkat -> dibawa di atas kepala -> naik ke celah
-  const naik = move(f, Math.round(K.lift * fps), 8, 'land');
-  const k5y = bawa || t >= K.lift ? (GROUND - KH) + (carryY - (GROUND - KH)) * naik : GROUND - KH;
-  const k5x = bawa ? walk.x - CELAH.w / 2 : t < K.lift ? mulaiX + 150 : PANEL.x + CELAH.x;
-  return <AbsoluteFill style={{background: '#EEF1F6', overflow: 'hidden'}}>
-    <div style={{position: 'absolute', inset: 0, transformOrigin: '0 0', transform: `translate(${960 - cam.x * sc}px, ${540 - cam.y * sc}px) scale(${sc})`}}>
-      <div style={{position: 'absolute', left: 0, top: 0, width: 1920, height: 1080, transformOrigin: '50% 100%', transform: 'perspective(3000px) rotateX(6deg) scale(1.03)'}}>
-        <Halaman f={f} kSelesai={sel}/>
-        <Panel tw={t} K={K}/>
-        {t < K.tekan - 0.07 && <Klip x={k5x} y={k5y} w={CELAH.w} h={KH} c={CORAL_K[4]} c2={CORAL_K[4]} rot={bawa ? -2 + 4 * Math.sin(t * 9) * 0.25 : 0}/>}
-        {false && t >= 0.2 && <div style={{position: 'absolute', inset: 0, filter: 'drop-shadow(8px 22px 16px rgba(20,30,60,.30))'}}><Karakter2D model="claude" id="b1-clawd" x={walk.x} y={GROUND} u={U} t={t} seed={1} lantai sudut={walk.walk > 0 && t < K.tekan ? 0.125 : 0.125}
-          emosi={emo.map(([a, n]) => [a, n] as [number, string])}
-          ekstra={{sq: tekan.sq + senang.sq, dy: tekan.dy + senang.dy + (walk.dy ?? 0) - 12 * (1 - drop)}}/></div>}
+  const sel = Math.round(kt.selesai * fps);
+  // kamera: dorong pelan ke jendela sampai "selesai", lalu mundur pelan (lega): sebab-akibat selesai -> kamera lega
+  const mundur = move(f, sel, Math.round(1.1 * fps), 'drift');
+  const dorong = move(f, 0, sel, 'drift');
+  const sc = (1.0 + 0.05 * dorong - 0.09 * mundur) * (1 + 0.45 * (1 - masuk) + 0.4 * keluar);
+  const lega = move(f, sel, 8, 'land');
+  const centang = move(f, sel + 2, 8, 'land') - 0.06 * move(f, sel + 10, 8, 'heavy');
+  const wm = move(f, sel, 10, 'land');             // jendela meredup halus supaya kata selesai terbaca (satu fokus)
+  return <AbsoluteFill style={{background: '#05060A', overflow: 'hidden'}}>
+    <div style={{position: 'absolute', inset: 0, background: 'radial-gradient(circle at 18% 112%, rgba(228,85,15,.75), rgba(228,85,15,0) 58%), radial-gradient(circle at 86% -8%, rgba(228,85,15,.28), rgba(228,85,15,0) 50%)', transform: `translate(${-30 * dorong}px, ${12 * dorong}px)`}}/>
+    <div style={{position: 'absolute', inset: 0, transformOrigin: '50% 50%', transform: `scale(${sc})`}}>
+      <div style={{position: 'absolute', left: 275 + 155, top: 290 - 75, width: 1, height: 1, transform: 'translate(-275px, -290px)'}}>
+        <div style={{position: 'absolute', left: 0, top: 0, width: 1920, height: 1080, transformOrigin: '1000px 560px', transform: 'perspective(2400px) rotateY(-9deg) rotateX(5deg) rotateZ(-1deg)',
+          filter: 'drop-shadow(0 50px 70px rgba(12,24,90,.38))'}}>
+          <div style={{filter: 'invert(0.93) hue-rotate(180deg)'}}><Panel tw={t} K={K}/></div>
+          <div style={{position: 'absolute', left: PANEL.x, top: PANEL.y, width: PANEL.w, height: PANEL.h, borderRadius: 18, background: 'rgba(5,6,10,0.78)', opacity: wm}}/>
+        </div>
       </div>
+      {/* kalimat 07: "akhirnya proyek ini" di atas jendela, kata per kata di onset; berakhir (potongan) saat "selesai." mendarat */}
+      {f < sel && <div style={{position: 'absolute', left: 0, right: 0, top: 78, textAlign: 'center', ...SF(700), whiteSpace: 'pre'}}>
+        <Kata f={f} at={kt.akhirnya} warna="#FFFFFF" size={112}>akhirnya </Kata><Kata f={f} at={kt.proyek} warna="#FF8A4C" size={112}>proyek </Kata><Kata f={f} at={kt.ini} warna="#FFFFFF" size={112}>ini</Kata></div>}
+      {/* "selesai." SF Pro Display Bold, pusat, mendarat saat kamera mundur */}
+      {f >= sel && <div style={{position: 'absolute', left: 0, right: 0, top: 300, textAlign: 'center', ...SF(700), color: '#FFFFFF', fontSize: 230, lineHeight: 1,
+        opacity: 1, transform: `translateY(${(1 - CURVE.land(Math.min(1, (f - sel) / 4))) * 36}px)`, filter: f - sel < 2 ? 'blur(3px)' : undefined /* motion-ok: masuk 3 f */}}>
+        selesai.<div style={{position: 'absolute', right: 300, top: -34, width: 112, height: 112, borderRadius: '50%', background: HIJAU, display: 'flex', alignItems: 'center', justifyContent: 'center', transform: `scale(${centang})`, boxShadow: '0 14px 30px rgba(26,127,55,.4)'}}>
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#FFF" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div></div>}
+      {f >= Math.round(kt.juga * fps) && <div style={{position: 'absolute', left: 0, right: 0, top: 545, textAlign: 'center', ...SF(500), fontSize: 80, color: '#FFFFFF', opacity: 0.88}}>
+        <Kata f={f} at={kt.juga} warna="#FFFFFF" size={80}>juga.</Kata></div>}
     </div>
   </AbsoluteFill>;
 };

@@ -82,7 +82,9 @@ def vox(name,pos,parent,material=None):
   # Per-object material slot avoids duplicating the geometry.
   for sl in o.material_slots:sl.link='OBJECT';sl.material=random.choice(clays)
  return o
-body=empty('Claude body turn and nod',(-.105,-.065,.065))
+# R5b/E (D-420): Claude menghadap MONITOR (yaw 138°, terlihat 3/4 dari belakang), di tepi kiri frame sebagai lapis depan; tak menatap kamera.
+CL0=(-.235,-.05,.065)
+body=empty('Claude body turn and nod',CL0)
 body['body_width_height_ratio']=1.9
 body['reference']='sumber/ref/maskot-acuan-pixel-crab.png'
 for x in range(19):
@@ -105,8 +107,9 @@ for sign in [-1,1]:
    for z in range(3):vox('Arm voxel',(sign*x*.01,(y-1)*.01,z*.01),a)
  a.rotation_euler[1]=0;arms.append(a)
 # Irfan 17 Nov: shot mulai lebih awal ("Ini 100% full pakai AI") -> sebelum onset Claude sedang mengedit: angguk kecil berirama, tangan mengetik bergantian
-_pre=[(f,28,(3 if k%2 else 0)) for k,f in enumerate(range(9,ON-18,9))]
-for f,ang,nod in [(1,28,0)]+_pre+[(ON-16,28,0),(ON-6,112,0),(ON+3,125,0),(ON+13,72,0),(ON+21,28,0),(ON+25,28,9),(ON+29,28,-3),(N,28,0)]:
+YAW=138
+_pre=[(f,YAW+(-3 if k%2 else 3),(2 if k%2 else 0)) for k,f in enumerate(range(9,ON-18,9))]
+for f,ang,nod in [(1,YAW,0)]+_pre+[(ON-16,YAW,0),(ON-6,YAW+7,3),(ON+3,YAW+9,4),(ON+13,YAW+3,1),(ON+21,YAW,0),(ON+25,YAW,3),(ON+29,YAW,-1),(N,YAW,0)]:
  body.rotation_euler=(math.radians(nod),0,math.radians(ang));key(body,'rotation_euler',f)
 smooth(body)
 for j,a in enumerate(arms):
@@ -133,6 +136,7 @@ cylinder('Glowing diffuser',(-.225,.06,.274),.047,.002,lightmat)
 area('3000K practical key',(-.225,.045,.27),(-.09,-.06,.055),(1,.58,.29),9,.105)
 area('Warm silhouette rim',(-.055,.095,.30),(-.105,-.065,.115),(1,.49,.22),2.7,.09)
 area('Weak monitor blue fill',(.10,.09,.19),(-.10,-.08,.09),(.56,.69,1),.65,.23)
+area('Foreground Claude back fill',(-.36,-.42,.26),(-.235,-.05,.10),(1,.62,.36),2.6,.22)
 area('Soft warm room bounce',(.24,-.24,.39),(-.08,-.02,.08),(1,.77,.53),1.4,.34)
 # Peripheral props remain unlabelled and deliberately subdued.
 ceramic=mat('Mug charcoal glaze','222321',.25)
@@ -149,17 +153,15 @@ cu=bpy.data.curves.new('Keyboard cord','CURVE');cu.dimensions='3D';cu.bevel_dept
 for p,co in zip(sp.bezier_points,[(-.19,-.025,.012),(-.24,.012,.006),(-.19,.08,.005),(-.11,.14,.005)]):p.co=co;p.handle_left_type=p.handle_right_type='AUTO'
 o=bpy.data.objects.new('Keyboard cable',cu);s.collection.objects.link(o);o.data.materials.append(graphite)
 # Camera advances towards the action, then transfers attention to the new text block.
-bpy.ops.object.camera_add();cam=bpy.context.object;s.camera=cam;cam.name='Macro push with rack focus';cam.data.lens=46;cam.data.sensor_width=36;cam.data.clip_start=.01;cam.data.clip_end=10;cam.data.dof.use_dof=True;cam.data.dof.aperture_fstop=2.0;cam.data.dof.aperture_blades=9
-focus=empty('Rack focus subject',(-.105,-.065,.115));cam.data.dof.focus_object=focus
-# The macro composition stays on Claude during the focus handoff.
-for f,pos in [(1,(-.105,-.73,.23)),(N,(-.105,-.70,.225))]:
- cam.location=Vector((-.105,-.065,.115))+.91*(Vector(pos)-Vector((-.105,-.065,.115)));aim(cam,(-.058,-.040,.113));key(cam,'location',f);key(cam,'rotation_euler',f)
-# Half a second into the monitor, then back to the toy within 0.7 s.
-for f,fp in [(1,(-.105,-.065,.115)),(ON-15,(-.105,-.065,.115)),
-             (ON-1,(mx,my-.0064,.122)),(ON+6,(mx,my-.0064,.122)),
-             (ON+21,(-.105,-.065,.115)),(N,(-.105,-.065,.115))]:
- focus.location=fp;key(focus,'location',f)
-smooth(cam);smooth(focus)
+bpy.ops.object.camera_add();cam=bpy.context.object;s.camera=cam;cam.name='Push-in ke monitor';cam.data.lens=46;cam.data.sensor_width=36;cam.data.clip_start=.01;cam.data.clip_end=10;cam.data.dof.use_dof=True;cam.data.dof.aperture_fstop=3.4;cam.data.dof.aperture_blades=9
+# R5b/E: fokus tetap di wajah Irfan pada timeline monitor; kamera push-in pelan kontinu 1,15x -> 1,30x (linear, tanpa ease supaya terus bergerak).
+FACE=(mx+.050,my-.0064,mz+.033)
+focus=empty('Fokus wajah di timeline',FACE);cam.data.dof.focus_object=focus
+AIM=Vector((mx-.090,my-.0064,mz-.030));DIRC=Vector((-.10,-.92,.10)).normalized();DB=.80
+for f,z in [(1,1.15),(N,1.30)]:
+ cam.location=AIM+DIRC*(DB/z);aim(cam,AIM);key(cam,'location',f);key(cam,'rotation_euler',f)
+for fc in action_curves(cam.animation_data.action):
+ for k in fc.keyframe_points:k.interpolation='LINEAR'
 # Optical bloom in scene; grain and vignette are applied by finish.py to review copies.
 if bpy.app.version >= (5,0,0):
  nt=bpy.data.node_groups.new('B10a optical finish','CompositorNodeTree');s.compositing_node_group=nt;nt.interface.new_socket(name='Image',in_out='OUTPUT',socket_type='NodeSocketColor');n=nt.nodes;comp=n.new('NodeGroupOutput')

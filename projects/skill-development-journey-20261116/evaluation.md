@@ -182,3 +182,12 @@ Kolom: beat · sekarang · sejalan? · emosi → gerak pembawa · bunyi pembawa 
 | B9 76,5–83,8 | "profesional nggak? … masih kerasa AI? … Comment di bawah … skill gratis" | IG polos, teks di pita hitam, tulisan tangan biru | tidak (D-414; contoh gagal 10–11) | ragu-penasaran → komentar pop sebagai reaksi (negatif dulu, lalu positif); "Comment di bawah" = kamera masuk ke kolom komentar, kursor berkedip (UI yang membawa ajakan); "gratis" = kilau kecil · pop komentar, klik kolom | hapus tulisan tangan; teks narasi masuk ke bidang video; UI IG lebih kaya (kartu 65/08/05) |
 
 Pertanyaan yang tersisa setelah bedah: huruf (still pembanding), hitungan render final pada arah baru, musik (tetap atau ikut 07 house).
+
+## QC Sutradara R5 ronde 1 (18 Nov, resolusi penuh dari master)
+- A DITERIMA: UI gelap-glow, blok timeline, "selesai." besar putih + centang, Clawd proud (f65–128).
+- C DITERIMA: Claude bete "Aku yang ngedit loh.", ChatGPT senang "Hi! Aku nemenin Claude.", Gemini "…" (f270–335).
+- G DITERIMA: kartu ChatGPT Pro 20× SF Pro coral (f1500).
+- B GAGAL sebagian: latar gelap + glow + mosaik masuk ✓; urutan sebab-akibat salah (pesan cerita muncul sebelum "/cinematic" terhapus, f980); pertanyaan/tabel brief belum sempat tampil sebelum potongan; popover "/apple-style" masih terpotong (f880). → perpanjang sampai sebelum WORKFLOW-NYA, urutan hapus→ketik→kirim→muat→tanya→brief→referensi.
+- F GAGAL sebagian: tulisan tangan hilang ✓, "Udah" di dalam video ✓; "profesional" (f2360) dan "skill" (f2470) masih di pita hitam; "Comment" (f2425) di bawah kartu menyentuh batas bawah. → semua narasi B9 di dalam bidang video; "Comment di bawah." dengan postingan utuh + kolom berdenyut.
+- D, E belum dikerjakan → diputus Sutradara (tata letak tiga jendela + panel dok; Blender diizinkan).
+- R5 ronde 2 (pekerja lama): B DITERIMA (adegan UI 23,59–36,32; hapus → ketik cerita → kirim → muat → tanya → tabel brief → referensi; popover utuh). Sisa: narasi 33,3–36,3 menimpa tepi jendela/placeholder (f1035–1060). Pekerja lama habis jatah → D, E, F, B-narasi ke pekerja baru (`handoff/TASK-R5b-visual.md`).
