@@ -12,7 +12,8 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Kerjakan berurutan. Di ti
 - [ ] Masukan user atas preview dicatat dan disetujui · baca: `references/revision-log.md` §21.1 · bukti: ID baris `DECISIONS.md` →
 
 ## Tahap 3 · Produksi penuh (tanpa minta revisi)
-- [ ] Visual dibangun per TASK, satu Editor baru per TASK · baca: `references/roles.md` §5–6, `references/orkestrasi.md` §3 · bukti: REPORT tiap TASK →
+- [ ] Sistem desain video: Sutradara menulis `tema.ts` (token berkategori), satu pekerja membangun komponen bersama, papan acuan disetujui · baca: `templates/sistem-desain/README.md`, `references/orkestrasi.md` §1 · bukti: path `tema.ts` + papan acuan →
+- [ ] Visual dibangun per TASK adegan, satu Editor baru per TASK, hanya dari token + komponen bersama; lembar sanding semua adegan dicek sekeluarga · baca: `references/roles.md` §5–6, `references/orkestrasi.md` §3 · bukti: REPORT tiap TASK →
 - [ ] Audit visual semua frame LULUS · baca: `templates/roles/pemeriksa-frame.md` · bukti: `VERDICT.md` tiap potongan →
 - [ ] SFX lalu musik dikunci · baca: `guide/sfx/GUIDE.md`, `references/audio.md` §14.3–14.9 · bukti: `audio_order.py lock sfx` + `lock musik` PASS →
 - [ ] Devil's Advocate dari luar, usulnya diputus · baca: `templates/roles/devils-advocate.md` · bukti: `qc/da/USUL.md` + putusan di `qc/JURI.md` →

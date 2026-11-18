@@ -114,6 +114,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/templates/roles/konsul.md` | **KONSUL · <proyek> (opsional)** — Catatan tambahan untuk tools/tanya-claude.sh. |
 | `claude/motion-graphic/templates/roles/pemeriksa-audio.md` | **Pemeriksa audio terhadap frame · fase audio (satu agen per potongan ≤ 10 dtk)** — Dipanggil setelah fase visual lulus (pemeriksa-frame.md) dan SFX dikunci (audio_order.py lock sfx). |
 | `claude/motion-graphic/templates/roles/pemeriksa-frame.md` | **Menilai frame · fase visual (satu penilai: Sutradara)** — Dijalankan setelah visual selesai disusun dan sebelum SFX dan musik dibuat: render.sh <proyek> frames → scripts/juri/frame_audit.py qc/frames (fase visual). |
+| `claude/motion-graphic/templates/sistem-desain/README.md` | **Sistem desain video (satu per proyek)** — Ditulis Sutradara sebelum pekerja adegan mulai, di remotion/src/<…>/bersama/tema.ts proyek. |
 
 ## motion-graphic · skrip (alat dan gerbang)
 
@@ -201,7 +202,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/jensen-pain-suffering/` | STATUS jensen-pain-suffering (orkestrasi.md §2, §9) · mulai dari STATUS.md |
 | `projects/pengganti-kita-sendiri/` | STATUS: Pengganti Kita Sendiri (@siirfannih) · mulai dari STATUS.md |
 | `projects/personal-brand-day-02/` | Ledger · Personal branding, konten kedua challenge |
-| `projects/skill-development-journey-20261116/` | Status · Skill Development · potongan personal 16 November 2026 · mulai dari STATUS.md |
+| `projects/skill-development-journey-20261116/` | STATUS · Skill Development journey (siirfan) · titik lanjut sesi baru · mulai dari STATUS.md |
 
 ## Lain-lain
 

@@ -389,6 +389,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §2 · RESEP dulu, baru builder; G2 hanya lembar sanding | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4); gagal: skill-dev-journey 16 Nov, komponen dibangun sebelum RESEP dan dinilai di latar abu |
 | §3 TASK · JANGAN ubah atribut di luar TASK; LULUS BILA revisi = rentang | Irfan 18 Nov (audit skill-dev-journey: 'profesional' berubah koral tanpa diminta, tulisan tangan biru lolos karena brief pemeriksa menyebutnya 'disengaja', 172 rakit master penuh tanpa --rentang) |
 
+| §1 satu sistem desain banyak pekerja (menggantikan satu Sonnet untuk semua adegan) | Irfan 18 Nov: pekerja per adegan dengan konsistensi lewat sistem bersama (tema.ts berkategori ditulis Sutradara, komponen oleh satu pekerja, papan acuan); di skill-dev-journey tema.ts 8 warna sementara file adegan memakai 99 warna dan 14 ukuran huruf langsung |
 ## `references/pacing-map.md`
 
 | Aturan | Asal-usul |
@@ -912,3 +913,9 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | Aturan | Asal-usul |
 |---|---|
 | langkah berurutan dengan bacaan per langkah + bukti; alur teknis dipisah dari SKILL.md | Irfan 18 Nov: evaluasi token sesi skill-dev-journey (Editor dipakai ulang lintas ronde sampai 968 ribu token, Sutradara 678 ribu, 82 gambar menumpuk, bacaan awal 168 ribu di giliran 17) dan model sering melewatkan tahap |
+
+## `templates/sistem-desain/README.md`
+
+| Aturan | Asal-usul |
+|---|---|
+| kategori token warna (MEREK, NETRAL, TURUNAN, UI_ASLI, PENGECUALIAN) | Irfan 18 Nov: pekerja per adegan dengan konsistensi lewat sistem bersama (tema.ts berkategori ditulis Sutradara, komponen oleh satu pekerja, papan acuan); di skill-dev-journey tema.ts 8 warna sementara file adegan memakai 99 warna dan 14 ukuran huruf langsung |
