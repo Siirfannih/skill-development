@@ -158,6 +158,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/juri/sandingkan.py` | Lembar sanding: still kita di kiri, frame kiblat di kanan, supaya selisihnya terlihat sebelum render penuh. |
 | `claude/motion-graphic/scripts/juri/tahap.py` | Langkah berikutnya dari TAHAP.md proyek: apa yang dikerjakan dan file/bagian mana yang dibaca SEKARANG. |
 | `claude/motion-graphic/scripts/juri/teks_cek.py` | Cek teks di still per beat (LANTAI A1-A4, A7): bukan subtitle film, tidak ganda, tidak menyentuh tepi. |
+| `claude/motion-graphic/scripts/juri/tema_cek.py` | Cek sistem desain video: gaya hanya dari tema.ts, warna merek terkendali, warna UI asli di tempatnya. |
 | `claude/motion-graphic/scripts/lego/base_pts.py` | Ukur pts tiap frame DASAR (tanpa lapisan, tanpa audio) lewat compose.py yang sama. |
 | `claude/motion-graphic/scripts/lego/cek_master.py` | Ukur frame master tempat tiap lapisan ber-alpha benar-benar tampil dan bandingkan dengan rencana lego.json. |
 | `claude/motion-graphic/scripts/lego/compose.py` | Rakit video seperti lego: footage dasar + lapisan (teks/KT, visual, overlay) yang sudah dirender TERPISAH dan disimpan di cache digabung SEKALI dengan ffmpeg. Lapisan yang tidak berubah tidak dirender |

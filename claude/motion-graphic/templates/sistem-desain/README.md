@@ -11,14 +11,13 @@ Ditulis **Sutradara** sebelum pekerja adegan mulai, di `remotion/src/<…>/bersa
 
 ## Cara memilih warna: peran dulu, lalu keluarga, lalu kontras
 
-Setiap warna di `tema.ts` masuk tepat satu kategori:
+Yang dikontrol hanya empat warna merek: **merek, primer, sekunder, latar**. Warna UI asli aplikasi rujukan (ChatGPT, Claude, GitHub, Instagram) tidak dikontrol: ia mengikuti aplikasinya (Lantai D20) dan ditulis hanya di komponen `bersama/ui-asli/<aplikasi>/`. Format file: `templates/sistem-desain/tema.ts`; cek: `scripts/juri/tema_cek.py <src>`. Setiap warna lain di `tema.ts` masuk tepat satu kategori:
 
 | Kategori | Isi | Aturan |
 |---|---|---|
-| `MEREK` | latar, teks, aksen (satu keluarga dominan), negatif bila ada | dari `BRAND.md`; satu keluarga aksen ≥ 70 % piksel berwarna (`palette.md` §2) |
+| `MEREK` | `merek`, `primer`, `sekunder`, `latar` | dari `BRAND.md`; primer = satu keluarga dominan ≥ 70 % piksel berwarna (`palette.md` §2) |
 | `NETRAL` | 5–7 tingkat dari hitam ke putih untuk latar, garis, teks redup | netral membawa frame, aksen hanya menandai (`palette.md` §3) |
-| `TURUNAN` | tint, shade, glow, gradasi dari aksen | hue sama dengan aksen induknya; tidak menambah keluarga baru (`palette.md` §4) |
-| `UI_ASLI` | warna UI produk pihak ketiga yang dibangun ulang (GitHub, ChatGPT, Claude, Instagram), dikelompokkan per aplikasi | nilai dari UI aslinya (Lantai D20); kecil, tidak dijadikan aksen video (`palette.md` §6) |
+| `TURUNAN` | tint, shade, glow, gradasi, dikelompokkan per induk (`primer`, `sekunder`, …) | hue ≤ 25° dari induknya; tidak menambah keluarga baru (`palette.md` §4) |
 | `PENGECUALIAN` | warna yang sengaja keluar dari keluarga untuk satu adegan (mis. parodi "AI slop") | wajib menyebut adegan + alasan; tidak dipakai di adegan lain |
 
 Teks berwarna di atas latar atau footage harus kontras ≥ 4,5 : 1 (Lantai A7); bila gagal, pakai versi terang/gelap dari keluarga yang sama atau putih. Hasil render dicek `scripts/palette_check.py`.
