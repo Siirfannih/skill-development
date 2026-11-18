@@ -11,8 +11,8 @@ Salin bagian yang dibutuhkan ke `projects/<proyek>/handoff/`. Aturan pemakaian: 
 - Tujuan · penonton · durasi · rasio/fps · CTA
 - Gaya: templates/gaya/<gaya> (token yang diubah: …)
 - Sumber: footage <path>, script/transkrip <path>
-## Hard Gate yang relevan
-- aturan 2 teks dari ucapan · 43 SFX per event · 44 caption ≤ 2 baris · …
+## Butir Lantai yang relevan
+- A5 teks dari ucapan · E24 SFX per objek · A4 maksimal 2 baris · …
 ## Aset + lisensi
 | file | sumber | lisensi |
 ## Tidak boleh
@@ -25,7 +25,7 @@ Format `templates/storyboard/beats.json` ditambah per beat:
 {"id":"B03","t":[12.4,15.9],"vo":"…","peran":"menjelaskan","adegan":"MP-03","opsi":"A",
  "layar":["San Diego"],"aksi":"…","kamera":"…","keluar":"…",
  "sfx":[{"t":12.4,"peran":"klik teks","alasan":"kata muncul"}],
- "lulus_bila":["teks ≥ waktu baca aturan 46","tekstur ikut layer"]}
+ "lulus_bila":["teks ≥ waktu baca Lantai A8","tekstur ikut layer"]}
 ```
 
 ## TASK-rN.md (Sutradara)

@@ -1,6 +1,6 @@
 ---
 name: motion-graphic
-description: "Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntunly, siirfan content) from brief to render — persona, gated workflow, core rules, an always-on quality floor (LANTAI), a reference library with one chosen direction per video (pustaka: PETA, anatomy cards, RESEP), a render gate and reviewer scripts (juri), plus branch files for storyboard, copywriting, typography, camera, audio, Remotion build, and QA. Use for any video or motion request from Irfan, even a rough one: bikin video, launch video, reel, promo, motion, animasi teks, storyboard, naskah VO, revisi video, bedah referensi, After Effects, or when he sends a reference video. Also for podcast/interview clip edits with motion overlays and captions."
+description: "Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntunly, siirfan content) from brief to render — persona, gated workflow, an always-on quality floor (LANTAI), a reference library with one chosen direction per video (pustaka: PETA, anatomy cards, RESEP), a render gate and reviewer scripts (juri), plus branch files for storyboard, copywriting, typography, camera, audio, Remotion build, and QA. Use for any video or motion request from Irfan, even a rough one: bikin video, launch video, reel, promo, motion, animasi teks, storyboard, naskah VO, revisi video, bedah referensi, After Effects, or when he sends a reference video. Also for podcast/interview clip edits with motion overlays and captions."
 ---
 
 # Motion Graphic (Irfan)
@@ -29,42 +29,53 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 4. **Maksimal 2 baris per tampil, 1–3 kata per tampil, blok seimbang** (baris terpendek ≥ 85 % baris terpanjang; bukan satu kalimat dalam 2 baris seperti headline berita), tidak terpotong tepi, tidak ada kata yatim. Tumpuk kata (1 kata per baris) boleh. Saat pembicara bertanya, tanda tanya tampil.
 5. **Teks hanya dari ucapan.** Tidak menambah kalimat atau angka yang tidak diucapkan.
 6. **Satu baris satu ukuran.** Kata yang dibesarkan pindah ke barisnya sendiri. Dua gaya huruf tidak sama kuat dalam satu frasa (serif tidak seukuran dan sebobot dengan kata bold di sebelahnya).
-7. **Huruf menyatu dengan frame-nya.** Kontras ≥ 4,5 : 1, ukurannya berhubungan dengan subjek di frame, tidak menyentuh tepi. Jenis huruf ikut kiblat; serif tidak dilarang. Font yang dipakai termuat dari file (`fonts/README.md`), tidak jatuh ke font cadangan sistem. Contoh gagal: `pustaka/contoh-gagal/01-serif-pucat-raksasa.jpg`.
+7. **Huruf menyatu dengan frame-nya.** Kontras ≥ 4,5 : 1, ukurannya berhubungan dengan subjek di frame, tidak menyentuh tepi. Terbaca di layar HP (uji lebar 360 px): kata sambung ≥ 56 px @1080, dan teks kunci tidak duduk di 8 % bawah frame. Teks biru di latar gelap atau navy gagal kontras (±3,6 : 1); di latar gelap penekanan lewat putih penuh vs redup, ketebalan, skala, atau kapital. Jenis huruf ikut kiblat; serif tidak dilarang. Font yang dipakai termuat dari file (`fonts/README.md`), tidak jatuh ke font cadangan sistem; build gagal bila font tidak ditemukan. Contoh gagal: `pustaka/contoh-gagal/01-serif-pucat-raksasa.jpg`.
 8. **Terbaca berurutan dan cukup lama**: satu arah baca, tiap frasa tampil sampai selesai diucapkan, terbaca di layar HP.
 9. **Kotak di belakang teks hanya bila kontras gagal**, bukan hiasan; narasi kinetik tanpa kotak/shape di belakangnya.
 9a. **Gerak teks dipilih dari peran kalimatnya, bukan fade untuk semua.** Isi teks = ucapan (waktu dan durasi dihitung `scripts/lego/teks_plan.py`); tiap blok diberi peran (R1 narasi, R2 kata kunci, R3 klaim, R4 label/daftar, R5 UI, R6 hero, sub), satu gerak T dari tabel `typography.md` §8a, gaya G, posisi, dan alasan. Satu peran = satu gerak di seluruh video; tiap 15 dtk ≥ 3 gerak berbeda dan ≥ 1 penekanan, kecuali adegan tenang yang alasannya ditulis. Fade hanya untuk sub-line kecil. Efek pada huruf adalah gaya terdefinisi (mis. G8 kilat cahaya), bukan footage/tekstur yang dimasukkan ke huruf. `scripts/lego/kt_check.py teks.json` PASS.
 
 ### B. Kamera dan gerak
 10. **Frame tidak datar.** Setiap shot lebih dari 2 detik punya gerak kamera yang disengaja (push/zoom pelan untuk fokus, pan, atau mengikuti objek). Pengecualian hanya bila kartu kiblat memang berkamera diam, dan itu ditulis di `RESEP.md`.
-11. **Kamera mengikuti SATU objek fokus per beat**, dari objek itu muncul sampai selesai, tidak kembali ke posisi awal di tengah jalan.
+11. **Kamera mengikuti SATU objek fokus per beat**, dari objek itu muncul sampai selesai, tidak kembali ke posisi awal di tengah jalan. Kamera patuh ucapan: datang di awal kata dan tahan sampai kata berikutnya, keyframe dari tabel waktu kata, dan framing akhir tidak memotong objek.
 12. **Elemen diam di dunianya, kamera yang bergerak.** Saat kamera zoom, ia melewati teks dan objek; teks tidak ikut bergeser sendiri.
-13. **Tidak ada pergantian yang mendadak atau malas**: yang masuk datang dari suatu arah atau berubah bentuk, gerak cepat memakai motion blur, easing tidak linear. Overlay/gradien masuk dan keluar dengan gerak.
+13. **Tidak ada pergantian yang mendadak atau malas; nol crossfade, fade bukan gerak**: yang masuk datang dari suatu arah atau berubah bentuk, gerak cepat memakai motion blur, easing tidak linear. Overlay/gradien masuk dan keluar dengan gerak. Mekanik transisi dipilih dari hubungan ruang dua adegan (B di dalam A → push-through; A bagian dari B → pull-back; ganti topik → whip): `references/motion-mechanics.md`, `references/pacing-map.md`.
 13a. **Gerak dirancang per gerak, bukan preset.** Kurva dipilih menurut apa geraknya dari `scripts/remotion/curves.ts` (`land` masuk dari luar frame, `heavy` objek besar dan kamera, `whip` ganti keadaan, `reveal` teks dari mask, `leave` keluar, `drift` hold), bukan `Easing.ease`/`inOut(cubic)`. Durasi dihitung dari jarak dan bobot (`dur(px, fps, bobot)`), bukan kebiasaan 0,4–0,6 dtk. Satu gerak utama diikuti reaksi berjeda tidak rata (`react(i)`: 0, 67, 150, 250, 367, 500 ms), bukan stagger i × konstanta. Gerak keluar ±0,65× masuk dan makin cepat. Hold > 1 dtk tetap hidup (drift/napas kamera) kecuali diam disengaja. Tidak ada fade-up atau blur-in sebagai cara masuk bawaan; blur hanya untuk gerak cepat. Satu transisi khas per video. `scripts/juri/motion_lint.py` PASS.
+13b. **Format yang muncul berulang berbeda framing tiap kemunculan** (grafik kedua dan seterusnya: kamera mengikuti titik, close-up, posisi lain, reveal-out).
 
 ### C. Komposisi
-14. **Satu fokus per momen.** Mata tahu harus melihat ke mana.
+14. **Satu fokus per momen.** Mata tahu harus melihat ke mana. Teks dan visual tidak berbobot sama di momen yang sama: teks masuk satu per satu mengikuti ucapan dan yang baru masuk menjadi fokus; visual yang kuat tampil tanpa teks tandingan (`references/decision-guide.md`).
 15. **Teks, objek, dan visual satu kesatuan**: tidak tumpang tindih, tidak bertabrakan, tidak berjauhan seperti bagian terpisah.
 16. **Tepi frame bersih.** Tidak ada objek penting di zona tepi kecuali karena gerak kamera; margin aman 5 %.
 17. **Seimbang dan hierarkinya terbaca, dinilai global per frame**, bukan per ukuran objek: posisi teks, objek, KT, bingkai, dan b-roll dilihat bersama di zoom 25 %, 50 %, dan 100 %. Urutan baca di ukuran normal jelas: latar utama (#primary) → teks/objek utama → pengisi (objek pinggir, teks kecil). Satu sisi berisi teks + visual sementara sisi lain kosong = gagal; perbaikannya pindah posisi (mis. kunci ke kanan bawah, berseberangan dengan kepala di kiri atas). Dinilai dengan mata (Sutradara/LLM) pada still **sebelum** render penuh dan pada frame tahan tiap detik, berdampingan dengan frame kunci kiblat dan `pustaka/contoh-gagal/`, memakai daftar cek di `pustaka/README.md` §Juri butir 2. Gaya, posisi, keseimbangan, dan estetika tidak dinilai dengan skor skrip.
 18. **Rapi**: garis berakhir di tepi bentuknya, jarak antar-elemen sama, stroke dan radius konsisten.
+18a. **Palet dikunci di resep.** Satu keluarga aksen dominan, netral membawa frame, tidak ada warna di luar palet (`references/palette.md`, `scripts/palette_check.py`).
+18b. **Setiap efek punya fungsi.** Glow, gradien, negative, RGB split, dan flash dipakai karena membantu penonton memahami sesuatu (transisi, sebelum-sesudah, penekanan); efek yang fungsinya tidak bisa dijelaskan dihapus.
 
 ### D. Isi visual
 19. **Visual menggambarkan makna ucapan**, bukan bentuk atau hiasan. Penonton harus lebih mudah paham karena visual itu.
 19a. **Metafora dulu, baru gambar.** Sebelum panel digambar, tiap kalimat VO diperas di `beats.json → metafora`: makna inti (apa yang harus dipahami penonton), emosi, aksi (kata kerja: membuka, menyambung, bocor, menekan, menumpuk), **satu** metafora, 3–6 objek kunci, dan urutan rakitnya. Teks VO tidak disalin ke gambar. `board.py` FAIL bila kosong.
 19b. **Situasi digambar dengan bentuk yang menjelaskannya** (`metafora.bentuk`): isi atau cara kerja benda → exploded view atau potongan (lapis terurai + garis label); perilaku/perasaan manusia → piktogram/stick figure, bukan produk; sebab-akibat → satu elemen menggerakkan elemen lain; angka → grafik; perjalanan/lokasi → peta rute; aplikasi → UI asli (D20). Bentuk dipilih dari `aksi`, bukan dari gaya yang sedang disukai.
+19c. **Storyboard dari Irfan adalah struktur, bukan visual akhir.** Ia menjelaskan apa yang terjadi, urutannya, dan metaforanya; visual akhir tiap beat dirancang supaya paling mudah dipahami penonton.
 20. **Tampilan platform dan logo adalah yang asli** (Threads, Instagram, ChatGPT, GitHub), dibangun ulang sebagai animasi, bukan UI karangan. Ikon memakai ikon jadi.
 21. **Yang sedang bicara tampil di frame**, kecuali tertutup visual layar penuh.
-22. **Tidak ada placeholder** di render.
+22. **Tidak ada placeholder** di render. Objek yang tampil (website, poster, aplikasi, dokumen) didesain seperti produk nyata yang profesional, bukan bentuk pengganti dari storyboard.
+22a. **Tokoh dan dunia yang sudah diperkenalkan konsisten sampai akhir.**
+22b. **Uji logika dunia nyata sebelum merancang beat**: apakah orang sungguhan melakukannya seperti ini? Kiasan dalam ucapan tidak digambar harfiah sebagai fakta.
+22c. **Tiga detik pertama menentukan.** Buka dengan gebrakan visual dan bunyi di frame 0, bukan teks kecil di layar kosong.
 
 ### E. Audio
 23. **Suara tidak dipercepat, jedanya bersih, dan tak ada fonem yang digunting.** Tempo dirapatkan dengan memotong jeda mati. Kata sampah (eee, emm, tuh, …) dan diam saat berpikir dibuang di tahap potong, termasuk diam yang tertelan ke durasi kata. Rencana cut divalidasi terhadap transkrip **take sumber**: kata isi tidak boleh teriris > 20 ms, tiap batas punya guard 50 ms, durasi kata hasil ≥ 85 %, dan urutan ASR aktual tetap sama; jumlah entri JSON/remap bukan bukti suara masih utuh. `audio_order.py lock suara --words … --source-words … --cut-map … --voice-source …` dan `cut_check.py` wajib PASS sebelum suara dikunci. Saat pembicara berhenti atau berpikir, tidak terdengar dengung kamar, piring, atau klik: jeda tidak diisi room tone kotor, stem suara di jeda ≤ −50 dBFS (`scripts/gate/pause_clean.py`). **Level suara asli tidak pernah diturunkan, di-loudness-kan, atau di-limit**: yang boleh hanya peredam noise, lalu gain naik bersih ke ±−16 LUFS bila sumbernya terlalu pelan atau kalah dari musik/SFX; musik dan SFX yang menyesuaikan ke suara. `gate/voice_level.py suara_sumber.wav suara_hasil.wav` PASS.
 24. **1 SFX untuk 1 objek/visual penting, satu peran satu bunyi, dengan jarak.** Setiap objek atau visual yang muncul/bergerak (kartu, ikon, transisi, gerak kamera, kata slam/penekanan) mendapat satu SFX sesuai peruntukannya, puncaknya di frame objek itu. Item barisan yang masuk terpisah (> 2 frame) masing-masing berbunyi; yang masuk serentak (≤ 2 frame) dihitung satu event. Kata KT/subtitle yang muncul kata per kata **tidak** berbunyi (bunyi per kata = spam). Satu peran = satu file sepanjang video, dan satu file = satu peran. Tidak ada batas jumlah, batasnya spam: dua bunyi ≥ 100 ms, whoosh ≥ 1 dtk, maksimal 5 cue dalam 2 dtk. Gain −4 sampai −10 dB. File dari `~/sfx/SFXIrfan` dulu (kandidat, bukan allowlist) dan didengar sebelum dipakai; palet terlarang: kayu/thock/felt, koin/logam, kartun/langkah kaki, 8-bit, noise/sinus sintetis, rope-creak. `gate/sfx_density.py render.mp4 cues.json --objects objects.json` PASS.
-25. **Musik mengikuti tempo dan suasana video**, tidak bolong, tidak melawan emosi ucapan.
+25. **Musik mengikuti tempo dan suasana video**, tidak bolong, tidak melawan emosi ucapan. Musik per babak, bukan satu track dari awal sampai akhir; kategori suasana diukur dari tempo video (`scripts/audio/pace_read.py`) dan musik dipilih dengan `scripts/audio/music_fit.py`; bed ada sejak frame 0 dan tidak pernah kosong di bawah klip.
+25a. **SFX terdengar dan nyaman, dan mix diuji di speaker HP.** Stem SFX diukur di bagian padat aksi, bukan sekadar ada di cue sheet; sumber yang berdesis atau tajam ditolak, tidak dikeraskan dengan saturasi; `scripts/audio/audio_phone.py` dan `scripts/audio_qa.py --module5` lulus sebelum render final (standar mix: `references/audio.md` §14.6–14.10).
 
 ### F. Cara kerja
 26. **Urutan: still per beat → draft skala 0,5 → audit visual semua frame → SFX → musik → audit audio → render penuh.** Visual selesai dan lulus dulu; audio disusun sesudahnya dan menyesuaikan gerak yang sudah final. Semua lewat `scripts/juri/render.sh`; render penuh ditolak sebelum resep dan still lulus. Satu render penuh 1080p ±8–18 menit di PC server, jadi ia langkah terakhir. **Audit tanpa sampling sebelum MP4**: semua frame dirender sebagai gambar (`render.sh frames`), dipecah per ≤ 10 dtk, tiap detik dinilai **dengan mata oleh satu penilai (Sutradara)**: gaya terhadap kiblat, posisi teks dan objek, keterbacaan, transisi, dan jarak antar-frame, dan tiap frame yang lemah diberi solusi desain dari kartu (`scripts/juri/frame_audit.py`, `templates/roles/pemeriksa-frame.md`). Render penuh ditolak sampai semua potongan `PUTUSAN: LULUS`. Kecocokan bunyi dengan gerak diperiksa di fase audio (`frame_audit.py --fase audio`, `templates/roles/pemeriksa-audio.md`), bukan di audit visual. **Video berfootage dirakit seperti lego**: footage dan kamera footage dikerjakan ffmpeg, teks/KT dan visual dirender terpisah sebagai lapisan ber-alpha seukuran kotaknya dan di-cache (`scripts/lego/lapisan.py`), lalu dirakit sekali (`render.sh <proyek> lego lego/lego.json`). Revisi waktu/posisi teks = ubah `lego.json`, tanpa render ulang lapisan.
 27. **Revisi = diff.** Adegan yang sudah disetujui tidak disentuh; yang dirender ulang hanya rentang yang berubah. **Revisi video yang dibuat sebelum aturan baru**: tulis `qc/revisi.json` {"basis": "<commit versi yang disetujui>", "alasan": …}; aturan dan gerbang baru (B13a, A9a, E23/E24, lego) berlaku untuk bagian yang diubah saja, bagian yang disetujui tidak dimigrasi kecuali Irfan memintanya. `render.sh final` lalu memeriksa motion_lint hanya pada file yang berubah dan `audio_order.py check --warisan`.
-28. **Tidak yakin = tanya, jangan menebak.**
+28. **Tidak yakin = tanya, jangan menebak.** Cek dulu sumber yang bisa dicek sendiri (file proyek, kartu, skill ini); bila masih ragu, tanya dengan pertanyaan spesifik.
+28a. **Baca folder proyek sebelum build.** Isi `projects/<proyek>/` (RESEP, DECISIONS, STATUS, aset) menang atas moodboard atau ingatan.
+28b. **Contoh atau koreksi dari Irfan berlaku untuk frame yang ia sebut**, bukan aturan semua frame; sebut frame mana yang berubah sebelum mengubah massal. Saran dari model lain diterapkan selektif; putusan Irfan menang.
+28c. **Tidak ada generate berbayar sebelum gerbangnya terbuka**, dan biayanya disebut dulu.
 29. **Video baru dikirim setelah juri lulus** (`pustaka/README.md` §Juri), bersama lembar sanding still vs kiblat.
 <!-- LANTAI:selesai -->
 
@@ -77,7 +88,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
    - Prompt tanpa perintah gaya spesifik → ikuti gaya global brief (gaya bawaan `templates/gaya/` boleh bila cocok); tanpa gaya di brief → kartu paling mirip atau gaya sendiri yang sesuai brief, alasan di `RESEP.md`. Video bermode ganda boleh berkiblat berbeda per mode asal gayanya konsisten (`pustaka/README.md`).
 3. Buka kartu kiblat itu (`pustaka/kartu/…`) dan frame kuncinya. Jangan membuka semua kartu.
 3a. **Bentuk visual dicari di kartu, tidak dikarang.** Adegan yang butuh bentuk di luar kartu kiblat (tampilan Instagram, chat, dashboard, peta, tokoh, dsb.): cari kartu yang pernah membangunnya lewat `pustaka/PETA.md` dan isi kartu, buka kartu itu + frame kuncinya, pinjam tekniknya dengan pengikat kiblat, catat di `RESEP.md`. Tidak ada di kartu, brief, maupun `DECISIONS.md` → tanya Irfan tampilan yang ia mau. Rinci: `pustaka/README.md` §Alur butir 5.
-3b. **Sebelum merancang teks, visual, atau gerak sebuah adegan**, baca `guide/<urusan>/GUIDE.md` §Cara memutuskan (pelajaran bersyarat "bila…, pilih…, karena…" dari koreksi sebelumnya) dan lihat `pustaka/contoh-gagal/`. Subagen yang membangun visual menerima bahan yang sama (`templates/handoff-fase.md`).
+3b. **Sebelum merancang teks, visual, atau gerak sebuah adegan**, baca `guide/<urusan>/GUIDE.md` §Cara memutuskan (pelajaran bersyarat "bila…, pilih…, karena…" dari koreksi sebelumnya) dan lihat `pustaka/contoh-gagal/`. Subagen yang membangun visual tidak disuruh membaca semua itu: Sutradara menuliskannya sebagai **ringkasan kartu** berbentuk tabel di brief (`templates/handoff-fase.md`).
 4. Tulis `projects/<proyek>/RESEP.md` dari `pustaka/RESEP-TEMPLATE.md`: 8 bagian anatomi. **Pengikat** (warna & tekstur, teks, ritme) dari satu sumber; **teknik** (b-roll, motion graphic, kamera & transisi, SFX, musik) boleh dipinjam kartu lain dan dikenakan pengikat kiblat. Cek: `python3 scripts/juri/resep_check.py projects/<proyek>/RESEP.md`.
 
 ## 0b. Render dan juri
@@ -90,7 +101,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 
 ---
 
-**Bagian 1–8 di bawah adalah rujukan teknis** (alur kerja rinci, alat audio, indeks aturan lama). Dibaca saat dibutuhkan; kalah dari Lantai dan resep bila bertentangan. Menggantikan `motion-director` v3, `motion-graphic-playbook`, dan `irfan-motion-director`.
+**Bagian 1–7 di bawah adalah rujukan teknis** (alur kerja rinci dan alat). Dibaca saat dibutuhkan; kalah dari Lantai dan resep bila bertentangan. Menggantikan `motion-director` v3, `motion-graphic-playbook`, dan `irfan-motion-director`.
 
 ## 1. Persona
 
@@ -152,7 +163,7 @@ Gerbang di bawah dikelompokkan jadi lima fase. Batas fase = titik kunci, bukan j
 | 6 | Suara dikunci | `audio.md` §14.0C, §14.0D | VO (setelah script final) atau audio sumber klip utuh, dipotong bersih dari kata sampah dan diam saat berpikir. `recut.py` wajib memakai `--source-words`; batas cut = frame eksak, energi rendah, guard 50 ms dari kata isi. Kunci dengan `audio_order.py lock suara … --words <ASR aktual> --source-words <take sumber> --voice-source <stem sumber> --cut-map <map.json>`; ini menjalankan `cut_check.py` + `pause_clean.py` dan menolak urutan/durasi kata yang berubah. Mode `musik`: musik dipilih dan dikunci lebih dulu, visual dipotong di ketukannya |
 | 7 | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum diterapkan ke semua; `scripts/remotion/curves.ts` disalin ke `src/lib/`, `juri/motion_lint.py` PASS (Lantai B13a) |
 | 8 | Build semua adegan → visual dikunci | `build.md` | Komponen sama untuk semua adegan; render tanpa audio, `audio_order.py lock visual` |
-| 9 | SFX dari event visual | `audio.md` §14.0C, §14.A–14.3, `three-segment-gate.md` (DENGAR) | Cue sheet dari `objects.json` (setiap objek/visual yang muncul atau bergerak di render terkunci) → 1 SFX per objek, satu peran satu file, KT per kata senyap (aturan 43, Lantai E24); file dari `~/sfx/SFXIrfan` dulu (`guide/sfx/SFXIRFAN.md`), tiap cue `peran` + `alasan` + `dengar`; `lock sfx … --objects objects.json` menjalankan `gate/sfx_density.py` dan menolak palet terlarang—folder SFX bukan allowlist |
+| 9 | SFX dari event visual | `audio.md` §14.0C, §14.A–14.3, `three-segment-gate.md` (DENGAR) | Cue sheet dari `objects.json` (setiap objek/visual yang muncul atau bergerak di render terkunci) → 1 SFX per objek, satu peran satu file, KT per kata senyap (Lantai E24, Lantai E24); file dari `~/sfx/SFXIrfan` dulu (`guide/sfx/SFXIRFAN.md`), tiap cue `peran` + `alasan` + `dengar`; `lock sfx … --objects objects.json` menjalankan `gate/sfx_density.py` dan menolak palet terlarang—folder SFX bukan allowlist |
 | 10 | Musik paling akhir | `audio.md` §14.0A, §14.0B | Dipilih sambil mendengar preview visual + SFX: kategori suasana dari tipe video (`pace_read.py`), `music_fit.py` (≥ 8 kandidat, ≥ 2 sumber), `audio/ears.py` untuk mengenali kandidat, tiap klip/babak track berbeda (`gate/music_batch.py`); `lock musik --peran --alasan --didengar` |
 | 11 | Preview + QA | `delivery-gate.md` §0, `analysis-qa.md` §16 | **Di gerbang final, cek mekanis audio dijalankan lebih dulu** (penilaian visual sudah lulus sebelum audio disusun, Lantai F26): `audio_order.py check` mengulang cut/source guard, jeda, palet SFX, kepadatan, urutan, dan kebasian. `render.sh final` berhenti sebelum gerbang visual bila check ini gagal. Lanjutkan `audio_phone.py` + `earshot timeline`; still per beat + audio saja lulus, penilaian frame oleh Sutradara lulus (`templates/roles/pemeriksa-frame.md`), baru render penuh; devil's advocate audio `delivery-gate.md` §4 |
 | 12 | Kirim | `delivery-gate.md` | Video + laporan Delivery Gate (setiap PASS berbukti) + daftar penyimpangan |
@@ -166,12 +177,11 @@ Revisi dari Irfan (pesan apa pun yang mengeluhkan atau mengubah video yang sudah
 ```
 motion-graphic/
 ├── SKILL.md                 inti: lantai, kiblat, juri, lalu rujukan teknis (file ini)
-├── LANTAI.md                mutu yang selalu berlaku (sumber blok §0)
+├── LANTAI.md                satu-satunya daftar mutu yang selalu berlaku (sumber blok §0)
 ├── pustaka/                 PETA.md · kartu/ (anatomi 8 bagian per referensi) · RESEP-TEMPLATE.md · contoh-gagal/
 ├── scripts/juri/            render.sh (gerbang render) · resep_check.py · sandingkan.py · frame_audit.py (semua frame: fase visual, lalu fase audio) · teks_cek.py (penunjuk, bukan putusan)
 ├── guide/                   standar rasa per urusan (README → visual · teks · gerak · audio · sfx · hindari · referensi)
 ├── references/
-│   ├── core-rules.md        teks penuh aturan inti 1–50
 │   ├── music-profiles.json  profil musik per kategori suasana (kalibrasi dari referensi Irfan)
 │   ├── slop-catalog.md      tanda yang pernah Irfan tolak + cara mengeceknya
 │   ├── delivery-gate.md     preview-dulu + laporan PASS/FAIL berbukti sebelum kirim
@@ -210,7 +220,7 @@ motion-graphic/
 Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`).
 
 ## 6. Muat konteks proyek (gerbang 0)
-1. Jika `projects/<proyek>/` ada, baca `AUTHORITY.md`, `ART-DIRECTION.md`, `DECISIONS.md` lebih dulu (aturan 17).
+1. Jika `projects/<proyek>/` ada, baca `AUTHORITY.md`, `ART-DIRECTION.md`, `DECISIONS.md` lebih dulu (Lantai F28a).
 2. Baca `PROJECT_STATE.md` atau `00_MULAI-DI-SINI.md` proyek aktif dan skill VO proyek bila ada.
 3. Katalogkan aset/paket dari Irfan (SFX, kit, proyek lama) sebelum membuat aset baru.
 
@@ -228,32 +238,7 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 | Gaya teks, easing, animasi teks | `typography.md`, `smooth-motion.md` |
 | Kamera, transisi, cutout | `camera-transition.md`, `motion-mechanics.md` |
 | VO, SFX, musik, QA audio | `audio.md` (mulai §14.0A kategori suasana) + gerbang DENGAR `three-segment-gate.md` |
-| Build (catatan: `build.md` masih berisi alur After Effects lama; untuk Remotion ikuti skill `remotion-best-practices` + `scripts/juri/render.sh`) | `build.md` |
+| Build (Remotion + rakit lego; ikuti juga skill `remotion-best-practices` dan `scripts/juri/render.sh`) | `build.md` |
+| After Effects, hanya bila Irfan meminta atau adegannya membutuhkan | `tools/AFTER-EFFECTS.md` (akar repo) |
 | Bedah referensi, QA render | `analysis-qa.md`, `delivery-gate.md` |
 | Revisi Irfan, kunci adegan | `revision-log.md` |
-
-## 8. Indeks aturan inti (teks penuh: `references/core-rules.md`)
-
-Tiga tingkat, mengikuti pola anti-slop: **Hard Gate** mutlak; **Purpose-Gate** teknik boleh asal alasannya ditulis di tabel beat; **Quality Lock** konsistensi.
-
-**Hard Gate**
-- 2 Teks layar hanya dari VO/ucapan · 4, 19 UI = UI asli produk · 22 tidak ada placeholder storyboard di render
-- 10 Tidak ada generate berbayar sebelum gerbangnya; biaya disebut dulu · 11 build gagal bila font hilang; proyek AE terbuka tidak ditimpa
-- 12 Tidak ada video ke Irfan sebelum verdict SHIP + Delivery Gate · 13 tidak yakin = tanya, jangan menebak
-- 14 Adegan disetujui tidak disentuh · 17 baca folder proyek sebelum build · 18 revisi = diff, bukan tulis ulang
-- 33 VO tidak dipercepat, jeda diukur · 38 Modul 1–5 standar mix · 47 satu dunia + kamera AE + teks menyatu · 48 visual menggambarkan ucapan · 49 yang bicara tampil · 50 logo asli + ikon jadi, rapi
-- **43 SFX = 1 objek/visual penting = 1 SFX, satu peran satu bunyi, KT per kata senyap, jarak anti-spam, file didengar** · 44 semua ucapan tampil sebagai SATU lapisan teks kinetik (bukan subtitle pita bawah, kata tidak diulang), ≤ 2 baris, tidak terpotong · 45 audio ikut tempo video: kategori dari `pace_read.py`, musik lulus `music_fit.py`
-
-**Purpose-Gate**
-- 6 Kotak di belakang teks hanya bila kontras gagal · 7 setiap efek punya alasan · 24 efek karena fungsi (negative = transisi/before-after)
-- 40 Contoh Irfan berlaku untuk frame yang ia sebut · 28 panduan AI lain diterapkan selektif
-
-**Quality Lock**
-- 1 Satu fokus per momen · 46 teks berurutan, waktu baca cukup, tanpa tabrakan · 20 teks dan visual bergiliran · 31 visual mengikuti subjek kalimat · 3 tokoh/dunia konsisten
-- 5 Nol crossfade; overlay masuk/keluar bergerak · 42 transisi = logika ruang · 26 kamera = alat fokus, frame tidak datar: tiap shot > 2 dtk bergerak, ikuti satu objek per beat (Lantai B) · 29 kamera patuh VO · 9 motion blur di gerak cepat
-- 8 Keterbacaan HP · 15 tidak ada biru di latar gelap · 39 serif tidak seukuran-sebobot dengan bold di frasa yang sama (serif sendiri boleh; huruf harus menyatu dengan frame); satu baris satu ukuran · 41 palet dikunci di brief
-- 16 storyboard = struktur, bukan visual akhir · 21 format berulang beda framing · 23 uji logika dunia nyata + devil's advocate
-- 25 musik per babak · 27 tiga detik pertama · 32 backsound tidak bolong · 34 audio tidak dibatasi folder
-- 30 SFX terdengar · 35 uji speaker HP · 36 nyaman dulu baru keras · 37 SFX lahir bersama objeknya
-
-Tanda yang muncul berulang di revisi ada di `slop-catalog.md`. Aturan baru dari Irfan: satu baris di `core-rules.md` (asal-usulnya di `SUMBER.md`), satu baris indeks di sini, satu baris tanda di katalog bila bisa dilihat/didengar.

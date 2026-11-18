@@ -14,11 +14,11 @@
 - **Tanpa kotak di belakang narasi.** Bentuk + teks dua baris = lower-third berita, nilai editorialnya hilang. Kotak hanya chip yang menempel dan ikut bergerak dengan objek, atau sorot satu kata hero.
 - **Mode berganti**: kata hero sendirian sangat besar, blok seimbang, frasa pendek, label menempel objek, tumpuk kata (satu kata per baris, muncul per kata); tidak > 2 tampilan berturut dengan mode + posisi sama.
 - **Satu lapisan teks.** Semua ucapan tampil sebagai tipografi kinetik yang posisinya lahir dari komposisi shot; tidak ada baris subtitle terpisah di pita bawah, dan kata penekanan tidak diulang di tempat lain (`LANTAI.md` A1–A3).
-- ≤ 2 baris sekali tampil (boleh 4+ kata); lebih panjang → pecah jadi tampilan berurutan. Setiap kata yang diucapkan tampil (aturan 44).
-- Waktu baca ≥ max(0,8 dtk; 0,30 + 0,06 × huruf); kata tersebar terbaca satu arah; teks/ikon/kartu tidak bertabrakan (aturan 46).
+- ≤ 2 baris sekali tampil (boleh 4+ kata); lebih panjang → pecah jadi tampilan berurutan. Setiap kata yang diucapkan tampil (Lantai A1).
+- Waktu baca ≥ max(0,8 dtk; 0,30 + 0,06 × huruf); kata tersebar terbaca satu arah; teks/ikon/kartu tidak bertabrakan (Lantai A8).
 - Satu baris satu ukuran; kata yang dibesarkan pindah baris sendiri.
 - Gaya teks dipilih sekali per video (2 font maks: satu display, satu caption) lalu konsisten.
-- Teks layar dari ucapan saja (aturan 2).
+- Teks layar dari ucapan saja (Lantai A5).
 - **Kata yang sudah tampil tidak bergeser** saat kata berikutnya masuk: dalam satu frasa, wadah (kartu/chip) dikunci di tepi frasa lengkap dan tumbuh ke arah kata baru. Saat kata berganti di tempat yang sama, tidak ada frame dengan dua kata tajam bertumpuk (kata lama blur/pudar dulu) dan tidak ada frame wadah kosong.
 
 ## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)

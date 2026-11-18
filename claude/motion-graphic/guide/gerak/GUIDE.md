@@ -24,8 +24,8 @@
 - Putar 0,5×: ada lompatan, frame kosong, atau objek berhenti mendadak?
 - Still 100 % di tepi cutout: ada halo/potongan kasar?
 - Ada crossfade/fade polos sebagai transisi? Ganti dengan gerak.
-- Still awal, tengah, akhir punya framing sama? Video datar: tambah push-in pelan, punch-in di kata kunci, kamera di dalam ilustrasi, cutout subjek (aturan 26).
-- Overlay/gradien gelap nongol mendadak? Naik dari bawah ease-in-out, turun saat keluar (aturan 5).
+- Still awal, tengah, akhir punya framing sama? Video datar: tambah push-in pelan, punch-in di kata kunci, kamera di dalam ilustrasi, cutout subjek (Lantai B10).
+- Overlay/gradien gelap nongol mendadak? Naik dari bawah ease-in-out, turun saat keluar (Lantai B13).
 
 ## Bebas diputuskan
 Kecepatan, gaya easing, jenis transisi, kamera, jumlah overshoot. Energi gerak mengikuti tempo video (lihat `../audio/`).

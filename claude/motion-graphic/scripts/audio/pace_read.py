@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Baca tempo video lalu usulkan kategori suasana untuk audio (aturan 45).
+"""Baca tempo video lalu usulkan kategori suasana untuk audio (Lantai E25).
 
 Audio mengikuti video, bukan selera: pembicara cepat + cut rapat = musik cepat (energi);
 penjelasan tenang + cut jarang = musik tenang (fokus); pelan dan jarang = slowdown.

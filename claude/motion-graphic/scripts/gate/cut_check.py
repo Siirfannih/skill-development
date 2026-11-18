@@ -10,7 +10,7 @@ Mengukur suara (stem suara atau suara terkunci) + kata per kata (timeline yang s
   - sampah   : kata yang cocok --filler (default: eee/emm/eh/hmm/uh/ah/um/tuh) -> FAIL
   - diam_kata: diam >= --max-inner dtk (default 0,15) DI DALAM rentang satu kata -> FAIL
   - diam_kal : celah antarkata di tengah kalimat (kata sebelumnya tanpa . ? !) >= --max-inner -> FAIL
-  - antar_kal: celah antarkalimat > --max-sentence dtk (default 0,50; target ±0,28, aturan 33) -> FAIL
+  - antar_kal: celah antarkalimat > --max-sentence dtk (default 0,50; target ±0,28, Lantai E23) -> FAIL
   - gumam    : bunyi bersuara >= 0,15 dtk di luar kata (calon "eee" yang tidak tertranskrip) -> PERIKSA (dengar)
 "Diam" = energi 10 ms < max(median ucapan - 18 dB, lantai noise (persentil 10) + 8 dB): relatif, dan tidak jatuh
 di bawah dengung kamar (gagal 15 Nov: ambang -46 dB di kamar -38 dB melewatkan diam berisi dengung).

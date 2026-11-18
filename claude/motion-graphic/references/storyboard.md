@@ -53,11 +53,11 @@ Satu panel = frame + caption, seperti artboard Wonder.
         metafora:{makna, emosi, aksi, metafora, objek:[3–6], urutan, bentuk},
         sfx:[{t, peran, alasan}]}]}
 ```
-`cues.json` hasil `board.py` adalah bahan awal cue sheet gerbang 9: setiap event visual di storyboard sudah punya bunyi (aturan 43).
+`cues.json` hasil `board.py` adalah bahan awal cue sheet gerbang 9: setiap event visual di storyboard sudah punya bunyi (Lantai E24).
 
 ## 4. Cara Irfan menilai panel
 
-Bagian ini meniru **cara Irfan berpikir saat menilai**, bukan daftar gaya. Setiap pertanyaan diikuti kasus nyata dari sesi storyboard-nya. Kasus itu adalah jawaban untuk konteksnya sendiri (motion Apple-style, iklan Jadisatu, video lirik), bukan aturan tetap. Di konteks lain, ajukan pertanyaan yang sama, dan jawabannya boleh berbeda; tulis alasannya di caption panel. Yang tetap hanya standar yang Irfan nyatakan berlaku umum (aturan inti di `SKILL.md` dan `core-rules.md`, mis. teks layar satu baris tanpa tanda baca).
+Bagian ini meniru **cara Irfan berpikir saat menilai**, bukan daftar gaya. Setiap pertanyaan diikuti kasus nyata dari sesi storyboard-nya. Kasus itu adalah jawaban untuk konteksnya sendiri (motion Apple-style, iklan Jadisatu, video lirik), bukan aturan tetap. Di konteks lain, ajukan pertanyaan yang sama, dan jawabannya boleh berbeda; tulis alasannya di caption panel. Yang tetap hanya standar yang Irfan nyatakan berlaku umum (butir `LANTAI.md`, mis. teks layar satu baris tanpa tanda baca).
 
 1. **Apakah ini masuk akal di dunia nyata?** Penonton langsung merasa ada yang janggal walau tidak bisa menyebutnya.
    - Kasus Trojan v4: chat sama ayang, kedua pihak sama-sama bertanya → tidak nyambung; pesan "jual risol" masuk ke chat ayang, padahal seharusnya ke chat Jadisatu.

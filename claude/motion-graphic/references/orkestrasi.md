@@ -43,13 +43,14 @@ TUJUAN       satu kalimat: apa yang harus benar setelah tugas ini
 KONTEKS      kutipan beat dari contract.json (jendela VO, teks layar persis, kode G/T/C/X, SFX + waktu) — kutip, jangan rujuk
 FILE BOLEH   daftar path persis yang boleh diubah; selain itu dilarang
 TEMUAN       ID temuan + detik/frame + yang terlihat + perbaikan yang diminta (dari §4)
+KARTU        ringkasan kartu untuk beat ini (tabel: kartu · yang diambil · frame kunci) + pelajaran guide yang cocok + contoh gagal yang mirip
 LARANGAN     aturanku yang relevan untuk beat ini saja (maks 8 baris, salin dari LANTAI/SKILL/DECISIONS)
 LULUS BILA   kriteria terukur: mis. "teks 'build' terlihat penuh f312–f340", "typecheck lulus", "tidak mengubah beat lain (baseline_lock)"
 JANGAN       render final, ubah kontrak, sentuh beat lain, merancang komponen baru
 LAPORAN      tulis handoff/REPORT-<beat>-<ronde>.md: file yang diubah, alasan per temuan, hasil typecheck
 ```
 
-Konteks pekerja sengaja ramping. Jangan suruh pekerja membaca `SKILL.md`, `RETRO.md`, atau `LANTAI.md` penuh. Kamu yang memilih baris yang relevan. **Yang tidak boleh dipangkas untuk pekerja visual:** frame kunci kartu kiblat (gambarnya, bukan teks kartu saja), pelajaran `guide/<urusan>/GUIDE.md` §Cara memutuskan yang menyangkut beat itu, dan entri `pustaka/contoh-gagal/` yang mirip; tanpa itu pekerja membangun dari bayangannya sendiri.
+Konteks pekerja sengaja ramping. Jangan suruh pekerja membaca `SKILL.md`, `RETRO.md`, atau `LANTAI.md` penuh. Kamu yang memilih baris yang relevan. **Untuk pekerja visual kamu menulis Ringkasan kartu**: tabel satu baris per kartu yang dipakai (dipakai untuk beat mana, warna & latar, huruf & skala teks, posisi & susunan, kedalaman & kamera, path frame kunci), ditambah pelajaran `guide/<urusan>/GUIDE.md` §Cara memutuskan yang kondisinya cocok dan entri `pustaka/contoh-gagal/` yang mirip. Format: `templates/handoff-fase.md`. Pekerja tidak membaca kartu; ia membaca tabelmu dan membuka gambar frame kuncinya. Tanpa tabel ini pekerja membangun dari bayangannya sendiri.
 
 Saat menilai hasil pekerja, baca `REPORT` + `git diff --stat` + paling banyak 3 file kunci + hasil gerbang. Jangan membaca transkrip pekerja.
 

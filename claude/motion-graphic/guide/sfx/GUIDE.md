@@ -13,7 +13,7 @@
 2. **Daftar objek (`objects.json`).** Dari render terkunci tulis setiap objek/visual yang muncul atau bergerak: `{t, objek, peran}`; yang sengaja senyap diberi `senyap: true` + `alasan` (garis tergambar, subtitle, hover). Item barisan yang masuk terpisah (> 2 frame) = satu objek masing-masing; yang serentak (≤ 2 frame) = satu event.
 3. **Pilih file berurutan. Folder adalah kumpulan kandidat, bukan allowlist; palet terlarang tetap ditolak:**
    1. `~/sfx/SFXIrfan`: nama file adalah fungsi yang Irfan tetapkan (`Pergantianfoto`, `Katapertama`, `Kinetictypography(gunakansecaraacak)`, `Wooshcameramovementtransisi`, `basmenyebar`, `documenter`, …). Katalog + label dengar: `SFXIRFAN.md`.
-   2. Kosakata kiblat yang tidak ada di SFXIrfan (stab, snare, hit): Epidemic di SFXIrfan, Kenyset, lalu ElevenLabs SFX (biaya disebut dulu, aturan 10).
+   2. Kosakata kiblat yang tidak ada di SFXIrfan (stab, snare, hit): Epidemic di SFXIrfan, Kenyset, lalu ElevenLabs SFX (biaya disebut dulu, Lantai F28c).
    3. Set SFX milik proyek lain (mis. `jadisatu-60s` v17) hanya untuk peran yang tidak ada di atas, dengan alasan tertulis.
 4. **Dengar sebelum pakai.** `earshot describe <file>`; tulis labelnya di kolom `dengar` cue. File yang terdengar seperti UI tidak dipakai untuk momen cerita sinematik.
 5. **Satu peran = satu bunyi yang sama** sepanjang video; tiap cue `peran` + `alasan` + `dengar`.

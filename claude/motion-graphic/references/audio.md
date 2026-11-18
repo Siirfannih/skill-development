@@ -5,9 +5,9 @@ Baca hanya di gerbang audio (setelah script dan storyboard final) dan saat QA au
 ## 14. Audio
 
 ### 14.0A Kategori suasana dulu, baru cari audio
-Sebelum memilih musik atau SFX apa pun, tulis di brief **satu kategori suasana per babak** (juga untuk klip podcast: musik per babak, aturan 25). Kategori diturunkan dari **tempo video**, bukan selera siapa pun: video cepat (cut rapat, bicara cepat) butuh musik cepat yang menyaingi tempo; video tenang butuh musik tenang. Ukur dulu: `python3 scripts/audio/pace_read.py video.mp4 [--words words.json]` (cut/menit, event visual, laju bicara → usulan kategori + rentang bpm). Lalu cek isi: masalah/ancaman → `tegang`, harapan/CTA → `hangat`. Tulis alasannya satu baris.
+Sebelum memilih musik atau SFX apa pun, tulis di brief **satu kategori suasana per babak** (juga untuk klip podcast: musik per babak, Lantai E25). Kategori diturunkan dari **tempo video**, bukan selera siapa pun: video cepat (cut rapat, bicara cepat) butuh musik cepat yang menyaingi tempo; video tenang butuh musik tenang. Ukur dulu: `python3 scripts/audio/pace_read.py video.mp4 [--words words.json]` (cut/menit, event visual, laju bicara → usulan kategori + rentang bpm). Lalu cek isi: masalah/ancaman → `tegang`, harapan/CTA → `hangat`. Tulis alasannya satu baris.
 
-| Kategori | Kapan | Musik (profil terukur di `music-profiles.json`) | Karakter SFX (jumlah dari kiblat, aturan 43) |
+| Kategori | Kapan | Musik (profil terukur di `music-profiles.json`) | Karakter SFX (jumlah dari kiblat, Lantai E24) |
 |---|---|---|---|
 | `fokus` | menjelaskan, edukatif, podcast santai | lambat-sedang, ketukan jarang, tidak terang, tanpa build | lembut, pendek, bernada |
 | `slowdown` | reflektif, emosional, personal | lambat, sangat jarang, gelap/hangat, minor | lembut, level lebih rendah, ekor pendek |
@@ -29,7 +29,7 @@ Skrip mengukur tempo yang dirasakan, kepadatan ketukan, kecerahan, build/drop, d
 5. Tiap klip satu genre berbeda (Behindwork: orkestra Forzisimo / lo-fi Canals / chillstep Embrace).
 6. Pilih bagian yang **tidak punya breakdown di dalam durasi klip** (lewati intro braam, dip, outro fade); cek RMS 5 dtk potongannya.
 
-Profil di `music-profiles.json`: `energi` disesuaikan dengan 6 video referensi Irfan (musik ±104–136 bpm, `guide/referensi/`); kategori lain masih hipotesis. Kalibrasi dari **stem musik video referensi yang suasananya cocok** (bukan dari track favorit): `music_fit.py --calibrate <k> stem1 stem2 stem3`. SFX untuk kandidat: `earshot rank "<peran>" kandidat/*` untuk karakter, `sfx_comfort.py` untuk desis; jumlahnya mengikuti event visual (aturan 43), bukan kategori.
+Profil di `music-profiles.json`: `energi` disesuaikan dengan 6 video referensi Irfan (musik ±104–136 bpm, `guide/referensi/`); kategori lain masih hipotesis. Kalibrasi dari **stem musik video referensi yang suasananya cocok** (bukan dari track favorit): `music_fit.py --calibrate <k> stem1 stem2 stem3`. SFX untuk kandidat: `earshot rank "<peran>" kandidat/*` untuk karakter, `sfx_comfort.py` untuk desis; jumlahnya mengikuti event visual (Lantai E24), bukan kategori.
 
 ### 14.0B Mengenali audio: earshot = skor pertama, lalu divalidasi
 Claude tidak mendengar sendiri. Setiap alat telinga punya titik buta, jadi kesimpulan "audio ini seperti apa" diambil dari beberapa sumber yang saling dicek, bukan dari satu label.
@@ -56,7 +56,7 @@ Pilih mode di brief dan tulis alasannya:
 Langkah mode `konten`:
 1. **Suara dikunci**: VO final (atau audio sumber klip utuh). `audio_order.py init --mode konten`, lalu `audio_order.py lock suara suara.wav --words words_actual.json --source-words words_source.json --cut-map map.json --voice-source suara_sumber.wav`. Lock menjalankan ulang pemeriksaan kata/jeda dan menyimpan hash semua buktinya.
 2. **Visual dibangun di atas timing suara**, render tanpa audio, `lock visual`.
-3. **SFX dari event visual terkunci**: mulai dari `cues.json` storyboard, lalu geser ke onset nyata di render (`sync_cues.py`); bunyi untuk momen cerita dan gerak terlihat (aturan 43), tiap cue punya peran + alasan. `lock sfx cues.json --objects objects.json` menjalankan `sfx_density.py` terhadap render terkunci: objek tanpa SFX, peran tidak konsisten, spam, dan palet terlarang ditolak.
+3. **SFX dari event visual terkunci**: mulai dari `cues.json` storyboard, lalu geser ke onset nyata di render (`sync_cues.py`); bunyi untuk momen cerita dan gerak terlihat (Lantai E24), tiap cue punya peran + alasan. `lock sfx cues.json --objects objects.json` menjalankan `sfx_density.py` terhadap render terkunci: objek tanpa SFX, peran tidak konsisten, spam, dan palet terlarang ditolak.
 4. **Musik paling akhir**: render preview visual + SFX tanpa musik, dengarkan/ukur (`pace_read.py`), tentukan kategori suasana per babak, pilih kandidat (`music_fit.py`, kenali dengan `ears.py`), lalu `lock musik --peran --alasan --didengar preview.mp4`.
 5. **Mix dan QA**: `audio_order.py check` harus PASS sebelum render final.
 
@@ -68,7 +68,7 @@ Suara yang dikunci (gerbang 6) harus sudah bebas kata sampah dan diam saat berpi
 2. **Diam di dalam kata dihitung.** Whisper menelan jeda ke durasi kata (bisa 0,15–0,45 dtk per kata). Periksa energi di dalam setiap rentang kata, bukan hanya celah antarkata.
 3. **Kata sampah**: eee, emm, eh, hmm, uh, tuh, dan pengulangan/awal salah. Transkrip pancingan (`initial_prompt` berisi "eee, emm") membantu memunculkannya, tapi bisa berhalusinasi: setiap kandidat diverifikasi dengan energi/earshot, bukan dipercaya mentah.
 4. **Bunyi bersuara di luar kata** (gesekan mik, tangan, benda) dibuang bersama jedanya; dengar dulu dengan `earshot describe`.
-5. **Sisa jeda**: tengah kalimat 0,06 dtk; antarkalimat ±0,28 dtk; jeda dramatis yang disengaja (sebelum twist, setelah klimaks, antarbabak) ≤ 0,5 dtk dan ditulis di DECISIONS (aturan 33).
+5. **Sisa jeda**: tengah kalimat 0,06 dtk; antarkalimat ±0,28 dtk; jeda dramatis yang disengaja (sebelum twist, setelah klimaks, antarbabak) ≤ 0,5 dtk dan ditulis di DECISIONS (Lantai E23).
 6. **Alat**: `scripts/gate/cut_check.py suara.wav words_source.json --suggest potong.json` (FAIL bila ada sampah/diam) → dengar/edit usulan → `scripts/audio/recut.py cut --audio … --video wajah.mp4 --remove potong.json --source-words words_source.json --out DIR` (menolak endpoint bersuara, overlap kata, guard < 50 ms, dan drift; audio/video dipotong pada frame sama, micro-fade maksimal 2 ms, `map.json`) → `recut.py remap` untuk kata, beat, event, dan cue. Kode adegan yang menulis frame langsung harus memakai peta yang sama.
 6a. **Pengecualian guard 50 ms bernama-berbukti.** Bila kata sampah (mis. "tuh") menempel kata tetangga sehingga jeda nyatanya < 50 ms, batas itu boleh dikecualikan per sambungan lewat `--guard-exceptions <file.json>` (`cut_check.py`, `audio_order.py lock suara`). Tiap entri: {detik, kata_kiri, kata_kanan, alasan, bukti{retensi ≥ 0,95, irisan_ms ≤ 20, path}}, dan angka yang DIUKUR alat harus memenuhi syarat itu. Overlap kata, retensi, dan urutan tidak pernah dikecualikan; setiap pengecualian tercetak di laporan.
 7. **Tidak mengisi jeda dengan room tone** dari kamar yang sama (§14.6).
@@ -92,7 +92,7 @@ Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber
 | Teks diegetik di UI | tap UI (`ipad_click`) | saat teks muncul |
 | Ganti topik | swoosh transisi (whoosh gelombang) | di cut |
 
-**Nada → musik dan karakter SFX** (jumlah SFX dari kiblat, aturan 43)
+**Nada → musik dan karakter SFX** (jumlah SFX dari kiblat, Lantai E24)
 
 | Nada | Musik | Karakter SFX |
 |---|---|---|
@@ -133,14 +133,14 @@ Aturan:
 ### 14.2 Musik: beberapa cue sesuai babak (tidak pernah satu bed dari awal sampai akhir)
 - Dua babak energi (Holy Freak):
   - hook/masalah: bed musik/sub + SFX padat (±2,5/dtk)
-  - penjelasan/solusi: musik tipis, SFX ±1/dtk; musik turun, tidak bolong (aturan inti 32)
+  - penjelasan/solusi: musik tipis, SFX ±1/dtk; musik turun, tidak bolong (Lantai E25)
   - engsel: satu riser panjang (±50 f) + hit tepat di kata pivot
 - Contoh: tegang/repetitif (masalah) → tape-stop/kill tepat di engsel → jernih/rasional → bertenaga (demo) → hangat lega (CTA).
 - Grid beat diukur dengan librosa. Cut besar di downbeat, kamera mulai/mendarat di beat (±2 f).
 - Bass putus ±1 dtk sebelum atau tepat di cut ke end card.
 
 ### 14.3 Penempatan SFX (acuan Baikov: "SFX mendukung semua visual")
-- **SFX menandai momen cerita dan gerak yang terlihat; kosakata dan kepadatan dari kiblat** (aturan 43):
+- **SFX menandai momen cerita dan gerak yang terlihat; kosakata dan kepadatan dari kiblat** (Lantai E24):
   - momen: pembuka, judul/jawaban hook, twist (riser → drop), puncak, penutup;
   - gerak kamera besar dan benda yang muncul/mendarat/diklik karena ucapan;
   - kata kinetik hanya di pergantian kata kunci (triad), **tidak per kata**; subtitle tidak berbunyi;
@@ -158,7 +158,7 @@ Aturan:
   - dua event < 0,1 dtk (3 f) berbunyi satu (peran prioritas membawa keduanya), supaya tidak flam;
   - mixer mengubah cue gerak yang mulai < 1 dtk setelah cue gerak sebelumnya jadi tick: rencanakan jarak whoosh ≥ 1 dtk.
 - **Satu event satu bunyi.** Tidak ada layering beberapa file untuk satu event; pilih satu file yang karakternya sudah lengkap.
-- **Waktu @30 fps** (SFX tidak pernah mendahului objek, aturan inti 37):
+- **Waktu @30 fps** (SFX tidak pernah mendahului objek, Lantai E24):
   - pop: +1…+2 f setelah objek terlihat jelas (§14.9)
   - dentum/impact: di frame mendarat
   - hard cut / ganti frame: klik (`cut_click`), atau senyap bila tertutup panel/kanvas yang sedang masuk; **bukan whoosh**
@@ -174,7 +174,7 @@ Aturan:
 - Sinkron: hit bunyi vs onset visual ±1–2 f (±45 ms), dicek per cue dari render.
 
 ### 14.4 Titik balik: turun, bukan hilang
-Penekanan di titik balik dibuat dengan **musik turun ke drone/room tone** (stop-down ≤ 0,5 dtk), lalu hantaman atau drop di kata pivot. Tidak ada hening total (digital silence), dan musik tidak pernah 0 di bawah klip narasumber (§14.7). Alasan: hening total terdengar seperti audio rusak dan memutus perhatian (aturan inti 32). Panjang turunnya mengikuti nada di `pacing-map.md`, bukan resep frame tetap.
+Penekanan di titik balik dibuat dengan **musik turun ke drone/room tone** (stop-down ≤ 0,5 dtk), lalu hantaman atau drop di kata pivot. Tidak ada hening total (digital silence), dan musik tidak pernah 0 di bawah klip narasumber (§14.7). Alasan: hening total terdengar seperti audio rusak dan memutus perhatian (Lantai E25). Panjang turunnya mengikuti nada di `pacing-map.md`, bukan resep frame tetap.
 
 ### 14.5 Standar "Nyaman, jelas, tanpa ear-fatigue"
 **Acuannya palet yang terbukti lulus** (`projects/jadisatu-60s/remotion/tools/audio_build.py`). Bunyi thock/felt/wood ber-LPF 1,5–2,5 kHz tidak dipakai: hasilnya palet gelap seperti ketukan kayu.
@@ -296,7 +296,7 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
   - rumus: `sfxStart = camStart + round(0.28 × moveDur) − whooshPeakOffset`;
   - di cue, pakai `align:"peak"` + `peak` = detik puncak di file.
 - **Pop/klik kemunculan**: transien di +1…+2 f setelah skala melewati 0,6 (objek pertama kali terlihat jelas), bukan di frame 0.
-- **Stagger banyak item** (grid, barisan): item yang masuk terpisah (> 2 frame) masing-masing mendapat satu bunyi dari peran yang sama; item yang muncul bersamaan dalam ≤ 2 frame dihitung satu event. Maksimal 2 bunyi per 100 ms, dan dua bunyi berperan sama tidak boleh jatuh dalam 100 ms (The Gap `sync_cues.py`). Kata tidak berbunyi per kata; subtitle tidak berbunyi (aturan 43).
+- **Stagger banyak item** (grid, barisan): item yang masuk terpisah (> 2 frame) masing-masing mendapat satu bunyi dari peran yang sama; item yang muncul bersamaan dalam ≤ 2 frame dihitung satu event. Maksimal 2 bunyi per 100 ms, dan dua bunyi berperan sama tidak boleh jatuh dalam 100 ms (The Gap `sync_cues.py`). Kata tidak berbunyi per kata; subtitle tidak berbunyi (Lantai E24).
 
 ### 14.9b Resep mix yang terbukti
 Dicek setiap mix:

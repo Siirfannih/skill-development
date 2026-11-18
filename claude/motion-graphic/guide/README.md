@@ -8,7 +8,7 @@ Jangan main aman. Ragu antara pilihan hidup vs pilihan aman → ambil yang hidup
 
 1. **Rapi, tersusun, hierarki terbaca.** Satu hal utama per momen; mata tahu harus lihat ke mana.
 2. **Audio ikut suasana video.** Video cepat → musik cepat. Video tenang → musik tenang. Bukan selera.
-3. **SFX menandai momen cerita dan gerak yang terlihat**, kosakata dan kepadatan dari kiblat, tanpa bunyi per kata; jeda bicara bersih (aturan 43, Lantai E23–E24).
+3. **SFX menandai momen cerita dan gerak yang terlihat**, kosakata dan kepadatan dari kiblat, tanpa bunyi per kata; jeda bicara bersih (Lantai E24, Lantai E23–E24).
 4. **Hindari:** warna kebanyakan, teks berantakan/bertumpuk, gerak kaku, cutout kasar, kurang smooth.
 
 ## Masuk folder sesuai urusan (baca yang perlu saja)
@@ -29,5 +29,5 @@ Tiap folder: **Tujuan · Bagus itu seperti apa (bukti referensi) · Cara (piliha
 
 ## Hubungan dengan file lain
 
-- `../SKILL.md` = alur kerja + Hard Gate. `guide/` = rasa dan standar. `../references/` = resep teknis detail (dibuka bila guide merujuk).
+- `../SKILL.md` = alur kerja + Lantai. `guide/` = rasa dan standar. `../references/` = resep teknis detail (dibuka bila guide merujuk).
 - Brief + referensi yang Irfan kirim di sesi menang atas contoh di sini. Video referensi adalah standar kualitas Irfan: target yang harus dicapai.

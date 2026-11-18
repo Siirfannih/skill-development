@@ -50,7 +50,7 @@ def main():
         if tag.startswith("SAMA"):
             same.append((x, y))
     if len(same) > a.allow_same:
-        print(f"FAIL: {len(same)} pasangan memakai track yang sama; tiap klip/babak butuh track sendiri (aturan 25, S-A9)")
+        print(f"FAIL: {len(same)} pasangan memakai track yang sama; tiap klip/babak butuh track sendiri (Lantai E25, S-A9)")
         sys.exit(1)
     print("PASS")
 

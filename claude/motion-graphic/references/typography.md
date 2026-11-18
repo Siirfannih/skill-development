@@ -60,7 +60,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
   - menempel objek (diegetik)
   - ruang negatif samping subjek (hanya bila subjek tunggal dan teks satu-satunya bacaan)
 - Teks tidak menutupi wajah atau subjek. Objek boleh menutup ≤ 10 % huruf, tidak menutup huruf pertama, dan tidak menutup apa pun selama jeda baca.
-- Caption nyala/mati per beat mengikuti `decision-guide.md` §1; bila nyala, ≤ 2 baris (aturan 44). Kata muncul +1…+4 f setelah onset kata VO.
+- Caption nyala/mati per beat mengikuti `decision-guide.md` §1; bila nyala, ≤ 2 baris (Lantai A1). Kata muncul +1…+4 f setelah onset kata VO.
 
 ### 7.4 Kebijakan teks 3D
 - Default: **tipografi 2.5D**. Kata, huruf, dan baris adalah bidang di ruang perspektif yang berotasi X/Y/Z, berlapis kedalaman, ikut kamera, dan tajam.
@@ -177,7 +177,7 @@ Aturan pemakaian:
 - Satu register gerak per video (teknis, editorial, premium, ekspresif, tenang); di dalamnya kurva dipilih per gerak dari `scripts/remotion/curves.ts` (Lantai B13a). Tidak ada linear kecuali drift/rotasi loop.
 - Ritme:
   - satu event baru tiap 12–24 f; sesuatu yang baru tiap 2–4 dtk
-  - hold teks dihitung per bagian. Kartu yang dipakai di bagian itu menentukan **bentuk** hitungannya (per kata atau per frasa); **nilainya** dihitung dari kata di audio video ini, tidak disalin dari kartu. Gaya kata-per-kata (kartu 83): 0,25 dtk + 0,3 dtk/kata (`scripts/lego/teks_plan.py`). Bagian tanpa ketentuan kartu: aturan 46 di `core-rules.md`
+  - hold teks dihitung per bagian. Kartu yang dipakai di bagian itu menentukan **bentuk** hitungannya (per kata atau per frasa); **nilainya** dihitung dari kata di audio video ini, tidak disalin dari kartu. Gaya kata-per-kata (kartu 83): 0,25 dtk + 0,3 dtk/kata (`scripts/lego/teks_plan.py`). Bagian tanpa ketentuan kartu: Lantai A8 di `core-rules.md`
   - reaksi berjeda tidak rata `react(i)` (0, 2, 5, 8, 11, 15 f @30), bukan stagger rata (Lantai B13a)
 - **Puncak visual memimpin ketukan** supaya terbaca tepat di beat. Bunyi tetap di grid; apex gerak, bukan awal adegan, yang menabrak beat.
 - Swap berurutan: yang lama keluar penuh sebelum yang baru mendarat.

@@ -61,7 +61,7 @@ Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat men
 
 | File | Ditulis | Isi |
 |---|---|---|
-| `BRIEF.md` | Sutradara | Brief Irfan apa adanya, keputusan terkunci, gaya terpilih + token, Hard Gate yang relevan, aset + lisensi. Netral: fakta dan keputusan, bukan cerita proses |
+| `BRIEF.md` | Sutradara | Brief Irfan apa adanya, keputusan terkunci, gaya terpilih + token, butir Lantai yang relevan, aset + lisensi. Netral: fakta dan keputusan, bukan cerita proses |
 | `MENU.md` | Sutradara | Rencana edit 3 opsi per beat untuk dipilih Irfan (`templates/gaya/README.md`); pilihan masuk PLAN |
 | `PLAN.json` | Sutradara | Beat: `id`, waktu, kata, jenis adegan (ID dari gaya), opsi terpilih, teks layar persis, SFX `peran`+`alasan`, `lulus_bila` terukur. Format `beats.json` storyboard + `adegan` dan `lulus_bila` |
 | `TASK-rN.md` | Sutradara | Cakupan ronde (beat mana), file yang boleh dibaca, keluaran wajib, temuan yang harus diperbaiki (ID), yang tidak boleh berubah |
@@ -75,7 +75,7 @@ Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat men
 1. Sutradara menulis `TASK-rN.md`. Satu TASK = satu tujuan yang bisa dicek (mis. "B01–B05 still + render tanpa audio"). Bagian yang meminjam teknik kartu ditulis dengan **angka kartu itu** (skala, lapisan, warna, kamera) yang dikutip, bukan parafrase Sutradara. Gambar referensi Irfan diterjemahkan ke angka kartu; bila gambar dan kartu bertentangan, tulis keduanya dan tanyakan, jangan memilih diam-diam. Pertanyaan Editor yang menafsirkan ulang cara kerja kartu ("teks 10 % dicapai dengan …") dicocokkan dulu dengan kalimat kartunya sebelum diterima.
 2. Editor membangun, menjalankan gate mekanis yang disebut TASK, menulis `REPORT-rN.md`. Ragu = `QUESTIONS.md`, lalu lanjut ke beat lain.
 3. **Review buta:** Sutradara melihat still/render dan mengukur sendiri **sebelum** membaca REPORT. Setelah itu baru REPORT dibaca untuk mencocokkan angka.
-4. **Devil's advocate per temuan** (`working-with-irfan` §2a): apakah melanggar BRIEF/PLAN/Hard Gate, atau hanya selera? Bisakah diukur? Apakah merusak beat yang sudah lolos? Temuan yang tidak lolos dibuang dan dicatat.
+4. **Devil's advocate per temuan** (`working-with-irfan` §2a): apakah melanggar BRIEF/PLAN/Lantai, atau hanya selera? Bisakah diukur? Apakah merusak beat yang sudah lolos? Temuan yang tidak lolos dibuang dan dicatat.
 5. Temuan yang lolos masuk `TASK-r(N+1).md` dengan ID. Beat yang lolos dikunci (`scripts/baseline_lock.py`).
 6. Maks 3 ronde per beat; gagal 2× di butir sama = ganti pendekatan; gagal 3× = tanya Irfan dengan frame sebelum/sesudah + 2 opsi.
 7. Revisi Irfan: Sutradara memberi nomor setiap catatan, menunggu Irfan selesai ("udah", "go"), menerjemahkan ke satu TASK, Editor mengerjakan dalam satu putaran. Setiap putaran = versi baru, versi yang sudah dilihat Irfan tidak ditimpa.

@@ -16,48 +16,48 @@ Yang terbukti:
 - **Draft cepat** untuk QC gerak: `scripts/juri/render.sh <proyek> draft <Comp>` (skala 0,5); still untuk QC layout lewat `render.sh … still`. Render penuh 1080p terukur ±8–18 menit per video ±97 dtk di PC server, jadi hanya lewat `render.sh … final` setelah juri lulus (`pustaka/README.md` §Juri).
 - **QC tiga lapis berurutan**, lapis berikut hanya bila lapis sebelumnya lolos: (1) **visual saja** tanpa audio: urutan baca, waktu baca, terpotong, animasi, transisi, ilustrasi, tabrakan objek, zona aman; (2) **visual + SFX** tanpa musik: tiap SFX sesuai jenis gerak dan tepat waktu (±2 f), tidak ada event tanpa bunyi, tidak ada bunyi tanpa event; (3) **visual + SFX + musik**: bed kontinu dan sesuai emosi, suara jelas, level, tidak ada lubang.
 
-## Blok 1: Hard Gate (semua harus "tidak")
+## Blok 1: Gerbang keras (semua harus "tidak")
 
 Di blok ini cek mekanis audio dijalankan lebih dulu. Penilaian visual (gaya, posisi, estetika) sudah lulus sebelum audio disusun (Lantai F26) dan tidak diulang di sini.
 
-| Cek | Bukti | Aturan |
+| Cek | Bukti | Lantai |
 |---|---|---|
-| Track musik yang sama dipakai di beberapa klip/babak dalam satu batch? | `python3 scripts/gate/music_batch.py musik_klipA.mp3 musik_klipB.mp3 …` | 25, S-A9 |
-| Ada cue SFX/musik tanpa `peran` + `alasan`, atau spam (whoosh > 1/dtk, file sama < 1 dtk)? | `scripts/gate/sfx_density.py` | 43, §14.3 |
-| Objek/visual penting tanpa SFX, peran memakai > 1 file, bunyi < 100 ms bertumpuk, bunyi per kata KT, > 5 cue dalam 2 dtk, cue tanpa `dengar`, atau palet terlarang? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json --objects objects.json` | 43, Lantai E24 |
+| Track musik yang sama dipakai di beberapa klip/babak dalam satu batch? | `python3 scripts/gate/music_batch.py musik_klipA.mp3 musik_klipB.mp3 …` | Lantai E25, S-A9 |
+| Ada cue SFX/musik tanpa `peran` + `alasan`, atau spam (whoosh > 1/dtk, file sama < 1 dtk)? | `scripts/gate/sfx_density.py` | Lantai E24, §14.3 |
+| Objek/visual penting tanpa SFX, peran memakai > 1 file, bunyi < 100 ms bertumpuk, bunyi per kata KT, > 5 cue dalam 2 dtk, cue tanpa `dengar`, atau palet terlarang? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json --objects objects.json` | Lantai E24 |
 | Suara masih membawa kata sampah/diam, atau cut menyentuh kata isi >20 ms, guard <50 ms, durasi kata <85 %, urutan ASR aktual berubah? Musik dipompa > 1,5 dB saat bicara? | `audio_order.py check` (mengulang `cut_check.py` dengan source words + cut map) · `audio/audio_phone.py --list` | PASS / jendela < 8 dB ≤ 5 |
 | Referensi atau SFX tidak didengar (tidak ada log `earshot timeline` ref + `earshot describe` tiap file)? | log earshot di folder proyek | gerbang DENGAR `three-segment-gate.md` |
-| Suara sumber klip yang bersih diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | 38, §14.6 |
-| Kategori suasana tidak tertulis, musik tanpa laporan `music_fit.py` berstatus PAKAI (earshot aktif), kandidat < 8 atau dari < 2 sumber, atau track yang sama dipakai di semua klip/babak? | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 kandidat/*` | 25, 34, 45 |
-| Ada teks > 2 baris, kata yatim, teks terpotong tepi, ucapan tanpa teks, baris subtitle di pita bawah, atau kata yang tampil dua kali? | `python3 scripts/juri/teks_cek.py qc/stills/` + keputusan per still yang ditandai (`caption_lines.py` hanya menghitung baris) | 44, LANTAI A1–A4 |
-| Ada teks/angka layar yang tidak diucapkan? | transkrip vs daftar teks | 2 |
-| Ada UI karangan atau placeholder storyboard di render? | still | 4, 16, 19, 22 |
-| Ada adegan terkunci yang berubah? | `scripts/baseline_lock.py check` | 14 |
+| Suara sumber klip yang bersih diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | Lantai E25a, §14.6 |
+| Kategori suasana tidak tertulis, musik tanpa laporan `music_fit.py` berstatus PAKAI (earshot aktif), kandidat < 8 atau dari < 2 sumber, atau track yang sama dipakai di semua klip/babak? | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 kandidat/*` | Lantai E25, Lantai E24 |
+| Ada teks > 2 baris, kata yatim, teks terpotong tepi, ucapan tanpa teks, baris subtitle di pita bawah, atau kata yang tampil dua kali? | `python3 scripts/juri/teks_cek.py qc/stills/` + keputusan per still yang ditandai (`caption_lines.py` hanya menghitung baris) | Lantai A1, LANTAI A1–A4 |
+| Ada teks/angka layar yang tidak diucapkan? | transkrip vs daftar teks | Lantai A5 |
+| Ada UI karangan atau placeholder storyboard di render? | still | Lantai D20, Lantai D19c, Lantai D22 |
+| Ada adegan terkunci yang berubah? | `scripts/baseline_lock.py check` | Lantai F27 |
 | Suara asli diturunkan, ditekan (crest −2 dB), atau < −17 LUFS? True peak > −1 dBTP (diukur di MP4 setelah mux AAC)? | `python3 scripts/gate/voice_level.py suara_sumber.wav suara_hasil.wav` · ebur128 | §14.10, Lantai E23 |
-| `audio_qa.py --module5`, `audio_phone.py` (tiap SFX terdengar di HP 20/50/100 %), `visual_coverage.py` ada yang gagal? | keluaran skrip | 30, 35, 37, 38 |
-| Generate berbayar sebelum gerbangnya terbuka, atau biaya tidak disebut? | log sesi | 10 |
+| `audio_qa.py --module5`, `audio_phone.py` (tiap SFX terdengar di HP 20/50/100 %), `visual_coverage.py` ada yang gagal? | keluaran skrip | Lantai E25a, Lantai E24 |
+| Generate berbayar sebelum gerbangnya terbuka, atau biaya tidak disebut? | log sesi | Lantai F28c |
 
-## Blok 2: Purpose-Gate (teknik boleh, alasan wajib ditulis di tabel beat)
+## Blok 2: Teknik beralasan (teknik boleh, alasan wajib ditulis di tabel beat)
 
 FAIL bila teknik ini ada tanpa alasan satu baris di tabel beat:
-- kotak/scrim di belakang teks (alasan = kontras terukur < 4,5 : 1) — aturan 6
-- glow, gradien, negative, RGB split, flash — aturan 7, 24, 40
+- kotak/scrim di belakang teks (alasan = kontras terukur < 4,5 : 1) — Lantai A9
+- glow, gradien, negative, RGB split, flash — Lantai C18b, F28b
 - musik dengan build/drop/tension — alasan dari nada babak (`pacing-map.md`)
 - grafik di atas footage: pilih menyatu atau dunia sendiri — `decision-guide.md` §5
 
-## Blok 3: Quality Lock (semua harus "ya")
+## Blok 3: Konsistensi (semua harus "ya")
 
-- Satu fokus per momen (squint test 10 px pada still) — 1
-- Palet lulus `scripts/palette_check.py` — 41
-- Transisi tanpa crossfade, mekaniknya dari logika ruang — 5, 42
-- Satu baris satu ukuran; serif tidak sejajar bold — 39
+- Satu fokus per momen (squint test 10 px pada still) — Lantai C14
+- Palet lulus `scripts/palette_check.py` — Lantai C18a
+- Transisi tanpa crossfade, mekaniknya dari logika ruang — Lantai B13
+- Satu baris satu ukuran; serif tidak sejajar bold — Lantai A6
 - Pindai `slop-catalog.md`: tiap tanda yang muncul punya alasan tertulis atau sudah dibuang
 
 ## 4. Devil's advocate audio (wajib, ditulis di laporan sebelum render penuh)
 
 Jawab dengan bukti, bukan klaim. Satu jawaban lemah = FAIL.
 1. Apakah referensi **didengar** dengan earshot? Berapa event/dtk dan kosakata bunyinya, dan berapa milik kita?
-2. Apakah setiap SFX menandai momen cerita atau gerak yang terlihat, dari kosakata kiblat, dan sudah didengar? Adakah lapisan klik yang terdengar terus? (aturan 43)
+2. Apakah setiap SFX menandai momen cerita atau gerak yang terlihat, dari kosakata kiblat, dan sudah didengar? Adakah lapisan klik yang terdengar terus? (Lantai E24)
 3. Kenapa track musik ini, bukan kandidat lain? Apakah track yang sama dipakai di klip/babak lain?
 4. Bila reviewer menandai "sepi", "datar", atau "tidak terdengar": yang diperbaiki **penyebabnya** (jumlah cue, track) atau hanya level?
 

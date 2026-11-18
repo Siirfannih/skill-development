@@ -850,3 +850,11 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | Aturan | Asal-usul |
 |---|---|
 | guide, frame kunci, dan contoh-gagal masuk rute fase 1/3/5 dan brief pekerja visual; koreksi dicatat saat diterima; pelajaran teks dikelompokkan per situasi | Irfan 18 Nov: pola "jika X maka Y" sudah ada di repo tetapi terlewat, juga oleh model yang mengaudit; minta audit keterbacaan seluruh repo. Temuan: `guide/teks`, `guide/visual`, `guide/gerak`, `contoh-gagal`, dan `pemeriksa-frame.md` tidak ada di baris Rute mana pun, sementara AGENTS menyuruh membuka hanya file rute; brief fase dan Editor tidak memuatnya; aturan pencatatan pelajaran hanya ada di §Akhir sesi; 24 pelajaran teks tersusun sebagai satu daftar tanpa kelompok |
+
+## Penggabungan aturan inti ke Lantai · After Effects sebagai alat · ringkasan kartu di brief
+
+| Aturan | Asal-usul |
+|---|---|
+| LANTAI A7, B11, B13, B13b, C14, C18a, C18b, D19c, D22–22c, E25, E25a, F28–28c (tambahan) | Irfan 18 Nov: "gabungkan saja yang tumpang tindih". 50 aturan inti (`references/core-rules.md`, kini `archive/motion-graphic-core-rules-1-50.md` dengan tabel padanan) digabung; butir yang sudah ada di Lantai tidak ditulis ulang. Asal-usul tiap aturan inti ada di bagian `references/core-rules.md` file ini |
+| `tools/AFTER-EFFECTS.md` | Irfan 18 Nov: After Effects masuk ke tools, dipakai kalau diminta atau diperlukan; sebelumnya `build.md` menulis AE sebagai default |
+| Ringkasan kartu di `templates/handoff-fase.md`, `editor.md`, `orkestrasi.md` §3 | Irfan 18 Nov: pemberi tugas/Sutradara yang menuliskan isi kartu secara ringkas atau tabel untuk pekerja, bukan pekerja membaca semuanya |

@@ -7,14 +7,14 @@ Ganti `<…>`. Jangan menambah cerita proses, pendapat, atau kutipan chat Irfan;
 Kamu **Editor** untuk video `<nama>`. Tugasmu membangun video sampai file final sesuai tugas tertulis. Sutradara (sesi lain) memegang brief, rencana, dan komunikasi dengan Irfan.
 
 **Baca, berurutan, dan hanya ini:**
-0. `claude/motion-graphic/LANTAI.md`, `<proyek>/RESEP.md`, kartu kiblat yang disebut resep (`claude/motion-graphic/pustaka/kartu/…`) **beserta frame kuncinya** (`guide/referensi/sheets/keyframes/<no>-k*.jpg`, buka gambarnya), `guide/<urusan>/GUIDE.md` §Cara memutuskan untuk urusan yang dikerjakan (teks, visual, gerak), dan `pustaka/contoh-gagal/README.md`
+0. `claude/motion-graphic/LANTAI.md`, `<proyek>/RESEP.md`, dan **Ringkasan kartu** di `handoff/BRIEF.md` atau TASK (tabel yang ditulis Sutradara: apa yang diambil dari tiap kartu, pelajaran yang berlaku, contoh gagal yang mirip; format di `templates/handoff-fase.md`), lalu buka gambar frame kunci yang disebut tabel itu. Kartu dan guide tidak perlu kamu baca
 1. `<proyek>/handoff/BRIEF.md`
 2. `<proyek>/handoff/PLAN.json`
 3. `<proyek>/handoff/TASK-r<N>.md`, berisi cakupan ronde ini
 4. File yang disebut di TASK bagian "Boleh dibaca" (mis. `claude/motion-graphic/templates/gaya/<gaya>/STYLE.md`, `references/build.md`, engine). Jangan membuka file skill lain, RETRO, atau folder proyek lain.
 
 **Aturan kerja:**
-- Bangun persis yang ada di PLAN dan TASK. Teks layar hanya yang tertulis di PLAN (aturan 2). Jangan mengubah `BRIEF.md`, `PLAN.json`, atau beat yang terkunci (`locks/`).
+- Bangun persis yang ada di PLAN dan TASK. Teks layar hanya yang tertulis di PLAN (Lantai A5). Jangan mengubah `BRIEF.md`, `PLAN.json`, atau beat yang terkunci (`locks/`).
 - Tidak jelas atau bertentangan → tulis ke `handoff/QUESTIONS.md` (ID beat, pertanyaan, opsi yang kamu lihat), lalu kerjakan beat lain. Jangan menebak.
 - Lihat hasilmu sendiri: render still untuk setiap beat yang kamu ubah dan periksa sheet-nya sebelum melapor.
 - Jalankan gate mekanis yang disebut TASK dan salin keluarannya apa adanya.

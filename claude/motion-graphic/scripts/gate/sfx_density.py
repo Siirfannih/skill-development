@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gerbang aturan 43: SFX menandai momen cerita dan gerak yang terlihat, kepadatan dari kiblat,
+"""Gerbang Lantai E24: SFX menandai momen cerita dan gerak yang terlihat, kepadatan dari kiblat,
 tanpa bunyi per kata dan tanpa spam. Hening yang disengaja boleh.
 
 FAIL bila:

@@ -83,7 +83,7 @@ Video penjelasnya memakai latar gelap ber-grid, kartu 9:16 melayang, carousel be
 ## 7. Yang sudah ada di skill kita
 - Kata besar + kata pengantar kecil, serif hanya sebagai penekanan: `decision-guide.md` §2, `pedro-andradeok.md` §4.
 - Satu aksen warna, netral membawa frame: `guide/visual/`, `palette.md`.
-- SFX di momen cerita (aturan 43), revisi sebagai diff bernomor (aturan 18), build Remotion, loop kritik sebelum kirim.
+- SFX di momen cerita (Lantai E24), revisi sebagai diff bernomor (Lantai F27), build Remotion, loop kritik sebelum kirim.
 
 ## 8. Celah skill yang terlihat dari video ini
 
@@ -92,6 +92,6 @@ Status 11 Nov: butir 1–5 diterapkan (`templates/gaya/minimal-premium`, `analys
 2. **Belum ada paket gaya lintas banyak video satu kreator.** Guideline 14–17 dan kartu `canvas-skill-library` dibuat per video. Belum ada taksonomi adegan bernama + pustaka animasi ber-ID (still awal/tengah/akhir + lembar keyframe) yang bisa dikutip saat merencanakan.
 3. **Belum ada "rencana edit" berbentuk menu.** Storyboard kita memilih satu visual per beat; variasi hanya bila diminta. Untuk klip podcast, Irfan tidak punya titik memilih sama sekali (agent membuat storyboard sendiri). Format Joseph: 3 opsi per beat, tiap opsi mengutip ID referensi, Irfan memilih ±15 menit sebelum build.
 4. **Belum ada sistem tekstur/material**: kertas, tepi gelap + blur di B-roll, cat/kertas kasar di lukisan, kain kasar di ilustrasi, dan cek QA "tekstur menempel ke layer, kekuatan terkalibrasi" (revisi 3).
-5. **Sumber aset visual belum diatur.** Aturan 50 hanya ikon/logo. Belum ada jalur lukisan domain publik (Wikimedia), stok video (Pexels), foto tokoh, dan daftar aset + lisensi sebelum build (audio sudah punya `CREDITS.md`).
+5. **Sumber aset visual belum diatur.** Lantai D20 hanya ikon/logo. Belum ada jalur lukisan domain publik (Wikimedia), stok video (Pexels), foto tokoh, dan daftar aset + lisensi sebelum build (audio sudah punya `CREDITS.md`).
 6. **`pace_read.py` hanya membaca tempo.** Video ini terbaca "energi, 100–140 bpm"; tempo stem musiknya memang ±108 bpm, tetapi warnanya string pizzicato tanpa drum, jauh di bawah suara. Profil "energi" kita tidak menggambarkan register premium-edukatif ini.
-7. **Benturan dengan aturan 15** (tidak ada elemen biru di latar gelap): gaya ini memakai garis dan bola biru bercahaya di hitam. Teksnya tetap putih; biru hanya garis/titik/latar penuh. Perlu keputusan Irfan bila gaya ini dipakai.
+7. **Benturan dengan Lantai A7** (tidak ada elemen biru di latar gelap): gaya ini memakai garis dan bola biru bercahaya di hitam. Teksnya tetap putih; biru hanya garis/titik/latar penuh. Perlu keputusan Irfan bila gaya ini dipakai.

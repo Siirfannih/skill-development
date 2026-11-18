@@ -12,7 +12,7 @@ Ini daftar pindai, bukan larangan teknik. Satu tanda dengan alasan tertulis bole
 | Kurang smooth / patah | perhatian putus | cut tidak di ketukan | cut di kata/beat/puncak gerak |
 | Musik melawan suasana | merusak mood | `pace_read.py` vs musik | kategori dari tempo video (`../audio/`) |
 | Suara sumber yang bersih jadi mendem | kualitas turun | `voice_fidelity.py` | sumber bersih cukup gain linear (§14.6) |
-| Objek, teks, atau gerak tanpa bunyi | layar terasa mati | `gate/sfx_density.py` | 1 bunyi per frame/pesan/objek/gerakan (aturan 43) |
+| Objek, teks, atau gerak tanpa bunyi | layar terasa mati | `gate/sfx_density.py` | 1 bunyi per frame/pesan/objek/gerakan (Lantai E24) |
 | Grafik vivid melayang di footage blur | tempelan | still | menyatu atau dunia sendiri |
 
 Daftar lengkap riwayat penolakan Irfan: `../../references/slop-catalog.md`.

@@ -1,6 +1,6 @@
 # Katalog `~/sfx/SFXIrfan` (didengar 13 Nov dengan `earshot describe`)
 
-Sumber pertama untuk SFX (aturan 43), **bukan allowlist**. Nama file adalah fungsi yang Irfan tetapkan; kolom "terdengar" adalah label earshot (z ≥ 2,5 = jelas/plausible). Di Mac: `~/Downloads/SFXIrfan`; di PC: `/home/irfan/sfx/SFXIrfan` (alias `~/work/sfx/SFXIrfan`). `sfx_density.py` tetap menolak kayu/woodblock/thock/felt, koin/logam, kartun/langkah kaki, 8-bit, white/pink noise atau sinus sintetis, `rope-creak`, dan bank `sfx_render`. `Lasertransision.mp3` dan `ES_Scifi…Glitch 02` tetap boleh: fungsinya Irfan yang menetapkan.
+Sumber pertama untuk SFX (Lantai E24), **bukan allowlist**. Nama file adalah fungsi yang Irfan tetapkan; kolom "terdengar" adalah label earshot (z ≥ 2,5 = jelas/plausible). Di Mac: `~/Downloads/SFXIrfan`; di PC: `/home/irfan/sfx/SFXIrfan` (alias `~/work/sfx/SFXIrfan`). `sfx_density.py` tetap menolak kayu/woodblock/thock/felt, koin/logam, kartun/langkah kaki, 8-bit, white/pink noise atau sinus sintetis, `rope-creak`, dan bank `sfx_render`. `Lasertransision.mp3` dan `ES_Scifi…Glitch 02` tetap boleh: fungsinya Irfan yang menetapkan.
 
 | File | Durasi | Terdengar | Pakai untuk |
 |---|---|---|---|

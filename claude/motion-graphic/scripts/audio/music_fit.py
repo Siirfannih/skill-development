@@ -13,7 +13,7 @@ Pakai:
 Profil: ../../references/music-profiles.json. Keluaran: peringkat, skor 0-100, dan alasan per fitur.
 Lulus pakai = skor >= 70 DAN snr_min terpenuhi DAN bpm/onset di dalam rentang kategori (di luar = GUGUR, bukan
 penalti). earshot rank wajib jalan; bila tidak terpasang skrip berhenti (gerbang DENGAR).
-Kandidat < 8 file atau dari < 2 folder sumber = FAIL (aturan 34).
+Kandidat < 8 file atau dari < 2 folder sumber = FAIL (Lantai E24).
 Telinga Irfan tetap hakim terakhir.
 """
 import argparse, json, os, subprocess, sys

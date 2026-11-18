@@ -1,8 +1,8 @@
-# Aturan inti lengkap (teks penuh)
+# Aturan inti 1–50 (arsip)
 
-`SKILL.md` memuat `LANTAI.md` (mutu yang selalu berlaku) dan indeks bertingkat (Hard Gate / Purpose-Gate / Quality Lock) dengan satu baris per aturan. File ini teks penuhnya. Nomor tidak berubah supaya rujukan lama ("aturan inti 32") tetap berlaku.
+Sudah digabung ke `claude/motion-graphic/LANTAI.md`. File ini riwayat, bukan instruksi: jangan dipakai sebagai aturan. Padanan nomor lama → butir Lantai:
 
-Semua aturan berlaku untuk semua video (motion ber-VO dan klip podcast/wawancara). Tidak ada aturan khusus format.
+1→C14 · 2→A5 · 3→D22a · 4→D20 · 5→B13 · 6→A9 · 7→C18b · 8→A7 · 9→B13 · 10→F28c · 11→A7 · 12→F29 · 13→F28 · 14→F27 · 15→A7 · 16→D19c · 17→F28a · 18→F27 · 19→D20 · 20→C14 · 21→B13b · 22→D22 · 23→D22b · 24→C18b · 25→E25 · 26→B10 · 27→D22c · 28→F28b · 29→B11 · 30→E25a · 31→D19 · 32→E25 · 33→E23 · 34→E24 · 35→E25a · 36→E25a · 37→E24 · 38→E25a · 39→A6 · 40→F28b · 41→C18a · 42→B13 · 43→E24 · 44→A1 · 45→E25 · 46→A8 · 47→B12 · 48→D19 · 49→D21 · 50→D20
 
 1. **Satu fokus per momen.** Teks muncul satu per satu mengikuti VO dan yang baru masuk selalu jadi fokus; elemen boleh menumpuk jadi komposisi. Teks dan visual tidak berbobot sama di momen yang sama. Layout "teks besar di kiri + kartu/UI di kanan" dilarang karena memaksa mata membaca dua hal. Cara memilih mode teks per beat: `decision-guide.md`.
 2. **Teks layar hanya dari VO.** Tidak ada kalimat atau angka tambahan.

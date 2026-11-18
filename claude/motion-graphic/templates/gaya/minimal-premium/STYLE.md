@@ -18,7 +18,7 @@ Cocok: wawancara, filosofi, psikologi, karier, edukasi personal. Tidak cocok: pr
 ## 2. Caption (dipakai di semua adegan)
 - Satu tampilan ≤ 5 kata. Pilih 1 kata terpenting: Inter Bold atau Playfair Bold Italic, besar, di tengah.
 - Kata lain kecil (Inter Regular, ±30–40 % tinggi kata besar) ditempatkan di **celah** atas-kiri / bawah-kanan kata besar, bukan berbaris rata.
-- Sesuai `decision-guide.md` §2: satu baris satu ukuran, serif hanya untuk penekanan. Caption ≤ 2 baris (aturan 44).
+- Sesuai `decision-guide.md` §2: satu baris satu ukuran, serif hanya untuk penekanan. Caption ≤ 2 baris (Lantai A1).
 
 ## 3. Menu adegan (ID dipakai di `PLAN.json → adegan`)
 | ID | Adegan | Pakai saat kalimat… | Build |
@@ -37,7 +37,7 @@ Cocok: wawancara, filosofi, psikologi, karier, edukasi personal. Tidak cocok: pr
 ## 4. Logika penempatan (dari peran kalimat)
 | Peran kalimat | Adegan |
 |---|---|
-| Pembuka (3 dtk pertama) | MP-01: penonton terhubung dulu dengan pembicara, kata kunci besar sudah di frame 0 (aturan 27) |
+| Pembuka (3 dtk pertama) | MP-01: penonton terhubung dulu dengan pembicara, kata kunci besar sudah di frame 0 (Lantai D22c) |
 | Mengumumkan kategori/poin baru | MP-01 |
 | Menjelaskan/menggambarkan isinya | MP-02 / MP-03 / MP-07 (tunjukkan, jangan ceritakan) |
 | Kalimat dua bagian ("X, yang artinya Y") | MP-01 lalu ganti adegan di tengah kalimat |
@@ -51,22 +51,22 @@ Jenis adegan yang sama tidak dua kali berturut bila beat ketiga bisa berbeda.
 
 ## 5. Audio
 - Musik: string/orkestra lembut (ref: pizzicato ±108 bpm, tanpa drum), bed rendah di bawah suara; dipilih lewat `audio.md` §14.0A–B seperti biasa (profil "premium-edukatif" masih PENDING).
-- SFX (aturan 43): klik halus untuk tiap teks, highlighter/gores untuk garis & grafik, whoosh lembut untuk transisi, riser kecil sebelum adegan besar.
+- SFX (Lantai E24): klik halus untuk tiap teks, highlighter/gores untuk garis & grafik, whoosh lembut untuk transisi, riser kecil sebelum adegan besar.
 - Level akhir mengikuti standar mix kita (`audio.md`), bukan angka ref (−20 LUFS).
 
 ## 6. Aset
 - Lukisan: domain publik (Wikimedia Commons, museum open access); B-roll: Pexels/Pixabay; foto tokoh: milik sendiri atau berlisensi. Setiap file dicatat di `CREDITS.md` proyek (sumber, lisensi, URL) sebelum build.
 - Ilustrasi: SVG/PNG jadi lalu diberi tekstur; tidak menggambar orang mirip tokoh nyata.
 
-## 7. Biru di latar gelap (aturan 15)
-Sampai Irfan memutuskan baris PENDING tentang aturan 15: di latar hitam garis memakai **putih bercahaya** dan biru hanya untuk bola/titik kecil; garis biru penuh hanya di latar kertas putih. Teks tidak pernah biru di latar gelap.
+## 7. Biru di latar gelap (Lantai A7)
+Sampai Irfan memutuskan baris PENDING tentang Lantai A7: di latar hitam garis memakai **putih bercahaya** dan biru hanya untuk bola/titik kecil; garis biru penuh hanya di latar kertas putih. Teks tidak pernah biru di latar gelap.
 
 ## 8. Cek QA khusus gaya (tambahan `analysis-qa.md` §16)
 - [ ] Setiap adegan punya peran kalimat di `PLAN.json` dan cocok dengan §4.
 - [ ] Desain teks adegan pertama kuat; kata kunci pembuka tetap di adegan yang sama (revisi Joseph #1).
 - [ ] Tidak ada potongan kasar antar adegan grafis: teks grafik ditahan sampai kalimatnya selesai (#2, #4).
 - [ ] Tekstur ikut bergerak dengan layernya dan tidak menutupi subjek (#3).
-- [ ] Adegan ilustrasi bertahan cukup lama untuk dibaca (≥ waktu baca aturan 46) (#5).
+- [ ] Adegan ilustrasi bertahan cukup lama untuk dibaca (≥ waktu baca Lantai A8) (#5).
 - [ ] Adegan kutipan punya tanda kutip (#6).
 - [ ] `CREDITS.md` lengkap untuk lukisan, B-roll, foto.
 
