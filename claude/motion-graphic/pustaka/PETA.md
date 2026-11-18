@@ -16,7 +16,7 @@ Kolom "Periksa": hasil ukur ulang 6 klaim oleh pengukur independen (GPT). "ada k
 Teknik lintas referensi (boleh dipinjam, selalu dikenakan pengikat kiblat): `teknik/kinetic-typography.md`.
 Video sumber: PC server `~/work/pustaka-video/` dan `~/work/canvas-skill-library-20261102/data/`. Tidak disimpan di GitHub.
 
-## Tabel A · bedah dalam, diukur dari video sumber (70 kartu)
+## Tabel A · bedah dalam, diukur dari video sumber (72 kartu)
 
 | No | Referensi | Cocok untuk | Kata kunci gaya | Diambil untuk | Periksa | Kartu |
 |---|---|---|---|---|---|---|
@@ -90,6 +90,8 @@ Video sumber: PC server `~/work/pustaka-video/` dan `~/work/canvas-skill-library
 | 81 | ig-DfSXjlOobvX "wonderful AI OS / Gateway" (peluncuran produk AI) | launch produk SaaS/AI/fintech, fitur biaya/anggaran, demo dashboard | premium, editorial, kolase taktil, tenang-cepat, Apple-ish | nama file "siirfannih_DfSXjlOobvX" tidak menyebut bagian; lihat bagian terkuat. Bagian terkuat: motion graphi… | GPT: ada koreksi | `kartu/81-ig-DfSXjlOobvX.md` |
 | 82 | Merantau (motion design 2D/2,5D, Dyanee) — file `2dmotion.mp4`, BUKAN… | pembuka/teaser cerita, brand film emosional, intro tanpa VO, video perjalanan/perubahan hidup | sinematik, hangat-ke-dingin, simbolik, 2,5D, cahaya bocor, tenang | "2dmotion.mp4" → motion graphic 2D (ilustrasi, skala dan kedalaman subjek, gerak kamera, transisi). Bagian in… | GPT: ada koreksi | `kartu/82-merantau-2d-motion.md` |
 | 83 | Barsol Media kinetic typography talking head (IG DcytmYFzR8Q) | talking head promosi/opini 30–90 dtk, personal brand, pitch jasa | kinetik, 2.5D, cincin kata, slab raksasa, merah-putih, sinematik gelap | file `barsolmedia_DcytmYFzR8Q.mp4` → **teks kinetik, gerak kamera, transisi** (cincin kata di kepala, tangga tag, slab di belakang kepala, kata tunggal di dada); tidak diambil: warna, musik, peredupan ruang | belum diperiksa | `kartu/83-barsolmedia-kt-talking-head.md` |
+| 84 | Sky (ClipCut) "Ultimate Storytelling Caption" | talking head edukasi/framework, konten kreator untuk kreator, penjelasan langkah bertingkat, promosi jasa dengan CTA komentar | gelap, UI overlay, neon multiwarna, serif-miring + sans, terstruktur, tanpa cut | file `talkinghead.mp4` → **konsep talking head** utuh: satu shot tanpa potongan, cerita dibangun lapisan UI di sekitar kepala (kartu struktur, titik audiens, kepala reaksi, kerangka caption berwarna per bab) | belum diperiksa | `kartu/84-sky-clipcut-storytelling-caption.md` |
+| 85 | Sam John Creates "Why does content feel so unoriginal?" | esai/opini kreator 60–120 dtk, kritik industri kreatif, video yang memamerkan jangkauan teknik editing | editorial, esai, hangat-gelap, kertas krem, slab warna, montase, neon | file `samjhon.mp4` → **referensi editing**: berganti teknik sisipan per ide (kartu kertas krem, slab warna, montase grid, neon di ruang, kertas fisik), hook sangat padat lalu badan tenang | belum diperiksa | `kartu/85-samjohn-unoriginal.md` |
 
 ## Tabel B · belum diukur dari video (video sumber belum ada, atau hanya still)
 
