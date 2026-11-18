@@ -1,4 +1,4 @@
 import {registerRoot} from 'remotion';
-import {PinjamRoot} from './pinjam/Root';
+import {Root} from './Root';
 
-registerRoot(PinjamRoot);
+registerRoot(Root);
