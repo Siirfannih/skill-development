@@ -1,31 +1,40 @@
 #!/usr/bin/env python3
-"""Audit SEMUA frame sebelum render MP4: tanpa sampling, video dipecah per <=10 dtk, tiap potongan
-diperiksa per detik (30 frame) oleh agen lain (subagen/model lain), mencakup visual, audio/SFX, transisi, dan jarak
-antar-frame.
-Cek sampel tiap 8–15 frame meloloskan patahan di titik potong suara, jump cut wajah, dan SFX yang hilang; karena itu
-semua frame diperiksa.
+"""Audit SEMUA frame sebelum render MP4, tanpa sampling, dalam dua fase yang terpisah.
+
+  --fase visual (bawaan)  dijalankan setelah visual selesai disusun, SEBELUM SFX dan musik dibuat. Yang dinilai hanya
+                          gambar: gaya terhadap kiblat, posisi teks dan objek, keterbacaan, transisi, jarak antar-frame.
+                          Cue dan stem diabaikan; keluaran bawaan qc/frame_audit/.
+  --fase audio            dijalankan setelah SFX dikunci (visual sudah lulus). Lembar yang sama diberi strip energi
+                          audio dan daftar cue, untuk menilai apakah bunyi jatuh di gerak yang terlihat. Keluaran bawaan
+                          qc/audio_audit/. Verdict fase visual tidak ikut berubah saat cue atau stem berubah.
+
+Video dipecah per <= 10 dtk; tiap potongan diperiksa agen lain dari yang membangun.
 
 Masukan: urutan gambar dari `render.sh <proyek> frames <Comp>` (qc/frames/, skala 0,5), opsional:
   --cuts  file teks/JSON berisi frame potong yang DISENGAJA (batas beat, ganti adegan): lompatan di sana tidak ditandai
           (format `B01:0-42 B02:42-83 …` seperti beats_*_frames.txt, atau list angka JSON)
-  --cues  cue sheet SFX (JSON, kunci `cues` → `t` detik)        --words kata per kata (JSON, `w`/`s`/`e`)
-  --stems folder berisi stem_vo*.wav / stem_music*.wav / stem_sfx*.wav (strip energi audio per detik)
-Keluaran `--out` (default qc/frame_audit/):
-  per potongan `cNN_<a>-<b>s/`: `s<detik>.jpg` (30 frame 6×5 + strip audio; frame bertanda diberi bingkai merah),
-  `INFO.md` (tanda otomatis, kata yang diucapkan, cue SFX di potongan itu), `VERDICT.md` (diisi agen pemeriksa),
+  --words kata per kata (JSON, `w`/`s`/`e`)
+  --cues  cue sheet SFX (JSON, kunci `cues` → `t` detik)                    hanya dipakai --fase audio
+  --stems folder berisi stem_vo*.wav / stem_music*.wav / stem_sfx*.wav      hanya dipakai --fase audio
+Keluaran per potongan `cNN_<a>-<b>s/`:
+  `tahan/t<detik>_f<frame>.jpg`  satu frame paling tenang tiap detik pada ukuran sumber (frame tempat komposisi
+                                 berhenti): di sinilah gaya, posisi, keterbacaan, dan estetika dinilai, berdampingan
+                                 dengan frame kunci kiblat dan contoh gagal
+  `s<detik>.jpg`                 30 frame 6×5 berukuran kecil: hanya untuk gerak, transisi, dan jarak antar-frame
+                                 (frame bertanda diberi bingkai merah; fase audio menambah strip energi audio)
+  `INFO.md` (tanda otomatis, kata yang diucapkan; fase audio: cue SFX), `VERDICT.md` (diisi agen pemeriksa),
   dan `INDEX.md` (ringkasan + cara pemeriksaan). `render.sh final` menolak bila ada VERDICT tanpa `PUTUSAN: LULUS`.
-  Setiap VERDICT terikat `HASH:` isi potongannya (frame + INFO/tanda aktual + kata + cue + energi audio). Verdict
-  lama tanpa HASH wajib diperiksa sekali lagi, tanpa adopsi berdasarkan waktu file. Ronde berikutnya: potongan yang
-  isinya sama memakai ulang verdict-nya; yang berubah diperiksa ulang dan verdict lamanya jadi `VERDICT.prev.md`
-  (gagal 16 Nov, laporan investigasi 24 jam: bdf26 9 gelombang × 12 potongan diperiksa ulang semua tiap ronde, dan
-  temuan yang sudah diputuskan muncul lagi).
-Tanda otomatis (penapis, bukan putusan):
+  Setiap VERDICT terikat `HASH:` isi potongannya. Verdict tanpa HASH wajib diperiksa sekali lagi, tanpa adopsi
+  berdasarkan waktu file. Ronde berikutnya: potongan yang isinya sama memakai ulang verdict-nya; yang berubah diperiksa
+  ulang dan verdict lamanya jadi `VERDICT.prev.md`.
+Tanda otomatis (penunjuk frame yang perlu dilihat, bukan putusan):
   LOMPAT  beda frame→frame melonjak (> 4× median lokal + 1,5 dan > 3) di luar potong disengaja ±1 f = patahan
   KEDIP   satu frame berbeda dari kedua tetangganya yang mirip satu sama lain (frame kosong/dip 1 f)
   BEKU    ≥ 3 frame identik di antara frame yang bergerak (gerak tertahan)
-  SFX?    potong/lompatan visual besar tanpa cue SFX dalam ±0,30 dtk (dinilai: perlu bunyi atau sengaja hening)
-Pakai:  python3 frame_audit.py qc/frames --src remotion/src --fps 30 --cuts handoff/beats_v3_frames.txt --cues edit/v3/cues_v3.json \\
-          --words edit/v3/words_final.json --stems audio --out qc/frame_audit
+  SFX?    (fase audio saja) potong/lompatan visual besar tanpa cue SFX dalam ±0,30 dtk
+Pakai:  python3 frame_audit.py qc/frames --src remotion/src --fps 30 --cuts handoff/beats_v3_frames.txt \\
+          --words edit/v3/words_final.json
+        python3 frame_audit.py qc/frames --fase audio --cuts … --words … --cues edit/v3/cues_v3.json --stems audio
 """
 import argparse, glob, hashlib, json, os, re, shutil, sys
 import numpy as np
@@ -79,11 +88,15 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("frames"); ap.add_argument("--fps", type=float, default=30)
     ap.add_argument("--cuts"); ap.add_argument("--cues"); ap.add_argument("--words"); ap.add_argument("--stems")
-    ap.add_argument("--chunk", type=float, default=10.0); ap.add_argument("--out", default="qc/frame_audit")
+    ap.add_argument("--chunk", type=float, default=10.0); ap.add_argument("--out")
+    ap.add_argument("--fase", choices=("visual", "audio"), default="visual")
     ap.add_argument("--src", help="folder kode (mis. remotion/src): frame yang lebih tua dari perubahan kode terakhir = BASI → keluar")
     a = ap.parse_args()
+    audio = a.fase == "audio"
+    if not audio: a.cues = a.stems = None                           # fase visual menilai gambar saja
+    a.out = a.out or ("qc/audio_audit" if audio else "qc/frame_audit")
     fs = load_frames(a.frames); n = len(fs); fps = a.fps
-    if a.src:  # gagal 15 Nov: render ulang sebagian (f520–610) menyambung frame lama f611+ → audit melihat "snap" palsu
+    if a.src:  # frame lama yang tersambung ke frame baru terbaca sebagai patahan palsu
         newest = max(os.path.getmtime(os.path.join(r, f)) for r, _, fl in os.walk(a.src) for f in fl)
         stale = [i for i, f in enumerate(fs) if os.path.getmtime(f) < newest]
         if stale:
@@ -114,7 +127,7 @@ def main():
         else: i += 1
     cues = load_json_list(a.cues, "cues"); ct = np.array(sorted(float(q["t"]) for q in cues)) if cues else np.array([])
     events = sorted(set(int(i) + 1 for i in np.where(big)[0]) | {c for c in cuts if 0 < c < n})
-    for f in events:
+    for f in events if audio else ():
         if ct.size == 0 or np.min(np.abs(ct - f / fps)) > 0.30: flag(f, "SFX? potong/gerak besar tanpa cue ±0,30 dtk")
     words = load_json_list(a.words, "words")
     env = stem_env(a.stems, fps, n) if a.stems else {}
@@ -124,14 +137,21 @@ def main():
     for old in glob.glob(os.path.join(a.out, "c[0-9][0-9]_*")):    # potongan dari panjang video lama: hapus, jangan ikut dinilai gerbang
         if os.path.isdir(old) and os.path.basename(old) not in names: shutil.rmtree(old)
     reused = 0
-    idx = ["# Audit frame per frame (tanpa sampling)", "",
+    if audio:
+        cara = ["Cara periksa (fase AUDIO; visual sudah lulus dan tidak dinilai ulang): prompt `templates/roles/pemeriksa-audio.md`.",
+                "Buka `s*.jpg` (strip: biru suara, hijau musik, oranye SFX) dan `INFO.md`; nilai apakah tiap gerak yang terlihat",
+                "punya bunyinya di frame itu, dan tidak ada bunyi tanpa gerak."]
+    else:
+        cara = ["Cara periksa (fase VISUAL, gambar saja): prompt `templates/roles/pemeriksa-frame.md`. Pemeriksa menerima frame",
+                "kunci kartu kiblat, `RESEP.md`, dan `pustaka/contoh-gagal/` sebagai pembanding.",
+                "`tahan/*.jpg` (ukuran besar, satu per detik) → gaya, posisi teks dan objek, keterbacaan, estetika.",
+                "`s*.jpg` (30 frame kecil per detik) → gerak, transisi, jarak antar-frame saja."]
+    idx = ["# Audit frame per frame (tanpa sampling) · fase " + a.fase, "",
            f"Sumber: `{a.frames}` · {n} frame · {n / fps:.2f} dtk · potongan {a.chunk:g} dtk · lembar = 1 detik (6×5 = 30 frame)", "",
-           "Cara periksa (agen LAIN dari yang membangun; satu agen per potongan, paralel): buka SEMUA `s*.jpg` di potongan, baca `INFO.md`,",
-           "nilai tiap detik: visual (teks terbaca, tidak terpotong, tidak bertumpuk, keseimbangan), transisi (halus, tanpa frame kosong/kedip),",
-           "jarak antar-frame (tidak ada lompatan/patahan di luar potong disengaja, gerak tidak tertahan), audio (cue SFX ada di momen cerita:",
-           "jatuh/mendarat/klik/ganti adegan; suara tidak tertutup musik; strip energi), dan cocok dengan kata yang diucapkan.",
-           "Tulis `VERDICT.md`: satu baris per masalah `dtk | frame | jenis | apa yang terlihat | usul`, lalu baris terakhir",
-           "`PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`. Tanda otomatis hanya penapis: tiap tanda dinilai, bukan disalin.",
+           *cara,
+           "Agen LAIN dari yang membangun; satu agen per potongan, paralel. Tulis `VERDICT.md`: satu baris per masalah",
+           "`dtk | frame | jenis | apa yang terlihat | usul`, lalu baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`.",
+           "Tanda otomatis hanya penunjuk: tiap tanda dinilai, bukan disalin.",
            "Baris `HASH:` di VERDICT jangan diubah: verdict hanya berlaku untuk isi potongan itu. Periksa hanya potongan",
            "berstatus `perlu periksa`; bila ada `VERDICT.prev.md`, baca temuan yang sudah diputuskan di ronde sebelumnya.", "",
            "| Potongan | Frame | Tanda otomatis | Status |", "|---|---|---|---|"]
@@ -146,9 +166,10 @@ def main():
         info += ["", "## Kata diucapkan (dtk)"]
         ws = [q for q in words if c0 / fps <= float(q.get("s", q.get("start", -1))) < c1 / fps]
         info.append(" ".join(f"{q.get('w', q.get('word', '')).strip()}@{float(q.get('s', q.get('start'))):.2f}" for q in ws) or "-")
-        info += ["", "## Cue SFX (dtk · peran · file)"]
         cs = [q for q in cues if c0 / fps <= float(q["t"]) < c1 / fps]
-        info += [f"- {float(q['t']):.2f} · {q.get('peran', '')} · {os.path.basename(q.get('file', ''))}" for q in cs] or ["- (tidak ada)"]
+        if audio:
+            info += ["", "## Cue SFX (dtk · peran · file)"]
+            info += [f"- {float(q['t']):.2f} · {q.get('peran', '')} · {os.path.basename(q.get('file', ''))}" for q in cs] or ["- (tidak ada)"]
         info_text = "\n".join(info) + "\n"
         open(os.path.join(cd, "INFO.md"), "w").write(info_text)
         # INFO mengikat tanda aktual yang dapat berubah akibat frame/cue di luar batas potongan.
@@ -171,8 +192,15 @@ def main():
         else:
             if "(belum diperiksa)" not in old and old.strip(): os.replace(vp, os.path.join(cd, "VERDICT.prev.md"))
             open(vp, "w", encoding="utf-8").write(fresh); status = "perlu periksa"
+        td = os.path.join(cd, "tahan"); shutil.rmtree(td, ignore_errors=True)
+        if not audio: os.makedirs(td)
         for s0 in range(c0, c1, int(fps)):
             s1 = min(c1, s0 + int(fps)); strip = 40 if env else 0
+            if not audio:
+                # frame tahan: frame paling tenang di detik itu (yang paling akhir bila seri) = komposisi yang berhenti
+                mv = [(d[f - 1] if f > 0 else 9e9) + (d[f] if f < len(d) else 9e9) for f in range(s0, s1)]
+                ft = s0 + max(k for k, m in enumerate(mv) if m <= min(mv) + 0.05)
+                Image.open(fs[ft]).convert("RGB").save(os.path.join(td, f"t{s0 / fps:05.1f}_f{ft:05d}.jpg"), quality=90)
             sh = Image.new("RGB", (6 * W, 5 * H + 22 + strip), (18, 18, 18)); dr = ImageDraw.Draw(sh)
             dr.text((4, 4), f"{name} · detik {s0 / fps:.2f}-{s1 / fps:.2f} · f{s0}-{s1 - 1}", fill=(255, 220, 0))
             for k, f in enumerate(range(s0, s1)):
@@ -194,7 +222,7 @@ def main():
     for t in sum(flags.values(), []): kinds[t.split()[0]] = kinds.get(t.split()[0], 0) + 1
     print(f"tanda otomatis {tot}: " + ", ".join(f"{k} {v}" for k, v in sorted(kinds.items())) + f" · keluaran {a.out}/INDEX.md")
     print(f"potongan {len(names)} · dipakai ulang {reused} (isi tidak berubah, verdict tetap) · perlu periksa {len(names) - reused}")
-    print("Lanjut: satu agen pemeriksa per potongan berstatus 'perlu periksa' (paralel), isi VERDICT.md-nya.")
+    print(f"Lanjut (fase {a.fase}): satu agen pemeriksa per potongan berstatus 'perlu periksa' (paralel), isi VERDICT.md-nya.")
 
 
 if __name__ == "__main__":

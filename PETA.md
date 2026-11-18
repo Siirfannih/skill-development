@@ -106,7 +106,8 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/templates/roles/editor.md` | **Prompt Editor (diisi Sutradara, dikirim lewat Agent / SendMessage)** — Ganti <…>. Jangan menambah cerita proses, pendapat, atau kutipan chat Irfan; Editor hanya perlu fakta, keputusan, dan tugas (roles.md §1). |
 | `claude/motion-graphic/templates/roles/handoff.md` | **Kerangka folder `handoff/`** — Salin bagian yang dibutuhkan ke projects/<proyek>/handoff/. |
 | `claude/motion-graphic/templates/roles/konsul.md` | **KONSUL · <proyek> (opsional)** — Catatan tambahan untuk tools/tanya-claude.sh. |
-| `claude/motion-graphic/templates/roles/pemeriksa-frame.md` | **Pemeriksa frame (satu agen per potongan ≤ 10 dtk)** — Dipanggil Sutradara setelah render.sh <proyek> frames dan scripts/juri/frame_audit.py. |
+| `claude/motion-graphic/templates/roles/pemeriksa-audio.md` | **Pemeriksa audio terhadap frame · fase audio (satu agen per potongan ≤ 10 dtk)** — Dipanggil setelah fase visual lulus (pemeriksa-frame.md) dan SFX dikunci (audio_order.py lock sfx). |
+| `claude/motion-graphic/templates/roles/pemeriksa-frame.md` | **Pemeriksa frame · fase visual (satu agen per potongan ≤ 10 dtk)** — Dipanggil Sutradara setelah visual selesai disusun dan sebelum SFX dan musik dibuat: render.sh <proyek> frames → scripts/juri/frame_audit.py qc/frames (fase visual). |
 
 ## motion-graphic · skrip (alat dan gerbang)
 
@@ -141,8 +142,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/gate/voice_fidelity.py` | Gerbang suara asli pembicara (format klip podcast/wawancara). |
 | `claude/motion-graphic/scripts/gate/voice_level.py` | Gerbang level suara asli (Lantai E23): suara asli (narasumber, rekaman sendiri, VO) tidak pernah diturunkan, di-loudness-kan, atau di-limit. Yang boleh: peredam noise, lalu gain NAIK yang bersih sampa |
 | `claude/motion-graphic/scripts/juri/audio_bus_check.py` | Audio di Remotion hanya lewat satu bus global. <Audio> yang ditaruh di dalam <Sequence> adegan ikut berhenti saat adegan selesai, sehingga ekor kata/SFX/musik terpotong di setiap batas adegan (penyeba |
-| `claude/motion-graphic/scripts/juri/balance_check.py` | Juri keseimbangan visual per frame (Lantai C17). Dijalankan pada still SEBELUM render penuh. |
-| `claude/motion-graphic/scripts/juri/frame_audit.py` | Audit SEMUA frame sebelum render MP4: tanpa sampling, video dipecah per <=10 dtk, tiap potongan diperiksa per detik (30 frame) oleh agen lain (subagen/model lain), mencakup visual, audio/SFX, transisi |
+| `claude/motion-graphic/scripts/juri/frame_audit.py` | Audit SEMUA frame sebelum render MP4, tanpa sampling, dalam dua fase yang terpisah. |
 | `claude/motion-graphic/scripts/juri/motion_lint.py` | Gerak dirancang per gerak, bukan preset (Lantai B13a; diadaptasi dari motion-kit, MIT). |
 | `claude/motion-graphic/scripts/juri/render.sh` | Satu pintu render Remotion: still dulu, draft kecil, render penuh paling akhir (LANTAI F26). |
 | `claude/motion-graphic/scripts/juri/resep_check.py` | Cek RESEP.md sebelum build: 8 bagian terisi, tiga pengikat dari SATU sumber, kartu kiblat ada. |

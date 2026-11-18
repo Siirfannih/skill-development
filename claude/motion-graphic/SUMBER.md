@@ -36,6 +36,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | butir 26 | Irfan 15 Nov; gagal: builder-trap-r2 v3 patahan di titik potong suara dan Bali Digifest, keduanya lolos cek sampel tiap 8–15 frame · Irfan 16 Nov |
 | butir 27 | Irfan 16 Nov |
 | butir 17 · dinilai dengan mata, bukan skor skrip | Irfan 18 Nov: "Penilaian object, tampilan dll sebenarnya ga perlu script … dinilai LLM … melalui visual … yang penting instruksinya jelas"; balance_check FAIL di frame yang seimbang dan di basis yang disetujui (skill-dev-journey) |
+| butir 17 · frame tahan + kiblat + contoh gagal; butir 26 · visual lulus dulu, audio sesudahnya | Irfan 18 Nov (sesi audit QC): penilaian frame terasa dinilai skrip, bukan mata. Temuan: gerbang hanya membaca teks JURI.md, Sutradara dilarang membuka gambar bila dua pemeriksa LULUS, pemeriksa menilai thumbnail 256×144 tanpa kiblat, 83/84 detik skill-dev-journey putaran 4 lulus tanpa dilihat Sutradara. Irfan: visual murni visual; audio punya fasenya sendiri sesudah visual selesai |
 
 ## `SKILL.md`
 
@@ -55,6 +56,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §3 Satu standar untuk semua video | Profil "Format A/B" turunan penilaian klip DOAC 6 Nov dihapus Irfan 8 Nov: proyek itu belum selesai, jadi bukan standar |
 | §4 gerbang 11 | Kesalahan V5 mayoritas audio (Irfan 8 Nov) |
 | §0a butir 2 · prompt tanpa perintah gaya spesifik, kiblat per mode | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4) |
+| §0a butir 3a · bentuk visual dicari di kartu; §0b juri visual adalah mata | Irfan 18 Nov: "model itu bisa mencari referensi yang bagus … sehingga dia nggak berimajinasi bebas atau mengarang"; bila bingung: (1) buka lagi kartu yang sudah ada, (2) tanya user. Kasus: tampilan Instagram skill-dev-journey dibangun polos padahal kartu 65/08/05 memuatnya |
 
 ## `fonts/README.md`
 
@@ -180,6 +182,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §Alur butir 4 · gaya global brief | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4); menggantikan "3 still lalu tunggu" |
 | §Juri butir 4 · Cek kemiripan vs Lantai dicatat | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4): "Dicatat" |
 | §Juri butir 2 · daftar cek keseimbangan mata (massa, satu fokus, urutan baca, satu permukaan, dekat subjek) | Irfan 18 Nov: "Penilaian object, tampilan dll sebenarnya ga perlu script … dinilai LLM … melalui visual … yang penting instruksinya jelas"; contoh Irfan: frame SELESAI + narasi bertumpuk di tepi jendela |
+| §Alur butir 5 · bentuk visual dicari di kartu; §Juri pembuka, butir 1, 2, 6 | Irfan 18 Nov, sesi audit QC (sama dengan baris SKILL.md §0a 3a dan LANTAI butir 17/26). `balance_check.py` dihapus: Irfan menyebut skrip penilai rasa tidak diperlukan; `teks_cek.py` tinggal sebagai penunjuk |
 
 ## `pustaka/kartu/07-baikov-shapes.md`
 
@@ -809,3 +812,21 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | Aturan | Asal-usul |
 |---|---|
 | baris Sumber | (catatan Irfan 7 Nov di |
+
+## `templates/roles/pemeriksa-frame.md` · `templates/roles/pemeriksa-audio.md` · `scripts/juri/frame_audit.py`
+
+| Aturan | Asal-usul |
+|---|---|
+| pemeriksa visual hanya menilai gambar, dengan pembanding kiblat + contoh gagal; frame tahan ukuran besar; `--fase audio` terpisah | Irfan 18 Nov, sesi audit QC. Lembar s011.9 skill-dev-journey (DECISION) dijawab `temuan: []` oleh dua pemeriksa; saat dilihat langsung: DECISION terlalu bawah. Irfan: strip audio, cue SFX, dan pertanyaan audio tidak dibuang tetapi pindah ke fase audio, setelah visual selesai disusun |
+
+## `references/orkestrasi.md` §1, §4, §5
+
+| Aturan | Asal-usul |
+|---|---|
+| Sutradara membuka semua frame tahan; "keduanya LULUS" hanya membebaskan lembar 30 frame | Irfan 18 Nov, sesi audit QC: "kesalahan ini ada pada sutradara"; aturan lama (jangan membuka gambar, angka dulu) lahir dari kuota yang habis dan membuat rasa tidak pernah dinilai |
+
+## `pustaka/contoh-gagal/README.md` 09–11
+
+| Aturan | Asal-usul |
+|---|---|
+| tiga frame skill-dev-journey putaran 4 | Irfan 18 Nov, tiga tangkapan layar + penjelasannya di sesi audit QC; lulus JURI (D-406 ✓) dan audit frame sebelumnya |

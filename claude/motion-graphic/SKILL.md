@@ -43,7 +43,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 14. **Satu fokus per momen.** Mata tahu harus melihat ke mana.
 15. **Teks, objek, dan visual satu kesatuan**: tidak tumpang tindih, tidak bertabrakan, tidak berjauhan seperti bagian terpisah.
 16. **Tepi frame bersih.** Tidak ada objek penting di zona tepi kecuali karena gerak kamera; margin aman 5 %.
-17. **Seimbang dan hierarkinya terbaca, dinilai global per frame**, bukan per ukuran objek: posisi teks, objek, KT, bingkai, dan b-roll dilihat bersama di zoom 25 %, 50 %, dan 100 %. Urutan baca di ukuran normal jelas: latar utama (#primary) → teks/objek utama → pengisi (objek pinggir, teks kecil). Satu sisi berisi teks + visual sementara sisi lain kosong = gagal; perbaikannya pindah posisi (mis. kunci ke kanan bawah, berseberangan dengan kepala di kiri atas). Dinilai dengan mata (Sutradara/LLM) pada still **sebelum** render penuh dan oleh pemeriksa frame per detik, memakai daftar cek di `pustaka/README.md` §Juri butir 2; tidak ada skor skrip yang menjadi gerbang.
+17. **Seimbang dan hierarkinya terbaca, dinilai global per frame**, bukan per ukuran objek: posisi teks, objek, KT, bingkai, dan b-roll dilihat bersama di zoom 25 %, 50 %, dan 100 %. Urutan baca di ukuran normal jelas: latar utama (#primary) → teks/objek utama → pengisi (objek pinggir, teks kecil). Satu sisi berisi teks + visual sementara sisi lain kosong = gagal; perbaikannya pindah posisi (mis. kunci ke kanan bawah, berseberangan dengan kepala di kiri atas). Dinilai dengan mata (Sutradara/LLM) pada still **sebelum** render penuh dan pada frame tahan tiap detik, berdampingan dengan frame kunci kiblat dan `pustaka/contoh-gagal/`, memakai daftar cek di `pustaka/README.md` §Juri butir 2. Gaya, posisi, keseimbangan, dan estetika tidak dinilai dengan skor skrip.
 18. **Rapi**: garis berakhir di tepi bentuknya, jarak antar-elemen sama, stroke dan radius konsisten.
 
 ### D. Isi visual
@@ -60,7 +60,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 25. **Musik mengikuti tempo dan suasana video**, tidak bolong, tidak melawan emosi ucapan.
 
 ### F. Cara kerja
-26. **Urutan render: still per beat → draft skala 0,5 → semua frame diaudit → render penuh.** Semua lewat `scripts/juri/render.sh`; render penuh ditolak sebelum resep dan still lulus. Satu render penuh 1080p ±8–18 menit di PC server, jadi ia langkah terakhir. **Audit tanpa sampling sebelum MP4**: semua frame dirender sebagai gambar (`render.sh frames`), dipecah per ≤ 10 dtk, tiap detik (30 frame) diperiksa agen lain (subagen/model lain, paralel per potongan) untuk visual, audio/SFX, transisi, dan jarak antar-frame (`scripts/juri/frame_audit.py`); render penuh ditolak sampai semua potongan `PUTUSAN: LULUS`. **Video berfootage dirakit seperti lego**: footage dan kamera footage dikerjakan ffmpeg, teks/KT dan visual dirender terpisah sebagai lapisan ber-alpha seukuran kotaknya dan di-cache (`scripts/lego/lapisan.py`), lalu dirakit sekali (`render.sh <proyek> lego lego/lego.json`). Revisi waktu/posisi teks = ubah `lego.json`, tanpa render ulang lapisan.
+26. **Urutan: still per beat → draft skala 0,5 → audit visual semua frame → SFX → musik → audit audio → render penuh.** Visual selesai dan lulus dulu; audio disusun sesudahnya dan menyesuaikan gerak yang sudah final. Semua lewat `scripts/juri/render.sh`; render penuh ditolak sebelum resep dan still lulus. Satu render penuh 1080p ±8–18 menit di PC server, jadi ia langkah terakhir. **Audit tanpa sampling sebelum MP4**: semua frame dirender sebagai gambar (`render.sh frames`), dipecah per ≤ 10 dtk, tiap detik diperiksa agen lain (subagen/model lain, paralel per potongan) **dengan mata**: gaya terhadap kiblat, posisi teks dan objek, keterbacaan, transisi, dan jarak antar-frame (`scripts/juri/frame_audit.py`, `templates/roles/pemeriksa-frame.md`); Sutradara membuka sendiri frame tahan tiap detik. Render penuh ditolak sampai semua potongan `PUTUSAN: LULUS`. Kecocokan bunyi dengan gerak diperiksa di fase audio (`frame_audit.py --fase audio`, `templates/roles/pemeriksa-audio.md`), bukan di audit visual. **Video berfootage dirakit seperti lego**: footage dan kamera footage dikerjakan ffmpeg, teks/KT dan visual dirender terpisah sebagai lapisan ber-alpha seukuran kotaknya dan di-cache (`scripts/lego/lapisan.py`), lalu dirakit sekali (`render.sh <proyek> lego lego/lego.json`). Revisi waktu/posisi teks = ubah `lego.json`, tanpa render ulang lapisan.
 27. **Revisi = diff.** Adegan yang sudah disetujui tidak disentuh; yang dirender ulang hanya rentang yang berubah. **Revisi video yang dibuat sebelum aturan baru**: tulis `qc/revisi.json` {"basis": "<commit versi yang disetujui>", "alasan": …}; aturan dan gerbang baru (B13a, A9a, E23/E24, lego) berlaku untuk bagian yang diubah saja, bagian yang disetujui tidak dimigrasi kecuali Irfan memintanya. `render.sh final` lalu memeriksa motion_lint hanya pada file yang berubah dan `audio_order.py check --warisan`.
 28. **Tidak yakin = tanya, jangan menebak.**
 29. **Video baru dikirim setelah juri lulus** (`pustaka/README.md` §Juri), bersama lembar sanding still vs kiblat.
@@ -73,13 +73,15 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
    - Irfan mengirim video referensi di sesi → itu kiblatnya; bedah ke kartu baru (`pustaka/README.md` §Referensi baru).
    - Prompt sudah jelas → pilih satu kartu yang cocok dan langsung jalan.
    - Prompt tanpa perintah gaya spesifik → ikuti gaya global brief (gaya bawaan `templates/gaya/` boleh bila cocok); tanpa gaya di brief → kartu paling mirip atau gaya sendiri yang sesuai brief, alasan di `RESEP.md`. Video bermode ganda boleh berkiblat berbeda per mode asal gayanya konsisten (`pustaka/README.md`).
-3. Buka **hanya** kartu kiblat itu (`pustaka/kartu/…`). Jangan membuka semua kartu.
+3. Buka kartu kiblat itu (`pustaka/kartu/…`) dan frame kuncinya. Jangan membuka semua kartu.
+3a. **Bentuk visual dicari di kartu, tidak dikarang.** Adegan yang butuh bentuk di luar kartu kiblat (tampilan Instagram, chat, dashboard, peta, tokoh, dsb.): cari kartu yang pernah membangunnya lewat `pustaka/PETA.md` dan isi kartu, buka kartu itu + frame kuncinya, pinjam tekniknya dengan pengikat kiblat, catat di `RESEP.md`. Tidak ada di kartu, brief, maupun `DECISIONS.md` → tanya Irfan tampilan yang ia mau. Rinci: `pustaka/README.md` §Alur butir 5.
 4. Tulis `projects/<proyek>/RESEP.md` dari `pustaka/RESEP-TEMPLATE.md`: 8 bagian anatomi. **Pengikat** (warna & tekstur, teks, ritme) dari satu sumber; **teknik** (b-roll, motion graphic, kamera & transisi, SFX, musik) boleh dipinjam kartu lain dan dikenakan pengikat kiblat. Cek: `python3 scripts/juri/resep_check.py projects/<proyek>/RESEP.md`.
 
 ## 0b. Render dan juri
 
-- Semua render lewat `scripts/juri/render.sh <proyek> still|draft|frames|final …`. Render penuh ditolak sampai resep lulus, semua still terbaru, lembar sanding dibuat, draft gerak terbaru, audit frame per frame semua potongan LULUS (`frames` → `frame_audit.py` → agen pemeriksa per ≤ 10 dtk), dan `qc/JURI.md` berakhir `PUTUSAN: LULUS` dengan bukti tiap catatan Irfan aktif.
-- Juri pada still: `scripts/juri/teks_cek.py` (pita bawah, kata ganda, tepi), keseimbangan dinilai dengan mata per still (Lantai C17, daftar cek `pustaka/README.md` §Juri 2), `scripts/juri/sandingkan.py` (still kita vs frame kiblat), lalu nilai tiap butir "Cek kemiripan" kartu kiblat dan Lantai A–D. Rinci: `pustaka/README.md` §Juri. Bandingkan juga dengan `pustaka/contoh-gagal/`.
+- Semua render lewat `scripts/juri/render.sh <proyek> still|draft|frames|final …`. Render penuh ditolak sampai resep lulus, semua still terbaru, lembar sanding dibuat, draft gerak terbaru, audit visual semua potongan LULUS (`frames` → `frame_audit.py` → agen pemeriksa per ≤ 10 dtk), dan `qc/JURI.md` berakhir `PUTUSAN: LULUS` dengan bukti tiap catatan Irfan aktif.
+- **Juri visual adalah mata, bukan skrip.** Gaya, posisi teks dan objek, keseimbangan, dan estetika dinilai dengan melihat gambarnya, berdampingan dengan frame kunci kiblat (yang bagus) dan `pustaka/contoh-gagal/` (yang jelek): pada still per beat (daftar cek `pustaka/README.md` §Juri 2, `scripts/juri/sandingkan.py` untuk lembar sanding, lalu tiap butir "Cek kemiripan" kartu kiblat dan Lantai A–D) dan pada frame tahan tiap detik di audit visual. `scripts/juri/teks_cek.py` hanya penunjuk still yang perlu dilihat. Rinci: `pustaka/README.md` §Juri.
+- **Visual dulu, audio sesudahnya.** Audit visual dijalankan setelah visual selesai dan sebelum SFX/musik disusun; kecocokan bunyi dengan gerak diperiksa di fase audio (`frame_audit.py --fase audio`, `templates/roles/pemeriksa-audio.md`).
 - Revisi: perbarui still adegan itu saja dan render rentang framenya, bukan seluruh video.
 - Pelajaran dari Irfan disimpan menurut cakupannya (`pustaka/README.md` §Tumbuh).
 
@@ -127,8 +129,8 @@ Gerbang di bawah dikelompokkan jadi lima fase. Batas fase = titik kunci, bukan j
 |---|---|---|---|
 | 1 Pra-produksi: konsep, script, bedah referensi, storyboard, aset, footage, B-roll | 0–5 | sesi utama bersama Irfan (script dan storyboard butuh kata "final" darinya) | storyboard final; aset/footage/B-roll terpilih di `projects/<proyek>/aset/` dengan alasan per beat |
 | 2 Spine suara: potong VO/suara asli, ekor kata, level | 6 | subagen baru | `audio_order.py lock suara` PASS |
-| 3 Visual: susunan footage, teks, kamera, transisi, kurva, KT | 7–8 | subagen baru; bila dipecah, per adegan, bukan per layer | `teks.json` lulus `kt_check.py`, lapisan lego di cache, `lock visual` + `objects.json` ditulis |
-| 4 Audio: SFX dulu, musik paling akhir | 9–10 | subagen baru | `lock sfx`, `lock musik` |
+| 3 Visual: susunan footage, teks, kamera, transisi, kurva, KT | 7–8 | subagen baru; bila dipecah, per adegan, bukan per layer | `teks.json` lulus `kt_check.py`, lapisan lego di cache, **audit visual semua potongan LULUS** (`frame_audit.py`, mata + kiblat + contoh gagal), baru `lock visual` + `objects.json` ditulis |
+| 4 Audio: SFX dulu, musik paling akhir; disusun dari gerak visual yang sudah final | 9–10 | subagen baru | `lock sfx`, audit audio terhadap frame LULUS (`frame_audit.py --fase audio`), `lock musik` |
 | 5 Finishing: mix, QA, render final, kirim | 11–12 | subagen baru untuk mix/QA/render; sesi utama menilai dan mengirim | `render.sh … lego` (video berfootage) atau `final` sekali; Delivery Gate PASS |
 
 - Sesi utama = sutradara dan QC (`references/orkestrasi.md`). Fase 2–5 dijalankan otomatis sebagai subagen baru tanpa menunggu "lanjut?": konteks per fase pendek dan bagian depan prompt (file skill) tetap sama sehingga cache terjaga.
@@ -163,7 +165,7 @@ motion-graphic/
 ├── SKILL.md                 inti: lantai, kiblat, juri, lalu rujukan teknis (file ini)
 ├── LANTAI.md                mutu yang selalu berlaku (sumber blok §0)
 ├── pustaka/                 PETA.md · kartu/ (anatomi 8 bagian per referensi) · RESEP-TEMPLATE.md · contoh-gagal/
-├── scripts/juri/            render.sh (gerbang render) · resep_check.py · teks_cek.py · balance_check.py · sandingkan.py · frame_audit.py (semua frame, per detik)
+├── scripts/juri/            render.sh (gerbang render) · resep_check.py · sandingkan.py · frame_audit.py (semua frame: fase visual, lalu fase audio) · teks_cek.py (penunjuk, bukan putusan)
 ├── guide/                   standar rasa per urusan (README → visual · teks · gerak · audio · sfx · hindari · referensi)
 ├── references/
 │   ├── core-rules.md        teks penuh aturan inti 1–50
@@ -176,7 +178,7 @@ motion-graphic/
 │   └── hybrid-motion-standard.md · three-segment-gate.md
 ├── templates/storyboard/    contoh beats.json + tokens.css + panel (mulai dari salinan ini)
 ├── templates/gaya/          template gaya terpilih di gerbang 1 (minimal-premium, editorial-bold) + format menu rencana edit
-├── templates/roles/        prompt Editor + kerangka folder handoff/ (dua peran, roles.md)
+├── templates/roles/        prompt Editor, pemeriksa-frame (visual), pemeriksa-audio + kerangka folder handoff/ (roles.md)
 ├── engines/talking-head-reels/  engine EDL → reel 9:16 (Python + ffmpeg/libass), Mac + Linux
 └── scripts/
     ├── storyboard/board.py      panel HTML → PNG + papan per babak + cek caption/teks layar/waktu + cues.json

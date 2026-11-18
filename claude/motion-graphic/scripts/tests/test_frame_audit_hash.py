@@ -62,7 +62,7 @@ class FrameAuditHash(unittest.TestCase):
                 words, cues = Path(t) / "words.json", Path(t) / "cues.json"
                 words.write_text(json.dumps({"words": [{"w": "lama", "s": .5, "e": 1.0}]}))
                 cues.write_text(json.dumps({"cues": [{"t": .5, "peran": "click", "file": "old.wav"}]}))
-                args = ("--words", str(words), "--cues", str(cues))
+                args = ("--fase", "audio", "--words", str(words), "--cues", str(cues))
                 run(str(fr), str(out), *args)
                 chunk = next(out.glob("c*"))
                 verdict = chunk / "VERDICT.md"
@@ -110,6 +110,20 @@ class FrameAuditHash(unittest.TestCase):
             self.assertNotEqual((chunk / ".hash").read_text(), old_hash)
             self.assertIn("(belum diperiksa)", (chunk / "VERDICT.md").read_text())
             self.assertEqual((chunk / "VERDICT.prev.md").read_bytes(), old_verdict)
+
+    def test_visual_phase_ignores_cues_and_writes_hold_frames(self):
+        with tempfile.TemporaryDirectory() as t:
+            fr, out = Path(t) / "frames", Path(t) / "fa"
+            write_frames(fr, 20)
+            cues = Path(t) / "cues.json"
+            cues.write_text(json.dumps({"cues": [{"t": .5, "peran": "click", "file": "a.wav"}]}))
+            run(str(fr), str(out), "--cues", str(cues))
+            chunk = next(out.glob("c*")); judge(str(out), chunk.name)
+            self.assertEqual(len(list((chunk / "tahan").glob("t*.jpg"))), 2)   # satu frame tahan per detik
+            self.assertNotIn("Cue SFX", (chunk / "INFO.md").read_text())
+            self.assertNotIn("SFX?", (chunk / "INFO.md").read_text())
+            cues.write_text(json.dumps({"cues": [{"t": .9, "peran": "hit", "file": "b.wav"}]}))
+            self.assertIn("dipakai ulang 1", run(str(fr), str(out), "--cues", str(cues)))  # cue berubah, verdict visual tetap
 
     def test_shorter_video_removes_stale_chunks(self):
         with tempfile.TemporaryDirectory() as t:

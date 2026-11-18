@@ -39,3 +39,16 @@ Enam lembar still dari versi-versi Builder Trap (11 Nov) yang ditolak Irfan.
 ## 08 · BDF26 P1: kontras lokal dan berat frame
 
 [Kasus dan bukti lokal](08-bdf26-p1-kontras-balance.md): dark text di pilar gelap, lalu koreksi semua teks ke kanan yang membuat frame berat kanan. Aturan bersyarat: bedah seluruh frame dan geraknya; warna/posisi/outline dipilih dari gambar aktual. Media/testimoni tidak disalin ke repo.
+
+## 09–11 · Skill-dev journey putaran 4: frame yang lulus juri tetapi ditolak saat dilihat
+Tiga frame dari video talking head + kinetic typography (kiblat kartu 83). Ketiganya lulus `qc/JURI.md` dan audit frame, karena yang diperiksa adalah daftar catatan dan cacat teknis, bukan gambarnya.
+
+| Gambar | Yang salah | Yang seharusnya |
+|---|---|---|
+| ![](09-skilldev-hero-terlalu-bawah.jpg) | Kata hero "DECISION" duduk terlalu bawah: tepi bawahnya dekat batas frame, rawan tidak terlihat penonton, dan menutup kedua tangan yang sedang bergestur. Maskot di sekitarnya **tidak** mengganggu. | Naikkan sedikit ke ruang dada/samping kepala; tangan dan batas bawah tetap bebas. |
+| ![](10-skilldev-tulisan-tangan-biru-ui.jpg) | Tulisan tangan + panah biru jenuh "Comment di bawah." ditempel di luar kartu Instagram yang netral. Warnanya menabrak tampilan dan merusak estetika frame; tulisan tangan tidak cocok dipasang di sini. | Dihapus. Ajakan komentar cukup dibawa tampilan Instagram itu sendiri. |
+| ![](11-skilldev-teks-di-pita-hitam.jpg) | Kata "profesional" ditaruh di pita hitam di bawah video, padahal di dalam gambar ada ruang kosong di dekat mik. Ceritanya video ini sudah diposting di Instagram, jadi teksnya bagian dari video dan harus berada di dalam bingkainya; di pita bawah ia terbaca sebagai subtitle (Lantai A1). | Teks masuk ke dalam bidang video, di ruang kosong dekat subjek. |
+
+- **Tampilan Instagram-nya sendiri terlalu polos.** Pustaka sudah punya kartu yang membangun tampilan Instagram (kartu 65/08: UI dibangun ulang, satu objek UI dominan, kalimat inline dengan objek UI, 2–3 lapis kedalaman, kamera masuk ke UI; kartu 05: post IG sebagai panggung kalimat). Adegan ini dibangun tanpa membuka kartu-kartu itu.
+- **Bukan pelajarannya:** "tulisan tangan dilarang", "panah dilarang", atau "kata hero tidak boleh di dada". Masalahnya warna yang menabrak tampilan netral, teks di luar bidang gambar saat ada ruang di dalamnya, dan posisi yang terlalu dekat batas bawah.
+- **Lantai terkait:** A1, A2, C15, C16, C17.
