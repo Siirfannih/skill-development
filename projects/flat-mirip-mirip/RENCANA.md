@@ -56,28 +56,38 @@ Kartu di pustaka yang dipakai:
 | P14 | ceritamu, sudut pandangmu, hal yang cuma kamu alami | 3 hard cut: foto asli → POV kamera → detail benda | **foto/benda asli Irfan** |
 | P15 | Seleramu | merah raksasa, tahan 1,2 dtk, selesai | tipografi |
 
-## 5. Urutan kerja (mengikuti `projects/flat-mirip-mirip/TAHAP.md`)
+## 5. Rencana build
 
-1. **Kartu 86 + RESEP**: contact sheet ke `guide/referensi/sheets/`, transkrip, kartu dari `KARTU-TEMPLATE.md`, `RESEP.md` lulus `resep_check.py`.
-2. **Profil merek Behindwork**: belum ada `merek/behindwork/BRAND.md` + `EDITING.md`. Diisi bersama Irfan, lalu `profil_cek.py` LULUS. Ini gerbang pertama.
-3. **VO**: uji 1 kalimat dengan 1–2 suara, lalu VO penuh per potongan (perkiraan ±830 kredit; biaya disebut dulu). Potong jeda, kunci dengan `audio_order.py lock suara` + `cut_check.py`. Timing panel storyboard disesuaikan ke VO asli.
-4. **Preview**: still per beat P01–P15 + 3 klip draft (pusaran P01→P02, invert P03, scroll P05). Masukan Irfan → `DECISIONS.md`.
-5. **Aset**: unduhan stok/domain publik ke `projects/flat-mirip-mirip/aset/` (≤ 300 MB, catat URL + lisensi + hash), screenshot/rekaman Remotion Studio dibuat sendiri, foto P14 dan (bila dipilih) rekaman P04 dari Irfan.
-6. **Produksi**: `tema.ts` + komponen bersama (KataKecil, KataRaksasa, Kanvas, KartuSlop, FeedIG, ChatClaude, EditorTimeline, Clawd), lalu satu TASK per adegan. Audit semua frame, SFX → musik (Epidemic/SFXIrfan), Devil's Advocate.
-7. **Render 1** → satu ronde masukan → **Render 2**. Tiap render di-upload ke Drive "Claude edit/flat-mirip-mirip".
+Keputusan Irfan yang mengikat ada di `DECISIONS.md` (D-01…D-06); daftar aset di `ASET.md`.
+
+### 5a. Lokasi
+- Kode Remotion: `projects/flat-mirip-mirip/remotion/` (di root, karena storage NTFS `noexec`). 1920×1080, 30 fps.
+- Media (footage, acuan, frame audit, render): `/mnt/storage-projects/flat-mirip-mirip/`, di-symlink ke `projects/flat-mirip-mirip/media` dan tidak masuk git.
+
+### 5b. Sistem desain (sekali, sebelum adegan)
+- `tema.ts`: warna (putih #FFFFFF, tinta #111, merah #D6202B, cyan invert #29DFD4, palet slop krem/pastel yang hanya dipakai di dalam kartu slop), huruf (Helvetica Neue lokal untuk narasi dan kata raksasa; SF Pro untuk UI iOS), ukuran dari reel: kata kecil tinggi baris 5,1 % frame (≈ 55 px kapital @1080, memenuhi LANTAI A7), kata raksasa ≥ 4× kata kecil.
+- Komponen bersama: `KataKecil` (kata per kata di garis tengah, jarak lebar, offset vertikal kecil per kata), `KataRaksasa`, `Kanvas`, `Invert`, `Flash`, `Orbit` (pusaran P01), `KartuSlop` (generator G2), `AvatarFiktif`, `IGBeranda`/`IGUnggahan`, `ChatClaude`, `PremiereUI`, `RemotionStudioUI`, `Clawd`, `Footage`.
+- Semua waktu dibaca dari satu `teks.json`/`beats.json` berbasis indeks kata. Sebelum VO ada, waktu sementara diambil dari storyboard (150 kata/menit); setelah VO dikunci, cukup ganti stempel waktu tanpa membangun ulang adegan.
+
+### 5c. Urutan
+1. **Sekarang (tanpa audio):** kartu 86 dari reel Tesla → `RESEP.md` → profil merek Behindwork (`BRAND.md`/`EDITING.md`, `profil_cek.py`).
+2. **Aset:** bangun U1–U5 dan G1–G3 sebagai still, lalu sandingkan tiap still dengan acuan aslinya pada ukuran 100 %. UI yang belum sama persis belum dianggap selesai. Footage F1–F6 dicari dan diunduh (≤ 300 MB, versi ringan).
+3. **Preview:** still per beat P01–P15 di atas aset final + 3 klip draft gerak (pusaran P01→P02, invert P03, scroll P05) → masukan Irfan → `DECISIONS.md`.
+4. **Audio (terakhir sebelum eksekusi, D-05):** VO ElevenLabs (kunci dari Irfan, biaya disebut dulu) → potong dan kunci (`audio_order.py lock suara`, `cut_check.py`) → waktu kata menggantikan waktu sementara.
+5. **Eksekusi:** satu TASK per adegan dari token + komponen bersama → `render.sh frames` + audit semua frame → SFX → musik → Devil's Advocate → render 1 → satu ronde masukan → render 2. Tiap render di-upload ke Drive "Claude edit/flat-mirip-mirip".
 
 ## 6. Yang perlu keputusan Irfan
 
 1. **Nada visual P07–P12.** Storyboard REVISI memakai kartu 2D datar (segitiga, lingkaran merah) untuk P07–P12. Reel referensi ±95 % footage nyata, dengan 53 cut. Kalau babak "jawaban" juga 2D datar, videonya bisa terlihat sama dengan konten yang ia kritik. Usul: P01–P10 sintetis (sengaja), P11–P14 footage/foto nyata. Pilihan: (a) usulan ini, (b) ikuti REVISI apa adanya.
 2. **Profil Behindwork**: font, watermark/handle (P15 di brief menulis `@siirfannih`, tapi video diposting ke Behindwork), dan outro logo seperti reel (4 dtk) atau tidak. Kalau ada outro, VO harus ≤ 56 dtk.
-3. **P04 Claude chat**: rekaman layar asli dari Irfan, atau dibangun ulang setia ke UI Claude (seperti kartu 79-k5)?
+3. ~~P04 Claude chat~~: dijawab D-01 (dibangun ulang, sama persis).
 4. **Durasi**: 131 kata ≈ 58–62 dtk. Bila VO lewat 60 dtk, boleh memotong "bisa sangat" dan "seringkali"?
 
 Default yang dipakai sampai dijawab: merah #D6202B; IG dibangun setia ke UI aslinya dengan akun dan isi fiktif (akun asli di screenshot lampiran tidak ditampilkan sebagai "AI slop"); tanpa footage film berhak cipta (reel memakai cuplikan film, kita tidak).
 
 ## 7. Hambatan teknis
 
-- **Disk**: root 100 % terpakai, sisa ±1,1 GB. Audit semua frame (`render.sh frames`) + render 1080p butuh beberapa GB. Ini perlu diselesaikan sebelum langkah 6.
-- **Folder `~/work/assets-script-final-3/`** milik user `openbot` (izin 700), tidak bisa dibaca sesi ini. Aset proyek ditaruh di folder proyek ini.
-- **ElevenLabs**: konektor claude.ai belum diotorisasi; jalur API lokal dicek saat langkah 3.
+- **Disk** (18 Nov): root dibersihkan dari sisa 1,1 GB → 8,5 GB; media proyek ke `/mnt/storage-projects` (sisa ±152 GB). SSD Windows 335 GB (`nvme0n1p3`) belum ter-mount (butuh sudo).
+- **Folder `~/work/assets-script-final-3/`** milik user `openbot` (izin 700); Irfan mengizinkan (D-06), akses menunggu satu perintah sudo.
+- **ElevenLabs**: kunci diberikan Irfan saat tahap audio (D-05).
 - **Hak Clawd**: maskot Anthropic; sudah dipakai di video siirfan, tapi Behindwork akun publik. Keputusan tetap di Irfan.
