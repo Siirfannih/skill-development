@@ -23,6 +23,18 @@
   {
    "dasar": true,
    "ledger": "D-410"
+  },
+  {
+   "id": "*",
+   "atribut": [
+    "isi",
+    "t",
+    "gerak",
+    "pos",
+    "hilang",
+    "baru"
+   ],
+   "ledger": "D-425"
   }
  ]
 }

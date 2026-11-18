@@ -858,3 +858,9 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | LANTAI A7, B11, B13, B13b, C14, C18a, C18b, D19c, D22–22c, E25, E25a, F28–28c (tambahan) | Irfan 18 Nov: "gabungkan saja yang tumpang tindih". 50 aturan inti (`references/core-rules.md`, kini `archive/motion-graphic-core-rules-1-50.md` dengan tabel padanan) digabung; butir yang sudah ada di Lantai tidak ditulis ulang. Asal-usul tiap aturan inti ada di bagian `references/core-rules.md` file ini |
 | `tools/AFTER-EFFECTS.md` | Irfan 18 Nov: After Effects masuk ke tools, dipakai kalau diminta atau diperlukan; sebelumnya `build.md` menulis AE sebagai default |
 | Ringkasan kartu di `templates/handoff-fase.md`, `editor.md`, `orkestrasi.md` §3 | Irfan 18 Nov: pemberi tugas/Sutradara yang menuliskan isi kartu secara ringkas atau tabel untuk pekerja, bukan pekerja membaca semuanya |
+
+## `guide/visual/GUIDE.md` (watak tokoh, tokoh yang bekerja, panah ganda)
+
+| Aturan | Asal-usul |
+|---|---|
+| watak dan kalimat berbeda per tokoh; tokoh yang bekerja menghadap pekerjaannya, kamera ke objek kerja; tanpa panah goresan kedua bila sudah ada penunjuk | Irfan 18 Nov, skill-dev-journey putaran 5 (bubble "Hai, aku Claude/ChatGPT" terasa template; Claude di meja 100% menatap kamera; panah B11 di atas panah yang sudah ada). Ledger proyek D-417, D-419, D-420 |
