@@ -58,6 +58,7 @@ Cari kelompok yang cocok dengan situasimu, baca butirnya utuh. Kondisinya harus 
 - **Frasa berakhir di potongan bila shot berikutnya bukan penuturnya.** Sisa tahan 0,1–0,2 dtk sesudah kata terakhir cukup untuk membuat teks pembicara A tampak diucapkan orang di shot berikutnya; akhiri frasa tepat di potongan bila kata terakhir sudah selesai diucapkan.
 - **Wajah close-up yang tersenyum dengan mulut terbuka juga terbaca "sedang bicara".** Untuk b-roll di bawah teks testimoni, pilih tangan/benda/aktivitas atau wajah yang mulutnya diam.
 - **Aturan "teks tidak menyeberang potongan" hanya untuk wajah orang lain.** Menunda frasa sampai potongan berikutnya membuat layar kosong 0,5 dtk saat orang bicara; boleh menyeberang bila shot asalnya wajah penutur sendiri atau b-roll tanpa pembicara.
+- **Bila kata kunci tampil di atas footage atau latar gelap, jangan memberi huruf warna merah/aksen jenuh**: merah di atas hitam bergetar dan sulit dibaca walau angka kontras mendekati batas. Pilih penekanan lewat putih penuh dengan bobot atau ukuran lebih besar (atau putih vs redup); warna aksen untuk huruf dipakai di latar terang.
 
 ## Cek cepat
 - Lihat frame rapat (tiap 1–2 f) di setiap pergantian kata: ada kartu kosong, dua kata tajam bertumpuk, atau kata yang melompat? Perbaiki sebelum final.

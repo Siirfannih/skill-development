@@ -118,6 +118,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §Katalog `~/sfx/SFXIrfan` (didengar 13 Nov dengan ` · "Sumber pertama untuk SFX (aturan 43),…" | Irfan 16 Nov; larangan laser/sci-fi 16 Nov pagi adalah tebakan Codex, dicabut |
 
 ## `guide/teks/GUIDE.md`
+- Kata kunci di footage/latar gelap tanpa merah: koreksi Irfan 19 Nov 2026, proyek flat-mirip-mirip (D-18).
 
 | Aturan | Asal-usul |
 |---|---|
@@ -149,6 +150,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §Cara memutuskan · potongan bukan pudar, satu narasi per waktu, tidak melewati potongan adegan | Irfan 18 Nov skill-dev-journey putaran 4 ("Progres dibaliknya masih dibawa", "kata bertabrakan dan berebut atensi") + kartu 83 Catatan pakai |
 
 ## `guide/visual/GUIDE.md`
+- Isi UI editor = video yang sudah jadi: koreksi Irfan 19 Nov 2026, proyek flat-mirip-mirip (D-17).
 
 | Aturan | Asal-usul |
 |---|---|

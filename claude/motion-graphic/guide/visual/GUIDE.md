@@ -35,6 +35,7 @@
 - **Bila beberapa tokoh diperkenalkan bersamaan, pilih watak dan kalimat yang berbeda per tokoh, diturunkan dari perannya dalam cerita** (yang paling banyak bekerja boleh bete, yang menemani senang, yang jarang dipakai diam), bukan sapaan dan ekspresi yang sama untuk semua: sapaan seragam terasa template dan tokoh berubah jadi label nama. Yang boleh tetap seragam: gaya gambar dan ukuran bubble, supaya tetap satu keluarga.
 - **Bila tokoh digambarkan sedang mengerjakan sesuatu (mengedit, mengetik), pilih tokoh menghadap pekerjaannya dan kamera fokus ke objek kerjanya**, tokoh cukup terlihat sebagian di tepi frame; tokoh yang menatap kamera saat "sedang bekerja" memutus logika adegan (Lantai D22b). Tatap kamera hanya untuk momen menyapa atau bereaksi ke penonton.
 - **Bila adegan sudah punya penunjuk arah (garis alir, panah UI, gerak objek), jangan tambah panah goresan kedua ke objek yang sama**: dua penunjuk untuk satu tujuan terbaca dipaksakan. Panah goresan hanya bila tidak ada hal lain di frame yang membawa mata ke sana.
+- **Bila adegan memperagakan UI editor video (timeline, preview, monitor), pilih isi preview dan klip di timeline dari video yang sudah jadi** (render final milik sendiri, talking head yang sudah selesai), bukan adegan buatan yang berisi UI atau timeline lagi: penonton membaca layar editor sebagai pekerjaan sungguhan, dan timeline di dalam timeline tidak masuk akal di dunia nyata (Lantai 22b).
 
 ## Cek cepat
 - Blur still 10 px: ada satu gumpalan yang menang? Dua sama kuat = rapikan.
