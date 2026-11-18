@@ -17,12 +17,13 @@ CATATAN AWAL SESI (dari Sutradara): doctor.sh sudah dijalankan Sutradara dan LUL
 3. Masuk tidak pakai fade/blur-in; gerak cepat pakai motion blur; tanpa crossfade (B13, B13a). Stagger pakai `react(i)`, bukan i × konstanta.
 4. Teks tidak menutup wajah; kontras ≥ 4,5:1; tidak menyentuh tepi (margin 5 %).
 5. Tidak ada merah di atas footage/latar gelap (D-18); footage dan ilustrasi vektor tidak dicampur dalam satu adegan (D-20).
+7. Narasi TIDAK PERNAH diletakkan di atas preview/monitor yang memutar video jadi (video itu punya caption sendiri → dua teks bertabrakan). Tempatkan di ruang kosong UI (panel kosong) atau di luar jendela. Tokoh Clawd di editor harus terbaca: tinggi ±16–20 % frame, kamera punch-in ke timeline.
 6. Tidak ada placeholder: semua yang tampil terlihat seperti produk/konten nyata (D22).
 
 ## Lulus bila (semua TASK adegan)
 - `npx tsc --noEmit -p .` lulus.
 - `python3 claude/motion-graphic/scripts/juri/motion_lint.py projects/flat-mirip-mirip/remotion/src/adegan` PASS.
-- `python3 claude/motion-graphic/scripts/juri/tema_cek.py projects/flat-mirip-mirip/remotion/src/adegan` tidak menandai file grupmu (warna literal hanya `rgba(0,0,0,a)` untuk gelap footage).
+- `python3 claude/motion-graphic/scripts/juri/tema_cek.py projects/flat-mirip-mirip/remotion/src` (alat butuh folder berisi `bersama/tema.ts`): tidak ada baris untuk file grupmu (temuan di `pinjam/` diketahui dan diabaikan; warna literal hanya `rgba(0,0,0,a)` untuk gelap footage).
 - Still per kelompok kata ada di `media/acuan/adegan/`, dan kamu sudah melihatnya sendiri: tulis di REPORT satu baris per still (apa yang terlihat, apakah sesuai ADEGAN.md).
 
 ## Jangan

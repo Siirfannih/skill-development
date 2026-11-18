@@ -63,3 +63,11 @@ Disalin ke `remotion/src/pinjam/` (+ `src/lib`, `src/komponen/K01`, `src/papan/k
 | P14 sudut pandangmu | F4-a (Mixkit, 1080p) | jendela bidik kamera tua |
 | P14 hal yang cuma kamu alami | F5-b (Mixkit, 720p) | tulisan tangan di buku harian |
 Footage dipakai sebagai video/foto (Remotion `OffthreadVideo`/`Img` dari `media/`), bukan dikonversi ke SVG; semua grafik di sekitarnya SVG.
+
+## G. Pilihan footage ronde 2 (Sutradara 19 Nov; detail di media/footage/LOG.md)
+| Adegan | File | Catatan lisensi |
+|---|---|---|
+| P07 | G4-c (Homer, murid menyalin di Louvre), G4-b (Béroud, Les copistes 1909) | domain publik (metadata Commons) |
+| P11 | G1-a, G1-b, F1-a, F1-b | Mixkit Free / Restricted per LOG |
+| P12 | G2-a, G2-c, G2-b, F2-b (≤ 0,5 dtk), G3-c | **G2-b, G2-c, G3-c: Mixkit Restricted (personal/nonkomersial)** — perlu diurus Irfan sebelum publikasi |
+| P14 | F3-a / G5-a, F4-a, G6-a, F5-b | domain publik / Mixkit |
