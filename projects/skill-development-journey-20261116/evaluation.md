@@ -215,3 +215,12 @@ Pertanyaan: apakah lanjutan STATUS §5 masih sesuai permintaan awal Irfan dan at
 - **habis banget:** r3 utuh ≤ 3 f, guncang reda ≤ 6 f (D-433).
 - **Gerbang:** tsc 0, motion_lint `src/video` PASS, cek_tumpuk irisan 0, kt_ocr LULUS (9 blok diterima dengan frame dicek, `qc/kt_ocr_terima.json`), cek_master/cek_sinkron/base_pts → `qc/r5c/log/`.
 - **Draft:** `qc/r5c/draft-r5c-suara.mp4` (suara saja) di Drive `draft-r5c/`. Belum: audio baru (setelah visual final), refactor token b1–b6 (D-428), audit frame semua detik, render final 2.
+
+## Putaran 6 · pemulihan ke R4 final 1 (18–19 Nov, D-438…D-451)
+- Basis: `lego/lego_final_A1.json` (resep R4 final 1) → `lego/r6_gabung.py` → `lego/lego_r6.json` → `qc/r6/visual_r6.mp4`. Kamera wajah = R4 (R5c berbeda di 23,7–40,2 karena adegan B diperpanjang; sambung per frame ditolak, PSNR 13–23 dB).
+- Dari R5c (per ID lapisan): bubble berwatak + Clawd (D-417), urutan baca DECISION/WORKFLOW-NYA/BALIK MODAL/LINTAS AGENT (D-412), "habis banget" terbaca, Blender E, IG + teksnya. 8 lapisan teks wajah yang cache R4-nya hilang memakai versi R5c (posisi sama, keluar sedikit lebih awal).
+- Baru: masuk D = push-in wajah + blur → jendela mendarat → klik kirim → gelombang grid bara dari tombol kirim (D-443/D-449); label slab dirapatkan 34/54/39 px (D-450); "profesional" hijau + kata hitam di belakang badan (D-451, Codex, matte RVM dikoreksi −16 frame).
+- Bukti identik R4: PSNR per frame visual_r6 vs R4 final 1 → beda hanya di rentang yang dimaksud (lihat log sesi); A (repo), B (app Claude), G (kartu angka) identik.
+- Catatan: "cuma mempelajari" mulai 0,15 dtk lebih lambat dari R4 (lapisan R5c); D→Blender tetap potong keras (ditinjau di fase transisi D-448).
+- Temuan Codex: `qc/matte/wajah-matte-r6.mkv` = 2496 frame (bukan 2512) dan cocok dengan proxy pada offset −16 frame sumber. Lapisan slab ber-lubang (T051/T057/T077, GRADE) dibuat dari matte sebelum r6 (`wajah-matte.mkv`); periksa offsetnya sebelum fase KT memakai matte lagi.
+- Audio (Codex, `handoff/REPORT-R6-audio.md`): suara ×1,0 identik, musik R4, SFX R4 identik per sampel di luar rentang berubah; sfx_density + voice_level PASS; audio_phone global belum lulus (15 jendela < 8 dB, R4 20).

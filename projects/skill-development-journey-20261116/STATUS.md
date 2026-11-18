@@ -1,5 +1,8 @@
 # STATUS · Skill Development journey (siirfan) · titik lanjut sesi baru
 
+> **PUTARAN 6 (19 Nov, menggantikan arah putaran 5):** Irfan membatalkan arah gelap-glow R5 dan kembali ke R4 final 1 (D-438). Resep: `lego/r6_gabung.py` → `lego/lego_r6.json` → `qc/r6/visual_r6.mp4`; audio `audio/r6/mix_r6.wav` (`audio/r6_audio.py`, Codex). Ledger D-438…D-451, log `evaluation.md` §Putaran 6. Berikutnya setelah render pemulihan dikirim: fase KT + transisi (`handoff/RANCANGAN-KT-R6.md`, still dulu untuk persetujuan Irfan). Bagian di bawah ini riwayat putaran 5.
+
+
 Diperbarui 18 Nov 2026 sore oleh Sutradara (claude2), main 3795b31. Audit sesi baru: `evaluation.md` §Audit mandiri sesi baru. Keputusan baru: D-428 (aturan sistem desain penuh, tanpa ubah piksel), D-429 (profil merek siirfan), D-430 (satu tema gelap-glow). Langkah berikutnya: `tahap.py` + §5. Riwayat putaran 1–4: `STATUS-arsip.md`.
 
 ## 0. Mulai di sini (sesi baru)

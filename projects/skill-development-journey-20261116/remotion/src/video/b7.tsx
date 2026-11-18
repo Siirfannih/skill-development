@@ -1,13 +1,13 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame, useVideoConfig} from 'remotion';
-import {CameraMotionBlur} from '@remotion/motion-blur';
 import {move} from '../lib/curves';
 import {Fonts} from './bersama/Fonts';
 import {MEREK} from './bersama/tema';
 import {WajahDorong} from './bersama/WajahDorong';
 import {ChatRow, type ChatItem} from './bersama/chat/Conversation';
-import {CHAT_VIEW, SessionWindow} from './bersama/chat/Chrome';
-import {MosaikClaude} from './bersama/ui-asli/claude/MosaikClaude';
+import {CHAT_VIEW, CHAT_WINDOW, SessionWindow, TOMBOL_KIRIM} from './bersama/chat/Chrome';
+import {CameraMotionBlur} from '@remotion/motion-blur';
+import {GelombangGrid, type Gelombang} from './bersama/ui-asli/claude/GelombangGrid';
 
 type KunciChat = {
   updateA: number; laporanA: number; perintahA: number; kirimA: number;
@@ -37,9 +37,15 @@ const kunciChat = (k: DesktopProps['kunci']): KunciChat => 'updateA' in k ? k : 
   cek: k.loop + 0.9, pass: k.ok, ringkas: k.ok + 0.12, lega: k.ok, keluar: k.keluar,
 });
 
+// D-449: jendela mendarat (zoom 1,25 → 1, blur gerak), kursor mengklik kirim di frame KLIK dunia, dan klik itu
+// memicu gelombang grid dari tombol kirim. Prompt pindah dari kolom input ke percakapan saat diklik.
+const KLIK = 12;
+const PROMPT = 'Revisi potongan ronde 3, cek semua gerbang.';
+const GELOMBANG: Gelombang = {asal: {x: CHAT_WINDOW.x + TOMBOL_KIRIM.x, y: CHAT_WINDOW.y + TOMBOL_KIRIM.y}, frames: 26};
+
 const messages = (k: KunciChat, duration: number): ChatItem[] => [
-  {id: 'irfan', type: 'prompt', at: -1, height: 90,
-    teks: 'Revisi potongan ronde 3, cek semua gerbang.'},
+  {id: 'irfan', type: 'prompt', at: KLIK / 30, height: 90,
+    teks: PROMPT},
   {id: 'update-a', type: 'event', at: k.updateA, height: 32,
     teks: 'Update dari ChatGPT · session A · 12:20'},
   {id: 'laporan-a', type: 'claude', at: k.laporanA, until: k.perintahA - 0.08, height: 88,
@@ -84,18 +90,18 @@ const Isi: React.FC<DesktopProps & {f: number; durasiDunia: number}> = ({kunci, 
     previousTarget = target;
     return {item, y};
   });
-  const zoom = 1 + 0.06 * move(f, 0, Math.round(durasiDunia * fps), 'drift');
+  const zoom = (1 + 0.25 * (1 - move(f, 0, 12, 'heavy'))) * (1 + 0.06 * move(f, 0, Math.round(durasiDunia * fps), 'drift'));
   const phase = t >= k.lega ? 'Selesai' : t >= k.cek ? 'Memeriksa…' : t >= k.edit ? 'Mencatat pelajaran…'
     : (t >= k.kirimA && t < k.terkirimA) || (t >= k.kirimB && t < k.updateB) ? 'Mengirim…' : 'Working…';
   return <AbsoluteFill style={{background: MEREK.latar, overflow: 'hidden'}}>
     <div style={{position: 'absolute', inset: 0, transform: `scale(${zoom})`, transformOrigin: '50% 50%'}}>
-      <SessionWindow frame={f} fps={fps} phase={phase} doneAt={k.lega}>
+      <SessionWindow frame={f} fps={fps} phase={phase} doneAt={k.lega} klik={KLIK} draft={PROMPT}>
         <div data-transcript-scroll style={{position: 'absolute', inset: 0, transform: `translateY(${-scroll}px)`}}>
           {rows.map(({item, y}) => <ChatRow key={item.id} item={item} top={y} scroll={scroll} frame={f} fps={fps}/>)}
         </div>
       </SessionWindow>
+      <GelombangGrid frame={f - KLIK} g={GELOMBANG}/>
     </div>
-    <MosaikClaude frame={f}/>
   </AbsoluteFill>;
 };
 
@@ -106,7 +112,6 @@ export const DesktopAgen: React.FC<DesktopProps> = (p) => {
   if (fAll < p.pre) return <AbsoluteFill><Fonts/><WajahDorong f={fAll} t0={p.preT0} dari={p.zPre} ke={1.7} frames={p.pre}/></AbsoluteFill>;
   const f = fAll - p.pre;
   if (f >= dunia) return <AbsoluteFill><Fonts/><WajahDorong f={f - dunia} t0={p.postT0} dari={1.7} ke={1.0} frames={p.post}/></AbsoluteFill>;
-  return <AbsoluteFill><Fonts/>{f < 18
-    ? <CameraMotionBlur shutterAngle={180} samples={8}><Isi {...p} durasiDunia={dunia / fps} f={f}/></CameraMotionBlur>
-    : <Isi {...p} durasiDunia={dunia / fps} f={f}/>}</AbsoluteFill>;
+  const isi = <Isi {...p} durasiDunia={dunia / fps} f={f}/>;
+  return <AbsoluteFill><Fonts/>{f < 12 ? <CameraMotionBlur shutterAngle={180} samples={8}>{isi}</CameraMotionBlur> : isi}</AbsoluteFill>;
 };

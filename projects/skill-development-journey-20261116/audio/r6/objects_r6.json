@@ -1,0 +1,485 @@
+[
+  {
+    "t": 0.0,
+    "objek": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [Claude]",
+    "peran": "objek-mendarat",
+    "frame": 0,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 0.833,
+    "objek": "slab/kata raksasa masuk: klik penekanan renyah (Cut.mp3: crisp interface click) yang terdengar di HP (Irfan 17 Nov: AI SLOP/DECISION harus berbunyi; thud sub lama tak terdengar) [FINALLY]",
+    "peran": "kata-hero",
+    "frame": 25,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 1.531,
+    "objek": "dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian [halaman repo + timeline + lingkaran wajah]",
+    "peran": "transisi-dunia",
+    "frame": 46,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 3.11,
+    "objek": "slab/kata raksasa masuk: klik penekanan renyah (Cut.mp3: crisp interface click) yang terdengar di HP (Irfan 17 Nov: AI SLOP/DECISION harus berbunyi; thud sub lama tak terdengar) [SELESAI]",
+    "peran": "kata-hero",
+    "frame": 93,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 4.468,
+    "objek": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [Claude]",
+    "peran": "objek-mendarat",
+    "frame": 134,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 5.938,
+    "objek": "kata cincin di belakang kepala masuk: klik pena kontras tipis [workflow]",
+    "peran": "kinetik-cincin",
+    "frame": 178,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 7.033,
+    "objek": "kata cincin di belakang kepala masuk: klik pena kontras tipis [AI model]",
+    "peran": "kinetik-cincin",
+    "frame": 211,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 8.308300000000001,
+    "objek": "tokoh ChatGPT masuk",
+    "peran": "objek-mendarat",
+    "frame": 249,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 8.575233333333333,
+    "objek": "bubble Hi! Aku nemenin Claude.",
+    "peran": "sapa",
+    "frame": 257,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 9.442766666666667,
+    "objek": "bubble Aku yang ngedit loh.",
+    "peran": "sapa",
+    "frame": 283,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 9.5428666667,
+    "frame": 286,
+    "objek": "tokoh Gemini",
+    "senyap": true,
+    "alasan": "Bunyi perkenalan R4 dipertahankan di bubble Gemini, f294; tidak menambah cue tokoh."
+  },
+  {
+    "t": 9.809800000000001,
+    "objek": "bubble Gemini …",
+    "peran": "sapa",
+    "frame": 294,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 11.996,
+    "objek": "DECISION",
+    "peran": "kata-hero",
+    "frame": 361,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 15.133,
+    "objek": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [gradien ungu-pink + VIRAL!! + emoji api]",
+    "peran": "slop",
+    "frame": 454,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 16.166,
+    "objek": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [bingkai neon + panah merah]",
+    "peran": "slop",
+    "frame": 484,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 16.533,
+    "objek": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [emoji kaget]",
+    "peran": "slop",
+    "frame": 495,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 17.483,
+    "objek": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [gradien ungu-pink + stiker !!]",
+    "peran": "slop",
+    "frame": 524,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 18.033,
+    "objek": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [lens flare]",
+    "peran": "slop",
+    "frame": 540,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 18.967,
+    "objek": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [emoji kaget]",
+    "peran": "slop",
+    "frame": 568,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 19.267,
+    "objek": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [glow]",
+    "peran": "slop",
+    "frame": 577,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 19.834,
+    "objek": "elemen dekor AI slop menumpuk: glitch/clutter tipis, satu file untuk seluruh tumpukan [stiker !! + panah merah]",
+    "peran": "slop",
+    "frame": 594,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 20.142,
+    "objek": "tumpukan AI slop runtuh saat grade turun dan slab AI SLOP masuk (B2b) [grade -15% + AI SLOP]",
+    "peran": "runtuh",
+    "frame": 604,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 20.335,
+    "objek": "slab/kata raksasa masuk: klik penekanan renyah (Cut.mp3: crisp interface click) yang terdengar di HP (Irfan 17 Nov: AI SLOP/DECISION harus berbunyi; thud sub lama tak terdengar) [AI SLOP (klik penekanan, >=100 ms setelah runtuh)]",
+    "peran": "kata-hero",
+    "frame": 609,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 21.55,
+    "objek": "tumpukan AI slop runtuh saat grade turun dan slab AI SLOP masuk (B2b) [bingkai neon jatuh (f646, audit 6): sub-drop rendah]",
+    "peran": "runtuh",
+    "frame": 646,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 22.8,
+    "objek": "kata putus-putus terpecah: glitch digital tipis [putus-putus]",
+    "peran": "putus",
+    "frame": 683,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 23.6,
+    "objek": "dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian [aplikasi Claude terang + lingkaran wajah]",
+    "peran": "transisi-dunia",
+    "frame": 707,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 25.091,
+    "objek": "kata kunci slam tampil (bukan per kata): tick lembut [template.]",
+    "peran": "kunci-slam",
+    "frame": 752,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 28.929,
+    "objek": "\"/\" diketik di kolom perintah (B3a): ketikan keyboard pendek [\"/apple\" diketik di kolom perintah (f867, audit 6): ketikan halus]",
+    "peran": "ketik",
+    "frame": 867,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 29.349,
+    "objek": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [saran /apple-style]",
+    "peran": "objek-mendarat",
+    "frame": 880,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 29.879,
+    "objek": "kursor mengklik saran perintah (B3a): ketukan tombol tegas [klik /apple-style]",
+    "peran": "klik",
+    "frame": 895,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 30.554,
+    "objek": "\"/\" diketik di kolom perintah (B3a): ketikan keyboard pendek [\"cinematic\" diketik di kolom perintah (audit 6): ketikan halus]",
+    "peran": "ketik",
+    "frame": 916,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 31.194,
+    "objek": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [saran /cinematic-storytelling]",
+    "peran": "objek-mendarat",
+    "frame": 935,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 31.904,
+    "objek": "kursor mengklik saran perintah (B3a): ketukan tombol tegas [klik /cinematic-storytelling]",
+    "peran": "klik",
+    "frame": 956,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 32.601,
+    "objek": "\"/\" diketik di kolom perintah (B3a): ketikan keyboard pendek [teks diketik dihapus + ngebalik.]",
+    "peran": "ketik",
+    "frame": 977,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 34.731,
+    "objek": "dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian [transisi lingkaran wajah <-> layar (audit 1, digeser +0,463 dtk ke suara R7)]",
+    "peran": "transisi-dunia",
+    "frame": 1041,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 37.453,
+    "objek": "slab/kata raksasa masuk: klik penekanan renyah (Cut.mp3: crisp interface click) yang terdengar di HP (Irfan 17 Nov: AI SLOP/DECISION harus berbunyi; thud sub lama tak terdengar) [WORKFLOW-NYA]",
+    "peran": "kata-hero",
+    "frame": 1122,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 42.347,
+    "objek": "slab/kata raksasa masuk: klik penekanan renyah (Cut.mp3: crisp interface click) yang terdengar di HP (Irfan 17 Nov: AI SLOP/DECISION harus berbunyi; thud sub lama tak terdengar) [BALIK MODAL]",
+    "peran": "kata-hero",
+    "frame": 1269,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 43.532,
+    "objek": "\"habis banget\": bunyi kertas dibalik (Irfan 17 Nov) [habis banget]",
+    "peran": "kertas",
+    "frame": 1305,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 48.445,
+    "objek": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [kartu ChatGPT Pro 20x]",
+    "peran": "objek-mendarat",
+    "frame": 1452,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 48.648,
+    "objek": "hitungan angka kartu naik ke 20: tick per kenaikan (10 tick, Irfan 17 Nov)",
+    "peran": "hitung",
+    "frame": 1458,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 50.384,
+    "objek": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [kartu paket kedua masuk (audit 1, +0,434)]",
+    "peran": "objek-mendarat",
+    "frame": 1510,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 50.72,
+    "objek": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [kartu Claude Max 5x]",
+    "peran": "objek-mendarat",
+    "frame": 1520,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 50.923,
+    "objek": "hitungan angka kartu naik ke 5: tick per kenaikan (4 tick, Irfan 17 Nov)",
+    "peran": "hitung",
+    "frame": 1526,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 53.558,
+    "objek": "dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian [kartu keluar (audit 2, +0,405): whoosh gain rendah]",
+    "peran": "transisi-dunia",
+    "frame": 1605,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 56.982,
+    "objek": "slab/kata raksasa masuk: klik penekanan renyah (Cut.mp3: crisp interface click) yang terdengar di HP (Irfan 17 Nov: AI SLOP/DECISION harus berbunyi; thud sub lama tak terdengar) [LINTAS AGENT]",
+    "peran": "kata-hero",
+    "frame": 1708,
+    "sumber": "cue R4 di rentang tak berubah"
+  },
+  {
+    "t": 57.919,
+    "frame": 1736,
+    "objek": "push wajah menuju jendela Claude",
+    "peran": "transisi-dunia",
+    "sumber": "visual R6 baru; D-449"
+  },
+  {
+    "t": 58.324933333333334,
+    "frame": 1748,
+    "objek": "klik tombol kirim; prompt masuk percakapan",
+    "peran": "klik",
+    "sumber": "visual R6 baru; D-449"
+  },
+  {
+    "t": 58.49176666666667,
+    "frame": 1753,
+    "objek": "gelombang grid bara gelap dari tombol kirim",
+    "peran": "gelombang",
+    "sumber": "visual R6 baru; D-449"
+  },
+  {
+    "t": 59.69296666666667,
+    "objek": "Update dari ChatGPT · session A",
+    "peran": "pesan",
+    "frame": 1789,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 61.6616,
+    "objek": "Saya sudah memerintahkan…",
+    "peran": "claude-balas",
+    "frame": 1848,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 62.79606666666667,
+    "objek": "Messaged ChatGPT · session A",
+    "peran": "kirim",
+    "frame": 1882,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 63.4634,
+    "objek": "terkirim ✓ session A",
+    "peran": "terverifikasi",
+    "frame": 1902,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 63.63023333333334,
+    "objek": "Saya minta ChatGPT session B…",
+    "peran": "claude-balas",
+    "frame": 1907,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 64.7647,
+    "objek": "Messaged ChatGPT · session B",
+    "peran": "kirim",
+    "frame": 1941,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 65.93253333333334,
+    "objek": "Update dari ChatGPT · session B",
+    "peran": "pesan",
+    "frame": 1976,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 68.7687,
+    "objek": "Edit guide/teks/GUIDE.md",
+    "peran": "claude-balas",
+    "frame": 2061,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 70.40366666666667,
+    "objek": "Ran cut_check.py PASS ✓ + Clawd lega",
+    "peran": "terverifikasi",
+    "frame": 2110,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 70.5338666667,
+    "frame": 2114,
+    "objek": "Pelajaran tersimpan…",
+    "senyap": true,
+    "alasan": "Terlalu dekat PASS; senyap sesuai TASK."
+  },
+  {
+    "t": 72.075,
+    "objek": "potong D ke meja Blender",
+    "peran": "transisi-dunia",
+    "frame": 2160,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 72.181,
+    "objek": "Claude mengetik di keyboard",
+    "peran": "ketik",
+    "frame": 2163,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 72.63923333333334,
+    "objek": "T081 100% masuk",
+    "peran": "kata-hero",
+    "frame": 2177,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 75.645,
+    "frame": 2267,
+    "objek": "narasi videonya kayak…",
+    "senyap": true,
+    "alasan": "Tidak ada objek baru yang mendarat."
+  },
+  {
+    "t": 76.41,
+    "objek": "masuk rangkaian IG",
+    "peran": "transisi-dunia",
+    "frame": 2290,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 78.6786,
+    "frame": 2358,
+    "objek": "PROFESIONAL raksasa di belakang badan; latar hijau",
+    "peran": "kata-hero",
+    "sumber": "visual R6 baru; D-451"
+  },
+  {
+    "t": 79.61286666666666,
+    "objek": "komentar masih kerasa AI slop pop",
+    "peran": "pesan",
+    "frame": 2386,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 80.14673333333333,
+    "objek": "komentar Keren editan profesional pop",
+    "peran": "pesan",
+    "frame": 2402,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 80.825,
+    "frame": 2422,
+    "objek": "narasi Comment + kolom komentar",
+    "senyap": true,
+    "alasan": "Tanpa tulisan tangan dan panah; ketikan narasi tidak diberi bunyi per kata."
+  },
+  {
+    "t": 82.407,
+    "objek": "kata skill masuk",
+    "peran": "kunci-slam",
+    "frame": 2470,
+    "sumber": "inspeksi visual R6"
+  },
+  {
+    "t": 83.55,
+    "objek": "ekor penutup",
+    "peran": "penutup",
+    "frame": 2504,
+    "sumber": "inspeksi visual R6"
+  }
+]

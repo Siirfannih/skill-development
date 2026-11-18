@@ -1,0 +1,308 @@
+{
+  "sample_rate": 48000,
+  "channels": 2,
+  "samples": 4023219,
+  "duration_s": 83.8170625,
+  "target_duration_s": 83.81706666666666,
+  "peak_dbfs": -1.0000020265579224,
+  "mix_lufs": -15.847959623645439,
+  "r4_lufs": -15.86,
+  "delta_lu": 0.012040376354560678,
+  "voice_gain": 1.0,
+  "master_limiter": false,
+  "master_compressor": false,
+  "voice_max_abs_diff": 5.960464477539063e-08,
+  "voice_no_sfx_max_abs_diff": 2.9802322387695312e-08,
+  "voice_no_sfx_correlation": 1.0,
+  "voice_no_sfx_fit_gain": 0.9999999999945964,
+  "sfx_outside_ranges_changed_samples": 0,
+  "sfx_outside_ranges_max_abs_diff": 0.0,
+  "allowed_ranges_s": [
+    [
+      8.3,
+      12.3
+    ],
+    [
+      57.6,
+      76.41
+    ],
+    [
+      76.41,
+      83.82
+    ]
+  ],
+  "cues": 65,
+  "removed": 16,
+  "shifted": 7,
+  "added": 12,
+  "new_d_gain_automation": [
+    {
+      "t": 58.324933333333334,
+      "peran": "klik",
+      "gain_nominal_db": -8,
+      "gain_otomasi_db": 0.0,
+      "gain_efektif_db": -8.0,
+      "peak_envelope_min_db": -8.68589398126252e-06
+    },
+    {
+      "t": 58.49176666666667,
+      "peran": "gelombang",
+      "gain_nominal_db": -10,
+      "gain_otomasi_db": 0.0,
+      "gain_efektif_db": -10.0,
+      "peak_envelope_min_db": -0.8030694952513563
+    },
+    {
+      "t": 59.69296666666667,
+      "peran": "pesan",
+      "gain_nominal_db": -9,
+      "gain_otomasi_db": -0.75,
+      "gain_efektif_db": -9.75,
+      "peak_envelope_min_db": -8.68589398126252e-06
+    },
+    {
+      "t": 61.6616,
+      "peran": "claude-balas",
+      "gain_nominal_db": -10,
+      "gain_otomasi_db": 0.0,
+      "gain_efektif_db": -10.0,
+      "peak_envelope_min_db": -8.68589398126252e-06
+    },
+    {
+      "t": 62.79606666666667,
+      "peran": "kirim",
+      "gain_nominal_db": -10,
+      "gain_otomasi_db": 0.0,
+      "gain_efektif_db": -10.0,
+      "peak_envelope_min_db": -8.68589398126252e-06
+    },
+    {
+      "t": 63.4634,
+      "peran": "terverifikasi",
+      "gain_nominal_db": -10,
+      "gain_otomasi_db": 0.0,
+      "gain_efektif_db": -10.0,
+      "peak_envelope_min_db": -8.68589398126252e-06
+    },
+    {
+      "t": 63.63023333333334,
+      "peran": "claude-balas",
+      "gain_nominal_db": -10,
+      "gain_otomasi_db": 0.0,
+      "gain_efektif_db": -10.0,
+      "peak_envelope_min_db": -8.68589398126252e-06
+    },
+    {
+      "t": 64.7647,
+      "peran": "kirim",
+      "gain_nominal_db": -10,
+      "gain_otomasi_db": 0.0,
+      "gain_efektif_db": -10.0,
+      "peak_envelope_min_db": -8.68589398126252e-06
+    },
+    {
+      "t": 65.93253333333334,
+      "peran": "pesan",
+      "gain_nominal_db": -9,
+      "gain_otomasi_db": 0.0,
+      "gain_efektif_db": -9.0,
+      "peak_envelope_min_db": -8.68589398126252e-06
+    },
+    {
+      "t": 68.7687,
+      "peran": "claude-balas",
+      "gain_nominal_db": -10,
+      "gain_otomasi_db": 0.0,
+      "gain_efektif_db": -10.0,
+      "peak_envelope_min_db": -8.68589398126252e-06
+    },
+    {
+      "t": 70.40366666666667,
+      "peran": "terverifikasi",
+      "gain_nominal_db": -10,
+      "gain_otomasi_db": 0.0,
+      "gain_efektif_db": -10.0,
+      "peak_envelope_min_db": -3.8376815577234487
+    }
+  ],
+  "input_sha256": {
+    "audio/stem_suara.wav": "09f5bc7a63bf3e691152145b4b8ed9bc1cf4f4f9c46a98a002c506fbfd850091",
+    "audio/stem_musik_A.wav": "eac66809b9355a5076e8794770461914e7c7c3f87b95662dd4537ac2ec332a87",
+    "audio/stem_sfx_A.wav": "dc7bd977cecd706a03b469e06afe6e91bc68ddc444cf0a569e88e59911a221f8",
+    "audio/stem_sfx.wav": "e137746a51555b1aaf021c2e4531c0e05bb6e6f18d1c50b9b7ea2c5b57e1f04f",
+    "audio/cues.json": "1d5a9b37c7dd8ff1ac8f7df819efeb5d33af45a28105aaa1027e5c486befe031",
+    "audio/sfx_build.py": "695099d39f7e94a92024a027ab36edbce54e2188cf312330dd99574d711e4afa",
+    "audio/music_build.py": "2d0a44486764b0789141197698734135bebb579e9f0d9edffcb90f225c69f758",
+    "audio/mix_report.json": "2fec4a5ca601d744356ced46097b668d16692c3a2eaab0f294565dcdcfe82700",
+    "qc/r6/visual_r6.mp4": "00912a5bc4f6250843946f9ffc7c1fd71684f47d927d77872b2f9f4675bb4b7b"
+  },
+  "inputs_unchanged": true,
+  "sample_checks_pass": true,
+  "round1_cue_counts": {
+    "cues": 62,
+    "removed": 17,
+    "shifted": 7,
+    "added": 10
+  },
+  "round": 2,
+  "ronde2": {
+    "allowed_ranges_s": [
+      [
+        57.6,
+        59.3
+      ],
+      [
+        78.5,
+        79.4
+      ]
+    ],
+    "tails_outside_ranges": [],
+    "sfx_outside_ranges_changed_samples": 0,
+    "preserved_cues": 61,
+    "changed_cues": [
+      {
+        "t": 57.919,
+        "peran": "transisi-dunia",
+        "alasan": "dunia berganti (repo, aplikasi, relay): whoosh udara tipis, puncak di frame pergantian [desktop Mac + jaringan agen]",
+        "file": "Woosh.mp3",
+        "dengar": "a fast whoosh (z +4.7), a soft air whoosh (z +4.1), a deep cinematic whoosh (z +3.8)",
+        "dB": -4,
+        "terikat_ke_visual": [
+          "R6_f1736_push wajah menuju jendela Claude"
+        ],
+        "offset_puncak_s": 0.29533333333333334,
+        "mode": "peak",
+        "frame": 1736,
+        "frame_objek": 1736,
+        "objek": "push wajah menuju jendela Claude",
+        "status_r6": "pulih-r2",
+        "visual_file": "qc/r6/visual_r6.mp4",
+        "fps": "30000/1001",
+        "status_r2": "pulih",
+        "ledger": "D-449",
+        "start_s": 57.625,
+        "puncak_sfx_s": 57.92033333333333,
+        "puncak_dbfs": -17.312637329101562,
+        "frame_puncak_sfx": 1736
+      },
+      {
+        "t": 58.324933333333334,
+        "peran": "klik",
+        "alasan": "Kursor menekan tombol kirim dan prompt berpindah ke percakapan (D-449).",
+        "file": "Enter.mp3",
+        "dengar": "a single mechanical keyboard key press (z +3.9), a soft key release click (z +3.9), a punchy impact hit (z +2.5)",
+        "dB": -8,
+        "terikat_ke_visual": [
+          "R6_f1748_klik tombol kirim; prompt masuk percakapan"
+        ],
+        "offset_puncak_s": 0.0032708333333333335,
+        "mode": "onset",
+        "trim_r2_duration_s": 0.06,
+        "pemrosesan": "Enter.mp3 yang sama dengan seluruh peran klik R4; satu transien 60 ms.",
+        "frame": 1748,
+        "frame_objek": 1748,
+        "objek": "klik tombol kirim; prompt masuk percakapan",
+        "status_r6": "tambah-r2",
+        "visual_file": "qc/r6/visual_r6.mp4",
+        "fps": "30000/1001",
+        "status_r2": "tambah",
+        "ledger": "D-449",
+        "start_s": 58.321666666666665,
+        "puncak_sfx_s": 58.3249375,
+        "puncak_dbfs": -8.00000867487247,
+        "gain_otomasi_db": 0.0,
+        "gain_efektif_db": -8.0,
+        "otomasi_puncak_min_db": -8.68589398126252e-06,
+        "frame_puncak_sfx": 1748
+      },
+      {
+        "t": 58.49176666666667,
+        "peran": "gelombang",
+        "dB": -10,
+        "mode": "peak",
+        "alasan": "Satu bunyi untuk seluruh gelombang grid bara gelap dari tombol kirim (D-449).",
+        "file": "r6/sfx/gelombang.wav",
+        "dengar": "a digital glitch (z +3.1), a record scratch (z +2.6); digital grain swell, source shimmer sweep match z +3.4",
+        "sumber": "/home/irfan/sfx/Kenyset/ui-interface-sound-26-299883.mp3",
+        "frame": 1753,
+        "frame_objek": 1753,
+        "objek": "gelombang grid bara gelap dari tombol kirim",
+        "terikat_ke_visual": [
+          "R6_f1753_gelombang grid bara gelap dari tombol kirim"
+        ],
+        "status_r6": "geser-r2",
+        "visual_file": "qc/r6/visual_r6.mp4",
+        "fps": "30000/1001",
+        "start_s": 58.3249375,
+        "offset_puncak_s": 0.16683333333333333,
+        "puncak_sfx_s": 58.491770833333334,
+        "gain_otomasi_db": 0.0,
+        "gain_efektif_db": -10.0,
+        "otomasi_puncak_min_db": -0.8030694952513563,
+        "puncak_dbfs": -10.000008744278741,
+        "frame_puncak_sfx": 1753,
+        "t_r1": 58.058,
+        "status_r2": "geser",
+        "ledger": "D-449"
+      },
+      {
+        "t": 78.6786,
+        "peran": "kata-hero",
+        "alasan": "PROFESIONAL raksasa hitam potong masuk di belakang badan pada latar hijau (D-451).",
+        "file": "Cut.mp3",
+        "dengar": "an error buzz (z +3.1), a digital glitch (z +2.6), a crisp interface click (z +2.4)",
+        "dB": -5,
+        "terikat_ke_visual": [
+          "R6_f2358_PROFESIONAL raksasa di belakang badan; latar hijau"
+        ],
+        "offset_puncak_s": 0.022104166666666668,
+        "mode": "onset",
+        "waktu_brief_s": 78.659,
+        "frame": 2358,
+        "frame_objek": 2358,
+        "objek": "PROFESIONAL raksasa di belakang badan; latar hijau",
+        "status_r6": "tambah-r2",
+        "visual_file": "qc/r6/visual_r6.mp4",
+        "fps": "30000/1001",
+        "status_r2": "tambah",
+        "ledger": "D-451",
+        "start_s": 78.6565,
+        "puncak_sfx_s": 78.67860416666667,
+        "puncak_dbfs": -4.999999888090177,
+        "gain_otomasi_db": 0.0,
+        "gain_efektif_db": -5.0,
+        "otomasi_puncak_min_db": 0.0,
+        "frame_puncak_sfx": 2358
+      }
+    ],
+    "new_d_gain_automation": [
+      {
+        "t": 58.324933333333334,
+        "peran": "klik",
+        "gain_nominal_db": -8,
+        "gain_otomasi_db": 0.0,
+        "gain_efektif_db": -8.0,
+        "peak_envelope_min_db": -8.68589398126252e-06
+      },
+      {
+        "t": 58.49176666666667,
+        "peran": "gelombang",
+        "gain_nominal_db": -10,
+        "gain_otomasi_db": 0.0,
+        "gain_efektif_db": -10.0,
+        "peak_envelope_min_db": -0.8030694952513563
+      }
+    ],
+    "hero_gain_automation": [
+      {
+        "t": 78.6786,
+        "peran": "kata-hero",
+        "gain_nominal_db": -5,
+        "gain_otomasi_db": 0.0,
+        "gain_efektif_db": -5.0,
+        "peak_envelope_min_db": 0.0
+      }
+    ],
+    "reference_sfx_sha256": "950c3c1ac4fb7f093ec64c75e34b5fcd5173a403d118380a06c79389408392c2"
+  }
+}
