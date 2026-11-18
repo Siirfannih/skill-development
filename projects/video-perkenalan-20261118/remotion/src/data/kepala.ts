@@ -1,0 +1,29 @@
+// kepala.ts · posisi kepala di footage (koordinat 1080x1920), diukur dari matte RVM (alat/kepala.py).
+// cx = pusat kepala x, top = puncak rambut y, fw = lebar wajah/kepala, chin = dagu y.
+export type Kepala = {cx: number; top: number; fw: number; chin: number};
+export const KEPALA: Record<string, Kepala> = {
+  default: {cx: 540, top: 500, fw: 520, chin: 1230},
+  h1: {cx: 517, top: 624, fw: 476, chin: 1290},
+  h2: {cx: 569, top: 570, fw: 519, chin: 1297},
+  s3x: {cx: 596, top: 572, fw: 516, chin: 1294},
+  s4: {cx: 668, top: 560, fw: 536, chin: 1310},
+  s5: {cx: 567, top: 652, fw: 448, chin: 1279},
+  s6: {cx: 566, top: 530, fw: 540, chin: 1286},
+  s9: {cx: 546, top: 564, fw: 512, chin: 1281},
+  s9b: {cx: 566, top: 720, fw: 398, chin: 1277},
+  s10: {cx: 536, top: 256, fw: 802, chin: 1379},
+  s11: {cx: 524, top: 328, fw: 690, chin: 1294},
+  s12: {cx: 522, top: 454, fw: 606, chin: 1302},
+  s12b: {cx: 521, top: 538, fw: 577, chin: 1346},
+  s13x: {cx: 510, top: 452, fw: 516, chin: 1174},
+  s15: {cx: 521, top: 452, fw: 504, chin: 1158},
+  s17: {cx: 504, top: 458, fw: 507, chin: 1168},
+  s17b: {cx: 528, top: 432, fw: 532, chin: 1177},
+  s18: {cx: 543, top: 484, fw: 484, chin: 1162},
+  s18b: {cx: 527, top: 396, fw: 556, chin: 1174},
+  s20: {cx: 529, top: 396, fw: 550, chin: 1166},
+  s20b: {cx: 515, top: 430, fw: 524, chin: 1164},
+  s21: {cx: 520, top: 430, fw: 530, chin: 1172},
+  s22: {cx: 520, top: 420, fw: 530, chin: 1162},
+};
+export const kp = (id: string): Kepala => KEPALA[id] ?? KEPALA.default;

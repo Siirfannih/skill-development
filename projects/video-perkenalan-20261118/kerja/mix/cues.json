@@ -1,0 +1,650 @@
+[
+ {
+  "f": 5,
+  "t": 0.167,
+  "file": "film-burn.wav",
+  "peran": "burn",
+  "alasan": "burn + flash pembuka",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -20.3
+ },
+ {
+  "f": 18,
+  "t": 0.6,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "ULANGI slam",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": -9.5
+ },
+ {
+  "f": 84,
+  "t": 2.8,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "IRFAN carry ke kartu",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 90,
+  "t": 3.0,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "kartu arsip 1",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 100,
+  "t": 3.333,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "kartu arsip 2",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 109,
+  "t": 3.633,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "kartu arsip 3",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 173,
+  "t": 5.767,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "KONSISTEN mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 192,
+  "t": 6.4,
+  "file": "kamera-klik_negative.wav",
+  "peran": "negative",
+  "alasan": "negative #4",
+  "dengar": "klik rana kamera kering, pendek",
+  "gain_db": -6
+ },
+ {
+  "f": 203,
+  "t": 6.767,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "GAK mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 210,
+  "t": 7.0,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "JADI-JADI mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 224,
+  "t": 7.467,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "BUKAN mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 280,
+  "t": 9.333,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "IDE mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 286,
+  "t": 9.533,
+  "file": "film-burn.wav",
+  "peran": "burn",
+  "alasan": "masuk #6",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 337,
+  "t": 11.233,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "PRODUK mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 349,
+  "t": 11.633,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "punch 1,18 #6",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 362,
+  "t": 12.067,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "FOKUS mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 386,
+  "t": 12.867,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "push-through monitor",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 408,
+  "t": 13.6,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "6 BULAN mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 445,
+  "t": 14.833,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "jendela Workspace",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 458,
+  "t": 15.267,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "Canvas+greatstock+Tuntunly",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 470,
+  "t": 15.667,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "jendela skill-development",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 489,
+  "t": 16.3,
+  "file": "kardus-mendarat.wav",
+  "peran": "kardus-mendarat",
+  "alasan": "kardus tertutup mendarat",
+  "dengar": "kardus jatuh ke lantai, buk tumpul",
+  "gain_db": -6
+ },
+ {
+  "f": 504,
+  "t": 16.8,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "stempel BELUM DI-LAUNCHING",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": -1
+ },
+ {
+  "f": 571,
+  "t": 19.033,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke BUILDER slam",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -8
+ },
+ {
+  "f": 575,
+  "t": 19.167,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "BUILDER slam",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": -1.9
+ },
+ {
+  "f": 585,
+  "t": 19.5,
+  "file": "kamera-klik_negative.wav",
+  "peran": "negative",
+  "alasan": "negative + break wide",
+  "dengar": "klik rana kamera kering, pendek",
+  "gain_db": -6
+ },
+ {
+  "f": 611,
+  "t": 20.367,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "PENYAKIT mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 640,
+  "t": 21.333,
+  "file": "film-burn.wav",
+  "peran": "burn",
+  "alasan": "masuk #11",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 676,
+  "t": 22.533,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "ANXIETY mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 697,
+  "t": 23.233,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "OVERTHINKING mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 722,
+  "t": 24.067,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "reframe 1,18 heavy #11",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 759,
+  "t": 25.3,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "BELUM mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 766,
+  "t": 25.533,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "LAYAK mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 774,
+  "t": 25.8,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "pull-back titik balik",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 813,
+  "t": 27.1,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "RISIKO mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 900,
+  "t": 30.0,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke PALSU slam",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -8
+ },
+ {
+  "f": 904,
+  "t": 30.133,
+  "file": "kamera-klik_negative.wav",
+  "peran": "negative",
+  "alasan": "negative PALSU",
+  "dengar": "klik rana kamera kering, pendek",
+  "gain_db": -6
+ },
+ {
+  "f": 909,
+  "t": 30.3,
+  "file": "kertas-sobek.wav",
+  "peran": "sobek",
+  "alasan": "PALSU sobek",
+  "dengar": "sobekan kertas cepat",
+  "gain_db": -6
+ },
+ {
+  "f": 914,
+  "t": 30.467,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "whip ke kardus",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 922,
+  "t": 30.733,
+  "file": "kardus-buka.wav",
+  "peran": "kardus-buka",
+  "alasan": "kardus dibuka, produk naik",
+  "dengar": "gesek kardus terbuka, tutup terlipat",
+  "gain_db": -6
+ },
+ {
+  "f": 972,
+  "t": 32.4,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "jendela skill-development ke tengah",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 985,
+  "t": 32.833,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "push-through ke repo",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 1028,
+  "t": 34.267,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "jendela Claude",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 1033,
+  "t": 34.433,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "kamera mundur dari judul repo",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 1076,
+  "t": 35.867,
+  "file": "film-burn.wav",
+  "peran": "burn",
+  "alasan": "masuk #15",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 1102,
+  "t": 36.733,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke 100% slam",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -8
+ },
+ {
+  "f": 1106,
+  "t": 36.867,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "100% slam",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": -1
+ },
+ {
+  "f": 1126,
+  "t": 37.533,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "punch 1,16 #15",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 1190,
+  "t": 39.667,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "push-through ke laptop",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 1207,
+  "t": 40.233,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "CapCut memantul",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 1219,
+  "t": 40.633,
+  "file": "ui-tutup.wav",
+  "peran": "ui-batal",
+  "alasan": "CapCut batal",
+  "dengar": "klik tutup UI lembut menurun",
+  "gain_db": -8
+ },
+ {
+  "f": 1236,
+  "t": 41.2,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "Premiere memantul",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 1257,
+  "t": 41.9,
+  "file": "ui-tutup.wav",
+  "peran": "ui-batal",
+  "alasan": "Premiere batal",
+  "dengar": "klik tutup UI lembut menurun",
+  "gain_db": -8
+ },
+ {
+  "f": 1284,
+  "t": 42.8,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "After Effects memantul",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 1302,
+  "t": 43.4,
+  "file": "ui-tutup.wav",
+  "peran": "ui-batal",
+  "alasan": "After Effects batal",
+  "dengar": "klik tutup UI lembut menurun",
+  "gain_db": -8
+ },
+ {
+  "f": 1305,
+  "t": 43.5,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "pull-back ke wajah",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 1363,
+  "t": 45.433,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "AI mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1384,
+  "t": 46.133,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "kartu repo + Claude mengorbit",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 1468,
+  "t": 48.933,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke BERBEDA slam",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -8
+ },
+ {
+  "f": 1472,
+  "t": 49.067,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "BERBEDA slam",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": -1
+ },
+ {
+  "f": 1485,
+  "t": 49.5,
+  "file": "film-burn.wav",
+  "peran": "burn",
+  "alasan": "masuk #19",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 1574,
+  "t": 52.467,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "pull-back ke wajah",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 1736,
+  "t": 57.867,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "push 1,15 heavy #21",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 1778,
+  "t": 59.267,
+  "file": "tick-hero.wav",
+  "peran": "hero",
+  "alasan": "cincin BUILDER TRAP mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1784,
+  "t": 59.467,
+  "file": "kertas-sobek.wav",
+  "peran": "sobek",
+  "alasan": "cincin BUILDER TRAP sobek",
+  "dengar": "sobekan kertas cepat",
+  "gain_db": -6
+ },
+ {
+  "f": 1850,
+  "t": 61.667,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "hai!",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 1865,
+  "t": 62.167,
+  "file": "kertas-polaroid.wav",
+  "peran": "polaroid",
+  "alasan": "polaroid",
+  "dengar": "kertas foto jatuh tipis",
+  "gain_db": -6
+ },
+ {
+  "f": 1878,
+  "t": 62.6,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "kamera mundur ke profil",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 1890,
+  "t": 63.0,
+  "file": "ui-pop.wav",
+  "peran": "ui-muncul",
+  "alasan": "grid tile mulai",
+  "dengar": "pop UI pendek bersih",
+  "gain_db": -8
+ },
+ {
+  "f": 1981,
+  "t": 66.033,
+  "file": "mouse-klik.wav",
+  "peran": "klik-follow",
+  "alasan": "klik Follow",
+  "dengar": "klik mouse ganda kecil",
+  "gain_db": -4
+ },
+ {
+  "f": 1992,
+  "t": 66.4,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "ULANGI gema hook",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": -1.4
+ },
+ {
+  "f": 1999,
+  "t": 66.633,
+  "file": "whoosh-kamera.wav",
+  "peran": "transisi",
+  "alasan": "menyelam → loop",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ }
+]

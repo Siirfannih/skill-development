@@ -1,0 +1,20 @@
+{
+ "riser-slam.wav": {
+  "durasi_dtk": 0.87,
+  "onset_ms": 30,
+  "puncak_ms": 779,
+  "puncak_dbfs": -6.0
+ },
+ "tick-hero.wav": {
+  "durasi_dtk": 0.34,
+  "onset_ms": 80,
+  "puncak_ms": 153,
+  "puncak_dbfs": -6.0
+ },
+ "hantam-sub-hp.wav": {
+  "durasi_dtk": 2.126,
+  "onset_ms": 79,
+  "puncak_ms": 229,
+  "puncak_dbfs": -6.0
+ }
+}

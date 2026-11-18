@@ -1,0 +1,1850 @@
+[
+{
+"word": "oke",
+"start": 0.08,
+"end": 0.22,
+"f_in": 2,
+"f_out": 7,
+"score": 0.97
+},
+{
+"word": "kita",
+"start": 0.36,
+"end": 0.5,
+"f_in": 11,
+"f_out": 15,
+"score": 0.99
+},
+{
+"word": "ulangi",
+"start": 0.56,
+"end": 0.78,
+"f_in": 17,
+"f_out": 23,
+"score": 0.88
+},
+{
+"word": "lagi",
+"start": 0.8,
+"end": 0.94,
+"f_in": 24,
+"f_out": 28,
+"score": 0.99
+},
+{
+"word": "jadi",
+"start": 1.12,
+"end": 1.26,
+"f_in": 34,
+"f_out": 38,
+"score": 0.99
+},
+{
+"word": "perkenalkan",
+"start": 1.44,
+"end": 1.881,
+"f_in": 43,
+"f_out": 56,
+"score": 0.88
+},
+{
+"word": "nama",
+"start": 1.981,
+"end": 2.121,
+"f_in": 59,
+"f_out": 64,
+"score": 0.79
+},
+{
+"word": "aku",
+"start": 2.141,
+"end": 2.221,
+"f_in": 64,
+"f_out": 67,
+"score": 0.65
+},
+{
+"word": "irfan",
+"start": 2.261,
+"end": 2.541,
+"f_in": 68,
+"f_out": 76,
+"score": 0.85
+},
+{
+"word": "dan",
+"start": 2.641,
+"end": 2.861,
+"f_in": 79,
+"f_out": 86,
+"score": 0.97
+},
+{
+"word": "beberapa",
+"start": 3.001,
+"end": 3.281,
+"f_in": 90,
+"f_out": 98,
+"score": 0.95
+},
+{
+"word": "kali",
+"start": 3.321,
+"end": 3.501,
+"f_in": 100,
+"f_out": 105,
+"score": 0.95
+},
+{
+"word": "sebelumnya",
+"start": 3.541,
+"end": 3.881,
+"f_in": 106,
+"f_out": 116,
+"score": 0.93
+},
+{
+"word": "aku",
+"start": 3.981,
+"end": 4.081,
+"f_in": 119,
+"f_out": 122,
+"score": 0.94
+},
+{
+"word": "udah",
+"start": 4.101,
+"end": 4.221,
+"f_in": 123,
+"f_out": 127,
+"score": 0.22
+},
+{
+"word": "pernah",
+"start": 4.261,
+"end": 4.422,
+"f_in": 128,
+"f_out": 133,
+"score": 0.29
+},
+{
+"word": "sempat",
+"start": 4.462,
+"end": 4.662,
+"f_in": 134,
+"f_out": 140,
+"score": 0.62
+},
+{
+"word": "bilang",
+"start": 4.702,
+"end": 4.962,
+"f_in": 141,
+"f_out": 149,
+"score": 0.82
+},
+{
+"word": "kalau",
+"start": 5.002,
+"end": 5.202,
+"f_in": 150,
+"f_out": 156,
+"score": 0.96
+},
+{
+"word": "aku",
+"start": 5.262,
+"end": 5.382,
+"f_in": 158,
+"f_out": 161,
+"score": 0.94
+},
+{
+"word": "bakal",
+"start": 5.462,
+"end": 5.682,
+"f_in": 164,
+"f_out": 170,
+"score": 0.98
+},
+{
+"word": "konsisten",
+"start": 5.722,
+"end": 6.062,
+"f_in": 172,
+"f_out": 182,
+"score": 0.97
+},
+{
+"word": "konten",
+"start": 6.122,
+"end": 6.402,
+"f_in": 184,
+"f_out": 192,
+"score": 0.98
+},
+{
+"word": "tapi",
+"start": 6.462,
+"end": 6.622,
+"f_in": 194,
+"f_out": 199,
+"score": 0.97
+},
+{
+"word": "gak",
+"start": 6.722,
+"end": 6.782,
+"f_in": 202,
+"f_out": 203,
+"score": 0.6
+},
+{
+"word": "jadi",
+"start": 6.802,
+"end": 6.962,
+"f_in": 204,
+"f_out": 209,
+"score": 0.95
+},
+{
+"word": "jadi",
+"start": 7.002,
+"end": 7.202,
+"f_in": 210,
+"f_out": 216,
+"score": 0.96
+},
+{
+"word": "bukan",
+"start": 7.423,
+"end": 7.643,
+"f_in": 223,
+"f_out": 229,
+"score": 0.88
+},
+{
+"word": "karena",
+"start": 7.683,
+"end": 7.863,
+"f_in": 230,
+"f_out": 236,
+"score": 0.86
+},
+{
+"word": "aku",
+"start": 7.883,
+"end": 7.983,
+"f_in": 236,
+"f_out": 239,
+"score": 0.92
+},
+{
+"word": "gak",
+"start": 8.063,
+"end": 8.123,
+"f_in": 242,
+"f_out": 244,
+"score": 0.62
+},
+{
+"word": "punya",
+"start": 8.163,
+"end": 8.323,
+"f_in": 245,
+"f_out": 250,
+"score": 0.92
+},
+{
+"word": "ide",
+"start": 8.383,
+"end": 8.523,
+"f_in": 251,
+"f_out": 256,
+"score": 0.62
+},
+{
+"word": "atau",
+"start": 8.623,
+"end": 8.823,
+"f_in": 259,
+"f_out": 265,
+"score": 0.97
+},
+{
+"word": "kehabisan",
+"start": 8.863,
+"end": 9.263,
+"f_in": 266,
+"f_out": 278,
+"score": 0.94
+},
+{
+"word": "ide",
+"start": 9.303,
+"end": 9.463,
+"f_in": 279,
+"f_out": 284,
+"score": 0.65
+},
+{
+"word": "tapi",
+"start": 9.583,
+"end": 9.783,
+"f_in": 287,
+"f_out": 294,
+"score": 0.99
+},
+{
+"word": "karena",
+"start": 9.823,
+"end": 10.103,
+"f_in": 295,
+"f_out": 303,
+"score": 0.88
+},
+{
+"word": "aku",
+"start": 10.304,
+"end": 10.424,
+"f_in": 309,
+"f_out": 313,
+"score": 0.94
+},
+{
+"word": "harus",
+"start": 10.464,
+"end": 10.624,
+"f_in": 314,
+"f_out": 319,
+"score": 0.81
+},
+{
+"word": "ngembangin",
+"start": 10.624,
+"end": 10.964,
+"f_in": 319,
+"f_out": 329,
+"score": 0.78
+},
+{
+"word": "sebuah",
+"start": 10.984,
+"end": 11.184,
+"f_in": 330,
+"f_out": 336,
+"score": 0.88
+},
+{
+"word": "produk",
+"start": 11.204,
+"end": 11.504,
+"f_in": 336,
+"f_out": 345,
+"score": 0.9
+},
+{
+"word": "dan",
+"start": 11.544,
+"end": 11.664,
+"f_in": 346,
+"f_out": 350,
+"score": 0.98
+},
+{
+"word": "aku",
+"start": 11.704,
+"end": 11.824,
+"f_in": 351,
+"f_out": 355,
+"score": 0.98
+},
+{
+"word": "harus",
+"start": 11.864,
+"end": 12.024,
+"f_in": 356,
+"f_out": 361,
+"score": 0.91
+},
+{
+"word": "fokus",
+"start": 12.044,
+"end": 12.324,
+"f_in": 361,
+"f_out": 370,
+"score": 0.99
+},
+{
+"word": "di",
+"start": 12.424,
+"end": 12.484,
+"f_in": 373,
+"f_out": 375,
+"score": 0.98
+},
+{
+"word": "sana",
+"start": 12.524,
+"end": 12.744,
+"f_in": 376,
+"f_out": 382,
+"score": 0.99
+},
+{
+"word": "so",
+"start": 12.924,
+"end": 13.004,
+"f_in": 388,
+"f_out": 390,
+"score": 0.6
+},
+{
+"word": "dalam",
+"start": 13.345,
+"end": 13.545,
+"f_in": 400,
+"f_out": 406,
+"score": 0.93
+},
+{
+"word": "enam",
+"start": 13.565,
+"end": 13.685,
+"f_in": 407,
+"f_out": 411,
+"score": 0.7
+},
+{
+"word": "bulan",
+"start": 13.705,
+"end": 13.865,
+"f_in": 411,
+"f_out": 416,
+"score": 0.96
+},
+{
+"word": "belakangan",
+"start": 13.885,
+"end": 14.205,
+"f_in": 417,
+"f_out": 426,
+"score": 0.78
+},
+{
+"word": "ini",
+"start": 14.245,
+"end": 14.385,
+"f_in": 427,
+"f_out": 432,
+"score": 0.96
+},
+{
+"word": "aku",
+"start": 14.525,
+"end": 14.645,
+"f_in": 436,
+"f_out": 439,
+"score": 0.98
+},
+{
+"word": "sudah",
+"start": 14.665,
+"end": 14.825,
+"f_in": 440,
+"f_out": 445,
+"score": 0.8
+},
+{
+"word": "ngebangun",
+"start": 14.825,
+"end": 15.105,
+"f_in": 445,
+"f_out": 453,
+"score": 0.9
+},
+{
+"word": "beberapa",
+"start": 15.145,
+"end": 15.445,
+"f_in": 454,
+"f_out": 463,
+"score": 0.98
+},
+{
+"word": "produk",
+"start": 15.485,
+"end": 15.805,
+"f_in": 465,
+"f_out": 474,
+"score": 0.81
+},
+{
+"word": "dan",
+"start": 15.965,
+"end": 16.226,
+"f_in": 479,
+"f_out": 487,
+"score": 0.96
+},
+{
+"word": "produk",
+"start": 16.306,
+"end": 16.546,
+"f_in": 489,
+"f_out": 496,
+"score": 0.83
+},
+{
+"word": "itu",
+"start": 16.606,
+"end": 16.706,
+"f_in": 498,
+"f_out": 501,
+"score": 0.84
+},
+{
+"word": "belum",
+"start": 16.766,
+"end": 16.946,
+"f_in": 503,
+"f_out": 508,
+"score": 0.77
+},
+{
+"word": "di",
+"start": 16.966,
+"end": 17.026,
+"f_in": 509,
+"f_out": 511,
+"score": 0.85
+},
+{
+"word": "launching",
+"start": 17.066,
+"end": 17.366,
+"f_in": 512,
+"f_out": 521,
+"score": 0.63
+},
+{
+"word": "sama",
+"start": 17.386,
+"end": 17.526,
+"f_in": 522,
+"f_out": 526,
+"score": 0.75
+},
+{
+"word": "sekali",
+"start": 17.566,
+"end": 17.846,
+"f_in": 527,
+"f_out": 535,
+"score": 0.8
+},
+{
+"word": "karena",
+"start": 18.026,
+"end": 18.306,
+"f_in": 541,
+"f_out": 549,
+"score": 0.98
+},
+{
+"word": "aku",
+"start": 18.406,
+"end": 18.566,
+"f_in": 552,
+"f_out": 557,
+"score": 0.99
+},
+{
+"word": "terjebak",
+"start": 18.626,
+"end": 19.067,
+"f_in": 559,
+"f_out": 572,
+"score": 0.89
+},
+{
+"word": "builder",
+"start": 19.127,
+"end": 19.447,
+"f_in": 574,
+"f_out": 583,
+"score": 0.76
+},
+{
+"word": "trap",
+"start": 19.507,
+"end": 19.727,
+"f_in": 585,
+"f_out": 592,
+"score": 0.82
+},
+{
+"word": "katanya",
+"start": 19.807,
+"end": 20.047,
+"f_in": 594,
+"f_out": 601,
+"score": 0.94
+},
+{
+"word": "itu",
+"start": 20.067,
+"end": 20.167,
+"f_in": 602,
+"f_out": 605,
+"score": 0.96
+},
+{
+"word": "adalah",
+"start": 20.167,
+"end": 20.327,
+"f_in": 605,
+"f_out": 610,
+"score": 0.76
+},
+{
+"word": "penyakit",
+"start": 20.327,
+"end": 20.627,
+"f_in": 610,
+"f_out": 619,
+"score": 0.98
+},
+{
+"word": "seorang",
+"start": 20.647,
+"end": 20.887,
+"f_in": 619,
+"f_out": 627,
+"score": 0.98
+},
+{
+"word": "founder",
+"start": 20.927,
+"end": 21.267,
+"f_in": 628,
+"f_out": 638,
+"score": 0.83
+},
+{
+"word": "dan",
+"start": 21.387,
+"end": 21.707,
+"f_in": 642,
+"f_out": 651,
+"score": 0.99
+},
+{
+"word": "karena",
+"start": 21.928,
+"end": 22.148,
+"f_in": 658,
+"f_out": 664,
+"score": 0.82
+},
+{
+"word": "rasa",
+"start": 22.208,
+"end": 22.388,
+"f_in": 666,
+"f_out": 672,
+"score": 0.99
+},
+{
+"word": "anxiety",
+"start": 22.488,
+"end": 22.928,
+"f_in": 675,
+"f_out": 688,
+"score": 0.64
+},
+{
+"word": "overthinking",
+"start": 23.188,
+"end": 23.728,
+"f_in": 696,
+"f_out": 712,
+"score": 0.71
+},
+{
+"word": "dan",
+"start": 23.828,
+"end": 23.968,
+"f_in": 715,
+"f_out": 719,
+"score": 0.97
+},
+{
+"word": "ngerasa",
+"start": 24.028,
+"end": 24.328,
+"f_in": 721,
+"f_out": 730,
+"score": 0.97
+},
+{
+"word": "kalau",
+"start": 24.468,
+"end": 24.668,
+"f_in": 734,
+"f_out": 740,
+"score": 0.99
+},
+{
+"word": "produknya",
+"start": 24.708,
+"end": 25.069,
+"f_in": 741,
+"f_out": 752,
+"score": 0.85
+},
+{
+"word": "itu",
+"start": 25.109,
+"end": 25.209,
+"f_in": 753,
+"f_out": 756,
+"score": 0.91
+},
+{
+"word": "belum",
+"start": 25.269,
+"end": 25.409,
+"f_in": 758,
+"f_out": 762,
+"score": 0.91
+},
+{
+"word": "layak",
+"start": 25.449,
+"end": 25.689,
+"f_in": 763,
+"f_out": 771,
+"score": 0.92
+},
+{
+"word": "tapi",
+"start": 25.769,
+"end": 25.949,
+"f_in": 773,
+"f_out": 778,
+"score": 0.93
+},
+{
+"word": "gimana",
+"start": 26.269,
+"end": 26.489,
+"f_in": 788,
+"f_out": 795,
+"score": 0.96
+},
+{
+"word": "kalau",
+"start": 26.549,
+"end": 26.829,
+"f_in": 796,
+"f_out": 805,
+"score": 0.99
+},
+{
+"word": "resiko",
+"start": 27.049,
+"end": 27.309,
+"f_in": 811,
+"f_out": 819,
+"score": 0.97
+},
+{
+"word": "itu",
+"start": 27.389,
+"end": 27.489,
+"f_in": 822,
+"f_out": 825,
+"score": 0.96
+},
+{
+"word": "sebenarnya",
+"start": 27.509,
+"end": 27.77,
+"f_in": 825,
+"f_out": 833,
+"score": 0.34
+},
+{
+"word": "gak",
+"start": 27.85,
+"end": 27.95,
+"f_in": 835,
+"f_out": 838,
+"score": 0.52
+},
+{
+"word": "ada",
+"start": 27.95,
+"end": 28.15,
+"f_in": 838,
+"f_out": 844,
+"score": 0.91
+},
+{
+"word": "dan",
+"start": 28.33,
+"end": 28.49,
+"f_in": 850,
+"f_out": 855,
+"score": 0.98
+},
+{
+"word": "overthinking",
+"start": 28.85,
+"end": 29.33,
+"f_in": 865,
+"f_out": 880,
+"score": 0.82
+},
+{
+"word": "itu",
+"start": 29.37,
+"end": 29.49,
+"f_in": 881,
+"f_out": 885,
+"score": 0.99
+},
+{
+"word": "semuanya",
+"start": 29.57,
+"end": 29.85,
+"f_in": 887,
+"f_out": 896,
+"score": 0.93
+},
+{
+"word": "adalah",
+"start": 29.87,
+"end": 30.07,
+"f_in": 896,
+"f_out": 902,
+"score": 0.83
+},
+{
+"word": "palsu",
+"start": 30.09,
+"end": 30.39,
+"f_in": 903,
+"f_out": 912,
+"score": 0.97
+},
+{
+"word": "jadi",
+"start": 30.731,
+"end": 30.871,
+"f_in": 922,
+"f_out": 926,
+"score": 1.0
+},
+{
+"word": "aku",
+"start": 30.931,
+"end": 31.031,
+"f_in": 928,
+"f_out": 931,
+"score": 0.99
+},
+{
+"word": "membangun",
+"start": 31.091,
+"end": 31.331,
+"f_in": 933,
+"f_out": 940,
+"score": 0.78
+},
+{
+"word": "beberapa",
+"start": 31.351,
+"end": 31.671,
+"f_in": 941,
+"f_out": 950,
+"score": 0.95
+},
+{
+"word": "produk",
+"start": 31.731,
+"end": 32.071,
+"f_in": 952,
+"f_out": 962,
+"score": 0.88
+},
+{
+"word": "salah",
+"start": 32.171,
+"end": 32.351,
+"f_in": 965,
+"f_out": 971,
+"score": 0.95
+},
+{
+"word": "satunya",
+"start": 32.371,
+"end": 32.631,
+"f_in": 971,
+"f_out": 979,
+"score": 0.87
+},
+{
+"word": "adalah",
+"start": 32.651,
+"end": 32.831,
+"f_in": 980,
+"f_out": 985,
+"score": 0.73
+},
+{
+"word": "skill",
+"start": 32.851,
+"end": 33.011,
+"f_in": 986,
+"f_out": 990,
+"score": 0.74
+},
+{
+"word": "development",
+"start": 33.031,
+"end": 33.431,
+"f_in": 991,
+"f_out": 1003,
+"score": 0.73
+},
+{
+"word": "ini",
+"start": 33.452,
+"end": 33.572,
+"f_in": 1004,
+"f_out": 1007,
+"score": 0.78
+},
+{
+"word": "adalah",
+"start": 33.592,
+"end": 33.852,
+"f_in": 1008,
+"f_out": 1016,
+"score": 0.91
+},
+{
+"word": "skill",
+"start": 33.892,
+"end": 34.092,
+"f_in": 1017,
+"f_out": 1023,
+"score": 0.8
+},
+{
+"word": "yang",
+"start": 34.132,
+"end": 34.232,
+"f_in": 1024,
+"f_out": 1027,
+"score": 0.98
+},
+{
+"word": "membantu",
+"start": 34.252,
+"end": 34.612,
+"f_in": 1028,
+"f_out": 1038,
+"score": 0.97
+},
+{
+"word": "aku",
+"start": 34.632,
+"end": 34.752,
+"f_in": 1039,
+"f_out": 1043,
+"score": 0.87
+},
+{
+"word": "untuk",
+"start": 34.792,
+"end": 34.952,
+"f_in": 1044,
+"f_out": 1049,
+"score": 0.98
+},
+{
+"word": "ngedit",
+"start": 34.952,
+"end": 35.192,
+"f_in": 1049,
+"f_out": 1056,
+"score": 0.87
+},
+{
+"word": "video",
+"start": 35.212,
+"end": 35.392,
+"f_in": 1056,
+"f_out": 1062,
+"score": 0.95
+},
+{
+"word": "ini",
+"start": 35.452,
+"end": 35.592,
+"f_in": 1064,
+"f_out": 1068,
+"score": 0.91
+},
+{
+"word": "semuanya",
+"start": 35.892,
+"end": 36.312,
+"f_in": 1077,
+"f_out": 1089,
+"score": 0.93
+},
+{
+"word": "full",
+"start": 36.533,
+"end": 36.733,
+"f_in": 1096,
+"f_out": 1102,
+"score": 0.74
+},
+{
+"word": "seratus",
+"start": 36.833,
+"end": 37.113,
+"f_in": 1105,
+"f_out": 1113,
+"score": 0.47
+},
+{
+"word": "persen",
+"start": 37.153,
+"end": 37.433,
+"f_in": 1115,
+"f_out": 1123,
+"score": 0.9
+},
+{
+"word": "aku",
+"start": 37.553,
+"end": 37.673,
+"f_in": 1127,
+"f_out": 1130,
+"score": 0.96
+},
+{
+"word": "bahkan",
+"start": 37.733,
+"end": 37.953,
+"f_in": 1132,
+"f_out": 1139,
+"score": 0.79
+},
+{
+"word": "gak",
+"start": 38.033,
+"end": 38.173,
+"f_in": 1141,
+"f_out": 1145,
+"score": 0.65
+},
+{
+"word": "megang",
+"start": 38.253,
+"end": 38.593,
+"f_in": 1148,
+"f_out": 1158,
+"score": 0.89
+},
+{
+"word": "video",
+"start": 38.753,
+"end": 38.953,
+"f_in": 1163,
+"f_out": 1169,
+"score": 0.82
+},
+{
+"word": "editor",
+"start": 38.993,
+"end": 39.254,
+"f_in": 1170,
+"f_out": 1178,
+"score": 0.81
+},
+{
+"word": "sama",
+"start": 39.294,
+"end": 39.434,
+"f_in": 1179,
+"f_out": 1183,
+"score": 0.98
+},
+{
+"word": "sekali",
+"start": 39.474,
+"end": 39.674,
+"f_in": 1184,
+"f_out": 1190,
+"score": 0.95
+},
+{
+"word": "aku",
+"start": 39.734,
+"end": 39.814,
+"f_in": 1192,
+"f_out": 1194,
+"score": 0.98
+},
+{
+"word": "gak",
+"start": 39.914,
+"end": 39.994,
+"f_in": 1197,
+"f_out": 1200,
+"score": 0.65
+},
+{
+"word": "buka",
+"start": 40.014,
+"end": 40.154,
+"f_in": 1200,
+"f_out": 1205,
+"score": 0.99
+},
+{
+"word": "capcut",
+"start": 40.234,
+"end": 40.594,
+"f_in": 1207,
+"f_out": 1218,
+"score": 0.46
+},
+{
+"word": "aku",
+"start": 40.654,
+"end": 40.754,
+"f_in": 1220,
+"f_out": 1223,
+"score": 0.97
+},
+{
+"word": "gak",
+"start": 40.834,
+"end": 40.914,
+"f_in": 1225,
+"f_out": 1227,
+"score": 0.65
+},
+{
+"word": "buka",
+"start": 40.934,
+"end": 41.114,
+"f_in": 1228,
+"f_out": 1233,
+"score": 0.98
+},
+{
+"word": "adobe",
+"start": 41.214,
+"end": 41.414,
+"f_in": 1236,
+"f_out": 1242,
+"score": 0.41
+},
+{
+"word": "premiere",
+"start": 41.414,
+"end": 41.734,
+"f_in": 1242,
+"f_out": 1252,
+"score": 0.56
+},
+{
+"word": "pro",
+"start": 41.754,
+"end": 41.854,
+"f_in": 1253,
+"f_out": 1256,
+"score": 0.69
+},
+{
+"word": "aku",
+"start": 41.974,
+"end": 42.094,
+"f_in": 1259,
+"f_out": 1263,
+"score": 0.98
+},
+{
+"word": "gak",
+"start": 42.175,
+"end": 42.275,
+"f_in": 1265,
+"f_out": 1268,
+"score": 0.65
+},
+{
+"word": "buka",
+"start": 42.315,
+"end": 42.615,
+"f_in": 1269,
+"f_out": 1278,
+"score": 0.92
+},
+{
+"word": "after",
+"start": 42.795,
+"end": 43.015,
+"f_in": 1284,
+"f_out": 1290,
+"score": 0.75
+},
+{
+"word": "effects",
+"start": 43.055,
+"end": 43.355,
+"f_in": 1292,
+"f_out": 1301,
+"score": 0.29
+},
+{
+"word": "semuanya",
+"start": 43.675,
+"end": 44.075,
+"f_in": 1310,
+"f_out": 1322,
+"score": 0.95
+},
+{
+"word": "full",
+"start": 44.275,
+"end": 44.475,
+"f_in": 1328,
+"f_out": 1334,
+"score": 0.72
+},
+{
+"word": "diedit",
+"start": 44.555,
+"end": 44.935,
+"f_in": 1337,
+"f_out": 1348,
+"score": 0.94
+},
+{
+"word": "pake",
+"start": 45.015,
+"end": 45.236,
+"f_in": 1350,
+"f_out": 1357,
+"score": 0.95
+},
+{
+"word": "ai",
+"start": 45.376,
+"end": 45.676,
+"f_in": 1361,
+"f_out": 1370,
+"score": 0.78
+},
+{
+"word": "dan",
+"start": 45.776,
+"end": 45.956,
+"f_in": 1373,
+"f_out": 1379,
+"score": 0.97
+},
+{
+"word": "pake",
+"start": 46.116,
+"end": 46.336,
+"f_in": 1383,
+"f_out": 1390,
+"score": 0.93
+},
+{
+"word": "workflow",
+"start": 46.436,
+"end": 46.796,
+"f_in": 1393,
+"f_out": 1404,
+"score": 0.67
+},
+{
+"word": "skill",
+"start": 46.876,
+"end": 47.076,
+"f_in": 1406,
+"f_out": 1412,
+"score": 0.79
+},
+{
+"word": "development",
+"start": 47.096,
+"end": 47.556,
+"f_in": 1413,
+"f_out": 1427,
+"score": 0.83
+},
+{
+"word": "itulah",
+"start": 47.656,
+"end": 47.856,
+"f_in": 1430,
+"f_out": 1436,
+"score": 0.96
+},
+{
+"word": "kenapa",
+"start": 47.876,
+"end": 48.157,
+"f_in": 1436,
+"f_out": 1445,
+"score": 0.92
+},
+{
+"word": "video",
+"start": 48.217,
+"end": 48.417,
+"f_in": 1446,
+"f_out": 1452,
+"score": 0.96
+},
+{
+"word": "ini",
+"start": 48.457,
+"end": 48.577,
+"f_in": 1454,
+"f_out": 1457,
+"score": 0.97
+},
+{
+"word": "rasanya",
+"start": 48.657,
+"end": 48.977,
+"f_in": 1460,
+"f_out": 1469,
+"score": 0.88
+},
+{
+"word": "berbeda",
+"start": 49.037,
+"end": 49.397,
+"f_in": 1471,
+"f_out": 1482,
+"score": 0.98
+},
+{
+"word": "dan",
+"start": 49.597,
+"end": 49.857,
+"f_in": 1488,
+"f_out": 1496,
+"score": 0.98
+},
+{
+"word": "aku",
+"start": 49.997,
+"end": 50.097,
+"f_in": 1500,
+"f_out": 1503,
+"score": 0.99
+},
+{
+"word": "juga",
+"start": 50.137,
+"end": 50.277,
+"f_in": 1504,
+"f_out": 1508,
+"score": 0.78
+},
+{
+"word": "masih",
+"start": 50.337,
+"end": 50.517,
+"f_in": 1510,
+"f_out": 1516,
+"score": 0.83
+},
+{
+"word": "punya",
+"start": 50.537,
+"end": 50.697,
+"f_in": 1516,
+"f_out": 1521,
+"score": 0.92
+},
+{
+"word": "beberapa",
+"start": 50.737,
+"end": 51.058,
+"f_in": 1522,
+"f_out": 1532,
+"score": 0.99
+},
+{
+"word": "produk",
+"start": 51.118,
+"end": 51.458,
+"f_in": 1534,
+"f_out": 1544,
+"score": 0.92
+},
+{
+"word": "yang",
+"start": 51.578,
+"end": 51.698,
+"f_in": 1547,
+"f_out": 1551,
+"score": 0.91
+},
+{
+"word": "belum",
+"start": 51.718,
+"end": 51.878,
+"f_in": 1552,
+"f_out": 1556,
+"score": 0.91
+},
+{
+"word": "aku",
+"start": 51.898,
+"end": 52.018,
+"f_in": 1557,
+"f_out": 1561,
+"score": 0.93
+},
+{
+"word": "launching",
+"start": 52.058,
+"end": 52.418,
+"f_in": 1562,
+"f_out": 1573,
+"score": 0.68
+},
+{
+"word": "dan",
+"start": 52.558,
+"end": 52.678,
+"f_in": 1577,
+"f_out": 1580,
+"score": 0.99
+},
+{
+"word": "aku",
+"start": 52.718,
+"end": 52.838,
+"f_in": 1582,
+"f_out": 1585,
+"score": 0.99
+},
+{
+"word": "bakal",
+"start": 52.878,
+"end": 53.098,
+"f_in": 1586,
+"f_out": 1593,
+"score": 0.99
+},
+{
+"word": "share",
+"start": 53.158,
+"end": 53.318,
+"f_in": 1595,
+"f_out": 1600,
+"score": 0.47
+},
+{
+"word": "banyak",
+"start": 53.358,
+"end": 53.578,
+"f_in": 1601,
+"f_out": 1607,
+"score": 0.96
+},
+{
+"word": "tips",
+"start": 53.638,
+"end": 53.799,
+"f_in": 1609,
+"f_out": 1614,
+"score": 0.89
+},
+{
+"word": "di",
+"start": 53.819,
+"end": 53.879,
+"f_in": 1615,
+"f_out": 1616,
+"score": 0.98
+},
+{
+"word": "akun",
+"start": 53.919,
+"end": 54.099,
+"f_in": 1618,
+"f_out": 1623,
+"score": 0.84
+},
+{
+"word": "ini",
+"start": 54.139,
+"end": 54.299,
+"f_in": 1624,
+"f_out": 1629,
+"score": 0.94
+},
+{
+"word": "terkait",
+"start": 54.439,
+"end": 54.699,
+"f_in": 1633,
+"f_out": 1641,
+"score": 0.97
+},
+{
+"word": "produk",
+"start": 54.719,
+"end": 54.999,
+"f_in": 1642,
+"f_out": 1650,
+"score": 0.87
+},
+{
+"word": "yang",
+"start": 55.039,
+"end": 55.139,
+"f_in": 1651,
+"f_out": 1654,
+"score": 0.92
+},
+{
+"word": "aku",
+"start": 55.159,
+"end": 55.279,
+"f_in": 1655,
+"f_out": 1658,
+"score": 0.98
+},
+{
+"word": "launching",
+"start": 55.319,
+"end": 55.699,
+"f_in": 1660,
+"f_out": 1671,
+"score": 0.67
+},
+{
+"word": "terkait",
+"start": 55.959,
+"end": 56.199,
+"f_in": 1679,
+"f_out": 1686,
+"score": 0.98
+},
+{
+"word": "apa",
+"start": 56.239,
+"end": 56.359,
+"f_in": 1687,
+"f_out": 1691,
+"score": 0.82
+},
+{
+"word": "yang",
+"start": 56.399,
+"end": 56.499,
+"f_in": 1692,
+"f_out": 1695,
+"score": 0.98
+},
+{
+"word": "aku",
+"start": 56.499,
+"end": 56.599,
+"f_in": 1695,
+"f_out": 1698,
+"score": 0.98
+},
+{
+"word": "pelajari",
+"start": 56.639,
+"end": 57.04,
+"f_in": 1699,
+"f_out": 1711,
+"score": 0.9
+},
+{
+"word": "dan",
+"start": 57.16,
+"end": 57.36,
+"f_in": 1715,
+"f_out": 1721,
+"score": 0.97
+},
+{
+"word": "bagaimana",
+"start": 57.6,
+"end": 58.0,
+"f_in": 1728,
+"f_out": 1740,
+"score": 0.87
+},
+{
+"word": "cara",
+"start": 58.12,
+"end": 58.26,
+"f_in": 1744,
+"f_out": 1748,
+"score": 0.99
+},
+{
+"word": "aku",
+"start": 58.3,
+"end": 58.4,
+"f_in": 1749,
+"f_out": 1752,
+"score": 0.98
+},
+{
+"word": "keluar",
+"start": 58.46,
+"end": 58.68,
+"f_in": 1754,
+"f_out": 1760,
+"score": 0.98
+},
+{
+"word": "dari",
+"start": 58.72,
+"end": 58.9,
+"f_in": 1762,
+"f_out": 1767,
+"score": 0.99
+},
+{
+"word": "builder",
+"start": 59.04,
+"end": 59.34,
+"f_in": 1771,
+"f_out": 1780,
+"score": 0.76
+},
+{
+"word": "trap",
+"start": 59.4,
+"end": 59.601,
+"f_in": 1782,
+"f_out": 1788,
+"score": 0.78
+},
+{
+"word": "so",
+"start": 59.781,
+"end": 59.861,
+"f_in": 1793,
+"f_out": 1796,
+"score": 0.61
+},
+{
+"word": "selamat",
+"start": 60.161,
+"end": 60.401,
+"f_in": 1805,
+"f_out": 1812,
+"score": 0.83
+},
+{
+"word": "datang",
+"start": 60.421,
+"end": 60.701,
+"f_in": 1813,
+"f_out": 1821,
+"score": 0.92
+},
+{
+"word": "di",
+"start": 60.801,
+"end": 60.861,
+"f_in": 1824,
+"f_out": 1826,
+"score": 0.94
+},
+{
+"word": "akunku",
+"start": 61.061,
+"end": 61.361,
+"f_in": 1832,
+"f_out": 1841,
+"score": 0.97
+},
+{
+"word": "hai",
+"start": 61.641,
+"end": 61.841,
+"f_in": 1849,
+"f_out": 1855,
+"score": 0.72
+},
+{
+"word": "aku",
+"start": 62.001,
+"end": 62.101,
+"f_in": 1860,
+"f_out": 1863,
+"score": 0.98
+},
+{
+"word": "irfan",
+"start": 62.161,
+"end": 62.441,
+"f_in": 1865,
+"f_out": 1873,
+"score": 0.78
+},
+{
+"word": "dan",
+"start": 62.542,
+"end": 62.762,
+"f_in": 1876,
+"f_out": 1883,
+"score": 0.99
+},
+{
+"word": "mungkin",
+"start": 62.842,
+"end": 63.042,
+"f_in": 1885,
+"f_out": 1891,
+"score": 0.95
+},
+{
+"word": "ini",
+"start": 63.162,
+"end": 63.242,
+"f_in": 1895,
+"f_out": 1897,
+"score": 0.81
+},
+{
+"word": "adalah",
+"start": 63.262,
+"end": 63.462,
+"f_in": 1898,
+"f_out": 1904,
+"score": 0.87
+},
+{
+"word": "video",
+"start": 63.502,
+"end": 63.702,
+"f_in": 1905,
+"f_out": 1911,
+"score": 0.96
+},
+{
+"word": "yang",
+"start": 63.722,
+"end": 63.842,
+"f_in": 1912,
+"f_out": 1915,
+"score": 0.97
+},
+{
+"word": "kesekian",
+"start": 63.842,
+"end": 64.182,
+"f_in": 1915,
+"f_out": 1925,
+"score": 0.98
+},
+{
+"word": "yang",
+"start": 64.202,
+"end": 64.302,
+"f_in": 1926,
+"f_out": 1929,
+"score": 0.99
+},
+{
+"word": "kamu",
+"start": 64.322,
+"end": 64.462,
+"f_in": 1930,
+"f_out": 1934,
+"score": 0.99
+},
+{
+"word": "lihat",
+"start": 64.502,
+"end": 64.702,
+"f_in": 1935,
+"f_out": 1941,
+"score": 0.78
+},
+{
+"word": "memperkenalkan",
+"start": 64.762,
+"end": 65.282,
+"f_in": 1943,
+"f_out": 1958,
+"score": 0.84
+},
+{
+"word": "diri",
+"start": 65.322,
+"end": 65.503,
+"f_in": 1960,
+"f_out": 1965,
+"score": 0.99
+},
+{
+"word": "dan",
+"start": 65.663,
+"end": 65.923,
+"f_in": 1970,
+"f_out": 1978,
+"score": 0.99
+},
+{
+"word": "aku",
+"start": 66.023,
+"end": 66.123,
+"f_in": 1981,
+"f_out": 1984,
+"score": 0.99
+},
+{
+"word": "akan",
+"start": 66.163,
+"end": 66.323,
+"f_in": 1985,
+"f_out": 1990,
+"score": 0.97
+},
+{
+"word": "ulangi",
+"start": 66.363,
+"end": 66.583,
+"f_in": 1991,
+"f_out": 1997,
+"score": 0.92
+},
+{
+"word": "lagi",
+"start": 66.623,
+"end": 66.763,
+"f_in": 1999,
+"f_out": 2003,
+"score": 0.99
+}
+]

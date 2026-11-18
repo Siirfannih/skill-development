@@ -1,0 +1,14 @@
+# media besar & hasil turunan (sumber ada di Drive; bisa dibuat ulang lewat RESEP.md)
+sumber/
+kerja/matte/
+kerja/mix/*.wav
+kerja/render/
+kerja/sfx_extra/*.wav
+remotion/public/footage.mp4
+remotion/public/fg.webm
+remotion/public/fg_b.webm
+remotion/node_modules
+qc/still*/
+qc/sheet*/
+hasil/
+.DS_Store
