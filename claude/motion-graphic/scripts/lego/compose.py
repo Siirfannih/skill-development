@@ -31,6 +31,8 @@ Pakai:
   python3 compose.py lego.json            # tulis video final
   python3 compose.py lego.json --cek      # hanya validasi (file ada, waktu dalam durasi, lapisan tidak di luar frame)
   python3 compose.py lego.json --rentang 10 14   # rakit rentang saja untuk QC cepat
+Klip dasar harus >= 2 frame pada fps lego (validate menolak). Ukur pts frame dasar: base_pts.py; ukur frame tampil
+tiap lapisan ber-alpha terhadap rencana: cek_master.py.
 """
 import argparse, json, math, os, subprocess, sys
 
@@ -70,9 +72,12 @@ def eased(p, curve):
 def validate(L, base_dir):
     errs = []
     total = sum(c["dur"] for c in L["dasar"])
-    for c in L["dasar"]:
+    for i, c in enumerate(L["dasar"]):
         if not os.path.exists(os.path.join(base_dir, c["src"])):
             errs.append(f"dasar hilang: {c['src']}")
+        if round(c["dur"] * L["fps"]) < 2:
+            errs.append(f"dasar #{i} hanya {round(c['dur'] * L['fps'])} frame ({c['dur']:.4f} dtk): klip dasar < 2 frame "
+                        "menggandakan pts frame dasar dan menggeser footage/lapisan 1-2 frame; gabungkan ke klip tetangga")
     for l in L.get("lapisan", []):
         p = os.path.join(base_dir, l["src"])
         if not os.path.exists(p):

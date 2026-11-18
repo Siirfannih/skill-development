@@ -588,6 +588,20 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | """"Rakit video seperti lego (Irfan 16…" | Irfan 16 Nov |
 | docstring · Warna | Gagal: bdf26 v10, overlay PNG/still menggeser rentang warna +4 kecerahan |
 
+## `scripts/lego/base_pts.py`
+
+| Aturan | Asal-usul |
+|---|---|
+| """"Ukur pts tiap frame DASAR…" | Irfan 18 Nov: ya; kasus skill-dev-journey: klip dasar 1 frame menggandakan pts, footage tertinggal 1-2 frame dari suara |
+
+## `scripts/lego/cek_master.py`
+
+| Aturan | Asal-usul |
+|---|---|
+| """"Ukur frame master tempat tiap lapisan ber-alpha tampil…" | Irfan 18 Nov: ya; kasus skill-dev-journey: lapisan tampil 0-2 frame terlambat atau beda panjang dari rencana, lolos semua audit lama |
+| compose.py validate · klip dasar < 2 frame | Irfan 18 Nov: ya; kasus skill-dev-journey |
+| render.sh mode lego · gerbang 9 | Irfan 18 Nov: ya; kasus skill-dev-journey |
+
 ## `scripts/lego/lapisan.py`
 
 | Aturan | Asal-usul |

@@ -20,6 +20,7 @@
 #   6. draft gerak sudah dilihat: qc/draft.mp4 (penuh) atau qc/draft_<awal-akhir>.mp4 (rentang yang sama) lebih baru daripada src
 # 8. audit frame per frame: qc/frame_audit/INDEX.md lebih baru daripada src dan setiap
 #      potongan punya VERDICT.md berakhir 'PUTUSAN: LULUS' (agen lain memeriksa tiap detik; scripts/juri/frame_audit.py)
+#   9. mode lego saja: lego/base_pts.py dan lego/cek_master.py lulus (pts dasar tanpa ganda; lapisan tampil di frame rencana)
 #   7. setiap catatan Irfan berstatus Aktif di DECISIONS.md (R-NNN / D-NNN) disebut di qc/JURI.md dengan buktinya
 #
 # Revisi satu adegan: perbarui still adegan itu, sanding, JURI, lalu `final` dengan rentang frame adegan itu saja
@@ -141,6 +142,11 @@ case "$MODE" in
       bad=$(for v in "$FA"/c*/VERDICT.md; do d="$(dirname "$v")"
         { tail -n 3 "$v" | grep -q '^PUTUSAN: LULUS' && grep -qx "HASH: $(cat "$d/.hash" 2>/dev/null)" "$v"; } || printf '%s ' "$(basename "$d")"; done)
       [ -z "$bad" ] || { echo "GAGAL gerbang: potongan belum LULUS di audit frame: $bad"; gagal=1; }
+    fi
+    if [ "$MODE" = lego ]; then
+      # Sinkron lego: pts frame dasar tidak boleh ganda/bergeser, dan tiap lapisan ber-alpha harus tampil di frame rencananya.
+      "$PYTHON_BIN" "$HERE/../lego/base_pts.py" "$LEGO" || { echo "GAGAL gerbang: pts frame dasar lego ganda/bergeser (base_pts.py); gabungkan klip dasar pendek ke tetangga."; gagal=1; }
+      "$PYTHON_BIN" "$HERE/../lego/cek_master.py" "$LEGO" || { echo "GAGAL gerbang: lapisan tampil di frame berbeda dari rencana (cek_master.py)."; gagal=1; }
     fi
     [ "$gagal" = 0 ] || { echo "Render penuh ditolak."; exit 1; }
     free_mb=$(df --output=avail -BM "$P" | tail -1 | tr -dc 0-9)
