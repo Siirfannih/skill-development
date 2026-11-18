@@ -43,7 +43,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 14. **Satu fokus per momen.** Mata tahu harus melihat ke mana.
 15. **Teks, objek, dan visual satu kesatuan**: tidak tumpang tindih, tidak bertabrakan, tidak berjauhan seperti bagian terpisah.
 16. **Tepi frame bersih.** Tidak ada objek penting di zona tepi kecuali karena gerak kamera; margin aman 5 %.
-17. **Seimbang dan hierarkinya terbaca, dinilai global per frame**, bukan per ukuran objek: posisi teks, objek, KT, bingkai, dan b-roll dilihat bersama di zoom 25 %, 50 %, dan 100 %. Urutan baca di ukuran normal jelas: latar utama (#primary) → teks/objek utama → pengisi (objek pinggir, teks kecil). Satu sisi berisi teks + visual sementara sisi lain kosong = gagal; perbaikannya pindah posisi (mis. kunci ke kanan bawah, berseberangan dengan kepala di kiri atas). Dicek pada still **sebelum** render penuh (`scripts/juri/balance_check.py`, lembar 25/50 %).
+17. **Seimbang dan hierarkinya terbaca, dinilai global per frame**, bukan per ukuran objek: posisi teks, objek, KT, bingkai, dan b-roll dilihat bersama di zoom 25 %, 50 %, dan 100 %. Urutan baca di ukuran normal jelas: latar utama (#primary) → teks/objek utama → pengisi (objek pinggir, teks kecil). Satu sisi berisi teks + visual sementara sisi lain kosong = gagal; perbaikannya pindah posisi (mis. kunci ke kanan bawah, berseberangan dengan kepala di kiri atas). Dinilai dengan mata (Sutradara/LLM) pada still **sebelum** render penuh dan oleh pemeriksa frame per detik, memakai daftar cek di `pustaka/README.md` §Juri butir 2; tidak ada skor skrip yang menjadi gerbang.
 18. **Rapi**: garis berakhir di tepi bentuknya, jarak antar-elemen sama, stroke dan radius konsisten.
 
 ### D. Isi visual
@@ -79,7 +79,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 ## 0b. Render dan juri
 
 - Semua render lewat `scripts/juri/render.sh <proyek> still|draft|frames|final …`. Render penuh ditolak sampai resep lulus, semua still terbaru, lembar sanding dibuat, draft gerak terbaru, audit frame per frame semua potongan LULUS (`frames` → `frame_audit.py` → agen pemeriksa per ≤ 10 dtk), dan `qc/JURI.md` berakhir `PUTUSAN: LULUS` dengan bukti tiap catatan Irfan aktif.
-- Juri pada still: `scripts/juri/teks_cek.py` (pita bawah, kata ganda, tepi), `scripts/juri/balance_check.py` (keseimbangan global per frame + lembar 25/50 %, Lantai C17), `scripts/juri/sandingkan.py` (still kita vs frame kiblat), lalu nilai tiap butir "Cek kemiripan" kartu kiblat dan Lantai A–D. Rinci: `pustaka/README.md` §Juri. Bandingkan juga dengan `pustaka/contoh-gagal/`.
+- Juri pada still: `scripts/juri/teks_cek.py` (pita bawah, kata ganda, tepi), keseimbangan dinilai dengan mata per still (Lantai C17, daftar cek `pustaka/README.md` §Juri 2), `scripts/juri/sandingkan.py` (still kita vs frame kiblat), lalu nilai tiap butir "Cek kemiripan" kartu kiblat dan Lantai A–D. Rinci: `pustaka/README.md` §Juri. Bandingkan juga dengan `pustaka/contoh-gagal/`.
 - Revisi: perbarui still adegan itu saja dan render rentang framenya, bukan seluruh video.
 - Pelajaran dari Irfan disimpan menurut cakupannya (`pustaka/README.md` §Tumbuh).
 

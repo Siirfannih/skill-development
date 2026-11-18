@@ -35,6 +35,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | butir 25 | Irfan 6, 8 Nov |
 | butir 26 | Irfan 15 Nov; gagal: builder-trap-r2 v3 patahan di titik potong suara dan Bali Digifest, keduanya lolos cek sampel tiap 8–15 frame · Irfan 16 Nov |
 | butir 27 | Irfan 16 Nov |
+| butir 17 · dinilai dengan mata, bukan skor skrip | Irfan 18 Nov: "Penilaian object, tampilan dll sebenarnya ga perlu script … dinilai LLM … melalui visual … yang penting instruksinya jelas"; balance_check FAIL di frame yang seimbang dan di basis yang disetujui (skill-dev-journey) |
 
 ## `SKILL.md`
 
@@ -178,6 +179,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | pembuka · kiblat berbeda per mode | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4): "kiblat berbeda diperbolehkan asal styele masih konsisten" |
 | §Alur butir 4 · gaya global brief | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4); menggantikan "3 still lalu tunggu" |
 | §Juri butir 4 · Cek kemiripan vs Lantai dicatat | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4): "Dicatat" |
+| §Juri butir 2 · daftar cek keseimbangan mata (massa, satu fokus, urutan baca, satu permukaan, dekat subjek) | Irfan 18 Nov: "Penilaian object, tampilan dll sebenarnya ga perlu script … dinilai LLM … melalui visual … yang penting instruksinya jelas"; contoh Irfan: frame SELESAI + narasi bertumpuk di tepi jendela |
 
 ## `pustaka/kartu/07-baikov-shapes.md`
 
@@ -622,6 +624,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | Aturan | Asal-usul |
 |---|---|
 | §Pemeriksa frame (satu agen per potongan ≤ 10 dtk) · "Dipanggil Sutradara setelah render.sh <proyek frames…" | Irfan 15 Nov |
+| butir visual · keseimbangan dinilai mata | Irfan 18 Nov: "Penilaian object, tampilan dll sebenarnya ga perlu script … dinilai LLM … melalui visual … yang penting instruksinya jelas" |
 
 ## `references/decision.md`
 
