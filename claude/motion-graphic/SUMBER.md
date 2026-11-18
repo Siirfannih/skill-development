@@ -37,6 +37,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | butir 27 | Irfan 16 Nov |
 | butir 17 · dinilai dengan mata, bukan skor skrip | Irfan 18 Nov: "Penilaian object, tampilan dll sebenarnya ga perlu script … dinilai LLM … melalui visual … yang penting instruksinya jelas"; balance_check FAIL di frame yang seimbang dan di basis yang disetujui (skill-dev-journey) |
 | butir 17 · frame tahan + kiblat + contoh gagal; butir 26 · visual lulus dulu, audio sesudahnya | Irfan 18 Nov (sesi audit QC): penilaian frame terasa dinilai skrip, bukan mata. Temuan: gerbang hanya membaca teks JURI.md, Sutradara dilarang membuka gambar bila dua pemeriksa LULUS, pemeriksa menilai thumbnail 256×144 tanpa kiblat, 83/84 detik skill-dev-journey putaran 4 lulus tanpa dilihat Sutradara. Irfan: visual murni visual; audio punya fasenya sendiri sesudah visual selesai |
+| butir 26 · Devil's Advocate sebelum final; butir 27 · atribut + revisi per rentang | Irfan 18 Nov (audit skill-dev-journey: 'profesional' berubah koral tanpa diminta, tulisan tangan biru lolos karena brief pemeriksa menyebutnya 'disengaja', 172 rakit master penuh tanpa --rentang) |
 
 ## `SKILL.md`
 
@@ -183,6 +184,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §Juri butir 4 · Cek kemiripan vs Lantai dicatat | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4): "Dicatat" |
 | §Juri butir 2 · daftar cek keseimbangan mata (massa, satu fokus, urutan baca, satu permukaan, dekat subjek) | Irfan 18 Nov: "Penilaian object, tampilan dll sebenarnya ga perlu script … dinilai LLM … melalui visual … yang penting instruksinya jelas"; contoh Irfan: frame SELESAI + narasi bertumpuk di tepi jendela |
 | §Alur butir 5 · bentuk visual dicari di kartu; §Juri pembuka, butir 1, 2, 6 | Irfan 18 Nov, sesi audit QC (sama dengan baris SKILL.md §0a 3a dan LANTAI butir 17/26). `balance_check.py` dihapus: Irfan menyebut skrip penilai rasa tidak diperlukan; `teks_cek.py` tinggal sebagai penunjuk |
+| §Tumbuh · aturan proyek vs pelajaran global; §Juri 6 · DA + audit penuh tidak tiap ronde | Irfan 18 Nov: aturan per proyek terbaca sesi baru sebagai aturan global; Irfan 18 Nov (audit skill-dev-journey: 'profesional' berubah koral tanpa diminta, tulisan tangan biru lolos karena brief pemeriksa menyebutnya 'disengaja', 172 rakit master penuh tanpa --rentang) |
 
 ## `pustaka/kartu/07-baikov-shapes.md`
 
@@ -382,6 +384,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | "Menunggu job panjang tanpa polling" | sfx_builder_v6: 42 % token hanya polling, 16 Nov |
 | butir 3b | Diamati di bdf26 v10 |
 | §2 · RESEP dulu, baru builder; G2 hanya lembar sanding | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4); gagal: skill-dev-journey 16 Nov, komponen dibangun sebelum RESEP dan dinilai di latar abu |
+| §3 TASK · JANGAN ubah atribut di luar TASK; LULUS BILA revisi = rentang | Irfan 18 Nov (audit skill-dev-journey: 'profesional' berubah koral tanpa diminta, tulisan tangan biru lolos karena brief pemeriksa menyebutnya 'disengaja', 172 rakit master penuh tanpa --rentang) |
 
 ## `references/pacing-map.md`
 
@@ -407,6 +410,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §21.3 baseline_lock | Diuji 25 Okt pada render Jadisatu: V13 vs V14 lolos (piksel identik), V13 vs V10 di adegan pixel gagal 80 %, dengan --shift +3,3 lolos |
 | §21.5 | Di Jadisatu label "v5" dan "v7" sempat berarti tiga render berbeda |
 | §0 butir 5 · gerak teks dari masukan Irfan dibatasi + cek angka; audit independen tidak terikat | Irfan 18 Nov (jawaban PENDING, sesi skill-dev-journey putaran 4); gagal: regresi putaran 2 skill-dev-journey 17 Nov (FINALLY, VIRAL, habis banget) |
+| §0 butir 1, 5, 6 · usul ditawarkan, ronde revisi cepat; §21.1 kolom Sumber | Irfan 18 Nov (audit skill-dev-journey: 'profesional' berubah koral tanpa diminta, tulisan tangan biru lolos karena brief pemeriksa menyebutnya 'disengaja', 172 rakit master penuh tanpa --rentang) |
 
 ## `references/roles.md`
 
@@ -418,6 +422,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | butir 1 | gagal: builder-trap-r2 r7 Q3, panel prompt diperbesar padahal kartu menulis kamera punch; Irfan 15 Nov · Irfan 15 Nov |
 | §hipotesis dua peran | Hipotesis Irfan 11 Nov |
 | §handoff butir 1 · TASK memakai angka kartu | Gagal: builder-trap-r2 TASK-r5/r6 "gradien ala Sequoia", "jendela besar terpotong kanan" melawan kartu 63 |
+| §2, §4, §5 butir 2–2a · Builder tidak memutuskan, tanya langsung Builder→Sutradara→Irfan, kartu untuk keputusan kecil, usul boleh | Irfan 18 Nov: "jangan ditanyakan di Report tapi tanyakan langsung ke user"; "untuk keputusan kecil seperti font… kartu boleh diambil berdasarkan kemiripan terdekat"; "Usul model itu diperbolehkan" |
 
 ## `references/slop-catalog.md`
 
@@ -871,3 +876,15 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 |---|---|
 | tiap beat storyboard wajib `metafora.gerak_pembawa`: satu gerak yang membawa emosi beat | usul dari bedah teknik launch-motion (16 Nov) disetujui Irfan 18 Nov ("Ya"), setelah skill-dev-journey putaran 5: visual, audio, teks, dan objek "berjalan sendiri-sendiri dan sekadar ada" |
 | `render.sh` membaca entry dari `remotion/.entry` dan membangun ulang bundle bila entry berubah; gerbang audio memilih `audio/order-<VARIAN>` | skill-dev-journey 18 Nov: bundle `src/index.ts` mengganti stamp cache lapisan proyek berentry `src/video/index.ts`; varian dikunci di `audio/order-A`. Disetujui Irfan 18 Nov ("Ya") |
+
+## `templates/roles/devils-advocate.md`
+
+| Aturan | Asal-usul |
+|---|---|
+| seluruh file | Irfan 18 Nov: "Juri External tetap perlu tapi perannya bukan juri tapi Creative Devil's Advocate"; Irfan 18 Nov (audit skill-dev-journey: 'profesional' berubah koral tanpa diminta, tulisan tangan biru lolos karena brief pemeriksa menyebutnya 'disengaja', 172 rakit master penuh tanpa --rentang) |
+
+## `scripts/juri/revisi_cek.py`
+
+| Aturan | Asal-usul |
+|---|---|
+| cek atribut blok teks + sumber Irfan/usul-dipilih | Irfan 18 Nov (audit skill-dev-journey: 'profesional' berubah koral tanpa diminta, tulisan tangan biru lolos karena brief pemeriksa menyebutnya 'disengaja', 172 rakit master penuh tanpa --rentang) |

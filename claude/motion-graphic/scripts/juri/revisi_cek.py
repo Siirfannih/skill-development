@@ -23,7 +23,13 @@ qc/cakupan-revisi.json:
      {"dasar": [16, 17], "ledger": "D-033"}        # potongan footage/kamera nomor itu; true = semua potongan
    ]}
 File ini sengaja terpisah dari `qc/revisi.json` (mode warisan Lantai F27, yang melonggarkan gerbang untuk video lama).
-Batas alat: hanya membaca rencana rakit (lego.json), tidak melihat piksel; untuk itu `scripts/baseline_lock.py check`.
+Blok teks (`teks.json` di folder proyek, bila ada) dibandingkan per atribut: teks, warna, ukuran, gaya, kode, pos,
+t, dur, dan kunci lain (kecuali `alasan`). Blok dicocokkan lewat isi `teks` + nomor `kata`, bukan `id`, karena id bisa
+bergeser saat blok ditambah. Izin untuk blok teks memakai kunci "teks" (pola fnmatch atas isi teks):
+     {"teks": "profesional", "atribut": ["pos"], "ledger": "D-413", "sumber": "Irfan"}
+Tiap baris boleh_berubah wajib punya "sumber": "Irfan" atau "usul-dipilih" (revision-log §21.1). Baris "usul" ditolak:
+ide model ditawarkan ke Irfan dulu, tidak dipasang ke video yang sudah ia lihat.
+Batas alat: hanya membaca rencana rakit (lego.json, teks.json), tidak melihat piksel; untuk itu `scripts/baseline_lock.py check`.
 Mengedit apa pun di `remotion/src` mengganti hash semua lapisan (kunci cache memuat stamp bundle), jadi semuanya terhitung
 berubah "isi" walau pikselnya sama. Perbaikan satu cabang di komponen bersama dicatat sebagai satu baris
 {"id": "*", "atribut": ["isi"], "ledger": …}: waktu dan posisi lapisan lain tetap dijaga alat ini, pikselnya dijaga
@@ -65,6 +71,56 @@ def beda_lapisan(a, b):
     return out
 
 
+ABAIKAN_TEKS = {"id", "alasan"}
+
+
+def muat_basis_teks(proyek, basis):
+    root = git_root(proyek)
+    rel = os.path.relpath(os.path.join(os.path.abspath(proyek), "teks.json"), root)
+    r = subprocess.run(["git", "-C", root, "show", f"{basis}:{rel}"], capture_output=True, text=True)
+    return json.loads(r.stdout) if r.returncode == 0 else None
+
+
+def blok_teks(d):
+    """teks.json bisa berupa daftar blok atau objek berisi daftar blok."""
+    if isinstance(d, list): return d
+    if isinstance(d, dict):
+        for k in ("blok", "blocks", "teks"):
+            if isinstance(d.get(k), list): return d[k]
+        for v in d.values():
+            if isinstance(v, list) and v and isinstance(v[0], dict): return v
+    return []
+
+
+def kunci_blok(b):
+    return (str(b.get("teks", "")).strip(), json.dumps(b.get("kata"), sort_keys=True))
+
+
+def beda_teks(a, b):
+    """a = basis, b = sekarang. Kembalikan [(label teks, [atribut berubah])], dicocokkan lewat teks + nomor kata."""
+    A, B = {}, {}
+    for x in blok_teks(a): A.setdefault(kunci_blok(x), x)
+    for x in blok_teks(b): B.setdefault(kunci_blok(x), x)
+    out = []
+    for k in sorted(set(A) | set(B)):
+        if k not in B: out.append((k[0], ["hilang"])); continue
+        if k not in A: out.append((k[0], ["baru"])); continue
+        la, lb, at = A[k], B[k], []
+        for key in sorted((set(la) | set(lb)) - ABAIKAN_TEKS):
+            va, vb = la.get(key), lb.get(key)
+            if key in ("t", "dur") and va is not None and vb is not None:
+                if abs(float(va) - float(vb)) > TOL_T: at.append(f"{key} {va}→{vb}")
+            elif va != vb:
+                at.append(f"{key} {va}→{vb}")
+        if at: out.append((k[0], at))
+    return out
+
+
+def teks_diizinkan(label, at, izin):
+    return all(any("teks" in z and fnmatch.fnmatch(label, z["teks"]) and ("atribut" not in z or jenis(x) in z["atribut"])
+                   for z in izin) for x in at)
+
+
 def beda_dasar(a, b):
     da, db = a.get("dasar", []), b.get("dasar", [])
     if len(da) != len(db): return [-1]
@@ -104,6 +160,10 @@ def main():
     tanpa_ledger = [z for z in izin if not str(z.get("ledger", "")).strip()]
     if tanpa_ledger:
         sys.exit(f"GAGAL: {len(tanpa_ledger)} baris boleh_berubah tanpa ID ledger (revision-log §21.1): {tanpa_ledger[:3]}")
+    tanpa_sumber = [z for z in izin if z.get("sumber") not in ("Irfan", "usul-dipilih")]
+    if tanpa_sumber:
+        sys.exit(f"GAGAL: {len(tanpa_sumber)} baris boleh_berubah tanpa sumber Irfan/usul-dipilih (revision-log §21.1). "
+                 f"Usul model ditawarkan ke Irfan dulu, tidak dipasang: {tanpa_sumber[:3]}")
     basis = muat_basis(a.proyek, R["basis"])
     kini = json.load(open(os.path.join(a.proyek, "lego/lego.json")))
     lap = beda_lapisan(basis, kini)
@@ -113,14 +173,25 @@ def main():
     nomor_dasar = {k for z in izin if isinstance(z.get("dasar"), list) for k in z["dasar"]}
     das_luar = [] if semua_dasar else [k for k in das if k not in nomor_dasar]
     luar = [(i, at) for i, at in lap if not diizinkan(i, at, izin)]
+    tj = os.path.join(a.proyek, "teks.json")
+    teks_luar, tek = [], []
+    if os.path.exists(tj):
+        tb = muat_basis_teks(a.proyek, R["basis"])
+        if tb is not None:
+            tek = beda_teks(tb, json.load(open(tj)))
+            teks_luar = [(l, at) for l, at in tek if not teks_diizinkan(l, at, izin)]
     total = len(basis.get("lapisan", []))
     print(f"basis {R['basis']} · lapisan basis {total} · berubah {len(lap)} · tercakup ledger {len(lap) - len(luar)} · di luar cakupan {len(luar)}")
     if das: print(f"dasar (footage/kamera) berubah: potongan {das if das != [-1] else 'jumlahnya berubah'} · {'tercakup' if not das_luar else f'DI LUAR CAKUPAN: {das_luar}'}")
     for i, at in (lap if a.daftar else luar):
         print(f"  {'·' if (i, at) not in luar else 'X'} {i}: {', '.join(at)}")
+    if tek:
+        print(f"blok teks berubah {len(tek)} · di luar cakupan {len(teks_luar)}")
+        for l, at in (tek if a.daftar else teks_luar):
+            print(f"  {'·' if (l, at) not in teks_luar else 'X'} teks \"{l}\": {', '.join(at)}")
     tak_terpakai = [p for p in pola if not any(fnmatch.fnmatch(i, p) for i, _ in lap)]
     if tak_terpakai: print(f"catatan: {len(tak_terpakai)} butir ledger belum mengubah lapisan apa pun: {', '.join(tak_terpakai[:8])}")
-    if luar or das_luar:
+    if luar or das_luar or teks_luar:
         print("GAGAL: ada perubahan di luar cakupan ledger. Pulihkan lapisan itu ke basis, atau catat kata Irfan yang mengizinkannya di DECISIONS.md lalu tambahkan ke boleh_berubah.")
         sys.exit(1)
     print("LULUS: semua perubahan tercakup ledger.")
