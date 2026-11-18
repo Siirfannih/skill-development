@@ -16,13 +16,10 @@ Titik lanjut sesi. Sutradara: claude2. Diperbarui 18 Nov 2026 malam.
 
 RESEP LULUS (kiblat 86). Profil Behindwork LULUS (gaya baru, tanpa logo, D-09). tema.ts ditulis (tema_cek: tema bersih; 19 butir hanya di kode pinjaman yang akan dipindah).
 
-## Berjalan
-| TASK | Pekerja | Isi |
-|---|---|---|
-| komponen-A-r1 | Codex | Fonts, Kanvas, KataKecil/Tekan/Raksasa, Invert, Flash, KartuSlop, PapanA |
-| komponen-B-r1 | Codex | AppClaudeTerang, StudioRemotion, Clawd, UjiB |
-| komponen-C-r1 | Codex | BerandaIG iOS + wordmark + BingkaiIPhone, PremierePro, UjiC |
+## Komponen (19 Nov dini hari)
+Semua dinilai Sutradara LULUS: A (teks, kanvas, invert, flash, KartuSlop), B r2 (Claude terang netral, Studio, Clawd), C (IG iOS SVG + wordmark asli, iPhone, Premiere), isi editor = video jadi Jensen (D-17), 16 gambar slop image_gen (D-16), PapanFootage r3 (P11/P12 putih, teks menjauhi wajah, tanpa vektor; P14 kartu foto).
+Papan acuan r1: `/mnt/storage-projects/flat-mirip-mirip/render/papan-acuan-r1.jpg`, Drive "Claude edit/flat-mirip-mirip/papan-acuan-r1/" (+ still/). MENUNGGU persetujuan Irfan.
 
 ## Berikutnya
 1. `tema.ts` (Sutradara) dari RESEP + profil → TASK komponen bersama (satu pekerja Codex) → papan acuan untuk Irfan.
-2. Menunggu Irfan: nada P07–P12 (2D vs footage nyata P11–P14); potong kata bila VO > 60 dtk.
+2. Setelah papan disetujui: uji suara VO (1 kalimat), VO penuh, kunci suara → TASK adegan P01–P15 (satu pekerja per adegan) → audit frames → SFX → musik.

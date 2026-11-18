@@ -1,29 +1,29 @@
 import React from 'react';
-import {AbsoluteFill, Freeze, Sequence, useCurrentFrame} from 'remotion';
-import {move} from '../../lib/curves';
-import {DuniaRepo} from '../../pinjam/b1';
+import {AbsoluteFill, OffthreadVideo, Sequence, staticFile, useCurrentFrame} from 'remotion';
 import {CLAWD_GENGGAM, Clawd} from '../Clawd';
 import {MEREK} from '../tema';
 import {AppClaudeTerang} from './claude/AppClaudeTerang';
 import {posisiPlayheadStudio, StudioRemotion, type TrackStudio} from './remotion/StudioRemotion';
 
+// Batas cut proxy pada timeline 30 fps, dibulatkan ke frame terdekat.
+const BATAS_KLIP = [0, 3.47, 6.07, 8, 9.03, 14].map((detik) => Math.round(detik * 30));
+const DURASI = BATAS_KLIP[BATAS_KLIP.length - 1];
+const MULAI_PREVIEW = 165;
 const TRACK: TrackStudio[] = [
-  {nama: '<Sequence>', mulai: 0, durasi: 96},
-  {nama: '<Sequence>', mulai: 12, durasi: 24},
-  {nama: '<Sequence>', mulai: 42, durasi: 42},
-  {nama: '<Audio>', mulai: 0, durasi: 96, warna: 'audio'},
+  ...BATAS_KLIP.slice(0, -1).map((mulai, i) => ({nama: '<Sequence>', mulai, durasi: BATAS_KLIP[i + 1] - mulai})),
+  {nama: 'voice.wav', mulai: 0, durasi: DURASI, warna: 'audio'},
+  {nama: 'music.mp3', mulai: 0, durasi: DURASI, warna: 'audio'},
 ];
 
 const StudioDenganClawd: React.FC = () => {
   const frame = useCurrentFrame();
-  const playhead = 18 + Math.round(60 * move(frame, 0, 60, 'drift'));
+  const playhead = MULAI_PREVIEW + frame;
   const skala = .8;
-  // Sequence lokal 0 menghindari penambahan offset adegan oleh Freeze 4.0.380.
-  const preview = <Sequence from={0} layout="none"><Freeze frame={playhead}><DuniaRepo durasi={3.2} kunci={{lift: .5, geser: .7, tekan: 1.3, selesai: 1.76, keluar: 2.72}}/></Freeze></Sequence>;
+  const preview = <OffthreadVideo src={staticFile('media/footage/jadi/jensen-v4-00-14.mp4')} trimBefore={MULAI_PREVIEW} muted style={{width: '100%', height: '100%', objectFit: 'contain'}}/>;
   return <AbsoluteFill>
-    <StudioRemotion komposisi={['Karakter', 'DuniaRepo', 'Slop', 'AppClaude', 'DuniaIG', 'LembarPixel']} aktif="DuniaRepo" track={TRACK} playhead={playhead}
+    <StudioRemotion komposisi={['JensenHuang', 'JensenHuang-Vertical', 'Thumbnail', 'Intro']} aktif="JensenHuang" track={TRACK} playhead={playhead}
       preview={preview}/>
-    <div data-clawd-timeline style={{position: 'absolute', left: posisiPlayheadStudio(playhead, 96) - CLAWD_GENGGAM.x * skala, top: 991}}><Clawd pose="depan" emosi="netral" skala={skala} pegangPlayhead/></div>
+    <div data-clawd-timeline style={{position: 'absolute', left: posisiPlayheadStudio(playhead, DURASI) - CLAWD_GENGGAM.x * skala, top: 991}}><Clawd pose="depan" emosi="netral" skala={skala} pegangPlayhead/></div>
   </AbsoluteFill>;
 };
 
