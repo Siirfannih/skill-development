@@ -42,7 +42,9 @@ import {CURVE} from '../lib/curves';
 
 /** coretan di dalam dunia IG (ikut kamera): tulisan tangan + panah ke kolom komentar; tampil [awal, akhir) detik relatif lapisan, keluar = potongan */
 export type CoretanIG = {awal: number; akhir: number; tulis: TulisProps; panah: PanahProps};
-export type IGProps = {durasi: number; t0: number; z0: number; kunci: {k1: number; k2: number; field: number}; coret?: CoretanIG; rev?: number};
+export type IGProps = {durasi: number; t0: number; z0: number; kunci: {k1: number; k2: number; field: number}; coret?: CoretanIG; rev?: number;
+  /** kunci kamera [detik, skala, pusat x, pusat y, kurva menuju kunci berikut]; sumber tunggal (bangun.py + cek_tumpuk) */
+  kamera?: [number, number, number, number, 'heavy' | 'drift'][]};
 
 const IGC = {ink: '#262626', abu: '#737373', garis: '#DBDBDB', biru: '#0095F6'};
 const ig = (s: number, w = 400, c = IGC.ink): React.CSSProperties => ({fontFamily: FONT.inter, fontSize: s, fontWeight: w, color: c});
@@ -76,10 +78,7 @@ const Komen: React.FC<{f: number; mulai: number; y: number; nama: string; teks: 
 const MODAL = {x: 180, y: 56, w: 1560, h: 824}, MEDIA_W = 960;
 const VID = {x: MODAL.x, y: MODAL.y + (MODAL.h - 540) / 2, w: 960, h: 540};
 
-const kameraIG = (t: number, K: IGProps['kunci']) => {
-  // KT pertanyaan tinggal di pita hitam bawah video (650, 812 layar); pusat x kamera <= 1040 menjaga batas media/panel di kanan teks
-  const keys: [number, number, number, number, 'heavy' | 'drift'][] = [[0, 1.0, 960, 540, 'drift'], [0.7, 1.0, 960, 540, 'drift'], [K.k1 - 0.15, 1.05, 900, 500, 'heavy'],
-    [K.k1 + 0.25, 1.17, 1040, 440, 'drift'], [K.k2 - 0.12, 1.18, 1040, 440, 'heavy'], [K.k2 + 0.25, 1.2, 1040, 470, 'drift'], [K.field + 0.2, 1.0, 960, 540, 'drift'], /* tarik mundur satu gerak drift ±19 f (ronde 9 X3) */ [K.field + 3.5, 1.04, 960, 560, 'drift']];
+const kameraIG = (t: number, keys: NonNullable<IGProps['kamera']>) => {
   let i = 0; while (i + 1 < keys.length && t >= keys[i + 1][0]) i++;
   if (i + 1 >= keys.length) return {s: keys[i][1], x: keys[i][2], y: keys[i][3]};
   const [a, s0, x0, y0, kv] = keys[i], [b, s1, x1, y1] = keys[i + 1];
@@ -87,12 +86,12 @@ const kameraIG = (t: number, K: IGProps['kunci']) => {
   return {s: s0 + (s1 - s0) * k, x: x0 + (x1 - x0) * k, y: y0 + (y1 - y0) * k};
 };
 
-const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret}) => {
+const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kamera}) => {
   const {fps} = useVideoConfig();
   const t = f / fps;
   const F = (s: number) => Math.round(s * fps);
   const p = move(f, 0, 18, 'heavy');                                      // frame video mengecil ke kotak video postingan
-  const cam = kameraIG(t, K);
+  const cam = kameraIG(t, kamera ?? [[0, 1, 960, 540, 'drift']]);
   const zz = z0 + (1 - z0) * p;
   const rx = VID.x * p, ry = VID.y * p, rw = 1920 + (VID.w - 1920) * p, rh = 1080 + (VID.h - 1080) * p;
   const modal = move(f, 6, 14, 'land');

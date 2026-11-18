@@ -57,6 +57,9 @@ def kt_box(i, t):
         if g != 'bubble': return None
         kiri = p.get('sisi') != 'kanan'; x1 = x + 40 if kiri else x + w - 40 - 170
         return (x1, y + h - 40 - 90, x1 + 170, y + h - 40)
+    if g == "label":
+        s = p.get("size", 52); wd = wem(p["teks"], "poppins-latin-700-normal.woff2") * s * 0.98
+        return (x + 70, cy - s * 0.6, x + 70 + wd, cy + s * 0.6)
     if g == "r1":
         s = p.get("size", 66); font = "poppins-latin-700-normal.woff2"
         full = wem(p["teks"], font) * s * 0.98; part = wem(" ".join(words[:max(vis) + 1]), font) * s * 0.98
@@ -101,7 +104,7 @@ def gap(a, b):
     return math.hypot(dx, dy) if (dx > 0 and dy > 0) else max(dx, dy) if (dx > 0 or dy > 0) else -1
 
 
-KT = [i for i in lego if i in lap and lap[i]["comp"] == "KT" and lap[i]["props"].get("gaya") in ("r1", "r2", "r3", "putus", "bubble", "viral")]
+KT = [i for i in lego if i in lap and lap[i]["comp"] == "KT" and lap[i]["props"].get("gaya") in ("r1", "r2", "r3", "putus", "bubble", "viral", "label")]
 SL = [i for i in lego if i in lap and lap[i]["comp"] == "Slop"]
 KOM = [i for i in lego if i in lap and lap[i]["comp"] == "Komentar"]
 CH = [i for i in lego if i in lap and lap[i]["comp"] == "Karakter"]
@@ -174,9 +177,8 @@ def _bz(x1, y1, x2, y2):
         return 3 * (1 - m) ** 2 * m * y1 + 3 * (1 - m) * m * m * y2 + m ** 3
     return f
 _EA = {"heavy": _bz(.75, 0, .18, 1), "drift": _bz(.4, 0, .6, 1)}
-def _cam_ig(t, K):      # sinkron dengan kameraIG di remotion/src/video/b6.tsx
-    ks = [(0, 1.0, 960, 540, "drift"), (0.7, 1.0, 960, 540, "drift"), (K["k1"] - 0.15, 1.05, 900, 500, "heavy"), (K["k1"] + 0.25, 1.17, 1040, 440, "drift"), (K["k2"] - 0.12, 1.18, 1040, 440, "heavy"),
-          (K["k2"] + 0.25, 1.2, 1040, 470, "drift"), (K["field"] + 0.2, 1.0, 960, 540, "drift"), (K["field"] + 3.5, 1.04, 960, 560, "drift")]
+def _cam_ig(t, K, keys=None):      # sumber tunggal: lap["D_IG"]["props"]["kamera"] (b6.tsx kameraIG)
+    ks = [tuple(k) for k in keys]
     i = 0
     while i + 1 < len(ks) and t >= ks[i + 1][0]: i += 1
     if i + 1 >= len(ks): return ks[i][1], ks[i][2]
@@ -187,7 +189,7 @@ if "D_IG" in lego and "D_IG" in lap:
     Kig = lap["D_IG"]["props"]["kunci"]; wi = lego["D_IG"]["t"]
     tt = wi + 0.8
     while tt < wi + dur["D_IG"] - 0.1:
-        s_, cx_ = _cam_ig(tt - wi, Kig)
+        s_, cx_ = _cam_ig(tt - wi, Kig, lap['D_IG']['props']['kamera'])
         sx0, sx1 = 960 + (180 - cx_) * s_, 960 + (1140 - cx_) * s_
         for i in KT:
             if lego[i]["t"] <= tt < lego[i]["t"] + dur[i] and not lap[i]["props"].get("gelap"):

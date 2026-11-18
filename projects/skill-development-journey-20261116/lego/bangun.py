@@ -424,7 +424,26 @@ def slab_end(b):
     if b.get("depan"): return b["t"] + 1.7                                   # DECISION di depan: sampai Clawd/Claude dkk keluar
     if b.get("tahan"): return round(snap(T["lihat_e"] - 8 / FPS) + 6.5 / FPS, 4)    # LINTAS AGENT: tahan diam ±1,1 dtk (ronde 8 T2); keluar 8 f BERSAMA push dunia B11 (= transisi masuk), selesai tepat saat dunia penuh: 0 frame sisa
     return max(b["t"] + b["dur"] + 0.35, b["t"] + 1.05)
-SLAB_Y = {"AI SLOP": 420, "WORKFLOW-NYA": 380, "BALIK MODAL": 400, "100% FULL AI": 215, "LINTAS AGENT": 400, "DECISION": 900, "SELESAI": 720}
+SLAB_Y = {"AI SLOP": 420, "WORKFLOW-NYA": 380, "BALIK MODAL": 400, "100% FULL AI": 215, "LINTAS AGENT": 400, "DECISION": 768, "SELESAI": 720}      # R6b-2: DECISION naik ke dada (huruf 658-878; dagu ±640), narasi sesudahnya di bawah
+
+
+
+BLK = []
+CAP_ANTON = 1760 / 2048
+LABEL_HERO = ("WORKFLOW-NYA", "BALIK MODAL", "LINTAS AGENT")      # AI SLOP: sudut atas-kiri penuh dekor slop (cek_tumpuk) -> label dihilangkan, narasi tetap dipotong      # R6b-1: kata pengantar (diucapkan sebelum kata besar) = label kecil di sudut ATAS-KIRI blok hero (kiblat 83 K3)
+
+
+def label_pengantar(b, vis, wd, xs, sy, fs, h, t0, dur):
+    if vis not in LABEL_HERO: return
+    pb = next((x for x in BLK if x["kata"][1] == b["kata"][0] - 1 and x["peran"] == "R1"), None)
+    if not pb: return
+    size = 52
+    persp = vis == "LINTAS AGENT"
+    top = (sy - CAP_ANTON * fs / 2) if persp else (sy - h / 2 + 0.98 * fs - CAP_ANTON * fs)      # sisi atas huruf hero
+    w = wem(pb["teks"], POP7) * size * 0.98 + 140; hh = size * 1.8
+    x = (1920 - wd) / 2 + 10 - 70; y = top - 14 - 30 - hh / 2                  # tepi bawah huruf label 14 px di atas huruf hero, rata kiri blok hero
+    add(b["id"] + "_lbl", "KT", dict(teks=pb["teks"], kode="T19", gaya="label", w=int(w), h=int(hh), size=size, wt=[0.0]), dur, t0, x, y)
+    L[-1]["follow"] = b["id"]
 
 
 def hero(b):
@@ -451,6 +470,7 @@ def hero(b):
         if not b.get("depan") and vis != "LINTAS AGENT":       # Irfan 17 Nov: hero naik dari tepi BAWAH frame (kotak sampai bawah frame), keluar turun lagi
             kw.update(h=int(1080 - (SLAB_Y[vis] - h / 2)), hTeks=h)
         add(b["id"], "KT", kw, dur, t0, xs, SLAB_Y[vis] - h / 2, lubang=not b.get("depan"), objek=dict(nama=vis, peran=("slab-di-depan" if b.get("depan") else "slab-di-belakang-kepala"), t=t0))
+        label_pengantar(b, vis, wd, xs, SLAB_Y[vis], fs, h, t0, dur)
         if b.get("sisip"):   # kata ucapan yang tidak muat di slab: R1 kecil di bawah slab sisi kiri, tampil saat diucapkan (Lantai A1)
             k = W.idx(b["sisip"], t0 - 0.05)
             ts, te = W.U[k]["s"], W.U[k]["e"]
@@ -685,15 +705,28 @@ def dunia():
     k2 = round(W.s("AI?", T["masih2"]) - wi, 3)          # komentar kedua pop di "AI?" (urutan Irfan: "masih kerasa AI slop" lalu "Keren editan profesional")
     # D-406a: "Comment di bawah." = tulisan tangan biru + panah goresan ke kolom "Add a comment…", DI DALAM dunia IG (ikut kamera). Koordinat dunia.
     kc = W.idx("Comment", 80); rel = lambda v: round(v - wi, 3)
-    kata_c = [dict(t=W.U[k]["w"], mulai=rel(W.U[k]["s"] + 2 / FPS), akhir=rel(max(W.U[k]["e"], W.U[k]["s"] + 0.2))) for k in (kc, kc + 1, kc + 2)]
-    nxt_c = W.U[kc + 3]["s"] + 2 / FPS                  # blok narasi berikut ("Nanti aku kasih"): coretan berakhir (potongan) tepat di situ
-    wk = wem("Comment di bawah.", "kalam-latin-700-normal.woff2") * 70       # lebar tulisan tangan sebenarnya (Kalam 700, 70 px)
-    x0 = int(min(1135, 1795 - wk))                                           # tepi kanan <= x 1795 (margin aman 5 %, kamera hingga 1,01)
-    cp0, cc1, cc2, cp1 = (x0 - 24, 985), (x0 - 210, 1040), (x0 - 190, 880), (1168, 872)      # dari ujung kiri tulisan melingkar ke atas, ujung panah 14-20 px di bawah kolom "Add a comment…"
-    coret = dict(awal=kata_c[0]["mulai"], akhir=rel(max(nxt_c, W.U[kc]["s"] + 2 / FPS + 0.25 + 0.3 * 3)), kata0=kc, panahKata=kc + 1,
-                 tulis=dict(kata=kata_c, x=x0, y=925, size=70, warna="#1F4FD8", rot=-3),
-                 panah=dict(d=panah_d(cp0, cc1, cc2, cp1), kepala=kepala_panah(cp1, cc2, 40, 30), warna="#1F4FD8", tebal=9, at=rel(W.U[kc + 1]["s"] + 2 / FPS), gambar=9, headF=3))
-    add("D_IG", "DuniaIG", dict(w=1920, h=1080, rev=7, t0=snapo(wi), z0=round(zoom_at(wi), 4), kunci=dict(k1=k1, k2=k2, field=round(T["comment_w"] - wi, 3)), coret=coret), duri, wi, 0, 0, opaque=True,
+    # R6/K1: tulisan tangan mengikuti onset TIAP kata ucapan (onset + 2 f) dan tiap kata selesai tertulis sebelum kata berikut diucapkan; panah digambar bersama kata "Comment" (8 f, kepala menyusul 3 f)
+    kata_c = []
+    for k in (kc, kc + 1, kc + 2):
+        ms = W.U[k]["s"] + 2 / FPS; ak = min(W.U[k]["e"], W.U[k + 1]["s"] + 2 / FPS) if k < kc + 2 else W.U[k]["e"]
+        kata_c.append(dict(t=W.U[k]["w"], mulai=rel(ms), akhir=rel(max(ak - 1 / FPS, ms + 2 / FPS))))
+    nxt_c = W.U[kc + 3]["s"] + 2 / FPS                  # blok narasi berikut ("Nanti aku kasih")
+    S_nanti = round(snapo(round(nxt_c, 3)) * FPSO); S_ig = round(wi * FPSO)       # frame master "Nanti" pertama tampil; frame master awal dunia IG
+    akhir_f = S_nanti - S_ig                              # tulisan + panah = potongan di frame sebelum "Nanti" (dunia IG: frame dunia i tampil di frame master S_ig + i)
+    # R6c-a: tulisan tangan + panah di area putih panel komentar, DI ATAS kolom "Add a comment…" (antara komentar terakhir dan baris ikon); panah pendek ke BAWAH ke kolom. Koordinat dunia.
+    ukuran = 60; wk = wem("Comment di bawah.", "kalam-latin-700-normal.woff2") * ukuran
+    x0 = 1182; y0 = 548
+    cp0, cc1, cc2, cp1 = (1352, 628), (1338, 690), (1370, 745), (1346, 798)
+    coret = dict(awal=kata_c[0]["mulai"], akhir=akhir_f / FPS, kata0=kc, panahKata=kc,
+                 tulis=dict(kata=kata_c, x=x0, y=y0, size=ukuran, warna="#1F4FD8", rot=-3),
+                 panah=dict(d=panah_d(cp0, cc1, cc2, cp1), kepala=kepala_panah(cp1, cc2, 34, 30), warna="#1F4FD8", tebal=8, at=rel(W.U[kc]["s"] + 2 / FPS), gambar=8, headF=3))
+    # R6c-b: kamera dunia IG mengikuti fokus (kurva curves.ts, kontinu): dorong pelan ke video + pita hitam, tarik (heavy) ke panel komentar saat komentar pertama muncul,
+    # berakhir di kolom komentar + tulisan tangan, kembali ke video/pita hitam tepat sebelum "Nanti" (teks pita putih harus di atas hitam)
+    ret = akhir_f / FPS
+    kam = [[0.0, 1.0, 960, 540, "drift"], [0.7, 1.0, 960, 540, "drift"], [1.9, 1.45, 680, 621, "drift"], [round(k1 - 0.14, 3), 1.5, 690, 623, "drift"],
+           [k1, 1.5, 692, 623, "heavy"], [round(k1 + 0.8, 3), 1.45, 1440, 400, "drift"], [round(k2 + 0.25, 3), 1.45, 1440, 404, "heavy"], [round(k2 + 0.95, 3), 1.8, 1445, 642, "drift"],
+           [round(ret - 0.32, 3), 1.8, 1445, 642, "heavy"], [round(ret, 3), 1.45, 680, 621, "drift"], [round(ret + 2.2, 3), 1.5, 712, 623, "drift"]]
+    add("D_IG", "DuniaIG", dict(w=1920, h=1080, rev=12, t0=snapo(wi), z0=round(zoom_at(wi), 4), kunci=dict(k1=k1, k2=k2, field=round(T["comment_w"] - wi, 3)), coret=coret, kamera=kam), duri, wi, 0, 0, opaque=True,
         objek=dict(nama="postingan Instagram desktop", peran="dunia-transisi", t=wi))
     for nm, per, tt in (("tulisan tangan 'Comment di bawah.'", "tulisan-tangan", wi + kata_c[0]["mulai"]), ("panah goresan ke kolom 'Add a comment'", "coretan", wi + coret["panah"]["at"])):
         L.append(dict(id="O_" + nm, comp="-", props={}, durasi=0, t=tt, x=0, y=0, gerak=None, lubang=False, opaque=False, objek=dict(nama=nm, peran=per, t=tt), skip=True))
@@ -777,6 +810,7 @@ def sinkron(bl):
     kts = [l for l in L if l["comp"] == "KT" and l["id"] in BB and l["props"].get("gaya") in GY]
     cy = lambda l: l["y"] + l["props"]["h"] / 2
     hold = lambda l: bool(BB[l["id"]].get("tahan"))
+    hero_awal = {BB[l["id"]]["kata"][0]: l for l in kts if l["props"]["gaya"] in ("slab", "finally", "busur", "viral") or BB[l["id"]].get("tahan")}
     lane = sorted([l for l in kts if l["props"]["gaya"] in ("r1", "r2", "r3", "putus") and cy(l) >= LANE_Y and not hold(l)], key=lambda l: l["t"])
     habis = [l for l in kts if hold(l) and l["props"]["gaya"] in ("r3",)]
     # Sutradara Q3: onset di dalam transisi wipe -> tunda sampai wipe menutup frame (maks 0,25 dtk); wt (waktu kata) ikut digeser
@@ -812,12 +846,20 @@ def sinkron(bl):
         cand = max(ak_kata + 0.15, mulai + 0.25 + 0.3 * n)
         ak = nxt if (nxt is not None and nxt - ak_kata < 0.6) else cand
         if nxt is not None: ak = min(ak, nxt)
+        hh = hero_awal.get(blk["kata"][1] + 1)                 # R6b-1: narasi pengantar yang diucapkan TEPAT sebelum kata besar berakhir (potongan) di frame kata besar mulai tampil
+        if hh is not None and hh["t"] > mulai: ak = min(ak, hh["t"])
         terapkan(l, min(ak, p), False)
     for l in kts:
         if l in lane: continue
         blk = BB[l["id"]]; p = potong(l["t"], blk.get("gelapAt") is not None)
         hero = l["props"]["gaya"] in ("slab", "busur", "finally", "viral")
         terapkan(l, min(l["t"] + l["durasi"], p), hero)
+    # label pengantar hero: waktu = waktu hero (masuk bersama, keluar bersama mask)
+    for l in L:
+        if l.get("follow"):
+            hl = next(x for x in L if x["id"] == l["follow"])
+            l["t"] = hl["t"]; n = round(hl["durasi"] * FPS); pr = dict(l["props"], durasi=hl["durasi"], keluarAt=hl["props"]["keluarAt"])
+            l["props"] = pr; l["durasi"] = hl["durasi"]; WANT[l["id"]] = list(WANT[hl["id"]])
     # 'gratis' (tulisan tangan) berakhir bersama 'skill' (kata satu baris)
     for c in L:
         if c["id"] in BB and c["comp"] == "Coretan" and "tulis" in c["props"]:
@@ -830,6 +872,7 @@ def main():
     TK.json.dump(TK.bangun(), open(os.path.join(P, "teks.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     bl = json.load(open(os.path.join(P, "teks.json"), encoding="utf-8"))
     bangun_karakter()
+    BLK[:] = bl
     for b in bl:
         if b["peran"] == "R6" or b["gaya"] == "busur": hero(b)
     slop()

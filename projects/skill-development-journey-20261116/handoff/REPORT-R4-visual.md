@@ -150,3 +150,43 @@ LULUS: semua perubahan tercakup ledger.
 - **B1 "ChatGPT" tampil (B11 63,26-64,46):** di `teks.py` kata 169 ("ChatGPT", subjek yang diucapkan) dikecualikan dari aturan "nama agen sudah ada di label B11"; blok "Bahkan ChatGPT dengan" dipecah menjadi T084 "Bahkan ChatGPT" (kata 168-169, f1898-1934) lalu T085 "dengan" (kata 170, f1934-1948) lalu "yang berbeda" seperti sekarang; satu jalur narasi di pita bawah (tidak menumpuk kartu), onset per kata, potongan sama. Id blok sesudahnya bergeser +1 (107 blok). Strip `qc/r4/strip_f1895-1940.jpg` dilihat: "Bahkan" f1898, "ChatGPT" f1907, "dengan" f1934, tanpa celah/tumpukan.
 - **B3 frame terakhir:** D_IG kini 223 frame (+1) sehingga menutup sampai f2511; kartu IG tampil f2490-2511. Hambatan validasi compose.py (durasi kontainer lapisan <= total + 0,05 dtk) ternyata karena trek audio senyap di mp4 hasil Remotion yang menambah 0,045 dtk; `bangun.stripa()` membuat salinan tanpa audio (`-c copy -an`, `lego/cache/*-an.mp4`) untuk semua lapisan opaque, jadi durasi tampil tidak dipendekkan. "bagi yang beruntung." (T107) juga tampil sampai f2511 (fase 0,2 frame, batas n memakai total + 0,045 dtk; pengecualian T106 di kalibrasi.json dihapus, kini T107 fase 0,2). Strip `qc/r4/strip_f2500-2511.jpg` dilihat: IG + teks utuh di f2500-2511.
 - **Gerbang** (`qc/r4/log/`): cek_master --ulang 105 lapisan tampil persis rencana (PASS), cek_sinkron PASS ((a),(b),(c)), cek_tumpuk irisan 0, kt_check PASS, motion_lint PASS, tsc exit 0, revisi_cek LULUS (137 berubah, semua tercakup, dasar tercakup). Master 2512 frame, 83,817 dtk.
+
+## Ronde 6 (K1 + D-412 R6b + D-413 R6c)
+**K1 tulisan tangan IG tidak lagi bersamaan dengan "Nanti" (D-411)**
+- Tulisan ditulis per kata: "Comment" mulai 80,857 (onset + 2 f), "di" 81,152, "bawah." 81,162; tiap kata selesai tertulis sebelum kata berikut. Panah digambar 8 f mulai bersama "Comment", kepala menyusul 3 f. Tulisan + panah berakhir di world-frame 157 = f2446 (potongan), "Nanti" mulai f2447/2448. Dibaca dari master: pixel biru tulisan tangan = 0 mulai f2447, 'Nanti' tampil f2448 (frame 2446 hanya tulisan, 2448 hanya 'Nanti').
+- `cek_sinkron.py`: aturan (viii) (minimal tampil 1,15 dtk) DIHAPUS; diganti (x): teks ucapan (narasi, hero, tulisan tangan) di zona mana pun tidak boleh tampil bersamaan (>= 1 frame master) dengan teks ucapan kalimat berikutnya (id kalimat dari tanda . ? ! di words), kecuali hero + sub yang diucapkan/tampil lebih dulu.
+
+**R6b-1 narasi pengantar sebelum kata besar (D-412)**
+- `sinkron()`: narasi yang diucapkan TEPAT sebelum hero (kata terakhir + 1 = kata pertama hero; semua hero slab/finally/busur/viral dan "habis banget") berakhir (potongan) di frame hero mulai: T033 f589-606 | AI SLOP f606; T050 f1093-1122 | WORKFLOW-NYA f1122; T056 f1252-1269 | BALIK MODAL f1269; T076 f1688-1708 | LINTAS AGENT f1708; "Ini" T095 f2168-2176 | 100% FULL AI f2176; juga "Oke," | FINALLY f25, "baru aja ngebikin" | workflow, "gimana biar" | AI model, "kan lagi" | VIRAL.
+- Label pengantar di sudut ATAS-KIRI hero (gaya `label` di KT.tsx: Poppins 700, 52 px, HERO #FAF8EC + bayangan, masuk 3 f bersama hero, keluar dengan mask hero): "cuma mempelajari" (WORKFLOW-NYA), "Karena perlu" (BALIK MODAL), "sistem kerja" (LINTAS AGENT); posisi dari tinggi huruf Anton (cap 1760/2048): tepi bawah label 14 px di atas huruf hero, rata kiri blok hero. Dihilangkan: AI SLOP (sudut atas-kiri penuh dekor slop S04/S11, cek_tumpuk) dan 100% FULL AI (hero sudah di kiri atas). Narasi sesudah hero tidak berubah.
+- Cek baru `cek_sinkron.py` (xi): per frame, narasi diucapkan sebelum hero tidak boleh di bawah hero, narasi sesudah hero tidak boleh di atas hero (pusat y lapisan); (a) dan (v) memberi pengecualian untuk narasi yang berakhir di hero.
+- Strip `qc/r4/urutan_hero.jpg` (12 hero: masuk -5 ... +10 f, 2 baris per hero), dilihat: narasi pengantar hilang di frame hero, label atas-kiri terbaca.
+
+**R6b-2 DECISION**
+- DECISION naik ke dada: SLAB_Y 900 -> 768 (huruf y 658-878; dagu ±640 diukur dari frame 12,3 dtk), gerak masuk/keluar dan waktu tidak berubah. "dalam ngebuat video"/"gitu." di bawah DECISION (pusat y 944, tepi bawah huruf <= 990). (xi) PASS.
+
+**R6c-a/b/c dunia IG (D-413)**
+- (a) Tulisan tangan "Comment di bawah." (Kalam 60 px, biru #1F4FD8) di area putih panel komentar di atas kolom "Add a comment…" (dunia x 1182-1714, y 548-608), panah pendek (tebal 8) ke BAWAH dari ujung tulisan ke 14 px di atas garis kolom (x 1346, y 628 -> 798) melewati celah baris ikon; komentar 79,55 dan 80,3 (dunia y 266-480) tidak tertimpa. Semua di dalam `DuniaIG` (ikut kamera).
+- (b) Kamera dunia IG: kunci `kamera` di props (sumber tunggal b6.tsx + cek_tumpuk), kurva `drift`/`heavy` dari curves.ts, kontinu: 0-0,7 dtk tahan; 0,7-1,9 dorong pelan ke video + pita hitam (s 1,45, pusat 680/621; panel tinggal sliver kanan); tahan/drift s 1,5; komentar pertama (79,55) tarik `heavy` ke panel komentar (1440, 400); komentar kedua (80,3 + 0,25) `heavy` ke kolom + tulisan tangan (s 1,8, 1445/700, tiba 81,26); kembali `heavy` 10 f ke video (s 1,45) selesai tepat saat tulisan berakhir; lalu drift 1,5. Pusat x kamera dipilih supaya tepi kiri pita hitam (sx0 = 960 + (180 - cx) s) <= 235 px dan teks pita terlebar ("Udah kerasa video" kiri 265, "bagi yang beruntung." kiri 199) tetap di atas hitam (cek_tumpuk KT-UI-IG: 0).
+- (c) "profesional" (R3): ukuran 80 -> 97 (1,15x narasi 84), Poppins 800, warna CORAL #F97066 (aksen hero yang dipakai AI SLOP dan "putus-putus"); gaya masuk tidak diubah. Terlihat beda dari narasi putih setelah mendarat.
+- Strip `qc/r4/ig_r6.jpg` (f2292-... tiap 3 f, 76,4-83,8 dtk) dan `strip_f2420-2450.jpg`, dilihat.
+
+**Penilaian lima cek keseimbangan mata per detik (IG 76,4-83,8; dari ig_r6.jpg)**
+| detik | massa kiri-kanan | satu fokus | urutan baca | satu permukaan | dekat subjek |
+|---|---|---|---|---|---|
+| 76,4-77,1 | seimbang (wajah penuh menyusut jadi kartu di tengah) | wajah | "Udah" di bawah wajah | satu | teks di bawah wajah |
+| 77,1-78,2 | video kiri-tengah 72 %, sliver panel kanan: sedikit berat kiri, wajar | wajah | "Udah kerasa video" bawah | satu (video + pita) | teks di pita tepat di bawah wajah |
+| 78,2-79,3 | sama | wajah | "editing", "profesional" (koral, 1,15x) lalu "gak? Atau" | satu | di pita |
+| 79,3-80,3 | pindah ke panel kanan (tarik heavy), video tinggal sliver kiri | komentar baru (andi, lalu salsa) | atas ke bawah = urutan muncul | satu (panel) | tanpa teks pita; komentar di tengah frame |
+| 80,3-81,3 | panel mengisi frame, tulisan di tengah | tulisan tangan | "Comment" - "di" - "bawah." ke panah ke kolom | satu (panel, tidak ada elemen di luar kartu) | tulisan 60 px dan kolom berdekatan |
+| 81,3-81,65 | kembali ke video (heavy 10 f) | video | tulisan tangan berakhir f2446 | satu | - |
+| 81,65-82,4 | video + pita, panel sliver kanan | "Nanti aku kasih" | satu teks | satu | di pita bawah wajah |
+| 82,4-83,8 | sama; "gratis" kuning di kanan "skill" | skill gratis lalu "bagi yang beruntung." | kiri ke kanan | satu | di pita |
+Catatan: pada 80,3-81,3 komentar pertama terpotong tepi atas frame (s 1,8) tetapi komentar kedua terbaca; bila dianggap masalah, naikkan pusat y kamera 700 -> 640 (hanya satu angka di bangun.py).
+
+**Gerbang** (`qc/r4/log/`): cek_master --ulang 108 lapisan tampil persis rencana (PASS; pengecualian kalibrasi.json: T002 f45, T001 f24, T107 fase 0,2), cek_sinkron PASS (a)-(c),(x),(xi), cek_tumpuk irisan 0, kt_check PASS, motion_lint PASS, tsc exit 0, revisi_cek LULUS (140 berubah, tercakup). Master 2512 frame, 83,817 dtk.
+
+## Ronde 6b (kamera IG zoom 1,8)
+- Dua kunci zoom 1,8 di blok `kam` (`lego/bangun.py`): pusat y 700 -> 642 (`[k2+0,95, 1,8, 1445, 642]` dan `[ret-0,32, 1,8, 1445, 642]`); zoom, x, waktu, kunci lain tetap. D_IG rev 12, dirender ulang, master dibuat ulang (2512 f).
+- Cek mata resolusi penuh: `qc/r4/still_f2425.png` (kamera masih tiba: avatar + "salsa.kirana Keren editan profesional" utuh dengan jarak ke tepi atas, kolom "Add a comment…" utuh, jarak ke tepi bawah), `qc/r4/still_f2440.png` (diam: avatar y 85-175, kolom y 880-965, tulisan "Comment di bawah." + panah utuh). Transisi `qc/r4/strip_f2400-2415.jpg`: tidak ada teks terpotong saat kamera diam di komentar.
+- Gerbang: cek_master --ulang 108 lapisan PASS, cek_sinkron PASS, cek_tumpuk irisan 0, kt_check PASS, motion_lint PASS, tsc exit 0, revisi_cek LULUS.

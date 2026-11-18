@@ -289,6 +289,19 @@ const Busur: React.FC<KTProps> = (p) => {
   </AbsoluteFill>;
 };
 
+
+// ---------- label pengantar hero (R6b-1): kata pengantar kecil di sudut atas-kiri blok kata besar; masuk bersama hero (3 f), keluar bersama mask hero ----------
+const Label: React.FC<KTProps> = (p) => {
+  const f = useCurrentFrame();
+  const {fps} = useVideoConfig();
+  const size = p.size ?? 52;
+  const keluarF = p.keluarAt !== undefined ? Math.round(p.keluarAt * fps) : 1e9;
+  const out = sapu(f, keluarF);
+  return <AbsoluteFill style={{...shell, justifyContent: 'flex-start', ...maskKeluar(out, 'samping')}}>
+    <div style={{paddingLeft: 70, fontFamily: FONT.poppins, fontWeight: 700, fontSize: size, color: HERO, lineHeight: 1.15, letterSpacing: '-0.02em', textShadow: BAYANG_TEKS, whiteSpace: 'pre', ...gayaMasuk(f, size)}}>{p.teks}</div>
+  </AbsoluteFill>;
+};
+
 export const KT: React.FC<KTProps> = (p) => {
   const body = (() => {
     switch (p.gaya) {
@@ -296,6 +309,7 @@ export const KT: React.FC<KTProps> = (p) => {
       case 'r2': return <R2 {...p}/>;
       case 'r3': case 'viral': return <R3 {...p}/>;
       case 'putus': return <Putus {...p}/>;
+      case 'label': return <Label {...p}/>;
       case 'bubble': return <Bubble {...p}/>;
       case 'busur': return <Busur {...p}/>;
       case 'finally': case 'slab': return <Hero {...p}/>;

@@ -871,26 +871,14 @@
   "mode": "onset"
  },
  {
-  "t": 80.791,
-  "peran": "objek-mendarat",
-  "alasan": "kartu/bubble/karakter/daftar muncul atau mendarat: pop renyah pendek [kolom Add a comment]",
-  "file": "pop up.mp3",
-  "dengar": "a bubble pop (z +4.0), a cork pop (z +3.3), a mouth pop (z +3.2)",
-  "dB": -7,
-  "terikat_ke_visual": [
-   "O_kolom Add a comment"
-  ],
-  "offset_puncak_s": 0.004,
-  "mode": "onset"
- },
- {
-  "t": 81.153,
+  "t": 80.825,
   "peran": "coretan",
-  "alasan": "panah goresan digambar (D-406): decit seperti spidol di permukaan licin (earshot: finger squeaking on glass); pustaka lokal tidak punya SFX spidol [panah goresan ke kolom 'Add a comment']",
+  "alasan": "panah goresan digambar (D-406): decit seperti spidol di permukaan licin (earshot: finger squeaking on glass); pustaka lokal tidak punya SFX spidol [kolom Add a comment + panah goresan ke kolom 'Add a comment']",
   "file": "../Kenyset/message-envoye-iphone-apple-391098.mp3",
   "dengar": "a finger squeaking on glass (z +2.9), a glass ting (z +2.7), a kalimba note (z +2.6)",
   "dB": -10,
   "terikat_ke_visual": [
+   "O_kolom Add a comment",
    "O_panah goresan ke kolom 'Add a comment'"
   ],
   "offset_puncak_s": 0.004,

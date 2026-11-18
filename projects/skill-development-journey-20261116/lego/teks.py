@@ -40,7 +40,7 @@ SPEK = [
     sp("loop", 70, 2, peran="R2", kode="T03", gaya="r2", alasan="kata kunci saat loop menutup + centang (DESAIN B5b)"),
     sp("lintas", 57, 2, peran="R6", kode="T04", gaya="slab", teks_vis="LINTAS AGENT", tahan=1.1, alasan="kata hero besar di BELAKANG kepala (matte), tahan ±1 dtk (REVISI-1 B9)"),
     sp("100%", 72.8, 4, peran="R6", kode="T04", gaya="slab", teks_vis="100% FULL AI", buang=["pakai"], depan=True, alasan="hero di DEPAN di atas dinding gelap shot meja 3D (Irfan 17 Nov: shot Claude mengedit mulai di kalimat ini); 'pakai' tidak ditampilkan (Irfan 17 Nov)"),
-    sp("profesional", 78.3, 1, peran="R3", kode="T25", gaya="r3", ukuran=80, alasan="pertanyaan pertama yang menusuk: kata kacau lalu mendarat (REVISI-2 Opus: perlakuan R3 pindah dari 'masih kerasa AI?' yang kini tampil sebagai komentar IG)"),
+    sp("profesional", 78.3, 1, peran="R3", kode="T25", gaya="r3", ukuran=97, warna=CORAL, alasan="pertanyaan pertama yang menusuk: kata kacau lalu mendarat (REVISI-2 Opus: perlakuan R3 pindah dari 'masih kerasa AI?' yang kini tampil sebagai komentar IG)"),
     sp("masih", 79.5, 3, peran="R3", kode="T25", gaya="r3", alasan="pertanyaan yang menusuk: kata kacau lalu mendarat; komentar penonton menyusul (REVISI-1 B10)"),
     sp("skill", 82, 1, peran="R2", kode="T03", gaya="r2", alasan="kata kunci hadiah"),
     sp("gratis", 82.4, 1, peran="R2", kode="T03", gaya="tulis", alasan="tulisan tangan kuning + garis bawah goresan (D-406)"),
@@ -63,7 +63,7 @@ def r1_pos(t):
     if T["udah"] - 0.6 <= t: return [660, 812], False       # pita hitam bawah video postingan IG, putih seperti teks di video (REVISI-1 B10); "Comment di bawah." diatur di bangun()
     if T["b6a"] - 0.1 <= t < T["udah"] - 0.1: return [960, 945], False      # shot meja 3D kini mulai di "Ini 100% full pakai AI" (Irfan 17 Nov)          # B10a: pita bawah meja kerja (lingkaran wajah di kanan)                                # area hitam di bawah video postingan
     if T["b6b"] <= t: return [960, 740], False
-    if T["decision"] - 0.05 <= t < T["b2a"] + 0.9: return [960, 735], False                  # DECISION mengisi dada: narasi di atas DECISION dengan jarak (Opus: tidak menempel), di bawah dagu (REVISI-2 R2-4g: bukan kiri atas)
+    if T["decision"] - 0.05 <= t < T["b2a"]: return [960, 944], False                  # DECISION mengisi dada: narasi di atas DECISION dengan jarak (Opus: tidak menempel), di bawah dagu (REVISI-2 R2-4g: bukan kiri atas)
     if 17.9 <= t < 19.6: return [960, 770], False                  # B2: sticker api/emoji kanan (x>1440): narasi geser kiri (cek_tumpuk)
     if 21.0 <= t < 22.3: return [1010, 702], False                 # B2: burst kiri bawah (x<640): narasi geser kanan
     if T["lintas"] - 0.2 <= t < T["lintas"] + 2.4: return [960, 760], False   # LINTAS AGENT: narasi di bahu kanan di bawah AGENT (Opus: balance_check, LINTAS menjauh = ringan di kiri)
@@ -92,7 +92,7 @@ POS_KHUSUS = {   # pusat blok khusus; nilai dari DESAIN per adegan (kunci dicoco
     "balik modal": [960, 400], "100% full pakai AI.": [600, 215], "putus-putus.": [1080, 800],
     "habis banget": [950, 810], "20 kali": [1520, 360], "5 kali": [1590, 740], "kesalahan": [960, 950], "loop pembelajaran": [960, 950],
     "viral": [1480, 250], "profesional": [700, 840], "masih kerasa AI?": [620, 812], "skill gratis": [620, 812],
-    "lintas agent.": [960, 400], "decision": [960, 860], "skill": [470, 812],
+    "lintas agent.": [960, 400], "decision": [960, 768], "skill": [470, 812],
 }
 
 
