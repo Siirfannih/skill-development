@@ -1,6 +1,6 @@
-# LAPORAN · video perkenalan v6, draf tanpa musik (19 Nov 2026)
+# LAPORAN · video perkenalan v6, final (19 Nov 2026)
 
-**Hasil:** `hasil/video-perkenalan_v6_draft.mp4` (tanpa musik) dan `hasil/video-perkenalan_v6_musik-aware-relax.mp4` (pratinjau musik, lihat bawah). 1080×1920, 30 fps, 2006 f (66,87 dtk), H.264 CRF 16, AAC 320k, −16,4 LUFS, puncak −0,87 dBFS.
+**Final (disetujui Irfan 19 Nov):** `hasil/video-perkenalan_v6_final.mp4` (Aware → Relax). Cadangan tanpa musik, untuk dipakai bila musik dibisukan IG: `hasil/video-perkenalan_v6_final_tanpa-musik.mp4`. 1080×1920, 30 fps, 2006 f (66,87 dtk), H.264 CRF 16, AAC 320k, −16,4 LUFS, puncak −0,87 dBFS.
 Satu file draf menggantikan master A/B Otis di §7.5, karena musik dibatalkan (keputusan Irfan).
 
 ## Yang dikerjakan
@@ -37,8 +37,8 @@ Satu file draf menggantikan master A/B Otis di §7.5, karena musik dibatalkan (k
 - f1990–1996: "dan aku akan" keluar sambil profil mulai di-zoom, jadi menimpa header sebentar.
 - Cutout #15 masih memuat kursi gaming hitam (matte RVM).
 
-## Musik: Aware → Relax (pilihan Irfan, pratinjau)
-**File:** `hasil/video-perkenalan_v6_musik-aware-relax.mp4` (gambar sama dengan draf, `-c:v copy`). −16,2 LUFS, puncak −0,8 dBFS. Kredit caption: `KREDIT.md`.
+## Musik: Aware → Relax (pilihan Irfan, disetujui)
+**File:** `hasil/video-perkenalan_v6_final.mp4` (gambar sama dengan draf, `-c:v copy`). −16,2 LUFS, puncak −0,8 dBFS. Kredit caption: `KREDIT.md`.
 
 | Bagian | Sumber | Frame | Level sesudah duck | Kenapa di situ |
 |---|---|---|---|---|
@@ -57,4 +57,4 @@ Satu file draf menggantikan master A/B Otis di §7.5, karena musik dibatalkan (k
     - "aku" f1220 (#16): suara pelan, pita penuh hanya 2,2 dB di atas musik.
     - "ini" f1895, di angkatan Relax.
   - Loop: sambungan 0 → 0, tanpa klik.
-- **Belum didengar telinga manusia.** Yang perlu kamu cek: apakah Aware di hook terlalu tipis dan apakah Relax di tengah (#17–#21) terlalu menonjol.
+- Level dan penempatan disetujui Irfan ("Pas, finalkan", 19 Nov).

@@ -1,4 +1,4 @@
-# RESEP · video perkenalan v6 (draf tanpa musik)
+# RESEP · video perkenalan v6 (final + cadangan tanpa musik)
 
 Semua path relatif ke folder proyek ini. Mesin: CPU saja, `npx` tidak ada di PATH → pakai `remotion/node_modules/.bin/…` dan `node`.
 
@@ -39,7 +39,7 @@ python3 ~/work/skill-development/claude/motion-graphic/scripts/audio/audio_phone
 - Cue = §5.3 + tambahan (whoosh di zoom/transisi, `tick-hero` di hero R6, `riser-slam` sebelum slam). Puncak file ditaruh di frame cue.
 - Peran baru dibuat di `kerja/sfx_extra/` dari library SFXIrfan (Epidemic): `riser-slam.wav` (ES Designed Riser Fast Short Clean 01, 0,87 dtk terakhir), `tick-hero.wav` (ES UI Sci Fi Very Short Open 08, LPF 6,5 kHz), `hantam-sub-hp.wav` (hantam-sub + saturasi/EQ tengah agar terdengar di speaker HP).
 - Pelindung puncak −1 dBFS per cue (hanya cue itu yang turun, suara tidak disentuh).
-- Musik pratinjau Aware → Relax (venv `~/work/mg-venv`, butuh pyloudnorm). Sumber di `sumber/musik/`: `aware.wav` (hard link dari `skill-development-journey-20261116/musik/sumber/`) dan `relax.wav` (mp3 Relax → wav 48 kHz):
+- Musik Aware → Relax (venv `~/work/mg-venv`, butuh pyloudnorm). Sumber di `sumber/musik/`: `aware.wav` (hard link dari `skill-development-journey-20261116/musik/sumber/`) dan `relax.wav` (mp3 Relax → wav 48 kHz):
 ```bash
 ~/work/mg-venv/bin/python alat/musik.py kerja/mix_musik          # musik_mentah.wav + musik.json
 ~/work/mg-venv/bin/python alat/mix.py kerja/mix_musik --musik    # stem_vo/sfx/music + mix.wav (musik mengalah di puncak)
@@ -48,6 +48,6 @@ python3 ~/work/skill-development/claude/motion-graphic/scripts/audio/audio_phone
 
 ## 5. Mux
 ```bash
-ffmpeg -i kerja/render/video_bisu.mp4 -i kerja/mix/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 320k -shortest hasil/video-perkenalan_v6_draft.mp4
-ffmpeg -i kerja/render/video_bisu.mp4 -i kerja/mix_musik/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 320k -shortest hasil/video-perkenalan_v6_musik-aware-relax.mp4
+ffmpeg -i kerja/render/video_bisu.mp4 -i kerja/mix/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 320k -shortest hasil/video-perkenalan_v6_final_tanpa-musik.mp4
+ffmpeg -i kerja/render/video_bisu.mp4 -i kerja/mix_musik/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 320k -shortest hasil/video-perkenalan_v6_final.mp4
 ```
