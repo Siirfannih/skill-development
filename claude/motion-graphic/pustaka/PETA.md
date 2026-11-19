@@ -1,6 +1,6 @@
 # PETA pustaka referensi
 
-Semua video di sini adalah **standar kualitas Irfan**: target yang harus dicapai, dan nilainya setara. Tabel ini adalah katalog perpustakaan referensi gaya Irfan (fungsinya: `README.md` §Kartu itu apa). Pilih **satu** kiblat; kartu lain dibuka saat sebuah adegan butuh bentuk atau teknik di luar kiblat. Jangan membuka semua kartu sekaligus.
+Semua video di sini adalah **contoh mutu yang Irfan setujui dan sumber teknik**, nilainya setara; bukan ukuran untuk disalin. Teknik dipinjam bersama syarat yang membuatnya berhasil, lalu disesuaikan dengan kondisi footage sendiri (`README.md` §Alur butir 6). Tabel ini adalah katalog perpustakaan referensi gaya Irfan (fungsinya: `README.md` §Kartu itu apa). Pilih **satu** kiblat; kartu lain dibuka saat sebuah adegan butuh bentuk atau teknik di luar kiblat. Jangan membuka semua kartu sekaligus.
 
 **Nama referensi menunjukkan apa yang diambil**: "Apple Style" → visual, "Sound efex" → SFX, "Audio" → musik, "Kinetic typography" → teks. Kolom "Diambil untuk" mencatatnya. Bila prompt meminta satu bagian saja (mis. "SFX seperti referensi Sound efex"), kartu itu dipinjam sebagai **teknik**; pengikat tetap dari kiblat.
 

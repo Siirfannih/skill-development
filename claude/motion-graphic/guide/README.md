@@ -30,4 +30,4 @@ Tiap folder: **Tujuan · Bagus itu seperti apa (bukti referensi) · Cara (piliha
 ## Hubungan dengan file lain
 
 - `../SKILL.md` = alur kerja + Lantai. `guide/` = rasa dan standar. `../references/` = resep teknis detail (dibuka bila guide merujuk).
-- Brief + referensi yang Irfan kirim di sesi menang atas contoh di sini. Video referensi adalah standar kualitas Irfan: target yang harus dicapai.
+- Brief + referensi yang Irfan kirim di sesi menang atas contoh di sini. Video referensi adalah contoh mutu dan sumber teknik: yang diambil tekniknya dan syarat yang membuatnya berhasil, disesuaikan dengan footage sendiri, bukan angkanya.

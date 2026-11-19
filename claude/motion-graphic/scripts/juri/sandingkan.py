@@ -38,7 +38,7 @@ def main():
     d.text((6, 10), f"KITA  ({len(a)} still: {ours})", fill=(0, 0, 0)); d.text((L.width + 18, 10), f"KIBLAT  ({ref})", fill=(0, 0, 0))
     S.paste(L, (0, 34)); S.paste(R, (L.width + 12, 34))
     os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); S.save(out, quality=88)
-    print(f"SANDING {out}  ({S.width}x{S.height}). Buka gambar ini, lalu isi qc/JURI.md per butir 'Cek kemiripan' di kartu kiblat.")
+    print(f"SANDING {out}  ({S.width}x{S.height}). Buka gambar ini, lalu isi qc/JURI.md per pertanyaan 'Yang harus terasa sama saat disandingkan' di kartu kiblat (kartu format lama: 'Cek kemiripan'), dijawab dari yang terlihat.")
 
 if __name__ == "__main__":
     main()
