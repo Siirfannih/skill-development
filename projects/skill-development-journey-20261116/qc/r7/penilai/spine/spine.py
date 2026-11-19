@@ -45,7 +45,16 @@ teks(b, (1230, 400), 'ngebikin', font('Poppins700', 96), PUTIH)
 simpan(b, '1_R1_narasi_wajah', '1 · R1 NARASI (wajah) · Poppins 700 putih hangat, tanpa wadah, satu titik di dinding kosong, bertumpuk per frasa')
 
 # 2 · R1 narasi di adegan UI: di kanvas luar jendela, huruf sama, warna tinta karena kanvas terang (seperti R4)
-simpan(frame(R4, 24.75).convert('RGBA'), '2_R1_narasi_UI', '2 · R1 NARASI (UI) · huruf & ukuran-logika sama, tinta gelap di kanvas krem LUAR jendela; kolom prompt hanya prompt asli')
+b = frame(R4, 24.75)
+# hapus narasi R4 lama di kanvas krem bawah: piksel gelap di bawah jendela diganti warna krem tetangganya
+px = b.load(); W_, H_ = b.size
+for y in range(885, H_):
+    for x in range(0, 1440):
+        px[x, y] = px[x, 880]
+b = b.convert('RGBA')
+teks(b, (1515, 330), 'sebuah', font('Poppins700', 70), HITAM, bayang=False)
+teks(b, (1515, 410), 'template.', font('Poppins800', 76), HITAM, bayang=False)
+simpan(b, '2_R1_narasi_UI', '2 · R1 NARASI (UI) · BARU: perlakuan narasi wajah, ditumpuk satu titik di ruang krem samping jendela, tinta gelap; kolom prompt hanya prompt asli')
 
 # 3 · R1 narasi di meja 3D: datar di layar, perlakuan sama, di dinding gelap kosong (bukan miring melayang)
 b = frame('/mnt/storage-projects/skill-dev-journey/b10a/out/b10a.mov', 3.1).convert('RGBA')
@@ -53,24 +62,22 @@ teks(b, (130, 300), 'menurut', font('Poppins700', 92), PUTIH)
 teks(b, (130, 400), 'kalian', font('Poppins700', 92), PUTIH)
 simpan(b, '3_R1_narasi_meja', '3 · R1 NARASI (meja 3D, opsi b) · datar, perlakuan sama, di dinding gelap kiri, tidak menimpa monitor')
 
-# 4 · R6 slab + R4 label: slab terbelah mengapit kepala, label rapat di atas pada sumbu slab
-t = 37.6; face = frame(W, t); mat = frame(M, t, gray=True)
-bg = face.convert('RGBA'); f = font('Anton', 172)
-teks(bg, (50, 262), 'WORKFLOW', f, PUTIH); teks(bg, (1185, 262), '-NYA', f, PUTIH)
-teks(bg, (54, 218), 'cuma mempelajari', font('Poppins600', 46), PUTIH)
-simpan(potong_orang(face, mat, bg.convert('RGB')).convert('RGBA'), '4_R6_slab_R4_label', '4 · R6 SLAB + R4 LABEL · kata mengapit kepala (yang tertutup bukan huruf penentu), label rapat di atas sumbu slab')
+# 4 · R6 slab + R4 label: satu slab utuh di belakang kepala seperti sebelumnya (D-477a), label rapat di atasnya
+simpan(frame('qc/r7/visual_r7_fin_ekor.mp4', 37.75).convert('RGBA'), '4_R6_slab_R4_label', '4 · R6 SLAB + R4 LABEL · satu slab utuh di belakang kepala (seperti sebelumnya), label rapat di atas')
 
-# 5 · R3 punchline PROFESIONAL: layar penuh chartreuse, kata raksasa hitam, Irfan di depan
-t = 78.75; face = frame(W, t); mat = frame(M, t, gray=True)
-bg = Image.new('RGBA', (1920, 1080), CHART + (255,))
-teks(bg, (960, 70), 'PROFESIONAL', font('Anton', 290), HITAM, bayang=False, anchor='ma')
-simpan(potong_orang(face, mat, bg.convert('RGB'), turun=300).convert('RGBA'), '5_R3_punchline_PROFESIONAL', '5 · R3 PUNCHLINE · layar penuh satu warna (tanpa UI IG), kata raksasa, Irfan di depan')
+def kanvas(kata, warna, tinta, nama, label, ukuran=330):
+    """Punchline fokus teks saja (D-477b, bentuk 'CONTENT'): kanvas satu warna, kata raksasa memenuhi lebar, garis titik tipis."""
+    bg = Image.new('RGBA', (1920, 1080), warna + (255,)); d = ImageDraw.Draw(bg)
+    f = font('Anton', ukuran)
+    while d.textlength(kata, font=f) > 1800: ukuran -= 10; f = font('Anton', ukuran)
+    for y in (300, 800):
+        for x in range(30, 1900, 26): d.ellipse([x, y, x + 6, y + 6], fill=tinta + (255,))
+    teks(bg, (960, 550), kata, f, tinta, bayang=False, anchor='mm')
+    simpan(bg, nama, label)
 
-# 6 · R3 punchline SKILL GRATIS: satu kelompok, SKILL rapat di atas GRATIS pada sumbu sama
-t = 82.75; face = frame(W, t); mat = frame(M, t, gray=True)
-bg = Image.new('RGBA', (1920, 1080), BIRU + (255,))
-teks(bg, (960, 70), 'SKILL GRATIS', font('Anton', 290), PUTIH, bayang=False, anchor='ma')
-simpan(potong_orang(face, mat, bg.convert('RGB'), turun=300).convert('RGBA'), '6_R3_punchline_SKILL_GRATIS', '6 · R3 PUNCHLINE · "SKILL GRATIS" satu kelompok rapat, layar penuh biru, Irfan di depan')
+# 5, 6 · R3 punchline: hanya teks
+kanvas('PROFESIONAL', CHART, HITAM, '5_R3_punchline_PROFESIONAL', '5 · R3 PUNCHLINE · fokus teks saja: chartreuse penuh, kata raksasa memenuhi lebar, tanpa footage (satu beat)')
+kanvas('SKILL GRATIS', BIRU, PUTIH, '6_R3_punchline_SKILL_GRATIS', '6 · R3 PUNCHLINE · fokus teks saja: biru penuh, "SKILL GRATIS" satu baris, tanpa footage')
 
 # 7 · R1 cincin (ronde 4) apa adanya dari basis terbaru
 simpan(frame('qc/r7/visual_r7_fin_ekor.mp4', 55.4).convert('RGBA'), '7_R1_cincin', '7 · R1 NARASI bentuk cincin (basis r4) · huruf & warna sama dengan R1, melingkar di belakang kepala')
