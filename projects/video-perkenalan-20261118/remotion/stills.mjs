@@ -7,7 +7,7 @@ import fs from 'node:fs';
 const [out, scale, ...frames] = process.argv.slice(2);
 fs.mkdirSync(out, {recursive: true});
 const serveUrl = await bundle({entryPoint: path.resolve('src/index.ts'), publicDir: path.resolve('public')});
-const composition = await selectComposition({serveUrl, id: 'Perkenalan'});
+const composition = await selectComposition({serveUrl, id: process.env.COMP ?? 'Perkenalan'});
 for (const f of frames) {
   const t = Date.now();
   await renderStill({serveUrl, composition, frame: Number(f), output: `${out}/f${String(f).padStart(4, '0')}.jpg`, imageFormat: 'jpeg', jpegQuality: 88,

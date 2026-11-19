@@ -1,0 +1,1622 @@
+[
+ {
+  "id": "T001",
+  "kata": [
+   0,
+   1
+  ],
+  "teks": "oke kita",
+  "t": 0.133,
+  "dur": 0.333,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   612,
+   1286
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T002",
+  "kata": [
+   2,
+   3
+  ],
+  "teks": "ULANGI lagi",
+  "t": 0.467,
+  "dur": 0.733,
+  "peran": "R3",
+  "kode": "T03",
+  "gaya": "kiblat 87",
+  "pos": [
+   529,
+   595
+  ],
+  "alasan": "klaim/kata negatif: kapital di belakang kepala, slam + getar (kartu 87 T3 lapis belakang, Lantai R3) · zona belakang kepala"
+ },
+ {
+  "id": "T003",
+  "kata": [
+   4,
+   5
+  ],
+  "teks": "jadi perkenalkan",
+  "t": 1.2,
+  "dur": 0.667,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   557,
+   1336
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T004",
+  "kata": [
+   6,
+   8
+  ],
+  "teks": "nama aku IRFAN",
+  "t": 1.867,
+  "dur": 0.833,
+  "peran": "R6",
+  "kode": "T31",
+  "gaya": "kiblat 87",
+  "pos": [
+   569,
+   594
+  ],
+  "alasan": "kata hero (nama, hasil): depth push dari jauh ke bidang fokus di belakang kepala, maks 2× (typography §8) · zona belakang kepala"
+ },
+ {
+  "id": "T005",
+  "kata": [
+   9,
+   11
+  ],
+  "teks": "dan beberapa kali",
+  "t": 2.7,
+  "dur": 0.9,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   700,
+   1318
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T006",
+  "kata": [
+   12,
+   14
+  ],
+  "teks": "sebelumnya aku udah",
+  "t": 3.6,
+  "dur": 0.733,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   542,
+   1320
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T007",
+  "kata": [
+   15,
+   17
+  ],
+  "teks": "pernah sempat bilang",
+  "t": 4.333,
+  "dur": 0.733,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   696,
+   1338
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T008",
+  "kata": [
+   18,
+   20
+  ],
+  "teks": "kalau aku bakal",
+  "t": 5.067,
+  "dur": 0.733,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   541,
+   1335
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T009",
+  "kata": [
+   21,
+   22
+  ],
+  "teks": "konsisten konten",
+  "t": 5.8,
+  "dur": 0.733,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   641,
+   1318
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T010",
+  "kata": [
+   23,
+   23
+  ],
+  "teks": "tapi",
+  "t": 6.533,
+  "dur": 0.1,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   489,
+   1346
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T011",
+  "kata": [
+   24,
+   26
+  ],
+  "teks": "gak jadi-jadi",
+  "t": 6.633,
+  "dur": 0.867,
+  "peran": "R3",
+  "kode": "T03",
+  "gaya": "kiblat 87",
+  "pos": [
+   576,
+   582
+  ],
+  "alasan": "klaim/kata negatif: kapital di belakang kepala, slam + getar (kartu 87 T3 lapis belakang, Lantai R3) · zona belakang kepala"
+ },
+ {
+  "id": "T012",
+  "kata": [
+   27,
+   29
+  ],
+  "teks": "bukan karena aku",
+  "t": 7.5,
+  "dur": 0.633,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   562,
+   1280
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T013",
+  "kata": [
+   30,
+   32
+  ],
+  "teks": "gak punya ide",
+  "t": 8.133,
+  "dur": 0.567,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   686,
+   1300
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T014",
+  "kata": [
+   33,
+   35
+  ],
+  "teks": "atau kehabisan ide",
+  "t": 8.7,
+  "dur": 0.933,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   491,
+   1378
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T015",
+  "kata": [
+   36,
+   38
+  ],
+  "teks": "tapi karena aku",
+  "t": 9.633,
+  "dur": 0.9,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   660,
+   1263
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T016",
+  "kata": [
+   39,
+   40
+  ],
+  "teks": "harus ngembangin",
+  "t": 10.533,
+  "dur": 0.533,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   539,
+   1319
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T017",
+  "kata": [
+   41,
+   42
+  ],
+  "teks": "sebuah produk",
+  "t": 11.067,
+  "dur": 0.533,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   651,
+   1354
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T018",
+  "kata": [
+   43,
+   45
+  ],
+  "teks": "dan aku harus",
+  "t": 11.6,
+  "dur": 0.5,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   449,
+   1355
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T019",
+  "kata": [
+   46,
+   48
+  ],
+  "teks": "fokus di sana",
+  "t": 12.1,
+  "dur": 0.9,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   659,
+   1342
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T020",
+  "kata": [
+   49,
+   50
+  ],
+  "teks": "so dalam",
+  "t": 13.0,
+  "dur": 0.633,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   536,
+   1280
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T021",
+  "kata": [
+   51,
+   52
+  ],
+  "teks": "enam bulan",
+  "t": 13.633,
+  "dur": 0.333,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   579,
+   1316
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T022",
+  "kata": [
+   53,
+   55
+  ],
+  "teks": "belakangan ini aku",
+  "t": 13.967,
+  "dur": 0.767,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   518,
+   1324
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T023",
+  "kata": [
+   56,
+   57
+  ],
+  "teks": "sudah ngebangun",
+  "t": 14.733,
+  "dur": 0.467,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   697,
+   1289
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T024",
+  "kata": [
+   58,
+   59
+  ],
+  "teks": "beberapa produk",
+  "t": 15.2,
+  "dur": 0.833,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   545,
+   1335
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T025",
+  "kata": [
+   60,
+   62
+  ],
+  "teks": "dan produk itu",
+  "t": 16.033,
+  "dur": 0.8,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   671,
+   1286
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T026",
+  "kata": [
+   63,
+   65
+  ],
+  "teks": "belum di-launching",
+  "t": 16.833,
+  "dur": 0.633,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   484,
+   1312
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T027",
+  "kata": [
+   66,
+   67
+  ],
+  "teks": "sama sekali",
+  "t": 17.467,
+  "dur": 0.633,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   682,
+   1319
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T028",
+  "kata": [
+   68,
+   70
+  ],
+  "teks": "karena aku terjebak",
+  "t": 18.1,
+  "dur": 0.933,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   501,
+   1285
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T029",
+  "kata": [
+   71,
+   72
+  ],
+  "teks": "builder trap",
+  "t": 19.033,
+  "dur": 0.833,
+  "peran": "R3",
+  "kode": "T03",
+  "gaya": "kiblat 87",
+  "pos": [
+   559,
+   595
+  ],
+  "alasan": "klaim/kata negatif: kapital di belakang kepala, slam + getar (kartu 87 T3 lapis belakang, Lantai R3) · zona belakang kepala"
+ },
+ {
+  "id": "T030",
+  "kata": [
+   73,
+   75
+  ],
+  "teks": "katanya itu adalah",
+  "t": 19.867,
+  "dur": 0.533,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   613,
+   1678
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona bawah"
+ },
+ {
+  "id": "T031",
+  "kata": [
+   76,
+   76
+  ],
+  "teks": "penyakit",
+  "t": 20.4,
+  "dur": 0.3,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   609,
+   1617
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona bawah"
+ },
+ {
+  "id": "T032",
+  "kata": [
+   77,
+   78
+  ],
+  "teks": "seorang founder",
+  "t": 20.7,
+  "dur": 0.767,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   602,
+   1678
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona bawah"
+ },
+ {
+  "id": "T033",
+  "kata": [
+   79,
+   81
+  ],
+  "teks": "dan karena rasa",
+  "t": 21.467,
+  "dur": 1.1,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   588,
+   1693
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dagu"
+ },
+ {
+  "id": "T034",
+  "kata": [
+   82,
+   82
+  ],
+  "teks": "anxiety",
+  "t": 22.567,
+  "dur": 0.7,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   481,
+   1596
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T035",
+  "kata": [
+   83,
+   83
+  ],
+  "teks": "overthinking",
+  "t": 23.267,
+  "dur": 0.633,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   586,
+   1464
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T036",
+  "kata": [
+   84,
+   85
+  ],
+  "teks": "dan ngerasa",
+  "t": 23.9,
+  "dur": 0.633,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   506,
+   1490
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T037",
+  "kata": [
+   86,
+   88
+  ],
+  "teks": "kalau produknya itu",
+  "t": 24.533,
+  "dur": 0.633,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   668,
+   1520
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T038",
+  "kata": [
+   89,
+   90
+  ],
+  "teks": "belum layak",
+  "t": 25.167,
+  "dur": 0.667,
+  "peran": "R3",
+  "kode": "T03",
+  "gaya": "kiblat 87",
+  "pos": [
+   528,
+   368
+  ],
+  "alasan": "klaim/kata negatif: kapital di belakang kepala, slam + getar (kartu 87 T3 lapis belakang, Lantai R3) · zona belakang kepala"
+ },
+ {
+  "id": "T039",
+  "kata": [
+   91,
+   91
+  ],
+  "teks": "tapi",
+  "t": 25.833,
+  "dur": 0.5,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   565,
+   1275
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T040",
+  "kata": [
+   92,
+   93
+  ],
+  "teks": "gimana kalau",
+  "t": 26.333,
+  "dur": 0.767,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   429,
+   1455
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T041",
+  "kata": [
+   94,
+   94
+  ],
+  "teks": "resiko",
+  "t": 27.1,
+  "dur": 0.367,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   594,
+   1365
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T042",
+  "kata": [
+   95,
+   96
+  ],
+  "teks": "itu sebenarnya",
+  "t": 27.467,
+  "dur": 0.467,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   433,
+   1462
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T043",
+  "kata": [
+   97,
+   98
+  ],
+  "teks": "gak ada",
+  "t": 27.933,
+  "dur": 0.467,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   606,
+   1468
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T044",
+  "kata": [
+   99,
+   101
+  ],
+  "teks": "dan overthinking itu",
+  "t": 28.4,
+  "dur": 1.233,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   498,
+   1378
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T045",
+  "kata": [
+   102,
+   103
+  ],
+  "teks": "semuanya adalah",
+  "t": 29.633,
+  "dur": 0.367,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   672,
+   1441
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T046",
+  "kata": [
+   104,
+   104
+  ],
+  "teks": "PALSU",
+  "t": 30.0,
+  "dur": 0.8,
+  "peran": "R3",
+  "kode": "T03",
+  "gaya": "kiblat 87",
+  "pos": [
+   534,
+   519
+  ],
+  "alasan": "klaim/kata negatif: kapital di belakang kepala, slam + getar (kartu 87 T3 lapis belakang, Lantai R3) · zona belakang kepala"
+ },
+ {
+  "id": "T047",
+  "kata": [
+   105,
+   107
+  ],
+  "teks": "jadi aku membangun",
+  "t": 30.8,
+  "dur": 0.633,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   602,
+   1150
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T048",
+  "kata": [
+   108,
+   109
+  ],
+  "teks": "beberapa produk",
+  "t": 31.433,
+  "dur": 0.8,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   402,
+   1192
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T049",
+  "kata": [
+   110,
+   112
+  ],
+  "teks": "salah satunya adalah",
+  "t": 32.233,
+  "dur": 0.7,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   618,
+   1174
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T050",
+  "kata": [
+   113,
+   114
+  ],
+  "teks": "skill development",
+  "t": 32.933,
+  "dur": 0.6,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   530,
+   1190
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T051",
+  "kata": [
+   115,
+   116
+  ],
+  "teks": "ini adalah",
+  "t": 33.533,
+  "dur": 0.433,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   644,
+   1169
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T052",
+  "kata": [
+   117,
+   119
+  ],
+  "teks": "skill yang membantu",
+  "t": 33.967,
+  "dur": 0.733,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   447,
+   1232
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T053",
+  "kata": [
+   120,
+   122
+  ],
+  "teks": "aku untuk ngedit",
+  "t": 34.7,
+  "dur": 0.567,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   636,
+   1215
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T054",
+  "kata": [
+   123,
+   124
+  ],
+  "teks": "video ini",
+  "t": 35.267,
+  "dur": 0.7,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   498,
+   1173
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T055",
+  "kata": [
+   125,
+   126
+  ],
+  "teks": "semuanya full",
+  "t": 35.967,
+  "dur": 0.767,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   610,
+   1157
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T056",
+  "kata": [
+   127,
+   128
+  ],
+  "teks": "100%",
+  "t": 36.733,
+  "dur": 0.9,
+  "peran": "R3",
+  "kode": "T03",
+  "gaya": "kiblat 87",
+  "pos": [
+   530,
+   475
+  ],
+  "alasan": "klaim/kata negatif: kapital di belakang kepala, slam + getar (kartu 87 T3 lapis belakang, Lantai R3) · zona belakang kepala"
+ },
+ {
+  "id": "T057",
+  "kata": [
+   129,
+   130
+  ],
+  "teks": "aku bahkan",
+  "t": 37.633,
+  "dur": 0.467,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   633,
+   1182
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T058",
+  "kata": [
+   131,
+   132
+  ],
+  "teks": "gak megang",
+  "t": 38.1,
+  "dur": 0.733,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   472,
+   1182
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T059",
+  "kata": [
+   133,
+   134
+  ],
+  "teks": "video editor",
+  "t": 38.833,
+  "dur": 0.533,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   614,
+   1157
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T060",
+  "kata": [
+   135,
+   136
+  ],
+  "teks": "sama sekali",
+  "t": 39.367,
+  "dur": 0.433,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   476,
+   1166
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T061",
+  "kata": [
+   137,
+   139
+  ],
+  "teks": "aku gak buka",
+  "t": 39.8,
+  "dur": 0.5,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   642,
+   1183
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T062",
+  "kata": [
+   140,
+   140
+  ],
+  "teks": "CapCut",
+  "t": 40.3,
+  "dur": 0.433,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   444,
+   1161
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T063",
+  "kata": [
+   141,
+   143
+  ],
+  "teks": "aku gak buka",
+  "t": 40.733,
+  "dur": 0.533,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   650,
+   1164
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T064",
+  "kata": [
+   144,
+   146
+  ],
+  "teks": "Adobe Premiere Pro",
+  "t": 41.267,
+  "dur": 0.767,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   533,
+   1193
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T065",
+  "kata": [
+   147,
+   149
+  ],
+  "teks": "aku gak buka",
+  "t": 42.033,
+  "dur": 0.833,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   628,
+   1216
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T066",
+  "kata": [
+   150,
+   151
+  ],
+  "teks": "After Effects",
+  "t": 42.867,
+  "dur": 0.867,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   534,
+   1198
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T067",
+  "kata": [
+   152,
+   154
+  ],
+  "teks": "semuanya full diedit",
+  "t": 43.733,
+  "dur": 1.333,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   614,
+   1137
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T068",
+  "kata": [
+   155,
+   156
+  ],
+  "teks": "pake AI",
+  "t": 45.067,
+  "dur": 0.767,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   448,
+   1183
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T069",
+  "kata": [
+   157,
+   158
+  ],
+  "teks": "dan pake",
+  "t": 45.833,
+  "dur": 0.667,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   684,
+   1187
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T070",
+  "kata": [
+   159,
+   161
+  ],
+  "teks": "workflow skill development",
+  "t": 46.5,
+  "dur": 1.233,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   514,
+   1184
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T071",
+  "kata": [
+   162,
+   163
+  ],
+  "teks": "itulah kenapa",
+  "t": 47.733,
+  "dur": 0.567,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   654,
+   1141
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T072",
+  "kata": [
+   164,
+   166
+  ],
+  "teks": "video ini rasanya",
+  "t": 48.3,
+  "dur": 0.633,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   498,
+   1167
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T073",
+  "kata": [
+   167,
+   167
+  ],
+  "teks": "BERBEDA",
+  "t": 48.933,
+  "dur": 0.733,
+  "peran": "R6",
+  "kode": "T31",
+  "gaya": "kiblat 87",
+  "pos": [
+   554,
+   373
+  ],
+  "alasan": "kata hero (nama, hasil): depth push dari jauh ke bidang fokus di belakang kepala, maks 2× (typography §8) · zona belakang kepala"
+ },
+ {
+  "id": "T074",
+  "kata": [
+   168,
+   170
+  ],
+  "teks": "dan aku juga",
+  "t": 49.667,
+  "dur": 0.733,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   472,
+   1172
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T075",
+  "kata": [
+   171,
+   172
+  ],
+  "teks": "masih punya",
+  "t": 50.4,
+  "dur": 0.4,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   654,
+   1151
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T076",
+  "kata": [
+   173,
+   174
+  ],
+  "teks": "beberapa produk",
+  "t": 50.8,
+  "dur": 0.833,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   434,
+   1190
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T077",
+  "kata": [
+   175,
+   176
+  ],
+  "teks": "yang belum",
+  "t": 51.633,
+  "dur": 0.333,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   588,
+   1190
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T078",
+  "kata": [
+   177,
+   178
+  ],
+  "teks": "aku launching",
+  "t": 51.967,
+  "dur": 0.667,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   460,
+   1200
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T079",
+  "kata": [
+   179,
+   181
+  ],
+  "teks": "dan aku bakal",
+  "t": 52.633,
+  "dur": 0.6,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   632,
+   1201
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T080",
+  "kata": [
+   182,
+   184
+  ],
+  "teks": "share banyak tips",
+  "t": 53.233,
+  "dur": 0.667,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   508,
+   1201
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T081",
+  "kata": [
+   185,
+   187
+  ],
+  "teks": "di akun ini",
+  "t": 53.9,
+  "dur": 0.6,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   622,
+   1167
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T082",
+  "kata": [
+   188,
+   189
+  ],
+  "teks": "terkait produk",
+  "t": 54.5,
+  "dur": 0.6,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   467,
+   1163
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T083",
+  "kata": [
+   190,
+   192
+  ],
+  "teks": "yang aku launching",
+  "t": 55.1,
+  "dur": 0.933,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   635,
+   1192
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T084",
+  "kata": [
+   193,
+   195
+  ],
+  "teks": "terkait apa yang",
+  "t": 56.033,
+  "dur": 0.533,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   479,
+   1196
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T085",
+  "kata": [
+   196,
+   197
+  ],
+  "teks": "aku pelajari",
+  "t": 56.567,
+  "dur": 0.667,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   620,
+   1222
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T086",
+  "kata": [
+   198,
+   200
+  ],
+  "teks": "dan bagaimana cara",
+  "t": 57.233,
+  "dur": 1.133,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   482,
+   1176
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T087",
+  "kata": [
+   201,
+   203
+  ],
+  "teks": "aku keluar dari",
+  "t": 58.367,
+  "dur": 0.567,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   619,
+   1236
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ },
+ {
+  "id": "T088",
+  "kata": [
+   204,
+   205
+  ],
+  "teks": "builder trap",
+  "t": 58.933,
+  "dur": 0.9,
+  "peran": "R3",
+  "kode": "T03",
+  "gaya": "kiblat 87",
+  "pos": [
+   552,
+   423
+  ],
+  "alasan": "klaim/kata negatif: kapital di belakang kepala, slam + getar (kartu 87 T3 lapis belakang, Lantai R3) · zona belakang kepala"
+ },
+ {
+  "id": "T089",
+  "kata": [
+   206,
+   208
+  ],
+  "teks": "so selamat datang",
+  "t": 59.833,
+  "dur": 1.033,
+  "peran": "R2",
+  "kode": "T30",
+  "gaya": "kiblat 87",
+  "pos": [
+   551,
+   1161
+  ],
+  "alasan": "kata kunci: kuning per huruf berayun ke 0° + glow amber (kartu 87 T2, KT-ZACHE arc swing) · zona dada"
+ },
+ {
+  "id": "T090",
+  "kata": [
+   209,
+   210
+  ],
+  "teks": "di akunku",
+  "t": 60.867,
+  "dur": 0.567,
+  "peran": "R1",
+  "kode": "T19",
+  "gaya": "kiblat 87",
+  "pos": [
+   466,
+   1205
+  ],
+  "alasan": "narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1) · zona dada"
+ }
+]

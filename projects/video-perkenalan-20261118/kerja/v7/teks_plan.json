@@ -1,0 +1,1202 @@
+[
+ {
+  "id": "T001",
+  "kata": [
+   0,
+   2
+  ],
+  "teks": "oke kita ulangi",
+  "t": 0.147,
+  "dur": 0.72,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T002",
+  "kata": [
+   3,
+   5
+  ],
+  "teks": "lagi jadi perkenalkan",
+  "t": 0.867,
+  "dur": 1.15,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T003",
+  "kata": [
+   6,
+   8
+  ],
+  "teks": "nama aku irfan",
+  "t": 2.048,
+  "dur": 0.66,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T004",
+  "kata": [
+   9,
+   11
+  ],
+  "teks": "dan beberapa kali",
+  "t": 2.708,
+  "dur": 0.9,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T005",
+  "kata": [
+   12,
+   14
+  ],
+  "teks": "sebelumnya aku udah",
+  "t": 3.608,
+  "dur": 0.72,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T006",
+  "kata": [
+   15,
+   17
+  ],
+  "teks": "pernah sempat bilang",
+  "t": 4.328,
+  "dur": 0.741,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T007",
+  "kata": [
+   18,
+   20
+  ],
+  "teks": "kalau aku bakal",
+  "t": 5.069,
+  "dur": 0.72,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T008",
+  "kata": [
+   21,
+   23
+  ],
+  "teks": "konsisten konten tapi",
+  "t": 5.789,
+  "dur": 1.0,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T009",
+  "kata": [
+   24,
+   26
+  ],
+  "teks": "gak jadi jadi",
+  "t": 6.789,
+  "dur": 0.701,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T010",
+  "kata": [
+   27,
+   29
+  ],
+  "teks": "bukan karena aku",
+  "t": 7.49,
+  "dur": 0.64,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T011",
+  "kata": [
+   30,
+   32
+  ],
+  "teks": "gak punya ide",
+  "t": 8.13,
+  "dur": 0.56,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T012",
+  "kata": [
+   33,
+   35
+  ],
+  "teks": "atau kehabisan ide",
+  "t": 8.69,
+  "dur": 0.96,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T013",
+  "kata": [
+   36,
+   38
+  ],
+  "teks": "tapi karena aku",
+  "t": 9.65,
+  "dur": 0.881,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T014",
+  "kata": [
+   39,
+   41
+  ],
+  "teks": "harus ngembangin sebuah",
+  "t": 10.531,
+  "dur": 0.74,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T015",
+  "kata": [
+   42,
+   44
+  ],
+  "teks": "produk dan aku",
+  "t": 11.271,
+  "dur": 0.66,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T016",
+  "kata": [
+   45,
+   47
+  ],
+  "teks": "harus fokus di",
+  "t": 11.931,
+  "dur": 0.66,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T017",
+  "kata": [
+   48,
+   49
+  ],
+  "teks": "sana so",
+  "t": 12.591,
+  "dur": 0.821,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T018",
+  "kata": [
+   50,
+   52
+  ],
+  "teks": "dalam enam bulan",
+  "t": 13.412,
+  "dur": 0.54,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T019",
+  "kata": [
+   53,
+   55
+  ],
+  "teks": "belakangan ini aku",
+  "t": 13.952,
+  "dur": 0.78,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T020",
+  "kata": [
+   56,
+   58
+  ],
+  "teks": "sudah ngebangun beberapa",
+  "t": 14.732,
+  "dur": 0.82,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T021",
+  "kata": [
+   59,
+   61
+  ],
+  "teks": "produk dan produk",
+  "t": 15.552,
+  "dur": 1.121,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T022",
+  "kata": [
+   62,
+   64
+  ],
+  "teks": "itu belum di",
+  "t": 16.673,
+  "dur": 0.46,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T023",
+  "kata": [
+   65,
+   67
+  ],
+  "teks": "launching sama sekali",
+  "t": 17.133,
+  "dur": 0.96,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T024",
+  "kata": [
+   68,
+   70
+  ],
+  "teks": "karena aku terjebak",
+  "t": 18.093,
+  "dur": 1.101,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T025",
+  "kata": [
+   71,
+   73
+  ],
+  "teks": "builder trap katanya",
+  "t": 19.194,
+  "dur": 0.94,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T026",
+  "kata": [
+   74,
+   76
+  ],
+  "teks": "itu adalah penyakit",
+  "t": 20.134,
+  "dur": 0.58,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T027",
+  "kata": [
+   77,
+   79
+  ],
+  "teks": "seorang founder dan",
+  "t": 20.714,
+  "dur": 1.15,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T028",
+  "kata": [
+   80,
+   82
+  ],
+  "teks": "karena rasa anxiety",
+  "t": 21.995,
+  "dur": 1.15,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T029",
+  "kata": [
+   83,
+   85
+  ],
+  "teks": "overthinking dan ngerasa",
+  "t": 23.255,
+  "dur": 1.15,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T030",
+  "kata": [
+   86,
+   88
+  ],
+  "teks": "kalau produknya itu",
+  "t": 24.535,
+  "dur": 0.801,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T031",
+  "kata": [
+   89,
+   91
+  ],
+  "teks": "belum layak tapi",
+  "t": 25.336,
+  "dur": 1.0,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T032",
+  "kata": [
+   92,
+   94
+  ],
+  "teks": "gimana kalau resiko",
+  "t": 26.336,
+  "dur": 1.12,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T033",
+  "kata": [
+   95,
+   97
+  ],
+  "teks": "itu sebenarnya gak",
+  "t": 27.456,
+  "dur": 0.561,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T034",
+  "kata": [
+   98,
+   99
+  ],
+  "teks": "ada dan",
+  "t": 28.017,
+  "dur": 0.85,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T035",
+  "kata": [
+   100,
+   102
+  ],
+  "teks": "overthinking itu semuanya",
+  "t": 28.917,
+  "dur": 1.02,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T036",
+  "kata": [
+   103,
+   104
+  ],
+  "teks": "adalah palsu",
+  "t": 29.937,
+  "dur": 0.85,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T037",
+  "kata": [
+   105,
+   107
+  ],
+  "teks": "jadi aku membangun",
+  "t": 30.798,
+  "dur": 0.62,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T038",
+  "kata": [
+   108,
+   110
+  ],
+  "teks": "beberapa produk salah",
+  "t": 31.418,
+  "dur": 1.02,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T039",
+  "kata": [
+   111,
+   113
+  ],
+  "teks": "satunya adalah skill",
+  "t": 32.438,
+  "dur": 0.66,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T040",
+  "kata": [
+   114,
+   116
+  ],
+  "teks": "development ini adalah",
+  "t": 33.098,
+  "dur": 0.861,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T041",
+  "kata": [
+   117,
+   119
+  ],
+  "teks": "skill yang membantu",
+  "t": 33.959,
+  "dur": 0.74,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T042",
+  "kata": [
+   120,
+   122
+  ],
+  "teks": "aku untuk ngedit",
+  "t": 34.699,
+  "dur": 0.58,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T043",
+  "kata": [
+   123,
+   124
+  ],
+  "teks": "video ini",
+  "t": 35.279,
+  "dur": 0.68,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T044",
+  "kata": [
+   125,
+   127
+  ],
+  "teks": "semuanya full seratus",
+  "t": 35.959,
+  "dur": 1.204,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T045",
+  "kata": [
+   128,
+   130
+  ],
+  "teks": "persen aku bahkan",
+  "t": 37.22,
+  "dur": 0.88,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T046",
+  "kata": [
+   131,
+   133
+  ],
+  "teks": "gak megang video",
+  "t": 38.1,
+  "dur": 0.96,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T047",
+  "kata": [
+   134,
+   136
+  ],
+  "teks": "editor sama sekali",
+  "t": 39.06,
+  "dur": 0.741,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T048",
+  "kata": [
+   137,
+   139
+  ],
+  "teks": "aku gak buka",
+  "t": 39.801,
+  "dur": 0.5,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T049",
+  "kata": [
+   140,
+   142
+  ],
+  "teks": "capcut aku gak",
+  "t": 40.301,
+  "dur": 0.7,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T050",
+  "kata": [
+   143,
+   145
+  ],
+  "teks": "buka adobe premiere",
+  "t": 41.001,
+  "dur": 0.82,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T051",
+  "kata": [
+   146,
+   148
+  ],
+  "teks": "pro aku gak",
+  "t": 41.821,
+  "dur": 0.561,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T052",
+  "kata": [
+   149,
+   151
+  ],
+  "teks": "buka after effects",
+  "t": 42.382,
+  "dur": 1.15,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T053",
+  "kata": [
+   152,
+   154
+  ],
+  "teks": "semuanya full diedit",
+  "t": 43.742,
+  "dur": 1.243,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T054",
+  "kata": [
+   155,
+   157
+  ],
+  "teks": "pake ai dan",
+  "t": 45.082,
+  "dur": 1.101,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T055",
+  "kata": [
+   158,
+   160
+  ],
+  "teks": "pake workflow skill",
+  "t": 46.183,
+  "dur": 0.98,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T056",
+  "kata": [
+   161,
+   163
+  ],
+  "teks": "development itulah kenapa",
+  "t": 47.163,
+  "dur": 1.121,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T057",
+  "kata": [
+   164,
+   166
+  ],
+  "teks": "video ini rasanya",
+  "t": 48.284,
+  "dur": 0.82,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T058",
+  "kata": [
+   167,
+   169
+  ],
+  "teks": "berbeda dan aku",
+  "t": 49.104,
+  "dur": 1.1,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T059",
+  "kata": [
+   170,
+   172
+  ],
+  "teks": "juga masih punya",
+  "t": 50.204,
+  "dur": 0.6,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T060",
+  "kata": [
+   173,
+   175
+  ],
+  "teks": "beberapa produk yang",
+  "t": 50.804,
+  "dur": 0.981,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T061",
+  "kata": [
+   176,
+   178
+  ],
+  "teks": "belum aku launching",
+  "t": 51.785,
+  "dur": 0.84,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T062",
+  "kata": [
+   179,
+   181
+  ],
+  "teks": "dan aku bakal",
+  "t": 52.625,
+  "dur": 0.6,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T063",
+  "kata": [
+   182,
+   184
+  ],
+  "teks": "share banyak tips",
+  "t": 53.225,
+  "dur": 0.661,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T064",
+  "kata": [
+   185,
+   187
+  ],
+  "teks": "di akun ini",
+  "t": 53.886,
+  "dur": 0.62,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T065",
+  "kata": [
+   188,
+   190
+  ],
+  "teks": "terkait produk yang",
+  "t": 54.506,
+  "dur": 0.72,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T066",
+  "kata": [
+   191,
+   192
+  ],
+  "teks": "aku launching",
+  "t": 55.226,
+  "dur": 0.8,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T067",
+  "kata": [
+   193,
+   195
+  ],
+  "teks": "terkait apa yang",
+  "t": 56.026,
+  "dur": 0.54,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T068",
+  "kata": [
+   196,
+   198
+  ],
+  "teks": "aku pelajari dan",
+  "t": 56.566,
+  "dur": 1.101,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T069",
+  "kata": [
+   199,
+   201
+  ],
+  "teks": "bagaimana cara aku",
+  "t": 57.667,
+  "dur": 0.86,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T070",
+  "kata": [
+   202,
+   204
+  ],
+  "teks": "keluar dari builder",
+  "t": 58.527,
+  "dur": 0.94,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T071",
+  "kata": [
+   205,
+   206
+  ],
+  "teks": "trap so",
+  "t": 59.467,
+  "dur": 0.761,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T072",
+  "kata": [
+   207,
+   209
+  ],
+  "teks": "selamat datang di",
+  "t": 60.228,
+  "dur": 0.9,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T073",
+  "kata": [
+   210,
+   210
+  ],
+  "teks": "akunku",
+  "t": 61.128,
+  "dur": 0.55,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T074",
+  "kata": [
+   211,
+   213
+  ],
+  "teks": "hai aku irfan",
+  "t": 61.708,
+  "dur": 0.901,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T075",
+  "kata": [
+   214,
+   216
+  ],
+  "teks": "dan mungkin ini",
+  "t": 62.609,
+  "dur": 0.72,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T076",
+  "kata": [
+   217,
+   219
+  ],
+  "teks": "adalah video yang",
+  "t": 63.329,
+  "dur": 0.58,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T077",
+  "kata": [
+   220,
+   222
+  ],
+  "teks": "kesekian yang kamu",
+  "t": 63.909,
+  "dur": 0.66,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T078",
+  "kata": [
+   223,
+   225
+  ],
+  "teks": "lihat memperkenalkan diri",
+  "t": 64.569,
+  "dur": 1.15,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T079",
+  "kata": [
+   226,
+   228
+  ],
+  "teks": "dan aku akan",
+  "t": 65.73,
+  "dur": 0.7,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ },
+ {
+  "id": "T080",
+  "kata": [
+   229,
+   230
+  ],
+  "teks": "ulangi lagi",
+  "t": 66.43,
+  "dur": 0.85,
+  "peran": "",
+  "kode": "",
+  "gaya": "",
+  "pos": null,
+  "alasan": ""
+ }
+]
