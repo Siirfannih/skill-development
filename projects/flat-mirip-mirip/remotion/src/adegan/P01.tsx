@@ -10,42 +10,53 @@ import {KanvasW1, useAdeganW1} from './w1-waktu';
 // Jejak P13 memakai geometri yang sama, termasuk pusat dan kemiringan sumbunya.
 export const SUMBU_ORBIT = {x: 0.5, y: 0.5, rx: 0.355, ry: 0.285, sudut: -9};
 
-export const JejakOrbit: React.FC<{durasi: number}> = ({durasi}) => {
+export const JejakOrbit: React.FC<{durasi: number; gambarSampai?: number}> = ({durasi, gambarSampai}) => {
   const frame = useCurrentFrame();
   const {width, height} = useVideoConfig();
   const sudut = SUMBU_ORBIT.sudut + 0.8 * move(frame, 0, Math.max(1, durasi - 1), 'drift');
+  const tergambar = gambarSampai === undefined ? 1 : move(frame, 0, Math.max(1, gambarSampai), 'drift');
   return <svg data-jejak-orbit width={width} height={height} style={{position: 'absolute', inset: 0}}>
     <ellipse cx={width * SUMBU_ORBIT.x} cy={height * SUMBU_ORBIT.y}
       rx={width * SUMBU_ORBIT.rx} ry={height * SUMBU_ORBIT.ry}
       transform={`rotate(${sudut} ${width * SUMBU_ORBIT.x} ${height * SUMBU_ORBIT.y})`}
-      fill="none" stroke={NETRAL.garis} strokeWidth={JARAK.s / 10}/>
+      fill="none" stroke={NETRAL.garis} strokeWidth={JARAK.s / 10}
+      pathLength={1} strokeDasharray={1} strokeDashoffset={1 - tergambar}/>
   </svg>;
 };
 
 const GAMBAR = ['k1-01', 'k1-02', 'k1-03', 'k1-04', 'k1-05', 'k1-06', 'k2-01', 'k2-02'];
 
 const Orbit: React.FC = () => {
-  const {frame, fps, width, height, durasi, cari} = useAdeganW1('P01');
+  const {frame, fps, width, height, durasi, kata, cari} = useAdeganW1('P01');
+  const di = cari('banyak'); // kartu mulai berdatangan pada "banyak video" (Sutradara r3b)
   const flat = cari('flat');
   const pertanyaan = cari('mirip-mirip?');
-  const mulai = frameDariDetik(flat.mulai, fps);
+  const mulai = frameDariDetik(di.mulai, fps);
+  const flatPada = frameDariDetik(flat.mulai, fps);
   const rapatPada = frameDariDetik(pertanyaan.mulai, fps);
   const akhir = durasi - 1;
   const sapuPada = Math.round(rapatPada + (akhir - rapatPada) * 0.64);
   const lebar = width * 0.086;
   const tinggi = lebar * 5 / 4;
-  const masuk = Math.min(dur(height * 0.5, fps, 0.35), Math.max(2, rapatPada - mulai));
-  const jedaReaksi = Math.min(0.2, Math.max(0.05, (rapatPada - mulai - masuk) / react(GAMBAR.length - 1, fps)));
+  const pemicu = kata.filter((k) => k.mulai >= di.mulai && k.mulai < flat.mulai);
+  const masuk = Math.min(dur(height * 0.5, fps, 0.35), Math.max(2,
+    flatPada - frameDariDetik(pemicu[pemicu.length - 1].mulai, fps)));
+  const masukPada = GAMBAR.map((_, urutan) => {
+    const indeksKata = Math.floor(urutan * pemicu.length / GAMBAR.length);
+    const reaksi = urutan - Math.ceil(indeksKata * GAMBAR.length / pemicu.length);
+    const onset = frameDariDetik(pemicu[indeksKata].mulai, fps);
+    return onset + Math.min(react(reaksi, fps), Math.max(0, flatPada - onset - masuk));
+  });
 
   const posisiOrbit = (waktu: number, urutan: number) => {
     const merapat = move(waktu, rapatPada, Math.max(1, sapuPada - rapatPada), 'heavy');
     const pusaran = Math.max(0, waktu - rapatPada) / Math.max(1, sapuPada - rapatPada);
     const sudut = urutan / GAMBAR.length * Math.PI * 2 - 0.3
-      + Math.max(0, waktu - mulai) / fps * 0.3 + pusaran * pusaran * Math.PI * 1.45;
+      + (waktu - flatPada) / fps * 0.3 + pusaran * pusaran * Math.PI * 1.45;
     const sumbu = (SUMBU_ORBIT.sudut + 0.8 * move(waktu, 0, akhir, 'drift')) * Math.PI / 180;
     const x = width * SUMBU_ORBIT.rx * Math.cos(sudut) * (1 - 0.24 * merapat);
     const y = height * SUMBU_ORBIT.ry * Math.sin(sudut) * (1 - 0.24 * merapat);
-    const datang = move(waktu, mulai + react(urutan, fps, jedaReaksi), masuk, 'land');
+    const datang = move(waktu, masukPada[urutan], masuk, 'land');
     return {
       x: width * SUMBU_ORBIT.x + (x * Math.cos(sumbu) - y * Math.sin(sumbu)) * (1.55 - 0.55 * datang),
       y: height * SUMBU_ORBIT.y + (x * Math.sin(sumbu) + y * Math.cos(sumbu)) * (1.55 - 0.55 * datang),
@@ -73,7 +84,7 @@ const Orbit: React.FC = () => {
   if (frame < mulai) return null;
   return <AbsoluteFill data-orbit-kartu>
     {GAMBAR.map((gambar, urutan) => {
-      if (frame < mulai + react(urutan, fps, jedaReaksi)) return null;
+      if (frame < masukPada[urutan]) return null;
       const kini = posisi(frame, urutan);
       const lalu = posisi(frame - 0.5, urutan);
       const dx = kini.x - lalu.x;
@@ -108,12 +119,13 @@ const Orbit: React.FC = () => {
 };
 
 export const P01: React.FC = () => {
-  const {frame, fps, durasi, aktif, cari, keKomposisi} = useAdeganW1('P01');
+  const {frame, fps, durasi, kata, aktif, cari, keKomposisi} = useAdeganW1('P01');
   const flat = cari('flat');
   const dan = cari('dan');
   const sedangFlat = frame >= frameDariDetik(flat.mulai, fps) && frame < frameDariDetik(dan.mulai, fps);
-  return <KanvasW1 durasi={durasi}>
-    <JejakOrbit durasi={durasi}/>
+  const akhirKelompokAwal = kata.find((k) => k.kelompok !== kata[0].kelompok)?.mulai ?? kata[kata.length - 1].selesai;
+  return <KanvasW1 durasi={durasi} push={0.04}>
+    <JejakOrbit durasi={durasi} gambarSampai={frameDariDetik(akhirKelompokAwal, fps)}/>
     <AbsoluteFill data-w1-teks>
       {sedangFlat ? <KataTekan kata={keKomposisi([flat], dan.mulai)[0]}/>
         : <KataKecil kata={keKomposisi(aktif.filter((k) => k.t !== 'flat'))}/>}

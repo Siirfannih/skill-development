@@ -37,8 +37,8 @@ export const useAdeganW1 = (id: string) => {
     akhirKelompok, cari, keKomposisi};
 };
 
-export const KanvasW1: React.FC<{durasi: number; children: React.ReactNode}> = ({durasi, children}) => {
+export const KanvasW1: React.FC<{durasi: number; push?: number; children: React.ReactNode}> = ({durasi, push = 0.012, children}) => {
   const frame = useCurrentFrame();
-  const push = 1 + 0.012 * move(frame, 0, Math.max(1, durasi - 1), 'drift');
-  return <Kanvas><AbsoluteFill style={{transform: `scale(${push})`}}>{children}</AbsoluteFill></Kanvas>;
+  const skala = 1 + push * move(frame, 0, Math.max(1, durasi - 1), 'drift');
+  return <Kanvas><AbsoluteFill style={{transform: `scale(${skala})`}}>{children}</AbsoluteFill></Kanvas>;
 };
