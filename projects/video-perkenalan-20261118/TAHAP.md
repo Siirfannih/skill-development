@@ -13,9 +13,9 @@
 | Cue SFX + mix (suara tidak diubah) | selesai | `alat/mix.py`, `kerja/mix/cues.json`; 72 cue, 1,08 cue/dtk, −16,4 LUFS, puncak −0,87 dBFS |
 | Gerbang audio HP | 60/72 cue terdengar, 0 kasar | `audio_phone.py --root kerja/mix` |
 | Render penuh 1080p + mux | selesai (93 menit) | `hasil/video-perkenalan_v6_draft.mp4`, Drive `…/hasil` |
-| Musik | menunggu pilihan Irfan | usulan kandidat di laporan |
+| Musik Aware → Relax (pilihan Irfan) | pratinjau selesai, menunggu telinga Irfan | `alat/musik.py`, `hasil/video-perkenalan_v6_musik-aware-relax.mp4`, `KREDIT.md` |
 
 ## Belum / perlu keputusan
-- Musik: draf tanpa musik (keputusan Irfan); 2–3 kandidat diusulkan setelah draf.
+- Musik: pratinjau Aware → Relax siap. Irfan perlu mendengar, terutama level hook dan bagian #17–#21.
 - Reel "Ini Irfan" resolusi penuh untuk menyelam di #23 (sekarang tile 623×834).
 - 12 cue yang tertutup kata di model speaker HP (lihat `--list`), terutama hantam ULANGI f18 yang menumpuk dengan suara keras "ulangi".

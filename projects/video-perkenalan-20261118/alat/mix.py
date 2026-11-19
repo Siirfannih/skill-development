@@ -1,10 +1,12 @@
 # mix.py · daftar cue SFX (§5.3 + tambahan keputusan Irfan 19 Nov: whoosh transisi/zoom, tick hero R6, riser sebelum slam)
 # → stem_vo.wav (v6_suara dual-mono, sampel tidak diubah), stem_sfx.wav, stem_music.wav (hening, draf tanpa musik), mix.wav, cues.json.
-# Pakai: python3 alat/mix.py <outdir>
+# Pakai: python3 alat/mix.py <outdir> [--musik]   (--musik: pakai <outdir>/musik_mentah.wav dari alat/musik.py; tanpa itu musik hening)
 import json, os, sys, numpy as np, soundfile as sf
 
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = sys.argv[1] if len(sys.argv) > 1 else f'{R}/kerja/mix'
+ARG = [a for a in sys.argv[1:] if not a.startswith('--')]
+MUSIK = '--musik' in sys.argv
+OUT = ARG[0] if ARG else f'{R}/kerja/mix'
 os.makedirs(OUT, exist_ok=True)
 SFX = os.path.expanduser('~/work/skill-development/Asset/audio/video-perkenalan-20261118')
 EXTRA = f'{R}/kerja/sfx_extra'
@@ -74,6 +76,8 @@ vo = vo[:L] if vo.ndim == 1 else vo[:L, 0]
 vo = np.pad(vo, (0, L - len(vo)))
 stem_vo = np.stack([vo, vo], 1)
 sfx = np.zeros((L, 2))
+music = sf.read(f'{OUT}/musik_mentah.wav', dtype='float64')[0][:L] if MUSIK else np.zeros((L, 2))
+assert music.shape == (L, 2)
 for c in cues:
     x, s2 = sf.read(PATH[c['file']], dtype='float64', always_2d=True)
     assert s2 == SR
@@ -83,15 +87,34 @@ for c in cues:
     if a < 0:  # awal terpotong (film-burn pembuka): fade-in 10 ms
         x = x[-a:].copy(); fi = int(0.01 * SR); x[:fi] *= np.linspace(0, 1, fi)[:, None]; a = 0
     b = min(L, a + len(x)); x = x[:b - a]
-    # jaga puncak −1 dBFS per cue: hanya cue ini yang diturunkan, suara tetap
+    # jaga puncak −1 dBFS per cue: hanya cue ini yang diturunkan, suara tetap (musik mengalah sesudahnya, lihat bawah)
     k = 1.0
     while np.abs(stem_vo[a:b] + sfx[a:b] + x * k).max() > 10 ** (-1 / 20) and k > 0.2: k *= 0.95
     if k < 1: c['gain_db'] = round(c['gain_db'] + 20 * np.log10(k), 1); print('cue', c['f'], c['file'], 'turun', round(20 * np.log10(k), 1), 'dB')
     sfx[a:b] += x * k
 # loop: ekor SFX di ujung video di-fade 20 ms agar tidak klik saat kembali ke f0 (suara tidak disentuh)
 fo = int(0.02 * SR); sfx[-fo:] *= np.linspace(1, 0, fo)[:, None]
-mix = stem_vo + sfx
-for n, a in [('stem_vo', stem_vo), ('stem_sfx', sfx), ('stem_music', np.zeros((L, 2))), ('mix', mix)]:
+# musik tidak boleh mendorong puncak melewati max(−1 dBFS, puncak suara+SFX): musik saja yang diturunkan lokal (blok 10 ms, lepas halus)
+if MUSIK:
+    lim, blk = 10 ** (-1 / 20), SR // 100
+    base = stem_vo + sfx
+    g = np.ones(L // blk + 1)
+    for i in range(len(g)):
+        sl = slice(i * blk, min(L, (i + 1) * blk))
+        if sl.start >= L: break
+        cap = max(lim, np.abs(base[sl]).max())
+        k = 1.0
+        while np.abs(base[sl] + music[sl] * k).max() > cap and k > 0.05: k *= 0.9
+        g[i] = k
+    g = np.minimum(g, np.r_[g[1:], 1])  # turun 10 ms lebih awal
+    for i in range(1, len(g)): g[i] = min(g[i], g[i - 1] + 0.05)  # lepas ±0,2 dtk
+    gs = np.repeat(g, blk)[:L]
+    if (g < 1).any(): print('blok:', sorted({int(i * blk / SR * FPS) for i in np.where(g < 0.7)[0]}))
+    if (g < 1).any(): print('musik diturunkan lokal di', int((g < 1).sum()), 'blok 10 ms, terdalam', round(20 * np.log10(g.min()), 1), 'dB')
+    music = music * gs[:, None]
+mix = stem_vo + sfx + music
+sf.write(f'{OUT}/stem_music.wav', music, SR, subtype='PCM_24')
+for n, a in [('stem_vo', stem_vo), ('stem_sfx', sfx), ('mix', mix)]:
     sf.write(f'{OUT}/{n}.wav', a, SR, subtype='PCM_24')
 json.dump(cues, open(f'{OUT}/cues.json', 'w'), indent=1, ensure_ascii=False)
 print(len(cues), 'cue,', round(len(cues) / (N / FPS), 2), 'cue/dtk; puncak mix', round(20 * np.log10(np.abs(mix).max()), 2), 'dBFS')

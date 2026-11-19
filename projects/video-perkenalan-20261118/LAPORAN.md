@@ -1,6 +1,6 @@
 # LAPORAN · video perkenalan v6, draf tanpa musik (19 Nov 2026)
 
-**Hasil:** `hasil/video-perkenalan_v6_draft.mp4`. 1080×1920, 30 fps, 2006 f (66,87 dtk), H.264 CRF 16, AAC 320k, −16,4 LUFS, puncak −0,87 dBFS.
+**Hasil:** `hasil/video-perkenalan_v6_draft.mp4` (tanpa musik) dan `hasil/video-perkenalan_v6_musik-aware-relax.mp4` (pratinjau musik, lihat bawah). 1080×1920, 30 fps, 2006 f (66,87 dtk), H.264 CRF 16, AAC 320k, −16,4 LUFS, puncak −0,87 dBFS.
 Satu file draf menggantikan master A/B Otis di §7.5, karena musik dibatalkan (keputusan Irfan).
 
 ## Yang dikerjakan
@@ -37,8 +37,24 @@ Satu file draf menggantikan master A/B Otis di §7.5, karena musik dibatalkan (k
 - f1990–1996: "dan aku akan" keluar sambil profil mulai di-zoom, jadi menimpa header sebentar.
 - Cutout #15 masih memuat kursi gaming hitam (matte RVM).
 
-## Usulan musik (pilih satu; semuanya file lokal)
-Dipilih dari metadata dan pemakaian sebelumnya di repo; **belum saya dengarkan bersama video ini**. Setelah kamu memilih, saya buat mix pratinjau dan cek masking suara.
-1. **Aware (Adrián Berenguer) → Relax (Peyruis), sambung di f772.** Paling dekat dengan struktur rencana awal: sinematik minor yang pelan dan membangun untuk hook sampai anxiety, lalu hangat dan ringan mulai titik balik "Tapi, gimana kalau…". Keduanya sudah pernah dipakai dengan kredit di video Skill Development. Catatan alat fit: Aware menutupi suara di ±3 kHz, jadi harus jauh di bawah suara (±−11 dB) dengan EQ.
-2. **Ecosystem | The Creator (Adrián Berenguer), satu lagu penuh.** Sinematik dokumenter tanpa sambungan; paling sederhana.
-3. **Another Christmas Alone (Auxjack).** Lo-fi santai, sudah ada di folder musik proyek ini. Lisensinya belum dicek.
+## Musik: Aware → Relax (pilihan Irfan, pratinjau)
+**File:** `hasil/video-perkenalan_v6_musik-aware-relax.mp4` (gambar sama dengan draf, `-c:v copy`). −16,2 LUFS, puncak −0,8 dBFS. Kredit caption: `KREDIT.md`.
+
+| Bagian | Sumber | Frame | Level sesudah duck | Kenapa di situ |
+|---|---|---|---|---|
+| Aware | 0:09,97–0:35,57 | f0–768 | −30 LUFS, lalu −26,5 dari f595 | Hantaman strings Aware (29,80 dtk) jatuh di jump cut #10 f595 (§5.2 "drum bed ±f600") dan membangun sampai ANXIETY / BELUM LAYAK |
+| kantong | — | f768–772 | hening | Sama dengan §5.2: bed berhenti f768, layar gelap |
+| Relax | 0:18,53–0:59,13 | f772–1990 | −28,5 / −29 (f1328–1845) / −28 | Hantaman groove masuk di "tapi" (titik balik). Angkatan groove berikutnya jatuh di ±f1869, saat polaroid jadi profil IG |
+| kantong | — | f1990–2006 | hening | Musik berhenti sebelum slam ULANGI f1992, lalu loop kembali ke Aware di f0 |
+
+- Proses (`alat/musik.py`): HPF 90 Hz. Saat bicara (dari `words_v6.json`), duck −3 dB (Aware) / −4 dB (Relax), dan dip −6 dB di 0,8–4 kHz. Ramp masuk 60 ms, lepas 250 ms. Suara tidak disentuh, gain SFX sama persis dengan draf.
+- Pelindung puncak: musik saja yang turun sesaat (blok 10 ms) bila suara+SFX sudah di ≥ −1 dBFS. Ini terjadi di f5–9, 575–579, 735–739, dan 1106–1107.
+- Uji (`alat/cek_musik.py`, `audio_phone.py`):
+  - SNR suara terhadap musik, 1–4 kHz per kata: median 18,5 dB.
+  - Kejelasan suara di HP: median 13,7 dB (tanpa musik 25,8). Ada 15 jendela < 8 dB: 5 sudah ada tanpa musik (SFX), 10 baru (6,2–7,8 dB, semuanya dekat batas).
+  - SFX terdengar di HP: 60/72, sama dengan draf.
+  - Kata paling tertutup:
+    - "aku" f1220 (#16): suara pelan, pita penuh hanya 2,2 dB di atas musik.
+    - "ini" f1895, di angkatan Relax.
+  - Loop: sambungan 0 → 0, tanpa klik.
+- **Belum didengar telinga manusia.** Yang perlu kamu cek: apakah Aware di hook terlalu tipis dan apakah Relax di tengah (#17–#21) terlalu menonjol.

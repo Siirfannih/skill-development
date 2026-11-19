@@ -17,3 +17,7 @@ Keputusan Irfan (19 Nov 2026) yang menimpa `sumber/EDITING-GUIDELINE-FINAL.md` a
 | D11 | Profil IG dibangun ulang dari `referensi_gambar/ig_profil` (11 posts, 2,842 followers, 1,098 following, bio, highlight asli). | instagram.com memunculkan modal login untuk pengunjung. |
 | D12 | Peran SFX baru: `tick-hero`, `riser-slam`, `hantam-sub-hp` (di `kerja/sfx_extra/`). | Keputusan Irfan "lebih padat, tetap rapi"; hantam-sub asli hampir tak terdengar di speaker HP (energi < 320 Hz). |
 | D13 | Pelindung puncak −1 dBFS per cue, bukan per stem. | Penurunan seluruh stem SFX memotong 10 dB dari semua cue hanya karena 3 cue. |
+| D14 | Musik pratinjau Aware → Relax mengikuti struktur §5.2: bed f0–768, kantong f768–772, lagu kedua f772. Aware mulai 9,967 dtk agar hantaman strings jatuh di f595. Relax mulai di hantaman groove 18,53 dtk tepat di "tapi". | Pilihan Irfan (19 Nov). §5.2 meminta drum bed ±f600 dan titik masuk f772. |
+| D15 | Relax berhenti f1990, sebelum slam ULANGI, tidak fade sampai f2006. | Slam dan hantaman f1992 butuh ruang. Loop kembali ke Aware tanpa dua lagu bertumpuk. |
+| D16 | Level musik ditetapkan sesudah duck (yang benar-benar terdengar di bawah suara). Bagian tengah Relax (sumber 37–54 dtk, aslinya −7 dB) hanya diturunkan 0,5 LU dari bagian depan. | Supaya bed tidak hilang di #17–#21 di speaker HP. |
+| D17 | Pelindung puncak: SFX dulu (per cue, sama dengan draf), musik mengalah sesudahnya (blok 10 ms). | Gain SFX tidak boleh berubah hanya karena musik ditambahkan. |
