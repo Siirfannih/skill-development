@@ -74,14 +74,19 @@ def frame(st):
         x, y = st['kursor']; d.polygon([(x, y), (x, y + 40), (x + 11, y + 30), (x + 19, y + 46), (x + 26, y + 42), (x + 18, y + 27), (x + 31, y + 27)], fill=(255, 255, 255, 255), outline=(0, 0, 0, 255))
     if st.get('terkirim'):   # tombol "Chat baru" claude.ai (pemicu grid)
         NB = (1560, 70, 1800, 128); kaca(NB, 22, isi=(255, 255, 255, 190)); teks(NB, (1600, 82), '+  Chat baru', f('bold', 28), TINTA, pad=12)
-    if st.get('grid'):
-        import random; random.seed(3); cx, cy = st['grid']['asal']; R0 = st['grid']['r']
-        for gy in range(0, 1080, 60):
-            for gx in range(0, 1920, 60):
-                dd_ = math.hypot(gx + 30 - cx, gy + 30 - cy)
-                if R0 - 260 < dd_ < R0 and random.random() < 0.85:
-                    v = random.uniform(0.75, 1.0); c = (int(236 * v), int(232 * v), int(222 * v), 255)
-                    d.rectangle([gx, gy, gx + 58, gy + 58], fill=c)
+    if st.get('gridchat') is not None:
+        # D-482: sel kotak HANYA di area chat; fase<0.5 hapus kanan→kiri, fase>=0.5 muncul lagi kiri→kanan
+        import random; random.seed(5); fase = st['gridchat']; AREA = (X0 - 30, 120, X0 - 30 + 26 * 40, 120 + 17 * 40)   # menutup seluruh gelembung + kolom (termasuk garis tepi)
+        S = 40; AREA = (AREA[0], AREA[1], AREA[0] + (AREA[2] - AREA[0]) // S * S, AREA[1] + (AREA[3] - AREA[1]) // S * S); bersih = BG.crop(AREA).convert('RGBA')
+        tepi = AREA[2] - (AREA[2] - AREA[0]) * (fase / 0.5) if fase < 0.5 else AREA[0] + (AREA[2] - AREA[0]) * ((fase - 0.5) / 0.5)
+        for gy in range(AREA[1], AREA[3], S):
+            for gx in range(AREA[0], AREA[2], S):
+                j = gx + random.uniform(-90, 90)
+                hilang = (j > tepi) if fase < 0.5 else (j > tepi)
+                band = abs(j - tepi) < 70
+                if hilang: can.paste(bersih.crop((gx - AREA[0], gy - AREA[1], gx - AREA[0] + S, gy - AREA[1] + S)), (gx, gy))
+                if band and random.random() < 0.7:
+                    v = random.uniform(0.82, 1.0); d.rectangle([gx, gy, gx + S - 2, gy + S - 2], fill=(int(240*v), int(236*v), int(228*v), 235))
     salah = [t for t, w, b, p in CEK if b[0] < w[0] + p * 0.5 or b[2] > w[2] - p * 0.5]
     if salah: raise SystemExit(f'GAGAL teks keluar wadah: {salah}')
     return can.convert('RGB')
@@ -91,7 +96,8 @@ ALUR = [
     ('25,63 "Jadi kalau orang-orang"', 'Unggah footage: kartu MP4 masuk ke kolom, progres unggah berjalan.', {'fokus': 1, 'lampir': 0.6}),
     ('27,96 "bilang edit kayak"', 'Ketik "Gunakan /" → menu Template terbuka.', {'fokus': 1, 'lampir': 1, 'ketik': 'Gunakan /', 'menu': 0}),
     ('28,93 "Apple\'s Tale"', '/apple-style dipilih: "Gunakan /apple-style untuk edit videoku." → kirim.', {'terkirim': 'Gunakan /apple-style untuk edit videoku.', 'balas': 'Siap, aku edit dengan gaya Apple.'}),
-    ('30,17 "edit kayak"', 'Klik "Chat baru" → gelombang grid dari titik klik menghapus percakapan.', {'terkirim': 'Gunakan /apple-style untuk edit videoku.', 'grid': {'asal': (1700, 120), 'r': 900}, 'kursor': (1700, 104)}),
+    ('30,17 "edit kayak" (a)', 'Grid hanya di area chat: sel kotak menghapus chat dari KANAN ke KIRI; latar & kamera tetap.', {'terkirim': 'Gunakan /apple-style untuk edit videoku.', 'balas': 'Siap, aku edit dengan gaya Apple.', 'gridchat': 0.25}),
+    ('30,40 (b)', 'Undo: sel kotak memunculkan area chat lagi dari KIRI ke KANAN, kini beranda kosong siap diketik.', {'gridchat': 0.75}),
     ('30,55 "Cinematic Storytelling"', 'Beranda bersih lagi: MP4 dilampirkan, ketik "Gunakan /cinematic-storytelling …".', {'fokus': 1, 'lampir': 1, 'ketik': 'Gunakan /cinematic-storytelling untuk edit videoku.'}),
     ('31,83 "gitu."', 'Kirim → gelembung kedua (MP4 + perintah).', {'terkirim': 'Gunakan /cinematic-storytelling untuk edit videoku.', 'balas': 'Siap, aku edit dengan gaya sinematik.'}),
     ('32,19 "Nah, aku ngebalik." → 34,4', '(usul, belum kamu tentukan) lihat catatan di bawah.', {'fokus': 1, 'lampir': 1, 'ketik': 'Tonton videoku, lalu kamu yang tentukan gayanya.'}),
@@ -101,6 +107,6 @@ for i, (w, k, st) in enumerate(ALUR):
     im = frame(st); dd = ImageDraw.Draw(im)
     dd.rectangle([0, 0, 1920, 110], fill=(0, 0, 0)); dd.text((24, 12), f'{i + 1} · {w}', font=f('bold', 40), fill=(255, 220, 0)); dd.text((24, 62), k, font=f('medium', 32), fill=(255, 255, 255))
     ims.append(im.resize((960, 540)))
-sh = Image.new('RGB', (1920, 540 * 4), (20, 20, 20))
+sh = Image.new('RGB', (1920, 540 * ((len(ims) + 1) // 2)), (20, 20, 20))
 for i, im in enumerate(ims): sh.paste(im, ((i % 2) * 960, (i // 2) * 540))
 sh.save('qc/r7/penilai/spine/papan_gerak_UI_claude.jpg', quality=88); print('ok')
