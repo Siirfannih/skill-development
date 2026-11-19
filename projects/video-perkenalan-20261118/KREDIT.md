@@ -1,4 +1,6 @@
-# Kredit musik · video perkenalan v6 (final Aware → Relax, 19 Nov 2026)
+# Kredit musik · video perkenalan v6 dan v7 (Aware → Relax, 19 Nov 2026)
+
+v7 memakai musik dan potongan waktu yang sama dengan v6 (`kerja/mix_v7/musik_mentah.wav` = musik v6).
 
 Video personal (bukan iklan). File lokal yang sama dengan video Skill Development (`skill-development-journey-20261116/musik/`).
 
@@ -11,4 +13,4 @@ Teks siap tempel di caption:
 
 > Music: "Aware" by Adrián Berenguer · "Relax" by [@peyruismusic](https://www.instagram.com/peyruismusic/)
 
-Versi tanpa musik tetap ada: `hasil/video-perkenalan_v6_final_tanpa-musik.mp4`.
+Versi tanpa musik: `hasil/video-perkenalan_v7_final_tanpa-musik.mp4` (v6: `hasil/video-perkenalan_v6_final_tanpa-musik.mp4`).

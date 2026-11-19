@@ -19,6 +19,7 @@ type Blok = {id: number; a: number; b: number; peran: string; zona: string; kepa
 const RC = RENCANA as unknown as {blok: Blok[]; cam: number[][]; seg: number[]};
 export const V7_DUR = RC.cam.length;
 const FG_END = 1800;
+const KARTU = 1843; // #23 take 38 hanya suara → kartu teks gelap (D-008)
 const KUNING = '#FCFD0C';
 const EMAS = '#F6DA0C';
 const KELUAR = 5;
@@ -43,7 +44,7 @@ const R1: React.FC<{b: Baris; g: number; size: number}> = ({b, g, size}) => (
     {b.kata.map((k, i) => {
       const t = e(g, k.f + 2, 4, 'reveal');
       return <span key={i} style={{display: 'inline-block', marginRight: '0.26em', opacity: g < k.f + 2 ? 0 : 1,
-        transform: `translateY(${(1 - t) * size * 0.45}px) scale(${0.85 + 0.15 * t})`, filter: t < 1 ? `blur(${(1 - t) * 5}px)` : undefined}}>{k.t}</span>;
+        transform: `translateY(${(1 - t) * size * 0.45}px) scale(${0.85 + 0.15 * t})`, filter: t < 1 ? `blur(${(1 - t) * 5}px)` : undefined}}>{k.t}</span>; // motion-ok: blur gerak pada naik cepat 4 f (kartu 87 T2: masuk per kata/huruf + blur gerak), bukan blur-in bawaan
     })}
   </span>
 );
@@ -65,7 +66,7 @@ const R2: React.FC<{b: Baris; g: number; size: number; arah: number}> = ({b, g, 
             const s = Math.max(f0, k.f) + 0.75 * n++;
             const t = e(g, s, 5, 'reveal');
             return <span key={n} style={{display: 'inline-block', opacity: g < s ? 0 : 1,
-              transform: `translateY(${(1 - t) * size * 0.7}px) scale(${0.6 + 0.4 * t})`, filter: t < 1 ? `blur(${(1 - t) * 6}px)` : undefined}}>{ch}</span>;
+              transform: `translateY(${(1 - t) * size * 0.7}px) scale(${0.6 + 0.4 * t})`, filter: t < 1 ? `blur(${(1 - t) * 6}px)` : undefined}}>{ch}</span>; // motion-ok: blur gerak per huruf 5 f (kartu 87 T2, KT-ZACHE arc swing)
           })}
         </span>
       ))}
@@ -73,12 +74,12 @@ const R2: React.FC<{b: Baris; g: number; size: number; arah: number}> = ({b, g, 
   );
 };
 
-/** R3 · T03 slam + getar: kapital Anton di belakang kepala. 2,0× → 1,3× → 1,0× dalam 3 f, lalu getar 3 px 8 Hz selama 8 f.
+/** R3 · T03 slam + getar: kapital Anton di belakang kepala. 1,45× → 1,12× → 1,0× dalam 3 f, lalu getar 3 px 8 Hz selama 8 f.
  *  r3n (kata negatif): putih + bayangan merah #C40004 bergeser (merah tidak dipakai sebagai isi huruf di atas footage gelap). */
 const R3: React.FC<{b: Baris; g: number; size: number}> = ({b, g, size}) => {
   const f0 = b.kata[0].f - 3;
   const u = g - f0;
-  const s = u <= 0 ? 2 : u === 1 ? 1.3 : 1;
+  const s = u <= 0 ? 1.45 : u === 1 ? 1.12 : 1; // dari 1,45× (bukan 2×): kata lebar tidak keluar frame saat slam (audit c04 f900)
   const gt = u >= 2 && u < 10 ? 3 * Math.sin(u * 2 * Math.PI * 8 / 30) : 0;
   const neg = b.gaya === 'r3n';
   return (
@@ -93,7 +94,7 @@ const R6: React.FC<{b: Baris; g: number; size: number}> = ({b, g, size}) => {
   const f0 = b.kata[0].f - 8;
   const t = e(g, f0, 11, 'heavy');
   return (
-    <span style={{display: 'inline-block', transform: `translateY(${(1 - t) * -60}px) scale(${0.55 + 0.45 * t})`, filter: t < 1 ? `blur(${(1 - t) * 14}px)` : undefined,
+    <span style={{display: 'inline-block', transform: `translateY(${(1 - t) * -60}px) scale(${0.55 + 0.45 * t})`, filter: t < 1 ? `blur(${(1 - t) * 14}px)` : undefined, // motion-ok: depth push dari jauh, blur = jarak fokus (kartu 87 T3 rack-focus)
       opacity: g < f0 ? 0 : Math.min(1, 0.25 + t), fontFamily: F.anton, fontSize: size, lineHeight: 0.9, color: C.putih, whiteSpace: 'nowrap',
       textShadow: '0 0 30px rgba(255,255,255,.35), 0 8px 30px rgba(0,0,0,.35)'}}>{b.teks.toUpperCase()}</span>
   );
@@ -124,19 +125,33 @@ const Lapis: React.FC<{bl: Blok; g: number; lapis: 'b' | 'd'}> = ({bl, g, lapis}
 };
 
 /** Light-leak Zache di potongan: oranye-kuning menyapu, puncak putih 1–2 f, sisa bocoran di awal shot baru. */
-const FLASH = [0, 308, 399, 595, 772, 914, 1072, 1305, 1485, 1574, 1790];
+const FLASH = [0, 308, 399, 595, 772, 914, 1072, 1305, 1485, 1574, 1790, KARTU];
+
+/** Kartu #23: hitam hangat, sisa light-leak amber di atas yang bergeser pelan (drift) supaya kartu tidak mati. */
+const Kartu: React.FC<{g: number}> = ({g}) => {
+  const u = (g - KARTU) / 163;
+  const gx = 50 + 14 * Math.sin(u * Math.PI * 0.9), gy = 18 + 6 * u;
+  return (
+    <AbsoluteFill style={{background: '#0C0B09'}}>
+      <AbsoluteFill style={{background: `radial-gradient(ellipse 70% 38% at ${gx}% ${gy}%, rgba(255,150,40,.20), rgba(255,120,20,.06) 55%, transparent 75%)`}}/>
+      <AbsoluteFill style={{background: 'radial-gradient(ellipse 90% 70% at 50% 50%, transparent 55%, rgba(0,0,0,.55))'}}/>
+    </AbsoluteFill>
+  );
+};
 
 export const V7: React.FC = () => {
   const g = useCurrentFrame();
-  const [s, cx, cy] = RC.cam[Math.min(g, RC.cam.length - 1)];
+  const [s, cx, cy, tx] = RC.cam[Math.min(g, RC.cam.length - 1)]; // tx: geser wajah ke tengah saat zoom (dibatasi agar gambar menutup frame)
   const aktif = RC.blok.filter((bl) => g >= bl.a - 10 && g < bl.b);
   const blkBelakang = RC.blok.filter((bl) => bl.baris.some((r) => r.lapis === 'b'));
   return (
     <GF.Provider value={g}>
       <AbsoluteFill style={{background: '#000', overflow: 'hidden'}}>
         <Fonts/>
-        <div style={{position: 'absolute', inset: 0, transformOrigin: `${cx}px ${cy}px`, transform: `scale(${s})`}}>
-          <OffthreadVideo src={staticFile('footage.mp4')} muted style={{position: 'absolute', inset: 0, width: 1080, height: 1920, filter: 'contrast(1.05) saturate(1.03)'}}/>
+        <div style={{position: 'absolute', inset: 0, transformOrigin: `${cx}px ${cy}px`, transform: `translateX(${tx}px) scale(${s})`}}>
+          {g < KARTU ? (
+            <OffthreadVideo src={staticFile('footage.mp4')} muted style={{position: 'absolute', inset: 0, width: 1080, height: 1920, filter: 'contrast(1.05) saturate(1.03)'}}/>
+          ) : <Kartu g={g}/>}
           {aktif.map((bl) => <Lapis key={`b${bl.id}`} bl={bl} g={g} lapis="b"/>)}
           {blkBelakang.map((bl) => bl.a < FG_END ? (
             <Sequence key={`c${bl.id}`} from={bl.a - 10} durationInFrames={Math.min(bl.b, FG_END) - (bl.a - 10)} layout="none">

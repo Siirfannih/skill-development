@@ -9,9 +9,11 @@
 # Pakai: python3 alat/v7_rencana.py  → kerja/v7/teks.json, remotion/src/v7/rencana.json
 import json, os
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FPS, W, H, N = 30, 1080, 1920, 1843
+FPS, W, H, N = 30, 1080, 1920, 2006
+KARTU = 1843   # #23 (take 38) hanya suara → kartu teks gelap f1843–2005 (D-008, Irfan 19 Nov)
 words = json.load(open(f'{R}/sumber/words_v6.json'))
 kep = {int(k): v for k, v in json.load(open(f'{R}/kerja/v7/kepala.json')).items()}
+for _f in range(KARTU, N): kep[_f] = [340, 700, 740, 1220, 380, 800, 700, 1180]   # kartu: kotak semu di tengah (tak ada wajah)
 rambut = {int(k): v for k, v in json.load(open(f'{R}/kerja/v7/rambut.json')).items()}  # puncak rambut asli dari matte (alat/rambut_v7.py)
 on = [round(w['start'] * FPS) for w in words]; off = [round(w['end'] * FPS) for w in words]
 UP = {'irfan': 'IRFAN', 'ulangi': 'ULANGI', 'palsu': 'PALSU', 'berbeda': 'BERBEDA', 'ai': 'AI', 'capcut': 'CapCut', 'adobe': 'Adobe',
@@ -87,7 +89,8 @@ B = [
  (152, 154, 'R1', [(152, 153, 'r1', 'd'), (154, 154, 'r1', 'd')], 'dada'),
  (155, 156, 'R2', [(155, 155, 'r1', 'd'), (156, 156, 'r2', 'd')], 'dada'),
  (157, 158, 'R1', [(157, 158, 'r1', 'd')], 'dada'),
- (159, 161, 'R2', [(159, 159, 'r1', 'd'), (160, 161, 'r2', 'd')], 'dada'),
+ (159, 159, 'R1', [(159, 159, 'r1', 'd')], 'dada'),
+ (160, 161, 'R2', [(160, 160, 'r2', 'd'), (161, 161, 'r2', 'd')], 'dada'),   # 'skill / development' dua baris: satu baris tak muat saat zoom 1,14
  (162, 163, 'R1', [(162, 163, 'r1', 'd')], 'dada'),
  (164, 166, 'R1', [(164, 165, 'r1', 'd'), (166, 166, 'r1', 'd')], 'dada'),
  (167, 167, 'R6', [(167, 167, 'r6', 'b')], 'atas'),
@@ -108,6 +111,15 @@ B = [
  (204, 205, 'R3', [(204, 205, 'r3n', 'b')], 'atas'),
  (206, 208, 'R2', [(206, 206, 'r1', 'd'), (207, 208, 'r2', 'd')], 'dada'),
  (209, 210, 'R1', [(209, 210, 'r1', 'd')], 'dada'),
+ # #23 kartu teks gelap (D-008): satu blok per frasa, di tengah kartu; berakhir di ULANGI (loop ke pembuka)
+ (211, 213, 'R3', [(211, 212, 'r1', 'd'), (213, 213, 'r3', 'd')], 'kartu'),
+ (214, 216, 'R1', [(214, 216, 'r1', 'd')], 'kartu'),
+ (217, 218, 'R1', [(217, 218, 'r1', 'd')], 'kartu'),
+ (219, 220, 'R2', [(219, 219, 'r1', 'd'), (220, 220, 'r2', 'd')], 'kartu'),
+ (221, 223, 'R1', [(221, 223, 'r1', 'd')], 'kartu'),
+ (224, 225, 'R2', [(224, 224, 'r2', 'd'), (225, 225, 'r1', 'd')], 'kartu'),
+ (226, 228, 'R1', [(226, 228, 'r1', 'd')], 'kartu'),
+ (229, 230, 'R3', [(229, 229, 'r3', 'd'), (230, 230, 'r1', 'd')], 'kartu'),
 ]
 KODE = {'R1': 'T19', 'R2': 'T30', 'R3': 'T03', 'R6': 'T31'}
 ALASAN = {'R1': 'narasi berjalan, tempo cepat: per kata ikut VO di depan badan (kartu 87 T1)',
@@ -134,6 +146,7 @@ for n, (a, b, peran, baris, zona) in enumerate(B):
 # Pusat hanya berganti di frame yang skalanya tepat 1,0 (awal blok berkapital, awal blok sesudahnya) → tidak ada loncatan gambar.
 MY0 = 0.05 * H
 def zmax(f, ox, oy):
+    if f >= KARTU: return 1.3   # kartu gelap: tidak ada wajah yang bisa terpotong
     kx0, ky0, kx1, ky1 = kep[f][:4]
     lim = []
     for d, c in ((ox - kx0, ox - 0.03 * W), (kx1 - ox, W - 0.03 * W - ox), (oy - ky0, oy - 0.03 * H), (ky1 - oy, H - 0.03 * H - oy)):
@@ -142,12 +155,20 @@ def zmax(f, ox, oy):
 belakang = set()
 for p in plan:
     if any(r['lapis'] == 'b' for r in p['baris']): belakang.update(range(p['a'], min(p['b'], N)))
-keys = [[0, 1.0]]
+# Kunci kamera (DA 19 Nov: narasi nyaris tanpa zoom): tiap blok satu gerak 12 f smoothstep ke target, lalu tahan + drift 1 %.
+# Narasi bergantian dorong masuk (1,08) dan tarik keluar (1,00) → zoom in/out terlihat sepanjang video, bukan pompa tiap blok.
+# Blok berkapital belakang dan blok sesudahnya mulai tepat di 1,0 (pusat zoom berganti tanpa loncatan gambar).
+keys = [[0, 1.0]]; prev = 1.0; nr1 = 0
 for i, p in enumerate(plan):
+    blk_b = any(r['lapis'] == 'b' for r in p['baris'])
     sesudah_b = i > 0 and any(r['lapis'] == 'b' for r in plan[i - 1]['baris'])
-    base = 1.0 + (0.05 if p['peran'] == 'R1' and not sesudah_b else 0.0)
-    tgt = {'R1': 1.04, 'R2': 1.12, 'R3': 1.18, 'R6': 1.22}[p['peran']]
-    keys.append([p['a'], base]); keys.append([p['a'] + 10, tgt])
+    if p['peran'] == 'R1':
+        tgt = 1.08 if nr1 % 2 == 0 else 1.0; nr1 += 1
+    else:
+        tgt = {'R2': 1.14, 'R3': 1.2, 'R6': 1.24}[p['peran']]
+    v_a = 1.0 if (blk_b or sesudah_b) else round(prev + 0.01, 4)
+    n = max(4, min(12, p['b'] - p['a'] - 2))
+    keys.append([p['a'], v_a]); keys.append([p['a'] + n, tgt]); prev = tgt
 cam = []
 for f in range(N):
     s = 1.0
@@ -157,7 +178,10 @@ for f in range(N):
     else: s = keys[-1][1]
     kx0, ky0, kx1, ky1, wx0, wy0, wx1, wy1 = kep[f]
     ox, oy = (wx0 + wx1) / 2, ((wy0 + wy1) / 2 if f not in belakang else MY0)
-    cam.append([round(min(s, zmax(f, ox, oy)), 4), round(ox), round(oy)])
+    s = min(s, zmax(f, ox, oy))
+    # geser wajah ke tengah saat zoom (DA: frame berat kiri): translasi dibatasi supaya gambar tetap menutup frame
+    tx = 0.0 if f >= KARTU else min(max(W / 2 - ox, -(W - ox) * (s - 1)), ox * (s - 1))
+    cam.append([round(s, 4), round(ox), round(oy), round(tx, 1)])
 
 # ── tata letak dari lebar glyph asli (fontTools) dan transform kamera tiap frame ──
 from fontTools.ttLib import TTFont
@@ -180,16 +204,16 @@ def lebar(t, gy, size):
     if gy == 'r1': w += 0.26
     return w * size
 MX, MY = 0.05 * W, 0.05 * H
-def layar(f, x, y):  # titik dunia → layar (kamera scale di pusat wajah)
-    s, ox, oy = cam[f]; return ox + (x - ox) * s, oy + (y - oy) * s
+def layar(f, x, y):  # titik dunia → layar (geser tx lalu skala di pusat wajah; sama dengan transform V7.tsx)
+    s, ox, oy, tx = cam[f]; return ox + tx + (x - ox) * s, oy + (y - oy) * s
 def muat(fr, x0, y0, x1, y1, ybawah=0.90 * H):
     for f in fr:
         a0, b0 = layar(f, x0, y0); a1, b1 = layar(f, x1, y1)
         if a0 < MX or a1 > W - MX or b0 < MY or b1 > ybawah: return False
     return True
 def rentang_x(fr, w_):   # pusat-x dunia yang membuat kotak selebar w_ tetap di dalam margin layar di semua frame
-    lo = max(cam[f][1] + (MX - cam[f][1]) / cam[f][0] for f in fr) + w_ / 2
-    hi = min(cam[f][1] + (W - MX - cam[f][1]) / cam[f][0] for f in fr) - w_ / 2
+    lo = max(cam[f][1] + (MX - cam[f][3] - cam[f][1]) / cam[f][0] for f in fr) + w_ / 2
+    hi = min(cam[f][1] + (W - MX - cam[f][3] - cam[f][1]) / cam[f][0] for f in fr) - w_ / 2
     return lo, hi
 def jepit(x, lo, hi): return x if lo > hi else min(max(x, lo), hi)
 cadangan = 0
@@ -206,7 +230,7 @@ for n, p in enumerate(plan):
     cx = (wx0 + wx1) / 2
     # ukuran awal: dasar, dikecilkan supaya lebar di layar (zoom maks blok) ≤ 88 % frame
     for r in p['baris']:
-        size = GAYA[r['gaya']][1]
+        size = GAYA[r['gaya']][1] * (1.35 if p['zona'] == 'kartu' and r['gaya'] == 'r1' else 1)   # kartu kosong: narasi lebih besar
         size = min(size, 0.88 * W / smax / max(1, lebar(r['teks'], r['gaya'], 1)))
         r['size'] = size
     lay = {}
@@ -238,6 +262,7 @@ for n, p in enumerate(plan):
         zona = p['zona']
         if zona == 'atas': zona = 'dada'
         cands = []
+        if zona == 'kartu': cands.append('kartu')
         if zona in ('kiri', 'kanan'): cands.append(zona)
         cands += ['dada', 'dagu', 'bawah', 'atas-depan']
         done = False
@@ -250,6 +275,9 @@ for n, p in enumerate(plan):
                     x1 = kx0 - 24; x0 = x1 - w_; y0 = (wy0 + wy1) / 2 - h_ / 2; al, ax = 'right', x1
                 elif z == 'kanan':
                     x0 = kx1 + 24; x1 = x0 + w_; y0 = (wy0 + wy1) / 2 - h_ / 2; al, ax = 'left', x0
+                elif z == 'kartu':  # kartu gelap: blok di tengah optis (sedikit di atas tengah)
+                    xc = jepit(W / 2, *rentang_x(fr, w_))
+                    y0 = 0.46 * H - h_ / 2; x0, x1 = xc - w_ / 2, xc + w_ / 2; al, ax = 'center', xc
                 elif z == 'dada':
                     xc = jepit(cx + (-80 if n % 2 else 80), *rentang_x(fr, w_))
                     y0 = ky1 + 60; x0, x1 = xc - w_ / 2, xc + w_ / 2; al, ax = 'center', xc

@@ -1,0 +1,560 @@
+[
+ {
+  "f": 5,
+  "t": 0.167,
+  "file": "film-burn.wav",
+  "peran": "transisi",
+  "alasan": "flash light-leak di sambungan (pembuka)",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -14.0
+ },
+ {
+  "f": 12,
+  "t": 0.4,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke slam ULANGI",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -14.3
+ },
+ {
+  "f": 16,
+  "t": 0.533,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "slam ULANGI mendarat",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": -7.3
+ },
+ {
+  "f": 47,
+  "t": 1.567,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci perkenalkan mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -6.5
+ },
+ {
+  "f": 69,
+  "t": 2.3,
+  "file": "whoosh-kamera.wav",
+  "peran": "hero",
+  "alasan": "depth push IRFAN + kamera 1,22",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -7
+ },
+ {
+  "f": 176,
+  "t": 5.867,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci konsisten mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 197,
+  "t": 6.567,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke slam GAK JADI-JADI",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -8
+ },
+ {
+  "f": 201,
+  "t": 6.7,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "slam GAK JADI-JADI mendarat",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": -3.0
+ },
+ {
+  "f": 255,
+  "t": 8.5,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci ide mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 308,
+  "t": 10.267,
+  "file": "film-burn.wav",
+  "peran": "transisi",
+  "alasan": "flash light-leak di sambungan",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 340,
+  "t": 11.333,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci produk mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 365,
+  "t": 12.167,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci fokus mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 399,
+  "t": 13.3,
+  "file": "film-burn.wav",
+  "peran": "transisi",
+  "alasan": "flash light-leak di sambungan",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 411,
+  "t": 13.7,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci enam bulan mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -6.5
+ },
+ {
+  "f": 469,
+  "t": 15.633,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci produk mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 507,
+  "t": 16.9,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci belum mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 569,
+  "t": 18.967,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke slam BUILDER TRAP",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -8
+ },
+ {
+  "f": 573,
+  "t": 19.1,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "slam BUILDER TRAP mendarat",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": 3.1
+ },
+ {
+  "f": 595,
+  "t": 19.833,
+  "file": "film-burn.wav",
+  "peran": "transisi",
+  "alasan": "flash light-leak di sambungan",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 614,
+  "t": 20.467,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci penyakit mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 679,
+  "t": 22.633,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci anxiety mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 700,
+  "t": 23.333,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci overthinking mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 753,
+  "t": 25.1,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke slam BELUM LAYAK",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -22.3
+ },
+ {
+  "f": 757,
+  "t": 25.233,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "slam BELUM LAYAK mendarat",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": 2.0
+ },
+ {
+  "f": 772,
+  "t": 25.733,
+  "file": "film-burn.wav",
+  "peran": "transisi",
+  "alasan": "flash light-leak di sambungan",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 777,
+  "t": 25.9,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci tapi mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 815,
+  "t": 27.167,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci resiko mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 840,
+  "t": 28.0,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci gak ada mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 898,
+  "t": 29.933,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke slam PALSU",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -8
+ },
+ {
+  "f": 902,
+  "t": 30.067,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "slam PALSU mendarat",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": -6.4
+ },
+ {
+  "f": 914,
+  "t": 30.467,
+  "file": "film-burn.wav",
+  "peran": "transisi",
+  "alasan": "flash light-leak di sambungan",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 990,
+  "t": 33.0,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci skill mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 995,
+  "t": 33.167,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci development mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1060,
+  "t": 35.333,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci video ini mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1072,
+  "t": 35.733,
+  "file": "film-burn.wav",
+  "peran": "transisi",
+  "alasan": "flash light-leak di sambungan",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 1100,
+  "t": 36.667,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke slam 100%",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -8
+ },
+ {
+  "f": 1104,
+  "t": 36.8,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "slam 100% mendarat",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": -1.0
+ },
+ {
+  "f": 1174,
+  "t": 39.133,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci editor mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1211,
+  "t": 40.367,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci CapCut mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1246,
+  "t": 41.533,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci Premiere Pro mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -6.5
+ },
+ {
+  "f": 1288,
+  "t": 42.933,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci After Effects mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1305,
+  "t": 43.5,
+  "file": "film-burn.wav",
+  "peran": "transisi",
+  "alasan": "flash light-leak di sambungan",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 1365,
+  "t": 45.5,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci AI mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1410,
+  "t": 47.0,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci skill mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1417,
+  "t": 47.233,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci development mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1472,
+  "t": 49.067,
+  "file": "whoosh-kamera.wav",
+  "peran": "hero",
+  "alasan": "depth push BERBEDA + kamera 1,22",
+  "dengar": "desir udara cepat lewat kamera",
+  "gain_db": -4.0
+ },
+ {
+  "f": 1485,
+  "t": 49.5,
+  "file": "film-burn.wav",
+  "peran": "transisi",
+  "alasan": "flash light-leak di sambungan",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 1566,
+  "t": 52.2,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci launching mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1574,
+  "t": 52.467,
+  "file": "film-burn.wav",
+  "peran": "transisi",
+  "alasan": "flash light-leak di sambungan",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 1605,
+  "t": 53.5,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci banyak tips mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1703,
+  "t": 56.767,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci pelajari mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1766,
+  "t": 58.867,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke slam BUILDER TRAP",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -8
+ },
+ {
+  "f": 1770,
+  "t": 59.0,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "slam BUILDER TRAP mendarat",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": 2.6
+ },
+ {
+  "f": 1790,
+  "t": 59.667,
+  "file": "film-burn.wav",
+  "peran": "transisi",
+  "alasan": "flash light-leak di sambungan",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 1809,
+  "t": 60.3,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci selamat datang mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1843,
+  "t": 61.433,
+  "file": "film-burn.wav",
+  "peran": "transisi",
+  "alasan": "flash light-leak di sambungan",
+  "dengar": "kresek film terbakar, desis naik lalu pudar",
+  "gain_db": -6
+ },
+ {
+  "f": 1860,
+  "t": 62.0,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke slam IRFAN",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -8
+ },
+ {
+  "f": 1864,
+  "t": 62.133,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "slam IRFAN mendarat",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": 1.7
+ },
+ {
+  "f": 1919,
+  "t": 63.967,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci kesekian mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1947,
+  "t": 64.9,
+  "file": "tick-hero.wav",
+  "peran": "kunci",
+  "alasan": "kata kunci memperkenalkan mendarat",
+  "dengar": "blip digital sangat pendek, terang, di-low-pass",
+  "gain_db": -8
+ },
+ {
+  "f": 1986,
+  "t": 66.2,
+  "file": "riser-slam.wav",
+  "peran": "riser",
+  "alasan": "naik ke slam ULANGI",
+  "dengar": "riser naik 0,8 dtk berakhir tajam",
+  "gain_db": -8
+ },
+ {
+  "f": 1990,
+  "t": 66.333,
+  "file": "hantam-sub-hp.wav",
+  "peran": "slam",
+  "alasan": "slam ULANGI mendarat",
+  "dengar": "hantaman bass dalam + saturasi tengah agar terdengar di speaker HP",
+  "gain_db": 1.3
+ }
+]
