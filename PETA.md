@@ -207,7 +207,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/personal-brand-day-02/` | Ledger · Personal branding, konten kedua challenge |
 | `projects/skill-development-journey-20261116/` | STATUS · Skill Development journey (siirfan) · titik lanjut sesi baru · mulai dari STATUS.md |
 | `projects/uji-builder-trap-12nov/` | Ledger · uji-builder-trap-12nov |
-| `projects/video-perkenalan-20261118/` |  |
+| `projects/video-perkenalan-20261118/` | DECISIONS · video perkenalan v6 |
 
 ## Lain-lain
 
