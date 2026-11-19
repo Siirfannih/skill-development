@@ -229,3 +229,8 @@ Pertanyaan: apakah lanjutan STATUS §5 masih sesuai permintaan awal Irfan dan at
 - Yang terlihat: "skill" (putih, kecil) dan "gratis" (tulisan tangan kuning bergaris) berjauhan, sama-sama kecil, di kanan bidang video; bersamaan dengan wajah dan kolom komentar → tiga fokus berebut, berat ke kanan.
 - Kenapa lolos QC: (1) adegan IG diambil apa adanya dari R5c karena masuk "koreksi IG" yang dibawa (D-440); QC Sutradara putaran 6 hanya membandingkan sumber per rentang (PSNR) dan sampel still yang tidak jatuh di 83,0–83,3, jadi frame itu tidak pernah dinilai dengan mata; (2) gaya `tulis` (tulisan tangan) adalah sisa yang lolos dari D-414 karena D-414 menyebut "Comment di bawah" saja, bukan semua tulisan tangan; (3) tidak ada cek "jumlah fokus per frame" di daftar QC still.
 - Perbaikan: TASK-R7-ig F-I4 (punchline, bukan tulisan tangan) + aturan satu fokus; audit frame tahan tiap detik sebelum render (bukan sampel).
+
+## Kesalahan terlewat K4 · teks keluar gelembung di mockup UI kaca (ditemukan Irfan, 19 Nov)
+- Yang terlihat: "Halo, Irfan. Mau edit video apa hari ini?" melewati tepi kanan gelembung kaca.
+- Kenapa lolos: lebar wadah ditulis sebagai angka tetap, bukan dari lebar teks; pemeriksaan still menilai komposisi global, tidak memeriksa tepi tiap wadah.
+- Perbaikan: wadah dihitung dari `textlength` + padding; skrip menolak still bila ada teks keluar wadah (`ui_kaca.py`, CEK). Usul untuk skill (USUL-SKILL-r7): wadah teks di UI tiruan selalu diukur dari isinya, dan pemeriksa tepi wadah dijalankan pada tiap still.

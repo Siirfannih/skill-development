@@ -1,0 +1,4 @@
+# Usul skill dari sesi video r7 (kondisi → pilihan → alasan)
+- Bila membangun gelembung/kolom/chip UI berisi teks, ukur wadah dari lebar teks + padding dan periksa otomatis bahwa kotak teks berada di dalam wadah, karena wadah berukuran tetap meloloskan teks keluar tepi saat isinya berubah dan mata penilai fokus pada komposisi global.
+- Bila menilai gaya teks, lihat juga strip frame berurutan (masuk, tahan, keluar) per peran, karena still diam menyembunyikan teks yang muncul tanpa gerak (potong-ganti) dan terasa tempelan saat diputar.
+- Bila momen punchline dibuat "fokus teks", buang footage dan UI dari frame itu (kanvas satu warna + kata raksasa), karena tiga objek (teks, wajah, latar) membuat penonton reel tidak tahu harus melihat ke mana.

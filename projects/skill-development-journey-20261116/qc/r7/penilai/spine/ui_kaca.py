@@ -18,30 +18,42 @@ def kaca(box, r, isi=(255, 255, 255, 150), gelap=False):
     ImageDraw.Draw(can).rounded_rectangle(box, r, outline=(255, 255, 255, 120), width=2)
 
 d = ImageDraw.Draw(can)
+CEK = []   # (nama, kotak wadah, kotak teks) — gagal bila teks keluar wadah
+def isi(nama, wadah, xy, tx, fnt, warna, pad=24):
+    d.text(xy, tx, font=fnt, fill=warna)
+    l, t, r, b = d.textbbox(xy, tx, font=fnt); CEK.append((nama, wadah, (l, t, r, b), pad))
+def lebar(tx, fnt): return int(d.textlength(tx, font=fnt))
 TINTA, REDUP, ORANYE = (31, 30, 29), (110, 104, 98), (217, 119, 87)
 # gelembung Claude (kiri) dan pengguna (kanan, gelap) seperti claude.ai + ref kaca
-kaca((520, 210, 1170, 330), 30)
+T1 = 'Halo, Irfan. Mau edit video apa hari ini?'; B1 = (520, 210, 620 + lebar(T1, f('medium', 34)) + 46, 330)
+kaca(B1, 30)
 import math
 for k in range(12):   # bintang Claude (komponen asli LogoClaude dipakai di build)
     a = k * math.pi / 6; d.line([(586, 270), (586 + 20 * math.cos(a), 270 + 20 * math.sin(a))], fill=ORANYE + (255,), width=6)
-d.text((620, 240), 'Halo, Irfan. Mau edit video apa hari ini?', font=f('medium', 34), fill=TINTA + (255,))
-kaca((880, 370, 1400, 460), 30, gelap=True)
-d.text((920, 396), 'Revisi video siirfan, ronde 3', font=f('medium', 34), fill=(250, 248, 240, 255))
+isi('sapaan', B1, (620, 246), T1, f('medium', 34), TINTA + (255,))
+T2 = 'Revisi video siirfan, ronde 3'; w2 = lebar(T2, f('medium', 34)) + 80; B2 = (1400 - w2, 370, 1400, 460)
+kaca(B2, 30, gelap=True)
+isi('pesan', B2, (B2[0] + 40, 398), T2, f('medium', 34), (250, 248, 240, 255))
 # kolom input claude.ai asli, kaca, berisi slash command
 kaca((520, 560, 1400, 720), 34, isi=(255, 255, 255, 185))
-d.text((566, 590), '/apple-style', font=f('medium', 40), fill=TINTA + (255,))
+isi('input', (520, 560, 1400, 720), (566, 590), '/apple-style', f('medium', 40), TINTA + (255,))
 d.line([(800, 592), (800, 636)], fill=TINTA + (255,), width=3)
 d.text((566, 664), '+', font=f('medium', 38), fill=REDUP + (255,))
 d.text((1090, 668), 'Opus 5.5  ·  High', font=f('medium', 26), fill=REDUP + (255,))
 d.rounded_rectangle([1326, 652, 1376, 702], 14, fill=ORANYE + (255,)); d.text((1340, 655), '↑', font=f('bold', 36), fill=(255, 255, 255, 255))
 # popover slash command di atas input
-kaca((520, 488, 960, 548), 18, isi=(255, 255, 255, 200))
-d.text((546, 500), '/apple-style', font=f('bold', 30), fill=TINTA + (255,)); d.text((740, 504), 'gaya Apple', font=f('medium', 24), fill=REDUP + (255,))
+xg = 546 + lebar('/apple-style', f('bold', 30)) + 24; B3 = (520, 488, xg + lebar('gaya Apple', f('medium', 24)) + 26, 548)
+kaca(B3, 18, isi=(255, 255, 255, 200))
+isi('popover', B3, (546, 500), '/apple-style', f('bold', 30), TINTA + (255,), pad=14); isi('popover2', B3, (xg, 506), 'gaya Apple', f('medium', 24), REDUP + (255,), pad=14)
 # chip saran di bawah input (seperti ref)
 x = 520
 for c in ['/cinematic-storytelling', '/viral-hook', '/apple-style']:
     w = int(d.textlength(c, font=f('medium', 26))) + 44
-    kaca((x, 744, x + w, 796), 26, isi=(255, 255, 255, 160)); d.text((x + 22, 754), c, font=f('medium', 26), fill=TINTA + (255,)); x += w + 16
+    kaca((x, 744, x + w, 796), 26, isi=(255, 255, 255, 160)); isi('chip ' + c, (x, 744, x + w, 796), (x + 22, 755), c, f('medium', 26), TINTA + (255,), pad=10); x += w + 16
+salah = [f"{n}: teks {tb} keluar wadah {wb}" for n, wb, tb, p in CEK
+         if tb[0] < wb[0] + p * 0.5 or tb[2] > wb[2] - p * 0.5 or tb[1] < wb[1] + 4 or tb[3] > wb[3] - 4]
+if salah: raise SystemExit('GAGAL:\n' + '\n'.join(salah))
+print('cek wadah:', len(CEK), 'teks di dalam wadah')
 im = can.convert('RGB'); dd = ImageDraw.Draw(im)
 dd.rectangle([0, 0, 1920, 56], fill=(0, 0, 0)); dd.text((18, 12), '2 · ADEGAN APP CLAUDE (D-479) · latar padang + UI claude.ai kaca mengambang, tanpa narasi · momen "/apple-style"', font=f('bold', 28), fill=(255, 220, 0))
 im.save('qc/r7/penilai/spine/still/2_UI_claude_kaca.jpg', quality=92)
