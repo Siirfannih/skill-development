@@ -9,7 +9,7 @@ export type BubbleProps = {
   baris: Seg[][];
   ekor: 'kiri' | 'kanan' | 'bawah';
   bw: number; bh: number; size: number; w: number; h: number; durasi: number;
-  k?: number; kecilAt?: number; keluarAt?: number; mengetik?: boolean; v?: number;
+  k?: number; kecilAt?: number; keluarAt?: number; keluarFrames?: number; mengetik?: boolean; v?: number;
 };
 export const BM = 56;
 export const EKOR = 48;
@@ -23,7 +23,7 @@ export const BubbleSapa: React.FC<BubbleProps> = (p) => {
   const {fps} = useVideoConfig();
   const pop = f <= 5 ? 0.6 + 0.435 * CURVE.land(f / 5) : 1.035 - 0.035 * CURVE.land(Math.min(1, (f - 5) / 3));
   const kecil = p.kecilAt === undefined ? 0 : move(f, Math.round(p.kecilAt * fps), 5, 'land');
-  const out = p.keluarAt === undefined ? 0 : move(f, Math.round(p.keluarAt * fps), 4, 'leave');
+  const out = p.keluarAt === undefined ? 0 : move(f, Math.round(p.keluarAt * fps), p.keluarFrames ?? 4, 'leave');
   const s = pop * (1 - 0.1 * kecil) * (1 - out);
   const k = p.k ?? 1;
   const [tx, ty] = ujungEkor(p);

@@ -1,3 +1,9 @@
+// edit/words.json, dipetakan ke kisi master 30000/1001; D_IG mulai f2290.
+export const IG_PUNCHLINE = {
+  profesional: {awal: 65, akhir: 84},
+  skillGratis: {awal: 178, akhir: 195},
+} as const;
+
 export const IG_EVENT = {
   ketik: [133, 135, 138, 140, 143],
   kirim: 149,

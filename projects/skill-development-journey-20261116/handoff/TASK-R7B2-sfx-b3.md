@@ -1,0 +1,4 @@
+# TASK-R7B2-sfx-b3 · penyesuaian kecil SFX ke perbaikan akhir
+Baca `handoff/R7B2-BERSAMA.md` dan `handoff/REPORT-R7-sfx.md` Ronde B2. Visual baru: `qc/r7/visual_r7_fin_ekor.mp4` (2533 frame). Perubahan sejak Ronde B2 (lihat bagian "Ronde 2" di REPORT-R7B2-narasi/ui/ig): kartu ChatGPT/Claude kini berisi angka sejak masuk (cek cue kartu masuk dan hitung), pil "Max" dibuang (hapus cue terkait bila ada), penutup "yang beruntung." ditumpuk di dinding (senyap; boleh SATU ketukan lembut di kata terakhir bila ada objek baru yang mendarat), framing kamera adegan Claude (cue tetap terikat objek), narasi IG digeser. Geser/hapus/tambah HANYA cue yang objeknya berubah; bangun ulang dua mix + mux uji 2533 frame; gerbang sama seperti Ronde B2 PASS; bagian "Ronde B3" di REPORT-R7-sfx.
+## FILE BOLEH / JANGAN
+`audio/r7_sfx.py`, `audio/r7/**`. JANGAN visual, lego, remotion, edit, stem musik.

@@ -28,11 +28,39 @@
     "cue": "SFX-R7-003"
   },
   {
+    "t": 1.5348666666666666,
+    "frame": 46,
+    "objek": "T003 akhirnya",
+    "senyap": true,
+    "alasan": "Narasi repo/meja per kata senyap, sesuai brief-r2."
+  },
+  {
+    "t": 1.9686333333333335,
+    "frame": 59,
+    "objek": "T003 proyek",
+    "senyap": true,
+    "alasan": "Narasi repo/meja per kata senyap, sesuai brief-r2."
+  },
+  {
+    "t": 2.469133333333333,
+    "frame": 74,
+    "objek": "T003 ini",
+    "senyap": true,
+    "alasan": "Narasi repo/meja per kata senyap, sesuai brief-r2."
+  },
+  {
     "t": 3.1364666666666667,
     "frame": 94,
     "objek": "blok chartreuse SELESAI dan tanda sukses",
     "peran": "terverifikasi",
     "cue": "SFX-R7-004"
+  },
+  {
+    "t": 3.7037,
+    "frame": 111,
+    "objek": "T005 juga.",
+    "senyap": true,
+    "alasan": "Narasi repo/meja per kata senyap, sesuai brief-r2."
   },
   {
     "t": 4.270933333333334,
@@ -58,7 +86,7 @@
   {
     "t": 4.6046000000000005,
     "frame": 138,
-    "objek": "T007 aku",
+    "objek": "T006 aku",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
@@ -114,7 +142,7 @@
   {
     "t": 7.874533333333334,
     "frame": 236,
-    "objek": "T013 pake,",
+    "objek": "T012 pake,",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
@@ -140,11 +168,18 @@
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
-    "t": 8.775433333333334,
-    "frame": 263,
+    "t": 8.641966666666667,
+    "frame": 259,
     "objek": "bubble WhatsApp ChatGPT",
     "peran": "pop-chat",
     "cue": "SFX-R7-008"
+  },
+  {
+    "t": 9.509500000000001,
+    "frame": 285,
+    "objek": "bubble WhatsApp Clawd",
+    "peran": "pop-chat",
+    "cue": "SFX-R7-009"
   },
   {
     "t": 9.542866666666667,
@@ -154,25 +189,25 @@
     "alasan": "Onset dua frame setelah bubble Clawd; pengenalan serentak ditanggung event bubble, tanpa pop tokoh tambahan."
   },
   {
-    "t": 9.642966666666666,
-    "frame": 289,
-    "objek": "bubble WhatsApp Clawd",
-    "peran": "pop-chat",
-    "cue": "SFX-R7-009"
-  },
-  {
-    "t": 10.01,
-    "frame": 300,
+    "t": 9.9099,
+    "frame": 297,
     "objek": "bubble WhatsApp Gemini",
     "peran": "pop-chat",
     "cue": "SFX-R7-010"
   },
   {
-    "t": 10.043366666666667,
-    "frame": 301,
+    "t": 9.9099,
+    "frame": 297,
     "objek": "titik mengetik Gemini berdenyut",
     "senyap": true,
     "alasan": "Indikator mengetik senyap sesuai TASK; bukan klik per titik."
+  },
+  {
+    "t": 10.343666666666667,
+    "frame": 310,
+    "objek": "bubble terakhir mengecil; seluruh bubble kosong f313",
+    "senyap": true,
+    "alasan": "Pop-out satu pergantian fokus ke cincin f313; bunyi keluar opsional tidak ditambah agar tidak membentuk rentetan."
   },
   {
     "t": 10.443766666666667,
@@ -215,13 +250,6 @@
     "objek": "slab DECISION dan tiga tokoh mendarat sebagai satu event kontak",
     "peran": "objek-mendarat",
     "cue": "SFX-R7-012"
-  },
-  {
-    "t": 12.479133333333333,
-    "frame": 374,
-    "objek": "T020 dalam",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
     "t": 12.846166666666667,
@@ -268,7 +296,7 @@
   {
     "t": 14.447766666666666,
     "frame": 433,
-    "objek": "T023 ini",
+    "objek": "T022 ini",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
@@ -294,39 +322,11 @@
     "cue": "SFX-R7-014"
   },
   {
-    "t": 15.2152,
-    "frame": 456,
-    "objek": "T026 banget",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
-    "t": 15.6156,
-    "frame": 468,
-    "objek": "T026 soal",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
-    "t": 16.1161,
-    "frame": 483,
-    "objek": "T027 ngedit",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
     "t": 16.149466666666665,
     "frame": 484,
     "objek": "bingkai neon + panah merah",
     "peran": "slop",
     "cue": "SFX-R7-015"
-  },
-  {
-    "t": 16.383033333333334,
-    "frame": 491,
-    "objek": "T027 video",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
     "t": 16.5165,
@@ -336,27 +336,6 @@
     "cue": "SFX-R7-016"
   },
   {
-    "t": 16.616600000000002,
-    "frame": 498,
-    "objek": "T028 pake",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
-    "t": 16.850166666666667,
-    "frame": 505,
-    "objek": "T028 AI.",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
-    "t": 17.350666666666665,
-    "frame": 520,
-    "objek": "T029 Tapi,",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
     "t": 17.484133333333332,
     "frame": 524,
     "objek": "gradien ungu-pink + stiker !!",
@@ -364,39 +343,11 @@
     "cue": "SFX-R7-017"
   },
   {
-    "t": 17.884533333333334,
-    "frame": 536,
-    "objek": "T030 kalau",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
     "t": 18.018,
     "frame": 540,
     "objek": "lens flare",
     "peran": "slop",
     "cue": "SFX-R7-018"
-  },
-  {
-    "t": 18.051366666666667,
-    "frame": 541,
-    "objek": "T030 dari",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
-    "t": 18.3183,
-    "frame": 549,
-    "objek": "T031 pandanganku",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
-    "t": 18.718700000000002,
-    "frame": 561,
-    "objek": "T031 sendiri,",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
     "t": 18.952266666666667,
@@ -413,32 +364,11 @@
     "cue": "SFX-R7-020"
   },
   {
-    "t": 19.252566666666667,
-    "frame": 577,
-    "objek": "T032 hasilnya",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
-    "t": 19.619600000000002,
-    "frame": 588,
-    "objek": "T033 masih",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
     "t": 19.8198,
     "frame": 594,
     "objek": "stiker !! + panah merah",
     "peran": "slop",
     "cue": "SFX-R7-021"
-  },
-  {
-    "t": 19.853166666666667,
-    "frame": 595,
-    "objek": "T033 terasa",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
     "t": 20.153466666666667,
@@ -506,97 +436,167 @@
   {
     "t": 23.590233333333334,
     "frame": 707,
-    "objek": "aplikasi Claude terang + lingkaran wajah",
+    "objek": "dorong wajah dan blur lalu padang mendarat",
     "peran": "transisi-dunia",
     "cue": "SFX-R7-026"
   },
   {
-    "t": 25.091733333333334,
-    "frame": 752,
-    "objek": "template. muncul di kolom prompt",
-    "peran": "ketik",
+    "t": 25.692333333333334,
+    "frame": 770,
+    "objek": "kartu MP4 masuk dan unggah sebagai satu aksi",
+    "peran": "objek-mendarat",
     "cue": "SFX-R7-027"
   },
   {
-    "t": 28.928900000000002,
-    "frame": 867,
-    "objek": "\"/apple\" diketik di kolom perintah (f867, audit 6): ketikan halus",
+    "t": 28.028000000000002,
+    "frame": 840,
+    "objek": "frasa Gunakan /apple-style untuk edit videoku.",
     "peran": "ketik",
     "cue": "SFX-R7-028"
   },
   {
-    "t": 29.362666666666666,
-    "frame": 880,
-    "objek": "saran /apple-style",
-    "peran": "objek-mendarat",
+    "t": 28.294933333333333,
+    "frame": 848,
+    "objek": "menu Template terbuka setelah slash",
+    "peran": "pop-chat",
     "cue": "SFX-R7-029"
   },
   {
-    "t": 29.863166666666668,
-    "frame": 895,
-    "objek": "klik /apple-style",
+    "t": 28.962266666666668,
+    "frame": 868,
+    "objek": "pilih item /apple-style",
     "peran": "klik",
     "cue": "SFX-R7-030"
   },
   {
-    "t": 30.563866666666666,
-    "frame": 916,
-    "objek": "\"cinematic\" diketik di kolom perintah (audit 6): ketikan halus",
-    "peran": "ketik",
+    "t": 29.562866666666668,
+    "frame": 886,
+    "objek": "kirim pesan apple",
+    "peran": "kirim-kaca",
     "cue": "SFX-R7-031"
   },
   {
-    "t": 31.197833333333335,
-    "frame": 935,
-    "objek": "saran /cinematic-storytelling",
-    "peran": "objek-mendarat",
+    "t": 29.8298,
+    "frame": 894,
+    "objek": "balasan Claude apple muncul",
+    "peran": "pop-chat",
     "cue": "SFX-R7-032"
   },
   {
-    "t": 31.898533333333333,
-    "frame": 956,
-    "objek": "klik /cinematic-storytelling",
-    "peran": "klik",
+    "t": 30.163466666666668,
+    "frame": 904,
+    "objek": "klik Chat baru dan GRID hapus+muncul",
+    "peran": "chat-baru-grid",
     "cue": "SFX-R7-033"
   },
   {
-    "t": 32.59923333333333,
-    "frame": 977,
-    "objek": "teks diketik dihapus + ngebalik.",
+    "t": 30.563866666666666,
+    "frame": 916,
+    "objek": "MP4 dipulihkan setelah reset pertama",
+    "senyap": true,
+    "alasan": "Narasi dan pemulihan isi chat tetap senyap; tidak ada aksi unggah baru setelah reset."
+  },
+  {
+    "t": 30.597233333333335,
+    "frame": 917,
+    "objek": "frasa Gunakan /cinematic-storytelling untuk edit videoku.",
     "peran": "ketik",
     "cue": "SFX-R7-034"
   },
   {
-    "t": 34.734700000000004,
-    "frame": 1041,
-    "objek": "transisi lingkaran wajah <-> layar (audit 1, digeser +0,463 dtk ke suara R7)",
-    "peran": "transisi-dunia",
+    "t": 31.8318,
+    "frame": 954,
+    "objek": "kirim pesan cine",
+    "peran": "kirim-kaca",
     "cue": "SFX-R7-035"
   },
   {
-    "t": 37.57086666666667,
-    "frame": 1126,
-    "objek": "WORKFLOW-NYA",
-    "peran": "kata-hero",
+    "t": 31.998633333333334,
+    "frame": 959,
+    "objek": "balasan Claude cine muncul",
+    "peran": "pop-chat",
     "cue": "SFX-R7-036"
   },
   {
-    "t": 38.2382,
-    "frame": 1146,
+    "t": 32.19883333333333,
+    "frame": 965,
+    "objek": "klik Chat baru dan GRID hapus+muncul",
+    "peran": "chat-baru-grid",
+    "cue": "SFX-R7-037"
+  },
+  {
+    "t": 32.59923333333333,
+    "frame": 977,
+    "objek": "MP4 dipulihkan setelah reset kedua",
+    "senyap": true,
+    "alasan": "Narasi dan pemulihan isi chat tetap senyap; tidak ada aksi unggah baru setelah reset."
+  },
+  {
+    "t": 32.632600000000004,
+    "frame": 978,
+    "objek": "frasa Tonton videoku, lalu kamu yang tentukan gayanya.",
+    "peran": "ketik",
+    "cue": "SFX-R7-038"
+  },
+  {
+    "t": 33.56686666666667,
+    "frame": 1006,
+    "objek": "kirim pesan reverse",
+    "peran": "kirim-kaca",
+    "cue": "SFX-R7-039"
+  },
+  {
+    "t": 33.900533333333335,
+    "frame": 1016,
+    "objek": "balasan Claude reverse muncul",
+    "peran": "pop-chat",
+    "cue": "SFX-R7-040"
+  },
+  {
+    "t": 34.40103333333333,
+    "frame": 1031,
+    "objek": "dorong menembus balasan kaca lalu wajah mendarat",
+    "peran": "transisi-dunia",
+    "cue": "SFX-R7-041"
+  },
+  {
+    "t": 36.40303333333333,
+    "frame": 1091,
+    "objek": "T051_lbl cuma",
+    "senyap": true,
+    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
+  },
+  {
+    "t": 36.66996666666667,
+    "frame": 1099,
+    "objek": "T051_lbl mempelajari",
+    "senyap": true,
+    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
+  },
+  {
+    "t": 37.437400000000004,
+    "frame": 1122,
+    "objek": "WORKFLOW-NYA potong masuk utuh",
+    "peran": "kata-hero",
+    "cue": "SFX-R7-042"
+  },
+  {
+    "t": 38.5385,
+    "frame": 1155,
+    "objek": "cincin publish pertama sesudah slab keluar",
+    "peran": "kinetik-cincin",
+    "cue": "SFX-R7-043"
+  },
+  {
+    "t": 38.5385,
+    "frame": 1155,
     "objek": "T052 Jadi",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
-    "t": 38.30493333333333,
-    "frame": 1148,
-    "objek": "cincin publish pertama",
-    "peran": "kinetik-cincin",
-    "cue": "SFX-R7-037"
-  },
-  {
-    "t": 38.30493333333333,
-    "frame": 1148,
+    "t": 38.5385,
+    "frame": 1155,
     "objek": "T052 gak",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
@@ -674,23 +674,23 @@
   {
     "t": 41.708333333333336,
     "frame": 1250,
-    "objek": "T056 Karena",
+    "objek": "T057_lbl Karena",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
     "t": 42.10873333333333,
     "frame": 1262,
-    "objek": "T056 perlu",
+    "objek": "T057_lbl perlu",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
-    "t": 42.50913333333333,
-    "frame": 1274,
-    "objek": "BALIK MODAL",
+    "t": 42.3423,
+    "frame": 1269,
+    "objek": "BALIK MODAL potong masuk utuh",
     "peran": "kata-hero",
-    "cue": "SFX-R7-038"
+    "cue": "SFX-R7-044"
   },
   {
     "t": 42.80943333333333,
@@ -709,21 +709,21 @@
   {
     "t": 43.47676666666667,
     "frame": 1303,
-    "objek": "T060 habis",
+    "objek": "T059 habis",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
     "t": 43.5435,
     "frame": 1305,
-    "objek": "pil biru habis banget",
-    "peran": "objek-mendarat",
-    "cue": "SFX-R7-039"
+    "objek": "narasi Ini habis banget tanpa pil",
+    "senyap": true,
+    "alasan": "Narasi dan pemulihan isi chat tetap senyap; tidak ada aksi unggah baru setelah reset."
   },
   {
     "t": 43.810433333333336,
     "frame": 1313,
-    "objek": "T060 banget",
+    "objek": "T059 banget",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
@@ -777,18 +777,25 @@
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
-    "t": 48.4484,
-    "frame": 1452,
-    "objek": "kartu ChatGPT Pro 20x",
+    "t": 47.414033333333336,
+    "frame": 1421,
+    "objek": "kartu ChatGPT Pro masuk dengan angka 1×",
     "peran": "objek-mendarat",
-    "cue": "SFX-R7-040"
+    "cue": "SFX-R7-045"
   },
   {
-    "t": 48.6486,
-    "frame": 1458,
-    "objek": "hitungan angka kartu naik ke 20: tick per kenaikan (10 tick, Irfan 17 Nov)",
+    "t": 48.114733333333334,
+    "frame": 1442,
+    "objek": "narasi Max yang tanpa pil",
+    "senyap": true,
+    "alasan": "Wadah dihapus; narasi per kata tidak mendapat cue."
+  },
+  {
+    "t": 48.1481,
+    "frame": 1443,
+    "objek": "angka kartu ChatGPT berubah dari 1× sampai 20×",
     "peran": "hitung",
-    "cue": "SFX-R7-041"
+    "cue": "SFX-R7-046"
   },
   {
     "t": 49.18246666666667,
@@ -798,25 +805,18 @@
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
-    "t": 49.749700000000004,
-    "frame": 1491,
-    "objek": "T068 Claude",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
-    "t": 50.1501,
-    "frame": 1503,
-    "objek": "T068 Pro",
-    "senyap": true,
-    "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
-    "t": 50.38366666666667,
-    "frame": 1510,
+    "t": 50.08336666666667,
+    "frame": 1501,
     "objek": "kartu paket kedua masuk (audit 1, +0,434)",
     "peran": "objek-mendarat",
-    "cue": "SFX-R7-042"
+    "cue": "SFX-R7-047"
+  },
+  {
+    "t": 50.417033333333336,
+    "frame": 1511,
+    "objek": "angka kartu Claude berubah dari 1× sampai 5×",
+    "peran": "hitung",
+    "cue": "SFX-R7-048"
   },
   {
     "t": 50.583866666666665,
@@ -824,13 +824,6 @@
     "objek": "T069 yang",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
-  },
-  {
-    "t": 50.91753333333333,
-    "frame": 1526,
-    "objek": "hitungan angka kartu naik ke 5: tick per kenaikan (4 tick, Irfan 17 Nov)",
-    "peran": "hitung",
-    "cue": "SFX-R7-043"
   },
   {
     "t": 51.484766666666665,
@@ -849,14 +842,14 @@
   {
     "t": 52.18546666666667,
     "frame": 1564,
-    "objek": "T071 uji",
+    "objek": "T071_uji_coba uji",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
     "t": 52.385666666666665,
     "frame": 1570,
-    "objek": "T072 coba",
+    "objek": "T071_uji_coba coba",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
@@ -879,7 +872,7 @@
     "frame": 1605,
     "objek": "kartu keluar (audit 2, +0,405): whoosh gain rendah",
     "peran": "transisi-dunia",
-    "cue": "SFX-R7-044"
+    "cue": "SFX-R7-049"
   },
   {
     "t": 53.5535,
@@ -900,7 +893,7 @@
     "frame": 1618,
     "objek": "cincin lintas pertama",
     "peran": "kinetik-cincin",
-    "cue": "SFX-R7-045"
+    "cue": "SFX-R7-050"
   },
   {
     "t": 54.08736666666667,
@@ -940,100 +933,107 @@
   {
     "t": 56.2562,
     "frame": 1686,
-    "objek": "T076 sistem",
+    "objek": "T077_lbl sistem",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
     "t": 56.589866666666666,
     "frame": 1696,
-    "objek": "T076 kerja",
+    "objek": "T077_lbl kerja",
     "senyap": true,
     "alasan": "KT narasi kata per kata senyap; cue kelompok hanya pada bentuk pertama."
   },
   {
-    "t": 57.29056666666667,
-    "frame": 1717,
-    "objek": "LINTAS AGENT",
+    "t": 56.99026666666667,
+    "frame": 1708,
+    "objek": "LINTAS AGENT potong masuk utuh",
     "peran": "kata-hero",
-    "cue": "SFX-R7-046"
+    "cue": "SFX-R7-051"
   },
   {
     "t": 58.058,
     "frame": 1740,
     "objek": "gelombang grid dari jentikan menuju UI Claude",
     "peran": "gelombang",
-    "cue": "SFX-R7-047"
+    "cue": "SFX-R7-052"
   },
   {
     "t": 58.72533333333333,
     "frame": 1760,
     "objek": "tombol kirim di jendela Claude",
     "peran": "klik",
-    "cue": "SFX-R7-048"
+    "cue": "SFX-R7-053"
   },
   {
     "t": 59.69296666666667,
     "frame": 1789,
     "objek": "Update dari ChatGPT · session A",
     "peran": "pesan",
-    "cue": "SFX-R7-049"
+    "cue": "SFX-R7-054"
   },
   {
     "t": 61.6616,
     "frame": 1848,
     "objek": "Saya sudah memerintahkan…",
     "peran": "claude-balas",
-    "cue": "SFX-R7-050"
+    "cue": "SFX-R7-055"
   },
   {
     "t": 62.79606666666667,
     "frame": 1882,
     "objek": "Messaged ChatGPT · session A",
     "peran": "kirim",
-    "cue": "SFX-R7-051"
+    "cue": "SFX-R7-056"
   },
   {
     "t": 63.4634,
     "frame": 1902,
     "objek": "terkirim ✓ session A",
     "peran": "terverifikasi",
-    "cue": "SFX-R7-052"
+    "cue": "SFX-R7-057"
   },
   {
     "t": 63.63023333333334,
     "frame": 1907,
     "objek": "Saya minta ChatGPT session B…",
     "peran": "claude-balas",
-    "cue": "SFX-R7-053"
+    "cue": "SFX-R7-058"
   },
   {
     "t": 64.7647,
     "frame": 1941,
     "objek": "Messaged ChatGPT · session B",
     "peran": "kirim",
-    "cue": "SFX-R7-054"
+    "cue": "SFX-R7-059"
   },
   {
     "t": 65.93253333333334,
     "frame": 1976,
     "objek": "Update dari ChatGPT · session B",
     "peran": "pesan",
-    "cue": "SFX-R7-055"
+    "cue": "SFX-R7-060"
   },
   {
     "t": 68.7687,
     "frame": 2061,
     "objek": "Edit guide/teks/GUIDE.md",
     "peran": "claude-balas",
-    "cue": "SFX-R7-056"
+    "cue": "SFX-R7-061"
+  },
+  {
+    "t": 70.40366666666667,
+    "frame": 2110,
+    "objek": "kamera baca kembali ke bidang jendela saat Selesai",
+    "senyap": true,
+    "alasan": "Konfirmasi PASS dan perubahan baris sudah berbunyi; swoosh mundur opsional tidak ditambah."
   },
   {
     "t": 70.4704,
     "frame": 2112,
     "objek": "Ran cut_check.py PASS ✓ + Clawd lega",
     "peran": "terverifikasi",
-    "cue": "SFX-R7-057"
+    "cue": "SFX-R7-062"
   },
   {
     "t": 70.53713333333333,
@@ -1047,84 +1047,147 @@
     "frame": 2160,
     "objek": "dorongan ke Clawd lalu kontak pendaratan di Blender",
     "peran": "dorong-kontak",
-    "cue": "SFX-R7-058"
+    "cue": "SFX-R7-063"
   },
   {
     "t": 72.1721,
     "frame": 2163,
     "objek": "Claude mengetik di keyboard",
     "peran": "ketik",
-    "cue": "SFX-R7-059"
+    "cue": "SFX-R7-064"
+  },
+  {
+    "t": 72.30556666666666,
+    "frame": 2167,
+    "objek": "T080 Ini",
+    "senyap": true,
+    "alasan": "Narasi repo/meja per kata senyap, sesuai brief-r2."
   },
   {
     "t": 72.63923333333334,
     "frame": 2177,
     "objek": "T081 100% masuk",
     "peran": "kata-hero",
-    "cue": "SFX-R7-060"
+    "cue": "SFX-R7-065"
   },
   {
     "t": 73.44003333333333,
     "frame": 2201,
     "objek": "FULL pada slab 100% FULL AI",
     "peran": "kata-hero",
-    "cue": "SFX-R7-061"
+    "cue": "SFX-R7-066"
   },
   {
     "t": 73.90716666666667,
     "frame": 2215,
     "objek": "AI pada slab 100% FULL AI",
     "peran": "kata-hero",
-    "cue": "SFX-R7-062"
+    "cue": "SFX-R7-067"
+  },
+  {
+    "t": 74.50776666666667,
+    "frame": 2233,
+    "objek": "T082 Dan",
+    "senyap": true,
+    "alasan": "Narasi repo/meja per kata senyap, sesuai brief-r2."
+  },
+  {
+    "t": 74.7747,
+    "frame": 2241,
+    "objek": "T082 menurut",
+    "senyap": true,
+    "alasan": "Narasi repo/meja per kata senyap, sesuai brief-r2."
+  },
+  {
+    "t": 75.14173333333333,
+    "frame": 2252,
+    "objek": "T082 kalian",
+    "senyap": true,
+    "alasan": "Narasi repo/meja per kata senyap, sesuai brief-r2."
+  },
+  {
+    "t": 75.40866666666666,
+    "frame": 2260,
+    "objek": "T083 videonya",
+    "senyap": true,
+    "alasan": "Narasi repo/meja per kata senyap, sesuai brief-r2."
+  },
+  {
+    "t": 75.70896666666667,
+    "frame": 2269,
+    "objek": "T083 kayak",
+    "senyap": true,
+    "alasan": "Narasi repo/meja per kata senyap, sesuai brief-r2."
+  },
+  {
+    "t": 75.90916666666666,
+    "frame": 2275,
+    "objek": "T083 gimana?",
+    "senyap": true,
+    "alasan": "Narasi repo/meja per kata senyap, sesuai brief-r2."
   },
   {
     "t": 76.40966666666667,
     "frame": 2290,
     "objek": "dorong ke pratinjau monitor lalu wajah penuh",
     "peran": "transisi-dunia",
-    "cue": "SFX-R7-063"
+    "cue": "SFX-R7-068"
   },
   {
-    "t": 78.64523333333334,
-    "frame": 2357,
-    "objek": "PROFESIONAL raksasa di belakang badan; latar hijau",
-    "peran": "kata-hero",
-    "cue": "SFX-R7-064"
+    "t": 78.5785,
+    "frame": 2355,
+    "objek": "PROFESIONAL: potong ke kanvas chartreuse",
+    "peran": "punchline",
+    "cue": "SFX-R7-069"
+  },
+  {
+    "t": 79.21246666666667,
+    "frame": 2374,
+    "objek": "narasi nggak?",
+    "senyap": true,
+    "alasan": "Narasi kata per kata senyap, sesuai TASK-R7-sfx-r3."
   },
   {
     "t": 79.51276666666666,
     "frame": 2383,
     "objek": "kamera mendekati panel komentar IG",
     "peran": "transisi-dunia",
-    "cue": "SFX-R7-065"
+    "cue": "SFX-R7-070"
   },
   {
     "t": 79.64623333333333,
     "frame": 2387,
     "objek": "komentar masih kerasa AI slop pop",
     "peran": "pesan",
-    "cue": "SFX-R7-066"
+    "cue": "SFX-R7-071"
+  },
+  {
+    "t": 79.64623333333333,
+    "frame": 2387,
+    "objek": "narasi masih kerasa AI?",
+    "senyap": true,
+    "alasan": "Narasi senyap; pop pada frame ini milik komentar UI, bukan kata narasi."
   },
   {
     "t": 80.1801,
     "frame": 2403,
     "objek": "komentar Keren editan profesional pop",
     "peran": "pesan",
-    "cue": "SFX-R7-067"
+    "cue": "SFX-R7-072"
   },
   {
     "t": 80.88080000000001,
     "frame": 2424,
     "objek": "Skill diketik sebagai satu episode pendek",
     "peran": "ketik",
-    "cue": "SFX-R7-068"
+    "cue": "SFX-R7-073"
   },
   {
     "t": 81.41466666666666,
     "frame": 2440,
     "objek": "kirim komentar dan komentar baru muncul dalam satu frame",
     "peran": "kirim",
-    "cue": "SFX-R7-069"
+    "cue": "SFX-R7-074"
   },
   {
     "t": 81.44803333333333,
@@ -1138,34 +1201,41 @@
     "frame": 2449,
     "objek": "balasan siirfannih muncul",
     "peran": "pesan",
-    "cue": "SFX-R7-070"
+    "cue": "SFX-R7-075"
+  },
+  {
+    "t": 81.91516666666666,
+    "frame": 2455,
+    "objek": "narasi aku di ruang putih atas thread IG",
+    "senyap": true,
+    "alasan": "Hanya posisi narasi berubah; ketik/kirim/balasan tetap terikat objek UI."
   },
   {
     "t": 82.21546666666667,
     "frame": 2464,
     "objek": "kamera meninggalkan komentar dan kembali ke bidang video",
     "peran": "transisi-dunia",
-    "cue": "SFX-R7-071"
+    "cue": "SFX-R7-076"
   },
   {
-    "t": 82.44903333333333,
-    "frame": 2471,
-    "objek": "label kecil SKILL",
-    "senyap": true,
-    "alasan": "Label pengantar kecil; tidak lagi kata slam, jadi mengikuti aturan KT senyap."
-  },
-  {
-    "t": 82.68260000000001,
-    "frame": 2478,
-    "objek": "GRATIS pada bidang biru: swell kecil dan hit tunggal",
+    "t": 82.34893333333333,
+    "frame": 2468,
+    "objek": "SKILL GRATIS: potong ke kanvas biru",
     "peran": "punchline",
-    "cue": "SFX-R7-072"
+    "cue": "SFX-R7-077"
   },
   {
-    "t": 83.083,
-    "frame": 2490,
-    "objek": "potong dari GRATIS kembali ke wajah",
+    "t": 82.91616666666667,
+    "frame": 2485,
+    "objek": "potong dari SKILL GRATIS kembali ke wajah",
     "peran": "cut-wajah",
-    "cue": "SFX-R7-073"
+    "cue": "SFX-R7-078"
+  },
+  {
+    "t": 83.81706666666666,
+    "frame": 2512,
+    "objek": "tahan narasi yang / beruntung. di dinding sampai f2532",
+    "senyap": true,
+    "alasan": "Narasi gelombang tanpa objek baru mendarat; hanya musik berlanjut pada ekor."
   }
 ]

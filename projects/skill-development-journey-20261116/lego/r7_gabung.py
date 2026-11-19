@@ -2,7 +2,7 @@
 Override: tiap file lego/r7_override_*.json = {"ganti": [lapisan...], "tambah": [lapisan...], "buang": [id...]}
 (ganti = cocok per id, posisi tumpuk tetap; tambah = disisipkan sebelum lapisan `sebelum` bila ada, else di akhir).
 Keluaran lego_r7.json; lego_r7_kamera.json (dasar saja, dipakai pekerja untuk lubang/teks yang ikut wajah)."""
-import glob, json, sys
+import glob, json, os, sys
 
 L = json.load(open('lego_r6.json'))
 
@@ -48,6 +48,18 @@ for f in sorted(glob.glob('r7_override_*.json')):
 # D-473 koordinasi #4: judul "Claude Pro" tampil saat diucapkan (onset 49,75); kartu kiri maju 0,30 dtk
 for x in L['lapisan']:
     if x['id'] == 'KARTU2': x['t'] = round(x['t'] - 0.30, 5)
+# lapisan yang melewati durasi dasar (mis. penutup yang ditahan ekor) dipotong di batas; ekor (r7_ekor.py) menahan frame terakhir
+import subprocess
+TOTAL = sum(c['dur'] for c in L['dasar'])
+for x in L['lapisan']:
+    src = x['src']
+    if not os.path.exists(src): continue
+    d = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', src], capture_output=True, text=True).stdout or 0)
+    if x['t'] + d > TOTAL + 1e-3:
+        keep = TOTAL - x['t'] - 0.001; out = src.rsplit('.', 1)[0] + '_potong.mov'
+        if not os.path.exists(out):
+            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', src, '-t', f'{keep:.4f}', '-c:v', 'prores_ks', '-profile:v', '4444', '-pix_fmt', 'yuva444p10le', out], check=True)
+        x['src'] = out; print('dipotong:', x['id'], round(keep, 3))
 L['keluar'] = '../qc/r7/visual_r7.mp4'
 json.dump(L, open('lego_r7.json', 'w'), indent=1)
 print(len(L['lapisan']), 'lapisan;', 'override:', sorted(glob.glob('r7_override_*.json')))

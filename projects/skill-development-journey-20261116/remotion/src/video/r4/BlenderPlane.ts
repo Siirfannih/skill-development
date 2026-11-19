@@ -21,7 +21,7 @@ const project = (p: Vector3, c: PerspectiveCamera) => {
 
 // Same horizontal desk plane and camera as scene.py; the scene and its render stay untouched.
 const reference = camera(0);
-const ray = new Vector3(1420 / W * 2 - 1, 1 - 795 / H * 2, .5).unproject(reference).sub(reference.position).normalize();
+const ray = new Vector3(1360 / W * 2 - 1, 1 - 620 / H * 2, .5).unproject(reference).sub(reference.position).normalize();
 const anchor = reference.position.clone().addScaledVector(ray, (.006 - reference.position.z) / ray.z);
 const right = direction.clone().negate().cross(new Vector3(0, 0, 1)).normalize();
 const down = new Vector3(direction.x, direction.y, 0).normalize();

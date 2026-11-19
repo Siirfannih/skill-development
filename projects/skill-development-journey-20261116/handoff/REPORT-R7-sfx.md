@@ -1,6 +1,6 @@
 # REPORT · TASK-R7-sfx
 
-**Hasil terbaru: [Ronde 2](#ronde-2): QA teknis audio PASS; kedua mux sudah 2512 frame.** Tabel dan angka di bagian Ronde 1 berikut dipertahankan sebagai riwayat. Temuan satu frame visual f2289 diteruskan di Ronde 2.
+**Status terbaru: [Ronde B3](#ronde-b3): dua WAV dan delta empat cue sudah terbangun; gerbang audio lolos. Pemeriksaan sinkron dan mux B3 menunggu master yang memuat revisi Ronde 2. Mux yang tersedia masih B2.** Ronde sebelumnya dipertahankan sebagai riwayat.
 
 ## Ronde 1 · riwayat pengukuran visual 2511 frame
 
@@ -320,3 +320,351 @@ PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 ~/work/mg-ven
 ```
 
 Commit/push dan tindak lanjut visual tetap milik Sutradara sesuai R7-BERSAMA. Token pemakaian sesi tidak tersedia; tidak ditaksir.
+
+## Ronde 3
+
+**Siap ditinjau; seluruh gerbang teknis TASK-R7-sfx-r3 PASS.** Tiga pop bubble dimajukan, aksen awal cincin publish digeser, ekor gelombang diperpanjang, dan kedua musik diteruskan ke ekor gambar. Tetap **73 cue / 19 peran**, satu stem SFX bersama. Suara asli tetap ×1,0.
+
+- BGM baru: [WAV](../audio/r7/mix_final_bgmbaru.wav) · [mux uji](../audio/r7/cek_final_bgmbaru.mp4).
+- BGM lama: [WAV](../audio/r7/mix_final_bgmlama.wav) · [mux uji](../audio/r7/cek_final_bgmlama.mp4).
+- [Cue terbaru](../audio/r7/cues_r7.json), [objek termasuk yang sengaja senyap](../audio/r7/objects_r7.json), [stem SFX](../audio/r7/stem_sfx_r7.wav), [pembangun](../audio/r7_sfx.py).
+- [Lembar cue terbaru](../audio/r7/cek_cue_r7.jpg), enam panel `cek_cue_r7_01…06.jpg`; keenamnya dibuka dan diperiksa dari build terbaru.
+
+### Dasar revisi dan durasi
+
+Dasar: [TASK-R7-sfx-r3](TASK-R7-sfx-r3.md), **D-473 #2/#6/#7/#11/#14b**, serta #3/#4/#5 untuk peristiwa yang tetap senyap atau mempertahankan cue. R7-BERSAMA, REPORT SFX sebelumnya, BGM Ronde 2, tokoh/IG/UI/KT wajah Ronde 2/3 dibaca. Profil siirfan `profil_cek.py` kembali LULUS. Delta dicatat di laporan milik tugas ini; ledger bersama dan commit/push tetap ditangani Sutradara.
+
+Sumber mux **`qc/r7/visual_r7_fin_ekor.mp4` = 2533 frame @30000/1001**. Perkalian persisnya **84,517766667 detik**, mengoreksi angka 84,51793 pada TASK. WAV memakai pembulatan terdekat ke **4.056.853 sampel / 48 kHz = 84,517770833 detik**, selisih **4,17 mikrodetik** dari gambar. Suara asli berakhir pada **4.023.219 sampel / 83,8170625 detik**; setelahnya **33.634 sampel** berisi musik saja. Tidak ada pemanjangan atau pengulangan suara.
+
+### Cue yang berubah dan yang diperiksa ulang
+
+Frame berbasis nol. Waktu puncak diukur dari PCM setelah mix; seluruh file berada di `audio/r7/sfx/`.
+
+| ID / objek | Peran / file | Frame sebelum → sesudah | Puncak sesudah s | Delta |
+|---|---|---:|---:|---|
+| 008 bubble ChatGPT | pop-chat / `pop-chat.wav` | 263 → **259** | 8,641958 | Mengikuti puncak bubble pertama yang kini bergiliran |
+| 009 bubble Clawd | pop-chat / `pop-chat.wav` | 289 → **285** | 9,509500 | Mengikuti puncak bubble kedua |
+| 010 bubble Gemini | pop-chat / `pop-chat.wav` | 300 → **297** | 9,909896 | Mengikuti puncak bubble ketiga |
+| 037 cincin publish pertama | kinetik-cincin / `kinetik-cincin.wav` | 1148 → **1152** | 38,438396 | Mengikuti jadwal T052 sesudah slab WORKFLOW-NYA keluar |
+| 047 gelombang grid | gelombang / `gelombang.wav` | 1740 → **1740** | 58,058000 | Panjang **0,513458 → 0,934250 s**; awal 57,924521, habis 58,858771 / batas f1764 |
+
+Gelombang tetap berasal dari `Kenyset/swoosh-014-383768.mp3`: lead empat frame dipertahankan, decay stok 380 ms dipanjangkan dengan `atempo` lalu disesuaikan ke 24 frame; release 120 ms. Ini satu file untuk satu gelombang. Analisis PCM terbaru membaca whoosh jelas, decay **631 ms** dibanding **287 ms** sebelumnya; hasil lengkap beserta pembacaan lain tersimpan di [gelombang_description.json](../audio/r7/logs/sfx/r3/gelombang_description.json). Bunyi jentikan tetap berasal dari suara asli.
+
+| Peristiwa yang diperiksa pada master terbaru | Putusan audio |
+|---|---|
+| Adegan D: pesan f1789/f1976, kirim f1882/f1941, balasan f1848/f1907/f2061 | Seluruh cue tetap terikat ke baris pada punch-in; PCM rentang ini identik dengan basis |
+| Mundur kamera saat Selesai, sekitar f2110–2130 | Konfirmasi tetap f2112; swoosh tambahan opsional dipilih senyap |
+| Bubble mengecil lalu seluruhnya kosong f313 | Tiga pop masuk sudah disesuaikan; bunyi keluar opsional dipilih senyap |
+| Clawd duduk di bahu; judul kartu stabil | Tanpa cue tambahan |
+| “nggak?” f2374 dan “masih kerasa AI?” | Narasi senyap; bunyi f2387 milik komentar UI, bukan kata narasi |
+| PROFESIONAL chartreuse dan interaksi IG | Hero tetap f2357; ketik f2424, kirim f2440, komentar f2441, balasan f2449 tetap |
+| Ekor f2512–2532 | Tanpa cue SFX; hanya musik |
+
+Bukti frame: [bubble](../audio/r7/logs/sfx/r3/visual_bubble.jpg), [grid](../audio/r7/logs/sfx/r3/visual_grid.jpg), [baris D](../audio/r7/logs/sfx/r3/visual_d_rows.jpg), [mundur D](../audio/r7/logs/sfx/r3/visual_d_return.jpg), [cincin publish](../audio/r7/logs/sfx/r3/visual_publish.jpg), [IG](../audio/r7/logs/sfx/r3/visual_ig.jpg), [ekor](../audio/r7/logs/sfx/r3/visual_ending.jpg). Sumber ekor juga cocok dengan zoom f2511 sebesar 1,00143× pada f2512 dan 1,03× pada f2532, RMSE RGB 8-bit **2,18 / 2,28** setelah enkode ([ukuran](../audio/r7/logs/sfx/r3/tail_visual_check.json)).
+
+### Musik penutup dan integritas bagian lain
+
+**BGM baru:** Relax berlanjut dari posisi sumber **67,414898 s pada timeline 82,65 s** sampai **69,282668 s**. Taper lama menuju 83,817 diangkat kembali dari stem baca-saja; rekaman sumber yang sama mengisi sampel tambahan, dengan crossfade **45 ms** di sambungan. **BGM lama:** pembanding tetap memakai Aware; kelanjutan dimulai pada sumber **54,891 s / timeline 82,65 s**, disambung **150 ms** pada level setempat. Keduanya memakai kurva `leave` **[0,55; 0; 0,9; 0,35]** selama **0,600 s**, mulai **83,917771 s**, dan mencapai nol tepat di sampel terakhir. Pilihan penutup mengikuti opsi leave pada TASK; tidak mengklaim akhir ini tepat di beat sumber.
+
+[Peta sumber dan envelope](../audio/r7/logs/sfx/r3/music_tail.json) · [ekor dan loudness per babak](../audio/r7/logs/sfx/r3/tail_and_levels.json). Bed baru terpakai per babak **−24,21 / −24,84 / −23,61 / −24,49 LUFS**, masih dalam rentang BGM Ronde 2 **−25…−22 LUFS**.
+
+**18/19 aset SFX identik PCM**; hanya gelombang berubah. Stem SFX dan kedua mix **identik per sampel dengan basis di luar jendela empat cue yang digeser, gelombang, serta musik mulai 82,65 s**. Otomasi sebelumnya diwarisi; pemeriksaan peak tambahan pada build ini tidak memerlukan reduksi baru. Suara dan master tidak melalui limiter, kompresor, atau normalisasi loudness.
+
+[Regresi dan batas perubahan](../audio/r7/logs/sfx/r3/resync_verification.json) PASS; [uji basis sebelum perbaikan](../audio/r7/logs/sfx/r3/resync_red.json) mereproduksi empat cue lama, gelombang terlalu pendek, dan ketiga WAV terlalu pendek. **14/14 input dilindungi tetap SHA-256**, termasuk kedua visual, suara, musik R4/R7, dan stem/mix R6. [Baseline sebelum edit](../audio/r7/logs/sfx/r3/baseline.json). **Rebuild 24 keluaran PCM identik bit**, meliputi 19 aset, stem SFX, kedua bed terpakai dan kedua mix ([bukti](../audio/r7/logs/sfx/r3/rebuild_identity.json)). Header `PEAK` WAV FLOAT boleh berubah; identitas rebuild mengukur PCM.
+
+### Gerbang dari build Ronde 3 terbaru
+
+| Pemeriksaan | BGM baru | BGM lama |
+|---|---:|---:|
+| `sfx_density` | PASS; 73 cue, tanpa pelanggaran | sama |
+| `voice_level` | PASS; −16,2→−16,2 LUFS, crest 14,8→14,8 dB | sama |
+| Median kejernihan model HP ≥12 dB | **14,6121 dB** | **13,3055 dB** |
+| Sample peak WAV | **−1,105527 dBFS** | **−1,155527 dBFS** |
+| True peak WAV / AAC | **−1,10 / −1,06 dBTP** | **−1,15 / −1,15 dBTP** |
+| True peak WAV 4× | −1,09999983 dBFS | −1,14999986 dBFS |
+| Integrated WAV / AAC | −15,49 / −15,50 LUFS | −15,81 / −15,83 LUFS |
+| Gain suara / galat pemulihan maks | **1,0 / 2,98×10⁻⁸** | sama |
+| Suara dan SFX sesudah 83,8170625 s | **nol tepat** | sama |
+| WAV | FLOAT stereo, 48 kHz, **4.056.853 sampel** | sama |
+| Mux | **2533 frame terdekode**, paket/payload/PTS/DTS identik sumber | sama |
+| AAC | stereo 48 kHz, target 320k | sama |
+
+[Verifikasi utama](../audio/r7/logs/sfx/verification_final.json) berakhir tanpa kegagalan; [log](../audio/r7/logs/sfx/r3/verification.log), [density](../audio/r7/logs/sfx/sfx_density.log), [voice baru](../audio/r7/logs/sfx/voice_level_bgmbaru.log) / [lama](../audio/r7/logs/sfx/voice_level_bgmlama.log), serta ffprobe [baru](../audio/r7/logs/sfx/ffprobe_final_bgmbaru.json) / [lama](../audio/r7/logs/sfx/ffprobe_final_bgmlama.json).
+
+Model HP masih membaca **65/73 cue** pada volume 20/50/100%, bunyi tajam **0**. Jendela kejernihan <8 dB: **29 baru / 35 lama**; minimum **−1,45 / −1,33 dB**. Ambang median TASK lulus; pemeriksaan perangkat HP fisik belum dilakukan.
+
+### Interval hal baru dan reproduksi
+
+Metode tetap `qc/r7/bedah85/measure_novelty.py::stats`: satu episode frasa/perubahan visual/SFX, tanpa menghitung setiap huruf, drift, gestur biasa, atau beat musik rutin.
+
+| Peta | Frame ber-event | Median s | p90 s | Terpanjang s | Celah >4 s |
+|---|---:|---:|---:|---:|---:|
+| R2 visual+frasa+SFX, 83,817 s | 202 | 0,3003 | 0,9009 | 2,002 | 0 |
+| R3 visual+frasa, 84,518 s | 154 | 0,4338 | 1,1578 | 2,002 | 0 |
+| R3 visual+frasa+SFX, 84,518 s | 202 | 0,3003 | 0,9676 | 2,002 | 0 |
+
+[Ukuran dan daftar event](../audio/r7/logs/sfx/r3/novelty_r7.json). Rentang utama terpanjang tetap **65,999267–68,001267 s**. Diagnostik yang mengeluarkan KT rutin masih memiliki rentang **43,5435–48,014633 s / 4,471133 s**; tidak ditambah cue pengisi karena tidak ada objek baru yang diminta pada revisi ini.
+
+Filter antislop dalam cakupan audio: **Hard Gate PASS** (format, peak, sumber suara dan input dilindungi); **Purpose Gate PASS** (setiap delta terikat objek/ekor yang diminta); **Liveliness PASS** (peta event di atas, tanpa bunyi per kata); **Craftsmanship PASS** (enam panel dibuka, regresi dan rebuild PCM lulus). Butir UI interaktif tidak berlaku pada keluaran audio ini.
+
+Reproduksi dari folder proyek; snapshot `audio/r7/logs/sfx/r3/before/` menjadi input baca-saja untuk mempertahankan PCM di luar revisi:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 ~/work/mg-venv/bin/python audio/r7_sfx.py --sheet --mux
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 ~/work/mg-venv/bin/python audio/r7/logs/sfx/r3/verify_resync.py
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 ~/work/mg-venv/bin/python audio/r7/logs/sfx/verify_delivery.py
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 ~/work/mg-venv/bin/python audio/r7/logs/sfx/r3/novelty_r7.py
+```
+
+Tidak ada keputusan produk baru, biaya baru, atau dependensi baru. Visual/lego/remotion/edit, PETA, dan stem musik sumber tidak ditulis oleh tugas ini. Commit/push dan publikasi tetap milik Sutradara sesuai R7-BERSAMA. Token pemakaian sesi tidak tersedia; tidak ditaksir.
+
+## Ronde 4
+
+**Siap ditinjau; seluruh gerbang teknis TASK-R7-sfx-r4 PASS.** Dua cue milik KARTU2 (kartu kiri “Claude Pro”) maju **9 frame / 0,3003 s**, pembulatan −0,30 s ke frame pada 30000/1001 fps. Tetap **73 cue / 19 peran**. Dua mix dan mux uji sudah dibangun ulang dari visual baru **2533 frame**.
+
+- BGM baru: [WAV](../audio/r7/mix_final_bgmbaru.wav) · [mux uji](../audio/r7/cek_final_bgmbaru.mp4).
+- BGM lama: [WAV](../audio/r7/mix_final_bgmlama.wav) · [mux uji](../audio/r7/cek_final_bgmlama.mp4).
+- [Cue](../audio/r7/cues_r7.json) · [peta objek](../audio/r7/objects_r7.json) · [stem SFX](../audio/r7/stem_sfx_r7.wav).
+- [Sanding cue R3/R4 pada visual baru](../audio/r7/cek_kartu2_r4.jpg) · [panel cue terbaru](../audio/r7/cek_cue_r7_03.jpg) · [lembar seluruh cue](../audio/r7/cek_cue_r7.jpg). Sanding dan panel 03 dibuka dan diperiksa dari build ini.
+
+### Delta D-473 koordinasi #4
+
+Dasar: [TASK-R7-sfx-r4](TASK-R7-sfx-r4.md), R7-BERSAMA, dan laporan Ronde 3 di atas. Koreksi dicatat dalam [baseline R4](../audio/r7/logs/sfx/r4/baseline.json); ledger bersama tetap milik Sutradara sesuai pembagian file. Profil siirfan diperiksa kembali dengan `profil_cek.py`: **LULUS**. Tidak ada keputusan kreatif atau aset baru.
+
+| ID / objek | Peran / file di `audio/r7/sfx/` | Frame R3 → R4 | Puncak PCM R4 s | Gain nominal |
+|---|---|---:|---:|---:|
+| SFX-R7-042 / KARTU2 masuk | objek-mendarat / `objek-mendarat.wav` | 1510 → **1501** | **50,083375** | −9 dB |
+| SFX-R7-043 / hitungan KARTU2 ke 5× | hitung / `hitung.wav` | 1526 → **1517** | **50,617229** | −10 dB |
+
+[Strip frame visual](../audio/r7/logs/sfx/r4/visual_kartu2.jpg): kartu mulai terlihat **f1499**, pop berada dua frame sesudahnya pada **f1501**; angka masih 1× pada **f1516** dan naik menjadi 2× pada **f1517**, tepat di tick pertama. Empat tick tetap satu episode dengan offset **0 / 66,667 / 100 / 233,333 ms**. Galat puncak terhadap waktu frame maksimum **8,33 µs**, kurang dari setengah sampel 48 kHz.
+
+Jarak terdekat kedua cue yang digeser adalah satu sama lain: **533,854 ms**, melewati ambang **100 ms**. Cue sebelumnya (041) berjarak **1434,771 ms** dari pop; cue berikutnya (044) berjarak **2936,271 ms** dari hitungan. Cue KARTU1 dan whoosh keluar bersama tetap pada waktu R3.
+
+### Bukti bahwa bagian lain tetap
+
+[Regresi R4](../audio/r7/logs/sfx/r4/resync_verification.json) **PASS**: **71 cue lain identik seluruh atributnya**, peta objek berubah hanya pada dua entri terkait. **19/19 aset SFX** dan **kedua bed musik terpakai identik PCM seluruh durasi**. Stem SFX dan kedua mix identik per sampel di luar gabungan rentang bunyi lama/baru dua cue tersebut. Envelope, jumlah tick, durasi aset, peran, dan gain nominal tetap.
+
+[Perbandingan bentuk gelombang](../audio/r7/logs/sfx/r4/shifted_waveform.json): stem R3 dikurangi dua bunyi lama, lalu PCM keduanya ditempatkan pada awal baru; galat maksimum terhadap hasil build **1,49×10⁻⁸**, dalam pembulatan float32. Pengukuran puncak efektif hitungan berubah hanya **5,84×10⁻⁸ dB** akibat pembulatan, tanpa perubahan gain. **18/18 input dilindungi tetap SHA-256** sejak baseline R4, termasuk visual baru, suara, stem/mix terdahulu, musik sumber, dan sumber lapisan kartu. SHA-256 visual mux: `32db72664a2e39a9e0c92cdc7f88e99f301721661b00e5e106a62e7e9b5228c3`.
+
+[Uji sebelum perbaikan](../audio/r7/logs/sfx/r4/resync_red.json) mereproduksi kedua cue dan entri objek yang terlambat sembilan frame. Pembangun hanya bertambah dua pasangan waktu → frame dalam daftar resinkronisasi. Verifier menerima `--baseline` agar memeriksa visual baru terhadap snapshot awal R4; seluruh ambang dan pemeriksaan audio/video tetap berlaku.
+
+### Gerbang build Ronde 4
+
+| Pemeriksaan | BGM baru | BGM lama |
+|---|---:|---:|
+| `sfx_density` | **PASS**, 73 cue, 0 pelanggaran | sama |
+| `voice_level` | **PASS**, gain suara 1,0 | sama |
+| Median kejernihan model HP ≥12 dB | **14,6121 dB** | **13,3055 dB** |
+| Sample peak WAV | **−1,105527 dBFS** | **−1,155527 dBFS** |
+| True peak WAV / AAC | **−1,10 / −1,06 dBTP** | **−1,15 / −1,15 dBTP** |
+| True peak WAV 4× | −1,09999983 dBFS | −1,14999986 dBFS |
+| Integrated WAV / AAC | −15,49 / −15,50 LUFS | −15,81 / −15,83 LUFS |
+| Galat pemulihan suara maksimum | **2,98×10⁻⁸** | sama |
+| WAV | FLOAT stereo, 48 kHz, **4.056.853 sampel** | sama |
+| Mux uji | **2533 frame terdekode**, payload/PTS/DTS identik sumber, AAC target 320k | sama |
+| Suara/SFX sesudah 83,8170625 s | **nol tepat**, ekor musik tetap | sama |
+
+[Verifikasi utama](../audio/r7/logs/sfx/verification_final.json) tanpa kegagalan · [log R4](../audio/r7/logs/sfx/r4/verification.log) · [density](../audio/r7/logs/sfx/sfx_density.log) · [voice baru](../audio/r7/logs/sfx/voice_level_bgmbaru.log) / [lama](../audio/r7/logs/sfx/voice_level_bgmlama.log). Kedua cue yang digeser terbaca pada model HP **20/50/100%** di kedua mix; seluruh video tetap **65/73 cue**, bunyi tajam **0**. Jendela kejernihan <8 dB tetap **29 baru / 35 lama**; ambang median TASK lulus, perangkat HP fisik belum diuji.
+
+### Interval hal baru dan reproduksi
+
+Metode tetap `measure_novelty.py::stats` dengan episode frasa/visual/SFX yang sama; peta visual hanya memperbarui waktu masuk KARTU2. Tidak menghitung setiap tick, huruf, drift, atau beat musik rutin.
+
+| Peta visual + frasa + SFX | Frame ber-event | Median s | p90 s | Terpanjang s | Celah >4 s |
+|---|---:|---:|---:|---:|---:|
+| Sebelum / R3 | 202 | 0,3003 | 0,9676 | 2,002 | 0 |
+| Sesudah / R4 | 202 | 0,3003 | 0,9610 | 2,002 | 0 |
+
+[Ukuran dan event R4](../audio/r7/logs/sfx/r4/novelty_r7.json). Rentang terpanjang tetap **65,999267–68,001267 s**; tidak ditambah cue pengisi.
+
+Filter antislop dalam cakupan revisi audio:
+
+- **Hard Gate PASS:** gerbang format/peak/suara lulus, 18 input dilindungi cocok hash, tidak ada klaim hasil tanpa pengukuran.
+- **Purpose Gate PASS:** hanya dua cue milik KARTU2 dipindah sesuai D-473 koordinasi #4.
+- **Liveliness PASS:** census 202 frame peristiwa, median 0,3003 s dan tanpa celah >4 s; gaya dan dinamika warisan dipertahankan.
+- **Craftsmanship PASS:** sanding dan panel cue terbaru diperiksa, regresi PCM serta salinan video lulus. Butir UI interaktif tidak berlaku pada revisi audio ini.
+
+Reproduksi dari folder proyek:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 ~/work/mg-venv/bin/python audio/r7_sfx.py --sheet --mux
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 ~/work/mg-venv/bin/python audio/r7/logs/sfx/r4/verify_kartu2.py
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 ~/work/mg-venv/bin/python audio/r7/logs/sfx/verify_delivery.py --baseline audio/r7/logs/sfx/r4/baseline.json
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 ~/work/mg-venv/bin/python audio/r7/logs/sfx/r4/novelty_r7.py
+```
+
+Tidak ada biaya atau dependensi baru, maupun perubahan visual/lego/remotion/edit/PETA. Commit/push tetap ditangani Sutradara sesuai R7-BERSAMA. Token pemakaian sesi tidak tersedia; tidak ditaksir.
+
+## Ronde B2
+
+**Siap ditinjau; seluruh gerbang teknis TASK-R7B2-sfx PASS.** Adegan Claude kaca menggantikan seluruh cue app lama, kedua punchline memakai hit langsung, tiga hero mengikuti potong masuk, dan pop pil “habis banget” dihapus. **78 cue / 21 peran / 21 file dengan PCM berbeda**, 175 entri objek termasuk narasi yang sengaja senyap.
+
+- BGM baru: [WAV](../audio/r7/mix_final_bgmbaru.wav) · [mux uji](../audio/r7/cek_final_bgmbaru.mp4).
+- BGM lama: [WAV](../audio/r7/mix_final_bgmlama.wav) · [mux uji](../audio/r7/cek_final_bgmlama.mp4).
+- [Cue](../audio/r7/cues_r7.json) · [objek](../audio/r7/objects_r7.json) · [stem SFX](../audio/r7/stem_sfx_r7.wav).
+- [Lembar 22 cue B2](../audio/r7/cek_cue_r7_b2.jpg): panel [01](../audio/r7/cek_cue_r7_b2_01.jpg), [02](../audio/r7/cek_cue_r7_b2_02.jpg), [03](../audio/r7/cek_cue_r7_b2_03.jpg), [04](../audio/r7/cek_cue_r7_b2_04.jpg). Keempat panel dibuka dari build terbaru. [Lembar seluruh cue baru/geser](../audio/r7/cek_cue_r7.jpg) memuat 50 panel termasuk perubahan ronde terdahulu.
+
+### Dasar dan kondisi yang diperiksa
+
+R7B2-BERSAMA, laporan SFX Ronde 1–4, laporan Claude kaca/punchline/narasi/UI B2, timeline Claude kaca, serta sumber finishing dibaca. Awal sesi mengikuti pemeriksaan Sutradara dalam handoff; tidak menjalankan doctor --fix, PETA, commit/push, atau menulis skill. Profil siirfan kembali **LULUS**. Dasar perubahan: permintaan TASK-R7B2-sfx, D-476…D-484; laporan ini menyimpan delta audio sesuai pembagian file.
+
+Master **`qc/r7/visual_r7_fin_ekor.mp4`**, SHA-256 **`cdfd51a50de9733ab4f68ca221723f8930ebd90818673b00e47f7a2428aff167`**, didekode 2533 frame. **339 frame pemeriksaan** mencakup strip berurutan unggah, menu, kirim/balasan, kedua GRID, jembatan, slab, serta batas punchline. [Indeks](../audio/r7/logs/sfx/b2/visual_index.json), [lembar kondisi](../audio/r7/logs/sfx/b2/visual_conditions_01.jpg).
+
+- **Claude kaca:** padang terang, langit lapang di atas, bunga/batu ramai di bawah, tanpa wajah. Kolom, kartu MP4, menu, dan balasan berada di tengah; GRID hanya menghapus UI, padang tetap. Bunyi mengikuti tindakan UI; tidak menambah ambience padang atau aksen gerak kamera kecil.
+- **Slab dan biaya:** wajah di tengah, dinding abu-biru di belakang, baju bermotif serta tangan/mic ramai di bawah. WORKFLOW-NYA, BALIK MODAL, dan LINTAS AGENT kini muncul utuh pada satu frame; “Ini/habis/banget” hanya narasi di dinding, tanpa pil yang membenarkan pop.
+- **Punchline dan UI:** PROFESIONAL mengganti seluruh IG dengan chartreuse; SKILL GRATIS menggantinya dengan biru. Kembali ke wajah terlihat pada f2485. Repo berupa jendela terang dengan narasi di luar; meja gelap memuat lampu, Clawd, monitor, dan slab. Narasi repo/meja senyap, sementara SELESAI dan tiga bagian slab tetap mempunyai objek yang jelas.
+
+Ini pemeriksaan pelaksana atas sinkron dan integritas audio. Penilaian rasa oleh penilai terpisah tetap milik Sutradara.
+
+### Peta perubahan
+
+Frame berbasis nol @30000/1001. Waktu berikut adalah jangkar cue. Pada ketik, jangkar adalah awal **satu episode frasa**, bukan puncak setiap huruf; puncak PCM terkuat dan durasi tersimpan terpisah dalam JSON dan lembar.
+
+| Peristiwa | Frame | Jangkar s | File di `audio/r7/sfx/` |
+|---|---:|---:|---|
+| Dorong wajah, blur, padang mendarat | 707 | 23,590233 | `transisi-dunia.wav` |
+| MP4 masuk + unggah, satu aksi | 770 | 25,692333 | `objek-mendarat.wav` |
+| Frasa Apple diketik | 840 | 28,028000 | `ketik.wav` |
+| Menu Template terbuka | 848 | 28,294933 | `pop-chat.wav` |
+| Pilih `/apple-style` | 868 | 28,962267 | `klik.wav` |
+| Kirim Apple | 886 | 29,562867 | `kirim-kaca.wav` |
+| Balasan Apple | 894 | 29,829800 | `pop-chat.wav` |
+| Chat baru + GRID pertama | 904 | 30,163467 | `chat-baru-grid.wav` |
+| Frasa sinematik diketik | 917 | 30,597233 | `ketik.wav` |
+| Kirim sinematik | 954 | 31,831800 | `kirim-kaca.wav` |
+| Balasan sinematik | 959 | 31,998633 | `pop-chat.wav` |
+| Chat baru + GRID kedua | 965 | 32,198833 | `chat-baru-grid.wav` |
+| Frasa “Tonton videoku…” diketik | 978 | 32,632600 | `ketik.wav` |
+| Kirim cerita | 1006 | 33,566867 | `kirim-kaca.wav` |
+| Balasan terakhir Claude | 1016 | 33,900533 | `pop-chat.wav` |
+| Dorong menembus balasan, wajah mendarat | 1031 | 34,401033 | `transisi-dunia.wav` |
+| WORKFLOW-NYA | 1122 | 37,437400 | `kata-hero.wav` |
+| BALIK MODAL | 1269 | 42,342300 | `kata-hero.wav` |
+| LINTAS AGENT | 1708 | 56,990267 | `kata-hero.wav` |
+| PROFESIONAL, kanvas chartreuse | 2355 | 78,578500 | `punchline.wav` |
+| SKILL GRATIS, kanvas biru | 2468 | 82,348933 | `punchline.wav` |
+| Cut lama, kembali ke wajah | 2485 | 82,916167 | `cut-wajah.wav` |
+
+**Tiga frasa ketik = tiga cue.** Frasa Apple mempunyai dua potongan keyboard dalam satu episode, [840,848) dan [869,880), dengan jeda senyap saat menu ditahan. Sinematik [917,952), cerita [978,1003). Tidak membuat cue per huruf. Kemunculan MP4 sesudah reset adalah isi yang dipulihkan, bukan unggahan baru.
+
+**Chat baru + GRID = satu gesture, satu file.** Klik pemicu dan perubahan pertama berjarak satu frame, sehingga digabung menurut E24. Transien awal dari take glitch yang sama membawa klik; tidak melapis Enter atau membuat cue kedua untuk arah balik. Masing-masing file **0,400395833 s / 12 frame**, dua fase 6+6; rentang [904,916) dan [965,977). RMS kedua fase aset **0,0495 / 0,0440**, jadi arah muncul tidak kehilangan badan bunyi. Puncak transien berada +4 ms dari jangkar.
+
+**Jembatan masuk/keluar:** awal f698 / 23,289933 dan f1021 / 34,067367, pembulatan waktu brief ke frame terdekat; udara bertambah menuju puncak f707 dan f1031, lalu mereda. Jembatan lama f1736→1740, f2148→2160, dan f2278→2290 dipertahankan persis.
+
+**Punchline:** hit 182 ms memakai satu cuplikan Move.mp3 yang sama untuk kedua kanvas, tanpa lead terbalik 160 ms lama. PROFESIONAL f2357→2355; hadiah f2478→2468. Tidak ada bunyi keluar tambahan. Cut-wajah yang diizinkan dipindah f2490→2485 agar terikat potong keluar yang benar. Cue ketik f2424, kirim f2440, dan balasan IG f2449 **tetap terlihat sebelum kanvas**, termasuk ekornya; tidak ada cue IG yang bertumpuk dengan [2355,2374) atau [2468,2485). [Strip IG](../audio/r7/logs/sfx/b2/visual_ig_actions_01.jpg).
+
+**Slab/UI:** WORKFLOW f1126→1122, BALIK MODAL f1274→1269, LINTAS AGENT f1717→1708, mengikuti master yang dibuka. Pop pil f1305 dihapus. SELESAI tetap f94 pada kemunculan blok; 100%/FULL/AI tetap f2177/f2201/f2215, satu frame sesudah objek f2176/f2200/f2214. Narasi kata per kata, termasuk repo dan meja, tetap senyap.
+
+### Musik, suara, dan bagian yang dilindungi
+
+**Musik tetap identik PCM seluruh durasi**, kedua varian mengambil bed terpakai sebelum B2, termasuk ekor musik. `stem_musik_r7.wav` Ronde 2 dan `stem_musik_A.wav` tidak ditulis. Suara mono asli disalin ke dua kanal pada ×1,0, lalu diberi padding nol setelah 83,8170625 s. Tidak ada gain master, loudnorm, limiter, kompresor, atau pemrosesan suara. Pemeriksaan peak SFX terhadap kedua bed tetap tidak memerlukan reduksi: **0 sampel diubah oleh guard baru**.
+
+[Regresi B2](../audio/r7/logs/sfx/b2/resync_verification.json) **PASS**: **56 cue lain identik jadwal, file, peran, gain, dan durasinya**; 18/19 aset lama identik PCM, hanya punchline berubah, dan dua aset baru ditambah. Stem SFX serta kedua mix identik per sampel di luar gabungan rentang cue yang berubah beserta guard 40 ms. [Snapshot sebelum edit](../audio/r7/logs/sfx/b2/baseline.json) dan `before/` diperlukan untuk reproduksi.
+
+Ada satu perubahan sumber dari sesi paralel: **`lego/r7_finishing.py` berubah pada pusat/framing kamera**, sedangkan master MP4 dan semua batas frame jembatan tetap. TASK SFX tidak menulis file itu. Pemeriksaan pertama menandai perubahan tersebut; [hasil awal](../audio/r7/logs/sfx/b2/verification_before_source_reconcile.json) dipertahankan. [Catatan sumber paralel](../audio/r7/logs/sfx/b2/concurrent_source_change.json) merekam kedua hash dan sumber yang dibaca ulang; [baseline pengiriman](../audio/r7/logs/sfx/b2/delivery_baseline.json) hanya mencatat hash kode framing yang kini ada. **356/357 input awal tetap**, lalu 357/357 cocok pada pemeriksaan pengiriman; master, suara, musik, remotion, dan edit tetap hash awal. Tidak ada ambang audio yang diubah.
+
+### Gerbang build terbaru
+
+| Pemeriksaan | BGM baru | BGM lama |
+|---|---:|---:|
+| `sfx_density` | **PASS**, 78 cue, 0,92/dtk | sama |
+| `voice_level` | **PASS**, suara ×1,0 | sama |
+| Sample peak WAV | **−1,105527 dBFS** | **−1,155527 dBFS** |
+| True peak WAV / AAC | **−1,10 / −1,08 dBTP** | **−1,15 / −1,15 dBTP** |
+| True peak WAV 4× | −1,09999983 dBFS | −1,14999986 dBFS |
+| Integrated WAV / AAC | −15,48 / −15,50 LUFS | −15,81 / −15,83 LUFS |
+| Galat pemulihan suara maksimum | **2,98×10⁻⁸** | sama |
+| WAV | FLOAT stereo 48 kHz, **4.056.853 sampel**, **84,517770833 s** | sama |
+| Mux uji | **2533 frame**, payload/PTS/DTS identik master | sama |
+| AAC | stereo 48 kHz, target 320k | sama |
+| Musik terpakai | **identik PCM seluruh durasi** | sama |
+| Suara/SFX sesudah 83,8170625 s | **nol tepat** | sama |
+| Median kejernihan model HP | **14,6121 dB** | **13,2681 dB** |
+| Cue terdengar pada model HP 20/50/100% | **70/78** | **70/78** |
+| Bunyi tajam pada model HP | **0** | **0** |
+
+[Verifikasi pengiriman](../audio/r7/logs/sfx/verification_final.json) berakhir **tanpa kegagalan**; [log B2](../audio/r7/logs/sfx/b2/verification.log), [density](../audio/r7/logs/sfx/sfx_density.log), [voice baru](../audio/r7/logs/sfx/voice_level_bgmbaru.log) / [lama](../audio/r7/logs/sfx/voice_level_bgmlama.log). [Kontrak 22 peristiwa](../audio/r7/logs/sfx/b2/contract_verification.json) PASS; [uji basis sebelum revisi](../audio/r7/logs/sfx/b2/contract_red.json) mereproduksi app usang, cue pil yatim, dan waktu hero/punchline lama. Galat puncak non-ketik maksimum **0,120 frame / 4 ms**; episode ketik diperiksa sebagai rentang frasa.
+
+**Batas model HP:** delapan cue yang ditandai lemah tetap dilaporkan pada data [baru](../audio/r7/logs/sfx/audio_phone_bgmbaru.json) / [lama](../audio/r7/logs/sfx/audio_phone_bgmlama.json). Jendela kejernihan <8 dB berjumlah **32 / 36**, minimum **−3,51 / −3,53 dB**. Ini kelulusan gerbang teknis dan model HP, bukan uji speaker HP fisik atau persetujuan rasa.
+
+### Sumber bunyi dan penyerahan
+
+Pop UI/balasan tetap `soft-pop-sfx-433612`, pilih template memakai Enter, unggahan memakai pop objek yang sudah ada. Dua aset baru: `kirim-kaca.wav` dari **Kenyset/swoosh-010-352856.mp3**, satu sapuan 165 ms; `chat-baru-grid.wav` dari **SFXIrfan/ES_User Interface, Glitch, Glitch Databend 04**, satu take 400,4 ms. [Analisis PCM terbaru](../audio/r7/logs/sfx/b2/rendered_asset_descriptions.json) menyimpan seluruh label, termasuk ketidakpastian klasifikasi cuplikan pendek; bukan klaim dengar manusia. Kandidat balasan yang terbaca kuat sebagai kayu ditolak dan diparkir di `b2/rejected/`.
+
+Antislop dalam cakupan revisi audio:
+
+- **Hard Gate PASS:** format, peak, suara ×1,0, dan hash input cocok; laporan menyebut batas model HP.
+- **Purpose Gate PASS:** 22 delta terikat peristiwa pada master; narasi tanpa objek baru tetap senyap.
+- **Liveliness PASS:** tiga episode ketik dan dua reset utuh, maksimal lima cue per dua detik menurut density; tidak ada cue per huruf/kata narasi.
+- **Craftsmanship PASS:** empat panel B2 dibuka, 56 cue dan musik diuji regresi PCM, kedua mux diverifikasi. Ketentuan UI interaktif tidak berlaku pada keluaran WAV/MP4 ini.
+
+Reproduksi dari folder proyek, memakai snapshot `audio/r7/logs/sfx/b2/before/`:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 ~/work/mg-venv/bin/python audio/r7_sfx.py --sheet --mux
+PYTHONDONTWRITEBYTECODE=1 ~/work/mg-venv/bin/python audio/r7/logs/sfx/b2/make_check_sheet.py
+PYTHONDONTWRITEBYTECODE=1 ~/work/mg-venv/bin/python audio/r7/logs/sfx/b2/check_contract.py
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 ~/work/mg-venv/bin/python audio/r7/logs/sfx/b2/verify_resync.py
+PYTHONDONTWRITEBYTECODE=1 OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 ~/work/mg-venv/bin/python audio/r7/logs/sfx/verify_delivery.py --baseline audio/r7/logs/sfx/b2/delivery_baseline.json
+```
+
+Tidak ada biaya/dependensi baru, perubahan stem musik, visual, lego, remotion, edit, skill, atau PETA dari TASK ini. Perubahan laporan ini adalah keluaran yang diminta eksplisit. Commit/push dan penilaian terpisah tetap milik Sutradara sesuai R7B2-BERSAMA. Bila master diganti setelah pemeriksaan ini, mux/lembar dan verifikasi harus dibuat ulang dari master penggantinya. Token pemakaian sesi tidak tersedia; tidak ditaksir.
+
+## Ronde B3
+
+**Audio sudah terbangun; belum siap ditinjau sebagai mux B3.** TASK-R7B2-sfx-b3 / D-485. Dua WAV terbaru berdurasi **84,517770833 s / 4.056.853 sampel**, 48 kHz stereo FLOAT. Gerbang density, voice_level, peak WAV, kejernihan model HP, kontrak peristiwa, dan regresi PCM lolos. Mux dan gerbang sinkron terhadap visual Ronde 2 masih menunggu sumber yang sesuai.
+
+### Sumber visual yang belum sesuai
+
+File yang ditunjuk TASK, `qc/r7/visual_r7_fin_ekor.mp4`, didekode **2533 frame**, SHA-256 **`7a54519bf446f2dfb708efb7c08f0de65a32e00c811a0b3224e988c4fe8be57a`**, mtime 19 November 16:04 WITA. Isinya belum memuat perubahan yang disebut brief:
+
+- **f1425:** badan kartu ChatGPT kosong; pada rakitan UI Ronde 2 sudah berisi 1×.
+- **f1452:** badan kartu masih kosong dan pil hitam “Max yang” masih ada; rakitan UI Ronde 2 sudah berisi 19× dan narasi tanpa pil.
+- **f2532:** “beruntung.” masih di dada; hasil narasi Ronde 2 memperlihatkan “yang / beruntung.” bertumpuk di dinding.
+
+[Temuan sumber](../audio/r7/logs/sfx/b3/source_mismatch.json) · [indeks 160 frame dan 16 lembar](../audio/r7/logs/sfx/b3/stale_master/visual_index.json) · [kartu kosong](../audio/r7/logs/sfx/b3/stale_master/visual_chatgpt_entry_02.jpg) · [pil Max](../audio/r7/logs/sfx/b3/stale_master/visual_chatgpt_count_02.jpg) · [penutup lama](../audio/r7/logs/sfx/b3/stale_master/visual_ending_02.jpg). Lembar ring, kartu, penutup, dan aksi app telah dibuka langsung. Pertanyaan path/penggantian master diajukan di sesi ini; visual tidak ditulis TASK audio.
+
+Laporan UI dan narasi Ronde 2 serta **Ronde 2 di REPORT-R7B2-punchline.md** dibaca; laporan terakhir itulah pemilik koreksi IG (tidak ada berkas REPORT-R7B2-ig.md). Rakitan lokal UI, strip angka berurutan, still penutup f2532, serta sanding IG Ronde 2 sudah dibuka. Delta audio disiapkan dari bahan revisi tersebut, dan **belum dinyatakan sinkron terhadap master di atas**.
+
+### Delta yang sudah dibangun
+
+Kondisi footage kartu: wajah close-up mengisi tengah, dinding kosong mengapit kepala, baju bermotif dan tangan/mic memenuhi bawah. Kartu putih masuk dari kanan/kiri; bunyi masuk mengikuti badan kartu, episode hitung mengikuti perubahan angka. Penutup revisi berada di dinding kanan dengan gelombang huruf, tanpa objek baru mendarat, sehingga tetap senyap. IG tetap panel putih di kanan wajah; hanya framing Post dan posisi “aku” berubah, tanpa perubahan waktu tindakan UI.
+
+| Cue / objek | B2 → rencana B3 | Bentuk bunyi |
+|---|---|---|
+| SFX-R7-043 · cincin publish | f1152 → f1155 | Aksen kelompok yang sama, mengikuti penundaan T052 sesudah slab |
+| SFX-R7-045 · kartu ChatGPT masuk | f1452 → f1421 | Pop yang sama, satu frame setelah badan kartu terlihat penuh pada f1420 |
+| SFX-R7-046 · penghitung ChatGPT | f1458 → f1443 | Satu episode; tujuh tik pada f1443/1444/1445/1446/1447/1448/1454, berhenti setelah 20× |
+| SFX-R7-048 · penghitung Claude | f1517 → f1511 | Satu episode; empat tik pada f1511/1512/1513/1522, berhenti setelah 5× |
+
+Angka piksel pada rakitan lokal diperiksa lewat OCR dan strip. OCR awal gagal membaca 7 pada f1443 dan membaca 15 sebagai 18 pada f1445; kedua crop dibuka dan pembacaan yang benar dicatat terpisah dari hasil OCR mentah. [Pembacaan lengkap](../audio/r7/logs/sfx/b3/reference_count_frames.json). Puncak tik hasil render berada kurang dari satu sampel dari setiap frame tujuannya; ini pengukuran audio terhadap waktu rakitan lokal.
+
+**78 cue tetap; hanya empat berubah.** Tidak ada cue khusus pil Max di B2 sehingga tidak ada cue pil yang perlu dihapus. Masuk kartu Claude f1501 tetap mengikuti lintasan badan kartu yang sama. Seluruh cue Claude kaca, dua GRID, jembatan, punchline, serta ketik/kirim/balasan IG dipertahankan. Pergeseran narasi “aku” tidak menambah bunyi. “yang / beruntung.” dan ekor sesudah suara selesai tetap senyap.
+
+### Bukti audio terbaru
+
+| Pemeriksaan | BGM baru | BGM lama |
+|---|---:|---:|
+| WAV | 48 kHz stereo FLOAT, 4.056.853 sampel | sama |
+| `sfx_density` | PASS, 78 cue | sama |
+| `voice_level` | PASS, ×1,0 | sama |
+| Sample peak WAV | −1,105527 dBFS | −1,155527 dBFS |
+| True peak WAV | −1,10 dBTP | −1,15 dBTP |
+| Integrated WAV | −15,48 LUFS | −15,81 LUFS |
+| Galat pemulihan suara maksimum | 2,98×10⁻⁸ | sama |
+| Median kejernihan model HP | 14,6121 dB | 13,2681 dB |
+| Terdengar pada model HP 50% | 71/78 | 71/78 |
+| Bunyi tajam pada model HP | 0 | 0 |
+| Musik terpakai | identik PCM seluruh durasi | sama |
+| PCM mix di luar rentang empat cue + guard 40 ms | identik B2 | sama |
+| Mux B3 / AAC / sinkron master baru | **belum dibuat/dinilai** | **belum dibuat/dinilai** |
+
+[Gerbang audio](../audio/r7/logs/sfx/b3/audio_verification.json) · [regresi PCM](../audio/r7/logs/sfx/b3/resync_verification.json) · [kontrak 22 peristiwa B2 + empat delta B3](../audio/r7/logs/sfx/b3/contract_verification.json) · [uji merah basis B2](../audio/r7/logs/sfx/b3/contract_red.json) · [delta](../audio/r7/logs/sfx/b3/cue_delta.json) · [snapshot basis](../audio/r7/logs/sfx/b3/baseline.json) · [build](../audio/r7/logs/sfx/b3/build.log).
+
+**74 cue lain dan 21/21 aset SFX identik PCM dengan basis B2.** Guard baru mengubah nol sampel. Kedua bed musik dipakai dari snapshot B2 yang diterima; stem musik dan suara asli tidak ditulis. Tidak ada pemrosesan master atau perubahan level suara. Model HP bukan pengujian speaker HP fisik; jendela kejernihan <8 dB tetap 32/36 dan minimum −3,51/−3,53 dB, sama seperti B2.
+
+### Titik lanjut
+
+Sesudah master hasil integrasi tersedia: baca frame kartu/counter, T052, aksi Claude/IG dan penutup dari master itu; sesuaikan hanya bila waktunya berbeda; bangun ulang lembar + dua mux; jalankan gerbang pengiriman B2 terhadap baseline input master baru dan regresi empat cue. Hash master awal dan penggantinya harus dicatat, bukan menganggapnya identik. `verification_final.json`, mux, dan lembar B2 yang masih ada **bukan bukti pengiriman B3**.
+
+Pemeriksaan awal mengikuti handoff: fetch main; doctor hanya gagal PETA basi seperti pengecualian R7B2-BERSAMA; profil siirfan LULUS. Tidak menjalankan doctor --fix, PETA, commit/push, atau menulis skill. Semua perubahan berada pada `audio/r7_sfx.py`, `audio/r7/**`, dan laporan yang diminta. Tidak ada biaya/dependensi baru. Token sesi tidak tersedia.

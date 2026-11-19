@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 """Build the R7 UI layers independently of the R5 scenes and other workers' overrides.
 
-Run from any directory: python3 lego/r7_ui.py prepare|render|assemble|stills|check|all.
+Run from any directory: python3 lego/r7_ui.py prepare|render|assemble|stills|check|all|r3.
+B2 revision: b2_prepare, b2_render, b2_assemble (repo, cards, desk only).
+B2 R2 revision: b2_r2 (card contents only).
 R4 sources and full-frame PSNR proofs stay frozen in qc/r7/ui/r4_proof.json.
 """
 import argparse
@@ -89,7 +91,7 @@ def prepare():
         props['durasi'] = math.ceil(props['durasi'] * 30) / 30
         props_file = Q / (name + '_props.json')
         write(props_file, props)
-        out_name = name + '_r2' if name == 'blender' else name
+        out_name = name + '_r3' if name in ('kartu1', 'kartu2', 'blender') else name
         out = CACHE / ('r7_ui_' + out_name + ('.mp4' if opaque else '.mov'))
         layer = dict(layer, src='cache/' + out.name)
         jobs.append({'name': name, 'comp': comp, 'props': str(props_file), 'out': str(out), 'opaque': opaque})
@@ -126,7 +128,9 @@ def prepare():
         start = original['t'] if model == 'claude' else name_cue['start']
         end = original['t'] + float(probe(P / 'lego' / original['src']))
         name_cue = dict(name_cue, end=end)
-        props = {'durasi': end - start, 'w': 640, 'h': 580, 't0': start, 'numberT0': original['t'], 'model': model,
+        number_block = blocks['T070' if model == 'claude' else 'T067']
+        number_onset = round(W.U[number_block['kata'][0]]['s'] + 2 / 30, 6)
+        props = {'durasi': end - start, 'w': 640, 'h': 720 if model == 'chatgpt' else 580, 't0': start, 'numberT0': number_onset, 'model': model,
             'label': label, 'angka': number, 'terbang': .45, 'jarak': 900, 'kanan': model == 'chatgpt', 'cue': name_cue}
         if extra:
             props['extra'] = extra
@@ -169,10 +173,181 @@ def render():
             strip_audio(Path(job['out']))
 
 
+def r3():
+    q = Q / 'r3'
+    q.mkdir(parents=True, exist_ok=True)
+    outputs = {}
+    for name, comp, id_ in [('kartu1', 'KartuUI', 'KARTU1'), ('kartu2', 'KartuUI', 'KARTU2'),
+                             ('blender', 'SurfaceTextUI', 'T080')]:
+        props = read(Q / (name + '_props.json'))
+        if name == 'kartu1':
+            props['h'] = 680
+        props_file = q / (name + '_props.json')
+        write(props_file, props)
+        out = CACHE / ('r7_ui_' + name + '_r3.mov')
+        print('Render R3', name, flush=True)
+        run(['npx', 'remotion', 'render', 'src/video/index.ts', comp, out,
+             '--props=' + str(props_file), '--concurrency=3', '--image-format=png',
+             '--codec=prores', '--prores-profile=4444', '--pixel-format=yuva444p10le'],
+            q / ('render_' + name + '.log'), P / 'remotion')
+        outputs[id_] = 'cache/' + out.name
+    override = read(P / 'lego/r7_override_ui.json')
+    for layer in override['ganti']:
+        if layer['id'] in outputs:
+            layer['src'] = outputs[layer['id']]
+    write(P / 'lego/r7_override_ui.json', override)
+    write(q / 'override_after.json', override)
+    print('R3 layers rendered and UI override updated', flush=True)
+
+
 def strip_audio(src):
-    tmp = src.with_name(src.stem + '_an.mp4')
+    tmp = src.with_name(src.stem + '_an' + src.suffix)
     run(['ffmpeg', '-v', 'error', '-y', '-i', src, '-map', '0:v:0', '-c:v', 'copy', '-an', tmp])
     tmp.replace(src)
+
+
+def b2_prepare():
+    """D-476/484: prepare only the repo and desk, preserving the other UI jobs."""
+    q = Q / 'b2'
+    q.mkdir(parents=True, exist_ok=True)
+    before = q / 'before-source/lego/r7_override_ui.json'
+    if not before.exists():
+        before.parent.mkdir(parents=True, exist_ok=True)
+        write(before, read(P / 'lego/r7_override_ui.json'))
+    jobs = []
+    for name, comp, opaque in [('repo', 'DuniaRepoUI', True), ('blender', 'SurfaceTextUI', False)]:
+        props = read(Q / ('d_repo_props.json' if name == 'repo' else 'blender_props.json'))
+        if name == 'repo':
+            props['cues'][0]['start'] = props['t0']
+            props['cues'][0]['words'][0]['on'] = props['t0']
+        props_file = q / f'{name}_props.json'
+        write(props_file, props)
+        out = q / ('r7b2_ui_' + name + ('.mp4' if opaque else '.mov'))
+        jobs.append({'name': name, 'comp': comp, 'props': str(props_file), 'out': str(out), 'opaque': opaque})
+    write(q / 'jobs.json', jobs)
+    print('B2 prepared: repo + blender only')
+
+
+def b2_render(only=None):
+    q = Q / 'b2'
+    shared = P / 'remotion/src/video/bersama/kt83/gelombang.ts'
+    wave_hash = hashlib.sha256(shared.read_bytes()).hexdigest()
+    if only:
+        assert read(q / 'render_dependencies.json')[str(shared.relative_to(P))] == wave_hash
+    for job in read(q / 'jobs.json'):
+        if only and job['name'] not in only:
+            continue
+        cmd = ['npx', 'remotion', 'render', 'src/video/index.ts', job['comp'], job['out'],
+               '--props=' + job['props'], '--concurrency=3', '--image-format=png']
+        cmd += ['--codec=h264', '--crf=14'] if job['opaque'] else [
+            '--codec=prores', '--prores-profile=4444', '--pixel-format=yuva444p10le']
+        run(cmd, q / ('render_' + job['name'] + '.log'), P / 'remotion')
+        assert hashlib.sha256(shared.read_bytes()).hexdigest() == wave_hash, 'Shared wave changed; rerun b2_render'
+        strip_audio(Path(job['out']))
+        link = CACHE / Path(job['out']).name
+        if link.is_symlink():
+            assert link.resolve() == Path(job['out']).resolve()
+        elif not link.exists():
+            link.symlink_to(Path(job['out']).resolve())
+        else:
+            raise FileExistsError(link)
+    # Keep the existing word over the face, ending when the opaque repo begins.
+    before = read(q / 'before-source/lego/r7_override_ui.json')
+    intro = next(x for x in before['tambah'] if x['id'] == 'UI_REPO_INTRO')
+    repo = next(x for x in before['ganti'] if x['id'] == 'D_REPO')
+    frames = math.ceil((repo['t'] - intro['t']) * 30)
+    out = q / 'r7b2_ui_intro.mov'
+    run(['ffmpeg', '-v', 'error', '-y', '-i', P / 'lego' / intro['src'],
+         '-map', '0:v:0', '-frames:v', frames, '-c:v', 'copy', '-an', out], q / 'trim_intro.log')
+    link = CACHE / out.name
+    if not link.exists():
+        link.symlink_to(out.resolve())
+    override = read(P / 'lego/r7_override_ui.json')
+    sources = {'D_REPO': 'cache/r7b2_ui_repo.mp4', 'T080': 'cache/r7b2_ui_blender.mov'}
+    for layer in override['ganti']:
+        if layer['id'] in sources:
+            layer['src'] = sources[layer['id']]
+    for layer in override['tambah']:
+        if layer['id'] == 'UI_REPO_INTRO':
+            layer['src'] = 'cache/r7b2_ui_intro.mov'
+    b2_app_owner(override)
+    write(P / 'lego/r7_override_ui.json', override)
+    write(q / 'override_after.json', override)
+    write(q / 'render_dependencies.json', {str(shared.relative_to(P)): wave_hash})
+    print('B2 active: D_REPO, T080, UI_REPO_INTRO; cards preserved, legacy app released to its owner')
+
+
+def b2_blender():
+    b2_render({'blender'})
+
+
+def b2_r2():
+    """D-485: refill the two cards and remove the T066 narrative container."""
+    q = Q / 'b2-r2'
+    q.mkdir(parents=True, exist_ok=True)
+    sys.path.insert(0, str(P / 'lego'))
+    import waktu as W
+    blocks = {b['id']: b for b in read(P / 'teks.json')}
+    before = read(P / 'lego/r7_override_ui.json')
+    if not (q / 'override_before.json').exists():
+        write(q / 'override_before.json', before)
+    run([sys.executable, 'r7_gabung.py'], q / 'r7_gabung_before.log', P / 'lego')
+    assembled = {x['id']: x for x in read(P / 'lego/lego_r7.json')['lapisan']}
+    sources = {}
+    for name, id_, cue_id in [('kartu1', 'KARTU1', 'T067'), ('kartu2', 'KARTU2', 'T070')]:
+        props = read(Q / 'r3' / (name + '_props.json'))
+        layer = next(x for x in before['ganti'] if x['id'] == id_)
+        assert props['t0'] == layer['t'], (name, props['t0'], layer['t'])
+        props['t0'] = assembled[id_]['t']
+        props['numberT0'] = round(W.U[blocks[cue_id]['kata'][0]]['s'] + 2 / 30, 6)
+        if name == 'kartu1':
+            props['h'] = 720
+        props_file = q / (name + '_props.json')
+        write(props_file, props)
+        out = q / ('r7b2_ui_' + name + '_r2.mov')
+        rendering = out.with_name(out.stem + '_rendering.mov')
+        print('Render B2 R2', name, flush=True)
+        run(['npx', 'remotion', 'render', 'src/video/index.ts', 'KartuUI', rendering,
+             '--props=' + str(props_file), '--concurrency=3', '--image-format=png',
+             '--codec=prores', '--prores-profile=4444', '--pixel-format=yuva444p10le'],
+            q / ('render_' + name + '.log'), P / 'remotion')
+        strip_audio(rendering)
+        rendering.replace(out)
+        link = CACHE / out.name
+        if link.is_symlink():
+            assert link.resolve() == out.resolve()
+        elif not link.exists():
+            link.symlink_to(out.resolve())
+        else:
+            raise FileExistsError(link)
+        sources[id_] = 'cache/' + out.name
+    override = read(P / 'lego/r7_override_ui.json')
+    for layer in override['ganti']:
+        if layer['id'] in sources:
+            assert layer == next(x for x in before['ganti'] if x['id'] == layer['id'])
+            layer['src'] = sources[layer['id']]
+    write(P / 'lego/r7_override_ui.json', override)
+    write(q / 'override_after.json', override)
+    print('B2 R2 active: KARTU1/KARTU2 sources only; placement and motion preserved')
+
+
+def b2_app_owner(override):
+    """D-479/484: release the legacy app entries when its new owner is present."""
+    if (P / 'lego/r7_override_claudekaca.json').exists():
+        override['ganti'] = [x for x in override['ganti'] if x['id'] not in {'D_APP', 'T048'}]
+        app_text = {f'T{i:03d}' for i in range(39, 50)}
+        override['buang'] = [i for i in override['buang'] if i not in app_text]
+
+
+def b2_assemble():
+    global Q, RANGES
+    override = read(P / 'lego/r7_override_ui.json')
+    b2_app_owner(override)
+    write(P / 'lego/r7_override_ui.json', override)
+    write(Q / 'b2/override_after.json', override)
+    Q = Q / 'b2'
+    RANGES = [('repo', 1.2, 4.6), ('kartu', 47., 53.8), ('blender', 72., 76.5)]
+    assemble()
 
 
 def recipe():
@@ -304,7 +479,8 @@ def check():
 
 if __name__=='__main__':
     ap=argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('step',choices=['prepare','render','assemble','stills','check','all'])
+    ap.add_argument('step',choices=['prepare','render','assemble','stills','check','all','r3',
+                                  'b2_prepare', 'b2_render', 'b2_blender', 'b2_assemble', 'b2_r2'])
     a=ap.parse_args()
     Q.mkdir(parents=True,exist_ok=True)
     for step in ['prepare','render','assemble','stills','check'] if a.step=='all' else [a.step]:

@@ -2,52 +2,52 @@
  "ganti": [
   {
    "id": "K_Clawd0",
-   "src": "cache/r7_tokoh_K_Clawd0.mov",
+   "src": "cache/r7_tokoh_r3_K_Clawd0.mov",
    "t": 0.0,
    "x": 271,
    "y": 372
   },
   {
    "id": "K_Clawd",
-   "src": "cache/r7_tokoh_K_Clawd.mov",
+   "src": "cache/r7_tokoh_r3_K_Clawd.mov",
    "t": 4.471133333333333,
    "x": 300,
    "y": 342
   },
   {
    "id": "K_Codex",
-   "src": "cache/r7_tokoh_K_Codex.mov",
+   "src": "cache/r7_tokoh_r3_K_Codex.mov",
    "t": 8.308300000000001,
    "x": 1002,
    "y": 326
   },
   {
    "id": "K_Gemini",
-   "src": "cache/r7_tokoh_K_Gemini.mov",
+   "src": "cache/r7_tokoh_r3_K_Gemini.mov",
    "t": 9.542866666666667,
    "x": 1180,
    "y": 336
   },
   {
    "id": "B_Codex",
-   "src": "cache/r7_tokoh_B_Codex.mov",
-   "t": 8.608600000000001,
-   "x": 1238,
-   "y": 313
+   "src": "cache/r7_tokoh_r3_B_Codex.mov",
+   "t": 8.475133333333334,
+   "x": 1252,
+   "y": 325
   },
   {
    "id": "B_Clawd",
-   "src": "cache/r7_tokoh_B_Clawd.mov",
-   "t": 9.476133333333333,
-   "x": 153,
-   "y": 303
+   "src": "cache/r7_tokoh_r3_B_Clawd.mov",
+   "t": 9.342666666666666,
+   "x": 214,
+   "y": 321
   },
   {
    "id": "B_Gemini",
-   "src": "cache/r7_tokoh_B_Gemini.mov",
-   "t": 9.843166666666667,
-   "x": 1158,
-   "y": 194
+   "src": "cache/r7_tokoh_r3_B_Gemini.mov",
+   "t": 9.743066666666667,
+   "x": 1165,
+   "y": 212
   }
  ],
  "tambah": [],

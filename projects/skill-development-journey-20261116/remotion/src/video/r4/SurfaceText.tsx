@@ -4,7 +4,7 @@ import {Fonts} from '../bersama/Fonts';
 import {FONT, NETRAL} from '../bersama/tema';
 import {move} from '../../lib/curves';
 import {active, Phrase, type Cue} from './UIWords';
-import {deskTransform} from './BlenderPlane';
+import {NarasiUI} from './NarasiUI';
 
 export type SurfaceProps = {durasi: number; t0: number; cues: Cue[]; kind: 'face' | 'blender' | 'intro';
   camera?: {start: number; end: number; zoom: [number, number]; center: [number, number]}[];
@@ -14,6 +14,27 @@ export type SurfaceProps = {durasi: number; t0: number; cues: Cue[]; kind: 'face
 export const SurfaceText: React.FC<SurfaceProps> = p => {
   const f = useCurrentFrame(), {fps} = useVideoConfig(), t = p.t0 + f / fps;
   const cue = p.cues.find(x => active(x, t));
+  if (p.kind === 'blender') {
+    const a = p.blender?.start ?? 72.07534, b = p.blender?.end ?? 76.40967;
+    const u = Math.max(0, Math.min(1, (t - a) / (b - a)));
+    const z = (1 / 1.15) / ((1 - u) / 1.15 + u / 1.30);
+    const slab = cue?.id === 'T081';
+    const x = p.slab?.x ?? 220, y = p.slab?.y ?? 334;
+    const grow = cue ? .98 + .02 * Math.min(1, Math.max(0, (t - cue.start) / (cue.end - cue.start))) : 1;
+    // D-476: foreground narration is flat; the existing slab keeps its R2 world position.
+    return <AbsoluteFill style={{background: 'transparent'}}><Fonts/>
+      {cue && (slab ? <div style={{position: 'absolute', left: x, top: y, transformOrigin: '0 0',
+        transform: `translate(${(x - 960) * (z - 1)}px,${(y - 540) * (z - 1)}px) scale(${z * (p.slab?.scaleX ?? 1) * grow},${z * grow})`}}>
+        <span style={{display: 'inline-flex', gap: '.22em', whiteSpace: 'nowrap', fontFamily: FONT.anton,
+          fontWeight: 400, fontSize: p.slab?.size ?? 222, lineHeight: 1.1, letterSpacing: '-.025em', color: NETRAL.hangat}}>
+          {cue.words.filter(w => t >= w.on).map(w => <span key={w.on}>{w.text}</span>)}
+        </span>
+      </div> : <div style={{position: 'absolute', left: 220, top: 320}}>
+        <NarasiUI cue={cue} t={t} size={82} color={NETRAL.hangat}
+          rows={cue.id === 'T083' ? [[0], [1, 2]] : cue.id === 'T082' ? [[0, 1], [2]] : [[0]]}/>
+      </div>)}
+    </AbsoluteFill>;
+  }
   let transform = '', left = 960, top = 800;
   let transitionTag = false;
   if (p.kind === 'face' || p.kind === 'intro') {
@@ -48,28 +69,14 @@ export const SurfaceText: React.FC<SurfaceProps> = p => {
       transform = 'translateX(-50%)';
     }
   }
-  if (p.kind === 'blender') {
-    // The saved Blender camera moves linearly on its viewing axis (1.15 → 1.30).
-    // A plane through its target projects with this same scale and fixed vanishing point.
-    const a = p.blender?.start ?? 72.07534, b = p.blender?.end ?? 76.40967;
-    const u = Math.max(0, Math.min(1, (t - a) / (b - a)));
-    const z = (1 / 1.15) / ((1 - u) / 1.15 + u / 1.30);
-    if (cue?.id === 'T081') {
-      left = p.slab?.x ?? 285; top = p.slab?.y ?? 398;
-      transform = `translate(${(left - 960) * (z - 1)}px,${(top - 540) * (z - 1)}px) scale(${z * (p.slab?.scaleX ?? 1)},${z})`;
-    } else {
-      left = 0; top = 0;
-      transform = deskTransform(u);
-    }
-  }
   return <AbsoluteFill style={{background: 'transparent'}}><Fonts/>
-    {cue && <div style={{position: 'absolute', left, top, transform, transformOrigin: p.kind === 'blender' ? '0 0' : '50% 50%',
+    {cue && <div style={{position: 'absolute', left, top, transform, transformOrigin: '50% 50%',
       background: transitionTag ? 'rgba(8,6,8,.76)' : undefined, borderRadius: transitionTag ? 15 : undefined,
       padding: transitionTag ? '6px 14px' : undefined, backdropFilter: transitionTag ? 'blur(18px)' : undefined,
       textShadow: p.kind === 'face' || p.kind === 'intro' ? '0 2px 3px rgba(8,6,8,.9)' : undefined}}>
       <Phrase cue={cue} t={t} single={cue.id !== 'T081'}
         size={cue.id === 'T081' ? (p.slab?.size ?? 110) : 64}
-        color={NETRAL.hangat} font={cue.id === 'T081' ? FONT.anton : p.kind === 'blender' ? FONT.sf : FONT.poppins}/>
+        color={NETRAL.hangat} font={cue.id === 'T081' ? FONT.anton : FONT.poppins}/>
     </div>}
   </AbsoluteFill>;
 };

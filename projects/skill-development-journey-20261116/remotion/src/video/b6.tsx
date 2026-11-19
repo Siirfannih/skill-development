@@ -7,7 +7,7 @@ import {Fonts} from './bersama/Fonts';
 import {FONT, INK} from './bersama/tema';
 import {KataBelakang} from './bersama/KataBelakang';
 import {NarasiIG} from './bersama/ig/NarasiIG';
-import {IG_EVENT, komentarIG} from './bersama/ig/waktu';
+import {IG_EVENT, IG_PUNCHLINE, komentarIG} from './bersama/ig/waktu';
 import {BoilDefs, PanahGoresan, TulisTangan, type PanahProps, type TulisProps} from './bersama/Coretan';
 
 export type KomentarProps = {nama: string; teks: string; sisi: 'kiri' | 'kanan'; warna: string; durasi: number; w: number; h: number; size: number};
@@ -126,6 +126,10 @@ const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kam
   const F = (s: number) => Math.round(s * fps);
   const p = move(f, 0, 18, 'heavy');                                      // frame video mengecil ke kotak video postingan
   const cam = kameraIG(t, kamera ?? [[0, 1, 960, 540, 'drift']], (rev ?? 0) >= 27);
+  if ((rev ?? 0) >= 27 && f >= IG_PUNCHLINE.profesional.akhir && t < 3.22) {
+    const marginPost = MODAL.x + MODAL.w - (960 - 96) / 1.27 - 940;
+    cam.x += marginPost * (1 - move(f, 3.003 * fps, (3.22 - 3.003) * fps, 'drift'));
+  }
   const zz = z0 + (1 - z0) * p;
   const rx = VID.x * p, ry = VID.y * p, rw = 1920 + (VID.w - 1920) * p, rh = 1080 + (VID.h - 1080) * p;
   const modal = move(f, 6, 14, 'land');
@@ -179,9 +183,7 @@ const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kam
       {/* video: mengecil dari layar penuh ke kotak media 16:9; footage terus berjalan (proxy wajah) */}
       <div style={{position: 'absolute', left: rx, top: ry, width: rw, height: rh, overflow: 'hidden', background: '#000'}}>
         <div style={{position: 'absolute', left: (rw - 1920 * vs) / 2, top: (rh - 1080 * vs) * 0.45, width: 1920, height: 1080, transformOrigin: '0 0', transform: `scale(${vs})`}}>
-          {f >= 67 && f < 86 ? <KataBelakang t0={t0}/> :
-            r7 && f >= IG_EVENT.gratis && f < IG_EVENT.gratisAkhir ? <KataBelakang t0={t0} gratis/> :
-            <OffthreadVideo src={staticFile('video/wajah-proxy.mp4')} startFrom={Math.round(t0 * fps)} muted style={{width: 1920, height: 1080}}/>}
+          <OffthreadVideo src={staticFile('video/wajah-proxy.mp4')} startFrom={Math.round(t0 * fps)} muted style={{width: 1920, height: 1080}}/>
           {r7 && <NarasiIG f={f}/>}
         </div>
       </div>
@@ -195,6 +197,9 @@ const IsiIG: React.FC<IGProps & {f: number}> = ({t0, z0, kunci: K, f, coret, kam
 
 export const DuniaIG: React.FC<IGProps> = (p) => {
   const f = useCurrentFrame();
+  const profesional = f >= IG_PUNCHLINE.profesional.awal && f < IG_PUNCHLINE.profesional.akhir;
+  const gratis = (p.rev ?? 0) >= 27 && f >= IG_PUNCHLINE.skillGratis.awal && f < IG_PUNCHLINE.skillGratis.akhir;
+  if (profesional || gratis) return <AbsoluteFill><Fonts/><KataBelakang gratis={gratis}/></AbsoluteFill>;
   const pan = (p.rev ?? 0) >= 27 && ((f >= 90 && f <= 110) || (f >= 168 && f <= 181));
   return <AbsoluteFill><Fonts/>{f <= 20 || pan ? <CameraMotionBlur shutterAngle={pan ? 140 : 200} samples={pan ? 3 : 8}><IsiIG {...p} f={f}/></CameraMotionBlur> : <IsiIG {...p} f={f}/>}</AbsoluteFill>;
 };

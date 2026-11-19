@@ -1,5 +1,5 @@
 // B4 · kartu paket (versi papan Opus B4 yang disetujui): kartu ChatGPT (logo, "Pro", 20x) dan kartu Claude ("Max", 5x) — nama paket asli di UI (Lantai D20) —
-// mendarat di sisi bahu kosong (kanan) tepat di "20 kali" / "5 kali"; angka naik 1 → target SETELAH mendarat. Tanpa garis tepi, bayangan lembut,
+// angka 1× hadir sejak masuk dan mencapai target pada onset "20 kali" / "5 kali". Tanpa garis tepi, bayangan lembut,
 // miring 3D halus. Translasi masuk (dari kiri frame) dikerjakan lego (gerak, kurva land); di sini rotasi, skala, angka, blur arah.
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
@@ -7,8 +7,9 @@ import {siClaude} from 'simple-icons';
 import {CURVE, drift, move} from '../../lib/curves';
 import {Fonts} from '../bersama/Fonts';
 import {LogoChatGPT} from '../bersama/LogoChatGPT';
-import {FONT} from '../bersama/tema';
-import {active, Glass, Phrase, type Cue} from './UIWords';
+import {FONT, KT83, NETRAL} from '../bersama/tema';
+import {active, Glass, type Cue} from './UIWords';
+import {NarasiUI} from './NarasiUI';
 
 export type KartuProps = {
   model: 'chatgpt' | 'claude'; label: string; angka: number; durasi: number; t0: number; numberT0: number; cue: Cue; extra?: Cue;
@@ -22,7 +23,8 @@ export const KARTU = {w: 460, h: 400, margin: 90};
 export const KartuUI: React.FC<KartuProps> = (p) => {
   const f = useCurrentFrame();
   const t = p.t0 + f / 30;
-  const fn = (t - p.numberT0) * 30;
+  const numberFrame = Math.ceil((p.numberT0 - p.t0) * 30);
+  const countStart = Math.max(0, numberFrame - 12);
   const fl = Math.round(p.terbang * 30);
   const land = move(f, 0, fl, 'land');
   const kec = Math.abs(CURVE.land(Math.min(1, f / fl)) - CURVE.land(Math.min(1, Math.max(0, (f - 1) / fl)))) * p.jarak;     // px/frame
@@ -31,7 +33,8 @@ export const KartuUI: React.FC<KartuProps> = (p) => {
   const rot = cermin * ((claude ? 4 : -3) * (1 - land) + (claude ? 3 : -3.5) * land);
   const rotY = cermin * ((claude ? -6 : 7) * land + (claude ? 0 : -3) * (1 - land));
   const tekan = move(f, fl, 6, 'land') - move(f, fl + 6, 14, 'heavy');
-  const naik = fn < fl + 4 ? 1 : Math.round(1 + (p.angka - 1) * move(fn, fl + 4, 22, 'reveal'));
+  const naik = f >= numberFrame ? p.angka : Math.min(p.angka - 1,
+    1 + Math.floor((p.angka - 1) * move(f, countStart, Math.max(1, numberFrame - countStart), 'reveal')));
   const d = drift(f, 30, 3, claude ? 5 : 3);
   const pulse = 0.07 * (move(f, fl + 26, 5, 'land') - move(f, fl + 31, 14, 'drift'));
   return <AbsoluteFill style={{background: 'transparent'}}><Fonts/>
@@ -47,13 +50,16 @@ export const KartuUI: React.FC<KartuProps> = (p) => {
             <div style={{width: 44, height: 44, flexShrink: 0, borderRadius: 20, background: '#FFFFFF', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 1px 2px rgba(0,0,0,.08), 0 6px 14px rgba(0,0,0,.08)'}}>
               {claude ? <svg width="36" height="36" viewBox="0 0 24 24"><path d={siClaude.path} fill="#D97757"/></svg> : <LogoChatGPT size={36}/>}
             </div>
-            <Phrase cue={active(p.extra, t) ? p.extra : p.cue} t={t} size={56}/>
+            <span style={{fontFamily: FONT.sf, fontWeight: 700, fontSize: 56, lineHeight: 1.1, letterSpacing: '-.025em'}}>{p.label}</span>
           </Glass>
           <div style={{height: 1, background: 'rgba(0,0,0,.07)', margin: '30px 0 8px'}}/>
           <div style={{fontSize: 182, fontWeight: 600, lineHeight: 1.18, letterSpacing: -9, color: '#1D1D1F', transform: `scale(${1 + pulse})`, transformOrigin: '0 60%'}}>
-            <span style={{visibility: t >= p.numberT0 + p.terbang ? 'visible' : 'hidden'}}>{naik}<span style={{fontSize: 112, letterSpacing: -4, color: '#86868B', fontWeight: 500}}>×</span></span></div>
+            <span>{naik}<span style={{fontSize: 112, letterSpacing: -4, color: '#86868B', fontWeight: 500}}>×</span></span></div>
         </div>
       </div>
     </div>
+    {active(p.extra, t) && <div style={{position: 'absolute', left: 320, top: 508, textShadow: KT83.bayang}}>
+      <NarasiUI cue={p.extra!} t={t} rows={[[0], [1]]} size={64} color={NETRAL.hangat}/>
+    </div>}
   </AbsoluteFill>;
 };

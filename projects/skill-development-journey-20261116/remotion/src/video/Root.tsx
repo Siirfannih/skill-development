@@ -1,4 +1,6 @@
 import React from 'react';
+import {ClaudeKaca} from './claudekaca/ClaudeKaca';
+import {FPS as CLAUDE_KACA_FPS, FRAMES as CLAUDE_KACA_FRAMES} from './claudekaca/timeline';
 import {DuniaRepoUI, type DuniaRepoProps as RepoUIProps} from './r4/DuniaRepoUI';
 import {AppClaudeUI, type AppProps as AppUIProps} from './r4/AppClaudeUI';
 import {KartuUI} from './r4/KartuUI';
@@ -22,11 +24,17 @@ import {Komentar, type KomentarProps, DuniaIG, type IGProps, Tanda} from './b6';
 import {TokohR7, type TokohR7Props} from './bersama/tokoh/TokohR7';
 import {KT83Layer} from './bersama/kt83';
 import type {KT83Props} from './bersama/kt83/types';
+import {PenutupBasis} from './bersama/kt83/PenutupBasis';
 
 type Dim = {w?: number; h?: number; durasi?: number};
 const meta = ({props}: {props: Dim}) => ({width: props.w ?? 1920, height: props.h ?? 1080, durationInFrames: Math.max(1, Math.round((props.durasi ?? 1) * 30))});
 
 export const VideoRoot: React.FC = () => <>
+  <Composition id="R7B2PenutupBasis" component={PenutupBasis as React.FC<any>} fps={30} width={1920} height={1080} durationInFrames={223}
+    defaultProps={{durasi: 223 / 30, t0: 76.40966666666667, z0: 1.0438, rev: 27, kunci: {k1: 3.143, k2: 3.708, field: 4.381}} satisfies IGProps}
+    calculateMetadata={meta as never}/>
+  <Composition id="R7B2ClaudeKaca" component={ClaudeKaca} fps={CLAUDE_KACA_FPS} width={1920} height={1080}
+    durationInFrames={CLAUDE_KACA_FRAMES} defaultProps={{frames: CLAUDE_KACA_FRAMES}}/>
   <Composition id="R7Tokoh" component={TokohR7 as React.FC<any>} fps={30000 / 1001} width={1920} height={1080} durationInFrames={1}
     defaultProps={{jenis: 'tokoh', w: 1920, h: 1080, durasi: 1, frames: [{x: 650, y: 760, s: 1}]} satisfies TokohR7Props}
     calculateMetadata={(({props}: {props: TokohR7Props}) => ({width: props.w, height: props.h, durationInFrames: props.frames.length})) as never}/>

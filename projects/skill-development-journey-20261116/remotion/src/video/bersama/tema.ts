@@ -29,7 +29,7 @@ export const TURUNAN = {
 
 export const PENGECUALIAN = {
   hijauSelesai: {warna: '#1A7F37', adegan: 'b1, D', alasan: 'centang/status selesai mengikuti warna sukses GitHub (UI asli)'},
-  hijauProfesional: {warna: '#34C759', adegan: 'IG profesional', alasan: 'arahan Irfan D-451'},
+  hijauProfesional: {warna: MEREK.hijauMerek, adegan: 'IG profesional', alasan: 'D-451/D-463: chartreuse merek'},
 };
 
 export const HURUF = {

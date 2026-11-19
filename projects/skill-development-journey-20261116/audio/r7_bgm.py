@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """D-460: assemble two local music cues; preserve the R6 voice and SFX.
 
-Run with ~/work/mg-venv/bin/python audio/r7_bgm.py [--mux].
+Rebuild R7 music with --stem-only, then audio/r7_sfx.py --mix-bgm-only --mux.
 Source beats and candidate provenance live in audio/r7/. All outputs stay there.
 """
 import argparse
@@ -27,6 +27,8 @@ EQ = ("highpass=f=60,lowpass=f=10500,"
 METER = pyln.Meter(SR)
 STOPS = [(12.0, "DECISION"), (22.8, "putus-putus"),
          (57.0, "LINTAS AGENT"), (72.6, "100%"), (82.65, "gratis")]
+ACT_LEVELS = [(0, 23.6, -24.2), (23.6, 53.9, -24.8),
+              (53.9, 72.1, -23.6), (72.1, 83.8170625, -24.7)]
 
 
 def save(name, value):
@@ -62,8 +64,7 @@ def arrangement(beats, duration):
     c, _ = anchor("holiday", 32)
     # Each pair maps measured source beats to a word or a large visual cut.
     return [
-        ("relax", [(0, a - .85 * 19 * pa / 11.15),
-                   (.85, a), (12, a + 19 * pa), (23.6, a + 39 * pa)]),
+        ("holiday", [(0, c), (12, c + 24 * pb), (23.6, c + 47 * pb)]),
         ("holiday", [(23.6, b), (53.9, b + 60 * pb)]),
         ("holiday", [(53.9, c), (57, c + 6 * pb), (72.1, c + 36 * pb)]),
         ("relax", [(72.1, a), (72.6, a + pa),
@@ -78,7 +79,12 @@ def build_music(rows, beats, voice):
     music = np.zeros((n, 2), np.float64)
     parts = []
     for ident, knots in arrangement(beats, duration):
-        source = next(r["source"] for r in rows if r["id"] == ident)
+        row = next(r for r in rows if r["id"] == ident)
+        source = Path(row["source"])
+        if not source.exists():
+            source = OUT / "r2/sources" / source.name
+        if sha(source) != row["sha256"]:
+            raise RuntimeError(f"music source hash changed: {ident}")
         for (t0, s0), (t1, s1) in zip(knots, knots[1:]):
             rate = (s1 - s0) / (t1 - t0)
             handle = .045
@@ -153,7 +159,29 @@ def build_music(rows, beats, voice):
         music *= (10 ** (-6 * amount / 20))[:, None]
         stop_records.append(dict(name=name, start=start, hit=t, duration=.7,
                                  gain_reduction_db=6, lowpass_hz=480, lowpass_wet=.65))
+    # Calibrate the rendered bed, including ducking, filters and stop-downs.
+    # Ramps straddle joins so per-act gain changes do not create clicks.
+    level_gains = np.zeros(len(ACT_LEVELS))
+    level_knots = []
+    for _ in range(3):
+        for i, (start, end, target) in enumerate(ACT_LEVELS):
+            excerpt = music[round(start * SR):round(end * SR)]
+            level_gains[i] += target - METER.integrated_loudness(excerpt)
+        knot_t, knot_db = [0], [level_gains[0]]
+        for i in range(1, len(ACT_LEVELS)):
+            join = ACT_LEVELS[i][0]
+            knot_t.extend([join - .25, join + .25])
+            knot_db.extend([level_gains[i - 1], level_gains[i]])
+        knot_t.append(duration)
+        knot_db.append(level_gains[-1])
+        if level_knots:
+            music /= previous_gain[:, None]
+        previous_gain = 10 ** (np.interp(times, knot_t, knot_db) / 20)
+        music *= previous_gain[:, None]
+        level_knots = list(zip(knot_t, knot_db))
     save("arrangement.json", dict(parts=parts, stops=stop_records, eq=EQ,
+                                  task="TASK-R7-bgm-r2", ledger="D-473 / audit #13 / D-460",
+                                  act_targets_lufs=ACT_LEVELS, act_gain_knots_s_db=level_knots,
                                   voice_duck_max_db=1.5, voice_duck_smoothing_s=.51,
                                   music_valley_bass_shelf_max_db=float(2 * gain_db.max()),
                                   music_valley_residual_gain_max_db=float(residual.max()),
@@ -207,6 +235,8 @@ def align_music_headroom(music, voice, sfx):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--mux", action="store_true")
+    parser.add_argument("--stem-only", action="store_true",
+                        help="Rebuild music for the R7 SFX mixer without touching comparison mixes")
     args = parser.parse_args()
     OUT.mkdir(exist_ok=True)
     original_hashes = json.loads((OUT / "inputs_sha256.json").read_text())
@@ -214,6 +244,14 @@ def main():
     voice, sr = sf.read(ROOT / "audio/stem_suara.wav", dtype="float32", always_2d=True)
     assert sr == SR and voice.shape[1] == 1
     voice = np.repeat(voice, 2, axis=1)
+    if args.stem_only:
+        music = build_music(json.loads((OUT / "candidates.json").read_text()),
+                            json.loads((OUT / "source_beats.json").read_text()), voice)
+        sf.write(OUT / "stem_musik_r7.wav", music, SR, subtype="FLOAT")
+        print(json.dumps(dict(stem=str(OUT / "stem_musik_r7.wav"),
+                              act_lufs=[METER.integrated_loudness(music[round(a*SR):round(b*SR)].astype(np.float64))
+                                        for a, b, _ in ACT_LEVELS], voice_gain=1.0), indent=2))
+        return
     sfx, sr = sf.read(ROOT / "audio/r6/stem_sfx_r6.wav", dtype="float32", always_2d=True)
     assert sr == SR and voice.shape == sfx.shape
     music = build_music(json.loads((OUT / "candidates.json").read_text()),

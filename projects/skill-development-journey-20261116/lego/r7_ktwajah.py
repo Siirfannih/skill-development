@@ -269,6 +269,440 @@ def cached(name):
     return out
 
 
+def prepare_b2():
+    """Narasi dinding dan slab utuh; masukan selalu snapshot sebelum revisi."""
+    q = QC / 'b2'
+    before = q / 'before/qc/r7/ktwajah'
+    jobs = read(before / 'jobs.json')
+    relay_frame = onset(next(l['t'] for l in read(P / 'lego/lego_r7.json')['lapisan'] if l['id'] == 'D_RELAY'))
+    # Posisi dibaca pada footage berkamera; setiap frasa punya jangkar tetap.
+    layout = {
+        'T001': (1240, 335, 100, [0]),
+        'T006': (1250, 280, 100, [0, 0]),
+        'T008': (1230, 280, 100, [0, 0, 1]),
+        'T010': (1280, 420, 94, [0, 1]),
+        'T012': (1260, 400, 96, [0, 0, 1]),
+        'T013': (1260, 400, 96, [0, 0]),
+        'T020': (1270, 220, 94, [0, 1]), 'T021': (1270, 220, 94, [0]),
+        'T022': (1230, 150, 86, [0, 1, 2]),
+        'T024': (1230, 300, 96, [0, 0]),
+        'T035': (1235, 350, 96, [0, 0]),
+        'T036': (1235, 350, 96, [0, 1]), 'T037': (1235, 350, 100, [0]),
+        'T058': (1280, 380, 98, [0]), 'T059': (1260, 220, 100, [0, 1, 2]),
+        'T060': (1260, 310, 106, [0, 1]), 'T061': (1280, 370, 98, [0]),
+        'T062': (1260, 300, 92, [0, 1]),
+        'T063': (1260, 280, 100, [0, 1]), 'T064': (1240, 280, 96, [0, 1]),
+        'T068': (1470, 620, 92, [0]), 'T069': (1470, 620, 88, [0]),
+        'T071': (1470, 620, 82, [0, 1]),
+        'T071_uji_coba': (1470, 620, 82, [0, 0]),
+        'T072': (1470, 620, 82, [0, 1]), 'T073': (1470, 620, 88, [0]),
+        'T051_lbl': (120, 140, 64, [0, 0]),
+        'T057_lbl': (125, 170, 68, [0, 0]),
+        'T077_lbl': (130, 125, 68, [0, 0]),
+    }
+    for j in jobs:
+        p = read(before / ('props_' + j['name'] + '.json'))
+        by_id = {b['id']: b for b in p['blok']}
+        if j['name'] == 'workflow':
+            rig = rig_boxes()
+            for i, h in enumerate(p['kepala']):
+                h.pop('rig', None)
+                n = round(j['t'] * FPS) + i - rig['start_frame']
+                if 0 <= n < len(rig['boxes']) and rig['boxes'][n]:
+                    h['rig'] = rig['boxes'][n]
+            by_id['T006']['kata'] += by_id['T007']['kata']
+            p['blok'].remove(by_id['T007'])
+            by_id['T012']['kata'].append(by_id['T013']['kata'].pop(0))
+        elif j['name'] == 'decision_dada':
+            by_id['T022']['kata'] += by_id['T023']['kata']
+            p['blok'].remove(by_id['T023'])
+        elif j['name'] == 'biaya':
+            for w in by_id['T060']['kata']:
+                w['bobot'] = 800
+            by_id['T059']['kata'] += by_id['T060']['kata']
+            p['blok'].remove(by_id['T060'])
+        elif j['name'] == 'langganan':
+            b = copy.deepcopy(by_id['T071'])
+            b['id'] = 'T071_uji_coba'
+            b['kata'] = [by_id['T071']['kata'].pop(), by_id['T072']['kata'].pop(0)]
+            p['blok'].insert(p['blok'].index(by_id['T072']), b)
+        elif j['name'] == 'publish':
+            # Fokus latar menggantikan penundaan dua kata yang dulu menghindari slab.
+            words = read(P / 'edit/words.json')['words']
+            b = by_id['T052']
+            f0 = round(j['t'] * FPS)
+            for i, index in enumerate([100, 101]):
+                b['kata'][i]['masuk'] = onset(words[index]['s']) - f0
+                b['kata'][i]['akhir'] = (onset(words[index + 1]['s']) - f0)
+        new_blocks = []
+        for b in p['blok']:
+            if b['id'] == 'T020':
+                old = copy.deepcopy(b)
+                old['id'] += '_dalam'
+                old['kata'] = old['kata'][:1]
+                new_blocks.append(old)
+                b['kata'] = b['kata'][1:]
+            if b['id'] in layout:
+                x, y, size, lines = layout[b['id']]
+                a, e = b['kata'][0]['masuk'], b['kata'][-1]['akhir']
+                z = p['kepala'][(a + e) // 2]['z']
+                b['narasi'] = {'x': 960 + (x - 960) / z, 'y': 486 + (y - 486) / z,
+                               'ukuran': size / z, 'baris': lines}
+                for w in b['kata']:
+                    w.pop('tag', None)
+                if b['id'] == 'T060':
+                    for w in b['kata']:
+                        w['bobot'] = 800
+            new_blocks.append(b)
+        p['blok'] = new_blocks
+        if j['name'] == 'label_lintas':
+            p['frames'] = min(p['frames'], relay_frame - onset(j['t']))
+            j['frames'] = p['frames']
+        j['props'] = str(q / ('props_' + j['name'] + '.json'))
+        write(j['props'], p)
+    layers = {l['id']: l for l in read(P / 'lego/lapisan.json')}
+    for name, id, x, y, width in [
+            ('slab_workflow', 'T051', 120, 185, 1680),
+            ('slab_balik', 'T057', 115, 210, 1690),
+            ('slab_lintas', 'T077', 120, 175, 1680)]:
+        l = layers[id]
+        frames = round(l['durasi'] * FPS)
+        if name == 'slab_lintas':
+            frames = min(frames, relay_frame - onset(l['t']))
+        f0 = round(l['t'] * FPS)
+        fokus = []
+        # Label pengantar tidak mengubah fokus; narasi berikutnya yang mengubahnya.
+        for j in jobs:
+            if j['shape'] == 'label':
+                continue
+            p = read(j['props'])
+            for b in p['blok']:
+                a = round(j['t'] * FPS) + b['kata'][0]['masuk'] - f0
+                e = round(j['t'] * FPS) + b['kata'][-1]['akhir'] - f0
+                if a < frames and e > 0:
+                    fokus.append([max(0, a), min(frames, e)])
+        p = {'w': 1920, 'h': 1080, 'frames': frames,
+             'kepala': [head_at(n, measure_heads()) for n in range(f0, f0 + frames)],
+             'blok': [{'id': id, 'bentuk': 'slab', 'kata': [{'teks': l['props']['teks'], 'masuk': 0, 'akhir': frames}],
+                       'slab': {'teks': l['props']['teks'], 'x': x, 'y': y, 'w': width, 'fokus': fokus}}]}
+        path = q / ('props_' + name + '.json')
+        write(path, p)
+        jobs.append({'name': name, 'ids': [id], 'shape': 'slab', 't': l['t'], 'frames': frames, 'props': str(path)})
+    write(q / 'jobs.json', jobs)
+    print('B2:', len(jobs), 'grup; D-476/477/478', flush=True)
+    return jobs
+
+
+def cached_b2(name):
+    target = STORE / 'b2' / f'r7b2_narasi_{name}.mov'
+    target.parent.mkdir(exist_ok=True)
+    out = P / 'lego/cache' / target.name
+    if not out.exists() and not out.is_symlink():
+        out.symlink_to(target)
+    return out
+
+
+def prepare_r2():
+    """D-485: dua posisi narasi, awal T052, dan penutup hingga ekor."""
+    q = QC / 'b2/ronde2'
+    before = q / 'before'
+    jobs = read(before / 'jobs.json')
+    selected = []
+    positions = {'T012': (1340, 675, 88), 'T036': (1360, 690, 82), 'T037': (1360, 690, 88)}
+    slab_end = max(j['t'] + j['frames'] / FPS for j in jobs
+                   if j['name'] in ['slab_workflow', 'label_workflow'])
+    for source in jobs:
+        if source['name'] not in ['workflow', 'parodi', 'publish']:
+            continue
+        j = copy.deepcopy(source)
+        p = read(before / 'qc/r7/ktwajah/b2' / Path(j['props']).name)
+        for b in p['blok']:
+            if b['id'] in positions:
+                x, y, size = positions[b['id']]
+                a, e = b['kata'][0]['masuk'], b['kata'][-1]['akhir']
+                z = p['kepala'][(a + e) // 2]['z']
+                b['narasi'].update(x=960 + (x - 960) / z, y=486 + (y - 486) / z, ukuran=size / z)
+            if b['id'] == 'T052':
+                b['tampilMulai'] = onset(slab_end) - round(j['t'] * FPS)
+        j['props'] = str(q / f'props_{j["name"]}.json')
+        write(j['props'], p)
+        selected.append(j)
+    words = read(P / 'edit/words.json')['words'][-3:]
+    start = onset(words[0]['s'])
+    frames = round(84.52 * FPS) - start
+    ig = read(P / 'qc/r7/ig/props.json')
+    ig_layer = next(l for l in read(P / 'lego/r7_override_ig.json')['ganti'] if l['id'] == 'D_IG')
+    native_start = round((start / FPS - ig_layer['t']) * 30)
+    last_base_frame = sum(round(c['dur'] * FPS) for c in camera()) - 1
+    native_stop = min(round((last_base_frame / FPS - ig_layer['t']) * 30), round(ig['durasi'] * 30) - 1)
+    z = 1.04
+    def layout(size, rows):
+        return {'x': 960 + (1200 - 960) / z, 'y': 486 + (330 - 486) / z,
+                'ukuran': size / z, 'baris': rows}
+    p = {'w': 1920, 'h': 1080, 'frames': frames,
+         'kepala': [{'cx': 950, 'atas': 150, 'lebar': 400, 'tinggi': 472, 'z': z}] * frames,
+         'blok': [
+             {'id': 'PENUTUP_BAGI', 'bentuk': 'K4', 'narasi': layout(88, [0]),
+              'kata': [{'teks': 'bagi', 'masuk': 0, 'akhir': onset(words[1]['s']) - start}]},
+             {'id': 'PENUTUP_YANG_BERUNTUNG', 'bentuk': 'K4', 'narasi': layout(88, [0, 1]),
+              'kata': [{'teks': words[1]['w'], 'masuk': onset(words[1]['s']) - start, 'akhir': frames},
+                       {'teks': words[2]['w'], 'masuk': onset(words[2]['s']) - start, 'akhir': frames,
+                        'bobot': 800, 'ukuran': 104 / z}]}]}
+    props = q / 'props_penutup.json'
+    write(props, p)
+    write(q / 'props_penutup_basis.json', ig)
+    selected.append({'name': 'penutup', 'ids': ['NARASI_PENUTUP_R2'], 'shape': 'penutup',
+                     't': start / FPS, 'frames': frames, 'props': str(props),
+                     'native_start': native_start, 'native_stop': native_stop})
+    write(q / 'jobs.json', selected)
+    write(q / 'timing.json', {'ledger': 'D-485', 'workflow_slab_and_label_end': slab_end,
+                             'ring_first_frame': onset(slab_end), 'ring_first_time': onset(slab_end) / FPS,
+                             'penutup_first_frame': start, 'penutup_end_frame_exclusive': start + frames,
+                             'penutup_end_time': (start + frames) / FPS})
+    print('Ronde 2:', len(selected), 'grup; D-485', flush=True)
+
+
+def render_r2(names=None):
+    q = QC / 'b2/ronde2'
+    video = QC / 'public/video'
+    if not video.exists():
+        video.symlink_to(P / 'remotion/public/video')
+    bundle()
+    for j in read(q / 'jobs.json'):
+        if names and j['name'] not in names:
+            continue
+        raw = cached_b2('r2_' + j['name'] + '_raw')
+        temporary = raw.resolve().with_suffix('.rendering.mov')
+        run(['npx', 'remotion', 'render', QC / 'bundle', 'R7KTWajah', temporary,
+             f'--props={j["props"]}', '--codec=prores', '--prores-profile=4444',
+             '--pixel-format=yuva444p10le', '--image-format=png', '--concurrency=3',
+             *(['--frames=0-15'] if j['name'] == 'publish' else [])],
+            q / ('render_' + j['name'] + '.log'), P / 'remotion')
+        os.replace(temporary, raw.resolve())
+        if j['shape'] == 'K1':
+            out = cached_b2('r2_' + j['name'])
+            temporary = out.resolve().with_suffix('.rendering.mov')
+            cut_matte(raw, j['t'], 0, 0, temporary)
+            # T053 dan sesudahnya tetap memakai paket ProRes yang sudah dikirim.
+            split = next(b['kata'][0]['masuk'] for b in read(j['props'])['blok'] if b['id'] == 'T053')
+            old = next(l for l in read(q / 'before/lego/r7_override_ktwajah.json')['ganti'] if l['id'] == 'T052')
+            head, tail = q / 'publish_head.mov', q / 'publish_tail.mov'
+            run(['ffmpeg', '-y', '-v', 'error', '-i', temporary, '-frames:v', str(split), '-an', '-c', 'copy', head])
+            seek = math.floor(split / FPS * 1_000_000) / 1_000_000
+            run(['ffmpeg', '-y', '-v', 'error', '-ss', str(seek), '-i', P / 'lego' / old['src'],
+                 '-frames:v', str(j['frames'] - split), '-an', '-c', 'copy', tail])
+            listing = q / 'publish_concat.txt'
+            listing.write_text(f"file '{head}'\nfile '{tail}'\n")
+            run(['ffmpeg', '-y', '-v', 'error', '-f', 'concat', '-safe', '0', '-i', listing,
+                 '-an', '-c', 'copy', temporary])
+            os.replace(temporary, out.resolve())
+        elif j['shape'] == 'penutup':
+            base = q / 'penutup_basis.mp4'
+            run(['npx', 'remotion', 'render', QC / 'bundle', 'R7B2PenutupBasis', base,
+                 f'--props={q / "props_penutup_basis.json"}', '--codec=h264', '--crf=10',
+                 f'--frames={j["native_start"]}-{j["native_stop"]}', '--concurrency=3'],
+                q / 'render_penutup_basis.log', P / 'remotion')
+            out = cached_b2('r2_penutup')
+            temporary = out.resolve().with_suffix('.rendering.mov')
+            filt = (f'[0:v]fps={FPS},tpad=stop_mode=clone:stop_duration=1,'
+                    f'trim=end_frame={j["frames"]},setpts=PTS-STARTPTS[b];'
+                    '[1:v]setpts=PTS-STARTPTS[n];[b][n]overlay=shortest=1[v]')
+            run(['ffmpeg', '-y', '-v', 'error', '-filter_complex_threads', '2',
+                 '-threads', '2', '-i', base, '-threads', '2', '-i', raw,
+                 '-filter_complex', filt, '-map', '[v]', '-an', '-threads', '3',
+                 '-c:v', 'prores_ks', '-profile:v', '4444', '-pix_fmt', 'yuva444p10le', temporary],
+                q / 'render_penutup_compose.log')
+            os.replace(temporary, out.resolve())
+        print('Ronde 2 render', j['name'], flush=True)
+
+
+def override_r2():
+    q = QC / 'b2/ronde2'
+    o = read(P / 'lego/r7_override_ktwajah.json')
+    for j in read(q / 'jobs.json'):
+        suffix = '_raw' if j['shape'] not in ['K1', 'penutup'] else ''
+        layer = {'id': j['ids'][0], 'src': 'cache/' + cached_b2('r2_' + j['name'] + suffix).name,
+                 't': j['t'], 'x': 0, 'y': 0}
+        if j['shape'] == 'penutup':
+            o['tambah'] = [l for l in o['tambah'] if l['id'] != layer['id']] + [layer]
+        else:
+            at = next(i for i, l in enumerate(o['ganti']) if l['id'] == layer['id'])
+            o['ganti'][at] = layer
+    write(P / 'lego/r7_override_ktwajah.json', o)
+    print('Ronde 2 override: T006, T026, T052 + NARASI_PENUTUP_R2', flush=True)
+
+
+def render_b2(jobs):
+    bundle()
+    q = QC / 'b2'
+    for j in jobs:
+        name = j['name']
+        raw = cached_b2(name + '_raw')
+        digest = hashlib.sha256(Path(j['props']).read_bytes() + b''.join(
+            p.read_bytes() for p in sorted(SRC.glob('*')) if p.is_file()) +
+            (P / 'remotion/src/video/bersama/tema.ts').read_bytes()).hexdigest()
+        stamp = q / (name + '.sha256')
+        if not raw.exists() or not stamp.exists() or stamp.read_text().strip() != digest:
+            temporary = raw.resolve().with_suffix('.rendering.mov')
+            run(['npx', 'remotion', 'render', QC / 'bundle', 'R7KTWajah', temporary,
+                 f'--props={j["props"]}', '--codec=prores', '--prores-profile=4444',
+                 '--pixel-format=yuva444p10le', '--image-format=png', '--concurrency=3'],
+                q / ('render_' + name + '.log'), P / 'remotion')
+            os.replace(temporary, raw.resolve())
+            stamp.write_text(digest)
+        if j['shape'] in ['K1', 'slab']:
+            out = cached_b2(name)
+            temporary = out.resolve().with_suffix('.rendering.mov')
+            cut_matte(raw, j['t'], 0, 0, temporary)
+            os.replace(temporary, out.resolve())
+        print('B2 render', name, flush=True)
+
+
+def override_b2():
+    q = QC / 'b2'
+    o = read(q / 'before/lego/r7_override_ktwajah.json')
+    for j in read(q / 'jobs.json'):
+        name = j['name'] + ('' if j['shape'] in ['K1', 'slab'] else '_raw')
+        layer = next(l for l in o['ganti'] if l['id'] == j['ids'][0])
+        layer.update(src='cache/' + cached_b2(name).name, t=j['t'], x=0, y=0)
+    ais = next(l for l in o['ganti'] if l['id'] == 'T034')
+    ais['src'] = 'cache/' + cached_b2('slab_aislop').name
+    write(P / 'lego/r7_override_ktwajah.json', o)
+    print('B2 override; ID dan lapisan terlindungi tetap', flush=True)
+
+
+def check_b2():
+    q = QC / 'b2'
+    before = q / 'before'
+    old_jobs = {j['name']: j for j in read(before / 'qc/r7/ktwajah/jobs.json')}
+    checked, frames = [], 0
+    for j in read(q / 'jobs.json'):
+        p = read(j['props'])
+        if j['name'] in old_jobs:
+            old = read(before / ('qc/r7/ktwajah/props_' + j['name'] + '.json'))
+            if j['name'] == 'publish':
+                b = next(b for b in old['blok'] if b['id'] == 'T052')
+                words = read(P / 'edit/words.json')['words']
+                f0 = round(j['t'] * FPS)
+                for i, index in enumerate([100, 101]):
+                    b['kata'][i].update(masuk=onset(words[index]['s']) - f0,
+                                       akhir=onset(words[index + 1]['s']) - f0)
+            words = lambda data: sorted((w['masuk'], w['akhir'], w['teks']) for b in data['blok'] for w in b['kata'])
+            assert words(old) == words(p), (j['name'], 'ucapan/onset berubah')
+        if j['name'] == 'workflow':
+            rig = rig_boxes()
+            for i, h in enumerate(p['kepala']):
+                n = round(j['t'] * FPS) + i - rig['start_frame']
+                expected = rig['boxes'][n] if 0 <= n < len(rig['boxes']) else None
+                assert h.get('rig') == expected, ('rig', i)
+        for b in p['blok']:
+            if b.get('narasi'):
+                assert len(b['kata']) == len(b['narasi']['baris'])
+                assert all(not w.get('tag') for w in b['kata'])
+            assert all(w['akhir'] > w['masuk'] for w in b['kata'])
+        name = j['name'] + ('' if j['shape'] in ['K1', 'slab'] else '_raw')
+        path = cached_b2(name)
+        info = json.loads(subprocess.check_output(['ffprobe', '-v', 'error', '-select_streams', 'v:0',
+            '-show_entries', 'stream=nb_frames,pix_fmt,r_frame_rate,width,height', '-of', 'json', str(path)], text=True))['streams'][0]
+        assert int(info['nb_frames']) == j['frames'], (name, info)
+        assert info['width'] == 1920 and info['height'] == 1080
+        assert info['pix_fmt'].startswith('yuva'), (name, 'alpha hilang')
+        frames += j['frames']
+        checked.append({'name': name, 'frames': j['frames'], 'alpha': info['pix_fmt'], 'fps': info['r_frame_rate']})
+    a = read(before / 'lego/r7_override_ktwajah.json')
+    b = read(P / 'lego/r7_override_ktwajah.json')
+    assert a['buang'] == b['buang'] and a['tambah'] == b['tambah']
+    assert [l['id'] for l in a['ganti']] == [l['id'] for l in b['ganti']]
+    protected = ['T002', 'T009', 'T011', 'GRADE']
+    for id in protected:
+        assert next(l for l in a['ganti'] if l['id'] == id) == next(l for l in b['ganti'] if l['id'] == id)
+    for j in read(q / 'jobs.json'):
+        name = j['name'] + ('' if j['shape'] in ['K1', 'slab'] else '_raw')
+        layer = next(l for l in b['ganti'] if l['id'] == j['ids'][0])
+        expected = {'src': 'cache/' + cached_b2(name).name, 't': j['t'], 'x': 0, 'y': 0}
+        assert all(layer.get(key) == value for key, value in expected.items()), j['ids'][0]
+    result = {'status': 'PASS', 'ucapan': 'identik', 'onset': 'identik kecuali Jadi/gak T052 kembali ke cue ucapan (D-478)', 'ID_ownership': 'identik',
+              'protected_layers': protected, 'frames': frames, 'layers': checked}
+    write(q / 'checks.json', result)
+    print(json.dumps(result, ensure_ascii=False, indent=2), flush=True)
+
+
+def blur_aislop_b2():
+    """Pertahankan animasi AI SLOP; fokus mundur hanya selama narasi sesudah parodi."""
+    q = QC / 'b2'
+    l = next(l for l in read(q / 'before/lego/r7_override_ktwajah.json')['ganti'] if l['id'] == 'T034')
+    j = next(j for j in read(q / 'jobs.json') if j['name'] == 'parodi')
+    p = read(j['props'])
+    a = min(w['masuk'] for b in p['blok'] if b.get('narasi') for w in b['kata']) / FPS + j['t'] - l['t']
+    raw = cached_b2('slab_aislop_raw')
+    temporary = raw.resolve().with_suffix('.rendering.mov')
+    run(['ffmpeg', '-y', '-v', 'error', '-threads', '2', '-i', P / 'lego' / l['src'],
+         '-vf', f'format=gbrap,gblur=sigma=3:enable=gte(t\\,{a:.8f})',
+         '-threads', '3', '-c:v', 'prores_ks', '-profile:v', '4444', '-pix_fmt', 'yuva444p10le', temporary],
+        q / 'blur_aislop.log')
+    os.replace(temporary, raw.resolve())
+    out = cached_b2('slab_aislop')
+    temporary = out.resolve().with_suffix('.rendering.mov')
+    cut_matte(raw, l['t'], l['x'], l['y'], temporary)
+    os.replace(temporary, out.resolve())
+    write(q / 'slab_aislop.json', {'source': l, 'blur_starts_at': a + l['t'], 'sigma': 3})
+
+
+def pixels_b2():
+    q = QC / 'b2'
+    result = []
+    for j in read(q / 'jobs.json'):
+        p = read(j['props'])
+        name = j['name'] + ('' if j['shape'] in ['K1', 'slab'] else '_raw')
+        proc = subprocess.Popen(['ffmpeg', '-v', 'error', '-threads', '2', '-i', str(cached_b2(name)),
+            '-vf', 'alphaextract,scale=480:270,format=gray', '-threads', '2', '-f', 'rawvideo',
+            '-pix_fmt', 'gray', '-'], stdout=subprocess.PIPE)
+        edges, face, bounds = [], [], []
+        n = 0
+        while True:
+            buf = proc.stdout.read(480 * 270)
+            if len(buf) != 480 * 270:
+                break
+            core = np.frombuffer(buf, np.uint8).reshape(270, 480) > 150
+            yy, xx = np.where(core)
+            protected_parody = j['name'] == 'parodi' and not any(b.get('narasi') and
+                b['kata'][0]['masuk'] <= n < b['kata'][-1]['akhir'] for b in p['blok'])
+            if len(xx) and not protected_parody:
+                box = [int(xx.min()) * 4, int(yy.min()) * 4, int(xx.max() + 1) * 4, int(yy.max() + 1) * 4]
+                bounds.append(box)
+                if box[0] < 96 or box[1] < 54 or box[2] > 1824 or box[3] > 1028:
+                    edges.append({'frame': n, 'box': box})
+                h = p['kepala'][n]
+                x0, x1 = round((h['cx'] - h['lebar'] * .25) / 4), round((h['cx'] + h['lebar'] * .25) / 4)
+                y0, y1 = round((h['atas'] + h['tinggi'] * .35) / 4), round((h['atas'] + h['tinggi'] * .8) / 4)
+                if core[max(0, y0):min(270, y1), max(0, x0):min(480, x1)].sum() > 3:
+                    face.append(n)
+            n += 1
+        assert proc.wait() == 0
+        item = {'group': j['name'], 'frames': n, 'edge_frames': edges, 'face_frames': face,
+                'ink_envelope': [min(b[0] for b in bounds), min(b[1] for b in bounds),
+                                 max(b[2] for b in bounds), max(b[3] for b in bounds)] if bounds else None}
+        result.append(item)
+        print(j['name'], n, 'frames; edge', len(edges), 'face', len(face), flush=True)
+    write(q / 'pixel_audit.json', result)
+    if any(x['edge_frames'] or x['face_frames'] for x in result):
+        raise ValueError('Lihat frame penunjuk di b2/pixel_audit.json; ini bukan putusan kreatif.')
+
+
+def prepare_r4():
+    """D-474: ukuran cincin dari snapshot ronde 3; waktu dan label tetap."""
+    before = QC / 'r4/before/qc/r7/ktwajah'
+    for name in ['decision_cincin', 'publish', 'lintas']:
+        props = read(before / f'props_{name}.json')
+        for b in props['blok']:
+            heads = props['kepala'][b['kata'][0]['masuk']:b['kata'][-1]['akhir']]
+            z = (min(h['z'] for h in heads) + max(h['z'] for h in heads)) / 2
+            target = 104 if b['id'] == 'T075' else 110
+            b['tata'] = {'ukuran': round(target / .71 / z, 3)}
+        write(QC / f'props_{name}.json', props)
+    print('D-474: 3 grup cincin; timing tetap', flush=True)
+
+
 def bundle():
     public = QC / 'public'
     public.mkdir(exist_ok=True)
@@ -284,11 +718,16 @@ def cut_matte(src, t, x, y, out):
     def limited(cmd):
         if cmd[0] == 'ffmpeg':
             cmd = [cmd[0], '-threads', '2', '-filter_threads', '1', '-filter_complex_threads', '1'] + cmd[1:]
+            cmd = [str(v).replace('fps=30,', f'fps={FPS},') for v in cmd]
+            for i, v in enumerate(cmd[:-1]):
+                if v == '-r' and cmd[i + 1] == '30':
+                    cmd[i + 1] = str(FPS)
         return cmd
     m.subprocess = types.SimpleNamespace(
         Popen=lambda cmd, **kw: subprocess.Popen(limited(cmd), **kw),
         run=lambda cmd, **kw: subprocess.run(limited(cmd), **kw), PIPE=subprocess.PIPE)
-    m.potong_zoom(str(src), t, x, y, str(out), zoom_at)
+    # potong_zoom's local clock is 30 fps; both its matte and camera use the native grid here.
+    m.potong_zoom(str(src), t, x, y, str(out), lambda sec: zoom_at(t + round((sec - t) * 30) / FPS))
 
 
 def render(jobs, still=False):
@@ -340,6 +779,8 @@ def override(jobs):
         data['buang'].extend(j['ids'][1:])
     for id in SLABS:
         data['ganti'].append({**original[id], 'src': 'cache/' + cached(id).name})
+    if any(j['shape'] == 'label' for j in jobs):
+        data['buang'].append('T050')
     write(P / 'lego/r7_override_ktwajah.json', data)
     print('override:', len(data['ganti']), 'ganti;', len(data['buang']), 'buang', flush=True)
 
@@ -350,10 +791,13 @@ def check():
     for r in rows:
         w = current_words[r['kata_index']]
         assert (w['w'], w['s'], w['e']) == (r['teks'], r['s'], r['e'])
-    assert all(0 <= x['delay_ms'] < 1000 / FPS + .001 for x in rows)
+    assert all(0 <= x['delay_ms'] < (250 if x['id'] == 'T052' and x['teks'] in ['Jadi', 'gak']
+               and x.get('onset_exception') == 'D-473 #2: mulai setelah slab keluar' else 1000 / FPS + .001) for x in rows)
     assert all(x['off_render'] >= x['e'] for x in rows)
     assert len({x['kata_index'] for x in rows}) == len(rows)
     own = {id for _, ids, _, _ in GROUPS for id in ids} | set(SLABS)
+    if any(j['shape'] == 'label' for j in read(QC / 'jobs.json')):
+        own |= {'T050', 'T051_lbl', 'T057_lbl', 'T077_lbl'}
     o = read(P / 'lego/r7_override_ktwajah.json')
     assert {x['id'] for x in o['ganti']} | set(o['buang']) == own
     assert not o['tambah']
@@ -762,12 +1206,38 @@ def pixel_audit():
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument('action', choices=['prepare', 'still', 'render', 'slabs', 'override', 'check', 'preview', 'qc', 'artifacts', 'pixels'])
+    ap.add_argument('action', choices=['prepare-r2', 'render-r2', 'override-r2', 'check-r2', 'prepare-b2', 'render-b2', 'blur-aislop-b2', 'override-b2', 'check-b2', 'pixels-b2', 'prepare', 'prepare-r3', 'prepare-r4', 'still', 'render', 'slabs', 'override', 'check', 'preview', 'qc', 'artifacts', 'pixels'])
     ap.add_argument('--group', nargs='*')
     args = ap.parse_args()
     os.chdir(P)
-    if args.action == 'prepare':
+    if args.action == 'prepare-r2':
+        prepare_r2()
+    elif args.action == 'render-r2':
+        render_r2(args.group)
+    elif args.action == 'override-r2':
+        override_r2()
+    elif args.action == 'check-r2':
+        run([sys.executable, QC / 'b2/ronde2/proof.py', 'scope'])
+    elif args.action == 'prepare-b2':
+        prepare_b2()
+    elif args.action == 'render-b2':
+        jobs = read(QC / 'b2/jobs.json')
+        render_b2([j for j in jobs if not args.group or j['name'] in args.group])
+    elif args.action == 'blur-aislop-b2':
+        blur_aislop_b2()
+    elif args.action == 'override-b2':
+        override_b2()
+    elif args.action == 'check-b2':
+        check_b2()
+    elif args.action == 'pixels-b2':
+        pixels_b2()
+    elif args.action == 'prepare-r4' or (args.action == 'prepare' and (QC / 'r4/before/hashes.json').exists()):
+        prepare_r4()
+    elif args.action == 'prepare' and not (QC / 'r3/before/jobs.json').exists():
         prepare()
+    elif args.action in ['prepare', 'prepare-r3']:
+        env = {**os.environ, 'LD_LIBRARY_PATH': str(QC / 'r3/native') + os.pathsep + os.environ.get('LD_LIBRARY_PATH', '')}
+        run([Path.home() / 'work/mg-venv/bin/python', QC / 'r3/prepare_revision.py'], env=env)
     elif args.action == 'slabs':
         slabs()
     elif args.action in ['still', 'render']:
@@ -776,7 +1246,12 @@ if __name__ == '__main__':
     elif args.action == 'override':
         override(read(QC / 'jobs.json'))
     elif args.action == 'check':
-        check()
+        if any(l['src'].startswith('cache/r7b2_narasi_r2_') for l in read(P / 'lego/r7_override_ktwajah.json')['ganti']):
+            run([sys.executable, QC / 'b2/ronde2/proof.py', 'scope'])
+        elif any(l['src'].startswith('cache/r7b2_narasi_') for l in read(P / 'lego/r7_override_ktwajah.json')['ganti']):
+            check_b2()
+        else:
+            check()
     elif args.action == 'preview':
         preview()
     elif args.action == 'qc':

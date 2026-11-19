@@ -12,7 +12,8 @@ import {jump, stroll} from '../../papan/karakter2d/gerak';
 import {Fonts} from '../bersama/Fonts';
 import {FONT, MEREK, NETRAL} from '../bersama/tema';
 import {INK, MUTED} from './TemaR4';
-import {active, Phrase, type Cue} from './UIWords';
+import {active, type Cue} from './UIWords';
+import {NarasiUI} from './NarasiUI';
 const HIJAU = MEREK.hijauMerek;
 import {Jendela} from './JendelaR4';
 
@@ -89,8 +90,7 @@ const CommitStatus: React.FC<{f: number; k: number}> = ({f, k}) => {
   </div>;
 };
 
-const Halaman: React.FC<{f: number; kSelesai: number; t: number; cues: Cue[]}> = ({f, kSelesai, t, cues}) => {
-  const c3 = cues.find(x => x.id === 'T003'), c5 = cues.find(x => x.id === 'T005');
+const Halaman: React.FC<{f: number; kSelesai: number}> = ({f, kSelesai}) => {
   const done = move(f, kSelesai - 1, 1, 'whip');
   const sorot = move(f, kSelesai + 10, 22, 'leave');
   const latest = REPO.commits[0];
@@ -114,7 +114,7 @@ const Halaman: React.FC<{f: number; kSelesai: number; t: number; cues: Cue[]}> =
         <div style={{...flex, gap: 14, height: 76, padding: '0 21px', borderBottom: `1px solid ${C.line}`,
           background: `rgb(${246 + (200 - 246) * done * (1 - sorot * 0.64)},${248 + (230 - 248) * done * (1 - sorot * 0.64)},${250 + (74 - 250) * done * (1 - sorot * 0.64)})`}}>
           <div style={{...flex, justifyContent: 'center', width: 38, height: 38, borderRadius: '50%', background: '#E4E8EC', fontSize: 14, fontWeight: 600}}>SI</div>
-          <strong style={{fontSize: 21}}>{REPO.owner}</strong><span style={{...ell, fontSize: 21, flex: 1}}>{active(c3, t) ? <span style={{marginLeft: 170}}><Phrase cue={c3} t={t} size={60}/></span> : active(c5, t) ? <Phrase cue={c5} t={t} size={60}/> : latest.subject}</span>
+          <strong style={{fontSize: 21}}>{REPO.owner}</strong><span style={{...ell, fontSize: 21, flex: 1}}>{latest.subject}</span>
           <span style={{fontSize: 20, color: MUTED}}>{latest.hash}</span><CommitStatus f={f} k={kSelesai}/>
           <span style={{...flex, gap: 8, fontSize: 20}}><Icon name="clock" size={24}/><strong>{REPO.commitCount}</strong> commits</span>
         </div>
@@ -170,7 +170,7 @@ const Isi: React.FC<DuniaRepoProps & {f: number}> = ({kunci: K, f, durasi, t0, c
   return <AbsoluteFill style={{background: '#EEF1F6', overflow: 'hidden'}}>
     <div style={{position: 'absolute', inset: 0, transformOrigin: '0 0', transform: `translate(${960 - cam.x * sc}px, ${540 - cam.y * sc}px) scale(${sc})`}}>
       <div style={{position: 'absolute', left: 0, top: 0, width: 1920, height: 1080, transformOrigin: '50% 100%', transform: 'perspective(3000px) rotateX(6deg) scale(1.03)'}}>
-        <Halaman f={f} kSelesai={sel} t={t0 + t} cues={cues}/>
+        <Halaman f={f} kSelesai={sel}/>
         <Panel tw={t} K={K}/>
         {active(cues.find(x => x.id === 'T004'), t0 + t) && <div style={{position: 'absolute', left: PANEL.x + 110, top: PANEL.y + 325,
           background: HIJAU, borderRadius: 28, padding: '10px 30px 18px', transformOrigin: '50% 80%',
@@ -190,5 +190,23 @@ export const DuniaRepoUI: React.FC<DuniaRepoProps> = (p) => {
   const f = useCurrentFrame();
   const {fps} = useVideoConfig();
   const blur = f < 18 || f >= Math.round(p.kunci.keluar * fps) - 2;
-  return <AbsoluteFill><Fonts/>{blur ? <CameraMotionBlur shutterAngle={220} samples={8}><Isi {...p} f={f}/></CameraMotionBlur> : <Isi {...p} f={f}/>}</AbsoluteFill>;
+  const t = p.t0 + f / fps;
+  const cue = p.cues.find(c => c.id !== 'T004' && active(c, t));
+  return <AbsoluteFill style={{background: NETRAL.hangat}}><Fonts/>
+    <div style={{position: 'absolute', left: 640, top: 205, width: 1200, height: 710,
+      borderRadius: 18, overflow: 'hidden', border: '1px solid #D0D7DE',
+      boxShadow: '0 18px 36px rgba(8,6,8,.15)'}}>
+      <div style={{height: 35, background: '#F6F8FA', borderBottom: '1px solid #D0D7DE',
+        display: 'flex', alignItems: 'center', paddingLeft: 18, gap: 7}}>
+        {['#FF5F57', '#FEBC2E', '#28C840'].map(c => <span key={c} style={{width: 10, height: 10, borderRadius: '50%', background: c}}/>)}
+      </div>
+      <div style={{position: 'relative', width: 1920, height: 1080, transform: 'scale(.625)', transformOrigin: '0 0'}}>
+        {blur ? <CameraMotionBlur shutterAngle={220} samples={8}><Isi {...p} f={f}/></CameraMotionBlur> : <Isi {...p} f={f}/>}
+      </div>
+    </div>
+    {cue && <div style={{position: 'absolute', left: 115, top: 330}}>
+      <NarasiUI cue={cue} t={t} rows={cue.id === 'T003' ? [[0], [1, 2]] : [[0]]}
+        size={92} color={NETRAL.hitam}/>
+    </div>}
+  </AbsoluteFill>;
 };
