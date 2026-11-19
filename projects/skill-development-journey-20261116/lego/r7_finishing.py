@@ -12,7 +12,7 @@ W, H, FPS = 1920, 1080, '30000/1001'
 SRC, OUT = sys.argv[1], sys.argv[2]
 # (frame awal, jumlah, pusat x, pusat y, zoom awal, zoom akhir, kurva, blur)
 SEG = [
-    (2148, 12, 280, 806, 1.0, 9.0, 'masuk', True),
+    (2148, 12, 253, 817, 1.0, 9.0, 'masuk', True),
     (2160, 12, 740, 840, 1.35, 1.0, 'mendarat', False),
     (2278, 12, 1498, 280, 1.0, 4.4, 'masuk', True),
 ]
@@ -38,11 +38,13 @@ for f0, n, cx, cy, za, zb, jenis, blur in SEG:
     src = ambil(f0, n, d)
     for k in range(n):
         if blur:   # blur gerak: rata-rata 3 sub-zoom di sekitar posisi frame ini
-            subs = []
-            for s in (-0.33, 0, 0.33):
+            import numpy as np   # 9 sub-zoom merata (blur gerak halus, bukan salinan bertumpuk; D-473 #8)
+            acc = None
+            for s in np.linspace(-0.5, 0.5, 9):
                 p = min(max((k + s) / (n - 1), 0), 1)
-                subs.append(zoom(src[k], cx, cy, za + (zb - za) * kurva(p, jenis)))
-            im = Image.blend(Image.blend(subs[0], subs[2], 0.5), subs[1], 0.5)
+                a = np.asarray(zoom(src[k], cx, cy, za + (zb - za) * kurva(p, jenis)), dtype=np.float32)
+                acc = a if acc is None else acc + a
+            im = Image.fromarray((acc / 9).clip(0, 255).astype('uint8'))
         else:
             im = zoom(src[k], cx, cy, za + (zb - za) * kurva(k / (n - 1), jenis))
         p = os.path.join(tmp, f'g{f0 + k:05d}.png'); im.save(p); ganti[f0 + k] = p

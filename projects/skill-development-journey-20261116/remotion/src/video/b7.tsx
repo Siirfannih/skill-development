@@ -5,7 +5,7 @@ import {Fonts} from './bersama/Fonts';
 import {MEREK} from './bersama/tema';
 import {WajahDorong} from './bersama/WajahDorong';
 import {ChatRow, type ChatItem} from './bersama/chat/Conversation';
-import {CHAT_VIEW, SessionWindow} from './bersama/chat/Chrome';
+import {CHAT_VIEW, CHAT_WINDOW, SessionWindow} from './bersama/chat/Chrome';
 import {GelombangGrid, maskGelombang, type Gelombang} from './bersama/ui-asli/claude/GelombangGrid';
 
 type KunciChat = {
@@ -41,7 +41,7 @@ const kunciChat = (k: DesktopProps['kunci']): KunciChat => 'updateA' in k ? k : 
 // kedua); prompt pindah dari kolom input ke percakapan saat diklik. Zoom dunia tidak pernah diam (D-464).
 const KLIK = 24;
 const PROMPT = 'Revisi potongan ronde 3, cek semua gerbang.';
-const GELOMBANG: Gelombang = {asal: {x: 220, y: 550}, frames: 20}; // tangan kiri yang menjentik, layar 1920×1080
+const GELOMBANG: Gelombang = {asal: {x: 220, y: 550}, frames: 28}; // tangan kiri yang menjentik, layar 1920×1080
 
 const messages = (k: KunciChat, duration: number): ChatItem[] => [
   {id: 'irfan', type: 'prompt', at: KLIK / 30, height: 90,
@@ -81,20 +81,39 @@ const Isi: React.FC<DesktopProps & {f: number; durasiDunia: number}> = ({kunci, 
   const k = kunciChat(kunci);
   const t = f / fps;
   const items = messages(k, durasiDunia);
-  let top = 0, previousTarget = 0, scroll = 0;
-  const rows = items.map((item) => {
-    const y = top;
-    top += item.height + (item.type === 'action' ? 12 : 24);
-    const target = Math.max(0, y + item.height - CHAT_VIEW.height + 18);
-    scroll += (target - previousTarget) * move(f, Math.round(item.at * fps) - 4, 8, 'heavy');
-    previousTarget = target;
-    return {item, y};
-  });
-  const zoom = (1 + 0.08 * (1 - move(f, 0, GELOMBANG.frames, 'land'))) * (1 + 0.06 * f / Math.round(durasiDunia * fps));
+  // posisi baris (statis) dan scroll transkrip pada frame g
+  let top = 0;
+  const rows = items.map((item) => { const y = top; top += item.height + (item.type === 'action' ? 12 : 24); return {item, y}; });
+  const scrollAt = (g: number) => {
+    let prev = 0, sc = 0;
+    for (const {item, y} of rows) {
+      const target = Math.max(0, y + item.height - CHAT_VIEW.height + 18);
+      sc += (target - prev) * move(g, Math.round(item.at * fps) - 4, 8, 'heavy'); prev = target;
+    }
+    return sc;
+  };
+  const scroll = scrollAt(f);
+  // D-473 #6: kamera mengikuti baris terbaru (terbaca di HP), mundur ke 1× saat "Selesai" sebelum dorongan ke Clawd.
+  // Target dihaluskan per frame (tidak pernah diam: drift kecil tetap berjalan, D-464).
+  const ZOOM_BACA = 1.3, PUSAT_X = CHAT_WINDOW.x + CHAT_VIEW.left + CHAT_VIEW.width / 2;
+  const target = (g: number) => {
+    const tg = g / fps;
+    if (g < GELOMBANG.frames + 6 || tg >= k.lega - 0.15) return {z: 1, y: 540};
+    const aktif = [...rows].reverse().find(({item}) => item.at * fps <= g);
+    if (!aktif) return {z: 1, y: 540};
+    const yLayar = CHAT_WINDOW.y + CHAT_VIEW.top + aktif.y - scrollAt(g) + aktif.item.height / 2;
+    const setengah = 540 / ZOOM_BACA;
+    return {z: ZOOM_BACA, y: Math.min(Math.max(yLayar, CHAT_WINDOW.y + setengah), CHAT_WINDOW.y + CHAT_WINDOW.height - setengah)};
+  };
+  let cz = 1, cy = 540;
+  for (let g = 0; g <= f; g++) { const tg = target(g); cz += (tg.z - cz) * 0.14; cy += (tg.y - cy) * 0.14; }
+  const landing = 1 + 0.08 * (1 - move(f, 0, GELOMBANG.frames, 'land'));
+  const zoom = cz * landing * (1 + 0.04 * f / Math.round(durasiDunia * fps));
+  const tx = 960 - PUSAT_X, ty = 540 - cy;
   const phase = t >= k.lega ? 'Selesai' : t >= k.cek ? 'Memeriksa…' : t >= k.edit ? 'Mencatat pelajaran…'
     : (t >= k.kirimA && t < k.terkirimA) || (t >= k.kirimB && t < k.updateB) ? 'Mengirim…' : 'Working…';
   return <AbsoluteFill style={{background: MEREK.latar, overflow: 'hidden'}}>
-    <div style={{position: 'absolute', inset: 0, transform: `scale(${zoom})`, transformOrigin: '50% 50%'}}>
+    <div style={{position: 'absolute', inset: 0, transform: `scale(${zoom}) translate(${tx}px, ${ty}px)`, transformOrigin: '50% 50%'}}>
       <SessionWindow frame={f} fps={fps} phase={phase} doneAt={k.lega} klik={KLIK} draft={PROMPT}>
         <div data-transcript-scroll style={{position: 'absolute', inset: 0, transform: `translateY(${-scroll}px)`}}>
           {rows.map(({item, y}) => <ChatRow key={item.id} item={item} top={y} scroll={scroll} frame={f} fps={fps}/>)}

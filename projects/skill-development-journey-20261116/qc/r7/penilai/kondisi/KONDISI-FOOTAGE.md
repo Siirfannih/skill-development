@@ -1,0 +1,12 @@
+# Lembar kondisi footage (brief r2 §4.3) · `lembar_kondisi.jpg`
+
+| Shot | Kondisi (dibaca dari frame) | Akibat untuk teks |
+|---|---|---|
+| Wajah sedang (5,6) | Kepala ±40 % tinggi frame di tengah; dinding abu-biru terang dan datar di kiri-atas dan kanan kepala; kiri bawah ramai (pintu biru, baju gantung); kemeja hitam bermotif putih penuh garis di sepertiga bawah, tangan + mic sering naik ke dada. | Ruang tenang = dinding di samping/atas kepala. Dada ramai motif dan tertutup tangan → kata putih kecil di dada mudah tenggelam. Kotak abu tipis di dinding terang hampir tak terlihat sebagai benda. |
+| Wajah dekat (44,6, punch-in) | Kepala ±55 % tinggi, mendekat ke tepi atas; dinding kosong tersisa sempit di kiri/kanan; kemeja dan tangan mengisi separuh bawah. | Ruang untuk teks besar hanya di belakang kepala (slab ber-matte) atau satu kata di bahu; teks di dada bersaing dengan tangan. |
+| UI repo (3,0) | Kanvas putih terang, jendela GitHub putih penuh detail kecil (daftar file, timeline warna); lingkaran wajah di kanan bawah. | Teks narasi gelap terbaca; tapi teks Bold hitam di header terbaca sebagai isi UI. |
+| UI app Claude (25,0) | Latar krem terang, jendela app putih dengan teks UI kecil abu; area kosong besar di bawah percakapan; lingkaran wajah kanan bawah. | Area kosong di dalam jendela menggoda untuk diisi narasi, padahal itu ruang UI; ruang kosong di luar jendela (atas/kiri latar krem) cukup untuk narasi. |
+| Kartu angka (50,6) | Wajah sedang dengan dua kartu putih bersudut membulat di kiri dan kanan atas bahu; dinding terang di belakang kartu. | Kartu sudah objek terang yang kuat; narasi di dada bersaing dengan kartu + tangan. |
+| Workflow D (63,0) | Latar hitam polos, jendela chat gelap, teks UI putih ±30 px setelah punch-in kamera; tidak ada wajah. | Tidak ada narasi (D-441); keterbacaan bergantung pada kamera baca. |
+| Meja Blender (74,6) | Ruang 3D gelap-hangat: lampu meja kiri, monitor di tengah-kanan atas meja, Clawd voxel oranye besar di depan kiri; bidang meja terlihat miring di bawah monitor; sudut kanan bawah gelap kosong. | Teks datar di layar menimpa monitor; teks kecil miring "melayang" karena tidak menempel bidang meja/monitor. Bidang yang bisa ditempeli: permukaan meja di depan monitor, atau dinding gelap kiri atas. |
+| IG (77,6) | UI IG putih: video 16:9 hitam-berpita di kiri (wajah kecil di dalamnya), panel komentar putih di kanan; massa terang di kanan. | Penekanan di dalam bidang video kecil terkurung kotak; punchline butuh keluar ke layar penuh. |

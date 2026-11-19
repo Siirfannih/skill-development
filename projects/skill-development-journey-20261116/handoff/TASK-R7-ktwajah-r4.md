@@ -1,0 +1,10 @@
+# TASK-R7-ktwajah-r4 · cincin lebih besar di belakang kepala + gerak gelombang (D-474, D-475)
+Baca `handoff/R7-BERSAMA.md` dan REPORT-R7-ktwajah (ronde 1–3). Basis: `out/varian-A_r7.mp4`.
+## TEMUAN / PERMINTAAN IRFAN
+- D-474 · cincin K1 (10,5–12,0 "itu bisa ngebuat sebuah", 38,3–41,7 "Jadi gak usah ditanya kenapa aku gak langsung publish dan open source", 54,0–56,9 "Dan bahkan sistem workflow ini memungkinkan"): sekarang huruf ±60 px di atas kepala. Perbesar seperti busur R4 "workflow"/"AI model" (T009/T011, lihat 6–8 dtk di video): tinggi huruf ±100–120 px, busur melingkari kepala dari sisi bahu kiri → atas kepala → sisi kanan, dan bagian busur yang berada di belakang kepala/rambut/badan TERTUTUP oleh Irfan (matte, cara `lego/lubang.py potong_zoom` + kamera `lego_r7_kamera.json`, tepi rambut menutup huruf di tempat yang benar). Maks 3 kata terlihat (kata lama keluar lewat belakang kepala/terpotong, bukan fade). Tidak menutupi mata/mulut; tidak keluar tepi frame (margin 5 %).
+- D-475 · gerak masuk gelombang (ref `sumber/ref-r6/ref-zache.mp4` 2,85–3,45 dtk; lihat juga still di laporan): untuk K1 cincin dan K4 kata di dada, setiap kata masuk huruf demi huruf kiri→kanan (stagger ±1 f/huruf), tiap huruf naik dari ±0,5× tinggi huruf di bawah posisinya ke posisi akhir dengan kurva `land` 6 f dan blur gerak vertikal saat bergerak (CameraMotionBlur atau blur per huruf yang ikut kecepatan), jarak antarhuruf mulai +25 % lalu merapat ke normal; total kata ±8–10 f; mulai tepat di onset kata. Tanpa fade, tanpa warna kuning (putih hangat merek). Pada cincin, gelombang mengikuti lengkung busur (naik = arah normal busur).
+- Tangga K2, pil, label slab: tetap.
+## FILE BOLEH / JANGAN
+Sama dengan TASK-R7-ktwajah. Jangan ubah waktu kata, warna, slab, tokoh.
+## LULUS BILA
+tsc lulus; rakitan rentang 10–12,5 / 38–42 / 53,8–57 + strip per frame 12 f di onset 3 kata (gelombang terlihat) + still penuh 11,0 / 39,5 / 40,5 / 55,0 / 56,0 sebelum/sesudah berdampingan dengan 6,5 dtk (busur R4) di `qc/r7/ktwajah/r4/`; bagian "Ronde 4" di laporan.

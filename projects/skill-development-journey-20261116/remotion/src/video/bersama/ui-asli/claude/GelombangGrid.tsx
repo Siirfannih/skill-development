@@ -24,7 +24,7 @@ const cincin = (f: number, g: Gelombang) => {
   const jauh = Math.max(...[[0, 0], [1920, 0], [0, 1080], [1920, 1080]]
     .map(([x, y]) => Math.hypot(x - g.asal.x, y - g.asal.y)));
   const depan = (jauh + SEL * 5) * move(f, 0, g.frames, 'land');
-  const tebal = SEL * 2.5 + depan * 0.32;
+  const tebal = SEL * 1.6 + depan * 0.16;   // cincin tipis, pusat kosong (D-473 #7)
   return {depan, belakang: depan - tebal, tebal};
 };
 
@@ -56,7 +56,7 @@ export const GelombangGrid: React.FC<{frame: number; g: Gelombang}> = ({frame, g
     const nyala = Math.max(0, Math.min(1, 0.25 + 0.75 * h * (1 - Math.abs(u - 0.6))));
     const gelap = acak(c, r, 9) < 0.28;
     const dekat = Math.max(0, 1 - d / 520);           // dekat pemicu sedikit lebih terang
-    const [rr, gg, bb] = SEL_TERANG.map((v) => Math.round(v * (0.07 + 0.26 * nyala + 0.1 * dekat)));
+    const [rr, gg, bb] = SEL_TERANG.map((v) => Math.round(v * (0.1 + 0.4 * nyala * (0.5 + u) + 0.08 * dekat)));
     const tepi = u > 0.82;
     sel.push(<div key={`${c}-${r}`} style={{
       position: 'absolute', left: c * SEL, top: r * SEL, width: SEL, height: SEL,

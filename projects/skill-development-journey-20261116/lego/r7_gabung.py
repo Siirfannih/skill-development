@@ -45,6 +45,9 @@ for f in sorted(glob.glob('r7_override_*.json')):
         if y['id'] in ids: sys.exit(f'{f}: tambah {y["id"]} sudah ada')
         pos = ids.index(y['sebelum']) if y.get('sebelum') in ids else len(ids)
         L['lapisan'].insert(pos, dict(y, _asal=f)); ids = [x['id'] for x in L['lapisan']]
+# D-473 koordinasi #4: judul "Claude Pro" tampil saat diucapkan (onset 49,75); kartu kiri maju 0,30 dtk
+for x in L['lapisan']:
+    if x['id'] == 'KARTU2': x['t'] = round(x['t'] - 0.30, 5)
 L['keluar'] = '../qc/r7/visual_r7.mp4'
 json.dump(L, open('lego_r7.json', 'w'), indent=1)
 print(len(L['lapisan']), 'lapisan;', 'override:', sorted(glob.glob('r7_override_*.json')))
