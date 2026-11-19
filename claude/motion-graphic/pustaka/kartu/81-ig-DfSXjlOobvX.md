@@ -1,6 +1,9 @@
 # 81 · ig-DfSXjlOobvX "wonderful AI OS / Gateway" (peluncuran produk AI)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/siirfannih_DfSXjlOobvX.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: Instagram `DfSXjlOobvX` (file `siirfannih_DfSXjlOobvX.mp4`, folder pustaka-video/mac); tidak ada di PETA.md, jadi kartu baru · 16:9 (1276×718, 25 fps), 54,4 dtk · Frame: `../../guide/referensi/sheets/81-ig-DfSXjlOobvX.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/81-k*.jpg` · Bedah lengkap: `ukuran.md` (folder audit ini)
 > Kedalaman bedah: **dalam** (sumber cuma 718 px tingginya: 1 px = 0,14 %)
 

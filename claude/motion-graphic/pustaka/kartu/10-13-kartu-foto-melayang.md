@@ -1,6 +1,9 @@
 # 10–13 · Kartu di tengah + foto melayang (4 still komposisi)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: tidak ditemukan di mesin ini
+> Dilihat bergerak: **tidak, gerak belum dilihat** (isi dari frame diam; jangan pinjam teknik gerak dari kartu ini sebelum videonya didapat)
 > Sumber: 10 thesoutline (situs), 11 "Perspectives on Pride", 12 Cosmos search, 13 gather onboarding · still landscape, bukan video · Frame: `../../guide/referensi/sheets/10-thesoutline-floating-work.png`, `11-floating-photos-words.png`, `12-cosmos-search-orbit.png`, `13-gather-onboarding-tiles.png` · Bedah lengkap: tidak ada (catatan di `../../guide/referensi/README.md`)
 > Kedalaman bedah: **tipis** (tipis = isi dari contact sheet saja; ukur ulang dari video sumber sebelum dijadikan kiblat)
 

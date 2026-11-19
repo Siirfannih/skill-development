@@ -1,6 +1,9 @@
 # 62 · Refference01 "studio merah, teks 3D per huruf"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/Refference01.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: file unggahan Irfan `Refference01.mp4` (kreator tidak tercantum; pembicara memperkenalkan diri "Hera rose", CEO agensi social media marketing, iklan lowongan editor) · 9:16 (720×1280, 30 fps), 9,7 dtk · Frame: `../../guide/referensi/sheets/62-refference01.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/62-k*.jpg` · Bedah lengkap: `ukuran.md` (folder audit)
 > Kedalaman bedah: **dalam** (videonya hanya 9,7 dtk / 5 adegan, jadi ritme dan musik diukur dari sampel pendek; label SFX earshot tidak terukur)
 

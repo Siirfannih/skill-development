@@ -1,6 +1,9 @@
 # 58 · GatesFX "karakter kaca di ruang gelap"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/GatesFX_ssspin.io_1794219240.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: GatesFX (iklan broker forex, watermark www.gatesfx.com), file `pustaka-video/unggahan/GatesFX_ssspin.io_1794219240.mp4` · 9:16 (720×1280, 30 fps), 12,8 dtk · Frame: `../../guide/referensi/sheets/58-gatesfx.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/58-k*.jpg` · Bedah lengkap: `~/audit-claude/deep/58-gatesfx/ukuran.md`
 > Kedalaman bedah: **dalam** (video pendek, 4 shot; semua shot diukur. SFX vs VO tidak dipisah stem, lihat 7)
 

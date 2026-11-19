@@ -1,6 +1,9 @@
 # 82 · Merantau (motion design 2D/2,5D, Dyanee) — file `2dmotion.mp4`, BUKAN video Spark
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/2dmotion.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: file Irfan `2dmotion.mp4` (pustaka-video/mac); kredit di layar: "Movie / Motion Design — Dyanee", "Music / Audio — Ian post – Arisaig" · 16:9 (1280×720, 24 fps), 47,1 dtk · Frame: `../../guide/referensi/sheets/50-spark.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/50-k*.jpg` · Bedah lengkap: `ukuran.md` (bedah 11 Nov)
 > **Catatan identitas:** nama asli dari Irfan "2dmotion.mp4 (diduga video Spark)". Isinya ternyata bukan "02 Everything Starts With a Spark" (tidak ada VO, gradien hijau-kuning, dashboard, atau kata "works"). Ini film pendek tanpa kata tentang pergi merantau, judul "Merantau" di akhir. Kartu lama 50-spark (GrokAgent V2, 47,3 dtk, `GrokAgent/reference-videos/VISUAL-BREAKDOWN.md`, `AUDIO-ANALYSIS.md` 02_spark, `STYLE-SYNTHESIS.md`, `data/`) membedah video lain; tautan itu tidak berlaku untuk file ini. Kemiripan durasi (47,1 vs 47,3 dtk) kebetulan atau salah label.
 > Kedalaman bedah: **dalam** (visual dan audio diukur dari video sumber; tidak ada ucapan, jadi hubungan grafik–kata tidak bisa dibedah)

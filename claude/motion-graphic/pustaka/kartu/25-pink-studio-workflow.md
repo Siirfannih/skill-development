@@ -1,6 +1,9 @@
 # 25 · Pink studio "Workflow Promo"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/local-videoanalys-20261102/Motion/siirfannih_DcvVp-Qof2x.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: `siirfannih_DcvVp-Qof2x.mp4` (folder asal: Motion; Instagram p/DcvVp-Qof2x, 39.930 suka dan 466 komentar saat dicatat 2 Nov 2026; promo kursus motion design SaaSWAVE, saaswave.net) · 16:9 (1276×718), 26,4 dtk, 24 fps (632 frame) · analisis asal: canvas-skill-library, reference_id LOC-87b8c2aea999 · Frame: `../../guide/referensi/sheets/25-pink-studio-workflow.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/25-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id LOC-87b8c2aea999)`; data ukur: `ukuran.md`
 > Kedalaman bedah: **dalam** (diukur dari video sumber 11 Nov 2026: piksel, cut per frame, gerak kamera, ebur128, earshot, librosa)
 

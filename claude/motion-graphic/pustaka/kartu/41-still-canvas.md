@@ -1,6 +1,9 @@
 # 41 · Still Canvas (11 gambar diam bernama dari Irfan)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: tidak ditemukan di mesin ini
+> Dilihat bergerak: **tidak, gerak belum dilihat** (isi dari frame diam; jangan pinjam teknik gerak dari kartu ini sebelum videonya didapat)
 > Sumber: 11 still di folder `Visual/` (nama file di bawah), tanpa URL · gambar diam, bukan video, tanpa durasi · analisis asal: canvas-skill-library, reference_id LOC-1109c0242b86, LOC-6d3c89ab0d42, LOC-8b7f40510d41, LOC-5c581fdd5046, LOC-9fd8f041078a, LOC-656c5ff2314a, LOC-5657e10dc6b6, LOC-f7364bcdf69e, LOC-6dbdffd73215, LOC-bd3efdf8f733, LOC-7d4591abea21 · Frame: `../../guide/referensi/sheets/41-still-canvas.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id LOC-… di atas)`
 > Kedalaman bedah: **tipis** (tipis = isi dari contact sheet saja; ukur ulang dari video sumber sebelum dijadikan kiblat) · satu kalimat pengamatan per gambar
 

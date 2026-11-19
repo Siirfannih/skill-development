@@ -1,6 +1,9 @@
 # 52 · Energy & The Sun
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/siirfannih_DfDC0I9PHin.mp4` (video yang sama dengan kartu 77)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: "05 Energy / sun" (Energy & The Sun) · rasio tidak tercatat, 21,9 dtk · analisis asal: GrokAgent (Grok Bot Maximus 30 Okt, audit ulang 2 Nov) · Frame: `../../guide/referensi/sheets/52-energy-sun.jpg` (belum dibuat; video sumber tidak ada di repo) · Bedah lengkap: `GrokAgent/reference-videos/VISUAL-BREAKDOWN.md` (V5), `GrokAgent/reference-videos/AUDIO-ANALYSIS.md` (05_energy_sun), `GrokAgent/reference-videos/AUDIT-2NOV-B-kinetic.md` (§5: VO yang sama dipakai ganimate), `GrokAgent/reference-videos/data/`
 > Kedalaman bedah: **tipis** (audio terukur 30 Okt; visual hanya catatan tonton dua babak, tanpa ukuran, posisi atau hex; versi 22 dtk ini tidak diaudit ulang 2 Nov)
 

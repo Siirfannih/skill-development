@@ -1,6 +1,9 @@
 # 14 · pedro.andradeok "Grid Cut Editorial"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/pedro.andradeok_De8GO2-RItV.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: pedro.andradeok, `pedro.andradeok_De8GO2-RItV.mp4` · 4:3 (960×720), 29,97 fps, 34,3 dtk · Frame: `../../guide/referensi/sheets/14-pedro-andradeok-grid-cut.jpg` · Bedah lengkap: `../../guide/referensi/pedro-andradeok.md` (kode P-T/P-X, komponen Remotion)
 > Kedalaman bedah: **dalam**
 

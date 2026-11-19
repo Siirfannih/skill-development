@@ -1,6 +1,9 @@
 # 29 · Team story "Analogi Benda & Checklist"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/local-videoanalys-20261102/Storytelling:Talkinghead/Story-context/siirfannih_Dc_0o-nIKYF.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: `siirfannih_Dc_0o-nIKYF.mp4` (folder asal: Storytelling:Talkinghead/Story-context; penutup "Camp Studios") · 4:3 (960×720), 23,976 fps, 73,2 dtk · analisis asal: canvas-skill-library, reference_id LOC-de41eff6e777 · Frame: `../../guide/referensi/sheets/29-team-story-analogy.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/29-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id LOC-de41eff6e777)`; data ukur: `ukuran.md`
 > Kedalaman bedah: **dalam** (sumber 720p; ukuran huruf ±0,14 % per piksel)
 

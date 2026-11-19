@@ -1,6 +1,9 @@
 # 69 · Talking head konsep "Slide Text" (kreator ES, demo preset After Effects)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/Talkingheadkonsep.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: file Irfan `Talkingheadkonsep.mp4` (kreator tidak tercatat; bahasa Spanyol Rioplatense, isi: promosi preset AE "Slide Text", CTA komentar "huella") · 4:3 (960×720), 25 fps, 37,2 dtk · Frame: `../../guide/referensi/sheets/69-talkinghead-konsep.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/69-k*.jpg` · Bedah lengkap: `ukuran.md` (folder ini)
 > Kedalaman bedah: **dalam**
 > Cek PETA: **bukan** kartu 01 Memory Secrets (01 = 9:16, merah neon). Satu keluarga dengan **14 pedro.andradeok** (format 4:3 960×720 sama, kata putih mengorbit pembicara, transisi grid-tile); kreator yang sama belum dipastikan.

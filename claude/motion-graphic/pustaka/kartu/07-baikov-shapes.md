@@ -1,6 +1,9 @@
 # 07 · Baikov / Shapes (product film & onboarding)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/02_Baikov_TEKS-SFX-CUT.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: Baikov, product film "Shapes", file `02_Baikov_TEKS-SFX-CUT.mp4` · 16:9 (736×414, 30 fps), 67 dtk, 2010 frame · pembanding: `baikovphilipp_ssspin.io_1794219313.mp4` (Baikov untuk ssspin.io, 16:9 736×414, 47,3 dtk; **video lain**, bukan salinan: md5 dan durasi beda) · Frame: `../../guide/referensi/sheets/07-baikov-shapes.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/07-k*.jpg` · Bedah lengkap: `../../guide/referensi/baikov.md` (katalog BK01–BK10); data ukur: `ukuran.md`
 > Kedalaman bedah: **dalam** (teks, warna, skala, cut, SFX diukur dari piksel/audio). Batas: sumber hanya 736×414 (1 px = 0,24 % tinggi), bitrate 258–290 kbps sehingga grain tidak bisa dinilai.
 

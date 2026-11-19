@@ -1,6 +1,9 @@
 # 50 · Everything Starts With a Spark
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/baikovphilipp_ssspin.io_1793345363.mp4` (mungkin video yang sama dengan kartu 68, belum dipastikan)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: "02 Everything Starts With a Spark" · rasio tidak tercatat, 47,3 dtk · analisis asal: GrokAgent (Grok Bot Maximus 30 Okt, audit ulang 2 Nov) · Frame: `../../guide/referensi/sheets/50-spark.jpg` (belum dibuat; video sumber tidak ada di repo) · Bedah lengkap: `GrokAgent/reference-videos/VISUAL-BREAKDOWN.md` (V2), `GrokAgent/reference-videos/AUDIO-ANALYSIS.md` (02_spark), `GrokAgent/reference-videos/STYLE-SYNTHESIS.md`, `GrokAgent/reference-videos/data/`
 > Kedalaman bedah: **tipis** (audio terukur 30 Okt; visual hanya catatan tonton empat babak, tanpa ukuran, posisi atau hex; video ini tidak ikut audit ulang 2 Nov)
 

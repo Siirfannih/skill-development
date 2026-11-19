@@ -1,6 +1,9 @@
 # 21 · theartexpo "Day in the Life, Toko Piringan Hitam"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/local-videoanalys-20261102/Motion/theartexpo.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: `theartexpo.mp4` (folder asal: Motion) · 16:9 (1276×718), 53,05 dtk, 24 fps · analisis asal: canvas-skill-library, reference_id LOC-25ab91e0412a · Frame: `../../guide/referensi/sheets/21-day-in-life-record-shop.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/21-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id LOC-25ab91e0412a)`; data ukur: `ukuran.md`
 > Kedalaman bedah: **dalam** (frame tiap 0,5 dtk, 70 shot diukur gerak kameranya, teks diukur piksel, audio lewat ebur128/earshot/librosa)
 

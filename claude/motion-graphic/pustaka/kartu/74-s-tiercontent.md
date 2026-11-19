@@ -1,6 +1,9 @@
 # 74 · s_tiercontent "tutorial AI sinematik" (invideo MCP)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/s_tiercontent_DebvOZiMDmo.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: file `s_tiercontent_DebvOZiMDmo.mp4` (pustaka-video/mac; kreator "S-tier content", ID `DebvOZiMDmo`) · 16:9 (1276×718, 30 fps), 21,2 dtk · Frame: `../../guide/referensi/sheets/74-s-tiercontent.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/74-k*.jpg` · Bedah lengkap: `ukuran.md` (folder audit)
 > Kedalaman bedah: **dalam** (sumber 718p, banyak motion blur di transisi; angka teks ±0,3 % tinggi)
 

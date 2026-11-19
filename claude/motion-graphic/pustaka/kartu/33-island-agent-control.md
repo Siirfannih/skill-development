@@ -1,6 +1,9 @@
 # 33 · Island enterprise agent control explainer
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/online-20261102/data/instagram/daa504957c9923dc242a/video.mp4` (dicocokkan lewat dimensi dan durasi, belum dipastikan isinya)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: "Island enterprise agent control explainer", https://www.instagram.com/p/Dbn1uwLOphN/ (file Irfan "IG Dbn1uwLOphN") · 16:9 (1276×720, 25 fps), 103,1 dtk, ber-VO · analisis asal: canvas-skill-library, reference_id Dbn1uwLOphN · Frame: `../../guide/referensi/sheets/33-island-agent-control.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/33-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id Dbn1uwLOphN)`; data ukur: `ukuran.md`
 > Catatan silang: `GrokAgent/reference-videos/AUDIT-2NOV-B-kinetic.md` membedah video Island LAIN (pengumuman pendanaan, 21,1 dtk). Angka di kartu ini semua dari video 103 dtk ini.
 > Kedalaman bedah: **dalam**

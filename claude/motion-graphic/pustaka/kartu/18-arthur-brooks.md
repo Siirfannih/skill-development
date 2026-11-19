@@ -1,6 +1,9 @@
 # 18 · Arthur Brooks "minimal premium" (edit Joseph, Ultimate Editors)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: tidak ditemukan di mesin ini
+> Dilihat bergerak: **tidak, gerak belum dilihat** (isi dari frame diam; jangan pinjam teknik gerak dari kartu ini sebelum videonya didapat)
 > Sumber: Joseph (Ultimate Editors), YouTube `g9xoKm5DEeU` "How to Edit VIRAL Talking Head Videos Using ONLY Claude" (20:57), potongan hasil akhir 17:56–18:53 · 9:16 (1080×1920), 57 dtk · Frame: `../../guide/referensi/sheets/18-arthur-brooks-hasil.jpg` (hasil, tiap 2 dtk), `../../guide/referensi/sheets/18-arthur-brooks-10-adegan.jpg` (10 jenis adegan) · Bedah lengkap: `../../guide/referensi/joseph-arthur-brooks.md`; template turunan: `../../templates/gaya/minimal-premium/STYLE.md`
 > Kedalaman bedah: **dalam**
 > Batas: semua ukuran berasal dari SATU potongan 57 dtk di dalam video kursus (frame 720p). Metode Joseph sendiri memakai ±20 video per gaya, jadi kartu ini harus diperdalam saat ada lebih banyak video gaya Arthur Brooks. Angka "klaim Joseph" belum dicek.

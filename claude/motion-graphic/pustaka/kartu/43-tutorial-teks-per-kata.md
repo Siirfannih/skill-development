@@ -1,6 +1,9 @@
 # 43 · Tutorial "teks per kata" di badan presenter, editor CapCut (IG Dcc8NmZgmiw)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/online-20261103/data/instagram/e08ad57eca7cbaaf2e00/video.mp4` (dicocokkan lewat dimensi dan durasi, belum dipastikan isinya)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: https://www.instagram.com/reel/Dcc8NmZgmiw/ · 9:16 (720×1280), 30 fps, 103,7 dtk · analisis asal: canvas-skill-library, reference_id Dcc8NmZgmiw · Frame: `../../guide/referensi/sheets/43-tutorial-teks-per-kata.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/43-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id Dcc8NmZgmiw)`; data ukur: `ukuran.md`
 > Kedalaman bedah: **dalam** (teks, warna, kamera, audio diukur dari piksel/sinyal; sumber 720p, ±0,08 % tinggi per piksel)
 

@@ -1,6 +1,9 @@
 # 57 · Motion with text: morph data-viz fintech (lime di atas hitam)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/Motionwithtext.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: unggahan Irfan, file `Motionwithtext.mp4` (kreator tidak diketahui; reference_id: belum ada) · 3:4 (720×960, 60 fps), 4,73 dtk, **tanpa trek audio** · Frame: `../../guide/referensi/sheets/57-motion-with-text.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/57-k*.jpg` · Bedah lengkap: `ukuran.md` (data ukur mentah)
 > Kedalaman bedah: **dalam** (visual dan gerak diukur per frame 60 fps; SFX/musik tidak ada karena file tidak punya trek audio)
 

@@ -1,6 +1,9 @@
 # 34 · ClickUp disconnected-work teaser
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/online-20261102/data/instagram/07435b43e6a90804a7fd/video.mp4` (dicocokkan lewat dimensi dan durasi, belum dipastikan isinya)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: "ClickUp disconnected-work teaser", file Irfan "IG DbszEmpIfK8", https://www.instagram.com/reel/DbszEmpIfK8/ · 16:9 (1276×718, 30 fps), 10,0 dtk · analisis asal: canvas-skill-library, reference_id DbszEmpIfK8 · Frame: `../../guide/referensi/sheets/34-clickup-disconnected-work.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/34-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id DbszEmpIfK8)`; ukuran mentah: `34-clickup-disconnected-work-ukuran.md`
 > Kedalaman bedah: **dalam** (diukur dari video sumber 11 Nov 2026; sumber 718p, satu video, tanpa ucapan)
 

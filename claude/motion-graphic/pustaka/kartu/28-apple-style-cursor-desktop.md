@@ -1,6 +1,9 @@
 # 28 · Apple style "Cursor & Desktop"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/local-videoanalys-20261102/Motion/Applestyele.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: `Applestyele.mp4` (folder asal: Motion; kreator di kartu akhir: @jaafar.aid, freelance motion designer) · 16:9 (1280×720), 19,4 dtk, 30 fps (577 frame), tanpa VO · analisis asal: canvas-skill-library, reference_id LOC-cc090eec9187 · Frame: `../../guide/referensi/sheets/28-apple-style-cursor-desktop.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/28-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id LOC-cc090eec9187)`; data ukur: `ukuran.md`
 > Audit GrokAgent "Apple_Styele" (44,7 dtk, iklan Holo) bukan video ini; angkanya ada di kartu 30.
 > Kedalaman bedah: **dalam** (sumber 720p; ukuran teks kecil ±0,15 % per piksel; gerak kamera dari ORB global, bukan keyframe asli)

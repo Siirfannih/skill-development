@@ -1,6 +1,9 @@
 # 64 · KDS "I'M THE OPPOSITE OF AI" (poster loop piksel biru)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/koushik_kds_ssspin.io_1794368193.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: akun KDS (koushik_kds), file `koushik_kds_ssspin.io_1794368193.mp4` · 3:4 (720×960, 30 fps), 8,3 dtk, **tanpa trek audio** · Frame: `../../guide/referensi/sheets/64-koushik-kds.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/64-k*.jpg` · Bedah lengkap: `ukuran.md` (folder audit 64-koushik-kds)
 > Kedalaman bedah: **dalam** (semua piksel terukur di 249 frame; SFX/musik tidak ada di file, jadi bagian 7–8 kosong karena sumbernya, bukan karena dilewati)
 

@@ -1,6 +1,9 @@
 # 19 · Founder cohort "Foto Arsip ke Undangan"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/local-videoanalys-20261102/Motion/siirfannih_Db8r7cxhSQh.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: `siirfannih_Db8r7cxhSQh.mp4` (folder asal: Motion; rekrutmen angkatan "Lightyear") · 16:9 (1276×718), 33,3 dtk, 29,97 fps · analisis asal: canvas-skill-library, reference_id LOC-1a0add077140 · Frame: `../../guide/referensi/sheets/19-founder-cohort.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/19-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id LOC-1a0add077140)`; ukuran mentah: `19-founder-cohort-ukuran.md`
 > Kedalaman bedah: **dalam** (diukur 11 Nov 2026 dari video sumber 718p; teks, warna, kamera, ritme, loudness terukur; level SFX terhadap musik tidak terpisah karena tanpa stem)
 

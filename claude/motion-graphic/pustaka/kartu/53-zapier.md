@@ -1,6 +1,9 @@
 # 53 · Zapier (spot promo)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/local-videoanalys-20261102/Motion/Audio.mp4` (kemungkinan video yang sama dengan kartu 23)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: "Zapier", spot promo (`26696d42-Audio.mp4`) · 16:9 (1280×720), 24 fps, 23 dtk · analisis asal: GrokAgent (Grok Bot Maximus 30 Okt, audit ulang 2 Nov) · Frame: `../../guide/referensi/sheets/53-zapier.jpg` (belum dibuat; video sumber tidak ada di repo) · Bedah lengkap: `GrokAgent/reference-videos/AUDIT-2NOV-C-audio.md` (kode REF; video ini tidak ada di analisis 30 Okt)
 > Kedalaman bedah: **sedang** (audio dalam: level, kelas SFX, sinkron dan musik per babak terukur; visual hanya ringkasan satu tabel, tanpa hex dan tanpa hitungan cut)
 

@@ -1,6 +1,9 @@
 # 17 · _ganimate_ "Editorial Explainer System"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/_ganimate__DfICqhOvP-0.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: _ganimate_, `_ganimate__DfICqhOvP-0.mp4` (nama asli "_ganimate_ showreel"; mosaik 2×2, empat panel explainer diputar bersamaan) · 16:9 (1280×720, tiap panel 640×360), 23,98 fps, 14,4 dtk · Frame: `../../guide/referensi/sheets/17-ganimate.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/17-k*.jpg` · Bedah lengkap: `../../guide/referensi/ganimate.md` (kode G-T/G-X, komponen Remotion); data ukur: `ukuran.md`
 > Kedalaman bedah: **sedang**. Sebab: semua angka diukur dari piksel, tetapi tiap proyek hanya tampil sebagai panel 640×360 (±0,28 % tinggi per piksel) dan potongan ≤ 14 dtk; audio adalah satu campuran untuk keempat panel. Ukur ulang dari video proyek tunggal sebelum angka ritme/SFX dijadikan kiblat.
 

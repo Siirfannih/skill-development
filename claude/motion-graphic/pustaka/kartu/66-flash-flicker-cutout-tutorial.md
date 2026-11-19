@@ -1,6 +1,9 @@
 # 66 · Tutorial Flash-Flicker-Cutout (CapCut, travel vlog Kaohsiung)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/user-tutorials/LOC-08c5a6ff5ac1/reference.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: file Irfan "tutorial Flash-Flicker-Cutout (threadsdownloader)", reference_id `LOC-08c5a6ff5ac1` (`data/user-tutorials/LOC-08c5a6ff5ac1/reference.mp4`); rekaman layar CapCut seluler berisi hasil edit vlog "A Random Walk in Kaohsiung" · 9:16 (720×1280, 30 fps), 17,3 dtk; panel preview hasil 720×502 (≈1,43:1) di y 11–50 % · Frame: `../../guide/referensi/sheets/66-flash-flicker-cutout-tutorial.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/66-k*.jpg` · Bedah lengkap: `ukuran.md`
 > Kedalaman bedah: **dalam** (efek diukur per frame 30 fps). Batas: hasil edit hanya terlihat di panel preview 720×502 di dalam UI CapCut, jadi resolusi efektif rendah; audio adalah audio hasil edit (musik + SFX), tanpa suara narator.
 

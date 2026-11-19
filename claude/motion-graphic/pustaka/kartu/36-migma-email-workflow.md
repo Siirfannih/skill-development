@@ -1,6 +1,9 @@
 # 36 · MigmaAI email workflow demo
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/online-20261102/data/instagram/98318223f1ccca4b494d/video.mp4` (dicocokkan lewat dimensi dan durasi, belum dipastikan isinya)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: "MigmaAI email workflow demo" (file Irfan "IG DeRyg7GhvQJ"), https://www.instagram.com/reel/DeRyg7GhvQJ/ · 16:9 (1276×718, 30 fps), 28,1 dtk · analisis asal: canvas-skill-library, reference_id DeRyg7GhvQJ · Frame: `../../guide/referensi/sheets/36-migma-email-workflow.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/36-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id DeRyg7GhvQJ)`; data ukur: `ukuran.md`
 > Kedalaman bedah: **dalam** (diukur dari video sumber: frame tiap 0,5 dtk, piksel, cut, gerak kamera, ebur128, earshot, librosa)
 

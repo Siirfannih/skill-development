@@ -1,6 +1,9 @@
 # 09 · thekrishray "Hey I'm a motion designer"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/online-20261103/data/instagram/e840d184a040a403b49f/video.mp4` (kemungkinan video yang sama dengan kartu 42)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: @thekrishray, perkenalan diri dengan VO · frame persegi 1:1, ±0:33 (dari sheet) · Frame: `../../guide/referensi/sheets/09-thekrishray-motion-designer.jpg` · Bedah lengkap: tidak ada (catatan 7 Nov di `../../guide/referensi/README.md`)
 > Kedalaman bedah: **tipis** (tipis = isi dari contact sheet saja; ukur ulang dari video sumber sebelum dijadikan kiblat)
 

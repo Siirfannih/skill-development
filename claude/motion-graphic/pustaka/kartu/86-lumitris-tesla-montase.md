@@ -1,6 +1,9 @@
 # 86 · Montase Tesla Roadster dengan kata kecil dan panel abu, Lumitris (IG DezFTyktEUp)
 
-> **Status: standar kualitas pustaka.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/lumitris-tesla-roadster_DezFTyktEUp.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: https://www.instagram.com/reel/DezFTyktEUp/ · file `lumitris-tesla-roadster_DezFTyktEUp.mp4` · 1280×720 (16:9), 23,974 fps, 58,047 dtk · Frame: `../../guide/referensi/sheets/86-lumitris-tesla-montase.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/86-k*.jpg` · Bedah lengkap, transkrip, dan perintah: `../../guide/referensi/ukuran/86-lumitris-tesla-montase.md`
 > Kedalaman bedah: **sedang** (visual, piksel tipografi, ritme, dan loudness terukur; SFX serta musik per stem Tidak terbedah).
 

@@ -1,6 +1,9 @@
 # 71 · Konsep motion: perkenalan motion designer lewat komponen UI, thekrishray (file "Motionkonsep.mp4")
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/Motionkonsep.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: https://www.instagram.com/reel/DcnW2OZzyT4/ (@thekrishray), file `pustaka-video/mac/Motionkonsep.mp4` · 1:1 (720×720), 30 fps, 33,7 dtk · reference_id DcnW2OZzyT4 · Frame: `../../guide/referensi/sheets/71-motion-konsep.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/71-k*.jpg` · Bedah lengkap: `ukuran.md` (data mentah)
 > Kedalaman bedah: **dalam**
 > **Video yang sama dengan kartu 42** (`42-thekrishray-perkenalan-ui.md`, sedang) **dan kartu 09** (`09-thekrishray.md`, tipis). Kartu ini menambah angka piksel, audio, dan kamera; urutan adegan rinci tetap di kartu 42.

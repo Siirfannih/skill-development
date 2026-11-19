@@ -1,6 +1,9 @@
 # 60 · Contohkonten1 "talking head + kata besar di belakang subjek"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/Contohkonten1.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: unggahan Irfan, file "Contohkonten1.mp4" (kreator tidak tercantum) · 16:9 (1276×718, 25 fps), 35,4 dtk · Frame: `../../guide/referensi/sheets/60-contohkonten-b.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/60-k*.jpg` · Bedah lengkap: `ukuran.md` (data ukur mentah)
 > Kedalaman bedah: **dalam**
 > Batas: satu video 35 dtk, sumber 718 px (1 px = 0,14 % tinggi). Level SFX/musik tidak dipisah stem.

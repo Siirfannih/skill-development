@@ -1,6 +1,9 @@
 # 73 · Jordan Esfa "teks tunggal di grid ungu"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/Jordan_Esfa_ssspin.io_1794023669.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: Jordan Esfa (unduhan ssspin.io), file `pustaka-video/mac/Jordan_Esfa_ssspin.io_1794023669.mp4` · 16:9 (736×414, 30 fps), 26,6 dtk · Frame: `../../guide/referensi/sheets/73-jordan-esfa.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/73-k*.jpg` · Bedah lengkap: `ukuran.md` (audit 73)
 > Kedalaman bedah: **dalam**
 > Batas: sumber 736×414 (1 px = 0,24 % tinggi); hanya satu video; tanpa suara bicara, jadi hubungan teks–ucapan tidak bisa diukur.

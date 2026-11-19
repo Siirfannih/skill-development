@@ -1,6 +1,9 @@
 # 55 · Storytelling with footage ("Charles, age 20": cerita kreator dari footage arsip ke footage pribadi)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/Storytellingwithfootage.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: file Irfan `Storytellingwithfootage.mp4` (juga dikirim sebagai `Refference02cinematic-story.mp4`); kreator tidak disebut, label di video "Charles, Age 20, Full-time Creative" · 16:9 (1276×718, 24 fps), 46,3 dtk · Frame: `../../guide/referensi/sheets/55-storytelling-with-footage.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/55-k*.jpg` · Bedah lengkap: `ukuran.md`
 > Kedalaman bedah: **dalam** (diukur dari video sumber: cut, gerak kamera, teks, warna, audio; batas di `ukuran.md`)
 

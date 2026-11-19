@@ -1,6 +1,9 @@
 # 61 · Contohkonten2 "kunci merah + kata raksasa di belakang kepala" (talking head edukasi, merah gelap)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/Contohkonten2.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: file unggahan Irfan `Contohkonten2.mp4` (kreator: pembicara India, ruang kerja ber-dekor Batman, CTA "comment THARUN") · 9:16 (720×1280, 30 fps), 88,7 dtk · Frame: `../../guide/referensi/sheets/61-contohkonten-c.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/61-k*.jpg` · Bedah lengkap: `~/audit-claude/deep/61-contohkonten-c/ukuran.md`
 > Kedalaman bedah: **dalam** (batas: sumber 720p, 1 px = 0,08 % tinggi; SFX dari tag earshot = petunjuk, bukan pasti)
 

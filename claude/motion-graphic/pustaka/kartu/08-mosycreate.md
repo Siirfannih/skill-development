@@ -1,6 +1,9 @@
 # 08 · Mosycreate "Instagram Save Reminders"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/Motion.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: @mosycreate, konsep fitur IG tidak resmi, file `pustaka-video/mac/Motion.mp4` · 960×720 (4:3), 39,0 dtk, 30 fps · Frame: `../../guide/referensi/sheets/08-mosycreate.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/08-k*.jpg` · Bedah lengkap: `GrokAgent/reference-videos/AUDIT-2NOV-A-apple-motion.md` (video "Motion"); data ukur: `08-mosycreate-ukuran.md`
 > Kedalaman bedah: **dalam** (diukur ulang dari video sumber 11 Nov; font tetap perkiraan visual)
 

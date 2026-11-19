@@ -1,6 +1,9 @@
 # 47 · Lirik tipografi 3D pada cincin berputar, "Training Season" (IG DetQ8tOOEkg)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/online-20261103/data/instagram/7d83e0136eeb6baa0ef9/video.mp4` (dicocokkan lewat dimensi dan durasi, belum dipastikan isinya)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: https://www.instagram.com/reel/DetQ8tOOEkg/ · file asli "IG DetQ8tOOEkg" · 9:16 (720×1280), 30 fps, 30,1 dtk · analisis asal: canvas-skill-library, reference_id DetQ8tOOEkg · Frame: `../../guide/referensi/sheets/47-tipografi-3d-cincin-lirik.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/47-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id DetQ8tOOEkg)`; ukuran mentah: `ukuran.md`
 > Kedalaman bedah: **dalam** (teks, warna, kamera, audio diukur dari video; font hanya perkiraan nama; SFX tak terpisah dari lagu)
 

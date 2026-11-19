@@ -1,6 +1,9 @@
 # 68 · Baikov kedua "hijau tumbuh" (promo brand desain, 47 dtk)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/baikovphilipp_ssspin.io_1793345363.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: baikovphilipp (Instagram, unduhan ssspin.io), file `pustaka-video/mac/baikovphilipp_ssspin.io_1793345363.mp4` · 16:9 (736×414, 30 fps), 47,3 dtk · Frame: `../../guide/referensi/sheets/68-baikov-kedua.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/68-k*.jpg` · Bedah lengkap: `ukuran.md`
 > Kedalaman bedah: **dalam** (batas: sumber hanya 414 px tinggi, 1 px = 0,24 % tinggi; kata kecil bisa meleset ±10 %)
 

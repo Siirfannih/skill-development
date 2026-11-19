@@ -1,6 +1,9 @@
 # 42 · Perkenalan motion designer lewat komponen UI, thekrishray (IG DcnW2OZzyT4)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/online-20261103/data/instagram/e840d184a040a403b49f/video.mp4` (dicocokkan lewat dimensi dan durasi, belum dipastikan isinya)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: https://www.instagram.com/reel/DcnW2OZzyT4/ (file Irfan "siirfannih_DcnW2OZzyT4 (thekrishray)") · 1:1 (720×720), 30 fps, 33,6 dtk · analisis asal: canvas-skill-library, reference_id DcnW2OZzyT4 · Frame: `../../guide/referensi/sheets/42-thekrishray-perkenalan-ui.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/42-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id DcnW2OZzyT4)`; data ukur: `ukuran.md`
 > Kedalaman bedah: **dalam** (diukur dari video sumber 11 Nov; batas: sumber 720 px, 1 px = 0,14 %)
 

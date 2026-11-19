@@ -1,6 +1,9 @@
 # 72 · arpan.motions "Relocate" (storyboard vs final)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/arpan.motions_DfCMjSySmJd.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: arpan.motions (Instagram `DfCMjSySmJd`), file `~/work/pustaka-video/mac/arpan.motions_DfCMjSySmJd.mp4` · 9:16 (720×1280, 30 fps), 22,4 dtk; isinya video promo 16:9 (720×410) di tengah · Frame: `../../guide/referensi/sheets/72-arpan-motions.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/72-k*.jpg` · Bedah lengkap: `ukuran.md` (folder audit 72)
 > Kedalaman bedah: **dalam** (resolusi 720 p: panel final hanya 410 px tinggi, ±0,25 % per piksel)
 > Cek PETA (11 Nov): kartu baru, bukan kartu lama. Durasi mirip 52 Energy & The Sun (21,9 dtk) tetapi isinya lain (bukan montase kutipan tokoh).

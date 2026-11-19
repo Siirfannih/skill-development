@@ -1,6 +1,9 @@
 # 30 · Apple style "Gradient Marketing" (iklan Holo)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/local-videoanalys-20261102/Motion/Apple Styele.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: `Apple Styele.mp4` (folder asal: Motion; Instagram p/Deq1nUPMqtr) · 16:9 (1276×718), 30 fps, 44,7 dtk · analisis asal: canvas-skill-library, reference_id LOC-e42107cea92d · Frame: `../../guide/referensi/sheets/30-apple-style-gradient-marketing.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/30-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id LOC-e42107cea92d)`; data ukur 11 Nov: `ukuran.md` (audit deep/30); audit lama `GrokAgent/reference-videos/AUDIT-2NOV-A-apple-motion.md`
 > Kedalaman bedah: **dalam** (ukur ulang dari video sumber 11 Nov: tinggi huruf, posisi, hex, shot list, kamera ORB, LUFS, earshot, librosa)
 > Batas: sumber 718 px tinggi (1 px = 0,14 %); nama font tidak bisa dipastikan dari piksel.

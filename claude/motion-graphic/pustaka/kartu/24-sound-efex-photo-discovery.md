@@ -1,6 +1,9 @@
 # 24 · Sound efex "Photo Discovery Explainer" (promo Nma Photo)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/local-videoanalys-20261102/Motion/Sound efex 2.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: `Sound efex 2.mp4` (folder asal: Motion) · 16:9 (1276×718), 40,1 dtk, 30 fps · analisis asal: canvas-skill-library, reference_id LOC-66bdc54741a3 · Frame: `../../guide/referensi/sheets/24-sound-efex-photo-discovery.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/24-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id LOC-66bdc54741a3)`; data ukur: `ukuran.md`
 > Kedalaman bedah: **dalam** (SFX diukur per onset + earshot; teks, warna, skala, kamera dari piksel. Batas: label bunyi dari model, belum didengar telinga; tidak ada stem terpisah VO/musik/SFX)
 

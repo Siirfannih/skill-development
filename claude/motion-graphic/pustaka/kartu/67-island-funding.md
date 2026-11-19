@@ -1,6 +1,9 @@
 # 67 · Island "Series F $400M" (life.at.island)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/life.at.island_Ddq_MPiIuKB.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: akun Instagram life.at.island (Island, perusahaan enterprise browser), file `pustaka-video/mac/life.at.island_Ddq_MPiIuKB.mp4` · 16:9 (1276×720, 24 fps), 21,1 dtk · Frame: `../../guide/referensi/sheets/67-island-funding.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/67-k*.jpg` · Bedah lengkap: `ukuran.md` (data ukur mentah)
 > Kedalaman bedah: **dalam** (sumber 720p, tanpa suara narator; semua angka diukur dari piksel/audio, lihat `ukuran.md`)
 

@@ -1,6 +1,9 @@
 # 27 · Story video "Perkenalan Diri & Tawaran Freelance"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/local-videoanalys-20261102/Storytelling:Talkinghead/Story-context/Story video.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: `Story video.mp4` (folder asal: Storytelling:Talkinghead/Story-context) · 4:3 (960×720), 111,2 dtk, 30 fps · analisis asal: canvas-skill-library, reference_id LOC-9d1bb49238a2 · Frame: `../../guide/referensi/sheets/27-story-video-freelance.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/27-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id LOC-9d1bb49238a2)`; ukuran mentah: `ukuran.md` (audit 11 Nov)
 > Kedalaman bedah: **dalam** (frame tiap 1 dtk, ukur piksel 8 frame kunci, kamera per shot, earshot detail low; detail high habis waktu)
 

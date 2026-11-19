@@ -1,6 +1,9 @@
 # 01 · Memory Secrets
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: tidak ditemukan di mesin ini
+> Dilihat bergerak: **tidak, gerak belum dilihat** (isi dari frame diam; jangan pinjam teknik gerak dari kartu ini sebelum videonya didapat)
 > Sumber: Memory Secrets (talking head EN; kreator tidak tercatat) · 9:16, ±1:25 (dari sheet) · Frame: `../../guide/referensi/sheets/01-memory-secrets.jpg` · Bedah lengkap: tidak ada (catatan Gemini + ukur 6 Nov di `../../guide/referensi/README.md`)
 > Kedalaman bedah: **tipis** (tipis = isi dari contact sheet saja; ukur ulang dari video sumber sebelum dijadikan kiblat)
 

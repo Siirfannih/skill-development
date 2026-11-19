@@ -1,6 +1,9 @@
 # 06 · Sleeko HowDo
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: tidak ditemukan di mesin ini
+> Dilihat bergerak: **tidak, gerak belum dilihat** (isi dari frame diam; jangan pinjam teknik gerak dari kartu ini sebelum videonya didapat)
 > Sumber: Sleeko, product film "HowDo" · 16:9, ±0:43 (dari sheet) · Frame: `../../guide/referensi/sheets/06-sleeko-howdo.jpg` · Bedah lengkap: tidak ada (dibedah dari contact sheet + ukur 6 Nov di `../../guide/referensi/README.md`)
 > Kedalaman bedah: **tipis** (tipis = isi dari contact sheet saja; ukur ulang dari video sumber sebelum dijadikan kiblat)
 

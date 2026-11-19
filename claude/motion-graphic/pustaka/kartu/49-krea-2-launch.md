@@ -1,6 +1,9 @@
 # 49 · Krea 2 launch
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/baikov0943_ssspin.io_1793345288.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: "baikov0943 (Krea 2 launch)" (`pustaka-video/mac/baikov0943_ssspin.io_1793345288.mp4`; dulu "01 Krea 2 launch") · 16:9 (736×414), 30 fps, 67,1 dtk · analisis asal: GrokAgent (30 Okt, audit ulang 2 Nov) · Frame: `../../guide/referensi/sheets/49-krea-2-launch.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/49-k*.jpg` · Bedah lengkap: `GrokAgent/reference-videos/AUDIT-2NOV-B-kinetic.md` (kode K), `GrokAgent/reference-videos/AUDIO-ANALYSIS.md` (01_krea2_launch), `GrokAgent/reference-videos/VISUAL-BREAKDOWN.md` (V1); ukur ulang 11 Nov: `ukuran.md`
 > Kedalaman bedah: **dalam** (diukur ulang dari video sumber 11 Nov: bbox teks, hex, skala objek, gerak kamera, pita audio; batas: sumber 414p, ±0,24 % tinggi per piksel)
 

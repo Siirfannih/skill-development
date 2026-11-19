@@ -1,6 +1,9 @@
 # 02 · Dimensi Studio
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/dimensi.works_De_IVVnBaFo.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: Dimensi Studio (talking head ID + scrapbook), file `dimensi.works_De_IVVnBaFo.mp4` · 9:16 (720×1280, 24 fps), 34,1 dtk · Frame: `../../guide/referensi/sheets/02-dimensi-studio.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/02-k*.jpg` · Bedah lengkap: `ukuran.md` (audit 11 Nov 2026)
 > Kedalaman bedah: **dalam** (sumber 720p: ±0,08 % tinggi per piksel; ukur dari frame JPEG tiap 0,5 dtk)
 

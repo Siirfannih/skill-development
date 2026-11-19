@@ -1,6 +1,9 @@
 # 51 · GRII Batam (khotbah)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/siirfannih_DcS18mkRyey.mp4` (video yang sama dengan kartu 78)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: "04 GRII Batam" (khotbah berbahasa Indonesia) · rasio tidak tercatat, 105,0 dtk · analisis asal: GrokAgent (Grok Bot Maximus 30 Okt, audit ulang 2 Nov) · Frame: `../../guide/referensi/sheets/51-grii-batam.jpg` (belum dibuat; video sumber tidak ada di repo) · Bedah lengkap: `GrokAgent/reference-videos/VISUAL-BREAKDOWN.md` (V4), `GrokAgent/reference-videos/AUDIO-ANALYSIS.md` (04_grii_batam), `GrokAgent/reference-videos/STYLE-SYNTHESIS.md`, `GrokAgent/reference-videos/data/`
 > Kedalaman bedah: **tipis** (audio dan cut terukur 30 Okt; visual hanya catatan tonton empat babak, tanpa ukuran, posisi atau hex; video ini tidak ikut audit ulang 2 Nov)
 

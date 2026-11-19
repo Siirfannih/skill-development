@@ -1,6 +1,9 @@
 # 37 · Pixel-character skill-file promotion
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/online-20261102/data/instagram/994a0e1fceb584653ec6/video.mp4` (dicocokkan lewat dimensi dan durasi, belum dipastikan isinya)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: "Pixel-character skill-file promotion", https://www.instagram.com/p/Deiz38JJvmv/ (file Irfan: "IG Deiz38JJvmv") · 16:9 (1280×720, 30 fps), 120,0 dtk · analisis asal: canvas-skill-library, reference_id Deiz38JJvmv · Frame: `../../guide/referensi/sheets/37-pixel-character-skill-file.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/37-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id Deiz38JJvmv)`; ukur ulang: `ukuran.md`
 > Kedalaman bedah: **dalam**
 

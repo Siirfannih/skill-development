@@ -1,6 +1,9 @@
 # 54 · Podcast cut "launch seperti trailer Netflix" (rekaman layar After Effects)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/Podcast_cut.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: file unggahan Irfan `Podcast_cut.mp4` (kreator tidak tertulis) · 9:16 (720×1280), 21,97 dtk, 23,976 fps · Frame: `../../guide/referensi/sheets/54-podcast-cut.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/54-k*.jpg` · Bedah lengkap: `ukuran.md`
 > Kedalaman bedah: **dalam**
 > Batas: ini video HP yang merekam layar laptop (After Effects, viewer komposisi). Trailer yang ditiru hanya tampil di panel ±430×284 px (60 % lebar × 22 % tinggi frame HP), miring dan berperspektif. Semua ukuran di bawah diambil setelah panel diluruskan (homografi) ke bingkai 16:9; ketelitian ±0,4 % tinggi, warna ikut tergeser kamera HP dan layar.

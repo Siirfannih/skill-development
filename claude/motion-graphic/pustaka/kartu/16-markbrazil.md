@@ -1,6 +1,9 @@
 # 16 · markbrazil "Noir Stage Podcast"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/markbrazil_DfXWojqtOb8.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: markbrazil, `markbrazil_DfXWojqtOb8.mp4` (potongan podcast Gary Vaynerchuk) · 9:16 (720×1280), 30 fps, 23,1 dtk · Frame: `../../guide/referensi/sheets/16-markbrazil-noir-stage.jpg` · Bedah lengkap: `../../guide/referensi/markbrazil.md` (kode M-T/M-X, komponen Remotion)
 > Kedalaman bedah: **dalam**
 

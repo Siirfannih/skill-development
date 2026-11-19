@@ -1,6 +1,9 @@
 # 15 · jefferson_fisher "Card Caption Clean"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/jefferson_fisher_DfA5xGzxFRy.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: jefferson_fisher, `jefferson_fisher_DfA5xGzxFRy.mp4` · 9:16 (720×1280), 30 fps, 41,2 dtk · Frame: `../../guide/referensi/sheets/15-jefferson-fisher-card-caption.jpg` · Bedah lengkap: `../../guide/referensi/jefferson-fisher.md` (kode J-T/J-X, komponen Remotion)
 > Kedalaman bedah: **dalam**
 

@@ -1,6 +1,9 @@
 # 40 · Ponin Studio portfolio proposition
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/online-20261102/data/instagram/c9a0a055d65940766b5e/video.mp4` (dicocokkan lewat dimensi dan durasi, belum dipastikan isinya)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: "Ponin Studio portfolio proposition", https://www.instagram.com/p/DfKmIL6C5vq/ (file Irfan "IG DfKmIL6C5vq") · 9:16 (720×1280, 19 fps), 21,6 dtk · analisis asal: canvas-skill-library, reference_id DfKmIL6C5vq · Frame: `../../guide/referensi/sheets/40-ponin-studio-portfolio.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/40-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id DfKmIL6C5vq)`; data ukur: `ukuran.md`
 > Kedalaman bedah: **dalam** (diukur dari video sumber 720p; label SFX earshot gagal, lihat bagian 7)
 

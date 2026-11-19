@@ -1,6 +1,9 @@
 # 23 · Audio "Orange Automation" (promo Zapier)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/local-videoanalys-20261102/Motion/Audio.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: `Audio.mp4` (folder asal: Motion) · 16:9 (1280×720), 24 fps, 23,4 dtk · analisis asal: canvas-skill-library, reference_id LOC-37e054f734e9 · Frame: `../../guide/referensi/sheets/23-audio-orange-automation.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/23-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id LOC-37e054f734e9)`; data ukur 11 Nov: `ukuran.md`
 > Video yang sama dengan kartu 53 (`53-zapier.md`, audit audio GrokAgent `AUDIT-2NOV-C-audio.md`). Angka audio di sini diukur ulang dan cocok (−17,8 LUFS, LRA 8,7, TP +2,0).
 > Kedalaman bedah: **dalam** (frame tiap 0,5 dtk, ukur piksel per jenis adegan, earshot `--detail high`, librosa). Batas: sumber 720p lossy; tanpa VO, jadi relasi teks–ucapan tidak ada.

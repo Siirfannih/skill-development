@@ -1,6 +1,9 @@
 # 46 · Montase arsip dengan kata raksasa dan kata kecil, Lumitris (IG DeUmXBotjIH)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/online-20261103/data/instagram/5f0b1485c88371b37fa2/video.mp4` (dicocokkan lewat dimensi dan durasi, belum dipastikan isinya)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: https://www.instagram.com/reel/DeUmXBotjIH/ · 1280×534 (2,4:1 sinemaskop, landscape), 30 fps, 35,3 dtk · analisis asal: canvas-skill-library, reference_id DeUmXBotjIH · Frame: `../../guide/referensi/sheets/46-lumitris-montase-arsip.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/46-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id DeUmXBotjIH)`; data ukur: `ukuran.md`
 > Kedalaman bedah: **dalam** (teks, warna, skala, kamera, ritme diukur dari piksel; SFX hanya proksi karena earshot tidak selesai)
 

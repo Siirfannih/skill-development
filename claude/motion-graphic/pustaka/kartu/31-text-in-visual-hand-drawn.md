@@ -1,6 +1,9 @@
 # 31 · Text dalam visual "Hand-Drawn Storytelling Explainer"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/local-videoanalys-20261102/Storytelling:Talkinghead/Story-context/Cara penggunaan Text dalam visual video.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: `Cara penggunaan Text dalam visual video.mp4` (folder asal: Storytelling:Talkinghead/Story-context) · 4:3 (960×720), 72,9 dtk, 23,976 fps · analisis asal: canvas-skill-library, reference_id LOC-ec026d3dab78 · Frame: `../../guide/referensi/sheets/31-text-in-visual-hand-drawn.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/31-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id LOC-ec026d3dab78)`; ukuran mentah: `~/audit-claude/deep/31-text-in-visual-hand-drawn/ukuran.md`
 > Kedalaman bedah: **dalam** (diukur dari piksel video sumber 11 Nov 2026; batas: sumber 960×720, 1 px = 0,14 % tinggi)
 

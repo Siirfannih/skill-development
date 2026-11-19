@@ -1,6 +1,9 @@
 # 03 · explore (vlog dokumenter ID)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/explore_DcAjrL1S8PO.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: "explore" (`pustaka-video/mac/explore_DcAjrL1S8PO.mp4`), vlog dokumenter ID; kreator tidak tercatat (di layar: poster "@dimas.siji", halaman bio "s.mono") · 4:3 (960×720, 30 fps), 111,2 dtk · Frame: `../../guide/referensi/sheets/03-explore-vlog.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/03-k*.jpg` · Bedah lengkap: `ukuran.md` (ukur 11 Nov); ukur lama 6 Nov di `../../guide/referensi/README.md`
 > Kedalaman bedah: **dalam**
 

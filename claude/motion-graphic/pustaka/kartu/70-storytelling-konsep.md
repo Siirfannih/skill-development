@@ -1,6 +1,9 @@
 # 70 · Storytelling konsep "Charles, delusional enough" (intro cerita kreator)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/Storytellingkonsep.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: file Irfan `pustaka-video/mac/Storytellingkonsep.mp4` (kreator "Charles", 20 th, kreator penuh waktu; tautan asli tidak ada) · 16:9 (1276×718, 24 fps), 46,3 dtk · Frame: `../../guide/referensi/sheets/70-storytelling-konsep.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/70-k*.jpg` · Bedah lengkap: `ukuran.md`
 > Kedalaman bedah: **dalam** (sumber 718 px tinggi: ±0,14 % per piksel)
 

@@ -1,6 +1,9 @@
 # 77 · Energy & The Sun (= kartu 52, bedah ulang dalam)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/siirfannih_DfDC0I9PHin.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > **Sama dengan kartu 52** (`kartu/52-energy-sun.md`): durasi 21,9 dtk, −14,0 LUFS, 123 bpm, 4,98 onset/dtk identik. Kartu ini menggantikan isi kartu 52.
 > Sumber: file `siirfannih_DfDC0I9PHin.mp4` (IG, caption di video "POV: You're Launch look like a Netflix Trailer"); di kartu 52 tercatat sebagai "05 Energy / sun" (Energy & The Sun) · 9:16 (720×1280, 23,976 fps), 21,9 dtk; isi = edit 16:9 di viewer After Effects yang direkam HP · Frame: `../../guide/referensi/sheets/77-ig-DfDC0I9PHin.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/77-k*.jpg` · Bedah lama: `GrokAgent/reference-videos/VISUAL-BREAKDOWN.md` (V5), `GrokAgent/reference-videos/AUDIO-ANALYSIS.md` (05_energy_sun), `GrokAgent/reference-videos/AUDIT-2NOV-B-kinetic.md` (§5), `GrokAgent/reference-videos/data/` · Data ukur: `ukuran.md`
 > Kedalaman bedah: **dalam** (viewer AE diluruskan per frame dengan homografi, lalu diukur sebagai frame 16:9 1280×720; semua % teks di bawah terhadap viewer itu)

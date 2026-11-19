@@ -1,6 +1,9 @@
 # 79 · siirfannih IG De_sF8lT-79 "taruhan 20 video" (talking head + kata besar + UI alur AI)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/siirfannih_De_sF8lT-79.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: Instagram @siirfannih, reel `De_sF8lT-79`, file `pustaka-video/mac/siirfannih_De_sF8lT-79.mp4` · 16:9 (1276×718, 30 fps), 82,1 dtk · Frame: `../../guide/referensi/sheets/79-ig-De_sF8lT-79.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/79-k*.jpg` · Bedah lengkap: `ukuran.md`
 > Cek PETA.md: tidak sama dengan kartu lama mana pun (terdekat secara gaya: 36 MigmaAI, maskot + glow, tapi beda sumber).
 > Kedalaman bedah: **dalam**. Batas: sumber 718 px tinggi (±0,14 % per piksel); musik dan suara tidak bisa dipisah tanpa stem.

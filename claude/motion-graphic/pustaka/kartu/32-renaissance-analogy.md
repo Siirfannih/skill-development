@@ -1,6 +1,9 @@
 # 32 · Renaissance analogy editorial ("The Next Renaissance")
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/online-20261102/data/instagram/95835b6ec42a12587e44/video.mp4` (dicocokkan lewat dimensi dan durasi, belum dipastikan isinya)
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: "Renaissance analogy editorial", https://www.instagram.com/p/DbDyLzSRqMI/ · 4:3 (960×720), 24 fps, 90,7 dtk · analisis asal: canvas-skill-library, reference_id DbDyLzSRqMI · Frame: `../../guide/referensi/sheets/32-renaissance-analogy.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/32-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id DbDyLzSRqMI)`; data ukur: `ukuran.md`
 > Temuan GrokAgent digabung: `GrokAgent/reference-videos/VISUAL-BREAKDOWN.md` (V3), `AUDIO-ANALYSIS.md` (03_renaissance), `AUDIT-2NOV-C-audio.md` ("OWN", video sama).
 > Kedalaman bedah: **dalam** (teks, warna, cut, kamera per shot, loudness diukur dari video sumber 11 Nov 2026; sumber hanya 720p)

@@ -1,6 +1,9 @@
 # 76 · DOAC "Turn your phone gray" (Dr Sahar Yousef, klip podcast grade-sebagai-makna)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: `/home/irfan/work/pustaka-video/mac/bfd035e2-43b5-4465-a49d-df28319e5c85.mp4`
+> Dilihat bergerak: **belum** (bedah lama dari frame diam dan pengukuran; bedah geraknya sebelum meminjam teknik)
 > Sumber: file `bfd035e2-43b5-4465-a49d-df28319e5c85.mp4` (pustaka-video/mac), klip The Diary Of A CEO, Dr Sahar Yousef · 9:16 (1080×1920, 24 fps), 19,1 dtk · Frame: `../../guide/referensi/sheets/76-ref-bfd035e2.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/76-k*.jpg` · Bedah lengkap: `ukuran.md`
 > Kedalaman bedah: **dalam** (semua angka dari 1080p sumber; video pendek, hanya 3 jenis grafis)
 > Cek PETA: tidak sama dengan kartu mana pun (tidak ada kartu DOAC/Sahar/grayscale). Mungkin sama dengan "Podcast_cut" di daftar "Belum punya kartu"; belum dicek.

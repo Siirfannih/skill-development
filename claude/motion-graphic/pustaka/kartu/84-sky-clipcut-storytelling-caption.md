@@ -1,6 +1,9 @@
 # 84 · Sky (ClipCut) "Ultimate Storytelling Caption", talking head + UI overlay
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil.
+> **Format lama:** angka di kartu ini pengamatan dari video asli, bukan target. Sebelum dipakai, lihat frame kunci dan video sumbernya bergerak, tulis kondisi footage sendiri, lalu sesuaikan. "Cek kemiripan" di bawah dibaca sebagai "Yang harus terasa sama saat disandingkan", bukan ambang angka.
+> Video sumber: tidak ditemukan di mesin ini
+> Dilihat bergerak: **tidak, gerak belum dilihat** (isi dari frame diam; jangan pinjam teknik gerak dari kartu ini sebelum videonya didapat)
 > Sumber: file kiriman Irfan `talkinghead.mp4` (kreator Sky, ClipCut, menyebut diri di caption) · 9:16 (720×1280), 30 fps, 56,0 dtk · Frame: `../../guide/referensi/sheets/84-sky-clipcut-caption.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/84-k1…k6-*.jpg` (k1 judul serif oranye + kartu struktur, k2 badge Followers/Non-followers + titik, k3 grid 1000 titik, k4 kepala-kepala audiens + teks reaksi, k5 kerangka caption menumpuk di atas kepala, k6 CTA + notifikasi janji temu)
 > Kedalaman bedah: **sedang** (warna, teks, ritme, motion graphic dari frame 0,5 fps dan scene-detect; loudness terukur; transkrip, SFX, dan musik **tipis**: belum ditranskrip dan belum dipisah stem)
 
