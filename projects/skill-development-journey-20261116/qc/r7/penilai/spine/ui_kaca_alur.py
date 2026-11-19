@@ -24,20 +24,28 @@ def frame(st):
             a = k * math.pi / 6; d.line([(x, y), (x + r * math.cos(a), y + r * math.sin(a))], fill=ORANYE + (255,), width=6)
 
     X0, X1 = 460, 1460
+    def mp4(x, y, prog=1.0):
+        B = (x, y, x + 330, y + 76); d.rounded_rectangle(B, 16, fill=(255, 255, 255, 235), outline=(220, 214, 206, 255), width=2)
+        d.rounded_rectangle([x + 12, y + 12, x + 64, y + 64], 10, fill=(40, 38, 36, 255)); d.polygon([(x + 32, y + 26), (x + 32, y + 50), (x + 52, y + 38)], fill=(255, 255, 255, 255))
+        teks(B, (x + 78, y + 10), 'footage-irfan.mp4', f('bold', 24), TINTA, pad=10)
+        d.text((x + 78, y + 42), 'Video · 1,2 GB' if prog >= 1 else f'Mengunggah {int(prog*100)}%', font=f('medium', 20), fill=REDUP + (255,))
+        if prog < 1: d.rounded_rectangle([x + 78, y + 66, x + 78 + int(230 * prog), y + 70], 2, fill=ORANYE + (255,))
     # salam beranda claude.ai (hilang setelah pesan pertama terkirim)
     if not st.get('terkirim'):
         g = 'Selamat sore, Irfan'; fg = f('bold', 64); gx = 960 - (L(g, fg) + 70) // 2
         bintang(gx + 26, 230); d.text((gx + 70, 190), g, font=fg, fill=PUTIH + (255,), stroke_width=0)
     # percakapan setelah kirim
     if st.get('terkirim'):
-        T = 'Ini footage-ku. Kamu tonton dulu, lalu kamu yang tentukan gayanya.'; ft = f('medium', 32)
-        w = L(T, ft) + 80; B = (X1 - w, 170, X1, 258); kaca(B, 28, gelap=True); teks(B, (B[0] + 40, 196), T, ft, PUTIH)
+        T = st['terkirim']; ft = f('medium', 32)
+        w = max(L(T, ft) + 80, 380); B = (X1 - w, 150, X1, 330); kaca(B, 28, gelap=True)
+        mp4(B[0] + 30, 166); teks(B, (B[0] + 40, 268), T, ft, PUTIH)
         if st.get('balas'):
-            R = st['balas']; B = (X0, 300, X0 + 100 + L(R, ft) + 40, 388); kaca(B, 28); bintang(X0 + 48, 344, 16); teks(B, (X0 + 90, 326), R, ft, TINTA)
+            R = st['balas']; B = (X0, 370, X0 + 100 + L(R, ft) + 40, 458); kaca(B, 28); bintang(X0 + 48, 414, 16); teks(B, (X0 + 90, 396), R, ft, TINTA)
     # kolom input claude.ai
     yi = 600
     B = (X0, yi, X1, yi + 150); kaca(B, 34, isi=(255, 255, 255, 190) if st.get('fokus') else (255, 255, 255, 150))
     isi = st.get('ketik', ''); fi = f('medium', 38)
+    if st.get('lampir') is not None: mp4(X0 + 40, yi - 96, st['lampir'])
     if st.get('chip'):
         c = st['chip']; fc = f('bold', 32); cw = L(c, fc) + 44; C = (X0 + 40, yi + 24, X0 + 40 + cw, yi + 76)
         d.rounded_rectangle(C, 14, fill=(232, 228, 220, 255)); teks(C, (C[0] + 22, C[1] + 9), c, fc, TINTA, pad=10)
@@ -64,19 +72,29 @@ def frame(st):
             teks(M, (M[0] + 26, y), a, fm, TINTA, pad=14); d.text((M[0] + 46 + L(a, fm), y + 6), b, font=fs, fill=REDUP + (255,))
     if st.get('kursor'):
         x, y = st['kursor']; d.polygon([(x, y), (x, y + 40), (x + 11, y + 30), (x + 19, y + 46), (x + 26, y + 42), (x + 18, y + 27), (x + 31, y + 27)], fill=(255, 255, 255, 255), outline=(0, 0, 0, 255))
+    if st.get('terkirim'):   # tombol "Chat baru" claude.ai (pemicu grid)
+        NB = (1560, 70, 1800, 128); kaca(NB, 22, isi=(255, 255, 255, 190)); teks(NB, (1600, 82), '+  Chat baru', f('bold', 28), TINTA, pad=12)
+    if st.get('grid'):
+        import random; random.seed(3); cx, cy = st['grid']['asal']; R0 = st['grid']['r']
+        for gy in range(0, 1080, 60):
+            for gx in range(0, 1920, 60):
+                dd_ = math.hypot(gx + 30 - cx, gy + 30 - cy)
+                if R0 - 260 < dd_ < R0 and random.random() < 0.85:
+                    v = random.uniform(0.75, 1.0); c = (int(236 * v), int(232 * v), int(222 * v), 255)
+                    d.rectangle([gx, gy, gx + 58, gy + 58], fill=c)
     salah = [t for t, w, b, p in CEK if b[0] < w[0] + p * 0.5 or b[2] > w[2] - p * 0.5]
     if salah: raise SystemExit(f'GAGAL teks keluar wadah: {salah}')
     return can.convert('RGB')
 
 ALUR = [
     ('23,70 "Dan ini bukan sebuah template"', 'Beranda claude.ai kosong di atas padang; kamera dorong pelan.', {}),
-    ('25,63 "Jadi kalau orang-orang"', 'Kursor masuk dan klik kolom input.', {'fokus': 1, 'kursor': (900, 540)}),
-    ('27,96 "bilang edit kayak"', 'Ketik "/" → menu Template terbuka (template HANYA muncul karena "/").', {'fokus': 1, 'ketik': '/', 'menu': -1}),
-    ('28,93 "Apple\'s Tale"', 'Sorot /apple-style → dipilih → jadi chip di kolom.', {'fokus': 1, 'chip': '/apple-style'}),
-    ('30,55 "Cinematic Storytelling"', 'Chip diganti: menu terbuka lagi, /cinematic-storytelling dipilih.', {'fokus': 1, 'ketik': '/', 'menu': 1}),
-    ('32,19 "Nah, aku ngebalik."', 'Chip dihapus (backspace), menu tutup; Irfan mengetik cerita, bukan template.', {'fokus': 1, 'ketik': 'Ini footage-ku. Kamu tonton dulu…'}),
-    ('33,26 "Progress di baliknya"', 'Kirim: pesan naik jadi gelembung, salam hilang.', {'terkirim': 1}),
-    ('33,9 "di baliknya" → 34,4 keluar', 'Claude membalas: ia yang memilih gaya dari cerita; lalu transisi ke wajah.', {'terkirim': 1, 'balas': 'Oke. Aku tonton dulu, lalu aku pilih gaya yang cocok.'}),
+    ('25,63 "Jadi kalau orang-orang"', 'Unggah footage: kartu MP4 masuk ke kolom, progres unggah berjalan.', {'fokus': 1, 'lampir': 0.6}),
+    ('27,96 "bilang edit kayak"', 'Ketik "Gunakan /" → menu Template terbuka.', {'fokus': 1, 'lampir': 1, 'ketik': 'Gunakan /', 'menu': 0}),
+    ('28,93 "Apple\'s Tale"', '/apple-style dipilih: "Gunakan /apple-style untuk edit videoku." → kirim.', {'terkirim': 'Gunakan /apple-style untuk edit videoku.', 'balas': 'Siap, aku edit dengan gaya Apple.'}),
+    ('30,17 "edit kayak"', 'Klik "Chat baru" → gelombang grid dari titik klik menghapus percakapan.', {'terkirim': 'Gunakan /apple-style untuk edit videoku.', 'grid': {'asal': (1700, 120), 'r': 900}, 'kursor': (1700, 104)}),
+    ('30,55 "Cinematic Storytelling"', 'Beranda bersih lagi: MP4 dilampirkan, ketik "Gunakan /cinematic-storytelling …".', {'fokus': 1, 'lampir': 1, 'ketik': 'Gunakan /cinematic-storytelling untuk edit videoku.'}),
+    ('31,83 "gitu."', 'Kirim → gelembung kedua (MP4 + perintah).', {'terkirim': 'Gunakan /cinematic-storytelling untuk edit videoku.', 'balas': 'Siap, aku edit dengan gaya sinematik.'}),
+    ('32,19 "Nah, aku ngebalik." → 34,4', '(usul, belum kamu tentukan) lihat catatan di bawah.', {'fokus': 1, 'lampir': 1, 'ketik': 'Tonton videoku, lalu kamu yang tentukan gayanya.'}),
 ]
 ims = []
 for i, (w, k, st) in enumerate(ALUR):
