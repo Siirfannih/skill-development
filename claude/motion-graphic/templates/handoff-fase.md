@@ -5,16 +5,23 @@ Kamu subagen untuk **satu fase saja**. Kamu tidak melihat percakapanku dengan su
 ## Baca dulu (urut, hanya ini)
 1. `claude/motion-graphic/LANTAI.md`
 2. Cabang fase ini: <mis. `references/audio.md` §14.0C–14.0D untuk fase 2>
-   Fase 3 (visual): `projects/<proyek>/RESEP.md` dan **Ringkasan kartu** di bawah, lalu buka gambar frame kunci yang disebut tabelnya. Kartu dan guide tidak perlu dibaca; isinya sudah diringkas Sutradara.
+   Fase 3 (visual): `projects/<proyek>/RESEP.md`, `qc/kondisi/KONDISI.md`, `qc/spine/SPINE.md`, lalu **Brief bergambar** di bawah: buka semua gambar yang disebutnya. Kartu penuh tidak perlu dibaca; blok teknik yang dipakai sudah disalin Sutradara.
 3. `projects/<proyek>/STATUS.md`, `contract.json`, `audio/ORDER.json`
 
-## Ringkasan kartu (ditulis Sutradara; wajib untuk fase visual)
-Sutradara sudah membuka kartu dan frame kuncinya. Pekerja tidak membaca kartu atau guide; ia bekerja dari tabel ini. Satu baris per kartu yang dipakai (kiblat dulu, lalu kartu pinjaman), isinya hanya yang dipakai video ini:
+## Brief bergambar (ditulis Sutradara; wajib untuk fase visual)
+Sutradara sudah membedah kartu yang dipakai dan mencocokkan syarat tekniknya dengan footage kita. Brief ini gambar dan syarat, bukan tabel angka. Satu blok per beat:
 
-| Kartu | Dipakai untuk (beat) | Warna & latar | Huruf & skala teks | Posisi & susunan | Kedalaman & kamera | Frame kunci (lihat gambarnya) |
-|---|---|---|---|---|---|---|
-| <83 · kiblat> | <semua beat wajah> | <gelap bernada merah, putih + merah> | <condensed tebal; kata hero 35–55 % tinggi frame; narasi kecil> | <kata hero di belakang kepala; cincin kata melingkari kepala; narasi di dada> | <2–3 lapis, matte pembicara di depan teks; push pelan> | <`guide/referensi/sheets/keyframes/83-k3.jpg`, `83-k4.jpg`> |
-| <23 · pinjaman> | <B7 b-roll kata> | <satu warna aksen layar penuh> | <kata raksasa putih memenuhi frame> | <tengah, satu kata> | <whip-pan menyapu kata> | <`…/23-k3-kata-raksasa.jpg`> |
+### <beat · detik>
+- **Maksud adegan:** <satu kalimat: apa yang harus dirasakan penonton di sini>
+- **Footage kita:** <`qc/kondisi/<beat>.jpg`> · kondisi: <latar gelap/terang, pakaian polos/bermotif, skala wajah, ruang kosong di mana, kamera diam/bergerak>
+- **Spine gaya:** <`qc/spine/R2.jpg`, `qc/spine/R6.jpg`>: peran teks yang muncul di beat ini dan wujudnya yang sudah dikunci
+- **Teknik yang dipinjam:** <kartu 83 T3b · frame kunci/klip `guide/referensi/sheets/keyframes/83-k8-urutan-pengantar-at.jpg`>
+  - Kenapa bekerja di aslinya: <salin dari kartu>
+  - Kondisi kita beda di: <mis. latar kita terang> → sesuaikan: <salin "Bila kondisinya beda" yang cocok>
+  - Jangan pakai bila: <salin; Sutradara sudah memastikan tidak berlaku di beat ini>
+- **Lulus bila:** still sanding (`qc/sanding/<beat>.jpg`: still kita · frame kunci kartu · still spine) dinilai Sutradara dengan pertanyaan "Yang harus terasa sama" dari kartu: <salin 2–4 pertanyaan yang relevan>
+
+Angka dari kartu tidak ditulis sebagai target. Bila pekerja butuh angka awal, tulis "pengamatan di video asli: …" dan biarkan still sanding yang memutuskan.
 
 **Pelajaran yang berlaku di beat ini** (disalin dari `guide/<urusan>/GUIDE.md` §Cara memutuskan, hanya yang kondisinya cocok):
 - <bila …, jangan/pilih …, karena …; yang boleh: …>

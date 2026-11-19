@@ -135,6 +135,40 @@ class FrameAuditHash(unittest.TestCase):
             self.assertEqual(names[-1], "c03_004.0-004.5s")
             self.assertEqual(len(names), 3)
 
+    def test_akhir_reassesses_every_chunk_even_with_same_hash(self):
+        with tempfile.TemporaryDirectory() as t:
+            fr, out = Path(t) / "frames", Path(t) / "fa"
+            write_frames(fr, 40)
+            run(str(fr), str(out))
+            chunks = sorted(out.glob("c*"))
+            for chunk in chunks: judge(str(out), chunk.name)
+            judged = [(chunk / "VERDICT.md").read_text() for chunk in chunks]
+            stdout = run(str(fr), str(out), "--akhir")
+            self.assertIn("dipakai ulang 0", stdout)
+            for chunk, old in zip(chunks, judged):
+                self.assertIn("(belum diperiksa)", (chunk / "VERDICT.md").read_text())
+                self.assertNotIn("PUTUSAN: LULUS", (chunk / "VERDICT.md").read_text())
+                self.assertEqual((chunk / "VERDICT.prev.md").read_text(), old)
+            self.assertIn("perlu periksa (akhir)", (out / "INDEX.md").read_text())
+            for chunk in chunks: judge(str(out), chunk.name)
+            self.assertIn("dipakai ulang 2", run(str(fr), str(out)))   # tanpa --akhir: hash sama dipakai ulang lagi
+
+    def test_whole_video_sheet_and_ranked_findings_prompt(self):
+        with tempfile.TemporaryDirectory() as t:
+            fr, out, aud = Path(t) / "frames", Path(t) / "fa", Path(t) / "aa"
+            write_frames(fr, 45)
+            run(str(fr), str(out))
+            sheet = out / "SELURUH.jpg"
+            self.assertTrue(sheet.exists())
+            self.assertEqual(Image.open(sheet).size, (10 * 256, 1 * 144 + 22))   # 5 dtk @1 fps -> satu baris
+            idx = (out / "INDEX.md").read_text()
+            self.assertIn("SELURUH.jpg", idx)
+            self.assertIn("Kalibrasi", idx)
+            self.assertIn("3 hal paling amatir", idx)
+            self.assertIn("3 hal paling amatir", (sorted(out.glob("c*"))[0] / "VERDICT.md").read_text())
+            run(str(fr), str(aud), "--fase", "audio")
+            self.assertFalse((aud / "SELURUH.jpg").exists())
+
 
 if __name__ == "__main__":
     unittest.main()

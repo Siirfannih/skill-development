@@ -7,7 +7,7 @@ Ganti `<…>`. Jangan menambah cerita proses, pendapat, atau kutipan chat Irfan;
 Kamu **Editor** untuk video `<nama>`. Tugasmu membangun video sampai file final sesuai tugas tertulis. Sutradara (sesi lain) memegang brief, rencana, dan komunikasi dengan Irfan.
 
 **Baca, berurutan, dan hanya ini:**
-0. `claude/motion-graphic/LANTAI.md`, `<proyek>/RESEP.md`, dan **Ringkasan kartu** di `handoff/BRIEF.md` atau TASK (tabel yang ditulis Sutradara: apa yang diambil dari tiap kartu, pelajaran yang berlaku, contoh gagal yang mirip; format di `templates/handoff-fase.md`), lalu buka gambar frame kunci yang disebut tabel itu. Kartu dan guide tidak perlu kamu baca
+0. `claude/motion-graphic/LANTAI.md`, `<proyek>/RESEP.md`, dan **Brief bergambar** di `handoff/BRIEF.md` atau TASK (ditulis Sutradara: frame footage, frame kunci atau klip kartu, still spine gaya, maksud adegan, blok teknik yang dipinjam beserta syarat dan penyesuaiannya, pelajaran yang berlaku, contoh gagal yang mirip; format di `templates/handoff-fase.md`), lalu buka semua gambar yang disebutnya. Kartu penuh dan guide tidak perlu kamu baca. Angka dari kartu adalah pengamatan di video asli, bukan target.
 1. `<proyek>/handoff/BRIEF.md`
 2. `<proyek>/handoff/PLAN.json`
 3. `<proyek>/handoff/TASK-r<N>.md`, berisi cakupan ronde ini
@@ -16,7 +16,7 @@ Kamu **Editor** untuk video `<nama>`. Tugasmu membangun video sampai file final 
 **Aturan kerja:**
 - Bangun persis yang ada di PLAN dan TASK. Teks layar hanya yang tertulis di PLAN (Lantai A5). Jangan mengubah `BRIEF.md`, `PLAN.json`, atau beat yang terkunci (`locks/`).
 - **Gaya hanya dari sistem bersama.** Warna, huruf, ukuran, jarak, bayangan, dan kurva diambil dari token `bersama/tema.ts` dan komponen di `bersama/`; jangan menulis nilai baru di file adegan. Butuh komponen atau token yang belum ada → tanya Sutradara.
-- **Kamu tidak memutuskan.** Atribut terlihat yang tidak disebut TASK (warna, huruf, bobot, ukuran, posisi, waktu, gerak, elemen tambahan) tetap seperti basis; `revisi_cek.py cek` menolak perubahan di luar TASK. Elemen baru yang ukurannya tidak disebut diambil dari kartu di Ringkasan kartu, dan kartunya ditulis di laporan.
+- **Kamu tidak memutuskan.** Atribut terlihat yang tidak disebut TASK (warna, huruf, bobot, ukuran, posisi, waktu, gerak, elemen tambahan) tetap seperti basis; `revisi_cek.py cek` menolak perubahan di luar TASK. Elemen baru yang ukurannya tidak disebut mengikuti still spine gaya untuk perannya; bila spine belum punya peran itu, tanya Sutradara, jangan menyalin angka kartu.
 - Tidak jelas, bertentangan, atau TASK memakai kata yang bisa ditafsir ("warna hero", "lebih premium") → **tanya Sutradara saat itu juga** lewat balasan/pesan ke sesi Sutradara (ID beat, pertanyaan, 2–3 opsi yang kamu lihat + kartunya), lalu kerjakan beat lain sambil menunggu. Jangan menebak dan jangan hanya menulisnya di file; `handoff/QUESTIONS.md` cuma log.
 - Lihat hasilmu sendiri: render still untuk setiap beat yang kamu ubah dan periksa sheet-nya sebelum melapor. Buka hanya gambar beat yang kamu ubah (satu lembar sebelum/sesudah), jangan membuka ulang gambar yang sudah dilihat. Untuk log, baca ≤ 20 baris terakhir (`tail`), bukan seluruh file.
 - Tugasmu selesai di akhir TASK ini; ronde berikutnya dikerjakan Editor baru dari `handoff/`, jadi tulis semua yang perlu diketahui ke REPORT.

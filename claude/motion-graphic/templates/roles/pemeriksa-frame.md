@@ -4,7 +4,9 @@ Dijalankan setelah visual selesai disusun dan **sebelum** SFX dan musik dibuat: 
 
 Caranya sederhana: **lihat framenya, katakan apa yang salah, usulkan desain yang lebih baik dari kartu.**
 
+0. **Kalibrasi dulu sebelum boleh meluluskan.** Buka satu entri `pustaka/contoh-gagal/` dan satu frame kunci kartu kiblat tanpa membaca keterangannya, lalu tulis di awal `INDEX.md`/`VERDICT.md` pertama: apa yang amatir di contoh gagal dan apa yang membuat frame kunci bekerja. Bila jawabanmu tidak menemukan kesalahan yang ditulis di entri contoh gagal itu, ulangi dengan entri lain; penilai yang belum lolos kalibrasi hanya boleh menulis GAGAL atau "perlu periksa", tidak LULUS.
 1. **Buka pembandingnya dulu.** Frame kunci kartu kiblat dan kartu yang tekniknya dipinjam (`guide/referensi/sheets/keyframes/<no>-k*.jpg`) = yang bagus. `pustaka/contoh-gagal/` = yang jelek. `RESEP.md` dan baris Aktif `DECISIONS.md` = yang dituju video ini.
+1b. **Tonton seluruh video sekali lewat `SELURUH.jpg`** (lembar 1 fps seluruh video di folder audit). Nilai sebagai satu karya: keluarga gaya antaradegan, skala teks antarperan, ritme, kata yang muncul dua kali. Masalah lintas adegan ditulis di `INDEX.md` dan dimiliki Sutradara, bukan TASK satu potongan.
 2. **Buka semua `tahan/t*.jpg`** tiap potongan (satu frame per detik, ukuran besar), satu per satu. Untuk tiap frame, lihat sebagai penonton lalu sebagai desainer:
    - Mata jatuh ke mana lebih dulu? Itu memang yang sedang diucapkan?
    - Di mana frame ini penuh, di mana kosong? Tengah menumpuk sementara kiri dan kanan kosong, atau satu sisi berat = masalah.
@@ -18,6 +20,7 @@ Caranya sederhana: **lihat framenya, katakan apa yang salah, usulkan desain yang
    - (b) potong ke **b-roll tipografi**: latar satu warna aksen layar penuh, kata hero putih dibesarkan sampai memenuhi frame (kartu 23/53, frame kunci k3 kata raksasa).
    Bila tidak ada kartu yang memuat prinsipnya, cari dulu di `pustaka/PETA.md`; tetap tidak ada → tanya Irfan.
 4. **Buka `s*.jpg` (30 frame kecil per detik) hanya di detik yang bertanda otomatis** (LOMPAT/KEDIP/BEKU di `INFO.md`) atau yang geraknya kamu ragukan: patahan, frame kosong, kedip, dua teks tajam bertumpuk.
-5. **Tulis `VERDICT.md` potongan itu** dari yang terlihat: satu baris per masalah `dtk | frame | yang terlihat | solusi terpilih | kartu/frame kunci atau contoh-gagal pembanding`, tiap tanda otomatis diberi putusan, lalu baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`. Baris GAGAL menjadi TASK Editor; potongan yang diperbaiki dinilai ulang.
+5. **Sebut 3 hal paling amatir di potongan itu, berperingkat**, walau potongannya lulus: `1. … 2. … 3. …`, dari yang paling mengganggu penonton. "Tidak ada temuan" tidak diterima; bila potongannya kuat, tiga hal itu adalah yang paling lemah di antara yang kuat. Daftar ini yang dibandingkan dengan komentar Irfan nanti.
+6. **Tulis `VERDICT.md` potongan itu** dari yang terlihat: satu baris per masalah `dtk | frame | yang terlihat | solusi terpilih | kartu/frame kunci atau contoh-gagal pembanding`, tiap tanda otomatis diberi putusan, lalu baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`. Baris GAGAL menjadi TASK Editor; potongan yang diperbaiki dinilai ulang. Putaran akhir sebelum render final memakai `frame_audit.py --akhir`: semua potongan dinilai ulang walau HASH sama, karena masalah lintas adegan tidak terlihat dari satu potongan.
 
 Bila kuota Sutradara sempit, penilaian ini boleh diserahkan utuh ke **satu** subagen (model apa pun yang bisa melihat gambar) dengan file ini, pembanding di butir 1, dan folder potongan sebagai brief. Tetap satu penilai: hasilnya dipakai langsung, tidak dinilai ulang oleh model kedua.

@@ -27,6 +27,9 @@ Keluaran per potongan `cNN_<a>-<b>s/`:
   Setiap VERDICT terikat `HASH:` isi potongannya. Verdict tanpa HASH wajib diperiksa sekali lagi, tanpa adopsi
   berdasarkan waktu file. Ronde berikutnya: potongan yang isinya sama memakai ulang verdict-nya; yang berubah diperiksa
   ulang dan verdict lamanya jadi `VERDICT.prev.md`.
+  --akhir  putaran akhir sebelum render final: SEMUA potongan ditandai `perlu periksa` walau HASH sama (verdict lama
+           jadi `VERDICT.prev.md`), karena masalah lintas adegan tidak terlihat dari satu potongan.
+  `SELURUH.jpg` (fase visual) satu lembar 1 fps seluruh video, untuk menilai video sebagai satu karya sebelum potongan.
 Tanda otomatis (penunjuk frame yang perlu dilihat, bukan putusan):
   LOMPAT  beda frame→frame melonjak (> 4× median lokal + 1,5 dan > 3) di luar potong disengaja ±1 f = patahan
   KEDIP   satu frame berbeda dari kedua tetangganya yang mirip satu sama lain (frame kosong/dip 1 f)
@@ -90,6 +93,7 @@ def main():
     ap.add_argument("--cuts"); ap.add_argument("--cues"); ap.add_argument("--words"); ap.add_argument("--stems")
     ap.add_argument("--chunk", type=float, default=10.0); ap.add_argument("--out")
     ap.add_argument("--fase", choices=("visual", "audio"), default="visual")
+    ap.add_argument("--akhir", action="store_true", help="putaran akhir: semua potongan dinilai ulang walau HASH sama")
     ap.add_argument("--src", help="folder kode (mis. remotion/src): frame yang lebih tua dari perubahan kode terakhir = BASI → keluar")
     a = ap.parse_args()
     audio = a.fase == "audio"
@@ -137,20 +141,35 @@ def main():
     for old in glob.glob(os.path.join(a.out, "c[0-9][0-9]_*")):    # potongan dari panjang video lama: hapus, jangan ikut dinilai gerbang
         if os.path.isdir(old) and os.path.basename(old) not in names: shutil.rmtree(old)
     reused = 0
+    if not audio:  # lembar 1 fps seluruh video: dinilai sebagai satu karya sebelum potongan
+        secs = list(range(0, n, int(round(fps)))); cols = 10; SW, SH = 256, 144
+        rows = (len(secs) + cols - 1) // cols
+        sel = Image.new("RGB", (cols * SW, rows * SH + 22), (18, 18, 18)); ds = ImageDraw.Draw(sel)
+        ds.text((4, 4), f"SELURUH · 1 fps · {n / fps:.1f} dtk", fill=(255, 220, 0))
+        for k, f in enumerate(secs):
+            x, y = (k % cols) * SW, 22 + (k // cols) * SH
+            sel.paste(Image.open(fs[f]).convert("RGB").resize((SW, SH)), (x, y))
+            ds.text((x + 3, y + 2), f"{f / fps:.0f}s", fill=(255, 255, 0))
+        sel.save(os.path.join(a.out, "SELURUH.jpg"), quality=85)
     if audio:
         cara = ["Cara periksa (fase AUDIO; visual sudah lulus dan tidak dinilai ulang): prompt `templates/roles/pemeriksa-audio.md`.",
                 "Buka `s*.jpg` (strip: biru suara, hijau musik, oranye SFX) dan `INFO.md`; nilai apakah tiap gerak yang terlihat",
                 "punya bunyinya di frame itu, dan tidak ada bunyi tanpa gerak."]
     else:
-        cara = ["Cara menilai (fase VISUAL, gambar saja): `templates/roles/pemeriksa-frame.md`. Buka dulu frame kunci kartu kiblat,",
-                "`RESEP.md`, dan `pustaka/contoh-gagal/` sebagai pembanding.",
+        cara = ["Cara menilai (fase VISUAL, gambar saja): `templates/roles/pemeriksa-frame.md`.",
+                "Kalibrasi dulu: nilai satu entri `pustaka/contoh-gagal/` dan satu frame kunci kiblat tanpa membaca keterangannya;",
+                "penilai yang tidak menemukan kesalahan contoh gagal belum boleh menulis LULUS.",
+                "Lalu buka frame kunci kartu kiblat, `RESEP.md`, dan `pustaka/contoh-gagal/` sebagai pembanding.",
+                "`SELURUH.jpg` (1 fps seluruh video) → video sebagai satu karya: keluarga gaya, skala antarperan, ritme, kata ganda.",
+                "Masalah lintas adegan ditulis di sini dan dimiliki Sutradara.",
                 "`tahan/*.jpg` (ukuran besar, satu per detik) → gaya, posisi teks dan objek, keterbacaan, estetika.",
                 "`s*.jpg` (30 frame kecil per detik) → gerak, transisi, jarak antar-frame saja."]
     idx = ["# Audit frame per frame (tanpa sampling) · fase " + a.fase, "",
            f"Sumber: `{a.frames}` · {n} frame · {n / fps:.2f} dtk · potongan {a.chunk:g} dtk · lembar = 1 detik (6×5 = 30 frame)", "",
            *cara,
            "Satu penilai (Sutradara), tanpa pemeriksa kedua. Tulis `VERDICT.md`: satu baris per masalah",
-           "`dtk | frame | apa yang terlihat | solusi | pembanding`, lalu baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`.",
+           "`dtk | frame | apa yang terlihat | solusi | pembanding`, lalu 3 hal paling amatir berperingkat (wajib, juga saat",
+           "lulus; \"tidak ada temuan\" tidak diterima), lalu baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`.",
            "Tanda otomatis hanya penunjuk: tiap tanda dinilai, bukan disalin.",
            "Baris `HASH:` di VERDICT jangan diubah: verdict hanya berlaku untuk isi potongan itu. Periksa hanya potongan",
            "berstatus `perlu periksa`; bila ada `VERDICT.prev.md`, baca temuan yang sudah diputuskan di ronde sebelumnya.", "",
@@ -184,9 +203,14 @@ def main():
                              sort_keys=True, default=str).encode())
         h = hs.hexdigest()[:16]
         open(os.path.join(cd, ".hash"), "w").write(h + "\n")
-        vp = os.path.join(cd, "VERDICT.md"); fresh = f"# VERDICT {name}\nHASH: {h}\n\n(belum diperiksa)\n"
+        vp = os.path.join(cd, "VERDICT.md")
+        fresh = (f"# VERDICT {name}\nHASH: {h}\n\n(belum diperiksa)\n\n"
+                 "## 3 hal paling amatir (berperingkat, wajib walau lulus)\n1. \n2. \n3. \n")
         old = open(vp, encoding="utf-8").read() if os.path.exists(vp) else ""
-        if re.search(rf"^HASH: {h}$", old, re.M):
+        if a.akhir and re.search(r"^PUTUSAN: (LULUS|GAGAL)", old, re.M):
+            os.replace(vp, os.path.join(cd, "VERDICT.prev.md"))  # putaran akhir: hash sama pun dinilai ulang
+            open(vp, "w", encoding="utf-8").write(fresh); status = "perlu periksa (akhir)"
+        elif re.search(rf"^HASH: {h}$", old, re.M):
             status = "dipakai ulang" if re.search(r"^PUTUSAN: (LULUS|GAGAL)", old, re.M) else "perlu periksa"
             reused += status == "dipakai ulang"
         else:
@@ -221,6 +245,7 @@ def main():
     kinds = {}
     for t in sum(flags.values(), []): kinds[t.split()[0]] = kinds.get(t.split()[0], 0) + 1
     print(f"tanda otomatis {tot}: " + ", ".join(f"{k} {v}" for k, v in sorted(kinds.items())) + f" · keluaran {a.out}/INDEX.md")
+    if a.akhir: print("putaran akhir (--akhir): semua potongan dinilai ulang walau HASH sama")
     print(f"potongan {len(names)} · dipakai ulang {reused} (isi tidak berubah, verdict tetap) · perlu periksa {len(names) - reused}")
     print(f"Lanjut (fase {a.fase}): nilai tiap potongan berstatus 'perlu periksa' dan isi VERDICT.md-nya (satu penilai).")
 
