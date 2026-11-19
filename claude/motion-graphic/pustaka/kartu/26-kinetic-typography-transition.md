@@ -1,15 +1,23 @@
 # 26 · Kinetic typography + transition "Story of How"
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
-> Sumber: `Kinetic Typography + Transision.mp4` (folder asal: Storytelling:Talkinghead/Story-context) · file 960×720 (4:3) dengan letterbox hitam 54 px atas-bawah → frame konten 960×612 (±1,57:1); kartu judul pembuka memakai frame penuh 720 · 77,8 dtk, 24 fps · analisis asal: canvas-skill-library, reference_id LOC-953e36e1e9b2 · Frame: `../../guide/referensi/sheets/26-kinetic-typography-transition.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/26-k*.jpg` · Bedah lengkap: `canvas-skill-library: skills/canvas-reference-director/references/cards.json (reference_id LOC-953e36e1e9b2)`; data ukur: `ukuran.md`
-> Kedalaman bedah: **dalam** (frame tiap 0,5 dtk + strip per frame di 3 transisi; teks, warna, kamera, audio diukur dari piksel/sinyal; batas di `ukuran.md`)
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil; angka di kartu ini pengamatan di video asli, bukan target.
+> Sumber: `Kinetic Typography + Transision.mp4` (folder asal: Storytelling:Talkinghead/Story-context; kreator yang sama dengan kartu 87, name tag "Zache" di 0:46) · file 960×720 (4:3) dengan letterbox hitam 54 px atas-bawah → frame konten 960×612; kartu judul pembuka memakai frame penuh · 77,8 dtk, 24 fps · analisis asal: canvas-skill-library, reference_id LOC-953e36e1e9b2 · Frame: `../../guide/referensi/sheets/26-kinetic-typography-transition.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/26-k*.jpg` + urutan gerak `26-k9-urutan-kata-aktif-kuning.jpg`, `26-k10-urutan-kata-melingkari-kepala.jpg`, `26-k11-urutan-kolase-dibangun.jpg`, `26-k12-urutan-cta-3d.jpg` · Data ukur: `ukuran.md`
+> Video sumber: `/home/irfan/work/canvas-skill-library-20261102/data/local-videoanalys-20261102/Storytelling:Talkinghead/Story-context/Kinetic Typography + Transision.mp4`
+> Dilihat bergerak: **ya** (strip semua frame 3,8–5,0; 13,6–14,8; 29,5–30,7; 50,0–51,2; 54,8–56,0; 72,6–73,8 dtk; ikhtisar 1 fps seluruh video). Angka kamera, ritme, dan audio dari bedah lama, tidak diukur ulang.
 
 **DNA (satu kalimat):** Cerita personal orang ketiga ("he") yang tiap kalimatnya punya adegan sendiri, dan tiap adegan punya perlakuan teks sendiri (teks 3D menempel ruang, kata melengkung di kolase, kata stiker di gabus, kata melingkari kepala), diikat kuning terang, transisi glitch/flash 1–2 frame, dan musik corporate-house 123 bpm yang selalu penuh.
 **Cocok untuk:** cerita transformasi kreator (dulu → jatuh → bangkit → CTA), reel/YouTube talking head bernarasi tinggi energi · **Tidak cocok untuk:** penjelasan teknis tenang, merek premium minimal, teks yang harus dibaca lama
 **Kata kunci gaya:** kinetik, kolase, maksimalis, kuning terang, glitch, cerita personal
 **Diambil untuk:** `Kinetic Typography + Transision.mp4`: "Kinetic Typography" → animasi teks (bagian 2, dibedah paling dalam); "Transision" → transisi (bagian 6, dibedah paling dalam).
 
+## Kondisi footage asli
+- **A-roll:** medium close-up, pembicara di kanan-tengah, sweater navy polos gelap; latar ruang hangat gelap (sofa merah, tanaman, lampu kuning) yang buram oleh DOF; ruang kosong di kiri kepala setinggi bahu. Kamera diam, variasi lewat punch-in.
+- **B-roll pribadi:** kamar dan ruang kerja, sering gelap dengan satu sumber cahaya; subjek profil atau dari samping; dinding gelap polos di sekitar kepala.
+- **Adegan grafis:** kertas, gabus, kolase foto; dibangun sendiri, jadi ruang kosongnya bisa diatur.
+- Rasio konten ±1,57:1 (letterbox di 4:3).
+
 ## PENGIKAT (diambil utuh dari SATU kiblat; ini yang membuat video terasa satu keluarga)
+Angka di bawah pengamatan di video asli, bukan target.
 
 ### 1. Warna & tekstur
 - Aksen tunggal yang berulang: kuning teks `#F7E610` (A-roll), `#F6FC48` (CTA 3D), `#EACD40` (kolase). Putih untuk kata sambung. Merah hanya di kartu judul (`#8B272D` di krem `#F9F6D8`) dan poster negara (`#DD4041`).
@@ -30,9 +38,51 @@
 - Lambat hanya di A-roll: 0:13,5–0:17,3 dan 1:07–1:15,7 (CTA, 8,7 dtk dengan punch-in). Tercepat: 0:20–0:30 dan 0:53–1:06 (adegan 0,5–1 dtk).
 - Babak: pembuka "story of how" (0–11) → obsesi (11–28) → klien (28–36) → jatuh, monokrom (36–47) → titik balik "that version died" (47–55) → bangkit, angka views/$ (55–67) → CTA "comment DREAM" (67–78).
 
-## TEKNIK (boleh dipinjam referensi lain; selalu dikenakan pengikat kiblat)
+## TEKNIK (boleh dipinjam; selalu dikenakan pengikat kiblat)
 
-### 4. B-roll / footage
+### T1 · Kalimat menumpuk di samping kepala, kata aktif kuning lalu putih (k1, k9; 13,6–14,8 dtk)
+- **Yang terlihat (termasuk gerak):** blok rata kiri di ruang kosong sebelah kiri kepala. Tiap kata muncul saat diucapkan dengan kuning menyala dan sedikit blur, lalu menjadi putih dalam beberapa frame; kata sebelumnya tetap tinggal. Baris kedua ("it wasn't just a") muncul di bawah. Kata kunci ("COMPUTER", "CODE") masuk lebih besar dalam serif italic kuning berpendar, di bawah blok, menutupi bahu kiri; bersamaan dengan punch-in kamera.
+- **Kenapa bekerja di video itu:** latar kiri kepala gelap dan buram (DOF), sweater gelap polos, jadi teks putih kecil dan kuning terbaca tanpa kotak; kepala di kanan meninggalkan ruang di kiri.
+- **Cara membuatnya:** satu blok teks dengan timing per kata dari transkrip; tiap kata: masuk kuning + glow, transisi warna ke putih ±3–6 f; kata kunci ganti font dan ukuran; punch-in di kata kunci.
+- **Pakai bila:** talking head dengan ruang kosong gelap/buram di samping kepala, kalimat yang dibangun sampai klimaks. · **Jangan pakai bila:** latar samping kepala terang atau ramai (teks putih hilang); kepala di tengah tanpa ruang samping.
+- **Bila kondisinya beda, sesuaikan:** latar terang → teks gelap dengan kata aktif berwarna aksen, atau gelapkan latar sedikit di sisi itu; kepala di tengah → blok di atas atau di bawah dagu; pakaian bermotif → kata kunci jangan menutup badan, taruh di samping.
+- *Pengamatan di video asli, bukan target:* blok di pusat x 37–46 %, y 34–52 % frame konten; kata sambung 6–8 %, kata kunci 11,6 % tinggi frame.
+
+### T2 · Kata ditempel melengkung mengikuti kepala, kamera menarik mundur (k7, k10; 50,0–52 dtk)
+- **Yang terlihat (termasuk gerak):** B-roll gelap, subjek dari samping di meja kerja. Kata putih rounded kecil muncul satu per satu dengan blur, ditempel melengkung mengikuti kontur belakang dan atas kepala ("but", "the", "version", "of", "him", "that"), lalu berlanjut melingkar di depan wajah; semua kata tinggal. Bersamaan kamera menarik mundur pelan, jadi subjek mengecil dan lingkaran kata ikut mengecil bersama kepala (kata menempel pada subjek, bukan pada layar).
+- **Kenapa bekerja di video itu:** ruang gelap dan dinding polos di sekitar kepala, subjek diam (sedang bekerja), satu siluet kepala yang jelas; kalimat reflektif yang lambat.
+- **Cara membuatnya:** jalur lengkung (path) mengikuti kontur kepala; teks di jalur, kata ditambahkan per ucapan; seluruh grup di-parent ke track kepala atau ke transform kamera yang sama dengan footage.
+- **Pakai bila:** kalimat introspektif tentang orang itu sendiri; subjek diam dengan siluet jelas di latar gelap polos. · **Jangan pakai bila:** subjek banyak bergerak tanpa track; latar terang/ramai; kalimat panjang (lingkaran menjadi penuh dan tak terbaca).
+- **Bila kondisinya beda, sesuaikan:** latar terang → kata gelap atau latar diturunkan; kepala dari depan → lengkung di atas kepala seperti halo, bukan di depan wajah; kamera bergerak → lakukan track, jangan tempel di layar.
+
+### T3 · Kata stiker berurutan di papan gabus, kamera menggeser (k6; 29,5–32 dtk)
+- **Yang terlihat (termasuk gerak):** papan gabus bertekstur dengan bayangan kusen jendela; kata "CLIENT" raksasa tercetak gelap di gabus, stiker gelembung chat tersebar. Kamera menggeser ke kiri dengan tepi buram (DOF), sampai TV kecil; kata putih model stiker muncul satu per satu mengikuti ucapan, melengkung di atas lalu di sekeliling TV, dan tinggal.
+- **Kenapa bekerja di video itu:** latar dibangun sendiri (tekstur nyata, satu objek tengah), kata putih di atas gabus coklat kontras jelas; bayangan jendela membuat semuanya terasa di ruang nyata.
+- **Cara membuatnya:** papan sebagai bidang 3D; teks dan objek sebagai lapisan di bidang yang sama; bayangan jendela di atas semuanya; kamera virtual geser + DOF.
+- **Pakai bila:** adegan sisipan tanpa pembicara, cerita yang punya objek simbol (TV, ponsel). · **Jangan pakai bila:** bentuk video sederhana yang tidak punya adegan grafis.
+- **Bila kondisinya beda, sesuaikan:** palet lain → ganti gabus dengan material lain yang tetap bertekstur nyata dan berbayang.
+
+### T4 · Kolase dibangun di bawah kalimat melengkung (k4, k11; 3,8–6 dtk)
+- **Yang terlihat (termasuk gerak):** dari footage "Folding clothes at ZARA" ada kilas gelap, kamera turun ke puncak gunung; kata marker kuning 3D ("to getting paid to make…") muncul satu per satu melengkung mengikuti lereng; potongan kolase naik masuk dari bawah dan samping (menara, rumput, torii, pagoda), jadi dunia dibangun selagi kalimat diucapkan.
+- **Kenapa bekerja di video itu:** latar dirakit, jadi ada langit dan lereng kosong untuk kata; kata dan objek muncul mengikuti ucapan yang sama.
+- **Cara membuatnya:** 4 lapis kolase (langit/gunung, objek tengah, rumput depan, cahaya); tiap lapis masuk dengan ease ke posisi; kata di path melengkung di area kosong; kamera tilt turun.
+- **Pakai bila:** kalimat impian/tujuan ("anywhere in the world") yang tidak punya footage nyata. · **Jangan pakai bila:** klaim faktual yang butuh bukti nyata.
+- **Bila kondisinya beda, sesuaikan:** palet kiblat lain → kolase memakai tekstur dan warna kiblat itu, bukan langit biru default.
+
+### T5 · Kata CTA 3D masuk per huruf menutup dada (k8, k12; 72,6–74 dtk)
+- **Yang terlihat (termasuk gerak):** "comment" muncul besar kuning menyala di bawah frame, lalu menyusut menjadi putih kecil di dada (berganti dalam beberapa frame, ada kilas merah di bawah); "sounds like you" kecil di kiri-kanan kepala. "DREAM" 3D kuning bersisi oranye dengan tanda kutip masuk per huruf dari kiri dengan blur gerak, duduk di bawah dada di atas pita awan; akhir kalimat punch-in sehingga kata terpotong tepi bawah.
+- **Kenapa bekerja di video itu:** sweater gelap polos yang luas di bawah wajah memberi bidang; kata itu satu-satunya hal yang diminta dari penonton.
+- **Cara membuatnya:** teks 3D (extrude + bevel + glow), per huruf masuk dengan motion blur, di depan subjek; pita awan/kabut di bawah memberi pijakan.
+- **Pakai bila:** satu kata ajakan di akhir, pakaian polos di bawah wajah. · **Jangan pakai bila:** kata itu bukan ajakan atau puncak; pakaian bermotif ramai.
+- **Bila kondisinya beda, sesuaikan:** pakaian bermotif/terang → kata 3D di atas pita gelap; frame 9:16 → kata di bawah dada dengan ruang lebih tinggi.
+- *Pengamatan di video asli, bukan target:* "DREAM" ±20 % tinggi frame konten, ±75 % lebar.
+
+### T6 · Kalimat penutup babak di hitam, lalu adegan baru tumbuh dari kotak kecil (54,8–56 dtk)
+- **Yang terlihat (termasuk gerak):** "died on that floor." kecil putih di tengah hitam, kata terakhir kilas merah lalu italic putih; glitch 1 frame; adegan baru muncul sebagai kotak kecil monokrom halftone di tengah, membesar ke layar penuh dan berwarna; "So he started over" lalu ditempel di samping kepala, "over" serif italic lebih besar.
+- **Kenapa bekerja di video itu:** pergantian babak cerita (mati → mulai lagi) dan kalimat pendek.
+- **Cara membuatnya, pakai bila, sesuaikan:** belum dibedah rinci.
+
+### 4. B-roll / footage (catatan bedah lama; angka = pengamatan di video asli)
 - Footage pribadi kreator (kamar, toko sepatu, kerja malam, ruang gelap) ±55 % durasi; A-roll wajah ±20 %; grafis/kolase ±25 %.
 - Literal per kalimat: "folding clothes" → lipat baju, "threw it all away" → kartu as jatuh, "house of cards" → rumah kartu, "name tag" → close-up "Hello my name is Zache", "views" → angka 41K → 297K.
 - Perlakuan: monokrom penuh untuk masa gagal, push-in pelan, sebagian di-blur DOF; satu inset foto di atas footage (0:38,5).
@@ -55,7 +105,7 @@
 - "Inspirational corporate" dengan bass gitar dan vocal chop, pindah ke house di 1:07 (CTA); librosa ±123 bpm; pulse clarity 0,07 (grid tak tegas di mix).
 - Mix −14,2 LUFS, true peak −0,4 dBTP, LRA 2,8 LU (padat, keras sepanjang video). Level musik terhadap suara: tidak terukur (tanpa pemisahan stem).
 
-## Proporsi terukur (11 Nov 2026, dari video sumber; % terhadap frame konten 960×612 kecuali k2)
+## Pengamatan terukur di video asli, bukan target (11 Nov 2026, dari video sumber; % terhadap frame konten 960×612 kecuali k2)
 
 | Jenis adegan | Kata kunci (% tinggi) | Kata sambung | Posisi teks | Skala subjek | Kedalaman |
 |---|---|---|---|---|---|
@@ -70,16 +120,12 @@
 
 - Batas ukur: sumber 960×720 terkompresi; tinggi = kotak huruf termasuk ascender/descender; kata miring/3D melebihkan ±10–30 %.
 
-## Cek kemiripan (dipakai juri saat menyandingkan still)
-- Kata kunci 10–25 % tinggi frame, kata sambung 3,5–6 %, rasio ≥ 1,9× (CTA ≥ 5×); di adegan kolase/lingkaran semua kata sama besar.
-- Teks A-roll di ruang kosong samping kepala (pusat x 35–50 %, y 30–55 %), bukan pita subtitle bawah.
-- Tiap jenis adegan punya perlakuan teks berbeda yang menempel subjek: melingkar, mengapit, menempel bidang 3D.
-- Satu aksen kuning (`#F0E010`–`#F6FC48`) + putih; merah hanya di kartu judul/poster.
-- Ada tekstur nyata (halftone, goresan kertas, gabus) dan bayangan jatuh di adegan grafis.
-- Adegan grafis 3–4 lapis dengan lapisan depan (bayangan/light leak) dan latar blur.
-- Masa sulit cerita = monokrom penuh dengan caption kecil kuning pucat di y ±89 %.
-- Still transisi: blok glitch horizontal, frame putih, atau motion-blur horizontal 1–2 frame; tidak ada dissolve.
-- B-roll punya push-in pelan (5–30 % per shot); A-roll diam dengan punch-in.
+## Yang harus terasa sama saat disandingkan
+- Teks terasa menempel pada orang atau ruang di adegan itu (melingkar di kepala, di samping wajah, di bidang gabus), bukan ditempel di layar?
+- Tiap adegan punya perlakuan teks sendiri, tetapi kuning dan putih yang sama membuat semuanya satu keluarga?
+- Kata yang sedang diucapkan terasa menyala dulu lalu tenang, dan mata tahu kata mana yang baru?
+- Adegan grafis terasa dibuat dari bahan nyata (tekstur, bayangan jendela), bukan template datar?
+- Pergantian babak terasa sigap (glitch, kilas, kotak tumbuh), tanpa dissolve?
 
 ## Catatan pakai
 - Belum pernah dipakai sebagai kiblat di video; baru diuji lewat rekonstruksi still.

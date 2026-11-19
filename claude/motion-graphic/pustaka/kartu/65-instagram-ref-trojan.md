@@ -1,13 +1,20 @@
 # 65 · Instagram "Save Reminders" (konsep UI, mosycreate)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
-> Sumber: file Irfan `instagram.mp4` (kartu akhir: "MADE BY A HUMAN · @mosycreate · An unofficial concept for Instagram") · 4:3 (960×720, 30 fps), 39,0 dtk (konten 0–27 dtk, kartu penutup 27–39 dtk) · Frame: `../../guide/referensi/sheets/65-instagram-ref-trojan.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/65-k*.jpg` · Bedah lengkap: `ukuran.md`
-> Kedalaman bedah: **dalam** (sumber 720p, tanpa transkrip; suara tidak dipisah dari musik)
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil; angka di kartu ini pengamatan di video asli, bukan target.
+> Sumber: file Irfan `instagram.mp4` (kartu akhir: "MADE BY A HUMAN · @mosycreate · An unofficial concept for Instagram") · 4:3 (960×720, 30 fps), 39,0 dtk (konten 0–27 dtk, kartu penutup 27–39 dtk) · Frame: `../../guide/referensi/sheets/65-instagram-ref-trojan.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/65-k*.jpg` + urutan gerak `65-k9-urutan-objek-jadi-kata.jpg`, `65-k10-urutan-whip-kata-raksasa.jpg` · Bedah lengkap: `ukuran.md`
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/instagram.mp4` (video yang sama dengan kartu 08, `pustaka-video/mac/Motion.mp4`)
+> Dilihat bergerak: **ya** (strip semua frame 0,5–1,7; 4,2–5,4; 8,1–9,3; 12,5–13,7; 17,5–18,7; 22,5–23,7 dtk; ikhtisar 1 fps 0–28 dtk). Angka kamera dan audio dari bedah lama, tidak diukur ulang.
 
 **DNA (satu kalimat):** Konsep fitur UI yang diceritakan lewat kamera yang terus menyelam ke elemen UI (bookmark → kartu → notifikasi → feed), diselingi kartu kalimat pendek di latar gelap bergradien, lalu ditutup emosional: foto hangat bercahaya dan musik piano.
 **Cocok untuk:** demo fitur/konsep aplikasi, launch produk SaaS, reel "what if" · **Tidak cocok untuk:** wawancara/talking head, konten data berat
 **Kata kunci gaya:** UI-cinematic, bersih, sigap, gradien Instagram, emosional di ujung
 **Diambil untuk:** nama file "instagram.mp4": nama tidak menyebut bagian; lihat bagian terkuat. Bagian terkuat: gerak kamera ke dalam UI + transisi blur/zoom-through, lalu teks kalimat inline dengan objek UI.
+
+## Kondisi footage asli
+- Tidak ada pembicara dan tidak ada footage kamera yang berdiri sendiri. Kanvasnya dua: **abu terang polos** (UI Instagram, kalimat inline) dan **gelap bergradien hangat/dot-matrix** (kartu kalimat). Foto hanya muncul di dalam postingan.
+- Kanvas polos dan kosong: kalimat satu baris di tengah tidak bersaing dengan apa pun; satu objek UI dominan per adegan.
+- 4:3, kamera virtual terus bergerak (push, pull, scroll, whip berblur berat).
+- Babak akhir berganti ke foto hangat bercahaya + piano: register emosional.
 
 ## PENGIKAT (diambil utuh dari SATU kiblat; ini yang membuat video terasa satu keluarga)
 
@@ -31,7 +38,36 @@
 
 ## TEKNIK (boleh dipinjam referensi lain; selalu dikenakan pengikat kiblat)
 
-### 4. B-roll / footage
+### T1 · Objek UI menggantikan kata di tengah kalimat (k5, k9; 12,5–13,7 dtk)
+- **Yang terlihat (termasuk gerak):** di kanvas abu polos, "Instagram's" lalu "gonna" muncul per kata di satu baris tengah; di celah berikutnya **kartu notifikasi** muncul dari buram-merah muda ke tajam, kartu kedua menumpuk di belakangnya, lalu "you" menyusul. Kartu notifikasi duduk di baris kalimat, setinggi kata. Kamera drift pelan; keluar dengan blur gerak.
+- **Kenapa bekerja di video itu:** kanvas kosong tanpa subjek lain, kalimat pendek satu baris; objek UI adalah kata kerjanya ("gonna [mengingatkan] you"), jadi gambar dan kalimat tidak bersaing.
+- **Cara membuatnya:** baris kalimat sebagai susunan kata + slot; objek UI di slot dengan tinggi menyesuaikan tinggi huruf; masuk per kata mengikuti ucapan, objek masuk dengan blur → tajam.
+- **Pakai bila:** kalimat di mana satu kata bisa diperagakan oleh benda/UI (notifikasi, ikon, thumbnail), di kanvas polos atau sisipan tanpa pembicara. · **Jangan pakai bila:** di atas footage pembicara yang ramai; kalimat panjang; objek UI tidak benar-benar menggambarkan kata itu.
+- **Bila kondisinya beda, sesuaikan:** ada pembicara → potong ke kanvas polos untuk kalimat ini, atau taruh baris di ruang kosong yang polos di samping kepala; latar gelap → objek UI dengan bayangan/tepi terang.
+
+### T2 · Whip kata raksasa bergradien, kursor menyeret (k10; 4,2–5,4 dtk)
+- **Yang terlihat (termasuk gerak):** dari kartu "You lose [thumbnail]" di latar gelap, kursor menarik ke kanan dan seluruh layar **whip** ke kanvas terang dengan kata raksasa bergradien magenta-oranye ("IN YOUR") yang lewat horizontal dengan blur gerak berat; kursor ikut terseret; berakhir di grid thumbnail yang bergerak cepat ("COLLECTION").
+- **Kenapa bekerja di video itu:** gerak didorong aksi kursor (penonton melihat penyebabnya); kata raksasa hanya lewat, tidak harus dibaca utuh; blur gerak menyambung dua dunia (gelap → terang).
+- **Cara membuatnya:** satu kanvas lebar berisi kata raksasa + grid; kamera virtual menggeser cepat dengan motion blur nyata; kursor di lapisan atas mengikuti arah geser.
+- **Pakai bila:** pergantian babak cepat di hook, frasa yang terasa "terseret". · **Jangan pakai bila:** kata itu harus terbaca (punchline): whip membuatnya tidak terbaca.
+- **Bila kondisinya beda, sesuaikan:** punchline yang harus terbaca → kata raksasa diam di slab (kartu 85 T1), whip hanya sebagai jalan masuk/keluarnya.
+
+### T3 · Kamera menyelam ke elemen UI (k4; 8,1–11 dtk)
+- **Yang terlihat (termasuk gerak):** kamera menggeser pelan ke kiri di bawah postingan; kalimat "…Instagram had **Save Reminders**?" berada tepat di bawah ikon bookmark berjam, kata "Reminders" bergradien merah muda-oranye lalu memudar jadi hitam tebal saat kamera bergeser (8,1–9,3 dtk). Di frame kunci k4 ikon sudah besar dan terisi hitam, dan kartu Reminder keluar lewat gelembung dari ikon. Gerak push di antara 9,3 dan 11 dtk belum dilihat di strip.
+- **Kenapa bekerja di video itu:** satu objek kecil yang jelas (ikon) di kanvas tenang; kalimat di samping objek menyebut objek itu.
+- **Cara membuatnya:** satu kamera pada seluruh UI; keyframe skala/posisi menuju objek; elemen berikutnya lahir dari objek (skala dari titik).
+- **Pakai bila:** fitur yang punya titik masuk kecil (ikon, tombol). · **Jangan pakai bila:** UI ramai tanpa satu titik fokus.
+- **Bila kondisinya beda, sesuaikan:** UI gelap → objek fokus diberi aksen terang; frame 9:16 → push lebih vertikal, kalimat di atas/bawah objek.
+
+### T4 · Kartu kalimat gelap bergradien sudut (k2, k3; 2,5–4,5 dan 7 dtk)
+- **Yang terlihat:** kalimat satu baris kecil di tengah latar arang dengan gradien oranye-magenta merembes dari sudut bawah, atau hitam dengan dot-matrix dan sapuan ungu; kata pembuka bold ("But,") lebih besar; ikon IG di akhir kalimat.
+- **Kenapa bekerja, cara membuat, pakai bila, sesuaikan:** kanvas kosong gelap, kalimat sendirian; belum dibedah rinci geraknya.
+
+### T5 · Penutup foto emas bercahaya (k7; 19–27 dtk)
+- **Yang terlihat:** foto ditahan ±8 dtk dengan bloom, vignette hitam, push pelan; tulisan tangan kuning neon "Forever" menyala di akhir; musik berganti piano.
+- **Kenapa bekerja, cara membuat, pakai bila, sesuaikan:** belum dibedah rinci.
+
+### 4. B-roll / footage (catatan bedah lama; angka = pengamatan di video asli)
 - Tidak ada footage live action berdiri sendiri; "footage" selalu di dalam postingan UI (motocross, lanskap hijau, timeline editor, foto perempuan bercahaya).
 - Grid thumbnail buram + kursor panah putih besar = "collection yang menumpuk" (5–6,5 dtk).
 - Foto penutup diberi bingkai membulat, grade emas, bloom: ilustrasi "postingan yang ingin diingat selamanya".
@@ -63,7 +99,7 @@
 - Babak 2 (19–39 dtk): piano solo sedih (electric lalu grand), −25 sampai −26 LUFS, turun ±13 dB; stop-down 0,7 dtk di 22,5 / 27,7 / 32,3 dtk.
 - Mix −14,3 LUFS, true peak +0,3 dBTP (clip), LRA 15,6 LU; tanpa grid beat jelas (pulse clarity 0,11).
 
-## Proporsi terukur (11 Nov, dari video sumber; % terhadap frame 960×720)
+## Pengamatan terukur di video asli, bukan target (11 Nov, dari video sumber; % terhadap frame 960×720)
 | Jenis adegan | Kata kunci (% tinggi) | Kata sambung | Posisi teks | Skala subjek | Kedalaman |
 |---|---|---|---|---|---|
 | UI postingan (k1) | headline gambar "SEE" ±15 (dari mosaik) | caption UI ±1,5 | di dalam postingan | postingan ±64×63 % | abu + kartu + coretan merah |
@@ -78,15 +114,12 @@
 - Rasio kata kunci : kata sambung hanya **1,1–1,7** dalam kalimat (dibedakan bobot dan warna, bukan ukuran); yang besar adalah objek UI, bukan huruf.
 - Batas: 720p (±0,14 % per piksel); tinggi huruf diukur dari komponen terhubung, ±10 % untuk huruf kecil.
 
-## Cek kemiripan (dipakai juri saat menyandingkan still)
-- Kalimat satu baris di tengah frame (y 45–56 %), huruf 3,5–5 % tinggi; kata pembuka bold boleh sampai 8 %.
-- Kata kunci dibedakan oleh Bold + gradien magenta `#D24E98` → oranye `#E09669`, bukan oleh ukuran (rasio ≤ 1,7).
-- Minimal satu kalimat di mana objek UI (ikon, thumbnail, notifikasi) menggantikan kata di tengah baris.
-- Latar UI abu terang `#ECECEC`; kartu putih bayangan lembut; satu objek UI dominan 45–70 % lebar.
-- Latar kartu kalimat gelap (`#1F1E1C` / hitam) dengan gradien hangat di sudut atau dot-matrix, bukan hitam rata.
-- Kamera tidak diam di adegan UI: push/pull ≥ ×1,5 atau scroll; transisi berupa blur gerak berat.
-- Lapis belakang buram (kartu/postingan di belakang) dan lapis depan tajam: 2–3 lapis.
-- Babak akhir berganti register: grade emas, bloom, vignette hitam, musik piano ±12 dB lebih pelan.
+## Yang harus terasa sama saat disandingkan
+- Kalimat dan objek UI terasa satu baris kalimat (objek menggantikan kata), bukan dua hal yang berdampingan?
+- Tiap adegan UI punya satu objek yang jelas jadi fokus, dan kamera terasa menuju ke sana?
+- Kalimat kecil di tengah terbaca tenang karena kanvasnya kosong, bukan karena dibesarkan?
+- Gerak cepat terasa didorong sesuatu yang terlihat (kursor, objek), dan blur geraknya menyambung dua dunia?
+- Babak akhir terasa berganti register (hangat, lambat, emosional)?
 
 ## Catatan pakai
 - Belum pernah dipakai sebagai kiblat.

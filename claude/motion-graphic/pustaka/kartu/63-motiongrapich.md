@@ -1,13 +1,20 @@
 # 63 · Motiongrapich (promo UI "invideo editor" × Claude, gaya desktop macOS)
 
-> **Status: standar kualitas Irfan.** Video ini target yang harus dicapai, bukan contoh opsional.
-> Sumber: unggahan Irfan, file `Motiongrapich.mp4` (kreator tidak tercantum; end card "invideo editor") · 16:9 (736×414, 30 fps), 32,2 dtk · Frame: `../../guide/referensi/sheets/63-motiongrapich.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/63-k*.jpg` · Bedah lengkap: `ukuran.md` (folder audit 63)
-> Kedalaman bedah: **dalam** (batas: sumber hanya 414 px tinggi, ±0,24 % per piksel; label SFX earshot tidak keluar, lihat §7)
+> **Status: contoh mutu dan sumber teknik, bukan ukuran untuk disalin.** Yang dipindahkan ke video lain adalah tekniknya beserta syarat yang membuatnya berhasil; angka di kartu ini pengamatan di video asli, bukan target.
+> Sumber: unggahan Irfan, file `Motiongrapich.mp4` (kreator tidak tercantum; end card "invideo editor") · 16:9 (736×414, 30 fps), 32,2 dtk · Frame: `../../guide/referensi/sheets/63-motiongrapich.jpg` · Frame kunci: `../../guide/referensi/sheets/keyframes/63-k*.jpg` + urutan gerak `63-k9-urutan-judul-dan-grid.jpg`, `63-k10-urutan-sapuan-grid-dan-punch.jpg` · Bedah lengkap: `ukuran.md` (folder audit 63)
+> Video sumber: `/home/irfan/work/pustaka-video/unggahan/Motiongrapich.mp4`
+> Dilihat bergerak: **ya** (strip semua frame 0–1,2; 1,5–2,5; 2,3–3,5; 3,8–5,0; 7,0–8,2; 12,4–13,6; 15,0–16,2 dtk; ikhtisar 1 fps seluruh video). Angka kamera dan audio dari bedah lama (`ukuran.md`), tidak diukur ulang.
 
 **DNA (satu kalimat):** Demo produk yang diceritakan lewat UI sungguhan, mengambang di atas wallpaper foto ala macOS. Kamera tidak pernah diam (push, pull, geser, punch ke teks prompt). Antar-babak dijahit oleh wash warna dan mosaik piksel oranye. Teks judul muncul per kata dengan blur dan mengecil.
 **Cocok untuk:** promo SaaS/AI tool, demo fitur, "cara pakai X di Claude", launch singkat 20–40 dtk · **Tidak cocok untuk:** talking head, cerita emosional, konten tanpa UI
 **Kata kunci gaya:** Apple-like, desktop sinematik, hangat-senja, sigap, UI-sebagai-tokoh
 **Diambil untuk:** nama file asli "Motiongrapich.mp4" (= motion graphic). Yang dibedah paling dalam: motion graphic (gerak UI, kamera, transisi) lalu teks. Bagian terkuat: kamera virtual di atas UI + transisi mosaik/wash.
+
+## Kondisi footage asli
+- Tidak ada footage kamera dan tidak ada pembicara: semua adegan adalah UI yang dibangun ulang di atas **foto wallpaper** (gunung biru di pembuka, senja dan ladang bunga oranye di babak proses), atau di atas latar putih/hitam polos untuk kartu judul dan kartu UI.
+- Foto wallpaper **ramai tetapi bernada sedang-gelap dan jenuh** (langit oranye, ladang bunga merah); UI di atasnya gelap atau kaca terang, sehingga UI selalu berbeda nada dengan latarnya.
+- 16:9, resolusi rendah (414 px tinggi): teks UI kecil tidak dimaksudkan untuk dibaca kecuali saat kamera punch.
+- Kamera virtual hampir tidak pernah diam; tidak ada VO yang terlihat (teks = teks UI).
 
 ## PENGIKAT (diambil utuh dari SATU kiblat; ini yang membuat video terasa satu keluarga)
 
@@ -20,7 +27,7 @@
 
 ### 2. Teks
 - Font: sans sistem Apple (SF Pro / Inter, semibold–bold) untuk judul dan UI. Serif (gaya salam Claude "Good afternoon") hanya di salam kotak prompt.
-- Judul kinetik (2–3 dtk): "Your" muncul sendirian sangat besar (**15,9 % tinggi**, 26 % lebar, tepat di tengah), lalu mengecil saat "videos" dan "now." masuk per kata. Hasil akhirnya satu baris **6,3 % tinggi**, lebar 36 %, di tengah. Rasio besar:kecil **2,5×**.
+- Judul kinetik (2–3 dtk), pengamatan: "Your" muncul sendirian sangat besar (15,9 % tinggi, 26 % lebar, tepat di tengah), lalu **dipotong** (bukan disusutkan pelan; terlihat di strip 2,27→2,30 dtk) ke bingkai lebar tempat "videos" dan "now." masuk per kata. Hasil akhirnya satu baris **6,3 % tinggi**, lebar 36 %, di tengah. Rasio besar:kecil **2,5×**.
 - Watak masuk: per kata, dari blur + transparan ke tajam (±0,2 dtk per kata). Kata baru masuk berwarna biru lalu berubah hitam; kata terakhir ("now.") tetap biru paling lama. Penekanan = warna, bukan bobot.
 - Teks lain adalah teks UI asli yang diketik huruf demi huruf di kotak prompt ("Adjust evrything and add sfx and music", typo dibiarkan). Saat kalimat kunci, kamera punch ke prompt sehingga teks UI tampil **10,6 % tinggi** (setengah frame lebar, kiri-tengah, y 34 %).
 - Teks UI biasa (tanpa zoom): 1,5–2,7 % tinggi, tidak dibuat untuk dibaca; fungsinya tekstur "kerja nyata".
@@ -35,7 +42,44 @@
 
 ## TEKNIK (boleh dipinjam referensi lain; selalu dikenakan pengikat kiblat)
 
-### 4. B-roll / footage
+### T1 · Jendela UI utuh mengambang di atas foto wallpaper, kamera virtual (k1, k7; 12,4–16 dtk)
+- **Yang terlihat (termasuk gerak):** satu jendela aplikasi gelap utuh di tengah, wallpaper foto terlihat di keempat sisinya, dock macOS di bawah. Kamera virtual push pelan, pull saat babak baru, dan menggeser jendela ke kanan saat panel chat masuk dari kiri. Jendela tidak pernah terpotong tepi kecuali saat punch.
+- **Kenapa bekerja di video itu:** foto latar jenuh dan bernada sedang, jendela gelap: kontras nada memisahkan UI dari latar tanpa garis tepi tebal. Wallpaper yang terlihat di sekeliling jendela memberi rasa "ini layar komputer sungguhan".
+- **Cara membuatnya:** foto latar tajam → jendela UI (bayangan lembut) → panel/kursor di depan; satu kamera untuk seluruh susunan (transform pada grup), bukan tiap elemen bergerak sendiri.
+- **Pakai bila:** demo produk/AI tool tanpa pembicara, atau sisipan layar di video berpembicara. · **Jangan pakai bila:** latar foto senada dengan UI (UI terang di foto terang, UI gelap di foto gelap); jendela terlalu besar sehingga wallpaper hilang.
+- **Bila kondisinya beda, sesuaikan:** UI terang (mis. aplikasi bertema terang) → wallpaper gelap/jenuh; frame 9:16 → jendela lebih sempit dan lebih tinggi, tetap ada wallpaper di keempat sisi.
+- *Pengamatan di video asli, bukan target:* jendela ±56–60 % lebar × 57–61 % tinggi.
+
+### T2 · Judul per huruf dari blur, lalu potong ke baris kecil (k2, k9; 1,5–2,7 dtk)
+- **Yang terlihat (termasuk gerak):** dari dock, sapuan biru naik dari bawah menutup frame, lalu latar putih; "Your" muncul huruf demi huruf dari kiri dengan blur, besar, biru. Satu frame kemudian **potongan** ke bingkai lebih lebar: "Your" kecil (buram lalu tajam), "videos" dan "now." menyusul per kata, biru lalu berubah hitam. Keluar: sapuan oranye bergradien menyapu dari kanan bawah ke hitam.
+- **Kenapa bekerja di video itu:** kartu putih kosong tanpa objek lain; kata pertama besar sendirian langsung memberi fokus, lalu potongan ke baris kecil memberi ruang bagi seluruh frasa tanpa kata lama menyusut pelan.
+- **Cara membuatnya:** dua komposisi: kata pertama besar (masuk per huruf, blur → tajam), potong; baris lengkap kecil (masuk per kata, warna aksen → hitam).
+- **Pakai bila:** judul/klaim 2–4 kata di kartu kosong. · **Jangan pakai bila:** di atas footage ramai atau di atas pembicara.
+- **Bila kondisinya beda, sesuaikan:** latar gelap → huruf putih, aksen tetap satu warna; frase panjang → hanya kata pertama yang mendapat tampilan besar.
+
+### T3 · Grid kotak sebagai transisi: gelombang dari klik dan sapuan (k3, k9, k10; 3,8–5,0; 12,4–13,6; 15,0–16,2 dtk)
+- **Yang terlihat (termasuk gerak):** (a) kursor mengklik tab "Claude", lalu **cincin kotak oranye memancar dari titik klik**, melebar ke seluruh layar dan menipis, meninggalkan latar hitam. (b) Sapuan kotak kuning-oranye bergerak dari tepi kanan ke kiri, membuka jendela editor di belakangnya. (c) Di kotak prompt yang di-punch, kotak oranye bergerak dari kanan ke kiri di dalam bidang prompt.
+- **Kenapa bekerja di video itu:** selalu ada pemicu yang terlihat (klik, ketikan selesai) atau arah yang jelas; warna kotak sama dengan aksen tombol; latar gelap membuat kotak terbaca sebagai cahaya.
+- **Cara membuatnya:** grid kotak di lapisan atas; tiap sel menyala dengan jeda menurut jarak dari titik pemicu (cincin) atau dari tepi (sapuan); warna dari aksen pemicu.
+- **Pakai bila:** pergantian babak UI yang dipicu aksi. · **Jangan pakai bila:** tanpa pemicu yang terlihat (kotak muncul tiba-tiba terbaca sebagai cacat), di atas pembicara, atau di setiap transisi.
+- **Bila kondisinya beda, sesuaikan:** latar terang → kotak lebih gelap/jenuh, bukan pastel; aksen merek lain → warna sel dari aksen itu.
+
+### T4 · Kotak prompt kaca di atas foto senja (k5; 7,0–8,2 dtk)
+- **Yang terlihat (termasuk gerak):** dari kartu UI gelap, wash oranye menyapu ke foto senja + ladang bunga; kotak prompt kaca (terang, buram, bertepi tipis) naik dari bawah dan menetap; salam serif di atasnya; kamera push pelan.
+- **Kenapa bekerja di video itu:** latar foto **ramai dan jenuh** (ladang bunga, langit oranye) diburamkan di balik kaca, sehingga kaca terbaca sebagai bidang terang yang tenang di atas latar yang bertekstur. Teks gelap di dalam kaca terang.
+- **Cara membuatnya:** foto latar → bidang kaca (blur latar di belakangnya + isi putih semi-transparan + tepi tipis terang + bayangan halus) → teks UI.
+- **Pakai bila:** latar foto bertekstur dan bernada sedang/gelap. · **Jangan pakai bila:** latar terang, polos, atau abu muda (dinding terang): kaca terang di atas latar terang hilang.
+- **Bila kondisinya beda, sesuaikan:** latar terang/polos → bidang solid (putih dengan bayangan jelas, atau gelap) alih-alih kaca; latar gelap → kaca tetap boleh, tepi lebih terang.
+
+### T5 · Punch kamera ke kotak prompt: teks UI jadi teks besar (k7, k10; 15,0–16,2 dan 27,0–27,5 dtk)
+- **Yang terlihat (termasuk gerak):** kamera melompat dekat ke kotak prompt di dalam jendela (potongan, lalu drift); kalimat perintah yang sedang diketik terbaca besar di kiri; tepi jendela dan sedikit wallpaper/dock masih terlihat; lalu kamera pull kembali.
+- **Kenapa bekerja di video itu:** tidak ada teks kinetik terpisah: teks besar dicapai dengan kamera, jadi UI tetap satu objek dan penonton tidak membaca dua lapisan teks.
+- **Cara membuatnya:** satu kamera pada seluruh desktop; keyframe skala ke kotak prompt; tidak memisahkan kotak prompt sebagai elemen sendiri.
+- **Pakai bila:** kalimat perintah/prompt yang harus terbaca. · **Jangan pakai bila:** kata narasi yang bukan isi UI: kata narasi tidak dimasukkan ke kolom prompt/elemen aplikasi untuk dibesarkan.
+- **Bila kondisinya beda, sesuaikan:** kalimat yang diucapkan pembicara (bukan perintah yang diketik) → tetap teks kinetik di luar UI atau di ruang kosong, bukan diketik ke prompt.
+- *Pengamatan di video asli, bukan target:* punch ±1,4–1,8×.
+
+### 4. B-roll / footage (catatan bedah lama; angka = pengamatan di video asli)
 - Tidak ada b-roll. "Footage" hanya foto wallpaper (gunung, senja, ladang bunga) dan klip AI pria di podcast di dalam UI (thumbnail 4 klip, preview editor).
 - Wallpaper menggambarkan suasana/babak (biru dingin = "sebelum", senja = proses kreatif), bukan ucapan.
 
@@ -66,7 +110,7 @@
 - Mix keras: **−14,5 LUFS**, true peak **+0,6 dBTP** (clipping), LRA 5,0 LU. RMS per detik −13 s.d. −25 dB; turun ke −22 dB di 15–17 dtk lalu naik lagi di 24 dtk dan akhir.
 - Ada suara/VO atau tidak: Tidak terukur (tanpa transkrip/earshot; visual tidak menunjukkan pembicara).
 
-## Proporsi terukur (11 Nov 2026, dari video sumber 736×414; % terhadap frame 16:9)
+## Pengamatan terukur di video asli, bukan target (11 Nov 2026, dari video sumber 736×414; % terhadap frame 16:9)
 | Jenis adegan | Kata kunci (% tinggi) | Kata sambung | Posisi teks | Skala subjek | Kedalaman |
 |---|---|---|---|---|---|
 | Dock + wallpaper (k1) | – | – | tanpa teks | dock 16 × 33 %, tengah sedikit di atas | foto tajam + dock kaca |
@@ -81,16 +125,12 @@
 - Satu tampil judul ≤ 3 kata; kata pertama tampil sendirian dulu dalam ukuran 2,5× ukuran akhirnya.
 - Batas ukur: ±0,24 % tinggi per piksel; teks UI < 3 % bisa meleset ±20 %.
 
-## Cek kemiripan (dipakai juri saat menyandingkan still)
-- Jendela UI utama mengisi 55–60 % lebar dan tinggi frame di atas wallpaper foto yang tetap tajam (bukan latar polos, bukan banyak objek kecil).
-- Tiga lapis terlihat: foto latar → jendela gelap berbayang → panel/kotak prompt di depan.
-- Kata pembuka judul ±16 % tinggi, sendirian, di tengah; baris akhir ±6 %; kata baru berwarna biru `#1986C4` lalu menjadi hitam.
-- Latar kartu judul putih hangat `#FDF8FC` dengan sudut sedikit lebih gelap (`#EEEBEF`).
-- UI gelap `#09–0C` hitam keunguan + glow/aksen oranye `#E4550F`–`#F37F02`; tidak ada aksen warna ketiga.
-- Wallpaper babak proses = senja oranye (`#DD8262` / `#D05C31`); biru hanya di pembuka.
-- Di babak perintah, ada still punch-in dengan teks prompt ±10 % tinggi di separuh kiri frame.
-- Transisi antar-babak memakai mosaik piksel oranye (kotak ±8 % tinggi) atau wash warna, bukan cut polos.
-- End card: logo ±18 % tinggi di tengah di atas UI yang diburamkan berat.
+## Yang harus terasa sama saat disandingkan
+- UI terasa seperti layar komputer sungguhan yang mengambang di atas foto, bukan kotak yang ditempel di latar polos?
+- Nada UI dan nada latar jelas berbeda (gelap di atas jenuh, atau kaca terang di atas foto bertekstur), sehingga UI terbaca tanpa garis tepi tebal?
+- Saat kalimat perintah harus terbaca, terasa kameranya yang mendekat, bukan teks yang ditempel?
+- Tiap transisi grid terasa dipicu sesuatu yang terlihat (klik, akhir ketikan)?
+- Kamera terasa hidup sepanjang video, tetapi UI tetap satu objek?
 
 ## Catatan pakai
 - Belum pernah dipakai sebagai kiblat. Dipakai sebagai **teknik** (UI mengambang di atas wallpaper) di builder-trap-show-your-work dan builder-trap-r2.
