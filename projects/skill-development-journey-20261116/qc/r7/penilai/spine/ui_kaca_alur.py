@@ -7,9 +7,9 @@ BG = Image.open('remotion/public/img/latar-padang.png').convert('RGB').resize((1
 TINTA, REDUP, ORANYE, PUTIH = (31, 30, 29), (110, 104, 98), (217, 119, 87), (250, 248, 240)
 
 def frame(st):
-    can = BG.convert('RGBA'); d = ImageDraw.Draw(can); CEK = []
+    can = BG.convert('RGBA'); d = ImageDraw.Draw(can); CEK = []; OBJ = Image.new('L', (1920, 1080), 0); od = ImageDraw.Draw(OBJ)
     def kaca(box, r, isi=(255, 255, 255, 160), gelap=False):
-        box = tuple(int(v) for v in box)
+        box = tuple(int(v) for v in box); od.rounded_rectangle([box[0] - 22, box[1] - 10, box[2] + 22, box[3] + 40], r + 20, fill=255)   # objek + bayangannya
         blur = BG.crop(box).filter(ImageFilter.GaussianBlur(22)).convert('RGBA')
         blur = Image.alpha_composite(blur, Image.new('RGBA', blur.size, (40, 30, 40, 175) if gelap else isi))
         m = Image.new('L', blur.size, 0); ImageDraw.Draw(m).rounded_rectangle([0, 0, blur.size[0] - 1, blur.size[1] - 1], r, fill=255)
@@ -33,7 +33,7 @@ def frame(st):
     # salam beranda claude.ai (hilang setelah pesan pertama terkirim)
     if not st.get('terkirim'):
         g = 'Selamat sore, Irfan'; fg = f('bold', 64); gx = 960 - (L(g, fg) + 70) // 2
-        bintang(gx + 26, 230); d.text((gx + 70, 190), g, font=fg, fill=PUTIH + (255,), stroke_width=0)
+        bintang(gx + 26, 230); d.text((gx + 70, 190), g, font=fg, fill=PUTIH + (255,), stroke_width=0); od.text((gx + 70, 190), g, font=fg, fill=255); od.ellipse([gx + 4, 208, gx + 48, 252], fill=255)
     # percakapan setelah kirim
     if st.get('terkirim'):
         T = st['terkirim']; ft = f('medium', 32)
@@ -75,18 +75,25 @@ def frame(st):
     if st.get('terkirim'):   # tombol "Chat baru" claude.ai (pemicu grid)
         NB = (1560, 70, 1800, 128); kaca(NB, 22, isi=(255, 255, 255, 190)); teks(NB, (1600, 82), '+  Chat baru', f('bold', 28), TINTA, pad=12)
     if st.get('gridchat') is not None:
-        # D-482: sel kotak HANYA di area chat; fase<0.5 hapus kanan→kiri, fase>=0.5 muncul lagi kiri→kanan
-        import random; random.seed(5); fase = st['gridchat']; AREA = (X0 - 30, 120, X0 - 30 + 26 * 40, 120 + 17 * 40)   # menutup seluruh gelembung + kolom (termasuk garis tepi)
-        S = 40; AREA = (AREA[0], AREA[1], AREA[0] + (AREA[2] - AREA[0]) // S * S, AREA[1] + (AREA[3] - AREA[1]) // S * S); bersih = BG.crop(AREA).convert('RGBA')
-        tepi = AREA[2] - (AREA[2] - AREA[0]) * (fase / 0.5) if fase < 0.5 else AREA[0] + (AREA[2] - AREA[0]) * ((fase - 0.5) / 0.5)
-        for gy in range(AREA[1], AREA[3], S):
-            for gx in range(AREA[0], AREA[2], S):
-                j = gx + random.uniform(-90, 90)
-                hilang = (j > tepi) if fase < 0.5 else (j > tepi)
-                band = abs(j - tepi) < 70
-                if hilang: can.paste(bersih.crop((gx - AREA[0], gy - AREA[1], gx - AREA[0] + S, gy - AREA[1] + S)), (gx, gy))
-                if band and random.random() < 0.7:
-                    v = random.uniform(0.82, 1.0); d.rectangle([gx, gy, gx + S - 2, gy + S - 2], fill=(int(240*v), int(236*v), int(228*v), 235))
+        # D-482: grid HANYA pada bentuk objek (OBJ), tidak pada latar kosong. Fase<0.5 hapus kanan→kiri, >=0.5 muncul kiri→kanan.
+        import random; random.seed(5); fase = st['gridchat']; S = 24
+        M = OBJ.filter(ImageFilter.MaxFilter(3))
+        X0g, X1g = 300, 1620
+        tepi = X1g - (X1g - X0g) * (fase / 0.5) if fase < 0.5 else X0g + (X1g - X0g) * ((fase - 0.5) / 0.5)
+        hapus = Image.new('L', (1920, 1080), 0); hd = ImageDraw.Draw(hapus)
+        sel = Image.new('RGBA', (1920, 1080), (0, 0, 0, 0)); sd = ImageDraw.Draw(sel)
+        src = can.copy()
+        for gy in range(0, 1080, S):
+            for gx in range(X0g - 100, X1g + 100, S):
+                j = gx + random.uniform(-40, 40)
+                if j > tepi: hd.rectangle([gx, gy, gx + S - 1, gy + S - 1], fill=255)
+                if abs(j - tepi) < 36 and random.random() < 0.55:
+                    r_, g_, b_, _ = src.getpixel((min(gx + S // 2, 1919), min(gy + S // 2, 1079)))
+                    sd.rectangle([gx + 1, gy + 1, gx + S - 2, gy + S - 2], fill=(min(255, r_ + 18), min(255, g_ + 18), min(255, b_ + 18), 150))
+        from PIL import ImageChops
+        mh = ImageChops.multiply(hapus, M)
+        can.paste(BG.convert('RGBA'), (0, 0), mh)
+        a_ = ImageChops.multiply(sel.split()[3], M); sel.putalpha(a_); can.alpha_composite(sel)
     salah = [t for t, w, b, p in CEK if b[0] < w[0] + p * 0.5 or b[2] > w[2] - p * 0.5]
     if salah: raise SystemExit(f'GAGAL teks keluar wadah: {salah}')
     return can.convert('RGB')
