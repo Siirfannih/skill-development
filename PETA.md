@@ -45,7 +45,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 |---|---|
 | `claude/motion-graphic/LANTAI.md` | **LANTAI: mutu yang berlaku di semua video** — Lantai menentukan mutu; kiblat (kartu di pustaka/) menentukan gaya. |
 | `claude/motion-graphic/RETRO.md` | **RETRO · catatan pelajaran per gerbang** — Format dan aturan: lihat MOTION-SYSTEM.md §8. |
-| `claude/motion-graphic/pustaka/PETA.md` | **PETA pustaka referensi** — Semua video di sini adalah standar kualitas Irfan: target yang harus dicapai, dan nilainya setara. |
+| `claude/motion-graphic/pustaka/PETA.md` | **PETA pustaka referensi** — Semua video di sini adalah contoh mutu yang Irfan setujui dan sumber teknik, nilainya setara; bukan ukuran untuk disalin. |
 | `claude/motion-graphic/pustaka/README.md` | **Pustaka: cara memakai referensi** — Tujuan repo ini menaikkan mutu hasil dari prompt Irfan, bukan menyediakan template. |
 
 ## motion-graphic · references (cabang; dibuka saat SKILL.md atau RUTE menyuruh)
@@ -206,7 +206,6 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/pengganti-kita-sendiri/` | STATUS: Pengganti Kita Sendiri (@siirfannih) · mulai dari STATUS.md |
 | `projects/personal-brand-day-02/` | Ledger · Personal branding, konten kedua challenge |
 | `projects/skill-development-journey-20261116/` | STATUS · Skill Development journey (siirfan) · titik lanjut sesi baru · mulai dari STATUS.md |
-| `projects/uji-builder-trap-12nov/` | Ledger · uji-builder-trap-12nov |
 | `projects/video-perkenalan-20261118/` | DECISIONS · video perkenalan v6 |
 
 ## Lain-lain

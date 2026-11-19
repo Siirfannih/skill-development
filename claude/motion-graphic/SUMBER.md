@@ -935,3 +935,33 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 
 ## `scripts/juri/profil_cek.py` · `templates/merek/BRAND.md` (logo "tidak ada")
 - Irfan 18 Nov 2026 "Siirfan ga punya logo jadi memang kosong": merek tanpa logo sah bila user memastikannya; nilai eksplisit "tidak ada" membedakannya dari "?" (belum ditanyakan).
+
+## Kartu sebagai contoh mutu dan sumber teknik (`pustaka/KARTU-TEMPLATE.md`, `pustaka/README.md` §Alur 6–7 dan §Referensi, `pustaka/PETA.md`, `SKILL.md` §0a 3b/5/6, `templates/TAHAP.md` tahap 3, kartu 26/63/65/83/85/87, peringatan format lama di kartu lain)
+
+| Aturan | Asal-usul |
+|---|---|
+| kartu = contoh mutu dan sumber teknik, bukan ukuran untuk disalin; blok teknik (Yang terlihat, Kenapa bekerja, Cara membuat, Pakai bila/Jangan pakai bila, Bila kondisinya beda); angka hanya sebagai pengamatan berlabel; "Yang harus terasa sama saat disandingkan"; header Video sumber dan Dilihat bergerak | Instruksi Irfan 19 Nov 2026 setelah r7 skill-dev-journey (contoh gagal 13–17): referensi diukur lalu dijadikan template |
+| bedah lewat strip semua frame di momen teknik, bukan frame diam | sama; salah baca gerak di kartu 83 (peredupan ruang = pergantian latar lewat matte; b-roll belah terbalik sisi) dan kartu 63 (judul dipotong, bukan menyusut), ditemukan saat strip dibuat 19 Nov |
+| lembar kondisi footage (`qc/kondisi/KONDISI.md`) dan spine gaya R1–R6 (`qc/spine/SPINE.md`) sebelum build | sama |
+
+## Brief bergambar dan penilai (`references/orkestrasi.md` §3–§4, `templates/handoff-fase.md`, `templates/roles/editor.md`, `templates/roles/pemeriksa-frame.md`, `scripts/juri/frame_audit.py`)
+
+| Aturan | Asal-usul |
+|---|---|
+| brief pekerja visual = frame footage, frame kunci/klip, still spine, maksud adegan, blok teknik beserta syarat; bukan tabel angka | Instruksi Irfan 19 Nov 2026; r7: kartu 85 diringkas satu baris di R7-BERSAMA, syarat slab layar penuh tertinggal (contoh gagal 16) |
+| LULUS BILA tugas visual = still sanding yang dinilai Sutradara | sama |
+| masalah lintas adegan milik Sutradara; proteksi frame identik gugur bila Irfan berkomentar; `--akhir` menilai ulang semua potongan | sama; r7: kata ganda dan skala antarperan lolos karena tiap potongan dinilai sendiri dan potongan berhash sama dipakai ulang |
+| `SELURUH.jpg` 1 fps seluruh video; 3 hal paling amatir berperingkat ("tidak ada temuan" ditolak); kalibrasi penilai dengan contoh gagal sebelum boleh LULUS | sama |
+
+## `guide/teks/GUIDE.md` §Teks di dalam tampilan aplikasi dan adegan 3D
+
+| Aturan | Asal-usul |
+|---|---|
+| narasi bukan isi UI | r7 skill-dev-journey 19 Nov, contoh gagal 13 |
+| punchline keluar dari tampilan ke layar penuh (pengecualian butir terakhir §Posisi) | r7, contoh gagal 16; kartu 85 T1 |
+| teks di adegan 3D menempel bidang nyata atau datar di depan; tanpa kata ganda di monitor | r7, contoh gagal 15; kartu 87 T1 |
+| kata pengantar kecil menempel di tepi kata hero | r7, contoh gagal 17; kartu 83 T3b, kartu 87 T4 |
+| kedalaman lewat fokus | kartu 87 T3 (dilihat bergerak 19 Nov); D-475 skill-dev-journey |
+
+## `pustaka/contoh-gagal/README.md` 13–17
+- Frame dari `projects/skill-development-journey-20261116/out/varian-A_r7.mp4` (25,3; 46,5; 75,0; 78,8; 82,7 dtk), dipilih 19 Nov 2026 sesuai instruksi Irfan "tambah 5 entri dari r7".

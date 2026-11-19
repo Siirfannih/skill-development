@@ -61,3 +61,17 @@ Tiga frame dari video talking head + kinetic typography (kiblat kartu 83). Ketig
 
 - **Bukan pelajarannya:** "coral dilarang" atau "efek per huruf dilarang". Masalahnya atribut yang tidak punya alasan di adegan ini.
 - **Lantai terkait:** A1, A6, A7; sistem desain (`templates/sistem-desain/README.md`: satu peran teks = satu ukuran).
+
+## 13–17 · Skill-dev journey r7: teknik kartu dipakai tanpa syaratnya
+Lima frame dari `varian-A_r7` (talking head + adegan UI dan 3D, kiblat kartu 83 dengan pinjaman 85 dan 87). Kartu diringkas menjadi satu baris angka di brief pekerja; teknik dipakai, tetapi kondisi yang membuatnya bekerja di video asli tidak ikut terbawa.
+
+| Gambar | Yang salah | Kondisi yang membuatnya gagal | Yang seharusnya |
+|---|---|---|---|
+| ![](13-narasi-di-prompt.jpg) | Kata narasi "template." diketik di kolom prompt Claude Code. | Isi kolom prompt terbaca sebagai perintah yang diketik pengguna, bukan ucapan. | Narasi sebagai teks layar di luar isi UI; kolom prompt hanya berisi yang memang diketik. |
+| ![](14-kaca-di-dinding-terang.jpg) | "langganan" putih di atas kemeja bermotif, pil kaca hampir tidak terlihat di dinding abu-biru terang. | Teknik kata di dada (kartu 83 T4) butuh pakaian polos; kaca butuh latar gelap atau foto berwarna di belakangnya (kartu 63 T4). Keduanya tidak ada di footage ini. | Lembar kondisi footage dibaca dulu: pakaian bermotif → kata di samping kepala; latar terang → teks gelap atau bidang padat, bukan kaca. |
+| ![](15-teks-melayang-di-3d.jpg) | "menurut" melayang di udara di samping kaki monitor di adegan 3D, sementara monitor menampilkan caption timeline "menurut kalian": kata yang sama dua kali. | Teks tanpa bidang di adegan 3D tidak punya kedalaman yang terbaca; caption di monitor menggandakan teks layar. | Teks menempel di bidang nyata adegan (dinding, layar) atau datar di lapis terdepan (kartu 87 T1); satu kata tampil satu kali. |
+| ![](16-punchline-di-kotak.jpg) | Punchline "PROFESIONAL" tampil di kotak video hijau kecil di dalam postingan IG. | Slab warna kartu 85 bekerja karena memenuhi layar dan memotong ke luar footage; di kotak kecil skala punchline hilang. Syarat ini tidak ikut di ringkasan satu baris. | Punchline keluar ke layar penuh (kartu 85 T1), lalu kembali ke tampilan IG. |
+| ![](17-frasa-terpisah.jpg) | "SKILL" kecil di kiri atas, jauh dari "GRATIS" besar di slab biru. | Kata pengantar kecil di kartu asli menempel di sudut kata hero (kartu 83 T3b); di sini jaraknya membuat dua pesan. | Kata pengantar menempel di tepi kata hero, atau keduanya satu baris. |
+
+- **Bukan pelajarannya:** "kaca dilarang", "teks di adegan 3D dilarang", "slab biru dilarang", atau "jangan pakai UI". Tekniknya sah; yang gagal adalah memakainya tanpa memeriksa apakah kondisi footage sama dengan kondisi di video asli.
+- **Lantai terkait:** A1, A2, A7; `guide/teks/GUIDE.md` §Teks di dalam tampilan aplikasi dan adegan 3D.
