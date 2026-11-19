@@ -1,6 +1,6 @@
 # LAPORAN · video perkenalan v6, final (19 Nov 2026)
 
-**Final (disetujui Irfan 19 Nov):** `hasil/video-perkenalan_v6_final.mp4` (Aware → Relax). Cadangan tanpa musik, untuk dipakai bila musik dibisukan IG: `hasil/video-perkenalan_v6_final_tanpa-musik.mp4`. 1080×1920, 30 fps, 2006 f (66,87 dtk), H.264 CRF 16, AAC 320k, −16,4 LUFS, puncak −0,87 dBFS.
+**Final (disetujui Irfan 19 Nov, render ulang v2 sesudah perbaikan narasi):** `hasil/video-perkenalan_v6_final.mp4` (Aware → Relax). Cadangan tanpa musik, untuk dipakai bila musik dibisukan IG: `hasil/video-perkenalan_v6_final_tanpa-musik.mp4`. 1080×1920, 30 fps, 2006 f (66,87 dtk), H.264 CRF 16, AAC 320k. Dengan musik −16,2 LUFS, tanpa musik −16,4 LUFS; puncak keduanya −0,8 dBFS. Kredit musik tidak dimasukkan ke video; teksnya ada di `KREDIT.md` untuk caption.
 Satu file draf menggantikan master A/B Otis di §7.5, karena musik dibatalkan (keputusan Irfan).
 
 ## Yang dikerjakan
@@ -32,13 +32,17 @@ Satu file draf menggantikan master A/B Otis di §7.5, karena musik dibatalkan (k
 7. Peran SFX baru: `tick-hero`, `riser-slam`, dan `hantam-sub-hp` (hantam-sub + saturasi tengah agar terdengar di speaker HP). Sumbernya library SFXIrfan (Epidemic); berkasnya ada di `kerja/sfx_extra/`.
 8. Matte RVM dikerjakan di setengah resolusi (CPU dibagi dengan agen lain). Disk bersama sempat penuh, jadi matte dibagi dua file. Tidak ada file milik orang lain yang dihapus.
 
-## Masalah yang diketahui (belum diperbaiki di draf ini)
-- f1650–1660: narasi "banyak tips" sempat menumpuk dengan "terkait produk" selama ±0,3 dtk.
-- f1990–1996: "dan aku akan" keluar sambil profil mulai di-zoom, jadi menimpa header sebentar.
-- Cutout #15 masih memuat kursi gaming hitam (matte RVM).
+## Perbaikan sesudah final pertama (19 Nov, render ulang)
+- f1636–1660 (#20): "banyak tips" sekarang keluar saat "terkait produk" masuk (f1636). Sebelumnya ia masih keluar di slot yang sama saat "yang aku launching" masuk, jadi menumpuk ±0,3 dtk. Caranya: `keluar` per item di `Narasi`.
+- f1990–1997 (#23): narasi "dan aku akan / memperkenalkan diri" sekarang ikut transform menyelam, jadi terbawa keluar bersama header dan tidak menimpanya.
+- Bukti: `qc/fix_sebelum/`, `qc/fix_sesudah/` (still Remotion) dan `qc/final_v2/sheet.jpg` (frame f1636–1661 dan f1990–1996 dari MP4 final, termasuk sambungan matte f1660).
+- Kedua master di-mux ulang dari `kerja/render/video_bisu_v2.mp4`; audio sama dengan final pertama.
+
+## Masalah yang diketahui
+- Cutout #15 masih memuat sayap kursi gaming (matte RVM). Sudah dicoba otomatis tiga cara: zona geometris, model panoptik (Mask2Former COCO), dan human parsing (SegFormer clothes) + filter abu (`alat/kursi.py`, `qc/kursi/`). Ketiganya menganggap kursi hitam sebagai kaos, dan hasilnya memotong bahu atau melubangi kaos, lebih buruk dari kursinya. #15 tetap memakai matte asli. Bersih penuh butuh rotoscope manual (±114 frame) atau plate tanpa kursi.
 
 ## Musik: Aware → Relax (pilihan Irfan, disetujui)
-**File:** `hasil/video-perkenalan_v6_final.mp4` (gambar sama dengan draf, `-c:v copy`). −16,2 LUFS, puncak −0,8 dBFS. Kredit caption: `KREDIT.md`.
+**File:** `hasil/video-perkenalan_v6_final.mp4` (gambar dari render v2, `-c:v copy`). −16,2 LUFS, puncak −0,8 dBFS. Kredit caption: `KREDIT.md`.
 
 | Bagian | Sumber | Frame | Level sesudah duck | Kenapa di situ |
 |---|---|---|---|---|

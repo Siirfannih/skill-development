@@ -13,9 +13,10 @@
 | Cue SFX + mix (suara tidak diubah) | selesai | `alat/mix.py`, `kerja/mix/cues.json`; 72 cue, 1,08 cue/dtk, −16,4 LUFS, puncak −0,87 dBFS |
 | Gerbang audio HP | 60/72 cue terdengar, 0 kasar | `audio_phone.py --root kerja/mix` |
 | Render penuh 1080p + mux | selesai (93 menit) | `hasil/video-perkenalan_v6_final_tanpa-musik.mp4`, Drive `…/hasil` |
+| Perbaikan narasi #20 dan #23 + render ulang | selesai (88 menit), di Drive | `qc/fix_sesudah/`, `qc/final_v2/sheet.jpg`, `kerja/render/video_bisu_v2.mp4` |
 | Musik Aware → Relax (pilihan Irfan) | final, disetujui Irfan | `alat/musik.py`, `hasil/video-perkenalan_v6_final.mp4`, `KREDIT.md` |
 
 ## Belum / perlu keputusan
-- (opsional, butuh render ulang ±93 menit) 3 masalah visual kecil di LAPORAN "Masalah yang diketahui".
+- Kursi gaming di #15: perlu rotoscope manual bila ingin bersih (D18).
 - Reel "Ini Irfan" resolusi penuh untuk menyelam di #23 (sekarang tile 623×834).
 - 12 cue yang tertutup kata di model speaker HP (lihat `--list`), terutama hantam ULANGI f18 yang menumpuk dengan suara keras "ulangi".

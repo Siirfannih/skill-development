@@ -28,7 +28,7 @@ python3 alat/kepala.py                                                          
 cd remotion
 node_modules/.bin/tsc --noEmit -p .
 TO=180000 node stills.mjs ../qc/still 0.5 20 60 125 ...      # audit still
-CONC=2 node render.mjs ../kerja/render/video_bisu.mp4 1      # render penuh bisu, H.264 CRF 16
+CONC=2 node render.mjs ../kerja/render/video_bisu_v2.mp4 1   # render penuh bisu (v2: sesudah perbaikan narasi #20/#23), H.264 CRF 16
 ```
 
 ## 4. Audio
@@ -48,6 +48,6 @@ python3 ~/work/skill-development/claude/motion-graphic/scripts/audio/audio_phone
 
 ## 5. Mux
 ```bash
-ffmpeg -i kerja/render/video_bisu.mp4 -i kerja/mix/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 320k -shortest hasil/video-perkenalan_v6_final_tanpa-musik.mp4
-ffmpeg -i kerja/render/video_bisu.mp4 -i kerja/mix_musik/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 320k -shortest hasil/video-perkenalan_v6_final.mp4
+ffmpeg -i kerja/render/video_bisu_v2.mp4 -i kerja/mix/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 320k -shortest hasil/video-perkenalan_v6_final_tanpa-musik.mp4
+ffmpeg -i kerja/render/video_bisu_v2.mp4 -i kerja/mix_musik/mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 320k -shortest hasil/video-perkenalan_v6_final.mp4
 ```

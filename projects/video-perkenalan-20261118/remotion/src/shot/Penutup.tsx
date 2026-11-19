@@ -133,8 +133,12 @@ export const S23: React.FC = () => {
         <span style={{background: `linear-gradient(100deg, ${C.biru} 10%, ${C.biruMuda} 90%)`, WebkitBackgroundClip: 'text', backgroundClip: 'text', color: 'transparent', padding: '0 0.12em'}}>hai!</span>
       </Hero>
       <Blok k={kata([212, 213], 'R2')} x={540} y={770} al="c" tema="terang" keluar={1876}/>
-      <Narasi tema="terang" items={[{k: kata([214, 215])}, {k: kata([216, 217])}, {k: kata([218, 219])}, {k: kata([220], 'R2')}, {k: kata([221, 222, 223])}, {k: kata([224, 225])}, {k: kata([226, 227, 228])}]}
-        slots={[{x: 60, y: 200}, {x: 60, y: 300}]} akhir={1990}/>
+      {/* narasi ikut transform menyelam (f1992+) supaya terbawa keluar bersama header, tidak menimpanya */}
+      <div style={{position: 'absolute', inset: 0, transformOrigin: `${t0.x + TW / 2}px ${t0.y + TH_ / 2}px`,
+        transform: g >= 1992 ? `translate(${lerp(0, 540 - t0.x - TW / 2, selam)}px, ${lerp(0, 960 - t0.y - TH_ / 2, selam)}px) scale(${lerp(1, 5.5, selam)})` : undefined}}>
+        <Narasi tema="terang" items={[{k: kata([214, 215])}, {k: kata([216, 217])}, {k: kata([218, 219])}, {k: kata([220], 'R2')}, {k: kata([221, 222, 223])}, {k: kata([224, 225])}, {k: kata([226, 227, 228])}]}
+          slots={[{x: 60, y: 200}, {x: 60, y: 300}]} akhir={1990}/>
+      </div>
       <Hero t="ULANGI" x={540} y={1000} size={330} mulai={1987} darat={1992} mode="slam" tema="terang" warna={C.hitam} glow={false}/>
       <Blok k={kata([230])} x={540} y={1200} al="c" tema="terang"/>
       <div style={{position: 'absolute', inset: 0, background: '#FFFFFF', opacity: bloom}}/>

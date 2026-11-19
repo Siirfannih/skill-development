@@ -134,7 +134,8 @@ export const S20: React.FC = () => {
         })}
       </>}
       atas={<>
-        <Narasi items={[{k: kata([179, 180, 181])}, {k: kata([182], 'R2')}, {k: kata([183, 184], 'R2')}, {k: kata([185, 186, 187])}, {k: kata([190, 191, 192])}]}
+        {/* "banyak tips" keluar saat "terkait produk" masuk (f1636), bukan saat "yang aku launching" masuk di slot yang sama */}
+        <Narasi items={[{k: kata([179, 180, 181])}, {k: kata([182], 'R2')}, {k: kata([183, 184], 'R2'), keluar: 1636}, {k: kata([185, 186, 187])}, {k: kata([190, 191, 192])}]}
           slots={[{x: 70, y: 1440}, {x: 70, y: 1560}]}/>
         <Blok k={kata([188, 189])} x={1010} y={1290} al="r" keluar={1652}/>
       </>}

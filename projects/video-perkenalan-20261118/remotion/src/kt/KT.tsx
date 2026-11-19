@@ -78,7 +78,7 @@ export const Blok: React.FC<{
 };
 
 export type Slot = {x: number; y: number; al?: 'l' | 'c' | 'r'};
-export type ItemNarasi = {k: Kata[]; baris?: number[]; tumpuk?: boolean; slot?: number; size?: number};
+export type ItemNarasi = {k: Kata[]; baris?: number[]; tumpuk?: boolean; slot?: number; size?: number; keluar?: number};
 
 /** Narasi berurutan: blok bergantian di slot (A, B, …); blok i keluar saat blok i+2 masuk → maks 2 blok narasi di layar. */
 export const Narasi: React.FC<{items: ItemNarasi[]; slots: Slot[]; tema?: Tema; drift?: number; belakang?: boolean; akhir?: number}> = ({items, slots, tema = 'gelap', drift, belakang, akhir}) => (
@@ -86,7 +86,8 @@ export const Narasi: React.FC<{items: ItemNarasi[]; slots: Slot[]; tema?: Tema; 
     {items.map((it, i) => {
       const s = slots[(it.slot ?? i) % slots.length];
       const nxt = items[i + 2];
-      const keluar = nxt ? Math.min(nxt.k[0].f - 1, akhir ?? Infinity) : akhir;
+      // keluar per item menimpa aturan i+2 (dipakai bila animasi keluar 7 f akan menumpuk dengan blok yang masuk di slot yang sama)
+      const keluar = it.keluar ?? (nxt ? Math.min(nxt.k[0].f - 1, akhir ?? Infinity) : akhir);
       return <Blok key={i} k={it.k} x={s.x} y={s.y} al={s.al ?? 'l'} tema={tema} baris={it.baris} tumpuk={it.tumpuk} keluar={keluar} drift={drift} size={it.size} belakang={belakang}/>;
     })}
   </>

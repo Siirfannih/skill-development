@@ -21,3 +21,5 @@ Keputusan Irfan (19 Nov 2026) yang menimpa `sumber/EDITING-GUIDELINE-FINAL.md` a
 | D15 | Relax berhenti f1990, sebelum slam ULANGI, tidak fade sampai f2006. | Slam dan hantaman f1992 butuh ruang. Loop kembali ke Aware tanpa dua lagu bertumpuk. |
 | D16 | Level musik ditetapkan sesudah duck (yang benar-benar terdengar di bawah suara). Bagian tengah Relax (sumber 37–54 dtk, aslinya −7 dB) hanya diturunkan 0,5 LU dari bagian depan. | Supaya bed tidak hilang di #17–#21 di speaker HP. |
 | D17 | Pelindung puncak: SFX dulu (per cue, sama dengan draf), musik mengalah sesudahnya (blok 10 ms). | Gain SFX tidak boleh berubah hanya karena musik ditambahkan. |
+| D18 | #15 tetap memakai matte RVM asli; kursi gaming tidak dibuang. | Tiga percobaan otomatis (`alat/kursi.py`, pratinjau `qc/kursi/`) memotong bahu atau melubangi kaos. Kursi hitam dan kaos hitam tidak terpisahkan oleh model yang ada. |
+| D19 | `Narasi` mendapat `keluar` per item; di #23 narasi dibungkus transform menyelam. | Dua tumpukan teks dari laporan final pertama, diperbaiki tanpa mengubah aturan slot di shot lain. |
