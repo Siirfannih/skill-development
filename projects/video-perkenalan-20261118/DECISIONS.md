@@ -29,4 +29,4 @@ Keputusan v6 ada di `arsip_v6/DECISIONS.md` (tidak berlaku lagi untuk visual).
 ## Usul ke Irfan
 | ID | Tanggal | Usul | Status |
 |---|---|---|---|
-| U-001 | 19 Nov | Gerak kamera narasi lebih terlihat (DA): dorong 1,08 / tarik 1,00 bergantian + wajah digeser ke tengah saat zoom. Sudah diterapkan di render 1; bisa dikembalikan ke versi preview bila Irfan tidak suka. | Ditawarkan |
+| U-001 | 19 Nov | Gerak kamera narasi lebih terlihat (DA): dorong 1,08 / tarik 1,00 bergantian + wajah digeser ke tengah saat zoom. Sudah diterapkan di render 1. | Diterima Irfan 20 Nov ("Keep new camera") |
