@@ -114,3 +114,6 @@ Di awal video salin `templates/TAHAP.md` ke `projects/<proyek>/TAHAP.md`. `pytho
 ## Rujukan teknis
 
 Persona, gerbang 0–12, peran Sutradara/Editor, struktur folder, dan kapan membaca cabang ada di `references/alur-teknis.md` (§1–7). Jangan membacanya utuh di awal sesi: `TAHAP.md` proyek menyebut bagian mana yang dibuka di tiap langkah (`templates/TAHAP.md`, `scripts/juri/tahap.py`).
+
+- **Rekaman talking head mentah → paket untuk editor manusia** (timeline ber-timecode, rough cut, aset PNG, storyboard, animatic): `references/selects-editor.md` + `scripts/selects/`.
+- **Color grading footage**: `references/grade.md` + `scripts/gate/grade_ukur.py`.

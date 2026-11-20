@@ -90,6 +90,10 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Suara asli tidak pernah diturunkan atau…" | Irfan 16 Nov, jensen-pain-suffering v1→v3 |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Bila detik awal terasa kurang terdengar,…" | Irfan 16 Nov, jensen-pain-suffering v3 → v4 |
 | §Cek cepat · "Backsound terbaca melankolis/sedih padahal brief tidak?…" | gagal: Behindwork sesi awal |
+| "Bila klip dipilih dari rekaman mentah yang punya take ulang…" | Irfan 20 Nov: "sekarang aku bener bener membuka diri bener bener membuka diri"; transkrip sumber menelan take 1 ke kata "ingin" 2,34 dtk; proyek kegagalan-eps01 (talking head mentah 8:20 → paket editor), 20 Nov 2026 |
+| "Bila dua klip berurutan diambil dari ucapan yang bersambung…" | Irfan 20 Nov: "How terpotong jadinya if i fail"; celah 414,70–414,80 membuang "how"; proyek kegagalan-eps01 (talking head mentah 8:20 → paket editor), 20 Nov 2026 |
+| "Bila suara dipotong dari sumber yang noise floor-nya sudah rendah…" | Irfan 20 Nov: "kenapa audionya rasanya mendem ya? padahal audio aslinya jernih"; afftdn −9…−12 dB di 8–16 kHz + AAC dua kali, noise floor sumber −55 dB; proyek kegagalan-eps01 (talking head mentah 8:20 → paket editor), 20 Nov 2026 |
+
 
 ## `guide/gerak/GUIDE.md`
 
@@ -161,6 +165,11 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §Cara memutuskan · bubble sapaan tokoh | Irfan 18 Nov skill-dev-journey ("buble chat … seolah olah karakternya memperkenalkan diri") |
 | §Cara memutuskan · maskot = siluet logo + warna merek asli | Irfan 18 Nov skill-dev-journey (Gemini "seperti logo aslinya") |
 | §Cara memutuskan · panah goresan / tulisan tangan | Irfan 18 Nov skill-dev-journey ("efek panahan … handwriting … jangan memaksa") |
+| "Bila objek menunjuk, mengisi, atau menimpa objek lain…" | Irfan 20 Nov: centang meleset dari kotak checklist (dengan tangkapan layar); proyek kegagalan-eps01 (talking head mentah 8:20 → paket editor), 20 Nov 2026 |
+| "Bila footage di-grade hangat-dingin…" | Uji 5 varian grading, 20 Nov: midtone hangat membuat dinding abu-abu jadi coklat; proyek kegagalan-eps01 (talking head mentah 8:20 → paket editor), 20 Nov 2026 |
+| "Bila footage ruangan redup akan ditonton lewat platform…" | Irfan 21 Nov (screenshot preview Drive): "hasilnya emang jadi pecah dan noise ya? … pakai collor asli bawaan kamera"; look grain 3 + hitam diangkat, proyek kegagalan-eps01 |
+| "Bila bayangan didorong ke teal/biru…" | Uji rantai grading dari Irfan, 20 Nov: kanal merah bayangan 0,002, median luma 0,214 → 0,089, hue kulit 14,5° → 20,6°; proyek kegagalan-eps01 (talking head mentah 8:20 → paket editor), 20 Nov 2026 |
+
 
 ## `pustaka/PETA.md`
 
@@ -979,3 +988,28 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 
 ## `pustaka/contoh-gagal/README.md` 13–17
 - Frame dari `projects/skill-development-journey-20261116/out/varian-A_r7.mp4` (25,3; 46,5; 75,0; 78,8; 82,7 dtk), dipilih 19 Nov 2026 sesuai instruksi Irfan "tambah 5 entri dari r7".
+
+## `references/selects-editor.md`
+
+| Aturan | Asal-usul |
+|---|---|
+| seluruh file | Alur kerja sesi proyek kegagalan-eps01 (talking head mentah 8:20 → paket editor), 20 Nov 2026: timeline CSV/JSON ber-TC drop-frame untuk editor, rough cut, mix, 46 aset PNG, storyboard 28 frame, animatic; Irfan 20 Nov menilai alurnya lebih baik dan meminta repo memakainya |
+| butir 2, 12 (take utuh, verifikasi rakitan) | Irfan 20 Nov: kata dobel di klip 17 dan "how", "sehingga", "share", "dan", "finish" terpotong di animatic v2 |
+| butir 5 (jeda baris sendiri) | Irfan 20 Nov: "dari anything ke and itsoke kecepetan kasih jeda dulu" |
+| butir 10 (cek komposit aset) | Irfan 20 Nov: latar efek di atas wajah + centang meleset |
+| butir 12 (unggah) | Irfan 20 Nov: "aku ga bisa cek video mp4 darisini jadi always upload ke drive claude edit" |
+
+## `references/grade.md`
+
+| Aturan | Asal-usul |
+|---|---|
+| butir 4–5, takaran grain | Irfan 21 Nov: grading pecah di preview Drive → dibatalkan; render penuh 8:20 padahal yang dipakai 70 dtk ("kamu cuma perlu render video yang mau diedit saja") |
+| seluruh file | Permintaan grading film look Irfan 20 Nov, proyek kegagalan-eps01 (talking head mentah 8:20 → paket editor), 20 Nov 2026; `eq`/`noise`/`vignette` 8-bit dicek dengan hitungan auto_scale ffmpeg 20 Nov 2026 |
+
+## `scripts/selects/*`, `scripts/gate/grade_ukur.py`
+
+| Aturan | Asal-usul |
+|---|---|
+| `rakitan_cek.py` | Divalidasi 20 Nov pada proyek kegagalan-eps01 (talking head mentah 8:20 → paket editor), 20 Nov 2026: rakitan v3 (dikeluhkan Irfan) vs v4 (diperbaiki) |
+| `timeline.py`, `cue_sumber.py` | Diangkat dari skrip proyek yang sama; TC identik dengan timeline proyek, cue setara mix v4 (±0,1 dtk) |
+| `grade_ukur.py` | Diangkat dari ukuran varian grading proyek yang sama |
