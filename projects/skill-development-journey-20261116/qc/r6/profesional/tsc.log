@@ -1,4 +1,0 @@
-Command: npx tsc --noEmit -p .
-Working directory: remotion/
-Exit code: 0
-Compiler output: none
