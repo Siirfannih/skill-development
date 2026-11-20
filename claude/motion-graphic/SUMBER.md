@@ -295,6 +295,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §3. Alat & pipeline produksi · "Glow/blend dirender di dalam lapisan; compose…" | gagal: bdf26 v10 +4 kecerahan |
 | §3. Alat & pipeline produksi · "Audio: mixer Python. Peta audio dibuat…" | Irfan 16 Nov |
 | Rakit lego · kecepatan | Uji 16 Nov |
+| Rakit lego · "Lapisan yang harus tahu letak orang atau wajah…" | Irfan 20 Nov: lapisan persepsi dipasang dan diuji di PC kerja, lalu diminta dicatat supaya sesi baru tahu cara pakainya |
 
 ## `references/camera-transition.md`
 
@@ -620,6 +621,19 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | """"Ukur frame master tempat tiap lapisan ber-alpha tampil…" | Irfan 18 Nov: ya; kasus skill-dev-journey: lapisan tampil 0-2 frame terlambat atau beda panjang dari rencana, lolos semua audit lama |
 | compose.py validate · klip dasar < 2 frame | Irfan 18 Nov: ya; kasus skill-dev-journey |
 | render.sh mode lego · gerbang 9 | Irfan 18 Nov: ya; kasus skill-dev-journey |
+
+## `references/persepsi.md` dan `scripts/lego/persepsi.py`
+
+| Aturan | Asal-usul |
+|---|---|
+| tiga alat (RVM, MediaPipe, BiRefNet) dan kegunaannya | Irfan 20 Nov: brief pemasangan lapisan persepsi untuk komponen Remotion (teks di belakang kepala, glow tepi badan, teks mengapit wajah); skrip dari brief, disalin apa adanya |
+| pemasangan, libEGL tanpa sudo | uji 20 Nov di PC kerja: MediaPipe gagal memuat `libEGL.so.1`; diatasi dengan `apt-get download` + `LD_LIBRARY_PATH` |
+| cek `cek.jpg` dengan mata | brief yang sama, langkah 6; uji `De0ueJFJSRk` 3 dtk: matte hanya orang, titik tepat, 81/90 frame berwajah (9 frame awal kursi kosong) |
+| BiRefNet tidak untuk frame tanpa orang; snippet frame pilihan | uji 20 Nov: `--birefnet` pada frame 0 (kursi kosong) memotong kursi; frame 30 memberi tepi rambut rapi |
+| perintah `alphamerge` → `subjek.mov` | uji 20 Nov: ProRes 4444 ber-alpha, 90 frame, dicek di atas latar magenta |
+| kamera dasar tidak ikut ke lapisan | diturunkan dari docstring `compose.py` (lapisan hanya digeser x/y), belum diuji dengan render |
+| goyang titik wajah dan saran penghalusan | ukuran `wajah.json` uji 20 Nov: hidung ±4 px/frame rata-rata, maks 29 px |
+| angka kecepatan | uji 20 Nov PC kerja 8 core 32 GB; angka VM cloud 2 core dari brief |
 
 ## `scripts/lego/lapisan.py`
 

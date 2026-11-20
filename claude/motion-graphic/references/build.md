@@ -37,6 +37,7 @@ Baca saat mulai build.
 3. **Visual/MG** per beat: komposisi transparan seukuran objeknya. Lapisan yang ikut gerak kamera 2.5D atau berubah skala dirender dengan gerak itu di dalamnya (frame penuh ber-alpha).
 4. `scripts/lego/lapisan.py <proyek> lapisan.json` merender lapisan yang berubah saja (cache sha1 isi+gaya) ke ProRes 4444 ber-alpha.
 5. `lego/lego.json` menyusun dasar + lapisan (t, x, y, gerak x/y) + mix audio; `compose.py lego.json --rentang a b` untuk QC cepat dan audit frame, lalu `render.sh <proyek> lego lego/lego.json` sekali di akhir (gerbang sama dengan `final`).
+Lapisan yang harus tahu letak orang atau wajah (teks di belakang kepala lewat cutout `subjek.mov`, glow tepi badan, teks mengapit wajah): `scripts/lego/persepsi.py` → `matte.mp4` + `wajah.json`, cara pakai di `persepsi.md`.
 Glow/blend dirender di dalam lapisan; compose hanya overlay alpha di RGB lalu satu konversi bt709, supaya warna tidak bergeser. Terukur: 4 dtk 1080×1920, kamera footage + 1 lapisan + audio dirakit dalam ±6 dtk di VM cloud.
 
 **Audio:** mixer Python. Peta audio dibuat dengan librosa + Demucs (§2). Di Remotion, hasil mix (satu WAV) diputar oleh **satu** komponen di root komposisi berpenanda `// audio-bus`; tidak ada `<Audio>` di dalam `<Sequence>` adegan, karena audio di situ berhenti saat adegan selesai dan ekor kata/SFX terpotong (`scripts/juri/audio_bus_check.py`, dijalankan `render.sh final`). Opsional: ekspor sesi REAPER `.RPP` dari `cues.json` supaya Irfan bisa menggeser SFX sendiri.
