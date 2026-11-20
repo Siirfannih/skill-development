@@ -62,6 +62,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/decision.md` | **Decision — memilih, memutuskan, dan kapan bertanya** — Baca saat harus memilih di antara beberapa pilihan (family, gaya teks, teknik, transisi), saat dua aturan terasa bertabrakan, atau saat ragu apakah perlu bertanya ke Irfan. |
 | `claude/motion-graphic/references/delivery-gate.md` | **Delivery Gate (wajib sebelum video ditunjukkan ke Irfan)** — Laporan PASS/FAIL ini dikirim bersama video. |
 | `claude/motion-graphic/references/direction.md` | **Direction — prinsip sutradara, family visual, elemen, warna** — Baca saat menentukan apa yang terjadi di setiap beat: tokoh, subjek, metafora, family visual, palet. |
+| `claude/motion-graphic/references/grade.md` | **Color grading footage dengan ffmpeg** — Dibuka saat footage (talking head, b-roll) perlu look tertentu. |
 | `claude/motion-graphic/references/hybrid-motion-standard.md` | **Standar Hybrid Motion (barrier minimum, bukan nilai absolut)** — Diekstrak dari video referensi acuan (GrokAgent/reference-videos/). |
 | `claude/motion-graphic/references/motion-mechanics.md` | **Mekanik gerak: kamera, transisi, cutout (logika dan cara kerja)** — Dibaca saat memilih gerak kamera atau transisi, bersama camera-transition.md. |
 | `claude/motion-graphic/references/orkestrasi.md` | **Orkestrasi: kamu memimpin, model lain yang mengulang** — Baca file ini sampai habis sebelum mengerjakan build, render, atau QC video. |
@@ -70,6 +71,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/persepsi.md` | **Persepsi — letak orang dan wajah di footage** — Baca saat adegan berfootage butuh tahu di mana orang atau wajahnya: teks atau kata hero di belakang kepala, glow di tepi badan, teks mengapit wajah, latar diganti atau diredupkan lewat matte, cutout s |
 | `claude/motion-graphic/references/revision-log.md` | **Revision log & RETRO** — Baca saat Irfan memberi revisi: catat dulu, baru kerjakan. |
 | `claude/motion-graphic/references/roles.md` | **Dua peran: Sutradara dan Editor (layer komunikasi)** — Dibaca di gerbang 0 setiap pekerjaan video. |
+| `claude/motion-graphic/references/selects-editor.md` | **Paket editor dari rekaman talking head mentah (selects)** — Dibuka saat bahannya rekaman mentah panjang (beberapa menit, banyak take ulang) dan keluarannya paket untuk editor manusia: timeline klip ber-timecode, rough cut, audio, aset motion, storyboard, dan animatic. |
 | `claude/motion-graphic/references/slop-catalog.md` | **Katalog slop (tanda yang pernah Irfan tolak)** — Dipakai untuk memindai, bukan melarang teknik. |
 | `claude/motion-graphic/references/smooth-motion.md` | **Smooth motion — resep motion blur, teks, dan kamera yang terbukti** — Baca saat membangun animasi teks, mengatur motion blur, atau saat Irfan bilang gerak "kurang smooth", "patah-patah", atau "kamera berantakan". |
 | `claude/motion-graphic/references/storyboard.md` | **Storyboard visual: dari script atau daftar potongan ke papan panel** — Baca di gerbang 4–5. Storyboard adalah gerbang review termurah: satu panel diperbaiki dalam menit, satu render dalam jam. |
@@ -144,6 +146,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/gate/audio_order.py` | Gerbang urutan sound design: tiap lapisan audio dikunci berurutan ke lapisan sebelumnya. |
 | `claude/motion-graphic/scripts/gate/caption_lines.py` | Hitung jumlah baris caption di render. Gagal bila ada caption > 2 baris (Lantai A1) atau terpotong di tepi. |
 | `claude/motion-graphic/scripts/gate/cut_check.py` | Gerbang potongan suara (gerbang 6, Lantai E23): sebelum suara dikunci, potongan harus bersih dari kata sampah dan diam saat pembicara berpikir — termasuk diam yang ditelan transkrip ke dalam durasi ka |
+| `claude/motion-graphic/scripts/gate/grade_ukur.py` | Ukur hasil color grading footage dengan angka sebelum dinilai dengan mata (`references/grade.md`). |
 | `claude/motion-graphic/scripts/gate/music_batch.py` | Gerbang: satu track musik tidak boleh dipakai untuk semua klip/babak dalam satu batch. |
 | `claude/motion-graphic/scripts/gate/pause_clean.py` | Gerbang jeda bersih (Lantai E23): saat pembicara berhenti/berpikir, stem suara tidak membawa dengung kamar, piring, klik, atau room tone kotor yang ikut dikeraskan. |
 | `claude/motion-graphic/scripts/gate/sfx_density.py` | Gerbang Lantai E24: SFX menandai momen cerita dan gerak yang terlihat, kepadatan dari kiblat, tanpa bunyi per kata dan tanpa spam. Hening yang disengaja boleh. |
@@ -174,6 +177,9 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/remotion/SmoothAudioClip.tsx` | SmoothAudioClip.tsx — audio motion-graphic §14.7 (Modul 2). |
 | `claude/motion-graphic/scripts/remotion/TeksBlok.tsx` | TeksBlok.tsx — satu blok teks KT sebagai lapisan lego ber-alpha (Lantai A9a, F26). |
 | `claude/motion-graphic/scripts/remotion/curves.ts` | curves.ts — gerak dirancang per gerak, bukan preset (Lantai B13a, 16 Nov 2026). |
+| `claude/motion-graphic/scripts/selects/cue_sumber.py` | Pindahkan cue (SFX, aset motion, titik musik) dari timeline lama ke timeline baru lewat WAKTU SUMBER. |
+| `claude/motion-graphic/scripts/selects/rakitan_cek.py` | Cek take dobel dan kata terpotong pada rakitan klip dari rekaman talking head mentah. |
+| `claude/motion-graphic/scripts/selects/timeline.py` | Timeline untuk editor dari rekaman talking head mentah (paket selects, `references/selects-editor.md`). |
 | `claude/motion-graphic/scripts/storyboard/board.py` | Storyboard visual: render panel HTML -> PNG, susun papan (pola kanvas Wonder), lalu periksa. |
 
 ## tools/ (perawatan repo)
@@ -205,6 +211,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/jadisatu-launch/` |  |
 | `projects/jadisatu-trojan-v4/` | Keputusan yang diambil sendiri · Trojan v4 |
 | `projects/jensen-pain-suffering/` | STATUS jensen-pain-suffering (orkestrasi.md §2, §9) · mulai dari STATUS.md |
+| `projects/kegagalan-eps01/` | Kegagalan eps. 01 · status · mulai dari STATUS.md |
 | `projects/pengganti-kita-sendiri/` | STATUS: Pengganti Kita Sendiri (@siirfannih) · mulai dari STATUS.md |
 | `projects/personal-brand-day-02/` | Ledger · Personal branding, konten kedua challenge |
 | `projects/skill-development-journey-20261116/` | STATUS · Skill Development journey (siirfan) · titik lanjut sesi baru · mulai dari STATUS.md |

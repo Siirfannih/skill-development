@@ -42,10 +42,14 @@ Ketika Irfan berkata "pastikan kamu bawa skill workflow-nya", artinya: bawa cara
 | 1 | Brief + bedah referensi | Tujuan, audiens, durasi, format, kondisi bisnis, batas waktu; breakdown referensi dengan angka dan timestamp | Setiap klaim tentang referensi bisa ditunjuk buktinya (file + detik) |
 | 2 | **Script** | Draft di chat (bukan file), diulang sampai Irfan bilang final | Lolos uji storyteller (§3) **dan** Irfan menyatakan final |
 | 3 | Storyboard 100% durasi | Per beat: waktu, aksi tokoh/subjek, teks, kamera, transisi | Lolos tabel kritik `motion-graphic/references/storyboard.md` §16.3, lalu disetujui Irfan |
-| 4 | **Audio** | VO → SFX → musik | Hanya dimulai setelah gerbang 2 dan 3 lolos |
-| 5 | Build | Kode/proyek per beat | Satu fungsi per beat; revisi mengubah kode yang ada, bukan membangun ulang |
-| 6 | QA | Contact sheet, cek audio, checklist playbook | Bagian gagal diperbaiki sebelum dikirim |
-| 7 | Kirim + posting | Video, caption, catatan penyimpangan | — |
+| 4 | **VO** (bila ada) | VO final | Hanya dimulai setelah gerbang 2 dan 3 lolos |
+| 5 | Build, lalu SFX → musik | Kode/proyek per beat; SFX dan musik disusun setelah visual lulus (`motion-graphic` Lantai F26) | Satu fungsi per beat; revisi mengubah kode yang ada, bukan membangun ulang |
+| 6 | QA | Contact sheet, cek audio (`audio_qa.py`, `voice_fidelity.py`), checklist playbook; rakitan klip ditranskrip ulang (`selects/rakitan_cek.py`) | Bagian gagal diperbaiki sebelum dikirim |
+| 7 | Kirim + posting | Video, caption, catatan penyimpangan; setiap video/audio hasil render diunggah ke Google Drive folder "Claude edit/<proyek>" dan link filenya diberikan | Irfan bisa membuka hasilnya tanpa membuka file lokal |
+
+**Rekaman talking head mentah** (Irfan merekam dulu, lalu klip dipilih): gerbang 2 adalah *paper edit*, yaitu klip per beat dipilih dari transkrip per kata (satu take utuh per kalimat) dan diuji storyteller seperti script; gerbang 3 storyboard per klip; gerbang 5 memakai rough cut, dan keluaran untuk editor manusia mengikuti `motion-graphic/references/selects-editor.md`. Instruksi Irfan untuk mengerjakan beberapa gerbang sekaligus berlaku untuk gerbang yang ia sebut; catat urutan yang dilompati di catatan penyimpangan.
+
+**Kirim lewat Drive:** unggah dengan `rclone copy <file> "gdrive:Claude edit/<proyek>/"` satu per satu (unggah paralel ke folder baru membuat folder kembar), ambil ID dengan `rclone lsjson` lalu beri link `https://drive.google.com/file/d/<ID>/view`. Jangan `rclone link`: perintah itu mengubah izin file menjadi "siapa pun yang punya link".
 
 **Kenapa urutannya begini:** setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Satu kalimat script yang salah bisa diperbaiki dalam 10 detik. Kalau kalimat yang sama sudah jadi VO, memperbaikinya berarti kredit terbuang. Kalau sudah jadi render, memperbaikinya butuh berjam-jam.
 
@@ -97,22 +101,19 @@ Tampilkan di chat. Jangan buat file sebelum final. Jangan menyatakan script "sia
 ## 5. Alat yang sudah terbukti (pengalaman teknis)
 
 - **Bedah video:** ffmpeg contact sheet (1–2 fps untuk gambaran umum, 6–10 fps untuk transisi), scene detection `select='gt(scene,0.3)'`, faster-whisper untuk transkrip dan timestamp per kata (berikan audio sebagai numpy array jika `av.open` error).
-- **Build motion:** After Effects 2026 di Mac lewat ExtendScript (osascript/Desktop Commander), satu fungsi per beat. Remotion/HTML+Three.js hanya jika Irfan memilihnya untuk proyek itu.
+- **Build motion:** ikuti `motion-graphic` (`scripts/juri/render.sh`, lego untuk video berfootage, Remotion/HTML). After Effects hanya bila Irfan memintanya (`tools/AFTER-EFFECTS.md`).
+- **Aset motion untuk editor:** HTML satu kanvas seukuran frame, tiap aset di posisi akhirnya, dirender Chromium headless sebagai PNG transparan (`--default-background-color=00000000`); dicek di still komposit sebelum dikirim.
+- **Paket editor dari rekaman mentah:** `motion-graphic/scripts/selects/` (`timeline.py` timeline + CSV ber-timecode, `cue_sumber.py` pindah cue lewat waktu sumber, `rakitan_cek.py` take dobel + kata terpotong).
+- **Color grading footage:** `motion-graphic/references/grade.md` + `scripts/gate/grade_ukur.py`; 2–4 varian diukur dan disandingkan sebelum render penuh.
 - **Audio:** ElevenLabs (VO/SFX) hanya setelah gerbang 3. Timestamp kata dari Whisper dipakai untuk sinkron teks.
-- **QA audio:** Gemini multimodal untuk menilai sinkron, emosi, dan kelelahan telinga.
+- **QA audio:** `motion-graphic/scripts/audio_qa.py`, `scripts/gate/voice_fidelity.py` (suara mendem dibanding sumber), `external/earshot`; Gemini multimodal bila tersedia untuk menilai sinkron, emosi, dan kelelahan telinga.
 - **Akses Mac:** minta akses folder `~/Proyek` saat butuh skill atau proyek lama. Baca bagian workflow-nya saja.
 
 ---
 
-## 6. Log kesalahan (tambahkan setiap ada yang baru)
+## 6. Asal-usul aturan
 
-| Tanggal | Proyek | Kesalahan | Aturan yang lahir |
-|---|---|---|---|
-| 2026-10-17 | Jadisatu launch | VO di-generate 3 kali (±7.300 kredit) sebelum script final dan storyboard ada | §2: audio hanya setelah gerbang 2 dan 3; tidak ada "VO sementara" |
-| 2026-10-17 | Jadisatu launch | Script dinyatakan siap padahal masih terasa AI slop ("ada yang jadi", "rasanya produktif"); saat merapikan draft Irfan, urutan diubah dan beberapa ide hilang | §3: uji storyteller, mempertajam tanpa menulis ulang, cocokkan ide per ide |
-| 2026-10-17 | Jadisatu launch | Membawa seluruh konteks Tuntunly (SFX, gaya teks G1–G7, musik per babak) ke proyek Jadisatu | §1: bawa pengalaman, bukan template |
-| 2026-10-17 | Jadisatu launch | Mulai build sebelum memuat skill workflow terbaru dari Mac | §2 gerbang 0 |
-| 2026-10-17 | Jadisatu launch | Membedah video yang salah tanpa memastikan dulu bahwa itu referensi yang dimaksud | §2 gerbang 1: sebutkan dalam satu kalimat "yang aku tangkap dari referensi ini adalah…" sebelum lanjut ke script |
+Kejadian yang melahirkan aturan di skill ini dicatat di `SUMBER.md` (bukan instruksi; dibuka hanya saat mengubah skill). Kesalahan baru: aturannya ditulis di bagian yang berlaku di atas, asal-usulnya di `SUMBER.md`.
 
 ---
 
