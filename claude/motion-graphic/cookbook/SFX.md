@@ -10,7 +10,7 @@ Kebutuhan bunyi tiap pola ditulis sebagai **famili** (karakter), bukan nama file
 - **Pola yang memakainya (94):** 01.T2, 02.T2, 02.T5, 03.T6, 04.T6, 05.T3, 17.T2, 17.T6, 18.T1, 18.T3, 19.T3, 19.T4, 20.T1, 20.T3, 21.T2, 22.T4, 23.T3, 24.T2, 24.T6, 25.T1, 25.T2, 25.T3, 25.T4, 26.T2, 26.T4, 26.T6, 27.T2, 28.T2, 28.T4, 30.T1, 30.T4, 31.T1, 31.T5, 33.T5, 34.T3, 34.T4, 35.T5, 36.T3, 38.T2, 38.T4, 38.T5, 40.T2, 40.T4, 44.T3, 44.T4, 45.T3, 46.T6, 47.T2, 47.T5, 55.T3, 57.T3, 58.T4, 59.T2, 59.T4, 60.T2, 60.T4, 61.T4, 61.T5, 62.T1, 62.T3, 63.T1, 63.T2, 63.T3, 63.T5, 65.T2, 65.T3, 67.T2, 67.T3, 67.T4, 68.T3, 69.T3, 69.T4, 71.T1, 71.T4, 72.T3, 72.T4, 73.T2, 74.T2, 74.T3, 74.T4, 77.T3, 78.T5, 79.T1, 79.T4, 80.T1, 80.T5, 81.T2, 83.T1, 87.T1, 87.T4, 88.T4, 90.T4, 91.T3, 92.T3
 - **SFXIrfan:** `Woosh.mp3`, `ES_Swooshes, Whoosh, Big, Cinematic`
 - **Epidemic lokal (PAKAI):** `air/designed-whoosh-soft-airy-073cf199.wav`, `air/swoosh-designed-light-c52cf22f.wav`, `air/whoosh-mids-16bb9f7c.wav`, `air/whoosh-soft-short-02-e62847da.wav`; Kenyset: nama file cocok `whoosh|swoosh|swish|woosh|spin`
-- **Cari:** `python3 scripts/audio/sfx_cari.py --famili air --out projects/<proyek>/sfx/kandidat` (kata kunci: "soft air whoosh", "smooth swoosh transition")
+- **Cari:** `python3 scripts/audio/sfx_cari.py --famili air --out projects/<proyek>/sfx/kandidat` (kata kunci: "subtle cloth movement fast", "low pass air whoosh", "soft fabric swish")
 
 ## `riser` · Riser & Reverse Swell
 
@@ -18,7 +18,7 @@ Kebutuhan bunyi tiap pola ditulis sebagai **famili** (karakter), bukan nama file
 - **Pola yang memakainya (30):** 05.T3, 07.T2, 07.T3, 07.T4, 17.T5, 20.T1, 23.T1, 24.T2, 25.T1, 26.T6, 28.T5, 30.T1, 33.T5, 34.T4, 34.T5, 35.T2, 36.T2, 37.T1, 38.T5, 49.T4, 55.T1, 56.T1, 56.T2, 58.T1, 58.T3, 61.T4, 67.T1, 67.T5, 71.T4, 71.T5
 - **SFXIrfan:** `ES_Designed, Riser, Transition, Fast, Short, Clean 01`
 - **Epidemic lokal (PAKAI):** `riser/riser-cinematic-reverse-glass-01-e53d5089.wav`, `riser/riser-cymbal-reverse-crescendo-02-566b642a.wav`, `riser/riser-reversed-pulse-f77f7b3f.wav`; Kenyset: nama file cocok `—`
-- **Cari:** `python3 scripts/audio/sfx_cari.py --famili riser --out projects/<proyek>/sfx/kandidat` (kata kunci: "reverse cymbal swell", "short riser transition")
+- **Cari:** `python3 scripts/audio/sfx_cari.py --famili riser --out projects/<proyek>/sfx/kandidat` (kata kunci: "warm synth swell short", "reverse cymbal swell")
 
 ## `impact` · Low Impact & Drop
 
@@ -26,7 +26,7 @@ Kebutuhan bunyi tiap pola ditulis sebagai **famili** (karakter), bukan nama file
 - **Pola yang memakainya (77):** 02.T4, 02.T6, 03.T2, 03.T6, 04.T6, 05.T1, 05.T5, 07.T2, 14.T4, 16.T1, 17.T5, 19.T1, 19.T3, 20.T4, 20.T5, 22.T1, 22.T2, 22.T4, 23.T3, 24.T2, 25.T5, 27.T1, 27.T3, 27.T5, 28.T3, 29.T3, 29.T5, 30.T1, 30.T2, 31.T2, 32.T3, 33.T2, 35.T2, 37.T1, 37.T4, 38.T1, 39.T3, 39.T4, 40.T3, 41.T1, 43.T3, 46.T1, 47.T5, 48.T5, 49.T2, 49.T4, 55.T1, 55.T4, 55.T5, 56.T1, 56.T2, 57.T2, 59.T1, 60.T2, 60.T4, 61.T2, 61.T4, 65.T2, 65.T4, 67.T1, 68.T6, 69.T1, 72.T3, 72.T4, 75.T1, 75.T5, 76.T3, 77.T1, 77.T5, 78.T1, 79.T1, 79.T5, 79.T6, 81.T1, 83.T3, 86.T3, 87.T3
 - **SFXIrfan:** `basmenyebar.mp3`, `Move.mp3`, `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`
 - **Epidemic lokal (PAKAI):** `impact/impact-cinematic-hit-stab-filter-tail-69deff59.wav`, `impact/impact-cinematic-hit-thud-thin-reverb-866b9c73.wav`, `impact/impact-sudden-heavy-percussive-hit-13b7690c.wav`; Kenyset: nama file cocok `—`
-- **Cari:** `python3 scripts/audio/sfx_cari.py --famili impact --out projects/<proyek>/sfx/kandidat` (kata kunci: "deep cinematic boom", "sub drop impact")
+- **Cari:** `python3 scripts/audio/sfx_cari.py --famili impact --out projects/<proyek>/sfx/kandidat` (kata kunci: "muffled bass thud transition", "soft bass drop sub", "deep cinematic boom")
 
 ## `stab` · Tonal Stab & Accent Note
 
@@ -50,7 +50,7 @@ Kebutuhan bunyi tiap pola ditulis sebagai **famili** (karakter), bukan nama file
 - **Pola yang memakainya (101):** 02.T4, 03.T1, 03.T3, 03.T4, 04.T5, 05.T2, 05.T6, 10-13.T1, 10-13.T3, 10-13.T4, 14.T1, 14.T5, 17.T5, 17.T6, 18.T1, 19.T2, 19.T3, 19.T5, 20.T3, 21.T3, 22.T6, 23.T4, 24.T3, 24.T5, 25.T5, 25.T6, 26.T5, 27.T6, 28.T3, 30.T1, 30.T3, 33.T1, 33.T2, 33.T5, 34.T1, 34.T3, 35.T3, 35.T5, 36.T1, 36.T4, 37.T2, 37.T3, 37.T5, 38.T3, 39.T1, 39.T5, 39.T6, 40.T1, 41.T2, 43.T5, 43.T6, 44.T4, 44.T6, 46.T4, 46.T5, 47.T3, 49.T2, 49.T3, 49.T5, 55.T1, 55.T3, 55.T4, 56.T3, 59.T3, 60.T3, 62.T4, 63.T1, 63.T3, 63.T5, 65.T3, 66.T1, 66.T2, 66.T3, 68.T1, 71.T1, 71.T2, 71.T3, 72.T1, 73.T1, 74.T2, 75.T1, 75.T4, 75.T5, 76.T1, 77.T2, 77.T3, 78.T4, 81.T1, 81.T3, 81.T4, 81.T6, 85.T1, 86.T2, 86.T4, 86.T5, 86.T6, 88.T5, 89.T4, 90.T1, 90.T3, 92.T6
 - **SFXIrfan:** `Pergantianfoto.mp3`, `Cutcontrastransision.mp3`, `Enter.mp3`, `Keyboardtyping.mp3`
 - **Epidemic lokal (PAKAI):** `mekanik/camera-shutter-release-nikon-f4-03-2c51b8ea.wav`, `mekanik/camera-sony-alpha-shutter-click-d8dd8d3d.wav`, `mekanik/keyboard-apple-key-press-single-d58cda3c.wav`, `mekanik/led-plastic-button-press-single-ab33e364.wav`, `mekanik/keyboard-laptop-key-press-single-f94a21b7.wav`; Kenyset: nama file cocok `mouse-click|ipad_click|app click|computer-mouse|keyboard|typing`
-- **Cari:** `python3 scripts/audio/sfx_cari.py --famili mekanik --out projects/<proyek>/sfx/kandidat` (kata kunci: "camera shutter single", "toggle switch click")
+- **Cari:** `python3 scripts/audio/sfx_cari.py --famili mekanik --out projects/<proyek>/sfx/kandidat` (kata kunci: "typewriter single key press", "mechanical switch single click", "35mm camera shutter single", "analog dial tick", "soft plastic tap single")
 
 ## `glitch` · Digital Glitch & Data Stutter
 
@@ -66,12 +66,12 @@ Kebutuhan bunyi tiap pola ditulis sebagai **famili** (karakter), bukan nama file
 - **Pola yang memakainya (18):** 02.T5, 05.T1, 18.T3, 18.T6, 19.T5, 20.T1, 20.T2, 25.T1, 25.T4, 25.T6, 31.T3, 32.T4, 35.T4, 48.T3, 55.T3, 75.T2, 80.T6, 88.T5
 - **SFXIrfan:** `documenter.mp3`
 - **Epidemic lokal (PAKAI):** `taktil/notepad-page-turn-single-ffd6737b.wav`, `taktil/paper-sheet-laminated-slide-01-91b5b50b.wav`, `taktil/sticky-tape-peel-off-surface-1705b78e.wav`, `taktil/magazine-glossy-page-turn-02-e72d46c1.wav`, `taktil/paper-friction-envelope-slide-a5da9fbb.wav`, `taktil/paper-letter-drop-on-table-02-cda39aae.wav`; Kenyset: nama file cocok `flipcard|paper`
-- **Cari:** `python3 scripts/audio/sfx_cari.py --famili taktil --out projects/<proyek>/sfx/kandidat` (kata kunci: "paper slide short", "photo drop on table")
+- **Cari:** `python3 scripts/audio/sfx_cari.py --famili taktil --out projects/<proyek>/sfx/kandidat` (kata kunci: "polaroid photo slide", "cardboard card flick", "crisp paper slide short", "magazine page turn fast")
 
 ## `ruang` · Room Tone & Analog Bed
 
-- **Karakter:** quiet warm room tone or projector hum, no hiss
+- **Karakter:** quiet warm room tone, projector hum or soft vinyl crackle bed, no harsh hiss
 - **Pola yang memakainya (0):** —
 - **SFXIrfan:** `ES_Ambience, Office, Designed, Busy Office`
 - **Epidemic lokal (PAKAI):** tidak ada; Kenyset: nama file cocok `—`
-- **Cari:** `python3 scripts/audio/sfx_cari.py --famili ruang --out projects/<proyek>/sfx/kandidat` (kata kunci: "room tone quiet", "film projector hum")
+- **Cari:** `python3 scripts/audio/sfx_cari.py --famili ruang --out projects/<proyek>/sfx/kandidat` (kata kunci: "subtle vinyl crackle loop", "8mm projector hum soft", "warm analog tape hiss")

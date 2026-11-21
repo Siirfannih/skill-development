@@ -11,14 +11,16 @@
       "serangan_min_ms": 150,
       "maks_dtk": 2.5,
       "cari": [
-        "soft air whoosh",
-        "smooth swoosh transition"
+        "subtle cloth movement fast",
+        "low pass air whoosh",
+        "soft fabric swish"
       ],
       "mixkit": [
         "whoosh",
         "swoosh"
       ],
-      "kenyset_regex": "whoosh|swoosh|swish|woosh|spin"
+      "kenyset_regex": "whoosh|swoosh|swish|woosh|spin",
+      "pilar": "transisi"
     },
     "riser": {
       "nama": "Riser & Reverse Swell",
@@ -29,13 +31,14 @@
       ],
       "maks_dtk": 4,
       "cari": [
-        "reverse cymbal swell",
-        "short riser transition"
+        "warm synth swell short",
+        "reverse cymbal swell"
       ],
       "mixkit": [
         "transition",
         "cinematic"
-      ]
+      ],
+      "pilar": "aksen"
     },
     "impact": {
       "nama": "Low Impact & Drop",
@@ -46,13 +49,15 @@
       ],
       "maks_dtk": 3,
       "cari": [
-        "deep cinematic boom",
-        "sub drop impact"
+        "muffled bass thud transition",
+        "soft bass drop sub",
+        "deep cinematic boom"
       ],
       "mixkit": [
         "boom",
         "impact"
-      ]
+      ],
+      "pilar": "transisi/aksen"
     },
     "stab": {
       "nama": "Tonal Stab & Accent Note",
@@ -68,7 +73,8 @@
       ],
       "mixkit": [
         "cinematic"
-      ]
+      ],
+      "pilar": "aksen"
     },
     "ui": {
       "nama": "Digital UI Pop & Tap",
@@ -86,7 +92,8 @@
         "pop",
         "click"
       ],
-      "kenyset_regex": "pop|bubble|plop|notif|message|mensaje|ping|bloop|button|confirm|tap|success|acceptation|erreur|game-start|shine|appearance|bright|ui-sound|ui_sci|ui-pop|ui-interface|text-sound|interface-digital|handy|tiktok|marimba"
+      "kenyset_regex": "pop|bubble|plop|notif|message|mensaje|ping|bloop|button|confirm|tap|success|acceptation|erreur|game-start|shine|appearance|bright|ui-sound|ui_sci|ui-pop|ui-interface|text-sound|interface-digital|handy|tiktok|marimba",
+      "pilar": "tick"
     },
     "mekanik": {
       "nama": "Click, Key & Shutter",
@@ -97,14 +104,18 @@
       ],
       "maks_dtk": 1.5,
       "cari": [
-        "camera shutter single",
-        "toggle switch click"
+        "typewriter single key press",
+        "mechanical switch single click",
+        "35mm camera shutter single",
+        "analog dial tick",
+        "soft plastic tap single"
       ],
       "mixkit": [
         "camera",
         "click"
       ],
-      "kenyset_regex": "mouse-click|ipad_click|app click|computer-mouse|keyboard|typing"
+      "kenyset_regex": "mouse-click|ipad_click|app click|computer-mouse|keyboard|typing",
+      "pilar": "tick"
     },
     "glitch": {
       "nama": "Digital Glitch & Data Stutter",
@@ -121,7 +132,8 @@
       "mixkit": [
         "glitch"
       ],
-      "kenyset_regex": "glitch|sci-fi|processing"
+      "kenyset_regex": "glitch|sci-fi|processing",
+      "pilar": "transisi"
     },
     "taktil": {
       "nama": "Tactile Paper & Object Foley",
@@ -132,27 +144,32 @@
       ],
       "maks_dtk": 2,
       "cari": [
-        "paper slide short",
-        "photo drop on table"
+        "polaroid photo slide",
+        "cardboard card flick",
+        "crisp paper slide short",
+        "magazine page turn fast"
       ],
       "mixkit": [
         "paper"
       ],
-      "kenyset_regex": "flipcard|paper"
+      "kenyset_regex": "flipcard|paper",
+      "pilar": "taktil"
     },
     "ruang": {
       "nama": "Room Tone & Analog Bed",
-      "deskripsi": "quiet warm room tone or projector hum, no hiss",
+      "deskripsi": "quiet warm room tone, projector hum or soft vinyl crackle bed, no harsh hiss",
       "centroid_hz": [
         40,
         2500
       ],
       "maks_dtk": 60,
       "cari": [
-        "room tone quiet",
-        "film projector hum"
+        "subtle vinyl crackle loop",
+        "8mm projector hum soft",
+        "warm analog tape hiss"
       ],
-      "mixkit": []
+      "mixkit": [],
+      "pilar": "bed"
     }
   }
 }

@@ -304,7 +304,11 @@ class SfxPolicyTests(unittest.TestCase):
         return [dict(t=t, peran="kartu_mendarat", alasan="kartu masuk terpisah",
                      file="/sfx/ui-pop.wav", dengar="clean UI pop") for t in times]
 
-    def _run_gate(self, cues):
+    BED = dict(t=0.0, dur=6.0, pilar="bed", peran="bed_ruang", alasan="pilar 1: tanpa hening digital",
+               file="/sfx/room-tone.wav", dengar="quiet room tone")
+
+    def _run_gate(self, cues, bed=True):
+        cues = ([dict(self.BED)] if bed else []) + list(cues)
         with tempfile.TemporaryDirectory() as folder:
             cue_path = Path(folder) / "cues.json"
             cue_path.write_text(json.dumps(cues))
@@ -314,6 +318,45 @@ class SfxPolicyTests(unittest.TestCase):
                     redirect_stdout(output), self.assertRaises(SystemExit) as exited:
                 sfx_density.main()
         return exited.exception.code, output.getvalue()
+
+    def _ticks(self, n, files=("/sfx/key-a.wav", "/sfx/key-b.wav"), rates=(0.96, 1.0, 1.04)):
+        return [dict(t=0.4 + i * 0.3, pilar="tick", peran="kt_tick", alasan="kata KT muncul",
+                     file=files[i % len(files)], rate=rates[i % len(rates)], dengar="soft key click") for i in range(n)]
+
+    def test_per_word_ticks_pass_when_labelled_tick_with_variation(self):
+        code, output = self._run_gate(self._ticks(14))
+        self.assertEqual(code, 0, output)
+
+    def test_ticks_without_variation_fail(self):
+        code, output = self._run_gate(self._ticks(14, files=("/sfx/key-a.wav",), rates=(1.0,)))
+        self.assertEqual(code, 1)
+        self.assertIn("tick tanpa variasi", output)
+
+    def test_tick_rate_outside_range_fails(self):
+        code, output = self._run_gate(self._ticks(6, rates=(0.8, 1.0)))
+        self.assertEqual(code, 1)
+        self.assertIn("playbackRate", output)
+
+    def test_per_word_without_tick_pilar_still_fails(self):
+        cues = [dict(t=0.4 + i * 0.3, peran="kata_muncul", alasan="kata", file="/sfx/key-a.wav", dengar="click")
+                for i in range(14)]
+        code, output = self._run_gate(cues)
+        self.assertEqual(code, 1)
+        self.assertIn("bunyi per kata", output)
+
+    def test_missing_or_short_bed_fails(self):
+        code, output = self._run_gate(self._cues([1.0, 3.0]), bed=False)
+        self.assertEqual(code, 1)
+        self.assertIn("pilar bed", output)
+        short = dict(self.BED, dur=2.0)
+        code, output = self._run_gate([short] + self._cues([1.0, 3.0]), bed=False)
+        self.assertEqual(code, 1)
+        self.assertIn("pilar bed", output)
+
+    def test_wood_tick_stays_forbidden(self):
+        code, output = self._run_gate(self._ticks(4, files=("/sfx/soft-wood-tap.wav", "/sfx/key-b.wav")))
+        self.assertEqual(code, 1)
+        self.assertIn("kayu", output)
 
     def test_same_role_same_file_passes_b08_and_b20_object_waves(self):
         for beat, times in (("B08", [0, 0.23, 0.46]), ("B20", [i * 0.65 for i in range(7)])):

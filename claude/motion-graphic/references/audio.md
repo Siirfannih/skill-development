@@ -119,7 +119,7 @@ Aturan:
 3. **Dilarang memakai bunyi sintetis/karangan sebagai SFX final.** Termasuk bank earshot `sfx_render`, sinus, dan noise generator. Bank earshot hanya untuk analisis/QA.
 4. **Gaya Apple motion** = rekaman UI nyata:
    - klik app/iPad/mouse;
-   - **keyboard digital (iPhone/Magic Keyboard), bukan tick/thock mekanik**;
+   - **tick per kata/UI (pilar 3) = klik impuls tunggal rekaman nyata** (tuts keyboard digital atau typewriter, saklar, shutter, dial); bukan thock kayu atau rentetan ketikan untuk tiap kata;
    - **whoosh "wave" halus** (swoosh udara lembut), bukan angin badai atau terowongan;
    - pop/notif iOS yang lembut.
 5. **VO tidak diberi reverb/ekor ruang buatan.** Narator TTS harus kering dan dekat; ekor ruang membuatnya terdengar menggema.
@@ -127,7 +127,7 @@ Aturan:
 ### 14.1 Hierarki mix
 1. **VO pemilik panggung**: VO narator kompresi ringan, +2 dB di 3 kHz. Suara sumber klip yang terukur bersih tidak diproses; rekaman sendiri di kamar dibersihkan jedanya (§14.6).
 2. **SFX penekan**: SFX besar jatuh di sela kata; dynamic EQ 200–500 Hz pada SFX saat VO; HPF 40 Hz bus SFX.
-3. **Musik pembangun emosi**: diletakkan tetap di bawah VO (level di §14.10), −4 dB di 3 kHz. **Tidak ada ducking kompresor 6–12 dB**: musik bergerak ≤ 1,5 dB saat kata diucapkan (anti-pumping) dan hanya naik di jeda panjang/antarbabak lewat automation ramp ≥ 250 ms. Alasan: musik yang sudah duduk di level yang benar tidak perlu dipompa, dan pompaan terdengar.
+3. **Musik pembangun emosi**: diletakkan tetap di bawah VO (level di §14.10), −4 dB di 3 kHz. **Dynamic ducking lewat automation, bukan kompresor**: musik turun saat dialog dan naik halus di jeda ≥ 0,3 dtk dan transisi visual, dengan ramp ≥ 250 ms dan lookahead ±250 ms; level di §14.10. Tidak naik-turun per kata, karena pompaan cepat terdengar.
 4. **Semua angka level ada di satu tempat: tabel §14.10.** Bagian lain tidak menulis angka level sendiri.
 
 ### 14.2 Musik: beberapa cue sesuai babak (tidak pernah satu bed dari awal sampai akhir)
@@ -271,9 +271,9 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
 
 | Visual | Bunyi (stok Irfan) | Catatan |
 |---|---|---|
-| Kata kunci berganti (triad), bukan tiap kata | `Kinetictypography(gunakansecaraacak)` (SFXIrfan) | tidak per kata; klik mouse hanya untuk kursor yang benar-benar mengklik |
+| Kata KT muncul (pilar 3, tick) | klik impuls tunggal famili `mekanik` (`FAMILI.md` §0), 2–4 varian + playbackRate 0,95–1,05 | satu tick per kata yang muncul; klik mouse hanya untuk kursor yang benar-benar mengklik |
 | Kata slam/penekanan | `v17_thud_1` (dentum pendek) | satu bunyi, bukan pop + sub |
-| Ketikan | `iphone-keyboard-typing`, satu rentang per kalimat yang diketik | keyboard digital, bukan thock mekanik |
+| Ketikan (teks yang benar-benar diketik) | satu rentang ketikan per kalimat (`iphone-keyboard-typing` atau typewriter, sesuai gaya) | bukan thock kayu |
 | Kursor/tombol ditekan | `mouse-click-290204` | |
 | Kartu/UI/agent muncul | `pop-up-notify-smooth-modern` | |
 | Kartu/tile mendarat | `soft-subtle-ui-pop` | |
@@ -296,12 +296,12 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
   - rumus: `sfxStart = camStart + round(0.28 × moveDur) − whooshPeakOffset`;
   - di cue, pakai `align:"peak"` + `peak` = detik puncak di file.
 - **Pop/klik kemunculan**: transien di +1…+2 f setelah skala melewati 0,6 (objek pertama kali terlihat jelas), bukan di frame 0.
-- **Stagger banyak item** (grid, barisan): item yang masuk terpisah (> 2 frame) masing-masing mendapat satu bunyi dari peran yang sama; item yang muncul bersamaan dalam ≤ 2 frame dihitung satu event. Maksimal 2 bunyi per 100 ms, dan dua bunyi berperan sama tidak boleh jatuh dalam 100 ms (The Gap `sync_cues.py`). Kata tidak berbunyi per kata; subtitle tidak berbunyi (Lantai E24).
+- **Stagger banyak item** (grid, barisan): item yang masuk terpisah (> 2 frame) masing-masing mendapat satu bunyi dari peran yang sama; item yang muncul bersamaan dalam ≤ 2 frame dihitung satu event. Maksimal 2 bunyi per 100 ms, dan dua bunyi berperan sama tidak boleh jatuh dalam 100 ms (The Gap `sync_cues.py`). Kata KT yang muncul mendapat tick per kata (pilar 3: varian berputar, playbackRate 0,95–1,05, level detail); subtitle bawah yang hanya berganti tidak berbunyi (Lantai E24).
 
 ### 14.9b Resep mix yang terbukti
 Dicek setiap mix:
 - **Tidak ada auto-gain atau kompresor yang menaikkan bed musik di jeda bicara**. Bed dibuat rata per babak dengan gain tetap; kenaikan di jeda panjang atau antarbabak hanya lewat automation tetap ber-ramp ≥ 250 ms (§14.1 butir 3), besarnya di tabel §14.10.
-- **Kejernihan suara dicapai dengan bed yang lebih rendah dan tetap**, bukan duck dalam: duck ≤ 1,5 dB saat bicara, ramp ≥ 250 ms (§14.1 butir 3). Duck −6 dB di v2 melanggar aturan anti-pumping ini.
+- **Kejernihan suara dicapai dengan musik yang turun saat dialog lewat automation** (§14.1 butir 3), bukan kompresor sidechain: ramp ≥ 250 ms, tidak per kata, naik lagi hanya di jeda ≥ 0,3 dtk dan transisi visual.
 - **Urutan proses**: normalisasi loudness musik dulu, baru envelope/duck. Bila duck dipasang sebelum normalisasi, normalisasi mengembalikan level yang di-duck (v2 awal: duck −6 dB hilang, gain musik −7,3 → −4,0).
 - **SFX diratakan di puncak bunyinya** (`align: peak` default): file dengan awalan sunyi (`pin.mp3` 0,41 dtk, `basmenyebar` memuncak di 1,27 dtk) berbunyi terlambat bila ditaruh di onset.
 - **Boom sub-bass tidak terdengar di speaker HP** (high-pass ±300 Hz): untuk momen yang harus terdengar di HP, pilih hit yang punya isi 300 Hz–3 kHz; sub murni hanya "terasa" di headphone.
@@ -326,7 +326,8 @@ Lulus bila semua terpenuhi:
 | VO / suara asli per blok | ≥ −17 LUFS, tidak pernah lebih pelan dari sumbernya, crest turun ≤ 2 dB (`gate/voice_level.py`) |
 | Klip narasumber per blok | sama dengan baris di atas; antarnarasumber disamakan dengan gain naik, bukan turun |
 | Musik di bawah VO | −22…−25 LUFS |
-| Musik di jeda panjang / antarbabak | naik ≤ +3 dB lewat automation ramp ≥ 250 ms; lebih besar hanya untuk satu momen sinematik yang disengaja (referensi: median +0,6 dB, jangkauan −8,9…+6,0; `guide/sfx/FAMILI.md` §4) |
+| Musik di jeda ≥ 0,3 dtk / transisi visual | naik +3…+6 dB dari level saat dialog lewat automation ramp ≥ 250 ms, lookahead ±250 ms (titik awal: gain 0,12 saat dialog → 0,25 di jeda); referensi terukur: median +0,6 dB, jangkauan −8,9…+6,0 (`guide/sfx/FAMILI.md` §4) |
+| Bed ambien (pilar 1) | rekaman room tone/projector hum/vinyl/tape, konstan sepanjang video, ±−36 LUFS di mix (titik awal: file −20 LUFS × gain 0,10); tanpa clipping/distorsi (`sfx_vet.py --famili ruang`) |
 | Gain SFX setelah normalisasi puncak | −4…−10 dB (lantai −10; −33 dB tidak terdengar) |
 | Sebaran RMS bed musik per 3 dtk | ≤ 4 dB, tanpa lubang (Behindwork 1,1–3,2 dB) |
 | Median puncak SFX UI per kelas | −16…−20 dBFS |

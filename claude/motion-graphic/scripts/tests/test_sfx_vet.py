@@ -80,5 +80,17 @@ class SfxVetTest(unittest.TestCase):
         self.assertTrue(any("terpotong" in x for x in g))
 
 
+class SfxVetBedTest(SfxVetTest):
+    def test_bed_hiss_and_loop_end_are_checks_not_failures(self):
+        n = 2 * SR
+        h = hp_noise(n, seed=5)
+        y = 0.3 * h / np.abs(h).max()  # desis berkelanjutan, berakhir tanpa peluruhan (loop)
+        (v, g, p), _ = self.verdict(y, {"pilar": "bed", "centroid_hz": [0, 20000]})
+        self.assertNotEqual(v, "GAGAL", g)
+        self.assertTrue(any("bed berdesis" in x for x in p))
+        (v2, g2, _), _ = self.verdict(y)
+        self.assertEqual(v2, "GAGAL")
+
+
 if __name__ == "__main__":
     unittest.main()

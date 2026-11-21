@@ -1030,3 +1030,13 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | musik naik di jeda ≤ +3 dB lewat automation; §14.9b diperjelas | bentrokan §14.1 vs §14.9b ditemukan sesi uji 21 Nov 2026; ukuran referensi: median +0,6 dB di jeda |
 | lisensi musik Mixkit | teks Stock Music Free License dibaca dari mixkit.co/license 21 Nov 2026 (render Chromium); teks lisensi SFX tidak terbaca otomatis |
 | `guide/sfx/EPIDEMIC.md` dan `~/sfx/Epidemic` sebagai sumber lokal | Irfan 21 Nov 2026: minta claude1 (akun yang terhubung ke Epidemic) mencari SFX yang kurang, menyimpannya di PC server, dan menganalisis kesesuaiannya; 28 file dipilih claude1, diperiksa claude2 (`sfx_vet.py` + `earshot rank`), dicadangkan ke Drive "Claude edit/sfx" |
+
+## Lima pilar sound design (Lantai E24, E25, 25a; `guide/sfx/GUIDE.md`; `guide/sfx/FAMILI.md` §0 Master Keyword Matrix; `references/audio.md` §14.0, §14.1, §14.8, §14.9, §14.9b, §14.10; `scripts/gate/sfx_density.py` pilar bed/tick; `sfx_vet.py` bed; `sfx_cari.py` kueri bertahap)
+
+| Aturan | Asal-usul |
+|---|---|
+| lima pilar global (bed, transisi kamera & split, tick KT & UI per kata, foley taktil, aksen & riser) + Master Keyword Matrix + dynamic ducking | Irfan 21 Nov 2026, dipilih sebagai aturan global walau ukuran 11 referensi menunjukkan bed tidak terdeteksi dan klik UI ≤ ±11 per video; menggantikan Lantai E24 "kata KT tidak berbunyi" dan anti-ducking §14.1/§14.9b |
+| tick wajib bervariasi (varian/rate 0,95–1,05), bunyi per kata tanpa label `tick` tetap gagal, bed wajib menutupi ≥ 90 % durasi | penegakan pilar di gerbang; tes `SfxPolicyTests` |
+| kayu tetap terlarang; "soft wood tap single" diganti "soft plastic tap single" | jawaban Irfan 21 Nov 2026 |
+| ease-in hanya di pra-rol (serangan utuh), ease-out kosinus 8–12 frame | permintaan Irfan "Easy-in / Easy-out" disatukan dengan larangan fade-in di atas transien |
+| titik awal ducking 0,12 → 0,25, bed −20 LUFS × 0,10 | nilai yang dipakai dan diukur di kegagalan-eps01 v2 (R-29, R-30) |

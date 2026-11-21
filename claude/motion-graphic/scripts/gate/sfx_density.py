@@ -1,13 +1,17 @@
 #!/usr/bin/env python3
-"""Gerbang Lantai E24: SFX menandai momen cerita dan gerak yang terlihat, kepadatan dari kiblat,
-tanpa bunyi per kata dan tanpa spam. Hening yang disengaja boleh.
+"""Gerbang Lantai E24 (5 Pilar Sound Design, guide/sfx/FAMILI.md §0): SFX menandai momen cerita dan gerak
+yang terlihat, tiap cue berlabel `pilar` (bed, transisi, tick, taktil, aksen), tanpa spam.
 
 FAIL bila:
+  - pilar bed  : tidak ada cue `pilar: bed` dengan `dur`, atau bed menutupi < 90 % durasi video
+  - tick       : cue `pilar: tick` (klik per kata KT/UI) tanpa variasi (>= 2 file varian atau playbackRate berbeda),
+                 `rate` di luar 0,95–1,05, atau > 8 tick dalam 2 dtk
   - kepadatan  : cue/dtk > --max-density (default 1,2) atau > 1,5 x --ref-density (SFX berlabel di kiblat, bukan onset musiknya)
-  - per kata   : cue berperan kata/word/tick lebih dari 8, atau > 20 % cue (bunyi per kata = lapisan klik); peran slam/penekanan/kunci/hero (satu bunyi untuk satu kata besar) tidak dihitung
-  - rentetan   : > 5 cue dalam jendela 2 dtk (rentetan sejenis dibuat satu cue panjang, mis. rattle)
+  - per kata   : cue berperan kata/word/tick yang TIDAK berlabel `pilar: tick` lebih dari 8, atau > 20 % cue (lapisan klik
+                 yang tidak disengaja); peran slam/penekanan/kunci/hero (satu bunyi untuk satu kata besar) tidak dihitung
+  - rentetan   : > 5 cue non-tick non-bed dalam jendela 2 dtk (rentetan sejenis dibuat satu cue panjang, mis. rattle)
   - dengar     : cue tanpa `dengar` (label earshot describe file itu) — file harus didengar sebelum dipakai
-  - peran      : cue tanpa `peran` dan `alasan`
+  - peran      : cue tanpa `peran` dan `alasan`; satu peran = satu file (kecuali tick, yang justru wajib bervariasi)
   - spam       : whoosh < 1 dtk; dua bunyi < 100 ms (Lantai E24)
   - palet      : file/label dari palet terlarang (kayu, koin, kartun, 8-bit, noise/sinus, rope-creak, whoosh kasar SFXIrfan)
 DILAPORKAN saja (bukan syarat lulus): cakupan event visual dan celah tanpa SFX — beri --min-coverage/--max-gap
@@ -38,7 +42,7 @@ def load_cues(path):
             if re.match(r"^[0-9]+(?:[.,][0-9]+)?$", cells[0]):
                 row = dict(zip(head or [], cells)) if head else {}
                 pick = lambda *ks: next((v for k, v in row.items() for q in ks if q in k.lower()), "")
-                out.append(dict(t=float(cells[0].replace(",", ".")), peran=pick("peran", "role"),
+                out.append(dict(pilar=pick("pilar").lower(), dur=0.0, rate=1.0, t=float(cells[0].replace(",", ".")), peran=pick("peran", "role"),
                                 alasan=pick("alasan", "reason"), file=pick("file"), dengar=pick("dengar", "earshot")))
             elif not set(cells[0]) <= set("-: "):
                 head = cells
@@ -49,14 +53,17 @@ def load_cues(path):
     out = []
     for c in d:
         if not isinstance(c, dict):
-            out.append(dict(t=float(c), peran="", alasan="", file="", dengar="")); continue
+            out.append(dict(t=float(c), peran="", alasan="", file="", dengar="", pilar="", dur=0.0, rate=1.0)); continue
         t = c.get("t", c.get("time", c.get("start")))
         if t is None:
             continue
         out.append(dict(t=float(t), peran=str(c.get("peran") or c.get("role") or ""),
                         alasan=str(c.get("alasan") or c.get("reason") or ""),
                         file=str(c.get("file") or c.get("src") or c.get("path") or ""),
-                        dengar=str(c.get("dengar") or c.get("earshot") or "")))
+                        dengar=str(c.get("dengar") or c.get("earshot") or ""),
+                        pilar=str(c.get("pilar") or "").strip().lower(),
+                        dur=float(c.get("dur") or c.get("durasi") or 0.0),
+                        rate=float(c.get("rate") or c.get("playbackRate") or 1.0)))
     return sorted(out, key=lambda c: c["t"])
 
 
@@ -80,6 +87,44 @@ FORBIDDEN_SFX = [
     # whoosh kasar di ~/sfx/SFXIrfan (katalog SFXIRFAN.md §Dilarang): serangan mendadak / desis > 10 kHz
     ("whoosh kasar", re.compile(_B + r"(?:wooshcameramovementtransisi|scaningfast)" + _E, re.I)),
 ]
+
+
+def bed_issues(cues, dur):
+    """Pilar 1: bed ambien rekaman konstan menutupi >= 90 % durasi (tanpa hening digital)."""
+    beds = [c for c in cues if c.get("pilar") == "bed"]
+    if not beds:
+        return ["pilar bed tidak ada (cue `pilar: bed` + `dur`, mis. room tone/projector hum, sepanjang video)"]
+    spans = sorted((c["t"], c["t"] + c.get("dur", 0.0)) for c in beds)
+    if not any(b - a > 0 for a, b in spans):
+        return ["pilar bed tanpa `dur` (durasi cue bed wajib ditulis)"]
+    covered, end = 0.0, 0.0
+    for a, b in spans:
+        a = max(a, end)
+        if b > a:
+            covered += b - a
+            end = b
+    if dur and covered < 0.9 * dur:
+        return [f"pilar bed menutupi {covered:.1f}/{dur:.1f} dtk (< 90 %)"]
+    return []
+
+
+def tick_issues(cues):
+    """Pilar 3: klik per kata KT/UI boleh, asal bervariasi (>= 2 file varian atau rate berbeda) dan rate 0,95–1,05."""
+    ticks = [c for c in cues if c.get("pilar") == "tick"]
+    issues = []
+    bad_rate = [c for c in ticks if not 0.95 <= c.get("rate", 1.0) <= 1.05]
+    if bad_rate:
+        issues.append(f"{len(bad_rate)} tick dengan playbackRate di luar 0,95–1,05 (mis. {bad_rate[0]['rate']})")
+    if len(ticks) >= 3:
+        files = {c["file"].split("/")[-1] for c in ticks}
+        rates = [c.get("rate", 1.0) for c in ticks]
+        if len(files) < 2 and max(rates) - min(rates) < 0.02:
+            issues.append(f"{len(ticks)} tick tanpa variasi (satu file, rate sama): putar >= 2 varian atau rate 0,95–1,05")
+    ts = np.array([c["t"] for c in ticks])
+    burst = max((int(((ts >= t) & (ts < t + 2.0)).sum()) for t in ts), default=0)
+    if burst > 8:
+        issues.append(f"rentetan {burst} tick dalam 2 dtk (maks 8)")
+    return issues
 
 
 def forbidden_palette_issues(cues):
@@ -169,11 +214,13 @@ def main():
     ap.add_argument("--json")
     a = ap.parse_args()
 
-    cue_rows = load_cues(a.cues)
+    all_rows = load_cues(a.cues)
+    cue_rows = [c for c in all_rows if c.get("pilar") != "bed"]  # bed: lapisan kontinu, bukan event
+    ev_rows = [c for c in cue_rows if c.get("pilar") != "tick"]  # event non-tick: rentetan & kepadatan
     cues = np.array([c["t"] for c in cue_rows])
     no_role = [c for c in cue_rows if not c["peran"].strip() or not c["alasan"].strip()]
     spam = spam_check(cue_rows)
-    forbidden = forbidden_palette_issues(cue_rows)
+    forbidden = forbidden_palette_issues(all_rows)
     ev, dur = visual_events(a.video)
     density = len(cues) / dur if dur else 0.0
     covered = [e for e in ev if len(cues) and np.min(np.abs(cues - e)) <= 5 / FPS]
@@ -188,10 +235,11 @@ def main():
     cap = min(x for x in (a.max_density, 1.5 * a.ref_density if a.ref_density else 0) if x) if (a.max_density or a.ref_density) else 0
     if cap and density > cap:
         fails.append(f"kepadatan {density:.2f}/dtk > {cap:.2f} (spam; kiblat {a.ref_density or '-'}/dtk)")
-    per_kata = [c for c in cue_rows if re.search(r"kata|word|tick", c["peran"], re.I) and not re.search(r"triad|kunci|slam|penekanan|emph|hero", c["peran"], re.I)]
+    per_kata = [c for c in cue_rows if c.get("pilar") != "tick" and re.search(r"kata|word|tick", c["peran"], re.I) and not re.search(r"triad|kunci|slam|penekanan|emph|hero", c["peran"], re.I)]
     if len(per_kata) > 8 or (cue_rows and len(per_kata) > 0.2 * len(cue_rows)):
         fails.append(f"{len(per_kata)} cue bunyi per kata (maks 8 dan <= 20 %)")
-    burst = max((int(((cues >= t) & (cues < t + 2.0)).sum()) for t in cues), default=0)
+    ev_t = np.array([c["t"] for c in ev_rows])
+    burst = max((int(((ev_t >= t) & (ev_t < t + 2.0)).sum()) for t in ev_t), default=0)
     if burst > 5:
         fails.append(f"rentetan {burst} cue dalam 2 dtk (maks 5)")
     no_ear = [c for c in cue_rows if not c["dengar"].strip()]
@@ -207,7 +255,9 @@ def main():
         fails.append(f"{len(no_role)} cue tanpa peran/alasan (mis. {no_role[0]['t']:.2f} dtk)")
     if spam:
         fails.append(f"{len(spam)} spam SFX: " + "; ".join(spam[:4]))
-    roles = role_issues(cue_rows)
+    roles = role_issues(ev_rows)
+    fails += bed_issues(all_rows, dur)
+    fails += tick_issues(cue_rows)
     if roles:
         fails.append(f"{len(roles)} peran tidak konsisten: " + "; ".join(roles[:3]))
     flam = flam_issues(cue_rows)

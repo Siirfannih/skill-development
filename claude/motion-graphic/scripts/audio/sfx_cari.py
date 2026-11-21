@@ -29,10 +29,26 @@ def get(url, binary=False, timeout=20):
     return data if binary else data.decode("utf-8", "replace")
 
 
+def kueri_bertahap(q):
+    """Frasa panjang (semua kata wajib cocok di Freesound) dipendekkan bertahap dari depan, minimal dua kata:
+    "subtle vinyl crackle loop" → "vinyl crackle loop" → "crackle loop"."""
+    w = q.split()
+    return [" ".join(w[i:]) for i in range(0, max(1, len(w) - 1))]
+
+
 def freesound(q, maks_dtk, n):
     f = f'license:"Creative Commons 0" duration:[0 TO {maks_dtk}]'
-    url = "https://freesound.org/search/?" + urllib.parse.urlencode({"q": q, "f": f})
     out, seen = [], set()
+    for qq in kueri_bertahap(q):
+        out += _freesound_satu(qq, f, n - len(out), seen)
+        if len(out) >= n:
+            break
+    return out
+
+
+def _freesound_satu(q, f, n, seen):
+    url = "https://freesound.org/search/?" + urllib.parse.urlencode({"q": q, "f": f})
+    out = []
     for mp3 in re.findall(r'data-mp3="([^"]+)"', get(url)):
         m = re.search(r"/previews/\d+/(\d+)_\d+-lq\.mp3", mp3)
         if not m or m.group(1) in seen:

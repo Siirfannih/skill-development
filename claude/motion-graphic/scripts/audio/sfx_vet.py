@@ -140,11 +140,16 @@ def verdict(m, fam=None):
         gagal.append(f'clipping terekam: {m["clip_pct"]} % sampel di puncak rata 0 dBFS')
     elif m["clip_pct"] > 0:
         periksa.append(f'{m["clip_pct"]} % sampel di puncak rata 0 dBFS: dengarkan puncaknya')
-    if m["desis_run_ms"] >= 100:
+    bed = bool(fam and fam.get("pilar") == "bed")  # pilar 1: bed boleh berdesis lembut dan berupa loop
+    if m["desis_run_ms"] >= 100 and bed:
+        periksa.append(f'bed berdesis {m["desis_run_ms"]} ms: pastikan ≤ −35 LUFS di mix dan terdengar hangat, bukan tajam')
+    elif m["desis_run_ms"] >= 100:
         gagal.append(f'desis berkelanjutan {m["desis_run_ms"]} ms (> 50 % energi di atas 10 kHz; ≥ 100 ms)')
     elif m["desis_run_ms"] >= 50:
         periksa.append(f'cerah/berdesis {m["desis_run_ms"]} ms berturut-turut di atas 10 kHz')
-    if m["akhir_rel_db"] > -25:
+    if m["akhir_rel_db"] > -25 and bed:
+        periksa.append("bed berakhir tanpa peluruhan (loop): pastikan sambungan loop tidak terdengar")
+    elif m["akhir_rel_db"] > -25:
         gagal.append(f'file berakhir terpotong ({m["akhir_rel_db"]} dB dari puncak di 20 ms terakhir): beri fade-out kurva S 150–400 ms')
     if m["lead_ms"] > 50:
         periksa.append(f'awal sunyi {m["lead_ms"]} ms: pasang dengan align peak (puncak di {m["peak_ms"]} ms) atau potong awalnya')
