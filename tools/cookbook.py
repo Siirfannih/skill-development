@@ -205,12 +205,15 @@ SFXCAT = os.path.join(SFXDIR, "SFXIRFAN.md")
 FAMJSON = os.path.join(SFXDIR, "FAMILI.json")
 
 
-def sfx_lokal():
-    """Baris katalog SFXIrfan: (nama file, famili, peran). Kolom Famili ditulis `id`."""
+def sfx_lokal(path=None, hanya_pakai=False):
+    """Baris katalog lokal (SFXIRFAN.md, EPIDEMIC.md): (nama file, famili, kolom terakhir). Kolom Famili ditulis `id`."""
     out = []
-    if not os.path.exists(SFXCAT):
+    path = path or SFXCAT
+    if not os.path.exists(path):
         return out
-    for line in open(SFXCAT, encoding="utf-8"):
+    for line in open(path, encoding="utf-8"):
+        if hanya_pakai and "| PAKAI" not in line:
+            continue
         m = re.match(r"^\|\s*`([^`]+)`[^|]*\|\s*`?([a-z]+)?`?[^|]*\|(.*)\|\s*$", line)
         if not m:
             continue
@@ -228,6 +231,7 @@ def build_sfx(cards):
             for k in re.findall(r"`([a-z]+)`", t["sfx"].split(" · ")[0]) if t["sfx"].startswith("famili ") else []:
                 pakai.setdefault(k, []).append(f"{c['fm'].get('id', '')}.T{t['n']}")
     lokal = sfx_lokal()
+    epi = sfx_lokal(os.path.join(SFXDIR, "EPIDEMIC.md"), hanya_pakai=True)
     L = ["# Cookbook · SFX per famili", "", GENERATED, "",
          "Kebutuhan bunyi tiap pola ditulis sebagai **famili** (karakter), bukan nama file. Untuk satu famili: lihat pola yang "
          "memakainya, coba stok lokal yang terdaftar, lalu cari bila tidak ada yang lolos dengar "
@@ -237,7 +241,9 @@ def build_sfx(cards):
         L += [f"## `{k}` · {f.get('nama', k)}", "",
               f"- **Karakter:** {f.get('deskripsi', '')}",
               f"- **Pola yang memakainya ({len(pakai.get(k, []))}):** " + (", ".join(pakai.get(k, [])) or "—"),
-              f"- **SFXIrfan:** " + (", ".join(mine) or "tidak ada") + "; Kenyset: nama file cocok `" + f.get("kenyset_regex", "—") + "`",
+              f"- **SFXIrfan:** " + (", ".join(mine) or "tidak ada"),
+              f"- **Epidemic lokal (PAKAI):** " + (", ".join(f"`{n}`" for n, fk, _ in epi if fk == k) or "tidak ada")
+              + "; Kenyset: nama file cocok `" + f.get("kenyset_regex", "—") + "`",
               f"- **Cari:** `python3 scripts/audio/sfx_cari.py --famili {k} --out projects/<proyek>/sfx/kandidat` (kata kunci: "
               + ", ".join(f'"{q}"' for q in f.get("cari", [])) + ")", ""]
     return "\n".join(L).rstrip("\n") + "\n"

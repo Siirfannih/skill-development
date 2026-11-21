@@ -1029,3 +1029,4 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | transien tanpa fade-in | evaluasi usulan "fade-in 3–5 frame untuk semua SFX" (Irfan, 21 Nov 2026): fade-in 100–170 ms mematikan serangan klik/pop/hit |
 | musik naik di jeda ≤ +3 dB lewat automation; §14.9b diperjelas | bentrokan §14.1 vs §14.9b ditemukan sesi uji 21 Nov 2026; ukuran referensi: median +0,6 dB di jeda |
 | lisensi musik Mixkit | teks Stock Music Free License dibaca dari mixkit.co/license 21 Nov 2026 (render Chromium); teks lisensi SFX tidak terbaca otomatis |
+| `guide/sfx/EPIDEMIC.md` dan `~/sfx/Epidemic` sebagai sumber lokal | Irfan 21 Nov 2026: minta claude1 (akun yang terhubung ke Epidemic) mencari SFX yang kurang, menyimpannya di PC server, dan menganalisis kesesuaiannya; 28 file dipilih claude1, diperiksa claude2 (`sfx_vet.py` + `earshot rank`), dicadangkan ke Drive "Claude edit/sfx" |

@@ -1,0 +1,36 @@
+# Katalog `~/sfx/Epidemic` (diunduh dan diperiksa 21 Nov 2026)
+
+Stok lokal Tier 1 untuk famili yang tipis di SFXIrfan dan Kenyset (`FAMILI.md`). Diunduh lewat akun Epidemic Sound Irfan (lisensi langganan; dipakai untuk video Irfan/Jadisatu). Putusan dari `scripts/audio/sfx_vet.py --famili` + `earshot rank "<deskripsi famili>"`: **PAKAI** lolos keduanya; **PAKAI (catatan)** lolos dengar, ukurannya perlu diperhatikan (awal sunyi → `align: peak`; HP → cek `audio_phone.py`); **CADANGAN** tidak cocok saat didengar terhadap deskripsi famili, dipakai hanya bila kandidat lain habis dan setelah didengar di konteks. Salinan cadangan: Drive `Claude edit/sfx/Epidemic`.
+
+| File | Famili | Judul Epidemic | Terdengar (earshot) | Putusan | Catatan |
+|---|---|---|---|---|---|
+| `air/designed-whoosh-soft-airy-073cf199.wav` | `air` | Designed, Whoosh, Soft Airy | a fast whoosh (z 4.3, strong) | PAKAI (catatan) | awal sunyi 115 ms: align peak (puncak 380 ms) |
+| `air/swoosh-designed-light-c52cf22f.wav` | `air` | Swooshes, Whoosh, Designed, Swoosh, Light | a fast whoosh (z 3.5, strong) | PAKAI (catatan) | awal sunyi 285 ms: align peak (puncak 750 ms) |
+| `air/whoosh-mids-16bb9f7c.wav` | `air` | Swooshes, Whoosh, Mids | a fast whoosh (z 4.1, strong) | PAKAI (catatan) | awal sunyi 125 ms: align peak (puncak 245 ms) |
+| `air/whoosh-soft-short-02-e62847da.wav` | `air` | Whoosh, Soft, Short 02 | cloth whipping through the air (z 3.1, strong) | PAKAI (catatan) | awal sunyi 205 ms: align peak (puncak 235 ms); hanya 0.6 % energi di 300 Hz–3 kHz: hampir tak terdengar di speaker HP; centroid 46 Hz di luar famili 120–3000 Hz |
+| `riser/riser-cinematic-reverse-glass-01-e53d5089.wav` | `riser` | Designed, Riser, Cinematic Reverse Glass 01 | a singing bowl (z 3.3, strong) | PAKAI (catatan) | awal sunyi 110 ms: align peak (puncak 1915 ms) |
+| `riser/riser-cymbal-reverse-crescendo-02-566b642a.wav` | `riser` | Designed, Riser, Cymbal, Reverse, Crescendo, Suspense, Climax 02 | a reverse cymbal swell (z 5.3, strong) | PAKAI (catatan) | awal sunyi 785 ms: align peak (puncak 1525 ms) |
+| `riser/riser-reversed-pulse-f77f7b3f.wav` | `riser` | Designed, Riser, Reversed Pulse | a deep cinematic whoosh (z 2.5, plausible) | PAKAI (catatan) | awal sunyi 410 ms: align peak (puncak 1875 ms) |
+| `impact/impact-cinematic-hit-stab-filter-tail-69deff59.wav` | `impact` | Designed, Impact, Cinematic Hit, Stab, Filter Tail | a deep cinematic whoosh (z 3.3, strong) | PAKAI (catatan) | awal sunyi 70 ms: align peak (puncak 190 ms) |
+| `impact/impact-cinematic-hit-thud-thin-reverb-866b9c73.wav` | `impact` | Designed, Impact, Cinematic Hit, Impact, Thud, Thin, Reverb | a kick drum (z 2.9, plausible) | PAKAI (catatan) | centroid 947 Hz di luar famili 30–700 Hz |
+| `impact/impact-sudden-heavy-percussive-hit-13b7690c.wav` | `impact` | Designed, Impact, Sudden, Heavy, Percussive Hit | a big drum hit (z 3.6, strong) | PAKAI (catatan) | hanya 0.2 % energi di 300 Hz–3 kHz: hampir tak terdengar di speaker HP |
+| `impact/stinger-aggressive-hard-impact-shimmer-7e9ac634.wav` | `impact` | Designed, Stinger, Aggressive, Hard, Impact Shimmer | a stutter glitch transition (z 1.5, no match) | CADANGAN | centroid 2367 Hz di luar famili 30–700 Hz |
+| `stab/glockenspiel-single-tone-c3-f93cc6c3.wav` | `stab` | Musical, Percussion Tuned, Mallet Percussion, Glockenspiel, Single Tone (C-3) | a triangle hit (z -0.1, no match) | CADANGAN | hanya 0.0 % energi di 300 Hz–3 kHz: hampir tak terdengar di speaker HP; centroid 4543 Hz di luar famili 200–3500 Hz |
+| `stab/ping-string-pluck-02-203cc987.wav` | `stab` | Ping, String Pluck 02 | a kalimba note (z 1.2, no match) | CADANGAN | 0.106 % sampel di puncak rata 0 dBFS: dengarkan puncaknya |
+| `stab/stinger-bass-impact-musical-tone-09-9a006d86.wav` | `stab` | Designed, Stinger, Bass Impact, Musical Tone 09 | a deep cinematic boom (z 0.9, no match) | CADANGAN | hanya 2.5 % energi di 300 Hz–3 kHz: hampir tak terdengar di speaker HP; centroid 60 Hz di luar famili 200–3500 Hz |
+| `mekanik/camera-shutter-release-nikon-f4-03-2c51b8ea.wav` | `mekanik` | Communications, Camera, Shutter Release, Nikon F4 03 | a camera shutter click (z 3.7, strong) | PAKAI |  |
+| `mekanik/camera-sony-alpha-shutter-click-d8dd8d3d.wav` | `mekanik` | Communications, Camera, Digital SLR, Sony Alpha, Take Photo, Shutter Click Only | a camera shutter click (z 4.4, strong) | PAKAI |  |
+| `mekanik/keyboard-apple-key-press-single-d58cda3c.wav` | `mekanik` | Computers, Keyboard & Mouse, Keyboard, Apple, Key Press, Single | a single mechanical keyboard key press (z 2.7, plausible) | PAKAI |  |
+| `mekanik/led-plastic-button-press-single-ab33e364.wav` | `mekanik` | Mechanical, Click, LED Light, Plastic, Button Press, Single | a single mechanical keyboard key press (z 4.6, strong) | PAKAI |  |
+| `mekanik/keyboard-laptop-key-press-single-f94a21b7.wav` | `mekanik` | Computers, Keyboard & Mouse, Keyboard, Laptop, Key Press, Single | a soft key release click (z 4.7, strong) | PAKAI (catatan) | hanya 8.0 % energi di 300 Hz–3 kHz: hampir tak terdengar di speaker HP |
+| `mekanik/light-switch-flick-rounded-single-45b2f66a.wav` | `mekanik` | Mechanical, Switch, Light Switch, Flick, Rounded, Single | a single mechanical keyboard key press (z 2.4, weak) | CADANGAN | centroid 737 Hz di luar famili 800–12000 Hz |
+| `taktil/notepad-page-turn-single-ffd6737b.wav` | `taktil` | Paper, Handle, Notepad, Page Turn, Single | a punchy impact hit (z 3.0, strong) | PAKAI |  |
+| `taktil/paper-sheet-laminated-slide-01-91b5b50b.wav` | `taktil` | Paper, Friction, Sheet, Large, Laminated, Movement, Slide 01 | a squishy wet squelch (z 3.3, strong) | PAKAI |  |
+| `taktil/sticky-tape-peel-off-surface-1705b78e.wav` | `taktil` | Objects, Tape, Sticky Tape, Peel Off Surface | a rubber stretch (z 2.6, plausible) | PAKAI |  |
+| `taktil/magazine-glossy-page-turn-02-e72d46c1.wav` | `taktil` | Magazine, Glossy, Page Turn 02 | a quick swipe (z 3.1, strong) | PAKAI (catatan) | 0.011 % sampel di puncak rata 0 dBFS: dengarkan puncaknya; awal sunyi 105 ms: align peak (puncak 380 ms) |
+| `taktil/paper-friction-envelope-slide-a5da9fbb.wav` | `taktil` | Paper, Friction, Envelope, Slide | a ukulele (z 5.1, strong) | PAKAI (catatan) | awal sunyi 70 ms: align peak (puncak 550 ms); hanya 9.0 % energi di 300 Hz–3 kHz: hampir tak terdengar di speaker HP |
+| `taktil/paper-letter-drop-on-table-02-cda39aae.wav` | `taktil` | Paper, Impact, Letter, Drop On Table 02 | a punchy impact hit (z 3.1, strong) | PAKAI (catatan) | 0.013 % sampel di puncak rata 0 dBFS: dengarkan puncaknya; awal sunyi 60 ms: align peak (puncak 160 ms) |
+| `taktil/glue-stick-dab-on-paper-1a9ef820.wav` | `taktil` | Objects, Tape, Glue Stick, Dab On Paper | a punchy impact hit (z 2.0, weak) | CADANGAN | 0.118 % sampel di puncak rata 0 dBFS: dengarkan puncaknya; centroid 214 Hz di luar famili 400–9000 Hz |
+| `taktil/playing-card-set-down-db3f8c58.wav` | `taktil` | Games, Misc, Playing Card, Set Down On Top Of Others | a punchy impact hit (z 2.3, weak) | CADANGAN |  |
+
+Tidak ditemukan di Epidemic: stab orkestra sejati (ketiga kandidat `stab` tidak cocok saat didengar) dan bunyi stiker ditekan. Untuk `stab`: `sfx_cari.py --famili stab` atau ElevenLabs SFX (biaya disebut dulu).

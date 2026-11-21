@@ -22,7 +22,7 @@ Stok lokal tiap famili, pola cookbook yang memakainya, dan perintah cari per fam
 
 ## 2. Sumber: tiga tingkat
 
-1. **Lokal.** `~/sfx/SFXIrfan` → `~/sfx/Kenyset` → set SFX proyek lain (alasan tertulis). Dipakai bila lolos §3.
+1. **Lokal.** `~/sfx/SFXIrfan` → `~/sfx/Epidemic` (`EPIDEMIC.md`: file berputusan PAKAI dulu) → `~/sfx/Kenyset` → set SFX proyek lain (alasan tertulis). Dipakai bila lolos §3.
 2. **Gratis berlisensi.** `python3 scripts/audio/sfx_cari.py --famili <id> --out projects/<proyek>/sfx/kandidat [--kata "<kata kunci>"]`:
    - Freesound, hanya CC0, durasi dibatasi famili;
    - Mixkit, halaman tag (Mixkit Sound Effects Free License; teks lengkapnya dimuat lewat JavaScript dan belum terbaca otomatis, jadi baca di mixkit.co/license sebelum rilis komersial);
