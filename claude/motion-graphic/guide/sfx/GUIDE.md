@@ -12,7 +12,7 @@
 1. **Kosakata dari kiblat, jumlah dari objek.** §7 kartu kiblat memberi jenis bunyi dan rasanya; jumlah SFX mengikuti jumlah objek/visual penting di render, bukan angka per detik kiblat.
 2. **Daftar objek (`objects.json`).** Dari render terkunci tulis setiap objek/visual yang muncul atau bergerak: `{t, objek, peran}`; yang sengaja senyap diberi `senyap: true` + `alasan` (garis tergambar, subtitle, hover). Item barisan yang masuk terpisah (> 2 frame) = satu objek masing-masing; yang serentak (≤ 2 frame) = satu event.
 3. **Pilih file berurutan. Folder adalah kumpulan kandidat, bukan allowlist; palet terlarang tetap ditolak:**
-   1. `~/sfx/SFXIrfan`: nama file adalah fungsi yang Irfan tetapkan (`Pergantianfoto`, `Katapertama`, `Kinetictypography(gunakansecaraacak)`, `Wooshcameramovementtransisi`, `basmenyebar`, `documenter`, …). Katalog + label dengar: `SFXIRFAN.md`.
+   1. `~/sfx/SFXIrfan`: nama file adalah fungsi yang Irfan tetapkan (`Pergantianfoto`, `Katapertama`, `Kinetictypography(gunakansecaraacak)`, `Woosh`, `basmenyebar`, `documenter`, …). Katalog + label dengar: `SFXIRFAN.md`.
    2. Kosakata kiblat yang tidak ada di SFXIrfan (stab, snare, hit): Epidemic di SFXIrfan, Kenyset, lalu ElevenLabs SFX (biaya disebut dulu, Lantai F28c).
    3. Set SFX milik proyek lain (mis. `jadisatu-60s` v17) hanya untuk peran yang tidak ada di atas, dengan alasan tertulis.
 4. **Dengar sebelum pakai.** `earshot describe <file>`; tulis labelnya di kolom `dengar` cue. File yang terdengar seperti UI tidak dipakai untuk momen cerita sinematik.
@@ -20,6 +20,7 @@
 6. **Tidak ada bunyi per kata KT/subtitle.** Kata yang muncul kata per kata senyap; hanya kata slam/penekanan yang bergerak sebagai objek mendapat satu bunyi. Jarak: dua bunyi ≥ 100 ms, whoosh ≥ 1 dtk, maksimal 5 cue dalam 2 dtk.
 7. **Waktu**: puncak bunyi jatuh di frame visual; whoosh memuncak di kecepatan tertinggi gerak; jarak antarwhoosh ≥ 1 dtk; tidak pernah mendahului objek.
 8. **Level**: normalisasi puncak dulu, gain −4…−10 dB untuk momen, −12…−16 dB untuk detail (ketik, klik UI); −33 dB tidak terdengar.
+9. **Ekor**: bila memotong file SFX, pilih titik potong di peluruhan alaminya (cek selubung) dan beri fade-out kurva S/cosinus 150–400 ms; jangan fade linear puluhan ms di tengah bunyi, karena bunyi terdengar hilang mendadak. Whoosh gerak kamera dipilih yang serangannya ≥ 150 ms; serangan mendadak terdengar kasar.
 
 ## Cek cepat
 - `scripts/gate/sfx_density.py render.mp4 cues.json --objects objects.json`: FAIL bila objek/visual penting tanpa SFX (kecuali `senyap` + `alasan`), satu peran > 1 file atau satu file > 1 peran, dua bunyi < 100 ms, bunyi per kata KT, > 5 cue dalam 2 dtk, cue tanpa `dengar`, atau palet terlarang (kayu/thock/felt, koin/logam, kartun/langkah kaki, 8-bit, noise/sinus sintetis, rope-creak). Kepadatan kiblat hanya dilaporkan (Lantai E24).

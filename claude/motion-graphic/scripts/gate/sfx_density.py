@@ -9,6 +9,7 @@ FAIL bila:
   - dengar     : cue tanpa `dengar` (label earshot describe file itu) — file harus didengar sebelum dipakai
   - peran      : cue tanpa `peran` dan `alasan`
   - spam       : whoosh < 1 dtk; dua bunyi < 100 ms (Lantai E24)
+  - palet      : file/label dari palet terlarang (kayu, koin, kartun, 8-bit, noise/sinus, rope-creak, whoosh kasar SFXIrfan)
 DILAPORKAN saja (bukan syarat lulus): cakupan event visual dan celah tanpa SFX — beri --min-coverage/--max-gap
 bila kiblat memang padat bunyi.
 
@@ -76,6 +77,8 @@ FORBIDDEN_SFX = [
     ("sinus sintetis", re.compile(_B + r"(?:sine(?:[ _-]*wave)?|sinus)" + _E, re.I)),
     ("rope-creak", re.compile(_B + r"rope[ _-]*creak" + _E, re.I)),
     ("bank sintetis", re.compile(_B + r"sfx[ _-]*render" + _E, re.I)),
+    # whoosh kasar di ~/sfx/SFXIrfan (katalog SFXIRFAN.md §Dilarang): serangan mendadak / desis > 10 kHz
+    ("whoosh kasar", re.compile(_B + r"(?:wooshcameramovementtransisi|scaningfast)" + _E, re.I)),
 ]
 
 

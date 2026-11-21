@@ -351,7 +351,7 @@ class SfxPolicyTests(unittest.TestCase):
     def test_whoosh_spacing_uses_role_filename_or_heard_label(self):
         evidence = [("peran", dict(peran="kamera_whoosh", file="camera.wav", dengar="air movement")),
                     ("file", dict(peran="gerak_kamera", file="whoosh.wav", dengar="air movement")),
-                    ("dengar", dict(peran="pan_cepat", file="scaningfast.wav", dengar="fast soft air whoosh")),
+                    ("dengar", dict(peran="pan_cepat", file="pan-cepat.wav", dengar="fast soft air whoosh")),
                     ("dengar_file_cut", dict(peran="cut_kontras", file="Cutcontrastransision.mp3", dengar="air whoosh"))]
         for field, sound in evidence:
             for gap, expected_code in ((0.65, 1), (1.0, 0)):
@@ -544,6 +544,16 @@ class Rules16NovTests(unittest.TestCase):
                  "ES_Scifi, Computer, Short Beeps, Glitch 02.wav"]
         self.assertEqual(sfx_density.forbidden_palette_issues([dict(t=0, file=n, dengar="") for n in names]), [])
         self.assertTrue(sfx_density.forbidden_palette_issues([dict(t=0, file="wood_knock_1.wav", dengar="")]))
+
+    def test_harsh_sfxirfan_whooshes_are_rejected_but_soft_woosh_is_allowed(self):
+        for name in ("/home/u/sfx/SFXIrfan/Wooshcameramovementtransisi.mp3", "scaningfast.mp3", "SCANINGFAST.wav"):
+            with self.subTest(file=name):
+                issues = sfx_density.forbidden_palette_issues([dict(t=0, file=name, dengar="a fast whoosh")])
+                self.assertTrue(issues)
+                self.assertIn("whoosh kasar", issues[0])
+        self.assertEqual(sfx_density.forbidden_palette_issues(
+            [dict(t=0, file="/home/u/sfx/SFXIrfan/Woosh.mp3", dengar="a soft air whoosh"),
+             dict(t=2, file="Scanning dan gerak kurva.mp3", dengar="digital glitch")]), [])
 
     def test_one_role_one_file(self):
         cues = [dict(t=1.0, peran="kartu_mendarat", file="a/pop.wav"), dict(t=3.0, peran="kartu_mendarat", file="b/pop2.wav"),

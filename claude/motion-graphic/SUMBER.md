@@ -120,6 +120,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | Aturan | Asal-usul |
 |---|---|
 | §Katalog `~/sfx/SFXIrfan` (didengar 13 Nov dengan ` · "Sumber pertama untuk SFX (aturan 43),…" | Irfan 16 Nov; larangan laser/sci-fi 16 Nov pagi adalah tebakan Codex, dicabut |
+| "**Dilarang (tetap ada di folder, tidak dipakai):** `Wooshcameramovementtransisi.mp3` … `scaningfast.mp3`" · baris pemetaan keduanya dihapus · baris `Woosh.mp3` | Irfan 21 Nov (revisi kegagalan-eps01): whoosh kasar saat zoom/perpindahan kamera, "bila berasal dari repo hapus permanen"; analisis `kegagalan-eps01-claude2/v2/qc/audio/whoosh_analisis.txt` (scaningfast 61 % > 10 kHz; Wooshcamera serangan +16 dB/50 ms, dipotong 1,6 dtk di −31 dB) |
 
 ## `guide/teks/GUIDE.md`
 - Kata kunci di footage/latar gelap tanpa merah: koreksi Irfan 19 Nov 2026, proyek flat-mirip-mirip (D-18).
@@ -578,6 +579,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 
 | Aturan | Asal-usul |
 |---|---|
+| `FORBIDDEN_SFX` "whoosh kasar" (Wooshcameramovementtransisi, scaningfast) | Irfan 21 Nov (revisi kegagalan-eps01), lihat `guide/sfx/SFXIRFAN.md` §Dilarang |
 | peran hero tidak dihitung sebagai bunyi per kata | skill-dev-journey putaran 6, 19 Nov: slab kata besar ke-9 ("PROFESIONAL") membuat gerbang gagal padahal LANTAI E24 memberi bunyi untuk kata slam/penekanan; patch Codex + uji regresi 8/8 |
 | """"Gerbang aturan 43:…" | Irfan 13 Nov |
 | "laser/sci-fi TIDAK dilarang: Lasertransision dan ESScifi…Glitch…" | Irfan 16 Nov |
@@ -1013,3 +1015,4 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | `rakitan_cek.py` | Divalidasi 20 Nov pada proyek kegagalan-eps01 (talking head mentah 8:20 → paket editor), 20 Nov 2026: rakitan v3 (dikeluhkan Irfan) vs v4 (diperbaiki) |
 | `timeline.py`, `cue_sumber.py` | Diangkat dari skrip proyek yang sama; TC identik dengan timeline proyek, cue setara mix v4 (±0,1 dtk) |
 | `grade_ukur.py` | Diangkat dari ukuran varian grading proyek yang sama |
+| `guide/sfx/GUIDE.md` Cara 9 (ekor SFX) | Keluhan SFX terpotong mendadak dan whoosh kasar pada revisi video talking head, 21 Nov 2026; analisis: mixer memotong file di tengah bunyi dengan fade linear 20 ms |

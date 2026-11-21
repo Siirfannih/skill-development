@@ -11,9 +11,7 @@ Sumber pertama untuk SFX (Lantai E24), **bukan allowlist**. Nama file adalah fun
 | `Variasitransisiataucut.mp3` | 1,2 | sama dengan file di atas | variasi cut |
 | `Cut.mp3` | 0,8 | error buzz / glitch | cut tegas |
 | `Cutcontrastransision.mp3` | 0,3 | pen click / key release | cut kontras (terang ↔ gelap) |
-| `Woosh.mp3` | 2,5 | fast/soft air whoosh | gerak kamera sedang |
-| `Wooshcameramovementtransisi.mp3` | 3,5 | fast whoosh / swoosh lewat | gerak kamera besar, transisi |
-| `scaningfast.mp3` | 1,0 | whoosh pendek | pan/scan cepat |
+| `Woosh.mp3` | 2,5 | fast/soft air whoosh (dua lintasan: 0–1,1 dtk dan 1,3–2,4 dtk; ±90 % energi < 60 Hz, pelan di speaker HP) | gerak kamera dan transisi (satu lintasan, ekor alami sampai habis) |
 | `Lasertransision.mp3` | 0,4 | triangle / glass ting | ting penutup, transisi halus |
 | `Scanning dan gerak kurva.mp3` | 2,4 | digital glitch / stutter | garis/kurva bergerak, scan |
 | `basmenyebar.mp3` | 6,3 | deep cinematic boom / sub | judul, jawaban hook, puncak |
@@ -36,5 +34,7 @@ Sumber pertama untuk SFX (Lantai E24), **bukan allowlist**. Nama file adalah fun
 | `ES_User Interface, Alert, Notification, Message, Text` | 1,1 | success chime | pesan masuk |
 | `ES_User Interface, Click, Button, Double Click, Fast, Phone Tap` | 4,0 | block hit / tap | tap ponsel |
 | `ES_Ambience, Office, Designed, Busy Office`, `ES_Particle Emission - Soundpembuka` | panjang | ambience / tekstur | latar, pembuka |
+
+**Dilarang (tetap ada di folder, tidak dipakai):** `Wooshcameramovementtransisi.mp3` (serangan mendadak +16 dB dalam 50 ms setelah pra-gulung 0,9 dtk, ekor 1,9 dtk; dipotong di tengah terdengar kering dan kasar) dan `scaningfast.mp3` (desis: 61 % energi di atas 10 kHz, kecerahan 12 kHz, pita 2–10 kHz +4 dB di atas suara). Gerak kamera memakai whoosh lembut dengan serangan ≥ 150 ms dan ekor utuh (`Woosh.mp3`, atau Epidemic `Designed, Whoosh, Soft Airy` bila harus terdengar di speaker HP), atau tanpa bunyi untuk gerak kecil. `sfx_density.py` menolak keduanya.
 
 Tidak ada di folder ini: stab orkestra, snare, hit pendek. Untuk itu: Kenyset (whoosh/glitch saja), ElevenLabs SFX (biaya disebut dulu), atau set v17 `jadisatu-60s/remotion/sfx-el` (`v17_thud_*` punchy hit, `v17_impact_*` sub) dengan alasan tertulis.
