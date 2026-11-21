@@ -1,6 +1,6 @@
 # Guide: video yang kita mau
 
-Mutu yang selalu berlaku ada di `../LANTAI.md`. Gaya tiap video datang dari **satu kiblat** yang dipilih lewat `../pustaka/PETA.md` dan ditulis di `RESEP.md`. Folder ini berisi catatan rasa per urusan sebagai pendamping kartu kiblat.
+Mutu yang selalu berlaku ada di `../LANTAI.md`. Gaya tiap video datang dari **satu kiblat** yang dipilih lewat `../cookbook/INDEX.md` dan ditulis di `RESEP.md`. Folder ini berisi catatan rasa per urusan sebagai pendamping kartu kiblat.
 
 Jangan main aman. Ragu antara pilihan hidup vs pilihan aman → ambil yang hidup, lalu cek pakai "cek cepat" di folder terkait. Video yang rapi tapi mati juga gagal.
 

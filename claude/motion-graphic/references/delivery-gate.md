@@ -13,7 +13,7 @@ Render penuh adalah langkah paling mahal, jadi ia datang paling akhir. Urutan:
 4. **Render penuh** hanya setelah 1–3 lulus, lalu jalankan skrip blok 1 sekali lagi pada MP4 final.
 
 Yang terbukti:
-- **Draft cepat** untuk QC gerak: `scripts/juri/render.sh <proyek> draft <Comp>` (skala 0,5); still untuk QC layout lewat `render.sh … still`. Render penuh 1080p terukur ±8–18 menit per video ±97 dtk di PC server, jadi hanya lewat `render.sh … final` setelah juri lulus (`pustaka/README.md` §Juri).
+- **Draft cepat** untuk QC gerak: `scripts/juri/render.sh <proyek> draft <Comp>` (skala 0,5); still untuk QC layout lewat `render.sh … still`. Render penuh 1080p terukur ±8–18 menit per video ±97 dtk di PC server, jadi hanya lewat `render.sh … final` setelah juri lulus (`cookbook/README.md` §Juri).
 - **QC tiga lapis berurutan**, lapis berikut hanya bila lapis sebelumnya lolos: (1) **visual saja** tanpa audio: urutan baca, waktu baca, terpotong, animasi, transisi, ilustrasi, tabrakan objek, zona aman; (2) **visual + SFX** tanpa musik: tiap SFX sesuai jenis gerak dan tepat waktu (±2 f), tidak ada event tanpa bunyi, tidak ada bunyi tanpa event; (3) **visual + SFX + musik**: bed kontinu dan sesuai emosi, suara jelas, level, tidak ada lubang.
 
 ## Blok 1: Gerbang keras (semua harus "tidak")

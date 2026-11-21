@@ -15,7 +15,7 @@
 #   2. SEMUA still di qc/stills/ lebih baru daripada perubahan terakhir di remotion/src (still paling lama yang dinilai)
 #   3. qc/sanding.jpg (sandingkan.py) lebih baru daripada still itu
 #   4. qc/JURI.md lebih baru daripada sanding dan baris terakhirnya "PUTUSAN: LULUS"
-#   5. gaya, posisi, dan keseimbangan (Lantai C17) dinilai dengan mata di qc/JURI.md (pustaka/README.md §Juri 2); tanpa skor skrip
+#   5. gaya, posisi, dan keseimbangan (Lantai C17) dinilai dengan mata di qc/JURI.md (cookbook/README.md §Juri 2); tanpa skor skrip
 #   6. draft gerak sudah dilihat: qc/draft.mp4 (penuh) atau qc/draft_<awal-akhir>.mp4 (rentang yang sama) lebih baru daripada src
 # 8. audit visual semua frame: qc/frame_audit/INDEX.md lebih baru daripada src dan setiap
 #      potongan punya VERDICT.md berakhir 'PUTUSAN: LULUS' (Sutradara melihat frame tahan tiap detik; scripts/juri/frame_audit.py)

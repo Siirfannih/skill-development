@@ -110,7 +110,7 @@ Jalankan `scripts/audio_qa.py --module5` (ambang di `audio.md` §14.10). Satu FA
 - [ ] Mix −14 LUFS / ≤ −1 dBTP.
 
 ### 16.3 Tabel kritik sutradara
-Dipindah ke `storyboard.md` §16.3 (diisi saat storyboard, dicek ulang di render).
+Dipindah ke `storyboard.md` §5 (Review papan) (diisi saat storyboard, dicek ulang di render).
 
 ### 16.4 Rubrik R1–R7 + Kompas premium
 Rubrik (skor 1–5, lulus bila semua ≥ 4):

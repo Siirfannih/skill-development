@@ -157,9 +157,9 @@ def main():
                 "punya bunyinya di frame itu, dan tidak ada bunyi tanpa gerak."]
     else:
         cara = ["Cara menilai (fase VISUAL, gambar saja): `templates/roles/pemeriksa-frame.md`.",
-                "Kalibrasi dulu: nilai satu entri `pustaka/contoh-gagal/` dan satu frame kunci kiblat tanpa membaca keterangannya;",
+                "Kalibrasi dulu: nilai satu entri `cookbook/contoh-gagal/` dan satu frame kunci kiblat tanpa membaca keterangannya;",
                 "penilai yang tidak menemukan kesalahan contoh gagal belum boleh menulis LULUS.",
-                "Lalu buka frame kunci kartu kiblat, `RESEP.md`, dan `pustaka/contoh-gagal/` sebagai pembanding.",
+                "Lalu buka frame kunci kartu kiblat, `RESEP.md`, dan `cookbook/contoh-gagal/` sebagai pembanding.",
                 "`SELURUH.jpg` (1 fps seluruh video) → video sebagai satu karya: keluarga gaya, skala antarperan, ritme, kata ganda.",
                 "Masalah lintas adegan ditulis di sini dan dimiliki Sutradara.",
                 "`tahan/*.jpg` (ukuran besar, satu per detik) → gaya, posisi teks dan objek, keterbacaan, estetika.",

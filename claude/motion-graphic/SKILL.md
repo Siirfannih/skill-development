@@ -1,26 +1,27 @@
 ---
 name: motion-graphic
-description: "Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntunly, siirfan content) from brief to render — persona, gated workflow, an always-on quality floor (LANTAI), a reference library with one chosen direction per video (pustaka: PETA, anatomy cards, RESEP), a render gate and reviewer scripts (juri), plus branch files for storyboard, copywriting, typography, camera, audio, Remotion build, and QA. Use for any video or motion request from Irfan, even a rough one: bikin video, launch video, reel, promo, motion, animasi teks, storyboard, naskah VO, revisi video, bedah referensi, After Effects, or when he sends a reference video. Also for podcast/interview clip edits with motion overlays and captions."
+description: "Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntunly, siirfan content) from brief to render — persona, gated workflow, an always-on quality floor (LANTAI), a reference cookbook of motion mechanics remixed onto the user's own concept (cookbook: INDEX, pattern cards with narrative triggers, RESEP), a render gate and reviewer scripts (juri), plus branch files for storyboard, copywriting, typography, camera, audio, Remotion build, and QA. Use for any video or motion request from Irfan, even a rough one: bikin video, launch video, reel, promo, motion, animasi teks, storyboard, naskah VO, revisi video, bedah referensi, After Effects, or when he sends a reference video. Also for podcast/interview clip edits with motion overlays and captions."
 ---
 
 # Motion Graphic (Irfan)
 
-Skill ini menaikkan mutu video dari prompt Irfan. Ia bukan template. Tiga hal yang selalu dikerjakan, berurutan:
+Skill ini lapisan penaik mutu video. Ia bukan template dan bukan pembajak konsep: **konsep user + mekanik cookbook = output baru**. Tema, palet, aset, dan arahan user selalu menjadi fondasi. Dari referensi hanya dipindahkan mekanik gerak, ritme kamera, hierarki tipografi, dan standar audio. Draf atau kode user diaudit dan dihaluskan, tidak dirombak (`cookbook/README.md` §1, §3).
 
-1. **Lantai**: mutu yang berlaku di semua video, apa pun gayanya (di bawah ini, lengkap).
-2. **Kiblat**: tiap video punya SATU arah gaya, dipilih dari prompt, video referensi yang Irfan kirim, atau `pustaka/PETA.md`, lalu ditulis sebagai `RESEP.md`.
-3. **Juri**: hasil dilihat dan dibandingkan dengan kiblat sebelum render penuh.
+**Mulai di sini (urut, bacaan kecil dulu):**
+1. `../irfan-creative-workflow/SKILL.md` §2 gerbang. Bedah bahan user dulu (naskah/transkrip, footage, aset), lalu naskah final, lalu storyboard, lalu persetujuan user. Belum ada kode sebelum gerbang 3 lolos.
+2. Di gerbang storyboard ada **Langkah 1 cookbook**. Baca `cookbook/INDEX.md`, cocokkan fungsi cerita tiap beat dengan *Narrative trigger*, buka hanya 2–4 kartu, lalu ajukan tabel racikan (beat → pola → remix → SFX) untuk disetujui (`cookbook/README.md` §2).
+3. **Langkah 2**: kode Remotion ditulis dari nol dari tabel itu, dengan Lantai di bawah sebagai standar mutu, dan render lewat juri (§0b).
 
-`pustaka/` adalah perpustakaan referensi gaya Irfan: kartu dan frame kuncinya menunjukkan yang bagus, `contoh-gagal/` yang jelek. Model belajar dari sana saat memilih arah, merancang tiap adegan, dan memperbaiki frame, supaya Irfan cukup menyebut gaya dengan kata-kata (`pustaka/README.md` §Kartu itu apa).
+Tiga hal yang selalu dikerjakan: **Lantai** (mutu di semua video, di bawah ini, lengkap) → **pengikat/kiblat + racikan pola** di `RESEP.md` (dipinjam dari kartu hanya bila user tidak membawa gaya) → **Juri** (hasil disandingkan dengan frame kunci sebelum render penuh). `cookbook/` menyimpan kartu dan frame kuncinya sebagai contoh yang bagus, dan `cookbook/contoh-gagal/` sebagai contoh yang jelek.
 
 Bila bagian lain di skill ini bertentangan dengan Lantai atau resep, Lantai dan resep yang menang.
 
 ## 0. Lantai (selalu berlaku)
 
 <!-- LANTAI:mulai (disalin dari LANTAI.md oleh tools/sync_lantai.py; jangan diedit di sini) -->
-Lantai menentukan **mutu**; kiblat (kartu di `pustaka/`) menentukan **gaya**. Bila kartu kiblat bertentangan dengan lantai, lantai menang dan penyesuaiannya ditulis di `RESEP.md`. Lantai tidak berisi font, warna, atau layout tertentu: itu urusan kiblat.
+Lantai menentukan **mutu**; kiblat (kartu di `cookbook/`) menentukan **gaya**. Bila kartu kiblat bertentangan dengan lantai, lantai menang dan penyesuaiannya ditulis di `RESEP.md`. Lantai tidak berisi font, warna, atau layout tertentu: itu urusan kiblat.
 
-Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berlaku untuk semua gaya dan sudah muncul di dua video berbeda (lihat `pustaka/README.md` §Tumbuh).
+Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berlaku untuk semua gaya dan sudah muncul di dua video berbeda (lihat `cookbook/README.md` §Tumbuh).
 
 ### A. Teks di layar
 1. **Semua ucapan tampil sebagai teks, dalam SATU lapisan tipografi kinetik bergaya editorial.** Tidak ada baris subtitle terpisah di pita bawah seperti subtitle film.
@@ -29,7 +30,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 4. **Maksimal 2 baris per tampil, 1–3 kata per tampil, blok seimbang** (baris terpendek ≥ 85 % baris terpanjang; bukan satu kalimat dalam 2 baris seperti headline berita), tidak terpotong tepi, tidak ada kata yatim. Tumpuk kata (1 kata per baris) boleh. Saat pembicara bertanya, tanda tanya tampil.
 5. **Teks hanya dari ucapan.** Tidak menambah kalimat atau angka yang tidak diucapkan.
 6. **Satu baris satu ukuran.** Kata yang dibesarkan pindah ke barisnya sendiri. Dua gaya huruf tidak sama kuat dalam satu frasa (serif tidak seukuran dan sebobot dengan kata bold di sebelahnya).
-7. **Huruf menyatu dengan frame-nya.** Kontras ≥ 4,5 : 1, ukurannya berhubungan dengan subjek di frame, tidak menyentuh tepi. Terbaca di layar HP (uji lebar 360 px): kata sambung ≥ 56 px @1080, dan teks kunci tidak duduk di 8 % bawah frame. Teks biru di latar gelap atau navy gagal kontras (±3,6 : 1); di latar gelap penekanan lewat putih penuh vs redup, ketebalan, skala, atau kapital. Jenis huruf ikut kiblat; serif tidak dilarang. Font yang dipakai termuat dari file (`fonts/README.md`), tidak jatuh ke font cadangan sistem; build gagal bila font tidak ditemukan. Contoh gagal: `pustaka/contoh-gagal/01-serif-pucat-raksasa.jpg`.
+7. **Huruf menyatu dengan frame-nya.** Kontras ≥ 4,5 : 1, ukurannya berhubungan dengan subjek di frame, tidak menyentuh tepi. Terbaca di layar HP (uji lebar 360 px): kata sambung ≥ 56 px @1080, dan teks kunci tidak duduk di 8 % bawah frame. Teks biru di latar gelap atau navy gagal kontras (±3,6 : 1); di latar gelap penekanan lewat putih penuh vs redup, ketebalan, skala, atau kapital. Jenis huruf ikut kiblat; serif tidak dilarang. Font yang dipakai termuat dari file (`fonts/README.md`), tidak jatuh ke font cadangan sistem; build gagal bila font tidak ditemukan. Contoh gagal: `cookbook/contoh-gagal/01-serif-pucat-raksasa.jpg`.
 8. **Terbaca berurutan dan cukup lama**: satu arah baca, tiap frasa tampil sampai selesai diucapkan, terbaca di layar HP.
 9. **Kotak di belakang teks hanya bila kontras gagal**, bukan hiasan; narasi kinetik tanpa kotak/shape di belakangnya.
 9a. **Gerak teks dipilih dari peran kalimatnya, bukan fade untuk semua.** Isi teks = ucapan (waktu dan durasi dihitung `scripts/lego/teks_plan.py`); tiap blok diberi peran (R1 narasi, R2 kata kunci, R3 klaim, R4 label/daftar, R5 UI, R6 hero, sub), satu gerak T dari tabel `typography.md` §8a, gaya G, posisi, dan alasan. Satu peran = satu gerak di seluruh video; tiap 15 dtk ≥ 3 gerak berbeda dan ≥ 1 penekanan, kecuali adegan tenang yang alasannya ditulis. Fade hanya untuk sub-line kecil. Efek pada huruf adalah gaya terdefinisi (mis. G8 kilat cahaya), bukan footage/tekstur yang dimasukkan ke huruf. `scripts/lego/kt_check.py teks.json` PASS.
@@ -46,7 +47,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 14. **Satu fokus per momen.** Mata tahu harus melihat ke mana. Teks dan visual tidak berbobot sama di momen yang sama: teks masuk satu per satu mengikuti ucapan dan yang baru masuk menjadi fokus; visual yang kuat tampil tanpa teks tandingan (`references/decision-guide.md`).
 15. **Teks, objek, dan visual satu kesatuan**: tidak tumpang tindih, tidak bertabrakan, tidak berjauhan seperti bagian terpisah.
 16. **Tepi frame bersih.** Tidak ada objek penting di zona tepi kecuali karena gerak kamera; margin aman 5 %.
-17. **Seimbang dan hierarkinya terbaca, dinilai global per frame**, bukan per ukuran objek: posisi teks, objek, KT, bingkai, dan b-roll dilihat bersama di zoom 25 %, 50 %, dan 100 %. Urutan baca di ukuran normal jelas: latar utama (#primary) → teks/objek utama → pengisi (objek pinggir, teks kecil). Satu sisi berisi teks + visual sementara sisi lain kosong = gagal; perbaikannya pindah posisi (mis. kunci ke kanan bawah, berseberangan dengan kepala di kiri atas). Dinilai dengan mata (Sutradara/LLM) pada still **sebelum** render penuh dan pada frame tahan tiap detik, berdampingan dengan frame kunci kiblat dan `pustaka/contoh-gagal/`, memakai daftar cek di `pustaka/README.md` §Juri butir 2. Gaya, posisi, keseimbangan, dan estetika tidak dinilai dengan skor skrip.
+17. **Seimbang dan hierarkinya terbaca, dinilai global per frame**, bukan per ukuran objek: posisi teks, objek, KT, bingkai, dan b-roll dilihat bersama di zoom 25 %, 50 %, dan 100 %. Urutan baca di ukuran normal jelas: latar utama (#primary) → teks/objek utama → pengisi (objek pinggir, teks kecil). Satu sisi berisi teks + visual sementara sisi lain kosong = gagal; perbaikannya pindah posisi (mis. kunci ke kanan bawah, berseberangan dengan kepala di kiri atas). Dinilai dengan mata (Sutradara/LLM) pada still **sebelum** render penuh dan pada frame tahan tiap detik, berdampingan dengan frame kunci kiblat dan `cookbook/contoh-gagal/`, memakai daftar cek di `cookbook/README.md` §Juri butir 2. Gaya, posisi, keseimbangan, dan estetika tidak dinilai dengan skor skrip.
 18. **Rapi**: garis berakhir di tepi bentuknya, jarak antar-elemen sama, stroke dan radius konsisten.
 18a. **Palet dikunci di resep.** Satu keluarga aksen dominan, netral membawa frame, tidak ada warna di luar palet (`references/palette.md`, `scripts/palette_check.py`).
 18b. **Setiap efek punya fungsi.** Glow, gradien, negative, RGB split, dan flash dipakai karena membantu penonton memahami sesuatu (transisi, sebelum-sesudah, penekanan); efek yang fungsinya tidak bisa dijelaskan dihapus.
@@ -76,22 +77,29 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 28a. **Baca folder proyek sebelum build.** Isi `projects/<proyek>/` (RESEP, DECISIONS, STATUS, aset) menang atas moodboard atau ingatan.
 28b. **Contoh atau koreksi dari Irfan berlaku untuk frame yang ia sebut**, bukan aturan semua frame; sebut frame mana yang berubah sebelum mengubah massal. Saran dari model lain diterapkan selektif; putusan Irfan menang.
 28c. **Tidak ada generate berbayar sebelum gerbangnya terbuka**, dan biayanya disebut dulu.
-29. **Video baru dikirim setelah juri lulus** (`pustaka/README.md` §Juri), bersama lembar sanding still vs kiblat.
+29. **Video baru dikirim setelah juri lulus** (`cookbook/README.md` §Juri), bersama lembar sanding still vs kiblat.
 <!-- LANTAI:selesai -->
 
 ## 0a. Kiblat dan resep (sebelum build)
 
-1. Baca `pustaka/PETA.md` (satu baris per referensi; semuanya contoh mutu dan sumber teknik, bukan ukuran untuk disalin; teknik dipinjam bersama syaratnya dan disesuaikan dengan kondisi footage sendiri).
-2. Tentukan kiblat:
-   - Irfan mengirim video referensi di sesi → itu kiblatnya; bedah ke kartu baru (`pustaka/README.md` §Referensi baru).
-   - Prompt sudah jelas → pilih satu kartu yang cocok dan langsung jalan.
-   - Prompt tanpa perintah gaya spesifik → ikuti gaya global brief (gaya bawaan `templates/gaya/` boleh bila cocok); tanpa gaya di brief → kartu paling mirip atau gaya sendiri yang sesuai brief, alasan di `RESEP.md`. Video bermode ganda boleh berkiblat berbeda per mode asal gayanya konsisten (`pustaka/README.md`).
-3. Buka kartu kiblat itu (`pustaka/kartu/…`) dan frame kuncinya. Jangan membuka semua kartu.
-3a. **Bentuk visual dicari di kartu, tidak dikarang.** Adegan yang butuh bentuk di luar kartu kiblat (tampilan Instagram, chat, dashboard, peta, tokoh, dsb.): cari kartu yang pernah membangunnya lewat `pustaka/PETA.md` dan isi kartu, buka kartu itu + frame kuncinya, pinjam tekniknya dengan pengikat kiblat, catat di `RESEP.md`. Tidak ada di kartu, brief, maupun `DECISIONS.md` → tanya Irfan tampilan yang ia mau. Rinci: `pustaka/README.md` §Alur butir 5.
-3b. **Sebelum merancang teks, visual, atau gerak sebuah adegan**, baca `guide/<urusan>/GUIDE.md` §Cara memutuskan (pelajaran bersyarat "bila…, pilih…, karena…" dari koreksi sebelumnya) dan lihat `pustaka/contoh-gagal/`. Subagen yang membangun visual tidak disuruh membaca semua itu: Sutradara memberinya brief bergambar (`templates/handoff-fase.md`): frame footage adegannya, frame kunci atau potongan klip referensi, still spine, maksud adegan, dan teknik kartu yang dipakai beserta syarat dan penyesuaiannya, bukan tabel angka.
-4. Tulis `projects/<proyek>/RESEP.md` dari `pustaka/RESEP-TEMPLATE.md`: 8 bagian anatomi. **Pengikat** (warna & tekstur, teks, ritme) dari satu sumber; **teknik** (b-roll, motion graphic, kamera & transisi, SFX, musik) boleh dipinjam kartu lain dan dikenakan pengikat kiblat. Cek: `python3 scripts/juri/resep_check.py projects/<proyek>/RESEP.md`.
-5. **Kondisi footage dulu, baru teknik.** Lembar kondisi footage per jenis shot (rasio, skala wajah, terang-gelap latar, pakaian, ruang kosong, benda ramai, kamera) ditulis sebelum teknik kartu dipilih; teknik yang syaratnya tidak cocok disesuaikan atau tidak dipakai. Angka di kartu adalah pengamatan di video asli, bukan target (`pustaka/README.md` §Alur butir 6).
-6. **Spine gaya dikunci sebelum pekerja paralel mulai**: satu still per peran teks (R1–R6, `references/typography.md` §8a) di atas footage asli, dinilai Sutradara berdampingan dengan frame kunci (`pustaka/README.md` §Alur butir 7).
+1. Baca `cookbook/INDEX.md` (satu baris per kartu: nama pola, narrative trigger, kategori). Untuk satu teknik lintas kartu: `cookbook/POLA.md`. Semua kartu adalah contoh mutu dan sumber mekanik, bukan ukuran untuk disalin.
+2. Tentukan pengikat (kiblat):
+   - User membawa gaya, brand, atau draf → gaya user adalah pengikatnya. Kartu hanya menyumbang mekanik.
+   - Irfan mengirim video referensi di sesi → itu kiblatnya. Bedah dulu ke kartu baru (`cookbook/README.md` §Referensi baru).
+   - Prompt menyebut gaya → pilih satu kartu yang paling cocok sebagai pengikat dan sebut ke user.
+   - Prompt tanpa gaya → ikuti gaya global brief (gaya bawaan `templates/gaya/` boleh dipakai bila cocok). Brief juga tanpa gaya → pakai kartu paling mirip, tulis alasannya di `RESEP.md`.
+   - Video bermode ganda boleh berkiblat berbeda per mode, asal gayanya konsisten.
+3. Racik pola per beat: 1–3 kartu mekanik dipilih lewat *Narrative trigger*. Buka hanya kartu itu dan frame kuncinya, lalu isi tabel racikan (`cookbook/README.md` §2) dan minta persetujuan user. Jangan membuka semua kartu.
+3a. **Bentuk visual dicari di kartu, tidak dikarang.** Adegan yang butuh bentuk tertentu (tampilan Instagram, chat, dashboard, peta, tokoh, dsb.):
+   - Cari lewat `cookbook/INDEX.md`/`POLA.md`.
+   - Buka kartunya + frame kuncinya.
+   - Pinjam mekaniknya dengan gaya user atau pengikat, lalu catat di `RESEP.md`.
+   - Tidak ada di kartu, brief, maupun `DECISIONS.md` → tanya Irfan tampilan yang ia mau.
+   Rinci: `cookbook/README.md` §5.
+3b. **Sebelum merancang teks, visual, atau gerak sebuah adegan**, baca `guide/<urusan>/GUIDE.md` §Cara memutuskan (pelajaran bersyarat "bila…, pilih…, karena…" dari koreksi sebelumnya) dan lihat `cookbook/contoh-gagal/`. Subagen yang membangun visual tidak disuruh membaca semua itu: Sutradara memberinya brief bergambar (`templates/handoff-fase.md`): frame footage adegannya, frame kunci atau potongan klip referensi, still spine, maksud adegan, dan teknik kartu yang dipakai beserta syarat dan penyesuaiannya, bukan tabel angka.
+4. Tulis `projects/<proyek>/RESEP.md` dari `cookbook/RESEP-TEMPLATE.md`: 8 bagian anatomi. **Pengikat** (warna & tekstur, teks, ritme) dari satu sumber; **teknik** (b-roll, motion graphic, kamera & transisi, SFX, musik) boleh dipinjam kartu lain dan dikenakan pengikat kiblat. Cek: `python3 scripts/juri/resep_check.py projects/<proyek>/RESEP.md`.
+5. **Kondisi footage dulu, baru teknik.** Lembar kondisi footage per jenis shot (rasio, skala wajah, terang-gelap latar, pakaian, ruang kosong, benda ramai, kamera) ditulis sebelum teknik kartu dipilih; teknik yang syaratnya tidak cocok disesuaikan atau tidak dipakai. Angka di kartu adalah pengamatan di video asli, bukan target (`cookbook/README.md` §Alur butir 6).
+6. **Spine gaya dikunci sebelum pekerja paralel mulai**: satu still per peran teks (R1–R6, `references/typography.md` §8a) di atas footage asli, dinilai Sutradara berdampingan dengan frame kunci (`cookbook/README.md` §Alur butir 7).
 
 ## 0c. Alur kerja: lima tahap, dua render
 
@@ -106,10 +114,10 @@ Di awal video salin `templates/TAHAP.md` ke `projects/<proyek>/TAHAP.md`. `pytho
 ## 0b. Render dan juri
 
 - Semua render lewat `scripts/juri/render.sh <proyek> still|draft|frames|final …`. Render penuh ditolak sampai resep lulus, semua still terbaru, lembar sanding dibuat, draft gerak terbaru, audit visual semua potongan LULUS (`frames` → `frame_audit.py` → Sutradara menilai frame tahan tiap detik; satu penilai), dan `qc/JURI.md` berakhir `PUTUSAN: LULUS` dengan bukti tiap catatan Irfan aktif.
-- **Juri visual adalah mata, bukan skrip.** Gaya, posisi teks dan objek, keseimbangan, dan estetika dinilai dengan melihat gambarnya, berdampingan dengan frame kunci kiblat (yang bagus) dan `pustaka/contoh-gagal/` (yang jelek): pada still per beat (daftar cek `pustaka/README.md` §Juri 2, `scripts/juri/sandingkan.py` untuk lembar sanding, lalu tiap pertanyaan "Yang harus terasa sama saat disandingkan" kartu kiblat dan Lantai A–D) dan pada frame tahan tiap detik di audit visual, oleh satu penilai (Sutradara, `templates/roles/pemeriksa-frame.md`); frame yang lemah diberi solusi desain dari kartu. `scripts/juri/teks_cek.py` hanya penunjuk still yang perlu dilihat. Rinci: `pustaka/README.md` §Juri. Sekali sebelum render final, satu Creative Devil's Advocate dari luar memberi usul dengan brief steril (`templates/roles/devils-advocate.md`).
+- **Juri visual adalah mata, bukan skrip.** Gaya, posisi teks dan objek, keseimbangan, dan estetika dinilai dengan melihat gambarnya, berdampingan dengan frame kunci kiblat (yang bagus) dan `cookbook/contoh-gagal/` (yang jelek): pada still per beat (daftar cek `cookbook/README.md` §Juri 2, `scripts/juri/sandingkan.py` untuk lembar sanding, lalu tiap pertanyaan "Yang harus terasa sama saat disandingkan" kartu kiblat dan Lantai A–D) dan pada frame tahan tiap detik di audit visual, oleh satu penilai (Sutradara, `templates/roles/pemeriksa-frame.md`); frame yang lemah diberi solusi desain dari kartu. `scripts/juri/teks_cek.py` hanya penunjuk still yang perlu dilihat. Rinci: `cookbook/README.md` §Juri. Sekali sebelum render final, satu Creative Devil's Advocate dari luar memberi usul dengan brief steril (`templates/roles/devils-advocate.md`).
 - **Visual dulu, audio sesudahnya.** Audit visual dijalankan setelah visual selesai dan sebelum SFX/musik disusun; kecocokan bunyi dengan gerak diperiksa di fase audio (`frame_audit.py --fase audio`, `templates/roles/pemeriksa-audio.md`).
 - Revisi: hanya atribut yang diminta berubah (`scripts/juri/revisi_cek.py cek`); perbarui still adegan itu saja dan rakit rentang framenya (`scripts/lego/compose.py --rentang`), bukan seluruh video. Audio, audit semua frame, dan Devil's Advocate sekali sebelum final (`references/revision-log.md` §0).
-- Pelajaran dari Irfan disimpan menurut cakupannya (`pustaka/README.md` §Tumbuh).
+- Pelajaran dari Irfan disimpan menurut cakupannya (`cookbook/README.md` §Tumbuh).
 
 ## Rujukan teknis
 

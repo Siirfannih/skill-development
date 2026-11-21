@@ -1,7 +1,7 @@
 ---
 # EDITING.md · cara video merek ini diedit. Tema gaya bukan template: ini arah yang sudah user pilih, dipakai untuk keputusan kecil yang tidak dijawab brief.
 merek: <slug-merek>
-kiblat_kartu: ["?"]          # nomor kartu pustaka yang user pilih sebagai arah, mis. ["18", "07"]
+kiblat_kartu: ["?"]          # nomor kartu cookbook yang user pilih sebagai arah, mis. ["18", "07"]
 tempo: "?"                    # tenang | sedang | cepat
 teks_kinetik:
   posisi: "?"                 # mis. "dekat kepala, tetap dalam satu adegan"
