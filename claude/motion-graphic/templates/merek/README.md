@@ -22,7 +22,7 @@ Repo ini hanya menyimpan cara kerja dan cetakan kosong. Data milik user (profil 
 ```
 
 - Satu merek bisa punya banyak video; `BRAND.md` dan `EDITING.md` dipakai ulang di semua videonya. Selera satu video tetap di `proyek/<slug-video>/DECISIONS.md`.
-- `contoh/` milik merek itu saja. `pustaka/contoh-gagal/` di repo hanya untuk kesalahan kerja yang salah di gaya apa pun.
+- `contoh/` milik merek itu saja. `cookbook/contoh-gagal/` di repo hanya untuk kesalahan kerja yang salah di gaya apa pun.
 - Cek bentuknya: `python3 claude/motion-graphic/scripts/juri/profil_cek.py <folder data>/merek/<slug-merek>`.
 
 ## Tahap 1: memastikan profil ada
@@ -36,6 +36,6 @@ Repo ini hanya menyimpan cara kerja dan cetakan kosong. Data milik user (profil 
 ## Tahap 2: editing guideline + preview
 
 Gaya yang disebut user ("Apple style", "cinematic") adalah tema konsep, bukan template. Model menerjemahkannya menjadi visual untuk video ini:
-1. Cari 2–3 kartu terdekat lewat `pustaka/PETA.md`, lalu tunjukkan frame kuncinya di percakapan: "yang kamu maksud lebih ke yang mana?". Jawaban user ditulis ke `EDITING.md` bila berlaku untuk merek, atau ke `RESEP.md` proyek bila hanya untuk video ini.
+1. Cari 2–3 kartu terdekat lewat `cookbook/INDEX.md`, lalu tunjukkan frame kuncinya di percakapan: "yang kamu maksud lebih ke yang mana?". Jawaban user ditulis ke `EDITING.md` bila berlaku untuk merek, atau ke `RESEP.md` proyek bila hanya untuk video ini.
 2. Buat preview dari kode yang sama dengan video final: still per beat di atas frame footage asli (`render.sh still`), plus klip draft skala 0,5 hanya untuk beat yang punya gerak kamera atau transisi. Kirim langsung di percakapan yang sedang dipakai (gambar/klip dilampirkan), bukan halaman atau link terpisah.
 3. Masukan user di sini masuk `DECISIONS.md` sebagai baris `Irfan`/user. Setelah user setuju, produksi berjalan penuh tanpa meminta revisi.

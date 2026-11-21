@@ -41,8 +41,10 @@ resep = baca(os.path.join(p, "RESEP.md"))
 m = re.search(r"Kartu:\*{0,2}\s*`([^`]+)`", resep)
 kartu = ""
 if m:
-    cand = glob.glob(os.path.join(repo, "claude/motion-graphic/pustaka/kartu", os.path.basename(m.group(1))))
-    kartu = baca(cand[0]) if cand else ""
+    sys.path.insert(0, os.path.join(repo, "tools"))
+    import cookbook
+    kp = cookbook.resolve(m.group(1))
+    kartu = baca(kp) if kp else ""
 dec = "\n".join(l for l in baca(os.path.join(p, "DECISIONS.md")).splitlines() if re.match(r"^\| [RD]-\d+ \|", l) and "Aktif" in l)
 mg = os.path.join(repo, "claude/motion-graphic")
 panduan = [x.strip() for x in os.environ.get("KONSUL_PANDUAN", "teks,visual").split(",") if x.strip()]

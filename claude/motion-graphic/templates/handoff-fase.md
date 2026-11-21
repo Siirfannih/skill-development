@@ -26,7 +26,7 @@ Angka dari kartu tidak ditulis sebagai target. Bila pekerja butuh angka awal, tu
 **Pelajaran yang berlaku di beat ini** (disalin dari `guide/<urusan>/GUIDE.md` §Cara memutuskan, hanya yang kondisinya cocok):
 - <bila …, jangan/pilih …, karena …; yang boleh: …>
 
-**Jangan seperti ini** (dari `pustaka/contoh-gagal/`, yang mirip dengan beat ini):
+**Jangan seperti ini** (dari `cookbook/contoh-gagal/`, yang mirip dengan beat ini):
 - <nomor entri + satu kalimat sebabnya>
 
 ## Tujuan fase

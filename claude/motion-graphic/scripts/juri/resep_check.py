@@ -9,12 +9,22 @@ import os, re, sys
 BAGIAN = ["warna & tekstur", "teks", "ritme", "b-roll / footage", "motion graphic", "kamera & transisi", "sfx", "musik"]
 PENGIKAT = BAGIAN[:3]
 
+def _resolve_nomor(ref):
+    """RESEP lama menulis pustaka/kartu/NN-slug.md; cari kartunya lewat nomor di resolver cookbook (tools/cookbook.py)."""
+    import importlib.util
+    root = os.path.realpath(os.path.join(os.path.dirname(os.path.realpath(__file__)), "..", "..", "..", ".."))
+    f = os.path.join(root, "tools", "cookbook.py")
+    if not os.path.exists(f): return None
+    spec = importlib.util.spec_from_file_location("cookbook_tools", f); mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod.resolve(ref)
+
 def main():
     if len(sys.argv) != 2 or sys.argv[1] in ("-h", "--help"):
         print(__doc__); sys.exit(0 if len(sys.argv) == 2 else 1)
     p = sys.argv[1]
     if not os.path.exists(p):
-        print(f"GAGAL: {p} tidak ada. Salin pustaka/RESEP-TEMPLATE.md dan isi."); sys.exit(1)
+        print(f"GAGAL: {p} tidak ada. Salin cookbook/RESEP-TEMPLATE.md dan isi."); sys.exit(1)
     s = open(p, encoding="utf-8").read(); salah = []
     rows = {}
     for line in s.splitlines():
@@ -35,8 +45,8 @@ def main():
     if not m or "<" in m.group(1): salah.append("path kartu kiblat belum diisi")
     else:
         kp = m.group(1); cand = [kp, os.path.join(os.path.dirname(p), kp), os.path.join(os.path.dirname(__file__), "..", "..", kp),
-                                 os.path.join(os.path.dirname(__file__), "..", "..", "pustaka", kp)]
-        if not any(os.path.exists(c) for c in cand): salah.append(f"kartu kiblat tidak ditemukan: {kp}")
+                                 os.path.join(os.path.dirname(__file__), "..", "..", "cookbook", kp)]
+        if not any(os.path.exists(c) for c in cand) and not _resolve_nomor(kp): salah.append(f"kartu kiblat tidak ditemukan: {kp}")
     for label in ("Prompt Irfan", "Alasan memilih", "Penyesuaian karena LANTAI", "Kamera diam?"):
         mm = re.search(r"\*\*" + re.escape(label) + r"[^*]*\*\*\s*(.*)", s)
         nxt = ""

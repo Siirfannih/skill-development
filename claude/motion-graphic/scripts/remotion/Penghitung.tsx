@@ -1,4 +1,4 @@
-// Penghitung.tsx — blok lego: angka yang naik/turun dan bisa dibaca (pustaka/teknik/launch-motion.md §2).
+// Penghitung.tsx — blok lego: angka yang naik/turun dan bisa dibaca (cookbook/teknik/launch-motion.md §2).
 // Angka tidak pernah lompat ke nilai akhir dalam satu frame: berjalan ±1 dtk dengan kurva `reveal` (cepat di awal,
 // melambat ke nilai akhir), digit memakai tabular-nums supaya lebar tidak goyang. `cahaya` menambah glow yang menguat
 // mengikuti nilai (emosi: tekanan yang menumpuk); pakai hanya bila cerita adegan itu memang tekanan.

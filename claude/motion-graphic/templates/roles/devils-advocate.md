@@ -11,7 +11,7 @@ Isi hanya:
 1. Brief Irfan **verbatim** (kata-katanya, bukan ringkasan Sutradara) dan baris `Irfan` di `DECISIONS.md` yang aktif.
 2. Path frame tahan tiap detik (`qc/frame_audit/*/tahan/`) atau lembar video final kandidat.
 3. Frame kunci kartu kiblat dan kartu pinjaman (`guide/referensi/sheets/keyframes/<no>-k*.jpg`) = yang bagus.
-4. `pustaka/contoh-gagal/` (README + gambar) = yang jelek.
+4. `cookbook/contoh-gagal/` (README + gambar) = yang jelek.
 
 Dilarang masuk brief: catatan bahwa sesuatu "disengaja"/"sengaja"/"intentional", alasan desain Sutradara, `REPORT-*`, baris `usul`, verdict sebelumnya. Catatan seperti itu membuat pemeriksa melewatkan persis elemen yang bermasalah. Cek sebelum mengirim:
 

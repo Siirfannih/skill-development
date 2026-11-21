@@ -160,7 +160,7 @@ Jenis/jumlah SFX, sinkron SFX per objek, genre/instrumen/BPM musik, perbandingan
 
 ## Perbandingan kartu 46
 
-Sumber pembanding yang dibaca: `../../../pustaka/kartu/46-lumitris-montase-arsip.md` dan delapan `../sheets/keyframes/46-k*.jpg`. Yang sama terlihat: watermark, penutup hitam, grotesk kecil di tengah, kolase, pembalikan setempat. Angka pembanding **disalin dari kartu 46**, tidak diukur ulang: 1280×534 (2,4:1), x-height kecil 4,7–5,1 % H, rasio besar:kecil 4–15×, dan `pace_read` 71 event deteksi/menit. Kartu 46 membedakan hitungan manual 37 cut pada isi (68/menit) dari 42 event `pace_read` pada file penuh (71/menit); kartu 86 membandingkan hasil alat penuh dengan hasil alat penuh. Kartu 46 juga menampilkan kata “life” sangat besar; k3 kartu 86 hanya penekanan “start” 2,26× kata kecil.
+Sumber pembanding yang dibaca: `../../../cookbook/02-typography-and-captions/46-giant-word-scale-jump.md` dan delapan `../sheets/keyframes/46-k*.jpg`. Yang sama terlihat: watermark, penutup hitam, grotesk kecil di tengah, kolase, pembalikan setempat. Angka pembanding **disalin dari kartu 46**, tidak diukur ulang: 1280×534 (2,4:1), x-height kecil 4,7–5,1 % H, rasio besar:kecil 4–15×, dan `pace_read` 71 event deteksi/menit. Kartu 46 membedakan hitungan manual 37 cut pada isi (68/menit) dari 42 event `pace_read` pada file penuh (71/menit); kartu 86 membandingkan hasil alat penuh dengan hasil alat penuh. Kartu 46 juga menampilkan kata “life” sangat besar; k3 kartu 86 hanya penekanan “start” 2,26× kata kecil.
 
 ## Perintah yang dipakai
 

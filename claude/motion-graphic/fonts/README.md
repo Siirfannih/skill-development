@@ -65,4 +65,4 @@ Pola yang berulang di kartu:
 - **Dua keluarga per video** adalah yang paling sering (sans narasi + satu suara penekanan). Tiga atau lebih hanya di gaya yang memang "kolase" (02, 26, 27, 47, 59) dan di sana tiap keluarga punya satu tugas tetap.
 - **Penekanan dipilih satu cara per video**: ketebalan (Regular → Bold), atau jenis (sans → serif italic), atau ukuran (kata sambung → kata kunci 5–8×). Kartu yang tenang (30, 33, 67) tidak memakai bold sama sekali.
 - **Condensed tebal selalu kapital dan selalu pendek** (1–2 kata). Serif italic selalu huruf kecil.
-- **Contoh gagal**: serif italic tipis pucat dibesarkan sampai tepi frame (`../pustaka/contoh-gagal/01-serif-pucat-raksasa.jpg`). Yang salah kontras, skala, dan hubungannya dengan frame, bukan serif-nya.
+- **Contoh gagal**: serif italic tipis pucat dibesarkan sampai tepi frame (`../cookbook/contoh-gagal/01-serif-pucat-raksasa.jpg`). Yang salah kontras, skala, dan hubungannya dengan frame, bukan serif-nya.
