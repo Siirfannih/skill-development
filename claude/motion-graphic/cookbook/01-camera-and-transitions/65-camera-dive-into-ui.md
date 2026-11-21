@@ -48,7 +48,7 @@ Sans geometris-humanis (mirip SF Pro/Inter), Regular untuk kalimat, Bold untuk k
   - Gerak: baris sebagai susunan kata + slot; kata `move(…, 6, "land")` mengikuti ucapan; objek masuk dari `blur(10px)` + tint 0,5 ke tajam dalam 8 f `CURVE.reveal`, kartu belakang menyusul 3 f; tinggi objek 1,3–2,8× tinggi huruf, sejajar garis tengah.
   - Ruang: datar; kamera `drift()` ±6 px.
   - Blur & blend: motion blur keluar `<CameraMotionBlur shutterAngle={200} samples={16}>`; bayangan kartu lembut.
-- **SFX:** `Notif.mp3` di notifikasi muncul (satu bunyi untuk satu objek); kata senyap.
+- **SFX:** famili `ui` · `Notif.mp3` di notifikasi muncul (satu bunyi untuk satu objek); kata senyap.
 - **Pakai bila:** kata benda/kerja yang bisa diperagakan UI, kanvas polos. · **Jangan pakai bila:** di atas footage pembicara yang ramai; objek tidak menggambarkan kata itu; kalimat panjang.
 - **Remix (anti-jiplak):**
   1. Produk UMKM → pertahankan objek-di-slot-kata · ganti notifikasi dengan foto produk bulat kecil di antara kata ("pesananmu [foto] sudah dikirim").
@@ -65,7 +65,7 @@ Sans geometris-humanis (mirip SF Pro/Inter), Regular untuk kalimat, Bold untuk k
   - Gerak: kamera virtual translateX 1,0 lebar frame dalam 8–10 f `CURVE.whip`; kursor `translateX` mendahului kamera 2 f, lalu ikut terseret.
   - Ruang: datar.
   - Blur & blend: motion blur nyata (`shutterAngle` 270–360, `samples={20}`); kata berblur sehingga tidak terbaca.
-- **SFX:** `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `Move.mp3` di awal whip (kiblat memakai hit sub-bass, bukan whoosh); `Wooshcameramovementtransisi.mp3` hanya bila whip jauh lebih panjang.
+- **SFX:** famili `air`, `impact` · `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `Move.mp3` di awal whip (kiblat memakai hit sub-bass, bukan whoosh); whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) hanya bila whip jauh lebih panjang.
 - **Pakai bila:** hook, kata yang tidak harus terbaca. · **Jangan pakai bila:** kata itu punchline (whip membuatnya tak terbaca; pasang kata diam di slab dan whip hanya sebagai jalan masuk/keluar).
 - **Remix (anti-jiplak):**
   1. Video SaaS → pertahankan whip dengan blur · ganti kursor dengan tombol "Next" yang diklik; kata raksasa nama fitur.
@@ -82,7 +82,7 @@ Sans geometris-humanis (mirip SF Pro/Inter), Regular untuk kalimat, Bold untuk k
   - Gerak: satu grup UI dengan `scale` 1→1,7 dan `translate` ke pusat objek 14–18 f `CURVE.heavy`; pull balik 0,62× 12 f `CURVE.land`; elemen baru `scale` 0→1 dari titik objek `CURVE.land` 10 f.
   - Ruang: datar; parallax kalimat 1,1× lapisan UI.
   - Blur & blend: blur arah gerak 8–16 px di puncak kecepatan; lapis belakang `blur(4px)`.
-- **SFX:** `pop up.mp3` saat kartu lahir dari objek; `Enter.mp3` pada tombol yang benar-benar ditekan ("Apply"); gerak kamera `Woosh.mp3` bila terdengar perlu.
+- **SFX:** famili `air`, `mekanik`, `ui` · `pop up.mp3` saat kartu lahir dari objek; `Enter.mp3` pada tombol yang benar-benar ditekan ("Apply"); gerak kamera `Woosh.mp3` bila terdengar perlu.
 - **Pakai bila:** fitur punya titik masuk kecil dan satu fokus per adegan. · **Jangan pakai bila:** UI ramai tanpa satu titik fokus.
 - **Remix (anti-jiplak):**
   1. UI gelap → pertahankan dive · objek fokus diberi aksen terang, kartu lahir sebagai panel kaca.
@@ -99,7 +99,7 @@ Sans geometris-humanis (mirip SF Pro/Inter), Regular untuk kalimat, Bold untuk k
   - Gerak: kalimat per kata `move(…, 6, "reveal")`; "But," 8 % tinggi, "what if" 7 %; push 1,00→1,04 `CURVE.drift`.
   - Ruang: datar.
   - Blur & blend: kata masuk dari `blur(6px)`; titik `mixBlendMode: "screen"`.
-- **SFX:** hit sub-bass di "But," (`ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`); kata senyap.
+- **SFX:** famili `impact` · hit sub-bass di "But," (`ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`); kata senyap.
 - **Pakai bila:** pembalikan emosi satu kalimat, tanpa pembicara. · **Jangan pakai bila:** di antara adegan terang yang harus tetap satu dunia.
 - **Remix (anti-jiplak):**
   1. Brand terang → balik: kartu putih dengan gradien pastel dari sudut, teks gelap.

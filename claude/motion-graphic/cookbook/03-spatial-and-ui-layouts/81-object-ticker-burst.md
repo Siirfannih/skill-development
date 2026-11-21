@@ -53,7 +53,7 @@ Neo-grotesk tipis spasi rapat (mirip Inter Display / SF Pro Display Regular–Li
   - Gerak: ticker `translateX` linear (marquee) ; ledakan: posisi polar, radius 0→1 `CURVE.land` 20 f dengan rotasi acak per benda (seed tetap), lalu menyusut ke pusat `CURVE.heavy` 18 f; jeda antarbenda `react(i)`.
   - Ruang: `perspective: 1000px` ringan, tiap benda `translateZ` acak.
   - Blur & blend: motion blur saat ledakan; bayangan lunak.
-- **SFX:** `Pergantianfoto.mp3` (potongan rentetan) di ticker; `Move.mp3` atau `ES_Designed, Bass Dive…` di ledakan; senyap di tiap benda.
+- **SFX:** famili `mekanik`, `impact` · `Pergantianfoto.mp3` (potongan rentetan) di ticker; `Move.mp3` atau `ES_Designed, Bass Dive…` di ledakan; senyap di tiap benda.
 - **Pakai bila:** objek fisik beragam yang bisa difoto/dirender. · **Jangan pakai bila:** hanya ikon vektor (hilang taktil).
 - **Remix (anti-jiplak):**
   1. UMKM kuliner → pertahankan ticker lalu burst · ganti benda menjadi bahan dan struk belanja.
@@ -69,7 +69,7 @@ Neo-grotesk tipis spasi rapat (mirip Inter Display / SF Pro Display Regular–Li
   - Lapisan: lantai → bayangan → figur → caption.
   - Gerak: kamera `scale 1.0→0.55` `CURVE.heavy` 60 f; figur baru masuk `opacity` 0→1 + `translateY(12px)` `react(i)` selama pull-back.
   - Ruang: datar atas; Blur & blend: bayangan `drop-shadow` keras.
-- **SFX:** `pop up.mp3` hanya pada figur penting (bukan semua figur); `Woosh.mp3` di pull-back.
+- **SFX:** famili `air`, `ui` · `pop up.mp3` hanya pada figur penting (bukan semua figur); `Woosh.mp3` di pull-back.
 - **Pakai bila:** pesan = skala. · **Jangan pakai bila:** figur harus dikenali individual.
 - **Remix (anti-jiplak):**
   1. Komunitas → ganti figur dengan titik warna.
@@ -85,7 +85,7 @@ Neo-grotesk tipis spasi rapat (mirip Inter Display / SF Pro Display Regular–Li
   - Lapisan: hitam → teks → kotak sorot.
   - Gerak: ketik per huruf 1–2 f/huruf; kotak `scaleX 0→1` `CURVE.reveal` 8 f; kata lain `opacity` 1→0,15 `CURVE.reveal` 12 f.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `Keyboardtyping.mp3` (potong sesuai panjang, −14 dB); `Enter.mp3` di kirim; kata senyap.
+- **SFX:** famili `mekanik` · `Keyboardtyping.mp3` (potong sesuai panjang, −14 dB); `Enter.mp3` di kirim; kata senyap.
 - **Pakai bila:** kalimat ≤ 20 kata. · **Jangan pakai bila:** kata kunci tersebar (sorot loncat).
 - **Remix (anti-jiplak):**
   1. Brief klien → pertahankan sorot + pudar · ganti kotak ke garis bawah tulisan tangan.
@@ -101,7 +101,7 @@ Neo-grotesk tipis spasi rapat (mirip Inter Display / SF Pro Display Regular–Li
   - Lapisan (bawah → atas): footage → teks → matte subjek (`persepsi.py`, RVM) di atas teks.
   - Gerak: ketik per huruf 2 f/huruf; kursor `blink` 15 f.
   - Ruang: datar. Blur & blend: tanpa; matte tepi `feather 1px`.
-- **SFX:** `Keyboardtyping.mp3` pelan (−14 dB) selama ketik; atau senyap.
+- **SFX:** famili `mekanik` · `Keyboardtyping.mp3` pelan (−14 dB) selama ketik; atau senyap.
 - **Pakai bila:** matte tersedia, ruang kosong di belakang kepala. · **Jangan pakai bila:** kepala menutup separuh huruf kunci.
 - **Remix (anti-jiplak):**
   1. Product shot dengan botol di depan → judul di belakang botol.
@@ -117,7 +117,7 @@ Neo-grotesk tipis spasi rapat (mirip Inter Display / SF Pro Display Regular–Li
   - Lapisan: footage `blur(24px)` → daftar → kotak sorot.
   - Gerak: scroll `translateY` `CURVE.heavy` 87 f (2,9 dtk @30); kotak berhenti di baris terpilih `CURVE.land` 8 f; baris lain `opacity 0.55`.
   - Ruang: datar. Blur & blend: `mask-image` gradien di tepi atas/bawah.
-- **SFX:** `ES_User Interface, Click, Pops, Glass, UI, Pops` pelan saat kotak mendarat; scroll senyap.
+- **SFX:** famili `ui` · `ES_User Interface, Click, Pops, Glass, UI, Pops` pelan saat kotak mendarat; scroll senyap.
 - **Pakai bila:** 6–10 opsi. · **Jangan pakai bila:** opsi ≤ 3.
 - **Remix (anti-jiplak):**
   1. Paket harga → baris paket, sorot di paket tengah.
@@ -133,7 +133,7 @@ Neo-grotesk tipis spasi rapat (mirip Inter Display / SF Pro Display Regular–Li
   - Lapisan: latar → kata raksasa (opacity 0,3) → foto.
   - Gerak: kata `translateX` linear −10 % lebar selama shot; foto masuk `react(i)` `CURVE.land` 10 f.
   - Ruang: parallax kata 0,5× foto. Blur & blend: kata `blur(2px)`.
-- **SFX:** `Pergantianfoto.mp3` potongan (foto berurutan); kata senyap.
+- **SFX:** famili `mekanik` · `Pergantianfoto.mp3` potongan (foto berurutan); kata senyap.
 - **Pakai bila:** kata pendek (3–6 huruf). · **Jangan pakai bila:** kata panjang (keterbacaan).
 - **Remix (anti-jiplak):**
   1. Katalog produk → kata kategori raksasa pudar, foto produk.

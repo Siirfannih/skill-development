@@ -51,7 +51,7 @@ Sans (paling mirip SF Pro Display / Inter) Semibold–Bold, tracking rapat, satu
   - Gerak: kata masuk 3 f per kata dengan `CURVE.reveal` dan `filter: blur(8px)`→0; punch-in 1,00→2,06 sebagai cut keras (tanpa interpolate) di frame kata terakhir; kotak seleksi `clipPath: inset(0 100% 0 0)`→`inset(0)` selama 3 f; setelah sorot, mundur 1,00→0,72 selama 15 f `CURVE.heavy`.
   - Ruang: datar.
   - Blur & blend: motion blur di mundur dan di kata masuk (`<CameraMotionBlur shutterAngle={200} samples={16}>`); teks di dalam kotak di-clip dengan `clipPath`.
-- **SFX:** pengamatan: klik keyboard per kata dan wood-block pada punch-in; di sini diganti sesuai `../../guide/sfx/GUIDE.md`: judul per kata senyap; satu bunyi di punch-in (`Cut.mp3`) dan satu di sorot (`Enter.mp3`, tombol penting).
+- **SFX:** famili `glitch`, `mekanik` · pengamatan: klik keyboard per kata dan wood-block pada punch-in; di sini diganti sesuai `../../guide/sfx/GUIDE.md`: judul per kata senyap; satu bunyi di punch-in (`Cut.mp3`) dan satu di sorot (`Enter.mp3`, tombol penting).
 - **Pakai bila:** kalimat ≤ 4 kata dengan satu kata isi. · **Jangan pakai bila:** kalimat panjang (punch-in 2× memotong baris).
 - **Remix (anti-jiplak):**
   1. Video edukasi → pertahankan kotak seleksi bergagang pada satu kata · ganti latar teal dengan krem dan sorot kuning stabilo.
@@ -68,7 +68,7 @@ Sans (paling mirip SF Pro Display / Inter) Semibold–Bold, tracking rapat, satu
   - Gerak: orbit `rotate(0→45deg)` selama 60 f `CURVE.drift`; lencana tegak lurus dengan `rotate(-θ)` agar ikon tidak berputar; seluruh grup scale 3,5→1,0 dengan `CURVE.heavy`.
   - Ruang: 2,5D ringan; lencana depan `translateZ` dengan blur.
   - Blur & blend: lencana depan `filter: blur(3px)` + motion blur; glow cincin `mixBlendMode: "screen"`.
-- **SFX:** pengamatan: ding notifikasi pada cut ke cincin. `Notif.mp3` di cut masuk; lencana senyap.
+- **SFX:** famili `ui` · pengamatan: ding notifikasi pada cut ke cincin. `Notif.mp3` di cut masuk; lencana senyap.
 - **Pakai bila:** ada 5–8 objek yang bisa dikenali dari bentuknya. · **Jangan pakai bila:** objek mirip satu sama lain.
 - **Remix (anti-jiplak):**
   1. Toko online → pertahankan satu pusat + satelit mengorbit · ganti lencana aplikasi dengan logo kurir dan marketplace.
@@ -85,7 +85,7 @@ Sans (paling mirip SF Pro Display / Inter) Semibold–Bold, tracking rapat, satu
   - Gerak: scale dari 1,0 turun ke 0,3 lewat `Easing.bezier(0.1,0.75,0.15,1)` untuk 25 % awal, hold pelan, lalu `Easing.bezier(0.55,0,0.9,0.35)` (`CURVE.leave`) 8 f terakhir; kurva dirancang per shot, bukan satu preset (`../../scripts/remotion/curves.ts`).
   - Ruang: datar.
   - Blur & blend: motion blur 200° dengan 16 sampel pada 8 f terakhir (`../../references/smooth-motion.md`).
-- **SFX:** satu hit tegas di cut (`Cut.mp3` atau `Cutcontrastransision.mp3` untuk terang ↔ gelap); `Woosh.mp3` bila zoom-out besar.
+- **SFX:** famili `glitch`, `mekanik`, `air` · satu hit tegas di cut (`Cut.mp3` atau `Cutcontrastransision.mp3` untuk terang ↔ gelap); `Woosh.mp3` bila zoom-out besar.
 - **Pakai bila:** ≥ 3 adegan beruntun dengan satu pusat visual tiap adegan. · **Jangan pakai bila:** adegan butuh dibaca lama (gerak terus tak memberi jeda).
 - **Remix (anti-jiplak):**
   1. Montase fitur aplikasi → pertahankan mundur + cut di percepatan · ganti pusat tiap adegan dengan satu layar fitur.
@@ -102,7 +102,7 @@ Sans (paling mirip SF Pro Display / Inter) Semibold–Bold, tracking rapat, satu
   - Gerak: cakram → pill dengan interpolasi `borderRadius` 50%→999px dan `width` 8→50 % lebar `CURVE.whip` 20 f; teks diketik 1–2 f per huruf; wordmark `translateY(7,7 % H)`→0 `CURVE.reveal` 27 f dan warna `#AEBEC7`→`#FFFFFF`.
   - Ruang: cincin 3D lewat `perspective: 900px` + `rotateX`.
   - Blur & blend: cincin depan `filter: blur(4px)` + motion blur; berkas cahaya `mixBlendMode: "screen"`.
-- **SFX:** pengamatan: whoosh pada morph (6,55), swell terbalik ke wordmark (7,88), ekor sunyi 0,9 dtk. `Wooshcameramovementtransisi.mp3` di morph; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju wordmark; wordmark dibiarkan hening.
+- **SFX:** famili `air`, `riser` · pengamatan: whoosh pada morph (6,55), swell terbalik ke wordmark (7,88), ekor sunyi 0,9 dtk. whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) di morph; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju wordmark; wordmark dibiarkan hening.
 - **Pakai bila:** produk punya satu fungsi pusat yang bisa jadi bentuk kolom/kartu. · **Jangan pakai bila:** fungsi pusat tidak punya antarmuka tunggal.
 - **Remix (anti-jiplak):**
   1. Aplikasi catatan → pertahankan morph bentuk → input · ganti pill jadi kartu catatan yang terbuka.
@@ -119,7 +119,7 @@ Sans (paling mirip SF Pro Display / Inter) Semibold–Bold, tracking rapat, satu
   - Gerak: `rotate(0→−50deg)` selama 50 f `CURVE.drift`; panel `rotateY(±18deg)` konstan; mundur 1,0→0,55 `CURVE.heavy` (zoom-out 1,8×).
   - Ruang: `perspective: 1000px`.
   - Blur & blend: tepi panel buram sedikit (`blur(2px)`) pada lapis dekat.
-- **SFX:** `Lasertransision.mp3` (ting kaca) satu kali pada kata terakhir; swell terbalik hanya satu: riser `ES_Designed, Riser, Transition, Fast, Short, Clean 01`.
+- **SFX:** famili `stab`, `riser` · `Lasertransision.mp3` (ting kaca) satu kali pada kata terakhir; swell terbalik hanya satu: riser `ES_Designed, Riser, Transition, Fast, Short, Clean 01`.
 - **Pakai bila:** ada 3–4 tangkapan layar yang bisa terpotong tepi. · **Jangan pakai bila:** tangkapan layar harus terbaca.
 - **Remix (anti-jiplak):**
   1. Gambaran kekacauan inbox → pertahankan panel berputar mengelilingi teks datar · ganti panel dengan pesan WhatsApp.

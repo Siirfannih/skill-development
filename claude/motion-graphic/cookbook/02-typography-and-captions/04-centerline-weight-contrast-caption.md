@@ -52,7 +52,7 @@ Serif miring kontras tinggi ramping (≈ Instrument Serif Italic) + sans grotesk
   - Lapisan (bawah → atas): foto/kartu → raster titik → baris teks (posisi tetap `top: 50%`, `translateY(-50%)`, tinggi kata ±2,4 % frame).
   - Gerak: kata baru muncul pada frame ucapan lewat `opacity 0→1` dalam 3 f (sumber tidak menampakkan easing); baris diganti utuh dengan cut; tanpa gerak posisi.
   - Ruang: datar. Blur & blend: tanpa; teks putih tanpa bayangan; di foto terang pakai vinyet foto agar tetap terbaca.
-- **SFX:** senyap per kata (KT); kiblat: bunyi menempel di sebagian cut saja (transien > 4 kHz di 51 % cut vs 33 % acak). `Kinetictypography(gunakansecaraacak).mp3` hanya sesekali pada kata kunci, bukan per kata.
+- **SFX:** famili `ui` · senyap per kata (KT); kiblat: bunyi menempel di sebagian cut saja (transien > 4 kHz di 51 % cut vs 33 % acak). `Kinetictypography(gunakansecaraacak).mp3` hanya sesekali pada kata kunci, bukan per kata.
 - **Pakai bila:** foto penuh layar dengan area tengah yang tidak berisi detail penting. · **Jangan pakai bila:** wajah tepat di garis tengah dan harus terlihat.
 - **Remix (anti-jiplak):**
   1. Cerita merek UMKM → pertahankan satu baris di garis tengah, bobot sebagai satu-satunya penekanan · ganti serif miring menjadi serif lain dan sans tebal menjadi grotesk lain, foto arsip menjadi foto produk lama.
@@ -84,7 +84,7 @@ Serif miring kontras tinggi ramping (≈ Instrument Serif Italic) + sans grotesk
   - Lapisan: kertas abu/arang → logo (SVG) → caption.
   - Gerak: reveal logo `clipPath: inset(0 100% 0 0)→inset(0 0 0 0)` `CURVE.reveal` 10 f, atau `blur(14px→0)` + `scale 1,12→1` `CURVE.land` 10 f; caption `opacity` 3 f.
   - Ruang: datar. Blur & blend: grain kasar di kertas abu (overlay noise).
-- **SFX:** `Lasertransision.mp3` (ting penutup) bila logo adalah puncak beat; selebihnya senyap.
+- **SFX:** famili `stab` · `Lasertransision.mp3` (ting penutup) bila logo adalah puncak beat; selebihnya senyap.
 - **Pakai bila:** logo vektor monokrom tersedia. · **Jangan pakai bila:** logo berwarna ramai.
 - **Remix (anti-jiplak):**
   1. Daftar klien → pertahankan logo kecil di tengah + caption di atas · ganti kertas abu menjadi putih hangat.
@@ -117,7 +117,7 @@ Serif miring kontras tinggi ramping (≈ Instrument Serif Italic) + sans grotesk
   - Lapisan: foto di `<AbsoluteFill>` dengan `scale` 1,08 sebelum push agar tepi tidak terlihat.
   - Gerak: push `scale 1→1,10` `CURVE.drift` ±30 f; pull kebalikannya; pan `translateX` 8–20 % lebar `CURVE.drift`.
   - Ruang: datar. Blur & blend: motion blur 200°/16 sampel pada pan.
-- **SFX:** `Pergantianfoto.mp3` sebagai bunyi sesekali (klik foto berganti), bukan per cut; kiblat memakai rana kamera di 0–33 dtk.
+- **SFX:** famili `mekanik` · `Pergantianfoto.mp3` sebagai bunyi sesekali (klik foto berganti), bukan per cut; kiblat memakai rana kamera di 0–33 dtk.
 - **Pakai bila:** foto beresolusi tinggi. · **Jangan pakai bila:** foto kecil (pecah saat push).
 - **Remix (anti-jiplak):**
   1. Cerita produk → pertahankan push kecil per foto · ganti foto arsip menjadi foto produk di atas meja.
@@ -133,7 +133,7 @@ Serif miring kontras tinggi ramping (≈ Instrument Serif Italic) + sans grotesk
   - Lapisan: kartu foto 2–3 lapis dengan offset → foto target di bawah.
   - Gerak: kartu geser `translateX(110%→0)` `CURVE.land` 6 f, jeda 2 f antar kartu; zoom-through `scale 1→2,07` `CURVE.heavy` 33 f.
   - Ruang: datar. Blur & blend: motion blur 200°/16 sampel.
-- **SFX:** `scaningfast.mp3` (pan/scan cepat) untuk geser kartu; `basmenyebar.mp3` di foto tujuan bila itu puncak.
+- **SFX:** famili `impact`, `air` · whoosh/scan famili `air` tanpa desis (file SFXIrfan lama dilarang; `sfx_cari.py --famili air`) (pan/scan cepat) untuk geser kartu; `basmenyebar.mp3` di foto tujuan bila itu puncak.
 - **Pakai bila:** pembuka 3 dtk dengan banyak foto. · **Jangan pakai bila:** hanya 1–2 foto.
 - **Remix (anti-jiplak):**
   1. Etalase produk → pertahankan tumpukan lalu zoom-through · ganti foto menjadi kartu produk.

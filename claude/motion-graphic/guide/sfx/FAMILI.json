@@ -1,0 +1,158 @@
+{
+  "keterangan": "Famili bunyi untuk sfx_vet.py --famili dan sfx_cari.py --famili. Rentang = karakter yang terukur di video referensi (earshot timeline pada stem demucs no_vocals), dilebarkan untuk variasi; bukan target. Penjelasan dan bukti: FAMILI.md.",
+  "famili": {
+    "air": {
+      "nama": "Air & Whip Motion",
+      "deskripsi": "soft smooth air whoosh swoosh for a camera move, no harsh hiss",
+      "centroid_hz": [
+        120,
+        3000
+      ],
+      "serangan_min_ms": 150,
+      "maks_dtk": 2.5,
+      "cari": [
+        "soft air whoosh",
+        "smooth swoosh transition"
+      ],
+      "mixkit": [
+        "whoosh",
+        "swoosh"
+      ],
+      "kenyset_regex": "whoosh|swoosh|swish|woosh|spin"
+    },
+    "riser": {
+      "nama": "Riser & Reverse Swell",
+      "deskripsi": "short reverse cymbal swell rising into a hit",
+      "centroid_hz": [
+        150,
+        9000
+      ],
+      "maks_dtk": 4,
+      "cari": [
+        "reverse cymbal swell",
+        "short riser transition"
+      ],
+      "mixkit": [
+        "transition",
+        "cinematic"
+      ]
+    },
+    "impact": {
+      "nama": "Low Impact & Drop",
+      "deskripsi": "deep cinematic boom impact with a short tail",
+      "centroid_hz": [
+        30,
+        700
+      ],
+      "maks_dtk": 3,
+      "cari": [
+        "deep cinematic boom",
+        "sub drop impact"
+      ],
+      "mixkit": [
+        "boom",
+        "impact"
+      ]
+    },
+    "stab": {
+      "nama": "Tonal Stab & Accent Note",
+      "deskripsi": "short orchestral stab or plucked accent note",
+      "centroid_hz": [
+        200,
+        3500
+      ],
+      "maks_dtk": 3,
+      "cari": [
+        "orchestral stab hit",
+        "pluck accent note"
+      ],
+      "mixkit": [
+        "cinematic"
+      ]
+    },
+    "ui": {
+      "nama": "Digital UI Pop & Tap",
+      "deskripsi": "soft clean digital user interface pop or tap",
+      "centroid_hz": [
+        600,
+        9000
+      ],
+      "maks_dtk": 1.5,
+      "cari": [
+        "soft ui pop",
+        "interface tap soft"
+      ],
+      "mixkit": [
+        "pop",
+        "click"
+      ],
+      "kenyset_regex": "pop|bubble|plop|notif|message|mensaje|ping|bloop|button|confirm|tap|success|acceptation|erreur|game-start|shine|appearance|bright|ui-sound|ui_sci|ui-pop|ui-interface|text-sound|interface-digital|handy|tiktok|marimba"
+    },
+    "mekanik": {
+      "nama": "Click, Key & Shutter",
+      "deskripsi": "single crisp click: camera shutter, switch, key press or pen click",
+      "centroid_hz": [
+        800,
+        12000
+      ],
+      "maks_dtk": 1.5,
+      "cari": [
+        "camera shutter single",
+        "toggle switch click"
+      ],
+      "mixkit": [
+        "camera",
+        "click"
+      ],
+      "kenyset_regex": "mouse-click|ipad_click|app click|computer-mouse|keyboard|typing"
+    },
+    "glitch": {
+      "nama": "Digital Glitch & Data Stutter",
+      "deskripsi": "short digital glitch stutter or data blip for a hard cut",
+      "centroid_hz": [
+        300,
+        9000
+      ],
+      "maks_dtk": 2,
+      "cari": [
+        "short digital glitch",
+        "data glitch transition"
+      ],
+      "mixkit": [
+        "glitch"
+      ],
+      "kenyset_regex": "glitch|sci-fi|processing"
+    },
+    "taktil": {
+      "nama": "Tactile Paper & Object Foley",
+      "deskripsi": "dry short paper or photo sliding or landing on a table",
+      "centroid_hz": [
+        400,
+        9000
+      ],
+      "maks_dtk": 2,
+      "cari": [
+        "paper slide short",
+        "photo drop on table"
+      ],
+      "mixkit": [
+        "paper"
+      ],
+      "kenyset_regex": "flipcard|paper"
+    },
+    "ruang": {
+      "nama": "Room Tone & Analog Bed",
+      "deskripsi": "quiet warm room tone or projector hum, no hiss",
+      "centroid_hz": [
+        40,
+        2500
+      ],
+      "maks_dtk": 60,
+      "cari": [
+        "room tone quiet",
+        "film projector hum"
+      ],
+      "mixkit": []
+    }
+  }
+}

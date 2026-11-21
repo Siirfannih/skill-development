@@ -50,7 +50,7 @@ Caption putih bold huruf kecil, 1–3 kata, satu baris, tetap di area dada (±60
   - Gerak: objek aktif `scale 0,92→1` `CURVE.land` 12 f; perpindahan butir = tarik fokus: objek lama `blur(0→8px)` dan opacity 1→0,5, objek baru `blur(8→0)`, `CURVE.reveal` 8 f. Hold ≥ 1 dtk dengan `drift(frame, fps, 4)` supaya tidak mati.
   - Ruang: datar atau `perspective: 900px` ringan pada gantungan.
   - Blur & blend: glow = `filter: drop-shadow(0 0 24px <aksen>)` + salinan buram di bawah dengan `mixBlendMode: "screen"`.
-- **SFX:** `ES_User Interface, Click, Pops, Glass, UI, Pops` (ding lembut) satu kali per objek yang menyala; kiblat memakai ding tiap kunci (belum diukur).
+- **SFX:** famili `ui` · `ES_User Interface, Click, Pops, Glass, UI, Pops` (ding lembut) satu kali per objek yang menyala; kiblat memakai ding tiap kunci (belum diukur).
 - **Pakai bila:** daftar 3–5 butir dengan satu objek yang bisa digambar. · **Jangan pakai bila:** butir butuh penjelasan teks panjang di layar.
 - **Remix (anti-jiplak):**
   1. Tips produk UMKM → pertahankan satu objek berpendar di dunia satu warna · ganti kunci menjadi kemasan produk, merah menjadi hijau daun, label "Tip 1…3".
@@ -66,7 +66,7 @@ Caption putih bold huruf kecil, 1–3 kata, satu baris, tetap di area dada (±60
   - Lapisan: footage pembicara (crop dari medium ke separuh bawah, wajah di sepertiga atas crop) → panel merah separuh atas → objek + label.
   - Gerak: panel masuk `translateY(-100%→0)` `CURVE.heavy` 10 f sambil footage turun/crop; belum dibedah di sumber, jadi sanding dulu. Objek `scale 0,9→1` `CURVE.land` 10 f dengan jeda 3 f dari panel.
   - Ruang: datar. Blur & blend: tanpa; garis batas panel tanpa tepi.
-- **SFX:** `Woosh.mp3` pada masuknya panel bila gerak terlihat; objek senyap atau `pop up.mp3` bila objek tiba sendiri.
+- **SFX:** famili `air`, `ui` · `Woosh.mp3` pada masuknya panel bila gerak terlihat; objek senyap atau `pop up.mp3` bila objek tiba sendiri.
 - **Pakai bila:** footage pembicara punya ruang di atas kepala yang boleh dipotong. · **Jangan pakai bila:** wajah menempati > 60 % tinggi frame.
 - **Remix (anti-jiplak):**
   1. Tutorial UI → pertahankan separuh atas objek tunggal · ganti objek menjadi satu tangkapan layar tanpa chrome, panel biru tua.
@@ -98,7 +98,7 @@ Caption putih bold huruf kecil, 1–3 kata, satu baris, tetap di area dada (±60
   - Lapisan: footage → kata kunci (z di bawah kepala bila ingin terselip) → baris kecil.
   - Gerak: `translateY(24px→0)` + opacity `CURVE.reveal` 8 f; baris kecil menyusul 3 f.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** senyap; satu `Katapertama.mp3` bila ini kata pembuka video.
+- **SFX:** famili `glitch` · senyap; satu `Katapertama.mp3` bila ini kata pembuka video.
 - **Pakai bila:** ruang di atas kepala ≥ 15 % tinggi frame. · **Jangan pakai bila:** kepala menyentuh tepi atas.
 - **Remix (anti-jiplak):**
   1. Video produk tanpa wajah → pertahankan kata condensed besar di atas objek · ganti kepala menjadi objek tengah.

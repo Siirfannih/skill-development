@@ -51,7 +51,7 @@ Grotesk netral (mirip Inter Display / SF Pro) Medium, satu bobot, sentence case,
   - Gerak: `Math.floor((frame - start) / 2)` huruf terlihat (2 f per huruf), kursor `|` berkedip tiap 15 f; recenter dengan `measureText` tiap kata; kata lama `color` hitam→`#E1E1E1` dalam 3 f.
   - Ruang: datar.
   - Blur & blend: tanpa blur.
-- **SFX:** kata senyap; satu `Katapertama.mp3` pada kata pertama video. Video asli: pop UI pendek tiap teks muncul (0,04; 2,09; 3,90; 7,58 dtk), terlalu padat dan UI-ish untuk cerita sinematik.
+- **SFX:** famili `glitch`, `ui` · kata senyap; satu `Katapertama.mp3` pada kata pertama video. Video asli: pop UI pendek tiap teks muncul (0,04; 2,09; 3,90; 7,58 dtk), terlalu padat dan UI-ish untuk cerita sinematik.
 - **Pakai bila:** kalimat ≤ 6 kata, latar polos. · **Jangan pakai bila:** kalimat panjang atau informasi yang harus langsung terbaca utuh.
 - **Remix (anti-jiplak):**
   1. Brand UMKM latar krem → pertahankan ketik + recenter · ganti hitam jadi cokelat tua, kursor warna aksen.
@@ -68,7 +68,7 @@ Grotesk netral (mirip Inter Display / SF Pro) Medium, satu bobot, sentence case,
   - Gerak: `scale` 1→4,5 dalam 1 f (`interpolate` linear), lalu `translateX` ke kursor 12 f `CURVE.land`, settle scale `CURVE.drift`; kata lama ke abu 3 f.
   - Ruang: datar; kamera = transform pada grup.
   - Blur & blend: 1 frame punch-in boleh diberi motion blur (`<CameraMotionBlur shutterAngle={200} samples={16}>`) agar tidak patah.
-- **SFX:** `Cut.mp3` di frame punch-in (puncak bunyi 90 ms sebelum visual, seperti video asli); kiblat memakai klik/thock tipis tanpa bas, `Cut.mp3` adalah padanan terdekat. Hero kedua: `basmenyebar.mp3` bila itu puncak video.
+- **SFX:** famili `glitch`, `impact`, `mekanik` · `Cut.mp3` di frame punch-in (puncak bunyi 90 ms sebelum visual, seperti video asli); kiblat memakai klik/thock tipis tanpa bas, `Cut.mp3` adalah padanan terdekat. Hero kedua: `basmenyebar.mp3` bila itu puncak video.
 - **Pakai bila:** satu kata produk tegas. · **Jangan pakai bila:** lebih dari dua kali dalam video (kehilangan efek).
 - **Remix (anti-jiplak):**
   1. Nama kursus → pertahankan lompatan skala 1 frame · ganti pan mengikuti kursor dengan pan mengikuti garis bawah.
@@ -85,7 +85,7 @@ Grotesk netral (mirip Inter Display / SF Pro) Medium, satu bobot, sentence case,
   - Gerak: posisi = `cos/sin(θ0 + frame·0,6°)`, tiap kartu `rotateZ` ±8° tetap; masuk meluncur `CURVE.land` 14 f dari tepi dengan `react(i)`; pergantian set dengan cut 1 f.
   - Ruang: datar.
   - Blur & blend: bayangan lembut `box-shadow: 0 8px 24px rgba(0,0,0,0.12)`.
-- **SFX:** `Pergantianfoto.mp3` untuk rentetan kartu masuk; tiap kartu senyap.
+- **SFX:** famili `mekanik` · `Pergantianfoto.mp3` untuk rentetan kartu masuk; tiap kartu senyap.
 - **Pakai bila:** ≥ 8 gambar bagus dengan set warna terkoordinasi. · **Jangan pakai bila:** gambar lemah (banyak berarti kelihatan jelek).
 - **Remix (anti-jiplak):**
   1. Katalog UMKM → kartu = foto produk, orbit mengelilingi logo.
@@ -102,7 +102,7 @@ Grotesk netral (mirip Inter Display / SF Pro) Medium, satu bobot, sentence case,
   - Gerak: tiap thumbnail menuju pusat dengan `CURVE.heavy`, `scale` 1→0 dan `translate` ke (50,50) selama 90–120 f; `react(i)` pada keberangkatan.
   - Ruang: datar.
   - Blur & blend: tanpa blur; logo muncul `scale` 0,9→1 `CURVE.land`.
-- **SFX:** `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju titik, `basmenyebar.mp3` saat galaksi/UI muncul (thump sub 91–99 % di bawah 250 Hz, paling keras −6,5…−10,7 dBFS).
+- **SFX:** famili `impact`, `riser` · `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju titik, `basmenyebar.mp3` saat galaksi/UI muncul (thump sub 91–99 % di bawah 250 Hz, paling keras −6,5…−10,7 dBFS).
 - **Pakai bila:** ada jumlah besar yang bermakna. · **Jangan pakai bila:** tanpa logo atau angka penutup.
 - **Remix (anti-jiplak):**
   1. Jumlah pelanggan → thumbnail avatar menyusut ke angka.
@@ -119,7 +119,7 @@ Grotesk netral (mirip Inter Display / SF Pro) Medium, satu bobot, sentence case,
   - Gerak: isi diganti dengan `<Sequence>` per gaya (hard cut 1 f), mask tetap; kartu flip `rotateY` 0→180° `CURVE.whip` 10 f.
   - Ruang: `perspective: 1000px` untuk flip.
   - Blur & blend: bayangan hanya di figur.
-- **SFX:** `pop up.mp3` pada kartu pertama; flip senyap atau satu `Cutcontrastransision.mp3` bila flip jadi motif.
+- **SFX:** famili `mekanik`, `ui` · `pop up.mp3` pada kartu pertama; flip senyap atau satu `Cutcontrastransision.mp3` bila flip jadi motif.
 - **Pakai bila:** ada ≥ 4 versi gaya dari satu subjek. · **Jangan pakai bila:** subjek tidak punya siluet jelas.
 - **Remix (anti-jiplak):**
   1. Logo → pertahankan mask + ganti isi tekstur/warna.

@@ -49,7 +49,7 @@ Panel final: 13 shot dalam 22,4 dtk = ±32/menit, shot median ±1,3 dtk (0,5–6
   - Lapisan: gradien → grid/simbol → teks.
   - Gerak: kata per kata `move(frame, start+i*5, 8, "reveal")` dengan `translateY(±2 %)` + opasitas 0→1; kata kunci `CURVE.land` 10 f; simbol `drift()` dengan seed berbeda.
   - Blur & blend: tanpa blur, bayangan lunak pada wadah.
-- **SFX:** per kata senyap; satu bunyi per wadah penting: `pop up.mp3` pada kata kunci. Asli: pop/klik per kata dan kartu (41 UI).
+- **SFX:** famili `ui`, `mekanik` · per kata senyap; satu bunyi per wadah penting: `pop up.mp3` pada kata kunci. Asli: pop/klik per kata dan kartu (41 UI).
 - **Pakai bila:** satu kata kunci per gagasan. · **Jangan pakai bila:** paragraf.
 - **Remix (anti-jiplak):**
   1. Promo kursus → pertahankan kecil-lalu-besar dalam wadah grid · ganti warna aksen satu merek.
@@ -65,7 +65,7 @@ Panel final: 13 shot dalam 22,4 dtk = ±32/menit, shot median ±1,3 dtk (0,5–6
   - Lapisan: gradien → pil hijau → avatar.
   - Gerak: pil masuk `CURVE.land` 10 f dari skala 0,9; avatar memantul pegas (`spring`, damping 8).
   - Ruang: datar. Blur & blend: bayangan halus.
-- **SFX:** `Notif.mp3` atau `pop up.mp3` pada pil muncul; `ES_User Interface, Click, Pops, Glass, UI, Pops` untuk avatar.
+- **SFX:** famili `ui` · `Notif.mp3` atau `pop up.mp3` pada pil muncul; `ES_User Interface, Click, Pops, Glass, UI, Pops` untuk avatar.
 - **Pakai bila:** inti pesan produk satu kalimat. · **Jangan pakai bila:** pesan butuh banyak rincian.
 - **Remix (anti-jiplak):**
   1. Aplikasi pesan laundry → pertahankan pil pesan · ganti teks "satu chat untuk semua".
@@ -80,7 +80,7 @@ Panel final: 13 shot dalam 22,4 dtk = ±32/menit, shot median ±1,3 dtk (0,5–6
   - Lapisan (bawah → atas): gradien → oktagon → lingkaran + pola teks (opasitas 0,15) → kartu bersudut tumpul dengan bayangan → kabut hijau depan (gradien `#6BAC86`→transparan).
   - Gerak: kartu dorong +7,6 % `CURVE.heavy`; ponsel naik dari bawah `CURVE.land` 16 f; gelembung `react()` ±5 f.
   - Ruang: `perspective: 1000px`, kipas `rotateY` ±25° per kartu. Blur & blend: kartu kaca `backdropFilter: blur(18px)`.
-- **SFX:** `pop up.mp3` pada gelembung/kartu; `Notif.mp3` pada pesan; asli: pop chat 13,86 dtk (+27 dB di atas bed), sub-drop pada pergantian adegan, whoosh pendek 16,22 dtk.
+- **SFX:** famili `ui`, `air`, `impact` · `pop up.mp3` pada gelembung/kartu; `Notif.mp3` pada pesan; asli: pop chat 13,86 dtk (+27 dB di atas bed), sub-drop pada pergantian adegan, whoosh pendek 16,22 dtk.
 - **Pakai bila:** layanan berbasis pesan/kartu. · **Jangan pakai bila:** latar gelap tanpa kabut (tenggelam hilang).
 - **Remix (anti-jiplak):**
   1. Jasa konsultasi → pertahankan kartu kaca + kabut · ganti hijau jadi aksen merek, isi kartu = paket layanan.
@@ -95,7 +95,7 @@ Panel final: 13 shot dalam 22,4 dtk = ±32/menit, shot median ±1,3 dtk (0,5–6
   - Lapisan: tiga `<AbsoluteFill>` terpisah, panel final di tengah dengan masking `clipPath`.
   - Gerak: match-move: elemen akhir adegan A berpindah ke posisi awal elemen adegan B 12 f `CURVE.heavy`; geser penutup 18 % lebar `CURVE.drift` 24 f; penutup blur arah.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` pada penutup.
-- **SFX:** whoosh `Woosh.mp3` (asli 16,22 dtk); sub-drop `ES_Designed, Bass Dive…` pada cut gelap.
+- **SFX:** famili `air`, `impact` · whoosh `Woosh.mp3` (asli 16,22 dtk); sub-drop `ES_Designed, Bass Dive…` pada cut gelap.
 - **Pakai bila:** ada sketsa/storyboard otentik. · **Jangan pakai bila:** hanya hasil jadi.
 - **Remix (anti-jiplak):**
   1. Reel desainer grafis → pertahankan sketsa → final → CTA · ganti sketsa jadi wireframe.

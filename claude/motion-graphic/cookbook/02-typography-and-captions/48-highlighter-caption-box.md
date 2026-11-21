@@ -51,7 +51,7 @@ Satu keluarga: serif kondensed italic kontras tinggi (perkiraan Instrument Serif
   - Gerak: lebar kotak dari `measureText` (`@remotion/layout-utils`) per kata, `interpolate` lebar 3 f `CURVE.reveal`; tiap kata `opacity` 0→1 dalam 2 f; keluar langsung 0 pada frame frasa berikutnya. Sorot koran: kotak `scaleX` 0→1 dari kiri 8 f `CURVE.reveal`, `transformOrigin: left`.
   - Ruang: datar.
   - Blur & blend: tanpa blur; `mixBlendMode: "multiply"` untuk sorot di atas koran agar tulisan terbawah tetap terbaca.
-- **SFX:** satu `pop up.mp3` pada kotak yang pertama masuk di tiap shot, bukan per kata (kata senyap). Video asli: pop pendek 66–160 ms di tiap frasa (±1,2/dtk), terlalu padat untuk ditiru langsung.
+- **SFX:** famili `ui` · satu `pop up.mp3` pada kotak yang pertama masuk di tiap shot, bukan per kata (kata senyap). Video asli: pop pendek 66–160 ms di tiap frasa (±1,2/dtk), terlalu padat untuk ditiru langsung.
 - **Pakai bila:** foto dengan ruang di tengah dada/perut subjek. · **Jangan pakai bila:** wajah subjek tepat di tengah frame (kotak menutupinya; turunkan ke y ±60 %).
 - **Remix (anti-jiplak):**
   1. Footage berwarna → pertahankan kotak pas-badan satu warna · ganti kuning dengan warna aksen brand, footage diturunkan saturasinya.
@@ -68,7 +68,7 @@ Satu keluarga: serif kondensed italic kontras tinggi (perkiraan Instrument Serif
   - Gerak: digit masuk satu per satu dengan `Math.floor` jumlah digit terlihat tiap 3 f; kata kunci `scale` 1,06→1 `CURVE.land` 8 f.
   - Ruang: datar.
   - Blur & blend: tahun di foto kabut: `text-shadow: 3px 3px 0 rgba(0,0,0,0.25)`; kata kuning di gelap: glow `drop-shadow(0 0 16px)`.
-- **SFX:** satu `Katapertama.mp3` pada kata kunci utama video; sisanya senyap.
+- **SFX:** famili `glitch` · satu `Katapertama.mp3` pada kata kunci utama video; sisanya senyap.
 - **Pakai bila:** ada ruang kosong di tengah foto atau foto bisa dikaburkan. · **Jangan pakai bila:** kata kunci lebih dari satu per beat.
 - **Remix (anti-jiplak):**
   1. Angka harga/statistik → pertahankan lompatan ukuran + masuk per digit · ganti font serif jadi grotesk brand.
@@ -85,7 +85,7 @@ Satu keluarga: serif kondensed italic kontras tinggi (perkiraan Instrument Serif
   - Gerak: push-in foto 1,00→1,10–1,24 sepanjang shot `CURVE.drift`; objek warna masuk `scale` 1,15→1 `CURVE.land` 10 f.
   - Ruang: datar atau paralaks 1,05×.
   - Blur & blend: vignette `radial-gradient` transparan ke `rgba(0,0,0,0.55)`; kabut putih = gradien putih opacity 0→0,85 di atas foto 12 f.
-- **SFX:** senyap (grade tidak berbunyi); satu `documenter.mp3` (kertas/kain) bila foto atau koran mendarat sebagai objek.
+- **SFX:** famili `taktil` · senyap (grade tidak berbunyi); satu `documenter.mp3` (kertas/kain) bila foto atau koran mendarat sebagai objek.
 - **Pakai bila:** foto arsip dari sumber campur. · **Jangan pakai bila:** footage yang warnanya adalah informasi (produk, makanan).
 - **Remix (anti-jiplak):**
   1. Foto produk UMKM → pertahankan monokrom + satu objek berwarna · ganti objek jadi produk, vignette lebih ringan.
@@ -102,7 +102,7 @@ Satu keluarga: serif kondensed italic kontras tinggi (perkiraan Instrument Serif
   - Gerak: inset `scale` 0→1 `CURVE.land` 10 f; teks masuk 3 f sesudahnya `CURVE.reveal`.
   - Ruang: inset `translateZ` sedikit lebih dekat.
   - Blur & blend: tepi inset `box-shadow` lembut.
-- **SFX:** `pop up.mp3` saat inset muncul.
+- **SFX:** famili `ui` · `pop up.mp3` saat inset muncul.
 - **Pakai bila:** frasa menyebut dua objek yang bisa ditunjukkan. · **Jangan pakai bila:** tanpa ruang kosong di atas kepala.
 - **Remix (anti-jiplak):**
   1. Video produk → inset menunjukkan detail bahan di samping produk.
@@ -119,7 +119,7 @@ Satu keluarga: serif kondensed italic kontras tinggi (perkiraan Instrument Serif
   - Gerak: scale objek 1→0,1 `CURVE.heavy` 20 f sambil kolase muncul dari opacity 0 → 1 bertahap per objek `react(i)`.
   - Ruang: datar.
   - Blur & blend: kolase pucat opacity 0,7, kabut putih tipis.
-- **SFX:** `Move.mp3` (benda besar mendarat) saat objek hero pertama masuk; zoom-out senyap.
+- **SFX:** famili `impact` · `Move.mp3` (benda besar mendarat) saat objek hero pertama masuk; zoom-out senyap.
 - **Pakai bila:** ada objek simbol tunggal. · **Jangan pakai bila:** tidak ada objek yang mewakili tema.
 - **Remix (anti-jiplak):**
   1. Produk UMKM → hero = kemasan, kolase = bahan baku di sekitarnya.

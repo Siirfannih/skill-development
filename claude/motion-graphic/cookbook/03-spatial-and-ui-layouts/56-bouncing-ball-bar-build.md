@@ -47,7 +47,7 @@ Segoe UI / Selawik. Judul Semibold satu baris di atas grafik (lebar 53 %, pusat 
   - Gerak: bola `arc()` dari `../../scripts/remotion/curves.ts` (x `land`, y `heavy`) ±10–12 f antar kolom, squash `scaleY` 0,75 saat mendarat; batang `move(frame, landing, 3, "land")` dari tinggi 0; runtuh `react(i)` kiri → kanan dengan `CURVE.leave`.
   - Ruang: datar.
   - Blur & blend: motion blur pada bola `<CameraMotionBlur shutterAngle={200} samples={16}>`; glow `filter: drop-shadow(0 0 20px <warna batang>)`.
-- **SFX:** satu bunyi per batang naik: teoria `Move.mp3` (benda mendarat), prática `pop up.mp3`; punchline `ES_Designed, Riser, Transition, Fast, Short, Clean 01` lalu `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`; stab orkestra untuk runtuh tidak ada di SFXIrfan (jenis bunyi: stab pendek).
+- **SFX:** famili `impact`, `riser`, `ui`, `stab` · satu bunyi per batang naik: teoria `Move.mp3` (benda mendarat), prática `pop up.mp3`; punchline `ES_Designed, Riser, Transition, Fast, Short, Clean 01` lalu `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`; stab orkestra untuk runtuh tidak ada di SFXIrfan (jenis bunyi: stab pendek).
 - **Pakai bila:** tepat 3 item dengan nilai naik. · **Jangan pakai bila:** item lebih dari 4 atau nilai tidak berurutan.
 - **Remix (anti-jiplak):**
   1. Latar terang → batang warna brand solid dengan bayangan lunak, bola jadi titik gelap; pertahankan "bola membangun batang".
@@ -63,7 +63,7 @@ Segoe UI / Selawik. Judul Semibold satu baris di atas grafik (lebar 53 %, pusat 
   - Lapisan: seluruh grafik dalam satu grup yang di-`scale`.
   - Gerak: `scale 1→1.08` `CURVE.heavy` 15 f dengan `transformOrigin: "83% 20%"`; kembali `CURVE.leave` 12 f; batang punchline melampaui grid (tinggi ±3–4× batang pertama).
   - Ruang: datar. Blur & blend: motion blur kamera 200°; bloom hijau naik bersama batang.
-- **SFX:** `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` di frame push; riser mendahului.
+- **SFX:** famili `impact`, `riser` · `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` di frame push; riser mendahului.
 - **Pakai bila:** hanya satu push per klip. · **Jangan pakai bila:** semua batang didorong (kehilangan punchline).
 - **Remix (anti-jiplak):**
   1. Kartu angka tunggal → push + angka membesar menembus bingkai.
@@ -79,7 +79,7 @@ Segoe UI / Selawik. Judul Semibold satu baris di atas grafik (lebar 53 %, pusat 
   - Lapisan: teks di atas grid.
   - Gerak: ketik `Math.floor((frame-start)*1.9)` huruf per frame (≈ 50 huruf/dtk @25), hapus terbalik; warna `interpolateColors` 4 f saat pemenang naik.
   - Ruang: datar. Blur & blend: glow putih `textShadow`.
-- **SFX:** senyap (huruf dan kata KT); ketik panjang bila perlu: `Keyboardtyping.mp3` dipotong, dengan alasan tertulis.
+- **SFX:** famili `mekanik` · senyap (huruf dan kata KT); ketik panjang bila perlu: `Keyboardtyping.mp3` dipotong, dengan alasan tertulis.
 - **Pakai bila:** judul ≤ 6 kata, satu kata kunci. · **Jangan pakai bila:** kalimat panjang.
 - **Remix (anti-jiplak):**
   1. Judul bahasa Indonesia dua baris, kata kunci mengganti warna ke aksen brand.

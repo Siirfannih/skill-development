@@ -54,7 +54,7 @@ Grotesk netral (Neue Haas Grotesk / Helvetica Neue Regular–Medium) untuk semua
   - Gerak: per huruf `move(frame, start + i*2, 8, "land")` dari `translateX` −8 % ke 0; kata bertahan melewati dua cut.
   - Ruang: datar.
   - Blur & blend: bloom (`filter: drop-shadow(0 0 15px #fff)` pada kata "understand"); lainnya bersih.
-- **SFX:** satu `Move.mp3` atau `basmenyebar.mp3` di kata raksasa pertama; kata lain senyap. Di asli tidak ada bunyi per kata yang terdeteksi.
+- **SFX:** famili `impact` · satu `Move.mp3` atau `basmenyebar.mp3` di kata raksasa pertama; kata lain senyap. Di asli tidak ada bunyi per kata yang terdeteksi.
 - **Pakai bila:** footage di belakang tidak berbidang putih di pusat. · **Jangan pakai bila:** kalimat panjang yang harus terbaca (huruf menutupi frame).
 - **Remix (anti-jiplak):**
   1. Video merek UMKM 16:9 → pertahankan satu kata raksasa · ganti huruf ke tebal bersudut, warna merek.
@@ -102,7 +102,7 @@ Grotesk netral (Neue Haas Grotesk / Helvetica Neue Regular–Medium) untuk semua
   - Lapisan: footage/foto miring → panel teal/merah → kotak putih → huruf hitam.
   - Gerak: kotak `scaleX` 0 → 1 selama 6 f `CURVE.reveal`; kata muncul per kata; kolase masuk `rotate` ±4° dengan `react(i)`.
   - Ruang: foto 3 lapis (belakang redup). Blur & blend: foto belakang `brightness(0,6)`.
-- **SFX:** `Pergantianfoto.mp3` satu klik untuk kolase; kotak senyap.
+- **SFX:** famili `mekanik` · `Pergantianfoto.mp3` satu klik untuk kolase; kotak senyap.
 - **Pakai bila:** footage ramai di pusat. · **Jangan pakai bila:** kotak menutup wajah.
 - **Remix (anti-jiplak):**
   1. Poster kampanye → pertahankan kotak putih berhuruf hitam · ganti aksen teal/merah ke warna merek.
@@ -118,7 +118,7 @@ Grotesk netral (Neue Haas Grotesk / Helvetica Neue Regular–Medium) untuk semua
   - Lapisan: hitam → kata abu → inset foto.
   - Gerak: ubin `translate` dari tepi dengan `react(i)`; inset invert: `filter: invert(1)` satu frame lalu normal.
   - Ruang: datar. Blur & blend: `invert` lokal.
-- **SFX:** `Cutcontrastransision.mp3` di pembalikan terang–gelap.
+- **SFX:** famili `mekanik` · `Cutcontrastransision.mp3` di pembalikan terang–gelap.
 - **Pakai bila:** ada foto kecil bermakna. · **Jangan pakai bila:** foto harus dibaca besar.
 - **Remix (anti-jiplak):**
   1. Testimoni → foto pelanggan di depan kata merek.
@@ -135,7 +135,7 @@ Grotesk netral (Neue Haas Grotesk / Helvetica Neue Regular–Medium) untuk semua
   - Gerak: `scale` 1,0 → 1,48 selama 120 f `CURVE.heavy`, 2/3 jarak di 60 f pertama.
   - Ruang: `translateZ` per lapis, parallax 1,2× daun.
   - Blur & blend: daun depan blur; tanpa blend.
-- **SFX:** `Woosh.mp3` di push.
+- **SFX:** famili `air` · `Woosh.mp3` di push.
 - **Pakai bila:** ada objek yang menjadi "pintu". · **Jangan pakai bila:** tanpa objek pembingkai.
 - **Remix (anti-jiplak):**
   1. Laptop sebagai pintu → pertahankan push ke layar.

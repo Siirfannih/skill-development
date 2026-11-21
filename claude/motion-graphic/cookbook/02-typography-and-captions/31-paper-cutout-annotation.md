@@ -52,7 +52,7 @@ Cut keras 5,8/menit (shot median 4,4 dtk); jump cut + ganti stiker 28,8/menit (s
   - Gerak: `<Sequence from={cutFrame}>` per stiker, tanpa interpolate masuk (0 frame); sinkronkan dengan jump cut footage di frame yang sama (sumber 24 fps; di proyek 30 fps, bulatkan ke frame cut terdekat). Miring 2–4° dan geser tepi kiri acak per strip, ditetapkan dengan biji tetap.
   - Ruang: datar; tanpa bayangan jatuh.
   - Blur & blend: tanpa motion blur; tepi kertas diberi bayang tipis bawaan pindai, bukan `drop-shadow` digital.
-- **SFX:** pop atau whoosh pendek di sebagian pergantian, bukan semua: `pop up.mp3` untuk stiker muncul; `Cut.mp3` hanya di cut keras yang jadi puncak. Teks spidol senyap per butir (`../../guide/sfx/GUIDE.md`).
+- **SFX:** famili `glitch`, `air`, `ui` · pop atau whoosh pendek di sebagian pergantian, bukan semua: `pop up.mp3` untuk stiker muncul; `Cut.mp3` hanya di cut keras yang jadi puncak. Teks spidol senyap per butir (`../../guide/sfx/GUIDE.md`).
 - **Pakai bila:** footage dengan ruang kosong satu sisi yang stabil (kamera diam) dan bahan yang memang berbab. · **Jangan pakai bila:** kamera bergerak (stiker diam akan melayang), wajah mengisi lebar frame.
 - **Remix (anti-jiplak):**
   1. Talking head 9:16 dalam ruangan → pertahankan stiker utuh di frame cut tanpa animasi · ganti strip jadi stiker kertas kraft di ruang kosong atas kepala, butir pindah ke atas-bawah, bukan kiri.
@@ -69,7 +69,7 @@ Cut keras 5,8/menit (shot median 4,4 dtk); jump cut + ganti stiker 28,8/menit (s
   - Gerak: seluruh kelompok masuk di frame cut; tidak ada stagger dan stiker diam setelah menempel (pengamatan). Bila hold melebihi 1 dtk dan terasa mati, itu keputusan remix, bukan bagian referensi.
   - Ruang: datar.
   - Blur & blend: tanpa blur.
-- **SFX:** `Move.mp3` (benda mendarat) satu kali di stempel pertama video, selanjutnya senyap; kata stempel berikutnya `pop up.mp3` bila perlu pembeda bab.
+- **SFX:** famili `impact`, `ui` · `Move.mp3` (benda mendarat) satu kali di stempel pertama video, selanjutnya senyap; kata stempel berikutnya `pop up.mp3` bila perlu pembeda bab.
 - **Pakai bila:** ada bab yang punya label satu kata. · **Jangan pakai bila:** label lebih dari 2 kata (stempel kehilangan beratnya).
 - **Remix (anti-jiplak):**
   1. Tutorial software → pertahankan kata stempel besar + dua ilustrasi di bawah · ganti ilustrasi jadi tangkapan layar kecil bertepi kertas.
@@ -86,7 +86,7 @@ Cut keras 5,8/menit (shot median 4,4 dtk); jump cut + ganti stiker 28,8/menit (s
   - Gerak: tampil di frame cut; penghitungan = tiap cut menambah satu objek ke grid (`Sequence` bertingkat), tanpa animasi masuk objek.
   - Ruang: datar; tanpa bayangan jatuh.
   - Blur & blend: tanpa blur latar buatan; tanpa paralaks.
-- **SFX:** `pop up.mp3` per penambahan objek hitung (satu peran = satu bunyi); doodle tunggal senyap atau `documenter.mp3` bila ingin kesan kertas mendarat (±0,3 dtk dipotong).
+- **SFX:** famili `taktil`, `ui` · `pop up.mp3` per penambahan objek hitung (satu peran = satu bunyi); doodle tunggal senyap atau `documenter.mp3` bila ingin kesan kertas mendarat (±0,3 dtk dipotong).
 - **Pakai bila:** istilah konkret atau jumlah yang bertambah. · **Jangan pakai bila:** konsep abstrak tanpa bentuk harfiah.
 - **Remix (anti-jiplak):**
   1. Video finansial → pertahankan hitungan objek yang bertambah per cut · ganti doodle jadi koin kertas gambar tangan, tiap cut menambah tumpukan.
@@ -103,7 +103,7 @@ Cut keras 5,8/menit (shot median 4,4 dtk); jump cut + ganti stiker 28,8/menit (s
   - Gerak: tiap ubin masuk di cut atau ±3 frame berturutan; rotasi −4…+5° tetap per ubin.
   - Ruang: datar, sedikit tumpang tindih.
   - Blur & blend: tanpa blur; tanpa blend mode.
-- **SFX:** `pop up.mp3` pada ubin pertama (pengamatan: pop di 8,04 dtk); ubin berikutnya senyap (satu peran satu bunyi).
+- **SFX:** famili `ui` · `pop up.mp3` pada ubin pertama (pengamatan: pop di 8,04 dtk); ubin berikutnya senyap (satu peran satu bunyi).
 - **Pakai bila:** bukti berupa gambar atau angka yang sudah ada. · **Jangan pakai bila:** bukti tak bisa ditampilkan jelas (angka terlalu kecil).
 - **Remix (anti-jiplak):**
   1. Penjual online → pertahankan tumpukan miring di kiri atas · ganti ubin jadi tangkapan ulasan pelanggan.
@@ -120,7 +120,7 @@ Cut keras 5,8/menit (shot median 4,4 dtk); jump cut + ganti stiker 28,8/menit (s
   - Gerak: scale 1,00→1,37 `CURVE.heavy` 8 f ke posisi sweter, tahan 0,4 dtk, kembali `CURVE.reveal` 6 f; push pelan 1,00→1,034 `CURVE.drift` selama 3 dtk di momen berat.
   - Ruang: datar.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` hanya di momen angkat (`../../references/smooth-motion.md`); stiker disembunyikan selama momen.
-- **SFX:** `Woosh.mp3` di momen angkat (puncak di kecepatan tertinggi); jump cut biasa senyap atau `Cut.mp3` sesekali.
+- **SFX:** famili `glitch`, `air` · `Woosh.mp3` di momen angkat (puncak di kecepatan tertinggi); jump cut biasa senyap atau `Cut.mp3` sesekali.
 - **Pakai bila:** talking head tripod dengan stiker ruang kiri. · **Jangan pakai bila:** footage genggam yang sudah bergerak.
 - **Remix (anti-jiplak):**
   1. Talking head studio → pertahankan satu gerak tak terduga di tengah video · ganti dengan tangan lewat di depan lensa, bukan sweter.

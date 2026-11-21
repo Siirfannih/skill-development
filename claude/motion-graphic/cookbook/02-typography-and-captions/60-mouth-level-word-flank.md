@@ -49,7 +49,7 @@ Grotesk tebal tracking rapat (mirip Inter Display Bold / SF Pro Display Bold, tr
   - Lapisan (bawah → atas): footage → teks apit (dua `<div>` absolut kiri/kanan) → vignette.
   - Gerak: tiap kata `opacity 0 → 1` + `translateY(6px → 0)` + `filter: blur(6px → 0)` `CURVE.reveal` 5 f; kata belum diucap: `opacity 0.25` selama ±6 f; keluar `opacity 1 → 0` 2 f.
   - Ruang: datar. Blur & blend: warna teks dipilih per sisi dari luma latar (sample), tanpa blend mode.
-- **SFX:** senyap (kata per kata); sumber punya pop kecil untuk kartu muncul, bukan untuk kata A-roll.
+- **SFX:** famili `ui` · senyap (kata per kata); sumber punya pop kecil untuk kartu muncul, bukan untuk kata A-roll.
 - **Pakai bila:** pembicara di tengah dengan ruang samping kepala; kata ≤ 3 per sisi. · **Jangan pakai bila:** pembicara bergerak melintasi sisi frame.
 - **Remix (anti-jiplak):**
   1. Latar gelap studio → kata apit putih dengan bayangan lunak; pertahankan y setinggi mulut.
@@ -65,7 +65,7 @@ Grotesk tebal tracking rapat (mirip Inter Display Bold / SF Pro Display Bold, tr
   - Lapisan: b-roll → kata raksasa → matte subjek (RVM, atau siluet murni tanpa matte) → kata sambung → vignette.
   - Gerak: kata raksasa `scale 1.04 → 1` + `opacity` `CURVE.land` 8 f; kata sambung `react(i)`; transparan krem pada "result" dengan `mixBlendMode: "overlay"`.
   - Ruang: datar. Blur & blend: motion blur 200° hanya bila kata bergerak.
-- **SFX:** `Woosh.mp3` pendek pada beberapa cut b-roll; sub drop (`ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`) hanya pada kata puncak, bukan tiap kata raksasa.
+- **SFX:** famili `air`, `impact` · `Woosh.mp3` pendek pada beberapa cut b-roll; sub drop (`ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`) hanya pada kata puncak, bukan tiap kata raksasa.
 - **Pakai bila:** subjek berkontur jelas dan kata raksasa berbeda luma dari latar. · **Jangan pakai bila:** subjek terang pada latar terang tanpa matte.
 - **Remix (anti-jiplak):**
   1. Footage 9:16 → kata raksasa vertikal dua baris di belakang subjek.
@@ -81,7 +81,7 @@ Grotesk tebal tracking rapat (mirip Inter Display Bold / SF Pro Display Bold, tr
   - Lapisan: warna rata → ilustrasi → teks → coretan SVG (stroke digambar).
   - Gerak: ganti kartu sebagai cut (0 f, tanpa transisi); balok tumbuh `scaleY 0 → 1` `CURVE.land` 10 f dengan `react(i)`; coretan `strokeDashoffset` `CURVE.reveal` 12 f.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `pop up.mp3` untuk kartu pertama dan balok penting; ganti warna kartu senyap atau `Cutcontrastransision.mp3` sekali.
+- **SFX:** famili `mekanik`, `ui` · `pop up.mp3` untuk kartu pertama dan balok penting; ganti warna kartu senyap atau `Cutcontrastransision.mp3` sekali.
 - **Pakai bila:** kutipan ≤ 8 kata per kartu. · **Jangan pakai bila:** kutipan panjang yang perlu dibaca utuh.
 - **Remix (anti-jiplak):**
   1. Brand → dua warna brand bergantian, ikon menggantikan balok.
@@ -96,7 +96,7 @@ Grotesk tebal tracking rapat (mirip Inter Display Bold / SF Pro Display Bold, tr
 - **Mekanik Remotion (titik awal):**
   - Gerak: `scale 1.10 → 1.0` `CURVE.drift` 30–84 f @30 (1–2,8 dtk) di tiap `<Sequence>`; `transformOrigin: "50% 50%"`; shot diam: tanpa gerak.
   - Ruang: datar. Blur & blend: tanpa blur; pembuka: 1 f glitch (`feDisplacementMap`), 1 f putih, 1 f hitam.
-- **SFX:** hampir senyap di settle; `Woosh.mp3` pada beberapa cut b-roll; sub drop (hit sub bass) di pergantian babak 12,3; 13,6; 15,0 dtk.
+- **SFX:** famili `air`, `impact` · hampir senyap di settle; `Woosh.mp3` pada beberapa cut b-roll; sub drop (hit sub bass) di pergantian babak 12,3; 13,6; 15,0 dtk.
 - **Pakai bila:** footage statis tanpa gerak kamera. · **Jangan pakai bila:** footage yang sudah bergerak (efek bertumpuk).
 - **Remix (anti-jiplak):**
   1. Footage tripod 9:16 → settle 1,08 → 1,0.

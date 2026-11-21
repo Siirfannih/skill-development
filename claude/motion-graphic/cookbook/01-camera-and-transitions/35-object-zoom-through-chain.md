@@ -50,7 +50,7 @@ Neo-grotesk bulat (paling mirip SF Pro / OpenAI Sans; Inter pengganti), Regular�
   - Gerak: pan kamera `translateX(0→−18% lebar)` `Easing.bezier(0.1,0.75,0.15,1)` (`CURVE.land`) selama 100 f; cabang mekar `stroke-dashoffset` 18 f per cabang dengan jeda `react(i, fps)` (bukan stagger sama rata).
   - Ruang: datar; kamera virtual 2D.
   - Blur & blend: glow titik `filter: drop-shadow(0 0 18px #0739CF)`; motion blur pan (`<CameraMotionBlur shutterAngle={200} samples={16}>`).
-- **SFX:** pop UI kecil per ikon (`pop up.mp3`) hanya bila ikon dianggap objek penting; garis bergerak: `Scanning dan gerak kurva.mp3` (garis/kurva bergerak). Label senyap.
+- **SFX:** famili `glitch`, `ui` · pop UI kecil per ikon (`pop up.mp3`) hanya bila ikon dianggap objek penting; garis bergerak: `Scanning dan gerak kurva.mp3` (garis/kurva bergerak). Label senyap.
 - **Pakai bila:** latar gelap luas dengan elemen tipis. · **Jangan pakai bila:** latar terang (garis 1 px hilang).
 - **Remix (anti-jiplak):**
   1. Alur pembayaran → pertahankan garis tunggal bercabang dengan pan mengikuti · ganti ikon dengan ikon bank dan dompet digital.
@@ -67,7 +67,7 @@ Neo-grotesk bulat (paling mirip SF Pro / OpenAI Sans; Inter pengganti), Regular�
   - Gerak: cincin scale 0,2→6 selama 18 f `CURVE.whip`, lalu putih fade-in di ±14 f; kamera mendorong mengikuti.
   - Ruang: datar dengan scale besar; bayang lembut di bawah cincin saat sudah di latar putih.
   - Blur & blend: motion blur 200°/16 sampel; wordmark dengan `letter-spacing` 0→0,2em saat keluar.
-- **SFX:** `basmenyebar.mp3` atau `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` sebagai sub-drop di titik ledakan setelah hening; riser sebelumnya `ES_Designed, Riser, Transition, Fast, Short, Clean 01` (`align: peak`); satu bunyi per peran.
+- **SFX:** famili `impact`, `riser` · `basmenyebar.mp3` atau `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` sebagai sub-drop di titik ledakan setelah hening; riser sebelumnya `ES_Designed, Riser, Transition, Fast, Short, Clean 01` (`align: peak`); satu bunyi per peran.
 - **Pakai bila:** ada jeda hening sebelum ledakan dan satu bentuk yang bisa dilewati kamera. · **Jangan pakai bila:** tak ada pergantian gelap-terang yang disengaja.
 - **Remix (anti-jiplak):**
   1. Launch aplikasi → pertahankan hening + cincin yang menembus kamera · ganti cincin dengan lensa kamera yang membuka.
@@ -84,7 +84,7 @@ Neo-grotesk bulat (paling mirip SF Pro / OpenAI Sans; Inter pengganti), Regular�
   - Gerak: push 1,00→1,9 selama 20 f `CURVE.heavy`; kartu `arc()` dari pusat tombol ke posisi lingkaran dengan `CURVE.land` 16 f, jeda `react(i)`; rotasi tiap kartu membesar 0→360° / 2.
   - Ruang: kartu `perspective: 1100px`, `rotateY` ±12°.
   - Blur & blend: kartu tepi `blur(3px)` + motion blur; lapis depan ranting blur.
-- **SFX:** `Enter.mp3` di klik tombol kirim; ledakan kartu `Pergantianfoto.mp3` (rentetan foto/kartu, satu potongan panjang) alih-alih per kartu; pengamatan: UI pop di label.
+- **SFX:** famili `mekanik`, `ui` · `Enter.mp3` di klik tombol kirim; ledakan kartu `Pergantianfoto.mp3` (rentetan foto/kartu, satu potongan panjang) alih-alih per kartu; pengamatan: UI pop di label.
 - **Pakai bila:** ada satu tombol pemicu yang jelas dan 8+ hasil visual yang bisa jadi kartu. · **Jangan pakai bila:** hasil hanya satu.
 - **Remix (anti-jiplak):**
   1. Aplikasi resep → pertahankan menembus tombol → kartu meledak · ganti kartu poster dengan foto hidangan.
@@ -101,7 +101,7 @@ Neo-grotesk bulat (paling mirip SF Pro / OpenAI Sans; Inter pengganti), Regular�
   - Gerak: kamera 3D `perspective: 1400px` dengan `translateZ` 0→400 selama 5 dtk `CURVE.drift`; label tiap tingkat parallax 0,9/1,0/1,15×.
   - Ruang: 2,5D nyata (tiga tingkat Z).
   - Blur & blend: label jauh `blur(1px)`; tekstur kertas `mixBlendMode: "multiply"`.
-- **SFX:** `documenter.mp3` (kertas bergemerisik) satu kali di awal pohon; label senyap atau satu `pop up.mp3` di angka pertama.
+- **SFX:** famili `taktil`, `ui` · `documenter.mp3` (kertas bergemerisik) satu kali di awal pohon; label senyap atau satu `pop up.mp3` di angka pertama.
 - **Pakai bila:** ada tekstur nyata yang tersedia dan ≥ 20 label. · **Jangan pakai bila:** tak ada bahan tekstur.
 - **Remix (anti-jiplak):**
   1. Laporan penjualan → pertahankan 3 ukuran label sebagai Z · ganti pohon dengan peta kota.
@@ -118,7 +118,7 @@ Neo-grotesk bulat (paling mirip SF Pro / OpenAI Sans; Inter pengganti), Regular�
   - Gerak: pull −3 %/0,2 dtk dari editor; whip vertikal `translateY(−100%)` 10 f `CURVE.whip` dengan motion blur ke close-up error; kata terakhir berganti di tempat dengan `CURVE.reveal`.
   - Ruang: datar dengan kamera virtual.
   - Blur & blend: foto tidak diburamkan; blur gerak pada tepi UI saat whip.
-- **SFX:** `Wooshcameramovementtransisi.mp3` untuk whip (pengamatan: 3 whoosh tipis); `Keyboardtyping.mp3` bila kode diketik; satu `Notif.mp3` di "Fixing Issue".
+- **SFX:** famili `air`, `mekanik`, `ui` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) untuk whip (pengamatan: 3 whoosh tipis); `Keyboardtyping.mp3` bila kode diketik; satu `Notif.mp3` di "Fixing Issue".
 - **Pakai bila:** foto/video alam atau latar tenang tersedia. · **Jangan pakai bila:** latar foto padat detail di belakang UI.
 - **Remix (anti-jiplak):**
   1. Aplikasi desain → pertahankan UI melayang di foto terang · ganti hutan dengan studio berkabut.

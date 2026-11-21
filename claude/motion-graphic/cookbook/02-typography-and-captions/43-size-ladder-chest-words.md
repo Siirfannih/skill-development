@@ -52,7 +52,7 @@ Sans geometris tebal huruf kecil (Coolvetica, terbaca di panel Font CapCut) + se
   - Lapisan (bawah → atas): footage → teks dada.
   - Gerak: per kata `scale` 2,0 → 1,0 dan `blur(50px→0)` selama 10 f dengan `Easing.out(Easing.cubic)` (resep CapCut di layar; terukur "pakai" menyusut 42,8 → 37,4 % lebar antara 1,0 dan 1,3 dtk); kata datang berurutan dengan jeda `react(i, 30)`; keluar `opacity` 1 → 0,4 + `blur(0→6px)` 18 f `CURVE.leave`.
   - Ruang: datar. Blur & blend: blur gerak nyata via `<CameraMotionBlur shutterAngle={200} samples={16}>` pada kata masuk.
-- **SFX:** senyap per kata (`../../guide/sfx/GUIDE.md`); di asli pop kecil terdengar di masuk kata 2,3–3,7 dtk (label earshot banyak keliru karena konsonan suara).
+- **SFX:** famili `ui` · senyap per kata (`../../guide/sfx/GUIDE.md`); di asli pop kecil terdengar di masuk kata 2,3–3,7 dtk (label earshot banyak keliru karena konsonan suara).
 - **Pakai bila:** kalimat ≤ 4 kata per tampil, dada kosong dan gelap. · **Jangan pakai bila:** latar terang/bermotif di dada.
 - **Remix (anti-jiplak):**
   1. Presenter berbaju terang → pertahankan tangga ukuran · ganti huruf putih ke gelap dengan bayangan lunak.
@@ -85,7 +85,7 @@ Sans geometris tebal huruf kecil (Coolvetica, terbaca di panel Font CapCut) + se
   - Lapisan: footage → kata serif → kata sans kecil.
   - Gerak: kata `translateX` keluar +15 % `CURVE.land` 12 f; susut ke panel `scale` 1 → 0,55 + `borderRadius` 0 → 40 px 18 f `CURVE.heavy`; latar putih masuk di bawah.
   - Ruang: datar. Blur & blend: pecahan warna dengan dua salinan teks `mixBlendMode: "screen"` merah dan sian offset ±3 px (chromatic split).
-- **SFX:** `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` di kata "gagal" (di asli sub-bass drop 11,57 dtk); jeda sunyi 0,55 dtk di 8,65 dtk sebelumnya.
+- **SFX:** famili `impact` · `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` di kata "gagal" (di asli sub-bass drop 11,57 dtk); jeda sunyi 0,55 dtk di 8,65 dtk sebelumnya.
 - **Pakai bila:** satu contoh buruk. · **Jangan pakai bila:** banyak contoh beruntun.
 - **Remix (anti-jiplak):**
   1. Kosmetik → "jerawatan" serif di wajah close-up · pertahankan keluar tepi.
@@ -101,7 +101,7 @@ Sans geometris tebal huruf kecil (Coolvetica, terbaca di panel Font CapCut) + se
   - Lapisan: latar ungu + bentuk abu buram → kartu (`borderRadius` ±6 %) → nama preset → judul.
   - Gerak: tiap nama 30 f; gaya masing-masing: slide `translateY` ±60 px, flicker opasitas acak berbiji, blur `blur(12→0)`; ganti nama cut keras.
   - Ruang: datar. Blur & blend: glow `drop-shadow(0 0 20px)` pada SHINING/Glowing.
-- **SFX:** satu bunyi per ganti kartu hanya bila perlu: `Kinetictypography(gunakansecaraacak).mp3` sesekali; bukan per preset.
+- **SFX:** famili `ui` · satu bunyi per ganti kartu hanya bila perlu: `Kinetictypography(gunakansecaraacak).mp3` sesekali; bukan per preset.
 - **Pakai bila:** ≥ 4 gaya. · **Jangan pakai bila:** hanya satu gaya.
 - **Remix (anti-jiplak):**
   1. Font → nama font di kartu, tiap font diperagakan.
@@ -117,7 +117,7 @@ Sans geometris tebal huruf kecil (Coolvetica, terbaca di panel Font CapCut) + se
   - Lapisan: gradien → panel (`overflow: hidden`, `borderRadius`) berisi rekaman → frasa.
   - Gerak: rekaman `translate` ke kontrol yang dibahas dengan `CURVE.heavy`, durasi `dur(jarak, 30)` ±14–24 f; push kecil 1,00 → 1,01.
   - Ruang: datar. Blur & blend: motion blur saat meluncur.
-- **SFX:** senyap atau `Keyboardtyping.mp3` hanya saat teks diketik di layar.
+- **SFX:** famili `mekanik` · senyap atau `Keyboardtyping.mp3` hanya saat teks diketik di layar.
 - **Pakai bila:** UI kecil yang perlu diperbesar. · **Jangan pakai bila:** rekaman sudah di-zoom.
 - **Remix (anti-jiplak):**
   1. Tutorial Figma → pertahankan panel + pan · ganti gradien ke abu terang.
@@ -133,7 +133,7 @@ Sans geometris tebal huruf kecil (Coolvetica, terbaca di panel Font CapCut) + se
   - Lapisan: footage dengan overlay hitam 0,6 → tiga baris.
   - Gerak: kata kunci `scale` 1,2 → 1 `CURVE.land` 8 f; baris kecil `opacity` 0 → 1, 3 f kemudian.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `Enter.mp3` di kata kunci.
+- **SFX:** famili `mekanik` · `Enter.mp3` di kata kunci.
 - **Pakai bila:** satu aksi komentar. · **Jangan pakai bila:** CTA lebih dari satu.
 - **Remix (anti-jiplak):**
   1. Kelas → "GUIDE" besar · ganti serif ke sans.

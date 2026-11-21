@@ -44,7 +44,7 @@ Satu blok per pola yang layak dipinjam (maksimal 6). Bagian yang belum terlihat 
   - Gerak: kurva `CURVE.<land|heavy|whip|reveal|leave|wind|drift>` dari `../../scripts/remotion/curves.ts` atau `Easing.bezier(a,b,c,d)`; durasi dalam frame @30 fps; arah dan titik pivot
   - Ruang: <`perspective`, `rotateX/Y/Z`, `translateZ`, parallax per lapisan, kamera virtual> atau "datar"
   - Blur & blend: <motion blur `<CameraMotionBlur shutterAngle={200} samples={16}>` (`../../references/smooth-motion.md`), `filter: blur()` untuk fokus, `mixBlendMode`, mask/`clipPath`>
-- **SFX:** <file `SFXIrfan` + peran (`../../guide/sfx/SFXIRFAN.md`)> | senyap + alasan (kata KT per kata selalu senyap, `../../guide/sfx/GUIDE.md`)
+- **SFX:** famili `<id>` (`../../guide/sfx/FAMILI.md`) · <karakter bunyi di video asli + perannya>; contoh lokal: `<file>` bila ada yang lolos dengar, selain itu `sfx_cari.py --famili <id>` | senyap + alasan (kata KT per kata selalu senyap, `../../guide/sfx/GUIDE.md`)
 - **Pakai bila:** <kondisi> · **Jangan pakai bila:** <kondisi>
 - **Remix (anti-jiplak):**
   1. <konteks lain> → pertahankan <mekanik> · ganti <objek/warna/huruf/arah>

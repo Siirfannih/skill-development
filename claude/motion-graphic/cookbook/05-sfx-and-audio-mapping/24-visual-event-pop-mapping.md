@@ -54,7 +54,7 @@ alias: []
   - Gerak: jadwal cue dibangkitkan dari `objects.json` (frame kemunculan objek); jarak antarbunyi ≥ 100 ms dan ≤ 5 cue dalam 2 dtk (`../../guide/sfx/GUIDE.md`).
   - Ruang: tidak berlaku.
   - Blur & blend: tidak berlaku; level pop −4…−10 dB di bawah puncak, detail kecil −12…−16 dB.
-- **SFX:** `pop up.mp3` untuk kartu/post muncul; `ES_User Interface, Click, Pops, Glass, UI, Pops` untuk pop lembut ikon; kata KT per kata tetap senyap (GUIDE: bunyi per kata ditolak).
+- **SFX:** famili `ui` · `pop up.mp3` untuk kartu/post muncul; `ES_User Interface, Click, Pops, Glass, UI, Pops` untuk pop lembut ikon; kata KT per kata tetap senyap (GUIDE: bunyi per kata ditolak).
 - **Pakai bila:** tiap objek muncul sebagai kejadian terpisah dan jelas. · **Jangan pakai bila:** teks hanya subtitle per kata (kata KT per kata senyap) atau cerita sinematik (bunyi UI salah palet).
 - **Remix (anti-jiplak):**
   1. Promo SaaS → pertahankan satu pop per objek baru, jenis bunyi sama untuk peran sama · ganti ikon kamera dengan tombol fitur produk.
@@ -71,7 +71,7 @@ alias: []
   - Gerak: `volume` bed turun ke ~−12 dB dalam 12 f sebelum pembalik; bass dan bed kembali penuh pada frame objek puncak (`interpolate`, `CURVE.reveal`); sub-drop mulai ±3 f sebelum frame visual agar puncak bunyi jatuh di frame.
   - Ruang: tidak berlaku.
   - Blur & blend: tidak berlaku.
-- **SFX:** `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` untuk twist dan punchline; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju pembalik; `Woosh.mp3` untuk ganti babak; kick pendek dan hi-hat kiblat tidak ada di SFXIrfan.
+- **SFX:** famili `air`, `impact`, `riser` · `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` untuk twist dan punchline; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju pembalik; `Woosh.mp3` untuk ganti babak; kick pendek dan hi-hat kiblat tidak ada di SFXIrfan.
 - **Pakai bila:** ada struktur masalah → pembalik → solusi. · **Jangan pakai bila:** konten tanpa pembalik (sub-drop jadi hiasan).
 - **Remix (anti-jiplak):**
   1. Iklan jasa → pertahankan breakdown sunyi sebelum kalimat solusi · ganti tech house dengan musik piano tipis.
@@ -88,7 +88,7 @@ alias: []
   - Gerak: toggle `translateX` 8–10 f `CURVE.land` per posisi; pil → tombol: `width`/`background` morph 10 f `CURVE.reveal`; cue bunyi di frame awal gerak.
   - Ruang: toggle kaca di atas lanskap `blur(12px)`.
   - Blur & blend: backdrop blur kaca (`backdropFilter: blur(20px)`).
-- **SFX:** `ES_User Interface, Click, UI Buttons, Confirm, Menu` untuk konfirmasi; `Enter.mp3` untuk klik penting; `ES_User Interface, Click, Pops, Glass, UI, Pops` untuk ding lembut; hanya klik UI yang benar-benar terjadi di layar.
+- **SFX:** famili `mekanik`, `ui` · `ES_User Interface, Click, UI Buttons, Confirm, Menu` untuk konfirmasi; `Enter.mp3` untuk klik penting; `ES_User Interface, Click, Pops, Glass, UI, Pops` untuk ding lembut; hanya klik UI yang benar-benar terjadi di layar.
 - **Pakai bila:** UI asli atau tiruan yang mengubah keadaan. · **Jangan pakai bila:** adegan sinematik (bunyi UI salah palet).
 - **Remix (anti-jiplak):**
   1. Onboarding aplikasi → pertahankan satu klik per perubahan state · ganti toggle jadi tab dan lanskap jadi dashboard.
@@ -105,7 +105,7 @@ alias: []
   - Gerak: `blur(10px)→0` + `scale` 1,06→1 dalam 8–10 f `CURVE.reveal`, lalu pull `scale` 1→0,95 selama hold `CURVE.drift`; roda kata: `translateY` 8 f `CURVE.land`, tetangga `opacity` 0,3.
   - Ruang: datar.
   - Blur & blend: blur masuk saja.
-- **SFX:** senyap per kata (KT); satu `pop up.mp3` hanya pada kata puncak yang bergerak sebagai objek.
+- **SFX:** famili `ui` · senyap per kata (KT); satu `pop up.mp3` hanya pada kata puncak yang bergerak sebagai objek.
 - **Pakai bila:** frasa 1–3 kata di bidang polos. · **Jangan pakai bila:** latar ramai atau kalimat panjang.
 - **Remix (anti-jiplak):**
   1. Judul promo produk → pertahankan kata sambung kecil di atas kata kunci · ganti merah-oranye ke satu aksen merek.
@@ -122,7 +122,7 @@ alias: []
   - Gerak: foto melayang masuk `translate` kecil + `scale` 0,9→1 7 f `CURVE.land`, stagger 2–3 f; grid pil `translateX` konstan (3 % per 15 f); mockup `rotateX(55°) rotateZ(−30°)` dengan `perspective: 1400px`.
   - Ruang: `perspective` pada mockup; parallax 0,8×/1×/1,2× untuk foto melayang.
   - Blur & blend: lapis tepi buram; mockup memudar dengan mask gradien.
-- **SFX:** `Pergantianfoto.mp3` (potong satu klik per foto, atau rentetan) untuk foto yang berganti; `pop up.mp3` untuk kartu muncul.
+- **SFX:** famili `mekanik`, `ui` · `Pergantianfoto.mp3` (potong satu klik per foto, atau rentetan) untuk foto yang berganti; `pop up.mp3` untuk kartu muncul.
 - **Pakai bila:** ada kontras banyak vs satu dalam cerita. · **Jangan pakai bila:** hanya satu objek.
 - **Remix (anti-jiplak):**
   1. Marketplace UMKM → pertahankan hero vs gugus tersebar · ganti foto acara dengan foto produk.
@@ -139,7 +139,7 @@ alias: []
   - Gerak: blur-dissolve `blur(0→24px)` + `opacity` 12–15 f; zoom-through `scale` 1→2,4 `CURVE.whip` 8–10 f; morph `clipPath`/`borderRadius` 10 f `CURVE.reveal`.
   - Ruang: zoom-through menembus objek (teks besar di depan kamera).
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>`.
-- **SFX:** `Wooshcameramovementtransisi.mp3` di zoom-through; `Woosh.mp3` untuk ganti babak; `ES_User Interface, Glitch, Glitch Databend 04` bila transisi antarbabak berupa glitch.
+- **SFX:** famili `air`, `glitch` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) di zoom-through; `Woosh.mp3` untuk ganti babak; `ES_User Interface, Glitch, Glitch Databend 04` bila transisi antarbabak berupa glitch.
 - **Pakai bila:** tiap adegan punya elemen yang bisa menjadi jembatan. · **Jangan pakai bila:** narasi yang butuh potongan tegas.
 - **Remix (anti-jiplak):**
   1. Promo fitur → pertahankan blur-dissolve dari blob ke teks · ganti blob oranye ke warna merek.

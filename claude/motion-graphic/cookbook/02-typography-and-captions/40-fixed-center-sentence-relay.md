@@ -52,7 +52,7 @@ Neo-grotesk rapat (mirip Helvetica Now Display), Medium untuk kalimat, Bold untu
   - Lapisan (bawah → atas): material adegan → teks (satu `<AbsoluteFill>` terpisah, tidak ikut kamera adegan).
   - Gerak: tiap kata `color` abu `#9A9894` → `#2E2D2C` dalam 6 f `CURVE.reveal`, jeda mengikuti ucapan; rata tengah dengan `measureText` (`@remotion/layout-utils`) agar baris tetap terpusat tiap kata bertambah; frasa ganti dengan memudar 6 f + `blur(0→4px)`.
   - Ruang: datar. Blur & blend: blur saat keluar; tanpa blend.
-- **SFX:** senyap per kata (`../../guide/sfx/GUIDE.md`); `Keyboardtyping.mp3` hanya di terowongan yang memang memakai kursor ketik, diredam −14 dB.
+- **SFX:** famili `mekanik` · senyap per kata (`../../guide/sfx/GUIDE.md`); `Keyboardtyping.mp3` hanya di terowongan yang memang memakai kursor ketik, diredam −14 dB.
 - **Pakai bila:** material belakang ramai tapi punya titik tenang di pusat. · **Jangan pakai bila:** pusat frame berisi subjek yang harus terlihat (wajah, produk).
 - **Remix (anti-jiplak):**
   1. Video produk UMKM → pertahankan teks satu baris di pusat · ganti material ke foto produk berganti per frasa.
@@ -69,7 +69,7 @@ Neo-grotesk rapat (mirip Helvetica Now Display), Medium untuk kalimat, Bold untu
   - Gerak: bingkai `translateZ` maju dengan `CURVE.heavy` ±100 f; `rotateZ` 0 → 8°; tiap bingkai `scale` 1 → 3 berurutan (`react()`).
   - Ruang: `perspective: 1200px`, translateZ per lapis.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` saat melaju; cahaya akhir `mixBlendMode: "screen"` menutup cut.
-- **SFX:** `Wooshcameramovementtransisi.mp3` memuncak di kecepatan tertinggi; bunyi ruang tidak dibedah.
+- **SFX:** famili `air` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) memuncak di kecepatan tertinggi; bunyi ruang tidak dibedah.
 - **Pakai bila:** pindah dunia di tengah kalimat. · **Jangan pakai bila:** dipakai berulang (efek cepat basi).
 - **Remix (anti-jiplak):**
   1. Gagasan → produk → pertahankan zoom-through · ganti bingkai ke lembaran kertas bertumpuk.
@@ -85,7 +85,7 @@ Neo-grotesk rapat (mirip Helvetica Now Display), Medium untuk kalimat, Bold untu
   - Lapisan: baris raksasa atas → pita tajam → baris bawah → kalimat kecil.
   - Gerak: baris `translateY` ±15 % dengan `CURVE.land` ±12 f; blur baris luar `blur(10px)`, tengah `blur(0)`; kalimat kecil tetap di tengah.
   - Ruang: datar. Blur & blend: `filter: blur()` per baris; tanpa blend.
-- **SFX:** `basmenyebar.mp3` pada momen ini saja (satu kali); bunyi asli tidak dilabel.
+- **SFX:** famili `impact` · `basmenyebar.mp3` pada momen ini saja (satu kali); bunyi asli tidak dilabel.
 - **Pakai bila:** sekali per video. · **Jangan pakai bila:** lebih dari satu kali.
 - **Remix (anti-jiplak):**
   1. Kata merek → pertahankan terpotong tepi + fokus tengah · ganti ke satu kata tebal warna merek.
@@ -101,7 +101,7 @@ Neo-grotesk rapat (mirip Helvetica Now Display), Medium untuk kalimat, Bold untu
   - Lapisan: material A → material B → teks tetap.
   - Gerak: cut 8–30 f; wipe pita `clipPath` per baris dengan `react()`; whip `translateY` −100 % `CURVE.whip` ±12 f.
   - Ruang: datar. Blur & blend: blur vertikal `blur(0,12px)` saat whip.
-- **SFX:** `scaningfast.mp3` di wipe; `Woosh.mp3` di whip.
+- **SFX:** famili `air` · whoosh/scan famili `air` tanpa desis (file SFXIrfan lama dilarang; `sfx_cari.py --famili air`) di wipe; `Woosh.mp3` di whip.
 - **Pakai bila:** klimaks lalu penutup. · **Jangan pakai bila:** semua bagian cepat.
 - **Remix (anti-jiplak):**
   1. Montase fitur → pertahankan rapat lalu lega · ganti pita foto ke cuplikan layar.
@@ -118,7 +118,7 @@ Neo-grotesk rapat (mirip Helvetica Now Display), Medium untuk kalimat, Bold untu
   - Gerak: pupil `translateX` ±6 px dengan `CURVE.wind`; kedip `scaleY` 1 → 0,1 → 1 dalam 5 f; mata `translate` ke posisi "O" ±15 f `CURVE.land`.
   - Ruang: rumput `translateZ` dekat dengan blur.
   - Blur & blend: blur rumput depan; tanpa blend.
-- **SFX:** `pop up.mp3` saat mata berkedip; "squish"/tetes di asli (label otomatis, belum dicek) tidak dikatalog.
+- **SFX:** famili `ui` · `pop up.mp3` saat mata berkedip; "squish"/tetes di asli (label otomatis, belum dicek) tidak dikatalog.
 - **Pakai bila:** merek punya satu huruf yang bisa diganti elemen. · **Jangan pakai bila:** logo bukan wordmark.
 - **Remix (anti-jiplak):**
   1. Warung kopi → pertahankan elemen menjadi huruf · ganti mata ke uap yang membentuk "O".
@@ -134,7 +134,7 @@ Neo-grotesk rapat (mirip Helvetica Now Display), Medium untuk kalimat, Bold untu
   - Lapisan: krem → kartu atas/bawah (`border-radius` besar, `blur(2px)` di tepi) → teks.
   - Gerak: kartu `translateY` ±8 % berlawanan arah `CURVE.drift` ±24 f.
   - Ruang: datar. Blur & blend: blur tepi kartu.
-- **SFX:** `pop up.mp3` saat kartu muncul.
+- **SFX:** famili `ui` · `pop up.mp3` saat kartu muncul.
 - **Pakai bila:** ada dua bukti. · **Jangan pakai bila:** hanya satu bukti.
 - **Remix (anti-jiplak):**
   1. Katalog → ganti kartu ke foto produk berukuran sama.

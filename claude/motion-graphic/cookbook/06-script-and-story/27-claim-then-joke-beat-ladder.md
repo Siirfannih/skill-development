@@ -52,7 +52,7 @@ Empat suara kapital: grotesk regular rapat di atas wajah; black condensed dicamp
   - Gerak: kata masuk 1–2 f tanpa ease (`opacity` langsung 1) pada kata yang diucapkan; kartu masuk lewat hard cut; "≠" `scale` 1,3 → 1 `CURVE.land` ±6 f.
   - Ruang: datar.
   - Blur & blend: glow `drop-shadow(0 0 20px kuning)` + `blur(1px)` ghost; tanpa motion blur.
-- **SFX:** hit rendah di cut ke kartu (5,6 dtk) dan pop di tanda "≠" (14,9). Padanan: `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `Cut.mp3`; pop `pop up.mp3`. Kata senyap.
+- **SFX:** famili `glitch`, `impact`, `ui` · hit rendah di cut ke kartu (5,6 dtk) dan pop di tanda "≠" (14,9). Padanan: `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `Cut.mp3`; pop `pop up.mp3`. Kata senyap.
 - **Pakai bila:** ada kalimat kait yang bisa dikoreksi jadi arti lain. · **Jangan pakai bila:** tema serius yang tidak boleh disalahpahami.
 - **Remix (anti-jiplak):**
   1. Reel kuliner → kait palsu "aku mau berhenti jualan", koreksi di kartu "berhenti jualan MURAH".
@@ -68,7 +68,7 @@ Empat suara kapital: grotesk regular rapat di atas wajah; black condensed dicamp
   - Lapisan: bidang hijau kunci → foto cutout miring ±3° → teks.
   - Gerak: cutout glitch 10 kedip dalam 1,6 dtk (22–24) lewat `opacity` bergantian tiap 1–2 f; "FRESH GRADUATE" muncul utuh dalam 1 f menimpa foto 83 × 83 % di hitam.
   - Ruang: datar. Blur & blend: tepi foto bercahaya `drop-shadow`.
-- **SFX:** whoosh sebelum "FRESH GRADUATE" (35,6 dtk); `Wooshcameramovementtransisi.mp3`. Glitch montase: `ES_User Interface, Glitch, Glitch Databend 04`.
+- **SFX:** famili `air`, `glitch` · whoosh sebelum "FRESH GRADUATE" (35,6 dtk); whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`). Glitch montase: `ES_User Interface, Glitch, Glitch Databend 04`.
 - **Pakai bila:** ada fakta diri yang perlu dijadikan bahan lelucon. · **Jangan pakai bila:** fakta itu sensitif atau membahayakan kredibilitas.
 - **Remix (anti-jiplak):**
   1. Brand personal fotografer → klaim "10 tahun pengalaman" diikuti lelucon soal kamera HP pertama.
@@ -84,7 +84,7 @@ Empat suara kapital: grotesk regular rapat di atas wajah; black condensed dicamp
   - Lapisan: footage fisheye → vignette bulat → teks lebar 92 % y 32–69 %; poster di bidang hitam 68 × 91 %.
   - Gerak: poster `scale` 1,00 → 1,05 `CURVE.drift` selama beat; item tawaran berganti dengan b-roll tiap 4–7 dtk.
   - Ruang: datar. Blur & blend: vignette `radial-gradient`.
-- **SFX:** hit sub di deklarasi (52,0 dtk); pop saat poster muncul (49,2; 73,8). Padanan: `Move.mp3` / `pop up.mp3`.
+- **SFX:** famili `impact`, `ui` · hit sub di deklarasi (52,0 dtk); pop saat poster muncul (49,2; 73,8). Padanan: `Move.mp3` / `pop up.mp3`.
 - **Pakai bila:** pitch pribadi di video yang lebih panjang dari 60 dtk. · **Jangan pakai bila:** video ≤ 30 dtk (tawaran harus muncul lebih awal).
 - **Remix (anti-jiplak):**
   1. Jasa desain → poster tawaran sengaja norak, lalu versi rapi.
@@ -100,7 +100,7 @@ Empat suara kapital: grotesk regular rapat di atas wajah; black condensed dicamp
   - Lapisan: peta/foto → UI HP (`rotateY` −20°) → subtitle.
   - Gerak: HP `scale` 0,9 → 1 dan `translateX` −8 % `CURVE.land` ±14 f, dorong +5 %.
   - Ruang: `perspective: 1000px`. Blur & blend: bayangan lembut.
-- **SFX:** pop masuk UI HP (86,7–86,9); cork pop + snare di kredit (snare tidak ada di SFXIrfan). Padanan: `ES_User Interface, Click, Button, Double Click, Fast, Phone Tap`.
+- **SFX:** famili `ui`, `stab` · pop masuk UI HP (86,7–86,9); cork pop + snare di kredit (snare tidak ada di SFXIrfan). Padanan: `ES_User Interface, Click, Button, Double Click, Fast, Phone Tap`.
 - **Pakai bila:** ada bukti karya berbentuk layar. · **Jangan pakai bila:** tanpa akun atau karya untuk ditunjukkan.
 - **Remix (anti-jiplak):**
   1. Kreator kuliner → peta toko diganti foto jalan, UI HP menunjukkan menu.
@@ -116,7 +116,7 @@ Empat suara kapital: grotesk regular rapat di atas wajah; black condensed dicamp
   - Lapisan: bidang → kata → scanline + glow.
   - Gerak: kata masuk 1–2 f tanpa ease; tahan 1–2 dtk.
   - Ruang: datar. Blur & blend: ghost glow.
-- **SFX:** hit rendah di cut ke kartu; kata senyap.
+- **SFX:** famili `impact` · hit rendah di cut ke kartu; kata senyap.
 - **Pakai bila:** 2–4 kata per kartu. · **Jangan pakai bila:** kalimat panjang.
 - **Remix (anti-jiplak):**
   1. Brand pastel → bidang pastel, huruf gelap.
@@ -132,7 +132,7 @@ Empat suara kapital: grotesk regular rapat di atas wajah; black condensed dicamp
   - Lapisan: bidang biru → baris teks → glow.
   - Gerak: ketik per huruf 1 f/huruf; kursor kedip tiap 12 f.
   - Ruang: datar. Blur & blend: glow lembut.
-- **SFX:** senyap (ketik KT); `Keyboardtyping.mp3` (−12…−16 dB) hanya bila dialog benar-benar diketik.
+- **SFX:** famili `mekanik` · senyap (ketik KT); `Keyboardtyping.mp3` (−12…−16 dB) hanya bila dialog benar-benar diketik.
 - **Pakai bila:** dua suara dengan jawaban pendek. · **Jangan pakai bila:** monolog.
 - **Remix (anti-jiplak):**
   1. Chat bubble putih untuk brand terang.

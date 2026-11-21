@@ -13,6 +13,8 @@ Untuk proyek baru: cue sheet ada di `render/cues.json` (list of `{t, kind, db, v
 | `el_music.py cues` | musik ElevenLabs per babak (peran tiap babak, durasi dikunci ke VO, minta +3–6 dtk lalu potong) | 34 |
 | `music_check.py`, `env.py` | cek envelope/dinamika cue musik (fade, lubang) | 34 |
 | `el_sfx.py <kind>` | SFX ElevenLabs dengan prompt "soft/smooth" | 34, 36 |
+| `sfx_vet.py files… [--famili id]` | periksa file SFX sebelum dipasang: awal sunyi/puncak, serangan menyentak, desis berkelanjutan, clipping terekam, ekor terpotong, isi 300 Hz–3 kHz (HP), rentang famili | `guide/sfx/FAMILI.md` §3 |
+| `sfx_cari.py --famili id --out dir` | cari kandidat per famili di Freesound CC0 + Mixkit, catat lisensi di `SOURCES.md`, periksa `sfx_vet`, dengar `earshot rank` | `guide/sfx/FAMILI.md` §2 |
 | `sfx_comfort.py files…` | skor kenyamanan SFX: desis > 6 kHz, 2–6 kHz, roughness, earshot harsh/soft | 36 |
 | `audio_phone.py [--list\|--fix]` | simulasi speaker HP 20/50/100 %, kejelasan VO, kekasaran | 35 |
 | `visual_coverage.py silent.mp4` | setiap event visual punya suara ±5 frame | 35 |

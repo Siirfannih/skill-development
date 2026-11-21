@@ -52,7 +52,7 @@ Tiga keluarga: judul/hook sans grotesk rapat (mirip SF Pro Display / Inter Mediu
   - Gerak: tiap huruf `move(frame, start + i*2, 12, "land")` dari titik di lengkung (busur: x pakai `CURVE.land`, y pakai `CURVE.heavy` lewat `arc()`) ke posisi baris; skala huruf ke ujung 1,0 → 0,6; huruf akhir tertunda `react(i)`.
   - Ruang: datar atau `perspective: 900px` ringan.
   - Blur & blend: motion blur `<CameraMotionBlur shutterAngle={200} samples={16}>`; tanpa blend.
-- **SFX:** senyap per huruf (`../../guide/sfx/GUIDE.md`); satu `Katapertama.mp3` di huruf pertama judul.
+- **SFX:** famili `glitch` · senyap per huruf (`../../guide/sfx/GUIDE.md`); satu `Katapertama.mp3` di huruf pertama judul.
 - **Pakai bila:** judul ≤ 3 kata. · **Jangan pakai bila:** kalimat panjang.
 - **Remix (anti-jiplak):**
   1. Judul "Diskon 50 %" → pertahankan jalur melengkung · ganti arah ke naik, warna merek.
@@ -68,7 +68,7 @@ Tiga keluarga: judul/hook sans grotesk rapat (mirip SF Pro Display / Inter Mediu
   - Lapisan: latar → kalimat A → kalimat B.
   - Gerak: kata masuk `translateX` +30 px → 0 `CURVE.land` ±8 f dengan jeda per kata; swap: A `blur(0→14px)` + opasitas 1 → 0 selama 10 f, B `blur(14→0)` + `translateY` 12 px → 0 selama 12 f `CURVE.reveal`.
   - Ruang: datar. Blur & blend: `filter: blur()` hanya pada teks.
-- **SFX:** `Kinetictypography(gunakansecaraacak).mp3` satu kali di swap.
+- **SFX:** famili `ui` · `Kinetictypography(gunakansecaraacak).mp3` satu kali di swap.
 - **Pakai bila:** dua kalimat yang saling menjawab. · **Jangan pakai bila:** kalimat harus terbaca utuh di frame pertama.
 - **Remix (anti-jiplak):**
   1. Video produk → "Semua orang bilang mahal" → "Ternyata cuma Rp…"
@@ -84,7 +84,7 @@ Tiga keluarga: judul/hook sans grotesk rapat (mirip SF Pro Display / Inter Mediu
   - Lapisan: langit → kartu 3 → 2 → 1 (bayangan jatuh) → teks.
   - Gerak: tiap kartu `scale` 1,74 → 1 + `rotateZ` ±6° selama 15 f `CURVE.land`, jeda `react(i)`; geser kiri 10 % selama 18 f `CURVE.heavy`.
   - Ruang: `translateZ` berbeda per kartu. Blur & blend: `<CameraMotionBlur>`, bayangan `boxShadow` lembut.
-- **SFX:** `pop up.mp3` per kartu hanya bila tiap kartu penting; bila tidak satu `Woosh.mp3`.
+- **SFX:** famili `air`, `ui` · `pop up.mp3` per kartu hanya bila tiap kartu penting; bila tidak satu `Woosh.mp3`.
 - **Pakai bila:** 3 objek yang setara. · **Jangan pakai bila:** objek harus dibaca.
 - **Remix (anti-jiplak):**
   1. Tiga paket harga → pertahankan tumpukan miring · ganti warna ke palet merek.
@@ -100,7 +100,7 @@ Tiga keluarga: judul/hook sans grotesk rapat (mirip SF Pro Display / Inter Mediu
   - Lapisan: rekaman layar satu `<AbsoluteFill>` di `scale`/`translate` → caption (tidak ikut transformasi).
   - Gerak: pose kamera dari array keyframe per langkah; `translate` dengan `CURVE.heavy` ±15 f; zoom antar-panel `CURVE.whip` ±18 f.
   - Ruang: datar. Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>`.
-- **SFX:** `scaningfast.mp3` hanya pada zoom antar-panel; langkah kecil senyap. Di asli: 1 whoosh (20,76 dtk), 1 klik kunci (32,55 dtk).
+- **SFX:** famili `air`, `mekanik` · whoosh/scan famili `air` tanpa desis (file SFXIrfan lama dilarang; `sfx_cari.py --famili air`) hanya pada zoom antar-panel; langkah kecil senyap. Di asli: 1 whoosh (20,76 dtk), 1 klik kunci (32,55 dtk).
 - **Pakai bila:** UI kecil yang perlu diperbesar. · **Jangan pakai bila:** UI sudah besar.
 - **Remix (anti-jiplak):**
   1. Tutorial Canva/Figma → pertahankan meluncur per kontrol · ganti ke zoom ke tombol.
@@ -132,7 +132,7 @@ Tiga keluarga: judul/hook sans grotesk rapat (mirip SF Pro Display / Inter Mediu
   - Lapisan: hook → bentuk putih (1–2 f) → tutorial.
   - Gerak: bentuk `rotate(-20deg)` melintang penuh frame 2 f, cut di tengahnya.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `Cut.mp3` atau `Cutcontrastransision.mp3` (cut terang ↔ gelap).
+- **SFX:** famili `glitch`, `mekanik` · `Cut.mp3` atau `Cutcontrastransision.mp3` (cut terang ↔ gelap).
 - **Pakai bila:** perubahan dunia terang → gelap. · **Jangan pakai bila:** dunia berwarna sama.
 - **Remix (anti-jiplak):**
   1. Presenter terang → UI gelap · ganti bentuk ke blok warna merek.

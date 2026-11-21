@@ -48,7 +48,7 @@ Poppins SemiBold (geometris); penutup satu kata serif italic (Playfair Display I
   - Lapisan (bawah → atas): latar + vignette → grid → teks → objek 3D.
   - Gerak: tiap kata masuk `move(frame, start+i*6, 3, "reveal")` (6 f @30 ≈ ⅓ ketukan = 0,2 dtk) dari opasitas 0,35 abu ke putih; baris re-center dengan `measureText` (`@remotion/layout-utils`); ganti frasa di kelipatan 18 f (100 bpm); skala teks naik 1,00→1,05 selama tampil.
   - Ruang: datar. Blur & blend: tanpa blur.
-- **SFX:** per kata senyap; sesekali `Kinetictypography(gunakansecaraacak).mp3`; aksen asli: pop/klik menyatu dengan musik (+15 dB di 0,62 dtk, klik +16 dB di 1,43 dtk).
+- **SFX:** famili `ui`, `mekanik` · per kata senyap; sesekali `Kinetictypography(gunakansecaraacak).mp3`; aksen asli: pop/klik menyatu dengan musik (+15 dB di 0,62 dtk, klik +16 dB di 1,43 dtk).
 - **Pakai bila:** musik 90–110 bpm tersedia dan teks pendek. · **Jangan pakai bila:** ada VO yang menentukan waktu kata.
 - **Remix (anti-jiplak):**
   1. Teaser kursus desain → pertahankan bangun per kata · ganti latar jadi krem terang, teks gelap, tanpa grid.
@@ -64,7 +64,7 @@ Poppins SemiBold (geometris); penutup satu kata serif italic (Playfair Display I
   - Gerak: kamera virtual pada grup (grid + teks, panah di lapisan parallax berbeda): push 1,00→1,34 `CURVE.whip` 6 f; hold `drift()` 40–50 f; tarik 1,00→0,53 `CURVE.heavy` 14 f; panah berputar `rotateY` 0,5°/f.
   - Ruang: 2,5D: panah `translateZ` +120 px, shading `drop-shadow`.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>`.
-- **SFX:** `Woosh.mp3` hanya pada push besar; hold senyap.
+- **SFX:** famili `air` · `Woosh.mp3` hanya pada push besar; hold senyap.
 - **Pakai bila:** 1–2 kata kunci per 10 dtk. · **Jangan pakai bila:** semua kata diperlakukan sebagai kunci.
 - **Remix (anti-jiplak):**
   1. Penjelasan fitur SaaS → pertahankan push pada kata kunci · ganti panah jadi kursor gelap di latar terang.
@@ -78,7 +78,7 @@ Poppins SemiBold (geometris); penutup satu kata serif italic (Playfair Display I
 - **Mekanik Remotion (titik awal):**
   - Gerak: huruf keluar `CURVE.leave` 3 f per huruf, selisih `react()` dari kiri; serif italic masuk `CURVE.reveal` 12 f.
   - Blur & blend: tanpa.
-- **SFX:** `Lasertransision.mp3` ting penutup pada kata serif; keluar senyap. Musik meluruh ke −24 LUFS.
+- **SFX:** famili `stab` · `Lasertransision.mp3` ting penutup pada kata serif; keluar senyap. Musik meluruh ke −24 LUFS.
 - **Pakai bila:** penutup. · **Jangan pakai bila:** tengah kalimat.
 - **Remix (anti-jiplak):**
   1. Penutup video jasa → pertahankan satu kata beda gaya · ganti serif jadi tulisan tangan.

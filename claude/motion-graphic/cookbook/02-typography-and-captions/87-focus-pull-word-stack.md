@@ -54,7 +54,7 @@ Belum diukur. Pengamatan dari ikhtisar: pergantian shot rapat di 0–12 dtk (pem
   - Gerak: grup teks memakai transform yang sama dengan kamera: data lacak titik dinding/bahu (posisi, skala, rotasi) atau, bila kamera diam, kamera virtual `CURVE.drift` + push `CURVE.heavy` yang dikenakan ke footage **dan** grup teks bersama-sama. Kata lama: `filter: blur(0→4px)` + opacity 1→0,6 dalam 8 f saat kata baru masuk.
   - Ruang: 2,5D ringan: grup teks `translateZ` sedikit lebih dekat dari footage sehingga parallax 1,05–1,15× gerak footage.
   - Blur & blend: motion blur kamera `<CameraMotionBlur shutterAngle={200} samples={16}>`; tanpa blend mode.
-- **SFX:** senyap per kata (KT); satu `Woosh.mp3` hanya bila kamera virtual bergerak besar.
+- **SFX:** famili `air` · senyap per kata (KT); satu `Woosh.mp3` hanya bila kamera virtual bergerak besar.
 - **Pakai bila:** footage dengan gerak kamera terlihat dan ruang gelap polos di samping kepala atau depan badan. · **Jangan pakai bila:** latar terang/bermotif tepat di tempat teks, wajah memenuhi frame tanpa ruang samping.
 - **Remix (anti-jiplak):**
   1. Kamera tripod diam → push/drift virtual pada footage + teks bersama (satu kamera), jangan teks bergerak sendiri.
@@ -71,7 +71,7 @@ Belum diukur. Pengamatan dari ikhtisar: pergantian shot rapat di 0–12 dtk (pem
   - Gerak: tiap huruf `move(frame, start + i*1, 6, "land")` dari `translateY(40px) translateZ(-200px) rotate(-8deg)` ke 0; lengkung baris dari `offset-path` atau posisi x/y per huruf di kurva.
   - Ruang: `perspective: 900px` pada baris.
   - Blur & blend: motion blur nyata (`<Trail>` atau `<CameraMotionBlur>`), bukan pudar opacity; glow `mixBlendMode: "screen"`.
-- **SFX:** senyap (per huruf/kata KT); `Katapertama.mp3` hanya untuk kata pembuka video.
+- **SFX:** famili `glitch` · senyap (per huruf/kata KT); `Katapertama.mp3` hanya untuk kata pembuka video.
 - **Pakai bila:** kata isi pendek di latar gelap. · **Jangan pakai bila:** kalimat panjang (penonton menunggu huruf), judul atau angka yang harus terbaca di frame pertama.
 - **Remix (anti-jiplak):**
   1. Latar terang (kanvas putih brand) → glow diganti bayangan gelap lunak, blur gerak dipertahankan, warna kata dari aksen brand.
@@ -88,7 +88,7 @@ Belum diukur. Pengamatan dari ikhtisar: pergantian shot rapat di 0–12 dtk (pem
   - Gerak: tarik fokus = dua animasi `filter: blur()` berlawanan arah (belakang 10→0 px, depan 0→6 px) dalam 6–8 f, kurva `CURVE.reveal`; kata yang mundur berganti ke garis luar (`-webkit-text-stroke: 3px`, `color: transparent`) di frame yang sama. Push kamera `CURVE.heavy` 1,00→1,06 sepanjang beat.
   - Ruang: 2,5D: teks belakang parallax 0,9× gerak kamera, teks depan 1,1×.
   - Blur & blend: blur fokus seperti di atas; kata menyala saat masuk dengan bloom (`filter: drop-shadow(0 0 24px <aksen>)`) yang turun dalam 8 f.
-- **SFX:** satu `ES_Designed, Bass Dive…` atau `basmenyebar.mp3` di kata pembalik ("BUT") bila itu puncak; selebihnya senyap.
+- **SFX:** famili `impact` · satu `ES_Designed, Bass Dive…` atau `basmenyebar.mp3` di kata pembalik ("BUT") bila itu puncak; selebihnya senyap.
 - **Pakai bila:** shot lebar dengan ruang di atas kepala dan bawah dada, matte tersedia, kalimat punya dua bagian. · **Jangan pakai bila:** close-up wajah tanpa ruang atas/bawah, tanpa matte, kalimat tunggal.
 - **Remix (anti-jiplak):**
   1. Close-up → lapis belakang di samping kepala, lapis depan di bahu; mekanik tarik fokus tetap.
@@ -105,7 +105,7 @@ Belum diukur. Pengamatan dari ikhtisar: pergantian shot rapat di 0–12 dtk (pem
   - Gerak: kata besar `scale` 1,08→1 `CURVE.land` 10 f; kata kecil muncul 3 f kemudian `opacity` + `translateY(8px)` `CURVE.reveal`; bagian bawah masuk dari `blur(8px)` ke 0.
   - Ruang: datar.
   - Blur & blend: transisi keluar bocor cahaya: lapisan gradien oranye `mixBlendMode: "screen"` yang menyapu dalam 10 f.
-- **SFX:** `Woosh.mp3` di bocor cahaya keluar; kata senyap.
+- **SFX:** famili `air` · `Woosh.mp3` di bocor cahaya keluar; kata senyap.
 - **Pakai bila:** b-roll satu objek di tengah dengan ruang kosong atas-bawah. · **Jangan pakai bila:** kata kecil tidak bisa menempel di kata besarnya (terbaca dua hal terpisah).
 - **Remix (anti-jiplak):**
   1. Objek di sisi → frasa satu blok di sisi kosong lawannya.

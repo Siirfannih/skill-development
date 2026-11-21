@@ -51,7 +51,7 @@ Sans grotesk ala SF Pro/Inter Medium untuk kata biasa; kata kunci sans black ita
   - Lapisan: latar datar → kata. Satu `<Sequence>` per kata, `from` = frame onset kata dari transkrip kata-demi-kata.
   - Gerak: tanpa animasi masuk (potong keras); drift zoom `1.00→1.06` sepanjang kata, `CURVE.drift`. Kata kunci: ganti keluarga/warna di frame yang sama; glow merah `text-shadow: 0 0 24px #CC0004` pada kata negasi.
   - Ruang: datar. Blur & blend: tidak ada.
-- **SFX:** kata senyap per kata (`../../guide/sfx/GUIDE.md`); satu bunyi hanya di kata kunci yang dibuka sebagai objek (mis. `basmenyebar.mp3` atau `ES_Designed, Bass Dive…` untuk kata puncak). Catatan: video asli memakai pop/klik di hampir tiap kata, itu pola yang ditolak di panduan SFX.
+- **SFX:** famili `impact`, `mekanik`, `ui` · kata senyap per kata (`../../guide/sfx/GUIDE.md`); satu bunyi hanya di kata kunci yang dibuka sebagai objek (mis. `basmenyebar.mp3` atau `ES_Designed, Bass Dive…` untuk kata puncak). Catatan: video asli memakai pop/klik di hampir tiap kata, itu pola yang ditolak di panduan SFX.
 - **Pakai bila:** VO punya transkrip kata-demi-kata dan tanpa footage wajah. · **Jangan pakai bila:** footage pembicara berwajah (kata tunggal menutup wajah) atau VO lambat dan reflektif.
 - **Remix (anti-jiplak):**
   1. Reel produk UMKM → pertahankan kata tunggal di pusat · ganti latar menjadi tiga warna brand, kata kunci satu aksen.
@@ -67,7 +67,7 @@ Sans grotesk ala SF Pro/Inter Medium untuk kata biasa; kata kunci sans black ita
   - Lapisan: footage buku → overlay selotip (PNG/vektor) per baris → label.
   - Gerak: selotip `translateX` + `scaleX` keluar `CURVE.leave` 8 f; punch-in 2,1× ke baris yang dibuka `CURVE.heavy` 12 f.
   - Ruang: datar; Blur & blend: shadow lembut selotip, `mixBlendMode: "multiply"`.
-- **SFX:** `documenter.mp3` (potong ±1 dtk) di cabut selotip; satu bunyi sama untuk tiap babak.
+- **SFX:** famili `taktil` · `documenter.mp3` (potong ±1 dtk) di cabut selotip; satu bunyi sama untuk tiap babak.
 - **Pakai bila:** poin 3–5 dan ada objek fisik atau metafor yang bisa dibuka bertahap. · **Jangan pakai bila:** poin tidak berurutan.
 - **Remix (anti-jiplak):**
   1. Checklist produk → pertahankan buka-per-poin · ganti buku menjadi kartu gores atau amplop.
@@ -83,7 +83,7 @@ Sans grotesk ala SF Pro/Inter Medium untuk kata biasa; kata kunci sans black ita
   - Lapisan: tangkapan → `blur(10px)` → duplikat masked tajam hanya di kotak angka → vignette.
   - Gerak: drift diagonal `CURVE.drift` ±9 % sepanjang shot.
   - Ruang: datar; Blur & blend: mask gradien radial untuk fokus; vignette `radial-gradient`.
-- **SFX:** senyap (tidak ada objek baru); `Notif.mp3` hanya bila notifikasi itu sendiri jadi objek.
+- **SFX:** famili `ui` · senyap (tidak ada objek baru); `Notif.mp3` hanya bila notifikasi itu sendiri jadi objek.
 - **Pakai bila:** satu angka jadi inti. · **Jangan pakai bila:** banyak angka (fokus menyembunyikan).
 - **Remix (anti-jiplak):**
   1. Struk belanja → pertahankan fokus satu angka · ganti tangkapan menjadi foto struk.
@@ -99,7 +99,7 @@ Sans grotesk ala SF Pro/Inter Medium untuk kata biasa; kata kunci sans black ita
   - Lapisan: latar → dua kartu → isi.
   - Gerak: kartu masuk `translateY(30px)`+opacity `CURVE.land` 10 f dengan jeda `react(1)`; toggle menggeser `CURVE.reveal` 6 f.
   - Ruang: datar; Blur & blend: tanpa.
-- **SFX:** `pop up.mp3` tiap kartu muncul (satu per kartu), toggle `Enter.mp3`.
+- **SFX:** famili `mekanik`, `ui` · `pop up.mp3` tiap kartu muncul (satu per kartu), toggle `Enter.mp3`.
 - **Pakai bila:** dua sisi setara. · **Jangan pakai bila:** lebih dari dua.
 - **Remix (anti-jiplak):**
   1. Harga paket → pertahankan dua kartu setara · ganti isi menjadi dua kolom harga.
@@ -115,7 +115,7 @@ Sans grotesk ala SF Pro/Inter Medium untuk kata biasa; kata kunci sans black ita
   - Lapisan: latar → avatar → stempel/teks.
   - Gerak: posisi polar `angle = t*k + i*2π/n`, radius menyusut `CURVE.heavy` 30 f, lalu snap ke grid `CURVE.land` 14 f; stempel `scale 1.6→1` `CURVE.land` 6 f dengan rotasi −8°.
   - Ruang: datar; Blur & blend: tepi grid `blur(4px)` + vignette.
-- **SFX:** `Pergantianfoto.mp3` (potong rentetan) di spiral; hit sub di stempel (`ES_Designed, Bass Dive…`).
+- **SFX:** famili `mekanik`, `impact` · `Pergantianfoto.mp3` (potong rentetan) di spiral; hit sub di stempel (`ES_Designed, Bass Dive…`).
 - **Pakai bila:** pesan = "banyak". · **Jangan pakai bila:** data harus dibandingkan.
 - **Remix (anti-jiplak):**
   1. Pelanggan toko → pertahankan spiral ke grid · ganti avatar menjadi inisial warna brand.

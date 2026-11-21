@@ -52,7 +52,7 @@ Grotesk bold rapat (mirip Helvetica Neue / Inter Bold, tracking negatif) untuk c
   - Gerak: kata masuk `scale` 1,15→1 `CURVE.land` 8 f dengan `translateY` 30px→0; push-in footage + kata bersama 1,00→1,08 `CURVE.drift`; durasi animasi asli tidak terukur (sampel 1 fps).
   - Ruang: kata `translateZ` sedikit di belakang subjek; datar bila tanpa paralaks.
   - Blur & blend: glow tipis `drop-shadow(0 0 20px rgba(255,255,255,0.4))`; di lukisan `mixBlendMode: "screen"` agar tembus cahaya.
-- **SFX:** satu `basmenyebar.mp3` hanya pada kata puncak video (mis. kata penutup); sisanya senyap. Video asli tidak terpisah dari musik/suara.
+- **SFX:** famili `impact` · satu `basmenyebar.mp3` hanya pada kata puncak video (mis. kata penutup); sisanya senyap. Video asli tidak terpisah dari musik/suara.
 - **Pakai bila:** subjek kecil di frame dengan ruang kosong di atas kepala dan matte tersedia. · **Jangan pakai bila:** wajah memenuhi frame, atau tanpa matte (turunkan kata sepenuhnya di atas kepala).
 - **Remix (anti-jiplak):**
   1. Talking head kreator → pertahankan kata di belakang kepala · ganti grotesk putih dengan serif gelap, warna mengikuti brand.
@@ -69,7 +69,7 @@ Grotesk bold rapat (mirip Helvetica Neue / Inter Bold, tracking negatif) untuk c
   - Gerak: isi mask `scale` 1,2→1 `CURVE.heavy` 20 f sambil kata masuk; glitch dengan offset kanal merah/biru ±6 px selama 3 f.
   - Ruang: datar.
   - Blur & blend: `mixBlendMode: "lighten"` bila perlu menembus.
-- **SFX:** `ES_User Interface, Glitch, Glitch Databend 04` di frame glitch; satu kali per kata.
+- **SFX:** famili `glitch` · `ES_User Interface, Glitch, Glitch Databend 04` di frame glitch; satu kali per kata.
 - **Pakai bila:** font ≥ 8 % tinggi, tebal; foto isi punya kontras. · **Jangan pakai bila:** kata tipis atau ukuran kecil.
 - **Remix (anti-jiplak):**
   1. Nama brand → isi mask diganti foto produk yang berputar.
@@ -86,7 +86,7 @@ Grotesk bold rapat (mirip Helvetica Neue / Inter Bold, tracking negatif) untuk c
   - Gerak: tiap baris `translateY` 20px→0 + `opacity` 3 f `CURVE.reveal` dengan jeda `react(i)`; cermin = `scaleX(-1)` dalam 6 f; jitter = `translate` ±2 px acak (seed tetap) tiap 2 f untuk kata marah saja.
   - Ruang: datar.
   - Blur & blend: glow merah `text-shadow: 0 0 18px #B20316`; judul berita: kotak merah semi-transparan di belakang kata.
-- **SFX:** senyap per baris; `Cut.mp3` di frame cermin.
+- **SFX:** famili `glitch` · senyap per baris; `Cut.mp3` di frame cermin.
 - **Pakai bila:** ≤ 3 kode warna dengan arti tetap. · **Jangan pakai bila:** konten netral atau data.
 - **Remix (anti-jiplak):**
   1. Naskah edukasi → pertahankan kode warna per jenis informasi (risiko merah, solusi hijau) · ganti nada marah dengan tenang, tanpa jitter.
@@ -103,7 +103,7 @@ Grotesk bold rapat (mirip Helvetica Neue / Inter Bold, tracking negatif) untuk c
   - Gerak: lukisan diam, push 1,00→1,03 `CURVE.drift`; teks berganti dalam shot dengan T3; layar angka push 1,00→1,27 `CURVE.heavy` 18 f + motion blur.
   - Ruang: datar atau paralaks 2,5D ringan (catatan 30 Okt, tidak terkonfirmasi ukur global).
   - Blur & blend: grade `sepia(0.4) contrast(1.05)`; vignette kuat.
-- **SFX:** `Pergantianfoto.mp3` pada pergantian foto cepat; lukisan panjang senyap.
+- **SFX:** famili `mekanik` · `Pergantianfoto.mp3` pada pergantian foto cepat; lukisan panjang senyap.
 - **Pakai bila:** tiap frasa punya gambar yang tidak ambigu. · **Jangan pakai bila:** konten yang butuh wajah pembicara terus terlihat.
 - **Remix (anti-jiplak):**
   1. Opini bisnis → foto produk lawan dan tangkapan harga pesaing dengan grade dingin.
@@ -120,7 +120,7 @@ Grotesk bold rapat (mirip Helvetica Neue / Inter Bold, tracking negatif) untuk c
   - Gerak: cut pada frame onset kata VO (±2 f); ledakan: 5–8 cut × 2 f tiap shot; geser cepat `translateX` 44 % `CURVE.whip` 5 f + motion blur.
   - Ruang: datar.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` pada geser.
-- **SFX:** `Cut.mp3` di ledakan; `ES_Swooshes, Whoosh, Big, Cinematic` pada geser cepat; whoosh ≥ 1 dtk jarak antarbunyi (`../../guide/sfx/GUIDE.md`).
+- **SFX:** famili `glitch`, `air` · `Cut.mp3` di ledakan; `ES_Swooshes, Whoosh, Big, Cinematic` pada geser cepat; whoosh ≥ 1 dtk jarak antarbunyi (`../../guide/sfx/GUIDE.md`).
 - **Pakai bila:** VO rapat dan ada beat visual per frasa. · **Jangan pakai bila:** kalimat panjang tanpa aksen.
 - **Remix (anti-jiplak):**
   1. Video fitur → ledakan potong di bagian "semuanya bisa dalam satu" lewat 6 tangkapan layar.

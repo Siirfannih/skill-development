@@ -48,7 +48,7 @@ Grotesk netral (mirip Inter Medium), sentence case, **dua skala tanpa perantara*
   - Lapisan: satu track musik → track SFX per peran (sub, tik, whoosh, riser).
   - Gerak: low-pass per babak disiapkan di file audio (ffmpeg `lowpass` per segmen), crossfade 6–12 f di batas babak; `<Audio volume={(f) => …}>` untuk lantai bed. Visual pendamping: `CURVE.drift` di babak yang bed-nya digelapkan.
   - Ruang: datar. Blur & blend: tidak berlaku.
-- **SFX:** musik, bukan dari `SFXIRFAN.md`. Riser pembuka bila perlu: `ES_Designed, Riser, Transition, Fast, Short, Clean 01` (referensi: reverse-cymbal swell di frame 0, +38 dB dari hening).
+- **SFX:** famili `riser` · musik, bukan dari `SFXIRFAN.md`. Riser pembuka bila perlu: `ES_Designed, Riser, Transition, Fast, Short, Clean 01` (referensi: reverse-cymbal swell di frame 0, +38 dB dari hening).
 - **Pakai bila:** promo tanpa VO. · **Jangan pakai bila:** ada VO; true peak +2,0 dBTP referensi over, jangan ditiru.
 - **Remix (anti-jiplak):**
   1. Reel produk UMKM tanpa VO → pertahankan sweep per babak, ganti bed jadi akustik hangat; batas babak mengikuti potongan foto.
@@ -64,7 +64,7 @@ Grotesk netral (mirip Inter Medium), sentence case, **dua skala tanpa perantara*
   - Lapisan: krem → item lama (abu `#A8A6A3`, makin atas makin pudar) → pil oranye + item aktif → titik oranye berpendar.
   - Gerak: geser naik 1 slot per item `CURVE.land` ±10 f; item lama opacity turun + warna ke abu; pil ganti isi di tempat; jeda antar item tidak persis rata (`react(i, 30)` dari `curves.ts`).
   - Ruang: datar. Blur & blend: titik oranye `filter: blur(8px)`; motion blur geser belum dibedah.
-- **SFX:** pasangan nada tinggi + pop, selisih ±0,13–0,15 dtk, +13…+17 dB di atas bed (audit 53: tik hangat 1,5–2,3 kHz, +9…+15 dB). Katalog: `ES_User Interface, Click, Pops, Glass, UI, Pops` + `pop up.mp3`; satu pasangan yang sama sepanjang daftar. Per item (objek), bukan per kata (`../../guide/sfx/GUIDE.md`).
+- **SFX:** famili `ui` · pasangan nada tinggi + pop, selisih ±0,13–0,15 dtk, +13…+17 dB di atas bed (audit 53: tik hangat 1,5–2,3 kHz, +9…+15 dB). Katalog: `ES_User Interface, Click, Pops, Glass, UI, Pops` + `pop up.mp3`; satu pasangan yang sama sepanjang daftar. Per item (objek), bukan per kata (`../../guide/sfx/GUIDE.md`).
 - **Pakai bila:** 3–6 item pendek (1–3 kata). · **Jangan pakai bila:** item panjang; daftar > 8 item (bunyi jadi lapisan klik terus-menerus).
 - **Remix (anti-jiplak):**
   1. Harga paket → pertahankan pasangan bunyi per item, ganti pil jadi kartu harga yang ditukar di tempat.
@@ -80,7 +80,7 @@ Grotesk netral (mirip Inter Medium), sentence case, **dua skala tanpa perantara*
   - Lapisan: latar gelap/oranye → kata raksasa lebih lebar dari frame.
   - Gerak: `translateX` +60 % → −40 % lebar frame `CURVE.land` ±75 f (sapuan penuh) atau ±24 f (pendek); warna oranye ke putih lewat `interpolateColors`. Hub: `strokeDashoffset` ke 0 `CURVE.reveal` ±20 f per cabang.
   - Ruang: datar. Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` (`../../references/smooth-motion.md`).
-- **SFX:** hit rendah di frame kata mendarat: stab 123 Hz ("Automate", 5,69 dtk), sub 47 Hz ("9000", 15,24), 111 Hz ("+", 16,61). Padanan: `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `Move.mp3`; whoosh sapuan `ES_Swooshes, Whoosh, Big, Cinematic`; garis hub tergambar `Scanning dan gerak kurva.mp3` (referensi: rattle tiap ±70 ms, 17,2–19,2 dtk). Stab orkestra tidak ada di SFXIrfan.
+- **SFX:** famili `air`, `glitch`, `impact`, `stab` · hit rendah di frame kata mendarat: stab 123 Hz ("Automate", 5,69 dtk), sub 47 Hz ("9000", 15,24), 111 Hz ("+", 16,61). Padanan: `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `Move.mp3`; whoosh sapuan `ES_Swooshes, Whoosh, Big, Cinematic`; garis hub tergambar `Scanning dan gerak kurva.mp3` (referensi: rattle tiap ±70 ms, 17,2–19,2 dtk). Stab orkestra tidak ada di SFXIrfan.
 - **Pakai bila:** satu kata atau angka pendek (≤ 8 huruf). · **Jangan pakai bila:** kata yang harus terbaca utuh di satu frame statis.
 - **Remix (anti-jiplak):**
   1. Angka hasil klien ("3×") → pertahankan sapuan + hit, ganti arah ke vertikal naik.
@@ -96,7 +96,7 @@ Grotesk netral (mirip Inter Medium), sentence case, **dua skala tanpa perantara*
   - Lapisan: krem → teks → overlay inversi (`mixBlendMode: "difference"`) → blob (SVG path ber-noise, `clipPath` ke logo).
   - Gerak: overlay on/off tiap 2 f selama 13 f; blob `scale` 0,7 → 1,45 `CURVE.heavy` ±30 f.
   - Ruang: datar. Blur & blend: difference; tanpa motion blur.
-- **SFX:** klik toggle per flicker (2,26–2,58 dtk); blob = rentetan tombol. Padanan: `ES_User Interface, Glitch, Glitch Databend 04` atau `Cut.mp3`. Maks 5 cue dalam 2 dtk: gabungkan flicker jadi satu bunyi.
+- **SFX:** famili `glitch`, `ui`, `mekanik` · klik toggle per flicker (2,26–2,58 dtk); blob = rentetan tombol. Padanan: `ES_User Interface, Glitch, Glitch Databend 04` atau `Cut.mp3`. Maks 5 cue dalam 2 dtk: gabungkan flicker jadi satu bunyi.
 - **Pakai bila:** kalimat negasi yang diikuti jawaban. · **Jangan pakai bila:** audiens sensitif kilat; naskah tanpa titik balik.
 - **Remix (anti-jiplak):**
   1. Latar gelap → flicker memutih; blob terang.

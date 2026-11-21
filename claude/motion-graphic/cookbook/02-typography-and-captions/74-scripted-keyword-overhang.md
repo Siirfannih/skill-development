@@ -52,7 +52,7 @@ Dua keluarga: sans grotesk halus (paling mirip SF Pro Display / Inter Medium, ka
   - Gerak: sans per kata `CURVE.reveal` 8 f dengan jeda `react(i)`; script per huruf `move(frame, start + i*2, 6, "land")` dari `translateY(20px)` + `blur(6px)` ke 0; seluruh grup ikut transform kamera virtual `CURVE.drift`.
   - Ruang: datar; script `translate` ke kanan-bawah ±1–2 % tinggi ke dalam baris sans (ukur kotak sans dengan `measureText`).
   - Blur & blend: `filter: blur()` pada masuk; motion blur kamera `<CameraMotionBlur shutterAngle={200} samples={16}>`; tekstur halftone = overlay pola titik dengan `mixBlendMode: "multiply"` pada teks (mask).
-- **SFX:** senyap per kata/huruf (KT); bila perlu satu `Katapertama.mp3` di kata pembuka video saja.
+- **SFX:** famili `glitch` · senyap per kata/huruf (KT); bila perlu satu `Katapertama.mp3` di kata pembuka video saja.
 - **Pakai bila:** kata kunci tunggal, bidang gelap polos di bawah/samping subjek. · **Jangan pakai bila:** lebih dari satu kata kunci per tampil, latar terang bermotif di tempat script.
 - **Remix (anti-jiplak):**
   1. Produk UMKM di meja → pertahankan overhang bawah-kanan dan rasio ukuran · ganti script menjadi huruf sambung tinta hitam di atas kertas krem, sans gelap.
@@ -69,7 +69,7 @@ Dua keluarga: sans grotesk halus (paling mirip SF Pro Display / Inter Medium, ka
   - Gerak: slab masuk `CURVE.heavy` 20 f dari `translateZ(-300px)`; push-in 1,00→1,15 selama 15 f (±10–20 %/0,5 dtk) dengan `CURVE.drift`; pull-out ke 0,65–0,75 `CURVE.heavy` saat timeline mengecil.
   - Ruang: `perspective: 1200px` pada pembungkus; `border-radius` kartu 12–20 px.
   - Blur & blend: DOF tepi (`filter: blur(3px)` pada kartu satelit); vignette radial di atas.
-- **SFX:** `pop up.mp3` bila kartu muncul sebagai objek; `Enter.mp3` di klik kirim; geser kamera besar `Woosh.mp3`.
+- **SFX:** famili `air`, `mekanik`, `ui` · `pop up.mp3` bila kartu muncul sebagai objek; `Enter.mp3` di klik kirim; geser kamera besar `Woosh.mp3`.
 - **Pakai bila:** UI punya satu elemen utama yang dibaca. · **Jangan pakai bila:** UI harus terbaca penuh (kemiringan memotong teks kecil).
 - **Remix (anti-jiplak):**
   1. Dashboard produk → pertahankan slab miring + vignette · ganti latar menjadi krem terang, bayangan lunak.
@@ -85,7 +85,7 @@ Dua keluarga: sans grotesk halus (paling mirip SF Pro Display / Inter Medium, ka
   - Lapisan: hitam → pill → UI.
   - Gerak: pill pindah `translateY` dari pusat ke atas `CURVE.heavy` 15 f; UI masuk dari `translateY(100%)` `CURVE.land` 18 f yang dimulai 4 f setelah pill bergerak.
   - Ruang: datar. Blur & blend: `blur(4px)` pada pill selama bergerak.
-- **SFX:** `pop up.mp3` saat pill muncul; `Wooshcameramovementtransisi.mp3` pelan di geser UI.
+- **SFX:** famili `air`, `ui` · `pop up.mp3` saat pill muncul; whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) pelan di geser UI.
 - **Pakai bila:** 2–4 langkah berurutan. · **Jangan pakai bila:** langkah > 5 (pill terus naik, hilang makna).
 - **Remix (anti-jiplak):**
   1. Resep atau tutorial produk → pertahankan label yang naik ke atas · ganti pill menjadi stiker kertas.
@@ -101,7 +101,7 @@ Dua keluarga: sans grotesk halus (paling mirip SF Pro Display / Inter Medium, ka
   - Lapisan: adegan A dan B tampil bersamaan 10–14 f; elemen penghubung di z paling atas.
   - Gerak: `CURVE.whip` 14 f untuk zoom-through (skala ×1,0→×3, A keluar, B dari ×0,6); iris = `clipPath: circle()` radius 0→150 % `CURVE.heavy` 20 f; flash = layer putih opacity 0→0,9→0 dalam 8 f.
   - Ruang: `transformOrigin` di titik penghubung. Blur & blend: motion blur wajib; flash `mixBlendMode: "screen"`.
-- **SFX:** `Wooshcameramovementtransisi.mp3` untuk zoom/pull-out besar; `Woosh.mp3` untuk geser sedang; `Lasertransision.mp3` di flash putih (ting halus).
+- **SFX:** famili `air`, `stab` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) untuk zoom/pull-out besar; `Woosh.mp3` untuk geser sedang; `Lasertransision.mp3` di flash putih (ting halus).
 - **Pakai bila:** ada elemen yang bisa menghubungkan dua adegan. · **Jangan pakai bila:** cerita butuh jeda tegas antarbab (pakai cut).
 - **Remix (anti-jiplak):**
   1. Footage produk → pertahankan zoom-through · ganti layar laptop menjadi bukaan kotak kemasan.
@@ -117,7 +117,7 @@ Dua keluarga: sans grotesk halus (paling mirip SF Pro Display / Inter Medium, ka
   - Lapisan: latar → ikon → pill kaca (`backdrop-filter: blur(16px)`, putih 20 %) → script.
   - Gerak: pull-out 1,25→1,0 `CURVE.land` 25 f; pill melebar dari ikon `scaleX 0→1` `CURVE.reveal` 12 f; hold dengan `drift`.
   - Blur & blend: latar `blur(6px)`.
-- **SFX:** `Lasertransision.mp3` (ting penutup) di pill.
+- **SFX:** famili `stab` · `Lasertransision.mp3` (ting penutup) di pill.
 - **Pakai bila:** CTA satu kalimat. · **Jangan pakai bila:** CTA butuh alamat panjang (pill terlalu sempit).
 - **Remix (anti-jiplak):**
   1. Warung/UMKM → pertahankan pill kaca · ganti latar menjadi foto etalase buram.

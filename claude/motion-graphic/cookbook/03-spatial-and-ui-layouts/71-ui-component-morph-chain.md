@@ -49,7 +49,7 @@ SF Pro Display/Inter semibold–bold, SF Pro Regular di dalam UI. Kata tunggal 8
   - Lapisan: latar polos/gradien → pendar `#C9E0FC` (radial `blur(40px)`, 60 px di 71) → komponen A di bawah, B di atas → label.
   - Gerak: masuk skala 0,85→1 overshoot (`spring({damping: 12})` atau `CURVE.land` 10 f) + `translateY(24px)`; hold 20–40 f; morph = satu `<div>` `width/height/borderRadius` 10–14 f `CURVE.land` (14–18 f `CURVE.heavy` bila bentuk beda jauh); isi lama `opacity` 1→0 4 f, isi baru 3–4 f kemudian; slider 973→1000 20 f `CURVE.reveal`; push `scale` 1→1,32 30 f `CURVE.heavy`; keluar `CURVE.leave` 6 f blur 12 px.
   - Ruang: datar. Blur & blend: `<CameraMotionBlur shutterAngle={180} samples={12}>` (42) atau `{200} samples={16}` (71) (diperdebatkan); blur 8 px saat bentuk berubah; blur gerak = kedalaman waktu, bukan depth of field.
-- **SFX:** satu bunyi per komponen: `pop up.mp3` (kartu/pil), `ES_User Interface, Click, Button, Double Click, Fast, Phone Tap` atau `Enter.mp3` di klik tombol harga; `Woosh.mp3` morph besar (senyap bila kecil); `Lasertransision.mp3` ting penutup.
+- **SFX:** famili `air`, `stab`, `mekanik`, `ui` · satu bunyi per komponen: `pop up.mp3` (kartu/pil), `ES_User Interface, Click, Button, Double Click, Fast, Phone Tap` atau `Enter.mp3` di klik tombol harga; `Woosh.mp3` morph besar (senyap bila kecil); `Lasertransision.mp3` ting penutup.
 - **Pakai bila:** tiap kalimat punya benda jelas dan bentuk dasar komponen berurutan mirip. · **Jangan pakai bila:** kalimat abstrak; banyak objek; bentuk terlalu beda (morph terbaca glitch).
 - **Remix (anti-jiplak):**
   1. Jasa UMKM → kartu pesanan, slider harga/kg, notifikasi WhatsApp, warna brand.
@@ -65,7 +65,7 @@ SF Pro Display/Inter semibold–bold, SF Pro Regular di dalam UI. Kata tunggal 8
   - Lapisan: gradien gelap → bar chat → teks → dropdown → pita seleksi.
   - Gerak: ketik 1 f/karakter, kursor `step`; pita `translateY` per baris 6 f `CURVE.reveal`; pan grup `translateX` −23 % 60 f `CURVE.drift`.
   - Ruang: datar. Blur & blend: ketik → chat lewat pixelate (`filter: blur` + mosaik) 8 f.
-- **SFX:** `Keyboardtyping.mp3` dipotong sesuai teks (−12…−16 dB), `Enter.mp3` di kirim; `Notif.mp3` gelembung; `ResponAI:AIpopup.mp3` chat AI.
+- **SFX:** famili `mekanik`, `ui` · `Keyboardtyping.mp3` dipotong sesuai teks (−12…−16 dB), `Enter.mp3` di kirim; `Notif.mp3` gelembung; `ResponAI:AIpopup.mp3` chat AI.
 - **Pakai bila:** daftar 2–4 opsi diucapkan berurutan. · **Jangan pakai bila:** teks UI harus terbaca penuh di ukuran kecil.
 - **Remix (anti-jiplak):**
   1. Talking head → bar chat di bawah footage sebagai lapis UI, pita menandai tiga poin.
@@ -81,7 +81,7 @@ SF Pro Display/Inter semibold–bold, SF Pro Regular di dalam UI. Kata tunggal 8
   - Lapisan: gradien putih→biru → ubin berbayang → ikon → panah → kursor.
   - Gerak: kursor `arc()` ke panah 12 f, tekan `scale` 0,9 3 f; isi crossfade + `translateX` ±20 px 6 f `CURVE.reveal`.
   - Ruang: datar. Blur & blend: bayangan ubin lembut.
-- **SFX:** `ES_User Interface, Click, UI Buttons, Confirm, Menu` per klik.
+- **SFX:** famili `ui`, `mekanik` · `ES_User Interface, Click, UI Buttons, Confirm, Menu` per klik.
 - **Pakai bila:** 2–4 pilihan berurutan. · **Jangan pakai bila:** pilihan tanpa ikon dikenali.
 - **Remix (anti-jiplak):**
   1. Marketplace → logo toko/kurir klien.
@@ -97,7 +97,7 @@ SF Pro Display/Inter semibold–bold, SF Pro Regular di dalam UI. Kata tunggal 8
   - Lapisan: putih → baris tanggal (3 baris penuh lebar y 28/53/77 %) → pita → cakram.
   - Gerak: `translateX` makin cepat `Easing.bezier(0.7,0,0.9,0.5)` 30 f; cakram `CURVE.land` 8 f dari kanan; push 1,0→1,25 `CURVE.heavy` 12 f; whip 6–8 f `CURVE.whip` translate 40–70 %; pan kursor `CURVE.drift`.
   - Ruang: datar. Blur & blend: motion blur horizontal `shutterAngle` 270 (kalender), `<CameraMotionBlur shutterAngle={200} samples={16}>` (whip), searah gerak.
-- **SFX:** `scaningfast.mp3` pan cepat; `Wooshcameramovementtransisi.mp3` whip besar; `Woosh.mp3` push sedang; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju cakram atau sebelum babak kinetik.
+- **SFX:** famili `air`, `riser` · whoosh/scan famili `air` tanpa desis (file SFXIrfan lama dilarang; `sfx_cari.py --famili air`) pan cepat; whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) whip besar; `Woosh.mp3` push sedang; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju cakram atau sebelum babak kinetik.
 - **Pakai bila:** tanggal/angka jadi klimaks; kata VO baru memicu pindah. · **Jangan pakai bila:** tanggal harus terbaca saat bergerak; konten tenang.
 - **Remix (anti-jiplak):**
   1. Jadwal launch → timeline minggu, cakram jadi pin lokasi.
@@ -113,7 +113,7 @@ SF Pro Display/Inter semibold–bold, SF Pro Regular di dalam UI. Kata tunggal 8
   - Lapisan: latar putih/hitam bergantian → kata → glow duplikat (`filter: blur(14px)`, `screen`).
   - Gerak: masuk `blur(12px)→0` + `scale` 1,06→1 5 f `CURVE.land` (`move(frame, start, 5, "reveal")`); keluar `translateX` −8 % + `blur(16px)` 3 f `CURVE.leave`; tiap kata 12–20 f; tiap 3 kata ganti latar potong keras; teks meluber `translateX` 1,5 px/f ke kiri.
   - Ruang: datar. Blur & blend: `filter: blur`; kilas hitam/putih 2 f; motion blur horizontal pada gulir.
-- **SFX:** `Kinetictypography(gunakansecaraacak).mp3` sesekali; kata lain senyap; riser sebelum babak (`ES_Designed, Riser, Transition, Fast, Short, Clean 01`); drop sunyi di akhir.
+- **SFX:** famili `ui`, `riser` · `Kinetictypography(gunakansecaraacak).mp3` sesekali; kata lain senyap; riser sebelum babak (`ES_Designed, Riser, Transition, Fast, Short, Clean 01`); drop sunyi di akhir.
 - **Pakai bila:** 3–5 kata kunci menjelang puncak; penutup 6–12 kata. · **Jangan pakai bila:** kalimat harus terbaca utuh.
 - **Remix (anti-jiplak):**
   1. Video produk → kata nama manfaat di atas foto produk beku.

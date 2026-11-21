@@ -51,7 +51,7 @@ Babak: hook (warna) → klaim (abu, pendengar bereaksi) → bukti angka (abu, sh
   - Lapisan: footage → adjustment layer `filter: saturate(x)` di pembungkus → caption (di luar filter agar putih tetap putih).
   - Gerak: `saturate` 1→0,06 linier selama 11 f (`interpolate`, tanpa easing), mulai tepat di frame onset kata; kembali 0→1 dalam 9 f. Hitam terangkat: `brightness(1.05) contrast(0.95)` saat abu.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** senyap (video asli tanpa SFX); bila perlu satu `Cutcontrastransision.mp3` pada cut terang↔gelap.
+- **SFX:** famili `mekanik` · senyap (video asli tanpa SFX); bila perlu satu `Cutcontrastransision.mp3` pada cut terang↔gelap.
 - **Pakai bila:** kata kunci bermakna warna dan klip ≥ 8 dtk di abu. · **Jangan pakai bila:** footage sudah berwarna aksen penting (produk berwarna merek).
 - **Remix (anti-jiplak):**
   1. Video produk → pertahankan fade saturasi di kata kunci · ganti abu menjadi satu warna panas yang memudar (sepia) lalu kembali.
@@ -83,7 +83,7 @@ Babak: hook (warna) → klaim (abu, pendengar bereaksi) → bukti angka (abu, sh
   - Lapisan: footage → blok teks.
   - Gerak: tanpa gerak masuk; swap angka = ganti `<span>` pada frame onset; keluar `opacity` 1→0 5 f `CURVE.leave`.
   - Ruang: datar. Blur & blend: bayangan lembut tipis.
-- **SFX:** senyap; bila punchline-nya angka kedua, satu `basmenyebar.mp3` pelan (−10 dB) saat swap.
+- **SFX:** famili `impact` · senyap; bila punchline-nya angka kedua, satu `basmenyebar.mp3` pelan (−10 dB) saat swap.
 - **Pakai bila:** dua angka dengan satuan berbeda. · **Jangan pakai bila:** > 2 angka.
 - **Remix (anti-jiplak):**
   1. Harga produk → pertahankan angka besar dan satuan menempel kanan-bawah · ganti ke "Rp 50 rb → Rp 500 rb".

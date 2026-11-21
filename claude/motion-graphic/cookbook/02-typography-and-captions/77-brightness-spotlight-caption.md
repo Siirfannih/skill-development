@@ -52,7 +52,7 @@ Hitungan dua kartu berbeda untuk video yang sama: 77 ±99 cut/menit (41 perubaha
   - Gerak: sorot = `color` aktif ↔ pasif dan `filter: blur(0↔3px)` dalam 1–2 f, dipicu timestamp kata dari `@remotion/captions`; pull-out kartu `scale` 1,00→0,80 selama 1,25 dtk `CURVE.drift`; stretch "no" `scaleY` 1→1,6→1 dalam 5 f `CURVE.wind`.
   - Ruang: datar.
   - Blur & blend: pasif `blur(3px)` + opacity 0,35; tanpa bayangan atau kotak.
-- **SFX:** kata senyap; satu `Katapertama.mp3` pada kata pembuka video; hit besar di kata klimaks (`basmenyebar.mp3`) bila puncak.
+- **SFX:** famili `glitch`, `impact` · kata senyap; satu `Katapertama.mp3` pada kata pembuka video; hit besar di kata klimaks (`basmenyebar.mp3`) bila puncak.
 - **Pakai bila:** VO punya timestamp per kata; kartu hitam atau putih polos tersedia. · **Jangan pakai bila:** kalimat panjang lebih dari 4 kata atau latar ramai.
 - **Remix (anti-jiplak):**
   1. Brand UMKM latar putih → pertahankan terang/tajam vs redup/buram · ganti hitam dengan cokelat tua, pasif abu hangat.
@@ -69,7 +69,7 @@ Hitungan dua kartu berbeda untuk video yang sama: 77 ±99 cut/menit (41 perubaha
   - Gerak: cut keras pada frame onset; footage push 1,00→1,08 per shot `CURVE.drift`; teks tetap.
   - Ruang: datar.
   - Blur & blend: tanpa transisi; atau cut pertama punya flash putih 1 f.
-- **SFX:** `Cut.mp3` hanya pada cut pertama kelompok; sisanya senyap agar tidak jadi lapisan klik.
+- **SFX:** famili `glitch`, `mekanik` · `Cut.mp3` hanya pada cut pertama kelompok; sisanya senyap agar tidak jadi lapisan klik.
 - **Pakai bila:** ada ≥ 2 gambar per kata dan VO punya onset jelas. · **Jangan pakai bila:** gambar membutuhkan ≥ 1 dtk untuk terbaca.
 - **Remix (anti-jiplak):**
   1. Fitur produk → satu kata "Otomatis" di atas empat tangkapan layar.
@@ -86,7 +86,7 @@ Hitungan dua kartu berbeda untuk video yang sama: 77 ±99 cut/menit (41 perubaha
   - Gerak: `<Sequence from={t} durationInFrames={2}>` per gambar; invert `filter: invert(1)` 1 f; streak `translateX` 12 % + `blur(20px)` 3 f.
   - Ruang: datar.
   - Blur & blend: motion blur 200° pada streak.
-- **SFX:** satu `Pergantianfoto.mp3` (potongan rentetan) di seluruh semburan, bukan per gambar; whoosh `Wooshcameramovementtransisi.mp3` di streak.
+- **SFX:** famili `mekanik`, `air` · satu `Pergantianfoto.mp3` (potongan rentetan) di seluruh semburan, bukan per gambar; whoosh whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) di streak.
 - **Pakai bila:** ritme sebelumnya lambat. · **Jangan pakai bila:** dipakai lebih dari tiga kali.
 - **Remix (anti-jiplak):**
   1. Fitur app → empat ikon fitur, satu kata per ikon.
@@ -103,7 +103,7 @@ Hitungan dua kartu berbeda untuk video yang sama: 77 ±99 cut/menit (41 perubaha
   - Gerak: tiap sel `scale` 0,9→1 + opacity `CURVE.land` 4 f dengan `react(i)`; teks berganti per kata.
   - Ruang: datar.
   - Blur & blend: tanpa.
-- **SFX:** `pop up.mp3` pada sel pertama dan terakhir saja; sel di antaranya senyap.
+- **SFX:** famili `ui` · `pop up.mp3` pada sel pertama dan terakhir saja; sel di antaranya senyap.
 - **Pakai bila:** 8 foto bermutu seragam. · **Jangan pakai bila:** kurang dari 6 foto.
 - **Remix (anti-jiplak):**
   1. Tim → delapan foto tim, nama peran di sel tengah.
@@ -120,7 +120,7 @@ Hitungan dua kartu berbeda untuk video yang sama: 77 ±99 cut/menit (41 perubaha
   - Gerak: `Math.round(interpolate(frame, [s, s+22], [85, 100]))` dengan `CURVE.heavy`; blur gerak vertikal pada digit selama naik; angka `scale` 1,00→1,06 sepanjang hold.
   - Ruang: datar.
   - Blur & blend: `<CameraMotionBlur>`; matahari `filter: blur(2px)`.
-- **SFX:** pop rapat saat penghitung naik (video asli: 19,07–19,70 dtk) bisa diganti satu `Lasertransision.mp3` di angka akhir; `basmenyebar.mp3` bila ini penutup video.
+- **SFX:** famili `stab`, `impact`, `ui` · pop rapat saat penghitung naik (video asli: 19,07–19,70 dtk) bisa diganti satu `Lasertransision.mp3` di angka akhir; `basmenyebar.mp3` bila ini penutup video.
 - **Pakai bila:** ada satu angka yang membuktikan klaim. · **Jangan pakai bila:** banyak angka sekaligus.
 - **Remix (anti-jiplak):**
   1. Metrik SaaS ("99,9 % uptime") → pertahankan hitung naik + objek bulat di belakang digit · ganti senja dengan gradien brand.

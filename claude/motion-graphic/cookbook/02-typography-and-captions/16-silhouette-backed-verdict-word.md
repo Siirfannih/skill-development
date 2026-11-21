@@ -49,7 +49,7 @@ Kata vonis: serif kontras tinggi bold italic (padanan Playfair Display Black Ita
   - Gerak: ignite = `opacity` 0,3→1 dan `filter: drop-shadow(0 0 24px #EC0002)` 2–3 f, bloom turun 8 f `CURVE.reveal`; counter `interpolate` 182→1000 selama 12 f `CURVE.land`.
   - Ruang: 2,5D ringan, kata `translateZ` di belakang matte siluet.
   - Blur & blend: bloom `mixBlendMode: "screen"`; flash hook overlay merah 90 % → 0 dalam 4 f.
-- **SFX:** hit pendek di tiap cut ke panggung dan aksen kecil di ignite (kiblat); sub-bass `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` untuk angka puncak; hit pendek/stab tidak ada di SFXIrfan (lihat `../../guide/sfx/SFXIRFAN.md` catatan akhir); bleep sensor sinus tidak dipakai (palet terlarang).
+- **SFX:** famili `impact`, `stab` · hit pendek di tiap cut ke panggung dan aksen kecil di ignite (kiblat); sub-bass `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` untuk angka puncak; hit pendek/stab tidak ada di SFXIrfan (lihat `../../guide/sfx/SFXIRFAN.md` catatan akhir); bleep sensor sinus tidak dipakai (palet terlarang).
 - **Pakai bila:** ada plate panggung terkunci dan matte siluet bersih. · **Jangan pakai bila:** tanpa matte (kata menutup subjek); lebih dari satu kata merah per beat.
 - **Remix (anti-jiplak):**
   1. Studio podcast terang → pertahankan kata di belakang subjek · ganti merah neon dengan aksen brand pekat dan bayangan lembut, panggung krem.
@@ -65,7 +65,7 @@ Kata vonis: serif kontras tinggi bold italic (padanan Playfair Display Black Ita
   - Lapisan: panggung → kata merah → siluet → ikon dan kalimat tetap.
   - Gerak: tiap item 21 f; kata lama `opacity` 1→0,2 3 f `CURVE.leave`, kata baru ignite 3 f; ikon crossfade 4 f.
   - Ruang: 2,5D seperti T1. Blur & blend: glow merah.
-- **SFX:** satu aksen kecil per item (kiblat); gunakan `Kinetictypography(gunakansecaraacak).mp3` hanya sesekali, bukan tiap item.
+- **SFX:** famili `ui` · satu aksen kecil per item (kiblat); gunakan `Kinetictypography(gunakansecaraacak).mp3` hanya sesekali, bukan tiap item.
 - **Pakai bila:** 3–5 item berurutan. · **Jangan pakai bila:** item panjang.
 - **Remix (anti-jiplak):**
   1. Jasa UMKM → daftar jenis layanan, ikon garis diganti ikon brand.

@@ -52,7 +52,7 @@ Satu keluarga huruf per jenis adegan (A-roll: sans geometrik bold + serif italic
   - Gerak: timing per kata dari transkrip; tiap kata `scale` 1,15 → 1 `CURVE.land` ±6 f; warna kuning → putih `interpolateColors` ±3–6 f; kata kunci ganti font dan ukuran, punch-in footage 1,00 → 1,08 `CURVE.heavy` ±10 f.
   - Ruang: datar.
   - Blur & blend: kata baru `blur(3px → 0)` ±3 f; glow `drop-shadow(0 0 16px kuning)`.
-- **SFX:** senyap per kata (KT, `../../guide/sfx/GUIDE.md`); `Kinetictypography(gunakansecaraacak).mp3` sesekali pada kata kunci; referensi memakai pop di kata dan angka tertentu (0:35, 0:50, 1:00).
+- **SFX:** famili `ui` · senyap per kata (KT, `../../guide/sfx/GUIDE.md`); `Kinetictypography(gunakansecaraacak).mp3` sesekali pada kata kunci; referensi memakai pop di kata dan angka tertentu (0:35, 0:50, 1:00).
 - **Pakai bila:** ruang gelap atau buram di samping kepala. · **Jangan pakai bila:** latar samping terang atau ramai; kepala di tengah tanpa ruang samping.
 - **Remix (anti-jiplak):**
   1. Latar terang → teks gelap, kata aktif berwarna aksen; atau gelapkan sisi itu sedikit.
@@ -69,7 +69,7 @@ Satu keluarga huruf per jenis adegan (A-roll: sans geometrik bold + serif italic
   - Gerak: tiap kata `opacity` 0 → 1 + `blur(6px → 0)` ±5 f saat diucapkan; seluruh grup mengikuti transform kamera/track kepala yang sama dengan footage (`scale` 1,00 → 0,92 `CURVE.drift` selama beat).
   - Ruang: datar atau parallax kata 1,05× footage.
   - Blur & blend: motion blur kamera `shutterAngle={200} samples={16}`.
-- **SFX:** senyap per kata; satu `Woosh.mp3` hanya bila tarik mundur kamera besar.
+- **SFX:** famili `air` · senyap per kata; satu `Woosh.mp3` hanya bila tarik mundur kamera besar.
 - **Pakai bila:** subjek diam dengan siluet jelas di latar gelap polos. · **Jangan pakai bila:** subjek banyak bergerak tanpa track; kalimat panjang (lingkaran penuh dan tak terbaca).
 - **Remix (anti-jiplak):**
   1. Latar terang → kata gelap atau latar diturunkan.
@@ -86,7 +86,7 @@ Satu keluarga huruf per jenis adegan (A-roll: sans geometrik bold + serif italic
   - Gerak: kamera virtual `translateX` 0 → −12 % `CURVE.heavy` ±45 f; kata masuk `scale` 0,8 → 1 `CURVE.land` ±6 f mengikuti ucapan, posisi di busur atas dan sekeliling objek.
   - Ruang: bidang 3D ringan `perspective: 1200px`, `rotateX` 6°.
   - Blur & blend: tepi frame `blur(4px)` (DOF); bayangan multiply.
-- **SFX:** senyap per kata; `pop up.mp3` hanya bila stiker besar jadi objek tersendiri.
+- **SFX:** famili `ui` · senyap per kata; `pop up.mp3` hanya bila stiker besar jadi objek tersendiri.
 - **Pakai bila:** ada objek simbol yang bisa jadi pusat. · **Jangan pakai bila:** video tidak punya adegan sisipan grafis.
 - **Remix (anti-jiplak):**
   1. Palet lain → ganti gabus dengan material lain yang tetap bertekstur dan berbayang (kayu, kain, kertas kraft).
@@ -103,7 +103,7 @@ Satu keluarga huruf per jenis adegan (A-roll: sans geometrik bold + serif italic
   - Gerak: tiap lapis masuk `translateY` +20 % → 0 `CURVE.land` ±14 f dengan jeda `react(i, 30)`; kata di `<textPath>` melengkung; kamera tilt turun 0 → 8 % `CURVE.heavy`.
   - Ruang: parallax per lapis 0,8× / 1× / 1,2×.
   - Blur & blend: lapis belakang `blur(2px)`; cahaya `mixBlendMode: "screen"`.
-- **SFX:** `Woosh.mp3` saat kamera turun; kata senyap.
+- **SFX:** famili `air` · `Woosh.mp3` saat kamera turun; kata senyap.
 - **Pakai bila:** kalimat aspiratif tanpa bukti visual. · **Jangan pakai bila:** klaim faktual yang butuh bukti nyata.
 - **Remix (anti-jiplak):**
   1. Palet kiblat lain → kolase memakai tekstur dan warna kiblat itu.
@@ -120,7 +120,7 @@ Satu keluarga huruf per jenis adegan (A-roll: sans geometrik bold + serif italic
   - Gerak: tiap huruf `translateX` −80 px → 0 `CURVE.land` ±8 f, jeda 2 f per huruf; punch-in 1,00 → 1,12 `CURVE.heavy` ±12 f.
   - Ruang: `perspective: 900px`, kata `rotateY` 8° → 0.
   - Blur & blend: motion blur `shutterAngle={200} samples={16}`; glow `drop-shadow`.
-- **SFX:** satu `Enter.mp3` atau `ES_User Interface, Click, UI Buttons, Confirm, Menu` di kata ajakan; huruf senyap.
+- **SFX:** famili `mekanik`, `ui` · satu `Enter.mp3` atau `ES_User Interface, Click, UI Buttons, Confirm, Menu` di kata ajakan; huruf senyap.
 - **Pakai bila:** satu kata ajakan, pakaian polos di bawah wajah. · **Jangan pakai bila:** kata itu bukan puncak; pakaian bermotif ramai.
 - **Remix (anti-jiplak):**
   1. Pakaian bermotif atau terang → kata 3D di atas pita gelap.
@@ -136,7 +136,7 @@ Satu keluarga huruf per jenis adegan (A-roll: sans geometrik bold + serif italic
   - Lapisan: hitam → teks → kotak (clip dari adegan baru).
   - Gerak: `clipPath: inset()` dari 40 % ke 0 dan footage `saturate` 0 → 1 selama 12 f, `CURVE.reveal`; glitch 1 f lewat potongan RGB-offset.
   - Ruang: datar. Blur & blend: whip blur horizontal `blur(24px)` 2 f.
-- **SFX:** whoosh di transisi (0:02,7, 0:16,6, 0:21,4, 0:33,6), riser sebelum babak baru (0:33,4, 0:48–0:49), hit pada kata kunci (0:30,7). Padanan: `Wooshcameramovementtransisi.mp3`, `ES_Designed, Riser, Transition, Fast, Short, Clean 01`; stab tidak ada di SFXIrfan. Mekanik kotak belum dibedah rinci.
+- **SFX:** famili `air`, `riser`, `stab` · whoosh di transisi (0:02,7, 0:16,6, 0:21,4, 0:33,6), riser sebelum babak baru (0:33,4, 0:48–0:49), hit pada kata kunci (0:30,7). Padanan: whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`), `ES_Designed, Riser, Transition, Fast, Short, Clean 01`; stab tidak ada di SFXIrfan. Mekanik kotak belum dibedah rinci.
 - **Pakai bila:** pergantian babak dengan emosi. · **Jangan pakai bila:** tiap kalimat (transisi menjadi gagap).
 - **Remix (anti-jiplak):**
   1. Latar putih → kartu putih, kotak tumbuh berwarna.

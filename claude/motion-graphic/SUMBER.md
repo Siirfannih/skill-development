@@ -1016,3 +1016,16 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | `timeline.py`, `cue_sumber.py` | Diangkat dari skrip proyek yang sama; TC identik dengan timeline proyek, cue setara mix v4 (±0,1 dtk) |
 | `grade_ukur.py` | Diangkat dari ukuran varian grading proyek yang sama |
 | `guide/sfx/GUIDE.md` Cara 9 (ekor SFX) | Keluhan SFX terpotong mendadak dan whoosh kasar pada revisi video talking head, 21 Nov 2026; analisis: mixer memotong file di tengah bunyi dengan fade linear 20 ms |
+
+## Famili bunyi dan sumber tiga tingkat (`guide/sfx/FAMILI.md`, `FAMILI.json`, `GUIDE.md` Cara 1–4 dan 9, `SFXIRFAN.md` kolom Famili, `references/audio.md` §14.0 (c) · §14.9b · §14.10 baris jeda, `guide/audio/GUIDE.md` Cara 5, `scripts/audio/sfx_vet.py` · `sfx_cari.py` · `musik_cari.py`, kolom SFX kartu cookbook)
+
+| Aturan | Asal-usul |
+|---|---|
+| kebutuhan SFX ditulis sebagai famili, bukan nama file; sumber lokal → gratis berlisensi → berbayar | Irfan 21 Nov 2026: khawatir SFXIrfan jadi batas sumber padahal stoknya terbatas; minta famili bunyi diturunkan dari referensi dan model bisa mencari sendiri |
+| sembilan famili dan tabel musik | ukur 21 Nov 2026: earshot timeline pada stem demucs 11 video referensi (88, 89, 90, 91, 92, 87, 55, 24, 07, 65, 63) |
+| Tier 2 gratis dijalankan tanpa menunggu; Epidemic bersyarat | uji perilaku 21 Nov 2026: 3 sesi tanpa aturan ini tidak pernah mencari sumber gratis, mengandalkan Epidemic (kunci di PC kosong), memakai file lokal berkarakter salah atau ElevenLabs; 3 sesi dengan aturan ini menjalankan `sfx_cari.py` dan tidak membisukan objek karena stok kosong |
+| lolos ukur ≠ cocok karakter; dengar wajib | uji `sfx_cari.py` 21 Nov 2026: kandidat Freesound lulus `sfx_vet` tetapi earshot mendengarnya sebagai tubuh jatuh |
+| ambang `sfx_vet` (desis berkelanjutan ≥ 100 ms, lonjakan air ≥ 20 dB/50 ms dari bunyi terdengar, clipping ≥ 1 %) | dikalibrasi 21 Nov 2026 pada putusan manusia: dua whoosh SFXIrfan yang dilarang tertangkap, `Woosh.mp3` dan klik `Pergantianfoto` tidak |
+| transien tanpa fade-in | evaluasi usulan "fade-in 3–5 frame untuk semua SFX" (Irfan, 21 Nov 2026): fade-in 100–170 ms mematikan serangan klik/pop/hit |
+| musik naik di jeda ≤ +3 dB lewat automation; §14.9b diperjelas | bentrokan §14.1 vs §14.9b ditemukan sesi uji 21 Nov 2026; ukuran referensi: median +0,6 dB di jeda |
+| lisensi musik Mixkit | teks Stock Music Free License dibaca dari mixkit.co/license 21 Nov 2026 (render Chromium); teks lisensi SFX tidak terbaca otomatis |

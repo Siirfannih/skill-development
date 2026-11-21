@@ -65,7 +65,7 @@ Belum dibedah (gambar diam).
   - Gerak: angka `scale` 0,9 → 1 `CURVE.land` ±14 f; tombol masuk 4 f kemudian `translateY` 20 px → 0 `CURVE.reveal`; tahan `drift()` kecil.
   - Ruang: dua lapis `translateZ` berbeda untuk parallax 1,05×.
   - Blur & blend: angka `blur(0)`; bayangan lembut di tombol.
-- **SFX:** `pop up.mp3` saat tombol muncul; `basmenyebar.mp3` hanya bila angka adalah puncak cerita.
+- **SFX:** famili `impact`, `ui` · `pop up.mp3` saat tombol muncul; `basmenyebar.mp3` hanya bila angka adalah puncak cerita.
 - **Pakai bila:** ada satu angka dan satu aksi. · **Jangan pakai bila:** angka lebih dari satu.
 - **Remix (anti-jiplak):**
   1. Toko → pertahankan angka di belakang tombol · ganti ke "3 hari" di belakang tombol "Pesan".
@@ -82,7 +82,7 @@ Belum dibedah (gambar diam).
   - Gerak: judul statis; baris aset `translateX` ±6 % `CURVE.drift`; subjek tetap.
   - Ruang: parallax 0,9× (judul) / 1× (aset) / 1,1× (subjek).
   - Blur & blend: aset belakang `blur(1px)` opsional.
-- **SFX:** senyap atau `Pergantianfoto.mp3` bila aset masuk berurutan.
+- **SFX:** famili `mekanik` · senyap atau `Pergantianfoto.mp3` bila aset masuk berurutan.
 - **Pakai bila:** matte tersedia. · **Jangan pakai bila:** subjek tidak bisa dipisah.
 - **Remix (anti-jiplak):**
   1. Presenter di meja → pertahankan judul di belakang kepala · ganti aset ke kartu produk.
@@ -99,7 +99,7 @@ Belum dibedah (gambar diam).
   - Gerak: kapsul `scale` 0,95 → 1 `CURVE.land` 8 f; opsi lain `blur(0→3px)` dan opasitas 1 → 0,5 (`CURVE.reveal`).
   - Ruang: opsi belakang `rotateZ` ±4° dan `translateZ` −100.
   - Blur & blend: blur opsi belakang.
-- **SFX:** `ES_User Interface, Click, UI Buttons, Confirm, Menu` untuk pilihan aktif.
+- **SFX:** famili `ui` · `ES_User Interface, Click, UI Buttons, Confirm, Menu` untuk pilihan aktif.
 - **Pakai bila:** 2–4 opsi. · **Jangan pakai bila:** semua opsi sama penting.
 - **Remix (anti-jiplak):**
   1. Paket harga → pertahankan satu kapsul tajam · ganti ke tiga kartu harga.
@@ -115,7 +115,7 @@ Belum dibedah (gambar diam).
   - Lapisan: gelap → garis jalur (SVG `stroke` + `drop-shadow`) → node → label.
   - Gerak: `strokeDashoffset` jalur 1 → 0 selama 24 f `CURVE.reveal`, jalur kedua tertunda 6 f.
   - Ruang: datar. Blur & blend: glow `mixBlendMode: "screen"`.
-- **SFX:** `Scanning dan gerak kurva.mp3` untuk garis yang bergerak.
+- **SFX:** famili `glitch` · `Scanning dan gerak kurva.mp3` untuk garis yang bergerak.
 - **Pakai bila:** dua pihak jelas. · **Jangan pakai bila:** > 3 jalur.
 - **Remix (anti-jiplak):**
   1. Alur pesanan → pertahankan dua jalur warna · ganti node ke tahap.
@@ -131,7 +131,7 @@ Belum dibedah (gambar diam).
   - Lapisan: bidang oranye → garis tipis → serif → tulisan tangan → garis bawah.
   - Gerak: serif muncul; tulisan tangan di-mask `clipPath` kiri → kanan 18 f `CURVE.reveal`; garis bawah `scaleX` 0 → 1 12 f.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `Lasertransision.mp3` sebagai ting penutup.
+- **SFX:** famili `stab` · `Lasertransision.mp3` sebagai ting penutup.
 - **Pakai bila:** satu kata layak dipersonalisasi. · **Jangan pakai bila:** tidak ada kata personal.
 - **Remix (anti-jiplak):**
   1. Penutup brand → pertahankan dua gaya · ganti warna ke krem.
@@ -147,7 +147,7 @@ Belum dibedah (gambar diam).
   - Lapisan: foto `blur(24px)` + grain → kartu putih → simbol → status.
   - Gerak: kartu `translateY` 30 px → 0 + `scale` 0,96 → 1 `CURVE.land` 10 f; status berdenyut opasitas 0,5 ↔ 1 periode 24 f.
   - Ruang: datar. Blur & blend: blur latar.
-- **SFX:** `Popup user interface : AI.mp3` saat kartu muncul; `ResponAI:AIpopup.mp3` saat respons.
+- **SFX:** famili `ui` · `Popup user interface : AI.mp3` saat kartu muncul; `ResponAI:AIpopup.mp3` saat respons.
 - **Pakai bila:** adegan AI. · **Jangan pakai bila:** adegan di luar topik AI.
 - **Remix (anti-jiplak):**
   1. Chat pelanggan → pertahankan kartu di latar buram · ganti ke bubble pesan.

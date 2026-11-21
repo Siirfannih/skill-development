@@ -51,7 +51,7 @@ Seluruh video teks; tiap baris ganti gaya huruf: grotesk berat/ultra-condensed (
   - Gerak: kamera virtual `CURVE.drift` + push `CURVE.heavy`; kata masuk `CURVE.land` 10–14 f dengan `rotateY` kecil (−12° → 0).
   - Ruang: `perspective: 1100px`; extrude = tumpukan 12–20 salinan teks dengan `translateZ` bertahap dan warna sisi berbeda; lantai grid `rotateX(70deg)`.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` (`../../references/smooth-motion.md`), benda dekat `filter: blur(6px)`.
-- **SFX:** satu `Katapertama.mp3` bila kata ini pembuka video; selebihnya senyap. Video asli: tidak ada bunyi terpisah dari lagu.
+- **SFX:** famili `glitch` · satu `Katapertama.mp3` bila kata ini pembuka video; selebihnya senyap. Video asli: tidak ada bunyi terpisah dari lagu.
 - **Pakai bila:** latar terang polos dan kata ≤ 2 per tampil. · **Jangan pakai bila:** kalimat panjang (extrude memakan lebar) atau latar footage yang ramai.
 - **Remix (anti-jiplak):**
   1. Brand UMKM latar putih → pertahankan extrude + benda dekat buram · ganti palet ke dua warna brand, grid jadi tekstur kertas.
@@ -68,7 +68,7 @@ Seluruh video teks; tiap baris ganti gaya huruf: grotesk berat/ultra-condensed (
   - Gerak: pita = silinder pendek (`rotateX` 70–80°, ring 8–12 buah, jarak `translateY` seragam); kamera turun `CURVE.heavy` 6–8 dtk; baris aktif pindah dengan fill outline → solid dalam 6 f `CURVE.reveal`.
   - Ruang: `perspective: 900px`; teks di pita memakai `transform` ikut lengkung (huruf per huruf diposisikan di busur).
   - Blur & blend: pita belakang `blur(2px)`; motion blur kamera.
-- **SFX:** senyap per baris; satu `Wooshcameramovementtransisi.mp3` bila kamera turun jauh ke pita berikutnya.
+- **SFX:** famili `air` · senyap per baris; satu whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) bila kamera turun jauh ke pita berikutnya.
 - **Pakai bila:** ≥ 4 baris pendek yang berurutan dan lagu/VO punya jeda untuk gerak turun. · **Jangan pakai bila:** baris panjang (teks melengkung sulit dibaca).
 - **Remix (anti-jiplak):**
   1. Daftar langkah proses → pertahankan pita bertingkat dengan satu baris aktif · ganti jadi tangga/anak tangga bergaris, bukan cincin.
@@ -85,7 +85,7 @@ Seluruh video teks; tiap baris ganti gaya huruf: grotesk berat/ultra-condensed (
   - Gerak: `translateZ` acak dengan seed tetap per plakat; zoom-through = kamera maju lewat `CURVE.heavy` 20–30 f; plakat muncul beruntun dengan `react(i)` (jeda tidak rata), bukan stagger konstan.
   - Ruang: `perspective: 800px`; jumlah 15–25 elemen, ukuran 15–30 % lebar.
   - Blur & blend: blur kedalaman per `translateZ`.
-- **SFX:** `Pergantianfoto.mp3` (potongan rentetan klik) bila plakat muncul beruntun; selebihnya senyap.
+- **SFX:** famili `mekanik` · `Pergantianfoto.mp3` (potongan rentetan klik) bila plakat muncul beruntun; selebihnya senyap.
 - **Pakai bila:** kata berarti banyak dan seluruh video sebelumnya satu subjek. · **Jangan pakai bila:** dipakai di kata biasa (efek kehilangan arti).
 - **Remix (anti-jiplak):**
   1. "Notifikasi menumpuk" → pertahankan penggandaan + kamera menembus · ganti plakat jadi kartu notifikasi UI.
@@ -102,7 +102,7 @@ Seluruh video teks; tiap baris ganti gaya huruf: grotesk berat/ultra-condensed (
   - Gerak: ubin masuk per suku kata `CURVE.land` 8 f dengan `react(i)`; tulisan tangan = `stroke-dashoffset` per kata 10–14 f `CURVE.reveal`; judul keluar = pecah ke 6–10 fragmen `clipPath` yang terbang ke luar dengan `CURVE.leave` 12 f.
   - Ruang: ubin sedikit `rotateZ` acak ±4°.
   - Blur & blend: fragmen keluar diberi blur gerak.
-- **SFX:** senyap per huruf/suku kata; satu `Katapertama.mp3` di baris pertama.
+- **SFX:** famili `glitch` · senyap per huruf/suku kata; satu `Katapertama.mp3` di baris pertama.
 - **Pakai bila:** ≤ 4 gaya dalam satu keluarga palet. · **Jangan pakai bila:** konten informatif yang butuh konsistensi huruf.
 - **Remix (anti-jiplak):**
   1. Naskah edukasi → pertahankan pergantian gaya tiap beat · batasi ke dua gaya dan satu warna aksen.
@@ -119,7 +119,7 @@ Seluruh video teks; tiap baris ganti gaya huruf: grotesk berat/ultra-condensed (
   - Gerak: scale benda `CURVE.whip` 10–14 f; saat penuh, ganti scene; benda keluar dengan `CURVE.leave`; smear = `filter: blur(24px)` + `translateX` 12 f.
   - Ruang: kamera maju di sumbu z; atau datar bila hanya scale.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>`; smear warna penuh = `div` warna aksen `mixBlendMode: "screen"` 4 f.
-- **SFX:** `Wooshcameramovementtransisi.mp3` di zoom-through; ledakan gelap: `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`; whip visual asli tanpa whoosh, jadi boleh senyap.
+- **SFX:** famili `air`, `impact` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) di zoom-through; ledakan gelap: `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`; whip visual asli tanpa whoosh, jadi boleh senyap.
 - **Pakai bila:** ada benda besar yang secara cerita pantas ditembus; lagu punya aksen. · **Jangan pakai bila:** tanpa objek di depan kamera (hanya blur kosong).
 - **Remix (anti-jiplak):**
   1. Video fitur SaaS → menembus layar laptop ke dalam UI berikutnya.

@@ -52,7 +52,7 @@ Sans bold rapat + serif italic untuk nama dan kata kunci; penekanan = ganti huru
   - Gerak: rack focus `blur(10px → 0)` ±14 f `CURVE.reveal`; panah digambar `strokeDashoffset` ±10 f; kartu judul vignette radial `radial-gradient`.
   - Ruang: push-in awal +50 % bertahap ±3 dtk (`CURVE.heavy`).
   - Blur & blend: DOF buram pembuka.
-- **SFX:** pop di kemunculan kata/kartu awal (6,45 dtk, +37 dB di atas bed); padanan `pop up.mp3`. Kata senyap.
+- **SFX:** famili `ui` · pop di kemunculan kata/kartu awal (6,45 dtk, +37 dB di atas bed); padanan `pop up.mp3`. Kata senyap.
 - **Pakai bila:** ada taruhan, tantangan, atau janji hasil. · **Jangan pakai bila:** tidak ada pembayaran di akhir (janji menggantung).
 - **Remix (anti-jiplak):**
   1. Cerita toko UMKM → "kalau penjualan naik 2×, aku traktir semua"; label serif dan panah ke wajah pemilik.
@@ -68,7 +68,7 @@ Sans bold rapat + serif italic untuk nama dan kata kunci; penekanan = ganti huru
   - Lapisan: footage top-down → caption (satu `<div>` `text-align: justify`, `text-align-last: justify`, 2 baris).
   - Gerak: kata muncul di slotnya dalam 1 f (`opacity` 0 → 1) sesuai timing kata; kalimat bertambah sampai penuh lalu hilang bersama cut.
   - Ruang: datar. Blur & blend: bayangan teks `0 2px 6px rgba(0,0,0,0.4)`.
-- **SFX:** pop di aksi benda penting; kata senyap. Padanan `pop up.mp3`.
+- **SFX:** famili `ui` · pop di aksi benda penting; kata senyap. Padanan `pop up.mp3`.
 - **Pakai bila:** benda bisa difilmkan atau dibuat sendiri. · **Jangan pakai bila:** kata abstrak murni tanpa benda (jangan memaksa).
 - **Remix (anti-jiplak):**
   1. Cerita kopi UMKM → "pilih biji" = tangan memilih biji dari mangkuk.
@@ -84,7 +84,7 @@ Sans bold rapat + serif italic untuk nama dan kata kunci; penekanan = ganti huru
   - Lapisan: wajah/footage → kata merah → caption.
   - Gerak: "But" masuk `scale` 1,3 → 1 `CURVE.land` ±6 f; tahan 12 f; lalu cut.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** hit rendah pada kata tanya bila itu puncak; padanan `Move.mp3`. Selainnya senyap.
+- **SFX:** famili `impact` · hit rendah pada kata tanya bila itu puncak; padanan `Move.mp3`. Selainnya senyap.
 - **Pakai bila:** ada alasan "kenapa" yang tidak jelas dari sisi klien. · **Jangan pakai bila:** pertanyaan sudah terjawab di kalimat yang sama.
 - **Remix (anti-jiplak):**
   1. Cerita jasa → "Tapi kenapa?" merah, jawaban dengan analogi dapur.
@@ -101,7 +101,7 @@ Sans bold rapat + serif italic untuk nama dan kata kunci; penekanan = ganti huru
   - Gerak: garis tergambar `CURVE.reveal` ±30 f; kotak label navy 8,9 % tinggi frame (periksa) muncul 1 f.
   - Ruang: datar; push-in +10 % `CURVE.heavy` selama 3 dtk.
   - Blur & blend: tanpa.
-- **SFX:** senyap atau satu `pop up.mp3` di item checklist tebal.
+- **SFX:** famili `ui` · senyap atau satu `pop up.mp3` di item checklist tebal.
 - **Pakai bila:** ada data retensi atau tren nyata. · **Jangan pakai bila:** grafik karangan.
 - **Remix (anti-jiplak):**
   1. Toko → grafik penjualan di atas foto produk.
@@ -117,7 +117,7 @@ Sans bold rapat + serif italic untuk nama dan kata kunci; penekanan = ganti huru
   - Lapisan: footage → kartu → caption.
   - Gerak: push-in 1,00 → 1,10 `CURVE.heavy` ±75 f; volume musik 1 → 0 dalam 6 f lalu naik lagi 6 f di 54,4 dtk.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** hit sub di taruhan (53,56 dtk, +37 dB); padanan `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `Move.mp3`.
+- **SFX:** famili `impact` · hit sub di taruhan (53,56 dtk, +37 dB); padanan `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `Move.mp3`.
 - **Pakai bila:** ada tagihan janji. · **Jangan pakai bila:** tanpa janji sebelumnya.
 - **Remix (anti-jiplak):**
   1. Jasa → "tersisa 7 hari", musik berhenti, kartu "janji" diulang.
@@ -133,7 +133,7 @@ Sans bold rapat + serif italic untuk nama dan kata kunci; penekanan = ganti huru
   - Lapisan: footage hitam-putih → caption → kartu putih.
   - Gerak: push-in 1,00 → 1,5 `CURVE.heavy`; angka tayangan counter 0 → akhir ±24 f; musik mati 24 f.
   - Ruang: datar. Blur & blend: grayscale 100 %.
-- **SFX:** pop pada angka; musik mati di CTA.
+- **SFX:** famili `ui` · pop pada angka; musik mati di CTA.
 - **Pakai bila:** ada pembayaran visual yang lucu. · **Jangan pakai bila:** hasil belum ada.
 - **Remix (anti-jiplak):**
   1. Brand → pembayaran = pemilik benar-benar mencukur kumis; hitam-putih.

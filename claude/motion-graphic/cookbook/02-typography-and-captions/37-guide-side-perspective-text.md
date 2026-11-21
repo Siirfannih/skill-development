@@ -53,7 +53,7 @@ Tiga keluarga: sans geometris sangat tebal bulat (mirip Gilroy ExtraBold/Clash D
   - Gerak: tiap kata `translateZ(−300px)` → 0 + `rotateX(−20deg)`→0 `CURVE.land` 10 f, jeda `react(i, fps)`; "VIRAL" miring `rotateX(55deg) rotateZ(−4deg)`; vonis di latar merah masuk scale 1,15→1 `CURVE.land` 8 f.
   - Ruang: `perspective: 900px` pada kelompok teks.
   - Blur & blend: motion blur 200°/16 sampel; glitch RGB-split dengan tiga salinan teks `mixBlendMode: "screen"` offset ±4 px selama 3 f.
-- **SFX:** satu hit pembuka di frame 0 (pengamatan: sub bass drop di vonis); kata per kata senyap; riser menuju vonis bila diperlukan (`ES_Designed, Riser, Transition, Fast, Short, Clean 01`).
+- **SFX:** famili `riser`, `impact` · satu hit pembuka di frame 0 (pengamatan: sub bass drop di vonis); kata per kata senyap; riser menuju vonis bila diperlukan (`ES_Designed, Riser, Transition, Fast, Short, Clean 01`).
 - **Pakai bila:** ada satu objek di tengah dengan ruang kiri-kanan-bawah. · **Jangan pakai bila:** objek memenuhi frame.
 - **Remix (anti-jiplak):**
   1. Toko sepatu → pertahankan kata mengapit objek + kata vonis miring · ganti monitor dengan kotak sepatu.
@@ -70,7 +70,7 @@ Tiga keluarga: sans geometris sangat tebal bulat (mirip Gilroy ExtraBold/Clash D
   - Gerak: kata sambung muncul ketik per huruf dengan kursor 1 f per huruf; kata kunci `scale 1,1→1` `CURVE.land` 8 f; garis callout `stroke-dashoffset` 8 f, titik oranye scale 0→1 `CURVE.reveal` 4 f.
   - Ruang: datar; teks sedikit `rotateY(−8deg)` untuk menempel di bidang 3D.
   - Blur & blend: tanpa blur.
-- **SFX:** `Keyboardtyping.mp3` dipotong untuk kata sambung bila diketik (−12…−16 dB); callout senyap.
+- **SFX:** famili `mekanik` · `Keyboardtyping.mp3` dipotong untuk kata sambung bila diketik (−12…−16 dB); callout senyap.
 - **Pakai bila:** ada tokoh/maskot di satu sisi dengan ruang di sisi lain. · **Jangan pakai bila:** wajah memenuhi frame tanpa ruang samping.
 - **Remix (anti-jiplak):**
   1. Maskot brand UMKM → pertahankan teks di sisi lawan + callout tipis · ganti tokoh pixel dengan ilustrasi 2D datar.
@@ -87,7 +87,7 @@ Tiga keluarga: sans geometris sangat tebal bulat (mirip Gilroy ExtraBold/Clash D
   - Gerak: push kamera 1,00→1,06 `CURVE.heavy` 30 f dengan teks ikut (transform yang sama), parallax teks 1,1×; kata sambung masuk dulu, kata kunci +4 f.
   - Ruang: `perspective: 900px`, teks `rotateY(10deg)` mengikuti arah kamera.
   - Blur & blend: lapis depan `blur(6px)`; vignette radial.
-- **SFX:** satu `pop up.mp3` per kata kunci besar (bukan per kata); ketik di layar `Keyboardtyping.mp3` bila ada ketikan terlihat.
+- **SFX:** famili `mekanik`, `ui` · satu `pop up.mp3` per kata kunci besar (bukan per kata); ketik di layar `Keyboardtyping.mp3` bila ada ketikan terlihat.
 - **Pakai bila:** ada objek besar di satu sisi dan ruang di sisi lain. · **Jangan pakai bila:** objek di tengah tanpa ruang samping.
 - **Remix (anti-jiplak):**
   1. Video tutorial coding → pertahankan teks 3D di sisi kosong + push kamera · ganti set voxel dengan ruang kerja foto nyata berkedalaman.
@@ -104,7 +104,7 @@ Tiga keluarga: sans geometris sangat tebal bulat (mirip Gilroy ExtraBold/Clash D
   - Gerak: tiap kotak menutup dengan jeda acak berbiji (0–10 f), 6 f untuk menutup dan 6 f untuk membuka; tanpa easing linear antar kotak, per kotak `CURVE.whip`.
   - Ruang: datar.
   - Blur & blend: kilat putih `opacity` 0→0,8→0 selama 4 f; glitch RGB-split di ujung.
-- **SFX:** `ES_User Interface, Glitch, Glitch Databend 04` (transisi mosaik/glitch antarbabak); sub drop `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` hanya di pindah babak besar; hening 0,5–1 dtk sebelum dua bagian penting.
+- **SFX:** famili `glitch`, `impact` · `ES_User Interface, Glitch, Glitch Databend 04` (transisi mosaik/glitch antarbabak); sub drop `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` hanya di pindah babak besar; hening 0,5–1 dtk sebelum dua bagian penting.
 - **Pakai bila:** ada ≥ 3 perpindahan topik di video panjang. · **Jangan pakai bila:** video pendek tanpa bab.
 - **Remix (anti-jiplak):**
   1. Video edukasi → pertahankan mozaik sebagai transisi bab · ganti kotak dengan kotak kertas kraft.
@@ -121,7 +121,7 @@ Tiga keluarga: sans geometris sangat tebal bulat (mirip Gilroy ExtraBold/Clash D
   - Gerak: kamera terkunci; kata "SKILL" diketik per huruf di kotak input 2 f per huruf, kursor berkedip 15 f.
   - Ruang: datar dengan vignette.
   - Blur & blend: vignette radial; latar buram `blur(10px)`.
-- **SFX:** `Keyboardtyping.mp3` satu kali di kotak input; musik berhenti hening 1 dtk sebelum CTA (pengamatan: hening di 109 dtk).
+- **SFX:** famili `mekanik` · `Keyboardtyping.mp3` satu kali di kotak input; musik berhenti hening 1 dtk sebelum CTA (pengamatan: hening di 109 dtk).
 - **Pakai bila:** ada kata kunci CTA pendek. · **Jangan pakai bila:** CTA berupa URL panjang.
 - **Remix (anti-jiplak):**
   1. Brand makanan → pertahankan tokoh di kiri + kotak input kanan · ganti tokoh pixel dengan maskot koki.

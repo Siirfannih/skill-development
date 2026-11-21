@@ -52,7 +52,7 @@ Tiga keluarga: sans condensed bold kapital untuk stiker; huruf "ransom" putih be
   - Gerak: stiker `scale 1,15→1` dengan rotasi tetap -6° `CURVE.land` 8–10 f; ketik per huruf 1 f/huruf dengan kursor; blok pink miring ±5–8° masuk dari sisi.
   - Ruang: datar; 2,5D hanya lewat matte (teks di belakang kepala).
   - Blur & blend: motion blur `<CameraMotionBlur shutterAngle={200} samples={16}>` pada stiker yang masuk; tanpa blend mode.
-- **SFX:** senyap per huruf (KT); satu `pop up.mp3` per stiker hero (bukan tiap kata) dan `Katapertama.mp3` untuk stiker pertama video. Kiblat: pop untuk tiap stiker dan huruf; GUIDE membatasi jadi satu per objek penting.
+- **SFX:** famili `glitch`, `ui` · senyap per huruf (KT); satu `pop up.mp3` per stiker hero (bukan tiap kata) dan `Katapertama.mp3` untuk stiker pertama video. Kiblat: pop untuk tiap stiker dan huruf; GUIDE membatasi jadi satu per objek penting.
 - **Pakai bila:** subjek tunggal besar, latar gelap/polos, matte tersedia untuk lapis belakang. · **Jangan pakai bila:** subjek kecil di frame lebar tanpa ruang atas, atau butuh caption penuh.
 - **Remix (anti-jiplak):**
   1. Produk UMKM di meja → pertahankan dua stiker mengapit objek · ganti kepala menjadi produk, pink menjadi warna merek.
@@ -68,7 +68,7 @@ Tiga keluarga: sans condensed bold kapital untuk stiker; huruf "ransom" putih be
   - Lapisan: footage + stiker dibungkus **satu** grup yang diberi transform kamera; caption di luar grup (tidak ikut).
   - Gerak: `scale 1→2,2` pada grup, `CURVE.heavy` ±90–110 f; stiker punya `translateZ` kecil sehingga parallax 1,05–1,15× gerak footage.
   - Ruang: 2,5D ringan. Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>`.
-- **SFX:** `Woosh.mp3` di puncak kecepatan push (pengamatan: whoosh 9,2 · 10,0 · 11,5 dtk).
+- **SFX:** famili `air` · `Woosh.mp3` di puncak kecepatan push (pengamatan: whoosh 9,2 · 10,0 · 11,5 dtk).
 - **Pakai bila:** ada wide shot dengan ruang kosong. · **Jangan pakai bila:** kamera asli sudah bergerak sendiri (dua kamera bertumpuk).
 - **Remix (anti-jiplak):**
   1. Footage tripod diam → kamera virtual push pada footage + stiker bersama.
@@ -85,7 +85,7 @@ Tiga keluarga: sans condensed bold kapital untuk stiker; huruf "ransom" putih be
   - Gerak: tiap coretan digambar `strokeDashoffset 1→0` `CURVE.reveal` 8–12 f, lalu `drift` kecil; pita bergeser mengikuti sumbu badan.
   - Ruang: kedalaman lewat blur menurut jarak (tepi `blur(10px)`, dekat tubuh `blur(0)`).
   - Blur & blend: glow `drop-shadow(0 0 16px <hijau>)`, `mixBlendMode: "screen"`.
-- **SFX:** senyap (hiasan); atau satu `pop up.mp3` bila satu coretan hero muncul.
+- **SFX:** famili `ui` · senyap (hiasan); atau satu `pop up.mp3` bila satu coretan hero muncul.
 - **Pakai bila:** matte bersih; subjek bergerak. · **Jangan pakai bila:** tanpa matte (pita tidak bisa melilit).
 - **Remix (anti-jiplak):**
   1. Brand korporat → pertahankan hiasan lewat depan-belakang · ganti coretan menjadi garis tipis geometris satu warna.
@@ -101,7 +101,7 @@ Tiga keluarga: sans condensed bold kapital untuk stiker; huruf "ransom" putih be
   - Lapisan: footage A → footage B; di atas keduanya flash putih, glitch, stiker "CUT!".
   - Gerak: tangan menutup lensa dipotong tepat saat frame gelap/buram (cut diam di frame itu); flash `opacity 0→1→0` 4 f; glitch = pemisahan RGB ±6 px + garis scan 6 f; "CUT!" `scale 1,3→1` `CURVE.land` 6 f.
   - Ruang: datar. Blur & blend: motion blur 200°/16 sampel; flash `mixBlendMode: "screen"`.
-- **SFX:** `Cut.mp3` di glitch; `ES_User Interface, Glitch, Glitch Databend 04` untuk glitch + garis scan; `Cutcontrastransision.mp3` untuk cut terang-gelap. Kiblat: hit/sub-drop di cut (2,9 · 7,8 · 8,3 dtk).
+- **SFX:** famili `glitch`, `mekanik`, `ui`, `impact` · `Cut.mp3` di glitch; `ES_User Interface, Glitch, Glitch Databend 04` untuk glitch + garis scan; `Cutcontrastransision.mp3` untuk cut terang-gelap. Kiblat: hit/sub-drop di cut (2,9 · 7,8 · 8,3 dtk).
 - **Pakai bila:** ada isyarat dalam footage (tangan, putaran). · **Jangan pakai bila:** tanpa isyarat; kata "cut" tidak ada di naskah.
 - **Remix (anti-jiplak):**
   1. Video produk → pertahankan pemicu dari dunia · ganti tangan menutup lensa menjadi benda lewat depan kamera.
@@ -118,7 +118,7 @@ Tiga keluarga: sans condensed bold kapital untuk stiker; huruf "ransom" putih be
   - Gerak: satu kanvas ±3× frame digeser `translate` + `scale` per stasiun, `CURVE.whip` 8–10 f, hold 25–40 f dengan `drift(frame, fps, 6)`; parallax lapisan 0,95–1,05×.
   - Ruang: 2,5D tipis; bayangan lembut per lapisan, tanpa blur.
   - Blur & blend: motion blur 200°/16 sampel pada whip.
-- **SFX:** `documenter.mp3` saat kolase muncul (kertas mendarat); `Woosh.mp3` di whip antarstasiun (jarak ≥ 1 dtk). Kiblat: ding/water drop rapat 18,4–19,6 dtk.
+- **SFX:** famili `air`, `taktil`, `ui` · `documenter.mp3` saat kolase muncul (kertas mendarat); `Woosh.mp3` di whip antarstasiun (jarak ≥ 1 dtk). Kiblat: ding/water drop rapat 18,4–19,6 dtk.
 - **Pakai bila:** ada ≥ 6 bahan visual. · **Jangan pakai bila:** konten harus rapi dan korporat.
 - **Remix (anti-jiplak):**
   1. Portofolio desain → pertahankan kamera melompat antarstasiun · ganti kertas menjadi kartu proyek di papan, stasiun = satu proyek.
@@ -135,7 +135,7 @@ Tiga keluarga: sans condensed bold kapital untuk stiker; huruf "ransom" putih be
   - Gerak: ponsel masuk `translateY(120px→0)` + `rotate(8deg)` `CURVE.land` 12 f; cut hitam tanpa transisi; logo `opacity 0→1` 8 f.
   - Ruang: `rotateY(-8deg)` ringan pada ponsel; bayangan lembut.
   - Blur & blend: tanpa.
-- **SFX:** snare hit di cut hitam (tidak ada di SFXIrfan: snare/hit pendek); alternatif `Move.mp3` bila ingin benda mendarat.
+- **SFX:** famili `impact`, `stab` · snare hit di cut hitam (tidak ada di SFXIrfan: snare/hit pendek); alternatif `Move.mp3` bila ingin benda mendarat.
 - **Pakai bila:** akhir video dengan logo/CTA tunggal. · **Jangan pakai bila:** CTA butuh tombol/URL besar.
 - **Remix (anti-jiplak):**
   1. SaaS → pertahankan cut ke hitam + logo kecil · ganti ponsel menjadi laptop miring.

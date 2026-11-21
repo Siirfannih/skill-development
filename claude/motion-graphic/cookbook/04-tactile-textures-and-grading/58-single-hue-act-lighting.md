@@ -48,7 +48,7 @@ Sangat sedikit: satu kata kunci dan satu angka. "DISCIPLINE" ≈ sans extended b
   - Gerak: glow tumbuh dengan `interpolate` linier-lembut (`CURVE.drift`) selama seluruh shot; pergantian warna di cut, bukan crossfade.
   - Ruang: datar atau 2,5D ringan (maskot dan elemen info satu grup).
   - Blur & blend: `mixBlendMode: "screen"` untuk glow; `filter: blur(40px)` untuk volumetrik; rim light dengan `drop-shadow` tipis.
-- **SFX:** senyap pada perubahan warna; drone/bed musik mengikuti. Bila diberi suara: satu `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju babak merah.
+- **SFX:** famili `riser` · senyap pada perubahan warna; drone/bed musik mengikuti. Bila diberi suara: satu `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju babak merah.
 - **Pakai bila:** latar hitam dan satu subjek konsisten di tengah. · **Jangan pakai bila:** subjek terang/berwarna ramai (cahaya berwarna tidak terbaca).
 - **Remix (anti-jiplak):**
   1. Produk UMKM botol/kotak di meja hitam → pertahankan satu cahaya per babak (putih → oranye peringatan → hijau), ganti maskot jadi produk nyata dengan matte.
@@ -65,7 +65,7 @@ Sangat sedikit: satu kata kunci dan satu angka. "DISCIPLINE" ≈ sans extended b
   - Gerak: ikon masuk `move(frame, start + react(i), 8, "land")` dengan jeda tidak rata (`react` dari `curves.ts`); busur digambar `strokeDashoffset` 20 f; garis merah `CURVE.reveal` 12 f.
   - Ruang: datar; kartu `skewX(-12deg)`.
   - Blur & blend: tanpa blur gerak; glow ikon `drop-shadow`.
-- **SFX:** ding/glockenspiel bersamaan ikon pertama + busur (4,19–4,75 dtk), pop kecil di ikon berikutnya (5,15 dan 6,96 dtk); padanan SFXIrfan: `ES_User Interface, Click, Pops, Glass, UI, Pops` untuk ikon kaca, `pop up.mp3` untuk kartu muncul; satu bunyi per ikon, bukan per huruf kata.
+- **SFX:** famili `ui` · ding/glockenspiel bersamaan ikon pertama + busur (4,19–4,75 dtk), pop kecil di ikon berikutnya (5,15 dan 6,96 dtk); padanan SFXIrfan: `ES_User Interface, Click, Pops, Glass, UI, Pops` untuk ikon kaca, `pop up.mp3` untuk kartu muncul; satu bunyi per ikon, bukan per huruf kata.
 - **Pakai bila:** satu kata, satu objek pembawa. · **Jangan pakai bila:** kalimat panjang di kartu.
 - **Remix (anti-jiplak):**
   1. Talking head kreator → kartu kata keluar dari sisi bahu, pertahankan miring + gradien, ganti huruf dan warna.
@@ -81,7 +81,7 @@ Sangat sedikit: satu kata kunci dan satu angka. "DISCIPLINE" ≈ sans extended b
   - Lapisan: hitam → beam volumetrik → panel hijau → angka + label → watermark.
   - Gerak: counter `Math.round(interpolate(frame,[s,s+105],[0,N],{easing: CURVE.reveal}))` selama ±3,5 dtk; push `scale 1→1.009` `CURVE.drift`.
   - Ruang: datar. Blur & blend: beam `mixBlendMode: "screen"`.
-- **SFX:** `Notif.mp3` atau `ES_User Interface, Click, UI Buttons, Confirm, Menu` di tiba angka akhir; riser pendek selama menghitung bila perlu.
+- **SFX:** famili `ui`, `riser` · `Notif.mp3` atau `ES_User Interface, Click, UI Buttons, Confirm, Menu` di tiba angka akhir; riser pendek selama menghitung bila perlu.
 - **Pakai bila:** satu angka hasil dengan label satu kata. · **Jangan pakai bila:** lebih dari satu angka.
 - **Remix (anti-jiplak):**
   1. Penjualan UMKM → "Terjual 1.240" dengan beam warna produk.
@@ -96,7 +96,7 @@ Sangat sedikit: satu kata kunci dan satu angka. "DISCIPLINE" ≈ sans extended b
 - **Mekanik Remotion (titik awal):**
   - Gerak: grup scene `translateX(0 → −24 %)` 51 f @30 `CURVE.heavy`; shot berikutnya mulai dengan kecepatan sama, `−21 %` 45 f; frame hitam 2–3 f di cut.
   - Ruang: datar atau parallax latar 0,8×. Blur & blend: motion blur 200°.
-- **SFX:** `scaningfast.mp3` atau `Woosh.mp3` satu per truck bila diberi suara; belum dibedah di sumber.
+- **SFX:** famili `air` · whoosh/scan famili `air` tanpa desis (file SFXIrfan lama dilarang; `sfx_cari.py --famili air`) atau `Woosh.mp3` satu per truck bila diberi suara; belum dibedah di sumber.
 - **Pakai bila:** dua shot dengan arah gerak sama. · **Jangan pakai bila:** arah berlawanan (terasa mundur).
 - **Remix (anti-jiplak):**
   1. Dua kartu produk berurutan, truck ke kiri.

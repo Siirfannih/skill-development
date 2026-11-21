@@ -113,7 +113,7 @@ Aturan:
 1. **Inventaris dulu, dalam urutan ini**, dan tulis hasilnya di `STATUS.md` proyek. Urutan = urutan mencari, **bukan batas**: bila tidak ada file yang cocok untuk satu peran, lanjut ke sumber berikutnya:
    - (a) folder SFX Irfan: PC server `~/sfx/SFXIrfan` dan `~/sfx/Kenyset` (Mac: `~/Downloads/SFXIrfan`, `~/Downloads/Kenyset`);
    - (b) folder `sfx/` proyek yang sudah disetujui, misalnya `projects/jadisatu-60s/remotion/sfx-el` di repo ini;
-   - (c) Epidemic Sound (MCP `Epidemic_Sound`, SFX dan musik), sumber internet berlisensi (Pixabay, Freesound CC0, Mixkit), ElevenLabs SFX dan Music.
+   - (c) sumber gratis berlisensi lewat `scripts/audio/sfx_cari.py --famili <id>` (Freesound CC0 + Mixkit) dan `scripts/audio/musik_cari.py --kategori <k>` (Mixkit), lalu ElevenLabs SFX dan Music (biaya disebut dulu); Epidemic Sound hanya bila MCP `Epidemic_Sound` ada di daftar tool sesi atau `~/.config/epidemic/key` tidak kosong (`guide/sfx/FAMILI.md` §2).
    Musik mengikuti urutan yang sama: kandidat ≥ 8 dari ≥ 2 sumber. Brief atau orkestrator tidak boleh mempersempit sumber audio ("hanya pustaka yang sudah dipakai") tanpa alasan tertulis dari Irfan.
 2. **Akses dipastikan di awal.** Folder belum terhubung, kredensial belum ada, atau situs memblokir: minta izin atau lapor ke Irfan **sebelum** bekerja. Jangan lanjut dengan pengganti karangan.
 3. **Dilarang memakai bunyi sintetis/karangan sebagai SFX final.** Termasuk bank earshot `sfx_render`, sinus, dan noise generator. Bank earshot hanya untuk analisis/QA.
@@ -300,7 +300,7 @@ Satu peran memakai **satu bunyi yang sama sepanjang video**, sama seperti aturan
 
 ### 14.9b Resep mix yang terbukti
 Dicek setiap mix:
-- **Tidak ada auto-gain yang menaikkan bed musik di jeda bicara**. Bed dibuat rata per babak dengan gain tetap.
+- **Tidak ada auto-gain atau kompresor yang menaikkan bed musik di jeda bicara**. Bed dibuat rata per babak dengan gain tetap; kenaikan di jeda panjang atau antarbabak hanya lewat automation tetap ber-ramp ≥ 250 ms (§14.1 butir 3), besarnya di tabel §14.10.
 - **Kejernihan suara dicapai dengan bed yang lebih rendah dan tetap**, bukan duck dalam: duck ≤ 1,5 dB saat bicara, ramp ≥ 250 ms (§14.1 butir 3). Duck −6 dB di v2 melanggar aturan anti-pumping ini.
 - **Urutan proses**: normalisasi loudness musik dulu, baru envelope/duck. Bila duck dipasang sebelum normalisasi, normalisasi mengembalikan level yang di-duck (v2 awal: duck −6 dB hilang, gain musik −7,3 → −4,0).
 - **SFX diratakan di puncak bunyinya** (`align: peak` default): file dengan awalan sunyi (`pin.mp3` 0,41 dtk, `basmenyebar` memuncak di 1,27 dtk) berbunyi terlambat bila ditaruh di onset.
@@ -326,6 +326,7 @@ Lulus bila semua terpenuhi:
 | VO / suara asli per blok | ≥ −17 LUFS, tidak pernah lebih pelan dari sumbernya, crest turun ≤ 2 dB (`gate/voice_level.py`) |
 | Klip narasumber per blok | sama dengan baris di atas; antarnarasumber disamakan dengan gain naik, bukan turun |
 | Musik di bawah VO | −22…−25 LUFS |
+| Musik di jeda panjang / antarbabak | naik ≤ +3 dB lewat automation ramp ≥ 250 ms; lebih besar hanya untuk satu momen sinematik yang disengaja (referensi: median +0,6 dB, jangkauan −8,9…+6,0; `guide/sfx/FAMILI.md` §4) |
 | Gain SFX setelah normalisasi puncak | −4…−10 dB (lantai −10; −33 dB tidak terdengar) |
 | Sebaran RMS bed musik per 3 dtk | ≤ 4 dB, tanpa lubang (Behindwork 1,1–3,2 dB) |
 | Median puncak SFX UI per kelas | −16…−20 dBFS |

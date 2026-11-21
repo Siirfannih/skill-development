@@ -53,7 +53,7 @@ Dua warna grafis: krem `#FCE2B8` (terukur `#FBE2B9`) dan karat `#BA4730`; huruf 
   - Gerak: tiap kata `opacity` 0 → 1 dalam 1 f (hard on), jeda mengikuti ucapan; kata kecil diposisikan relatif ke kotak kata besar dengan `measureText`; bawah-ganti dengan cut kata.
   - Ruang: datar.
   - Blur & blend: tanpa blur; `textShadow` hangat lembut.
-- **SFX:** senyap per kata (`../../guide/sfx/GUIDE.md`); `Katapertama.mp3` hanya di kata pembuka video.
+- **SFX:** famili `glitch` · senyap per kata (`../../guide/sfx/GUIDE.md`); `Katapertama.mp3` hanya di kata pembuka video.
 - **Pakai bila:** ada ruang kosong ≥ 25 % tinggi frame di atas kepala. · **Jangan pakai bila:** langit-langit berpola atau kepala memenuhi atas frame.
 - **Remix (anti-jiplak):**
   1. Presenter di kafe terang → pertahankan judul di ruang kosong atas · ganti teks gelap tebal.
@@ -85,7 +85,7 @@ Dua warna grafis: krem `#FCE2B8` (terukur `#FBE2B9`) dan karat `#BA4730`; huruf 
   - Lapisan: footage `scale`; teks di lapis lain.
   - Gerak: `scale` 1,0 → 1,20 selama 42 f `CURVE.land`; atau 1,33 → 1,0 selama 36 f.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `Woosh.mp3` hanya pada push besar; pop kecil di cut ke sisipan.
+- **SFX:** famili `air`, `ui` · `Woosh.mp3` hanya pada push besar; pop kecil di cut ke sisipan.
 - **Pakai bila:** kamera diam. · **Jangan pakai bila:** footage sudah bergerak.
 - **Remix (anti-jiplak):**
   1. Tripod di dapur → pertahankan 1,0 → 1,2 · ganti pivot ke wajah.
@@ -101,7 +101,7 @@ Dua warna grafis: krem `#FCE2B8` (terukur `#FBE2B9`) dan karat `#BA4730`; huruf 
   - Lapisan: bidang karat `#BA4730` → video inset → kata krem.
   - Gerak: `scale` 1,25 → 1 selama 30 f `CURVE.land`; diam.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `pop up.mp3` saat inset masuk (di asli pop tepat di cut 33,21 / 50,67 / 63,47 dtk).
+- **SFX:** famili `ui` · `pop up.mp3` saat inset masuk (di asli pop tepat di cut 33,21 / 50,67 / 63,47 dtk).
 - **Pakai bila:** ada klip contoh. · **Jangan pakai bila:** klip contoh sudah sebagai b-roll penuh.
 - **Remix (anti-jiplak):**
   1. Contoh produk UMKM → pertahankan bingkai warna · ganti warna ke palet merek.
@@ -117,7 +117,7 @@ Dua warna grafis: krem `#FCE2B8` (terukur `#FBE2B9`) dan karat `#BA4730`; huruf 
   - Lapisan: warna rata → kata.
   - Gerak: cut keras 15–30 f per kata; tanpa transisi.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `pop up.mp3` pada kartu pertama saja.
+- **SFX:** famili `ui` · `pop up.mp3` pada kartu pertama saja.
 - **Pakai bila:** istilah penting. · **Jangan pakai bila:** setiap kalimat.
 - **Remix (anti-jiplak):**
   1. Brand putih → kartu aksen dengan kata hitam.
@@ -133,7 +133,7 @@ Dua warna grafis: krem `#FCE2B8` (terukur `#FBE2B9`) dan karat `#BA4730`; huruf 
   - Lapisan: footage → kata kutip → caption.
   - Gerak: `scale` 1,15 → 1 selama 8 f `CURVE.land`.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `Katapertama.mp3` di kemunculan pertama istilah.
+- **SFX:** famili `glitch` · `Katapertama.mp3` di kemunculan pertama istilah.
 - **Pakai bila:** satu istilah. · **Jangan pakai bila:** banyak istilah.
 - **Remix (anti-jiplak):**
   1. Istilah teknis → kutip besar di atas laptop.

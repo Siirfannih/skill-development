@@ -52,7 +52,7 @@ Cepat di rumah, lambat saat terbang (shot langit/judul 11,5–14 dtk); babak (20
   - Lapisan: latar B → adegan A (di-mask benda) → benda jembatan (SVG/Three) → cahaya depan.
   - Gerak: wipe benda `CURVE.whip` 8–12 f; lipatan `rotateY/rotateX` 4–6 f per lipatan; crossfade 3–4 f saat benda ≥ 80 % frame; `arc()` (x `CURVE.land`, y `CURVE.heavy`); flash naik 3 f, turun 5 f `CURVE.reveal`.
   - Ruang/blur: `perspective: 1200px`, `translateZ`; iris dari tengah jendela; `<CameraMotionBlur shutterAngle={200} samples={16}>` (`../../references/smooth-motion.md`); flash `mixBlendMode: "screen"`.
-- **SFX:** `documenter.mp3` pada sapuan kertas; `Woosh.mp3` pada halaman dibalik/kertas terbang; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju penutup; selebihnya senyap.
+- **SFX:** famili `air`, `riser`, `taktil` · `documenter.mp3` pada sapuan kertas; `Woosh.mp3` pada halaman dibalik/kertas terbang; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju penutup; selebihnya senyap.
 - **Pakai bila:** tiap adegan punya benda penjembatan. · **Jangan pakai bila:** narasi padat butuh cut tepat di kata; adegan ramai objek kecil.
 - **Remix (anti-jiplak):**
   1. Pembukaan toko/UMKM → satu benda berubah bentuk lintas adegan · kertas jadi kain/nota/kardus.
@@ -67,7 +67,7 @@ Cepat di rumah, lambat saat terbang (shot langit/judul 11,5–14 dtk); babak (20
   - Lapisan: kertas → digit → kisi → lembar berikut.
   - Gerak: `rotate` diagonal + `translate` 12–18 f `CURVE.heavy` (roll ±100° dalam 120 f @30), bayangan di lipatan.
   - Ruang/blur: datar; `<CameraMotionBlur>` di lembar.
-- **SFX:** `documenter.mp3` pada balik halaman; angka senyap.
+- **SFX:** famili `taktil` · `documenter.mp3` pada balik halaman; angka senyap.
 - **Pakai bila:** angka bermakna cerita. · **Jangan pakai bila:** angka sudah di VO.
 - **Remix (anti-jiplak):**
   1. Promo "diskon 7 hari" → angka tebal separuh frame · sobekan kupon.
@@ -82,7 +82,7 @@ Cepat di rumah, lambat saat terbang (shot langit/judul 11,5–14 dtk); babak (20
   - Lapisan: kisi → lingkaran SVG → kamera virtual (grup).
   - Gerak: `strokeDashoffset` 10–12 f (82: 18 f) `CURVE.reveal`; push `scale` 1→1,45 + `rotate` 7° `CURVE.heavy` ±45 f; spin `rotate` 0→81° + `scale` 1→0,73 `CURVE.whip` 8 f.
   - Ruang/blur: datar; `<CameraMotionBlur shutterAngle={200} samples={16}>` penuh saat spin.
-- **SFX:** `Woosh.mp3` pada spin; tick-tock tidak ada di SFXIrfan.
+- **SFX:** famili `air`, `mekanik` · `Woosh.mp3` pada spin; tick-tock tidak ada di SFXIrfan.
 - **Pakai bila:** satu elemen ditandai. · **Jangan pakai bila:** banyak elemen harus terbaca.
 - **Remix (anti-jiplak):**
   1. Jadwal kelas → push ke item bertanda · lingkaran jadi garis bawah.
@@ -97,7 +97,7 @@ Cepat di rumah, lambat saat terbang (shot langit/judul 11,5–14 dtk); babak (20
   - Lapisan: langit + sinar → gedung jauh (opacity 0,5, blur 3 px) → gedung dekat → subjek → bingkai gelap → flare + debu → vignette.
   - Gerak: dolly `scale` 1→1,05–1,07 `CURVE.drift`; push ×1,5 dalam 105 f @30 `CURVE.heavy`; suhu bergeser antar adegan lewat flash; penutup `saturate(1→0)` 60 f `CURVE.drift`.
   - Ruang/blur: parallax (depan 1,1–1,4×, subjek 1×, latar 0,6–0,9×), `perspective: 1200px`; subjek ≥ 45 % tinggi; latar `blur(2–6px)` + kabut; flare/pita `mixBlendMode: "screen"` ±40°.
-- **SFX:** senyap, atau `ES_Particle Emission - Soundpembuka`; `Move.mp3` hanya saat benda besar mendarat (pintu menutup); musik berganti warna sebagai padanan suhu.
+- **SFX:** famili `impact` · senyap, atau `ES_Particle Emission - Soundpembuka`; `Move.mp3` hanya saat benda besar mendarat (pintu menutup); musik berganti warna sebagai padanan suhu.
 - **Pakai bila:** render bersih, satu subjek besar. · **Jangan pakai bila:** footage nyata/matte; palet brand ketat.
 - **Remix (anti-jiplak):**
   1. Produk 3D/latar terang → tiga lapis + dua babak + satu aksen jenuh · jam/koper jadi produk; palet krem → putih-biru muda.
@@ -112,7 +112,7 @@ Cepat di rumah, lambat saat terbang (shot langit/judul 11,5–14 dtk); babak (20
   - Lapisan: latar biru-abu + sinar (gradien kabut) → judul → kredit.
   - Gerak: `opacity` 0→1 + `translateY(24px)` + `blur(6–8px)→0` 24 f `CURVE.reveal`; mengecil `scale 1→0,7` + geser kiri 36 f `CURVE.heavy`; keluar fade 18 f `CURVE.leave`.
   - Ruang/blur: datar; blur masuk saja, tanpa glow.
-- **SFX:** `Lasertransision.mp3` (ting) satu kali saat judul tampil bila perlu; `basmenyebar.mp3` hanya bila judul puncak; teks di sumber senyap.
+- **SFX:** famili `stab`, `impact` · `Lasertransision.mp3` (ting) satu kali saat judul tampil bila perlu; `basmenyebar.mp3` hanya bila judul puncak; teks di sumber senyap.
 - **Pakai bila:** latar lunak tanpa tekstur tajam; ujung cerita, nama brand. · **Jangan pakai bila:** latar ramai; judul harus terbaca dalam 1 dtk.
 - **Remix (anti-jiplak):**
   1. Judul profil/UMKM → kolom satu sisi, masuk dari kabut · serif tipis/huruf brand.

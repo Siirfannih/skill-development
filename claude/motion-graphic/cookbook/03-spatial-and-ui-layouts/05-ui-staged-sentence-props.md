@@ -52,7 +52,7 @@ SF Pro/Inter untuk UI dan kalimat lepas; display condensed heavy (Anton/Bebas) u
   - Gerak: kamera `scale 1→2,0` + `rotate(0→22deg)` `CURVE.whip` 48 f untuk poster; jam `scale 1→1,06` `CURVE.drift` penuh shot; judul masuk per kata `translateY(20px→0)` + `blur(6→0)` `CURVE.reveal` 8 f.
   - Ruang: `perspective: 1000px`, benda `rotateY(-14deg)`; lapisan depan di `translateZ` dekat dengan blur 10 px.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` pada putar dan push; `filter: blur()` untuk lapisan depan.
-- **SFX:** `Move.mp3` atau `documenter.mp3` (kertas/benda mendarat) untuk poster; hit pada hard cut (kiblat 23,78 s: +14,7 dB): `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` bila itu punchline; selebihnya senyap.
+- **SFX:** famili `impact`, `taktil` · `Move.mp3` atau `documenter.mp3` (kertas/benda mendarat) untuk poster; hit pada hard cut (kiblat 23,78 s: +14,7 dB): `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` bila itu punchline; selebihnya senyap.
 - **Pakai bila:** kalimat punya benda yang jelas. · **Jangan pakai bila:** kalimat abstrak tanpa padanan benda.
 - **Remix (anti-jiplak):**
   1. Promo jasa konsultan → pertahankan teks menempel benda dan kamera terus bergerak · ganti poster menjadi map dokumen, kayu menjadi marmer.
@@ -69,7 +69,7 @@ SF Pro/Inter untuk UI dan kalimat lepas; display condensed heavy (Anton/Bebas) u
   - Gerak: ketik 1 huruf/f dengan kursor berkedip 15 f; balon `scale 0,8→1` `CURVE.land` 8 f; kamera `scale 1→1,26` + `translateX` mengikuti kursor `CURVE.heavy`; iPhone pan besar (±110 % lebar) skala tetap.
   - Ruang: iPhone `rotateX(8deg) rotateY(-12deg)` dengan bayangan jendela di kayu.
   - Blur & blend: motion blur 200°/16 sampel pada pan; bokeh lampu hangat di meja.
-- **SFX:** `pop up.mp3` (kartu/balon muncul) satu kali per balon hero; `Keyboardtyping.mp3` dipotong sesuai panjang ketikan; `Enter.mp3` bila ada tombol kirim yang benar-benar ditekan. Kiblat: pop/klik di teks/balon muncul (18,04 s +16 dB).
+- **SFX:** famili `mekanik`, `ui` · `pop up.mp3` (kartu/balon muncul) satu kali per balon hero; `Keyboardtyping.mp3` dipotong sesuai panjang ketikan; `Enter.mp3` bila ada tombol kirim yang benar-benar ditekan. Kiblat: pop/klik di teks/balon muncul (18,04 s +16 dB).
 - **Pakai bila:** UI digambar lengkap dan font UI konsisten. · **Jangan pakai bila:** UI hanya bayangan samar (terbaca palsu).
 - **Remix (anti-jiplak):**
   1. Brand SaaS → pertahankan ketikan di UI asli + kamera mengikuti kursor · ganti Notes menjadi editor produk sendiri.
@@ -85,7 +85,7 @@ SF Pro/Inter untuk UI dan kalimat lepas; display condensed heavy (Anton/Bebas) u
   - Lapisan: gambar tombol di dalam post → post IG sebagai lapisan di bawah.
   - Gerak: `scale 1→0,45` (mundur) `CURVE.heavy` 24 f hingga post terlihat; whip: `rotate` + `translate` + blur arah gerak 8 f `CURVE.whip`; slide putih ke putih `translateX` 10 f.
   - Ruang: datar. Blur & blend: motion blur 200°/16 sampel; dissolve = `blur(0→16px)` cross-fade 24 f.
-- **SFX:** `Wooshcameramovementtransisi.mp3` pada zoom-through besar; `Woosh.mp3` pada whip; riser menjelang ganti babak (kiblat 12,69; 16,87; 29,56 dtk): `ES_Designed, Riser, Transition, Fast, Short, Clean 01`.
+- **SFX:** famili `air`, `riser` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) pada zoom-through besar; `Woosh.mp3` pada whip; riser menjelang ganti babak (kiblat 12,69; 16,87; 29,56 dtk): `ES_Designed, Riser, Transition, Fast, Short, Clean 01`.
 - **Pakai bila:** gambar sumber memuat gambar lain. · **Jangan pakai bila:** tidak ada alasan visual untuk masuk.
 - **Remix (anti-jiplak):**
   1. Promo aplikasi → pertahankan masuk ke dalam gambar · ganti tombol neon menjadi ikon aplikasi di layar ponsel.
@@ -101,7 +101,7 @@ SF Pro/Inter untuk UI dan kalimat lepas; display condensed heavy (Anton/Bebas) u
   - Lapisan: putih → kalimat → bintang hijau buram di depan.
   - Gerak: kata muncul per kata abu `#BABABA` lalu hitam 4 f; garis bawah bergelombang digambar `strokeDashoffset 1→0` 8 f; bintang `scale 0→1` `CURVE.land` 10 f dengan `drift`.
   - Ruang: dua lapis (bintang depan buram). Blur & blend: bintang `blur(12px)`.
-- **SFX:** senyap per kata; satu `Lasertransision.mp3` di kilau bintang bila perlu.
+- **SFX:** famili `stab` · senyap per kata; satu `Lasertransision.mp3` di kilau bintang bila perlu.
 - **Pakai bila:** kalimat 3–4 kata dengan satu kata kontras. · **Jangan pakai bila:** kalimat panjang.
 - **Remix (anti-jiplak):**
   1. Brand skincare → pertahankan satu kata berwarna + garis bawah · ganti hijau menjadi merah muda.
@@ -117,7 +117,7 @@ SF Pro/Inter untuk UI dan kalimat lepas; display condensed heavy (Anton/Bebas) u
   - Lapisan: abu → baris berulang (6–8 baris) → vinyet tepi.
   - Gerak: kamera `scale 1→1,53` `CURVE.heavy` ±60 f; baris naik `translateY` 12 px per baris, jeda `react(i, fps)`.
   - Ruang: datar. Blur & blend: tanpa; tepi film gelap overlay.
-- **SFX:** `basmenyebar.mp3` pada kata terakhir bila itu puncak; selebihnya senyap.
+- **SFX:** famili `impact` · `basmenyebar.mp3` pada kata terakhir bila itu puncak; selebihnya senyap.
 - **Pakai bila:** frasa pendek diulang. · **Jangan pakai bila:** frasa berbeda tiap baris.
 - **Remix (anti-jiplak):**
   1. Jargon brand → pertahankan baris sama besar + satu warna · ganti hijau menjadi jingga.
@@ -133,7 +133,7 @@ SF Pro/Inter untuk UI dan kalimat lepas; display condensed heavy (Anton/Bebas) u
   - Lapisan: grain → UI kamera → clapper → CTA.
   - Gerak: clapper `scale 1,38→1` `CURVE.heavy` 30 f; CTA `translateY(16px→0)` + `opacity` `CURVE.reveal` 8 f, baris kedua menyusul 3 f.
   - Ruang: datar. Blur & blend: `filter: blur(8px)` lapisan UI kamera depan.
-- **SFX:** `ES_User Interface, Click, Button, Double Click, Fast Phone Tap` (shutter ponsel) di tombol rana; stab orkestra tidak ada di SFXIrfan (stab, tidak ada di SFXIrfan).
+- **SFX:** famili `ui`, `mekanik`, `stab` · `ES_User Interface, Click, Button, Double Click, Fast Phone Tap` (shutter ponsel) di tombol rana; stab orkestra tidak ada di SFXIrfan (stab, tidak ada di SFXIrfan).
 - **Pakai bila:** objek besar di atas, ruang kosong di bawah. · **Jangan pakai bila:** CTA butuh URL panjang.
 - **Remix (anti-jiplak):**
   1. Kursus online → pertahankan CTA rata kiri di bawah objek · ganti clapper menjadi buku catatan.

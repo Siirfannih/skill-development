@@ -53,7 +53,7 @@ Grotesk sans (≈ General Sans / Satoshi), dua bobot: Regular (kata sambung) + B
   - Lapisan (bawah → atas): glow gelap → teks → kursor/kotak seleksi → partikel kecil.
   - Gerak: ketik 1 huruf/2 f dengan kursor balok `#C1E63A` berkedip 15 f; huruf acak jatuh `translateY(-30px→0)` + `rotate` kecil `CURVE.land` 8 f dengan jeda `react(i, fps)`; kotak seleksi menggambar `clipPath` 0→100 % `CURVE.reveal` 8 f, lalu gagang kecil muncul 4 f kemudian; pita sorot `scaleX 0→1` dari kiri 10 f.
   - Ruang: datar. Blur & blend: glow limau `drop-shadow`; tanpa motion blur kecuali partikel.
-- **SFX:** `Keyboardtyping.mp3` dipotong sepanjang ketikan; `pop up.mp3` pada pil/kotak seleksi hero; kata KT lain senyap. Kiblat: pop lembut tiap kata/objek muncul, klik keyboard untuk ketikan.
+- **SFX:** famili `mekanik`, `ui` · `Keyboardtyping.mp3` dipotong sepanjang ketikan; `pop up.mp3` pada pil/kotak seleksi hero; kata KT lain senyap. Kiblat: pop lembut tiap kata/objek muncul, klik keyboard untuk ketikan.
 - **Pakai bila:** kalimat pendek berulang dengan satu kata kunci per kalimat. · **Jangan pakai bila:** konten menuntut kata baca cepat di frame pertama.
 - **Remix (anti-jiplak):**
   1. Promo studio arsitektur → pertahankan mengetik + kotak seleksi bergagang · ganti hijau menjadi biru dongker, limau menjadi oranye bata, huruf menjadi serif.
@@ -69,7 +69,7 @@ Grotesk sans (≈ General Sans / Satoshi), dua bobot: Regular (kata sambung) + B
   - Lapisan: latar → busur cincin (SVG) → teks pada jalur (`<textPath>`).
   - Gerak: `startOffset` 0→100 % dengan `CURVE.reveal` 20 f; gelombang: tiap huruf `translateY` sinus 4–6 px dengan fase `i × 0,4`, hanya 12 f.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `Scanning dan gerak kurva.mp3` (garis/kurva bergerak) pada penggambaran busur; teks senyap.
+- **SFX:** famili `glitch` · `Scanning dan gerak kurva.mp3` (garis/kurva bergerak) pada penggambaran busur; teks senyap.
 - **Pakai bila:** kata abstrak berkonotasi gerak. · **Jangan pakai bila:** kalimat panjang yang harus terbaca cepat.
 - **Remix (anti-jiplak):**
   1. Logistik → pertahankan teks di jalur · ganti busur cincin menjadi rute peta bergaris putus.
@@ -85,7 +85,7 @@ Grotesk sans (≈ General Sans / Satoshi), dua bobot: Regular (kata sambung) + B
   - Lapisan: adegan A → adegan B di bawah → objek transisi (bunga/blob) di atas dengan glow.
   - Gerak: objek terbang `translate` + `scale 0,4→3` `CURVE.whip` 14 f; adegan B terbuka lewat `clipPath: circle(0%→150%)` yang berpusat pada objek, 12 f; kamera tidak digerakkan.
   - Ruang: datar. Blur & blend: motion blur 200°/16 sampel pada objek terbang; glow `mixBlendMode: "screen"`.
-- **SFX:** kiblat "ting" lembut, bukan desis: `Lasertransision.mp3` (ting penutup) atau `ES_User Interface, Click, Pops, Glass, UI, Pops`; `Woosh.mp3` hanya bila ingin gerak lebih terasa.
+- **SFX:** famili `air`, `ui`, `stab` · kiblat "ting" lembut, bukan desis: `Lasertransision.mp3` (ting penutup) atau `ES_User Interface, Click, Pops, Glass, UI, Pops`; `Woosh.mp3` hanya bila ingin gerak lebih terasa.
 - **Pakai bila:** ada objek maskot/ikon yang konsisten. · **Jangan pakai bila:** tidak ada objek berulang.
 - **Remix (anti-jiplak):**
   1. Brand makanan → pertahankan objek terbang pemicu transisi · ganti bunga menjadi sendok/tetesan.
@@ -102,7 +102,7 @@ Grotesk sans (≈ General Sans / Satoshi), dua bobot: Regular (kata sambung) + B
   - Gerak: footage diam, drift ≤ 2,5 %; teks per kata `CURVE.reveal` 10 f; cincin `scale 0,8→1` 12 f; mask foto `clipPath` inset.
   - Ruang: dua lapis cincin (depan kepala, belakang kepala).
   - Blur & blend: `filter: blur(8px)`; grid `mixBlendMode: "overlay"`.
-- **SFX:** senyap atau `pop up.mp3` pada cincin; teks senyap.
+- **SFX:** famili `ui` · senyap atau `pop up.mp3` pada cincin; teks senyap.
 - **Pakai bila:** footage stok tanpa wajah penting. · **Jangan pakai bila:** footage harus tajam.
 - **Remix (anti-jiplak):**
   1. Promo kursus → pertahankan blur + bungkus brand · ganti cincin hijau menjadi bingkai biru, grid titik menjadi garis tulis.
@@ -119,7 +119,7 @@ Grotesk sans (≈ General Sans / Satoshi), dua bobot: Regular (kata sambung) + B
   - Gerak: panel masuk `translateZ(-200→0)` + opacity `CURVE.land` 14 f dengan jeda `react(i, fps)`; kamera 3D `rotateY` ±8° `CURVE.drift` ±60 f.
   - Ruang: `perspective: 1400px`, panel di `translateZ` −120…+80 px.
   - Blur & blend: panel kaca `backdrop-filter: blur(10px)`, tepi `drop-shadow(0 0 8px #18A579)`.
-- **SFX:** `pop up.mp3` pada panel pertama; `ES_User Interface, Click, Pops, Glass, UI, Pops` di gauge; sisanya senyap.
+- **SFX:** famili `ui` · `pop up.mp3` pada panel pertama; `ES_User Interface, Click, Pops, Glass, UI, Pops` di gauge; sisanya senyap.
 - **Pakai bila:** produk digital dengan 3–5 komponen. · **Jangan pakai bila:** UI asli harus terbaca.
 - **Remix (anti-jiplak):**
   1. Fintech → pertahankan panel kaca bertingkat · ganti hijau menjadi violet, gauge menjadi grafik garis.
@@ -135,7 +135,7 @@ Grotesk sans (≈ General Sans / Satoshi), dua bobot: Regular (kata sambung) + B
   - Lapisan: gradien terang → gema 4–5 baris (opacity 0,08–0,15, `blur(2px)`) → kata utama → pelat gradien di belakang kata kunci penutup.
   - Gerak: gema bergeser lambat `translateX` ±20 px `CURVE.drift` sepanjang shot; kata utama `scale 1,06→1` `CURVE.land` 10 f; pelat `scaleX 0→1` 8 f; baris lockup naik berurutan 6 f.
   - Ruang: datar. Blur & blend: gema `blur(2px)`; pelat tanpa blend.
-- **SFX:** `basmenyebar.mp3` (judul/puncak) hanya bila "GROWTH" adalah puncak; CTA senyap atau `Lasertransision.mp3`.
+- **SFX:** famili `stab`, `impact` · `basmenyebar.mp3` (judul/puncak) hanya bila "GROWTH" adalah puncak; CTA senyap atau `Lasertransision.mp3`.
 - **Pakai bila:** satu kata kunci yang bisa diulang sebagai gema. · **Jangan pakai bila:** latar tidak terang (gema kehilangan kontras).
 - **Remix (anti-jiplak):**
   1. Brand kebugaran → pertahankan gema kata di belakang · ganti hijau menjadi merah bata, GROWTH menjadi kata sendiri.

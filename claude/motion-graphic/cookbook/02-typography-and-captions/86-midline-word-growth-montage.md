@@ -70,7 +70,7 @@ pace_read pada seluruh file: 53 cut = 54,8/menit (penyebut termasuk penutup), sh
   - Lapisan: hitam → bidang terang (`radial-gradient` `#ECECEC` → `#BABABA` + grain PNG) → teks hitam.
   - Gerak: bidang `scaleY` 1 → 0,35 selama 18 f `CURVE.heavy`, tinggi akhir ±35 % frame (belum diukur).
   - Ruang: datar. Blur & blend: grain `mixBlendMode: "multiply"`.
-- **SFX:** `Cutcontrastransision.mp3` di cut gelap → terang.
+- **SFX:** famili `mekanik` · `Cutcontrastransision.mp3` di cut gelap → terang.
 - **Pakai bila:** satu titik balik. · **Jangan pakai bila:** dipakai lebih dari dua kali.
 - **Remix (anti-jiplak):**
   1. Brand krem → pertahankan kartu terang menyempit · ganti abu ke krem.
@@ -86,7 +86,7 @@ pace_read pada seluruh file: 53 cut = 54,8/menit (penyebut termasuk penutup), sh
   - Lapisan: footage → kata besar.
   - Gerak: `scale` 1,1 → 1 + `letterSpacing` melebar lalu pulih dalam 6 f `CURVE.land`; kata bertahan 2 shot.
   - Ruang: datar. Blur & blend: pendar lembut.
-- **SFX:** `Move.mp3` atau `Katapertama.mp3` satu kali.
+- **SFX:** famili `glitch`, `impact` · `Move.mp3` atau `Katapertama.mp3` satu kali.
 - **Pakai bila:** satu penekanan per ±20 dtk. · **Jangan pakai bila:** semua kata penting dibesarkan.
 - **Remix (anti-jiplak):**
   1. Narasi harga → angka dibesarkan 2,3×.
@@ -102,7 +102,7 @@ pace_read pada seluruh file: 53 cut = 54,8/menit (penyebut termasuk penutup), sh
   - Lapisan: hitam → empat panel (posisi acak berbiji) → teks.
   - Gerak: panel masuk dari tepi dengan `react(i)` jeda 67–250 ms, `CURVE.land` 9 f; teks tumbuh per kata.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `Pergantianfoto.mp3` satu potongan untuk empat panel.
+- **SFX:** famili `mekanik` · `Pergantianfoto.mp3` satu potongan untuk empat panel.
 - **Pakai bila:** 3–5 gambar setara. · **Jangan pakai bila:** gambar harus dibaca detail.
 - **Remix (anti-jiplak):**
   1. Katalog produk → pertahankan ruang hitam di tengah · ganti panel ke foto produk.
@@ -118,7 +118,7 @@ pace_read pada seluruh file: 53 cut = 54,8/menit (penyebut termasuk penutup), sh
   - Lapisan: grid foto → panel tengah (`filter: invert(1)`) → logo → nama kiri-kanan.
   - Gerak: `invert` 0 → 1 → 0 dalam 3 f (`interpolate` linear).
   - Ruang: datar. Blur & blend: `mixBlendMode: "difference"` opsional.
-- **SFX:** `Cutcontrastransision.mp3` di f139.
+- **SFX:** famili `mekanik` · `Cutcontrastransision.mp3` di f139.
 - **Pakai bila:** satu logo penting. · **Jangan pakai bila:** logo kontras rendah.
 - **Remix (anti-jiplak):**
   1. Logo klien → pertahankan panel tengah invert 3 f · ganti grid ke foto klien.
@@ -134,7 +134,7 @@ pace_read pada seluruh file: 53 cut = 54,8/menit (penyebut termasuk penutup), sh
   - Lapisan: footage → bidang abu (`backgroundColor: rgba(152,152,152,.9)`) → teks; atau footage uang dengan crop berganti.
   - Gerak: rentetan 2–4 f per crop (`<Sequence>` pendek); bidang abu masuk 4 f.
   - Ruang: datar. Blur & blend: bidang `mixBlendMode: "multiply"` bila footage gelap.
-- **SFX:** `Pergantianfoto.mp3` panjang untuk rentetan uang.
+- **SFX:** famili `mekanik` · `Pergantianfoto.mp3` panjang untuk rentetan uang.
 - **Pakai bila:** footage terlalu ramai di bawah teks. · **Jangan pakai bila:** footage sudah polos.
 - **Remix (anti-jiplak):**
   1. Footage toko ramai → pertahankan bidang abu lokal · ganti ke krem transparan.

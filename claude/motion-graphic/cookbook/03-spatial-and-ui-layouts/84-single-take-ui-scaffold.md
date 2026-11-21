@@ -51,7 +51,7 @@ Latar hampir hitam. Teks dasar putih; aksen oranye-emas (judul serif, titik, bad
   - Gerak: kartu tumbuh dari atas ke bawah, baris per baris, `move(frame, start + react(i, 30), 8, "reveal")`; garis putus digambar dengan `strokeDashoffset` 12 f.
   - Ruang: datar; bagian kartu di belakang kepala lewat matte.
   - Blur & blend: glow lembut `drop-shadow(0 0 16px)` pada judul; tanpa blend mode.
-- **SFX:** `pop up.mp3` pada kartu muncul; baris isi senyap. Bunyi referensi belum dibedah.
+- **SFX:** famili `ui` · `pop up.mp3` pada kartu muncul; baris isi senyap. Bunyi referensi belum dibedah.
 - **Pakai bila:** talking head dengan ruang kosong di atas kepala; matte tersedia bila UI harus lewat di belakang kepala. · **Jangan pakai bila:** kepala besar menyentuh tepi atas; terang atau ramai di atas kepala.
 - **Remix (anti-jiplak):**
   1. Kreator kuliner → pertahankan kartu tumbuh baris demi baris · ganti bab dengan bahan/langkah, warna dari palet dapur.
@@ -68,7 +68,7 @@ Latar hampir hitam. Teks dasar putih; aksen oranye-emas (judul serif, titik, bad
   - Gerak: titik berubah warna dengan jeda tidak rata dari `react(i, 30)` (bukan stagger konstan), tiap titik 4 f; angka label berganti dengan `CURVE.land` 8 f.
   - Ruang: datar; grid di sepertiga atas atau samping kepala.
   - Blur & blend: tanpa blur; warna lewat `fill` transisi.
-- **SFX:** `Kinetictypography(gunakansecaraacak).mp3` sesekali saat satu kelompok titik berganti; sisanya senyap.
+- **SFX:** famili `ui` · `Kinetictypography(gunakansecaraacak).mp3` sesekali saat satu kelompok titik berganti; sisanya senyap.
 - **Pakai bila:** ada angka besar yang dibagi jadi kelompok. · **Jangan pakai bila:** angka kecil (≤ 10) atau tidak ada pembagian.
 - **Remix (anti-jiplak):**
   1. Survei pelanggan toko (100 pembeli, 30 balik lagi) → pertahankan grid titik + warna berpindah · ganti titik dengan ikon keranjang kecil.
@@ -85,7 +85,7 @@ Latar hampir hitam. Teks dasar putih; aksen oranye-emas (judul serif, titik, bad
   - Gerak: tiap kepala `scale 0,6→1` + opacity 8 f `CURVE.land`, jeda dari `react(i, 30)`; pendar warna bab `box-shadow` 0→20 px 10 f.
   - Ruang: datar; kepala di pinggang/dada, tidak menutup wajah pembicara.
   - Blur & blend: foto dibuat bulat (`borderRadius: 50%`); privasi: wajah audiens dipikseli di frame (k5).
-- **SFX:** `pop up.mp3` per kepala hanya bila kepala masuk sebagai objek; reaksi berturutan cukup satu bunyi per kelompok.
+- **SFX:** famili `ui` · `pop up.mp3` per kepala hanya bila kepala masuk sebagai objek; reaksi berturutan cukup satu bunyi per kelompok.
 - **Pakai bila:** ada ruang kosong di bawah wajah; reaksi ≤ 5 kata. · **Jangan pakai bila:** foto audiens tidak boleh dipakai; badan pembicara bergestur di area itu.
 - **Remix (anti-jiplak):**
   1. Testimoni pelanggan UMKM → pertahankan kepala bulat + teks singkat · ganti foto dengan inisial atau avatar ilustrasi.
@@ -102,7 +102,7 @@ Latar hampir hitam. Teks dasar putih; aksen oranye-emas (judul serif, titik, bad
   - Gerak: bab baru masuk `translateY(16px→0)` + opacity 10 f `CURVE.reveal`; gulir ke atas `CURVE.heavy` 14 f saat penuh; garis putus tumbuh dengan `scaleY`.
   - Ruang: datar.
   - Blur & blend: bab lama turun ke opacity 0,6 saat bab baru masuk; tanpa blend mode.
-- **SFX:** `Notif.mp3` atau `pop up.mp3` pada kartu notifikasi CTA; titik bab senyap.
+- **SFX:** famili `ui` · `Notif.mp3` atau `pop up.mp3` pada kartu notifikasi CTA; titik bab senyap.
 - **Pakai bila:** 4-7 bab bertingkat dan ada sepertiga atas kosong. · **Jangan pakai bila:** bab harus dibaca penuh (teks isi sengaja kecil).
 - **Remix (anti-jiplak):**
   1. Penjelasan resep/langkah produksi → pertahankan tumpukan + warna per bab · ganti bab dengan tahap kerja.

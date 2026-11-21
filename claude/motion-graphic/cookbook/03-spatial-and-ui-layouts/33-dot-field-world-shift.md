@@ -53,7 +53,7 @@ Grotesk neo Regular (paling mirip Suisse Int'l / Inter Display), tanpa bold; pen
   - Gerak: posisi tiap titik dari fungsi `f(i, t)` antara dua susunan (medan → jalur) dengan `CURVE.heavy`, durasi 24–40 f per morph; jeda tidak rata antar titik memakai `react(i, fps)` dari `../../scripts/remotion/curves.ts`. Kamera virtual tarik keluar 1,00→0,74 selama shot panjang dengan `CURVE.drift`.
   - Ruang: datar; kedalaman palsu lewat dua lapis titik dengan blur berbeda.
   - Blur & blend: `filter: blur(6–10px)` pada titik lapis jauh dan depan; titik tajam tanpa blur.
-- **SFX:** pop atau klik pendek per titik besar yang muncul sebagai objek penting (`pop up.mp3`); pengamatan: aksen pop terkuat +44 dB di 0:00,47. Medan 381 titik sendiri senyap (bukan 381 bunyi).
+- **SFX:** famili `ui`, `mekanik` · pop atau klik pendek per titik besar yang muncul sebagai objek penting (`pop up.mp3`); pengamatan: aksen pop terkuat +44 dB di 0:00,47. Medan 381 titik sendiri senyap (bukan 381 bunyi).
 - **Pakai bila:** konsep bisa direduksi menjadi satu simbol bulat yang sama. · **Jangan pakai bila:** tiap objek punya identitas berbeda yang perlu dikenali.
 - **Remix (anti-jiplak):**
   1. Masalah logistik → pertahankan titik yang berpindah dari medan ke jalur · ganti titik jadi kotak paket kecil di atas latar krem.
@@ -70,7 +70,7 @@ Grotesk neo Regular (paling mirip Suisse Int'l / Inter Display), tanpa bold; pen
   - Gerak: scale 1→0,02 ke titik pusat dengan `CURVE.heavy` 20 f saat keluar; posisi akhir = pusat titik pertama T1 sehingga shot berlanjut tanpa cut.
   - Ruang: datar.
   - Blur & blend: gradien teks lewat `background-clip: text`; tanpa blur.
-- **SFX:** `basmenyebar.mp3` bila kata ini adalah puncak hook; pengamatan: pop/klik di tiap kata muncul, tapi untuk KT cukup satu bunyi di kata raksasa.
+- **SFX:** famili `impact`, `mekanik`, `ui` · `basmenyebar.mp3` bila kata ini adalah puncak hook; pengamatan: pop/klik di tiap kata muncul, tapi untuk KT cukup satu bunyi di kata raksasa.
 - **Pakai bila:** kata pembuka satu kata, dalam bahasa dengan huruf yang masih menarik saat terpotong. · **Jangan pakai bila:** kata panjang (menjadi tak terbaca saat terpotong).
 - **Remix (anti-jiplak):**
   1. Video 9:16 → pertahankan kata melewati tepi · ganti baseline ke tepi atas, kata terpotong di atas.
@@ -87,7 +87,7 @@ Grotesk neo Regular (paling mirip Suisse Int'l / Inter Display), tanpa bold; pen
   - Gerak: angka baru masuk dari kanan `translateX(120px)`→0 `CURVE.land` 8 f; angka lama opacity 1→0,35 dalam 6 f lalu tetap.
   - Ruang: datar.
   - Blur & blend: motion blur horizontal pada angka masuk (`<CameraMotionBlur shutterAngle={200} samples={16}>`).
-- **SFX:** satu `pop up.mp3` di angka pertama, sisanya senyap; atau `Notif.mp3` di angka terakhir yang paling besar.
+- **SFX:** famili `ui` · satu `pop up.mp3` di angka pertama, sisanya senyap; atau `Notif.mp3` di angka terakhir yang paling besar.
 - **Pakai bila:** ada deretan nilai yang makin buruk atau makin besar. · **Jangan pakai bila:** nilai tidak bergerak monoton.
 - **Remix (anti-jiplak):**
   1. Penghematan waktu → pertahankan penumpukan angka lama memudar · ganti negatif dengan jam yang bertambah.
@@ -104,7 +104,7 @@ Grotesk neo Regular (paling mirip Suisse Int'l / Inter Display), tanpa bold; pen
   - Gerak: hard cut di frame kata; judul masuk per kata `CURVE.reveal` 8 f dengan jeda `react()`; orb scale 0→1 `CURVE.land`.
   - Ruang: datar; kartu foto 96×94 %.
   - Blur & blend: lanskap tajam di adegan judul; orb dengan `backdrop-filter: blur(12px)`.
-- **SFX:** satu bunyi ding/denting kaca untuk pivot (`Lasertransision.mp3`, ting penutup transisi halus); musik berhenti sesaat 0,3–0,6 dtk sebelum pivot (pengamatan: jeda di 2,4; 5,3; 7,35; 9,95; 61,15 dtk).
+- **SFX:** famili `stab`, `ui` · satu bunyi ding/denting kaca untuk pivot (`Lasertransision.mp3`, ting penutup transisi halus); musik berhenti sesaat 0,3–0,6 dtk sebelum pivot (pengamatan: jeda di 2,4; 5,3; 7,35; 9,95; 61,15 dtk).
 - **Pakai bila:** ada kalimat pembalik yang jelas. · **Jangan pakai bila:** solusi tidak punya dunia visual sendiri.
 - **Remix (anti-jiplak):**
   1. Brand makanan → pertahankan pergantian dunia di satu kata · ganti lanskap dengan foto meja dapur dalam kartu bersudut bulat.
@@ -121,7 +121,7 @@ Grotesk neo Regular (paling mirip Suisse Int'l / Inter Display), tanpa bold; pen
   - Gerak: push `CURVE.heavy` 1,00→1,12 selama 30–45 f; pan tabel 0→−50 % lebar panel `CURVE.drift` 50 f; kartu UI masuk dari kanan `CURVE.land` 10 f; kursor `arc()` ke toggle lalu klik (scale 1→0,9→1 dalam 4 f).
   - Ruang: datar dengan kamera virtual; kedalaman dari blur dan bayangan.
   - Blur & blend: lanskap `blur(18px)`; kursor tajam di depan.
-- **SFX:** `Enter.mp3` pada klik toggle; `pop up.mp3` pada kartu muncul; `Wooshcameramovementtransisi.mp3` hanya pada pan besar; riser `ES_Designed, Riser, Transition, Fast, Short, Clean 01` sebelum adegan chat (pengamatan 1:00,4).
+- **SFX:** famili `air`, `riser`, `mekanik`, `ui` · `Enter.mp3` pada klik toggle; `pop up.mp3` pada kartu muncul; whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) hanya pada pan besar; riser `ES_Designed, Riser, Transition, Fast, Short, Clean 01` sebelum adegan chat (pengamatan 1:00,4).
 - **Pakai bila:** UI bersih dengan sedikit elemen per adegan. · **Jangan pakai bila:** UI padat teks kecil yang tak terbaca saat diperbesar.
 - **Remix (anti-jiplak):**
   1. Aplikasi kasir UMKM → pertahankan kartu kaca di atas foto buram · ganti lanskap dengan foto etalase toko buram.

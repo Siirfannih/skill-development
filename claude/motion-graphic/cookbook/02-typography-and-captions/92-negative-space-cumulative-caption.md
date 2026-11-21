@@ -60,7 +60,7 @@ Kata muncul pada atau 0–0,3 dtk sebelum diucapkan (resolusi strip 0,17 dtk), b
 - **Kenapa bekerja:** satu kata menutup frame = satu ide; slot berpindah memberi arah baca tanpa animasi; potongan tekstur menjadi ketukan visual.
 - **Mekanik Remotion (titik awal):**
   - Lapisan: hitam → potongan tekstur (`clip-path: inset()` balok sempit) → kata. Gerak: kata ganti per 4–6 f hard cut, digit per 3 f; kata terakhir `scale` 1,0→1,1 `CURVE.land` 8 f; balok berpindah sisi di frame yang sama. Ruang datar, tanpa blur.
-- **SFX:** `Katapertama.mp3` di kata pertama; sisa senyap atau satu `Kinetictypography(gunakansecaraacak).mp3` di digit terakhir.
+- **SFX:** famili `glitch`, `ui` · `Katapertama.mp3` di kata pertama; sisa senyap atau satu `Kinetictypography(gunakansecaraacak).mp3` di digit terakhir.
 - **Pakai bila:** judul pendek 4–6 kata dengan satu angka kunci · **Jangan pakai bila:** judul berisi kalimat panjang.
 - **Remix (anti-jiplak):**
   1. "Tahun ini aku mulai jualan" → tahun besar dengan potongan foto produk.
@@ -73,7 +73,7 @@ Kata muncul pada atau 0–0,3 dtk sebelum diucapkan (resolusi strip 0,17 dtk), b
 - **Kenapa bekerja:** ruang hitam memberi tekanan; pembesaran = perhatian mendekat.
 - **Mekanik Remotion (titik awal):**
   - Lapisan: hitam → foto (`scale` 0,28→1,0) → caption (tidak ikut scale). Gerak: hold 12–14 f, scale `CURVE.heavy` 6–8 f, motion blur ringan.
-- **SFX:** `pop up.mp3` saat inset muncul atau `Woosh.mp3` saat membesar, pilih satu.
+- **SFX:** famili `air`, `ui` · `pop up.mp3` saat inset muncul atau `Woosh.mp3` saat membesar, pilih satu.
 - **Pakai bila:** foto lama dengan wajah di tengah · **Jangan pakai bila:** foto tanpa subjek jelas.
 - **Remix (anti-jiplak):**
   1. Foto pendiri saat awal usaha → inset di hitam lalu penuh layar.
@@ -94,7 +94,7 @@ Kata muncul pada atau 0–0,3 dtk sebelum diucapkan (resolusi strip 0,17 dtk), b
 - **Yang terlihat (termasuk gerak):** cut dari wajah hangat ke halaman abu-terang hampir kosong; satu kutipan teks kecil bersorot biru fade in dalam ±0,5 dtk, zoom pelan ±8 % selama 3,5 dtk, fade out ke hitam, lalu "But one day" putih di hitam. (k7; 28,2–33,3 dtk)
 - **Kenapa bekerja:** kecil dan sunyi menandai "kata-kata asli"; menurunkan tempo sebelum tikungan.
 - **Mekanik Remotion (titik awal):** latar abu 94 % terang, teks 18–22 px skala 1080p dengan blok sorot biru `rgba(80,140,255,.45)`, `scale` 1,00→1,08 `CURVE.drift`, `opacity` in 12 f, out 8 f.
-- **SFX:** senyap atau `Lasertransision.mp3` bila ada ting penutup. **Pakai bila:** ada kutipan yang jujur · **Jangan pakai bila:** kutipan panjang lebih dari 2 baris.
+- **SFX:** famili `stab` · senyap atau `Lasertransision.mp3` bila ada ting penutup. **Pakai bila:** ada kutipan yang jujur · **Jangan pakai bila:** kutipan panjang lebih dari 2 baris.
 - **Remix:** 1. Ulasan pelanggan di halaman putih. 2. Pesan DM yang disorot. 3. 9:16 → teks di tengah halaman kosong, tiga baris.
 
 ### T6 · Literal Archive Cut Rhythm · camera
@@ -102,7 +102,7 @@ Kata muncul pada atau 0–0,3 dtk sebelum diucapkan (resolusi strip 0,17 dtk), b
 - **Yang terlihat (termasuk gerak):** tiap frasa VO mendapat gambar harfiah (anak kecil untuk "kid", segel institusi untuk "visit MIT", parabola untuk "space", klip berita untuk "raised $375M"). Tanpa transisi; potongan keras, tiap ±1,0 dtk. (ikhtisar 36–58 dtk)
 - **Kenapa bekerja:** tiap kalimat punya bukti visual.
 - **Mekanik Remotion (titik awal):** `Sequence` per frasa, `Img`/`OffthreadVideo` `objectFit: cover`, potong di batas kata VO; tambah drift `scale` 1,00→1,04 pada foto diam.
-- **SFX:** `Pergantianfoto.mp3` atau `Cut.mp3` pada potongan penting saja; selebihnya musik.
+- **SFX:** famili `mekanik`, `glitch` · `Pergantianfoto.mp3` atau `Cut.mp3` pada potongan penting saja; selebihnya musik.
 - **Pakai bila:** arsip berlimpah · **Jangan pakai bila:** hanya satu atau dua foto.
 - **Remix:** 1. Profil UMKM dari foto produk. 2. Timeline kegagalan dengan screenshot. 3. 9:16 → foto vertikal, caption pindah atas↔bawah.
 

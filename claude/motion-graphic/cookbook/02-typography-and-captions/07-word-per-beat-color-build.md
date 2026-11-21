@@ -52,7 +52,7 @@ Grotesk sans bobot medium, `a` dua tingkat (≈ Inter Display Medium / Aeonik Me
   - Lapisan (bawah → atas): putih hangat → foto/shape kecil → kata raksasa.
   - Gerak: tiap kata `translateY(40px→0)` + `blur(8→0)` `CURVE.land` 8–12 f pada frame ketukan; di akhir kalimat seluruh grup `scale 1→0,15` `CURVE.heavy` ±147 f; kata berikut menyela dengan jarak kata yang rapat (jarak antar kata kecil, lihat Pengamatan).
   - Ruang: datar. Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>`; foto buram saat bergerak.
-- **SFX:** satu bunyi per kata raksasa bila kata itu dianggap objek (kiblat: pop tiap kata, 0,09 "What", 3,93 Mission); di repo ini kata KT biasanya senyap, jadi pilih `pop up.mp3` hanya pada 1–2 kata hero dan `Katapertama.mp3` pada kata pertama.
+- **SFX:** famili `glitch`, `ui` · satu bunyi per kata raksasa bila kata itu dianggap objek (kiblat: pop tiap kata, 0,09 "What", 3,93 Mission); di repo ini kata KT biasanya senyap, jadi pilih `pop up.mp3` hanya pada 1–2 kata hero dan `Katapertama.mp3` pada kata pertama.
 - **Pakai bila:** satu kalimat ≤ 6 kata dengan tempo ucapan jelas. · **Jangan pakai bila:** kalimat panjang atau kata sulit dibaca pada ukuran raksasa.
 - **Remix (anti-jiplak):**
   1. Promo kopi UMKM → pertahankan satu kata per ketukan, warna berbeda per kata · ganti grotesk menjadi serif, tinta cokelat, foto kecil menjadi biji kopi dan cangkir.
@@ -68,7 +68,7 @@ Grotesk sans bobot medium, `a` dua tingkat (≈ Inter Display Medium / Aeonik Me
   - Lapisan: putih → shape konsentris (3 tingkat warna, tanpa gradien) → kata di pusat.
   - Gerak: shape `scale 0,3→1` `CURVE.heavy` 20 f dengan jeda tidak rata `react(i, fps)`; kamera dorong `scale 1→2,6` `CURVE.heavy` ±210 f menembus shape; wipe shape = `scale 1→8` 6 f.
   - Ruang: datar (tanpa bayangan). Blur & blend: motion blur 200°/16 sampel pada dorong.
-- **SFX:** `pop up.mp3` pada kata hero; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` bila shape bergerak menuju cut (kiblat: reverse cymbal tepat di cut 33,47); kick di wipe (42,02): tidak ada kick di SFXIrfan (kick/hit pendek, tidak ada di SFXIrfan).
+- **SFX:** famili `riser`, `ui`, `impact` · `pop up.mp3` pada kata hero; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` bila shape bergerak menuju cut (kiblat: reverse cymbal tepat di cut 33,47); kick di wipe (42,02): tidak ada kick di SFXIrfan (kick/hit pendek, tidak ada di SFXIrfan).
 - **Pakai bila:** kata punya padanan bentuk sederhana. · **Jangan pakai bila:** konsep terlalu abstrak untuk digambar dengan bentuk datar.
 - **Remix (anti-jiplak):**
   1. Bank → pertahankan kata kecil di lubang shape · ganti cincin menjadi kotak bertingkat, palet biru-hijau.
@@ -84,7 +84,7 @@ Grotesk sans bobot medium, `a` dua tingkat (≈ Inter Display Medium / Aeonik Me
   - Lapisan: biru rata → daftar kata (posisi polar) → item aktif.
   - Gerak: seluruh daftar `rotate` pada pusat jauh di luar frame, 0→−35° `CURVE.drift` ±120 f; item aktif `scale 1→1,12` + opacity 1 sementara yang lain 0,55.
   - Ruang: datar. Blur & blend: `blur(1px)` pada item di tepi.
-- **SFX:** `ES_Designed, Riser, Transition, Fast, Short, Clean 01` (uplifter) di mulai putar; ketuk tonal di item aktif: `ES_User Interface, Click, Pops, Glass, UI, Pops`.
+- **SFX:** famili `riser`, `ui` · `ES_Designed, Riser, Transition, Fast, Short, Clean 01` (uplifter) di mulai putar; ketuk tonal di item aktif: `ES_User Interface, Click, Pops, Glass, UI, Pops`.
 - **Pakai bila:** 6–10 item. · **Jangan pakai bila:** daftar pendek ≤ 3.
 - **Remix (anti-jiplak):**
   1. Katalog layanan jasa → pertahankan roda berputar · ganti kata menjadi nama layanan, biru menjadi hijau.
@@ -101,7 +101,7 @@ Grotesk sans bobot medium, `a` dua tingkat (≈ Inter Display Medium / Aeonik Me
   - Gerak: tiap bagian `opacity 0→1` + `translateY(12px→0)` `CURVE.reveal` 10 f dengan jeda `react(i, fps)`; kamera dorong ke widget `scale 1→2,2` `CURVE.heavy` ±100 f.
   - Ruang: `rotateX(6deg) rotateY(-8deg)` `perspective: 1400px`.
   - Blur & blend: bubble belakang `blur(4px)`.
-- **SFX:** `pop up.mp3` tiap widget penting (bukan tiap elemen); `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju cut 33,47.
+- **SFX:** famili `riser`, `ui` · `pop up.mp3` tiap widget penting (bukan tiap elemen); `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju cut 33,47.
 - **Pakai bila:** UI asli atau tiruan lengkap. · **Jangan pakai bila:** UI terlalu kecil terbaca di ukuran video.
 - **Remix (anti-jiplak):**
   1. Aplikasi kasir → pertahankan UI lahir bertahap · ganti dashboard menjadi daftar pesanan.
@@ -117,7 +117,7 @@ Grotesk sans bobot medium, `a` dua tingkat (≈ Inter Display Medium / Aeonik Me
   - Lapisan: gradien → kartu → angka → maskot.
   - Gerak: `interpolate(frame, [0,45], [19,27])` dengan `CURVE.land`; kartu masuk berurutan `react(i, fps)`; maskot `scale 0→1` 10 f.
   - Ruang: datar. Blur & blend: bayangan lembut.
-- **SFX:** `ES_User Interface, Click, Pops, Glass, UI, Pops` saat angka mendarat; `Lasertransision.mp3` pada logo akhir (kiblat: ding di logo 63,6+).
+- **SFX:** famili `stab`, `ui` · `ES_User Interface, Click, Pops, Glass, UI, Pops` saat angka mendarat; `Lasertransision.mp3` pada logo akhir (kiblat: ding di logo 63,6+).
 - **Pakai bila:** 2–3 metrik dengan hasil positif. · **Jangan pakai bila:** angka belum terverifikasi.
 - **Remix (anti-jiplak):**
   1. Laporan bulanan toko → pertahankan angka berhitung di kartu · ganti persen menjadi jumlah pesanan.

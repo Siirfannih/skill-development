@@ -49,7 +49,7 @@ Sans grotesk bold italic tracking rapat (mirip Helvetica Neue Bold Italic / Inte
   - Gerak: tiap huruf `move(frame, start + i*1, 6, "land")` dari `translateY(50px) rotate(-6deg)` + `blur(10px)` ke 0; kata sambung ketik 1 huruf/f; sorot putih di atas huruf `mixBlendMode: "screen"` menyapu 8 f.
   - Ruang: datar atau `perspective: 900px` dengan `rotateX(8deg)` kecil.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` pada huruf; bayangan merah lembut `drop-shadow(0 8px 16px rgba(180,0,20,.35))`.
-- **SFX:** senyap per huruf dan per kata (KT); satu `Katapertama.mp3` pada kata pembuka video; sumber memakai whoosh/glitch di transisi (T3).
+- **SFX:** famili `glitch`, `air` · senyap per huruf dan per kata (KT); satu `Katapertama.mp3` pada kata pembuka video; sumber memakai whoosh/glitch di transisi (T3).
 - **Pakai bila:** kata kunci ≤ 10 huruf, latar terang polos, ruang atas kepala. · **Jangan pakai bila:** kata panjang berimbuhan (penonton menunggu huruf), latar gelap/berpola.
 - **Remix (anti-jiplak):**
   1. Latar gelap → gradien kata kunci putih ke perak, bayangan diganti glow; pertahankan masuk per huruf.
@@ -66,7 +66,7 @@ Sans grotesk bold italic tracking rapat (mirip Helvetica Neue Bold Italic / Inte
   - Gerak: kartu `scale 0.7 → 1.06 → 1` + `rotate(-12° → -7°)` `CURVE.land` 10 f dengan overshoot; glitch blok 3 f (10–14 kotak merah acak); ponsel slide dari kiri-bawah `CURVE.heavy` 12 f.
   - Ruang: `perspective: 1000px`, kartu `rotateY(±6deg)`.
   - Blur & blend: bayangan `drop-shadow(0 14px 22px rgba(190,0,25,.35))`.
-- **SFX:** `pop up.mp3` pada kartu pertama saja; kartu berikutnya senyap.
+- **SFX:** famili `ui` · `pop up.mp3` pada kartu pertama saja; kartu berikutnya senyap.
 - **Pakai bila:** foto berkualitas + bingkai solid. · **Jangan pakai bila:** foto buram.
 - **Remix (anti-jiplak):**
   1. UMKM → kartu produk bingkai warna brand, tag harga di pil.
@@ -82,7 +82,7 @@ Sans grotesk bold italic tracking rapat (mirip Helvetica Neue Bold Italic / Inte
   - Lapisan: footage + kata → garis cahaya → cincin halftone (SVG radial dot pattern) → glitch.
   - Gerak: cincin `scale 0.2 → 3` + `opacity 1 → 0` `CURVE.whip` 4–5 f; garis cahaya `translateY(100% → -100%)` `CURVE.heavy` 6 f; whip blur 4 f; zoom digital `scale 1 → 1.165` `CURVE.heavy` 36 f.
   - Ruang: datar. Blur & blend: `mixBlendMode: "screen"` pada cincin dan garis; negatif cyan lewat `filter: invert(1) hue-rotate(180deg)` 1–2 f.
-- **SFX:** `Wooshcameramovementtransisi.mp3` untuk tiap transisi cincin; `ES_User Interface, Glitch, Glitch Databend 04` untuk glitch 7,3 dtk; jarak whoosh ≥ 1 dtk (di sumber transisi 1,4 dan 3,0 dtk: ±1,6 dtk).
+- **SFX:** famili `air`, `glitch` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) untuk tiap transisi cincin; `ES_User Interface, Glitch, Glitch Databend 04` untuk glitch 7,3 dtk; jarak whoosh ≥ 1 dtk (di sumber transisi 1,4 dan 3,0 dtk: ±1,6 dtk).
 - **Pakai bila:** ≤ 3 transisi per 10 dtk. · **Jangan pakai bila:** kalimat panjang tanpa pergantian jelas.
 - **Remix (anti-jiplak):**
   1. Latar gelap → cincin putih halus.
@@ -99,7 +99,7 @@ Sans grotesk bold italic tracking rapat (mirip Helvetica Neue Bold Italic / Inte
   - Gerak: ponsel `translateY(30% → 0)` `CURVE.land` 12 f; teks ketik 1 huruf/f; rack focus `filter: blur(0 → 10px)` pada astronaut 10 f `CURVE.reveal`.
   - Ruang: `perspective: 1100px`, ponsel `rotateX(4deg)`.
   - Blur & blend: `mixBlendMode: "screen"` di glow merah.
-- **SFX:** `Keyboardtyping.mp3` dipotong sesuai panjang teks (alasan: teks diketik di UI); sisanya senyap.
+- **SFX:** famili `mekanik` · `Keyboardtyping.mp3` dipotong sesuai panjang teks (alasan: teks diketik di UI); sisanya senyap.
 - **Pakai bila:** ilustrasi satu subjek dengan ruang teks. · **Jangan pakai bila:** paragraf panjang.
 - **Remix (anti-jiplak):**
   1. UMKM → papan menu atau daftar harga di panel kaca.

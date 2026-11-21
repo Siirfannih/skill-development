@@ -67,7 +67,7 @@ Pengamatan: 60 perubahan adegan terdeteksi (`scene > 0,3`) dalam 110 dtk = **32,
   - Gerak: bentuk lewat `interpolate` path/scale; split memakai `clipPath` dengan tepi bergerak `CURVE.heavy` 18 f; halo = lingkaran lebih besar `scale 1→2,2` + opacity `CURVE.reveal` 20 f; satu perubahan benda per kalimat.
   - Ruang: datar; gerak kamera virtual halus `CURVE.drift` ±1,02× saat hold.
   - Blur & blend: halo `filter: blur(24px)`; benda dalam `mixBlendMode: "multiply"` di latar putih.
-- **SFX:** `pop up.mp3` hanya saat benda pertama muncul, `Lasertransision.mp3` saat benda berubah penting; sisanya senyap.
+- **SFX:** famili `stab`, `ui` · `pop up.mp3` hanya saat benda pertama muncul, `Lasertransision.mp3` saat benda berubah penting; sisanya senyap.
 - **Pakai bila:** klaim bisa digambar sebagai satu benda dengan dua sisi/skor. · **Jangan pakai bila:** klaim berupa kronologi atau tiga hal lebih.
 - **Remix (anti-jiplak):**
   1. "Followers naik tapi jualan tidak" → dua timbangan atau dua bilah terpisah di tengah, bukan otak.
@@ -83,7 +83,7 @@ Pengamatan: 60 perubahan adegan terdeteksi (`scene > 0,3`) dalam 110 dtk = **32,
   - Lapisan: latar → busur SVG (`stroke-dasharray`) → teks.
   - Gerak: `strokeDashoffset` dari panjang→0, ±24 f, `CURVE.heavy`; teks kecil mengetik mengikuti ucapan; kata besar `CURVE.land` 10 f; garis lanjut ±18 f `CURVE.whip` melewati tepi frame saat adegan berikutnya naik.
   - Ruang: datar. · Blur & blend: blur gerak horizontal tipis pada garis cepat.
-- **SFX:** `Scanning dan gerak kurva.mp3` (−10 dB) saat garis tergambar.
+- **SFX:** famili `glitch` · `Scanning dan gerak kurva.mp3` (−10 dB) saat garis tergambar.
 - **Pakai bila:** dua adegan berurutan bisa dihubungkan satu garis. · **Jangan pakai bila:** garis menutupi teks yang harus terbaca.
 - **Remix (anti-jiplak):**
   1. Alur pelanggan: garis dari ikon pesanan ke kata "dikirim" dengan sudut siku, bukan busur.
@@ -98,7 +98,7 @@ Pengamatan: 60 perubahan adegan terdeteksi (`scene > 0,3`) dalam 110 dtk = **32,
   - Lapisan: latar putih → gambar irisan (urutan 6–8 gambar) → batang hitam → teks.
   - Gerak: batang `translateY` −10 %→+110 %, ±60 f, `CURVE.wind`; irisan `Math.floor(frame/4)`; teks per kata sesuai VO.
   - Blur & blend: `<CameraMotionBlur>` pada batang.
-- **SFX:** `scaningfast.mp3` saat batang lewat.
+- **SFX:** famili `air` · whoosh/scan famili `air` tanpa desis (file SFXIrfan lama dilarang; `sfx_cari.py --famili air`) saat batang lewat.
 - **Pakai bila:** kata kerja pencarian/pemeriksaan di tengah kalimat. · **Jangan pakai bila:** kalimat yang tidak punya makna memindai (efek jadi hiasan).
 - **Remix (anti-jiplak):**
   1. "cek harga pesaing" → batang melewati daftar harga yang berganti.
@@ -113,7 +113,7 @@ Pengamatan: 60 perubahan adegan terdeteksi (`scene > 0,3`) dalam 110 dtk = **32,
   - Lapisan: biru → foto (bayangan lembut, `rotateZ` −4…+5°) → kata serif.
   - Gerak: foto `CURVE.land` 12 f dari `translateY(60px) scale(.95)`; jeda tidak rata `react()`; kamera virtual push 1,00→1,04.
   - Ruang: `perspective: 1200px` ringan.
-- **SFX:** `documenter.mp3` (dipotong) saat dokumen mendarat; `Pergantianfoto.mp3` per tumpukan foto.
+- **SFX:** famili `mekanik`, `taktil` · `documenter.mp3` (dipotong) saat dokumen mendarat; `Pergantianfoto.mp3` per tumpukan foto.
 - **Pakai bila:** ada aset bukti nyata. · **Jangan pakai bila:** foto tokoh tanpa izin pakai; pakai aset sendiri.
 - **Remix (anti-jiplak):**
   1. Tangkapan layar pesanan pelanggan sebagai tumpukan miring.

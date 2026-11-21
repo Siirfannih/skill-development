@@ -52,7 +52,7 @@ Sans grotesk bold tracking rapat (paling mirip Inter Display Bold / SF Pro Displ
   - Gerak: potong keras di frame kata (tanpa interpolate); shot median 0,71 dtk ≈ 21 frame @30 fps, hanya 8 dari 105 shot > 2 dtk. Sisipan kreator vertikal: kertas `#D8D6DB` sebagai alas, klip ±42 % lebar di tengah.
   - Ruang: datar; dokumen tilt 3–5° dengan blur tepi (`filter: blur()` di mask radial).
   - Blur & blend: tanpa motion blur; sisipan push 10–30 % memakai `<CameraMotionBlur shutterAngle={200} samples={16}>`.
-- **SFX:** pop pendek untuk kemunculan teks atau ikon bila berdiri sebagai objek penting (`pop up.mp3`); cut-nya sendiri `Cut.mp3` sesekali, bukan tiap cut (`../../guide/sfx/GUIDE.md`: maks 5 cue dalam 2 dtk).
+- **SFX:** famili `glitch`, `ui` · pop pendek untuk kemunculan teks atau ikon bila berdiri sebagai objek penting (`pop up.mp3`); cut-nya sendiri `Cut.mp3` sesekali, bukan tiap cut (`../../guide/sfx/GUIDE.md`: maks 5 cue dalam 2 dtk).
 - **Pakai bila:** ada arsip atau aset per klaim dan VO padat. · **Jangan pakai bila:** bahan visual tak tersedia (potongan tanpa padanan terasa acak).
 - **Remix (anti-jiplak):**
   1. Esai teknologi dengan talking head 9:16 → pertahankan potong ke sisipan per kata kunci · ganti arsip dengan tangkapan artikel dan UI.
@@ -69,7 +69,7 @@ Sans grotesk bold tracking rapat (paling mirip Inter Display Bold / SF Pro Displ
   - Gerak: per kata `move(frame, start + i*2, 3, "reveal")` dengan `translateY(12px)`→0; keluar terpotong cut.
   - Ruang: datar.
   - Blur & blend: tanpa blend mode; tanpa bayangan terukur.
-- **SFX:** senyap per kata (KT per kata senyap); `Katapertama.mp3` hanya di kata pembuka video.
+- **SFX:** famili `glitch` · senyap per kata (KT per kata senyap); `Katapertama.mp3` hanya di kata pembuka video.
 - **Pakai bila:** presenter dengan dada kosong di bawah dagu. · **Jangan pakai bila:** baju bermotif atau frame wajah memenuhi dada.
 - **Remix (anti-jiplak):**
   1. Presenter berdiri 9:16 → pertahankan kata kunci di dada + dua kata sambung kecil mengapit di atas · ganti font ke display ringan dan warna ke aksen brand.
@@ -86,7 +86,7 @@ Sans grotesk bold tracking rapat (paling mirip Inter Display Bold / SF Pro Displ
   - Gerak: angka `scale` 1,06→1,0 `CURVE.land` 10 f; lukisan di dalam angka drift pelan 1–2 %.
   - Ruang: dua lapis datar (lukisan di belakang, lukisan di dalam angka).
   - Blur & blend: tanpa blend; kontras isi vs luar lewat grade (isi krem terang, luar biru).
-- **SFX:** `basmenyebar.mp3` bila kartu tahun menjadi puncak babak (kosakata kiblat: sub-bass drop di kartu besar); `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` sebagai alternatif.
+- **SFX:** famili `impact` · `basmenyebar.mp3` bila kartu tahun menjadi puncak babak (kosakata kiblat: sub-bass drop di kartu besar); `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` sebagai alternatif.
 - **Pakai bila:** ada gambar besar yang bermakna untuk tahun/zaman itu. · **Jangan pakai bila:** gambar tak punya area terang yang bisa terbaca di dalam huruf.
 - **Remix (anti-jiplak):**
   1. Roadmap produk → pertahankan angka berisi gambar · ganti lukisan dengan tangkapan layar versi produk.
@@ -103,7 +103,7 @@ Sans grotesk bold tracking rapat (paling mirip Inter Display Bold / SF Pro Displ
   - Gerak: sorot menyapu kalimat `clipPath: inset()` 0→100 % `CURVE.reveal` 14 f; panah digambar `stroke-dashoffset` 10 f.
   - Ruang: halaman `rotateX(8deg) rotateZ(-3deg)` dengan `perspective: 1200px`.
   - Blur & blend: blur tepi halaman 6–10 px lewat mask; `multiply` untuk sorot.
-- **SFX:** `documenter.mp3` (dipotong ±0,5 dtk) saat dokumen mendarat; sorot dan panah senyap.
+- **SFX:** famili `taktil` · `documenter.mp3` (dipotong ±0,5 dtk) saat dokumen mendarat; sorot dan panah senyap.
 - **Pakai bila:** ada dokumen atau potret yang bisa dipotret miring. · **Jangan pakai bila:** dokumen terlalu padat teks untuk dibaca dalam < 1 dtk.
 - **Remix (anti-jiplak):**
   1. Laporan keuangan → pertahankan sorot yang menyapu satu kalimat · ganti halaman artikel dengan tabel dan sorot kuning.

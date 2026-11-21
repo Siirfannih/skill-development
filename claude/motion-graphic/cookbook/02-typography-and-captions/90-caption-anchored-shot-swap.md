@@ -50,7 +50,7 @@ Scene-detect 0,3: 20 kelompok potong dalam 35,6 dtk (±34 per menit, median 1,4 
   - Gerak: caption tidak bergerak; kata berganti per kata dari transkrip (`start` dari timestamp kata, bukan interval tetap). Gambar berganti dengan potongan keras; tiap shot 18–45 frame @30 fps, panjangnya ikut frasa.
   - Ruang: datar. Boleh punch-in 1,00→1,05 per shot dengan `CURVE.drift` agar tiap shot tidak mati.
   - Blur & blend: tanpa efek pada caption; transisi antar shot hanya potong (kecuali T4).
-- **SFX:** caption senyap (aturan KT per kata, `../../guide/sfx/GUIDE.md`); potongan kontras gelap↔terang bisa `Cutcontrastransision.mp3` (0,3 dtk), jangan satu bunyi per shot.
+- **SFX:** famili `mekanik` · caption senyap (aturan KT per kata, `../../guide/sfx/GUIDE.md`); potongan kontras gelap↔terang bisa `Cutcontrastransision.mp3` (0,3 dtk), jangan satu bunyi per shot.
 - **Pakai bila:** tiap kalimat punya bayangan visual yang bisa diambil dari stok sendiri, ruang tengah frame gelap atau bisa digelapkan. · **Jangan pakai bila:** shot b-roll tidak ada hubungannya dengan kalimat (jadi sekadar kilat), pembicara harus tetap terlihat wajahnya.
 - **Remix (anti-jiplak):**
   1. Tips UMKM ("foto produk pakai cahaya jendela") → caption diam di atas foto produk sendiri yang berganti; ganti kuning ke aksen brand.
@@ -67,7 +67,7 @@ Scene-detect 0,3: 20 kelompok potong dalam 35,6 dtk (±34 per menit, median 1,4 
   - Gerak: kata urutan `scale` 1,0→0,35 dan `translateY` ke atas kata kunci dalam 8–10 f, kurva `CURVE.heavy`; masuk dari `blur(10px)` ke 0 dalam 4 f `CURVE.land`; kata kunci menyusul 4–6 f, `CURVE.reveal`, dengan `drop-shadow` kuning yang turun dalam 8 f.
   - Ruang: datar.
   - Blur & blend: blur gerak hanya di kata urutan; kata kunci tajam.
-- **SFX:** satu `Katapertama.mp3` di kata urutan pertama saja; "Next" dan "And lastly" senyap atau `Kinetictypography(gunakansecaraacak).mp3` sesekali. Tidak berbunyi per kata.
+- **SFX:** famili `glitch`, `ui` · satu `Katapertama.mp3` di kata urutan pertama saja; "Next" dan "And lastly" senyap atau `Kinetictypography(gunakansecaraacak).mp3` sesekali. Tidak berbunyi per kata.
 - **Pakai bila:** 3–5 poin, satu kalimat per poin. · **Jangan pakai bila:** poin lebih dari lima, kata urutan berupa frasa.
 - **Remix (anti-jiplak):**
   1. "Langkah 1/2/3" proposal UMKM → angka besar mengecil jadi nomor kecil di atas kata kerja; latar berganti tiap langkah.
@@ -82,7 +82,7 @@ Scene-detect 0,3: 20 kelompok potong dalam 35,6 dtk (±34 per menit, median 1,4 
 - **Mekanik Remotion (titik awal):**
   - Lapisan: shot → latar hitam → kartu (`borderRadius` 40–60 px, `overflow:hidden`) → ikon + kursor SVG.
   - Gerak: shot menyusut `scale` 1→0,45 dalam 10 f `CURVE.heavy`; kursor `arc()` ke ikon 10 f; klik `scale` 1→0,85→1,15 dalam 6 f; melebar 10 f `CURVE.whip`. Ruang datar; blur gerak kecil saat melebar.
-- **SFX:** `Enter.mp3` di klik, `pop up.mp3` saat ikon muncul; jangan dua bunyi < 100 ms. (belum dibedah di video asli)
+- **SFX:** famili `mekanik`, `ui` · `Enter.mp3` di klik, `pop up.mp3` saat ikon muncul; jangan dua bunyi < 100 ms. (belum dibedah di video asli)
 - **Pakai bila:** CTA berupa tombol UI (simpan, bagikan, komen). · **Jangan pakai bila:** CTA bukan tombol (WhatsApp, link bio).
 - **Remix (anti-jiplak):**
   1. "Simpan buat nanti" → bookmark menjadi kartu menu produk yang tersimpan, kursor ke kartu.
@@ -95,7 +95,7 @@ Scene-detect 0,3: 20 kelompok potong dalam 35,6 dtk (±34 per menit, median 1,4 
 - **Yang terlihat (termasuk gerak):** di "Change" gambar hilang ke hitam, lalu kolase foto ungu bermirror berputar dengan blur gerak dan bocor oranye menyapu; caption tetap di titik yang sama; potong keras ke siluet berlampu putih lalu foto terang. (k6; 10,2–12,2 dtk)
 - **Kenapa bekerja:** caption tidak ikut transisi, jadi menjadi jangkar; warna ungu-oranye beda total dari A-roll.
 - **Mekanik Remotion (titik awal):** 3–4 `<Img>` `scaleX(-1)` bergantian, `rotate` ±15°, `translateX` berlawanan, `<CameraMotionBlur shutterAngle={200} samples={16}>`; bocor = gradien oranye `mixBlendMode: "screen"` menyapu 8–10 f; caption di lapis terpisah.
-- **SFX:** `Wooshcameramovementtransisi.mp3` di sapuan; belum dibedah di video asli.
+- **SFX:** famili `air` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) di sapuan; belum dibedah di video asli.
 - **Pakai bila:** kalimat tentang perubahan dan ada foto bernuansa warna lain. · **Jangan pakai bila:** caption berisi informasi yang harus dibaca saat kolase.
 - **Remix:** 1. "Sebelum/sesudah" produk → kolase foto sebelum/sesudah bermirror. 2. UI → potongan layar bermirror. 3. Latar terang → kolase pastel, bocor putih.
 - *Pengamatan:* ±1,2 dtk; ±8 deteksi scene berturut-turut di 11,0–11,6 dtk.

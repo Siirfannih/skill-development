@@ -54,7 +54,7 @@ alias: []
   - Gerak: letupan 4–6 f total (`CURVE.whip` untuk skala garis 1→2,5); warna terbalik `filter: invert(1) hue-rotate(...)` bertahap 4 f; cut dunia di frame ke-2/3 dari letupan.
   - Ruang: datar atau radial dari titik tengah.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>`; kilat `mixBlendMode: "screen"`.
-- **SFX:** `Wooshcameramovementtransisi.mp3` atau `ES_Swooshes, Whoosh, Big, Cinematic` di letupan; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` (riser terbalik) sebelum kata terakhir; `documenter.mp3` untuk sobekan kertas; hit pendek tidak ada di SFXIrfan.
+- **SFX:** famili `air`, `riser`, `taktil` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) atau `ES_Swooshes, Whoosh, Big, Cinematic` di letupan; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` (riser terbalik) sebelum kata terakhir; `documenter.mp3` untuk sobekan kertas; hit pendek tidak ada di SFXIrfan.
 - **Pakai bila:** ada objek jangkar di tengah yang tetap lintas dunia. · **Jangan pakai bila:** pergantian terpicu kata (VO) bukan musik.
 - **Remix (anti-jiplak):**
   1. Promo produk UMKM → pertahankan objek jangkar di tengah, warna terbalik · ganti payung dengan produk, letupan dengan warna merek.
@@ -71,7 +71,7 @@ alias: []
   - Gerak: "Real" `translateX` 100 %→0 8–12 f `CURVE.land` dengan motion blur horizontal; "projects" kembali kecil dengan `scale` 14→1 6 f `CURVE.whip`; kedip: `Math.floor(frame/2) % 6` memilih variasi.
   - Ruang: datar.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>`; blur horizontal untuk smear.
-- **SFX:** `Wooshcameramovementtransisi.mp3` pada "Real" masuk; senyap per kata untuk "Building" dan "projects" (kata KT per kata senyap).
+- **SFX:** famili `air` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) pada "Real" masuk; senyap per kata untuk "Building" dan "projects" (kata KT per kata senyap).
 - **Pakai bila:** satu kata inti yang tepat memenuhi lebar frame. · **Jangan pakai bila:** kata panjang (> 6 huruf akan terpotong tidak terbaca).
 - **Remix (anti-jiplak):**
   1. Penutup iklan jasa → pertahankan lompatan 6 % → 85 % · ganti magenta ke warna merek, kata "Real" ke kata inti produk.
@@ -88,7 +88,7 @@ alias: []
   - Gerak: payung `translateY` naik pelan + `rotate` ±3° `CURVE.drift`; teks masuk huruf mengecil sekaligus `scale` 1,2→1 8 f `CURVE.reveal`.
   - Ruang: dua lapis dengan parallax 0,95×/1,05×.
   - Blur & blend: bloom matahari `mixBlendMode: "screen"`.
-- **SFX:** `Woosh.mp3` pada payung masuk; kata senyap.
+- **SFX:** famili `air` · `Woosh.mp3` pada payung masuk; kata senyap.
 - **Pakai bila:** objek dengan siluet jelas (cutout bersih). · **Jangan pakai bila:** objek menutup lebih dari ±20 % huruf (kata tidak terbaca).
 - **Remix (anti-jiplak):**
   1. Promo produk → pertahankan teks di belakang objek · ganti payung dengan botol, langit dengan latar polos krem.
@@ -105,7 +105,7 @@ alias: []
   - Gerak: kamera virtual (grup) `rotateZ` ±28–50° + `scale` 0,5–1,6 `CURVE.heavy` sepanjang shot (2–3 dtk di awal, 1–1,7 dtk di tengah); atau Three.js dengan DOF.
   - Ruang: `perspective: 1200px`; objek di `translateZ` berbeda untuk paralaks.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>`; DOF dengan `filter: blur()` per lapis.
-- **SFX:** `Woosh.mp3` untuk gerak sedang; `pop up.mp3` pada bubble komentar muncul; `documenter.mp3` untuk kertas folder; satu bunyi per peran.
+- **SFX:** famili `air`, `taktil`, `ui` · `Woosh.mp3` untuk gerak sedang; `pop up.mp3` pada bubble komentar muncul; `documenter.mp3` untuk kertas folder; satu bunyi per peran.
 - **Pakai bila:** aset 3D atau kolase berlapis yang memungkinkan paralaks. · **Jangan pakai bila:** hanya aset datar tanpa kedalaman.
 - **Remix (anti-jiplak):**
   1. Aset foto produk berlapis (cutout) → pertahankan kamera virtual memutar dan masuk · ganti meja ungu dengan meja kayu, DOF dari blur lapis depan.
@@ -122,7 +122,7 @@ alias: []
   - Gerak: tinggi bar `interpolate` 25→158 px `CURVE.heavy` 15 f; keluar 0 `CURVE.leave` 12 f; teks diketik 1–2 f per huruf.
   - Ruang: datar.
   - Blur & blend: tanpa blur.
-- **SFX:** `Keyboardtyping.mp3` untuk pengetikan (potong sesuai panjang); `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` di titik puncak; `Enter.mp3` saat kursor menekan tombol.
+- **SFX:** famili `impact`, `mekanik` · `Keyboardtyping.mp3` untuk pengetikan (potong sesuai panjang); `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` di titik puncak; `Enter.mp3` saat kursor menekan tombol.
 - **Pakai bila:** satu momen klimaks di tengah video. · **Jangan pakai bila:** dipakai berkali-kali (kehilangan daya).
 - **Remix (anti-jiplak):**
   1. Peluncuran toko online → pertahankan bar melebar saat tombol dipencet · ganti Publish dengan "Buka Toko".
@@ -139,7 +139,7 @@ alias: []
   - Gerak: kursor `translate` dari luar frame 10 f `CURVE.land`, tekan `scale` 1→0,92→1 4 f; objek yang ditekan `translateZ` −20 px 4 f; catatan tempel melayang `translateY` ±8 px `CURVE.drift`.
   - Ruang: `perspective: 1000px`, kursor di `translateZ` depan.
   - Blur & blend: bayangan kursor di tombol; bloom putih di huruf balon.
-- **SFX:** `Enter.mp3` saat kursor menekan; `pop up.mp3` untuk bubble komentar; `documenter.mp3` untuk catatan tempel muncul.
+- **SFX:** famili `taktil`, `mekanik`, `ui` · `Enter.mp3` saat kursor menekan; `pop up.mp3` untuk bubble komentar; `documenter.mp3` untuk catatan tempel muncul.
 - **Pakai bila:** ada tombol atau objek yang jelas "ditekan". · **Jangan pakai bila:** UI asli (kursor bawaan lebih meyakinkan).
 - **Remix (anti-jiplak):**
   1. Promo toko → pertahankan kursor besar menekan tombol · ganti "Publish" dengan "Beli", warna ke merek.

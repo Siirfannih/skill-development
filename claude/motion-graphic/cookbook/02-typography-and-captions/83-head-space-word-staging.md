@@ -47,7 +47,7 @@ Sans geometris membulat huruf kecil untuk narasi; condensed tebal kapital untuk 
   - Lapisan (bawah → atas): latar → busur belakang → matte pembicara (`persepsi.py`, RVM) → busur depan. Datar.
   - Gerak: kata di jalur elips berpusat di kepala (ikut bila kepala bergerak), masuk di onset ucapan lalu digeser di jalur ±15 f @30 `CURVE.land`; keluar: exposure latar + pembicara turun 2 f, flash di lapisan teks, potong.
   - Blur & blend: glow aksen `drop-shadow(0 0 16px)`; flash `mixBlendMode: "screen"`.
-- **SFX:** kata senyap (KT); `Woosh.mp3` pada keluar bila ada ledakan cahaya.
+- **SFX:** famili `air` · kata senyap (KT); `Woosh.mp3` pada keluar bila ada ledakan cahaya.
 - **Pakai bila:** ruang gelap atas/samping kepala, matte bersih. · **Jangan pakai bila:** ruang atas sempit atau ramai, latar terang, kepala kecil di frame lebar, kalimat panjang.
 - **Remix (anti-jiplak):**
   1. Latar terang → pertahankan jalur melengkung + masuk per kata · ganti huruf putih glow dengan huruf gelap atau merah tua tanpa glow.
@@ -62,7 +62,7 @@ Sans geometris membulat huruf kecil untuk narasi; condensed tebal kapital untuk 
   - Lapisan: footage → tangga tag (satu komponen: radius penuh, isi gelap, tepi tipis lebih terang, huruf putih) → pil klimaks. Datar; tanpa matte bila tangga tidak menyeberang kepala.
   - Gerak: tag turun `translateY(-20px→0)` 6 f `CURVE.land`, jeda `react(i, 30)`; klimaks `scale 0,6→1,12→1` dengan overshoot ±3-8 f; geser panel `CURVE.whip` 10 f.
   - Blur & blend: tanpa blur; bevel pil dengan gradien + `box-shadow` dalam.
-- **SFX:** senyap per tag; satu `pop up.mp3` pada pil klimaks bila itu puncak.
+- **SFX:** famili `ui` · senyap per tag; satu `pop up.mp3` pada pil klimaks bila itu puncak.
 - **Pakai bila:** ruang kosong gelap di samping wajah, 4-5 kata. · **Jangan pakai bila:** latar terang atau berpola (tag kaca/semi-transparan hilang di dinding terang), kalimat panjang, samping wajah dipakai gestur tangan.
 - **Remix (anti-jiplak):**
   1. Latar terang → pertahankan tangga + klimaks · isi tag solid gelap (bukan kaca) atau tag putih solid huruf gelap.
@@ -77,7 +77,7 @@ Sans geometris membulat huruf kecil untuk narasi; condensed tebal kapital untuk 
   - Lapisan (bawah → atas): latar (kontrol exposure/warna sendiri) → slab → matte pembicara → teks depan bila ada. Datar atau 2,5D ringan; slab 35-55 % tinggi frame.
   - Gerak: (a) latar ke hitam pada frame onset (potong), huruf menyala bergiliran 2 f per huruf dengan glow, lalu ganti ke material 3D; (b) pengantar diposisikan dari kotak slab (`measureText`, `@remotion/layout-utils`), slab 4 f kemudian, gelombang `translateY` per huruf berfase ±15 f; (c) kata per kata di onset.
   - Blur & blend: glow neon `mixBlendMode: "screen"`; regrade hanya pada lapisan latar.
-- **SFX:** `basmenyebar.mp3` hanya bila slab puncak; huruf neon senyap.
+- **SFX:** famili `impact` · `basmenyebar.mp3` hanya bila slab puncak; huruf neon senyap.
 - **Pakai bila:** kepala cukup besar, ruang kosong kiri-kanan, matte bersih. · **Jangan pakai bila:** tanpa matte atau rambut kacau; kata terlalu panjang (bagian tertutup kepala membuatnya tak terbaca); kepala di tepi frame; pengantar tidak bisa menempel di sudut slab (terbaca dua hal terpisah).
 - **Remix (anti-jiplak):**
   1. Latar terang/ruang tak bisa digelapkan → pertahankan slab di belakang kepala · warna gelap atau varian (b) tanpa penggelapan, atau slab warna layar penuh (kartu 85, T1).

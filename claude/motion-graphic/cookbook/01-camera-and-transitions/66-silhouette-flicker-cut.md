@@ -48,7 +48,7 @@ Hanya judul pembuka: "A RANDOM WALK" putih + "IN KAOHSIUNG" kuning `#D1AD4F`, sa
   - Lapisan (bawah → atas): footage → siluet (matte subjek dari `persepsi.py`/RVM, diisi `#F4EFEB`, `opacity` 0/1 per 2 f) → (bila varian) orang asli bertepi putih.
   - Gerak: `Math.floor(frame/2)%2` mengatur nyala; 4–5 kedipan; tanpa easing (kedip biner). Varian transparan: opasitas 0,6.
   - Ruang: datar. Blur & blend: tanpa blur, glow, atau bayangan; tepi siluet tajam.
-- **SFX:** rentetan tik tiap 0,04–0,08 dtk selama kedip (12 event): `Pergantianfoto.mp3` (rentetan klik; potong sepanjang kedip), bukan satu bunyi per kedip; `Cutcontrastransision.mp3` untuk klik tunggal.
+- **SFX:** famili `mekanik` · rentetan tik tiap 0,04–0,08 dtk selama kedip (12 event): `Pergantianfoto.mp3` (rentetan klik; potong sepanjang kedip), bukan satu bunyi per kedip; `Cutcontrastransision.mp3` untuk klik tunggal.
 - **Pakai bila:** subjek tunggal terpisah dari latar, matte bersih. · **Jangan pakai bila:** banyak orang tumpang tindih, matte kasar.
 - **Remix (anti-jiplak):**
   1. Produk di atas meja (botol, sepatu) → pertahankan kedip 2/2 siluet · ganti isi siluet warna merek, bukan krem.
@@ -64,7 +64,7 @@ Hanya judul pembuka: "A RANDOM WALK" putih + "IN KAOHSIUNG" kuning `#D1AD4F`, sa
   - Lapisan: shot A → shot B → lapisan putih `#F4EFEB` di atas.
   - Gerak: opasitas 0→1 tepat di frame cut lalu 1→0 dalam 1–3 f (`CURVE.leave`); cut di beat (±0,44 dtk).
   - Blur & blend: bisa `filter: brightness(2.2)` pada shot B selama 3 f sebagai varian overexpose.
-- **SFX:** `Cut.mp3` atau `Cutcontrastransision.mp3` di frame kilat (shutter/camera shot); satu peran = satu bunyi.
+- **SFX:** famili `glitch`, `mekanik` · `Cut.mp3` atau `Cutcontrastransision.mp3` di frame kilat (shutter/camera shot); satu peran = satu bunyi.
 - **Pakai bila:** shot tegas dan pendek. · **Jangan pakai bila:** konten tenang; kilat di setiap cut (tinggal pada cut kunci).
 - **Remix (anti-jiplak):**
   1. Reel produk → pertahankan kilat 1 f di cut · ganti warna kilat jadi putih dingin.
@@ -79,7 +79,7 @@ Hanya judul pembuka: "A RANDOM WALK" putih + "IN KAOHSIUNG" kuning `#D1AD4F`, sa
   - Lapisan: shot lama (latar) → matte subjek shot baru, diposisikan di tempat ia berada di shot baru → shot baru menggantikan latar di frame ke-5.
   - Gerak: matte subjek baru masuk potong keras 5 f; tanpa easing; tepi putih 3–4 px bila ingin varian bertepi.
   - Ruang: datar.
-- **SFX:** klik tunggal (`Cutcontrastransision.mp3`, label tutorial "click"), tidak bertumpuk dengan kilat.
+- **SFX:** famili `mekanik` · klik tunggal (`Cutcontrastransision.mp3`, label tutorial "click"), tidak bertumpuk dengan kilat.
 - **Pakai bila:** shot baru punya subjek jelas yang bisa di-cut-out. · **Jangan pakai bila:** subjek baru terpotong tepi.
 - **Remix (anti-jiplak):**
   1. Unboxing → pertahankan subjek-muncul-dulu · ganti subjek jadi produk di tangan.

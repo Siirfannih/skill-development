@@ -55,7 +55,7 @@ alias: []
   - Gerak: tiap kata `translate` sepanjang `<textPath>` SVG dari jalur lengkung (atas bola atau kontur kepala), kata masuk dari `scale` 0,6→1 + `opacity` 0→1 dalam 5–6 f `CURVE.land`; jeda 3–4 f antar kata; kata kuning tinggal lebih lama.
   - Ruang: datar; kedalaman dari urutan lapis.
   - Blur & blend: glow tepi (`filter: drop-shadow(0 0 16px rgba(255,255,255,.6))`); `<CameraMotionBlur>` hanya bila teks bergerak cepat.
-- **SFX:** senyap per kata (KT per kata senyap, `../../guide/sfx/GUIDE.md`); kiblat memberi pop pada kata dan sub-drop di ganti adegan, tidak diambil.
+- **SFX:** famili `impact`, `ui` · senyap per kata (KT per kata senyap, `../../guide/sfx/GUIDE.md`); kiblat memberi pop pada kata dan sub-drop di ganti adegan, tidak diambil.
 - **Pakai bila:** subjek yang membulat atau kontur jelas dengan ruang kosong di tepinya. · **Jangan pakai bila:** kalimat panjang (lengkungan membuat teks sulit dibaca) atau kontur yang ramai.
 - **Remix (anti-jiplak):**
   1. Foto produk bulat (cangkir, jam) → pertahankan kata melengkung di busur atas · ganti bola fisheye jadi produk, glow jadi bayangan lunak.
@@ -72,7 +72,7 @@ alias: []
   - Gerak: tiap elemen pop `scale` 0,8→1 `CURVE.land` 6 f dengan stagger 2–3 f; kolase `rotate` ±6–10°; ganti adegan dengan cut keras tiap 15–30 f.
   - Ruang: datar atau parallax kecil antar lapis.
   - Blur & blend: speed-line `mixBlendMode: "multiply"` di bidang kuning; motion blur pada whip antar adegan.
-- **SFX:** `Cut.mp3` atau `Variasitransisiataucut.mp3` di pergantian adegan; `basmenyebar.mp3` hanya sekali bila ada puncak; pop satu per objek penting.
+- **SFX:** famili `ui`, `glitch`, `impact` · `Cut.mp3` atau `Variasitransisiataucut.mp3` di pergantian adegan; `basmenyebar.mp3` hanya sekali bila ada puncak; pop satu per objek penting.
 - **Pakai bila:** tutorial atau hook kreator dengan presenter dan cutout bersih. · **Jangan pakai bila:** brand kalem atau topik serius.
 - **Remix (anti-jiplak):**
   1. Promo kelas desain → pertahankan kolase miring + bidang warna pekat · ganti kuning ke warna merek, thumbnail ke karya siswa.
@@ -89,7 +89,7 @@ alias: []
   - Gerak: per ±5 f ganti `fontFamily`/`color`/`rotate(±8°)` dari daftar tetap (deterministik dari indeks huruf dan frame, bukan `Math.random`); masuk pop 4 f.
   - Ruang: datar.
   - Blur & blend: tanpa blur.
-- **SFX:** `Katapertama.mp3` bila ini kata pertama; selebihnya senyap.
+- **SFX:** famili `glitch` · `Katapertama.mp3` bila ini kata pertama; selebihnya senyap.
 - **Pakai bila:** satu atau dua kata judul pendek. · **Jangan pakai bila:** kalimat (kolase sulit dibaca).
 - **Remix (anti-jiplak):**
   1. Judul seri UMKM → pertahankan huruf bergaya berganti · ganti huruf kolase jadi stempel dan kertas label.
@@ -106,7 +106,7 @@ alias: []
   - Gerak: `borderRadius` 24→50 % + `scale` 1→0,75 + intensitas distorsi 0→1 dalam ±30 f `CURVE.heavy`; zoom-through putih `CURVE.whip` 3–4 f.
   - Ruang: bola = lensa 2D; tidak ada `translateZ`.
   - Blur & blend: radial speed-line `mixBlendMode: "screen"`; tepi glow `box-shadow`.
-- **SFX:** `Wooshcameramovementtransisi.mp3` di zoom-through (kiblat: aksen +23 dB di 12,46 dtk); `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` bila dipakai sebagai titik ganti.
+- **SFX:** famili `air`, `impact` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) di zoom-through (kiblat: aksen +23 dB di 12,46 dtk); `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` bila dipakai sebagai titik ganti.
 - **Pakai bila:** footage demo dengan subjek tengah (efek tidak memotong subjek). · **Jangan pakai bila:** subjek di tepi frame (terdistorsi).
 - **Remix (anti-jiplak):**
   1. Demo filter foto produk → pertahankan kotak → bentuk lain · ganti bola ke bentuk kapsul, ganti kuil ke produk.
@@ -123,7 +123,7 @@ alias: []
   - Gerak: ubin pop dengan stagger 5 f; panah `strokeDashoffset` 8 f `CURVE.reveal`; bidang `rotateX/Y` ±30° `CURVE.drift` selama hold.
   - Ruang: `perspective: 1000px`.
   - Blur & blend: latar `filter: blur(30px)`.
-- **SFX:** `pop up.mp3` per ubin; senyap untuk kata.
+- **SFX:** famili `ui` · `pop up.mp3` per ubin; senyap untuk kata.
 - **Pakai bila:** konten bernomor dan berulang (3 cara, 5 langkah). · **Jangan pakai bila:** satu item saja.
 - **Remix (anti-jiplak):**
   1. Tips UMKM → pertahankan menu bernomor yang muncul satu per satu · ganti ubin ke kartu solid.
@@ -140,7 +140,7 @@ alias: []
   - Gerak: tiap kata ganti di tempat (potong, atau `opacity` 2 f); kata kunci kuning; panel `scale` 1→1,22 + `translateX` `CURVE.drift` 100 f.
   - Ruang: panel `rotateY(−12°)` dengan `perspective: 1200px`.
   - Blur & blend: tanpa blur untuk caption.
-- **SFX:** senyap per kata; `Enter.mp3` hanya saat klik UI penting.
+- **SFX:** famili `mekanik` · senyap per kata; `Enter.mp3` hanya saat klik UI penting.
 - **Pakai bila:** rekaman layar yang padat dan teksnya tidak penting. · **Jangan pakai bila:** UI yang harus dibaca (tutorial menunjukkan label).
 - **Remix (anti-jiplak):**
   1. Tutorial dashboard produk → pertahankan satu kata di posisi tetap · ganti panel miring ke layar datar dengan zoom ke kontrol aktif.

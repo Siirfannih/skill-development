@@ -50,7 +50,7 @@ Sans grotesk display tebal (paling mirip Inter Display / SF Pro Display Bold–H
   - Lapisan (bawah → atas): hitam → glow biru (`radial-gradient` elips di bawah) → kata.
   - Gerak: scale 1,00→1,22 selama 18–30 f `CURVE.heavy` (memanjang sampai cut keluar); masuk = hard cut, di frame onset kata.
   - Ruang: datar. Blur & blend: tanpa grain; kata putih dengan gradien kaki biru tipis (`background-clip: text`).
-- **SFX:** `ES_Swooshes, Whoosh, Big, Cinematic` atau `Woosh.mp3` di cut ke kartu; hit/sub pada kata puncak saja: `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` (satu bunyi yang sama untuk peran yang sama); `basmenyebar.mp3` untuk kartu paling penting.
+- **SFX:** famili `air`, `impact` · `ES_Swooshes, Whoosh, Big, Cinematic` atau `Woosh.mp3` di cut ke kartu; hit/sub pada kata puncak saja: `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` (satu bunyi yang sama untuk peran yang sama); `basmenyebar.mp3` untuk kartu paling penting.
 - **Pakai bila:** satu kata inti per kalimat, wajah punya kualitas mentah. · **Jangan pakai bila:** setiap kalimat dijadikan kartu (kehilangan beban); wajah sudah di-grade bersih mewah.
 - **Remix (anti-jiplak):**
   1. Talking head terang → pertahankan cut ke kartu satu kata · ganti kartu menjadi putih bersih dengan glow warna brand di bawah.
@@ -66,7 +66,7 @@ Sans grotesk display tebal (paling mirip Inter Display / SF Pro Display Bold–H
   - Lapisan: footage → (opsional wajah duplikat buram) → huruf.
   - Gerak: tiap huruf `move(frame, start + i, 6, "land")` dari `translateY(40px) scale(0.8)` dengan `blur(8px)`→0; total < 15 f.
   - Ruang: datar; Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` atau trail 3 sampel.
-- **SFX:** senyap per huruf; satu `Katapertama.mp3` bila kata pembuka video.
+- **SFX:** famili `glitch` · senyap per huruf; satu `Katapertama.mp3` bila kata pembuka video.
 - **Pakai bila:** kata ≤ 8 huruf. · **Jangan pakai bila:** kata panjang (penonton menunggu).
 - **Remix (anti-jiplak):**
   1. Latar terang → pertahankan huruf naik berblur · warna gelap, bayangan lunak.
@@ -82,7 +82,7 @@ Sans grotesk display tebal (paling mirip Inter Display / SF Pro Display Bold–H
   - Lapisan: hitam + glow → kata → cutout wajah (matte).
   - Gerak: cutout `translateX(80px)→0` `CURVE.land` 12 f; kata masuk 3 f sebelumnya.
   - Ruang: datar; Blur & blend: tanpa.
-- **SFX:** `pop up.mp3` saat cutout masuk.
+- **SFX:** famili `ui` · `pop up.mp3` saat cutout masuk.
 - **Pakai bila:** ada matte wajah. · **Jangan pakai bila:** tanpa matte.
 - **Remix (anti-jiplak):**
   1. Maskot produk → ganti wajah.
@@ -98,7 +98,7 @@ Sans grotesk display tebal (paling mirip Inter Display / SF Pro Display Bold–H
   - Lapisan: hitam + glow → garis → tile → label → kartu.
   - Gerak: pan `translateX` per tile `CURVE.heavy` 18 f, hold 20–30 f; label atas mengganti per tile `CURVE.reveal` 8 f.
   - Ruang: datar; Blur & blend: tile jauh `blur(3px)`.
-- **SFX:** `scaningfast.mp3` di pan; `Notif.mp3` di kartu jawaban bila perlu.
+- **SFX:** famili `ui`, `air` · whoosh/scan famili `air` tanpa desis (file SFXIrfan lama dilarang; `sfx_cari.py --famili air`) di pan; `Notif.mp3` di kartu jawaban bila perlu.
 - **Pakai bila:** 3–5 langkah. · **Jangan pakai bila:** alur bercabang.
 - **Remix (anti-jiplak):**
   1. Alur produksi UMKM → ikon bahan → proses → kemasan.
@@ -114,7 +114,7 @@ Sans grotesk display tebal (paling mirip Inter Display / SF Pro Display Bold–H
   - Lapisan: gradien linear → kata.
   - Gerak: sama T1; huruf per huruf masuk 12 f.
   - Ruang: datar.
-- **SFX:** hit sub di kata (peran sama dengan T1).
+- **SFX:** famili `impact` · hit sub di kata (peran sama dengan T1).
 - **Pakai bila:** hanya sekali. · **Jangan pakai bila:** banyak warna emosi (merusak aturan).
 - **Remix (anti-jiplak):**
   1. Aksen brand → satu warna merek untuk satu kata kunci.
@@ -130,7 +130,7 @@ Sans grotesk display tebal (paling mirip Inter Display / SF Pro Display Bold–H
   - Lapisan: hitam + glow lemah → maskot → papan/teks.
   - Gerak: maskot `translateY` bounce `CURVE.land` 10 f; folder melempar via `arc()`; kotak progres terisi per kotak 4 f.
   - Ruang: datar; Blur & blend: tanpa.
-- **SFX:** `Move.mp3` saat folder mendarat; `pop up.mp3` per kotak yang terisi (satu per objek).
+- **SFX:** famili `impact`, `ui` · `Move.mp3` saat folder mendarat; `pop up.mp3` per kotak yang terisi (satu per objek).
 - **Pakai bila:** ada karakter. · **Jangan pakai bila:** tanpa maskot (jangan menciptakan maskot baru hanya demi pola).
 - **Remix (anti-jiplak):**
   1. Ikon produk sebagai maskot.

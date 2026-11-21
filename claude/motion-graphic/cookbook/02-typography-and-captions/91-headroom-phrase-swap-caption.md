@@ -64,7 +64,7 @@ Teks ±1 frasa/dtk; potong gambar ±22/menit, jeda tidak rata (0,7–5,6 dtk); d
 - **Mekanik Remotion (titik awal):**
   - Lapisan: dua `<OffthreadVideo>` berurutan; potong di puncak gerakan, bukan di akhir kalimat.
   - Gerak: potong keras; bila ada kabur, `blur(14px)` → 0 dalam 4 f (`CURVE.reveal`). Datar.
-- **SFX:** tidak ada yang teridentifikasi; belum dibedah. Bila dipakai: `Cut.mp3` hanya bila potongan perlu tegas.
+- **SFX:** famili `glitch` · tidak ada yang teridentifikasi; belum dibedah. Bila dipakai: `Cut.mp3` hanya bila potongan perlu tegas.
 - **Pakai bila:** dua klip punya gerakan yang bisa disejajarkan (tangan, langkah, putaran kepala). · **Jangan pakai bila:** klip tidak merekam gerakan yang sama; potong di tengah kalimat tanpa kecocokan gerak terasa patah.
 - **Remix (anti-jiplak):**
   1. Pemilik warung menuang kopi di meja → potong pada tuangan ke tangan pelanggan di meja lain.
@@ -81,7 +81,7 @@ Teks ±1 frasa/dtk; potong gambar ±22/menit, jeda tidak rata (0,7–5,6 dtk); d
   - Gerak: bidang penutup `translateX(100%→-100%)` dalam 6–8 f @24–30 fps, `CURVE.whip`; ganti klip tepat saat bidang menutup penuh; ulang 2–3 kali dengan jarak ≥ 0,6 dtk.
   - Ruang: bidang penutup dengan sedikit `rotateY`.
   - Blur & blend: `<CameraMotionBlur shutterAngle={240} samples={16}>` pada bidang penutup (`../../references/smooth-motion.md`).
-- **SFX:** belum dibedah. Usulan: `Woosh.mp3` (gerak kamera sedang) per ayunan, jarak ≥ 1 dtk, atau senyap bila VO padat.
+- **SFX:** famili `air` · belum dibedah. Usulan: `Woosh.mp3` (gerak kamera sedang) per ayunan, jarak ≥ 1 dtk, atau senyap bila VO padat.
 - **Pakai bila:** ada benda besar yang wajar lewat di depan lensa (pintu, lengan, kain). · **Jangan pakai bila:** hanya satu pengulangan; penutup tanpa blur gerak terbaca sebagai wipe digital.
 - **Remix (anti-jiplak):**
   1. "Tiap hari aku bikin ulang desainnya" → tirai kain melewati lensa, di bawahnya monitor menampilkan versi berbeda tiap lewat.
@@ -94,7 +94,7 @@ Teks ±1 frasa/dtk; potong gambar ±22/menit, jeda tidak rata (0,7–5,6 dtk); d
 - **Yang terlihat (termasuk gerak):** subjek di tengah ke bawah, sepertiga atas langit, dinding kayu, atau plafon. Di dinding kayu (0–4 dtk) dan langit biru (7–12 dtk) teks terbaca; di close-up miring 41 dtk awan putih tepat di belakang teks membuat "big change" hampir hilang. (k2, k3, k7)
 - **Kenapa bekerja:** tidak ada wajah di zona teks, jadi caption tidak perlu kotak selama latar atas gelap atau biru jenuh.
 - **Mekanik Remotion (titik awal):** footage → gradien atas `linear-gradient(rgba(0,0,0,.25), transparent 35%)` hanya bila kontras zona teks < 4,5:1 → teks; zona teks tetap sepanjang video; datar.
-- **SFX:** tidak berlaku.
+- **SFX:** senyap (pola ini tidak membawa event bunyi sendiri).
 - **Pakai bila:** footage direkam atau di-crop agar ±30 % atas kosong. · **Jangan pakai bila:** latar atas bergantian terang-gelap tanpa gradien pelindung.
 - **Remix (anti-jiplak):**
   1. Footage 16:9 di-crop 9:16 → geser crop ke bawah supaya ada ruang atas.

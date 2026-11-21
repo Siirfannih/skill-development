@@ -49,7 +49,7 @@ Shot median 2,5 dtk, p90 4,4, ±23 cut/menit, teks berubah tiap 0,2–0,4 dtk, 4
   - Lapisan (bawah → atas): shot B → shot A → grid tile putih di atas.
   - Gerak: 12 tile `<div>` putih, tiap tile `opacity` 0→1 pada frame acak berbiji (0…5), shot A diganti shot B di frame tengah (f3), tile hilang acak f4–f7; durasi total ≤ 7 f.
   - Ruang: datar. Blur & blend: tanpa blur; tepi tile tajam.
-- **SFX:** satu `Cutcontrastransision.mp3` per wipe (klik pendek 0,3 dtk); kiblat memakai tick per tile, yang tidak ada di SFXIrfan sebagai file sendiri.
+- **SFX:** famili `mekanik` · satu `Cutcontrastransision.mp3` per wipe (klik pendek 0,3 dtk); kiblat memakai tick per tile, yang tidak ada di SFXIrfan sebagai file sendiri.
 - **Pakai bila:** pergantian B-roll di hook atau antar demo. · **Jangan pakai bila:** lebih dari 3 kali per 10 dtk; tidak boleh menutupi kata VO yang sedang ditampilkan.
 - **Remix (anti-jiplak):**
   1. Video produk → pertahankan grid acak · ganti putih dengan warna brand, grid 5×4.
@@ -99,7 +99,7 @@ Shot median 2,5 dtk, p90 4,4, ±23 cut/menit, teks berubah tiap 0,2–0,4 dtk, 4
   - Gerak: pita `height` 100 % → 40 % 4 f `CURVE.whip`; judul wipe `clipPath: inset()` kiri→kanan 10 f `CURVE.reveal`.
   - Ruang: 2,5D ringan.
   - Blur & blend: tanpa.
-- **SFX:** `basmenyebar.mp3` bila kartu judul adalah puncak hook; selain itu senyap.
+- **SFX:** famili `impact` · `basmenyebar.mp3` bila kartu judul adalah puncak hook; selain itu senyap.
 - **Pakai bila:** ada cutout subjek dan nama teknik. · **Jangan pakai bila:** tanpa matte bersih.
 - **Remix (anti-jiplak):**
   1. Nama produk → judul besar di belakang botol cutout.
@@ -115,7 +115,7 @@ Shot median 2,5 dtk, p90 4,4, ±23 cut/menit, teks berubah tiap 0,2–0,4 dtk, 4
   - Lapisan: wallpaper → jendela → caption.
   - Gerak: `scale` 1→1,6 + `translate` ke pusat panel 10 f `CURVE.reveal`; caption cut-in tiap kata VO.
   - Ruang: datar. Blur & blend: bayangan jendela blur 30 px opacity 0,3.
-- **SFX:** `Enter.mp3` pada aksi klik yang benar-benar terjadi.
+- **SFX:** famili `mekanik` · `Enter.mp3` pada aksi klik yang benar-benar terjadi.
 - **Pakai bila:** rekaman layar dengan satu panel fokus. · **Jangan pakai bila:** panel tak terbaca di ukuran target.
 - **Remix (anti-jiplak):**
   1. Dashboard SaaS → pertahankan zoom + caption satu kata · ganti wallpaper dengan gradien brand.

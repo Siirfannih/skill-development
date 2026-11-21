@@ -50,7 +50,7 @@ Neo-grotesk semibold/bold tracking rapat (mirip Inter Display / Helvetica Now Di
   - Lapisan: latar → grup kanvas (semua kata ditaruh pada koordinat tetap) → vignette.
   - Gerak: kamera virtual `translateX` antar kata `CURVE.heavy` 14 f, hold 10–20 f; tiap kata fade-in 6 f saat kamera tiba.
   - Ruang: datar. Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` pada pembungkus kanvas.
-- **SFX:** `Woosh.mp3` pada pan cepat (video asli 29,1 dtk); kata senyap; `scaningfast.mp3` untuk pan terpendek; jarak antarwhoosh ≥ 1 dtk.
+- **SFX:** famili `air` · `Woosh.mp3` pada pan cepat (video asli 29,1 dtk); kata senyap; whoosh/scan famili `air` tanpa desis (file SFXIrfan lama dilarang; `sfx_cari.py --famili air`) untuk pan terpendek; jarak antarwhoosh ≥ 1 dtk.
 - **Pakai bila:** kalimat 3–6 kata inti. · **Jangan pakai bila:** kata muncul < 0,5 dtk berurutan (pan tidak sempat).
 - **Remix (anti-jiplak):**
   1. Esai produk → pertahankan pan antarkata · ganti arah menjadi vertikal (turun).
@@ -66,7 +66,7 @@ Neo-grotesk semibold/bold tracking rapat (mirip Inter Display / Helvetica Now Di
   - Lapisan: kata kiri/kanan → garis → kata kecil.
   - Gerak: garis `scaleX 0→1` `CURVE.reveal` 18 f dari kata kiri; kata kanan masuk 6 f sebelum garis selesai.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `Scanning dan gerak kurva.mp3` pelan di garis (satu bunyi sama untuk garis lain).
+- **SFX:** famili `glitch` · `Scanning dan gerak kurva.mp3` pelan di garis (satu bunyi sama untuk garis lain).
 - **Pakai bila:** dua kata dengan jarak makna. · **Jangan pakai bila:** > 2 kata utama.
 - **Remix (anti-jiplak):**
   1. "Harga ——— nilai" → pertahankan garis tumbuh · ganti kata dan latar putih.
@@ -83,7 +83,7 @@ Neo-grotesk semibold/bold tracking rapat (mirip Inter Display / Helvetica Now Di
   - Gerak: `stroke-dashoffset` kurva `CURVE.reveal` 40 f; titik muncul `react(i)`; arsir opacity 0→0,25 12 f.
   - Ruang: datar; push `scale 1.00→1.04` `CURVE.drift`.
   - Blur & blend: tanpa.
-- **SFX:** `Scanning dan gerak kurva.mp3` di garis menggambar; titik senyap.
+- **SFX:** famili `glitch` · `Scanning dan gerak kurva.mp3` di garis menggambar; titik senyap.
 - **Pakai bila:** dua kutub saling menjauh. · **Jangan pakai bila:** data riil perlu skala.
 - **Remix (anti-jiplak):**
   1. Pertumbuhan usaha vs gaji → latar terang, kurva hijau tua.
@@ -99,7 +99,7 @@ Neo-grotesk semibold/bold tracking rapat (mirip Inter Display / Helvetica Now Di
   - Lapisan: latar → baris kata + chip (inline-block) → pil.
   - Gerak: baris menggeser `translateX` `CURVE.heavy` 10 f per frasa; chip `scale 0.8→1` `CURVE.land` 8 f.
   - Ruang: datar. Blur & blend: `blur(4px)` saat menggeser.
-- **SFX:** senyap per kata; `pop up.mp3` hanya untuk pil yang menjadi kunci.
+- **SFX:** famili `ui` · senyap per kata; `pop up.mp3` hanya untuk pil yang menjadi kunci.
 - **Pakai bila:** ada rujukan visual yang pendek. · **Jangan pakai bila:** chip tak terbaca di 13 % tinggi.
 - **Remix (anti-jiplak):**
   1. Resep → chip foto bahan di antara kata.
@@ -116,7 +116,7 @@ Neo-grotesk semibold/bold tracking rapat (mirip Inter Display / Helvetica Now Di
   - Gerak: zoom-through `CURVE.whip` 14 f ke area lup; orbit kartu `rotateY` 0→360° dalam 90 f `CURVE.drift`.
   - Ruang: `perspective: 1400px`, satelit `translateZ` berbeda.
   - Blur & blend: motion blur wajib saat zoom.
-- **SFX:** `Wooshcameramovementtransisi.mp3` di zoom besar; `pop up.mp3` tiap kartu hasil; `Lasertransision.mp3` untuk logo akhir.
+- **SFX:** famili `air`, `stab`, `ui` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) di zoom besar; `pop up.mp3` tiap kartu hasil; `Lasertransision.mp3` untuk logo akhir.
 - **Pakai bila:** satu UI jadi bukti. · **Jangan pakai bila:** UI harus dibaca penuh.
 - **Remix (anti-jiplak):**
   1. Toko kopi → ganti UI ke mock halaman toko, satelit foto produk.
@@ -132,7 +132,7 @@ Neo-grotesk semibold/bold tracking rapat (mirip Inter Display / Helvetica Now Di
   - Lapisan: putih → tokoh (matte) → judul → kredit.
   - Gerak: tokoh `translateX(-60px)→0` `CURVE.land` 14 f; judul `reveal` 12 f setelah 4 f.
   - Ruang: datar. Blur & blend: tanpa bayangan (putih rata).
-- **SFX:** `documenter.mp3` pendek bila foto mendarat; selain itu senyap.
+- **SFX:** famili `taktil` · `documenter.mp3` pendek bila foto mendarat; selain itu senyap.
 - **Pakai bila:** ada foto potong berkualitas. · **Jangan pakai bila:** foto beresolusi rendah.
 - **Remix (anti-jiplak):**
   1. Pendiri UMKM → potret di lingkaran.

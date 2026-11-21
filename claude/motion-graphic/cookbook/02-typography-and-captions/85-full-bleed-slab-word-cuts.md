@@ -47,7 +47,7 @@ Subtitle sans miring putih kecil, satu baris di bawah tengah, per frasa; tetap a
 - **Mekanik Remotion (titik awal):**
   - Lapisan (bawah → atas): slab warna + noise (`mixBlendMode: "multiply"` 6-8 %) → kata hero → subtitle (teratas, tidak ikut terpotong). Datar, tanpa blur.
   - Gerak: tanpa interpolasi; satu `<Sequence>` per kata, potong di onset; kilas = 1 f warna/negatif lain (`filter: invert(1)`) di antara dua kata; tiap slab 9-30 f @30. Ukuran huruf dari lebar frame (`fitText`, `@remotion/layout-utils`).
-- **SFX:** `Cut.mp3` atau `Cutcontrastransision.mp3` pada potongan slab pertama; kata berikutnya senyap (jangan satu bunyi per kata, `../../guide/sfx/GUIDE.md`).
+- **SFX:** famili `glitch`, `mekanik` · `Cut.mp3` atau `Cutcontrastransision.mp3` pada potongan slab pertama; kata berikutnya senyap (jangan satu bunyi per kata, `../../guide/sfx/GUIDE.md`).
 - **Pakai bila:** kata kunci jarang, shot utama tenang. · **Jangan pakai bila:** kata kunci terlalu sering (efek kejut hilang), video sudah penuh warna jenuh, momen butuh wajah/ekspresi pembicara; punchline yang sedang tampil di dalam sebuah tampilan (postingan, jendela aplikasi) harus keluar ke slab layar penuh, jangan dimasukkan ke kotak di dalam tampilan.
 - **Remix (anti-jiplak):**
   1. Shot utama terang dan berwarna → pertahankan potong ke layar penuh · slab gelap atau satu warna aksen merek, bukan pelangi.
@@ -60,7 +60,7 @@ Subtitle sans miring putih kecil, satu baris di bawah tengah, per frasa; tetap a
 - **Kenapa bekerja:** latar gelap; kata cukup besar untuk terbaca walau melewati sweater terang; menutup tubuh, bukan wajah; hanya di momen pertanyaan/judul, bukan tiap kalimat.
 - **Mekanik Remotion (titik awal):**
   - Lapisan: footage → teks (tanpa matte), `text-shadow` lembut gelap. Datar; potong di onset kata, ukuran dari lebar frame.
-- **SFX:** senyap; `Katapertama.mp3` hanya untuk kata pembuka.
+- **SFX:** famili `glitch` · senyap; `Katapertama.mp3` hanya untuk kata pembuka.
 - **Pakai bila:** latar gelap, tubuh boleh tertutup. · **Jangan pakai bila:** kata akan menutup wajah, tangan yang menunjuk, atau objek yang dibicarakan; latar terang dengan huruf putih.
 - **Remix (anti-jiplak):**
   1. Latar terang → pertahankan kata raksasa di sepertiga bawah · huruf gelap, atau pindah ke slab (T1).
@@ -74,7 +74,7 @@ Subtitle sans miring putih kecil, satu baris di bawah tengah, per frasa; tetap a
 - **Mekanik Remotion (titik awal):**
   - Lapisan (bawah → atas): latar (kontrol warna sendiri) → neon (outline + glow `blur(10px)`, `mixBlendMode: "screen"`) → matte pembicara. Datar.
   - Gerak: huruf menyala bergiliran ±3-4 f per huruf (total 21 f), kedip tak rata dengan `react(i, 30)`; regrade latar (`hue-rotate` + `brightness`) 24 f `CURVE.reveal` mulai bersamaan huruf pertama; keluar: blok putih `translateY(-100%→0)` 3 f lalu potong.
-- **SFX:** `ES_Scifi, Computer, Short Beeps, Glitch 02` atau senyap; sapuan kandidat 4,59 dtk pada neon 4,567 (belum diverifikasi telinga).
+- **SFX:** famili `glitch` · `ES_Scifi, Computer, Short Beeps, Glitch 02` atau senyap; sapuan kandidat 4,59 dtk pada neon 4,567 (belum diverifikasi telinga).
 - **Pakai bila:** latar gelap, matte bersih. · **Jangan pakai bila:** latar terang atau berjendela (neon tak bisa jadi cahaya), tanpa matte.
 - **Remix (anti-jiplak):**
   1. Latar terang → pertahankan regrade ruang bersamaan huruf · turunkan exposure latar lewat matte dulu, atau kata solid gelap.
@@ -87,7 +87,7 @@ Subtitle sans miring putih kecil, satu baris di bawah tengah, per frasa; tetap a
 - **Kenapa bekerja:** hook padat menjanjikan variasi, badan tenang memberi napas; tiap sisipan = satu teknik, tidak semua "hal baru" butuh dunia atau efek baru.
 - **Mekanik Remotion (titik awal):**
   - Lapisan: wajah (rumah) di dasar; sisipan sebagai `<Sequence>` yang kembali ke wajah. Sisipan 15-60 f @30 per gagasan; hold wajah 90-150 f; punch-in = potong ke skala 1,15-1,25; flash/negatif 1-3 f di pembuka saja, jangan jadi paket tetap.
-- **SFX:** `Variasitransisiataucut.mp3` untuk variasi cut; hubungan terukur paling jelas kata/objek ↔ gambar, bukan downbeat (grid ketukan belum stabil).
+- **SFX:** famili `ui` · `Variasitransisiataucut.mp3` untuk variasi cut; hubungan terukur paling jelas kata/objek ↔ gambar, bukan downbeat (grid ketukan belum stabil).
 - **Pakai bila:** esai 4-8 gagasan. · **Jangan pakai bila:** tutorial, iklan produk.
 - **Remix (anti-jiplak):**
   1. Reel 30 dtk → pertahankan hook padat lalu badan tenang · 5-6 f flash di 0-3 dtk, sisanya 1 sisipan per kalimat.

@@ -49,7 +49,7 @@ Sans tipis ungu tua di kartu putih, satu baris di tengah kartu, tinggi huruf ±4
   - Gerak: konten berganti dengan cross-dissolve + `scale 1,04→1` di dalam kartu, `CURVE.reveal` 24–36 f; kartu sendiri tetap; hold ≥ 1,5 dtk dengan `drift(frame, fps, 3)`.
   - Ruang: datar atau `perspective: 1200px` sangat ringan pada kartu.
   - Blur & blend: kabut tepi bawah = gradien ungu + `filter: blur(40px)`; tanpa motion blur.
-- **SFX:** senyap atau `Lasertransision.mp3` (ting lembut) di pergantian babak; musik bergerak tetapi tidak mendorong.
+- **SFX:** famili `stab` · senyap atau `Lasertransision.mp3` (ting lembut) di pergantian babak; musik bergerak tetapi tidak mendorong.
 - **Pakai bila:** footage beragam kualitas yang perlu dibingkai. · **Jangan pakai bila:** footage harus penuh layar untuk drama.
 - **Remix (anti-jiplak):**
   1. Aplikasi fintech → pertahankan satu kartu membulat sebagai panggung · ganti ungu menjadi biru laut, kartu putih menjadi putih hangat.
@@ -81,7 +81,7 @@ Sans tipis ungu tua di kartu putih, satu baris di tengah kartu, tinggi huruf ±4
   - Lapisan: baris chip (flex, jarak sama) di bawah kartu → chip aktif sebagai "pil hitam" yang bergeser.
   - Gerak: pil aktif `translateX` ke chip berikut `CURVE.land` 10 f; chip pasif opacity 0,6; pergantian terjadi 6–10 f sebelum konten berganti.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** senyap atau `ES_User Interface, Click, UI Buttons, Confirm, Menu` (ding pendek) tiap pindah babak, satu bunyi saja.
+- **SFX:** famili `ui` · senyap atau `ES_User Interface, Click, UI Buttons, Confirm, Menu` (ding pendek) tiap pindah babak, satu bunyi saja.
 - **Pakai bila:** 3–5 babak berurutan. · **Jangan pakai bila:** video di bawah 20 dtk.
 - **Remix (anti-jiplak):**
   1. Presentasi proposal → pertahankan satu chip aktif dari empat · ganti nama babak menjadi Konteks / Rencana / Biaya / Langkah.
@@ -98,7 +98,7 @@ Sans tipis ungu tua di kartu putih, satu baris di tengah kartu, tinggi huruf ±4
   - Gerak: kartu masuk dengan jeda tidak rata `react(i, fps)` dari pusat ke luar, `CURVE.land` 12 f; `drift` per kartu dengan biji berbeda.
   - Ruang: `perspective: 1200px`, kartu di `translateZ` −80…+60 px.
   - Blur & blend: kartu belakang `blur(3px)`; bayangan lunak.
-- **SFX:** `pop up.mp3` satu kali untuk kartu pertama; sisanya senyap; `ES_User Interface, Click, UI Buttons, Confirm, Menu` saat kursor mengklik.
+- **SFX:** famili `ui` · `pop up.mp3` satu kali untuk kartu pertama; sisanya senyap; `ES_User Interface, Click, UI Buttons, Confirm, Menu` saat kursor mengklik.
 - **Pakai bila:** 4–8 fitur dengan ikon sederhana. · **Jangan pakai bila:** fitur harus dijelaskan satu per satu.
 - **Remix (anti-jiplak):**
   1. Aplikasi kasir UMKM → pertahankan kartu mengelilingi ponsel · ganti isi kartu menjadi struk, produk, notifikasi pesanan.

@@ -56,7 +56,7 @@ alias: []
   - Gerak: tanpa transisi; panjang `<Sequence>` = kelipatan jarak ketukan (±96 bpm ≈ 0,625 dtk ≈ 19 f @30 fps; satu ketukan per shot di babak rapat, dua ketukan di babak sedang); jeda 0,3 dtk (9 f) di stop-down musik.
   - Ruang: datar.
   - Blur & blend: tanpa motion blur tambahan (kamera nyata sudah membawa blur).
-- **SFX:** tidak ada SFX terpisah di video asli; stab musik menjadi penanda cut. Di katalog: senyap, atau `Cut.mp3` sangat rendah hanya bila musik tidak punya pukulan di cut.
+- **SFX:** famili `glitch`, `stab` · tidak ada SFX terpisah di video asli; stab musik menjadi penanda cut. Di katalog: senyap, atau `Cut.mp3` sangat rendah hanya bila musik tidak punya pukulan di cut.
 - **Pakai bila:** musik dengan ketukan jelas dan footage banyak, pendek, bervariasi. · **Jangan pakai bila:** VO padat (cut tidak boleh memotong kata) atau musik tanpa grid.
 - **Remix (anti-jiplak):**
   1. Montase proses kerja UMKM → pertahankan cut jatuh di ketukan, satu ketukan per shot di babak puncak · ganti kota dengan tahap produksi.
@@ -73,7 +73,7 @@ alias: []
   - Gerak: push `scale` 1→1,3 `CURVE.heavy` selama shot (±30–70 f); push/pull tengah 5–12 % `CURVE.drift` 8–14 f; roll `rotate` ±8° `CURVE.wind` 10 f.
   - Ruang: bila memakai foto/diam: parallax 3 lapis (lapis depan 1,1×).
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` hanya pada gerak virtual.
-- **SFX:** senyap; `Woosh.mp3` hanya pada gerak besar virtual.
+- **SFX:** famili `air` · senyap; `Woosh.mp3` hanya pada gerak besar virtual.
 - **Pakai bila:** footage gimbal lensa lebar atau still berlapis. · **Jangan pakai bila:** footage tripod diam dengan teks menempel (gerak harus ikut teks).
 - **Remix (anti-jiplak):**
   1. Footage ponsel biasa → pertahankan push maju di pembuka · tambah crop 1,15× dan push virtual.
@@ -90,7 +90,7 @@ alias: []
   - Gerak: mask `clipPath inset` kanan→kiri 12 f `CURVE.reveal`; "ketik": per huruf 1–2 f; grup teks diikat ke gerak push footage (satu transform).
   - Ruang: datar atau `translateZ` ringan agar tertinggal sedikit.
   - Blur & blend: tanpa blur.
-- **SFX:** senyap per kata (KT per kata senyap, `../../guide/sfx/GUIDE.md`); `Keyboardtyping.mp3` hanya bila teks benar-benar tampak diketik.
+- **SFX:** famili `mekanik` · senyap per kata (KT per kata senyap, `../../guide/sfx/GUIDE.md`); `Keyboardtyping.mp3` hanya bila teks benar-benar tampak diketik.
 - **Pakai bila:** ruang gelap polos di samping objek. · **Jangan pakai bila:** teks perlu dibaca lama (tulisan tangan 3–5 % tinggi, satu kali lewat).
 - **Remix (anti-jiplak):**
   1. Video toko → pertahankan teks menempel di samping benda · ganti tulisan tangan ke spidol merek.

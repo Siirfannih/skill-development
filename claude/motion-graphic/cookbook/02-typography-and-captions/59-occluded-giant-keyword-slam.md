@@ -50,7 +50,7 @@ Tiga keluarga: display ultra-condensed tebal (mirip Anton/Druk Condensed) untuk 
   - Gerak: kata raksasa `translateY(60px → 0)` + `scale 1.06 → 1` `CURVE.land` 8–10 f dari balik mask garis dasar; kata sambung 3 f kemudian dengan `CURVE.reveal` 6 f; keluar ikut transisi (T4) atau cut.
   - Ruang: datar; subjek di depan teks lewat matte, bukan `translateZ`.
   - Blur & blend: glow `filter: drop-shadow(0 0 24px #7C212E)`; kata raksasa tanpa blur di keadaan diam.
-- **SFX:** kata sambung senyap; satu `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `basmenyebar.mp3` pada kata raksasa yang jadi puncak; hanya kata raksasa, bukan tiap kata.
+- **SFX:** famili `impact` · kata sambung senyap; satu `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `basmenyebar.mp3` pada kata raksasa yang jadi puncak; hanya kata raksasa, bukan tiap kata.
 - **Pakai bila:** ada ruang kosong di atas kepala, pakaian gelap, matte bersih tersedia. · **Jangan pakai bila:** wajah mengisi frame tanpa ruang atas, matte berantakan di rambut.
 - **Remix (anti-jiplak):**
   1. Latar terang (kanvas putih brand) → kata raksasa warna aksen brand tebal dengan bayangan lunak, subjek tetap menutup huruf tengah.
@@ -67,7 +67,7 @@ Tiga keluarga: display ultra-condensed tebal (mirip Anton/Druk Condensed) untuk 
   - Gerak: teks pada `<textPath>` dengan `startOffset` dianimasikan; tiap kata masuk `CURVE.reveal` 6 f; keluar blur 0 → 8 px + rotasi kecil dalam 5 f; kurva digambar `strokeDashoffset` `CURVE.heavy` 18 f.
   - Ruang: datar.
   - Blur & blend: blur gerak keluar dengan `filter` atau `<CameraMotionBlur>`.
-- **SFX:** `Woosh.mp3` bila kurva digambar besar; teks per kata senyap.
+- **SFX:** famili `air` · `Woosh.mp3` bila kurva digambar besar; teks per kata senyap.
 - **Pakai bila:** subjek terpisah dari latar (halaman putih/kosong). · **Jangan pakai bila:** subjek dekat tepi frame (busur terpotong).
 - **Remix (anti-jiplak):**
   1. Latar gelap → busur putih di atas kepala, kata raksasa merah diganti aksen brand.
@@ -84,7 +84,7 @@ Tiga keluarga: display ultra-condensed tebal (mirip Anton/Druk Condensed) untuk 
   - Gerak: kartu masuk `CURVE.land` 8 f dengan jeda tidak rata (`react(i, 30, 0.7)`); isi kartu tunggal ganti per cut 12–15 f; kolase mengisi dalam ±1 dtk.
   - Ruang: `perspective: 1200px`, kartu `translateZ` berbeda untuk parallax kecil.
   - Blur & blend: bayangan `drop-shadow(0 12px 24px rgba(0,0,0,.5))`; LED lewat radial dot mask + vignette.
-- **SFX:** `Pergantianfoto.mp3` (satu potongan untuk kolase) atau `pop up.mp3` per kartu penting; teks senyap. Source punya pop/ding per kata (6,1 event/dtk termasuk suara); itu pengamatan, bukan target (aturan di `../../guide/sfx/GUIDE.md`).
+- **SFX:** famili `mekanik`, `ui` · `Pergantianfoto.mp3` (satu potongan untuk kolase) atau `pop up.mp3` per kartu penting; teks senyap. Source punya pop/ding per kata (6,1 event/dtk termasuk suara); itu pengamatan, bukan target (aturan di `../../guide/sfx/GUIDE.md`).
 - **Pakai bila:** ada foto event/produk beresolusi cukup. · **Jangan pakai bila:** foto beresolusi rendah atau satu foto saja tanpa isi.
 - **Remix (anti-jiplak):**
   1. Brand UMKM → kartu foto produk bersudut membulat di belakang pemilik berdiri.
@@ -99,7 +99,7 @@ Tiga keluarga: display ultra-condensed tebal (mirip Anton/Druk Condensed) untuk 
 - **Mekanik Remotion (titik awal):**
   - Gerak: flash `opacity 0 → 0.9 → 0` `CURVE.whip` 4–6 f; whip blur `translateX` ±80 px dengan `filter: blur(16px)` 6 f; light leak = gradien merah `mixBlendMode: "screen"` menyapu 10 f.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>`.
-- **SFX:** `Woosh.mp3` pada whip, `Wooshcameramovementtransisi.mp3` pada flash besar; jarak antarwhoosh ≥ 1 dtk.
+- **SFX:** famili `air` · `Woosh.mp3` pada whip, whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) pada flash besar; jarak antarwhoosh ≥ 1 dtk.
 - **Pakai bila:** ≤ 1 transisi per ±2 dtk. · **Jangan pakai bila:** dipakai di tiap cut (kehilangan efek).
 - **Remix (anti-jiplak):**
   1. Latar terang → flash krem bukan putih; light leak oranye.

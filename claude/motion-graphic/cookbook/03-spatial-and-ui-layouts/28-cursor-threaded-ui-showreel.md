@@ -50,7 +50,7 @@ Neo-grotesk (mirip Inter / SF Pro): "Hi" Bold rapat (cap 21,2 % tinggi frame), t
   - Gerak: kursor berjalan di path dengan `CURVE.heavy` ±24 f dan busur kecil (`arc` di `curves.ts`); tag aktif opacity/blur/glow berubah 6 f saat kursor tiba; push kamera 1,00 → 1,84 `CURVE.heavy` ±45 f.
   - Ruang: datar atau `perspective: 1200px` ringan.
   - Blur & blend: tag buram `filter: blur(2px)`; glow `mixBlendMode: "screen"`.
-- **SFX:** hampir tidak ada SFX terpisah; ketukan musik berperan sebagai SFX. Untuk hover aktif: `ES_User Interface, Click, Pops, Glass, UI, Pops` satu per tag aktif, bukan per tag lewat.
+- **SFX:** famili `ui` · hampir tidak ada SFX terpisah; ketukan musik berperan sebagai SFX. Untuk hover aktif: `ES_User Interface, Click, Pops, Glass, UI, Pops` satu per tag aktif, bukan per tag lewat.
 - **Pakai bila:** 4–7 label pendek. · **Jangan pakai bila:** label kecil yang wajib terbaca di ponsel (periksa: label 8,4 % tinggi frame, bukan 4–5 % seperti kartu lama).
 - **Remix (anti-jiplak):**
   1. Toko UMKM → label produk di pill kayu cokelat, kursor diganti tangan; pertahankan hover menyalakan satu.
@@ -67,7 +67,7 @@ Neo-grotesk (mirip Inter / SF Pro): "Hi" Bold rapat (cap 21,2 % tinggi frame), t
   - Gerak: `scale` kartu 1 → 6 `CURVE.heavy` ±30 f dengan pivot di tengah kartu; saat scale ≥ 4 crossfade 4 f ke lanskap; dock `translateY` 20 → 0 `CURVE.land` ±12 f.
   - Ruang: datar.
   - Blur & blend: motion blur `<CameraMotionBlur shutterAngle={200} samples={16}>`; dock `backdrop-filter: blur(24px)`.
-- **SFX:** whoosh sedang di zoom-through (2 whoosh total di referensi: 10,40 dan 14,40 dtk). Padanan: `Woosh.mp3` (gerak kamera sedang).
+- **SFX:** famili `air` · whoosh sedang di zoom-through (2 whoosh total di referensi: 10,40 dan 14,40 dtk). Padanan: `Woosh.mp3` (gerak kamera sedang).
 - **Pakai bila:** kartu berisi gambar yang bisa jadi adegan penuh. · **Jangan pakai bila:** kartu tanpa gambar dalam (zoom ke kosong).
 - **Remix (anti-jiplak):**
   1. Produk e-commerce → kartu produk → menembus ke foto lifestyle.
@@ -83,7 +83,7 @@ Neo-grotesk (mirip Inter / SF Pro): "Hi" Bold rapat (cap 21,2 % tinggi frame), t
   - Lapisan: kanvas terang → kotak prompt (bayangan lembut) → teks diketik → kursor.
   - Gerak: ketik 1 f per huruf; sorot biru muda melebar `scaleX` 0 → 1 ±8 f; kursor ke tombol `CURVE.heavy` ±20 f; tombol `scale` 1 → 0,92 → 1 di klik; cut keras 2 f setelah klik.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** satu `Enter.mp3` di klik kirim; ketikan senyap atau `Keyboardtyping.mp3` pelan; kick penutup referensi 18,90 dtk (+21 dB).
+- **SFX:** famili `mekanik`, `impact` · satu `Enter.mp3` di klik kirim; ketikan senyap atau `Keyboardtyping.mp3` pelan; kick penutup referensi 18,90 dtk (+21 dB).
 - **Pakai bila:** demo satu perintah. · **Jangan pakai bila:** alur multilangkah.
 - **Remix (anti-jiplak):**
   1. SaaS CRM → kolom pencarian pelanggan; pertahankan klik → cut.
@@ -99,7 +99,7 @@ Neo-grotesk (mirip Inter / SF Pro): "Hi" Bold rapat (cap 21,2 % tinggi frame), t
   - Lapisan: gradien biru → monitor + jendela → cincin SVG → kanvas terang.
   - Gerak: `scale` 1 → 0,32 `CURVE.whip` ±14 f; cincin `borderRadius` 8 % → 50 % ±8 f; warna latar gelap → terang crossfade 6 f.
   - Ruang: datar. Blur & blend: motion blur 200°.
-- **SFX:** whoosh di pull cepat (14,40 dtk); padanan `Wooshcameramovementtransisi.mp3`.
+- **SFX:** famili `air` · whoosh di pull cepat (14,40 dtk); padanan whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`).
 - **Pakai bila:** ada ≥ 3 jendela atau fitur untuk dikumpulkan. · **Jangan pakai bila:** hanya satu fitur.
 - **Remix (anti-jiplak):**
   1. Aplikasi kasir → jendela mengecil ke ikon kasir.
@@ -115,7 +115,7 @@ Neo-grotesk (mirip Inter / SF Pro): "Hi" Bold rapat (cap 21,2 % tinggi frame), t
   - Lapisan: kanvas + grid titik → garis bantu → kata → anotasi → kursor.
   - Gerak: kata `scale` 0,9 → 1 `CURVE.land` ±14 f; garis bantu `strokeDashoffset` ±10 f; kursor masuk dari kanan `CURVE.heavy` ±20 f.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** swell reverse (+37–46 dB di atas dasar) di 0–1 dtk; padanan `ES_Designed, Riser, Transition, Fast, Short, Clean 01`.
+- **SFX:** famili `riser` · swell reverse (+37–46 dB di atas dasar) di 0–1 dtk; padanan `ES_Designed, Riser, Transition, Fast, Short, Clean 01`.
 - **Pakai bila:** satu kata sapaan atau nama. · **Jangan pakai bila:** kalimat.
 - **Remix (anti-jiplak):**
   1. Nama studio → huruf nama dengan anotasi font size.

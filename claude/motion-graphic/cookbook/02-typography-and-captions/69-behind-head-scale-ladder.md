@@ -50,7 +50,7 @@ Neo-grotesk bold rapat (mirip Helvetica Neue Bold / Inter Display Bold), trackin
   - Lapisan (bawah → atas): footage → teks raksasa → matte pembicara (`persepsi.py`, RVM) → (opsional) teks kecil di depan.
   - Gerak: kata masuk `move(frame, start, 8, "land")` dari `translateY(60px)`, selisih antar kata `react()`; kata raksasa terakhir mendarat paling lambat (12 f).
   - Ruang: datar atau parallax kecil 0,95× pada teks vs footage. Blur & blend: motion blur saat masuk, tanpa blend.
-- **SFX:** satu `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `Move.mp3` pada kata raksasa; kata sambung senyap. Asli: sub-bass hit di kata kunci (0:03,7; 0:13,1 +19 dB; 0:23,1 +24 dB).
+- **SFX:** famili `impact` · satu `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `Move.mp3` pada kata raksasa; kata sambung senyap. Asli: sub-bass hit di kata kunci (0:03,7; 0:13,1 +19 dB; 0:23,1 +24 dB).
 - **Pakai bila:** matte tersedia, ruang terang di belakang kepala. · **Jangan pakai bila:** tanpa matte, latar gelap penuh (teks putih hilang).
 - **Remix (anti-jiplak):**
   1. Latar gelap → pertahankan teks di belakang pembicara · ganti teks warna terang jenuh berbayangan.
@@ -66,7 +66,7 @@ Neo-grotesk bold rapat (mirip Helvetica Neue Bold / Inter Display Bold), trackin
   - Lapisan: footage → grup teks (satu blok, posisi relatif terhadap kotak kata besar via `measureText`).
   - Gerak: kata besar `scale` 1,08→1 `CURVE.land` 10 f; kata kecil 3 f kemudian `opacity` + `translateY(8px)` `CURVE.reveal`.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** senyap per kata; satu `pop up.mp3` hanya bila kutipan jadi CTA.
+- **SFX:** famili `ui` · senyap per kata; satu `pop up.mp3` hanya bila kutipan jadi CTA.
 - **Pakai bila:** ruang kosong di dada/samping. · **Jangan pakai bila:** kata sambung terbaca baris terpisah berjarak.
 - **Remix (anti-jiplak):**
   1. Footage objek di sisi → blok di sisi kosong lawannya.
@@ -82,7 +82,7 @@ Neo-grotesk bold rapat (mirip Helvetica Neue Bold / Inter Display Bold), trackin
   - Lapisan: A-roll → sisipan b-roll penuh frame (tanpa bingkai) → teks di atas keduanya.
   - Gerak: potong keras di kata kunci; grid-tile: 12–18 sel, nyala per petak tertunda `react()`, total 9 f.
   - Blur & blend: b-roll diam atau drift kecil `drift()`.
-- **SFX:** 88 % cut punya onset ≤ 100 ms (median selisih 23 ms): `Cut.mp3` atau sub hit pada cut kunci; whoosh `Woosh.mp3` pada cut ke layar. Tiga cut tanpa bunyi (0:07,2; 0:14,0; 0:34,9).
+- **SFX:** famili `glitch`, `air` · 88 % cut punya onset ≤ 100 ms (median selisih 23 ms): `Cut.mp3` atau sub hit pada cut kunci; whoosh `Woosh.mp3` pada cut ke layar. Tiga cut tanpa bunyi (0:07,2; 0:14,0; 0:34,9).
 - **Pakai bila:** b-roll satu gaya dengan A-roll. · **Jangan pakai bila:** b-roll stok gaya berbeda.
 - **Remix (anti-jiplak):**
   1. Kreator kuliner → pertahankan alternasi wajah↔sisipan · ganti sisipan menjadi bahan, tangan, asap.
@@ -97,7 +97,7 @@ Neo-grotesk bold rapat (mirip Helvetica Neue Bold / Inter Display Bold), trackin
   - Lapisan: footage + teks dalam satu grup yang diskalakan (teks ikut).
   - Gerak: skala 1,3→1,0 dalam ±50 f (2 dtk @25) dengan `Easing.bezier(0.16,1,0.3,1)` atau `CURVE.reveal`; pivot di wajah.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>`.
-- **SFX:** `Woosh.mp3` ringan hanya di punch pertama; selebihnya senyap.
+- **SFX:** famili `air` · `Woosh.mp3` ringan hanya di punch pertama; selebihnya senyap.
 - **Pakai bila:** footage wajah resolusi cukup untuk dicrop 1,3×. · **Jangan pakai bila:** wajah sudah rapat di frame (kepala terpotong).
 - **Remix (anti-jiplak):**
   1. Footage 9:16 wajah besar → pertahankan decay · ganti punch 1,15×.

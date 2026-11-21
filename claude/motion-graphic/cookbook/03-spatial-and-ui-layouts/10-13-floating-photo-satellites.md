@@ -49,7 +49,7 @@ Belum dibedah (still).
   - Gerak: tiap satelit `scale` 0,85→1 + `opacity` 0→1 selama 8 f `CURVE.land`, jeda tidak rata dengan `react(i, 30)`; lalu `drift(frame, 30, amp 6–14, seed i)` berbeda per satelit; kemiringan statis ±4–10°.
   - Ruang: ringan, `perspective: 1200px` bila satelit dimiringkan di sudut.
   - Blur & blend: `filter: blur()` bertingkat sesuai jarak dari pusat; bayangan lembut.
-- **SFX:** `pop up.mp3` hanya untuk pusat; satelit muncul sebagai satu rentetan: satu `Pergantianfoto.mp3` dipotong panjang rentetan (bukan bunyi per foto).
+- **SFX:** famili `mekanik`, `ui` · `pop up.mp3` hanya untuk pusat; satelit muncul sebagai satu rentetan: satu `Pergantianfoto.mp3` dipotong panjang rentetan (bukan bunyi per foto).
 - **Pakai bila:** pusat jelas dan ada ruang kosong luas. · **Jangan pakai bila:** pusat berisi teks panjang atau bersaing dengan foto yang lebih tajam.
 - **Remix (anti-jiplak):**
   1. Jasa UMKM → pertahankan satu pusat + satelit buram · ganti foto dengan hasil produk klien, pusat berupa kartu paket.
@@ -65,7 +65,7 @@ Belum dibedah (still).
   - Lapisan: abu bertekstur → kotak warna → foto → kata (posisi relatif terhadap foto, bukan frame).
   - Gerak: foto muncul berurutan `opacity` 0→1 + `translateY` 10 px 6 f `CURVE.reveal`, kata menyusul 3 f sesuai ucapan; drift ±4 px.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** senyap per kata (KT); satu `Pergantianfoto:gambarpertama.mp3` bila foto pertama dibuka.
+- **SFX:** famili `glitch` · senyap per kata (KT); satu `Pergantianfoto:gambarpertama.mp3` bila foto pertama dibuka.
 - **Pakai bila:** judul 2–4 kata dengan stok foto seragam. · **Jangan pakai bila:** kalimat panjang.
 - **Remix (anti-jiplak):**
   1. Judul episode podcast → kata menempel di kiri foto tamu, bingkai bulat.
@@ -81,7 +81,7 @@ Belum dibedah (still).
   - Lapisan: putih gading → bola mozaik (mask `border-radius:50%`) → kolom kaca (`backdrop-filter: blur(16px)`) → teks.
   - Gerak: mozaik berputar pelan (`rotateY` 0→20° selama 120 f `CURVE.drift`); kolom `scaleX` 0,6→1 `CURVE.reveal` 10 f; tile samping `drift`.
   - Ruang: `perspective: 1000px`. Blur & blend: `backdrop-filter`.
-- **SFX:** `Keyboardtyping.mp3` dipotong pendek bila placeholder diketik; `ES_User Interface, Click, Pops, Glass, UI, Pops` di hasil muncul.
+- **SFX:** famili `mekanik`, `ui` · `Keyboardtyping.mp3` dipotong pendek bila placeholder diketik; `ES_User Interface, Click, Pops, Glass, UI, Pops` di hasil muncul.
 - **Pakai bila:** hasil visual banyak dan seragam kualitasnya. · **Jangan pakai bila:** latar kolom ramai sehingga teks kaca tidak terbaca.
 - **Remix (anti-jiplak):**
   1. Marketplace → bola diganti rak produk, kolom berisi "cari…".
@@ -97,7 +97,7 @@ Belum dibedah (still).
   - Lapisan: panel pucat → tile mengambang → baki → kursor.
   - Gerak: kursor `arc()` ke tile 14 f, klik `scale` 0,94 3 f; tile terbang ke slot kosong 12 f `CURVE.land`; tombol "Next" berubah warna aktif 4 f setelah slot penuh.
   - Ruang: datar. Blur & blend: tile tepi memudar (`mask-image` gradient).
-- **SFX:** `pop up.mp3` saat tile masuk slot; `Enter.mp3` pada tombol aktif.
+- **SFX:** famili `mekanik`, `ui` · `pop up.mp3` saat tile masuk slot; `Enter.mp3` pada tombol aktif.
 - **Pakai bila:** pilihan visual yang bisa dihitung. · **Jangan pakai bila:** pilihan teks panjang.
 - **Remix (anti-jiplak):**
   1. Aplikasi resep → tile makanan, baki "pilih 3".

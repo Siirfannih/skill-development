@@ -47,7 +47,7 @@ Cepat 4,1–5,7 dtk (0,25 dtk/shot), lambat 16–30,8 (shot 4,5 dan 10,4 dtk hid
   - Lapisan: material babak → footage/foto → teks → vignette → grain; arsip: halaman putih → bingkai klip (sudut 0 px) → caption.
   - Gerak: satu `<Series>` delapan segmen tak rata (7–8 f hingga 135–310 f @30); ganti babak = ganti material + musik (`CURVE.whip` 6–8 f bila perlu); bingkai 1,00→1,14 `CURVE.drift` 54 f di luar `<Sequence>` klip; klip cut keras 8–15 f; judul `CURVE.land` 10 f dari 1,08, objek menembus huruf lewat urutan z; bakar: oranye `screen` 10 f.
   - Ruang/blur: datar di arsip, 2,5D di benda; grade per material.
-- **SFX:** stab orkestra frame 0 tidak ada di SFXIrfan (ganti `basmenyebar.mp3` atau `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`); `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju jawaban; `Pergantianfoto.mp3` untuk deretan klip tokoh; pop/klik per kata tidak dipakai (KT senyap).
+- **SFX:** famili `mekanik`, `impact`, `riser`, `ui`, `stab` · stab orkestra frame 0 tidak ada di SFXIrfan (ganti `basmenyebar.mp3` atau `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`); `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju jawaban; `Pergantianfoto.mp3` untuk deretan klip tokoh; pop/klik per kata tidak dipakai (KT senyap).
 - **Pakai bila:** bukti eksternal + footage beragam (≥ 4 material). · **Jangan pakai bila:** satu jenis footage; > 1 menit; tanpa hak klip.
 - **Remix (anti-jiplak):**
   1. Brand UMKM → bukti = testimoni pelanggan, foto chef/pedagang dikenal · material kraft, nota, meja kerja.
@@ -62,7 +62,7 @@ Cepat 4,1–5,7 dtk (0,25 dtk/shot), lambat 16–30,8 (shot 4,5 dan 10,4 dtk hid
   - Lapisan: footage → teks belakang → matte (`persepsi.py`, RVM) → teks depan.
   - Gerak: kata kunci `move(frame, start, 5, "reveal")` / `CURVE.land` 8 f; "it's not" tidak dianimasikan ulang; kata diganti cross-cut 2 f di posisi tetap; anak kalimat 6 f kemudian dari 70 % opasitas.
   - Ruang/blur: datar, tanpa glow.
-- **SFX:** senyap per kata (KT); `Kinetictypography(gunakansecaraacak).mp3` sesekali pada kata merah.
+- **SFX:** famili `ui` · senyap per kata (KT); `Kinetictypography(gunakansecaraacak).mp3` sesekali pada kata merah.
 - **Pakai bila:** pembicara di tengah, latar gelap, maksimal tiga negasi. · **Jangan pakai bila:** pakaian terang/bermotif di teks.
 - **Remix (anti-jiplak):**
   1. Latar terang/produk "bukan harga, bukan fitur, tapi…" → teks tetap + footage berganti · kata sambung gelap, kunci aksen merek.
@@ -77,7 +77,7 @@ Cepat 4,1–5,7 dtk (0,25 dtk/shot), lambat 16–30,8 (shot 4,5 dan 10,4 dtk hid
   - Lapisan: tekstur alas/gabus + vignette → bayangan jatuh → foto (`rotateZ` ±1,5°) → pin → label → caption.
   - Gerak: kamera virtual (satu grup) `CURVE.heavy` ±135 f untuk push; pan waypoint `CURVE.drift`; zoom-through 20 f `CURVE.whip`; rack focus `blur(14px→0)` 15 f.
   - Ruang/blur: `perspective: 1200px`, fisheye displacement radial; `<CameraMotionBlur shutterAngle={200} samples={16}>`; aberasi (salinan R/B geser 2–3 px, `screen`).
-- **SFX:** `documenter.mp3`/`pop up.mp3` saat foto mendarat; `Pergantianfoto.mp3`; `Wooshcameramovementtransisi.mp3` pada pan benang (asli 33,9); aksen 16,2 ("aku").
+- **SFX:** famili `mekanik`, `air`, `taktil`, `ui` · `documenter.mp3`/`pop up.mp3` saat foto mendarat; `Pergantianfoto.mp3`; whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) pada pan benang (asli 33,9); aksen 16,2 ("aku").
 - **Pakai bila:** foto/screenshot resolusi cukup, 3–5 kredensial. · **Jangan pakai bila:** resolusi rendah.
 - **Remix (anti-jiplak):**
   1. UMKM → nota, kartu produk di papan putih/meja kayu terang · benang dan pan tetap.
@@ -92,7 +92,7 @@ Cepat 4,1–5,7 dtk (0,25 dtk/shot), lambat 16–30,8 (shot 4,5 dan 10,4 dtk hid
   - Lapisan: footage → grade monokrom (`feColorMatrix`) → grid merah → caption, atau tint `rgba(183,0,15,0.55)` `multiply` 6 f `CURVE.whip` + batang sensor.
   - Gerak: ganti grade `CURVE.whip` 10 f; pull `scale 1.5→1.0` `CURVE.heavy` 60 f; flash 1 f `screen`; datamosh 6–8 f sebagai klip sendiri.
   - Ruang/blur: fisheye seperti T3; motion blur 200°.
-- **SFX:** `ES_User Interface, Glitch, Glitch Databend 04` pada datamosh; `Cutcontrastransision.mp3` pada grade; `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` pada "But.."/punchline; snare tidak ada di SFXIrfan.
+- **SFX:** famili `mekanik`, `glitch`, `impact`, `stab` · `ES_User Interface, Glitch, Glitch Databend 04` pada datamosh; `Cutcontrastransision.mp3` pada grade; `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` pada "But.."/punchline; snare tidak ada di SFXIrfan.
 - **Pakai bila:** satu titik balik, sekali per video. · **Jangan pakai bila:** dua kali.
 - **Remix (anti-jiplak):**
   1. Latar terang → inversi / tint gelap `multiply` · satu-satunya adegan berbeda.
@@ -104,7 +104,7 @@ Cepat 4,1–5,7 dtk (0,25 dtk/shot), lambat 16–30,8 (shot 4,5 dan 10,4 dtk hid
 - **Yang terlihat (termasuk gerak):** 35–42,4 dtk "if you stay to watch my story…" di vlog nyata, caption kalimat utuh 2,4–2,9 % (y 42–49 %), punch-in +16 %; 42,4–44,8 kelakar "grilled cheese" punch-in +61 % ke piring, sub-bass drop (43,8); 44,8–46,3 CTA kartu hitam `#010002`, kapital 2,4 % ("COMMENT "YT" to watch my journey"). (k7, k8)
 - **Kenapa bekerja:** janji tanpa jawaban menahan penonton; kelakar menurunkan tegang; CTA tanpa gangguan.
 - **Mekanik Remotion (titik awal):** punch-in 1,16× `CURVE.heavy` 18 f; 1,61× 12 f `CURVE.whip` pada objek kelakar; CTA cut hitam, kapital kecil; tanpa blur.
-- **SFX:** `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` pada kelakar; CTA senyap.
+- **SFX:** famili `impact` · `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` pada kelakar; CTA senyap.
 - **Pakai bila:** ada seri lanjutan. · **Jangan pakai bila:** tak ada yang dijanjikan.
 - **Remix (anti-jiplak):**
   1. Seri UMKM → janji + kelakar + CTA · kelakar jadi detail produk.

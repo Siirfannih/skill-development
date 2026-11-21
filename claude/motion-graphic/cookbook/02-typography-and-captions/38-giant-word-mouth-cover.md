@@ -51,7 +51,7 @@ Pengamatan lama: 20 cut = 40,6/menit. **Koreksi periksa:** terverifikasi sedikit
   - Gerak: tanpa interpolasi, `<Sequence>` per kata dengan durasi mengikuti ucapan (±8–15 f @30 fps); posisi tetap di pusat (x ±50 %, y ±51 %). Untuk kata yang menimpa mulut, sandingkan dengan footage sendiri dulu.
   - Ruang: datar.
   - Blur & blend: tanpa blur dan tanpa blend; kontras datang dari warna aksen.
-- **SFX:** senyap per kata (kata KT per kata senyap, `../../guide/sfx/GUIDE.md`); satu `Move.mp3` atau `basmenyebar.mp3` hanya di kata terakhir bila itu puncak. Di video asli ada pop di 22,81 dan 24,10 dtk (+16–18 dB di atas bed), jenis bunyi tidak dilabel.
+- **SFX:** famili `impact`, `ui` · senyap per kata (kata KT per kata senyap, `../../guide/sfx/GUIDE.md`); satu `Move.mp3` atau `basmenyebar.mp3` hanya di kata terakhir bila itu puncak. Di video asli ada pop di 22,81 dan 24,10 dtk (+16–18 dB di atas bed), jenis bunyi tidak dilabel.
 - **Pakai bila:** wajah di tengah dengan mulut-dagu bebas dan kalimat pendek per kata. · **Jangan pakai bila:** kalimat panjang (kata hilang sebelum terbaca), wajah sedang diperlihatkan emosinya.
 - **Remix (anti-jiplak):**
   1. Latar putih, talking head UMKM → pertahankan kata tunggal raksasa tanpa animasi masuk · ganti warna aksen ke warna merek dan taruh di dada, bukan di mulut.
@@ -68,7 +68,7 @@ Pengamatan lama: 20 cut = 40,6/menit. **Koreksi periksa:** terverifikasi sedikit
   - Gerak: cut keras (`<Sequence>`), tanpa transisi; kartu diam. Karya berganti tiap ±0,5 dtk memakai potongan yang sama.
   - Ruang: 2 lapis datar (grid + kartu berbayang).
   - Blur & blend: tanpa blur; bayangan jatuh lembut.
-- **SFX:** `Variasitransisiataucut.mp3` atau `Cut.mp3` di cut wajah ↔ sisipan (di asli: whoosh, selisih ≤ 20 ms di 1,48 / 11,23 / 14,72 dtk); `pop up.mp3` saat kartu muncul.
+- **SFX:** famili `ui`, `glitch`, `air` · `Variasitransisiataucut.mp3` atau `Cut.mp3` di cut wajah ↔ sisipan (di asli: whoosh, selisih ≤ 20 ms di 1,48 / 11,23 / 14,72 dtk); `pop up.mp3` saat kartu muncul.
 - **Pakai bila:** ada bukti visual yang dibicarakan. · **Jangan pakai bila:** bukti harus dibaca detail (kartu diam hanya sebentar).
 - **Remix (anti-jiplak):**
   1. Katalog produk → pertahankan satu objek di tengah bidang rata · ganti krem ke warna kemasan, grid ke tekstur kertas.
@@ -84,7 +84,7 @@ Pengamatan lama: 20 cut = 40,6/menit. **Koreksi periksa:** terverifikasi sedikit
   - Lapisan: bidang krem → kartu karya → kata.
   - Gerak: daftar durasi per karya menurun, mis. 15 f → 12 → 9 → 6 → 4 f @30 fps; cut keras, posisi tetap di tengah.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** satu `Pergantianfoto.mp3` (potongan rentetan klik) menutupi seluruh rentetan; jangan satu klik per karya.
+- **SFX:** famili `mekanik` · satu `Pergantianfoto.mp3` (potongan rentetan klik) menutupi seluruh rentetan; jangan satu klik per karya.
 - **Pakai bila:** ≥ 5 karya yang layak dilihat sekilas. · **Jangan pakai bila:** karya perlu dibaca.
 - **Remix (anti-jiplak):**
   1. Testimoni pelanggan → pertahankan percepatan · ganti kartu karya ke tangkapan layar ulasan.
@@ -100,7 +100,7 @@ Pengamatan lama: 20 cut = 40,6/menit. **Koreksi periksa:** terverifikasi sedikit
   - Lapisan: footage satu `<AbsoluteFill>` yang di-scale; teks di lapis lain agar ukuran huruf tidak ikut tumbuh.
   - Gerak: `scale` 1 → 1,065 selama 42–93 f dengan `CURVE.drift`; reset: potong ke skala 1,0 (+5,7 %) di tengah kalimat.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** senyap (zoom pelan); whoosh hanya di cut ke sisipan.
+- **SFX:** famili `air` · senyap (zoom pelan); whoosh hanya di cut ke sisipan.
 - **Pakai bila:** kamera diam, kalimat > 3 dtk. · **Jangan pakai bila:** footage sudah bergerak.
 - **Remix (anti-jiplak):**
   1. Tripod di toko → pertahankan push + reset · ganti titik pusat zoom ke produk di tangan.
@@ -116,7 +116,7 @@ Pengamatan lama: 20 cut = 40,6/menit. **Koreksi periksa:** terverifikasi sedikit
   - Lapisan: footage A → overlay leak (`mixBlendMode: "screen"`) → footage B.
   - Gerak: leak masuk 4 f, puncak, keluar 5 f (`CURVE.reveal` masuk, `CURVE.leave` keluar), total ±9 f; cut dilakukan di puncak.
   - Ruang: datar. Blur & blend: `screen`, opasitas puncak ±0,9.
-- **SFX:** `ES_Designed, Riser, Transition, Fast, Short, Clean 01` di leak (di asli: uplifter di 8,0 dtk); `Wooshcameramovementtransisi.mp3` bila leak besar.
+- **SFX:** famili `air`, `riser` · `ES_Designed, Riser, Transition, Fast, Short, Clean 01` di leak (di asli: uplifter di 8,0 dtk); whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) bila leak besar.
 - **Pakai bila:** pergantian bab yang tegas. · **Jangan pakai bila:** dipakai di semua cut (kehilangan arti).
 - **Remix (anti-jiplak):**
   1. Latar terang → pertahankan sapuan cahaya di cut · ganti oranye ke putih hangat.

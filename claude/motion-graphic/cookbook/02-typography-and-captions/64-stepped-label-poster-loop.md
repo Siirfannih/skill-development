@@ -48,7 +48,7 @@ Grotesk display Bold rapat (mirip Helvetica Now Display Bold), kapital, tracking
   - Lapisan (bawah → atas): latar → pita biru → label putih (`<div>` per baris, `background:#fff`, tanpa padding vertikal) → teks → kotak biru + teks kecil.
   - Gerak: tidak ada; bila ingin masuk, label muncul per baris `CURVE.reveal` 6 f, selisih `react()`.
   - Ruang: datar. Blur & blend: tanpa blur/blend; tidak ada bayangan.
-- **SFX:** senyap (file memang tanpa audio); bila perlu satu `Katapertama.mp3` di frame pertama.
+- **SFX:** famili `glitch` · senyap (file memang tanpa audio); bila perlu satu `Katapertama.mp3` di frame pertama.
 - **Pakai bila:** 1–3 kata per baris, kalimat pendek. · **Jangan pakai bila:** kalimat yang harus terbaca cepat dengan > 5 baris kecil.
 - **Remix (anti-jiplak):**
   1. Poster pengumuman produk UMKM → pertahankan label putih bertangga + kotak aksen di sudut · ganti kata dan satu warna aksen merek.
@@ -64,7 +64,7 @@ Grotesk display Bold rapat (mirip Helvetica Now Display Bold), kapital, tracking
   - Lapisan: latar solid → grid pita (sel 80 px) → label + teks.
   - Gerak: nyala tiap sel tertunda menurut jarak ke kotak biru (`react()`), gradien horizontal per sel; sapuan 21–24 f `CURVE.whip`; hold 12–36 f; loop 100 f dengan `frame % 100`.
   - Ruang: datar. Blur & blend: gradien buram horizontal di dalam sel (`linear-gradient` + `filter: blur(6px)` searah sapuan); tanpa blend.
-- **SFX:** senyap (file tanpa audio). Bila diberi bunyi: `Scanning dan gerak kurva.mp3` pada tiap sapuan, bukan per sel.
+- **SFX:** famili `glitch` · senyap (file tanpa audio). Bila diberi bunyi: `Scanning dan gerak kurva.mp3` pada tiap sapuan, bukan per sel.
 - **Pakai bila:** teks harus diam dan terbaca. · **Jangan pakai bila:** ada VO yang mengikat kata ke visual.
 - **Remix (anti-jiplak):**
   1. Penutup video SaaS → pertahankan gelombang dari satu sumber · ganti warna sel dari aksen produk.

@@ -6,7 +6,7 @@
   python3 tools/cookbook.py cek [--ketat]         validasi kartu + INDEX/POLA; exit 1 bila GAGAL
   python3 tools/cookbook.py migrasi-path [--tulis]  ganti rujukan pustaka/ lama di seluruh repo
 Hanya stdlib. Fungsi resolve() dipakai skrip lain (juri/resep_check.py)."""
-import glob, os, re, sys
+import json, glob, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 CB = os.path.join(ROOT, "claude", "motion-graphic", "cookbook")
@@ -200,54 +200,47 @@ def build_pola(cards):
     return "\n".join(L).rstrip("\n") + "\n"
 
 
-SFXCAT = os.path.join(os.path.dirname(CB), "guide", "sfx", "SFXIRFAN.md")
+SFXDIR = os.path.join(os.path.dirname(CB), "guide", "sfx")
+SFXCAT = os.path.join(SFXDIR, "SFXIRFAN.md")
+FAMJSON = os.path.join(SFXDIR, "FAMILI.json")
 
 
-def sfx_catalog():
-    """Baris katalog SFXIrfan: (nama file, kunci pencocokan, peran)."""
+def sfx_lokal():
+    """Baris katalog SFXIrfan: (nama file, famili, peran). Kolom Famili ditulis `id`."""
     out = []
     if not os.path.exists(SFXCAT):
         return out
     for line in open(SFXCAT, encoding="utf-8"):
-        m = re.match(r"^\|\s*`([^`]+)`(?:,\s*`([^`]+)`)?\s*\|(.*)\|\s*$", line)
+        m = re.match(r"^\|\s*`([^`]+)`[^|]*\|\s*`?([a-z]+)?`?[^|]*\|(.*)\|\s*$", line)
         if not m:
             continue
         cols = [c.strip() for c in m.group(3).split("|")]
-        peran = cols[-1] if cols else ""
-        for nama in filter(None, (m.group(1), m.group(2))):
-            stem = re.sub(r"\.(mp3|wav)$", "", nama)
-            kunci = ", ".join(stem.split(", ")[:2]) if stem.startswith("ES_") else stem
-            out.append((nama, kunci, peran))
+        out.append((m.group(1), m.group(2) or "", cols[-1] if cols else ""))
     return out
 
 
 def build_sfx(cards):
     ok = [c for c in cards if c["fm"]]
-    cat = sfx_catalog()
-    pakai = {n: [] for n, _, _ in cat}
-    tidak_ada = []
+    fams = json.load(open(FAMJSON, encoding="utf-8"))["famili"] if os.path.exists(FAMJSON) else {}
+    pakai = {k: [] for k in fams}
     for c in sorted(ok, key=lambda c: idkey(c["fm"].get("id", ""))):
         for t in tblocks(c["body"]):
-            ref = f"{c['fm'].get('id', '')}.T{t['n']}"
-            for nama, kunci, _ in cat:
-                if kunci and re.search(re.escape(kunci) + r"(?!:)", t["sfx"]):  # "Pergantianfoto" ≠ "Pergantianfoto:gambarpertama"
-                    pakai[nama].append(ref)
-            if "tidak ada di sfxirfan" in t["sfx"].lower():
-                tidak_ada.append((ref, t["sfx"]))
-    L = ["# Cookbook · SFX (SFXIrfan → pola)", "", GENERATED, "",
-         "Peta balik dari kolom **SFX** tiap T-blok ke katalog `../guide/sfx/SFXIRFAN.md`. Dipakai saat mengisi SFX racikan: "
-         "satu peran = satu bunyi sepanjang video, kata KT per kata senyap (`../guide/sfx/GUIDE.md`).", "",
-         "| File SFXIrfan | Peran di katalog | Dipakai di pola (ID.Tn) |", "|---|---|---|"]
-    for nama, _, peran in cat:
-        refs = pakai.get(nama, [])
-        L.append("| " + " | ".join(esc(x) for x in [f"`{nama}`", cut(peran, 90), ", ".join(refs) if refs else "—"]) + " |")
-    L += ["", "## Bunyi yang dibutuhkan pola tetapi tidak ada di SFXIrfan", "",
-          "Isi lewat urutan sumber di `../guide/sfx/GUIDE.md` §Cara butir 3 (Epidemic/Kenyset, lalu ElevenLabs dengan biaya disebut).", "",
-          "| ID.Tn | Kolom SFX kartu |", "|---|---|"]
-    for ref, txt in tidak_ada:
-        L.append(f"| {ref} | {esc(cut(txt, 160))} |")
-    return "\n".join(L) + "\n"
-
+            for k in re.findall(r"`([a-z]+)`", t["sfx"].split(" · ")[0]) if t["sfx"].startswith("famili ") else []:
+                pakai.setdefault(k, []).append(f"{c['fm'].get('id', '')}.T{t['n']}")
+    lokal = sfx_lokal()
+    L = ["# Cookbook · SFX per famili", "", GENERATED, "",
+         "Kebutuhan bunyi tiap pola ditulis sebagai **famili** (karakter), bukan nama file. Untuk satu famili: lihat pola yang "
+         "memakainya, coba stok lokal yang terdaftar, lalu cari bila tidak ada yang lolos dengar "
+         "(`../guide/sfx/GUIDE.md` Cara 3, `../guide/sfx/FAMILI.md`).", ""]
+    for k, f in fams.items():
+        mine = [f"`{n}`" for n, fk, _ in lokal if fk == k]
+        L += [f"## `{k}` · {f.get('nama', k)}", "",
+              f"- **Karakter:** {f.get('deskripsi', '')}",
+              f"- **Pola yang memakainya ({len(pakai.get(k, []))}):** " + (", ".join(pakai.get(k, [])) or "—"),
+              f"- **SFXIrfan:** " + (", ".join(mine) or "tidak ada") + "; Kenyset: nama file cocok `" + f.get("kenyset_regex", "—") + "`",
+              f"- **Cari:** `python3 scripts/audio/sfx_cari.py --famili {k} --out projects/<proyek>/sfx/kandidat` (kata kunci: "
+              + ", ".join(f'"{q}"' for q in f.get("cari", [])) + ")", ""]
+    return "\n".join(L).rstrip("\n") + "\n"
 
 def cmd_index():
     cards = load_cards()
@@ -319,7 +312,9 @@ def cmd_cek(args):
                 bad(f"{r}: tidak ada T-blok")
             for t in tb:
                 wajib = (("Trigger", t["trigger"]),) if t.get("belum") else (("Trigger", t["trigger"]), ("Mekanik Remotion", t["mekanik"]), ("Remix", t["remix"]))
-                kurang = [n for n, v in wajib if not v]  # T-blok yang jujur "belum dibedah" cukup punya Trigger
+                kurang = [n for n, v in wajib if not v]
+                if not t.get("belum") and t.get("sfx") and not (t["sfx"].startswith("famili `") or re.search(r"senyap", t["sfx"], re.I)):
+                    kurang.append("SFX tanpa famili (tulis famili `<id>` dari guide/sfx/FAMILI.md, atau senyap + alasan)")  # T-blok yang jujur "belum dibedah" cukup punya Trigger
                 if kurang:
                     bad(f"{r} T{t['n']}: kurang {', '.join(kurang)}")
         b1 = nbad()

@@ -51,7 +51,7 @@ Lima peran yang tidak pernah dicampur: kinetik tipis di atas wajah; tipografi ra
   - Lapisan: footage (wajah di kiri) → teks tumpuk (satu `<AbsoluteFill>` di separuh kanan) → vinyet.
   - Gerak: tiap kata muncul pada frame ucapan (`opacity` 0→1 dalam 1 f, tanpa easing); tumpuk dibuat dengan `line-height: 0,8` dan `translateY` negatif per baris; ganti seluruh blok lewat cut keras, bukan fade.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** pop atau klik pendek per kata di kiblat; dalam repo ini kata KT per kata senyap (`../../guide/sfx/GUIDE.md`); satu `Katapertama.mp3` di kata pertama video.
+- **SFX:** famili `glitch`, `mekanik`, `ui` · pop atau klik pendek per kata di kiblat; dalam repo ini kata KT per kata senyap (`../../guide/sfx/GUIDE.md`); satu `Katapertama.mp3` di kata pertama video.
 - **Pakai bila:** wajah mengisi satu sisi, sisi lain gelap/polos. · **Jangan pakai bila:** wajah di tengah dengan teks harus menutup wajah.
 - **Remix (anti-jiplak):**
   1. Video produk satu objek di kiri → pertahankan tumpuk kata di sisi kosong · ganti wajah menjadi produk, sans tipis menjadi serif tipis.
@@ -67,7 +67,7 @@ Lima peran yang tidak pernah dicampur: kinetik tipis di atas wajah; tipografi ra
   - Lapisan: warna datar → garis scan (gradien berulang 2,9 px, opacity 0,08) → kata raksasa → glow (salinan blur 12 px, `mixBlendMode: "screen"`).
   - Gerak: kata muncul per frame ucapan tanpa easing (hard); bila perlu `scale 1,06→1` 4 f `CURVE.land`; kata putar 90° `rotate(90deg)` tanpa animasi.
   - Ruang: datar. Blur & blend: glow bloom lebar; tanpa motion blur (sumber tidak menampakkan easing).
-- **SFX:** sub bass drop tepat pada cut ke layar warna: `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` (peran twist/punchline) atau `basmenyebar.mp3` (judul/puncak); satu per layar warna.
+- **SFX:** famili `impact` · sub bass drop tepat pada cut ke layar warna: `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` (peran twist/punchline) atau `basmenyebar.mp3` (judul/puncak); satu per layar warna.
 - **Pakai bila:** satu kata inti per layar; naskah boleh agresif. · **Jangan pakai bila:** kalimat panjang atau tone korporat.
 - **Remix (anti-jiplak):**
   1. Promo UMKM → pertahankan kata raksasa terpotong tepi · ganti hijau/oranye menjadi satu warna merek, kuning-hijau menjadi putih krem.
@@ -83,7 +83,7 @@ Lima peran yang tidak pernah dicampur: kinetik tipis di atas wajah; tipografi ra
   - Lapisan: biru datar + letterbox → blok teks dengan bayang RGB (dua salinan offset ±2 px merah/cyan).
   - Gerak: ketik 1 huruf/f; blok lama `translateY(0→-120px)` + opacity 1→0 `CURVE.leave` 8 f saat blok baru mulai.
   - Ruang: datar. Blur & blend: bayang RGB `mixBlendMode: "screen"`.
-- **SFX:** kiblat: pop tiap baris. Di repo ini senyap per huruf; `Keyboardtyping.mp3` dipotong sepanjang blok bila ingin bunyi mesin ketik.
+- **SFX:** famili `mekanik`, `ui` · kiblat: pop tiap baris. Di repo ini senyap per huruf; `Keyboardtyping.mp3` dipotong sepanjang blok bila ingin bunyi mesin ketik.
 - **Pakai bila:** dialog 4–6 baris. · **Jangan pakai bila:** lebih dari dua penutur.
 - **Remix (anti-jiplak):**
   1. Chat bisnis → pertahankan dua blok kiri-kanan · ganti kapital miring menjadi gelembung chat sans.
@@ -99,7 +99,7 @@ Lima peran yang tidak pernah dicampur: kinetik tipis di atas wajah; tipografi ra
   - Lapisan: hijau datar → foto miring dengan glow → subtitle.
   - Gerak: ganti foto per 3 f tanpa transisi; rotasi acak ±8° per foto (biji tetap); tanpa easing.
   - Ruang: datar. Blur & blend: glow tepi `drop-shadow(0 0 8px)`.
-- **SFX:** `Pergantianfoto.mp3` (satu potongan panjang untuk rentetan foto), bukan satu klik per foto.
+- **SFX:** famili `mekanik` · `Pergantianfoto.mp3` (satu potongan panjang untuk rentetan foto), bukan satu klik per foto.
 - **Pakai bila:** ≥ 6 foto arsip. · **Jangan pakai bila:** foto harus dibaca satu per satu.
 - **Remix (anti-jiplak):**
   1. Riwayat merek → pertahankan 3 f per gambar · ganti foto menjadi logo/versi produk lama.
@@ -116,7 +116,7 @@ Lima peran yang tidak pernah dicampur: kinetik tipis di atas wajah; tipografi ra
   - Gerak: sisipan `scale 0,94→1` `CURVE.land` 8 f; dinding poster `scale 1→0,67` selama ±90 f (`CURVE.heavy`) menjauh; ponsel geser −11 % lalu −27 % lebar `CURVE.drift`.
   - Ruang: ponsel `rotateY(-18deg) rotateX(8deg)` `perspective: 1200px`.
   - Blur & blend: tanpa.
-- **SFX:** senyap kecuali satu `pop up.mp3` saat sisipan muncul.
+- **SFX:** famili `ui` · senyap kecuali satu `pop up.mp3` saat sisipan muncul.
 - **Pakai bila:** ucapan konkret. · **Jangan pakai bila:** abstrak.
 - **Remix (anti-jiplak):**
   1. Promo kursus → pertahankan sisipan berbingkai + teks lebih lebar · ganti wisuda menjadi sertifikat.
@@ -132,7 +132,7 @@ Lima peran yang tidak pernah dicampur: kinetik tipis di atas wajah; tipografi ra
   - Lapisan: satu urutan `<Sequence>` per shot.
   - Gerak: cut pada frame ucapan; push kecil `scale 1→1,08` `CURVE.drift` ±30 f pada shot yang ditahan.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `Cut.mp3` atau sub bass di cut ke layar warna; `Woosh.mp3` hanya untuk satu gerak keluar (kiblat: satu whoosh di 0:35,6).
+- **SFX:** famili `glitch`, `air`, `impact` · `Cut.mp3` atau sub bass di cut ke layar warna; `Woosh.mp3` hanya untuk satu gerak keluar (kiblat: satu whoosh di 0:35,6).
 - **Pakai bila:** naskah punya kata kunci jelas. · **Jangan pakai bila:** tempo tenang.
 - **Remix (anti-jiplak):**
   1. Reels cepat → pertahankan cut di ucapan · ganti layar warna menjadi b-roll produk.

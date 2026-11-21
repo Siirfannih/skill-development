@@ -51,7 +51,7 @@ Sans sistem Apple (SF Pro/Inter semibold–bold); serif hanya di salam kotak pro
   - Gerak: push 3–7 % per 0,5 dtk = `CURVE.heavy` 1,00→1,06 sepanjang beat; pull 3–11 % saat babak baru (`CURVE.heavy`); geser lateral jendela +17–20 % lebar saat panel masuk (±15 f, `CURVE.land`), kembali −30 % saat panel keluar; hold pakai `drift()` dari `curves.ts`, bukan diam mati.
   - Ruang: datar, 2D transform pada grup.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` pada grup; tanpa blend mode.
-- **SFX:** `Woosh.mp3` pada pull besar; `Enter.mp3` hanya pada klik penting; `Keyboardtyping.mp3` dipotong sesuai teks (−12…−16 dB). Kosakata asli belum dikonfirmasi telinga.
+- **SFX:** famili `air`, `mekanik` · `Woosh.mp3` pada pull besar; `Enter.mp3` hanya pada klik penting; `Keyboardtyping.mp3` dipotong sesuai teks (−12…−16 dB). Kosakata asli belum dikonfirmasi telinga.
 - **Pakai bila:** UI dan latar berbeda nada. · **Jangan pakai bila:** UI terang di foto terang atau gelap di gelap; jendela terlalu besar sehingga wallpaper hilang.
 - **Remix (anti-jiplak):**
   1. UI aplikasi bertema terang → pertahankan satu kamera + wallpaper tajam di keempat sisi · ganti wallpaper gelap/jenuh.
@@ -67,7 +67,7 @@ Sans sistem Apple (SF Pro/Inter semibold–bold); serif hanya di salam kotak pro
   - Lapisan: latar putih + vignette halus → teks. Dua `<Sequence>`: kata besar, lalu baris lengkap kecil.
   - Gerak: huruf besar `move(frame, start+i, 6, "reveal")` blur 10→0 px; baris kecil per kata ±6 f (±0,2 dtk/kata), warna aksen → hitam dalam 8 f; potong keras antar `Sequence`, tanpa interpolasi skala.
   - Ruang: datar. Blur & blend: `filter: blur()` untuk masuk, tanpa blend.
-- **SFX:** senyap (KT per kata); sapuan warna pembuka `Woosh.mp3` bila ingin.
+- **SFX:** famili `air` · senyap (KT per kata); sapuan warna pembuka `Woosh.mp3` bila ingin.
 - **Pakai bila:** kartu kosong. · **Jangan pakai bila:** di atas footage ramai atau pembicara.
 - **Remix (anti-jiplak):**
   1. Latar gelap → pertahankan potong ke baris kecil · ganti huruf putih, satu aksen; frasa panjang: hanya kata pertama tampil besar.
@@ -82,7 +82,7 @@ Sans sistem Apple (SF Pro/Inter semibold–bold); serif hanya di salam kotak pro
   - Lapisan: scene A → grid kotak (sel ±8 % tinggi) → scene B di bawah grid.
   - Gerak: nyala tiap sel tertunda menurut jarak ke titik klik (cincin) atau ke tepi (sapuan), selisih per sel 1–2 f, pakai `react()` bila jaraknya diskret; tiap sel `CURVE.reveal` 4 f nyala lalu `CURVE.leave` 6 f padam; total 0,3–0,5 dtk.
   - Ruang: datar. Blur & blend: sel diredupkan sekeluarga dengan latar adegan (hitam → bara/arang gelap, catatan 19 Nov); `mixBlendMode: "screen"` bila latar gelap.
-- **SFX:** `scaningfast.mp3` atau `Scanning dan gerak kurva.mp3` pada sapuan; klik `Enter.mp3` di pemicu. Satu bunyi per gelombang.
+- **SFX:** famili `glitch`, `mekanik`, `air` · whoosh/scan famili `air` tanpa desis (file SFXIrfan lama dilarang; `sfx_cari.py --famili air`) atau `Scanning dan gerak kurva.mp3` pada sapuan; klik `Enter.mp3` di pemicu. Satu bunyi per gelombang.
 - **Pakai bila:** ada pemicu terlihat (klik, akhir ketikan). · **Jangan pakai bila:** tanpa pemicu (terbaca cacat), di atas pembicara, di setiap transisi.
 - **Remix (anti-jiplak):**
   1. Latar terang → pertahankan cincin dari klik · ganti sel gelap/jenuh, bukan pastel.
@@ -97,7 +97,7 @@ Sans sistem Apple (SF Pro/Inter semibold–bold); serif hanya di salam kotak pro
   - Lapisan: foto → bidang kaca (`backdropFilter: blur(24px)` + isi putih ~0,55 + border 1 px terang + bayangan halus) → teks UI.
   - Gerak: naik dari bawah `CURVE.land` ±14 f; push foto 1,00→1,04 `CURVE.drift`.
   - Blur & blend: backdrop blur; tanpa blend.
-- **SFX:** `pop up.mp3` saat kotak menetap; sisanya senyap.
+- **SFX:** famili `ui` · `pop up.mp3` saat kotak menetap; sisanya senyap.
 - **Pakai bila:** latar bertekstur sedang/gelap. · **Jangan pakai bila:** latar terang, polos, atau abu muda.
 - **Remix (anti-jiplak):**
   1. Latar terang/polos → pertahankan naik dari bawah · ganti bidang solid putih berbayangan jelas atau gelap.
@@ -111,7 +111,7 @@ Sans sistem Apple (SF Pro/Inter semibold–bold); serif hanya di salam kotak pro
 - **Mekanik Remotion (titik awal):**
   - Gerak: keyframe skala+translate pada grup desktop ke kotak prompt, 1,4–1,8×, masuk 4–6 f `CURVE.whip`, hold dengan `drift()`, keluar `CURVE.heavy` ±18 f; kotak prompt tidak dipisah jadi elemen sendiri.
   - Ruang: datar. Blur & blend: motion blur kamera aktif saat gerak.
-- **SFX:** `Woosh.mp3` pada punch; `Keyboardtyping.mp3` selama ketikan (±12 huruf/dtk).
+- **SFX:** famili `air`, `mekanik` · `Woosh.mp3` pada punch; `Keyboardtyping.mp3` selama ketikan (±12 huruf/dtk).
 - **Pakai bila:** kalimat perintah yang harus terbaca. · **Jangan pakai bila:** kata narasi non-UI (jangan dimasukkan ke kolom prompt hanya untuk dibesarkan).
 - **Remix (anti-jiplak):**
   1. Kalimat diucapkan pembicara → tetap teks kinetik di luar UI.

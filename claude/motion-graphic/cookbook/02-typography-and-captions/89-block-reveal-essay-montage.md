@@ -68,7 +68,7 @@ Grotesk tebal kapital + satu kata script miring ("about") untuk kata sebar; judu
   - Lapisan: warna datar → satu `<OffthreadVideo>` yang sama diduplikasi, tiap salinan dipotong dengan `clipPath: inset()` ke satu persegi; salinan harus **sejajar sama** (satu video, satu waktu) supaya mulut/mata tidak terputus di sambungan.
   - Gerak: 4–5 blok masuk berurutan, jeda tidak rata dengan `react(i, fps)`; tiap blok `scale` 0,85→1 + opacity `CURVE.land` ±5 f. Urutan: mata dulu (anchor), lalu blok yang menambah area ke bawah/samping.
   - Ruang: datar; blur & blend: tanpa.
-- **SFX:** belum dibedah; saran: satu `Pergantianfoto:gambarpertama.mp3` untuk blok pertama, blok lain senyap.
+- **SFX:** famili `glitch` · belum dibedah; saran: satu `Pergantianfoto:gambarpertama.mp3` untuk blok pertama, blok lain senyap.
 - **Pakai bila:** wajah berukuran besar, latar footage ramai yang ingin dibuang sementara. · **Jangan pakai bila:** tanpa wajah/objek tunggal, atau bila sambungan blok memotong mulut sehingga lip-sync terlihat rusak.
 - **Remix (anti-jiplak):**
   1. Foto produk UMKM → produk muncul dari satu sudut (label dulu), blok bertambah sampai terlihat penuh.
@@ -84,7 +84,7 @@ Grotesk tebal kapital + satu kata script miring ("about") untuk kata sebar; judu
   - Lapisan: warna datar → SVG garis → kata.
   - Gerak: garis `strokeDashoffset` 1→0 selama 4–5 f `CURVE.reveal`; kata muncul 2 f setelah ujung garis tiba; tidak ada animasi keluar (potong).
   - Ruang: datar; blur & blend: tanpa.
-- **SFX:** belum dibedah; saran dari `SFXIRFAN.md`: `Scanning dan gerak kurva.mp3` (garis bergerak) hanya bila garis jadi objek utama.
+- **SFX:** famili `glitch` · belum dibedah; saran dari `SFXIRFAN.md`: `Scanning dan gerak kurva.mp3` (garis bergerak) hanya bila garis jadi objek utama.
 - **Pakai bila:** 3 kata atau lebih sedikit, jeda 1 dtk di awal babak. · **Jangan pakai bila:** kalimat > 5 kata.
 - **Remix:** 1) judul bagian "bukan itu / yang penting / ini" dengan garis melengkung; 2) tiga kata di UI putih dengan garis hitam tipis; 3) 16:9: tangga mendatar.
 - *Pengamatan, bukan target:* kata ±0,25 dtk berselisih; total ±1,0 dtk.
@@ -97,7 +97,7 @@ Grotesk tebal kapital + satu kata script miring ("about") untuk kata sebar; judu
   - Lapisan: klip (crop 9:16) → scrim gelap 15–30 % → judul → keterangan.
   - Gerak: klip dipotong pada kalimat/frasa; keterangan = satu `<Sequence>` per frasa, tanpa transisi; judul satu `<Sequence>` per klip. Push 1,00→1,04 `CURVE.drift` per klip supaya klip diam tidak mati.
   - Ruang: datar; blur & blend: tanpa.
-- **SFX:** belum dibedah; saran: senyap atau `Pergantianfoto.mp3` (potongan klik) hanya untuk rentetan daftar di 61–71 dtk.
+- **SFX:** famili `mekanik` · belum dibedah; saran: senyap atau `Pergantianfoto.mp3` (potongan klik) hanya untuk rentetan daftar di 61–71 dtk.
 - **Pakai bila:** klip punya wajah/objek di tengah-atas dan area bawah relatif gelap. · **Jangan pakai bila:** footage terang di tempat teks, klip tak berizin (pakai footage sendiri atau stok berlisensi).
 - **Remix:** 1) hasil kerja Jadisatu per klien, judul = nama usaha, tahun diganti kategori; 2) studi tiga referensi desain dengan "oleh nama"; 3) satu jenis footage sendiri (proses ngoding), judul = nama fitur.
 - *Pengamatan, bukan target:* ±14 klip dalam 24 dtk (26–50); teks judul ±1,5 % tinggi frame.

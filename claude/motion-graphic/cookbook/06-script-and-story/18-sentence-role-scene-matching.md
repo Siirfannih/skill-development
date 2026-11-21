@@ -56,7 +56,7 @@ alias: []
   - Gerak: ganti adegan di tengah kalimat dengan cut atau slide singkat (`CURVE.reveal` 6–8 f); teks grafik ditahan sampai kalimat selesai sebelum cut.
   - Ruang: datar.
   - Blur & blend: tanpa efek khusus; konsistensi lewat tekstur (T6).
-- **SFX:** `Kinetictypography(gunakansecaraacak).mp3` sesekali untuk teks yang berganti; `Woosh.mp3` untuk transisi adegan; klaim Joseph (klik untuk teks, highlighter untuk grafik) tidak dipakai: bunyi highlighter tidak ada di SFXIrfan; kata KT per kata senyap.
+- **SFX:** famili `ui`, `air`, `mekanik` · `Kinetictypography(gunakansecaraacak).mp3` sesekali untuk teks yang berganti; `Woosh.mp3` untuk transisi adegan; klaim Joseph (klik untuk teks, highlighter untuk grafik) tidak dipakai: bunyi highlighter tidak ada di SFXIrfan; kata KT per kata senyap.
 - **Pakai bila:** klip bicara 30–60 dtk dengan banyak kalimat yang bisa diperagakan. · **Jangan pakai bila:** pembicara emosional yang wajahnya adalah isinya (grafik memutus).
 - **Remix (anti-jiplak):**
   1. Klip pelatihan UMKM → pertahankan aturan "umumkan → wajah, jelaskan → tunjukkan" · ganti lukisan dengan foto produk, grafik biru dengan grafik penjualan.
@@ -72,7 +72,7 @@ alias: []
   - Gerak: kata kunci `scale` 1,08→1 `CURVE.land` 8 f dengan motion blur; kata kecil `opacity` + `translateY(6px)` 3 f sesudahnya; kutipan 3 baris, jarak baris rapat (kira-kira −1 px dari ukuran huruf).
   - Ruang: datar.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>`; tanpa blend.
-- **SFX:** senyap per kata (KT); satu `Katapertama.mp3` pada tampilan pertama bila ini pembuka.
+- **SFX:** famili `glitch` · senyap per kata (KT); satu `Katapertama.mp3` pada tampilan pertama bila ini pembuka.
 - **Pakai bila:** ruang di bawah dagu/dada kosong dan kata kunci ≤ 12 huruf. · **Jangan pakai bila:** wajah memenuhi frame tanpa ruang dada (blok menutup mulut).
 - **Remix (anti-jiplak):**
   1. Klip konsultan → pertahankan kata kunci besar + kata kecil di celah · ganti sans/serif dengan pasangan huruf merek, aksen biru ke satu warna lain.
@@ -88,7 +88,7 @@ alias: []
   - Gerak: lukisan `translateX` 30 px→0 + `scale` 1,05→1 `CURVE.land` 8–10 f; teks masuk per baris 3 f dengan motion blur; kotak biru `clipPath` tumbuh 6 f.
   - Ruang: datar atau parallax 3 % antara lukisan dan teks.
   - Blur & blend: tekstur cat setengah kekuatan, `mixBlendMode: "multiply"`, tempel ke layer lukisan.
-- **SFX:** `Woosh.mp3` untuk slide-in; `documenter.mp3` untuk foto cetak mendarat bila memakai foto asli.
+- **SFX:** famili `air`, `taktil` · `Woosh.mp3` untuk slide-in; `documenter.mp3` untuk foto cetak mendarat bila memakai foto asli.
 - **Pakai bila:** lukisan atau foto dengan dinding/langit kosong di samping tokoh. · **Jangan pakai bila:** komposisi tanpa ruang kosong (teks menutup wajah tokoh).
 - **Remix (anti-jiplak):**
   1. Cerita pendiri UMKM → pertahankan teks di kolom ≤ 40 % samping tokoh · ganti lukisan dengan foto lama toko.
@@ -104,7 +104,7 @@ alias: []
   - Gerak: `strokeDashoffset` mengikuti kata VO `CURVE.reveal` 8–10 f per segmen; kamera virtual ikut `getPointAtLength` ujung garis `CURVE.drift`; teks memotong garis (mask) saat lewat.
   - Ruang: datar.
   - Blur & blend: bola `box-shadow` biru lembut; garis tanpa blur.
-- **SFX:** bunyi highlighter untuk grafik (kiblat; tidak ada di SFXIrfan, jenis bunyi: sapuan/highlighter); `Scanning dan gerak kurva.mp3` untuk garis/kurva bergerak; senyap per kata.
+- **SFX:** famili `glitch` · bunyi highlighter untuk grafik (kiblat; tidak ada di SFXIrfan, jenis bunyi: sapuan/highlighter); `Scanning dan gerak kurva.mp3` untuk garis/kurva bergerak; senyap per kata.
 - **Pakai bila:** 3–5 kata kunci berurutan atau kata yang diulang ≥ 3 kali. · **Jangan pakai bila:** hanya dua kata (garis jadi hiasan).
 - **Remix (anti-jiplak):**
   1. Langkah onboarding SaaS → pertahankan garis yang melewati tiap kata kunci · ganti biru dengan satu warna merek dan teks ke label langkah.
@@ -120,7 +120,7 @@ alias: []
   - Gerak: figur `translateY` 40 px→0 + `opacity` 8 f `CURVE.land`; kata kedua `blur(8px)→0` 6 f `CURVE.reveal`; cincin orbit `rotate` lambat `CURVE.drift`; label masuk berurutan 4 f.
   - Ruang: tiga lapis dengan parallax 3 %.
   - Blur & blend: tekstur cat `multiply`, tempel ke layer figur (bergerak bersamanya).
-- **SFX:** senyap atau `Kinetictypography(gunakansecaraacak).mp3` sesekali; kata senyap.
+- **SFX:** famili `ui` · senyap atau `Kinetictypography(gunakansecaraacak).mp3` sesekali; kata senyap.
 - **Pakai bila:** ide yang bisa dibuat ilustrasi satu subjek. · **Jangan pakai bila:** banyak objek kecil yang harus tampil bersamaan.
 - **Remix (anti-jiplak):**
   1. Penjelasan strategi bisnis → pertahankan satu figur besar di separuh bawah · ganti figur biru dengan siluet pelaku usaha satu warna merek.
@@ -136,7 +136,7 @@ alias: []
   - Gerak: tekstur ikut transform layer; tidak ada gerak tersendiri; foto bertepi lurus sedikit miring (±2°) `rotate` 6 f `CURVE.land`; kutipan masuk dengan motion blur, 3 baris maks, tanda kutip tidak diberi baris sendiri.
   - Ruang: datar.
   - Blur & blend: vignette radial di adegan biru (luma sudut ±40 % dari tengah) dengan lapis terluar jatuh di luar frame (catatan pakai 12 Nov).
-- **SFX:** senyap atau `documenter.mp3` untuk foto mendarat.
+- **SFX:** famili `taktil` · senyap atau `documenter.mp3` untuk foto mendarat.
 - **Pakai bila:** banyak jenis adegan perlu terasa satu keluarga. · **Jangan pakai bila:** tekstur dibiarkan menempel di komposisi (tidak ikut bergerak dengan lukisan; revisi Joseph #3).
 - **Remix (anti-jiplak):**
   1. Seri edukasi UMKM → pertahankan tekstur menempel layer dan satu adegan biru penutup · ganti kertas halftone dengan kain atau karton, biru dengan warna merek gelap.

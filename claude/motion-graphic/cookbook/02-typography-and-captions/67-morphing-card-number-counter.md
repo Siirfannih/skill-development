@@ -53,7 +53,7 @@ Sans grotesk geometris Regular (mirip Aeonik/Suisse Int'l; pengganti gratis Inte
   - Gerak: digit-roll per kolom `translateY` dengan `CURVE.land` 6 f, digit terakhir mendarat paling lambat (+4 f); pull-back scale 1,0→0,45 selama 15 f `CURVE.heavy`; push-in scale 1,0→1,72 selama 15 f `CURVE.heavy`.
   - Ruang: datar.
   - Blur & blend: motion blur nyata `<CameraMotionBlur shutterAngle={200} samples={16}>` pada digit; tepi tumpukan foto `blur(6px)`.
-- **SFX:** riser/swell di masuk angka (pengamatan 1,01 dtk); `ES_Designed, Riser, Transition, Fast, Short, Clean 01`; counter sendiri senyap; stab kuat di morph kartu (4,56 dtk) bila `ES_Designed, Bass Dive…` dipakai sebagai hit (hit pendek tidak ada di SFXIrfan).
+- **SFX:** famili `impact`, `riser`, `stab` · riser/swell di masuk angka (pengamatan 1,01 dtk); `ES_Designed, Riser, Transition, Fast, Short, Clean 01`; counter sendiri senyap; stab kuat di morph kartu (4,56 dtk) bila `ES_Designed, Bass Dive…` dipakai sebagai hit (hit pendek tidak ada di SFXIrfan).
 - **Pakai bila:** angka adalah subjek tunggal dan ada beat musik. · **Jangan pakai bila:** angka bukan puncak cerita.
 - **Remix (anti-jiplak):**
   1. Omzet UMKM → pertahankan counter berputar + tumpukan foto atas-bawah · ganti foto dengan foto produk.
@@ -70,7 +70,7 @@ Sans grotesk geometris Regular (mirip Aeonik/Suisse Int'l; pengganti gratis Inte
   - Gerak: tiap baris masuk dari kanan `translateX(40%)`→offset diagonal `CURVE.land` 10 f dengan jeda `react(i, fps)`; strip footage clip `inset(0 0 0 100%)`→0 `CURVE.reveal` 8 f.
   - Ruang: datar.
   - Blur & blend: baris luar `filter: blur(8px)`, baris dalam `blur(0)`.
-- **SFX:** `Woosh.mp3` pada transisi ke baris (pengamatan: whoosh 3,60–3,74); baris senyap.
+- **SFX:** famili `air` · `Woosh.mp3` pada transisi ke baris (pengamatan: whoosh 3,60–3,74); baris senyap.
 - **Pakai bila:** kata pendek, bahasa dengan kata kategori yang bermakna jika diulang. · **Jangan pakai bila:** kata panjang (lima baris tak muat).
 - **Remix (anti-jiplak):**
   1. Event "Batch 5" → pertahankan baris diulang + strip → ganti padang rumput dengan foto peserta.
@@ -87,7 +87,7 @@ Sans grotesk geometris Regular (mirip Aeonik/Suisse Int'l; pengganti gratis Inte
   - Gerak: tiap kata tambah memicu `translateX` baris −(lebar kata baru)/2 selama 4 f `CURVE.land`; kata baru `opacity` 0→1 dalam 3 f; pull-back scale 1→0,33 `CURVE.heavy` 15 f ke panel.
   - Ruang: datar.
   - Blur & blend: tanpa blur; satu kata serif italic dengan `font-style: italic`.
-- **SFX:** senyap per kata; satu `Wooshcameramovementtransisi.mp3` pada pull-back ke panel bila dianggap gerak besar.
+- **SFX:** famili `air` · senyap per kata; satu whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) pada pull-back ke panel bila dianggap gerak besar.
 - **Pakai bila:** kalimat ≤ 6 kata dengan satu kata istimewa. · **Jangan pakai bila:** kalimat harus terbaca utuh di frame pertama.
 - **Remix (anti-jiplak):**
   1. Visi startup → pertahankan kalimat tumbuh per kata dan tetap di tengah · ganti serif italic dengan script tipis.
@@ -104,7 +104,7 @@ Sans grotesk geometris Regular (mirip Aeonik/Suisse Int'l; pengganti gratis Inte
   - Gerak: panel `translateX(0→16,6%)` `CURVE.heavy` 15 f; kolom naik per langkah 6 f dengan `CURVE.land`, aktif berganti tiap langkah (opacity kartu lain 0,35).
   - Ruang: datar.
   - Blur & blend: tanpa blur; kartu pucat lewat opacity.
-- **SFX:** `Woosh.mp3` pada geser panel (pengamatan whoosh 12,39); langkah scroll senyap (satu peran = satu bunyi).
+- **SFX:** famili `air` · `Woosh.mp3` pada geser panel (pengamatan whoosh 12,39); langkah scroll senyap (satu peran = satu bunyi).
 - **Pakai bila:** ≥ 4 angka dengan satu yang disorot. · **Jangan pakai bila:** angka perlu perbandingan presisi (pakai tabel).
 - **Remix (anti-jiplak):**
   1. Laporan tahunan → pertahankan kolom menggulir bertahap · ganti foto dengan ikon kategori.
@@ -121,7 +121,7 @@ Sans grotesk geometris Regular (mirip Aeonik/Suisse Int'l; pengganti gratis Inte
   - Gerak: scale 1,0→2,6 selama 15 f `CURVE.whip` dengan tagline keluar di 10 f terakhir `CURVE.leave`; logo masuk dari scale 0,4→1 `CURVE.land` 10 f lalu hold 80 f.
   - Ruang: datar.
   - Blur & blend: motion blur 200°/16 sampel pada zoom-through.
-- **SFX:** `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju logo; setelah logo muncul tanpa SFX 2,3 dtk.
+- **SFX:** famili `riser` · `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju logo; setelah logo muncul tanpa SFX 2,3 dtk.
 - **Pakai bila:** video berakhir di merek. · **Jangan pakai bila:** ada CTA tindakan di akhir (hening menunda).
 - **Remix (anti-jiplak):**
   1. Brand lokal → pertahankan zoom-through ke logo + hening · ganti kartu gelap dengan kartu krem.

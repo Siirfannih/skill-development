@@ -56,7 +56,7 @@ alias: []
   - Gerak: push 1,00→1,09 selama beat `CURVE.drift`; sorot menyala 8–10 f `CURVE.reveal` (grayscale foto naik dari 0 ke 1 saat mask wajah tampil).
   - Ruang: datar; kedalaman dari buram + redup, bukan translateZ.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` hanya saat kamera bergerak; kotak inversi `mixBlendMode: "difference"` 2–3 f.
-- **SFX:** pop pendek per kata kunci yang menyala adalah kiblat; di katalog pakai senyap per kata (kata KT) dan `Katapertama.mp3` pada kata pertama; satu `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` saat nama produk mendarat.
+- **SFX:** famili `glitch`, `impact`, `ui` · pop pendek per kata kunci yang menyala adalah kiblat; di katalog pakai senyap per kata (kata KT) dan `Katapertama.mp3` pada kata pertama; satu `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` saat nama produk mendarat.
 - **Pakai bila:** foto kelompok dengan satu wajah terbaca jelas (≥ 14 % lebar), dan ada garis dada kosong. · **Jangan pakai bila:** foto satu orang (tidak ada kerumunan untuk diredam) atau wajah terlalu kecil untuk di-mask.
 - **Remix (anti-jiplak):**
   1. Foto tim kecil UMKM → pertahankan satu wajah berwarna, sisanya abu buram · ganti kapital serif jadi satu kata tebal per baris, nama jabatan, bukan nama produk.
@@ -73,7 +73,7 @@ alias: []
   - Gerak: tiap kata `opacity` 0→1 dalam 2–3 f di onset kata VO; tanpa translate.
   - Ruang: datar.
   - Blur & blend: glow `mixBlendMode: "screen"`; tanpa motion blur.
-- **SFX:** senyap per kata (KT per kata senyap, `../../guide/sfx/GUIDE.md`); kiblat memakai pop/klik di 0–8 dtk (49 pop/klik di earshot), tidak diambil.
+- **SFX:** famili `mekanik`, `ui` · senyap per kata (KT per kata senyap, `../../guide/sfx/GUIDE.md`); kiblat memakai pop/klik di 0–8 dtk (49 pop/klik di earshot), tidak diambil.
 - **Pakai bila:** adegan satu ukuran teks dengan latar yang meredam (hitam, foto redup). · **Jangan pakai bila:** kalimat panjang yang tidak berhenti (kata menumpuk tanpa jeda).
 - **Remix (anti-jiplak):**
   1. Narasi brand story UMKM → pertahankan kata menyala per kata · ganti serif putih ke huruf merek dan warna teks gelap di latar krem.
@@ -90,7 +90,7 @@ alias: []
   - Gerak: whip `CURVE.whip` 6–8 f dengan blur arah `filter: blur(14px)` + `scaleX(1.3)` dan `<CameraMotionBlur>`; flash 1–2 f tanpa kurva.
   - Ruang: datar.
   - Blur & blend: flash `mixBlendMode: "screen"`.
-- **SFX:** `Wooshcameramovementtransisi.mp3` di whip; sub drop `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` sebelum "one cohort" (kiblat +18 dB di 10,07 dtk); `Cutcontrastransision.mp3` untuk flash kontras; kick di cut ke panggung dan pantai tidak ada di SFXIrfan (tidak ada hit pendek).
+- **SFX:** famili `mekanik`, `air`, `impact` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) di whip; sub drop `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` sebelum "one cohort" (kiblat +18 dB di 10,07 dtk); `Cutcontrastransision.mp3` untuk flash kontras; kick di cut ke panggung dan pantai tidak ada di SFXIrfan (tidak ada hit pendek).
 - **Pakai bila:** ≥ 3 pergantian dalam beberapa detik, tiap pergantian dipicu kata. · **Jangan pakai bila:** kata tidak berganti (kilat tanpa alasan) atau latar sudah putih.
 - **Remix (anti-jiplak):**
   1. Montase hasil kerja klien → pertahankan flash 1–2 f di tiap pergantian · ganti inversi menjadi warna merek penuh 2 f.
@@ -107,7 +107,7 @@ alias: []
   - Gerak: teks `scale` 4→1 `CURVE.heavy` ±15 f dengan `translateZ` bila memakai `perspective: 900px`; foto `scale` 1→1,05 searah; glow opacity 1→0 dalam 12 f `CURVE.leave`.
   - Ruang: `perspective: 900px` pada teks.
   - Blur & blend: motion blur di awal (`<CameraMotionBlur shutterAngle={200} samples={16}>`); glow `mixBlendMode: "screen"`.
-- **SFX:** `Wooshcameramovementtransisi.mp3` memuncak saat huruf melewati kamera.
+- **SFX:** famili `air` · whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) memuncak saat huruf melewati kamera.
 - **Pakai bila:** satu frasa pendek yang menjadi inti bagian. · **Jangan pakai bila:** frasa panjang (tidak terbaca saat melintas).
 - **Remix (anti-jiplak):**
   1. Judul bab → pertahankan teks raksasa yang melintas · ganti foto kelompok jadi foto produk.
@@ -124,7 +124,7 @@ alias: []
   - Gerak: kartu `scale` 0,07→1 `CURVE.land` 15 f (±0,5 dtk) dengan pivot tengah; teks muncul per kata sesudah kartu mendarat; angka berganti di tempat (potong, bukan geser).
   - Ruang: datar.
   - Blur & blend: tanpa blur; bingkai putih 0,6 % lebar.
-- **SFX:** `documenter.mp3` (kertas/cetak mendarat) untuk kartu foto; angka berganti senyap atau `Enter.mp3` bila ada tombol.
+- **SFX:** famili `taktil`, `mekanik` · `documenter.mp3` (kertas/cetak mendarat) untuk kartu foto; angka berganti senyap atau `Enter.mp3` bila ada tombol.
 - **Pakai bila:** foto lama atau lukisan dengan makna historis. · **Jangan pakai bila:** foto yang tidak punya makna sendiri (kartu menjadi hiasan).
 - **Remix (anti-jiplak):**
   1. Foto pembukaan toko → pertahankan kartu berbingkai di hitam · ganti teks kiri-kanan dengan tanggal dan nama toko.
@@ -141,7 +141,7 @@ alias: []
   - Gerak: penyalaan per kata seperti T2; footage diam (<0,1 %) di montase kerja dan pantai.
   - Ruang: datar.
   - Blur & blend: tanpa blur; glow tipis.
-- **SFX:** senyap untuk kata; kiblat memberi stab/pluck di montase kerja (20–24 dtk), tidak ada di SFXIrfan.
+- **SFX:** famili `stab` · senyap untuk kata; kiblat memberi stab/pluck di montase kerja (20–24 dtk), tidak ada di SFXIrfan.
 - **Pakai bila:** footage dengan ruang kosong di tengah dan subjek tidak sedang bicara ke kamera. · **Jangan pakai bila:** wajah memenuhi frame.
 - **Remix (anti-jiplak):**
   1. Footage workshop UMKM → pertahankan teks harfiah di samping subjek · ganti italic ke huruf merek.

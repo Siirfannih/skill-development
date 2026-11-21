@@ -52,7 +52,7 @@ Satu keluarga grotesk (mirip Helvetica Neue / SF Pro) Medium–Bold, huruf kecil
   - Gerak: push `scale` 1,0 → 1,10 selama 24 f `CURVE.heavy`, `translate` −5 % x dan −4 % y; pindah tokoh: potong atau pan `CURVE.heavy` ±40 f.
   - Ruang: 3 lapis (abu-abu kabur / teks / tokoh berwarna).
   - Blur & blend: lapis abu `blur(2px)`; tanpa blend mode.
-- **SFX:** `Pergantianfoto:gambarpertama.mp3` di kemunculan pertama; sesudahnya `Pergantianfoto.mp3` satu klik; bunyi rana kamera di asli (label AST "single-lens reflex camera", tidak ada di SFXIrfan).
+- **SFX:** famili `glitch`, `mekanik` · `Pergantianfoto:gambarpertama.mp3` di kemunculan pertama; sesudahnya `Pergantianfoto.mp3` satu klik; bunyi rana kamera di asli (label AST "single-lens reflex camera", tidak ada di SFXIrfan).
 - **Pakai bila:** ada foto kelompok beresolusi cukup untuk mem-matte tokoh. · **Jangan pakai bila:** tokoh tidak bisa dipisah dari latar.
 - **Remix (anti-jiplak):**
   1. Foto tim UMKM → pertahankan satu orang berwarna, sisa abu-abu · ganti kata besar ke jabatan, di belakang kepala.
@@ -84,7 +84,7 @@ Satu keluarga grotesk (mirip Helvetica Neue / SF Pro) Medium–Bold, huruf kecil
   - Lapisan: `radial-gradient` putih (`#FAF7FB` → `#CDCACE`) atau hitam `#000000` → teks.
   - Gerak: cut keras; kata tumbuh per kata ±10 f.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** `basmenyebar.mp3` hanya pada kartu puncak; kartu lain senyap.
+- **SFX:** famili `impact` · `basmenyebar.mp3` hanya pada kartu puncak; kartu lain senyap.
 - **Pakai bila:** ada klaim yang perlu dicerna. · **Jangan pakai bila:** tiap kalimat dijadikan kartu.
 - **Remix (anti-jiplak):**
   1. Brand terang → pertahankan kartu jeda · ganti vignette ke tekstur kertas.
@@ -100,7 +100,7 @@ Satu keluarga grotesk (mirip Helvetica Neue / SF Pro) Medium–Bold, huruf kecil
   - Lapisan: arsip (agak kabur) → kata besar.
   - Gerak: kata tumbuh sekaligus ±6 f; footage `blur(3px)` agar angka terbaca.
   - Ruang: datar. Blur & blend: `blur`; tanpa blend.
-- **SFX:** `Move.mp3` di angka klimaks bila perlu; selebihnya senyap.
+- **SFX:** famili `impact` · `Move.mp3` di angka klimaks bila perlu; selebihnya senyap.
 - **Pakai bila:** tersedia arsip harfiah. · **Jangan pakai bila:** ilustrasi harfiah terasa lucu di topik serius.
 - **Remix (anti-jiplak):**
   1. Harga produk → pertahankan angka besar di atas gambar harfiah · ganti uang ke foto produk.
@@ -116,7 +116,7 @@ Satu keluarga grotesk (mirip Helvetica Neue / SF Pro) Medium–Bold, huruf kecil
   - Lapisan: hitam → ubin (rotasi ±3°, `boxShadow`) → kata.
   - Gerak: ubin `translateX` +40 % → 0 `CURVE.land` ±9 f, jeda `react()` per ubin; posisi acak berbiji.
   - Ruang: ubin `translateZ` sedikit berbeda. Blur & blend: tanpa.
-- **SFX:** satu `Pergantianfoto.mp3` panjang untuk seluruh rentetan.
+- **SFX:** famili `mekanik` · satu `Pergantianfoto.mp3` panjang untuk seluruh rentetan.
 - **Pakai bila:** ≥ 6 wajah. · **Jangan pakai bila:** wajah perlu dikenali.
 - **Remix (anti-jiplak):**
   1. Komunitas pelanggan → pertahankan tumpukan acak · ganti hitam ke warna merek.
@@ -132,7 +132,7 @@ Satu keluarga grotesk (mirip Helvetica Neue / SF Pro) Medium–Bold, huruf kecil
   - Lapisan: radial pucat → objek → kata kiri/kanan.
   - Gerak: kata kunci `scale` 1,15 → 1 + `blur` 10 → 0 px dalam 8 f `CURVE.land`.
   - Ruang: datar. Blur & blend: blur masuk.
-- **SFX:** `Enter.mp3` atau `ES_User Interface, Click, UI Buttons, Confirm, Menu` di kata kunci.
+- **SFX:** famili `mekanik`, `ui` · `Enter.mp3` atau `ES_User Interface, Click, UI Buttons, Confirm, Menu` di kata kunci.
 - **Pakai bila:** ada kata pemicu komentar. · **Jangan pakai bila:** CTA tidak berupa kata tunggal.
 - **Remix (anti-jiplak):**
   1. Kelas online → pertahankan objek tunggal + kata mengapit · ganti folder ke ikon sertifikat.

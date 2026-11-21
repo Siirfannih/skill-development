@@ -46,7 +46,7 @@ Neo-grotesk netral (mirip Inter / Neue Haas Grotesk) Regular di semua ukuran. Du
   - Lapisan (bawah → atas): latar → panel → garis bentuk → isi lime → label.
   - Gerak: `borderRadius` 50 % → 24 % → 0 dengan `CURVE.whip` 33 f @60 → 17 f @30; label berpindah bersama (`translate`, tidak pudar); isi lime muncul pada 1 frame (`opacity` 0 → 1 tanpa tween).
   - Ruang: datar. Blur & blend: tanpa blur, tanpa blend.
-- **SFX:** file sumber tanpa audio; usul: senyap atau satu `pop up.mp3` saat isi lime muncul.
+- **SFX:** famili `ui` · file sumber tanpa audio; usul: senyap atau satu `pop up.mp3` saat isi lime muncul.
 - **Pakai bila:** dua nilai yang berhubungan total–bagian. · **Jangan pakai bila:** lebih dari tiga bentuk dalam satu bidang.
 - **Remix (anti-jiplak):**
   1. Latar terang → garis dan label gelap, isi aksen brand; pertahankan morph cincin → kotak.
@@ -62,7 +62,7 @@ Neo-grotesk netral (mirip Inter / Neue Haas Grotesk) Regular di semua ukuran. Du
   - Lapisan: panel → bidang lime → persen → label.
   - Gerak: `Easing.bezier(0.85, 0, 0.15, 1)` (setara `CURVE.whip`) 6 f @60 untuk lebar, ekor `CURVE.reveal` 12 f; angka `Math.round(interpolate(...))`; tahan 15–30 f setelahnya.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** usul: `Move.mp3` pada lebar lime saat naik; sisanya senyap (sumber tanpa audio).
+- **SFX:** famili `impact` · usul: `Move.mp3` pada lebar lime saat naik; sisanya senyap (sumber tanpa audio).
 - **Pakai bila:** dua nilai yang jumlahnya 100 %. · **Jangan pakai bila:** lebih dari dua bagian.
 - **Remix (anti-jiplak):**
   1. Latar terang → bidang aksen gelap di panel krem.
@@ -78,7 +78,7 @@ Neo-grotesk netral (mirip Inter / Neue Haas Grotesk) Regular di semua ukuran. Du
   - Lapisan: panel lama → dial baru (dua `<AbsoluteFill>` bergeser).
   - Gerak: keluar `CURVE.leave` 18 f @60 (−5 %); masuk `CURVE.land` 30 f (+10 % → 0); busur `strokeDashoffset` mengikuti counter; push akhir `scale 1→1.09` `CURVE.heavy` 17 f.
   - Ruang: datar. Blur & blend: tanpa.
-- **SFX:** usul: `Wooshcameramovementtransisi.mp3` pada geser bila diberi suara; sumber tanpa audio.
+- **SFX:** famili `air` · usul: whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) pada geser bila diberi suara; sumber tanpa audio.
 - **Pakai bila:** satu metrik per periode dengan ≤3 periode. · **Jangan pakai bila:** periode >4.
 - **Remix (anti-jiplak):**
   1. Latar terang → dial garis gelap, aksen brand.

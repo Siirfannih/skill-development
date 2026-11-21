@@ -49,7 +49,7 @@ Grotesk geometris rapat (mirip Satoshi/General Sans; perkiraan), Medium untuk ka
   - Gerak: hero tumbuh dari baseline `scaleY` 0 → 1 `CURVE.reveal` ±20 f; morph huruf → bola `borderRadius`/`scale` `CURVE.whip` ±12 f; semua gerak meluruh ke diam di frame akhir (tanpa overshoot).
   - Ruang: datar.
   - Blur & blend: sisi huruf `blur(2px → 0)` ±8 f (periksa dan catatan 12 Nov: "now" polos karena tidak ada blur di pinggir huruf); `mixBlendMode: "multiply"` untuk gradien di atas putih.
-- **SFX:** riser 4,74 dtk menuju cut 4,90; whoosh 8,23 dtk di morph "Now" → bola; sub-drop di cut besar. Padanan: `ES_Designed, Riser, Transition, Fast, Short, Clean 01`, `Woosh.mp3`, `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`; pop/klik per kata di referensi tidak ditiru (kata senyap).
+- **SFX:** famili `air`, `impact`, `riser`, `mekanik`, `ui` · riser 4,74 dtk menuju cut 4,90; whoosh 8,23 dtk di morph "Now" → bola; sub-drop di cut besar. Padanan: `ES_Designed, Riser, Transition, Fast, Short, Clean 01`, `Woosh.mp3`, `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`; pop/klik per kata di referensi tidak ditiru (kata senyap).
 - **Pakai bila:** kata punya objek jelas. · **Jangan pakai bila:** kata abstrak tanpa objek.
 - **Remix (anti-jiplak):**
   1. Aplikasi pesan antar → "Pesan" jadi bubble hijau, tanpa gradien pink; palet brand.
@@ -66,7 +66,7 @@ Grotesk geometris rapat (mirip Satoshi/General Sans; perkiraan), Medium untuk ka
   - Gerak: kartu masuk dari tepi dengan `react(i, 30)` jeda tidak rata, `CURVE.land` ±10 f; kamera pull 1,00 → 0,85 `CURVE.heavy` ±15 f.
   - Ruang: datar.
   - Blur & blend: bayangan lembut; kartu terpotong tepi (jangan di-padding).
-- **SFX:** pop pada kartu penting saja, bukan semua kartu; hit pada pull. Padanan `pop up.mp3`, `Move.mp3`.
+- **SFX:** famili `impact`, `ui` · pop pada kartu penting saja, bukan semua kartu; hit pada pull. Padanan `pop up.mp3`, `Move.mp3`.
 - **Pakai bila:** ada ≥ 8 contoh hasil nyata. · **Jangan pakai bila:** contoh sedikit (terlihat kosong).
 - **Remix (anti-jiplak):**
   1. Fotografer → kartu = foto klien, kalimat "Dipakai 200+ brand".
@@ -82,7 +82,7 @@ Grotesk geometris rapat (mirip Satoshi/General Sans; perkiraan), Medium untuk ka
   - Lapisan: putih → kolom item → kartu UI + glow.
   - Gerak: kolom `translateY` −22,7 % per item `CURVE.land` ±12 f; warna item `interpolateColors` hitam ↔ abu 6 f; kartu ganti isi lewat crossfade.
   - Ruang: datar. Blur & blend: glow tepi kartu `box-shadow` gradien.
-- **SFX:** pop/klik per item di referensi; di video kita pasangkan satu bunyi per item (objek), bukan per kata. Padanan `ES_User Interface, Click, Pops, Glass, UI, Pops`.
+- **SFX:** famili `ui`, `mekanik` · pop/klik per item di referensi; di video kita pasangkan satu bunyi per item (objek), bukan per kata. Padanan `ES_User Interface, Click, Pops, Glass, UI, Pops`.
 - **Pakai bila:** 4–6 fungsi. · **Jangan pakai bila:** fungsi panjang.
 - **Remix (anti-jiplak):**
   1. Aplikasi keuangan → item = kategori, kartu = grafik.
@@ -98,7 +98,7 @@ Grotesk geometris rapat (mirip Satoshi/General Sans; perkiraan), Medium untuk ka
   - Lapisan: putih → kartu (`overflow: hidden`, `borderRadius: 24px`) → footage → teks.
   - Gerak: kartu `scale` 0,92 → 1 `CURVE.land` ±14 f; footage pull 1,0 → 0,9 meluruh `CURVE.reveal`.
   - Ruang: datar. Blur & blend: bayangan lembut.
-- **SFX:** `Woosh.mp3` bila ada gerak kamera; selain itu senyap.
+- **SFX:** famili `air` · `Woosh.mp3` bila ada gerak kamera; selain itu senyap.
 - **Pakai bila:** footage pendek (±5 dtk). · **Jangan pakai bila:** footage panjang (kartu terlalu kecil).
 - **Remix (anti-jiplak):**
   1. Demo aplikasi → rekaman layar dalam kartu bulat di krem.
@@ -114,7 +114,7 @@ Grotesk geometris rapat (mirip Satoshi/General Sans; perkiraan), Medium untuk ka
   - Lapisan: putih → bar gradien → angka.
   - Gerak: digit roll `translateY` per digit `CURVE.land` ±20 f, digit terakhir mendarat paling lambat; bar `scaleY` 0 → 1 `CURVE.reveal` ±24 f.
   - Ruang: datar. Blur & blend: `blur(4px → 0)` saat roll.
-- **SFX:** pop di digit terakhir; padanan `ES_User Interface, Click, Pops, Glass, UI, Pops`.
+- **SFX:** famili `ui` · pop di digit terakhir; padanan `ES_User Interface, Click, Pops, Glass, UI, Pops`.
 - **Pakai bila:** satu angka hasil. · **Jangan pakai bila:** banyak angka.
 - **Remix (anti-jiplak):**
   1. Penjualan → "2×" Black di depan bar warna brand.

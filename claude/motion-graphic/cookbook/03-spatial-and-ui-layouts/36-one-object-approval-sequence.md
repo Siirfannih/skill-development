@@ -51,7 +51,7 @@ Grotesk condensed bold tracking rapat (paling mirip Helvetica Neue Condensed Bol
   - Gerak: push scale 1,0→2,0 ke titik tombol `CURVE.heavy` 24 f (`transformOrigin` di tombol); kursor `arc()` masuk dari kanan bawah `CURVE.land` 12 f, tekan scale 1→0,92→1 dalam 5 f; tombol `brightness` +12 % saat ditekan.
   - Ruang: datar; kamera virtual 2D.
   - Blur & blend: motion blur 200°/16 sampel pada push; tanpa blur latar.
-- **SFX:** `Enter.mp3` di klik Approve (tombol penting yang benar-benar diklik); ding/konfirmasi `ES_User Interface, Click, UI Buttons, Confirm, Menu` bisa mengikuti di centang. Pengamatan: ding notifikasi +37 dB pada "Made to convert", bukan pada klik.
+- **SFX:** famili `mekanik`, `ui` · `Enter.mp3` di klik Approve (tombol penting yang benar-benar diklik); ding/konfirmasi `ES_User Interface, Click, UI Buttons, Confirm, Menu` bisa mengikuti di centang. Pengamatan: ding notifikasi +37 dB pada "Made to convert", bukan pada klik.
 - **Pakai bila:** ada satu tombol atau angka penting yang dituju. · **Jangan pakai bila:** adegan tidak punya aksi manusia (tombol jadi karangan).
 - **Remix (anti-jiplak):**
   1. Aplikasi akuntansi → pertahankan push ke tombol + kursor di depan · ganti kartu pesan dengan faktur dan tombol "Kirim".
@@ -68,7 +68,7 @@ Grotesk condensed bold tracking rapat (paling mirip Helvetica Neue Condensed Bol
   - Gerak: tiap kata `translateY(10px)`→0 + warna `#B4AFB5`→`#FFFFFF` dengan `CURVE.reveal` 8 f; kata berikutnya +4 f (jeda tak rata via `react()`); centang `stroke-dashoffset` 10 f.
   - Ruang: datar.
   - Blur & blend: tanpa blur; glow oranye gradien statis.
-- **SFX:** satu `pop up.mp3` pada objek UI yang muncul; kata headline senyap; riser sebelum adegan baru (pengamatan: 0,55; 6,96; 11,26; 19,81 dtk) `ES_Designed, Riser, Transition, Fast, Short, Clean 01` hanya di dua dari empat.
+- **SFX:** famili `riser`, `ui` · satu `pop up.mp3` pada objek UI yang muncul; kata headline senyap; riser sebelum adegan baru (pengamatan: 0,55; 6,96; 11,26; 19,81 dtk) `ES_Designed, Riser, Transition, Fast, Short, Clean 01` hanya di dua dari empat.
 - **Pakai bila:** tiap kalimat punya objek UI yang bisa digambar persis. · **Jangan pakai bila:** kalimat abstrak tanpa objek.
 - **Remix (anti-jiplak):**
   1. Alat HR → pertahankan kata naik dari abu ke putih · ganti objek email dengan kartu lamaran.
@@ -85,7 +85,7 @@ Grotesk condensed bold tracking rapat (paling mirip Helvetica Neue Condensed Bol
   - Gerak: ponsel naik `translateY(80px)`→0 `CURVE.land` 20 f; kartu mengipas `rotate(−18°…+18°)` stagger `react(i)`; fokus tarik `blur(10px)`→0 dalam 8 f `CURVE.reveal`.
   - Ruang: `perspective: 1200px`.
   - Blur & blend: fokus tarik dengan `filter: blur()`; maskot dengan glow radial.
-- **SFX:** `Woosh.mp3` pada kipas kartu bila dianggap gerak sedang; maskot match cut senyap atau satu `pop up.mp3`.
+- **SFX:** famili `air`, `ui` · `Woosh.mp3` pada kipas kartu bila dianggap gerak sedang; maskot match cut senyap atau satu `pop up.mp3`.
 - **Pakai bila:** ada maskot atau avatar yang berpindah konteks. · **Jangan pakai bila:** tak ada elemen yang bisa dicocokkan antar adegan.
 - **Remix (anti-jiplak):**
   1. Aplikasi kebugaran → pertahankan ponsel miring + kartu mengipas · ganti maskot dengan ikon pelatih.
@@ -102,7 +102,7 @@ Grotesk condensed bold tracking rapat (paling mirip Helvetica Neue Condensed Bol
   - Gerak: huruf muncul 1 f per huruf (`Sequence` per sel); tarik 1,0→0,63 `CURVE.heavy` 30 f dengan dua langkah (0,72 lalu 0,63).
   - Ruang: datar.
   - Blur & blend: tanpa blur.
-- **SFX:** `Keyboardtyping.mp3` dipotong sesuai panjang teks, level −12…−16 dB (detail); atau `Kinetictypography(gunakansecaraacak).mp3` sesekali.
+- **SFX:** famili `ui`, `mekanik` · `Keyboardtyping.mp3` dipotong sesuai panjang teks, level −12…−16 dB (detail); atau `Kinetictypography(gunakansecaraacak).mp3` sesekali.
 - **Pakai bila:** ada 4–6 sel foto/teks pendek. · **Jangan pakai bila:** kalimat panjang (ketik per huruf menunda).
 - **Remix (anti-jiplak):**
   1. Katalog produk → pertahankan sel grid + ketik per huruf · ganti foto fashion dengan foto produk.
@@ -119,7 +119,7 @@ Grotesk condensed bold tracking rapat (paling mirip Helvetica Neue Condensed Bol
   - Gerak: bidang gradien masuk lewat cut keras di beat; centang `stroke-dashoffset` 10 f; teks `CURVE.reveal` 8 f; logo per huruf 2 f.
   - Ruang: datar.
   - Blur & blend: tanpa blur.
-- **SFX:** satu `ES_User Interface, Click, UI Buttons, Confirm, Menu` (ding pendek) di centang; logo penutup dibiarkan tanpa SFX di ekor 3 dtk.
+- **SFX:** famili `ui` · satu `ES_User Interface, Click, UI Buttons, Confirm, Menu` (ding pendek) di centang; logo penutup dibiarkan tanpa SFX di ekor 3 dtk.
 - **Pakai bila:** ada warna aksi yang sama dengan tombol. · **Jangan pakai bila:** gradien tak sesuai brand.
 - **Remix (anti-jiplak):**
   1. Aplikasi pesan antar → pertahankan bidang gradien = warna tombol · ganti gradien dengan hijau ke kuning.

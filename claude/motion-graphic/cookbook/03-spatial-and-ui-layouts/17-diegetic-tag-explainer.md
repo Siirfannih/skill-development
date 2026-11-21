@@ -59,7 +59,7 @@ alias: []
   - Gerak: tag `clipPath: inset(0 X% 0 0)` 100→0 % selama 4 f, kurva `CURVE.reveal`, mulai ±2 f setelah onset kata VO; objek `scale` 0→1,05→1 dalam 8 f `CURVE.land`. Tag diposisikan dari kotak objek (kiri-bawah atau kanan-atas), bukan dari frame.
   - Ruang: datar.
   - Blur & blend: tanpa blur kedalaman; bayangan hanya di sisi objek isometrik/koin.
-- **SFX:** `pop up.mp3` pada kemunculan objek+tag (satu bunyi per objek, bukan per tag dan per objek); detail kecil dengan gain −12…−16 dB.
+- **SFX:** famili `ui` · `pop up.mp3` pada kemunculan objek+tag (satu bunyi per objek, bukan per tag dan per objek); detail kecil dengan gain −12…−16 dB.
 - **Pakai bila:** objek tunggal yang bisa digambar bersih dan punya nama pendek (≤ 4 kata). · **Jangan pakai bila:** label panjang yang menjadi kalimat, atau objek kecil bertebaran (tag menumpuk).
 - **Remix (anti-jiplak):**
   1. Produk UMKM di foto meja → pertahankan tag menempel di tepi objek dan wipe kiri→kanan · ganti isometrik jadi cutout foto produk, tag berwarna palet merek (bukan teal).
@@ -75,7 +75,7 @@ alias: []
   - Gerak: `translate(dx, dy)` dunia = `frame * kecepatan` sepanjang vektor 25–30°; objek diletakkan di koordinat dunia sehingga masuk dari tepi pada saat disebut (bukan muncul di tengah); kecepatan tetap, `CURVE.drift` hanya untuk mulai/berhenti 6–8 f. Perpindahan ke peta: translate besar `CURVE.heavy` ±15 f.
   - Ruang: sumbu iso 25–30°; tanpa perspective.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` di dunia (`../../references/smooth-motion.md`).
-- **SFX:** tanpa SFX kontinu; `pop up.mp3` hanya per objek baru; `Wooshcameramovementtransisi.mp3` bila kamera pindah ke peta.
+- **SFX:** famili `air`, `ui` · tanpa SFX kontinu; `pop up.mp3` hanya per objek baru; whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) bila kamera pindah ke peta.
 - **Pakai bila:** ≥ 3 objek berurutan dengan kecepatan sebut yang kurang lebih sama. · **Jangan pakai bila:** daftar dua item atau objek yang perlu dibandingkan berdampingan sekaligus (kamera yang bergerak menyembunyikan perbandingan).
 - **Remix (anti-jiplak):**
   1. Alur langkah produk → pertahankan truck satu sumbu · ganti bangunan iso menjadi kartu langkah, sumbu horizontal murni.
@@ -91,7 +91,7 @@ alias: []
   - Gerak: baris digeser `translateX` `CURVE.land` ±10 f tiap kata baru; kotak sorot tumbuh kiri→kanan 5–6 f (`clipPath inset`), mulai bersamaan dengan kata hero.
   - Ruang: datar.
   - Blur & blend: tanpa blur.
-- **SFX:** senyap per kata (KT); `Kinetictypography(gunakansecaraacak).mp3` sesekali bila kata hero bergerak sebagai objek.
+- **SFX:** famili `ui` · senyap per kata (KT); `Kinetictypography(gunakansecaraacak).mp3` sesekali bila kata hero bergerak sebagai objek.
 - **Pakai bila:** latar rata terang dan kata hero ≤ 10 huruf. · **Jangan pakai bila:** blok warna di belakang kata mengganggu keterbacaan di latar gelap (pertimbangan lama: kotak hanya bila menyelesaikan keterbacaan; alternatif: warna isi huruf).
 - **Remix (anti-jiplak):**
   1. Latar gelap → pertahankan baris yang tumbuh · ganti kotak kuning menjadi isi huruf berwarna tanpa blok.
@@ -107,7 +107,7 @@ alias: []
   - Gerak: kata baru `opacity` 0→1 + `translateY(8px)` 5 f `CURVE.reveal`; ikon pop 0→1,1→1 dalam 6 f dengan stagger 3 f (G-T1 di bedah lama); kata aksen terakhir.
   - Ruang: datar.
   - Blur & blend: tanpa blur; gradien teks lewat `background-clip: text`.
-- **SFX:** senyap (kata); `Katapertama.mp3` pada kata pertama video bila ini pembuka.
+- **SFX:** famili `glitch` · senyap (kata); `Katapertama.mp3` pada kata pertama video bila ini pembuka.
 - **Pakai bila:** judul ≤ 5 kata dengan ikon/logo yang bisa berfungsi sebagai kata. · **Jangan pakai bila:** kalimat yang bagian-bagiannya tidak punya padanan ikon atau nama pendek.
 - **Remix (anti-jiplak):**
   1. Nama layanan UMKM → pertahankan penyisipan ke dalam blok · ganti ikon alat AI menjadi ikon produk milik klien.
@@ -123,7 +123,7 @@ alias: []
   - Gerak: push pelan 1,00→1,08 selama shot `CURVE.drift`; punch 1,14× di titik tekan 4–6 f `CURVE.land`; rentetan = `<Sequence>` 4 f per shot, kata ganti per shot.
   - Ruang: datar.
   - Blur & blend: RGB-split tipis: tiga salinan kata dengan `mixBlendMode: "screen"` dan offset 2–3 px.
-- **SFX:** `Cut.mp3` atau `Cutcontrastransision.mp3` di tiap pergantian rentetan; hit dan riser di pergantian babak (kiblat; tidak ada hit pendek di SFXIrfan, gunakan `ES_Designed, Bass Dive…` untuk satu puncak).
+- **SFX:** famili `glitch`, `mekanik`, `impact`, `riser` · `Cut.mp3` atau `Cutcontrastransision.mp3` di tiap pergantian rentetan; hit dan riser di pergantian babak (kiblat; tidak ada hit pendek di SFXIrfan, gunakan `ES_Designed, Bass Dive…` untuk satu puncak).
 - **Pakai bila:** footage arsip/stok dengan subjek terpusat dan ruang tengah bersih. · **Jangan pakai bila:** footage sendiri tanpa subjek di tengah (kata bertabrakan dengan wajah).
 - **Remix (anti-jiplak):**
   1. Footage produk close-up → pertahankan satu kata tepat di atas objek · ganti arsip menjadi foto produk, grain dikurangi.
@@ -139,7 +139,7 @@ alias: []
   - Gerak: `scale` 1→2 `CURVE.heavy` 12–16 f dengan pivot di dock; glow lingkaran `filter: blur(40px)` membesar 8–10 f lalu meluruh `CURVE.leave`.
   - Ruang: datar.
   - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` pada zoom; glow `mixBlendMode: "screen"`.
-- **SFX:** `Woosh.mp3` di zoom; `ResponAI:AIpopup.mp3` bila jawaban AI muncul; ketik `Keyboardtyping.mp3` hanya bila teks benar-benar diketik di UI.
+- **SFX:** famili `air`, `mekanik`, `ui` · `Woosh.mp3` di zoom; `ResponAI:AIpopup.mp3` bila jawaban AI muncul; ketik `Keyboardtyping.mp3` hanya bila teks benar-benar diketik di UI.
 - **Pakai bila:** UI atau dock asli yang bersih dan satu tindakan jelas. · **Jangan pakai bila:** UI padat tanpa elemen yang bisa jadi target zoom.
 - **Remix (anti-jiplak):**
   1. Aplikasi Jadisatu → pertahankan zoom ke satu elemen · ganti wallpaper dan dock menjadi dashboard produk asli.

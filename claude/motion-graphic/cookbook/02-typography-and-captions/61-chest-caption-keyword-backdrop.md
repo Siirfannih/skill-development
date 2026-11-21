@@ -49,7 +49,7 @@ Kata kunci condensed bold kapital (mirip Bebas Neue / Anton); narasi sans semibo
   - Lapisan: footage → caption (bayangan lembut) → vignette.
   - Gerak: tiap kata muncul pada frame onset (tanpa tween, `opacity 0 → 1` pada 1 f); keluar cut.
   - Ruang: datar. Blur & blend: `textShadow` 0 2px 12px rgba(0,0,0,.6); tanpa blend.
-- **SFX:** senyap per kata (aturan `../../guide/sfx/GUIDE.md`); sumber memakai pop/ding sesekali (14,0; 23,9; 39,3 dtk) untuk teks yang baru muncul.
+- **SFX:** famili `ui` · senyap per kata (aturan `../../guide/sfx/GUIDE.md`); sumber memakai pop/ding sesekali (14,0; 23,9; 39,3 dtk) untuk teks yang baru muncul.
 - **Pakai bila:** pembicara di tengah dengan dada kosong. · **Jangan pakai bila:** pembicara memegang objek di dada.
 - **Remix (anti-jiplak):**
   1. Latar terang → caption gelap dengan stroke tipis putih.
@@ -65,7 +65,7 @@ Kata kunci condensed bold kapital (mirip Bebas Neue / Anton); narasi sans semibo
   - Lapisan (bawah → atas): footage → kata kunci → matte rambut/kepala (RVM) → kata pengantar.
   - Gerak: kata kunci muncul 1 f dengan flash putih 1 f di kartu judul; pengantar `react(i, 30, 0.8)` per kata.
   - Ruang: datar. Blur & blend: glow krem `drop-shadow(0 0 16px #F9E6B6)` pada judul.
-- **SFX:** sub-boom (`ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`) pada kata kunci puncak (sumber: sub-boom 14–28 dB di atas bed, 3,1; 5,1; 25,9; 31,2; 49,2; 54,6; 77,7 dtk); pengantar senyap.
+- **SFX:** famili `impact` · sub-boom (`ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz`) pada kata kunci puncak (sumber: sub-boom 14–28 dB di atas bed, 3,1; 5,1; 25,9; 31,2; 49,2; 54,6; 77,7 dtk); pengantar senyap.
 - **Pakai bila:** matte rambut bersih, ruang atas cukup. · **Jangan pakai bila:** kepala menyentuh tepi atas.
 - **Remix (anti-jiplak):**
   1. Latar terang → kata kunci warna aksen jenuh, pengantar gelap.
@@ -81,7 +81,7 @@ Kata kunci condensed bold kapital (mirip Bebas Neue / Anton); narasi sans semibo
   - Lapisan: panel merah (radial gradient + noise) → ikon berbayang → caption di garis sambung → footage bawah.
   - Gerak: panel masuk `clipPath` atas turun `CURVE.reveal` 8 f; ikon `scale 0.9 → 1` `CURVE.land` 10 f; daftar per baris `react(i)`.
   - Ruang: datar. Blur & blend: bayangan lunak di bawah ikon.
-- **SFX:** `pop up.mp3` per ikon; daftar bahan per baris senyap atau satu `Notif.mp3`.
+- **SFX:** famili `ui` · `pop up.mp3` per ikon; daftar bahan per baris senyap atau satu `Notif.mp3`.
 - **Pakai bila:** satu ikon dapat menyampaikan ide. · **Jangan pakai bila:** ide butuh diagram rumit.
 - **Remix (anti-jiplak):**
   1. Brand → panel warna brand gelap + ikon satu garis.
@@ -98,7 +98,7 @@ Kata kunci condensed bold kapital (mirip Bebas Neue / Anton); narasi sans semibo
   - Gerak: judul `translate(30%, -20%) scale(1.8 → 1)` `CURVE.land` 12 f dengan `<CameraMotionBlur shutterAngle={200} samples={16}>`; zoom-through `scale 1 → 1.3` `CURVE.heavy` 24 f ke kunci berikut; flash putih 1 f di masuk.
   - Ruang: 2,5D ringan (judul belakang parallax 0,9×, kunci 1,1×).
   - Blur & blend: judul belakang `blur(8px)`; glow `mixBlendMode: "screen"`.
-- **SFX:** `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` pada slam judul, `Wooshcameramovementtransisi.mp3` pada zoom-through, riser `ES_Designed, Riser, Transition, Fast, Short, Clean 01` sebelum kunci baru (42,4; 61,4 dtk).
+- **SFX:** famili `air`, `impact`, `riser` · `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` pada slam judul, whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) pada zoom-through, riser `ES_Designed, Riser, Transition, Fast, Short, Clean 01` sebelum kunci baru (42,4; 61,4 dtk).
 - **Pakai bila:** poin bernomor ≥ 3 dengan objek yang bisa jadi penanda. · **Jangan pakai bila:** hanya satu poin.
 - **Remix (anti-jiplak):**
   1. Brand edukasi → kunci diganti pintu, kunci pas, atau kartu bernomor.
@@ -113,7 +113,7 @@ Kata kunci condensed bold kapital (mirip Bebas Neue / Anton); narasi sans semibo
 - **Mekanik Remotion (titik awal):**
   - Gerak: progress bar `scaleX` linier; push `scale 1 → 1.05` `CURVE.drift` 60 f; jump cut = ganti `scale` 1.0 ↔ 1.13 di cut.
   - Ruang: datar.
-- **SFX:** `Woosh.mp3` pendek pada cut; hit sub di punch-in CTA.
+- **SFX:** famili `air` · `Woosh.mp3` pendek pada cut; hit sub di punch-in CTA.
 - **Pakai bila:** satu kamera tunggal. · **Jangan pakai bila:** footage multi-kamera.
 - **Remix (anti-jiplak):**
   1. Hook "3 menit lagi kamu paham…" dengan bar tipis aksen brand.
