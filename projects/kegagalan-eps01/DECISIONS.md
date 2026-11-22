@@ -16,3 +16,9 @@ Talking head mentah 8:20 (DJI, HEVC 10-bit 59,94, TC 14:51:26;08) → paket edit
 | K-10 | Color grading dibatalkan: video memakai warna asli kamera. Look rekomendasi (grain 3 + hitam diangkat) terlihat pecah dan bernoise di preview Drive | tidak ada grading; `~/Newediting/grade_film.sh` disimpan sebagai arsip |
 | K-12 | Render apa pun hanya untuk rentang yang dipakai timeline (klip + handle), bukan seluruh rekaman | grading/render klip |
 | K-11 | Akses "siapa pun dengan link" pada folder Drive dibiarkan | Drive |
+| K-13 | Sound design ditulis ulang (v4): SFX pilihan Irfan (nama file = pemakaian), tanpa kertas/kayu/riser/sub-drop; bunyi hanya di perubahan keadaan gambar; level per tingkat relatif ke suara; 229 → 76 cue | `v2/audio/cues_v4.py`, `mix_v4.py` |
+| K-14 | Musik ada sejak frame 0: Every Living Breathing Moment (babak 1) + windburn (babak 2), level setara per detik; ekor outro setelah "finish" | `v2/audio/mix_v4.py` |
+| K-15 | Pembuka: wajah ditahan ±2,3 dtk sebelum ke kalender ("golden moment") | `v2/remotion/src/scenes/Kalender.tsx` |
+| K-16 | Adegan software di desktop Mac (wallpaper padang rumput Irfan), UI lebih ramai/hidup, bukan kanvas biru | `v2/remotion/src/comp/MacDesktop.tsx` |
+| K-17 | Arsip kegagalan = binder di meja kayu, dirender Blender (realistis) | `v2/blender/build_arsip.py`, `comp/Arsip3D.tsx` |
+| K-18 | "Ahh" (myinstants) setelah "gagal" sebelum "kurang ajar sekali" | `cues_v4.py` |
