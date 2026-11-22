@@ -19,6 +19,7 @@ Untuk proyek baru: cue sheet ada di `render/cues.json` (list of `{t, kind, db, v
 | `sfx_comfort.py files…` | skor kenyamanan SFX: desis > 6 kHz, 2–6 kHz, roughness, earshot harsh/soft | 36 |
 | `audio_phone.py [--list\|--fix]` | simulasi speaker HP 20/50/100 %, kejelasan VO, kekasaran | 35 |
 | `visual_coverage.py silent.mp4` | setiap event visual punya suara ±5 frame | 35 |
+| `sfx_span.py --video silent.mp4 --sfx stems/sfx.wav --cues cues.json` | sampel cue ≥ span `sampai` (HABIS); gerak panjang tanpa SFX (SENYAP) | 35 |
 | `sync_cues.py silent.mp4` | geser SFX ke onset objek, buang yang tidak mengikuti apa pun, maks 2 suara/100 ms | 37 |
 | `ears.py file [--json]` | telinga gabungan: suara orang terdeteksi → stem musik demucs → earshot + ukuran (bpm, mayor/minor, onset, level per 10 dtk) → tabel SETUJU/BEDA/BELUM TERUJI + pertanyaan telinga kedua | §14.0B |
 
