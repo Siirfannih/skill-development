@@ -1071,3 +1071,6 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | Aturan | Asal-usul |
 |---|---|
 | bagian SFX/Audio kartu (tik mozaik, tiga tik kata, musik berlapis per tahap argumen, tanpa ducking, cut mengikuti kata) | Irfan 22 Nov 2026: file `filmmnostalgia_DchORmBPFjp` diminta dibedah ulang untuk sound design; stem demucs, onset pita tinggi, deteksi frame |
+
+## `cookbook/contoh-gagal/README.md` 18
+- 18 teks tipis di batu arsip: frame storyboard behindwork-batch-1 ep01 beat 04 ditolak Irfan 22 Nov 2026 ("Tulisan text dengan background ga contras, text kekecilan … kenapa harus buat visual seperti ini?"); ledger proyek D-08.

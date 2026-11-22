@@ -6,7 +6,7 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Kerjakan berurutan. Di ti
 - [x] Profil merek ada dan lulus · baca: `templates/merek/README.md` §Tahap 1 · bukti: keluaran `profil_cek.py` LULUS → `profil_cek.py ~/work/data-video/merek/behindwork` → "LULUS: profil Behindwork siap dipakai." (22 Nov)
 
 ## Tahap 2 · Editing guideline + preview
-- [ ] Brief user disalin verbatim ke `RESEP.md`; kiblat dipilih (2–3 kartu terdekat ditunjukkan bila tema masih kabur) · baca: `cookbook/INDEX.md` baris kartu terkait, `cookbook/RESEP-TEMPLATE.md` · bukti: `resep_check.py` LULUS →
+- [x] Brief user disalin verbatim ke `RESEP.md`; kiblat dipilih (2–3 kartu terdekat ditunjukkan bila tema masih kabur) · baca: `cookbook/INDEX.md` baris kartu terkait, `cookbook/RESEP-TEMPLATE.md` · bukti: `resep_check.py` LULUS → `resep_check.py RESEP.md` → "LULUS resep: kiblat = kartu 39; pinjaman teknik … 92 T2, 48 T1 …" (22 Nov)
 - [ ] Suara dipotong dan dikunci · baca: `references/audio.md` §14.0C–14.0D · bukti: `audio_order.py lock suara` PASS →
 - [ ] Preview dikirim di percakapan: still per beat di atas footage asli + klip draft untuk gerak kamera/transisi · baca: `references/storyboard.md` §1, `templates/merek/README.md` §Tahap 2 · bukti: path still/klip yang dikirim →
 - [ ] Masukan user atas preview dicatat dan disetujui · baca: `references/revision-log.md` §21.1 · bukti: ID baris `DECISIONS.md` →

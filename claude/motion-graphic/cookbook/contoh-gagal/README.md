@@ -75,3 +75,12 @@ Lima frame dari `varian-A_r7` (talking head + adegan UI dan 3D, kiblat kartu 83 
 
 - **Bukan pelajarannya:** "kaca dilarang", "teks di adegan 3D dilarang", "slab biru dilarang", atau "jangan pakai UI". Tekniknya sah; yang gagal adalah memakainya tanpa memeriksa apakah kondisi footage sama dengan kondisi di video asli.
 - **Lantai terkait:** A1, A2, A7; `guide/teks/GUIDE.md` §Teks di dalam tampilan aplikasi dan adegan 3D.
+
+## 18 · Teks narasi tipis di atas batu arsip
+
+| Gambar | Yang salah | Kondisi yang membuatnya gagal | Yang seharusnya |
+|---|---|---|---|
+| ![](18-teks-tipis-di-batu-arsip.jpg) | "asrama yang keras" tinta tipis (Medium ±64 px @1080) mengambang di atas gable batu dan langit pucat foto arsip B&W. | Foto bertekstur abu-abu terang: huruf tipis gelap menabrak tekstur batu, kontras di bawah huruf gagal walau rata-rata latar terang; ukurannya tidak berhubungan dengan papan yang jadi subjek. Bentuknya dikarang, tidak diambil dari kartu. | Ambil bentuk dari kartu yang trigger-nya cocok ("narasi asal-usul di atas foto arsip"): kotak sorot pas-badan (kartu 48 T1) di dekat papan, atau caption grotesk tebal yang ditumpuk di ruang kosong samping subjek (kartu 92 T1). |
+
+- **Bukan pelajarannya:** "teks gelap di foto dilarang" atau "kotak selalu dipakai". Kotak hanya karena teks polos gagal kontras di tekstur itu (Lantai A9).
+- **Lantai terkait:** A2, A7, A9; `guide/teks/GUIDE.md` §Posisi (kontras di bawah huruf aktual).

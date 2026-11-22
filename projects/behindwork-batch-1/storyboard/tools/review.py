@@ -13,16 +13,18 @@ V1 = json.loads((SB / "arsip-v1" / "data.json").read_text(encoding="utf-8"))
 CHANGES = {
  "ep01": [
   "Gaya baru Story Cinematic (kartu 39): footage dan foto arsip penuh layar, grade natural; masa lalu B&W, masa kini berwarna.",
-  "Huruf Helvetica Neue sesuai BRAND; narasi kecil 1–3 kata yang menempel di ruang kosong dekat subjek, bukan pita subtitle di bawah.",
+  "Huruf Helvetica Neue sesuai BRAND; narasi tebal 1–3 kata per tampil yang menempel di ruang kosong dekat subjek, bukan pita subtitle di bawah.",
   "Kartu jeda polos hitam/putih tanpa vignette atau gradien radial; merah hanya di kartu putih.",
   "Teks layar hanya dari ucapan: '30 TAHUN LEBIH', '1984–1993', 'TOILET → CHIP AI' diganti kata yang benar-benar diucapkan.",
   "Foto jangkar booth Denny's asli (NVIDIA Blog): hanya Jensen berwarna, 1993 di belakang kepalanya; plakat 'The booth that launched a $1 trillion company'.",
   "Ilustrasi pengganti (peta, booth gambar, stick figure, 100 piktogram) diganti foto/klip nyata atau kartu teks.",
+  "Revisi 1 (masukanmu soal frame Oneida): tiap bentuk teks sekarang diambil dari kartu. Narasi = kartu 92 (grotesk tebal, ditumpuk di ruang kosong samping subjek), foto arsip bertekstur = kotak sorot merah kartu 48, lompatan tahun = angka raksasa kartu 92. Tabel racikan per beat ada di RESEP.md.",
  ],
 }
 NOTES = {
  "ep01": [
   "Foto papan Oneida di Commons hanya 544 px; untuk render final perlu foto lebih besar.",
+  "Kinetic text, lembar transisi, dan animatic belum dibuat; menunggu pilihan waktu kata (perkiraan naskah atau VO).",
   "Klip Fortune dan JRE vertikal, jadi tampil sebagai foto tegak di hitam (caption tertanam dibuang lewat crop).",
  ],
 }

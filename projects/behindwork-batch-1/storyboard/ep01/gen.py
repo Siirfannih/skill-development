@@ -10,27 +10,26 @@ W = str(HERE)
 # ---------- panel ----------
 # 01 Hook: rumor kabur (blok piksel) -> tajam; lalu kartu hitam SALAH
 write(W, "01-1", plate("p01a_keynote_piksel.jpg", scale=1.0),
-      text("tukang cuci mobil?", 1110, 470, "r1 on-foto"),
+      text("tukang<br>cuci mobil?", 1110, 400, "r1 on-foto", rich=True),
       src_label("NVIDIA GTC 2026 keynote"))
 write(W, "01-2", text("SALAH", 960, 540, "r6", "c", layar=True))
 
 # 02 Jaket kulit; invert 2 frame jadi pintu rewind
 write(W, "02-1", plate("p02_keynote_dekat.jpg", scale=1.04, tx=-30),
-      text("jaket kulit ini", 1180, 560, "r1 on-foto"))
+      text("jaket<br>kulit ini", 1180, 470, "r1 on-foto", rich=True))
 write(W, "02-2", plate("p02_keynote_dekat.jpg", grade="", scale=1.07, tx=-50, style="filter:invert(1) grayscale(.4)"),
       text("lebih keras", 1170, 500, "r2 ink", layar=True))
 
-# 03 Rewind: pita diputar mundur (garis tracking + geser kanal), tahun berputar mundur; lalu berhenti di 1972 B&W
-rew = ('<div style="position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 140px,'
-       'rgba(255,255,255,.10) 140px 146px,transparent 146px 300px);mix-blend-mode:screen"></div>'
-       '<div class="plate g-nat" style="background-image:url(../plates/p03_keynote_panggung.jpg);'
-       'clip-path:inset(46% 0 40% 0);transform:translateX(-70px);opacity:.9"></div>')
-write(W, "03-1", plate("p03_keynote_panggung.jpg", grade="g-nat", style="filter:saturate(.7) contrast(1.1) blur(1px)", extra=rew),
-      text("1993", 960, 540, "r6 on-foto", "c", style="text-shadow:-26px 0 0 rgba(255,255,255,.25),-52px 0 0 rgba(255,255,255,.12)"),
-      text("◀◀", 470, 540, "r2 dim", "c"))
-write(W, "03-2", plate("p03_keynote_panggung.jpg", grade="g-bw", style="filter:grayscale(1) brightness(.45) contrast(1.1)"),
-      text("ke tahun", 742, 400, "lead"),
-      text("1972", 960, 560, "r6", "c", layar=True))
+# 03 Rewind (kartu 92 T2 slot-jump): layar hitam, tahun raksasa berganti digit mundur; potongan footage
+# panggung yang diputar mundur menyelinap sebagai balok sempit di tepi (pengganti tekstur blueprint kartu)
+def sliver(clip, grade):
+    return (f'<div class="plate {grade}" data-bleed style="background-image:url(../plates/p03_keynote_panggung.jpg);'
+            f'clip-path:{clip}"></div>')
+write(W, "03-1", sliver("inset(0 0 0 86%)", "g-nat"), sliver("inset(62% 70% 14% 0)", "g-nat"),
+      text("1993", 1755, 330, "giant", style="transform:translateX(-100%);font-size:520px"))
+write(W, "03-2", sliver("inset(0 88% 0 0)", "g-bw"),
+      text("ke tahun", 400, 228, "lead"),
+      text("1972", 960, 330, "giant", "cx", layar=True, style="font-size:520px"))
 
 # 04 Kentucky: Jensen bercerita (inset vertikal, B&W hangat) -> papan Oneida Baptist Institute
 write(W, "04-1", inset("p04_oneida_cerita.jpg", 300, 190, 560, 700, "g-bwwarm"),
@@ -38,7 +37,7 @@ write(W, "04-1", inset("p04_oneida_cerita.jpg", 300, 190, 560, 700, "g-bwwarm"),
       text("9 tahun", 984, 470, "r6", layar=True),
       src_label("Jensen Huang bercerita · JRE Clips"))
 write(W, "04-2", plate("p04_obi.jpg", grade="g-bwwarm", pos="50% 0%"),
-      text("asrama yang keras", 960, 140, "r1 ink", "cx"),
+      text("asrama yang keras", 960, 380, "r1 box", "cx"),
       src_label("Oneida Baptist Institute, Kentucky · Wikimedia Commons, domain publik"))
 
 # 05 Kartu jeda: 100 anak (putih) lalu 17 tahun (hitam)
@@ -50,8 +49,7 @@ write(W, "05-2", text("teman sekamarnya", 960, 380, "lead", "cx"),
 
 # 06 Quote cut suara asli: teks terjemahan di ruang gelap kanan kepala
 write(W, "06-1", plate("p06_stanford_toilet.jpg", scale=1.0),
-      text("aku dulu", 1180, 360, "r1 on-foto"),
-      text("membersihkan toilet", 1180, 440, "r1 on-foto"),
+      text("aku dulu<br>membersihkan<br>toilet", 1170, 300, "r1 on-foto", rich=True),
       src_label("Jensen Huang · Stanford GSB 2024 · suara asli"))
 write(W, "06-2", plate("p06_stanford_toilet.jpg", scale=1.1, tx=60, ty=40),
       text("lebih banyak dari", 1150, 380, "lead on-foto"),
@@ -88,17 +86,17 @@ write(W, "10-1", plate("p10_booth_selektif.jpg", pos="50% 30%"),
       '<div class="plate" data-bleed style="background-image:url(../plates/p10_jensen_potong.png);background-position:50% 30%"></div>',
       src_label("booth Denny's San Jose · foto NVIDIA Blog 2023"))
 write(W, "10-2", inset("p10_plaque.jpg", 1010, 150, 700, 780, "g-nat", rot=3),
-      text("dan dua rekannya", 230, 500, "r1"),
+      text("dan dua<br>rekannya", 250, 440, "r1", rich=True),
       src_label("plakat booth NVIDIA · NVIDIA Blog 2023"))
 
 # 11 Payoff: layar terbelah, kiri masa awal B&W, kanan panggung hari ini berwarna
 split = ('<div class="plate g-bwwarm" style="background-image:url(../plates/p04_obi.jpg);background-position:50% 62%;right:50%"></div>'
          '<div class="plate g-nat" style="background-image:url(../plates/p11_keynote_kampus.jpg);left:50%"></div>')
 write(W, "11-1", f'<div class="cam">{split}</div>',
-      text("toilet asrama", 480, 820, "r2 on-foto", "cx", style="font-size:100px"))
+      text("toilet asrama", 480, 380, "r1 box", "cx"))
 write(W, "11-2", f'<div class="cam">{split}</div>',
-      text("toilet asrama", 480, 820, "r2 dim", "cx", style="font-size:100px"),
-      text("paling bernilai", 1440, 820, "r2 on-foto", "cx", layar=True, style="font-size:100px"))
+      text("toilet asrama", 480, 380, "r1 box", "cx", style="opacity:.55"),
+      text("paling bernilai", 1440, 800, "r2 on-foto", "cx", layar=True, style="font-size:100px"))
 
 # 12 Pelajaran: kartu putih, lalu panggung (puncak)
 write(W, "12-1", text("tidak ada pekerjaan", 960, 370, "lead ink", "cx"),
@@ -149,8 +147,8 @@ beats = [
                  "jaket → push → invert", "orang")),
  dict(id="03", babak="B2", t=[7.0, 11.0], vo="Untuk melihat awalnya, kita harus putar mundur. Jauh. Ke tahun 1972.",
       layar="1993 (berputar mundur) → ke tahun 1972",
-      aksi="Frame 1: footage panggung diputar mundur cepat; garis tracking pita, satu pita gambar bergeser kiri; angka tahun putih berputar mundur 2026 → 1972 dengan jejak gerak, ikon ◀◀ redup. Frame 2: pita berhenti, gambar beku B&W gelap, 1972 putih Bold, 'ke tahun' menempel di kiri atasnya",
-      kamera="diam; gambar di-skew oleh tracking pita",
+      aksi="Kartu 92 T2: layar hitam, tahun putih raksasa (±40 % tinggi) berganti digit mundur 2026 → 1993 → 1972, ±0,125 dtk per digit; potongan footage panggung yang diputar mundur menyelinap sebagai balok sempit di tepi kanan dan kiri bawah. Frame 2: berhenti di 1972, balok tinggal satu di kiri dan jadi B&W, 'ke tahun' menempel di kiri atas angka",
+      kamera="diam; balok footage bergeser sisi tiap ganti digit, angka terakhir scale 1,0 → 1,1",
       keluar="beku B&W lalu potong ke Jensen bercerita",
       sfx=[S(7.0, "transisi: tape rewind", "perangkat Rewind episode ini, puncak saat angka berputar paling cepat"),
            S(10.2, "foley: klik pita berhenti", "angka berhenti di 1972")],
@@ -159,7 +157,7 @@ beats = [
                  "panggung → pita mundur → beku 1972", "benda")),
  dict(id="04", babak="B2", t=[11.0, 18.0], vo="Umur sembilan tahun, ia dikirim ke sekolah asrama di Kentucky. Pamannya mengira itu sekolah bergengsi. Ternyata sekolah asrama yang keras.",
       layar="umur 9 tahun → asrama yang keras",
-      aksi="Frame 1: Jensen bercerita (klip JRE vertikal, crop tanpa caption tertanam) sebagai foto tegak B&W hangat di kiri; '9 tahun' hero di kanan, 'umur' menempel di atasnya. Frame 2: papan Oneida Baptist Institute B&W hangat, caption tinta di langit di atas papan",
+      aksi="Frame 1: Jensen bercerita (klip JRE vertikal, crop tanpa caption tertanam) sebagai foto tegak B&W hangat di kiri; '9 tahun' hero di kanan, 'umur' menempel di atasnya. Frame 2: papan Oneida Baptist Institute B&W hangat; 'asrama yang keras' putih tebal di kotak sorot merah pas-badan di atas papan (kartu 48 T1), dibangun per kata",
       kamera="frame 1 diam; frame 2 push 1,00 → 1,06 ke papan",
       keluar="potong keras ke kartu putih",
       sfx=[S(11.0, "transisi: udara pendek", "masuk ke cerita masa kecil"),
@@ -230,7 +228,7 @@ beats = [
                  "booth → Jensen → plakat", "benda")),
  dict(id="11", babak="B5", t=[57.0, 63.0], vo="Dari membersihkan toilet asrama dan mencuci piring, sampai membangun perusahaan chip paling bernilai di dunia.",
       layar="toilet asrama → paling bernilai",
-      aksi="Layar terbelah: kiri papan Oneida B&W hangat (masa awal), kanan kampus NVIDIA di keynote berwarna (hari ini). Frame 1 'toilet asrama' putih Bold di bawah sisi kiri. Frame 2 'toilet asrama' meredup, 'paling bernilai' di posisi sejajar sisi kanan (kalimat paralel)",
+      aksi="Layar terbelah: kiri papan Oneida B&W hangat (masa awal), kanan kampus NVIDIA di keynote berwarna (hari ini). Frame 1 'toilet asrama' di kotak sorot merah di sisi kiri (perlakuan sama dengan beat 04). Frame 2 kotak kiri meredup, 'paling bernilai' putih tebal di atas penonton sisi kanan",
       kamera="kedua sisi push pelan ke arah garis tengah",
       keluar="jeda musik 0,4 dtk, potong keras ke kartu putih",
       sfx=[S(57.0, "transisi: swish split", "pilar 2, layar terbelah masuk"),

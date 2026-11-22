@@ -9,7 +9,7 @@
   --dim:rgba(255,255,255,.42); --dim-ink:rgba(17,17,17,.38);
   --font:"BW Helvetica","Helvetica Neue",Helvetica,Arial,sans-serif;
   /* peran teks (typography.md §8a): R1 narasi, R2 kata kunci, R6 hero, R4 label sumber */
-  --r1:64px; --r2:124px; --r6:210px; --lead:60px; --r4:26px;
+  --r1:84px; --r2:124px; --r6:210px; --lead:70px; --r4:26px; --giant:440px;
 }
 html,body{margin:0;width:1920px;height:1080px;overflow:hidden}
 body.frame{position:relative;background:var(--night);font-family:var(--font);color:var(--white);-webkit-font-smoothing:antialiased}
@@ -26,10 +26,15 @@ body.paper{background:var(--paper);color:var(--ink)}
 
 /* L3 teks */
 .t{position:absolute;white-space:nowrap;line-height:1}
-.r1{font-weight:500;font-size:var(--r1);letter-spacing:-.012em}
+/* R1 narasi = kartu 92 T1: grotesk tebal huruf kecil, tumpuk per kata di ruang kosong samping subjek, tanpa kotak */
+.r1{font-weight:700;font-size:var(--r1);letter-spacing:-.022em;line-height:1.02}
 .r2{font-weight:700;font-size:var(--r2);letter-spacing:-.03em}
 .r6{font-weight:700;font-size:var(--r6);letter-spacing:-.04em;line-height:.9}
-.lead{font-weight:500;font-size:var(--lead);letter-spacing:-.01em}
+.lead{font-weight:500;font-size:var(--lead);letter-spacing:-.015em}
+/* R2b judul tahun = kartu 92 T2: angka raksasa 40 % tinggi frame di hitam */
+.giant{font-weight:700;font-size:var(--giant);letter-spacing:-.06em;line-height:.8}
+/* kotak sorot = kartu 48 T1: pas-badan, hanya di foto arsip bertekstur tempat teks polos gagal kontras (Lantai A9) */
+.box{background:var(--accent);color:var(--white);padding:.12em .3em .16em}
 .on-foto{text-shadow:0 2px 22px rgba(0,0,0,.38)}
 .dim{color:var(--dim)} .dim-ink{color:var(--dim-ink)}
 .red{color:var(--accent)} .ink{color:var(--ink)}

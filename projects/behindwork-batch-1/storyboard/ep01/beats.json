@@ -151,8 +151,8 @@
    ],
    "vo": "Untuk melihat awalnya, kita harus putar mundur. Jauh. Ke tahun 1972.",
    "layar": "1993 (berputar mundur) → ke tahun 1972",
-   "aksi": "Frame 1: footage panggung diputar mundur cepat; garis tracking pita, satu pita gambar bergeser kiri; angka tahun putih berputar mundur 2026 → 1972 dengan jejak gerak, ikon ◀◀ redup. Frame 2: pita berhenti, gambar beku B&W gelap, 1972 putih Bold, 'ke tahun' menempel di kiri atasnya",
-   "kamera": "diam; gambar di-skew oleh tracking pita",
+   "aksi": "Kartu 92 T2: layar hitam, tahun putih raksasa (±40 % tinggi) berganti digit mundur 2026 → 1993 → 1972, ±0,125 dtk per digit; potongan footage panggung yang diputar mundur menyelinap sebagai balok sempit di tepi kanan dan kiri bawah. Frame 2: berhenti di 1972, balok tinggal satu di kiri dan jadi B&W, 'ke tahun' menempel di kiri atas angka",
+   "kamera": "diam; balok footage bergeser sisi tiap ganti digit, angka terakhir scale 1,0 → 1,1",
    "keluar": "beku B&W lalu potong ke Jensen bercerita",
    "sfx": [
     {
@@ -191,7 +191,7 @@
    ],
    "vo": "Umur sembilan tahun, ia dikirim ke sekolah asrama di Kentucky. Pamannya mengira itu sekolah bergengsi. Ternyata sekolah asrama yang keras.",
    "layar": "umur 9 tahun → asrama yang keras",
-   "aksi": "Frame 1: Jensen bercerita (klip JRE vertikal, crop tanpa caption tertanam) sebagai foto tegak B&W hangat di kiri; '9 tahun' hero di kanan, 'umur' menempel di atasnya. Frame 2: papan Oneida Baptist Institute B&W hangat, caption tinta di langit di atas papan",
+   "aksi": "Frame 1: Jensen bercerita (klip JRE vertikal, crop tanpa caption tertanam) sebagai foto tegak B&W hangat di kiri; '9 tahun' hero di kanan, 'umur' menempel di atasnya. Frame 2: papan Oneida Baptist Institute B&W hangat; 'asrama yang keras' putih tebal di kotak sorot merah pas-badan di atas papan (kartu 48 T1), dibangun per kata",
    "kamera": "frame 1 diam; frame 2 push 1,00 → 1,06 ke papan",
    "keluar": "potong keras ke kartu putih",
    "sfx": [
@@ -472,7 +472,7 @@
    ],
    "vo": "Dari membersihkan toilet asrama dan mencuci piring, sampai membangun perusahaan chip paling bernilai di dunia.",
    "layar": "toilet asrama → paling bernilai",
-   "aksi": "Layar terbelah: kiri papan Oneida B&W hangat (masa awal), kanan kampus NVIDIA di keynote berwarna (hari ini). Frame 1 'toilet asrama' putih Bold di bawah sisi kiri. Frame 2 'toilet asrama' meredup, 'paling bernilai' di posisi sejajar sisi kanan (kalimat paralel)",
+   "aksi": "Layar terbelah: kiri papan Oneida B&W hangat (masa awal), kanan kampus NVIDIA di keynote berwarna (hari ini). Frame 1 'toilet asrama' di kotak sorot merah di sisi kiri (perlakuan sama dengan beat 04). Frame 2 kotak kiri meredup, 'paling bernilai' putih tebal di atas penonton sisi kanan",
    "kamera": "kedua sisi push pelan ke arah garis tengah",
    "keluar": "jeda musik 0,4 dtk, potong keras ke kartu putih",
    "sfx": [
