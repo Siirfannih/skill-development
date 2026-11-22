@@ -35,6 +35,8 @@ Akun yang dipakai: **akun 1** (lama, kunci di Mac), **akun Behindwork** (Starter
 | Behindwork Narator B6 ringan (C3) | akun Behindwork | `Y62OZ57dKfXyAcWpVXk0` | remix B6 (`prompt_strength` 0,45) | IVC dari `voice-samples/behindwork-narator-b6-ringan-c3/c3_remix_preview.mp3` |
 | Zephlyn (pria, Indonesia) | pustaka bersama | `3mAVBNEqop5UbHtD8oxQ` | shared library | tambahkan dari pustaka, ID sama |
 | Defasyalala (perempuan, Indonesia) | pustaka bersama | `JaUVfDrFcfwGIsv8X2kN` | shared library | tambahkan dari pustaka, ID sama |
+| Mike (pria, Amerika, santai-jenaka) | pustaka bersama | `cBTYF7NiJbR8Bvmdeuse` | shared library | tambahkan dari pustaka, ID sama; untuk teks Indonesia pakai `eleven_multilingual_v2` |
+| Ashley (perempuan muda, Amerika, energik) | pustaka bersama | `bxiObU1YDrf7lrFAyV99` | shared library | tambahkan dari pustaka, ID sama; teks Indonesia stabil di `eleven_multilingual_v2` stability 0,45, style 0,20 (Turbo v2.5 membocorkan aksen Inggris) |
 
 Cara IVC ulang di akun baru: `POST /v1/voices/add` (multipart: `name`, `files[]` = file contoh, `description`), lalu catat voice_id barunya di tabel ini.
 

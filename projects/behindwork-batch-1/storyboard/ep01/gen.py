@@ -12,13 +12,14 @@ W = str(HERE)
 write(W, "01-1", plate("p01a_keynote_piksel.jpg", scale=1.0),
       text("tukang<br>cuci mobil?", 1110, 400, "r1 on-foto", rich=True),
       src_label("NVIDIA GTC 2026 keynote"))
-write(W, "01-2", text("SALAH", 960, 540, "r6", "c", layar=True))
+write(W, "01-2", text("tapi", 960, 400, "lead", "cx"),
+      text("bukan begitu", 960, 480, "r2", "cx", layar=True))
 
 # 02 Jaket kulit; invert 2 frame jadi pintu rewind
 write(W, "02-1", plate("p02_keynote_dekat.jpg", scale=1.04, tx=-30),
       text("jaket<br>kulit ini", 1180, 470, "r1 on-foto", rich=True))
 write(W, "02-2", plate("p02_keynote_dekat.jpg", grade="", scale=1.07, tx=-50, style="filter:invert(1) grayscale(.4)"),
-      text("lebih keras", 1170, 500, "r2 ink", layar=True))
+      text("lebih berat", 1170, 500, "r2 ink", layar=True))
 
 # 03 Rewind (kartu 92 T2 slot-jump): layar hitam, tahun raksasa berganti digit mundur; potongan footage
 # panggung yang diputar mundur menyelinap sebagai balok sempit di tepi (pengganti tekstur blueprint kartu)
@@ -124,20 +125,20 @@ def M(makna, emosi, gerak, aksi, metafora, objek, urutan, bentuk):
     return dict(makna=makna, emosi=emosi, gerak_pembawa=gerak, aksi=aksi, metafora=metafora, objek=objek, urutan=urutan, bentuk=bentuk)
 
 beats = [
- dict(id="01", babak="B1", t=[0.0, 3.5], vo="Katanya, sebelum bikin NVIDIA, Jensen Huang pernah jadi tukang cuci mobil. Salah.",
-      layar="tukang cuci mobil? → SALAH",
-      aksi="Frame 1: keynote GTC berwarna; sepertiga kiri masih blok piksel lalu tajam dalam 10 frame (rumor = gambar kabur). Caption putih tumbuh per kata di kanan Jensen. Frame 2 (2,4 dtk): potong keras ke kartu hitam, SALAH putih Bold",
+ dict(id="01", babak="B1", t=[0.0, 3.5], vo="Mungkin kamu pernah dengar cerita ini: sebelum bikin NVIDIA, Jensen Huang katanya kerja jadi tukang cuci mobil. Ceritanya enak didengar... tapi bukan begitu kejadiannya.",
+      layar="tukang cuci mobil? → tapi bukan begitu",
+      aksi="Frame 1: keynote GTC berwarna; sepertiga kiri masih blok piksel lalu tajam dalam 10 frame (rumor = gambar kabur). Caption putih tumbuh per kata di kanan Jensen. Frame 2: potong ke kartu hitam, 'bukan begitu' putih Bold dengan 'tapi' kecil di atasnya (nada tenang, bukan bantahan)",
       kamera="frame 1 push 1,00 → 1,04 pelan ke Jensen; kartu hitam diam",
       keluar="potong keras ke klip jaket kulit",
       sfx=[S(0.0, "bed: dengung pita kaset pelan sepanjang video", "pilar 1, tidak ada hening digital; pita = perangkat Rewind"),
            S(0.0, "aksen: glitch piksel tipis", "piksel yang menajam = rumor dibongkar, frame 0 butuh gebrakan bunyi"),
-           S(2.4, "aksen: hit teredam di SALAH", "koreksi mitos = puncak hook")],
-      metafora=M("cerita viral tentang Jensen salah", "penasaran lalu kaget", "blok piksel menajam lalu dipotong kartu hitam",
-                 "membongkar", "rumor sebagai gambar kabur yang ditajamkan", ["keynote GTC", "blok piksel", "kartu hitam", "kata SALAH"],
-                 "keynote kabur → tajam → kartu SALAH", "orang")),
- dict(id="02", babak="B1", t=[3.5, 7.0], vo="Yang sebenarnya terjadi di balik jaket kulit ini jauh lebih keras.",
-      layar="jaket kulit ini → lebih keras",
-      aksi="Frame 1: close Jensen berjaket kulit (keynote yang sama, crop dekat), caption di rumput kanan. Frame 2: 2 frame terakhir invert penuh, 'lebih keras' tinta gelap = pintu masuk ke rewind",
+           S(3.0, "aksen: hit teredam lembut di bukan begitu", "tikungan hook, tenang")],
+      metafora=M("cerita viral tentang Jensen tidak benar", "penasaran", "blok piksel menajam lalu dipotong kartu hitam",
+                 "membongkar", "rumor sebagai gambar kabur yang ditajamkan", ["keynote GTC", "blok piksel", "kartu hitam", "kata bukan begitu"],
+                 "keynote kabur → tajam → kartu bukan begitu", "orang")),
+ dict(id="02", babak="B1", t=[3.5, 7.0], vo="Yang sebenarnya terjadi di balik jaket kulit itu, jauh lebih BERAT.",
+      layar="jaket kulit ini → lebih berat",
+      aksi="Frame 1: close Jensen berjaket kulit (keynote yang sama, crop dekat), caption di rumput kanan. Frame 2: 2 frame terakhir invert penuh, 'lebih berat' tinta gelap = pintu masuk ke rewind",
       kamera="push 1,04 → 1,07 ke dada/jaket",
       keluar="invert 2 frame lalu potong ke pita mundur",
       sfx=[S(3.5, "transisi: udara teredam di potongan", "pilar 2, potongan ke shot dekat"),
@@ -145,7 +146,7 @@ beats = [
       metafora=M("di balik citra sukses ada masa lalu keras", "serius", "push pelan menembus jaket kulit lalu gambar terbalik",
                  "menembus", "jaket kulit sebagai kulit luar yang dibalik", ["jaket kulit", "wajah Jensen", "kilat invert"],
                  "jaket → push → invert", "orang")),
- dict(id="03", babak="B2", t=[7.0, 11.0], vo="Untuk melihat awalnya, kita harus putar mundur. Jauh. Ke tahun 1972.",
+ dict(id="03", babak="B2", t=[7.0, 11.0], vo="Dan untuk melihatnya, kita harus mundur dulu... jauh, ke tahun sembilan belas tujuh puluh dua.",
       layar="1993 (berputar mundur) → ke tahun 1972",
       aksi="Kartu 92 T2: layar hitam, tahun putih raksasa (±40 % tinggi) berganti digit mundur 2026 → 1993 → 1972, ±0,125 dtk per digit; potongan footage panggung yang diputar mundur menyelinap sebagai balok sempit di tepi kanan dan kiri bawah. Frame 2: berhenti di 1972, balok tinggal satu di kiri dan jadi B&W, 'ke tahun' menempel di kiri atas angka",
       kamera="diam; balok footage bergeser sisi tiap ganti digit, angka terakhir scale 1,0 → 1,1",
@@ -155,7 +156,7 @@ beats = [
       metafora=M("cerita dimulai dari masa kecil", "nostalgia", "angka tahun berputar mundur lalu berhenti keras",
                  "memutar mundur", "hidup sebagai pita kaset yang diputar balik", ["pita/garis tracking", "angka tahun", "panggung GTC", "ikon rewind"],
                  "panggung → pita mundur → beku 1972", "benda")),
- dict(id="04", babak="B2", t=[11.0, 18.0], vo="Umur sembilan tahun, ia dikirim ke sekolah asrama di Kentucky. Pamannya mengira itu sekolah bergengsi. Ternyata sekolah asrama yang keras.",
+ dict(id="04", babak="B2", t=[11.0, 18.0], vo="Waktu itu Jensen baru sembilan tahun. Pamannya mengirim dia ke sekolah asrama di Kentucky, dikira sekolah bergengsi... ternyata sekolah asrama yang keras.",
       layar="umur 9 tahun → asrama yang keras",
       aksi="Frame 1: Jensen bercerita (klip JRE vertikal, crop tanpa caption tertanam) sebagai foto tegak B&W hangat di kiri; '9 tahun' hero di kanan, 'umur' menempel di atasnya. Frame 2: papan Oneida Baptist Institute B&W hangat; 'asrama yang keras' putih tebal di kotak sorot merah pas-badan di atas papan (kartu 48 T1), dibangun per kata",
       kamera="frame 1 diam; frame 2 push 1,00 → 1,06 ke papan",
@@ -165,7 +166,7 @@ beats = [
       metafora=M("anak kecil dikirim jauh ke sekolah yang ternyata keras", "terasing", "push pelan ke papan sekolah yang dingin",
                  "mengirim", "papan batu sekolah sebagai pintu dunia yang keras", ["Jensen bercerita", "papan Oneida", "angka 9 tahun"],
                  "Jensen bercerita → papan sekolah", "orang")),
- dict(id="05", babak="B2", t=[18.0, 25.0], vo="Tugas hariannya di asrama: membersihkan toilet untuk sekitar seratus anak laki-laki. Teman sekamarnya remaja tujuh belas tahun.",
+ dict(id="05", babak="B2", t=[18.0, 25.0], vo="Tugas hariannya di sana? Bersihin toilet, untuk sekitar SERATUS anak laki-laki. Dan teman sekamarnya, remaja tujuh belas tahun.",
       layar="toilet untuk 100 anak → teman sekamarnya 17 tahun",
       aksi="Frame 1: kartu putih polos, '100 anak' tinta Bold, 'toilet untuk' menempel di atas. Frame 2 (23 dtk): balik ke kartu hitam, '17 tahun' putih, 'teman sekamarnya' di atas",
       kamera="diam (kartu jeda)",
@@ -185,7 +186,7 @@ beats = [
       metafora=M("Jensen sendiri mengakui pekerjaan rendah itu", "jujur, lucu", "push pelan ke wajah saat punchline",
                  "mengaku", "bukti dari mulut tokohnya sendiri", ["Jensen", "kursi panggung", "audiens"],
                  "kalimat 1 → push → kalimat 2", "orang")),
- dict(id="07", babak="B3", t=[30.0, 37.0], vo="Umur lima belas, ia kerja pertamanya di Denny's, Portland. Bukan cuci mobil. Pencuci piring, lalu busboy, lalu pelayan.",
+ dict(id="07", babak="B3", t=[30.0, 37.0], vo="Umur lima belas, dia dapat kerja pertamanya, di Denny's, Portland. Bukan cuci mobil, tapi cuci piring... lalu jadi busboy, lalu pelayan.",
       layar="umur 15 → pencuci piring busboy pelayan",
       aksi="Frame 1: papan Denny's asli (foto Commons, berwarna), 'umur 15' di bidang atap gelap kanan bawah, di luar papan ('kerja pertama' sudah diucapkan di atas papan, tidak ditulis). Frame 2: Jensen makan pancake (Fortune) sebagai foto tegak kiri; kata pekerjaan bertumpuk di kanan, yang lama meredup, 'pelayan' putih Bold",
       kamera="frame 1 push 1,00 → 1,03 ke papan; frame 2 diam, kata bertumpuk",
@@ -205,7 +206,7 @@ beats = [
       metafora=M("ia bangga pada pekerjaan rendah itu", "hangat", "push pelan ke wajah yang tersenyum",
                  "membanggakan", "bukti dari mulut tokohnya sendiri", ["Jensen", "gestur tangan", "kata terbaik"],
                  "Jensen → terbaik", "orang")),
- dict(id="09", babak="B4", t=[42.0, 49.0], vo="Tapi ia tidak berhenti di dapur. Ia kuliah teknik elektro, lalu merancang chip sembilan tahun di AMD dan LSI Logic.",
+ dict(id="09", babak="B4", t=[42.0, 49.0], vo="Tapi dia nggak berhenti di dapur. Dia kuliah teknik elektro, terus sembilan tahun merancang chip di A-M-D dan L-S-I Logic.",
       layar="merancang chip 9 tahun → AMD LSI Logic",
       aksi="Frame 1: kartu hitam, '9 tahun' Bold, 'merancang chip' di atasnya. Frame 2: makro wafer silikon diburamkan 3 px dan digelapkan, 'AMD' redup di atas, 'LSI Logic' putih Bold",
       kamera="frame 2 push 1,04 → 1,08 ke wafer",
@@ -216,7 +217,7 @@ beats = [
       metafora=M("dari dapur ke industri chip", "tekun", "wafer berputar pelan di bawah nama perusahaan",
                  "merancang", "wafer silikon sebagai bahan kerjanya", ["kartu hitam", "wafer", "AMD", "LSI Logic"],
                  "9 tahun → AMD → LSI Logic", "benda")),
- dict(id="10", babak="B4", t=[49.0, 57.0], vo="Lalu tahun 1993, di sebuah booth Denny's di San Jose, ia dan dua rekannya merancang NVIDIA.",
+ dict(id="10", babak="B4", t=[49.0, 57.0], vo="Sampai akhirnya, tahun sembilan belas sembilan puluh tiga, di sebuah booth Denny's di San Jose, dia dan dua rekannya duduk merancang satu perusahaan... NVIDIA.",
       layar="booth Denny's 1993 → dan dua rekannya",
       aksi="Artefak jangkar. Frame 1: foto booth Denny's San Jose, abu-abu kecuali Jensen berwarna (matte); '1993' raksasa di belakang kepalanya, 'booth Denny's' menempel di atas. Frame 2: plakat 'The booth that launched a $1 trillion company' sebagai kartu foto miring di hitam (kartu 39 k5), 'dan dua rekannya' di kiri; kata NVIDIA tidak ditulis ulang karena sudah terbaca di plakat (Lantai A3)",
       kamera="frame 1 push 1,00 → 1,08 ke Jensen, geser kiri-atas; frame 2 kartu foto masuk dari kanan, lalu push pelan ke tulisan NVIDIA",
@@ -226,7 +227,7 @@ beats = [
       metafora=M("perusahaan raksasa lahir di meja restoran biasa", "takjub", "push ke satu orang berwarna di foto abu-abu",
                  "melahirkan", "booth restoran sebagai tempat lahir", ["booth Denny's", "Jensen berwarna", "plakat", "angka 1993"],
                  "booth → Jensen → plakat", "benda")),
- dict(id="11", babak="B5", t=[57.0, 63.0], vo="Dari membersihkan toilet asrama dan mencuci piring, sampai membangun perusahaan chip paling bernilai di dunia.",
+ dict(id="11", babak="B5", t=[57.0, 63.0], vo="Dari bersihin toilet asrama dan cuci piring, sampai membangun perusahaan chip paling bernilai di dunia.",
       layar="toilet asrama → paling bernilai",
       aksi="Layar terbelah: kiri papan Oneida B&W hangat (masa awal), kanan kampus NVIDIA di keynote berwarna (hari ini). Frame 1 'toilet asrama' di kotak sorot merah di sisi kiri (perlakuan sama dengan beat 04). Frame 2 kotak kiri meredup, 'paling bernilai' putih tebal di atas penonton sisi kanan",
       kamera="kedua sisi push pelan ke arah garis tengah",
@@ -236,7 +237,7 @@ beats = [
       metafora=M("jarak dari pekerjaan terendah ke puncak", "puas", "dua sisi layar didorong saling mendekat",
                  "membandingkan", "dua dunia berdampingan dalam satu frame", ["papan sekolah", "kampus NVIDIA", "garis belah"],
                  "kiri → kanan", "sebab-akibat")),
- dict(id="12", babak="B5", t=[63.0, 71.0], vo="Pelajarannya: tidak ada pekerjaan yang terlalu rendah untuk dikerjakan, kalau kamu sedang membangun kebiasaan yang akan membawamu ke puncak.",
+ dict(id="12", babak="B5", t=[63.0, 71.0], vo="Jadi mungkin pelajarannya begini: nggak ada pekerjaan yang terlalu rendah, kalau kamu lagi membangun kebiasaan yang nanti membawamu ke puncak.",
       layar="tidak ada pekerjaan terlalu rendah → ke puncak",
       aksi="Frame 1: kartu putih, 'terlalu rendah' tinta Bold, 'tidak ada pekerjaan' menempel di atas. Frame 2: panggung GTC lebar dengan penonton, 'ke puncak' putih Bold di atas penonton",
       kamera="frame 2 push 1,00 → 1,05 ke panggung",
@@ -246,7 +247,7 @@ beats = [
       metafora=M("kerja rendah membangun jalan ke puncak", "yakin", "kartu kosong dipotong ke panggung raksasa",
                  "membangun", "panggung sebagai puncak", ["kartu putih", "panggung GTC", "penonton"],
                  "kalimat → panggung", "benda")),
- dict(id="13", babak="B5", t=[71.0, 76.0], vo="Pekerjaan pertamamu dulu apa? Tulis di komentar.",
+ dict(id="13", babak="B5", t=[71.0, 76.0], vo="Kalau kamu, kerja pertamamu dulu apa? Cerita di komentar ya.",
       layar="kerja pertamamu? tulis di komentar",
       aksi="Frame 1: kembali ke foto booth (abu-abu, digelapkan), 'kerja pertamamu?' Bold putih di tengah, 'tulis di komentar' di bawahnya. Frame 2: kartu sumber putih 1,5 dtk",
       kamera="frame 1 push pelan; kartu sumber diam",
