@@ -25,8 +25,13 @@
    **Cakupan**: bunyi hidup selama objek/visual yang memicunya hidup; cue diberi `sampai` (detik objek selesai) dan bunyi yang lebih panjang dipotong di sana. Bunyi berulang (loop, ketikan, beep) tidak diperpanjang melewati objeknya; bunyi transisi boleh menyeberangi potongan adegan paling lama 0,15 dtk. Potongnya lewat `scripts/audio/sfx_potong.py`: mundur ke jeda sunyi sungguhan terakhir (≥ 25 ms di bawah −24 dB dari puncak, setelah bunyi terdengar kuat, dalam 0,35 dtk sebelum batas) dengan fade di dalam jeda, jadi bunyi berhenti setelah satu ketukan utuh; bila tidak ada jeda (whoosh, pad, arp), fade kosinus 150–300 ms yang selesai di batas. Jangan memotong di celah 10 ms di dalam satu beep atau di sunyi sebelum serangan, karena yang terdengar adalah bunyi hilang saat sedang keras atau bunyinya tidak muncul sama sekali.
 
 ## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
-- **Bila gerak (slider, kalender berputar, progress) berlangsung lebih lama dari sampel SFX-nya, pilih bunyi menerus (scan, loop, dengung progress) yang dipotong tepat di akhir gerak**, bukan sampel pendek yang habis di tengah: bunyi yang berhenti sementara gambar masih bergerak terdengar sebagai "SFX kehabisan". `sampai` hanya memotong, tidak memperpanjang; cek `scripts/audio/sfx_span.py --cues` (HABIS) setiap kali `sampai` ditulis.
-- **Bila mengaudit SFX, ukur dua arah: awal event (`visual_coverage.py`) dan lama gerak (`sfx_span.py --video --sfx`)**, lalu lihat lembar kontak segmen SENYAP sebelum menambah bunyi: whip/blur antar-adegan dan objek yang tumbuh bergelombang (grid ikon muncul) sering lolos karena tidak punya satu onset tajam; drift talking head dan potong balik ke wajah tetap senyap.
+- **[SFX-01] Bunyi menutup seluruh durasi gerak pemicunya** · kelas P · cek: setelah mix SFX, sebelum mux
+  - Pemicu: gerak yang berlangsung (geser, putar, isi, scan, tumbuh bergelombang, whip/blur antar-adegan) diberi atau perlu diberi SFX.
+  - Anti-pola: sampel pendek yang habis sebelum geraknya selesai; atau audit yang hanya mencari onset sehingga gerak tanpa onset tajam lolos tanpa bunyi.
+  - Invarian: panjang sampel / rate ≥ (akhir gerak − awal) untuk tiap cue ber-`sampai`; gerak lebih panjang dari sampel diberi bunyi menerus (loop, scan, dengung) yang dipotong di akhir gerak; audit dua arah: awal event dan lama gerak.
+  - Karena: bunyi yang berhenti sementara gambar masih bergerak terdengar sebagai SFX kehabisan.
+  - Boleh: drift kecil, potong balik ke wajah, dan gerak yang sengaja senyap dengan alasan tertulis.
+  - Gerbang: `scripts/audio/sfx_span.py --cues` 0 HABIS; tiap SENYAP dari `--video --sfx` dilihat di lembar kontak lalu diberi bunyi atau alasan senyap.
 
 ## Cek cepat
 - `scripts/audio/sfx_span.py --video silent.mp4 --sfx stems/sfx.wav --cues cues.json`: tidak ada HABIS; tiap SENYAP sudah dilihat di lembar kontak dan diberi bunyi atau alasan senyap.

@@ -18,10 +18,13 @@
 ## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
 - **Bila kamera pindah dari satu objek ke objek berikut sementara teksnya masih diucapkan, pilih teks tetap di posisi dunianya dan biarkan kamera melewatinya**, bukan menjepit teks di tepi layar supaya tidak keluar: teks yang ikut bergeser terbaca "melayang" dan memutus ilusi satu dunia.
 - **Bila efek kilat cahaya diminta melintas pada kartu judul yang pendek (< 20 frame), pilih sapuan berkurva rata (`drift`) sepanjang hampir seluruh kartu dengan pita yang menyeberang dari pojok ke pojok**, bukan kurva `land`: `land` menghabiskan sapuan dalam 3 frame lalu pita mengendap di luar huruf, sehingga kilatnya tidak terlihat bergerak.
-- **Bila revisi menyebut perbaikan "di titik transisi dan animasi", ubah hanya waktu, kurva, dan cara masuk/keluar.** Elemen visual baru (kartu wajah, pill, label) di adegan yang sudah disetujui = di luar cakupan, walau terasa membantu transisi; tawarkan sebagai usul, jangan dipasang.
-- **Bila transisi dari adegan 3D/footage ke UI diminta "flash atau cut out", pilih potong keras di akhir kata terakhir + kilat putih tepat 1 f lalu langsung shot baru tanpa pudar, lalu shot UI dibuka dengan zoom-out pelan 1,08 → 1,0 (±1,2 dtk, kurva drift)** (kartu 66 T2 + 60 T4). Kilat yang memudar membuat potongan terasa lembek: penonton hanya boleh melihat satu kilatan lalu frame langsung berubah; cek lembar per frame di sekitar potongan.
-- **Bila revisi memperpanjang atau memindah sebuah adegan, cek dulu peta ucapan → visual di rencana yang sudah disetujui** (teks.json/storyboard versi lama): kalimat yang dulu sudah punya visual sendiri (mis. kalender yang memvisualkan "aku sempet ngebuat target") tidak ikut ditelan adegan baru. Batas cut ikut onset kalimat itu; adegan baru dipadatkan (plate diputar dipercepat) daripada visual lama digeser.
-- **Bila kilat/potongan dihitung dari waktu (detik float), hitung indeks frame dengan pembulatan** (`Math.round((t - T_CUT) * FPS)`), dan batas adegan dibandingkan dengan setengah frame. Perbandingan float mentah bisa membuat kilat 1 f menjadi 2 f.
+- **[GRK-01] Kata kerja masuk/transisi = definisi per frame** · kelas P · cek: lembar per frame sebelum render penuh
+  - Pemicu: brief, storyboard, atau revisi menamai cara elemen masuk atau berpindah (ditulis/writing, diketik, pop, terbang, cut, flash, whip).
+  - Anti-pola: mengganti dengan varian yang terasa lebih hidup, atau menambah peralihan (pudar, ease) yang tidak dikandung kata kerjanya.
+  - Invarian: sebelum membangun, tulis definisi per frame kata kerja itu lalu ikuti: ditulis = glif terungkap berurutan di posisi akhirnya mengikuti ucapan per kata, frame pertama belum utuh; cut = 0 frame peralihan; flash = N frame intensitas penuh tanpa naik/turun, lalu shot baru. Event diskret dihitung dari indeks frame bulat `round((t − t0) × fps)` dan batas adegan dibanding setengah frame, bukan perbandingan detik float. Bunyi mengikuti kata kerja yang sama (ditulis → ketukan per kata, bukan whoosh).
+  - Karena: kata kerja itu spesifikasi pemilik; varian lain terbaca sebagai salah eksekusi walau rapi, dan perbandingan float diam-diam membuat 1 frame menjadi 2.
+  - Boleh: kata kerja tidak disebut atau ambigu → ambil dari kartu kiblat dan catat pilihannya di ledger.
+  - Gerbang: lembar per frame ±3 f di sekitar tiap event: jumlah frame peralihan dan keadaan frame pertama cocok dengan definisi tertulis.
 
 
 ## Cek cepat

@@ -1081,3 +1081,15 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 
 ## `guide/sfx/GUIDE.md` (SFX kehabisan di gerak panjang; audit dua arah) · `scripts/audio/sfx_span.py` · `guide/audio/GUIDE.md` (lantai musik relatif suara; plafon TP untuk AAC) · `guide/teks/GUIDE.md` (cara masuk teks sesuai brief)
 - Irfan 22 Nov 2026, kegagalan_eps01 v6: "9 Bulan lalu animationnya harusnya writing bukan pop up", "pastikan audio sfxnya juga diperbaiki untuk bagian tersebut", "evaluasi juga BGM karena dibeberapa bagian terlalu kecil bahkan justru ga kedengeran atau hilang", "pada bagian 1 - 2 detik ini saat slider suara sfxnya habis harusnya bisa ditambahkan suara slider lain yang mirip atau scaning". Ledger proyek R-51–R-53.
+
+## Butir ber-ID (format SARINGAN.md) · menggantikan butir bebas dari dua blok di atas
+Penghitung: nilai mulai 2; +1 gerbang menangkap kegagalan nyata; −1 salah-tembak; −2 dilanggar dan pemilik menyetujui hasil. Uji silang ke proyek kedua belum dilakukan untuk semua butir di bawah.
+- `GRK-01` (guide/gerak) — kelas dari 2 kejadian di kegagalan_eps01 (DECISIONS R-46 kilat 2 f karena float/pudar; R-51 writing diganti pop) | nilai 2 | uji silang: belum
+- `TKS-01` (guide/teks) — kegagalan_eps01 R-47/R-48 (frasa satu value; hanya dicek tabrakan) | nilai 2 | uji silang: belum
+- `TKS-02` (guide/teks) — kegagalan_eps01 R-43…R-45 (kata keluar frame sebelum terbaca) | nilai 2 | uji silang: belum
+- `TKS-03` (guide/teks) — kegagalan_eps01 R-50 (warna dipilih tanpa ukur, p10 1,1 di latar senada) | nilai 2 | uji silang: belum
+- `SFX-01` (guide/sfx, scripts/audio/sfx_span.py) — kegagalan_eps01 R-53 (sampel 0,8 dtk untuk gerak 1,24 dtk; 4 gerak tanpa onset tajam lolos audit onset) | nilai 2 | uji silang: belum
+- `AUD-01` (guide/audio) — kegagalan_eps01 R-52 (musik −36…−52 LUFS di beberapa detik saat LUFS terintegrasi lulus) | nilai 2 | uji silang: belum
+- `QC-01` (guide/hindari) — kelas dari 4 kejadian di kegagalan_eps01 (R-48 tabrakan vs urutan baca; R-52 LUFS terintegrasi vs musik hilang lokal; R-53 onset vs durasi SFX; R-53 TP WAV −1,5 vs MP4 −0,7) | nilai 2 | uji silang: belum
+- `references/revision-log.md` §0 butir 2 (peta ucapan → visual): delta pada butir lama, dari kegagalan_eps01 R-49
+- Dihapus karena duplikat atau berisi kasus: "revisi di titik transisi → jangan tambah elemen" (sudah di revision-log §0 butir 5–6), "flash/cut out ke UI + zoom-out 1,08→1,0" (parameter gaya; tetap di kartu 60/66), "AAC plafon" (masuk QC-01).

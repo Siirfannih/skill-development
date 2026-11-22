@@ -16,3 +16,12 @@ Ini daftar pindai, bukan larangan teknik. Satu tanda dengan alasan tertulis bole
 | Grafik vivid melayang di footage blur | tempelan | still | menyatu atau dunia sendiri |
 
 Daftar lengkap riwayat penolakan Irfan: `../../references/slop-catalog.md`.
+
+## Cara memutuskan
+- **[QC-01] Gerbang mengukur kegagalan seperti dialami penonton** · kelas P · cek: sebelum menyatakan lulus/selesai
+  - Pemicu: menulis, memilih, atau menjalankan gerbang QC; atau menyatakan sebuah keluhan sudah beres.
+  - Anti-pola: angka agregat atau proksi yang lulus sementara kegagalan yang dirasakan tetap ada: loudness terintegrasi lulus tetapi musik hilang di beberapa detik; onset tertutup tetapi bunyi habis di tengah gerak; teks tidak bertabrakan tetapi urutan bacanya datar; ukuran di file antara (WAV, render bisu) lulus tetapi file kiriman tidak.
+  - Invarian: tiap gerbang mengukur atribut yang dinamai keluhan atau brief, secara lokal (per frame, atau jendela ≤ 1 dtk), di file kiriman sesudah encode; tiap keluhan punya gerbang yang menyebutnya. Encode AAC menaikkan true peak ±0,8 dB, jadi plafon limiter master diberi jarak itu dari target.
+  - Karena: proksi yang lulus menghentikan pencarian tepat sebelum kesalahan yang akan dilihat pemilik.
+  - Boleh: angka agregat tetap dilaporkan sebagai tambahan, bukan pengganti.
+  - Gerbang: daftar gerbang proyek punya kolom "keluhan yang ditangkap", "lokal?", "diukur di file kiriman?"; ada baris yang kosong = belum lulus.
