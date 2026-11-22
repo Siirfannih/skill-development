@@ -20,6 +20,8 @@
 - **Bila efek kilat cahaya diminta melintas pada kartu judul yang pendek (< 20 frame), pilih sapuan berkurva rata (`drift`) sepanjang hampir seluruh kartu dengan pita yang menyeberang dari pojok ke pojok**, bukan kurva `land`: `land` menghabiskan sapuan dalam 3 frame lalu pita mengendap di luar huruf, sehingga kilatnya tidak terlihat bergerak.
 - **Bila revisi menyebut perbaikan "di titik transisi dan animasi", ubah hanya waktu, kurva, dan cara masuk/keluar.** Elemen visual baru (kartu wajah, pill, label) di adegan yang sudah disetujui = di luar cakupan, walau terasa membantu transisi; tawarkan sebagai usul, jangan dipasang.
 - **Bila transisi dari adegan 3D/footage ke UI diminta "flash atau cut out", pilih potong keras di akhir kata terakhir + kilat putih tepat 1 f lalu langsung shot baru tanpa pudar, lalu shot UI dibuka dengan zoom-out pelan 1,08 → 1,0 (±1,2 dtk, kurva drift)** (kartu 66 T2 + 60 T4). Kilat yang memudar membuat potongan terasa lembek: penonton hanya boleh melihat satu kilatan lalu frame langsung berubah; cek lembar per frame di sekitar potongan.
+- **Bila revisi memperpanjang atau memindah sebuah adegan, cek dulu peta ucapan → visual di rencana yang sudah disetujui** (teks.json/storyboard versi lama): kalimat yang dulu sudah punya visual sendiri (mis. kalender yang memvisualkan "aku sempet ngebuat target") tidak ikut ditelan adegan baru. Batas cut ikut onset kalimat itu; adegan baru dipadatkan (plate diputar dipercepat) daripada visual lama digeser.
+- **Bila kilat/potongan dihitung dari waktu (detik float), hitung indeks frame dengan pembulatan** (`Math.round((t - T_CUT) * FPS)`), dan batas adegan dibandingkan dengan setengah frame. Perbandingan float mentah bisa membuat kilat 1 f menjadi 2 f.
 
 
 ## Cek cepat
