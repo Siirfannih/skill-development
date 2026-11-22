@@ -44,7 +44,7 @@ summary{cursor:pointer;width:max-content}
 <div class="wrap">
   <div class="eyebrow">Behindwork · Batch 1 · 16:9 · Story Cinematic</div>
   <h1 id="judul">Storyboard v2</h1>
-  <p class="lede">Frame dirender dari panel HTML di repo skill-development (<code>projects/behindwork-batch-1/storyboard</code>) dengan footage dan foto dari daftar sumber resmi. Tiap beat bisa dibandingkan dengan versi lama di bawahnya.</p>
+  <p class="lede">Frame dirender dari panel HTML di repo skill-development (<code>projects/behindwork-batch-1/storyboard</code>) dengan footage dan foto dari daftar sumber resmi. Di bawah tiap beat ada frame storyboard lama dari zip pertama sebagai pembanding.</p>
   <div class="brief"><div class="box"><h3>Yang berubah dari v1</h3><ul id="changes"></ul></div><div class="box"><h3>Perlu diketahui</h3><ul id="notes"></ul></div></div>
   <nav id="tabs" aria-label="Episode"></nav>
   <main id="ep"></main>
@@ -64,7 +64,7 @@ function render(){
   for(const b of ep.beats){
     if(b.babak!==last){h+=`<div class="babak">${esc(b.babak)}</div>`;last=b.babak;}
     const fr=b.frames.map((f,i)=>`<figure><img loading="lazy" src="f/${esc(f)}" alt="Beat ${esc(b.id)} frame ${i+1}">${b.frames.length>1?`<figcaption>${i+1}/${b.frames.length}</figcaption>`:""}</figure>`).join("");
-    const old=b.v1.length?`<details><summary>Versi lama (v1)</summary><div class="old">${b.v1.map(f=>`<img loading="lazy" src="v1/${esc(f)}" alt="v1 beat ${esc(b.id)}">`).join("")}</div></details>`:"";
+    const old=b.v1.length?`<details><summary>Bandingkan dengan storyboard lama (zip pertama)</summary><div class="old">${b.v1.map(f=>`<img loading="lazy" src="v1/${esc(f)}" alt="v1 beat ${esc(b.id)}">`).join("")}</div></details>`:"";
     h+=`<article class="beat"><div class="frames ${b.frames.length>1?"multi":""}">${fr}</div>
       <div class="notes"><div class="time">${esc(b.id)}<small>${b.t[0].toFixed(1)}–${b.t[1].toFixed(1)} dtk</small></div>
       <div class="vo">${esc(b.vo)}</div>

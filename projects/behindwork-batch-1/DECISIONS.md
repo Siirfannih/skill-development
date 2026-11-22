@@ -9,3 +9,5 @@ Ledger keputusan Irfan untuk storyboard Batch 1 (10 episode). Hanya berlaku untu
 | D-03 | 22 Nov 2026 | Ep01 dikerjakan penuh dulu sebagai acuan, dikirim; setelah disetujui ep02–10 dikerjakan tanpa berhenti | Irfan, pilihan "Ep01 dulu sebagai acuan" |
 | D-04 | 22 Nov 2026 | Format 16:9 1920×1080 (bukan 9:16 seperti tertulis di script v3/workflow) | Irfan, pilihan "16:9 horizontal" |
 | D-05 | 22 Nov 2026 | Riset, script, dan daftar footage resmi = zip `Behindwork-batch1-10-episode-v2.zip` (disalin ke `riset/`). VO dan urutan beat mengikuti `script.md` v3 tiap episode | Irfan: "file yang berisi link sumber resmi dan researchnya" |
+| D-06 | 22 Nov 2026 | Tidak ada label sumber di pojok frame. Sumber tiap aset tetap dicatat di `storyboard/<ep>/SUMBER-ASET.md` dan kartu sumber penutup episode | Irfan: "Hapus bagian sumber di frame dan semua frame yang masih mengutip tulisan source di pojok kiri" |
+| D-07 | 22 Nov 2026 | Storytelling ep01 disetujui ("All good secara storytelling") | Irfan |

@@ -37,8 +37,8 @@ def raw(s):
 
 
 def src_label(s, ink=False):
-    color = "color:var(--ink);" if ink else ""
-    return f'<div class="src" style="{color}">{html.escape(s)}</div>'
+    """Sumber tidak ditulis di frame (DECISIONS D-06); dicatat di SUMBER-ASET.md dan kartu sumber penutup."""
+    return ""
 
 
 def write(folder, name, *parts, body="", css=""):
