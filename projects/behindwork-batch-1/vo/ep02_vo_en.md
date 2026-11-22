@@ -1,19 +1,35 @@
-# Ep 02 · VO story version, English (D-15)
+# Ep 02 · VO story version, English (D-15, D-20)
 
-Same facts and beats as `ep02_vo_tts.md` (Indonesian story version, D-14; facts from `riset/episode/02-tokopedia-william-tanuwijaya/script.md` v2), rewritten in natural spoken English for Indonesian listeners: simple, common words, flowing sentences joined with commas, short and long alternating, calm "but" for the turn, no sudden one-word rebuttal. `...` for a breath or to delay one key word; CAPS at most one word per beat. Numbers are written as spoken words; acronyms and names in their official spelling. Target tempo 2.4–2.7 words/sec (D-16). The Indonesian subtitle column is static at the bottom of the screen (D-15): `<br>` = line break (max 42 characters per line), ` / ` = next subtitle card (max 2 lines each). The shift clock stays an act marker (Shift Malam structure), not the time things happened. In beat 02, William's own voice (Indonesian, 2 sec) plays over the visuals; the VO is still read. The investor line in beat 08 follows William's retelling (CNBC 2021: "they are born special, you are not").
+**Struktur.** Shift Malam (`riset/analisis/STRUKTUR-PER-EPISODE.md` baris 02) dibawakan dengan kerangka kartu **S05 Peak-Then-Pivot Origin Profile** (jangkar → tikungan "but" → rantai tindakan → bukti dari mulut tokoh → hasil → tesis → ajakan), karena ini profil asal-usul pendiri dengan titik balik nyata (dua tahun ditolak investor) dan kalimat penolakan yang diceritakan William sendiri. Urutan Story Cinematic: jangkar (01) → taruhan: shift 12 jam setiap hari (02) → babak dengan angka dan tikungan (03–10) → hasil (11) → payoff (12) → pelajaran satu kalimat (13) → CTA komentar (14). Jam warnet tetap penanda babak di layar, bukan waktu kejadian; VO hanya menyebut jam 9 malam di pembuka, "darkest hour" di tikungan, dan "the shift ended" saat fajar.
 
-| Beat | VO (EN) | Subtitle ID |
-|---|---|---|
-| 01 | Nine at night, and this internet café attendant... later started Tokopedia. | Jam sembilan malam, dan penjaga warnet ini<br>kelak mendirikan Tokopedia. |
-| 02 | A twelve-hour shift, until nine in the morning, EVERY day. | Shift-nya dua belas jam,<br>sampai jam sembilan pagi, setiap hari. |
-| 03 | From Pematangsiantar, he took a ship to Jakarta in nineteen ninety-nine, four days and three nights. | Dia anak Pematangsiantar,<br>yang tahun 1999 naik kapal ke Jakarta, / empat hari tiga malam. |
-| 04 | In his second year of computer science, his father fell ill, and William had to support the family. | Di tahun kedua kuliah teknik informatika,<br>ayahnya jatuh sakit, / dan William jadi tulang punggung keluarga. |
-| 05 | To stay in school, he worked night shifts there, with free internet as a bonus, when internet was still expensive. William says that's where he fell in LOVE with it. | Supaya tetap kuliah,<br>dia jaga warnet shift malam, / bonusnya internet gratis,<br>padahal internet masih mahal. / Kata William, di situlah dia<br>jatuh cinta sama internet. |
-| 06 | He graduated in two thousand three, took an office job, and in two thousand seven the idea came: a trusted online marketplace. | Dia lulus 2003, kerja kantoran,<br>sampai tahun 2007 idenya muncul: / pasar online yang bisa dipercaya. |
-| 07 | But then came the... darkest hour. | Tapi lalu datang jam paling gelap. |
-| 08 | He knew no investors, and after two years of failed pitches, one of them told him, your role models were born special... you're not. | Dia nggak kenal satu pun investor,<br>dua tahun menawarkan ide dan gagal terus, / sampai satu calon pemodal bilang: / panutanmu lahir spesial, kamu nggak. |
-| 09 | William called it a slap, but he named himself an internet café graduate, and kept going. | William menyebutnya tamparan, / tapi dia malah menjuluki dirinya<br>lulusan warnet, dan jalan terus. |
-| 10 | Then on August seventeenth, two thousand nine, the shift ended, and Tokopedia was born, with Leontinus Alpha Edison. | Sampai akhirnya, 17 Agustus 2009,<br>shift itu selesai, / dan Tokopedia lahir,<br>bersama Leontinus Alpha Edison. |
-| 11 | In twenty twenty-one, Tokopedia and Gojek merged into GoTo, and in twenty twenty-three, William left his daily role there. | Tahun 2021, Tokopedia dan Gojek<br>bergabung jadi GoTo, / dan tahun 2023, William melepas<br>tugas hariannya di Tokopedia. |
-| 12 | So maybe, investors judge your track record, and if you don't have one, you build it, one shift at a time. | Jadi mungkin begini:<br>investor menilai rekam jejak, / dan kalau belum punya, ya bangun sendiri,<br>satu shift demi satu shift. |
-| 13 | What hour is your shift at right now? Write it in the comments. | Shift-mu sekarang di jam berapa?<br>Tulis di komentar. |
+**Peta beat lama → baru.** 01 → 01 (pembuka jadi adegan "on duty", bukan fragmen) · 02 → 02 · 03 → 03 (+ tujuan "for college", menjembatani "second year" di 04) · 04 → 04 · 05 → 05 (detail "internet masih mahal" dibuang demi durasi) · 06 → 06 (detail "kerja kantoran" dibuang demi durasi) · 07 → 07 · 08 → 08 + 09 (kalimat calon pemodal dipisah ke beat sendiri dan dibingkai "William remembers", supaya mendarat tenang) · 09 → 10 (julukan "lulusan warnet" dipindah ke payoff 12, supaya tidak terkesan diucapkan sebagai reaksi saat itu) · 10 → 11 · 11 → 12 (GoTo 2021 + payoff "not bad, for someone who calls himself an internet café graduate"; baris "2023 melepas tugas harian" dibuang demi durasi, faktanya tetap benar bila mau dikembalikan) · 12 → 13 · 13 → 14.
+
+**Catatan aset.** Klip EW semuanya tanpa audio (ASET.md), jadi suara asli William (bahasa Indonesia) di beat 02 tidak lagi diandalkan; VO berdiri sendiri. Bila audio EW diunduh ulang, suara itu boleh jadi latar di bawah VO. Leontinus Alpha Edison hanya punya visual foto kecil di grid animasi CNBC; namanya tetap disebut (WT-16 TINGGI). Tanjung Priok tidak disebut karena fotonya tidak ada.
+
+**Evaluasi diri (script-workshop §4).**
+- Pengalaman karangan: tidak ada; pengalaman batin William selalu diberi pembicara ("William says", "William remembers", "He called it").
+- Fakta dan sumber: 01 WT-05/16 · 02 WT-05 · 03 WT-01/02/03 · 04 WT-04/09 · 05 WT-05/06 · 06 WT-07/10 · 08 WT-11/12 · 09 WT-13 (ingatan William, CNBC 2021) · 10 WT-15 · 11 WT-16 · 12 WT-20/14 · tanpa "kanker", nominal modal, jumlah penolakan, angka TikTok, atau "tiga tahun" jaga warnet.
+- Hook: adegan konkret (jam 9 malam, warnet, penjaga) + janji ("would one day start Tokopedia"), bukan pertanyaan klise.
+- Baca keras: jembatan antarbabak ada ("So to stay in school" → shift; "Then came the darkest hour" → penolakan; "so he kept going" → fajar). Tidak ada bantahan mendadak; tikungan memakai "but" tenang di 04 dan 10 dibawa dengan "slap that gave him courage".
+- Mengalir, bukan fragmen: semua beat kalimat bersambung dengan koma; satu-satunya kalimat pendek (07) sengaja sebagai napas sebelum babak tergelap. KAPITAL hanya "LOVE" (05).
+- Durasi: 225 kata VO ≈ 83 dtk pada 2,7 kata/dtk.
+- CTA: aturan E18 (akun baru → save/follow) bertentangan dengan arahan pemilik dan `POLA-STORY-CINEMATIC.md` (CTA komentar, berbeda tiap episode); arahan Irfan dan dokumen proyek menang.
+
+`<br>` = pindah baris (maks. 42 karakter), ` / ` = tampilan subtitle berikutnya (maks. 2 baris).
+
+| Beat | VO (EN) | Karakter baca | Subtitle ID |
+|---|---|---|---|
+| 01 | Nine at night, at an internet café, this young man on duty... would one day start Tokopedia. | curious, low and intimate, a night-time hush | Jam 9 malam, di sebuah warnet, / pemuda yang berjaga ini<br>kelak mendirikan Tokopedia. |
+| 02 | His shift lasted twelve hours, until nine in the morning, every day. | steady, a little wondering | Shift-nya dua belas jam,<br>sampai jam 9 pagi, setiap hari. |
+| 03 | He was William Tanuwijaya, from Pematangsiantar, who in nineteen ninety-nine took a ship to Jakarta for college, four days and three nights. | warm, unhurried storytelling | Dia William Tanuwijaya,<br>dari Pematangsiantar, / yang tahun 1999 naik kapal ke Jakarta<br>untuk kuliah, empat hari tiga malam. |
+| 04 | But in his second year, his father fell ill, and William had to support the family. | slower, gentle, no drama | Tapi di tahun kedua, ayahnya jatuh sakit, / dan William harus jadi<br>tulang punggung keluarga. |
+| 05 | So to stay in school, he took the night shift, free internet included, and William says that's where he fell in LOVE with it. | lighter, a small smile on "love" | Supaya tetap kuliah, dia jaga shift malam,<br>bonusnya internet gratis, / dan kata William, di situlah<br>dia jatuh cinta sama internet. |
+| 06 | He graduated in two thousand three, and in two thousand seven the idea came, an online marketplace people could trust. | brisk, hopeful | Dia lulus tahun 2003, / dan tahun 2007 idenya datang:<br>pasar online yang bisa dipercaya. |
+| 07 | Then came the... darkest hour. | hushed, slower, a held breath | Lalu datanglah jam paling gelap. |
+| 08 | He didn't know any investors, and for two years, every pitch failed. | low, matter-of-fact | Dia nggak kenal satu pun investor, / dan dua tahun, semua tawarannya gagal. |
+| 09 | William remembers one of them saying, your role models were born special... you're not. | quiet and flat, let the words land without anger | William ingat salah satunya bilang: / panutanmu lahir spesial, kamu nggak. |
+| 10 | He called it a slap that gave him courage, so he kept going. | lifting, quiet resolve | Dia menyebutnya tamparan<br>yang bikin dia berani, / jadi dia jalan terus. |
+| 11 | On August seventeenth, two thousand nine, the shift ended, and Tokopedia launched, with Leontinus Alpha Edison. | brighter, relieved, like dawn | 17 Agustus 2009, shift itu selesai, / dan Tokopedia diluncurkan,<br>bersama Leontinus Alpha Edison. |
+| 12 | In twenty twenty-one, it merged with Gojek into GoTo, not bad, for someone who calls himself an internet café graduate. | quietly proud, a light smile at the end | Tahun 2021, Tokopedia bergabung<br>dengan Gojek jadi GoTo, / lumayan, untuk orang yang menyebut<br>dirinya lulusan warnet. |
+| 13 | So maybe investors judge your track record, and if you have none, you build it... one shift at a time. | slower, warm, certain | Jadi mungkin investor menilai rekam jejak, / dan kalau belum punya, ya bangun sendiri,<br>satu shift demi satu shift. |
+| 14 | What hour is your night shift at right now? Tell me in the comments. | light, inviting | Shift malammu sekarang di jam berapa?<br>Tulis di komentar. |

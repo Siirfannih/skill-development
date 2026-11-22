@@ -1,21 +1,34 @@
-# Ep 03 · VO story version, English (D-15)
+# Ep 03 · VO story version, English (D-15, D-20)
 
-Same facts and beats as `ep03_vo_tts.md` (Indonesian story version, D-14; facts from `riset/episode/03-youtube-situs-kencan/script.md`), rewritten in natural spoken English for Indonesian listeners: simple, common words, flowing sentences joined with commas, short and long alternating, calm "but" for the turn, no sudden one-word rebuttal. `...` for a breath or to delay one key word; CAPS at most one word per beat. Numbers are written as spoken words; acronyms and names in their official spelling. Target tempo 2.4–2.7 words/sec (D-16). The Indonesian subtitle column is static at the bottom of the screen (D-15): `<br>` = line break (max 42 characters per line), ` / ` = next subtitle card (max 2 lines each). "Second …" still opens each chapter (Bedah 19 Detik structure); beat number = row order of the script table. Chad's quote cut ("We've been acquired by Google.", original voice) sits on the visuals of beat 13, after the VO. "Seven four seven" is read digit by digit; the slogan pauses at the comma. Beat 11 stays close to Chen's own words in Time 2006 ("strengthened by marketing ideas").
+**Struktur.** Bedah 19 Detik (`riset/analisis/STRUKTUR-PER-EPISODE.md` baris 03): satu artefak ("Me at the zoo") dibedah per detik, dibawakan dengan pola **Story Cinematic** (`POLA-STORY-CINEMATIC.md`: artefak jangkar yang terus dikembalikan, tiap babak mini = angka + tikungan + hasil) dan tikungan tenang kartu **S05**, karena ceritanya punya satu janji ("how YouTube began") yang dibuka di hook, dibalik di detik empat (situs kencan), dan dibayar di payoff. Urutan: jangkar + taruhan (01) → babak per detik (02–09) dengan tikungan di 04 (situs kencan), 05 (nol balasan), 06 ("but" → semua video) → hasil (09 + quote cut 10) → payoff (11) → pelajaran (12) → CTA (13). Penanda "second …" sekarang dirangkai ke dalam kalimat ("At second zero, it's…") supaya tidak terdengar seperti fragmen bertitik.
 
-| Beat | VO (EN) | Subtitle ID |
-|---|---|---|
-| 01 | Nineteen seconds, two elephants, and inside, the whole secret of YouTube's beginning. | 19 detik, dua gajah, dan di dalamnya<br>ada seluruh rahasia awal YouTube. |
-| 02 | Let's break it down... second by second. | Yuk kita bedah, detik demi detik. |
-| 03 | Second zero. April twenty-third, two thousand five, Jawed Karim stands at the San Diego Zoo. | Detik 0. 23 April 2005, Jawed Karim<br>berdiri di Kebun Binatang San Diego. |
-| 04 | Second two. Karim was the third founder, with Chad Hurley and Steve Chen, all PayPal alumni. | Detik 2. Karim ini pendiri ketiga,<br>bareng Chad Hurley dan Steve Chen, / semuanya alumni PayPal. |
-| 05 | Second four. It was built from February fourteenth, Valentine's Day, as a... DATING site, with the slogan, Tune in, Hook up. | Detik 4. Situsnya dibangun<br>sejak 14 Februari, Hari Valentine, / sebagai situs kencan,<br>slogannya: Tune in, Hook up. |
-| 06 | Second seven. An elephant is clearly not a date, and the site had no dating videos. | Detik 7. Gajah jelas bukan calon pacar, / dan situs kencan ini nggak<br>punya satu pun video kencan. |
-| 07 | Second nine. Karim says the site was empty, so he uploaded seven four seven plane videos himself, then posted Craigslist ads, twenty dollars per video, and the replies... zero. | Detik 9. Kata Karim sendiri,<br>situs itu sepi total, / jadi dia isi sendiri<br>pakai video pesawat 747, / lalu pasang iklan di Craigslist,<br>20 dolar per video, / dan yang membalas nol orang. |
-| 08 | Second twelve. But videos like this one won, people uploaded anything, dogs, holidays, elephants. | Detik 12. Tapi justru video<br>seperti inilah yang menang, / pengguna mengunggah apa saja:<br>anjing, liburan, gajah. |
-| 09 | So the site opened up to ALL videos. | Jadi situsnya dibuka untuk semua video. |
-| 10 | Second fifteen. Forget the dinner party story, because Karim told Time magazine that party never happened. | Detik 15. Lupakan dulu<br>cerita pesta makan malam, / soalnya Karim bilang ke majalah Time,<br>pesta itu nggak pernah terjadi. |
-| 11 | And Steve Chen himself admitted the story was made stronger by marketing. | Dan Steve Chen sendiri mengakui,<br>ceritanya dibumbui pemasaran. |
-| 12 | Second seventeen. Karim says the idea came from videos of the two thousand four tsunami in Indonesia. | Detik 17. Kata Karim, idenya lahir<br>dari video tsunami 2004 di Indonesia. |
-| 13 | Second nineteen, the video ends, and in October two thousand six, Google bought it for one point six five BILLION dollars in stock. | Detik 19, videonya selesai, / dan Oktober 2006, Google membelinya<br>1,65 miliar dolar, dalam saham. |
-| 14 | So your first plan can be wrong, if you quickly see what people actually use. | Jadi rencana awalmu boleh salah,<br>asal cepat melihat apa yang dipakai orang. |
-| 15 | Which second surprised you most? Write it in the comments. | Detik ke berapa yang paling bikin kaget?<br>Tulis di komentar. |
+**Peta beat lama → baru.** 01 + 02 → 01 (hook dan "second by second" jadi satu kalimat) · 03 → 02 · 04 → 03 · 05 → 04 (slogan sekarang "Karim says", sesuai label riset YT-04) · 06 + 07 → 05 (lelucon gajah + Craigslist satu kalimat; detail "video pesawat 747" dibuang demi durasi) · 08 + 09 → 06 · 10 + 11 → 07 (mitos pesta dibawakan sebagai pertanyaan tenang, tanpa perintah "Forget…") · 12 → 08 · 13 → 09 · quote cut Chad (dulu di visual beat 13) → 10 · 11 baru = payoff · 14 → 12 · 15 → 13.
+
+**Catatan aset.** Klip `chadsteve_0000-0010.mp4` belum punya audio (ASET.md); beat 10 hanya dipakai bila audio diunduh ulang. Tanpa audio, beat 10 dilewati dan cerita tetap utuh karena akuisisi sudah disebut di beat 09. "Dogs, holidays" di beat 06 tidak punya footage pengguna 2005, jadi dibawakan sebagai teks kinetik di atas "Me at the zoo" ("elephants" mengikat ke artefak); "the site opened to all videos" cocok dengan slide ACM "June 2005: Revamp". Craigslist tetap kartu teks (sesuai script). Mitos pesta: screenshot Time "The YouTube Gurus" + foto Chen tersedia.
+
+**Evaluasi diri (script-workshop §4).**
+- Pengalaman karangan: tidak ada. Klaim yang hanya dari Karim diberi pembicara: slogan (YT-04), situs sepi + Craigslist 20 dolar + nol balasan (YT-05/06), versi tsunami (YT-09).
+- Fakta dan sumber: 01 YT-08 · 02 YT-08 · 03 YT-01 · 04 YT-02/03/04 · 05 YT-05/06 · 06 YT-07 · 07 YT-M1 (Time 2006: Karim membantah; Chen "strengthened by marketing") · 08 YT-09 · 09 YT-11 (saham, bukan tunai) · 10 YT-12. Tidak memakai 100 dolar, Janet Jackson, Sequoia, atau saham Karim.
+- Hook: artefak nyata + janji, dibayar oleh situs kencan di detik empat dan payoff di 11.
+- Baca keras: tiap babak dibuka penanda detik yang menyambung ke kalimat; mitos dikoreksi dengan nada bertanya yang tenang, bukan bantahan. Tsunami dibaca lebih lembut (karakter baca 08).
+- Mengalir: tidak ada fragmen bertitik; KAPITAL hanya "ALL" (06) dan "BILLION" (09), satu per beat.
+- Durasi: 222 kata VO ≈ 82 dtk + quote cut ±2 dtk ≈ 84 dtk (tanpa quote cut ≈ 82 dtk).
+- CTA komentar mengikuti arahan pemilik dan `STRUKTUR-PER-EPISODE.md` (bukan E18).
+
+`<br>` = pindah baris (maks. 42 karakter), ` / ` = tampilan subtitle berikutnya (maks. 2 baris).
+
+| Beat | VO (EN) | Karakter baca | Subtitle ID |
+|---|---|---|---|
+| 01 | This is YouTube's first video ever, nineteen seconds and two elephants, and second by second, it tells how YouTube began. | curious, intrigued, leaning in | Ini video pertama YouTube,<br>19 detik dan dua gajah, / dan detik demi detik, video ini<br>bercerita bagaimana YouTube dimulai. |
+| 02 | At second zero, it's April twenty-third, two thousand five, at the San Diego Zoo. | calm, setting the scene | Detik 0. Tanggal 23 April 2005,<br>di Kebun Binatang San Diego. |
+| 03 | At second two, that's Jawed Karim, the third founder, with Chad Hurley and Steve Chen, all from PayPal. | friendly, informative | Detik 2. Itu Jawed Karim, pendiri ketiga, / bareng Chad Hurley dan Steve Chen,<br>semuanya dari PayPal. |
+| 04 | At second four, the surprise, it started on Valentine's Day as a... dating site, and Karim says the slogan was, Tune in, Hook up. | building up, playful on "dating site" | Detik 4. Kejutannya: situs ini dimulai<br>di Hari Valentine sebagai situs kencan, / dan kata Karim, slogannya:<br>Tune in, Hook up. |
+| 05 | At second seven, an elephant is clearly not a date, and Karim says the site stayed so empty, he offered twenty dollars a video on Craigslist, and the replies... zero. | wry, brisk, then deadpan on "zero" | Detik 7. Jelas, gajah bukan calon pacar, / dan kata Karim, situsnya sepi sekali,<br>sampai dia pasang iklan di Craigslist, / 20 dolar per video,<br>dan yang membalas: nol. |
+| 06 | But by second twelve, people were uploading anything, dogs, holidays, elephants, so the site opened to ALL videos. | warm turn, relaxed, a little delighted | Detik 12. Tapi orang mengunggah apa saja,<br>anjing, liburan, gajah, / jadi situsnya dibuka untuk semua video. |
+| 07 | At second fifteen, the famous dinner party story? Karim told Time magazine it never happened, and Chen admitted marketing made it stronger. | calm, gently correcting, no edge | Detik 15. Cerita pesta makan malam<br>yang terkenal itu? / Karim bilang ke majalah Time,<br>pesta itu nggak pernah ada, / dan Chen mengakui<br>ceritanya dibumbui pemasaran. |
+| 08 | At second seventeen, Karim's own version, the idea came from videos of the two thousand four tsunami in Indonesia. | softer, respectful, slower | Detik 17. Versi Karim sendiri: / idenya lahir dari video<br>tsunami 2004 di Indonesia. |
+| 09 | At second nineteen it ends, and in October two thousand six, Google bought it for one point six five BILLION dollars, in stock. | rising, then landing firmly on the number | Detik 19, videonya selesai, / dan Oktober 2006, Google membelinya<br>1,65 miliar dolar, dalam saham. |
+| 10 | (quote cut, original voice: "We've been acquired by Google.") — hanya bila audio klip Chad & Steve diunduh ulang | (suara asli Chad Hurley) | Kami sudah diakuisisi Google. |
+| 11 | They planned for dates, but people brought everything else. | wry, quietly amused | Rencananya untuk kencan, / tapi orang datang membawa<br>semua hal lainnya. |
+| 12 | So your first plan can be wrong, if you quickly see what people actually use. | slower, warm, certain | Jadi rencana awalmu boleh salah, / asal cepat melihat<br>apa yang benar-benar dipakai orang. |
+| 13 | Which second surprised you most? Tell me in the comments. | light, inviting | Detik ke berapa yang paling bikin kaget?<br>Tulis di komentar. |
