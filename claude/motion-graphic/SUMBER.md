@@ -134,7 +134,6 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §Cara (pilih yang cocok) · "Kata yang sudah tampil tidak bergeser…" | gagal: builder-trap-r2 r7 B03, kartu kosong 2 f lalu "bikin" melompat 250 px; Irfan 15 Nov "pastikan dulu semuanya" |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Bila frasa hero pendek dapat mengisi…" | Irfan 16 Nov, BDF26 v11 |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Bila teks berada di atas footage,…" | Irfan 16 Nov, koreksi pemetaan BDF26 v11 |
-| §Teks di dalam tampilan aplikasi dan adegan 3D · "Bila adegan 3D berisi layar yang menampilkan pembicara…" | Irfan 22 Nov, kegagalan-eps01 pembuka ruang Blender: "lalu" melintasi wajah di monitor; teks putih di luar monitor "ga logis", pilihan 1 = subtitle di monitor, "kalau ketimpa mending ga usah" |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Bila penempatan diteruskan ke sesi lain,…" | Irfan 16 Nov |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Peran footage menentukan peran teks. Bila…" | Irfan 15 Nov, jensen-pain-suffering r1: HQ udara + keyboard harus tengah; foto tim menghindari wajah sudah benar |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Komposisi bisa membalik keputusan itu. Bila…" | Irfan 15 Nov: teks bawah di siluet ruang gelap sudah benar |
