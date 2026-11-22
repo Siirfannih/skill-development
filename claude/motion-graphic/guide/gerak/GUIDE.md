@@ -16,8 +16,13 @@
 - Cutout: matte bersih (rambut, tepi), feather 1–2 px, warna & cahaya disamakan, atau beri outline sebagai gaya. Cek di 100 %.
 - Transisi dari logika ruang: masuk ke dalam = push-through; mundur = pull-back; ganti topik = whip.
 ## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
-- **Bila kamera pindah dari satu objek ke objek berikut sementara teksnya masih diucapkan, pilih teks tetap di posisi dunianya dan biarkan kamera melewatinya**, bukan menjepit teks di tepi layar supaya tidak keluar: teks yang ikut bergeser terbaca "melayang" dan memutus ilusi satu dunia.
-- **Bila efek kilat cahaya diminta melintas pada kartu judul yang pendek (< 20 frame), pilih sapuan berkurva rata (`drift`) sepanjang hampir seluruh kartu dengan pita yang menyeberang dari pojok ke pojok**, bukan kurva `land`: `land` menghabiskan sapuan dalam 3 frame lalu pita mengendap di luar huruf, sehingga kilatnya tidak terlihat bergerak.
+- **[GRK-02] Teks dunia tetap di posisinya saat kamera bergerak** · kelas P · cek: lembar kontak gerak kamera sebelum render penuh
+  - Pemicu: kamera pindah atau zoom dari satu objek ke objek berikut sementara teks yang terkunci di dunia masih diucapkan.
+  - Anti-pola: menjepit atau menggeser teks di layar supaya tidak keluar frame, sehingga teks bergerak sendiri terhadap dunianya.
+  - Invarian: beri teks dunia transform yang sama dengan bidangnya (selisih posisi teks terhadap bidang 0 px sepanjang gerak); bila teks perlu terbaca lebih lama, atur jendela bacanya lewat TKS-02, bukan dengan memindahkan teks.
+  - Karena: teks yang ikut bergeser terbaca melayang dan memutus ilusi satu dunia (Lantai 12).
+  - Boleh: teks layar (caption terkunci layar, HUD) yang sejak awal tidak ditaruh di dunia.
+  - Gerbang: lembar kontak awal, tengah, dan akhir gerak dengan garis bantu bidang; teks bergeser terhadap bidangnya = GAGAL.
 - **[GRK-01] Kata kerja masuk/transisi = definisi per frame** · kelas P · cek: lembar per frame sebelum render penuh
   - Pemicu: brief, storyboard, atau revisi menamai cara elemen masuk atau berpindah (ditulis/writing, diketik, pop, terbang, cut, flash, whip).
   - Anti-pola: mengganti dengan varian yang terasa lebih hidup, atau menambah peralihan (pudar, ease) yang tidak dikandung kata kerjanya.
@@ -25,7 +30,6 @@
   - Karena: kata kerja itu spesifikasi pemilik; varian lain terbaca sebagai salah eksekusi walau rapi, dan perbandingan float diam-diam membuat 1 frame menjadi 2.
   - Boleh: kata kerja tidak disebut atau ambigu → ambil dari kartu kiblat dan catat pilihannya di ledger.
   - Gerbang: lembar per frame ±3 f di sekitar tiap event: jumlah frame peralihan dan keadaan frame pertama cocok dengan definisi tertulis.
-
 
 ## Cek cepat
 - Putar 0,5×: ada lompatan, frame kosong, atau objek berhenti mendadak?

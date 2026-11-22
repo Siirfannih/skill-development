@@ -2,7 +2,7 @@
 
 Cakupan: `claude/motion-graphic/guide/*/GUIDE.md` §Cara memutuskan (54 butir tanpa ID) dan `claude/motion-graphic/LANTAI.md` (46 butir bernomor). Butir yang sudah ber-ID (GRK-01, TKS-01..03, SFX-01, AUD-01, QC-01) tidak diaudit dan tidak diubah. Tabel daftar cek `guide/hindari/` dan bagian di luar §Cara memutuskan (§Cara, §Cek cepat, §Brand dulu) juga di luar cakupan.
 
-Laporan ini usulan. Belum ada file `guide/` atau `LANTAI.md` yang diubah.
+**Status (22 Nov 2026).** Irfan menyetujui G1 dan G2: butir guide sudah dimigrasi ke ID (lihat §6) dan asal-usulnya dicatat di `claude/motion-graphic/SUMBER.md` §Butir ber-ID. Urutan di file mengikuti posisi butir lama, jadi TKS-06 tampil sebelum TKS-05. L1–L4 (LANTAI) belum dikerjakan: Irfan meminta laporan disimpan di repo dulu untuk diperiksa subagen khusus; ID LANTAI di bawah masih usulan dan nomornya dicadangkan. Karena LANTAI tetap, ID guide baru yang bertumpang dengan butir Lantai (GRK-02 ↔ 12, VIS-01 ↔ 17, VIS-02 ↔ 22b, VIS-10 ↔ 20, TKS-04 ↔ 2) menyebut nomor Lantai itu di kolom Karena/Invarian.
 
 ## Kode
 

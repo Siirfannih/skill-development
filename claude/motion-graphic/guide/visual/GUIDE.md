@@ -26,21 +26,57 @@
 - Still per beat dibandingkan dengan frame referensi setara sebelum render penuh.
 
 ## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
-- **Bila frame terasa flat atau b-roll pengisi terlihat seperti aset utama, beri footage "material"**, bukan menambah objek: lapisan film + glow (bloom, halation, halftone, aberasi kromatik dengan blur tepi, hitam terangkat, vignette, grain) membuat footage mundur menjadi tekstur/kenangan, sedangkan teks tajam bercahaya di atasnya jadi fokus dan frame terasa estetik. Takarannya mengikuti peran footage: stok pengisi paling kuat, arsip bermakna sedang (wajah tetap terbaca), pembicara paling ringan (wajah tajam); teks tidak pernah ikut tertutup lapisan itu.
-- **Bila latar canvas/kertas gelap dipakai di belakang foto atau teks, pilih bidang rata yang bersih** (butir halus sangat tipis paling banyak), bukan tekstur bercak frekuensi rendah: bercak terang-gelap terbaca "kasar" dan bersaing dengan foto, sementara lapisan film sudah memberi materialnya.
-- **Bila tokoh/maskot AI disebut namanya, pilih tokoh itu memperkenalkan diri lewat bubble sapaan yang menggantikan teks nama, dengan reaksi emosi saat bubble muncul.** Label nama di samping tokoh terasa statis; sapaan dari tokoh membuat interaksi hidup dan kata tidak tampil dua kali. Bubble ikut keluarga gaya tokohnya dan cukup besar untuk HP (huruf ±60 px @1080).
-- **Bila maskot merek dibuat ulang dalam gaya keluarga tokoh, pilih siluet logo asli dan warna merek aslinya, bukan bentuk turunan.** Penonton mengenali logo dari siluet + warna; bentuk umum (plus/berlian) dengan warna mirip terbaca sebagai tokoh lain.
-- **Bila ucapan menunjuk sesuatu di layar ("lihat ini", "comment di bawah") atau satu kata perlu sentuhan personal, pilih panah goresan atau tulisan tangan yang ditulis mengikuti ucapan, di dalam dunia adegan.** Panah membawa mata ke objek yang dirujuk; dipakai hanya di tempat yang maknanya menunjuk, tidak dipaksakan. **Syaratnya goresan itu sekeluarga dengan adegannya**: di tampilan yang netral (UI Instagram abu-putih) tulisan tangan dan panah berwarna jenuh yang ditempel di luar kartu tidak boleh, karena warnanya menabrak tampilan dan terbaca sebagai tempelan. Yang boleh di situ: biarkan tampilan itu sendiri membawa ajakannya (kolom komentar, tombol yang disorot atau didekati kamera), atau goresan dengan warna dari palet adegan dan menempel di dalam dunianya, seperti aksen tulisan tangan pada kartu 65.
+- **[VIS-01] Koreksi posisi dinilai ulang di seluruh frame** · kelas P · cek: still sebelum/sesudah koreksi, di tiap tahap gerak
+  - Pemicu: satu elemen dipindah, dibesarkan, atau diganti warnanya karena koreksi.
+  - Anti-pola: memperbaiki satu sisi sampai sisi lain terlalu berat, atau mempertahankan blok kecil hanya karena lolos geometri (koordinat aman, dua baris seimbang).
+  - Invarian: bedah ulang seluruh frame di zoom 25 % dan 100 % (skala terhadap subjek, hierarki, kedekatan ke fokus, berat sisi berlawanan) dengan garis tengah horizontal dan vertikal sebagai alat diagnosis berat, bukan grid penempatan, dan uji crop lebih dekat bila ruang kosong membuat subjek kecil.
+  - Karena: koreksi yang hanya memindahkan masalah ke sisi lain tetap terlihat timpang oleh penonton (Lantai 17).
+  - Boleh: aksen atau stroke tipis bila memperbaiki pengenalan huruf dan sesuai arah seni; larangan efek pada satu prototype tidak berlaku global (Lantai 28b).
+  - Gerbang: tunjukkan still sebelum dan sesudah berdampingan dan sebut sisi terberat di keduanya; sisi berat berpindah tanpa diseimbangkan = GAGAL.
+- **[VIS-10] Maskot merek memakai siluet dan warna logo asli** · kelas P · cek: still pertama tokoh merek
+  - Pemicu: logo atau maskot merek dibuat ulang dalam gaya keluarga tokoh.
+  - Anti-pola: memakai bentuk turunan umum (plus, berlian) dengan warna yang mirip.
+  - Invarian: samakan siluet tokoh dengan siluet logo asli dan warnanya dengan hex merek asli (Lantai 20).
+  - Karena: penonton mengenali logo dari siluet dan warna; bentuk umum terbaca sebagai tokoh lain.
+  - Boleh: merek tanpa logo (`BRAND.md` logo "tidak ada").
+  - Gerbang: tunjukkan logo asli dan tokoh berdampingan; siluet atau hex berbeda = GAGAL.
 
-- **Bila beberapa tokoh diperkenalkan bersamaan, pilih watak dan kalimat yang berbeda per tokoh, diturunkan dari perannya dalam cerita** (yang paling banyak bekerja boleh bete, yang menemani senang, yang jarang dipakai diam), bukan sapaan dan ekspresi yang sama untuk semua: sapaan seragam terasa template dan tokoh berubah jadi label nama. Yang boleh tetap seragam: gaya gambar dan ukuran bubble, supaya tetap satu keluarga.
-- **Bila tokoh digambarkan sedang mengerjakan sesuatu (mengedit, mengetik), pilih tokoh menghadap pekerjaannya dan kamera fokus ke objek kerjanya**, tokoh cukup terlihat sebagian di tepi frame; tokoh yang menatap kamera saat "sedang bekerja" memutus logika adegan (Lantai D22b). Tatap kamera hanya untuk momen menyapa atau bereaksi ke penonton.
-- **Bila adegan sudah punya penunjuk arah (garis alir, panah UI, gerak objek), jangan tambah panah goresan kedua ke objek yang sama**: dua penunjuk untuk satu tujuan terbaca dipaksakan. Panah goresan hanya bila tidak ada hal lain di frame yang membawa mata ke sana.
-- **Bila adegan memperagakan UI editor video (timeline, preview, monitor), pilih isi preview dan klip di timeline dari video yang sudah jadi** (render final milik sendiri, talking head yang sudah selesai), bukan adegan buatan yang berisi UI atau timeline lagi: penonton membaca layar editor sebagai pekerjaan sungguhan, dan timeline di dalam timeline tidak masuk akal di dunia nyata (Lantai 22b).
+- **[VIS-02] Adegan lolos uji logika dunia nyata** · kelas P · cek: storyboard per beat, sebelum still
+  - Pemicu: beat menggambarkan orang, tokoh, atau alat yang sedang bekerja atau dipakai.
+  - Anti-pola: tokoh menatap kamera saat "sedang bekerja", atau layar editor berisi adegan buatan yang memuat UI atau timeline lagi.
+  - Invarian: hadapkan tokoh yang bekerja ke pekerjaannya dengan kamera fokus ke objek kerjanya (tokoh cukup terlihat sebagian), ambil isi preview dan klip di UI editor dari video yang sudah jadi, dan pakai tatap kamera hanya untuk momen menyapa atau bereaksi ke penonton.
+  - Karena: penonton membaca adegan sebagai kejadian sungguhan, dan yang tidak masuk akal di dunia nyata memutus kepercayaan (Lantai 22b).
+  - Boleh: kiasan yang memang dirancang sebagai metafora visual, bukan fakta.
+  - Gerbang: kolom "orang sungguhan melakukannya begini?" dijawab per beat di storyboard; tunjukkan frame tiap tokoh yang bekerja.
+- **[VIS-03] Satu penunjuk per tujuan** · kelas P · cek: still tiap adegan berpenunjuk
+  - Pemicu: ingin menambah panah goresan atau penunjuk ke objek di frame.
+  - Anti-pola: menambah panah kedua ke objek yang sudah ditunjuk garis alir, panah UI, atau gerak objek.
+  - Invarian: hitung penunjuk yang mengarah ke bbox yang sama; paling banyak 1.
+  - Karena: dua penunjuk untuk satu tujuan terbaca dipaksakan.
+  - Boleh: penunjuk ke tujuan yang berbeda di frame yang sama.
+  - Gerbang: tunjukkan still dan sebut penunjuk per tujuan; lebih dari 1 = GAGAL.
 
-- **Bila objek menunjuk, mengisi, atau menimpa objek lain (centang ke kotak checklist, kursor ke tombol, cap ke kertas, pop-up ke jendela), pilih posisi yang diukur dari kotak target di still komposit**, bukan dari aset yang dirender terpisah: aset yang benar sendiri-sendiri bisa meleset saat ditumpuk (centang di luar kotak, cap keluar dari kertas, kalender tertutup bingkai). Ukur bbox target, taruh penunjuknya di dalamnya, lalu lihat lembar komposit sebelum aset dikirim.
-- **Bila footage di-grade hangat-dingin, pilih pemisahan berdasarkan terang (bayangan ke teal, highlight/kulit ke hangat) dan biarkan midtone hampir netral**, karena dinding abu-abu dan benda netral duduk di midtone: menghangatkan midtone membuat dinding jadi coklat, bukan membuat kulit sehat. Yang boleh: highlight hangat + bayangan dingin, saturasi naik tipis (`references/grade.md`).
-- **Bila bayangan didorong ke teal/biru, angkat kanal hijau-biru di titik hitam, jangan tarik kanal merah ke nol**: kanal merah bayangan < 0,012 membuat pakaian hitam dan dinding gelap jadi navy pekat dan detailnya hilang, dan kombinasi gamma < 1 + kurva midtone turun + vignette kuat membuat ruangan redup tenggelam di layar HP. `scripts/gate/grade_ukur.py` menunjuk keduanya.
-- **Bila footage ruangan redup akan ditonton lewat platform yang mengompres ulang (preview Drive, Instagram), jangan tambah grain dan jangan angkat hitam tinggi-tinggi**: noise sensor yang terangkat ditambah grain buatan berubah jadi blok kompresi dan gambar terlihat pecah. Yang boleh: grading tanpa grain dengan hitam asli, atau warna asli kamera; look dinilai di pemutar tujuan sebelum render (`references/grade.md`).
+- **[VIS-04] Posisi objek yang menunjuk atau mengisi diukur di still komposit** · kelas P · cek: lembar komposit sebelum aset dikirim
+  - Pemicu: objek menunjuk, mengisi, atau menimpa objek lain (centang ke kotak, kursor ke tombol, cap ke kertas, pop-up ke jendela).
+  - Anti-pola: memosisikan dari aset yang dirender terpisah, sehingga centang di luar kotak, cap keluar dari kertas, atau target tertutup bingkai.
+  - Invarian: ukur bbox target di still komposit dan taruh penunjuknya di dalam bbox itu.
+  - Karena: aset yang benar sendiri-sendiri bisa meleset saat ditumpuk, dan penonton langsung melihat centang yang meleset.
+  - Boleh: penunjuk yang sengaja meleset sebagai lelucon tertulis.
+  - Gerbang: bbox penunjuk tidak berada di dalam bbox target pada still komposit = GAGAL.
+- **[VIS-05] Grade dingin tidak menghapus detail bayangan** · kelas P · cek: sesudah grade, sebelum render penuh
+  - Pemicu: bayangan footage didorong ke teal/biru, atau gamma dan kurva midtone diturunkan.
+  - Anti-pola: menarik kanal merah bayangan ke nol, atau menumpuk gamma < 1, kurva midtone turun, dan vignette kuat.
+  - Invarian: angkat kanal hijau-biru di titik hitam alih-alih menurunkan merah, sampai tiap kanal bayangan ≥ 0,012 dan median luma turun ≤ 30 % dari footage asli.
+  - Karena: pakaian hitam dan dinding gelap jadi navy pekat tanpa detail, dan ruangan redup tenggelam di layar HP.
+  - Boleh: look gelap yang sengaja diminta, dengan frame acuan dari pemilik.
+  - Gerbang: `scripts/gate/grade_ukur.py` tanpa KANAL HANCUR dan GELAP, atau tiap temuannya punya alasan tertulis.
+- **[VIS-06] Look dinilai sesudah kompresi platform tujuan** · kelas P · cek: sebelum render final
+  - Pemicu: footage ruangan redup akan ditonton lewat platform yang mengompres ulang (preview Drive, Instagram).
+  - Anti-pola: menambah grain dan mengangkat hitam tinggi-tinggi sehingga noise sensor plus grain buatan berubah jadi blok kompresi.
+  - Invarian: encode uji klip di bitrate platform tujuan, nilai di pemutar tujuan pada 100 %, dan pilih grading tanpa grain dengan hitam asli atau warna asli kamera bila blok muncul.
+  - Karena: penonton melihat hasil kompresi, bukan master, dan gambar yang pecah terlihat murah.
+  - Boleh: grain di footage terang dan bersih bila encode uji tidak memunculkan blok.
+  - Gerbang: tunjukkan frame 100 % dari encode uji di bidang gelap; blok kompresi terlihat = GAGAL (`references/grade.md`).
 
 ## Cek cepat
 - Blur still 10 px: ada satu gumpalan yang menang? Dua sama kuat = rapikan.

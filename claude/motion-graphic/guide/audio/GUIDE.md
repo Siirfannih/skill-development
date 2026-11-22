@@ -15,16 +15,42 @@
 6. **Ukur potongan yang dipakai, bukan track utuh**: offset mulai mengubah onset (2,2 → 3,6). `earshot describe` potongan itu: instrumental, tidak sedih. Pilih bagian tanpa breakdown di dalam durasi klip. Mix: `audio.md` §14.10 resep Behindwork.
 
 ## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
-- **Potong suara hanya di celah, bukan di gelombang.** Bila memangkas jeda/isian testimoni, titik potong harus berada di bagian tanpa gelombang (20 ms sisi yang dipakai sudah sunyi); kata yang gelombangnya masih naik/stabil dibiarkan habis dulu. Batas kata versi Whisper jatuh di penutupan /t/ /k/ ("dinikma|ti") dan memancung kata, jadi ukur gelombangnya, jangan percaya timestamp.
-- **Padat ≠ dipotong rapat.** Kepadatan seperti ref dokumenter dicapai dengan merapatkan jeda ANTAR pembicara (0,3 dtk) dan membuang isian "eee/eh" dari celah ke celah, bukan memendekkan vokal atau memotong napas di tengah kata.
-- **Ujung bite di lembah energi belum tentu ujung kata.** Bila titik potong dipilih dari lembah gelombang (−30 dB), transkrip ulang jendela [ujung−1,6, ujung] dan versi diperpanjang 0,4 dtk; bila katanya berbeda ("10 persen" vs "10 per 10 deh", "ngatur gitu" vs "ngatur kita"), lembah itu penutupan /t/ atau jeda antarsuku ucapan cepat, jadi geser ujung ke sunyi berikutnya. Alasan: lolos cek gelombang 20 ms tetapi suku terakhir hilang.
-- **Momen tanpa suara pembicara harus tetap berbunyi.** Bila ada jeda VO panjang (montase pitching 4,5 dtk) di atas lagu yang renggang, isi dengan suara momen itu sendiri yang masuk cepat (fade 0,2 dtk, mulai sedikit sebelum VO habis) ditambah perata bed lagu, supaya tidak ada jendela 100 ms di bawah −45 dBFS; fade 0,5 dtk meninggalkan lubang −48 dBFS.
-- **Suara asli tidak pernah diturunkan atau ditekan; bila terlalu pelan, redam noise dulu lalu naikkan dengan gain bersih.** Me-limit suara untuk mengejar −14 LUFS memipihkan hentakan ("mendem, ditahan"; crest 18,8 → 14,6 dB), dan loudness global ikut menurunkan suara (±−17 dB). Membiarkan gain 0 dB pada rekaman pelan (−23,9 LUFS) membuat video kalah keras di feed (v3 −22,8 LUFS). Jadi: peredam noise (rekaman terkompresi YouTube/opus: denoise sebelum gain supaya desis 2–16 kHz tidak ikut naik), lalu gain naik bersih ke ±−16 LUFS tanpa limiter, dan musik/SFX diatur relatif ke suara itu; `gate/voice_level.py` PASS.
-- **Bila detik awal terasa kurang terdengar, ukur loudness per frasa dulu.** Frasa sumber yang lebih pelan dari median (jensen: "have very low resilience," −2,4 dB) diangkat dengan gain statis berampa di dalam jeda (hanya naik), lalu seluruh suara naik bersih sampai batas puncak −1 dBFS; bila suara + ekor hit melewati −1 dBFS, bus musik+SFX yang mengalah di titik itu (rampa 30 ms), bukan suaranya. Desis codec yang ada DI DALAM suara (demucs: no_vocals −61 LUFS) tidak bisa diredam sebagai noise latar; rak HF statis −2 dB @7,5 kHz cukup.
+- **[AUD-02] Titik potong suara diukur dari gelombang dan transkrip ulang** · kelas P · cek: sebelum suara dikunci
+  - Pemicu: memangkas jeda, isian, atau ujung bite dari rekaman ucapan.
+  - Anti-pola: memotong di timestamp kata ASR atau di lembah energi tanpa memeriksa kata yang tersisa, sehingga suku terakhir (penutupan /t/ /k/, jeda antarsuku ucapan cepat) terpancung.
+  - Invarian: taruh titik potong di bagian yang 20 ms sisi terpakainya sudah sunyi, lalu transkrip ulang jendela [ujung − 1,6 dtk; ujung] bersama versi yang diperpanjang 0,4 dtk; bila katanya berbeda, geser ujung ke sunyi berikutnya.
+  - Karena: lolos cek gelombang belum berarti katanya utuh, dan penonton mendengar kata yang terpancung sebagai potongan kasar.
+  - Boleh: kepadatan dicapai dengan merapatkan jeda antarpembicara dan membuang isian dari celah ke celah, tidak dengan memendekkan vokal (takaran jeda ikut kiblat).
+  - Gerbang: `scripts/gate/cut_check.py` PASS dan transkrip ulang tiap ujung sama dengan versi yang diperpanjang.
+- **[AUD-03] Jeda ucapan tidak meninggalkan lubang senyap** · kelas P · cek: sesudah mix, per 100 ms
+  - Pemicu: ucapan berhenti panjang (montase, b-roll tanpa suara) di atas musik yang renggang.
+  - Anti-pola: suara momen masuk dengan fade panjang sehingga jendela antara akhir ucapan dan bunyi berikutnya nyaris senyap.
+  - Invarian: isi jeda dengan suara momen itu sendiri yang mulai sedikit sebelum ucapan habis dengan fade ≤ 0,2 dtk, ditambah perata bed musik, sampai tidak ada jendela 100 ms di bawah −45 dBFS di mix.
+  - Karena: lubang senyap di tengah video terdengar seperti audio putus, bukan jeda yang disengaja.
+  - Boleh: hening dramatis yang dirancang dengan rentang tertulis; level musik terhadap suara diatur AUD-01.
+  - Gerbang: tabel RMS mix per 100 ms; jendela < −45 dBFS di luar rentang hening tertulis = GAGAL.
+- **[AUD-04] Denoise hanya untuk sumber yang memang ber-noise** · kelas P · cek: sebelum gain dan sebelum suara dikunci
+  - Pemicu: suara akan diredam noise, dinaikkan gainnya, atau di-encode ulang.
+  - Anti-pola: menjalankan denoise FFT dan encode lossy berulang pada sumber yang sudah bersih, atau menaikkan gain sebelum denoise pada rekaman terkompresi sehingga desis 2–16 kHz ikut naik.
+  - Invarian: ukur noise floor sumber dulu; ≤ −50 dB dipotong PCM langsung tanpa denoise dan di-encode lossy sekali, > −50 dB diredam dulu lalu gain naik bersih tanpa limiter (Lantai 23).
+  - Karena: denoise memotong 8–16 kHz 9–12 dB dan AAC berulang menambah kehilangannya, sehingga suara yang jernih terdengar mendem.
+  - Boleh: desis codec yang menyatu dengan suara (tidak terpisah sebagai noise latar) diredam dengan rak HF statis tipis, bukan denoise.
+  - Gerbang: `scripts/gate/voice_fidelity.py` membandingkan porsi > 9 kHz hasil dengan sumber, dan `gate/voice_level.py` PASS.
+- **[AUD-05] Loudness suara diratakan per frasa, hanya naik** · kelas P · cek: sesudah potong, sebelum mix
+  - Pemicu: sebagian frasa terdengar lebih pelan dari sisanya, terutama di detik awal.
+  - Anti-pola: menaikkan seluruh suara atau memakai kompresor/limiter, sehingga frasa pelan tetap kalah dan hentakan memipih.
+  - Invarian: ukur loudness per frasa, angkat frasa di bawah median dengan gain statis berampa di dalam jeda (hanya naik; ambang selisih *usulan* 2 dB), lalu naikkan seluruh suara bersih sampai puncak −1 dBFS; bila suara + ekor hit melewati −1 dBFS, bus musik+SFX yang turun di titik itu dengan rampa 30 ms.
+  - Karena: frasa yang lebih pelan terdengar kurang jelas di HP, dan menekan suara mengubah karakter ucapan.
+  - Boleh: frasa yang sengaja berbisik, dengan alasan tertulis.
+  - Gerbang: tabel LUFS per frasa sesudah gain; frasa > 2 dB di bawah median tanpa alasan = GAGAL, dan `gate/voice_level.py` PASS.
 
-- **Bila klip dipilih dari rekaman mentah yang punya take ulang, pilih satu take utuh per kalimat dan cek kata yang durasinya tidak wajar di transkrip sumber.** Whisper menelan take ulang ke dalam satu kata panjang (satu kata 2,3 dtk), sehingga in/out yang dipilih dari timestamp itu menyambung dua take dan kalimatnya terdengar dua kali. `scripts/selects/rakitan_cek.py sumber` menandai frasa berulang dan kata panjang; jendelanya ditranskrip ulang tanpa VAD.
-- **Bila dua klip berurutan diambil dari ucapan yang bersambung tanpa sunyi, potong keduanya di lembah energi yang sama, jangan sisakan celah**: celah 0,1 dtk di ucapan cepat sudah cukup membuang satu kata pendek utuh ("how") tanpa terlihat di tabel timeline. Hasil rakitan selalu ditranskrip ulang per klip (`scripts/selects/rakitan_cek.py rakitan`) sebelum dikirim.
-- **Bila suara dipotong dari sumber yang noise floor-nya sudah rendah (≤ −50 dB), jangan denoise dan jangan encode lossy dua kali**: denoise FFT memotong 8–16 kHz 9–12 dB dan AAC berulang menambah kehilangannya, hasilnya "mendem" walau sumbernya jernih. Potong PCM langsung dari sumber; `scripts/gate/voice_fidelity.py` membandingkan porsi > 9 kHz dengan sumber.
+- **[AUD-06] Rakitan klip ditranskrip ulang per klip** · kelas P · cek: sesudah rakitan, sebelum dikirim
+  - Pemicu: klip dipilih dari rekaman mentah memakai timestamp ASR, terutama bila ada take ulang atau dua klip diambil dari ucapan yang bersambung tanpa sunyi.
+  - Anti-pola: memercayai tabel timeline, padahal ASR menelan take ulang ke satu kata panjang (kalimat terdengar dua kali) dan celah 0,1 dtk di ucapan cepat membuang satu kata pendek.
+  - Invarian: pilih satu take utuh per kalimat, tandai kata berdurasi tak wajar di transkrip sumber, potong dua klip bersambung di lembah energi yang sama tanpa celah, lalu transkrip ulang tiap klip hasil rakitan.
+  - Karena: kata ganda atau hilang tidak terlihat di tabel tetapi langsung terdengar oleh penonton.
+  - Boleh: celah yang sengaja membuang isian, bila transkrip ulang membuktikan kata isinya utuh.
+  - Gerbang: `scripts/selects/rakitan_cek.py sumber` (frasa berulang, kata panjang; jendelanya ditranskrip ulang tanpa VAD) dan `rakitan_cek.py rakitan` tanpa selisih kata.
 - **[AUD-01] Musik punya lantai relatif suara setelah semua tahap gain** · kelas P · cek: sesudah mix, per detik
   - Pemicu: musik melewati lebih dari satu tahap penurunan (ducking, dip per momen, jeda punchline, EQ, perata level).
   - Anti-pola: menyetel tiap tahap sendiri-sendiri lalu menilai dari loudness terintegrasi; penurunan bertumpuk membuat musik hilang di beberapa detik.

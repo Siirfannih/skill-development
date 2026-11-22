@@ -15,6 +15,7 @@ Dibuka saat footage (talking head, b-roll) perlu look tertentu. Arah look (hanga
 ## Takaran yang aman untuk talking head di ruangan redup
 
 - Kulit: hue 13–18°, saturasi naik ≤ +0,04 dari asli.
+- Hangat-dingin dipisah menurut terang: bayangan ke teal, highlight dan kulit ke hangat, midtone hampir netral. Dinding abu-abu dan benda netral duduk di midtone, jadi menghangatkan midtone membuat dinding coklat, bukan kulit sehat.
 - Bayangan: hitam diangkat ke arah teal per kanal (`curves=r='0/0.03':g='0/0.04':b='0/0.055'`), bukan dengan menarik merah bayangan jauh di bawah nol.
 - Highlight: titik putih 0,92–0,96; tidak ada piksel > 0,95 di dinding/tirai.
 - Grain: tidak dipakai untuk footage ruangan redup yang ditonton di platform terkompresi; hitam yang diangkat sudah menampakkan noise sensor, dan grain tambahan pecah jadi blok kompresi. Warna asli kamera adalah pilihan yang sah bila tidak ada look yang lolos di pemutar tujuan.

@@ -111,3 +111,4 @@ Subtitle sans miring putih kecil, satu baris di bawah tengah, per frasa; tetap a
 
 ## Catatan pakai
 - 19 Nov 2026 · skill-development-journey-20261116 r7: dipakai untuk kata punchline ("PROFESIONAL") lewat ringkasan satu baris "kata raksasa satu baris di atas latar satu warna, subjek di depan". Syaratnya tertinggal: hasilnya slab di dalam kotak video di dalam tampilan postingan, kecil dan tidak terasa sebagai pergantian halaman. Slab di kartu ini adalah potongan satu frame ke layar penuh, pembicara tidak ada (T1; `../contoh-gagal/` 16).
+- 22 Nov 2026 · dipindah dari `guide/teks` saat audit SARINGAN (asal skill-development-journey-20261116): untuk kata hero di frame pembicara yang duduk rendah, potong ke b-roll tipografi (latar satu warna aksen layar penuh, kata hero putih memenuhi frame) bila momen itu butuh napas visual baru, walau pembicara tidak lagi tampil. Pilihan lainnya di kartu 83.

@@ -25,27 +25,54 @@
 Cari kelompok yang cocok dengan situasimu, baca butirnya utuh. Kondisinya harus cocok dulu; pelajaran bukan larangan umum.
 
 ### Posisi dan keseimbangan di atas footage
-- **Nilai kontras di bawah huruf aktual dan komposisi seluruh frame.** Rata-rata terang ruangan tidak membenarkan teks gelap bila huruf justru melewati kolom/pakaian gelap. Periksa setiap kata sepanjang gerak, termasuk saat belum lengkap, pada ukuran yang cukup untuk dibaca. Koordinat aman dan dua baris seimbang belum membuktikan taste: periksa skala terhadap subjek, hierarki, kedekatan fokus dan berat sisi berlawanan. Contoh: teks hitam di bidang gelap diganti putih dan ruang kanan ikut dipertimbangkan; blok kecil di kiri tidak dipertahankan hanya karena lolos geometri.
-- **Jika koreksi satu sisi membuat sisi lain terlalu berat, bedah lagi seluruh frame sebelum memindahkan semua teks.** Garis tengah horizontal dan vertikal50% menjadi alat diagnosis berat objek, bukan grid wajib untuk menaruh huruf. Uji crop lebih dekat bila plafon/ruang kosong membuat subjek kecil; susun gagasan kiri–kanan mengikuti makna dengan subjek sebagai spasi, lalu kosongkan teks lama saat hero mengambil pusat. Nilai komposisi pada setiap tahap gerak. Warna putih bukan kewajiban di lampu putih: aksen atau stroke tipis boleh bila memperbaiki pengenalan huruf dan sesuai art direction; jangan menganggap larangan efek pada satu prototype sebagai larangan global.
-- **Bila teks berada di atas footage, pilih whitespace dari fungsi objek dan kedekatannya dengan fokus.** Lihat objeknya dahulu: wajah membawa ekspresi, tangan/karya dapat membuktikan ucapan, sedangkan dinding atau bidang baju polos dapat menjadi ruang teks. Pilih ruang yang dekat dengan wajah, tubuh, atau fokus view dan seimbang dalam seluruh frame; ruang paling kosong atau paling gelap belum tentu pilihan yang tepat bila jauh dari subjek. Kandidat berubah mengikuti komposisi, bukan satu posisi untuk semua shot.
-- **Bila penempatan diteruskan ke sesi lain, lakukan satu sesi pemetaan visual sebelum build.** Pemetanya melihat frame aktual dan gerak pada rentang yang dipakai, menandai objek beserta fungsi, fokus, area bukti yang dilindungi, kandidat whitespace, dan area terpilih; simpan koordinat, sumber/rentang waktu, alasan balance, perlakuan kontras, serta transform kamera di `placement-map.json`. Sesi build memakai peta itu; perubahan shot/crop atau objek membuat entri terkait perlu dipetakan ulang. Kotak tubuh bukan otomatis larangan teks, dan gambar koreksi adalah contoh kondisi, bukan koordinat universal.
-- **Peran footage menentukan peran teks.** Bila footage hanya pengisi suasana (b-roll stok internet yang tidak membawa informasi), teks adalah pemeran utama: boleh menimpa footage, di tengah, besar, muncul per kata, supaya jadi hal pertama yang dibaca. Bila footage membawa informasi (pembicara, arsip yang dirujuk, foto dengan wajah), teks mengalah ke ruang kosong yang menempel subjek dan tidak menutup wajah. Alasan: mata harus langsung tahu apa yang dibaca dulu, dan menimpa footage pengisi tidak menghilangkan informasi.
-- **Komposisi bisa membalik keputusan itu.** Bila subjek terang hanya di sebagian frame (siluet di atas, sisanya gelap), teks ditaruh di bidang kosong lawannya supaya frame seimbang, walau footage-nya stok.
-- **Di frame tanpa subjek (kartu polos), berat ada di tengah.** Rata tengah dan samakan lebar baris; rata kiri dengan baris timpang membuat rongga dan kata terakhir terlihat lebih panjang/berat dari maksudnya.
-- **Menghindari subjek jangan sampai menabrak tepi.** Saat teks digeser menjauhi wajah, tetap sisakan jarak ke tepi frame; teks yang mepet tepi terasa terdesak.
-- **Teks putih mencari bidang gelap, bukan "dada" penonton bersiluet.** Di shot aula gelap dengan layar LED, titik dada penonton jatuh di tinggi layar; geser ke kursi gelap di bawah.
-- **Bila video ditampilkan sebagai isi sebuah tampilan (postingan Instagram, jendela aplikasi), teks ucapannya ikut masuk ke dalam bidang video itu**, di ruang kosong dekat subjek. Menaruhnya di pita kosong di bawah video tidak boleh selama ada ruang di dalam, karena ceritanya "video ini sudah diposting": teks adalah bagian dari videonya, dan di pita bawah ia terbaca sebagai subtitle. Yang boleh: teks di luar bidang video bila ia memang elemen tampilan itu sendiri (caption, komentar, tombol). Pengecualian: punchline keluar dari tampilan ke layar penuh (lihat §Teks di dalam tampilan aplikasi dan adegan 3D).
+- Keseimbangan seluruh frame sesudah koreksi posisi: VIS-01 di `../visual/GUIDE.md`. Kontras huruf: TKS-03.
+- **[TKS-04] Ruang teks dipilih dari fungsi objek dan kedekatan ke fokus** · kelas P · cek: still per shot sebelum build
+  - Pemicu: teks duduk di atas footage yang memuat subjek atau objek.
+  - Anti-pola: memilih ruang paling kosong atau paling gelap yang jauh dari subjek, mendorong teks mepet tepi saat menghindari wajah, atau memakai satu posisi untuk semua shot.
+  - Invarian: tandai fungsi tiap objek (wajah = ekspresi, tangan/karya = bukti, bidang polos = ruang teks), lalu pilih ruang yang jaraknya ke subjek yang dirujuk ≤ 8 % tinggi frame dan lebih kecil dari jaraknya ke tepi (Lantai 2), dengan bidang di bawah huruf yang lolos TKS-03 di seluruh rentang, bukan hanya di thumbnail.
+  - Karena: teks yang jauh dari fokus membuat mata melompat, dan teks yang mepet tepi terasa terdesak.
+  - Boleh: footage pengisi yang ditimpa teks (TKS-05); kotak tubuh tidak otomatis melarang teks.
+  - Gerbang: tunjukkan still tiap shot dengan kotak subjek, kotak teks, dan dua jarak (ke subjek, ke tepi).
+- **[TKS-06] Penempatan yang diteruskan ke sesi lain memakai peta** · kelas P · cek: sebelum sesi build dimulai
+  - Pemicu: posisi teks akan dibangun oleh sesi atau pekerja yang tidak memetakan footage-nya sendiri.
+  - Anti-pola: meneruskan koordinat atau gambar koreksi sebagai posisi universal, tanpa fungsi objek dan rentang waktu.
+  - Invarian: satu sesi pemetaan melihat frame aktual dan gerak di rentang yang dipakai, lalu menulis `placement-map.json` per shot: objek + fungsi, fokus, area bukti yang dilindungi, kandidat ruang, ruang terpilih, alasan keseimbangan, perlakuan kontras, transform kamera, sumber + rentang waktu.
+  - Karena: pembangun yang hanya menerima koordinat tidak tahu kapan posisinya berhenti berlaku saat shot, crop, atau objek berubah.
+  - Boleh: video tanpa footage (kartu polos, 3D penuh).
+  - Gerbang: `placement-map.json` ada dan tiap shot berisi semua kolom; shot, crop, atau objek yang berubah sesudah pemetaan = entri dipetakan ulang.
+- **[TKS-05] Peran footage menentukan peran teks** · kelas P · cek: lembar kondisi footage sebelum build
+  - Pemicu: shot berisi footage di bawah teks ucapan.
+  - Anti-pola: memperlakukan semua footage sama, sehingga teks mengalah di b-roll pengisi atau menutup wajah di footage yang membawa informasi.
+  - Invarian: catat peran tiap shot; footage pengisi (stok tanpa informasi) → teks jadi pemeran utama, boleh besar di tengah menimpa footage; footage informasi (pembicara, arsip yang dirujuk, foto berwajah) → teks di ruang kosong yang menempel subjek (TKS-04) tanpa menutup wajah.
+  - Karena: mata harus langsung tahu apa yang dibaca dulu, dan menimpa footage pengisi tidak menghilangkan informasi.
+  - Boleh: bila subjek terang hanya di sebagian frame (siluet di atas, sisanya gelap), teks pindah ke bidang kosong lawannya supaya frame seimbang, walau footage-nya stok.
+  - Gerbang: tabel shot berisi peran footage, posisi teks, dan alasan; tunjukkan satu frame per shot.
+- **[TKS-07] Teks ucapan dari video di dalam tampilan ikut masuk ke bidang video** · kelas P · cek: still tiap tampilan
+  - Pemicu: video ditampilkan sebagai isi sebuah tampilan (postingan, jendela aplikasi, ponsel).
+  - Anti-pola: menaruh teks ucapan di pita kosong di bawah atau di luar bidang video, sehingga terbaca sebagai subtitle.
+  - Invarian: taruh teks ucapan di ruang kosong dekat subjek di dalam bidang video; yang di luar bidang hanya elemen tampilan itu sendiri (caption, komentar, tombol).
+  - Karena: ceritanya "video ini sudah diposting", jadi teksnya bagian dari video.
+  - Boleh: punchline keluar ke layar penuh (slab warna atau kata besar di atas footage) lalu kembali ke tampilan, karena di kotak kecil punchline kehilangan skala (contoh gagal 16; teknik slab di kartu 85 T1).
+  - Gerbang: tunjukkan still tiap tampilan; teks ucapan di luar bidang video tanpa alasan punchline = GAGAL.
 
 ### Kata hero dan kedalaman
-- **Bila frasa hero pendek dapat mengisi satu baris, uji bentuk itu sebelum memecahnya.** Satu baseline, ukuran konsisten, kata muncul berurutan dan kata lama tetap di tempat. Nilai berat seluruh frame, termasuk sisi berlawanan; area whitespace kandidat bukan kotak wajib yang mengurung seluruh frasa. Narasi sentence case; hero boleh kapital bila perannya tegas. Jangan otomatis memberi shadow/outline agar teks terbaca: selesaikan melalui komposisi, warna dan skala. Contoh langsung Irfan: `NGATUR KITA` besar satu baris tanpa shadow, mengganti prototype dua baris kecil dengan sisi kanan kosong.
-- **Bila kata besar perlu melewati kepala, tempatkan foreground orang di atas teks.** Duplikasi footage dengan matte orang yang mengikuti rambut dan gestur, lalu susun footage → teks → foreground. Uji gerak dan keterbacaan dahulu; frasa tetap dikenali. Bila kedalaman diminta langsung di belakang kepala, sedikit occlusion memang disengaja: jangan mengangkat teks jauh dari kepala hanya agar setiap huruf utuh. Crop mengikuti referensi aktual, bukan mempertahankan ruang kosong untuk menampung huruf. Narasi biasa tetap memilih whitespace dekat subjek tanpa mewajibkan matte.
-- **Bila kata hero di frame pembicara duduk rendah dan menumpuk di tengah bersama wajah dan tangan, sementara kiri dan kanan kosong, jangan dipertahankan di depan dada**, karena dekat batas bawah ia rawan tidak terlihat dan menutup gestur. Yang boleh, karena ada di kartu, terbaca, dan masih satu gaya: (a) kata hero di belakang kepala dan dibesarkan sampai jadi fokus, kata kecil pengantarnya tetap di tengah (kartu 83 k3/k4); (b) potong ke b-roll tipografi, latar satu warna aksen layar penuh dengan kata hero putih memenuhi frame (kartu 23/53 k3). Pilih (b) bila momen itu butuh napas visual baru, walau gambarnya tidak lagi menampilkan pembicara.
-- **Bila kata kunci diminta menyatu dengan foto di belakangnya (blend multiply), pilih warna aksen yang lebih dalam dan huruf tebal besar tanpa bayangan.** Multiply dengan warna terang (amber #E8A33D) hanya mewarnai foto sehingga huruf nyaris hilang; versi yang lebih dalam (±#D9782A) membuat foto terlihat di dalam huruf tetapi kata tetap terbaca. Ukuran disesuaikan lebar bingkai lewat font-size, huruf tidak dipipihkan (scaleX), dan lapisan blend harus berada di grup yang sama dengan foto (div ber-transform/opasitas mengisolasi blend).
+- Bentuk kata hero, kata di belakang kepala, dan kata hero yang duduk rendah di depan dada: Catatan pakai kartu 83 dan 85. Zona bawah frame dan kontras: Lantai 7, TKS-03.
 
 ### Bentuk dan variasi teks
-- **Bila perlakuan sebuah kata (warna, ukuran, gaya, posisi) dipindah ke kata lain karena naskah atau urutan berubah, putus ulang tiap atributnya dari makna kata baru dan adegannya, karena perlakuan membawa emosi kata asalnya (mis. warna "negatif" dan gaya kacau milik keraguan jadi menempel di kata positif).** Yang boleh: peran teks yang sudah ada di video (ukuran dan warna dari token tema), atau peran baru yang ditambahkan ke tema dengan alasan. Cara cek: untuk tiap blok yang diubah, tulis satu baris "warna = peran X karena…, ukuran = peran Y, posisi = … karena…"; atribut tanpa alasan = GAGAL.
-- **Bila menunjukkan uji tipografi pada dialog, tampilkan satu pikiran lengkap dengan seluruh ucapan di rentang itu.** Preview yang hanya memunculkan kata hero membuat kata-kata sebelumnya tampak hilang. Bedakan bukti teknik internal dari preview alur yang dikirim ke Irfan. Jangan menggelapkan seluruh latar sebagai jalan otomatis agar teks terbaca; bila footage asli diminta tetap, pilih bentuk, skala, posisi dan fill yang cocok pada gambar itu (putih di gelap atau gelap di terang), lalu laporkan hasil kontras sebenarnya.
-- **Variasi bentuk teks = alat mengarahkan perhatian.** Bentuk yang sama berulang (dua baris terus dari awal sampai akhir) membuat penonton bosan dan tegangnya hilang; berganti bentuk (kata per kata, besar-kecil, 2,5D, tumpuk) membuat penonton merasakan ritme dan tahu harus melihat ke mana tanpa berpikir. Pilih bentuk dari peran kalimat: penekanan → satu kata besar/kartu; daftar/rentetan → per kata; kalimat yang mengalir → tenang di samping subjek.
+- **[TKS-08] Perlakuan kata yang dipindah diputus ulang dari makna kata barunya** · kelas P · cek: sebelum blok yang diubah dirender
+  - Pemicu: naskah atau urutan berubah sehingga warna, ukuran, gaya, atau posisi sebuah kata dipindah ke kata lain.
+  - Anti-pola: menyalin perlakuan apa adanya, sehingga emosi kata asal (warna negatif, gaya kacau milik keraguan) menempel di kata yang maknanya lain.
+  - Invarian: untuk tiap blok yang diubah, tulis satu baris per atribut (warna = peran X karena …, ukuran = peran Y karena …, posisi = … karena …), diambil dari token tema atau dari peran baru yang ditambahkan ke tema dengan alasan.
+  - Karena: perlakuan membawa emosi, dan perlakuan yang salah membuat kata positif terbaca seperti peringatan.
+  - Boleh: peran teks yang sudah ada di video dipakai ulang bila maknanya sama.
+  - Gerbang: atribut tanpa baris alasan = GAGAL (contoh gagal 12).
+- **[TKS-09] Preview tipografi menampilkan seluruh ucapan di rentangnya** · kelas P · cek: sebelum preview dikirim ke pemilik
+  - Pemicu: mengirim uji tipografi atau preview alur untuk satu rentang dialog.
+  - Anti-pola: preview hanya memunculkan kata hero sehingga kata sebelumnya tampak hilang, atau seluruh latar digelapkan supaya teks terbaca padahal footage asli diminta tetap.
+  - Invarian: tampilkan satu pikiran lengkap dengan semua kata yang diucapkan di rentang itu, di atas footage asli, dan laporkan kontras sebenarnya (TKS-03).
+  - Karena: pemilik menyetujui apa yang ia lihat, dan preview yang memotong kata membuat persetujuannya tidak berlaku untuk video jadi.
+  - Boleh: bukti teknik internal (satu kata, satu efek) yang tidak dikirim sebagai preview alur.
+  - Gerbang: `scripts/juri/kt_ocr.py` pada lapisan preview: tiap kata di rentang terbaca; kata yang hilang = GAGAL.
 
 - **[TKS-01] Urutan baca mengikuti urutan ucapan** · kelas P · cek: lembar kontak per frasa
   - Pemicu: dua frasa atau lebih dari satu kalimat tampil bersamaan.
@@ -56,9 +83,20 @@ Cari kelompok yang cocok dengan situasimu, baca butirnya utuh. Kondisinya harus 
   - Gerbang: di tiap frame lembar kontak, sebut satu kata paling menonjol; harus kata yang sedang diucapkan, dan huruf lapis 1 tidak terpotong tepi.
 
 ### Waktu tampil dan pergantian blok
-- **Waktu muncul kata dicocokkan per huruf, bukan per kata.** Whisper memecah kata bertanda hubung dan angka ("talkshow -talkshow -nya", "2D dimensi"); pencocokan per kata membuatnya jatuh ke interpolasi dan terlambat 0,35–0,5 dtk.
-- **Setiap kata yang diucapkan harus sempat terbaca.** Bila kata terakhir sebuah frasa diucapkan tepat sebelum frasa berikutnya atau kata kunci besar muncul, kata itu hanya tampil 1–3 frame dan penonton tidak pernah membacanya; pindahkan kata itu ke awal frasa berikutnya, atau tahan 0,2 dtk dan geser kata kunci sedikit. Cek: tiap kata tampil ≥ 0,2 dtk dan telat ≤ 0,25 dtk.
-- **Bila blok narasi berganti di jalur yang sama, pilih potongan tepat di frame blok baru masuk, bukan pudar keluar.** Pudar 5–7 f bertumpuk dengan blok baru dan terbaca sebagai kata hantu berebut atensi; satu blok narasi tampil per waktu, apa pun selisih posisinya. Teks yang terbawa melewati potongan adegan terbaca terlambat, jadi blok berakhir paling lambat di frame sebelum potongan. Cara cek: rencana frame dibandingkan dengan frame master hasil rakit (bukan still 2 dtk), karena peristiwa 1–4 frame lolos di lembar 4–6 fps.
+- **[TKS-10] Kata tampil tepat waktu dan cukup lama untuk dibaca** · kelas P · cek: tabel per kata sebelum render penuh
+  - Pemicu: waktu muncul teks dihitung dari timestamp ASR.
+  - Anti-pola: mencocokkan per kata sehingga kata bertanda hubung atau angka yang dipecah ASR jatuh ke interpolasi dan terlambat, atau kata terakhir frasa hanya tampil 1–3 frame sebelum frasa atau kata kunci berikutnya masuk.
+  - Invarian: cocokkan teks ke transkrip per karakter; tiap kata telat ≤ 0,25 dtk dari onset ucapannya dan tampil ≥ 0,2 dtk, dan kata yang tidak sempat dipindah ke awal frasa berikutnya atau ditahan 0,2 dtk dengan kata kunci digeser sedikit.
+  - Karena: kata yang terlambat terasa tidak sinkron, dan kata yang tampil sekejap tidak pernah terbaca.
+  - Boleh: teks dunia yang ditinggalkan kamera memakai jendela baca TKS-02.
+  - Gerbang: tabel per kata (onset ucapan, frame muncul, lama tampil); telat > 0,25 dtk atau tampil < 0,2 dtk = GAGAL.
+- **[TKS-11] Satu blok narasi tampil per waktu di jalur yang sama** · kelas P · cek: frame master hasil rakit sebelum render final
+  - Pemicu: blok narasi berganti, atau blok masih tampil saat adegan dipotong.
+  - Anti-pola: blok lama pudar keluar 5–7 f bertumpuk dengan blok baru sehingga terbaca kata hantu berebut atensi, atau teks terbawa melewati potongan adegan.
+  - Invarian: potong blok lama tepat di frame blok baru masuk, apa pun selisih posisinya, dan akhiri paling lambat di frame sebelum potongan adegan.
+  - Karena: dua blok narasi sekaligus memaksa mata memilih, dan teks yang melewati potongan terbaca terlambat.
+  - Boleh: lapis yang sengaja bertumpuk dengan beda value (TKS-01); frasa yang menyeberang ke shot penuturnya sendiri (TKS-13).
+  - Gerbang: frame master, bukan still 2 dtk: 0 frame dengan dua blok narasi beralfa > 0, dan teks beralfa > 0 di frame sesudah potongan adegan = GAGAL.
 
 - **[TKS-02] Jendela baca teks yang ditinggalkan kamera diukur dari suara** · kelas P · cek: tabel per kata sebelum render penuh
   - Pemicu: teks terkunci di ruang (bidang dunia/3D) dan gerak kamera membuatnya keluar frame atau tertutup subjek.
@@ -76,19 +114,43 @@ Cari kelompok yang cocok dengan situasimu, baca butirnya utuh. Kondisinya harus 
   - Gerbang: p10 kontras ≥ 4,5 : 1 di setiap frame uji.
 
 ### Teks di atas b-roll dan potongan shot
-- **Teks testimoni di atas b-roll: pilih b-roll tanpa orang yang sedang bicara.** Bila suara pembicara A berlanjut di atas b-roll, jangan pakai shot orang lain yang memegang mik atau sedang bicara; penonton mengira orang di gambar itulah yang mengucapkan teksnya. Pakai reaksi, tangan, suasana, atau benda yang dibicarakan.
-- **Teks tidak menyeberang potongan shot.** Bila satu frasa melintasi pergantian shot, posisinya harus aman di dua komposisi sekaligus dan biasanya terlempar ke pojok; geser awal b-roll ke batas frasa.
-- **Frasa berakhir di potongan bila shot berikutnya bukan penuturnya.** Sisa tahan 0,1–0,2 dtk sesudah kata terakhir cukup untuk membuat teks pembicara A tampak diucapkan orang di shot berikutnya; akhiri frasa tepat di potongan bila kata terakhir sudah selesai diucapkan.
-- **Wajah close-up yang tersenyum dengan mulut terbuka juga terbaca "sedang bicara".** Untuk b-roll di bawah teks testimoni, pilih tangan/benda/aktivitas atau wajah yang mulutnya diam.
-- **Aturan "teks tidak menyeberang potongan" hanya untuk wajah orang lain.** Menunda frasa sampai potongan berikutnya membuat layar kosong 0,5 dtk saat orang bicara; boleh menyeberang bila shot asalnya wajah penutur sendiri atau b-roll tanpa pembicara.
-- **Bila kata kunci tampil di atas footage atau latar gelap, jangan memberi huruf warna merah/aksen jenuh**: merah di atas hitam bergetar dan sulit dibaca walau angka kontras mendekati batas. Pilih penekanan lewat putih penuh dengan bobot atau ukuran lebih besar (atau putih vs redup); warna aksen untuk huruf dipakai di latar terang.
+- **[TKS-12] B-roll di bawah suara seseorang tidak menampilkan orang lain yang tampak bicara** · kelas P · cek: still tiap b-roll di bawah suara
+  - Pemicu: suara pembicara berlanjut di atas b-roll yang berisi orang.
+  - Anti-pola: memakai shot orang lain yang memegang mik, sedang bicara, atau close-up tersenyum dengan mulut terbuka.
+  - Invarian: pilih reaksi, tangan, benda yang dibicarakan, suasana, atau wajah yang mulutnya diam.
+  - Karena: penonton mengira orang di gambar itulah yang mengucapkan teksnya.
+  - Boleh: b-roll penutur itu sendiri.
+  - Gerbang: tunjukkan still tiap b-roll; wajah bukan penutur dengan mulut terbuka atau memegang mik = GAGAL.
+- **[TKS-13] Frasa tidak menyeberang potongan ke wajah yang bukan penuturnya** · kelas P · cek: tabel frasa vs potongan shot
+  - Pemicu: satu frasa teks melintasi pergantian shot.
+  - Anti-pola: menahan frasa melewati potongan ke wajah orang lain (sisa 0,1–0,2 dtk pun cukup) sehingga teks terbaca diucapkan orang di shot berikutnya, atau memaksa posisi aman di dua komposisi sampai teks terlempar ke pojok.
+  - Invarian: bila shot berikutnya wajah bukan penutur, akhiri frasa ≤ frame potongan (kata terakhirnya sudah selesai diucapkan) atau geser awal b-roll ke batas frasa.
+  - Karena: teks milik pembicara A yang menempel di wajah B memindahkan ucapan ke orang yang salah.
+  - Boleh: menyeberang bila shot asal atau tujuan adalah wajah penutur sendiri atau b-roll tanpa pembicara, karena menunda frasa di situ meninggalkan layar kosong saat orang bicara.
+  - Gerbang: tabel tiap potongan (frasa aktif, shot tujuan, penutur); frame teks > 0 di shot wajah bukan penutur = GAGAL.
 
 ### Teks di dalam tampilan aplikasi dan adegan 3D
-- **Bila kata narasi jatuh saat layar menampilkan aplikasi (kolom prompt, terminal, kolom pencarian, editor), pilih menaruhnya sebagai teks layar di luar isi UI, karena kata yang muncul di kolom terbaca sebagai isi aplikasi atau perintah yang diketik, bukan ucapan.** Isi UI hanya berisi yang memang diketik atau ditampilkan aplikasi itu. Contoh gagal 13.
-- **Bila punchline jatuh saat video ditampilkan di dalam tampilan kecil (postingan, jendela, ponsel), pilih keluar ke layar penuh (potong ke slab warna atau kata besar di atas footage) lalu kembali ke tampilan, karena di kotak kecil punchline kehilangan skala dan terbaca seperti teks biasa.** Narasi biasa tetap di dalam bidang video (butir terakhir §Posisi). Contoh gagal 16; teknik slab di kartu 85 T1.
-- **Bila teks muncul di adegan 3D, pilih menempelkannya di bidang nyata adegan itu (dinding, meja, layar) dengan perspektif dan cahaya yang sama, atau datar di layar sebagai lapis terdepan, karena teks yang melayang di udara di antara objek tidak punya bidang sehingga kedalamannya tidak terbaca.** Jangan menggandakan kata yang sudah tampil sebagai caption di layar monitor adegan. Contoh gagal 15; kartu 87 T1.
-- **Bila frasa dipecah menjadi kata pengantar kecil dan kata hero besar, pilih menempelkan kata kecil di tepi atau sudut kata hero sampai keduanya terbaca satu frasa, karena kata pengantar yang jauh (beda sudut frame) terbaca sebagai pesan kedua.** Kata pengantar kecil hanya dipakai bila jarak itu bisa dijaga; bila tidak, satukan dalam satu baris. Contoh gagal 17; kartu 83 T3b, kartu 87 T4.
-- **Bila beberapa lapis teks menumpuk dan matte subjek tidak rapi, pilih kedalaman lewat fokus: lapis yang sedang dibaca tajam, lapis lain buram atau tinggal garis luar, kamera bergerak sedikit, karena mata membaca yang tajam lebih dulu dan blur memberi jarak tanpa harus memotong rambut.** Kartu 87 T3.
+- **[TKS-14] Kata narasi tidak ditaruh di dalam isi UI** · kelas P · cek: still tiap adegan aplikasi
+  - Pemicu: kata narasi jatuh saat layar menampilkan aplikasi (kolom prompt, terminal, pencarian, editor).
+  - Anti-pola: memunculkan kata narasi di dalam kolom aplikasi.
+  - Invarian: tampilkan kata narasi sebagai teks layar di luar isi UI; isi UI hanya berisi yang memang diketik atau ditampilkan aplikasi itu.
+  - Karena: kata di dalam kolom terbaca sebagai isi aplikasi atau perintah yang diketik, bukan ucapan.
+  - Boleh: naskah yang memang memperagakan kata itu diketik ke aplikasi.
+  - Gerbang: tunjukkan still tiap adegan aplikasi; kata narasi di dalam bbox kolom UI = GAGAL (contoh gagal 13).
+- **[TKS-15] Teks di adegan 3D punya bidang** · kelas P · cek: still tiap adegan 3D
+  - Pemicu: teks muncul di adegan 3D.
+  - Anti-pola: teks melayang di udara di antara objek, atau kata yang sudah tampil di layar monitor adegan digandakan sebagai caption.
+  - Invarian: tempel teks di bidang nyata adegan (dinding, meja, layar) dengan perspektif dan cahaya yang sama, atau datar di layar sebagai lapis terdepan, dan satu kata hanya di satu tempat.
+  - Karena: teks tanpa bidang tidak punya kedalaman yang terbaca, dan kata ganda membuat mata bolak-balik.
+  - Boleh: teks yang sengaja melayang karena kartu kiblatnya menyatakan begitu.
+  - Gerbang: tunjukkan still tiap adegan 3D dan sebut bidang tiap teks; teks tanpa bidang = GAGAL (contoh gagal 15; kartu 87 T1).
+- **[TKS-16] Kata pengantar kecil menempel kata hero-nya** · kelas P · cek: still tiap frasa yang dipecah
+  - Pemicu: frasa dipecah menjadi kata pengantar kecil dan kata hero besar.
+  - Anti-pola: kata pengantar ditaruh jauh (beda sudut frame) sehingga terbaca sebagai pesan kedua.
+  - Invarian: tempel kata kecil di tepi atau sudut kata hero dengan celah *usulan* ≤ 0,5 tinggi huruf hero; bila jarak itu tidak bisa dijaga, satukan dalam satu baris.
+  - Karena: frasa yang terpisah jarak dibaca sebagai dua hal.
+  - Boleh: label yang memang pesan terpisah.
+  - Gerbang: ukur celah bbox kata kecil ke kata hero di still; melebihi batas = GAGAL (contoh gagal 17; kartu 83 T3b, kartu 87 T4).
 
 ## Cek cepat
 - Lihat frame rapat (tiap 1–2 f) di setiap pergantian kata: ada kartu kosong, dua kata tajam bertumpuk, atau kata yang melompat? Perbaiki sebelum final.

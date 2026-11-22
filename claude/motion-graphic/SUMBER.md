@@ -1091,5 +1091,33 @@ Penghitung: nilai mulai 2; +1 gerbang menangkap kegagalan nyata; −1 salah-temb
 - `SFX-01` (guide/sfx, scripts/audio/sfx_span.py) — kegagalan_eps01 R-53 (sampel 0,8 dtk untuk gerak 1,24 dtk; 4 gerak tanpa onset tajam lolos audit onset) | nilai 2 | uji silang: belum
 - `AUD-01` (guide/audio) — kegagalan_eps01 R-52 (musik −36…−52 LUFS di beberapa detik saat LUFS terintegrasi lulus) | nilai 2 | uji silang: belum
 - `QC-01` (guide/hindari) — kelas dari 4 kejadian di kegagalan_eps01 (R-48 tabrakan vs urutan baca; R-52 LUFS terintegrasi vs musik hilang lokal; R-53 onset vs durasi SFX; R-53 TP WAV −1,5 vs MP4 −0,7) | nilai 2 | uji silang: belum
+- Migrasi butir lama tanpa ID (audit `reports/Audit butir lama SARINGAN.md`, disetujui Irfan 22 Nov 2026, kelompok G1/G2). Asal-usul tiap butir lama ada di tabel file guide-nya di atas; semua mulai nilai 2, uji silang: belum.
+- `AUD-02` (guide/audio) — gabungan "potong di celah" + "ujung bite di lembah energi"; bdf26 v8–v10 | nilai 2 | 1 proyek
+- `AUD-03` (guide/audio) — "momen tanpa suara tetap berbunyi"; bdf26 v10 | nilai 2 | 1 proyek
+- `AUD-04` (guide/audio) — bagian denoise dari "suara asli tidak diturunkan" + "noise floor rendah jangan denoise"; jensen-pain-suffering v1→v3, kegagalan-eps01 | nilai 2 | 2 proyek
+- `AUD-05` (guide/audio) — "detik awal kurang terdengar"; jensen-pain-suffering v3→v4; ambang 2 dB usulan audit | nilai 2 | 1 proyek
+- `AUD-06` (guide/audio) — "take ulang" + "dua klip bersambung"; kegagalan-eps01 (2 kejadian) | nilai 2 | 1 proyek
+- `GRK-02` (guide/gerak) — "kamera pindah, teks tetap di dunia"; jensen-pain-suffering B4 r7 | nilai 2 | 1 proyek
+- `TKS-04` (guide/teks) — "whitespace dari fungsi objek" + "jangan menabrak tepi" + "teks putih cari bidang gelap"; BDF26 v10–v11, jensen-pain-suffering | nilai 2 | 2 proyek
+- `TKS-05` (guide/teks) — "peran footage" + "komposisi membalik"; jensen-pain-suffering r1 | nilai 2 | 1 proyek
+- `TKS-06` (guide/teks) — "sesi pemetaan sebelum build"; BDF26 v11 | nilai 2 | 1 proyek
+- `TKS-07` (guide/teks) — "teks masuk bidang video" + "punchline keluar ke layar penuh"; skill-development-journey putaran 4 dan r7 (contoh gagal 16) | nilai 2 | 1 proyek
+- `TKS-08` (guide/teks) — "perlakuan kata dipindah"; skill-development-journey K2 (contoh gagal 12) | nilai 2 | 1 proyek
+- `TKS-09` (guide/teks) — "uji tipografi satu pikiran lengkap"; BDF26 P1 R-019 | nilai 2 | 1 proyek
+- `TKS-10` (guide/teks) — "per huruf" + "setiap kata sempat terbaca"; bdf26 v10 | nilai 2 | 1 proyek
+- `TKS-11` (guide/teks) — "potong, bukan pudar"; skill-development-journey putaran 4 | nilai 2 | 1 proyek
+- `TKS-12` (guide/teks) — "b-roll tanpa orang bicara" + "close-up mulut terbuka"; bdf26 v9–v10 | nilai 2 | 1 proyek
+- `TKS-13` (guide/teks) — "tidak menyeberang potongan" + "berakhir di potongan" + "hanya wajah orang lain"; bdf26 v9–v10 | nilai 2 | 1 proyek
+- `TKS-14` (guide/teks) — "narasi bukan isi UI"; skill-development-journey r7 (contoh gagal 13) | nilai 2 | 1 proyek
+- `TKS-15` (guide/teks) — "teks 3D menempel bidang"; r7 (contoh gagal 15) | nilai 2 | 1 proyek
+- `TKS-16` (guide/teks) — "kata pengantar menempel hero"; r7 (contoh gagal 17); celah 0,5 tinggi huruf usulan audit | nilai 2 | 1 proyek
+- `VIS-01` (guide/visual) — "koreksi satu sisi" + bagian komposisi "nilai kontras di bawah huruf aktual" (dari guide/teks); BDF26 P1 R-020, R022 | nilai 2 | 1 proyek
+- `VIS-02` (guide/visual) — "tokoh bekerja menghadap pekerjaan" + "isi UI editor dari video jadi"; skill-development-journey D-419, flat-mirip-mirip D-17 | nilai 2 | 2 proyek
+- `VIS-03` (guide/visual) — "jangan panah kedua"; skill-development-journey D-420 | nilai 2 | 1 proyek
+- `VIS-04` (guide/visual) — "ukur dari still komposit"; kegagalan-eps01 | nilai 2 | 1 proyek
+- `VIS-05` (guide/visual) — "bayangan teal, jangan tarik merah"; kegagalan-eps01 | nilai 2 | 1 proyek
+- `VIS-06` (guide/visual) — "platform mengompres, tanpa grain"; kegagalan-eps01 | nilai 2 | 1 proyek
+- `VIS-10` (guide/visual) — "maskot siluet logo asli"; skill-development-journey; nomor 07–09 dan 11–14 dicadangkan untuk butir LANTAI di laporan audit | nilai 2 | 1 proyek
+- Dikeluarkan dari guide (kelas S atau duplikat; teksnya ada di git sebelum commit migrasi): audio "padat ≠ dipotong rapat" (takaran jeda ikut kiblat; inti masuk Boleh AUD-02) dan sisa "suara asli tidak diturunkan" (Lantai 23); gerak "kilat cahaya drift" (jensen-pain-suffering); teks "nilai kontras di bawah huruf" (TKS-03 + VIS-01), "kartu polos rata tengah" (Lantai 4; perataan ikut kiblat), "frasa hero satu baris / NGATUR KITA" (BDF26), "kata lewat kepala" dan "hero duduk rendah" (→ Catatan pakai kartu 83/85), "blend multiply aksen dalam" (jensen-pain-suffering), "variasi bentuk teks" (Lantai 9a), "kata kunci tanpa merah di gelap" (flat-mirip-mirip D-18), "kedalaman lewat fokus" (→ Catatan pakai kartu 87); visual "material film + glow", "latar canvas rata" (jensen-pain-suffering), "bubble sapaan tokoh", "panah goresan/tulisan tangan", "watak berbeda per tokoh" (skill-development-journey), "grade hangat-dingin" (→ `references/grade.md` §Takaran).
 - `references/revision-log.md` §0 butir 2 (peta ucapan → visual): delta pada butir lama, dari kegagalan_eps01 R-49
 - Dihapus karena duplikat atau berisi kasus: "revisi di titik transisi → jangan tambah elemen" (sudah di revision-log §0 butir 5–6), "flash/cut out ke UI + zoom-out 1,08→1,0" (parameter gaya; tetap di kartu 60/66), "AAC plafon" (masuk QC-01).

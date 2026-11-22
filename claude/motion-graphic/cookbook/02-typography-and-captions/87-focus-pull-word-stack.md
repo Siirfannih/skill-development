@@ -130,3 +130,4 @@ Kamera & transisi: genggam/push di hampir semua shot pembicara (T1); whip blur k
 
 ## Catatan pakai
 - 19 Nov 2026 · skill-development-journey-20261116: dipakai untuk gerak masuk gelombang per huruf (D-475) sebelum kartu ini ada; yang dipakai hanya bentuk masuknya, lapis fokus dan teks yang menempel di ruang belum.
+- 22 Nov 2026 · dipindah dari `guide/teks` saat audit SARINGAN (asal skill-development-journey-20261116 D-475): bila beberapa lapis teks menumpuk dan matte subjek tidak rapi, kedalaman dibuat lewat fokus (T3): lapis yang sedang dibaca tajam, lapis lain buram atau tinggal garis luar, kamera bergerak sedikit, supaya jarak terasa tanpa memotong rambut.
