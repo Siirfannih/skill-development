@@ -21,6 +21,7 @@
 | Musik | teknik | `references/audio.md` §14 | per babak, dipilih saat fase audio |
 
 **Penyesuaian karena LANTAI:** caption kartu 39 ±3,9 % tinggi terlalu kecil untuk HP → narasi mengikuti kartu 92 T1 (grotesk tebal 84 px @1080, tumpuk per kata di ruang kosong samping subjek, Lantai A7); kartu jeda putih bervignette kartu 39 → putih polos (BRAND, Lantai C18b).
+**Pengecualian Lantai (instruksi Irfan, D-15):** bila VO berbahasa Inggris, ditambahkan subtitle statis bahasa Indonesia di pita bawah (Lantai A1 melarang pita subtitle); caption kinetik di atas footage tetap mengikuti kata VO.
 **Kamera diam?** tidak; kartu jeda saja yang diam.
 **Syarat dari prompt yang harus terpenuhi:** gaya dokumenter sinematik; teks kontras dan cukup besar; tiap bentuk visual diambil dari kartu, bukan dikarang.
 
