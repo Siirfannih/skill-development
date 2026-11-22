@@ -66,7 +66,7 @@ export const TeksKT: React.FC<{ k: KT }> = ({ k }) => {
     const blur = p < 1 ? 2.5 : 0;
     return (
       <div style={{ ...base, fontSize: size, fontWeight: 700, letterSpacing: '-0.06em', lineHeight: 0.8, transform: `translateX(${anchorX}) scale(${sc})`, transformOrigin: k.jangkar === 'tengah' ? '50% 50%' : '0% 50%', filter: `blur(${blur}px)`, fontVariantNumeric: 'tabular-nums' }}>
-        {v}
+        {a.format === 'jam' ? `${String(((v % 24) + 24) % 24).padStart(2, '0')}:00` : a.format === 'detik' ? `0:${String(v).padStart(2, '0')}` : a.format === 'usd' ? '$' + v.toLocaleString('en-US') : v}
       </div>
     );
   }

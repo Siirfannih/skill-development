@@ -4,6 +4,10 @@ import { EpisodeView } from './Episode';
 import { FPS, H, W } from './tema';
 import type { Episode } from './tipe';
 import ep01 from './data/ep01.json';
+import ep02 from './data/ep02.json';
+import ep03 from './data/ep03.json';
+import ep04 from './data/ep04.json';
+import ep05 from './data/ep05.json';
 
 // Helvetica Neue berlisensi lokal (BRAND Behindwork) dimuat dari file; tanpa font cadangan sistem (Lantai A7).
 const muatHuruf = () => {
@@ -18,7 +22,7 @@ const muatHuruf = () => {
 };
 muatHuruf();
 
-const daftar: Episode[] = [ep01 as unknown as Episode];
+const daftar: Episode[] = [ep01 as unknown as Episode, ep02 as unknown as Episode, ep03 as unknown as Episode, ep04 as unknown as Episode, ep05 as unknown as Episode];
 
 export const Root: React.FC = () => (
   <>

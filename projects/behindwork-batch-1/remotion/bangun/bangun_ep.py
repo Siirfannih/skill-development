@@ -51,8 +51,9 @@ def main():
     # subtitle: tampilan per beat dibagi menurut panjang karakter, batas dijepret ke awal kata terdekat
     sub = []
     md = Path(R.SUB_MD).read_text()
-    for m in re.finditer(r"^\| (\d\d) \| (.+?) \|", md, re.M):
-        bid, cell = m.group(1), m.group(2).strip()
+    for m in re.finditer(r"^\| (\d\d) \|(.+)\|\s*$", md, re.M):
+        # tabel 2 kolom (Beat | Subtitle) atau 4 kolom (Beat | VO | Karakter | Subtitle ID): subtitle = kolom terakhir
+        bid, cell = m.group(1), m.group(2).split(" | ")[-1].strip()
         if bid not in beats or cell.startswith("("):
             continue
         disp = [d.strip() for d in cell.split(" / ") if d.strip()]

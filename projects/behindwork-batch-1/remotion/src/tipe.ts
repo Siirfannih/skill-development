@@ -33,7 +33,7 @@ export type KT = {
   kata?: Kata[]; // r1/lead: muncul per kata di detiknya sendiri, ditumpuk per baris
   teks?: string; // r2/r6/kotak: muncul utuh
   aksen?: string; // potongan teks yang diberi warna aksen
-  angka?: { dari: number; ke: number; durasi: number }; // giant: digit berputar
+  angka?: { dari: number; ke: number; durasi: number; format?: 'jam' | 'detik' | 'usd' }; // giant: digit berputar; format jam = HH:00 (mod 24)
   ukuran?: number;
   belakang?: boolean; // di belakang lapisan 'potong'
   bayang?: boolean; // bayangan lembut untuk di atas foto terang

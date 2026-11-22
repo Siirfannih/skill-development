@@ -36,5 +36,6 @@ export const grade: Record<string, string> = {
   bwwarm: 'grayscale(1) sepia(0.16) contrast(1.06) brightness(0.92)',
   blur: 'saturate(0.86) brightness(0.62) blur(3px)',
   gelap: 'saturate(0.8) brightness(0.5)',
+  blurkuat: 'saturate(0.7) brightness(0.45) blur(12px)',
   none: 'none',
 };
