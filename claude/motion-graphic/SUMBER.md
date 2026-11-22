@@ -114,6 +114,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | butir 8 | Irfan 9 Nov |
 | §Cek cepat · "scripts/gate/sfxdensity.py render.mp4 cues.json --objects objects.json: FAIL…" | Irfan 16 Nov |
 | "Contoh gagal: 324 cue dalam 95 dtk" | builder-trap-r2 v1 (12 Nov); kata Irfan: "sangat berisik", "kesalahan pemilihan sfx" |
+| butir 9 · "Cakupan: bunyi hidup selama objek…" + §Cek cepat "Ujung SFX yang dipotong" | Irfan 22 Nov, kegagalan-eps01 v5→v6: "sfx terpotong pas lagi keras kerasnya"; dibuktikan dengan preview potongan (fade 80 ms dan celah 10 ms di dalam beep gagal; jeda ≥ 25 ms + fade ≥ 150 ms lulus); sunyi sebelum serangan whoosh ditemukan saat uji alat |
 
 ## `guide/sfx/SFXIRFAN.md`
 
@@ -133,6 +134,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §Cara (pilih yang cocok) · "Kata yang sudah tampil tidak bergeser…" | gagal: builder-trap-r2 r7 B03, kartu kosong 2 f lalu "bikin" melompat 250 px; Irfan 15 Nov "pastikan dulu semuanya" |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Bila frasa hero pendek dapat mengisi…" | Irfan 16 Nov, BDF26 v11 |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Bila teks berada di atas footage,…" | Irfan 16 Nov, koreksi pemetaan BDF26 v11 |
+| §Teks di dalam tampilan aplikasi dan adegan 3D · "Bila adegan 3D berisi layar yang menampilkan pembicara…" | Irfan 22 Nov, kegagalan-eps01 pembuka ruang Blender: "lalu" melintasi wajah di monitor; teks putih di luar monitor "ga logis", pilihan 1 = subtitle di monitor, "kalau ketimpa mending ga usah" |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Bila penempatan diteruskan ke sesi lain,…" | Irfan 16 Nov |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Peran footage menentukan peran teks. Bila…" | Irfan 15 Nov, jensen-pain-suffering r1: HQ udara + keyboard harus tengah; foto tim menghindari wajah sudah benar |
 | §Cara memutuskan (alasan dari koreksi Irfan; rujuka · "Komposisi bisa membalik keputusan itu. Bila…" | Irfan 15 Nov: teks bawah di siluet ruang gelap sudah benar |
@@ -525,6 +527,12 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §8a. Cara memilih gerak teks (Lantai A9a; Irfan 16  · "Pada adegan tenang, fade 2D elegan…" | Irfan 18 Nov |
 | §11. Easing, pegas, timing · "hold teks dihitung per bagian. Kartu…" | Irfan 18 Nov |
 | §7.4 ekstrusi | Revisi 18 Okt, teks "Jadisatu" dan "COBA" |
+
+## `scripts/audio/sfx_potong.py`
+
+| Aturan | Asal-usul |
+|---|---|
+| seluruh skrip (jeda setelah serangan, fade 150–300 ms, gerbang −20 dB/150 ms) | Irfan 22 Nov, kegagalan-eps01 v6 (SFX terpotong saat keras); diangkat dari mix proyek |
 
 ## `scripts/audio/README.md`
 

@@ -14,6 +14,7 @@ Untuk proyek baru: cue sheet ada di `render/cues.json` (list of `{t, kind, db, v
 | `music_check.py`, `env.py` | cek envelope/dinamika cue musik (fade, lubang) | 34 |
 | `el_sfx.py <kind>` | SFX ElevenLabs dengan prompt "soft/smooth" | 34, 36 |
 | `sfx_vet.py files… [--famili id]` | periksa file SFX sebelum dipasang: awal sunyi/puncak, serangan menyentak, desis berkelanjutan, clipping terekam, ekor terpotong, isi 300 Hz–3 kHz (HP), rentang famili | `guide/sfx/FAMILI.md` §3 |
+| `sfx_potong.py file --sampai dtk` (modul: `potong_akhir`, `gerbang`) | potong ujung SFX di batas objeknya: jeda sunyi setelah serangan, atau fade kosinus 150–300 ms yang selesai di batas; gerbang FAIL bila hilang saat masih keras | `guide/sfx/GUIDE.md` Cara 9 |
 | `sfx_cari.py --famili id --out dir` | cari kandidat per famili di Freesound CC0 + Mixkit, catat lisensi di `SOURCES.md`, periksa `sfx_vet`, dengar `earshot rank` | `guide/sfx/FAMILI.md` §2 |
 | `sfx_comfort.py files…` | skor kenyamanan SFX: desis > 6 kHz, 2–6 kHz, roughness, earshot harsh/soft | 36 |
 | `audio_phone.py [--list\|--fix]` | simulasi speaker HP 20/50/100 %, kejelasan VO, kekasaran | 35 |

@@ -22,3 +22,8 @@ Talking head mentah 8:20 (DJI, HEVC 10-bit 59,94, TC 14:51:26;08) → paket edit
 | K-16 | Adegan software di desktop Mac (wallpaper padang rumput Irfan), UI lebih ramai/hidup, bukan kanvas biru | `v2/remotion/src/comp/MacDesktop.tsx` |
 | K-17 | Arsip kegagalan = binder di meja kayu, dirender Blender (realistis) | `v2/blender/build_arsip.py`, `comp/Arsip3D.tsx` |
 | K-18 | "Ahh" (myinstants) setelah "gagal" sebelum "kurang ajar sekali" | `cues_v4.py` |
+| K-19 | SFX tidak boleh hilang saat masih keras: potong di jeda sunyi setelah serangan atau fade 150–300 ms yang selesai di batas objek; gerbang potong di mix | `v2/audio/mix_v4.py`, `scripts/audio/sfx_potong.py` |
+| K-20 | Pembuka v6 = ruang kerja Blender (dinding bilah kayu, monitor, riser, lampu, Clawd sibuk di meja); wajah di dalam monitor; satu zoom pelan berhenti di framing monitor ±73 % (bezel + kayu terlihat), tidak menyelam ke layar; K-15 diganti | `v2/blender/build_ruang.py`, `comp/RuangPembuka.tsx` |
+| K-21 | Cut out: tiap adegan selesai di dunianya lalu potong keras ke adegan berikut; tidak ada jendela wajah di latar putih, tidak ada morf antar-dunia | `scenes/Kalender.tsx` |
+| K-22 | KT pembuka: kata merah (HN Heavy Italic, bayangan hitam keras) masuk dari arah lensa, besar sejak mendarat, diam di posisinya dan dilewati kamera; "9 bulan lalu" kiri, "target" kanan; tidak boleh melintasi wajah (dicek per frame, `v2/qc/kt_subjek.py`) | `comp/RuangPembuka.tsx` |
+| K-23 | Kalimat putih ("aku sempet ngebuat", "untuk diriku sendiri.") = subtitle di dalam video monitor, di bawah dagu; teks putih di ruangan tidak dipakai. Bila subtitle tertimpa, hapus | `comp/RuangPembuka.tsx` |

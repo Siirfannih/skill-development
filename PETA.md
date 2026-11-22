@@ -143,6 +143,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/audio/recut.py` | Terapkan rentang buang ke suara + video wajah (sinkron bibir) dan buat peta waktu lama -> baru. |
 | `claude/motion-graphic/scripts/audio/sfx_cari.py` | Cari kandidat SFX per famili bunyi di sumber gratis berlisensi (Tier 2, guide/sfx/FAMILI.md §Sumber). |
 | `claude/motion-graphic/scripts/audio/sfx_comfort.py` | Comfort scorecard for SFX files: hiss = share of energy above 6 kHz (desis) bite = share in 2–6 kHz (where harshness lives) rough = envelope modulation 30–150 Hz relative to the mean envelope (grit /  |
+| `claude/motion-graphic/scripts/audio/sfx_potong.py` | Potong ujung SFX di batas objeknya tanpa terdengar putus, plus gerbangnya. |
 | `claude/motion-graphic/scripts/audio/sfx_profile.py` | Profil SFX referensi: dari stem no_vocals (demucs) cari transien, ukur level relatif VO, durasi, pita, kelas kasar. Pakai: python3 sfx_profile.py <nama> [<nama> ...] (membaca sep/htdemucs/<nama>/{voca |
 | `claude/motion-graphic/scripts/audio/sfx_vet.py` | Periksa file SFX sebelum dipasang (Tier 3 sumber SFX, guide/sfx/FAMILI.md §Periksa). |
 | `claude/motion-graphic/scripts/audio/sync_cues.py` | v18: SFX must land WITH the object — not before it appears, not after — and not pile up. For every cue in render/cues.json, look at the picture around it (cells of an 8×6 grid, so a small label counts |
@@ -211,6 +212,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 |---|---|
 | `projects/ai-change-everything/` | STATUS · ai-change-everything ("Pengganti kita sendiri") · mulai dari STATUS.md |
 | `projects/bali-digifest-day1/` | STATUS · Recap Day 1–3 · v11 · mulai dari STATUS.md |
+| `projects/behindwork-batch-1/` |  |
 | `projects/builder-trap-r2/` | STATUS · Builder Trap R2 v6 · 16 Nov 2026 · mulai dari STATUS.md |
 | `projects/builder-trap-show-your-work/` | Ledger · Builder trap / show your work (cinematic story) |
 | `projects/doac-5-klip/` |  |
