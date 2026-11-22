@@ -32,6 +32,7 @@ Akun yang dipakai: **akun 1** (lama, kunci di Mac), **akun Behindwork** (Starter
 | Jadisatu Narrator V3 (salinan akun 2) — suara yang sama dengan "The Gap" | akun Behindwork | `qs32dRxpAolcIUaxxAN9` | IVC dari sampel yang sama dengan `1I8t…` | sama seperti baris di atas |
 | Jadisatu Narrator (draft V3, Inggris) | akun Irfan (Mac) | `EKW9kJAbsPJUsVgih66R` | voice design | lihat `claude/jadisatu-narrator-vo/SKILL.md` |
 | Behindwork Narator B6 (perempuan, dokumenter) | akun Behindwork | `5qMyVFAs7U784uFuHUKh` | voice design `eleven_ttv_v3`; deskripsi di Drive `voice-samples/behindwork-narator-b6/*.json` | IVC dari `b6_design_preview.mp3` (voice design tidak bisa diulang persis) |
+| Behindwork Narrator EN (I-wanita-1) — narator Inggris aksen netral, suara final Behindwork | akun Behindwork | `qXZxqSJGeo658ubNsfTl` | voice design `eleven_ttv_v3`; deskripsi + generated_voice_id di `projects/behindwork-batch-1/vo/en-netral/I_wanita_1.json` | IVC dari pratinjau di Drive `voice-samples/behindwork-narrator-en/` |
 | Behindwork Narator B6 ringan (C3) | akun Behindwork | `Y62OZ57dKfXyAcWpVXk0` | remix B6 (`prompt_strength` 0,45) | IVC dari `voice-samples/behindwork-narator-b6-ringan-c3/c3_remix_preview.mp3` |
 | Zephlyn (pria, Indonesia) | pustaka bersama | `3mAVBNEqop5UbHtD8oxQ` | shared library | tambahkan dari pustaka, ID sama |
 | Defasyalala (perempuan, Indonesia) | pustaka bersama | `JaUVfDrFcfwGIsv8X2kN` | shared library | tambahkan dari pustaka, ID sama |
