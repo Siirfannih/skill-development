@@ -1,0 +1,19 @@
+# Ep 02 · VO story version, English (D-15)
+
+Same facts and beats as `ep02_vo_tts.md` (Indonesian story version, D-14; facts from `riset/episode/02-tokopedia-william-tanuwijaya/script.md` v2), rewritten in natural spoken English for Indonesian listeners: simple, common words, flowing sentences joined with commas, short and long alternating, calm "but" for the turn, no sudden one-word rebuttal. `...` for a breath or to delay one key word; CAPS at most one word per beat. Numbers are written as spoken words; acronyms and names in their official spelling. Target tempo 2.4–2.7 words/sec (D-16). The Indonesian subtitle column is static at the bottom of the screen (D-15): `<br>` = line break (max 42 characters per line), ` / ` = next subtitle card (max 2 lines each). The shift clock stays an act marker (Shift Malam structure), not the time things happened. In beat 02, William's own voice (Indonesian, 2 sec) plays over the visuals; the VO is still read. The investor line in beat 08 follows William's retelling (CNBC 2021: "they are born special, you are not").
+
+| Beat | VO (EN) | Subtitle ID |
+|---|---|---|
+| 01 | Nine at night, and this internet café attendant... later started Tokopedia. | Jam sembilan malam, dan penjaga warnet ini<br>kelak mendirikan Tokopedia. |
+| 02 | A twelve-hour shift, until nine in the morning, EVERY day. | Shift-nya dua belas jam,<br>sampai jam sembilan pagi, setiap hari. |
+| 03 | From Pematangsiantar, he took a ship to Jakarta in nineteen ninety-nine, four days and three nights. | Dia anak Pematangsiantar,<br>yang tahun 1999 naik kapal ke Jakarta, / empat hari tiga malam. |
+| 04 | In his second year of computer science, his father fell ill, and William had to support the family. | Di tahun kedua kuliah teknik informatika,<br>ayahnya jatuh sakit, / dan William jadi tulang punggung keluarga. |
+| 05 | To stay in school, he worked night shifts there, with free internet as a bonus, when internet was still expensive. William says that's where he fell in LOVE with it. | Supaya tetap kuliah,<br>dia jaga warnet shift malam, / bonusnya internet gratis,<br>padahal internet masih mahal. / Kata William, di situlah dia<br>jatuh cinta sama internet. |
+| 06 | He graduated in two thousand three, took an office job, and in two thousand seven the idea came: a trusted online marketplace. | Dia lulus 2003, kerja kantoran,<br>sampai tahun 2007 idenya muncul: / pasar online yang bisa dipercaya. |
+| 07 | But then came the... darkest hour. | Tapi lalu datang jam paling gelap. |
+| 08 | He knew no investors, and after two years of failed pitches, one of them told him, your role models were born special... you're not. | Dia nggak kenal satu pun investor,<br>dua tahun menawarkan ide dan gagal terus, / sampai satu calon pemodal bilang: / panutanmu lahir spesial, kamu nggak. |
+| 09 | William called it a slap, but he named himself an internet café graduate, and kept going. | William menyebutnya tamparan, / tapi dia malah menjuluki dirinya<br>lulusan warnet, dan jalan terus. |
+| 10 | Then on August seventeenth, two thousand nine, the shift ended, and Tokopedia was born, with Leontinus Alpha Edison. | Sampai akhirnya, 17 Agustus 2009,<br>shift itu selesai, / dan Tokopedia lahir,<br>bersama Leontinus Alpha Edison. |
+| 11 | In twenty twenty-one, Tokopedia and Gojek merged into GoTo, and in twenty twenty-three, William left his daily role there. | Tahun 2021, Tokopedia dan Gojek<br>bergabung jadi GoTo, / dan tahun 2023, William melepas<br>tugas hariannya di Tokopedia. |
+| 12 | So maybe, investors judge your track record, and if you don't have one, you build it, one shift at a time. | Jadi mungkin begini:<br>investor menilai rekam jejak, / dan kalau belum punya, ya bangun sendiri,<br>satu shift demi satu shift. |
+| 13 | What hour is your shift at right now? Write it in the comments. | Shift-mu sekarang di jam berapa?<br>Tulis di komentar. |

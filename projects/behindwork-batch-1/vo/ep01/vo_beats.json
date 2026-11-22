@@ -1,0 +1,95 @@
+{
+ "beats": [
+  {
+   "id": "01",
+   "mulai": 0.0,
+   "selesai": 8.835,
+   "quote": false
+  },
+  {
+   "id": "02",
+   "mulai": 9.056,
+   "selesai": 12.698,
+   "quote": false
+  },
+  {
+   "id": "03",
+   "mulai": 12.918,
+   "selesai": 18.022,
+   "quote": false
+  },
+  {
+   "id": "04",
+   "mulai": 18.242,
+   "selesai": 26.973,
+   "quote": false
+  },
+  {
+   "id": "05",
+   "mulai": 27.193,
+   "selesai": 33.733,
+   "quote": false
+  },
+  {
+   "id": "06",
+   "mulai": 34.033,
+   "selesai": 38.603,
+   "quote": true
+  },
+  {
+   "id": "07",
+   "mulai": 38.903,
+   "selesai": 46.475,
+   "quote": false
+  },
+  {
+   "id": "08",
+   "mulai": 46.775,
+   "selesai": 49.975,
+   "quote": true
+  },
+  {
+   "id": "09",
+   "mulai": 50.275,
+   "selesai": 59.716,
+   "quote": false
+  },
+  {
+   "id": "10",
+   "mulai": 59.936,
+   "selesai": 68.831,
+   "quote": false
+  },
+  {
+   "id": "11",
+   "mulai": 69.051,
+   "selesai": 75.367,
+   "quote": false
+  },
+  {
+   "id": "12",
+   "mulai": 75.587,
+   "selesai": 82.878,
+   "quote": false
+  },
+  {
+   "id": "13",
+   "mulai": 83.098,
+   "selesai": 86.222,
+   "quote": false
+  }
+ ],
+ "laporan": {
+  "tts_lufs_asal": -15.2,
+  "gain_tts_db": -1.07,
+  "quote_06_lufs_asal": -33.2,
+  "quote_06_gain_db": 13.42,
+  "quote_06_lufs_hasil": -19.8,
+  "quote_08_lufs_asal": -35.6,
+  "quote_08_gain_db": 17.18,
+  "quote_08_lufs_hasil": -18.4,
+  "puncak_dbfs": -1.5,
+  "durasi": 86.22,
+  "lufs_akhir": -16.5
+ }
+}

@@ -24,7 +24,7 @@ Kunci API **tidak pernah** ada di repo ini, di chat, atau di memori. Kunci disim
 
 Voice ID hanya berlaku di akun pemiliknya. Suara kloning (IVC) dan rancangan (voice design) harus dibuat ulang di akun lain dari file contohnya; suara pustaka bersama (shared library) cukup ditambahkan lewat `POST /v1/voices/add/{public_owner_id}/{voice_id}` dan ID-nya tetap. Repo ini publik, jadi file contoh audio **tidak** disimpan di sini: ada di Google Drive Irfan `Claude edit/voice-samples/<nama>/`.
 
-Akun yang dipakai: **akun 1** (lama, kunci di Mac), **akun Behindwork** (Starter; di PC kunci di `~/.secrets/elevenlabs_behindwork`, chmod 600; dicek 22 Nov 2026).
+Akun yang dipakai: **akun 1** (lama, kunci di Mac), **akun Behindwork** (Starter; di PC kunci di `~/.secrets/elevenlabs_behindwork`, chmod 600), **akun cadangan** (Starter, dipakai bila akun Behindwork habis kredit; kunci di `~/.secrets/elevenlabs_cadangan`; belum berisi suara apa pun, jadi suara kloning/rancangan harus di-IVC ulang dulu). Dicek 22 Nov 2026.
 
 | Suara | Akun | voice_id | Asal | Pindah ke akun lain |
 |---|---|---|---|---|

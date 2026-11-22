@@ -1,0 +1,19 @@
+# Ep 07 · VO story version, English (D-15)
+
+Same facts and beats as `ep07_vo_tts.md` (Indonesian story version, D-14; facts from `riset/episode/07-toyota-mesin-tenun/script.md`), rewritten in natural spoken English for Indonesian listeners: simple, common words, flowing sentences joined with commas, short and long alternating, calm "but" for the turn, no sudden one-word rebuttal. `...` for a breath or to delay one key word; CAPS at most one word per beat. Numbers are written as spoken words; acronyms and names in their official spelling. Target tempo 2.4–2.7 words/sec (D-16). The Indonesian subtitle column is static at the bottom of the screen (D-15): `<br>` = line break (max 42 characters per line), ` / ` = next subtitle card (max 2 lines each). The Platt domino still "doesn't fall" (Domino structure): the correction is told as a calm finding, with Toyota and Kazuo Wada as the speakers. Beat number = row order of the script table (beat 13 = source card, no VO). Toyoda (family, loom company) and Toyota (cars) must sound different; "shuttle" = teropong benang.
+
+| Beat | VO (EN) | Subtitle ID |
+|---|---|---|
+| 01 | You may have heard that Toyota cars exist because of one patent. But that one domino... never fell. | Mungkin kamu pernah dengar,<br>mobil Toyota bisa ada karena satu paten. / Tapi domino yang satu itu<br>justru nggak jatuh. |
+| 02 | Let's go back. Toyota Motor was founded in nineteen thirty-seven. | Kita mundur dulu.<br>Toyota Motor berdiri tahun 1937. |
+| 03 | It grew out of a car division opened in nineteen thirty-three, inside the Toyoda loom company. | Dia lahir dari divisi mobil<br>yang dibuka tahun 1933, / di dalam perusahaan mesin tenun Toyoda. |
+| 04 | Now, the popular story: that division was funded by a patent sold to Platt Brothers of England in late nineteen twenty-nine, for one hundred thousand pounds. | Nah, cerita populernya,<br>divisi itu dimodali paten / yang dijual ke Platt Brothers,<br>Inggris, akhir 1929, / nilainya 100.000 pound. |
+| 05 | But Toyota's own official history says only eighty-three thousand five hundred pounds was paid in the end, and historian Kazuo Wada says the evidence doesn't support the idea that Platt money funded the cars. | Tapi sejarah resmi Toyota sendiri bilang,<br>yang akhirnya dibayar cuma 83.500 pound, / dan sejarawan Kazuo Wada bilang,<br>bukti sejarah nggak mendukung / cerita uang Platt memodali mobil. |
+| 06 | So the real domino... wasn't money. | Jadi domino aslinya bukan uang. |
+| 07 | What was sold to England was the Type G, Sakichi Toyoda's automatic loom, finished in nineteen twenty-four, which changed shuttles without stopping. | Yang dijual ke Inggris itu Tipe G,<br>mesin tenun otomatis Sakichi Toyoda, / selesai tahun 1924, yang mengganti<br>teropong benang tanpa berhenti. |
+| 08 | And the Japan Society of Mechanical Engineers records that it also stopped by ITSELF when a thread broke. | Dan Masyarakat Teknik Mesin Jepang<br>mencatat, / mesin ini juga berhenti<br>sendiri saat benang putus. |
+| 09 | Toyota itself says the root of that habit is Sakichi's loom from eighteen ninety-six, and it's called... jidoka. | Toyota sendiri bilang, akar kebiasaan itu<br>ada di mesin tenun Sakichi tahun 1896, / dan namanya jidoka. |
+| 10 | Now fast forward. A machine that stops itself, then the Type G, then the car division, then Toyota, and the principle still lives in the Toyota Production System today. | Sekarang maju cepat.<br>Mesin yang berhenti sendiri, lalu Tipe G, / lalu divisi mobil, lalu Toyota, / dan prinsipnya masih hidup di<br>Sistem Produksi Toyota hari ini. |
+| 11 | So Toyota's first domino wasn't capital, it was the habit of STOPPING when something goes wrong. | Jadi domino pertama Toyota bukan modal, / tapi kebiasaan berhenti<br>saat ada yang salah. |
+| 12 | What's the first domino in your life? Write it in the comments. | Domino pertama di hidupmu apa?<br>Tulis di komentar. |
+| 13 | (source card, no VO) | |

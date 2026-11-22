@@ -1,0 +1,9 @@
+{"gap": 0.22, "gap_quote": 0.30, "target_lufs": -16,
+ "beats": [
+  {"id": "01", "file": "vo_01.mp3"}, {"id": "02", "file": "vo_02.mp3"}, {"id": "03", "file": "vo_03.mp3"},
+  {"id": "04", "file": "vo_04.mp3"}, {"id": "05", "file": "vo_05.mp3"},
+  {"id": "06", "quote": "../footage/stanford_toilet_lebar.mp4", "segments": [[3.95, 5.20], [7.00, 8.90], [8.90, 10.20, "tawa"]]},
+  {"id": "07", "file": "vo_07.mp3"},
+  {"id": "08", "quote": "../footage/stanford_dish.mp4", "segments": [[2.65, 5.85]]},
+  {"id": "09", "file": "vo_09.mp3"}, {"id": "10", "file": "vo_10.mp3"}, {"id": "11", "file": "vo_11.mp3"},
+  {"id": "12", "file": "vo_12.mp3"}, {"id": "13", "file": "vo_13.mp3"}]}
