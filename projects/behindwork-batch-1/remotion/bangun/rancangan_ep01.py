@@ -132,4 +132,9 @@ def EKSTRA_SFX(w):
     ]
 
 
-MUSIK = []
+MUSIK = [
+    # musik per babak (Lantai E25), dipilih music_fit.py terhadap VO ep01: tegang -> energi -> hangat; level jeda ±-21 LUFS, di-duck saat ucapan
+    {"file": "musik/musik-freesound-51252.mp3", "dari": 0.0, "sampai": 40.14, "gain": -10.1, "fadeIn": 0.05, "fadeOut": 0.3},
+    {"file": "musik/mixkit-driving-623.mp3", "dari": 40.0, "sampai": 71.85, "gain": -10.3, "fadeIn": 0.25, "fadeOut": 0.35},
+    {"file": "musik/mixkit-confident-32.mp3", "dari": 71.7, "sampai": 89.228, "gain": -8.4, "fadeIn": 0.3, "fadeOut": 1.2},
+]

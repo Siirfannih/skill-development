@@ -107,7 +107,7 @@ def main():
             if l["k"] == "potong":
                 cue(a["dari"] + 0.05, "sfx/shutter.wav", -12, "foley", "foto jangkar (rana kamera)")
             if l["k"] == "tracking":
-                cue(a["dari"], "sfx/scan.mp3", -13, "transisi", "pita diputar mundur", sampai=a["sampai"])
+                cue(a["dari"], "sfx/tape_rewind.mp3", -14, "transisi", "pita diputar mundur", sampai=a["sampai"])
             kb = l.get("kb") or {}
             dur = a["sampai"] - a["dari"]
             if l["k"] in ("video", "gambar", "inset") and dur > 2.5 and abs(kb.get("s1", 1.04) - kb.get("s0", 1.0)) >= 0.03:

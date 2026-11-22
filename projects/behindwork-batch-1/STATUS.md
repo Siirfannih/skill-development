@@ -22,3 +22,6 @@ Diperbarui 22 Nov 2026 (claude2).
 - ElevenLabs voice design: `generated_voice_id` B1–B6 belum disimpan ke akun (simpan hanya yang dipilih, `POST /v1/text-to-voice`). Sisa kredit ±18.660.
 - 22 Nov: B6 dipilih (D-11). Kandidat ringan C1–C6 di Drive `Claude edit/behindwork-batch-1/vo-b6-ringan`, menunggu pilihan final. Remix `generated_voice_id` di `vo/remix_*.json` (simpan ke akun hanya yang dipilih). Sisa kredit 18.185.
 - 22 Nov: uji naskah D-12 (D1–D6) di Drive `Claude edit/behindwork-batch-1/vo-d12-naskah-natural`. C3 tersimpan di akun (`Y62OZ57dKfXyAcWpVXk0`). OmniVoice tertinggal (D5 datar, D6 menelan kata dan merusak kata berkapital) → ElevenLabs untuk VO final. Menunggu pilihan Irfan.
+
+## Produksi final (23 Nov)
+- **Ep01 EN selesai 01.30**: `/mnt/storage-projects/behindwork-batch-1/final/Behindwork_EP01_JensenHuang_EN.mp4` (89,2 dtk, −16,9 LUFS, puncak −2,7 dBFS), Drive `Claude edit/behindwork-batch-1/final`. Mesin: `remotion/` (data `src/data/ep01.json` dari `bangun/rancangan_ep01.py`), musik tegang/energi/hangat dipilih `music_fit.py`. Render langsung Remotion; gerbang `render.sh final` lengkap tidak dijalankan karena tenggat (cek yang dijalankan: still per beat + lembar per detik dengan mata, `sfx_span.py --cues` tanpa HABIS setelah ganti tape rewind, loudness).
