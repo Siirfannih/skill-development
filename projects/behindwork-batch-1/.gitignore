@@ -3,3 +3,8 @@ storyboard/*/board.png
 storyboard/*/board.html
 storyboard/*/check.json
 __pycache__/
+qc/.bundle/
+qc/*.mp4
+qc/*.log
+qc/frames/
+render/
