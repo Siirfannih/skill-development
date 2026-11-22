@@ -1,0 +1,37 @@
+/* Behindwork Batch 1 · gaya Story Cinematic (DECISIONS D-02, kiblat kartu 39).
+   Satu sumber nilai untuk semua panel 10 episode. Nilai merek dari BRAND.md Behindwork:
+   putih #FFFFFF, tinta #111111, aksen merah #D6202B (hanya di latar terang), Helvetica Neue.
+   Tanpa vignette, gradien radial, atau grain buatan (BRAND). Footage tampil apa adanya, grade natural sedikit desaturasi. */
+@font-face{font-family:"BW Helvetica";font-weight:500;src:local("Helvetica Neue Medium"),url("file:///home/irfan/work/data-video/merek/behindwork/aset/font/HelveticaNeueMedium.otf")}
+@font-face{font-family:"BW Helvetica";font-weight:700;src:local("Helvetica Neue Bold"),url("file:///home/irfan/work/data-video/merek/behindwork/aset/font/HelveticaNeueBold.otf")}
+:root{
+  --paper:#FFFFFF; --ink:#111111; --accent:#D6202B; --night:#000000; --white:#FFFFFF;
+  --dim:rgba(255,255,255,.42); --dim-ink:rgba(17,17,17,.38);
+  --font:"BW Helvetica","Helvetica Neue",Helvetica,Arial,sans-serif;
+  /* peran teks (typography.md §8a): R1 narasi, R2 kata kunci, R6 hero, R4 label sumber */
+  --r1:64px; --r2:124px; --r6:210px; --lead:60px; --r4:26px;
+}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden}
+body.frame{position:relative;background:var(--night);font-family:var(--font);color:var(--white);-webkit-font-smoothing:antialiased}
+body.paper{background:var(--paper);color:var(--ink)}
+
+/* L2 footage/foto. Kamera = transform pada .cam (push, pan); elemen di dalam .cam ikut dunia, teks di luar .cam tidak. */
+.cam{position:absolute;inset:0;transform-origin:50% 50%}
+.plate{position:absolute;inset:0;background-size:cover;background-position:center}
+.g-nat{filter:saturate(.86) contrast(1.04)}
+.g-bw{filter:grayscale(1) contrast(1.08) brightness(.9)}
+.g-bwwarm{filter:grayscale(1) sepia(.16) contrast(1.06) brightness(.92)}
+.g-blur{filter:saturate(.86) brightness(.62) blur(3px)}
+.inset{position:absolute;background-size:cover;background-position:center;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+
+/* L3 teks */
+.t{position:absolute;white-space:nowrap;line-height:1}
+.r1{font-weight:500;font-size:var(--r1);letter-spacing:-.012em}
+.r2{font-weight:700;font-size:var(--r2);letter-spacing:-.03em}
+.r6{font-weight:700;font-size:var(--r6);letter-spacing:-.04em;line-height:.9}
+.lead{font-weight:500;font-size:var(--lead);letter-spacing:-.01em}
+.on-foto{text-shadow:0 2px 22px rgba(0,0,0,.38)}
+.dim{color:var(--dim)} .dim-ink{color:var(--dim-ink)}
+.red{color:var(--accent)} .ink{color:var(--ink)}
+.c{transform:translate(-50%,-50%)} .cx{transform:translateX(-50%)}
+.src{position:absolute;left:165px;top:905px;font-weight:500;font-size:var(--r4);letter-spacing:.01em;opacity:.78}

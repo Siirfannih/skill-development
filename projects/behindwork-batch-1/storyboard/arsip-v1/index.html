@@ -1,0 +1,84 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Behindwork Storyboard Batch 1</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: ruang tonton gelap — tab episode di atas, tiap beat = frame 16:9 (kiri) + catatan sutradara (kanan) */
+:root{
+  --bg:#0A0B0E; --panel:#14161B; --line:#262932; --fg:#ECEAE2; --muted:#9A9CA6; --hl:#FFE14D; --alert:#E5383B;
+  --display:Anton, "Bebas Neue", Impact, sans-serif; --body:Inter, system-ui, sans-serif;
+  color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font:15px/1.55 var(--body)}
+.wrap{max-width:1400px;margin:0 auto;padding-block:28px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header .eyebrow{font:600 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+h1{font:400 clamp(40px,6vw,72px)/.95 var(--display);margin:.2em 0 .3em;letter-spacing:.01em;text-wrap:balance}
+.lede{color:var(--muted);max-width:68ch;margin:0}
+nav{display:flex;flex-wrap:wrap;gap:8px;margin:26px 0 30px}
+nav a{display:flex;align-items:baseline;gap:8px;padding:9px 14px;border:1px solid var(--line);border-radius:8px;color:var(--fg);text-decoration:none;font-weight:600;font-size:14px}
+nav a b{font:400 18px var(--display);color:var(--muted)}
+nav a[aria-current="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+nav a[aria-current="true"] b{color:var(--alert)}
+nav a:focus-visible{outline:2px solid var(--hl);outline-offset:2px}
+.ep-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:8px}
+.ep-head h2{font:400 clamp(30px,4vw,46px)/1 var(--display);margin:0;letter-spacing:.01em}
+.ep-head p{margin:6px 0 0;color:var(--muted);max-width:80ch}
+.tag{font:600 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--hl);padding:5px 10px;border-radius:5px;white-space:nowrap}
+.babak{font:600 12px var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--hl);margin:34px 0 4px}
+.beat{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:20px;padding:18px 0;border-bottom:1px solid var(--line)}
+.frames{display:grid;gap:8px;min-width:0}
+.frames.multi{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.frames figure{margin:0;position:relative}
+.frames img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:6px;background:var(--panel)}
+.frames figcaption{position:absolute;left:8px;top:8px;font:600 11px var(--body);background:rgba(0,0,0,.6);color:var(--fg);padding:2px 7px;border-radius:4px}
+.notes{min-width:0;display:flex;flex-direction:column;gap:8px}
+.time{font:400 22px var(--display);letter-spacing:.02em}
+.time small{font:500 12px var(--body);color:var(--muted);margin-left:8px;letter-spacing:0}
+.vo{font-size:16px;font-weight:500}
+.kv{display:grid;grid-template-columns:72px minmax(0,1fr);gap:4px 10px;font-size:13px;color:var(--muted)}
+.kv dt{font-weight:600;color:var(--fg);opacity:.75}
+.kv dd{margin:0}
+.layar{font-weight:700;color:var(--hl)}
+@media (max-width:820px){.beat{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:no-preference){.frames img{transition:transform .2s}.frames img:hover{transform:scale(1.01)}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="eyebrow">Behindwork · 16:9 · 1920×1080 · 30 fps</div>
+    <h1>Storyboard Batch 1</h1>
+    <p class="lede">Sepuluh episode, sepuluh struktur. Tiap beat menampilkan frame yang dirender dari panel HTML (pipeline <code>board.py</code> Skill-Development), lalu VO, teks layar, aksi, kamera, transisi keluar, dan SFX. Gambar berlabel "ilustrasi" atau "rekonstruksi" di dalam frame belum memakai aset asli.</p>
+  </header>
+  <nav id="tabs" aria-label="Episode"></nav>
+  <main id="ep"><p class="lede">Memuat storyboard…</p></main>
+</div>
+
+<script>
+const esc=s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const fmt=t=>Array.isArray(t)?`${(+t[0]).toFixed(1)}–${(+t[1]).toFixed(1)}`:esc(t);
+let EPS=[];
+function render(){
+  const want=(location.hash||"").replace("#ep-","");
+  const ep=EPS.find(e=>e.n===want)||EPS[0];
+  document.querySelectorAll("#tabs a").forEach(a=>a.setAttribute("aria-current",a.dataset.n===ep.n?"true":"false"));
+  let html=`<div class="ep-head"><div><h2>${esc(ep.title)}</h2><p>${esc(ep.beats.length)} beat · ${ep.beats.reduce((s,b)=>s+b.frames.length,0)} frame</p></div><span class="tag">${esc(ep.struktur||"")}</span></div>`;
+  let last="";
+  for(const b of ep.beats){
+    if(b.babak&&b.babak!==last){html+=`<div class="babak">${esc(b.babak)}</div>`;last=b.babak;}
+    const fr=b.frames.map((f,i)=>`<figure><img loading="lazy" src="f/${esc(f)}" alt="Frame beat ${esc(b.id)}${b.frames.length>1?" bagian "+(i+1):""}">${b.frames.length>1?`<figcaption>${i+1}/${b.frames.length}</figcaption>`:""}</figure>`).join("");
+    html+=`<article class="beat"><div class="frames ${b.frames.length>1?"multi":""}">${fr}</div>
+      <div class="notes"><div class="time">${esc(b.id)}<small>${fmt(b.t)} dtk</small></div>
+      <div class="vo">${esc(b.vo)}</div>
+      <dl class="kv"><dt>Layar</dt><dd class="layar">${esc(b.layar)||"—"}</dd><dt>Aksi</dt><dd>${esc(b.aksi)}</dd><dt>Kamera</dt><dd>${esc(b.kamera)}</dd><dt>Keluar</dt><dd>${esc(b.keluar)}</dd>${b.sfx.length?`<dt>SFX</dt><dd>${b.sfx.map(esc).join(" · ")}</dd>`:""}</dl></div></article>`;
+  }
+  document.getElementById("ep").innerHTML=html;
+}
+fetch("data.json").then(r=>r.json()).then(d=>{
+  EPS=d;
+  document.getElementById("tabs").innerHTML=d.map(e=>`<a href="#ep-${e.n}" data-n="${e.n}"><b>${e.n}</b>${esc(e.struktur||e.title)}</a>`).join("");
+  render();
+}).catch(()=>{document.getElementById("ep").innerHTML='<p class="lede">Data storyboard gagal dimuat. Muat ulang halaman.</p>';});
+addEventListener("hashchange",()=>{render();scrollTo({top:0});});
+</script>
+
+</body></html>

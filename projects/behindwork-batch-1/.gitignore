@@ -1,0 +1,5 @@
+storyboard/*/png/
+storyboard/*/board.png
+storyboard/*/board.html
+storyboard/*/check.json
+__pycache__/

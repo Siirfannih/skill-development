@@ -1,0 +1,216 @@
+{
+  "episode_id": "01-jensen-huang",
+  "title": "Dari Toilet Asrama ke Booth Denny's",
+  "structure": "Rewind",
+  "style": "StoryCinematic",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "safe_margin": { "top": 220, "bottom": 400, "left": 72, "right": 140 }
+  },
+  "theme": {
+    "bg_dark": "#0B0D12",
+    "bg_light": "#F4F4F2",
+    "text_light": "#FAF8EC",
+    "text_dark": "#111318",
+    "accent": "#F7922E",
+    "film_grain_opacity": 0.04
+  },
+  "anchor_artifact": {
+    "asset": "assets/ep01_dennys_booth_plaque.jpg",
+    "source_url": "https://blogs.nvidia.com/blog/nvidia-dennys-trillion/",
+    "label": "Denny's San Jose · 1993"
+  },
+  "audio_spine": {
+    "bgm": {
+      "asset": "audio/bgm_doc_minimal_piano.mp3",
+      "base_lufs": -28,
+      "duck_during_quote_cut_db": -6,
+      "silence_drops": [
+        { "start_sec": 62.6, "end_sec": 63.0, "reason": "pre_lesson_breath" }
+      ]
+    },
+    "voice_tracks": [
+      { "id": "vo_01", "type": "tts", "file": "audio/vo_01.mp3", "start_sec": 0.0, "end_sec": 3.5 },
+      { "id": "vo_02", "type": "tts", "file": "audio/vo_02.mp3", "start_sec": 3.5, "end_sec": 7.0 },
+      { "id": "vo_03", "type": "tts", "file": "audio/vo_03.mp3", "start_sec": 7.0, "end_sec": 11.0 },
+      { "id": "vo_04", "type": "tts", "file": "audio/vo_04.mp3", "start_sec": 11.0, "end_sec": 18.0 },
+      { "id": "vo_05", "type": "tts", "file": "audio/vo_05.mp3", "start_sec": 18.0, "end_sec": 25.0 },
+      { "id": "qc_01", "type": "quote_cut", "file": "footage/ep01_stanford_3038.mp4", "clip_range": "30:38-30:46", "start_sec": 25.0, "end_sec": 30.0, "speaker": "Jensen Huang" },
+      { "id": "vo_06", "type": "tts", "file": "audio/vo_06.mp3", "start_sec": 30.0, "end_sec": 37.0 },
+      { "id": "qc_02", "type": "quote_cut", "file": "footage/ep01_stanford_0624.mp4", "clip_range": "06:24-06:29", "start_sec": 37.0, "end_sec": 42.0, "speaker": "Jensen Huang" },
+      { "id": "vo_07", "type": "tts", "file": "audio/vo_07.mp3", "start_sec": 42.0, "end_sec": 49.0 },
+      { "id": "vo_08", "type": "tts", "file": "audio/vo_08.mp3", "start_sec": 49.0, "end_sec": 57.0 },
+      { "id": "vo_09", "type": "tts", "file": "audio/vo_09.mp3", "start_sec": 57.0, "end_sec": 63.0 },
+      { "id": "vo_10", "type": "tts", "file": "audio/vo_10.mp3", "start_sec": 63.0, "end_sec": 71.0 },
+      { "id": "vo_11", "type": "tts", "file": "audio/vo_11.mp3", "start_sec": 71.0, "end_sec": 76.0 }
+    ],
+    "sfx": [
+      { "file": "sfx/impact_soft.wav", "at_sec": 2.4, "tag": "card_salah" },
+      { "file": "sfx/tape_rewind.wav", "at_sec": 7.0, "tag": "rewind_1972" },
+      { "file": "sfx/whoosh_light.wav", "at_sec": 49.0, "tag": "anchor_zoom" },
+      { "file": "sfx/sub_impact.wav", "at_sec": 63.0, "tag": "lesson_drop" }
+    ]
+  },
+  "beats": [
+    {
+      "id": 1,
+      "start_sec": 0.0,
+      "end_sec": 3.5,
+      "component": "DocumentaryClip",
+      "props": {
+        "video": "footage/ep01_keynote_0010.mp4",
+        "grade": "desaturate_40",
+        "grid_overlay": true,
+        "pixel_reveal_frames": 10,
+        "ken_burns": [1.0, 1.05]
+      },
+      "interstitial_cut": { "at_sec": 2.4, "theme": "dark", "text": "SALAH." },
+      "caption_mode": "kinetic_center"
+    },
+    {
+      "id": 2,
+      "start_sec": 3.5,
+      "end_sec": 7.0,
+      "component": "DocumentaryClip",
+      "props": {
+        "video": "footage/ep01_fortune_0000.mp4",
+        "grade": "natural_cine",
+        "invert_flash_at_end_frames": 2,
+        "ken_burns": [1.02, 1.07]
+      },
+      "caption_mode": "kinetic_center"
+    },
+    {
+      "id": 3,
+      "start_sec": 7.0,
+      "end_sec": 11.0,
+      "component": "RewindTransition",
+      "props": {
+        "from_year": 2026,
+        "to_year": 1972,
+        "theme": "dark",
+        "show_timeline_scrub": true
+      }
+    },
+    {
+      "id": 4,
+      "start_sec": 11.0,
+      "end_sec": 18.0,
+      "component": "DocumentaryClip",
+      "props": {
+        "video": "footage/ep01_oneida_0000.mp4",
+        "grade": "bw_warm",
+        "inset_label": "Oneida Baptist Institute, Kentucky"
+      },
+      "caption_mode": "kinetic_center"
+    },
+    {
+      "id": 5,
+      "start_sec": 18.0,
+      "end_sec": 25.0,
+      "component": "InterstitialCard",
+      "props": {
+        "theme": "light",
+        "headline": "100 ANAK",
+        "sublabel": "Tugas harian: bersihkan toilet"
+      }
+    },
+    {
+      "id": 6,
+      "start_sec": 25.0,
+      "end_sec": 30.0,
+      "component": "QuoteCutClip",
+      "props": {
+        "video": "footage/ep01_stanford_3038.mp4",
+        "speaker_badge": "Jensen Huang · Stanford GSB (2024)",
+        "quote_text": "I've cleaned more toilets than all of you combined.",
+        "highlight_words": ["toilets"]
+      }
+    },
+    {
+      "id": 7,
+      "start_sec": 30.0,
+      "end_sec": 37.0,
+      "component": "DocumentaryClip",
+      "props": {
+        "video": "footage/ep01_fortune_0000.mp4",
+        "clip_offset_sec": 5.0,
+        "grade": "natural_cine",
+        "hero_badge": "DISHWASHER → BUSBOY → WAITER"
+      },
+      "caption_mode": "kinetic_center"
+    },
+    {
+      "id": 8,
+      "start_sec": 37.0,
+      "end_sec": 42.0,
+      "component": "QuoteCutClip",
+      "props": {
+        "video": "footage/ep01_stanford_0624.mp4",
+        "speaker_badge": "Jensen Huang · Stanford GSB (2024)",
+        "quote_text": "I was probably Denny's best dishwasher.",
+        "highlight_words": ["best dishwasher"]
+      }
+    },
+    {
+      "id": 9,
+      "start_sec": 42.0,
+      "end_sec": 49.0,
+      "component": "InterstitialCard",
+      "props": {
+        "theme": "dark",
+        "headline": "AMD → LSI LOGIC",
+        "sublabel": "1984–1993 · 9 tahun merancang chip"
+      }
+    },
+    {
+      "id": 10,
+      "start_sec": 49.0,
+      "end_sec": 57.0,
+      "component": "AnchorSpotlight",
+      "props": {
+        "asset": "assets/ep01_dennys_booth_plaque.jpg",
+        "focus_rect": [0.22, 0.35, 0.55, 0.4],
+        "desaturate_outside": true,
+        "zoom_scale": [1.0, 1.25],
+        "year_stamp": "1993 · SAN JOSE"
+      },
+      "caption_mode": "kinetic_center"
+    },
+    {
+      "id": 11,
+      "start_sec": 57.0,
+      "end_sec": 63.0,
+      "component": "SplitCompare",
+      "props": {
+        "left": { "label": "1972 · TOILET", "style": "bw" },
+        "right": { "label": "NVIDIA · AI CHIPS", "video": "footage/ep01_keynote_0010.mp4" }
+      }
+    },
+    {
+      "id": 12,
+      "start_sec": 63.0,
+      "end_sec": 71.0,
+      "component": "InterstitialCard",
+      "props": {
+        "theme": "light",
+        "headline": "TIDAK ADA KERJA YANG TERLALU RENDAH",
+        "word_spacing_editorial": true
+      }
+    },
+    {
+      "id": 13,
+      "start_sec": 71.0,
+      "end_sec": 76.0,
+      "component": "AnchorSpotlight",
+      "props": {
+        "asset": "assets/ep01_dennys_booth_plaque.jpg",
+        "focus_rect": [0.0, 0.0, 1.0, 1.0],
+        "cta_text": "KERJA PERTAMAMU APA? KOMENTAR.",
+        "source_footer": "Sumber: NVIDIA Blog (2023) · Stanford GSB (2024) · Fortune (2024–2025)"
+      }
+    }
+  ]
+}

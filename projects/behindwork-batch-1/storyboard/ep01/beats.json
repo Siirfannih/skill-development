@@ -1,0 +1,584 @@
+{
+ "project": "Behindwork Ep 01 · Jensen Huang · Rewind (Story Cinematic)",
+ "format": {
+  "w": 1920,
+  "h": 1080,
+  "fps": 30
+ },
+ "arah": {
+  "register": "dokumenter sinematik, lugas",
+  "kata_karakter": [
+   "arsip",
+   "pita mundur",
+   "booth"
+  ],
+  "detail_khas": "pita kaset diputar mundur ke 1972 lalu kembali; booth Denny's sebagai foto jangkar berwarna selektif",
+  "sumber_gaya": "kiblat kartu 39 (startup.mp4) + BRAND Behindwork; DECISIONS D-02"
+ },
+ "babak": [
+  {
+   "id": "B1",
+   "nama": "Hook mitos",
+   "musik": {
+    "peran": "denyut rendah tegang",
+    "alasan": "koreksi mitos butuh rasa 'tunggu dulu'"
+   }
+  },
+  {
+   "id": "B2",
+   "nama": "Rewind ke 1972",
+   "musik": {
+    "peran": "piano redup + pad pita",
+    "alasan": "masa kecil yang sepi dan keras"
+   }
+  },
+  {
+   "id": "B3",
+   "nama": "Dapur Denny's",
+   "musik": {
+    "peran": "ritme ringan naik",
+    "alasan": "remaja mulai bekerja, ada harapan"
+   }
+  },
+  {
+   "id": "B4",
+   "nama": "Naik ke 1993",
+   "musik": {
+    "peran": "build bertahap",
+    "alasan": "menuju kelahiran NVIDIA"
+   }
+  },
+  {
+   "id": "B5",
+   "nama": "Payoff dan CTA",
+   "musik": {
+    "peran": "swell lalu jeda 0,4 dtk",
+    "alasan": "pelajaran butuh napas sebelum diucapkan"
+   }
+  }
+ ],
+ "beats": [
+  {
+   "id": "01",
+   "babak": "B1",
+   "t": [
+    0.0,
+    3.5
+   ],
+   "vo": "Katanya, sebelum bikin NVIDIA, Jensen Huang pernah jadi tukang cuci mobil. Salah.",
+   "layar": "tukang cuci mobil? → SALAH",
+   "aksi": "Frame 1: keynote GTC berwarna; sepertiga kiri masih blok piksel lalu tajam dalam 10 frame (rumor = gambar kabur). Caption putih tumbuh per kata di kanan Jensen. Frame 2 (2,4 dtk): potong keras ke kartu hitam, SALAH putih Bold",
+   "kamera": "frame 1 push 1,00 → 1,04 pelan ke Jensen; kartu hitam diam",
+   "keluar": "potong keras ke klip jaket kulit",
+   "sfx": [
+    {
+     "t": 0.0,
+     "peran": "bed: dengung pita kaset pelan sepanjang video",
+     "alasan": "pilar 1, tidak ada hening digital; pita = perangkat Rewind"
+    },
+    {
+     "t": 0.0,
+     "peran": "aksen: glitch piksel tipis",
+     "alasan": "piksel yang menajam = rumor dibongkar, frame 0 butuh gebrakan bunyi"
+    },
+    {
+     "t": 2.4,
+     "peran": "aksen: hit teredam di SALAH",
+     "alasan": "koreksi mitos = puncak hook"
+    }
+   ],
+   "metafora": {
+    "makna": "cerita viral tentang Jensen salah",
+    "emosi": "penasaran lalu kaget",
+    "gerak_pembawa": "blok piksel menajam lalu dipotong kartu hitam",
+    "aksi": "membongkar",
+    "metafora": "rumor sebagai gambar kabur yang ditajamkan",
+    "objek": [
+     "keynote GTC",
+     "blok piksel",
+     "kartu hitam",
+     "kata SALAH"
+    ],
+    "urutan": "keynote kabur → tajam → kartu SALAH",
+    "bentuk": "orang"
+   }
+  },
+  {
+   "id": "02",
+   "babak": "B1",
+   "t": [
+    3.5,
+    7.0
+   ],
+   "vo": "Yang sebenarnya terjadi di balik jaket kulit ini jauh lebih keras.",
+   "layar": "jaket kulit ini → lebih keras",
+   "aksi": "Frame 1: close Jensen berjaket kulit (keynote yang sama, crop dekat), caption di rumput kanan. Frame 2: 2 frame terakhir invert penuh, 'lebih keras' tinta gelap = pintu masuk ke rewind",
+   "kamera": "push 1,04 → 1,07 ke dada/jaket",
+   "keluar": "invert 2 frame lalu potong ke pita mundur",
+   "sfx": [
+    {
+     "t": 3.5,
+     "peran": "transisi: udara teredam di potongan",
+     "alasan": "pilar 2, potongan ke shot dekat"
+    },
+    {
+     "t": 6.9,
+     "peran": "aksen: flash statik pendek",
+     "alasan": "invert = pintu ke masa lalu"
+    }
+   ],
+   "metafora": {
+    "makna": "di balik citra sukses ada masa lalu keras",
+    "emosi": "serius",
+    "gerak_pembawa": "push pelan menembus jaket kulit lalu gambar terbalik",
+    "aksi": "menembus",
+    "metafora": "jaket kulit sebagai kulit luar yang dibalik",
+    "objek": [
+     "jaket kulit",
+     "wajah Jensen",
+     "kilat invert"
+    ],
+    "urutan": "jaket → push → invert",
+    "bentuk": "orang"
+   }
+  },
+  {
+   "id": "03",
+   "babak": "B2",
+   "t": [
+    7.0,
+    11.0
+   ],
+   "vo": "Untuk melihat awalnya, kita harus putar mundur. Jauh. Ke tahun 1972.",
+   "layar": "1993 (berputar mundur) → ke tahun 1972",
+   "aksi": "Frame 1: footage panggung diputar mundur cepat; garis tracking pita, satu pita gambar bergeser kiri; angka tahun putih berputar mundur 2026 → 1972 dengan jejak gerak, ikon ◀◀ redup. Frame 2: pita berhenti, gambar beku B&W gelap, 1972 putih Bold, 'ke tahun' menempel di kiri atasnya",
+   "kamera": "diam; gambar di-skew oleh tracking pita",
+   "keluar": "beku B&W lalu potong ke Jensen bercerita",
+   "sfx": [
+    {
+     "t": 7.0,
+     "peran": "transisi: tape rewind",
+     "alasan": "perangkat Rewind episode ini, puncak saat angka berputar paling cepat"
+    },
+    {
+     "t": 10.2,
+     "peran": "foley: klik pita berhenti",
+     "alasan": "angka berhenti di 1972"
+    }
+   ],
+   "metafora": {
+    "makna": "cerita dimulai dari masa kecil",
+    "emosi": "nostalgia",
+    "gerak_pembawa": "angka tahun berputar mundur lalu berhenti keras",
+    "aksi": "memutar mundur",
+    "metafora": "hidup sebagai pita kaset yang diputar balik",
+    "objek": [
+     "pita/garis tracking",
+     "angka tahun",
+     "panggung GTC",
+     "ikon rewind"
+    ],
+    "urutan": "panggung → pita mundur → beku 1972",
+    "bentuk": "benda"
+   }
+  },
+  {
+   "id": "04",
+   "babak": "B2",
+   "t": [
+    11.0,
+    18.0
+   ],
+   "vo": "Umur sembilan tahun, ia dikirim ke sekolah asrama di Kentucky. Pamannya mengira itu sekolah bergengsi. Ternyata sekolah asrama yang keras.",
+   "layar": "umur 9 tahun → asrama yang keras",
+   "aksi": "Frame 1: Jensen bercerita (klip JRE vertikal, crop tanpa caption tertanam) sebagai foto tegak B&W hangat di kiri; '9 tahun' hero di kanan, 'umur' menempel di atasnya. Frame 2: papan Oneida Baptist Institute B&W hangat, caption tinta di langit di atas papan",
+   "kamera": "frame 1 diam; frame 2 push 1,00 → 1,06 ke papan",
+   "keluar": "potong keras ke kartu putih",
+   "sfx": [
+    {
+     "t": 11.0,
+     "peran": "transisi: udara pendek",
+     "alasan": "masuk ke cerita masa kecil"
+    },
+    {
+     "t": 15.5,
+     "peran": "foley: foto diletakkan di meja",
+     "alasan": "papan sekolah = arsip fisik"
+    }
+   ],
+   "metafora": {
+    "makna": "anak kecil dikirim jauh ke sekolah yang ternyata keras",
+    "emosi": "terasing",
+    "gerak_pembawa": "push pelan ke papan sekolah yang dingin",
+    "aksi": "mengirim",
+    "metafora": "papan batu sekolah sebagai pintu dunia yang keras",
+    "objek": [
+     "Jensen bercerita",
+     "papan Oneida",
+     "angka 9 tahun"
+    ],
+    "urutan": "Jensen bercerita → papan sekolah",
+    "bentuk": "orang"
+   }
+  },
+  {
+   "id": "05",
+   "babak": "B2",
+   "t": [
+    18.0,
+    25.0
+   ],
+   "vo": "Tugas hariannya di asrama: membersihkan toilet untuk sekitar seratus anak laki-laki. Teman sekamarnya remaja tujuh belas tahun.",
+   "layar": "toilet untuk 100 anak → teman sekamarnya 17 tahun",
+   "aksi": "Frame 1: kartu putih polos, '100 anak' tinta Bold, 'toilet untuk' menempel di atas. Frame 2 (23 dtk): balik ke kartu hitam, '17 tahun' putih, 'teman sekamarnya' di atas",
+   "kamera": "diam (kartu jeda)",
+   "keluar": "potong keras ke Stanford",
+   "sfx": [
+    {
+     "t": 18.0,
+     "peran": "tick KT: klik per kata kunci",
+     "alasan": "pilar 3, kata muncul mengikuti ucapan"
+    },
+    {
+     "t": 23.0,
+     "peran": "tick KT: klik di 17 tahun",
+     "alasan": "kartu berganti warna"
+    }
+   ],
+   "metafora": {
+    "makna": "tugas berat untuk anak sekecil itu",
+    "emosi": "berat",
+    "gerak_pembawa": "kartu putih dipotong keras ke kartu hitam",
+    "aksi": "menanggung",
+    "metafora": "angka besar di kartu kosong sebagai beban",
+    "objek": [
+     "kartu putih",
+     "angka 100",
+     "kartu hitam",
+     "angka 17"
+    ],
+    "urutan": "100 anak → 17 tahun",
+    "bentuk": "grafik"
+   }
+  },
+  {
+   "id": "06",
+   "babak": "B2",
+   "t": [
+    25.0,
+    30.0
+   ],
+   "vo": "(Quote cut suara asli) I used to clean toilets. I've cleaned more toilets than all of you combined.",
+   "layar": "aku dulu membersihkan toilet → lebih banyak dari kalian semua",
+   "aksi": "Jensen di kursi Stanford, terjemahan Indonesia tumbuh per frasa di ruang gelap kanan kepala. Frame 2: push ke wajah, 'kalian semua' Bold",
+   "kamera": "diam lalu push 1,00 → 1,10 ke wajah di kalimat kedua",
+   "keluar": "tawa audiens, potong keras ke papan Denny's",
+   "sfx": [
+    {
+     "t": 25.0,
+     "peran": "musik duck −6 dB",
+     "alasan": "suara asli jadi pusat"
+    },
+    {
+     "t": 29.0,
+     "peran": "tawa audiens dari klip",
+     "alasan": "reaksi asli, bukan SFX tambahan"
+    }
+   ],
+   "metafora": {
+    "makna": "Jensen sendiri mengakui pekerjaan rendah itu",
+    "emosi": "jujur, lucu",
+    "gerak_pembawa": "push pelan ke wajah saat punchline",
+    "aksi": "mengaku",
+    "metafora": "bukti dari mulut tokohnya sendiri",
+    "objek": [
+     "Jensen",
+     "kursi panggung",
+     "audiens"
+    ],
+    "urutan": "kalimat 1 → push → kalimat 2",
+    "bentuk": "orang"
+   }
+  },
+  {
+   "id": "07",
+   "babak": "B3",
+   "t": [
+    30.0,
+    37.0
+   ],
+   "vo": "Umur lima belas, ia kerja pertamanya di Denny's, Portland. Bukan cuci mobil. Pencuci piring, lalu busboy, lalu pelayan.",
+   "layar": "umur 15 → pencuci piring busboy pelayan",
+   "aksi": "Frame 1: papan Denny's asli (foto Commons, berwarna), 'umur 15' di bidang atap gelap kanan bawah, di luar papan ('kerja pertama' sudah diucapkan di atas papan, tidak ditulis). Frame 2: Jensen makan pancake (Fortune) sebagai foto tegak kiri; kata pekerjaan bertumpuk di kanan, yang lama meredup, 'pelayan' putih Bold",
+   "kamera": "frame 1 push 1,00 → 1,03 ke papan; frame 2 diam, kata bertumpuk",
+   "keluar": "potong keras ke Stanford",
+   "sfx": [
+    {
+     "t": 30.0,
+     "peran": "transisi: tape fast-forward pendek",
+     "alasan": "naik dari 1972 ke masa remaja"
+    },
+    {
+     "t": 34.0,
+     "peran": "tick KT: klik ×3 per jabatan",
+     "alasan": "tiap jabatan satu langkah naik"
+    }
+   ],
+   "metafora": {
+    "makna": "kerja pertama di dapur restoran, naik pelan",
+    "emosi": "bangga kecil",
+    "gerak_pembawa": "kata jabatan bertumpuk naik, yang lama meredup",
+    "aksi": "menaiki",
+    "metafora": "tangga jabatan dapur",
+    "objek": [
+     "papan Denny's",
+     "Jensen makan pancake",
+     "tiga jabatan"
+    ],
+    "urutan": "papan → Jensen → pencuci piring → busboy → pelayan",
+    "bentuk": "orang"
+   }
+  },
+  {
+   "id": "08",
+   "babak": "B3",
+   "t": [
+    37.0,
+    42.0
+   ],
+   "vo": "(Quote cut suara asli) I was probably Denny's best dishwasher.",
+   "layar": "pencuci piring terbaik",
+   "aksi": "Jensen di Stanford bergestur, 'terbaik' Bold di ruang gelap kanan, 'pencuci piring' menempel di atasnya",
+   "kamera": "push 1,00 → 1,04 pelan",
+   "keluar": "potong keras ke kartu hitam",
+   "sfx": [
+    {
+     "t": 37.0,
+     "peran": "musik turun tipis",
+     "alasan": "suara asli jadi pusat"
+    },
+    {
+     "t": 41.5,
+     "peran": "aksen: napas musik naik",
+     "alasan": "pindah ke babak berikutnya"
+    }
+   ],
+   "metafora": {
+    "makna": "ia bangga pada pekerjaan rendah itu",
+    "emosi": "hangat",
+    "gerak_pembawa": "push pelan ke wajah yang tersenyum",
+    "aksi": "membanggakan",
+    "metafora": "bukti dari mulut tokohnya sendiri",
+    "objek": [
+     "Jensen",
+     "gestur tangan",
+     "kata terbaik"
+    ],
+    "urutan": "Jensen → terbaik",
+    "bentuk": "orang"
+   }
+  },
+  {
+   "id": "09",
+   "babak": "B4",
+   "t": [
+    42.0,
+    49.0
+   ],
+   "vo": "Tapi ia tidak berhenti di dapur. Ia kuliah teknik elektro, lalu merancang chip sembilan tahun di AMD dan LSI Logic.",
+   "layar": "merancang chip 9 tahun → AMD LSI Logic",
+   "aksi": "Frame 1: kartu hitam, '9 tahun' Bold, 'merancang chip' di atasnya. Frame 2: makro wafer silikon diburamkan 3 px dan digelapkan, 'AMD' redup di atas, 'LSI Logic' putih Bold",
+   "kamera": "frame 2 push 1,04 → 1,08 ke wafer",
+   "keluar": "potong keras ke booth Denny's",
+   "sfx": [
+    {
+     "t": 42.0,
+     "peran": "transisi: tape fast-forward",
+     "alasan": "naik ke 1993"
+    },
+    {
+     "t": 45.0,
+     "peran": "bed tambahan: dengung elektrik halus",
+     "alasan": "dunia chip"
+    },
+    {
+     "t": 47.0,
+     "peran": "tick KT: klik di LSI Logic",
+     "alasan": "kata kunci baru"
+    }
+   ],
+   "metafora": {
+    "makna": "dari dapur ke industri chip",
+    "emosi": "tekun",
+    "gerak_pembawa": "wafer berputar pelan di bawah nama perusahaan",
+    "aksi": "merancang",
+    "metafora": "wafer silikon sebagai bahan kerjanya",
+    "objek": [
+     "kartu hitam",
+     "wafer",
+     "AMD",
+     "LSI Logic"
+    ],
+    "urutan": "9 tahun → AMD → LSI Logic",
+    "bentuk": "benda"
+   }
+  },
+  {
+   "id": "10",
+   "babak": "B4",
+   "t": [
+    49.0,
+    57.0
+   ],
+   "vo": "Lalu tahun 1993, di sebuah booth Denny's di San Jose, ia dan dua rekannya merancang NVIDIA.",
+   "layar": "booth Denny's 1993 → dan dua rekannya",
+   "aksi": "Artefak jangkar. Frame 1: foto booth Denny's San Jose, abu-abu kecuali Jensen berwarna (matte); '1993' raksasa di belakang kepalanya, 'booth Denny's' menempel di atas. Frame 2: plakat 'The booth that launched a $1 trillion company' sebagai kartu foto miring di hitam (kartu 39 k5), 'dan dua rekannya' di kiri; kata NVIDIA tidak ditulis ulang karena sudah terbaca di plakat (Lantai A3)",
+   "kamera": "frame 1 push 1,00 → 1,08 ke Jensen, geser kiri-atas; frame 2 kartu foto masuk dari kanan, lalu push pelan ke tulisan NVIDIA",
+   "keluar": "potong keras ke layar terbelah",
+   "sfx": [
+    {
+     "t": 49.0,
+     "peran": "foley: rana kamera satu klik",
+     "alasan": "foto jangkar muncul pertama kali (kartu 39 T1)"
+    },
+    {
+     "t": 53.0,
+     "peran": "foley: kertas plakat",
+     "alasan": "plakat = benda fisik"
+    }
+   ],
+   "metafora": {
+    "makna": "perusahaan raksasa lahir di meja restoran biasa",
+    "emosi": "takjub",
+    "gerak_pembawa": "push ke satu orang berwarna di foto abu-abu",
+    "aksi": "melahirkan",
+    "metafora": "booth restoran sebagai tempat lahir",
+    "objek": [
+     "booth Denny's",
+     "Jensen berwarna",
+     "plakat",
+     "angka 1993"
+    ],
+    "urutan": "booth → Jensen → plakat",
+    "bentuk": "benda"
+   }
+  },
+  {
+   "id": "11",
+   "babak": "B5",
+   "t": [
+    57.0,
+    63.0
+   ],
+   "vo": "Dari membersihkan toilet asrama dan mencuci piring, sampai membangun perusahaan chip paling bernilai di dunia.",
+   "layar": "toilet asrama → paling bernilai",
+   "aksi": "Layar terbelah: kiri papan Oneida B&W hangat (masa awal), kanan kampus NVIDIA di keynote berwarna (hari ini). Frame 1 'toilet asrama' putih Bold di bawah sisi kiri. Frame 2 'toilet asrama' meredup, 'paling bernilai' di posisi sejajar sisi kanan (kalimat paralel)",
+   "kamera": "kedua sisi push pelan ke arah garis tengah",
+   "keluar": "jeda musik 0,4 dtk, potong keras ke kartu putih",
+   "sfx": [
+    {
+     "t": 57.0,
+     "peran": "transisi: swish split",
+     "alasan": "pilar 2, layar terbelah masuk"
+    },
+    {
+     "t": 62.6,
+     "peran": "aksen: musik hening 0,4 dtk",
+     "alasan": "napas sebelum pelajaran"
+    }
+   ],
+   "metafora": {
+    "makna": "jarak dari pekerjaan terendah ke puncak",
+    "emosi": "puas",
+    "gerak_pembawa": "dua sisi layar didorong saling mendekat",
+    "aksi": "membandingkan",
+    "metafora": "dua dunia berdampingan dalam satu frame",
+    "objek": [
+     "papan sekolah",
+     "kampus NVIDIA",
+     "garis belah"
+    ],
+    "urutan": "kiri → kanan",
+    "bentuk": "sebab-akibat"
+   }
+  },
+  {
+   "id": "12",
+   "babak": "B5",
+   "t": [
+    63.0,
+    71.0
+   ],
+   "vo": "Pelajarannya: tidak ada pekerjaan yang terlalu rendah untuk dikerjakan, kalau kamu sedang membangun kebiasaan yang akan membawamu ke puncak.",
+   "layar": "tidak ada pekerjaan terlalu rendah → ke puncak",
+   "aksi": "Frame 1: kartu putih, 'terlalu rendah' tinta Bold, 'tidak ada pekerjaan' menempel di atas. Frame 2: panggung GTC lebar dengan penonton, 'ke puncak' putih Bold di atas penonton",
+   "kamera": "frame 2 push 1,00 → 1,05 ke panggung",
+   "keluar": "potong keras ke booth",
+   "sfx": [
+    {
+     "t": 63.0,
+     "peran": "aksen: sub drop",
+     "alasan": "kalimat pelajaran = puncak episode"
+    },
+    {
+     "t": 69.0,
+     "peran": "aksen: riser pelan menuju panggung",
+     "alasan": "menuju puncak"
+    }
+   ],
+   "metafora": {
+    "makna": "kerja rendah membangun jalan ke puncak",
+    "emosi": "yakin",
+    "gerak_pembawa": "kartu kosong dipotong ke panggung raksasa",
+    "aksi": "membangun",
+    "metafora": "panggung sebagai puncak",
+    "objek": [
+     "kartu putih",
+     "panggung GTC",
+     "penonton"
+    ],
+    "urutan": "kalimat → panggung",
+    "bentuk": "benda"
+   }
+  },
+  {
+   "id": "13",
+   "babak": "B5",
+   "t": [
+    71.0,
+    76.0
+   ],
+   "vo": "Pekerjaan pertamamu dulu apa? Tulis di komentar.",
+   "layar": "kerja pertamamu? tulis di komentar",
+   "aksi": "Frame 1: kembali ke foto booth (abu-abu, digelapkan), 'kerja pertamamu?' Bold putih di tengah, 'tulis di komentar' di bawahnya. Frame 2: kartu sumber putih 1,5 dtk",
+   "kamera": "frame 1 push pelan; kartu sumber diam",
+   "keluar": "selesai",
+   "sfx": [
+    {
+     "t": 71.0,
+     "peran": "foley: klik pita play",
+     "alasan": "pita kembali main, perangkat Rewind ditutup"
+    },
+    {
+     "t": 74.5,
+     "peran": "aksen: akor penutup",
+     "alasan": "akhir"
+    }
+   ],
+   "metafora": {
+    "makna": "penonton diajak mengingat kerja pertamanya",
+    "emosi": "akrab",
+    "gerak_pembawa": "kembali ke booth yang sama",
+    "aksi": "mengajak",
+    "metafora": "booth sebagai titik awal milik penonton juga",
+    "objek": [
+     "booth Denny's",
+     "pertanyaan",
+     "kartu sumber"
+    ],
+    "urutan": "booth → kartu sumber",
+    "bentuk": "benda"
+   }
+  }
+ ]
+}

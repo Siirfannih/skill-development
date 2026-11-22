@@ -1,0 +1,172 @@
+{
+ "cues": [
+  {
+   "t": 0.0,
+   "peran": "bed: dengung pita kaset pelan sepanjang video",
+   "alasan": "pilar 1, tidak ada hening digital; pita = perangkat Rewind",
+   "beat": "01"
+  },
+  {
+   "t": 0.0,
+   "peran": "aksen: glitch piksel tipis",
+   "alasan": "piksel yang menajam = rumor dibongkar, frame 0 butuh gebrakan bunyi",
+   "beat": "01"
+  },
+  {
+   "t": 2.4,
+   "peran": "aksen: hit teredam di SALAH",
+   "alasan": "koreksi mitos = puncak hook",
+   "beat": "01"
+  },
+  {
+   "t": 3.5,
+   "peran": "transisi: udara teredam di potongan",
+   "alasan": "pilar 2, potongan ke shot dekat",
+   "beat": "02"
+  },
+  {
+   "t": 6.9,
+   "peran": "aksen: flash statik pendek",
+   "alasan": "invert = pintu ke masa lalu",
+   "beat": "02"
+  },
+  {
+   "t": 7.0,
+   "peran": "transisi: tape rewind",
+   "alasan": "perangkat Rewind episode ini, puncak saat angka berputar paling cepat",
+   "beat": "03"
+  },
+  {
+   "t": 10.2,
+   "peran": "foley: klik pita berhenti",
+   "alasan": "angka berhenti di 1972",
+   "beat": "03"
+  },
+  {
+   "t": 11.0,
+   "peran": "transisi: udara pendek",
+   "alasan": "masuk ke cerita masa kecil",
+   "beat": "04"
+  },
+  {
+   "t": 15.5,
+   "peran": "foley: foto diletakkan di meja",
+   "alasan": "papan sekolah = arsip fisik",
+   "beat": "04"
+  },
+  {
+   "t": 18.0,
+   "peran": "tick KT: klik per kata kunci",
+   "alasan": "pilar 3, kata muncul mengikuti ucapan",
+   "beat": "05"
+  },
+  {
+   "t": 23.0,
+   "peran": "tick KT: klik di 17 tahun",
+   "alasan": "kartu berganti warna",
+   "beat": "05"
+  },
+  {
+   "t": 25.0,
+   "peran": "musik duck −6 dB",
+   "alasan": "suara asli jadi pusat",
+   "beat": "06"
+  },
+  {
+   "t": 29.0,
+   "peran": "tawa audiens dari klip",
+   "alasan": "reaksi asli, bukan SFX tambahan",
+   "beat": "06"
+  },
+  {
+   "t": 30.0,
+   "peran": "transisi: tape fast-forward pendek",
+   "alasan": "naik dari 1972 ke masa remaja",
+   "beat": "07"
+  },
+  {
+   "t": 34.0,
+   "peran": "tick KT: klik ×3 per jabatan",
+   "alasan": "tiap jabatan satu langkah naik",
+   "beat": "07"
+  },
+  {
+   "t": 37.0,
+   "peran": "musik turun tipis",
+   "alasan": "suara asli jadi pusat",
+   "beat": "08"
+  },
+  {
+   "t": 41.5,
+   "peran": "aksen: napas musik naik",
+   "alasan": "pindah ke babak berikutnya",
+   "beat": "08"
+  },
+  {
+   "t": 42.0,
+   "peran": "transisi: tape fast-forward",
+   "alasan": "naik ke 1993",
+   "beat": "09"
+  },
+  {
+   "t": 45.0,
+   "peran": "bed tambahan: dengung elektrik halus",
+   "alasan": "dunia chip",
+   "beat": "09"
+  },
+  {
+   "t": 47.0,
+   "peran": "tick KT: klik di LSI Logic",
+   "alasan": "kata kunci baru",
+   "beat": "09"
+  },
+  {
+   "t": 49.0,
+   "peran": "foley: rana kamera satu klik",
+   "alasan": "foto jangkar muncul pertama kali (kartu 39 T1)",
+   "beat": "10"
+  },
+  {
+   "t": 53.0,
+   "peran": "foley: kertas plakat",
+   "alasan": "plakat = benda fisik",
+   "beat": "10"
+  },
+  {
+   "t": 57.0,
+   "peran": "transisi: swish split",
+   "alasan": "pilar 2, layar terbelah masuk",
+   "beat": "11"
+  },
+  {
+   "t": 62.6,
+   "peran": "aksen: musik hening 0,4 dtk",
+   "alasan": "napas sebelum pelajaran",
+   "beat": "11"
+  },
+  {
+   "t": 63.0,
+   "peran": "aksen: sub drop",
+   "alasan": "kalimat pelajaran = puncak episode",
+   "beat": "12"
+  },
+  {
+   "t": 69.0,
+   "peran": "aksen: riser pelan menuju panggung",
+   "alasan": "menuju puncak",
+   "beat": "12"
+  },
+  {
+   "t": 71.0,
+   "peran": "foley: klik pita play",
+   "alasan": "pita kembali main, perangkat Rewind ditutup",
+   "beat": "13"
+  },
+  {
+   "t": 74.5,
+   "peran": "aksen: akor penutup",
+   "alasan": "akhir",
+   "beat": "13"
+  }
+ ]
+}
