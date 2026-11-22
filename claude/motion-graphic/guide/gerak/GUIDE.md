@@ -19,7 +19,7 @@
 - **Bila kamera pindah dari satu objek ke objek berikut sementara teksnya masih diucapkan, pilih teks tetap di posisi dunianya dan biarkan kamera melewatinya**, bukan menjepit teks di tepi layar supaya tidak keluar: teks yang ikut bergeser terbaca "melayang" dan memutus ilusi satu dunia.
 - **Bila efek kilat cahaya diminta melintas pada kartu judul yang pendek (< 20 frame), pilih sapuan berkurva rata (`drift`) sepanjang hampir seluruh kartu dengan pita yang menyeberang dari pojok ke pojok**, bukan kurva `land`: `land` menghabiskan sapuan dalam 3 frame lalu pita mengendap di luar huruf, sehingga kilatnya tidak terlihat bergerak.
 - **Bila revisi menyebut perbaikan "di titik transisi dan animasi", ubah hanya waktu, kurva, dan cara masuk/keluar.** Elemen visual baru (kartu wajah, pill, label) di adegan yang sudah disetujui = di luar cakupan, walau terasa membantu transisi; tawarkan sebagai usul, jangan dipasang.
-- **Bila transisi dari adegan 3D/footage ke UI diminta "flash atau cut out", pilih potong keras di akhir kata terakhir + kilat putih 1 f penuh yang turun dalam 2–3 f, lalu shot UI dibuka dengan zoom-out pelan 1,08 → 1,0 (±1,2 dtk, kurva drift)** (kartu 66 T2 + 60 T4). Kilat yang masih hampir putih lebih dari 2 f terbaca sebagai frame kosong; cek lembar per frame di sekitar potongan.
+- **Bila transisi dari adegan 3D/footage ke UI diminta "flash atau cut out", pilih potong keras di akhir kata terakhir + kilat putih tepat 1 f lalu langsung shot baru tanpa pudar, lalu shot UI dibuka dengan zoom-out pelan 1,08 → 1,0 (±1,2 dtk, kurva drift)** (kartu 66 T2 + 60 T4). Kilat yang memudar membuat potongan terasa lembek: penonton hanya boleh melihat satu kilatan lalu frame langsung berubah; cek lembar per frame di sekitar potongan.
 
 
 ## Cek cepat
