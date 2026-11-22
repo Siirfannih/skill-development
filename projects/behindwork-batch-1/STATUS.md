@@ -20,3 +20,4 @@ Diperbarui 22 Nov 2026 (claude2).
 - Paket dengar 12 variasi + potongan vokal referensi: Drive `Claude edit/behindwork-batch-1/vo-variasi-suara` (`00_SEMUA_berurutan.mp3`). Menunggu Irfan memilih.
 - OmniVoice: `~/work/tts/omni-venv`, skrip `~/work/tts/omni_variasi.py` (per kalimat; kalimat 1 voice design, sisanya ref ke kalimat 1). Keluaran mentah `/mnt/storage-projects/tts/out/`.
 - ElevenLabs voice design: `generated_voice_id` B1–B6 belum disimpan ke akun (simpan hanya yang dipilih, `POST /v1/text-to-voice`). Sisa kredit ±18.660.
+- 22 Nov: B6 dipilih (D-11). Kandidat ringan C1–C6 di Drive `Claude edit/behindwork-batch-1/vo-b6-ringan`, menunggu pilihan final. Remix `generated_voice_id` di `vo/remix_*.json` (simpan ke akun hanya yang dipilih). Sisa kredit 18.185.
