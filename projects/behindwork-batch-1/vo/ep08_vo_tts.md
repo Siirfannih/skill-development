@@ -1,21 +1,23 @@
-# Ep08 · naskah VO versi TTS (script engineering, D-12)
+# Ep08 · naskah VO versi cerita (D-14)
 
-Isi dan fakta sama dengan `riset/episode/08-dyson-5127-prototipe/script.md`; hanya cara tulisnya yang diubah untuk prosodi: frasa pendek, `...` jeda napas/tegang, `—` ganti nada, kapital 1–2 kata kunci per kalimat. Script tidak punya kolom nomor, jadi nomor beat = urutan baris tabel naskah. Kapital ENAM/TUJUH di beat 08–09 menjaga koreksi mitos (yang gagal 5.126). Audio asli Dyson 2 dtk ("the 5,127 worked") opsional di visual beat 09; VO tetap dibacakan.
+Isi dan fakta sama dengan `riset/episode/08-dyson-5127-prototipe/script.md`. Ditulis ulang sebagai cerita lisan, bukan naskah potongan: kalimat bersambung dengan koma seperti orang ngobrol, panjang-pendek bergantian, tikungan dibawa dengan "tapi" yang tenang (kartu S05), tidak ada bantahan mendadak. `...` hanya untuk jeda napas atau menunda satu kata kunci; KAPITAL sangat jarang (paling banyak satu kata per beat). Hitungan tetap jadi tulang cerita (struktur Penghitung): montase gagal dibacakan sebagai satu kalimat yang makin cepat, bukan potongan bertitik. Script tidak punya kolom nomor, jadi nomor beat = urutan baris tabel naskah. Kapital lembut ENAM/TUJUH di beat 08–09 menjaga koreksi mitos (yang gagal 5.126). Audio asli Dyson 2 dtk ("the 5,127 worked") opsional di visual beat 09; VO tetap dibacakan.
 
-| Beat | VO TTS |
+Versi sebelumnya (gaya naskah potongan, ditolak Irfan): lihat riwayat git file ini.
+
+| Beat | VO |
 |---|---|
-| 01 | Penyedot debu merah muda ini... butuh lima ribu seratus dua puluh tujuh PROTOTIPE. |
-| 02 | Kita hitung... dari nomor SATU. |
-| 03 | Akhir tahun tujuh puluhan. James Dyson KESAL. Kantong vakum di rumahnya... cepat MAMPET. |
-| 04 | Di pabriknya, ia pernah meniru siklon RAKSASA dari penggergajian kayu. Kenapa nggak... DIKECILKAN? |
-| 05 | Dyson sendiri bilang... prototipe nomor satu cuma KARTON. Yang ditempel ke vakum. |
-| 06 | Lalu satu perubahan kecil. Satu tes sehari. GAGAL. Ubah lagi. Gagal LAGI. |
-| 07 | Hari jadi bulan... bulan jadi tahun. Fast Company menulis... gaji istrinya sebagai guru seni ikut MENOPANG keluarga. |
-| 08 | Lima ribu seratus dua puluh ENAM... Masih GAGAL. |
-| 09 | Lima ribu seratus dua puluh TUJUH... BERHASIL. Dyson sendiri menghitungnya... empat TAHUN. |
-| 10 | Tapi — nggak ada satu pun produsen vakum besar yang MAU. Dyson sendiri bilang... mereka nggak mau kehilangan bisnis KANTONG. |
-| 11 | Yang berani justru Apex... di JEPANG. Tahun sembilan belas delapan puluh enam... lahirlah G-Force. Merah muda PUCAT. |
-| 12 | Dyson lalu membangun pabriknya SENDIRI. Ia sendiri bilang... pinjam enam ratus ribu paun dari bank. Rumahnya — jadi JAMINAN. |
-| 13 | Tahun sembilan belas sembilan puluh tiga... D-C nol satu MELUNCUR. |
-| 14 | Penemuan itu bukan satu ide HEBAT. Penemuan itu... lima ribu seratus dua puluh enam KEGAGALAN yang dicatat. |
-| 15 | Angka berapa biasanya kamu MENYERAH? Tulis di komentar. G-Force pink itu... sekarang dipajang di museum V-and-A. |
+| 01 | Penyedot debu merah muda ini butuh lima ribu seratus dua puluh tujuh... prototipe. |
+| 02 | Kita hitung dari nomor satu. |
+| 03 | Akhir tahun tujuh puluhan, James Dyson kesal, kantong vakum di rumahnya cepat mampet. |
+| 04 | Di pabriknya, dia pernah meniru siklon raksasa dari penggergajian kayu, jadi kenapa nggak dikecilkan aja? |
+| 05 | Dyson sendiri bilang, prototipe nomor satu cuma karton yang ditempel ke vakum. |
+| 06 | Lalu satu perubahan kecil, satu tes sehari, gagal, diubah lagi, gagal lagi. |
+| 07 | Hari jadi bulan, bulan jadi tahun, dan Fast Company menulis, gaji istrinya sebagai guru seni ikut menopang keluarga. |
+| 08 | Sampai nomor lima ribu seratus dua puluh ENAM pun... masih gagal. |
+| 09 | Dan nomor lima ribu seratus dua puluh TUJUH, berhasil. Dyson sendiri menghitungnya, empat tahun. |
+| 10 | Tapi nggak ada satu pun produsen vakum besar yang mau, dan Dyson sendiri bilang, mereka nggak mau kehilangan bisnis kantong. |
+| 11 | Yang berani justru Apex, di Jepang. Tahun sembilan belas delapan puluh enam lahirlah G-Force, merah muda pucat. |
+| 12 | Dyson lalu membangun pabriknya sendiri, dan dia sendiri bilang, dia pinjam enam ratus ribu paun dari bank, rumahnya... jadi jaminan. |
+| 13 | Sampai akhirnya, tahun sembilan belas sembilan puluh tiga, D-C nol satu meluncur. |
+| 14 | Jadi penemuan itu bukan satu ide hebat. Penemuan itu lima ribu seratus dua puluh enam KEGAGALAN, yang dicatat. |
+| 15 | Angka berapa biasanya kamu menyerah? Tulis di komentar. Dan G-Force pink itu, sekarang dipajang di museum V-and-A. |
