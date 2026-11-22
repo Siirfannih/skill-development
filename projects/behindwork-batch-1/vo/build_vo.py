@@ -33,6 +33,26 @@ def trim(a, thr_db=-50, pad=0.04):
     return a[s:e]
 
 
+def squeeze_pauses(a, thr_db=-42, max_gap=0.45, keep=0.32, win=0.01):
+    """Pendekkan jeda mati di dalam beat TTS: hening > max_gap dtk jadi keep dtk (suara tidak dipercepat)."""
+    n = int(win * SR); fr = len(a) // n
+    if fr < 3:
+        return a
+    rms = np.sqrt((a[: fr * n].reshape(fr, n) ** 2).mean(1)); ref = np.percentile(rms[rms > 0], 90)
+    quiet = 20 * np.log10(rms / ref + 1e-12) < thr_db
+    out, i = [], 0
+    while i < fr:
+        j = i
+        while j < fr and quiet[j] == quiet[i]:
+            j += 1
+        seg = a[i * n: j * n]
+        if quiet[i] and (j - i) * win > max_gap and i > 0 and j < fr:
+            k = int(keep * SR); h = k // 2
+            seg = np.concatenate([seg[:h], seg[-(k - h):]])
+        out.append(seg); i = j
+    return np.concatenate(out + [a[fr * n:]])
+
+
 def fade(a, ms=8):
     n = int(ms / 1000 * SR)
     a = a.copy(); a[:n] *= np.linspace(0, 1, n); a[-n:] *= np.linspace(1, 0, n)
@@ -64,7 +84,10 @@ def main():
                 chunks.append((x, kind))
             parts.append((b["id"], chunks, True))
         else:
-            parts.append((b["id"], fade(trim(load(base / b["file"]))), False))
+            x = trim(load(base / b["file"]))
+            if spec.get("squeeze_pauses"):
+                x = squeeze_pauses(x, **spec["squeeze_pauses"])
+            parts.append((b["id"], fade(x), False))
     tts = np.concatenate([a for _, a, q in parts if not q])
     g_tts = 10 ** ((tgt - lufs(tts)) / 20)
     g_tts = min(g_tts, 10 ** (-1.5 / 20) / float(np.abs(tts).max()))
