@@ -1,6 +1,6 @@
 # STATUS · behindwork-batch-1
 
-Diperbarui 22 Nov 2026 (claude2).
+Diperbarui 23 Nov 2026 (claude2).
 
 ## Posisi
 - Storyboard v1 (zip Irfan) diaudit: `AUDIT.md`. Panel sumber v1 tidak ada, jadi dibangun ulang (D-01) dengan gaya baru Story Cinematic (D-02), 16:9 (D-04).
@@ -25,3 +25,7 @@ Diperbarui 22 Nov 2026 (claude2).
 
 ## Produksi final (23 Nov)
 - **Ep01 EN selesai 01.30**: `/mnt/storage-projects/behindwork-batch-1/final/Behindwork_EP01_JensenHuang_EN.mp4` (89,2 dtk, −16,9 LUFS, puncak −2,7 dBFS), Drive `Claude edit/behindwork-batch-1/final`. Mesin: `remotion/` (data `src/data/ep01.json` dari `bangun/rancangan_ep01.py`), musik tegang/energi/hangat dipilih `music_fit.py`. Render langsung Remotion; gerbang `render.sh final` lengkap tidak dijalankan karena tenggat (cek yang dijalankan: still per beat + lembar per detik dengan mata, `sfx_span.py --cues` tanpa HABIS setelah ganti tape rewind, loudness).
+- **Ep02–05 EN selesai 23 Nov 01.45–02.10** dengan mesin yang sama (`bangun/rancangan_ep0N.py` → `src/data/ep0N.json`). Perangkat khas per episode: ep02 jam shift raksasa (21:00 → 03:00 → 09:00), ep03 penghitung detik 0:00–0:19 di samping video pertama YouTube, ep04 kartu buku kas "Line 1–6", ep05 layar terbelah yang berima (Game 1 ↔ Game 2). Semua di `final/` dan Drive `Claude edit/behindwork-batch-1/final`.
+- **Versi Indonesia ep01 + ep02** (suara The Gap `qs32dRxpAolcIUaxxAN9`): `bangun/rancangan_ep0N_id.py` memakai ulang adegan, SFX tambahan, dan musik versi Inggris; titik potong dipetakan ke kata Indonesia yang sepadan (`bangun/peta_id.py`), KT ditulis ulang dengan kata yang diucapkan, tanpa subtitle (D-21). Naskah: `vo/ep0N_vo_id_gap.md`.
+- Cek yang dijalankan per video: still per adegan + lembar kontak, audit KT (warna tinta/putih vs latar, rentang waktu), panjang sampel SFX/musik vs rentang cue (tanpa HABIS), loudness campuran (−16,7 s.d. −17 LUFS, puncak ≤ −1,8 dBFS), lembar per 3 dtk dari file final. Gerbang `render.sh final` lengkap tidak dijalankan (tenggat).
+- Re-render setelah audit: ep03 (KT pembuka bertumpuk; "second by second" muncul terlalu awal), ep02 (KT "2007" tidak pernah tampil).

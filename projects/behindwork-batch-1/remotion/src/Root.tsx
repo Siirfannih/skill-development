@@ -8,6 +8,8 @@ import ep02 from './data/ep02.json';
 import ep03 from './data/ep03.json';
 import ep04 from './data/ep04.json';
 import ep05 from './data/ep05.json';
+import ep01id from './data/ep01id.json';
+import ep02id from './data/ep02id.json';
 
 // Helvetica Neue berlisensi lokal (BRAND Behindwork) dimuat dari file; tanpa font cadangan sistem (Lantai A7).
 const muatHuruf = () => {
@@ -22,7 +24,7 @@ const muatHuruf = () => {
 };
 muatHuruf();
 
-const daftar: Episode[] = [ep01 as unknown as Episode, ep02 as unknown as Episode, ep03 as unknown as Episode, ep04 as unknown as Episode, ep05 as unknown as Episode];
+const daftar: Episode[] = [ep01 as unknown as Episode, ep02 as unknown as Episode, ep03 as unknown as Episode, ep04 as unknown as Episode, ep05 as unknown as Episode, ep01id as unknown as Episode, ep02id as unknown as Episode];
 
 export const Root: React.FC = () => (
   <>

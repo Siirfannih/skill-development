@@ -39,7 +39,7 @@ def adegan(w):
     a("05d", w("and", "05", 2), b["06"]["mulai"], [M])
     a("06a", b["06"]["mulai"], w("people", "06"), [M, zoo(12.0, 0.5)])
     a("06b", w("people", "06"), w("so", "06"), [M, zoo(12.0, 0.8, x=1115, y=300)])
-    a("06c", w("so", "06"), b["07"]["mulai"], [P])
+    a("06c", w("so", "06"), w("second", "07"), [P])
     a("07a", w("second", "07"), w("the", "07"), [M, zoo(15.0, 0.5)])
     a("07b", w("the", "07"), w("and", "07"), [P, {"k": "inset", "src": E + "time_youtube_gurus_2006_shot.png", "x": 1080, "y": 110, "w": 640, "h": 820, "pos": "50% 18%", "masuk": "kanan", "kb": {"s0": 1.0, "s1": 1.05}}])
     a("07c", w("and", "07"), b["08"]["mulai"], [P, {"k": "inset", "src": E + "steve_chen_taiwan.jpg", "x": 165, "y": 110, "w": 600, "h": 800, "pos": "50% 30%", "masuk": "bawah", "kb": {"s0": 1.0, "s1": 1.04}}])
@@ -65,7 +65,7 @@ def kt(w):
     k(peran="r1", dari=w("YouTube's", "01"), sampai=w("and", "01", 2), x=900, y=230, kata=[K("YouTube's", w("YouTube's", "01")), K("first video", w("first", "01"), baris=1)])
     k(peran="giant", dari=w("19", "01"), sampai=w("and", "01", 2), x=900, y=530, ukuran=300, angka={"dari": 0, "ke": 19, "durasi": 0.9, "format": "detik"})
     k(peran="lead", dari=w("two", "01"), sampai=w("and", "01", 2), x=905, y=830, kata=[K("two elephants", w("two", "01"))])
-    k(peran="lead", dari=w("second", "01"), sampai=b["02"]["mulai"], x=960, y=360, jangkar="tengah", warna="tinta", kata=[K("second by second,", w("second", "01"))])
+    k(peran="lead", dari=w("second", "01", 2), sampai=b["02"]["mulai"], x=960, y=360, jangkar="tengah", warna="tinta", kata=[K("second by second,", w("second", "01", 2))])
     k(peran="r2", dari=w("how", "01"), sampai=b["02"]["mulai"], x=960, y=470, jangkar="tengah", warna="tinta", teks="how YouTube began", aksen="began")
     # 02: penghitung diputar mundur ke nol
     k(peran="giant", dari=w("second", "02"), sampai=w("at", "02", 2), x=960, y=180, jangkar="tengah", ukuran=420, angka={"dari": 19, "ke": 0, "durasi": 0.6, "format": "detik"})

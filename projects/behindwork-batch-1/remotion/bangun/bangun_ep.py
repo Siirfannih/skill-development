@@ -50,7 +50,7 @@ def main():
     adegan = R.adegan(w); kt = R.kt(w)
     # subtitle: tampilan per beat dibagi menurut panjang karakter, batas dijepret ke awal kata terdekat
     sub = []
-    md = Path(R.SUB_MD).read_text()
+    md = Path(R.SUB_MD).read_text() if getattr(R, "SUB_MD", None) else ""  # versi Indonesia: tanpa subtitle
     for m in re.finditer(r"^\| (\d\d) \|(.+)\|\s*$", md, re.M):
         # tabel 2 kolom (Beat | Subtitle) atau 4 kolom (Beat | VO | Karakter | Subtitle ID): subtitle = kolom terakhir
         bid, cell = m.group(1), m.group(2).split(" | ")[-1].strip()
