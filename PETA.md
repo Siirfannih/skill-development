@@ -94,7 +94,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/guide/referensi/joseph-arthur-brooks.md` | **18 Joseph (Ultimate Editors) · gaya "minimal premium" Arthur Brooks + cara melatih Claude** — > Dibedah Claude 11 Nov dari video kiriman Irfan: YouTube g9xoKm5DEeU "How to Edit VIRAL Talking Head Videos Using ONLY Claude" (Joseph, 20:57). |
 | `claude/motion-graphic/guide/referensi/markbrazil.md` | **16 markbrazil · "Noir Stage Podcast": guideline editing** — > Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di sheets/, scene detect ffmpeg, ebur128, spektrogram + onset librosa). |
 | `claude/motion-graphic/guide/referensi/pedro-andradeok.md` | **14 pedro.andradeok · "Grid Cut Editorial": guideline editing** — > Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di sheets/, scene detect ffmpeg, ebur128, spektrogram + onset librosa). |
-| `claude/motion-graphic/guide/sfx/EPIDEMIC.md` | **Katalog `~/sfx/Epidemic` (diunduh dan diperiksa 21 Nov 2026)** — Stok lokal Tier 1 untuk famili yang tipis di SFXIrfan dan Kenyset (FAMILI.md). |
+| `claude/motion-graphic/guide/sfx/EPIDEMIC.md` | **Katalog `~/sfx/Epidemic` (diunduh dan diperiksa 21 Nov 2026)** — Stok lokal Tier 1 untuk famili yang tipis di SFXIrfan dan Kenyset, termasuk Master Keyword Matrix lima pilar (FAMILI.md §0). |
 | `claude/motion-graphic/guide/sfx/FAMILI.md` | **Famili bunyi: kebutuhan SFX ditulis sebagai karakter, sumbernya dicari** — Tujuan. Kebutuhan bunyi tiap objek ditulis sebagai famili (karakter bunyi), bukan nama file. |
 | `claude/motion-graphic/guide/sfx/GUIDE.md` | **SFX: lima pilar sound design, satu cue untuk setiap objek/visual penting** — Tujuan. Video terdengar seperti satu ruang yang hidup: bed ambien konstan di bawah semuanya, dan setiap objek atau visual yang muncul/bergerak punya satu bunyi dari pilarnya: transisi kamera & split,  |
 | `claude/motion-graphic/guide/sfx/SFXIRFAN.md` | **Katalog `~/sfx/SFXIrfan` (didengar 13 Nov dengan `earshot describe`)** — Sumber pertama untuk SFX (Lantai E24), bukan allowlist. |
@@ -138,6 +138,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/audio/music_check.py` | Check a generated score against the act plan: duration, loudness per section, energy jump at boundaries. |
 | `claude/motion-graphic/scripts/audio/music_fit.py` | Seleksi musik terukur: kandidat diukur dan diberi peringkat terhadap kategori suasana + suara video. |
 | `claude/motion-graphic/scripts/audio/musik_cari.py` | Kumpulkan kandidat musik per kategori suasana dari Mixkit (Tier 2 musik, guide/sfx/FAMILI.md §4). |
+| `claude/motion-graphic/scripts/audio/myinstants_unduh.py` | Unduh SEMUA suara dari hasil pencarian myinstants.com (sumber gratis, guide/sfx/FAMILI.md §2 tingkat 2). |
 | `claude/motion-graphic/scripts/audio/pace_read.py` | Baca tempo video lalu usulkan kategori suasana untuk audio (Lantai E25). |
 | `claude/motion-graphic/scripts/audio/recut.py` | Terapkan rentang buang ke suara + video wajah (sinkron bibir) dan buat peta waktu lama -> baru. |
 | `claude/motion-graphic/scripts/audio/sfx_cari.py` | Cari kandidat SFX per famili bunyi di sumber gratis berlisensi (Tier 2, guide/sfx/FAMILI.md §Sumber). |

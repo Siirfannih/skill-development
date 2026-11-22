@@ -1040,3 +1040,27 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | kayu tetap terlarang; "soft wood tap single" diganti "soft plastic tap single" | jawaban Irfan 21 Nov 2026 |
 | ease-in hanya di pra-rol (serangan utuh), ease-out kosinus 8–12 frame | permintaan Irfan "Easy-in / Easy-out" disatukan dengan larangan fade-in di atas transien |
 | titik awal ducking 0,12 → 0,25, bed −20 LUFS × 0,10 | nilai yang dipakai dan diukur di kegagalan-eps01 v2 (R-29, R-30) |
+
+## `scripts/audio/myinstants_unduh.py` (+ baris Myinstants di `guide/sfx/FAMILI.md` §2)
+
+| Aturan | Asal-usul |
+|---|---|
+| unduh massal hasil pencarian myinstants (paginasi `&page=N`, jeda 0,5–1 dtk, UA generik, lewati file ada, `index.csv`); hasil tetap wajib `sfx_vet.py` | Irfan 22 Nov 2026: suaranya dibagikan gratis dan ia ingin mengunduhnya sekaligus; lisensi per file tidak dinyatakan, maka pemeriksaan tetap wajib |
+
+## `cookbook/05-sfx-and-audio-mapping/93-change-marked-sound-hierarchy.md`
+
+| Aturan | Asal-usul |
+|---|---|
+| seluruh kartu (formula bunyi = perubahan keadaan, bentuk bunyi = bentuk gestur, kepadatan terbalik dengan ucapan, lapisan musik) | Irfan 22 Nov 2026: video referensi IG `DfKZ9g_J3x_` dikirim sebagai "contoh editing expert", diminta jadi pembelajaran dan formula, bukan template; dibedah subagen claude1 (strip 10 fps, demucs, faster-whisper, earshot) |
+
+## `cookbook/05-sfx-and-audio-mapping/94-vacuum-before-hit-logo-sting.md`
+
+| Aturan | Asal-usul |
+|---|---|
+| seluruh kartu (vakum sebelum hantaman, tiga tingkat level, isi daya lalu konfirmasi, sinkron mendarat/mendahului, selam UI, ekor penutup) | Irfan 22 Nov 2026: video referensi IG/ssspin `ZawyaStudio1_ssspin.io_1795320236` dikirim untuk dipelajari cara memutuskan gerak dan sound design; keluhan sound design versi final kegagalan-eps01 (tidak seimbang, riser mengganggu, SFX telat, pembuka sepi, ending mendadak). Diukur ulang dari file (earshot, spektrogram, strip 30 fps) |
+
+## `cookbook/02-typography-and-captions/89-block-reveal-essay-montage.md` (bagian suara)
+
+| Aturan | Asal-usul |
+|---|---|
+| bagian SFX/Audio kartu (tik mozaik, tiga tik kata, musik berlapis per tahap argumen, tanpa ducking, cut mengikuti kata) | Irfan 22 Nov 2026: file `filmmnostalgia_DchORmBPFjp` diminta dibedah ulang untuk sound design; stem demucs, onset pita tinggi, deteksi frame |

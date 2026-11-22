@@ -84,6 +84,9 @@ Satu baris per pola (T-blok) dalam kartu, dikelompokkan per kategori pola. Buka 
 | 91.T2 | Gesture-Matched Cutaway | perkenalan penutur yang tadinya dilihat dari jauh lalu "ditarik masuk" ke ceritanya; kalimat "Hai, aku …". | 02-typography-and-captions/91-headroom-phrase-swap-caption.md |
 | 91.T3 | Doorway Slab Wipe Repeat | kejadian yang berulang dan memampatkan waktu ("lagi, dan lagi, dan lagi"). | 02-typography-and-captions/91-headroom-phrase-swap-caption.md |
 | 92.T6 | Literal Archive Cut Rhythm | profil yang menyebut tempat, benda, atau tahap hidup yang bisa ditunjukkan. | 02-typography-and-captions/92-negative-space-cumulative-caption.md |
+| 93.T4 | The Word Is the Image | kata yang menyebut tampilan atau keadaan ("wide", "close up", "relight", "light", "atmosphere", "color grading", "handh… | 05-sfx-and-audio-mapping/93-change-marked-sound-hierarchy.md |
+| 93.T6 | Silent Grid Cold Open | pembuka sebelum kalimat pertama yang harus langsung menunjukkan "banyak versi dari satu hal". | 05-sfx-and-audio-mapping/93-change-marked-sound-hierarchy.md |
+| 94.T5 | Depth-Blurred UI Dive With Snap Zoom | kata merek/judul diikuti demo UI; "dari kata ke produk" dalam satu pegangan kamera. | 05-sfx-and-audio-mapping/94-vacuum-before-hit-logo-sting.md |
 
 ## typography
 
@@ -226,6 +229,8 @@ Satu baris per pola (T-blok) dalam kartu, dikelompokkan per kategori pola. Buka 
 | 92.T1 | Negative-Space Cumulative Caption | VO profil yang harus terbaca sebagai kalimat utuh ("she had what every teenager dreamt of"). | 02-typography-and-captions/92-negative-space-cumulative-caption.md |
 | 92.T2 | Slot-Jump Giant Word Title | judul pembuka berbasis tahun atau angka ("the year is 1992"). | 02-typography-and-captions/92-negative-space-cumulative-caption.md |
 | 92.T4 | Single-Word Replace Run | kalimat cepat dengan potongan 1–2 dtk di tiap cut ("she became everything she ever wanted"). | 02-typography-and-captions/92-negative-space-cumulative-caption.md |
+| 93.T5 | Keyword Resolves on Arrival, Text Follows Frame Shapes | kata kunci yang menyebut hasil/fitur di kalimat daftar. | 05-sfx-and-audio-mapping/93-change-marked-sound-hierarchy.md |
+| 94.T6 | Sparkle Ahead Of Letters, Long Decay Tail | kata/merek penutup dibentuk huruf demi huruf; penutup sting; akhir yang tidak boleh mendadak. | 05-sfx-and-audio-mapping/94-vacuum-before-hit-logo-sting.md |
 
 ## layout
 
@@ -407,6 +412,13 @@ Satu baris per pola (T-blok) dalam kartu, dikelompokkan per kategori pola. Buka 
 | 24.T1 | One-Pop-Per-Change Pairing | teks atau ikon yang baru muncul pada kalimat VO; promo dengan banyak elemen layar kecil. | 05-sfx-and-audio-mapping/24-visual-event-pop-mapping.md |
 | 24.T2 | Section-Start Sub Drop with Breakdown | awal babak atau konsep baru; pembalik masalah → solusi; masuk ke puncak ("Instead of"). | 05-sfx-and-audio-mapping/24-visual-event-pop-mapping.md |
 | 24.T3 | Literal UI Click Mapping | elemen UI yang bergerak sesuai ucapan ("Download" → toggle pindah; "One Event" → pil jadi tombol). | 05-sfx-and-audio-mapping/24-visual-event-pop-mapping.md |
+| 93.T1 | Sound Marks the Change, Not the Cut | kalimat yang mengubah keadaan gambar yang sama (cahaya, warna, sudut, versi) atau berpindah babak. | 05-sfx-and-audio-mapping/93-change-marked-sound-hierarchy.md |
+| 93.T2 | Sound Shape Follows Gesture Shape | setiap bunyi yang lolos T1. | 05-sfx-and-audio-mapping/93-change-marked-sound-hierarchy.md |
+| 93.T3 | Density Inverse to Speech, Energy by Music Layers | menata keseimbangan seluruh video: bagian tanpa suara, bagian penjelasan, payoff, CTA. | 05-sfx-and-audio-mapping/93-change-marked-sound-hierarchy.md |
+| 94.T1 | Squash, Vacuum, Then The Single Big Hit | kata/logo muncul sebagai puncak pembuka (kata merek, nama produk, judul seri). | 05-sfx-and-audio-mapping/94-vacuum-before-hit-logo-sting.md |
+| 94.T2 | Three-Tier Peak Budget | sting/pembuka dengan banyak gerak yang masing-masing minta bunyi; pembuka "padat tapi tidak melelahkan". | 05-sfx-and-audio-mapping/94-vacuum-before-hit-logo-sting.md |
+| 94.T3 | Charge Then Confirm Cursor Gesture | "ketik prompt/teks, klik kirim" atau tombol penting setelah kursor tiba. | 05-sfx-and-audio-mapping/94-vacuum-before-hit-logo-sting.md |
+| 94.T4 | Land On Objects, Lead On Cuts | semua bunyi yang menempel pada gerak atau potongan; keluhan "bunyi telat" atau "bunyi mendahului". | 05-sfx-and-audio-mapping/94-vacuum-before-hit-logo-sting.md |
 
 ## script
 

@@ -46,6 +46,7 @@ Stok lokal tiap famili, pola cookbook yang memakainya, dan perintah cari per fam
    - Mixkit, halaman tag (Mixkit Sound Effects Free License; teks lengkapnya dimuat lewat JavaScript dan belum terbaca otomatis, jadi baca di mixkit.co/license sebelum rilis komersial);
    - semua unduhan dicatat di `SOURCES.md` folder kandidat (file, sumber, halaman, lisensi, kata kunci), diperiksa, dan didengar otomatis.
    Tidak berbayar, jadi dijalankan tanpa menunggu persetujuan.
+   - Myinstants (unduh massal hasil pencarian untuk dipilih manual): `python3 scripts/audio/myinstants_unduh.py "<kata>" --keluar ~/sfx/myinstants/<kata>`. Isinya meme/musik/mutu campur dan lisensinya tidak dinyatakan per file, jadi semua hasil WAJIB lolos `sfx_vet.py` dan didengar sebelum dipakai; catat asal-usulnya di `SOURCES.md` proyek.
 3. **Berbayar atau berakun.** ElevenLabs SFX (biaya disebut dulu, Lantai F28c). Epidemic Sound hanya bila MCP `Epidemic_Sound` ada di daftar tool sesi atau `~/.config/epidemic/key` tidak kosong.
 
 Tidak dipakai: Freesound CC-BY tanpa kredit, lisensi NC (nonkomersial), BBC Sound Effects (nonkomersial), unduhan YouTube sebagai SFX final.
