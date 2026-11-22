@@ -1074,3 +1074,6 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 
 ## `cookbook/contoh-gagal/README.md` 18
 - 18 teks tipis di batu arsip: frame storyboard behindwork-batch-1 ep01 beat 04 ditolak Irfan 22 Nov 2026 ("Tulisan text dengan background ga contras, text kekecilan … kenapa harus buat visual seperti ini?"); ledger proyek D-08.
+
+## `guide/teks/GUIDE.md` (jendela baca kata dunia; satu pola gaya frasa dunia) · `guide/gerak/GUIDE.md` (cakupan revisi transisi; flash cut ke UI)
+- Irfan 22 Nov 2026, kegagalan_eps01 v6 chapter 1: "Ada bug untuk diriku sendiri dibelakang frame … ga ada kesempatan buat tulisannya kebaca dulu?", "Emang kamu ga pakai ukuran suara atau nada pas aku ngebacanya?", "untuk diriku sendiri … jadinya menumpuk dan mengganggu … style untuk diriku sendiri buat pola yang sama seperti 9 Bulan lalu dan target", "tidak ada perubahan visual! visual masih sama perbaikannya ada pada titik transisi dan animation", "transisi dari Chapter 3d … efek Flash atau cut out … efek zoom out pelan" (ref samjhon.mp4). Ledger proyek R-42a–R-46.
