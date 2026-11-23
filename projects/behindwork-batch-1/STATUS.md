@@ -29,3 +29,9 @@ Diperbarui 23 Nov 2026 (claude2).
 - **Versi Indonesia ep01 + ep02** (suara The Gap `qs32dRxpAolcIUaxxAN9`): `bangun/rancangan_ep0N_id.py` memakai ulang adegan, SFX tambahan, dan musik versi Inggris; titik potong dipetakan ke kata Indonesia yang sepadan (`bangun/peta_id.py`), KT ditulis ulang dengan kata yang diucapkan, tanpa subtitle (D-21). Naskah: `vo/ep0N_vo_id_gap.md`.
 - Cek yang dijalankan per video: still per adegan + lembar kontak, audit KT (warna tinta/putih vs latar, rentang waktu), panjang sampel SFX/musik vs rentang cue (tanpa HABIS), loudness campuran (−16,7 s.d. −17 LUFS, puncak ≤ −1,8 dBFS), lembar per 3 dtk dari file final. Gerbang `render.sh final` lengkap tidak dijalankan (tenggat).
 - Re-render setelah audit: ep03 (KT pembuka bertumpuk; "second by second" muncul terlalu awal), ep02 (KT "2007" tidak pernah tampil).
+
+## Revisi r2 (23 Nov, D-24..D-32)
+- Mesin baru di `remotion/`: lapisan `jangkar` (kamera spatial anchor berpegas), `kanvas` napas, `scrim`, `artikel` (halaman dibangun ulang + stabilo), `iklan`; tata potong `whip`/`grid`/`putih`; `bangun/aset_peta.py` (pre-processor aset: wajah MediaPipe+Haar, fokus, OCR, zona teks) dan `bangun/cek_komposisi.py` (WAJAH, NAPAS, POTONG, INSET, TEPI, JAUH, RATA, KECIL, TEKSTUR) yang wajib bersih sebelum render; penempatan otomatis KT dekat bahu subjek dengan rata menghadap subjek (D-31); pengantar kecil yang sendirian naik ke 96 px (D-32).
+- File: `final/Behindwork_EP01_JensenHuang_EN_r3`, `EP02_Tokopedia_EN_r2`, `EP03_YouTube_EN_r2`, `EP04_Airbnb_EN_r2`, `EP05_FlickrSlack_EN_r2`, `EP01_JensenHuang_ID_r2`, `EP02_Tokopedia_ID_r2` (Drive `Claude edit/behindwork-batch-1/final`). Versi r1 tetap ada untuk pembanding.
+- Library efek bersama: `claude/motion-graphic/scripts/remotion/ae-primitives/` (matriks ukuran/posisi teks di README).
+- Catatan: ep01 ID punya satu jarak napas 10,8 dtk (VO Indonesia lebih padat); gerbang `render.sh final` lengkap belum dijalankan.
