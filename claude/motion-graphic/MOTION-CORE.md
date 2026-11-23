@@ -1,5 +1,5 @@
-> **Invarian Anti-Sok-Tahu** (mengalahkan isi lain di file ini)
-> 1. **Cookbook = perpustakaan mekanik, bukan template.** Konsep user + 2–4 kartu mekanik cookbook = output baru. Dilarang membuat template gaya tetap atau menyalin gaya antar proyek.
+> **Invarian kerja** (berlaku di atas isi lain di file ini; ringkasannya menjaga penalaran mekanikal dan gerbang mutu):
+> 1. **Cookbook = perpustakaan mekanik, bukan template.** Konsep user + 2–4 kartu mekanik cookbook = output baru. Jangan membuat template gaya tetap atau menyalin gaya antar proyek.
 > 2. **Promosi aturan hanya lewat `SARINGAN.md`** (S = proyek, P = pertimbangan, H = hukum netral-gaya terukur). Selera satu proyek tidak naik ke aturan global.
 > 3. **Gerbang pemilik tidak dilewati.** Konsep/topik, naskah final, serta storyboard + tabel racikan cookbook disetujui pemilik sebelum produksi atau pemakaian kredit.
 > 4. **Gerbang mekanis Kelas H tidak dilewati atau diedit selama sesi produksi video:** `render.sh final`, `gerbang_produksi.sh`, `scripts/gate/*`.
@@ -66,10 +66,10 @@ File proyek yang menyalakan gerbang 1, 3, 4 di `render.sh` (ada dan gagal = rend
 
 Gerbang yang gagal diperbaiki pada penyebabnya, lalu dijalankan ulang; keluaran terakhirnya disalin ke `TAHAP.md` sebagai bukti.
 
-## 4. Larangan keras
+## 4. Batas kerja (alasan dan penjagaannya)
 
-- **Dilarang melewati `render.sh final`** (atau `lego`), termasuk karena tenggat: tidak ada `npx remotion render` langsung, tidak ada video dikirim tanpa `render.sh final` PASS. Tenggat tidak terkejar = kirim laporan gerbang yang belum lulus.
-- **Dilarang mengedit `scripts/gate/*` atau `scripts/juri/*` di sesi produksi video**, termasuk menyalinnya ke proyek lalu mengubahnya. Gerbang yang dianggap salah dilaporkan ke user, diperbaiki di sesi perubahan skill.
-- Dilarang mematikan gerbang dengan menghapus atau mengganti nama file pemicunya (`qc/ketat`, `aset.json`, `sfx_potong.json`, stem).
+- **Jangan melewati `render.sh final`** (atau `lego`), termasuk karena tenggat: tidak ada `npx remotion render` langsung, tidak ada video dikirim tanpa `render.sh final` PASS. Tenggat tidak terkejar = kirim laporan gerbang yang belum lulus.
+- **Jangan mengedit `scripts/gate/*` atau `scripts/juri/*` di sesi produksi video**, termasuk menyalinnya ke proyek lalu mengubahnya. Gerbang yang dianggap salah dilaporkan ke user, diperbaiki di sesi perubahan skill.
+- Jangan mematikan gerbang dengan menghapus atau mengganti nama file pemicunya (`qc/ketat`, `aset.json`, `sfx_potong.json`, stem).
 - Dilarang memakai ulang `RESEP.md` atau kode adegan proyek lain; yang dipakai ulang hanya blok netral `scripts/remotion/`.
 - Dilarang menambah elemen di luar tabel racikan, storyboard, dan brief.

@@ -1,5 +1,5 @@
-> **Invarian Anti-Sok-Tahu** (mengalahkan isi lain di file ini)
-> 1. **Cookbook = perpustakaan mekanik, bukan template.** Konsep user + 2–4 kartu mekanik cookbook = output baru. Dilarang membuat template gaya tetap atau menyalin gaya antar proyek.
+> **Invarian kerja** (berlaku di atas isi lain di file ini; ringkasannya menjaga penalaran mekanikal dan gerbang mutu):
+> 1. **Cookbook = perpustakaan mekanik, bukan template.** Konsep user + 2–4 kartu mekanik cookbook = output baru. Jangan membuat template gaya tetap atau menyalin gaya antar proyek.
 > 2. **Promosi aturan hanya lewat `SARINGAN.md`** (S = proyek, P = pertimbangan, H = hukum netral-gaya terukur). Selera satu proyek tidak naik ke aturan global.
 > 3. **Gerbang pemilik tidak dilewati.** Konsep/topik, naskah final, serta storyboard + tabel racikan cookbook disetujui pemilik sebelum produksi atau pemakaian kredit.
 > 4. **Gerbang mekanis Kelas H tidak dilewati atau diedit selama sesi produksi video:** `render.sh final`, `gerbang_produksi.sh`, `scripts/gate/*`.
