@@ -7,10 +7,12 @@ description: "Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntun
 
 Skill ini lapisan penaik mutu video. Ia bukan template dan bukan pembajak konsep: **konsep user + mekanik cookbook = output baru**. Tema, palet, aset, dan arahan user selalu menjadi fondasi. Dari referensi hanya dipindahkan mekanik gerak, ritme kamera, hierarki tipografi, dan standar audio. Draf atau kode user diaudit dan dihaluskan, tidak dirombak (`cookbook/README.md` §1, §3).
 
-**Mulai di sini (urut, bacaan kecil dulu):**
-1. `../irfan-creative-workflow/SKILL.md` §2 gerbang. Bedah bahan user dulu (naskah/transkrip, footage, aset), lalu naskah final, lalu storyboard, lalu persetujuan user. Belum ada kode sebelum gerbang 3 lolos.
-2. Di gerbang storyboard ada **Langkah 1 cookbook**. Baca `cookbook/INDEX.md`, cocokkan fungsi cerita tiap beat dengan *Narrative trigger*, buka hanya 2–4 kartu, lalu ajukan tabel racikan (beat → pola → remix → SFX) untuk disetujui (`cookbook/README.md` §2).
-3. **Langkah 2**: kode Remotion ditulis dari nol dari tabel itu, dengan Lantai di bawah sebagai standar mutu, dan render lewat juri (§0b).
+**Pintu produksi ramping: `MOTION-CORE.md`** (alur dua langkah, 10 aturan Lantai, gerbang wajib, larangan keras), lalu `projects/<proyek>/`. `PETA.md`, `RETRO.md`, `SUMBER.md`, dan `cookbook/INDEX.md` utuh tidak dimuat di awal sesi; sisa file ini dibuka saat sebuah langkah menyebut bagiannya.
+
+**Alur setiap video (urut):**
+1. `../irfan-creative-workflow/SKILL.md` §2 gerbang 1–3. Bedah bahan user dulu (naskah/transkrip, footage, aset), lalu naskah final, lalu storyboard, masing-masing dengan persetujuan user. Belum ada kode sebelum gerbang 3 lolos.
+2. Di gerbang storyboard ada **Langkah 1 cookbook**. Tulis fungsi cerita tiap beat, lalu cari kartunya dengan `python3 scripts/cookbook/pilih_kartu.py --cari "<fungsi cerita>" [--kategori …] [--bergerak]` (keluaran: ID, nama, status, path kartu, frame kunci). Buka hanya 2–4 kartu, lalu ajukan tabel racikan dan remix per beat (beat → pola → remix → SFX) untuk disetujui (`cookbook/README.md` §2).
+3. **Langkah 2**: kode Remotion ditulis dari nol dari tabel itu, dengan Lantai di bawah sebagai standar mutu, dan render lewat `scripts/juri/render.sh final`, yang menjalankan `gerbang_produksi.sh` (§0b).
 
 Tiga hal yang selalu dikerjakan: **Lantai** (mutu di semua video, di bawah ini, lengkap) → **pengikat/kiblat + racikan pola** di `RESEP.md` (dipinjam dari kartu hanya bila user tidak membawa gaya) → **Juri** (hasil disandingkan dengan frame kunci sebelum render penuh). `cookbook/` menyimpan kartu dan frame kuncinya sebagai contoh yang bagus, dan `cookbook/contoh-gagal/` sebagai contoh yang jelek.
 

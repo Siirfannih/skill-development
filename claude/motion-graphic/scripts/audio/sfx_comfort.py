@@ -4,11 +4,14 @@
   rough  = envelope modulation 30–150 Hz relative to the mean envelope (grit / scratchiness, sensory roughness)
   attack = time from 10 % to 90 % of peak (ms): very fast + bright = clicky
   harsh_z / soft_z = earshot CLAP match against "harsh scratchy grating noise" and "soft smooth pleasant sound"
-Usage: python3 tools/sfx_comfort.py file1 [file2 ...]   (prints a table, sorted by comfort)"""
-import sys, json, re, subprocess, numpy as np, librosa, scipy.signal as ss
+Usage: python3 sfx_comfort.py [--min-comfort <ambang>] file1 [file2 ...]   (prints a table, sorted by comfort)
+  --min-comfort <ambang>: keluar 1 bila ada file dengan comfort di bawah ambang, atau file yang tidak terukur
+  (senyap/rusak). Tanpa flag: hanya tabel, keluar 0."""
+import sys, json, re, subprocess, numpy as np, scipy.signal as ss
 
 E = __import__('os').environ.get('EARSHOT', 'earshot')
 def metrics(f):
+    import librosa
     y, sr = librosa.load(f, sr=44100, mono=True)
     if not len(y) or np.max(np.abs(y)) < 1e-6: return None
     y = y / np.max(np.abs(y))
@@ -29,8 +32,19 @@ def rank(desc, files):
         mm = re.search(r'z\s+([+-]?\d+\.\d).*?cos\s+\S+\s+(\S.*?\.(?:mp3|wav))', line)
         if mm: z[mm.group(2).strip()] = float(mm.group(1))
     return z
+def di_bawah_ambang(skor, ambang):
+    """skor: {nama: comfort atau None (tidak terukur)} -> daftar (nama, comfort) yang gagal, urut dari yang terburuk."""
+    return sorted(((n, c) for n, c in skor.items() if c is None or c < ambang), key=lambda x: (x[1] is not None, x[1] or 0))
+
+
 if __name__ == '__main__':
-    files = sys.argv[1:]
+    files = sys.argv[1:]; ambang = None
+    if '--min-comfort' in files:
+        i = files.index('--min-comfort')
+        try: ambang = float(files[i + 1])
+        except (IndexError, ValueError): raise SystemExit('FAIL: --min-comfort butuh angka, mis. --min-comfort -1.5')
+        del files[i:i + 2]
+    if not files: raise SystemExit('FAIL: beri minimal satu file SFX')
     M = {f: metrics(f) for f in files}
     hz = rank('harsh scratchy grating noise', files); sz = rank('soft smooth pleasant sound', files)
     rows = []
@@ -43,3 +57,9 @@ if __name__ == '__main__':
     for c, b, m in sorted(rows, reverse=True):
         print(f"{c:6.2f}  {b[:46]:46} hiss {m['hiss']:.2f} bite {m['bite']:.2f} mid {m['mid']:.2f} low {m['low']:.2f} rough {m['rough']:.3f} atk {m['attack_ms']:5.1f}ms harsh_z {m['harsh_z']:+.1f} soft_z {m['soft_z']:+.1f}")
     json.dump({b: {k_: float(v_) for k_, v_ in m.items()} for c, b, m in rows}, open(__import__('os').environ.get('MG_ROOT', '.') + '/qa_sfx_comfort.json', 'w'), indent=1)
+    if ambang is not None:
+        skor = {f.split('/')[-1]: (M[f] or {}).get('comfort') for f in files}
+        buruk = di_bawah_ambang(skor, ambang)
+        for n, c in buruk: print(f"DI BAWAH AMBANG  {n}: " + ('tidak terukur (senyap/rusak)' if c is None else f'comfort {c:.2f} < {ambang:g}'))
+        print(f"GERBANG sfx_comfort (min {ambang:g}): " + (f'GAGAL, {len(buruk)} dari {len(files)} file' if buruk else f'LULUS, {len(files)} file'))
+        sys.exit(1 if buruk else 0)

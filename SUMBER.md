@@ -77,3 +77,37 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 
 ## `SARINGAN.md` · `AGENTS.md` (Cara membaca butir 6; Akhir sesi butir 1 dan 6)
 - Irfan 22 Nov 2026, penutupan kegagalan_eps01: catatan khas proyek di skill membuat overfitting dan beban konteks, aturan terlalu umum tidak bisa dijalankan; tiap kesalahan disaring menjadi hukum mekanis + pemicu sebelum masuk repo; diminta deep research ke sumber tepercaya. Dasar riset: `reports/Pelajaran agen tanpa overfitting.md` (Anthropic context engineering, skill authoring, Claude Code memory, evals; ACE, ExpeL, Dynamic Cheatsheet, AWM, Context Rot; Husain/Shankar, Google SRE).
+
+## `claude/motion-graphic/MOTION-CORE.md` · blok Invarian Anti-Sok-Tahu (`AGENTS.md`, `MOTION-CORE.md`)
+
+| Aturan | Asal-usul |
+|---|---|
+| Pintu produksi tipis (MOTION-CORE lalu folder proyek); PETA, RETRO, SUMBER, dan INDEX utuh tidak dimuat di awal sesi | Misi sprint malam Irfan 23 Nov 2026 (branch `feat/core-gates-format-locks`), untuk diaudit Auditor Eksternal 24 Nov 2026 |
+| §4 Larangan keras · "Dilarang melewati render.sh final" | gagal: behindwork-batch-1 ep01–05, 23 Nov 2026: gerbang `render.sh final` lengkap tidak dijalankan karena tenggat (`projects/behindwork-batch-1/STATUS.md`) |
+| `formats/` (Format Bible `story-doc-16x9`, `journey-talkinghead`) dan file `projects/<proyek>/FORMAT` dihapus; tidak ada template gaya tetap | Koreksi bedah branch, Irfan 23 Nov 2026: `formats/` bertentangan dengan `cookbook/README.md` §1 (konsep user + mekanik cookbook = output baru) dan `SARINGAN.md` (anti-overfitting; selera tinggal di `projects/<proyek>/`, hanya Kelas H dan P yang naik ke skill). Isi kedua format adalah kodifikasi satu proyek masing-masing (`projects/behindwork-batch-1/` D-24..D-32; `projects/kegagalan-eps01/DECISIONS.md` K-01..K-21) dan tetap tinggal di proyeknya |
+| Lima Invarian Anti-Sok-Tahu di byte 0 `AGENTS.md` dan `MOTION-CORE.md` | Koreksi bedah branch, Irfan 23 Nov 2026 (bunyi kelima butir dari Irfan) |
+| §1 alur: gerbang 1–3 → Langkah 1 cookbook lewat `pilih_kartu.py` (2–4 kartu + tabel racikan & remix per beat) → Langkah 2 Remotion dari nol + `render.sh final` / `gerbang_produksi.sh`; rute `SKILL.md` dan `cookbook/README.md` §2 butir 3 mengikuti | Koreksi bedah branch, Irfan 23 Nov 2026: pintu produksi tetap ramping tetapi alur mekanikal dua langkah dipertahankan |
+| `scripts/cookbook/pilih_kartu.py` (`--cari`, `--kategori`, `--bergerak`, `--limit`; keluaran ID, nama, status, path, keyframes) | Koreksi bedah branch, Irfan 23 Nov 2026: `cookbook/INDEX.md` tidak perlu dibaca utuh di awal sesi; cukup dipanggil per fungsi cerita tiap beat |
+
+## `claude/motion-graphic/scripts/gate/cek_komposisi.py`, `scripts/juri/gerbang_produksi.sh`, `scripts/juri/render.sh`
+
+| Aturan | Asal-usul |
+|---|---|
+| Gerbang komposisi umum (WAJAH, INSET, TEPI, ASET memblokir) | Promosi dari `projects/behindwork-batch-1/remotion/bangun/cek_komposisi.py` (D-24..D-28, D-31, D-32), misi sprint Irfan 23 Nov 2026 |
+| Tanda JEDA, KARTU, PITA, LOGO | 4 cacat teramati di `Behindwork_EP01_JensenHuang_EN_r3.mp4` (pita subtitle di semua frame; jeda gelap di 0:06, 0:18, 0:46; teks di atas logo papan nama 0:44; kartu putih polos berderet), audit visual 23 Nov 2026. Dijalankan pada data r2 `ep01.json`: JEDA menandai 6,74 dtk (0,38), 18,41 dtk (0,71), 52,58 dtk (0,34) |
+| Gerbang produksi di `render.sh final` (komposisi, potong SFX, speaker HP), bersyarat pada adanya file | Misi sprint Irfan 23 Nov 2026: proyek lama tidak pecah, tetapi file yang ada dan gagal menolak render |
+| Gerbang dilepas dari `projects/<proyek>/FORMAT` dan slug format; WAJAH, INSET, TEPI, ASET tetap bawaan; mode ketat jadi pilihan proyek (flag `--ketat`, file `qc/ketat` kosong = semua tanda, berisi nama tanda = tanda itu saja); `--blok` menolak nama tanda tak dikenal | Koreksi bedah branch, Irfan 23 Nov 2026: gerbang Kelas H netral gaya aktif bawaan, `--ketat` opt-in dan tidak terikat template gaya. Daftar tanda di `qc/ketat` adalah tambahan pelaksana (Claude) supaya proyek bisa memilih sebagian tanda, mis. tanpa PITA untuk video bersubtitle terjemahan |
+
+## `claude/motion-graphic/scripts/audio/audio_phone.py`, `sfx_comfort.py`, `sfx_potong.py`
+
+| Aturan | Asal-usul |
+|---|---|
+| `--gate` (harsh > 0 atau median VO clarity < 8 dB = keluar 1), `--min-comfort`, `--laporan` | Misi sprint Irfan 23 Nov 2026; ambang 8 dB dari laporan "windows < 8 dB" yang sudah ada di skrip; gerbang potong dari kegagalan-eps01 K-19 |
+
+## `claude/motion-graphic/references/build.md`, `claude/motion-graphic/references/orkestrasi.md`, `claude/irfan-creative-workflow/SKILL.md`, `tools/peta.py`
+
+| Aturan | Asal-usul |
+|---|---|
+| build.md "Jalur utama: Remotion, dan rakit lego"; sisa rujukan AE sebagai pilihan setara dihapus | Temuan audit W4/W6 ("Default: After Effects"). Di basis `424f2313` kalimat itu sudah tidak ada; yang dibersihkan dua sisa ("plate yang sulit dibuat di AE", "atau AE bila diminta") |
+| orkestrasi.md tanpa "tidak membuka gambarnya"; rujukan `storyboard.md §16.3` | Temuan audit W6. Di basis `424f2313` keduanya sudah benar (orkestrasi §0 "bukan dengan tidak melihat"; workflow merujuk `storyboard.md` §5); ditambah tes regresi `scripts/tests/test_audit_dokumen.py` |
+| `tools/peta.py` `jaga_rute()`: baris Fase 3 wajib memuat guide teks, visual, gerak | Temuan audit W6: baris Fase 3 PETA kehilangan `guide/visual/GUIDE.md` saat regenerasi |

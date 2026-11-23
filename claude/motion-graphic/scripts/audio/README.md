@@ -16,8 +16,8 @@ Untuk proyek baru: cue sheet ada di `render/cues.json` (list of `{t, kind, db, v
 | `sfx_vet.py files… [--famili id]` | periksa file SFX sebelum dipasang: awal sunyi/puncak, serangan menyentak, desis berkelanjutan, clipping terekam, ekor terpotong, isi 300 Hz–3 kHz (HP), rentang famili | `guide/sfx/FAMILI.md` §3 |
 | `sfx_potong.py file --sampai dtk` (modul: `potong_akhir`, `gerbang`) | potong ujung SFX di batas objeknya: jeda sunyi setelah serangan, atau fade kosinus 150–300 ms yang selesai di batas; gerbang FAIL bila hilang saat masih keras | `guide/sfx/GUIDE.md` Cara 9 |
 | `sfx_cari.py --famili id --out dir` | cari kandidat per famili di Freesound CC0 + Mixkit, catat lisensi di `SOURCES.md`, periksa `sfx_vet`, dengar `earshot rank` | `guide/sfx/FAMILI.md` §2 |
-| `sfx_comfort.py files…` | skor kenyamanan SFX: desis > 6 kHz, 2–6 kHz, roughness, earshot harsh/soft | 36 |
-| `audio_phone.py [--list\|--fix]` | simulasi speaker HP 20/50/100 %, kejelasan VO, kekasaran | 35 |
+| `sfx_comfort.py [--min-comfort N] files…` (dengan flag: keluar 1 bila ada file di bawah ambang) | skor kenyamanan SFX: desis > 6 kHz, 2–6 kHz, roughness, earshot harsh/soft | 36 |
+| `audio_phone.py [--list\|--fix\|--gate]` (`--gate`: keluar 1 bila SFX harsh > 0 atau median VO clarity < 8 dB) | simulasi speaker HP 20/50/100 %, kejelasan VO, kekasaran | 35 |
 | `visual_coverage.py silent.mp4` | setiap event visual punya suara ±5 frame | 35 |
 | `sfx_span.py --video silent.mp4 --sfx stems/sfx.wav --cues cues.json` | sampel cue ≥ span `sampai` (HABIS); gerak panjang tanpa SFX (SENYAP) | 35 |
 | `sync_cues.py silent.mp4` | geser SFX ke onset objek, buang yang tidak mengikuti apa pun, maks 2 suara/100 ms | 37 |

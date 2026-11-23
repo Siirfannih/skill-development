@@ -13,8 +13,12 @@ Pakai sebagai modul:
     ok, gagal = gerbang([lap, ...])
 Pakai dari CLI (dengar/cek satu file):
     python3 sfx_potong.py bunyi.wav --sampai 0.48 [--out terpotong.wav]
+Gerbang atas laporan mix (dipanggil render.sh final):
+    python3 sfx_potong.py --laporan audio/sfx_potong.json
+    isi: daftar laporan potong_akhir, atau {"potong": [...]}, atau daftar cue yang memuat kunci "potong"; tiap laporan
+    wajib punya mode, fade_ms, db_vs_puncak. Keluar 1 bila ada yang hilang saat masih keras atau laporan tidak terbaca.
 """
-import argparse, sys
+import argparse, json, sys
 import numpy as np
 
 
@@ -55,7 +59,32 @@ def gerbang(laporan, keras_db=-20.0, fade_min_ms=150):
     return not gagal, gagal
 
 
+def baca_laporan(path):
+    """Kembalikan daftar laporan potong dari file JSON; ValueError bila bentuknya tidak dikenal atau kuncinya kurang."""
+    d = json.load(open(path, encoding="utf-8"))
+    if isinstance(d, dict):
+        d = d.get("potong", d.get("cues", d.get("placed")))
+    if not isinstance(d, list):
+        raise ValueError("isi bukan daftar laporan potong")
+    lap = [x["potong"] if isinstance(x, dict) and "potong" in x else x for x in d]
+    lap = [x for x in lap if x and ("mode" in x or "fade_ms" in x or "db_vs_puncak" in x)]
+    for x in lap:
+        kurang = [k for k in ("mode", "fade_ms", "db_vs_puncak") if k not in x]
+        if kurang:
+            raise ValueError(f"laporan tanpa kunci {kurang}: {x}")
+    return lap
+
+
 if __name__ == "__main__":
+    if "--laporan" in sys.argv:
+        try:
+            lap = baca_laporan(sys.argv[sys.argv.index("--laporan") + 1])
+        except (IndexError, OSError, ValueError, KeyError, TypeError) as e:
+            print(f"gerbang potong: GAGAL (laporan tidak terbaca: {e})"); sys.exit(1)
+        ok, gagal = gerbang(lap)
+        for g in gagal: print(f"  hilang saat masih keras: {g}")
+        print(f"gerbang potong: {'LULUS' if ok else 'GAGAL'} ({len(lap)} potongan, {len(gagal)} gagal)")
+        sys.exit(0 if ok else 1)
     import soundfile as sf
     ap = argparse.ArgumentParser(); ap.add_argument("file"); ap.add_argument("--sampai", type=float, required=True, help="detik batas objek, dihitung dari awal file")
     ap.add_argument("--out"); a = ap.parse_args()
