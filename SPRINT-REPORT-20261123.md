@@ -9,7 +9,7 @@ Baru:
 - `claude/motion-graphic/formats/README.md`, `story-doc-16x9.md`, `journey-talkinghead.md`
 - `claude/motion-graphic/scripts/gate/cek_komposisi.py` (versi umum dari `projects/behindwork-batch-1/remotion/bangun/`)
 - `claude/motion-graphic/scripts/juri/gerbang_produksi.sh` (dipanggil `render.sh final`/`lego`)
-- `claude/motion-graphic/scripts/tests/test_gerbang_produksi.py` (34 tes), `test_audit_dokumen.py` (9 tes)
+- `claude/motion-graphic/scripts/tests/test_gerbang_produksi.py` (31 tes), `test_audit_dokumen.py` (12 tes)
 
 Diubah:
 - `AGENTS.md`, `claude/motion-graphic/SKILL.md`: bagian atas menunjuk MOTION-CORE + satu Format Bible untuk sesi produksi
