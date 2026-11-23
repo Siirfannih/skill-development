@@ -19,23 +19,20 @@
 /* label kerja */
 #slide-3 .job{z-index:20;padding:22px 30px 24px}
 #slide-3 .job .t{display:block;font:800 56px/1 var(--sans);letter-spacing:-.045em}
-#slide-3 .job .s{display:block;margin-top:12px;font:500 19px/1.2 var(--mono);letter-spacing:0;opacity:.72}
+#slide-3 .job .s{display:block;margin-top:14px;font:500 24px/1.25 var(--mono);letter-spacing:-.01em;opacity:.82}
 #slide-3 .job .ok{display:flex;align-items:center;gap:8px;margin-top:12px;font:700 15px/1 var(--mono);letter-spacing:.08em;color:#2BD46B}
 #slide-3 .job .ok i{width:9px;height:9px;border-radius:50%;background:#2BD46B;box-shadow:0 0 0 4px rgba(43,212,107,.2)}
 #slide-3 .job.lime .ok{color:#166B34}#slide-3 .job.lime .ok i{background:#166B34;box-shadow:0 0 0 4px rgba(22,107,52,.18)}
 #slide-3 .job .no{position:absolute;right:18px;top:16px;font:700 15px/1 var(--mono);opacity:.5;letter-spacing:.06em}
 
 #slide-3 .j1{left:58px;top:752px;transform:rotate(-4deg)}
-#slide-3 .j2{left:560px;top:742px;transform:rotate(3deg)}
+#slide-3 .j2{left:560px;top:742px;width:410px;transform:rotate(3deg)}
 #slide-3 .j3{left:84px;top:1024px;transform:rotate(2.5deg)}
 /* Bikin SaaS: sudut kanan-bawah terangkat */
-#slide-3 .j4{left:556px;top:1000px;transform:rotate(-3deg);clip-path:polygon(0 0,100% 0,100% 70%,89% 100%,0 100%);padding-right:64px;box-shadow:none;filter:drop-shadow(0 18px 18px rgba(0,0,0,.28))}
+#slide-3 .j4{left:556px;top:1000px;width:470px;transform:rotate(-3deg);clip-path:polygon(0 0,100% 0,100% 70%,89% 100%,0 100%);padding-right:64px;box-shadow:none;filter:drop-shadow(0 18px 18px rgba(0,0,0,.28))}
 #slide-3 .j4 .flap{position:absolute;inset:0;width:100%;height:100%;filter:drop-shadow(-3px -2px 3px rgba(0,0,0,.35))}
-#slide-3 .lift-shadow{z-index:19;left:860px;top:1160px;width:170px;height:40px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(0,0,0,.35),transparent 70%)}
+#slide-3 .lift-shadow{z-index:35;left:888px;top:1290px;width:170px;height:36px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(0,0,0,.35),transparent 70%)}
 
-/* garis ukur NODI */
-#slide-3 .dimline{z-index:24;left:556px;top:688px;width:470px;height:60px;overflow:visible}
-#slide-3 .dimtag{z-index:25;left:722px;top:672px;background:var(--blue);color:#fff;font:700 16px/1 var(--mono);padding:7px 10px;border-radius:6px;transform:rotate(3deg)}
 
 #slide-3 .doodle{z-index:18}
 </style>
@@ -103,16 +100,9 @@
     <span class="t">Vibecoding</span><span class="s">prompt → aplikasi jalan</span><span class="ok" data-dekor><i></i>EXECUTED</span></div>
   <div class="tape" style="left:40px;top:742px;transform:rotate(-46deg);z-index:26"></div>
 
-  <!-- 02 Vibe Design (putih) — garis ukur desain -->
-  <svg class="dimline" viewBox="0 0 470 60">
-    <g stroke="#2563EB" stroke-width="3" fill="none" transform="rotate(3 235 30)">
-      <line x1="6" y1="44" x2="430" y2="44"/><line x1="6" y1="30" x2="6" y2="58"/><line x1="430" y1="30" x2="430" y2="58"/>
-      
-    </g>
-  </svg>
-  <div class="dimtag" data-dekor>W 432</div>
+  <!-- 02 Vibe Design (putih) -->
   <div class="label-tape white job j2" data-baca="3"><span class="no" data-dekor>02</span>
-    <span class="t">Vibe Design</span><span class="s">poster &amp; UI hitungan detik</span><span class="ok" data-dekor><i></i>EXECUTED</span></div>
+    <span class="t">Vibe Design</span><span class="s">poster &amp; UI<br>hitungan detik</span><span class="ok" data-dekor><i></i>EXECUTED</span></div>
   <div class="tape" style="left:950px;top:742px;transform:rotate(40deg)"></div>
 
   <!-- 03 Vibe Editing (lime) -->
@@ -120,7 +110,7 @@
     <span class="t">Vibe Editing</span><span class="s">cut, subtitle, animasi</span><span class="ok" data-dekor><i></i>EXECUTED</span></div>
   <div class="tape" style="left:420px;top:1014px;transform:rotate(34deg)"></div>
   <!-- strip film mini sebagai prop editing -->
-  <svg class="doodle" viewBox="0 0 190 70" style="left:150px;top:1250px;width:190px;transform:rotate(-6deg)">
+  <svg class="doodle film" data-dekor viewBox="0 0 190 70" style="left:330px;top:1176px;width:170px;transform:rotate(-8deg);z-index:21;filter:drop-shadow(0 8px 10px rgba(0,0,0,.25))">
     <rect x="0" y="0" width="190" height="70" rx="6" fill="#141518"/>
     <g fill="#F7F6F2"><rect x="10" y="8" width="10" height="8" rx="2"/><rect x="40" y="8" width="10" height="8" rx="2"/><rect x="70" y="8" width="10" height="8" rx="2"/><rect x="100" y="8" width="10" height="8" rx="2"/><rect x="130" y="8" width="10" height="8" rx="2"/><rect x="160" y="8" width="10" height="8" rx="2"/>
     <rect x="10" y="54" width="10" height="8" rx="2"/><rect x="40" y="54" width="10" height="8" rx="2"/><rect x="70" y="54" width="10" height="8" rx="2"/><rect x="100" y="54" width="10" height="8" rx="2"/><rect x="130" y="54" width="10" height="8" rx="2"/><rect x="160" y="54" width="10" height="8" rx="2"/></g>
@@ -130,12 +120,8 @@
   <!-- 04 Bikin SaaS (hitam) — sudut terangkat, KLIK mengangkat dengan dua tangan -->
   <div class="lift-shadow"></div>
   <div class="label-tape black job j4" data-baca="3"><span class="no" data-dekor>04</span>
-    <span class="t">Bikin SaaS</span><span class="s">sistem agentic jalan otomatis</span><span class="ok" data-dekor><i></i>EXECUTED</span>
+    <span class="t">Bikin SaaS</span><span class="s">sistem agentic<br>jalan otomatis</span><span class="ok" data-dekor><i></i>EXECUTED</span>
     <svg class="flap" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon points="100,70 89,100 86,72" fill="#E4E1D9"/><polygon points="100,70 89,100 86,72" fill="none" stroke="rgba(0,0,0,.18)" stroke-width=".6"/></svg></div>
   <div class="cast" data-cast="klik" data-opt='{"eyes":"dot","brow":20,"look":[2,-3],"arms":[160,150],"tilt":4}' style="left:878px;top:1114px;width:190px;z-index:36"></div>
 
-  <!-- stiker kecil: lingkaran centang -->
-  <svg class="doodle" viewBox="0 0 90 90" style="left:440px;top:912px;width:84px;transform:rotate(-10deg);filter:drop-shadow(0 8px 10px rgba(0,0,0,.25))">
-    <circle cx="45" cy="45" r="40" fill="#fff"/><circle cx="45" cy="45" r="32" fill="#2563EB"/>
-    <path d="M30 46 L41 57 L61 34" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>
 </section>

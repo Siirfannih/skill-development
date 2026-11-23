@@ -1,6 +1,6 @@
 {
   "juri": "teks_cek",
-  "lulus": false,
+  "lulus": true,
   "slide": {
     "1": {
       "terpotong": [],
@@ -15,39 +15,12 @@
     "3": {
       "terpotong": [],
       "tabrakan": [],
-      "kecil": [
-        {
-          "el": "div.label-tape.black > span.s",
-          "teks": "prompt → aplikasi jalan",
-          "px": 19
-        },
-        {
-          "el": "div.label-tape.white > span.s",
-          "teks": "poster & UI hitungan detik",
-          "px": 19
-        },
-        {
-          "el": "div.label-tape.lime > span.s",
-          "teks": "cut, subtitle, animasi",
-          "px": 19
-        },
-        {
-          "el": "div.label-tape.black > span.s",
-          "teks": "sistem agentic jalan otomatis",
-          "px": 19
-        }
-      ]
+      "kecil": []
     },
     "4": {
       "terpotong": [],
       "tabrakan": [],
-      "kecil": [
-        {
-          "el": "div.chat > div.ai > p",
-          "teks": "Tentu! Ini desain carousel yang modern dan engaging:",
-          "px": 22
-        }
-      ]
+      "kecil": []
     },
     "5": {
       "terpotong": [],

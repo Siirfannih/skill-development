@@ -1,6 +1,6 @@
 <style>
 /* ===== SLIDE 5 — Editorial Punchline + macOS Dock ===== */
-#slide-5 .hl{left:76px;top:236px;width:940px;z-index:20}
+#slide-5 .hl{left:76px;top:292px;width:940px;z-index:20}
 #slide-5 .ln{display:flex;align-items:baseline;gap:30px;white-space:nowrap}
 #slide-5 .w{font:800 112px/1 var(--sans);letter-spacing:-.055em}
 #slide-5 .big{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue);letter-spacing:-.03em;line-height:.9}
@@ -10,7 +10,7 @@
 #slide-5 .ln.l1{height:250px}
 #slide-5 .ln.l2{height:214px;margin-left:64px}
 #slide-5 .ln.l3{height:120px;margin-top:6px}
-#slide-5 .q{font:800 100px/1 var(--sans);letter-spacing:-.055em;color:#B3B0A8}
+#slide-5 .q{font:800 100px/1 var(--sans);letter-spacing:-.055em;color:#888479}
 #slide-5 .sel.t{outline-offset:6px;padding:0 .06em}
 #slide-5 .sel.t .dim{bottom:auto;top:-46px;left:auto;right:-10px;transform:none}
 
@@ -22,24 +22,29 @@
 #slide-5 .note b{color:var(--ink);font-weight:700}
 
 /* dock */
-#slide-5 .dock{left:50%;bottom:64px;transform:translateX(-50%);gap:16px;padding:14px 18px;align-items:center}
-#slide-5 .dock .app{width:108px;height:108px;overflow:visible}
-#slide-5 .dock .app .cast{position:absolute;left:50%;bottom:4px;width:134px;transform:translateX(-50%);z-index:2}
+#slide-5 .dock{left:50%;bottom:104px;transform:translateX(-50%);gap:20px;padding:18px 22px;align-items:center;border-radius:38px;
+  box-shadow:0 0 0 1px rgba(20,21,24,.08),0 2px 0 rgba(20,21,24,.05),0 34px 54px -18px rgba(42,28,14,.30),0 70px 90px -40px rgba(42,28,14,.22)}
+#slide-5 .dock .app{width:146px;height:146px;border-radius:32px;overflow:visible}
+#slide-5 .dock .app .cast{position:absolute;left:50%;bottom:4px;width:182px;transform:translateX(-50%);z-index:2}
 #slide-5 .dock .app.a1{background:#E8EEFD}
 #slide-5 .dock .app.a2{background:#F1FBDD}
 #slide-5 .dock .app.a3{background:#EBEBEF}
-#slide-5 .dock .app.a3 .cast{bottom:-34px}
-#slide-5 .dock .sep{width:1.5px;height:84px;background:rgba(20,21,24,.14);margin:0 4px}
+#slide-5 .dock .app.a3 .cast{bottom:-46px}
+#slide-5 .dock .sep{width:1.5px;height:112px;background:rgba(20,21,24,.14);margin:0 4px}
 #slide-5 .dock .me{background:var(--ink);display:grid;place-items:center}
-#slide-5 .dock .me span{font:italic 400 70px/1 var(--serif);color:var(--lime);margin-top:-6px}
+#slide-5 .dock .me span{font:italic 400 92px/1 var(--serif);color:var(--lime);margin-top:-6px}
 #slide-5 .dock .btns{display:flex;flex-direction:column;gap:10px;padding-left:4px}
-#slide-5 .dock .btn{font:700 22px/1 var(--sans);letter-spacing:-.02em;padding:15px 24px;border-radius:999px;text-align:center;white-space:nowrap}
+#slide-5 .dock .btn{font:700 26px/1 var(--sans);letter-spacing:-.02em;padding:19px 28px;border-radius:999px;text-align:center;white-space:nowrap}
 #slide-5 .dock .save{background:var(--ink);color:#fff}
 #slide-5 .dock .share{background:var(--lime);color:var(--ink)}
 /* tooltip dock ala macOS di atas avatar */
 #slide-5 .tip{z-index:31;padding:12px 18px;border-radius:12px;background:rgba(20,21,24,.92);color:#fff;font:700 21px/1.25 var(--sans);letter-spacing:-.01em;white-space:nowrap;box-shadow:var(--shadow-1)}
 #slide-5 .tip small{display:block;margin-top:4px;font:500 15px/1 var(--mono);color:#B7B6B1;letter-spacing:0}
 #slide-5 .tip::after{content:"";position:absolute;left:50%;bottom:-9px;margin-left:-9px;border-left:9px solid transparent;border-right:9px solid transparent;border-top:9px solid rgba(20,21,24,.92)}
+/* catatan tulisan tangan (gaya coretan Excalidraw): komentar jujur atas hasil desain */
+#slide-5 .hand{left:690px;top:868px;z-index:25;transform:rotate(-4deg);transform-origin:left center;
+  font:400 46px/1.15 var(--hand);color:#2A2B30;letter-spacing:.2px;white-space:nowrap}
+#slide-5 .hand-arrow{left:628px;top:822px;width:80px;height:70px;z-index:25;overflow:visible}
 </style>
 
 <section class="slide bg-dots" id="slide-5">
@@ -73,12 +78,14 @@
 
   <div class="tip" data-dekor>@siirfannih — I Gede Irfan<small>Life Student • 100% Coded Carousel</small></div>
 
+  <div class="hand" data-baca="4">Neh kan jelek<br>lagi hasilnya :(</div>
+  <svg class="hand-arrow" viewBox="0 0 80 70" data-dekor aria-hidden="true"><path d="M60 62 C44 58 30 44 26 14" fill="none" stroke="#2A2B30" stroke-width="3.2" stroke-linecap="round"/><path d="M16 24 L26 10 L37 23" fill="none" stroke="#2A2B30" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
   <div class="dock">
     <div class="app a1"><div class="cast" data-cast="klik" data-opt='{"eyes":"wide","look":[4,-7],"tilt":8,"arms":[30,160]}'></div></div>
     <div class="app a2"><div class="cast" data-cast="note" data-opt='{"eyes":"wide","look":[3,-8],"tilt":6,"arms":[20,140]}'></div></div>
     <div class="app a3"><div class="cast" data-cast="nodi" data-opt='{"eyes":"wide","look":[2,-7],"tilt":4,"arms":[40,165]}'></div></div>
     <span class="sep"></span>
-    <div class="app me"><span>I</span></div>
+    <div class="app me" data-dekor><span>I</span></div>
     <div class="btns" data-dekor><span class="btn save">Save</span><span class="btn share">Share ↗</span></div>
   </div>
 
@@ -92,7 +99,7 @@
     sl.querySelectorAll(".dock .app .cast").forEach((c, i) => {
       const r = c.getBoundingClientRect();
       const x = r.left - b.left + r.width * 0.47, y = r.top - b.top + r.height * 0.36;
-      const dx = fx - x, dy = fy - y, L = Math.hypot(dx, dy), k = 340 / L;   // garis pandang pendek ke arah "taste"
+      const dx = fx - x, dy = fy - y, L = Math.hypot(dx, dy), k = Math.min(260, L - 90) / L;   // garis pandang pendek ke arah "taste"
       const x2 = x + dx * k, y2 = y + dy * k;
       g += `<linearGradient id="gz${i}" gradientUnits="userSpaceOnUse" x1="${x}" y1="${y}" x2="${x2}" y2="${y2}"><stop offset="0" stop-color="#2563EB" stop-opacity=".95"/><stop offset="1" stop-color="#2563EB" stop-opacity="0"/></linearGradient>`;
       g += `<line x1="${x + dx * (60 / L)}" y1="${y + dy * (60 / L)}" x2="${x2}" y2="${y2}" stroke="url(#gz${i})" stroke-width="3.6" stroke-dasharray="1 11" stroke-linecap="round"/>`;

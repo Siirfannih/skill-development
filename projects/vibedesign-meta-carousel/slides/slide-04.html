@@ -1,40 +1,43 @@
 <style>
 /* ===== SLIDE 4 — AI bingung: prompt -> hasil slop -> pesan utama ===== */
-#slide-4 .glow{left:50%;top:180px;width:980px;height:760px;transform:translateX(-50%);z-index:1;pointer-events:none;
+#slide-4 .glow{left:50%;top:170px;width:1000px;height:760px;transform:translateX(-50%);z-index:1;pointer-events:none;
   background:radial-gradient(ellipse at 50% 45%,rgba(37,99,235,.16),transparent 62%)}
 /* chat window generik */
-#slide-4 .chat{left:150px;top:170px;width:780px;height:700px;z-index:10;border-radius:22px;background:#191A1F;
+#slide-4 .chat{left:78px;top:160px;width:924px;height:730px;z-index:10;border-radius:22px;background:#191A1F;
   box-shadow:0 0 0 1px rgba(255,255,255,.07),0 40px 80px rgba(0,0,0,.5);overflow:hidden;font-family:var(--sans)}
 #slide-4 .chat .hd{width:100%;height:62px;display:flex;align-items:center;gap:12px;padding:0 24px;border-bottom:1px solid rgba(255,255,255,.06)}
 #slide-4 .chat .hd .av{width:30px;height:30px;border-radius:50%;background:#2C2E35;display:grid;place-items:center}
 #slide-4 .chat .hd b{font:700 19px/1 var(--sans);color:#E8E8EA}
 #slide-4 .chat .hd span{margin-left:auto;font:500 15px/1 var(--mono);color:#62646C}
-#slide-4 .u{position:absolute;right:26px;top:88px;max-width:470px;padding:16px 22px;border-radius:20px 20px 6px 20px;
-  background:#2B2D34;color:#F1F1F3;font:600 25px/1.3 var(--sans);letter-spacing:-.01em}
+#slide-4 .u{position:absolute;right:28px;top:88px;max-width:500px;padding:16px 22px;border-radius:20px 20px 6px 20px;
+  background:#2B2D34;color:#F1F1F3;font:600 26px/1.3 var(--sans);letter-spacing:-.01em}
 #slide-4 .ai{position:absolute;left:26px;top:178px;display:flex;gap:14px;align-items:flex-start}
 #slide-4 .ai .av{width:36px;height:36px;border-radius:50%;background:#2C2E35;flex:none;display:grid;place-items:center}
-#slide-4 .ai p{font:500 22px/1.3 var(--sans);color:#A7A9B0;margin-top:6px}
+#slide-4 .ai p{font:500 26px/1.3 var(--sans);color:#B4B6BD;margin-top:4px}
 /* kartu desain AI-slop */
-#slide-4 .slop{position:absolute;left:76px;top:240px;width:360px;height:438px;border-radius:16px;overflow:hidden;
+#slide-4 .slop{position:absolute;left:76px;top:236px;width:400px;height:470px;border-radius:16px;overflow:hidden;
   background:linear-gradient(150deg,#7C3AED 0%,#4F46E5 45%,#06B6D4 100%);box-shadow:0 0 0 1px rgba(255,255,255,.08)}
 #slide-4 .slop .orb{position:absolute;border-radius:50%;filter:blur(1px)}
 #slide-4 .slop .o1{width:210px;height:210px;left:-50px;top:-40px;background:radial-gradient(circle at 35% 30%,#F0ABFC,#A855F7 55%,transparent 72%);opacity:.85}
 #slide-4 .slop .o2{width:170px;height:170px;right:-40px;bottom:40px;background:radial-gradient(circle at 35% 30%,#67E8F9,#3B82F6 55%,transparent 72%);opacity:.8}
-#slide-4 .slop .ttl{position:absolute;left:0;right:0;top:132px;text-align:center;color:#fff;font:800 38px/1.05 var(--sans);letter-spacing:-.01em;
+#slide-4 .slop .ttl{position:absolute;left:0;right:0;top:146px;text-align:center;color:#fff;font:800 44px/1.05 var(--sans);letter-spacing:-.01em;
   text-shadow:0 0 18px rgba(255,255,255,.55),0 2px 0 rgba(0,0,0,.15)}
-#slide-4 .slop .sub{position:absolute;left:0;right:0;top:232px;text-align:center;color:rgba(255,255,255,.8);font:500 15px/1.3 var(--sans)}
-#slide-4 .slop .ico{position:absolute;left:0;right:0;top:278px;display:flex;justify-content:center;gap:16px}
+#slide-4 .slop .sub{position:absolute;left:0;right:0;top:256px;text-align:center;color:rgba(255,255,255,.8);font:500 18px/1.3 var(--sans)}
+#slide-4 .slop .ico{position:absolute;left:0;right:0;top:318px;display:flex;justify-content:center;gap:16px}
 #slide-4 .slop .ico i{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.22);box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)}
 #slide-4 .slop .btn{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);padding:10px 26px;border-radius:999px;
   background:linear-gradient(90deg,#F472B6,#A78BFA);color:#fff;font:700 15px/1 var(--sans);box-shadow:0 0 20px rgba(244,114,182,.7)}
-#slide-4 .slop .rocket{position:absolute;left:50%;top:44px;transform:translateX(-50%)}
+#slide-4 .slop .rocket{position:absolute;left:50%;top:52px;transform:translateX(-50%)}
 #slide-4 .acts{position:absolute;left:76px;top:656px;display:flex;gap:18px;font:500 15px/1 var(--mono);color:#5C5E66}
 #slide-4 .typing{position:absolute;left:26px;right:26px;bottom:22px;height:0}
 /* pesan utama */
-#slide-4 .msg{left:78px;top:968px;z-index:20;color:#F4F4F1;font:800 124px/1.02 var(--sans);letter-spacing:-.05em}
+#slide-4 .msg{left:72px;top:922px;z-index:20;color:#F4F4F1;font:800 136px/1.02 var(--sans);letter-spacing:-.05em}
 #slide-4 .msg .sel{color:#fff}
 #slide-4 .msg .dots{color:#4A4D57}
-#slide-4 .klik{left:578px;top:606px;width:230px;z-index:30}
+#slide-4 .klik{left:560px;top:634px;width:236px;z-index:30}
+/* bayangan kontak: KLIK berpijak di garis yang sama dengan dasar kartu slop (KMP-03) */
+#slide-4 .contact{left:608px;top:852px;width:180px;height:26px;z-index:29;border-radius:50%;
+  background:radial-gradient(ellipse at center,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 70%);filter:blur(3px)}
 #slide-4 .think{left:930px;top:612px;z-index:31;font:700 64px/1 var(--fun);color:#4A4D57}
 </style>
 <section class="slide dark bg-hair" id="slide-4" data-baca-pola="cerita">
@@ -69,6 +72,7 @@
     </div>
   </div>
 
+  <div class="contact" data-dekor></div>
   <div class="cast klik" data-cast="klik" data-opt='{"eyes":"dot","brow":-20,"look":[-5,-1],"arms":[95,18],"tilt":-6,"sweat":true}'></div>
 
   <h2 class="msg" data-baca="2">Tapi yang AI<br><span class="sel">gak bisa<i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i></span> itu<span class="dots" data-dekor>.....</span></h2>

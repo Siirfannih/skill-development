@@ -55,6 +55,11 @@
       "keluarga": "JetBrains Mono",
       "sumber": "@fontsource/jetbrains-mono 5.3.0",
       "izin": "SIL OFL 1.1"
+    },
+    {
+      "keluarga": "Virgil",
+      "sumber": "github.com/excalidraw/virgil (Virgil.woff2) → engine/fonts/virgil-regular.woff2",
+      "izin": "SIL OFL 1.1 (engine/fonts/LICENSE-Virgil-OFL.md)"
     }
   ]
 }
