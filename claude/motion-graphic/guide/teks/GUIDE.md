@@ -32,7 +32,7 @@ Cari kelompok yang cocok dengan situasimu, baca butirnya utuh. Kondisinya harus 
   - Invarian: tandai fungsi tiap objek (wajah = ekspresi, tangan/karya = bukti, bidang polos = ruang teks), lalu pilih ruang yang jaraknya ke subjek yang dirujuk ≤ 8 % tinggi frame dan lebih kecil dari jaraknya ke tepi (Lantai 2), dengan bidang di bawah huruf yang lolos TKS-03 di seluruh rentang, bukan hanya di thumbnail.
   - Karena: teks yang jauh dari fokus membuat mata melompat, dan teks yang mepet tepi terasa terdesak.
   - Boleh: footage pengisi yang ditimpa teks (TKS-05); kotak tubuh tidak otomatis melarang teks.
-  - Gerbang: tunjukkan still tiap shot dengan kotak subjek, kotak teks, dan dua jarak (ke subjek, ke tepi).
+  - Gerbang: tunjukkan still tiap shot dengan kotak subjek, kotak teks, dan dua jarak (ke subjek, ke tepi); kotak wajah diambil dari detektor (semua wajah di foto ramai, bukan hanya satu) dan diukur terhadap kotak teks di awal, tengah, dan akhir tampil dengan transform kamera yang sama; irisan = GAGAL sebelum render.
 - **[TKS-06] Penempatan yang diteruskan ke sesi lain memakai peta** · kelas P · cek: sebelum sesi build dimulai
   - Pemicu: posisi teks akan dibangun oleh sesi atau pekerja yang tidak memetakan footage-nya sendiri.
   - Anti-pola: meneruskan koordinat atau gambar koreksi sebagai posisi universal, tanpa fungsi objek dan rentang waktu.

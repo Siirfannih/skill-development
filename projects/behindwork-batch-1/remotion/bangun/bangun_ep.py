@@ -34,6 +34,26 @@ def main():
     R = muat(sys.argv[1])
     beats = {b["id"]: b for b in json.load(open(R.VO_BEATS))["beats"]}
     words = json.load(open(R.VO_WORDS))["words"]
+    vo_src = R.VO_SRC
+    # JEDA: sisipkan hening di VO (mis. ruang hening setelah kalimat tamparan); semua waktu sesudahnya bergeser
+    jeda = sorted(getattr(R, "JEDA", []))
+    if jeda:
+        import subprocess
+        src = ROOT / "public" / R.VO_SRC; dst = ROOT / "public" / R.VO_SRC.replace(".wav", "_jeda.wav")
+        parts, prev, fl = [], 0.0, []
+        for i, (t0, d) in enumerate(jeda):
+            fl.append(f"[0:a]atrim={prev}:{t0},asetpts=PTS-STARTPTS[a{i}];aevalsrc=0:d={d}:s=44100:c=mono[s{i}]")
+            parts += [f"[a{i}]", f"[s{i}]"]; prev = t0
+        fl.append(f"[0:a]atrim=start={prev},asetpts=PTS-STARTPTS[z]"); parts.append("[z]")
+        fc = ";".join(fl) + ";" + "".join(f"{x}aresample=44100,aformat=channel_layouts=mono{x.replace(']', 'r]')};" for x in parts)
+        fc += "".join(x.replace("]", "r]") for x in parts) + f"concat=n={len(parts)}:v=0:a=1[out]"
+        subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", str(src), "-filter_complex", fc, "-map", "[out]", str(dst)], check=True)
+        vo_src = R.VO_SRC.replace(".wav", "_jeda.wav")
+        geser = lambda t: t + sum(d for t0, d in jeda if t >= t0)
+        for x in words:
+            x["start"] = geser(x["start"]); x["end"] = geser(x["end"])
+        for b in beats.values():
+            b["mulai"] = geser(b["mulai"]); b["selesai"] = geser(b["selesai"] - 1e-6) + 1e-6
 
     def w(kata, beat, n=1, akhir=False):
         b = beats[beat]; k = norm(kata); hit = 0
@@ -96,13 +116,38 @@ def main():
     for i, a in enumerate(adegan):
         kinds = [l["k"] for l in a["lapisan"]]
         if i > 0:
-            if "kartu" in kinds:
-                cue(a["dari"], "sfx/cut_kontras.mp3", -12, "transisi", "potong ke kartu")
+            if a.get("masuk") == "whip":
+                cue(a["dari"] - 0.08, "sfx/whoosh_mids.wav", -10, "transisi", "whip-pan")
+            elif a.get("masuk") == "grid":
+                cue(a["dari"], "sfx/klik_deret.mp3", -17, "transisi", "petak grid membuka", sampai=a["dari"] + 0.47)
+            elif a.get("masuk") == "putih":
+                cue(a["dari"], "sfx/impact_thud.wav", -14, "transisi", "kilat putih")
+            elif "kartu" in kinds or "kanvas" in kinds:
+                cue(a["dari"], "sfx/cut_kontras.mp3", -12, "transisi", "potong ke kanvas")
             elif "belah" in kinds:
                 cue(a["dari"] - 0.15, "sfx/whoosh_mids.wav", -12, "transisi", "layar terbelah masuk")
             else:
                 cue(a["dari"] - 0.12, "sfx/whoosh_airy.wav", -15, "transisi", "potong ke footage")
         for l in a["lapisan"]:
+            if l["k"] in ("jangkar", "artikel", "chat") and l.get("jalur"):
+                for x in l["jalur"][1:]:
+                    if a["dari"] + 0.15 < x["t"] < a["sampai"] - 0.1:
+                        cue(x["t"] - 0.04, "sfx/swoosh_light.wav", -21, "transisi", "kamera pindah titik fokus")
+                if a["sampai"] - a["dari"] > 2.5:
+                    cue(a["dari"] + 0.1, "sfx/pad_low.wav", -27, "transisi", "kamera hidup di aset jangkar", sampai=min(a["sampai"], a["dari"] + 3.0))
+            if l["k"] == "jangkar" and l.get("luntur") is not None:
+                cue(l["luntur"], "sfx/sub_drop.wav", -14, "aksen", "warna luntur")
+            if l["k"] == "artikel":
+                cue(a["dari"] + 0.02, "sfx/page_turn.wav", -16, "foley", "halaman muncul")
+                for x in l.get("sorot", []):
+                    cue(x["t"], "sfx/scan.mp3", -17, "foley", "sapuan stabilo", sampai=x["t"] + 0.5)
+            if l["k"] == "chat":
+                for x in l["pesan"]:
+                    cue(x["t"], "sfx/tick2.wav", -18, "tick", "pesan masuk")
+            if l["k"] == "iklan":
+                cue(a["dari"] + 0.02, "sfx/paper_slide.wav", -15, "foley", "iklan muncul")
+                for i in range(len(l["baris"])):
+                    cue(l["t"] + 0.5 + i * 0.45, "sfx/tick3.wav", -19, "tick", "baris iklan")
             if l["k"] == "inset":
                 cue(a["dari"] + 0.02, "sfx/paper_slide.wav", -14, "foley", "foto/klip tegak masuk")
             if l["k"] == "potong":
@@ -120,7 +165,7 @@ def main():
         if k["peran"] in ("r1", "lead"):
             for x in k.get("kata", []):
                 cue(x["t"], ticks[ti % 4], -19, "tick", "kata KT muncul", laju=laju[ti % 5]); ti += 1
-        elif k["peran"] in ("r2", "r6"):
+        elif k["peran"] in ("r2", "r6", "napas"):
             cue(k["dari"], "sfx/impact_thud.wav", -14, "aksen", "kata kunci menghantam")
         elif k["peran"] == "kotak":
             cue(k["dari"], "sfx/swoosh_light.wav", -16, "tick", "kotak sorot melebar")
@@ -139,10 +184,14 @@ def main():
             c["t"] = round(last + 0.1, 3)
         last = c["t"]
 
-    ep = {"id": R.ID, "durasi": durasi, "vo": R.VO_SRC, "adegan": adegan, "kt": kt, "sub": sub, "sfx": cues,
+    ep = {"id": R.ID, "durasi": durasi, "vo": vo_src, "sunyi": getattr(R, "SUNYI", []), "adegan": adegan, "kt": kt, "sub": sub, "sfx": cues,
           "musik": getattr(R, "MUSIK", []), "ucapan": ucapan}
     out = ROOT / "src" / "data" / f"{R.ID.lower()}.json"; out.write_text(json.dumps(ep, ensure_ascii=False, indent=1))
     print(f"{out.name}: {durasi} dtk, {len(adegan)} adegan, {len(kt)} KT, {len(sub)} subtitle, {len(cues)} cue SFX")
+    from cek_komposisi import cek
+    tanda, nap = cek(ep)
+    print(f"  napas di {[round(x, 1) for x in nap]}")
+    print("\n".join("  " + x for x in tanda) if tanda else "  cek_komposisi: bersih")
 
 
 if __name__ == "__main__":

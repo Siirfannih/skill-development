@@ -46,6 +46,15 @@ export const TeksKT: React.FC<{ k: KT }> = ({ k }) => {
     );
   }
 
+  if (k.peran === 'napas') {
+    // kanvas napas (D-25): 1-3 kata tajam, potong keras (2 f), rapat, di tengah kanvas solid
+    return (
+      <div style={{ ...base, fontSize: k.ukuran ?? ukuran.napas, fontWeight: 700, letterSpacing: '-0.045em', lineHeight: 0.94, whiteSpace: 'pre', opacity: Math.min(1, frame / 2) }}>
+        {k.aksen && k.teks?.includes(k.aksen) ? (<>{k.teks.split(k.aksen)[0]}<span style={{ color: warna.aksen }}>{k.aksen}</span>{k.teks.split(k.aksen)[1]}</>) : k.teks}
+      </div>
+    );
+  }
+
   if (k.peran === 'kotak') {
     const pb = CURVE.reveal(Math.min(1, frame / 6));
     const pt = Math.min(1, Math.max(0, (frame - 3) / 3));

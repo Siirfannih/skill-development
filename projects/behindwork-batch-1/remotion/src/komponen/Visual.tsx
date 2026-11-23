@@ -3,6 +3,7 @@ import { AbsoluteFill, Img, OffthreadVideo, interpolate, staticFile, useCurrentF
 import { CURVE } from '../lib/curves';
 import { grade, warna } from '../tema';
 import type { KB, Lapisan } from '../tipe';
+import { Artikel, Chat, Iklan, Jangkar, Kanvas, Scrim } from './Editorial';
 
 // Kamera = transform pada lapisan dunia (push/pan) sepanjang adegan; kurva heavy/drift dari curves.ts (Lantai B13a).
 export const kamera = (kb: KB | undefined, frame: number, total: number) => {
@@ -17,10 +18,22 @@ export const kamera = (kb: KB | undefined, frame: number, total: number) => {
 
 const isi: React.CSSProperties = { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' };
 
-export const SatuLapisan: React.FC<{ l: Lapisan; total: number; detikAdegan: number }> = ({ l, total, detikAdegan }) => {
+export const SatuLapisan: React.FC<{ l: Lapisan; total: number; detikAdegan: number; tGlobal?: number }> = ({ l, total, detikAdegan, tGlobal = 0 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   switch (l.k) {
+    case 'jangkar':
+      return <Jangkar l={l} tGlobal={tGlobal} />;
+    case 'kanvas':
+      return <Kanvas warnaK={l.warna} />;
+    case 'scrim':
+      return <Scrim sisi={l.sisi} kuat={l.kuat} />;
+    case 'artikel':
+      return <Artikel l={l} tGlobal={tGlobal} />;
+    case 'chat':
+      return <Chat l={l} tGlobal={tGlobal} />;
+    case 'iklan':
+      return <Iklan l={l} tGlobal={tGlobal} />;
     case 'kartu':
       return <AbsoluteFill style={{ background: l.warna === 'kertas' ? warna.kertas : warna.malam }} />;
     case 'video':
@@ -47,7 +60,7 @@ export const SatuLapisan: React.FC<{ l: Lapisan; total: number; detikAdegan: num
       const inner: React.CSSProperties = { width: '100%', height: '100%', objectFit: 'cover', objectPosition: l.pos ?? 'center', filter: grade[l.grade ?? 'nat'] };
       return (
         <AbsoluteFill style={{ transform: kamera(l.kb, frame, total) }}>
-          <div style={{ position: 'absolute', left: l.x, top: l.y, width: l.w, height: l.h, transform: tr, boxShadow: '0 30px 80px rgba(0,0,0,0.55)', overflow: 'hidden' }}>
+          <div style={{ position: 'absolute', left: l.x, top: l.y, width: l.w, height: l.h, transform: tr, boxShadow: '0 12px 36px rgba(0,0,0,0.22)', overflow: 'hidden' }}>
             <div style={{ width: '100%', height: '100%', transform: l.zoom ? `scale(${l.zoom})` : undefined, transformOrigin: '50% 50%' }}>
               {l.video ? <OffthreadVideo src={staticFile(l.src)} startFrom={Math.round((l.mulaiSumber ?? 0) * fps)} playbackRate={l.laju ?? 1} muted style={inner} /> : <Img src={staticFile(l.src)} style={inner} />}
             </div>
@@ -75,8 +88,8 @@ export const SatuLapisan: React.FC<{ l: Lapisan; total: number; detikAdegan: num
     case 'belah':
       return (
         <AbsoluteFill>
-          <AbsoluteFill style={{ clipPath: 'inset(0 50% 0 0)' }}>{l.kiri.map((x, i) => <SatuLapisan key={i} l={x} total={total} detikAdegan={detikAdegan} />)}</AbsoluteFill>
-          <AbsoluteFill style={{ clipPath: 'inset(0 0 0 50%)' }}>{l.kanan.map((x, i) => <SatuLapisan key={i} l={x} total={total} detikAdegan={detikAdegan} />)}</AbsoluteFill>
+          <AbsoluteFill style={{ clipPath: 'inset(0 50% 0 0)' }}>{l.kiri.map((x, i) => <SatuLapisan key={i} l={x} total={total} detikAdegan={detikAdegan} tGlobal={tGlobal} />)}</AbsoluteFill>
+          <AbsoluteFill style={{ clipPath: 'inset(0 0 0 50%)' }}>{l.kanan.map((x, i) => <SatuLapisan key={i} l={x} total={total} detikAdegan={detikAdegan} tGlobal={tGlobal} />)}</AbsoluteFill>
         </AbsoluteFill>
       );
   }

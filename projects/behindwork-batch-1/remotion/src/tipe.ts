@@ -1,7 +1,17 @@
 // Skema data episode. Semua waktu dalam detik global (posisi di timeline video).
 export type KB = { s0?: number; s1?: number; x0?: number; y0?: number; x1?: number; y1?: number; kurva?: 'heavy' | 'drift' | 'land' };
 
+// Titik kamera spatial anchor (D-24): titik fokus (fx, fy; 0-1 di aset asli) didaratkan di titik layar (ax, ay; 0-1)
+// pada skala s (1 = pas menutup layar), pindah ke titik berikutnya dengan pegas ketat lalu drift pelan.
+export type Titik = { t: number; fx: number; fy: number; s: number; ax?: number; ay?: number; drift?: number };
+
 export type Lapisan =
+  | { k: 'jangkar'; src: string; iw: number; ih: number; jalur: Titik[]; video?: boolean; mulaiSumber?: number; laju?: number; grade?: string; luntur?: number; padam?: number }
+  | { k: 'kanvas'; warna: 'terang' | 'gelap' } // kanvas napas #F5F5F7 / #0A0A0A (D-25)
+  | { k: 'scrim'; sisi: 'kiri' | 'kanan' | 'atas' | 'bawah' | 'rata'; kuat?: number } // redam tipis di sisi teks (D-26)
+  | { k: 'artikel'; gaya?: 'artikel' | 'wiki'; situs: string; judul: string; meta?: string; paragraf: string[]; sorot?: { p: number; teks: string; t: number }[]; jalur?: Titik[] }
+  | { k: 'chat'; judul: string; gaya?: 'irc' | 'app'; pesan: { siapa: string; teks: string; t: number }[]; jalur?: Titik[] }
+  | { k: 'iklan'; judul: string; baris: string[]; harga?: string; t: number }
   | { k: 'video'; src: string; mulaiSumber?: number; kb?: KB; grade?: string; pos?: string; laju?: number }
   | { k: 'gambar'; src: string; kb?: KB; grade?: string; pos?: string }
   | { k: 'potong'; src: string; kb?: KB; pos?: string } // PNG ber-alpha (cutout) di atas teks belakang-kepala
@@ -17,6 +27,8 @@ export type Adegan = {
   sampai: number;
   lapisan: Lapisan[];
   invert?: [number, number]; // rentang detik global: kilat negatif (pintu ke masa lalu)
+  masuk?: 'potong' | 'whip' | 'grid' | 'putih'; // tata potong (D-27): whip-pan, grid-reveal, kilat putih; bawaan potong keras
+  arah?: 'kiri' | 'kanan';
   kt_belakang?: boolean; // KT dirender di antara lapisan dasar dan lapisan 'potong'
 };
 
@@ -25,7 +37,7 @@ export type Kata = { w: string; t: number; baris?: number; redup?: boolean };
 export type KT = {
   dari: number;
   sampai: number;
-  peran: 'r1' | 'lead' | 'r2' | 'r6' | 'giant' | 'kotak';
+  peran: 'r1' | 'lead' | 'r2' | 'r6' | 'giant' | 'kotak' | 'napas';
   x: number;
   y: number;
   jangkar?: 'kiri' | 'tengah' | 'kanan';
@@ -55,4 +67,5 @@ export type Episode = {
   sfx: Cue[];
   musik: Musik[];
   ucapan: [number, number][]; // rentang bicara, untuk ducking musik
+  sunyi?: [number, number][]; // rentang tanpa musik (ruang hening, D-30 ep02)
 };

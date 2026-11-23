@@ -13,6 +13,9 @@ export const warna = {
   redup: 'rgba(255,255,255,0.42)',
   redupTinta: 'rgba(17,17,17,0.38)',
   pitaSub: 'rgba(0,0,0,0.58)',
+  terang: '#F5F5F7', // kanvas napas terang (D-25)
+  gelap: '#0A0A0A', // kanvas napas gelap (D-25)
+  stabilo: '#FFE14D',
 };
 
 export const huruf = "'BW Helvetica', 'Helvetica Neue', Helvetica, Arial, sans-serif";
@@ -25,6 +28,7 @@ export const ukuran = {
   r6: 210, // hero
   giant: 520, // tahun raksasa (kartu 92 T2)
   sub: 38, // subtitle Indonesia statis
+  napas: 220, // 1-3 kata di kanvas napas (D-25)
 };
 
 // Zona aman 16:9: KT tidak boleh masuk 8 % bawah (y > 935), pita subtitle tinggal di sana.

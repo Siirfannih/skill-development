@@ -2,6 +2,7 @@
  "id": "Ep04",
  "durasi": 92.984,
  "vo": "ep04/vo.wav",
+ "sunyi": [],
  "adegan": [
   {
    "id": "01a",
@@ -1463,7 +1464,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1487,7 +1488,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1518,7 +1519,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1591,7 +1592,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1665,7 +1666,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1697,7 +1698,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1763,7 +1764,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1827,7 +1828,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1851,7 +1852,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1900,7 +1901,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1916,7 +1917,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1981,7 +1982,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -2103,7 +2104,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -2119,7 +2120,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -2176,7 +2177,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -2224,7 +2225,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -2306,7 +2307,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -2377,7 +2378,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -2410,7 +2411,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -2434,7 +2435,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {

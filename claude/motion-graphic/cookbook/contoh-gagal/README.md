@@ -84,3 +84,26 @@ Lima frame dari `varian-A_r7` (talking head + adegan UI dan 3D, kiblat kartu 83 
 
 - **Bukan pelajarannya:** "teks gelap di foto dilarang" atau "kotak selalu dipakai". Kotak hanya karena teks polos gagal kontras di tekstur itu (Lantai A9).
 - **Lantai terkait:** A2, A7, A9; `guide/teks/GUIDE.md` §Posisi (kontras di bawah huruf aktual).
+
+## 19 · Kata kunci menutup wajah dan label di foto
+
+| Gambar | Yang salah | Kondisi yang membuatnya gagal | Yang seharusnya |
+|---|---|---|---|
+| ![](19-kt-menutup-wajah.jpg) | "3 guests" menimpa kepala orang kiri, "hotels: full" menimpa wajah dan label tulisan tangan orang kanan. | Posisi KT ditebak dari still, tanpa kotak wajah. Foto berisi tiga wajah dan label nama di atas kepala, jadi pita atas yang biasanya kosong justru terisi. | Petakan wajah dan label sebelum merancang (`scripts/lego/persepsi.py` untuk klip; untuk foto banyak wajah, detektor yang membaca semua wajah) dan cek kotak teks vs kotak wajah di setiap frame tampil. Bila tidak ada zona kosong: kata kunci pindah ke kanvas solid sebelum atau sesudah foto, foto dibiarkan bicara dengan gerak kamera. |
+
+- **Bukan pelajarannya:** "teks di atas foto orang dilarang". Teks boleh di zona yang terbukti kosong.
+- **Lantai terkait:** A2; `references/persepsi.md` §4 (cek tidak menutup wajah).
+
+## 20 · Aset kecil atau tegak sebagai kotak di kanvas kosong
+
+| Gambar | Yang salah | Kondisi yang membuatnya gagal | Yang seharusnya |
+|---|---|---|---|
+| ![](20-inset-kecil-di-kanvas-kosong.jpg) | Kartu promo kecil ber-bayangan di kanvas putih luas; screenshot beranda tegak yang sebagian besar halaman kosong di sisi kanan layar. | Aset beresolusi kecil atau rasio tegak dipasang apa adanya sebagai inset; kotak dan bayangan membuat frame terasa seperti slide presentasi. | Jadikan aset jangkar (full-bleed, kamera menyorot bagian yang dibicarakan), atau bangun ulang bagian pentingnya sebagai UI (judul halaman, satu kartu, satu kalimat) dan sorot bagian itu. |
+
+- **Bukan pelajarannya:** "inset dilarang". Inset sah bila mengisi komposisi (≥ ±30 % layar) dan bukan satu-satunya isi kanvas kosong.
+
+## 21 · Kutipan dari tulisan ditaruh di atas dokumen yang diburamkan
+
+| Gambar | Yang salah | Kondisi yang membuatnya gagal | Yang seharusnya |
+|---|---|---|---|
+| ![](21-kutipan-di-dokumen-blur.jpg) | "Paul Graham wrote: / a whole binder" di atas halaman esai yang diburamkan; buktinya tidak terbaca sama sekali. | Dokumen diburamkan supaya KT terbaca, sehingga dokumen hanya jadi tekstur abu-abu; penonton tidak melihat kalimat aslinya. | Bangun ulang halaman (judul, penulis, paragraf asli) sebagai UI artikel lalu sorot kalimat kutipannya dengan sapuan stabilo di detik diucapkan; kamera mendekat ke kalimat itu. |

@@ -186,6 +186,14 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/remotion/SmoothAudioClip.tsx` | SmoothAudioClip.tsx — audio motion-graphic §14.7 (Modul 2). |
 | `claude/motion-graphic/scripts/remotion/TeksBlok.tsx` | TeksBlok.tsx — satu blok teks KT sebagai lapisan lego ber-alpha (Lantai A9a, F26). |
 | `claude/motion-graphic/scripts/remotion/curves.ts` | curves.ts — gerak dirancang per gerak, bukan preset (Lantai B13a, 16 Nov 2026). |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/presets.ts` | presets.ts — titik awal angka untuk semua primitive: kurva, pegas, durasi, intensitas, token warna netral. |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/inti/DirectionalBlur.tsx` | DirectionalBlur.tsx — blur searah (AE "Directional Blur") + pemisahan kanal RGB tipis, lewat satu filter SVG. |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/inti/acak.ts` | acak.ts — angka acak berbiji (deterministik per frame). Math.random dilarang di komponen Remotion: |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/inti/aeKeyframe.ts` | aeKeyframe.ts — interpolasi keyframe gaya Graph Editor After Effects (speed graph), murni dari frame. |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/inti/gerak.ts` | gerak.ts — kecepatan dari fungsi pose murni (frame → pose) dan blur yang setara shutter kamera. |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/kamera/MotionBlurWrapper.tsx` | MotionBlurWrapper.tsx — memindahkan isi menurut fungsi pose murni dan memberi blur searah yang dihitung otomatis |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/kamera/SpatialAnchorCamera.tsx` | SpatialAnchorCamera.tsx — satu aset (foto, halaman, kanvas HTML), kamera virtual berpindah antar titik fokus. |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/kedalaman/SpatialDepthStage.tsx` | SpatialDepthStage.tsx — panggung 2,5D berlapis: latar jauh buram, hero di bidang fokus, teks di depan. |
 | `claude/motion-graphic/scripts/selects/cue_sumber.py` | Pindahkan cue (SFX, aset motion, titik musik) dari timeline lama ke timeline baru lewat WAKTU SUMBER. |
 | `claude/motion-graphic/scripts/selects/rakitan_cek.py` | Cek take dobel dan kata terpotong pada rakitan klip dari rekaman talking head mentah. |
 | `claude/motion-graphic/scripts/selects/timeline.py` | Timeline untuk editor dari rekaman talking head mentah (paket selects, `references/selects-editor.md`). |
