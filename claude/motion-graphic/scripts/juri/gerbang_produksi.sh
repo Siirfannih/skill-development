@@ -1,28 +1,33 @@
 #!/bin/bash
-# Gerbang produksi untuk render final: format terkunci, komposisi episode, ujung SFX, dan mix di speaker HP.
+# Gerbang produksi untuk render final: komposisi episode, ujung SFX, dan mix di speaker HP. Netral gaya: tidak ada
+# daftar format atau template; yang diperiksa hanya ukuran yang berlaku di gaya apa pun.
 #
-#   gerbang_produksi.sh <proyek> [<folder audio terkunci>] [<python ber-numpy+soundfile>]
+#   gerbang_produksi.sh [--ketat] <proyek> [<folder audio terkunci>] [<python ber-numpy+soundfile>]
 #
 # Dipanggil render.sh mode final/lego. Tiap gerbang bersyarat pada adanya file terkait di proyek, supaya proyek tanpa
 # file itu tetap berjalan; begitu filenya ada, hasil gagal atau tidak terbaca = keluar 1 (fail-closed).
-#   FORMAT     <proyek>/FORMAT (satu baris: slug format) ada -> slug harus punya formats/<slug>.md. Format story-doc-16x9
-#              mewajibkan data episode + aset.json dan menjalankan cek_komposisi.py --ketat.
 #   KOMPOSISI  data episode (remotion/src/data/*.json yang memuat "adegan" dan "kt"; atau daftar di KOMPOSISI_DATA) dan
-#              remotion/public/*/aset.json ada -> gate/cek_komposisi.py (WAJAH, INSET, TEPI, ASET memblokir).
+#              remotion/public/*/aset.json ada -> gate/cek_komposisi.py (WAJAH, INSET, TEPI, ASET selalu memblokir).
+#   KETAT      pilihan proyek, tidak pernah bawaan: flag --ketat, atau file <proyek>/qc/ketat. File kosong (atau hanya
+#              komentar #) = semua tanda memblokir (cek_komposisi.py --ketat). File berisi nama tanda (mis. "JEDA KARTU
+#              LOGO") = tanda itu ikut memblokir di samping empat tanda bawaan. Nama tanda tak dikenal = keluar 1.
+#              Mode ketat mewajibkan data episode + aset.json ada.
 #   POTONG     sfx_potong.json di folder audio terkunci, <proyek>/audio, atau <proyek>/qc -> audio/sfx_potong.py --laporan.
 #   HP         stem_vo.wav + stem_music.wav + stem_sfx.wav di salah satu folder itu -> audio/audio_phone.py --gate
 #              (mix.wav dan cues.json wajib ada di folder yang sama).
 set -uo pipefail
-HERE="$(cd "$(dirname "$0")" && pwd)"; MG="$(cd "$HERE/../.." && pwd)"
-[ $# -ge 1 ] || { sed -n '2,14p' "$0"; exit 1; }
-P="$(cd "$1" && pwd)" || exit 1; AUDIO_DIR="${2:-$P/audio}"; PY="${3:-python3}"
-R="$P/remotion"; QC="$P/qc"; gagal=0; KETAT=""; WAJIB=0
+HERE="$(cd "$(dirname "$0")" && pwd)"
+FLAG_KETAT=0; ARGS=()
+for a in "$@"; do if [ "$a" = "--ketat" ]; then FLAG_KETAT=1; else ARGS+=("$a"); fi; done
+[ "${#ARGS[@]}" -ge 1 ] || { sed -n '2,17p' "$0"; exit 1; }
+P="$(cd "${ARGS[0]}" && pwd)" || exit 1; AUDIO_DIR="${ARGS[1]:-$P/audio}"; PY="${ARGS[2]:-python3}"
+R="$P/remotion"; QC="$P/qc"; gagal=0; KETAT=(); WAJIB=0
 
-if [ -f "$P/FORMAT" ]; then
-  SLUG="$(tr -d '[:space:]' < "$P/FORMAT")"
-  if [ -z "$SLUG" ] || [ "$SLUG" = README ] || [ ! -f "$MG/formats/$SLUG.md" ]; then
-    echo "GAGAL gerbang format: '$SLUG' di $P/FORMAT bukan format terkunci (pilih satu dari formats/README.md)."; gagal=1
-  else echo "format terkunci: $SLUG"; [ "$SLUG" = story-doc-16x9 ] && { KETAT="--ketat"; WAJIB=1; }; fi
+if [ "$FLAG_KETAT" = 1 ]; then KETAT=(--ketat); WAJIB=1; echo "komposisi ketat: semua tanda memblokir (flag --ketat)"
+elif [ -f "$QC/ketat" ]; then
+  WAJIB=1; TANDA="$(sed 's/#.*//' "$QC/ketat" | tr ',a-z' ' A-Z' | xargs)"
+  if [ -z "$TANDA" ]; then KETAT=(--ketat); echo "komposisi ketat: semua tanda memblokir (qc/ketat)"
+  else KETAT=(--blok "WAJAH,INSET,TEPI,ASET,${TANDA// /,}"); echo "komposisi ketat: bawaan + $TANDA memblokir (qc/ketat)"; fi
 fi
 
 EPS=()
@@ -34,10 +39,10 @@ else
 fi
 ASET="$(ls "$R"/public/*/aset.json 2>/dev/null | head -1)"
 if [ "${#EPS[@]}" -gt 0 ] && [ -n "$ASET" ]; then
-  python3 "$HERE/../gate/cek_komposisi.py" "${EPS[@]}" --public "$R/public" $KETAT \
+  python3 "$HERE/../gate/cek_komposisi.py" "${EPS[@]}" --public "$R/public" ${KETAT[@]+"${KETAT[@]}"} \
     || { echo "GAGAL gerbang komposisi: perbaiki tanda di atas pada data episode (cek_komposisi.py), lalu build ulang."; gagal=1; }
 elif [ "$WAJIB" = 1 ]; then
-  echo "GAGAL gerbang komposisi: format story-doc-16x9 butuh data episode (remotion/src/data/*.json) dan remotion/public/<ep>/aset.json."; gagal=1
+  echo "GAGAL gerbang komposisi: mode ketat butuh data episode (remotion/src/data/*.json) dan remotion/public/<ep>/aset.json."; gagal=1
 else echo "gerbang komposisi: dilewati (tidak ada data episode + aset.json)"; fi
 
 SUDAH=":"

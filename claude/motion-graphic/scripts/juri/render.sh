@@ -20,7 +20,7 @@
 # 8. audit visual semua frame: qc/frame_audit/INDEX.md lebih baru daripada src dan setiap
 #      potongan punya VERDICT.md berakhir 'PUTUSAN: LULUS' (Sutradara melihat frame tahan tiap detik; scripts/juri/frame_audit.py)
 #  10. gerbang produksi (gerbang_produksi.sh), tiap butir berlaku bila filenya ada di proyek dan menolak render bila gagal:
-#      <proyek>/FORMAT menunjuk satu format di formats/; data episode + aset.json lulus gate/cek_komposisi.py;
+#      data episode + aset.json lulus gate/cek_komposisi.py (WAJAH, INSET, TEPI, ASET; <proyek>/qc/ketat menambah tanda);
 #      sfx_potong.json lulus audio/sfx_potong.py --laporan; stem vo/music/sfx lulus audio/audio_phone.py --gate
 #   9. mode lego saja: lego/base_pts.py dan lego/cek_master.py lulus (pts dasar tanpa ganda; lapisan tampil di frame rencana)
 #   7. setiap catatan Irfan berstatus Aktif di DECISIONS.md (R-NNN / D-NNN) disebut di qc/JURI.md dengan buktinya
@@ -141,7 +141,7 @@ case "$MODE" in
     TEMA="$(ls -d "$R"/src/*/bersama/tema.ts 2>/dev/null | head -1)"; if [ -n "$TEMA" ] && grep -q "export const MEREK" "$TEMA"; then python3 "$HERE/tema_cek.py" "$(dirname "$(dirname "$TEMA")")" || { echo "GAGAL gerbang: gaya adegan di luar tema.ts (templates/sistem-desain)."; gagal=1; }; fi
     if [ -f "$P/lego/lego.json" ] && [ -f "$P/lego/lapisan.json" ]; then python3 "$HERE/kt_ocr.py" "$P/lego" --terima "$QC/kt_ocr_terima.json" --simpan "$QC/kt_ocr" || { echo "GAGAL gerbang: kata KT belum utuh/terbaca 4 f setelah onsetnya (kt_ocr.py; OCR salah baca → qc/kt_ocr_terima.json dengan frame yang dicek)."; gagal=1; }; fi
     if [ -f "$P/TAHAP.md" ]; then python3 "$HERE/tahap.py" "$P" cek 3 || { echo "GAGAL gerbang: langkah tahap 1–3 belum selesai berbukti (TAHAP.md); jalankan tahap.py untuk langkah berikutnya."; gagal=1; }; fi
-    bash "$HERE/gerbang_produksi.sh" "$P" "$AUDIO_DIR" "$PYTHON_BIN" || { echo "GAGAL gerbang produksi: format, komposisi episode, potong SFX, atau mix speaker HP (lihat baris di atas)."; gagal=1; }
+    bash "$HERE/gerbang_produksi.sh" "$P" "$AUDIO_DIR" "$PYTHON_BIN" || { echo "GAGAL gerbang produksi: komposisi episode, potong SFX, atau mix speaker HP (lihat baris di atas)."; gagal=1; }
     python3 "$HERE/motion_lint.py" "$R/src" ${WARIS:+--hanya $CHANGED} || { echo "GAGAL gerbang: gerak preset/stagger rata/blur masuk (Lantai B13a); pakai curves.ts."; gagal=1; }
     python3 "$HERE/audio_bus_check.py" "$R/src" || { echo "GAGAL gerbang: audio di dalam <Sequence> adegan terpotong di batas adegan; putar mix lewat satu komponen '// audio-bus' di root."; gagal=1; }
     ns="$(printf '%.0f' "$(newest_src)")"; st="$(find "$QC/stills" -name '*.png' -printf '%T@\n' 2>/dev/null | sort -n | head -1)"; st="$(printf '%.0f' "${st:-0}")"  # still PALING LAMA: satu still basi = gagal (builder-trap-r2 r7: JB13 basi lolos)

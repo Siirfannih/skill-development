@@ -16,7 +16,7 @@ Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak ko
 **Langkah 1 · Brainstorm dan racik pola (sebelum kode).**
 1. Bedah bahan user sendiri: naskah/transkrip per beat, footage, aset, brand. Dikerjakan sebelum membuka kartu (`../../irfan-creative-workflow/SKILL.md` gerbang 1–3).
 2. Untuk tiap beat, tulis **fungsi ceritanya**: emosi, struktur kalimat, posisi di naskah. Contoh: "kalimat koreksi: bukan X tapi Y", "lompatan waktu", "angka yang harus mendarat".
-3. Baca `INDEX.md`, lalu cocokkan fungsi cerita itu dengan kolom **Narrative trigger**. Untuk mencari satu teknik (T-blok) lintas kartu, pakai `POLA.md`. Naskah baru dimulai dari kategori `script` (`06-script-and-story/`).
+3. Cocokkan fungsi cerita itu dengan kolom **Narrative trigger** `INDEX.md` lewat `python3 ../scripts/cookbook/pilih_kartu.py --cari "<kata kunci fungsi cerita>" [--kategori …] [--bergerak]` (tabel ID, nama, status, path kartu, frame kunci); `INDEX.md` tidak perlu dibaca utuh. Untuk mencari satu teknik (T-blok) lintas kartu, pakai `POLA.md`. Naskah baru dimulai dari kategori `script` (`06-script-and-story/`).
 4. Buka **hanya 2–4 kartu**, ditambah frame kuncinya (`../guide/referensi/sheets/keyframes/<id>-k*.jpg`). Racikannya: **1 kartu pengikat** (hanya bila user tidak punya gaya) + **1–3 kartu mekanik** yang dipinjam per beat.
 5. Tulis racikannya sebagai tabel beat, lalu **minta persetujuan user** sebelum kode:
 

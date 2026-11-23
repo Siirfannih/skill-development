@@ -14,7 +14,9 @@ Tanda yang MEMBLOKIR (exit 1) secara bawaan:
   INSET   inset < 30 % layar di atas kanvas/kartu polos (kotak kecil di ruang kosong)
   TEPI    kotak KT keluar dari zona aman (x 6,25-93,75 % lebar, y 9,3-86,6 % tinggi)
   ASET    lapisan footage tanpa entri di aset.json: wajah tidak bisa dicek, jadi dianggap gagal
-Tanda lain dicetak sebagai PERINGATAN, dan ikut memblokir dengan --ketat (format story-doc memakainya):
+Empat tanda itu netral gaya dan selalu aktif. Tanda lain dicetak sebagai PERINGATAN; proyek yang memilihnya membuat
+semuanya memblokir dengan --ketat, atau sebagian dengan --blok (di render final: file <proyek>/qc/ketat, lihat
+juri/gerbang_produksi.sh). Tidak ada tanda yang terikat pada gaya atau template tertentu:
   NAPAS   jarak antar kanvas napas (kanvas solid + KT napas/giant) > 10,5 dtk
   POTONG  < 3 jenis tata potong di 15 dtk pertama (potong, whip, grid, putih, invert)
   KARTU   lebih dari 2 kanvas napas berurutan yang identik (warna, peran, dan ukuran KT sama)
@@ -34,6 +36,7 @@ W, H = 1920, 1080
 PUB = ""
 FONT = {"tebal": "fonts/HelveticaNeueBold.otf", "sedang": "fonts/HelveticaNeueMedium.otf"}
 BLOK = ("WAJAH", "INSET", "TEPI", "ASET")
+TANDA = BLOK + ("NAPAS", "POTONG", "KARTU", "JEDA", "PITA", "LOGO", "JAUH", "RATA", "KECIL", "TEKSTUR")
 UK = {"r1": 96, "lead": 80, "r2": 124, "r6": 210, "giant": 520, "kotak": 96, "napas": 220}
 LH = {"r1": 1.02, "lead": 1.02, "r2": 0.92, "r6": 0.92, "giant": 0.8, "kotak": 1.3, "napas": 0.94}
 
@@ -245,7 +248,7 @@ def cek(ep):
         for l in a["lapisan"]:
             if l["k"] == "inset" and polos and l["w"] * l["h"] < 0.3 * W * H:
                 tanda.append(f"INSET  adegan {a['id']} {l['src']} {l['w']}x{l['h']} di kanvas polos")
-    tanda += cek_format(ep, nap)
+    tanda += cek_pilihan(ep, nap)
     return list(dict.fromkeys(tanda)), nap
 
 
@@ -254,7 +257,7 @@ def polos(a):
     return bool(a["lapisan"]) and all(l["k"] in ("kanvas", "kartu") for l in a["lapisan"])
 
 
-def cek_format(ep, nap):
+def cek_pilihan(ep, nap):
     """KARTU, JEDA, PITA: pencegah kartu identik berderet, layar kosong setelah potong, dan dua lapisan teks."""
     tanda = []; kt = ep["kt"]
     mulai = lambda k: min(x.get("t", k["dari"]) for x in k["kata"]) if k.get("kata") else k["dari"]
@@ -308,10 +311,13 @@ def main(argv=None):
     global PUB
     ap = argparse.ArgumentParser(description="Gerbang komposisi data episode (exit 1 bila WAJAH, INSET, TEPI, atau ASET).")
     ap.add_argument("episode", nargs="+"); ap.add_argument("--public", help="folder public/ (bawaan: ../public atau ../../public dari file episode)")
-    ap.add_argument("--ketat", action="store_true", help="semua tanda memblokir"); ap.add_argument("--blok", help="daftar tanda yang memblokir, dipisah koma")
+    ap.add_argument("--ketat", action="store_true", help="semua tanda memblokir (pilihan proyek)"); ap.add_argument("--blok", help="daftar tanda yang memblokir, dipisah koma")
     ap.add_argument("--font-tebal"); ap.add_argument("--font-sedang")
     a = ap.parse_args(argv)
-    blok = tuple(x.strip().upper() for x in a.blok.split(",")) if a.blok else BLOK
+    blok = tuple(x.strip().upper() for x in a.blok.split(",") if x.strip()) if a.blok else BLOK
+    asing = [x for x in blok if x not in TANDA]
+    if asing:
+        print(f"GAGAL  --blok memuat tanda tak dikenal: {', '.join(asing)} (pilihan: {', '.join(TANDA)})"); return 1
     if a.font_tebal: FONT["tebal"] = os.path.abspath(a.font_tebal)
     if a.font_sedang: FONT["sedang"] = os.path.abspath(a.font_sedang)
     gagal = 0

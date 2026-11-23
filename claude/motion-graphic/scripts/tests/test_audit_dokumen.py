@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """Regresi temuan audit dokumen: rujukan bagian menunjuk heading yang ada, tidak ada kalimat yang bertentangan dengan
 Lantai C17 di orkestrasi.md, Remotion + rakit lego adalah jalur utama di build.md, baris Fase 3 PETA.md memuat guide visual,
-dan pintu produksi (MOTION-CORE + Format Bible) tetap tipis dan lengkap."""
+pintu produksi (MOTION-CORE) tetap tipis dan memuat alur dua langkah, lima invarian ada di byte 0 AGENTS.md dan
+MOTION-CORE.md, dan tidak ada template gaya tetap (formats/)."""
 import importlib.util, os, re, unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]; MG = ROOT / "claude/motion-graphic"
 RUJUK = re.compile(r"`([\w./<>-]+\.md)`\s*§\s?(\d+(?:\.\d+)*[A-Za-z]?)")
-PINTU = [ROOT / "AGENTS.md", ROOT / "claude/irfan-creative-workflow/SKILL.md", MG / "SKILL.md", MG / "MOTION-CORE.md", *sorted((MG / "formats").glob("*.md"))]
+PINTU = [ROOT / "AGENTS.md", ROOT / "claude/irfan-creative-workflow/SKILL.md", MG / "SKILL.md", MG / "MOTION-CORE.md"]
 
 
 def baca(p): return Path(p).read_text(encoding="utf-8")
@@ -48,11 +49,11 @@ class RujukanBagian(unittest.TestCase):
 
     def test_path_di_pintu_produksi_ada(self):
         hilang = []
-        for f in (MG / "MOTION-CORE.md", *sorted((MG / "formats").glob("*.md"))):
-            for rel in re.findall(r"`((?:\.\./)?(?:scripts|formats|references|guide|templates)/[\w./-]+\.(?:py|sh|md|ts))`", baca(f)):
+        for f in (MG / "MOTION-CORE.md",):
+            for rel in re.findall(r"`((?:\.\./)?(?:scripts|cookbook|references|guide|templates)/[\w./-]+\.(?:py|sh|md|ts))`", baca(f)):
                 if not any((d / rel).exists() for d in (f.parent, MG)):
                     hilang.append(f"{f.name}: {rel}")
-            for rel in re.findall(r"(?:python3|bash) ((?:gate|audio|juri)/[\w.]+)", baca(f)):
+            for rel in re.findall(r"(?:python3|bash) ((?:gate|audio|juri|cookbook)/[\w.]+)", baca(f)):
                 if not (MG / "scripts" / rel).exists():
                     hilang.append(f"{f.name}: scripts/{rel}")
         self.assertEqual(hilang, [])
@@ -98,35 +99,83 @@ class Peta(unittest.TestCase):
     def test_peta_memuat_rute_produksi(self):
         t = baca(ROOT / "PETA.md")
         b = next(x for x in t.splitlines() if x.startswith("| Sesi produksi video"))
-        self.assertIn("MOTION-CORE.md", b); self.assertIn("formats/README.md", b)
+        self.assertIn("MOTION-CORE.md", b); self.assertIn("scripts/cookbook/pilih_kartu.py", b)
+        self.assertNotIn("formats/", t); self.assertNotIn("Format Bible", t)
+
+
+INVARIAN = ("Cookbook = perpustakaan mekanik, bukan template", "Promosi aturan hanya lewat `SARINGAN.md`", "Gerbang pemilik tidak dilewati",
+            "Gerbang mekanis Kelas H tidak dilewati atau diedit", "Baca dulu, jangan menebak")
+
+
+def blok_invarian(teks):
+    """Baris blockquote berurutan di awal file."""
+    baris = []
+    for b in teks.splitlines():
+        if not b.startswith(">"):
+            break
+        baris.append(b)
+    return "\n".join(baris)
+
+
+class Invarian(unittest.TestCase):
+    def test_lima_invarian_di_byte_0(self):
+        for f in (ROOT / "AGENTS.md", MG / "MOTION-CORE.md"):
+            t = baca(f); self.assertTrue(t.startswith("> **Invarian Anti-Sok-Tahu**"), f.name)
+            blok = blok_invarian(t)
+            self.assertEqual(re.findall(r"^> (\d)\. \*\*", blok, flags=re.M), list("12345"), f.name)
+            for i, x in enumerate(INVARIAN, 1):
+                self.assertIn(f"> {i}. **{x}", blok, f.name)
+            for x in ("2–4 kartu mekanik cookbook = output baru", "template gaya tetap", "menyalin gaya antar proyek", "S = proyek, P = pertimbangan, H = hukum netral-gaya terukur",
+                      "naskah final", "storyboard + tabel racikan cookbook", "pemakaian kredit", "`render.sh final`", "`gerbang_produksi.sh`", "`scripts/gate/*`", "outbox/proyek terkait"):
+                self.assertIn(x, blok, f"{f.name}: {x}")
+
+    def test_blok_sama_dan_ringkas(self):
+        a, b = blok_invarian(baca(ROOT / "AGENTS.md")), blok_invarian(baca(MG / "MOTION-CORE.md"))
+        self.assertEqual(a, b)
+        self.assertLess(len(a.encode("utf-8")), 1050)  # < 350 token: ±3 byte per token untuk teks Indonesia ber-markdown
+
+    def test_tidak_ada_template_gaya_tetap(self):
+        self.assertFalse((MG / "formats").exists())
+        for f in (ROOT / "AGENTS.md", ROOT / "PETA.md", MG / "SKILL.md", MG / "MOTION-CORE.md", ROOT / "tools/peta.py"):
+            t = baca(f)
+            for x in ("formats/", "Format Bible", "story-doc-16x9", "journey-talkinghead", "/FORMAT`", "format terkunci", "Format Terkunci"):
+                self.assertNotIn(x, t, f"{f.name}: {x}")
 
 
 class PintuProduksi(unittest.TestCase):
     def test_motion_core_tipis(self):
-        self.assertLess((MG / "MOTION-CORE.md").stat().st_size, 12_000)
+        self.assertLess((MG / "MOTION-CORE.md").stat().st_size, 10_000)
 
     def test_motion_core_memuat_gerbang_dan_larangan(self):
         t = baca(MG / "MOTION-CORE.md")
         for x in ("cek_komposisi.py", "audio_order.py", "sfx_potong.py", "audio_phone.py --root <folder stem> --gate", "render.sh <proyek> final",
-                  "formats/README.md", "Dilarang melewati `render.sh final`", "Dilarang mengedit `scripts/gate/*` atau `scripts/juri/*`"):
+                  "gerbang_produksi.sh", "`WAJAH`, `INSET`, `TEPI`, `ASET`", "qc/ketat", "--ketat",
+                  "Dilarang melewati `render.sh final`", "Dilarang mengedit `scripts/gate/*` atau `scripts/juri/*`"):
             self.assertIn(x, t)
         self.assertEqual(len(re.findall(r"^\| \d+ \| \*\*", t, flags=re.M)), 10)
 
-    def test_format_bible_lengkap(self):
-        kolom = "| Beat | Waktu | Kalimat VO | Jenis adegan | Aset/Subjek | Teks Kunci | Catatan SFX |"
-        router = baca(MG / "formats/README.md")
-        for slug in ("story-doc-16x9", "journey-talkinghead"):
-            self.assertIn(f"`{slug}`", router); self.assertIn(kolom, baca(MG / f"formats/{slug}.md"))
-        s = baca(MG / "formats/story-doc-16x9.md")
-        for x in ("Maksimal 2 kanvas napas identik berurutan", "≤ 0,3 dtk", "tidak ada pita subtitle", "Teks tidak menumpuk logo", "--ketat"):
-            self.assertIn(x, s)
-        j = baca(MG / "formats/journey-talkinghead.md")
-        for x in ("Hard cut-out", "Warna asli kamera", "SFX hanya di perubahan keadaan visual", "Musik ada sejak frame 0", "jeda sunyi"):
-            self.assertIn(x, j)
+    def test_motion_core_memuat_alur_dua_langkah(self):
+        t = baca(MG / "MOTION-CORE.md")
+        urut = ["Gerbang 1–3", "irfan-creative-workflow/SKILL.md", "Langkah 1", "cookbook/pilih_kartu.py --cari", "2–4 kartu", "tabel racikan dan remix per beat",
+                "| Beat | Fungsi cerita | Pola (ID.Tn) |", "Langkah 2", "Remotion dari nol", "`render.sh final` lulus"]
+        alur = t[t.index("## 1."):t.index("## 2.")]
+        pos = [alur.find(x) for x in urut]
+        self.assertNotIn(-1, pos, [x for x, p in zip(urut, pos) if p < 0]); self.assertEqual(pos, sorted(pos))
+        for x in ("--kategori camera|typography|layout|texture|sfx|script", "--bergerak", "--limit 4"):
+            self.assertIn(x, t)
+        awal = t[:t.index("## 1.")]
+        for x in ("PETA.md", "RETRO.md", "SUMBER.md", "cookbook/INDEX.md"):
+            self.assertIn(x, awal[awal.index("Tidak dimuat di awal sesi"):])
+
+    def test_skill_md_merutekan_ke_dua_langkah(self):
+        skill = baca(MG / "SKILL.md"); atas = skill[:skill.index("## 0. Lantai")]
+        for x in ("MOTION-CORE.md", "irfan-creative-workflow/SKILL.md", "Langkah 1 cookbook", "scripts/cookbook/pilih_kartu.py", "2–4 kartu", "Langkah 2", "gerbang_produksi.sh"):
+            self.assertIn(x, atas)
+        self.assertTrue((MG / "scripts/cookbook/pilih_kartu.py").is_file())
 
     def test_pintu_atas_menunjuk_motion_core(self):
-        self.assertIn("MOTION-CORE.md", baca(ROOT / "AGENTS.md")[:1500])
-        skill = baca(MG / "SKILL.md"); self.assertLess(skill.index("MOTION-CORE.md"), skill.index("## 0. Lantai"))
+        self.assertIn("MOTION-CORE.md", baca(ROOT / "AGENTS.md")[:2600])
+        self.assertIn("pilih_kartu.py", baca(ROOT / "AGENTS.md")[:2600])
 
 
 if __name__ == "__main__":

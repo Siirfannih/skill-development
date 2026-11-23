@@ -83,6 +83,12 @@ class CekKomposisi(unittest.TestCase):
         ep["adegan"][1]["jeda_sengaja"] = "hening sebelum pelajaran"
         self.assertEqual(self.cek(ep, "--ketat").returncode, 0)
 
+    def test_blok_memilih_sebagian_dan_menolak_tanda_asing(self):
+        ep = episode(); ep["kt"][1].update(dari=5.0)
+        self.assertEqual(self.cek(ep, "--blok", "WAJAH,INSET,TEPI,ASET,PITA").returncode, 0)
+        r = self.cek(ep, "--blok", "WAJAH,INSET,TEPI,ASET,jeda"); self.assertEqual(r.returncode, 1); self.assertIn("JEDA", r.stdout)
+        r = self.cek(episode(), "--blok", "WAJAH,SALAH"); self.assertEqual(r.returncode, 1); self.assertIn("tanda tak dikenal: SALAH", r.stdout)
+
     def test_pita_subtitle_bersama_kt_memblokir_bila_ketat(self):
         ep = episode(sub=[{"dari": 0, "sampai": 4, "teks": "terjemahan"}])
         self.assertEqual(self.cek(ep).returncode, 0)
@@ -220,23 +226,50 @@ class GerbangProduksi(unittest.TestCase):
 
     def tearDown(self): self.t.cleanup()
 
-    def jalan(self): return run("bash", PRODUKSI, self.p, self.p / "audio", sys.executable)
+    def jalan(self, *flag): return run("bash", PRODUKSI, *flag, self.p, self.p / "audio", sys.executable)
 
     def test_proyek_tanpa_file_pemicu_lulus(self):
         r = self.jalan(); self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn("dilewati", r.stdout)
 
-    def test_format_tidak_dikenal_gagal(self):
+    def test_file_format_tidak_dibaca(self):
+        """Tidak ada template gaya: file FORMAT di proyek tidak mengubah apa pun, dan skrip tidak menyebut formats/."""
         (self.p / "FORMAT").write_text("campur-bebas\n")
-        r = self.jalan(); self.assertEqual(r.returncode, 1); self.assertIn("bukan format terkunci", r.stdout)
-        (self.p / "FORMAT").write_text("README\n"); self.assertEqual(self.jalan().returncode, 1)
+        r = self.jalan(); self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertNotIn("format", r.stdout.lower())
+        for f in (PRODUKSI, KOMPOSISI, RENDER):
+            t = f.read_text()
+            for x in ("formats/", "/FORMAT", "story-doc", "journey-talkinghead", "Format Bible"):
+                self.assertNotIn(x, t, f"{f.name}: {x}")
 
-    def test_format_terkunci_dikenal(self):
-        (self.p / "FORMAT").write_text("journey-talkinghead\n")
-        r = self.jalan(); self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn("format terkunci: journey-talkinghead", r.stdout)
-
-    def test_story_doc_tanpa_data_episode_gagal(self):
-        (self.p / "FORMAT").write_text("story-doc-16x9\n")
+    def test_ketat_tanpa_data_episode_gagal(self):
+        r = self.jalan("--ketat"); self.assertEqual(r.returncode, 1); self.assertIn("butuh data episode", r.stdout)
+        (self.p / "qc/ketat").write_text("")
         r = self.jalan(); self.assertEqual(r.returncode, 1); self.assertIn("butuh data episode", r.stdout)
+
+    def proyek_dengan_jeda(self):
+        pub = self.p / "remotion/public"; (pub / "ep").mkdir(parents=True); (pub / "fonts").mkdir()
+        for n in ("HelveticaNeueBold.otf", "HelveticaNeueMedium.otf"):
+            os.symlink(FONT, pub / "fonts" / n)
+        (pub / "ep/aset.json").write_text(json.dumps({"foto.jpg": {"w": 1920, "h": 1080, "wajah": []}}))
+        ep = episode(); ep["kt"][1].update(dari=5.0)
+        (self.p / "remotion/src/data/ep01.json").write_text(json.dumps(ep))
+
+    @unittest.skipUnless(FONT, "tidak ada font TTF sistem")
+    def test_ketat_hanya_bila_proyek_memilih(self):
+        self.proyek_dengan_jeda()
+        r = self.jalan(); self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn("PERINGATAN JEDA", r.stdout)
+        r = self.jalan("--ketat"); self.assertEqual(r.returncode, 1); self.assertIn("flag --ketat", r.stdout)
+        (self.p / "qc/ketat").write_text("# semua tanda\n")
+        r = self.jalan(); self.assertEqual(r.returncode, 1); self.assertIn("semua tanda memblokir (qc/ketat)", r.stdout)
+
+    @unittest.skipUnless(FONT, "tidak ada font TTF sistem")
+    def test_qc_ketat_berisi_daftar_tanda(self):
+        self.proyek_dengan_jeda()
+        (self.p / "qc/ketat").write_text("pita, logo  # tanpa JEDA\n")
+        r = self.jalan(); self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn("bawaan + PITA LOGO", r.stdout)
+        (self.p / "qc/ketat").write_text("JEDA\nKARTU\n")
+        r = self.jalan(); self.assertEqual(r.returncode, 1); self.assertNotIn("PERINGATAN JEDA", r.stdout)
+        (self.p / "qc/ketat").write_text("JEDAA\n")
+        r = self.jalan(); self.assertEqual(r.returncode, 1); self.assertIn("tanda tak dikenal: JEDAA", r.stdout)
 
     def test_laporan_potong_gagal_memblokir(self):
         (self.p / "audio/sfx_potong.json").write_text(json.dumps([KERAS]))
