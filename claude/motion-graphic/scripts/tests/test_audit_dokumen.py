@@ -120,7 +120,7 @@ def blok_invarian(teks):
 class Invarian(unittest.TestCase):
     def test_lima_invarian_di_byte_0(self):
         for f in (ROOT / "AGENTS.md", MG / "MOTION-CORE.md"):
-            t = baca(f); self.assertTrue(t.startswith("> **Invarian Anti-Sok-Tahu**"), f.name)
+            t = baca(f); self.assertTrue(t.startswith("> **Invarian kerja**"), f.name)
             blok = blok_invarian(t)
             self.assertEqual(re.findall(r"^> (\d)\. \*\*", blok, flags=re.M), list("12345"), f.name)
             for i, x in enumerate(INVARIAN, 1):
@@ -150,7 +150,7 @@ class PintuProduksi(unittest.TestCase):
         t = baca(MG / "MOTION-CORE.md")
         for x in ("cek_komposisi.py", "audio_order.py", "sfx_potong.py", "audio_phone.py --root <folder stem> --gate", "render.sh <proyek> final",
                   "gerbang_produksi.sh", "`WAJAH`, `INSET`, `TEPI`, `ASET`", "qc/ketat", "--ketat",
-                  "Dilarang melewati `render.sh final`", "Dilarang mengedit `scripts/gate/*` atau `scripts/juri/*`"):
+                  "Jangan melewati `render.sh final`", "Jangan mengedit `scripts/gate/*` atau `scripts/juri/*`"):
             self.assertIn(x, t)
         self.assertEqual(len(re.findall(r"^\| \d+ \| \*\*", t, flags=re.M)), 10)
 
