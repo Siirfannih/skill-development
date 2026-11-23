@@ -1,0 +1,169 @@
+{
+  "juri": "hierarki_cek",
+  "lulus": false,
+  "slide": {
+    "1": {
+      "pola": "bobot",
+      "bobot": {
+        "1": {
+          "nilai": 4112425,
+          "teks": [
+            "Kemarin ngedit",
+            "videonya kan udah",
+            "Full Pakai AI."
+          ]
+        },
+        "2": {
+          "nilai": 917800,
+          "teks": [
+            "Sekarang kalau ngedit , bisa gak sih?",
+            "carousel"
+          ]
+        }
+      },
+      "level": [
+        112,
+        58,
+        24
+      ],
+      "gagal": [],
+      "peringatan": []
+    },
+    "2": {
+      "pola": "bobot",
+      "bobot": {
+        "1": {
+          "nilai": 23939121,
+          "teks": [
+            "BISA",
+            "NIH",
+            "!!"
+          ]
+        },
+        "2": {
+          "nilai": 844462,
+          "teks": [
+            "Tapi...."
+          ]
+        },
+        "3": {
+          "nilai": 160341,
+          "teks": [
+            "Hasilnya bisa bagus ga??",
+            "Ada impact-nya ga??"
+          ]
+        }
+      },
+      "level": [
+        410,
+        168,
+        36
+      ],
+      "gagal": [],
+      "peringatan": []
+    },
+    "3": {
+      "pola": "bobot",
+      "bobot": {
+        "1": {
+          "nilai": 1445558,
+          "teks": [
+            "Kita lagi ada di fenomena dimana bikin apa aja pakai AI..."
+          ]
+        },
+        "2": {
+          "nilai": 2444400,
+          "teks": [
+            "BISAAAA."
+          ]
+        },
+        "3": {
+          "nilai": 2375921,
+          "teks": [
+            "Vibecoding",
+            "prompt → aplikasi jalan",
+            "Vibe Design",
+            "poster & UI hitungan detik",
+            "Vibe Editing",
+            "cut, subtitle, animasi",
+            "Bikin SaaS",
+            "sistem agentic jalan otomatis"
+          ]
+        }
+      },
+      "level": [
+        150,
+        78,
+        56,
+        19
+      ],
+      "gagal": [
+        "urutan 2 (\"BISAAAA.\") lebih menonjol 1.69× dari urutan 1 (\"Kita lagi ada di fenomena dimana bikin a\")"
+      ],
+      "peringatan": [
+        "4 level ukuran teks (150, 78, 56, 19 px); disarankan ≤ 3"
+      ]
+    },
+    "4": {
+      "pola": "cerita",
+      "bobot": {
+        "1": {
+          "nilai": 430303,
+          "teks": [
+            "buatin desain konten carousel dong, yang bagus ya",
+            "Tentu! Ini desain carousel yang modern dan engaging:"
+          ]
+        },
+        "2": {
+          "nilai": 4707516,
+          "teks": [
+            "Tapi yang AI itu",
+            "gak bisa"
+          ]
+        }
+      },
+      "level": [
+        124,
+        25
+      ],
+      "gagal": [],
+      "peringatan": []
+    },
+    "5": {
+      "pola": "bobot",
+      "bobot": {
+        "1": {
+          "nilai": 2796638,
+          "teks": [
+            "Mikirin",
+            "taste"
+          ]
+        },
+        "2": {
+          "nilai": 1843220,
+          "teks": [
+            "dan",
+            "arahnya"
+          ]
+        },
+        "3": {
+          "nilai": 188000,
+          "teks": [
+            "mau ke mana?"
+          ]
+        }
+      },
+      "level": [
+        250,
+        200,
+        112,
+        70
+      ],
+      "gagal": [],
+      "peringatan": [
+        "4 level ukuran teks (250, 200, 112, 70 px); disarankan ≤ 3"
+      ]
+    }
+  },
+  "errorsHalaman": []
+}

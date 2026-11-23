@@ -1,0 +1,12 @@
+{
+  "id": "vd-002",
+  "source": "projects/vibedesign-meta-carousel/DECISIONS.md D-007, D-015",
+  "prompt": "Slide 2: 'BISA NIH!!' lalu 'Tapi....' lalu dua micro speech-bubble pertanyaan ('Hasilnya bisa bagus ga??', 'Ada impact-nya ga??'). Bangun slidenya.",
+  "files": ["fixtures/README.md"],
+  "assertions": [
+    "'BISA NIH!!' adalah elemen teks terbesar",
+    "'Tapi....' berada di bawah 'BISA NIH!!' dan di atas kedua bubble; kedua bubble lebih kecil dari 'Tapi....' (HRK-01)",
+    "'Tapi....' ditulis lurus (tanpa textPath) kecuali RESEP menyebut objek yang diikuti lengkungannya (TIP-03)",
+    "Jarak vertikal 'Tapi....' ke bubble pertama ≤ 1× tinggi huruf bubble dan jarak antar bubble seragam (KMP-02)"
+  ]
+}

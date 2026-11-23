@@ -1,0 +1,112 @@
+<style>
+/* ===== SLIDE 1 — Hook: clean / startup-first =====
+   Urutan baca: (1) headline "Kemarin ngedit videonya kan udah" → (2) "Full AI." aksen + seleksi
+   → (3) "Sekarang kalau ngedit carousel, bisa gak sih?" → (4) kata raksasa "Carousel" (visual)
+   → (5) chip kolaborator → (6) meta & footer. Satu keluarga: Plus Jakarta Sans; mono hanya chip/meta. */
+#slide-1{background:#F5F5F3}
+#slide-1::after{opacity:.10}
+
+/* latar gradien biru→violet naik dari bawah */
+/* gradien di-ease dengan banyak stop + dither noise agar tidak ada patahan/banding saat di-zoom */
+#slide-1 .glow{left:0;right:0;top:0;bottom:0;z-index:1;
+  background:linear-gradient(180deg,
+    rgba(124,130,242,0) 0px,rgba(124,130,242,0) 450px,rgba(124,130,242,.03) 490px,rgba(124,130,242,.08) 530px,
+    rgba(124,130,242,.16) 570px,rgba(124,130,242,.27) 610px,rgba(124,130,242,.41) 650px,rgba(124,130,242,.56) 695px,
+    rgba(124,130,242,.71) 740px,rgba(124,130,242,.85) 785px,#7C82F2 840px,#6A74EF 910px,#5867EC 990px,#4A60EB 1080px,#2F5BEA 1350px)}
+#slide-1 .dither{left:0;right:0;top:410px;bottom:0;z-index:3;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='d'><feTurbulence type='fractalNoise' baseFrequency='1.6' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23d)'/></svg>")}
+/* grid perspektif tipis */
+/* lantai perspektif: horizon tepat di baseline kata raksasa supaya kata "berdiri" di atasnya */
+#slide-1 .floor{left:0;top:var(--base,1072px);width:1080px;height:300px;z-index:2;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 14%,#000 86%,transparent 100%)}
+#slide-1 .contact{left:40px;right:-40px;top:calc(var(--base,1072px) - 26px);height:56px;z-index:8;border-radius:50%;
+  background:radial-gradient(ellipse at center,rgba(28,36,140,.42) 0%,rgba(28,36,140,0) 70%);filter:blur(10px)}
+
+/* meta kiri atas */
+#slide-1 .meta{left:72px;top:68px;z-index:20;font:500 22px/1.25 var(--sans);color:#8D8D88;letter-spacing:-.01em}
+#slide-1 .meta b{display:block;color:#3A3B40;font-weight:600}
+#slide-1 .count{right:72px;top:68px;z-index:20;font:500 18px/1 var(--mono);color:#8D8D88;letter-spacing:.04em}
+
+/* headline */
+#slide-1 .hl{left:68px;top:176px;width:960px;z-index:20;font:500 112px/1.0 var(--sans);letter-spacing:-.055em;color:#16171C}
+#slide-1 .hl .l{display:block;white-space:nowrap}
+#slide-1 .hl .soft{color:#3A3C46}
+#slide-1 .acc{position:relative;display:inline-block;padding-right:18px;
+  background:linear-gradient(92deg,#2563EB 0%,#5B5CF0 55%,#818CF8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* seleksi tipis ala text-cursor Figma: titik kiri, garis dasar, batang kanan */
+#slide-1 .acc .base{position:absolute;left:4px;right:0;bottom:-8px;height:2px;background:#2563EB}
+#slide-1 .acc .bar{position:absolute;right:0;top:14px;bottom:-8px;width:2px;background:#2563EB}
+#slide-1 .acc .d{position:absolute;width:11px;height:11px;border-radius:50%;background:#2563EB;box-shadow:0 0 0 3px #F5F5F3}
+#slide-1 .acc .d1{left:-1px;bottom:-12.5px}#slide-1 .acc .d2{right:-4.5px;bottom:-12.5px}#slide-1 .acc .d3{right:-4.5px;top:9px}
+
+/* lanjutan pertanyaan */
+#slide-1 .q{left:72px;top:566px;width:936px;z-index:20;font:500 58px/1.12 var(--sans);letter-spacing:-.04em;color:#4A4C55}
+#slide-1 .q b{font-weight:700;color:#16171C}
+
+/* kata raksasa kaca */
+#slide-1 .giant{left:-34px;top:690px;z-index:10;white-space:nowrap;
+  font:600 420px/1 var(--sans);letter-spacing:-.035em;
+  background:linear-gradient(180deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.78) 38%,rgba(236,238,255,.55) 72%,rgba(220,226,255,.40) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  -webkit-text-stroke:1.5px rgba(255,255,255,.95);
+  filter:drop-shadow(0 2px 0 rgba(255,255,255,.6)) drop-shadow(0 22px 34px rgba(40,52,190,.30))}
+#slide-1 .giant-fill{left:-34px;top:690px;z-index:9;white-space:nowrap;font:600 420px/1 var(--sans);letter-spacing:-.035em;
+  color:rgba(255,255,255,.75);filter:blur(26px);opacity:.8}
+
+/* chip kolaborator */
+#slide-1 .chip{z-index:30;display:flex;align-items:center;gap:10px;padding:13px 20px;border-radius:999px;
+  font:600 19px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:#fff;
+  box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.55),0 10px 24px rgba(40,50,160,.28)}
+#slide-1 .chip.blue{background:linear-gradient(180deg,#3B7BF5,#2563EB)}
+#slide-1 .chip.violet{background:linear-gradient(180deg,#9AA2FA,#7C83F2)}
+#slide-1 .chip.glass{background:rgba(255,255,255,.22);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+#slide-1 .chip .at{width:20px;height:20px;border-radius:50%;border:2px solid rgba(255,255,255,.9);display:grid;place-items:center;font:700 11px/1 var(--mono)}
+#slide-1 .arr{z-index:31;width:26px;height:28px;filter:drop-shadow(0 3px 4px rgba(30,40,120,.3))}
+
+/* teks putih di gradien */
+#slide-1 .sub{left:72px;top:1100px;z-index:20;font:700 34px/1.12 var(--sans);letter-spacing:-.01em;text-transform:uppercase;color:#fff}
+
+/* footer */
+#slide-1 .foot{left:72px;right:72px;bottom:64px;z-index:20;display:flex;align-items:flex-end;gap:120px;
+  font:700 18px/1.3 var(--sans);letter-spacing:.02em;text-transform:uppercase;color:#fff}
+#slide-1 .foot span{display:block;color:rgba(255,255,255,.72);font-weight:600}
+#slide-1 .foot .end{margin-left:auto;display:flex;align-items:center;gap:22px;text-transform:none;font:500 19px/1 var(--mono);letter-spacing:0;color:rgba(255,255,255,.85)}
+</style>
+
+<section class="slide" id="slide-1">
+  <div class="glow"></div>
+  <div class="dither"></div>
+  <svg class="floor" viewBox="0 0 1080 300" preserveAspectRatio="none" aria-hidden="true"><defs><clipPath id="fl1"><rect x="0" y="0" width="1080" height="300"/></clipPath></defs><g clip-path="url(#fl1)" stroke="rgba(255,255,255,.20)" stroke-width="1.2"><line x1="540" y1="-520" x2="-900" y2="300"/><line x1="540" y1="-520" x2="-780" y2="300"/><line x1="540" y1="-520" x2="-660" y2="300"/><line x1="540" y1="-520" x2="-540" y2="300"/><line x1="540" y1="-520" x2="-420" y2="300"/><line x1="540" y1="-520" x2="-300" y2="300"/><line x1="540" y1="-520" x2="-180" y2="300"/><line x1="540" y1="-520" x2="-60" y2="300"/><line x1="540" y1="-520" x2="60" y2="300"/><line x1="540" y1="-520" x2="180" y2="300"/><line x1="540" y1="-520" x2="300" y2="300"/><line x1="540" y1="-520" x2="420" y2="300"/><line x1="540" y1="-520" x2="540" y2="300"/><line x1="540" y1="-520" x2="660" y2="300"/><line x1="540" y1="-520" x2="780" y2="300"/><line x1="540" y1="-520" x2="900" y2="300"/><line x1="540" y1="-520" x2="1020" y2="300"/><line x1="540" y1="-520" x2="1140" y2="300"/><line x1="540" y1="-520" x2="1260" y2="300"/><line x1="540" y1="-520" x2="1380" y2="300"/><line x1="540" y1="-520" x2="1500" y2="300"/><line x1="540" y1="-520" x2="1620" y2="300"/><line x1="540" y1="-520" x2="1740" y2="300"/><line x1="540" y1="-520" x2="1860" y2="300"/><line x1="540" y1="-520" x2="1980" y2="300"/><line x1="0" y1="7" x2="1080" y2="7"/><line x1="0" y1="17" x2="1080" y2="17"/><line x1="0" y1="31" x2="1080" y2="31"/><line x1="0" y1="50" x2="1080" y2="50"/><line x1="0" y1="75" x2="1080" y2="75"/><line x1="0" y1="107" x2="1080" y2="107"/><line x1="0" y1="147" x2="1080" y2="147"/><line x1="0" y1="196" x2="1080" y2="196"/><line x1="0" y1="256" x2="1080" y2="256"/></g><line x1="0" y1="0.8" x2="1080" y2="0.8" stroke="rgba(255,255,255,.55)" stroke-width="1.6"/></svg>
+  <div class="contact"></div>
+
+  <div class="meta" data-dekor>Meta-Experiment<b>01 — 05</b></div>
+
+  <h1 class="hl" data-baca="1">
+    <span class="l soft">Kemarin ngedit</span>
+    <span class="l soft">videonya kan udah</span>
+    <span class="l"><span class="acc">Full Pakai AI.<i class="base"></i><i class="bar"></i><i class="d d1"></i><i class="d d2"></i><i class="d d3"></i></span></span>
+  </h1>
+
+  <p class="q" data-baca="2">Sekarang kalau ngedit <b>carousel</b>,<br>bisa gak sih?</p>
+
+  <div class="giant-fill" data-dekor data-bleed>Carousel</div>
+  <div class="giant" data-dekor data-bleed>Carousel</div>
+
+  <!-- kursor + chip kolaborator -->
+  <!-- kolaborator yang sedang menyeleksi "Full AI." -->
+  <svg class="arr" viewBox="0 0 26 28" style="left:660px;top:404px"><path d="M2 2 L24 11 L13 14 L9 26 Z" fill="#2563EB" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+  <div class="chip blue" style="left:688px;top:428px;padding:12px 20px;font-size:24px;letter-spacing:.05em">vibe editing</div>
+
+  <svg class="arr" viewBox="0 0 26 28" style="left:400px;top:648px"><path d="M2 2 L24 11 L13 14 L9 26 Z" fill="#2563EB" stroke="#fff" stroke-width="2" stroke-linejoin="round"/></svg>
+  <div class="chip blue" style="left:428px;top:670px;padding:12px 20px;font-size:24px;letter-spacing:.05em">vibedesign</div>
+
+  <svg class="arr" viewBox="0 0 26 28" style="left:250px;top:924px;transform:scaleX(-1)"><path d="M2 2 L24 11 L13 14 L9 26 Z" fill="#fff" stroke="#4E63EC" stroke-width="2" stroke-linejoin="round"/></svg>
+  <div class="chip glass" style="left:96px;top:952px" data-dekor><span class="at">@</span>siirfannih</div>
+
+  <div class="foot" data-dekor>
+    <div>100% code<span>No Canva</span></div>
+    <div class="end">geser →
+      <svg width="30" height="36" viewBox="0 0 30 36"><path d="M4 3 H26 V33 L15 25 L4 33 Z" fill="none" stroke="#fff" stroke-width="2.6" stroke-linejoin="round"/></svg>
+    </div>
+  </div>
+</section>

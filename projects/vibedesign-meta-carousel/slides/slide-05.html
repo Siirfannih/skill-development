@@ -1,0 +1,107 @@
+<style>
+/* ===== SLIDE 5 — Editorial Punchline + macOS Dock ===== */
+#slide-5 .hl{left:76px;top:236px;width:940px;z-index:20}
+#slide-5 .ln{display:flex;align-items:baseline;gap:30px;white-space:nowrap}
+#slide-5 .w{font:800 112px/1 var(--sans);letter-spacing:-.055em}
+#slide-5 .big{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue);letter-spacing:-.03em;line-height:.9}
+#slide-5 .taste{font-size:250px}
+#slide-5 .arah{font-size:200px;position:relative;z-index:0}
+#slide-5 .arah::before{content:"";position:absolute;left:-8px;right:-16px;bottom:30px;height:34px;background:var(--lime);z-index:-1;transform:rotate(-1deg)}
+#slide-5 .ln.l1{height:250px}
+#slide-5 .ln.l2{height:214px;margin-left:64px}
+#slide-5 .ln.l3{height:120px;margin-top:6px}
+#slide-5 .q{font:800 100px/1 var(--sans);letter-spacing:-.055em;color:#B3B0A8}
+#slide-5 .sel.t{outline-offset:6px;padding:0 .06em}
+#slide-5 .sel.t .dim{bottom:auto;top:-46px;left:auto;right:-10px;transform:none}
+
+/* garis pandang (diisi script) */
+#slide-5 .gaze{left:0;top:0;width:1080px;height:1350px;z-index:15;pointer-events:none;overflow:visible}
+
+/* catatan kecil di kanan */
+#slide-5 .note{right:76px;top:920px;z-index:20;text-align:right;font:500 20px/1.5 var(--mono);color:var(--mute)}
+#slide-5 .note b{color:var(--ink);font-weight:700}
+
+/* dock */
+#slide-5 .dock{left:50%;bottom:64px;transform:translateX(-50%);gap:16px;padding:14px 18px;align-items:center}
+#slide-5 .dock .app{width:108px;height:108px;overflow:visible}
+#slide-5 .dock .app .cast{position:absolute;left:50%;bottom:4px;width:134px;transform:translateX(-50%);z-index:2}
+#slide-5 .dock .app.a1{background:#E8EEFD}
+#slide-5 .dock .app.a2{background:#F1FBDD}
+#slide-5 .dock .app.a3{background:#EBEBEF}
+#slide-5 .dock .app.a3 .cast{bottom:-34px}
+#slide-5 .dock .sep{width:1.5px;height:84px;background:rgba(20,21,24,.14);margin:0 4px}
+#slide-5 .dock .me{background:var(--ink);display:grid;place-items:center}
+#slide-5 .dock .me span{font:italic 400 70px/1 var(--serif);color:var(--lime);margin-top:-6px}
+#slide-5 .dock .btns{display:flex;flex-direction:column;gap:10px;padding-left:4px}
+#slide-5 .dock .btn{font:700 22px/1 var(--sans);letter-spacing:-.02em;padding:15px 24px;border-radius:999px;text-align:center;white-space:nowrap}
+#slide-5 .dock .save{background:var(--ink);color:#fff}
+#slide-5 .dock .share{background:var(--lime);color:var(--ink)}
+/* tooltip dock ala macOS di atas avatar */
+#slide-5 .tip{z-index:31;padding:12px 18px;border-radius:12px;background:rgba(20,21,24,.92);color:#fff;font:700 21px/1.25 var(--sans);letter-spacing:-.01em;white-space:nowrap;box-shadow:var(--shadow-1)}
+#slide-5 .tip small{display:block;margin-top:4px;font:500 15px/1 var(--mono);color:#B7B6B1;letter-spacing:0}
+#slide-5 .tip::after{content:"";position:absolute;left:50%;bottom:-9px;margin-left:-9px;border-left:9px solid transparent;border-right:9px solid transparent;border-top:9px solid rgba(20,21,24,.92)}
+</style>
+
+<section class="slide bg-dots" id="slide-5">
+  <div class="chrome" data-dekor>
+    <div class="tabs">
+      <span class="lights"><i></i><i></i><i></i></span>
+      <span class="tab on"><b></b>carousel.fig</span>
+      <span class="tab">@siirfannih</span>
+    </div>
+    <div class="bar">
+      <div class="tools">
+        <span class="tool on"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 2 L4 17 L8 13 L11 19 L13.5 18 L10.5 12 L16 12 Z" fill="currentColor"/></svg></span>
+        <span class="tool"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M5 2v16M15 2v16M2 5h16M2 15h16" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></span>
+        <span class="tool"><svg width="20" height="20" viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="1.5" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></span>
+        <span class="tool"><svg width="20" height="20" viewBox="0 0 20 20"><path d="M4 16 L10 3 L16 16 M6.5 11h7" stroke="currentColor" stroke-width="1.8" fill="none"/></svg></span>
+        <span class="tool"><svg width="20" height="20" viewBox="0 0 20 20"><text x="4" y="16" font-family="Plus Jakarta Sans" font-weight="700" font-size="16" fill="currentColor">T</text></svg></span>
+      </div>
+      <div class="file">Slide 05 <span>/ Punchline</span></div>
+      <div class="right"><span class="pg">05 / 05</span><span class="zoom">100%</span><span class="ava">I</span><span class="share">Share</span></div>
+    </div>
+  </div>
+
+  <h2 class="hl">
+    <span class="ln l1" data-baca="1"><span class="w">Mikirin</span>
+      <span class="big taste sel t">taste<i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i></span></span>
+    <span class="ln l2" data-baca="2"><span class="w">dan</span> <span class="big arah">arahnya</span></span>
+    <span class="ln l3" data-baca="3"><span class="q">mau ke mana?</span></span>
+  </h2>
+
+  <svg class="gaze" viewBox="0 0 1080 1350"></svg>
+
+  <div class="tip" data-dekor>@siirfannih — I Gede Irfan<small>Life Student • 100% Coded Carousel</small></div>
+
+  <div class="dock">
+    <div class="app a1"><div class="cast" data-cast="klik" data-opt='{"eyes":"wide","look":[4,-7],"tilt":8,"arms":[30,160]}'></div></div>
+    <div class="app a2"><div class="cast" data-cast="note" data-opt='{"eyes":"wide","look":[3,-8],"tilt":6,"arms":[20,140]}'></div></div>
+    <div class="app a3"><div class="cast" data-cast="nodi" data-opt='{"eyes":"wide","look":[2,-7],"tilt":4,"arms":[40,165]}'></div></div>
+    <span class="sep"></span>
+    <div class="app me"><span>I</span></div>
+    <div class="btns" data-dekor><span class="btn save">Save</span><span class="btn share">Share ↗</span></div>
+  </div>
+
+  <script>
+  // garis pandang: dari mata tiap stiker dock ke bawah kata "taste", + titik fokus; tooltip di atas avatar
+  document.fonts.ready.then(() => {
+    const sl = document.getElementById("slide-5"), b = sl.getBoundingClientRect();
+    const t = sl.querySelector(".taste").getBoundingClientRect();
+    const fx = t.left - b.left + t.width * 0.5, fy = t.bottom - b.top + 26;
+    let g = "";
+    sl.querySelectorAll(".dock .app .cast").forEach((c, i) => {
+      const r = c.getBoundingClientRect();
+      const x = r.left - b.left + r.width * 0.47, y = r.top - b.top + r.height * 0.36;
+      const dx = fx - x, dy = fy - y, L = Math.hypot(dx, dy), k = 340 / L;   // garis pandang pendek ke arah "taste"
+      const x2 = x + dx * k, y2 = y + dy * k;
+      g += `<linearGradient id="gz${i}" gradientUnits="userSpaceOnUse" x1="${x}" y1="${y}" x2="${x2}" y2="${y2}"><stop offset="0" stop-color="#2563EB" stop-opacity=".95"/><stop offset="1" stop-color="#2563EB" stop-opacity="0"/></linearGradient>`;
+      g += `<line x1="${x + dx * (60 / L)}" y1="${y + dy * (60 / L)}" x2="${x2}" y2="${y2}" stroke="url(#gz${i})" stroke-width="3.6" stroke-dasharray="1 11" stroke-linecap="round"/>`;
+    });
+    sl.querySelector(".gaze").innerHTML = g;
+    const me = sl.querySelector(".dock .me").getBoundingClientRect(), tip = sl.querySelector(".tip");
+    const tw = tip.getBoundingClientRect().width;
+    tip.style.left = me.left - b.left + me.width / 2 - tw / 2 + "px";
+    tip.style.top = me.top - b.top - tip.getBoundingClientRect().height - 18 + "px";
+  });
+  </script>
+</section>

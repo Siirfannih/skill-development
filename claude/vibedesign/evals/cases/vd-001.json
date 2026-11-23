@@ -1,0 +1,13 @@
+{
+  "id": "vd-001",
+  "source": "projects/vibedesign-meta-carousel/DECISIONS.md D-004, D-005, D-006, D-014",
+  "prompt": "Slide 1 (hook): 'Kemarin ngedit videonya kan udah Full AI, sekarang kalau ngedit Carousel bisa gak sih?'. Dunia visual workspace editor desain. Bangun slidenya.",
+  "files": ["fixtures/README.md"],
+  "assertions": [
+    "Tidak ada keluarga serif yang diselipkan di antara kata sans tebal tanpa peran tertulis di RESEP (TIP-01)",
+    "Frasa kunci ditekan lewat wadah/warna/seleksi, bukan ganti keluarga huruf (TIP-02)",
+    "Elemen sekunder (thumbnail, chip, teks blur) ada di tepi kanvas dan tidak menyentuh bbox teks utama (KMP-01; juri teks keluar 0)",
+    "Label kursor kolaborator tidak menutupi huruf atau tanda baca mana pun",
+    "Uji juling: elemen urutan 1 di BRIEF adalah yang pertama terbaca pada still lebar 300 px"
+  ]
+}

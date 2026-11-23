@@ -1,0 +1,84 @@
+/* ============================================================
+   VIBEDESIGN ENGINE · core/components.css
+   Komponen "Digital Design Workspace": .chrome (tab browser + toolbar), .sel (kotak seleksi),
+   .fcursor (kursor multiplayer), .mbub (micro bubble), .label-tape/.tape, .win (jendela OS),
+   .dock, tipografi bersama. Slide hanya MENAMBAH gaya lewat #slide-N; jangan ubah file ini di sesi produksi.
+   ============================================================ */
+
+/* ---------- workspace chrome: tab browser + toolbar Figma (pakai di SEMUA slide, variasi boleh) ---------- */
+.chrome{left:0;right:0;top:0;height:112px;z-index:40;font-family:var(--sans)}
+.chrome .tabs{height:50px;display:flex;align-items:flex-end;gap:6px;padding:0 24px;background:#E9E7E1;border-bottom:1px solid rgba(20,21,24,.08)}
+.chrome .lights{display:flex;gap:9px;align-self:center;margin-right:18px}
+.chrome .lights i{width:14px;height:14px;border-radius:50%;background:#FF5F57}
+.chrome .lights i:nth-child(2){background:#FEBC2E}.chrome .lights i:nth-child(3){background:#28C840}
+.chrome .tab{height:38px;padding:0 18px;display:flex;align-items:center;gap:10px;border-radius:10px 10px 0 0;font:600 17px/1 var(--sans);color:#6B6A65}
+.chrome .tab.on{background:var(--canvas);color:var(--ink)}
+.chrome .tab b{width:16px;height:16px;border-radius:4px;background:var(--ink);display:inline-block}
+.chrome .bar{height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:var(--canvas);border-bottom:1px solid rgba(20,21,24,.08)}
+.chrome .tools{display:flex;gap:6px;align-items:center}
+.chrome .tool{width:40px;height:40px;border-radius:9px;display:grid;place-items:center;color:var(--ink)}
+.chrome .tool.on{background:var(--blue);color:#fff}
+.chrome .file{font:600 18px/1 var(--sans);color:var(--ink)}
+.chrome .file span{color:var(--mute);font-weight:500}
+.chrome .right{display:flex;gap:14px;align-items:center;font:600 17px/1 var(--sans)}
+.chrome .zoom{font:500 17px/1 var(--mono);color:#55544F}
+.chrome .ava{width:34px;height:34px;border-radius:50%;background:var(--ink);color:var(--lime);display:grid;place-items:center;font:700 15px/1 var(--sans)}
+.chrome .share{background:var(--blue);color:#fff;padding:11px 18px;border-radius:9px;font:700 17px/1 var(--sans)}
+.chrome .pg{font:500 16px/1 var(--mono);color:var(--mute)}
+.dark .chrome .tabs{background:#0A0B0D;border-color:rgba(255,255,255,.06)}
+.dark .chrome .tab{color:#77787E}.dark .chrome .tab.on{background:var(--canvas-dark);color:#F4F4F1}
+.dark .chrome .tab b{background:#F4F4F1}
+.dark .chrome .bar{background:var(--canvas-dark);border-color:rgba(255,255,255,.06)}
+.dark .chrome .file,.dark .chrome .tool{color:#F4F4F1}
+.dark .chrome .zoom{color:#9A9BA1}
+.bg-mat .chrome .bar{background:#276B40;border-color:rgba(255,255,255,.1)}
+.bg-mat .chrome .tabs{background:#225E38;border-color:rgba(255,255,255,.08)}
+.bg-mat .chrome .tab{color:#A9CDB5}.bg-mat .chrome .tab.on{background:#276B40;color:#fff}
+.bg-mat .chrome .file,.bg-mat .chrome .tool{color:#fff}.bg-mat .chrome .zoom{color:#CFE6D7}
+
+/* ---------- Figma selection box ---------- */
+.sel{position:relative;display:inline-block;padding:0 .12em;outline:3px solid var(--blue);outline-offset:-2px;white-space:nowrap}
+.sel .h{position:absolute;width:16px;height:16px;background:#fff;border:3px solid var(--blue);border-radius:2px}
+.sel .tl{left:-9px;top:-9px}.sel .tr{right:-9px;top:-9px}.sel .bl{left:-9px;bottom:-9px}.sel .br{right:-9px;bottom:-9px}
+.dark .sel{background:rgba(37,99,235,.16)}
+/* ukuran W×H di bawah seleksi (opsional) */
+.sel .dim{position:absolute;left:50%;bottom:-44px;transform:translateX(-50%);font:600 16px/1 var(--mono);background:var(--blue);color:#fff;padding:7px 9px;border-radius:6px;letter-spacing:0}
+
+/* ---------- kursor multiplayer: <div class="fcursor" data-anchor="#slide-1 .sel" data-corner="tr"> ---------- */
+.fcursor{z-index:60;display:flex;align-items:flex-start;filter:drop-shadow(0 6px 10px rgba(0,0,0,.18))}
+.fcursor .label{margin-top:26px;margin-left:-6px;font:700 19px/1 var(--sans);color:#fff;background:var(--blue);padding:9px 13px;border-radius:4px 14px 14px 14px;white-space:nowrap}
+.fcursor.coral .label{background:var(--coral)}.fcursor.lime .label{background:var(--lime);color:var(--ink)}
+
+/* ---------- micro speech bubble (pil + ekor runcing) ---------- */
+.mbub{z-index:30;padding:20px 30px;border-radius:999px;font:700 36px/1.1 var(--sans);letter-spacing:-.02em;color:#fff;white-space:nowrap;box-shadow:var(--shadow-1)}
+.mbub::after{content:"";position:absolute;bottom:-16px;left:44px;border-left:14px solid transparent;border-right:14px solid transparent;border-top:20px solid currentColor;color:inherit}
+.mbub.blue{background:var(--ig-blue)}.mbub.blue::after{border-top-color:var(--ig-blue)}
+.mbub.coral{background:var(--coral)}.mbub.coral::after{border-top-color:var(--coral)}
+.mbub.tail-right::after{left:auto;right:44px}
+
+/* ---------- label tempel / sticker ---------- */
+.label-tape{z-index:20;padding:16px 28px;font:800 54px/1 var(--sans);letter-spacing:-.04em;box-shadow:0 3px 0 rgba(0,0,0,.12),0 18px 30px rgba(0,0,0,.18)}
+.label-tape.black{background:var(--ink);color:#fff}.label-tape.lime{background:var(--lime);color:var(--ink)}.label-tape.white{background:#fff;color:var(--ink)}
+.tape{z-index:25;width:96px;height:34px;background:rgba(255,255,255,.62);box-shadow:0 1px 2px rgba(0,0,0,.08)}
+
+/* ---------- jendela macOS ---------- */
+.win{z-index:20;border-radius:18px;overflow:hidden;background:#1A1B20;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 40px 80px rgba(0,0,0,.45)}
+.win .wbar{height:52px;display:flex;align-items:center;gap:10px;padding:0 20px;background:#24262C;border-bottom:1px solid rgba(255,255,255,.06)}
+.win .wbar i{width:15px;height:15px;border-radius:50%;background:#FF5F57}.win .wbar i:nth-child(2){background:#FEBC2E}.win .wbar i:nth-child(3){background:#28C840}
+.win .wbar span{flex:1;text-align:center;margin-right:66px;font:500 17px/1 var(--mono);color:#8D8F97}
+.win.light{background:#fff;box-shadow:var(--shadow-2)}.win.light .wbar{background:#F1F0EC;border-color:rgba(0,0,0,.06)}
+
+/* ---------- macOS dock ---------- */
+.dock{z-index:30;display:flex;align-items:flex-end;gap:18px;padding:16px 22px;border-radius:30px;background:rgba(255,255,255,.62);
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);box-shadow:0 0 0 1px rgba(20,21,24,.08),var(--shadow-2)}
+.dock .app{position:relative;width:104px;height:104px;border-radius:24px;display:grid;place-items:center;background:#fff;box-shadow:0 6px 14px rgba(0,0,0,.10)}
+.dock .app::after{content:"";position:absolute;bottom:-10px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:var(--ink);opacity:.6}
+
+/* ---------- tipografi bersama ---------- */
+.display{font:800 96px/1.02 var(--sans);letter-spacing:-.05em}
+.it{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-.02em}
+.mono{font-family:var(--mono)}
+.mute{color:var(--mute)}
+
+/* ---------- karakter ---------- */
+.cast{z-index:35}

@@ -1,0 +1,13 @@
+{
+  "id": "vd-004",
+  "source": "projects/vibedesign-meta-carousel/DECISIONS.md D-009, D-010, D-012",
+  "prompt": "Slide 4 (jeda sebelum punchline): 'Tapi yang AI [gak bisa] itu.....'. Punchline slide berikutnya: 'Mikirin taste dan arahnya mau ke mana?'. Bangun slidenya.",
+  "files": ["fixtures/README.md"],
+  "assertions": [
+    "BRIEF/RESEP menulis akar pesan + bukti visual yang membuktikan 'AI gak bisa' (mis. contoh hasil AI generik) (PSN-01)",
+    "Maksimal 2 elemen besar; pesan utama adalah salah satunya (HRK-02)",
+    "Tidak ada teks di luar BRIEF yang menyebut taste/arah/selera (tidak membocorkan punchline) (PSN-02)",
+    "Tidak ada UI, logo, nama, atau maskot milik produk AI nyata (KRK-02)",
+    "Setiap karakter yang tampil punya kata kerja + fungsi di BRIEF, atau slide tanpa karakter (KRK-01)"
+  ]
+}

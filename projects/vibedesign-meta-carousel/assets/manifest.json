@@ -1,0 +1,60 @@
+{
+  "proyek": "vibedesign-meta-carousel",
+  "catatan": "Ronde 3. Semua karakter orisinal dari engine/cast/cast.js: KLIK (slide 2–5), NOTE (slide 2, 5), NODI (slide 5). Tidak ada maskot, logo, atau gambar pihak lain. Ikon emoji digambar sebagai SVG inline di slide.",
+  "karakter": [
+    {
+      "id": "klik",
+      "nama": "KLIK — kursor panah biru",
+      "sumber": "claude/vibedesign/engine/cast/cast.js",
+      "izin": "orisinal",
+      "slide": [
+        2,
+        3,
+        4,
+        5
+      ]
+    },
+    {
+      "id": "note",
+      "nama": "NOTE — sticky note lime",
+      "sumber": "claude/vibedesign/engine/cast/cast.js",
+      "izin": "orisinal",
+      "slide": [
+        2,
+        5
+      ]
+    },
+    {
+      "id": "nodi",
+      "nama": "NODI — anchor pen-tool",
+      "sumber": "claude/vibedesign/engine/cast/cast.js",
+      "izin": "orisinal",
+      "slide": [
+        5
+      ]
+    }
+  ],
+  "gambar": [],
+  "font": [
+    {
+      "keluarga": "Plus Jakarta Sans",
+      "sumber": "@fontsource/plus-jakarta-sans 5.3.0",
+      "izin": "SIL OFL 1.1"
+    },
+    {
+      "keluarga": "Instrument Serif",
+      "sumber": "@fontsource/instrument-serif 5.3.0",
+      "izin": "SIL OFL 1.1"
+    },
+    {
+      "keluarga": "Fredoka",
+      "sumber": "@fontsource/fredoka 5.3.0",
+      "izin": "SIL OFL 1.1"
+    },
+    {
+      "keluarga": "JetBrains Mono",
+      "sumber": "@fontsource/jetbrains-mono 5.3.0",
+      "izin": "SIL OFL 1.1"
+    }
+  ]
+}

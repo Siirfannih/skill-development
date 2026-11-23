@@ -1,0 +1,10 @@
+/* Tema proyek vibedesign-meta-carousel: palet "Digital Design Workspace / OS Collage".
+   Dimuat setelah engine/core/*.css; menimpa token default. */
+:root{
+  --canvas:#F7F6F2; --canvas-dark:#111215; --ink:#141518; --mute:#8C8A84; --hair:rgba(20,21,24,.10);
+  --blue:#2563EB; --ig-blue:#3897F0; --coral:#F45D79; --terra:#D97757; --lime:#B5F52A;
+  --cyan:#38BDF8; --violet:#818CF8; --mat:#2E7D4B; --mat-2:#368F56; --white:#FFFFFF;
+  --sans:"Plus Jakarta Sans",sans-serif; --serif:"Instrument Serif",serif; --mono:"JetBrains Mono",monospace; --fun:"Fredoka",sans-serif;
+  --shadow-1:0 1px 0 rgba(20,21,24,.05),0 10px 24px rgba(42,28,14,.10);
+  --shadow-2:0 2px 0 rgba(20,21,24,.06),0 24px 50px rgba(42,28,14,.16);
+}

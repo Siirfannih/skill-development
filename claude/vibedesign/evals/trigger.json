@@ -1,0 +1,22 @@
+[
+  {"query": "bikin carousel IG 5 slide soal AI dan taste, full coding", "should_trigger": true},
+  {"query": "revisi slide 2 carousel kemarin, bubble-nya kejauhan", "should_trigger": true},
+  {"query": "buatin poster event webinar ukuran 4:5", "should_trigger": true},
+  {"query": "desain cover feed instagram buat tuntunly", "should_trigger": true},
+  {"query": "export ulang slide carousel jadi png 2x", "should_trigger": true},
+  {"query": "bedah referensi desain carousel ini, ambil mekaniknya", "should_trigger": true},
+  {"query": "slide 4 terlalu ramai, peras pesannya", "should_trigger": true},
+  {"query": "bikin quote card statis buat linkedin", "should_trigger": true},
+  {"query": "tambah kartu cookbook dari poster yang aku kirim", "should_trigger": true},
+  {"query": "bikin thumbnail statis buat youtube", "should_trigger": true},
+  {"query": "bikin video motion launch jadisatu 30 detik", "should_trigger": false},
+  {"query": "edit talking head podcast jadi reels", "should_trigger": false},
+  {"query": "rapikan caption IG ini", "should_trigger": false},
+  {"query": "tulis hook untuk reels besok", "should_trigger": false},
+  {"query": "bikin landing page jadisatu di localhost", "should_trigger": false},
+  {"query": "desain dashboard owner UMKM", "should_trigger": false},
+  {"query": "perbaiki bug login workspace", "should_trigger": false},
+  {"query": "susun storyboard video perkenalan", "should_trigger": false},
+  {"query": "bikin sound design untuk video behindwork", "should_trigger": false},
+  {"query": "buat pitch deck untuk klien", "should_trigger": false}
+]

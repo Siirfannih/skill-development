@@ -1,0 +1,11 @@
+{
+  "id": "vd-003",
+  "source": "projects/vibedesign-meta-carousel/DECISIONS.md D-008",
+  "prompt": "Slide 3: headline 'Kita lagi ada di fenomena dimana bikin apa aja pakai AI...' lalu 'BISAAAA.' lalu empat label kerja (Vibecoding, Vibe Design, Vibe Editing, Bikin SaaS) di permukaan kolase. Bangun slidenya.",
+  "files": ["fixtures/README.md"],
+  "assertions": [
+    "Headline memakai satu keluarga huruf dan satu warna",
+    "Headline terbaca sebelum 'BISAAAA.' pada uji juling (wadah/warna kontras atau ukuran yang memastikannya) (HRK-01)",
+    "Tidak ada label yang menutupi huruf label lain atau headline (juri teks keluar 0)"
+  ]
+}

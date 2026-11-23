@@ -1,0 +1,25 @@
+{
+  "kanvas": {
+    "$description": "Ukuran kanvas CSS per format; export dikali skala.export.",
+    "carousel-4x5": {
+      "lebar": { "$type": "dimension", "$value": { "value": 1080, "unit": "px" } },
+      "tinggi": { "$type": "dimension", "$value": { "value": 1350, "unit": "px" } }
+    },
+    "feed-1x1": {
+      "lebar": { "$type": "dimension", "$value": { "value": 1080, "unit": "px" } },
+      "tinggi": { "$type": "dimension", "$value": { "value": 1080, "unit": "px" } }
+    },
+    "story-9x16": {
+      "lebar": { "$type": "dimension", "$value": { "value": 1080, "unit": "px" } },
+      "tinggi": { "$type": "dimension", "$value": { "value": 1920, "unit": "px" } }
+    }
+  },
+  "zona-aman": {
+    "$description": "Margin minimum teks penting dari tepi kanvas.",
+    "tepi": { "$type": "dimension", "$value": { "value": 64, "unit": "px" } },
+    "story-atas-bawah": { "$type": "dimension", "$value": { "value": 220, "unit": "px" }, "$description": "area UI aplikasi di format 9:16" }
+  },
+  "skala": {
+    "export": { "$type": "number", "$value": 2, "$description": "deviceScaleFactor Playwright; 1080 → 2160" }
+  }
+}

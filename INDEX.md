@@ -36,6 +36,7 @@ Katalog skill untuk setiap model yang bekerja dengan Irfan. Pintu masuk repo ada
 | `script-workshop` | Semua tulisan konten (reels, carousel, caption, hook, ideasi): riset & validasi hipotesis dulu, evaluasi diri sebelum kirim; `guide/` per urusan (riset, audiens, hook, suara, struktur, produk/FAKTA, hindari). Menggantikan `irfan-content-engine` (Gemini) | Setiap ide konten, hook, naskah, carousel, caption, atau revisi tulisan |
 | `jadisatu-narrator-vo` | Suara, model, dan cara merakit VO Inggris Jadisatu | VO marketing Jadisatu berbahasa Inggris |
 | `cinedance-block-library` | Merakit prompt video-generation dari blok kode; `PROMPT-BLOCKING.md` = struktur prompt bernomor (identity lock, kamera, set, voice lock, timeline, audio, larangan, prioritas) untuk orang berbicara di Gemini Omni/Veo/Seedance | Brief format TRICK/FORMAT/ASSETS/BLOCKS untuk Seedance/Higgsfield; setiap prompt B-roll AI yang tokohnya berbicara (avatar aku, dialog Indonesia) |
+| `vibedesign` | Desain statis berbasis kode (carousel IG, poster, cover): BRIEF → bedah referensi 3 lapis (`cookbook/BEDAH.md`) → racik kartu → bangun HTML/CSS/SVG per slide → juri → export PNG 2×. Engine Playwright, cast stiker SVG, token DTCG | Setiap carousel, poster, feed IG, cover, atau revisi desain statis |
 
 ## Skill eksternal (`external/`)
 

@@ -25,6 +25,7 @@ Repo pihak ketiga, dipasang sebagai **git submodule** dan dikunci di commit tert
 | Kode bebas pola "AI-shaped" | `anti-slop/skills/antislop-code` |
 | UI web dan mobile | `anti-slop/skills/antislop-ui`, `antislop-layoutmobile` |
 | Copy, caption, naskah | `anti-slop/skills/antislop-copywriting`, `antislop-human` |
+| Cek akhir desain statis (carousel/poster) | `anti-slop/skills/antislop-ui` lewat `claude/vibedesign/guide/hindari/GUIDE.md`; profil merek format `awesome-design-md` di `claude/vibedesign/templates/merek/DESIGN.md` |
 | Arah visual (palet, tipografi, spacing) | `awesome-design-md/design-md/<merek>/DESIGN.md` |
 | Membangun atau me-render video di Remotion | `remotion-skills/skills/remotion-best-practices`, `remotion-render`, `remotion-studio`, `remotion-upgrade` |
 | Video HTML + GSAP, atau pindah dari Remotion | `hyperframes/skills/hyperframes`, `remotion-to-hyperframes` |

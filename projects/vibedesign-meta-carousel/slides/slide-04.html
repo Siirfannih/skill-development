@@ -1,0 +1,75 @@
+<style>
+/* ===== SLIDE 4 — AI bingung: prompt -> hasil slop -> pesan utama ===== */
+#slide-4 .glow{left:50%;top:180px;width:980px;height:760px;transform:translateX(-50%);z-index:1;pointer-events:none;
+  background:radial-gradient(ellipse at 50% 45%,rgba(37,99,235,.16),transparent 62%)}
+/* chat window generik */
+#slide-4 .chat{left:150px;top:170px;width:780px;height:700px;z-index:10;border-radius:22px;background:#191A1F;
+  box-shadow:0 0 0 1px rgba(255,255,255,.07),0 40px 80px rgba(0,0,0,.5);overflow:hidden;font-family:var(--sans)}
+#slide-4 .chat .hd{width:100%;height:62px;display:flex;align-items:center;gap:12px;padding:0 24px;border-bottom:1px solid rgba(255,255,255,.06)}
+#slide-4 .chat .hd .av{width:30px;height:30px;border-radius:50%;background:#2C2E35;display:grid;place-items:center}
+#slide-4 .chat .hd b{font:700 19px/1 var(--sans);color:#E8E8EA}
+#slide-4 .chat .hd span{margin-left:auto;font:500 15px/1 var(--mono);color:#62646C}
+#slide-4 .u{position:absolute;right:26px;top:88px;max-width:470px;padding:16px 22px;border-radius:20px 20px 6px 20px;
+  background:#2B2D34;color:#F1F1F3;font:600 25px/1.3 var(--sans);letter-spacing:-.01em}
+#slide-4 .ai{position:absolute;left:26px;top:178px;display:flex;gap:14px;align-items:flex-start}
+#slide-4 .ai .av{width:36px;height:36px;border-radius:50%;background:#2C2E35;flex:none;display:grid;place-items:center}
+#slide-4 .ai p{font:500 22px/1.3 var(--sans);color:#A7A9B0;margin-top:6px}
+/* kartu desain AI-slop */
+#slide-4 .slop{position:absolute;left:76px;top:240px;width:360px;height:438px;border-radius:16px;overflow:hidden;
+  background:linear-gradient(150deg,#7C3AED 0%,#4F46E5 45%,#06B6D4 100%);box-shadow:0 0 0 1px rgba(255,255,255,.08)}
+#slide-4 .slop .orb{position:absolute;border-radius:50%;filter:blur(1px)}
+#slide-4 .slop .o1{width:210px;height:210px;left:-50px;top:-40px;background:radial-gradient(circle at 35% 30%,#F0ABFC,#A855F7 55%,transparent 72%);opacity:.85}
+#slide-4 .slop .o2{width:170px;height:170px;right:-40px;bottom:40px;background:radial-gradient(circle at 35% 30%,#67E8F9,#3B82F6 55%,transparent 72%);opacity:.8}
+#slide-4 .slop .ttl{position:absolute;left:0;right:0;top:132px;text-align:center;color:#fff;font:800 38px/1.05 var(--sans);letter-spacing:-.01em;
+  text-shadow:0 0 18px rgba(255,255,255,.55),0 2px 0 rgba(0,0,0,.15)}
+#slide-4 .slop .sub{position:absolute;left:0;right:0;top:232px;text-align:center;color:rgba(255,255,255,.8);font:500 15px/1.3 var(--sans)}
+#slide-4 .slop .ico{position:absolute;left:0;right:0;top:278px;display:flex;justify-content:center;gap:16px}
+#slide-4 .slop .ico i{width:46px;height:46px;border-radius:50%;background:rgba(255,255,255,.22);box-shadow:inset 0 0 0 2px rgba(255,255,255,.45)}
+#slide-4 .slop .btn{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);padding:10px 26px;border-radius:999px;
+  background:linear-gradient(90deg,#F472B6,#A78BFA);color:#fff;font:700 15px/1 var(--sans);box-shadow:0 0 20px rgba(244,114,182,.7)}
+#slide-4 .slop .rocket{position:absolute;left:50%;top:44px;transform:translateX(-50%)}
+#slide-4 .acts{position:absolute;left:76px;top:656px;display:flex;gap:18px;font:500 15px/1 var(--mono);color:#5C5E66}
+#slide-4 .typing{position:absolute;left:26px;right:26px;bottom:22px;height:0}
+/* pesan utama */
+#slide-4 .msg{left:78px;top:968px;z-index:20;color:#F4F4F1;font:800 124px/1.02 var(--sans);letter-spacing:-.05em}
+#slide-4 .msg .sel{color:#fff}
+#slide-4 .msg .dots{color:#4A4D57}
+#slide-4 .klik{left:578px;top:606px;width:230px;z-index:30}
+#slide-4 .think{left:930px;top:612px;z-index:31;font:700 64px/1 var(--fun);color:#4A4D57}
+</style>
+<section class="slide dark bg-hair" id="slide-4" data-baca-pola="cerita">
+  <div class="chrome" data-dekor>
+    <div class="tabs"><span class="lights"><i></i><i></i><i></i></span>
+      <span class="tab on"><b></b>carousel.fig</span><span class="tab">@siirfannih</span></div>
+    <div class="bar">
+      <div class="tools">
+        <span class="tool"><svg width="22" height="22" viewBox="0 0 22 22"><path d="M5 3 L5 18 L9 14 L12 20 L15 19 L12 13 L17 13 Z" fill="currentColor"/></svg></span>
+        <span class="tool"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 2v18M15 2v18M2 7h18M2 15h18"/></svg></span>
+        <span class="tool on"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 18 L9 4 L13 13 L16 9 L19 18 Z"/></svg></span>
+        <span class="tool"><svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 5h12M11 5v13"/></svg></span>
+      </div>
+      <div class="file">Slide 04 <span>/ System limitation</span></div>
+      <div class="right"><span class="pg">04 / 05</span><span class="zoom">100%</span><span class="ava">IG</span><span class="share">Share</span></div>
+    </div>
+  </div>
+
+  <div class="glow"></div>
+
+  <div class="chat">
+    <div class="hd" data-dekor><span class="av"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="5" fill="none" stroke="#9A9CA3" stroke-width="2"/></svg></span><b>AI Chat</b><span>new chat</span></div>
+    <div class="u" data-baca="1">buatin desain konten carousel dong, yang bagus ya</div>
+    <div class="ai" data-baca="1"><span class="av"><svg width="18" height="18" viewBox="0 0 18 18"><circle cx="9" cy="9" r="6" fill="none" stroke="#9A9CA3" stroke-width="2"/><circle cx="9" cy="9" r="2" fill="#9A9CA3"/></svg></span><p>Tentu! Ini desain carousel yang modern dan engaging:</p></div>
+    <div class="slop" data-dekor>
+      <span class="orb o1"></span><span class="orb o2"></span>
+      <svg class="rocket" width="72" height="72" viewBox="0 0 72 72"><path d="M36 6 C50 16 54 34 48 50 L24 50 C18 34 22 16 36 6 Z" fill="#F8FAFC"/><circle cx="36" cy="28" r="7" fill="#60A5FA"/><path d="M24 50 L14 60 L22 42 Z M48 50 L58 60 L50 42 Z" fill="#F472B6"/><path d="M30 52 L36 68 L42 52 Z" fill="#FBBF24"/></svg>
+      <div class="ttl">UNLOCK YOUR<br>POTENTIAL</div>
+      <div class="sub">Transform your mindset today<br>with these 5 powerful tips</div>
+      <div class="ico"><i></i><i></i><i></i></div>
+      <div class="btn">Swipe Now →</div>
+    </div>
+  </div>
+
+  <div class="cast klik" data-cast="klik" data-opt='{"eyes":"dot","brow":-20,"look":[-5,-1],"arms":[95,18],"tilt":-6,"sweat":true}'></div>
+
+  <h2 class="msg" data-baca="2">Tapi yang AI<br><span class="sel">gak bisa<i class="h tl"></i><i class="h tr"></i><i class="h bl"></i><i class="h br"></i></span> itu<span class="dots" data-dekor>.....</span></h2>
+</section>

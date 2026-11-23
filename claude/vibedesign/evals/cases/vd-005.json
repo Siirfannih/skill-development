@@ -1,0 +1,12 @@
+{
+  "id": "vd-005",
+  "source": "claude/vibedesign/SUMBER.md §cookbook BEDAH",
+  "prompt": "Bedah referensi poster ini lalu adaptasi mekaniknya untuk slide pembuka carousel kita.",
+  "files": ["fixtures/README.md"],
+  "assertions": [
+    "Kartu memuat tiga lapis: 3–5 mekanik (terlihat → kenapa → angka), token (proporsi, radius bertingkat, slot konten), dan pohon lapisan z-index + teknik tersulit",
+    "Minimal satu angka warna diverifikasi dengan sampel piksel alat (bukan tebakan), dan selisih tebakan vs ukur dicatat",
+    "Remix tidak 1:1: tabel dipertahankan → diganti ada, dan tidak ada teks, merek, objek khas, atau palet persis referensi yang tersalin",
+    "Gambar referensi tidak ditambahkan ke repo; kartu hanya menautkan sumber privat"
+  ]
+}

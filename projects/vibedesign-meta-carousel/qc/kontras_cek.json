@@ -1,0 +1,50 @@
+{
+  "juri": "kontras_cek",
+  "lulus": false,
+  "slide": {
+    "1": {
+      "diperiksa": 7,
+      "gagal": [],
+      "tidakTerukur": [
+        {
+          "teks": "Full Pakai AI.",
+          "sebab": "teks gradien (background-clip:text)"
+        }
+      ]
+    },
+    "2": {
+      "diperiksa": 6,
+      "gagal": [],
+      "tidakTerukur": []
+    },
+    "3": {
+      "diperiksa": 10,
+      "gagal": [],
+      "tidakTerukur": []
+    },
+    "4": {
+      "diperiksa": 4,
+      "gagal": [],
+      "tidakTerukur": []
+    },
+    "5": {
+      "diperiksa": 6,
+      "gagal": [
+        {
+          "el": "h2.hl > span.ln.l3 > span.q",
+          "teks": "mau ke mana?",
+          "rasio": 1.88,
+          "ambang": 3,
+          "px": 100,
+          "latar": [
+            240,
+            239,
+            235
+          ]
+        }
+      ],
+      "tidakTerukur": []
+    }
+  },
+  "errorsHalaman": []
+}

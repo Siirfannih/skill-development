@@ -1,0 +1,15 @@
+{
+  "teks": {
+    "$description": "Rasio tinggi huruf terhadap elemen fokus (urutan baca 1). Nilai px dihitung per proyek dari ukuran fokus.",
+    "fokus": { "$type": "number", "$value": 1.0 },
+    "kedua": { "$type": "number", "$value": 0.42, "$description": "≤ 0,5 agar beda level terbaca jelas (HRK-03)" },
+    "ketiga": { "$type": "number", "$value": 0.2 },
+    "minimum-px": { "$type": "dimension", "$value": { "value": 22, "unit": "px" }, "$description": "teks yang harus dibaca di HP pada kanvas 1080" }
+  },
+  "jarak": {
+    "$description": "Jarak antar blok dibanding tinggi huruf blok yang lebih kecil (KMP-02).",
+    "dalam-kelompok": { "$type": "number", "$value": 0.6, "$description": "≤ 1,0" },
+    "antar-kelompok": { "$type": "number", "$value": 1.6, "$description": "≥ 2 × dalam-kelompok" },
+    "pengisi-ke-teks-px": { "$type": "dimension", "$value": { "value": 16, "unit": "px" }, "$description": "jarak minimum elemen sekunder ke bbox teks utama (KMP-01)" }
+  }
+}
