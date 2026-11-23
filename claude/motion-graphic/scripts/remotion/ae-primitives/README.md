@@ -147,6 +147,19 @@ Kartu cookbook memakai kategori camera / typography / layout / texture, tetapi m
 - `DirectionalBlur.tsx` · blur searah + geser RGB lewat satu filter SVG; arah miring dengan trik putar. `opaque` untuk isi buram penuh: tepi dibantali salinan bergeser lalu dipotong ke bentuk isi, setara "repeat edge pixels".
 - `acak.ts` · `acakBerbiji`, `acakIndeks`, `idAman`.
 
+## Matriks ukuran & posisi teks (pakai bersama komponen ini)
+
+Ukuran dan posisi teks tidak dipilih acak; diturunkan dari jenis latar (aturan lengkap: `guide/teks/GUIDE.md` TKS-04, TKS-17).
+
+| Latar | Ukuran (@1080) | Posisi | Perlakuan latar | Komponen |
+|---|---|---|---|---|
+| Tekstur / pola / B-roll abstrak (sirkuit, kerumunan buram) | display 88–130 px tebal; tidak ada teks < 60 px | center-center, ±45 % tinggi | redam + blur (±6 px, kecerahan ±0,45), atau kilat untuk 1–2 kata kunci | `SpatialDepthStage` (latar buram), `InvertFlash`/`FlashCut` |
+| Footage dengan subjek (wajah, bahu, kursi) | 96–124 px; pengantar 80 px menempel kata hero | ruang negatif terdekat: tepi teks 4–8 % lebar dari batas terluar subjek, rata menghadap subjek (subjek kanan → tengah-kiri rata kanan) | scrim tipis di sisi teks | `Scrim`, `SpatialAnchorCamera` (geser subjek ke satu sisi) |
+| Kanvas solid (napas) | 1–3 kata, 170–420 px | tengah | — | potong keras / `FlashCut` |
+| Dokumen / UI sebagai bukti | teks dokumen apa adanya | di dalam dokumen | sorot kalimatnya | `HighlighterSweep` |
+
+Teks kecil (32–48 px, atau pengantar 80 px) hanya sebagai label sekunder tepat di atas kata kunci raksasa, atau callout yang menempel bahu narasumber; tidak pernah sendirian di kanvas luas.
+
 ## Jebakan yang sudah diukur
 
 - `edgeMode="duplicate"` pada `feGaussianBlur` tidak dihormati Chrome render Remotion: tepi blur memudar ke transparan (pinggiran gelap ±2σ). `DirectionalBlur opaque` menggantinya dengan bantalan salinan. Jangan pakai `opaque` untuk objek ber-alpha (bagian kosong jadi hitam).

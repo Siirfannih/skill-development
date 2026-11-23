@@ -188,7 +188,28 @@ def main():
           "musik": getattr(R, "MUSIK", []), "ucapan": ucapan}
     out = ROOT / "src" / "data" / f"{R.ID.lower()}.json"; out.write_text(json.dumps(ep, ensure_ascii=False, indent=1))
     print(f"{out.name}: {durasi} dtk, {len(adegan)} adegan, {len(kt)} KT, {len(sub)} subtitle, {len(cues)} cue SFX")
-    from cek_komposisi import cek
+    from cek_komposisi import cek, subjek, kotak_kt
+    # D-31: KT di atas footage bersubjek ditata otomatis: 6 % lebar dari bahu, rata menghadap subjek
+    for k in ep["kt"]:
+        if k["peran"] in ("r1", "lead", "r2", "r6", "kotak") and k.get("jangkar", "kiri") != "tengah" and k.get("dekat", True):
+            sj = subjek(ep, k)
+            if not sj:
+                continue
+            bx = kotak_kt(k)
+            if bx[0] + bx[2] / 2 < sj["cx"]:
+                k["jangkar"] = "kanan"; k["x"] = round(max(130 + bx[2], sj["bahu"][0] - 0.06 * 1920))
+            else:
+                k["jangkar"] = "kiri"; k["x"] = round(min(1790 - bx[2], sj["bahu"][1] + 0.06 * 1920))
+    # D-32: pengantar kecil yang sendirian di kanvas naik jadi narasi tebal 96 px (tidak ada teks kecil sendirian)
+    for k in ep["kt"]:
+        if k["peran"] == "lead":
+            t = (k["dari"] + k["sampai"]) / 2
+            a = next((x for x in adegan if x["dari"] <= t < x["sampai"]), None)
+            teman = [o for o in ep["kt"] if o is not k and (o.get("ukuran") or {"r1": 96, "r2": 124, "r6": 210, "giant": 520, "kotak": 96, "napas": 220}.get(o["peran"], 0)) >= 96
+                     and min(o["sampai"], k["sampai"]) - max(o["dari"], k["dari"]) > 0.3 * (k["sampai"] - k["dari"])]
+            if a and a["lapisan"][0]["k"] in ("kanvas", "kartu") and not teman:
+                k["peran"] = "r1"
+    out.write_text(json.dumps(ep, ensure_ascii=False, indent=1))
     tanda, nap = cek(ep)
     print(f"  napas di {[round(x, 1) for x in nap]}")
     print("\n".join("  " + x for x in tanda) if tanda else "  cek_komposisi: bersih")

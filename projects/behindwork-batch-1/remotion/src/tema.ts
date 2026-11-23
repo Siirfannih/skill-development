@@ -42,5 +42,6 @@ export const grade: Record<string, string> = {
   gelap: 'saturate(0.8) brightness(0.5)',
   redam: 'saturate(0.85) brightness(0.68)',
   blurkuat: 'saturate(0.7) brightness(0.45) blur(12px)',
+  dalam: 'saturate(0.85) brightness(0.45) blur(6px)', // latar tekstur di bawah teks besar (D-32, preset Depth)
   none: 'none',
 };

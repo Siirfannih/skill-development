@@ -62,8 +62,7 @@ def adegan(w):
     # 09 napas -> whip ke skema chip, kamera melompat antar blok
     t_he = w("He", "09", 2)
     a("09a", b["09"]["mulai"], t_he, [KANVAS("terang")])
-    a("09b", t_he, b["10"]["mulai"], [J(E + "p09_wafer.jpg", [T(t_he, .4, .5, 1.0), T(w("nine", "09"), .28, .38, 2.0), T(w("AMD", "09"), .62, .62, 2.6), T(w("LSI", "09"), .45, .45, 3.1)]),
-                                     SCRIM("rata", 0.75)], masuk="whip")
+    a("09b", t_he, b["10"]["mulai"], [J(E + "p09_wafer.jpg", [T(t_he, .4, .5, 1.0), T(w("nine", "09"), .28, .38, 2.0), T(w("AMD", "09"), .62, .62, 2.6), T(w("LSI", "09"), .45, .45, 3.1)], grade="dalam", tekstur=True)], masuk="whip")
     # 10 napas "1993." -> whip ke booth Denny's San Jose -> napas "NVIDIA."
     t_in2, t_nv = w("in", "10", 2), w("NVIDIA", "10")
     a("10a", b["10"]["mulai"], t_in2, [KANVAS("terang")], masuk="whip")
@@ -122,12 +121,13 @@ def kt(w):
     k(peran="r2", dari=w("dishwasher", "08"), sampai=b["09"]["mulai"], x=165, y=420, teks="dishwasher", bayang=True)
     t_he = w("He", "09", 2)
     T_.append(NAPAS("didn't stay.", w("didn't", "09"), t_he, warna="tinta", ukuran=190))
-    k(peran="r2", dari=w("electrical", "09"), sampai=w("nine", "09"), x=960, y=470, jangkar="tengah", teks="electrical engineering", ukuran=110)
-    k(peran="lead", dari=w("nine", "09"), sampai=b["10"]["mulai"], x=960, y=230, jangkar="tengah", kata=[K("nine years designing chips", w("nine", "09"))])
-    k(peran="r2", dari=w("AMD", "09"), sampai=b["10"]["mulai"], x=960, y=380, jangkar="tengah", teks="AMD", warna="redup")
-    k(peran="r6", dari=w("LSI", "09"), sampai=b["10"]["mulai"], x=960, y=520, jangkar="tengah", teks="LSI Logic")
+    k(peran="r2", dari=w("electrical", "09"), sampai=w("nine", "09"), x=960, y=430, jangkar="tengah", teks="electrical engineering", ukuran=120)
+    k(peran="lead", dari=w("nine", "09"), sampai=w("AMD", "09"), x=960, y=360, jangkar="tengah", kata=[K("nine years", w("nine", "09"))])
+    k(peran="r2", dari=w("designing", "09"), sampai=w("AMD", "09"), x=960, y=450, jangkar="tengah", teks="DESIGNING CHIPS", ukuran=130)
+    k(peran="r2", dari=w("AMD", "09"), sampai=w("LSI", "09"), x=960, y=430, jangkar="tengah", teks="AMD", ukuran=130)
+    k(peran="r6", dari=w("LSI", "09"), sampai=b["10"]["mulai"], x=960, y=420, jangkar="tengah", teks="LSI Logic", ukuran=200)
     t_in2, t_nv = w("in", "10", 2), w("NVIDIA", "10")
-    k(peran="lead", dari=w("Until", "10"), sampai=w("1993", "10"), x=960, y=330, jangkar="tengah", warna="tinta", kata=[K("until finally,", w("Until", "10"))])
+    k(peran="r1", dari=w("Until", "10"), sampai=w("1993", "10"), x=960, y=470, jangkar="tengah", warna="tinta", kata=[K("until finally,", w("Until", "10"))])
     T_.append(NAPAS("1993.", w("1993", "10"), t_in2, warna="tinta", ukuran=360))
     k(peran="lead", dari=w("booth", "10"), sampai=w("two", "10"), x=170, y=790, bayang=True, kata=[K("a booth at Denny's, San Jose", w("booth", "10"))])
     k(peran="r1", dari=w("two", "10"), sampai=t_nv, x=170, y=700, bayang=True, kata=[K("two colleagues", w("two", "10")), K("planned a company", w("planned", "10"), baris=1)])

@@ -6,7 +6,7 @@ export type KB = { s0?: number; s1?: number; x0?: number; y0?: number; x1?: numb
 export type Titik = { t: number; fx: number; fy: number; s: number; ax?: number; ay?: number; drift?: number };
 
 export type Lapisan =
-  | { k: 'jangkar'; src: string; iw: number; ih: number; jalur: Titik[]; video?: boolean; mulaiSumber?: number; laju?: number; grade?: string; luntur?: number; padam?: number }
+  | { k: 'jangkar'; src: string; iw: number; ih: number; jalur: Titik[]; video?: boolean; mulaiSumber?: number; laju?: number; grade?: string; luntur?: number; padam?: number; tekstur?: boolean }
   | { k: 'kanvas'; warna: 'terang' | 'gelap' } // kanvas napas #F5F5F7 / #0A0A0A (D-25)
   | { k: 'scrim'; sisi: 'kiri' | 'kanan' | 'atas' | 'bawah' | 'rata'; kuat?: number } // redam tipis di sisi teks (D-26)
   | { k: 'artikel'; gaya?: 'artikel' | 'wiki'; situs: string; judul: string; meta?: string; paragraf: string[]; sorot?: { p: number; teks: string; t: number }[]; jalur?: Titik[] }
@@ -49,6 +49,7 @@ export type KT = {
   ukuran?: number;
   belakang?: boolean; // di belakang lapisan 'potong'
   bayang?: boolean; // bayangan lembut untuk di atas foto terang
+  dekat?: boolean; // false = jangan ditata otomatis ke dekat subjek (D-31)
   layar?: boolean; // cahaya layar monitor: teks seolah terpantul dari layar (glow, blend screen)
   tipis?: boolean; // napas berbobot tipis (kalimat hening)
 };

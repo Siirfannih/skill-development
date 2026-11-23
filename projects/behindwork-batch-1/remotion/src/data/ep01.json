@@ -503,12 +503,9 @@
        "ax": 0.5,
        "ay": 0.5
       }
-     ]
-    },
-    {
-     "k": "scrim",
-     "sisi": "rata",
-     "kuat": 0.75
+     ],
+     "grade": "dalam",
+     "tekstur": true
     }
    ],
    "masuk": "whip"
@@ -713,7 +710,7 @@
    "peran": "r1",
    "dari": 0.7,
    "sampai": 2.02,
-   "x": 230,
+   "x": 646,
    "y": 420,
    "bayang": true,
    "kata": [
@@ -726,7 +723,8 @@
      "t": 0.98,
      "baris": 1
     }
-   ]
+   ],
+   "jangkar": "kanan"
   },
   {
    "peran": "lead",
@@ -777,7 +775,7 @@
    "peran": "r1",
    "dari": 11.32,
    "sampai": 12.48,
-   "x": 1270,
+   "x": 1479,
    "y": 420,
    "bayang": true,
    "kata": [
@@ -790,7 +788,8 @@
      "t": 11.58,
      "baris": 1
     }
-   ]
+   ],
+   "jangkar": "kiri"
   },
   {
    "peran": "r2",
@@ -946,7 +945,7 @@
    "peran": "r1",
    "dari": 35.3,
    "sampai": 36.583000000000006,
-   "x": 170,
+   "x": 677,
    "y": 330,
    "bayang": true,
    "kata": [
@@ -959,13 +958,14 @@
      "t": 35.92,
      "baris": 1
     }
-   ]
+   ],
+   "jangkar": "kanan"
   },
   {
    "peran": "lead",
    "dari": 37.04,
    "sampai": 40.143,
-   "x": 170,
+   "x": 895,
    "y": 300,
    "bayang": true,
    "kata": [
@@ -973,25 +973,28 @@
      "w": "more toilets than",
      "t": 37.04
     }
-   ]
+   ],
+   "jangkar": "kanan"
   },
   {
    "peran": "r2",
    "dari": 37.76,
    "sampai": 40.143,
-   "x": 165,
+   "x": 813,
    "y": 410,
    "teks": "all of you",
-   "bayang": true
+   "bayang": true,
+   "jangkar": "kanan"
   },
   {
    "peran": "r2",
    "dari": 38.14,
    "sampai": 40.143,
-   "x": 165,
+   "x": 812,
    "y": 540,
    "teks": "combined",
-   "bayang": true
+   "bayang": true,
+   "jangkar": "kanan"
   },
   {
    "peran": "napas",
@@ -1061,7 +1064,7 @@
    "peran": "lead",
    "dari": 49.44,
    "sampai": 52.578,
-   "x": 170,
+   "x": 785,
    "y": 320,
    "bayang": true,
    "kata": [
@@ -1069,16 +1072,18 @@
      "w": "Denny's best",
      "t": 49.44
     }
-   ]
+   ],
+   "jangkar": "kanan"
   },
   {
    "peran": "r2",
    "dari": 51.52,
    "sampai": 52.578,
-   "x": 165,
+   "x": 1018,
    "y": 420,
    "teks": "dishwasher",
-   "bayang": true
+   "bayang": true,
+   "jangkar": "kanan"
   },
   {
    "peran": "napas",
@@ -1096,50 +1101,61 @@
    "dari": 55.02,
    "sampai": 57.4,
    "x": 960,
-   "y": 470,
+   "y": 430,
    "jangkar": "tengah",
    "teks": "electrical engineering",
-   "ukuran": 110
+   "ukuran": 120
   },
   {
    "peran": "lead",
    "dari": 57.4,
-   "sampai": 61.918,
+   "sampai": 59.36,
    "x": 960,
-   "y": 230,
+   "y": 360,
    "jangkar": "tengah",
    "kata": [
     {
-     "w": "nine years designing chips",
+     "w": "nine years",
      "t": 57.4
     }
    ]
   },
   {
    "peran": "r2",
-   "dari": 59.36,
-   "sampai": 61.918,
+   "dari": 58.14,
+   "sampai": 59.36,
    "x": 960,
-   "y": 380,
+   "y": 450,
+   "jangkar": "tengah",
+   "teks": "DESIGNING CHIPS",
+   "ukuran": 130
+  },
+  {
+   "peran": "r2",
+   "dari": 59.36,
+   "sampai": 60.6,
+   "x": 960,
+   "y": 430,
    "jangkar": "tengah",
    "teks": "AMD",
-   "warna": "redup"
+   "ukuran": 130
   },
   {
    "peran": "r6",
    "dari": 60.6,
    "sampai": 61.918,
    "x": 960,
-   "y": 520,
+   "y": 420,
    "jangkar": "tengah",
-   "teks": "LSI Logic"
+   "teks": "LSI Logic",
+   "ukuran": 200
   },
   {
-   "peran": "lead",
+   "peran": "r1",
    "dari": 61.98,
    "sampai": 63.5,
    "x": 960,
-   "y": 330,
+   "y": 470,
    "jangkar": "tengah",
    "warna": "tinta",
    "kata": [
@@ -1226,9 +1242,9 @@
    "peran": "r2",
    "dari": 75.92,
    "sampai": 78.288,
-   "x": 1755,
+   "x": 971,
    "y": 560,
-   "jangkar": "kanan",
+   "jangkar": "kiri",
    "teks": "the most valuable",
    "ukuran": 100,
    "bayang": true
@@ -1237,9 +1253,9 @@
    "peran": "lead",
    "dari": 76.74,
    "sampai": 78.288,
-   "x": 1755,
+   "x": 1248,
    "y": 690,
-   "jangkar": "kanan",
+   "jangkar": "kiri",
    "bayang": true,
    "kata": [
     {
@@ -2096,6 +2112,14 @@
    "pilar": "tick",
    "peran": "kata KT muncul",
    "laju": 0.98
+  },
+  {
+   "t": 58.14,
+   "file": "sfx/impact_thud.wav",
+   "gain": -14,
+   "pilar": "aksen",
+   "peran": "kata kunci menghantam",
+   "laju": 1.0
   },
   {
    "t": 59.32,

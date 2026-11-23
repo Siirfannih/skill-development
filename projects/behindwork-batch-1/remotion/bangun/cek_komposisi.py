@@ -110,8 +110,63 @@ def irisan(a, b, m=8):
     return not (a[0] + a[2] + m <= b[0] or b[0] + b[2] + m <= a[0] or a[1] + a[3] + m <= b[1] or b[1] + b[3] + m <= a[1])
 
 
+def subjek(ep, k):
+    """kotak wajah terbesar + perkiraan bahu di lapisan footage di bawah KT (tengah tampil). None bila tidak ada."""
+    t = (k["dari"] + k["sampai"]) / 2
+    for a in ep["adegan"]:
+        if not (a["dari"] <= t < a["sampai"]):
+            continue
+        for l in a["lapisan"]:
+            if l["k"] not in ("jangkar", "gambar", "video"):
+                continue
+            folder, fn = l["src"].split("/", 1); info = aset(folder).get(fn)
+            if not info:
+                continue
+            g = geom_jangkar(l["iw"], l["ih"], pos_kamera(l["jalur"], t)) if l["k"] == "jangkar" else \
+                geom_cover(info["w"], info["h"], l.get("pos"), l.get("kb"), (t - a["dari"]) / max(0.01, a["sampai"] - a["dari"]))
+            fs = [(g[0] + f[0] * g[2], g[1] + f[1] * g[3], f[2] * g[2], f[3] * g[3]) for f in wajah_di(info, l, t - a["dari"])]
+            fs = [f for f in fs if f[2] * f[3] >= 0.015 * W * H and f[0] + f[2] > 0 and f[0] < W]
+            if fs:
+                f = max(fs, key=lambda b: b[2] * b[3]); cx = f[0] + f[2] / 2
+                return {"wajah": f, "bahu": (cx - 1.1 * f[2], cx + 1.1 * f[2]), "cx": cx}
+    return None
+
+
+def lapisan_di(ep, t):
+    for a in ep["adegan"]:
+        if a["dari"] <= t < a["sampai"]:
+            return a
+    return None
+
+
 def cek(ep):
     tanda = []
+    for k in ep["kt"]:
+        nm = k.get("teks") or (k.get("kata") or [{}])[0].get("w", k["peran"])
+        size = k.get("ukuran") or UK[k["peran"]]
+        # D-31 kedekatan & arah rata terhadap subjek
+        if k["peran"] in ("r1", "lead", "r2", "r6", "kotak") and k.get("jangkar", "kiri") != "tengah" and k.get("dekat", True):
+            sj = subjek(ep, k)
+            if sj:
+                bx = kotak_kt(k); kiri_subjek = bx[0] + bx[2] / 2 < sj["cx"]
+                gap = sj["bahu"][0] - (bx[0] + bx[2]) if kiri_subjek else bx[0] - sj["bahu"][1]
+                if gap > 0.12 * W:
+                    tanda.append(f"JAUH   {k['dari']:.2f} '{nm}' {gap / W * 100:.0f}% dari bahu subjek (maks 8-12%)")
+                if kiri_subjek and k.get("jangkar", "kiri") != "kanan":
+                    tanda.append(f"RATA   {k['dari']:.2f} '{nm}' di kiri subjek tapi tidak rata kanan")
+                if not kiri_subjek and k.get("jangkar", "kiri") == "kanan":
+                    tanda.append(f"RATA   {k['dari']:.2f} '{nm}' di kanan subjek tapi rata kanan")
+        # D-32 teks kecil sendirian / teks di atas tekstur
+        a = lapisan_di(ep, (k["dari"] + k["sampai"]) / 2)
+        if a and size < 88 and k["peran"] != "napas":
+            teman = [o for o in ep["kt"] if o is not k and (o.get("ukuran") or UK[o["peran"]]) >= 96
+                     and min(o["sampai"], k["sampai"]) - max(o["dari"], k["dari"]) > 0.3 * (k["sampai"] - k["dari"])]
+            polos = a["lapisan"][0]["k"] in ("kanvas", "kartu")
+            if not teman and (polos or any(l.get("tekstur") for l in a["lapisan"])):
+                tanda.append(f"KECIL  {k['dari']:.2f} '{nm}' {size}px sendirian di {'kanvas' if polos else 'tekstur'}")
+        if a and any(l.get("tekstur") for l in a["lapisan"]) and k["peran"] not in ("napas", "giant"):
+            if k.get("jangkar") != "tengah" or (size < 88 and not any(o is not k and o.get("jangkar") == "tengah" and (o.get("ukuran") or UK[o["peran"]]) >= 110 for o in ep["kt"] if min(o["sampai"], k["sampai"]) > max(o["dari"], k["dari"]))):
+                tanda.append(f"TEKSTUR {k['dari']:.2f} '{nm}' di atas tekstur harus besar (88-130 px) di tengah")
     for k in ep["kt"]:
         bx = kotak_kt(k)
         if bx[0] < 120 or bx[0] + bx[2] > 1800 or bx[1] < 100 or bx[1] + bx[3] > 935:
@@ -120,8 +175,8 @@ def cek(ep):
             if a["sampai"] <= k["dari"] or a["dari"] >= k["sampai"]:
                 continue
             for l in a["lapisan"]:
-                if l["k"] not in ("jangkar", "gambar", "video"):
-                    continue
+                if l["k"] not in ("jangkar", "gambar", "video") or l.get("grade") in ("dalam", "blurkuat"):
+                    continue  # latar yang diburamkan kuat: wajah tidak terbaca sebagai wajah
                 folder, fn = l["src"].split("/", 1); info = aset(folder).get(fn)
                 if not info:
                     continue
@@ -142,8 +197,9 @@ def cek(ep):
                         continue
                     break
     # napas
-    nap = sorted(a["dari"] for a in ep["adegan"] if a["lapisan"] and a["lapisan"][0]["k"] == "kanvas"
-                 and any(k["peran"] == "napas" and a["dari"] - 0.05 <= k["dari"] < a["sampai"] for k in ep["kt"]))
+    # kanvas napas = kanvas/kartu polos dengan 1-3 kata napas, atau angka raksasa (tahun/jam) di kartu hitam
+    nap = sorted(a["dari"] for a in ep["adegan"] if a["lapisan"] and a["lapisan"][0]["k"] in ("kanvas", "kartu")
+                 and any(k["peran"] in ("napas", "giant") and a["dari"] - 0.05 <= k["dari"] < a["sampai"] for k in ep["kt"]))
     titik = [0.0] + nap + [ep["durasi"]]
     for x, y in zip(titik, titik[1:]):
         if y - x > 10.5:

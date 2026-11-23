@@ -1000,7 +1000,7 @@
    "peran": "r1",
    "dari": 3.22,
    "sampai": 7.406,
-   "x": 140,
+   "x": 815,
    "y": 360,
    "bayang": true,
    "kata": [
@@ -1013,16 +1013,18 @@
      "t": 4.0,
      "baris": 1
     }
-   ]
+   ],
+   "jangkar": "kanan"
   },
   {
    "peran": "r2",
    "dari": 6.32,
    "sampai": 7.406,
-   "x": 134,
+   "x": 722,
    "y": 580,
    "teks": "Tokopedia",
-   "bayang": true
+   "bayang": true,
+   "jangkar": "kanan"
   },
   {
    "peran": "lead",
@@ -1084,9 +1086,9 @@
    "peran": "r1",
    "dari": 12.26,
    "sampai": 13.82,
-   "x": 1755,
+   "x": 1297,
    "y": 380,
-   "jangkar": "kanan",
+   "jangkar": "kiri",
    "bayang": true,
    "kata": [
     {
@@ -1151,17 +1153,18 @@
    "peran": "kotak",
    "dari": 22.36,
    "sampai": 23.54,
-   "x": 1150,
+   "x": 1185,
    "y": 360,
-   "teks": "second year"
+   "teks": "second year",
+   "jangkar": "kiri"
   },
   {
    "peran": "r1",
    "dari": 23.7,
    "sampai": 26.1,
-   "x": 1755,
+   "x": 1369,
    "y": 360,
-   "jangkar": "kanan",
+   "jangkar": "kiri",
    "bayang": true,
    "kata": [
     {
@@ -1179,9 +1182,9 @@
    "peran": "lead",
    "dari": 26.1,
    "sampai": 27.226,
-   "x": 1755,
+   "x": 1507,
    "y": 360,
-   "jangkar": "kanan",
+   "jangkar": "kiri",
    "bayang": true,
    "kata": [
     {
@@ -1194,9 +1197,9 @@
    "peran": "r2",
    "dari": 26.64,
    "sampai": 27.226,
-   "x": 1755,
+   "x": 1231,
    "y": 460,
-   "jangkar": "kanan",
+   "jangkar": "kiri",
    "teks": "the family",
    "bayang": true
   },
@@ -1225,7 +1228,7 @@
    "peran": "lead",
    "dari": 33.5,
    "sampai": 35.246,
-   "x": 170,
+   "x": 990,
    "y": 300,
    "bayang": true,
    "kata": [
@@ -1233,7 +1236,8 @@
      "w": "fell in",
      "t": 33.5
     }
-   ]
+   ],
+   "jangkar": "kanan"
   },
   {
    "peran": "r6",
@@ -1350,7 +1354,7 @@
    "peran": "r1",
    "dari": 46.4,
    "sampai": 48.4,
-   "x": 170,
+   "x": 725,
    "y": 330,
    "bayang": true,
    "kata": [
@@ -1363,7 +1367,8 @@
      "t": 46.94,
      "baris": 1
     }
-   ]
+   ],
+   "jangkar": "kanan"
   },
   {
    "peran": "napas",
@@ -1389,7 +1394,7 @@
    "peran": "lead",
    "dari": 52.0,
    "sampai": 53.4,
-   "x": 170,
+   "x": 761,
    "y": 360,
    "bayang": true,
    "kata": [
@@ -1397,13 +1402,14 @@
      "w": "one of them said:",
      "t": 52.0
     }
-   ]
+   ],
+   "jangkar": "kanan"
   },
   {
    "peran": "r1",
    "dari": 53.4,
    "sampai": 55.72,
-   "x": 170,
+   "x": 928,
    "y": 330,
    "bayang": true,
    "kata": [
@@ -1416,7 +1422,8 @@
      "t": 54.52,
      "baris": 1
     }
-   ]
+   ],
+   "jangkar": "kanan"
   },
   {
    "peran": "napas",
@@ -1434,24 +1441,26 @@
    "peran": "kotak",
    "dari": 59.36,
    "sampai": 60.3,
-   "x": 170,
+   "x": 567,
    "y": 330,
-   "teks": "a slap"
+   "teks": "a slap",
+   "jangkar": "kanan"
   },
   {
    "peran": "r2",
    "dari": 60.3,
    "sampai": 62.485,
-   "x": 165,
+   "x": 602,
    "y": 330,
    "teks": "courage",
-   "bayang": true
+   "bayang": true,
+   "jangkar": "kanan"
   },
   {
    "peran": "lead",
    "dari": 61.16,
    "sampai": 62.485,
-   "x": 170,
+   "x": 737,
    "y": 480,
    "bayang": true,
    "kata": [
@@ -1459,7 +1468,8 @@
      "w": "so he kept going",
      "t": 61.16
     }
-   ]
+   ],
+   "jangkar": "kanan"
   },
   {
    "peran": "napas",
@@ -1529,7 +1539,7 @@
    "peran": "lead",
    "dari": 75.14,
    "sampai": 79.52499999999999,
-   "x": 170,
+   "x": 664,
    "y": 300,
    "bayang": true,
    "kata": [
@@ -1537,28 +1547,31 @@
      "w": "not bad, for an",
      "t": 75.14
     }
-   ]
+   ],
+   "jangkar": "kanan"
   },
   {
    "peran": "r2",
    "dari": 77.82,
    "sampai": 79.52499999999999,
-   "x": 165,
+   "x": 856,
    "y": 400,
    "teks": "internet café",
-   "bayang": true
+   "bayang": true,
+   "jangkar": "kanan"
   },
   {
    "peran": "r2",
    "dari": 78.62,
    "sampai": 79.52499999999999,
-   "x": 165,
+   "x": 645,
    "y": 530,
    "teks": "graduate",
-   "bayang": true
+   "bayang": true,
+   "jangkar": "kanan"
   },
   {
-   "peran": "lead",
+   "peran": "r1",
    "dari": 80.16,
    "sampai": 81.24000000000001,
    "x": 960,

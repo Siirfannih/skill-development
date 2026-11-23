@@ -28,8 +28,8 @@ Cari kelompok yang cocok dengan situasimu, baca butirnya utuh. Kondisinya harus 
 - Keseimbangan seluruh frame sesudah koreksi posisi: VIS-01 di `../visual/GUIDE.md`. Kontras huruf: TKS-03.
 - **[TKS-04] Ruang teks dipilih dari fungsi objek dan kedekatan ke fokus** · kelas P · cek: still per shot sebelum build
   - Pemicu: teks duduk di atas footage yang memuat subjek atau objek.
-  - Anti-pola: memilih ruang paling kosong atau paling gelap yang jauh dari subjek, mendorong teks mepet tepi saat menghindari wajah, atau memakai satu posisi untuk semua shot.
-  - Invarian: tandai fungsi tiap objek (wajah = ekspresi, tangan/karya = bukti, bidang polos = ruang teks), lalu pilih ruang yang jaraknya ke subjek yang dirujuk ≤ 8 % tinggi frame dan lebih kecil dari jaraknya ke tepi (Lantai 2), dengan bidang di bawah huruf yang lolos TKS-03 di seluruh rentang, bukan hanya di thumbnail.
+  - Anti-pola: memilih ruang paling kosong atau paling gelap yang jauh dari subjek, mendorong teks ke margin luar (rata kiri di 8–12 % lebar) saat subjek di sisi lawan sehingga tengah frame jadi ruang mati, atau memakai satu posisi untuk semua shot.
+  - Invarian: tandai fungsi tiap objek (wajah = ekspresi, tangan/karya = bukti, bidang polos = ruang teks), lalu pilih ruang yang jaraknya ke batas terluar subjek yang dirujuk (bahu, kursi, kepala) 4–8 % lebar frame dan lebih kecil dari jaraknya ke tepi (Lantai 2), dengan rata teks menghadap subjek (subjek di kanan → blok teks di tengah-kiri rata kanan; subjek di kiri → tengah-kanan rata kiri) dan bidang di bawah huruf yang lolos TKS-03 di seluruh rentang, bukan hanya di thumbnail.
   - Karena: teks yang jauh dari fokus membuat mata melompat, dan teks yang mepet tepi terasa terdesak.
   - Boleh: footage pengisi yang ditimpa teks (TKS-05); kotak tubuh tidak otomatis melarang teks.
   - Gerbang: tunjukkan still tiap shot dengan kotak subjek, kotak teks, dan dua jarak (ke subjek, ke tepi); kotak wajah diambil dari detektor (semua wajah di foto ramai, bukan hanya satu) dan diukur terhadap kotak teks di awal, tengah, dan akhir tampil dengan transform kamera yang sama; irisan = GAGAL sebelum render.
@@ -144,6 +144,13 @@ Cari kelompok yang cocok dengan situasimu, baca butirnya utuh. Kondisinya harus 
   - Karena: teks tanpa bidang tidak punya kedalaman yang terbaca, dan kata ganda membuat mata bolak-balik.
   - Boleh: teks yang sengaja melayang karena kartu kiblatnya menyatakan begitu.
   - Gerbang: tunjukkan still tiap adegan 3D dan sebut bidang tiap teks; teks tanpa bidang = GAGAL (contoh gagal 15; kartu 87 T1).
+- **[TKS-17] Ukuran dan posisi teks dipilih dari jenis latar** · kelas P · cek: tabel shot × latar sebelum build
+  - Pemicu: teks ucapan di atas tekstur, pola, atau B-roll abstrak tanpa subjek yang dirujuk (sirkuit, kerumunan buram, permukaan).
+  - Anti-pola: teks kecil (< 60 px @1080) atau didorong ke pita atas di atas tekstur ramai, sehingga huruf bertabrakan dengan pola dan terbaca seperti keterangan.
+  - Invarian: di atas tekstur, teks display besar 88–130 px tebal di tengah (±45 % tinggi), latar diredam dan diburamkan (blur ±6 px, kecerahan ±0,45) atau 1–2 kata kunci diberi kilat invert/flash; teks kecil hanya label sekunder tepat di atas kata kunci raksasa atau callout yang menempel bahu narasumber, tidak berdiri sendiri di kanvas luas.
+  - Karena: tekstur tidak punya ruang kosong yang bisa dipinjam; tanpa ukuran dan peredaman, pola mengalahkan huruf.
+  - Boleh: tekstur yang memang jadi bukti (dokumen, layar) dibiarkan tajam dan teks pindah ke kanvas sebelum/sesudahnya.
+  - Gerbang: still tiap shot bertekstur menunjukkan ukuran huruf, posisi tengah, dan perlakuan latar; teks < 60 px sendirian = GAGAL.
 - **[TKS-16] Kata pengantar kecil menempel kata hero-nya** · kelas P · cek: still tiap frasa yang dipecah
   - Pemicu: frasa dipecah menjadi kata pengantar kecil dan kata hero besar.
   - Anti-pola: kata pengantar ditaruh jauh (beda sudut frame) sehingga terbaca sebagai pesan kedua.
