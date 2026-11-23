@@ -186,7 +186,10 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/remotion/SmoothAudioClip.tsx` | SmoothAudioClip.tsx — audio motion-graphic §14.7 (Modul 2). |
 | `claude/motion-graphic/scripts/remotion/TeksBlok.tsx` | TeksBlok.tsx — satu blok teks KT sebagai lapisan lego ber-alpha (Lantai A9a, F26). |
 | `claude/motion-graphic/scripts/remotion/curves.ts` | curves.ts — gerak dirancang per gerak, bukan preset (Lantai B13a, 16 Nov 2026). |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/index.ts` | index.ts — satu pintu impor AE-Primitives. Butuh `curves.ts` di folder induk (../curves). |
 | `claude/motion-graphic/scripts/remotion/ae-primitives/presets.ts` | presets.ts — titik awal angka untuk semua primitive: kurva, pegas, durasi, intensitas, token warna netral. |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/aksen/FlashCut.tsx` | FlashCut.tsx — kilat di titik potong atau di ketukan: bidang warna penuh N frame tanpa naik/turun (GRK-01), |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/aksen/InvertFlash.tsx` | InvertFlash.tsx — inversi warna (negatif) 2–4 frame untuk aksen ketukan atau punchline. Intensitas penuh selama |
 | `claude/motion-graphic/scripts/remotion/ae-primitives/inti/DirectionalBlur.tsx` | DirectionalBlur.tsx — blur searah (AE "Directional Blur") + pemisahan kanal RGB tipis, lewat satu filter SVG. |
 | `claude/motion-graphic/scripts/remotion/ae-primitives/inti/acak.ts` | acak.ts — angka acak berbiji (deterministik per frame). Math.random dilarang di komponen Remotion: |
 | `claude/motion-graphic/scripts/remotion/ae-primitives/inti/aeKeyframe.ts` | aeKeyframe.ts — interpolasi keyframe gaya Graph Editor After Effects (speed graph), murni dari frame. |
@@ -194,6 +197,12 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/remotion/ae-primitives/kamera/MotionBlurWrapper.tsx` | MotionBlurWrapper.tsx — memindahkan isi menurut fungsi pose murni dan memberi blur searah yang dihitung otomatis |
 | `claude/motion-graphic/scripts/remotion/ae-primitives/kamera/SpatialAnchorCamera.tsx` | SpatialAnchorCamera.tsx — satu aset (foto, halaman, kanvas HTML), kamera virtual berpindah antar titik fokus. |
 | `claude/motion-graphic/scripts/remotion/ae-primitives/kedalaman/SpatialDepthStage.tsx` | SpatialDepthStage.tsx — panggung 2,5D berlapis: latar jauh buram, hero di bidang fokus, teks di depan. |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/teks/HighlighterSweep.tsx` | HighlighterSweep.tsx — sorotan stabilo yang menyapu di belakang kutipan, dari kiri (atau kanan) dengan CURVE.reveal. |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/tekstur/Scrim.tsx` | Scrim.tsx — gradien gelap dari satu sisi supaya teks di atas foto lolos kontras. Masuk dan keluar dengan gerak |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/tekstur/SelectiveColorSpotlight.tsx` | SelectiveColorSpotlight.tsx — satu bagian aset tetap berwarna, sisanya pudar ke abu, redup, dan sedikit buram. |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/transisi/GridFlashReveal.tsx` | GridFlashReveal.tsx — adegan baru terbuka per petak grid, tiap petak boleh menyala sesaat (kilat petak) saat |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/transisi/SceneChain.tsx` | SceneChain.tsx — rangkaian adegan dengan transisi bertumpang: adegan lama tetap tampil di bawah selama transisi |
+| `claude/motion-graphic/scripts/remotion/ae-primitives/transisi/WhipPanTransition.tsx` | WhipPanTransition.tsx — whip pan: adegan lama terlempar, adegan baru masuk, blur searah + regang + geser RGB tipis. |
 | `claude/motion-graphic/scripts/selects/cue_sumber.py` | Pindahkan cue (SFX, aset motion, titik musik) dari timeline lama ke timeline baru lewat WAKTU SUMBER. |
 | `claude/motion-graphic/scripts/selects/rakitan_cek.py` | Cek take dobel dan kata terpotong pada rakitan klip dari rekaman talking head mentah. |
 | `claude/motion-graphic/scripts/selects/timeline.py` | Timeline untuk editor dari rekaman talking head mentah (paket selects, `references/selects-editor.md`). |

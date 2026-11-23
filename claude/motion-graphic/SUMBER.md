@@ -778,6 +778,14 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | docstring/komentar | Irfan 16 Nov, ref siirfannih_DfRh4w0SfAk "Golden rule" |
 | komentar pembuka | Gagal yang membentuk komponen ini: jensen-pain-suffering T26 memasukkan klip percikan grayscale ke huruf (multiply) -> terbaca seperti bayangan daun, bukan kilat. |
 
+## `scripts/remotion/ae-primitives/`
+
+| Aturan | Asal-usul |
+|---|---|
+| struktur folder, README, semua komponen | Irfan 23 Nov: pustaka efek AE yang bisa diimpor; contoh struktur dari kasus video startup, pengelompokan disesuaikan dengan kartu |
+| SpatialAnchorCamera, Scrim, HighlighterSweep, maskGrid/whip/tumpang | diekstrak dan digeneralisasi dari komponen proyek behindwork-batch-1 (posKamera, kotakJangkar, sorot artikel, Scrim, TUMPANG) |
+| `DirectionalBlur opaque`, jebakan edgeMode/feColorMatrix | diukur 23 Nov 2026 di Remotion 4.0.380: tepi blur tetap memudar dengan edgeMode duplicate; bantalan salinan menghasilkan tepi rata |
+
 ## `scripts/remotion/TeksBlok.tsx`
 
 | Aturan | Asal-usul |
