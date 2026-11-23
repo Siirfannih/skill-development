@@ -20,7 +20,8 @@ export const TeksKT: React.FC<{ k: KT }> = ({ k }) => {
   const anchorX = k.jangkar === 'tengah' ? '-50%' : k.jangkar === 'kanan' ? '-100%' : '0%';
   const base: React.CSSProperties = {
     position: 'absolute', left: k.x, top: k.y, transform: `translateX(${anchorX})`, fontFamily: huruf, color: warnaDari(k.warna),
-    whiteSpace: 'nowrap', lineHeight: 1.02, textShadow: k.bayang ? '0 2px 22px rgba(0,0,0,0.42)' : undefined,
+    whiteSpace: 'nowrap', lineHeight: 1.02, textShadow: k.layar ? '0 0 18px rgba(150,210,255,0.85), 0 0 60px rgba(90,170,255,0.55)' : k.bayang ? '0 2px 22px rgba(0,0,0,0.42)' : undefined,
+    mixBlendMode: k.layar ? 'screen' : undefined,
     textAlign: k.jangkar === 'tengah' ? 'center' : k.jangkar === 'kanan' ? 'right' : 'left',
   };
 
@@ -49,7 +50,7 @@ export const TeksKT: React.FC<{ k: KT }> = ({ k }) => {
   if (k.peran === 'napas') {
     // kanvas napas (D-25): 1-3 kata tajam, potong keras (2 f), rapat, di tengah kanvas solid
     return (
-      <div style={{ ...base, fontSize: k.ukuran ?? ukuran.napas, fontWeight: 700, letterSpacing: '-0.045em', lineHeight: 0.94, whiteSpace: 'pre', opacity: Math.min(1, frame / 2) }}>
+      <div style={{ ...base, fontSize: k.ukuran ?? ukuran.napas, fontWeight: k.tipis ? 500 : 700, letterSpacing: k.tipis ? '-0.02em' : '-0.045em', lineHeight: 0.94, whiteSpace: 'pre', opacity: Math.min(1, frame / 2) }}>
         {k.aksen && k.teks?.includes(k.aksen) ? (<>{k.teks.split(k.aksen)[0]}<span style={{ color: warna.aksen }}>{k.aksen}</span>{k.teks.split(k.aksen)[1]}</>) : k.teks}
       </div>
     );

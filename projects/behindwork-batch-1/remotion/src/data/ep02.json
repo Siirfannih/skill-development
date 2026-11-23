@@ -1,7 +1,13 @@
 {
  "id": "Ep02",
- "durasi": 88.678,
- "vo": "ep02/vo.wav",
+ "durasi": 90.478,
+ "vo": "ep02/vo_jeda.wav",
+ "sunyi": [
+  [
+   55.7,
+   58.1
+  ]
+ ],
  "adegan": [
   {
    "id": "01a",
@@ -9,15 +15,37 @@
    "sampai": 3.22,
    "lapisan": [
     {
-     "k": "gambar",
+     "k": "jangkar",
      "src": "ep02/x_warnet_aqila.jpg",
-     "grade": "gelap",
-     "pos": "50% 55%",
-     "kb": {
-      "s0": 1.0,
-      "s1": 1.08,
-      "kurva": "heavy"
-     }
+     "iw": 1920,
+     "ih": 2560,
+     "jalur": [
+      {
+       "t": 0,
+       "fx": 0.5,
+       "fy": 0.32,
+       "s": 1.0,
+       "ax": 0.5,
+       "ay": 0.5
+      },
+      {
+       "t": 1.46,
+       "fx": 0.46,
+       "fy": 0.55,
+       "s": 1.3,
+       "ax": 0.5,
+       "ay": 0.5
+      },
+      {
+       "t": 2.22,
+       "fx": 0.7,
+       "fy": 0.68,
+       "s": 2.0,
+       "ax": 0.62,
+       "ay": 0.62
+      }
+     ],
+     "grade": "redam"
     }
    ]
   },
@@ -27,20 +55,77 @@
    "sampai": 7.406,
    "lapisan": [
     {
-     "k": "video",
+     "k": "jangkar",
      "src": "ep02/ew_0227-0303.mp4",
+     "iw": 1920,
+     "ih": 1026,
+     "jalur": [
+      {
+       "t": 3.22,
+       "fx": 0.449,
+       "fy": 0.309,
+       "s": 1.8,
+       "ax": 0.74,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 3.72,
+       "fx": 0.498,
+       "fy": 0.324,
+       "s": 1.8,
+       "ax": 0.74,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 4.22,
+       "fx": 0.572,
+       "fy": 0.326,
+       "s": 1.8,
+       "ax": 0.74,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 6.22,
+       "fx": 0.512,
+       "fy": 0.295,
+       "s": 1.8,
+       "ax": 0.74,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 6.72,
+       "fx": 0.41,
+       "fy": 0.289,
+       "s": 1.8,
+       "ax": 0.74,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 7.22,
+       "fx": 0.328,
+       "fy": 0.299,
+       "s": 1.8,
+       "ax": 0.74,
+       "ay": 0.38,
+       "drift": 0.006
+      }
+     ],
+     "video": true,
      "mulaiSumber": 2.0,
-     "kb": {
-      "s0": 1.55,
-      "s1": 1.62,
-      "x0": 110,
-      "x1": 125,
-      "y0": 40,
-      "y1": 50,
-      "kurva": "heavy"
-     }
+     "laju": 1.0
+    },
+    {
+     "k": "scrim",
+     "sisi": "kiri",
+     "kuat": 0.45
     }
-   ]
+   ],
+   "masuk": "whip"
   },
   {
    "id": "02a",
@@ -48,10 +133,11 @@
    "sampai": 9.48,
    "lapisan": [
     {
-     "k": "kartu",
-     "warna": "malam"
+     "k": "kanvas",
+     "warna": "gelap"
     }
-   ]
+   ],
+   "masuk": "putih"
   },
   {
    "id": "02b",
@@ -59,10 +145,32 @@
    "sampai": 11.786,
    "lapisan": [
     {
-     "k": "kartu",
-     "warna": "malam"
+     "k": "jangkar",
+     "src": "ep02/x_warnet_aqila.jpg",
+     "iw": 1920,
+     "ih": 2560,
+     "jalur": [
+      {
+       "t": 9.48,
+       "fx": 0.72,
+       "fy": 0.7,
+       "s": 2.4,
+       "ax": 0.5,
+       "ay": 0.62
+      },
+      {
+       "t": 10.98,
+       "fx": 0.55,
+       "fy": 0.5,
+       "s": 1.25,
+       "ax": 0.5,
+       "ay": 0.5
+      }
+     ],
+     "grade": "redam"
     }
-   ]
+   ],
+   "masuk": "whip"
   },
   {
    "id": "03a",
@@ -70,70 +178,129 @@
    "sampai": 13.82,
    "lapisan": [
     {
-     "k": "video",
+     "k": "jangkar",
      "src": "ep02/ew_0312-0355.mp4",
+     "iw": 1920,
+     "ih": 1026,
+     "jalur": [
+      {
+       "t": 11.786,
+       "fx": 0.405,
+       "fy": 0.268,
+       "s": 1.8,
+       "ax": 0.32,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 12.286,
+       "fx": 0.36,
+       "fy": 0.276,
+       "s": 1.8,
+       "ax": 0.32,
+       "ay": 0.38,
+       "drift": 0.006
+      }
+     ],
+     "video": true,
      "mulaiSumber": 24.0,
-     "kb": {
-      "s0": 1.55,
-      "s1": 1.62,
-      "x0": 110,
-      "x1": 125,
-      "y0": 40,
-      "y1": 50,
-      "kurva": "heavy"
-     }
+     "laju": 1.0
+    },
+    {
+     "k": "scrim",
+     "sisi": "kanan",
+     "kuat": 0.45
     }
    ]
   },
   {
    "id": "03b",
    "dari": 13.82,
-   "sampai": 15.86,
+   "sampai": 16.02,
    "lapisan": [
     {
-     "k": "gambar",
+     "k": "jangkar",
      "src": "ep02/x_siantar_welcome_sign.jpg",
-     "kb": {
-      "s0": 1.0,
-      "s1": 1.06,
-      "kurva": "heavy"
-     }
+     "iw": 1920,
+     "ih": 663,
+     "jalur": [
+      {
+       "t": 13.82,
+       "fx": 0.3,
+       "fy": 0.5,
+       "s": 1.05,
+       "ax": 0.5,
+       "ay": 0.5
+      },
+      {
+       "t": 14.26,
+       "fx": 0.62,
+       "fy": 0.5,
+       "s": 1.25,
+       "ax": 0.5,
+       "ay": 0.5
+      }
+     ]
     }
-   ]
+   ],
+   "masuk": "grid"
   },
   {
    "id": "03c",
-   "dari": 15.86,
-   "sampai": 19.7,
+   "dari": 16.02,
+   "sampai": 17.2,
    "lapisan": [
     {
-     "k": "gambar",
-     "src": "ep02/x_kapal_pelni_tanjungperak.jpg",
-     "pos": "50% 45%",
-     "grade": "nat",
-     "kb": {
-      "s0": 1.0,
-      "s1": 1.08,
-      "y1": -30,
-      "kurva": "heavy"
-     }
+     "k": "kanvas",
+     "warna": "gelap"
     }
    ]
   },
   {
    "id": "03d",
+   "dari": 17.2,
+   "sampai": 19.7,
+   "lapisan": [
+    {
+     "k": "jangkar",
+     "src": "ep02/x_kapal_pelni_tanjungperak.jpg",
+     "iw": 1920,
+     "ih": 2560,
+     "jalur": [
+      {
+       "t": 17.2,
+       "fx": 0.62,
+       "fy": 0.78,
+       "s": 1.0,
+       "ax": 0.5,
+       "ay": 0.5
+      },
+      {
+       "t": 17.82,
+       "fx": 0.62,
+       "fy": 0.55,
+       "s": 1.3,
+       "ax": 0.5,
+       "ay": 0.5
+      }
+     ]
+    },
+    {
+     "k": "scrim",
+     "sisi": "atas",
+     "kuat": 0.5
+    }
+   ],
+   "masuk": "whip"
+  },
+  {
+   "id": "03e",
    "dari": 19.7,
    "sampai": 21.726,
    "lapisan": [
     {
-     "k": "gambar",
-     "src": "ep02/x_pelni_economy_class.jpg",
-     "grade": "gelap",
-     "kb": {
-      "s0": 1.0,
-      "s1": 1.07,
-      "x1": 40
-     }
+     "k": "kanvas",
+     "warna": "gelap"
     }
    ]
   },
@@ -143,61 +310,119 @@
    "sampai": 27.226,
    "lapisan": [
     {
-     "k": "video",
+     "k": "jangkar",
      "src": "ep02/ew_0748-0828.mp4",
+     "iw": 1920,
+     "ih": 1026,
+     "jalur": [
+      {
+       "t": 21.726,
+       "fx": 0.513,
+       "fy": 0.349,
+       "s": 1.8,
+       "ax": 0.3,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 23.726,
+       "fx": 0.477,
+       "fy": 0.356,
+       "s": 1.8,
+       "ax": 0.3,
+       "ay": 0.38,
+       "drift": 0.006
+      }
+     ],
+     "video": true,
      "mulaiSumber": 4.0,
-     "grade": "bw",
-     "kb": {
-      "s0": 1.55,
-      "s1": 1.66,
-      "x0": 110,
-      "x1": 125,
-      "y0": 40,
-      "y1": 50,
-      "kurva": "heavy"
-     }
+     "laju": 1.0,
+     "grade": "bw"
+    },
+    {
+     "k": "scrim",
+     "sisi": "kanan",
+     "kuat": 0.4
     }
-   ]
+   ],
+   "masuk": "whip"
   },
   {
    "id": "05a",
    "dari": 27.226,
-   "sampai": 31.8,
+   "sampai": 30.04,
    "lapisan": [
     {
-     "k": "gambar",
+     "k": "jangkar",
      "src": "ep02/x_warnet_aqila.jpg",
-     "grade": "gelap",
-     "pos": "50% 70%",
-     "kb": {
-      "s0": 1.05,
-      "s1": 1.14,
-      "x1": -40,
-      "kurva": "heavy"
-     }
+     "iw": 1920,
+     "ih": 2560,
+     "jalur": [
+      {
+       "t": 27.226,
+       "fx": 0.45,
+       "fy": 0.6,
+       "s": 1.2,
+       "ax": 0.5,
+       "ay": 0.5
+      },
+      {
+       "t": 29.04,
+       "fx": 0.72,
+       "fy": 0.7,
+       "s": 2.2,
+       "ax": 0.55,
+       "ay": 0.6
+      }
+     ],
+     "grade": "redam"
     }
    ]
   },
   {
    "id": "05b",
+   "dari": 30.04,
+   "sampai": 31.8,
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "terang"
+    }
+   ],
+   "masuk": "putih"
+  },
+  {
+   "id": "05c",
    "dari": 31.8,
    "sampai": 35.246,
    "lapisan": [
     {
-     "k": "video",
+     "k": "jangkar",
      "src": "ep02/ideafest_0040-0112.mp4",
+     "iw": 1920,
+     "ih": 1080,
+     "jalur": [
+      {
+       "t": 31.8,
+       "fx": 0.733,
+       "fy": 0.256,
+       "s": 1.25,
+       "ax": 0.72,
+       "ay": 0.4,
+       "drift": 0.006
+      }
+     ],
+     "video": true,
      "mulaiSumber": 12.0,
-     "kb": {
-      "s0": 1.45,
-      "s1": 1.55,
-      "x0": 0,
-      "x1": -20,
-      "y0": 40,
-      "y1": 50,
-      "kurva": "heavy"
-     }
+     "laju": 1.0
+    },
+    {
+     "k": "scrim",
+     "sisi": "kiri",
+     "kuat": 0.5
     }
-   ]
+   ],
+   "masuk": "whip"
   },
   {
    "id": "06a",
@@ -205,27 +430,74 @@
    "sampai": 37.4,
    "lapisan": [
     {
-     "k": "kartu",
-     "warna": "malam"
+     "k": "kanvas",
+     "warna": "terang"
     }
    ]
   },
   {
    "id": "06b",
    "dari": 37.4,
+   "sampai": 40.62,
+   "lapisan": [
+    {
+     "k": "jangkar",
+     "src": "ep02/x_warnet_aqila.jpg",
+     "iw": 1920,
+     "ih": 2560,
+     "jalur": [
+      {
+       "t": 37.4,
+       "fx": 0.72,
+       "fy": 0.7,
+       "s": 2.8,
+       "ax": 0.5,
+       "ay": 0.55
+      },
+      {
+       "t": 39.4,
+       "fx": 0.72,
+       "fy": 0.7,
+       "s": 3.1,
+       "ax": 0.5,
+       "ay": 0.55
+      }
+     ],
+     "grade": "redam"
+    }
+   ],
+   "masuk": "whip"
+  },
+  {
+   "id": "06c",
+   "dari": 40.62,
    "sampai": 43.356,
    "lapisan": [
     {
-     "k": "video",
+     "k": "jangkar",
      "src": "ep02/ideafest_0040-0112.mp4",
-     "mulaiSumber": 27.0,
-     "kb": {
-      "s0": 1.12,
-      "s1": 1.22,
-      "kurva": "heavy"
-     }
+     "iw": 1920,
+     "ih": 1080,
+     "jalur": [
+      {
+       "t": 40.62,
+       "fx": 0.5,
+       "fy": 0.55,
+       "s": 1.15,
+       "ax": 0.5,
+       "ay": 0.5
+      }
+     ],
+     "video": true,
+     "mulaiSumber": 27.0
+    },
+    {
+     "k": "scrim",
+     "sisi": "kiri",
+     "kuat": 0.55
     }
-   ]
+   ],
+   "masuk": "grid"
   },
   {
    "id": "07",
@@ -233,199 +505,476 @@
    "sampai": 46.206,
    "lapisan": [
     {
-     "k": "kartu",
-     "warna": "malam"
+     "k": "kanvas",
+     "warna": "gelap"
     }
    ]
   },
   {
-   "id": "08",
+   "id": "08a",
    "dari": 46.206,
+   "sampai": 48.4,
+   "lapisan": [
+    {
+     "k": "jangkar",
+     "src": "ep02/ew_0543-0558.mp4",
+     "iw": 1920,
+     "ih": 1026,
+     "jalur": [
+      {
+       "t": 46.206,
+       "fx": 0.557,
+       "fy": 0.302,
+       "s": 1.8,
+       "ax": 0.7,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 46.706,
+       "fx": 0.587,
+       "fy": 0.299,
+       "s": 1.8,
+       "ax": 0.7,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 47.206,
+       "fx": 0.635,
+       "fy": 0.304,
+       "s": 1.8,
+       "ax": 0.7,
+       "ay": 0.38,
+       "drift": 0.006
+      }
+     ],
+     "video": true,
+     "mulaiSumber": 1.0,
+     "laju": 1.0,
+     "grade": "bw"
+    },
+    {
+     "k": "scrim",
+     "sisi": "kiri",
+     "kuat": 0.45
+    }
+   ],
+   "masuk": "whip"
+  },
+  {
+   "id": "08b",
+   "dari": 48.4,
    "sampai": 51.035,
    "lapisan": [
     {
-     "k": "video",
-     "src": "ep02/ew_0543-0558.mp4",
-     "mulaiSumber": 1.0,
-     "grade": "bw",
-     "kb": {
-      "s0": 1.55,
-      "s1": 1.64,
-      "x0": 110,
-      "x1": 125,
-      "y0": 40,
-      "y1": 50,
-      "kurva": "heavy"
-     }
+     "k": "kanvas",
+     "warna": "gelap"
     }
    ]
   },
   {
-   "id": "09",
+   "id": "09a",
    "dari": 51.035,
-   "sampai": 56.625,
+   "sampai": 53.4,
    "lapisan": [
     {
-     "k": "video",
+     "k": "jangkar",
      "src": "ep02/ew_0855-0930.mp4",
-     "mulaiSumber": 4.0,
-     "grade": "bw",
-     "kb": {
-      "s0": 1.7,
-      "s1": 1.95,
-      "x0": 110,
-      "x1": 125,
-      "y0": 120,
-      "y1": 130,
-      "kurva": "heavy"
-     }
+     "iw": 1920,
+     "ih": 1026,
+     "jalur": [
+      {
+       "t": 51.035,
+       "fx": 0.613,
+       "fy": 0.258,
+       "s": 1.8,
+       "ax": 0.68,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 51.535,
+       "fx": 0.576,
+       "fy": 0.246,
+       "s": 1.8,
+       "ax": 0.68,
+       "ay": 0.38,
+       "drift": 0.006
+      }
+     ],
+     "video": true,
+     "mulaiSumber": 10.0,
+     "laju": 1.0,
+     "grade": "bw"
+    },
+    {
+     "k": "scrim",
+     "sisi": "kiri",
+     "kuat": 0.45
     }
+   ]
+  },
+  {
+   "id": "09b",
+   "dari": 53.4,
+   "sampai": 55.72,
+   "lapisan": [
+    {
+     "k": "jangkar",
+     "src": "ep02/ew_0855-0930.mp4",
+     "iw": 1920,
+     "ih": 1026,
+     "jalur": [
+      {
+       "t": 53.4,
+       "fx": 0.608,
+       "fy": 0.269,
+       "s": 2.3,
+       "ax": 0.75,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 54.4,
+       "fx": 0.57,
+       "fy": 0.269,
+       "s": 2.3,
+       "ax": 0.75,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 54.9,
+       "fx": 0.508,
+       "fy": 0.271,
+       "s": 2.3,
+       "ax": 0.75,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 55.4,
+       "fx": 0.428,
+       "fy": 0.261,
+       "s": 2.3,
+       "ax": 0.75,
+       "ay": 0.38,
+       "drift": 0.006
+      }
+     ],
+     "video": true,
+     "mulaiSumber": 12.365000000000002,
+     "laju": 1.0,
+     "grade": "bw"
+    },
+    {
+     "k": "scrim",
+     "sisi": "kiri",
+     "kuat": 0.5
+    }
+   ]
+  },
+  {
+   "id": "09c",
+   "dari": 55.72,
+   "sampai": 58.425,
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "gelap"
+    }
+   ],
+   "invert": [
+    55.72,
+    55.82
    ]
   },
   {
    "id": "10",
-   "dari": 56.625,
-   "sampai": 60.685,
+   "dari": 58.425,
+   "sampai": 62.485,
    "lapisan": [
     {
-     "k": "video",
+     "k": "jangkar",
      "src": "ep02/ew_0748-0828.mp4",
+     "iw": 1920,
+     "ih": 1026,
+     "jalur": [
+      {
+       "t": 58.425,
+       "fx": 0.32,
+       "fy": 0.346,
+       "s": 1.8,
+       "ax": 0.68,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 58.925,
+       "fx": 0.353,
+       "fy": 0.354,
+       "s": 1.8,
+       "ax": 0.68,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 59.925,
+       "fx": 0.41,
+       "fy": 0.363,
+       "s": 1.8,
+       "ax": 0.68,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 60.425,
+       "fx": 0.425,
+       "fy": 0.414,
+       "s": 1.8,
+       "ax": 0.68,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 60.925,
+       "fx": 0.457,
+       "fy": 0.408,
+       "s": 1.8,
+       "ax": 0.68,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 61.925,
+       "fx": 0.477,
+       "fy": 0.348,
+       "s": 1.8,
+       "ax": 0.68,
+       "ay": 0.38,
+       "drift": 0.006
+      },
+      {
+       "t": 62.425,
+       "fx": 0.536,
+       "fy": 0.348,
+       "s": 1.8,
+       "ax": 0.68,
+       "ay": 0.38,
+       "drift": 0.006
+      }
+     ],
+     "video": true,
      "mulaiSumber": 30.0,
-     "kb": {
-      "s0": 1.55,
-      "s1": 1.63,
-      "x0": 110,
-      "x1": 125,
-      "y0": 40,
-      "y1": 50,
-      "kurva": "heavy"
-     }
+     "laju": 1.0
+    },
+    {
+     "k": "scrim",
+     "sisi": "kiri",
+     "kuat": 0.45
     }
-   ]
+   ],
+   "masuk": "whip"
   },
   {
    "id": "11a",
-   "dari": 60.685,
-   "sampai": 63.68,
+   "dari": 62.485,
+   "sampai": 65.48,
    "lapisan": [
     {
-     "k": "kartu",
-     "warna": "malam"
+     "k": "kanvas",
+     "warna": "terang"
     }
    ]
   },
   {
    "id": "11b",
-   "dari": 63.68,
-   "sampai": 68.855,
+   "dari": 65.48,
+   "sampai": 70.655,
    "lapisan": [
     {
-     "k": "kartu",
-     "warna": "kertas"
+     "k": "jangkar",
+     "src": "ep02/wb_tokopedia_20090826_shot.png",
+     "iw": 1620,
+     "ih": 2880,
+     "jalur": [
+      {
+       "t": 65.48,
+       "fx": 0.5,
+       "fy": 0.06,
+       "s": 1.25,
+       "ax": 0.5,
+       "ay": 0.32
+      },
+      {
+       "t": 67.42,
+       "fx": 0.32,
+       "fy": 0.05,
+       "s": 1.9,
+       "ax": 0.62,
+       "ay": 0.32
+      },
+      {
+       "t": 68.02,
+       "fx": 0.5,
+       "fy": 0.2,
+       "s": 1.4,
+       "ax": 0.5,
+       "ay": 0.5
+      }
+     ]
     },
     {
-     "k": "inset",
-     "src": "ep02/wb_tokopedia_20090826_shot.png",
-     "x": 1060,
-     "y": 120,
-     "w": 640,
-     "h": 840,
-     "pos": "50% 0%",
-     "masuk": "kanan",
-     "kb": {
-      "s0": 1.0,
-      "s1": 1.06,
-      "kurva": "heavy"
-     }
+     "k": "scrim",
+     "sisi": "kiri",
+     "kuat": 0.88
     }
-   ]
+   ],
+   "masuk": "whip"
   },
   {
    "id": "12a",
-   "dari": 68.855,
-   "sampai": 73.34,
+   "dari": 70.655,
+   "sampai": 71.86,
    "lapisan": [
     {
-     "k": "gambar",
-     "src": "ep02/gojek_blog_goto_2021_og_GoTo_announcement_banner_EN.jpg",
-     "grade": "blurkuat",
-     "kb": {
-      "s0": 1.0,
-      "s1": 1.08,
-      "kurva": "heavy"
-     }
+     "k": "kanvas",
+     "warna": "gelap"
     }
    ]
   },
   {
    "id": "12b",
-   "dari": 73.34,
-   "sampai": 77.725,
+   "dari": 71.86,
+   "sampai": 75.14,
    "lapisan": [
     {
-     "k": "kartu",
-     "warna": "kertas"
+     "k": "jangkar",
+     "src": "ep02/goto_press_2023_og_4a83726f_683d_4954_9615_4b0554.jpg",
+     "iw": 1000,
+     "ih": 667,
+     "jalur": [
+      {
+       "t": 71.86,
+       "fx": 0.48,
+       "fy": 0.62,
+       "s": 1.0,
+       "ax": 0.5,
+       "ay": 0.5
+      },
+      {
+       "t": 74.18,
+       "fx": 0.48,
+       "fy": 0.6,
+       "s": 1.25,
+       "ax": 0.5,
+       "ay": 0.5
+      }
+     ]
     },
     {
-     "k": "inset",
-     "src": "ep02/william_tanuwijaya_2018.jpg",
-     "x": 220,
-     "y": 110,
-     "w": 640,
-     "h": 860,
-     "pos": "50% 30%",
-     "masuk": "bawah",
-     "kb": {
-      "s0": 1.0,
-      "s1": 1.04
-     }
+     "k": "scrim",
+     "sisi": "atas",
+     "kuat": 0.55
     }
-   ]
+   ],
+   "masuk": "grid"
+  },
+  {
+   "id": "12c",
+   "dari": 75.14,
+   "sampai": 79.525,
+   "lapisan": [
+    {
+     "k": "jangkar",
+     "src": "ep02/william_tanuwijaya_2018.jpg",
+     "iw": 1920,
+     "ih": 2559,
+     "jalur": [
+      {
+       "t": 75.14,
+       "fx": 0.56,
+       "fy": 0.4,
+       "s": 1.25,
+       "ax": 0.8,
+       "ay": 0.42
+      },
+      {
+       "t": 78.62,
+       "fx": 0.56,
+       "fy": 0.4,
+       "s": 1.35,
+       "ax": 0.8,
+       "ay": 0.42
+      }
+     ]
+    },
+    {
+     "k": "scrim",
+     "sisi": "kiri",
+     "kuat": 0.5
+    }
+   ],
+   "masuk": "whip"
   },
   {
    "id": "13a",
-   "dari": 77.725,
-   "sampai": 80.46,
+   "dari": 79.525,
+   "sampai": 82.26,
    "lapisan": [
     {
-     "k": "kartu",
-     "warna": "kertas"
+     "k": "kanvas",
+     "warna": "terang"
     }
    ]
   },
   {
-   "id": "13b",
-   "dari": 80.46,
-   "sampai": 84.285,
+   "id": "13c",
+   "dari": 82.26,
+   "sampai": 86.085,
    "lapisan": [
     {
-     "k": "gambar",
+     "k": "jangkar",
      "src": "ep02/x_warnet_aqila.jpg",
-     "grade": "gelap",
-     "pos": "50% 40%",
-     "kb": {
-      "s0": 1.0,
-      "s1": 1.1,
-      "kurva": "heavy"
-     }
+     "iw": 1920,
+     "ih": 2560,
+     "jalur": [
+      {
+       "t": 82.26,
+       "fx": 0.5,
+       "fy": 0.45,
+       "s": 1.0,
+       "ax": 0.5,
+       "ay": 0.5
+      },
+      {
+       "t": 84.68,
+       "fx": 0.45,
+       "fy": 0.58,
+       "s": 1.2,
+       "ax": 0.5,
+       "ay": 0.5
+      }
+     ],
+     "grade": "redam"
+    },
+    {
+     "k": "scrim",
+     "sisi": "rata",
+     "kuat": 0.4
     }
-   ]
+   ],
+   "masuk": "whip"
   },
   {
    "id": "14",
-   "dari": 84.285,
-   "sampai": 88.678,
+   "dari": 86.085,
+   "sampai": 90.478,
    "lapisan": [
     {
-     "k": "kartu",
-     "warna": "malam"
-    },
-    {
-     "k": "irisan",
-     "src": "ep02/x_warnet_aqila.jpg",
-     "clip": "inset(0 0 0 84%)",
-     "grade": "gelap",
-     "geser": 0
+     "k": "kanvas",
+     "warna": "gelap"
     }
    ]
   }
@@ -436,8 +985,10 @@
    "dari": 0.0,
    "sampai": 3.22,
    "x": 960,
-   "y": 300,
+   "y": 170,
    "jangkar": "tengah",
+   "layar": true,
+   "ukuran": 420,
    "angka": {
     "dari": 18,
     "ke": 21,
@@ -449,7 +1000,7 @@
    "peran": "r1",
    "dari": 3.22,
    "sampai": 7.406,
-   "x": 170,
+   "x": 140,
    "y": 360,
    "bayang": true,
    "kata": [
@@ -468,7 +1019,7 @@
    "peran": "r2",
    "dari": 6.32,
    "sampai": 7.406,
-   "x": 164,
+   "x": 134,
    "y": 580,
    "teks": "Tokopedia",
    "bayang": true
@@ -478,7 +1029,7 @@
    "dari": 7.72,
    "sampai": 9.48,
    "x": 960,
-   "y": 360,
+   "y": 280,
    "jangkar": "tengah",
    "kata": [
     {
@@ -488,21 +1039,25 @@
    ]
   },
   {
-   "peran": "r6",
+   "peran": "napas",
    "dari": 8.48,
    "sampai": 9.48,
    "x": 960,
-   "y": 450,
+   "y": 412,
    "jangkar": "tengah",
-   "teks": "12 hours"
+   "teks": "12 HOURS.",
+   "warna": "putih",
+   "ukuran": 230
   },
   {
    "peran": "giant",
    "dari": 9.48,
    "sampai": 11.786,
    "x": 960,
-   "y": 250,
+   "y": 180,
    "jangkar": "tengah",
+   "layar": true,
+   "ukuran": 420,
    "angka": {
     "dari": 21,
     "ke": 33,
@@ -517,6 +1072,7 @@
    "x": 960,
    "y": 760,
    "jangkar": "tengah",
+   "bayang": true,
    "kata": [
     {
      "w": "every day",
@@ -528,8 +1084,9 @@
    "peran": "r1",
    "dari": 12.26,
    "sampai": 13.82,
-   "x": 1150,
+   "x": 1755,
    "y": 380,
+   "jangkar": "kanan",
    "bayang": true,
    "kata": [
     {
@@ -544,23 +1101,22 @@
    ]
   },
   {
-   "peran": "r6",
+   "peran": "napas",
    "dari": 16.24,
-   "sampai": 19.7,
+   "sampai": 17.2,
    "x": 960,
-   "y": 230,
+   "y": 365,
    "jangkar": "tengah",
-   "teks": "1999",
-   "ukuran": 280,
-   "bayang": true
+   "teks": "1999.",
+   "warna": "putih",
+   "ukuran": 330
   },
   {
-   "peran": "r1",
-   "dari": 17.82,
+   "peran": "lead",
+   "dari": 17.2,
    "sampai": 19.7,
-   "x": 960,
-   "y": 560,
-   "jangkar": "tengah",
+   "x": 170,
+   "y": 170,
    "bayang": true,
    "kata": [
     {
@@ -570,30 +1126,32 @@
    ]
   },
   {
-   "peran": "r2",
+   "peran": "napas",
    "dari": 19.7,
-   "sampai": 21.726,
+   "sampai": 20.74,
    "x": 960,
-   "y": 360,
+   "y": 412,
    "jangkar": "tengah",
-   "teks": "four days",
-   "bayang": true
+   "teks": "4 DAYS.",
+   "warna": "putih",
+   "ukuran": 230
   },
   {
-   "peran": "r2",
+   "peran": "napas",
    "dari": 20.74,
    "sampai": 21.726,
    "x": 960,
-   "y": 500,
+   "y": 412,
    "jangkar": "tengah",
-   "teks": "three nights",
-   "bayang": true
+   "teks": "3 NIGHTS.",
+   "warna": "putih",
+   "ukuran": 230
   },
   {
    "peran": "kotak",
    "dari": 22.36,
    "sampai": 23.54,
-   "x": 1180,
+   "x": 1150,
    "y": 360,
    "teks": "second year"
   },
@@ -601,8 +1159,9 @@
    "peran": "r1",
    "dari": 23.7,
    "sampai": 26.1,
-   "x": 1180,
+   "x": 1755,
    "y": 360,
+   "jangkar": "kanan",
    "bayang": true,
    "kata": [
     {
@@ -620,8 +1179,9 @@
    "peran": "lead",
    "dari": 26.1,
    "sampai": 27.226,
-   "x": 1180,
+   "x": 1755,
    "y": 360,
+   "jangkar": "kanan",
    "bayang": true,
    "kata": [
     {
@@ -634,8 +1194,9 @@
    "peran": "r2",
    "dari": 26.64,
    "sampai": 27.226,
-   "x": 1174,
+   "x": 1755,
    "y": 460,
+   "jangkar": "kanan",
    "teks": "the family",
    "bayang": true
   },
@@ -644,25 +1205,27 @@
    "dari": 29.04,
    "sampai": 30.04,
    "x": 960,
-   "y": 420,
+   "y": 200,
    "jangkar": "tengah",
-   "teks": "night shift",
-   "bayang": true
+   "layar": true,
+   "teks": "night shift"
   },
   {
-   "peran": "kotak",
+   "peran": "napas",
    "dari": 30.04,
    "sampai": 31.8,
    "x": 960,
-   "y": 420,
+   "y": 323,
    "jangkar": "tengah",
-   "teks": "free internet"
+   "teks": "FREE\nINTERNET.",
+   "warna": "tinta",
+   "ukuran": 210
   },
   {
    "peran": "lead",
    "dari": 33.5,
    "sampai": 35.246,
-   "x": 1160,
+   "x": 170,
    "y": 300,
    "bayang": true,
    "kata": [
@@ -676,7 +1239,7 @@
    "peran": "r6",
    "dari": 34.18,
    "sampai": 35.246,
-   "x": 1150,
+   "x": 165,
    "y": 380,
    "teks": "LOVE",
    "bayang": true
@@ -686,8 +1249,9 @@
    "dari": 35.5,
    "sampai": 37.4,
    "x": 960,
-   "y": 330,
+   "y": 250,
    "jangkar": "tengah",
+   "warna": "tinta",
    "kata": [
     {
      "w": "graduated",
@@ -696,43 +1260,63 @@
    ]
   },
   {
-   "peran": "r6",
+   "peran": "napas",
    "dari": 36.48,
    "sampai": 37.4,
    "x": 960,
-   "y": 420,
+   "y": 365,
    "jangkar": "tengah",
-   "teks": "2003",
-   "ukuran": 280
+   "teks": "2003.",
+   "warna": "tinta",
+   "ukuran": 330
   },
   {
    "peran": "r6",
    "dari": 38.3,
    "sampai": 40.62,
    "x": 960,
-   "y": 300,
+   "y": 330,
    "jangkar": "tengah",
+   "layar": true,
    "teks": "2007",
-   "ukuran": 280,
-   "bayang": true
+   "ukuran": 300
+  },
+  {
+   "peran": "lead",
+   "dari": 39.4,
+   "sampai": 40.62,
+   "x": 960,
+   "y": 720,
+   "jangkar": "tengah",
+   "bayang": true,
+   "kata": [
+    {
+     "w": "the idea came",
+     "t": 39.1
+    }
+   ]
   },
   {
    "peran": "r1",
    "dari": 40.62,
    "sampai": 43.356,
-   "x": 960,
+   "x": 170,
    "y": 360,
-   "jangkar": "tengah",
    "bayang": true,
    "kata": [
     {
-     "w": "an online marketplace",
+     "w": "an online",
      "t": 40.84
+    },
+    {
+     "w": "marketplace",
+     "t": 41.34,
+     "baris": 1
     },
     {
      "w": "people could trust",
      "t": 41.92,
-     "baris": 1
+     "baris": 2
     }
    ]
   },
@@ -741,8 +1325,9 @@
    "dari": 43.356,
    "sampai": 46.206,
    "x": 960,
-   "y": 240,
+   "y": 170,
    "jangkar": "tengah",
+   "ukuran": 420,
    "angka": {
     "dari": 23,
     "ke": 27,
@@ -751,232 +1336,258 @@
    }
   },
   {
-   "peran": "lead",
+   "peran": "napas",
    "dari": 44.64,
    "sampai": 46.206,
    "x": 960,
-   "y": 760,
+   "y": 700,
    "jangkar": "tengah",
-   "kata": [
-    {
-     "w": "the darkest hour",
-     "t": 44.64
-    }
-   ]
+   "teks": "the darkest hour.",
+   "warna": "putih",
+   "ukuran": 120
   },
   {
    "peran": "r1",
-   "dari": 47.24,
-   "sampai": 51.035,
+   "dari": 46.4,
+   "sampai": 48.4,
    "x": 170,
    "y": 330,
    "bayang": true,
    "kata": [
     {
-     "w": "no investors",
-     "t": 47.24
+     "w": "didn't know",
+     "t": 46.4
+    },
+    {
+     "w": "any investors",
+     "t": 46.94,
+     "baris": 1
     }
    ]
   },
   {
-   "peran": "r6",
+   "peran": "napas",
    "dari": 48.62,
    "sampai": 51.035,
-   "x": 160,
-   "y": 440,
-   "teks": "2 years",
-   "ukuran": 190,
-   "bayang": true
+   "x": 960,
+   "y": 300,
+   "jangkar": "tengah",
+   "teks": "2 YEARS.",
+   "warna": "putih",
+   "ukuran": 250
+  },
+  {
+   "peran": "kotak",
+   "dari": 49.48,
+   "sampai": 51.035,
+   "x": 960,
+   "y": 640,
+   "jangkar": "tengah",
+   "teks": "every pitch failed"
+  },
+  {
+   "peran": "lead",
+   "dari": 52.0,
+   "sampai": 53.4,
+   "x": 170,
+   "y": 360,
+   "bayang": true,
+   "kata": [
+    {
+     "w": "one of them said:",
+     "t": 52.0
+    }
+   ]
   },
   {
    "peran": "r1",
-   "dari": 53.52,
+   "dari": 53.4,
    "sampai": 55.72,
-   "x": 1150,
+   "x": 170,
    "y": 330,
    "bayang": true,
    "kata": [
     {
      "w": "your role models",
      "t": 53.52
-    }
-   ]
-  },
-  {
-   "peran": "r2",
-   "dari": 54.52,
-   "sampai": 55.72,
-   "x": 1144,
-   "y": 440,
-   "teks": "born special",
-   "bayang": true
-  },
-  {
-   "peran": "r6",
-   "dari": 55.72,
-   "sampai": 57.56,
-   "x": 1140,
-   "y": 360,
-   "teks": "you're not",
-   "ukuran": 170,
-   "bayang": true
-  },
-  {
-   "peran": "kotak",
-   "dari": 57.56,
-   "sampai": 58.5,
-   "x": 1180,
-   "y": 360,
-   "teks": "a slap"
-  },
-  {
-   "peran": "r2",
-   "dari": 58.5,
-   "sampai": 60.685,
-   "x": 1174,
-   "y": 360,
-   "teks": "courage",
-   "bayang": true
-  },
-  {
-   "peran": "lead",
-   "dari": 59.36,
-   "sampai": 60.685,
-   "x": 1180,
-   "y": 500,
-   "bayang": true,
-   "kata": [
-    {
-     "w": "so he kept going",
-     "t": 59.36
-    }
-   ]
-  },
-  {
-   "peran": "giant",
-   "dari": 60.685,
-   "sampai": 63.68,
-   "x": 960,
-   "y": 200,
-   "jangkar": "tengah",
-   "angka": {
-    "dari": 27,
-    "ke": 33,
-    "durasi": 0.9,
-    "format": "jam"
-   }
-  },
-  {
-   "peran": "r2",
-   "dari": 60.96,
-   "sampai": 63.68,
-   "x": 960,
-   "y": 680,
-   "jangkar": "tengah",
-   "teks": "August 17, 2009"
-  },
-  {
-   "peran": "r6",
-   "dari": 65.62,
-   "sampai": 68.855,
-   "x": 165,
-   "y": 330,
-   "warna": "tinta",
-   "teks": "launched",
-   "ukuran": 190
-  },
-  {
-   "peran": "r1",
-   "dari": 66.8,
-   "sampai": 68.855,
-   "x": 170,
-   "y": 560,
-   "warna": "tinta",
-   "kata": [
-    {
-     "w": "with Leontinus",
-     "t": 66.22
     },
     {
-     "w": "Alpha Edison",
-     "t": 67.64,
+     "w": "were born special",
+     "t": 54.52,
      "baris": 1
     }
    ]
   },
   {
-   "peran": "r6",
-   "dari": 69.12,
-   "sampai": 73.34,
+   "peran": "napas",
+   "dari": 55.72,
+   "sampai": 58.425,
+   "x": 960,
+   "y": 468,
+   "jangkar": "tengah",
+   "teks": "You're not.",
+   "warna": "putih",
+   "ukuran": 110,
+   "tipis": true
+  },
+  {
+   "peran": "kotak",
+   "dari": 59.36,
+   "sampai": 60.3,
+   "x": 170,
+   "y": 330,
+   "teks": "a slap"
+  },
+  {
+   "peran": "r2",
+   "dari": 60.3,
+   "sampai": 62.485,
    "x": 165,
-   "y": 180,
-   "teks": "2021",
-   "ukuran": 260,
+   "y": 330,
+   "teks": "courage",
    "bayang": true
   },
   {
    "peran": "lead",
-   "dari": 73.34,
-   "sampai": 77.725,
-   "x": 1000,
-   "y": 330,
+   "dari": 61.16,
+   "sampai": 62.485,
+   "x": 170,
+   "y": 480,
+   "bayang": true,
+   "kata": [
+    {
+     "w": "so he kept going",
+     "t": 61.16
+    }
+   ]
+  },
+  {
+   "peran": "napas",
+   "dari": 62.76,
+   "sampai": 65.48,
+   "x": 960,
+   "y": 341,
+   "jangkar": "tengah",
+   "teks": "August 17,\n2009.",
    "warna": "tinta",
+   "ukuran": 190
+  },
+  {
+   "peran": "kotak",
+   "dari": 67.42,
+   "sampai": 68.02,
+   "x": 170,
+   "y": 330,
+   "teks": "Tokopedia launched"
+  },
+  {
+   "peran": "r1",
+   "dari": 68.02,
+   "sampai": 70.655,
+   "x": 170,
+   "y": 330,
+   "bayang": true,
+   "kata": [
+    {
+     "w": "with Leontinus",
+     "t": 68.02
+    },
+    {
+     "w": "Alpha Edison",
+     "t": 69.44,
+     "baris": 1
+    }
+   ]
+  },
+  {
+   "peran": "napas",
+   "dari": 70.92,
+   "sampai": 71.86,
+   "x": 960,
+   "y": 365,
+   "jangkar": "tengah",
+   "teks": "2021.",
+   "warna": "putih",
+   "ukuran": 330
+  },
+  {
+   "peran": "lead",
+   "dari": 72.62,
+   "sampai": 75.14,
+   "x": 960,
+   "y": 170,
+   "jangkar": "tengah",
+   "bayang": true,
+   "kata": [
+    {
+     "w": "merged with Gojek into GoTo",
+     "t": 72.62
+    }
+   ]
+  },
+  {
+   "peran": "lead",
+   "dari": 75.14,
+   "sampai": 79.52499999999999,
+   "x": 170,
+   "y": 300,
+   "bayang": true,
    "kata": [
     {
      "w": "not bad, for an",
-     "t": 73.34
+     "t": 75.14
     }
    ]
   },
   {
    "peran": "r2",
-   "dari": 76.02,
-   "sampai": 77.725,
-   "x": 1000,
-   "y": 430,
-   "warna": "tinta",
-   "teks": "internet café"
+   "dari": 77.82,
+   "sampai": 79.52499999999999,
+   "x": 165,
+   "y": 400,
+   "teks": "internet café",
+   "bayang": true
   },
   {
    "peran": "r2",
-   "dari": 76.82,
-   "sampai": 77.725,
-   "x": 1000,
-   "y": 560,
-   "warna": "tinta",
+   "dari": 78.62,
+   "sampai": 79.52499999999999,
+   "x": 165,
+   "y": 530,
    "teks": "graduate",
-   "aksen": "graduate"
+   "bayang": true
   },
   {
    "peran": "lead",
-   "dari": 78.36,
-   "sampai": 80.46,
+   "dari": 80.16,
+   "sampai": 81.24000000000001,
    "x": 960,
-   "y": 360,
+   "y": 470,
    "jangkar": "tengah",
    "warna": "tinta",
    "kata": [
     {
      "w": "investors judge your",
-     "t": 78.36
+     "t": 80.16
     }
    ]
   },
   {
-   "peran": "r6",
-   "dari": 79.54,
-   "sampai": 80.46,
+   "peran": "napas",
+   "dari": 81.34,
+   "sampai": 82.26,
    "x": 960,
-   "y": 450,
+   "y": 313,
    "jangkar": "tengah",
+   "teks": "TRACK\nRECORD.",
    "warna": "tinta",
-   "teks": "track record",
-   "ukuran": 180
+   "ukuran": 220,
+   "aksen": "RECORD."
   },
   {
    "peran": "r2",
-   "dari": 82.04,
-   "sampai": 84.285,
+   "dari": 83.84,
+   "sampai": 86.085,
    "x": 960,
    "y": 380,
    "jangkar": "tengah",
@@ -985,8 +1596,8 @@
   },
   {
    "peran": "r1",
-   "dari": 82.88,
-   "sampai": 84.285,
+   "dari": 84.68,
+   "sampai": 86.085,
    "x": 960,
    "y": 540,
    "jangkar": "tengah",
@@ -994,14 +1605,14 @@
    "kata": [
     {
      "w": "one shift at a time",
-     "t": 82.88
+     "t": 84.68
     }
    ]
   },
   {
    "peran": "giant",
-   "dari": 84.285,
-   "sampai": 88.678,
+   "dari": 86.085,
+   "sampai": 90.478,
    "x": 960,
    "y": 170,
    "jangkar": "tengah",
@@ -1014,25 +1625,27 @@
    "ukuran": 380
   },
   {
-   "peran": "r2",
-   "dari": 85.22,
-   "sampai": 88.678,
+   "peran": "napas",
+   "dari": 87.02,
+   "sampai": 90.478,
    "x": 960,
    "y": 560,
    "jangkar": "tengah",
-   "teks": "your night shift?"
+   "teks": "your night shift?",
+   "warna": "putih",
+   "ukuran": 140
   },
   {
    "peran": "lead",
-   "dari": 86.84,
-   "sampai": 88.678,
+   "dari": 88.64,
+   "sampai": 90.478,
    "x": 960,
    "y": 720,
    "jangkar": "tengah",
    "kata": [
     {
      "w": "tell me in the comments",
-     "t": 86.84
+     "t": 88.64
     }
    ]
   }
@@ -1110,57 +1723,57 @@
   },
   {
    "dari": 51.035,
-   "sampai": 56.38,
+   "sampai": 58.18,
    "teks": "William ingat salah satunya bilang:"
   },
   {
-   "dari": 56.38,
-   "sampai": 56.625,
+   "dari": 58.18,
+   "sampai": 58.425,
    "teks": "panutanmu lahir spesial, kamu nggak."
   },
   {
-   "dari": 56.625,
-   "sampai": 59.36,
+   "dari": 58.425,
+   "sampai": 61.16,
    "teks": "Dia menyebutnya tamparan<br>yang bikin dia berani,"
   },
   {
-   "dari": 59.36,
-   "sampai": 60.685,
+   "dari": 61.16,
+   "sampai": 62.485,
    "teks": "jadi dia jalan terus."
   },
   {
-   "dari": 60.685,
-   "sampai": 63.68,
+   "dari": 62.485,
+   "sampai": 65.48,
    "teks": "17 Agustus 2009, shift itu selesai,"
   },
   {
-   "dari": 63.68,
-   "sampai": 68.855,
+   "dari": 65.48,
+   "sampai": 70.655,
    "teks": "dan Tokopedia diluncurkan,<br>bersama Leontinus Alpha Edison."
   },
   {
-   "dari": 68.855,
-   "sampai": 73.34,
+   "dari": 70.655,
+   "sampai": 75.14,
    "teks": "Tahun 2021, Tokopedia bergabung<br>dengan Gojek jadi GoTo,"
   },
   {
-   "dari": 73.34,
-   "sampai": 77.725,
+   "dari": 75.14,
+   "sampai": 79.525,
    "teks": "lumayan, untuk orang yang menyebut<br>dirinya lulusan warnet."
   },
   {
-   "dari": 77.725,
-   "sampai": 80.46,
+   "dari": 79.525,
+   "sampai": 82.26,
    "teks": "Jadi mungkin investor menilai rekam jejak,"
   },
   {
-   "dari": 80.46,
-   "sampai": 84.285,
+   "dari": 82.26,
+   "sampai": 86.085,
    "teks": "dan kalau belum punya, ya bangun sendiri,<br>satu shift demi satu shift."
   },
   {
-   "dari": 84.285,
-   "sampai": 88.228,
+   "dari": 86.085,
+   "sampai": 90.028,
    "teks": "Shift malammu sekarang di jam berapa?<br>Tulis di komentar."
   }
  ],
@@ -1193,9 +1806,9 @@
   {
    "t": 0.2,
    "file": "sfx/pad_low.wav",
-   "gain": -26,
+   "gain": -27,
    "pilar": "transisi",
-   "peran": "gerak kamera panjang",
+   "peran": "kamera hidup di aset jangkar",
    "laju": 1.0,
    "sampai": 3.0
   },
@@ -1208,19 +1821,35 @@
    "laju": 1.0
   },
   {
-   "t": 3.1,
-   "file": "sfx/whoosh_airy.wav",
-   "gain": -15,
+   "t": 1.42,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
    "pilar": "transisi",
-   "peran": "potong ke footage",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 2.18,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 3.14,
+   "file": "sfx/whoosh_mids.wav",
+   "gain": -10,
+   "pilar": "transisi",
+   "peran": "whip-pan",
    "laju": 1.0
   },
   {
    "t": 3.32,
    "file": "sfx/pad_low.wav",
-   "gain": -26,
+   "gain": -27,
    "pilar": "transisi",
-   "peran": "gerak kamera panjang",
+   "peran": "kamera hidup di aset jangkar",
    "laju": 1.0,
    "sampai": 6.22
   },
@@ -1233,12 +1862,36 @@
    "laju": 1.0
   },
   {
+   "t": 3.68,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
    "t": 4.0,
    "file": "sfx/tick2.wav",
    "gain": -19,
    "pilar": "tick",
    "peran": "kata KT muncul",
    "laju": 0.96
+  },
+  {
+   "t": 4.18,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 6.18,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
   },
   {
    "t": 6.32,
@@ -1249,11 +1902,27 @@
    "laju": 1.0
   },
   {
-   "t": 7.406,
-   "file": "sfx/cut_kontras.mp3",
-   "gain": -12,
+   "t": 6.68,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 7.18,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 7.406,
+   "file": "sfx/impact_thud.wav",
+   "gain": -14,
+   "pilar": "transisi",
+   "peran": "kilat putih",
    "laju": 1.0
   },
   {
@@ -1273,15 +1942,15 @@
    "laju": 1.0
   },
   {
-   "t": 9.48,
-   "file": "sfx/cut_kontras.mp3",
-   "gain": -12,
+   "t": 9.4,
+   "file": "sfx/whoosh_mids.wav",
+   "gain": -10,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "whip-pan",
    "laju": 1.0
   },
   {
-   "t": 9.58,
+   "t": 9.5,
    "file": "sfx/klik_deret.mp3",
    "gain": -15,
    "pilar": "tick",
@@ -1298,7 +1967,15 @@
    "laju": 1.0
   },
   {
-   "t": 10.98,
+   "t": 10.94,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 11.04,
    "file": "sfx/tick4.wav",
    "gain": -19,
    "pilar": "tick",
@@ -1314,7 +1991,15 @@
    "laju": 1.0
   },
   {
-   "t": 12.26,
+   "t": 12.246,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 12.346,
    "file": "sfx/tick1.wav",
    "gain": -19,
    "pilar": "tick",
@@ -1330,29 +2015,29 @@
    "laju": 1.0
   },
   {
-   "t": 13.7,
-   "file": "sfx/whoosh_airy.wav",
-   "gain": -15,
+   "t": 13.82,
+   "file": "sfx/klik_deret.mp3",
+   "gain": -17,
    "pilar": "transisi",
-   "peran": "potong ke footage",
-   "laju": 1.0
-  },
-  {
-   "t": 15.74,
-   "file": "sfx/whoosh_airy.wav",
-   "gain": -15,
-   "pilar": "transisi",
-   "peran": "potong ke footage",
-   "laju": 1.0
-  },
-  {
-   "t": 15.96,
-   "file": "sfx/pad_low.wav",
-   "gain": -26,
-   "pilar": "transisi",
-   "peran": "gerak kamera panjang",
+   "peran": "petak grid membuka",
    "laju": 1.0,
-   "sampai": 18.86
+   "sampai": 14.29
+  },
+  {
+   "t": 14.22,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 16.02,
+   "file": "sfx/cut_kontras.mp3",
+   "gain": -12,
+   "pilar": "transisi",
+   "peran": "potong ke kanvas",
+   "laju": 1.0
   },
   {
    "t": 16.24,
@@ -1363,7 +2048,23 @@
    "laju": 1.0
   },
   {
-   "t": 17.82,
+   "t": 17.12,
+   "file": "sfx/whoosh_mids.wav",
+   "gain": -10,
+   "pilar": "transisi",
+   "peran": "whip-pan",
+   "laju": 1.0
+  },
+  {
+   "t": 17.78,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 17.88,
    "file": "sfx/tick3.wav",
    "gain": -19,
    "pilar": "tick",
@@ -1371,15 +2072,15 @@
    "laju": 0.96
   },
   {
-   "t": 19.58,
-   "file": "sfx/whoosh_airy.wav",
-   "gain": -15,
+   "t": 19.7,
+   "file": "sfx/cut_kontras.mp3",
+   "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke footage",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
-   "t": 19.7,
+   "t": 19.8,
    "file": "sfx/impact_thud.wav",
    "gain": -14,
    "pilar": "aksen",
@@ -1395,19 +2096,19 @@
    "laju": 1.0
   },
   {
-   "t": 21.606,
-   "file": "sfx/whoosh_airy.wav",
-   "gain": -15,
+   "t": 21.646,
+   "file": "sfx/whoosh_mids.wav",
+   "gain": -10,
    "pilar": "transisi",
-   "peran": "potong ke footage",
+   "peran": "whip-pan",
    "laju": 1.0
   },
   {
    "t": 21.826,
    "file": "sfx/pad_low.wav",
-   "gain": -26,
+   "gain": -27,
    "pilar": "transisi",
-   "peran": "gerak kamera panjang",
+   "peran": "kamera hidup di aset jangkar",
    "laju": 1.0,
    "sampai": 24.726
   },
@@ -1420,7 +2121,15 @@
    "laju": 1.0
   },
   {
-   "t": 23.7,
+   "t": 23.686,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 23.786,
    "file": "sfx/tick4.wav",
    "gain": -19,
    "pilar": "tick",
@@ -1462,11 +2171,11 @@
   {
    "t": 27.326,
    "file": "sfx/pad_low.wav",
-   "gain": -26,
+   "gain": -27,
    "pilar": "transisi",
-   "peran": "gerak kamera panjang",
+   "peran": "kamera hidup di aset jangkar",
    "laju": 1.0,
-   "sampai": 30.226
+   "sampai": 30.04
   },
   {
    "t": 28.4,
@@ -1478,7 +2187,15 @@
    "sampai": 57.2
   },
   {
-   "t": 29.04,
+   "t": 29.0,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 29.1,
    "file": "sfx/impact_thud.wav",
    "gain": -14,
    "pilar": "aksen",
@@ -1487,26 +2204,34 @@
   },
   {
    "t": 30.04,
-   "file": "sfx/swoosh_light.wav",
-   "gain": -16,
-   "pilar": "tick",
-   "peran": "kotak sorot melebar",
+   "file": "sfx/impact_thud.wav",
+   "gain": -14,
+   "pilar": "transisi",
+   "peran": "kilat putih",
    "laju": 1.0
   },
   {
-   "t": 31.68,
-   "file": "sfx/whoosh_airy.wav",
-   "gain": -15,
+   "t": 30.14,
+   "file": "sfx/impact_thud.wav",
+   "gain": -14,
+   "pilar": "aksen",
+   "peran": "kata kunci menghantam",
+   "laju": 1.0
+  },
+  {
+   "t": 31.72,
+   "file": "sfx/whoosh_mids.wav",
+   "gain": -10,
    "pilar": "transisi",
-   "peran": "potong ke footage",
+   "peran": "whip-pan",
    "laju": 1.0
   },
   {
    "t": 31.9,
    "file": "sfx/pad_low.wav",
-   "gain": -26,
+   "gain": -27,
    "pilar": "transisi",
-   "peran": "gerak kamera panjang",
+   "peran": "kamera hidup di aset jangkar",
    "laju": 1.0,
    "sampai": 34.8
   },
@@ -1531,7 +2256,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1551,19 +2276,19 @@
    "laju": 1.0
   },
   {
-   "t": 37.28,
-   "file": "sfx/whoosh_airy.wav",
-   "gain": -15,
+   "t": 37.32,
+   "file": "sfx/whoosh_mids.wav",
+   "gain": -10,
    "pilar": "transisi",
-   "peran": "potong ke footage",
+   "peran": "whip-pan",
    "laju": 1.0
   },
   {
    "t": 37.5,
    "file": "sfx/pad_low.wav",
-   "gain": -26,
+   "gain": -27,
    "pilar": "transisi",
-   "peran": "gerak kamera panjang",
+   "peran": "kamera hidup di aset jangkar",
    "laju": 1.0,
    "sampai": 40.4
   },
@@ -1576,7 +2301,7 @@
    "laju": 1.0
   },
   {
-   "t": 40.84,
+   "t": 39.1,
    "file": "sfx/tick1.wav",
    "gain": -19,
    "pilar": "tick",
@@ -1584,12 +2309,54 @@
    "laju": 1.04
   },
   {
-   "t": 41.92,
+   "t": 39.36,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 40.62,
+   "file": "sfx/klik_deret.mp3",
+   "gain": -17,
+   "pilar": "transisi",
+   "peran": "petak grid membuka",
+   "laju": 1.0,
+   "sampai": 41.09
+  },
+  {
+   "t": 40.72,
+   "file": "sfx/pad_low.wav",
+   "gain": -27,
+   "pilar": "transisi",
+   "peran": "kamera hidup di aset jangkar",
+   "laju": 1.0,
+   "sampai": 43.356
+  },
+  {
+   "t": 40.84,
    "file": "sfx/tick2.wav",
    "gain": -19,
    "pilar": "tick",
    "peran": "kata KT muncul",
    "laju": 0.98
+  },
+  {
+   "t": 41.34,
+   "file": "sfx/tick3.wav",
+   "gain": -19,
+   "pilar": "tick",
+   "peran": "kata KT muncul",
+   "laju": 1.02
+  },
+  {
+   "t": 41.92,
+   "file": "sfx/tick4.wav",
+   "gain": -19,
+   "pilar": "tick",
+   "peran": "kata KT muncul",
+   "laju": 1.0
   },
   {
    "t": 42.156,
@@ -1603,7 +2370,7 @@
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1625,35 +2392,58 @@
   },
   {
    "t": 44.736,
-   "file": "sfx/tick3.wav",
-   "gain": -19,
-   "pilar": "tick",
-   "peran": "kata KT muncul",
-   "laju": 1.02
-  },
-  {
-   "t": 46.086,
-   "file": "sfx/whoosh_airy.wav",
-   "gain": -15,
-   "pilar": "transisi",
-   "peran": "potong ke footage",
+   "file": "sfx/impact_thud.wav",
+   "gain": -14,
+   "pilar": "aksen",
+   "peran": "kata kunci menghantam",
    "laju": 1.0
   },
   {
-   "t": 46.306,
-   "file": "sfx/pad_low.wav",
-   "gain": -26,
+   "t": 46.126,
+   "file": "sfx/whoosh_mids.wav",
+   "gain": -10,
    "pilar": "transisi",
-   "peran": "gerak kamera panjang",
-   "laju": 1.0,
-   "sampai": 49.206
+   "peran": "whip-pan",
+   "laju": 1.0
   },
   {
-   "t": 47.24,
-   "file": "sfx/tick4.wav",
+   "t": 46.4,
+   "file": "sfx/tick1.wav",
    "gain": -19,
    "pilar": "tick",
    "peran": "kata KT muncul",
+   "laju": 0.96
+  },
+  {
+   "t": 46.666,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 46.94,
+   "file": "sfx/tick2.wav",
+   "gain": -19,
+   "pilar": "tick",
+   "peran": "kata KT muncul",
+   "laju": 1.04
+  },
+  {
+   "t": 47.166,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 48.4,
+   "file": "sfx/cut_kontras.mp3",
+   "gain": -12,
+   "pilar": "transisi",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
@@ -1665,6 +2455,14 @@
    "laju": 1.0
   },
   {
+   "t": 49.48,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -16,
+   "pilar": "tick",
+   "peran": "kotak sorot melebar",
+   "laju": 1.0
+  },
+  {
    "t": 50.915,
    "file": "sfx/whoosh_airy.wav",
    "gain": -15,
@@ -1673,47 +2471,23 @@
    "laju": 1.0
   },
   {
-   "t": 51.135,
-   "file": "sfx/pad_low.wav",
-   "gain": -26,
+   "t": 51.495,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
    "pilar": "transisi",
-   "peran": "gerak kamera panjang",
-   "laju": 1.0,
-   "sampai": 54.035
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
   },
   {
-   "t": 53.52,
-   "file": "sfx/tick1.wav",
+   "t": 52.0,
+   "file": "sfx/tick3.wav",
    "gain": -19,
    "pilar": "tick",
    "peran": "kata KT muncul",
-   "laju": 0.96
+   "laju": 0.98
   },
   {
-   "t": 54.52,
-   "file": "sfx/impact_thud.wav",
-   "gain": -14,
-   "pilar": "aksen",
-   "peran": "kata kunci menghantam",
-   "laju": 1.0
-  },
-  {
-   "t": 55.72,
-   "file": "sfx/impact_thud.wav",
-   "gain": -14,
-   "pilar": "aksen",
-   "peran": "kata kunci menghantam",
-   "laju": 1.0
-  },
-  {
-   "t": 55.82,
-   "file": "sfx/sub_drop.wav",
-   "gain": -11,
-   "pilar": "aksen",
-   "peran": "kalimat penolakan mendarat"
-  },
-  {
-   "t": 56.505,
+   "t": 53.28,
    "file": "sfx/whoosh_airy.wav",
    "gain": -15,
    "pilar": "transisi",
@@ -1721,13 +2495,82 @@
    "laju": 1.0
   },
   {
-   "t": 56.725,
-   "file": "sfx/pad_low.wav",
-   "gain": -26,
+   "t": 53.52,
+   "file": "sfx/tick4.wav",
+   "gain": -19,
+   "pilar": "tick",
+   "peran": "kata KT muncul",
+   "laju": 1.02
+  },
+  {
+   "t": 54.36,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
    "pilar": "transisi",
-   "peran": "gerak kamera panjang",
-   "laju": 1.0,
-   "sampai": 59.625
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 54.52,
+   "file": "sfx/tick1.wav",
+   "gain": -19,
+   "pilar": "tick",
+   "peran": "kata KT muncul",
+   "laju": 1.0
+  },
+  {
+   "t": 54.86,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 55.36,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 55.72,
+   "file": "sfx/cut_kontras.mp3",
+   "gain": -12,
+   "pilar": "transisi",
+   "peran": "potong ke kanvas",
+   "laju": 1.0
+  },
+  {
+   "t": 55.82,
+   "file": "sfx/glitch_cut.mp3",
+   "gain": -14,
+   "pilar": "aksen",
+   "peran": "kilat negatif",
+   "laju": 1.0
+  },
+  {
+   "t": 55.92,
+   "file": "sfx/impact_thud.wav",
+   "gain": -14,
+   "pilar": "aksen",
+   "peran": "kata kunci menghantam",
+   "laju": 1.0
+  },
+  {
+   "t": 56.02,
+   "file": "sfx/glitch_cut.mp3",
+   "gain": -13,
+   "pilar": "aksen",
+   "peran": "kilat invert tamparan (micro-impact)"
+  },
+  {
+   "t": 56.12,
+   "file": "sfx/sub_drop.wav",
+   "gain": -12,
+   "pilar": "aksen",
+   "peran": "kalimat penolakan mendarat"
   },
   {
    "t": 56.8,
@@ -1739,7 +2582,32 @@
    "sampai": 85.6
   },
   {
-   "t": 57.56,
+   "t": 58.345,
+   "file": "sfx/whoosh_mids.wav",
+   "gain": -10,
+   "pilar": "transisi",
+   "peran": "whip-pan",
+   "laju": 1.0
+  },
+  {
+   "t": 58.525,
+   "file": "sfx/pad_low.wav",
+   "gain": -27,
+   "pilar": "transisi",
+   "peran": "kamera hidup di aset jangkar",
+   "laju": 1.0,
+   "sampai": 61.425
+  },
+  {
+   "t": 58.885,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 59.36,
    "file": "sfx/swoosh_light.wav",
    "gain": -16,
    "pilar": "tick",
@@ -1747,7 +2615,15 @@
    "laju": 1.0
   },
   {
-   "t": 58.5,
+   "t": 59.885,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 60.3,
    "file": "sfx/impact_thud.wav",
    "gain": -14,
    "pilar": "aksen",
@@ -1755,193 +2631,23 @@
    "laju": 1.0
   },
   {
-   "t": 59.36,
-   "file": "sfx/tick2.wav",
-   "gain": -19,
-   "pilar": "tick",
-   "peran": "kata KT muncul",
-   "laju": 1.04
-  },
-  {
-   "t": 60.685,
-   "file": "sfx/cut_kontras.mp3",
-   "gain": -12,
+   "t": 60.4,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "kamera pindah titik fokus",
    "laju": 1.0
   },
   {
-   "t": 60.785,
-   "file": "sfx/klik_deret.mp3",
-   "gain": -15,
-   "pilar": "tick",
-   "peran": "digit tahun berputar",
-   "laju": 1.0,
-   "sampai": 61.585
-  },
-  {
-   "t": 60.96,
-   "file": "sfx/impact_thud.wav",
-   "gain": -14,
-   "pilar": "aksen",
-   "peran": "kata kunci menghantam",
-   "laju": 1.0
-  },
-  {
-   "t": 61.585,
-   "file": "sfx/impact_thud.wav",
-   "gain": -12,
-   "pilar": "aksen",
-   "peran": "tahun mendarat",
-   "laju": 1.0
-  },
-  {
-   "t": 63.68,
-   "file": "sfx/cut_kontras.mp3",
-   "gain": -12,
+   "t": 60.885,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "kamera pindah titik fokus",
    "laju": 1.0
   },
   {
-   "t": 63.78,
-   "file": "sfx/paper_slide.wav",
-   "gain": -14,
-   "pilar": "foley",
-   "peran": "foto/klip tegak masuk",
-   "laju": 1.0
-  },
-  {
-   "t": 63.88,
-   "file": "sfx/paper_drop.wav",
-   "gain": -14,
-   "pilar": "foley",
-   "peran": "arsip halaman 2009 mendarat"
-  },
-  {
-   "t": 63.98,
-   "file": "sfx/pad_low.wav",
-   "gain": -26,
-   "pilar": "transisi",
-   "peran": "gerak kamera panjang",
-   "laju": 1.0,
-   "sampai": 66.68
-  },
-  {
-   "t": 65.62,
-   "file": "sfx/impact_thud.wav",
-   "gain": -14,
-   "pilar": "aksen",
-   "peran": "kata kunci menghantam",
-   "laju": 1.0
-  },
-  {
-   "t": 65.72,
-   "file": "sfx/impact_thud.wav",
-   "gain": -12,
-   "pilar": "aksen",
-   "peran": "Tokopedia lahir"
-  },
-  {
-   "t": 66.22,
-   "file": "sfx/tick3.wav",
-   "gain": -19,
-   "pilar": "tick",
-   "peran": "kata KT muncul",
-   "laju": 0.98
-  },
-  {
-   "t": 67.64,
-   "file": "sfx/tick4.wav",
-   "gain": -19,
-   "pilar": "tick",
-   "peran": "kata KT muncul",
-   "laju": 1.02
-  },
-  {
-   "t": 68.735,
-   "file": "sfx/whoosh_airy.wav",
-   "gain": -15,
-   "pilar": "transisi",
-   "peran": "potong ke footage",
-   "laju": 1.0
-  },
-  {
-   "t": 68.955,
-   "file": "sfx/pad_low.wav",
-   "gain": -26,
-   "pilar": "transisi",
-   "peran": "gerak kamera panjang",
-   "laju": 1.0,
-   "sampai": 71.855
-  },
-  {
-   "t": 69.12,
-   "file": "sfx/impact_thud.wav",
-   "gain": -14,
-   "pilar": "aksen",
-   "peran": "kata kunci menghantam",
-   "laju": 1.0
-  },
-  {
-   "t": 73.34,
-   "file": "sfx/cut_kontras.mp3",
-   "gain": -12,
-   "pilar": "transisi",
-   "peran": "potong ke kartu",
-   "laju": 1.0
-  },
-  {
-   "t": 73.44,
-   "file": "sfx/tick1.wav",
-   "gain": -19,
-   "pilar": "tick",
-   "peran": "kata KT muncul",
-   "laju": 1.0
-  },
-  {
-   "t": 73.54,
-   "file": "sfx/paper_slide.wav",
-   "gain": -14,
-   "pilar": "foley",
-   "peran": "foto/klip tegak masuk",
-   "laju": 1.0
-  },
-  {
-   "t": 73.64,
-   "file": "sfx/pad_low.wav",
-   "gain": -26,
-   "pilar": "transisi",
-   "peran": "gerak kamera panjang",
-   "laju": 1.0,
-   "sampai": 76.34
-  },
-  {
-   "t": 76.02,
-   "file": "sfx/impact_thud.wav",
-   "gain": -14,
-   "pilar": "aksen",
-   "peran": "kata kunci menghantam",
-   "laju": 1.0
-  },
-  {
-   "t": 76.82,
-   "file": "sfx/impact_thud.wav",
-   "gain": -14,
-   "pilar": "aksen",
-   "peran": "kata kunci menghantam",
-   "laju": 1.0
-  },
-  {
-   "t": 77.725,
-   "file": "sfx/cut_kontras.mp3",
-   "gain": -12,
-   "pilar": "transisi",
-   "peran": "potong ke kartu",
-   "laju": 1.0
-  },
-  {
-   "t": 78.36,
+   "t": 61.16,
    "file": "sfx/tick2.wav",
    "gain": -19,
    "pilar": "tick",
@@ -1949,7 +2655,23 @@
    "laju": 0.96
   },
   {
-   "t": 79.54,
+   "t": 61.885,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 62.485,
+   "file": "sfx/cut_kontras.mp3",
+   "gain": -12,
+   "pilar": "transisi",
+   "peran": "potong ke kanvas",
+   "laju": 1.0
+  },
+  {
+   "t": 62.76,
    "file": "sfx/impact_thud.wav",
    "gain": -14,
    "pilar": "aksen",
@@ -1957,32 +2679,55 @@
    "laju": 1.0
   },
   {
-   "t": 80.34,
-   "file": "sfx/whoosh_airy.wav",
-   "gain": -15,
+   "t": 65.4,
+   "file": "sfx/whoosh_mids.wav",
+   "gain": -10,
    "pilar": "transisi",
-   "peran": "potong ke footage",
+   "peran": "whip-pan",
    "laju": 1.0
   },
   {
-   "t": 80.56,
+   "t": 65.58,
    "file": "sfx/pad_low.wav",
-   "gain": -26,
+   "gain": -27,
    "pilar": "transisi",
-   "peran": "gerak kamera panjang",
+   "peran": "kamera hidup di aset jangkar",
    "laju": 1.0,
-   "sampai": 83.46
+   "sampai": 68.48
   },
   {
-   "t": 82.04,
-   "file": "sfx/impact_thud.wav",
-   "gain": -14,
-   "pilar": "aksen",
-   "peran": "kata kunci menghantam",
+   "t": 67.38,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
    "laju": 1.0
   },
   {
-   "t": 82.88,
+   "t": 67.48,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -16,
+   "pilar": "tick",
+   "peran": "kotak sorot melebar",
+   "laju": 1.0
+  },
+  {
+   "t": 67.58,
+   "file": "sfx/impact_thud.wav",
+   "gain": -12,
+   "pilar": "aksen",
+   "peran": "Tokopedia lahir"
+  },
+  {
+   "t": 67.98,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 68.08,
    "file": "sfx/tick3.wav",
    "gain": -19,
    "pilar": "tick",
@@ -1990,29 +2735,176 @@
    "laju": 1.04
   },
   {
-   "t": 84.285,
+   "t": 69.44,
+   "file": "sfx/tick4.wav",
+   "gain": -19,
+   "pilar": "tick",
+   "peran": "kata KT muncul",
+   "laju": 0.98
+  },
+  {
+   "t": 70.655,
    "file": "sfx/cut_kontras.mp3",
    "gain": -12,
    "pilar": "transisi",
-   "peran": "potong ke kartu",
+   "peran": "potong ke kanvas",
    "laju": 1.0
   },
   {
-   "t": 84.385,
-   "file": "sfx/klik_deret.mp3",
-   "gain": -15,
-   "pilar": "tick",
-   "peran": "digit tahun berputar",
-   "laju": 1.0,
-   "sampai": 85.085
-  },
-  {
-   "t": 85.085,
+   "t": 70.92,
    "file": "sfx/impact_thud.wav",
-   "gain": -12,
+   "gain": -14,
    "pilar": "aksen",
-   "peran": "tahun mendarat",
+   "peran": "kata kunci menghantam",
    "laju": 1.0
+  },
+  {
+   "t": 71.86,
+   "file": "sfx/klik_deret.mp3",
+   "gain": -17,
+   "pilar": "transisi",
+   "peran": "petak grid membuka",
+   "laju": 1.0,
+   "sampai": 72.33
+  },
+  {
+   "t": 71.96,
+   "file": "sfx/pad_low.wav",
+   "gain": -27,
+   "pilar": "transisi",
+   "peran": "kamera hidup di aset jangkar",
+   "laju": 1.0,
+   "sampai": 74.86
+  },
+  {
+   "t": 72.62,
+   "file": "sfx/tick1.wav",
+   "gain": -19,
+   "pilar": "tick",
+   "peran": "kata KT muncul",
+   "laju": 1.02
+  },
+  {
+   "t": 74.14,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 75.06,
+   "file": "sfx/whoosh_mids.wav",
+   "gain": -10,
+   "pilar": "transisi",
+   "peran": "whip-pan",
+   "laju": 1.0
+  },
+  {
+   "t": 75.16,
+   "file": "sfx/tick2.wav",
+   "gain": -19,
+   "pilar": "tick",
+   "peran": "kata KT muncul",
+   "laju": 1.0
+  },
+  {
+   "t": 75.26,
+   "file": "sfx/pad_low.wav",
+   "gain": -27,
+   "pilar": "transisi",
+   "peran": "kamera hidup di aset jangkar",
+   "laju": 1.0,
+   "sampai": 78.14
+  },
+  {
+   "t": 77.82,
+   "file": "sfx/impact_thud.wav",
+   "gain": -14,
+   "pilar": "aksen",
+   "peran": "kata kunci menghantam",
+   "laju": 1.0
+  },
+  {
+   "t": 78.58,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 78.68,
+   "file": "sfx/impact_thud.wav",
+   "gain": -14,
+   "pilar": "aksen",
+   "peran": "kata kunci menghantam",
+   "laju": 1.0
+  },
+  {
+   "t": 79.525,
+   "file": "sfx/cut_kontras.mp3",
+   "gain": -12,
+   "pilar": "transisi",
+   "peran": "potong ke kanvas",
+   "laju": 1.0
+  },
+  {
+   "t": 80.16,
+   "file": "sfx/tick3.wav",
+   "gain": -19,
+   "pilar": "tick",
+   "peran": "kata KT muncul",
+   "laju": 0.96
+  },
+  {
+   "t": 81.34,
+   "file": "sfx/impact_thud.wav",
+   "gain": -14,
+   "pilar": "aksen",
+   "peran": "kata kunci menghantam",
+   "laju": 1.0
+  },
+  {
+   "t": 82.18,
+   "file": "sfx/whoosh_mids.wav",
+   "gain": -10,
+   "pilar": "transisi",
+   "peran": "whip-pan",
+   "laju": 1.0
+  },
+  {
+   "t": 82.36,
+   "file": "sfx/pad_low.wav",
+   "gain": -27,
+   "pilar": "transisi",
+   "peran": "kamera hidup di aset jangkar",
+   "laju": 1.0,
+   "sampai": 85.26
+  },
+  {
+   "t": 83.84,
+   "file": "sfx/impact_thud.wav",
+   "gain": -14,
+   "pilar": "aksen",
+   "peran": "kata kunci menghantam",
+   "laju": 1.0
+  },
+  {
+   "t": 84.64,
+   "file": "sfx/swoosh_light.wav",
+   "gain": -21,
+   "pilar": "transisi",
+   "peran": "kamera pindah titik fokus",
+   "laju": 1.0
+  },
+  {
+   "t": 84.74,
+   "file": "sfx/tick4.wav",
+   "gain": -19,
+   "pilar": "tick",
+   "peran": "kata KT muncul",
+   "laju": 1.04
   },
   {
    "t": 85.2,
@@ -2021,10 +2913,35 @@
    "pilar": "bed",
    "peran": "bed ambien pita/vinyl",
    "laju": 1.0,
-   "sampai": 88.678
+   "sampai": 90.478
   },
   {
-   "t": 85.22,
+   "t": 86.085,
+   "file": "sfx/cut_kontras.mp3",
+   "gain": -12,
+   "pilar": "transisi",
+   "peran": "potong ke kanvas",
+   "laju": 1.0
+  },
+  {
+   "t": 86.185,
+   "file": "sfx/klik_deret.mp3",
+   "gain": -15,
+   "pilar": "tick",
+   "peran": "digit tahun berputar",
+   "laju": 1.0,
+   "sampai": 86.885
+  },
+  {
+   "t": 86.885,
+   "file": "sfx/impact_thud.wav",
+   "gain": -12,
+   "pilar": "aksen",
+   "peran": "tahun mendarat",
+   "laju": 1.0
+  },
+  {
+   "t": 87.02,
    "file": "sfx/impact_thud.wav",
    "gain": -14,
    "pilar": "aksen",
@@ -2032,8 +2949,8 @@
    "laju": 1.0
   },
   {
-   "t": 86.84,
-   "file": "sfx/tick4.wav",
+   "t": 88.64,
+   "file": "sfx/tick1.wav",
    "gain": -19,
    "pilar": "tick",
    "peran": "kata KT muncul",
@@ -2052,15 +2969,15 @@
   {
    "file": "musik/mixkit-corporate-music-440.mp3",
    "dari": 43.3,
-   "sampai": 60.75,
+   "sampai": 62.55,
    "gain": -5.2,
    "fadeIn": 0.4,
    "fadeOut": 0.3
   },
   {
    "file": "musik/mixkit-corporate-music-34.mp3",
-   "dari": 60.69,
-   "sampai": 88.68,
+   "dari": 62.49,
+   "sampai": 90.48,
    "gain": -10.8,
    "fadeIn": 0.3,
    "fadeOut": 1.2
@@ -2101,27 +3018,27 @@
   ],
   [
    51.035,
-   56.405
+   58.205
   ],
   [
-   56.625,
-   60.465
+   58.425,
+   62.265
   ],
   [
-   60.685,
-   68.635
+   62.485,
+   70.435
   ],
   [
-   68.855,
-   77.505
+   70.655,
+   79.30499999999999
   ],
   [
-   77.725,
-   84.065
+   79.52499999999999,
+   85.865
   ],
   [
-   84.285,
-   87.978
+   86.085,
+   89.77799999999999
   ]
  ]
 }

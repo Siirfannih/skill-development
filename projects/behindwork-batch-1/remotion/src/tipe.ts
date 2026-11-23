@@ -49,6 +49,8 @@ export type KT = {
   ukuran?: number;
   belakang?: boolean; // di belakang lapisan 'potong'
   bayang?: boolean; // bayangan lembut untuk di atas foto terang
+  layar?: boolean; // cahaya layar monitor: teks seolah terpantul dari layar (glow, blend screen)
+  tipis?: boolean; // napas berbobot tipis (kalimat hening)
 };
 
 export type Sub = { dari: number; sampai: number; teks: string };

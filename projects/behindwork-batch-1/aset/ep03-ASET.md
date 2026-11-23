@@ -41,3 +41,10 @@ Catatan umum: klip YouTube **tanpa audio** (video-only); berkas Commons `zoo_com
 - **#26–31 "0 video kencan"** dan **#31–40 iklan Craigslist**: memang kartu teks/ilustrasi (sesuai script); tidak ada arsip halaman situs kencan YouTube 2005 yang diambil.
 - **#40–46 "anjing, liburan, gajah"**: tidak ada contoh video pengguna 2005 selain Me at the zoo.
 - **#65–70 suara Chad "We've been acquired by Google"**: klip ada, audio belum.
+
+## Tambahan r2 (23 Nov 2026)
+| file | sumber | lisensi | dipakai |
+|---|---|---|---|
+| x_anjing_pantai.jpg | https://commons.wikimedia.org/wiki/File:A_dog_running_on_the_beach.jpg | CC BY-SA 4.0 | montase "dogs" (beat 06) |
+| x_liburan_pantai.jpg | https://commons.wikimedia.org/wiki/File:Family_Beach_Camping,_Sue_Salisbury_Maui_Hawaii_-_panoramio.jpg | CC BY 3.0 | montase "holidays" (beat 06) |
+| zoo_beku_4s.png, zoo_2s.png | frame dari Me at the zoo (CC BY 3.0, Jawed Karim) | CC BY 3.0 | freeze-frame |

@@ -78,10 +78,8 @@ export const Artikel: React.FC<{ l: Extract<Lapisan, { k: 'artikel' }>; tGlobal:
     return (
       <>
         {a}
-        <span style={{ position: 'relative', whiteSpace: 'normal' }}>
-          <span style={{ position: 'absolute', left: -6, right: -6, top: '0.08em', bottom: '-0.02em', background: warna.stabilo, transform: `scaleX(${p})`, transformOrigin: 'left center', zIndex: 0, borderRadius: 3 }} />
-          <span style={{ position: 'relative', zIndex: 1 }}>{s.teks}</span>
-        </span>
+        {/* latar inline 'slice': lebar sapuan dihitung atas seluruh frasa, jadi baris terlipat tersapu berurutan */}
+        <span style={{ backgroundImage: `linear-gradient(${warna.stabilo}, ${warna.stabilo})`, backgroundRepeat: 'no-repeat', backgroundSize: `${p * 100}% 88%`, backgroundPosition: '0 70%', padding: '0 4px' }}>{s.teks}</span>
         {b}
       </>
     );

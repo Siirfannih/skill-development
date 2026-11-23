@@ -46,3 +46,17 @@ def NAPAS(teks, dari, sampai, warna="putih", ukuran=None, aksen=None, y=None):
     if aksen:
         d["aksen"] = aksen
     return d
+
+
+def JT(src, mulai, dari, sampai, ax=0.68, ay=0.38, s=1.8, laju=1.0, **kw):
+    """jangkar klip pembicara: kamera mengikuti wajah dari sampel aset.json (tiap 2 dtk), wajah tetap di (ax, ay)."""
+    i = info(src); sp = [x for x in i.get("sampel", []) if x["wajah"]]
+    jal = []; t = dari
+    while t < sampai:
+        st = mulai + (t - dari) * laju
+        x = min(sp, key=lambda q: abs(q["t"] - st))["wajah"][0] if sp else [0.4, 0.15, 0.2, 0.4]
+        fx = x[0] + x[2] / 2; fy = x[1] + x[3] * 0.45
+        if not jal or abs(fx - jal[-1]["fx"]) > 0.03 or abs(fy - jal[-1]["fy"]) > 0.04:
+            jal.append(T(t, round(fx, 3), round(fy, 3), s, ax, ay, drift=0.006))
+        t += 0.5
+    return J(src, jal, mulaiSumber=mulai, laju=laju, **kw)
