@@ -23,8 +23,9 @@ RUTE = f"""## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo 
 
 | Pekerjaan | Buka | Jangan buka |
 |---|---|---|
-| Awal sesi apa pun | `AGENTS.md` → `PETA.md` (file ini) → `PENDING.md` | seluruh `references/` sekaligus |
-| Video apa pun | `claude/irfan-creative-workflow/SKILL.md` §2 (gerbang: bedah bahan user → naskah → storyboard → persetujuan; belum ada kode sebelum gerbang 3) → `{MG}/SKILL.md` §Mulai di sini (Lantai termuat di dalamnya; jangan baca `LANTAI.md` terpisah) → `projects/<proyek>/TAHAP.md` dari `{MG}/templates/TAHAP.md` + `scripts/juri/tahap.py` (langkah berikutnya dan bagian yang dibaca) → profil merek: `{MG}/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md` | skill di `archive/` |
+| Sesi produksi video dengan format terkunci | `{MG}/MOTION-CORE.md` (10 aturan Lantai, gerbang wajib, larangan keras) → `{MG}/formats/README.md` → **satu** Format Bible (`story-doc-16x9.md` atau `journey-talkinghead.md`) → `projects/<proyek>/` (`FORMAT`, `DECISIONS.md`, `STATUS.md`) | `PETA.md` selebihnya, `RETRO.md`, `SUMBER.md`, kartu `cookbook/` (kamus referensi opsional); mencampur dua format |
+| Awal sesi lainnya | `AGENTS.md` → `PETA.md` (file ini) → `PENDING.md` | seluruh `references/` sekaligus |
+| Video gaya baru atau di luar format | `claude/irfan-creative-workflow/SKILL.md` §2 (gerbang: bedah bahan user → naskah → storyboard → persetujuan; belum ada kode sebelum gerbang 3) → `{MG}/SKILL.md` §Mulai di sini (Lantai termuat di dalamnya; jangan baca `LANTAI.md` terpisah) → `projects/<proyek>/TAHAP.md` dari `{MG}/templates/TAHAP.md` + `scripts/juri/tahap.py` (langkah berikutnya dan bagian yang dibaca) → profil merek: `{MG}/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md` | skill di `archive/` |
 | Fase 1 pra-produksi: script, bedah referensi, storyboard | `{MG}/cookbook/README.md` (§1 Prinsip, §2 Alur dua langkah) → `{MG}/cookbook/INDEX.md` (cocokkan *Narrative trigger* tiap beat; naskah: kategori `script`) → hanya 2–4 kartu **dan frame kuncinya** (`guide/referensi/sheets/keyframes/`) → tabel racikan disetujui user, `{MG}/cookbook/contoh-gagal/README.md`, `{MG}/references/storyboard.md`, `claude/script-workshop/SKILL.md` | `audio.md`, `build.md` |
 | User membawa draf desain/storyboard/kode Remotion (penaik mutu) | `{MG}/cookbook/README.md` §1 + §3 → `{MG}/cookbook/INDEX.md` / `POLA.md` / `SFX.md` → `{MG}/references/smooth-motion.md`, `{MG}/references/camera-transition.md`, `{MG}/references/pacing-map.md`, `{MG}/guide/sfx/GUIDE.md` → daftar bedah per beat disetujui user, lalu revisi kode yang ada | merombak konsep, palet, huruf, aset, atau urutan user; menulis ulang dari nol |
 | Fase 2 suara: potong, ekor kata, level | `{MG}/references/audio.md` §14.0C–14.0D, §14.6, `scripts/gate/cut_check.py`, `scripts/audio/recut.py`, `scripts/gate/voice_level.py` | tipografi, kamera |
@@ -96,7 +97,24 @@ def table(rows, head=("File", "Isi / kapan dibuka")):
     return "\n".join(out)
 
 
+WAJIB_RUTE = {"Fase 3 visual": [f"`{MG}/guide/visual/GUIDE.md`", f"`{MG}/guide/teks/GUIDE.md`", f"`{MG}/guide/gerak/GUIDE.md`"],
+              "Sesi produksi video": [f"`{MG}/MOTION-CORE.md`", f"`{MG}/formats/README.md`"]}
+
+
+def jaga_rute(rute=None):
+    """Baris Rute yang wajib memuat file tertentu; regenerasi berhenti bila salah satunya hilang dari RUTE."""
+    rute = RUTE if rute is None else rute
+    kurang = []
+    for awal, files in WAJIB_RUTE.items():
+        baris = next((b for b in rute.splitlines() if b.startswith(f"| {awal}")), None)
+        kurang += [f"baris '{awal}' tidak ada"] if baris is None else [f"baris '{awal}' tanpa {x}" for x in files if x not in baris]
+    return kurang
+
+
 def build():
+    kurang = jaga_rute()
+    if kurang:
+        sys.exit("PETA.md tidak ditulis, RUTE di tools/peta.py kehilangan rujukan wajib: " + "; ".join(kurang))
     parts = ["# PETA repo skill-development",
              "",
              "Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di skrip itu). Tujuannya: model membuka hanya file yang dibutuhkan pekerjaan. Bila file berubah, jalankan `python3 tools/peta.py`; `tools/doctor.sh` menandai peta yang basi.",
@@ -108,7 +126,9 @@ def build():
             skills.append((rel(p), skill_desc(p)))
     parts += ["## Skill aktif (`claude/`)", "", table(skills, ("Skill", "Pakai saat")), ""]
     groups = [
-        ("motion-graphic · inti", [f"{MG}/LANTAI.md", f"{MG}/RETRO.md", f"{MG}/cookbook/INDEX.md", f"{MG}/cookbook/README.md"]),
+        ("motion-graphic · pintu produksi (MOTION-CORE + satu Format Bible)", [f"{MG}/MOTION-CORE.md"] + sorted(
+            f"{MG}/formats/{f}" for f in os.listdir(os.path.join(ROOT, MG, "formats")) if f.endswith(".md"))),
+        ("motion-graphic · inti dan kamus referensi (opsional di sesi produksi)", [f"{MG}/LANTAI.md", f"{MG}/RETRO.md", f"{MG}/cookbook/INDEX.md", f"{MG}/cookbook/README.md"]),
         ("motion-graphic · references (cabang; dibuka saat SKILL.md atau RUTE menyuruh)", sorted(
             f"{MG}/references/{f}" for f in os.listdir(os.path.join(ROOT, MG, "references")) if f.endswith(".md"))),
         ("motion-graphic · guide (rasa per urusan)", sorted(

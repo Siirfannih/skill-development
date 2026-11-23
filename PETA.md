@@ -12,8 +12,9 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 
 | Pekerjaan | Buka | Jangan buka |
 |---|---|---|
-| Awal sesi apa pun | `AGENTS.md` → `PETA.md` (file ini) → `PENDING.md` | seluruh `references/` sekaligus |
-| Video apa pun | `claude/irfan-creative-workflow/SKILL.md` §2 (gerbang: bedah bahan user → naskah → storyboard → persetujuan; belum ada kode sebelum gerbang 3) → `claude/motion-graphic/SKILL.md` §Mulai di sini (Lantai termuat di dalamnya; jangan baca `LANTAI.md` terpisah) → `projects/<proyek>/TAHAP.md` dari `claude/motion-graphic/templates/TAHAP.md` + `scripts/juri/tahap.py` (langkah berikutnya dan bagian yang dibaca) → profil merek: `claude/motion-graphic/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md` | skill di `archive/` |
+| Sesi produksi video dengan format terkunci | `claude/motion-graphic/MOTION-CORE.md` (10 aturan Lantai, gerbang wajib, larangan keras) → `claude/motion-graphic/formats/README.md` → **satu** Format Bible (`story-doc-16x9.md` atau `journey-talkinghead.md`) → `projects/<proyek>/` (`FORMAT`, `DECISIONS.md`, `STATUS.md`) | `PETA.md` selebihnya, `RETRO.md`, `SUMBER.md`, kartu `cookbook/` (kamus referensi opsional); mencampur dua format |
+| Awal sesi lainnya | `AGENTS.md` → `PETA.md` (file ini) → `PENDING.md` | seluruh `references/` sekaligus |
+| Video gaya baru atau di luar format | `claude/irfan-creative-workflow/SKILL.md` §2 (gerbang: bedah bahan user → naskah → storyboard → persetujuan; belum ada kode sebelum gerbang 3) → `claude/motion-graphic/SKILL.md` §Mulai di sini (Lantai termuat di dalamnya; jangan baca `LANTAI.md` terpisah) → `projects/<proyek>/TAHAP.md` dari `claude/motion-graphic/templates/TAHAP.md` + `scripts/juri/tahap.py` (langkah berikutnya dan bagian yang dibaca) → profil merek: `claude/motion-graphic/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md` | skill di `archive/` |
 | Fase 1 pra-produksi: script, bedah referensi, storyboard | `claude/motion-graphic/cookbook/README.md` (§1 Prinsip, §2 Alur dua langkah) → `claude/motion-graphic/cookbook/INDEX.md` (cocokkan *Narrative trigger* tiap beat; naskah: kategori `script`) → hanya 2–4 kartu **dan frame kuncinya** (`guide/referensi/sheets/keyframes/`) → tabel racikan disetujui user, `claude/motion-graphic/cookbook/contoh-gagal/README.md`, `claude/motion-graphic/references/storyboard.md`, `claude/script-workshop/SKILL.md` | `audio.md`, `build.md` |
 | User membawa draf desain/storyboard/kode Remotion (penaik mutu) | `claude/motion-graphic/cookbook/README.md` §1 + §3 → `claude/motion-graphic/cookbook/INDEX.md` / `POLA.md` / `SFX.md` → `claude/motion-graphic/references/smooth-motion.md`, `claude/motion-graphic/references/camera-transition.md`, `claude/motion-graphic/references/pacing-map.md`, `claude/motion-graphic/guide/sfx/GUIDE.md` → daftar bedah per beat disetujui user, lalu revisi kode yang ada | merombak konsep, palet, huruf, aset, atau urutan user; menulis ulang dari nol |
 | Fase 2 suara: potong, ekor kata, level | `claude/motion-graphic/references/audio.md` §14.0C–14.0D, §14.6, `scripts/gate/cut_check.py`, `scripts/audio/recut.py`, `scripts/gate/voice_level.py` | tipografi, kamera |
@@ -40,7 +41,16 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/script-workshop/SKILL.md` | Menulis konten Irfan dari ide sampai naskah siap take: script reels/video, carousel, caption, thread, ideasi, dan hook, untuk Jadisatu maupun akun pribadinya. Pakai setiap kali Irfan minta ide konten, hook, naskah, carou |
 | `claude/working-with-irfan/SKILL.md` | Cara bekerja dengan Irfan — cara memahami permintaannya, bertanya, meneliti bahan, membuat skill/prompt, dan menyampaikan hasil. Pakai di setiap tugas dari Irfan sebelum menghasilkan output. |
 
-## motion-graphic · inti
+## motion-graphic · pintu produksi (MOTION-CORE + satu Format Bible)
+
+| File | Isi / kapan dibuka |
+|---|---|
+| `claude/motion-graphic/MOTION-CORE.md` | **MOTION-CORE: pintu masuk sesi produksi video** — Sesi produksi rutin memuat file ini + satu Format Bible dari formats/, lalu folder proyeknya (projects/<proyek>/). |
+| `claude/motion-graphic/formats/README.md` | **Format Terkunci: router** — Satu video = satu format. |
+| `claude/motion-graphic/formats/journey-talkinghead.md` | **Format Bible: journey-talkinghead** — Cerita pribadi yang dibawakan pembicara di depan kamera, 16:9, diselingi dunia visual buatan. |
+| `claude/motion-graphic/formats/story-doc-16x9.md` | **Format Bible: story-doc-16x9** — Esai dokumenter ber-VO di atas footage dan foto arsip. |
+
+## motion-graphic · inti dan kamus referensi (opsional di sesi produksi)
 
 | File | Isi / kapan dibuka |
 |---|---|
@@ -154,6 +164,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/audio/vo_gaps.py` | List every silent run in the assembled VO (from vo.json chunk starts + trim wavs). usage: vo_gaps.py vo.json vodir |
 | `claude/motion-graphic/scripts/gate/audio_order.py` | Gerbang urutan sound design: tiap lapisan audio dikunci berurutan ke lapisan sebelumnya. |
 | `claude/motion-graphic/scripts/gate/caption_lines.py` | Hitung jumlah baris caption di render. Gagal bila ada caption > 2 baris (Lantai A1) atau terpotong di tepi. |
+| `claude/motion-graphic/scripts/gate/cek_komposisi.py` | Gerbang komposisi data episode sebelum build dan sebelum render final (fail-closed). |
 | `claude/motion-graphic/scripts/gate/cut_check.py` | Gerbang potongan suara (gerbang 6, Lantai E23): sebelum suara dikunci, potongan harus bersih dari kata sampah dan diam saat pembicara berpikir — termasuk diam yang ditelan transkrip ke dalam durasi ka |
 | `claude/motion-graphic/scripts/gate/grade_ukur.py` | Ukur hasil color grading footage dengan angka sebelum dinilai dengan mata (`references/grade.md`). |
 | `claude/motion-graphic/scripts/gate/music_batch.py` | Gerbang: satu track musik tidak boleh dipakai untuk semua klip/babak dalam satu batch. |
@@ -163,6 +174,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/gate/voice_level.py` | Gerbang level suara asli (Lantai E23): suara asli (narasumber, rekaman sendiri, VO) tidak pernah diturunkan, di-loudness-kan, atau di-limit. Yang boleh: peredam noise, lalu gain NAIK yang bersih sampa |
 | `claude/motion-graphic/scripts/juri/audio_bus_check.py` | Audio di Remotion hanya lewat satu bus global. <Audio> yang ditaruh di dalam <Sequence> adegan ikut berhenti saat adegan selesai, sehingga ekor kata/SFX/musik terpotong di setiap batas adegan (penyeba |
 | `claude/motion-graphic/scripts/juri/frame_audit.py` | Audit SEMUA frame sebelum render MP4, tanpa sampling, dalam dua fase yang terpisah. |
+| `claude/motion-graphic/scripts/juri/gerbang_produksi.sh` | Gerbang produksi untuk render final: format terkunci, komposisi episode, ujung SFX, dan mix di speaker HP. |
 | `claude/motion-graphic/scripts/juri/kt_ocr.py` | Cek teks kinetik sudah lengkap dan terbaca beberapa frame setelah blok masuk (LANTAI A1). |
 | `claude/motion-graphic/scripts/juri/motion_lint.py` | Gerak dirancang per gerak, bukan preset (Lantai B13a; diadaptasi dari motion-kit, MIT). |
 | `claude/motion-graphic/scripts/juri/profil_cek.py` | Cek profil merek (tahap 1): BRAND.md dan EDITING.md terisi, nilai pasti benar bentuknya, aset yang dirujuk ada. |
@@ -243,7 +255,6 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/pengganti-kita-sendiri/` | STATUS: Pengganti Kita Sendiri (@siirfannih) · mulai dari STATUS.md |
 | `projects/personal-brand-day-02/` | Ledger · Personal branding, konten kedua challenge |
 | `projects/skill-development-journey-20261116/` | STATUS · Skill Development journey (siirfan) · titik lanjut sesi baru · mulai dari STATUS.md |
-| `projects/uji-builder-trap-12nov/` | Ledger · uji-builder-trap-12nov |
 | `projects/video-perkenalan-20261118/` | DECISIONS · video perkenalan v7 |
 
 ## Lain-lain

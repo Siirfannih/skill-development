@@ -12,11 +12,11 @@ Baca saat mulai build.
 
 **UI produk sendiri (Jadisatu)**: salin komponen asli dari repo produk (mis. `jadisatu-partner/apps/portal`, React) ke proyek Remotion lalu animasikan per elemen; jangan menggambar ulang UI dari screenshot bila kodenya ada.
 
-**Jalur bawaan: Remotion, dan rakit lego untuk video berfootage** (di bawah). After Effects adalah alat yang dipakai hanya bila Irfan memintanya atau adegannya membutuhkannya: `tools/AFTER-EFFECTS.md` (di akar repo).
+**Jalur utama: Remotion, dan rakit lego untuk video berfootage** (di bawah). Semua langkah, gerbang, dan contoh di file ini mengacu ke jalur itu. After Effects bukan jalur bawaan: ia dipakai hanya bila user memintanya secara eksplisit, dan petunjuknya terpisah di `tools/AFTER-EFFECTS.md` (akar repo).
 
-**Engine kode (canvas + three.js, `window.seek(t)` deterministik)** dipakai untuk dunia 3D (ruang pixel Irfan, kamera 3D, low-poly) dan plate yang sulit dibuat di AE.
+**Engine kode (canvas + three.js, `window.seek(t)` deterministik)** dipakai untuk dunia 3D (ruang pixel Irfan, kamera 3D, low-poly) dan plate dunia yang tidak praktis dibangun sebagai komponen Remotion 2D.
 - Render: Playwright → JPEG → ffmpeg; di Mac pakai Chrome for Testing + metal.
-- **Hibrida**: engine merender plate dunia tanpa teks naratif; teks, UI, kamera 2D, dan transisi dibangun di atasnya dengan Remotion (atau AE bila diminta).
+- **Hibrida**: engine merender plate dunia tanpa teks naratif; teks, UI, kamera 2D, dan transisi dibangun di atasnya dengan Remotion.
 - Semua aturan desain di file ini berlaku untuk kedua jalur.
 - Kontrak render deterministik:
   - tidak ada `Math.random` (pakai seed)

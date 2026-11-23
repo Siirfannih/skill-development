@@ -7,7 +7,8 @@ Volume: 100 % = 0 dB, 50 % = −12 dB, 20 % = −26 dB (typical phone volume cur
 An SFX cue counts as audible when, in its 160 ms window on the phone model,
   (a) it is no more than 6 dB under the music and 15 dB under a word at that moment (masking), and
   (b) its own level is ≥ 30 dB SPL (quiet-room threshold for a short mid-band sound).
-Usage: python3 audio_phone.py --root <folder> [--list] [--fix]
+Usage: python3 audio_phone.py --root <folder> [--list] [--fix] [--gate]
+  --gate: keluar 1 bila ada SFX harsh (> 0) atau median VO clarity < 8 dB (dipanggil render.sh final). Tanpa --gate hanya laporan.
   <folder> berisi stem_vo.wav, stem_music.wav, stem_sfx.wav, mix.wav, cues.json (list {t, peran|kind, alasan|visual}).
   Tanpa --root: $MG_ROOT/render (cara lama)."""
 import json, sys, numpy as np, soundfile as sf, scipy.signal as ss
@@ -74,6 +75,11 @@ for i in range(0, n - w, w):
     if db(vo[i:i + w]) > db(vo) - 12:
         snr.append((i / SR, db(sv[i:i + w]) - db(so[i:i + w])))
 s_ = np.array([x[1] for x in snr])
+if not len(s_):
+    print('VO clarity: tidak ada jendela bicara di stem_vo.wav (stem kosong atau terlalu pendek)')
+    if '--gate' in sys.argv:
+        print('GERBANG audio_phone: GAGAL (VO tidak terukur)'); sys.exit(1)
+    sys.exit(0)
 print(f'VO clarity (speech band, VO vs bed while talking): median {np.median(s_):.1f} dB, worst {s_.min():.1f} dB at {snr[int(np.argmin(s_))][0]:.1f}s, windows < 8 dB: {(s_ < 8).sum()}')
 if '--list' in sys.argv:
     for t, v_ in snr:
@@ -91,3 +97,9 @@ for c in cues:
         harsh.append((c['t'], c['kind'], round(over, 1), c['visual'][:50]))
 print(f'harsh SFX (louder in 2–6 kHz than the voice\'s own 90th-percentile presence): {len(harsh)}')
 for h in harsh: print('    ', h)
+if '--gate' in sys.argv:
+    med = float(np.median(s_)); alasan = []
+    if harsh: alasan.append(f'{len(harsh)} SFX harsh (harus 0)')
+    if med < 8: alasan.append(f'median VO clarity {med:.1f} dB (minimal 8)')
+    print('GERBANG audio_phone: ' + ('GAGAL: ' + '; '.join(alasan) if alasan else f'LULUS (harsh 0, median VO clarity {med:.1f} dB)'))
+    sys.exit(1 if alasan else 0)
