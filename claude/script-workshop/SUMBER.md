@@ -49,6 +49,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 |---|---|
 | §Jembatan antar bagian (Irfan 6 Nov: "beberapa bagi · "Jembatan antar bagian (Irfan 6 Nov:…" | Irfan 6 Nov: "beberapa bagian rasanya putus atau tiba-tiba" |
 | §Variasi dalam satu set ide · "Variasi dalam satu set ide (Irfan…" | Irfan 8 Nov |
+| §Memakai video referensi | Irfan 24 Nov, bedah 12 video Scriptbedah: "yang kita tiru tuh cuman struktur kontennya"; script 01 v1 menerjemahkan makna referensi Inggris |
 
 ## `guide/suara/GUIDE.md`
 
@@ -62,6 +63,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | Aturan | Asal-usul |
 |---|---|
 | pembuka | Menggantikan irfan-content-engine v1/v2 yang dibuat di Gemini (6 Nov); kesalahan berulangnya menjadi isi guide/hindari |
+| alur langkah 4 · "cara memakai referensi" | Irfan 24 Nov (lihat `guide/struktur/GUIDE.md` §Memakai video referensi) |
 
 ## `guide/hindari/GUIDE.md`
 
@@ -78,3 +80,4 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | baris "E19" | Kata Irfan di kolom tanda diucapkan 8 Nov |
 | baris "E20" | Kata Irfan di kolom tanda diucapkan 8 Nov |
 | baris "E21" | Kata Irfan di kolom tanda diucapkan 8 Nov, supermarketing |
+| baris "E22" | Kata Irfan di kolom tanda diucapkan 24 Nov, script 01 @siirfannih (bedah 12 video) |

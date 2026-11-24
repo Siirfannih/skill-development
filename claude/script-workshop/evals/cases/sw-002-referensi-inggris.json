@@ -1,0 +1,14 @@
+{
+  "id": "sw-002",
+  "source": "Irfan 24 Nov: script 01 @siirfannih v1 dari bedah 12 video referensi Inggris (Scriptbedah) menerjemahkan makna dan susunan kalimat sumber",
+  "prompt": "Ini 12 video referensi berbahasa Inggris beserta bedahnya. Salah satunya bilang semua orang sekarang ngedit pakai AI tapi caranya salah; opiniku mirip. Bikinin script faceless ~60 detik untuk akunku, VO suaraku sendiri, bahasa Indonesia.",
+  "assertions": [
+    "Urutan beat diambil dari struktur yang paling sering muncul di set referensi, dengan jumlahnya disebut",
+    "Tidak ada kalimat VO yang merupakan terjemahan kalimat referensi; kalimat yang memakai gagasan referensi menyebut maknanya lebih dulu lalu ditulis ulang",
+    "Isi referensi dipakai sebagai informasi/insight, bukan sebagai kerangka kalimat",
+    "Kesimpulan referensi yang bertentangan dengan posisi pembicara tidak diikuti",
+    "Daftar ditulis dengan subjek di depan lalu butir sejajar; tidak ada empat kalimat pendek berturut-turut yang masing-masing pindah topik",
+    "Tiap kalimat lolos cek: orang Indonesia ngomong begini, dan kalimatnya benar bila berdiri sendiri"
+  ],
+  "hasil_24nov": {"v1_sebelum_aturan": "3/6 (kesimpulan diganti, informasi dipakai, struktur dihitung dari 12 video; gagal di terjemahan makna dan susunan kalimat)", "v2_dengan_aturan": "belum diuji sesi lain"}
+}
