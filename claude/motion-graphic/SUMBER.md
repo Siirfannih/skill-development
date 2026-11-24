@@ -1141,3 +1141,11 @@ Penghitung: nilai mulai 2; +1 gerbang menangkap kegagalan nyata; −1 salah-temb
   1. Kartu `14` (Flash Grid 5-6 f + `scripts/remotion/FlashGrid.tsx`) dan `17` (`_ganimate` isometrik/UI/tag) diangkat ke `dilihat_bergerak: ya`; ditambah Kartu `95` (`rt2rj.mp4`, `Cutout-Collage Metaphor`).
   2. `MOTION-CORE.md` & `AGENTS.md` mengunci tiga disiplin baru: **Tanya sebelum meracik** bila brief belum menetapkan ragam visual/gaya, **Satu video = satu sesi terpisah** (mencegah salin resep antarepisode), dan **Keragaman mode visual & pembuatan aset baru** (`cek_komposisi.py` tanda `RAGAM` untuk video >= 45 dtk tanpa mode motion-graphic/diagram/cutout/UI).
   3. Lantai #9, `guide/sfx/GUIDE.md`, dan `references/audio.md` menyelaraskan aturan level suara: **SFX dimulai di level alami `0 dB` dasar** (baru diturunkan bila mengalahkan VO), prioritas `~/sfx/SFXIrfan` (`1 SFX = 1 gerakan/objek`), dan musik berfungsi sebagai bed lembut di bawah VO (-16..-22 dB).
+
+## `claude/motion-graphic/MOTION-CORE.md`, `FlashGrid.tsx`, `render.sh`, kartu `14` (24 Nov 2026)
+
+| Aturan | Asal-usul |
+|---|---|
+| `MOTION-CORE.md` menunjuk `scripts/remotion/ae-primitives/`, `Papan.tsx`, `tahap.py`, `storyboard.md` §5 & §7 (`TYPE-TEST`, `TRANSITION-SHEET`), serta kunci 2D vs 3D AI | Audit Antigravity + koreksi Irfan 24 Nov 2026 atas `behindwork-batch-1` Ep01/Ep03 v2: model memakai scaffold lama (`Episode.tsx`/`Teks.tsx`) dan gambar 3D AI karena pintu produksi belum mengikat `ae-primitives/` + `Papan.tsx` dan pra-build gate |
+| Retensi short-form/IG (`TEMPO = 1.0` + `cut_check.py`/`recut.py` pemadatan jeda mati, perubahan visual ≤ 2,2 dtk, `SceneChain` ≥ 4 tipe transisi / 30 dtk) | Masukan Irfan 24 Nov 2026 atas video v2 yang terasa terlalu pelan untuk attention span Instagram tanpa membuat ulang VO/naskah |
+| Konsolidasi `FlashGrid.tsx` → pembungkus `ae-primitives/transisi/GridFlashReveal.tsx` + cek opsional `qc/merek` di `render.sh` | Penghapusan duplikasi transisi grid dan pengamanan profil merek saat `render.sh final` |

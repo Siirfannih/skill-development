@@ -158,6 +158,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/audio/sfx_vet.py` | Periksa file SFX sebelum dipasang (Tier 3 sumber SFX, guide/sfx/FAMILI.md §Periksa). |
 | `claude/motion-graphic/scripts/audio/sync_cues.py` | v18: SFX must land WITH the object — not before it appears, not after — and not pile up. For every cue in render/cues.json, look at the picture around it (cells of an 8×6 grid, so a small label counts |
 | `claude/motion-graphic/scripts/audio/tighten.py` | v14 finishing: shorten the video by tightening the VO — never by cutting speech. 1. tempo: TEMPO is locked at 1.0; the VO is never sped up. Only pauses are tightened. 2. pauses: every quiet run inside |
+| `claude/motion-graphic/scripts/audio/tighten_ig.py` | Padatkan jeda mati VO untuk retensi short-form/IG tanpa mempercepat ucapan (TEMPO=1.0). |
 | `claude/motion-graphic/scripts/audio/visual_coverage.py` | v16 (every object, visual and text gets its own sound, no exceptions). Finds visual events in the rendered picture (frame-difference onsets: something appears, moves off, cuts, lands) and checks that  |
 | `claude/motion-graphic/scripts/audio/vo_echo.py` | Cek gema VO (audio.md §14.10): energi ekor 40-150 ms setelah akhir kata, relatif ke level kata. |
 | `claude/motion-graphic/scripts/audio/vo_gaps.py` | List every silent run in the assembled VO (from vo.json chunk starts + trim wavs). usage: vo_gaps.py vo.json vodir |
@@ -192,7 +193,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/lego/lapisan.py` | Render lapisan lego satu per satu dengan cache. Hanya lapisan yang berubah yang dirender ulang. |
 | `claude/motion-graphic/scripts/lego/persepsi.py` | Lapisan persepsi untuk Remotion: footage -> matte orang (RVM, stabil antar frame) + posisi wajah per frame (MediaPipe). |
 | `claude/motion-graphic/scripts/lego/teks_plan.py` | Kerangka teks.json dari transkrip: isi teks KT/subtitle sudah pasti = ucapan, jadi yang dihitung mesin hanya WAKTU dan DURASI tiap blok. Peran, kode gerak (T..), gaya (G..), posisi, dan alasan diputus |
-| `claude/motion-graphic/scripts/remotion/FlashGrid.tsx` | FlashGrid.tsx — Transisi Flash Grid cepat (kartu 14): kilatan petak acak berurutan dalam 5-6 frame, |
+| `claude/motion-graphic/scripts/remotion/FlashGrid.tsx` | FlashGrid.tsx — pembungkus kompatibilitas ke komponen kanonik ae-primitives/transisi/GridFlashReveal.tsx. |
 | `claude/motion-graphic/scripts/remotion/Kursor.tsx` | Kursor.tsx — blok lego: kursor yang bergerak seperti tangan manusia (cookbook/teknik/launch-motion.md §2). |
 | `claude/motion-graphic/scripts/remotion/LightSweep.tsx` | LightSweep.tsx — gaya G8 "kilat cahaya" (typography.md §7.5). |
 | `claude/motion-graphic/scripts/remotion/Penghitung.tsx` | Penghitung.tsx — blok lego: angka yang naik/turun dan bisa dibaca (cookbook/teknik/launch-motion.md §2). |
@@ -244,6 +245,8 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/ai-change-everything/` | STATUS · ai-change-everything ("Pengganti kita sendiri") · mulai dari STATUS.md |
 | `projects/bali-digifest-day1/` | STATUS · Recap Day 1–3 · v11 · mulai dari STATUS.md |
 | `projects/behindwork-batch-1/` | STATUS · behindwork-batch-1 · mulai dari STATUS.md |
+| `projects/behindwork-v3-ep01/` | DECISIONS · behindwork-v3-ep01 |
+| `projects/behindwork-v3-ep03/` | DECISIONS · behindwork-v3-ep03 |
 | `projects/builder-trap-r2/` | STATUS · Builder Trap R2 v6 · 16 Nov 2026 · mulai dari STATUS.md |
 | `projects/builder-trap-show-your-work/` | Ledger · Builder trap / show your work (cinematic story) |
 | `projects/doac-5-klip/` |  |
@@ -256,6 +259,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/pengganti-kita-sendiri/` | STATUS: Pengganti Kita Sendiri (@siirfannih) · mulai dari STATUS.md |
 | `projects/personal-brand-day-02/` | Ledger · Personal branding, konten kedua challenge |
 | `projects/skill-development-journey-20261116/` | STATUS · Skill Development journey (siirfan) · titik lanjut sesi baru · mulai dari STATUS.md |
+| `projects/uji-builder-trap-12nov/` | Ledger · uji-builder-trap-12nov |
 | `projects/vibedesign-meta-carousel/` | STATUS · vibedesign-meta-carousel · mulai dari STATUS.md |
 | `projects/video-perkenalan-20261118/` | DECISIONS · video perkenalan v7 |
 

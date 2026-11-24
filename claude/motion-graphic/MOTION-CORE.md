@@ -4,20 +4,22 @@
 > 3. **Gerbang pemilik tidak dilewati.** Konsep/topik, naskah final, serta storyboard + tabel racikan cookbook disetujui pemilik sebelum produksi atau pemakaian kredit.
 > 4. **Gerbang mekanis Kelas H tidak dilewati atau diedit selama sesi produksi video:** `render.sh final`, `gerbang_produksi.sh`, `scripts/gate/*`.
 > 5. **Baca dulu, jangan menebak.** Bahan sumber dan outbox/proyek terkait dibaca sebelum menyimpulkan atau memberi perintah.
-
 # MOTION-CORE: pintu masuk sesi produksi video
 
-Sesi produksi memuat **file ini**, lalu `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`). Tidak dimuat di awal sesi: `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/INDEX.md` utuh. `references/` dan `guide/` dibuka saat langkah atau pesan gagal gerbang menyebut bagiannya. Rute lengkap dan Lantai utuh: `SKILL.md`.
+Sesi produksi memuat **file ini**, lalu `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`). Jalankan `python3 scripts/juri/tahap.py projects/<proyek>` di awal dan tiap pindah tahap. Tidak dimuat di awal sesi: `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/INDEX.md` utuh. `references/` dan `guide/` dibuka saat langkah atau pesan gagal gerbang menyebut bagiannya. Rute lengkap dan Lantai utuh: `SKILL.md`.
 
-Urutan menang: instruksi user → `DECISIONS.md` dan `RESEP.md` proyek → profil merek (`BRAND.md`, `EDITING.md`) → kartu terpilih → file ini. Lantai tidak dikalahkan kartu; pengecualian hanya atas instruksi user, dicatat di `RESEP.md`.
+Urutan menang: instruksi user → `DECISIONS.md` dan `RESEP.md` proyek → profil merek (`BRAND.md`, `EDITING.md` teruji `scripts/juri/profil_cek.py`) → kartu terpilih → file ini. Lantai tidak dikalahkan kartu; pengecualian hanya atas instruksi user, dicatat di `RESEP.md`.
 
-## 1. Alur: tiga gerbang pemilik, lalu dua langkah
+## 1. Alur: profil merek, tiga gerbang pemilik, lalu dua langkah
 
-**Gerbang 1–3** (`../irfan-creative-workflow/SKILL.md` §2): bedah bahan user dan konsep → naskah final → storyboard, masing-masing disetujui user. Belum ada kode, generate, atau pemakaian kredit sebelum gerbang 3 lolos.
+**Profil merek & Gerbang 1–3** (`../irfan-creative-workflow/SKILL.md` §2): pastikan `<folder-data>/merek/<slug>` lulus `scripts/juri/profil_cek.py`; bedah bahan user → naskah final → storyboard (`references/storyboard.md` §5 Tabel Kritik 10 kolom, §7 `TYPE-TEST` dan `TRANSITION-SHEET`), masing-masing disetujui user. Belum ada kode, generate, atau pemakaian kredit sebelum gerbang 3 lolos.
 
-**Tanya sebelum meracik (wajib bila brief belum mengunci arah visual):** bila brief user belum menetapkan (a) porsi mode visual (B-roll vs diagram/explainer motion graphic vs metafora cutout vs UI nyata), (b) karakter pacing dan transisi, atau (c) referensi gaya target, **berhenti dan ajukan 3–5 pertanyaan konkret dulu** sebelum menulis racikan atau kode.
+**Tanya sebelum meracik (wajib bila brief belum mengunci arah visual):** bila brief user belum menetapkan (a) porsi mode visual (arsip/B-roll vs diagram/explainer 2D vs metafora cutout vs UI nyata), (b) target platform dan ritme potong (IG/short-form vs YouTube), atau (c) referensi gaya target, **berhenti dan ajukan 3–5 pertanyaan konkret dulu** sebelum menulis racikan atau kode.
 
-**Keragaman mode visual & aset baru:** video > 45 dtk tidak boleh hanya berisi `[zoom B-roll + KT]` bergantian dengan `[kartu teks polos]`. Padukan minimal 2–3 mode visual sesuai fungsi cerita (rekaman/arsip, diagram/isometrik explainer, metafora cutout, UI nyata); bila aset visual metafora/diagram tidak ada di stok foto, buat atau generate aset baru (komponen SVG/Remotion, cutout transparan, gambar AI, atau render 3D). Untuk transisi grid di kartu 14, gunakan `scripts/remotion/FlashGrid.tsx` (kilatan petak acak 5–6 frame), bukan wipe diagonal lambat.
+**Keragaman mode visual & retensi short-form / IG (tanpa merombak naskah atau membuat ulang VO):**
+- **Padatkan jeda suara, bukan kecepatan bicara:** `TEMPO = 1.0` wajib (Lantai E23). Pakai `scripts/gate/cut_check.py` (`--suggest --max-inner 0.12 --max-sentence 0.22`) lalu `scripts/audio/recut.py` untuk memangkas jeda mati, dan petakan ulang titik waktu ke `vo_words.json`/`vo_beats.json` tanpa memotong kata.
+- **Perubahan visual ≤ 2,2 dtk & variasi mode:** video > 30 dtk tidak boleh berisi `[zoom B-roll + KT]` bergantian dengan `[kartu teks polos]`. Pecah kalimat panjang menjadi micro-beat (geser titik fokus kamera 2D, insert arsip/UI, `HighlighterSweep`, `SelectiveColorSpotlight`), frame 0 langsung bergerak dan berteks, dan KT 1–3 kata berganti setiap 0,25–0,6 dtk.
+- **Kunci gaya aset & larangan 3D AI:** ikuti `BRAND.md`/`EDITING.md`; untuk proyek bergaya 2D flat, editorial Vox, atau photo-cutout, bangun komponen vektor 2D SVG/HTML atau cutout foto nyata, bukan render gambar 3D AI tanpa persetujuan eksplisit user di `RESEP.md`.
 
 **Langkah 1 · Racik mekanik** (di gerbang storyboard; rinci: `cookbook/README.md` §2):
 
@@ -31,7 +33,7 @@ Urutan menang: instruksi user → `DECISIONS.md` dan `RESEP.md` proyek → profi
    | Beat | Fungsi cerita | Pola (ID.Tn) | Remix: dipertahankan → diganti | SFX |
    |---|---|---|---|---|
 
-**Langkah 2 · Bangun Remotion dari nol.** Kode ditulis baru dari tabel itu (Mekanik Remotion kartu, `scripts/remotion/curves.ts`), dengan gaya user dan waktu dari audio video ini. Selesai hanya bila `render.sh final` lulus, termasuk `gerbang_produksi.sh` (§3).
+**Langkah 2 · Bangun Remotion dari nol.** Kode ditulis baru dari tabel racikan dan `TRANSITION-SHEET` dengan gaya `BRAND.md`: wajib impor `scripts/remotion/ae-primitives/` (`SpatialAnchorCamera`, `SpatialDepthStage`, `MotionBlurWrapper`, `WhipPanTransition`, `GridFlashReveal` (pembungkus kompatibilitas: `scripts/remotion/FlashGrid.tsx`), `SceneChain`, `FlashCut`, `InvertFlash`, `HighlighterSweep`, `SelectiveColorSpotlight`, `Scrim`), `scripts/remotion/curves.ts`, dan pola kamera dunia 2D di `projects/skill-development-journey-20261116/remotion/src/papan/Papan.tsx`. Dilarang menambal scaffold episode proyek lain. Selesai hanya bila `render.sh final` lulus, termasuk `gerbang_produksi.sh` (§3).
 
 ## 2. Lantai: 10 aturan yang tidak ditawar
 
@@ -44,7 +46,7 @@ Kode dalam kurung = butir `LANTAI.md` (bunyi lengkap).
 | 3 | **Terbaca di HP.** Kontras ≥ 4,5 : 1, kata sambung ≥ 56 px @1080, 1–3 kata per tampil, maks 2 baris, tidak di atas logo atau area ramai (A4, A7, A9). | still 360 px; `scripts/lego/kt_check.py` |
 | 4 | **Teks hanya dari ucapan; satu kata tidak tampil dua kali** sekaligus (A3, A5). | KT dibandingkan tabel kata VO |
 | 5 | **Satu fokus per momen**; yang sedang bicara tampil di frame (C14, D21). | still per beat |
-| 6 | **Tidak ada pergantian malas.** Nol crossfade; gerak memakai `scripts/remotion/curves.ts`; hold > 1 dtk tetap hidup (B13, B13a). | `scripts/juri/motion_lint.py` PASS |
+| 6 | **Tidak ada pergantian malas.** Nol crossfade; ≥ 4 tipe transisi per 30 dtk tanpa tipe sama berturut-turut (`SceneChain`); gerak memakai `scripts/remotion/curves.ts`; hold > 1 dtk tetap hidup (B13, B13a). | `scripts/juri/motion_lint.py` PASS |
 | 7 | **Tidak ada layar kosong atau placeholder.** Frame 0 berisi visual dan bunyi; setelah potong, isi tampil ≤ 0,3 dtk (D22, D22c). | tanda `JEDA` nol; frame tahan tiap detik |
 | 8 | **Suara utuh.** Tidak dipercepat, fonem tidak digunting, level suara asli tidak diturunkan (E23). | `gate/cut_check.py`, `gate/voice_level.py` PASS |
 | 9 | **Bunyi punya alasan, alami, dan nyaman.** 1 SFX = 1 gerakan/objek (`objects.json`, prioritas `~/sfx/SFXIrfan`); SFX dimulai di level alami (`0 dB` dasar) dan baru diturunkan bila mengalahkan VO, bukan tenggelam di bawah musik keras; ujung SFX di jeda sunyi atau fade 150–300 ms; nol SFX harsh; musik sejak frame 0 sebagai bed di bawah VO (E24, E25, E25a). | `gate/sfx_density.py` PASS; gerbang 3–4 di §3 |
