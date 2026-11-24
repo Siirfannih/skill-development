@@ -13,6 +13,8 @@
 - Ronde 1: dunia workspace + trio orisinal; render Blender dihapus.
 - Ronde 2: serif dihapus (kecuali slide 5), urutan baca slide 1–3 diperbaiki, slide 4 diganti jendela chat + kartu slop.
 - Ronde 3: hook startup-first, "Tapi...." lurus + jarak bubble rapat, karakter hanya bila berfungsi.
+- Ronde 8: slide 6 usage token (D-034).
+- Ronde 7: slide 5 konten mulai y 160 seperti slide 4 (D-033).
 - Ronde 6: finishing slide 3–5 (D-029 s.d. D-032), catatan tulisan tangan di slide 5.
 - Ronde 5: copy "Full Pakai AI.", chip VIBE EDITING/VIBEDESIGN berpasangan di baris 1 dan 2, kata raksasa dinaikkan dan berpijak di horizon lantai (KMP-03), chip 24px.
 - Ronde 4: finishing slide 1 (jarak headline, label vibe editing vs vibedesign, gradien halus tanpa banding, tanpa tanggal) + kontras/tabrakan "Tapi...." slide 2.

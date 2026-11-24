@@ -171,6 +171,42 @@
       "peringatan": [
         "4 level ukuran teks (250, 200, 112, 46 px); disarankan ≤ 3"
       ]
+    },
+    "6": {
+      "pola": "bobot",
+      "bobot": {
+        "1": {
+          "nilai": 2112708,
+          "teks": [
+            "Habis berapa token",
+            "buat 5 slide ini?"
+          ]
+        },
+        "2": {
+          "nilai": 1789084,
+          "teks": [
+            "≈ 62 jt",
+            "token diproses"
+          ]
+        },
+        "3": {
+          "nilai": 308794,
+          "teks": [
+            "Yang benar-benar ditulis AI cuma . Sisanya konteks yang diba",
+            "≈ 170 rb"
+          ]
+        }
+      },
+      "level": [
+        132,
+        84,
+        56,
+        28
+      ],
+      "gagal": [],
+      "peringatan": [
+        "4 level ukuran teks (132, 84, 56, 28 px); disarankan ≤ 3"
+      ]
     }
   },
   "errorsHalaman": []
