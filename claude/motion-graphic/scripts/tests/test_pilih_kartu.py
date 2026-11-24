@@ -186,6 +186,16 @@ class IndexAsli(unittest.TestCase):
             self.assertTrue((S.parents[2] / s[3]).is_file(), s[3])
             self.assertTrue(s[4] == "-" or "claude/motion-graphic/guide/referensi/sheets/keyframes/" in s[4])
 
+    def test_kartu_motion_graphic_dan_flash_grid_bergerak(self):
+        id_map = {k["id"]: k for k in self.kartu}
+        for cid in ("14", "17", "88", "95"):
+            self.assertIn(cid, id_map)
+            self.assertEqual(id_map[cid]["bergerak"], "ya", cid)
+        res_cutout = [k["id"] for k in pk.pilih(self.kartu, cari="cutout metaphor", bergerak=True)]
+        self.assertIn("95", res_cutout)
+        res_grid = [k["id"] for k in pk.pilih(self.kartu, cari="flash grid", bergerak=True)]
+        self.assertIn("14", res_grid)
+
 
 if __name__ == "__main__":
     unittest.main()

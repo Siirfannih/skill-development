@@ -127,7 +127,7 @@ Aturan:
 ### 14.1 Hierarki mix
 1. **VO pemilik panggung**: VO narator kompresi ringan, +2 dB di 3 kHz. Suara sumber klip yang terukur bersih tidak diproses; rekaman sendiri di kamar dibersihkan jedanya (§14.6).
 2. **SFX penekan**: SFX besar jatuh di sela kata; dynamic EQ 200–500 Hz pada SFX saat VO; HPF 40 Hz bus SFX.
-3. **Musik pembangun emosi**: diletakkan tetap di bawah VO (level di §14.10), −4 dB di 3 kHz. **Dynamic ducking lewat automation, bukan kompresor**: musik turun saat dialog dan naik halus di jeda ≥ 0,3 dtk dan transisi visual, dengan ramp ≥ 250 ms dan lookahead ±250 ms; level di §14.10. Tidak naik-turun per kata, karena pompaan cepat terdengar.
+3. **Musik pembangun emosi & level SFX alami**: musik diletakkan tetap di bawah VO sebagai bed emosi (±−16…−22 dB di bawah ucapan, bukan −4 dB yang menenggelamkan SFX), −4 dB di 3 kHz. SFX momen/gerakan dimulai pada level alaminya (`0 dB` dasar) dan baru disesuaikan bila mengalahkan VO. **Dynamic ducking lewat automation, bukan kompresor**: musik turun saat dialog dan naik halus di jeda ≥ 0,3 dtk dan transisi visual, dengan ramp ≥ 250 ms dan lookahead ±250 ms; level di §14.10. Tidak naik-turun per kata, karena pompaan cepat terdengar.
 4. **Semua angka level ada di satu tempat: tabel §14.10.** Bagian lain tidak menulis angka level sendiri.
 
 ### 14.2 Musik: beberapa cue sesuai babak (tidak pernah satu bed dari awal sampai akhir)

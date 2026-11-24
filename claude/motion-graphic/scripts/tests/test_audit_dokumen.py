@@ -177,6 +177,12 @@ class PintuProduksi(unittest.TestCase):
         self.assertIn("MOTION-CORE.md", baca(ROOT / "AGENTS.md")[:2600])
         self.assertIn("pilih_kartu.py", baca(ROOT / "AGENTS.md")[:2600])
 
+    def test_pengunci_ragam_isolasi_flashgrid_dan_sfx_alami(self):
+        t = baca(MG / "MOTION-CORE.md")
+        for x in ("Tanya sebelum meracik", "Satu video = satu sesi terpisah", "Keragaman mode visual", "FlashGrid.tsx", "level alami (`0 dB` dasar)"):
+            self.assertIn(x, t)
+        self.assertTrue((MG / "scripts/remotion/FlashGrid.tsx").is_file())
+
 
 if __name__ == "__main__":
     unittest.main()

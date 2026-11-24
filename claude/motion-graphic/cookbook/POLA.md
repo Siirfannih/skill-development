@@ -87,6 +87,7 @@ Satu baris per pola (T-blok) dalam kartu, dikelompokkan per kategori pola. Buka 
 | 93.T4 | The Word Is the Image | kata yang menyebut tampilan atau keadaan ("wide", "close up", "relight", "light", "atmosphere", "color grading", "handh… | 05-sfx-and-audio-mapping/93-change-marked-sound-hierarchy.md |
 | 93.T6 | Silent Grid Cold Open | pembuka sebelum kalimat pertama yang harus langsung menunjukkan "banyak versi dari satu hal". | 05-sfx-and-audio-mapping/93-change-marked-sound-hierarchy.md |
 | 94.T5 | Depth-Blurred UI Dive With Snap Zoom | kata merek/judul diikuti demo UI; "dari kata ke produk" dalam satu pegangan kamera. | 05-sfx-and-audio-mapping/94-vacuum-before-hit-logo-sting.md |
+| 95.T2 | Interactive Prop Overlay | benda metafora dimodifikasi oleh aksi (kursor mengklik subjek, kilau piksel/glint, blok kode menempel). | 03-spatial-and-ui-layouts/95-cutout-collage-metaphor.md |
 
 ## typography
 
@@ -381,6 +382,7 @@ Satu baris per pola (T-blok) dalam kartu, dikelompokkan per kategori pola. Buka 
 | 91.T4 | Caption-Reserved Headroom Framing | semua shot yang akan memuat caption atas; dipakai saat memilih take atau crop. | 02-typography-and-captions/91-headroom-phrase-swap-caption.md |
 | 92.T3 | Inset-to-Full Photo Grow | memperkenalkan satu orang atau momen dengan foto pribadi ("when she was 17"). | 02-typography-and-captions/92-negative-space-cumulative-caption.md |
 | 92.T5 | Blank-Page Quote Highlight | kutipan tertulis dari narasumber yang menjadi bukti ("In a 2025 article…"). | 02-typography-and-captions/92-negative-space-cumulative-caption.md |
+| 95.T1 | Floating Halftone Cutout + Anchor Typography | kalimat membawa satu metafora benda konkret (jam, pel, meja diner, koin, chip). | 03-spatial-and-ui-layouts/95-cutout-collage-metaphor.md |
 
 ## texture
 

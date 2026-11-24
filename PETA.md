@@ -192,6 +192,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/lego/lapisan.py` | Render lapisan lego satu per satu dengan cache. Hanya lapisan yang berubah yang dirender ulang. |
 | `claude/motion-graphic/scripts/lego/persepsi.py` | Lapisan persepsi untuk Remotion: footage -> matte orang (RVM, stabil antar frame) + posisi wajah per frame (MediaPipe). |
 | `claude/motion-graphic/scripts/lego/teks_plan.py` | Kerangka teks.json dari transkrip: isi teks KT/subtitle sudah pasti = ucapan, jadi yang dihitung mesin hanya WAKTU dan DURASI tiap blok. Peran, kode gerak (T..), gaya (G..), posisi, dan alasan diputus |
+| `claude/motion-graphic/scripts/remotion/FlashGrid.tsx` | FlashGrid.tsx — Transisi Flash Grid cepat (kartu 14): kilatan petak acak berurutan dalam 5-6 frame, |
 | `claude/motion-graphic/scripts/remotion/Kursor.tsx` | Kursor.tsx — blok lego: kursor yang bergerak seperti tangan manusia (cookbook/teknik/launch-motion.md §2). |
 | `claude/motion-graphic/scripts/remotion/LightSweep.tsx` | LightSweep.tsx — gaya G8 "kilat cahaya" (typography.md §7.5). |
 | `claude/motion-graphic/scripts/remotion/Penghitung.tsx` | Penghitung.tsx — blok lego: angka yang naik/turun dan bisa dibaca (cookbook/teknik/launch-motion.md §2). |
@@ -255,6 +256,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `projects/pengganti-kita-sendiri/` | STATUS: Pengganti Kita Sendiri (@siirfannih) · mulai dari STATUS.md |
 | `projects/personal-brand-day-02/` | Ledger · Personal branding, konten kedua challenge |
 | `projects/skill-development-journey-20261116/` | STATUS · Skill Development journey (siirfan) · titik lanjut sesi baru · mulai dari STATUS.md |
+| `projects/uji-builder-trap-12nov/` | Ledger · uji-builder-trap-12nov |
 | `projects/vibedesign-meta-carousel/` | STATUS · vibedesign-meta-carousel · mulai dari STATUS.md |
 | `projects/video-perkenalan-20261118/` | DECISIONS · video perkenalan v7 |
 

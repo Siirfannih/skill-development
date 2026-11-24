@@ -5,16 +5,16 @@ kategori: camera
 kategori_lain: [typography, layout]
 trigger: pindah antar B-roll atau antar demo dengan sentakan kecil yang segar; tutorial "aku tunjukkan triknya" dari kreator ke kreator; kata isi diucapkan satu per satu di sekitar pembicara
 sumber: kreator IG (tutorial transisi editing) · 4:3 (960×720) · 34,3 dtk
-dilihat_bergerak: tidak
+dilihat_bergerak: ya
 diukur: ya
 alias: []
 ---
 # 14 · Tile-Grid Cut Wipe
 
 > **Cookbook, bukan template.** Yang dipinjam dari kartu ini: mekanik gerak dan syarat yang membuatnya berhasil. Yang tidak dipinjam: palet, huruf, komposisi, objek, dan kata-katanya. Angka berlabel *pengamatan* berasal dari video asli; angka di **Mekanik Remotion** adalah titik awal yang disesuaikan lewat sanding (`../../scripts/juri/sandingkan.py`), bukan target.
-> Sumber: `pedro.andradeok_De8GO2-RItV.mp4` (kreator tutorial editing, VO Spanyol) · 4:3 (960×720), 29,97 fps, 34,3 dtk · Frame: `../../guide/referensi/sheets/14-pedro-andradeok-grid-cut.jpg` (1 frame per dtk, berlabel waktu) · Frame kunci: belum diekstrak (hanya contact sheet) · Bedah lengkap: `../../guide/referensi/pedro-andradeok.md` (kode P-T/P-X, komponen Remotion)
+> Sumber: `pedro.andradeok_De8GO2-RItV.mp4` (kreator tutorial editing, VO Spanyol) · 4:3 (960×720), 29,97 fps, 34,3 dtk · Frame: `../../guide/referensi/sheets/14-pedro-andradeok-grid-cut.jpg` (1 frame per dtk, berlabel waktu) · Strip gerak Flash Grid 15 fps: `../../guide/referensi/sheets/14-flash-grid-urutan.jpg` · Bedah lengkap: `../../guide/referensi/pedro-andradeok.md` (kode P-T/P-X, komponen Remotion)
 > Video sumber: `/home/irfan/work/pustaka-video/unggahan/pedro.andradeok_De8GO2-RItV.mp4`
-> Dilihat bergerak: **tidak** (hanya contact sheet 1 fps; angka dari bedah lama: scene detect, ebur128, onset librosa). Gerak tile, orbit kata, dan band squeeze belum dilihat frame demi frame; bedah sebelum dipakai.
+> Dilihat bergerak: **ya** (strip 15 fps `14-flash-grid-urutan.jpg` diverifikasi). **Catatan Flash Grid:** transisi ini adalah **kilatan grid cepat acak 5–6 frame** dengan puncak flash terang singkat dan glitch/snap SFX — **bukan** wipe diagonal lambat 14 frame. Komponen siap pakai: `../../scripts/remotion/FlashGrid.tsx`.
 
 **Inti mekanik (1 kalimat):** Kata putih polos muncul satu per satu di ruang kosong di sekitar kepala pembicara tepat di onset ucapannya, dan antar-shot dipisah oleh potongan grid ±4×3 tile putih yang muncul acak dalam 5–7 frame.
 **Narrative trigger:**

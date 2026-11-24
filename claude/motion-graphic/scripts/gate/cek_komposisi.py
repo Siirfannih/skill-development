@@ -36,7 +36,7 @@ W, H = 1920, 1080
 PUB = ""
 FONT = {"tebal": "fonts/HelveticaNeueBold.otf", "sedang": "fonts/HelveticaNeueMedium.otf"}
 BLOK = ("WAJAH", "INSET", "TEPI", "ASET")
-TANDA = BLOK + ("NAPAS", "POTONG", "KARTU", "JEDA", "PITA", "LOGO", "JAUH", "RATA", "KECIL", "TEKSTUR")
+TANDA = BLOK + ("NAPAS", "POTONG", "KARTU", "JEDA", "PITA", "LOGO", "JAUH", "RATA", "KECIL", "TEKSTUR", "RAGAM")
 UK = {"r1": 96, "lead": 80, "r2": 124, "r6": 210, "giant": 520, "kotak": 96, "napas": 220}
 LH = {"r1": 1.02, "lead": 1.02, "r2": 0.92, "r6": 0.92, "giant": 0.8, "kotak": 1.3, "napas": 0.94}
 
@@ -291,6 +291,18 @@ def cek_pilihan(ep, nap):
         if any(k["dari"] < s["sampai"] and k["sampai"] > s["dari"] for k in kt):
             tanda.append(f"PITA   {len(ep['sub'])} baris subtitle tampil bersamaan dengan KT (satu lapisan teks saja)")
             break
+    if ep.get("durasi", 0) >= 45:
+        mg_modes = 0
+        for a in ep["adegan"]:
+            if a.get("mode") in ("motion-graphic", "diagram", "cutout", "ui", "explainer", "vox"):
+                mg_modes += 1; continue
+            for l in a.get("lapisan", []):
+                k_name = str(l.get("k", "")).lower()
+                src_name = str(l.get("src", "")).lower()
+                if k_name not in ("jangkar", "kanvas", "kartu", "scrim", "foto", "video") or any(tag in src_name for tag in ("_mg/", "mg/", "cutout", "iso_", "diagram", "chart")):
+                    mg_modes += 1; break
+        if mg_modes == 0:
+            tanda.append("RAGAM  video >= 45 dtk hanya memakai jangkar B-roll + kanvas polos tanpa mode motion-graphic/diagram/cutout/UI")
     return tanda
 
 

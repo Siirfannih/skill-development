@@ -5,7 +5,7 @@ kategori: layout
 kategori_lain: [typography, camera]
 trigger: menyebut daftar objek atau kategori satu per satu; penjelasan data atau skala ("lalu seluruh 50 negara bagian"); pembuka explainer yang menyisipkan kata dan ikon ke dalam satu judul
 sumber: _ganimate_ (showreel studio motion, mosaik 2×2) · 16:9 · 14,4 dtk
-dilihat_bergerak: tidak
+dilihat_bergerak: ya
 diukur: ya
 alias: []
 ---
@@ -14,7 +14,7 @@ alias: []
 > **Cookbook, bukan template.** Yang dipinjam dari kartu ini: mekanik gerak dan syarat yang membuatnya berhasil. Yang tidak dipinjam: palet, huruf, komposisi, objek, dan kata-katanya. Angka berlabel *pengamatan* berasal dari video asli; angka di **Mekanik Remotion** adalah titik awal yang disesuaikan lewat sanding (`../../scripts/juri/sandingkan.py`), bukan target.
 > Sumber: _ganimate_, `_ganimate__DfICqhOvP-0.mp4` (nama asli "_ganimate_ showreel"; empat panel explainer diputar bersamaan, tiap panel 640×360) · 16:9 (1280×720), 23,98 fps, 14,4 dtk · Frame: `../../guide/referensi/sheets/17-ganimate-editorial-explainer.jpg` (juga `17-ganimate.jpg`) · Frame kunci: `../../guide/referensi/sheets/keyframes/17-k1…k8-*.jpg` (k1 tipografi gelap, k2 arsip + satu kata, k3 UI asli + dock, k4 hero + kotak kuning, k5 isometrik + tag, k6 koin 3D + tag, k7 peta piksel + tag, k8 chart editorial) · Bedah lengkap: `../../guide/referensi/ganimate.md` (kode G-T/G-X, komponen Remotion), data ukur `../../guide/referensi/ukuran/17-ganimate-ukuran.md`, laporan periksa `../../guide/referensi/ukuran/17-ganimate-periksa.md`
 > Video sumber: `/home/irfan/work/pustaka-video/mac/_ganimate__DfICqhOvP-0.mp4`
-> Dilihat bergerak: **tidak** (bedah dari frame diam dan pengukuran piksel; bedah geraknya sebelum dipakai). Kedalaman bedah: sedang. Tiap proyek hanya tampil sebagai panel 640×360 (±0,28 % tinggi per piksel) dan potongan ≤ 14 dtk; audio satu campuran untuk keempat panel.
+> Dilihat bergerak: **ya** (diverifikasi lewat strip 2 fps `_ganimate__DfICqhOvP-0.mp4`: morph judul `Graphic -> AI + tools`, dock/UI zoom, perpindahan sumbu tunggal antar bangunan isometrik, koin 3D, peta piksel, dan bar chart editorial berlabel tag). Kedalaman bedah: sedang. Tiap proyek hanya tampil sebagai panel 640×360 (±0,28 % tinggi per piksel) dan potongan ≤ 14 dtk; audio satu campuran untuk keempat panel.
 
 **Inti mekanik (1 kalimat):** Objek nyata (bangunan isometrik, koin, peta, UI asli) masuk satu per satu tepat saat disebut, masing-masing diberi satu label kotak berwarna yang menempel di tepinya, dan kamera hanya bergeser sepanjang satu sumbu supaya daftar yang bertambah terbaca sebagai gerak maju.
 **Narrative trigger:**
