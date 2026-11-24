@@ -147,7 +147,7 @@ Satu sans grotesk sangat tebal, huruf kecil kecuali penekanan ("REALLY", "LESS I
 - *Pengamatan di video asli, bukan target:* 10 label + 3 karakter dalam 3,6 dtk; rotasi + zoom 0,6–2,3 dtk.
 
 ## Audio (bila dibedah)
-- *Pengamatan (bedah):* −14,0 LUFS terintegrasi, LRA 2,3 LU; bed musik kontinu 0–50,7 dtk tanpa jeda di bawah −35 dB, 21,7 dB di bawah VO; tempo librosa ±129 bpm (bisa terbaca dua kali lipat, ±65); earshot: techno/glitch hop (hipotesis) (demucs htdemucs + `sfx_profile.py` + `ears.py`, dicek 24 Nov 2026).
+- *Pengamatan (bedah):* −14,0 LUFS terintegrasi, LRA 2,3 LU; bed musik kontinu 0–50,7 dtk tanpa jeda di bawah −35 dB, 21,7 dB di bawah VO; tanpa grid ketukan yang stabil (earshot pulse clarity 0,05, jadi angka bpm tidak dipakai); earshot: techno/glitch hop (hipotesis); `earshot timeline`: 2 dari 31 cut bertemu puncak whoosh/riser (demucs htdemucs + `sfx_profile.py` + `ears.py`, dicek 24 Nov 2026).
 - SFX lemah: stem musik+SFX berisi 47 transien berkarakter swish, median 19,7 dB di bawah VO; yang menonjol (≥ 12 dB di atas bed) hanya 1,5× peluang kebetulan jatuh di event visual (demucs htdemucs + `sfx_profile.py` + `ears.py`, dicek 24 Nov 2026). Jadi kalau ada swish di wipe, ia sangat pelan; pop label tidak terpisah dari konsonan VO. Penanda item di video ini bersifat visual (pita) dan verbal (kata perintah yang sama), bukan bunyi.
 
 ## Yang harus terasa sama saat disandingkan

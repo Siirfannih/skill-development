@@ -76,7 +76,7 @@ Belum ada kartu visual dari video ini. Yang cocok dari cookbook:
 Mekanik visual terukur dari video sumber (*pengamatan*):
 - Kata kunci → gambar harfiah dalam ≤0,3 dtk: "billion" (4,54 dtk) → gedung korporasi 4,5 dtk; "hold on" (44,0 dtk) → sampul dihapus 43,8–44,2 dtk; popup "unavailable" muncul 55,0 dtk, ±0,3 dtk sebelum kalimat "what if one day".
 - Pergantian pihak = pergantian set: body-wipe 10,6–10,9 dtk tepat di kata pertama lawan (10,6 dtk).
-- Musik di-drop ±1,2 dtk (−16,0 dB → −44,8 dB, diukur 44,45–45,65 dtk), kembali bersama pertanyaan lawan, punchline 2,9 dtk setelah drop dimulai. Ini satu-satunya titik sunyi musik di video; di stem musik demucs levelnya turun dari −21 ke −43 dB RMS (dicek 24 Nov 2026). Transien yang menonjol jatuh ≤ 0,1 dtk dari event visual 2,9× peluang kebetulan, jadi SFX-nya memang dipasang di peristiwa gambar.
+- Musik di-drop ±1,2 dtk (−16,0 dB → −44,8 dB, diukur 44,45–45,65 dtk), kembali bersama pertanyaan lawan, punchline 2,9 dtk setelah drop dimulai. Ini satu-satunya titik sunyi musik di video; di stem musik demucs levelnya turun dari −21 ke −43 dB RMS (dicek 24 Nov 2026). Transien yang menonjol jatuh ≤ 0,1 dtk dari event visual 2,9× peluang kebetulan, tetapi tidak terkunci ke frame cut (`earshot timeline`: aksen kuat dalam 1 frame 10%, peluang 9%): bunyinya dekat peristiwa gambar, tidak dipaku ke potongan.
 - Display type besar hanya untuk 6 kata di 65 dtk (±1 per 10 dtk); kata reveal termasuk di dalamnya. Jeda VO 0,8 dtk sesudah reveal, musik tetap jalan (−27,5 dB).
 - Pertanyaan penutup di atas hard cut berirama ±1,0 dtk (57,6 / 58,5 / 59,5 / 60,5 / 61,4 dtk).
 

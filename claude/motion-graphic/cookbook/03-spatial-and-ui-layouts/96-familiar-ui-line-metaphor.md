@@ -32,7 +32,7 @@ alias: []
 - 4:3 (960×720, 20 fps). Hampir seluruhnya motion graphic rekonstruksi UI di atas latar off-white (YAVG ±219) atau hampir hitam (YAVG ≤35), *pengamatan* luma per frame; satu dunia ketiga berwarna hijau gradien (pencari jarak, 1,6–3,6 dtk).
 - Satu-satunya footage nyata: tangan memegang HP dengan tulisan tangan di layarnya, genggam, goyang alami, 6,1–7,9 dtk, tampil di dalam jendela kamera.
 - Subjek hampir selalu di tengah frame; pengecualian zoom ke kolom chat (15,0 dtk, rata kiri) dan klimaks yang sengaja meluber keluar tepi (10,5 dtk).
-- Tanpa VO dan tanpa SFX terpisah yang terdeteksi; lagu berlirik dari 0,0 dtk, tempo ±117,5 bpm (librosa pada stem instrumental demucs).
+- Tanpa VO dan tanpa SFX terpisah yang terdeteksi; lagu berlirik dari 0,0 dtk, tempo ±117,5 bpm (librosa pada stem instrumental demucs); `earshot timeline`: 48 % cut jatuh di grid ketukan (peluang 19 %).
 
 ## Pengikat (dipakai utuh hanya bila kartu ini dipilih sebagai pengikat video)
 ### Warna & tekstur
