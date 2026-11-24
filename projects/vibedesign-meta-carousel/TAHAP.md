@@ -13,6 +13,7 @@
 - Ronde 1: dunia workspace + trio orisinal; render Blender dihapus.
 - Ronde 2: serif dihapus (kecuali slide 5), urutan baca slide 1–3 diperbaiki, slide 4 diganti jendela chat + kartu slop.
 - Ronde 3: hook startup-first, "Tapi...." lurus + jarak bubble rapat, karakter hanya bila berfungsi.
+- Ronde 9: slide 6 jadi laporan statistik murni (D-035).
 - Ronde 8: slide 6 usage token (D-034).
 - Ronde 7: slide 5 konten mulai y 160 seperti slide 4 (D-033).
 - Ronde 6: finishing slide 3–5 (D-029 s.d. D-032), catatan tulisan tangan di slide 5.

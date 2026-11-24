@@ -21,7 +21,13 @@
 #slide-6 .chip{font:600 24px/1 var(--sans);letter-spacing:-.01em;color:var(--ink);background:#fff;border:1px solid rgba(20,21,24,.08);
   padding:16px 22px;border-radius:999px;box-shadow:0 8px 20px rgba(42,28,14,.08)}
 #slide-6 .chip b{color:var(--blue)}
-#slide-6 .note{left:76px;right:76px;top:1262px;z-index:20;font:500 18px/1.35 var(--mono);color:#8C8A84}
+#slide-6 .note{left:76px;right:76px;top:1248px;z-index:20;font:500 18px/1.35 var(--mono);color:#8C8A84}
+#slide-6 .stats{margin-top:40px;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(20,21,24,.08)}
+#slide-6 .st{display:flex;flex-direction:column;gap:12px;padding:26px 0 24px;border-bottom:1px solid rgba(20,21,24,.08)}
+#slide-6 .st:nth-child(odd){padding-right:24px;border-right:1px solid rgba(20,21,24,.08)}
+#slide-6 .st:nth-child(even){padding-left:32px}
+#slide-6 .st span{font:500 24px/1 var(--sans);color:#6B6A65;letter-spacing:-.01em}
+#slide-6 .st b{font:700 40px/1 var(--sans);color:var(--ink);letter-spacing:-.035em}
 </style>
 <section class="slide bg-dots" id="slide-6">
   <div class="chrome" data-dekor>
@@ -45,21 +51,18 @@
   <h2 class="hl" data-baca="1">Habis berapa token<br><span class="mute">buat 5 slide ini?</span></h2>
 
   <div class="card">
-    <div class="top" data-dekor><span>Claude · usage carousel ini</span><span class="tag">estimasi</span></div>
-    <div class="big" data-baca="2">≈ 62 jt<span>token diproses</span></div>
-    <div class="sub" data-baca="3">Yang benar-benar ditulis AI cuma <b>≈ 170 rb</b>. Sisanya konteks yang dibaca ulang tiap kali aku minta revisi.</div>
-    <div class="rows">
-      <div class="row"><div class="lab">Dibaca ulang tiap revisi<em>≈ 60,7 jt · 73%</em></div><div class="meter" data-dekor><i style="width:73%"></i></div></div>
-      <div class="row"><div class="lab">Disimpan ke konteks<em>≈ 684 rb · 17%</em></div><div class="meter" data-dekor><i class="l" style="width:17%"></i></div></div>
-      <div class="row"><div class="lab">Ditulis Claude (kode + jawaban)<em>≈ 170 rb · 10%</em></div><div class="meter" data-dekor><i class="k" style="width:10%"></i></div></div>
+    <div class="top" data-dekor><span>Laporan uji coba · vibedesign</span><span class="tag">Claude Opus 5.5</span></div>
+    <div class="big" data-baca="2">≈ 17 rb<span>token</span></div>
+    <div class="sub" data-baca="3">Kode desain final 5 slide · <b>≈ Rp6 rb</b></div>
+    <div class="stats">
+      <div class="st"><span>Kode 5 slide</span><b>≈ 11 rb token</b></div>
+      <div class="st"><span>Engine & karakter</span><b>≈ 6 rb token</b></div>
+      <div class="st"><span>Draf pertama</span><b>&lt; 30 menit</b></div>
+      <div class="st"><span>Ronde revisi</span><b>13</b></div>
+      <div class="st"><span>Canva / Figma</span><b>0 / 0</b></div>
+      <div class="st"><span>Output</span><b>2160 × 2700 px</b></div>
     </div>
   </div>
 
-  <div class="meta">
-    <span class="chip">Draf pertama <b>&lt; 30 menit</b></span>
-    <span class="chip"><b>13</b> ronde revisi</span>
-    <span class="chip">0 Canva · 0 Figma</span>
-  </div>
-
-  <div class="note" data-dekor>% = porsi pemakaian efektif. Dihitung dari meteran sesi, tanpa riset, skill-development, dan subagen.</div>
+  <div class="note" data-dekor>Harga API Opus 5.5 · $20 / 1 jt token output · kurs Rp18.255</div>
 </section>

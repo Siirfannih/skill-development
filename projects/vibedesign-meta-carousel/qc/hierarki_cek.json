@@ -183,17 +183,17 @@
           ]
         },
         "2": {
-          "nilai": 1789084,
+          "nilai": 1609705,
           "teks": [
-            "≈ 62 jt",
-            "token diproses"
+            "≈ 17 rb",
+            "token"
           ]
         },
         "3": {
-          "nilai": 308794,
+          "nilai": 146232,
           "teks": [
-            "Yang benar-benar ditulis AI cuma . Sisanya konteks yang diba",
-            "≈ 170 rb"
+            "Kode desain final 5 slide ·",
+            "≈ Rp6 rb"
           ]
         }
       },
@@ -201,11 +201,12 @@
         132,
         84,
         56,
+        40,
         28
       ],
       "gagal": [],
       "peringatan": [
-        "4 level ukuran teks (132, 84, 56, 28 px); disarankan ≤ 3"
+        "5 level ukuran teks (132, 84, 56, 40, 28 px); disarankan ≤ 3"
       ]
     }
   },
