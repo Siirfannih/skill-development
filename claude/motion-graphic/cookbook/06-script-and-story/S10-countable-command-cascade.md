@@ -54,7 +54,7 @@ Yang diulang hanya satu kata di awal tiap butir; semua yang lain berganti. Dafta
 - Kata perintah + frasa sebagai label stiker 1–3 kata yang menumpuk → kartu 02 T1 (`../02-typography-and-captions/02-subject-bracketing-sticker-words.md`), tanpa subjek manusia.
 - Satu butir = satu benda metafora literal → kartu 95 T1 (`../03-spatial-and-ui-layouts/95-cutout-collage-metaphor.md`) atau 88 T2 bila bendanya perlu berubah bentuk mengikuti kalimat kedua (`../03-spatial-and-ui-layouts/88-metaphor-object-scene-chain.md`).
 - Bila ingin nomor terlihat, jangan pakai kartu ini; pola listicle bernomor ada di kartu 61 (`../02-typography-and-captions/61-chest-caption-keyword-backdrop.md`).
-- Bunyi per perubahan → kartu 24 T1 (`../05-sfx-and-audio-mapping/24-visual-event-pop-mapping.md`) sebagai pilihan sendiri; di sumber SFX tidak terbukti ada (whoosh di wipe tidak terukur di atas VO/musik).
+- Bunyi per perubahan → kartu 24 T1 (`../05-sfx-and-audio-mapping/24-visual-event-pop-mapping.md`) sebagai pilihan sendiri; di sumber, transien berkarakter swish ada tapi ±20 dB di bawah VO dan sinkronnya ke wipe lemah (1,5× peluang untuk yang menonjol; demucs + `sfx_profile.py`, dicek 24 Nov 2026), jadi penanda butirnya visual dan verbal, bukan bunyi.
 
 Mekanik visual terukur dari sumber (*pengamatan*):
 - **Penanda butir:** wipe 3–4 pita warna kiri→kanan ±0,3 dtk jatuh 0,1–0,45 dtk sebelum kata perintah, di 11 tempat (10 butir + CTA); warna pita = warna label, jadi penanda telinga (kata yang sama) dan penanda mata (wipe yang sama) selalu datang berpasangan.

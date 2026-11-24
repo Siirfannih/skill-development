@@ -70,7 +70,7 @@ Satu sans grotesk sangat tebal, huruf kecil kecuali penekanan ("REALLY", "LESS I
   - Gerak: satu kelompok `<div>` berisi 4–5 pita (lebar 6–15 % frame, pita terakhir ≥100 % lebar) `translateX` dari −(lebar kelompok) ke +100 % dalam 8 f dengan `CURVE.whip`; potong adegan tepat di frame saat pita lebar menutup penuh. Mulai wipe 0–5 f sebelum onset kata perintah (timestamp kata, bukan interval tetap).
   - Ruang: datar.
   - Blur & blend: blur horizontal saja di pita (SVG `feGaussianBlur stdDeviation="14 0"`), atau `<CameraMotionBlur shutterAngle={200} samples={16}>` pada lapisan pita (`../../references/smooth-motion.md`).
-- **SFX:** famili `air` · tidak terbukti di video asli (energi >3 kHz di celah berisi wipe tidak lebih tinggi daripada celah tanpa wipe); bila dipakai, swish terang pendek satu per wipe di bawah VO, atau biarkan senyap seperti aslinya karena pita sudah menjadi penanda.
+- **SFX:** famili `air` · di video asli paling banyak swish sangat pelan (±20 dB di bawah VO, bukti sinkron lemah); bila dipakai, swish terang pendek satu per wipe di bawah VO, atau biarkan senyap seperti aslinya karena pita sudah menjadi penanda.
 - **Pakai bila:** daftar 5–10 item dengan pembuka berulang, dan palet proyek punya 3–5 warna yang bisa dibagi antara label dan pita. · **Jangan pakai bila:** item kurang dari empat (sapuan terasa berlebihan), atau video berlatar footage yang potongannya harus terasa sebagai perpindahan tempat.
 - **Remix (anti-jiplak):**
   1. Faceless @siirfannih (rekaan) → pertahankan sapuan pita yang menutup potongan + sinkron ke kata pembuka yang sama · ganti arah (bawah→atas di 9:16), jumlah pita, dan warna dari palet proyek.
@@ -147,8 +147,8 @@ Satu sans grotesk sangat tebal, huruf kecil kecuali penekanan ("REALLY", "LESS I
 - *Pengamatan di video asli, bukan target:* 10 label + 3 karakter dalam 3,6 dtk; rotasi + zoom 0,6–2,3 dtk.
 
 ## Audio (bila dibedah)
-- *Pengamatan (bedah):* −14,0 LUFS terintegrasi, LRA 2,3 LU; bed musik kontinu 0–50,7 dtk tanpa jeda di bawah −35 dB, kira-kira 10 dB di bawah VO; tempo ±75/150 BPM dengan keyakinan rendah.
-- SFX tidak terbukti: energi >3 kHz di celah yang berisi wipe tidak lebih tinggi daripada celah tanpa wipe, dan pop label tidak terpisah dari konsonan VO. Penanda item di video ini bersifat visual (pita) dan verbal (kata perintah yang sama), bukan bunyi.
+- *Pengamatan (bedah):* −14,0 LUFS terintegrasi, LRA 2,3 LU; bed musik kontinu 0–50,7 dtk tanpa jeda di bawah −35 dB, 21,7 dB di bawah VO; tempo librosa ±129 bpm (bisa terbaca dua kali lipat, ±65); earshot: techno/glitch hop (hipotesis) (demucs htdemucs + `sfx_profile.py` + `ears.py`, dicek 24 Nov 2026).
+- SFX lemah: stem musik+SFX berisi 47 transien berkarakter swish, median 19,7 dB di bawah VO; yang menonjol (≥ 12 dB di atas bed) hanya 1,5× peluang kebetulan jatuh di event visual (demucs htdemucs + `sfx_profile.py` + `ears.py`, dicek 24 Nov 2026). Jadi kalau ada swish di wipe, ia sangat pelan; pop label tidak terpisah dari konsonan VO. Penanda item di video ini bersifat visual (pita) dan verbal (kata perintah yang sama), bukan bunyi.
 
 ## Yang harus terasa sama saat disandingkan
 - Tanpa membaca label, bisakah orang menebak kata kunci item dari bendanya saja di ≥8 dari 10 item?

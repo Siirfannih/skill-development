@@ -70,7 +70,7 @@ Proporsi diambil dari video 87 dtk; untuk durasi lain pertahankan urutan dan jar
 - Kutipan pihak luar sebagai kartu teks tanpa wajah → kartu 03 T3.
 - Bukti "lihat sendiri" berupa banyak contoh cepat → kartu 03 T4; bila tidak punya karya yang boleh ditampilkan, contoh buatan sendiri dengan `../03-spatial-and-ui-layouts/10-13-floating-photo-satellites.md` T1.
 - Daftar konstanta beranafora → `../02-typography-and-captions/90-caption-anchored-shot-swap.md` T1 atau `../02-typography-and-captions/75-single-word-center-beat.md` T1, dengan gambar literal per butir dari kartu 03 T5.
-- Bila tiap pop diberi bunyi → `../05-sfx-and-audio-mapping/24-visual-event-pop-mapping.md` T1 (sumber sendiri tidak memakai musik dan SFX-nya tidak terkonfirmasi).
+- Bila tiap pop diberi bunyi → `../05-sfx-and-audio-mapping/24-visual-event-pop-mapping.md` T1 (sumber tidak memakai musik maupun SFX: stem non-vokal demucs −55,2 LUFS, 45,6 dB di bawah VO, dicek 24 Nov 2026).
 
 Mekanik visual terukur dari sumber (*pengamatan*):
 - Kata penolakan muncul pada frame yang sama dengan ucapannya, tinggi-x ±10,8 % tinggi frame, elemen teks terbesar di seluruh video.

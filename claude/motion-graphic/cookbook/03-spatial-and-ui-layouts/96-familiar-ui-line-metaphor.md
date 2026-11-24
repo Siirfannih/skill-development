@@ -32,7 +32,7 @@ alias: []
 - 4:3 (960×720, 20 fps). Hampir seluruhnya motion graphic rekonstruksi UI di atas latar off-white (YAVG ±219) atau hampir hitam (YAVG ≤35), *pengamatan* luma per frame; satu dunia ketiga berwarna hijau gradien (pencari jarak, 1,6–3,6 dtk).
 - Satu-satunya footage nyata: tangan memegang HP dengan tulisan tangan di layarnya, genggam, goyang alami, 6,1–7,9 dtk, tampil di dalam jendela kamera.
 - Subjek hampir selalu di tengah frame; pengecualian zoom ke kolom chat (15,0 dtk, rata kiri) dan klimaks yang sengaja meluber keluar tepi (10,5 dtk).
-- Tanpa VO dan tanpa SFX terpisah yang terdeteksi; lagu berlirik dari 0,0 dtk, tempo ±115 BPM (estimasi dari jarak puncak energi ±0,52 dtk).
+- Tanpa VO dan tanpa SFX terpisah yang terdeteksi; lagu berlirik dari 0,0 dtk, tempo ±117,5 bpm (librosa pada stem instrumental demucs).
 
 ## Pengikat (dipakai utuh hanya bila kartu ini dipilih sebagai pengikat video)
 ### Warna & tekstur
@@ -148,8 +148,8 @@ Satu grotesk medium–bold huruf kecil. Dua lapis: kata kunci besar 1–4 token 
 
 ## Audio (bila dibedah)
 - −14,1 LUFS terintegrasi, LRA 1,7 LU (`ebur128`): master lagu komersial yang rata.
-- Lagu berlirik dari 0,0 dtk tanpa intro; puncak energi tiap ±0,52 dtk (±115 BPM, estimasi). Dip energi 2,9–3,5 dan 8,1–8,3 dtk di jeda vokal.
-- Tidak terdeteksi SFX terpisah (estimasi, stem tidak dipisah): semua puncak energi mengikuti ketukan, bukan event visual.
+- Lagu berlirik dari 0,0 dtk tanpa intro; puncak energi tiap ±0,52 dtk (±117,5 bpm di stem instrumental; earshot: house/tech house, hipotesis). Dip energi 2,9–3,5 dan 8,1–8,3 dtk di jeda vokal.
+- Tidak ada SFX yang bisa dipisah dari lagu: transien stem instrumental jatuh di cut 2,3× peluang, tetapi karena cut dipotong di ketukan, transien itu adalah ketukan lagu, bukan bunyi terpisah (demucs htdemucs + `sfx_profile.py` + `ears.py`, dicek 24 Nov 2026).
 - Musik dipotong di glitch 16,2 dtk (−17,8 → −25,5 dB dalam 0,1 dtk), sunyi total 17,06–18,75 dtk.
 - Selisih visual kunci vs onset kata: 1,1 vs 1,02; 4,2 vs 4,28; ±10,4 vs 10,34 dtk (semua ≤0,2 dtk); pengecualian sengaja: koreksi 15,3 dtk setelah kata selesai di 14,84 dtk. Untuk versi ber-VO, pakai instrumental dan biarkan VO memegang peran baris lagu; onset diambil dari timestamp kata VO.
 

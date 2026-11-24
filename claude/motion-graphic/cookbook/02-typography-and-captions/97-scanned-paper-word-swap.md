@@ -128,7 +128,7 @@ Semua contoh Remix di bawah adalah **rekaan** untuk melatih struktur; nama, angk
 - *Pengamatan di video asli, bukan target:* 6 komposisi dalam 6,4 dtk, komposisi paling rapat di video; 14 pergantian di 38,3–44,9 dtk.
 
 ## Audio (bila dibedah)
-- Tanpa musik dan tanpa SFX terdeteksi: jeda VO ±−50 dBFS RMS dengan spectral flatness 0,5–0,7 (noise ruangan); lonjakan di luar batas kata adalah desis "s", bukan SFX (estimasi spektral, tidak didengar).
+- Tanpa musik dan tanpa SFX terdeteksi: jeda VO ±−50 dBFS RMS dengan spectral flatness 0,5–0,7 (noise ruangan); lonjakan di luar batas kata adalah desis "s", bukan SFX. Terbukti di stem: setelah suara dipisah, sisa non-vokal −49,8 LUFS, 47,7 dB di bawah VO (demucs htdemucs + `sfx_profile.py` + `ears.py`, dicek 24 Nov 2026).
 - VO satu suara, −14,2 LUFS terintegrasi, LRA 5,3 LU, 153 WPM (156 di rentang bicara). Tujuh jeda > 0,3 dtk; 6 dari 11 batas beat jatuh di jeda itu, jadi jeda menggantikan transisi visual.
 - Senyap ini bekerja karena tiap frame sudah ramai dan nadanya intim. Untuk faceless motion yang lebih bersih, tanpa suara pendukung bisa terasa kosong; uji dulu sebelum menyalin.
 

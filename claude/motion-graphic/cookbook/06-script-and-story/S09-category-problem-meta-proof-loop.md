@@ -61,6 +61,8 @@ alias: []
 
 **Ritme kepadatan edit (pengamatan).** Di sumber utama jumlah segmen visual baru per 5 dtk turun dari 10 (0–5 dtk) ke 5, 9, 5, 4, 3, lalu 2, 2, 1, 1 di 30–49 dtk; rata-rata ±4,3 per 5 dtk, jadi jendela pertama ±2,3× rata-rata, dan qualifier mendapat shot 5,3 dtk tanpa cut. Awal yang padat menahan scroll; setelah penonton percaya pada hasil, shot panjang memberi bobot pada kalimat penyaring. Sumber pendamping **tidak** menurun (±6 event per 5 dtk dari awal sampai akhir) karena tidak punya qualifier dan VO-nya separuh lebih lambat (121 WPM), sehingga jeda VO yang menjadi ruang visual. Jadi: turunkan kepadatan bila naskahmu punya kalimat syarat atau klaim utama yang perlu didengar; video ≤ 30 dtk yang isinya demo semua boleh rata.
 
+**Bunyi (pengamatan terukur).** Di sumber utama transien stem musik+SFX jatuh ≤ 0,1 dtk dari event visual 2,1–2,3× peluang kebetulan, dengan bed musik hanya 5,4 dB di bawah VO; di sumber pendamping bunyi tidak terikat cut (1,2× peluang) dan bed hampir selevel VO (0,8 dB di bawah). Demucs + `sfx_profile.py`, dicek 24 Nov 2026.
+
 ## Kenapa tidak terasa AI
 - **Hasil dulu, klaim belakangan.** Di 1,5 dtk pertama sumber utama tidak ada klaim yang mengikat; yang menahan scroll adalah empat perubahan visual dan grafik yang dijanjikan sudah tampil. Penonton menilai hasilnya sebelum diminta percaya.
 - **"Aku" saat membuktikan, "kamu" saat menyebut sakit dan imbalan** (6 vs 7 kemunculan di sumber utama). Pembagian ini membuat demo terdengar seperti praktisi yang memperlihatkan mejanya sendiri, bukan presenter.
