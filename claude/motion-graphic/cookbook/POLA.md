@@ -88,6 +88,9 @@ Satu baris per pola (T-blok) dalam kartu, dikelompokkan per kategori pola. Buka 
 | 93.T6 | Silent Grid Cold Open | pembuka sebelum kalimat pertama yang harus langsung menunjukkan "banyak versi dari satu hal". | 05-sfx-and-audio-mapping/93-change-marked-sound-hierarchy.md |
 | 94.T5 | Depth-Blurred UI Dive With Snap Zoom | kata merek/judul diikuti demo UI; "dari kata ke produk" dalam satu pegangan kamera. | 05-sfx-and-audio-mapping/94-vacuum-before-hit-logo-sting.md |
 | 95.T2 | Interactive Prop Overlay | benda metafora dimodifikasi oleh aksi (kursor mengklik subjek, kilau piksel/glint, blok kode menempel). | 03-spatial-and-ui-layouts/95-cutout-collage-metaphor.md |
+| 98.T2 | Palette-Band Item Wipe | awal tiap item daftar yang dibuka kata perintah yang sama; juga pembuka CTA. | 03-spatial-and-ui-layouts/98-grid-paper-sticker-list.md |
+| 98.T5 | Callback Acceleration Burst | item yang berisi ringkasan atau daftar di dalam daftar, di 75–85 % durasi, ketika ritme item yang stabil mulai membuat… | 03-spatial-and-ui-layouts/98-grid-paper-sticker-list.md |
+| 98.T6 | Rotating Collage Hook | kalimat hook berisi angka dan identitas penonton, diucapkan tanpa intro. | 03-spatial-and-ui-layouts/98-grid-paper-sticker-list.md |
 
 ## typography
 
@@ -232,6 +235,13 @@ Satu baris per pola (T-blok) dalam kartu, dikelompokkan per kategori pola. Buka 
 | 92.T4 | Single-Word Replace Run | kalimat cepat dengan potongan 1–2 dtk di tiap cut ("she became everything she ever wanted"). | 02-typography-and-captions/92-negative-space-cumulative-caption.md |
 | 93.T5 | Keyword Resolves on Arrival, Text Follows Frame Shapes | kata kunci yang menyebut hasil/fitur di kalimat daftar. | 05-sfx-and-audio-mapping/93-change-marked-sound-hierarchy.md |
 | 94.T6 | Sparkle Ahead Of Letters, Long Decay Tail | kata/merek penutup dibentuk huruf demi huruf; penutup sting; akhir yang tidak boleh mendadak. | 05-sfx-and-audio-mapping/94-vacuum-before-hit-logo-sting.md |
+| 96.T2 | Typo-to-Correction Micro Loop | kata yang sedang "diketik" di hook, kalimat koreksi diri, atau kata yang maknanya baru jelas setelah dibetulkan. Paling… | 03-spatial-and-ui-layouts/96-familiar-ui-line-metaphor.md |
+| 96.T4 | Giant Single Word on Black | kata terberat di naskah (negasi, angka kunci, vonis), ditaruh setelah bagian paling padat. | 03-spatial-and-ui-layouts/96-familiar-ui-line-metaphor.md |
+| 96.T5 | Symbol-Swap Equation Reframe | kalimat yang membalik makna lewat satu kata atau arah ("aku → kita", "pergi → tinggal", "manual → otomatis"). | 03-spatial-and-ui-layouts/96-familiar-ui-line-metaphor.md |
+| 97.T1 | Word-Locked Still Swap | monolog VO tanpa wajah, tiap kata (bukan tiap frasa) mendapat keadaan gambar sendiri; cocok untuk kalimat pendek 3–8 ka… | 02-typography-and-captions/97-scanned-paper-word-swap.md |
+| 97.T4 | Darkest-Biggest Turn Word | satu titik belok utama naskah ("tapi gimana caranya?"), di 55–70 % durasi, dipakai sekali. | 02-typography-and-captions/97-scanned-paper-word-swap.md |
+| 98.T3 | Tilted Hard-Shadow Label Caption | hampir setiap kata VO yang membawa isi; caption penuh, bukan hanya kata kunci. | 03-spatial-and-ui-layouts/98-grid-paper-sticker-list.md |
+| 98.T4 | Word-As-Its-Own-Visual Break | item yang kata kuncinya bisa ditunjukkan lewat huruf itu sendiri (jumlah, bentuk, font, sedikit/banyak); pakai di 1–2 i… | 03-spatial-and-ui-layouts/98-grid-paper-sticker-list.md |
 
 ## layout
 
@@ -383,6 +393,11 @@ Satu baris per pola (T-blok) dalam kartu, dikelompokkan per kategori pola. Buka 
 | 92.T3 | Inset-to-Full Photo Grow | memperkenalkan satu orang atau momen dengan foto pribadi ("when she was 17"). | 02-typography-and-captions/92-negative-space-cumulative-caption.md |
 | 92.T5 | Blank-Page Quote Highlight | kutipan tertulis dari narasumber yang menjadi bukti ("In a 2025 article…"). | 02-typography-and-captions/92-negative-space-cumulative-caption.md |
 | 95.T1 | Floating Halftone Cutout + Anchor Typography | kalimat membawa satu metafora benda konkret (jam, pel, meja diner, koin, chip). | 03-spatial-and-ui-layouts/95-cutout-collage-metaphor.md |
+| 96.T1 | One Familiar UI per Line | kalimat dengan satu kata kunci konkret yang punya padanan perilaku UI: jarak atau lokasi (pencari yang menghitung mundu… | 03-spatial-and-ui-layouts/96-familiar-ui-line-metaphor.md |
+| 96.T6 | Selection-Handle Bookend | video dengan banyak dunia berbeda yang rawan terasa acak, dan penutup yang perlu terasa selesai. | 03-spatial-and-ui-layouts/96-familiar-ui-line-metaphor.md |
+| 97.T2 | Pre-Composed Page, Weight-Sized Slots | kalimat yang dibangun kata demi kata sampai satu kata kunci mendarat; kalimat jawaban atau reframe di akhir. | 02-typography-and-captions/97-scanned-paper-word-swap.md |
+| 97.T5 | One Medium Per List Item | daftar kemampuan, peran, atau hal yang dikerjakan, tepat sebelum klaim "yang menyatukan semua ini adalah…". | 02-typography-and-captions/97-scanned-paper-word-swap.md |
+| 98.T1 | One-Object-Per-Item Sticker Stage | kalimat item yang kata kuncinya bisa diwakili satu benda konkret; dipakai untuk tiap item daftar, bukan hanya satu. | 03-spatial-and-ui-layouts/98-grid-paper-sticker-list.md |
 
 ## texture
 
@@ -403,6 +418,8 @@ Satu baris per pola (T-blok) dalam kartu, dikelompokkan per kategori pola. Buka 
 | 68.T4 | Blurred Footage In Brand Wrapper | footage stok yang harus menjadi milik brand dan menjadi latar teks. | 02-typography-and-captions/68-design-tool-text-edit-sentences.md |
 | 76.T1 | Meaning-Triggered Desaturation | kata kunci yang maknanya bisa dilihat dari warna ("gray"); klaim yang bertahan lalu dibalik di ajakan. | 04-tactile-textures-and-grading/76-meaning-triggered-desaturation.md |
 | 79.T5 | Emotion Color Card | satu emosi ekstrem yang butuh warna sendiri ("MENJIJIK"). | 02-typography-and-captions/79-keyword-cutaway-card.md |
+| 96.T3 | Light-Dark Polarity Flip | pergantian gagasan, pindah aplikasi, atau penanda bahwa kalimat berikutnya lebih berat. Dipakai sebagai pengganti trans… | 03-spatial-and-ui-layouts/96-familiar-ui-line-metaphor.md |
+| 97.T3 | Hand-Made Meaning Ground | kata emosional abstrak yang membawa perasaan (berantakan, ragu, tumbuh, cinta, frustrasi); frasa yang bisa diganti ikon… | 02-typography-and-captions/97-scanned-paper-word-swap.md |
 
 ## sfx
 
