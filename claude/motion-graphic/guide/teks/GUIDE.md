@@ -13,8 +13,8 @@
 - **1–3 kata per tampil**, frasa diganti utuh di tempat yang sama ("By" → "By People" → "no smarter" → "than you"); kalimat panjang tidak ditumpuk jadi 2 baris subtitle.
 - **Tanpa kotak di belakang narasi.** Bentuk + teks dua baris = lower-third berita, nilai editorialnya hilang. Kotak hanya chip yang menempel dan ikut bergerak dengan objek, atau sorot satu kata hero.
 - **Mode berganti**: kata hero sendirian sangat besar, blok seimbang, frasa pendek, label menempel objek, tumpuk kata (satu kata per baris, muncul per kata); tidak > 2 tampilan berturut dengan mode + posisi sama.
-- **Satu lapisan teks.** Semua ucapan tampil sebagai tipografi kinetik yang posisinya lahir dari komposisi shot; tidak ada baris subtitle terpisah di pita bawah, dan kata penekanan tidak diulang di tempat lain (`LANTAI.md` A1–A3).
-- ≤ 2 baris sekali tampil (boleh 4+ kata); lebih panjang → pecah jadi tampilan berurutan. Setiap kata yang diucapkan tampil (Lantai A1).
+- **Satu lapisan teks.** Di beat bermode TEKS (NEGATIF 6), teks tampil sebagai tipografi kinetik yang posisinya lahir dari komposisi shot; beat VISUAL tanpa teks; tidak ada baris subtitle terpisah di pita bawah, dan kata penekanan tidak diulang di tempat lain (`LANTAI.md` A1–A3).
+- ≤ 2 baris sekali tampil (boleh 4+ kata); lebih panjang → pecah jadi tampilan berurutan.
 - Waktu baca ≥ max(0,8 dtk; 0,30 + 0,06 × huruf); kata tersebar terbaca satu arah; teks/ikon/kartu tidak bertabrakan (Lantai A8).
 - Satu baris satu ukuran; kata yang dibesarkan pindah baris sendiri.
 - Gaya teks dipilih sekali per video (2 font maks: satu display, satu caption) lalu konsisten.
@@ -66,10 +66,10 @@ Cari kelompok yang cocok dengan situasimu, baca butirnya utuh. Kondisinya harus 
   - Karena: perlakuan membawa emosi, dan perlakuan yang salah membuat kata positif terbaca seperti peringatan.
   - Boleh: peran teks yang sudah ada di video dipakai ulang bila maknanya sama.
   - Gerbang: atribut tanpa baris alasan = GAGAL (contoh gagal 12).
-- **[TKS-09] Preview tipografi menampilkan seluruh ucapan di rentangnya** · kelas P · cek: sebelum preview dikirim ke pemilik
+- **[TKS-09] Preview tipografi menampilkan seluruh teks beat TEKS di rentangnya** · kelas P · cek: sebelum preview dikirim ke pemilik
   - Pemicu: mengirim uji tipografi atau preview alur untuk satu rentang dialog.
   - Anti-pola: preview hanya memunculkan kata hero sehingga kata sebelumnya tampak hilang, atau seluruh latar digelapkan supaya teks terbaca padahal footage asli diminta tetap.
-  - Invarian: tampilkan satu pikiran lengkap dengan semua kata yang diucapkan di rentang itu, di atas footage asli, dan laporkan kontras sebenarnya (TKS-03).
+  - Invarian: tampilkan satu pikiran lengkap dengan semua teks yang dijadwalkan di rentang itu (beat TEKS), di atas footage asli, dan laporkan kontras sebenarnya (TKS-03).
   - Karena: pemilik menyetujui apa yang ia lihat, dan preview yang memotong kata membuat persetujuannya tidak berlaku untuk video jadi.
   - Boleh: bukti teknik internal (satu kata, satu efek) yang tidak dikirim sebagai preview alur.
   - Gerbang: `scripts/juri/kt_ocr.py` pada lapisan preview: tiap kata di rentang terbaca; kata yang hilang = GAGAL.

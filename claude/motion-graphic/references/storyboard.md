@@ -44,7 +44,7 @@ Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkun
 
 Satu panel = frame + caption, seperti artboard Wonder.
 
-- **Frame** berukuran format master (16:9 1920×1080, atau orientasi footage). Isinya **visual yang benar-benar terbaca**: UI asli produk/aplikasi, teks layar final, posisi objek dalam px, empat lapisan susunan di jarak berbeda (kedalaman dari skala dan overlap, bukan shadow/blur): `L1` latar (paling jauh), `L2` footage/dunia (pembicara, video, grid), `L3` teks, `L4` objek visual (paling dekat). Kamera bergerak melewati lapisan itu (dolly menembus teks/objek, parallax lapis), jadi gambar tidak tipis satu lapis; tiap beat menulis isi L1–L4 + jalur kamera di tabel storyboard sejak awal. Bukan sketsa kotak. Objek dan teks berada di dalam safe frame (16:9 1080p: x 165–1755, y 140–935; tepi luar = red zone), kecuali keluar karena dolly/zoom kamera; untuk talking head, teks ditaruh di ruang kosong samping kepala.
+- **Frame** berukuran format master (16:9 1920×1080, atau orientasi footage). Isinya **visual yang benar-benar terbaca**: UI asli produk/aplikasi, teks layar final, posisi objek dalam px, empat lapisan susunan di jarak berbeda (kedalaman dari skala dan overlap dulu; bayangan/blur sah sebagai bagian sistem, NEGATIF 2): `L1` latar (paling jauh), `L2` footage/dunia (pembicara, video, grid), `L3` teks, `L4` objek visual (paling dekat). Kamera bergerak melewati lapisan itu (dolly menembus teks/objek, parallax lapis), jadi gambar tidak tipis satu lapis; tiap beat menulis isi L1–L4 + jalur kamera di tabel storyboard sejak awal. Bukan sketsa kotak. Teks berada di dalam safe frame (16:9 1080p: x 165–1755, y 140–935; tepi luar = red zone); objek bleed ikut REF-SPEC §3 (macro terpotong tepi sah), dan keluar frame karena dolly/zoom kamera sah; untuk talking head, teks ditaruh di ruang kosong samping kepala.
 - **Caption**: id beat, babak, waktu, kalimat VO, aksi (apa yang bergerak), kamera, transisi keluar, SFX per event (`peran` + `alasan`), dan musik per babak di judul baris.
 - **Papan**: satu baris per babak, beat dari kiri ke kanan; versi lama pindah ke area arsip, bukan dihapus.
 - Kode G, T, C, X diambil dari `typography.md` dan `camera-transition.md`; jangan menciptakan kode baru di storyboard.
@@ -109,7 +109,7 @@ Kriteria (pertanyaan §4 dipakai di sini, ditambah):
 
 Tabel kritik sutradara per beat tetap diisi:
 
-| Beat | Tokoh ada & beraksi | 1 fokus | Teks ≤ 6 kata | Metafora spasial | Efek punya alasan | Kamera ke subjek | Gerak masuk akal | UI asli | Highlight bermakna | Layout tidak berulang > 2 |
+| Beat | Tokoh ada & beraksi | 1 fokus | Teks sesuai `teks.md` | Metafora spasial | Efek punya alasan | Kamera ke subjek | Gerak masuk akal | UI asli | Highlight bermakna | Layout tidak berulang > 2 |
 |---|---|---|---|---|---|---|---|---|---|---|
 
 Satu "tidak" harus diperbaiki atau diberi alasan tertulis.
@@ -132,7 +132,7 @@ Dibuat setelah storyboard lolos review:
 
 ## 8. Alat dan serah terima
 
-- **Default, semua mesin**: panel HTML + `scripts/storyboard/board.py` (render PNG, `board.html`/`board.png`, `cues.json`, cek otomatis: caption lengkap, peran/alasan SFX dan musik, waktu tanpa celah/tumpang tindih, teks layar satu baris tanpa tanda baca dan di dalam frame, kerangka tersisa, elemen terpotong). Mulai dari salinan `templates/storyboard/`.
+- **Default, semua mesin**: panel HTML + `scripts/storyboard/board.py` (render PNG, `board.html`/`board.png`, `cues.json`, cek otomatis: caption lengkap, peran/alasan SFX dan musik, waktu tanpa celah/tumpang tindih, teks layar ≤ 2 baris dan di dalam frame (tanda baca hanya peringatan; tanda tanya sah), kerangka tersisa, elemen terpotong). Mulai dari salinan `templates/storyboard/`.
 - **Wonder** (Mac Irfan, MCP `mcp__wonder__*`): format panel sama, artboard = frame + caption, babak per baris. Alur: `get_skills(new-design)` → `create_page` → `create_artboard` → `take_screenshot` → `update_elements`. Panel final tetap diekspor ke folder repo.
 - **Simpan di repo**: `projects/<proyek>/storyboard/` berisi `beats.json`, `tokens.css`, `panels/`, `png/`, `board.html`. Lokasi folder ini ditulis di laporan.
 - Kirim `board.png` + daftar keputusan yang menyimpang dari referensi. Storyboard adalah gerbang persetujuan, kecuali jalur tanpa storyboard di §1.

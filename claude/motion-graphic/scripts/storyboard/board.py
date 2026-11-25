@@ -16,13 +16,27 @@ Yang diperiksa (dari umpan balik Irfan di sesi storyboard Wonder 1–7 Nov dan a
   - caption lengkap: vo, aksi, kamera, keluar; setiap sfx dan musik babak punya peran + alasan
   - mode teks (TEKS | VISUAL | MENYATU) + mode_alasan, dan isi_objek (isi nyata tiap objek, bukan placeholder); beat VISUAL tanpa teks layar
   - waktu beat berurutan, tidak tumpang tindih, celah <= 0,5 dtk
-  - teks layar (elemen data-layar): satu baris, tanpa tanda baca, tidak keluar frame
+  - teks layar (elemen data-layar): maks 2 baris (teks.md), tidak keluar frame; tanda baca = peringatan (tanda tanya sah)
   - tidak ada elemen yang terpotong tepi frame kecuali ditandai data-bleed (sengaja keluar frame)
 """
 import argparse, html, json, re, sys
 from pathlib import Path
 
 PUNCT = re.compile(r"[.,!?;:…]")
+MAKS_BARIS_LAYAR = 2   # teks.md: maks 2 baris per tampil
+
+
+def layar_issues(nama, r):
+    """Teks layar (satu hasil PROBE) -> (gagal, catatan). Baris > 2 dan keluar frame gagal; tanda baca hanya peringatan (tanda tanya sah)."""
+    gagal, catat = [], []
+    if r["lines"] > MAKS_BARIS_LAYAR:
+        gagal.append(f"{nama}: teks layar {r['lines']} baris (maks {MAKS_BARIS_LAYAR}): '{r['text'][:40]}'")
+    if r["out"]:
+        gagal.append(f"{nama}: teks layar keluar frame: '{r['text'][:40]}'")
+    if PUNCT.search(r["text"]):
+        catat.append(f"{nama}: tanda baca di teks layar (periksa; tanda tanya sah): '{r['text'][:40]}'")
+    return gagal, catat
+
 CAPTION_KEYS = ("vo", "aksi", "kamera", "keluar")
 
 PROBE = """() => {
@@ -190,12 +204,8 @@ def main():
                     if r["kind"] == "skeleton" and r["n"]:
                         fails.append(f"{f.stem}: kerangka masih ada ({r['n']})")
                     elif r["kind"] == "layar":
-                        if r["lines"] > 1:
-                            fails.append(f"{f.stem}: teks layar {r['lines']} baris: '{r['text'][:40]}'")
-                        if PUNCT.search(r["text"]):
-                            fails.append(f"{f.stem}: tanda baca di teks layar: '{r['text'][:40]}'")
-                        if r["out"]:
-                            fails.append(f"{f.stem}: teks layar keluar frame: '{r['text'][:40]}'")
+                        gagal, catat = layar_issues(f.stem, r)
+                        fails.extend(gagal); notes.extend(catat)
                     elif r["kind"] == "clip":
                         notes.append(f"{f.stem}: {r['label']} terpotong tepi (beri data-bleed bila sengaja)")
                 out = sb / "png" / f"{f.stem}.png"

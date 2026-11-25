@@ -1,4 +1,4 @@
-"""negatif_cek.py (KEBIJAKAN-v2): gerbang merah = placeholder; K1/K2 = laporan inventaris (--gerbang memulihkan); izin qc/izin.json. Cek DOM butuh Playwright (di PC); sisanya statis."""
+"""negatif_cek.py (KEBIJAKAN-v2): gerbang merah = placeholder; K1/K2 = laporan inventaris (--gerbang memulihkan). Cek DOM butuh Playwright (di PC); sisanya statis."""
 import json, subprocess, sys, tempfile, unittest
 from pathlib import Path
 
@@ -42,27 +42,6 @@ class Statis(unittest.TestCase):
 
     def test_jalur_tidak_ada(self):
         self.assertEqual(jalan(self.t / "tidak-ada.html").returncode, 2)
-
-    def izin(self, entri):
-        (self.t / "qc").mkdir(exist_ok=True); (self.t / "qc/izin.json").write_text(json.dumps({"izin": entri}), encoding="utf-8")
-
-    PUTUS = "<div style='width:300px;height:200px;border:2px dashed #999'></div>"
-
-    def test_izin_dengan_kutipan_irfan_membuka(self):
-        f = self.tulis("a.html", self.PUTUS)
-        self.izin([{"aturan": "P", "kutipan": "kotak putus itu sengaja ada", "catatan": "DECISIONS 12"}])
-        r = jalan(f, "--tanpa-dom"); self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("IZIN", r.stdout)
-
-    def test_izin_tanpa_kutipan_ditolak(self):
-        f = self.tulis("a.html", self.PUTUS)
-        self.izin([{"aturan": "P", "alasan": "kata sifat: editorial"}])
-        r = jalan(f, "--tanpa-dom"); self.assertEqual(r.returncode, 1); self.assertIn("IZIN TIDAK SAH", r.stdout)
-
-    def test_izin_hanya_untuk_aturan_yang_disebut(self):
-        f = self.tulis("a.html", "<div style='border:2px dotted #999;width:300px;height:100px'></div><h1 style='text-shadow:0 0 20px #00f'>x</h1>")
-        self.izin([{"aturan": "K2-GLOW", "kutipan": "pakai glow di judul"}])
-        r = jalan(f, "--tanpa-dom"); self.assertEqual(r.returncode, 1); self.assertIn("P-DASHED", r.stdout)
-        r = jalan(f, "--tanpa-dom", "--gerbang"); self.assertEqual(r.returncode, 1); self.assertIn("IZIN", r.stdout)  # K2-GLOW diizinkan, P-DASHED tetap blok
 
 
 @unittest.skipUnless(punya_playwright(), "Playwright tidak ada")

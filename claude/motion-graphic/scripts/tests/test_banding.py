@@ -103,6 +103,18 @@ class Banding(unittest.TestCase):
         (s / "j2.png").write_bytes(self._jarang().read_bytes())  # 2/11 = 18 %
         r = jalan(S / "banding.py", "--seri", s, "--json"); self.assertEqual(r.returncode, 1); self.assertEqual(sorted(json.loads(r.stdout)["jarang"]), ["j.png", "j2.png"])
 
+    @unittest.skipIf(scipy is None, "scipy tidak ada: pola dilewati")
+    def test_seri_pola_fokus_kecil_di_tengah_peringatan_bukan_gagal(self):
+        s = self.d / "seri3"; s.mkdir(); b = self._besar(); j = self._jarang()
+        for i in range(3): (s / f"a{i}.png").write_bytes(j.read_bytes())          # 3 berurutan, 100 % -> peringatan
+        r = jalan(S / "banding.py", "--seri", s, "--json"); d = json.loads(r.stdout)
+        self.assertIn("pola_tengah_pct", d)
+        self.assertEqual(d["pola_tengah_pct"], 100.0); self.assertTrue(d["pola_peringatan"])
+        s2 = self.d / "seri4"; s2.mkdir()
+        for i in range(5): (s2 / f"b{i}.png").write_bytes(b.read_bytes())
+        d2 = json.loads(jalan(S / "banding.py", "--seri", s2, "--json").stdout)
+        self.assertFalse(d2["pola_peringatan"])
+
     def test_seri_f1_dan_masukan_salah(self):
         s = self.d / "seri2"; s.mkdir(); (s / "r.png").write_bytes(self.ragu.read_bytes())
         self.assertEqual(jalan(S / "banding.py", "--seri", s).returncode, 1)

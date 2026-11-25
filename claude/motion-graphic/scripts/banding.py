@@ -16,7 +16,8 @@ Sidik jari:
      hanya dilaporkan.
 Mode tanpa referensi (hanya sidik jari; angka tetap dilaporkan):
   python3 banding.py <frame.png>                F1 + F3
-  python3 banding.py --seri <folder>            ringkasan seluruh storyboard: % frame jarang, sebaran rentang luma dan sat p95
+  python3 banding.py --seri <folder>            ringkasan seluruh storyboard: % frame jarang, sebaran rentang luma dan sat p95,
+                                                % frame berpola "fokus kecil di tengah" (S-V31, peringatan)
   python3 banding.py <baru.png> --sebelum <lama.png> [--target <ref.png>]   selisih versi frame yang sama (revisi)
   F3 frame jarang (PERINGATAN, bukan gagal): luas fokus < 12 % DAN tidak ada pita tepi mirip teks (>= 3 % tinggi frame
      berisi baris dengan tepi >= 4 % lebar). Butuh scipy (tanpa scipy F3 dilewati). Seri: > 10 % frame jarang = keluar 1 (perbaiki:
@@ -93,6 +94,15 @@ def gambar(frame, ref_img, baris, out, judul):
 
 
 F3_FOKUS, F3_BARIS_LEBAR, F3_BAND_TINGGI, SERI_JARANG_MAKS = 12.0, 0.04, 0.03, 10.0
+# Pola komposisi berulang (S-V31): fokus kecil (< 20 % frame) dan pusatnya dekat tengah. Peringatan, bukan gagal.
+POLA_FOKUS_MAKS, POLA_PUSAT_TOL, POLA_PCT_MAKS, POLA_BERURUT = 20.0, 0.12, 25.0, 3
+
+
+def pola_tengah(m):
+    """None bila tak terukur; True = fokus kecil dan centroid dalam +-12 % dari tengah (pola 'satu benda kecil di tengah')."""
+    p = m.get("fokus_pusat")
+    if m["fokus_pct"] is None or p is None: return None
+    return bool(m["fokus_pct"] < POLA_FOKUS_MAKS and abs(p[0] - .5) <= POLA_PUSAT_TOL and abs(p[1] - .5) <= POLA_PUSAT_TOL)
 
 
 def pita_teks(img):
@@ -140,11 +150,18 @@ def mode_seri(a):
     for k in ("luma_range", "sat_p95"):
         v = np.array([b[1][k] for b in baris]); dist[k] = {"min": round(float(v.min()), 2), "p50": round(float(np.median(v)), 2), "max": round(float(v.max()), 2)}
     flag = pct is not None and pct > SERI_JARANG_MAKS
-    out = {"n": n, "jarang_pct": pct, "jarang": jarang, "f1": f1s, "sebaran": dist, "gagal": flag or bool(f1s)}
+    pola = [pola_tengah(b[1]) for b in baris]; ukur_pola = [p for p in pola if p is not None]
+    pola_pct = round(100 * sum(ukur_pola) / len(ukur_pola), 1) if ukur_pola else None
+    run = best = 0
+    for p in pola:
+        run = run + 1 if p else 0; best = max(best, run)
+    pola_warn = bool(pola_pct is not None and (pola_pct > POLA_PCT_MAKS or best >= POLA_BERURUT))
+    out = {"n": n, "jarang_pct": pct, "jarang": jarang, "f1": f1s, "sebaran": dist, "pola_tengah_pct": pola_pct, "pola_tengah_berurutan": best, "pola_peringatan": pola_warn, "gagal": flag or bool(f1s)}
     if a.json: print(json.dumps(out, ensure_ascii=False, indent=1))
     else:
         print(f"{n} frame; frame jarang: " + ("tidak terukur (scipy tidak ada)" if pct is None else f"{len(jarang)} ({pct} %), batas {SERI_JARANG_MAKS:g} %"))
         for k, v in dist.items(): print(f"  {k}: min {v['min']}  p50 {v['p50']}  maks {v['max']}")
+        print("  pola fokus kecil di tengah: " + ("tidak terukur (scipy tidak ada)" if pola_pct is None else f"{pola_pct} % frame, terpanjang {best} berurutan" + (f"  PERINGATAN S-V31: > {POLA_PCT_MAKS:g} % atau >= {POLA_BERURUT} berurutan; variasikan ukuran shot dan posisi, atau mata-saja bila sengaja di REF-SPEC" if pola_warn else "")))
         if jarang: print("  jarang: " + ", ".join(jarang))
         if f1s: print("  F1 gradien ragu-ragu (GAGAL): " + ", ".join(f1s))
         if flag: print(f"GAGAL: > {SERI_JARANG_MAKS:g} % frame jarang. Isi dengan objek asli beat pada ukuran terbaca, atau gabung beat.")

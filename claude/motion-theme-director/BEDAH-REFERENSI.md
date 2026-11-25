@@ -82,27 +82,6 @@ Tiap bidang: **nilai terukur**, **Alasan** (makna yang dibawa; satu kalimat), **
 
 Tanpa referensi: isi REF-SPEC dari profil merek + tema, dengan alasan yang sama.
 
-## Style frame · gerbang 3 frame sebelum storyboard penuh
+## Style frame dan 5 uji biner
 
-Buat **3 style frame** 1920×1080 (atau 1080×1920) dari kode yang sama dengan render, satu per mode fokus, tanpa anotasi, supaya rasa visualnya dinilai murni.
-
-1. **Bangun per lapis**, satu lapis per render, dan lihat di resolusi penuh sebelum lapis berikutnya:
-   - L0 latar: warna dan gradien sesuai REF-SPEC §1; berkomitmen (zona pekat jelas atau polos).
-   - L1 satu objek utama: bentuk benda nyata, menapak, terbaca tanpa teks, lengkap; ukuran shot dan bleed sesuai REF-SPEC §3.
-   - L2 teks: posisi lahir dari komposisi, tidak menimpa objek, satu fokus, kontras ≥ 4,5:1.
-   - L3 label/aksen kecil bila perlu.
-2. **Bandingkan** berdampingan dengan frame referensi sejenis (ukuran sama), plus `../motion-graphic/scripts/banding.py <frame> <ref-frame>`. Selisih di luar toleransi = perbaiki lapis yang bersangkutan.
-3. Jalankan `../motion-graphic/scripts/gate/tabrakan_cek.py <frame.html>` (PASS) dan `permukaan_cek.py` (inventaris: berapa sistem huruf, material, gradien; jawab "satu sistem?").
-4. Storyboard penuh baru ditulis setelah ketiga frame lulus, memakai token dan komponen dari frame itu.
-
-## Penutup wajib · 5 uji biner
-
-Jalankan pada setiap frame sebelum diserahkan. Satu "gagal" = frame dirombak, bukan dipoles.
-
-1. **Uji hapus objek.** Bentuk (bola, garis, lingkaran) dihapus dan pesan tidak berkurang → hapus.
-2. **Uji clip-art.** Visual hanya terjemahan harfiah satu kata ("louder" → gelombang, "value" → timbangan)? Ganti dengan tipografi kinetik atau bukti UI/produk nyata.
-3. **Uji fokus tunggal.** Teks dan objek terpisah di dua area berebut? Leburkan atau pecah jadi dua beat.
-4. **Uji kontinuitas.** Setiap frame menjelaskan dari mana masuk dan ke mana keluar? Hanya "fade in / pop up" = masih slide statis.
-5. **Uji placeholder.** Kotak kosong, garis abu pengganti teks, border putus-putus, balok warna → isi konten nyata atau sederhanakan jadi TYPO_HERO.
-
-Tulis hasilnya per frame (lulus/gagal + perbaikan) di `REF-SPEC.md` atau `STORYBOARD.md`.
+Gerbang 3 style frame (per lapis L0-L3, bandingkan berdampingan, `banding.py`) dan 5 uji biner per frame ditulis satu kali, di `../motion-graphic/references/dunia-visual.md` §7-8. REF-SPEC di atas adalah patokan yang dipakai gerbang itu; hasil ujinya dicatat di `REF-SPEC.md` atau `STORYBOARD.md`.

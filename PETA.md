@@ -48,7 +48,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 
 | File | Isi / kapan dibuka |
 |---|---|
-| `claude/motion-graphic/SKILL.md` | **Motion Graphic (Irfan)** — Kamu sutradara dan editor video Irfan: ia memberi konsep, bahan, dan selera; kamu memberi mutu. |
+| `claude/motion-graphic/SKILL.md` | **Motion Graphic (Irfan)** — Kamu sutradara dan editor video Irfan: ia memberi konsep, bahan, selera; kamu memberi mutu. |
 | `claude/motion-graphic/MOTION-CORE.md` | Arsip referensi; pintu aktif: SKILL.md. |
 | `claude/motion-graphic/MIGRASI-LANTAI.md` | **MIGRASI-LANTAI: ke mana tiap butir Lantai pindah** — LANTAI.md dan MOTION-CORE.md tinggal di disk sebagai arsip referensi; pintu aktif adalah SKILL.md. |
 | `claude/_bersama/NEGATIF.md` | **NEGATIF: batas keras anti-slop (dipakai motion-graphic dan vibedesign)** — Daftar ini kanonik. claude/motion-graphic/SKILL.md memuat salinan yang sama persis di antara penanda di bawah (dicek tools/sync_negatif.py). |
@@ -60,7 +60,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/LANTAI.md` | **LANTAI: mutu yang berlaku di semua video** — Lantai menentukan mutu; kiblat (kartu di cookbook/) menentukan gaya. |
 | `claude/motion-graphic/RETRO.md` | **RETRO · catatan pelajaran per gerbang** — Format dan aturan: lihat MOTION-SYSTEM.md §8. |
 | `claude/motion-graphic/cookbook/INDEX.md` | **Cookbook · INDEX (Router)** — ## 1. Domain Packs |
-| `claude/motion-graphic/cookbook/00-core-invariants.md` | **00 · Core Invariants (Lintas Semua Format)** — 1. Satu lapisan teks ucapan (A1, A3, A5). |
+| `claude/motion-graphic/cookbook/00-core-invariants.md` | **00 · Core Invariants (Lintas Semua Format)** — 1. Teks diputuskan per beat (NEGATIF 6; A1, A3, A5). |
 | `claude/motion-graphic/cookbook/CATALOG.md` | **Cookbook · CATALOG (Daftar Invariant Cards)** — File ini dibaca otomatis oleh scripts/cookbook/pilih_kartu.py. |
 | `claude/motion-graphic/cookbook/README.md` | **Cookbook: perpustakaan mekanik gerak untuk brainstorming dan Remotion** — Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak konsep. |
 
@@ -74,7 +74,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/build.md` | **Build — Remotion, rakit lego, dan engine kode** — Baca saat mulai build. |
 | `claude/motion-graphic/references/camera-transition.md` | **Camera & transition** — Baca saat memilih gerak kamera (C) dan transisi (X) per potongan. |
 | `claude/motion-graphic/references/copywriting.md` | **Copywriting — script VO dan teks layar** — Baca di tahap Naskah dan setiap kali menulis teks yang tampil di layar. |
-| `claude/motion-graphic/references/decision-guide.md` | **Panduan keputusan: teks, visual, kotak, warna (logika, bukan contoh)** — Dibaca di gerbang storyboard (4) dan QA (9). |
+| `claude/motion-graphic/references/decision-guide.md` | **Panduan keputusan: teks, visual, kotak, warna (logika, bukan contoh)** — Dibaca saat menulis tabel storyboard (langkah 5 SKILL.md) dan saat QA sebelum deliver (langkah 8). |
 | `claude/motion-graphic/references/decision.md` | **Decision — memilih, memutuskan, dan kapan bertanya** — Baca saat harus memilih di antara beberapa pilihan (family, gaya teks, teknik, transisi), saat dua aturan terasa bertabrakan, atau saat ragu apakah perlu bertanya ke Irfan. |
 | `claude/motion-graphic/references/delivery-gate.md` | **Delivery Gate (wajib sebelum video ditunjukkan ke Irfan)** — Laporan PASS/FAIL ini dikirim bersama video. |
 | `claude/motion-graphic/references/delivery-spec.md` | **Spesifikasi pengiriman (profil V1)** — Satu master MP4 untuk semua platform. |
@@ -213,7 +213,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/lego/kt_check.py` | Gerbang tipografi kinetik (Lantai A9a). |
 | `claude/motion-graphic/scripts/lego/lapisan.py` | Render lapisan lego satu per satu dengan cache. Hanya lapisan yang berubah yang dirender ulang. |
 | `claude/motion-graphic/scripts/lego/persepsi.py` | Lapisan persepsi untuk Remotion: footage -> matte orang (RVM, stabil antar frame) + posisi wajah per frame (MediaPipe). |
-| `claude/motion-graphic/scripts/lego/teks_plan.py` | Kerangka teks.json dari transkrip: isi teks KT/subtitle sudah pasti = ucapan, jadi yang dihitung mesin hanya WAKTU dan DURASI tiap blok. Peran, kode gerak (T..), gaya (G..), posisi, dan alasan diputus |
+| `claude/motion-graphic/scripts/lego/teks_plan.py` | Kerangka teks.json dari transkrip: isi teks = ucapan hanya di beat bermode TEKS (jalankan dengan `--beats beats.json`); yang dihitung mesin hanya WAKTU dan DURASI tiap blok. Peran, kode gerak (T..), g |
 | `claude/motion-graphic/scripts/remotion/FlashGrid.tsx` | FlashGrid.tsx — pembungkus kompatibilitas ke komponen kanonik ae-primitives/transisi/GridFlashReveal.tsx. |
 | `claude/motion-graphic/scripts/remotion/Kursor.tsx` | Kursor.tsx — blok lego: kursor yang bergerak seperti tangan manusia (cookbook/04-ui-cutout-dataviz-visuals/M18-ui-staged-cursor-and-component-morph.md). |
 | `claude/motion-graphic/scripts/remotion/LightSweep.tsx` | LightSweep.tsx — gaya G8 "kilat cahaya" (typography.md §7.5). |
