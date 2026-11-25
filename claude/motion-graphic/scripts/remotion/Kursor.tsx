@@ -1,4 +1,4 @@
-// Kursor.tsx — blok lego: kursor yang bergerak seperti tangan manusia (cookbook/04-ui-cutout-dataviz-visuals/M18-interactive-ui-cursor-and-search.md).
+// Kursor.tsx — blok lego: kursor yang bergerak seperti tangan manusia (cookbook/04-ui-cutout-dataviz-visuals/M18-ui-staged-cursor-and-component-morph.md).
 // Kursor diperlakukan sebagai KARAKTER: berjalan melengkung, sedikit lewat lalu kembali saat tiba, menekan saat klik,
 // dan boleh ragu (diam dengan goyang kecil) bila adegan butuh kesan lelah/bingung. Waktu tiba diambil dari storyboard/
 // audio proyek, bukan dari blok ini. Warna dan ukuran ikut pengikat proyek (kiblat), bukan default di sini.
