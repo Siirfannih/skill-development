@@ -66,3 +66,40 @@ Memisahkan subjek dari latarnya (rotoscope/matte). Dipakai karena fungsi, bukan 
 ## Kamera mengikuti makna
 - Kamera dekat dan mengikuti saat satu objek bergerak; dipatahkan ke wide saat penekanan atau pergantian makna.
 - Gerak besar hanya di pergantian makna; di dalam satu makna, drift saja.
+
+## Timing helper (`scripts/remotion/timing.ts`)
+Fungsi murni terhadap `frame` (tanpa state/Math.random/Date), aman render paralel. Impor berdampingan dengan `curves.ts`.
+Uji: `npx tsx claude/motion-graphic/scripts/tests/test_timing.ts`.
+
+**Block out: satu `T = timeline()` di level modul.** Semua waktu ditulis relatif di sini, bukan angka frame tersebar.
+Revisi satu durasi menggeser turunannya otomatis. Hasil dalam frame; jangan panggil di dalam komponen per frame.
+- Posisi: kosong = akhir timeline · angka = absolut · `"<"` akhir anak sebelumnya · `"<<"` awal anak sebelumnya · `"label"` · `"+=N"`/`"-=N"` · gabungan `"<+=4"`, `"hero-=6"`.
+- Label tidak dikenal atau ganda melempar error (bukan diam-diam salah).
+```ts
+const T = timeline(); T.add("hero", 18); T.add("sub", 14, "<+=4"); T.add("cta", 20, "sub-=6");
+const heroIn = move(frame, T.at("hero"), 18, "land"); // T.total = durasi adegan
+```
+
+**Animate: tiga fungsi.**
+- `stagger(i, n, {from, grid, axis, ease, gap, jitter, seed, start})` -> jeda frame elemen ke-i. `from`: first|last|center|random|indeks. `grid: [kolom, baris]` dari props, `axis: "x"|"y"` untuk per kolom/baris. `ease` di-apply pada sebaran 0..1 (mis. `CURVE.reveal`). `jitter` berbiji (`seed`), tumbuh menurut progres.
+  Pengganti `i * konstanta` yang ditolak `motion_lint.py` (stagger rata): `stagger` lolos karena sebaran dari titik asal + ease, bukan kelipatan tetap.
+```ts
+const d = stagger(i, 12, { from: "center", grid: [4, 3], gap: 3, ease: CURVE.reveal, jitter: 1, seed: 7 });
+const p = move(frame, T.at("grid") + d, 16, "land");
+```
+- `dampTrack(keys, frame, fps, response, zeta)` -> nilai pegas yang mengejar kunci `{at, v}` (urut). Posisi dan kecepatan terbawa antar kunci, jadi ganti target tidak henti-mulai. `response` = periode (detik), `zeta` 1 kritis, <1 memantul, >1 lambat. Untuk kamera ikut-objek, parallax, counter. Biaya O(jumlah kunci) per panggilan.
+```ts
+const x = dampTrack([{ at: 0, v: 0 }, { at: 40, v: 300 }, { at: 90, v: 120 }], frame, fps, 0.5, 0.85);
+```
+- `vanWijk([x0, y0, w0], [x1, y1, w1], t, rho?)` -> `[x, y, w]` (port d3 `interpolateZoom`). `w` = lebar viewport = 1/skala. Lompatan jauh: zoom-out dulu lalu masuk, laju persepsi konstan. `t` 0..1 diberi easing/pegas dari luar.
+```ts
+const [cx, cy, w] = vanWijk(a, b, move(frame, T.at("jump"), 40, "heavy")); const scale = W / w;
+```
+
+**Batasan**
+- `vanWijk`: bila kamera memakai `coverBox` yang menjepit skala >= 1, busur zoom-out terpotong dan lintasan jadi pan biasa. Manfaat penuh hanya di kamera dunia 2D tanpa jepit cover. `rho` besar = busur lebih kuat.
+- `dampTrack`: kunci harus urut menaik; `frame` sebelum kunci pertama = nilai kunci pertama.
+- `stagger`: hasil dibulatkan ke frame; `jitter` bisa membuat urutan dua elemen bertetangga bertukar bila `jitter` > `gap`/2.
+- `timeline` hanya menghitung posisi; tidak merender apa pun dan tidak membaca VO (waktu VO tetap masuk sebagai angka/`beats.json`).
+- Belum divalidasi di render nyata; hanya diuji numerik.
+
