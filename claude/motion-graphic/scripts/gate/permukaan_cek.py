@@ -1,30 +1,28 @@
 #!/usr/bin/env python3
-"""Gerbang permukaan: K1 (sans saja) dan K2 (permukaan datar) diperiksa mekanis di KODE frame, bukan dari mata.
+"""Inventaris permukaan: berapa SISTEM huruf, bayangan, gradien, kaca/blur, dan 3D yang dipakai di kode frame (KEBIJAKAN-v2).
 
-  python3 permukaan_cek.py <path...> [--json]
+  python3 permukaan_cek.py <path...> [--json] [--gerbang]
 
-Dasar: KEBIJAKAN K1 (sans saja) dan K2 (permukaan datar), diperiksa di kode. K1 melarang serif, italic, script di teks layar. K2
-melarang glass, blur dekoratif, gradien radial/conic/multi-warna, teks bergradien, inset, glow, bayangan berlapis/besar, kemiringan 3D,
-three.js. Penegak LANTAI A7 (huruf sans saja) dan C14a (permukaan datar); dijalankan sebelum frame diserahkan (K3).
+Dasar: KEBIJAKAN-v2 (26 Nov 2026): teknik bukan larangan; yang dinilai adalah SISTEM. Referensi (REF-SPEC) memberi teknik alasan; satu
+sistem konsisten sah, "sup" beberapa sistem berlainan (sidik jari slop 2.3 dan 2.4) dicurigai. Maka bawaan alat ini adalah LAPORAN
+inventaris per jalur (proyek): jumlah sistem berbeda per kategori, jumlah pemakaian, dan contoh file:baris. Selalu keluar 0
+(kecuali jalur tidak ada = 1). Pertanyaan yang dijawab: "satu sistem atau banyak?" lalu cocokkan dengan REF-SPEC.
 
-Memindai rekursif .html .htm .css .tsx .ts .jsx .js .mjs .py .svg (lewati node_modules, dist, build, out, .git, .bundle (hasil bundel), public/fonts,
-dan berkas > 1,5 MB). Komentar tidak dipindai. Tanda (ERROR memblokir, exit 1; WARN hanya dicatat):
-  K1-SERIF     font serif (Instrument Serif, Playfair, Didot, Bodoni, Georgia, Times, Fraunces, Lora, Merriweather, DM Serif,
-               Cormorant, Garamond, Baskerville, Noto/PT/Source Serif, Crimson, Newsreader, Editorial New, Libre Caslon),
-               `serif` generik yang bukan bagian `sans-serif`, variabel --serif yang dipakai sebagai font
-  K1-ITALIC    font-style: italic/oblique, fontStyle 'italic', "italic" di shorthand font, tag <i> dan <em> yang berisi teks (<i></i> kosong = elemen dekorasi, tidak dihitung)
-  K2-GLASS     backdrop-filter / backdropFilter, fungsi glass(
-  K2-BLUR      blur(Npx) literal N >= 4 (juga feGaussianBlur stdDeviation >= 4) = ERROR; blur dinamis (interpolasi/var) = WARN
-               (motion blur sah hanya saat gerak cepat; pastikan nilainya 0 saat diam)
-  K2-GRADIENT  radial/conic/repeating-*; linear-gradient dengan >= 3 titik warna; teks bergradien (background-clip:text)
-  K2-INSET     box-shadow berisi inset
-  K2-SHADOW    box-shadow/drop-shadow/text-shadow dengan >= 2 lapis, atau radius blur > 24px
-  K2-GLOW      text-shadow/drop-shadow/box-shadow berjarak 0 0 dengan blur (halo); box-shadow hanya bila blur >= 6px
-  K2-3D        perspective, rotateX/rotateY (bukan 0), rotate3d, translateZ (bukan 0), preserve-3d, matrix3d, impor three / @react-three
-  K2-BLEND     (WARN) mix-blend-mode selain normal, feTurbulence, grain
-Pengecualian: baris (atau baris di atasnya) memuat `permukaan-ok: <alasan >= 3 kata>` dilewati dan didaftar di "pengecualian".
-Alasan kurang dari 3 kata tidak berlaku (WARN K0-ALASAN). Hanya instruksi user yang menyebut serif/italic yang boleh membuka K1.
-Keluar: 0 bersih (WARN tidak memblokir) · 1 ada ERROR atau jalur tidak ada.
+Kategori inventaris:
+  HURUF     keluarga huruf (font-family / fontFamily) dan klasifikasinya (serif/sans), gaya miring (italic/oblique, <i>, <em>)
+  BAYANGAN  definisi box-shadow / text-shadow / drop-shadow, dikelompokkan per nilai identik
+  GRADIEN   definisi linear/radial/conic/repeating-gradient dikelompokkan per nilai identik, teks bergradien (background-clip:text)
+  KACA/BLUR backdrop-filter, glass(), blur(...)
+  3D        perspective, rotateX/Y, rotate3d, translateZ, preserve-3d, matrix3d, impor three/@react-three
+Memindai rekursif .html .htm .css .tsx .ts .jsx .js .mjs .py .svg (lewati node_modules, dist, build, out, .git, .bundle, public/fonts,
+dan berkas > 1,5 MB). Komentar tidak dipindai.
+
+--gerbang  memulihkan perilaku lama (K1 sans saja, K2 permukaan datar; penegak LANTAI A7/C14a versi 26 Nov): temuan per baris dengan
+tanda berikut, ERROR memblokir (exit 1), WARN hanya dicatat. Pakai bila proyek memang meminta larangan itu.
+  K1-SERIF  K1-ITALIC  K2-GLASS  K2-BLUR (blur literal >= 4px; dinamis = WARN)  K2-GRADIENT (radial/conic/repeating, linear >= 3 titik,
+  teks bergradien)  K2-INSET  K2-SHADOW (>= 2 lapis atau blur > 24px)  K2-GLOW (0 0 + blur)  K2-3D  K2-BLEND (WARN)
+Pengecualian (hanya di --gerbang): baris (atau baris di atasnya) memuat `permukaan-ok: <alasan >= 3 kata>`; alasan lebih pendek = WARN K0-ALASAN.
+Keluar: 0 (bawaan selalu; --gerbang: 0 bersih, 1 ada ERROR) · 1 jalur tidak ada.
 """
 import argparse, bisect, json, os, re, sys
 from collections import Counter
@@ -275,17 +273,111 @@ def run(paths):
     return res, exs, nfiles, skipped
 
 
+FAM_DECL = [re.compile(r"font-?family['\"]?\s*[:=]\s*([^;}\n]+)", re.I), re.compile(r"(?<![\w-])font\s*:\s*[^;}\n]*?\d(?:px|rem|em|pt|%)?(?:/[\d.]+\w*)?\s+([^;}\n]+)", re.I)]
+GENERIC = {"sans-serif", "serif", "monospace", "system-ui", "ui-sans-serif", "ui-serif", "ui-monospace", "cursive", "fantasy", "inherit", "initial",
+           "-apple-system", "blinkmacsystemfont", "ui-rounded", "emoji", "math", "fangsong"}
+KATEGORI = ("HURUF", "BAYANGAN", "GRADIEN", "KACA/BLUR", "3D")
+
+
+def kelas_huruf(nama):
+    if STRICT_RE.search(nama) or LOOSE_RE.search(nama): return "serif"
+    return "sans/lain"
+
+
+def inventaris_teks(raw, ext):
+    """-> daftar (line, kategori, subjenis, kunci, snippet) dari satu berkas."""
+    t = mask(raw, ext); raw_lines = raw.split("\n"); lines = t.split("\n")
+    starts = [0]
+    for m in re.finditer("\n", t): starts.append(m.end())
+    ln = lambda off: bisect.bisect_right(starts, off)
+    out = []
+    def add(n, kat, sub, kunci): out.append((n, kat, sub, re.sub(r"\s+", " ", kunci).strip()[:90], snip(raw_lines[n - 1], 0)))
+    for i, l in enumerate(lines):
+        n = i + 1
+        for r in FAM_DECL:
+            for m in r.finditer(l):
+                fams = [f.strip().strip("'\"`") for f in split_top(re.sub(r"!important", "", m.group(1)))]
+                fams = [f for f in fams if f and f.lower() not in GENERIC and not f.startswith(("var(", "${"))]
+                if fams: add(n, "HURUF", "keluarga:" + kelas_huruf(fams[0]), fams[0])
+                elif re.search(r"(?<!sans)(?<!sans-)serif", m.group(1)) and not re.search(r"sans-serif", m.group(1)): add(n, "HURUF", "keluarga:serif", "serif (generik)")
+        for r in ITALIC:
+            if r.search(l): add(n, "HURUF", "gaya", "italic/oblique"); break
+        if ext in (".html", ".htm", ".tsx", ".jsx") and TAG_IE.search(l): add(n, "HURUF", "gaya", "tag <i>/<em> berisi teks")
+        if BGCLIP.search(l): add(n, "GRADIEN", "teks-bergradien", "background-clip:text")
+        m = BACKDROP.search(l) or GLASSFN.search(l)
+        if m: add(n, "KACA/BLUR", "kaca", m.group(0))
+        m = PERSP.search(l) or ROT.search(l) or IMPORT3D.search(l)
+        if m: add(n, "3D", "3d", m.group(0))
+    for m in BLUR.finditer(t):
+        if "backdrop" in t[max(0, m.start() - 20):m.start()].lower(): continue
+        add(ln(m.start()), "KACA/BLUR", "blur", "blur(" + balanced(t, m.end()).strip() + ")")
+    for m in STDDEV.finditer(t): add(ln(m.start()), "KACA/BLUR", "blur", "feGaussianBlur " + m.group(1))
+    for r in (RADIAL, LINEAR):
+        for m in r.finditer(t):
+            nm = m.group(0).rstrip("( ").strip()
+            add(ln(m.start()), "GRADIEN", nm, nm + "(" + balanced(t, m.end()).strip() + ")")
+    for m in SHADOWPROP.finditer(t):
+        camel = not re.match(r"(?:box|text)-", m.group(0), re.I)
+        v = shadow_value(t, m.end(), camel).strip()
+        if v and not v.lower().startswith("none") and v != "0": add(ln(m.start()), "BAYANGAN", m.group(1).lower() + "-shadow", v)
+    for m in DROP.finditer(t): add(ln(m.start()), "BAYANGAN", "drop-shadow", balanced(t, m.end()).strip())
+    return out
+
+
+def inventaris(path):
+    """Inventaris satu jalur -> dict kategori -> {subjenis, distinct, total, kelompok:[{kunci, jumlah, contoh}]}."""
+    hasil = {k: {} for k in KATEGORI}; nfiles = 0
+    for f in walk([path]):
+        ext = os.path.splitext(f)[1].lower()
+        try:
+            if os.path.getsize(f) > MAX_BYTES: continue
+            raw = open(f, encoding="utf-8", errors="replace").read()
+        except OSError: continue
+        nfiles += 1
+        for n, kat, sub, kunci, sn in inventaris_teks(raw, ext):
+            g = hasil[kat].setdefault((sub, kunci), {"sub": sub, "kunci": kunci, "jumlah": 0, "contoh": []})
+            g["jumlah"] += 1
+            if len(g["contoh"]) < 2: g["contoh"].append(f"{f}:{n}")
+    out = {}
+    for kat, gs in hasil.items():
+        kel = sorted(gs.values(), key=lambda g: (-g["jumlah"], g["kunci"]))
+        subs = {}
+        for g in kel: subs[g["sub"]] = subs.get(g["sub"], 0) + 1
+        out[kat] = {"distinct": len(kel), "total": sum(g["jumlah"] for g in kel), "per_subjenis": subs, "kelompok": kel}
+    return {"berkas": nfiles, "kategori": out}
+
+
+def cetak_inventaris(path, inv, maks=6):
+    print(f"== inventaris {path}  ({inv['berkas']} berkas) ==")
+    for kat in KATEGORI:
+        d = inv["kategori"][kat]
+        sub = ", ".join(f"{k}={v}" for k, v in sorted(d["per_subjenis"].items()))
+        print(f"{kat}: {d['distinct']} sistem berbeda, {d['total']} pemakaian" + (f"  [{sub}]" if sub else ""))
+        for g in d["kelompok"][:maks]:
+            print(f"    {g['jumlah']:>3}x  {g['kunci']}   <- {', '.join(g['contoh'])}")
+        if len(d["kelompok"]) > maks: print(f"    ... +{len(d['kelompok']) - maks} lagi (pakai --json)")
+    print()
+
+
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="Gerbang permukaan K1/K2")
+    ap = argparse.ArgumentParser(description="Inventaris permukaan (KEBIJAKAN-v2); --gerbang = gerbang K1/K2 lama")
     ap.add_argument("paths", nargs="+"); ap.add_argument("--json", action="store_true")
+    ap.add_argument("--gerbang", action="store_true", help="pulihkan perilaku lama: ERROR K1/K2 memblokir (exit 1)")
     a = ap.parse_args(argv)
     miss = [p for p in a.paths if not os.path.exists(p)]
     if miss: print("jalur tidak ada: " + ", ".join(miss), file=sys.stderr); return 1
+    invs = {p: inventaris(p) for p in a.paths}
     res, exs, nfiles, skipped = run(a.paths)
     nerr = sum(1 for r in res if r["level"] == "ERROR"); nwarn = len(res) - nerr
     ring = Counter(r["rule"] for r in res)
     if a.json:
-        print(json.dumps({"berkas": nfiles, "error": nerr, "warn": nwarn, "ringkasan": dict(ring), "temuan": res, "pengecualian": exs, "dilewati": skipped}, ensure_ascii=False, indent=1))
+        d = {"mode": "gerbang" if a.gerbang else "inventaris", "berkas": nfiles, "inventaris": invs, "dilewati": skipped}
+        if a.gerbang: d.update({"error": nerr, "warn": nwarn, "ringkasan": dict(ring), "temuan": res, "pengecualian": exs})
+        print(json.dumps(d, ensure_ascii=False, indent=1))
+    elif not a.gerbang:
+        for p, inv in invs.items(): cetak_inventaris(p, inv)
+        for s in skipped: print(f"dilewati (besar/tak terbaca): {s}")
+        print("inventaris saja (KEBIJAKAN-v2): jawab 'satu sistem?' lalu cocokkan dengan REF-SPEC; tidak memblokir. --gerbang = perilaku lama.")
     else:
         for r in res: print(f"{r['file']}:{r['line']}  {r['level'] if r['level']=='WARN' else 'ERR '}  {r['rule']:<12} {r['snippet']}")
         if exs:
@@ -295,7 +387,7 @@ def main(argv=None):
         print(f"\nringkasan: {nfiles} berkas, {nerr} error, {nwarn} warn, {len(exs)} pengecualian")
         for k, v in sorted(ring.items()): print(f"  {k:<12} {v}")
         print("GAGAL permukaan (K1/K2): ubah ke sans datar atau beri `permukaan-ok: <alasan>` bila user meminta." if nerr else "LULUS permukaan")
-    return 1 if nerr else 0
+    return 1 if (a.gerbang and nerr) else 0
 
 
 if __name__ == "__main__":

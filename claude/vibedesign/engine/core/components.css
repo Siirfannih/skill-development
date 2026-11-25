@@ -70,13 +70,13 @@
 
 /* ---------- macOS dock ---------- */
 .dock{z-index:30;display:flex;align-items:flex-end;gap:18px;padding:16px 22px;border-radius:30px;background:#F4F4F2;
-  border:1px solid rgba(20,21,24,.10);box-shadow:var(--shadow-2)}  /* panel solid datar, tanpa backdrop-filter (K2) */
+  border:1px solid rgba(20,21,24,.10);box-shadow:var(--shadow-2)}  /* panel solid; satu sistem material per set (NEGATIF 2): tanpa backdrop-filter kecuali REF-SPEC menyatakannya */
 .dock .app{position:relative;width:104px;height:104px;border-radius:24px;display:grid;place-items:center;background:#fff;box-shadow:0 6px 14px rgba(0,0,0,.10)}
 .dock .app::after{content:"";position:absolute;bottom:-10px;left:50%;width:6px;height:6px;margin-left:-3px;border-radius:50%;background:var(--ink);opacity:.6}
 
 /* ---------- tipografi bersama ---------- */
 .display{font:800 96px/1.02 var(--sans);letter-spacing:-.05em}
-.it{font-family:var(--sans);font-style:normal;font-weight:800;letter-spacing:-.02em} /* penekanan = bobot dalam keluarga sans yang sama; serif/italic dilarang (K1) */
+.it{font-family:var(--sans);font-style:normal;font-weight:800;letter-spacing:-.02em} /* penekanan default = bobot dalam keluarga yang sama; huruf kedua hanya sebagai sistem beralasan (NEGATIF 1) */
 .mono{font-family:var(--mono)}
 .mute{color:var(--mute)}
 

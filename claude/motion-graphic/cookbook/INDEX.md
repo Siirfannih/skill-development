@@ -1,6 +1,6 @@
 # Cookbook · INDEX (Router)
 
-> **Kartu = bedah referensi.** Serif/italic, glass, glow, gradien, 3D di kartu atau keyframe = kulit, dilarang (LANTAI A7, C14a). Salin mekanik saja.
+> **Kartu = bedah referensi.** Teknik di kartu dipakai bila alasannya berlaku di proyek ini dan lolos makna, sistem, takaran (NEGATIF v2); salin alasan dan sistemnya, bukan bentuk.
 
 > **Protokol:** Muat `00-core-invariants.md`, lalu cari kartu per beat dengan `pilih_kartu.py` (`CATALOG.md`) dan buka hanya 2–4 kartu untuk seluruh video. Pack utuh tidak dimuat; tabel §2 hanya memberi filter `--pack`. Detail bedahan penuh di `_vault/` dibuka hanya setelah tabel racikan disetujui.
 

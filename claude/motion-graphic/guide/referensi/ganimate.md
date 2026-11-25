@@ -1,6 +1,6 @@
 # 17 _ganimate_ · "Editorial Explainer System": guideline editing
 
-> **Banner (kebijakan 26 Nov 2026):** dokumen ini menggambarkan *kulit* referensi. Serif/italic, glow, bloom, dan gradien di dalamnya adalah permukaan yang dilarang (LANTAI A7/C14a; K1/K2). Ambil mekaniknya saja (timing, urutan, skala, hierarki) dan bangun dengan sans, permukaan datar, dan bayangan kontak tajam. Potongan kode glow di bawah = contoh kulit referensi, bukan untuk disalin.
+> **Banner (NEGATIF v2, 26 Nov 2026):** dokumen ini menggambarkan referensi pilihan Irfan beserta alasannya. Huruf kedua, glow, bloom, dan gradien di dalamnya tidak dilarang karena namanya: pakai bila alasannya (makna yang dibawa) berlaku di proyek ini dan menjadi satu sistem (satu keluarga hue, satu arah cahaya, satu peran huruf). Bedah dulu jadi REF-SPEC (`../../../motion-theme-director/BEDAH-REFERENSI.md`); tanpa alasan, ambil mekaniknya (timing, urutan, skala, hierarki). Potongan kode glow di bawah = contoh dari referensi; salin hanya bila lolos makna, sistem, takaran.
 
 > Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di `sheets/`, scene detect ffmpeg, ebur128, spektrogram + onset librosa). Standar kualitas Irfan; kartu anatominya di `../../cookbook/` (cari lewat `../../cookbook/INDEX.md`). Bila bertentangan dengan `../../LANTAI.md`, lantai menang; bagian "Benturan" berisi usulan yang belum disetujui.
 > Sumber: `_ganimate__DfICqhOvP-0.mp4` · 1280×720 (16:9) · 23,98 fps · 14,4 dtk · **showreel 2×2**: empat proyek motion explainer diputar bersamaan, panel bergantian isi.

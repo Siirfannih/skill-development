@@ -7,13 +7,13 @@
 - Huruf rounded/fun untuk satu kata ekspresif boleh bila slide itu memang bernada lucu, dan ditulis perannya.
 
 ## Cara memutuskan
-- **[TIP-01] Serif, italic, dan script dilarang (sans saja)** · kelas H (K1) · cek: RESEP
-  - Pemicu: kamu ingin "mempercantik" satu kata dengan serif/italic, atau kiblat/merek memakainya.
-  - Anti-pola: kata serif tipis jomplang dengan sans tebal; "satu kata emosional serif" adalah tanda slop yang berulang lintas model.
-  - Invarian: tidak ada serif, italic, atau script di teks slide; penekanan lewat bobot, ukuran, warna, kapital, atau posisi dalam keluarga sans yang sama. Kiblat/kartu/profil merek yang memakai serif adalah kulit, bukan mekanik.
+- **[TIP-01] Satu sistem huruf; huruf kedua hanya dengan peran dan frekuensi** · kelas H (NEGATIF 1) · cek: RESEP
+  - Pemicu: kamu ingin "mempercantik" satu kata dengan huruf lain (serif/italic/script), atau kiblat/merek memakainya.
+  - Anti-pola: satu kata "emosional" berganti huruf di banyak frasa tanpa peran yang sama; serif tipis jomplang dengan sans tebal tanpa sistem. Itu tanda slop yang berulang lintas model.
+  - Invarian: satu keluarga utama; penekanan default lewat bobot, ukuran, warna, kapital, atau posisi. Huruf kedua (serif, italic, script, tulisan tangan) sah bila ia sistem: satu peran tetap di seluruh set slide, ≤ 1 kemunculan per slide, sumbernya merek atau REF-SPEC (`huruf_kedua: {keluarga, peran, frekuensi}`).
   - Karena: campuran tanpa peran membaca sebagai template, dan mata berhenti di kata yang salah.
-  - Boleh: hanya bila user menyebut serif/italic secara eksplisit di sesi itu (catat di DECISIONS).
-  - Gerbang: tunjukkan slide + baris "Peran huruf" di RESEP.
+  - Boleh: kapan saja huruf kedua punya peran dan frekuensi yang tertulis (alasan dari referensi pilihan user atau merek).
+  - Gerbang: tunjukkan slide + baris "Peran huruf" (peran + frekuensi) di RESEP.
 - **[TIP-02] Kata kunci ditekan dengan wadah, bukan ganti gaya huruf** · kelas P · cek: sketsa
   - Pemicu: satu kata dalam kalimat harus menonjol.
   - Anti-pola: kata kunci diganti font lain sehingga kalimat pecah jadi dua suara.

@@ -96,7 +96,7 @@ Jalankan `scripts/audio_qa.py --module5` (ambang di `audio.md` §14.10). Satu FA
 - [ ] Satu fokus per frame; tidak ada teks kiri + UI kanan; teks tidak menutupi wajah/subjek.
 - [ ] **Tidak ada teks yang tumpang tindih dengan teks lain atau objek**; tidak ada teks terpotong tepi atau keluar area aman (kecuali bleed XL yang disengaja).
 - [ ] Elemen yang diperbesar keluar frame dengan wajar, tidak terpotong kontainer.
-- [ ] Kotak/scrim hanya di teks yang gagal kontras atau yang ditetapkan brief; tanpa glow/halo/bloom (K2); tidak ada glitch pengacak huruf.
+- [ ] Kotak/scrim hanya di teks yang gagal kontras atau yang ditetapkan brief; tanpa halo di belakang teks yang menurunkan kontras; tidak ada glitch pengacak huruf.
 - [ ] Tabel beat lolos devil's advocate `decision-guide.md` §7; `scripts/palette_check.py` lolos.
 - [ ] Teks datar dan tajam; kedalaman dari lapisan dan kamera di momen yang tepat; tanpa ekstrusi/bevel kecuali diminta user (K2).
 - [ ] Layout sama maksimal 2 beat berturut; tidak ada fade sebagai pengganti gerak.

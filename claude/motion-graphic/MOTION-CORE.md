@@ -60,7 +60,7 @@ Kode dalam kurung = butir `LANTAI.md` (bunyi lengkap).
 | 2 | **Teks tidak menutup wajah, tidak keluar zona aman, dan dekat subjeknya** (≤ ±8 % tinggi frame) (A2, C16). | tanda `WAJAH`, `TEPI`, `JAUH` nol |
 | 3 | **Terbaca di HP.** Kontras ≥ 4,5 : 1, kata sambung ≥ 56 px @1080, 1–3 kata per tampil, maks 2 baris, tidak di atas logo atau area ramai (A4, A7, A9). | still 360 px; `scripts/lego/kt_check.py` |
 | 4 | **Teks hanya dari ucapan; satu kata tidak tampil dua kali** sekaligus (A3, A5). | KT dibandingkan tabel kata VO |
-| 5 | **Satu fokus, permukaan datar, sans**; bangun-lihat per lapis (A7, C14a, F26a). | `permukaan_cek.py`, `tabrakan_cek.py` |
+| 5 | **Satu fokus, satu dunia material/huruf (NEGATIF v2)**; bangun-lihat per lapis (F26a). | `permukaan_cek.py`, `tabrakan_cek.py` |
 | 6 | **Tidak ada pergantian malas.** Nol crossfade; ≥ 4 tipe transisi per 30 dtk tanpa tipe sama berturut-turut (`SceneChain`); gerak memakai `scripts/remotion/curves.ts`; hold > 1 dtk tetap hidup (B13, B13a). | `scripts/juri/motion_lint.py` PASS |
 | 7 | **Tidak ada layar kosong atau placeholder.** Frame 0 berisi visual dan bunyi; setelah potong, isi tampil ≤ 0,3 dtk (D22, D22c). | tanda `JEDA` nol; frame tahan tiap detik |
 | 8 | **Suara utuh.** Tidak dipercepat, fonem tidak digunting, level suara asli tidak diturunkan (E23). | `gate/cut_check.py`, `gate/voice_level.py` PASS |

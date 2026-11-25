@@ -25,7 +25,7 @@ Dunia visual dalam satu paragraf: dari mana bentuk dan teksturnya berasal, dan k
 Peran tiap warna. Aksen dipakai untuk apa, dan apa yang tidak boleh memakai aksen.
 
 ## Typography
-Peran tiap keluarga huruf (maks 2), skala yang dipakai (rasio terhadap fokus), kapan serif boleh muncul.
+Peran tiap keluarga huruf (maks 2), skala yang dipakai (rasio terhadap fokus), kapan huruf kedua (serif/script/tulisan tangan) muncul: peran dan frekuensinya.
 
 ## Layout
 Margin, zona aman, aturan elemen sekunder di tepi.

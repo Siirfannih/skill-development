@@ -10,9 +10,9 @@ Cocok: opini, cerita eksperimen, berita, hook provokatif, konten 45–90 dtk. Ti
 | Kanvas | 1080×1920, fps = sumber |
 | Ritme | jeda 0,22 dtk antar kalimat, 0,14 dtk di dalam kalimat; layar berubah tiap 2–4 dtk; presenter sendirian ≤ 6 dtk kecuali hook/CTA |
 | Palet | merah `#ED3B22`, putih, hitam `#161216` untuk UI; B-roll hitam-putih (kontras +42, hitam `#0E0C0E` → putih kertas `#EDE6DE`), warna hanya ±1 dari 3 shot dan bila bermakna |
-| Font | Anton (kata kunci, KAPITAL, 130–270 px) · aksen = bobot/ukuran/warna dalam keluarga sans yang sama (serif dilarang, K1, Lantai A7) · sub (Helvetica Neue Medium / Inter Medium) untuk subtitle 80–100 px |
+| Font | Anton (kata kunci, KAPITAL, 130–270 px) · aksen = bobot/ukuran/warna dalam keluarga sans yang sama (huruf kedua hanya sebagai sistem beralasan, NEGATIF 1) · sub (Helvetica Neue Medium / Inter Medium) untuk subtitle 80–100 px |
 | Teks | "centre stack": label → KATA BESAR → subtitle, x 540, y 700–1360, tidak di seperlima bawah, tidak menutupi wajah |
-| Look | halftone 24 %; tanpa vignette dan tanpa grain di atas gradien (K2) |
+| Look | halftone 24 %; tanpa vignette dan tanpa grain di atas gradien kecuali ada di REF-SPEC |
 
 ## 2. Menu adegan
 ID adegan = `kind` insert di EDL (`edl-schema.md` §3), dipilih dari peran kalimat (`edit-planning.md` §2):

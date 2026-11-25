@@ -25,7 +25,7 @@ Masukkan hanya keputusan berstatus LULUS atau LULUS DENGAN REVISI di `scratch/F6
 - Tick KT: ikut LANTAI E24 (mode dipilih per proyek di RESEP/EDITING: `per-word` untuk explainer/UI, `accent-only` untuk dokumenter/talking head/editorial tenang). File tema boleh merekomendasikan mode, tidak boleh melarang mode lain. Bentrok ini dicatat untuk Irfan.
 - Vakum pra-klimaks hanya berlaku untuk stem musik; bed ambien tetap ada (tidak ada hening digital).
 - Blur sebagai makna (kabur→jelas, fokus berpindah) boleh; blur sebagai cara masuk bawaan tidak.
-- Glow boleh hanya bila terikat ke kata/peristiwa/objek bermakna (contoh `88-k6` halo dial, `83-k7` neon); glow ambient biru-ungu tetap dilarang.
+- Glow boleh hanya bila terikat ke kata/peristiwa/objek bermakna (contoh `88-k6` halo dial, `83-k7` neon); glow ambient biru-ungu tanpa objek bermakna = sidik jari slop (NEGATIF 10).
 - Demo UI ber-VO: teks ucapan pindah ke pita terpisah di atas UI (tidak menumpuk di UI); bila aksi UI butuh 100 % perhatian, KT boleh jeda ≤ 2 dtk dan dicatat sebagai pengecualian di RESEP.
 
 ## Struktur file `draf-skill/tema/<tema>.md` (target 1.500–2.500 token ≈ 6.000–10.000 karakter)

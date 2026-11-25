@@ -37,7 +37,7 @@ Tentukan dulu jenis kalimat VO-nya, baru modenya.
 ## 2. Ukuran dan hierarki teks
 - **Satu baris = satu ukuran.** Kata yang dibesarkan pindah ke barisnya sendiri (ditumpuk), maksimal satu kata kunci per frasa, dan harus kata yang membawa makna inti. Alasan: besar-kecil-besar dalam satu baris tanpa alasan membuat baris tidak seimbang.
 - Lompatan skala antar level (sambung kecil → kunci besar) terjadi **antar baris atau antar momen**, tidak di dalam baris.
-- **Sans saja (K1).** Serif, italic, dan script dilarang di teks layar, termasuk satu kata penekanan atau penutup. Penekanan lewat bobot, ukuran, warna, atau kapital dalam satu keluarga sans. Alasan: dua gaya yang sama kuat membuat mata bingung mana yang utama, dan serif aksen adalah tanda slop yang berulang.
+- **Satu sistem huruf (NEGATIF 1).** Satu keluarga utama; penekanan lewat bobot, ukuran, warna, atau kapital. Huruf kedua (serif, script, tulisan tangan) sah bila ia sistem: punya peran tetap (mis. suara logo, kata penutup), frekuensi terbatas (≤ 1 per frame), dan datang dari merek atau REF-SPEC. Alasan: yang jadi tanda slop adalah satu kata "emosional" yang berganti huruf di banyak frasa tanpa peran; dua gaya yang sama kuat tanpa peran membuat mata bingung mana yang utama.
 
 ## 3. Posisi teks
 - Posisi lahir dari komposisi frame itu: ruang kosong, di belakang subjek (matte), atau menempel objek yang dirujuk.
@@ -51,14 +51,14 @@ Kotak di belakang teks adalah **alat keterbacaan**, bukan dekorasi.
 3. Bila masih gagal (latar terlalu terang/gelap/ramai, atau berganti cut di bawah teks): baru pakai kotak atau scrim.
 4. Kotak sebagai **gaya** (label, chip) hanya bila ditetapkan di brief sebagai elemen sistem dan dipakai konsisten sepanjang video.
 
-Glow, halo, dan bloom dilarang (K2), HD atau tidak. Yang boleh hanya bayangan kontak satu lapis yang tajam (blur ≤ 24 px, opasitas ≤ 0,2) agar benda terlihat menapak.
+Halo atau glow di belakang teks yang menurunkan kontras (< 4,5 : 1) adalah sidik jari slop, HD atau tidak. Bayangan dan kilau pada benda sah bila satu sistem (satu arah cahaya, satu jenis per benda sejenis) dan ada di REF-SPEC atau beralasan tertulis.
 
 ## 5. Grafik di atas footage
 Pilih satu dari dua, jangan di tengah-tengah:
 - **Menyatu dengan footage:** warna dari footage atau palet, saturasi tidak melebihi footage, ada bayangan/cahaya dan grain yang sama, ukuran proporsional dengan subjek.
 - **Dunia sendiri:** layar penuh atau panel tegas dengan latar palet. Footage boleh hilang sesaat.
 
-Dilarang: grafik vivid mengambang di atas footage yang di-blur dan digelapkan. Itu yang terasa "tempelan".
+Gagal: grafik vivid mengambang di atas footage yang di-blur dan digelapkan. Itu yang terasa "tempelan".
 Satu keluarga gaya grafik per video: flat, 3D, line, atau foto. Jangan dicampur.
 
 ## 6. Warna

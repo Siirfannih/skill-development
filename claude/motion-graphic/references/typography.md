@@ -21,11 +21,11 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 | Display/Kunci | Kata kunci, slam | Inter Black 900 (atau Neue Haas Grotesk Display 95 di Adobe Fonts) | 200–320 px |
 | Headline | Kata utama | Inter ExtraBold 800 / NHG 65 | 110–170 px |
 | Sambung/Body | Pengantar, penjelas | Inter Medium 500 / NHG 45 | 56–80 px |
-| Aksen | Satu kata emosional | Bobot paling kontras, KAPITAL, skala 1,5–2× headline di barisnya sendiri, atau warna aksen; semuanya dalam keluarga sans yang sama. Serif/italic dilarang (K1) | — |
+| Aksen | Satu kata emosional | Bobot paling kontras, KAPITAL, skala 1,5–2× headline di barisnya sendiri, atau warna aksen; semuanya dalam keluarga sans yang sama. Huruf kedua hanya sebagai sistem (lihat di bawah) | — |
 | Data | Angka, kode | Silkscreen (dunia pixel) / JetBrains Mono (UI) | 60–140 px |
 | Label | Kategori, callout | JetBrains Mono / Inter SemiBold | 36–48 px |
 
-**Serif dan italic dilarang di teks layar (K1, Lantai A7)**, termasuk sebagai penekanan atau kata penutup; hanya instruksi eksplisit user di sesi itu yang bisa membukanya. Penekanan = bobot/ukuran/warna/kapital dalam satu keluarga sans. Konten Jadisatu: Outfit (display) + Inter (teks). Verifikasi PostScript name sebelum build.
+**Satu sistem huruf (NEGATIF 1).** Karya di dalam dunia video (iklan, poster, halaman produk di layar UI) memakai huruf dan gaya aslinya: itu isi, bukan sistem huruf video. Penekanan default = bobot/ukuran/warna/kapital dalam satu keluarga. Huruf kedua (serif, script, tulisan tangan) sah bila ia sistem: peran tetap dan sama sepanjang video (mis. suara logo, kata penutup), ≤ 1 kemunculan per frame, sumbernya merek atau REF-SPEC (`huruf_kedua: {keluarga, peran, frekuensi}`). Pola slop: satu kata emosional berganti huruf di banyak frasa tanpa peran. Pergantian di tengah satu kata tetap gagal. Konten Jadisatu: Outfit (display) + Inter (teks). Verifikasi PostScript name sebelum build.
 
 ### 7.2 Skala & hierarki
 - Level (relatif tinggi H): XS 1,5–2,5 %, S 3–5 %, M 7–10 %, L 14–20 %, XL 35–80 % (boleh bleed).
@@ -42,9 +42,9 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
   - teks dasar putih hangat `#FAF8EC` di gelap, navy `#0F172A` di terang
   - **satu kata aksen per frase** (coral `#F97066` di gelap / biru `#2563EB` di terang)
   - warna data biru
-- **Dilarang:**
+- **Gagal (cek di setiap frame):**
   - kotak, stabilo, atau scrim yang tidak menyelesaikan masalah keterbacaan (`decision-guide.md` §4)
-  - glow/halo/bloom dalam bentuk apa pun (K2); satu bayangan kontak tajam boleh
+  - halo/glow di belakang teks yang menurunkan kontras; bayangan teks hanya bila bagian dari sistem material (satu arah cahaya)
   - glitch pengacak huruf
   - teks bertumpuk/menabrak teks atau objek
   - pergantian font di tengah satu kata/adegan
@@ -63,9 +63,9 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 - Caption nyala/mati per beat mengikuti `decision-guide.md` §1; bila nyala, ≤ 2 baris (Lantai A1). Kata muncul +1…+4 f setelah onset kata VO.
 
 ### 7.4 Kebijakan teks 3D
-- Default: **teks datar**. Kata, huruf, dan baris adalah bidang solid yang tajam; kedalaman datang dari susunan (skala, overlap, parallax lapis) dan gerak kamera, bukan dari bevel, material, atau perspektif miring pada teks (K2).
+- Default: **teks datar**. Kata, huruf, dan baris adalah bidang solid yang tajam; kedalaman datang dari susunan (skala, overlap, parallax lapis) dan gerak kamera, dan teks bervolume baru sah bila lolos makna, sistem, takaran (lihat bawah).
   - Di AE: kamera AE bergerak melewati lapisan teks; tanpa animator teks 3D per karakter kecuali user memintanya.
-- Teks **bervolume (extruded/bevel/emboss)** dilarang (K2), kecuali user memintanya eksplisit di sesi itu. Bila diminta: maksimal 1–2 kata hero per video, divalidasi berdampingan dengan frame referensi di TYPE-TEST.
+- Teks **bervolume (extruded/bevel/emboss)** sah bila ada di REF-SPEC atau user memintanya, dengan alasan tertulis. Takarannya: maksimal 1–2 kata hero per video, satu arah cahaya yang sama dengan objek lain, divalidasi berdampingan dengan frame referensi di TYPE-TEST.
 - Teks yang "tidur di lantai lalu diangkat" bukan 3D yang dimaksud.
 
 ### 7.5 Gaya teks (TYPE-TEST)
@@ -78,7 +78,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 | G5 | Berperspektif | Layer 3D menempel bidang ruang (rotasi X 55–70° sesuai bidang); blur hanya dari gerak/DoF kamera |
 | G6 | Dalam adegan | Di antara latar dan objek depan (satu ruang) |
 | G7 | Label/pil | Inter SemiBold XS–S, pil rounded; tidak pernah jadi fokus kedua sejajar headline |
-| G8 | Kilat cahaya (acuan siirfannih_DfRh4w0SfAk "Golden rule", "Excitement") | **Dilarang (K2)**: teks bergradien, pita cahaya, dan glow adalah kulit referensi; hanya bila user memintanya eksplisit di sesi itu (catat di DECISIONS). Mekanik yang boleh diambil: satu kata hero diberi penekanan sekali (warna aksen solid + gerak `land`), maksimal 1 per 10 dtk. `scripts/remotion/LightSweep.tsx` tidak dipakai secara default. **Bukan** footage/tekstur di dalam huruf |
+| G8 | Kilat cahaya (acuan siirfannih_DfRh4w0SfAk "Golden rule", "Excitement") | Teks bergradien, pita cahaya, dan glow sah bila ada di REF-SPEC dengan alasannya (mis. kata emosi naik) dan satu keluarga hue; tanpa REF-SPEC, default tanpa efek. Versi default: satu kata hero diberi penekanan sekali (warna aksen solid + gerak `land`), maksimal 1 per 10 dtk. `scripts/remotion/LightSweep.tsx` tidak dipakai secara default. **Bukan** footage/tekstur di dalam huruf |
 
 ---
 

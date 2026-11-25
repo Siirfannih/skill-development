@@ -1,6 +1,6 @@
 # Katalog slop (tanda yang pernah Irfan tolak)
 
-Dipakai untuk **memindai**, bukan melarang teknik. Satu tanda dengan alasan tertulis boleh; beberapa tanda muncul bersamaan tanpa alasan = video terasa "AI". Kolom *Lantai* menunjuk butir di `LANTAI.md`. Pindai storyboard (tahap Storyboard/block out) dan render (preview + QA, tahap Mix → Deliver). Tanda baru dari revisi Irfan ditambah satu baris di sini.
+Dipakai untuk **memindai**, bukan melarang teknik: sidik jari ditulis sebagai rupa dan ukuran (KEBIJAKAN v2), dan berlaku bila REF-SPEC tidak menyatakan sebaliknya. Satu tanda dengan alasan tertulis boleh; beberapa tanda muncul bersamaan tanpa alasan = video terasa "AI". Kolom *Lantai* menunjuk butir di `LANTAI.md`. Pindai storyboard (tahap Storyboard/block out) dan render (preview + QA, tahap Mix → Deliver). Tanda baru dari revisi Irfan ditambah satu baris di sini.
 
 ## Audio
 
@@ -36,7 +36,7 @@ Dipakai untuk **memindai**, bukan melarang teknik. Satu tanda dengan alasan tert
 | S-T6 | Headline di pojok kiri atas; label kecil + dua kata miring bertangga | still | Lantai D19c, Lantai C14 |
 | S-T7 | Tiga gaya masuk yang sama diulang (fade, pop, melebar) | teknik sama ≤ 2× berturut | `three-segment-gate.md` |
 | S-T8 | Kalimat/angka di layar yang tidak diucapkan | bandingkan dengan transkrip | Lantai A5 |
-| S-T14 | Satu kata "emosional" dalam serif/italic di tengah sans (raw *clip*, the *difference*, *craft*, *quality*), atau kata penutup serif. Muncul identik lintas model dan sesi (audit 26 Nov) | `gate/permukaan_cek.py` K1; still per frasa | Lantai A7 |
+| S-T14 | Huruf kedua tanpa sistem: satu kata "emosional" berganti huruf di tengah baris (raw *clip*, the *difference*, *craft*) di banyak frasa dengan peran berbeda-beda. Muncul identik lintas model dan sesi (audit 26 Nov). Sah bila REF-SPEC/merek memberinya satu peran tetap dan dipakai konsisten | inventaris `gate/permukaan_cek.py`; still per frasa | Lantai A7 |
 
 ## Visual dan gerak
 
@@ -62,10 +62,11 @@ Dipakai untuk **memindai**, bukan melarang teknik. Satu tanda dengan alasan tert
 | S-V18 | Vignette/lingkaran gelap di atas latar putih/terang | still adegan terang: tepi tidak lebih gelap dari tengah | palette.md |
 | S-V19 | Kombinasi coklat + hitam sebagai palet dasar terasa murah | `palette_check.py`, still | palette.md |
 | S-V20 | Screenshot UI ditempel sebagai gambar diam, bukan UI kode yang dianimasikan | daftar aset: tidak ada PNG UI di adegan | Lantai D20 |
-| S-V21 | Latar radial gradient / blob blur berwarna, atau gradient biru di banyak adegan | grep `radial-gradient` di kode; hitung adegan bergradient | palette.md, Lantai F28b |
+| S-V21 | Gradien ragu-ragu: noda radial/blob blur berwarna tanpa zona pekat tegas, atau gradient biru disebar ke adegan yang tidak berganti babak | `banding.py` (luma/saturasi); hitung adegan bergradient | palette.md, Lantai F28b |
 | S-V22 | Palet dikarang dari referensi padahal brand/`palettes.json` sudah ada | brief menyebut palet dari `palettes.json` + bukti `palette_check.py` | palette.md §1 |
 | S-V23 | Objek/teks di red zone tepi frame (luar x 165–1755, y 140–935 @1080p) tanpa alasan kamera | still per beat dengan overlay safe frame | storyboard.md §3 |
 | S-V24 | Visual hanya simbol/kata besar, bukan aksi harfiah kalimat (contoh benar: "kecanduan" = terus membuat repo baru tanpa release; "tidak mempublikasikan" = ketik di Threads lalu simpan ke draft) | tabel beat: kalimat → aksi yang terlihat | Lantai D19 |
-| S-V25 | Permukaan "Apple premium" versi model: kartu kaca/bezel, inset highlight, bayangan lembut berlapis, glow/halo, gradien radial/aurora, kemiringan 3D, teks bergradien | `gate/permukaan_cek.py` K2; still 100 % | Lantai C14a |
+| S-V25 | Sup material "Apple premium" versi model: lebih dari satu sistem bayangan/arah cahaya/kilau dalam satu video; kaca/blur di semua kartu tanpa alasan; halo di belakang teks (kontras < 4,5 : 1); gradien hampir satu nada (rentang luma < ±35, saturasi p95 < 0,15). Material yang konsisten dan ada di REF-SPEC sah | `scripts/banding.py` vs REF-SPEC; inventaris `gate/permukaan_cek.py`; still 100 % | Lantai C14a |
 | S-V26 | Objek dan teks bertabrakan atau saling menimpa karena frame ditulis sekaligus tanpa dilihat per lapis | `gate/tabrakan_cek.py`; LOG lapis per frame | Lantai C15, F26a |
 | S-V27 | Objek placeholder: kotak kosong, garis abu pengganti teks, border putus-putus, balok warna sebagai "kartu" | uji biner 5 (`BEDAH-REFERENSI.md`); still 100 % | Lantai D22 |
+| S-V28 | Semua frame medium shot di tengah dengan skala seragam dan UI kecil (presentasi slide) padahal referensi bervariasi ukuran shot (macro terpotong tepi, close-up produk). Berlaku bila REF-SPEC §3 menyatakan distribusi lain | `banding.py` (luas fokus) vs REF-SPEC; daftar jenis shot per panel | NEGATIF 5, 10 |

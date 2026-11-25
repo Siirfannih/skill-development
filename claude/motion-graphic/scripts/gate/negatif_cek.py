@@ -1,25 +1,28 @@
 #!/usr/bin/env python3
-"""Satu pintu cek NEGATIF (claude/_bersama/NEGATIF.md): permukaan + huruf (K1/K2) dan placeholder.
+"""Satu pintu cek NEGATIF (KEBIJAKAN-v2: negatif = simpangan dari REF-SPEC + sidik jari slop, bukan larangan teknik).
 
-  python3 negatif_cek.py <frame.html | folder kode> [...] [--izin qc/izin.json] [--size 1920x1080] [--json] [--tanpa-dom]
+  python3 negatif_cek.py <frame.html | folder kode> [...] [--izin qc/izin.json] [--size 1920x1080] [--json] [--tanpa-dom] [--gerbang]
 
-Yang dijalankan, berurutan:
-  1. permukaan_cek.py: K1 (serif/italic/script) dan K2 (kaca, blur, gradien, glow, bayangan berlapis, 3D) di kode.
-  2. Placeholder (NEGATIF 4), statis: border putus-putus atau titik-titik (P-DASHED) di .html .htm .css .tsx .jsx .ts .js.
-  3. Placeholder (NEGATIF 4), dari DOM yang dirender (hanya .html/.htm; butuh Playwright, mis. ~/work/mg-venv/bin/python di PC;
+GERBANG MERAH (memblokir) hanya untuk yang mutlak:
+  1. Placeholder (sidik jari 2.6), statis: border putus-putus atau titik-titik (P-DASHED) di .html .htm .css .tsx .jsx .ts .js.
+  2. Placeholder, dari DOM yang dirender (hanya .html/.htm; butuh Playwright, mis. ~/work/mg-venv/bin/python di PC;
      tanpa Playwright dilewati dengan catatan, atau matikan dengan --tanpa-dom):
        P-KOSONG   kotak kosong: elemen tanpa teks, tanpa anak, tanpa img/svg/canvas/video, ber-border terlihat atau berisi abu netral,
                   ukuran >= 48x32 px dan bukan latar penuh layar. Isi warna jenuh tanpa border = bentuk datar yang sah, tidak ditandai.
        P-BAR-ABU  garis abu pengganti teks: >= 2 elemen kosong bersaudara, tinggi <= 24 px, lebar >= 3x tinggi, warna abu netral.
      Elemen (atau leluhurnya) ber-`data-sengaja="tumpuk"` tidak dihitung; `data-lapis="latar"` dilewati.
+  (Tabrakan teks/objek dijaga gate/tabrakan_cek.py, alat terpisah yang tetap gerbang; alat ini tidak memanggilnya.)
 
-Izin (hukum keras terbuka hanya oleh kalimat eksplisit Irfan di sesi itu): `qc/izin.json`, dicari dari tiap jalur ke atas (maks 6 tingkat)
-atau lewat --izin:
-  {"izin": [{"aturan": "K1-SERIF", "kutipan": "pakai serif untuk kata terakhir", "catatan": "DECISIONS #12"}]}
-`aturan` = ID temuan atau awalannya ("K1", "K2-GLOW", "P"); `kutipan` = kata-kata Irfan, minimal 3 kata. Izin tanpa kutipan sah ditolak (exit 1).
-Temuan yang diizinkan dicatat sebagai IZIN dan tidak memblokir. Kata sifat, profil merek, tema, kartu, dan referensi tidak membuka apa pun.
+LAPORAN (tidak memblokir): bagian inventaris dari permukaan_cek.py: sistem huruf, bayangan, gradien, kaca/blur, 3D per jalur
+(sistem, bukan larangan; cocokkan dengan REF-SPEC). Temuan per baris K1/K2 hanya dicetak sebagai INFO. `--gerbang` memulihkan
+perilaku lama (ERROR K1/K2 ikut memblokir).
 
-Keluar: 0 bersih (WARN tidak memblokir) · 1 ada ERROR atau izin tidak sah · 2 jalur tidak ada.
+Izin (hanya relevan bagi aturan yang memblokir): `qc/izin.json`, dicari dari tiap jalur ke atas (maks 6 tingkat) atau lewat --izin:
+  {"izin": [{"aturan": "P-KOSONG", "kutipan": "kotak kosong itu sengaja ada", "catatan": "DECISIONS #12"}]}
+`aturan` = ID temuan atau awalannya ("P", "P-KOSONG", dan "K1"/"K2-GLOW" bila --gerbang); `kutipan` = kata-kata Irfan, minimal 3 kata.
+Izin tanpa kutipan sah ditolak (exit 1). Temuan yang diizinkan dicatat sebagai IZIN dan tidak memblokir.
+
+Keluar: 0 bersih · 1 ada placeholder (atau ERROR bila --gerbang) atau izin tidak sah · 2 jalur tidak ada.
 """
 import argparse, importlib.util, json, os, re, sys
 
@@ -167,10 +170,11 @@ def diizinkan(rule, izin):
     return None
 
 
-def kumpulkan(paths, size="1920x1080", dom=True):
+def kumpulkan(paths, size="1920x1080", dom=True, gerbang=False):
     pc = muat_permukaan()
     res, exs, nfiles, skipped = pc.run(paths)
-    temuan = [dict(file=r["file"], line=r["line"], rule=r["rule"], level=r["level"], snippet=r["snippet"]) for r in res]
+    # K1/K2 = laporan (INFO) kecuali --gerbang
+    temuan = [dict(file=r["file"], line=r["line"], rule=r["rule"], level=r["level"] if gerbang else "INFO", snippet=r["snippet"]) for r in res]
     temuan += cek_putus(paths)
     catatan = []
     if dom:
@@ -183,28 +187,33 @@ def main(argv=None):
     ap = argparse.ArgumentParser(description="Gerbang NEGATIF satu pintu")
     ap.add_argument("paths", nargs="+"); ap.add_argument("--izin"); ap.add_argument("--size", default="1920x1080")
     ap.add_argument("--json", action="store_true"); ap.add_argument("--tanpa-dom", action="store_true")
+    ap.add_argument("--gerbang", action="store_true", help="K1/K2 ikut memblokir (perilaku lama)")
     a = ap.parse_args(argv)
     miss = [p for p in a.paths if not os.path.exists(p)]
     if miss: print("jalur tidak ada: " + ", ".join(miss), file=sys.stderr); return 2
-    temuan, exs, nfiles, catatan = kumpulkan(a.paths, a.size, not a.tanpa_dom)
+    temuan, exs, nfiles, catatan = kumpulkan(a.paths, a.size, not a.tanpa_dom, a.gerbang)
+    pc = muat_permukaan(); invs = {p: pc.inventaris(p) for p in a.paths}
     izin, masalah = baca_izin(cari_izin(a.paths, a.izin))
     blok, dizinkan, tag = [], [], {}
     for i, t in enumerate(temuan):
         z = diizinkan(t["rule"], izin) if t["level"] == "ERROR" else None
         if z: dizinkan.append(dict(t, izin=z["kutipan"])); tag[i] = "IZIN"
         elif t["level"] == "ERROR": blok.append(t); tag[i] = "ERR "
-        else: tag[i] = "WARN"
-    nwarn = sum(1 for t in temuan if t["level"] == "WARN")
+        else: tag[i] = "INFO" if t["level"] == "INFO" else "WARN"
+    nwarn = sum(1 for t in temuan if t["level"] == "WARN"); ninfo = sum(1 for t in temuan if t["level"] == "INFO")
     if a.json:
-        print(json.dumps({"berkas": nfiles, "error": len(blok), "warn": nwarn, "diizinkan": dizinkan, "temuan": temuan,
+        print(json.dumps({"berkas": nfiles, "error": len(blok), "warn": nwarn, "info": ninfo, "inventaris": invs, "diizinkan": dizinkan, "temuan": temuan,
                           "masalah_izin": masalah, "catatan": catatan}, ensure_ascii=False, indent=1))
     else:
         for i, t in enumerate(temuan):
-            print(f"{t['file']}:{t['line']}  {tag[i]}  {t['rule']:<12} {t['snippet']}")
+            if t["level"] != "INFO": print(f"{t['file']}:{t['line']}  {tag[i]}  {t['rule']:<12} {t['snippet']}")
+        print("\n--- LAPORAN inventaris permukaan (tidak memblokir; KEBIJAKAN-v2) ---")
+        for p, inv in invs.items(): pc.cetak_inventaris(p, inv, maks=4)
+        if ninfo: print(f"{ninfo} temuan K1/K2 per baris dicatat sebagai INFO (lihat --json atau permukaan_cek.py --gerbang)")
         for m in masalah: print("IZIN TIDAK SAH: " + m)
         for c in catatan: print("catatan: " + c)
-        print(f"\nringkasan: {nfiles} berkas permukaan, {len(blok)} error, {nwarn} warn, {len(dizinkan)} diizinkan Irfan")
-        print("GAGAL NEGATIF: perbaiki di kode (sans datar, objek lengkap). Hanya kalimat eksplisit Irfan yang membuka, lewat qc/izin.json." if blok or masalah else "LULUS NEGATIF")
+        print(f"\nringkasan: {nfiles} berkas permukaan, {len(blok)} error, {nwarn} warn, {ninfo} info, {len(dizinkan)} diizinkan Irfan")
+        print("GAGAL NEGATIF: perbaiki placeholder di kode (isi nyata, bukan kotak/garis kosong). Hanya kalimat eksplisit Irfan yang membuka, lewat qc/izin.json." if blok or masalah else "LULUS NEGATIF")
     return 1 if blok or masalah else 0
 
 

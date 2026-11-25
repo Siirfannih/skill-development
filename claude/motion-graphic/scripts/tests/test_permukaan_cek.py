@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Uji gate/permukaan_cek.py (K1 sans saja, K2 permukaan datar) dan, bila Playwright ada, gate/tabrakan_cek.py."""
+"""Uji gate/permukaan_cek.py: inventaris (bawaan, KEBIJAKAN-v2, tidak memblokir) dan --gerbang (K1/K2 lama), serta gate/tabrakan_cek.py bila Playwright ada."""
 import json, os, subprocess, sys, tempfile, unittest
 from pathlib import Path
 
@@ -42,11 +42,11 @@ class Permukaan(unittest.TestCase):
         f = self.d / nama; f.write_text(isi); return run(PERMUKAAN, f, *flag)
 
     def rules(self, nama, isi):
-        r = self.cek(nama, isi, "--json"); return {x["rule"]: x["level"] for x in json.loads(r.stdout)["temuan"]}, r.returncode
+        r = self.cek(nama, isi, "--json", "--gerbang"); return {x["rule"]: x["level"] for x in json.loads(r.stdout)["temuan"]}, r.returncode
 
     def test_bersih_nol_error(self):
-        r = self.cek("bersih.html", BERSIH); self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("LULUS", r.stdout)
-        r = self.cek("bersih.tsx", BERSIH_TSX); self.assertEqual(r.returncode, 0, r.stdout)
+        r = self.cek("bersih.html", BERSIH, "--gerbang"); self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("LULUS", r.stdout)
+        r = self.cek("bersih.tsx", BERSIH_TSX, "--gerbang"); self.assertEqual(r.returncode, 0, r.stdout)
 
     def test_sans_serif_tidak_ditandai(self):
         k, rc = self.rules("a.css", "a{font-family: Georgia-free, sans-serif} b{font-family:var(--font-sans), ui-sans-serif, sans-serif}")
@@ -57,7 +57,7 @@ class Permukaan(unittest.TestCase):
             k, rc = self.rules("x.css", isi); self.assertIn(rule, k, (rule, k)); self.assertEqual(rc, 1, rule)
 
     def test_semua_sekaligus_dan_ringkasan(self):
-        r = self.cek("slop.css", "\n".join(SLOP.values()), "--json"); d = json.loads(r.stdout)
+        r = self.cek("slop.css", "\n".join(SLOP.values()), "--json", "--gerbang"); d = json.loads(r.stdout)
         self.assertEqual(r.returncode, 1); self.assertEqual(set(SLOP) - set(d["ringkasan"]), set())
 
     def test_varian_serif_dan_italic(self):
@@ -97,32 +97,74 @@ class Permukaan(unittest.TestCase):
 
     def test_pengecualian(self):
         isi = "/* permukaan-ok: user minta serif di sesi ini */\n.a{font-family: Georgia}\n.b{font-style: italic} /* permukaan-ok: kutipan dari referensi */\n"
-        r = self.cek("p.css", isi, "--json"); d = json.loads(r.stdout)
+        r = self.cek("p.css", isi, "--json", "--gerbang"); d = json.loads(r.stdout)
         self.assertEqual(r.returncode, 0, r.stdout); self.assertEqual(len(d["pengecualian"]), 2)
-        r = self.cek("q.css", "/* permukaan-ok: boleh */\n.a{font-style: italic}\n", "--json"); d = json.loads(r.stdout)
+        r = self.cek("q.css", "/* permukaan-ok: boleh */\n.a{font-style: italic}\n", "--json", "--gerbang"); d = json.loads(r.stdout)
         self.assertEqual(r.returncode, 1); self.assertIn("K0-ALASAN", {x["rule"] for x in d["temuan"]})
 
     def test_lewati_node_modules_dan_jalur_hilang(self):
         (self.d / "node_modules").mkdir(); (self.d / "node_modules/x.css").write_text(SLOP["K1-ITALIC"])
-        r = run(PERMUKAAN, self.d); self.assertEqual(r.returncode, 0, r.stdout)
+        r = run(PERMUKAAN, self.d, "--gerbang"); self.assertEqual(r.returncode, 0, r.stdout)
+        self.assertEqual(run(PERMUKAAN, self.d / "tidak-ada").returncode, 1)
+
+
+class Inventaris(unittest.TestCase):
+    """KEBIJAKAN-v2: bawaan = inventaris sistem, exit 0 walau ada serif/gradien/bayangan."""
+    def setUp(self):
+        self.t = tempfile.TemporaryDirectory(); self.d = Path(self.t.name)
+    def tearDown(self): self.t.cleanup()
+
+    def inv(self, nama, isi):
+        f = self.d / nama; f.write_text(isi); r = run(PERMUKAAN, f, "--json"); return r, json.loads(r.stdout)["inventaris"][str(f)]["kategori"]
+
+    def test_slop_tidak_memblokir_bawaan(self):
+        r, k = self.inv("slop.css", "\n".join(SLOP.values()))
+        self.assertEqual(r.returncode, 0, r.stdout)
+        self.assertEqual(json.loads(r.stdout)["mode"], "inventaris")
+        for kat in ("HURUF", "BAYANGAN", "GRADIEN", "KACA/BLUR", "3D"): self.assertGreater(k[kat]["total"], 0, kat)
+
+    def test_teks_laporan_dan_exit_nol(self):
+        f = self.d / "a.css"; f.write_text(".a{font-family:'Instrument Serif',serif}\n.b{font-style:italic}\n")
+        r = run(PERMUKAAN, f); self.assertEqual(r.returncode, 0, r.stdout)
+        self.assertIn("inventaris", r.stdout); self.assertIn("HURUF: 2 sistem berbeda", r.stdout); self.assertIn("a.css:1", r.stdout)
+        self.assertNotIn("GAGAL", r.stdout)
+
+    def test_sistem_dikelompokkan_per_nilai(self):
+        isi = (".a{box-shadow:0 8px 20px rgba(0,0,0,.18)}\n.b{box-shadow:0 8px 20px rgba(0,0,0,.18)}\n.c{box-shadow:0 2px 4px #000}\n"
+               ".d{background:linear-gradient(90deg,#2E5BFF,#fff)}\n.e{background:linear-gradient(90deg,#2E5BFF,#fff)}\n"
+               ".f{font-family:Inter,sans-serif}\n.g{font-family:'Inter',sans-serif}\n.h{font-family:Playfair Display,serif}\n")
+        r, k = self.inv("a.css", isi)
+        self.assertEqual((k["BAYANGAN"]["distinct"], k["BAYANGAN"]["total"]), (2, 3))
+        self.assertEqual((k["GRADIEN"]["distinct"], k["GRADIEN"]["total"]), (1, 2))
+        self.assertEqual(k["HURUF"]["distinct"], 2); self.assertEqual(k["HURUF"]["per_subjenis"], {"keluarga:sans/lain": 1, "keluarga:serif": 1})
+
+    def test_tsx_dan_komentar(self):
+        r, k = self.inv("a.tsx", "// font-family: Georgia\nconst s={fontFamily:'Inter, sans-serif', boxShadow:'0 4px 12px #0002', fontStyle:'italic'}")
+        self.assertEqual(k["HURUF"]["per_subjenis"], {"keluarga:sans/lain": 1, "gaya": 1}); self.assertEqual(k["BAYANGAN"]["distinct"], 1)
+
+    def test_gerbang_memulihkan_perilaku_lama(self):
+        f = self.d / "a.css"; f.write_text(".a{font-style: italic}")
+        self.assertEqual(run(PERMUKAAN, f).returncode, 0)
+        self.assertEqual(run(PERMUKAAN, f, "--gerbang").returncode, 1)
+
+    def test_jalur_hilang_tetap_gagal(self):
         self.assertEqual(run(PERMUKAAN, self.d / "tidak-ada").returncode, 1)
 
 
 class GerbangProduksiPermukaan(unittest.TestCase):
-    def proyek(self, isi, lewati=None):
+    def proyek(self, isi, env=None):
         t = tempfile.TemporaryDirectory(); self.addCleanup(t.cleanup); d = Path(t.name)
         (d / "remotion/src").mkdir(parents=True); (d / "remotion/src/A.tsx").write_text(isi); (d / "qc").mkdir()
-        if lewati is not None: (d / "qc/permukaan-lewati").write_text(lewati)
-        return subprocess.run(["bash", str(S / "juri/gerbang_produksi.sh"), str(d)], capture_output=True, text=True)
+        return subprocess.run(["bash", str(S / "juri/gerbang_produksi.sh"), str(d)], capture_output=True, text=True, env={**os.environ, **(env or {})})
 
-    def test_slop_memblokir_dan_bersih_lulus(self):
-        self.assertEqual(self.proyek("const s={fontStyle:'italic'}").returncode, 1)
+    def test_inventaris_tidak_memblokir(self):
+        r = self.proyek("const s={fontStyle:'italic'}"); self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn("inventaris", r.stdout)
         self.assertEqual(self.proyek(BERSIH_TSX).returncode, 0)
 
-    def test_lewati_butuh_alasan_tertulis(self):
+    def test_gerbang_lama_lewat_env(self):
         slop = "const s={fontStyle:'italic'}"
-        self.assertEqual(self.proyek(slop, "user minta italic di sesi ini").returncode, 0)
-        self.assertEqual(self.proyek(slop, "sudah").returncode, 1)
+        self.assertEqual(self.proyek(slop, {"PERMUKAAN_GERBANG": "1"}).returncode, 1)
+        self.assertEqual(self.proyek(BERSIH_TSX, {"PERMUKAAN_GERBANG": "1"}).returncode, 0)
 
 
 def punya_playwright():

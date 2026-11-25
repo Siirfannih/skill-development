@@ -23,6 +23,8 @@ Baca di tahap Storyboard/block out. Storyboard adalah gerbang review termurah: s
 | Klip/talking head dengan gaya dari `templates/gaya/` | Rencana edit menu: 3 opsi per beat dari menu adegan gaya itu, opsi A = rekomendasi + alasan, tiap opsi menyebut contoh referensinya; Irfan memilih (±15 menit) lalu pilihan masuk `handoff/PLAN.json`. Format: `templates/gaya/README.md` |
 | Tidak ada video referensi | Ambil paket ≤ 5 kartu dari repo `Siirfannih/canvas-skill-library` (`skills/canvas-reference-director/SKILL.md`, `references/cards.json`) + `guide/referensi/` sesuai goal; tulis di `beats.json → arah.sumber_gaya` mana yang dipakai dan kenapa |
 
+Tiap panel mencatat jenis shot (macro/close/medium/wide) dan bleed; distribusinya mengikuti REF-SPEC §3 bila ada referensi (bukan semua medium di tengah).
+
 Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkunci, referensi sudah dibedah per frame (`analysis-qa.md` §2).
 
 ## 2. Urutan kerja

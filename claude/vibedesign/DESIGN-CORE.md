@@ -29,7 +29,7 @@ Urutan menang: instruksiku di sesi → `projects/<proyek>/` (BRIEF, RESEP, DECIS
 
 Perintah persisnya ada di `juri/README.md`. Gerbang yang gagal diperbaiki di penyebabnya; jangan mengedit `juri/` di sesi produksi. Selama juri untuk satu gerbang belum ada, gerbang itu dicek dengan still + alasan di `TAHAP.md`, dan statusnya ditulis jujur sebagai "dicek mata", bukan "lulus juri".
 
-## 4. Larangan keras
+## 4. Batas mutlak
 - Membangun tanpa BRIEF, atau mengirim slide yang belum kamu lihat hasil render-nya.
 - Memakai maskot, logo, atau karakter milik pihak lain, termasuk "versi mirip" (KRK-02).
 - Font emoji berwarna di render headless (tidak ter-render); ikon emoji digambar sebagai SVG.

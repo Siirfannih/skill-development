@@ -30,7 +30,7 @@ Perpindahan family adalah momen cerita, memakai transisi bab (§10) + engsel sen
 2. **Tunjukkan, jangan labeli.** Emosi diperlihatkan lewat aksi dan ekspresi tokoh, bukan awan kata.
 3. **Satu frame, satu titik fokus.**
    - Maksimal 1 blok teks + 1 subjek.
-   - **Dilarang layout "teks besar di kiri + kartu/UI di kanan"** yang memaksa mata membaca dua hal. Tampilkan di beat berbeda, atau biarkan kamera masuk ke UI.
+   - **Hindari layout "teks besar di kiri + kartu/UI di kanan"** yang memaksa mata membaca dua hal. Tampilkan di beat berbeda, atau biarkan kamera masuk ke UI.
    - Frame boleh berisi banyak objek, tapi hanya SATU yang difokuskan atau dianimasikan pada satu saat.
 4. **Objek pembicaraan menentukan komposisi.** Tetapkan per beat:
    - objek yang dibicarakan
@@ -62,7 +62,7 @@ Perpindahan family adalah momen cerita, memakai transisi bab (§10) + engsel sen
   - Ukuran: inline 90–110 % cap-height, mandiri 10–18 % H, hero 30–40 % H.
   - Masuk: 0→110→100 + rotasi −12→0 (10 f), grup stagger 3–5 f, bukan berbaris kaku.
 - Kartu:
-  - sudut 24–32 px, satu bayangan kontak tajam (blur ≤ 24, opasitas ≤ 0,2), tidak miring/berperspektif (K2)
+  - sudut 24–32 px, satu bayangan kontak tajam (blur ≤ 24, opasitas ≤ 0,2), satu sistem material (arah cahaya sama)
   - tiga lapis susunan: latar, tengah, depan (kedalaman dari skala dan overlap, bukan bayangan)
   - aktif = skala 115–130 % + cincin; lainnya 85–100 %
 - Tokoh/maskot > 1 dtk punya idle halus (kedip, napas). Ikon biasa boleh diam.
@@ -78,10 +78,10 @@ Perpindahan family adalah momen cerita, memakai transisi bab (§10) + engsel sen
   - coral `#F97066` (kata kunci di gelap)
   - navy `#0F172A` (latar gelap)
   - off-white `#FBFAF7`, putih hangat `#FAF8EC`
-- **Dilarang:** gradasi merah-cokelat atau latar maroon untuk adegan gelap. Latar gelap = hitam/navy dengan teks dan garis **putih saja**.
-- **Dilarang: teks atau elemen biru di atas latar gelap/navy** (contoh gagal: "Adele." biru `#2563EB` di navy `#0F172A`). Biru dan navy berbeda hue tipis tetapi kontras luminansinya rendah, jadi terlihat "nyala tapi tenggelam" dan murahan. Aturannya:
+- **Hindari:** gradasi merah-cokelat atau latar maroon untuk adegan gelap. Latar gelap = hitam/navy dengan teks dan garis **putih saja**.
+- **Gagal kontras: teks atau elemen biru di atas latar gelap/navy** (contoh gagal: "Adele." biru `#2563EB` di navy `#0F172A`). Biru dan navy berbeda hue tipis tetapi kontras luminansinya rendah, jadi terlihat "nyala tapi tenggelam" dan murahan. Aturannya:
   - Biru sebagai warna teks/aksen **hanya di latar putih/terang**.
-  - Di latar gelap, penekanan memakai putih penuh vs putih redup (opasitas), ketebalan, skala, atau KAPITAL, bukan warna. Serif/italic dilarang (K1).
+  - Di latar gelap, penekanan memakai putih penuh vs putih redup (opasitas), ketebalan, skala, atau KAPITAL, bukan warna. Huruf kedua hanya sebagai sistem beralasan (NEGATIF 1).
   - Satu momen gelap butuh aksen warna? Pindahkan momennya ke latar putih, jangan memaksa warna di gelap.
   - Cek otomatis: kontras luminansi teks vs latar ≥ 7 : 1 untuk kata kunci; biru `#2563EB` di `#0F172A` hanya ±3,6 : 1, jadi gagal.
 - Satu aksen per momen. Warna adalah bab: pergantian lewat wipe berlapis, bukan cut warna polos.
@@ -89,7 +89,7 @@ Perpindahan family adalah momen cerita, memakai transisi bab (§10) + engsel sen
 
 ---
 
-### 13.1 Pola layout yang dilarang
+### 13.1 Pola layout yang gagal
 - **"Label kecil di pojok + dua kata besar miring bertangga"**: label abu kecil menempel pojok kiri atas, lalu dua nama besar dimiringkan (rotateY/rotate) tersusun diagonal kiri-atas → kanan-bawah. Terbaca seperti template slide, mata melompat tiga kali, dan pojok terasa kosong-sisa.
   - Ganti dengan: satu fokus di tengah atau di sumbu yang jelas; label menempel pada objeknya (di atas/bawah, rata tengah), bukan di pojok bingkai; kata kedua menggantikan atau mendorong kata pertama (slot/stack), bukan ditaruh miring di diagonal.
 - Storyboard/moodboard Irfan adalah **struktur kasar** (apa yang terjadi, urutan, metafora), **bukan visual akhir**. Jangan merender ulang bentuk storyboard apa adanya (garis ukur, kotak, teks placeholder). Untuk setiap beat, rancang visual akhir yang paling mudah dipahami penonton (misalnya grafik editorial: kurva solid vs putus-putus, titik di ujung, label mono kecil, area jarak) lalu validasi satu adegan dulu.

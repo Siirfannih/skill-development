@@ -12,9 +12,9 @@
 #              komentar #) = semua tanda memblokir (cek_komposisi.py --ketat). File berisi nama tanda (mis. "JEDA KARTU
 #              LOGO") = tanda itu ikut memblokir di samping empat tanda bawaan. Nama tanda tak dikenal = keluar 1.
 #              Mode ketat mewajibkan data episode + aset.json ada.
-#   PERMUKAAN  <proyek>/remotion/src dan <proyek>/storyboard (bila ada) -> gate/permukaan_cek.py (K1 sans saja, K2 permukaan datar;
-#              ERROR memblokir). Bawaan aktif; dilewati hanya dengan file <proyek>/qc/permukaan-lewati berisi alasan tertulis >= 3 kata
-#              (alasan dicetak). Pengecualian per baris: komentar `permukaan-ok: <alasan>`. Hasil gagal atau tak terbaca = keluar 1.
+#   PERMUKAAN  <proyek>/remotion/src dan <proyek>/storyboard (bila ada) -> gate/permukaan_cek.py: INVENTARIS sistem huruf, bayangan,
+#              gradien, kaca/blur, 3D (KEBIJAKAN-v2: sistem, bukan larangan). Hanya dicetak, tidak pernah memblokir. Perilaku lama
+#              (K1/K2 memblokir): PERMUKAAN_GERBANG=1. Placeholder (negatif_cek.py) tidak dipanggil di sini; jalankan terpisah.
 #   POTONG     sfx_potong.json di folder audio terkunci, <proyek>/audio, atau <proyek>/qc -> audio/sfx_potong.py --laporan.
 #   HP         stem_vo.wav + stem_music.wav + stem_sfx.wav di salah satu folder itu -> audio/audio_phone.py --gate
 #              (mix.wav dan cues.json wajib ada di folder yang sama).
@@ -50,14 +50,14 @@ else echo "gerbang komposisi: dilewati (tidak ada data episode + aset.json)"; fi
 
 SRC=(); for d in "$R/src" "$P/storyboard"; do [ -d "$d" ] && SRC+=("$d"); done
 if [ "${#SRC[@]}" -gt 0 ]; then
-  ALASAN="$( [ -f "$QC/permukaan-lewati" ] && sed 's/#.*//' "$QC/permukaan-lewati" | xargs || true )"
-  if [ -n "$ALASAN" ] && [ "$(echo "$ALASAN" | wc -w)" -ge 3 ]; then echo "gerbang permukaan: dilewati dengan alasan tertulis (qc/permukaan-lewati): $ALASAN"
+  if [ "${PERMUKAAN_GERBANG:-0}" = 1 ]; then
+    python3 "$HERE/../gate/permukaan_cek.py" --gerbang "${SRC[@]}" \
+      || { echo "GAGAL gerbang permukaan (PERMUKAAN_GERBANG=1): K1/K2 memblokir."; gagal=1; }
   else
-    [ -f "$QC/permukaan-lewati" ] && echo "qc/permukaan-lewati diabaikan: alasan harus >= 3 kata"
-    python3 "$HERE/../gate/permukaan_cek.py" "${SRC[@]}" \
-      || { echo "GAGAL gerbang permukaan: ubah ke sans datar (K1/K2), atau beri komentar permukaan-ok: <alasan> bila user memintanya."; gagal=1; }
+    echo "permukaan: inventaris sistem (laporan, tidak memblokir):"
+    python3 "$HERE/../gate/permukaan_cek.py" "${SRC[@]}" || echo "catatan: inventaris permukaan tidak terbaca (tidak memblokir)"
   fi
-else echo "gerbang permukaan: dilewati (tidak ada remotion/src atau storyboard)"; fi
+else echo "permukaan: dilewati (tidak ada remotion/src atau storyboard)"; fi
 
 SUDAH=":"
 for d in "$AUDIO_DIR" "$P/audio" "$QC"; do
