@@ -1,6 +1,6 @@
 ---
 name: script-workshop
-description: Menulis konten Irfan dari ide sampai naskah siap take: script reels/video, carousel, caption, thread, ideasi, dan hook, untuk Jadisatu maupun akun pribadinya. Pakai setiap kali Irfan minta ide konten, hook, naskah, carousel, caption, atau merevisi tulisan, walau permintaannya singkat ("bikinin script reels soal UMKM", "hook-nya kurang nendang").
+description: "Menulis konten Irfan dari ide sampai naskah siap take: script reels/video, carousel, caption, thread, ideasi, dan hook, untuk Jadisatu maupun akun pribadinya. Pakai setiap kali Irfan minta ide konten, hook, naskah, carousel, caption, atau merevisi tulisan, walau permintaannya singkat (\"bikinin script reels soal UMKM\", \"hook-nya kurang nendang\")."
 ---
 
 # Script workshop (Irfan)
