@@ -12,7 +12,7 @@ Skill ini lapisan penaik mutu video. Ia bukan template dan bukan pembajak konsep
 **Alur setiap video (urut):**
 1. `../irfan-creative-workflow/SKILL.md` §2 gerbang 1–3. Bedah bahan user dulu (naskah/transkrip, footage, aset), lalu naskah final, lalu storyboard, masing-masing dengan persetujuan user. Belum ada kode sebelum gerbang 3 lolos.
 2. Di gerbang storyboard ada **Langkah 1 cookbook**. Tulis fungsi cerita tiap beat, lalu cari kartunya dengan `python3 scripts/cookbook/pilih_kartu.py --cari "<fungsi cerita>" [--kategori …] [--bergerak]` (keluaran: ID, nama, status, path kartu, frame kunci). Buka hanya 2–4 kartu, lalu ajukan tabel racikan dan remix per beat (beat → pola → remix → SFX) untuk disetujui (`cookbook/README.md` §2).
-3. **Langkah 2**: kode Remotion ditulis dari nol dari tabel itu, dengan Lantai di bawah sebagai standar mutu, dan render lewat `scripts/juri/render.sh final`, yang menjalankan `gerbang_produksi.sh` (§0c).
+3. **Langkah 2**: kode Remotion ditulis dari nol dari tabel itu, dengan Lantai di bawah sebagai standar mutu, dan render lewat `scripts/juri/render.sh final`, yang menjalankan `gerbang_produksi.sh` (§0b).
 
 Tiga hal yang selalu dikerjakan: **Lantai** (mutu di semua video, di bawah ini, lengkap) → **pengikat/kiblat + racikan pola** di `RESEP.md` (dipinjam dari kartu hanya bila user tidak membawa gaya) → **Juri** (hasil disandingkan dengan frame kunci sebelum render penuh). `cookbook/` menyimpan kartu dan frame kuncinya sebagai contoh yang bagus, dan `cookbook/contoh-gagal/` sebagai contoh yang jelek.
 
@@ -103,7 +103,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 5. **Kondisi footage dulu, baru teknik.** Lembar kondisi footage per jenis shot (rasio, skala wajah, terang-gelap latar, pakaian, ruang kosong, benda ramai, kamera) ditulis sebelum teknik kartu dipilih; teknik yang syaratnya tidak cocok disesuaikan atau tidak dipakai. Angka di kartu adalah pengamatan di video asli, bukan target (`cookbook/README.md` §6 butir 1).
 6. **Spine gaya dikunci sebelum pekerja paralel mulai**: satu still per peran teks (R1–R6, `references/typography.md` §8a) di atas footage asli, dinilai Sutradara berdampingan dengan frame kunci (`cookbook/README.md` §6 butir 2).
 
-## 0b. Alur kerja: lima tahap, dua render
+## 0c. Alur kerja: lima tahap, dua render
 
 1. **Profil merek**: `BRAND.md` + `EDITING.md` merek di brief ada dan `scripts/juri/profil_cek.py` LULUS; belum ada → isi dulu bersama user (`templates/merek/README.md`).
 2. **Editing guideline + preview**: tema gaya user diterjemahkan lewat frame kunci 2–3 kartu terdekat, lalu still per beat di atas footage asli + klip draft untuk gerak kamera/transisi dikirim langsung di percakapan. Masukan user ditulis ke ledger.
@@ -113,7 +113,7 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 
 Di awal video salin `templates/TAHAP.md` ke `projects/<proyek>/TAHAP.md`. `python3 scripts/juri/tahap.py projects/<proyek>` menunjuk langkah berikutnya dan bagian file yang dibaca untuk langkah itu; langkah selesai = dicentang + bukti. Satu TASK = satu subagen baru; sesi yang konteksnya sudah besar menulis `STATUS.md` lalu diganti (`references/roles.md` §6).
 
-## 0c. Render dan juri
+## 0b. Render dan juri
 
 - Semua render lewat `scripts/juri/render.sh <proyek> still|draft|frames|final …`. Render penuh ditolak sampai resep lulus, semua still terbaru, lembar sanding dibuat, draft gerak terbaru, audit visual semua potongan LULUS (`frames` → `frame_audit.py` → Sutradara menilai frame tahan tiap detik; satu penilai), dan `qc/JURI.md` berakhir `PUTUSAN: LULUS` dengan bukti tiap catatan Irfan aktif.
 - **Juri visual adalah mata, bukan skrip.** Gaya, posisi teks dan objek, keseimbangan, dan estetika dinilai dengan melihat gambarnya, berdampingan dengan frame kunci kiblat (yang bagus) dan `cookbook/contoh-gagal/` (yang jelek): pada still per beat (daftar cek `cookbook/README.md` §Juri 2, `scripts/juri/sandingkan.py` untuk lembar sanding, lalu tiap pertanyaan "Yang harus terasa sama saat disandingkan" kartu kiblat dan Lantai A–D) dan pada frame tahan tiap detik di audit visual, oleh satu penilai (Sutradara, `templates/roles/pemeriksa-frame.md`); frame yang lemah diberi solusi desain dari kartu. `scripts/juri/teks_cek.py` hanya penunjuk still yang perlu dilihat. Rinci: `cookbook/README.md` §Juri. Sekali sebelum render final, satu Creative Devil's Advocate dari luar memberi usul dengan brief steril (`templates/roles/devils-advocate.md`).

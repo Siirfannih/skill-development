@@ -1,6 +1,6 @@
 # Paket editor dari rekaman talking head mentah (selects)
 
-Dibuka saat bahannya rekaman mentah panjang (beberapa menit, banyak take ulang) dan keluarannya **paket untuk editor manusia**: timeline klip ber-timecode, rough cut, audio, aset motion, storyboard, dan animatic. Untuk video yang dirender sendiri sampai final, alur utamanya tetap `SKILL.md` §0b; file ini hanya bagian pemilihan klip dan paketnya. Lantai tetap berlaku untuk visual yang dirancang (aset, storyboard); rough cut dan animatic adalah alat bantu editor, jadi label dan subtitle kuningnya bukan pelanggaran Lantai A1.
+Dibuka saat bahannya rekaman mentah panjang (beberapa menit, banyak take ulang) dan keluarannya **paket untuk editor manusia**: timeline klip ber-timecode, rough cut, audio, aset motion, storyboard, dan animatic. Untuk video yang dirender sendiri sampai final, alur utamanya tetap `SKILL.md` §0c; file ini hanya bagian pemilihan klip dan paketnya. Lantai tetap berlaku untuk visual yang dirancang (aset, storyboard); rough cut dan animatic adalah alat bantu editor, jadi label dan subtitle kuningnya bukan pelanggaran Lantai A1.
 
 ## Urutan
 
