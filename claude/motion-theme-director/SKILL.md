@@ -9,6 +9,9 @@ Skill ini mengatur **cara berpikir sebelum dan saat mendesain frame**. LANTAI.md
 
 ## 1. Urutan kerja
 
+## 1. Urutan kerja
+
+0. **Bila user membawa referensi: Phase 0 dulu.** Jalankan `BEDAH-REFERENSI.md` (5 lapis: state machine naratif, mekanisme vs properti permukaan, kontrak dominasi per frame, rantai sebab-akibat kamera, peta upgrade) dan isi `REFERENCE-BRIEF.md` sebelum storyboard dibuat atau di-upgrade. Yang dipindahkan dari referensi adalah alasan dan mekanismenya, bukan kulitnya.
 1. **Periksa bahan dulu.** Lihat footage, naskah, dan aset nyata user sebelum memilih teknik. Catat:
    - warna dan motif baju serta dinding di tempat teks akan jatuh;
    - terang-gelap piksel tepat di bawah huruf (bukan rata-rata frame);
