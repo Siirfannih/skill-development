@@ -116,6 +116,7 @@ Optimis pada produk, realistis dalam eksekusi. Copy marketing berbicara tentang 
 
 ## 8. Output
 
+- **Keputusan untuk Irfan diajukan di chat yang aktif**, bukan hanya ditulis di dokumen (`KEPUTUSAN-*.md`, `DAILY`, `PENDING`). Tiap keputusan: pertanyaan + pilihan + default/rekomendasi + dampaknya. Dokumen tetap boleh sebagai arsip, tapi tidak menggantikan pertanyaan di chat. Subagen yang menemukan keputusan menyerahkannya ke agen utama untuk diajukan.
 - Pada proyek warisan Claude, warisi brief, brainstorming, storyboard dan hasil akhir yang ditetapkan Irfan; jalankan metode kerja sendiri. Jangan meminta Irfan menilai tiap fase atau menyerahkan versi belum selesai sebagai hasil. Lakukan penilaian fase secara internal, lalu serahkan hasil final untuk dinilai. Pertanyaan hanya untuk ambiguitas substantif, bukan izin melanjutkan pekerjaan yang sudah disetujui.
 
 - Jika outputnya akan disimpan, dipakai ulang, atau dibagikan, serahkan sebagai **file** (MD, JSX, dsb.), bukan teks panjang di chat.
