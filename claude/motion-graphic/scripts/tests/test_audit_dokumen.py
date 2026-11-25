@@ -161,10 +161,10 @@ class PintuProduksi(unittest.TestCase):
         alur = t[t.index("## 1."):t.index("## 2.")]
         pos = [alur.find(x) for x in urut]
         self.assertNotIn(-1, pos, [x for x, p in zip(urut, pos) if p < 0]); self.assertEqual(pos, sorted(pos))
-        for x in ("--kategori camera|typography|layout|texture|sfx|script", "--bergerak", "--limit 4"):
+        for x in ("--pack 01..06", "--kategori camera|typography|layout|texture|sfx|script|qc", "--bergerak", "--limit 4"):
             self.assertIn(x, t)
         awal = t[:t.index("## 1.")]
-        for x in ("PETA.md", "RETRO.md", "SUMBER.md", "cookbook/INDEX.md"):
+        for x in ("PETA.md", "RETRO.md", "SUMBER.md", "cookbook/INDEX.md", "cookbook/CATALOG.md"):
             self.assertIn(x, awal[awal.index("Tidak dimuat di awal sesi"):])
 
     def test_skill_md_merutekan_ke_dua_langkah(self):

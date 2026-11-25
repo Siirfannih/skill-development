@@ -36,7 +36,7 @@ Catatan setelah tabel.
 
 class Dasar(unittest.TestCase):
     def setUp(self):
-        self.t = tempfile.TemporaryDirectory(); self.d = Path(self.t.name)
+        self.t = tempfile.TemporaryDirectory(); self.d = Path(self.t.name).resolve()
         self.index = self.d / "cookbook/INDEX.md"; self.index.parent.mkdir()
         self.index.write_text(CONTOH, encoding="utf-8")
         self.kf = self.d / "keyframes"; self.kf.mkdir()
@@ -161,13 +161,13 @@ class Keluaran(Dasar):
 
 
 class IndexAsli(unittest.TestCase):
-    """INDEX.md repo terbaca utuh: jumlah kartu sama dengan baris tabel, semua path dan status dikenali."""
+    """CATALOG.md repo terbaca utuh: jumlah kartu sama dengan baris tabel, semua path dan status dikenali."""
 
     def setUp(self): self.kartu = pk.baca_index()
 
     def test_semua_baris_terbaca(self):
         baris = [b for b in pk.INDEX.read_text(encoding="utf-8").splitlines() if b.startswith("| ") and b.rstrip().endswith(".md |")]
-        self.assertEqual(len(self.kartu), len(baris)); self.assertGreater(len(self.kartu), 50)
+        self.assertEqual(len(self.kartu), len(baris)); self.assertGreaterEqual(len(self.kartu), 40)
         self.assertEqual(len({k["id"] for k in self.kartu}), len(self.kartu))
 
     def test_path_kategori_status_sah(self):
@@ -195,6 +195,9 @@ class IndexAsli(unittest.TestCase):
         self.assertIn("95", res_cutout)
         res_grid = [k["id"] for k in pk.pilih(self.kartu, cari="flash grid", bergerak=True)]
         self.assertIn("14", res_grid)
+        res_pack = [k["id"] for k in pk.pilih(self.kartu, pack="01", bergerak=True)]
+        self.assertIn("14", res_pack)
+        self.assertNotIn("95", res_pack)
 
 
 if __name__ == "__main__":

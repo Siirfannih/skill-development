@@ -6,7 +6,7 @@
 > 5. **Baca dulu, jangan menebak.** Bahan sumber dan outbox/proyek terkait dibaca sebelum menyimpulkan atau memberi perintah.
 # MOTION-CORE: pintu masuk sesi produksi video
 
-Sesi produksi memuat **file ini**, lalu `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`). Jalankan `python3 scripts/juri/tahap.py projects/<proyek>` di awal dan tiap pindah tahap. Tidak dimuat di awal sesi: `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/INDEX.md` utuh. `references/` dan `guide/` dibuka saat langkah atau pesan gagal gerbang menyebut bagiannya. Rute lengkap dan Lantai utuh: `SKILL.md`.
+Sesi produksi memuat **file ini** + `cookbook/00-core-invariants.md`, lalu `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`). Pilih 1 Domain Pack relevan di `cookbook/INDEX.md` (< 600 token) dan jalankan `python3 scripts/juri/tahap.py projects/<proyek>`. Tidak dimuat di awal sesi: `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/INDEX.md` penuh, `cookbook/CATALOG.md`, dan `_vault/`. `references/` dan `guide/` dibuka saat gerbang menyebutnya. Rute & Lantai utuh: `SKILL.md`.
 
 Urutan menang: instruksi user → `DECISIONS.md` dan `RESEP.md` proyek → profil merek (`BRAND.md`, `EDITING.md` teruji `scripts/juri/profil_cek.py`) → kartu terpilih → file ini. Lantai tidak dikalahkan kartu; pengecualian hanya atas instruksi user, dicatat di `RESEP.md`.
 
@@ -25,8 +25,8 @@ Urutan menang: instruksi user → `DECISIONS.md` dan `RESEP.md` proyek → profi
 
 1. Tulis fungsi cerita tiap beat.
 2. Cari kartu per beat, dari `claude/motion-graphic/scripts/`:
-   `python3 cookbook/pilih_kartu.py --cari "<kata kunci fungsi cerita>" [--kategori camera|typography|layout|texture|sfx|script] [--bergerak] [--limit 4]`
-   Keluaran: `ID | Nama | Bergerak/Diukur | Path kartu | Keyframes`. Kartu `bergerak:tidak` dibaca dari still: hipotesis.
+   `python3 cookbook/pilih_kartu.py --cari "<kata kunci fungsi cerita>" [--pack 01..06] [--kategori camera|typography|layout|texture|sfx|script|qc] [--bergerak] [--limit 4]`
+   Keluaran: `ID | Nama | Bergerak/Diukur | Path kartu | Keyframes`. Kartu `bergerak:tidak` dibaca dari still: hipotesis. Detail `_vault/` dibuka setelah tabel racikan disetujui.
 3. Buka **hanya 2–4 kartu** untuk seluruh video, beserta frame kuncinya. Yang diambil mekaniknya (gerak, ritme, hierarki teks, bunyi); warna, huruf, aset, dan tema tetap milik user.
 4. Tulis tabel racikan dan remix per beat, minta persetujuan user, lalu salin ke `RESEP.md` proyek dan storyboard:
 

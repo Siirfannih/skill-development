@@ -1,38 +1,37 @@
 #!/usr/bin/env python3
-"""Pemilih kartu mekanik cookbook per beat: baca cookbook/INDEX.md, kembalikan 2-4 kartu yang cocok dengan fungsi cerita.
+"""Pemilih kartu mekanik cookbook per beat: baca cookbook/CATALOG.md, kembalikan 2-4 kartu yang cocok dengan fungsi cerita.
 
-  python3 pilih_kartu.py --cari "<kata kunci fungsi cerita>" [--kategori camera|typography|layout|texture|sfx|script]
-                         [--bergerak] [--limit 4] [--index <INDEX.md>] [--keyframes <folder>]
+  python3 pilih_kartu.py --cari "<kata kunci fungsi cerita>" [--kategori camera|typography|layout|texture|sfx|script|qc]
+                         [--pack 01..06] [--bergerak] [--limit 4] [--index <CATALOG.md>] [--keyframes <folder>]
 
-Dipanggil sekali per beat di Langkah 1 cookbook, supaya INDEX.md tidak perlu dibaca utuh. Kartu adalah mekanik yang
+Dipanggil sekali per beat di Langkah 1 cookbook, supaya CATALOG.md tidak perlu dibaca utuh. Kartu adalah mekanik yang
 dipinjam lalu di-remix ke konsep user; keluaran skrip ini bukan template dan bukan gaya yang disalin.
 
-Masukan: tabel INDEX.md berkolom `ID | Pola | Narrative trigger | Kategori | Status | Path` (kolom dicari dari baris
-judul tabel, bukan dari urutan). Kolom Kategori berbentuk `utama (tambahan, ...)`; Status berbentuk
-`bergerak:<ya|sebagian|tidak> · diukur:<ya|tidak>`.
-
-  --cari      kata kunci dipisah spasi, tanpa beda huruf besar/kecil. Kata < 3 huruf dan kata sambung diabaikan. Tiap
-              kata dicari sebagai potongan teks di nama pola (bobot 3), narrative trigger (bobot 2), dan kategori
-              (bobot 1). Urutan hasil: jumlah kata yang cocok terbanyak, lalu bobot tertinggi, lalu urutan INDEX.
-              Kartu yang tidak cocok dengan satu kata pun tidak ditampilkan. Tanpa --cari: kartu sesuai urutan INDEX.
-  --kategori  hanya kartu yang kategori utama atau tambahannya memuat nilai ini; kategori utama diurutkan lebih dulu.
-  --bergerak  hanya kartu berstatus bergerak:ya (geraknya dilihat dari video, bukan dibaca dari still).
+Masukan: tabel CATALOG.md/INDEX.md berkolom `ID | Pola | Narrative trigger | Kategori | Status | Path`.
+  --cari      kata kunci dipisah spasi. Bobot: nama pola (3), narrative trigger (2), kategori (1).
+  --kategori  hanya kartu yang kategori utama atau tambahannya memuat nilai ini.
+  --pack      saring berdasarkan awalan folder pack (mis. 01, P01, 01-motion-camera-transitions).
+  --bergerak  hanya kartu berstatus bergerak:ya.
   --limit     jumlah baris paling banyak (bawaan 4).
-
-Keluaran: tabel `ID | Nama | Bergerak/Diukur | Path kartu | Keyframes`. Path relatif terhadap akar repo bila INDEX ada
-di dalam repo. Keyframes = jumlah file dan pola `<folder keyframes>/<id>-*`, atau `-` bila tidak ada.
-Keluar: 0 ada hasil · 1 tidak ada kartu yang cocok · 2 INDEX tidak terbaca atau tabelnya tidak dikenali.
 """
 import argparse, os, re, sys
 from pathlib import Path
 
 MG = Path(__file__).resolve().parents[2]
-INDEX = MG / "cookbook" / "INDEX.md"
+INDEX = MG / "cookbook" / "CATALOG.md"
 KEYFRAMES = MG / "guide" / "referensi" / "sheets" / "keyframes"
-KATEGORI = ("camera", "typography", "layout", "texture", "sfx", "script")
+KATEGORI = ("camera", "typography", "layout", "texture", "sfx", "script", "qc")
 KOLOM = {"id": "id", "pola": "nama", "narrative trigger": "trigger", "kategori": "kategori", "status": "status", "path": "path"}
 ABAIKAN = {"yang", "dan", "atau", "untuk", "dari", "dengan", "pada", "ini", "itu", "the", "and", "for", "with"}
 BOBOT = (("nama", 3), ("trigger", 2), ("kategori", 1))
+PACK_ALIASES = {
+    "p01": "01-", "01": "01-",
+    "p02": "02-", "02": "02-",
+    "p03": "03-", "03": "03-",
+    "p04": "04-", "04": "04-",
+    "p05": "05-", "05": "05-",
+    "p06": "06-", "06": "06-",
+}
 
 
 class Gagal(Exception):
@@ -44,7 +43,7 @@ def sel(baris):
 
 
 def baca_index(path=INDEX):
-    """Kembalikan daftar kartu (dict) sesuai urutan INDEX. Gagal bila tabel kartu tidak ditemukan atau kosong."""
+    """Kembalikan daftar kartu (dict) sesuai urutan CATALOG/INDEX. Gagal bila tabel kartu tidak ditemukan atau kosong."""
     try:
         baris = Path(path).read_text(encoding="utf-8").splitlines()
     except OSError as e:
@@ -85,7 +84,6 @@ def kata_kunci(cari):
 
 
 def nilai(kartu, kata):
-    """(jumlah kata yang cocok, bobot total) untuk satu kartu."""
     cocok = bobot = 0
     for w in kata:
         b = sum(n for kolom, n in BOBOT if w in kartu[kolom].lower())
@@ -93,12 +91,15 @@ def nilai(kartu, kata):
     return cocok, bobot
 
 
-def pilih(kartu, cari=None, kategori=None, bergerak=False, limit=4):
+def pilih(kartu, cari=None, kategori=None, bergerak=False, limit=4, pack=None):
     kata = kata_kunci(cari)
     if cari and not kata:
         raise Gagal("--cari tidak memuat kata kunci (minimal satu kata ≥ 3 huruf yang bukan kata sambung)")
+    pack_prefix = PACK_ALIASES.get(pack.lower(), pack.lower()) if pack else None
     hasil = []
     for k in kartu:
+        if pack_prefix and not k["path"].lower().startswith(pack_prefix):
+            continue
         if kategori and kategori != k["utama"] and kategori not in k["tambahan"]:
             continue
         if bergerak and k["bergerak"] != "ya":
@@ -112,7 +113,6 @@ def pilih(kartu, cari=None, kategori=None, bergerak=False, limit=4):
 
 
 def rel(p):
-    """Path relatif terhadap akar repo (dua tingkat di atas folder skill) bila di dalamnya; selain itu apa adanya."""
     p = Path(p).resolve()
     try:
         return p.relative_to(MG.parents[1]).as_posix()
@@ -133,9 +133,10 @@ def tabel(hasil, index=INDEX, folder=KEYFRAMES):
 
 
 def main(argv=None):
-    ap = argparse.ArgumentParser(description="Pilih kartu mekanik cookbook dari INDEX.md menurut fungsi cerita satu beat.")
+    ap = argparse.ArgumentParser(description="Pilih kartu mekanik cookbook dari CATALOG.md menurut fungsi cerita satu beat.")
     ap.add_argument("--cari", help="kata kunci fungsi cerita, dipisah spasi")
     ap.add_argument("--kategori", choices=KATEGORI)
+    ap.add_argument("--pack", help="saring domain pack (mis. 01, P01, 01-motion-camera-transitions)")
     ap.add_argument("--bergerak", action="store_true", help="hanya kartu bergerak:ya")
     ap.add_argument("--limit", type=int, default=4)
     ap.add_argument("--index", default=str(INDEX)); ap.add_argument("--keyframes", default=str(KEYFRAMES))
@@ -143,11 +144,11 @@ def main(argv=None):
     if a.limit < 1:
         ap.error("--limit minimal 1")
     try:
-        hasil = pilih(baca_index(a.index), a.cari, a.kategori, a.bergerak, a.limit)
+        hasil = pilih(baca_index(a.index), a.cari, a.kategori, a.bergerak, a.limit, a.pack)
     except Gagal as e:
         print(f"GAGAL  {e}", file=sys.stderr); return 2
     if not hasil:
-        saring = " ".join(x for x in (f'--cari "{a.cari}"' if a.cari else "", f"--kategori {a.kategori}" if a.kategori else "", "--bergerak" if a.bergerak else "") if x)
+        saring = " ".join(x for x in (f'--cari "{a.cari}"' if a.cari else "", f"--kategori {a.kategori}" if a.kategori else "", f"--pack {a.pack}" if a.pack else "", "--bergerak" if a.bergerak else "") if x)
         print(f"Tidak ada kartu yang cocok ({saring}). Ganti kata kunci dengan fungsi cerita beat-nya, atau longgarkan saringan.", file=sys.stderr)
         return 1
     print(tabel(hasil, a.index, a.keyframes))

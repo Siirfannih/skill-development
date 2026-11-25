@@ -1,24 +1,41 @@
 #!/usr/bin/env python3
-"""Alat cookbook motion-graphic: INDEX/POLA, resolver kartu, validasi, migrasi path.
+"""Alat cookbook motion-graphic (Two-Tier Domain Packs): CATALOG/POLA/SFX, resolver kartu, validasi token & skema.
 
-  python3 tools/cookbook.py index                 tulis cookbook/INDEX.md dan cookbook/POLA.md
-  python3 tools/cookbook.py cari <id|path>        cetak path kartu (id, alias, atau path lama)
-  python3 tools/cookbook.py cek [--ketat]         validasi kartu + INDEX/POLA; exit 1 bila GAGAL
+  python3 tools/cookbook.py index                 tulis cookbook/CATALOG.md, cookbook/POLA.md, cookbook/SFX.md
+  python3 tools/cookbook.py cari <id|path>        cetak path kartu (id, alias, _vault, atau arsip)
+  python3 tools/cookbook.py cek [--ketat]         validasi 44 Invariant Cards + INDEX/Core token budget + CATALOG/POLA/SFX
   python3 tools/cookbook.py migrasi-path [--tulis]  ganti rujukan pustaka/ lama di seluruh repo
 Hanya stdlib. Fungsi resolve() dipakai skrip lain (juri/resep_check.py)."""
 import json, glob, os, re, sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 CB = os.path.join(ROOT, "claude", "motion-graphic", "cookbook")
-FOLDERS = ["01-camera-and-transitions", "02-typography-and-captions", "03-spatial-and-ui-layouts",
-           "04-tactile-textures-and-grading", "05-sfx-and-audio-mapping", "06-script-and-story"]
-FOLDER_KAT = dict(zip(FOLDERS, ["camera", "typography", "layout", "texture", "sfx", "script"]))
-KAT = list(FOLDER_KAT.values())
-WAJIB = ["id", "pola", "kategori", "kategori_lain", "trigger", "sumber", "dilihat_bergerak", "diukur", "alias"]
-LIST_KEYS = {"kategori_lain", "alias"}
+FOLDERS = [
+    "01-motion-camera-transitions",
+    "02-typography-talking-head",
+    "03-documentary-story-narrative",
+    "04-ui-cutout-dataviz-visuals",
+    "05-audio-sfx-pacing",
+    "06-qc-and-verification",
+]
+FOLDER_KAT = dict(zip(FOLDERS, ["camera", "typography", "script", "layout", "sfx", "qc"]))
+# Allowed primary categories inside each Domain Pack
+PACK_KATS = {
+    "01-motion-camera-transitions": {"camera"},
+    "02-typography-talking-head": {"typography"},
+    "03-documentary-story-narrative": {"script", "typography", "layout", "texture"},
+    "04-ui-cutout-dataviz-visuals": {"layout", "typography"},
+    "05-audio-sfx-pacing": {"sfx"},
+    "06-qc-and-verification": {"qc"},
+}
+KAT = ["camera", "typography", "layout", "texture", "sfx", "script", "qc"]
+WAJIB = ["id", "pola", "pack", "kategori", "kategori_lain", "trigger", "sumber", "dilihat_bergerak", "diukur", "alias", "vault"]
+LIST_KEYS = {"kategori_lain", "alias", "vault"}
 TBLOK = re.compile(r"^### T(\d+) · (.+?) · (\w+)\s*$", re.M)
 HEAD = re.compile(r"^#{2,3} ", re.M)
 GENERATED = "<!-- dibangkitkan oleh tools/cookbook.py index; jangan diedit tangan -->"
+INDEX_MAX_TOKENS = 600
+CORE_MAX_TOKENS = 1000
 
 
 # ---------- parsing ----------
@@ -42,26 +59,43 @@ def parse_front(text):
 
 def _unq(v):
     v = v.strip()
-    if len(v) >= 2 and v[0] == v[-1] and v[0] in "\"'":
+    if len(v) >= 2 and v[0] == v[-1] and v[0] in ("\"", "'"):
         return v[1:-1]
     return v
 
 
 def tblocks(body):
+    """Dukungan kompatibilitas: baca T-blok lama (bila ada) atau ringkas Invariant Card baru sebagai 1 entri."""
     out = []
     ms = list(TBLOK.finditer(body))
-    for i, m in enumerate(ms):
-        end = ms[i + 1].start() if i + 1 < len(ms) else len(body)
-        nxt = HEAD.search(body, m.end())
-        if nxt and nxt.start() < end:
-            end = nxt.start()
-        blok = body[m.end():end]
-        tm = re.search(r"^- \*\*Trigger:\*\*[ \t]*(.*)$", blok, re.M)
-        sm = re.search(r"^- \*\*SFX:\*\*[ \t]*(.*)$", blok, re.M)
-        out.append(dict(n=m.group(1), nama=m.group(2).strip(), kat=m.group(3), trigger=tm.group(1).strip() if tm else "",
-                        mekanik="Mekanik Remotion" in blok, remix="Remix" in blok,
-                        belum="belum dibedah" in blok.lower(),
-                        sfx=sm.group(1).strip() if sm else ""))
+    if ms:
+        for i, m in enumerate(ms):
+            end = ms[i + 1].start() if i + 1 < len(ms) else len(body)
+            nxt = HEAD.search(body, m.end())
+            if nxt and nxt.start() < end:
+                end = nxt.start()
+            blok = body[m.end():end]
+            tm = re.search(r"^- \*\*Trigger:\*\*[ \t]*(.*)$", blok, re.M)
+            sm = re.search(r"^- \*\*SFX:\*\*[ \t]*(.*)$", blok, re.M)
+            out.append(dict(n=m.group(1), nama=m.group(2).strip(), kat=m.group(3), trigger=tm.group(1).strip() if tm else "",
+                            mekanik="Mekanik Remotion" in blok, remix="Remix" in blok,
+                            belum="belum dibedah" in blok.lower(),
+                            sfx=sm.group(1).strip() if sm else ""))
+        return out
+    hm = re.search(r"^###\s+(?:[A-Za-z0-9-]+)\s+·\s+(.+)$", body, re.M)
+    if hm:
+        tm = re.search(r"^- \*\*Trigger:\*\*[ \t]*(.*)$", body, re.M)
+        am = re.search(r"^- \*\*Anti-Pattern:\*\*[ \t]*(.*)$", body, re.M)
+        im = re.search(r"^- \*\*Invariant:\*\*[ \t]*(.*)$", body, re.M)
+        gm = re.search(r"^- \*\*Gate:\*\*[ \t]*(.*)$", body, re.M)
+        out.append(dict(
+            n="1", nama=hm.group(1).strip(), kat="",
+            trigger=tm.group(1).strip() if tm else "",
+            anti=am.group(1).strip() if am else "",
+            invariant=im.group(1).strip() if im else "",
+            gate=gm.group(1).strip() if gm else "",
+            mekanik=True, remix=True, belum=False, sfx=""
+        ))
     return out
 
 
@@ -69,6 +103,8 @@ def norm_id(x):
     x = x.strip()
     if re.match(r"^[Ss]\d+$", x):
         return "S%02d" % int(x[1:])
+    if re.match(r"^[MmQqAa]\d+$", x):
+        return x[0].upper() + "%02d" % int(x[1:])
     if re.match(r"^\d+(-\d+)*$", x):
         return "-".join(str(int(p)) for p in x.split("-"))
     return x
@@ -105,39 +141,47 @@ def id_candidates(ref):
     """Kandidat id dari id polos atau path/nama file (terpanjang dulu)."""
     b = os.path.basename(ref.strip().rstrip("/"))
     b = re.sub(r"\.md$", "", b)
-    m = re.match(r"^(\d+(?:-\d+)*)", b)
     cands = []
+    m = re.match(r"^(\d+(?:-\d+)*)", b)
     if m:
         parts = m.group(1).split("-")
         for k in range(len(parts), 0, -1):
             cands.append("-".join(parts[:k]))
     else:
-        sm = re.match(r"^([Ss]\d+)", b)
+        sm = re.match(r"^([SsMmQqAa]\d+)", b)
         if sm:
             cands.append(sm.group(1))
+        else:
+            cands.append(b)
     return [norm_id(c) for c in cands]
 
 
 def resolve(ref, include_lama=True):
-    """Path absolut kartu untuk id/alias/path lama; None bila tidak ada.
-    include_lama: kartu yang belum dikonversi (cookbook/_lama/NN-*.md) ikut dicari."""
+    """Path absolut kartu untuk id/alias/path lama; cari pack aktif dulu, lalu _vault/, _lama/, dan archive/cookbook-legacy/."""
     idm = id_map()
     for c in id_candidates(ref):
         if c in idm:
             return idm[c]["path"]
     if include_lama:
         for c in id_candidates(ref):
-            hit = sorted(glob.glob(os.path.join(CB, "_lama", c + "-*.md")))
-            if hit:
-                return hit[0]
+            variants = [c, c.zfill(2)] if c.isdigit() and len(c) == 1 else [c]
+            for v in variants:
+                for pat in (
+                    os.path.join(CB, "_vault", "*", v + "-*.md"),
+                    os.path.join(CB, "_lama", v + "-*.md"),
+                    os.path.join(ROOT, "archive", "cookbook-legacy", v + "-*.md"),
+                ):
+                    hit = sorted(glob.glob(pat))
+                    if hit:
+                        return hit[0]
     return None
 
 
 def in_lama(path):
-    return path is not None and os.sep + "_lama" + os.sep in path
+    return path is not None and (os.sep + "_lama" + os.sep in path or os.sep + "cookbook-legacy" + os.sep in path)
 
 
-# ---------- index ----------
+# ---------- catalog / pola / sfx ----------
 def cut(s, n):
     s = " ".join(s.split())
     return s if len(s) <= n else s[:n - 1].rstrip() + "…"
@@ -147,26 +191,17 @@ def esc(s):
     return s.replace("|", "\\|")
 
 
-def build_index(cards):
+def build_catalog(cards):
     ok = sorted([c for c in cards if c["fm"]], key=lambda c: (c["fi"], idkey(c["fm"].get("id", "")), c["rel"]))
     aliases = []
     for c in ok:
         for a in c["fm"].get("alias", []):
             aliases.append((norm_id(a), c["fm"].get("id", "")))
     aliases.sort(key=lambda t: idkey(t[0]))
-    L = ["# Cookbook · INDEX", "", GENERATED, "",
-         "## Cara pakai", "",
-         "1. Baca tabel ini sekali; jangan membuka kartu satu per satu untuk \"melihat-lihat\".",
-         "2. Cocokkan kalimat naskah/adegan dengan kolom *Narrative trigger*.",
-         "3. Pilih **1 kartu pengikat** (warna, teks, ritme satu video) + **1–3 kartu mekanik** untuk adegan yang butuh gerak lain.",
-         "4. Buka hanya kartu terpilih dan frame kuncinya (`guide/referensi/sheets/keyframes/`); jangan baca kartu lain.",
-         "5. Mencari per pola (T-blok) atau per kata kunci mekanik: lihat `POLA.md`.",
-         "6. Kartu kategori script (id `S..`) dipakai di fase naskah, bukan fase visual.",
-         "7. Kolom *Status* memberi tahu seberapa kuat kartunya: `bergerak:tidak` = dibaca dari still, perlakukan sebagai hipotesis.",
-         "8. Id lama yang sudah digabung tetap terbaca: `python3 tools/cookbook.py cari <id>`.",
-         ""]
+    L = ["# Cookbook · CATALOG (Daftar Invariant Cards)", "", GENERATED, "",
+         "File ini dibaca otomatis oleh `scripts/cookbook/pilih_kartu.py`. Agen produksi cukup memuat `INDEX.md` + `00-core-invariants.md` + pack yang relevan.", ""]
     if aliases:
-        L += ["**Alias (id lama → kartu):** " + ", ".join(f"`{a} → {t}`" for a, t in aliases), ""]
+        L += ["**Alias (id lama → kartu pack):** " + ", ".join(f"`{a} → {t}`" for a, t in aliases), ""]
     L += ["> Dibangkitkan oleh `tools/cookbook.py index`; jangan diedit tangan.", "",
           "| ID | Pola | Narrative trigger | Kategori | Status | Path |", "|---|---|---|---|---|---|"]
     for c in ok:
@@ -185,17 +220,20 @@ def build_pola(cards):
     ok = [c for c in cards if c["fm"]]
     rows = {k: [] for k in KAT}
     for c in ok:
+        fm = c["fm"]
+        kat = fm.get("kategori", "")
         for t in tblocks(c["body"]):
-            rows.setdefault(t["kat"], []).append((c, t))
-    L = ["# Cookbook · POLA (per T-blok)", "", GENERATED, "",
-         "Satu baris per pola (T-blok) dalam kartu, dikelompokkan per kategori pola. Buka kartunya untuk mekanik dan remix.", ""]
+            tk = t["kat"] or kat
+            rows.setdefault(tk, []).append((c, t))
+    L = ["# Cookbook · POLA (Ringkasan Invariant per Kategori)", "", GENERATED, "",
+         "Satu baris per pola di dalam Domain Packs. Buka kartunya untuk detail Invariant, Primitives, dan Gate.", ""]
     for k in KAT + sorted(set(rows) - set(KAT)):
         lst = sorted(rows.get(k, []), key=lambda r: (idkey(r[0]["fm"].get("id", "")), int(r[1]["n"])))
         if not lst:
             continue
-        L += [f"## {k}", "", "| ID.Tn | Nama pola | Trigger | Kartu |", "|---|---|---|---|"]
+        L += [f"## {k}", "", "| ID | Nama pola | Trigger | Kartu |", "|---|---|---|---|"]
         for c, t in lst:
-            L.append("| " + " | ".join(esc(x) for x in [f"{c['fm'].get('id', '')}.T{t['n']}", t["nama"], cut(t["trigger"], 120), c["rel"]]) + " |")
+            L.append("| " + " | ".join(esc(x) for x in [c["fm"].get("id", ""), t["nama"], cut(t["trigger"], 120), c["rel"]]) + " |")
         L.append("")
     return "\n".join(L).rstrip("\n") + "\n"
 
@@ -206,7 +244,6 @@ FAMJSON = os.path.join(SFXDIR, "FAMILI.json")
 
 
 def sfx_lokal(path=None, hanya_pakai=False):
-    """Baris katalog lokal (SFXIRFAN.md, EPIDEMIC.md): (nama file, famili, kolom terakhir). Kolom Famili ditulis `id`."""
     out = []
     path = path or SFXCAT
     if not os.path.exists(path):
@@ -223,24 +260,15 @@ def sfx_lokal(path=None, hanya_pakai=False):
 
 
 def build_sfx(cards):
-    ok = [c for c in cards if c["fm"]]
     fams = json.load(open(FAMJSON, encoding="utf-8"))["famili"] if os.path.exists(FAMJSON) else {}
-    pakai = {k: [] for k in fams}
-    for c in sorted(ok, key=lambda c: idkey(c["fm"].get("id", ""))):
-        for t in tblocks(c["body"]):
-            for k in re.findall(r"`([a-z]+)`", t["sfx"].split(" · ")[0]) if t["sfx"].startswith("famili ") else []:
-                pakai.setdefault(k, []).append(f"{c['fm'].get('id', '')}.T{t['n']}")
     lokal = sfx_lokal()
     epi = sfx_lokal(os.path.join(SFXDIR, "EPIDEMIC.md"), hanya_pakai=True)
     L = ["# Cookbook · SFX per famili", "", GENERATED, "",
-         "Kebutuhan bunyi tiap pola ditulis sebagai **famili** (karakter), bukan nama file. Untuk satu famili: lihat pola yang "
-         "memakainya, coba stok lokal yang terdaftar, lalu cari bila tidak ada yang lolos dengar "
-         "(`../guide/sfx/GUIDE.md` Cara 3, `../guide/sfx/FAMILI.md`).", ""]
+         "Kebutuhan bunyi tiap pola ditulis sebagai **famili** (karakter), bukan nama file. Rujuk `05-audio-sfx-pacing/A01-five-pillars-and-natural-level.md` dan `../guide/sfx/FAMILI.md`.", ""]
     for k, f in fams.items():
         mine = [f"`{n}`" for n, fk, _ in lokal if fk == k]
         L += [f"## `{k}` · {f.get('nama', k)}", "",
               f"- **Karakter:** {f.get('deskripsi', '')}",
-              f"- **Pola yang memakainya ({len(pakai.get(k, []))}):** " + (", ".join(pakai.get(k, [])) or "—"),
               f"- **SFXIrfan:** " + (", ".join(mine) or "tidak ada"),
               f"- **Epidemic lokal (PAKAI):** " + (", ".join(f"`{n}`" for n, fk, _ in epi if fk == k) or "tidak ada")
               + "; Kenyset: nama file cocok `" + f.get("kenyset_regex", "—") + "`",
@@ -248,11 +276,12 @@ def build_sfx(cards):
               + ", ".join(f'"{q}"' for q in f.get("cari", [])) + ")", ""]
     return "\n".join(L).rstrip("\n") + "\n"
 
+
 def cmd_index():
     cards = load_cards()
-    for name, txt in (("INDEX.md", build_index(cards)), ("POLA.md", build_pola(cards)), ("SFX.md", build_sfx(cards))):
+    for name, txt in (("CATALOG.md", build_catalog(cards)), ("POLA.md", build_pola(cards)), ("SFX.md", build_sfx(cards))):
         open(os.path.join(CB, name), "w", encoding="utf-8").write(txt)
-    print(f"OK  INDEX.md, POLA.md, SFX.md ditulis dari {sum(1 for c in cards if c['fm'])} kartu")
+    print(f"OK  CATALOG.md, POLA.md, SFX.md ditulis dari {sum(1 for c in cards if c['fm'])} kartu")
     return 0
 
 
@@ -264,7 +293,7 @@ def cmd_cari(args):
     if not p:
         print(f"tidak ada kartu untuk '{args[0]}'", file=sys.stderr); return 1
     if in_lama(p):
-        print("(belum dikonversi, masih di _lama)", file=sys.stderr)
+        print("(arsip/legacy)", file=sys.stderr)
     print(os.path.relpath(p, ROOT))
     return 0
 
@@ -273,11 +302,24 @@ def cmd_cari(args):
 def cmd_cek(args):
     ketat = "--ketat" in args
     cards = load_cards()
-    res = []  # (status, pesan)
+    res = []
     def ok(m): res.append(("OK", m))
     def bad(m): res.append(("GAGAL", m))
     def warn(m): res.append(("PERINGATAN", m))
     def nbad(): return sum(1 for s, _ in res if s == "GAGAL")
+
+    # Cek router INDEX.md dan 00-core-invariants.md
+    for fname, limit in (("INDEX.md", INDEX_MAX_TOKENS), ("00-core-invariants.md", CORE_MAX_TOKENS)):
+        fpath = os.path.join(CB, fname)
+        if not os.path.exists(fpath):
+            bad(f"{fname} tidak ditemukan")
+        else:
+            txt = open(fpath, encoding="utf-8").read()
+            tok = len(txt) // 4
+            if tok >= limit:
+                bad(f"{fname} terlalu besar: ~{tok} tok (batas < {limit})")
+            else:
+                ok(f"{fname}: ~{tok} tok (< {limit})")
 
     ids, namas = {}, {}
     for c in cards:
@@ -290,8 +332,11 @@ def cmd_cek(args):
         if miss:
             bad(f"{r}: frontmatter kurang: {', '.join(miss)}")
         kat = fm.get("kategori", "")
-        if kat != FOLDER_KAT[c["folder"]]:
-            bad(f"{r}: kategori '{kat}' tidak sesuai folder (harus {FOLDER_KAT[c['folder']]})")
+        allowed = PACK_KATS.get(c["folder"], {FOLDER_KAT[c["folder"]]})
+        if kat not in allowed:
+            bad(f"{r}: kategori '{kat}' tidak sesuai pack {c['folder']} (diizinkan {sorted(allowed)})")
+        if fm.get("pack", "") != c["folder"]:
+            bad(f"{r}: field pack '{fm.get('pack', '')}' != folder '{c['folder']}'")
         for l in fm.get("kategori_lain", []):
             if l not in KAT:
                 bad(f"{r}: kategori_lain tidak dikenal: {l}")
@@ -311,38 +356,31 @@ def cmd_cek(args):
             if pn in namas and namas[pn] != r:
                 bad(f"nama pola '{fm['pola']}' kembar: {namas[pn]} dan {r}")
             namas.setdefault(pn, r)
-        tb = tblocks(c["body"])
-        b0 = nbad()
-        if kat != "script":
-            if not tb:
-                bad(f"{r}: tidak ada T-blok")
-            for t in tb:
-                wajib = (("Trigger", t["trigger"]),) if t.get("belum") else (("Trigger", t["trigger"]), ("Mekanik Remotion", t["mekanik"]), ("Remix", t["remix"]))
-                kurang = [n for n, v in wajib if not v]
-                if not t.get("belum") and t.get("sfx") and not (t["sfx"].startswith("famili `") or re.search(r"senyap", t["sfx"], re.I)):
-                    kurang.append("SFX tanpa famili (tulis famili `<id>` dari guide/sfx/FAMILI.md, atau senyap + alasan)")  # T-blok yang jujur "belum dibedah" cukup punya Trigger
-                if kurang:
-                    bad(f"{r} T{t['n']}: kurang {', '.join(kurang)}")
-        b1 = nbad()
-        dirc = os.path.dirname(c["path"])
-        seen = set()
-        for pm in re.finditer(r"`([^`\n]+)`", c["text"]):
-            p = pm.group(1)
-            if not (p.startswith("../") or p.startswith("../../")):
-                continue
-            if re.search(r"\s", p) or "<" in p or "…" in p or "{" in p or not re.search(r"\.\w+$", p) or p in seen:
-                continue
-            seen.add(p)
-            full = os.path.normpath(os.path.join(dirc, p))
-            if "*" in p:
-                if not glob.glob(full):
-                    bad(f"{r}: glob tanpa hasil: {p}")
-            elif not os.path.exists(full):
-                bad(f"{r}: path tidak ada: {p}")
-        if nbad() == bc:
-            ok(f"{r}: frontmatter, kategori, {len(tb)} T-blok, path rujukan")
 
-    for name, fn in (("INDEX.md", build_index), ("POLA.md", build_pola), ("SFX.md", build_sfx)):
+        # Validasi format Invariant Card (Trigger, Anti-Pattern, Invariant, Gate)
+        tb = tblocks(c["body"])
+        if not tb:
+            bad(f"{r}: format Invariant Card tidak valid (heading/Trigger tidak ditemukan)")
+        else:
+            t = tb[0]
+            missing_sec = [lbl for lbl, val in (("Trigger", t.get("trigger")), ("Anti-Pattern", t.get("anti")),
+                                                 ("Invariant", t.get("invariant")), ("Gate", t.get("gate"))) if not val]
+            if missing_sec:
+                bad(f"{r}: bagian wajib kurang: {', '.join(missing_sec)}")
+        body_lines = len(c["body"].strip().splitlines())
+        if body_lines > 18:
+            warn(f"{r}: isi Invariant Card {body_lines} baris (target 10-15)")
+
+        dirc = os.path.dirname(c["path"])
+        for vp in fm.get("vault", []):
+            full = os.path.normpath(os.path.join(dirc, vp))
+            if not os.path.exists(full):
+                bad(f"{r}: vault path tidak ada: {vp}")
+
+        if nbad() == bc:
+            ok(f"{r}: frontmatter, pack, Invariant Card, vault OK")
+
+    for name, fn in (("CATALOG.md", build_catalog), ("POLA.md", build_pola), ("SFX.md", build_sfx)):
         p = os.path.join(CB, name)
         want = fn(cards)
         if not os.path.exists(p):
@@ -367,7 +405,7 @@ def cmd_cek(args):
 
 # ---------- migrasi-path ----------
 SKIP_TOP = {"projects", "archive", "_archive"}
-SKIP_ANY = {".git", "node_modules", "__pycache__"}
+SKIP_ANY = {".git", "node_modules", "__pycache__", "_vault"}
 TEXT_EXT = {".md", ".py", ".sh", ".ts", ".tsx", ".js", ".json", ".txt", ".yml", ".yaml", ".toml", ".mjs", ".cjs", ".html", ".css", ""}
 FIXED = {"PETA.md": "INDEX.md"}
 KARTU_RE = re.compile(
@@ -380,7 +418,6 @@ KARTU_RE = re.compile(
 def walk_files():
     for dp, dn, fn in os.walk(ROOT):
         rel = os.path.relpath(dp, ROOT)
-        top = rel.split(os.sep)[0]
         dn[:] = [d for d in dn if d not in SKIP_ANY and not (rel == "." and d in SKIP_TOP)]
         if rel.startswith(os.path.join("claude", "motion-graphic", "cookbook", "_lama")):
             dn[:] = []; continue
@@ -396,7 +433,6 @@ def walk_files():
 
 
 def migrate_line(line, relfile, pending):
-    """Kembalikan (baris baru, daftar (lama, baru))."""
     in_cb = relfile.startswith(os.path.join("claude", "motion-graphic", "cookbook") + os.sep)
     in_mg = relfile.startswith("claude" + os.sep + "motion-graphic" + os.sep) or relfile.startswith("tools" + os.sep)
     ch = []

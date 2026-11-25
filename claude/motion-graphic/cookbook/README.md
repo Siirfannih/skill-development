@@ -37,22 +37,21 @@ Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak ko
    - **SFX**: satu bunyi per objek penting (`../guide/sfx/GUIDE.md`)
 3. Usulkan perubahan sebagai daftar bedah: beat, apa yang diubah, pola rujukannya, dan apa yang tetap. Warna, huruf, aset, komposisi, dan urutan user tidak diubah. Setelah disetujui, ubah kode yang ada (revisi bedah, bukan bangun ulang).
 
-## 4. Isi folder
+## 4. Isi folder (Arsitektur Two-Tier Domain Packs)
 
 | Path | Isi | Kapan dibaca |
 |---|---|---|
-| `INDEX.md` | satu baris per kartu: ID, nama pola, narrative trigger, kategori, status, path | selalu, sebelum membuka kartu |
-| `POLA.md` | satu baris per teknik (T-blok) lintas kartu, per kategori | saat mencari satu mekanik untuk satu beat; baca satu bagian kategori atau `grep -i <kata>`, jangan utuh |
-| `SFX.md` | peta balik file `SFXIrfan` → pola yang memakainya, plus bunyi yang dibutuhkan pola tetapi tidak ada di SFXIrfan | saat mengisi kolom SFX racikan |
-| `01-camera-and-transitions/` · `02-typography-and-captions/` · `03-spatial-and-ui-layouts/` · `04-tactile-textures-and-grading/` · `05-sfx-and-audio-mapping/` · `06-script-and-story/` | Pattern Card, dikelompokkan menurut mekanik dominannya | 2–4 kartu yang dipilih lewat INDEX |
-| `KARTU-TEMPLATE.md` · `NASKAH-TEMPLATE.md` | format kartu visual dan kartu pola naskah | saat membedah referensi baru |
-| `RESEP-TEMPLATE.md` | resep per video | disalin ke `projects/<proyek>/RESEP.md` |
-| `teknik/` | pola lintas referensi (kinetic typography, peluncuran produk/UI, animasi karakter) | saat merancang bagian itu |
+| `INDEX.md` | router ringkas (< 600 tok) + Loading Matrix per tipe konten | selalu di awal fase racik |
+| `00-core-invariants.md` | 7 invarian universal Kelas H lintas semua format (< 1.000 tok) | wajib sekali per sesi produksi |
+| `01-motion-camera-transitions/` · `02-typography-talking-head/` · `03-documentary-story-narrative/` · `04-ui-cutout-dataviz-visuals/` · `05-audio-sfx-pacing/` · `06-qc-and-verification/` | Invariant Cards ringkas (10–15 baris) per Domain Pack | hanya pack sesuai Loading Matrix |
+| `CATALOG.md` · `POLA.md` · `SFX.md` | daftar lengkap 44 kartu + alias lama (dibangkitkan `tools/cookbook.py index`) | dibaca oleh CLI `pilih_kartu.py` / pencarian SFX |
+| `_vault/` | arsip utuh 97 kartu bedahan penuh (Tier 2 on-demand) | dibuka hanya sesudah racikan 2–4 kartu disetujui untuk sanding visual |
+| `KARTU-TEMPLATE.md` · `NASKAH-TEMPLATE.md` · `RESEP-TEMPLATE.md` | format kartu dan resep per video | saat membedah referensi baru atau membuat `RESEP.md` |
 | `contoh-gagal/` | frame yang pernah ditolak + sebabnya | sebelum merancang dan setiap kali menilai still |
-| `../guide/sfx/SFXIRFAN.md` | katalog bunyi `SFXIrfan` (nama file = fungsi) yang dirujuk kolom SFX kartu | saat mengisi SFX |
+| `../guide/sfx/SFXIRFAN.md` | katalog bunyi `SFXIrfan` (nama file = fungsi) yang dirujuk kolom SFX | saat mengisi SFX |
 | `../LANTAI.md` | mutu yang berlaku di semua video | selalu |
 
-Alat (dari root repo): `python3 tools/cookbook.py index` (bangkitkan INDEX, POLA, SFX dari frontmatter dan T-blok kartu), `cari <id>` (path kartu dari nomor, termasuk alias dan path lama `pustaka/kartu/…`), `cek` (frontmatter, path mati, INDEX basi; dijalankan `tools/doctor.sh`).
+Alat (dari root repo): `python3 tools/cookbook.py index` (bangkitkan `CATALOG.md`, `POLA.md`, `SFX.md` dari frontmatter kartu), `cari <id>` (path kartu dari nomor/alias termasuk `_vault/` dan arsip), `cek` (validasi frontmatter, format Invariant Card, batas token `INDEX.md`/`00-core-invariants.md`, vault path, kesegaran katalog; dijalankan `tools/doctor.sh`).
 
 ## 5. Kartu itu apa
 

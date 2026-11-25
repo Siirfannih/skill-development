@@ -12,7 +12,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 
 | Pekerjaan | Buka | Jangan buka |
 |---|---|---|
-| Sesi produksi video | `claude/motion-graphic/MOTION-CORE.md` (invarian, alur dua langkah, 10 aturan Lantai, gerbang wajib, larangan keras) → `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`, `STATUS.md`); kartu dicari per beat dengan `claude/motion-graphic/scripts/cookbook/pilih_kartu.py` | `PETA.md` selebihnya, `RETRO.md`, `SUMBER.md`, `cookbook/INDEX.md` utuh; folder proyek lain; template gaya tetap |
+| Sesi produksi video | `claude/motion-graphic/MOTION-CORE.md` + `claude/motion-graphic/cookbook/00-core-invariants.md` → `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`, `STATUS.md`); pilih 1 pack via `claude/motion-graphic/cookbook/INDEX.md` + `claude/motion-graphic/scripts/cookbook/pilih_kartu.py` | `PETA.md` selebihnya, `RETRO.md`, `SUMBER.md`, `cookbook/CATALOG.md` utuh, `_vault/`; folder proyek lain; template gaya tetap |
 | Awal sesi lainnya | `AGENTS.md` → `PETA.md` (file ini) → `PENDING.md` | seluruh `references/` sekaligus |
 | Video: gerbang dan rute lengkap | `claude/irfan-creative-workflow/SKILL.md` §2 (gerbang: bedah bahan user → naskah → storyboard → persetujuan; belum ada kode sebelum gerbang 3) → `claude/motion-graphic/SKILL.md` §Mulai di sini (Lantai termuat di dalamnya; jangan baca `LANTAI.md` terpisah) → `projects/<proyek>/TAHAP.md` dari `claude/motion-graphic/templates/TAHAP.md` + `scripts/juri/tahap.py` (langkah berikutnya dan bagian yang dibaca) → profil merek: `claude/motion-graphic/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md` | skill di `archive/` |
 | Fase 1 pra-produksi: script, bedah referensi, storyboard | `claude/motion-graphic/cookbook/README.md` (§1 Prinsip, §2 Alur dua langkah) → `claude/motion-graphic/scripts/cookbook/pilih_kartu.py --cari "<fungsi cerita>"` per beat (mencocokkan *Narrative trigger* di `claude/motion-graphic/cookbook/INDEX.md`; naskah: `--kategori script`) → hanya 2–4 kartu **dan frame kuncinya** (`guide/referensi/sheets/keyframes/`) → tabel racikan disetujui user, `claude/motion-graphic/cookbook/contoh-gagal/README.md`, `claude/motion-graphic/references/storyboard.md`, `claude/script-workshop/SKILL.md` | `audio.md`, `build.md` |
@@ -47,7 +47,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 
 | File | Isi / kapan dibuka |
 |---|---|
-| `claude/motion-graphic/MOTION-CORE.md` | **MOTION-CORE: pintu masuk sesi produksi video** — Sesi produksi memuat file ini, lalu projects/<proyek>/ (DECISIONS.md, RESEP.md, TAHAP.md). |
+| `claude/motion-graphic/MOTION-CORE.md` | **MOTION-CORE: pintu masuk sesi produksi video** — Sesi produksi memuat file ini + cookbook/00-core-invariants.md, lalu projects/<proyek>/ (DECISIONS.md, RESEP.md, TAHAP.md). |
 
 ## motion-graphic · inti dan kamus referensi (opsional di sesi produksi)
 
@@ -55,7 +55,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 |---|---|
 | `claude/motion-graphic/LANTAI.md` | **LANTAI: mutu yang berlaku di semua video** — Lantai menentukan mutu; kiblat (kartu di cookbook/) menentukan gaya. |
 | `claude/motion-graphic/RETRO.md` | **RETRO · catatan pelajaran per gerbang** — Format dan aturan: lihat MOTION-SYSTEM.md §8. |
-| `claude/motion-graphic/cookbook/INDEX.md` | **Cookbook · INDEX** — ## Cara pakai |
+| `claude/motion-graphic/cookbook/INDEX.md` | **Cookbook · INDEX (Router)** — ## 1. Domain Packs |
 | `claude/motion-graphic/cookbook/README.md` | **Cookbook: perpustakaan mekanik gerak untuk brainstorming dan Remotion** — Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak konsep. |
 
 ## motion-graphic · references (cabang; dibuka saat SKILL.md atau RUTE menyuruh)
@@ -162,7 +162,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/audio/visual_coverage.py` | v16 (every object, visual and text gets its own sound, no exceptions). Finds visual events in the rendered picture (frame-difference onsets: something appears, moves off, cuts, lands) and checks that  |
 | `claude/motion-graphic/scripts/audio/vo_echo.py` | Cek gema VO (audio.md §14.10): energi ekor 40-150 ms setelah akhir kata, relatif ke level kata. |
 | `claude/motion-graphic/scripts/audio/vo_gaps.py` | List every silent run in the assembled VO (from vo.json chunk starts + trim wavs). usage: vo_gaps.py vo.json vodir |
-| `claude/motion-graphic/scripts/cookbook/pilih_kartu.py` | Pemilih kartu mekanik cookbook per beat: baca cookbook/INDEX.md, kembalikan 2-4 kartu yang cocok dengan fungsi cerita. |
+| `claude/motion-graphic/scripts/cookbook/pilih_kartu.py` | Pemilih kartu mekanik cookbook per beat: baca cookbook/CATALOG.md, kembalikan 2-4 kartu yang cocok dengan fungsi cerita. |
 | `claude/motion-graphic/scripts/gate/audio_order.py` | Gerbang urutan sound design: tiap lapisan audio dikunci berurutan ke lapisan sebelumnya. |
 | `claude/motion-graphic/scripts/gate/caption_lines.py` | Hitung jumlah baris caption di render. Gagal bila ada caption > 2 baris (Lantai A1) atau terpotong di tepi. |
 | `claude/motion-graphic/scripts/gate/cek_komposisi.py` | Gerbang komposisi data episode sebelum build dan sebelum render final (fail-closed). |
@@ -229,7 +229,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `tools/AFTER-EFFECTS.md` | After Effects bukan jalur bawaan. |
 | `tools/ELEVENLABS.md` | Kunci API tidak pernah ada di repo ini, di chat, atau di memori. |
 | `tools/codex-pc.sh` | Menjalankan Codex (ChatGPT) di PC server untuk tugas dari orkestrator. |
-| `tools/cookbook.py` | Alat cookbook motion-graphic: INDEX/POLA, resolver kartu, validasi, migrasi path. |
+| `tools/cookbook.py` | Alat cookbook motion-graphic (Two-Tier Domain Packs): CATALOG/POLA/SFX, resolver kartu, validasi token & skema. |
 | `tools/doctor.sh` | Cek apakah Claude Code dan Codex memuat skill-development dengan benar. Dijalankan di "Awal sesi" (AGENTS.md). |
 | `tools/peta.py` | Tulis PETA.md: peta repo supaya model membuka hanya file yang dibutuhkan. |
 | `tools/sumber_cek.py` | Tolak tanda sumber dan cerita kegagalan di file instruksi (AGENTS.md §Akhir sesi butir 2). |
