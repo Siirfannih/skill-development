@@ -1,6 +1,6 @@
 ---
 name: motion-graphic
-description: "Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntunly, siirfan) from brief to render with gated stages, quality floor and render gate. Use for any video or motion request even rough: bikin video/reel/promo/launch video, animasi teks or storyboard, naskah VO or revisi video, bedah referensi, After Effects and podcast/interview clips."
+description: "Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntunly, siirfan content) from brief to render — persona, gated workflow, an always-on quality floor (LANTAI), a reference cookbook of motion mechanics remixed onto the user's own concept (cookbook: INDEX, pattern cards with narrative triggers, RESEP), a render gate and reviewer scripts (juri), plus branch files for storyboard, copywriting, typography, camera, audio, Remotion build, and QA. Use for any video or motion request from Irfan, even a rough one: bikin video, launch video, reel, promo, motion, animasi teks, storyboard, naskah VO, revisi video, bedah referensi, After Effects, or when he sends a reference video. Also for podcast/interview clip edits with motion overlays and captions."
 ---
 
 # Motion Graphic (Irfan)
