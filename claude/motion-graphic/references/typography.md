@@ -28,9 +28,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 **Satu sistem huruf (NEGATIF 1).** Karya di dalam dunia video (iklan, poster, halaman produk di layar UI) memakai huruf dan gaya aslinya: itu isi, bukan sistem huruf video. Penekanan default = bobot/ukuran/warna/kapital dalam satu keluarga. Huruf kedua (serif, script, tulisan tangan) sah bila ia sistem: peran tetap dan sama sepanjang video (mis. suara logo, kata penutup), ≤ 1 kemunculan per frame, sumbernya merek atau REF-SPEC (`huruf_kedua: {keluarga, peran, frekuensi}`). Pola slop: satu kata emosional berganti huruf di banyak frasa tanpa peran. Pergantian di tengah satu kata tetap gagal. Konten Jadisatu: Outfit (display) + Inter (teks). Verifikasi PostScript name sebelum build.
 
 ### 7.2 Skala & hierarki
-- Level (relatif tinggi H): XS 1,5–2,5 %, S 3–5 %, M 7–10 %, L 14–20 %, XL 35–80 % (boleh bleed).
-- Dalam satu layar maksimal 2 level yang lompat ≥ 2 tingkat (S+L, M+XL). M+M dilarang.
-- Dalam setiap 5 detik minimal 2 level skala yang sangat berbeda.
+- Nilai ukuran kanonik (dua kutub, rasio, lompatan, kata sambung ≥ 56 px, lantai keterbacaan): `dunia-visual.md` §4 butir 2 dan `teks.md` §Ukuran. Tabel level di sini tidak dipakai sebagai batas; ukur ukuran dari REF-SPEC.
 - Kata terpenting masuk **terakhir dan berbeda**.
 
 ### 7.3 Kapital, warna, tata letak
@@ -60,7 +58,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
   - menempel objek (diegetik)
   - ruang negatif samping subjek (hanya bila subjek tunggal dan teks satu-satunya bacaan)
 - Teks tidak menutupi wajah atau subjek. Objek boleh menutup ≤ 10 % huruf, tidak menutup huruf pertama, dan tidak menutup apa pun selama jeda baca.
-- Caption nyala/mati per beat mengikuti `decision-guide.md` §1; bila nyala, ≤ 2 baris (Lantai A1). Kata muncul +1…+4 f setelah onset kata VO.
+- Teks tampil per beat sesuai mode (NEGATIF 6, `teks.md`); di beat TEKS ≤ 2 baris. Kata muncul +1…+4 f setelah onset kata VO.
 
 ### 7.4 Kebijakan teks 3D
 - Default: **teks datar**. Kata, huruf, dan baris adalah bidang solid yang tajam; kedalaman datang dari susunan (skala, overlap, parallax lapis) dan gerak kamera, dan teks bervolume baru sah bila lolos makna, sistem, takaran (lihat bawah).
@@ -94,7 +92,7 @@ Peran teks dibedakan lewat GERAK. Peran yang sama selalu bergerak dengan cara ya
 
 ### 8a. Cara memilih gerak teks (Lantai A9a)
 
-Isi teks KT/subtitle sudah pasti = ucapan (`scripts/lego/teks_plan.py` menghitung waktu dan durasi). Yang diputuskan per blok: **peran → gerak → gaya → posisi**, ditulis di `teks.json` beserta alasannya. Fade bukan pilihan bawaan; fade hanya untuk peran `sub` (eyebrow/sub-line kecil).
+Isi teks adalah ucapan hanya di beat bermode TEKS; jalankan `teks_plan.py --beats beats.json` (waktu dan durasi dihitung skrip, beat VISUAL dilewati). Yang diputuskan per blok: **peran → gerak → gaya → posisi**, ditulis di `teks.json` beserta alasannya. Fade bukan pilihan bawaan; fade hanya untuk peran `sub` (eyebrow/sub-line kecil).
 
 | Situasi kalimat | Peran | Pilih A bila… | Pilih B bila… | Pilih C bila… |
 |---|---|---|---|---|
@@ -173,7 +171,7 @@ Aturan pemakaian:
 - Satu register gerak per video (teknis, editorial, ekspresif, tenang; "premium" diterjemahkan jadi ruang kosong luas, satu fokus, hierarki bobot+ukuran tegas, palet sedikit, kamera tenang); di dalamnya kurva dipilih per gerak dari `scripts/remotion/curves.ts` (Lantai B13a). Tidak ada linear kecuali drift/rotasi loop.
 - Ritme:
   - satu event baru tiap 12–24 f; sesuatu yang baru tiap 2–4 dtk
-  - hold teks dihitung per bagian. Kartu yang dipakai di bagian itu menentukan **bentuk** hitungannya (per kata atau per frasa); **nilainya** dihitung dari kata di audio video ini, tidak disalin dari kartu. Gaya kata-per-kata (kartu 83): 0,25 dtk + 0,3 dtk/kata (`scripts/lego/teks_plan.py`). Bagian tanpa ketentuan kartu: Lantai A8 di `core-rules.md`
+  - hold teks dihitung per bagian. Kartu yang dipakai di bagian itu menentukan **bentuk** hitungannya (per kata atau per frasa); **nilainya** dihitung dari kata di audio video ini, tidak disalin dari kartu. Gaya kata-per-kata (kartu 83): 0,25 dtk + 0,3 dtk/kata (`scripts/lego/teks_plan.py`). Bagian tanpa ketentuan kartu: `teks.md` §Ukuran dan bentuk blok
   - reaksi berjeda tidak rata `react(i)` (0, 2, 5, 8, 11, 15 f @30), bukan stagger rata (Lantai B13a)
 - **Puncak visual memimpin ketukan** supaya terbaca tepat di beat. Bunyi tetap di grid; apex gerak, bukan awal adegan, yang menabrak beat.
 - Swap berurutan: yang lama keluar penuh sebelum yang baru mendarat.

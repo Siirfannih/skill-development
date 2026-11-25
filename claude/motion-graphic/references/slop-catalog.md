@@ -24,19 +24,20 @@ Dipakai untuk **memindai**, bukan melarang teknik: sidik jari ditulis sebagai ru
 | ID | Tanda | Cara cek | Lantai |
 |---|---|---|---|
 | S-T1 | Caption lebih dari 2 baris, kata yatim di baris kedua, atau terpotong tepi | `gate/caption_lines.py` + still | Lantai A1 |
-| S-T9 | Subtitle dihapus: ada ucapan tanpa teks di layar | transkrip vs still per frasa | Lantai A1 |
+| S-T9 | Ucapan tanpa teks di beat bermode TEKS (beat VISUAL/MENYATU memang tanpa teks) | `teks_plan.py --beats` vs still per frasa di beat TEKS | NEGATIF 6, `teks.md` |
 | S-T10 | Kata tersebar tanpa urutan baca yang jelas (lompat balik ke atas/kiri) | still per frasa: urutan kata satu arah | Lantai A8 |
 | S-T11 | Kutipan ≥ 5 kata, 3 baris rata tengah di atas wajah pembicara | still; kutipan panjang → kanvas kosong, rata kiri | Lantai C14, Lantai A8 |
 | S-T12 | Teks hilang sebelum selesai dibaca/diucapkan | durasi tiap frasa ≥ max(0,8; 0,30 + 0,06 × huruf) | Lantai A8 |
-| S-T13 | Kinetic typography satu gaya sepanjang video: font, ukuran, posisi, dan animasi masuk sama untuk semua kata | daftar kata kinetik + kode T per kata: ≥ 4 teknik per 15 dtk, teknik sama ≤ 2× berturut, posisi ikut objek | `typography.md` §8 |
+| S-T13 | Kinetic typography satu gaya sepanjang video: font, ukuran, posisi, dan animasi masuk sama untuk semua kata | daftar kata kinetik + kode T per kata; ambang (teknik per 15 dtk, teknik sama berturut) = `kt_check.py` dan `teks.md` §Kotak dan gerak teks, posisi ikut objek | `typography.md` §8 |
 | S-T2 | Teks mengulang apa yang sudah jelas di visual ("GRAY" di atas ponsel abu) | squint test, devil's advocate | `decision-guide.md` §1 |
 | S-T3 | Besar-kecil acak dalam satu baris; serif sejajar bold | still per frasa | Lantai A6 |
 | S-T4 | Kotak di belakang teks yang sudah terbaca | kontras ≥ 4,5 : 1 tanpa kotak | Lantai A9 |
 | S-T5 | Teks/aksen biru di latar gelap/navy | kontras luminansi | Lantai A7 |
 | S-T6 | Headline di pojok kiri atas; label kecil + dua kata miring bertangga | still | Lantai D19c, Lantai C14 |
 | S-T7 | Tiga gaya masuk yang sama diulang (fade, pop, melebar) | teknik sama ≤ 2× berturut | `three-segment-gate.md` |
-| S-T8 | Kalimat/angka di layar yang tidak diucapkan | bandingkan dengan transkrip | Lantai A5 |
-| S-T14 | Huruf kedua tanpa sistem: satu kata "emosional" berganti huruf di tengah baris (raw *clip*, the *difference*, *craft*) di banyak frasa dengan peran berbeda-beda. Muncul identik lintas model dan sesi (audit 26 Nov). Sah bila REF-SPEC/merek memberinya satu peran tetap dan dipakai konsisten | inventaris `gate/permukaan_cek.py`; still per frasa | Lantai A7 |
+| S-T8 | Kalimat/angka di layar yang tidak diucapkan dan bukan isi UI/produk yang sedang ditunjukkan | bandingkan dengan transkrip di beat TEKS | `teks.md` |
+| S-T14 | Huruf kedua tanpa sistem: satu kata "emosional" berganti huruf di tengah baris (raw *clip*, the *difference*, *craft*) di banyak frasa dengan peran berbeda-beda. Muncul identik lintas model dan sesi. Sah bila REF-SPEC/merek memberinya satu peran tetap dan dipakai konsisten | inventaris `gate/permukaan_cek.py`; still per frasa | Lantai A7 |
+| S-T15 | Teks yang harus dibaca (label, caption mono, teks bukti UI) di bawah ~24 px @1080 saat tampil tanpa kamera mendekat; ukuran lebih kecil hanya tekstur dan tidak boleh membawa makna | still 100 % + ukur tinggi huruf | `teks.md` §Keterbacaan |
 
 ## Visual dan gerak
 
@@ -68,7 +69,10 @@ Dipakai untuk **memindai**, bukan melarang teknik: sidik jari ditulis sebagai ru
 | S-V24 | Visual hanya simbol/kata besar, bukan aksi harfiah kalimat (contoh benar: "kecanduan" = terus membuat repo baru tanpa release; "tidak mempublikasikan" = ketik di Threads lalu simpan ke draft) | tabel beat: kalimat → aksi yang terlihat | Lantai D19 |
 | S-V25 | Sup material "Apple premium" versi model: lebih dari satu sistem bayangan/arah cahaya/kilau dalam satu video; kaca/blur di semua kartu tanpa alasan; halo di belakang teks (kontras < 4,5 : 1); gradien hampir satu nada (rentang luma < ±35, saturasi p95 < 0,15). Material yang konsisten dan ada di REF-SPEC sah | `scripts/banding.py` vs REF-SPEC; inventaris `gate/permukaan_cek.py`; still 100 % | Lantai C14a |
 | S-V26 | Objek dan teks bertabrakan atau saling menimpa karena frame ditulis sekaligus tanpa dilihat per lapis | `gate/tabrakan_cek.py`; LOG lapis per frame | Lantai C15, F26a |
-| S-V27 | Objek placeholder: kotak kosong, garis abu pengganti teks, border putus-putus, balok warna sebagai "kartu" | uji biner 5 (`BEDAH-REFERENSI.md`); still 100 % | Lantai D22 |
+| S-V27 | Objek placeholder: kotak kosong, garis abu pengganti teks, border putus-putus, balok warna sebagai "kartu" | uji biner 5 (`dunia-visual.md` §8); still 100 % | Lantai D22 |
 | S-V28 | Semua frame medium shot di tengah dengan skala seragam dan UI kecil (presentasi slide) padahal referensi bervariasi ukuran shot (macro terpotong tepi, close-up produk). Berlaku bila REF-SPEC §3 menyatakan distribusi lain | `banding.py` (luas fokus) vs REF-SPEC; daftar jenis shot per panel | NEGATIF 5, 10 |
 | S-V29 | Koreksi berlebihan: masukan "terlalu berat/ramai/lebih lega" dijawab dengan kutub seberang (latar putih pucat datar dengan satu bercak warna di pojok, objek mengecil sampai teks tak terbaca). Ukuran: ukuran yang dikeluhkan bergeser > ~60 % dari jarak ke target, atau ukuran lain memburuk (teks tak terbaca, F1 terpicu) | `banding.py <baru> --sebelum <lama> [--target <ref>]` pada 3-5 frame wakil; angka di DECISIONS | `references/revisi.md` |
 | S-V30 | Frame jarang: luas fokus < ~12 % tanpa pita tepi mirip teks (satu bola kecil, grafik hampir kosong). Seri dengan > 10 % frame jarang = perbaiki: isi dengan objek asli beat pada ukuran terbaca, atau gabung beat. Frame hening yang disengaja di REF-SPEC sah | `banding.py <frame>` (F3, peringatan) dan `banding.py --seri <folder>` | NEGATIF 4-5 |
+| S-V31 | Pola komposisi berulang: layout yang sama (mis. satu benda kecil di tengah gradien) di > ~25 % frame, atau pola sama di 3+ frame berurutan | `banding.py --seri <folder>` (peringatan: fokus < 20 % + pusat dekat tengah, % frame) + mata | NEGATIF 5, 10 |
+| S-V32 | Blur pada isi yang harus dibaca, atau blur sebagai pengisi; kartu gelap ter-blur di semua adegan = sidik jari. Sah hanya: transisi, depth-of-field di belakang fokus yang tajam, motion blur | still 100 %; cari blur pada teks/UI bukti | NEGATIF 2, 10 |
+| S-V33 | Tilt/3D acak di banyak frame tanpa sistem (sup material). Sah bila dicatat di REF-SPEC/DECISIONS di mana dan kenapa (mis. hanya artefak melayang di babak solusi) | daftar frame bertilt vs catatan sistem | NEGATIF 2 |

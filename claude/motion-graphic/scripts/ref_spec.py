@@ -77,13 +77,16 @@ def metrik(img):
     # tepi
     gy, gx = np.gradient(luma); tepi = float((np.hypot(gx, gy) > 20).mean())
     # fokus: komponen terhubung terbesar non-latar
-    fokus = None
+    fokus = None; pusat = None
     try:
         from scipy import ndimage
         non = (np.abs(a - bg).sum(-1) > 60)
         non = ndimage.binary_dilation(non, iterations=4)
         lbl, n = ndimage.label(non)
-        if n: fokus = round(float(np.bincount(lbl.ravel())[1:].max()) / (H * W) * 100, 1)
+        if n:
+            besar = int(np.bincount(lbl.ravel())[1:].argmax()) + 1
+            fokus = round(float((lbl == besar).sum()) / (H * W) * 100, 1)
+            cy, cx = ndimage.center_of_mass(lbl == besar); pusat = [round(float(cx) / W, 3), round(float(cy) / H, 3)]
         else: fokus = 0.0
     except ImportError:
         pass
@@ -95,7 +98,7 @@ def metrik(img):
             "luma_range": round(float(p95 - p5), 1), "luma_std": round(float(luma.std()), 2),
             "sat_median": round(float(np.median(sat)), 3), "sat_p95": round(float(np.percentile(sat, 95)), 3),
             "palet": palet, "gradien": {**sudut, "zona_jenuh_bbox_pct": bbox}, "tepi": round(tepi, 4),
-            "fokus_pct": fokus, "kontras_ekstrem": round(kontras, 1), "gelap": gelap,
+            "fokus_pct": fokus, "fokus_pusat": pusat, "kontras_ekstrem": round(kontras, 1), "gelap": gelap,
             "tipe": ("gelap" if gelap else "terang") + "-" + ("ui" if tepi >= TEPI_UI else "teks")}
 
 

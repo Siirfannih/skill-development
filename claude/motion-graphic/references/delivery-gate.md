@@ -29,8 +29,8 @@ Di blok ini cek mekanis audio dijalankan lebih dulu. Penilaian visual (gaya, pos
 | Referensi atau SFX tidak didengar (tidak ada log `earshot timeline` ref + `earshot describe` tiap file)? | log earshot di folder proyek | gerbang DENGAR `three-segment-gate.md` |
 | Suara sumber klip yang bersih diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | Lantai E25a, §14.6 |
 | Kategori suasana tidak tertulis, musik tanpa laporan `music_fit.py` berstatus PAKAI (earshot aktif), kandidat < 8 atau dari < 2 sumber, atau track yang sama dipakai di semua klip/babak? | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 kandidat/*` | Lantai E25, Lantai E24 |
-| Ada teks > 2 baris, kata yatim, teks terpotong tepi, ucapan tanpa teks, baris subtitle di pita bawah, atau kata yang tampil dua kali? | `python3 scripts/juri/teks_cek.py qc/stills/` + keputusan per still yang ditandai (`caption_lines.py` hanya menghitung baris) | Lantai A1, LANTAI A1–A4 |
-| Ada teks/angka layar yang tidak diucapkan? | transkrip vs daftar teks | Lantai A5 |
+| Ada teks > 2 baris, kata yatim, teks terpotong tepi, ucapan tanpa teks di beat bermode TEKS, baris subtitle di pita bawah, atau kata yang tampil dua kali? | `python3 scripts/juri/teks_cek.py qc/stills/` + keputusan per still yang ditandai (`caption_lines.py` hanya menghitung baris) | Lantai A1, LANTAI A1–A4 |
+| Ada teks/angka layar yang tidak diucapkan dan bukan isi UI/produk yang ditunjukkan? | transkrip vs daftar teks | Lantai A5 |
 | Ada UI karangan atau placeholder storyboard di render? | still | Lantai D20, Lantai D19c, Lantai D22 |
 | Ada adegan terkunci yang berubah? | `scripts/baseline_lock.py check` | Lantai F27 |
 | Suara asli diturunkan, ditekan (crest −2 dB), atau < −17 LUFS? True peak > −1 dBTP (diukur di MP4 setelah mux AAC)? | `python3 scripts/gate/voice_level.py suara_sumber.wav suara_hasil.wav` · ebur128 | §14.10, Lantai E23 |

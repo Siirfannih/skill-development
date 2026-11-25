@@ -90,7 +90,7 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
 - **Hindari pola "blok di kiri + teks di kanan" di atas latar hitam polos.** Pola ini menyisakan ruang kosong besar di atas dan bawah, jadi melanggar prinsip satu fokus dan susunan presisi (ruang kosong harus disengaja). Isi frame dengan visualnya, dan kamera fokus ke objek.
 
 ## Running text + penekanan
-- **Mode teks per beat dipilih lewat `decision-guide.md` §1** (visual saja / penekanan / diegetik / caption / label). Caption hanya bila mode caption video nyala; bila nyala, ia berjalan per klausa mengikuti VO.
+- **Mode teks per beat (TEKS | VISUAL | MENYATU) dipilih lewat NEGATIF 6 dan `teks.md`**; `decision-guide.md` §1 membantu menimbang. Di beat TEKS, teks berjalan per klausa mengikuti VO.
   - **Koreksi v21:** satu baris datar di pita bawah = subtitle, bukan kinetic. Tiap frasa VO butuh KOMPOSISI sendiri
     (`lib/KineticVO.tsx` PKS): posisi di ruang kosong atau menempel objek yang dirujuk, 1–2 baris (line/stair/column/drop), kata kunci
     (redup sisanya, kotak sorot, baris besar), kata baru lahir di ujung baris lalu baris bergeser bersama, enter/exit dirotasi,
@@ -98,7 +98,7 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
     (layering), bukan gradien. Kerja: still per frasa (`stills.sh`) → tetapkan zona dari still → still ulang sampai tidak ada tabrakan.
   - Saat ada penekanan (AnchorWord/SpeakerLine), subtitle diganti oleh penekanan. Penekanan tampil lebih dulu, dan katanya tidak diulang di subtitle.
   - Subtitle tidak berbunyi. Klik hanya untuk kata penekanan/kinetic.
-- **Ukur cakupan hanya bila mode caption nyala:** persentase kata VO yang tampil. Kasus v10: 17 %, dan Irfan menyebutnya fatal. Bila caption mati, yang diukur adalah setiap beat punya mode yang tercatat di tabel beat.
+- **Yang diukur:** setiap beat punya mode dan alasan di tabel beat, dan beat TEKS tidak kehilangan teksnya (`teks_plan.py --beats`, `kt_check.py --beats`). Cakupan kata VO bukan ukuran: beat VISUAL memang tanpa teks.
 - **Variasi kinetic wajib.** Fade/pop yang selalu sama membuat penonton bosan. Pakai `enter` = `type` (huruf per huruf + caret), `mask`, `letters`, `blur`; `scale` hanya untuk angka/hero. Teknik yang sama maksimal 2× berturut-turut.
 - **SFX family:** satu file SFX sering berisi beberapa varian. Potong per varian (`ears/family.py`), dengarkan tiap varian, dan pakai yang paling cocok, bukan seluruh file. Peran yang Irfan tandai "acak" (mis. Kinetictypography) dirotasi di antara variannya.
 - **Setiap objek/visual punya bunyinya.** Contoh kasus v10: ketikan tanpa bunyi ketik. Ketikan memancarkan `type:start|end` → potongan Keyboardtyping sepanjang ketikan + Enter.
@@ -119,7 +119,7 @@ Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. 
 - **Penekanan tanpa memperbesar huruf:**
   - warna aksen;
   - kata sebelumnya diredupkan;
-  - ganti gaya (ketebalan, KAPITAL, atau ukuran dalam keluarga sans yang sama; serif dilarang, K1);
+  - ganti gaya (ketebalan, KAPITAL, atau ukuran dalam keluarga sans yang sama; huruf kedua hanya sebagai sistem, NEGATIF 1);
   - kotak sorot.
 - **Drama lewat kamera:** punch-in cepat atau rack-focus close-up → wide, bukan pop skala teks.
 - **Teks yang hidup di objek:**

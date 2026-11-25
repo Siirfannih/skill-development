@@ -719,6 +719,12 @@ class Rules16NovTests(unittest.TestCase):
         self.assertTrue(any("beat VISUAL" in f for f in kt_check.check(blok, visual=vis)))
         self.assertEqual(kt_check.check(blok), [])
 
+    def test_layar_dua_baris_dan_tanda_tanya_lolos(self):
+        gagal, catat = board.layar_issues("p1", {"lines": 2, "text": "Kenapa jadi begini?", "out": False})
+        self.assertEqual(gagal, []); self.assertEqual(len(catat), 1)            # tanda baca = peringatan, bukan gagal
+        self.assertTrue(board.layar_issues("p1", {"lines": 3, "text": "a b c", "out": False})[0])
+        self.assertTrue(board.layar_issues("p1", {"lines": 1, "text": "a", "out": True})[0])
+
     def test_compose_overlays_a_cached_layer_at_its_time(self):
         with tempfile.TemporaryDirectory() as folder:
             root = Path(folder)

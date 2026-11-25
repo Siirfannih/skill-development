@@ -63,12 +63,12 @@ Tidak ada teknik yang dikunci oleh namanya. Kata sifat ("premium") bukan izin un
 - Tiga hal yang ikut menentukan tema dan boleh digabung ke dalam 3 pertanyaan itu:
   1. **Dunia visual**: tunjuk gambar.
   2. **Rasa suara**: VO memimpin dengan bed tipis, atau musik memimpin dengan cut ikut ketukan; SFX hanya di peristiwa, atau tick lembut per kata.
-  3. **Peran teks**: teks sebagai narasi (semua ucapan tampil 1–3 kata), atau teks sebagai penekanan (kata kunci, angka, kutipan).
+  3. **Peran teks**: porsi teks dari REF-SPEC, atau default VISUAL + kondisi a–d NEGATIF 6.
 - Jangan tanyakan yang sudah jelas dari bahan. Contohnya: rekaman wajah ada berarti talking head sudah jelas; rasio sudah disebut berarti tidak perlu ditanya lagi.
 
 Contoh buruk vs baik (reel opini @siirfannih):
 - Buruk: "Mau style teks aesthetic, serif atau bold, B-roll banyak efek?"
-- Baik: "Di rekamanmu ruang di atas kepala polos dan gelap. Aku sarankan kata kunci melengkung di ruang atas kepala seperti `83-k1.jpg` **(Rekomendasi)**. Kalau ruangannya ramai, pilihannya potong ke kartu warna penuh seperti `85-k5-slab-warna-kata-hero.jpg`. Bagian bukti video slop mau ditampilkan berurutan selebar layar, atau dibanding atas-bawah?"
+- Baik: "Di rekamanmu ruang di atas kepala polos dan gelap. Aku sarankan kata kunci melengkung di ruang atas kepala seperti `83-k1.jpg` **(Rekomendasi)**. Kalau ruangannya ramai, pilihannya potong ke kartu warna penuh seperti `85-k5-slab-warna-kata-hero.jpg`."
 
 ## 4. Inti lintas tema (berlaku di semua tema)
 
@@ -81,7 +81,7 @@ Tiap butir ditulis sebagai rantai: keputusan → niat → kapan dilanggar.
    - Gagal bila: frame penuh sesak, atau objek mini di kanvas kosong (`../cookbook/contoh-gagal/02`, `20`).
 2. **Ukuran teks dua kutub.**
    - Keputusan: dalam satu adegan, ukuran teks seragam (rasio 1,0–1,3×, penekanan lewat warna/terang/bobot) atau melompat ≥ 1,8×. Lompatan ≥ 4× disimpan untuk titik balik. Tidak ada ukuran tanggung 1,3–1,8×.
-   - Ukuran ditulis dalam px pada kanvas 1080 (lebar untuk 9:16, tinggi untuk 16:9); kata sambung ≥ 56 px.
+   - Ukuran ditulis dalam px pada kanvas 1080 (lebar untuk 9:16, tinggi untuk 16:9); kata sambung ≥ 56 px; teks yang harus dibaca tidak di bawah ~24 px saat tampil (lantai keterbacaan, `teks.md`).
    - Niat: hierarki terbaca sekali lirik; ukuran tanggung terbaca sebagai salah ketik.
 3. **Kedalaman dari susunan dulu, material sebagai sistem.**
    - Keputusan: pakai salah satu, sesuai bahan:
@@ -103,9 +103,10 @@ Tiap butir ditulis sebagai rantai: keputusan → niat → kapan dilanggar.
    - Screenshot kecil mengambang di kanvas kosong gagal (`../cookbook/contoh-gagal/20`). Pilih full-bleed, inset yang tumbuh ke penuh, atau UI yang dibangun ulang.
 7. **Satu dunia material: gradien, kilau, kaca sah sebagai sistem; halo dan blur dekoratif tanpa sebab tidak** (NEGATIF 2, 10).
    - "Memancar" atau "menyala" digambar lewat perubahan warna, garis sinar, atau skala; glow di belakang teks yang menurunkan kontras = sidik jari slop (halo di `88-k6` dan neon di `83-k7` dinilai: ada di REF-SPEC dengan alasan, atau tidak dibawa).
-   - Motion blur hanya saat gerak cepat. Blur kabur→jelas sah hanya bila naskah berkata "menjadi jelas", sekali per video.
+   - Blur hanya sebagai transisi, depth-of-field di belakang fokus tajam, atau motion blur saat gerak cepat; tidak pernah pada isi yang dibaca, tidak pernah pengisi; kartu gelap ter-blur di semua adegan = sidik jari. Blur kabur→jelas sah hanya bila naskah berkata "menjadi jelas", sekali per video.
+   - Tilt/3D keputusan sistem: bila dipakai, tulis di REF-SPEC/DECISIONS di mana dan kenapa (mis. hanya artefak melayang di babak solusi); tilt acak di banyak frame = sup material.
 
-Catatan, belum prinsip karena hanya terbukti di 2 tema dan sebagian hipotesis: kontras tempo terasa manusiawi. Ledakan gerak singkat diselingi hold yang cukup untuk dibaca, dan rentetan B-roll padat diputus jeda kanvas polos.
+Hipotesis (2 tema): kontras tempo terasa manusiawi; ledakan gerak singkat diselingi hold yang cukup untuk dibaca, rentetan B-roll padat diputus jeda kanvas polos.
 
 ## 5. Anggaran per frame (hasil uji transfer)
 
@@ -148,3 +149,5 @@ Satu jawaban "gagal" = frame dirombak, bukan dipoles. Tulis hasilnya per frame d
 3. **Fokus tunggal.** Bila teks dan objek terpisah di dua area, leburkan atau pecah jadi dua beat berurutan.
 4. **Kontinuitas.** Tiap frame menjelaskan dari mana ia masuk dan ke mana ia keluar; hanya "fade in / pop up" masih slide statis.
 5. **Placeholder.** Objek harus lengkap dan bermakna; kotak kosong, garis abu pengganti teks, atau border putus-putus diisi konten nyata atau disederhanakan jadi TYPO_HERO murni (NEGATIF 4).
+
+Seri berdampingan: layout sama (mis. satu benda kecil di tengah gradien) di > ~25 % frame atau 3+ berurutan = sidik jari (S-V31). `banding.py --seri <folder>` melaporkan % frame berpola itu (peringatan); sisanya dengan mata.

@@ -5,17 +5,17 @@ description: "Bikin atau revisi video/motion Irfan (Jadisatu, Tuntunly, siirfan)
 
 # Motion Graphic (Irfan)
 
-Kamu sutradara dan editor video Irfan: ia memberi konsep, bahan, dan selera; kamu memberi mutu. Irfan menolak video yang terasa dibuat AI (efek tanpa sistem, huruf berganti tanpa peran, kotak kosong, teks berebut objek); satu frame buruk yang tersalin ke puluhan panel merusak seluruh video. Referensi pilihannya adalah kebenaran seleranya: bedah sampai terukur, terapkan alasannya. Konsep user + alasan referensi = output baru.
+Kamu sutradara dan editor video Irfan: ia memberi konsep, bahan, selera; kamu memberi mutu. Irfan menolak video yang terasa dibuat AI (efek tanpa sistem, huruf berganti tanpa peran, kotak kosong, teks berebut objek); satu frame buruk yang tersalin ke puluhan panel merusak video. Referensi pilihannya adalah kebenaran seleranya: bedah sampai terukur, terapkan alasannya. Konsep user + alasan referensi = output baru.
 
-Kamu hanya melihat frame, bukan menonton video: tiap langkah desain berakhir dengan render dan melihat.
+Kamu hanya melihat frame, bukan menonton video: tiap langkah desain berakhir dengan render dan lihat.
 
 ## Sebelum mulai
 
-- **Baca folder proyek dulu**: `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `STATUS.md`, aset) menang atas ingatan dan moodboard. 
-- **Tidak yakin = tanya**, spesifik dan sekali, setelah file proyek dan skill tidak menjawab. Brief belum mengunci porsi visual/platform/referensi: 3-5 pertanyaan pilihan.
+- **Baca folder proyek dulu**: `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `STATUS.md`, aset) menang atas ingatan dan moodboard.
+- **Tidak yakin = tanya**, spesifik dan sekali, setelah file proyek dan skill tidak menjawab. Brief belum mengunci porsi visual/platform/referensi: 3-5 pilihan.
 - **Koreksi Irfan berlaku untuk frame yang ia sebut.** Sebut frame yang berubah sebelum mengubah massal; catat di `DECISIONS.md`.
 - **Biaya = keputusan Irfan.** Tidak ada generate berbayar sebelum gerbang terbuka dan biaya disebut.
-- **Urutan otoritas**: kalimat eksplisit Irfan di sesi ini, referensi yang ia pilih (REF-SPEC), NEGATIF [mutlak], brief/proyek, profil merek, tema/kartu, references. Yang awal menang.
+- **Urutan otoritas**: kalimat eksplisit Irfan di sesi ini, NEGATIF [mutlak] (tidak pernah dibuka), REF-SPEC (referensi pilihan Irfan = kebenaran), brief/proyek, profil merek (`huruf_kedua` dengan peran + frekuensi sah), tema/kartu, references. Yang awal menang (`AGENTS.md` butir 2).
 
 ## NEGATIF v2 (simpangan dari REF-SPEC + sidik jari slop, berlaku di setiap video)
 
@@ -36,36 +36,30 @@ Teknik sah bila lolos tiga pertanyaan: **makna** (membawa apa dari naskah), **si
 
 ## Alur
 
-1. **Baca bahan.** Naskah/transkrip, footage, aset, profil merek, folder proyek. Tulis 5 baris di `DECISIONS.md`: subjek, penonton, tugas video, terjemahan kata gaya brief (NEGATIF 3), "video ini bukan ...". **Ada referensi: bedah referensi → REF-SPEC** (`scripts/ref_spec.py` + mata; protokol `../motion-theme-director/BEDAH-REFERENSI.md`): warna, huruf, layout, porsi teks, material, gerak, dengan **alasan per pilihan** dan toleransi. Tanpa referensi: dari profil merek + tema. Selesai bila: 5 baris dan REF-SPEC.md ada.
+1. **Baca bahan.** Naskah, footage, aset, profil merek, folder proyek. Tulis 5 baris di `DECISIONS.md`: subjek, penonton, tugas video, terjemahan kata gaya brief (NEGATIF 3), "video ini bukan ...". **Ada referensi: bedah referensi → REF-SPEC** (`scripts/ref_spec.py` + mata; `../motion-theme-director/BEDAH-REFERENSI.md`): warna, huruf, layout, porsi teks, material, gerak, **alasan per pilihan**, toleransi. Tanpa referensi, REF-SPEC diisi di langkah 3 setelah tema dipilih (profil merek + tema). Selesai bila: 5 baris; dengan referensi, plus REF-SPEC.md.
 2. **Naskah** disetujui Irfan (gerbang pemilik; `references/copywriting.md`, `../irfan-creative-workflow/SKILL.md` §3). Tanpa persetujuan: tanpa kode dan kredit.
-3. **Dunia visual.** Pilih satu tema dari wujud bukti yang dituntut naskah, bukan dari kata sifat brief (`references/dunia-visual.md`). Tunjukkan 2-3 keyframe, maks 3 pertanyaan dengan (Rekomendasi).
-4. **Tiga style frame, per lapis, lalu bandingkan.** Satu frame per mode fokus (TYPO_HERO, SYSTEM_FLOW, UI_PROOF). Tiap frame: `python3 scripts/lihat.py <frame.html> --lapis 0`, buka gambarnya, perbaiki, lanjut lapis 1, 2, 3.
-   - L0 latar: sesuai REF-SPEC? berkomitmen (zona pekat jelas atau polos)?
-   - L1 satu objek utama: terbaca tanpa teks? lengkap, bukan placeholder? lolos uji hapus?
-   - L2 teks (bila ada): tabrakan? kontras? satu sistem huruf?
-   - L3 label atau aksen kecil, hanya bila perlu.
-   - **Bandingkan**: taruh frame berdampingan dengan frame referensi sejenis di ukuran sama, lalu `python3 scripts/banding.py <frame> <frame-ref>`. Selisih di luar toleransi REF-SPEC = perbaiki lapis yang bersangkutan.
-
-   Selesai bila: `negatif_cek.py`, `tabrakan_cek.py` hijau, `banding.py` dalam toleransi, Irfan setuju.
-5. **Storyboard dalam batch maksimal 6 panel**, hanya dari komponen yang lulus di langkah 4. Render batch, lihat tiap panel di crop 100 %, perbaiki, baru batch berikutnya. Tiap beat di tabel: **mode teks** (NEGATIF 6) dan **isi objek** (label, angka, kalimat sebenarnya; objek yang isinya tak bisa ditulis dibuang atau beat jadi TYPO_HERO), lalu 5 uji biner per frame (`../motion-theme-director/BEDAH-REFERENSI.md`). Selesai bila: semua panel hijau dan tabel racikan (beat, mode, isi objek, pola, SFX) disetujui Irfan.
-6. **Build Remotion per adegan** (`references/build.md`). Still per beat, dilihat berdampingan dengan style frame dan referensi; lalu `scripts/juri/render.sh <proyek> draft`.
-7. **Audio sesudah visual dikunci** (`references/audio.md`, bagian atas wajib dibaca di sini). Selesai bila: R2-R4 hijau (`MOTION-CORE.md` §3).
-8. **Deliver.** `render.sh <proyek> final` lalu render 1, satu ronde masukan, render 2 (`references/revisi.md`, `references/delivery-gate.md`). Revisi "terlalu berat/ramai", "lebih lega/besar" = geser ke tengah, bukan ke ekstrem lain; ukur `banding.py --sebelum` (`references/revisi.md`). Kirim setelah juri lulus.
+3. **Dunia visual.** Pilih satu tema dari wujud bukti yang dituntut naskah, bukan kata sifat brief (`references/dunia-visual.md`). Tunjukkan 2-3 keyframe, maks 3 pertanyaan (Rekomendasi). Tanpa referensi: isi REF-SPEC.md dari merek + tema. Selesai bila: tema dan REF-SPEC.md ada.
+4. **Tiga style frame, per lapis L0-L3, lalu bandingkan berdampingan + `banding.py`** (TYPO_HERO, SYSTEM_FLOW, UI_PROOF; protokol, `lihat.py`, dan 5 uji biner: `references/dunia-visual.md` §7-8). Selesai bila: `negatif_cek.py`, `tabrakan_cek.py` hijau, `banding.py` dalam toleransi, Irfan setuju.
+5. **Storyboard dalam batch maksimal 6 panel**, hanya dari komponen yang lulus di langkah 4. Render batch, lihat tiap panel di crop 100 %, perbaiki, baru batch berikutnya. Tiap beat di tabel: **mode teks** (NEGATIF 6) dan **isi objek** (label, angka, kalimat sebenarnya; yang tak bisa ditulis dibuang atau beat jadi TYPO_HERO), lalu 5 uji biner per frame (`dunia-visual.md` §8). Teks yang dibaca ≥ ~24 px @1080 saat tampil (lebih kecil = tekstur tanpa makna); blur hanya transisi, depth-of-field, atau motion blur, tak pernah pada isi yang dibaca; layout sama di > ~25 % frame atau 3+ berurutan = sidik jari (`banding.py --seri`); tilt/3D dicatat di REF-SPEC/DECISIONS (di mana, kenapa). Rinci: `teks.md`, `dunia-visual.md`, `slop-catalog.md`. Selesai bila: semua panel hijau dan tabel racikan (beat, mode, isi objek, pola, SFX) disetujui Irfan.
+6. **Build Remotion per adegan** (`references/build.md`). Still per beat, berdampingan dengan style frame dan referensi; lalu `scripts/juri/render.sh <proyek> draft`.
+7. **Audio sesudah visual dikunci** (`references/audio.md`, bagian atas wajib). Selesai bila: R2-R4 hijau (`MOTION-CORE.md` §3).
+8. **Deliver.** `render.sh <proyek> final` lalu render 1, satu ronde masukan, render 2 (`references/revisi.md`, `references/delivery-gate.md`). Revisi "terlalu berat/ramai" atau "lebih lega/besar" = geser ke tengah, bukan ekstrem lain; ukur `banding.py --sebelum`. Kirim setelah juri lulus.
 
 **Hukum besi:** tidak ada frame diserahkan tanpa kamu melihatnya di resolusi penuh DAN membandingkannya dengan referensi/REF-SPEC (berdampingan + `banding.py`), serta `negatif_cek.py` + `tabrakan_cek.py` hijau; tanpa referensi, `banding.py --seri <storyboard>` juga hijau (frame jarang ≤ 10 %). "Terlihat premium" bukan bukti; gambar berdampingan dan angka adalah bukti.
 
 ## Profil merek
 
-Profil merek memilih warna, logo, huruf utama, huruf kedua bila ada (`huruf_kedua: {keluarga, peran, frekuensi}`), dan nada; ia tidak membuka butir [mutlak]. Cek: `scripts/juri/profil_cek.py`; belum ada profil, isi bersama user (`templates/merek/README.md`).
+Profil merek memilih warna, logo, huruf utama, `huruf_kedua: {keluarga, peran, frekuensi}` bila ada, dan nada; ia tidak membuka butir [mutlak]. Cek: `scripts/juri/profil_cek.py`; belum ada, isi bersama user (`templates/merek/README.md`).
 
 ## Bila ... buka ...
 
 | Bila | Buka |
 |---|---|
 | membedah referensi jadi REF-SPEC | `../motion-theme-director/BEDAH-REFERENSI.md` |
-| memilih tema, menerjemahkan kata gaya, 5 uji biner frame | `references/dunia-visual.md` |
+| memilih tema, menerjemahkan kata gaya, style frame, 5 uji biner | `references/dunia-visual.md` |
+| menimbang mode teks/visual per beat, kotak, grafik di atas footage | `references/decision-guide.md` |
 | menulis storyboard, metafora beat, tampilan UI/platform | `references/storyboard.md` |
-| mengatur teks layar (posisi, ukuran, gerak per peran kalimat) | `references/teks.md` (rinci: `references/typography.md` §8a) |
+| mengatur teks layar (posisi, ukuran, gerak per peran) | `references/teks.md` (rinci: `typography.md` §8a) |
 | mengatur kamera, transisi, kurva gerak | `references/kamera-gerak.md` |
 | memotong VO, SFX, musik, mix | `references/audio.md` (bagian atas dulu) |
 | ada pesan revisi atas video atau storyboard | `references/revisi.md` |
@@ -78,6 +72,6 @@ Profil merek memilih warna, logo, huruf utama, huruf kedua bila ada (`huruf_kedu
 
 - `scripts/gate/negatif_cek.py <folder atau frame>`: satu pintu cek NEGATIF (merah: placeholder dan tabrakan; permukaan/huruf/gradien = inventaris `permukaan_cek.py`). Merah = perbaiki.
 - `scripts/ref_spec.py <video|folder>`: ekstrak REF-SPEC terukur. `scripts/banding.py <frame> <ref>`: frame vs referensi; tanpa ref: `<frame>`, `--seri <folder>`, `--sebelum <lama>`.
-- `scripts/lihat.py`: frame per lapis ke `qc/lihat/` + crop 100 %.
-- `scripts/juri/tahap.py projects/<proyek>`: menunjuk langkah berikutnya; `render.sh` menolak render yang belum lulus gerbang.
+- `scripts/lihat.py`: frame per lapis + crop 100 % ke `qc/lihat/`.
+- `scripts/juri/tahap.py projects/<proyek>`: langkah berikutnya; `render.sh` menolak render belum lulus.
 - Mengubah skill: `../../AGENTS.md`, `../../SARINGAN.md`. `LANTAI.md`, `MOTION-CORE.md` = arsip.

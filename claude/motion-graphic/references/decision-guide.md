@@ -1,6 +1,6 @@
 # Panduan keputusan: teks, visual, kotak, warna (logika, bukan contoh)
 
-Dibaca di gerbang storyboard (4) dan QA (9). Setiap keputusan per beat diambil dengan urutan di bawah, lalu dicatat di tabel beat dengan kolom **mode · alasan · cek**. Untuk keputusan teks dan visual, file ini menang atas `three-segment-gate.md` dan `typography.md` bila bertentangan; gerbang DENGAR (audio) di `three-segment-gate.md` tetap wajib dan tidak dikalahkan file ini, dan atas `canvas-skill-library` yang hanya data referensi.
+Dibaca saat menulis tabel storyboard (langkah 5 `SKILL.md`) dan saat QA sebelum deliver (langkah 8). Setiap keputusan per beat diambil dengan urutan di bawah, lalu dicatat di tabel beat dengan kolom **mode · alasan · cek**. File ini panduan rasa; urutan otoritas ada di `AGENTS.md` §Cara membaca repo ini butir 2, dan aturan teks per beat (TEKS | VISUAL | MENYATU) di NEGATIF 6 dan `teks.md`. Gerbang DENGAR di `three-segment-gate.md` tidak dikalahkan file ini.
 
 Prinsip dasarnya: penonton HP hanya menangkap **satu hal per momen**. Semua aturan di bawah adalah cara memilih hal itu.
 
@@ -13,8 +13,8 @@ Tentukan dulu jenis kalimat VO-nya, baru modenya.
 | Konsep yang bisa digambar: objek, angka, perbandingan, proses | **Visual saja.** Teks paling banyak berupa label kecil yang menempel ke objek | Gambar dipahami lebih cepat daripada kata. Kata yang sama dengan gambar = dibaca dua kali |
 | Satu kata inti: klaim, vonis, istilah baru, angka kunci | **Penekanan.** Footage atau latar bersih, kata besar di barisnya sendiri | Penekanan hanya terasa bila sekitarnya tenang |
 | Kata yang punya padanan benda nyata (jam, catatan, tombol, playlist, layar) | **Teks diegetik**: kata ditulis DI objek itu (layar, kertas, tombol, papan) | Kata dan visual jadi satu benda, jadi tidak butuh subtitle |
-| Penjelasan, jembatan, ekspresi pembicara | **Footage saja** (+ caption bila mode caption nyala) | Wajah dan suara sudah membawa informasinya |
-| Cerita dokumenter dengan banyak foto/footage arsip | **Caption tenang**: kecil, tengah, tanpa kotak, kata kunci berbobot lebih tebal | Footage adalah pahlawannya; teks cukup jadi penunjuk |
+| Penjelasan, jembatan, ekspresi pembicara | **Footage saja** (mode VISUAL) | Wajah dan suara sudah membawa informasinya |
+| Cerita dokumenter dengan banyak foto/footage arsip | **Teks tenang**: kecil, tanpa kotak, kata kunci berbobot lebih tebal, hanya di beat bermode TEKS | Footage adalah pahlawannya; teks cukup jadi penunjuk |
 | Fakta yang harus dibaca tepat (nama studi, sumber, harga) | **Label informasi** kecil yang tenang | Ketepatan lebih penting daripada gaya |
 
 **Satu pemenang per momen.** Beat visual dan beat penekanan tidak tampil bersamaan. Bila keduanya perlu, beri urutan: teks dulu, lalu visual menggantikannya (atau sebaliknya), bukan berdampingan dengan bobot sama.
@@ -23,16 +23,8 @@ Tentukan dulu jenis kalimat VO-nya, baru modenya.
 
 **Teks muncul satu per satu mengikuti VO**, bukan sekaligus. Elemen boleh menumpuk menjadi komposisi asal yang baru masuk selalu menjadi fokus.
 
-### Caption: diputuskan per video, bukan per beat
-- **Nyala** bila: video ditonton di feed tanpa suara, formatnya wawancara/pembicara, atau penonton bukan penutur bahasa VO.
-- **Mati** bila: VO narator dan setiap beat sudah punya visual, penekanan, atau teks diegetik.
-- Bila nyala:
-  - **≤ 2 baris**: boleh 4 kata atau lebih per tampil asal tidak lebih dari 2 baris sekaligus, tidak ada kata yatim, tidak terpotong tepi; klausa yang lebih panjang dipecah jadi caption berurutan (Lantai A1);
-  - per klausa 2–5 kata, tidak per kata dan tidak memotong kata;
-  - posisinya tetap selama satu shot, boleh pindah antar shot ke area tenang;
-  - menghilang saat beat visual atau penekanan;
-  - bobotnya selalu lebih ringan daripada visual dan penekanan (kecil, putih, tanpa warna aksen kecuali satu kata).
-- Alasan: caption yang bobotnya sama dengan grafik membuat keduanya berebut, dan teks terbaca sebagai subtitle.
+### Caption
+Tidak ada mode caption terpisah. Teks layar diputuskan per beat (NEGATIF 6); bentuk blok (≤ 2 baris, 1-3 kata, tanda tanya) dan penempatannya ada di `teks.md`. Subtitle di pita bawah tidak dipakai.
 
 ## 2. Ukuran dan hierarki teks
 - **Satu baris = satu ukuran.** Kata yang dibesarkan pindah ke barisnya sendiri (ditumpuk), maksimal satu kata kunci per frasa, dan harus kata yang membawa makna inti. Alasan: besar-kecil-besar dalam satu baris tanpa alasan membuat baris tidak seimbang.
@@ -41,7 +33,7 @@ Tentukan dulu jenis kalimat VO-nya, baru modenya.
 
 ## 3. Posisi teks
 - Posisi lahir dari komposisi frame itu: ruang kosong, di belakang subjek (matte), atau menempel objek yang dirujuk.
-- Gagal bila 3 frasa berturut-turut ada di pita tinggi yang sama tanpa alasan (kecuali mode caption).
+- Gagal bila 3 frasa berturut-turut ada di pita tinggi yang sama tanpa alasan .
 - Teks tidak menutupi wajah atau objek yang sedang dibicarakan.
 
 ## 4. Kotak, scrim, dan bayangan
