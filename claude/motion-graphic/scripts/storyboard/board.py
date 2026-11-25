@@ -14,6 +14,7 @@ Hasil: png/<frame>.png, board.html, board.png, cues.json (bahan cue sheet SFX), 
 Yang diperiksa (dari umpan balik Irfan di sesi storyboard Wonder 1–7 Nov dan aturan motion-graphic):
   - setiap beat punya frame; tidak ada kerangka tersisa (data-skeleton)
   - caption lengkap: vo, aksi, kamera, keluar; setiap sfx dan musik babak punya peran + alasan
+  - mode teks (TEKS | VISUAL | MENYATU) + mode_alasan, dan isi_objek (isi nyata tiap objek, bukan placeholder); beat VISUAL tanpa teks layar
   - waktu beat berurutan, tidak tumpang tindih, celah <= 0,5 dtk
   - teks layar (elemen data-layar): satu baris, tanpa tanda baca, tidak keluar frame
   - tidak ada elemen yang terpotong tepi frame kecuali ditandai data-bleed (sengaja keluar frame)
@@ -82,6 +83,28 @@ BOARD_CSS = """body{margin:0;width:max-content;min-width:100%;background:#f2f2f0
 BENTUK = ("exploded", "potongan", "piktogram", "stick", "sebab-akibat", "grafik", "peta", "ui-asli", "orang", "benda")
 
 
+MODE_TEKS = ("TEKS", "VISUAL", "MENYATU")
+KOSONG = ("placeholder", "lorem", "kotak kosong", "balok abu", "garis abu", "abu-abu", "tbd")
+
+
+def mode_issues(b):
+    """Gerbang mode teks + isi objek (NEGATIF 6, Alur 5): tiap beat memilih TEKS | VISUAL | MENYATU dengan alasan satu baris,
+    dan menulis isi nyata tiap objek (label, angka, kalimat) sebelum digambar. Isi yang tidak bisa ditulis = objek dibuang."""
+    i = b.get("id"); out = []
+    if b.get("mode") not in MODE_TEKS:
+        out.append(f"{i}: mode '{b.get('mode', '')}' harus salah satu {'/'.join(MODE_TEKS)}")
+    if not str(b.get("mode_alasan", "")).strip():
+        out.append(f"{i}: mode_alasan kosong")
+    isi = b.get("isi_objek")
+    if not isinstance(isi, list) or not [x for x in isi if str(x).strip()]:
+        out.append(f"{i}: isi_objek kosong (tulis objek dengan isi nyata, atau jadikan beat TYPO_HERO)")
+    else:
+        out += [f"{i}: isi_objek '{str(x)[:30]}' masih placeholder" for x in isi if any(k in str(x).lower() for k in KOSONG)]
+    if b.get("mode") == "VISUAL" and str(b.get("layar", "")).strip():
+        out.append(f"{i}: beat VISUAL tidak boleh punya teks layar '{str(b['layar'])[:20]}' (ubah mode atau kosongkan layar)")
+    return out
+
+
 def metafora_issues(b):
     """Gerbang metafora (Lantai D19a): sebelum menggambar, satu kalimat VO
     diperas jadi makna, emosi, aksi (kata kerja), satu metafora, 3–6 objek kunci, urutan rakit, dan bentuk penjelas.
@@ -127,6 +150,7 @@ def main():
         if miss:
             fails.append(f"{b['id']}: caption kosong {', '.join(miss)}")
         fails += metafora_issues(b)
+        fails += mode_issues(b)
         for c in b.get("sfx", []):
             if not c.get("peran", "").strip() or not c.get("alasan", "").strip():
                 fails.append(f"{b['id']}: sfx {c.get('t', '?')} tanpa peran/alasan")

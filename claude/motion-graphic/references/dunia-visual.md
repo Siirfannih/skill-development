@@ -121,7 +121,7 @@ Uji transfer menunjukkan model cenderung memakai semua opsi sekaligus. Batasnya:
 |---|---|
 | Kata VO tidak muat di jendela beat | VO tidak dipercepat (NEGATIF 9); jendela beat yang digeser |
 | Tuturan > 2,5 kata/dtk vs durasi baca per kata | Tampilkan frasa 2–3 kata; durasi baca dihitung per frasa |
-| Semua ucapan tampil (A1) vs demo UI butuh perhatian | Teks ucapan di pita terpisah di atas UI, tidak menumpuk di UI. Bila aksi butuh 100 % mata: KT jeda ≤ 2 dtk, dicatat di RESEP |
+| Teks ucapan vs demo UI butuh perhatian | Beat dimodekan VISUAL (NEGATIF 6); teks hanya bila isi UI-nya sendiri. Tidak menumpuk di UI |
 | Kartu referensi campur gaya huruf dalam satu frasa vs A6 | A6 menang; pengecualian hanya bila tertulis di RESEP |
 | Tick per kata vs referensi senyap | Mode di RESEP/EDITING menang (E24); default tema hanya saran |
 | Vakum pra-klimaks vs larangan celah sunyi (S-A3) | Vakum hanya di stem musik; bed ambien tetap |
@@ -131,6 +131,8 @@ Uji transfer menunjukkan model cenderung memakai semua opsi sekaligus. Batasnya:
 ## 7. Gerbang 3 style frame
 
 Ada referensi atau tema baru: buat **3 style frame** 1920x1080 (atau 1080x1920) dari kode yang sama dengan render, satu per mode fokus: TYPO_HERO, SYSTEM_FLOW, UI_PROOF. Tanpa anotasi, supaya rasa visualnya dinilai murni.
+
+**Framing UI_PROOF tanpa referensi** (NEGATIF 5): bukti UI bukan jendela kecil di tengah kanvas kosong (±40 % lebar tidak terbaca di HP). Saat sesuatu berubah (slider, kata yang menebal, hasil muncul), bagian yang berubah memenuhi frame: kamera masuk ke panel, wilayah yang berubah ≥ ~60 % tinggi frame, tepi panel boleh bleed. Jendela utuh hanya sebagai establishing, maks sekali per babak. Teks di dalam UI (label, angka, prompt) terbaca di lebar 360 px. Dengan referensi, ukuran dan bleed mengikuti REF-SPEC §3.
 
 1. **Bangun per lapis**, satu lapis baru per render, lalu lihat hasilnya di resolusi penuh: `python3 scripts/lihat.py <frame.html> --lapis 0` dst. L0 latar (warna dan gradien sesuai REF-SPEC, berkomitmen) → L1 satu objek utama (bentuk nyata, menapak, terbaca tanpa teks) → L2 teks (lahir dari komposisi, tidak menimpa objek) → L3 label kecil bila perlu. Lalu bandingkan berdampingan dengan frame referensi + `scripts/banding.py <frame> <ref>`.
 2. `scripts/gate/negatif_cek.py <folder kode>` dan `scripts/gate/tabrakan_cek.py <frame.html>` hijau; `banding.py` dalam toleransi REF-SPEC.

@@ -32,6 +32,7 @@ audio_bus = load_module("audio_bus", "scripts/juri/audio_bus_check.py")
 motion_lint = load_module("motion_lint", "scripts/juri/motion_lint.py")
 board = load_module("board", "scripts/storyboard/board.py")
 kt_check = load_module("kt_check", "scripts/lego/kt_check.py")
+teks_plan = load_module("teks_plan", "scripts/lego/teks_plan.py")
 compose = load_module("compose", "scripts/lego/compose.py")
 
 
@@ -701,6 +702,22 @@ class Rules16NovTests(unittest.TestCase):
         self.assertEqual(kt_check.check(mix), [])
         mix[3]["kode"] = "T01"
         self.assertTrue(any("peran R1" in f for f in kt_check.check(mix)))
+
+    def test_mode_teks_per_beat_gate_and_coverage_follows_mode(self):
+        ok = {"id": "a", "mode": "VISUAL", "mode_alasan": "UI membawa pesan", "isi_objek": ["kartu: Tagihan Mei Rp 2.400.000"], "layar": ""}
+        self.assertEqual(board.mode_issues(ok), [])
+        self.assertTrue(board.mode_issues({"id": "b"}))                                   # mode, alasan, isi kosong
+        self.assertTrue(any("placeholder" in f for f in board.mode_issues({**ok, "isi_objek": ["kotak kosong abu"]})))
+        self.assertTrue(any("VISUAL" in f and "teks layar" in f for f in board.mode_issues({**ok, "layar": "halo"})))
+        self.assertEqual(board.mode_issues({**ok, "mode": "TEKS", "layar": "halo"}), [])
+        self.assertTrue(board.mode_issues({**ok, "mode": "SUBTITLE"}))
+        words = [{"w": "satu", "s": 0.0, "e": 0.4}, {"w": "dua", "s": 0.5, "e": 0.9}, {"w": "tiga.", "s": 3.0, "e": 3.4}]
+        self.assertEqual(sum(len(b["teks"].split()) for b in teks_plan.plan(words)), 3)       # tanpa mode: semua kata
+        vis = teks_plan.visual_ranges({"beats": [{"t": [0, 2], "mode": "VISUAL"}, {"t": [2, 4], "mode": "TEKS"}]})
+        self.assertEqual([b["teks"] for b in teks_plan.plan(words, visual=vis)], ["tiga."])  # beat VISUAL tanpa teks
+        blok = [{"id": "T1", "teks": "satu", "t": 0.5, "dur": 0.5, "peran": "R1", "kode": "T19", "alasan": "a", "pos": [540, 960]}]
+        self.assertTrue(any("beat VISUAL" in f for f in kt_check.check(blok, visual=vis)))
+        self.assertEqual(kt_check.check(blok), [])
 
     def test_compose_overlays_a_cached_layer_at_its_time(self):
         with tempfile.TemporaryDirectory() as folder:

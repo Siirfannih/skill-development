@@ -266,7 +266,7 @@ def cek_pilihan(ep, nap):
         if not polos(a):
             continue
         isi = [k for k in kt if k["dari"] < a["sampai"] and k["sampai"] > a["dari"]]
-        if not a.get("jeda_sengaja") and not any(max(mulai(k), k["dari"]) <= a["dari"] + 0.3 for k in isi):
+        if not a.get("jeda_sengaja") and a.get("mode_teks") != "VISUAL" and not any(max(mulai(k), k["dari"]) <= a["dari"] + 0.3 for k in isi):
             awal = min([max(mulai(k), k["dari"]) for k in isi] + [a["sampai"]])
             tanda.append(f"JEDA   {a['dari']:.2f} adegan {a['id']} kanvas kosong {awal - a['dari']:.2f} dtk setelah potong (maks 0,3)")
         if a["dari"] in nap:

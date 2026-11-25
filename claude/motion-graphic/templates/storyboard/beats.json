@@ -63,7 +63,13 @@
         ],
         "urutan": "kata muncul → kursor masuk → kursor berhenti di kata yang diucap",
         "bentuk": "ui-asli (kursor macOS)"
-      }
+      },
+      "mode": "TEKS",
+      "mode_alasan": "hook: kata pembuka adalah penanda hook dan subjek animasi",
+      "isi_objek": [
+        "kata \"Gimana\" (satu kata per baris)",
+        "kursor mouse macOS"
+      ]
     },
     {
       "id": "01b",
@@ -107,7 +113,14 @@
         ],
         "urutan": "klik → kata melebar → ruang chat penuh",
         "bentuk": "ui-asli (WhatsApp) + sebab-akibat (klik membuka)"
-      }
+      },
+      "mode": "TEKS",
+      "mode_alasan": "teks itu subjeknya: kata \"chattingan\" diklik lalu melebar jadi ruang chat",
+      "isi_objek": [
+        "kata \"chattingan\"",
+        "kursor mouse macOS",
+        "ruang chat WhatsApp: header \"Ayang\", centang biru"
+      ]
     },
     {
       "id": "01c",
@@ -141,7 +154,14 @@
         ],
         "urutan": "header → bubble masuk → centang biru",
         "bentuk": "ui-asli (WhatsApp)"
-      }
+      },
+      "mode": "VISUAL",
+      "mode_alasan": "UI WhatsApp dan VO sudah membawa pesan; teks hanya menyalin",
+      "isi_objek": [
+        "header chat \"Ayang\" online",
+        "bubble masuk \"udah makan belum\"",
+        "wallpaper chat WhatsApp"
+      ]
     }
   ]
 }

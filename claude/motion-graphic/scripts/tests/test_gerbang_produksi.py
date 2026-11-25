@@ -83,6 +83,12 @@ class CekKomposisi(unittest.TestCase):
         ep["adegan"][1]["jeda_sengaja"] = "hening sebelum pelajaran"
         self.assertEqual(self.cek(ep, "--ketat").returncode, 0)
 
+    def test_jeda_tidak_dituntut_di_adegan_mode_visual(self):
+        ep = episode(); ep["kt"][1]["dari"] = 4.8
+        self.assertEqual(self.cek(ep, "--ketat").returncode, 1)
+        ep["adegan"][1]["mode_teks"] = "VISUAL"
+        self.assertEqual(self.cek(ep, "--ketat").returncode, 0)
+
     def test_blok_memilih_sebagian_dan_menolak_tanda_asing(self):
         ep = episode(); ep["kt"][1].update(dari=5.0)
         self.assertEqual(self.cek(ep, "--blok", "WAJAH,INSET,TEPI,ASET,PITA").returncode, 0)

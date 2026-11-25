@@ -9,7 +9,8 @@ Memeriksa teks.json (dari teks_plan.py, diisi model):
   - penekanan : tiap jendela 15 dtk yang berisi >= 6 blok punya >= 1 blok penekanan (R2/R3/R6) — kecuali alasan_tenang
                 diisi di blok pertama jendela itu (adegan tenang yang disengaja)
   - tabrakan  : dua blok tampil bersamaan (waktu tumpang tindih > 2 f) -> FAIL (Lantai A8)
-Pakai: python3 kt_check.py teks.json [--w 1080 --h 1920]
+  - mode      : dengan --beats, blok yang tampil di beat bermode VISUAL -> FAIL (NEGATIF 6); beat tanpa blok tidak dituntut
+Pakai: python3 kt_check.py teks.json [--w 1080 --h 1920] [--beats beats.json]
 """
 import argparse, json, re, sys
 
@@ -17,8 +18,12 @@ KODE = {f"T{i:02d}" for i in range(1, 33)}
 PENEKANAN = {"R2", "R3", "R6"}
 
 
-def check(blocks, W=1080, H=1920, fps=30):
+def check(blocks, W=1080, H=1920, fps=30, visual=()):
     fails = []
+    for b in blocks:
+        for s, e in visual:
+            if s <= b.get("t", -1) < e:
+                fails.append(f"{b['id']} '{str(b.get('teks', ''))[:20]}': tampil di beat VISUAL {s}-{e} dtk (tanpa teks)")
     for b in blocks:
         miss = [k for k in ("peran", "kode", "alasan") if not str(b.get(k) or "").strip()]
         if b.get("pos") in (None, "", []):
@@ -62,9 +67,13 @@ def check(blocks, W=1080, H=1920, fps=30):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("teks"); ap.add_argument("--w", type=int, default=1080); ap.add_argument("--h", type=int, default=1920)
+    ap.add_argument("--beats", help="beats.json: blok di beat VISUAL = FAIL")
     a = ap.parse_args()
     blocks = json.load(open(a.teks, encoding="utf-8"))
-    fails = check(blocks, a.w, a.h)
+    vis = []
+    if a.beats:
+        bj = json.load(open(a.beats, encoding="utf-8")); vis = [tuple(b["t"]) for b in (bj.get("beats", []) if isinstance(bj, dict) else bj) if b.get("mode") == "VISUAL" and b.get("t")]
+    fails = check(blocks, a.w, a.h, visual=vis)
     kodes = {}
     for b in blocks:
         kodes[str(b.get("kode"))] = kodes.get(str(b.get("kode")), 0) + 1

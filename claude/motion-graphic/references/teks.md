@@ -1,11 +1,15 @@
 # Teks di layar: posisi, keterbacaan, gerak
 
-Dibuka saat mengatur teks layar (langkah 4-6 alur `SKILL.md`). Butir lama LANTAI A1-A9a dipadatkan di sini, tiap butir dengan alasannya; bunyi aslinya tetap di `LANTAI.md` (arsip). Sistem huruf (utama + huruf kedua bila ia punya peran dan frekuensi) diatur NEGATIF 1 dan tidak diulang di sini. Gerak teks per peran kalimat: `references/typography.md` §8a (tabel T dan G).
+Dibuka saat mengatur teks layar (langkah 4-6 alur `SKILL.md`). Butir lama LANTAI A2-A9a dipadatkan di sini, tiap butir dengan alasannya; bunyi aslinya tetap di `LANTAI.md` (arsip). Sistem huruf (utama + huruf kedua bila ia punya peran dan frekuensi) diatur NEGATIF 1 dan tidak diulang di sini. Gerak teks per peran kalimat: `references/typography.md` §8a (tabel T dan G).
 
-## Satu lapisan, hanya dari ucapan (A1, A3, A5)
-- Semua ucapan tampil sebagai SATU lapisan tipografi kinetik. Tidak ada subtitle terpisah di pita bawah; pita hanya sah untuk label identitas non-ucapan yang muncul sekali. Alasan: dua lapisan teks berebut mata dan terbaca sebagai subtitle film, bukan desain.
-- Teks hanya dari ucapan: tidak menambah kalimat atau angka yang tidak diucapkan (NEGATIF 6).
+## Teks hanya bila bekerja: keputusan per beat (NEGATIF 6)
+- Tiap beat di tabel storyboard punya mode dan alasan satu baris. **TEKS**: teks adalah isi beat (a: teks itu subjeknya, yaitu diketik, disunting, kata milik produk; b: penanda hook atau babak; c: angka atau kata yang tak bisa ditunjukkan visual; d: CTA). **VISUAL**: VO + visual membawa beat, tanpa teks. **MENYATU**: teks adalah bagian objek (label, UI, huruf yang disunting) dan bukan lapisan sendiri.
+- Dengan referensi, porsi mengikuti REF-SPEC §2a "porsi teks" (% frame berteks, kapan, peran, ukuran). Tanpa referensi, default VISUAL; teks dipilih hanya lewat a-d. Alasan: teks yang menyalin ucapan terbaca sebagai subtitle dan berebut mata dengan visual; di referensi Irfan teks hanya muncul saat ia memang isinya.
+- Video tanpa narator: teks adalah naskahnya, tampil tiap beat.
+- Bila teks tampil, ia satu sistem: tidak ada subtitle terpisah di pita bawah (pita hanya untuk label identitas non-ucapan yang muncul sekali), tidak dua lapisan teks sekaligus. Alasan: dua lapisan berebut mata.
+- Teks hanya dari ucapan atau dari isi produk yang ditunjukkan; tidak menambah kalimat atau angka yang tidak diucapkan kecuali ia isi UI/prompt yang sedang ditunjukkan (NEGATIF 6).
 - Kata yang sudah jadi penekanan tidak diulang di lapisan atau tempat lain pada saat yang sama. Alasan: pengulangan terbaca sebagai salah ketik.
+- Cek: beat VISUAL tidak punya blok teks (`teks_plan.py --beats`, `kt_check.py --beats`).
 
 ## Posisi (A2)
 - Posisi lahir dari komposisi tiap shot: dekat subjek, di ruang kosong, atau menempel objek yang dirujuk. Tiga tampilan berturut-turut di pita yang sama tanpa alasan komposisi = gagal.
