@@ -1,6 +1,6 @@
 # Rencana Uji A/B Buta · Skill Lama vs Draf Baru (`motion-theme-director`)
 
-Dokumen ini menetapkan protokol uji empiris sebelum draf skill baru di [`draf-skill/`](/Users/igedeirfankusumaputra/KhususagentAG/reverse-engineering-kartu/draf-skill/) dipasang ke repositori produksi [`skill-development`](/Users/igedeirfankusumaputra/wonder/repos/skill-development/claude/motion-graphic/). Prinsip utamanya: **(1) bukan** model yang memberi skor `0–10` pada karyanya sendiri (`ADDENDUM-SUMBER.md` #2, [`F0-riset-re-dan-preset.md`](/Users/igedeirfankusumaputra/KhususagentAG/reverse-engineering-kartu/F0-riset-re-dan-preset.md) §1), dan **(2) jangan pernah** memakai video produksi internal lama kita (*Behindwork*, *Jadisatu 60s*, *The Gap*, *Jensen Huang* [`contoh-gagal/18`]) sebagai pembanding positif atau percontohan uji. Pembanding emas murni hanya berasal dari keyframe kartu eksternal di `tema/<tema>.md`, sementara keluaran uji dinilai lewat **perbandingan buta antara hasil Skill Lama vs Draf Baru oleh Irfan + hitung pelanggaran deterministik `slop-catalog.md` + jejak efisiensi token dan preset**.
+Dokumen ini menetapkan protokol uji empiris sebelum draf skill baru di [`draf-skill/`](./) dipasang ke repositori produksi [`skill-development`](./../motion-graphic/). Prinsip utamanya: **(1) bukan** model yang memberi skor `0–10` pada karyanya sendiri (`ADDENDUM-SUMBER.md` #2, [`F0-riset-re-dan-preset.md`](./../../research_notes/reverse-engineering-kartu-20261125/F0-riset-re-dan-preset.md) §1), dan **(2) jangan pernah** memakai video produksi internal lama kita (*Behindwork*, *Jadisatu 60s*, *The Gap*, *Jensen Huang* [`contoh-gagal/18`]) sebagai pembanding positif atau percontohan uji. Pembanding emas murni hanya berasal dari keyframe kartu eksternal di `tema/<tema>.md`, sementara keluaran uji dinilai lewat **perbandingan buta antara hasil Skill Lama vs Draf Baru oleh Irfan + hitung pelanggaran deterministik `slop-catalog.md` + jejak efisiensi token dan preset**.
 
 ---
 
@@ -8,7 +8,7 @@ Dokumen ini menetapkan protokol uji empiris sebelum draf skill baru di [`draf-sk
 
 | Kondisi Uji | Skill Lama *(Kontrol)* | Draf Baru *(Eksperimen)* |
 |---|---|---|
-| **Berkas Muatan Awal** | [`SKILL.md`](/Users/igedeirfankusumaputra/wonder/repos/skill-development/claude/motion-graphic/SKILL.md) + [`MOTION-CORE.md`](/Users/igedeirfankusumaputra/wonder/repos/skill-development/claude/motion-graphic/MOTION-CORE.md) + [`LANTAI.md`](/Users/igedeirfankusumaputra/wonder/repos/skill-development/claude/motion-graphic/LANTAI.md) + alur buku masak lama (`~21,6k–24,5k` token terukur di `D-audit.md`) | [`draf-skill/SKILL.md`](/Users/igedeirfankusumaputra/KhususagentAG/reverse-engineering-kartu/draf-skill/SKILL.md) + [`LANTAI.md`](/Users/igedeirfankusumaputra/wonder/repos/skill-development/claude/motion-graphic/LANTAI.md) (lazy-load **1** file [`tema/<tema>.md`](/Users/igedeirfankusumaputra/KhususagentAG/reverse-engineering-kartu/draf-skill/tema/) setelah router memilih tema + [`PRESET-INDEX.md`](/Users/igedeirfankusumaputra/KhususagentAG/reverse-engineering-kartu/draf-skill/PRESET-INDEX.md) saat build) |
+| **Berkas Muatan Awal** | [`SKILL.md`](./../motion-graphic/SKILL.md) + [`MOTION-CORE.md`](./../motion-graphic/MOTION-CORE.md) + [`LANTAI.md`](./../motion-graphic/LANTAI.md) + alur buku masak lama (`~21,6k–24,5k` token terukur di `D-audit.md`) | [`draf-skill/SKILL.md`](./SKILL.md) + [`LANTAI.md`](./../motion-graphic/LANTAI.md) (lazy-load **1** file [`tema/<tema>.md`](./tema/) setelah router memilih tema + [`PRESET-INDEX.md`](./PRESET-INDEX.md) saat build) |
 | **Agen Pelaksana** | Sesi model baru yang bersih (tidak tahu mana versi uji) | Sesi model baru yang bersih, dengan bobot model identik (mis. model eksekusi harian yang sama) |
 | **Aturan Buka Keyframe** | Bebas sesuai kebiasaan skill lama | Wajib membuka `2–3` keyframe emas tema yang ditunjuk di `tema/<tema>.md` saat menyusun storyboard & still |
 
@@ -41,7 +41,7 @@ Setiap versi mengerjakan **2–3 beat storyboard kunci + rancangan cue audio & k
    - *Keterbacaan & tata letak:* Apakah fokus tunggal jelas di HP (`25%`), teks tidak menabrak subjek/UI, dan terasa dibuat di After Effects oleh manusia?
    - *Rasa suara & gerak teks:* Apakah SFX terikat ke perubahan bermakna (bukan spam klik per kata), dan gerak teks sesuai makna kalimat alih-alih seragam generik?
    - *Keputusan buta:* Pilih **Menang A / Menang B / Seri** + 1–2 kalimat alasan spesifik.
-3. **Penghitungan Pelanggaran Deterministik (`slop-catalog.md`):** Pemeriksa independen (atau skrip gate di `pc-server`) menghitung jumlah temuan eksplisit pada 49 indikator di [`slop-catalog.md`](/Users/igedeirfankusumaputra/wonder/repos/skill-development/claude/motion-graphic/references/slop-catalog.md):
+3. **Penghitungan Pelanggaran Deterministik (`slop-catalog.md`):** Pemeriksa independen (atau skrip gate di `pc-server`) menghitung jumlah temuan eksplisit pada 49 indikator di [`slop-catalog.md`](./../motion-graphic/references/slop-catalog.md):
    - **`S-A1…S-A12`** (audio: pop di tiap kata VO, whoosh di cut statis, sub tanpa bodi HP, palet kayu/8-bit, lubang senyap, clipping);
    - **`S-T1…S-T13`** (teks: 2 lapisan subtitle, font campur 1 baris, kata hero < 56 px/kontras `< 4,5:1`, teks melompat saat montase cepat, kotak di latar polos);
    - **`S-V1…S-V24`** (visual: crossfade polos, Apple Glass/glow biru-ungu generik, spam grid simetris `> 4` kartu, screenshot kecil melayang `contoh-gagal/20`, dokumen diburamkan `contoh-gagal/21`, narasi VO masuk prompt UI `contoh-gagal/13`).
@@ -53,7 +53,7 @@ Setiap versi mengerjakan **2–3 beat storyboard kunci + rancangan cue audio & k
 
 ## 4. Kriteria Lolos Wajib Sebelum Pemasangan (*Install Gate*)
 
-Draf skill baru **HANYA** diizinkan menggantikan alur produksi di `/Users/igedeirfankusumaputra/wonder/repos/skill-development/` apabila **seluruh 4 syarat berikut terpenuhi bersamaan**:
+Draf skill baru **HANYA** diizinkan menggantikan alur produksi di `./../../` apabila **seluruh 4 syarat berikut terpenuhi bersamaan**:
 
 1. **Menang Penilaian Buta Irfan (`≥ 2 dari 3` brief):** Draf baru dipilih Irfan lebih unggul sebagai `buatan manusia / siap produksi`, dengan `0` kekalahan telak di brief mana pun.
 2. **Penurunan Pelanggaran `slop-catalog.md` (`≤ 50%` dari skor pelanggaran Skill Lama & `0` pelanggaran fatal `contoh-gagal/13, 14, 16, 18, 20, 21`):** Secara khusus `0` kasus VO ditulis ke input UI, `0` kasus teks menutupi wajah/mata, dan `0` spam pop kata biasa di atas VO.

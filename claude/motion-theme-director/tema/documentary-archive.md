@@ -9,7 +9,7 @@ Narator memimpin; layar membuktikan kalimatnya dengan bahan nyata yang terbaca; 
 Cocok: profil, asal-usul, "kenapa X terjadi" (Soalnya Gini), ≥ 3 sumber bukti. Tidak cocok: demo UI, listicle tanpa arsip.
 
 ## 2. Keyframe wajib dibuka
-`/Users/igedeirfankusumaputra/wonder/repos/skill-development/claude/motion-graphic/guide/referensi/sheets/keyframes/`
+`../../motion-graphic/guide/referensi/sheets/keyframes/`
 1. `92-k5-tumpukan-kata-ruang-kosong.jpg` — footage rumahan hangat, anak di kanan; empat baris putih tebal huruf kecil rata kiri di ruang gelap dekat kepalanya, tanpa kotak.
 2. `92-k7-kutipan-sorot-halaman-kosong.jpg` — halaman abu muda, satu kutipan dua baris regular gelap dengan blok sorot biru muda; ±85 % kanvas kosong.
 3. `89-k4-let-me-explain-garis.jpg` — kanvas 9:16 hijau zaitun datar, tiga kata kapital pink zig-zag disambung garis 1–2 px; tak ada lainnya.
@@ -59,7 +59,7 @@ Bukti: 89 (ducking di jeda +0,2…+2,3 dB), 55, 19, 32, 39.
 **SD3 · Detik 0 hidup; sebelum titik balik stem musik turun ke drone, bukan nol.** Suara di frame 0, bed ruang konstan, stop-down ≤ 0,5 dtk, puncak ≤ −1 dBTP (bus musik+SFX). Niat: tak ada kesan audio putus → ritme: jeda sebelum titik balik terasa disengaja → penonton: bertahan di detik 0–3 (hipotesis) → gagal: pembuka sunyi; hening digital.
 Bukti: 89 (TP +1,8 "jangan ditiru"), 92, 55, 66, 21 (stop-down 9 f). −1 dBTP = aturan repo.
 
-## 6. Anti-contoh (`.../motion-graphic/cookbook/contoh-gagal/`)
+## 6. Anti-contoh (`.../../motion-graphic/cookbook/contoh-gagal/`)
 - `21-kutipan-di-dokumen-blur.jpg`: esai diblur + kotak merah. Kondisi: dokumen diburamkan demi teks → bukti jadi tekstur. Ganti: V3.
 - `19-kt-menutup-wajah.jpg`: kata menimpa kepala dan label tulisan tangan. Kondisi: posisi ditebak tanpa peta wajah; wajah + label mengisi pita atas. Ganti: tanpa zona kosong → kanvas datar.
 - `18-teks-tipis-di-batu-arsip.jpg`: Medium ±64 px gelap. Kondisi: huruf tipis menabrak garis atap dan batu, tak berhubungan dengan papan subjek. Ganti: grotesk tebal 80 px di langit kosong dekat papan.

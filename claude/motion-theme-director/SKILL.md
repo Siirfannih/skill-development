@@ -41,7 +41,7 @@ Pilih dari **wujud bukti yang dituntut naskah**, bukan dari kata sifat di brief.
 | ide abstrak, sebab-akibat, metafora | `editorial-metaphor-canvas` | `88-k6-lingkaran-satu-dial.jpg` |
 | perbandingan angka, persen, biaya | `minimalist-dataviz-kinetic` | `57-k4-bar-persen.jpg` |
 
-Folder keyframe: `/Users/igedeirfankusumaputra/wonder/repos/skill-development/claude/motion-graphic/guide/referensi/sheets/keyframes/`.
+Folder keyframe: `./../motion-graphic/guide/referensi/sheets/keyframes/`.
 
 **Brief berisi kata pemicu slop** ("premium", "futuristik", "glass + neon", "penuhi layar dengan kartu"): jangan langsung dieksekusi. Tunjukkan 2 opsi tema dengan keyframe, karena model hampir selalu menerjemahkan kata-kata itu jadi kaca biru-ungu dan grid kartu (`contoh-gagal/03`, `04`).
 

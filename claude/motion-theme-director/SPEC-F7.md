@@ -44,4 +44,4 @@ description: <satu kalimat: apa + kapan dibuka>
 ## 7. Dua contoh kerja: sebelum → sesudah, dengan alasan (konten Irfan: Jadisatu / @siirfannih / Soalnya Gini)
 ## 8. Pertanyaan pembeda (2–3) + status bukti (apa yang masih hipotesis)
 ```
-Bahasa Indonesia lugas, tanpa pujian, tanpa kata sifat kosong ("elegan", "premium"). Path keyframe: `/Users/igedeirfankusumaputra/wonder/repos/skill-development/claude/motion-graphic/guide/referensi/sheets/keyframes/<file>`.
+Bahasa Indonesia lugas, tanpa pujian, tanpa kata sifat kosong ("elegan", "premium"). Path keyframe: `./../motion-graphic/guide/referensi/sheets/keyframes/<file>`.

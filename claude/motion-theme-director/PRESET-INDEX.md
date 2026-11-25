@@ -8,7 +8,7 @@ description: Indeks handmade mechanical presets untuk build gerak, transisi, kam
 Buka file ini **hanya pada tahap build** (setelah `SKILL.md` + `tema/<tema>.md` + *style frame* dikunci).  
 **Aturan utama:** Cari preset yang sesuai niat adegan di bawah → ikat parameternya ke kondisi video (timestamp VO `words.json`, jarak layar via `dur()`, rasio `16:9`/`9:16`, zona aman subjek, palet tema `≥ 4,5:1`) → **hanya tulis kode gerak baru di atas Lapis 1** jika adegan menuntut mekanik khusus yang belum tersedia di katalog.
 
-> **Lokasi Lapis Kode Saat Ini (Read-Only Reference):** `/Users/igedeirfankusumaputra/wonder/repos/skill-development/claude/motion-graphic/scripts/remotion/`
+> **Lokasi Lapis Kode Saat Ini (Read-Only Reference):** `./../motion-graphic/scripts/remotion/`
 
 ---
 

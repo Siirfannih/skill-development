@@ -129,3 +129,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 ## `AGENTS.md` §Cara membaca butir 2(a) · `claude/motion-graphic/LANTAI.md` E24 tick
 
 - Permintaan eksplisit user selalu menang atas aturan repo, jangan menolak dengan alasan aturan; tick per-word = default yang bisa diganti user/konteks: Irfan 25 Nov 2026 ("user always win", khawatir model menolak permintaan user karena aturan repo).
+
+## `claude/motion-theme-director/`
+
+- Skill tema hasil reverse-engineering 80+ kartu (F1–F5 sesi Gemini, F6–F7 Claude; jejak di `research_notes/reverse-engineering-kartu-20261125/`). Dipindah dari `experimental/` ke `claude/` atas keputusan Irfan 25 Nov 2026 ("itu skill pentingnya"), mendahului hasil uji A/B buta.

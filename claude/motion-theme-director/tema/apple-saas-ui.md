@@ -9,7 +9,7 @@ UI produk dibangun ulang sebagai kode dan menjadi aktor: satu jendela di dunia t
 Cocok: naskah yang menunjuk aksi software nyata (ketik, klik, setujui), misalnya launch Jadisatu Canvas. Tidak cocok: refleksi tanpa objek UI.
 
 ## 2. Keyframe wajib dibuka
-Folder: `/Users/igedeirfankusumaputra/wonder/repos/skill-development/claude/motion-graphic/guide/referensi/sheets/keyframes/`
+Folder: `../../motion-graphic/guide/referensi/sheets/keyframes/`
 - `63-k10-urutan-sapuan-grid-dan-punch.jpg`: wallpaper senja tetap tajam di sisi jendela editor gelap; sapuan blok piksel kuning membuka jendela; kamera mendorong ke kotak chat, tepi UI masih tampak.
 - `36-k6-kartu-approve.jpg`: headline satu baris condensed putih di pita atas, satu kartu terang ±65 % lebar di bawahnya, bawah frame kosong; aksen hanya di tombol Approve.
 - `34-k2-sorot-kata.jpg`: kalimat besar satu ukuran; hanya "broken" diberi sorotan biru muda tembus pandang + 2 handle bulat. Satu penanda, tidak ada yang lain.
@@ -39,7 +39,7 @@ Folder: `/Users/igedeirfankusumaputra/wonder/repos/skill-development/claude/moti
 
 **SD3 Energi lewat lapisan musik.** Musik konstan di bawah VO; babak baru = instrumen masuk (bass di kata pertama, drum di babak akhir), bukan riser. Pemicu: sebelum klik kirim/logo, stem musik turun 0,3–0,8 dtk; bed ambien tetap. → Niat: naik-turun organik tanpa mencekik VO. → Frame: klimaks punya ruang. → Penonton (hipotesis): merasakan babak tanpa diberi tahu. → Gagal bila riser di tiap kalimat. → Bukti: 93, 65, 23; stop-down 07, 35, 49, 94-k13. Belum didengar.
 
-## 6. Anti-contoh (`.../motion-graphic/cookbook/contoh-gagal/`)
+## 6. Anti-contoh (`.../../motion-graphic/cookbook/contoh-gagal/`)
 - `04-builder-trap-biru-gelap.jpg`: navy + kotak biru melayang. Kondisi: dunia digelapkan seragam agar "terasa tech"; tidak ada pemisahan bidang.
 - `13-narasi-di-prompt.jpg`: "template." raksasa di prompt. Kondisi: kata VO butuh tempat, kolom input paling dekat; terbaca sebagai perintah.
 - `20-inset-kecil-di-kanvas-kosong.jpg`. Kondisi: aset kecil dipasang apa adanya sebagai inset berbayang; frame jadi slide.
