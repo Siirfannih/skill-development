@@ -15,6 +15,10 @@ Skill ini lapisan penaik mutu, bukan template. **Konsep dan pesanku + 2–4 kart
 3. **Membedah referensi baru:** `cookbook/BEDAH.md` (tiga lapis, wajib sebelum menulis kartu atau meracik dari referensi baru) → `cookbook/KARTU-TEMPLATE.md`.
 4. **Mengubah aturan skill:** `../../SARINGAN.md` + `../../EVALS-DESIGN.md`; asal-usul ke `SUMBER.md`.
 
+## NEGATIF bersama
+Batas keras anti-slop (sans saja, permukaan datar, objek lengkap, satu fokus) ada di `../_bersama/NEGATIF.md`; baca sebelum merancang.
+Untuk desain statis berlaku butir 1-5 dan 7; butir 6 dan 8-10 khusus video. Hanya kalimat eksplisit Irfan di sesi itu yang membuka butir [keras].
+
 ## Lantai (selalu berlaku; isi lengkap di `LANTAI.md`)
 - **TKS-01** Teks terbaca: kontras ≥ 4,5 : 1 (≥ 3 : 1 untuk ≥ 24 px atau ≥ 18,5 px tebal); tidak ada teks terpotong tepi atau menimpa teks lain.
 - **KRK-02** Karakter, maskot, logo, dan aset bukan milik pihak lain (termasuk tiruan lewat bentuk + warna); semua aset tercatat di `assets/manifest.json`.

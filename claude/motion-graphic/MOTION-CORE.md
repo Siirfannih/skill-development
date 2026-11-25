@@ -2,13 +2,16 @@
 > 1. **Cookbook = perpustakaan mekanik, bukan template.** Konsep user + 2–4 kartu mekanik cookbook = output baru. Jangan membuat template gaya tetap atau menyalin gaya antar proyek.
 > 2. **Promosi aturan hanya lewat `SARINGAN.md`** (S = proyek, P = pertimbangan, H = hukum netral-gaya terukur). Selera satu proyek tidak naik ke aturan global.
 > 3. **Gerbang pemilik tidak dilewati.** Konsep/topik, naskah final, serta storyboard + tabel racikan cookbook disetujui pemilik sebelum produksi atau pemakaian kredit.
-> 4. **Aturan = praktik terbaik, bukan hukum tetap.** Lantai, kartu, `render.sh final`, `gerbang_produksi.sh`, `scripts/gate/*` = default; kondisi nyata video/suara/frame menang. Melewati gerbang boleh dengan satu baris alasan + bukti di LOG. Alat gerbang tidak diubah demi satu video.
+> 4. **Aturan = praktik terbaik, bukan hukum tetap, kecuali NEGATIF.** Kartu, `render.sh final`, `gerbang_produksi.sh`, `scripts/gate/*` = default; kondisi nyata menang. Melewati gerbang boleh dengan satu baris alasan + bukti di LOG. Alat gerbang tidak diubah demi satu video.
 > 5. **Baca dulu, jangan menebak.** Bahan sumber dan outbox/proyek terkait dibaca sebelum menyimpulkan atau memberi perintah.
-# MOTION-CORE: pintu masuk sesi produksi video
 
-Sesi produksi memuat **file ini** + `cookbook/00-core-invariants.md`, lalu `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`). Jalankan `python3 scripts/juri/tahap.py projects/<proyek>`. Kartu dimuat per kartu lewat `pilih_kartu.py` (Langkah 1); `cookbook/INDEX.md` hanya memberi filter `--pack`. Tidak dimuat di awal sesi: pack utuh, `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/INDEX.md` penuh, `cookbook/CATALOG.md`, dan `_vault/`. `references/` dan `guide/` dibuka saat gerbang menyebutnya. Rute: `SKILL.md`; Lantai utuh: `LANTAI.md` (dibaca saat juri, revisi, dan sebelum render).
+Arsip referensi; pintu aktif: SKILL.md.
 
-Urutan otoritas: kalimat kanonik `AGENTS.md` §Cara membaca repo ini butir 2 (Lantai di atas kartu; pengecualian Lantai hanya atas instruksi user, dicatat di `RESEP.md`).
+# MOTION-CORE: tabel tahap dan gerbang render (bukan lagi pintu)
+
+Sesi produksi mulai dari `SKILL.md`; file ini dibuka untuk tabel tahap dan gerbang render, lalu `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`). Jalankan `python3 scripts/juri/tahap.py projects/<proyek>`. Kartu dimuat per kartu lewat `pilih_kartu.py` (Langkah 1); `cookbook/INDEX.md` hanya memberi filter `--pack`. Tidak dimuat di awal sesi: pack utuh, `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/INDEX.md` penuh, `cookbook/CATALOG.md`, dan `_vault/`. `references/` dan `guide/` dibuka saat gerbang menyebutnya. Lantai lama: `LANTAI.md`, peta pindahnya `MIGRASI-LANTAI.md`.
+
+Urutan otoritas: kalimat kanonik `AGENTS.md` §Cara membaca repo ini butir 2 (NEGATIF di atas profil merek dan kartu).
 
 ## 1. Tahap kanonik: Brief → Naskah → Storyboard/block out → Animate → Effects & grade → Mix → Deliver
 

@@ -1,3 +1,5 @@
+> Arsip referensi; pintu aktif: SKILL.md (peta pindahnya: MIGRASI-LANTAI.md).
+
 # LANTAI: mutu yang berlaku di semua video
 
 Lantai menentukan **mutu**; kiblat (kartu di `cookbook/`) menentukan **gaya**. Bila kartu kiblat bertentangan dengan lantai, lantai menang dan penyesuaiannya ditulis di `RESEP.md`. Lantai tidak berisi font, warna, atau layout tertentu: itu urusan kiblat. Lantai adalah praktik terbaik, bukan hukum tetap: bila kondisi nyata video, suara, atau frame menuntut lain, penyesuaian yang menang dengan alasan tertulis (`AGENTS.md` invarian 4). Posisi Lantai dalam urutan otoritas: `AGENTS.md` §Cara membaca repo ini butir 2.

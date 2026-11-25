@@ -24,9 +24,9 @@ RUTE = f"""## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo 
 
 | Pekerjaan | Buka | Jangan buka |
 |---|---|---|
-| Sesi produksi video | `{MG}/MOTION-CORE.md` + `{MG}/cookbook/00-core-invariants.md` → `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`, `STATUS.md`); kartu per kartu via `{MG}/scripts/cookbook/pilih_kartu.py` (2–4 kartu untuk seluruh video; filter `--pack` dari `{MG}/cookbook/INDEX.md`) | pack utuh, `PETA.md` selebihnya, `RETRO.md`, `SUMBER.md`, `cookbook/CATALOG.md` utuh, `_vault/`; folder proyek lain; template gaya tetap |
+| Sesi produksi video | `{MG}/SKILL.md` (NEGATIF + alur 8 langkah + tabel "Bila … buka …") → `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`, `STATUS.md`); kartu per kartu via `{MG}/scripts/cookbook/pilih_kartu.py` (2–4 kartu untuk seluruh video; filter `--pack` dari `{MG}/cookbook/INDEX.md`) | pack utuh, `PETA.md` selebihnya, `RETRO.md`, `SUMBER.md`, `cookbook/CATALOG.md` utuh, `_vault/`; folder proyek lain; template gaya tetap |
 | Awal sesi lainnya | `AGENTS.md` → `PETA.md` (file ini) → `PENDING.md` | seluruh `references/` sekaligus |
-| Video: tahap dan rute lengkap | `claude/irfan-creative-workflow/SKILL.md` §2 (tahap Brief → Naskah → Storyboard/block out: bedah bahan user → naskah → storyboard + racikan → persetujuan; belum ada kode sebelum storyboard disetujui) → `{MG}/MOTION-CORE.md` (tabel tahap kanonik, 10 aturan Lantai, gerbang render R1–R5) → `projects/<proyek>/TAHAP.md` dari `{MG}/templates/TAHAP.md` + `scripts/juri/tahap.py` (langkah berikutnya dan bagian yang dibaca) → profil merek: `{MG}/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md`; `{MG}/SKILL.md` dibuka per bagian saat langkah menyebutnya; `LANTAI.md` dibaca utuh saat juri, revisi, dan sebelum render | skill di `archive/`; `{MG}/SKILL.md` utuh di awal sesi |
+| Video: tahap dan rute lengkap | `claude/irfan-creative-workflow/SKILL.md` §2 (tahap Brief → Naskah → Storyboard/block out: bedah bahan user → naskah → storyboard + racikan → persetujuan; belum ada kode sebelum storyboard disetujui) → `{MG}/SKILL.md` (NEGATIF, alur 8 langkah; referensi per tahap lewat tabel "Bila … buka …") → `projects/<proyek>/TAHAP.md` dari `{MG}/templates/TAHAP.md` + `scripts/juri/tahap.py` (langkah berikutnya dan bagian yang dibaca) → profil merek: `{MG}/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md`; `{MG}/MOTION-CORE.md` §1, §3 (tabel tahap, gerbang render R1–R5) dibuka saat render; `LANTAI.md` arsip (peta pindah: `MIGRASI-LANTAI.md`) | skill di `archive/`; `MOTION-CORE.md` dan `LANTAI.md` utuh di awal sesi |
 | Fase 1 pra-produksi (Brief, Naskah, Storyboard/block out): script, bedah referensi, storyboard | `{MG}/cookbook/README.md` (§1 Prinsip, §2 Alur dua langkah) → `{MG}/scripts/cookbook/pilih_kartu.py --cari "<fungsi cerita>"` per beat (mencocokkan *Narrative trigger* di `{MG}/cookbook/CATALOG.md` lewat router `{MG}/cookbook/INDEX.md`; naskah: `--kategori script`) → hanya 2–4 kartu **dan frame kuncinya** (`guide/referensi/sheets/keyframes/`) → tabel racikan disetujui user, `{MG}/cookbook/contoh-gagal/README.md`, `{MG}/references/storyboard.md`, `claude/script-workshop/SKILL.md` | `audio.md`, `build.md` |
 | User membawa draf desain/storyboard/kode Remotion (penaik mutu) | `{MG}/cookbook/README.md` §1 + §3 → `{MG}/cookbook/INDEX.md` / `POLA.md` / `SFX.md` → `{MG}/references/smooth-motion.md`, `{MG}/references/camera-transition.md`, `{MG}/references/pacing-map.md`, `{MG}/guide/sfx/GUIDE.md` → daftar bedah per beat disetujui user, lalu revisi kode yang ada | merombak konsep, palet, huruf, aset, atau urutan user; menulis ulang dari nol |
 | Fase 2 suara (Storyboard/block out, kunci suara): potong, ekor kata, level | `{MG}/references/audio.md` §14.0C–14.0D, §14.6, `scripts/gate/cut_check.py`, `scripts/audio/recut.py`, `scripts/gate/voice_level.py` | tipografi, kamera |
@@ -100,7 +100,7 @@ def table(rows, head=("File", "Isi / kapan dibuka")):
 
 
 WAJIB_RUTE = {"Fase 3 visual": [f"`{MG}/guide/visual/GUIDE.md`", f"`{MG}/guide/teks/GUIDE.md`", f"`{MG}/guide/gerak/GUIDE.md`"],
-              "Sesi produksi video": [f"`{MG}/MOTION-CORE.md`", f"`{MG}/scripts/cookbook/pilih_kartu.py`"]}
+              "Sesi produksi video": [f"`{MG}/SKILL.md`", f"`{MG}/scripts/cookbook/pilih_kartu.py`"]}
 
 
 def jaga_rute(rute=None):
@@ -128,7 +128,7 @@ def build():
             skills.append((rel(p), skill_desc(p)))
     parts += ["## Skill aktif (`claude/`)", "", table(skills, ("Skill", "Pakai saat")), ""]
     groups = [
-        ("motion-graphic · pintu produksi", [f"{MG}/MOTION-CORE.md"]),
+        ("motion-graphic · pintu produksi", [f"{MG}/SKILL.md", f"{MG}/MOTION-CORE.md", f"{MG}/MIGRASI-LANTAI.md", "claude/_bersama/NEGATIF.md"]),
         ("motion-graphic · inti dan kamus referensi (opsional di sesi produksi)", [f"{MG}/LANTAI.md", f"{MG}/RETRO.md", f"{MG}/cookbook/INDEX.md", f"{MG}/cookbook/00-core-invariants.md", f"{MG}/cookbook/CATALOG.md", f"{MG}/cookbook/README.md"]),
         ("motion-graphic · references (cabang; dibuka saat SKILL.md atau RUTE menyuruh)", sorted(
             f"{MG}/references/{f}" for f in os.listdir(os.path.join(ROOT, MG, "references")) if f.endswith(".md"))),

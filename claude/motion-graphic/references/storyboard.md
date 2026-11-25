@@ -12,6 +12,7 @@ Baca di tahap Storyboard/block out. Storyboard adalah gerbang review termurah: s
 6. Melanjutkan panel contoh Irfan
 7. TYPE-TEST dan TRANSITION-SHEET
 8. Alat dan serah terima
+9. Isi visual (dari Lantai D19-D22c)
 
 ## 1. Jalur masuk
 
@@ -132,3 +133,16 @@ Dibuat setelah storyboard lolos review:
 - **Wonder** (Mac Irfan, MCP `mcp__wonder__*`): format panel sama, artboard = frame + caption, babak per baris. Alur: `get_skills(new-design)` → `create_page` → `create_artboard` → `take_screenshot` → `update_elements`. Panel final tetap diekspor ke folder repo.
 - **Simpan di repo**: `projects/<proyek>/storyboard/` berisi `beats.json`, `tokens.css`, `panels/`, `png/`, `board.html`. Lokasi folder ini ditulis di laporan.
 - Kirim `board.png` + daftar keputusan yang menyimpang dari referensi. Storyboard adalah gerbang persetujuan, kecuali jalur tanpa storyboard di §1.
+
+## 9. Isi visual (dari Lantai D19-D22c)
+
+Butir lama LANTAI D dipadatkan di sini; metafora per kalimat ada di §2 butir 2a.
+
+- **Visual menggambarkan makna ucapan** (D19), bukan bentuk atau hiasan: penonton harus lebih mudah paham karena visual itu.
+- **Storyboard dari Irfan adalah struktur, bukan visual akhir** (D19c). Ia menjelaskan apa yang terjadi, urutannya, dan metaforanya; visual akhir tiap beat dirancang supaya paling mudah dipahami penonton.
+- **Merek dan platform publik tampil seperti aslinya** (D20): untuk merek yang punya antarmuka nyata (Claude, ChatGPT, Instagram, Threads, GitHub), bangun ulang mengikuti UI aslinya, ikon memakai ikon jadi. Sistem atau alur kerja sendiri yang tidak punya aplikasi publik boleh berupa UI konseptual yang bersih dan frameless: tanpa bezel ponsel fisik yang tidak perlu dan tanpa klaim atau testimoni klien palsu.
+- **Yang sedang bicara tampil di frame** (D21), kecuali tertutup visual layar penuh.
+- **Tidak ada placeholder di render** (D22; NEGATIF 4): website, poster, aplikasi, dokumen didesain seperti produk nyata, bukan bentuk pengganti dari storyboard.
+- **Tokoh dan dunia yang sudah diperkenalkan konsisten sampai akhir** (D22a).
+- **Uji logika dunia nyata sebelum merancang beat** (D22b): apakah orang sungguhan melakukannya seperti ini? Kiasan dalam ucapan tidak digambar harfiah sebagai fakta.
+- **Tiga detik pertama menentukan** (D22c): buka dengan gebrakan visual dan bunyi di frame 0, bukan teks kecil di layar kosong.
