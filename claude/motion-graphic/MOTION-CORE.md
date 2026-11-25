@@ -6,7 +6,7 @@
 > 5. **Baca dulu, jangan menebak.** Bahan sumber dan outbox/proyek terkait dibaca sebelum menyimpulkan atau memberi perintah.
 # MOTION-CORE: pintu masuk sesi produksi video
 
-Sesi produksi memuat **file ini** + `cookbook/00-core-invariants.md`, lalu `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`). Pilih 1 Domain Pack relevan di `cookbook/INDEX.md` (< 600 token) dan jalankan `python3 scripts/juri/tahap.py projects/<proyek>`. Tidak dimuat di awal sesi: `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/INDEX.md` penuh, `cookbook/CATALOG.md`, dan `_vault/`. `references/` dan `guide/` dibuka saat gerbang menyebutnya. Rute & Lantai utuh: `SKILL.md`.
+Sesi produksi memuat **file ini** + `cookbook/00-core-invariants.md`, lalu `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`). Jalankan `python3 scripts/juri/tahap.py projects/<proyek>`. Kartu dimuat per kartu lewat `pilih_kartu.py` (Langkah 1); `cookbook/INDEX.md` hanya memberi filter `--pack`. Tidak dimuat di awal sesi: pack utuh, `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/INDEX.md` penuh, `cookbook/CATALOG.md`, dan `_vault/`. `references/` dan `guide/` dibuka saat gerbang menyebutnya. Rute & Lantai utuh: `SKILL.md`.
 
 Urutan otoritas: kalimat kanonik `AGENTS.md` §Cara membaca repo ini butir 2 (Lantai di atas kartu; pengecualian Lantai hanya atas instruksi user, dicatat di `RESEP.md`).
 

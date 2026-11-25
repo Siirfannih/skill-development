@@ -7,7 +7,7 @@ description: "Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntun
 
 Skill ini lapisan penaik mutu video. Ia bukan template dan bukan pembajak konsep: **konsep user + mekanik cookbook = output baru**. Tema, palet, aset, dan arahan user selalu menjadi fondasi. Dari referensi hanya dipindahkan mekanik gerak, ritme kamera, hierarki tipografi, dan standar audio. Draf atau kode user diaudit dan dihaluskan, tidak dirombak (`cookbook/README.md` §1, §3).
 
-**Pintu produksi ramping: `MOTION-CORE.md`** (alur dua langkah, 10 aturan Lantai, gerbang wajib, larangan keras), lalu `projects/<proyek>/`. `PETA.md`, `RETRO.md`, `SUMBER.md`, dan `cookbook/CATALOG.md` utuh tidak dimuat di awal sesi (cukup muat `cookbook/00-core-invariants.md` dan router ringkas `cookbook/INDEX.md`); sisa file ini dibuka saat sebuah langkah menyebut bagiannya.
+**Pintu produksi ramping: `MOTION-CORE.md`** (alur dua langkah, 10 aturan Lantai, gerbang wajib, larangan keras), lalu `projects/<proyek>/`. `PETA.md`, `RETRO.md`, `SUMBER.md`, dan `cookbook/CATALOG.md` utuh tidak dimuat di awal sesi (cukup muat `cookbook/00-core-invariants.md`; kartu dimuat per kartu lewat `pilih_kartu.py`); sisa file ini dibuka saat sebuah langkah menyebut bagiannya.
 
 **Alur setiap video (urut):**
 1. `../irfan-creative-workflow/SKILL.md` §2 gerbang 1–3. Bedah bahan user dulu (naskah/transkrip, footage, aset), lalu naskah final, lalu storyboard, masing-masing dengan persetujuan user. Belum ada kode sebelum gerbang 3 lolos.
@@ -84,14 +84,14 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
 
 ## 0a. Kiblat dan resep (sebelum build)
 
-1. Baca router `cookbook/INDEX.md` (< 600 tok + Loading Matrix Domain Packs) dan `cookbook/00-core-invariants.md`, lalu cari kartu per fungsi cerita lewat `scripts/cookbook/pilih_kartu.py` (membaca `cookbook/CATALOG.md`). Untuk satu teknik lintas kartu: `cookbook/POLA.md`. Semua kartu adalah contoh mutu dan sumber mekanik, bukan ukuran untuk disalin.
+1. Baca `cookbook/00-core-invariants.md`, lalu cari kartu per fungsi cerita lewat `scripts/cookbook/pilih_kartu.py` (membaca `cookbook/CATALOG.md`; filter `--pack` dari tabel tipe konten `cookbook/INDEX.md`). Pack utuh tidak dimuat. Untuk satu teknik lintas kartu: `cookbook/POLA.md`. Semua kartu adalah contoh mutu dan sumber mekanik, bukan ukuran untuk disalin.
 2. Tentukan pengikat (kiblat):
    - User membawa gaya, brand, atau draf → gaya user adalah pengikatnya. Kartu hanya menyumbang mekanik.
    - Irfan mengirim video referensi di sesi → itu kiblatnya. Bedah dulu ke kartu baru (`cookbook/README.md` §Referensi baru).
    - Prompt menyebut gaya → pilih satu kartu yang paling cocok sebagai pengikat dan sebut ke user.
    - Prompt tanpa gaya → ikuti gaya global brief (gaya bawaan `templates/gaya/` boleh dipakai bila cocok). Brief juga tanpa gaya → pakai kartu paling mirip, tulis alasannya di `RESEP.md`.
    - Video bermode ganda boleh berkiblat berbeda per mode, asal gayanya konsisten.
-3. Racik pola per beat: 1–3 kartu mekanik dipilih lewat *Narrative trigger*. Buka hanya kartu itu dan frame kuncinya, lalu isi tabel racikan (`cookbook/README.md` §2) dan minta persetujuan user. Jangan membuka semua kartu.
+3. Racik pola per beat dari 2–4 kartu untuk seluruh video, dipilih lewat *Narrative trigger*. Buka hanya kartu itu dan frame kuncinya, lalu isi tabel racikan (`cookbook/README.md` §2) dan minta persetujuan user. Jangan membuka semua kartu.
 3a. **Bentuk visual dicari di kartu, tidak dikarang.** Adegan yang butuh bentuk tertentu (tampilan Instagram, chat, dashboard, peta, tokoh, dsb.):
    - Cari lewat `cookbook/INDEX.md` / `scripts/cookbook/pilih_kartu.py` / `POLA.md`.
    - Buka kartunya + frame kuncinya.

@@ -9,7 +9,7 @@
 
 Repo ini menyimpan cara kerja AI bersama Irfan.
 
-**Sesi produksi video (satu video = satu sesi terpisah):** muat [claude/motion-graphic/MOTION-CORE.md](claude/motion-graphic/MOTION-CORE.md) + `claude/motion-graphic/cookbook/00-core-invariants.md`, lalu `projects/<proyek ini>/` (jangan mengintip atau menyalin racikan episode lain; bila arah visual belum terkunci di brief, ajukan pertanyaan pengunci dulu). Pilih 1 Domain Pack relevan lewat `cookbook/INDEX.md` (< 600 token) dan cari kartu per beat dengan `claude/motion-graphic/scripts/cookbook/pilih_kartu.py`; `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/CATALOG.md`, dan `_vault/` utuh tidak dimuat di awal sesi.
+**Sesi produksi video (satu video = satu sesi terpisah):** muat [claude/motion-graphic/MOTION-CORE.md](claude/motion-graphic/MOTION-CORE.md) + `claude/motion-graphic/cookbook/00-core-invariants.md`, lalu `projects/<proyek ini>/` (jangan mengintip atau menyalin racikan episode lain; bila arah visual belum terkunci di brief, ajukan pertanyaan pengunci dulu). Kartu cookbook dimuat per kartu: cari per beat dengan `claude/motion-graphic/scripts/cookbook/pilih_kartu.py` (filter `--pack` dari tabel tipe konten `cookbook/INDEX.md`) dan buka hanya 2–4 kartu untuk seluruh video; pack utuh, `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/CATALOG.md`, dan `_vault/` utuh tidak dimuat di awal sesi.
 
 **Sesi lain (naskah, revisi, perubahan skill), pintu masuknya satu: file ini → [PETA.md](PETA.md) → [PENDING.md](PENDING.md).** Tabel Rute di PETA menunjuk file yang dibuka untuk pekerjaanmu, jadi buka hanya itu, bukan seluruh repo. [README.md](README.md) dan [INDEX.md](INDEX.md) adalah katalog, bukan pintu. Urutan otoritas: §Cara membaca repo ini butir 2.
 

@@ -17,7 +17,7 @@ Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak ko
 1. Bedah bahan user sendiri: naskah/transkrip per beat, footage, aset, brand. Dikerjakan sebelum membuka kartu (`../../irfan-creative-workflow/SKILL.md` gerbang 1–3).
 2. Untuk tiap beat, tulis **fungsi ceritanya**: emosi, struktur kalimat, posisi di naskah. Contoh: "kalimat koreksi: bukan X tapi Y", "lompatan waktu", "angka yang harus mendarat".
 3. Cocokkan fungsi cerita itu dengan kolom **Narrative trigger** `CATALOG.md` (dipandu router `INDEX.md`) lewat `python3 ../scripts/cookbook/pilih_kartu.py --cari "<kata kunci fungsi cerita>" [--pack 01..06] [--kategori …] [--bergerak]` (tabel ID, nama, status, path kartu, frame kunci); `CATALOG.md` tidak perlu dibaca utuh. Untuk mencari satu teknik lintas kartu, pakai `POLA.md`. Naskah baru dimulai dari kategori `script` (`03-documentary-story-narrative/`).
-4. Buka **hanya 2–4 kartu**, ditambah frame kuncinya (`../guide/referensi/sheets/keyframes/<id>-k*.jpg`). Racikannya: **1 kartu pengikat** (hanya bila user tidak punya gaya) + **1–3 kartu mekanik** yang dipinjam per beat.
+4. Buka **hanya 2–4 kartu**, ditambah frame kuncinya (`../guide/referensi/sheets/keyframes/<id>-k*.jpg`). Jumlah itu untuk seluruh video: **1 kartu pengikat** (hanya bila user tidak punya gaya) + kartu mekanik; tiap beat meminjam dari himpunan kartu itu.
 5. Tulis racikannya sebagai tabel beat, lalu **minta persetujuan user** sebelum kode:
 
    | Beat | Fungsi cerita | Pola (ID.Tn) | Remix: yang dipertahankan → yang diganti | SFX |
@@ -41,9 +41,9 @@ Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak ko
 
 | Path | Isi | Kapan dibaca |
 |---|---|---|
-| `INDEX.md` | router ringkas (< 600 tok) + Loading Matrix per tipe konten | selalu di awal fase racik |
+| `INDEX.md` | daftar pack + filter `--pack` per tipe konten (< 600 tok) | saat memilih filter `pilih_kartu.py` |
 | `00-core-invariants.md` | 7 invarian universal Kelas H lintas semua format (< 1.000 tok) | wajib sekali per sesi produksi |
-| `01-motion-camera-transitions/` · `02-typography-talking-head/` · `03-documentary-story-narrative/` · `04-ui-cutout-dataviz-visuals/` · `05-audio-sfx-pacing/` · `06-qc-and-verification/` | Invariant Cards ringkas (10–15 baris) per Domain Pack | hanya pack sesuai Loading Matrix |
+| `01-motion-camera-transitions/` · `02-typography-talking-head/` · `03-documentary-story-narrative/` · `04-ui-cutout-dataviz-visuals/` · `05-audio-sfx-pacing/` · `06-qc-and-verification/` | Invariant Cards ringkas (10–15 baris) per Domain Pack | per kartu, hanya 2–4 kartu hasil `pilih_kartu.py`; pack utuh tidak dimuat |
 | `CATALOG.md` · `POLA.md` · `SFX.md` | daftar lengkap 44 kartu + alias lama (dibangkitkan `tools/cookbook.py index`) | dibaca oleh CLI `pilih_kartu.py` / pencarian SFX |
 | `_vault/` | arsip utuh 97 kartu bedahan penuh (Tier 2 on-demand) | dibuka hanya sesudah racikan 2–4 kartu disetujui untuk sanding visual |
 | `KARTU-TEMPLATE.md` · `NASKAH-TEMPLATE.md` · `RESEP-TEMPLATE.md` | format kartu dan resep per video | saat membedah referensi baru atau membuat `RESEP.md` |
