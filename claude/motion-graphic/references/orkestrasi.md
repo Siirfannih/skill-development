@@ -72,6 +72,7 @@ Caranya ada di `templates/roles/pemeriksa-frame.md`; alatnya `scripts/juri/frame
 - Render dan ffmpeg dijalankan di latar belakang. Baca ≤ 20 baris log terakhir.
 - Menunggu job panjang tanpa polling: `tools/tunggu.sh jalan <nama> -- <perintah>`, kerjakan hal lain, lalu **satu** panggilan `tools/tunggu.sh tunggu <nama> 1500` (timeout alat ≥ 1500 dtk). Jangan mengecek status berulang: tiap cek membangunkan model dengan seluruh konteksnya.
 - Subagen dan pekerja menerima brief ramping (§3), bukan disuruh "baca repo".
+- Setiap pemanggilan `Agent()` mengisi `model: "sonnet"` atau `"haiku"` secara eksplisit. Satu pekerja maksimal 60 turns dan 10 pembacaan gambar; still digabung dulu ke satu contact sheet sebelum dibaca.
 - Video sumber panjang jangan ditonton. Transkrip Whisper di PC (`words.json`) → pilih segmen dari teks → `yt-dlp --download-sections` hanya untuk segmen itu.
 - `STATUS.md` selalu diperbarui, supaya sesi yang terputus bisa lanjut tanpa membaca ulang semuanya.
 
