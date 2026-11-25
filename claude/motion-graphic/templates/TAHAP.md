@@ -12,8 +12,8 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Kerjakan berurutan. Di ti
 - [ ] Masukan user atas preview dicatat dan disetujui · baca: `references/revision-log.md` §21.1 · bukti: ID baris `DECISIONS.md` →
 
 ## Tahap 3 · Produksi penuh (tanpa minta revisi)
-- [ ] Lembar kondisi footage per jenis shot; tiap teknik kartu dicocokkan dengan syaratnya dan penyesuaiannya ditulis di `RESEP.md` · baca: `cookbook/README.md` §Alur butir 6, bagian "Kondisi footage asli" + blok teknik kartu yang dipakai · bukti: `qc/kondisi/KONDISI.md` →
-- [ ] Spine gaya dikunci: satu still per peran teks di atas footage asli, dinilai berdampingan dengan frame kunci · baca: `cookbook/README.md` §Alur butir 7, `references/typography.md` §8a · bukti: `qc/spine/SPINE.md` →
+- [ ] Lembar kondisi footage per jenis shot; tiap teknik kartu dicocokkan dengan syaratnya dan penyesuaiannya ditulis di `RESEP.md` · baca: `cookbook/README.md` §6 butir 1, bagian "Kondisi footage asli" + blok teknik kartu yang dipakai · bukti: `qc/kondisi/KONDISI.md` →
+- [ ] Spine gaya dikunci: satu still per peran teks di atas footage asli, dinilai berdampingan dengan frame kunci · baca: `cookbook/README.md` §6 butir 2, `references/typography.md` §8a · bukti: `qc/spine/SPINE.md` →
 - [ ] Sistem desain video: Sutradara menulis `tema.ts` (token berkategori), satu pekerja membangun komponen bersama, papan acuan disetujui · baca: `templates/sistem-desain/README.md`, `references/orkestrasi.md` §1 · bukti: `tema_cek.py` LULUS + path papan acuan →
 - [ ] Visual dibangun per TASK adegan, satu Editor baru per TASK, hanya dari token + komponen bersama; lembar sanding semua adegan dicek sekeluarga · baca: `references/roles.md` §5–6, `references/orkestrasi.md` §3 · bukti: REPORT tiap TASK →
 - [ ] Audit visual semua frame LULUS · baca: `templates/roles/pemeriksa-frame.md` · bukti: `VERDICT.md` tiap potongan →

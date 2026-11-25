@@ -100,14 +100,14 @@ Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berla
    Rinci: `cookbook/README.md` §5.
 3b. **Sebelum merancang teks, visual, atau gerak sebuah adegan**, baca `guide/<urusan>/GUIDE.md` §Cara memutuskan (pelajaran bersyarat "bila…, pilih…, karena…" dari koreksi sebelumnya) dan lihat `cookbook/contoh-gagal/`. Subagen yang membangun visual tidak disuruh membaca semua itu: Sutradara memberinya brief bergambar (`templates/handoff-fase.md`): frame footage adegannya, frame kunci atau potongan klip referensi, still spine, maksud adegan, dan teknik kartu yang dipakai beserta syarat dan penyesuaiannya, bukan tabel angka.
 4. Tulis `projects/<proyek>/RESEP.md` dari `cookbook/RESEP-TEMPLATE.md`: 8 bagian anatomi. **Pengikat** (warna & tekstur, teks, ritme) dari satu sumber; **teknik** (b-roll, motion graphic, kamera & transisi, SFX, musik) boleh dipinjam kartu lain dan dikenakan pengikat kiblat. Cek: `python3 scripts/juri/resep_check.py projects/<proyek>/RESEP.md`.
-5. **Kondisi footage dulu, baru teknik.** Lembar kondisi footage per jenis shot (rasio, skala wajah, terang-gelap latar, pakaian, ruang kosong, benda ramai, kamera) ditulis sebelum teknik kartu dipilih; teknik yang syaratnya tidak cocok disesuaikan atau tidak dipakai. Angka di kartu adalah pengamatan di video asli, bukan target (`cookbook/README.md` §Alur butir 6).
-6. **Spine gaya dikunci sebelum pekerja paralel mulai**: satu still per peran teks (R1–R6, `references/typography.md` §8a) di atas footage asli, dinilai Sutradara berdampingan dengan frame kunci (`cookbook/README.md` §Alur butir 7).
+5. **Kondisi footage dulu, baru teknik.** Lembar kondisi footage per jenis shot (rasio, skala wajah, terang-gelap latar, pakaian, ruang kosong, benda ramai, kamera) ditulis sebelum teknik kartu dipilih; teknik yang syaratnya tidak cocok disesuaikan atau tidak dipakai. Angka di kartu adalah pengamatan di video asli, bukan target (`cookbook/README.md` §6 butir 1).
+6. **Spine gaya dikunci sebelum pekerja paralel mulai**: satu still per peran teks (R1–R6, `references/typography.md` §8a) di atas footage asli, dinilai Sutradara berdampingan dengan frame kunci (`cookbook/README.md` §6 butir 2).
 
 ## 0c. Alur kerja: lima tahap, dua render
 
 1. **Profil merek**: `BRAND.md` + `EDITING.md` merek di brief ada dan `scripts/juri/profil_cek.py` LULUS; belum ada → isi dulu bersama user (`templates/merek/README.md`).
 2. **Editing guideline + preview**: tema gaya user diterjemahkan lewat frame kunci 2–3 kartu terdekat, lalu still per beat di atas footage asli + klip draft untuk gerak kamera/transisi dikirim langsung di percakapan. Masukan user ditulis ke ledger.
-3. **Produksi penuh** tanpa meminta revisi: gerbang §4, Devil's Advocate sekali sebelum render.
+3. **Produksi penuh** tanpa meminta revisi: gerbang wajib (`MOTION-CORE.md` §3), Devil's Advocate sekali sebelum render.
 4. **Render 1** utuh → masukan user dikumpulkan dalam satu ronde.
 5. **Render 2**: finishing atas masukan itu (`references/revision-log.md` §0), lalu selesai.
 

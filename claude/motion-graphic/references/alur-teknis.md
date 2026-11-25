@@ -119,8 +119,8 @@ motion-graphic/
 Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`).
 
 ## 6. Muat konteks proyek (gerbang 0)
-1. Jika `projects/<proyek>/` ada, baca `AUTHORITY.md`, `ART-DIRECTION.md`, `DECISIONS.md` lebih dulu (Lantai F28a).
-2. Baca `PROJECT_STATE.md` atau `00_MULAI-DI-SINI.md` proyek aktif dan skill VO proyek bila ada.
+1. Jika `projects/<proyek>/` ada, baca `DECISIONS.md` dan `RESEP.md` lebih dulu (Lantai F28a).
+2. Baca `STATUS.md` dan `TAHAP.md` proyek aktif dan skill VO proyek bila ada.
 3. Katalogkan aset/paket dari Irfan (SFX, kit, proyek lama) sebelum membuat aset baru.
 
 ## 7. Kapan membaca cabang
