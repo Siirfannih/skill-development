@@ -65,7 +65,7 @@ if [ -n "$D" ]; then ok "demucs siap ($D)"
 else note "demucs tidak terpasang: dipakai audio/ears.py untuk menilai musik dari stem (audio.md §14.0B); pasang saat tugas audio"; fi
 
 python3 "$REPO/tools/peta.py" --check >/dev/null 2>&1 && ok "PETA.md terbaru" || bad "PETA.md basi (python3 tools/peta.py)"
-python3 "$REPO/tools/cookbook.py" cek >/dev/null 2>&1 && ok "cookbook: kartu, INDEX.md, POLA.md valid" || bad "cookbook tidak valid (python3 tools/cookbook.py cek; INDEX/POLA basi: python3 tools/cookbook.py index)"
+python3 "$REPO/tools/cookbook.py" cek >/dev/null 2>&1 && ok "cookbook: kartu, INDEX.md, 00-core-invariants.md, CATALOG.md, POLA.md valid" || bad "cookbook tidak valid (python3 tools/cookbook.py cek; CATALOG/POLA basi: python3 tools/cookbook.py index)"
 python3 "$REPO/tools/sync_lantai.py" --check >/dev/null 2>&1 && ok "lantai di SKILL.md sama dengan LANTAI.md" || bad "LANTAI.md berubah tetapi SKILL.md belum disalin ulang (python3 tools/sync_lantai.py)"
 python3 "$REPO/tools/sumber_cek.py" >/dev/null 2>&1 && ok "file instruksi tanpa tanda sumber" || bad "tanda sumber atau cerita gagal di file instruksi (python3 tools/sumber_cek.py; pindahkan ke SUMBER.md)"
 nf=$(ls "$REPO"/claude/motion-graphic/fonts/*/*.woff2 2>/dev/null | wc -l | tr -d ' ')

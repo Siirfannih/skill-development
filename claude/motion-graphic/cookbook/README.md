@@ -16,7 +16,7 @@ Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak ko
 **Langkah 1 · Brainstorm dan racik pola (sebelum kode).**
 1. Bedah bahan user sendiri: naskah/transkrip per beat, footage, aset, brand. Dikerjakan sebelum membuka kartu (`../../irfan-creative-workflow/SKILL.md` gerbang 1–3).
 2. Untuk tiap beat, tulis **fungsi ceritanya**: emosi, struktur kalimat, posisi di naskah. Contoh: "kalimat koreksi: bukan X tapi Y", "lompatan waktu", "angka yang harus mendarat".
-3. Cocokkan fungsi cerita itu dengan kolom **Narrative trigger** `INDEX.md` lewat `python3 ../scripts/cookbook/pilih_kartu.py --cari "<kata kunci fungsi cerita>" [--kategori …] [--bergerak]` (tabel ID, nama, status, path kartu, frame kunci); `INDEX.md` tidak perlu dibaca utuh. Untuk mencari satu teknik (T-blok) lintas kartu, pakai `POLA.md`. Naskah baru dimulai dari kategori `script` (`06-script-and-story/`).
+3. Cocokkan fungsi cerita itu dengan kolom **Narrative trigger** `CATALOG.md` (dipandu router `INDEX.md`) lewat `python3 ../scripts/cookbook/pilih_kartu.py --cari "<kata kunci fungsi cerita>" [--pack 01..06] [--kategori …] [--bergerak]` (tabel ID, nama, status, path kartu, frame kunci); `CATALOG.md` tidak perlu dibaca utuh. Untuk mencari satu teknik lintas kartu, pakai `POLA.md`. Naskah baru dimulai dari kategori `script` (`03-documentary-story-narrative/`).
 4. Buka **hanya 2–4 kartu**, ditambah frame kuncinya (`../guide/referensi/sheets/keyframes/<id>-k*.jpg`). Racikannya: **1 kartu pengikat** (hanya bila user tidak punya gaya) + **1–3 kartu mekanik** yang dipinjam per beat.
 5. Tulis racikannya sebagai tabel beat, lalu **minta persetujuan user** sebelum kode:
 
@@ -30,7 +30,7 @@ Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak ko
 ## 3. Mode penaik mutu (user membawa draf)
 
 1. Jalankan atau render draf apa adanya, lalu lihat still per beat. Jangan mengubah apa pun dulu.
-2. Untuk tiap beat, tulis fungsi ceritanya dan cari pola yang cocok di `INDEX.md`/`POLA.md`. Bandingkan dengan draf di tiga sumbu, masing-masing dengan rujukannya:
+2. Untuk tiap beat, tulis fungsi ceritanya dan cari pola yang cocok di `INDEX.md` + `pilih_kartu.py` (`CATALOG.md`) / `POLA.md`. Bandingkan dengan draf di tiga sumbu, masing-masing dengan rujukannya:
    - **Gerak**: kurva dan berat (`../references/smooth-motion.md`, `curves.ts`)
    - **Kamera dan kedalaman**: `../references/camera-transition.md`
    - **Pacing**: potong dan tahan dari audio (`../references/pacing-map.md`)
@@ -56,7 +56,7 @@ Alat (dari root repo): `python3 tools/cookbook.py index` (bangkitkan `CATALOG.md
 ## 5. Kartu itu apa
 
 Satu kartu = satu video referensi. Isinya:
-- **Frontmatter**: `pola`, `kategori`, `trigger`. Inilah yang dibaca INDEX.
+- **Frontmatter**: `pola`, `kategori`, `trigger`. Inilah yang dibaca `CATALOG.md` dan `pilih_kartu.py`.
 - **Inti mekanik** dan **Narrative trigger**.
 - **Kondisi footage asli**: syarat yang membuat polanya berhasil.
 - **Pengikat**: warna, teks, ritme. Dipakai utuh hanya bila kartu ini jadi pengikat.
@@ -66,7 +66,7 @@ Satu kartu = satu video referensi. Isinya:
 Memakai kartu berarti membaca kondisi footage sendiri dulu, memilih pola yang syaratnya cocok, lalu me-remix-nya. Menyalin angkanya bukan memakai kartu. Kartu dengan `dilihat_bergerak: tidak` atau `diukur: tidak` dipakai setelah video sumbernya dilihat bergerak (§Referensi baru butir 1).
 
 Bentuk visual yang tidak dijawab brief (tampilan Instagram, chat, dashboard, peta, tokoh) dicari di kartu dulu, tidak dikarang:
-1. Cari lewat `INDEX.md`/`POLA.md`. `grep -il <benda> 0*/*.md` hanya untuk menemukan kartunya.
+1. Cari lewat `INDEX.md` / `pilih_kartu.py` / `POLA.md`. `grep -il <benda> 0*/*.md` hanya untuk menemukan kartunya.
 2. Buka frame kuncinya.
 3. Pinjam mekaniknya dengan gaya user atau pengikat.
 4. Tidak ada di kartu dan tidak dijawab brief: tanya user sebelum membangun.
@@ -105,7 +105,7 @@ Saat Irfan mengirim video referensi:
 1. **Lihat bergerak, bukan hanya diam.** Contact sheet (1 frame per 2 detik) ke `../guide/referensi/sheets/<no>-<nama>.jpg` hanya untuk menemukan momen teknik. Di tiap momen teknik, buat **strip semua frame** ±1,2 dtk dan buka gambarnya:
    `ffmpeg -v error -ss <detik> -t 1.2 -i <video> -vf "scale=220:-1,drawtext=text='%{n}':x=2:y=2:fontsize=12:fontcolor=yellow,tile=6x6" -frames:v 1 <kerja>/strip_<detik>.jpg`
    Dari strip itu catat: apa yang bergerak (kamera atau teks), urutan masuk (per huruf, per kata, sekaligus), apa yang tajam dan apa yang lunak, kapan latar berubah, apa yang menutupi apa, dan cara keluar. Satu frame diam tidak memperlihatkan semua itu: kata yang sengaja buram terbaca sebagai cacat, latar yang diredupkan lewat matte terbaca sebagai pencahayaan syuting. Gambar kerja disimpan di luar repo; yang masuk repo hanya frame kunci (`keyframes/<no>-k*.jpg`). Lalu transkrip dan ukuran ritme (`../scripts/audio/pace_read.py`).
-2. Tulis kartu visual dari `KARTU-TEMPLATE.md` (frontmatter, kondisi footage, lalu tiap pola dengan trigger, Mekanik Remotion, SFX, Remix) dan, bila video punya struktur naskah, kartu naskah dari `NASKAH-TEMPLATE.md` di `06-script-and-story/` (transkrip penuh disimpan di luar repo). Hanya yang terlihat atau terukur; bagian yang belum dibedah ditulis "belum dibedah", tidak dikarang. `dilihat_bergerak: ya` hanya bila strip semua frame sudah dibuka.
+2. Tulis kartu visual dari `KARTU-TEMPLATE.md` (frontmatter, kondisi footage, lalu tiap pola dengan trigger, Mekanik Remotion, SFX, Remix) dan, bila video punya struktur naskah, kartu naskah dari `NASKAH-TEMPLATE.md` di `03-documentary-story-narrative/` (transkrip penuh disimpan di luar repo). Hanya yang terlihat atau terukur; bagian yang belum dibedah ditulis "belum dibedah", tidak dikarang. `dilihat_bergerak: ya` hanya bila strip semua frame sudah dibuka.
 3. Simpan di folder kategori dominannya, lalu `python3 tools/cookbook.py index` dan `cek` dari root repo. Kartu baru dipakai sebagai pengikat sesi itu bila user tidak membawa gaya sendiri.
 
 ## 9. Tumbuh: ke mana pelajaran disimpan

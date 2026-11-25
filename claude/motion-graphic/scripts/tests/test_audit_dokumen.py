@@ -3,7 +3,7 @@
 Lantai C17 di orkestrasi.md, Remotion + rakit lego adalah jalur utama di build.md, baris Fase 3 PETA.md memuat guide visual,
 pintu produksi (MOTION-CORE) tetap tipis dan memuat alur dua langkah, lima invarian ada di byte 0 AGENTS.md dan
 MOTION-CORE.md, dan tidak ada template gaya tetap (formats/)."""
-import importlib.util, os, re, unittest
+import importlib.util, os, re, subprocess, sys, unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[4]; MG = ROOT / "claude/motion-graphic"
@@ -182,6 +182,36 @@ class PintuProduksi(unittest.TestCase):
         for x in ("Tanya sebelum meracik", "Satu video = satu sesi terpisah", "Keragaman mode visual", "FlashGrid.tsx", "level alami (`0 dB` dasar)"):
             self.assertIn(x, t)
         self.assertTrue((MG / "scripts/remotion/FlashGrid.tsx").is_file())
+
+
+class CookbookDomainPacks(unittest.TestCase):
+    def test_batas_token_router_dan_invarian(self):
+        idx = baca(MG / "cookbook/INDEX.md")
+        core = baca(MG / "cookbook/00-core-invariants.md")
+        self.assertLess(len(idx) // 4, 600)
+        self.assertLess(len(core) // 4, 1000)
+
+    def test_cookbook_cek_ketat_lulus(self):
+        r = subprocess.run([sys.executable, str(ROOT / "tools/cookbook.py"), "cek", "--ketat"], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertIn("0 GAGAL", r.stdout)
+
+    def test_vault_utuh_dan_semua_id_lama_terpetakan(self):
+        vault = sorted((MG / "cookbook/_vault").glob("*/*.md"))
+        self.assertEqual(len(vault), 97)
+        spec = importlib.util.spec_from_file_location("cookbook", ROOT / "tools/cookbook.py")
+        cb = importlib.util.module_from_spec(spec); spec.loader.exec_module(cb)
+        missing = [p.name for p in vault if cb.resolve(p.stem.split("-")[0]) is None]
+        self.assertEqual(missing, [])
+
+    def test_tidak_ada_path_cookbook_lama_di_file_aktif(self):
+        lama = ("01-camera-and-transitions/", "02-typography-and-captions/", "03-visual-formats/",
+                "04-pacing-and-structure/", "05-audio-and-sfx/", "06-script-and-story/", "cookbook/teknik/")
+        aktif = [ROOT / "AGENTS.md", ROOT / "PETA.md", ROOT / "tools/peta.py",
+                 ROOT / "claude/irfan-creative-workflow/SKILL.md", MG / "SKILL.md", MG / "MOTION-CORE.md",
+                 MG / "cookbook/README.md", MG / "scripts/remotion/Kursor.tsx", MG / "scripts/remotion/Penghitung.tsx"]
+        temuan = [(f.relative_to(ROOT), p) for f in aktif for p in lama if p in baca(f)]
+        self.assertEqual(temuan, [])
 
 
 if __name__ == "__main__":
