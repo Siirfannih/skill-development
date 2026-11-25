@@ -1,6 +1,7 @@
 # 00 · Core Invariants (Lintas Semua Format)
 
 > **Otoritas:** Brief aktif → `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`) → `BRAND.md` + `EDITING.md` → kartu terpilih → file ini. Default aman mencegah AI slop; pengecualian editorial AE resmi dicatat di `RESEP.md` / `EDITING.md`.
+> **Prinsip Kreatif:** Referensi & kartu adalah **mekanik dan hierarki rasa**, bukan cetakan layout untuk ditiru mentah. Bedah dulu pesan tiap kalimat naskah → pilih wujud visual paling mudah dipahami → bangun 2–3 elemen fokus di depan, lalu makin jauh/melebar makin diredupkan agar terasa kaya tanpa berebut mata.
 
 1. **Satu lapisan teks ucapan (`A1`, `A3`, `A5`).** Seluruh ucapan tampil sebagai satu sistem tipografi kinetik tanpa pita subtitle terpisah atau kata berulang ganda. Pita bawah hanya sah untuk label identitas non-ucapan (1× saat tokoh diperkenalkan).
 2. **Zona aman & kontras (`A2`, `A4`, `A7`, `C16`).** Teks ucapan berada dalam margin aman 5%, berjarak ≤ 8% dari subjek, bebas wajah/logo, ≥ 4,5:1, 1–3 kata/tampil, maks 2 baris. Pengecualian *editorial bleed* tepi hanya untuk teks grafis non-ucapan bertanda `role: bleed-display` di `RESEP.md`.
