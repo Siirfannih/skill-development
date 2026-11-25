@@ -138,3 +138,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 
 - SOP Bedah Referensi 5 Lapis (Phase 0) dari Irfan 26 Nov 2026, setelah storyboard Behindwork v4 menyalin kulit referensi (bola biru, blob gradien, garis acak) karena bedah hanya mencatat "apa terlihat". Contoh nama file referensi diganti deskripsi umum.
 - 4 uji biner penutup (hapus objek, clip-art, fokus tunggal, kontinuitas): Irfan 26 Nov 2026.
+
+## `claude/motion-graphic/MOTION-CORE.md` §1 · `SKILL.md` alur butir 1
+
+- Rujukan wajib ke `motion-theme-director` (Phase 0 bila ada referensi, tema, 4 uji biner) dari pintu `motion-graphic`: Irfan 26 Nov 2026 (opsi A), setelah sesi uji v5 memanggil motion-graphic saja sehingga Phase 0 tidak terpicu.

@@ -16,9 +16,9 @@ File lain menyebut tahap dengan nama ini, bukan nomor. Butir dan buktinya: `temp
 
 | Tahap | Pintu | Gerbang/alat | Bukti |
 |---|---|---|---|
-| Brief | `../irfan-creative-workflow/SKILL.md` §2; profil merek; bahan user | `profil_cek.py`, `resep_check.py`; tanya pengunci | LULUS |
+| Brief | `../irfan-creative-workflow/SKILL.md` §2; profil merek; bahan user; ada referensi → `../motion-theme-director/BEDAH-REFERENSI.md` | `profil_cek.py`, `resep_check.py`; tanya pengunci | LULUS |
 | Naskah | `references/copywriting.md` | uji storyteller; **pemilik setuju** | ID `DECISIONS.md` |
-| Storyboard/block out (+ racikan) | `references/storyboard.md` §5, §7; Langkah 1 | `board.py`, `lock suara`, preview; **pemilik setuju** | ID `DECISIONS.md` |
+| Storyboard/block out (+ racikan) | `../motion-theme-director/SKILL.md` (tema, 4 uji biner); `references/storyboard.md` §5, §7; Langkah 1 | `board.py`, `lock suara`, preview; **pemilik setuju** | ID `DECISIONS.md` |
 | Animate | bangun dari nol (bawah) | `tema_cek.py`, `motion_lint.py` | REPORT |
 | Effects & grade | Lantai C18a–C18b, `references/grade.md` | `grade_ukur.py`, `frame_audit.py`, `lock visual` | VERDICT |
 | Mix | `references/audio.md` §14.3–14.10 | `lock sfx`, `lock musik`, `audio_phone.py --gate` | `mix.wav` |
