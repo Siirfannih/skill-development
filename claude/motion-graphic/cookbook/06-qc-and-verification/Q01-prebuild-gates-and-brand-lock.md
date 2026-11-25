@@ -5,7 +5,7 @@ pack: 06-qc-and-verification
 kategori: qc
 kategori_lain: [script, layout]
 trigger: memulai proyek video baru atau beralih dari pra-produksi ke penulisan kode Remotion
-sumber: sintesis gerbang 0–3 pra-build
+sumber: sintesis gerbang pra-build (Brief, Naskah)
 dilihat_bergerak: ya
 diukur: ya
 alias: []

@@ -1,10 +1,10 @@
 # Cookbook · INDEX (Router)
 
-> **Protokol:** Muat `00-core-invariants.md`, lalu **hanya** pack sesuai Loading Matrix di bawah. Dilarang memuat folder lain. Lookup per beat via `pilih_kartu.py` (`CATALOG.md`); detail bedahan penuh di `_vault/` dibuka hanya setelah tabel racikan disetujui.
+> **Protokol:** Muat `00-core-invariants.md`, lalu cari kartu per beat dengan `pilih_kartu.py` (`CATALOG.md`) dan buka hanya 2–4 kartu untuk seluruh video. Pack utuh tidak dimuat; tabel §2 hanya memberi filter `--pack`. Detail bedahan penuh di `_vault/` dibuka hanya setelah tabel racikan disetujui.
 
 ## 1. Domain Packs
 
-<!-- Tok = jumlah karakter semua .md pack ÷ 3,5 (Core: 00-core-invariants.md; Static: 6 kartu vibedesign/cookbook/0*/; Carousel: Core+Static+Q06), dibulatkan ke puluhan. -->
+<!-- Tok = jumlah karakter semua .md pack ÷ 3,5 (Core: 00-core-invariants.md; Static: 6 kartu vibedesign/cookbook/0*/), dibulatkan ke puluhan. Ukuran ini menjelaskan kenapa pack tidak dimuat utuh. -->
 
 | Pack | Path | Cakupan | Tok |
 |---|---|---|---:|
@@ -17,15 +17,15 @@
 | **P06** | `06-qc-and-verification/` | Pre-build, anti-slop, frame audit, audio HP, token | ~2.860 |
 | **Static** | `../../vibedesign/cookbook/` | 6 kartu statis carousel/poster PNG 2× | ~3.290 |
 
-## 2. Loading Matrix
-| Tipe Konten | WAJIB Build | Finishing | WAJIB Skip | Tok |
-|---|---|---|---|---:|
-| **Motion Graphics Explainer** | `Core`, `P01`, `P04`, `P05` | `P06` | `P02`, `P03`, `Static` | ~9.030 / 11.890 |
-| **Documentary / Behindwork** | `Core`, `P03`, `P01`, `P05` | `P06` | `P02`, `P04`, `Static` | ~10.030 / 12.890 |
-| **Talking-Head Reels** | `Core`, `P02`, `P05` | `P06` | `P01`*, `P03`, `P04`, `Static` | ~6.010 / 8.870 |
-| **Coded Carousel (`vibedesign`)** | `Core`, `Static`, `P06/Q06` | `P06/Q06` | `P01`, `P02`, `P03`, `P05` | ~4.650 |
+## 2. Filter `--pack` per tipe konten
+| Tipe Konten | `--pack` dicari dulu | Finishing | Jarang relevan |
+|---|---|---|---|
+| **Motion Graphics Explainer** | `01`, `04`, `05` | `06` | `02`, `03`, Static |
+| **Documentary / Behindwork** | `03`, `01`, `05` | `06` | `02`, `04`, Static |
+| **Talking-Head Reels** | `02`, `05` | `06` | `01`*, `03`, `04`, Static |
+| **Coded Carousel (`vibedesign`)** | Static (`vibedesign/cookbook/INDEX.md`), `06` (Q06) | `06` (Q06) | `01`, `02`, `03`, `05` |
 
-*\*Talking-Head:* jika beat butuh demo UI/whip, ambil 1 kartu `P01` via `pilih_kartu.py`.
+*\*Talking-Head:* jika beat butuh demo UI/whip, cari tanpa filter atau dengan `--pack 01`.
 
 ## 3. Lookup CLI
 - Per beat: `python3 claude/motion-graphic/scripts/cookbook/pilih_kartu.py --pack <01..06> --cari "<trigger>"`

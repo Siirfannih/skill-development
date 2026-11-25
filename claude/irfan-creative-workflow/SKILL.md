@@ -36,18 +36,20 @@ Ketika Irfan berkata "pastikan kamu bawa skill workflow-nya", artinya: bawa cara
 
 ## 2. Urutan gerbang (dikunci)
 
-| # | Gerbang | Output | Lolos jika |
-|---|---|---|---|
-| 0 | Muat pengalaman | Skill ini + skill pendamping dibaca | Bagian workflow sudah dipahami; tidak ada aset proyek lama yang ikut terbawa |
-| 1 | Brief + bedah referensi | Tujuan, audiens, durasi, format, kondisi bisnis, batas waktu; breakdown referensi dengan angka dan timestamp | Setiap klaim tentang referensi bisa ditunjuk buktinya (file + detik) |
-| 2 | **Script** | Draft di chat (bukan file), diulang sampai Irfan bilang final | Lolos uji storyteller (§3) **dan** Irfan menyatakan final |
-| 3 | Storyboard 100% durasi | Per beat: waktu, aksi tokoh/subjek, teks, kamera, transisi | Pola per beat diracik dari `motion-graphic/cookbook/INDEX.md` + `pilih_kartu.py` (tabel racikan, `cookbook/README.md` §2); lolos tabel kritik `motion-graphic/references/storyboard.md` §5, lalu disetujui Irfan |
-| 4 | **VO** (bila ada) | VO final | Hanya dimulai setelah gerbang 2 dan 3 lolos |
-| 5 | Build, lalu SFX → musik | Kode/proyek per beat; SFX dan musik disusun setelah visual lulus (`motion-graphic` Lantai F26) | Satu fungsi per beat; revisi mengubah kode yang ada, bukan membangun ulang |
-| 6 | QA | Contact sheet, cek audio (`audio_qa.py`, `voice_fidelity.py`), checklist playbook; rakitan klip ditranskrip ulang (`selects/rakitan_cek.py`) | Bagian gagal diperbaiki sebelum dikirim |
-| 7 | Kirim + posting | Video, caption, catatan penyimpangan; setiap video/audio hasil render diunggah ke Google Drive folder "Claude edit/<proyek>" dan link filenya diberikan | Irfan bisa membuka hasilnya tanpa membuka file lokal |
+Nama tahap mengikuti tabel tahap kanonik `motion-graphic/MOTION-CORE.md` §1 (Brief → Naskah → Storyboard/block out → Animate → Effects & grade → Mix → Deliver); file lain menyebut tahap dengan nama, bukan nomor. Untuk video, butir dan buktinya di `motion-graphic/templates/TAHAP.md`.
 
-**Rekaman talking head mentah** (Irfan merekam dulu, lalu klip dipilih): gerbang 2 adalah *paper edit*, yaitu klip per beat dipilih dari transkrip per kata (satu take utuh per kalimat) dan diuji storyteller seperti script; gerbang 3 storyboard per klip; gerbang 5 memakai rough cut, dan keluaran untuk editor manusia mengikuti `motion-graphic/references/selects-editor.md`. Instruksi Irfan untuk mengerjakan beberapa gerbang sekaligus berlaku untuk gerbang yang ia sebut; catat urutan yang dilompati di catatan penyimpangan.
+| Tahap | Gerbang | Output | Lolos jika |
+|---|---|---|---|
+| Persiapan | Muat pengalaman | Skill ini + skill pendamping dibaca | Bagian workflow sudah dipahami; tidak ada aset proyek lama yang ikut terbawa |
+| Brief | Brief + bedah referensi | Tujuan, audiens, durasi, format, kondisi bisnis, batas waktu; breakdown referensi dengan angka dan timestamp | Setiap klaim tentang referensi bisa ditunjuk buktinya (file + detik) |
+| Naskah | **Script** | Draft di chat (bukan file), diulang sampai Irfan bilang final | Lolos uji storyteller (§3) **dan** Irfan menyatakan final |
+| Storyboard/block out | Storyboard 100% durasi | Per beat: waktu, aksi tokoh/subjek, teks, kamera, transisi | Pola per beat diracik dari `motion-graphic/cookbook/INDEX.md` + `pilih_kartu.py` (tabel racikan, `cookbook/README.md` §2); lolos tabel kritik `motion-graphic/references/storyboard.md` §5, lalu disetujui Irfan |
+| Storyboard/block out | **VO** (bila ada) | VO final | Hanya dimulai setelah naskah dan storyboard disetujui |
+| Animate → Effects & grade → Mix | Build, lalu SFX → musik | Kode/proyek per beat; SFX dan musik disusun setelah visual lulus (`motion-graphic` Lantai F26) | Satu fungsi per beat; revisi mengubah kode yang ada, bukan membangun ulang |
+| Mix → Deliver | QA | Contact sheet, cek audio (`audio_qa.py`, `voice_fidelity.py`), checklist playbook; rakitan klip ditranskrip ulang (`selects/rakitan_cek.py`) | Bagian gagal diperbaiki sebelum dikirim |
+| Deliver | Kirim + posting | Video, caption, catatan penyimpangan; setiap video/audio hasil render diunggah ke Google Drive folder "Claude edit/<proyek>" dan link filenya diberikan | Irfan bisa membuka hasilnya tanpa membuka file lokal |
+
+**Rekaman talking head mentah** (Irfan merekam dulu, lalu klip dipilih): tahap Naskah adalah *paper edit*, yaitu klip per beat dipilih dari transkrip per kata (satu take utuh per kalimat) dan diuji storyteller seperti script; tahap Storyboard/block out berisi storyboard per klip; tahap Animate memakai rough cut, dan keluaran untuk editor manusia mengikuti `motion-graphic/references/selects-editor.md`. Instruksi Irfan untuk mengerjakan beberapa tahap sekaligus berlaku untuk tahap yang ia sebut; catat urutan yang dilompati di catatan penyimpangan.
 
 **Kirim lewat Drive:** unggah dengan `rclone copy <file> "gdrive:Claude edit/<proyek>/"` satu per satu (unggah paralel ke folder baru membuat folder kembar), ambil ID dengan `rclone lsjson` lalu beri link `https://drive.google.com/file/d/<ID>/view`. Jangan `rclone link`: perintah itu mengubah izin file menjadi "siapa pun yang punya link".
 
@@ -55,7 +57,7 @@ Ketika Irfan berkata "pastikan kamu bawa skill workflow-nya", artinya: bawa cara
 
 **Aturan biaya:** jangan generate apa pun yang memakai kredit (VO, SFX, musik, gambar, video AI) sebelum gerbangnya terbuka. Sebelum generate, sebutkan perkiraan biayanya. Generate secukupnya: 1–2 variasi, bukan 4, kecuali Irfan meminta lebih. VO "sementara untuk timing" bukan pengecualian. Timing di storyboard bisa diperkirakan dari jumlah kata (sekitar 2,5–3 kata per detik untuk VO santai Indonesia).
 
-**Batas waktu:** jika Irfan memberi batas (misalnya "3 jam"), bagi waktunya per gerbang di awal dan laporkan jika satu gerbang memakan jatah gerbang lain. Batas waktu tidak boleh dipakai sebagai alasan untuk melompati gerbang 2 dan 3.
+**Batas waktu:** jika Irfan memberi batas (misalnya "3 jam"), bagi waktunya per gerbang di awal dan laporkan jika satu gerbang memakan jatah gerbang lain. Batas waktu tidak boleh dipakai sebagai alasan untuk melompati persetujuan naskah dan storyboard.
 
 Preferensi Irfan "jangan berhenti untuk minta persetujuan" berlaku untuk pekerjaan yang **sudah** tertulis di rencana yang ia setujui. Script dan storyboard justru adalah gerbang persetujuan itu, jadi di dua titik ini kita memang menunggu kata "final".
 
@@ -105,7 +107,7 @@ Tampilkan di chat. Jangan buat file sebelum final. Jangan menyatakan script "sia
 - **Aset motion untuk editor:** HTML satu kanvas seukuran frame, tiap aset di posisi akhirnya, dirender Chromium headless sebagai PNG transparan (`--default-background-color=00000000`); dicek di still komposit sebelum dikirim.
 - **Paket editor dari rekaman mentah:** `motion-graphic/scripts/selects/` (`timeline.py` timeline + CSV ber-timecode, `cue_sumber.py` pindah cue lewat waktu sumber, `rakitan_cek.py` take dobel + kata terpotong).
 - **Color grading footage:** `motion-graphic/references/grade.md` + `scripts/gate/grade_ukur.py`; 2–4 varian diukur dan disandingkan sebelum render penuh.
-- **Audio:** ElevenLabs (VO/SFX) hanya setelah gerbang 3. Timestamp kata dari Whisper dipakai untuk sinkron teks.
+- **Audio:** ElevenLabs (VO/SFX) hanya setelah storyboard disetujui. Timestamp kata dari Whisper dipakai untuk sinkron teks.
 - **QA audio:** `motion-graphic/scripts/audio_qa.py`, `scripts/gate/voice_fidelity.py` (suara mendem dibanding sumber), `external/earshot`; Gemini multimodal bila tersedia untuk menilai sinkron, emosi, dan kelelahan telinga.
 - **Akses Mac:** minta akses folder `~/Proyek` saat butuh skill atau proyek lama. Baca bagian workflow-nya saja.
 

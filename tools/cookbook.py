@@ -199,7 +199,7 @@ def build_catalog(cards):
             aliases.append((norm_id(a), c["fm"].get("id", "")))
     aliases.sort(key=lambda t: idkey(t[0]))
     L = ["# Cookbook · CATALOG (Daftar Invariant Cards)", "", GENERATED, "",
-         "File ini dibaca otomatis oleh `scripts/cookbook/pilih_kartu.py`. Agen produksi cukup memuat `INDEX.md` + `00-core-invariants.md` + pack yang relevan.", ""]
+         "File ini dibaca otomatis oleh `scripts/cookbook/pilih_kartu.py`. Agen produksi memuat `00-core-invariants.md` lalu 2–4 kartu hasil `pilih_kartu.py`; pack utuh tidak dimuat.", ""]
     if aliases:
         L += ["**Alias (id lama → kartu pack):** " + ", ".join(f"`{a} → {t}`" for a, t in aliases), ""]
     L += ["> Dibangkitkan oleh `tools/cookbook.py index`; jangan diedit tangan.", "",

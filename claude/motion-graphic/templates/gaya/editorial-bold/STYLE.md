@@ -31,7 +31,7 @@ ID adegan = `kind` insert di EDL (`edl-schema.md` §3), dipilih dari peran kalim
 ## 3. Perbedaan dengan skill kita (keputusan sampai Irfan bilang lain)
 | Engine/ref bilang | Skill kita | Dipakai |
 |---|---|---|
-| Tanpa musik kecuali pengguna memberi | Musik dipilih di gerbang 10 (`audio.md`, Lantai E25) | Skill kita; bila Irfan minta "tanpa musik", catat di `DECISIONS.md` |
+| Tanpa musik kecuali pengguna memberi | Musik dipilih di tahap Mix (`audio.md`, Lantai E25) | Skill kita; bila Irfan minta "tanpa musik", catat di `DECISIONS.md` |
 | Subtitle/label keluar dengan fade 0,16 dtk | Lantai B13: nol crossfade | Fade pendek label diterima (bukan transisi adegan); transisi adegan tetap gerak |
 | Satu putaran revisi: catat semua catatan, tunggu "go", kerjakan sekaligus | Sama (`roles.md` §5 langkah 7) | Sama |
 | SFX tidak dibahas | Lantai E24: SFX di momen cerita + gerak terlihat, tanpa bunyi per kata | Skill kita (cue dari momen di EDL: hook, insert besar, flash, CTA; bukan tiap kata besar) |

@@ -144,7 +144,7 @@ class Invarian(unittest.TestCase):
 
 class PintuProduksi(unittest.TestCase):
     def test_motion_core_tipis(self):
-        self.assertLess((MG / "MOTION-CORE.md").stat().st_size, 10_000)
+        self.assertLess((MG / "MOTION-CORE.md").stat().st_size, 11_000)  # memuat tabel tahap kanonik (§1)
 
     def test_motion_core_memuat_gerbang_dan_larangan(self):
         t = baca(MG / "MOTION-CORE.md")
@@ -156,7 +156,7 @@ class PintuProduksi(unittest.TestCase):
 
     def test_motion_core_memuat_alur_dua_langkah(self):
         t = baca(MG / "MOTION-CORE.md")
-        urut = ["Gerbang 1–3", "irfan-creative-workflow/SKILL.md", "Langkah 1", "cookbook/pilih_kartu.py --cari", "2–4 kartu", "tabel racikan dan remix per beat",
+        urut = ["Brief → Naskah → Storyboard/block out", "irfan-creative-workflow/SKILL.md", "Langkah 1", "cookbook/pilih_kartu.py --cari", "2–4 kartu", "tabel racikan dan remix per beat",
                 "| Beat | Fungsi cerita | Pola (ID.Tn) |", "Langkah 2", "Remotion dari nol", "`render.sh final` lulus"]
         alur = t[t.index("## 1."):t.index("## 2.")]
         pos = [alur.find(x) for x in urut]
