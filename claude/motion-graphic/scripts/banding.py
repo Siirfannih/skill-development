@@ -14,6 +14,14 @@ Sidik jari:
      Dimaafkan bila referensi sendiri berprofil sama (REF-SPEC menyatakan sebaliknya).
   F2 halo di belakang teks: TIDAK diimplementasikan (heuristik dari piksel tidak andal; periksa dengan mata). Kontras ekstrem
      hanya dilaporkan.
+Mode tanpa referensi (hanya sidik jari; angka tetap dilaporkan):
+  python3 banding.py <frame.png>                F1 + F3
+  python3 banding.py --seri <folder>            ringkasan seluruh storyboard: % frame jarang, sebaran rentang luma dan sat p95
+  python3 banding.py <baru.png> --sebelum <lama.png> [--target <ref.png>]   selisih versi frame yang sama (revisi)
+  F3 frame jarang (PERINGATAN, bukan gagal): luas fokus < 12 % DAN tidak ada pita tepi mirip teks (>= 3 % tinggi frame
+     berisi baris dengan tepi >= 4 % lebar). Butuh scipy (tanpa scipy F3 dilewati). Seri: > 10 % frame jarang = keluar 1 (perbaiki:
+     isi dengan objek asli beat pada ukuran terbaca, atau gabung beat). Di mode --sebelum, tiap ukuran dicetak lama -> baru
+     (selisih); dengan --target ditambah % selisih ke target yang sudah ditutup (langkah wajar revisi: ~30-60 %).
 Keluar: 0 lulus, 1 sidik jari atau selisih melampaui toleransi, 2 masukan salah. Keluaran: PNG berdampingan (frame | ref) + tabel.
 """
 import argparse, importlib.util, json, os, sys
@@ -84,12 +92,101 @@ def gambar(frame, ref_img, baris, out, judul):
     im.save(out)
 
 
+F3_FOKUS, F3_BARIS_LEBAR, F3_BAND_TINGGI, SERI_JARANG_MAKS = 12.0, 0.04, 0.03, 10.0
+
+
+def pita_teks(img):
+    """True bila ada pita tepi mirip teks: baris dengan tepi >= 4 % lebar mencakup >= 3 % tinggi frame."""
+    a = np.asarray(RS.kecilkan(img), dtype=np.float32); luma = 0.2126 * a[..., 0] + 0.7152 * a[..., 1] + 0.0722 * a[..., 2]
+    gy, gx = np.gradient(luma); e = np.hypot(gx, gy) > 20
+    return bool((e.mean(1) >= F3_BARIS_LEBAR).mean() >= F3_BAND_TINGGI)
+
+
+def fingerprint_f3(m, img):
+    """None bila fokus tidak terukur (tanpa scipy); True = frame jarang."""
+    if m["fokus_pct"] is None: return None
+    return bool(m["fokus_pct"] < F3_FOKUS and not pita_teks(img))
+
+
+def ukur(path):
+    img = Image.open(path).convert("RGB"); m = RS.metrik(img)
+    return img, m, RS.fingerprint_f1(m), fingerprint_f3(m, img)
+
+
+KUNCI = ("luma_range", "sat_median", "sat_p95", "fokus_pct", "tepi", "kontras_ekstrem")
+
+
+def mode_sendiri(a):
+    _, m, f1, f3 = ukur(a.frame)
+    out = {"metrik": {k: m[k] for k in KUNCI}, "f1": f1, "f3_jarang": f3, "gagal": ["F1 gradien ragu-ragu"] if f1 else []}
+    if a.json: print(json.dumps(out, ensure_ascii=False, indent=1))
+    else:
+        print(" ".join(f"{k}={m[k]}" for k in KUNCI))
+        print("F1 gradien ragu-ragu: " + ("TERPICU (GAGAL)" if f1 else "tidak"))
+        print("F3 frame jarang: " + ("tidak terukur (scipy tidak ada)" if f3 is None else "PERINGATAN: jarang (fokus %s %% < %g, tanpa pita teks)" % (m["fokus_pct"], F3_FOKUS) if f3 else "tidak"))
+    return 1 if f1 else 0
+
+
+def mode_seri(a):
+    exts = sorted(f for f in os.listdir(a.seri) if os.path.splitext(f)[1].lower() in RS.EXT)
+    if not exts: print("tidak ada gambar di " + a.seri, file=sys.stderr); return 2
+    baris = []
+    for f in exts:
+        _, m, f1, f3 = ukur(os.path.join(a.seri, f)); baris.append((f, m, f1, f3))
+    n = len(baris); jarang = [b[0] for b in baris if b[3]]; f1s = [b[0] for b in baris if b[2]]
+    terukur = [b for b in baris if b[3] is not None]
+    pct = round(100 * len(jarang) / len(terukur), 1) if terukur else None
+    dist = {}
+    for k in ("luma_range", "sat_p95"):
+        v = np.array([b[1][k] for b in baris]); dist[k] = {"min": round(float(v.min()), 2), "p50": round(float(np.median(v)), 2), "max": round(float(v.max()), 2)}
+    flag = pct is not None and pct > SERI_JARANG_MAKS
+    out = {"n": n, "jarang_pct": pct, "jarang": jarang, "f1": f1s, "sebaran": dist, "gagal": flag or bool(f1s)}
+    if a.json: print(json.dumps(out, ensure_ascii=False, indent=1))
+    else:
+        print(f"{n} frame; frame jarang: " + ("tidak terukur (scipy tidak ada)" if pct is None else f"{len(jarang)} ({pct} %), batas {SERI_JARANG_MAKS:g} %"))
+        for k, v in dist.items(): print(f"  {k}: min {v['min']}  p50 {v['p50']}  maks {v['max']}")
+        if jarang: print("  jarang: " + ", ".join(jarang))
+        if f1s: print("  F1 gradien ragu-ragu (GAGAL): " + ", ".join(f1s))
+        if flag: print(f"GAGAL: > {SERI_JARANG_MAKS:g} % frame jarang. Isi dengan objek asli beat pada ukuran terbaca, atau gabung beat.")
+    return 1 if (flag or f1s) else 0
+
+
+def mode_sebelum(a):
+    if not os.path.isfile(a.sebelum): print("berkas tidak ada: " + a.sebelum, file=sys.stderr); return 2
+    _, b, f1b, f3b = ukur(a.frame); _, l, _, f3l = ukur(a.sebelum)
+    t = None
+    if a.target:
+        if not os.path.isfile(a.target): print("berkas tidak ada: " + a.target, file=sys.stderr); return 2
+        t = RS.metrik(Image.open(a.target).convert("RGB"))
+    hasil = {}
+    for k in KUNCI:
+        if b[k] is None or l[k] is None: continue
+        h = {"sebelum": l[k], "sesudah": b[k], "selisih": round(b[k] - l[k], 3)}
+        if t is not None and t[k] is not None and abs(t[k] - l[k]) > 1e-6: h["target"] = t[k]; h["tutup_pct"] = round(100 * (b[k] - l[k]) / (t[k] - l[k]), 0)
+        hasil[k] = h
+    out = {"metrik": hasil, "f1": f1b, "f3_jarang_sebelum": f3l, "f3_jarang_sesudah": f3b}
+    if a.json: print(json.dumps(out, ensure_ascii=False, indent=1))
+    else:
+        for k, h in hasil.items():
+            print(f"{k:<16} {h['sebelum']} -> {h['sesudah']}  (selisih {h['selisih']:+})" + (f"  target {h['target']}: tutup {h['tutup_pct']:.0f} %" if "tutup_pct" in h else ""))
+        print(f"F1: {'TERPICU' if f1b else 'tidak'}   F3 jarang: sebelum={f3l} sesudah={f3b}" + ("  PERINGATAN: revisi membuat frame jarang" if f3b and not f3l else ""))
+    return 1 if f1b else 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Banding frame vs referensi")
-    ap.add_argument("frame"); ap.add_argument("ref"); ap.add_argument("--tipe"); ap.add_argument("--crop")
+    ap.add_argument("frame", nargs="?"); ap.add_argument("ref", nargs="?"); ap.add_argument("--tipe")
+    ap.add_argument("--seri"); ap.add_argument("--sebelum"); ap.add_argument("--target"); ap.add_argument("--crop")
     ap.add_argument("--out"); ap.add_argument("--json", action="store_true")
     ap.add_argument("--tol-luma", type=float); ap.add_argument("--tol-sat", type=float); ap.add_argument("--tol-de", type=float)
     a = ap.parse_args(argv)
+    if a.seri:
+        if not os.path.isdir(a.seri): print("folder tidak ada: " + a.seri, file=sys.stderr); return 2
+        return mode_seri(a)
+    if not a.frame: ap.error("butuh <frame> atau --seri <folder>")
+    if a.sebelum or not a.ref:
+        if not os.path.isfile(a.frame): print("berkas tidak ada: " + a.frame, file=sys.stderr); return 2
+        return mode_sebelum(a) if a.sebelum else mode_sendiri(a)
     for p in (a.frame, a.ref):
         if not os.path.isfile(p): print("berkas tidak ada: " + p, file=sys.stderr); return 2
     img = Image.open(a.frame).convert("RGB")
