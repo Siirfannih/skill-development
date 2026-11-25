@@ -222,7 +222,7 @@ def tulis_md(spec, path):
             L.append(f"- `{s['file']}`: " + ", ".join(f"{p['hex']} {p['persen']}%" for p in m["palet"]))
             L.append(f"  - sudut KA/KaA/KiB/KaB {g['kiri_atas']}/{g['kanan_atas']}/{g['kiri_bawah']}/{g['kanan_bawah']}, pusat {g['pusat']}, zona jenuh bbox% {g['zona_jenuh_bbox_pct']}")
         L += ["", "Alasan (isi dengan mata):", "- Warna (peran latar/tinta/aksen + makna): ", "- Huruf (keluarga, bobot, rasio ukuran, gaya kedua + perannya): ",
-              "- Layout (margin, grid, ruang kosong): ", "- Material (bayangan, arah cahaya, kilau; satu atau banyak sistem): ", "- Gerak (transisi, kamera, masuk teks + timestamp): ",
+              "- Layout (margin, grid, ruang kosong): ", "- Material (bayangan, arah cahaya, kilau; satu atau banyak sistem): ", "- Gerak (transisi, kamera, masuk teks + timestamp): ", "- Porsi teks (% frame berteks, kapan, peran, ukuran; isi dengan mata): ", "- Fokus raksasa per beat (objek apa, % tinggi frame): ", "- Dinamika kejenuhan (beat mana latar penuh jenuh, kenapa): ",
               "- Makna jenis frame ini (mis. gelap = babak masalah): ", ""]
     open(path, "w", encoding="utf-8").write("\n".join(L))
 
