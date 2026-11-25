@@ -14,4 +14,6 @@ Dokumen kerja: `AUDIT-2026-10-25.md` (audit dan rencana), `EVALS-DESIGN.md` (aga
 
 Pasang di setiap mesin kerja: Mac `./tools/sync.sh`, PC server `CLAUDE_CONFIG_DIR=~/.claude-2 ./tools/sync.sh`. Skill `claude/*` dipasang sebagai symlink ke Claude Code **dan Codex** (ikut `git pull`); skill Remotion resmi dipasang ke Claude, skill di `archive/` dicabut, dan hook SessionStart Claude menjalankan `git pull`. Wajib dijalankan ulang bila mesin atau akun AI berganti. Sesi remote dari Mac dimulai di `~/work` PC (bukan di repo ini), jadi `sync.sh` juga menambah rujukan ke `AGENTS.md` di `~/work/CLAUDE.md` dan `doctor.sh` memeriksanya; folder lain: `ENTRY_DIR=...`.
 
+Skill engineering (coding, review, keamanan) dipasang terpisah lewat `./tools/engineering-stack.sh`; daftar dan biayanya di [ENGINEERING-STACK.md](ENGINEERING-STACK.md).
+
 Clone beserta submodule: `git clone --recurse-submodules https://github.com/Siirfannih/skill-development.git`
