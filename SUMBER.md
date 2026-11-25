@@ -14,6 +14,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §Menyimpan kemajuan · "Mesin atau akun baru wajib lolos…" | gagal: PC server 8 Nov, akun claude2 tanpa skill video |
 | Akhir sesi butir 2 | Bunyi lama: "Setiap aturan baru diakhiri tanda sumber singkat: (Irfan 4 Nov), (Irfan oke 4 Nov, dari ref X), atau (gagal: proyek vN)". Diganti atas keputusan Irfan 18 Nov: file yang dibaca pertama oleh model berisi instruksi kerja, bukan riwayat; 325 tanda sumber dipindah ke SUMBER.md |
 | Menyimpan kemajuan · "commit dan push" | Bunyi lama memuat izin satu sesi: "Irfan mengizinkan kemajuan dalam tugas ini diperbarui ke GitHub" (sesi scriptwriter, 27 Okt) |
+- Invarian/§Cara membaca · urutan otoritas kanonik brief → proyek → merek → Lantai/Kelas H → kartu → guide (Lantai di atas kartu); muat cookbook per kartu lewat pilih_kartu.py; rute tugas video lewat MOTION-CORE; PENDING > 7 hari ke PENDING-ARSIP.md: Irfan 25 Nov 2026 (audit skill-development, D-audit). Gagal: 5 file bertentangan soal otoritas; rute video memuat ±19.300 tok sebelum kerja pertama
 
 ## `INDEX.md`
 
@@ -38,6 +39,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | Aturan | Asal-usul |
 |---|---|
 | """"Tulis PETA.md: peta repo supaya model…" | Irfan 16 Nov |
+- argparse `--check`/`--help`; rujukan §Alur setiap video: Irfan 25 Nov 2026 (audit skill-development, D-audit). Gagal: `--help` langsung menulis ulang PETA.md
 
 ## `tools/sync.sh`
 
@@ -111,3 +113,11 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | build.md "Jalur utama: Remotion, dan rakit lego"; sisa rujukan AE sebagai pilihan setara dihapus | Temuan audit W4/W6 ("Default: After Effects"). Di basis `424f2313` kalimat itu sudah tidak ada; yang dibersihkan dua sisa ("plate yang sulit dibuat di AE", "atau AE bila diminta") |
 | orkestrasi.md tanpa "tidak membuka gambarnya"; rujukan `storyboard.md §16.3` | Temuan audit W6. Di basis `424f2313` keduanya sudah benar (orkestrasi §0 "bukan dengan tidak melihat"; workflow merujuk `storyboard.md` §5); ditambah tes regresi `scripts/tests/test_audit_dokumen.py` |
 | `tools/peta.py` `jaga_rute()`: baris Fase 3 wajib memuat guide teks, visual, gerak | Temuan audit W6: baris Fase 3 PETA kehilangan `guide/visual/GUIDE.md` saat regenerasi |
+
+## `tools/sync_lantai.py`
+
+- dari salin penuh Lantai ke SKILL.md menjadi cek bahwa tiap ID LANTAI muncul di tabel ringkas: Irfan 25 Nov 2026 (audit skill-development, D-audit). Gagal: salinan Lantai = 64,7 % badan SKILL.md (±5.100 tok)
+
+## `ENGINEERING-STACK.md`
+
+- tumpukan skill engineering terkurasi + tools/engineering-stack.sh: Irfan 25 Nov 2026 (minta pasang superpowers, claude-plugins-official, agentskills, skill-validator, trailofbits, wshobson, vercel-labs, mattpocock, remotion-dev, tstack). pr-review-toolkit tidak dipasang: 2.035 tok/sesi, tumpang-tindih

@@ -41,6 +41,8 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | butir 1, 6, 13, 14, 16, 20, 24 · jalan tengah AE editorial + forensik sesi | Irfan 25 Nov (persetujuan Two-Tier Domain Packs + forensik `behindwork-launch`: pisahkan label non-ucapan vs subtitle, larang 3 perlakuan font satu baris, micro-blend ≤ 4f match-cut, `role: bleed-display`, bedakan UI merek publik asli vs *editorial UI metaphor* frameless untuk sistem sendiri, larangan Apple Glass + radial glow + spam grid simetris + multi-fokus, prinsip *Script-First Breakdown* & anti-jiplak layout referensi + kedalaman 2–3 elemen depan/latar redup, Brief Sanitizer multi-user sebelum build, wajib isi `model: sonnet/haiku` eksplisit di `Agent()`, serta `kt_tick` 2 mode + `0 dB` pre-fader relatif VO) |
 
 | butir 26 · lima tahap dua render; butir 27 · satu ronde revisi | Irfan 18 Nov: brand guideline + editing guideline di awal, preview di percakapan sebelum produksi, masukan hanya setelah render 1, dua render; repo = perpustakaan cara kerja, data user disimpan di folder yang user pilih |
+- F26 diselaraskan dengan tahap kanonik (masukan user di persetujuan naskah/storyboard, preview, dan setelah render 1): Irfan 25 Nov 2026 (audit skill-development, D-audit)
+
 ## `SKILL.md`
 
 | Aturan | Asal-usul |
@@ -63,6 +65,8 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 
 | §0c Alur kerja: lima tahap, dua render | Irfan 18 Nov: brand guideline + editing guideline di awal, preview di percakapan sebelum produksi, masukan hanya setelah render 1, dua render; repo = perpustakaan cara kerja, data user disimpan di folder yang user pilih |
 | rujukan teknis §1–7 dipindah ke references/alur-teknis.md; TAHAP.md di §0c | Irfan 18 Nov: evaluasi token sesi skill-dev-journey (Editor dipakai ulang lintas ronde sampai 968 ribu token, Sutradara 678 ribu, 82 gambar menumpuk, bacaan awal 168 ribu di giliran 17) dan model sering melewatkan tahap |
+- §0 Lantai menjadi tabel ringkas; LANTAI.md dibaca utuh saat juri, revisi, dan sebelum render: Irfan 25 Nov 2026 (audit skill-development, D-audit). Gagal: badan SKILL.md 7.414 tok > batas spesifikasi 5.000
+
 ## `fonts/README.md`
 
 | Aturan | Asal-usul |
@@ -406,6 +410,8 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | §3 TASK · JANGAN ubah atribut di luar TASK; LULUS BILA revisi = rentang | Irfan 18 Nov (audit skill-dev-journey: 'profesional' berubah koral tanpa diminta, tulisan tangan biru lolos karena brief pemeriksa menyebutnya 'disengaja', 172 rakit master penuh tanpa --rentang) |
 
 | §1 satu sistem desain banyak pekerja (menggantikan satu Sonnet untuk semua adegan) | Irfan 18 Nov: pekerja per adegan dengan konsistensi lewat sistem bersama (tema.ts berkategori ditulis Sutradara, komponen oleh satu pekerja, papan acuan); di skill-dev-journey tema.ts 8 warna sementara file adegan memakai 99 warna dan 14 ukuran huruf langsung |
+- butir 3a: jalur Codex lewat tools/codex-pc.sh karena bubblewrap ditolak di PC ('bwrap: Operation not permitted'); jalur Gemini diganti subagen sonnet karena `agy -p` kosong/timeout untuk 10 lembar lampiran (2× gagal) — kalimat orang pertama dipindah ke sini: Irfan 25 Nov 2026 (audit skill-development, D-audit)
+
 ## `references/pacing-map.md`
 
 | Aturan | Asal-usul |
@@ -958,6 +964,7 @@ Nomor § di kolom Aturan merujuk motion-director v3.
 | Aturan | Asal-usul |
 |---|---|
 | langkah berurutan dengan bacaan per langkah + bukti; alur teknis dipisah dari SKILL.md | Irfan 18 Nov: evaluasi token sesi skill-dev-journey (Editor dipakai ulang lintas ronde sampai 968 ribu token, Sutradara 678 ribu, 82 gambar menumpuk, bacaan awal 168 ribu di giliran 17) dan model sering melewatkan tahap |
+- 7 tahap + butir persetujuan naskah, storyboard + racikan, effects & grade, mix dikunci, deliver (Drive + caption): Irfan 25 Nov 2026 (audit skill-development, D-audit). Gagal: persetujuan pemilik tidak ada di TAHAP padahal hanya TAHAP yang ditegakkan render.sh
 
 ## `templates/sistem-desain/README.md`
 
@@ -1150,3 +1157,39 @@ Penghitung: nilai mulai 2; +1 gerbang menangkap kegagalan nyata; −1 salah-temb
 | `MOTION-CORE.md` menunjuk `scripts/remotion/ae-primitives/`, `Papan.tsx`, `tahap.py`, `storyboard.md` §5 & §7 (`TYPE-TEST`, `TRANSITION-SHEET`), serta kunci 2D vs 3D AI | Audit Antigravity + koreksi Irfan 24 Nov 2026 atas `behindwork-batch-1` Ep01/Ep03 v2: model memakai scaffold lama (`Episode.tsx`/`Teks.tsx`) dan gambar 3D AI karena pintu produksi belum mengikat `ae-primitives/` + `Papan.tsx` dan pra-build gate |
 | Retensi short-form/IG (`TEMPO = 1.0` + `cut_check.py`/`recut.py` pemadatan jeda mati, perubahan visual ≤ 2,2 dtk, `SceneChain` ≥ 4 tipe transisi / 30 dtk) | Masukan Irfan 24 Nov 2026 atas video v2 yang terasa terlalu pelan untuk attention span Instagram tanpa membuat ulang VO/naskah |
 | Konsolidasi `FlashGrid.tsx` → pembungkus `ae-primitives/transisi/GridFlashReveal.tsx` + cek opsional `qc/merek` di `render.sh` | Penghapusan duplikasi transisi grid dan pengamanan profil merek saat `render.sh final` |
+
+## `MOTION-CORE.md`
+
+- §1 tabel tahap kanonik Brief → Naskah → Storyboard/block out → Animate → Effects & grade → Mix → Deliver, gerbang render R1–R5: Irfan 25 Nov 2026 (audit skill-development, D-audit). Gagal: 'gerbang 3' punya tiga arti; tahap effects tanpa pintu
+
+## `cookbook/INDEX.md`
+
+- Loading Matrix jadi filter `--pack`; estimasi token pack dihitung ulang (karakter ÷ 3,5): Irfan 25 Nov 2026 (audit skill-development, D-audit). Gagal: 3 pack utuh ±8.000 tok untuk explainer; estimasi lama 40–50 % terlalu rendah
+
+## `cookbook/00-core-invariants.md`
+
+- butir 7: aturan `Agent()` model sonnet/haiku pindah ke references/orkestrasi.md §5 tanpa kode F palsu (asal: SUMBER root baris 41): Irfan 25 Nov 2026 (audit skill-development, D-audit)
+
+## `scripts/remotion/timing.ts`
+
+- stagger (gagasan anime.js src/utils/stagger.js, MIT), timeline posisi relatif (anime.js src/timeline/position.js), dampTrack (gagasan maath src/time/spring-core.ts, MIT), vanWijk (d3-interpolate src/zoom.js interpolateZoom, ISC, Mike Bostock): riset 25 Nov 2026 atas permintaan Irfan (adaptasi library motion)
+
+## `scripts/gate/delivery_probe.py`
+
+- 6 cek pasca-render; temuan: `-color_trc/-color_primaries` sebagai opsi output tidak menulis tag di ffmpeg 9.0.2, `setparams`/`-x264-params` berhasil (dicek 25 Nov 2026). Sumber: YouTube Help 'Recommended upload encoding settings', ffmpeg-filters §ebur128
+
+## `scripts/audio/loudness_2pass.sh`
+
+- loudnorm 2-pass linear hanya untuk mix akhir (ffmpeg-filters §loudnorm); temuan: measured_LRA=0 jatuh ke dinamis, keluaran 192 kHz dipaksa → aresample 48000 (dicek 25 Nov 2026)
+
+## `references/delivery-spec.md`
+
+- profil V1: YouTube Help (dibaca 25 Nov 2026), TikTok Ads spesifikasi video iklan; Instagram belum terverifikasi (halaman resmi tidak terbaca)
+
+## `scripts/blender/render_seq.sh`
+
+- urutan argumen headless: Blender manual §Command line render (`-a`/`-f` terakhir); belum pernah render sungguhan
+
+## `references/efek-3d.md`
+
+- Remotion docs three.mdx, three-canvas.mdx, motion-blur; svg.filter.js README; angka parallax/grain/CA = usulan belum teruji (riset 25 Nov 2026)
