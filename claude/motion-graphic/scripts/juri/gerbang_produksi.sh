@@ -12,6 +12,9 @@
 #              komentar #) = semua tanda memblokir (cek_komposisi.py --ketat). File berisi nama tanda (mis. "JEDA KARTU
 #              LOGO") = tanda itu ikut memblokir di samping empat tanda bawaan. Nama tanda tak dikenal = keluar 1.
 #              Mode ketat mewajibkan data episode + aset.json ada.
+#   PERMUKAAN  <proyek>/remotion/src dan <proyek>/storyboard (bila ada) -> gate/permukaan_cek.py (K1 sans saja, K2 permukaan datar;
+#              ERROR memblokir). Bawaan aktif; dilewati hanya dengan file <proyek>/qc/permukaan-lewati berisi alasan tertulis >= 3 kata
+#              (alasan dicetak). Pengecualian per baris: komentar `permukaan-ok: <alasan>`. Hasil gagal atau tak terbaca = keluar 1.
 #   POTONG     sfx_potong.json di folder audio terkunci, <proyek>/audio, atau <proyek>/qc -> audio/sfx_potong.py --laporan.
 #   HP         stem_vo.wav + stem_music.wav + stem_sfx.wav di salah satu folder itu -> audio/audio_phone.py --gate
 #              (mix.wav dan cues.json wajib ada di folder yang sama).
@@ -19,7 +22,7 @@ set -uo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 FLAG_KETAT=0; ARGS=()
 for a in "$@"; do if [ "$a" = "--ketat" ]; then FLAG_KETAT=1; else ARGS+=("$a"); fi; done
-[ "${#ARGS[@]}" -ge 1 ] || { sed -n '2,17p' "$0"; exit 1; }
+[ "${#ARGS[@]}" -ge 1 ] || { sed -n '2,20p' "$0"; exit 1; }
 P="$(cd "${ARGS[0]}" && pwd)" || exit 1; AUDIO_DIR="${ARGS[1]:-$P/audio}"; PY="${ARGS[2]:-python3}"
 R="$P/remotion"; QC="$P/qc"; gagal=0; KETAT=(); WAJIB=0
 
@@ -44,6 +47,17 @@ if [ "${#EPS[@]}" -gt 0 ] && [ -n "$ASET" ]; then
 elif [ "$WAJIB" = 1 ]; then
   echo "GAGAL gerbang komposisi: mode ketat butuh data episode (remotion/src/data/*.json) dan remotion/public/<ep>/aset.json."; gagal=1
 else echo "gerbang komposisi: dilewati (tidak ada data episode + aset.json)"; fi
+
+SRC=(); for d in "$R/src" "$P/storyboard"; do [ -d "$d" ] && SRC+=("$d"); done
+if [ "${#SRC[@]}" -gt 0 ]; then
+  ALASAN="$( [ -f "$QC/permukaan-lewati" ] && sed 's/#.*//' "$QC/permukaan-lewati" | xargs || true )"
+  if [ -n "$ALASAN" ] && [ "$(echo "$ALASAN" | wc -w)" -ge 3 ]; then echo "gerbang permukaan: dilewati dengan alasan tertulis (qc/permukaan-lewati): $ALASAN"
+  else
+    [ -f "$QC/permukaan-lewati" ] && echo "qc/permukaan-lewati diabaikan: alasan harus >= 3 kata"
+    python3 "$HERE/../gate/permukaan_cek.py" "${SRC[@]}" \
+      || { echo "GAGAL gerbang permukaan: ubah ke sans datar (K1/K2), atau beri komentar permukaan-ok: <alasan> bila user memintanya."; gagal=1; }
+  fi
+else echo "gerbang permukaan: dilewati (tidak ada remotion/src atau storyboard)"; fi
 
 SUDAH=":"
 for d in "$AUDIO_DIR" "$P/audio" "$QC"; do

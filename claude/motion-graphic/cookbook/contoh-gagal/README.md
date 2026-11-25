@@ -9,7 +9,7 @@ Menambah entri: simpan frame sebagai `<no>-<nama-pendek>.jpg` (lebar ≤ 1400 px
 - **Dari:** Builder Trap (11 Nov), adegan ilustrasi orang bekerja di latar terang.
 - **Yang salah menurut Irfan:** huruf serif italic tipis berwarna abu pucat dibuat sangat besar sampai menyentuh tepi frame; komposisinya tidak cocok dengan frame dan tidak berhubungan dengan ilustrasi di bawahnya.
 - **Juga terlihat:** kotak subtitle di pita bawah ("ngebagiin apa yang") yang mengucapkan hal lain dari judul besar: dua lapisan teks.
-- **Bukan pelajarannya:** "serif dilarang". Serif di gaya Arthur Brooks terasa elegan bagi Irfan. Masalahnya kontras, skala, dan hubungan dengan frame.
+- **Pelajarannya:** serif/italic dilarang di teks layar (K1, keputusan Irfan 26 Nov 2026 setelah slop yang sama berulang lintas model); serif di gaya Arthur Brooks adalah kulit referensi, bukan mekanik. Selain itu yang salah juga kontras, skala, dan hubungan dengan frame.
 - **Lantai terkait:** A1, A3, A7.
 
 ## 02–07 · Builder Trap v1–v12: datar, ramai, subjek kecil, teks dua lapis
@@ -73,7 +73,7 @@ Lima frame dari `varian-A_r7` (talking head + adegan UI dan 3D, kiblat kartu 83 
 | ![](16-punchline-di-kotak.jpg) | Punchline "PROFESIONAL" tampil di kotak video hijau kecil di dalam postingan IG. | Slab warna kartu 85 bekerja karena memenuhi layar dan memotong ke luar footage; di kotak kecil skala punchline hilang. Syarat ini tidak ikut di ringkasan satu baris. | Punchline keluar ke layar penuh (kartu 85 T1), lalu kembali ke tampilan IG. |
 | ![](17-frasa-terpisah.jpg) | "SKILL" kecil di kiri atas, jauh dari "GRATIS" besar di slab biru. | Kata pengantar kecil di kartu asli menempel di sudut kata hero (kartu 83 T3b); di sini jaraknya membuat dua pesan. | Kata pengantar menempel di tepi kata hero, atau keduanya satu baris. |
 
-- **Bukan pelajarannya:** "kaca dilarang", "teks di adegan 3D dilarang", "slab biru dilarang", atau "jangan pakai UI". Tekniknya sah; yang gagal adalah memakainya tanpa memeriksa apakah kondisi footage sama dengan kondisi di video asli.
+- **Pelajarannya:** kaca/glass dilarang (K2, keputusan Irfan 26 Nov 2026); pakai panel solid datar dengan garis tepi tipis. Mekanik lain (teks menempel bidang nyata, slab warna, UI) tetap sah; yang gagal adalah memakainya tanpa memeriksa apakah kondisi footage sama dengan kondisi di video asli.
 - **Lantai terkait:** A1, A2, A7; `guide/teks/GUIDE.md` §Teks di dalam tampilan aplikasi dan adegan 3D.
 
 ## 18 · Teks narasi tipis di atas batu arsip

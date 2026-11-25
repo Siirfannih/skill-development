@@ -1,5 +1,7 @@
 # 16 markbrazil · "Noir Stage Podcast": guideline editing
 
+> **Banner (kebijakan 26 Nov 2026):** dokumen ini menggambarkan *kulit* referensi. Serif/italic, glow, bloom, dan gradien di dalamnya adalah permukaan yang dilarang (LANTAI A7/C14a; K1/K2). Ambil mekaniknya saja (timing, urutan, skala, hierarki) dan bangun dengan sans, permukaan datar, dan bayangan kontak tajam. Potongan kode glow di bawah = contoh kulit referensi, bukan untuk disalin.
+
 > Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di `sheets/`, scene detect ffmpeg, ebur128, spektrogram + onset librosa). Standar kualitas Irfan; kartu anatominya di `../../cookbook/` (cari lewat `../../cookbook/INDEX.md`). Bila bertentangan dengan `../../LANTAI.md`, lantai menang; bagian "Benturan" berisi usulan yang belum disetujui.
 > Sumber: `markbrazil_DfXWojqtOb8.mp4` · 720×1280 (9:16) · 30 fps · 23,1 dtk · potongan podcast (Gary Vaynerchuk) dengan "panggung" wide shot + close-up.
 > Status: guideline editing (tata bahasa), **bukan template**. Lihat §11 untuk benturan dengan aturan tetap Irfan.
@@ -114,8 +116,8 @@ Untuk proyek kita: hit di cut ke STAGE = satu impact rendah konsisten (20–250 
 // tokens.gl03.ts (master 1080×1920)
 export const GL03 = {
   fps: 30,
-  red: '#EC0002', redGlow: 'rgba(236,0,2,0.55)', white: '#FFFFFF',
-  font: {verdict: '"Playfair Display", serif', sans: 'Inter, sans-serif', mono: '"JetBrains Mono", monospace'},
+  red: '#EC0002', white: '#FFFFFF', // redGlow rgba(236,0,2,0.55) dihapus: glow dilarang (K2), contoh kulit referensi
+  font: {verdict: 'Inter, sans-serif' /* serif italic = kulit referensi, dilarang (K1) */, sans: 'Inter, sans-serif', mono: '"JetBrains Mono", monospace'},
   size: {verdict: 0.06, number: 0.07, connector: 0.018, caption: 0.024, ltName: 0.02, ltRole: 0.013}, // × 1920
 };
 ```
@@ -127,10 +129,11 @@ export const IgniteWord: React.FC<{text: string; at: number}> = ({text, at}) => 
   const f = useCurrentFrame() - at;
   if (f < 0) return null;
   const o = interpolate(f, [0, 2, 5], [0.3, 0.35, 1], {extrapolateRight: 'clamp'});
-  const glow = interpolate(f, [2, 5, 9], [0, 1.3, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
-  return <span style={{fontFamily: GL03.font.verdict, fontStyle: 'italic', fontWeight: 900, color: GL03.red,
+  // dilarang (K2), contoh kulit referensi: const glow = interpolate(f, [2, 5, 9], [0, 1.3, 1], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'});
+  return <span style={{fontFamily: GL03.font.verdict, fontWeight: 900, /* italic dilarang (K1) */ color: GL03.red,
     opacity: o, letterSpacing: '-0.02em', marginRight: '0.22em',
-    textShadow: `0 0 ${18 * glow}px ${GL03.redGlow}, 0 0 ${48 * glow}px ${GL03.redGlow}`}}>{text}</span>;
+    /* dilarang (K2), contoh kulit referensi: textShadow `0 0 ${18 * glow}px ..., 0 0 ${48 * glow}px ...` */
+  }}>{text}</span>;
 };
 ```
 ```tsx
@@ -152,7 +155,7 @@ Siluet di depan teks: render STAGE dua kali — layer bawah plate penuh, layer a
 ## 11. Benturan dengan aturan tetap Irfan + rekomendasi
 | Referensi melakukan | Aturanmu | Opsi |
 |---|---|---|
-| Serif **Black** italic tebal | Font layar bersih & ramping | **A (disarankan):** serif italic weight 500–600 (Instrument Serif Italic / Playfair Italic 500) dengan ukuran sedikit lebih besar — emosi serif tetap, tanpa berat. B: pertahankan Black hanya untuk angka hero (maks 1× per video). |
+| Serif **Black** italic tebal | Font layar bersih & ramping | **A (disarankan):** sans satu keluarga, kata vonis dibedakan lewat bobot dan ukuran (serif/italic dilarang, K1). B: pertahankan Black hanya untuk angka hero (maks 1× per video). |
 | Merah untuk **semua** kata vonis termasuk netral ("going crazy", "Streaming") | Merah = negatif/penekanan yang terdengar buruk; warna harus punya alasan | **A:** merah hanya untuk kata negatif/peringatan; kata solusi/alternatif biru (sesuai aturan warnamu) — tapi **jangan biru di latar gelap**, jadi kata solusi pakai putih + glow netral. B: satu warna merah tetap sebagai brand (melanggar logika warnamu — tidak disarankan). |
 | Kata sambung di **atas** kata merah ("If you're not") | Teks tidak di atas visual; urutan baca ikut kamera | Kata sambung boleh di atas kata merah karena keduanya teks (bukan di atas visual) dan urutan bacanya benar (sambung → vonis). Ikon di atas teks: pindahkan ikon ke **kiri kata merah** sebagai inline icon. |
 | Tanda baca & asterisk di layar ("f**ked up.") | Tanpa tanda baca di layar | Hilangkan titik; untuk kata kasar ganti katanya di layar atau pakai bleep audio saja. |

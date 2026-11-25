@@ -2,8 +2,10 @@
 
 Jenis huruf ditentukan **kartu kiblat**. Folder ini memastikan font itu benar-benar ada saat render, dan memberi panduan memilih bila kartu hanya menyebut wataknya. Nama font di kartu adalah "paling mirip" dari pengamatan frame, bukan identifikasi pasti.
 
+> **Serif, italic, dan script dilarang di teks layar (LANTAI A7, K1).** Berkas font serif (Instrument Serif, Playfair Display, Fraunces, Source Serif 4, dst.) tetap ada di disk, tetapi hanya dipakai bila user menyebut serif/italic secara eksplisit di sesi itu (catat di DECISIONS). Kartu atau profil merek yang memakai serif tidak membuka larangan. Penekanan = bobot, ukuran, warna, atau kapital dalam satu keluarga sans.
+
 ## Cara memakai di proyek Remotion
-1. Salin folder font yang dipakai ke `public/fonts/` proyek (mis. `cp -r fonts/inter fonts/instrument-serif <proyek>/public/fonts/`), dan salin baris `@font-face`-nya dari `fonts.css`.
+1. Salin folder font yang dipakai ke `public/fonts/` proyek (mis. `cp -r fonts/inter fonts/geist <proyek>/public/fonts/`), dan salin baris `@font-face`-nya dari `fonts.css`.
 2. Muat sebelum render (`loadFont`/`FontFace` + `delayRender`), jangan mengandalkan font sistem: PC server hanya punya 3 keluarga font terpasang (cek 12 Nov).
 3. Cek still pertama: bentuk huruf harus sama dengan frame kiblat. Huruf jatuh ke font cadangan = gagal Lantai A7.
 
@@ -42,7 +44,7 @@ File: woff2 subset latin dari paket `@fontsource/*`. `fonts.css` dibuat otomatis
 | Gilroy | belum ada file berlisensi | Montserrat 700–800 atau Archivo Black |
 | Druk (Condensed/Wide) | belum ada | Anton (condensed); Archivo Black (lebar) |
 | Aeonik, Suisse Int'l | belum ada | Inter 400–500 atau Manrope |
-| PP Editorial New | belum ada | Instrument Serif |
+| PP Editorial New | belum ada | Inter / Manrope (sans; serif dilarang, Lantai A7) |
 
 Kartu tetap menyebut font aslinya; resep menulis font yang benar-benar dipakai.
 
@@ -52,9 +54,9 @@ Ini rangkuman dari 78 kartu, bukan aturan baru: kiblat tetap menang. Angka dalam
 | Peran | Watak | Font | Terlihat di | Dipakai saat |
 |---|---|---|---|---|
 | Narasi / kalimat | sans grotesk netral, Medium–Bold, tracking rapat | Inter, SF Pro, Helvetica Neue | 07, 15, 18, 22, 26, 54, 61 | hampir semua gaya; kalimat yang dibaca berurutan, UI tiruan, teks di atas footage |
-| Narasi tenang "produk" | grotesk geometris Regular–Medium, **tidak pernah bold** | Inter 400–500, Manrope, (Aeonik, Suisse, Satoshi, General Sans) | 17, 30, 33, 67, 68, 72 | product film, launch, gaya Apple/SaaS; penekanan lewat warna atau serif italic, bukan ketebalan |
-| Kata istimewa editorial | serif kontras tinggi, **italic**, satu–dua kata saja | Instrument Serif Italic, Playfair Display Italic | 04, 16, 18, 29, 33, 46, 67, 80 | nama, istilah, kata yang ingin terasa "ditulis"; selalu berpasangan dengan sans narasi dan tidak sama kuat dengannya (Lantai A6) |
-| Seluruh teks serif | serif kondensasi satu keluarga, roman kapital + italic kecil | Instrument Serif | 19, 48 | brand story, cohort/komunitas, nada tenang dan mahal; tanpa sans sama sekali |
+| Narasi tenang "produk" | grotesk geometris Regular–Medium, **tidak pernah bold** | Inter 400–500, Manrope, (Aeonik, Suisse, Satoshi, General Sans) | 17, 30, 33, 67, 68, 72 | product film, launch, nada tenang dan presisi; penekanan lewat warna, ukuran, atau bobot dalam satu keluarga sans |
+| Kata penekanan | satu keluarga sans yang sama dengan narasi; kontras lewat bobot (Regular → Bold/Black), ukuran, warna, atau KAPITAL, satu–dua kata saja | Inter, Manrope, Geist (bobot berbeda) | 04, 16, 18, 29, 33, 46, 67, 80 | nama, istilah, kata kunci. Di kartu, peran ini tampil serif/italic: itu kulit referensi, dilarang (K1, Lantai A7); ambil mekaniknya (satu kata, kontras, skala) lalu bangun dengan sans |
+| ~~Seluruh teks serif~~ (dilarang) | serif dilarang per Lantai A7 dan K1; kartu 19, 48 memakainya sebagai kulit | pakai sans satu keluarga, tracking longgar, ruang kosong luas | 19, 48 | brand story, cohort/komunitas: nada tenang lewat ruang kosong dan hierarki bobot, bukan serif |
 | Kata vonis / raksasa | condensed sangat tebal, KAPITAL | Anton, Bebas Neue, Oswald 600–700, (Druk Condensed) | 02, 03, 05, 27, 37, 47, 59, 61, 66 | satu kata yang dihantam ("WRONG", "WIN"), kata di belakang subjek, stiker kata kunci; bukan untuk kalimat |
 | Kata lebar berat | grotesk black lebar | Archivo Black, Montserrat 800, (Druk Wide, Gilroy) | 03, 08, 27, 54 | dicampur dengan condensed dalam satu layar tipografi penuh; angka tahun/tanggal raksasa (82) |
 | Narasi ramah bulat | geometris tebal bulat | Poppins 600–700, Montserrat, (Gilroy, Clash Display) | 20, 37, 59, 73, 82 | explainer ringan, motion 2D, angka dan label infografik |
@@ -63,6 +65,6 @@ Ini rangkuman dari 78 kartu, bukan aturan baru: kiblat tetap menang. Angka dalam
 
 Pola yang berulang di kartu:
 - **Dua keluarga per video** adalah yang paling sering (sans narasi + satu suara penekanan). Tiga atau lebih hanya di gaya yang memang "kolase" (02, 26, 27, 47, 59) dan di sana tiap keluarga punya satu tugas tetap.
-- **Penekanan dipilih satu cara per video**: ketebalan (Regular → Bold), atau jenis (sans → serif italic), atau ukuran (kata sambung → kata kunci 5–8×). Kartu yang tenang (30, 33, 67) tidak memakai bold sama sekali.
-- **Condensed tebal selalu kapital dan selalu pendek** (1–2 kata). Serif italic selalu huruf kecil.
-- **Contoh gagal**: serif italic tipis pucat dibesarkan sampai tepi frame (`../cookbook/contoh-gagal/01-serif-pucat-raksasa.jpg`). Yang salah kontras, skala, dan hubungannya dengan frame, bukan serif-nya.
+- **Penekanan dipilih satu cara per video**: ketebalan (Regular → Bold), atau ukuran (kata sambung → kata kunci 5–8×), atau warna; selalu dalam satu keluarga sans. Kartu yang tenang (30, 33, 67) tidak memakai bold sama sekali.
+- **Condensed tebal selalu kapital dan selalu pendek** (1–2 kata). Serif/italic tidak dipakai (K1).
+- **Contoh gagal**: serif italic tipis pucat dibesarkan sampai tepi frame (`../cookbook/contoh-gagal/01-serif-pucat-raksasa.jpg`). Serif/italic itu sendiri dilarang (K1, Lantai A7); selain itu yang salah juga kontras, skala, dan hubungannya dengan frame.

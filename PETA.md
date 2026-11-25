@@ -123,7 +123,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/templates/cut-sheet.md` | **Timeline Cut Sheet & Mapping Visual · <proyek>** — Satu tabel untuk seluruh video. |
 | `claude/motion-graphic/templates/gaya/README.md` | **Template gaya** — Satu folder = satu gaya edit yang bisa dipilih di tahap Brief. |
 | `claude/motion-graphic/templates/gaya/editorial-bold/STYLE.md` | **Gaya: editorial-bold (talking head cepat)** — Template gaya untuk reel talking head yang cepat dan tegas: Anton besar, aksen merah, B-roll hitam-putih, split screen, transisi kamera. |
-| `claude/motion-graphic/templates/gaya/minimal-premium/STYLE.md` | **Gaya: minimal-premium (talking head edukatif)** — Template gaya untuk klip podcast/talking head yang tenang dan "mahal": wajah pembicara bergantian dengan adegan bertekstur kertas (lukisan, garis biru, ilustrasi kasar, grafik bercahaya). |
+| `claude/motion-graphic/templates/gaya/minimal-premium/STYLE.md` | **Gaya: minimal-premium (talking head edukatif)** — Template gaya untuk klip podcast/talking head yang tenang dan presisi (ruang kosong luas, satu fokus): wajah pembicara bergantian dengan adegan bertekstur kertas (lukisan, garis biru, ilustrasi kasar, grafik garis tipis). |
 | `claude/motion-graphic/templates/handoff-fase.md` | **Handoff fase <n> · <proyek> · <tanggal>** — Kamu subagen untuk satu fase saja. |
 | `claude/motion-graphic/templates/merek/BRAND.md` | **<nama merek>** — ## Siapa dan untuk siapa <2–3 kalimat: apa mereknya, penontonnya, kesan yang harus tertinggal setelah video selesai.> |
 | `claude/motion-graphic/templates/merek/EDITING.md` | **Editing <nama merek>** — ## Arah yang dipilih user <Tema yang user sebut (mis. |
@@ -178,7 +178,9 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/gate/grade_ukur.py` | Ukur hasil color grading footage dengan angka sebelum dinilai dengan mata (`references/grade.md`). |
 | `claude/motion-graphic/scripts/gate/music_batch.py` | Gerbang: satu track musik tidak boleh dipakai untuk semua klip/babak dalam satu batch. |
 | `claude/motion-graphic/scripts/gate/pause_clean.py` | Gerbang jeda bersih (Lantai E23): saat pembicara berhenti/berpikir, stem suara tidak membawa dengung kamar, piring, klik, atau room tone kotor yang ikut dikeraskan. |
+| `claude/motion-graphic/scripts/gate/permukaan_cek.py` | Gerbang permukaan: K1 (sans saja) dan K2 (permukaan datar) diperiksa mekanis di KODE frame, bukan dari mata. |
 | `claude/motion-graphic/scripts/gate/sfx_density.py` | Gerbang Lantai E24 (5 Pilar Sound Design, guide/sfx/FAMILI.md §0): SFX menandai momen cerita dan gerak yang terlihat, tiap cue berlabel `pilar` (bed, transisi, tick, taktil, aksen), tanpa spam. |
+| `claude/motion-graphic/scripts/gate/tabrakan_cek.py` | Gerbang tabrakan: teks menimpa teks, teks menimpa objek, teks keluar zona aman, diukur dari DOM frame HTML (bukan dari mata). |
 | `claude/motion-graphic/scripts/gate/voice_fidelity.py` | Gerbang suara asli pembicara (format klip podcast/wawancara). |
 | `claude/motion-graphic/scripts/gate/voice_level.py` | Gerbang level suara asli (Lantai E23): suara asli (narasumber, rekaman sendiri, VO) tidak pernah diturunkan, di-loudness-kan, atau di-limit. Yang boleh: peredam noise, lalu gain NAIK yang bersih sampa |
 | `claude/motion-graphic/scripts/juri/audio_bus_check.py` | Audio di Remotion hanya lewat satu bus global. <Audio> yang ditaruh di dalam <Sequence> adegan ikut berhenti saat adegan selesai, sehingga ekor kata/SFX/musik terpotong di setiap batas adegan (penyeba |

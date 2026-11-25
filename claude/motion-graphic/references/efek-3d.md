@@ -26,7 +26,8 @@ Perkiraan total > 30 mnt: tanya pemilik (biaya/waktu). Aturan `@remotion/three`:
 | Animasi dari `useCurrentFrame()` | aman | standar |
 | `useFrame()`, `requestAnimationFrame`, `Math.random` | tidak aman | `random(seed)` dari Remotion |
 | GSAP | aman bila `paused: true` + `seek(frame/fps)` | |
-| Bloom, DoF, chromatic aberration, vignette (tanpa memori) | aman | bloom three: wajib lulus uji banding di still 100% (`decision-guide` §4) |
+| Bloom, glow, vignette | dilarang (K2) | kulit referensi; tidak dipakai |
+| DoF, chromatic aberration (tanpa memori) | aman bila berfungsi | chromatic aberration hanya di momen impact |
 | Afterimage, trail, TAA (butuh frame sebelumnya) | tidak aman | `<CameraMotionBlur>` / `<Trail>`, atau bake offline |
 | Fisika real-time di browser | tidak aman | bake (Blender rigid body) lalu putar per frame |
 | Cycles | aman | render sequence |
@@ -35,7 +36,7 @@ Motion blur 3D resmi: `<CameraMotionBlur>` (shutter 180, samples 10; biaya x sam
 
 ## 3. Filter SVG deterministik
 
-Tanpa paket tambahan; semua parameter dari `frame`. Satu rantai tekstur per video (grain <= 0,05 usulan; chromatic aberration <= 2 px usulan, hanya di momen impact).
+Tanpa paket tambahan; semua parameter dari `frame`. Tanpa grain atau tekstur dekoratif di atas gradien (K2); chromatic aberration <= 2 px usulan, hanya di momen impact.
 
 ```tsx
 const f = useCurrentFrame();

@@ -12,7 +12,9 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | butir 2 | Irfan oke 15 Nov, dari uji rekonstruksi 18 + Builder Trap |
 | butir 4 | Irfan 9 Nov; Irfan oke 15 Nov, dari builder-trap-r2 v2 + jensen-pain-suffering |
 | butir 6 | Irfan 6 Nov |
-| butir 7 | Irfan 12 Nov · Irfan 11 Nov |
+| butir 7 | Irfan 12 Nov · Irfan 11 Nov · **sans saja, serif/italic dilarang**: Irfan 26 Nov 2026: serif aksen dan permukaan glossy muncul identik lintas model/sesi (audit `KhususagentAG/case-study/audit-slop-20261126/` A, B, C); larangan keras atas permintaan eksplisit Irfan, di luar jalur SARINGAN |
+| butir 14a (permukaan datar) | Irfan 26 Nov 2026: serif aksen dan permukaan glossy muncul identik lintas model/sesi (audit `KhususagentAG/case-study/audit-slop-20261126/` A, B, C); larangan keras atas permintaan eksplisit Irfan, di luar jalur SARINGAN; kontras: Soalnya Gini ep01–03 (SVG datar, 0 gradien) bersih, Behindwork v4/v5 (HTML/CSS: 383 blur, 70 inset, kartu kaca) slop |
+| butir 26a (bangun per lapis) | Irfan 26 Nov 2026 ("proses melihat visual dan menyusun visual terjadi bergantian"); bukti: v4 menulis 76 panel sekaligus lalu render sekali; sesi sukses melihat gambar 1–3 menit setelah komponen pertama |
 | butir 8 | Irfan 9 Nov |
 | butir 9 | Irfan 6 Nov, 15 Nov |
 | butir 9a | Irfan 16 Nov; gagal: KT hampir semua fade, jensen T26 "bayangan daun" |

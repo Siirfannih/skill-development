@@ -21,11 +21,11 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 | Display/Kunci | Kata kunci, slam | Inter Black 900 (atau Neue Haas Grotesk Display 95 di Adobe Fonts) | 200–320 px |
 | Headline | Kata utama | Inter ExtraBold 800 / NHG 65 | 110–170 px |
 | Sambung/Body | Pengantar, penjelas | Inter Medium 500 / NHG 45 | 56–80 px |
-| Aksen | Satu kata emosional | Bobot paling kontras, KAPITAL, skala 1,5–2× headline di barisnya sendiri, atau serif sebagai penekanan (tidak sejajar dengan bold) | — |
+| Aksen | Satu kata emosional | Bobot paling kontras, KAPITAL, skala 1,5–2× headline di barisnya sendiri, atau warna aksen; semuanya dalam keluarga sans yang sama. Serif/italic dilarang (K1) | — |
 | Data | Angka, kode | Silkscreen (dunia pixel) / JetBrains Mono (UI) | 60–140 px |
 | Label | Kategori, callout | JetBrains Mono / Inter SemiBold | 36–48 px |
 
-**Serif tidak sejajar dengan bold**: serif tidak seukuran dan sebobot kata bold dalam satu frasa; boleh sebagai penekanan atau penutup. Konten Jadisatu: Outfit (display) + Inter (teks). Verifikasi PostScript name sebelum build.
+**Serif dan italic dilarang di teks layar (K1, Lantai A7)**, termasuk sebagai penekanan atau kata penutup; hanya instruksi eksplisit user di sesi itu yang bisa membukanya. Penekanan = bobot/ukuran/warna/kapital dalam satu keluarga sans. Konten Jadisatu: Outfit (display) + Inter (teks). Verifikasi PostScript name sebelum build.
 
 ### 7.2 Skala & hierarki
 - Level (relatif tinggi H): XS 1,5–2,5 %, S 3–5 %, M 7–10 %, L 14–20 %, XL 35–80 % (boleh bleed).
@@ -44,7 +44,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
   - warna data biru
 - **Dilarang:**
   - kotak, stabilo, atau scrim yang tidak menyelesaikan masalah keterbacaan (`decision-guide.md` §4)
-  - glow yang pecah/8-bit (bloom three.js); glow HD boleh
+  - glow/halo/bloom dalam bentuk apa pun (K2); satu bayangan kontak tajam boleh
   - glitch pengacak huruf
   - teks bertumpuk/menabrak teks atau objek
   - pergantian font di tengah satu kata/adegan
@@ -63,13 +63,9 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 - Caption nyala/mati per beat mengikuti `decision-guide.md` §1; bila nyala, ≤ 2 baris (Lantai A1). Kata muncul +1…+4 f setelah onset kata VO.
 
 ### 7.4 Kebijakan teks 3D
-- Default: **tipografi 2.5D**. Kata, huruf, dan baris adalah bidang di ruang perspektif yang berotasi X/Y/Z, berlapis kedalaman, ikut kamera, dan tajam.
-  - Di AE: animator teks 3D per karakter (`Enable Per-character 3D`) + kamera AE.
-- Teks **bervolume (extruded)** hanya untuk maksimal 1–2 kata hero per video, dan hanya bila eksekusinya setara referensi:
-  - bevel halus, material dan cahaya yang matang, bayangan kontak
-  - divalidasi berdampingan dengan frame referensi di TYPE-TEST
-
-  Ekstrusi gelap polos tanpa cahaya terlihat "kurang matang" dan menurunkan kualitas.
+- Default: **teks datar**. Kata, huruf, dan baris adalah bidang solid yang tajam; kedalaman datang dari susunan (skala, overlap, parallax lapis) dan gerak kamera, bukan dari bevel, material, atau perspektif miring pada teks (K2).
+  - Di AE: kamera AE bergerak melewati lapisan teks; tanpa animator teks 3D per karakter kecuali user memintanya.
+- Teks **bervolume (extruded/bevel/emboss)** dilarang (K2), kecuali user memintanya eksplisit di sesi itu. Bila diminta: maksimal 1–2 kata hero per video, divalidasi berdampingan dengan frame referensi di TYPE-TEST.
 - Teks yang "tidur di lantai lalu diangkat" bukan 3D yang dimaksud.
 
 ### 7.5 Gaya teks (TYPE-TEST)
@@ -82,7 +78,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 | G5 | Berperspektif | Layer 3D menempel bidang ruang (rotasi X 55–70° sesuai bidang); blur hanya dari gerak/DoF kamera |
 | G6 | Dalam adegan | Di antara latar dan objek depan (satu ruang) |
 | G7 | Label/pil | Inter SemiBold XS–S, pil rounded; tidak pernah jadi fokus kedua sejajar headline |
-| G8 | Kilat cahaya (acuan siirfannih_DfRh4w0SfAk "Golden rule", "Excitement") | Isi huruf gradien warna (atas terang → bawah lebih dalam), satu pita cahaya miring menyapu huruf sekali (kurva `land`, durasi dari lebar teks), glow lembut paling kuat saat pita di tengah. Komponen: `scripts/remotion/LightSweep.tsx`. Hanya untuk kata hero/penekanan, maksimal 1 per 10 dtk. **Bukan** footage/tekstur di dalam huruf |
+| G8 | Kilat cahaya (acuan siirfannih_DfRh4w0SfAk "Golden rule", "Excitement") | **Dilarang (K2)**: teks bergradien, pita cahaya, dan glow adalah kulit referensi; hanya bila user memintanya eksplisit di sesi itu (catat di DECISIONS). Mekanik yang boleh diambil: satu kata hero diberi penekanan sekali (warna aksen solid + gerak `land`), maksimal 1 per 10 dtk. `scripts/remotion/LightSweep.tsx` tidak dipakai secara default. **Bukan** footage/tekstur di dalam huruf |
 
 ---
 
@@ -174,7 +170,7 @@ Aturan pemakaian:
   - heavy 0.5/1.0, tanpa overshoot (teks besar, logo)
   - playful 0.5/0.45 (maskot saja)
 - **Overshoot ≤ 1,05** pada UI. Tidak ada overshoot pada teks besar. Settle 6–10 f, tidak berhenti mendadak.
-- Satu register gerak per video (teknis, editorial, premium, ekspresif, tenang); di dalamnya kurva dipilih per gerak dari `scripts/remotion/curves.ts` (Lantai B13a). Tidak ada linear kecuali drift/rotasi loop.
+- Satu register gerak per video (teknis, editorial, ekspresif, tenang; "premium" diterjemahkan jadi ruang kosong luas, satu fokus, hierarki bobot+ukuran tegas, palet sedikit, kamera tenang); di dalamnya kurva dipilih per gerak dari `scripts/remotion/curves.ts` (Lantai B13a). Tidak ada linear kecuali drift/rotasi loop.
 - Ritme:
   - satu event baru tiap 12–24 f; sesuatu yang baru tiap 2–4 dtk
   - hold teks dihitung per bagian. Kartu yang dipakai di bagian itu menentukan **bentuk** hitungannya (per kata atau per frasa); **nilainya** dihitung dari kata di audio video ini, tidak disalin dari kartu. Gaya kata-per-kata (kartu 83): 0,25 dtk + 0,3 dtk/kata (`scripts/lego/teks_plan.py`). Bagian tanpa ketentuan kartu: Lantai A8 di `core-rules.md`

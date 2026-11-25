@@ -10,7 +10,7 @@ Baca saat membedah referensi (tahap Brief) dan sebelum mengirim render (QA di ta
 - 16.1 Bahan dari render (bukan dari kode/ingatan)
 - 16.2 Checklist anti-monoton & kerapian
 - 16.3 Tabel kritik sutradara
-- 16.4 Rubrik R1–R7 + Kompas premium
+- 16.4 Rubrik R1–R7 + Kompas kualitas ("premium" diterjemahkan)
 - 16.5 Loop kritik (minimal 3 putaran, sampai semua ≥ 8/10)
 - 16.6 Metrik terhadap referensi
 
@@ -96,9 +96,9 @@ Jalankan `scripts/audio_qa.py --module5` (ambang di `audio.md` §14.10). Satu FA
 - [ ] Satu fokus per frame; tidak ada teks kiri + UI kanan; teks tidak menutupi wajah/subjek.
 - [ ] **Tidak ada teks yang tumpang tindih dengan teks lain atau objek**; tidak ada teks terpotong tepi atau keluar area aman (kecuali bleed XL yang disengaja).
 - [ ] Elemen yang diperbesar keluar frame dengan wajar, tidak terpotong kontainer.
-- [ ] Kotak/scrim hanya di teks yang gagal kontras atau yang ditetapkan brief; glow HD; tidak ada glitch pengacak huruf.
+- [ ] Kotak/scrim hanya di teks yang gagal kontras atau yang ditetapkan brief; tanpa glow/halo/bloom (K2); tidak ada glitch pengacak huruf.
 - [ ] Tabel beat lolos devil's advocate `decision-guide.md` §7; `scripts/palette_check.py` lolos.
-- [ ] Teks 2.5D benar-benar berotasi/berlapis di momen yang tepat; ekstrusi hanya bila lolos TYPE-TEST.
+- [ ] Teks datar dan tajam; kedalaman dari lapisan dan kamera di momen yang tepat; tanpa ekstrusi/bevel kecuali diminta user (K2).
 - [ ] Layout sama maksimal 2 beat berturut; tidak ada fade sebagai pengganti gerak.
 - [ ] Kamera global ±10 %; adegan informasional diam; gerak besar di setiap pergantian makna; 1 cut zoom per 6–10 dtk.
 - [ ] ≥ 4 tipe transisi per 30 dtk, tidak berturut sama; nol crossfade; transisi di akhir frase VO.
@@ -112,7 +112,7 @@ Jalankan `scripts/audio_qa.py --module5` (ambang di `audio.md` §14.10). Satu FA
 ### 16.3 Tabel kritik sutradara
 Dipindah ke `storyboard.md` §5 (Review papan) (diisi saat storyboard, dicek ulang di render).
 
-### 16.4 Rubrik R1–R7 + Kompas premium
+### 16.4 Rubrik R1–R7 + Kompas kualitas ("premium" diterjemahkan, K2)
 Rubrik (skor 1–5, lulus bila semua ≥ 4):
 - R1 timing di ketukan
 - R2 satu fokus
@@ -122,13 +122,13 @@ Rubrik (skor 1–5, lulus bila semua ≥ 4):
 - R6 setara referensi
 - R7 audio
 
-Kompas premium:
+Kompas kualitas (kata "premium/Apple" di brief berarti: ruang kosong luas, satu fokus, hierarki tegas, perataan presisi, palet sedikit, kamera tenang):
 1. 1 frame = 1 pesan
-2. ruang kosong mewah
+2. ruang kosong luas dan disengaja
 3. teks kinetik mengikuti suara
 4. transisi termotivasi + SFX
 5. gerak halus berbobot
-6. kedalaman dan tekstur halus
+6. kedalaman dari susunan dan kamera (skala, overlap, parallax lapis), bukan shadow/blur/tekstur
 7. UI besar didemokan seperti dipakai
 8. elemen kecil yang hidup
 9. konsistensi palet = satu family, bukan satu warna; warna asli objek/foto tetap

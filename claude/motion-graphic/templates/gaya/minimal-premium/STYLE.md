@@ -1,6 +1,6 @@
 # Gaya: minimal-premium (talking head edukatif)
 
-Template gaya untuk klip podcast/talking head yang tenang dan "mahal": wajah pembicara bergantian dengan adegan bertekstur kertas (lukisan, garis biru, ilustrasi kasar, grafik bercahaya). Diturunkan dari bedah ref 18 (`guide/referensi/joseph-arthur-brooks.md`). Sutradara memilihnya di tahap Brief; setelah dipilih, file ini adalah rujukan visual utama Editor. `SKILL.md` Hard Gate tetap menang.
+Template gaya untuk klip podcast/talking head yang tenang dan presisi (ruang kosong luas, satu fokus): wajah pembicara bergantian dengan adegan bertekstur kertas (lukisan, garis biru, ilustrasi kasar, grafik garis tipis). Diturunkan dari bedah ref 18 (`guide/referensi/joseph-arthur-brooks.md`). Sutradara memilihnya di tahap Brief; setelah dipilih, file ini adalah rujukan visual utama Editor. `SKILL.md` Hard Gate tetap menang.
 
 Cocok: wawancara, filosofi, psikologi, karier, edukasi personal. Tidak cocok: promo produk cepat, demo UI (pakai gaya lain).
 
@@ -11,20 +11,20 @@ Cocok: wawancara, filosofi, psikologi, karier, edukasi personal. Tidak cocok: pr
 | Ritme | ±27 cut/menit, shot median ±1,7 dtk; wajah ±35 % durasi, adegan ±65 % |
 | Latar | hitam `#0B0B0C` · kertas putih `#F1EFEA` · biru penuh (adegan teks) |
 | Aksen | satu biru elektrik ±`#1F5FE0` (sampel 720p ref, kalibrasi ulang bila ada sumber HD); teks selalu putih di gelap, hitam di kertas |
-| Font | Inter (narasi: Regular/SemiBold, kata kunci: Bold) + Playfair Display Italic / Bold Italic (kata istimewa). Keduanya OFL, ada di `engines/talking-head-reels/assets/fonts/` (Inter Medium, Playfair) atau Google Fonts |
+| Font | Inter saja (narasi: Regular/SemiBold, kata kunci: Bold/Black, kontras lewat bobot dan ukuran). Serif/italic dilarang (K1, Lantai A7). Inter OFL, ada di `engines/talking-head-reels/assets/fonts/` atau Google Fonts |
 | Tekstur | kertas halus di semua latar; cat + kertas kasar di lukisan; noise/cat kasar dengan tepi "berdarah" di ilustrasi; kain kasar untuk profil tokoh. Tekstur **menempel ke layer dan ikut bergerak**, kekuatan ≤ 50 % dari kesan pertama (revisi Joseph #3) |
-| Look | vignette lembut; B-roll: tepi digelapkan + sedikit blur agar mata ke titik fokus |
+| Look | tanpa vignette dan tanpa blur dekoratif (K2); B-roll: mata ke titik fokus lewat komposisi, skala, dan ruang kosong |
 
 ## 2. Caption (dipakai di semua adegan)
-- Satu tampilan ≤ 5 kata. Pilih 1 kata terpenting: Inter Bold atau Playfair Bold Italic, besar, di tengah.
+- Satu tampilan ≤ 5 kata. Pilih 1 kata terpenting: Inter Bold/Black, besar, di tengah.
 - Kata lain kecil (Inter Regular, ±30–40 % tinggi kata besar) ditempatkan di **celah** atas-kiri / bawah-kanan kata besar, bukan berbaris rata.
-- Sesuai `decision-guide.md` §2: satu baris satu ukuran, serif hanya untuk penekanan. Caption ≤ 2 baris (Lantai A1).
+- Sesuai `decision-guide.md` §2: satu baris satu ukuran, sans saja (K1). Caption ≤ 2 baris (Lantai A1).
 
 ## 3. Menu adegan (ID dipakai di `PLAN.json → adegan`)
 | ID | Adegan | Pakai saat kalimat… | Build |
 |---|---|---|---|
 | MP-01 | Wajah + caption | membuka, mengumumkan kategori/poin baru, ekspresi | A-roll tight/wide bergantian di cut, push 3 %, caption §2 di bawah dagu |
-| MP-02 | B-roll + teks | bisa ditunjukkan sebagai adegan nyata | B-roll 9:16, tekstur kertas tipis, tepi gelap + blur, teks §2 di ruang kosong |
+| MP-02 | B-roll + teks | bisa ditunjukkan sebagai adegan nyata | B-roll 9:16, tekstur kertas tipis, komposisi menjaga titik fokus, teks §2 di ruang kosong |
 | MP-03 | Lukisan + teks | poin filosofis, cerita, emosi | lukisan domain publik, tekstur cat + kertas, teks mengelilingi subjek lukisan, kamera slide-in 8–12 f |
 | MP-04 | Garis + teks | deretan kata kunci yang terhubung | latar hitam/kertas, garis aksen menggambar menuju teks, terputus oleh teks, lanjut ke teks berikutnya; kamera mengikuti ujung garis |
 | MP-05 | Garis + ilustrasi | progres beberapa fase | garis horizontal + titik putih penanda objek, atau zigzag + kamera pan memperlihatkan objek kiri/kanan |
@@ -32,7 +32,7 @@ Cocok: wawancara, filosofi, psikologi, karier, edukasi personal. Tidak cocok: pr
 | MP-07 | Ilustrasi tengah | ide utama yang bisa jadi satu gambar | ilustrasi bertekstur di separuh bawah, tepi berdarah ke tengah; teks di ruang sisa |
 | MP-08 | Ilustrasi samping | dua hal sekaligus | tokoh/bentuk di satu sisi, teks di sisi lain (boleh berputar mengelilingi) |
 | MP-09 | Objek / callout tokoh | menyebut orang, benda, foto pribadi | satu objek atau foto asli, label menempel objek, reveal kasar |
-| MP-10 | Grafik | angka, tren, kata yang diulang ("naik dan naik") | latar gelap bertekstur, grid garis putih tipis bercahaya, bola aksen sebagai ujung kurva, kamera mengikuti bola; satu langkah per kata yang diulang |
+| MP-10 | Grafik | angka, tren, kata yang diulang ("naik dan naik") | latar gelap bertekstur, grid garis putih tipis, bola aksen solid sebagai ujung kurva, kamera mengikuti bola; satu langkah per kata yang diulang |
 
 ## 4. Logika penempatan (dari peran kalimat)
 | Peran kalimat | Adegan |
@@ -59,7 +59,7 @@ Jenis adegan yang sama tidak dua kali berturut bila beat ketiga bisa berbeda.
 - Ilustrasi: SVG/PNG jadi lalu diberi tekstur; tidak menggambar orang mirip tokoh nyata.
 
 ## 7. Biru di latar gelap (Lantai A7)
-Sampai Irfan memutuskan baris PENDING tentang Lantai A7: di latar hitam garis memakai **putih bercahaya** dan biru hanya untuk bola/titik kecil; garis biru penuh hanya di latar kertas putih. Teks tidak pernah biru di latar gelap.
+Sampai Irfan memutuskan baris PENDING tentang Lantai A7: di latar hitam garis memakai **putih solid** dan biru hanya untuk bola/titik kecil; garis biru penuh hanya di latar kertas putih. Teks tidak pernah biru di latar gelap.
 
 ## 8. Cek QA khusus gaya (tambahan `analysis-qa.md` §16)
 - [ ] Setiap adegan punya peran kalimat di `PLAN.json` dan cocok dengan §4.

@@ -10,7 +10,7 @@ Skill ini lapisan penaik mutu video. Ia bukan template dan bukan pembajak konsep
 **Pintu produksi ramping: `MOTION-CORE.md`** (alur dua langkah, 10 aturan Lantai, gerbang wajib, larangan keras), lalu `projects/<proyek>/`. `PETA.md`, `RETRO.md`, `SUMBER.md`, dan `cookbook/CATALOG.md` utuh tidak dimuat di awal sesi (cukup muat `cookbook/00-core-invariants.md`; kartu dimuat per kartu lewat `pilih_kartu.py`); sisa file ini dibuka saat sebuah langkah menyebut bagiannya.
 
 **Alur setiap video (urut):**
-1. Tahap Brief, Naskah, dan Storyboard/block out (`MOTION-CORE.md` §1, `../irfan-creative-workflow/SKILL.md` §2). **Sebelum mendesain, buka `../motion-theme-director/SKILL.md`**: bila user membawa referensi, Phase 0 `BEDAH-REFERENSI.md` dulu (isi `REFERENCE-BRIEF.md`), lalu pilih tema, dan jalankan 4 uji biner pada setiap frame storyboard. Bedah bahan user dulu (naskah/transkrip, footage, aset), lalu naskah final, lalu storyboard, masing-masing dengan persetujuan user. Belum ada kode sebelum storyboard disetujui.
+1. Tahap Brief, Naskah, dan Storyboard/block out (`MOTION-CORE.md` §1, `../irfan-creative-workflow/SKILL.md` §2). **Sebelum mendesain, buka `../motion-theme-director/SKILL.md`**: bila user membawa referensi, Phase 0 `BEDAH-REFERENSI.md` dulu (isi `REFERENCE-BRIEF.md`), lalu pilih tema, dan jalankan 5 uji biner pada setiap frame storyboard. Bedah bahan user dulu (naskah/transkrip, footage, aset), lalu naskah final, lalu storyboard, masing-masing dengan persetujuan user. Belum ada kode sebelum storyboard disetujui.
 2. Di tahap Storyboard/block out ada **Langkah 1 cookbook**. Tulis fungsi cerita tiap beat, lalu cari kartunya dengan `python3 scripts/cookbook/pilih_kartu.py --cari "<fungsi cerita>" [--kategori …] [--bergerak]` (keluaran: ID, nama, status, path kartu, frame kunci). Buka hanya 2–4 kartu, lalu ajukan tabel racikan dan remix per beat (beat → pola → remix → SFX) untuk disetujui (`cookbook/README.md` §2).
 3. **Langkah 2** (tahap Animate sampai Deliver): kode Remotion ditulis dari nol dari tabel itu, dengan Lantai (`LANTAI.md`) sebagai standar mutu, dan render lewat `scripts/juri/render.sh final`, yang menjalankan `gerbang_produksi.sh` (§0b).
 
@@ -26,17 +26,17 @@ Lantai menentukan **mutu**, kiblat (kartu) menentukan **gaya**; bila bertentanga
 | Kelompok | Inti | ID |
 |---|---|---|
 | Teks: satu lapisan | ucapan tampil sebagai satu lapisan tipografi kinetik; hanya dari ucapan; kata tidak tampil dua kali | A1, A3, A5 |
-| Teks: posisi dan keterbacaan | dekat subjek (≤ ±8 % tinggi frame); 1–3 kata, maks 2 baris, blok seimbang; kontras ≥ 4,5 : 1, terbaca di HP; tampil sampai selesai diucapkan | A2, A4, A7, A8 |
+| Teks: posisi dan keterbacaan | dekat subjek (≤ ±8 % tinggi frame); 1–3 kata, maks 2 baris, blok seimbang; kontras ≥ 4,5 : 1, terbaca di HP; **sans saja, serif/italic dilarang**; tampil sampai selesai diucapkan | A2, A4, A7, A8 |
 | Teks: penekanan dan gerak | satu sistem penekanan per baris; kotak hanya bila kontras gagal; gerak teks dari peran kalimat (`kt_check.py`) | A6, A9, A9a |
 | Kamera | frame tidak datar; satu objek fokus per beat; elemen diam, kamera yang bergerak | B10, B11, B12 |
 | Gerak dan transisi | nol crossfade polos; kurva per gerak `curves.ts` (`motion_lint.py`); format berulang berbeda framing | B13, B13a, B13b |
-| Komposisi | satu fokus per momen; teks-objek satu kesatuan; tepi bersih; seimbang dinilai global per frame dengan mata | C14, C15, C16, C17 |
+| Komposisi | satu fokus per momen; **permukaan datar** (tanpa kaca, blur, gradien radial, glow, bayangan berlapis, 3D; `permukaan_cek.py`); teks-objek tidak bertabrakan (`tabrakan_cek.py`); tepi bersih; seimbang dinilai global per frame dengan mata | C14, C14a, C15, C16, C17 |
 | Rapi, palet, efek | rapi; palet dikunci di resep; setiap efek punya fungsi | C18, C18a, C18b |
 | Isi visual: makna | visual menggambarkan makna; metafora dulu (`board.py`); bentuk yang menjelaskan; storyboard Irfan = struktur | D19, D19a, D19b, D19c |
 | Isi visual: nyata | UI merek asli, UI konseptual frameless; pembicara tampil; tanpa placeholder; tokoh konsisten; logika dunia nyata; tiga detik pertama | D20, D21, D22, D22a, D22b, D22c |
 | Suara | tidak dipercepat, fonem utuh, jeda bersih, level suara asli tidak diturunkan (`cut_check.py`, `voice_level.py`) | E23 |
 | Bunyi dan musik | SFX lima pilar berjarak (`sfx_density.py`); musik mengikuti tempo, di-duck dengan automation; mix diuji di speaker HP | E24, E25, E25a |
-| Alur dan revisi | tahap kanonik + dua render, visual lulus dulu lalu audio; revisi = diff satu ronde (`revisi_cek.py`) | F26, F27 |
+| Alur dan revisi | tahap kanonik + dua render, visual lulus dulu lalu audio; **bangun per lapis, lihat tiap lapis** (latar → objek → teks), 3 style frame dulu; revisi = diff satu ronde (`revisi_cek.py`) | F26, F26a, F27 |
 | Cara kerja | ragu = tanya; baca folder proyek sebelum build; koreksi berlaku untuk frame yang disebut; tanpa generate berbayar sebelum gerbangnya; kirim setelah juri lulus | F28, F28a, F28b, F28c, F29 |
 <!-- LANTAI:selesai -->
 

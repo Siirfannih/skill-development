@@ -19,7 +19,7 @@ Cocok: listicle ≥ 4 poin berbenda konkret, refleksi @siirfannih, talking head 
 Niat: 3D, doodle, foto harus terbaca satu meja → frame: teks kontras tanpa kotak gelap → penonton: terasa dirakit tangan (hipotesis) → gagal: putih digital; alas dipaksakan di talking head penuh (di sana dunia kamera alasnya).
 Bukti: 98-k2, 98-k4, 97-k1, 97-k5, 02-k7, 02-k8.
 
-**V2 · Bayangan mengikuti material.** Label/doodle datar → keras 8 px 8 px 0 tanpa blur. Benda 3D/foto fisik → lembut pendek di bawahnya. Lembar scan → tanpa bayangan digital.
+**V2 · Bayangan mengikuti material.** Label/doodle datar → keras 8 px 8 px 0 tanpa blur. Benda 3D/foto fisik → bayangan kontak satu lapis, pendek, blur ≤ 24 px, opasitas ≤ 0,2 (C14a). Lembar scan → tanpa bayangan digital.
 Niat: blur shadow seragam = slide → frame: tiap benda punya bobot → penonton: membaca benda, bukan kartu UI (hipotesis) → gagal: satu drop shadow blur untuk semua.
 Bukti: 98-k2, 98-k4, sheet 95-rt2rj, 02-k7, 31-k1. Angka px tidak terukur dari still.
 

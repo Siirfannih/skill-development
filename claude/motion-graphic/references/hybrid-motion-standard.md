@@ -21,7 +21,7 @@ secara ketat memakai parameter produksi Hybrid Motion di bawah.
 - **Beat-Sync Cutting**: transisi masif dan kemunculan anchor words dikunci pada ketukan BGM atau puncak gelombang SFX.
 
 ## Tekstur & styling
-- **Organic Overlays**: posterize dilengkapi film grain, halftone, atau paper texture supaya vektor tidak terlalu bersih/murah.
+- **Organic Overlays**: posterize dilengkapi halftone atau paper texture bila referensi memintanya; tanpa film grain di atas gradien (K2).
 - **Depth of Field**: blur selektif (bukan blur statis penuh) pada foreground/background untuk memaksa fokus ke subjek.
 
 ## Audio
@@ -29,4 +29,4 @@ Bagian audio standar ini dicabut: whoosh rendah 40–80 Hz + sub-impact, glass p
 
 ## Catatan penerapan
 - Tetap berlaku aturan Irfan lain: no ear-fatigue 2–6 kHz, SFX tidak mendahului objek, SFX di momen cerita + gerak terlihat, tanpa bunyi per kata (Lantai E24), sumber SFX dari library (bukan sintesis).
-- Transisi Apple style mulus: tidak boleh flash putih/radial blow-out yang menutup frame.
+- Transisi mulus dan tenang (kamera/wipe, tanpa efek kilau): tidak boleh flash putih/radial blow-out yang menutup frame.

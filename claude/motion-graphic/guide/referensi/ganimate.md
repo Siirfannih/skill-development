@@ -1,5 +1,7 @@
 # 17 _ganimate_ · "Editorial Explainer System": guideline editing
 
+> **Banner (kebijakan 26 Nov 2026):** dokumen ini menggambarkan *kulit* referensi. Serif/italic, glow, bloom, dan gradien di dalamnya adalah permukaan yang dilarang (LANTAI A7/C14a; K1/K2). Ambil mekaniknya saja (timing, urutan, skala, hierarki) dan bangun dengan sans, permukaan datar, dan bayangan kontak tajam. Potongan kode glow di bawah = contoh kulit referensi, bukan untuk disalin.
+
 > Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di `sheets/`, scene detect ffmpeg, ebur128, spektrogram + onset librosa). Standar kualitas Irfan; kartu anatominya di `../../cookbook/` (cari lewat `../../cookbook/INDEX.md`). Bila bertentangan dengan `../../LANTAI.md`, lantai menang; bagian "Benturan" berisi usulan yang belum disetujui.
 > Sumber: `_ganimate__DfICqhOvP-0.mp4` · 1280×720 (16:9) · 23,98 fps · 14,4 dtk · **showreel 2×2**: empat proyek motion explainer diputar bersamaan, panel bergantian isi.
 > Karena ini showreel studio, guideline ini merangkum **sistem bersama** + **4 mode** yang bisa dipilih per babak. Status: tata bahasa, **bukan template**. Lihat §11.

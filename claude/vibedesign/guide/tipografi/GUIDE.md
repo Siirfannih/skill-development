@@ -7,12 +7,12 @@
 - Huruf rounded/fun untuk satu kata ekspresif boleh bila slide itu memang bernada lucu, dan ditulis perannya.
 
 ## Cara memutuskan
-- **[TIP-01] Serif tidak diselipkan di antara sans tebal tanpa peran** · kelas P (kandidat H) · cek: RESEP
-  - Pemicu: kamu ingin "mempercantik" satu kata dengan serif italic di tengah kalimat sans bold/extra-bold.
-  - Anti-pola: kata serif tipis terlihat jomplang (beda berat dan tekstur) dengan sans tebal di sekitarnya, tanpa alasan makna.
-  - Invarian: maksimal 2 keluarga huruf per slide; setiap keluarga punya peran tertulis di RESEP; serif hanya dipakai bila perannya tertulis (contoh: kata kunci emosional yang sengaja jadi fokus utama) dan ukurannya cukup besar untuk menyeimbangkan berat sans.
+- **[TIP-01] Serif, italic, dan script dilarang (sans saja)** · kelas H (K1) · cek: RESEP
+  - Pemicu: kamu ingin "mempercantik" satu kata dengan serif/italic, atau kiblat/merek memakainya.
+  - Anti-pola: kata serif tipis jomplang dengan sans tebal; "satu kata emosional serif" adalah tanda slop yang berulang lintas model.
+  - Invarian: tidak ada serif, italic, atau script di teks slide; penekanan lewat bobot, ukuran, warna, kapital, atau posisi dalam keluarga sans yang sama. Kiblat/kartu/profil merek yang memakai serif adalah kulit, bukan mekanik.
   - Karena: campuran tanpa peran membaca sebagai template, dan mata berhenti di kata yang salah.
-  - Boleh: slide editorial yang seluruh fokusnya kata serif besar (serif = fokus, sans = pendamping).
+  - Boleh: hanya bila user menyebut serif/italic secara eksplisit di sesi itu (catat di DECISIONS).
   - Gerbang: tunjukkan slide + baris "Peran huruf" di RESEP.
 - **[TIP-02] Kata kunci ditekan dengan wadah, bukan ganti gaya huruf** · kelas P · cek: sketsa
   - Pemicu: satu kata dalam kalimat harus menonjol.

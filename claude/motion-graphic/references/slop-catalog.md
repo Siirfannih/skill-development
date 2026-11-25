@@ -36,6 +36,7 @@ Dipakai untuk **memindai**, bukan melarang teknik. Satu tanda dengan alasan tert
 | S-T6 | Headline di pojok kiri atas; label kecil + dua kata miring bertangga | still | Lantai D19c, Lantai C14 |
 | S-T7 | Tiga gaya masuk yang sama diulang (fade, pop, melebar) | teknik sama ≤ 2× berturut | `three-segment-gate.md` |
 | S-T8 | Kalimat/angka di layar yang tidak diucapkan | bandingkan dengan transkrip | Lantai A5 |
+| S-T14 | Satu kata "emosional" dalam serif/italic di tengah sans (raw *clip*, the *difference*, *craft*, *quality*), atau kata penutup serif. Muncul identik lintas model dan sesi (audit 26 Nov) | `gate/permukaan_cek.py` K1; still per frasa | Lantai A7 |
 
 ## Visual dan gerak
 
@@ -65,3 +66,6 @@ Dipakai untuk **memindai**, bukan melarang teknik. Satu tanda dengan alasan tert
 | S-V22 | Palet dikarang dari referensi padahal brand/`palettes.json` sudah ada | brief menyebut palet dari `palettes.json` + bukti `palette_check.py` | palette.md §1 |
 | S-V23 | Objek/teks di red zone tepi frame (luar x 165–1755, y 140–935 @1080p) tanpa alasan kamera | still per beat dengan overlay safe frame | storyboard.md §3 |
 | S-V24 | Visual hanya simbol/kata besar, bukan aksi harfiah kalimat (contoh benar: "kecanduan" = terus membuat repo baru tanpa release; "tidak mempublikasikan" = ketik di Threads lalu simpan ke draft) | tabel beat: kalimat → aksi yang terlihat | Lantai D19 |
+| S-V25 | Permukaan "Apple premium" versi model: kartu kaca/bezel, inset highlight, bayangan lembut berlapis, glow/halo, gradien radial/aurora, kemiringan 3D, teks bergradien | `gate/permukaan_cek.py` K2; still 100 % | Lantai C14a |
+| S-V26 | Objek dan teks bertabrakan atau saling menimpa karena frame ditulis sekaligus tanpa dilihat per lapis | `gate/tabrakan_cek.py`; LOG lapis per frame | Lantai C15, F26a |
+| S-V27 | Objek placeholder: kotak kosong, garis abu pengganti teks, border putus-putus, balok warna sebagai "kartu" | uji biner 5 (`BEDAH-REFERENSI.md`); still 100 % | Lantai D22 |

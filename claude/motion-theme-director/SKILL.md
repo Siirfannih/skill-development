@@ -9,8 +9,6 @@ Skill ini mengatur **cara berpikir sebelum dan saat mendesain frame**. LANTAI.md
 
 ## 1. Urutan kerja
 
-## 1. Urutan kerja
-
 0. **Bila user membawa referensi: Phase 0 dulu.** Jalankan `BEDAH-REFERENSI.md` (5 lapis: state machine naratif, mekanisme vs properti permukaan, kontrak dominasi per frame, rantai sebab-akibat kamera, peta upgrade) dan isi `REFERENCE-BRIEF.md` sebelum storyboard dibuat atau di-upgrade. Yang dipindahkan dari referensi adalah alasan dan mekanismenya, bukan kulitnya.
 1. **Periksa bahan dulu.** Lihat footage, naskah, dan aset nyata user sebelum memilih teknik. Catat:
    - warna dan motif baju serta dinding di tempat teks akan jatuh;
@@ -21,15 +19,16 @@ Skill ini mengatur **cara berpikir sebelum dan saat mendesain frame**. LANTAI.md
    Niatnya: teknik referensi yang bagus rusak bila dipakai di kondisi yang berlawanan. Contohnya pil kaca di dinding terang (`contoh-gagal/14`), teks tipis di arsip bertekstur (`contoh-gagal/18`), atau KT yang menutup wajah (`contoh-gagal/19`). Bila syarat teknik tidak terpenuhi, ganti tekniknya, jangan dipaksa.
 2. **Pilih tema** (§2). Bila belum jelas dari bahan, tanya (§3).
 3. **Buka `tema/<tema>.md`** dan 2–3 keyframe wajib di dalamnya. Lihat gambarnya, jangan hanya membaca deskripsinya.
-4. **Storyboard dengan lingkaran still:**
-   1. render 1 still per beat kunci (hook + bukti utama dulu) dengan materi asli, bukan teks dummy;
+4. **3 style frame dulu, dibangun per lapis** (LANTAI F26a): satu frame per mode fokus (TYPO_HERO, SYSTEM_FLOW, UI_PROOF), tanpa anotasi. Tiap frame: L0 latar → render penuh → lihat → L1 satu objek utama → lihat → L2 teks → lihat → L3 label. Lulus bila: sans saja (A7), permukaan datar (C14a, `permukaan_cek.py`), tanpa tabrakan (`tabrakan_cek.py`), objek lengkap (uji placeholder). Token dan komponen dari 3 frame ini yang dipakai storyboard penuh; storyboard penuh tidak ditulis sebelum ketiganya lulus.
+5. **Storyboard dengan lingkaran still:**
+   1. render 1 still per beat kunci (hook + bukti utama dulu) dengan materi asli, bukan teks dummy, tetap per lapis dan dengan komponen yang sudah lulus di butir 4;
    2. taruh berdampingan dengan keyframe tema di zoom 25 % (ukuran HP) dan 100 %;
    3. coret setiap elemen yang tidak menambah pemahaman;
    4. perbaiki, lalu ulangi sampai still tidak kalah rasa dengan keyframe.
 
    Skor yang kamu tulis sendiri bukan bukti. Bukti adalah perbandingan dengan gambar.
-5. **Audio disusun setelah visual lulus**, lalu menyesuaikan gerak final (LANTAI F26).
-6. **Build**: buka `PRESET-INDEX.md` hanya di tahap ini.
+6. **Audio disusun setelah visual lulus**, lalu menyesuaikan gerak final (LANTAI F26).
+7. **Build**: buka `PRESET-INDEX.md` hanya di tahap ini.
 
 ## 2. Router tema
 
@@ -37,7 +36,7 @@ Pilih dari **wujud bukti yang dituntut naskah**, bukan dari kata sifat di brief.
 
 | Bila sebagian besar kalimat menuntut… | Tema | Keyframe contoh untuk ditunjukkan |
 |---|---|---|
-| aksi software nyata (ketik, klik, pindah tab, hasil AI) | `apple-saas-ui` | `63-k4-kartu-ui-gelap.jpg` |
+| aksi software nyata (ketik, klik, pindah tab, hasil AI) | `ui-produk-datar` | `63-k4-kartu-ui-gelap.jpg` |
 | pembicara di kamera memimpin argumen | `talking-head-kinetic` | `83-k1.jpg` |
 | bukti masa lalu: foto, berita, kutipan, profil tokoh | `documentary-archive` | `92-k1-judul-tahun-wipe-blueprint.jpg` |
 | daftar benda/kebiasaan nyata, nuansa buatan tangan | `tactile-paper-collage` | `98-k2-satu-objek-per-item.jpg` |
@@ -46,7 +45,16 @@ Pilih dari **wujud bukti yang dituntut naskah**, bukan dari kata sifat di brief.
 
 Folder keyframe: `./../motion-graphic/guide/referensi/sheets/keyframes/`.
 
-**Brief berisi kata pemicu slop** ("premium", "futuristik", "glass + neon", "penuhi layar dengan kartu"): jangan langsung dieksekusi. Tunjukkan 2 opsi tema dengan keyframe, karena model hampir selalu menerjemahkan kata-kata itu jadi kaca biru-ungu dan grid kartu (`contoh-gagal/03`, `04`).
+**Kata gaya di brief diterjemahkan, tidak dieksekusi harfiah.** Model hampir selalu menerjemahkan "Apple", "premium", "kedalaman" jadi kaca biru-ungu, gradien blur, bayangan berlapis, kartu 3D, dan satu kata serif italic (`contoh-gagal/03`, `04`; audit 26 Nov: identik lintas model dan sesi). Terjemahan wajib, tulis di REFERENCE-BRIEF/RESEP:
+
+| Kata di brief | Artinya di frame |
+|---|---|
+| Apple, premium, mewah, elegan | ruang kosong luas, satu fokus, hierarki lewat bobot + ukuran satu keluarga sans, perataan presisi, palet sedikit, gerak kamera tenang |
+| kedalaman, depth, 3D | kedalaman dari susunan dan kamera: skala, benda menapak yang saling menutup, parallax lapis datar; bukan shadow, blur, atau 3D |
+| gradient halus | latar polos dua nada, atau linear 2 warna berdekatan; bukan radial, mesh, aurora |
+| glass, modern, futuristik, neon | panel solid datar + garis tepi tipis; aksen satu warna |
+
+Larangan permukaan (LANTAI A7, C14a) hanya dibuka bila user menulis teknik terlarangnya secara eksplisit di sesi itu ("pakai serif", "pakai efek kaca"); kata sifat tidak membukanya.
 
 **Campur tema:** satu tema jangkar menguasai ≥ 70 % durasi dan mengunci keluarga huruf serta aksen. Sisipan maksimal satu tema dan harus punya alasan fungsional, misalnya talking head yang memotong ke demo UI, atau dokumenter yang menyisipkan 1–2 beat statistik. Dilarang:
 - 3 tema dalam video ≤ 60 dtk;
@@ -83,8 +91,8 @@ Tiap butir ditulis sebagai rantai: keputusan → niat → kapan dilanggar.
 3. **Kedalaman dari dunia nyata, bukan drop shadow presentasi.**
    - Keputusan: pakai salah satu, sesuai bahan:
      - oklusi: subjek atau benda menutup ≤ 20 % huruf;
-     - blur selektif yang menjaga bukti tetap tajam;
-     - bayangan yang mengikuti kelas material (stiker datar = bayangan keras tipis, benda 3D/foto = lembut).
+     - skala dan susunan: benda dekat besar, benda jauh kecil, benda menapak di permukaan yang sama;
+     - satu bayangan kontak tajam (blur ≤ 24 px, opasitas ≤ 0,2) hanya untuk menunjukkan benda menapak.
    - Gagal bila: semua kartu diberi `box-shadow` atau glow biru-ungu ambient (`contoh-gagal/04`).
 4. **Teks diam saat latar berlari.**
    - Keputusan: bila latar berganti cepat (< 1,5 dtk per shot), kunci teks di satu poros tetap, di lapisan terpisah dari gerak shot. Bila shot bertahan lama, teks boleh pindah ke ruang kosong shot itu.
@@ -98,10 +106,9 @@ Tiap butir ditulis sebagai rantai: keputusan → niat → kapan dilanggar.
    - Keputusan: dokumen dan kutipan tetap tajam dengan stabilo baris, jangan diburamkan demi caption (`contoh-gagal/21`).
    - Narasi VO tidak pernah diketik ke kolom prompt UI (`contoh-gagal/13`).
    - Screenshot kecil mengambang di kanvas kosong dilarang (`contoh-gagal/20`). Pilih full-bleed, inset yang tumbuh ke penuh, atau UI yang dibangun ulang.
-7. **Glow dan blur hanya sebagai makna.**
-   - Halo di sekitar objek yang "memancar" (`88-k6`) atau neon yang menyala bersama kata (`83-k7`) sah.
-   - Blur kabur→jelas untuk makna "menjadi jelas" sah.
-   - Glow ambient dan blur-in sebagai gaya masuk bawaan tidak sah.
+7. **Permukaan datar: tanpa glow, halo, kaca, gradien radial, dan blur dekoratif** (LANTAI C14a).
+   - "Memancar" atau "menyala" digambar lewat perubahan warna datar, garis sinar, atau skala; bukan halo/glow (halo di `88-k6` dan neon di `83-k7` = kulit referensi).
+   - Motion blur hanya saat gerak cepat. Blur kabur→jelas sah hanya bila naskah berkata "menjadi jelas", sekali per video.
 
 Catatan, belum prinsip karena hanya terbukti di 2 tema dan sebagian hipotesis: kontras tempo terasa manusiawi. Ledakan gerak singkat diselingi hold yang cukup untuk dibaca, dan rentetan B-roll padat diputus jeda kanvas polos.
 

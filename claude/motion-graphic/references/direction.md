@@ -7,7 +7,7 @@ Baca saat menentukan apa yang terjadi di setiap beat: tokoh, subjek, metafora, f
 | Family | Dunia | Aset | Kamera | Untuk |
 |---|---|---|---|---|
 | **A. Kolase + karakter** | Ruang pixel/voxel hangat (Jadisatu: ruang kerja malam Irfan) | Plate latar tanpa objek utama + model 3D low-poly objek utama + sprite pixel karakter (beberapa pose, tampak belakang terpisah) | Kamera 3D sungguhan, parallax/DoF nyata | Masalah, tokoh, cerita personal |
-| **B. Tipografi gelap** | Navy/hitam, gradasi lembut | Teks 2.5D berlapis kedalaman, kursor ketik | 2D CAM / kamera AE, zoom mikro, slam | Klaim, pertanyaan, titik balik |
+| **B. Tipografi gelap** | Navy/hitam polos atau dua nada | Teks datar tajam, kedalaman dari susunan lapis dan kamera, kursor ketik | 2D CAM / kamera AE, zoom mikro, slam | Klaim, pertanyaan, titik balik |
 | **C. Kanvas putih UI** | Putih/off-white | UI datar asli: avatar, kursor, kartu, konektor, tiap elemen bergerak independen | 2D CAM, reflow, reveal-out | Solusi, workflow, produk, CTA |
 
 Aturan family A:
@@ -62,13 +62,13 @@ Perpindahan family adalah momen cerita, memakai transisi bab (§10) + engsel sen
   - Ukuran: inline 90–110 % cap-height, mandiri 10–18 % H, hero 30–40 % H.
   - Masuk: 0→110→100 + rotasi −12→0 (10 f), grup stagger 3–5 f, bukan berbaris kaku.
 - Kartu:
-  - sudut 24–32 px, bayangan lembut besar (blur 40–60, opasitas 8–12 %), boleh miring ±3–6°
-  - tiga lapis kedalaman: latar, tengah, depan
+  - sudut 24–32 px, satu bayangan kontak tajam (blur ≤ 24, opasitas ≤ 0,2), tidak miring/berperspektif (K2)
+  - tiga lapis susunan: latar, tengah, depan (kedalaman dari skala dan overlap, bukan bayangan)
   - aktif = skala 115–130 % + cincin; lainnya 85–100 %
 - Tokoh/maskot > 1 dtk punya idle halus (kedip, napas). Ikon biasa boleh diam.
 - Kursor = aktor: kurva, melambat sebelum klik, klik 100→85→100 (4 f) + ripple.
 - UI yang dibahas mengisi ≥ 60 % frame (zoom ke elemennya). Mengetik dengan bunyi ketik.
-- Latar tidak polos statis: gradasi lambat, grid tipis, grain 3–5 %, atau putih yang disengaja. Tidak ada partikel generik.
+- Latar: warna polos dua nada, grid tipis, atau putih yang disengaja; bergerak lewat kamera/parallax, bukan gradasi, grain, atau partikel generik (K2).
 
 ---
 
@@ -81,7 +81,7 @@ Perpindahan family adalah momen cerita, memakai transisi bab (§10) + engsel sen
 - **Dilarang:** gradasi merah-cokelat atau latar maroon untuk adegan gelap. Latar gelap = hitam/navy dengan teks dan garis **putih saja**.
 - **Dilarang: teks atau elemen biru di atas latar gelap/navy** (contoh gagal: "Adele." biru `#2563EB` di navy `#0F172A`). Biru dan navy berbeda hue tipis tetapi kontras luminansinya rendah, jadi terlihat "nyala tapi tenggelam" dan murahan. Aturannya:
   - Biru sebagai warna teks/aksen **hanya di latar putih/terang**.
-  - Di latar gelap, penekanan memakai putih penuh vs putih redup (opasitas), ketebalan, skala, atau KAPITAL, bukan warna. Serif boleh sebagai penekanan, tidak sejajar dengan bold.
+  - Di latar gelap, penekanan memakai putih penuh vs putih redup (opasitas), ketebalan, skala, atau KAPITAL, bukan warna. Serif/italic dilarang (K1).
   - Satu momen gelap butuh aksen warna? Pindahkan momennya ke latar putih, jangan memaksa warna di gelap.
   - Cek otomatis: kontras luminansi teks vs latar ≥ 7 : 1 untuk kata kunci; biru `#2563EB` di `#0F172A` hanya ±3,6 : 1, jadi gagal.
 - Satu aksen per momen. Warna adalah bab: pergantian lewat wipe berlapis, bukan cut warna polos.

@@ -37,21 +37,21 @@ Tentukan dulu jenis kalimat VO-nya, baru modenya.
 ## 2. Ukuran dan hierarki teks
 - **Satu baris = satu ukuran.** Kata yang dibesarkan pindah ke barisnya sendiri (ditumpuk), maksimal satu kata kunci per frasa, dan harus kata yang membawa makna inti. Alasan: besar-kecil-besar dalam satu baris tanpa alasan membuat baris tidak seimbang.
 - Lompatan skala antar level (sambung kecil → kunci besar) terjadi **antar baris atau antar momen**, tidak di dalam baris.
-- **Serif tidak sejajar dengan bold.** Dalam satu frasa, serif tidak boleh seukuran dan sebobot kata bold. Serif boleh sebagai penekanan (satu kata, kontras jelas) atau penutup; serif italic kecil juga boleh untuk kata sambung bila kata kuncinya sans bold. Alasan: dua gaya yang sama kuat membuat mata bingung mana yang utama.
+- **Sans saja (K1).** Serif, italic, dan script dilarang di teks layar, termasuk satu kata penekanan atau penutup. Penekanan lewat bobot, ukuran, warna, atau kapital dalam satu keluarga sans. Alasan: dua gaya yang sama kuat membuat mata bingung mana yang utama, dan serif aksen adalah tanda slop yang berulang.
 
 ## 3. Posisi teks
 - Posisi lahir dari komposisi frame itu: ruang kosong, di belakang subjek (matte), atau menempel objek yang dirujuk.
 - Gagal bila 3 frasa berturut-turut ada di pita tinggi yang sama tanpa alasan (kecuali mode caption).
 - Teks tidak menutupi wajah atau objek yang sedang dibicarakan.
 
-## 4. Kotak, scrim, dan glow
+## 4. Kotak, scrim, dan bayangan
 Kotak di belakang teks adalah **alat keterbacaan**, bukan dekorasi.
 1. Ukur kontras teks terhadap latar di area teks **selama teks tampil**. Bila ≥ 4,5 : 1 dan latarnya stabil, tanpa kotak.
 2. Bila gagal: pindahkan teks ke area tenang, ganti warna teks, atau beri bayangan lembut.
 3. Bila masih gagal (latar terlalu terang/gelap/ramai, atau berganti cut di bawah teks): baru pakai kotak atau scrim.
 4. Kotak sebagai **gaya** (label, chip) hanya bila ditetapkan di brief sebagai elemen sistem dan dipakai konsisten sepanjang video.
 
-Glow boleh. Syaratnya HD: dibuat di compositing (AE, CSS, shader resolusi penuh), bukan bloom three.js yang hasilnya banding/8-bit. Warna glow mengikuti hue aksen. Cek still 100 %.
+Glow, halo, dan bloom dilarang (K2), HD atau tidak. Yang boleh hanya bayangan kontak satu lapis yang tajam (blur ≤ 24 px, opasitas ≤ 0,2) agar benda terlihat menapak.
 
 ## 5. Grafik di atas footage
 Pilih satu dari dua, jangan di tengah-tengah:
@@ -68,7 +68,7 @@ Ikuti `palette.md`: palet dipilih di brief, satu keluarga aksen dominan, netral 
 1. Kalau elemen ini dihapus, apakah penonton kehilangan informasi? Kalau tidak, hapus.
 2. Squint test: blur still 10 px. Gumpalan mana yang menang? Kalau ada dua gumpalan yang sama kuat, gagal.
 3. Apakah teks dan visual mengatakan hal yang sama? Kalau ya, buang salah satu.
-4. Kotak, glow, blur, atau efek ini menyelesaikan masalah apa? Kalau tidak bisa disebut, hapus.
+4. Kotak, blur, atau efek ini menyelesaikan masalah apa? Kalau tidak bisa disebut, hapus.
 5. Warna di beat ini ada di palet terpilih? Kalau tidak, ganti.
 
 Panduan rasa ini sengaja diberi cek supaya tidak kalah oleh aturan yang terukur (cakupan kata, safe zone).

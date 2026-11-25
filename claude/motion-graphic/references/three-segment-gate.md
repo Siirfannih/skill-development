@@ -87,7 +87,7 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
   - Contoh salah: "8 jam", "45 menit", "TIDAK BERHENTI", "PERSIS".
   - Cara yang benar: kalender padat yang bloknya muncul perlahan sudah cukup menjelaskan.
 - **Satu baris = satu ukuran**. Besar-kecil acak dalam satu baris membuat baris tidak seimbang. Kata yang dibesarkan pindah ke barisnya sendiri; pembeda di dalam baris lewat warna aksen, bobot, atau KAPITAL.
-- **Hindari pola "blok di kiri + teks di kanan" di atas latar hitam polos.** Pola ini menyisakan ruang kosong besar di atas dan bawah, jadi melanggar gaya Apple yang modern dan elegan. Isi frame dengan visualnya, dan kamera fokus ke objek.
+- **Hindari pola "blok di kiri + teks di kanan" di atas latar hitam polos.** Pola ini menyisakan ruang kosong besar di atas dan bawah, jadi melanggar prinsip satu fokus dan susunan presisi (ruang kosong harus disengaja). Isi frame dengan visualnya, dan kamera fokus ke objek.
 
 ## Running text + penekanan
 - **Mode teks per beat dipilih lewat `decision-guide.md` §1** (visual saja / penekanan / diegetik / caption / label). Caption hanya bila mode caption video nyala; bila nyala, ia berjalan per klausa mengikuti VO.
@@ -119,7 +119,7 @@ Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. 
 - **Penekanan tanpa memperbesar huruf:**
   - warna aksen;
   - kata sebelumnya diredupkan;
-  - ganti gaya (ketebalan, KAPITAL, atau serif yang tidak sejajar dengan bold);
+  - ganti gaya (ketebalan, KAPITAL, atau ukuran dalam keluarga sans yang sama; serif dilarang, K1);
   - kotak sorot.
 - **Drama lewat kamera:** punch-in cepat atau rack-focus close-up → wide, bukan pop skala teks.
 - **Teks yang hidup di objek:**
@@ -168,7 +168,7 @@ Aturannya:
   | objek mendarat | thud lembut |
   | hapus | trash |
 
-- **Karakter bunyi: renyah, agak nyaring, bernada seperti motion Apple.** Ekornya alami pendek; bukan echo yang ditambahkan. Tidak deep, tidak kasar.
+- **Karakter bunyi: renyah, agak nyaring, bernada bersih dan presisi seperti motion produk yang tenang.** Ekornya alami pendek; bukan echo yang ditambahkan. Tidak deep, tidak kasar.
   - Ukur centroid, keharmonisan (autokorelasi), nada dasar, porsi > 6 kHz dan 2–6 kHz, serta ekor (puncak → −30 dB), lalu bandingkan dengan palet proyek yang lulus (`ears/palette.py`).
 - **Whoosh hanya bila ada gerak nyata.** Cek kurva gerak video (`ears/motion_curve.py`: phase-correlation + beda global).
   - Tidak ada gerak → whoosh dibuang.
@@ -193,6 +193,6 @@ Aturannya:
 
 ## Latar
 - Hindari hitam polos monoton untuk adegan UI atau objek.
-- Pakai gambar nyata, misalnya lanskap atau langit dengan objek diletakkan di dalamnya dan teks boleh di belakang objek. Bisa juga gradien premium: langit biru → cakrawala hangat, awan lembut, pendar.
+- Pakai gambar nyata, misalnya lanskap atau langit dengan objek diletakkan di dalamnya dan teks boleh di belakang objek. Bisa juga latar dua nada polos: langit biru → cakrawala hangat sebagai bidang datar, awan sebagai bentuk solid; tanpa pendar atau gradien halus (K2).
 - Latar diberi parallax lebih lambat dari kamera.
 - Hitam tetap boleh bila sengaja dipakai untuk fokus.

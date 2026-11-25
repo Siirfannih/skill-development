@@ -6,6 +6,8 @@ Sebelum mulai, petakan **peran tiap referensi**: apa yang dipelajari dari masing
 
 Bukti tetap wajib: contact sheet + timestamp untuk setiap klaim (lihat sendiri, jangan menebak dari nama file).
 
+**Hierarki:** hasil bedah tidak boleh melanggar LANTAI A7 (sans saja) dan C14a (permukaan datar). Bila referensi memakai serif/italic, kaca, glow, gradien blur, bayangan lembut, atau kartu 3D, itu **kulit**: masuk daftar terlarang §2, yang diambil hanya mekaniknya. Kata gaya di brief ("Apple", "premium", "kedalaman") diterjemahkan lewat tabel `SKILL.md` §2.
+
 ## Lapis 1 · State machine naratif (alasan di balik warna dan latar)
 
 Dilarang hanya mencatat "latar biru / putih / gelap". Petakan **kapan dan kenapa** suasana visual berubah:
@@ -58,7 +60,7 @@ Jembatan antara hasil bedah dan storyboard yang sudah ada. Sebelum menggambar ul
      - Fungsi naratif: ...
      - Timing & kamera (dengan timestamp bukti): ...
 - Surface props yang DILARANG disalin (anti-slop list):
-  - [misal bola glossy, garis gelombang simetris, peta titik, ikon generik]
+  - [misal bola glossy, garis gelombang simetris, peta titik, ikon generik; selalu termasuk: serif/italic aksen, kaca/blur, glow/halo, gradien radial, bayangan berlapis, kartu 3D]
 
 ## 3. Dominance Contract & Upgrade Mapping (storyboard lama → baru)
 Untuk setiap scene:
@@ -69,9 +71,20 @@ Untuk setiap scene:
 - Causality link ke scene berikutnya: [elemen apa yang menggerakkan kamera/transisi keluar]
 ```
 
-Setelah brief terisi: buat 3 style frame kunci (still dari kode yang sama dengan render) untuk mengunci komposisi, keterbacaan, dan ruang negatif, baru storyboard penuh.
+## Style frame · gerbang 3 frame sebelum storyboard penuh
 
-## Penutup wajib · 4 uji biner (tolak desain sendiri bila mengarah ke slop dekoratif)
+Setelah brief terisi, buat **3 style frame** 1920×1080 (atau 1080×1920) dari kode yang sama dengan render, satu per mode fokus: TYPO_HERO, SYSTEM_FLOW, UI_PROOF. Tanpa anotasi atau label storyboard, supaya rasa visualnya bisa dinilai murni.
+
+1. **Bangun per lapis** (LANTAI F26a), satu lapis baru per render, dan lihat hasilnya di resolusi penuh sebelum lapis berikutnya:
+   - L0 latar: warna/bidang. Cek: warnanya pas, tanpa efek permukaan.
+   - L1 satu objek utama. Cek: bentuk benda nyata, menapak, proporsi benar, terbaca tanpa teks.
+   - L2 teks. Cek: posisi lahir dari komposisi, tidak menimpa objek, satu fokus.
+   - L3 label/aksen kecil bila perlu.
+2. Jalankan `../motion-graphic/scripts/gate/permukaan_cek.py <folder kode>` dan `../motion-graphic/scripts/gate/tabrakan_cek.py <frame.html>`; keduanya PASS.
+3. Nilai dengan mata: sans saja, permukaan datar, tanpa tabrakan, objek lengkap (uji 5).
+4. Storyboard penuh baru ditulis setelah ketiga frame lulus, memakai token dan komponen dari frame itu. Bug di satu komponen tidak boleh tersalin ke puluhan panel.
+
+## Penutup wajib · 5 uji biner (tolak desain sendiri bila mengarah ke slop dekoratif)
 
 Jalankan pada setiap frame storyboard sebelum diserahkan. Satu jawaban "gagal" = frame dirombak, bukan dipoles.
 
@@ -79,5 +92,6 @@ Jalankan pada setiap frame storyboard sebelum diserahkan. Satu jawaban "gagal" =
 2. **Uji clip-art.** Apakah visualnya hanya terjemahan harfiah satu kata (misal "louder" → gelombang suara, "value/cost" → timbangan)? Bila ya, ganti total dengan tipografi kinetik murni atau bukti UI/produk nyata.
 3. **Uji fokus tunggal.** Apakah teks dan objek visual terpisah di dua area berbeda (misal teks di pojok kiri bawah, kartu di kanan)? Bila ya, leburkan, atau pecah menjadi dua beat berurutan.
 4. **Uji kontinuitas.** Apakah setiap frame menjelaskan dari mana ia masuk dan ke mana ia bergerak keluar? Bila hanya "fade in / pop up", itu masih slide statis, belum motion storyboard.
+5. **Uji placeholder.** Apakah objek terlihat lengkap dan bermakna (UI dengan isi nyata, benda dengan bentuk nyata), atau masih kotak kosong, garis abu pengganti teks, border putus-putus, balok warna? Placeholder → isi dengan konten nyata, atau sederhanakan jadi TYPO_HERO murni.
 
-Tulis hasil keempat uji per frame (lulus/gagal + perbaikan) di `REFERENCE-BRIEF.md` §3 atau `STORYBOARD.md`.
+Tulis hasil kelima uji per frame (lulus/gagal + perbaikan) di `REFERENCE-BRIEF.md` §3 atau `STORYBOARD.md`.

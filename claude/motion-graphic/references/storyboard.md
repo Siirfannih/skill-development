@@ -40,7 +40,7 @@ Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkun
 
 Satu panel = frame + caption, seperti artboard Wonder.
 
-- **Frame** berukuran format master (16:9 1920×1080, atau orientasi footage). Isinya **visual yang benar-benar terbaca**: UI asli produk/aplikasi, teks layar final, posisi objek dalam px, empat lapisan 2,5D di kedalaman berbeda: `L1` latar (paling jauh), `L2` footage/dunia (pembicara, video, grid), `L3` teks, `L4` objek visual (paling dekat). Kamera bergerak di ruang 3D melewati lapisan itu (dolly menembus teks/objek, parallax, DoF), jadi gambar tidak tipis satu lapis; tiap beat menulis isi L1–L4 + jalur kamera di tabel storyboard sejak awal. Bukan sketsa kotak. Objek dan teks berada di dalam safe frame (16:9 1080p: x 165–1755, y 140–935; tepi luar = red zone), kecuali keluar karena dolly/zoom kamera; untuk talking head, teks ditaruh di ruang kosong samping kepala.
+- **Frame** berukuran format master (16:9 1920×1080, atau orientasi footage). Isinya **visual yang benar-benar terbaca**: UI asli produk/aplikasi, teks layar final, posisi objek dalam px, empat lapisan susunan di jarak berbeda (kedalaman dari skala dan overlap, bukan shadow/blur): `L1` latar (paling jauh), `L2` footage/dunia (pembicara, video, grid), `L3` teks, `L4` objek visual (paling dekat). Kamera bergerak melewati lapisan itu (dolly menembus teks/objek, parallax lapis), jadi gambar tidak tipis satu lapis; tiap beat menulis isi L1–L4 + jalur kamera di tabel storyboard sejak awal. Bukan sketsa kotak. Objek dan teks berada di dalam safe frame (16:9 1080p: x 165–1755, y 140–935; tepi luar = red zone), kecuali keluar karena dolly/zoom kamera; untuk talking head, teks ditaruh di ruang kosong samping kepala.
 - **Caption**: id beat, babak, waktu, kalimat VO, aksi (apa yang bergerak), kamera, transisi keluar, SFX per event (`peran` + `alasan`), dan musik per babak di judul baris.
 - **Papan**: satu baris per babak, beat dari kiri ke kanan; versi lama pindah ke area arsip, bukan dihapus.
 - Kode G, T, C, X diambil dari `typography.md` dan `camera-transition.md`; jangan menciptakan kode baru di storyboard.
@@ -57,7 +57,7 @@ Satu panel = frame + caption, seperti artboard Wonder.
 
 ## 4. Cara Irfan menilai panel
 
-Bagian ini meniru **cara Irfan berpikir saat menilai**, bukan daftar gaya. Setiap pertanyaan diikuti kasus nyata dari sesi storyboard-nya. Kasus itu adalah jawaban untuk konteksnya sendiri (motion Apple-style, iklan Jadisatu, video lirik), bukan aturan tetap. Di konteks lain, ajukan pertanyaan yang sama, dan jawabannya boleh berbeda; tulis alasannya di caption panel. Yang tetap hanya standar yang Irfan nyatakan berlaku umum (butir `LANTAI.md`, mis. teks layar satu baris tanpa tanda baca).
+Bagian ini meniru **cara Irfan berpikir saat menilai**, bukan daftar gaya. Setiap pertanyaan diikuti kasus nyata dari sesi storyboard-nya. Kasus itu adalah jawaban untuk konteksnya sendiri (motion produk yang tenang dan presisi, iklan Jadisatu, video lirik), bukan aturan tetap. Di konteks lain, ajukan pertanyaan yang sama, dan jawabannya boleh berbeda; tulis alasannya di caption panel. Yang tetap hanya standar yang Irfan nyatakan berlaku umum (butir `LANTAI.md`, mis. teks layar satu baris tanpa tanda baca).
 
 1. **Apakah ini masuk akal di dunia nyata?** Penonton langsung merasa ada yang janggal walau tidak bisa menyebutnya.
    - Kasus Trojan v4: chat sama ayang, kedua pihak sama-sama bertanya → tidak nyambung; pesan "jual risol" masuk ke chat ayang, padahal seharusnya ke chat Jadisatu.
