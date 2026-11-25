@@ -2,7 +2,7 @@
 > 1. **Cookbook = perpustakaan mekanik, bukan template.** Konsep user + 2–4 kartu mekanik cookbook = output baru. Jangan membuat template gaya tetap atau menyalin gaya antar proyek.
 > 2. **Promosi aturan hanya lewat `SARINGAN.md`** (S = proyek, P = pertimbangan, H = hukum netral-gaya terukur). Selera satu proyek tidak naik ke aturan global.
 > 3. **Gerbang pemilik tidak dilewati.** Konsep/topik, naskah final, serta storyboard + tabel racikan cookbook disetujui pemilik sebelum produksi atau pemakaian kredit.
-> 4. **Gerbang mekanis Kelas H tidak dilewati atau diedit selama sesi produksi video:** `render.sh final`, `gerbang_produksi.sh`, `scripts/gate/*`.
+> 4. **Aturan = praktik terbaik, bukan hukum tetap.** Lantai, kartu, `render.sh final`, `gerbang_produksi.sh`, `scripts/gate/*` = default; kondisi nyata video/suara/frame menang. Melewati gerbang boleh dengan satu baris alasan + bukti di LOG. Alat gerbang tidak diubah demi satu video.
 > 5. **Baca dulu, jangan menebak.** Bahan sumber dan outbox/proyek terkait dibaca sebelum menyimpulkan atau memberi perintah.
 
 # Bekerja di Skill Development

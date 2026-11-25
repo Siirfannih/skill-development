@@ -104,7 +104,7 @@ class Peta(unittest.TestCase):
 
 
 INVARIAN = ("Cookbook = perpustakaan mekanik, bukan template", "Promosi aturan hanya lewat `SARINGAN.md`", "Gerbang pemilik tidak dilewati",
-            "Gerbang mekanis Kelas H tidak dilewati atau diedit", "Baca dulu, jangan menebak")
+            "Aturan = praktik terbaik, bukan hukum tetap", "Baca dulu, jangan menebak")
 
 
 def blok_invarian(teks):
