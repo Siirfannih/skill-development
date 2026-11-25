@@ -70,3 +70,14 @@ Untuk setiap scene:
 ```
 
 Setelah brief terisi: buat 3 style frame kunci (still dari kode yang sama dengan render) untuk mengunci komposisi, keterbacaan, dan ruang negatif, baru storyboard penuh.
+
+## Penutup wajib · 4 uji biner (tolak desain sendiri bila mengarah ke slop dekoratif)
+
+Jalankan pada setiap frame storyboard sebelum diserahkan. Satu jawaban "gagal" = frame dirombak, bukan dipoles.
+
+1. **Uji hapus objek.** Bila sebuah bentuk (bola, garis lengkung, lingkaran) dihapus dan pesan frame tidak berkurang sedikit pun, hapus bentuk itu.
+2. **Uji clip-art.** Apakah visualnya hanya terjemahan harfiah satu kata (misal "louder" → gelombang suara, "value/cost" → timbangan)? Bila ya, ganti total dengan tipografi kinetik murni atau bukti UI/produk nyata.
+3. **Uji fokus tunggal.** Apakah teks dan objek visual terpisah di dua area berbeda (misal teks di pojok kiri bawah, kartu di kanan)? Bila ya, leburkan, atau pecah menjadi dua beat berurutan.
+4. **Uji kontinuitas.** Apakah setiap frame menjelaskan dari mana ia masuk dan ke mana ia bergerak keluar? Bila hanya "fade in / pop up", itu masih slide statis, belum motion storyboard.
+
+Tulis hasil keempat uji per frame (lulus/gagal + perbaikan) di `REFERENCE-BRIEF.md` §3 atau `STORYBOARD.md`.

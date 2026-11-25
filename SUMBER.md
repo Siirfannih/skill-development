@@ -137,3 +137,4 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 ## `claude/motion-theme-director/BEDAH-REFERENSI.md` · SKILL.md §1 butir 0 · `irfan-creative-workflow` tahap Brief
 
 - SOP Bedah Referensi 5 Lapis (Phase 0) dari Irfan 26 Nov 2026, setelah storyboard Behindwork v4 menyalin kulit referensi (bola biru, blob gradien, garis acak) karena bedah hanya mencatat "apa terlihat". Contoh nama file referensi diganti deskripsi umum.
+- 4 uji biner penutup (hapus objek, clip-art, fokus tunggal, kontinuitas): Irfan 26 Nov 2026.
