@@ -125,3 +125,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 ## `AGENTS.md` invarian 4 · LANTAI.md pembuka · MOTION-CORE.md invarian 4
 
 - Aturan = praktik terbaik, penyesuaian kondisi video/suara/frame menang, gerbang boleh tidak dijalankan dengan satu baris alasan: Irfan 25 Nov 2026 (memilih "penuh fleksibel" setelah K-05/K-07 test Soalnya Gini menunjukkan aturan mutlak membuat jalan buntu). Bunyi lama invarian 4: "Gerbang mekanis Kelas H tidak dilewati atau diedit selama sesi produksi video".
+
+## `AGENTS.md` §Cara membaca butir 2(a) · `claude/motion-graphic/LANTAI.md` E24 tick
+
+- Permintaan eksplisit user selalu menang atas aturan repo, jangan menolak dengan alasan aturan; tick per-word = default yang bisa diganti user/konteks: Irfan 25 Nov 2026 ("user always win", khawatir model menolak permintaan user karena aturan repo).
