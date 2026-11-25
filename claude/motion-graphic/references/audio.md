@@ -2,6 +2,15 @@
 
 Baca hanya di gerbang audio (setelah script dan storyboard final) dan saat QA audio. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.
 
+## Aturan inti (Lantai E23-E25a): baca ini dulu
+
+Ringkasan butir LANTAI E, dengan alasannya; bunyi lengkap ada di `LANTAI.md` dan bagian §14 di bawah. Ini bacaan wajib di langkah 7 alur `SKILL.md` dan sebelum mengunci suara.
+
+- **E23 Suara utuh** (NEGATIF 9). Suara tidak dipercepat, jedanya bersih, tak ada fonem yang digunting; tempo dirapatkan dengan memotong jeda mati. Kata sampah (eee, emm, tuh) dan diam saat berpikir dibuang di tahap potong. Rencana cut divalidasi terhadap transkrip take sumber: kata isi tidak teriris > 20 ms, tiap batas punya guard 50 ms, durasi kata hasil ≥ 85 %, urutan ASR tetap sama (jumlah entri JSON bukan bukti suara utuh). Jeda tidak diisi room tone kotor: stem suara di jeda ≤ -50 dBFS (`gate/pause_clean.py`). Level suara asli tidak diturunkan, di-loudness-kan, atau di-limit: hanya peredam noise, lalu gain naik bersih ke ±-16 LUFS bila sumber terlalu pelan; musik dan SFX yang menyesuaikan ke suara. Alasan: ini penolakan audio yang paling sering. Cek: `audio_order.py lock suara ...`, `cut_check.py`, `gate/voice_level.py suara_sumber.wav suara_hasil.wav`.
+- **E24 Sound design lima pilar, satu cue satu pilar, dengan jarak** (`guide/sfx/FAMILI.md` §0): (1) bed ambien rekaman konstan ±-36 LUFS supaya tidak ada hening digital; (2) transisi kamera dan split: udara/kain low-pass atau thud teredam, puncak di kecepatan tertinggi gerak; (3) tick KT dan UI: satu klik per kata KT (`kt_tick: per-word` atau `accent-only` di `EDITING.md`/`RESEP.md`) dan per elemen UI yang berubah, 2-4 varian berputar; (4) foley taktil untuk objek fisik; (5) aksen dan riser menuju aksen, satu sampai dua per babak. Jarak: dua bunyi ≥ 100 ms, whoosh ≥ 1 dtk, maksimal 5 event non-tick dan 8 tick dalam 2 dtk. SFX mulai di level alami `0 dB` dan ditempatkan relatif VO (-2...-6 dB transisi/aksen, -12...-18 dB tick/foley). Palet terlarang: kayu/thock/felt, koin/logam, kartun/langkah kaki, 8-bit, noise/sinus sintetis, rope-creak. Alasan: tiap penolakan SFX Irfan lahir dari bunyi tanpa sebab atau tanpa jarak. Cek: `gate/sfx_density.py render.mp4 cues.json --objects objects.json`, `sfx_vet.py`.
+- **E25 Musik mengikuti tempo dan suasana**, per babak (bukan satu track dari awal sampai akhir), tidak bolong, tidak melawan emosi ucapan; kategori dari tempo video (`scripts/audio/pace_read.py`), dipilih dengan `scripts/audio/music_fit.py`. Bed ada sejak frame 0. Duck dengan automation (turun saat dialog, naik halus di jeda ≥ 0,3 dtk lewat ramp ≥ 250 ms), bukan kompresor.
+- **E25a SFX terdengar, nyaman, dan diuji di speaker HP.** Stem SFX diukur di bagian padat aksi; SFX yang berdesis atau tajam ditolak, tidak dikeraskan dengan saturasi (bed ambien boleh berdesis lembut asal ≤ -35 LUFS dan tanpa distorsi). `scripts/audio/audio_phone.py` dan `scripts/audio_qa.py --module5` lulus sebelum render final.
+
 ## 14. Audio
 
 ### 14.0A Kategori suasana dulu, baru cari audio

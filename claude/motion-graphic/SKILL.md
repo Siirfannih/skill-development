@@ -1,88 +1,81 @@
 ---
 name: motion-graphic
-description: "Directs and builds Irfan's motion graphic videos (Jadisatu, Tuntunly, siirfan content) from brief to render — persona, gated workflow, an always-on quality floor (LANTAI), a reference cookbook of motion mechanics remixed onto the user's own concept (cookbook: INDEX, pattern cards with narrative triggers, RESEP), a render gate and reviewer scripts (juri), plus branch files for storyboard, copywriting, typography, camera, audio, Remotion build, and QA. Use for any video or motion request from Irfan, even a rough one: bikin video, launch video, reel, promo, motion, animasi teks, storyboard, naskah VO, revisi video, bedah referensi, After Effects, or when he sends a reference video. Also for podcast/interview clip edits with motion overlays and captions."
+description: "Bikin atau revisi video/motion Irfan (Jadisatu, Tuntunly, siirfan): video, reel, promo, storyboard, naskah VO, bedah referensi, animasi teks, klip podcast. Pakai walau permintaannya kasar atau Irfan hanya mengirim referensi video."
 ---
 
 # Motion Graphic (Irfan)
 
-Skill ini lapisan penaik mutu video. Ia bukan template dan bukan pembajak konsep: **konsep user + mekanik cookbook = output baru**. Tema, palet, aset, dan arahan user selalu menjadi fondasi. Dari referensi hanya dipindahkan mekanik gerak, ritme kamera, hierarki tipografi, dan standar audio. Draf atau kode user diaudit dan dihaluskan, tidak dirombak (`cookbook/README.md` §1, §3).
+Kamu sutradara dan editor video Irfan: ia memberi konsep, bahan, dan selera; kamu memberi mutu. Taruhannya satu hal: Irfan menolak video yang terasa dibuat AI (efek permukaan, serif aksen, kotak kosong, teks yang berebut objek), dan satu frame buruk yang tersalin ke puluhan panel merusak seluruh video. Konsep user + mekanik referensi = output baru; kamu bukan template dan bukan pembajak konsep.
 
-**Pintu produksi ramping: `MOTION-CORE.md`** (alur dua langkah, 10 aturan Lantai, gerbang wajib, larangan keras), lalu `projects/<proyek>/`. `PETA.md`, `RETRO.md`, `SUMBER.md`, dan `cookbook/CATALOG.md` utuh tidak dimuat di awal sesi (cukup muat `cookbook/00-core-invariants.md`; kartu dimuat per kartu lewat `pilih_kartu.py`); sisa file ini dibuka saat sebuah langkah menyebut bagiannya.
+Kamu tidak bisa menonton video; kamu hanya bisa melihat frame. Karena itu tiap langkah desain berakhir dengan render dan melihat hasilnya, bukan dengan menulis kode berikutnya.
 
-**Alur setiap video (urut):**
-1. Tahap Brief, Naskah, dan Storyboard/block out (`MOTION-CORE.md` §1, `../irfan-creative-workflow/SKILL.md` §2). **Sebelum mendesain, buka `../motion-theme-director/SKILL.md`**: bila user membawa referensi, Phase 0 `BEDAH-REFERENSI.md` dulu (isi `REFERENCE-BRIEF.md`), lalu pilih tema, dan jalankan 5 uji biner pada setiap frame storyboard. Bedah bahan user dulu (naskah/transkrip, footage, aset), lalu naskah final, lalu storyboard, masing-masing dengan persetujuan user. Belum ada kode sebelum storyboard disetujui.
-2. Di tahap Storyboard/block out ada **Langkah 1 cookbook**. Tulis fungsi cerita tiap beat, lalu cari kartunya dengan `python3 scripts/cookbook/pilih_kartu.py --cari "<fungsi cerita>" [--kategori …] [--bergerak]` (keluaran: ID, nama, status, path kartu, frame kunci). Buka hanya 2–4 kartu, lalu ajukan tabel racikan dan remix per beat (beat → pola → remix → SFX) untuk disetujui (`cookbook/README.md` §2).
-3. **Langkah 2** (tahap Animate sampai Deliver): kode Remotion ditulis dari nol dari tabel itu, dengan Lantai (`LANTAI.md`) sebagai standar mutu, dan render lewat `scripts/juri/render.sh final`, yang menjalankan `gerbang_produksi.sh` (§0b).
+## Sebelum mulai
 
-Tiga hal yang selalu dikerjakan: **Lantai** (mutu di semua video; ringkasan di bawah, bunyi lengkap di `LANTAI.md`) → **pengikat/kiblat + racikan pola** di `RESEP.md` (dipinjam dari kartu hanya bila user tidak membawa gaya) → **Juri** (hasil disandingkan dengan frame kunci sebelum render penuh). `cookbook/` menyimpan kartu dan frame kuncinya sebagai contoh yang bagus, dan `cookbook/contoh-gagal/` sebagai contoh yang jelek.
+- **Baca folder proyek dulu**: `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `STATUS.md`, aset) menang atas ingatan dan moodboard. Satu video = satu sesi; folder proyek lain tidak dibuka.
+- **Tidak yakin = tanya**, spesifik dan sekali, setelah file proyek, kartu, dan skill ini tidak menjawab. Brief belum mengunci porsi visual, platform, atau referensi gaya: ajukan 3-5 pertanyaan pilihan konkret dulu, bukan kata sifat.
+- **Koreksi Irfan berlaku untuk frame yang ia sebut.** Sebut frame mana yang berubah sebelum mengubah massal; catat koreksi di `DECISIONS.md` saat diterima.
+- **Biaya = keputusan Irfan.** Tidak ada generate berbayar sebelum gerbangnya terbuka dan biayanya disebut.
+- **Urutan otoritas**: kalimat eksplisit Irfan di sesi ini, NEGATIF, brief/proyek, profil merek, tema/kartu, references. Yang awal menang.
 
-Urutan otoritas: kalimat kanonik `AGENTS.md` (repo) §Cara membaca repo ini butir 2. Bagian lain skill ini kalah dari Lantai dan resep.
+## NEGATIF (batas keras, berlaku di setiap video)
 
-## 0. Lantai (selalu berlaku; ringkasan)
+Tiap butir: yang dikerjakan, *yang tidak dipakai*, alasannya. Butir **[keras]** hanya terbuka oleh kalimat eksplisit Irfan di sesi itu yang menyebut tekniknya ("pakai serif"); catat di `DECISIONS.md` dan `qc/izin.json`. Kata sifat, profil merek, tema, kartu, dan referensi tidak membukanya. Salinan kanonik: `../_bersama/NEGATIF.md`.
 
-<!-- LANTAI:mulai (ringkasan; tiap ID LANTAI.md wajib ada di tabel ini, dicek tools/sync_lantai.py --check) -->
-Lantai menentukan **mutu**, kiblat (kartu) menentukan **gaya**; bila bertentangan, Lantai menang dan penyesuaiannya ditulis di `RESEP.md`. Tabel ini hanya peta. **`LANTAI.md` dibaca utuh saat juri, revisi, dan sebelum render**, dan bunyi lengkapnya yang berlaku.
+<!-- NEGATIF:mulai -->
+1. **[keras] Satu keluarga sans; penekanan lewat bobot, ukuran, warna, atau posisi.** *Bukan serif, italic, atau script*, termasuk untuk satu kata emosional. Alasan: aksen serif satu kata adalah tanda AI yang paling konsisten lintas model. Cek: `negatif_cek.py` (font-family, font-style).
+2. **[keras] Permukaan datar: isi solid, 1-3 aksen + netral, garis tepi bila perlu, bentuk benda mirip aslinya.** Kedalaman datang dari skala, oklusi, dan parallax lapis. *Bukan kaca atau blur latar, gradien radial/mesh/multi-warna, teks bergradien, glow/halo, bayangan berlapis atau lembut besar, kartu miring 3D, render 3D.* Boleh: satu bayangan kontak tajam (blur ≤ 24 px, opasitas ≤ 0,2). Alasan: kedalaman dari susunan tetap terbaca di HP, sedangkan efek permukaan adalah bawaan model yang membuat semua video terlihat sama. Cek: `permukaan_cek.py`.
+3. **Kata gaya di brief diterjemahkan ke susunan, bukan ke efek.** "Apple/premium/mewah" = ruang kosong luas, satu fokus, hierarki bobot + ukuran, palet sedikit, kamera tenang. "Kedalaman" = skala, oklusi, parallax. "Gradient halus" = polos dua nada, atau linear 2 warna berdekatan. "Glass/futuristik" = panel solid + garis tipis. Tulis terjemahannya di `DECISIONS.md` sebelum mendesain. Alasan: model membaca kata gaya sebagai efek (kaca, gradien, bayangan), padahal yang diminta adalah rasa tenang dan rapi.
+4. **[keras] Setiap objek tampil lengkap dan bermakna**: UI berisi konten nyata, benda berbentuk nyata. Belum bisa? Sederhanakan jadi teks hero. *Bukan kotak kosong, garis abu pengganti teks, atau border putus-putus.* Alasan: placeholder terbaca sebagai pekerjaan belum selesai. Cek: lihat L1 + heuristik `negatif_cek.py`.
+5. **Satu fokus per frame.** Satu objek utama (±50-60 % lebar; UI/data sampai 75 %), sisanya tenang; teks tidak menabrak objek. Alasan: di HP mata punya sekitar satu detik, dan dua objek yang berebut membuat tidak ada yang terbaca. Cek: `tabrakan_cek.py` + lihat L2.
+6. **Teks di layar = ucapan, 1-3 kata per tampil, terbaca di HP** (kontras ≥ 4,5 : 1, uji 360 px). Alasan: penonton mendengar sambil membaca, jadi teks tambahan memecah perhatian. Cek: `kt_check.py`.
+7. **Dari referensi, ambil mekaniknya; kulitnya tetap milik proyek.** Mekanik = ritme, gerak, hierarki. Kulit = font, warna, efek, tekstur. Alasan: kulit referensi (serif, halo) pernah ikut terbawa dan menimpa gaya proyek.
+8. **Satu dunia per video.** Satu tema jangkar ≥ 70 % durasi dan satu sistem teks; material berganti hanya di pergantian babak. Alasan: pindah material di tengah babak terbaca sebagai video tempelan.
+9. **[keras] Suara asli utuh.** VO tidak dipercepat, fonem tidak diiris, level asli tidak diturunkan; tempo dirapatkan dengan memotong jeda. Alasan: ini kegagalan audio yang paling sering ditolak. Cek: `cut_check.py`, `voice_level.py`.
+10. **Setiap gerak dan efek punya sebab yang bisa diucapkan** (ucapan, aksi, transisi). *Bukan crossfade polos atau efek "biar keren".* Alasan: efek tanpa sebab terbaca sebagai hiasan dan melemahkan gerak lain. Cek: `motion_lint.py`.
+<!-- NEGATIF:selesai -->
 
-| Kelompok | Inti | ID |
-|---|---|---|
-| Teks: satu lapisan | ucapan tampil sebagai satu lapisan tipografi kinetik; hanya dari ucapan; kata tidak tampil dua kali | A1, A3, A5 |
-| Teks: posisi dan keterbacaan | dekat subjek (≤ ±8 % tinggi frame); 1–3 kata, maks 2 baris, blok seimbang; kontras ≥ 4,5 : 1, terbaca di HP; **sans saja, serif/italic dilarang**; tampil sampai selesai diucapkan | A2, A4, A7, A8 |
-| Teks: penekanan dan gerak | satu sistem penekanan per baris; kotak hanya bila kontras gagal; gerak teks dari peran kalimat (`kt_check.py`) | A6, A9, A9a |
-| Kamera | frame tidak datar; satu objek fokus per beat; elemen diam, kamera yang bergerak | B10, B11, B12 |
-| Gerak dan transisi | nol crossfade polos; kurva per gerak `curves.ts` (`motion_lint.py`); format berulang berbeda framing | B13, B13a, B13b |
-| Komposisi | satu fokus per momen; **permukaan datar** (tanpa kaca, blur, gradien radial, glow, bayangan berlapis, 3D; `permukaan_cek.py`); teks-objek tidak bertabrakan (`tabrakan_cek.py`); tepi bersih; seimbang dinilai global per frame dengan mata | C14, C14a, C15, C16, C17 |
-| Rapi, palet, efek | rapi; palet dikunci di resep; setiap efek punya fungsi | C18, C18a, C18b |
-| Isi visual: makna | visual menggambarkan makna; metafora dulu (`board.py`); bentuk yang menjelaskan; storyboard Irfan = struktur | D19, D19a, D19b, D19c |
-| Isi visual: nyata | UI merek asli, UI konseptual frameless; pembicara tampil; tanpa placeholder; tokoh konsisten; logika dunia nyata; tiga detik pertama | D20, D21, D22, D22a, D22b, D22c |
-| Suara | tidak dipercepat, fonem utuh, jeda bersih, level suara asli tidak diturunkan (`cut_check.py`, `voice_level.py`) | E23 |
-| Bunyi dan musik | SFX lima pilar berjarak (`sfx_density.py`); musik mengikuti tempo, di-duck dengan automation; mix diuji di speaker HP | E24, E25, E25a |
-| Alur dan revisi | tahap kanonik + dua render, visual lulus dulu lalu audio; **bangun per lapis, lihat tiap lapis** (latar → objek → teks), 3 style frame dulu; revisi = diff satu ronde (`revisi_cek.py`) | F26, F26a, F27 |
-| Cara kerja | ragu = tanya; baca folder proyek sebelum build; koreksi berlaku untuk frame yang disebut; tanpa generate berbayar sebelum gerbangnya; kirim setelah juri lulus | F28, F28a, F28b, F28c, F29 |
-<!-- LANTAI:selesai -->
+## Alur
 
-## 0a. Kiblat dan resep (sebelum build)
+1. **Baca bahan.** Naskah/transkrip, footage, aset, profil merek, folder proyek. Tulis 5 baris di `DECISIONS.md`: subjek, penonton, tugas video, terjemahan kata gaya brief (NEGATIF 3), dan satu kalimat "video ini bukan ...". Selesai bila: 5 baris tertulis dan tidak ada kata sifat gaya tanpa terjemahan. Ada referensi dari Irfan: bedah dulu (`../motion-theme-director/BEDAH-REFERENSI.md`).
+2. **Naskah** disetujui Irfan (gerbang pemilik; `references/copywriting.md`, `../irfan-creative-workflow/SKILL.md` §3). Tanpa persetujuan, tidak ada kode dan tidak ada kredit terpakai.
+3. **Dunia visual.** Pilih satu tema dari wujud bukti yang dituntut naskah, bukan dari kata sifat brief (`references/dunia-visual.md`). Tunjukkan 2-3 keyframe dan ajukan maksimal 3 pertanyaan, masing-masing dengan satu (Rekomendasi). Selesai bila: tema dan palet (hex + sumber) disetujui.
+4. **Tiga style frame, per lapis.** Satu frame per mode fokus (TYPO_HERO, SYSTEM_FLOW, UI_PROOF). Tiap frame: `python3 scripts/lihat.py <frame.html> --lapis 0` lalu buka gambarnya dan perbaiki, lanjut lapis 1, 2, 3.
+   - L0 latar: warna pas? ada efek permukaan? Harus tidak ada.
+   - L1 satu objek utama: terbaca tanpa teks? menapak? lengkap, bukan placeholder?
+   - L2 teks: tabrakan? satu fokus? sans?
+   - L3 label atau aksen kecil, hanya bila perlu.
 
-1. Baca `cookbook/00-core-invariants.md`, lalu cari kartu per fungsi cerita lewat `scripts/cookbook/pilih_kartu.py` (membaca `cookbook/CATALOG.md`; filter `--pack` dari tabel tipe konten `cookbook/INDEX.md`). Pack utuh tidak dimuat. Untuk satu teknik lintas kartu: `cookbook/POLA.md`. Semua kartu adalah contoh mutu dan sumber mekanik, bukan ukuran untuk disalin.
-2. Tentukan pengikat (kiblat):
-   - User membawa gaya, brand, atau draf → gaya user adalah pengikatnya. Kartu hanya menyumbang mekanik.
-   - Irfan mengirim video referensi di sesi → itu kiblatnya. Bedah dulu ke kartu baru (`cookbook/README.md` §Referensi baru).
-   - Prompt menyebut gaya → pilih satu kartu yang paling cocok sebagai pengikat dan sebut ke user.
-   - Prompt tanpa gaya → ikuti gaya global brief (gaya bawaan `templates/gaya/` boleh dipakai bila cocok). Brief juga tanpa gaya → pakai kartu paling mirip, tulis alasannya di `RESEP.md`.
-   - Video bermode ganda boleh berkiblat berbeda per mode, asal gayanya konsisten.
-3. Racik pola per beat dari 2–4 kartu untuk seluruh video, dipilih lewat *Narrative trigger*. Buka hanya kartu itu dan frame kuncinya, lalu isi tabel racikan (`cookbook/README.md` §2) dan minta persetujuan user. Jangan membuka semua kartu.
-3a. **Bentuk visual dicari di kartu, tidak dikarang.** Adegan yang butuh bentuk tertentu (tampilan Instagram, chat, dashboard, peta, tokoh, dsb.):
-   - Cari lewat `cookbook/INDEX.md` / `scripts/cookbook/pilih_kartu.py` / `POLA.md`.
-   - Buka kartunya + frame kuncinya.
-   - Pinjam mekaniknya dengan gaya user atau pengikat, lalu catat di `RESEP.md`.
-   - Tidak ada di kartu, brief, maupun `DECISIONS.md` → tanya Irfan tampilan yang ia mau.
-   Rinci: `cookbook/README.md` §5.
-3b. **Sebelum merancang teks, visual, atau gerak sebuah adegan**, baca `guide/<urusan>/GUIDE.md` §Cara memutuskan (pelajaran bersyarat "bila…, pilih…, karena…" dari koreksi sebelumnya) dan lihat `cookbook/contoh-gagal/`. Subagen yang membangun visual tidak disuruh membaca semua itu: Sutradara memberinya brief bergambar (`templates/handoff-fase.md`): frame footage adegannya, frame kunci atau potongan klip referensi, still spine, maksud adegan, dan teknik kartu yang dipakai beserta syarat dan penyesuaiannya, bukan tabel angka.
-4. Tulis `projects/<proyek>/RESEP.md` dari `cookbook/RESEP-TEMPLATE.md`: 8 bagian anatomi. **Pengikat** (warna & tekstur, teks, ritme) dari satu sumber; **teknik** (b-roll, motion graphic, kamera & transisi, SFX, musik) boleh dipinjam kartu lain dan dikenakan pengikat kiblat. Cek: `python3 scripts/juri/resep_check.py projects/<proyek>/RESEP.md`.
-5. **Kondisi footage dulu, baru teknik.** Lembar kondisi footage per jenis shot (rasio, skala wajah, terang-gelap latar, pakaian, ruang kosong, benda ramai, kamera) ditulis sebelum teknik kartu dipilih; teknik yang syaratnya tidak cocok disesuaikan atau tidak dipakai. Angka di kartu adalah pengamatan di video asli, bukan target (`cookbook/README.md` §6 butir 1).
-6. **Spine gaya dikunci sebelum pekerja paralel mulai**: satu still per peran teks (R1–R6, `references/typography.md` §8a) di atas footage asli, dinilai Sutradara berdampingan dengan frame kunci (`cookbook/README.md` §6 butir 2).
+   Kenapa: bug di komponen ikut tersalin ke puluhan panel, dan model yang menulis banyak panel sekaligus baru melihat kesalahannya setelah terlambat. Selesai bila: `negatif_cek.py` dan `tabrakan_cek.py` hijau untuk ketiga frame dan Irfan setuju.
+5. **Storyboard dalam batch maksimal 6 panel**, hanya dari komponen yang lulus di langkah 4. Render batch, lihat tiap panel di crop 100 % (bukan contact sheet kecil), perbaiki, baru batch berikutnya. Mekanik per beat dari 2-4 kartu (`scripts/cookbook/pilih_kartu.py`). Selesai bila: semua panel hijau dan tabel racikan (beat, pola, remix, SFX) disetujui Irfan.
+6. **Build Remotion per adegan** (`references/build.md`). Still per beat, dilihat berdampingan dengan style frame; lalu `scripts/juri/render.sh <proyek> draft`.
+7. **Audio sesudah visual dikunci** (`references/audio.md`, bagian atas wajib dibaca di sini). Selesai bila: R2-R4 hijau (`MOTION-CORE.md` §3).
+8. **Deliver.** `render.sh <proyek> final` lalu render 1, satu ronde masukan, render 2 (`references/revisi.md`, `references/delivery-gate.md`). Video dikirim hanya setelah juri lulus.
 
-## 0c. Alur kerja: tahap kanonik, dua render
+**Hukum besi:** tidak ada frame yang diserahkan tanpa kamu melihatnya di resolusi penuh dan tanpa `negatif_cek.py` + `tabrakan_cek.py` hijau. Merasa "sudah terlihat premium" bukan bukti; gambar dan skrip hijau adalah bukti.
 
-Tahap, pintu, dan buktinya: tabel `MOTION-CORE.md` §1.
-1. **Brief**: `BRAND.md` + `EDITING.md` merek di brief ada dan `scripts/juri/profil_cek.py` LULUS; belum ada → isi dulu bersama user (`templates/merek/README.md`).
-2. **Naskah**: naskah final disetujui pemilik.
-3. **Storyboard/block out**: storyboard + tabel racikan disetujui pemilik; tema gaya user diterjemahkan lewat frame kunci 2–3 kartu terdekat, lalu still per beat di atas footage asli + klip draft untuk gerak kamera/transisi dikirim langsung di percakapan. Masukan user ditulis ke ledger.
-4. **Animate → Effects & grade → Mix** tanpa meminta revisi: gerbang render (`MOTION-CORE.md` §3), Devil's Advocate sekali sebelum render.
-5. **Deliver**: render 1 utuh → masukan user dikumpulkan dalam satu ronde → render 2 (finishing, `references/revision-log.md` §0) → unggah Drive + caption.
+## Profil merek
 
-Di awal video salin `templates/TAHAP.md` ke `projects/<proyek>/TAHAP.md`. `python3 scripts/juri/tahap.py projects/<proyek>` menunjuk langkah berikutnya dan bagian file yang dibaca untuk langkah itu; langkah selesai = dicentang + bukti. Satu TASK = satu subagen baru; sesi yang konteksnya sudah besar menulis `STATUS.md` lalu diganti (`references/roles.md` §6).
+Profil merek memilih warna, logo, satu keluarga sans, dan nada. Ia tidak membuka NEGATIF. Bila profil bertentangan dengan NEGATIF, NEGATIF menang dan bentroknya dilaporkan ke Irfan. Cek profil di tahap Brief: `scripts/juri/profil_cek.py` (menolak font serif/italic/script, token bayangan berlapis atau glow, dan gradien selain linear 2 warna berdekatan); belum ada profil, isi bersama user (`templates/merek/README.md`).
 
-## 0b. Render dan juri
+## Bila ... buka ...
 
-- Semua render lewat `scripts/juri/render.sh <proyek> still|draft|frames|final …`. Render penuh ditolak sampai resep lulus, semua still terbaru, lembar sanding dibuat, draft gerak terbaru, audit visual semua potongan LULUS (`frames` → `frame_audit.py` → Sutradara menilai frame tahan tiap detik; satu penilai), dan `qc/JURI.md` berakhir `PUTUSAN: LULUS` dengan bukti tiap catatan Irfan aktif.
-- **Juri visual adalah mata, bukan skrip.** Gaya, posisi teks dan objek, keseimbangan, dan estetika dinilai dengan melihat gambarnya, berdampingan dengan frame kunci kiblat (yang bagus) dan `cookbook/contoh-gagal/` (yang jelek): pada still per beat (daftar cek `cookbook/README.md` §Juri 2, `scripts/juri/sandingkan.py` untuk lembar sanding, lalu tiap pertanyaan "Yang harus terasa sama saat disandingkan" kartu kiblat dan Lantai A–D) dan pada frame tahan tiap detik di audit visual, oleh satu penilai (Sutradara, `templates/roles/pemeriksa-frame.md`); frame yang lemah diberi solusi desain dari kartu. `scripts/juri/teks_cek.py` hanya penunjuk still yang perlu dilihat. Rinci: `cookbook/README.md` §Juri. Sekali sebelum render final, satu Creative Devil's Advocate dari luar memberi usul dengan brief steril (`templates/roles/devils-advocate.md`).
-- **Visual dulu, audio sesudahnya.** Audit visual dijalankan setelah visual selesai dan sebelum SFX/musik disusun; kecocokan bunyi dengan gerak diperiksa di fase audio (`frame_audit.py --fase audio`, `templates/roles/pemeriksa-audio.md`).
-- Revisi: hanya atribut yang diminta berubah (`scripts/juri/revisi_cek.py cek`); perbarui still adegan itu saja dan rakit rentang framenya (`scripts/lego/compose.py --rentang`), bukan seluruh video. Audio, audit semua frame, dan Devil's Advocate sekali sebelum final (`references/revision-log.md` §0).
-- Pelajaran dari Irfan disimpan menurut cakupannya (`cookbook/README.md` §Tumbuh).
+| Bila | Buka |
+|---|---|
+| memilih tema, menerjemahkan kata gaya, menilai frame dengan 5 uji biner | `references/dunia-visual.md` |
+| menulis storyboard, metafora tiap beat, tampilan UI/platform | `references/storyboard.md` |
+| mengatur teks layar (posisi, ukuran, gerak per peran kalimat) | `references/teks.md` (rinci: `references/typography.md` §8a) |
+| mengatur kamera, transisi, kurva gerak | `references/kamera-gerak.md` |
+| memotong VO, SFX, musik, mix | `references/audio.md` (bagian atas dulu) |
+| ada pesan revisi atas video atau storyboard | `references/revisi.md` |
+| memilih mekanik per beat | `cookbook/INDEX.md`, lalu `scripts/cookbook/pilih_kartu.py`; buka 2-4 kartu saja |
+| membangun dan merender | `references/build.md`, `MOTION-CORE.md` §3 (gerbang R1-R5) |
+| rekaman talking head mentah, color grading | `references/selects-editor.md`, `references/grade.md` |
+| ke mana butir Lantai lama pindah | `MIGRASI-LANTAI.md` |
 
-## Rujukan teknis
+## Alat
 
-Persona, rincian per tahap, peran Sutradara/Editor, struktur folder, dan kapan membaca cabang ada di `references/alur-teknis.md` (§1–7). Jangan membacanya utuh di awal sesi: `TAHAP.md` proyek menyebut bagian mana yang dibuka di tiap langkah (`templates/TAHAP.md`, `scripts/juri/tahap.py`).
-
-- **Rekaman talking head mentah → paket untuk editor manusia** (timeline ber-timecode, rough cut, aset PNG, storyboard, animatic): `references/selects-editor.md` + `scripts/selects/`.
-- **Color grading footage**: `references/grade.md` + `scripts/gate/grade_ukur.py`.
+- `scripts/gate/negatif_cek.py <folder atau frame>`: satu pintu cek NEGATIF (K1/K2 lewat `permukaan_cek.py`, heuristik placeholder, izin di `qc/izin.json`). Merah = perbaiki, jangan menawar.
+- `scripts/lihat.py`: render frame per lapis ke `qc/lihat/` + crop 100 % + baris di `qc/LOG-lihat.md`.
+- `scripts/gate/tabrakan_cek.py`, `scripts/lego/kt_check.py`, `scripts/juri/motion_lint.py`, `scripts/gate/cut_check.py`, `scripts/gate/voice_level.py`: dijalankan, tidak dihafal; keluarannya yang menentukan.
+- `scripts/juri/tahap.py projects/<proyek>`: menunjuk langkah berikutnya; `render.sh` menolak render yang belum lulus gerbang.
+- Mengubah skill ini: `../../AGENTS.md` dan `../../SARINGAN.md`. `LANTAI.md` dan `MOTION-CORE.md` adalah arsip referensi, bukan pintu.

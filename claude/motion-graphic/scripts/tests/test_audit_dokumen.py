@@ -99,7 +99,7 @@ class Peta(unittest.TestCase):
     def test_peta_memuat_rute_produksi(self):
         t = baca(ROOT / "PETA.md")
         b = next(x for x in t.splitlines() if x.startswith("| Sesi produksi video"))
-        self.assertIn("MOTION-CORE.md", b); self.assertIn("scripts/cookbook/pilih_kartu.py", b)
+        self.assertIn("motion-graphic/SKILL.md", b); self.assertIn("scripts/cookbook/pilih_kartu.py", b)  # pintu: SKILL.md (bukan MOTION-CORE, kini arsip)
         self.assertNotIn("formats/", t); self.assertNotIn("Format Bible", t)
 
 
@@ -167,15 +167,19 @@ class PintuProduksi(unittest.TestCase):
         for x in ("PETA.md", "RETRO.md", "SUMBER.md", "cookbook/INDEX.md", "cookbook/CATALOG.md"):
             self.assertIn(x, awal[awal.index("Tidak dimuat di awal sesi"):])
 
-    def test_skill_md_merutekan_ke_dua_langkah(self):
-        skill = baca(MG / "SKILL.md"); atas = skill[:skill.index("## 0. Lantai")]
-        for x in ("MOTION-CORE.md", "irfan-creative-workflow/SKILL.md", "Langkah 1 cookbook", "scripts/cookbook/pilih_kartu.py", "2–4 kartu", "Langkah 2", "gerbang_produksi.sh"):
-            self.assertIn(x, atas)
+    def test_skill_md_adalah_pintu_dan_merutekan_alur(self):
+        skill = baca(MG / "SKILL.md")
+        for x in ("irfan-creative-workflow/SKILL.md", "scripts/cookbook/pilih_kartu.py", "2-4 kartu", "references/dunia-visual.md", "references/build.md",
+                  "render.sh <proyek> final", "MOTION-CORE.md` §3", "scripts/lihat.py", "negatif_cek.py", "**Hukum besi:**"):
+            self.assertIn(x, skill)
         self.assertTrue((MG / "scripts/cookbook/pilih_kartu.py").is_file())
 
-    def test_pintu_atas_menunjuk_motion_core(self):
-        self.assertIn("MOTION-CORE.md", baca(ROOT / "AGENTS.md")[:2600])
-        self.assertIn("pilih_kartu.py", baca(ROOT / "AGENTS.md")[:2600])
+    def test_motion_core_ditandai_arsip_bukan_pintu(self):
+        self.assertIn("pintu aktif: SKILL.md", baca(MG / "MOTION-CORE.md")[:1500])
+
+    def test_pintu_atas_menunjuk_skill_md(self):
+        a = baca(ROOT / "AGENTS.md")[:3000]
+        self.assertIn("claude/motion-graphic/SKILL.md", a); self.assertIn("pilih_kartu.py", a)
 
     def test_pengunci_ragam_isolasi_flashgrid_dan_sfx_alami(self):
         t = baca(MG / "MOTION-CORE.md")
