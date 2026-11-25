@@ -6,9 +6,10 @@ isi file: judul + kalimat pertama tiap referensi/guide, baris pertama docstring/
 tiap SKILL.md. Karena dibuat dari file, ringkasannya tidak basi selama skrip ini dijalankan setelah file berubah.
 
   python3 tools/peta.py          tulis ulang PETA.md
-  python3 tools/peta.py --check  keluar 1 bila PETA.md tidak sama dengan isi repo (dipanggil doctor.sh)
+  python3 tools/peta.py --check  keluar 1 bila PETA.md tidak sama dengan isi repo (dipanggil doctor.sh); tidak menulis
+  python3 tools/peta.py --help   bantuan ini
 """
-import os, re, sys
+import argparse, os, re, sys
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 MG = "claude/motion-graphic"
@@ -25,7 +26,7 @@ RUTE = f"""## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo 
 |---|---|---|
 | Sesi produksi video | `{MG}/MOTION-CORE.md` + `{MG}/cookbook/00-core-invariants.md` → `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`, `STATUS.md`); pilih 1 pack via `{MG}/cookbook/INDEX.md` + `{MG}/scripts/cookbook/pilih_kartu.py` | `PETA.md` selebihnya, `RETRO.md`, `SUMBER.md`, `cookbook/CATALOG.md` utuh, `_vault/`; folder proyek lain; template gaya tetap |
 | Awal sesi lainnya | `AGENTS.md` → `PETA.md` (file ini) → `PENDING.md` | seluruh `references/` sekaligus |
-| Video: gerbang dan rute lengkap | `claude/irfan-creative-workflow/SKILL.md` §2 (gerbang: bedah bahan user → naskah → storyboard → persetujuan; belum ada kode sebelum gerbang 3) → `{MG}/SKILL.md` §Mulai di sini (Lantai termuat di dalamnya; jangan baca `LANTAI.md` terpisah) → `projects/<proyek>/TAHAP.md` dari `{MG}/templates/TAHAP.md` + `scripts/juri/tahap.py` (langkah berikutnya dan bagian yang dibaca) → profil merek: `{MG}/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md` | skill di `archive/` |
+| Video: gerbang dan rute lengkap | `claude/irfan-creative-workflow/SKILL.md` §2 (gerbang: bedah bahan user → naskah → storyboard → persetujuan; belum ada kode sebelum gerbang 3) → `{MG}/SKILL.md` §Alur setiap video (Lantai termuat di dalamnya; jangan baca `LANTAI.md` terpisah) → `projects/<proyek>/TAHAP.md` dari `{MG}/templates/TAHAP.md` + `scripts/juri/tahap.py` (langkah berikutnya dan bagian yang dibaca) → profil merek: `{MG}/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md` | skill di `archive/` |
 | Fase 1 pra-produksi: script, bedah referensi, storyboard | `{MG}/cookbook/README.md` (§1 Prinsip, §2 Alur dua langkah) → `{MG}/scripts/cookbook/pilih_kartu.py --cari "<fungsi cerita>"` per beat (mencocokkan *Narrative trigger* di `{MG}/cookbook/CATALOG.md` lewat router `{MG}/cookbook/INDEX.md`; naskah: `--kategori script`) → hanya 2–4 kartu **dan frame kuncinya** (`guide/referensi/sheets/keyframes/`) → tabel racikan disetujui user, `{MG}/cookbook/contoh-gagal/README.md`, `{MG}/references/storyboard.md`, `claude/script-workshop/SKILL.md` | `audio.md`, `build.md` |
 | User membawa draf desain/storyboard/kode Remotion (penaik mutu) | `{MG}/cookbook/README.md` §1 + §3 → `{MG}/cookbook/INDEX.md` / `POLA.md` / `SFX.md` → `{MG}/references/smooth-motion.md`, `{MG}/references/camera-transition.md`, `{MG}/references/pacing-map.md`, `{MG}/guide/sfx/GUIDE.md` → daftar bedah per beat disetujui user, lalu revisi kode yang ada | merombak konsep, palet, huruf, aset, atau urutan user; menulis ulang dari nol |
 | Fase 2 suara: potong, ekor kata, level | `{MG}/references/audio.md` §14.0C–14.0D, §14.6, `scripts/gate/cut_check.py`, `scripts/audio/recut.py`, `scripts/gate/voice_level.py` | tipografi, kamera |
@@ -68,7 +69,7 @@ def first_sentence(text):
 def skill_desc(path):
     t = open(path, encoding="utf-8").read()
     m = re.search(r"^description:\s*(.+)$", t, flags=re.M)
-    return (m.group(1).strip().strip('"')[:220]) if m else first_sentence(t)[1]
+    return (m.group(1).strip().strip('"').replace('\\"', '"')[:220]) if m else first_sentence(t)[1]
 
 
 def script_desc(path):
@@ -178,9 +179,12 @@ def build():
 
 
 if __name__ == "__main__":
+    ap = argparse.ArgumentParser(description="Tulis PETA.md dari isi repo.")
+    ap.add_argument("--check", action="store_true", help="tidak menulis; keluar 1 bila PETA.md basi")
+    args = ap.parse_args()
     out = os.path.join(ROOT, "PETA.md")
     new = build()
-    if "--check" in sys.argv:
+    if args.check:
         cur = open(out, encoding="utf-8").read() if os.path.exists(out) else ""
         print("PETA.md terbaru" if cur == new else "PETA.md basi: jalankan python3 tools/peta.py")
         sys.exit(0 if cur == new else 1)
