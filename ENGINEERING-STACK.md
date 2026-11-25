@@ -12,7 +12,7 @@ Setiap plugin menambah deskripsi skill/agent ke **setiap** sesi (biaya always-on
 |---|---|---|
 | obra/superpowers | `superpowers` (brainstorming, TDD, debugging, plans, review) | sudah ada |
 | anthropics/claude-plugins-official | feature-dev, code-review, code-simplifier, commit-commands, security-guidance, frontend-design, claude-md-management, skill-creator, typescript-lsp, pyright-lsp, mattpocock-skills | ≈2.440 |
-| trailofbits/skills | modern-python, property-based-testing, sharp-edges, insecure-defaults, differential-review, supply-chain-risk-auditor, code-improver, second-opinion, patching-bugs, spec-to-code-compliance | ≈2.360 |
+| trailofbits/skills | property-based-testing, sharp-edges, insecure-defaults, differential-review, supply-chain-risk-auditor, code-improver, second-opinion, patching-bugs, spec-to-code-compliance | ≈2.280 |
 | wshobson/agents | shell-scripting, javascript-typescript, plugin-eval, before-you-build | ≈1.560 |
 | vercel-labs/agent-skills | react-best-practices, composition-patterns, react-native-skills, react-view-transitions (symlink, juga ke Codex) | ≈400 (perkiraan) |
 | t3dotgg/tstack | babysit-pr, council, file-pr, full-send, full-stop, leaving-pr-comments, modernize, sol-loop, takeover (symlink, juga ke Codex) | ≈400 (perkiraan) |
@@ -20,11 +20,12 @@ Setiap plugin menambah deskripsi skill/agent ke **setiap** sesi (biaya always-on
 | agentskills/agentskills | spesifikasi Agent Skills: rujukan audit skill, bukan skill | 0 |
 | agent-ecosystem/skill-validator | CLI `skill-validator` v1.8.0 di `~/.local/bin` (Mac dan PC) untuk audit skill di repo ini | 0 |
 
-Total tambahan ≈7.150 tok per sesi.
+Total tambahan ≈7.070 tok per sesi.
 
 ## Tidak dipasang (dan alasannya)
 
 - `pr-review-toolkit` (≈2.035 tok/sesi): tumpang-tindih dengan `code-review` dan `superpowers:requesting-code-review`.
+- `modern-python` (Trail of Bits): memasang shim `python3`/`pip` di PATH tiap sesi yang mencegat `python3 script.py` dan menyuruh `uv run`; ini mematahkan semua skrip `python3 scripts/...` skill-development (dicabut 25 Nov 2026).
 - Sisa 300+ plugin resmi, 37 plugin Trail of Bits, 89 plugin wshobson: di luar stack (cloud vendor, smart contract, bahasa lain) atau duplikat. Pasang per kebutuhan.
 
 ## Dependensi

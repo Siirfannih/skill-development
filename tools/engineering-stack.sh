@@ -34,7 +34,6 @@ PLUGINS=(
   pyright-lsp@claude-plugins-official
   mattpocock-skills@claude-plugins-official
   # Trail of Bits
-  modern-python@trailofbits
   property-based-testing@trailofbits
   sharp-edges@trailofbits
   insecure-defaults@trailofbits
