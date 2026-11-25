@@ -16,12 +16,12 @@ Skill ini lapisan penaik mutu video. Ia bukan template dan bukan pembajak konsep
 
 Tiga hal yang selalu dikerjakan: **Lantai** (mutu di semua video, di bawah ini, lengkap) → **pengikat/kiblat + racikan pola** di `RESEP.md` (dipinjam dari kartu hanya bila user tidak membawa gaya) → **Juri** (hasil disandingkan dengan frame kunci sebelum render penuh). `cookbook/` menyimpan kartu dan frame kuncinya sebagai contoh yang bagus, dan `cookbook/contoh-gagal/` sebagai contoh yang jelek.
 
-Bila bagian lain di skill ini bertentangan dengan Lantai atau resep, Lantai dan resep yang menang.
+Urutan otoritas: kalimat kanonik `AGENTS.md` (repo) §Cara membaca repo ini butir 2. Bagian lain skill ini kalah dari Lantai dan resep.
 
 ## 0. Lantai (selalu berlaku)
 
 <!-- LANTAI:mulai (disalin dari LANTAI.md oleh tools/sync_lantai.py; jangan diedit di sini) -->
-Lantai menentukan **mutu**; kiblat (kartu di `cookbook/`) menentukan **gaya**. Bila kartu kiblat bertentangan dengan lantai, lantai menang dan penyesuaiannya ditulis di `RESEP.md`. Lantai tidak berisi font, warna, atau layout tertentu: itu urusan kiblat.
+Lantai menentukan **mutu**; kiblat (kartu di `cookbook/`) menentukan **gaya**. Bila kartu kiblat bertentangan dengan lantai, lantai menang dan penyesuaiannya ditulis di `RESEP.md`. Lantai tidak berisi font, warna, atau layout tertentu: itu urusan kiblat. Posisi Lantai dalam urutan otoritas: `AGENTS.md` §Cara membaca repo ini butir 2.
 
 Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berlaku untuk semua gaya dan sudah muncul di dua video berbeda (lihat `cookbook/README.md` §Tumbuh).
 

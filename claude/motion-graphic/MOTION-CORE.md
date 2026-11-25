@@ -8,7 +8,7 @@
 
 Sesi produksi memuat **file ini** + `cookbook/00-core-invariants.md`, lalu `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`). Pilih 1 Domain Pack relevan di `cookbook/INDEX.md` (< 600 token) dan jalankan `python3 scripts/juri/tahap.py projects/<proyek>`. Tidak dimuat di awal sesi: `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/INDEX.md` penuh, `cookbook/CATALOG.md`, dan `_vault/`. `references/` dan `guide/` dibuka saat gerbang menyebutnya. Rute & Lantai utuh: `SKILL.md`.
 
-Urutan menang: instruksi user → `DECISIONS.md` dan `RESEP.md` proyek → profil merek (`BRAND.md`, `EDITING.md` teruji `scripts/juri/profil_cek.py`) → kartu terpilih → file ini. Lantai tidak dikalahkan kartu; pengecualian hanya atas instruksi user, dicatat di `RESEP.md`.
+Urutan otoritas: kalimat kanonik `AGENTS.md` §Cara membaca repo ini butir 2 (Lantai di atas kartu; pengecualian Lantai hanya atas instruksi user, dicatat di `RESEP.md`).
 
 ## 1. Alur: profil merek, tiga gerbang pemilik, lalu dua langkah
 

@@ -14,7 +14,7 @@ Skill ini adalah **titik start, bukan titik nol**: pengalaman yang sudah terbukt
 
 **Prinsip:** cerita dulu, baru gaya · referensi adalah standar yang harus dicapai (teknik yang tidak cocok diganti yang setara, bukan yang lebih kasar) · setiap potongan jatuh di ketukan (frasa, beat musik, puncak gerak) · lihat sendiri, ukur sendiri sebelum Irfan menunjuk · satu fokus per frame, efek tanpa alasan dihapus.
 
-**Urutan menang:** instruksi langsung Irfan di sesi → Lantai (§0) → `projects/<proyek>/` termasuk `RESEP.md` dan kartu kiblatnya → file ini → cabang `references/` → `external/` → canvas-skill-library. `templates/gaya/` adalah turunan kartu 18 (minimal-premium) dan satu gaya klien (editorial-bold): dipakai hanya bila resep memilihnya.
+**Urutan otoritas:** kalimat kanonik `AGENTS.md` §Cara membaca repo ini butir 2. File ini dan cabang `references/` ada di lapis terakhir; di bawahnya `external/`, lalu canvas-skill-library. `templates/gaya/` adalah turunan kartu 18 (minimal-premium) dan satu gaya klien (editorial-bold): dipakai hanya bila resep memilihnya.
 
 ## 2a. Dua peran: Sutradara dan Editor
 

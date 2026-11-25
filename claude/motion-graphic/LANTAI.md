@@ -1,6 +1,6 @@
 # LANTAI: mutu yang berlaku di semua video
 
-Lantai menentukan **mutu**; kiblat (kartu di `cookbook/`) menentukan **gaya**. Bila kartu kiblat bertentangan dengan lantai, lantai menang dan penyesuaiannya ditulis di `RESEP.md`. Lantai tidak berisi font, warna, atau layout tertentu: itu urusan kiblat.
+Lantai menentukan **mutu**; kiblat (kartu di `cookbook/`) menentukan **gaya**. Bila kartu kiblat bertentangan dengan lantai, lantai menang dan penyesuaiannya ditulis di `RESEP.md`. Lantai tidak berisi font, warna, atau layout tertentu: itu urusan kiblat. Posisi Lantai dalam urutan otoritas: `AGENTS.md` §Cara membaca repo ini butir 2.
 
 Setiap butir bisa dicek dari still atau angka. Butir baru hanya masuk bila berlaku untuk semua gaya dan sudah muncul di dua video berbeda (lihat `cookbook/README.md` §Tumbuh).
 

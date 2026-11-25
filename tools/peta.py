@@ -16,7 +16,7 @@ MG = "claude/motion-graphic"
 
 RUTE = f"""## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo ini)
 
-- Urut menang: brief Irfan di sesi → `projects/<proyek ini>/` (hanya video ini; proyek lain tidak dibuka) → profil merek `BRAND.md` + `EDITING.md` → kartu `cookbook/` (mulai dari `cookbook/INDEX.md`) (selera Irfan; keputusan kecil yang tidak dijawab brief diambil dari kartu terdekat) → pelajaran global `LANTAI.md`, `guide/`, `references/` (kesalahan yang pernah terjadi; untuk menimbang dan mengecek mutu).
+- Urutan otoritas: kalimat kanonik `AGENTS.md` §Cara membaca repo ini butir 2 (brief → proyek → merek → Lantai/Kelas H → kartu → `guide/`/`references/`).
 - Cocokkan setiap pesan baru dengan satu baris Rute sebelum edit pertama, juga di tengah sesi.
 - File rute dibaca utuh; `grep` bukan membaca. "Aturannya tidak ada" hanya setelah LANTAI, kartu kiblat proyek, dan skrip jurinya dibaca.
 
