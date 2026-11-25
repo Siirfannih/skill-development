@@ -9,7 +9,7 @@ Menambah entri: simpan frame sebagai `<no>-<nama-pendek>.jpg` (lebar ≤ 1400 px
 - **Dari:** Builder Trap (11 Nov), adegan ilustrasi orang bekerja di latar terang.
 - **Yang salah menurut Irfan:** huruf serif italic tipis berwarna abu pucat dibuat sangat besar sampai menyentuh tepi frame; komposisinya tidak cocok dengan frame dan tidak berhubungan dengan ilustrasi di bawahnya.
 - **Juga terlihat:** kotak subtitle di pita bawah ("ngebagiin apa yang") yang mengucapkan hal lain dari judul besar: dua lapisan teks.
-- **Pelajarannya:** serif/italic dilarang di teks layar (K1, keputusan Irfan 26 Nov 2026 setelah slop yang sama berulang lintas model); serif di gaya Arthur Brooks adalah kulit referensi, bukan mekanik. Selain itu yang salah juga kontras, skala, dan hubungan dengan frame.
+- **Pelajarannya:** huruf kedua harus sistem: serif Arthur Brooks dibawa tanpa peran dan tanpa alasan di proyek ini, pucat, dan dibesarkan sampai tepi. Serifnya sendiri bukan masalahnya (NEGATIF v2, koreksi Irfan 26 Nov 02:45); sistem, kontras, skala, dan hubungan dengan frame yang salah.
 - **Lantai terkait:** A1, A3, A7.
 
 ## 02–07 · Builder Trap v1–v12: datar, ramai, subjek kecil, teks dua lapis
@@ -34,7 +34,7 @@ Enam lembar still dari versi-versi Builder Trap (11 Nov) yang ditolak Irfan.
   6. Kotak biru dan garis sirkuit tidak menggambarkan ucapan; biru di navy tenggelam (Lantai D19).
   7. Satu cara tampil teks dari awal sampai akhir.
 - **Dugaan frame yang baik (belum dikonfirmasi Irfan):** sosok biru di antara kerumunan abu dengan orang buram di depan; terowongan kartu dengan sosok di tengah. Keduanya punya satu fokus, satu aksen, dan kedalaman.
-- **Bukan pelajarannya:** "ilustrasi orang dilarang" atau "latar putih salah". Masalahnya skala, kedalaman, dan teks yang tidak menyatu.
+- **Bukan pelajarannya:** "ilustrasi orang salah" atau "latar putih salah". Masalahnya skala, kedalaman, dan teks yang tidak menyatu.
 
 ## 08 · BDF26 P1: kontras lokal dan berat frame
 
@@ -50,7 +50,7 @@ Tiga frame dari video talking head + kinetic typography (kiblat kartu 83). Ketig
 | ![](11-skilldev-teks-di-pita-hitam.jpg) | Kata "profesional" ditaruh di pita hitam di bawah video, padahal di dalam gambar ada ruang kosong di dekat mik. Ceritanya video ini sudah diposting di Instagram, jadi teksnya bagian dari video dan harus berada di dalam bingkainya; di pita bawah ia terbaca sebagai subtitle (Lantai A1). | Teks masuk ke dalam bidang video, di ruang kosong dekat subjek. |
 
 - **Tampilan Instagram-nya sendiri terlalu polos.** Pustaka sudah punya kartu yang membangun tampilan Instagram (kartu 65/08: UI dibangun ulang, satu objek UI dominan, kalimat inline dengan objek UI, 2–3 lapis kedalaman, kamera masuk ke UI; kartu 05: post IG sebagai panggung kalimat). Adegan ini dibangun tanpa membuka kartu-kartu itu.
-- **Bukan pelajarannya:** "tulisan tangan dilarang", "panah dilarang", atau "kata hero tidak boleh di dada". Masalahnya warna yang menabrak tampilan netral, teks di luar bidang gambar saat ada ruang di dalamnya, dan posisi yang terlalu dekat batas bawah.
+- **Bukan pelajarannya:** "tulisan tangan salah", "panah salah", atau "kata hero tidak boleh di dada". Masalahnya warna yang menabrak tampilan netral, teks di luar bidang gambar saat ada ruang di dalamnya, dan posisi yang terlalu dekat batas bawah.
 - **Lantai terkait:** A1, A2, C15, C16, C17.
 
 ## 12 · Skill-dev journey: atribut teks pindahan tanpa alasan
@@ -59,7 +59,7 @@ Tiga frame dari video talking head + kinetic typography (kiblat kartu 83). Ketig
 |---|---|---|
 | ![](12-skilldev-huruf-acak-tak-terbaca.jpg) | Kata "profesional" merah coral, ukuran khusus, gaya "kacau", di pita hitam bawah video. Perlakuan ini milik kalimat keraguan lain yang dipindah utuh saat naskah berubah: warna peran "negatif" dipakai untuk kata positif, gaya frustrasi untuk pertanyaan menggoda, ukurannya satu-satunya di luar skala, dan letaknya posisi subtitle. Merahnya juga menabrak tampilan Instagram yang netral. Hurufnya pun baru lengkap ±18 f setelah onset. | Tiap atribut diputus ulang dari makna kata dan adegannya: peran teks yang sudah ada di video (ukuran dan warna dari token), di dalam bidang gambar dekat subjek, emosi lewat satu gerak. |
 
-- **Bukan pelajarannya:** "coral dilarang" atau "efek per huruf dilarang". Masalahnya atribut yang tidak punya alasan di adegan ini.
+- **Bukan pelajarannya:** "coral salah" atau "efek per huruf salah". Masalahnya atribut yang tidak punya alasan di adegan ini.
 - **Lantai terkait:** A1, A6, A7; sistem desain (`templates/sistem-desain/README.md`: satu peran teks = satu ukuran).
 
 ## 13–17 · Skill-dev journey r7: teknik kartu dipakai tanpa syaratnya
@@ -73,7 +73,7 @@ Lima frame dari `varian-A_r7` (talking head + adegan UI dan 3D, kiblat kartu 83 
 | ![](16-punchline-di-kotak.jpg) | Punchline "PROFESIONAL" tampil di kotak video hijau kecil di dalam postingan IG. | Slab warna kartu 85 bekerja karena memenuhi layar dan memotong ke luar footage; di kotak kecil skala punchline hilang. Syarat ini tidak ikut di ringkasan satu baris. | Punchline keluar ke layar penuh (kartu 85 T1), lalu kembali ke tampilan IG. |
 | ![](17-frasa-terpisah.jpg) | "SKILL" kecil di kiri atas, jauh dari "GRATIS" besar di slab biru. | Kata pengantar kecil di kartu asli menempel di sudut kata hero (kartu 83 T3b); di sini jaraknya membuat dua pesan. | Kata pengantar menempel di tepi kata hero, atau keduanya satu baris. |
 
-- **Pelajarannya:** kaca/glass dilarang (K2, keputusan Irfan 26 Nov 2026); pakai panel solid datar dengan garis tepi tipis. Mekanik lain (teks menempel bidang nyata, slab warna, UI) tetap sah; yang gagal adalah memakainya tanpa memeriksa apakah kondisi footage sama dengan kondisi di video asli.
+- **Pelajarannya:** kaca butuh latar yang membuatnya terbaca (gelap atau foto berwarna) dan satu material untuk semua kartu sejenis; di dinding terang ia hilang, jadi pakai panel padat dengan garis tepi tipis di sini (alasan kondisi footage, bukan larangan teknik). Mekanik lain (teks menempel bidang nyata, slab warna, UI) tetap sah; yang gagal adalah memakainya tanpa memeriksa apakah kondisi footage sama dengan kondisi di video asli.
 - **Lantai terkait:** A1, A2, A7; `guide/teks/GUIDE.md` §Teks di dalam tampilan aplikasi dan adegan 3D.
 
 ## 18 · Teks narasi tipis di atas batu arsip
@@ -82,7 +82,7 @@ Lima frame dari `varian-A_r7` (talking head + adegan UI dan 3D, kiblat kartu 83 
 |---|---|---|---|
 | ![](18-teks-tipis-di-batu-arsip.jpg) | "asrama yang keras" tinta tipis (Medium ±64 px @1080) mengambang di atas gable batu dan langit pucat foto arsip B&W. | Foto bertekstur abu-abu terang: huruf tipis gelap menabrak tekstur batu, kontras di bawah huruf gagal walau rata-rata latar terang; ukurannya tidak berhubungan dengan papan yang jadi subjek. Bentuknya dikarang, tidak diambil dari kartu. | Ambil bentuk dari kartu yang trigger-nya cocok ("narasi asal-usul di atas foto arsip"): kotak sorot pas-badan (kartu 48 T1) di dekat papan, atau caption grotesk tebal yang ditumpuk di ruang kosong samping subjek (kartu 92 T1). |
 
-- **Bukan pelajarannya:** "teks gelap di foto dilarang" atau "kotak selalu dipakai". Kotak hanya karena teks polos gagal kontras di tekstur itu (Lantai A9).
+- **Bukan pelajarannya:** "teks gelap di foto salah" atau "kotak selalu dipakai". Kotak hanya karena teks polos gagal kontras di tekstur itu (Lantai A9).
 - **Lantai terkait:** A2, A7, A9; `guide/teks/GUIDE.md` §Posisi (kontras di bawah huruf aktual).
 
 ## 19 · Kata kunci menutup wajah dan label di foto
@@ -91,7 +91,7 @@ Lima frame dari `varian-A_r7` (talking head + adegan UI dan 3D, kiblat kartu 83 
 |---|---|---|---|
 | ![](19-kt-menutup-wajah.jpg) | "3 guests" menimpa kepala orang kiri, "hotels: full" menimpa wajah dan label tulisan tangan orang kanan. | Posisi KT ditebak dari still, tanpa kotak wajah. Foto berisi tiga wajah dan label nama di atas kepala, jadi pita atas yang biasanya kosong justru terisi. | Petakan wajah dan label sebelum merancang (`scripts/lego/persepsi.py` untuk klip; untuk foto banyak wajah, detektor yang membaca semua wajah) dan cek kotak teks vs kotak wajah di setiap frame tampil. Bila tidak ada zona kosong: kata kunci pindah ke kanvas solid sebelum atau sesudah foto, foto dibiarkan bicara dengan gerak kamera. |
 
-- **Bukan pelajarannya:** "teks di atas foto orang dilarang". Teks boleh di zona yang terbukti kosong.
+- **Bukan pelajarannya:** "teks di atas foto orang salah". Teks boleh di zona yang terbukti kosong.
 - **Lantai terkait:** A2; `references/persepsi.md` §4 (cek tidak menutup wajah).
 
 ## 20 · Aset kecil atau tegak sebagai kotak di kanvas kosong
@@ -100,7 +100,7 @@ Lima frame dari `varian-A_r7` (talking head + adegan UI dan 3D, kiblat kartu 83 
 |---|---|---|---|
 | ![](20-inset-kecil-di-kanvas-kosong.jpg) | Kartu promo kecil ber-bayangan di kanvas putih luas; screenshot beranda tegak yang sebagian besar halaman kosong di sisi kanan layar. | Aset beresolusi kecil atau rasio tegak dipasang apa adanya sebagai inset; kotak dan bayangan membuat frame terasa seperti slide presentasi. | Jadikan aset jangkar (full-bleed, kamera menyorot bagian yang dibicarakan), atau bangun ulang bagian pentingnya sebagai UI (judul halaman, satu kartu, satu kalimat) dan sorot bagian itu. |
 
-- **Bukan pelajarannya:** "inset dilarang". Inset sah bila mengisi komposisi (≥ ±30 % layar) dan bukan satu-satunya isi kanvas kosong.
+- **Bukan pelajarannya:** "inset salah". Inset sah bila mengisi komposisi (≥ ±30 % layar) dan bukan satu-satunya isi kanvas kosong.
 
 ## 21 · Kutipan dari tulisan ditaruh di atas dokumen yang diburamkan
 

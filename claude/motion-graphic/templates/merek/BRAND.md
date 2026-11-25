@@ -12,7 +12,10 @@ warna:                        # hex 6 digit; peran, bukan sekadar daftar
 huruf:
   judul:   {keluarga: "<nama>", bobot: 700, file: aset/font/<file>}
   isi:     {keluarga: "<nama>", bobot: 400, file: aset/font/<file>}
-                              # satu keluarga sans untuk semua peran; penekanan lewat bobot, ukuran, warna, atau posisi. Tidak ada slot huruf aksen.
+  huruf_kedua: {keluarga: "?", peran: "?", frekuensi: "?"}
+                              # opsional. Satu keluarga utama; huruf kedua (gaya lain, mis. berkontras tinggi atau tulisan tangan) sah bila ia sistem: isi ketiganya.
+                              # peran = satu tugas tetap sepanjang video (mis. "suara logo", "kata penutup"); frekuensi = mis. "<= 1 per frame, <= 3 per video".
+                              # Keluarga terisi tanpa peran atau frekuensi ditolak profil_cek.py. Tidak dipakai = biarkan "?".
 logo:
   terang: aset/logo/logo-terang.svg   # dipakai di latar terang
   gelap:  aset/logo/logo-gelap.svg    # dipakai di latar gelap · merek tanpa logo (dipastikan user): tulis "tidak ada" di keduanya
@@ -29,7 +32,7 @@ format_utama: ["9:16 1080x1920"]      # rasio yang paling sering dibuat
 <Kapan tiap warna dipakai: latar mana yang dominan, aksen untuk apa (kata kunci, ikon, UI), kontras minimal di atas footage. Warna web sering terlalu pucat di video: tulis versi untuk layar bila beda.>
 
 ## Huruf di layar video
-<Peran tiap bobot sans: kata hero, narasi/teks kinetik, label UI. Ukuran minimum terbaca di HP. Serif, italic, dan script tidak dipakai (NEGATIF 1); profil yang memuatnya ditolak `profil_cek.py`.>
+<Peran tiap bobot keluarga utama: kata hero, narasi/teks kinetik, label UI. Ukuran minimum terbaca di HP. Bila ada huruf kedua: tulis perannya dan kapan ia muncul (slot `huruf.huruf_kedua` di atas).>
 
 ## Logo
 <Kapan logo muncul (pembuka/penutup/watermark), ukuran, posisi, versi terang/gelap. Yang dilarang: ditarik, diberi efek, warna diganti.>

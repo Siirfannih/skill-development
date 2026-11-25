@@ -1,6 +1,6 @@
 # Teks di layar: posisi, keterbacaan, gerak
 
-Dibuka saat mengatur teks layar (langkah 4-6 alur `SKILL.md`). Butir lama LANTAI A1-A9a dipadatkan di sini, tiap butir dengan alasannya; bunyi aslinya tetap di `LANTAI.md` (arsip). Huruf: satu keluarga sans, aturannya di NEGATIF 1 dan tidak diulang di sini. Gerak teks per peran kalimat: `references/typography.md` §8a (tabel T dan G).
+Dibuka saat mengatur teks layar (langkah 4-6 alur `SKILL.md`). Butir lama LANTAI A1-A9a dipadatkan di sini, tiap butir dengan alasannya; bunyi aslinya tetap di `LANTAI.md` (arsip). Sistem huruf (utama + huruf kedua bila ia punya peran dan frekuensi) diatur NEGATIF 1 dan tidak diulang di sini. Gerak teks per peran kalimat: `references/typography.md` §8a (tabel T dan G).
 
 ## Satu lapisan, hanya dari ucapan (A1, A3, A5)
 - Semua ucapan tampil sebagai SATU lapisan tipografi kinetik. Tidak ada subtitle terpisah di pita bawah; pita hanya sah untuk label identitas non-ucapan yang muncul sekali. Alasan: dua lapisan teks berebut mata dan terbaca sebagai subtitle film, bukan desain.
@@ -16,8 +16,8 @@ Dibuka saat mengatur teks layar (langkah 4-6 alur `SKILL.md`). Butir lama LANTAI
 - Satu baris satu ukuran dan satu sistem penekanan; kata yang dibesarkan pindah ke barisnya sendiri. Dua sistem penekanan tidak dicampur dalam satu frasa.
 - Terbaca berurutan dan cukup lama: satu arah baca, tiap frasa tampil sampai selesai diucapkan.
 
-## Keterbacaan (A7, bagian non-huruf)
-- Kontras ≥ 4,5 : 1; ukuran berhubungan dengan subjek; tidak menyentuh tepi. Uji lebar 360 px: kata sambung ≥ 56 px @1080, dan teks kunci tidak duduk di 8 % bawah frame (area UI platform).
+## Keterbacaan (butir lama A7, bagian non-huruf)
+- Kontras ≥ 4,5 : 1, tanpa halo di belakang teks; ukuran berhubungan dengan subjek; tidak menyentuh tepi. Uji lebar 360 px: kata sambung ≥ 56 px @1080, dan teks kunci tidak duduk di 8 % bawah frame (area UI platform).
 - Teks biru di latar gelap atau navy gagal kontras (±3,6 : 1). Di latar gelap, penekanan lewat putih penuh vs redup, ketebalan, skala, atau kapital.
 - Font termuat dari file (`fonts/README.md`), tidak jatuh ke font cadangan sistem; build gagal bila font tidak ditemukan.
 

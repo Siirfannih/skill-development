@@ -12,7 +12,7 @@ Pemetaan mengikuti desain Fase 1 (laporan audit struktur skill, bagian "Nasib 46
 | A4 | `SKILL.md` (NEGATIF 6) + `references/teks.md` | `scripts/lego/kt_check.py` |
 | A5 | `SKILL.md` (NEGATIF 6) + `references/teks.md` | `scripts/lego/kt_check.py` |
 | A6 | `references/teks.md` | `scripts/lego/kt_check.py` |
-| A7 | `SKILL.md` (NEGATIF 1); non-huruf di `references/teks.md` | `scripts/gate/negatif_cek.py` (K1) |
+| A7 | `SKILL.md` (NEGATIF 1); non-huruf di `references/teks.md` | `scripts/gate/permukaan_cek.py` (inventaris huruf, NEGATIF v2) |
 | A8 | `references/teks.md` | `scripts/lego/kt_check.py` |
 | A9 | `references/teks.md` | `scripts/lego/kt_check.py` |
 | A9a | `references/teks.md` + `references/typography.md` §8a | `scripts/lego/kt_check.py` |
@@ -23,7 +23,7 @@ Pemetaan mengikuti desain Fase 1 (laporan audit struktur skill, bagian "Nasib 46
 | B13a | `references/kamera-gerak.md` | `scripts/juri/motion_lint.py`, `scripts/remotion/curves.ts` |
 | B13b | `references/kamera-gerak.md` | `scripts/juri/motion_lint.py` |
 | C14 | `SKILL.md` (NEGATIF 5) | `scripts/gate/tabrakan_cek.py`; lihat L2 |
-| C14a | `SKILL.md` (NEGATIF 2) | `scripts/gate/negatif_cek.py` (K2) -> `scripts/gate/permukaan_cek.py` |
+| C14a | `SKILL.md` (NEGATIF 2) | `scripts/banding.py` + `scripts/gate/permukaan_cek.py` (inventaris, NEGATIF v2) |
 | C15 | `SKILL.md` (alur langkah 4, L2) | `scripts/gate/tabrakan_cek.py`, `scripts/gate/cek_komposisi.py` |
 | C16 | `SKILL.md` (alur langkah 4, L2) | `scripts/gate/cek_komposisi.py` (tanda `TEPI`) |
 | C17 | `SKILL.md` (alur langkah 4-5 dan hukum besi) | `scripts/lihat.py` (zoom penuh + crop 100 %) |

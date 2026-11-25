@@ -26,8 +26,8 @@
   --canvas:#F7F7F5; --canvas-dark:#111111; --ink:#141414; --mute:#8A8A8A; --hair:rgba(20,20,20,.10);
   --blue:#2563EB; --ig-blue:#3897F0; --coral:#F45D79; --terra:#D97757; --lime:#B5F52A;
   --cyan:#38BDF8; --violet:#818CF8; --mat:#2E7D4B; --mat-2:#368F56; --white:#FFFFFF;
-  --sans:"Plus Jakarta Sans",sans-serif; --serif:"Plus Jakarta Sans",sans-serif; /* alias ke sans: serif dilarang (K1) */ --mono:"JetBrains Mono",monospace; --hand:"Virgil",cursive; --fun:"Fredoka",sans-serif;
-  --shadow-1:0 4px 12px rgba(20,20,20,.14); /* satu lapis, tajam (K2) */
+  --sans:"Plus Jakarta Sans",sans-serif; --serif:"Plus Jakarta Sans",sans-serif; /* alias ke sans (default); ganti ke keluarga serif hanya bila merek/REF-SPEC memberinya peran (NEGATIF 1) */ --mono:"JetBrains Mono",monospace; --hand:"Virgil",cursive; --fun:"Fredoka",sans-serif;
+  --shadow-1:0 4px 12px rgba(20,20,20,.14); /* satu lapis, tajam: satu sistem bayangan per set (NEGATIF 2) */
   --shadow-2:0 8px 24px rgba(20,20,20,.2);
 }
 *{box-sizing:border-box;margin:0;padding:0}

@@ -1195,3 +1195,10 @@ Penghitung: nilai mulai 2; +1 gerbang menangkap kegagalan nyata; −1 salah-temb
 ## `references/efek-3d.md`
 
 - Remotion docs three.mdx, three-canvas.mdx, motion-blur; svg.filter.js README; angka parallax/grain/CA = usulan belum teruji (riset 25 Nov 2026)
+
+## NEGATIF v2 · `SKILL.md` NEGATIF 1-10, `../_bersama/NEGATIF.md`, `../motion-theme-director/BEDAH-REFERENSI.md`, `references/*`, `scripts/juri/profil_cek.py`, `templates/merek/BRAND.md`
+
+- Larangan teknik (serif/italic/script; gradien/bayangan/kilau/kaca/3D; NEGATIF 1-2 versi [keras], LANTAI A7/C14a) dibatalkan dan diganti: referensi pilihan user = kebenaran selera, dibedah jadi REF-SPEC terukur dengan alasan per pilihan; negatif = simpangan dari REF-SPEC + sidik jari slop berupa rupa dan ukuran; mutlak tetap: placeholder, tabrakan, objek tanpa makna (uji hapus), audio utuh: Irfan 26 Nov 2026 02:45 dan 02:48 (audit slop, KEBIJAKAN-v2 dan NEGATIF-v2-draf di case-study/audit-slop-20261126). Alasan: larangan teknik ikut membuang teknik yang benar; referensi L3 bagus justru dengan gradien biru, pil berkilau, dan tulisan tangan.
+- Bukti ukur (26 Nov 2026): gradien v6 yang salah punya rentang luma 26 dan saturasi p95 0,10 (hampir putih, ragu-ragu, plus halo di belakang teks); frame terang L3 rentang luma 80-161 dan saturasi p95 0,32-0,64 (putih bersih + satu zona biru tegas), frame gelap navy pekat (saturasi 0,85-1,00). Angka ini jadi ambang sidik jari "gradien ragu-ragu" (rentang luma < ±35, saturasi p95 < 0,15) di NEGATIF 10 dan slop-catalog S-V21/S-V25.
+- Slot `huruf_kedua: {keluarga, peran, frekuensi}` kembali di BRAND.md; `profil_cek.py` menolak huruf kedua tanpa peran/frekuensi dan gradien tanpa keluarga hue terdefinisi, tidak menolak serif sebagai keluarga utama: KEBIJAKAN-v2 §4 (Irfan 26 Nov 2026).
+- Ukuran shot & bleed di REF-SPEC §3, NEGATIF 5 default hanya tanpa referensi, S-V28 (semua frame medium di tengah), dan karya di dalam dunia video bukan sistem huruf: temuan evaluasi uji L1 putaran 1 (grokbot): semua frame medium shot dengan skala seragam, sedangkan referensi memakai macro yang terpotong tepi (26 Nov 2026).

@@ -121,4 +121,4 @@ Koreksi itu sendiri disimpan di tempat yang cakupannya paling sempit dan masih b
 | frame yang ditolak | `contoh-gagal/` : gambar + satu kalimat sebab + konteksnya |
 | semua video, apa pun gayanya | usul ke `../../../PENDING.md`; masuk `../LANTAI.md` hanya setelah muncul di 2 video berbeda dan Irfan menyetujui bunyinya |
 
-Yang tidak dilakukan: menyalin kulit referensi. Serif/italic, kaca, glow, gradien, dan 3D di kartu adalah kulit yang dilarang (LANTAI A7, C14a); koreksi "serif pucat raksasa" tetap berlaku sebagai pelajaran kontras dan skala, bukan pembuka celah serif.
+Yang tidak dilakukan: menyalin bentuk referensi karena cantik. Teknik di kartu (huruf kedua, kaca, glow, gradien, 3D) dipakai bila alasannya berlaku dan ia menjadi bagian satu sistem (NEGATIF v2); koreksi "serif pucat raksasa" adalah pelajaran sistem, kontras, dan skala, bukan larangan serif.

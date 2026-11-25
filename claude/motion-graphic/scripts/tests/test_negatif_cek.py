@@ -1,4 +1,4 @@
-"""negatif_cek.py: satu pintu K1/K2 + placeholder + izin qc/izin.json. Cek DOM butuh Playwright (di PC); sisanya statis."""
+"""negatif_cek.py (KEBIJAKAN-v2): gerbang merah = placeholder; K1/K2 = laporan inventaris (--gerbang memulihkan); izin qc/izin.json. Cek DOM butuh Playwright (di PC); sisanya statis."""
 import json, subprocess, sys, tempfile, unittest
 from pathlib import Path
 
@@ -28,9 +28,12 @@ class Statis(unittest.TestCase):
     def test_bersih_lulus(self):
         r = jalan(self.tulis("a.html", BERSIH), "--tanpa-dom"); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
 
-    def test_serif_dan_kaca_gagal(self):
-        r = jalan(self.tulis("a.html", "<h1 style=\"font-family:'Playfair Display'\">x</h1>"), "--tanpa-dom"); self.assertEqual(r.returncode, 1); self.assertIn("K1-SERIF", r.stdout)
-        r = jalan(self.tulis("b.css", ".k{backdrop-filter: blur(20px)}"), "--tanpa-dom"); self.assertEqual(r.returncode, 1); self.assertIn("K2-GLASS", r.stdout)
+    def test_serif_dan_kaca_jadi_laporan_bukan_gagal(self):
+        r = jalan(self.tulis("a.html", "<h1 style=\"font-family:'Playfair Display'\">x</h1>"), "--tanpa-dom"); self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("inventaris", r.stdout); self.assertIn("HURUF", r.stdout)
+        r = jalan(self.tulis("b.css", ".k{backdrop-filter: blur(20px)}"), "--tanpa-dom"); self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("KACA/BLUR: 1", r.stdout)
+
+    def test_gerbang_memulihkan_k1_k2(self):
+        r = jalan(self.tulis("a.html", "<h1 style=\"font-family:'Playfair Display'\">x</h1>"), "--tanpa-dom", "--gerbang"); self.assertEqual(r.returncode, 1); self.assertIn("K1-SERIF", r.stdout)
 
     def test_border_putus_gagal(self):
         r = jalan(self.tulis("a.html", "<div style='width:300px;height:200px;border:2px dashed #999'></div>"), "--tanpa-dom")
@@ -43,20 +46,23 @@ class Statis(unittest.TestCase):
     def izin(self, entri):
         (self.t / "qc").mkdir(exist_ok=True); (self.t / "qc/izin.json").write_text(json.dumps({"izin": entri}), encoding="utf-8")
 
+    PUTUS = "<div style='width:300px;height:200px;border:2px dashed #999'></div>"
+
     def test_izin_dengan_kutipan_irfan_membuka(self):
-        f = self.tulis("a.html", "<h1 style=\"font-family:'Playfair Display'\">x</h1>")
-        self.izin([{"aturan": "K1", "kutipan": "pakai serif untuk kata terakhir", "catatan": "DECISIONS 12"}])
+        f = self.tulis("a.html", self.PUTUS)
+        self.izin([{"aturan": "P", "kutipan": "kotak putus itu sengaja ada", "catatan": "DECISIONS 12"}])
         r = jalan(f, "--tanpa-dom"); self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("IZIN", r.stdout)
 
     def test_izin_tanpa_kutipan_ditolak(self):
-        f = self.tulis("a.html", "<h1 style=\"font-family:'Playfair Display'\">x</h1>")
-        self.izin([{"aturan": "K1", "alasan": "kata sifat: editorial"}])
+        f = self.tulis("a.html", self.PUTUS)
+        self.izin([{"aturan": "P", "alasan": "kata sifat: editorial"}])
         r = jalan(f, "--tanpa-dom"); self.assertEqual(r.returncode, 1); self.assertIn("IZIN TIDAK SAH", r.stdout)
 
     def test_izin_hanya_untuk_aturan_yang_disebut(self):
-        f = self.tulis("a.html", "<h1 style=\"font-family:'Playfair Display';text-shadow:0 0 20px #00f\">x</h1>")
-        self.izin([{"aturan": "K1", "kutipan": "pakai serif untuk kata terakhir"}])
-        r = jalan(f, "--tanpa-dom"); self.assertEqual(r.returncode, 1); self.assertIn("K2-GLOW", r.stdout)
+        f = self.tulis("a.html", "<div style='border:2px dotted #999;width:300px;height:100px'></div><h1 style='text-shadow:0 0 20px #00f'>x</h1>")
+        self.izin([{"aturan": "K2-GLOW", "kutipan": "pakai glow di judul"}])
+        r = jalan(f, "--tanpa-dom"); self.assertEqual(r.returncode, 1); self.assertIn("P-DASHED", r.stdout)
+        r = jalan(f, "--tanpa-dom", "--gerbang"); self.assertEqual(r.returncode, 1); self.assertIn("IZIN", r.stdout)  # K2-GLOW diizinkan, P-DASHED tetap blok
 
 
 @unittest.skipUnless(punya_playwright(), "Playwright tidak ada")

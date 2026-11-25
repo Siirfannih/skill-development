@@ -93,7 +93,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/revision-log.md` | **Revision log & RETRO** — Baca saat Irfan memberi revisi: catat dulu, baru kerjakan. |
 | `claude/motion-graphic/references/roles.md` | **Dua peran: Sutradara dan Editor (layer komunikasi)** — Dibaca di awal tahap Brief setiap pekerjaan video. |
 | `claude/motion-graphic/references/selects-editor.md` | **Paket editor dari rekaman talking head mentah (selects)** — Dibuka saat bahannya rekaman mentah panjang (beberapa menit, banyak take ulang) dan keluarannya paket untuk editor manusia: timeline klip ber-timecode, rough cut, audio, aset motion, storyboard, dan animatic. |
-| `claude/motion-graphic/references/slop-catalog.md` | **Katalog slop (tanda yang pernah Irfan tolak)** — Dipakai untuk memindai, bukan melarang teknik. |
+| `claude/motion-graphic/references/slop-catalog.md` | **Katalog slop (tanda yang pernah Irfan tolak)** — Dipakai untuk memindai, bukan melarang teknik: sidik jari ditulis sebagai rupa dan ukuran (KEBIJAKAN v2), dan berlaku bila REF-SPEC tidak menyatakan sebaliknya. |
 | `claude/motion-graphic/references/smooth-motion.md` | **Smooth motion — resep motion blur, teks, dan kamera yang terbukti** — Baca saat membangun animasi teks, mengatur motion blur, atau saat Irfan bilang gerak "kurang smooth", "patah-patah", atau "kamera berantakan". |
 | `claude/motion-graphic/references/storyboard.md` | **Storyboard visual: dari script atau daftar potongan ke papan panel** — Baca di tahap Storyboard/block out. |
 | `claude/motion-graphic/references/teks.md` | **Teks di layar: posisi, keterbacaan, gerak** — Dibuka saat mengatur teks layar (langkah 4-6 alur SKILL.md). |
@@ -148,10 +148,12 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | File | Isi / kapan dibuka |
 |---|---|
 | `claude/motion-graphic/scripts/audio_qa.py` | Audio QA gate — ukur mix video sendiri dan referensi dengan definisi yang SAMA. |
+| `claude/motion-graphic/scripts/banding.py` | banding.py: bandingkan frame dengan frame referensi / REF-SPEC.json (KEBIJAKAN-v2 bagian 1.3 dan 3). |
 | `claude/motion-graphic/scripts/baseline_lock.py` | Kunci adegan yang sudah disetujui Irfan sebagai frame baseline, lalu gagalkan render yang mengubahnya. |
 | `claude/motion-graphic/scripts/bedah-kamera.py` | Bedah gerak kamera dari video jadi: transform kemiripan antar-frame (ORB + RANSAC) → zoom, geser, putar per frame. |
 | `claude/motion-graphic/scripts/lihat.py` | Lihat per lapis: render frame HTML atau still Remotion lapis demi lapis, supaya "bangun, lihat, perbaiki" jadi satu perintah. |
 | `claude/motion-graphic/scripts/palette_check.py` | QC palet: hitung keluarga warna aksen di sebuah render. Gagal bila keluarga > 2, atau keluarga terbesar < 70 % piksel vivid (tidak ada warna dominan). |
+| `claude/motion-graphic/scripts/ref_spec.py` | ref_spec.py: bedah referensi jadi REF-SPEC terukur (KEBIJAKAN-v2 bagian 3: referensi = kebenaran selera). |
 | `claude/motion-graphic/scripts/audio/audio_phone.py` | v16 audio QA: does every SFX survive a phone speaker at 20 / 50 / 100 % volume, is the VO always clear, and is any SFX harsh (2–6 kHz)? Uses render/mix.wav + stems + render/cues.json. |
 | `claude/motion-graphic/scripts/audio/ears.py` | Telinga gabungan: earshot = skor pertama, lalu dicek ukuran independen (audio.md §14.0B). |
 | `claude/motion-graphic/scripts/audio/el_music.py` | v15 score: one continuous ElevenLabs Music composition whose sections are timed to the VO acts (vo.json). Usage: python3 tools/el_music.py <out.mp3> [plan.json] — key read from .el_key (never printed) |
@@ -185,9 +187,9 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/gate/delivery_probe.py` | Cek pasca-render profil pengiriman V1 (lihat references/delivery-spec.md). Alat mandiri, belum jadi gerbang wajib. |
 | `claude/motion-graphic/scripts/gate/grade_ukur.py` | Ukur hasil color grading footage dengan angka sebelum dinilai dengan mata (`references/grade.md`). |
 | `claude/motion-graphic/scripts/gate/music_batch.py` | Gerbang: satu track musik tidak boleh dipakai untuk semua klip/babak dalam satu batch. |
-| `claude/motion-graphic/scripts/gate/negatif_cek.py` | Satu pintu cek NEGATIF (claude/_bersama/NEGATIF.md): permukaan + huruf (K1/K2) dan placeholder. |
+| `claude/motion-graphic/scripts/gate/negatif_cek.py` | Satu pintu cek NEGATIF (KEBIJAKAN-v2: negatif = simpangan dari REF-SPEC + sidik jari slop, bukan larangan teknik). |
 | `claude/motion-graphic/scripts/gate/pause_clean.py` | Gerbang jeda bersih (Lantai E23): saat pembicara berhenti/berpikir, stem suara tidak membawa dengung kamar, piring, klik, atau room tone kotor yang ikut dikeraskan. |
-| `claude/motion-graphic/scripts/gate/permukaan_cek.py` | Gerbang permukaan: K1 (sans saja) dan K2 (permukaan datar) diperiksa mekanis di KODE frame, bukan dari mata. |
+| `claude/motion-graphic/scripts/gate/permukaan_cek.py` | Inventaris permukaan: berapa SISTEM huruf, bayangan, gradien, kaca/blur, dan 3D yang dipakai di kode frame (KEBIJAKAN-v2). |
 | `claude/motion-graphic/scripts/gate/sfx_density.py` | Gerbang Lantai E24 (5 Pilar Sound Design, guide/sfx/FAMILI.md §0): SFX menandai momen cerita dan gerak yang terlihat, tiap cue berlabel `pilar` (bed, transisi, tick, taktil, aksen), tanpa spam. |
 | `claude/motion-graphic/scripts/gate/tabrakan_cek.py` | Gerbang tabrakan: teks menimpa teks, teks menimpa objek, teks keluar zona aman, diukur dari DOM frame HTML (bukan dari mata). |
 | `claude/motion-graphic/scripts/gate/voice_fidelity.py` | Gerbang suara asli pembicara (format klip podcast/wawancara). |

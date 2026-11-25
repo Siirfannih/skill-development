@@ -1,97 +1,102 @@
-# Phase 0 · Bedah Referensi 5 Lapis (protokol anti-slop)
+# Bedah Referensi · reverse engineering jadi REF-SPEC
 
-Wajib dijalankan setiap kali user membawa referensi (video, gambar, link), **sebelum** storyboard dibuat atau di-upgrade. Tujuannya: yang dipindahkan dari referensi adalah **alasan dan mekanismenya**, bukan kulitnya. Hasilnya diisi ke `REFERENCE-BRIEF.md` di folder proyek (templat di bawah); storyboard belum boleh disentuh sebelum brief ini terisi.
+Wajib dijalankan setiap kali user membawa referensi (video, gambar, link), **sebelum** storyboard dibuat atau di-upgrade. Referensi adalah desain yang sudah dipilih user: sumber kebenaran seleranya. Tujuan bedah: mengubahnya jadi spesifikasi **terukur dan bisa diterapkan ulang** (`REF-SPEC.md`), dengan **alasan** untuk setiap pilihan. Yang dipindahkan adalah alasan dan sistemnya; bentuknya dipakai bila alasan itu berlaku di proyek ini.
 
-Sebelum mulai, petakan **peran tiap referensi**: apa yang dipelajari dari masing-masing (misal satu untuk arsitektur UI dan alur cerita, satu untuk energi pacing dan materialitas). Referensi yang digabung tanpa peran akan saling bertabrakan (*style bleeding*). Kemiripan palet dengan merek user adalah alasan untuk lebih waspada menyalin kulitnya, bukan alasan menjadikannya kiblat utama.
+Alat: `python3 ../motion-graphic/scripts/ref_spec.py <video|folder still>` mengekstrak still per adegan, palet, rentang luma, saturasi, anatomi gradien kasar, luas objek, ke `REF-SPEC.json` + kerangka `REF-SPEC.md`. Angka dari skrip adalah bahan; **alasannya diisi dengan mata**. Bukti tetap wajib: contact sheet + timestamp untuk setiap klaim (lihat sendiri, jangan menebak dari nama file).
 
-Bukti tetap wajib: contact sheet + timestamp untuk setiap klaim (lihat sendiri, jangan menebak dari nama file).
+Sebelum mulai, petakan **peran tiap referensi**: apa yang dipelajari dari masing-masing. Referensi yang digabung tanpa peran saling bertabrakan (*style bleeding*).
 
-**Hierarki:** hasil bedah tidak boleh melanggar LANTAI A7 (sans saja) dan C14a (permukaan datar). Bila referensi memakai serif/italic, kaca, glow, gradien blur, bayangan lembut, atau kartu 3D, itu **kulit**: masuk daftar terlarang §2, yang diambil hanya mekaniknya. Kata gaya di brief ("Apple", "premium", "kedalaman") diterjemahkan lewat tabel `SKILL.md` §2.
+**Kulit vs mekanik, versi 2.** Kulit dari referensi pilihan user (huruf kedua, gradien, kilau, bayangan) **tidak dilarang**. Ia diadopsi bila alasannya berlaku di proyek ini, dan alasannya ditulis di REF-SPEC. Ia ditolak bila hanya disalin karena cantik (tak ada alasan yang bisa diucapkan) atau bila alasannya tidak berlaku (mis. gelap = babak masalah, tetapi proyek ini tidak punya babak masalah). Kata gaya di brief ("Apple", "premium", "kedalaman") diterjemahkan dari REF-SPEC bila ada referensi; tanpa referensi, dari tabel `../motion-graphic/references/dunia-visual.md`.
 
-## Lapis 1 · State machine naratif (alasan di balik warna dan latar)
+## Lima lapis bedah
 
-Dilarang hanya mencatat "latar biru / putih / gelap". Petakan **kapan dan kenapa** suasana visual berubah:
-- **Pemicu emosi/babak**: misal gelap + aura pekat hanya dipakai di babak masalah/hambatan; begitu masuk babak solusi, latar *state flip* ke terang dengan aura lembut.
-- **Aturan untuk video baru**: latar hanya boleh berganti saat argumen berpindah (Masalah → Titik balik → Solusi → Bukti nyata), **bukan selang-seling tiap slide**.
+### Lapis 1 · State machine naratif (alasan di balik warna dan latar)
+Jangan hanya mencatat "latar biru / putih / gelap". Petakan **kapan dan kenapa** suasana visual berubah, dan ukur tiap state: hex + peran (latar, tinta, aksen), anatomi gradien (warna awal → akhir, arah, letak zona pekat, % luas), rentang luma, saturasi median dan p95.
+- Pemicu babak: mis. gelap pekat hanya di babak masalah; masuk babak solusi, latar flip ke terang dengan satu zona warna tegas.
+- Aturan untuk video baru: latar berganti saat argumen berpindah (Masalah → Titik balik → Solusi → Bukti), bukan selang-seling tiap slide.
 
-## Lapis 2 · Audit fungsi objek: mekanisme vs properti permukaan
+### Lapis 2 · Audit fungsi objek dan material
+Untuk setiap objek menonjol (bola, garis vektor, pil, kartu, kursor, tekstur), catat jenis material (bayangan: offset, blur, opasitas; arah cahaya; kilau; satu atau banyak sistem) **dan** jawab uji: "kalau objek ini dihapus, apakah alur atau transisinya putus?"
+- **Mekanisme**: cara objek bekerja (garis yang menuntun kamera, toggle sebelum-sesudah, split aksi-reaksi). Diekstrak.
+- **Makna objek**: apa yang diwakilinya (pil = entitas di jaringan). Bila alasannya berlaku, bentuknya sah dipakai.
+- **Objek tanpa makna** (bola, gelombang, ikon generik yang bila dihapus pesan tidak berkurang) tidak dibawa.
 
-Untuk setiap objek menonjol di referensi (bola, garis vektor, kartu kaca, kursor, tekstur kertas), jawab satu pertanyaan uji: **"Kalau objek ini dihapus, apakah alur cerita atau transisinya putus?"**
-- **Mekanisme (wajib diekstrak)**: cara objek itu bekerja. Contoh: garis yang menuntun kamera dari satu tahap ke tahap berikutnya, toggle yang mengubah keadaan sebelum-sesudah, split-screen aksi-reaksi.
-- **Properti permukaan (wajib diblokir)**: bentuk spesifiknya, misal bola glossy, peta titik berwarna, garis gelombang simetris, ikon timbangan/radar generik. Masukkan ke daftar hitam agar tidak terbawa ke video baru.
+### Lapis 3 · Kontrak dominasi per frame
+Klasifikasikan setiap shot ke **satu** mode fokus dan satu ukuran shot (macro/close/medium/wide); ukur luas objek fokus (% frame), apakah bleed keluar tepi, margin, grid, ruang kosong, ukuran teks UI di 1080:
+- **TYPO_HERO**: tipografi kinetik 100 % visualnya. Catat keluarga, bobot, rasio ukuran terhadap tinggi frame, kapital/tracking; huruf kedua bila ada: perannya dan seberapa sering.
+- **UI_PROOF**: antarmuka/produk/data nyata jadi fokus penuh, dipandu kursor atau macro zoom.
+- **SYSTEM_FLOW**: hubungan antar-elemen jadi panggung utama.
 
-## Lapis 3 · Kontrak dominasi per frame
+### Lapis 4 · Rantai sebab-akibat kamera dan transisi
+Bagaimana akhir shot A secara fisik melahirkan shot B: elemen jangkar yang bertahan melintasi potongan; rasio hold vs motion burst (6-12 frame); tipe transisi dan cara masuk teks, dengan timestamp.
 
-Klasifikasikan setiap shot referensi (dan nanti setiap frame video baru) ke **satu** mode fokus, supaya tidak pernah ada frame setengah teks setengah ikon:
-- **TYPO_HERO**: tipografi kinetik adalah 100 % visualnya (skala, kontras bobot/italic, mask reveal, word rise). Nol ilustrasi tambahan.
-- **UI_PROOF**: antarmuka/produk/data nyata jadi fokus penuh, dipandu kursor atau macro zoom-in. Teks hanya bagian organik dari UI atau label mikro.
-- **SYSTEM_FLOW**: hubungan antar-elemen (node, kartu yang bertransformasi, toggle) jadi panggung utama, tanpa teks panjang terpisah di sudut layar.
+### Lapis 5 · Peta upgrade ke storyboard asal
+Petakan setiap beat ke satu strategi konkret: beat abstrak → tipografi kinetik dan state shift; beat sistem → UI nyata, progressive staging, atau node flow, bukan kartu dummy.
 
-## Lapis 4 · Rantai sebab-akibat kamera dan transisi
+## Templat `REF-SPEC.md` (wajib terisi sebelum storyboard)
 
-Bukan mencatat "cut, zoom in, fade in", tetapi bagaimana akhir shot A secara fisik melahirkan shot B:
-- **Elemen jangkar** apa yang bertahan melintasi potongan? (tombol yang diklik membesar jadi kanvas baru; gerak garis ke kanan memicu pan kamera).
-- **Rasio hold vs motion burst**: berapa lama diam agar mata bisa membaca, dibanding ledakan gerak cepat (6–12 frame).
-
-## Lapis 5 · Peta upgrade ke storyboard asal (tanpa dekorasi palsu)
-
-Jembatan antara hasil bedah dan storyboard yang sudah ada. Sebelum menggambar ulang, petakan setiap beat ke satu strategi upgrade konkret:
-- **Beat abstrak/emosional** → upgrade lewat tipografi kinetik dan state shift, bukan menempelkan ikon radar atau bola.
-- **Beat sistem/proses** → upgrade lewat UI nyata, progressive staging, atau node flow yang terhubung dengan kamera, bukan lingkaran di garis miring atau kartu dummy berisi garis placeholder.
-
-## Templat `REFERENCE-BRIEF.md` (wajib diisi sebelum storyboard)
+Tiap bidang: **nilai terukur**, **Alasan** (makna yang dibawa; satu kalimat), **Toleransi** (dipakai `banding.py`).
 
 ```markdown
-# REFERENCE DECONSTRUCTION BRIEF
+# REF-SPEC · <proyek>
 
 ## 0. Peran tiap referensi
 - [referensi]: dipelajari untuk ... · tidak dipakai untuk ...
-- Aturan resolusi konflik: [kapan mekanik referensi A dipakai, kapan referensi B]
+- Aturan resolusi konflik: ...
 
-## 1. Narrative State Machine (kapan & kenapa latar berubah)
-- State A (Problem/Tension): [palet, pencahayaan, tekstur, pemicu naratif]
-- State B (Solution/Clarity): [palet, pencahayaan, tekstur, pemicu naratif]
-- State C (Proof/Tactile): [palet, pencahayaan, tekstur, pemicu naratif]
-- Aturan transisi antar-state: [kapan state flip terjadi; bukan selang-seling acak]
+## 1. Warna per jenis frame (hero teks / UI / sistem; gelap / terang)
+| Jenis | latar | tinta | aksen | gradien (awal→akhir, arah, zona pekat, % luas) | luma min-maks | saturasi median / p95 |
+- Alasan: ...
+- Toleransi: luma ±..., saturasi p95 ±..., ΔE palet ≤ ...
 
-## 2. Mechanism vs. Forbidden Surface Props
-- Mekanik yang diambil (abstrak):
-  1. [nama mekanik, misal Line-as-Camera-Lead / Cursor Punch-In / Toggle Before-After]
-     - Fungsi naratif: ...
-     - Timing & kamera (dengan timestamp bukti): ...
-- Surface props yang DILARANG disalin (anti-slop list):
-  - [misal bola glossy, garis gelombang simetris, peta titik, ikon generik; selalu termasuk: serif/italic aksen, kaca/blur, glow/halo, gradien radial, bayangan berlapis, kartu 3D]
+## 2. Huruf
+- Utama: keluarga, bobot, rasio tinggi huruf/tinggi frame, kapital, tracking. Alasan: ... Toleransi: ...
+- Kedua (bila ada): keluarga, **peran**, **frekuensi** (kemunculan per frame / per video). Alasan: ...
 
-## 3. Dominance Contract & Upgrade Mapping (storyboard lama → baru)
-Untuk setiap scene:
-- Scene / VO: ...
-- Mode fokus (pilih SATU): [TYPO_HERO | UI_PROOF | SYSTEM_FLOW]
-- Masalah di storyboard awal: [kenapa masih polos/statis]
-- Strategi upgrade (tanpa dekorasi): [tipografi kinetik / UI nyata / transisi kamera]
-- Causality link ke scene berikutnya: [elemen apa yang menggerakkan kamera/transisi keluar]
+## 3. Layout, ukuran shot & bleed
+- Margin, grid, ruang kosong. Alasan: ... Toleransi: ...
+- **Ukuran shot & bleed**: distribusi macro / close / medium / wide (% durasi atau jumlah shot); luas objek fokus per jenis shot (% lebar dan tinggi frame); apakah objek bleed keluar tepi (bubble raksasa terpotong, panel terpotong, close-up produk ekstrem) dan seberapa sering; ukuran teks UI di 1080 (px). Alasan: ... Toleransi: distribusi ±... , luas fokus ±... Build wajib mencocokkan distribusi ini (storyboard memberi tiap beat jenis shot); semua frame medium di tengah dengan skala seragam = presentasi slide.
+
+## 4. Material
+- Bayangan (offset, blur, opasitas), arah cahaya, kilau, kaca/blur; jumlah sistem (harus 1 per jenis benda). Alasan: ... Toleransi: ...
+
+## 5. Gerak
+- Tipe transisi, kamera, cara masuk teks, hold vs burst, dengan timestamp. Alasan: ...
+
+## 6. State machine babak
+- State A (masalah) / B (solusi) / C (bukti): palet, material, pemicu naratif. Aturan flip: ...
+
+## 7. Dominance contract & upgrade mapping (storyboard lama → baru)
+- Scene / VO: ... · Mode fokus (SATU): ... · Strategi upgrade: ... · Causality link ke scene berikutnya: ...
+
+## 8. Diadopsi / ditolak
+- Bentuk referensi yang diadopsi: alasan berlaku di proyek ini karena ...
+- Ditolak: tidak ada alasan yang bisa diucapkan / alasan tidak berlaku karena ...
 ```
+
+Tanpa referensi: isi REF-SPEC dari profil merek + tema, dengan alasan yang sama.
 
 ## Style frame · gerbang 3 frame sebelum storyboard penuh
 
-Setelah brief terisi, buat **3 style frame** 1920×1080 (atau 1080×1920) dari kode yang sama dengan render, satu per mode fokus: TYPO_HERO, SYSTEM_FLOW, UI_PROOF. Tanpa anotasi atau label storyboard, supaya rasa visualnya bisa dinilai murni.
+Buat **3 style frame** 1920×1080 (atau 1080×1920) dari kode yang sama dengan render, satu per mode fokus, tanpa anotasi, supaya rasa visualnya dinilai murni.
 
-1. **Bangun per lapis** (LANTAI F26a), satu lapis baru per render, dan lihat hasilnya di resolusi penuh sebelum lapis berikutnya:
-   - L0 latar: warna/bidang. Cek: warnanya pas, tanpa efek permukaan.
-   - L1 satu objek utama. Cek: bentuk benda nyata, menapak, proporsi benar, terbaca tanpa teks.
-   - L2 teks. Cek: posisi lahir dari komposisi, tidak menimpa objek, satu fokus.
+1. **Bangun per lapis**, satu lapis per render, dan lihat di resolusi penuh sebelum lapis berikutnya:
+   - L0 latar: warna dan gradien sesuai REF-SPEC §1; berkomitmen (zona pekat jelas atau polos).
+   - L1 satu objek utama: bentuk benda nyata, menapak, terbaca tanpa teks, lengkap; ukuran shot dan bleed sesuai REF-SPEC §3.
+   - L2 teks: posisi lahir dari komposisi, tidak menimpa objek, satu fokus, kontras ≥ 4,5:1.
    - L3 label/aksen kecil bila perlu.
-2. Jalankan `../motion-graphic/scripts/gate/permukaan_cek.py <folder kode>` dan `../motion-graphic/scripts/gate/tabrakan_cek.py <frame.html>`; keduanya PASS.
-3. Nilai dengan mata: sans saja, permukaan datar, tanpa tabrakan, objek lengkap (uji 5).
-4. Storyboard penuh baru ditulis setelah ketiga frame lulus, memakai token dan komponen dari frame itu. Bug di satu komponen tidak boleh tersalin ke puluhan panel.
+2. **Bandingkan** berdampingan dengan frame referensi sejenis (ukuran sama), plus `../motion-graphic/scripts/banding.py <frame> <ref-frame>`. Selisih di luar toleransi = perbaiki lapis yang bersangkutan.
+3. Jalankan `../motion-graphic/scripts/gate/tabrakan_cek.py <frame.html>` (PASS) dan `permukaan_cek.py` (inventaris: berapa sistem huruf, material, gradien; jawab "satu sistem?").
+4. Storyboard penuh baru ditulis setelah ketiga frame lulus, memakai token dan komponen dari frame itu.
 
-## Penutup wajib · 5 uji biner (tolak desain sendiri bila mengarah ke slop dekoratif)
+## Penutup wajib · 5 uji biner
 
-Jalankan pada setiap frame storyboard sebelum diserahkan. Satu jawaban "gagal" = frame dirombak, bukan dipoles.
+Jalankan pada setiap frame sebelum diserahkan. Satu "gagal" = frame dirombak, bukan dipoles.
 
-1. **Uji hapus objek.** Bila sebuah bentuk (bola, garis lengkung, lingkaran) dihapus dan pesan frame tidak berkurang sedikit pun, hapus bentuk itu.
-2. **Uji clip-art.** Apakah visualnya hanya terjemahan harfiah satu kata (misal "louder" → gelombang suara, "value/cost" → timbangan)? Bila ya, ganti total dengan tipografi kinetik murni atau bukti UI/produk nyata.
-3. **Uji fokus tunggal.** Apakah teks dan objek visual terpisah di dua area berbeda (misal teks di pojok kiri bawah, kartu di kanan)? Bila ya, leburkan, atau pecah menjadi dua beat berurutan.
-4. **Uji kontinuitas.** Apakah setiap frame menjelaskan dari mana ia masuk dan ke mana ia bergerak keluar? Bila hanya "fade in / pop up", itu masih slide statis, belum motion storyboard.
-5. **Uji placeholder.** Apakah objek terlihat lengkap dan bermakna (UI dengan isi nyata, benda dengan bentuk nyata), atau masih kotak kosong, garis abu pengganti teks, border putus-putus, balok warna? Placeholder → isi dengan konten nyata, atau sederhanakan jadi TYPO_HERO murni.
+1. **Uji hapus objek.** Bentuk (bola, garis, lingkaran) dihapus dan pesan tidak berkurang → hapus.
+2. **Uji clip-art.** Visual hanya terjemahan harfiah satu kata ("louder" → gelombang, "value" → timbangan)? Ganti dengan tipografi kinetik atau bukti UI/produk nyata.
+3. **Uji fokus tunggal.** Teks dan objek terpisah di dua area berebut? Leburkan atau pecah jadi dua beat.
+4. **Uji kontinuitas.** Setiap frame menjelaskan dari mana masuk dan ke mana keluar? Hanya "fade in / pop up" = masih slide statis.
+5. **Uji placeholder.** Kotak kosong, garis abu pengganti teks, border putus-putus, balok warna → isi konten nyata atau sederhanakan jadi TYPO_HERO.
 
-Tulis hasil kelima uji per frame (lulus/gagal + perbaikan) di `REFERENCE-BRIEF.md` §3 atau `STORYBOARD.md`.
+Tulis hasilnya per frame (lulus/gagal + perbaikan) di `REF-SPEC.md` atau `STORYBOARD.md`.

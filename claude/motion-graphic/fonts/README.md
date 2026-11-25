@@ -2,12 +2,12 @@
 
 Jenis huruf ditentukan **kartu kiblat**. Folder ini memastikan font itu benar-benar ada saat render, dan memberi panduan memilih bila kartu hanya menyebut wataknya. Nama font di kartu adalah "paling mirip" dari pengamatan frame, bukan identifikasi pasti.
 
-> **Serif, italic, dan script dilarang di teks layar (LANTAI A7, K1).** Berkas font serif (Instrument Serif, Playfair Display, Fraunces, Source Serif 4, dst.) tetap ada di disk, tetapi hanya dipakai bila user menyebut serif/italic secara eksplisit di sesi itu (catat di DECISIONS). Kartu atau profil merek yang memakai serif tidak membuka larangan. Penekanan = bobot, ukuran, warna, atau kapital dalam satu keluarga sans.
+> **Huruf kedua sebagai sistem (NEGATIF 1, v2).** Satu keluarga utama; huruf kedua (serif, italic, script, tulisan tangan; berkas serif ada di disk) sah bila punya **peran** tetap yang sama sepanjang video (mis. suara logo, kata penutup, nama), **frekuensi** terbatas (≤ 1 per frame), dan sumber: merek (`huruf_kedua: {keluarga, peran, frekuensi}` di BRAND.md), REF-SPEC, atau tema. Pola slop: satu kata "emosional" berganti huruf di banyak frasa tanpa peran. Penekanan default tetap bobot, ukuran, warna, atau kapital. Karya di dalam dunia video (iklan, poster, halaman produk di layar) memakai huruf aslinya; itu isi, bukan sistem huruf video.
 
 ## Cara memakai di proyek Remotion
 1. Salin folder font yang dipakai ke `public/fonts/` proyek (mis. `cp -r fonts/inter fonts/geist <proyek>/public/fonts/`), dan salin baris `@font-face`-nya dari `fonts.css`.
 2. Muat sebelum render (`loadFont`/`FontFace` + `delayRender`), jangan mengandalkan font sistem: PC server hanya punya 3 keluarga font terpasang (cek 12 Nov).
-3. Cek still pertama: bentuk huruf harus sama dengan frame kiblat. Huruf jatuh ke font cadangan = gagal Lantai A7.
+3. Cek still pertama: bentuk huruf harus sama dengan frame kiblat. Huruf jatuh ke font cadangan = gagal (font harus termuat dari berkas).
 
 ## A. Ada di repo (lisensi OFL, boleh dibagikan)
 | Font | Folder | Bobot |
@@ -44,7 +44,7 @@ File: woff2 subset latin dari paket `@fontsource/*`. `fonts.css` dibuat otomatis
 | Gilroy | belum ada file berlisensi | Montserrat 700–800 atau Archivo Black |
 | Druk (Condensed/Wide) | belum ada | Anton (condensed); Archivo Black (lebar) |
 | Aeonik, Suisse Int'l | belum ada | Inter 400–500 atau Manrope |
-| PP Editorial New | belum ada | Inter / Manrope (sans; serif dilarang, Lantai A7) |
+| PP Editorial New | belum ada | Inter / Manrope bila serif tidak punya peran; Instrument Serif / Playfair bila REF-SPEC memberinya peran |
 
 Kartu tetap menyebut font aslinya; resep menulis font yang benar-benar dipakai.
 
@@ -55,8 +55,8 @@ Ini rangkuman dari 78 kartu, bukan aturan baru: kiblat tetap menang. Angka dalam
 |---|---|---|---|---|
 | Narasi / kalimat | sans grotesk netral, Medium–Bold, tracking rapat | Inter, SF Pro, Helvetica Neue | 07, 15, 18, 22, 26, 54, 61 | hampir semua gaya; kalimat yang dibaca berurutan, UI tiruan, teks di atas footage |
 | Narasi tenang "produk" | grotesk geometris Regular–Medium, **tidak pernah bold** | Inter 400–500, Manrope, (Aeonik, Suisse, Satoshi, General Sans) | 17, 30, 33, 67, 68, 72 | product film, launch, nada tenang dan presisi; penekanan lewat warna, ukuran, atau bobot dalam satu keluarga sans |
-| Kata penekanan | satu keluarga sans yang sama dengan narasi; kontras lewat bobot (Regular → Bold/Black), ukuran, warna, atau KAPITAL, satu–dua kata saja | Inter, Manrope, Geist (bobot berbeda) | 04, 16, 18, 29, 33, 46, 67, 80 | nama, istilah, kata kunci. Di kartu, peran ini tampil serif/italic: itu kulit referensi, dilarang (K1, Lantai A7); ambil mekaniknya (satu kata, kontras, skala) lalu bangun dengan sans |
-| ~~Seluruh teks serif~~ (dilarang) | serif dilarang per Lantai A7 dan K1; kartu 19, 48 memakainya sebagai kulit | pakai sans satu keluarga, tracking longgar, ruang kosong luas | 19, 48 | brand story, cohort/komunitas: nada tenang lewat ruang kosong dan hierarki bobot, bukan serif |
+| Kata penekanan | satu keluarga sans yang sama dengan narasi; kontras lewat bobot (Regular → Bold/Black), ukuran, warna, atau KAPITAL, satu–dua kata saja | Inter, Manrope, Geist (bobot berbeda) | 04, 16, 18, 29, 33, 46, 67, 80 | nama, istilah, kata kunci. Di kartu, peran ini sering tampil serif/italic: ambil alasannya (satu kata, kontras, skala); huruf serifnya dipakai bila berperan sebagai huruf kedua yang konsisten (lihat catatan atas), selain itu bangun dengan bobot dalam satu keluarga |
+| Seluruh teks serif | serif sebagai sistem tunggal video (bukan campuran): kartu 19, 48; sah bila itu keluarga utama merek atau REF-SPEC | serif satu keluarga, tracking longgar, ruang kosong luas; atau sans bila merek sans | 19, 48 | brand story, cohort/komunitas: nada tenang lewat ruang kosong dan hierarki bobot |
 | Kata vonis / raksasa | condensed sangat tebal, KAPITAL | Anton, Bebas Neue, Oswald 600–700, (Druk Condensed) | 02, 03, 05, 27, 37, 47, 59, 61, 66 | satu kata yang dihantam ("WRONG", "WIN"), kata di belakang subjek, stiker kata kunci; bukan untuk kalimat |
 | Kata lebar berat | grotesk black lebar | Archivo Black, Montserrat 800, (Druk Wide, Gilroy) | 03, 08, 27, 54 | dicampur dengan condensed dalam satu layar tipografi penuh; angka tahun/tanggal raksasa (82) |
 | Narasi ramah bulat | geometris tebal bulat | Poppins 600–700, Montserrat, (Gilroy, Clash Display) | 20, 37, 59, 73, 82 | explainer ringan, motion 2D, angka dan label infografik |
@@ -64,7 +64,7 @@ Ini rangkuman dari 78 kartu, bukan aturan baru: kiblat tetap menang. Angka dalam
 | Kode / label data | monospace kecil | JetBrains Mono, IBM Plex Mono | 16, 17, 35 | label chart, angka uang, potongan kode; tidak untuk kalimat |
 
 Pola yang berulang di kartu:
-- **Dua keluarga per video** adalah yang paling sering (sans narasi + satu suara penekanan). Tiga atau lebih hanya di gaya yang memang "kolase" (02, 26, 27, 47, 59) dan di sana tiap keluarga punya satu tugas tetap.
+- **Dua keluarga per video** adalah yang paling sering (sans narasi + satu suara penekanan): sah bila suara kedua punya peran dan frekuensi tetap. Tiga atau lebih hanya di gaya yang memang "kolase" (02, 26, 27, 47, 59) dan di sana tiap keluarga punya satu tugas tetap.
 - **Penekanan dipilih satu cara per video**: ketebalan (Regular → Bold), atau ukuran (kata sambung → kata kunci 5–8×), atau warna; selalu dalam satu keluarga sans. Kartu yang tenang (30, 33, 67) tidak memakai bold sama sekali.
-- **Condensed tebal selalu kapital dan selalu pendek** (1–2 kata). Serif/italic tidak dipakai (K1).
-- **Contoh gagal**: serif italic tipis pucat dibesarkan sampai tepi frame (`../cookbook/contoh-gagal/01-serif-pucat-raksasa.jpg`). Serif/italic itu sendiri dilarang (K1, Lantai A7); selain itu yang salah juga kontras, skala, dan hubungannya dengan frame.
+- **Condensed tebal selalu kapital dan selalu pendek** (1–2 kata). Huruf kedua tidak dipakai untuk teks panjang.
+- **Contoh gagal**: serif italic tipis pucat dibesarkan sampai tepi frame (`../cookbook/contoh-gagal/01-serif-pucat-raksasa.jpg`). Yang salah: tanpa peran sebagai sistem, kontras pucat, skala sampai tepi, dan hubungannya dengan frame.

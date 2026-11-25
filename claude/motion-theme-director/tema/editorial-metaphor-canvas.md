@@ -11,9 +11,9 @@ Ukuran: px pada sisi 1080 (lebar 9:16, tinggi 16:9).
 
 ## 2. Keyframe wajib dibuka
 Folder: `../../motion-graphic/guide/referensi/sheets/keyframes/`
-- `88-k6-lingkaran-satu-dial.jpg`: 9:16 putih; "one dial," duduk di tepi atas satu lingkaran biru solid (±19 % lebar); "one" hitam, "dial," masih abu. Empat elemen, >60 % kosong. Yang diambil: satu benda + ruang kosong + teks menempel. Serif dan halo biru pucat di gambar ini kulit referensi, **dilarang** (LANTAI A7, C14a): teks sans, lingkaran datar tanpa halo.
+- `88-k6-lingkaran-satu-dial.jpg`: 9:16 putih; "one dial," duduk di tepi atas satu lingkaran biru solid (±19 % lebar); "one" hitam, "dial," masih abu. Empat elemen, >60 % kosong. Yang diambil: satu benda + ruang kosong + teks menempel. Serif dan halo biru pucat di gambar ini bagian gaya referensinya: dipakai hanya bila alasannya berlaku (REF-SPEC); default tema ini teks sans dan lingkaran datar, karena halo pucat menurunkan kontras teks.
 - `80-k1-kinetik-gelap.jpg`: 16:9 hitam; "Ada" dan "jarak" sans tebal putih segaris, di antaranya garis ukur tipis bertick, "antara" kecil abu di bawahnya.
-- `96-k6-urutan-polaritas.jpg`: 8 still; terang↔gelap tiap 1–3 dtk, 1–3 elemen per adegan, puncak "never" putih raksasa di hitam (kemiringan/italic di gambar = kulit, dilarang A7; ambil skala dan polaritasnya). Abaikan pita mono kecil di bawah (anti-pola).
+- `96-k6-urutan-polaritas.jpg`: 8 still; terang↔gelap tiap 1–3 dtk, 1–3 elemen per adegan, puncak "never" putih raksasa di hitam (kemiringan/italic di gambar tidak punya peran sistem di tema ini; ambil skala dan polaritasnya). Abaikan pita mono kecil di bawah (anti-pola).
 
 ## 3. Keputusan visual
 **V1 Satu benda, sisanya kosong.** Satu benda/diagram per adegan, lebar 520–700 px; ≥ 55 % kanvas polos. → Niat: gagasan terbaca sekali lirik bila tanpa tandingan. → Frame: 2–4 kelompok elemen. → Penonton (hipotesis): paham metafora < 1,5 dtk. → Gagal bila ikon pendukung ditambah "biar jelas"; sah dilanggar sekali bila naskah bilang "ramai". → Bukti: 20-k6-koper-merah, 88-k6, 88-k13-otak-jaringan-titik.
@@ -24,14 +24,14 @@ Folder: `../../motion-graphic/guide/referensi/sheets/keyframes/`
 
 **V4 Relasi digambar.** Kata relasional (jarak, menuju, mengoreksi) → garis ukur, busur, kurva, atau aksi UI tanpa bingkai ponsel. → Niat: hubungan dipahami dari bentuk, bukan ikon. → Frame: satu garis ganti dua kartu. → Penonton (hipotesis): "oh, jarak ini". → Gagal bila naskah butuh UI merek lengkap (pindah tema). → Bukti: 80-k1, 80-k2, 88-k3, 96-k1, 96-k2.
 
-**V5 Ganti adegan lewat polaritas.** Default: potong keras terang↔gelap di onset kata/ketukan, ≥ 0,5 dtk antar-lompatan, tanpa crossfade. Pemicu: dua adegan berbagi gagasan → busur tumbuh ±0,8 dtk lalu keluar tepi menarik adegan berikut. Kedalaman: skala, susunan, atau dotgrid; tanpa blur dan bayangan (C14a). → Niat: ganti pikiran terasa fisik. → Frame: tanpa frame buram bertumpuk. → Penonton (hipotesis): babak baru terasa. → Gagal di footage arsip (kedip). → Bukti: 96-k6, 88-k11; 64-k2 (belum dilihat bergerak).
+**V5 Ganti adegan lewat polaritas.** Default: potong keras terang↔gelap di onset kata/ketukan, ≥ 0,5 dtk antar-lompatan, tanpa crossfade. Pemicu: dua adegan berbagi gagasan → busur tumbuh ±0,8 dtk lalu keluar tepi menarik adegan berikut. Kedalaman: skala, susunan, atau dotgrid; tanpa blur dan bayangan kecuali sebagai sistem material beralasan (NEGATIF 2). → Niat: ganti pikiran terasa fisik. → Frame: tanpa frame buram bertumpuk. → Penonton (hipotesis): babak baru terasa. → Gagal di footage arsip (kedip). → Bukti: 96-k6, 88-k11; 64-k2 (belum dilihat bergerak).
 
 ## 4. Kinetic typography
 **KT1 Dua kutub skala, tanpa kotak.** Kata sambung 64 px, kata isi 150 px (2,3×); rasio antar-teks satu frame 1,0–1,3× atau ≥ 1,8×; kata titik balik sendirian ≥ 4× (≥ 260 px), maks 2 kali per video. Kotak hanya bila latar berganti hitam↔putih di belakang huruf. → Niat: urutan baca tanpa pil. → Frame: sambung menempel di atas isi. → Penonton (hipotesis): topik tertangkap dari kata besar. → Gagal bila kata kunci mini di kanvas kosong, atau rasio 1,4–1,7×. → Bukti: 80-k7, 88-k7, 37-k3 (1,9×), 96-k3; kotak sah 64-k3.
 
 **KT2 Penekanan di tempat, satu cara per frasa.** Default: kalimat tampil redup (#9A9894 terang, #8A8A84 gelap), kata menyala penuh 3 f sebelum onset VO, posisi tetap. Pemicu: pembalikan makna → tukar satu token di baris tetap (≤ 4 token). Jangan sekaligus menyala + berwarna + membesar. Tuturan > 2,5 kata/dtk → frasa 2–3 kata; VO tidak dipercepat, jendela beat memanjang. → Niat: mata tidak melacak teks melompat. → Frame: baris diam, nilainya bergerak. → Penonton (hipotesis): tahu kata yang ditekan. → Gagal bila pop tiap kata, atau redup terlalu gelap di hitam. → Bukti: 88-k6, 96-k4; kata tenggelam 88-k9.
 
-**KT3 Satu keluarga sans.** SemiBold isi, Regular sambung. Serif/italic dilarang (LANTAI A7), juga bila referensi, keyframe, atau profil merek memakainya; kata penutup ditekan lewat bobot, ukuran, atau warna. → Niat: kontras gaya huruf berharga karena langka. → Frame: satu suara. → Penonton (hipotesis): terasa dikurasi. → Gagal bila serif dipakai demi "rasa editorial". → Bukti: 80-k1, 40-k1, 20-k8; pelanggar A6 (jangan ditiru): 88-k7, 73-k8.
+**KT3 Satu keluarga sans.** SemiBold isi, Regular sambung. Default satu keluarga; huruf kedua (serif/italic) sah bila punya peran tetap dan frekuensi (NEGATIF 1, REF-SPEC atau merek), bukan karena "rasa editorial"; kata penutup ditekan lewat bobot, ukuran, atau warna. → Niat: kontras gaya huruf berharga karena langka. → Frame: satu suara. → Penonton (hipotesis): terasa dikurasi. → Gagal bila serif dipakai demi "rasa editorial". → Bukti: 80-k1, 40-k1, 20-k8; pelanggar A6 (jangan ditiru): 88-k7, 73-k8.
 
 **KT4 Teks terikat geometri.** Kata jadi ujung garis tumbuh, label menempel busur, angka UI menyusut di tempat. Gerak bersamaan sah bila satu sumber (garis mendorong kata, kamera membawa semua; hipotesis); hindari ≥ 2 animasi independen mulai di frame sama. Drift kamera lambat tak dihitung. → Niat: kalimat bekerja secara visual. → Frame: gerak baca = ilustrasi. → Penonton (hipotesis): konsep lebih diingat. → Gagal bila efek literal (scan, glitch) di kata biasa. → Bukti: 88-k11, 96-k2; 80-k1, 37-k4 (belum dilihat bergerak).
 
@@ -63,5 +63,5 @@ Alasan: relasi digambar, ganti kartu kembar + ikon. Susunan kiri-kanan 16:9 dipu
 ## 8. Pertanyaan pembeda + status bukti
 1. "≥ 70 % durasi tanpa wajah, tiap poin bisa jadi satu benda/garis?" Tidak → tema lain.
 2. "VO memimpin, atau lagu?" → S1, ritme.
-3. Huruf selalu sans penuh (A7); tidak perlu ditanyakan.
+3. Huruf default sans penuh; huruf kedua hanya bila REF-SPEC/merek memberinya peran (NEGATIF 1).
 Status: hanya 88 dan 96 dilihat bergerak; bunyi belum didengar; dampak ke penonton hipotesis.

@@ -3,9 +3,9 @@
 Rujukan utama: `../../../../external/anti-slop/skills/antislop-ui/SKILL.md` (pola UI/visual) dan `../../../../external/anti-slop/skills/antislop-copywriting/SKILL.md` (copy). Baca bagian yang relevan saat cek akhir, bukan seluruhnya.
 
 ## Cek cepat sebelum kirim
-- Gradien biru-ungu, orb glossy, glow di mana-mana, ikon generik, emoji sebagai hiasan: hanya boleh sebagai bukti visual "desain buruk" yang ditulis di BRIEF.
-- Serif atau italic sebagai aksen "satu kata emosional" (Instrument Serif, Playfair, Didot, Fraunces, `font-style: italic`): dilarang (K1); aksen lewat bobot/ukuran/warna dalam keluarga sans yang sama.
-- Glass/frosted, `backdrop-filter`, blur dekoratif, gradien radial/conic/mesh/aurora, teks bergradien, inset highlight, bevel/gloss, bayangan berlapis atau lembut besar: dilarang (K2); pakai panel solid datar bergaris tepi tipis dan satu bayangan kontak tajam (blur ≤ 24 px, opasitas ≤ 0,2). Kata brief "Apple/premium/glass/gradient halus" diterjemahkan: ruang kosong luas, satu fokus, hierarki bobot+ukuran tegas, latar polos dua nada.
+- Sidik jari slop (rupa + ukuran): gradien ragu-ragu (hampir satu nada, tanpa zona warna tegas), orb glossy dan glow di mana-mana tanpa makna, halo di belakang teks, ikon generik, emoji sebagai hiasan. Gradien yang berkomitmen (satu keluarga hue, zona pekat jelas) dan kilau yang konsisten sah bila ada di REF-SPEC atau beralasan.
+- Huruf kedua sebagai aksen "satu kata emosional" yang berganti-ganti tanpa peran: slop. Sah bila ia sistem (satu peran tetap, frekuensi tertulis; TIP-01); default aksen lewat bobot/ukuran/warna.
+- Sup material: kaca/blur, bayangan, kilau, bevel yang berbeda di tiap panel (lebih dari satu arah cahaya atau sistem bayangan per set slide), kaca di semua kartu tanpa alasan. Satu sistem material yang konsisten dan beralasan sah; tanpa referensi, titik awal aman: panel solid bergaris tepi tipis dan satu bayangan kontak. Kata brief "Apple/premium/glass/gradient halus" diterjemahkan dari REF-SPEC bila ada; tanpa referensi: ruang kosong luas, satu fokus, hierarki bobot+ukuran tegas, latar berkomitmen (polos atau zona pekat tegas).
 - Semua elemen berbayang besar dan melayang → turunkan; bayangan hanya untuk yang memang terangkat.
 - Badge/eyebrow, dot status, panah kecil di setiap tombol → pakai bila jadi bagian dunia cerita, bukan hiasan default.
 - Teks generik ("Unlock your potential") hanya untuk contoh slop yang disengaja.

@@ -16,8 +16,8 @@ Skill ini lapisan penaik mutu, bukan template. **Konsep dan pesanku + 2–4 kart
 4. **Mengubah aturan skill:** `../../SARINGAN.md` + `../../EVALS-DESIGN.md`; asal-usul ke `SUMBER.md`.
 
 ## NEGATIF bersama
-Batas keras anti-slop (sans saja, permukaan datar, objek lengkap, satu fokus) ada di `../_bersama/NEGATIF.md`; baca sebelum merancang.
-Untuk desain statis berlaku butir 1-5 dan 7; butir 6 dan 8-10 khusus video. Hanya kalimat eksplisit Irfan di sesi itu yang membuka butir [keras].
+Batas anti-slop v2 (satu sistem huruf, satu dunia warna/material, objek lengkap, satu fokus; teknik dinilai makna, sistem, takaran, bukan dilarang per nama) ada di `../_bersama/NEGATIF.md`; baca sebelum merancang.
+Untuk desain statis berlaku butir 1-5 dan 7; butir 6 dan 8-10 khusus video. Butir [mutlak] (objek lengkap, satu fokus, audio) tidak punya alasan sah; sisanya dinilai terhadap REF-SPEC bila ada referensi.
 
 ## Lantai (selalu berlaku; isi lengkap di `LANTAI.md`)
 - **TKS-01** Teks terbaca: kontras ≥ 4,5 : 1 (≥ 3 : 1 untuk ≥ 24 px atau ≥ 18,5 px tebal); tidak ada teks terpotong tepi atau menimpa teks lain.

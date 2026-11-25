@@ -4,14 +4,14 @@ Bedah dikerjakan sebelum menulis kartu dan sebelum meracik dari referensi baru. 
 
 ## Lapis 1 · Learn & deconstruct: kenapa ini bagus
 Reverse-engineer anatominya. Jangan berhenti di "warnanya biru, fontnya bold". Cari **3–5 mekanik** yang membuat mata terkunci. Kategori yang sering muncul:
-- **Kedalaman & layering taktil (sumbu Z):** objek menyembul keluar wadah, panel solid yang menutupi sebagian benda di belakangnya (frosted/glass dilarang, K2), satu bayangan kontak tajam yang menunjukkan siapa di depan.
+- **Kedalaman & layering taktil (sumbu Z):** objek menyembul keluar wadah, panel solid yang menutupi sebagian benda di belakangnya (frosted/glass hanya bila satu material konsisten dan beralasan, NEGATIF 2), satu bayangan kontak tajam yang menunjukkan siapa di depan.
 - **Micro-tension tipografi:** grotesk geometris dengan tracking rapat (±−0,03 em) dan line-height ketat (±0,95); pil label diputar (±12°) menimpa ujung huruf untuk memecah grid simetris.
 - **Kontras suhu warna:** latar dingin bersaturasi tinggi vs objek fokus hangat/netral, sehingga fokus menonjol tanpa memperbesar ukuran.
 - **Framing halus:** garis lengkung beropasitas rendah sebagai "rel" yang mengarahkan mata atas → tengah → bawah.
 
 Setiap mekanik ditulis dalam tiga bagian: **apa yang terlihat → kenapa bekerja (persepsi) → angka terukur.**
 
-**Angka diverifikasi dengan alat, bukan mata.** Sampel warna piksel (`PIL.Image.getpixel` di beberapa titik: tepi, tengah, atas), ukur rasio ukuran dan posisi (bbox per elemen dibagi lebar kanvas), lalu catat bila tebakan meleset. Tebakan yang meleset sering mengubah teknik: latar yang dikira polos bisa ternyata bergradien di referensi (di karya kita tetap polos/datar, K2).
+**Angka diverifikasi dengan alat, bukan mata.** Sampel warna piksel (`PIL.Image.getpixel` di beberapa titik: tepi, tengah, atas), ukur rasio ukuran dan posisi (bbox per elemen dibagi lebar kanvas), lalu catat bila tebakan meleset. Tebakan yang meleset sering mengubah teknik: latar yang dikira polos bisa ternyata bergradien di referensi (di karya kita ikuti REF-SPEC: gradien yang berkomitmen sah, ragu-ragu tidak).
 
 ```python
 from PIL import Image

@@ -11,7 +11,7 @@ Cocok: wawancara, filosofi, psikologi, karier, edukasi personal. Tidak cocok: pr
 | Ritme | ±27 cut/menit, shot median ±1,7 dtk; wajah ±35 % durasi, adegan ±65 % |
 | Latar | hitam `#0B0B0C` · kertas putih `#F1EFEA` · biru penuh (adegan teks) |
 | Aksen | satu biru elektrik ±`#1F5FE0` (sampel 720p ref, kalibrasi ulang bila ada sumber HD); teks selalu putih di gelap, hitam di kertas |
-| Font | Inter saja (narasi: Regular/SemiBold, kata kunci: Bold/Black, kontras lewat bobot dan ukuran). Serif/italic dilarang (K1, Lantai A7). Inter OFL, ada di `engines/talking-head-reels/assets/fonts/` atau Google Fonts |
+| Font | Inter saja (narasi: Regular/SemiBold, kata kunci: Bold/Black, kontras lewat bobot dan ukuran). Huruf kedua hanya sebagai sistem beralasan (NEGATIF 1); gaya ini default satu keluarga. Inter OFL, ada di `engines/talking-head-reels/assets/fonts/` atau Google Fonts |
 | Tekstur | kertas halus di semua latar; cat + kertas kasar di lukisan; noise/cat kasar dengan tepi "berdarah" di ilustrasi; kain kasar untuk profil tokoh. Tekstur **menempel ke layer dan ikut bergerak**, kekuatan ≤ 50 % dari kesan pertama (revisi Joseph #3) |
 | Look | tanpa vignette dan tanpa blur dekoratif (K2); B-roll: mata ke titik fokus lewat komposisi, skala, dan ruang kosong |
 
