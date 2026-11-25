@@ -9,6 +9,6 @@
     "Setiap beat punya panel frame bergambar (UI/objek nyata, posisi px) + caption VO, aksi, kamera, keluar, SFX peran+alasan; musik per babak punya peran+alasan",
     "Gerak yang tidak terbaca dari satu frame dipecah menjadi 2-4 frame",
     "scripts/storyboard/board.py PASS dan board.png dilihat sebelum lapor; review papan mencatat temuan kritis/dasar/poles",
-    "cues.json dipakai sebagai awal cue sheet gerbang 6"
+    "cues.json dipakai sebagai awal cue sheet SFX di tahap Mix"
   ]
 }

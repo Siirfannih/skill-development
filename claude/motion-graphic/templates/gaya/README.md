@@ -1,6 +1,6 @@
 # Template gaya
 
-Satu folder = satu gaya edit yang bisa dipilih di gerbang 1. Gaya terpilih menjadi rujukan visual utama untuk video itu: Sutradara memakainya untuk merencanakan, Editor untuk membangun. Urutan menang tetap: instruksi Irfan → `projects/<proyek>/` → `SKILL.md` → gaya terpilih → `guide/`.
+Satu folder = satu gaya edit yang bisa dipilih di tahap Brief. Gaya terpilih menjadi rujukan visual utama untuk video itu: Sutradara memakainya untuk merencanakan, Editor untuk membangun. Urutan menang tetap: instruksi Irfan → `projects/<proyek>/` → `SKILL.md` → gaya terpilih → `guide/`.
 
 | Gaya | Untuk | Engine |
 |---|---|---|
@@ -9,7 +9,7 @@ Satu folder = satu gaya edit yang bisa dipilih di gerbang 1. Gaya terpilih menja
 
 Brief tidak cocok dengan keduanya = Sutradara mengusulkan satu gaya ke Irfan atau bekerja dari `guide/` saja; jangan memaksa gaya.
 
-## Rencana edit berbentuk menu (gerbang 4 untuk klip/talking head)
+## Rencana edit berbentuk menu (tahap Storyboard/block out untuk klip/talking head)
 Sutradara menulis `handoff/MENU.md` setelah transkrip dan potong jeda:
 ```
 ## B03 · 0:12.4–0:15.9 · peran: menjelaskan

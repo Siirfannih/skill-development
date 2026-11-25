@@ -63,7 +63,7 @@ Langkah mode `konten`:
 Revisi visual setelah SFX/musik dikunci membuat lapisan sesudahnya **basi** (`check` = FAIL): SFX disinkron ulang ke render baru, musik didengar ulang. Ini yang mencegah "visual diubah, audio ketinggalan".
 
 ### 14.0D Potong suara: bersih sebelum dikunci
-Suara yang dikunci (gerbang 6) harus sudah bebas kata sampah dan diam saat berpikir. Bila tidak, sampah itu ikut ke teks layar ("tuh" tampil di pembuka), jeda terdengar seperti orang ragu, dan SFX/musik menutupi lubang yang seharusnya tidak ada.
+Suara yang dikunci (tahap Storyboard/block out) harus sudah bebas kata sampah dan diam saat berpikir. Bila tidak, sampah itu ikut ke teks layar ("tuh" tampil di pembuka), jeda terdengar seperti orang ragu, dan SFX/musik menutupi lubang yang seharusnya tidak ada.
 1. **Ukur dengan ambang relatif**, bukan angka mati: diam = energi 10 ms < median ucapan − 18 dB. Ambang −45 dB lama tidak melihat jeda di kamar yang lantai noise-nya −38 dB.
 2. **Diam di dalam kata dihitung.** Whisper menelan jeda ke durasi kata (bisa 0,15–0,45 dtk per kata). Periksa energi di dalam setiap rentang kata, bukan hanya celah antarkata.
 3. **Kata sampah**: eee, emm, eh, hmm, uh, tuh, dan pengulangan/awal salah. Transkrip pancingan (`initial_prompt` berisi "eee, emm") membantu memunculkannya, tapi bisa berhalusinasi: setiap kandidat diverifikasi dengan energi/earshot, bukan dipercaya mentah.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gerbang potongan suara (gerbang 6, Lantai E23): sebelum suara dikunci, potongan harus bersih dari
+"""Gerbang potongan suara (kunci suara di tahap Storyboard/block out, Lantai E23): sebelum suara dikunci, potongan harus bersih dari
 kata sampah dan diam saat pembicara berpikir — termasuk diam yang ditelan transkrip ke dalam durasi kata.
 (editorial: skill-dev-journey 16 Nov)
 

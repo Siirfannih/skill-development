@@ -1,6 +1,6 @@
 # Gaya: minimal-premium (talking head edukatif)
 
-Template gaya untuk klip podcast/talking head yang tenang dan "mahal": wajah pembicara bergantian dengan adegan bertekstur kertas (lukisan, garis biru, ilustrasi kasar, grafik bercahaya). Diturunkan dari bedah ref 18 (`guide/referensi/joseph-arthur-brooks.md`). Sutradara memilihnya di gerbang 1; setelah dipilih, file ini adalah rujukan visual utama Editor. `SKILL.md` Hard Gate tetap menang.
+Template gaya untuk klip podcast/talking head yang tenang dan "mahal": wajah pembicara bergantian dengan adegan bertekstur kertas (lukisan, garis biru, ilustrasi kasar, grafik bercahaya). Diturunkan dari bedah ref 18 (`guide/referensi/joseph-arthur-brooks.md`). Sutradara memilihnya di tahap Brief; setelah dipilih, file ini adalah rujukan visual utama Editor. `SKILL.md` Hard Gate tetap menang.
 
 Cocok: wawancara, filosofi, psikologi, karier, edukasi personal. Tidak cocok: promo produk cepat, demo UI (pakai gaya lain).
 

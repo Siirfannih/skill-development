@@ -6,6 +6,8 @@ yang terlewat (langkah dianggap selesai hanya bila dicentang DAN punya bukti set
 
   python3 tahap.py projects/<proyek>            tampilkan tahap aktif dan langkah berikutnya
   python3 tahap.py projects/<proyek> cek <n>    exit 1 bila tahap 1..n masih punya langkah tanpa centang atau tanpa bukti
+  python3 tahap.py projects/<proyek> cek final  sama, untuk semua tahap sebelum "Deliver" (dipakai render.sh final);
+                                                TAHAP format lama tanpa tahap Deliver: tahap 1–3
 Template: claude/motion-graphic/templates/TAHAP.md (disalin ke projects/<proyek>/TAHAP.md di awal video).
 """
 import os, re, sys
@@ -30,6 +32,12 @@ def baca(proyek):
     return tahap
 
 
+def batas_final(tahap):
+    """Nomor tahap terakhir yang wajib selesai sebelum render final: tahap sebelum "Deliver"; format lama: 3."""
+    d = next((t["no"] for t in tahap if t["nama"].strip().lower().startswith("deliver")), None)
+    return d - 1 if d else 3
+
+
 def selesai(l):
     return l["centang"] and bool(l["bukti"])
 
@@ -39,7 +47,7 @@ def main():
         sys.exit(__doc__)
     tahap = baca(sys.argv[1])
     if len(sys.argv) >= 4 and sys.argv[2] == "cek":
-        n = int(sys.argv[3]); kurang = []
+        n = batas_final(tahap) if sys.argv[3] == "final" else int(sys.argv[3]); kurang = []
         for t in tahap:
             if t["no"] > n: continue
             for l in t["langkah"]:

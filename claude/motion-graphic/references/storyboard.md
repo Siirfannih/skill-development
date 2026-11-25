@@ -1,6 +1,6 @@
 # Storyboard visual: dari script atau daftar potongan ke papan panel
 
-Baca di gerbang 4–5. Storyboard adalah gerbang review termurah: satu panel diperbaiki dalam menit, satu render dalam jam. Metodenya diturunkan dari cara kerja Wonder (skill `new-design`, `new-design-arrange`, `design-review`).
+Baca di tahap Storyboard/block out. Storyboard adalah gerbang review termurah: satu panel diperbaiki dalam menit, satu render dalam jam. Metodenya diturunkan dari cara kerja Wonder (skill `new-design`, `new-design-arrange`, `design-review`).
 
 ## Isi
 
@@ -18,7 +18,7 @@ Baca di gerbang 4–5. Storyboard adalah gerbang review termurah: satu panel dip
 | Kondisi | Yang dilakukan |
 |---|---|
 | Irfan memberi storyboard atau panel contoh | Lanjutkan seperti §6; panel contoh adalah arah gaya, bukan batas |
-| Tidak ada storyboard (klip podcast, talking head, brief + video saja) | Agent membuat preview tahap 2 sendiri: still per beat di atas frame footage asli dari kode yang sama dengan video final (`render.sh still`) + klip draft untuk beat yang punya gerak kamera/transisi, dikirim langsung di percakapan. Produksi penuh dimulai setelah user menyetujui preview (`../templates/merek/README.md` §Tahap 2) |
+| Tidak ada storyboard (klip podcast, talking head, brief + video saja) | Agent membuat preview Storyboard/block out sendiri: still per beat di atas frame footage asli dari kode yang sama dengan video final (`render.sh still`) + klip draft untuk beat yang punya gerak kamera/transisi, dikirim langsung di percakapan. Produksi penuh dimulai setelah user menyetujui preview (`../templates/merek/README.md` §Tahap 2) |
 | Klip/talking head dengan gaya dari `templates/gaya/` | Rencana edit menu: 3 opsi per beat dari menu adegan gaya itu, opsi A = rekomendasi + alasan, tiap opsi menyebut contoh referensinya; Irfan memilih (±15 menit) lalu pilihan masuk `handoff/PLAN.json`. Format: `templates/gaya/README.md` |
 | Tidak ada video referensi | Ambil paket ≤ 5 kartu dari repo `Siirfannih/canvas-skill-library` (`skills/canvas-reference-director/SKILL.md`, `references/cards.json`) + `guide/referensi/` sesuai goal; tulis di `beats.json → arah.sumber_gaya` mana yang dipakai dan kenapa |
 
@@ -53,7 +53,7 @@ Satu panel = frame + caption, seperti artboard Wonder.
         metafora:{makna, emosi, gerak_pembawa, aksi, metafora, objek:[3–6], urutan, bentuk},
         sfx:[{t, peran, alasan}]}]}
 ```
-`cues.json` hasil `board.py` adalah bahan awal cue sheet gerbang 9: setiap event visual di storyboard sudah punya bunyi (Lantai E24).
+`cues.json` hasil `board.py` adalah bahan awal cue sheet SFX di tahap Mix: setiap event visual di storyboard sudah punya bunyi (Lantai E24).
 
 ## 4. Cara Irfan menilai panel
 

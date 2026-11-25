@@ -1,6 +1,6 @@
 # Dua peran: Sutradara dan Editor (layer komunikasi)
 
-Dibaca di gerbang 0 setiap pekerjaan video. Gerbang 0–12 di `references/alur-teknis.md` §4 tidak berubah; file ini hanya mengatur **siapa** mengerjakan gerbang mana dan **bagaimana** keduanya berbicara.
+Dibaca di awal tahap Brief setiap pekerjaan video. Gerbang per tahap di `references/alur-teknis.md` §4 tidak berubah; file ini hanya mengatur **siapa** mengerjakan gerbang mana dan **bagaimana** keduanya berbicara.
 
 ## Isi
 1. Kenapa dipecah

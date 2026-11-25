@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cek profil merek (tahap 1): BRAND.md dan EDITING.md terisi, nilai pasti benar bentuknya, aset yang dirujuk ada.
+"""Cek profil merek (tahap Brief): BRAND.md dan EDITING.md terisi, nilai pasti benar bentuknya, aset yang dirujuk ada.
 
   python3 profil_cek.py <folder data>/merek/<slug-merek>
 
