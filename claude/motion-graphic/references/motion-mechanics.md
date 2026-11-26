@@ -7,12 +7,12 @@ Principle: transitions are **spatial logic** (where the next scene comes from), 
 | Scene A → B relationship | Mechanic |
 |---|---|
 | B is "inside" A (screen, window, document, photo) | Push-through |
-| A turns out to be part of B (content inside the product) | Pull-back reveal |
+| A turns out to be part of B (the content turns out to be inside the product) | Pull-back reveal |
 | Topic shift or energy rise | Whip |
 | Opening/closing, entering a world | Depth fly-through |
 | Many things → one idea | Orbit gather |
 | Accumulation, "so many", fast hook/outro | Flash montage |
-| Swap statement in the same world | Swap in place (word/object trades places, camera stays put) |
+| Swap statement in the same world | Swap in place (the word/object is swapped, camera stays put) |
 
 ## Push-through
 - **When:** the next scene is the contents of an object on screen.
@@ -49,7 +49,7 @@ Principle: transitions are **spatial logic** (where the next scene comes from), 
 - **Check:** max ±1 second per sequence; uniform grade, otherwise it feels random.
 
 ## Hold with drift
-- During holds, the frame is never truly dead: 1–3% scale or slow rotation/orbit, linear is fine.
+- During holds, the frame is never fully still: 1–3% scale or slow rotation/orbit, linear is fine.
 - Reason: a dead frame feels like a slide. Exception: informational moments that must be read precisely.
 
 ## Gradual text appearance
@@ -60,7 +60,7 @@ Principle: transitions are **spatial logic** (where the next scene comes from), 
 ## Cutout
 Separating a subject from its background (rotoscope/matte). Used for function, not decoration.
 - **Subject into palette world:** when the footage's original background clashes with the palette or distracts, cut out the subject (hand + phone, person) and place it on the palette background. Footage then belongs to the video's world.
-- **Text behind subject:** when the word is the hero and the subject is fairly still. Text sits between background and subject. Conditions: clean matte at hair/hand edges, text stays >= 70% readable by letter area.
+- **Text behind subject:** when the word is the hero and the subject is fairly still. The word sits between background and subject. Conditions: clean matte at hair/hand edges; the word stays readable, with >= 70% of its letters visible.
 - **Check:** matte edges checked in a 100% still on the fastest frame; no halo.
 
 ## Camera follows meaning
@@ -72,7 +72,7 @@ Pure functions of `frame` (no state/Math.random/Date), safe for parallel renders
 Test: `npx tsx claude/motion-graphic/scripts/tests/test_timing.ts`.
 
 **Block out: one `T = timeline()` at module level.** All timings are written relative here, not scattered frame numbers.
-Revising one duration shifts its children automatically. Output is in frames; never call inside per-frame components.
+Revising one duration shifts its children automatically. Output is in frames; never call it inside a component (components run every frame).
 - Position: empty = timeline end · number = absolute · `"<"` end of previous child · `"<<"` start of previous child · `"label"` · `"+=N"`/`"-=N"` · combined `"<+=4"`, `"hero-=6"`.
 - Unknown or duplicate labels throw an error (never fail silently).
 ```ts
