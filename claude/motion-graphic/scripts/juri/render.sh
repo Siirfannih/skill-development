@@ -32,6 +32,9 @@
 # Lingkungan: KONKURENSI (default 4; ukur sekali dengan `npx remotion benchmark`), ENTRY (default: isi file remotion/.entry bila ada,
 #   selain itu src/index.ts), VARIAN (mis. A: gerbang audio memakai audio/order-A; tanpa VARIAN dan tanpa audio/ORDER.json,
 #   satu-satunya folder audio/order-* yang dipakai).
+# Penjaga proses: setiap `npx remotion` jalan di grup proses sendiri dengan batas waktu (RENDER_MAKS_DTK, default 2700; STILL_MAKS_DTK, default 300;
+#   KILL_SETELAH_DTK, default 30); habis waktu = seluruh grup dimatikan, keluar 124, ledger memuat "TIMEOUT <mode> <label>". INT/TERM mematikan grup itu.
+#   still/draft/bundle memegang kunci proyek qc/.render.lock; frames/final juga (lebih dulu) selain kunci global. Chrome yatim hanya diperingatkan.
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 [ $# -ge 3 ] || { sed -n '2,17p' "$0"; exit 1; }
@@ -46,14 +49,34 @@ if [ -f "$PROFILE" ]; then read -r PH PGL PK < <(python3 -c 'import json,sys;p=j
 K="${KONKURENSI:-${PK:-4}}"; GL="${GL:-${PGL:-default}}"; GLARG=""; [ "$GL" = default ] || GLARG="--gl=$GL"
 # Ledger: setiap pemanggilan menulis satu baris JSON ke qc/jobs.jsonl (antre di kunci render, lama kerja, hasil, commit),
 # supaya waktu antre, render, dan revisi bisa dipisah tanpa menebak (laporan investigasi 24 jam, 16 Nov).
-T0=$(date +%s); ANTRE=0; ARGS="$(printf '%s ' "$@" | tr -d '"\\')"
+T0=$(date +%s); ANTRE=0; ARGS="$(printf '%s ' "$@" | tr -d '"\\')"; CATATAN=""; CHILD_PID=""; PROJ_LOCKED=""
 ledger() {
   local rc=$? t1; t1=$(date +%s); mkdir -p "$QC"
-  printf '{"mode":"%s","comp":"%s","arg":"%s","mulai":"%s","antre_dtk":%d,"kerja_dtk":%d,"rc":%d,"commit":"%s","host":"%s","konkurensi":%s,"gl":"%s"}\n' \
+  printf '{"mode":"%s","comp":"%s","arg":"%s","mulai":"%s","antre_dtk":%d,"kerja_dtk":%d,"rc":%d,"commit":"%s","host":"%s","konkurensi":%s,"gl":"%s"%s}\n' \
     "$MODE" "$COMP" "${ARGS% }" "$(date -d "@$T0" '+%F %T')" "$ANTRE" "$(( t1 - T0 - ANTRE ))" "$rc" \
-    "$(git -C "$P" rev-parse --short HEAD 2>/dev/null || echo -)" "$(hostname)" "$K" "$GL" >> "$QC/jobs.jsonl"
+    "$(git -C "$P" rev-parse --short HEAD 2>/dev/null || echo -)" "$(hostname)" "$K" "$GL" "${CATATAN:+,\"catatan\":\"$CATATAN\"}" >> "$QC/jobs.jsonl"
 }
 trap ledger EXIT
+exec 7>&1  # stdout asli, supaya pesan TIMEOUT tidak ikut dialihkan ke log oleh pemanggil jalankan
+RENDER_MAKS="${RENDER_MAKS_DTK:-2700}"; STILL_MAKS="${STILL_MAKS_DTK:-300}"; KILL_SETELAH="${KILL_SETELAH_DTK:-30}"
+# INT/TERM: matikan grup proses anak yang sedang jalan (TERM, 2 dtk, lalu KILL), baru keluar; trap EXIT di atas tetap menulis ledger.
+mati() { local sig="$1"; trap '' INT TERM
+  if [ -n "$CHILD_PID" ]; then kill -TERM -- "-$CHILD_PID" 2>/dev/null || true; sleep 2; kill -KILL -- "-$CHILD_PID" 2>/dev/null || true; fi
+  exit $(( 128 + sig )); }
+trap 'mati 2' INT; trap 'mati 15' TERM
+# Perintah berat jalan di sesi/grup sendiri dengan batas waktu: jalankan <maks_dtk> <label> <perintah …>. Habis waktu: grup mati, keluar 124.
+jalankan() { local maks="$1" label="$2" rc=0 t; t=$(date +%s); shift 2
+  ( cd "$R" && exec setsid timeout --kill-after="$KILL_SETELAH" "$maks" "$@" ) &
+  CHILD_PID=$!; wait "$CHILD_PID" || rc=$?; CHILD_PID=""
+  if [ "$rc" = 124 ] || { [ "$rc" = 137 ] && [ $(( $(date +%s) - t )) -ge "$maks" ]; }; then
+    CATATAN="TIMEOUT $MODE $label"; echo "$CATATAN setelah ${maks} dtk: proses dan anak-anaknya dihentikan (naikkan RENDER_MAKS_DTK atau STILL_MAKS_DTK bila memang selama itu)" >&7; exit 124
+  fi
+  return "$rc"; }
+# Kunci proyek (fd 8): satu job still/draft/bundle/frames/final per proyek, supaya bundle bersama dan ledger tidak saling timpa.
+proj_lock() { [ -z "$PROJ_LOCKED" ] || return 0; mkdir -p "$QC"; exec 8>"$QC/.render.lock"
+  local q0; q0=$(date +%s)
+  flock -n 8 || { echo "kunci proyek: menunggu render lain di proyek ini…"; flock 8; }
+  PROJ_LOCKED=1; ANTRE=$(( ANTRE + $(date +%s) - q0 )); }
 
 audio_python() {
   if [ -n "${PYTHON:-}" ]; then
@@ -70,38 +93,42 @@ audio_python() {
 }
 [ -d "$R/src" ] || { echo "GAGAL: $R/src tidak ada"; exit 1; }
 mkdir -p "$QC/stills"
+# Chrome headless yatim (induk 1) dari render yang sesinya mati: hanya diperingatkan, tidak pernah dimatikan otomatis (bisa milik proyek lain yang sah).
+YATIM=$( { ps -eo pid,ppid,cmd 2>/dev/null | awk '$2==1 && /node_modules\/.remotion\/chrome-headless-shell/' | wc -l; } ) || YATIM=0
+[ "${YATIM:-0}" -eq 0 ] || echo "PERINGATAN: $YATIM proses chrome-headless-shell yatim (induk 1) masih jalan. Bila bukan render sah proyek lain: ps -eo pid,ppid,cmd | awk '\$2==1 && /node_modules\\/.remotion\\/chrome-headless-shell/ {print \$1}' | xargs -r kill"
 newest_src() { find "$R/src" "$R/public" -type f -printf '%T@\n' 2>/dev/null | sort -n | tail -1; }
 mtime() { stat -c %Y "$1" 2>/dev/null || echo 0; }
 bundle() {
+  proj_lock
   local stamp="$QC/.bundle_stamp"
   # Bundle dari entry lain (mis. src/index.ts padahal proyek memakai src/video/index.ts) berisi komposisi yang salah: bangun ulang.
   local beda=0; if [ -f "$QC/.bundle_entry" ] && [ "$(cat "$QC/.bundle_entry")" != "$ENTRY" ]; then beda=1; echo "bundle: entry berubah ($(cat "$QC/.bundle_entry") -> $ENTRY)"; fi
   if [ "$beda" = 1 ] || [ ! -d "$QC/.bundle" ] || [ ! -f "$stamp" ] || [ "$(printf '%.0f' "$(newest_src)")" -gt "$(mtime "$stamp")" ]; then
-    echo "bundle: membuat ulang (src berubah)"; (cd "$R" && npx remotion bundle "$ENTRY" --out-dir="$QC/.bundle" >"$QC/bundle.log" 2>&1) || { tail -20 "$QC/bundle.log"; exit 1; }; printf '%s' "$ENTRY" > "$QC/.bundle_entry"
+    echo "bundle: membuat ulang (src berubah)"; jalankan "$RENDER_MAKS" bundle npx remotion bundle "$ENTRY" --out-dir="$QC/.bundle" >"$QC/bundle.log" 2>&1 || { tail -20 "$QC/bundle.log"; exit 1; }; printf '%s' "$ENTRY" > "$QC/.bundle_entry"
     touch "$stamp"
   else echo "bundle: pakai ulang"; fi
 }
 # Kunci GLOBAL untuk render berat (frames/final): satu render di PC bersama pada satu waktu. Render final menulis
 # ±2 MB per frame ke /tmp; dua render bersamaan menghabiskan disk (gagal 15 Nov: builder-trap-r2 v4 crash di f1210 saat
 # jensen-pain-suffering render bersamaan, disk 106 MB). Bila disk sempit, render final per rentang lalu sambung.
-heavy_lock() { exec 9>/tmp/remotion-heavy-render.lock; echo "kunci render global: menunggu render lain selesai (bila ada)…"
-  local q0; q0=$(date +%s); flock 9; ANTRE=$(( $(date +%s) - q0 )); [ "$ANTRE" -lt 5 ] || echo "antre ${ANTRE} dtk di kunci render"; }
+heavy_lock() { proj_lock; exec 9>/tmp/remotion-heavy-render.lock; echo "kunci render global: menunggu render lain selesai (bila ada)…"
+  local q0; q0=$(date +%s); flock 9; local a=$(( $(date +%s) - q0 )); ANTRE=$(( ANTRE + a )); [ "$a" -lt 5 ] || echo "antre ${a} dtk di kunci render"; }
 case "$MODE" in
   still)
     [ $# -ge 1 ] || { echo "beri minimal satu <label:frame>"; exit 1; }
     bundle
     for lf in "$@"; do l="${lf%%:*}"; f="${lf##*:}"
-      (cd "$R" && npx remotion still "$QC/.bundle" "$COMP" "$QC/stills/$l.png" --frame="$f" --scale=0.5 $GLARG >/dev/null 2>>"$QC/still.log") \
-        && echo "still $l (frame $f)" || echo "GAGAL still $l (lihat $QC/still.log)"
+      if jalankan "$STILL_MAKS" "$l" npx remotion still "$QC/.bundle" "$COMP" "$QC/stills/$l.png" --frame="$f" --scale=0.5 $GLARG >/dev/null 2>>"$QC/still.log"
+      then echo "still $l (frame $f)"; else echo "GAGAL still $l (lihat $QC/still.log)"; fi
     done
     echo "Lanjut: teks_cek.py $QC/stills  ->  sandingkan.py $QC/stills <sheet kiblat> $QC/sanding.jpg  ->  isi $QC/JURI.md" ;;
   frames)
     heavy_lock; bundle; FR="$QC/frames"; rm -rf "$FR"; mkdir -p "$FR"
-    (cd "$R" && npx remotion render "$QC/.bundle" "$COMP" "$FR" --sequence --image-format=jpeg --jpeg-quality=85 --scale=0.5 --concurrency="$K" $GLARG --log=error)
+    jalankan "$RENDER_MAKS" "$COMP" npx remotion render "$QC/.bundle" "$COMP" "$FR" --sequence --image-format=jpeg --jpeg-quality=85 --scale=0.5 --concurrency="$K" $GLARG --log=error
     echo "frames $FR ($(ls "$FR" | wc -l) gambar). Lanjut: python3 $HERE/frame_audit.py $FR --src $R/src --cuts … --words …  (fase visual; audio: --fase audio setelah SFX dikunci)" ;;
   draft)
     bundle; RANGE="${1:-}"; OUT="$QC/draft${RANGE:+_$RANGE}.mp4"
-    (cd "$R" && npx remotion render "$QC/.bundle" "$COMP" "$OUT" --scale=0.5 --crf=28 --muted --concurrency="$K" $GLARG ${RANGE:+--frames=$RANGE} --log=error)
+    jalankan "$RENDER_MAKS" "$COMP" npx remotion render "$QC/.bundle" "$COMP" "$OUT" --scale=0.5 --crf=28 --muted --concurrency="$K" $GLARG ${RANGE:+--frames=$RANGE} --log=error
     echo "draft $OUT (skala 0,5; hanya untuk menilai gerak dan kamera)" ;;
   final|lego)
     if [ "$MODE" = lego ]; then LEGO="$P/${COMP}"; [ -f "$LEGO" ] || { echo "GAGAL: $LEGO tidak ada (render.sh <proyek> lego lego/lego.json)"; exit 1; }; OUT="(lego)"; RANGE=""
@@ -181,7 +208,7 @@ case "$MODE" in
     bundle; n=$(( $(grep -c '^final' "$QC/render.log" 2>/dev/null || true) + 1 ))
     echo "final $(date '+%F %T') ke-$n ${RANGE:-penuh} -> $OUT" >> "$QC/render.log"
     [ "$n" -le 2 ] || echo "PERINGATAN: ini render penuh ke-$n untuk video ini. Revisi cukup rentang yang berubah (argumen awal-akhir)."
-    (cd "$R" && npx remotion render "$QC/.bundle" "$COMP" "$OUT" --concurrency="$K" $GLARG ${RANGE:+--frames=$RANGE} --log=error)
+    jalankan "$RENDER_MAKS" "$COMP" npx remotion render "$QC/.bundle" "$COMP" "$OUT" --concurrency="$K" $GLARG ${RANGE:+--frames=$RANGE} --log=error
     echo "final $OUT" ;;
   *) echo "mode tidak dikenal: $MODE (still | draft | frames | final | lego)"; exit 1 ;;
 esac
