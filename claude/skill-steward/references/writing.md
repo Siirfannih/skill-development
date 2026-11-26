@@ -46,7 +46,7 @@ The description is all an agent reads before opening a skill. `name`: lowercase 
 
 ## 5. Size and structure
 
-Budgets, measured by `scripts/steward_check.py` (tokens ≈ bytes / 3.5): SKILL.md body ≤ 500 lines and ~5000 tokens; one reference ≤ ~10000 tokens (a contents list above ~300 lines); AGENTS.md and CLAUDE.md ≤ ~2000 tokens.
+Budgets, measured by `scripts/steward_check.py` (tokens ≈ bytes / 3.5): SKILL.md body ≤ 500 lines and ~5000 tokens, with lean as the aim (the only stricter limit is the existing byte test on `motion-graphic/SKILL.md`, which stays); one reference ≤ ~10000 tokens (a contents list above ~300 lines); AGENTS.md and CLAUDE.md ≤ ~2000 tokens.
 What every path through a skill needs stays in SKILL.md; the rest goes one level down. Every pointer says when to open its target; a bare "see X" is ignored or read every time. Test scenarios live in `steward/changes/`, never in a skill folder, where they could pass for instructions.
 
 ## 6. Before you finish

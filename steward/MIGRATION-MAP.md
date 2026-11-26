@@ -18,7 +18,7 @@ Singkatan: `MG` = `claude/motion-graphic`, `CB` = `MG/cookbook`, `EVALS` = `EVAL
 | ID | Aturan (ringkas) | Sumber | Nasib |
 |---|---|---|---|
 | G01 | Promosi aturan hanya lewat SARINGAN | `AGENTS.md:3`; `MG/MOTION-CORE.md:3` | pindah ke §4 langkah 2, §6 Promosi, `references/placement.md`. Kedua salinan dihapus (menutup K20) |
-| G02 | Aturan = praktik terbaik kecuali NEGATIF; gerbang boleh dilewati dengan 1 baris alasan | `AGENTS.md:5`; `MG/MOTION-CORE.md:5` | konflik K03 + K13, menunggu keputusan. Setelah diputuskan tetap di `AGENTS.md` (aturan isi produksi) |
+| G02 | Aturan = praktik terbaik kecuali NEGATIF; gerbang boleh dilewati dengan 1 baris alasan | `AGENTS.md:5`; `MG/MOTION-CORE.md:5` | K03 diputuskan (fase 3): lihat `AGENTS.md` invarian 4. K13 menunggu keputusan. Tetap di `AGENTS.md` (aturan isi produksi) |
 | G03 | Alat gerbang tidak diubah demi satu video | `AGENTS.md:5` | pindah ke §2 (sesi produksi tidak mengedit file instruksi) dan §5 Tier 1 (mengubah cek) |
 | G04 | `scripts/gate`/`juri` tidak diedit di sesi produksi | `MG/MOTION-CORE.md:93` | pindah ke §2 dan §5. Ikut backlog 2 (MOTION-CORE diarsip benar) |
 | G05 | Pintu sesi produksi video | `AGENTS.md:12` | tetap di `AGENTS.md` (bukan aturan pengelolaan) |
@@ -53,7 +53,7 @@ Singkatan: `MG` = `claude/motion-graphic`, `CB` = `MG/cookbook`, `EVALS` = `EVAL
 | G34 | Tanda `[I]` kata pemilik, `[A]` analisis AI | `PENDING.md:5` | pindah ke format proposal inbox (`references/maintenance.md`). Tetap perlu: §6 Promosi membedakan koreksimu dari simpulan agen |
 | G35 | Perubahan skill masuk `main` di sesi yang sama | `AGENTS.md:49` | dihapus. Diganti §4 langkah 7 dan §5 (Tier 0 langsung, Tier 1–2 setelah ya). Menutup K07 |
 | G36 | Pesan commit menyebut agen | `AGENTS.md:50` | tetap di `AGENTS.md` sampai backlog 21 (E16) diputuskan: ditegakkan hook (Tier 2) atau dihapus |
-| G37 | `MG/SKILL.md` ≤ 12 KB dan ≤ 200 baris | `AGENTS.md:51` | konflik K08, menunggu keputusan |
+| G37 | `MG/SKILL.md` ≤ 12 KB dan ≤ 200 baris | `AGENTS.md:51` | K08 diputuskan (fase 3): batas SKILL.md = batas skill-steward (`steward_check.py`); tes ukuran byte tetap |
 | G38 | NEGATIF 10 butir, tiap butir satu alasan | `AGENTS.md:51`; `tools/sync_negatif.py:30` | tetap di `claude/_bersama/NEGATIF.md` + `sync_negatif.py`. §6 Hukum keras merujuknya. Kalimat di `AGENTS.md:51` dihapus |
 | G39 | Butir guide memakai format enam kolom | `AGENTS.md:51` | pindah ke `references/writing.md` (menang di K09: SARINGAN 22 Nov, dipakai 34 butir guide) |
 | G40 | `peta.py` dijalankan sebelum commit | `AGENTS.md:52`; `tools/peta.py:4-6` | pindah ke §4 langkah 7 |
@@ -84,7 +84,7 @@ Singkatan: `MG` = `claude/motion-graphic`, `CB` = `MG/cookbook`, `EVALS` = `EVAL
 | G65 | Patch ke cabang yang tepat; sumber di SUMBER | `EVALS:26` | pindah ke `references/placement.md` dan §4 langkah 7 |
 | G66 | Agen segar menjalankan kasus lama vs baru; grader terpisah | `EVALS:27,51` | pindah ke §4 langkah 5 dan `references/testing.md` (runner `tools/run_evals.sh` tidak ada, R02) |
 | G67 | Mekanis merge otomatis; aturan baru disetujui di RETRO | `EVALS:57-59` | pindah ke §5 (Tier 0 / Tier 1). Menutup K05 |
-| G68 | Inti > 150 baris / cabang > 300 tanpa TOC ditolak | `EVALS:60` | konflik K08, menunggu keputusan |
+| G68 | Inti > 150 baris / cabang > 300 tanpa TOC ditolak | `EVALS:60` | K08 diputuskan (fase 3): batas ukuran ada di `steward_check.py`, bukan prosa |
 | G69 | Merge → `sync.sh` memasang skill | `EVALS:29` | tetap di `tools/sync.sh`. Kata "menyalin" basi (R05, nyatanya symlink). Mengubah sync = Tier 2 |
 | G70 | Eval pemicu ± 20 permintaan per skill | `EVALS:34-35` | pindah ke `references/testing.md` (baru vibedesign yang punya, R03) |
 | G71 | Sinyal pemakaian → `evals/inbox/usage.md` | `EVALS:64-68` | dihapus sebagai file (tidak pernah ada, R04). Sinyalnya ditulis sebagai proposal `steward/inbox/` |
@@ -101,7 +101,7 @@ Singkatan: `MG` = `claude/motion-graphic`, `CB` = `MG/cookbook`, `EVALS` = `EVAL
 | G82 | Butir baru vibedesign LANTAI hanya lewat SARINGAN | `claude/vibedesign/LANTAI.md:5` | pindah ke §4. `vibedesign/LANTAI.md` tetap aktif sebagai rumah hukum keras vibedesign |
 | G83 | Mengubah skill: buka AGENTS + SARINGAN | `MG/SKILL.md:79` | dihapus (duplikat beda bunyi, C15). Diganti satu baris penunjuk ke skill-steward |
 | G84 | Rute "Mengubah skill": AGENTS §Akhir sesi, EVALS, §Tumbuh | `tools/peta.py:42` | dihapus (C15). Baris Rute diubah menunjuk skill-steward |
-| G85 | Render final tidak dilewati, termasuk karena tenggat | `MG/MOTION-CORE.md:92` | konflik K03, menunggu keputusan. Usulan: `AGENTS.md:5` menang (`SUMBER.md:127`, 25 Nov, membalik aturan 23 Nov) |
+| G85 | Render final tidak dilewati, termasuk karena tenggat | `MG/MOTION-CORE.md:92` | K03 diputuskan (fase 3): `AGENTS.md` invarian 4 menang; `render.sh final` boleh dilewati hanya dengan alasan tertulis + bukti, seperti gerbang lain |
 
 Rekap: 27 tetap (aturan kerja atau alat), 38 pindah, 11 dihapus, 7 konflik menunggu keputusan (G02, G26, G37, G68, G74, G76, G85). Sebagian menunggu juga: G52 (tujuan H, K01/K04), G59 dan G61 (E07), G36 (E16). Sampai dijawab, bunyinya tidak diubah.
 
@@ -127,8 +127,7 @@ Sesudah itu: urutan otoritas K12/K13 (backlog 6, Tier 2).
 
 ## 4. Keputusan yang ditunggu
 
-- K03: apakah "gerbang boleh dilewati dengan satu baris alasan" juga berlaku untuk `render.sh final`?
-- K08: angka batas ukuran mana yang dipakai di `steward_check.py`, dan apakah `MG/SKILL.md` tetap punya batas lebih ketat?
+- K03 dan K08: dijawab pemilik di fase 3 (lihat `steward/changes/2026-11-27-fase3-8-k03-k08.md`).
 - K12/K13 (Tier 2): `MG/SKILL.md:18` jadi penunjuk ke `AGENTS.md`, atau salinan yang dijaga skrip?
 - K18: `00-core-invariants.md` wajib atau opsional di sesi produksi (bila tidak gugur oleh backlog 13)?
 - E07, E12, E16: penghitung `nilai` dipertahankan atau dihapus; doctor punya mode untuk sesi cloud; tag "Agent:" ditegakkan hook atau dihapus.

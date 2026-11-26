@@ -85,8 +85,8 @@ Gerbang yang gagal diperbaiki pada penyebabnya, lalu dijalankan ulang; keluaran 
 
 ## 5. Batas kerja (alasan dan penjagaannya)
 
-- **Render final lewat `render.sh final`** (atau `lego`). Bila gerbangnya tidak bisa jalan di lingkungan ini, render langsung boleh dengan daftar gerbang yang tidak dijalankan di laporan kirim (NOT RUN, §4); melewati gerbang yang bisa jalan butuh satu baris alasan + bukti di LOG (invarian 4 `AGENTS.md`). Tenggat bukan alasan melewati gerbang yang bisa jalan: tenggat tidak terkejar = kirim laporan gerbang yang belum lulus.
-- **Jangan mengedit `scripts/gate/*` atau `scripts/juri/*` di sesi produksi video**, termasuk menyalinnya ke proyek lalu mengubahnya. Gerbang yang dianggap salah dilaporkan ke user, diperbaiki di sesi perubahan skill.
+- **Render final lewat `render.sh final`** (atau `lego`). Gerbang yang tidak bisa jalan di lingkungan ini: render langsung boleh dengan daftar gerbang itu di laporan kirim (NOT RUN, §4). Melewati gerbang yang bisa jalan: invarian 4 `AGENTS.md`. Tenggat bukan alasan melewati gerbang yang bisa jalan: tenggat tidak terkejar = kirim laporan gerbang yang belum lulus.
+- **Jangan mengedit `scripts/gate/*` atau `scripts/juri/*` di sesi produksi video** (invarian 4 `AGENTS.md`), termasuk menyalinnya ke proyek lalu mengubahnya.
 - Jangan mematikan gerbang dengan menghapus atau mengganti nama file pemicunya (`qc/ketat`, `aset.json`, `sfx_potong.json`, stem).
 - **Satu video = satu sesi terpisah.** Jangan menyalin `RESEP.md`, racikan, atau kode adegan dari episode lain; yang dipakai ulang hanya blok netral `scripts/remotion/`.
 - Dilarang menambah elemen di luar tabel racikan, storyboard, dan brief.
