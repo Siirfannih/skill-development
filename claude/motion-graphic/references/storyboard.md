@@ -20,7 +20,7 @@ Baca di tahap Storyboard/block out. Storyboard adalah gerbang review termurah: s
 |---|---|
 | Irfan memberi storyboard atau panel contoh | Lanjutkan seperti §6; panel contoh adalah arah gaya, bukan batas |
 | Tidak ada storyboard (klip podcast, talking head, brief + video saja) | Agent membuat preview Storyboard/block out sendiri: still per beat di atas frame footage asli dari kode yang sama dengan video final (`render.sh still`) + klip draft untuk beat yang punya gerak kamera/transisi, dikirim langsung di percakapan. Produksi penuh dimulai setelah user menyetujui preview (`../templates/merek/README.md` §Tahap 2) |
-| Klip/talking head dengan gaya dari `templates/gaya/` | Rencana edit: satu rencana dengan rekomendasi + alasan per beat dari menu adegan gaya itu; opsi alternatif (dengan contoh referensinya) hanya untuk beat yang benar-benar ragu, dan Irfan memilih hanya di situ; rencana masuk `handoff/PLAN.json`. Format: `templates/gaya/README.md` |
+| Klip/talking head | Rencana edit: satu rencana dengan rekomendasi + alasan per beat, adegannya dipilih dari kartu cookbook dan `RESEP.md`, bukan dari gaya tetap; opsi alternatif (dengan contoh referensinya) hanya untuk beat yang benar-benar ragu, dan Irfan memilih hanya di situ; rencana masuk `handoff/PLAN.json`. Format `MENU.md`: `roles.md` |
 | Tidak ada video referensi | Ambil paket ≤ 5 kartu dari repo `Siirfannih/canvas-skill-library` (`skills/canvas-reference-director/SKILL.md`, `references/cards.json`) + `guide/referensi/` sesuai goal; tulis di `beats.json → arah.sumber_gaya` mana yang dipakai dan kenapa |
 
 Tiap panel mencatat jenis shot (macro/close/medium/wide) dan bleed; distribusinya mengikuti REF-SPEC §3 bila ada referensi (bukan semua medium di tengah).

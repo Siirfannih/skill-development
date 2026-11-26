@@ -9,7 +9,7 @@ Copy the needed sections to `projects/<project>/handoff/`. Usage rules: `referen
 > …
 ## Locked
 - Goal · audience · duration · ratio/fps · CTA
-- Style: templates/gaya/<style> (changed tokens: …)
+- Style: `RESEP.md` (changed tokens: …)
 - Sources: footage <path>, script/transcript <path>
 ## Relevant Floor items
 - A5 text from speech · E24 SFX per object · A4 max 2 lines · …
@@ -32,7 +32,7 @@ Copy the needed sections to `projects/<project>/handoff/`. Usage rules: `referen
 ```
 # TASK r<N> · <one-sentence goal>
 Scope: B01–B05 (do not touch other beats)
-Allowed to read: templates/gaya/<style>/STYLE.md · references/build.md · <engine>
+Allowed to read: RESEP.md · references/build.md · <engine>
 Required outputs: still per beat (sheet) · silent render <path> · gate outputs: <list>
 Fix: F-r<N-1>-02 (B03: graphic text vanishes before sentence ends → hold until 0:06.0)
 Do not change: B01, B02 (locked)

@@ -27,8 +27,8 @@ Model sama, konteks beda: Sutradara memegang **kenapa**, Editor memegang **bagai
 
 | | **Sutradara** (sesi utama, bicara dengan Irfan) | **Editor** (subagen, membangun video) |
 |---|---|---|
-| Tugas | Intake, pertanyaan ke Irfan, bedah referensi, memilih gaya (`templates/gaya/`), rencana edit + menu opsi, kontrak beat, review buta, devil's advocate, Delivery Gate, laporan ke Irfan | Persiapan media, build tiap beat, still, render, sound sesuai cue, gate mekanis, laporan berbukti |
-| Membaca | `working-with-irfan`, `SKILL.md`, `guide/`, cabang keputusan (`decision*.md`, `storyboard.md`, `analysis-qa.md`, `copywriting.md`, `delivery-gate.md`), `projects/<proyek>/`, RETRO, referensi | **Hanya** `handoff/` + file yang disebut di `TASK` (biasanya `templates/gaya/<gaya>/STYLE.md`, `build.md`, `typography.md`, `smooth-motion.md`, skill engine: Remotion / `engines/talking-head-reels/`) |
+| Tugas | Intake, pertanyaan ke Irfan, bedah referensi, memilih arah gaya (RESEP + kartu), rencana edit + menu opsi, kontrak beat, review buta, devil's advocate, Delivery Gate, laporan ke Irfan | Persiapan media, build tiap beat, still, render, sound sesuai cue, gate mekanis, laporan berbukti |
+| Membaca | `working-with-irfan`, `SKILL.md`, `guide/`, cabang keputusan (`decision*.md`, `storyboard.md`, `analysis-qa.md`, `copywriting.md`, `delivery-gate.md`), `projects/<proyek>/`, RETRO, referensi | **Hanya** `handoff/` + file yang disebut di `TASK` (biasanya `RESEP.md`, `build.md`, `typography.md`, `smooth-motion.md`, skill engine: Remotion / `engines/talking-head-reels/`) |
 | Menulis | `handoff/BRIEF.md`, `PLAN.json`, `TASK-rN.md`, `REVIEW-rN.md`, `DECISIONS.md` | Kode build, aset, render, `handoff/REPORT-rN.md`, `handoff/QUESTIONS.md` |
 | Tidak boleh | Menulis kode build atau render (kecuali skrip ukur), menyetujui hasil tanpa melihat still | Bicara ke Irfan, mengubah `PLAN.json`/`BRIEF.md`, menebak hal yang tidak ada di TASK, mengubah atribut terlihat yang tidak disebut TASK, menafsir kata yang kabur dengan selera sendiri, menulis "final", membaca RETRO atau seluruh skill |
 
@@ -62,13 +62,15 @@ Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat men
 | File | Ditulis | Isi |
 |---|---|---|
 | `BRIEF.md` | Sutradara | Brief Irfan apa adanya, keputusan terkunci, gaya terpilih + token, butir Lantai yang relevan, aset + lisensi. Netral: fakta dan keputusan, bukan cerita proses |
-| `MENU.md` | Sutradara | Rencana edit dengan rekomendasi per beat (opsi hanya untuk beat yang ragu) (`templates/gaya/README.md`); pilihan masuk PLAN |
-| `PLAN.json` | Sutradara | Beat: `id`, waktu, kata, jenis adegan (ID dari gaya), opsi terpilih, teks layar persis, SFX `peran`+`alasan`, `lulus_bila` terukur. Format `beats.json` storyboard + `adegan` dan `lulus_bila` |
+| `MENU.md` | Sutradara | Rencana edit dengan rekomendasi per beat (opsi hanya untuk beat yang ragu); format di bawah tabel; pilihan masuk PLAN |
+| `PLAN.json` | Sutradara | Beat: `id`, waktu, kata, jenis adegan (kartu cookbook), opsi terpilih, teks layar persis, SFX `peran`+`alasan`, `lulus_bila` terukur. Format `beats.json` storyboard + `adegan` dan `lulus_bila` |
 | `TASK-rN.md` | Sutradara | Cakupan ronde (beat mana), file yang boleh dibaca, keluaran wajib, temuan yang harus diperbaiki (ID), yang tidak boleh berubah |
 | `REPORT-rN.md` | Editor (Sutradara menyimpan bila subagen dilarang menulis file laporan) | Yang dikerjakan per beat, path bukti (still sheet, render, keluaran gate), angka, penyimpangan dari TASK + alasan |
 | `QUESTIONS.md` | Editor | Log pertanyaan. Pertanyaannya sendiri dikirim langsung ke Sutradara saat muncul (§5 butir 2), bukan menunggu file dibaca |
 | `REVIEW-rN.md` | Sutradara | Temuan `F-rN-xx` → beat, bukti (timestamp/frame), kriteria terukur, hasil devil's advocate (LOLOS/BUANG + alasan) |
 | `DECISIONS.md` | Sutradara | Keputusan + sumber `Irfan` / `usul` / `usul-dipilih` (`revision-log.md` §21.1) |
+
+**Format `MENU.md`** (opsi A = rekomendasi Sutradara + alasan dari tabel penempatan `analysis-qa.md` §2). Per beat: judul `## B03 · 0:12.4–0:15.9 · peran: menjelaskan`, kalimat beat dikutip, lalu tabel `Opsi | Adegan | Ide satu baris | Contoh ref` (file + timestamp, agar Irfan bisa melihatnya) dengan A bertanda ✔, dan baris `Catatan Irfan:`. Irfan memilih, mencoret atau menulis catatan (±15 menit). Tanpa kesempatan bertanya: Sutradara memilih A dan mengirim MENU bersama hasil. MENU disimpan sebagai bukti keputusan.
 
 ## 5. Protokol satu ronde
 

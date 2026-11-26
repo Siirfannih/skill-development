@@ -129,9 +129,6 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 |---|---|
 | `claude/motion-graphic/templates/TAHAP.md` | **TAHAP · <proyek>** — Disalin ke projects/<proyek>/TAHAP.md di awal video. |
 | `claude/motion-graphic/templates/cut-sheet.md` | **Timeline Cut Sheet & Visual Mapping · <project>** — One table for the whole video. |
-| `claude/motion-graphic/templates/gaya/README.md` | **Template gaya** — Satu folder = satu gaya edit yang bisa dipilih di tahap Brief. |
-| `claude/motion-graphic/templates/gaya/editorial-bold/STYLE.md` | **Gaya: editorial-bold (talking head cepat)** — Template gaya untuk reel talking head yang cepat dan tegas: Anton besar, aksen merah, B-roll hitam-putih, split screen, transisi kamera. |
-| `claude/motion-graphic/templates/gaya/minimal-premium/STYLE.md` | **Gaya: minimal-premium (talking head edukatif)** — Template gaya untuk klip podcast/talking head yang tenang dan presisi (ruang kosong luas, satu fokus): wajah pembicara bergantian dengan adegan bertekstur kertas (lukisan, garis biru, ilustrasi kasar, grafik garis tipis). |
 | `claude/motion-graphic/templates/handoff-fase.md` | **Handoff fase <n> · <proyek> · <tanggal>** — Kamu subagen untuk satu fase saja. |
 | `claude/motion-graphic/templates/merek/BRAND.md` | **<nama merek>** — ## Siapa dan untuk siapa <2–3 kalimat: apa mereknya, penontonnya, kesan yang harus tertinggal setelah video selesai.> |
 | `claude/motion-graphic/templates/merek/EDITING.md` | **Editing <nama merek>** — ## Arah yang dipilih user <Tema yang user sebut (mis. |

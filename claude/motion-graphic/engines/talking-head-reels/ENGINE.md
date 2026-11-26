@@ -1,4 +1,4 @@
-> **Engine of `claude/motion-graphic`, not a standalone skill.** Uploaded by Irfan 11 Nov 2026 (`talking-head-reels.zip`); kept as received except the cross-platform font patch below. Used by the Editor role when the chosen style is `templates/gaya/editorial-bold` (or any EDL-driven talking-head edit). Rules in `../../SKILL.md` and the chosen style win over this file when they differ.
+> **Engine of `claude/motion-graphic`, not a standalone skill.** Uploaded by Irfan 11 Nov 2026 (`talking-head-reels.zip`); kept as received except the cross-platform font patch below. Used by the Editor role when the plan is an EDL-driven talking-head edit. Rules in `../../SKILL.md` and the chosen style win over this file when they differ.
 
 # Talking-head reels
 

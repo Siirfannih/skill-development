@@ -14,7 +14,7 @@ Skill ini adalah **titik start, bukan titik nol**: pengalaman yang sudah terbukt
 
 **Prinsip:** cerita dulu, baru gaya · referensi adalah standar yang harus dicapai (teknik yang tidak cocok diganti yang setara, bukan yang lebih kasar) · setiap potongan jatuh di ketukan (frasa, beat musik, puncak gerak) · lihat sendiri, ukur sendiri sebelum Irfan menunjuk · satu fokus per frame, efek tanpa alasan dihapus.
 
-**Urutan otoritas:** kalimat kanonik `AGENTS.md` (Urutan otoritas). File ini dan cabang `references/` ada di lapis terakhir; di bawahnya `external/`, lalu canvas-skill-library. `templates/gaya/` adalah turunan kartu 18 (minimal-premium) dan satu gaya klien (editorial-bold): dipakai hanya bila resep memilihnya.
+**Urutan otoritas:** kalimat kanonik `AGENTS.md` (Urutan otoritas). File ini dan cabang `references/` ada di lapis terakhir; di bawahnya `external/`, lalu canvas-skill-library.
 
 ## 2a. Dua peran: Sutradara dan Editor
 
@@ -54,7 +54,7 @@ Tahap dikelompokkan jadi lima fase. Satu model mengerjakannya berurutan di satu 
 | Tahap | Gerbang | Baca cabang | Lolos jika |
 |---|---|---|---|
 | Brief | Muat konteks | — | §6 selesai; bila earshot terpasang, `earshot doctor` lulus; bila tidak, lanjut dengan alat ukur repo (`music_fit`, `pace_read`, ebur128) dan tandai "belum didengar alat" di laporan kirim |
-| Brief | Brief | `decision.md`, `palette.md`, `templates/gaya/README.md` | Brief Irfan disalin apa adanya; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari Irfan. Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
+| Brief | Brief | `decision.md`, `palette.md` | Brief Irfan disalin apa adanya; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari Irfan. Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
 | Brief | Bedah referensi | `analysis-qa.md` §2, `three-segment-gate.md` (gerbang DENGAR) | Metrik visual + tabel kalimat → adegan → peran kalimat + peta audio dari `earshot timeline --detail high` bila earshot ada (label, event/dtk, kepadatan SFX); tanpa earshot: onset/RMS dari ffmpeg + transkrip sumber |
 | Naskah | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file (klip: daftar potongan + timestamp sumber) |
 | Storyboard/block out | Storyboard visual 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Papan panel (frame + caption) di `projects/<proyek>/storyboard/`, `beats.json → metafora` terisi per beat (Lantai D19a/D19b), `scripts/storyboard/board.py` PASS, review papan + tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final. Tanpa storyboard dari Irfan (klip): agent membuatnya sendiri dan lanjut, papan dikirim bersama hasil. Klip/talking head dengan gaya terpilih: rencana edit satu per beat dengan rekomendasi, opsi hanya untuk beat yang ragu (`templates/gaya/README.md`) |
@@ -89,7 +89,6 @@ motion-graphic/
 │   ├── audio.md · build.md · analysis-qa.md · revision-log.md · palette.md (+ palettes.json)
 │   └── hybrid-motion-standard.md · three-segment-gate.md
 ├── templates/storyboard/    contoh beats.json + tokens.css + panel (mulai dari salinan ini)
-├── templates/gaya/          template gaya terpilih di tahap Brief (minimal-premium, editorial-bold) + format menu rencana edit
 ├── templates/roles/        prompt Editor, cara menilai frame (pemeriksa-frame, satu penilai), devils-advocate (mata luar sebelum final), pemeriksa-audio + kerangka folder handoff/ (roles.md)
 ├── engines/talking-head-reels/  engine EDL → reel 9:16 (Python + ffmpeg/libass), Mac + Linux
 └── scripts/
@@ -129,7 +128,7 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 |---|---|
 | Keputusan rasa (visual, teks, gerak, audio, SFX) | `guide/<urusan>/GUIDE.md` |
 | Mulai pekerjaan video: siapa mengerjakan apa | `roles.md` |
-| Memilih gaya edit, rencana menu per beat | `templates/gaya/` |
+| Rencana menu per beat (klip/talking head) | `references/storyboard.md` §1 |
 | Memilih, aturan bertabrakan, ragu bertanya | `decision.md` |
 | Script, teks layar | `copywriting.md` |
 | Tokoh, metafora, family, palet | `direction.md`, `palette.md` |

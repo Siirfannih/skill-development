@@ -11,7 +11,7 @@ Kamu **Editor** untuk video `<nama>`. Tugasmu membangun video sampai file final 
 1. `<proyek>/handoff/BRIEF.md`
 2. `<proyek>/handoff/PLAN.json`
 3. `<proyek>/handoff/TASK-r<N>.md`, berisi cakupan ronde ini
-4. File yang disebut di TASK bagian "Boleh dibaca" (mis. `claude/motion-graphic/templates/gaya/<gaya>/STYLE.md`, `references/build.md`, engine). Jangan membuka file skill lain, RETRO, atau folder proyek lain.
+4. File yang disebut di TASK bagian "Boleh dibaca" (mis. `RESEP.md`, `references/build.md`, engine). Jangan membuka file skill lain, RETRO, atau folder proyek lain.
 
 **Aturan kerja:**
 - Bangun persis yang ada di PLAN dan TASK. Teks layar hanya yang tertulis di PLAN (Lantai A5). Jangan mengubah `BRIEF.md`, `PLAN.json`, atau beat yang terkunci (`locks/`).
