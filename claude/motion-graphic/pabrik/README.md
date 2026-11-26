@@ -2,6 +2,8 @@
 
 Memaksa referensi dibedah jadi primitif kecil yang terstruktur, lalu tiap komponen Remotion diuji otomatis sebelum masuk katalog (`registry.json`). Model memilih dari registry, tidak mengarang CSS/shader dari nol. Komponen memakai `toolkit/` (curves, Camera25D, LightWaveBg, Grain), tidak membuat versi sendiri.
 
+Aturan bedah dan uji: wajib baca [`claude/video-reference-deconstructor/SKILL.md`](../../video-reference-deconstructor/SKILL.md) sebelum fase 1–3 (primitif atomik, angka measured/estimated, uji transfer dua isian slot, tanpa perbandingan tampilan dengan referensi). Brief ke subagen lewat [`claude/brief-gate`](../../brief-gate/SKILL.md).
+
 ## Alur (4 fase, satu skrip tiap fase)
 
 | Fase | Perintah | Keluaran |
