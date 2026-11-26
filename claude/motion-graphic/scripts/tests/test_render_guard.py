@@ -17,6 +17,7 @@ if [ "$m" = bundle ]; then
   for a in "$@"; do case "$a" in --out-dir=*) mkdir -p "${a#--out-dir=}";; esac; done
   sleep "${FAKE_BUNDLE_SLEEP:-0}"; echo "$(date +%s.%N) end $m $$" >> "$FAKE_LOG"; exit 0
 fi
+if [ -n "${FAKE_ESCAPE:-}" ]; then setsid sleep 300 </dev/null >/dev/null 2>&1 & echo $! > "$FAKE_ESCAPE"; fi
 if [ "${FAKE_HANG:-}" = "$m" ]; then
   sleep 300 & echo $! > "$FAKE_CHILD"
   [ -z "${FAKE_IGNORE_TERM:-}" ] || trap '' TERM
@@ -90,6 +91,18 @@ class Sintaks(unittest.TestCase):
         self.assertEqual(s.count("/tmp/remotion-heavy-render.lock"), 1)
         self.assertIn("exec 9>/tmp/remotion-heavy-render.lock", s); self.assertIn("flock 9", s)
 
+    def test_render_final_memakai_batas_final_yang_longgar(self):
+        # render final terlama yang tercatat di PC ini 2248 dtk (behindwork-launch qc/jobs.jsonl); batas bersama 2700 dtk terlalu tipis untuk PC lambat
+        s = RENDER.read_text()
+        self.assertTrue('FINAL_MAKS="${FINAL_MAKS_DTK:-10800}"' in s)
+        final = s[s.index("    heavy_lock\n    bundle; n="):]
+        self.assertIn('jalankan "$FINAL_MAKS" "$COMP" npx remotion render', final.split(";;")[0])
+        self.assertTrue("FINAL_MAKS_DTK" in s[s.index("jalankan() {"):s.index("proj_lock() {")])  # pesan habis waktu menyebut penggantinya
+
+    def test_batas_job_tunggu_tidak_lebih_ketat_dari_render_final(self):
+        s = TUNGGU.read_text()
+        self.assertTrue("${MAKS_JOB_DTK:-14400}" in s)
+
 
 class BatasWaktu(Dasar):
     def test_still_habis_waktu_rc_124_grup_mati_ledger_timeout(self):
@@ -114,6 +127,18 @@ class BatasWaktu(Dasar):
         r = self.render("still", "Komp", "satu:1")
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn("still satu (frame 1)", r.stdout)
         self.assertNotIn("catatan", self.ledger()[-1]); self.assertEqual(self.ledger()[-1]["rc"], 0)
+
+    def test_anak_yang_lolos_dari_grup_tidak_memegang_kunci_proyek(self):
+        # Chrome dari Remotion dijalankan detached (grup sendiri); bila ia yatim, kunci proyek tidak boleh ikut tertahan
+        lolos = self.d / "lolos.pid"
+        try:
+            r = self.render("still", "Komp", "satu:1", env={"FAKE_ESCAPE": str(lolos)})
+            self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertTrue(tunggu_berkas(lolos)); self.assertTrue(hidup(int(lolos.read_text())))
+            self.assertEqual(subprocess.run(["flock", "-n", str(self.p / "qc/.render.lock"), "true"]).returncode, 0)
+        finally:
+            if lolos.exists():
+                try: os.kill(int(lolos.read_text()), signal.SIGKILL)
+                except (ProcessLookupError, ValueError): pass
 
     def test_kunci_proyek_lepas_setelah_habis_waktu(self):
         self.render("still", "Komp", "satu:1", env={"FAKE_HANG": "still", "STILL_MAKS_DTK": "1"})
@@ -213,11 +238,14 @@ class Tunggu(unittest.TestCase):
 
     def test_job_habis_waktu_rc_124(self):
         self.sh("jalan", "j2", "--", "bash", "-c", f"sleep 300 & echo $! > {self.anak}; sleep 300", env={"MAKS_JOB_DTK": "1"})
+        self.assertTrue(tunggu_berkas(self.d / "jobs/j2/rc", 30))  # `tunggu` tidur 10 dtk per putaran; menunggu rc dulu tidak mengubah yang diuji
         r = self.sh("tunggu", "j2", "30"); self.assertEqual(r.returncode, 124, r.stdout + r.stderr)
         self.assertTrue(tunggu_mati(int(self.anak.read_text())))
+        self.assertIn("MAKS_JOB_DTK", r.stdout)  # baris TIMEOUT di log menyebut cara menaikkan batas
 
     def test_job_biasa_rc_dan_log_tidak_berubah(self):
         self.sh("jalan", "j3", "--", "bash", "-c", "echo halo; exit 7")
+        self.assertTrue(tunggu_berkas(self.d / "jobs/j3/rc"))
         r = self.sh("tunggu", "j3", "30"); self.assertEqual(r.returncode, 7); self.assertIn("job j3 selesai rc=7", r.stdout); self.assertIn("halo", r.stdout)
 
 

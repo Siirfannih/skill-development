@@ -32,8 +32,10 @@
 # Lingkungan: KONKURENSI (default 4; ukur sekali dengan `npx remotion benchmark`), ENTRY (default: isi file remotion/.entry bila ada,
 #   selain itu src/index.ts), VARIAN (mis. A: gerbang audio memakai audio/order-A; tanpa VARIAN dan tanpa audio/ORDER.json,
 #   satu-satunya folder audio/order-* yang dipakai).
-# Penjaga proses: setiap `npx remotion` jalan di grup proses sendiri dengan batas waktu (RENDER_MAKS_DTK, default 2700; STILL_MAKS_DTK, default 300;
-#   KILL_SETELAH_DTK, default 30); habis waktu = seluruh grup dimatikan, keluar 124, ledger memuat "TIMEOUT <mode> <label>". INT/TERM mematikan grup itu.
+# Penjaga proses: setiap `npx remotion` jalan di grup proses sendiri dengan batas waktu (RENDER_MAKS_DTK, default 2700, untuk bundle/frames/draft;
+#   FINAL_MAKS_DTK, default 10800, untuk final: render final terlama yang tercatat 2248 dtk; STILL_MAKS_DTK, default 300; KILL_SETELAH_DTK, default 30);
+#   habis waktu = seluruh grup dimatikan, keluar 124, ledger memuat "TIMEOUT <mode> <label>". INT/TERM mematikan grup itu.
+#   Chrome dari Remotion berjalan di grup sendiri (detached) dan dimatikan oleh Remotion saat menerima TERM; anak tidak mewarisi fd 7/8.
 #   still/draft/bundle memegang kunci proyek qc/.render.lock; frames/final juga (lebih dulu) selain kunci global. Chrome yatim hanya diperingatkan.
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
@@ -59,6 +61,7 @@ ledger() {
 trap ledger EXIT
 exec 7>&1  # stdout asli, supaya pesan TIMEOUT tidak ikut dialihkan ke log oleh pemanggil jalankan
 RENDER_MAKS="${RENDER_MAKS_DTK:-2700}"; STILL_MAKS="${STILL_MAKS_DTK:-300}"; KILL_SETELAH="${KILL_SETELAH_DTK:-30}"
+FINAL_MAKS="${FINAL_MAKS_DTK:-10800}"
 # INT/TERM: matikan grup proses anak yang sedang jalan (TERM, 2 dtk, lalu KILL), baru keluar; trap EXIT di atas tetap menulis ledger.
 mati() { local sig="$1"; trap '' INT TERM
   if [ -n "$CHILD_PID" ]; then kill -TERM -- "-$CHILD_PID" 2>/dev/null || true; sleep 2; kill -KILL -- "-$CHILD_PID" 2>/dev/null || true; fi
@@ -66,10 +69,11 @@ mati() { local sig="$1"; trap '' INT TERM
 trap 'mati 2' INT; trap 'mati 15' TERM
 # Perintah berat jalan di sesi/grup sendiri dengan batas waktu: jalankan <maks_dtk> <label> <perintah …>. Habis waktu: grup mati, keluar 124.
 jalankan() { local maks="$1" label="$2" rc=0 t; t=$(date +%s); shift 2
-  ( cd "$R" && exec setsid timeout --kill-after="$KILL_SETELAH" "$maks" "$@" ) &
+  # 7>&- 8>&-: proses yang lolos dari grup (mis. Chrome yatim) tidak ikut memegang stdout pemanggil atau kunci proyek. fd 9 (kunci global) tidak disentuh.
+  ( cd "$R" && exec setsid timeout --kill-after="$KILL_SETELAH" "$maks" "$@" 7>&- 8>&- ) &
   CHILD_PID=$!; wait "$CHILD_PID" || rc=$?; CHILD_PID=""
   if [ "$rc" = 124 ] || { [ "$rc" = 137 ] && [ $(( $(date +%s) - t )) -ge "$maks" ]; }; then
-    CATATAN="TIMEOUT $MODE $label"; echo "$CATATAN setelah ${maks} dtk: proses dan anak-anaknya dihentikan (naikkan RENDER_MAKS_DTK atau STILL_MAKS_DTK bila memang selama itu)" >&7; exit 124
+    CATATAN="TIMEOUT $MODE $label"; echo "$CATATAN setelah ${maks} dtk: proses dan anak-anaknya dihentikan (naikkan STILL_MAKS_DTK, RENDER_MAKS_DTK, atau FINAL_MAKS_DTK untuk final, bila memang selama itu)" >&7; exit 124
   fi
   return "$rc"; }
 # Kunci proyek (fd 8): satu job still/draft/bundle/frames/final per proyek, supaya bundle bersama dan ledger tidak saling timpa.
@@ -208,7 +212,7 @@ case "$MODE" in
     bundle; n=$(( $(grep -c '^final' "$QC/render.log" 2>/dev/null || true) + 1 ))
     echo "final $(date '+%F %T') ke-$n ${RANGE:-penuh} -> $OUT" >> "$QC/render.log"
     [ "$n" -le 2 ] || echo "PERINGATAN: ini render penuh ke-$n untuk video ini. Revisi cukup rentang yang berubah (argumen awal-akhir)."
-    jalankan "$RENDER_MAKS" "$COMP" npx remotion render "$QC/.bundle" "$COMP" "$OUT" --concurrency="$K" $GLARG ${RANGE:+--frames=$RANGE} --log=error
+    jalankan "$FINAL_MAKS" "$COMP" npx remotion render "$QC/.bundle" "$COMP" "$OUT" --concurrency="$K" $GLARG ${RANGE:+--frames=$RANGE} --log=error
     echo "final $OUT" ;;
   *) echo "mode tidak dikenal: $MODE (still | draft | frames | final | lego)"; exit 1 ;;
 esac

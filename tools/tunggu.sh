@@ -6,7 +6,8 @@
 #                                                    lalu cetak status + 20 baris log terakhir. Belum selesai = keluar 3.
 #   tools/tunggu.sh status [<nama>]                 status semua/satu job (tanpa menunggu)
 #   tools/tunggu.sh hentikan <nama>                 matikan seluruh grup proses job (TERM, lalu KILL), tandai `dihentikan`
-#   Job jalan di grup proses sendiri dengan batas waktu MAKS_JOB_DTK (default 3600; habis = rc 124, KILL_SETELAH_DTK default 30).
+#   Job jalan di grup proses sendiri dengan batas waktu MAKS_JOB_DTK (default 14400, di atas batas render final 10800 + antre kunci;
+#   habis = rc 124, KILL_SETELAH_DTK default 30).
 #
 # Kenapa: worker yang mengecek status setiap beberapa detik membangunkan model dengan konteks ratusan ribu token tiap
 # kali (sfx_builder_v6: 113 dari 277 respons = 42 % token hanya polling; laporan investigasi 24 jam, 16 Nov).
@@ -25,8 +26,8 @@ case "$cmd" in
     INNER='d="$1"; shift; "$@" > "$d/log" 2>&1; echo $? > "$d/rc.tmp"; mv "$d/rc.tmp" "$d/rc"; date +%s > "$d/selesai"'
     SUP='cd "$1"; d="$2"; maks="$3"; ks="$4"; inner="$5"; shift 5
       setsid timeout --kill-after="$ks" "$maks" bash -c "$inner" _ "$d" "$@" & tp=$!; echo "$tp" > "$d/pgid"; wait "$tp"; rc=$?
-      if [ ! -f "$d/rc" ]; then [ "$rc" != 124 ] || echo "TIMEOUT: job melewati batas $maks dtk" >> "$d/log"; echo "$rc" > "$d/rc.tmp"; mv "$d/rc.tmp" "$d/rc"; date +%s > "$d/selesai"; fi'
-    nohup setsid bash -c "$SUP" _ "$(pwd)" "$d" "${MAKS_JOB_DTK:-3600}" "${KILL_SETELAH_DTK:-30}" "$INNER" "$@" >/dev/null 2>&1 &
+      if [ ! -f "$d/rc" ]; then [ "$rc" != 124 ] || echo "TIMEOUT: job melewati batas $maks dtk (naikkan MAKS_JOB_DTK saat jalan bila memang selama itu)" >> "$d/log"; echo "$rc" > "$d/rc.tmp"; mv "$d/rc.tmp" "$d/rc"; date +%s > "$d/selesai"; fi'
+    nohup setsid bash -c "$SUP" _ "$(pwd)" "$d" "${MAKS_JOB_DTK:-14400}" "${KILL_SETELAH_DTK:-30}" "$INNER" "$@" >/dev/null 2>&1 &
     echo $! > "$d/pid"; echo "job $n jalan (pid $!) · log $d/log · tunggu: tools/tunggu.sh tunggu $n" ;;
   tunggu)
     n="${1:?nama job}"; maks="${2:-1500}"; d="$J/$n"; [ -d "$d" ] || { echo "job $n tidak ada"; exit 1; }
@@ -52,5 +53,5 @@ case "$cmd" in
       elif [ -f "$d/rc" ]; then echo "$n selesai rc=$(cat "$d/rc") $(( $(cat "$d/selesai") - $(cat "$d/mulai") )) dtk"
       elif kill -0 "$(cat "$d/pid" 2>/dev/null)" 2>/dev/null; then echo "$n berjalan $(( $(date +%s) - $(cat "$d/mulai") )) dtk"
       else echo "$n mati tanpa kode keluar"; fi; done ;;
-  *) sed -n '2,14p' "$0"; exit 1 ;;
+  *) sed -n '2,15p' "$0"; exit 1 ;;
 esac
