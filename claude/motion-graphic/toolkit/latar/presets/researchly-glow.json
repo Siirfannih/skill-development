@@ -33,9 +33,9 @@
     "dark": {},
     "light": {
       "colors": [
-        "#F8FAFC",
-        "#D1DFFA",
-        "#94B8FC"
+        "#F6F5FC",
+        "#E2E7FD",
+        "#9CABFE"
       ],
       "mode": "light"
     }

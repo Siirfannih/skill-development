@@ -2,12 +2,12 @@
 export const PRESETS = {
   "editorial-polos": {
     "komponen": "lightwave",
-    "catatan": "Nyaris polos: core sangat tipis dari tepi atas (pusat di luar frame) dan ambient hampir tak terlihat di atas warna dasar; untuk referensi editorial/datar. Dasar bawaan: terang #F8FAFC, gelap #03050C.",
+    "catatan": "Nyaris polos: core sangat tipis dari tepi atas (pusat di luar frame) dan ambient hampir tak terlihat di atas warna dasar; untuk referensi editorial/datar. Dasar bawaan: terang #F6F5FC, gelap #03050C.",
     "params": {
       "colors": [
-        "#F8FAFC",
-        "#EAF0FA",
-        "#DCE6F8"
+        "#F6F5FC",
+        "#F1F1FA",
+        "#6F86FF"
       ],
       "mode": "light",
       "core": {
@@ -32,7 +32,15 @@ export const PRESETS = {
       "saturation": 1
     },
     "varian": {
-      "light": {},
+      "light": {
+        "core": {
+          "x": 0.5,
+          "y": -0.1,
+          "radius": 1.1,
+          "ratio": 0.5,
+          "intensity": 0.45
+        }
+      },
       "dark": {
         "colors": [
           "#03050C",
@@ -78,9 +86,9 @@ export const PRESETS = {
       "dark": {},
       "light": {
         "colors": [
-          "#FAF7F2",
-          "#F0E2D0",
-          "#E2B88C"
+          "#FBF8F3",
+          "#F7F1E8",
+          "#EE9440"
         ],
         "mode": "light"
       }
@@ -121,9 +129,9 @@ export const PRESETS = {
       "dark": {},
       "light": {
         "colors": [
-          "#F8FAFC",
-          "#D1DFFA",
-          "#94B8FC"
+          "#F6F5FC",
+          "#E2E7FD",
+          "#9CABFE"
         ],
         "mode": "light"
       }

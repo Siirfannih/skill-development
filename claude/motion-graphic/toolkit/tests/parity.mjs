@@ -55,7 +55,7 @@ const P = await import(pathToFileURL(join(T, "latar/preset.js")));
 const b = P.resolveOptions("lightwave", { preset: "researchly-glow" });
 assert.equal(b.mode, "dark"); assert.equal(b.core.x, 1.05); assert.ok(b.core.x > 1, "pusat core di luar frame"); assert.equal(b.colors.length, 3);
 const l = P.resolveOptions("lightwave", { preset: "researchly-glow", mode: "light" });
-assert.equal(l.colors[0], "#F8FAFC");
+assert.equal(l.colors[0], "#F6F5FC");
 const o = P.resolveOptions("lightwave", { preset: "researchly-glow", saturation: 1.3, core: { x: 0.2 } });
 assert.equal(o.core.x, 0.2); assert.equal(o.core.radius, b.core.radius, "core digabung per kunci"); assert.notEqual(o.colors[1], b.colors[1]);
 assert.throws(() => P.resolveOptions("lightwave", { preset: "zona-lembut" }));

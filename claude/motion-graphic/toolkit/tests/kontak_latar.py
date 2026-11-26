@@ -16,7 +16,7 @@ MG = HERE.parents[1]
 V2_COMMIT = "0f464576"
 PATOKAN = (MG / "toolkit/latar/patokan-irfan.glsl").read_text()
 UNI = {"dark": dict(u_baseColor=[.012, .020, .047], u_ambientColor=[.055, .145, .420], u_coreColor=[.145, .388, .922], u_grainAmount=.02),
-       "light": dict(u_baseColor=[.973, .980, .988], u_ambientColor=[.820, .875, .980], u_coreColor=[.580, .720, .990], u_grainAmount=.02)}
+       "light": dict(u_baseColor=[.965, .961, .988], u_ambientColor=[.886, .906, .992], u_coreColor=[.612, .671, .996], u_grainAmount=.02)}
 FONT = next((p for p in ("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", "/System/Library/Fonts/Supplemental/Arial.ttf") if Path(p).exists()), None)
 W, H = 480, 270
 BARIS = [  # (label, mode, frame, override core v3, override glow v2)
