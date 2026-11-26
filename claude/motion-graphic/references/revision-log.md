@@ -1,4 +1,4 @@
-# Revision log & RETRO
+# Revision log
 
 Baca saat Irfan memberi revisi: catat dulu, baru kerjakan. Revisi bawaan terjadi sekali, atas render 1: semua masukan dikumpulkan menjadi satu ronde dan dikerjakan sekaligus menjadi render 2 (finishing). Ronde di luar itu hanya bila user memintanya. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.
 
@@ -18,21 +18,12 @@ Uji: setiap lapisan yang berubah bisa ditunjuk ke satu butir ledger. Yang tidak 
 **Terapkan alasan, bukan contoh**: saat Irfan memberi alasan ("b-roll stok = pengisi, jadi teks di tengah"), contoh yang ia sebut hanya ilustrasi. Sebelum menulis TASK, buat tabel semua shot × kondisi alasan itu (mis. jenis footage: stok / bermakna / pembicara) dan terapkan ke setiap shot yang memenuhi kondisinya; pengecualian hanya dengan alasan komposisi tertulis. Contoh yang dicegah: shot stok lain dibiarkan rata kiri hanya karena tidak ada di daftar contoh.
 
 ## 19. Log revisi
-Log revisi lama ada di `../SUMBER.md` §Log revisi: riwayat, bukan aturan. Revisi baru dicatat di ledger proyek (§21.1) dan `RETRO.md` (§20).
+Log revisi lama ada di `../SUMBER.md` §Log revisi: riwayat, bukan aturan. Revisi baru dicatat di ledger proyek (§21.1); `DECISIONS.md` satu-satunya buku catatan.
 
 ---
 
-## 20. RETRO per gerbang (wajib)
-Setiap kali Irfan memberi revisi di sebuah gerbang, sebelum mengerjakan revisinya, tulis entri di `RETRO.md` di folder skill ini (repo `skill-development`, `claude/motion-graphic/RETRO.md`):
-```
-### <tanggal> · <proyek> · <gerbang>
-Revisi Irfan: <satu baris per poin>
-Akar masalah: <aturan/acuan apa yang belum ada atau tidak jelas>
-Usulan aturan: <kalimat aturan, siap ditempel ke bagian mana di skill ini>
-Status: menunggu persetujuan
-```
-- Usulan tidak langsung dimasukkan; tunggu jawaban Irfan, lalu tempel dan ubah status. Kasus selera sesaat ditulis "tidak ada (kasus khusus)".
-- Catat juga di BUILD-LOG proyek: jumlah gerbang, putaran revisi per gerbang, jam kerja per gerbang, dan % lolos putaran pertama. Angka ini dibandingkan antarproyek.
+## 20. (dihapus)
+Pencatatan ganda ke RETRO dan BUILD-LOG dihapus: kejadian ke `DECISIONS.md` proyek, usul pelajaran umum ke `steward/inbox/` (`claude/skill-steward`).
 
 ---
 

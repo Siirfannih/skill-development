@@ -20,7 +20,7 @@ Read when choosing between options (family, text style, technique, transition), 
 | Family, text style, T/C/X techniques, SFX, timing | Agent | Decide yourself with a written reason in the beat spec |
 | Departures from the approved storyboard | Agent, then reported | Record in the departures list on delivery |
 | Paid generation (VO, generative SFX, music, AI image/video) | Agent after its gate opens | State the estimated cost before generating |
-| New rules in this skill | Me | Proposal via RETRO (`revision-log.md` §20), status "menunggu persetujuan" |
+| New rules in this skill | Me | Proposal as a note in `steward/inbox/` (`claude/skill-steward`), then my yes |
 
 Work already written in a plan I approved counts as approved. Finish it end to end and judge phases internally; do not ask me to judge every phase or send half-finished versions as deliverables.
 

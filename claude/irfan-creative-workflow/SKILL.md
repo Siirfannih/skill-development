@@ -96,7 +96,6 @@ Tampilkan di chat. Jangan buat file sebelum final. Jangan menyatakan script "sia
 - Output bisa langsung dipakai: video jadi, caption, dan file yang bisa Irfan buka atau edit sendiri.
 - Kualitas visual minimal setara referensi yang ia bawa, diukur dari contact sheet berdampingan, bukan dari kesan.
 - Barrier to entry menengah ke atas. Karyanya tidak terlihat seperti "AI motion" generik.
-- Setiap revisi Irfan diubah menjadi aturan yang bisa dicek (catat di RETRO skill yang relevan, statusnya menunggu persetujuan Irfan).
 
 ---
 

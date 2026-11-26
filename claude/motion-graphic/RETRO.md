@@ -1,6 +1,6 @@
 # RETRO · catatan pelajaran per gerbang
 
-Format dan aturan: lihat MOTION-SYSTEM.md §8. Entri terbaru di bawah.
+Riwayat beku: tidak ditulis lagi. Kejadian revisi ke `projects/<proyek>/DECISIONS.md`; usul pelajaran umum ke `steward/inbox/`.
 
 ### 2026-10-13/14 · Tuntunly launch · v15 (entri awal, ditulis dari sesi perencanaan)
 Revisi Irfan: efek "neon stroke" salah tafsir; file kerja terhapus cleanup; prompt terbaca build ulang; objek pengisi tanpa makna; transisi putus; tokoh hilang di tengah; Lupakan kurang dramatis; PDF digambar sebagai kertas.

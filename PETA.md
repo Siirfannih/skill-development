@@ -58,7 +58,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 
 | File | Isi / kapan dibuka |
 |---|---|
-| `claude/motion-graphic/RETRO.md` | **RETRO · catatan pelajaran per gerbang** — Format dan aturan: lihat MOTION-SYSTEM.md §8. |
+| `claude/motion-graphic/RETRO.md` | **RETRO · catatan pelajaran per gerbang** — Riwayat beku: tidak ditulis lagi. |
 | `claude/motion-graphic/cookbook/INDEX.md` | **Cookbook · INDEX (Router)** — ## 1. Domain Packs |
 | `claude/motion-graphic/cookbook/00-core-invariants.md` | **00 · Core Invariants (Lintas Semua Format)** — 1. Teks diputuskan per beat (NEGATIF 6; A1, A3, A5). |
 | `claude/motion-graphic/cookbook/CATALOG.md` | **Cookbook · CATALOG (Daftar Invariant Cards)** — File ini dibaca otomatis oleh scripts/cookbook/pilih_kartu.py. |
@@ -90,7 +90,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/palette.md` | **Palet: cara memilih dan memakai warna** — Dibaca di gerbang brief (1) saat mengunci palet, dan di QA (9). |
 | `claude/motion-graphic/references/persepsi.md` | **Persepsi — letak orang dan wajah di footage** — Baca saat adegan berfootage butuh tahu di mana orang atau wajahnya: teks atau kata hero di belakang kepala, glow di tepi badan, teks mengapit wajah, latar diganti atau diredupkan lewat matte, cutout s |
 | `claude/motion-graphic/references/revisi.md` | **Revision = diff, one round** — Opened when there is a revision message on a video or storyboard, before the first edit (step 8 of the SKILL.md workflow). |
-| `claude/motion-graphic/references/revision-log.md` | **Revision log & RETRO** — Baca saat Irfan memberi revisi: catat dulu, baru kerjakan. |
+| `claude/motion-graphic/references/revision-log.md` | **Revision log** — Baca saat Irfan memberi revisi: catat dulu, baru kerjakan. |
 | `claude/motion-graphic/references/roles.md` | **Dua peran: Sutradara dan Editor (layer komunikasi)** — Dibaca hanya bila pekerjaan dibagi ke Editor (subagen atau model lain); satu model tidak perlu membukanya. |
 | `claude/motion-graphic/references/selects-editor.md` | **Paket editor dari rekaman talking head mentah (selects)** — Dibuka saat bahannya rekaman mentah panjang (beberapa menit, banyak take ulang) dan keluarannya paket untuk editor manusia: timeline klip ber-timecode, rough cut, audio, aset motion, storyboard, dan animatic. |
 | `claude/motion-graphic/references/slop-catalog.md` | **Slop catalog (signs I have rejected)** — Used to scan, not to ban techniques: fingerprints are written as appearance and measurements (KEBIJAKAN v2, policy v2), and apply unless REF-SPEC states otherwise. |

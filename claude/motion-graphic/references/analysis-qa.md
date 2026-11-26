@@ -11,7 +11,7 @@ Baca saat membedah referensi (tahap Brief) dan sebelum mengirim render (QA di ta
 - 16.2 Checklist anti-monoton & kerapian
 - 16.3 Tabel kritik sutradara
 - 16.4 Rubrik R1–R7 + Kompas kualitas ("premium" diterjemahkan)
-- 16.5 Loop kritik (minimal 3 putaran, sampai semua ≥ 8/10)
+- 16.5 Pindai mode gagal (satu putaran, bukan loop)
 - 16.6 Metrik terhadap referensi
 
 ## 2. Bedah referensi per frame (wajib, dikerjakan sendiri)
@@ -143,8 +143,8 @@ Gagal salah satu = R6 tidak lulus.
 
 Lulus bila rata-rata ≥ 4,5 dan tidak ada aturan < 4. Dua putaran gagal di butir sama berarti ganti pendekatan, bukan memoles.
 
-### 16.5 Loop kritik (minimal 3 putaran, sampai semua ≥ 8/10)
-Kritikus segar menilai 8 kriteria dengan bukti timestamp:
+### 16.5 Pindai mode gagal (satu putaran, bukan loop)
+Satu audit frame ditambah satu putaran mata luar (`templates/roles/devils-advocate.md`) sudah cukup; tidak mengejar skor. Pindai 8 kriteria dengan bukti timestamp:
 - hook 2 dtk
 - keterbacaan HP
 - kualitas gerak
@@ -154,7 +154,7 @@ Kritikus segar menilai 8 kriteria dengan bukti timestamp:
 - komposisi
 - polish
 
-Ia mengecek mode gagal yang umum:
+Mode gagal yang umum:
 - frame 0 kosong
 - bunyi mendahului visual
 - end card statis
@@ -168,7 +168,7 @@ Ia mengecek mode gagal yang umum:
 - teks melintas UI ramai saat kamera bergerak
 - hold > 1 bar tanpa hal baru
 
-Perbaiki 3 masalah terburuk, verifikasi dengan still/klip, catat di `review_log.md`, ulangi. Jangan tunjukkan video ke Irfan sebelum verdict SHIP.
+Perbaiki yang ditemukan dan verifikasi dengan still/klip; tidak ada putaran ulang demi skor.
 
 ### 16.6 Metrik terhadap referensi
 Jalankan `compare.py`. Setiap FAIL harus diperbaiki atau diberi alasan tertulis kenapa disengaja (misalnya brief Irfan meminta hold statis). Laporan ke Irfan memuat hasil gerbang dengan jujur, termasuk yang masih menyimpang.

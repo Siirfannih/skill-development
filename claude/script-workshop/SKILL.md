@@ -24,7 +24,7 @@ Selebihnya di `guide/` adalah arah, bukan aturan: pilih bebas asal bisa jelaskan
 |---|---|---|---|
 | 0 | Muat konteks | `guide/produk/FAKTA.md`, `content-ops/lanes/<jalur>.md` | Jalur (Jadisatu / Siirfan / affiliate), format, durasi, CTA jelas |
 | 1 | Riset & validasi | `guide/riset/` | Hipotesis diuji: data mendukung / membantah / campur, dengan link |
-| 2 | Gali cerita Irfan | `guide/suara/` | Hanya hal yang tidak bisa diriset; maks 3–4 pertanyaan berpilihan + rekomendasi |
+| 2 | Gali cerita Irfan | `guide/suara/` | Hanya hal yang tidak bisa diriset; maks 3 pertanyaan berpilihan + rekomendasi |
 | 3 | Sudut & hook | `guide/audiens/`, `guide/hook/` | kandidat secukupnya (bawaan ≥ 5), digugurkan dengan alasan satu baris, 2–3 terbaik + rekomendasi |
 | 4 | Draft | `guide/struktur/` + pola naskah dari video referensi: `../motion-graphic/cookbook/INDEX.md` kategori `script` (kerangka beat dipinjam, kalimat ditulis baru dari cerita Irfan; cara memakai referensi: `guide/struktur/` §Memakai video referensi) | Carousel atau reels; tiap bagian punya jembatan ke bagian berikut |
 | 5 | Evaluasi diri | §4 di bawah + `guide/hindari/` | Semua cek dijawab; perbaikan sudah diterapkan |
@@ -34,9 +34,9 @@ Proyek video panjang: simpan di `projects/<proyek>/` (DECISIONS, INSIGHTS, HOOKS
 
 ## 3. Bertanya
 
-- Maks 3–4 pertanyaan per ronde, pilihan berhuruf + rekomendasi + alasan satu kalimat. Irfan cukup jawab "1A 2C".
+- Maks 3 pertanyaan per ronde, pilihan berhuruf + rekomendasi + alasan satu kalimat. Irfan cukup jawab "1A 2C".
 - Jawaban Irfan dicatat verbatim sebelum dikembangkan. Insight yang muncul saat ia menolak opsi juga dicatat.
-- Devil's advocate (`working-with-irfan` §2a) untuk setiap masukan Irfan dan setiap draft.
+- Devil's advocate (`working-with-irfan` §2a) untuk masukan yang mengubah arah.
 
 ## 4. Evaluasi diri (wajib sebelum kirim)
 

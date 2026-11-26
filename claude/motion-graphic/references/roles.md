@@ -62,7 +62,7 @@ Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat men
 | File | Ditulis | Isi |
 |---|---|---|
 | `BRIEF.md` | Sutradara | Brief Irfan apa adanya, keputusan terkunci, gaya terpilih + token, butir Lantai yang relevan, aset + lisensi. Netral: fakta dan keputusan, bukan cerita proses |
-| `MENU.md` | Sutradara | Rencana edit 3 opsi per beat untuk dipilih Irfan (`templates/gaya/README.md`); pilihan masuk PLAN |
+| `MENU.md` | Sutradara | Rencana edit dengan rekomendasi per beat (opsi hanya untuk beat yang ragu) (`templates/gaya/README.md`); pilihan masuk PLAN |
 | `PLAN.json` | Sutradara | Beat: `id`, waktu, kata, jenis adegan (ID dari gaya), opsi terpilih, teks layar persis, SFX `peran`+`alasan`, `lulus_bila` terukur. Format `beats.json` storyboard + `adegan` dan `lulus_bila` |
 | `TASK-rN.md` | Sutradara | Cakupan ronde (beat mana), file yang boleh dibaca, keluaran wajib, temuan yang harus diperbaiki (ID), yang tidak boleh berubah |
 | `REPORT-rN.md` | Editor (Sutradara menyimpan bila subagen dilarang menulis file laporan) | Yang dikerjakan per beat, path bukti (still sheet, render, keluaran gate), angka, penyimpangan dari TASK + alasan |

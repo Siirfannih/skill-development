@@ -20,7 +20,7 @@ Sutradara menulis `handoff/MENU.md` setelah transkrip dan potong jeda:
 | C | MP-01 wajah + caption | tetap di wajah, "barista" besar | ref18 1:28 |
 Catatan Irfan: …
 ```
-- 3 opsi per beat, semuanya dari menu adegan gaya terpilih; opsi A = rekomendasi Sutradara + alasannya dari tabel penempatan.
+- Satu rencana per beat dari menu adegan gaya terpilih (opsi alternatif hanya untuk beat yang ragu); opsi A = rekomendasi Sutradara + alasannya dari tabel penempatan.
 - Tiap opsi menyebut contoh referensi (file + timestamp) agar Irfan bisa melihatnya.
 - Irfan memilih/mencoret/menulis catatan (target ±15 menit). Klip tanpa kesempatan bertanya: Sutradara memilih opsi A dan mengirim MENU bersama hasil (`storyboard.md` §1).
 - Pilihan masuk ke `PLAN.json`; MENU disimpan sebagai bukti keputusan.
