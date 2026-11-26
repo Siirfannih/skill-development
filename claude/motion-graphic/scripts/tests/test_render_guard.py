@@ -50,6 +50,15 @@ def tunggu_mati(pid, dtk=5):
     return not hidup(pid)
 
 
+def tunggu(syarat, dtk=5):
+    t = time.time()
+    while time.time() - t < dtk:
+        if syarat():
+            return True
+        time.sleep(0.05)
+    return syarat()
+
+
 def tunggu_berkas(p, dtk=10):
     t = time.time()
     while time.time() - t < dtk and not Path(p).exists():
@@ -128,13 +137,17 @@ class BatasWaktu(Dasar):
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertIn("still satu (frame 1)", r.stdout)
         self.assertNotIn("catatan", self.ledger()[-1]); self.assertEqual(self.ledger()[-1]["rc"], 0)
 
-    def test_anak_yang_lolos_dari_grup_tidak_memegang_kunci_proyek(self):
-        # Chrome dari Remotion dijalankan detached (grup sendiri); bila ia yatim, kunci proyek tidak boleh ikut tertahan
+    def test_anak_yang_lolos_dari_grup_tidak_menahan_pemanggil_tetapi_menahan_kunci(self):
+        # Chrome dari Remotion dijalankan detached (grup sendiri). Bila ia yatim: render.sh tetap selesai (stdout pemanggil, fd 7,
+        # tidak diwarisi), tetapi kunci proyek dan kunci global tetap tertahan selama ia hidup. Gagal aman: menunggu lebih baik
+        # daripada dua render menulis .bundle yang sama (insiden EISDIR); begitu pula bila render.sh di-SIGKILL di tengah render.
         lolos = self.d / "lolos.pid"
         try:
             r = self.render("still", "Komp", "satu:1", env={"FAKE_ESCAPE": str(lolos)})
             self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertTrue(tunggu_berkas(lolos)); self.assertTrue(hidup(int(lolos.read_text())))
-            self.assertEqual(subprocess.run(["flock", "-n", str(self.p / "qc/.render.lock"), "true"]).returncode, 0)
+            self.assertNotEqual(subprocess.run(["flock", "-n", str(self.p / "qc/.render.lock"), "true"]).returncode, 0)
+            os.kill(int(lolos.read_text()), signal.SIGKILL)
+            self.assertTrue(tunggu(lambda: subprocess.run(["flock", "-n", str(self.p / "qc/.render.lock"), "true"]).returncode == 0))
         finally:
             if lolos.exists():
                 try: os.kill(int(lolos.read_text()), signal.SIGKILL)

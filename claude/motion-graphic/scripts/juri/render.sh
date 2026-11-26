@@ -36,7 +36,7 @@
 #   FINAL_MAKS_DTK, default 10800, untuk final: render final terlama yang tercatat 2248 dtk; STILL_MAKS_DTK, default 300; KILL_SETELAH_DTK, default 30);
 #   habis waktu = seluruh grup dimatikan, keluar 124, ledger memuat "TIMEOUT <mode> <label>". INT/TERM mematikan grup itu.
 #   Chrome dari Remotion berjalan di grup sendiri (detached) dan dimatikan oleh Remotion saat menerima TERM; anak tidak mewarisi fd 7/8.
-#   still/draft/bundle memegang kunci proyek qc/.render.lock; frames/final juga (lebih dulu) selain kunci global. Chrome yatim hanya diperingatkan.
+#   still/draft/bundle memegang kunci proyek qc/.render.lock; frames/final juga (lebih dulu) selain kunci global; lego (ffmpeg saja) tanpa kunci, seperti sebelumnya. Chrome yatim hanya diperingatkan.
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 [ $# -ge 3 ] || { sed -n '2,17p' "$0"; exit 1; }
@@ -69,8 +69,9 @@ mati() { local sig="$1"; trap '' INT TERM
 trap 'mati 2' INT; trap 'mati 15' TERM
 # Perintah berat jalan di sesi/grup sendiri dengan batas waktu: jalankan <maks_dtk> <label> <perintah …>. Habis waktu: grup mati, keluar 124.
 jalankan() { local maks="$1" label="$2" rc=0 t; t=$(date +%s); shift 2
-  # 7>&- 8>&-: proses yang lolos dari grup (mis. Chrome yatim) tidak ikut memegang stdout pemanggil atau kunci proyek. fd 9 (kunci global) tidak disentuh.
-  ( cd "$R" && exec setsid timeout --kill-after="$KILL_SETELAH" "$maks" "$@" 7>&- 8>&- ) &
+  # 7>&-: proses yang lolos dari grup (mis. Chrome yatim) tidak menahan stdout pemanggil. Kunci proyek (fd 8) dan global (fd 9) sengaja
+  # diwarisi: selama ada proses render hidup, kunci tetap tertahan, juga bila render.sh sendiri di-SIGKILL (menunggu lebih aman daripada .bundle ganda).
+  ( cd "$R" && exec setsid timeout --kill-after="$KILL_SETELAH" "$maks" "$@" 7>&- ) &
   CHILD_PID=$!; wait "$CHILD_PID" || rc=$?; CHILD_PID=""
   if [ "$rc" = 124 ] || { [ "$rc" = 137 ] && [ $(( $(date +%s) - t )) -ge "$maks" ]; }; then
     CATATAN="TIMEOUT $MODE $label"; echo "$CATATAN setelah ${maks} dtk: proses dan anak-anaknya dihentikan (naikkan STILL_MAKS_DTK, RENDER_MAKS_DTK, atau FINAL_MAKS_DTK untuk final, bila memang selama itu)" >&7; exit 124
