@@ -75,6 +75,24 @@ Open when naming a concept or translating a term. Add a new term here before usi
 | setengah arsip | half-archive | a file outside `archive/` that says it is archived; an error |
 | hukum keras | hard law | a rule wrong in any style and measurable pass/fail; lives in a check (placement.md §1) |
 | backlog | backlog | open conflicts and ideas in `steward/backlog.md`, with a "Decided" section |
+| babak | act | Major narrative division of a video (problem, turning point, solution, CTA). Also covers *bab* in "transisi bab" (act transition). Write "act", not "story act" |
+| engsel senyap | silent hinge | Brief silent audio pause marking a transition between acts or visual families |
+| frame jarang | sparse frame | Frame with focus area < ~12% and no text edge band, reading as empty |
+| koreksi berlebihan | overcorrection | Answering feedback with its opposite pole; measured as the complained metric moving > ~60% of the distance to target, or another metric worsening |
+| uji juling | squint test | Visual hierarchy check done squinted/blurred to verify dominant focus |
+| uji dibaca keras | read-aloud test | Reading VO copy aloud in one breath to check natural cadence and register |
+| tahan dengan drift | hold with drift | Sustained hold with 1–3% slow scale or orbit so the frame stays alive |
+| lembar sanding | side-by-side sheet | Composite image placing a candidate still next to its north-star/reference frame; a production QC aid, not a pass/fail method for primitives (the deconstructor bans reference-left/candidate-right judging) |
+| sup material | material soup | Mixing multiple unsystematic shadow, light, sheen, or glass blur styles in one video |
+| gradien ragu-ragu | indecisive gradient | Low-luma-range (< ±35) radial/blob colour wash with saturation p95 < 0.15 and no crisp tonal zones |
+| warna nyasar | stray colour | Rendered colour cluster ≥ 0.5% area with ΔE2000 > 12 outside the active palette. The machine marker `warna-nyasar` (cek-warna.mjs `jenis`) stays |
+| warna nanggung | muddy colour | Rendered region ≥ 3% in OKLCH chroma 0.03–0.08 and lightness 0.45–0.75 outside palette. The machine marker `warna-nanggung` stays |
+| ekor kata | word tail | Trailing phoneme energy decay (40–150 ms) at the end of a spoken audio cut |
+| lane | lane | Active business or ops workstream (Behindwork, Jadisatu, Tuntunly, Siirfan) |
+| pintu | entry point | Canonical opening document/skill an agent loads first for a session type; covers both "pintu masuk" and "satu pintu cek NEGATIF" |
+| kerangka | skeleton | Copyable empty document/folder structure filled per project |
+| serah terima | handoff | Structured Director-to-builder task, report, and review exchange; also the folder name `handoff/` |
+| peta potong | cut map | `CUT-MAP` mapping source timestamps to output timeline cuts; the marker `CUT-MAP` stays |
 
 ## Common rule words
 

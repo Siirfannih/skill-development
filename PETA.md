@@ -34,7 +34,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | Skill | Pakai saat |
 |---|---|
 | `claude/autopilot-prd/SKILL.md` | Pakai setiap kali mengerjakan proyek Irfan yang sudah punya PRD, QUEUE, atau rencana tertulis (Pandu/Tuntunly, Hermes, Jadisatu). Eksekusi sampai antrean habis tanpa menunggu "lanjutkan"; berhenti hanya di Tier 2. Mengal |
-| `claude/brief-gate/SKILL.md` | Gerbang wajib sebelum mengirim tugas ke subagen, worker, atau model lain (Codex, Gemini, Sonnet): cek brief terhadap kalimat asli Irfan, uji baca dingin, cek metrik, pilot satu agen dulu. |
+| `claude/brief-gate/SKILL.md` | Mandatory gate before you send a task to a subagent, worker or another model (Codex, Gemini, Sonnet). Use when you are about to dispatch work to another agent: check the brief against my original words, run the cold-read |
 | `claude/cinedance-block-library/SKILL.md` | CINEDANCE — BLOCK LIBRARY v1. Assembles a full video-generation prompt from a short brief (TRICK, FORMAT, ASSETS, MAIN, FAIL, COUNT, TASK, ACTING) plus a list of block codes (FACE, BODY, MODEST, TASK, CAM-HANDHELD, CAM-L |
 | `claude/irfan-creative-workflow/SKILL.md` | Workflow and hard-won lessons for any creative project with Irfan (launch videos, motion graphics, scripts, campaigns): gate order, script quality bar, credit discipline, and what experience to carry vs leave behind. Use |
 | `claude/jadisatu-canvas/SKILL.md` | Use when an AI client connects to, reads, edits, or resumes a shared Jadisatu Canvas board, including uploaded references, room resets and stale-context conflicts. |
@@ -44,7 +44,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/script-workshop/SKILL.md` | Menulis konten Irfan dari ide sampai naskah siap take: script reels/video, carousel, caption, thread, ideasi, dan hook, untuk Jadisatu maupun akun pribadinya. Pakai setiap kali Irfan minta ide konten, hook, naskah, carou |
 | `claude/skill-steward/SKILL.md` | Use when changing the skill-development repo itself: adding, changing, deleting, cleaning up, translating or auditing a skill, rule, reference, guide lesson, cookbook card, preset entry, AGENTS.md or PETA route, or turni |
 | `claude/vibedesign/SKILL.md` | Mendesain konten statis (carousel Instagram, poster, slide sosial, cover) 100% lewat kode HTML/CSS/SVG lalu export PNG deterministik, dengan urutan baca yang jelas dan karakter yang beraksi. Pakai setiap kali ada permint |
-| `claude/video-reference-deconstructor/SKILL.md` | Membedah video referensi menjadi primitif gerak atomik (kinetic typography, visual, kamera, transisi) yang terukur, bebas kulit referensi, dan lolos uji transfer, untuk diturunkan pabrik menjadi preset kode di skill-deve |
+| `claude/video-reference-deconstructor/SKILL.md` | Deconstructs a reference video into atomic motion primitives (kinetic typography, visual, camera, transition) that are measured, free of the reference's skin and pass the slot-swap test, for the factory to turn into code |
 | `claude/working-with-irfan/SKILL.md` | Cara bekerja dengan Irfan — cara memahami permintaannya, bertanya, meneliti bahan, membuat skill/prompt, dan menyampaikan hasil. Pakai di setiap tugas dari Irfan sebelum menghasilkan output. |
 
 ## motion-graphic · pintu produksi
@@ -76,33 +76,33 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/audio.md` | **Audio — VO, SFX, musik** — Baca hanya di gerbang audio (setelah script dan storyboard final) dan saat QA audio. |
 | `claude/motion-graphic/references/build.md` | **Build — Remotion, rakit lego, dan engine kode** — Baca saat mulai build. |
 | `claude/motion-graphic/references/camera-transition.md` | **Camera & transition** — Baca saat memilih gerak kamera (C) dan transisi (X) per potongan. |
-| `claude/motion-graphic/references/copywriting.md` | **Copywriting — script VO dan teks layar** — Baca di tahap Naskah dan setiap kali menulis teks yang tampil di layar. |
+| `claude/motion-graphic/references/copywriting.md` | **Copywriting — VO script and on-screen text** — Read at the Script stage and whenever writing text that appears on screen. |
 | `claude/motion-graphic/references/decision-guide.md` | **Panduan keputusan: teks, visual, kotak, warna (logika, bukan contoh)** — Dibaca saat menulis tabel storyboard (langkah 5 SKILL.md) dan saat QA sebelum deliver (langkah 8). |
-| `claude/motion-graphic/references/decision.md` | **Decision — memilih, memutuskan, dan kapan bertanya** — Baca saat harus memilih di antara beberapa pilihan (family, gaya teks, teknik, transisi), saat dua aturan terasa bertabrakan, atau saat ragu apakah perlu bertanya ke Irfan. |
+| `claude/motion-graphic/references/decision.md` | **Decision — choosing, deciding, and when to ask** — Read when choosing between options (family, text style, technique, transition), when two rules feel like they conflict, or when unsure whether to ask me. |
 | `claude/motion-graphic/references/delivery-gate.md` | **Delivery Gate (wajib sebelum video ditunjukkan ke Irfan)** — Laporan PASS/FAIL ini dikirim bersama video. |
 | `claude/motion-graphic/references/delivery-spec.md` | **Spesifikasi pengiriman (profil V1)** — Satu master MP4 untuk semua platform. |
 | `claude/motion-graphic/references/direction.md` | **Direction — prinsip sutradara, family visual, elemen, warna** — Baca saat menentukan apa yang terjadi di setiap beat: tokoh, subjek, metafora, family visual, palet. |
 | `claude/motion-graphic/references/dunia-visual.md` | **Dunia visual: tema, terjemahan kata gaya, dan gerbang style frame** — Dibuka di langkah 3-5 alur SKILL.md: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. |
-| `claude/motion-graphic/references/efek-3d.md` | **Efek dan 3D: kapan, mana yang aman, resep** — Referensi mandiri (bukan gerbang wajib). |
+| `claude/motion-graphic/references/efek-3d.md` | **Effects and 3D: when, which are safe, recipes** — Standalone reference (not a mandatory gate). |
 | `claude/motion-graphic/references/grade.md` | **Color grading footage dengan ffmpeg** — Dibuka saat footage (talking head, b-roll) perlu look tertentu. |
-| `claude/motion-graphic/references/hybrid-motion-standard.md` | **Standar Hybrid Motion (barrier minimum, bukan nilai absolut)** — Diekstrak dari video referensi acuan (GrokAgent/reference-videos/). |
-| `claude/motion-graphic/references/kamera-gerak.md` | **Kamera, gerak, dan transisi** — Dibuka saat merancang gerak kamera dan transisi (langkah 5-6 alur SKILL.md). |
-| `claude/motion-graphic/references/motion-mechanics.md` | **Mekanik gerak: kamera, transisi, cutout (logika dan cara kerja)** — Dibaca saat memilih gerak kamera atau transisi, bersama camera-transition.md. |
+| `claude/motion-graphic/references/hybrid-motion-standard.md` | **Hybrid Motion Standard (minimum barrier, not an absolute value)** — Extracted from benchmark reference videos (GrokAgent/reference-videos/). |
+| `claude/motion-graphic/references/kamera-gerak.md` | **Camera, motion, and transitions** — Opened when designing camera movement and transitions (steps 5-6 of the SKILL.md workflow). |
+| `claude/motion-graphic/references/motion-mechanics.md` | **Motion mechanics: camera, transitions, cutout (logic and how they work)** — Read when choosing camera moves or transitions, alongside camera-transition.md. |
 | `claude/motion-graphic/references/orkestrasi.md` | **Orkestrasi: kamu memimpin, model lain yang mengulang** — Baca file ini sampai habis sebelum mengerjakan build, render, atau QC video. |
 | `claude/motion-graphic/references/pacing-map.md` | **Peta nada → gerak (dari transkrip + audio)** — Dibaca di gerbang storyboard (4), sebelum motion-mechanics.md. |
 | `claude/motion-graphic/references/palette.md` | **Palet: cara memilih dan memakai warna** — Dibaca di gerbang brief (1) saat mengunci palet, dan di QA (9). |
 | `claude/motion-graphic/references/persepsi.md` | **Persepsi — letak orang dan wajah di footage** — Baca saat adegan berfootage butuh tahu di mana orang atau wajahnya: teks atau kata hero di belakang kepala, glow di tepi badan, teks mengapit wajah, latar diganti atau diredupkan lewat matte, cutout s |
-| `claude/motion-graphic/references/revisi.md` | **Revisi = diff, satu ronde** — Dibuka saat ada pesan revisi atas video atau storyboard, sebelum edit pertama (langkah 8 alur SKILL.md). |
+| `claude/motion-graphic/references/revisi.md` | **Revision = diff, one round** — Opened when there is a revision message on a video or storyboard, before the first edit (step 8 of the SKILL.md workflow). |
 | `claude/motion-graphic/references/revision-log.md` | **Revision log & RETRO** — Baca saat Irfan memberi revisi: catat dulu, baru kerjakan. |
 | `claude/motion-graphic/references/roles.md` | **Dua peran: Sutradara dan Editor (layer komunikasi)** — Dibaca di awal tahap Brief setiap pekerjaan video. |
 | `claude/motion-graphic/references/selects-editor.md` | **Paket editor dari rekaman talking head mentah (selects)** — Dibuka saat bahannya rekaman mentah panjang (beberapa menit, banyak take ulang) dan keluarannya paket untuk editor manusia: timeline klip ber-timecode, rough cut, audio, aset motion, storyboard, dan animatic. |
-| `claude/motion-graphic/references/slop-catalog.md` | **Katalog slop (tanda yang pernah Irfan tolak)** — Dipakai untuk memindai, bukan melarang teknik: sidik jari ditulis sebagai rupa dan ukuran (KEBIJAKAN v2), dan berlaku bila REF-SPEC tidak menyatakan sebaliknya. |
+| `claude/motion-graphic/references/slop-catalog.md` | **Slop catalog (signs I have rejected)** — Used to scan, not to ban techniques: fingerprints are written as appearance and measurements (KEBIJAKAN v2, policy v2), and apply unless REF-SPEC states otherwise. |
 | `claude/motion-graphic/references/smooth-motion.md` | **Smooth motion — resep motion blur, teks, dan kamera yang terbukti** — Baca saat membangun animasi teks, mengatur motion blur, atau saat Irfan bilang gerak "kurang smooth", "patah-patah", atau "kamera berantakan". |
 | `claude/motion-graphic/references/storyboard.md` | **Storyboard visual: dari script atau daftar potongan ke papan panel** — Baca di tahap Storyboard/block out. |
 | `claude/motion-graphic/references/teks.md` | **Teks di layar: posisi, keterbacaan, gerak** — Dibuka saat mengatur teks layar (langkah 4-6 alur SKILL.md). |
 | `claude/motion-graphic/references/three-segment-gate.md` | **Gerbang 3 Segmen** — Claude tidak melihat video saat menulis kode. |
 | `claude/motion-graphic/references/typography.md` | **Typography & kinetic text** — Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. |
-| `claude/motion-graphic/references/warna.md` | **Gerbang warna (masuk dan keluar)** — Dipindah dari dunia-visual.md §9 agar referensi itu tetap di bawah 15 KB. |
+| `claude/motion-graphic/references/warna.md` | **Colour gate (entry and exit)** — Moved from dunia-visual.md §9 so that reference stays under 15 KB. |
 
 ## motion-graphic · guide (rasa per urusan)
 
@@ -131,7 +131,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | File | Isi / kapan dibuka |
 |---|---|
 | `claude/motion-graphic/templates/TAHAP.md` | **TAHAP · <proyek>** — Disalin ke projects/<proyek>/TAHAP.md di awal video. |
-| `claude/motion-graphic/templates/cut-sheet.md` | **Timeline Cut Sheet & Mapping Visual · <proyek>** — Satu tabel untuk seluruh video. |
+| `claude/motion-graphic/templates/cut-sheet.md` | **Timeline Cut Sheet & Visual Mapping · <project>** — One table for the whole video. |
 | `claude/motion-graphic/templates/gaya/README.md` | **Template gaya** — Satu folder = satu gaya edit yang bisa dipilih di tahap Brief. |
 | `claude/motion-graphic/templates/gaya/editorial-bold/STYLE.md` | **Gaya: editorial-bold (talking head cepat)** — Template gaya untuk reel talking head yang cepat dan tegas: Anton besar, aksen merah, B-roll hitam-putih, split screen, transisi kamera. |
 | `claude/motion-graphic/templates/gaya/minimal-premium/STYLE.md` | **Gaya: minimal-premium (talking head edukatif)** — Template gaya untuk klip podcast/talking head yang tenang dan presisi (ruang kosong luas, satu fokus): wajah pembicara bergantian dengan adegan bertekstur kertas (lukisan, garis biru, ilustrasi kasar, grafik garis tipis). |
@@ -141,8 +141,8 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/templates/merek/README.md` | **Profil merek dan folder data user** — Repo ini hanya menyimpan cara kerja dan cetakan kosong. |
 | `claude/motion-graphic/templates/roles/devils-advocate.md` | **Creative Devil's Advocate · mata luar sebelum render final** — Pembuat video selalu cenderung meloloskan karyanya sendiri. |
 | `claude/motion-graphic/templates/roles/editor.md` | **Prompt Editor (diisi Sutradara, dikirim lewat Agent / SendMessage)** — Ganti <…>. Jangan menambah cerita proses, pendapat, atau kutipan chat Irfan; Editor hanya perlu fakta, keputusan, dan tugas (roles.md §1). |
-| `claude/motion-graphic/templates/roles/handoff.md` | **Kerangka folder `handoff/`** — Salin bagian yang dibutuhkan ke projects/<proyek>/handoff/. |
-| `claude/motion-graphic/templates/roles/konsul.md` | **KONSUL · <proyek> (opsional)** — Catatan tambahan untuk tools/tanya-claude.sh. |
+| `claude/motion-graphic/templates/roles/handoff.md` | **`handoff/` folder skeleton** — Copy the needed sections to projects/<project>/handoff/. |
+| `claude/motion-graphic/templates/roles/konsul.md` | **KONSUL · <project> (optional)** — Additional notes for tools/tanya-claude.sh. |
 | `claude/motion-graphic/templates/roles/pemeriksa-audio.md` | **Pemeriksa audio terhadap frame · fase audio (satu agen per potongan ≤ 10 dtk)** — Dipanggil setelah fase visual lulus (pemeriksa-frame.md) dan SFX dikunci (audio_order.py lock sfx). |
 | `claude/motion-graphic/templates/roles/pemeriksa-frame.md` | **Menilai frame · fase visual (satu penilai: Sutradara)** — Dijalankan setelah visual selesai disusun dan sebelum SFX dan musik dibuat: render.sh <proyek> frames → scripts/juri/frame_audit.py qc/frames (fase visual). |
 | `claude/motion-graphic/templates/sistem-desain/README.md` | **Sistem desain video (satu per proyek)** — Ditulis Sutradara sebelum pekerja adegan mulai, di remotion/src/<…>/bersama/tema.ts proyek. |
