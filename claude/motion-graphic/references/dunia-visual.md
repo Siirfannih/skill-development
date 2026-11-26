@@ -62,7 +62,7 @@ Tidak ada teknik yang dikunci oleh namanya. Kata sifat ("premium") bukan izin un
 - Tanpa referensi visual: tunjukkan 2–3 keyframe tema kandidat, supaya user memilih dengan mata.
 - Tiga hal yang ikut menentukan tema dan boleh digabung ke dalam 3 pertanyaan itu:
   1. **Dunia visual**: tunjuk gambar.
-  2. **Rasa suara**: VO memimpin dengan bed tipis, atau musik memimpin dengan cut ikut ketukan; SFX hanya di peristiwa, atau tick lembut per kata.
+  2. **Rasa suara**: VO memimpin dengan bed tipis, atau musik memimpin dengan cut ikut ketukan; SFX hanya di peristiwa, atau tick lembut per kata (`per-word`).
   3. **Peran teks**: porsi teks dari REF-SPEC, atau default VISUAL + kondisi a–d NEGATIF 6.
 - Jangan tanyakan yang sudah jelas dari bahan. Contohnya: rekaman wajah ada berarti talking head sudah jelas; rasio sudah disebut berarti tidak perlu ditanya lagi.
 

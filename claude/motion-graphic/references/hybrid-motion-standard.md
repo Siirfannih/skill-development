@@ -1,7 +1,7 @@
-# Hybrid Motion Standard (minimum barrier, not an absolute value)
+# Hybrid Motion Standard (default from the benchmark references; REF-SPEC wins)
 
 Extracted from benchmark reference videos (`archive/riwayat/GrokAgent/reference-videos/`).
-This is a **minimum standard that must be met**, yet its numbers and rules may change anytime based on project situations and conditions. If a scene intentionally breaks one, record the reason in the project document.
+This is a **default**, not a requirement: when the project's REF-SPEC or reference card states otherwise, the REF-SPEC wins. Use it as the starting point when there is no reference. If a scene intentionally breaks one, record the reason in the project document.
 
 ## System role & objective
 Act as **Motion Director and Sound Designer**. Evaluate the script and design audio/visual cues strictly using the Hybrid Motion production parameters below.
@@ -24,5 +24,5 @@ Act as **Motion Director and Sound Designer**. Evaluate the script and design au
 The audio part of this standard is withdrawn: 40–80 Hz low whoosh + sub-impact, glass ping/telemetry blip, mandatory panning, and −6…−8 dB ducking conflict with the palette and mix that already passed. Audio follows `audio.md` (§14.A choosing sounds, §14.5/§14.8 palette, §14.10 levels).
 
 ## Application notes
-- Other rules of mine still apply: no 2–6 kHz ear-fatigue, SFX never precedes its object, SFX on story moments + visible motion, no sound per word (Floor E24), SFX sources from libraries (not synthesis).
+- Other rules of mine still apply: no 2–6 kHz ear-fatigue, SFX never precedes its object, SFX on story moments + visible motion, per-word ticks are a project decision (`kt_tick`), SFX sources from libraries (not synthesis).
 - Smooth and calm transitions (camera/wipe, no shimmer effects): no white flash/radial blow-out covering the frame.

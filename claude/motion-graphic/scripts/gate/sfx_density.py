@@ -127,12 +127,15 @@ def tick_issues(cues):
     return issues
 
 
-def forbidden_palette_issues(cues):
-    """Return forbidden final-palette matches from file names or heard labels."""
+def forbidden_palette_issues(cues, izinkan=()):
+    """Return forbidden final-palette matches from file names or heard labels. `izinkan` = label famili yang dibuka
+    keputusan proyek (REF-SPEC/kiblat memakai famili itu); palet terlarang adalah bawaan, bukan hukum."""
     issues = []
     for cue in cues:
         evidence = f"{cue.get('file', '')} {cue.get('dengar', '')}"
         for label, pattern in FORBIDDEN_SFX:
+            if label in izinkan:
+                continue
             if pattern.search(evidence):
                 issues.append(f"{cue.get('t', 0):.2f}s {label}: {cue.get('file', '')}")
                 break
@@ -211,6 +214,7 @@ def main():
     ap.add_argument("--ref-density", type=float, default=0.0, help="SFX berlabel/dtk di kiblat (kartu §7)")
     ap.add_argument("--min-coverage", type=float, default=0.0)
     ap.add_argument("--max-gap", type=float, default=0.0, help="0 = celah hanya dilaporkan")
+    ap.add_argument("--izinkan-palet", default="", help="label palet terlarang yang dibuka keputusan proyek, dipisah koma (mis. \"kayu/woodblock,koin\")")
     ap.add_argument("--json")
     a = ap.parse_args()
 
@@ -220,7 +224,7 @@ def main():
     cues = np.array([c["t"] for c in cue_rows])
     no_role = [c for c in cue_rows if not c["peran"].strip() or not c["alasan"].strip()]
     spam = spam_check(cue_rows)
-    forbidden = forbidden_palette_issues(all_rows)
+    forbidden = forbidden_palette_issues(all_rows, {s.strip() for s in a.izinkan_palet.split(',') if s.strip()})
     ev, dur = visual_events(a.video)
     density = len(cues) / dur if dur else 0.0
     covered = [e for e in ev if len(cues) and np.min(np.abs(cues - e)) <= 5 / FPS]

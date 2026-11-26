@@ -94,7 +94,7 @@ Gerbang yang gagal diperbaiki pada penyebabnya, lalu dijalankan ulang; keluaran 
 ## 6. Ritme dan keragaman mode visual (retensi short-form / IG, tanpa merombak naskah atau membuat ulang VO)
 
 - **Padatkan jeda suara, bukan kecepatan bicara** (`TEMPO = 1.0`, NEGATIF 9): `scripts/gate/cut_check.py --suggest --max-inner 0.12 --max-sentence 0.22`, lalu `scripts/audio/recut.py` untuk memangkas jeda mati; petakan ulang titik waktu ke `vo_words.json`/`vo_beats.json` tanpa memotong kata.
-- **Perubahan visual ≤ 2,2 dtk & variasi mode:** video > 30 dtk tidak boleh berisi `[zoom B-roll + KT]` bergantian dengan `[kartu teks polos]`. Pecah kalimat panjang menjadi micro-beat (geser titik fokus kamera 2D, insert arsip/UI, `HighlighterSweep`, `SelectiveColorSpotlight`), frame 0 langsung bergerak dan berteks, dan KT 1–3 kata berganti setiap 0,25–0,6 dtk.
+- **Ritme ganti visual dan teks** diambil dari REF-SPEC/kiblat; tanpa referensi untuk short-form, mulai dari perubahan visual ±2 dtk (kebiasaan referensi: ≤ 2,2 dtk) lalu ukur terhadap VO. Variasikan mode (jangan hanya `[zoom B-roll + KT]` bergantian dengan `[kartu teks polos]`). Pecah kalimat panjang menjadi micro-beat (geser titik fokus kamera 2D, insert arsip/UI, `HighlighterSweep`, `SelectiveColorSpotlight`) dan buat frame 0 langsung bergerak dan berteks.
 - **Kunci gaya aset:** ikuti `BRAND.md`/`EDITING.md`; untuk proyek bergaya 2D flat, editorial, atau photo-cutout, bangun komponen vektor 2D SVG/HTML atau cutout foto nyata; 3D lolos tiga pertanyaan NEGATIF dan alasannya ditulis di `RESEP.md`.
 
 ## 7. Primitif netral (mulai dari `toolkit/`, lalu ini)

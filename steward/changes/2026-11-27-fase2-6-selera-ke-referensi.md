@@ -1,0 +1,17 @@
+# Fase 2.6: selera kembali ke referensi
+Masalah: kuota gaya ditulis sebagai hukum (ritme ≤ 2,2 dtk, ≥ 4 transisi per 30 dtk, ≥ 20 kandidat musik, tiap klip genre berbeda, standar Hybrid Motion "wajib") dan enam file saling membantah soal tick SFX per kata.
+Perubahan:
+- Ritme (`build.md` §6): diambil dari REF-SPEC/kiblat; tanpa referensi, mulai ±2 dtk (kebiasaan referensi ≤ 2,2) lalu ukur terhadap VO. Larangan selang-seling >30 dtk dan "KT berganti 0,25-0,6 dtk" dibuang.
+- ≥ 4 tipe transisi/30 dtk: tetap angka titik awal, dilabeli "default tanpa REF-SPEC" di `00-core-invariants.md`, `analysis-qa.md`, `camera-transition.md`, `ae-primitives/README.md`; "variasi kinetic wajib / maks 2x berturut" (`three-segment-gate.md`) jadi "variasi mengikuti peran, berturut-turut butuh alasan"; contoh "minimal 4 tipe" di working-with-irfan jadi prinsip + alasan + satu cek, tanpa kuota umum; "sertakan template spec" jadi "checklist QA bila ada artefak".
+- Musik: bawaan ≥ 5 kandidat berlisensi dari lebih dari satu sumber (RULES G06; ±20 bila proyek meminta). `music_fit.py`: di bawah bawaan = peringatan (bukan exit 1), opsi `--min-kandidat`, fungsi `pool_peringatan` + tes. Track berbeda per klip hanya bila proyek memintanya (`delivery-gate.md`, `alur-teknis.md`, `guide/audio`). "Tiap klip satu genre berbeda (Behindwork...)" dihapus (AU03, nama proyek).
+- Hybrid Motion (`hybrid-motion-standard.md`): dari "minimum wajib" jadi default; REF-SPEC menang. Dipertahankan sebagai referensi (belum dijadikan kartu: kartu menyentuh `cookbook.py`/INDEX 15 token; kamu putuskan nanti).
+- Tick per kata KT: keputusan proyek (`kt_tick`, bawaan REF-SPEC); tanpa keputusan hanya kata penekanan dan event visual. Disamakan di `guide/sfx` (§3, 6, FAMILI), `guide/README`, `delivery-gate`, `alur-teknis`, `three-segment-gate`, `audio.md` (5 tempat), `hybrid`, `dunia-visual`, `00-core-invariants`, `KARTU-TEMPLATE`, `pemeriksa-audio`, `editorial-bold/STYLE`. `sfx_density.py` sudah mengizinkan tick berlabel; ditambah `--izinkan-palet` agar REF-SPEC bisa membuka famili palet terlarang (+ 3 tes).
+- NEGATIF 5 (`claude/_bersama/NEGATIF.md`, disinkronkan ke SKILL.md): hanya "satu fokus per beat, tanpa tabrakan" yang [mutlak]; angka ukuran jadi "default tanpa REF-SPEC (bukan mutlak)". `Alasan:` dan `Cek:` dipertahankan (tes menghitung 10 Alasan), objek utama terbesar, jendela utuh maks sekali per babak, dan "dengan referensi mengikuti REF-SPEC" tetap. SKILL.md 12.252 byte.
+- Lain: `typography.md` 7.1 dan `guide/teks` "2 font maks" (duplikat NEGATIF 1, G22/TY01 CUT) jadi penunjuk; G21 "1-3 kata saat menyertai VO; mode TEKS boleh lebih"; G11 "1 bunyi per frame" jadi "objek/gerak penting tanpa bunyi → beri bunyi"; S05 hook ≥ 10 jadi ≥ 5.
+Dihapus tanpa pengganti: "tiap klip genre berbeda", KT 0,25-0,6 dtk, selang-seling > 30 dtk, "2 font maks", "1 bunyi per frame".
+Bukti: RULES MC07, N06, L04, G03, G06, G11, G16, G20-G22, AU02, AU03, DG03, DG04, TS03, TS04, TY01, HM01, S05, W10, W11; baseline Risk 4.
+Hasil cek: 356 tes OK (64 skip; 351 + 1 + 3 + 1 tes baru); peta, cookbook, sumber_cek, sync_lantai, sync_negatif bersih; steward_check 0 error, 56 peringatan; `dunia-visual.md` 15.350 dari 15.360 byte.
+Dampak: model memakai angka sebagai titik awal dan mengukur dari referensi; satu jawaban untuk tick.
+Level: Behavior
+Persetujuan: ya, fase 2 disetujui seluruhnya
+Cara membatalkan: `git revert` commit ini.

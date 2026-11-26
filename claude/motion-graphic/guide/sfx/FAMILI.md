@@ -18,7 +18,7 @@ Setiap video memakai kelima pilar; tiap cue di `cues.json` membawa `pilar`. Kata
 
 Aturan pakai:
 - **Bed**: rekaman nyata, lolos `sfx_vet.py --famili ruang` (tanpa clipping/distorsi), di-loop tanpa sambungan terdengar.
-- **Tick**: 2–4 varian berputar dan/atau `rate` 0,95–1,05, gain −14…−20 dB, satu klik impuls per kata, bukan rentetan ketikan.
+- **Tick**: 2–4 varian berputar dan/atau `rate` 0,95–1,05, gain −14…−20 dB, satu klik impuls per kata bila proyek memilih `per-word`, bukan rentetan ketikan.
 - **Selubung**: ease-in 3–5 frame hanya di pra-rol (berakhir tepat di onset, serangan utuh); ease-out kosinus 8–12 frame (±270–400 ms).
 - Kayu, thock, dan felt tetap palet terlarang; pengganti tick yang lembut adalah plastik atau kertas.
 

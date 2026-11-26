@@ -14,7 +14,7 @@ Profil: ../../references/music-profiles.json. Keluaran: peringkat, skor 0-100, d
 Lulus pakai = skor >= 70 DAN snr_min terpenuhi DAN bpm/onset di dalam rentang kategori (di luar = GUGUR, bukan
 penalti). earshot rank dipakai bila terpasang; tanpa earshot skrip tetap memberi peringkat dari ukuran dan mencetak
 TANPA-DENGAR (gerbang DENGAR = NOT RUN: laporan menulis "belum didengar alat", bukan PASS).
-Kandidat < 8 file atau dari < 2 folder sumber = FAIL (Lantai E24).
+Kumpulan kandidat di bawah bawaan (--min-kandidat, 5 file dari >= 2 folder) = peringatan, bukan FAIL.
 Telinga Irfan tetap hakim terakhir.
 """
 import argparse, json, os, shutil, subprocess, sys
@@ -134,6 +134,16 @@ def score(m, prof, snr):
     return round(total), snr_ok, why, fix, hard
 
 
+def pool_peringatan(files, minimal=5):
+    """Peringatan (bukan FAIL) bila kumpulan kandidat di bawah bawaan: jumlah file dan jumlah folder sumber."""
+    out = []
+    if len(files) < minimal:
+        out.append(f"kandidat {len(files)} < {minimal} (bawaan)")
+    if len({os.path.dirname(os.path.abspath(f)) for f in files}) < 2:
+        out.append("kandidat dari < 2 folder sumber")
+    return out
+
+
 def earshot_rank(query, paths):
     """z per file dari `earshot rank`; None bila earshot tidak terpasang atau gagal (peringkat tetap jalan dari ukuran)."""
     if shutil.which("earshot") is None:
@@ -152,6 +162,7 @@ def main():
     ap.add_argument("files", nargs="*")
     ap.add_argument("--category"); ap.add_argument("--voice", help="audio/video pembicara atau VO (untuk cek benturan)")
     ap.add_argument("--duration", type=float, help="durasi video (dtk); track lebih pendek ditandai")
+    ap.add_argument("--min-kandidat", type=int, default=5, help="bawaan jumlah kandidat; di bawah ini hanya peringatan")
     ap.add_argument("--no-earshot", action="store_true", help="HANYA untuk uji alat; laporan ditandai TANPA-DENGAR = FAIL di Delivery Gate")
     ap.add_argument("--calibrate", metavar="KATEGORI"); ap.add_argument("--measure", action="store_true")
     ap.add_argument("--profiles", default=PROFILES); ap.add_argument("--json")
@@ -182,11 +193,7 @@ def main():
         raise SystemExit(f"--category salah satu dari: {[k for k in profiles if not k.startswith('_')]}")
     prof = profiles[a.category]
     voice = load(a.voice, 180) if a.voice else None
-    pool_fail = []
-    if len(a.files) < 8:
-        pool_fail.append(f"kandidat {len(a.files)} < 8")
-    if len({os.path.dirname(os.path.abspath(f)) for f in a.files}) < 2:
-        pool_fail.append("kandidat dari < 2 folder sumber")
+    pool_fail = pool_peringatan(a.files, a.min_kandidat)
     es = {} if a.no_earshot else earshot_rank(prof["query"], [os.path.abspath(f) for f in a.files])
     tanpa_alat = es is None
     es = es or {}
@@ -202,7 +209,7 @@ def main():
                      "gugur": hard, "earshot_z": es.get(os.path.abspath(f))})
     rows.sort(key=lambda r: (not r["gugur"], r["snr_ok"], r["score"]), reverse=True)
     if pool_fail:
-        print("FAIL kumpulan kandidat: " + "; ".join(pool_fail) + " (cari dari Epidemic, ElevenLabs Music, internet berlisensi, folder Irfan)")
+        print("PERINGATAN kumpulan kandidat: " + "; ".join(pool_fail) + " (tambah dari sumber berlisensi bila bisa)")
     if a.no_earshot:
         print("TANPA-DENGAR: earshot dimatikan dengan --no-earshot; laporan ini tidak sah untuk Delivery Gate")
     elif tanpa_alat:
@@ -219,8 +226,6 @@ def main():
     if a.json:
         json.dump({"category": a.category, "profile": prof, "pool_fail": pool_fail, "earshot": not (a.no_earshot or tanpa_alat),
                    "ranked": rows}, open(a.json, "w"), ensure_ascii=False, indent=2)
-    if pool_fail:
-        sys.exit(1)
 
 
 if __name__ == "__main__":

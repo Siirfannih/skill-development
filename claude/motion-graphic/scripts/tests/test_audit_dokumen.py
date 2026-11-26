@@ -186,7 +186,7 @@ class PintuProduksi(unittest.TestCase):
 
     def test_pengunci_ragam_isolasi_flashgrid_dan_sfx_alami(self):
         t = baca(MG / "references/build.md") + baca(MG / "cookbook/README.md")
-        for x in ("Tanya sebelum meracik", "Satu video = satu sesi terpisah", "variasi mode", "FlashGrid.tsx"):
+        for x in ("Tanya sebelum meracik", "Satu video = satu sesi terpisah", "Variasikan mode", "FlashGrid.tsx"):
             self.assertIn(x, t)
         self.assertIn("Level alami", baca(MG / "guide/sfx/GUIDE.md"))
         self.assertTrue((MG / "scripts/remotion/FlashGrid.tsx").is_file())

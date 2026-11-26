@@ -97,8 +97,8 @@ Skill yang baik membuat agent lain bisa menghasilkan output yang sama tanpa haru
 1. **Kumpulkan bukti dulu** (§4). Jangan buka template skill sebelum bahan terkumpul.
 2. **Kelompokkan temuan per dimensi** yang diminta Irfan (contoh: font, animasi teks, kamera, cut, transisi, ikon, style).
 3. **Tulis setiap teknik dalam format yang bisa dieksekusi**: nama + kode singkat (T01, C02, X03), seperti apa tampilannya, contoh dari referensi, cara membuatnya di tool, dan angka timing/ukuran.
-4. **Buat aturan yang bisa dicek**, bukan saran umum. "Minimal 4 tipe transisi per 30 detik" bisa dicek. "Gunakan transisi yang menarik" tidak bisa.
-5. **Sertakan format spec/template** yang harus diisi agent sebelum eksekusi, dan **checklist QA** setelahnya.
+4. **Buat aturan yang bisa dicek**, bukan saran umum. Tulis prinsip + alasan + satu cara cek; angka hanya bila netral-gaya atau diukur dari referensi proyek, bukan kuota umum ("transisi bervariasi, ukur dari referensi" bisa dicek; "gunakan transisi yang menarik" tidak).
+5. **Sertakan checklist QA** bila skill menghasilkan artefak yang bisa dicek.
 6. **Sertakan satu contoh penerapan nyata** pada proyek Irfan sendiri (sebelum → sesudah).
 7. **Konsistensi istilah**: satu konsep satu nama di seluruh dokumen. Kode yang dirujuk (§, T01, X03) harus benar-benar ada.
 8. **Uji kecil**: jalankan satu snippet atau satu beat sebelum menyatakan skill selesai. Tandai bagian yang belum teruji dengan jujur.

@@ -15,7 +15,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 
 ## 7. Tipografi — diperlakukan seperti design system website
 
-### 7.1 Peran font (maksimal 2 keluarga + 1 mono per proyek)
+### 7.1 Peran font (sistem huruf: NEGATIF 1)
 | Peran | Fungsi | Pilihan (Jadisatu) | Ukuran @1080 |
 |---|---|---|---|
 | Display/Kunci | Kata kunci, slam | Inter Black 900 (atau Neue Haas Grotesk Display 95 di Adobe Fonts) | 200–320 px |

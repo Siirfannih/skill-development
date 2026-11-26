@@ -11,7 +11,7 @@ Prompt (isi `<…>`):
 > 2. Buka SEMUA `s*.jpg`. Tiap lembar = 1 detik = 30 frame berurutan + strip energi (biru suara, hijau musik, oranye SFX).
 > 3. Nilai per detik:
 >    - tiap gerak yang bercerita (objek/kartu masuk, pop, mendarat, klik, ketik, ganti adegan, gerak kamera) punya cue dalam ±2 frame dari frame geraknya; bila tidak, tulis apakah perlu bunyi atau sengaja hening;
->    - tidak ada cue tanpa gerak yang terlihat; kata yang muncul per kata tidak berbunyi;
+>    - tidak ada cue tanpa gerak yang terlihat; kata yang muncul per kata berbunyi hanya bila proyek memilih `kt_tick: per-word`;
 >    - strip suara tidak tenggelam di musik atau SFX; tidak ada lubang musik.
 > 4. Balas dengan isi `VERDICT.md`: satu baris per masalah `dtk | frame | jenis | yang terlihat/terdengar | usul`, tiap tanda `SFX?` diberi putusan, lalu baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`.
 

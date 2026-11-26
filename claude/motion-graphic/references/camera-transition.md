@@ -73,7 +73,7 @@ Rig AE: null `CAM` di tengah. Semua konten di-parent ke `CAM`, kecuali BG dan UI
 | X17 | Hard cut on beat | hanya di batas babak, di downbeat + SFX hantaman | aksen |
 
 Aturan:
-- ≥ 4 tipe per 30 dtk, tidak ada tipe sama berturut-turut.
+- Variasi mengikuti REF-SPEC; default tanpa referensi: ≥ 4 tipe per 30 dtk, tidak ada tipe sama berturut-turut.
 - Arah konsisten dengan cerita (maju = kanan/ke dalam).
 - Pemicu di akhir frase VO (2–6 f setelah suku kata terakhir). Adegan baru mendarat di kata pertama frase berikut (−3…+3 f).
 - Pre-roll adegan tidak boleh memotong wipe yang belum selesai.

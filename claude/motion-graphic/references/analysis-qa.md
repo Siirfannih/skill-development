@@ -101,7 +101,7 @@ Jalankan `scripts/audio_qa.py --module5` (ambang di `audio.md` §14.10). Satu FA
 - [ ] Teks datar dan tajam; kedalaman dari lapisan dan kamera di momen yang tepat; tanpa ekstrusi/bevel kecuali diminta user (K2).
 - [ ] Layout sama maksimal 2 beat berturut; tidak ada fade sebagai pengganti gerak.
 - [ ] Kamera global ±10 %; adegan informasional diam; gerak besar di setiap pergantian makna; 1 cut zoom per 6–10 dtk.
-- [ ] ≥ 4 tipe transisi per 30 dtk, tidak berturut sama; nol crossfade; transisi di akhir frase VO.
+- [ ] variasi transisi mengikuti REF-SPEC (default tanpa referensi: ≥ 4 tipe per 30 dtk), tidak berturut sama; nol crossfade; transisi di akhir frase VO.
 - [ ] Motion blur di semua gerak cepat; jejak blur pendek; tanpa ghost.
 - [ ] Sprite tidak pernah diputar; subjek = yang dikerjakan tokoh.
 - [ ] Teks layar semua dari VO; latensi kata +1…+4 f; 1 warna aksen per frase.

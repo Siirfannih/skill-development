@@ -40,7 +40,7 @@ Hook berbentuk **pertanyaan atau dugaan yang diuji**, bukan temuan. Contoh arah:
 | Talking head di video motion | "Kamu bisa mengenali desain AI dalam satu detik" | Butuh wajah; video motion hidup dari teks/objek |
 
 ## Cara
-Tulis ≥ 10 kandidat → gugurkan yang masuk tabel → skor 1–5: spesifik · jarang diucapkan · familiar · natural · mengarah ke tesis · menyentuh semua audiens → tawarkan 2–3 + rekomendasi.
+Tulis kandidat secukupnya (bawaan ≥ 5) → gugurkan yang masuk tabel → skor 1–5: spesifik · jarang diucapkan · familiar · natural · mengarah ke tesis · menyentuh semua audiens → tawarkan 2–3 + rekomendasi.
 
 ## Cek cepat
 - Cari kalimat pembukanya di kepala: "sudah sering dengar?" Ya → ganti sudut.

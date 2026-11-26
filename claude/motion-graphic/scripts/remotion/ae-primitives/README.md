@@ -57,7 +57,7 @@ Kartu cookbook memakai kategori camera / typography / layout / texture, tetapi m
 ```
 
 ### transisi/SceneChain.tsx · `SceneChain`, `overlapFrames`
-- Kartu: — (perakit). Aturan: `camera-transition.md` §10 (≥ 4 tipe per 30 dtk, tidak ada tipe sama berturut-turut, pemicu di akhir frase VO).
+- Kartu: — (perakit). Aturan: `camera-transition.md` §10 (variasi mengikuti REF-SPEC; default ≥ 4 tipe per 30 dtk, tidak ada tipe sama berturut-turut, pemicu di akhir frase VO).
 - Pakai saat: merangkai adegan dengan transisi `cut | whip | grid | flash`. Panjang total = jumlah durasi adegan; adegan lama diperpanjang selama frame transisi berikutnya sehingga tidak ada frame hitam di sambungan.
 - Props: `scenes: { id, durationInFrames, content, enter? }[]`, `background`.
 

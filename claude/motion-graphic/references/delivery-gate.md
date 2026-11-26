@@ -22,13 +22,13 @@ Di blok ini cek mekanis audio dijalankan lebih dulu. Penilaian visual (gaya, pos
 
 | Cek | Bukti | Lantai |
 |---|---|---|
-| Track musik yang sama dipakai di beberapa klip/babak dalam satu batch? | `python3 scripts/gate/music_batch.py musik_klipA.mp3 musik_klipB.mp3 …` | Lantai E25, S-A9 |
+| Bila proyek meminta tiap klip berbeda: track musik yang sama dipakai di beberapa klip/babak dalam satu batch? | `python3 scripts/gate/music_batch.py musik_klipA.mp3 musik_klipB.mp3 …` | Lantai E25, S-A9 |
 | Ada cue SFX/musik tanpa `peran` + `alasan`, atau spam (whoosh > 1/dtk, file sama < 1 dtk)? | `scripts/gate/sfx_density.py` | Lantai E24, §14.3 |
-| Objek/visual penting tanpa SFX, peran memakai > 1 file, bunyi < 100 ms bertumpuk, bunyi per kata KT, > 5 cue dalam 2 dtk, cue tanpa `dengar`, atau palet terlarang? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json --objects objects.json` | Lantai E24 |
+| Objek/visual penting tanpa SFX, peran memakai > 1 file, bunyi < 100 ms bertumpuk, bunyi per kata KT yang tidak berlabel `pilar: tick`, > 5 cue dalam 2 dtk, cue tanpa `dengar`, atau palet terlarang? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json --objects objects.json` | Lantai E24 |
 | Suara masih membawa kata sampah/diam, atau cut menyentuh kata isi >20 ms, guard <50 ms, durasi kata <85 %, urutan ASR aktual berubah? Musik dipompa > 1,5 dB saat bicara? | `audio_order.py check` (mengulang `cut_check.py` dengan source words + cut map) · `audio/audio_phone.py --list` | PASS / jendela < 8 dB ≤ 5 |
 | Referensi atau SFX tidak didengar (tidak ada log `earshot timeline` ref + `earshot describe` tiap file)? Tanpa earshot: baris ini NOT RUN dan laporan menulis "belum didengar alat" | log earshot di folder proyek | gerbang DENGAR `three-segment-gate.md` |
 | Suara sumber klip yang bersih diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | Lantai E25a, §14.6 |
-| Kategori suasana tidak tertulis, musik tanpa laporan `music_fit.py` berstatus PAKAI (dengan earshot bila ada), kandidat < 8 atau dari < 2 sumber, atau track yang sama dipakai di semua klip/babak? | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 kandidat/*` | Lantai E25, Lantai E24 |
+| Kategori suasana tidak tertulis, musik tanpa laporan `music_fit.py` berstatus PAKAI (dengan earshot bila ada), atau kumpulan kandidat di bawah bawaan (≥ 5, lebih dari satu sumber; peringatan)? Track yang sama di semua klip/babak dicek hanya bila proyek meminta tiap klip berbeda. | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 kandidat/*` | Lantai E25, Lantai E24 |
 | Ada teks > 2 baris, kata yatim, teks terpotong tepi, ucapan tanpa teks di beat bermode TEKS, baris subtitle di pita bawah, atau kata yang tampil dua kali? | `python3 scripts/juri/teks_cek.py qc/stills/` + keputusan per still yang ditandai (`caption_lines.py` hanya menghitung baris) | Lantai A1, LANTAI A1–A4 |
 | Ada teks/angka layar yang tidak diucapkan dan bukan isi UI/produk yang ditunjukkan? | transkrip vs daftar teks | Lantai A5 |
 | Ada UI karangan atau placeholder storyboard di render? | still | Lantai D20, Lantai D19c, Lantai D22 |

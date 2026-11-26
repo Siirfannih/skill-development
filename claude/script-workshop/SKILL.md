@@ -25,7 +25,7 @@ Selebihnya di `guide/` adalah arah, bukan aturan: pilih bebas asal bisa jelaskan
 | 0 | Muat konteks | `guide/produk/FAKTA.md`, `content-ops/lanes/<jalur>.md` | Jalur (Jadisatu / Siirfan / affiliate), format, durasi, CTA jelas |
 | 1 | Riset & validasi | `guide/riset/` | Hipotesis diuji: data mendukung / membantah / campur, dengan link |
 | 2 | Gali cerita Irfan | `guide/suara/` | Hanya hal yang tidak bisa diriset; maks 3–4 pertanyaan berpilihan + rekomendasi |
-| 3 | Sudut & hook | `guide/audiens/`, `guide/hook/` | ≥ 10 kandidat, digugurkan dengan tabel tolak, 2–3 terbaik + rekomendasi |
+| 3 | Sudut & hook | `guide/audiens/`, `guide/hook/` | kandidat secukupnya (bawaan ≥ 5), digugurkan dengan alasan satu baris, 2–3 terbaik + rekomendasi |
 | 4 | Draft | `guide/struktur/` + pola naskah dari video referensi: `../motion-graphic/cookbook/INDEX.md` kategori `script` (kerangka beat dipinjam, kalimat ditulis baru dari cerita Irfan; cara memakai referensi: `guide/struktur/` §Memakai video referensi) | Carousel atau reels; tiap bagian punya jembatan ke bagian berikut |
 | 5 | Evaluasi diri | §4 di bawah + `guide/hindari/` | Semua cek dijawab; perbaikan sudah diterapkan |
 | 6 | Kirim | — | Draft + catatan evaluasi singkat + sumber + maks 2 pertanyaan yang mengubah langkah berikutnya |

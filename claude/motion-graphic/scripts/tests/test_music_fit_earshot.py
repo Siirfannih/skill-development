@@ -24,5 +24,12 @@ class EarshotOpsional(unittest.TestCase):
             self.assertEqual(music_fit.earshot_rank("q", ["a.mp3"]), {os.path.abspath("a.mp3"): 1.5})
 
 
+class KumpulanKandidat(unittest.TestCase):
+    def test_di_bawah_bawaan_hanya_peringatan(self):
+        self.assertEqual(music_fit.pool_peringatan(["/a/1.mp3", "/b/2.mp3"], 5), ["kandidat 2 < 5 (bawaan)"])
+        self.assertEqual(music_fit.pool_peringatan([f"/{c}/{i}.mp3" for i in range(3) for c in "ab"], 5), [])
+        self.assertEqual(music_fit.pool_peringatan(["/a/1.mp3", "/a/2.mp3"], 2), ["kandidat dari < 2 folder sumber"])
+
+
 if __name__ == "__main__":
     unittest.main()
