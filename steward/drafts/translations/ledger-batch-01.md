@@ -11,3 +11,4 @@
 | claude/motion-graphic/templates/roles/handoff.md | en | translate/batch-01 | dependants: none (verified) |
 | claude/motion-graphic/references/kamera-gerak.md | en | translate/batch-01 | dependants: none (verified) |
 | claude/motion-graphic/references/hybrid-motion-standard.md | en | translate/batch-01 | dependants: none (verified) |
+| claude/motion-graphic/references/warna.md | en | translate/batch-01 | dependants: none (verified) |

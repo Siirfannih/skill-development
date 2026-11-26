@@ -96,3 +96,11 @@ Second-model verification against `origin/main` (`0c4e4aa9`). One section per fi
 | `## Tekstur & styling` | Halftone/paper texture bila diminta referensi tanpa film grain di atas gradien (K2), dan depth-of-field selektif. | Halftone/paper texture when requested without film grain over gradients (K2), plus selective depth of field. | yes |
 | `## Audio` | Bagian audio lama dicabut karena bertentangan dengan palet/mix yang lulus; audio mengikuti `audio.md` (§14.A, §14.5/§14.8, §14.10). | Older audio section withdrawn due to conflicts with passing palette/mix; audio follows `audio.md` (§14.A, §14.5/§14.8, §14.10). | yes |
 | `## Catatan penerapan` | Aturan lain pemilik tetap berlaku (tanpa ear-fatigue 2–6 kHz, SFX tidak mendahului objek, E24, pustaka SFX, tanpa flash putih penutup frame). | My other rules still apply (no 2–6 kHz ear-fatigue, SFX never precedes object, E24, library SFX, no frame-covering white flash). | yes |
+
+## `claude/motion-graphic/references/warna.md`
+
+| Section | Indonesian meaning (one line) | English meaning (one line) | Equal? |
+|---|---|---|---|
+| Title & intro | Gerbang warna pindah dari `dunia-visual.md` §9 agar <15 KB, menggunakan CLI `scripts/warna/cek-warna.mjs`; kata warna brief bukan nilai, harus terukur. | Colour gate moved from `dunia-visual.md` §9 to stay under 15 KB, using `scripts/warna/cek-warna.mjs`; brief colour words are not values, must be measured. | yes |
+| Masuk (Entry) | Perintah `masuk` menghasilkan `palet.json` (4-5 HEX, luas %, peran, luminansi, WCAG, APCA Lc) + flag `--ke-spec` dan `--ke-tema`. | `masuk` command outputs `palet.json` (4-5 HEX, area %, role, luminance, WCAG, APCA Lc) + `--ke-spec` and `--ke-tema` flags. | yes |
+| Keluar (Exit) + 3 checks | Perintah `keluar` menjalankan 3 cek (`warna-nyasar`, `kontras-apca`, `warna-nanggung`), render ganda teks (`data-lapis="teks"`, `sembunyikanTeks`), pengecualian `data-sengaja="pudar"`/blur/tertutup, serta integrasi `gerbang_produksi.sh`/`board.py`. | `keluar` command runs 3 checks (`warna-nyasar`, `kontras-apca`, `warna-nanggung`), dual text render (`data-lapis="teks"`, `sembunyikanTeks`), `data-sengaja="pudar"`/blur/occluded exemptions, and `gerbang_produksi.sh`/`board.py` integration. | yes |
