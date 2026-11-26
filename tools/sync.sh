@@ -76,9 +76,9 @@ if "skill-development/AGENTS.md" in s:
 block = f"""
 ## Tugas video, konten, naskah, storyboard, atau skill -> repo skill-development
 Folder ini adalah titik masuk remote, jadi aturan video tidak terbaca otomatis. Untuk tugas jenis ini:
-1. Baca dulu `{repo}/AGENTS.md` dan ikuti bagian **Awal sesi** (git pull, `./tools/doctor.sh`, `PENDING.md`). Doctor GAGAL = lapor Irfan, jangan mulai.
+1. Baca dulu `{repo}/AGENTS.md` dan ikuti tabel rutenya (git pull dulu; `./tools/doctor.sh` hanya memeriksa).
 2. Skill utama video: `motion-graphic` (`{repo}/claude/motion-graphic/`); alat di `scripts/` folder itu.
-3. Pelajaran yang Irfan setujui ditulis ke file skill di repo itu dan di-push ke `main` (AGENTS.md, Akhir sesi).
+3. Pelajaran yang Irfan setujui ditulis ke file skill di repo itu dan di-push ke `main` (lewat `claude/skill-steward/SKILL.md`).
 Bagian lain file ini hanya berlaku untuk tugasnya sendiri.
 """
 i = s.index("\n") + 1 if s.startswith("#") else 0

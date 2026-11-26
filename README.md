@@ -2,7 +2,7 @@
 
 Perpustakaan skill untuk semua model yang bekerja dengan Irfan. Satu repo, satu sumber kebenaran: skill tidak lagi terpecah di beberapa lokasi, dan setiap skill punya peran yang jelas sehingga hanya yang relevan yang dimuat.
 
-**Mulai dari [AGENTS.md](AGENTS.md)** (cara membaca repo, langkah awal dan akhir sesi), lalu [PETA.md](PETA.md) untuk rute per pekerjaan. [INDEX.md](INDEX.md) adalah katalog skill; pelajaran yang belum disetujui menunggu di `steward/inbox/`.
+**Mulai dari [AGENTS.md](AGENTS.md)** (urutan otoritas dan tabel rute), lalu [PETA.md](PETA.md) untuk rute per pekerjaan. [INDEX.md](INDEX.md) adalah katalog skill; pelajaran yang belum disetujui menunggu di `steward/inbox/`.
 
 - `claude/` — skill yang dikembangkan Irfan
 - `external/` — skill open-source yang teruji (submodule terkunci versi)

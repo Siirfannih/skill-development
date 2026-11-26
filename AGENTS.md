@@ -7,67 +7,19 @@
 
 # Bekerja di Skill Development
 
-Repo ini menyimpan cara kerja AI bersama Irfan.
+Cara kerja video, desain, dan naskah Irfan; satu model sudah cukup. File ini hanya pintu: buka file yang dirutekan tabel, saat langkahnya tiba.
 
-**Sesi produksi video (satu video = satu sesi terpisah):** pintunya [claude/motion-graphic/SKILL.md](claude/motion-graphic/SKILL.md) (peran, NEGATIF, alur 8 langkah, tabel "Bila … buka …"), lalu `projects/<proyek ini>/` (jangan mengintip atau menyalin racikan episode lain; bila arah visual belum terkunci di brief, ajukan pertanyaan pengunci dulu). Referensi dibuka per tahap lewat tabel di SKILL.md, bukan semua di awal. Kartu cookbook dimuat per kartu: cari per beat dengan `claude/motion-graphic/scripts/cookbook/pilih_kartu.py` (filter `--pack` dari tabel tipe konten `cookbook/INDEX.md`) dan buka hanya 2–4 kartu untuk seluruh video. `MOTION-CORE.md` dan `LANTAI.md` adalah arsip referensi (tabel gerbang R1–R5 di `MOTION-CORE.md` §3 tetap dipakai saat render); pack utuh, `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/CATALOG.md`, dan `_vault/` utuh tidak dimuat di awal sesi.
+**Urutan otoritas** (yang awal menang): kata Irfan di sesi ini → NEGATIF butir [mutlak] (4, 5, 9) → REF-SPEC → brief dan `projects/<proyek>/` → profil merek → tema dan kartu cookbook → `references/`, `guide/`. Instruksi Irfan tidak ditolak dengan alasan aturan repo: risiko disebut satu kalimat, dikerjakan, dicatat di `DECISIONS.md`. Folder proyek lain bukan aturan dan tidak disalin.
 
-**Sesi lain (naskah, revisi, perubahan skill), pintu masuknya satu: file ini → [PETA.md](PETA.md).** Tabel Rute di PETA menunjuk file yang dibuka untuk pekerjaanmu, jadi buka hanya itu, bukan seluruh repo. [README.md](README.md) dan [INDEX.md](INDEX.md) adalah katalog, bukan pintu. Urutan otoritas: §Cara membaca repo ini butir 2.
+| Pekerjaan | Buka |
+|---|---|
+| Video | `claude/motion-graphic/SKILL.md`, lalu `projects/<proyek>/`; kartu lewat `scripts/cookbook/pilih_kartu.py` (2–4 per video) |
+| Keluhan atas video yang sudah dirender, sekecil apa pun | `claude/motion-graphic/references/revision-log.md` |
+| Naskah, konten, hook | `claude/script-workshop/SKILL.md`; naskah final → `claude/motion-graphic/references/storyboard.md` |
+| Desain statis | `claude/vibedesign/DESIGN-CORE.md` |
+| Rencana tertulis (PRD) | `claude/autopilot-prd/SKILL.md` |
+| Jadisatu Canvas | `claude/jadisatu-canvas/SKILL.md` |
+| Mengubah skill, atau koreksi yang tampak umum | `claude/skill-steward/SKILL.md` |
+| Lainnya | tabel Rute di `PETA.md` |
 
-## Cara membaca repo ini
-
-Berlaku untuk pekerja, subagen, dan auditor. Tujuannya: setiap keputusan diambil dari aturan yang benar-benar dibaca, bukan dari ingatan atau pencarian kata.
-
-1. **Satu pintu, bacaan awal kecil.** Sesi produksi video: `claude/motion-graphic/SKILL.md` → `projects/<proyek>/`; butir di bawah ini berlaku untuk sesi lainnya. Mulai dari file ini → tabel **Rute** di PETA (hanya tabel itu; katalog di bawahnya dibuka untuk mencari file). Tugas video: setelah itu `claude/irfan-creative-workflow/SKILL.md` §2 (tahap Brief → Naskah → Storyboard/block out: bedah bahan user dulu, naskah, storyboard dengan racikan kartu cookbook, persetujuan user; belum ada kode sebelum storyboard disetujui), lalu `claude/motion-graphic/SKILL.md` (alur 8 langkah; referensi per tahap dibuka saat langkah menyebutnya), lalu `projects/<proyek>/TAHAP.md`; `scripts/juri/tahap.py` menunjuk langkah berikutnya dan bagian yang dibaca untuk langkah itu. `MOTION-CORE.md` (tabel tahap kanonik, gerbang render R1–R5) dibuka saat render; `LANTAI.md` arsip, peta pindahnya di `claude/motion-graphic/MIGRASI-LANTAI.md`. README dan INDEX tidak dibaca. Saat mendelegasikan, sebut rutenya di brief, supaya subagen tahu bobot tiap aturan yang ia baca.
-2. **Urutan otoritas (kanonik; file lain merujuk kalimat ini): instruksi eksplisit Irfan di sesi ini → NEGATIF butir [mutlak] (tidak pernah dibuka) → REF-SPEC (referensi pilihan Irfan = kebenaran) → brief/`projects/<proyek>` → profil merek (`huruf_kedua` dengan peran + frekuensi sah) → tema/kartu cookbook → `references/`/`guide/`.** Lapis yang lebih awal menang bila bertentangan. (a) Instruksi eksplisit Irfan di sesi ini menang atas aturan repo: jangan menolak dengan alasan "aturan repo mewajibkan"; bila ada risiko mutu, sebut dalam satu kalimat, kerjakan, dan catat di `DECISIONS.md` proyek. Kata sifat ("premium", "editorial") bukan instruksi teknik; terjemahkan ke keputusan yang terlihat (NEGATIF 3). (b) NEGATIF (`claude/_bersama/NEGATIF.md`, salinan di `claude/motion-graphic/SKILL.md`): butir [mutlak] (4, 5, 9) tidak dibuka oleh profil merek, tema, kartu, referensi, atau REF-SPEC; butir lain simpangan dari REF-SPEC dan sah bila lolos makna, sistem, takaran. Bentrok dilaporkan ke Irfan. REF-SPEC: hasil bedah referensi pilihan Irfan, menang atas brief, profil merek, tema, dan kartu karena selera Irfan sudah terwujud di sana. (c) Brief dan `projects/<proyek ini>/` (`RESEP.md`, `DECISIONS.md`): hanya untuk video ini. Folder proyek lain tidak dibuka dan isinya bukan aturan, kecuali Irfan menyuruh memakainya. (d) Profil merek (`BRAND.md`, `EDITING.md` di folder data user): warna, logo, huruf utama, huruf kedua bila ia sistem (`huruf_kedua: {keluarga, peran, frekuensi}`), nada, kosakata. Efek permukaan dan kata visual lepas tanpa alasan tidak ikut. (e) Tema dan kartu cookbook (lewat `scripts/cookbook/pilih_kartu.py`) + frame kuncinya: selera visual Irfan yang sudah ia setujui, diambil mekaniknya, bukan kulitnya. Keputusan kecil yang tidak dijawab brief (font, ukuran, warna, gerak, posisi) diambil dari kartu kiblat atau kartu yang paling mirip dengan permintaan, tidak dikarang; penyesuaian terhadap NEGATIF ditulis di `RESEP.md`. (f) `references/`, `guide/`: pelajaran global dan rujukan teknis, dipakai untuk menimbang dan mengecek mutu; gerbang mekanis kelas H (`claude/skill-steward/references/placement.md` §1) menegakkan hal netral-gaya yang terukur. Baris bertanggal di `references/` dibaca bersama kondisi yang melahirkannya.
-3. **Setiap pesan baru memilih rute.** Cocokkan dengan satu baris Rute sebelum edit pertama, juga di tengah sesi panjang. Keluhan atas video yang sudah dirender selalu masuk rute revisi, sekecil apa pun.
-4. **Baca bagian yang disebut langkahmu sampai habis, saat langkah itu dikerjakan.** Bukan semua file di awal sesi. `grep` hanya untuk menemukan lokasi. Langkah dianggap selesai hanya bila dicentang di `TAHAP.md` dengan buktinya; render final menolak tahap yang belum berbukti.
-5. **Cari jawabannya di repo sebelum bertanya.** Bila tetap harus bertanya, sebut file yang sudah dibaca dan apa yang tidak terjawab.
-6. **Koreksi dicatat saat diterima, di proyeknya.** Setiap koreksi Irfan langsung masuk `projects/<proyek>/DECISIONS.md` (rinci: §Akhir sesi butir 1). Yang naik ke repo hanya yang lolos `claude/skill-steward/references/placement.md` §6: kelas kegagalan (bukan kejadian), tanpa kata benda proyek, netral gaya, mekanis, ber-gerbang, ditulis sebagai butir ber-ID (format: `claude/skill-steward/references/writing.md` §1). Selera dan gaya satu video tidak pernah menjadi larangan umum.
-7. **Aturan rasa tinggal di tiga tempat, dan ketiganya dibuka sebelum merancang atau menilai visual:** frame kunci kartu (yang bagus), `cookbook/contoh-gagal/` (yang jelek), dan `guide/<urusan>/GUIDE.md` §Cara memutuskan (pelajaran bersyarat).
-
-| Sebelum menulis | Butuh | Tidak cukup |
-|---|---|---|
-| "aturannya tidak ada" | NEGATIF di `claude/motion-graphic/SKILL.md`, `MIGRASI-LANTAI.md` (ke mana butir Lantai lama pindah), kartu yang dipakai proyek (di `RESEP.md`), dan docstring skrip yang mengukurnya, dibaca utuh | pencarian kata |
-| "sudah beres / lulus" | keluaran alat atau ukuran (frame, detik) dari hasil terbaru | still acak, verdict dari render sebelumnya |
-| perubahan pada video yang sudah dikirim | tiap lapisan yang berubah menunjuk satu butir ledger `DECISIONS.md` | "sekalian dirapikan" |
-
-## Awal sesi (wajib, sebelum bekerja)
-
-1. Ambil `main` terbaru. Skill di `main` adalah satu-satunya sumber aturan.
-   - Jalankan `./tools/doctor.sh` (hanya mengecek). Bila GAGAL, jangan mulai pekerjaan: laporkan hasilnya ke Irfan dan minta persetujuan untuk `./tools/doctor.sh --fix` (memasang skill `claude/*` sebagai symlink ke akun Claude Code dan Codex yang dipakai; skill Remotion resmi ke Claude). Setelah disetujui, jalankan lalu cek ulang.
-   - Skill yang baru dipasang mungkin belum masuk daftar skill sesi ini: baca SKILL.md-nya langsung dari repo. Jangan bekerja dari ingatan atau dari skill lain yang namanya mirip.
-   - Skill di `archive/` (`motion-director`, `motion-graphic-playbook`, `irfan-motion-director`) sudah digabung ke `claude/motion-graphic`; bila masih muncul di daftar skill (misalnya dari pustaka akun claude.ai), abaikan dan laporkan ke Irfan.
-2. **Tugas video: cek profil merek dulu.** Cari `merek/<slug>/BRAND.md` dan `EDITING.md` di folder data user (strukturnya di `claude/motion-graphic/templates/merek/README.md`; lokasinya dipilih user, tidak pernah ditetapkan repo ini) dan jalankan `scripts/juri/profil_cek.py`. Belum ada atau GAGAL → isi bersama user sebelum mengerjakan video.
-3. Cek branch yang belum masuk `main` dan mengubah `claude/` (`git log origin/main..origin/<branch> -- claude/`). Bila ada, laporkan ke Irfan sebelum mulai.
-
-## Akhir sesi (wajib, sebelum menutup)
-
-1. Skill adalah cara memutuskan, bukan template. **Bawaannya, koreksi Irfan tinggal di proyeknya** (`projects/<proyek>/DECISIONS.md`), tanpa menanyakan cakupannya ke Irfan. Pelajaran global hanya untuk kesalahan kerja yang salah di gaya apa pun (teks menutup wajah atau terpotong, fonem terpotong, yang sudah disetujui ikut berubah, elemen ditambahkan padahal tidak diminta), disaring (`claude/skill-steward/references/placement.md` §6) dan ditulis ke `guide/<urusan>/GUIDE.md` §Cara memutuskan; butir yang mirip disunting per ID, bukan ditambah. Selera dan gaya (warna, jenis huruf, tulisan tangan, gaya komik, efek tertentu) tetap di proyek; bila soal cara memakai satu gaya, jadi "Catatan pakai" di kartu kiblatnya. Ragu = proyek. Untuk video: frame yang ditolak → `cookbook/contoh-gagal/` beserta konteksnya; hal yang berlaku di semua video → catatan di `steward/inbox/`, dan baru masuk NEGATIF (bila keras dan bisa ditegakkan skrip) atau `references/` tahapnya setelah muncul di dua video berbeda, lolos uji no-op (perilaku model berubah karenanya), dan Irfan menyetujui bunyinya. Skill lain: tulis ke file skill tempat aturannya berlaku; aturan lama yang bertentangan diganti di tempat. Instruksi untuk satu sesi atau satu proyek (pembagian model, urutan kerja, cara QC) masuk `projects/<proyek>/DECISIONS.md` dan tidak ditulis ke `references/`.
-2. Aturan ditulis sebagai instruksi: apa yang dikerjakan, kapan berlaku, **kenapa (satu kalimat alasan di sampingnya)**, dan cara mengeceknya. Alasan ikut tinggal bersama aturan karena model yang tahu sebabnya bisa menggeneralisasi ke kasus yang tidak tertulis, sedangkan aturan tanpa alasan ditawar atau dilewati. Alasan adalah prinsip atau mekanismenya ("aksen serif satu kata adalah tanda AI yang paling konsisten lintas model"), bukan cerita. File instruksi (`AGENTS.md`, `SKILL.md`, `references/`, `guide/`, kartu, template, docstring skrip) tidak memuat nama peminta, tanggal permintaan, versi proyek tempat kejadiannya, atau cerita kegagalan. Contoh salah tanpa nama dan tanggal boleh, begitu juga tanggal ukur data ("dicek 7 Nov 2026"). Asal-usul tiap aturan (siapa, kapan, kejadiannya) dicatat di `SUMBER.md` skill itu (file tingkat repo: `SUMBER.md` di root), satu baris di bawah nama filenya. `tools/sumber_cek.py` menolak tanda sumber di file instruksi; doctor menjalankannya.
-3. Pelajaran yang belum disetujui: satu catatan di `steward/inbox/` (format: `claude/skill-steward/references/maintenance.md` §2); ditanyakan ke Irfan lewat laporan perubahan, tidak menahan sesi.
-4. Perubahan skill masuk ke `main` di sesi yang sama (merge atau pull request yang disebut ke Irfan). Jangan tinggalkan pelajaran di branch.
-5. Pesan commit menyebut agen: `Agent: Claude`, `Agent: Codex`, dsb.
-6. Skill tetap ringkas: `SKILL.md` motion-graphic ≤ 12 KB dan ≤ 200 baris, NEGATIF 10 butir (tiap butir satu alasan); butir `guide/` memakai format `claude/skill-steward/references/writing.md` §1, tiap kolom satu kalimat; cara ukur rinci di docstring skrip atau `references/`.
-7. File ditambah/diubah/dihapus → `python3 tools/peta.py` sebelum commit (doctor menandai PETA.md basi).
-
-## Jadisatu Canvas · semua klien MCP
-
-Untuk membaca, mengubah, atau menghubungkan ruang Jadisatu Canvas, muat [claude/jadisatu-canvas/SKILL.md](claude/jadisatu-canvas/SKILL.md). Nama folder `claude/` adalah konvensi penyimpanan repo; aturan skill ini berlaku juga bagi Codex dan klien MCP lain. Baca referensi konfigurasi hanya untuk klien yang sedang dipakai. Klien tanpa akses repo dapat menerima berkas skill sebagai instruksi dari pemilik.
-
-Pemuatan skill dan pemberian akses MCP adalah dua langkah terpisah. Jangan memasang pengaturan global, menyalin token, memberi akses penyedia baru, atau menganggap room yang direset masih membawa konteks lama hanya karena skill tersedia.
-
-## Sesi scriptwriter
-
-Untuk pengembangan ide, naskah, dan storyboard, baca [scriptwriter/README.md](scriptwriter/README.md). Folder itu menyimpan mandat peran dan pengembangan cara kerja. Skill aktif tetap berada di `claude/`; hindari membuat skill kedua untuk konsep yang sudah ada.
-
-Gunakan `claude/working-with-irfan/SKILL.md` untuk cara berkolaborasi, `claude/script-workshop/SKILL.md` untuk pengembangan naskah, dan cabang `claude/motion-graphic/references/storyboard.md` saat naskah sudah final. Muat cabang tambahan sesuai kebutuhan, bukan semua referensi sekaligus. Untuk proyek yang punya rencana tertulis, gunakan `claude/autopilot-prd/SKILL.md` dalam cakupan permintaan aktif.
-
-## Menyimpan kemajuan
-
-- Pisahkan keputusan khusus satu konten di `projects/<proyek>/` dari cara kerja yang dapat dipakai lintas konten.
-- Simpan alasan keputusan, bukti yang dilihat, dan dampak revisi. Satu hasil bagus belum membuktikan sebuah aturan berlaku umum.
-- Perubahan skill mengikuti `claude/skill-steward/references/testing.md`: simpan kasus, bandingkan perilaku lama dan baru, lalu terapkan sesuai gerbangnya. Status awal atau dugaan tidak boleh dilaporkan sebagai hasil teruji.
-- Setelah pemeriksaan yang diwajibkan lulus, commit dan push perubahan dalam cakupan tugas dengan pesan yang menjelaskan kemajuannya. Periksa perubahan remote sebelum push; jangan menimpa pekerjaan agent lain.
-- Sesi scriptwriter mencatat titik lanjut di `scriptwriter/DAILY.md` dan mengirim laporan ke `ops-report` bila tersedia; sesi itu tidak mengambil antrean proyek lain di repo.
-
-Mesin atau akun baru wajib lolos `tools/doctor.sh` sebelum bekerja; pemasangan lewat `--fix` dengan persetujuan Irfan. Dependensi media lain (demucs, model besar) dipasang hanya bila tugasnya butuh.
+**Kerja.** Tarik `main` dulu. Skill dibaca dari repo, bukan ingatan; abaikan `archive/`. `./tools/doctor.sh` hanya memeriksa. Cari di repo sebelum bertanya; bila bertanya, beri pilihan dan rekomendasi. Sebelum menilai visual, buka frame kunci kiblat dan `cookbook/contoh-gagal/`. Koreksi Irfan dicatat saat diterima di `projects/<proyek>/DECISIONS.md`; hanya kesalahan yang salah di gaya apa pun naik ke skill, lewat skill-steward. "Lulus" selalu dengan keluaran alat terbaru; perubahan pada video terkirim menunjuk satu butir ledger `DECISIONS.md`. Aturan = instruksi + alasan + cara cek; asal-usul ke `SUMBER.md`, bukan ke file instruksi. Perubahan skill masuk `main` di sesi yang sama; cek remote sebelum push, jangan menimpa kerja lain.

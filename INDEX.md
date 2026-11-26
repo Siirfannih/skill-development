@@ -1,10 +1,10 @@
 # Katalog perpustakaan skill
 
-Katalog skill untuk setiap model yang bekerja dengan Irfan. Pintu masuk repo adalah [AGENTS.md](AGENTS.md) (cara membaca + awal sesi); file yang dibuka per pekerjaan ada di [PETA.md](PETA.md) (Rute). Buka **hanya** skill yang cocok dengan pekerjaan. Jangan memuat semua skill sekaligus.
+Katalog skill untuk setiap model yang bekerja dengan Irfan. Pintu masuk repo adalah [AGENTS.md](AGENTS.md) (urutan otoritas + rute); file yang dibuka per pekerjaan ada di [PETA.md](PETA.md) (Rute). Buka **hanya** skill yang cocok dengan pekerjaan. Jangan memuat semua skill sekaligus.
 
 ## Cara memakai
 
-0. Jalankan langkah "Awal sesi" di [AGENTS.md](AGENTS.md).
+0. Baca [AGENTS.md](AGENTS.md) dan ikuti tabel rutenya.
 1. Cocokkan pekerjaan dengan kolom "Pakai saat" di bawah.
 2. Buka `SKILL.md` skill itu. Cabang di `references/` dibaca hanya saat `SKILL.md` menyuruh.
 3. Jika pekerjaan milik proyek yang punya folder di `projects/`, baca `AUTHORITY.md` proyek itu sebelum yang lain.

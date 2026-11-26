@@ -1,6 +1,6 @@
 # 00 · Core Invariants (Lintas Semua Format)
 
-> **Otoritas:** file ini ringkasan Lantai/Kelas H; posisinya mengikuti kalimat kanonik `AGENTS.md` §Cara membaca repo ini butir 2 (di atas kartu). Default aman mencegah AI slop; pengecualian editorial AE resmi dicatat di `RESEP.md` / `EDITING.md`.
+> **Otoritas:** file ini ringkasan Lantai/Kelas H; posisinya mengikuti kalimat kanonik `AGENTS.md` (Urutan otoritas) (di atas kartu). Default aman mencegah AI slop; pengecualian editorial AE resmi dicatat di `RESEP.md` / `EDITING.md`.
 > **Prinsip Kreatif:** Referensi & kartu adalah **mekanik dan hierarki rasa**, bukan cetakan layout untuk ditiru mentah. Bedah dulu pesan tiap kalimat naskah → pilih wujud visual paling mudah dipahami (boleh cukup 1 teks atau 1 objek tunggal di ruang kosong); **hanya bila adegan menggambarkan banyak item/keramaian**, batasi maks 2–3 elemen tajam di depan lalu redupkan sisanya makin jauh/melebar agar terasa kaya tanpa berebut mata.
 
 1. **Teks diputuskan per beat (NEGATIF 6; `A1`, `A3`, `A5`).** Beat bermode TEKS tampil sebagai satu sistem tipografi kinetik tanpa pita subtitle terpisah atau kata berulang ganda; beat VISUAL dan MENYATU dibawa VO + visual tanpa lapisan teks. Pita bawah hanya sah untuk label identitas non-ucapan (1× saat tokoh diperkenalkan).

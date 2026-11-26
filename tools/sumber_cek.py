@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Tolak tanda sumber dan cerita kegagalan di file instruksi (AGENTS.md §Akhir sesi butir 2).
+"""Tolak tanda sumber dan cerita kegagalan di file instruksi (`claude/skill-steward/references/writing.md` §3, SKILL.md §5).
 
 File instruksi berisi apa yang dikerjakan, kapan berlaku, dan cara mengeceknya. Siapa yang meminta, kapan, dan kejadian
 yang melahirkan aturan dicatat di SUMBER.md skill itu (file tingkat repo: SUMBER.md di root).

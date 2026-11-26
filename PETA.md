@@ -2,11 +2,11 @@
 
 Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di skrip itu). Tujuannya: model membuka hanya file yang dibutuhkan pekerjaan. Bila file berubah, jalankan `python3 tools/peta.py`; `tools/doctor.sh` menandai peta yang basi.
 
-## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo ini)
+## Cara membaca (ringkas; pintunya `AGENTS.md`)
 
-- Urutan otoritas: kalimat kanonik `AGENTS.md` §Cara membaca repo ini butir 2 (brief → proyek → merek → Lantai/Kelas H → kartu → `guide/`/`references/`).
-- Cocokkan setiap pesan baru dengan satu baris Rute sebelum edit pertama, juga di tengah sesi.
-- File rute dibaca utuh; `grep` bukan membaca. "Aturannya tidak ada" hanya setelah LANTAI, kartu kiblat proyek, dan skrip jurinya dibaca.
+- Urutan otoritas: kalimat di `AGENTS.md` (kata Irfan → NEGATIF [mutlak] → REF-SPEC → brief/proyek → profil merek → kartu → `references/`/`guide/`).
+- Cocokkan setiap pesan baru dengan satu baris Rute sebelum edit pertama.
+- File rute dibaca utuh; `grep` bukan membaca.
 
 ## Rute: pekerjaan → buka ini (urut, berhenti bila cukup)
 
@@ -22,7 +22,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | Fase 4 SFX lalu musik (Mix) | `claude/motion-graphic/guide/sfx/GUIDE.md`, `claude/motion-graphic/guide/sfx/FAMILI.md` (famili bunyi, sumber tiga tingkat, `scripts/audio/sfx_cari.py` + `sfx_vet.py`), `claude/motion-graphic/cookbook/SFX.md`, `claude/motion-graphic/guide/sfx/SFXIRFAN.md`, `claude/motion-graphic/guide/sfx/EPIDEMIC.md`, `claude/motion-graphic/references/audio.md` §14.3–14.9, `scripts/gate/sfx_density.py`, `claude/motion-graphic/guide/audio/GUIDE.md`, `Asset/musik/MUSIK.md` (katalog lagu + link; file audio di mesin kerja) | tipografi |
 | Fase 5 finishing (Mix, Deliver): mix, QA, render sekali, unggah Drive + caption | `claude/motion-graphic/cookbook/README.md` §Juri, `claude/motion-graphic/templates/roles/pemeriksa-audio.md`, `claude/motion-graphic/templates/roles/devils-advocate.md` (mata luar, sekali sebelum final, brief steril), `claude/motion-graphic/references/delivery-gate.md`, `scripts/juri/render.sh` (`lego` untuk video berfootage), `scripts/juri/frame_audit.py`, `claude/irfan-creative-workflow/SKILL.md` §2 (Kirim lewat Drive) | storyboard |
 | Revisi dari Irfan: pesan apa pun yang mengeluhkan atau mengubah video yang sudah pernah dirender | **Sebelum edit pertama, urut:** `claude/motion-graphic/references/revision-log.md` utuh (§0 urutan, §21 ledger dan kunci) → ledger di `projects/<proyek>/DECISIONS.md` + `STATUS.md` → `scripts/juri/revisi_cek.py mulai` + `scripts/baseline_lock.py approve` dari versi yang disetujui → baca ulang `LANTAI.md` + kartu kiblat proyek → kerjakan per lapisan, hanya atribut yang diminta → `revisi_cek.py cek` (atribut blok teks + lapisan) + `baseline_lock.py check` → rakit rentang (`scripts/lego/compose.py --rentang`) + still sebelum/sesudah ke Irfan; audio, audit semua frame, dan Devil's Advocate sekali sebelum final; video lama: `qc/revisi.json` (Lantai F27) | mengubah komponen atau aturan bersama untuk keluhan satu blok, menulis ulang dari nol, memigrasi adegan yang sudah disetujui, memasang usul model tanpa Irfan memilih, merakit master penuh tiap ronde |
-| Koreksi dari Irfan atas hasil apa pun (di tengah sesi, bukan menunggu akhir) | `AGENTS.md` §Akhir sesi butir 1 → koreksinya ke `projects/<proyek>/DECISIONS.md` (bawaan; selera dan gaya selalu di sini); hanya kesalahan kerja yang salah di gaya apa pun: **alasannya** sebagai pelajaran bersyarat "bila <kondisi>, jangan/pilih <X>, karena <alasan>; yang boleh: <alternatif + kartunya>" di `claude/motion-graphic/guide/<urusan>/GUIDE.md` §Cara memutuskan; frame yang ditolak ke `claude/motion-graphic/cookbook/contoh-gagal/` | menjadikan satu koreksi larangan umum; menanyakan cakupannya ke Irfan |
+| Koreksi dari Irfan atas hasil apa pun (di tengah sesi, bukan menunggu akhir) | koreksinya ke `projects/<proyek>/DECISIONS.md` saat diterima (selera dan gaya selalu di sini); hanya kesalahan kerja yang salah di gaya apa pun naik sebagai butir ber-ID di `claude/motion-graphic/guide/<urusan>/GUIDE.md` §Cara memutuskan, lewat `claude/skill-steward/references/placement.md` §6 dan `writing.md` §1; frame yang ditolak ke `claude/motion-graphic/cookbook/contoh-gagal/` | menjadikan satu koreksi larangan umum; menanyakan cakupannya ke Irfan |
 | Orkestrasi subagen / model lain | `claude/motion-graphic/references/orkestrasi.md`, `claude/motion-graphic/templates/handoff-fase.md` | — |
 | Sesi produksi desain statis (carousel, poster, cover) | `claude/vibedesign/DESIGN-CORE.md` (alur 3 gerbang, pertimbangan utama, gerbang juri) → `projects/<proyek>/` (`BRIEF.md`, `RESEP.md`, `DECISIONS.md`, `TAHAP.md`); referensi baru → `claude/vibedesign/cookbook/BEDAH.md`; kartu lewat `claude/vibedesign/cookbook/INDEX.md` | skill video, `PETA.md` selebihnya |
 | Tulisan konten (caption, hook, copy carousel) | `claude/script-workshop/SKILL.md` | skill video |
@@ -258,10 +258,10 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `tools/ELEVENLABS.md` | Kunci API tidak pernah ada di repo ini, di chat, atau di memori. |
 | `tools/codex-pc.sh` | Menjalankan Codex (ChatGPT) di PC server untuk tugas dari orkestrator. |
 | `tools/cookbook.py` | Alat cookbook motion-graphic (Two-Tier Domain Packs): CATALOG/POLA/SFX, resolver kartu, validasi token & skema. |
-| `tools/doctor.sh` | Cek apakah Claude Code dan Codex memuat skill-development dengan benar. Dijalankan di "Awal sesi" (AGENTS.md). |
+| `tools/doctor.sh` | Cek apakah Claude Code dan Codex memuat skill-development dengan benar. Boleh dijalankan di awal sesi (AGENTS.md). |
 | `tools/engineering-stack.sh` | Pasang tumpukan skill engineering terkurasi (idempoten). |
 | `tools/peta.py` | Tulis PETA.md: peta repo supaya model membuka hanya file yang dibutuhkan. |
-| `tools/sumber_cek.py` | Tolak tanda sumber dan cerita kegagalan di file instruksi (AGENTS.md §Akhir sesi butir 2). |
+| `tools/sumber_cek.py` | Tolak tanda sumber dan cerita kegagalan di file instruksi (`claude/skill-steward/references/writing.md` §3, SKILL.md §5). |
 | `tools/sync.sh` | ## Tugas video, konten, naskah, storyboard, atau skill -> repo skill-development Folder ini adalah titik masuk remote, jadi aturan video tidak terbaca otomatis. Untuk tugas jenis ini: 1. Baca dulu `{r |
 | `tools/sync_lantai.py` | Cek MIGRASI-LANTAI.md terhadap LANTAI.md. |
 | `tools/sync_negatif.py` | Jaga daftar NEGATIF tetap sama di semua tempat. |
@@ -295,7 +295,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | File | Isi / kapan dibuka |
 |---|---|
 | `INDEX.md` | katalog skill dan folder |
-| `AGENTS.md` | aturan awal/akhir sesi untuk semua model |
+| `AGENTS.md` | pintu: invarian, urutan otoritas, tabel rute |
 | `steward/` | keadaan perawatan skill: backlog, kotak masuk pelajaran, laporan perubahan; bukan aturan |
 | `SUMBER.md, claude/<skill>/SUMBER.md` | asal-usul aturan; bukan instruksi, jangan dibuka saat mengerjakan tugas |
 | `experimental/` | alur sampingan yang belum terbukti; bukan aturan |

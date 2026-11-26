@@ -1,5 +1,5 @@
 #!/bin/bash
-# Cek apakah Claude Code dan Codex memuat skill-development dengan benar. Dijalankan di "Awal sesi" (AGENTS.md).
+# Cek apakah Claude Code dan Codex memuat skill-development dengan benar. Boleh dijalankan di awal sesi (AGENTS.md).
 #   ./tools/doctor.sh            cek saja; exit 1 bila ada yang perlu diperbaiki
 #   ./tools/doctor.sh --fix      jalankan tools/sync.sh lalu cek ulang
 # Folder akun diambil dari CLAUDE_CONFIG_DIR (claude2 di PC server mengisinya otomatis), bawaan ~/.claude.

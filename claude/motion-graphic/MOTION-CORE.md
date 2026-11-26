@@ -11,7 +11,7 @@ Arsip referensi; pintu aktif: SKILL.md.
 
 Sesi produksi mulai dari `SKILL.md`; file ini dibuka untuk tabel tahap dan gerbang render, lalu `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`). Jalankan `python3 scripts/juri/tahap.py projects/<proyek>`. Kartu dimuat per kartu lewat `pilih_kartu.py` (Langkah 1); `cookbook/INDEX.md` hanya memberi filter `--pack`. Tidak dimuat di awal sesi: pack utuh, `PETA.md`, `RETRO.md`, `SUMBER.md`, `cookbook/INDEX.md` penuh, `cookbook/CATALOG.md`, dan `_vault/`. `references/` dan `guide/` dibuka saat gerbang menyebutnya. Lantai lama: `LANTAI.md`, peta pindahnya `MIGRASI-LANTAI.md`.
 
-Urutan otoritas: kalimat kanonik `AGENTS.md` §Cara membaca repo ini butir 2 (NEGATIF di atas profil merek dan kartu).
+Urutan otoritas: kalimat kanonik `AGENTS.md` (Urutan otoritas) (NEGATIF di atas profil merek dan kartu).
 
 ## 1. Tahap kanonik: Brief → Naskah → Storyboard/block out → Animate → Effects & grade → Mix → Deliver
 

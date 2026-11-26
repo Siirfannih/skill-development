@@ -14,11 +14,11 @@ import argparse, os, re, sys
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 MG = "claude/motion-graphic"
 
-RUTE = f"""## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo ini)
+RUTE = f"""## Cara membaca (ringkas; pintunya `AGENTS.md`)
 
-- Urutan otoritas: kalimat kanonik `AGENTS.md` §Cara membaca repo ini butir 2 (brief → proyek → merek → Lantai/Kelas H → kartu → `guide/`/`references/`).
-- Cocokkan setiap pesan baru dengan satu baris Rute sebelum edit pertama, juga di tengah sesi.
-- File rute dibaca utuh; `grep` bukan membaca. "Aturannya tidak ada" hanya setelah LANTAI, kartu kiblat proyek, dan skrip jurinya dibaca.
+- Urutan otoritas: kalimat di `AGENTS.md` (kata Irfan → NEGATIF [mutlak] → REF-SPEC → brief/proyek → profil merek → kartu → `references/`/`guide/`).
+- Cocokkan setiap pesan baru dengan satu baris Rute sebelum edit pertama.
+- File rute dibaca utuh; `grep` bukan membaca.
 
 ## Rute: pekerjaan → buka ini (urut, berhenti bila cukup)
 
@@ -34,7 +34,7 @@ RUTE = f"""## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo 
 | Fase 4 SFX lalu musik (Mix) | `{MG}/guide/sfx/GUIDE.md`, `{MG}/guide/sfx/FAMILI.md` (famili bunyi, sumber tiga tingkat, `scripts/audio/sfx_cari.py` + `sfx_vet.py`), `{MG}/cookbook/SFX.md`, `{MG}/guide/sfx/SFXIRFAN.md`, `{MG}/guide/sfx/EPIDEMIC.md`, `{MG}/references/audio.md` §14.3–14.9, `scripts/gate/sfx_density.py`, `{MG}/guide/audio/GUIDE.md`, `Asset/musik/MUSIK.md` (katalog lagu + link; file audio di mesin kerja) | tipografi |
 | Fase 5 finishing (Mix, Deliver): mix, QA, render sekali, unggah Drive + caption | `{MG}/cookbook/README.md` §Juri, `{MG}/templates/roles/pemeriksa-audio.md`, `{MG}/templates/roles/devils-advocate.md` (mata luar, sekali sebelum final, brief steril), `{MG}/references/delivery-gate.md`, `scripts/juri/render.sh` (`lego` untuk video berfootage), `scripts/juri/frame_audit.py`, `claude/irfan-creative-workflow/SKILL.md` §2 (Kirim lewat Drive) | storyboard |
 | Revisi dari Irfan: pesan apa pun yang mengeluhkan atau mengubah video yang sudah pernah dirender | **Sebelum edit pertama, urut:** `{MG}/references/revision-log.md` utuh (§0 urutan, §21 ledger dan kunci) → ledger di `projects/<proyek>/DECISIONS.md` + `STATUS.md` → `scripts/juri/revisi_cek.py mulai` + `scripts/baseline_lock.py approve` dari versi yang disetujui → baca ulang `LANTAI.md` + kartu kiblat proyek → kerjakan per lapisan, hanya atribut yang diminta → `revisi_cek.py cek` (atribut blok teks + lapisan) + `baseline_lock.py check` → rakit rentang (`scripts/lego/compose.py --rentang`) + still sebelum/sesudah ke Irfan; audio, audit semua frame, dan Devil's Advocate sekali sebelum final; video lama: `qc/revisi.json` (Lantai F27) | mengubah komponen atau aturan bersama untuk keluhan satu blok, menulis ulang dari nol, memigrasi adegan yang sudah disetujui, memasang usul model tanpa Irfan memilih, merakit master penuh tiap ronde |
-| Koreksi dari Irfan atas hasil apa pun (di tengah sesi, bukan menunggu akhir) | `AGENTS.md` §Akhir sesi butir 1 → koreksinya ke `projects/<proyek>/DECISIONS.md` (bawaan; selera dan gaya selalu di sini); hanya kesalahan kerja yang salah di gaya apa pun: **alasannya** sebagai pelajaran bersyarat "bila <kondisi>, jangan/pilih <X>, karena <alasan>; yang boleh: <alternatif + kartunya>" di `{MG}/guide/<urusan>/GUIDE.md` §Cara memutuskan; frame yang ditolak ke `{MG}/cookbook/contoh-gagal/` | menjadikan satu koreksi larangan umum; menanyakan cakupannya ke Irfan |
+| Koreksi dari Irfan atas hasil apa pun (di tengah sesi, bukan menunggu akhir) | koreksinya ke `projects/<proyek>/DECISIONS.md` saat diterima (selera dan gaya selalu di sini); hanya kesalahan kerja yang salah di gaya apa pun naik sebagai butir ber-ID di `{MG}/guide/<urusan>/GUIDE.md` §Cara memutuskan, lewat `claude/skill-steward/references/placement.md` §6 dan `writing.md` §1; frame yang ditolak ke `{MG}/cookbook/contoh-gagal/` | menjadikan satu koreksi larangan umum; menanyakan cakupannya ke Irfan |
 | Orkestrasi subagen / model lain | `{MG}/references/orkestrasi.md`, `{MG}/templates/handoff-fase.md` | — |
 | Sesi produksi desain statis (carousel, poster, cover) | `claude/vibedesign/DESIGN-CORE.md` (alur 3 gerbang, pertimbangan utama, gerbang juri) → `projects/<proyek>/` (`BRIEF.md`, `RESEP.md`, `DECISIONS.md`, `TAHAP.md`); referensi baru → `claude/vibedesign/cookbook/BEDAH.md`; kartu lewat `claude/vibedesign/cookbook/INDEX.md` | skill video, `PETA.md` selebihnya |
 | Tulisan konten (caption, hook, copy carousel) | `claude/script-workshop/SKILL.md` | skill video |
@@ -170,7 +170,7 @@ def build():
         rows.append((f"projects/{d}/", (bersih(first_sentence(open(src, encoding="utf-8").read())[0]) if src else "")
                      + (" · mulai dari STATUS.md" if os.path.exists(st) else "")))
     parts += ["## projects/ (keputusan per video; buka hanya proyekmu sendiri, isinya bukan aturan untuk video lain)", "", table(rows, ("Proyek", "Isi")), ""]
-    top = [("INDEX.md", "katalog skill dan folder"), ("AGENTS.md", "aturan awal/akhir sesi untuk semua model"),
+    top = [("INDEX.md", "katalog skill dan folder"), ("AGENTS.md", "pintu: invarian, urutan otoritas, tabel rute"),
            ("steward/", "keadaan perawatan skill: backlog, kotak masuk pelajaran, laporan perubahan; bukan aturan"),
            ("SUMBER.md, claude/<skill>/SUMBER.md", "asal-usul aturan; bukan instruksi, jangan dibuka saat mengerjakan tugas"),
            ("experimental/", "alur sampingan yang belum terbukti; bukan aturan"), ("archive/", "skill lama; jangan dimuat")]

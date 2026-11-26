@@ -1,6 +1,6 @@
 # Panduan keputusan: teks, visual, kotak, warna (logika, bukan contoh)
 
-Dibaca saat menulis tabel storyboard (langkah 5 `SKILL.md`) dan saat QA sebelum deliver (langkah 8). Setiap keputusan per beat diambil dengan urutan di bawah, lalu dicatat di tabel beat dengan kolom **mode · alasan · cek**. File ini panduan rasa; urutan otoritas ada di `AGENTS.md` §Cara membaca repo ini butir 2, dan aturan teks per beat (TEKS | VISUAL | MENYATU) di NEGATIF 6 dan `teks.md`. Gerbang DENGAR di `three-segment-gate.md` tidak dikalahkan file ini.
+Dibaca saat menulis tabel storyboard (langkah 5 `SKILL.md`) dan saat QA sebelum deliver (langkah 8). Setiap keputusan per beat diambil dengan urutan di bawah, lalu dicatat di tabel beat dengan kolom **mode · alasan · cek**. File ini panduan rasa; urutan otoritas ada di `AGENTS.md` (Urutan otoritas), dan aturan teks per beat (TEKS | VISUAL | MENYATU) di NEGATIF 6 dan `teks.md`. Gerbang DENGAR di `three-segment-gate.md` tidak dikalahkan file ini.
 
 Prinsip dasarnya: penonton HP hanya menangkap **satu hal per momen**. Semua aturan di bawah adalah cara memilih hal itu.
 

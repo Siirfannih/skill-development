@@ -6,7 +6,7 @@ Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak ko
 
 ## 1. Prinsip (berlaku sebelum aturan lain di folder ini)
 
-1. **Konsep user dulu.** Tema, palet, aset, huruf, dan arahan kreatif dari user adalah fondasi. Kartu tidak pernah memaksakan estetikanya bila bertentangan dengan visi user. Urutan otoritas: kalimat kanonik `AGENTS.md` §Cara membaca repo ini butir 2.
+1. **Konsep user dulu.** Tema, palet, aset, huruf, dan arahan kreatif dari user adalah fondasi. Kartu tidak pernah memaksakan estetikanya bila bertentangan dengan visi user. Urutan otoritas: kalimat kanonik `AGENTS.md` (Urutan otoritas).
 2. **Pindahkan mekanik, bukan gaya.** Dari kartu hanya diambil prinsip fisika gerak (kurva, berat, arah), ritme kamera, hierarki tipografi, susunan lapisan, dan peran SFX. Lalu semuanya dikenakan ke gaya visual milik user. Bila user tidak membawa gaya sama sekali, satu kartu boleh dipinjam utuh sebagai **pengikat** (warna, teks, ritme), dan pilihan itu disebut ke user.
 3. **Draf user = mode penaik mutu.** Bila user membawa draf desain, storyboard, atau kode Remotion, cookbook dipakai sebagai standar audit. Yang dilakukan: menghaluskan kurva, menambah kedalaman kamera, memperbaiki pacing, dan melapisi SFX. Konsep dasarnya tidak dirombak. Masalah di konsep atau naskah diusulkan, tidak diubah diam-diam (§3).
 4. **Tiap kartu punya Remix.** Mekaniknya selalu dicoba di konteks lain dulu (benda, warna, arah, rasio berbeda). Hasil yang bisa ditebak "ini kartu 87" berarti menjiplak.
