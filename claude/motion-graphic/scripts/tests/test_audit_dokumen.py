@@ -137,7 +137,7 @@ class Invarian(unittest.TestCase):
 
     def test_tidak_ada_template_gaya_tetap(self):
         self.assertFalse((MG / "formats").exists())
-        for f in (ROOT / "AGENTS.md", ROOT / "PETA.md", MG / "SKILL.md", ROOT / "tools/peta.py"):
+        for f in (ROOT / "AGENTS.md", ROOT / "PETA.md", MG / "SKILL.md", MG / "references/build.md", ROOT / "tools/peta.py"):
             t = baca(f)
             for x in ("formats/", "Format Bible", "story-doc-16x9", "journey-talkinghead", "/FORMAT`", "format terkunci", "Format Terkunci"):
                 self.assertNotIn(x, t, f"{f.name}: {x}")
@@ -154,7 +154,8 @@ class PintuProduksi(unittest.TestCase):
         for x in ("cek_komposisi.py", "audio_order.py", "sfx_potong.py", "audio_phone.py --root <folder stem> --gate", "render.sh <proyek> final",
                   "gerbang_produksi.sh", "`WAJAH`, `INSET`, `TEPI`, `ASET`", "qc/ketat", "--ketat",
                   "**Render final lewat `render.sh final`**", "NOT RUN", "Jangan mengedit `scripts/gate/*` atau `scripts/juri/*`",
-                  "Jangan mematikan gerbang dengan menghapus atau mengganti nama file pemicunya"):
+                  "Jangan mematikan gerbang dengan menghapus atau mengganti nama file pemicunya", "Tenggat bukan alasan",
+                  "PASS tanpa bukti = FAIL", "Dilarang menambah elemen di luar tabel racikan"):
             self.assertIn(x, t)
         self.assertEqual(len(re.findall(r"^\| R[1-5] \|", t, flags=re.M)), 5)
 
@@ -216,7 +217,7 @@ class CookbookDomainPacks(unittest.TestCase):
         lama = ("01-camera-and-transitions/", "02-typography-and-captions/", "03-visual-formats/",
                 "04-pacing-and-structure/", "05-audio-and-sfx/", "06-script-and-story/", "cookbook/teknik/")
         aktif = [ROOT / "AGENTS.md", ROOT / "PETA.md", ROOT / "tools/peta.py",
-                 ROOT / "claude/irfan-creative-workflow/SKILL.md", MG / "SKILL.md",
+                 ROOT / "claude/irfan-creative-workflow/SKILL.md", MG / "SKILL.md", MG / "references/build.md",
                  MG / "cookbook/README.md", MG / "scripts/remotion/Kursor.tsx", MG / "scripts/remotion/Penghitung.tsx"]
         temuan = [(f.relative_to(ROOT), p) for f in aktif for p in lama if p in baca(f)]
         self.assertEqual(temuan, [])
