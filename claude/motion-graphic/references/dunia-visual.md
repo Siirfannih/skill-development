@@ -110,8 +110,8 @@ Hipotesis (2 tema): kontras tempo terasa manusiawi; ledakan gerak singkat diseli
 
 ## 5. Anggaran per frame (hasil uji transfer)
 
-Uji transfer menunjukkan model cenderung memakai semua opsi sekaligus. Batasnya:
-- maks **1 jenis penanda** (kotak seleksi, label ukur, kursor, stabilo: pilih satu);
+Batas per frame:
+- maks **1 jenis penanda** (seleksi, label ukur, kursor, atau stabilo);
 - maks **1 cara penekanan per frasa** (warna, atau terang, atau skala, atau bobot);
 - **satu keluarga aksen per video**, satu kemunculan aksen aktif per frasa;
 - **gerak bersamaan boleh bila satu sumber** (kamera, satu objek yang mendorong lainnya). Hindari ≥ 2 animasi independen yang mulai di frame sama dan berebut mata. Ini hipotesis; kartu bergerak memadukan beberapa gerak dari satu sumber.
@@ -152,14 +152,6 @@ Satu jawaban "gagal" = frame dirombak, bukan dipoles. Tulis hasilnya per frame d
 
 Seri berdampingan: layout sama (mis. satu benda kecil di tengah gradien) di > ~25 % frame atau 3+ berurutan = sidik jari (S-V31). `banding.py --seri <folder>` melaporkan % frame berpola itu (peringatan); sisanya dengan mata.
 
-## 9. Gerbang warna (masuk dan keluar)
+## 9. Gerbang warna
 
-Dua gerbang wajib, satu CLI: `scripts/warna/cek-warna.mjs` (Node; `npm ci` sekali di `scripts/warna/`). Kata warna di brief ("biru lembut") bukan nilai; palet datang dari referensi atau profil merek, terukur.
-
-- **Masuk** (sebelum desain): `node scripts/warna/cek-warna.mjs masuk <video|folder still|png...> [--ke-spec REF-SPEC.json] [--ke-tema tema.ts]`. Hasil `palet.json`: per jenis frame (terang/gelap) 4-5 HEX nyata dengan % luas dan peran (latar = luas terbesar, tinta = kontras tertinggi terhadap latar, aksen = OKLCH paling jenuh, netral/permukaan), luminansi, rasio WCAG, dan Lc APCA tinta:latar. `--ke-spec` menyisipkan kunci `palet` ke spec; `--ke-tema` menulis token `tema.ts` (nilai turunan bertanda). Dipakai apa adanya: warna di kode datang dari token ini, bukan tebakan.
-- **Keluar** (tiap frame sebelum diserahkan): `node scripts/warna/cek-warna.mjs keluar <frame.png|folder> --palet palet.json [--html frame.html | --tanpa-teks noteks.png] [--abaikan x,y,w,h]`. Tiga cek, keluar 1 bila ada yang gagal:
-  1. **warna-nyasar**: klaster warna berluas >= 0,5 % yang ΔE2000-nya > 12 ke semua warna palet (termasuk tint/shade +-25 L dan campuran gradien antar-warna palet). Foto/footage dikecualikan dengan `--abaikan`.
-  2. **kontras-apca**: per blok teks, APCA Lc >= 60 (teks biasa) atau >= 45 (besar: >= 48 px @1080, atau tebal >= 38 px); rasio WCAG 2 dilaporkan sebagai aviso. Teks dipisah dengan render dua kali (dengan dan tanpa teks), bukan ditebak: HTML otomatis (`data-lapis="teks"` per blok), Remotion lewat still kedua `sembunyikanTeks` (`toolkit/starter/src/Video.tsx`). axe-core ikut berjalan untuk bingkai HTML sebagai suplemen (aviso), bukan hakim.
-  3. **warna-nanggung**: daerah >= 3 % (atau warna teks/latar blok) di pita keruh, OKLCH chroma 0,03-0,08 pada lightness 0,45-0,75, yang bukan warna palet. Perbaikan: pilih abu netral (chroma < 0,03) atau warna tegas (>= 0,08), atau masukkan ke palet dari referensi bila memang bagian dari sistem.
-- Pengecualian yang sengaja: teks yang memang memudar atau diredupkan sebagai bahasa cerita diberi `data-sengaja="pudar"`; teks di bawah `filter: blur(>= 1,5px)` dan teks yang tertutup elemen lain dilewati otomatis (tercatat di `dilewati`).
-- Gerbang produksi (`gerbang_produksi.sh`) dan `board.py` menjalankan gerbang keluar bila `palet.json` ada di proyek. Rincian ambang dan kalibrasi: `scripts/warna/README.md`.
+Palet dari `cek-warna.mjs masuk`; sebelum diserahkan `keluar` hijau. Rinci: `references/warna.md`.

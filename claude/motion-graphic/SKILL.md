@@ -71,7 +71,7 @@ Profil merek memilih warna, logo, huruf utama, `huruf_kedua` bila ada, dan nada;
 ## Alat
 
 - `scripts/gate/negatif_cek.py <folder atau frame>`: satu pintu cek NEGATIF (merah: placeholder, tabrakan; sisanya inventaris `permukaan_cek.py`).
-- `scripts/warna/cek-warna.mjs masuk|keluar`: gerbang warna (HEX terukur, kontras APCA; `dunia-visual.md` §9).
+- `scripts/warna/cek-warna.mjs masuk|keluar`: gerbang warna (HEX terukur, kontras APCA; `references/warna.md`).
 - `scripts/ref_spec.py <video|folder>`: ekstrak REF-SPEC terukur. `scripts/banding.py <frame> <ref>`: frame vs referensi; tanpa ref: `<frame>`, `--seri <folder>`, `--sebelum <lama>`.
 - `toolkit/mulai.sh <folder> [remotion|storyboard]`: kurva, kamera 2,5D, latar/grain opsional; `toolkit/README.md`.
 - `scripts/lihat.py`: frame per lapis + crop 100 % ke `qc/lihat/`.

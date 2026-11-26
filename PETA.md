@@ -99,6 +99,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/teks.md` | **Teks di layar: posisi, keterbacaan, gerak** — Dibuka saat mengatur teks layar (langkah 4-6 alur SKILL.md). |
 | `claude/motion-graphic/references/three-segment-gate.md` | **Gerbang 3 Segmen** — Claude tidak melihat video saat menulis kode. |
 | `claude/motion-graphic/references/typography.md` | **Typography & kinetic text** — Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. |
+| `claude/motion-graphic/references/warna.md` | **Gerbang warna (masuk dan keluar)** — Dipindah dari dunia-visual.md §9 agar referensi itu tetap di bawah 15 KB. |
 
 ## motion-graphic · guide (rasa per urusan)
 
