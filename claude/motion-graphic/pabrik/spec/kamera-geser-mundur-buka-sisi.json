@@ -1,0 +1,273 @@
+{
+ "versi": 4,
+ "id": "kamera-geser-mundur-buka-sisi",
+ "kategori": "kamera",
+ "komponen": "KameraGeserMundur",
+ "mekanik": "Seluruh panggung bergeser menyamping sejauh ±0,19 lebar frame sambil mengecil ke ±0,88 skala pada kurva yang sama, sehingga bidang baru terbuka di satu sisi frame; gerak dimulai pelan, cepat di tengah, melambat sampai diam tanpa melewati posisi akhir, lalu panggung ditahan.",
+ "parameter": [
+  {
+   "nama": "geser_x",
+   "nilai": 0.192,
+   "satuan": "fraksi lebar frame, isi bergeser ke kanan",
+   "label": "measured",
+   "inti": true,
+   "rentang_aman": [
+    0.163,
+    0.221
+   ],
+   "bukti": "gerak.sinyal kam_x (LK + RANSAC similaritas, inlier tersebar) Motiongrapich.mp4 13.4-15.4s: -0.010 (f11) -> 0.182 (f47)"
+  },
+  {
+   "nama": "skala_akhir",
+   "nilai": 0.88,
+   "satuan": "rasio skala isi (akhir/awal)",
+   "label": "measured",
+   "inti": true,
+   "rentang_aman": [
+    0.862,
+    0.898
+   ],
+   "bukti": "kam_s 0.999 (f11) -> 0.879 (f47)"
+  },
+  {
+   "nama": "geser_y",
+   "nilai": 0,
+   "satuan": "fraksi tinggi frame",
+   "label": "measured",
+   "inti": true,
+   "bukti": "kam_y |nilai| < 0.0005 sepanjang jendela"
+  },
+  {
+   "nama": "durasi_1_99",
+   "nilai": 31,
+   "satuan": "frame @30 fps (progres 1 % -> 99 %)",
+   "label": "measured",
+   "inti": true,
+   "rentang_aman": [
+    29,
+    33
+   ],
+   "bukti": "progres geser x: >= 0.01 di f14, >= 0.99 di f44 (data di kurva.progres_ref)"
+  },
+  {
+   "nama": "pantul",
+   "nilai": 0,
+   "satuan": "overshoot",
+   "label": "measured",
+   "inti": true,
+   "bukti": "progres x monoton 0 -> 1; progres skala maks 1.001 (derau)"
+  },
+  {
+   "nama": "tahan_sebelum",
+   "nilai": 11,
+   "satuan": "frame",
+   "label": "measured",
+   "inti": false,
+   "bukti": "f0-f10 geser < 0.01 W, skala > 0.999 (drift kecil -0.01 W)"
+  },
+  {
+   "nama": "cut",
+   "nilai": "tidak ada",
+   "satuan": "-",
+   "label": "measured",
+   "inti": true,
+   "bukti": "potong = [] (selisih frame maks 15.4 kontinu naik-turun, inlier >= 0.90); tanpa frame duplikat (animasi 30 fps)"
+  }
+ ],
+ "kurva": {
+  "progres_ref": [
+   [
+    0.0,
+    0.002,
+    0.005,
+    0.01,
+    0.017,
+    0.025,
+    0.035,
+    0.047,
+    0.061,
+    0.079,
+    0.1,
+    0.124,
+    0.154,
+    0.191,
+    0.236,
+    0.293,
+    0.364,
+    0.452,
+    0.548,
+    0.634,
+    0.704,
+    0.757,
+    0.799,
+    0.833,
+    0.863,
+    0.889,
+    0.91,
+    0.927,
+    0.942,
+    0.954,
+    0.965,
+    0.974,
+    0.981,
+    0.988,
+    0.993,
+    0.997,
+    1.0
+   ],
+   [
+    -0.0,
+    0.005,
+    0.01,
+    0.015,
+    0.022,
+    0.03,
+    0.04,
+    0.052,
+    0.069,
+    0.089,
+    0.111,
+    0.136,
+    0.169,
+    0.211,
+    0.256,
+    0.312,
+    0.375,
+    0.454,
+    0.542,
+    0.62,
+    0.682,
+    0.732,
+    0.77,
+    0.805,
+    0.84,
+    0.873,
+    0.902,
+    0.924,
+    0.943,
+    0.959,
+    0.974,
+    0.983,
+    0.991,
+    0.997,
+    1.0,
+    1.001,
+    1.0
+   ]
+  ],
+  "bezier": [
+   0.707,
+   0.064,
+   0.252,
+   0.927
+  ],
+  "kurva_toolkit": "heavy",
+  "label": "measured",
+  "bukti": "progres kam_x dan kam_s f11-f47 per frame asli; fit bezier x rms 0.0012; CURVE.heavy rms 0.031 (x), 0.041 kurva terdekat skala"
+ },
+ "potong": [],
+ "pemicu": [
+  {
+   "istilah": "demo fitur produk atau AI tool tanpa pembicara; urutan klik lalu hasil muncul; prompt terbaca",
+   "dari_catalog": true,
+   "kartu": "63"
+  },
+  {
+   "istilah": "esai ide atau opini bernarasi tanpa wajah; kontras dua sisi; transisi teks ke bukti UI",
+   "dari_catalog": true,
+   "kartu": "80"
+  }
+ ],
+ "alasan_bekerja": "Penonton tetap melihat bidang lama saat bidang baru terbuka di sisinya, jadi ia paham hubungan keduanya tanpa cut, dan perlambatan di akhir memberi tanda kapan mata boleh mulai membaca bidang baru.",
+ "slot": [
+  {
+   "nama": "panggung",
+   "isi": "isi panggung (bidang lama dan bidang baru) dari pemanggil"
+  },
+  {
+   "nama": "arah",
+   "isi": "sisi yang dibuka (kiri/kanan) = tanda geser_x"
+  },
+  {
+   "nama": "jarak_skala",
+   "isi": "geser_x dan skala_akhir dalam rentang aman, disesuaikan lebar bidang baru"
+  },
+  {
+   "nama": "mulai",
+   "isi": "frame mulai gerak, disinkronkan ke ucapan/aksi"
+  }
+ ],
+ "jangan_dicuri": {
+  "warna": [
+   "#201C20",
+   "#181417",
+   "#502A19",
+   "#F5B165",
+   "#E88052",
+   "#7E3E19",
+   "#B76140",
+   "#5D5053",
+   "#8992A1",
+   "#F0E9E7"
+  ],
+  "bentuk": [
+   "jendela aplikasi gelap dengan sudut membulat",
+   "baris ikon dock"
+  ],
+  "objek": [
+   "editor video",
+   "wallpaper pegunungan senja",
+   "dock aplikasi",
+   "panel chat dengan kotak prompt"
+  ],
+  "teks": [
+   "Change the background",
+   "Opus"
+  ],
+  "tata_letak": [
+   "jendela aplikasi di tengah di atas wallpaper dengan dock di bawah",
+   "panel gelap terbuka di kiri"
+  ]
+ },
+ "sumber": {
+  "video": "pustaka-video/unggahan/Motiongrapich.mp4",
+  "kartu": "63",
+  "fps_asli": 30,
+  "frame_duplikat": {
+   "frame": [],
+   "periode": null,
+   "fps_animasi": null
+  },
+  "jendela": [
+   {
+    "dari": 13.4,
+    "sampai": 15.4,
+    "isi": "panggung bergeser kanan + mundur membuka panel di kiri"
+   }
+  ],
+  "data_ukur": [
+   "claude/motion-graphic/pabrik/ukur/data/63-T1.json"
+  ],
+  "arsip": "claude/motion-graphic/pabrik/arsip/63-motiongrapich.md"
+ },
+ "kemunculan": [
+  {
+   "video": "Motiongrapich.mp4",
+   "detik": "13.77-14.97",
+   "kulit": "desktop dengan editor video, panel gelap terbuka di kiri"
+  }
+ ],
+ "uji": {
+  "jenis": "kamera-jalan",
+  "demo": {
+   "durasi": 60,
+   "width": 1280,
+   "height": 720,
+   "onset": [
+    11
+   ]
+  }
+ },
+ "status_maks": "teruji",
+ "catatan": "Kemunculan kedua di referensi lain belum diukur; mekanik dinilai terpisah dari kulit karena uji transfer memakai dua isian."
+}

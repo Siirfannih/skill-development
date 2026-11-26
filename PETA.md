@@ -34,6 +34,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | Skill | Pakai saat |
 |---|---|
 | `claude/autopilot-prd/SKILL.md` | Pakai setiap kali mengerjakan proyek Irfan yang sudah punya PRD, QUEUE, atau rencana tertulis (Pandu/Tuntunly, Hermes, Jadisatu). Eksekusi sampai antrean habis tanpa menunggu "lanjutkan"; berhenti hanya di Tier 2. Mengal |
+| `claude/brief-gate/SKILL.md` | Gerbang wajib sebelum mengirim tugas ke subagen, worker, atau model lain (Codex, Gemini, Sonnet): cek brief terhadap kalimat asli Irfan, uji baca dingin, cek metrik, pilot satu agen dulu. |
 | `claude/cinedance-block-library/SKILL.md` | CINEDANCE — BLOCK LIBRARY v1. Assembles a full video-generation prompt from a short brief (TRICK, FORMAT, ASSETS, MAIN, FAIL, COUNT, TASK, ACTING) plus a list of block codes (FACE, BODY, MODEST, TASK, CAM-HANDHELD, CAM-L |
 | `claude/irfan-creative-workflow/SKILL.md` | Workflow and hard-won lessons for any creative project with Irfan (launch videos, motion graphics, scripts, campaigns): gate order, script quality bar, credit discipline, and what experience to carry vs leave behind. Use |
 | `claude/jadisatu-canvas/SKILL.md` | Use when an AI client connects to, reads, edits, or resumes a shared Jadisatu Canvas board, including uploaded references, room resets and stale-context conflicts. |
@@ -42,6 +43,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-theme-director/SKILL.md` | Memilih tema visual (bersama user) dan menuntun cara berpikir desain, kinetic typography, dan sound design untuk storyboard motion graphic Irfan; pakai sebelum menggambar storyboard atau still pertama. Isinya kini ada di |
 | `claude/script-workshop/SKILL.md` | Menulis konten Irfan dari ide sampai naskah siap take: script reels/video, carousel, caption, thread, ideasi, dan hook, untuk Jadisatu maupun akun pribadinya. Pakai setiap kali Irfan minta ide konten, hook, naskah, carou |
 | `claude/vibedesign/SKILL.md` | Mendesain konten statis (carousel Instagram, poster, slide sosial, cover) 100% lewat kode HTML/CSS/SVG lalu export PNG deterministik, dengan urutan baca yang jelas dan karakter yang beraksi. Pakai setiap kali ada permint |
+| `claude/video-reference-deconstructor/SKILL.md` | Membedah video referensi menjadi primitif gerak atomik (kinetic typography, visual, kamera, transisi) yang terukur, bebas kulit referensi, dan lolos uji transfer, untuk diturunkan pabrik menjadi preset kode di skill-deve |
 | `claude/working-with-irfan/SKILL.md` | Cara bekerja dengan Irfan — cara memahami permintaannya, bertanya, meneliti bahan, membuat skill/prompt, dan menyampaikan hasil. Pakai di setiap tugas dari Irfan sebelum menghasilkan output. |
 
 ## motion-graphic · pintu produksi

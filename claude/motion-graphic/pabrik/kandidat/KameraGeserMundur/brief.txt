@@ -1,0 +1,61 @@
+Kalimat pemilik: "sintesis harusnya cuma mengambil Animation / Transision / Kinetic Typography style ga meniru atau membuat ulang benar benar perframe"
+
+TUJUAN: model editing di repo skill memakai primitif gerak siap pakai (animasi, transisi, kinetic typography) dan mengisinya dengan
+konten serta tema proyeknya sendiri, tanpa menulis animasi dari nol.
+UNIT KERJA: SATU primitif atomik Remotion bernama KameraGeserMundur (id kamera-geser-mundur-buka-sisi, lapisan kamera). Mekaniknya:
+"Seluruh panggung bergeser menyamping sejauh ±0,19 lebar frame sambil mengecil ke ±0,88 skala pada kurva yang sama, sehingga bidang baru terbuka di satu sisi frame; gerak dimulai pelan, cepat di tengah, melambat sampai diam tanpa melewati posisi akhir, lalu panggung ditahan."
+BUKAN: membangun ulang adegan, frame, urutan shot, UI, latar, foto, ikon, warna, huruf, atau tata letak referensi; BUKAN juga
+mekanik lain yang terlihat di referensi (pergantian warna, gerak kamera, sisipan gambar) karena itu primitif terpisah. Kamu tidak
+menerima gambar referensi; spec di bawah adalah hasil ukur geraknya.
+
+KAMUS (arti versi pemilik):
+- Sintesis = ekstrak CARA BERGERAK (animation, transition, kinetic typography: timing, easing, urutan, arah) menjadi primitif yang
+  bisa dipakai ulang. BUKAN membangun ulang frame, adegan, UI, latar, atau objek referensi.
+- Primitif/preset = satu blok gerak berparameter; konten, warna, ukuran diganti pemanggil. Satu primitif satu mekanik.
+
+INPUT:
+- Spec primitif (di bawah). Angka berlabel `measured` mengikat; `estimated` adalah taksiran dalam rentang_aman.
+  `kurva.progres_ref` = progres terukur per frame asli. Sumber tanpa frame duplikat. Jarak dalam satuan yang ditulis di `satuan` parameter
+  (fraksi lebar frame untuk x, fraksi tinggi frame untuk y dan blur; useVideoConfig()). Skala kamera berpusat di tengah frame, dan
+  geser kamera diukur pada titik pusat frame.
+- Toolkit: /home/irfan/work/sd-audit25/claude/motion-graphic/toolkit/gerak/curves.ts (baca; kurva `heavy`).
+- Kit demo netral: /home/irfan/work/sd-audit25/claude/motion-graphic/pabrik/demo-netral/Netral.tsx (baca).
+
+OUTPUT (tulis dengan Write, path absolut, jangan menyentuh berkas lain): /home/irfan/work/sd-audit25/claude/motion-graphic/pabrik/kandidat/KameraGeserMundur/KameraGeserMundur.tsx, /home/irfan/work/sd-audit25/claude/motion-graphic/pabrik/kandidat/KameraGeserMundur/Demo.tsx, /home/irfan/work/sd-audit25/claude/motion-graphic/pabrik/kandidat/KameraGeserMundur/meta.json.
+
+ATURAN (dicek mesin; pelanggaran = ditolak):
+1. KameraGeserMundur.tsx = PRIMITIF PEMBUNGKUS. Konten datang dari pemanggil (children). Komponen hanya mengatur transform, opacity,
+   clipPath, filter blur, dan waktu. DILARANG di KameraGeserMundur.tsx: color, background*, border*, boxShadow, textShadow, fontFamily,
+   fontSize, fontWeight, letterSpacing, fill, stroke, elemen svg/path/rect/img/canvas, hex/rgb/hsl, nama warna.
+   Kenapa: yang dipindahkan hanya gerak; gaya di dalam komponen menjadi template tersembunyi.
+2. Deterministik per frame: useCurrentFrame/useVideoConfig/interpolate/Easing dari remotion; tanpa Math.random, Date.now, timer.
+   Impor hanya remotion, react, zod, berkas sefolder, ../../../toolkit/*.
+3. Kurva: pakai CURVE bernama dari ../../../toolkit/gerak/curves sesuai `kurva.kurva_toolkit` di spec (baca berkasnya).
+4. Parameter spec jadi props berdefault = nilai spec (rentang_aman = batas wajar). Jarak dalam fraksi tinggi/lebar frame
+   (useVideoConfig), bukan px tetap.
+5. Ekspor: komponen bernama persis KameraGeserMundur; `export const KameraGeserMundurPropsSchema = z.object({...})` (zod 3; ReactNode pakai
+   z.custom<React.ReactNode>()). JSDoc di atas komponen: satu kalimat fungsi + "Pakai bila:" (pemicu spec) + "Jangan bila:".
+6. Demo.tsx: `export const Demo: React.FC<{ isian: IdIsian }>`; impor HANYA remotion, react, ./KameraGeserMundur, ../../demo-netral/Netral
+   (ISIAN, IdIsian, PanggungNetral, WadahUji, KataUji). Teks diambil dari ISIAN[isian].kata, warna/huruf hanya lewat komponen kit.
+   Tanpa hex/rgb/nama warna/font di Demo.tsx. KameraGeserMundur membungkus seluruh panggung; gerak kamera mulai pada frame onset[0] = [11]. Panggung lebih lebar dari frame berisi kisi kata dari ISIAN[isian].kata (diulang, banyak, tersebar merata supaya gerak global terukur) dan, untuk isian B, beberapa <WadahUji>; SEMUA unit sudah tampil sejak frame 0 dan diam; hanya primitif kamera yang menggerakkan panggung, mulai pada onset[0]; tinggi huruf ±79 px;
+   isian "B" membungkus baris dengan <WadahUji> (kartu); isian "A" tanpa wadah. Durasi 60 frame @30 fps, ukuran 1280x720.
+7. meta.json: {"fungsi": satu kalimat, "width": 1280, "height": 720, "fps": 30, "durasi": 60, "catatan": "..."}.
+
+CARA DINILAI (uji transfer, otomatis; tidak ada perbandingan tampilan dengan referensi karena referensi tidak dipakai):
+Demo dirender DUA KALI: isian A dan isian B (token warna, huruf, teks, wadah berbeda). Gerak global panggung diukur dari PIKSEL
+render (titik sudut dilacak Lucas-Kanade, transform similaritas RANSAC) di KEDUA isian: geser x total dan skala akhir dalam
+rentang_aman spec; geser y < 0,01; tanpa potongan; progres geser x dan skala per frame sejak onset[0] terhadap `kurva.progres_ref`
+(waktu absolut, bukan dinormalisasi) RMS <= 0,10; durasi progres 1 % -> 99 % = `durasi_1_99` +-2 frame; tidak melewati posisi akhir.
+Catatan ukur: geser x positif = isi panggung bergerak ke kanan; skala = rasio ukuran isi akhir/awal. Plus kulit tidak bocor
+(warna dalam DeltaE 12 dari `jangan_dicuri.warna`, objek/tata letak `jangan_dicuri`), lint + tsc lulus, kritikus vision melihat
+strip kandidat A dan B saja.
+
+BERHENTI DAN LAPOR (tulis /home/irfan/work/sd-audit25/claude/motion-graphic/pabrik/kandidat/KameraGeserMundur/BERHENTI.md berisi alasan, jangan menebak) bila: angka spec saling bertentangan atau tidak cukup untuk
+menentukan gerak, atau mekanik tidak bisa dibuat tanpa menggambar benda/warna referensi.
+
+SPEC:
+{"versi": 4, "id": "kamera-geser-mundur-buka-sisi", "kategori": "kamera", "komponen": "KameraGeserMundur", "mekanik": "Seluruh panggung bergeser menyamping sejauh ±0,19 lebar frame sambil mengecil ke ±0,88 skala pada kurva yang sama, sehingga bidang baru terbuka di satu sisi frame; gerak dimulai pelan, cepat di tengah, melambat sampai diam tanpa melewati posisi akhir, lalu panggung ditahan.", "parameter": [{"nama": "geser_x", "nilai": 0.192, "satuan": "fraksi lebar frame, isi bergeser ke kanan", "label": "measured", "inti": true, "rentang_aman": [0.163, 0.221], "bukti": "gerak.sinyal kam_x (LK + RANSAC similaritas, inlier tersebar) Motiongrapich.mp4 13.4-15.4s: -0.010 (f11) -> 0.182 (f47)"}, {"nama": "skala_akhir", "nilai": 0.88, "satuan": "rasio skala isi (akhir/awal)", "label": "measured", "inti": true, "rentang_aman": [0.862, 0.898], "bukti": "kam_s 0.999 (f11) -> 0.879 (f47)"}, {"nama": "geser_y", "nilai": 0, "satuan": "fraksi tinggi frame", "label": "measured", "inti": true, "bukti": "kam_y |nilai| < 0.0005 sepanjang jendela"}, {"nama": "durasi_1_99", "nilai": 31, "satuan": "frame @30 fps (progres 1 % -> 99 %)", "label": "measured", "inti": true, "rentang_aman": [29, 33], "bukti": "progres geser x: >= 0.01 di f14, >= 0.99 di f44 (data di kurva.progres_ref)"}, {"nama": "pantul", "nilai": 0, "satuan": "overshoot", "label": "measured", "inti": true, "bukti": "progres x monoton 0 -> 1; progres skala maks 1.001 (derau)"}, {"nama": "tahan_sebelum", "nilai": 11, "satuan": "frame", "label": "measured", "inti": false, "bukti": "f0-f10 geser < 0.01 W, skala > 0.999 (drift kecil -0.01 W)"}, {"nama": "cut", "nilai": "tidak ada", "satuan": "-", "label": "measured", "inti": true, "bukti": "potong = [] (selisih frame maks 15.4 kontinu naik-turun, inlier >= 0.90); tanpa frame duplikat (animasi 30 fps)"}], "kurva": {"progres_ref": [[0.0, 0.002, 0.005, 0.01, 0.017, 0.025, 0.035, 0.047, 0.061, 0.079, 0.1, 0.124, 0.154, 0.191, 0.236, 0.293, 0.364, 0.452, 0.548, 0.634, 0.704, 0.757, 0.799, 0.833, 0.863, 0.889, 0.91, 0.927, 0.942, 0.954, 0.965, 0.974, 0.981, 0.988, 0.993, 0.997, 1.0], [-0.0, 0.005, 0.01, 0.015, 0.022, 0.03, 0.04, 0.052, 0.069, 0.089, 0.111, 0.136, 0.169, 0.211, 0.256, 0.312, 0.375, 0.454, 0.542, 0.62, 0.682, 0.732, 0.77, 0.805, 0.84, 0.873, 0.902, 0.924, 0.943, 0.959, 0.974, 0.983, 0.991, 0.997, 1.0, 1.001, 1.0]], "bezier": [0.707, 0.064, 0.252, 0.927], "kurva_toolkit": "heavy", "label": "measured", "bukti": "progres kam_x dan kam_s f11-f47 per frame asli; fit bezier x rms 0.0012; CURVE.heavy rms 0.031 (x), 0.041 kurva terdekat skala"}, "potong": [], "pemicu": [{"istilah": "demo fitur produk atau AI tool tanpa pembicara; urutan klik lalu hasil muncul; prompt terbaca", "dari_catalog": true, "kartu": "63"}, {"istilah": "esai ide atau opini bernarasi tanpa wajah; kontras dua sisi; transisi teks ke bukti UI", "dari_catalog": true, "kartu": "80"}], "alasan_bekerja": "Penonton tetap melihat bidang lama saat bidang baru terbuka di sisinya, jadi ia paham hubungan keduanya tanpa cut, dan perlambatan di akhir memberi tanda kapan mata boleh mulai membaca bidang baru.", "slot": [{"nama": "panggung", "isi": "isi panggung (bidang lama dan bidang baru) dari pemanggil"}, {"nama": "arah", "isi": "sisi yang dibuka (kiri/kanan) = tanda geser_x"}, {"nama": "jarak_skala", "isi": "geser_x dan skala_akhir dalam rentang aman, disesuaikan lebar bidang baru"}, {"nama": "mulai", "isi": "frame mulai gerak, disinkronkan ke ucapan/aksi"}], "jangan_dicuri": {"warna": ["#201C20", "#181417", "#502A19", "#F5B165", "#E88052", "#7E3E19", "#B76140", "#5D5053", "#8992A1", "#F0E9E7"], "bentuk": ["jendela aplikasi gelap dengan sudut membulat", "baris ikon dock"], "objek": ["editor video", "wallpaper pegunungan senja", "dock aplikasi", "panel chat dengan kotak prompt"], "teks": ["Change the background", "Opus"], "tata_letak": ["jendela aplikasi di tengah di atas wallpaper dengan dock di bawah", "panel gelap terbuka di kiri"]}, "uji": {"jenis": "kamera-jalan", "demo": {"durasi": 60, "width": 1280, "height": 720, "onset": [11]}}, "status_maks": "teruji", "catatan": "Kemunculan kedua di referensi lain belum diukur; mekanik dinilai terpisah dari kulit karena uji transfer memakai dua isian.", "sumber": {"fps_asli": 30, "frame_duplikat": {"frame": [], "periode": null, "fps_animasi": null}}}
+
+MODE REVISI: berkas sudah ada di /home/irfan/work/sd-audit25/claude/motion-graphic/pabrik/kandidat/KameraGeserMundur. Baca ketiganya, lalu SUNTING di tempat agar angka gerak memenuhi CARA DINILAI. Pertahankan
+yang sudah lulus. Jangan menambah dekorasi atau objek; perbaiki waktu, jarak, kurva, blur. Hasil ukur putaran sebelumnya:
+{"gagal": ["A: durasi 1-99 % skala = 28 frame, spec 31 (> 2 frame)"], "dosa": {"kulit_A": "warna render (porsi 0.7%) DeltaE 3.9 dari #8992A1 (jangan dicuri)"}, "metrik": {"A": [{"geser_x": 0.204, "skala_akhir": 0.8809, "geser_y_maks": 0.0012, "potong": [], "rms_progres_x": 0.0168, "durasi_1_99_x": 32, "lewat_x": 0.0, "rms_progres_skala": 0.026, "durasi_1_99_skala": 28, "lewat_skala": 0.0}], "B": [{"geser_x": 0.2044, "skala_akhir": 0.8803, "geser_y_maks": 0.0011, "potong": [], "rms_progres_x": 0.0166, "durasi_1_99_x": 32, "lewat_x": 0.0, "rms_progres_skala": 0.026, "durasi_1_99_skala": 29, "lewat_skala": 0.0}]}, "vision_revisi": ["Bagian awal gerak terlalu panjang dan rata: f10–f24 nyaris tanpa perubahan, sehingga hampir seluruh gerak terjadi dalam ±13 frame (f24–f37). Awal yang pelan sebaiknya sudah sedikit bergerak, jangan terlihat seperti diam lalu tiba-tiba melaju.", "Tepi kanan panggung memotong teks di tengah kata ('Sat', 'empa', 'red'). Akibatnya gerak lebih mirip masker atau crop yang menyempit daripada seluruh panggung yang bergeser dan mengecil. Pastikan potongan ini memang batas panggung yang ikut bergerak bersama skala, bukan klip statis.", "Posisi tepi kiri hampir tidak berubah dari awal sampai akhir, sedangkan perubahan di tepi kanan besar. Cek apakah titik pangkal skala dan geser lateral benar-benar memakai satu kurva yang sama. Kalau sama, isi di sisi kiri seharusnya ikut bergeser dengan jelas."], "riwayat": [{"putaran": 1, "n_gagal": 0, "dosa": ["kulit_A", "vision_terbaca_A", "vision_terbaca_B"]}, {"putaran": 2, "n_gagal": 1, "dosa": ["kulit_A"]}]}

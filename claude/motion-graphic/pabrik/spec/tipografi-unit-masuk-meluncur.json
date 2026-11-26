@@ -1,0 +1,261 @@
+{
+ "versi": 4,
+ "id": "tipografi-unit-masuk-meluncur",
+ "kategori": "tipografi",
+ "komponen": "UnitMasukMeluncur",
+ "mekanik": "Unit teks baru muncul penuh dalam satu frame di posisi yang tergeser ke bawah (dan boleh sedikit ke samping) dari tempat diamnya, kabur di frame pertama, lalu meluncur ke tempat diam selama ±7 frame dengan perlambatan dan berhenti tanpa memantul; ketajaman pulih sepanjang luncuran.",
+ "parameter": [
+  {
+   "nama": "muncul",
+   "nilai": "potong 1 frame (opasitas 0 -> penuh)",
+   "satuan": "-",
+   "label": "measured",
+   "inti": true,
+   "bukti": "ukur/kata_masuk.py 02_Baikov 0-1.0s roi 0.45,0.2,1.0,0.95: unit 1 tidak ada di f0, penuh di f1; unit 2 tidak ada di f9, penuh di f10"
+  },
+  {
+   "nama": "offset_awal_y",
+   "nilai": [
+    0.149,
+    0.158
+   ],
+   "satuan": "fraksi tinggi frame, ke bawah",
+   "label": "measured",
+   "inti": true,
+   "rentang_aman": [
+    0.1,
+    0.2
+   ],
+   "bukti": "cy unit 1: 0.656 (f1) -> 0.507 (f8); unit 2: 0.679 (f10) -> 0.521 (f17)"
+  },
+  {
+   "nama": "offset_awal_x",
+   "nilai": [
+    0.022,
+    0.187
+   ],
+   "satuan": "fraksi lebar frame, ke kanan",
+   "label": "measured",
+   "inti": false,
+   "rentang_aman": [
+    0.0,
+    0.19
+   ],
+   "bukti": "unit 1 x1 0.773 -> 0.751; unit 2 x0 0.664 -> 0.477 (tepi kanan unit 2 terpotong frame di f10, nilai batas bawah)"
+  },
+  {
+   "nama": "durasi_luncur",
+   "nilai": 7,
+   "satuan": "frame @30 fps",
+   "label": "measured",
+   "inti": true,
+   "rentang_aman": [
+    5,
+    9
+   ],
+   "bukti": "unit 1 f1 -> f8, unit 2 f10 -> f17 (posisi diam dicapai); animasi sumber 25 fps (duplikat tiap 6 frame)"
+  },
+  {
+   "nama": "ketajaman_awal_relatif",
+   "nilai": [
+    0.84,
+    0.42
+   ],
+   "satuan": "|Laplacian| frame pertama / frame diam",
+   "label": "measured",
+   "inti": true,
+   "bukti": "unit 1 9.14/10.85; unit 2 4.76/11.25 (ukur/kata_masuk.py kolom tajam)"
+  },
+  {
+   "nama": "blur_awal",
+   "nilai": 0.01,
+   "satuan": "px blur / tinggi frame",
+   "label": "estimated",
+   "inti": false,
+   "rentang_aman": [
+    0.005,
+    0.02
+   ],
+   "bukti": "tidak terukur langsung; ditaksir dari rasio ketajaman 0.42-0.84 pada unit setinggi 0.20-0.28 frame (blur ±0,03-0,06 tinggi unit)"
+  },
+  {
+   "nama": "pantul",
+   "nilai": 0,
+   "satuan": "overshoot",
+   "label": "measured",
+   "inti": true,
+   "bukti": "cy turun monoton di kedua unit sampai diam (tidak melewati posisi diam)"
+  }
+ ],
+ "kurva": {
+  "progres_ref": [
+   [
+    0,
+    0.47,
+    0.47,
+    0.664,
+    0.799,
+    0.886,
+    0.96,
+    1.0
+   ],
+   [
+    0,
+    0.348,
+    0.633,
+    0.791,
+    0.88,
+    0.88,
+    0.949,
+    1.0
+   ]
+  ],
+  "bezier": [
+   0,
+   0.322,
+   0.406,
+   0.866
+  ],
+  "kurva_toolkit": "luncur",
+  "label": "measured",
+  "bukti": "progres = (cy_awal - cy)/(cy_awal - cy_diam) per frame asli; baris 1 unit 1 f1-f8, baris 2 unit 2 f10-f17; nilai kembar = frame duplikat animasi 25 fps; bezier fit rata-rata kedua baris rms 0.015 (gerak.fit_bezier)"
+ },
+ "potong": [
+  "kemunculan unit (opasitas melompat dalam 1 frame)"
+ ],
+ "pemicu": [
+  {
+   "istilah": "relay kata per beat di pusat frame; teks blur ke tajam",
+   "dari_catalog": true,
+   "kartu": "M07"
+  },
+  {
+   "istilah": "kalimat dibangun kata demi kata mengikuti ucapan",
+   "dari_catalog": false
+  }
+ ],
+ "alasan_bekerja": "Kata baru langsung hadir tepat saat diucapkan sehingga penonton tidak menunggu, dan luncuran pendek yang melambat menarik mata ke kata terbaru lalu memberi tanda kapan kata itu siap dibaca.",
+ "slot": [
+  {
+   "nama": "unit",
+   "isi": "isi teks (kata, huruf, angka) dari pemanggil; satu unit per pemanggilan"
+  },
+  {
+   "nama": "gaya_teks",
+   "isi": "huruf, berat, warna, ukuran dari tema proyek; primitif tidak menetapkan"
+  },
+  {
+   "nama": "wadah",
+   "isi": "posisi diam dan wadah ditentukan pemanggil; primitif hanya menggeser relatif ke posisi diam"
+  },
+  {
+   "nama": "arah_offset",
+   "isi": "vektor offset awal (bawah, bawah-kanan); besaran dalam fraksi tinggi frame"
+  },
+  {
+   "nama": "mulai",
+   "isi": "frame kemunculan, disinkronkan pemanggil ke ucapan"
+  }
+ ],
+ "jangan_dicuri": {
+  "warna": [
+   "#FAFAFA",
+   "#2C5C39",
+   "#E84E4A",
+   "#506DF1",
+   "#F3CD69",
+   "#ED827D",
+   "#834538",
+   "#E4CCBC",
+   "#302C2A"
+  ],
+  "bentuk": [
+   "potongan foto persegi miring di sela kata"
+  ],
+  "objek": [
+   "foto atau kolase gambar di antara kata",
+   "stiker gambar"
+  ],
+  "teks": [
+   "What",
+   "makes",
+   "your",
+   "company",
+   "unique"
+  ],
+  "tata_letak": [
+   "satu baris kalimat tumbuh ke kanan dengan sisipan gambar di tengah baris",
+   "warna aksen berbeda per kata yang lalu berubah ke warna dasar"
+  ]
+ },
+ "sumber": {
+  "video": "pustaka-video/unggahan/02_Baikov_TEKS-SFX-CUT.mp4",
+  "kartu": "07",
+  "fps_asli": 30,
+  "frame_duplikat": {
+   "frame": [
+    3,
+    9,
+    15,
+    21,
+    27,
+    33,
+    45,
+    51,
+    57
+   ],
+   "periode": 6,
+   "fps_animasi": 25.0
+  },
+  "jendela": [
+   {
+    "dari": 0.0,
+    "sampai": 0.3,
+    "isi": "unit 1 masuk"
+   },
+   {
+    "dari": 0.3,
+    "sampai": 0.6,
+    "isi": "unit 2 masuk"
+   }
+  ],
+  "data_ukur": [
+   "claude/motion-graphic/pabrik/ukur/kata_masuk.py",
+   "claude/motion-graphic/pabrik/ukur/data/07-T1.json"
+  ],
+  "arsip": "claude/motion-graphic/pabrik/arsip/07-baikov-teks-sfx-cut.md"
+ },
+ "kemunculan": [
+  {
+   "video": "02_Baikov_TEKS-SFX-CUT.mp4",
+   "detik": "0.03-0.27",
+   "kulit": "kata pertama berwarna aksen hijau, huruf grotesk tebal"
+  },
+  {
+   "video": "02_Baikov_TEKS-SFX-CUT.mp4",
+   "detik": "0.33-0.57",
+   "kulit": "kata kedua berwarna aksen biru, masuk dari bawah-kanan dan terpotong tepi frame"
+  },
+  {
+   "video": "02_Baikov_TEKS-SFX-CUT.mp4",
+   "detik": "1.47-1.57",
+   "kulit": "kata keempat sesudah tarik mundur, ukuran kecil; offset hanya ke samping 0.027 W (lemah, sesudah cut kamera)"
+  }
+ ],
+ "uji": {
+  "jenis": "unit-masuk",
+  "demo": {
+   "durasi": 54,
+   "width": 1280,
+   "height": 720,
+   "onset": [
+    3,
+    15,
+    27,
+    39
+   ]
+  }
+ },
+ "status_maks": "teruji",
+ "catatan": "Penanda warna kata terbaru (aksen lalu warna dasar, potong) dan reframe kamera adalah primitif terpisah; lihat resep/resep-kalimat-dibangun-lalu-mundur.json."
+}

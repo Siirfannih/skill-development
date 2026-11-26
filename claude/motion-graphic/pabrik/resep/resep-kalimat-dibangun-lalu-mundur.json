@@ -1,0 +1,6 @@
+{
+ "id": "resep-kalimat-dibangun-lalu-mundur",
+ "primitif": ["tipografi-unit-masuk-meluncur", "tipografi-tandai-unit-terbaru", "kamera-potong-ikut-unit", "kamera-tarik-mundur-grup"],
+ "urutan": "tiap unit kalimat: unit-masuk-meluncur + tandai-unit-terbaru; saat baris penuh: potong-ikut-unit; sesudah unit terakhir: tarik-mundur-grup",
+ "catatan": "Resep hanya merujuk id; kode dan kulit tinggal di primitif dan tema proyek. Larangan rangkai ulang: jangan memakai >= 3 primitif dari satu referensi dalam urutan yang sama seperti referensinya tanpa alasan beat."
+}

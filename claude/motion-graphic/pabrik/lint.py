@@ -10,7 +10,14 @@ Aturan (dicek pada kode, komentar dibuang lebih dulu):
   L4 deterministik per frame: tanpa Math.random, Date.now, new Date, performance.now, requestAnimationFrame, setTimeout/Interval.
   L5 mandiri: impor hanya dari remotion, zod, react, sesama berkas, ../../../toolkit/* (gerak, kamera, latar, transisi) dan ../../../scripts/remotion/*.
   L6 wajib mengekspor skema props zod: `export const <Nama>PropsSchema`.
-Kenapa: gaya yang menempel di komponen menjadi template tersembunyi; keacakan bebas-biji membuat render paralel tidak sama.
+  L7 primitif gerak tidak menggambar: tanpa properti gaya kulit (color, background*, border*, boxShadow, textShadow, fontFamily,
+     fontSize, fontWeight, letterSpacing, fill, stroke) dan tanpa elemen gambar (svg, path, rect, circle, img, canvas, Img).
+     Konten (teks, kartu, kursor) datang dari pemanggil sebagai children/props; primitif hanya menerapkan transform, opacity,
+     clipPath, filter blur, posisi.
+Demo (lint_demo): D1 tanpa hex/rgb/nama warna/font literal (gaya hanya dari demo-netral/Netral.tsx); D2 impor hanya remotion, react,
+  ./<Nama>, ../../demo-netral/Netral, toolkit; D3 wajib `export const Demo`.
+Kenapa: gaya yang menempel di komponen menjadi template tersembunyi dan kulit referensi ikut terbawa; keacakan bebas-biji membuat
+render paralel tidak sama; demo yang sama untuk semua komponen membuat uji mengukur gerak, bukan tampilan.
 """
 import re, sys
 from pathlib import Path
@@ -22,6 +29,8 @@ RULES = [
     ("L3", re.compile(r"""(['"`])\s*(?:%s)\s*\1""" % "|".join(WARNA_CSS), re.I), "nama warna CSS literal"),
     ("L4", re.compile(r"Math\.random|Date\.now|new\s+Date\b|performance\.now|requestAnimationFrame|setTimeout|setInterval"), "tidak deterministik per frame"),
 ]
+KULIT = re.compile(r"\b(color|background\w*|border\w*|boxShadow|textShadow|fontFamily|fontSize|fontWeight|letterSpacing|fill|stroke|outline)\s*:")
+GAMBAR = re.compile(r"<\s*(svg|path|rect|circle|ellipse|polygon|line|img|canvas|Img|video|OffthreadVideo)\b")
 IMPOR_OK = re.compile(r"^(remotion|react|react/jsx-runtime|zod|@remotion/[\w-]+|\./[\w./-]+|(\.\./)+(scripts/remotion|toolkit)/[\w./-]+)$")
 
 
@@ -42,6 +51,24 @@ def lint_teks(src, nama=None):
             out.append(f"L5 impor di luar daftar mandiri: {m.group(1)}")
     if not re.search(r"export\s+const\s+\w+PropsSchema\b", kode):
         out.append("L6 tidak ada `export const <Nama>PropsSchema` (zod)")
+    for i, ln in enumerate(kode.splitlines(), 1):
+        if KULIT.search(ln) or GAMBAR.search(ln):
+            out.append(f"L7 baris {i}: primitif gerak menggambar/menata kulit (konten harus dari pemanggil): {ln.strip()[:90]}")
+    return out
+
+
+IMPOR_DEMO = re.compile(r"^(remotion|react|zod|\./[\w-]+|\.\./\.\./demo-netral/Netral|(\.\./)+(scripts/remotion|toolkit)/[\w./-]+)$")
+
+
+def lint_demo(src):
+    """Demo.tsx: hanya merakit kit netral + komponen. -> daftar pelanggaran."""
+    kode = buang_komentar(src); out = []
+    for i, ln in enumerate(kode.splitlines(), 1):
+        for rid, rx, msg in RULES[:3]:
+            if rx.search(ln): out.append(f"D1 baris {i}: {msg} (demo hanya memakai demo-netral/Netral.tsx): {ln.strip()[:90]}")
+    for m in re.finditer(r"""(?:from\s+|import\s+|require\()\s*['"]([^'"]+)['"]""", kode):
+        if not IMPOR_DEMO.match(m.group(1)): out.append(f"D2 impor demo di luar daftar: {m.group(1)}")
+    if not re.search(r"export\s+const\s+Demo\b", kode): out.append("D3 tidak ada `export const Demo`")
     return out
 
 

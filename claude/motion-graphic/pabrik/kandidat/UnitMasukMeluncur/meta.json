@@ -1,0 +1,8 @@
+{
+  "fungsi": "Memunculkan unit teks utuh dalam satu frame di posisi tergeser ke bawah dan kabur, lalu meluncurkannya ke posisi diam selama ±7 frame dengan perlambatan tanpa pantul sambil ketajamannya pulih.",
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "durasi": 54,
+  "catatan": "Kurva CURVE.luncur (toolkit/gerak/curves), dihitung mulus per frame 30 fps (frame duplikat 25 fps di progres_ref tidak ditiru). Default: offsetY 0,153 tinggi frame, offsetX 0,022 lebar frame ke kanan, durasiLuncur 7 frame, blurAwal 0,01 tinggi frame (estimated). Opasitas melompat 0 -> 1 di frame `mulai`. Demo: onset [3,15,27,39], satu kata per unit, tinggi huruf 79 px; isian B dibungkus WadahUji. Warna, huruf, teks, wadah sepenuhnya dari pemanggil."
+}

@@ -1,0 +1,30 @@
+{
+ "versi": 3,
+ "id": "46-T1",
+ "kartu": "46",
+ "teknik": "T1",
+ "komponen": "ScaleLadder",
+ "jenis": "kt",
+ "sumber": {
+  "statis": true,
+  "keyframe": [
+   "guide/referensi/sheets/keyframes/46-k1-pembuka-monitor.jpg",
+   "guide/referensi/sheets/keyframes/46-k2-kolase-kotak-kata.jpg",
+   "guide/referensi/sheets/keyframes/46-k3-kata-raksasa.jpg",
+   "guide/referensi/sheets/keyframes/46-k4-kata-kecil-tersebar.jpg",
+   "guide/referensi/sheets/keyframes/46-k5-kata-latar-ubin.jpg",
+   "guide/referensi/sheets/keyframes/46-k6-pasangan-skala.jpg",
+   "guide/referensi/sheets/keyframes/46-k7-kotak-kata.jpg",
+   "guide/referensi/sheets/keyframes/46-k8-penutup.jpg"
+  ],
+  "fps": 30,
+  "rasio": "16:9"
+ },
+ "mekanik": [
+  "Lompatan skala tanpa ukuran perantara: tiap ketukan hanya punya dua tingkat ukuran, raksasa dan kecil; tidak ada ukuran ketiga di tengah.",
+  "Rasio tinggi huruf raksasa terhadap kecil sekitar 3,5x sampai 8x; kata raksasa diskalakan agar lebarnya hampir menyentuh kedua tepi horizontal (lebar 0,47–0,98 frame).",
+  "Masuk per huruf dari kiri ke kanan dengan jeda 2 frame antar huruf dan geser horizontal sekitar 0,08 lebar elemen ke posisi akhir (pendaratan lembut; perkiraan dari keyframe).",
+  "Kata raksasa bertahan sampai ketukan berikutnya dan tidak keluar dengan animasi (ganti di potongan)."
+ ],
+ "catatan": "Referensi statis (keyframe saja): tidak ada kurva gerak terukur; status maksimum teruji-sebagian."
+}

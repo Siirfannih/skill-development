@@ -1,0 +1,61 @@
+Kalimat pemilik: "sintesis harusnya cuma mengambil Animation / Transision / Kinetic Typography style ga meniru atau membuat ulang benar benar perframe"
+
+TUJUAN: model editing di repo skill memakai primitif gerak siap pakai (animasi, transisi, kinetic typography) dan mengisinya dengan
+konten serta tema proyeknya sendiri, tanpa menulis animasi dari nol.
+UNIT KERJA: SATU primitif atomik Remotion bernama GantiUnitDiJangkar (id tipografi-ganti-unit-di-jangkar, lapisan tipografi). Mekaniknya:
+"Satu unit teks tampil sendirian di satu titik jangkar tetap; saat unit berikutnya tiba, unit lama hilang dan unit baru muncul di titik yang sama pada frame yang sama (potong 1 frame, tanpa transisi), pusatnya tetap di jangkar walau lebar unit berubah, dan tidak ada gerak posisi selama tampil."
+BUKAN: membangun ulang adegan, frame, urutan shot, UI, latar, foto, ikon, warna, huruf, atau tata letak referensi; BUKAN juga
+mekanik lain yang terlihat di referensi (pergantian warna, gerak kamera, sisipan gambar) karena itu primitif terpisah. Kamu tidak
+menerima gambar referensi; spec di bawah adalah hasil ukur geraknya.
+
+KAMUS (arti versi pemilik):
+- Sintesis = ekstrak CARA BERGERAK (animation, transition, kinetic typography: timing, easing, urutan, arah) menjadi primitif yang
+  bisa dipakai ulang. BUKAN membangun ulang frame, adegan, UI, latar, atau objek referensi.
+- Primitif/preset = satu blok gerak berparameter; konten, warna, ukuran diganti pemanggil. Satu primitif satu mekanik.
+
+INPUT:
+- Spec primitif (di bawah). Angka berlabel `measured` mengikat; `estimated` adalah taksiran dalam rentang_aman.
+  `kurva.progres_ref` = progres luncuran terukur per frame. Nilai kembar = frame duplikat animasi sumber 25 fps, bukan jeda:
+  jangan ditiru, buat kurva mulus per frame 30 fps. Jarak dan blur dalam fraksi tinggi frame (useVideoConfig().height).
+- Toolkit: /home/irfan/work/sd-audit25/claude/motion-graphic/toolkit/gerak/curves.ts (baca; kurva `-`).
+- Kit demo netral: /home/irfan/work/sd-audit25/claude/motion-graphic/pabrik/demo-netral/Netral.tsx (baca).
+
+OUTPUT (tulis dengan Write, path absolut, jangan menyentuh berkas lain): /home/irfan/work/sd-audit25/claude/motion-graphic/pabrik/kandidat/GantiUnitDiJangkar/GantiUnitDiJangkar.tsx, /home/irfan/work/sd-audit25/claude/motion-graphic/pabrik/kandidat/GantiUnitDiJangkar/Demo.tsx, /home/irfan/work/sd-audit25/claude/motion-graphic/pabrik/kandidat/GantiUnitDiJangkar/meta.json.
+
+ATURAN (dicek mesin; pelanggaran = ditolak):
+1. GantiUnitDiJangkar.tsx = PRIMITIF PEMBUNGKUS. Konten datang dari pemanggil (children). Komponen hanya mengatur transform, opacity,
+   clipPath, filter blur, dan waktu. DILARANG di GantiUnitDiJangkar.tsx: color, background*, border*, boxShadow, textShadow, fontFamily,
+   fontSize, fontWeight, letterSpacing, fill, stroke, elemen svg/path/rect/img/canvas, hex/rgb/hsl, nama warna.
+   Kenapa: yang dipindahkan hanya gerak; gaya di dalam komponen menjadi template tersembunyi.
+2. Deterministik per frame: useCurrentFrame/useVideoConfig/interpolate/Easing dari remotion; tanpa Math.random, Date.now, timer.
+   Impor hanya remotion, react, zod, berkas sefolder, ../../../toolkit/*.
+3. Kurva: pakai CURVE bernama dari ../../../toolkit/gerak/curves sesuai `kurva.kurva_toolkit` di spec (baca berkasnya).
+4. Parameter spec jadi props berdefault = nilai spec (rentang_aman = batas wajar). Jarak dalam fraksi tinggi/lebar frame
+   (useVideoConfig), bukan px tetap.
+5. Ekspor: komponen bernama persis GantiUnitDiJangkar; `export const GantiUnitDiJangkarPropsSchema = z.object({...})` (zod 3; ReactNode pakai
+   z.custom<React.ReactNode>()). JSDoc di atas komponen: satu kalimat fungsi + "Pakai bila:" (pemicu spec) + "Jangan bila:".
+6. Demo.tsx: `export const Demo: React.FC<{ isian: IdIsian }>`; impor HANYA remotion, react, ./GantiUnitDiJangkar, ../../demo-netral/Netral
+   (ISIAN, IdIsian, PanggungNetral, WadahUji, KataUji). Teks diambil dari ISIAN[isian].kata, warna/huruf hanya lewat komponen kit.
+   Tanpa hex/rgb/nama warna/font di Demo.tsx. Satu unit = satu <KataUji> berisi satu kata (teks unik per unit), dibungkus GantiUnitDiJangkar.
+   Unit ke-i muncul pada frame onset[i] = [2, 12, 17, 32]; semua unit di SATU jangkar (pusat frame); unit ke-i tampil dari onset[i] sampai onset[i+1]-1, unit terakhir sampai akhir; tinggi huruf ±79 px;
+   isian "B" membungkus baris dengan <WadahUji> (kartu); isian "A" tanpa wadah. Durasi 45 frame @30 fps, ukuran 720x1280.
+7. meta.json: {"fungsi": satu kalimat, "width": 720, "height": 1280, "fps": 30, "durasi": 45, "catatan": "..."}.
+
+CARA DINILAI (uji transfer, otomatis; tidak ada perbandingan tampilan dengan referensi karena referensi tidak dipakai):
+Demo dirender DUA KALI: isian A dan isian B (token warna, huruf, teks, wadah berbeda). Posisi dan opasitas tiap unit diukur per
+frame dari DOM. Untuk SETIAP unit di KEDUA isian: muncul pada onset spec +-2 frame dengan opasitas >= 0,9 di frame pertama
+(potong, tanpa fade) dan >= 0,9 di frame terakhir sebelum diganti (potong keluar); unit berikut muncul tepat di frame sesudah unit
+lama hilang (tanpa celah, tanpa tumpang); tidak ada gerak posisi selama tampil (< 0,002 frame); pusat semua unit dalam
+`toleransi_jangkar` satu sama lain walau lebar unit berbeda. Plus kulit tidak bocor (warna dalam DeltaE 12 dari
+`jangan_dicuri.warna`, teks/objek/tata letak `jangan_dicuri`), teks tidak tertutup/terpotong, lint + tsc lulus. Lalu kritikus
+vision melihat strip kandidat A dan B saja bersama kalimat mekanik dan daftar jangan dicuri.
+
+BERHENTI DAN LAPOR (tulis /home/irfan/work/sd-audit25/claude/motion-graphic/pabrik/kandidat/GantiUnitDiJangkar/BERHENTI.md berisi alasan, jangan menebak) bila: angka spec saling bertentangan atau tidak cukup untuk
+menentukan gerak, atau mekanik tidak bisa dibuat tanpa menggambar benda/warna referensi.
+
+SPEC:
+{"versi": 4, "id": "tipografi-ganti-unit-di-jangkar", "kategori": "tipografi", "komponen": "GantiUnitDiJangkar", "mekanik": "Satu unit teks tampil sendirian di satu titik jangkar tetap; saat unit berikutnya tiba, unit lama hilang dan unit baru muncul di titik yang sama pada frame yang sama (potong 1 frame, tanpa transisi), pusatnya tetap di jangkar walau lebar unit berubah, dan tidak ada gerak posisi selama tampil.", "parameter": [{"nama": "ganti", "nilai": "potong 1 frame, unit lama hilang dan unit baru muncul di frame yang sama", "satuan": "-", "label": "measured", "inti": true, "bukti": "selisih frame 31,0 di f1, 4,2 di f11, 5,5 di f16, 24,6 di f31 (pergantian shot), 1,0 di f37; jumlah piksel teks berubah dalam 1 frame (11001 -> 8033 -> 5877)"}, {"nama": "jangkar_pusat", "nilai": [0.499, 0.504], "satuan": "fraksi (x lebar, y tinggi) frame", "label": "measured", "inti": true, "bukti": "pusat x (x0+x1)/2: 0.499, 0.498, 0.5015 untuk tiga unit pertama; cy 0.503-0.505; 90-imzache 8.5-10.2s, mask piksel > 235 di pita y 0.40-0.60"}, {"nama": "toleransi_jangkar", "nilai": 0.01, "satuan": "fraksi frame", "label": "measured", "inti": true, "bukti": "sebaran pusat x 0.0035 W dan y 0.002 H antar unit"}, {"nama": "geser_selama_tampil", "nilai": 0, "satuan": "fraksi tinggi frame", "label": "measured", "inti": true, "bukti": "x0/x1/cy identik antar frame selama tiap unit tampil (f1-f10, f11-f15, f16-f30)"}, {"nama": "lama_tampil", "nilai": [10, 5, 15, 6], "satuan": "frame @30 fps", "label": "measured", "inti": false, "bukti": "unit tampil f1-f10, f11-f15, f16-f30, f31-f36; ditentukan ucapan, jadi slot pemanggil"}], "potong": ["setiap pergantian unit"], "pemicu": [{"istilah": "caption jangkar di ruang tetap pembicara (dada, atas kepala, mulut) saat shot atau frasa berganti", "dari_catalog": true, "kartu": "M06"}], "alasan_bekerja": "Mata penonton tidak perlu berpindah tempat untuk membaca karena kata selalu muncul di titik yang sama, sehingga perhatian bisa tetap pada wajah dan ritme ucapan terasa dari pergantian kata, bukan dari gerak.", "slot": [{"nama": "unit", "isi": "daftar unit teks (kata/frasa) dan frame munculnya dari pemanggil, disinkronkan ke ucapan"}, {"nama": "jangkar", "isi": "titik jangkar (fraksi frame) dari pemanggil, mis. dada atau atas kepala pembicara"}, {"nama": "gaya_teks", "isi": "huruf, berat, warna, ukuran dari tema proyek"}], "jangan_dicuri": {"warna": ["#07090B", "#6A280A", "#27261E", "#403D33", "#3D1708", "#DE8545", "#AC4314", "#93684D", "#EFC13B", "#F6F8EF"], "bentuk": [], "objek": ["footage pembicara", "sumber cahaya oranye di latar", "ikon kecil di kiri kata"], "teks": ["Your", "video", "should", "never", "sit", "still"], "tata_letak": ["teks putih tebal tanpa latar di dada pembicara", "judul kuning bertumpuk di awal"]}, "uji": {"jenis": "unit-ganti", "demo": {"durasi": 45, "width": 720, "height": 1280, "onset": [2, 12, 17, 32]}}, "status_maks": "teruji", "sumber": {"fps_asli": 30, "frame_duplikat": {"frame": [41, 42, 43, 44], "periode": 1, "fps_animasi": 0.0, "catatan": "hanya frame diam berurutan (footage hampir tidak bergerak), bukan pola animasi"}}}
+
+MODE REVISI: berkas sudah ada di /home/irfan/work/sd-audit25/claude/motion-graphic/pabrik/kandidat/GantiUnitDiJangkar. Baca ketiganya, lalu SUNTING di tempat agar angka gerak memenuhi CARA DINILAI. Pertahankan
+yang sudah lulus. Jangan menambah dekorasi atau objek; perbaiki waktu, jarak, kurva, blur. Hasil ukur putaran sebelumnya:
+{"gagal": [], "dosa": {"j_A": "f2: 'Satu' tertutup 100%; f3: 'Satu' tertutup 100%; f4: 'Satu' tertutup 100%; f5: 'Satu' tertutup 100%", "j_B": "f2: 'Pagi' tertutup 100%; f3: 'Pagi' tertutup 100%; f4: 'Pagi' tertutup 100%; f5: 'Pagi' tertutup 100%"}, "metrik": {"A": [{"unit": "Satu", "muncul_frame": 2, "hilang_frame": 11, "op_awal": 1, "op_akhir": 1, "geser_maks": 0.0, "celah": 0}, {"unit": "dua", "muncul_frame": 12, "hilang_frame": 16, "op_awal": 1, "op_akhir": 1, "geser_maks": 0.0, "celah": 0}, {"unit": "tiga", "muncul_frame": 17, "hilang_frame": 31, "op_awal": 1, "op_akhir": 1, "geser_maks": 0.0, "celah": 0}, {"unit": "empat", "muncul_frame": 32, "hilang_frame": 44, "op_awal": 1, "op_akhir": 1, "geser_maks": 0.0, "celah": 0}], "B": [{"unit": "Pagi", "muncul_frame": 2, "hilang_frame": 11, "op_awal": 1, "op_akhir": 1, "geser_maks": 0.0, "celah": 0}, {"unit": "ini", "muncul_frame": 12, "hilang_frame": 16, "op_awal": 1, "op_akhir": 1, "geser_maks": 0.0, "celah": 0}, {"unit": "hujan", "muncul_frame": 17, "hilang_frame": 31, "op_awal": 1, "op_akhir": 1, "geser_maks": 0.0, "celah": 0}, {"unit": "reda", "muncul_frame": 32, "hilang_frame": 44, "op_awal": 1, "op_akhir": 1, "geser_maks": 0.0, "celah": 0}]}, "vision_revisi": [], "riwayat": [{"putaran": 1, "n_gagal": 0, "dosa": ["j_A", "j_B"]}]}

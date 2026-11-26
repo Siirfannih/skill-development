@@ -1,706 +1,615 @@
 {
- "versi": 1,
- "komponen": [
+ "versi": 3,
+ "primitif": [
   {
-   "nama": "AnchoredCaption",
-   "fungsi": "Caption satu atau dua kata berukuran tetap terkunci di titik tengah frame, kata diganti di tempat dengan potongan keras sementara gambar di belakangnya berganti terpisah.",
-   "kartu_sumber": [
-    "90.T1"
-   ],
-   "kategori": "tipografi",
-   "spec": "pabrik/spec/90-T1.json",
-   "props_schema": "z.object({ tokens: z.object({ teks: z.string(), bayang: z.string(), huruf: z.string(), }), /** Kata/frasa 1-2 kata; `mulai` = frame awal, berlaku sampai kata berikutnya. Urut menaik. */ kata: z.array(z.object({ teks: z.string(), mulai: z.number() })), /** Pergantian shot (potongan keras), terpisah dari kata. `scrim` 0..1 = kekuatan gradasi gelap di belakang caption. */ shot: z.array(z.object({ mulai: z.number(), scrim: z.number() })), /** Angka mekanik; bila kosong dipakai nilai dari spec (0,07 / -0,02 / 800 / 0,5 / 0,5 / 0,3). */ ukuran: z.number().optional(), trackingEm: z.number().optional(), bobot: z.number().optional(), x: z.number().optional(), y: z.number().optional(), scrimTinggi: z.number().optional(), })",
-   "demo_stills": [
-    "kandidat/AnchoredCaption/stills-r3/A-f010.jpg",
-    "kandidat/AnchoredCaption/stills-r3/A-f042.jpg",
-    "kandidat/AnchoredCaption/stills-r3/A-f070.jpg",
-    "kandidat/AnchoredCaption/stills-r3/A-f105.jpg",
-    "kandidat/AnchoredCaption/stills-r3/B-f010.jpg",
-    "kandidat/AnchoredCaption/stills-r3/B-f042.jpg",
-    "kandidat/AnchoredCaption/stills-r3/B-f070.jpg",
-    "kandidat/AnchoredCaption/stills-r3/B-f105.jpg"
-   ],
-   "lembar": "pabrik/kandidat/AnchoredCaption/lembar-r3.jpg",
-   "metrik_akhir": {
-    "banding": {
-     "per_still": [
-      {
-       "frame": 10,
-       "luma_range": 185.2,
-       "sat_p95": 0.643,
-       "fokus_pct": 45.6
-      },
-      {
-       "frame": 42,
-       "luma_range": 214.3,
-       "sat_p95": 0.644,
-       "fokus_pct": 58.0
-      },
-      {
-       "frame": 70,
-       "luma_range": 204.6,
-       "sat_p95": 0.644,
-       "fokus_pct": 29.9
-      },
-      {
-       "frame": 105,
-       "luma_range": 213.5,
-       "sat_p95": 0.644,
-       "fokus_pct": 55.0
-      }
-     ],
-     "f1_terpicu": 0,
-     "f3_jarang": 0,
-     "n": 4
+   "id": "kamera-geser-mundur-buka-sisi",
+   "komponen": "KameraGeserMundur",
+   "kategori": "kamera",
+   "fungsi": "Menggeser seluruh panggung menyamping 0,192 lebar frame sambil mengecil ke skala 0,88 pada kurva heavy, sehingga bidang baru terbuka di satu sisi frame lalu panggung ditahan.",
+   "mekanik": "Seluruh panggung bergeser menyamping sejauh ±0,19 lebar frame sambil mengecil ke ±0,88 skala pada kurva yang sama, sehingga bidang baru terbuka di satu sisi frame; gerak dimulai pelan, cepat di tengah, melambat sampai diam tanpa melewati posisi akhir, lalu panggung ditahan.",
+   "pemicu": [
+    {
+     "istilah": "demo fitur produk atau AI tool tanpa pembicara; urutan klik lalu hasil muncul; prompt terbaca",
+     "dari_catalog": true,
+     "kartu": "63"
     },
-    "pola_tengah": {
-     "sampel": 60,
-     "berturut_maks": 0
-    },
-    "probe": {
-     "frame_terprobe": 42,
-     "teks_kecil": 0,
-     "tabrakan": 0,
-     "tutup_j": 0,
-     "lapisan_o": 0,
-     "teks_tak_terlihat": 0
-    },
-    "palet": {
-     "cek_warna_nyasar": [],
-     "luar_palet": [],
-     "kulit_bocor": [],
-     "referensi_hex": [
-      "#53477f",
-      "#fbf7f5",
-      "#e3b96a",
-      "#362253",
-      "#bea4bf",
-      "#dac7d3",
-      "#070708",
-      "#f8f7f0"
-     ]
-    },
-    "latar": {
-     "dipakai": false
-    },
-    "gerak": {
-     "frame_berubah": 0.563,
-     "kategori": "tipografi",
-     "energi_korelasi": 0.047
-    },
-    "struktur": {
-     "statis": false,
-     "paired": 0.1704,
-     "tak_selaras": 0.1493,
-     "n": 8,
-     "per_sampel": [
-      {
-       "frame": 10,
-       "t_ref": 8.79,
-       "skor": 0.2736
-      },
-      {
-       "frame": 24,
-       "t_ref": 9.21,
-       "skor": 0.1977
-      },
-      {
-       "frame": 42,
-       "t_ref": 9.74,
-       "skor": 0.267
-      },
-      {
-       "frame": 48,
-       "t_ref": 9.91,
-       "skor": 0.3143
-      },
-      {
-       "frame": 70,
-       "t_ref": 10.56,
-       "skor": 0.066
-      },
-      {
-       "frame": 71,
-       "t_ref": 10.59,
-       "skor": 0.0711
-      },
-      {
-       "frame": 95,
-       "t_ref": 11.29,
-       "skor": 0.14
-      },
-      {
-       "frame": 105,
-       "t_ref": 11.59,
-       "skor": 0.0336
-      }
-     ]
-    },
-    "dua_token": {
-     "edge_struktur": 0.8149,
-     "ssim_struktur": 0.7724,
-     "selisih_piksel": 53.64
+    {
+     "istilah": "esai ide atau opini bernarasi tanpa wajah; kontras dua sisi; transisi teks ke bukti UI",
+     "dari_catalog": true,
+     "kartu": "80"
     }
+   ],
+   "alasan_bekerja": "Penonton tetap melihat bidang lama saat bidang baru terbuka di sisinya, jadi ia paham hubungan keduanya tanpa cut, dan perlambatan di akhir memberi tanda kapan mata boleh mulai membaca bidang baru.",
+   "slot": [
+    {
+     "nama": "panggung",
+     "isi": "isi panggung (bidang lama dan bidang baru) dari pemanggil"
+    },
+    {
+     "nama": "arah",
+     "isi": "sisi yang dibuka (kiri/kanan) = tanda geser_x"
+    },
+    {
+     "nama": "jarak_skala",
+     "isi": "geser_x dan skala_akhir dalam rentang aman, disesuaikan lebar bidang baru"
+    },
+    {
+     "nama": "mulai",
+     "isi": "frame mulai gerak, disinkronkan ke ucapan/aksi"
+    }
+   ],
+   "jangan_dicuri": {
+    "warna": [
+     "#201C20",
+     "#181417",
+     "#502A19",
+     "#F5B165",
+     "#E88052",
+     "#7E3E19",
+     "#B76140",
+     "#5D5053",
+     "#8992A1",
+     "#F0E9E7"
+    ],
+    "bentuk": [
+     "jendela aplikasi gelap dengan sudut membulat",
+     "baris ikon dock"
+    ],
+    "objek": [
+     "editor video",
+     "wallpaper pegunungan senja",
+     "dock aplikasi",
+     "panel chat dengan kotak prompt"
+    ],
+    "teks": [
+     "Change the background",
+     "Opus"
+    ],
+    "tata_letak": [
+     "jendela aplikasi di tengah di atas wallpaper dengan dock di bawah",
+     "panel gelap terbuka di kiri"
+    ]
    },
-   "putaran": 3,
+   "props_schema": "z.object({ children: z.custom<React.ReactNode>().optional(), /** Geser menyamping panggung, fraksi lebar frame. Positif = isi bergeser ke kanan (bidang baru terbuka di kiri). */ geser_x: z.number().min(-0.221).max(0.221).default(0.192), /** Skala isi di akhir gerak (akhir/awal), berpusat di tengah frame. */ skala_akhir: z.number().min(0.862).max(0.898).default(0.88), /** Geser vertikal, fraksi tinggi frame. Mekanik ini datar: biarkan 0. */ geser_y: z.number().default(0), /** Lama gerak dari progres 1 % sampai 99 %, dalam frame @ fps komposisi. */ durasi_1_99: z.number().min(29).max(33).default(31), /** Frame akhir tahan sebelum gerak (onset). */ mulai: z.number().default(11), /** Kurva berangkat `ancang` frame sebelum `mulai`; kaki kurva heavy datar, jadi panggung tetap tampak diam sampai `mulai`. */ ancang: z.number().min(0).max(4).default(2), })",
+   "kode": "pabrik/kandidat/KameraGeserMundur/KameraGeserMundur.tsx",
+   "parameter": [
+    {
+     "nama": "geser_x",
+     "nilai": 0.192,
+     "satuan": "fraksi lebar frame, isi bergeser ke kanan",
+     "label": "measured"
+    },
+    {
+     "nama": "skala_akhir",
+     "nilai": 0.88,
+     "satuan": "rasio skala isi (akhir/awal)",
+     "label": "measured"
+    },
+    {
+     "nama": "geser_y",
+     "nilai": 0,
+     "satuan": "fraksi tinggi frame",
+     "label": "measured"
+    },
+    {
+     "nama": "durasi_1_99",
+     "nilai": 31,
+     "satuan": "frame @30 fps (progres 1 % -> 99 %)",
+     "label": "measured"
+    },
+    {
+     "nama": "pantul",
+     "nilai": 0,
+     "satuan": "overshoot",
+     "label": "measured"
+    },
+    {
+     "nama": "tahan_sebelum",
+     "nilai": 11,
+     "satuan": "frame",
+     "label": "measured"
+    },
+    {
+     "nama": "cut",
+     "nilai": "tidak ada",
+     "satuan": "-",
+     "label": "measured"
+    }
+   ],
+   "spec": "pabrik/spec/kamera-geser-mundur-buka-sisi.json",
+   "arsip": "claude/motion-graphic/pabrik/arsip/63-motiongrapich.md",
+   "strip": {
+    "A": "pabrik/kandidat/KameraGeserMundur/strip-r2-A.jpg",
+    "B": "pabrik/kandidat/KameraGeserMundur/strip-r2-B.jpg"
+   },
+   "progres_plot": "pabrik/kandidat/KameraGeserMundur/progres-r2.png",
+   "metrik_transfer": {
+    "A": [
+     {
+      "geser_x": 0.2041,
+      "skala_akhir": 0.8808,
+      "geser_y_maks": 0.0006,
+      "potong": [],
+      "rms_progres_x": 0.0166,
+      "durasi_1_99_x": 32,
+      "lewat_x": 0.0,
+      "rms_progres_skala": 0.0256,
+      "durasi_1_99_skala": 30,
+      "lewat_skala": 0.0
+     }
+    ],
+    "B": [
+     {
+      "geser_x": 0.2042,
+      "skala_akhir": 0.8802,
+      "geser_y_maks": 0.0005,
+      "potong": [],
+      "rms_progres_x": 0.0166,
+      "durasi_1_99_x": 32,
+      "lewat_x": 0.0,
+      "rms_progres_skala": 0.0257,
+      "durasi_1_99_skala": 30,
+      "lewat_skala": 0.0
+     }
+    ]
+   },
+   "dosa": {},
+   "vision": {
+    "terbaca_A": "Ya",
+    "terbaca_B": "Ya",
+    "sama": "Ya",
+    "alasan": "Kedua strip diam dari f10 sampai f24. Mulai f28 seluruh panggung bergeser ke kanan sekitar 0,2 lebar frame sambil mengecil (teks dan wadah B tampak lebih kecil), dan berhenti di f37–f42. Frame f42, f46, dan f51 identik, jadi ada tahan di akhir tanpa terlihat lewat posisi akhir. Di B, wadahnya membuat bidang baru (latar lebih gelap) di sisi kiri dan bawah terlihat jelas. Di A gerak terbaca dari posisi dan ukuran teks, tetapi bidang yang terbuka sewarna dengan panggung sehingga kurang tampak. Posisi dan waktu di A dan B sama per frame. Tidak ada warna atau teks dari daftar yang muncul. Wadah B berupa kartu gelap bersudut membulat tanpa titlebar atau dock, jadi tidak saya hitung sebagai jendela aplikasi. Meski begitu, kartu ini paling dekat dengan butir larangan itu.",
+    "kulit_tercuri": []
+   },
+   "putaran": 2,
    "status": "teruji",
    "tanggal": "2026-11-26"
   },
   {
-   "nama": "ScaleLadder",
-   "fungsi": "Satu kata kunci melompat ke skala raksasa di atas footage dengan kata kecil tersebar di sekitarnya, tanpa ukuran perantara, dan bertahan melewati cut.",
-   "kartu_sumber": [
-    "46.T1"
-   ],
+   "id": "tipografi-ganti-unit-di-jangkar",
+   "komponen": "GantiUnitDiJangkar",
    "kategori": "tipografi",
-   "spec": "pabrik/spec/46-T1.json",
-   "props_schema": "z.object({ tokens: TokensSchema, kata: z.string(), // kata raksasa kecil: z.array(KataKecilSchema), // kata pendamping tersebar beratBesar: z.number(), beratKecil: z.number(), seed: z.number(), lebarRel: z.number().default(0.8), // lebar kata raksasa, fraksi lebar frame (0,47-0,98) pusatY: z.number().default(0.58), // pusat x-height, fraksi tinggi frame (0,5-0,62) lebarHurufEm: z.number().default(0.56), // perkiraan lebar rata-rata huruf (em) untuk memuat kata ke lebarRel tracking: z.number().default(-0.04), // em kecilRel: z.number().default(0.1), // ukuran font kata kecil, fraksi tinggi frame jedaHuruf: z.number().default(2), // frame antar huruf geser: z.number().default(0.08), // geser masuk, fraksi lebar elemen mulai: z.number().default(6), // frame awal huruf pertama mulaiKecil: z.number().default(26), // frame awal kata kecil pertama durMasuk: z.number().default(12), // frame per gerak masuk })",
-   "demo_stills": [
-    "kandidat/ScaleLadder/stills-r2/A-f012.jpg",
-    "kandidat/ScaleLadder/stills-r2/A-f034.jpg",
-    "kandidat/ScaleLadder/stills-r2/A-f050.jpg",
-    "kandidat/ScaleLadder/stills-r2/A-f090.jpg",
-    "kandidat/ScaleLadder/stills-r2/B-f012.jpg",
-    "kandidat/ScaleLadder/stills-r2/B-f034.jpg",
-    "kandidat/ScaleLadder/stills-r2/B-f050.jpg",
-    "kandidat/ScaleLadder/stills-r2/B-f090.jpg"
-   ],
-   "lembar": "pabrik/kandidat/ScaleLadder/lembar-r2.jpg",
-   "metrik_akhir": {
-    "banding": {
-     "per_still": [
-      {
-       "frame": 12,
-       "luma_range": 168.9,
-       "sat_p95": 0.357,
-       "fokus_pct": 53.6
-      },
-      {
-       "frame": 34,
-       "luma_range": 200.4,
-       "sat_p95": 0.632,
-       "fokus_pct": 91.6
-      },
-      {
-       "frame": 50,
-       "luma_range": 200.4,
-       "sat_p95": 0.632,
-       "fokus_pct": 55.6
-      },
-      {
-       "frame": 90,
-       "luma_range": 222.3,
-       "sat_p95": 0.632,
-       "fokus_pct": 48.0
-      }
-     ],
-     "f1_terpicu": 0,
-     "f3_jarang": 0,
-     "n": 4
-    },
-    "pola_tengah": {
-     "sampel": 48,
-     "berturut_maks": 0
-    },
-    "probe": {
-     "frame_terprobe": 34,
-     "teks_kecil": 0,
-     "tabrakan": 0,
-     "tutup_j": 0,
-     "lapisan_o": 0,
-     "teks_tak_terlihat": 0
-    },
-    "palet": {
-     "cek_warna_nyasar": [],
-     "luar_palet": [],
-     "kulit_bocor": [],
-     "referensi_hex": [
-      "#cdcdaa",
-      "#193411",
-      "#d1ec54",
-      "#90a738",
-      "#f2f5f5",
-      "#090709",
-      "#faf9f7",
-      "#382d2a"
-     ]
-    },
-    "latar": {
-     "dipakai": false
-    },
-    "gerak": {
-     "frame_berubah": 0.316,
-     "kategori": "tipografi"
-    },
-    "struktur": {
-     "statis": true,
-     "catatan": "referensi hanya keyframe: tidak ada metrik struktur/gerak temporal; status maksimum teruji-sebagian"
-    },
-    "dua_token": {
-     "edge_struktur": 0.9675,
-     "ssim_struktur": 0.0073,
-     "selisih_piksel": 146.87
+   "fungsi": "Menampilkan satu unit teks di titik jangkar tetap dan menggantinya dengan unit berikut lewat potong 1 frame, pusat terkunci di jangkar dan tanpa gerak posisi selama tampil.",
+   "mekanik": "Satu unit teks tampil sendirian di satu titik jangkar tetap; saat unit berikutnya tiba, unit lama hilang dan unit baru muncul di titik yang sama pada frame yang sama (potong 1 frame, tanpa transisi), pusatnya tetap di jangkar walau lebar unit berubah, dan tidak ada gerak posisi selama tampil.",
+   "pemicu": [
+    {
+     "istilah": "caption jangkar di ruang tetap pembicara (dada, atas kepala, mulut) saat shot atau frasa berganti",
+     "dari_catalog": true,
+     "kartu": "M06"
     }
+   ],
+   "alasan_bekerja": "Mata penonton tidak perlu berpindah tempat untuk membaca karena kata selalu muncul di titik yang sama, sehingga perhatian bisa tetap pada wajah dan ritme ucapan terasa dari pergantian kata, bukan dari gerak.",
+   "slot": [
+    {
+     "nama": "unit",
+     "isi": "daftar unit teks (kata/frasa) dan frame munculnya dari pemanggil, disinkronkan ke ucapan"
+    },
+    {
+     "nama": "jangkar",
+     "isi": "titik jangkar (fraksi frame) dari pemanggil, mis. dada atau atas kepala pembicara"
+    },
+    {
+     "nama": "gaya_teks",
+     "isi": "huruf, berat, warna, ukuran dari tema proyek"
+    }
+   ],
+   "jangan_dicuri": {
+    "warna": [
+     "#07090B",
+     "#6A280A",
+     "#27261E",
+     "#403D33",
+     "#3D1708",
+     "#DE8545",
+     "#AC4314",
+     "#93684D",
+     "#EFC13B",
+     "#F6F8EF"
+    ],
+    "bentuk": [],
+    "objek": [
+     "footage pembicara",
+     "sumber cahaya oranye di latar",
+     "ikon kecil di kiri kata"
+    ],
+    "teks": [
+     "Your",
+     "video",
+     "should",
+     "never",
+     "sit",
+     "still"
+    ],
+    "tata_letak": [
+     "teks putih tebal tanpa latar di dada pembicara",
+     "judul kuning bertumpuk di awal"
+    ]
+   },
+   "props_schema": "z.object({ /** Isi unit (kata/frasa) dari pemanggil; gaya teks sepenuhnya milik pemanggil. */ children: z.custom<React.ReactNode>(), /** Frame pertama unit tampil (potong masuk, opasitas penuh sejak frame ini). */ mulai: z.number().int().min(0).default(0), /** Frame terakhir unit tampil (inklusif). Kosong = tampil sampai akhir komposisi. Unit berikut sebaiknya mulai di sampai + 1. */ sampai: z.number().int().min(0).optional(), /** Titik jangkar x, fraksi lebar frame. Pusat unit selalu di sini walau lebar unit berubah. */ jangkarX: z.number().min(0).max(1).default(0.499), /** Titik jangkar y, fraksi tinggi frame. */ jangkarY: z.number().min(0).max(1).default(0.504), })",
+   "kode": "pabrik/kandidat/GantiUnitDiJangkar/GantiUnitDiJangkar.tsx",
+   "parameter": [
+    {
+     "nama": "ganti",
+     "nilai": "potong 1 frame, unit lama hilang dan unit baru muncul di frame yang sama",
+     "satuan": "-",
+     "label": "measured"
+    },
+    {
+     "nama": "jangkar_pusat",
+     "nilai": [
+      0.499,
+      0.504
+     ],
+     "satuan": "fraksi (x lebar, y tinggi) frame",
+     "label": "measured"
+    },
+    {
+     "nama": "toleransi_jangkar",
+     "nilai": 0.01,
+     "satuan": "fraksi frame",
+     "label": "measured"
+    },
+    {
+     "nama": "geser_selama_tampil",
+     "nilai": 0,
+     "satuan": "fraksi tinggi frame",
+     "label": "measured"
+    },
+    {
+     "nama": "lama_tampil",
+     "nilai": [
+      10,
+      5,
+      15,
+      6
+     ],
+     "satuan": "frame @30 fps",
+     "label": "measured"
+    }
+   ],
+   "spec": "pabrik/spec/tipografi-ganti-unit-di-jangkar.json",
+   "arsip": "claude/motion-graphic/pabrik/arsip/90-imzache.md",
+   "strip": {
+    "A": "pabrik/kandidat/GantiUnitDiJangkar/strip-r2-A.jpg",
+    "B": "pabrik/kandidat/GantiUnitDiJangkar/strip-r2-B.jpg"
+   },
+   "progres_plot": "pabrik/kandidat/GantiUnitDiJangkar/progres-r2.png",
+   "metrik_transfer": {
+    "A": [
+     {
+      "unit": "Satu",
+      "muncul_frame": 2,
+      "hilang_frame": 11,
+      "op_awal": 1,
+      "op_akhir": 1,
+      "geser_maks": 0.0,
+      "celah": 0
+     },
+     {
+      "unit": "dua",
+      "muncul_frame": 12,
+      "hilang_frame": 16,
+      "op_awal": 1,
+      "op_akhir": 1,
+      "geser_maks": 0.0,
+      "celah": 0
+     },
+     {
+      "unit": "tiga",
+      "muncul_frame": 17,
+      "hilang_frame": 31,
+      "op_awal": 1,
+      "op_akhir": 1,
+      "geser_maks": 0.0,
+      "celah": 0
+     },
+     {
+      "unit": "empat",
+      "muncul_frame": 32,
+      "hilang_frame": 44,
+      "op_awal": 1,
+      "op_akhir": 1,
+      "geser_maks": 0.0,
+      "celah": 0
+     }
+    ],
+    "B": [
+     {
+      "unit": "Pagi",
+      "muncul_frame": 2,
+      "hilang_frame": 11,
+      "op_awal": 1,
+      "op_akhir": 1,
+      "geser_maks": 0.0,
+      "celah": 0
+     },
+     {
+      "unit": "ini",
+      "muncul_frame": 12,
+      "hilang_frame": 16,
+      "op_awal": 1,
+      "op_akhir": 1,
+      "geser_maks": 0.0,
+      "celah": 0
+     },
+     {
+      "unit": "hujan",
+      "muncul_frame": 17,
+      "hilang_frame": 31,
+      "op_awal": 1,
+      "op_akhir": 1,
+      "geser_maks": 0.0,
+      "celah": 0
+     },
+     {
+      "unit": "reda",
+      "muncul_frame": 32,
+      "hilang_frame": 44,
+      "op_awal": 1,
+      "op_akhir": 1,
+      "geser_maks": 0.0,
+      "celah": 0
+     }
+    ]
+   },
+   "dosa": {},
+   "vision": {
+    "terbaca_A": "Ya",
+    "terbaca_B": "Ya",
+    "sama": "Ya",
+    "alasan": "A: 'Satu' tampil di f11, 'dua' muncul utuh di f12 dan bertahan sampai f16, lalu 'tiga' muncul utuh di f17 sampai f20. Tiap pergantian terjadi dalam 1 frame, tanpa fade, geser, skala, atau blur. Pusat teks tetap di tengah sel walau lebar kata berubah (Satu/dua/tiga), dan posisinya tidak bergerak selama tampil. B punya jadwal yang sama persis: 'Pagi' di f11, 'ini' di f12–f16, 'hujan' di f17–f20. Pergantiannya juga potong 1 frame, dan pusat pil serta teksnya tetap di jangkar tanpa gerak. Yang berbeda hanya isiannya: latar terang lawan gelap, teks tanpa wadah lawan pil, dan kata-katanya.",
+    "kulit_tercuri": []
    },
    "putaran": 2,
-   "status": "teruji-sebagian",
-   "tanggal": "2026-11-26",
-   "catatan": "spec dari keyframe statis: kurva/lintasan gerak adalah perkiraan, tidak diukur dari klip. Hanya keyframe statis 960x400, tanpa klip. Ukuran (x-height, lebar, posisi) diukur dari piksel gambar dan dibagi tinggi atau lebar frame. Presisi sekitar ±0,01–0,02. Kolom tinggi_rel di hierarki memakai ascender/cap-height karena skema meminta tinggi kapital atau ukuran font, jadi bukan x-height. Pola masuk per huruf (geser dari kiri, jeda 2 frame, geser sekitar 0,08 lebar elemen) dan 'bertahan melewati cut' diambil dari uraian kartu dan huruf 'around' yang terpotong di k2. Frame itu tidak cukup untuk mengukur kurva, durasi, atau besar geser. Semuanya perkiraan. Tracking -0,04 em diperkirakan dari kerapatan huruf, bukan diukur. Rasio 8x dipakai di 'life', 3,5x di 'understand'; keduanya dari dua adegan berbeda, bukan satu mekanik tunggal."
+   "status": "teruji",
+   "tanggal": "2026-11-26"
   },
   {
-   "nama": "UIActionScript",
-   "fungsi": "Jendela UI gelap mengambang di atas wallpaper: kalimat prompt diketik cepat, kamera melompat ±1,65× ke kotak prompt, hold berdrift, sapuan sel grid, lalu potong ke end card.",
-   "kartu_sumber": [
-    "63.T5"
-   ],
-   "kategori": "permukaan_ui",
-   "spec": "pabrik/spec/63-T5.json",
-   "props_schema": "z.object({ tokens: Tokens, seed: z.number(), isi: z.object({ prompt: z.string(), model: z.string(), mode: z.string(), jendelaJudul: z.string(), media: z.array(z.string()), preview: z.string(), properti: z.array(z.tuple([z.string(), z.string()])), trek: z.array(z.object({ label: z.string(), klip: z.array(z.object({ teks: z.string(), dari: z.number(), sampai: z.number() })) })), dock: z.array(z.string()), kartuAkhir: z.object({ judul: z.string(), sub: z.string() }), }), waktu: z.object({ ketikMulai: z.number(), /** huruf per detik */ lajuKetik: z.number(), punchAt: z.number(), /** 1 = potongan keras, 4-6 = whip */ punchFrames: z.number(), sweepMulai: z.number(), sweepFrames: z.number(), potongAt: z.number(), umurSel: z.number(), }), kamera: z.object({ zoom: z.number(), zoomHold: z.number(), /** posisi tengah kotak prompt setelah punch, fraksi tinggi frame */ kotakY: z.number(), /** tepi kanan kotak setelah punch, fraksi lebar frame */ kotakKanan: z.number(), /** amplitudo napas kamera, fraksi tinggi */ drift: z.number(), }), bobot: z.object({ biasa: z.number(), tebal: z.number() }), radius: z.number().default(0.2), border: z.object({ lebar: z.number(), opasitas: z.number() }).default({ lebar: 0.002, opasitas: 0.15 }), blur: z.number().default(0.012), bayangan: z .object({ offset_x: z.number(), offset_y: z.number(), blur: z.number(), opasitas: z.number() }) .default({ offset_x: 0, offset_y: 0.012, blur: 0.035, opasitas: 0.35 }), })",
-   "demo_stills": [
-    "kandidat/UIActionScript/stills-r3/A-f028.jpg",
-    "kandidat/UIActionScript/stills-r3/A-f050.jpg",
-    "kandidat/UIActionScript/stills-r3/A-f074.jpg",
-    "kandidat/UIActionScript/stills-r3/A-f095.jpg",
-    "kandidat/UIActionScript/stills-r3/B-f028.jpg",
-    "kandidat/UIActionScript/stills-r3/B-f050.jpg",
-    "kandidat/UIActionScript/stills-r3/B-f074.jpg",
-    "kandidat/UIActionScript/stills-r3/B-f095.jpg"
-   ],
-   "lembar": "pabrik/kandidat/UIActionScript/lembar-r3.jpg",
-   "metrik_akhir": {
-    "banding": {
-     "per_still": [
-      {
-       "frame": 28,
-       "luma_range": 163.5,
-       "sat_p95": 0.649,
-       "fokus_pct": 80.6
-      },
-      {
-       "frame": 50,
-       "luma_range": 227.3,
-       "sat_p95": 0.653,
-       "fokus_pct": 33.2
-      },
-      {
-       "frame": 74,
-       "luma_range": 226.3,
-       "sat_p95": 0.652,
-       "fokus_pct": 40.7
-      },
-      {
-       "frame": 95,
-       "luma_range": 31.6,
-       "sat_p95": 0.65,
-       "fokus_pct": 5.2
-      }
-     ],
-     "f1_terpicu": 0,
-     "f3_jarang": 0,
-     "n": 4
-    },
-    "pola_tengah": {
-     "sampel": 52,
-     "berturut_maks": 0
-    },
-    "probe": {
-     "frame_terprobe": 39,
-     "teks_kecil": 0,
-     "tabrakan": 0,
-     "tutup_j": 253,
-     "lapisan_o": 253,
-     "teks_tak_terlihat": 0
-    },
-    "palet": {
-     "cek_warna_nyasar": [],
-     "luar_palet": [],
-     "kulit_bocor": [],
-     "referensi_hex": [
-      "#1b1619",
-      "#eae1de",
-      "#dc7148",
-      "#ba5e43",
-      "#522a17"
-     ]
-    },
-    "latar": {
-     "dipakai": false
-    },
-    "gerak": {
-     "frame_berubah": 0.437,
-     "kategori": "permukaan_ui",
-     "energi_korelasi": -0.079
-    },
-    "struktur": {
-     "statis": false,
-     "paired": 0.1251,
-     "tak_selaras": 0.108,
-     "n": 8,
-     "per_sampel": [
-      {
-       "frame": 21,
-       "t_ref": 27.11,
-       "skor": 0.1816
-      },
-      {
-       "frame": 28,
-       "t_ref": 27.32,
-       "skor": 0.1714
-      },
-      {
-       "frame": 41,
-       "t_ref": 27.69,
-       "skor": 0.1248
-      },
-      {
-       "frame": 50,
-       "t_ref": 27.96,
-       "skor": 0.115
-      },
-      {
-       "frame": 62,
-       "t_ref": 28.31,
-       "skor": 0.1155
-      },
-      {
-       "frame": 74,
-       "t_ref": 28.66,
-       "skor": 0.1064
-      },
-      {
-       "frame": 82,
-       "t_ref": 28.89,
-       "skor": 0.0698
-      },
-      {
-       "frame": 95,
-       "t_ref": 29.27,
-       "skor": 0.1162
-      }
-     ]
-    },
-    "dua_token": {
-     "edge_struktur": 0.9572,
-     "ssim_struktur": 0.8138,
-     "selisih_piksel": 32.75
-    }
-   },
-   "putaran": 3,
-   "status": "ditolak",
-   "tanggal": "2026-11-26",
-   "alasan": [
-    "DOSA j: f3: 'Media' tertutup 100%; f3: 'klip-01' tertutup 100%; f3: 'klip-02' tertutup 100%; f3: 'Cerita Awal' tertutup 100%; f3: '100%' tertutup 100%",
-    "DOSA o: f3: lapisan non-teks di atas 'Media' (100% titik); f3: lapisan non-teks di atas 'klip-01' (100% titik); f3: lapisan non-teks di atas 'klip-02' (100% titik); f3: lapisan non-teks di atas 'Cerita Awal' (100% titik); f3: lapisan non-teks di atas '100%' (100% titik)",
-    "DOSA q: vision baris 3 (f74): Sapuan sel grid biru (x≈660–840, y≈622–700) menutupi 'tambah musik dan sfx' di kotak prompt. Sebagian huruf ('tambah', 'musik') berada di bawah blok biru dan kontrasnya turun. Label 'Sedang' juga tertutup sel.",
-    "struktur selaras waktu 0.125 < max(0.15, tak-selaras 0.108)"
-   ]
-  },
-  {
-   "nama": "WordBeat",
-   "fungsi": "Membangun kalimat pendek satu kata per ketukan pada skala raksasa dengan blur gerak dan bentuk kecil sebagai tanda baca, lalu menarik seluruh grup mengecil menjadi satu baris judul.",
-   "kartu_sumber": [
-    "07.T1"
-   ],
+   "id": "tipografi-unit-masuk-meluncur",
+   "komponen": "UnitMasukMeluncur",
    "kategori": "tipografi",
-   "spec": "pabrik/spec/07-T1.json",
-   "props_schema": "z.object({ tokens: z.object({ latar: z.string(), permukaan: z.string(), tinta: z.string(), redup: z.string(), aksen: z.string(), aksen2: z.string(), huruf: z.string(), }), /** kalimat, satu kata per ketukan (maks 6) */ kata: z.array(z.string()).min(1).max(6), /** kunci token warna saat tiap kata \"dipukul\" (panjang = jumlah kata) */ warnaKata: z.array(KUNCI_WARNA), /** indeks kata yang tetap berwarna aksen di baris akhir (satu atau dua) */ tetapAksen: z.array(z.number().int().min(0)), /** bentuk kecil sebagai tanda baca: disisipkan setelah kata ke-`setelah` */ sisip: z .array( z.object({ setelah: z.number().int().min(0), bentuk: z.enum([\"kotak\", \"lingkaran\", \"seperempat\"]), warna: KUNCI_WARNA, warna2: KUNCI_WARNA.optional(), /** pengali sisi bentuk */ skala: z.number().default(1), /** rotasi (derajat) */ rot: z.number().default(0), /** geser vertikal, kali sisi bentuk (positif = ke bawah) */ geser: z.number().default(0), }) ) .optional(), /** kata tunggal berikutnya (skala kecil) dengan bentuk buram tersebar */ kataAkhir: z.string().optional(), tebar: z .array( z.object({ x: z.number(), y: z.number(), /** sisi sebagai fraksi lebar frame */ sisi: z.number(), bentuk: z.enum([\"kotak\", \"lingkaran\", \"seperempat\"]), warna: KUNCI_WARNA, rot: z.number().default(0), /** kekuatan bentuk (0-1) */ alfa: z.number().optional(), }) ) .optional(), /** tinggi kapital kata tunggal berikutnya (fraksi tinggi frame) */ kapitalTunggal: z.number().default(0.07), /** blur sisa pada bentuk tersebar (fraksi tinggi frame) */ blurFoto: z.number().default(0.008), /** jeda baris kecil ditahan sebelum diganti (frame) */ tahanBaris: z.number().default(10), /** frame mulai bentuk tersebar masuk (kosong = saat kata ke-3 dipukul) */ mulaiTebarAt: z.number().optional(), /** lama bentuk tersebar masuk (frame) */ durTebar: z.number().default(18), bobot: z.number(), mulai: z.number().default(0), /** jarak ketukan (frame) */ jarakKetukan: z.number().default(8), /** kata sependek ini (huruf) diberi jeda lebih singkat */ panjangPendek: z.number().default(3), faktorPendek: z.number().default(0.75), /** durasi masuk (frame) */ masukFrames: z.number().default(9), /** tinggi kapital kata raksasa (fraksi tinggi frame) */ kapitalRaksasa: z.number().default(0.2), /** tinggi kapital baris akhir (fraksi tinggi frame) */ kapitalAkhir: z.number().default(0.045), /** tinggi kapital / ukuran huruf (em) */ rasioKapital: z.number().default(0.7), /** pusat vertikal saat dibangun (fraksi tinggi frame) */ pusatY: z.number().default(0.52), /** celah antar kata, kali tinggi kapital */ celahKapital: z.number().default(0.25), trackingEm: z.number().default(0), /** blur gerak horizontal awal (fraksi tinggi frame) */ blurMaks: z.number().default(0.045), /** naik dari bawah saat masuk, kali tinggi kapital */ naikKapital: z.number().default(0.1), /** sisi bentuk sisipan (fraksi tinggi frame, ukuran raksasa) */ sisiBentuk: z.number().default(0.18), /** tepi kanan kata terbaru ditahan di fraksi lebar ini */ jangkarX: z.number().default(0.88), /** margin kiri awal (fraksi lebar) */ margin: z.number().default(0.06), /** durasi gerak kamera mengikuti kata (frame) */ durKamera: z.number().default(9), /** jeda setelah kata terakhir sebelum ditarik (frame) */ tahanSebelumTarik: z.number().default(3), /** durasi penarikan akhir (frame) */ durTarik: z.number().default(30), })",
-   "demo_stills": [
-    "kandidat/WordBeat/stills-r3/A-f004.jpg",
-    "kandidat/WordBeat/stills-r3/A-f026.jpg",
-    "kandidat/WordBeat/stills-r3/A-f050.jpg",
-    "kandidat/WordBeat/stills-r3/A-f100.jpg",
-    "kandidat/WordBeat/stills-r3/B-f004.jpg",
-    "kandidat/WordBeat/stills-r3/B-f026.jpg",
-    "kandidat/WordBeat/stills-r3/B-f050.jpg",
-    "kandidat/WordBeat/stills-r3/B-f100.jpg"
-   ],
-   "lembar": "pabrik/kandidat/WordBeat/lembar-r3.jpg",
-   "metrik_akhir": {
-    "banding": {
-     "per_still": [
-      {
-       "frame": 4,
-       "luma_range": 107.7,
-       "sat_p95": 0.494,
-       "fokus_pct": 8.6
-      },
-      {
-       "frame": 26,
-       "luma_range": 207.0,
-       "sat_p95": 0.632,
-       "fokus_pct": 11.1
-      },
-      {
-       "frame": 50,
-       "luma_range": 102.9,
-       "sat_p95": 0.399,
-       "fokus_pct": 5.3
-      },
-      {
-       "frame": 100,
-       "luma_range": 98.1,
-       "sat_p95": 0.354,
-       "fokus_pct": 5.2
-      }
-     ],
-     "f1_terpicu": 0,
-     "f3_jarang": 0,
-     "n": 4
+   "fungsi": "Memunculkan unit teks utuh dalam satu frame di posisi tergeser ke bawah dan kabur, lalu meluncurkannya ke posisi diam selama ±7 frame dengan perlambatan tanpa pantul sambil ketajamannya pulih.",
+   "mekanik": "Unit teks baru muncul penuh dalam satu frame di posisi yang tergeser ke bawah (dan boleh sedikit ke samping) dari tempat diamnya, kabur di frame pertama, lalu meluncur ke tempat diam selama ±7 frame dengan perlambatan dan berhenti tanpa memantul; ketajaman pulih sepanjang luncuran.",
+   "pemicu": [
+    {
+     "istilah": "relay kata per beat di pusat frame; teks blur ke tajam",
+     "dari_catalog": true,
+     "kartu": "M07"
     },
-    "pola_tengah": {
-     "sampel": 60,
-     "berturut_maks": 1
-    },
-    "probe": {
-     "frame_terprobe": 44,
-     "teks_kecil": 0,
-     "tabrakan": 0,
-     "tutup_j": 28,
-     "lapisan_o": 0,
-     "teks_tak_terlihat": 0
-    },
-    "palet": {
-     "cek_warna_nyasar": [],
-     "luar_palet": [],
-     "kulit_bocor": [],
-     "referensi_hex": [
-      "#fbf6f3",
-      "#080905",
-      "#356341",
-      "#d0d1e0",
-      "#726c66",
-      "#2f2a26"
-     ]
-    },
-    "latar": {
-     "dipakai": false
-    },
-    "gerak": {
-     "frame_berubah": 0.454,
-     "kategori": "tipografi",
-     "energi_korelasi": -0.026
-    },
-    "struktur": {
-     "statis": false,
-     "paired": 0.3928,
-     "tak_selaras": 0.3489,
-     "n": 8,
-     "per_sampel": [
-      {
-       "frame": 4,
-       "t_ref": 0.13,
-       "skor": 0.4983
-      },
-      {
-       "frame": 24,
-       "t_ref": 0.81,
-       "skor": 0.3275
-      },
-      {
-       "frame": 26,
-       "t_ref": 0.87,
-       "skor": 0.3274
-      },
-      {
-       "frame": 48,
-       "t_ref": 1.61,
-       "skor": 0.4674
-      },
-      {
-       "frame": 50,
-       "t_ref": 1.68,
-       "skor": 0.4756
-      },
-      {
-       "frame": 71,
-       "t_ref": 2.39,
-       "skor": 0.4465
-      },
-      {
-       "frame": 95,
-       "t_ref": 3.19,
-       "skor": 0.2959
-      },
-      {
-       "frame": 100,
-       "t_ref": 3.36,
-       "skor": 0.304
-      }
-     ]
-    },
-    "dua_token": {
-     "edge_struktur": 0.9997,
-     "ssim_struktur": 0.624,
-     "selisih_piksel": 211.99
+    {
+     "istilah": "kalimat dibangun kata demi kata mengikuti ucapan",
+     "dari_catalog": false
     }
+   ],
+   "alasan_bekerja": "Kata baru langsung hadir tepat saat diucapkan sehingga penonton tidak menunggu, dan luncuran pendek yang melambat menarik mata ke kata terbaru lalu memberi tanda kapan kata itu siap dibaca.",
+   "slot": [
+    {
+     "nama": "unit",
+     "isi": "isi teks (kata, huruf, angka) dari pemanggil; satu unit per pemanggilan"
+    },
+    {
+     "nama": "gaya_teks",
+     "isi": "huruf, berat, warna, ukuran dari tema proyek; primitif tidak menetapkan"
+    },
+    {
+     "nama": "wadah",
+     "isi": "posisi diam dan wadah ditentukan pemanggil; primitif hanya menggeser relatif ke posisi diam"
+    },
+    {
+     "nama": "arah_offset",
+     "isi": "vektor offset awal (bawah, bawah-kanan); besaran dalam fraksi tinggi frame"
+    },
+    {
+     "nama": "mulai",
+     "isi": "frame kemunculan, disinkronkan pemanggil ke ucapan"
+    }
+   ],
+   "jangan_dicuri": {
+    "warna": [
+     "#FAFAFA",
+     "#2C5C39",
+     "#E84E4A",
+     "#506DF1",
+     "#F3CD69",
+     "#ED827D",
+     "#834538",
+     "#E4CCBC",
+     "#302C2A"
+    ],
+    "bentuk": [
+     "potongan foto persegi miring di sela kata"
+    ],
+    "objek": [
+     "foto atau kolase gambar di antara kata",
+     "stiker gambar"
+    ],
+    "teks": [
+     "What",
+     "makes",
+     "your",
+     "company",
+     "unique"
+    ],
+    "tata_letak": [
+     "satu baris kalimat tumbuh ke kanan dengan sisipan gambar di tengah baris",
+     "warna aksen berbeda per kata yang lalu berubah ke warna dasar"
+    ]
    },
-   "putaran": 3,
-   "status": "ditolak",
-   "tanggal": "2026-11-26",
-   "alasan": [
-    "DOSA c: vision: Baris 2-4: kuadran biru besar di kiri bawah, lingkaran gelap di kiri atas, lingkaran biru di tengah atas, dan kotak abu-abu buram di kanan atas dan bawah. Semuanya shape generik tanpa isi. Kalau dihapus, pesan 'Satu kata tiap ketukan' tidak berkurang. Tidak ada foto yang menjadi tanda baca seperti di referensi.",
-    "DOSA f: vision: Baris 1: 'kata' sangat buram (blur horizontal berat) dan sama sekali tidak terbaca di f4. Baris 2-4: shape dekoratif sengaja diburamkan, tetapi teksnya tajam. Cacat yang jelas ada di baris 1, pada konten yang harus dibaca.",
-    "DOSA j: f12: 'kata' tertutup 17%; f24: 'ketuk' tertutup 12%; f26: 'ketuk' tertutup 17%; f27: 'ketuk' tertutup 17%; f30: 'ketuk' tertutup 17%",
-    "DOSA j3: jangkar j3 (zona biru selalu di pojok kanan bawah ya...): Baris 2, 3, dan 4 memakai komposisi shape yang sama persis di posisi yang sama: kuadran biru di kiri bawah, lingkaran gelap di kiri atas, kotak abu-abu di kanan. Itu pola template tetap seperti zona biru di pojok pada j3. Shape tidak berubah tempat dan hampir tidak bergerak antar frame. Pada baris 4 shape juga tidak mengelilingi kata secara rapat, sehingga terasa seperti dekorasi pojok.",
-    "DOSA q: vision baris 2 (f26): Kuadran biru besar di kiri bawah menyentuh dan sedikit menimpa bagian bawah huruf 'p' di 'tiap'. Huruf 'i' dan 'a' di tepi kiri juga terpotong frame. Tapi 'tiap' seharusnya masih terbaca.",
-    "DOSA r: vision baris 1 (f4): 'Satu' menempel di tepi kiri frame dan nyaris terpotong. 'kata' terlalu buram, mirip artefak render. Celah antar kata dan kotak lebar sekali, jauh dari 'rapat'."
-   ]
-  },
-  {
-   "nama": "WorldStage",
-   "fungsi": "Satu dunia datar (latar, jendela UI, dock, panel chat) digerakkan sebagai satu grup oleh kamera 2D virtual: geser memberi ruang bagi panel, lalu punch ke sudut kiri-bawah.",
-   "kartu_sumber": [
-    "63.T1"
-   ],
-   "kategori": "gerak_kamera",
-   "spec": "pabrik/spec/63-T1.json",
-   "props_schema": "z.object({ tokens: z.object({ latar: z.string(), permukaan: z.string(), tinta: z.string(), redup: z.string(), aksen: z.string(), aksen2: z.string(), jendela: z.string(), // permukaan gelap UI (jendela dan panel) teksJendela: z.string(), // teks di atas jendela huruf: z.string(), }), bobot: z.number(), seed: z.number(), teks: z.object({ judulJendela: z.string(), pratinjau: z.string(), inspektur: z.array(z.tuple([z.string(), z.string()])), klip: z.array(z.string()), judulPanel: z.string(), pesanPengguna: z.string(), balasan: z.string(), prompt: z.string(), ikonDock: z.array(z.string()), }), mulai: z.number().default(12), // frame saat t = 0 (setelah transisi grid) durasiDetik: z.number().default(2.5), kurva: z.enum(curveNames).default(\"reveal\"), kunci: z .array(KeySchema) .default([ { t: 0, cx: 0.5, cy: 0.5, skala: 1 }, { t: 0.26, cx: 0.5, cy: 0.5, skala: 1 }, { t: 0.5, cx: 0.302, cy: 0.5, skala: 0.91 }, { t: 0.7, cx: 0.302, cy: 0.5, skala: 0.91 }, { t: 0.8, cx: 0.07, cy: 0.75, skala: 2.1 }, { t: 1.0, cx: 0.07, cy: 0.75, skala: 2.15, kurva: \"drift\" }, ]), kisi: z.object({ kolom: z.number(), baris: z.number() }).default({ kolom: 16, baris: 9 }), kisiMulai: z.number().default(1), kisiJeda: z.number().default(0.4), driftAmp: z.number().default(0.004), // fraksi tinggi ketikOffset: z.number().default(2), ketikDurasi: z.number().default(14), teksMuncul: z.number().default(7), })",
-   "demo_stills": [
-    "kandidat/WorldStage/stills-r3/A-f012.jpg",
-    "kandidat/WorldStage/stills-r3/A-f052.jpg",
-    "kandidat/WorldStage/stills-r3/A-f076.jpg",
-    "kandidat/WorldStage/stills-r3/A-f104.jpg",
-    "kandidat/WorldStage/stills-r3/B-f012.jpg",
-    "kandidat/WorldStage/stills-r3/B-f052.jpg",
-    "kandidat/WorldStage/stills-r3/B-f076.jpg",
-    "kandidat/WorldStage/stills-r3/B-f104.jpg"
-   ],
-   "lembar": "pabrik/kandidat/WorldStage/lembar-r3.jpg",
-   "metrik_akhir": {
-    "banding": {
-     "per_still": [
-      {
-       "frame": 12,
-       "luma_range": 139.4,
-       "sat_p95": 0.632,
-       "fokus_pct": 64.2
-      },
-      {
-       "frame": 52,
-       "luma_range": 131.0,
-       "sat_p95": 0.632,
-       "fokus_pct": 33.7
-      },
-      {
-       "frame": 76,
-       "luma_range": 132.4,
-       "sat_p95": 0.632,
-       "fokus_pct": 32.6
-      },
-      {
-       "frame": 104,
-       "luma_range": 128.1,
-       "sat_p95": 0.632,
-       "fokus_pct": 18.2
-      }
+   "props_schema": "z.object({ /** Isi unit (kata, huruf, angka) beserta gayanya; datang dari pemanggil. */ children: z.custom<React.ReactNode>(), /** Frame kemunculan unit (potong 1 frame, opasitas 0 -> penuh). */ mulai: z.number().int().min(0).default(0), /** Lama luncuran dari frame pertama sampai diam, dalam frame. */ durasiLuncur: z.number().min(5).max(9).default(7), /** Offset awal ke bawah, fraksi tinggi frame. */ offsetY: z.number().min(0.1).max(0.2).default(0.153), /** Offset awal ke kanan, fraksi lebar frame. */ offsetX: z.number().min(0).max(0.19).default(0.022), /** Blur di frame pertama, fraksi tinggi frame (px blur / tinggi frame). */ blurAwal: z.number().min(0.005).max(0.02).default(0.01), })",
+   "kode": "pabrik/kandidat/UnitMasukMeluncur/UnitMasukMeluncur.tsx",
+   "parameter": [
+    {
+     "nama": "muncul",
+     "nilai": "potong 1 frame (opasitas 0 -> penuh)",
+     "satuan": "-",
+     "label": "measured"
+    },
+    {
+     "nama": "offset_awal_y",
+     "nilai": [
+      0.149,
+      0.158
      ],
-     "f1_terpicu": 0,
-     "f3_jarang": 0,
-     "n": 4
+     "satuan": "fraksi tinggi frame, ke bawah",
+     "label": "measured"
     },
-    "pola_tengah": {
-     "sampel": 60,
-     "berturut_maks": 0
+    {
+     "nama": "offset_awal_x",
+     "nilai": [
+      0.022,
+      0.187
+     ],
+     "satuan": "fraksi lebar frame, ke kanan",
+     "label": "measured"
     },
-    "probe": {
-     "frame_terprobe": 43,
-     "teks_kecil": 0,
-     "tabrakan": 0,
-     "tutup_j": 0,
-     "lapisan_o": 0,
-     "teks_tak_terlihat": 0
+    {
+     "nama": "durasi_luncur",
+     "nilai": 7,
+     "satuan": "frame @30 fps",
+     "label": "measured"
     },
-    "palet": {
-     "cek_warna_nyasar": [],
-     "luar_palet": [],
-     "kulit_bocor": [],
-     "referensi_hex": [
-      "#1b171a",
-      "#ebe5e4",
-      "#e98349",
-      "#db7549",
-      "#542a13"
-     ]
+    {
+     "nama": "ketajaman_awal_relatif",
+     "nilai": [
+      0.84,
+      0.42
+     ],
+     "satuan": "|Laplacian| frame pertama / frame diam",
+     "label": "measured"
     },
-    "latar": {
-     "dipakai": false
+    {
+     "nama": "blur_awal",
+     "nilai": 0.01,
+     "satuan": "px blur / tinggi frame",
+     "label": "estimated"
     },
-    "gerak": {
-     "frame_berubah": 0.513,
-     "kategori": "gerak_kamera",
-     "energi_korelasi": -0.338,
-     "rentang_centroid": 0.1074,
-     "lintasan": {
-      "rms": 0.3331,
-      "rasio_durasi": 0.253,
-      "durasi": 0.633,
-      "n_segmen": 3
+    {
+     "nama": "pantul",
+     "nilai": 0,
+     "satuan": "overshoot",
+     "label": "measured"
+    }
+   ],
+   "spec": "pabrik/spec/tipografi-unit-masuk-meluncur.json",
+   "arsip": "claude/motion-graphic/pabrik/arsip/07-baikov-teks-sfx-cut.md",
+   "strip": {
+    "A": "pabrik/kandidat/UnitMasukMeluncur/strip-r1-A.jpg",
+    "B": "pabrik/kandidat/UnitMasukMeluncur/strip-r1-B.jpg"
+   },
+   "progres_plot": "pabrik/kandidat/UnitMasukMeluncur/progres-r1.png",
+   "metrik_transfer": {
+    "A": [
+     {
+      "unit": "Satu",
+      "muncul_frame": 3,
+      "op_awal": 1,
+      "offset_y": 0.153,
+      "offset_x": 0.022,
+      "durasi_luncur": 7,
+      "rms_progres": 0.0114,
+      "lewat_diam": 0.0,
+      "blur_awal": 0.01,
+      "blur_diam": 0
+     },
+     {
+      "unit": "dua",
+      "muncul_frame": 15,
+      "op_awal": 1,
+      "offset_y": 0.153,
+      "offset_x": 0.022,
+      "durasi_luncur": 7,
+      "rms_progres": 0.0114,
+      "lewat_diam": 0.0,
+      "blur_awal": 0.01,
+      "blur_diam": 0
+     },
+     {
+      "unit": "tiga",
+      "muncul_frame": 27,
+      "op_awal": 1,
+      "offset_y": 0.153,
+      "offset_x": 0.022,
+      "durasi_luncur": 7,
+      "rms_progres": 0.0114,
+      "lewat_diam": 0.0,
+      "blur_awal": 0.01,
+      "blur_diam": 0
+     },
+     {
+      "unit": "empat",
+      "muncul_frame": 39,
+      "op_awal": 1,
+      "offset_y": 0.153,
+      "offset_x": 0.022,
+      "durasi_luncur": 7,
+      "rms_progres": 0.0114,
+      "lewat_diam": 0.0,
+      "blur_awal": 0.01,
+      "blur_diam": 0
      }
-    },
-    "struktur": {
-     "statis": false,
-     "paired": 0.1341,
-     "tak_selaras": 0.1239,
-     "n": 8,
-     "per_sampel": [
-      {
-       "frame": 12,
-       "t_ref": 12.76,
-       "skor": 0.1343
-      },
-      {
-       "frame": 24,
-       "t_ref": 13.13,
-       "skor": 0.094
-      },
-      {
-       "frame": 48,
-       "t_ref": 13.85,
-       "skor": 0.104
-      },
-      {
-       "frame": 52,
-       "t_ref": 13.97,
-       "skor": 0.097
-      },
-      {
-       "frame": 71,
-       "t_ref": 14.55,
-       "skor": 0.1678
-      },
-      {
-       "frame": 76,
-       "t_ref": 14.7,
-       "skor": 0.1905
-      },
-      {
-       "frame": 95,
-       "t_ref": 15.27,
-       "skor": 0.1355
-      },
-      {
-       "frame": 104,
-       "t_ref": 15.55,
-       "skor": 0.1494
-      }
-     ]
-    },
-    "dua_token": {
-     "edge_struktur": 0.987,
-     "ssim_struktur": 0.745,
-     "selisih_piksel": 42.46
-    }
+    ],
+    "B": [
+     {
+      "unit": "Pagi",
+      "muncul_frame": 3,
+      "op_awal": 1,
+      "offset_y": 0.153,
+      "offset_x": 0.022,
+      "durasi_luncur": 7,
+      "rms_progres": 0.0114,
+      "lewat_diam": 0.0,
+      "blur_awal": 0.01,
+      "blur_diam": 0
+     },
+     {
+      "unit": "ini",
+      "muncul_frame": 15,
+      "op_awal": 1,
+      "offset_y": 0.153,
+      "offset_x": 0.022,
+      "durasi_luncur": 7,
+      "rms_progres": 0.0114,
+      "lewat_diam": 0.0,
+      "blur_awal": 0.01,
+      "blur_diam": 0
+     },
+     {
+      "unit": "hujan",
+      "muncul_frame": 27,
+      "op_awal": 1,
+      "offset_y": 0.153,
+      "offset_x": 0.022,
+      "durasi_luncur": 7,
+      "rms_progres": 0.0114,
+      "lewat_diam": 0.0,
+      "blur_awal": 0.01,
+      "blur_diam": 0
+     },
+     {
+      "unit": "reda",
+      "muncul_frame": 39,
+      "op_awal": 1,
+      "offset_y": 0.153,
+      "offset_x": 0.022,
+      "durasi_luncur": 7,
+      "rms_progres": 0.0114,
+      "lewat_diam": 0.0,
+      "blur_awal": 0.01,
+      "blur_diam": 0
+     }
+    ]
    },
-   "putaran": 3,
-   "status": "ditolak",
-   "tanggal": "2026-11-26",
-   "alasan": [
-    "DOSA g: vision: Baris 1-3: grafik 'Pratinjau' hanya satu kurva ease di kotak navy kosong, tanpa preview video. Ini kotak pengganti preview. Baris 2-3: kolom kiri 'Asisten' kosong di tengah. Track V1/V2/A1 berupa balok biru berlabel dan waveform batang seragam, yang terbaca sebagai stand-in dari timeline Premiere di referensi. Ragu: sebagian ini bisa dibaca sebagai desain minimal sengaja, tapi preview kosong jelas terlihat.",
-    "DOSA q: vision baris 4 (f104): Punch zoom memotong panel kanan: label 'V1 V2 A1' terpotong di tepi atas kanan. Jendela hanya terlihat sebagian dan ikon dock terpotong di tepi bawah (tombol putar terpotong di x=966). Tepi frame memotong konten UI. Teks di kolom kiri utuh.",
-    "struktur selaras waktu 0.134 < max(0.15, tak-selaras 0.124)",
-    "gerak RMS 0.3331 > 0.15",
-    "gerak rasio durasi 0.253 di luar 0.5-2.0"
-   ]
+   "dosa": {},
+   "vision": {
+    "terbaca_A": "Ya",
+    "terbaca_B": "Ya",
+    "sama": "Ya",
+    "alasan": "Di kedua strip, unit kedua ('dua' / 'ini') muncul penuh di f15. Posisinya sekitar 18 px di bawah tempat diam, sedikit bergeser ke kanan, dan kabur. Unit itu lalu naik dengan jarak yang makin kecil: f17 sekitar 7 px, f20 sekitar 2 px, f22 0 px. Jadi luncurannya sekitar 7 frame dengan perlambatan, ketajaman pulih di f17, dan tidak ada pantulan sampai f25/26. Unit pertama ('Satu' / 'Pagi') mengikuti pola yang sama: f5 sekitar 7 px di bawah, f7 sekitar 3 px, f10 diam. Jarak dan timing di A dan B identik; yang beda hanya warna, font, teks, dan wadah. Catatan: frame pertama unit pertama tidak tersampel (lompat dari f2 ke f5), jadi blur dan jarak awalnya tidak bisa diverifikasi dari strip ini. Soal kulit: baris memang bertambah ke kanan kata demi kata, tetapi butir tata letak itu mensyaratkan sisipan gambar di tengah baris. Sisipan itu tidak ada, dan tidak ada warna aksen per kata, jadi butir tersebut tidak terpenuhi. Warna latar dan teks di A dan B tidak cocok dengan palet terlarang.",
+    "kulit_tercuri": []
+   },
+   "putaran": 1,
+   "status": "teruji",
+   "tanggal": "2026-11-26"
   }
  ]
 }

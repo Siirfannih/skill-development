@@ -1,0 +1,8 @@
+{
+  "fungsi": "Menampilkan satu unit teks di titik jangkar tetap dan menggantinya dengan unit berikut lewat potong 1 frame, pusat terkunci di jangkar dan tanpa gerak posisi selama tampil.",
+  "width": 720,
+  "height": 1280,
+  "fps": 30,
+  "durasi": 45,
+  "catatan": "Satu pembungkus per unit: pemanggil memberi mulai/sampai (sampai[i] = mulai[i+1] - 1, unit terakhir sampai akhir komposisi) dan jangkar dalam fraksi frame (default 0,499 x 0,504 terukur). Spec tidak punya kurva.kurva_toolkit karena mekaniknya potong tanpa transisi, jadi tidak ada CURVE yang dipakai; opasitas 1/0 per frame. Pusat dikunci dengan translate(-50%,-50%) dan width max-content sehingga lebar unit berbeda tetap sepusat. Demo: onset [2,12,17,32], jangkar pusat frame, huruf 79 px; isian B dengan WadahUji per unit (ukuran tetap, teks di tengah) sehingga kartu tampak tetap sementara kata berganti."
+}

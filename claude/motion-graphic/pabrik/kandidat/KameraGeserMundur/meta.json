@@ -1,0 +1,8 @@
+{
+  "fungsi": "Menggeser seluruh panggung menyamping 0,192 lebar frame sambil mengecil ke skala 0,88 pada kurva heavy, sehingga bidang baru terbuka di satu sisi frame lalu panggung ditahan.",
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "durasi": 60,
+  "catatan": "Kurva CURVE.heavy; panjang kurva penuh diturunkan dari durasi_1_99 (31 frame progres 1%->99%, sekitar 41 frame total). Kurva berangkat 2 frame (ancang) sebelum onset f11 karena kaki heavy datar (<0,1 px di f10), sehingga 1% jatuh di f14 dan 99% di f45 seperti progres_ref. Geser dan skala memakai progres yang sama, skala berpusat di tengah frame, tanpa pantul. Tanda geser_x memilih sisi yang dibuka. Demo: dua bidang terpisah. Bidang awal mengisi frame; bidang kedua mula-mula di luar frame sebelah kiri (x -0,29..-0,06 W) dan di akhir gerak tampil di kiri (±0..0,20 W) dengan celah ke bidang awal (tepi kirinya di 0,25 W). Isi tiap bidang: kata ISIAN tersebar berukuran beda-beda (58-104 px, rata-rata ±79), tanpa pola kisi berulang, jumlah sedikit agar piksel tepi huruf (warna campuran) kecil porsinya; isian B tiap bidang = WadahUji. Waktu tetap terikat progres_ref (onset f11, 1% f14, 99% f45)."
+}

@@ -1,4 +1,4 @@
-"""lib.py: jalur, panggilan model (claude2, jalur kuota yang ada), ekstraksi JSON, kunci render. Dipakai semua fase pabrik."""
+"""lib.py: jalur, panggilan model (claude1, jalur kuota yang ada), ekstraksi JSON, kunci render, klip referensi. Dipakai semua fase pabrik."""
 import fcntl, glob, json, os, re, subprocess, sys
 from pathlib import Path
 
@@ -8,7 +8,7 @@ KEYFRAMES = MG / "guide/referensi/sheets/keyframes"
 VAULT = MG / "cookbook/_vault"
 NODE_BIN = Path.home() / ".local/opt/node-v22.20.0-linux-x64/bin"
 PY = Path.home() / "work/mg-venv/bin/python"
-CLAUDE2 = Path.home() / ".local/bin/claude2"
+CLAUDE1 = Path.home() / ".local/bin/claude1"  # akun pekerja model (config ~/.claude)
 KUNCI_RENDER = "/tmp/remotion-heavy-render.lock"
 
 
@@ -18,25 +18,36 @@ def env_node():
     return e
 
 
+class BatasAkun(RuntimeError):
+    """Akun model kena batas pemakaian: pabrik berhenti dan melapor, tidak mengulang."""
+
+
+def _cek_batas(teks):
+    t = (teks or "").lower()
+    if any(k in t for k in ("usage limit", "limit reached", "rate limit", "hit your limit", "5-hour limit", "out of extra usage")):
+        raise BatasAkun(teks[-300:])
+
+
 def llm(prompt, model="sonnet", timeout=900, tulis_di=None, baca_di=()):
-    """Panggil claude2 -p (jalur kuota yang ada, tanpa API berbayar) dengan hak minimum, TANPA --dangerously-skip-permissions.
+    """Panggil claude1 -p (jalur kuota yang ada, tanpa API berbayar) dengan hak minimum, TANPA --dangerously-skip-permissions.
     Bawaan hanya tool Read (ekstraksi, kritikus). `tulis_di` = folder yang boleh ditulis (Write/Edit dibatasi ke sana; sintesis).
     `baca_di` = folder tambahan di luar cwd yang boleh dibaca (jangkar, klip). Tanpa Bash. Teks spec/kritik di prompt adalah data."""
     izin = ["Read"]
     if tulis_di:
         t = "/" + str(Path(tulis_di).resolve()).lstrip("/")  # sintaks aturan path absolut: //path
         izin += [f"Write(/{t}/**)", f"Edit(/{t}/**)"]
-    cmd = [str(CLAUDE2), "-p", prompt, "--model", model, "--allowedTools", *izin, "--output-format", "json"]
+    cmd = [str(CLAUDE1), "-p", prompt, "--model", model, "--allowedTools", *izin, "--output-format", "json"]
     for d in baca_di: cmd += ["--add-dir", str(d)]
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, stdin=subprocess.DEVNULL, cwd=str(MG))
+    _cek_batas(r.stderr); _cek_batas(r.stdout if r.returncode != 0 or '"is_error":true' in r.stdout.replace(" ", "") else "")
     if r.returncode != 0:
-        raise RuntimeError(f"claude2 gagal ({r.returncode}): {r.stderr[-400:]}")
+        raise RuntimeError(f"claude1 gagal ({r.returncode}): {r.stderr[-400:]}")
     try:
         d = json.loads(r.stdout)
     except json.JSONDecodeError:
-        raise RuntimeError(f"keluaran claude2 bukan JSON: {r.stdout[:300]}")
+        raise RuntimeError(f"keluaran claude1 bukan JSON: {r.stdout[:300]}")
     if d.get("is_error"):
-        raise RuntimeError(f"claude2 error: {str(d.get('result'))[:300]}")
+        raise RuntimeError(f"claude1 error: {str(d.get('result'))[:300]}")
     return d.get("result", "")
 
 
@@ -97,25 +108,9 @@ def rel(p):
         return str(p)
 
 
-TOKENS = json.loads((PABRIK / "tokens-netral.json").read_text())
-PERAN_TOKEN = ("latar", "permukaan", "tinta", "redup", "aksen", "aksen2")
-
-
-def palet_token(k):
-    """Palet set token 'A'/'B' -> daftar hex enam peran."""
-    return [TOKENS[k][p] for p in PERAN_TOKEN]
-
-
-def palet_json(k):
-    """Format palet.json yang dibaca scripts/warna/cek-warna.mjs keluar (hanya hex; mode sesuai set)."""
-    s = TOKENS[k]; m = lambda h: {"hex": h}
-    return {"versi": 2, "k": 6, "sumber": [], "mode": {s["mode"]: {"latar": m(s["latar"]), "tinta": m(s["tinta"]), "aksen": [m(s["aksen"]), m(s["aksen2"])],
-            "netral": [m(s["permukaan"]), m(s["redup"])], "n_frames": 1}}, "hex_semua": palet_token(k)}
-
-
 def spec_klip(spec):
     """-> (path, dari, sampai) bila spec punya klip yang berkas-nya ada, selain itu None (referensi statis)."""
-    k = (spec.get("terukur") or {}).get("klip")
+    k = (spec.get("sumber") or {}).get("klip")
     if k and Path(os.path.expanduser(k["path"])).exists():
         return os.path.expanduser(k["path"]), float(k["dari"]), float(k["sampai"])
     return None

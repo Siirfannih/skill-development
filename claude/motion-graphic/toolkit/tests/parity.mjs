@@ -22,7 +22,7 @@ for (const k of Object.keys(ts.CURVE)) {
   for (let i = 0; i <= 1000; i++) near(ts.CURVE[k](i / 1000), js.CURVE[k](i / 1000), `${k}(${i / 1000})`);
 }
 assert.deepEqual(Object.keys(ts.CURVE).sort(), Object.keys(js.CURVE).sort());
-ok("7 kurva sama di 1001 titik");
+ok(`${Object.keys(ts.CURVE).length} kurva sama di 1001 titik`);
 
 for (const d of [0, 1, 10, 100, 500, 1920, 5000]) for (const fps of [24, 30, 60]) for (const w of [0.7, 1, 1.35]) assert.equal(ts.dur(d, fps, w), js.dur(d, fps, w));
 for (const e of [1, 2, 9, 30]) assert.equal(ts.exitDur(e), js.exitDur(e));

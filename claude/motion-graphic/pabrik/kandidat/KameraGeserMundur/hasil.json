@@ -1,0 +1,58 @@
+{
+ "nama": "KameraGeserMundur",
+ "id": "kamera-geser-mundur-buka-sisi",
+ "putaran": 2,
+ "lulus": true,
+ "status": "teruji",
+ "spec": "pabrik/spec/kamera-geser-mundur-buka-sisi.json",
+ "gagal": [],
+ "dosa": {},
+ "metrik": {
+  "A": [
+   {
+    "geser_x": 0.2041,
+    "skala_akhir": 0.8808,
+    "geser_y_maks": 0.0006,
+    "potong": [],
+    "rms_progres_x": 0.0166,
+    "durasi_1_99_x": 32,
+    "lewat_x": 0.0,
+    "rms_progres_skala": 0.0256,
+    "durasi_1_99_skala": 30,
+    "lewat_skala": 0.0
+   }
+  ],
+  "B": [
+   {
+    "geser_x": 0.2042,
+    "skala_akhir": 0.8802,
+    "geser_y_maks": 0.0005,
+    "potong": [],
+    "rms_progres_x": 0.0166,
+    "durasi_1_99_x": 32,
+    "lewat_x": 0.0,
+    "rms_progres_skala": 0.0257,
+    "durasi_1_99_skala": 30,
+    "lewat_skala": 0.0
+   }
+  ]
+ },
+ "vision": {
+  "terbaca_A": "Ya",
+  "terbaca_B": "Ya",
+  "sama": "Ya",
+  "alasan": "Kedua strip diam dari f10 sampai f24. Mulai f28 seluruh panggung bergeser ke kanan sekitar 0,2 lebar frame sambil mengecil (teks dan wadah B tampak lebih kecil), dan berhenti di f37–f42. Frame f42, f46, dan f51 identik, jadi ada tahan di akhir tanpa terlihat lewat posisi akhir. Di B, wadahnya membuat bidang baru (latar lebih gelap) di sisi kiri dan bawah terlihat jelas. Di A gerak terbaca dari posisi dan ukuran teks, tetapi bidang yang terbuka sewarna dengan panggung sehingga kurang tampak. Posisi dan waktu di A dan B sama per frame. Tidak ada warna atau teks dari daftar yang muncul. Wadah B berupa kartu gelap bersudut membulat tanpa titlebar atau dock, jadi tidak saya hitung sebagai jendela aplikasi. Meski begitu, kartu ini paling dekat dengan butir larangan itu.",
+  "kulit_tercuri": [],
+  "revisi": [
+   "Awal gerak kurang pelan: antara f24 dan f28 panggung sudah menempuh sekitar 40% jarak, lalu melambat (f28 ±20px, f33 ±40px, f37 ±47px pada sel 200px). Kurvanya lebih mirip ease-out murni daripada ease-in-out. Perpanjang fase awal yang pelan.",
+   "Panggung yang bergeser keluar dari tepi kanan tidak terpotong dan masuk ke sel frame berikutnya di strip. Pastikan frame diklip (overflow hidden) supaya jarak geser ±0,19 lebar frame terbaca benar dan bagian yang keluar frame hilang.",
+   "Fase gerak hanya sekitar 9–13 frame (f24 sampai f37) dan tidak ada sampel di antaranya. Tambahkan sampel di f26, f30, dan f35 untuk memastikan kurvanya mulus dan tidak melewati posisi akhir."
+  ]
+ },
+ "strip": {
+  "A": "pabrik/kandidat/KameraGeserMundur/strip-r2-A.jpg",
+  "B": "pabrik/kandidat/KameraGeserMundur/strip-r2-B.jpg"
+ },
+ "progres_plot": "pabrik/kandidat/KameraGeserMundur/progres-r2.png",
+ "tanggal": "2026-11-26"
+}

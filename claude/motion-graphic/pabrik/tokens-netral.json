@@ -1,5 +1,0 @@
-{
-  "catatan": "Dua set token WAJIB untuk demo (DemoA, DemoB). Netral dingin dan netral hangat, diturunkan dari toolkit/latar/presets (editorial-polos, researchly-glow, hangat-netral). Demo hanya boleh memakai enam peran ini (plus campuran antar-peran, hitam, putih); warna referensi tidak boleh muncul. Peran redup = turunan tinta+latar.",
-  "A": {"nama": "netral-dingin-terang", "mode": "terang", "latar": "#F6F5FC", "permukaan": "#F1F1FA", "tinta": "#0E1426", "redup": "#5B6280", "aksen": "#6F86FF", "aksen2": "#1B2748"},
-  "B": {"nama": "netral-hangat-gelap", "mode": "gelap", "latar": "#110D0B", "permukaan": "#2A201B", "tinta": "#FBF8F3", "redup": "#A39384", "aksen": "#EE9440", "aksen2": "#8A6246"}
-}

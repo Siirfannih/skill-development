@@ -38,6 +38,7 @@ export const CURVE = {
   leave: bezier(0.55, 0, 0.9, 0.35),
   wind: bezier(0.45, 0, 0.55, 1),
   drift: bezier(0.4, 0, 0.6, 1),
+  luncur: bezier(0, 0.322, 0.406, 0.866), // unit masuk meluncur ke posisi diam
 };
 
 export const clamp01 = (x) => Math.min(1, Math.max(0, x));

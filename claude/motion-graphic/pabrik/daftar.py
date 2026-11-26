@@ -1,14 +1,15 @@
 #!/usr/bin/env python3
-"""daftar.py: fase 4. Catat hasil uji ke pabrik/registry.json.
+"""daftar.py: fase 4. Catat hasil uji transfer satu primitif ke pabrik/registry.json (versi 3).
 
-  daftar.py <Nama>
+  daftar.py spec/<id>.json
 
-Membaca kandidat/<Nama>/{hasil.json, meta.json, <Nama>.tsx} dan spec. Entri: nama, fungsi, kartu_sumber, kategori, props_schema
-(teks zod), stills demo, metrik akhir, status, tanggal.
-  status "teruji"          lulus (nol dosa + metrik keras) dan gerak/lintasan spec diukur dari klip
-  status "teruji-sebagian" lulus, tetapi spec hanya dari keyframe statis (gerak/kurva perkiraan, tidak terverifikasi terhadap klip)
-  status "ditolak"         tidak lulus setelah putaran habis; `alasan` = dosa + metrik gagal putaran terakhir
-Entri lama dengan nama sama diganti. Komponen yang lolos dipindah ke toolkit setelah merge (registry ikut).
+Membaca spec v4 dan kandidat/<Komponen>/{hasil.json, meta.json, <Komponen>.tsx}. Entri: id, komponen, kategori, fungsi, mekanik,
+pemicu, alasan_bekerja, slot, jangan_dicuri, props_schema (teks zod), parameter (berlabel measured/estimated), spec, arsip, bukti uji
+(strip kandidat A/B, plot progres), metrik transfer per isian, dosa, vision, putaran, status.
+  status "teruji"          lulus uji transfer dua isian; semua parameter inti dan kurva measured
+  status "teruji-sebagian" lulus, tetapi parameter inti atau kurva estimated (ditegakkan skema lewat status_maks)
+  status "ditolak"         tidak lulus setelah putaran habis; `alasan` = gagal + dosa putaran terakhir
+Entri lama dengan id sama diganti. Sesi editing mencocokkan beat naskah dengan `pemicu` lalu memuat primitifnya saja.
 """
 import datetime, json, re, sys
 from pathlib import Path
@@ -31,23 +32,23 @@ def skema_props(src, nama):
     return None
 
 
-def buat_entri(nama):
-    d = lib.PABRIK / "kandidat" / nama; h = json.loads((d / "hasil.json").read_text())
-    meta = json.loads((d / "meta.json").read_text()); sp = json.loads((lib.MG / h["spec"]).read_text())  # hasil.json menyimpan path relatif ke claude/motion-graphic
-    # referensi tanpa klip yang bisa dibaca = statis: status maksimum teruji-sebagian (tak ada metrik struktur/gerak temporal)
-    if h["lulus"]: status = "teruji" if (sp["terukur"]["dari_klip"] and lib.spec_klip(sp)) else "teruji-sebagian"
-    else: status = "ditolak"
-    stills = sorted(str(p.relative_to(lib.PABRIK)) for p in (d / f"stills-r{h['putaran']}").glob("*.jpg")) if (d / f"stills-r{h['putaran']}").exists() else []
-    e = {"nama": nama, "fungsi": meta.get("fungsi", ""), "kartu_sumber": [f"{sp['kartu']}.{sp['teknik']}"], "kategori": sp["kategori"],
-         "spec": h["spec"], "props_schema": skema_props((d / f"{nama}.tsx").read_text(), nama), "demo_stills": stills, "lembar": h.get("lembar"),
-         "metrik_akhir": h["metrik"], "putaran": h["putaran"], "status": status, "tanggal": h.get("tanggal") or datetime.date.today().isoformat()}
-    if status == "teruji-sebagian": e["catatan"] = "spec dari keyframe statis: kurva/lintasan gerak adalah perkiraan, tidak diukur dari klip. " + sp["terukur"].get("catatan", "")
-    if status == "ditolak": e["alasan"] = h["gagal"]
+def buat_entri(spec_path):
+    sp = json.loads(Path(spec_path).read_text()); nama = sp["komponen"]
+    d = lib.PABRIK / "kandidat" / nama; h = json.loads((d / "hasil.json").read_text()); meta = json.loads((d / "meta.json").read_text())
+    status = sp["status_maks"] if h["lulus"] else "ditolak"
+    e = {"id": sp["id"], "komponen": nama, "kategori": sp["kategori"], "fungsi": meta.get("fungsi", ""), "mekanik": sp["mekanik"],
+         "pemicu": sp["pemicu"], "alasan_bekerja": sp["alasan_bekerja"], "slot": sp["slot"], "jangan_dicuri": sp["jangan_dicuri"],
+         "props_schema": skema_props((d / f"{nama}.tsx").read_text(), nama), "kode": lib.rel(d / f"{nama}.tsx"),
+         "parameter": [{k: p[k] for k in ("nama", "nilai", "satuan", "label") if k in p} for p in sp["parameter"]],
+         "spec": lib.rel(Path(spec_path).resolve()), "arsip": sp["sumber"].get("arsip"), "strip": h.get("strip"), "progres_plot": h.get("progres_plot"),
+         "metrik_transfer": h["metrik"], "dosa": h["dosa"], "vision": {k: v for k, v in (h.get("vision") or {}).items() if k != "revisi"},
+         "putaran": h["putaran"], "status": status, "tanggal": h.get("tanggal") or datetime.date.today().isoformat()}
+    if status == "ditolak": e["alasan"] = h["gagal"] + [f"dosa {k}: {v}" for k, v in h["dosa"].items()]
     return e
 
 
 def muat():
-    return json.loads(REG.read_text()) if REG.exists() else {"versi": 1, "komponen": []}
+    return json.loads(REG.read_text()) if REG.exists() else {"versi": 3, "primitif": []}
 
 
 def simpan_entri(e, reg=None, path=REG):
@@ -58,15 +59,15 @@ def simpan_entri(e, reg=None, path=REG):
 
 
 def _simpan(e, reg, path):
-    if reg is None: reg = json.loads(Path(path).read_text()) if Path(path).exists() else {"versi": 1, "komponen": []}
-    reg["komponen"] = [x for x in reg["komponen"] if x["nama"] != e["nama"]] + [e]
-    reg["komponen"].sort(key=lambda x: x["nama"]); Path(path).write_text(json.dumps(reg, ensure_ascii=False, indent=1) + "\n"); return reg
+    if reg is None: reg = json.loads(Path(path).read_text()) if Path(path).exists() else {"versi": 3, "primitif": []}
+    reg["primitif"] = [x for x in reg["primitif"] if x["id"] != e["id"]] + [e]
+    reg["primitif"].sort(key=lambda x: x["id"]); Path(path).write_text(json.dumps(reg, ensure_ascii=False, indent=1) + "\n"); return reg
 
 
 def main(argv=None):
     argv = sys.argv[1:] if argv is None else argv
     if len(argv) != 1: print(__doc__); return 2
-    e = buat_entri(argv[0]); simpan_entri(e); print(f"{e['nama']}: {e['status']}"); return 0 if e["status"] != "ditolak" else 1
+    e = buat_entri(argv[0]); simpan_entri(e); print(f"{e['id']}: {e['status']}"); return 0 if e["status"] != "ditolak" else 1
 
 
 if __name__ == "__main__":

@@ -27,7 +27,7 @@ class Kurva(unittest.TestCase):
         pola = r"(\w+):\s*(?:Easing\.)?bezier\(([^)]*)\)"
         a = {k: [float(x) for x in v.split(",")] for k, v in re.findall(pola, ts)}
         b = {k: [float(x) for x in v.split(",")] for k, v in re.findall(pola, js)}
-        self.assertEqual(len(a), 7); self.assertEqual(a, b)
+        self.assertGreaterEqual(len(a), 7); self.assertEqual(a, b)
         for fn in ("dur", "exitDur", "react", "move", "arc", "drift", "lerp", "clamp01"):
             self.assertIn(f"export const {fn} ", ts, fn); self.assertIn(f"export const {fn} ", js, fn)
 

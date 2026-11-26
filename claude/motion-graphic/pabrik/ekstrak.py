@@ -1,23 +1,25 @@
 #!/usr/bin/env python3
-"""ekstrak.py: fase 1. Bedah satu teknik kartu menjadi spec primitif ber-skema ketat.
+"""ekstrak.py: fase 1. Klip referensi -> DATA UKUR GERAK (ukur-gerak.schema.json) + plot kurva PNG sebagai bukti.
 
-  ekstrak.py <kartu-id> [--teknik T1] [--kategori atmosfer|gerak_kamera|permukaan_ui|tipografi] [--komponen Nama]
-             [--klip video.mp4 --dari 2.0 --sampai 5.0] [--fps 8] [--maks-frame 24]
+  ekstrak.py <kartu> --teknik T1 --komponen Nama --jenis kt|kamera|transisi|ui --klip v.mp4 --dari s --sampai s
+             [--fokus latar|terang|gelap] [--roi x0,y0,x1,y1] [--namai] [--mekanik "..."]...
+  ekstrak.py <kartu> --teknik T1 --komponen Nama --jenis kt --statis --mekanik "..."    (referensi tanpa klip)
 
-Masukan: keyframe kartu (guide/referensi/sheets/keyframes/<id>-k*.jpg) dan, bila --klip diberi, frame klip pada --fps
-(lembar kontak berstempel waktu). Model vision (claude2 --model sonnet, membaca gambar lewat tool Read) menulis spec;
-skrip memvalidasi terhadap spec.schema.json dan mengulang (maks 2x) dengan pesan galat bila gagal.
-Keluaran: pabrik/spec/<kartu>-<teknik>.json. Tanpa klip: spec.terukur.dari_klip = false (gerak hanya perkiraan dari keyframe).
-Kartu yang punya field "Video sumber:" dan tidak diberi --klip: dicetak sebagai petunjuk, tidak dipakai otomatis.
+Angka diukur skrip (gerak.py: lacak elemen fokus, kamera optical flow, energi residu -> segmen, easing bezier/pegas, overshoot,
+hold, stagger, jenis masuk/keluar, potongan, transisi grid/arah). --namai: model vision (claude1 sonnet, hanya Read) melihat strip
+12 frame dan MEMILIH nama jenis gerak dari kosakata skema; ia tidak mengisi angka. --statis: hanya keyframe kartu, tanpa kurva
+(status registri maksimum teruji-sebagian). Baris `mekanik` disusun otomatis dari angka; --mekanik menambah baris dari kartu.
+Juga: fps asli (ffprobe) dan frame duplikat di fps asli. Data ukur adalah BAHAN untuk spec primitif (spec-gerak.schema.json v4),
+bukan primitif itu sendiri. Keluaran: ukur/data/<kartu>-<teknik>.json, -kurva.png, -strip.jpg.
 """
-import argparse, json, re, subprocess, sys, tempfile
+import argparse, json, sys, tempfile
 from pathlib import Path
 from jsonschema import Draft202012Validator
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-import lib
+import lib, gerak
 
-SCHEMA = json.loads((lib.PABRIK / "spec.schema.json").read_text())
-KATEGORI = ["atmosfer", "gerak_kamera", "permukaan_ui", "tipografi"]
+SCHEMA = json.loads((lib.PABRIK / "ukur-gerak.schema.json").read_text())
+NAMA_GERAK = SCHEMA["properties"]["nama_gerak"]["items"]["enum"]
 
 
 def validasi(spec):
@@ -25,97 +27,87 @@ def validasi(spec):
     return [f"{'/'.join(map(str, e.absolute_path)) or '(akar)'}: {e.message}" for e in sorted(Draft202012Validator(SCHEMA).iter_errors(spec), key=lambda e: list(map(str, e.absolute_path)))]
 
 
-def bagian_teknik(kartu_md, teknik):
-    """Potong bagian '### Tn · ...' dari kartu (sampai ### berikutnya)."""
-    m = re.search(rf"^### {re.escape(teknik)} ·.*?(?=^### |\Z)", kartu_md, re.S | re.M)
-    return m.group(0).strip() if m else ""
-
-
-def sumber_video(kartu_md):
-    m = re.search(r"Video sumber:\*?\*?\s*`([^`]+)`", kartu_md)
-    return m.group(1) if m else None
-
-
-def lembar_klip(klip, dari, sampai, fps, maks, keluar):
-    """Ekstrak frame klip -> lembar kontak JPEG berstempel waktu. -> (path lembar, daftar (t, path))."""
+def strip(frames, keluar, n=12, label=None, tinggi=160):
+    """Strip n frame merata dari array frame -> JPEG (flipbook). label: teks kiri atas tiap sel (mis. waktu relatif)."""
     from PIL import Image, ImageDraw
-    tmp = Path(tempfile.mkdtemp(prefix="pabrik-klip-"))
-    subprocess.run(["ffmpeg", "-v", "error", "-ss", str(dari), "-to", str(sampai), "-i", klip, "-vf", f"fps={fps},scale=480:-2",
-                    "-q:v", "3", str(tmp / "f%03d.jpg")], check=True)
-    fr = sorted(tmp.glob("f*.jpg"))
-    if not fr: raise SystemExit("ffmpeg tidak menghasilkan frame; cek --dari/--sampai")
-    langkah = max(1, -(-len(fr) // maks)); fr = fr[::langkah]
-    ims = [Image.open(f).convert("RGB") for f in fr]; w, h = ims[0].size; kol = 4; baris = -(-len(ims) // kol)
-    L = Image.new("RGB", (kol * w, baris * h), (20, 20, 20)); d = ImageDraw.Draw(L); ts = []
-    for i, im in enumerate(ims):
-        t = round(dari + (int(fr[i].stem[1:]) - 1) / fps, 3); ts.append((t, str(fr[i])))
-        L.paste(im, ((i % kol) * w, (i // kol) * h)); d.rectangle([(i % kol) * w, (i // kol) * h, (i % kol) * w + 70, (i // kol) * h + 16], fill=(0, 0, 0))
-        d.text(((i % kol) * w + 3, (i // kol) * h + 2), f"{t:.2f}s", fill=(255, 255, 0))
-    L.save(keluar, quality=82); return keluar, ts
+    import numpy as np
+    idx = np.linspace(0, len(frames) - 1, n).round().astype(int)
+    ims = [Image.fromarray(frames[i]) for i in idx]; ims = [im.resize((int(im.width * tinggi / im.height), tinggi)) for im in ims]
+    w = ims[0].width; L = Image.new("RGB", (w * n, tinggi), (0, 0, 0)); d = ImageDraw.Draw(L)
+    for k, im in enumerate(ims):
+        L.paste(im, (k * w, 0)); d.rectangle([k * w, 0, k * w + 44, 13], fill=(0, 0, 0)); d.text((k * w + 2, 1), label(k, idx[k]) if label else f"f{idx[k]}", fill=(255, 255, 0))
+    Path(keluar).parent.mkdir(parents=True, exist_ok=True); L.save(keluar, quality=85); return L
 
 
-def prompt(kartu, teknik, md_teknik, kategori, komponen, kf, lembar, fps, ts):
-    skema = json.dumps(SCHEMA, ensure_ascii=False)
-    klip = (f"\nLEMBAR KLIP (frame berstempel waktu, {fps} fps): {lembar}\nStempel: " + ", ".join(f"{t:.2f}s" for t, _ in ts)
-            if lembar else "\nTidak ada klip: hanya keyframe statis. Isi terukur.dari_klip=false dan lintasan/kurva hanya perkiraan wajar dari urutan keyframe (jelaskan di terukur.catatan).")
-    return f"""Kamu membedah referensi motion graphic menjadi SPEC primitif terukur (bukan menyalin gaya).
-Kartu {kartu}, teknik {teknik}. Kategori target: {kategori or 'pilih satu dari ' + ', '.join(KATEGORI)}. Komponen usulan: {komponen or '(usulkan nama PascalCase)'}.
+def mekanik_otomatis(tt):
+    """Kalimat mekanik dari angka terukur (bukan dari model)."""
+    m = []; su = gerak._seg_utama(tt)
+    if su:
+        m.append(f"Gerak utama di saluran {su['saluran']}: {su['durasi_frame']} frame @30 fps, cubic-bezier {su['kurva']['bezier']} (terdekat CURVE.{su['kurva']['terdekat']['nama']}, "
+                 f"jarak {su['kurva']['terdekat']['rms']}); pegas setara stiffness {su['spring']['stiffness']}, damping {su['spring']['damping']}; overshoot {round(su['overshoot'] * 100, 1)} %.")
+    m.append(f"{len(tt['segmen'])} segmen gerak dalam {tt['durasi_frame']} frame; hold terpanjang {tt['hold']['maks_frame']} frame.")
+    st = tt["stagger"]
+    if st["interval_rata"]: m.append(f"Stagger {len(st['onset_frame'])} onset (unit {st['unit']}): interval rata-rata {st['interval_rata']} frame, ketidakrataan CV {st['ketidakrataan_cv']}; onset {st['onset_frame']}.")
+    f = tt["fokus"]
+    if f.get("masuk"): m.append(f"Masuk fokus: {f['masuk']['jenis']} {f['masuk']['durasi_frame']} frame" + (f"; keluar: {f['keluar']['jenis']} {f['keluar']['durasi_frame']} frame." if f.get("keluar") else "."))
+    if tt["potong"]: m.append(f"Potongan keras di frame {tt['potong']}.")
+    for t in tt["transisi"]: m.append(f"Transisi {t['bentuk']} frame {t['mulai']}-{t['selesai']} ({t['durasi_frame']} frame)" + (f", grid {t['grid']['baris']}x{t['grid']['kolom']} (perkiraan)" if t.get("grid") else "") + (f", arah {t['arah']}" if t.get("arah") else "") + ".")
+    k = tt["kamera"]
+    if k["n_segmen"]: m.append(f"Kamera: {k['n_segmen']} segmen gerak ({k['jangkar']} jangkar), skala {k['skala_min']}–{k['skala_maks']}, rentang geser x {k['rentang_x']} / y {k['rentang_y']} lebar frame.")
+    return m
 
-LANGKAH: (1) Baca tiap gambar di bawah dengan tool Read (path absolut). (2) Ukur dari gambar, bukan menebak: ukuran relatif terhadap tinggi frame, rasio, posisi, arah cahaya, luma/saturasi relatif. (3) Tulis SATU objek JSON spec.
-KEYFRAME KARTU:
-{chr(10).join(str(p) for p in kf)}{klip}
 
-URAIAN TEKNIK DI KARTU (teks pendamping, boleh dikoreksi oleh apa yang kamu lihat):
-{md_teknik or '(tidak ada bagian teknik spesifik; pakai kartu secara umum)'}
+def namai(strip_path, jenis, model="sonnet"):
+    """Vision MEMILIH nama gerak dari kosakata (angka tidak diminta). -> daftar nama valid."""
+    p = f"""Baca gambar {strip_path} (strip 12 frame berurutan dari kiri ke kanan, satu potongan klip motion graphic; jenis: {jenis}).
+Pilih nama jenis GERAK/TRANSISI yang benar-benar terlihat, HANYA dari daftar ini: {NAMA_GERAK}.
+Abaikan warna, gambar, dan isi; nilai hanya geraknya. Jawab satu blok ```json {{"nama_gerak": [...]}}``` (1-4 nama)."""
+    try:
+        j = lib.ambil_json(lib.llm(p, model=model, baca_di=[Path(strip_path).parent]))
+        return [x for x in j.get("nama_gerak", []) if x in NAMA_GERAK]
+    except Exception as e:  # nama hanya pelengkap; kegagalan tidak menghentikan ekstraksi
+        print(f"(namai gagal: {e})", file=sys.stderr); return []
 
-ATURAN ISI:
-- mekanik = apa yang DIPINDAHKAN ke video lain (aturan gerak/tata letak/proporsi yang berlaku di gaya apa pun). kulit = warna, font, tekstur, objek, kata milik referensi yang TIDAK dibakukan.
-- Semua angka terukur harus dalam satuan relatif (fraksi tinggi frame, fraksi sisi elemen, em, detik, frame-rate-agnostik); tanpa hex, tanpa nama font di parameter.
-- bukti: minimal satu entri {{frame: path absolut gambar yang kamu pakai, t: detik atau null untuk keyframe statis, catatan}}.
-- id = "{kartu}-{teknik}". kartu="{kartu}". teknik="{teknik}".
-- Jujur: bila tak bisa diukur dari gambar, beri perkiraan dan katakan di terukur.catatan; jangan mengarang presisi.
 
-SKEMA (JSON Schema, wajib lolos): {skema}
-
-KELUARAN: hanya satu blok ```json ... ``` berisi spec. Tanpa penjelasan lain."""
+def ekstrak(kartu, teknik, komponen, jenis, klip=None, dari=None, sampai=None, fokus="latar", roi=None, statis=False, mekanik=(), nama=False, keluar_dir=None):
+    out = Path(keluar_dir or lib.PABRIK / "ukur" / "data"); out.mkdir(parents=True, exist_ok=True); sid = f"{kartu}-{teknik}"
+    spec = {"versi": 3, "id": sid, "kartu": str(kartu), "teknik": teknik, "komponen": komponen, "jenis": jenis}
+    if statis:
+        kf = [lib.rel(p) for p in lib.keyframes(kartu)]
+        if not mekanik: raise SystemExit("--statis butuh --mekanik (uraian dari kartu; tidak ada klip untuk diukur)")
+        spec |= {"sumber": {"statis": True, "keyframe": kf, "fps": 30, "rasio": "16:9"}, "mekanik": list(mekanik),
+                 "catatan": "Referensi statis (keyframe saja): tidak ada kurva gerak terukur; status maksimum teruji-sebagian."}
+    else:
+        fr = gerak.baca_klip(klip, dari, sampai)
+        fa = gerak.fps_asli(klip)
+        dup = gerak.frame_duplikat(fr) if abs(fa - gerak.FPS) < 0.01 else {"frame": [], "periode": None, "fps_animasi": None, "catatan": f"fps asli {fa}: duplikat tidak diukur di grid 30 fps"}
+        tt, sg = gerak.tanda_tangan(fr, fokus, roi)
+        rasio = "9:16" if fr.shape[1] > fr.shape[2] else "16:9"
+        png = out / f"{sid}-kurva.png"; gerak.plot(sg, tt, png, f"{sid} {komponen}: {Path(klip).name} {dari}-{sampai}s, fokus={fokus} roi={roi}")
+        sp = out / f"{sid}-strip.jpg"; strip(fr, sp, label=lambda k, i: f"{i / 30:.2f}s")
+        spec |= {"sumber": {"statis": False, "klip": {"path": str(Path(klip).resolve()), "dari": dari, "sampai": sampai}, "fps": 30, "fps_asli": fa, "frame_duplikat": dup, "lebar_analisis": gerak.LEBAR,
+                            "rasio": rasio, "fokus": {"mode": fokus, "roi": roi}},
+                 **tt, "plot": lib.rel(png), "mekanik": mekanik_otomatis(tt) + list(mekanik),
+                 "catatan": "Angka dari gerak.py pada frame 30 fps lebar 320 px; resolusi waktu 1 frame (33 ms). Kamera = gerak global titik tersebar (LK+RANSAC); "
+                            "satu elemen yang bergerak sendiri tidak dihitung kamera. Grid transisi dan unit stagger adalah perkiraan."}
+        if nama: spec["nama_gerak"] = namai(sp, jenis)
+    g = validasi(spec)
+    if g: raise SystemExit("spec gagal validasi:\n" + "\n".join(g))
+    p = out / f"{sid}.json"; p.write_text(json.dumps(spec, ensure_ascii=False, indent=1) + "\n"); return p, spec
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("kartu"); ap.add_argument("--teknik", default="T1"); ap.add_argument("--kategori", choices=KATEGORI)
-    ap.add_argument("--komponen"); ap.add_argument("--klip"); ap.add_argument("--dari", type=float); ap.add_argument("--sampai", type=float)
-    ap.add_argument("--fps", type=float, default=8); ap.add_argument("--maks-frame", type=int, default=24); ap.add_argument("--model", default="sonnet")
+    ap.add_argument("kartu"); ap.add_argument("--teknik", default="T1"); ap.add_argument("--komponen", required=True)
+    ap.add_argument("--jenis", choices=["kt", "kamera", "transisi", "ui"], required=True)
+    ap.add_argument("--klip"); ap.add_argument("--dari", type=float); ap.add_argument("--sampai", type=float)
+    ap.add_argument("--fokus", default="latar", choices=["latar", "terang", "gelap"]); ap.add_argument("--roi")
+    ap.add_argument("--statis", action="store_true"); ap.add_argument("--mekanik", action="append", default=[]); ap.add_argument("--namai", action="store_true")
     a = ap.parse_args(argv)
-    md = lib.kartu_file(a.kartu).read_text()
-    kf = lib.keyframes(a.kartu)
-    if not kf: raise SystemExit(f"kartu {a.kartu}: tidak ada keyframe di {lib.KEYFRAMES}")
-    sv = sumber_video(md)
-    if sv and not a.klip: print(f"(petunjuk) kartu mencatat video sumber: {sv}", file=sys.stderr)
-    out = lib.PABRIK / "spec" / f"{a.kartu}-{a.teknik}.json"; out.parent.mkdir(exist_ok=True)
-    lembar = ts = None
-    if a.klip:
-        if a.dari is None or a.sampai is None: raise SystemExit("--klip butuh --dari dan --sampai (detik)")
-        lembar, ts = lembar_klip(a.klip, a.dari, a.sampai, a.fps, a.maks_frame, lib.PABRIK / "spec" / f"{a.kartu}-{a.teknik}-klip.jpg")
-        lembar = str(lembar); kf = kf + [Path(lembar)]
-    p = prompt(a.kartu, a.teknik, bagian_teknik(md, a.teknik), a.kategori, a.komponen, kf, lembar, a.fps, ts or [])
-    galat = []
-    for upaya in range(3):
-        q = p if not galat else p + "\n\nPERCOBAAN SEBELUMNYA DITOLAK VALIDATOR, perbaiki:\n- " + "\n- ".join(galat[:12])
-        spec = None
-        try:
-            spec = lib.ambil_json(lib.llm(q, model=a.model, baca_di=[lib.PABRIK, Path(tempfile.gettempdir())]))
-        except Exception as e:
-            galat = [f"jawaban tidak berisi JSON valid: {e}"]; continue
-        spec.setdefault("terukur", {"dari_klip": bool(a.klip), "catatan": ""})
-        if not a.klip and spec["terukur"].get("dari_klip"): spec["terukur"]["dari_klip"] = False
-        if a.klip: spec["terukur"]["dari_klip"] = True; spec["terukur"]["klip"] = {"path": str(Path(a.klip).resolve()), "dari": a.dari, "sampai": a.sampai}
-        else: spec["terukur"].pop("klip", None)
-        galat = validasi(spec)
-        if not galat: break
-        print(f"upaya {upaya + 1}: {len(galat)} galat skema", file=sys.stderr)
-    if galat: raise SystemExit("spec gagal validasi setelah 3 upaya:\n" + "\n".join(galat))
-    spec["bukti"] = [dict(b, frame=lib.rel(b["frame"]) if Path(b["frame"]).is_absolute() else b["frame"]) for b in spec["bukti"]]
-    out.write_text(json.dumps(spec, ensure_ascii=False, indent=1) + "\n"); print(f"ok {lib.rel(out)}"); return 0
+    if not a.statis and (a.klip is None or a.dari is None or a.sampai is None): raise SystemExit("butuh --klip --dari --sampai, atau --statis")
+    roi = [float(x) for x in a.roi.split(",")] if a.roi else None
+    p, _ = ekstrak(a.kartu, a.teknik, a.komponen, a.jenis, a.klip, a.dari, a.sampai, a.fokus, roi, a.statis, a.mekanik, a.namai)
+    print(f"ok {lib.rel(p)}"); return 0
 
 
 if __name__ == "__main__":

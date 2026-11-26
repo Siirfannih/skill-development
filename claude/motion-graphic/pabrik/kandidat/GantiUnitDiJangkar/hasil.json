@@ -1,0 +1,102 @@
+{
+ "nama": "GantiUnitDiJangkar",
+ "id": "tipografi-ganti-unit-di-jangkar",
+ "putaran": 2,
+ "lulus": true,
+ "status": "teruji",
+ "spec": "pabrik/spec/tipografi-ganti-unit-di-jangkar.json",
+ "gagal": [],
+ "dosa": {},
+ "metrik": {
+  "A": [
+   {
+    "unit": "Satu",
+    "muncul_frame": 2,
+    "hilang_frame": 11,
+    "op_awal": 1,
+    "op_akhir": 1,
+    "geser_maks": 0.0,
+    "celah": 0
+   },
+   {
+    "unit": "dua",
+    "muncul_frame": 12,
+    "hilang_frame": 16,
+    "op_awal": 1,
+    "op_akhir": 1,
+    "geser_maks": 0.0,
+    "celah": 0
+   },
+   {
+    "unit": "tiga",
+    "muncul_frame": 17,
+    "hilang_frame": 31,
+    "op_awal": 1,
+    "op_akhir": 1,
+    "geser_maks": 0.0,
+    "celah": 0
+   },
+   {
+    "unit": "empat",
+    "muncul_frame": 32,
+    "hilang_frame": 44,
+    "op_awal": 1,
+    "op_akhir": 1,
+    "geser_maks": 0.0,
+    "celah": 0
+   }
+  ],
+  "B": [
+   {
+    "unit": "Pagi",
+    "muncul_frame": 2,
+    "hilang_frame": 11,
+    "op_awal": 1,
+    "op_akhir": 1,
+    "geser_maks": 0.0,
+    "celah": 0
+   },
+   {
+    "unit": "ini",
+    "muncul_frame": 12,
+    "hilang_frame": 16,
+    "op_awal": 1,
+    "op_akhir": 1,
+    "geser_maks": 0.0,
+    "celah": 0
+   },
+   {
+    "unit": "hujan",
+    "muncul_frame": 17,
+    "hilang_frame": 31,
+    "op_awal": 1,
+    "op_akhir": 1,
+    "geser_maks": 0.0,
+    "celah": 0
+   },
+   {
+    "unit": "reda",
+    "muncul_frame": 32,
+    "hilang_frame": 44,
+    "op_awal": 1,
+    "op_akhir": 1,
+    "geser_maks": 0.0,
+    "celah": 0
+   }
+  ]
+ },
+ "vision": {
+  "terbaca_A": "Ya",
+  "terbaca_B": "Ya",
+  "sama": "Ya",
+  "alasan": "A: 'Satu' tampil di f11, 'dua' muncul utuh di f12 dan bertahan sampai f16, lalu 'tiga' muncul utuh di f17 sampai f20. Tiap pergantian terjadi dalam 1 frame, tanpa fade, geser, skala, atau blur. Pusat teks tetap di tengah sel walau lebar kata berubah (Satu/dua/tiga), dan posisinya tidak bergerak selama tampil. B punya jadwal yang sama persis: 'Pagi' di f11, 'ini' di f12–f16, 'hujan' di f17–f20. Pergantiannya juga potong 1 frame, dan pusat pil serta teksnya tetap di jangkar tanpa gerak. Yang berbeda hanya isiannya: latar terang lawan gelap, teks tanpa wadah lawan pil, dan kata-katanya.",
+  "kulit_tercuri": [],
+  "revisi": []
+ },
+ "strip": {
+  "A": "pabrik/kandidat/GantiUnitDiJangkar/strip-r2-A.jpg",
+  "B": "pabrik/kandidat/GantiUnitDiJangkar/strip-r2-B.jpg"
+ },
+ "progres_plot": "pabrik/kandidat/GantiUnitDiJangkar/progres-r2.png",
+ "tanggal": "2026-11-26"
+}

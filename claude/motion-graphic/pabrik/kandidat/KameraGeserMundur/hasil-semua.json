@@ -1,0 +1,122 @@
+[
+ {
+  "nama": "KameraGeserMundur",
+  "id": "kamera-geser-mundur-buka-sisi",
+  "putaran": 1,
+  "lulus": false,
+  "status": "ditolak",
+  "spec": "pabrik/spec/kamera-geser-mundur-buka-sisi.json",
+  "gagal": [],
+  "dosa": {
+   "kulit_A": "warna render (porsi 1.8%) DeltaE 7.4 dari #8992A1 (jangan dicuri); warna render (porsi 2.7%) DeltaE 8.8 dari #8992A1 (jangan dicuri)",
+   "vision_terbaca_A": "terbaca_A=Tidak (A dan B bergerak dengan pola waktu yang sama. Sekitar f0–f24 diam, perubahan terjadi di antara f24 dan f33, lalu f33–f51 diam lagi. Pengecilan terlihat di kedua)",
+   "vision_terbaca_B": "terbaca_B=Tidak (A dan B bergerak dengan pola waktu yang sama. Sekitar f0–f24 diam, perubahan terjadi di antara f24 dan f33, lalu f33–f51 diam lagi. Pengecilan terlihat di kedua)"
+  },
+  "metrik": {
+   "A": [
+    {
+     "geser_x": 0.2042,
+     "skala_akhir": 0.881,
+     "geser_y_maks": 0.0014,
+     "potong": [],
+     "rms_progres_x": 0.0168,
+     "durasi_1_99_x": 32,
+     "lewat_x": 0.0,
+     "rms_progres_skala": 0.0249,
+     "durasi_1_99_skala": 30,
+     "lewat_skala": 0.0
+    }
+   ],
+   "B": [
+    {
+     "geser_x": 0.2045,
+     "skala_akhir": 0.8813,
+     "geser_y_maks": 0.0012,
+     "potong": [],
+     "rms_progres_x": 0.0166,
+     "durasi_1_99_x": 32,
+     "lewat_x": 0.0,
+     "rms_progres_skala": 0.025,
+     "durasi_1_99_skala": 31,
+     "lewat_skala": 0.0001
+    }
+   ]
+  },
+  "vision": {
+   "terbaca_A": "Tidak",
+   "terbaca_B": "Tidak",
+   "sama": "Ya",
+   "alasan": "A dan B bergerak dengan pola waktu yang sama. Sekitar f0–f24 diam, perubahan terjadi di antara f24 dan f33, lalu f33–f51 diam lagi. Pengecilan terlihat di kedua strip: hurufnya mengecil dan jumlah baris naik kira-kira dari 6 ke 7. Gerak menyamping sejauh ±0,19 lebar frame tidak bisa dipastikan. Panggungnya berupa pola teks berulang yang memenuhi seluruh frame, jadi pergeseran tidak bisa dibedakan dari pola yang sekadar berulang. Pada frame terakhir juga tidak ada bidang baru yang terbuka di satu sisi; sisi kiri dan kanan tetap penuh teks yang sama. Ciri utama kalimat mekanik, yaitu bidang yang terbuka, tidak terbaca. Kurva pelan–cepat–pelan juga tidak bisa dinilai karena hanya sekitar satu frame sampel yang jatuh di tengah gerak.",
+   "kulit_tercuri": [],
+   "revisi": [
+    "Gerak terlalu singkat, hanya sekitar 8 frame di antara f24 dan f33, sehingga hampir tidak ada frame antara. Perpanjang durasinya supaya awal yang pelan, tengah yang cepat, dan akhir yang melambat sampai diam terlihat di strip.",
+    "Pergeseran menyamping tidak terlihat sebagai perpindahan. Tepi panggung harus benar-benar bergeser sejauh ±0,19 lebar frame ke satu arah dan tidak tertutup pola berulang, sehingga di akhir gerak sisi seberangnya menjadi bidang kosong yang baru terbuka.",
+    "Mulainya gerak tertunda lama, sekitar 24 frame diam. Kalimat mekanik tidak menyebut tahan di awal, hanya tahan setelah gerak selesai. Mulai gerak lebih awal dan pindahkan waktu diamnya ke akhir."
+   ]
+  },
+  "strip": {
+   "A": "pabrik/kandidat/KameraGeserMundur/strip-r1-A.jpg",
+   "B": "pabrik/kandidat/KameraGeserMundur/strip-r1-B.jpg"
+  },
+  "progres_plot": "pabrik/kandidat/KameraGeserMundur/progres-r1.png",
+  "tanggal": "2026-11-26"
+ },
+ {
+  "nama": "KameraGeserMundur",
+  "id": "kamera-geser-mundur-buka-sisi",
+  "putaran": 2,
+  "lulus": true,
+  "status": "teruji",
+  "spec": "pabrik/spec/kamera-geser-mundur-buka-sisi.json",
+  "gagal": [],
+  "dosa": {},
+  "metrik": {
+   "A": [
+    {
+     "geser_x": 0.2041,
+     "skala_akhir": 0.8808,
+     "geser_y_maks": 0.0006,
+     "potong": [],
+     "rms_progres_x": 0.0166,
+     "durasi_1_99_x": 32,
+     "lewat_x": 0.0,
+     "rms_progres_skala": 0.0256,
+     "durasi_1_99_skala": 30,
+     "lewat_skala": 0.0
+    }
+   ],
+   "B": [
+    {
+     "geser_x": 0.2042,
+     "skala_akhir": 0.8802,
+     "geser_y_maks": 0.0005,
+     "potong": [],
+     "rms_progres_x": 0.0166,
+     "durasi_1_99_x": 32,
+     "lewat_x": 0.0,
+     "rms_progres_skala": 0.0257,
+     "durasi_1_99_skala": 30,
+     "lewat_skala": 0.0
+    }
+   ]
+  },
+  "vision": {
+   "terbaca_A": "Ya",
+   "terbaca_B": "Ya",
+   "sama": "Ya",
+   "alasan": "Kedua strip diam dari f10 sampai f24. Mulai f28 seluruh panggung bergeser ke kanan sekitar 0,2 lebar frame sambil mengecil (teks dan wadah B tampak lebih kecil), dan berhenti di f37–f42. Frame f42, f46, dan f51 identik, jadi ada tahan di akhir tanpa terlihat lewat posisi akhir. Di B, wadahnya membuat bidang baru (latar lebih gelap) di sisi kiri dan bawah terlihat jelas. Di A gerak terbaca dari posisi dan ukuran teks, tetapi bidang yang terbuka sewarna dengan panggung sehingga kurang tampak. Posisi dan waktu di A dan B sama per frame. Tidak ada warna atau teks dari daftar yang muncul. Wadah B berupa kartu gelap bersudut membulat tanpa titlebar atau dock, jadi tidak saya hitung sebagai jendela aplikasi. Meski begitu, kartu ini paling dekat dengan butir larangan itu.",
+   "kulit_tercuri": [],
+   "revisi": [
+    "Awal gerak kurang pelan: antara f24 dan f28 panggung sudah menempuh sekitar 40% jarak, lalu melambat (f28 ±20px, f33 ±40px, f37 ±47px pada sel 200px). Kurvanya lebih mirip ease-out murni daripada ease-in-out. Perpanjang fase awal yang pelan.",
+    "Panggung yang bergeser keluar dari tepi kanan tidak terpotong dan masuk ke sel frame berikutnya di strip. Pastikan frame diklip (overflow hidden) supaya jarak geser ±0,19 lebar frame terbaca benar dan bagian yang keluar frame hilang.",
+    "Fase gerak hanya sekitar 9–13 frame (f24 sampai f37) dan tidak ada sampel di antaranya. Tambahkan sampel di f26, f30, dan f35 untuk memastikan kurvanya mulus dan tidak melewati posisi akhir."
+   ]
+  },
+  "strip": {
+   "A": "pabrik/kandidat/KameraGeserMundur/strip-r2-A.jpg",
+   "B": "pabrik/kandidat/KameraGeserMundur/strip-r2-B.jpg"
+  },
+  "progres_plot": "pabrik/kandidat/KameraGeserMundur/progres-r2.png",
+  "tanggal": "2026-11-26"
+ }
+]

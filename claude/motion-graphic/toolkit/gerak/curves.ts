@@ -13,6 +13,7 @@ export const CURVE = {
   leave: Easing.bezier(0.55, 0, 0.9, 0.35),  // keluar: makin cepat, tidak pernah mengendap
   wind: Easing.bezier(0.45, 0, 0.55, 1),     // antisipasi: gerak balik kecil sebelum gerak besar
   drift: Easing.bezier(0.4, 0, 0.6, 1),      // napas kamera saat hold
+  luncur: Easing.bezier(0, 0.322, 0.406, 0.866), // unit masuk meluncur ke posisi diam: ±0,4 jarak di frame pertama, melambat, berhenti tegas
 } as const;
 export type CurveName = keyof typeof CURVE;
 

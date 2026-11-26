@@ -1,72 +1,50 @@
-# Pabrik primitif
+# Pabrik primitif gerak
 
-Memaksa referensi dibedah jadi primitif kecil yang terstruktur, lalu tiap komponen Remotion diuji otomatis sebelum masuk katalog (`registry.json`). Model memilih dari registry, tidak mengarang CSS/shader dari nol. Komponen memakai `toolkit/` (curves, Camera25D, LightWaveBg, Grain), tidak membuat versi sendiri.
+Referensi dibedah menjadi PRIMITIF GERAK ATOMIK (tipografi kinetik, visual, kamera, transisi): satu mekanik terukur, dengan pemicu, alasan bekerja, slot, dan daftar kulit yang tidak boleh dicuri. Primitif disintesis menjadi komponen PEMBUNGKUS Remotion yang hanya menerapkan gerak pada konten pemanggil, lalu diuji TRANSFER dengan dua isian slot netral sebelum masuk `registry.json`. Pabrik tidak membangun ulang adegan, UI, latar, atau objek referensi, dan tidak pernah membandingkan tampilan kandidat dengan referensi, karena yang dipindahkan ke video lain adalah cara bergerak, bukan kulit.
 
-Aturan bedah dan uji: wajib baca [`claude/video-reference-deconstructor/SKILL.md`](../../video-reference-deconstructor/SKILL.md) sebelum fase 1–3 (primitif atomik, angka measured/estimated, uji transfer dua isian slot, tanpa perbandingan tampilan dengan referensi). Brief ke subagen lewat [`claude/brief-gate`](../../brief-gate/SKILL.md).
+Wajib baca [`claude/video-reference-deconstructor/SKILL.md`](../../video-reference-deconstructor/SKILL.md) sebelum fase 1–3; brief ke subagen lewat [`claude/brief-gate`](../../brief-gate/SKILL.md).
 
-## Alur (4 fase, satu skrip tiap fase)
+## Alur
 
 | Fase | Perintah | Keluaran |
 |---|---|---|
-| 1 Ekstraksi | `ekstrak.py <kartu> --teknik T1 --kategori <k> --komponen Nama [--klip v.mp4 --dari s --sampai s]` | `spec/<kartu>-<teknik>.json` (skema ketat `spec.schema.json`; validasi jsonschema, 3 upaya) |
-| 2 Sintesis | `sintesis.py spec/X.json [--nama N]` | `kandidat/<Nama>/{Nama.tsx, Demo.tsx, meta.json}`; lint + `tsc` otomatis |
-| 3 Uji | `uji.py <Nama> --spec spec/X.json [--putaran 3]` | `LAPORAN.md`, `hasil.json`, `lembar-rN.jpg`, `stills-rN/` |
-| 4 Registrasi | `daftar.py <Nama>` | entri di `registry.json` |
+| 1a Ukur | `ukur/kata_masuk.py`, `ukur/palet.py`, `ekstrak.py` (gerak.py: kamera, segmen, fit kurva, fps asli, frame duplikat) | angka per frame asli; `ukur/data/<kartu>-<teknik>.json` (skema `ukur-gerak.schema.json`) |
+| 1b Bedah | tulis `arsip/<referensi>.md` (kronologi, cut vs gerak, label, uji atomik) dan `spec/<id>.json` per primitif (skema `spec-gerak.schema.json` v4); kombinasi = `resep/<id>.json` berisi id saja | spec + arsip |
+| 2 Sintesis | `sintesis.py spec/<id>.json [--model sonnet\|opus] [--baca-dingin]` | `kandidat/<Komponen>/{Komponen.tsx, Demo.tsx, meta.json, brief.txt}`; lint + lint_demo + tsc |
+| 3 Uji transfer | `uji.py spec/<id>.json [--putaran 3]` | `hasil.json`, `LAPORAN.md`, `strip-rN-A.jpg`, `strip-rN-B.jpg`, `progres-rN.png` |
+| 4 Registri | `daftar.py spec/<id>.json` | entri `registry.json` (versi 3) |
 
-Satu perintah: `jalankan.sh kartu:teknik:Nama:kategori[:klip:dari:sampai] ...` (1 → 4 berurutan). Model = `claude2 -p --model sonnet` (jalur kuota yang ada) dengan hak minimum, tanpa `--dangerously-skip-permissions`: Read saja (ekstraksi, kritikus); sintesis juga Write/Edit hanya di `kandidat/<Nama>/`; tanpa Bash. Render berat memakai kunci `/tmp/remotion-heavy-render.lock`. Dependensi lewat symlink `../node_modules` (tidak masuk git).
+`jalankan.sh <spec>...` menjalankan fase 2–4. Model = `claude1 -p` dengan hak minimum (Read; sintesis juga Write/Edit hanya di `kandidat/<Komponen>/`; tanpa Bash, tanpa skip-permissions); kategori kamera memakai opus. Batas akun = `lib.BatasAkun`. Render memakai kunci `/tmp/remotion-heavy-render.lock`; render sementara dihapus sesudah diukur.
 
-## Skema spec
-`kategori` salah satu dari `atmosfer | gerak_kamera | permukaan_ui | tipografi`; `parameter` terukur per kategori (atmosfer: tipe, palet relatif/peran, arah cahaya, kecepatan, grain · gerak_kamera: kurva cubic-bezier/spring, durasi, transisi, lintasan · permukaan_ui: radius, border, blur, bayangan · tipografi: hierarki tinggi relatif, tracking, unit animasi, pola masuk/keluar). Selain itu `mekanik` (yang dipindahkan), `kulit` (yang TIDAK dibakukan), `bukti` (frame + detik), `terukur.dari_klip` (jujur: false = gerak hanya perkiraan dari keyframe statis).
+## Fase 1: ukur dan bedah
+- Ukur di fps asli (ffprobe); lembar kontak hanya peta. Frame duplikat periodik = animasi ber-fps rendah (tiap 6 frame di 30 fps = 25 fps); nilai kembar di kurva bukan jeda.
+- Lompatan besar dalam 1 frame = cut: dicatat di `potong`, tanpa kurva.
+- Kurva = progres terukur per frame (`kurva.progres_ref`) + fit bezier + kurva `toolkit/gerak/curves` terdekat; kurva baru masuk toolkit dengan tes paritas.
+- Setiap angka di `parameter` berlabel `measured`/`estimated` dengan bukti; `inti: true` + estimated (atau kurva estimated) memaksa `status_maks: teruji-sebagian` (skema).
+- Uji atomik: bila satu bagian dibuang dan sisanya tetap berfungsi, pecah. id = `<lapisan>-<aksi>-<objek-generik>`. Pemicu memakai kosakata *Narrative trigger* `cookbook/CATALOG.md`.
 
-## Lint props (`lint.py`, komponen bukan Demo)
-L1 nol hex/rgb/hsl · L2 nol font-family literal · L3 nol nama warna CSS · L4 tanpa `Math.random`/`Date.now`/rAF/timer · L5 impor hanya remotion/react/zod/toolkit/scripts/remotion · L6 wajib `export const <Nama>PropsSchema` (zod). Alasan: gaya yang menempel di komponen menjadi template tersembunyi; keacakan bebas-biji membuat render paralel berbeda.
+## Fase 2: primitif pembungkus
+`lint.py` L1–L7 pada komponen: tanpa warna/huruf literal, deterministik, impor terbatas, skema zod, tanpa properti kulit atau elemen gambar. `Demo.tsx` (D1–D3) menerima `isian` "A" | "B" dan hanya merakit `demo-netral/Netral.tsx`: dua isian dengan latar, tinta, huruf, teks, dan wadah berbeda, warnanya jauh dari palet referensi yang dibedah. Model menerima spec (angka + kalimat mekanik + jangan dicuri), bukan frame referensi.
 
-## Uji (fase 3) dan syarat lulus
-**Lulus = nol dosa DAN semua metrik keras dalam ambang.** Tidak ada skor. Revisi maksimal 3 putaran; tiap revisi menerima daftar dosa + 5 hal adversarial + metrik gagal.
+## Fase 3: uji transfer (§6 skill)
+Demo dirender dengan isian A dan B. Lulus = semua cek angka di KEDUA isian + kulit tidak bocor + tanpa dosa j + vision.
 
-Render tiap putaran (kunci render global): A skala 1 dengan probe DOM; A dengan teks disembunyikan (`--props={"sembunyikanTeks":true}`, harness menyuntik CSS transparan; selisih render penuh vs tanpa-teks = mask teks); B skala 0,5.
-
-**Kontrak token (kulit referensi tidak boleh bocor).** `tokens-netral.json` mewajibkan DemoA = netral dingin terang, DemoB = netral hangat gelap (enam peran: latar, permukaan, tinta, redup, aksen, aksen2; diturunkan dari `toolkit/latar/presets`). `meta.json` harus memuat persis keduanya, dan setiap hex di `Demo.tsx` harus anggota set itu (atau hitam/putih); huruf A = B. Tidak memenuhi = ditolak sebelum render.
-
-**Referensi selaras waktu.** Spec berklip menyimpan `terukur.klip {path, dari, sampai}`. Frame demo ke-i dipasangkan dengan frame klip pada waktu relatif yang sama (`t = dari + (i - mulai)/(selesai - mulai) × (sampai - dari)`, normalisasi durasi); lembar menampilkan pasangan selaras berlabel waktu. Referensi hanya keyframe = STATIS: lembar memakai keyframe berbeda berurutan berlabel "statis", tanpa metrik struktur dan gerak temporal, status maksimum `teruji-sebagian`.
-
-Dosa biner (satu "Ya" = TOLAK):
-| Kode | Dosa | Dihitung oleh |
+| Jenis uji | Diukur dari | Cek |
 |---|---|---|
-| a | gradien ragu-ragu | skrip: `banding.py` F1 |
-| b | noda/gradien radial pojok tanpa arah cahaya | vision |
-| c | benda 3D generik tanpa makna | vision |
-| d | elemen utama < 20 % luas dan pusat ±12 % tengah pada ≥ 3 sampel berturut (stride 2 frame) | skrip |
-| e | halo/glow di belakang teks | vision |
-| f | blur pada konten yang harus dibaca | vision |
-| g | placeholder | vision |
-| h | teks < 24 px @1080 (sisi pendek) | skrip: probe DOM |
-| i | warna di luar palet token (`cek-warna.mjs keluar` warna-nyasar: luas ≥ 0,5 %, ΔE2000 > 12; plus `metrik.palet_dosa`) | skrip |
-| j | teks tertutup > 10 % titik sampel oleh elemen lain, teks tabrakan, teks keluar kotak wadahnya, teks ada di DOM tetapi tak terlihat di render (selisih penuh vs tanpa-teks) | skrip: probe `elementsFromPoint` + mask teks |
-| o | lapisan non-teks di atas kotak teks (≥ 2 % titik) pada frame mana pun (probe tiap 3 frame + still kunci) | skrip |
-| p | kulit referensi bocor: warna-nyasar yang dekat (ΔE < 12) ke palet referensi (`cek-warna.mjs masuk` pada frame referensi yang dipakai uji) | skrip |
-| k | pola warna latar dari noise (asap/lava lamp) | vision (hanya komponen berlatar toolkit) |
-| l | orb/sumber cahaya utuh di dalam frame | vision (komponen berlatar) |
-| m | ruang negatif < 50 % (piksel ΔE < 3 dari warna dasar) | skrip (komponen berlatar) |
-| n | grain > 2 % (residu frekuensi tinggi pada area datar) | skrip (komponen berlatar) |
-| q | ada elemen menutupi/memotong teks, ditanyakan per baris | vision |
-| r | frame tampak rusak/glitch, ditanyakan per baris | vision |
-| j1–j3 | mengulang pola salah satu jangkar ditolak (`~/work/pabrik-run/jangkar/`) | vision (Ya/Tidak + bukti) |
+| `unit-masuk` | probe DOM tiap frame | muncul potong (opasitas ≥ 0,9) di onset ±2 frame; offset awal x/y dalam rentang_aman; durasi luncur ±2 frame; RMS progres terhadap data measured ≤ 0,10; tanpa pantul; blur awal > 0 dan 0 saat diam |
+| `unit-ganti` | probe DOM tiap frame | onset ±2; potong masuk/keluar; unit berikut tepat di frame sesudahnya; diam selama tampil; pusat semua unit dalam toleransi jangkar |
+| `kamera-jalan` | piksel render, `gerak.sinyal` (alat yang sama dengan referensi) | geser x, skala dalam rentang_aman; geser y < 0,01; tanpa potongan; RMS progres per frame sejak onset ≤ 0,10; durasi 1→99 % ±2; tanpa pantul |
+| semua | render + probe | kulit bocor: klaster warna render (k-means Lab ≥ 0,5 %) dalam ΔE 12 dari `jangan_dicuri.warna`, teks `jangan_dicuri`; dosa j: teks tertutup elemen terlihat > 10 %, tabrakan, terpotong saat diam |
+| vision | strip kandidat A dan B saja + kalimat mekanik + jangan dicuri | mekanik terbaca di A, di B, gerak A = B, tanpa kulit tercuri |
 
-Vision: SATU gambar gabungan (referensi kiri | kandidat kanan, sel sama besar). Ia juga diminta 5 hal spesifik yang membuat kanan tampak lebih murahan; daftar ini bukan syarat lulus, hanya masukan revisi.
+Referensi tidak dirender ulang dan tidak diperlihatkan ke kritikus; tidak ada SSIM, korelasi tepi, atau gambar referensi-kandidat berdampingan.
 
-Metrik keras (`AMBANG` di `uji.py`): struktur selaras waktu (klip): rata-rata skor (SSIM + korelasi tepi)/2 pasangan selaras ≥ 0,15 dan ≥ rata-rata pasangan tak selaras (frame demo vs referensi di waktu lain) · lintasan gerak (gerak_kamera berklip: progres centroid per segmen vs kurva spec, RMS ≤ 0,15, rasio durasi 0,5–2; kategori lain: ≥ 25 % pasangan frame berubah; korelasi energi gerak vs klip dilaporkan, bukan syarat) · dua set token (`edge_warna` ≥ 0,80, selisih piksel RGB ≥ 12).
-
-## Registry
-`status`: `teruji` (lulus, spec diukur dari klip) · `teruji-sebagian` (lulus, spec dari keyframe statis: kurva/lintasan perkiraan) · `ditolak` (tidak lulus setelah 3 putaran; `alasan` = dosa + metrik). Entri memuat nama, fungsi, kartu sumber, kategori, props schema (teks zod), demo stills, lembar side-by-side, metrik akhir, tanggal. Setelah merge ke main, komponen yang lolos dipindah ke `toolkit/` bersama registry.
+## Registri
+`status`: `teruji` · `teruji-sebagian` (parameter inti atau kurva estimated) · `ditolak` (`alasan`). Entri memuat id, kategori, mekanik, pemicu, alasan bekerja, slot, jangan dicuri, props schema, parameter berlabel, arsip, strip A/B, metrik transfer, putaran. Sesi editing mencocokkan beat naskah dengan `pemicu` dan memuat primitif yang dibutuhkan saja; arsip tidak dimuat.
 
 ## Keterbatasan
-- Metrik gerak hanya sekuat spec: referensi tanpa klip memberi kurva perkiraan (status `teruji-sebagian`).
-- Struktur vs keyframe tidak membuktikan kemiripan (lihat kalibrasi); dosa vision bergantung pada satu model dan bisa meleset (positif palsu/negatif palsu); lembar side-by-side selalu perlu mata manusia sebelum dipakai produksi.
-- Probe DOM hanya menangkap teks sebagai node DOM (bukan teks di canvas/WebGL) dan hanya tiap 3 frame + still kunci; oklusi diuji lewat `elementsFromPoint` pada 24 titik per teks (lapisan tembus pandang dan transparan diabaikan); dosa f (blur) dan e (halo) tidak punya pengukur skrip.
-- Palet REF-SPEC tidak dipakai (spec hanya menyimpan luma/saturasi relatif); palet yang diuji = set token netral wajib, dan warna referensi dipakai hanya untuk mendeteksi kebocoran (dosa p).
-- Tes: `~/work/mg-venv/bin/python -m unittest discover -s claude/motion-graphic/scripts/tests` (skema, lint, metrik dengan fixture, probe, registry).
-- Kebocoran kulit hanya terdeteksi untuk WARNA (dosa p); bentuk/objek yang meniru referensi dalam warna token netral tidak terdeteksi skrip.
-- Dosa d (fokus < 20 % luas dan di tengah) menghukum mekanik yang memang memusatkan satu objek besar-tipis (mis. satu kata per ketukan); komponen semacam itu bisa ditolak karena aturan, bukan karena rusak. Ukuran fokus berasal dari `banding.py` (kasar).
-- Metrik lintasan gerak memakai centroid massa tepi: kilatan transisi/grid mencemari lintasan, dan bila spec memuat banyak gerak, perbandingan per segmen hanya kasar.
-- Vision satu-model bisa berganti keluhan tiap putaran (whack-a-mole); 3 putaran tidak menjamin lulus.
+- Probe DOM mengukur kotak teks; gerak yang dibuat di canvas/SVG tidak terlihat oleh cek unit (primitif memang dilarang menggambar).
+- `kamera-jalan` butuh panggung bertekstur (banyak titik sudut); panggung polos tidak terukur.
+- Kulit bocor warna memakai ΔE76 pada klaster ≥ 0,5 % piksel; warna aksen kecil di bawah itu tidak tertangkap (vision menjadi jaring kedua).
+- Vision satu model; strip tetap perlu mata manusia sebelum dipakai produksi.
+- Tes: `~/work/mg-venv/bin/python -m unittest scripts.tests.test_pabrik scripts.tests.test_pabrik_gerak` dari `claude/motion-graphic/`.

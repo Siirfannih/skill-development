@@ -1,0 +1,168 @@
+{
+ "versi": 4,
+ "id": "tipografi-ganti-unit-di-jangkar",
+ "kategori": "tipografi",
+ "komponen": "GantiUnitDiJangkar",
+ "mekanik": "Satu unit teks tampil sendirian di satu titik jangkar tetap; saat unit berikutnya tiba, unit lama hilang dan unit baru muncul di titik yang sama pada frame yang sama (potong 1 frame, tanpa transisi), pusatnya tetap di jangkar walau lebar unit berubah, dan tidak ada gerak posisi selama tampil.",
+ "parameter": [
+  {
+   "nama": "ganti",
+   "nilai": "potong 1 frame, unit lama hilang dan unit baru muncul di frame yang sama",
+   "satuan": "-",
+   "label": "measured",
+   "inti": true,
+   "bukti": "selisih frame 31,0 di f1, 4,2 di f11, 5,5 di f16, 24,6 di f31 (pergantian shot), 1,0 di f37; jumlah piksel teks berubah dalam 1 frame (11001 -> 8033 -> 5877)"
+  },
+  {
+   "nama": "jangkar_pusat",
+   "nilai": [
+    0.499,
+    0.504
+   ],
+   "satuan": "fraksi (x lebar, y tinggi) frame",
+   "label": "measured",
+   "inti": true,
+   "bukti": "pusat x (x0+x1)/2: 0.499, 0.498, 0.5015 untuk tiga unit pertama; cy 0.503-0.505; 90-imzache 8.5-10.2s, mask piksel > 235 di pita y 0.40-0.60"
+  },
+  {
+   "nama": "toleransi_jangkar",
+   "nilai": 0.01,
+   "satuan": "fraksi frame",
+   "label": "measured",
+   "inti": true,
+   "bukti": "sebaran pusat x 0.0035 W dan y 0.002 H antar unit"
+  },
+  {
+   "nama": "geser_selama_tampil",
+   "nilai": 0,
+   "satuan": "fraksi tinggi frame",
+   "label": "measured",
+   "inti": true,
+   "bukti": "x0/x1/cy identik antar frame selama tiap unit tampil (f1-f10, f11-f15, f16-f30)"
+  },
+  {
+   "nama": "lama_tampil",
+   "nilai": [
+    10,
+    5,
+    15,
+    6
+   ],
+   "satuan": "frame @30 fps",
+   "label": "measured",
+   "inti": false,
+   "bukti": "unit tampil f1-f10, f11-f15, f16-f30, f31-f36; ditentukan ucapan, jadi slot pemanggil"
+  }
+ ],
+ "potong": [
+  "setiap pergantian unit"
+ ],
+ "pemicu": [
+  {
+   "istilah": "caption jangkar di ruang tetap pembicara (dada, atas kepala, mulut) saat shot atau frasa berganti",
+   "dari_catalog": true,
+   "kartu": "M06"
+  }
+ ],
+ "alasan_bekerja": "Mata penonton tidak perlu berpindah tempat untuk membaca karena kata selalu muncul di titik yang sama, sehingga perhatian bisa tetap pada wajah dan ritme ucapan terasa dari pergantian kata, bukan dari gerak.",
+ "slot": [
+  {
+   "nama": "unit",
+   "isi": "daftar unit teks (kata/frasa) dan frame munculnya dari pemanggil, disinkronkan ke ucapan"
+  },
+  {
+   "nama": "jangkar",
+   "isi": "titik jangkar (fraksi frame) dari pemanggil, mis. dada atau atas kepala pembicara"
+  },
+  {
+   "nama": "gaya_teks",
+   "isi": "huruf, berat, warna, ukuran dari tema proyek"
+  }
+ ],
+ "jangan_dicuri": {
+  "warna": [
+   "#07090B",
+   "#6A280A",
+   "#27261E",
+   "#403D33",
+   "#3D1708",
+   "#DE8545",
+   "#AC4314",
+   "#93684D",
+   "#EFC13B",
+   "#F6F8EF"
+  ],
+  "bentuk": [],
+  "objek": [
+   "footage pembicara",
+   "sumber cahaya oranye di latar",
+   "ikon kecil di kiri kata"
+  ],
+  "teks": [
+   "Your",
+   "video",
+   "should",
+   "never",
+   "sit",
+   "still"
+  ],
+  "tata_letak": [
+   "teks putih tebal tanpa latar di dada pembicara",
+   "judul kuning bertumpuk di awal"
+  ]
+ },
+ "sumber": {
+  "video": "pustaka-video/unggahan/90-imzache.mp4",
+  "kartu": "90",
+  "fps_asli": 30,
+  "frame_duplikat": {
+   "frame": [
+    41,
+    42,
+    43,
+    44
+   ],
+   "periode": 1,
+   "fps_animasi": 0.0,
+   "catatan": "hanya frame diam berurutan (footage hampir tidak bergerak), bukan pola animasi"
+  },
+  "jendela": [
+   {
+    "dari": 8.5,
+    "sampai": 10.2,
+    "isi": "lima unit caption berganti di jangkar yang sama, melintasi satu pergantian shot"
+   }
+  ],
+  "data_ukur": [
+   "claude/motion-graphic/pabrik/ukur/data/90-T1.json"
+  ],
+  "arsip": "claude/motion-graphic/pabrik/arsip/90-imzache.md"
+ },
+ "kemunculan": [
+  {
+   "video": "90-imzache.mp4",
+   "detik": "8.53-9.53",
+   "kulit": "kata putih di dada pembicara, shot sedang"
+  },
+  {
+   "video": "90-imzache.mp4",
+   "detik": "9.53-10.2",
+   "kulit": "kata putih yang sama posisinya sesudah pergantian ke shot lebar gelap"
+  }
+ ],
+ "uji": {
+  "jenis": "unit-ganti",
+  "demo": {
+   "durasi": 45,
+   "width": 720,
+   "height": 1280,
+   "onset": [
+    2,
+    12,
+    17,
+    32
+   ]
+  }
+ },
+ "status_maks": "teruji"
+}
