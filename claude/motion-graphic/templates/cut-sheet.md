@@ -1,19 +1,19 @@
-# Timeline Cut Sheet & Mapping Visual · <proyek>
+# Timeline Cut Sheet & Visual Mapping · <project>
 
-Satu tabel untuk seluruh video. Sutradara mengisinya setelah potongan suara dikunci (fase 1b); setelah itu tabel ini jadi acuan kerja subagen. Subagen **tidak membaca seluruh guideline**: TASK-nya mengutip baris yang ia kerjakan + butir Wajib proyek, itu saja.
+One table for the whole video. The Director fills it once audio cuts are locked (phase 1b); after that, this table becomes the subagent's working reference. Subagents **do not read the entire guideline**: their TASK quotes only the rows they work on + the project's Mandatory items, nothing else.
 
-Cara mengisi:
-- Satu baris = satu kalimat atau satu potongan yang visualnya sama. Urut sesuai timeline hasil.
-- **Waktu sumber** dan **Timeline hasil** dari `CUT-MAP` dan `transkrip-hasil.md` (kata asli), bukan perkiraan.
-- **Naskah** = ucapan persis. Tanda di akhir: `<` = kembali ke wajah pembicara, `>` = pindah ke visual/B-roll/motion graphic.
-- **Visual & aset** = apa yang tampil, dari mana asetnya (tautan, file, atau "dibangun di kode: <komponen>"), dan penekanan teksnya. Tulis hasil yang dimau; cara membuatnya diputuskan pekerja.
-- Kolom **Mode** dan **Bunyi** boleh dihapus bila videonya tidak memerlukannya.
-- Di bawah tabel: satu paragraf arah musik/SFX dan catatan hak pakai.
+How to fill:
+- One row = one sentence or one cut with the same visuals. Ordered by the output timeline.
+- **Source time** and **Output timeline** come from `CUT-MAP` and `transkrip-hasil.md` (exact original words), not estimates.
+- **Script** = exact spoken words. End markers: `<` = return to speaker's face, `>` = switch to visual/B-roll/motion graphic.
+- **Visuals & assets** = what appears, where the asset comes from (link, file, or "built in code: <component>"), and its text emphasis. State the desired result; the builder decides how to make it.
+- The **Mode** and **Sound** columns may be removed if the video does not need them.
+- Below the table: one paragraph on music/SFX direction and licensing notes.
 
-| Waktu sumber | Timeline hasil | Naskah & titik cut (< >) | Mode | Visual & aset | Bunyi (peran) |
+| Source time | Output timeline | Script & cut points (< >) | Mode | Visuals & assets | Sound (role) |
 | :---- | :---- | :---- | :---- | :---- | :---- |
-| mm:ss – mm:ss | mm:ss – mm:ss | *"…"* < | wajah penuh / wajah pojok + visual / motion graphic | **<Nama adegan>:** <apa yang tampil> (<sumber aset>) + teks kinetik di kata <…> | <mis. punch-kamera> |
+| mm:ss – mm:ss | mm:ss – mm:ss | *"…"* < | full face / corner face + visual / motion graphic | **<Scene name>:** <what appears> (<asset source>) + kinetic typography on word <…> | <e.g., camera-punch> |
 
-Musik & SFX: <arah suasana, kandidat lagu + tautan, siapa yang mengurus hak pakai>.
+Music & SFX: <mood direction, track candidates + links, who handles licensing>.
 
-Status baris (diisi selama kerja): `rencana` → `still lulus` → `audit lulus`.
+Row status (filled during work): `rencana` (planned) → `still lulus` (still passed) → `audit lulus` (audit passed).
