@@ -6,7 +6,7 @@ Urutan menang: instruksiku di sesi → `projects/<proyek>/` (BRIEF, RESEP, DECIS
 1. **Pesan.** Isi `BRIEF.md` (dari `templates/BRIEF.md`): akar pesan carousel (satu kalimat), akar pesan per slide, copy persis, urutan baca 1→n, bukti visual (kenapa visual ini membuktikan pesan), aksi tiap karakter (kata kerja). Belum ada kode. Rujukan: `guide/pesan/GUIDE.md`.
 2. **Racik.** Referensi baru dari aku dibedah dulu lewat `cookbook/BEDAH.md` sampai jadi kartu. Lalu per slide, cari 2–4 kartu lewat `cookbook/INDEX.md`; tulis tabel di `RESEP.md`:
    | Slide | Akar pesan | Fokus (urutan baca 1→n) | Kartu (ID.Tn) | Remix: dipertahankan → diganti | Peran huruf |
-3. **Sketsa.** Preview kasar tiap slide (`engine/` → `preview_slide`), lalu uji juling: perkecil ke lebar ±300 px atau blur; mata harus jatuh ke elemen urutan 1, lalu 2, lalu 3. Tulis hasilnya di `TAHAP.md`.
+3. **Sketsa.** Preview kasar tiap slide (`engine/` → `preview_slide`), lalu uji juling: perkecil ke lebar ±300 px atau blur; mata harus jatuh ke elemen urutan 1, lalu 2, lalu 3. Tulis hasilnya di `TAHAP.md`. Tulis di `TAHAP.md` urutan yang benar-benar terbaca (1→3) dan pita kosong terlebar (px) beserta tugasnya (KMP-04).
 4. **Bangun.** Satu file per slide di `projects/<proyek>/slides/` (kontrak di `templates/proyek/README.md`). Subagen boleh paralel, satu slide per subagen, dengan brief yang menyebut rute ini.
 5. **Juri, lalu export.** Semua gerbang §3 lulus, lalu export 2× (2160 × 2700 untuk 4:5).
 
@@ -14,6 +14,7 @@ Urutan menang: instruksiku di sesi → `projects/<proyek>/` (BRIEF, RESEP, DECIS
 - **Satu fokus per slide**, urutan baca render = urutan BRIEF (HRK-01, HRK-02).
 - **Maksimal 2 keluarga huruf**, masing-masing punya peran tertulis di RESEP; serif tidak diselipkan di antara sans tebal tanpa peran (TIP-01).
 - **Elemen sekunder** (thumbnail, chip, teks blur, stiker) mengisi ruang kosong di tepi dan tidak bersaing dengan teks utama (KMP-01). Blok yang dibaca berurutan berjarak rapat dan seragam (KMP-02).
+- **Ruang kosong punya tugas**: pita kosong tanpa tugas tertulis tidak lebih lebar dari 2× jarak antar-kelompok; margin atas konten seragam (KMP-04).
 - **Teks lurus** kecuali lengkungnya mengikuti objek yang memberi alasan (TIP-03).
 - **Pesan diperas sampai akar**; visual membuktikan akar itu (PSN-01). Tidak menambah copy di luar BRIEF, apalagi yang membocorkan punchline (PSN-02).
 - **Karakter hanya bila berfungsi**: muncul di slide yang butuh, dengan kata kerja yang terbaca; pose yang terbaca aneh diganti (KRK-01).

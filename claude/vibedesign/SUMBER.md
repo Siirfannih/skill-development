@@ -28,6 +28,7 @@ Bukan instruksi. Jangan dibuka saat mengerjakan tugas: aturan yang berlaku ada d
 | KRK-01 | Irfan 24 Nov: "karakter hanya ditempel pasif"; slide 4 "maskot biru mouse tidur jadinya aneh"; koreksi lanjutan 24 Nov: karakter tidak dipakai terus-menerus, hanya bila punya fungsi. | 2 |
 | TIP-03 | Irfan 24 Nov: teks melengkung "Tapi...." dijadikan lurus; lengkung hanya bila mengikuti bentuk/objek. | 2 |
 | KMP-02 | Irfan 24 Nov: celah besar antara teks dan bubble yang dibaca berikutnya; jarak kelompok berurutan harus rapat dan konsisten. | 2 |
+| KMP-04 | Irfan 24 Nov: D-026 (whitespace lebar memaksa mata turun terlalu jauh), D-031 (whitespace mati antara headline dan dock), D-033 (ruang atas kosong, margin atas seragam). | 2 |
 | WRN-01 | Palet terkunci carousel meta-experiment; anti-slop UI "Too Many Colors". | 2 |
 | HND-01 | Evaluasi anti-slop 24 Nov: grid latar, jendela terminal, status dot dipertahankan sebagai motif dunia "workspace" dengan alasan tertulis. | 2 |
 
@@ -39,3 +40,4 @@ Bukan instruksi. Jangan dibuka saat mengerjakan tugas: aturan yang berlaku ada d
 | Kartu 06 | Referensi "Social Media Flyer Designs" (folder fisik + kipas kartu), dibedah pemilik 24 Nov 2026; angka sampel warna dari sesi yang sama. | – |
 - `guide/komposisi/GUIDE.md` KMP-03: analisis pemilik atas dua versi hook carousel (kata raksasa menyatu vs melayang di atas grid), 24 Nov.
 - 2026-11-27 [A] evals/cases vd-006…vd-011: enam kasus dari koreksi carousel meta-experiment dan profil merek yang belum ada (2026-11-27-vibedesign-evals)
+- 2026-11-27 [A] guide/komposisi KMP-04, DESIGN-CORE §1.3 dan §2, guide/hindari uji tukar (2026-11-27-vibedesign-ruang-kosong)

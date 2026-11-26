@@ -9,6 +9,7 @@ Rujukan utama: `../../../../external/anti-slop/skills/antislop-ui/SKILL.md` (pol
 - Semua elemen berbayang besar dan melayang → turunkan; bayangan hanya untuk yang memang terangkat.
 - Badge/eyebrow, dot status, panah kecil di setiap tombol → pakai bila jadi bagian dunia cerita, bukan hiasan default.
 - Teks generik ("Unlock your potential") hanya untuk contoh slop yang disengaja.
+- Uji tukar: ganti copy slide dengan topik lain. Bila dunia visualnya tetap cocok tanpa perubahan, visual belum membuktikan pesan (PSN-01): tambah bukti visual atau buang hiasan. Cek di lembar sanding, tulis hasilnya di TAHAP.
 
 ## Cara memutuskan
 - **[HND-01] Pola anti-slop boleh bila jadi motif dunia dengan alasan tertulis** · kelas P · cek: RESEP

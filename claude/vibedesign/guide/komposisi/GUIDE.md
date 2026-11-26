@@ -29,3 +29,10 @@
   - Boleh: objek yang memang sengaja melayang (mis. kartu atau karakter yang terbang) asal ada bayangan jatuh yang terpisah untuk menunjukkan ketinggiannya.
   - Gerbang: still di TAHAP + catat posisi baseline dan horizon (px) di RESEP.
 
+- **[KMP-04] Ruang kosong di antara kelompok baca punya tugas** · kelas P · cek: still 300 px + jarak terukur di TAHAP
+  - Pemicu: ada pita kosong yang lebih lebar dari jarak antar-kelompok di antara dua kelompok yang dibaca berurutan, atau di atas blok utama.
+  - Anti-pola: blok utama atau objek menunggu jauh di bawah, sehingga mata turun melewati ruang mati; margin atas konten berbeda-beda antar slide sejenis.
+  - Invarian: pita kosong tanpa tugas tertulis di RESEP ≤ 2× jarak antar-kelompok slide itu; margin atas konten sama (selisih ≤ 1 % tinggi kanvas) di slide dengan header yang sama. Ukur dari render (px), tulis di TAHAP.
+  - Karena: mata membaca ruang kosong lebar sebagai akhir; konten sesudahnya terasa terpisah atau terlewat.
+  - Boleh: ruang kosong sebagai jeda dramatis atau napas sebelum punchline, bila tugasnya ditulis satu kalimat di RESEP.
+  - Gerbang: still + angka di TAHAP; lembar sanding.
