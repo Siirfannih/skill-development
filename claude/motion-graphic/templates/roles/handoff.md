@@ -51,8 +51,8 @@ Open questions: QUESTIONS.md #…
 Written after viewing the still/render **before** reading REPORT.
 ```
 | ID | Beat | Finding | Evidence (tc/frame) | Measurable criterion | Devil's advocate | Status |
-| F-r<N>-01 | B03 | … | 0:13.2 | … | violates PLAN lulus_bila #1 | KEEP (LOLOS) → TASK r<N+1> |
-| F-r<N>-02 | B04 | … | … | … | taste, not in BRIEF | DROP (BUANG) |
+| F-r<N>-01 | B03 | … | 0:13.2 | … | violates PLAN lulus_bila #1 | LOLOS (keep) → TASK r<N+1> |
+| F-r<N>-02 | B04 | … | … | … | taste, not in BRIEF | BUANG (drop) |
 ```
 
 ## QUESTIONS.md (Builder) and DECISIONS.md (Director)
