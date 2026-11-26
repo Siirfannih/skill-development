@@ -15,6 +15,10 @@
 #   PERMUKAAN  <proyek>/remotion/src dan <proyek>/storyboard (bila ada) -> gate/permukaan_cek.py: INVENTARIS sistem huruf, bayangan,
 #              gradien, kaca/blur, 3D (KEBIJAKAN-v2: sistem, bukan larangan). Hanya dicetak, tidak pernah memblokir. Perilaku lama
 #              (K1/K2 memblokir): PERMUKAAN_GERBANG=1. Placeholder (negatif_cek.py) tidak dipanggil di sini; jalankan terpisah.
+#   WARNA      palet.json di <proyek> atau <proyek>/qc (dari warna/cek-warna.mjs masuk) -> warna/cek-warna.mjs keluar pada
+#              qc/stills dan storyboard/png (html di panels/ atau still tanpa teks <nama>.tanpa-teks.png di sebelahnya): warna nyasar,
+#              kontras APCA, warna nanggung. Node atau node_modules hilang = GAGAL (fail-closed). Lewati hanya dengan alasan tertulis
+#              di qc/warna_lewati.txt (>= 20 huruf selain komentar #); laporan JSON: qc/warna.json.
 #   POTONG     sfx_potong.json di folder audio terkunci, <proyek>/audio, atau <proyek>/qc -> audio/sfx_potong.py --laporan.
 #   HP         stem_vo.wav + stem_music.wav + stem_sfx.wav di salah satu folder itu -> audio/audio_phone.py --gate
 #              (mix.wav dan cues.json wajib ada di folder yang sama).
@@ -58,6 +62,25 @@ if [ "${#SRC[@]}" -gt 0 ]; then
     python3 "$HERE/../gate/permukaan_cek.py" "${SRC[@]}" || echo "catatan: inventaris permukaan tidak terbaca (tidak memblokir)"
   fi
 else echo "permukaan: dilewati (tidak ada remotion/src atau storyboard)"; fi
+
+PALET=""; for c in "$P/palet.json" "$QC/palet.json"; do [ -f "$c" ] && { PALET="$c"; break; }; done
+if [ -n "$PALET" ]; then
+  ALASAN_W="$( [ -f "$QC/warna_lewati.txt" ] && sed 's/#.*//' "$QC/warna_lewati.txt" | tr -d '[:space:]' || true )"
+  if [ "${#ALASAN_W}" -ge 20 ]; then echo "warna: dilewati dengan alasan tertulis (qc/warna_lewati.txt)"
+  else
+    WD=(); for d in "$QC/stills" "$P/storyboard/png"; do [ -d "$d" ] && ls "$d"/*.png >/dev/null 2>&1 && WD+=("$d"); done
+    if [ "${#WD[@]}" -eq 0 ]; then echo "GAGAL gerbang warna: palet.json ada tetapi tidak ada still (qc/stills atau storyboard/png) untuk diperiksa."; gagal=1
+    elif ! command -v node >/dev/null 2>&1 || [ ! -d "$HERE/../warna/node_modules" ]; then
+      echo "GAGAL gerbang warna: node atau scripts/warna/node_modules tidak ada (jalankan 'npm ci' di scripts/warna), atau tulis alasan di qc/warna_lewati.txt."; gagal=1
+    else
+      mkdir -p "$QC"
+      for d in "${WD[@]}"; do
+        node "$HERE/../warna/cek-warna.mjs" keluar "$d" --palet "$PALET" --json > "$QC/warna.json" \
+          || { echo "GAGAL gerbang warna ($d): warna nyasar, kontras APCA, atau warna nanggung (laporan qc/warna.json; palet = $PALET)."; gagal=1; }
+      done
+    fi
+  fi
+else echo "warna: dilewati (tidak ada palet.json; buat dengan warna/cek-warna.mjs masuk <referensi>)"; fi
 
 SUDAH=":"
 for d in "$AUDIO_DIR" "$P/audio" "$QC"; do

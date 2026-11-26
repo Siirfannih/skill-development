@@ -243,6 +243,8 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/selects/rakitan_cek.py` | Cek take dobel dan kata terpotong pada rakitan klip dari rekaman talking head mentah. |
 | `claude/motion-graphic/scripts/selects/timeline.py` | Timeline untuk editor dari rekaman talking head mentah (paket selects, `references/selects-editor.md`). |
 | `claude/motion-graphic/scripts/storyboard/board.py` | Storyboard visual: render panel HTML -> PNG, susun papan (pola kanvas Wonder), lalu periksa. |
+| `claude/motion-graphic/scripts/warna/palet_keluar.py` | palet_keluar.py: pembungkus tipis untuk `cek-warna.mjs keluar` (GERBANG KELUAR warna (warna nyasar, kontras APCA/WCAG, warna nanggung)). |
+| `claude/motion-graphic/scripts/warna/palet_masuk.py` | palet_masuk.py: pembungkus tipis untuk `cek-warna.mjs masuk` (GERBANG MASUK warna (palet HEX nyata + peran dari referensi)). |
 
 ## tools/ (perawatan repo)
 

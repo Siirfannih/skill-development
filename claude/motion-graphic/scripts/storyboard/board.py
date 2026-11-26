@@ -18,8 +18,9 @@ Yang diperiksa (dari umpan balik Irfan di sesi storyboard Wonder 1–7 Nov dan a
   - waktu beat berurutan, tidak tumpang tindih, celah <= 0,5 dtk
   - teks layar (elemen data-layar): maks 2 baris (teks.md), tidak keluar frame; tanda baca = peringatan (tanda tanya sah)
   - tidak ada elemen yang terpotong tepi frame kecuali ditandai data-bleed (sengaja keluar frame)
+  - bila palet.json ada di proyek: gerbang warna keluar (warna/cek-warna.mjs keluar): warna nyasar, kontras APCA, warna nanggung
 """
-import argparse, html, json, re, sys
+import argparse, html, json, re, shutil, subprocess, sys
 from pathlib import Path
 
 PUNCT = re.compile(r"[.,!?;:…]")
@@ -35,6 +36,34 @@ def layar_issues(nama, r):
         gagal.append(f"{nama}: teks layar keluar frame: '{r['text'][:40]}'")
     if PUNCT.search(r["text"]):
         catat.append(f"{nama}: tanda baca di teks layar (periksa; tanda tanya sah): '{r['text'][:40]}'")
+    return gagal, catat
+
+
+def warna_issues(sb):
+    """Gerbang warna keluar: bila palet.json ada di proyek (folder storyboard, induknya, atau qc/), jalankan
+    warna/cek-warna.mjs keluar pada png/ (html di panels/ ditemukan otomatis). Node hilang = gagal (fail-closed)."""
+    palet = next((c for c in (sb / "palet.json", sb.parent / "palet.json", sb.parent / "qc" / "palet.json") if c.is_file()), None)
+    if palet is None:
+        return [], []
+    mjs = Path(__file__).resolve().parents[1] / "warna" / "cek-warna.mjs"
+    if not shutil.which("node") or not (mjs.parent / "node_modules").is_dir():
+        return ["warna: palet.json ada tetapi node atau scripts/warna/node_modules tidak ada (npm ci di scripts/warna)"], []
+    r = subprocess.run(["node", str(mjs), "keluar", str(sb / "png"), "--palet", str(palet), "--json"], capture_output=True, text=True)
+    try:
+        d = json.loads(r.stdout)
+    except ValueError:
+        return [f"warna: cek-warna.mjs tidak terbaca (kode {r.returncode}): {r.stderr.strip()[-200:]}"], []
+    gagal, catat = [], []
+    for a in d.get("alasan", []):
+        f = Path(a.get("file", "")).stem
+        if a["jenis"] == "kontras-apca":
+            gagal.append(f"{f}: kontras APCA Lc {a['lc']} < {a['min']} di {a['blok']} ({a['teks']} di {a['latar']})")
+        else:
+            gagal.append(f"{f}: {a['jenis']} {a.get('hex', '')} {a.get('luas', '')}".strip())
+    if d.get("status") == "ERROR":
+        gagal.append(f"warna: cek-warna.mjs error: {d.get('galat', r.stderr.strip()[-200:])}")
+    for a in d.get("aviso", [])[:6]:
+        catat.append(f"warna aviso {Path(a.get('file', '')).stem}: {a['jenis']} {a.get('blok', '')} {a.get('detail', '')}".strip())
     return gagal, catat
 
 CAPTION_KEYS = ("vo", "aksi", "kamera", "keluar")
@@ -237,6 +266,7 @@ def main():
         pg2.screenshot(path=str(sb / "board.png"), full_page=True)
         br.close()
 
+    wg, wn = warna_issues(sb); fails += wg; notes += wn
     cues = [dict(c, beat=b["id"]) for b in beats for c in b.get("sfx", [])]
     (sb / "cues.json").write_text(json.dumps({"cues": cues}, ensure_ascii=False, indent=1), encoding="utf-8")
     (sb / "check.json").write_text(json.dumps({"fails": fails, "notes": notes}, ensure_ascii=False, indent=1), encoding="utf-8")
