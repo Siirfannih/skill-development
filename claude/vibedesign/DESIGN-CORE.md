@@ -6,7 +6,7 @@ Urutan menang: instruksiku di sesi → `projects/<proyek>/` (BRIEF, RESEP, DECIS
 1. **Pesan.** Isi `BRIEF.md` (dari `templates/BRIEF.md`): akar pesan carousel (satu kalimat), akar pesan per slide, copy persis, urutan baca 1→n, bukti visual (kenapa visual ini membuktikan pesan), aksi tiap karakter (kata kerja). Belum ada kode. Rujukan: `guide/pesan/GUIDE.md`.
 2. **Racik.** Referensi baru dari aku dibedah dulu lewat `cookbook/BEDAH.md` sampai jadi kartu. Lalu per slide, cari 2–4 kartu lewat `cookbook/INDEX.md`; tulis tabel di `RESEP.md`:
    | Slide | Akar pesan | Fokus (urutan baca 1→n) | Kartu (ID.Tn) | Remix: dipertahankan → diganti | Peran huruf |
-3. **Sketsa.** Preview kasar tiap slide (`engine/` → `preview_slide`), lalu uji juling: perkecil ke lebar ±300 px atau blur; mata harus jatuh ke elemen urutan 1, lalu 2, lalu 3. Tulis hasilnya di `TAHAP.md`. Tulis di `TAHAP.md` urutan yang benar-benar terbaca (1→3) dan pita kosong terlebar (px) beserta tugasnya (KMP-04).
+3. **Sketsa.** Preview kasar tiap slide (`engine/` → `preview_slide`), lalu uji juling: perkecil ke lebar ±300 px atau blur; mata harus jatuh ke elemen urutan 1, lalu 2, lalu 3. Tulis di `TAHAP.md` urutan yang benar-benar terbaca dan pita kosong terlebar (px) beserta tugasnya (KMP-04).
 4. **Bangun.** Satu file per slide di `projects/<proyek>/slides/` (kontrak di `templates/proyek/README.md`). Subagen boleh paralel, satu slide per subagen, dengan brief yang menyebut rute ini.
 5. **Juri, lalu export.** Semua gerbang §3 lulus, lalu export 2× (2160 × 2700 untuk 4:5).
 

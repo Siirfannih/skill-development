@@ -13,7 +13,9 @@ Objek penuh layar (>= 80 % kanvas) atau `data-lapis="latar"` dianggap latar, buk
   TEKS-TEKS    dua blok teks berbeda beririsan > ambang (2 %) dari blok yang lebih kecil (luas diukur per baris teks)
   TEKS-OBJEK   teks beririsan > ambang dengan objek yang BUKAN leluhurnya (label di dalam kartunya sendiri aman)
   TEPI         kotak teks keluar dari zona aman (5 % tiap sisi)
-Elemen (atau leluhurnya) ber-`data-sengaja="tumpuk"` dikecualikan. Elemen ber-`data-dekor` (penanda dekoratif vibedesign) diperlakukan sama. Tiap berkas menulis `<nama>.tabrakan.png` (kotak merah = tabrakan,
+Elemen (atau leluhurnya) ber-`data-sengaja="tumpuk"` dikecualikan. Elemen ber-`data-dekor` (penanda dekoratif vibedesign) diperlakukan sama.
+Pengecualian tidak diam: tiap blok teks yang dikecualikan tercetak sebagai baris `dikecualikan` (JSON: `dikecualikan`), supaya teks pesan
+yang diberi penanda hanya agar lulus terlihat oleh peninjau; alat ini tidak bisa membedakan teks pesan dari hiasan. Tiap berkas menulis `<nama>.tabrakan.png` (kotak merah = tabrakan,
 oranye = di luar zona aman, garis biru putus = batas zona aman). Keluar: 0 bersih · 1 ada tabrakan · 2 Playwright/berkas bermasalah.
 """
 import argparse, json, os, sys
@@ -50,6 +52,7 @@ JS = r"""
     const e = blocks.get(b) || {el: b, rects: [], text: ''};
     e.rects.push(...rects); e.text += n.nodeValue.trim() + ' '; blocks.set(b, e);
   }
+  const X = [...blocks.values()].filter(t => exempt(t.el)).map(t => label(t.el) + ' "' + t.text.trim().slice(0, 40) + '"');
   const T = [...blocks.values()].filter(t => !exempt(t.el)).map(t => {
     const x0 = Math.min(...t.rects.map(q => q.x)), y0 = Math.min(...t.rects.map(q => q.y));
     const x1 = Math.max(...t.rects.map(q => q.x + q.w)), y1 = Math.max(...t.rects.map(q => q.y + q.h));
@@ -86,7 +89,7 @@ JS = r"""
     if (b.x < sx - 1 || b.y < sy - 1 || b.x + b.w > W - sx + 1 || b.y + b.h > H - sy + 1)
       out.push({jenis: 'TEPI', a: t.name + ' "' + t.text + '"', b: 'zona aman', rasio: 1, boxes: [b]});
   }
-  return {temuan: out, teks: T.length, objek: O.length};
+  return {temuan: out, teks: T.length, objek: O.length, dikecualikan: X};
 }
 """
 
@@ -143,13 +146,14 @@ def main(argv=None):
                 print(f"{f}: gagal render: {e}", file=sys.stderr); br.close(); return 2
             finally:
                 pg.close()
-            total += len(r["temuan"]); report.append({"file": f, "png": png, **{k: r[k] for k in ("teks", "objek", "temuan")}})
+            total += len(r["temuan"]); report.append({"file": f, "png": png, **{k: r[k] for k in ("teks", "objek", "temuan", "dikecualikan")}})
         br.close()
     if a.json: print(json.dumps(report, ensure_ascii=False, indent=1))
     else:
         for rp in report:
             print(f"{rp['file']}  teks={rp['teks']} objek={rp['objek']} tabrakan={len(rp['temuan'])}  -> {rp['png']}")
             for i, t in enumerate(rp["temuan"], 1): print(f"  #{i} {t['jenis']:<10} {t['a']}  x  {t['b']}  ({t['rasio']*100:.0f}%)")
+            for x in rp["dikecualikan"]: print(f"  dikecualikan (data-sengaja/data-dekor, tidak dicek): {x}")
         print(f"\nringkasan: {len(report)} berkas, {total} tabrakan")
         print("GAGAL tabrakan: geser teks/objek (atau beri data-sengaja=\"tumpuk\" bila sengaja)." if total else "LULUS tabrakan")
     return 1 if total else 0

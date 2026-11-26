@@ -37,6 +37,11 @@ class Dekor(unittest.TestCase):
         r = self.cek(JUDUL + "<p data-dekor style='position:absolute;left:220px;top:230px;font:60px sans-serif'>Menimpa</p>")
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
 
+    def test_teks_dekor_tetap_tercetak_sebagai_dikecualikan(self):
+        # penanda tidak bisa menyembunyikan teks diam-diam: teks yang dikecualikan disebut di laporan
+        r = self.cek(JUDUL + "<p data-dekor style='position:absolute;left:220px;top:230px;font:60px sans-serif'>Menimpa</p>")
+        self.assertIn('dikecualikan', r.stdout); self.assertIn('"Menimpa"', r.stdout); self.assertNotIn('"Judul besar"', r.stdout.split("dikecualikan", 1)[1])
+
     def test_dekor_pada_leluhur_berlaku_untuk_anak(self):
         r = self.cek(JUDUL + "<div data-dekor><p style='position:absolute;left:220px;top:230px;font:60px sans-serif'>Menimpa</p></div>")
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)

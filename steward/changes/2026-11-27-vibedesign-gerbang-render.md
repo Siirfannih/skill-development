@@ -11,3 +11,5 @@ Dampak: kartu atau slide yang memberi `data-dekor` pada teks atau objek hias tid
 Level: Behavior
 Persetujuan: permintaan langsung (Irfan 27 Nov, "vibedesign … perlu dilatih lagi", terjemahan) · diterapkan [A] (hanya V7)
 Cara membatalkan: `git revert` komit V7.
+
+Tinjauan akhir 27 Nov: `data-dekor` (juga `data-sengaja="tumpuk"`) tidak bisa dibedakan alat dari teks pesan; tidak ada yang mencegah agen memberi penanda pada judul supaya lulus. Mitigasi: pengecualian tidak lagi diam; tiap blok teks yang dikecualikan tercetak sebagai baris `dikecualikan` (JSON: `dikecualikan`), kode keluar tidak berubah. Tes `test_teks_dekor_tetap_tercetak_sebagai_dikecualikan`. 29 tes tabrakan/permukaan lulus dengan `~/work/mg-venv/bin/python` (Chromium Playwright tidak ada di `~/.cache/ms-playwright`; dijalankan dengan `PLAYWRIGHT_BROWSERS_PATH` menunjuk headless shell 158 milik HyperFrames, tanpa memasang apa pun).
