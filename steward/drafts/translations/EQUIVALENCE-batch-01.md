@@ -114,3 +114,12 @@ Second-model verification against `origin/main` (`0c4e4aa9`). One section per fi
 | `## 2. Matriks determinisme` | Tabel mekanisme aman/tidak aman/dilarang (`useFrame`, GSAP, bloom/glow K2, DoF, TAA, fisika, Cycles, `<CameraMotionBlur>`). | Table of safe/unsafe/forbidden mechanisms (`useFrame`, GSAP, K2 bloom/glow, DoF, TAA, physics, Cycles, `<CameraMotionBlur>`). | yes |
 | `## 3. Filter SVG deterministik` | Filter `#tex` dan `#riak` berbasis `frame` tanpa paket luar, biaya bench 0,4-0,6 dtk/frame, catatan `grade.md`. | Frame-driven `#tex` and `#riak` filters without extra packages, 0.4-0.6 s/frame bench cost, `grade.md` note. | yes |
 | `## 4. Catatan mesin` | Fallback SwiftShader bila akun belum masuk grup `render`/`video`, larangan `usermod`/`sudo`, hindari `swangle`, cek `blender --version`. | SwiftShader fallback when account lacks `render`/`video` groups, no `usermod`/`sudo`, avoid `swangle`, check `blender --version`. | yes |
+
+## `claude/motion-graphic/references/revisi.md`
+
+| Section | Indonesian meaning (one line) | English meaning (one line) | Equal? |
+|---|---|---|---|
+| Title & intro | Revisi = diff satu ronde untuk langkah 8 `SKILL.md` (F27 pindah ke sini; rincian tetap di `revision-log.md` §0). | Revision = one-round diff for `SKILL.md` step 8 (F27 moved here; round details remain in `revision-log.md` §0). | yes |
+| `## Aturan` | 5 aturan: 1 ronde sekaligus, adegan disetujui tak disentuh (`revisi_cek.py cek`), storyboard juga diff, rakit per rentang (`compose.py --rentang`), `qc/revisi.json` untuk proyek pra-aturan baru. | 5 rules: 1 round at once, approved scenes untouched (`revisi_cek.py cek`), storyboard also a diff, assemble by range (`compose.py --rentang`), `qc/revisi.json` for pre-new-rule videos. | yes |
+| `## Arah revisi: ke tengah, bukan ke ekstrem lain` | 4 langkah ukur tengah lewat `banding.py --sebelum` pada 3-5 frame wakil (geser 30-60%, metrik lain tidak memburuk, `DECISIONS.md`, frame jarang ≤ 10%). | 4 steps to shift toward the middle via `banding.py --sebelum` on 3-5 rep frames (30-60% step, other metrics preserved, `DECISIONS.md`, sparse frames <= 10%). | yes |
+| `## Setelah revisi, tetap berlaku` | NEGATIF dan hukum besi `SKILL.md` tetap berlaku: lihat frame berubah di resolusi penuh (`lihat.py`). | NEGATIF and `SKILL.md` iron law still apply: view changed frames at full resolution (`lihat.py`). | yes |
