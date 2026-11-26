@@ -157,3 +157,12 @@ Second-model verification against `origin/main` (`0c4e4aa9`). One section per fi
 | 6 mechanics (`Push-through`..`Flash montage`) | Cara kerja, angka awal, dan cek untuk Push-through, Pull-back reveal, Whip, Depth fly-through, Orbit gather, dan Flash montage. | How it works, starting numbers, and checks for Push-through, Pull-back reveal, Whip, Depth fly-through, Orbit gather, and Flash montage. | yes |
 | `Hold`, `Gradual text`, `Cutout`, `Camera follows meaning` | Hold dengan drift 1-3%, teks bertahap + tint aksen 4-6 f, cutout subjek ke palet / belakang subjek >=70%, kamera ikut makna. | Hold with 1-3% drift, gradual text + 4-6 f accent tint, subject cutout to palette / behind subject >=70%, camera follows meaning. | yes |
 | `## Timing helper (scripts/remotion/timing.ts)` | API `timeline()`, `stagger()`, `dampTrack()`, `vanWijk()` beserta contoh kode TypeScript dan 5 batasannya. | API for `timeline()`, `stagger()`, `dampTrack()`, `vanWijk()` with TypeScript examples and 5 limitations. | yes |
+
+## `claude/motion-graphic/references/slop-catalog.md`
+
+| Section | Indonesian meaning (one line) | English meaning (one line) | Equal? |
+|---|---|---|---|
+| Title & intro | Katalog tanda slop untuk dipindai di Storyboard dan Mix→Deliver (bukan melarang teknik; 1 tanda dengan alasan boleh, banyak tanda tanpa alasan = AI). | Slop sign catalog to scan at Storyboard and Mix→Deliver (not banning techniques; 1 sign with reason allowed, many without reason = AI). | yes |
+| `## Audio` (12 rows) | 12 ID tanda audio `S-A1` s.d. `S-A12` beserta cara cek dan rujukan Lantai/audio.md persis. | All 12 audio signs `S-A1` through `S-A12` with exact check methods and Lantai/audio.md references. | yes |
+| `## Teks` (15 rows) | 15 ID tanda teks `S-T1` s.d. `S-T15` termasuk contoh kata `"GRAY"` dan `raw *clip*, the *difference*, *craft*`. | All 15 text signs `S-T1` through `S-T15` including `"GRAY"` and `raw *clip*, the *difference*, *craft*` examples. | yes |
+| `## Visual dan gerak` (33 rows) | 33 ID tanda visual & gerak `S-V1` s.d. `S-V33` beserta cara cek, ambang, dan rujukan Lantai/NEGATIF persis. | All 33 visual & motion signs `S-V1` through `S-V33` with exact check methods, thresholds, and Lantai/NEGATIF references. | yes |
