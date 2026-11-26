@@ -187,7 +187,7 @@ class Fungsi(Dasar):
 
     def test_tanpa_hasil_menyebut_fungsi(self):
         r = self.cli("--cari", "xyzzy")
-        self.assertEqual(r.returncode, 1); self.assertEqual(r.stdout, "")
+        self.assertEqual(r.returncode, 1); self.assertFalse(baris_tabel(r.stdout))  # C7b: panduan fungsi kini di stdout, tabel tetap kosong
         self.assertTrue(r.stderr.startswith("Tidak ada kartu yang cocok")); self.assertIn("Sebut fungsi beat-nya", r.stderr)
         self.assertIn("hook, jelaskan, angka, banding, bukti, langkah, balik, penekanan, transisi, suasana, cta, penutup", r.stderr)
 
@@ -275,7 +275,7 @@ class Keluaran(Dasar):
         self.assertEqual(len(baris_tabel(self.cli().stdout)), 2 + 4)
 
     def test_kode_keluar(self):
-        r = self.cli("--cari", "xyzzy"); self.assertEqual(r.returncode, 1); self.assertEqual(r.stdout, ""); self.assertIn("Tidak ada kartu", r.stderr)
+        r = self.cli("--cari", "xyzzy"); self.assertEqual(r.returncode, 1); self.assertFalse(baris_tabel(r.stdout)); self.assertIn("Tidak ada kartu", r.stderr)
         self.assertEqual(self.cli("--cari", "di").returncode, 2)
         self.assertEqual(self.cli("--limit", "0").returncode, 2)
         self.assertEqual(self.cli("--kategori", "gaya").returncode, 2)

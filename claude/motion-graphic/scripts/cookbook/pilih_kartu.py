@@ -17,6 +17,8 @@ Masukan: tabel CATALOG.md/INDEX.md berkolom `ID | Pola | Narrative trigger | Kat
   --bergerak  hanya kartu berstatus bergerak:ya.
   --limit     jumlah baris paling banyak (bawaan 4).
   --ringkas   hanya tabel; tanpa catatan risiko, daftar sumber vault, dan baris penutup.
+  Kata niat (launch, promo, tour, donasi, ...) dibaca sebagai fungsi cerita; bila itu yang mengenai kartu, satu baris "Dicocokkan lewat fungsi beat" ikut dicetak.
+  Tanpa hasil: kode keluar 1; stderr memuat kalimat singkat, stdout memuat panduan fungsi dengan satu contoh query per fungsi (tanpa saringan).
 Keluaran: tabel (baris berawalan `|`), lalu catatan risiko, lalu per kartu satu blok sumber vault (status bergerak, ukuran, inti mekanik,
 jangan dipakai untuk) supaya yang dibuka satu sumber, bukan semuanya, dan alasan kartu bekerja ikut terbaca.
 """
@@ -44,12 +46,26 @@ _SINONIM = {
     "penekanan": "penekanan tekan emphasis punchline kata keyword",
     "transisi": "transisi transition pindah cut wipe",
     "suasana": "suasana mood emosi emotion tenang hangat",
-    "cta": "cta ajakan daftar booking pesan order beli buy signup",
+    "cta": "cta ajakan booking pesan order beli buy signup",
     "penutup": "penutup closing outro akhir ending",
     "jelaskan": "jelaskan explain explainer konsep concept apa",
     "ui": "ui aplikasi app software saas dashboard web",
     "wajah": "wajah talking pembicara presenter host",
 }
+# Kata niat (intent): kata brief yang menyebut apa yang harus dikerjakan sebuah beat. Berbeda dari _SINONIM, tabel ini hanya berlaku di sisi
+# kata kunci dan MENAMBAH bentuk bakunya, kata aslinya tetap dicari: "promo" di trigger kartu 25 membicarakan promosi, bukan angka, jadi teks
+# kartu tidak dipetakan. Hanya kata yang menyebut tugas beat (launch, promo, tour, donasi); bukan nama industri atau benda
+# (skincare, restoran, properti, produk), karena perpustakaan ini tidak punya kartu per industri. "daftar" ada di sini, bukan di _SINONIM:
+# di teks kartu ia berarti "daftar objek/tips" (17, 98, M10), di brief ia berarti "daftar sekarang".
+_NIAT = {
+    "hook": "launch peluncuran luncurkan perkenalkan perkenalan introduce introducing baru new teaser announce umumkan",
+    "angka": "promo diskon discount sale",
+    "banding": "perbandingan comparison",
+    "langkah": "fitur feature demo tour walkthrough tips",
+    "penekanan": "highlight",
+    "cta": "daftar donasi donate donation kunjungi visit hubungi contact book",
+}
+NIAT = {kata: baku for baku, kata_kata in _NIAT.items() for kata in kata_kata.split()}
 SINONIM = {kata: baku for baku, kata_kata in _SINONIM.items() for kata in kata_kata.split()}
 BOBOT = (("fungsi", 4), ("trigger", 3), ("nama", 2), ("kategori", 1))
 PACK_ALIASES = {
@@ -139,6 +155,22 @@ def kata_kunci(cari):
     return list(dict.fromkeys(SINONIM.get(w, w) for w in mentah))
 
 
+def kata_niat(cari):
+    """Fungsi cerita yang dibaca dari kata niat di --cari: {fungsi: [kata asli]}, hanya untuk kata yang bukan bentuk baku itu sendiri."""
+    out = {}
+    for w in dict.fromkeys(re.findall(r"[\w$%]+", (cari or "").lower())):
+        baku = NIAT.get(w) or (SINONIM.get(w) if SINONIM.get(w) in FUNGSI and SINONIM.get(w) != w else None)
+        if baku:
+            out.setdefault(baku, []).append(w)
+    return out
+
+
+def kata_cari(cari):
+    """Kata kunci yang dipakai mencari: kata_kunci, ditambah bentuk baku dari kata niat (promo → angka)."""
+    kata = kata_kunci(cari)
+    return kata + [b for b in kata_niat(cari) if b not in kata]
+
+
 def _token(kartu, kolom):
     """Kata-kata satu kolom kartu (bentuk asli dan bentuk baku SINONIM), dihitung sekali per kartu."""
     cache = kartu.setdefault("_token", {})
@@ -165,6 +197,7 @@ def pilih(kartu, cari=None, kategori=None, bergerak=False, limit=4, pack=None):
     kata = kata_kunci(cari)
     if cari and not kata:
         raise Gagal("--cari tidak memuat kata kunci (minimal satu kata ≥ 2 huruf yang bukan kata sambung)")
+    kata_pakai = kata_cari(cari)
     pack_prefix = PACK_ALIASES.get(pack.lower(), pack.lower()) if pack else None
     hasil = []
     for k in kartu:
@@ -176,7 +209,7 @@ def pilih(kartu, cari=None, kategori=None, bergerak=False, limit=4, pack=None):
             continue
         if not pack_prefix and not kategori and "qc" in k.get("daftar_fungsi", []):
             continue
-        cocok, bobot = nilai(k, kata) if kata else (0, 0)
+        cocok, bobot = nilai(k, kata_pakai) if kata else (0, 0)
         if kata and not cocok:
             continue
         hasil.append((-cocok, -bobot, 0 if not kategori or k["utama"] == kategori else 1, k["urut"], k))
@@ -275,6 +308,25 @@ PENUTUP = ("Angka di Invariant dan di kartu vault = pengamatan dari video sumber
            "yang mutlak hanya NEGATIF [mutlak]. Buka satu sumber: python3 tools/cookbook.py baca <vid>. Cek slop: references/slop-catalog.md.")
 
 
+# Satu contoh query per fungsi; tes memastikan tiap contoh mengembalikan kartu yang fungsinya memuat fungsi itu.
+CONTOH_FUNGSI = (("hook", "peluncuran baru"), ("jelaskan", "jelaskan konsep"), ("angka", "harga promo"), ("banding", "bandingkan dua sisi"),
+                 ("bukti", "testimoni hasil"), ("langkah", "demo fitur"), ("balik", "koreksi mitos"), ("penekanan", "kata kunci"),
+                 ("transisi", "transisi antar adegan"), ("suasana", "suasana hangat"), ("cta", "ajakan donasi"), ("penutup", "closing"))
+
+
+def panduan_fungsi():
+    """Blok bantuan untuk query tanpa hasil: pustaka disusun menurut tugas beat, bukan industri; menu fungsi + satu contoh tiap fungsi."""
+    out = ["Pustaka ini disusun menurut apa yang harus dikerjakan sebuah beat (fungsi cerita), bukan menurut industri, jadi tidak ada kartu khusus klinik, "
+           "properti, restoran, atau skincare. Tulis tugas beat-nya, mis. peluncuran, harga, testimoni, langkah, ajakan. Fungsi dan contoh query:"]
+    out += [f"  {f:<9} --cari \"{q}\"" for f, q in CONTOH_FUNGSI]
+    return "\n".join(out)
+
+
+def dicocokkan_fungsi(hasil, cari):
+    """{fungsi: [kata asli]} untuk kata niat di query yang benar-benar mengenai salah satu kartu hasil."""
+    return {f: w for f, w in kata_niat(cari).items() if any(_cocok(_token(k, kol), f) for k in hasil for kol, _ in BOBOT)}
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Pilih kartu mekanik cookbook dari CATALOG.md menurut fungsi cerita satu beat.")
     ap.add_argument("--cari", help="kata kunci fungsi cerita, dipisah spasi")
@@ -296,10 +348,15 @@ def main(argv=None):
         print(f"Tidak ada kartu yang cocok ({saring}). Ganti kata kunci dengan fungsi cerita beat-nya, atau longgarkan saringan.", file=sys.stderr)
         if a.cari:
             print(f"Sebut fungsi beat-nya: {', '.join(FUNGSI)} (kata industri seperti \"klinik\" atau \"rumah\" tidak dipakai).", file=sys.stderr)
+            if not (a.kategori or a.pack or a.bergerak):
+                print(panduan_fungsi())
         return 1
     print(tabel(hasil, a.index, a.keyframes))
     if a.ringkas:
         return 0
+    lewat = dicocokkan_fungsi(hasil, a.cari)
+    if lewat:
+        print("Dicocokkan lewat fungsi beat: " + ", ".join(f"{f} ({', '.join(w)})" for f, w in lewat.items()) + ". Kartu dipilih karena tugas beat-nya, bukan industrinya.")
     for k in hasil:
         if k.get("risiko"):
             print(f"Risiko {k['id']}: {k['risiko']}")
