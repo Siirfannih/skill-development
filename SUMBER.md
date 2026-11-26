@@ -78,7 +78,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | rute video mulai dari gerbang `irfan-creative-workflow` (bedah bahan user → naskah → storyboard → persetujuan) sebelum skill teknis | Irfan 21 Nov: sesi Newediting yang memuat skill gerbang lebih dulu membuat kesalahan minim dibanding sesi yang langsung memuat skill teknis |
 
 ## `SARINGAN.md` · `AGENTS.md` (Cara membaca butir 6; Akhir sesi butir 1 dan 6)
-- Irfan 22 Nov 2026, penutupan kegagalan_eps01: catatan khas proyek di skill membuat overfitting dan beban konteks, aturan terlalu umum tidak bisa dijalankan; tiap kesalahan disaring menjadi hukum mekanis + pemicu sebelum masuk repo; diminta deep research ke sumber tepercaya. Dasar riset: `reports/Pelajaran agen tanpa overfitting.md` (Anthropic context engineering, skill authoring, Claude Code memory, evals; ACE, ExpeL, Dynamic Cheatsheet, AWM, Context Rot; Husain/Shankar, Google SRE).
+- Irfan 22 Nov 2026, penutupan kegagalan_eps01: catatan khas proyek di skill membuat overfitting dan beban konteks, aturan terlalu umum tidak bisa dijalankan; tiap kesalahan disaring menjadi hukum mekanis + pemicu sebelum masuk repo; diminta deep research ke sumber tepercaya. Dasar riset: `archive/riwayat/reports/Pelajaran agen tanpa overfitting.md` (Anthropic context engineering, skill authoring, Claude Code memory, evals; ACE, ExpeL, Dynamic Cheatsheet, AWM, Context Rot; Husain/Shankar, Google SRE).
 
 ## `claude/motion-graphic/MOTION-CORE.md` · blok Invarian Anti-Sok-Tahu (`AGENTS.md`, `MOTION-CORE.md`)
 

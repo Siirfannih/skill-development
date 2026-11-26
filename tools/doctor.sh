@@ -39,6 +39,7 @@ nrem=$(ls -d "$DEST"/remotion-*/ 2>/dev/null | wc -l | tr -d ' ')
 [ "$nrem" -ge 5 ] && ok "skill Remotion: $nrem" || bad "skill Remotion resmi tidak terpasang ($nrem)"
 
 for d in "$REPO"/archive/*/; do n=$(basename "$d")
+  [ "$n" = riwayat ] && continue   # arsip riwayat bukan skill
   [ -e "$DEST/$n" ] && bad "skill arsip masih aktif: $n (sudah digabung ke motion-graphic)"
   grep -qi -E "video|motion" "$d/SKILL.md" 2>/dev/null || continue   # hanya skill arsip video yang bersaing dengan motion-graphic
   for s in "$DEST"/synced/*/; do [ -e "$s$n" ] && note "pustaka akun claude.ai masih memuat skill arsip: $n -> hapus di claude.ai › Settings › Skills"; done

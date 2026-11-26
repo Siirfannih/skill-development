@@ -1111,7 +1111,7 @@ Penghitung: nilai mulai 2; +1 gerbang menangkap kegagalan nyata; −1 salah-temb
 - `SFX-01` (guide/sfx, scripts/audio/sfx_span.py) — kegagalan_eps01 R-53 (sampel 0,8 dtk untuk gerak 1,24 dtk; 4 gerak tanpa onset tajam lolos audit onset) | nilai 2 | uji silang: belum
 - `AUD-01` (guide/audio) — kegagalan_eps01 R-52 (musik −36…−52 LUFS di beberapa detik saat LUFS terintegrasi lulus) | nilai 2 | uji silang: belum
 - `QC-01` (guide/hindari) — kelas dari 4 kejadian di kegagalan_eps01 (R-48 tabrakan vs urutan baca; R-52 LUFS terintegrasi vs musik hilang lokal; R-53 onset vs durasi SFX; R-53 TP WAV −1,5 vs MP4 −0,7) | nilai 2 | uji silang: belum
-- Migrasi butir lama tanpa ID (audit `reports/Audit butir lama SARINGAN.md`, disetujui Irfan 22 Nov 2026, kelompok G1/G2). Asal-usul tiap butir lama ada di tabel file guide-nya di atas; semua mulai nilai 2, uji silang: belum.
+- Migrasi butir lama tanpa ID (audit `archive/riwayat/reports/Audit butir lama SARINGAN.md`, disetujui Irfan 22 Nov 2026, kelompok G1/G2). Asal-usul tiap butir lama ada di tabel file guide-nya di atas; semua mulai nilai 2, uji silang: belum.
 - `AUD-02` (guide/audio) — gabungan "potong di celah" + "ujung bite di lembah energi"; bdf26 v8–v10 | nilai 2 | 1 proyek
 - `AUD-03` (guide/audio) — "momen tanpa suara tetap berbunyi"; bdf26 v10 | nilai 2 | 1 proyek
 - `AUD-04` (guide/audio) — bagian denoise dari "suara asli tidak diturunkan" + "noise floor rendah jangan denoise"; jensen-pain-suffering v1→v3, kegagalan-eps01 | nilai 2 | 2 proyek

@@ -404,7 +404,7 @@ def cmd_cek(args):
 
 
 # ---------- migrasi-path ----------
-SKIP_TOP = {"projects", "archive", "_archive"}
+SKIP_TOP = {"projects", "archive"}
 SKIP_ANY = {".git", "node_modules", "__pycache__", "_vault"}
 TEXT_EXT = {".md", ".py", ".sh", ".ts", ".tsx", ".js", ".json", ".txt", ".yml", ".yaml", ".toml", ".mjs", ".cjs", ".html", ".css", ""}
 FIXED = {"PETA.md": "INDEX.md"}

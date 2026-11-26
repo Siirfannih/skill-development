@@ -30,6 +30,7 @@ link() { local src="${1%/}" n; n="$(basename "$src")"
 for d in "$REPO"/claude/*/; do link "$d"; done
 for d in "$REPO"/external/remotion-skills/skills/*/; do [ -f "$d/SKILL.md" ] && link "$d"; done
 for d in "$REPO"/archive/*/; do n=$(basename "$d")
+  [ "$n" = riwayat ] && continue   # arsip riwayat bukan skill
   if [ -e "$DEST/$n" ] || [ -L "$DEST/$n" ]; then mkdir -p "$BK"; mv "$DEST/$n" "$BK/"; echo "dicabut  $n"; fi; done
 
 # Codex memakai skill Irfan yang sama. Salinan lama dipindah, bukan dihapus; skill bawaan/plugin lain tidak disentuh.
@@ -42,6 +43,7 @@ for d in "$REPO"/claude/*/; do
   ln -sfn "$src" "$CODEX_DEST/$n"; echo "symlink Codex  $n"
 done
 for d in "$REPO"/archive/*/; do n="$(basename "$d")"
+  [ "$n" = riwayat ] && continue
   if [ -e "$CODEX_DEST/$n" ] || [ -L "$CODEX_DEST/$n" ]; then
     mkdir -p "$CODEX_BK"; mv "$CODEX_DEST/$n" "$CODEX_BK/"; echo "dicabut Codex  $n"
   fi

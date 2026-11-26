@@ -46,4 +46,4 @@ File instruksi tidak memuat proyek, tanggal, atau cerita. Di `SUMBER.md` skillny
 - Akhir tiap proyek: butir yang dipakai dinilai (§5). Nilai 0 → pindah ke bagian "Pola lama" (ID tetap, kasus uji disimpan). H yang sering salah-tembak turun ke P; P yang terus terlewat walau jelas naik ke H dengan gerbang kode.
 - Butir lama tanpa ID dibiarkan sampai disentuh; saat disunting, ubah ke format §4.
 
-Dasar riset: `reports/Pelajaran agen tanpa overfitting.md`.
+Dasar riset: `archive/riwayat/reports/Pelajaran agen tanpa overfitting.md`.
