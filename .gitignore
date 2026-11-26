@@ -20,3 +20,10 @@ claude/motion-graphic/pabrik/registry.json.lock
 claude/motion-graphic/pabrik/node_modules
 claude/motion-graphic/.cache
 claude/motion-graphic/.remotion
+
+# audio berlisensi tidak masuk git (lokasi cadangan: Asset/audio/*/LOKASI.md)
+Asset/audio/**/*.mp3
+Asset/audio/**/*.wav
+Asset/audio/**/*.m4a
+Asset/audio/**/*.flac
+Asset/audio/**/*.ogg
