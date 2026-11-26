@@ -4,11 +4,12 @@
   python3 pilih_kartu.py --cari "<kata kunci fungsi cerita>" [--kategori camera|typography|layout|texture|sfx|script|qc]
                          [--pack 01..06] [--bergerak] [--limit 4] [--index <CATALOG.md>] [--keyframes <folder>]
 
-Dipanggil sekali per beat di Langkah 1 cookbook, supaya CATALOG.md tidak perlu dibaca utuh. Kartu adalah mekanik yang
+Dipanggil per beat untuk mencari, tetapi 2-4 kartu itu untuk seluruh video: beat berikutnya memakai ulang kartu yang sudah terpilih bila cocok. Kartu adalah mekanik yang
 dipinjam lalu di-remix ke konsep user; keluaran skrip ini bukan template dan bukan gaya yang disalin.
 
 Masukan: tabel CATALOG.md/INDEX.md berkolom `ID | Pola | Narrative trigger | Kategori | Status | Path`.
-  --cari      kata kunci dipisah spasi. Bobot: nama pola (3), narrative trigger (2), kategori (1).
+  --cari      kata kunci dipisah spasi; kata utuh atau awalan kata (≥ 4 huruf), kata Inggris/sehari-hari dipetakan lewat SINONIM.
+              Bobot: fungsi (4), narrative trigger (3), nama pola (2), kategori (1).
   --kategori  hanya kartu yang kategori utama atau tambahannya memuat nilai ini.
   --pack      saring berdasarkan awalan folder pack (mis. 01, P01, 01-motion-camera-transitions).
   --bergerak  hanya kartu berstatus bergerak:ya.
@@ -22,8 +23,30 @@ INDEX = MG / "cookbook" / "CATALOG.md"
 KEYFRAMES = MG / "guide" / "referensi" / "sheets" / "keyframes"
 KATEGORI = ("camera", "typography", "layout", "texture", "sfx", "script", "qc")
 KOLOM = {"id": "id", "pola": "nama", "narrative trigger": "trigger", "kategori": "kategori", "status": "status", "path": "path"}
-ABAIKAN = {"yang", "dan", "atau", "untuk", "dari", "dengan", "pada", "ini", "itu", "the", "and", "for", "with"}
-BOBOT = (("nama", 3), ("trigger", 2), ("kategori", 1))
+ABAIKAN = {"yang", "dan", "atau", "untuk", "dari", "dengan", "pada", "ini", "itu", "the", "and", "for", "with",
+           "di", "ke", "ya", "se", "si", "jadi", "juga", "saja", "ada", "akan", "bisa", "lebih", "sangat", "kita", "kami", "saya", "aku",
+           "mau", "buat", "bikin", "video", "reel", "konten", "a", "an", "of", "to", "in", "on", "is", "my", "our"}
+# Brief ditulis dengan kata sehari-hari dan Inggris, sedangkan narrative trigger kartu berbahasa Indonesia. Tabel ini memetakan
+# kata brief ke satu bentuk baku (fungsi cerita), baik di kata kunci maupun di teks kartu, supaya "before after" dan "sebelum sesudah"
+# menemukan kartu yang sama. Aturan menambah: satu kata hanya boleh masuk satu bentuk baku; hanya kata fungsi, bukan nama industri.
+_SINONIM = {
+    "hook": "hook pembuka opening intro",
+    "angka": "angka number statistik stat data persen harga price omzet counter",
+    "banding": "banding bandingkan compare versus vs sebelum sesudah before after",
+    "bukti": "bukti proof testimoni testimonial review ulasan hasil result studi case",
+    "langkah": "langkah step cara how tutorial panduan proses process",
+    "balik": "balik koreksi reframe mitos myth bantah twist",
+    "penekanan": "penekanan tekan emphasis punchline kata keyword",
+    "transisi": "transisi transition pindah cut wipe",
+    "suasana": "suasana mood emosi emotion tenang hangat",
+    "cta": "cta ajakan daftar booking pesan order beli buy signup",
+    "penutup": "penutup closing outro akhir ending",
+    "jelaskan": "jelaskan explain explainer konsep concept apa",
+    "ui": "ui aplikasi app software saas dashboard web",
+    "wajah": "wajah talking pembicara presenter host",
+}
+SINONIM = {kata: baku for baku, kata_kata in _SINONIM.items() for kata in kata_kata.split()}
+BOBOT = (("fungsi", 4), ("trigger", 3), ("nama", 2), ("kategori", 1))
 PACK_ALIASES = {
     "p01": "01-", "01": "01-",
     "p02": "02-", "02": "02-",
@@ -80,13 +103,29 @@ def baca_index(path=INDEX):
 
 
 def kata_kunci(cari):
-    return [w for w in dict.fromkeys(re.findall(r"[\w$%]+", (cari or "").lower())) if len(w) >= 3 and w not in ABAIKAN]
+    """Kata kunci dari --cari: huruf kecil, tanpa duplikat, minimal 2 huruf (UI, VO, AI, 3D tetap), tanpa kata sambung, dipetakan lewat SINONIM."""
+    mentah = [w for w in re.findall(r"[\w$%]+", (cari or "").lower()) if len(w) >= 2 and w not in ABAIKAN]
+    return list(dict.fromkeys(SINONIM.get(w, w) for w in mentah))
+
+
+def _token(kartu, kolom):
+    """Kata-kata satu kolom kartu (bentuk asli dan bentuk baku SINONIM), dihitung sekali per kartu."""
+    cache = kartu.setdefault("_token", {})
+    if kolom not in cache:
+        mentah = re.findall(r"[\w$%]+", str(kartu.get(kolom, "")).lower())
+        cache[kolom] = set(mentah) | {SINONIM[t] for t in mentah if t in SINONIM}
+    return cache[kolom]
+
+
+def _cocok(token, w):
+    """Kata utuh, atau awalan kata bila w ≥ 4 huruf (foto → fotografi). Potongan di tengah kata tidak cocok (ui ≠ build)."""
+    return w in token or (len(w) >= 4 and any(t.startswith(w) for t in token))
 
 
 def nilai(kartu, kata):
     cocok = bobot = 0
     for w in kata:
-        b = sum(n for kolom, n in BOBOT if w in kartu[kolom].lower())
+        b = sum(n for kolom, n in BOBOT if _cocok(_token(kartu, kolom), w))
         cocok += bool(b); bobot += b
     return cocok, bobot
 
@@ -94,7 +133,7 @@ def nilai(kartu, kata):
 def pilih(kartu, cari=None, kategori=None, bergerak=False, limit=4, pack=None):
     kata = kata_kunci(cari)
     if cari and not kata:
-        raise Gagal("--cari tidak memuat kata kunci (minimal satu kata ≥ 3 huruf yang bukan kata sambung)")
+        raise Gagal("--cari tidak memuat kata kunci (minimal satu kata ≥ 2 huruf yang bukan kata sambung)")
     pack_prefix = PACK_ALIASES.get(pack.lower(), pack.lower()) if pack else None
     hasil = []
     for k in kartu:

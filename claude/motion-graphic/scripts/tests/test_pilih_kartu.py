@@ -85,15 +85,40 @@ class Parse(Dasar):
 
 class Cari(Dasar):
     def test_kata_kunci_dipisah_spasi_dan_dibersihkan(self):
-        self.assertEqual(pk.kata_kunci("Demo  FITUR, yang di UI demo"), ["demo", "fitur"])
+        self.assertEqual(pk.kata_kunci("Demo  FITUR, yang di UI demo"), ["demo", "fitur", "ui"])
         self.assertEqual(pk.kata_kunci("di ke"), [])
 
     def test_lebih_banyak_kata_cocok_menang(self):
         self.assertEqual(self.ids(cari="demo fitur produk"), ["63", "65", "93", "14"])
 
-    def test_nama_pola_berbobot_lebih_dari_trigger(self):
-        self.assertEqual(self.ids(cari="angka")[:1], ["S01"])
+    def tabel(self, *baris):
+        kepala = "| ID | Pola | Narrative trigger | Kategori | Status | Path |\n|---|---|---|---|---|---|\n"
+        self.index.write_text(kepala + "\n".join(f"| {i} | {n} | {t} | layout | bergerak:ya · diukur:ya | 01-x/{i}.md |" for i, n, t in baris) + "\n", encoding="utf-8")
+        return pk.baca_index(self.index)
+
+    def test_trigger_berbobot_lebih_dari_nama(self):
+        kartu = self.tabel(("01", "Zebra Garis Tebal", "pembukaan acara tahunan"), ("02", "Pola Biasa", "garis tebal dipakai untuk judul"))
+        self.assertEqual([k["id"] for k in pk.pilih(kartu, cari="garis")], ["02", "01"])
         self.assertEqual(self.ids(cari="camera")[:2], ["63", "65"])
+
+    def test_kata_utuh_bukan_potongan(self):
+        kartu = self.tabel(("01", "Build Cepat", "build quick prototype"), ("02", "Panel", "antarmuka aplikasi"))
+        self.assertEqual([k["id"] for k in pk.pilih(kartu, cari="ui")], ["02"])  # ui lewat SINONIM = aplikasi; "build"/"quick" tidak cocok
+        self.assertEqual(pk.pilih(self.tabel(("01", "Build Cepat", "build quick")), cari="ui"), [])
+
+    def test_awalan_untuk_kata_panjang(self):
+        kartu = self.tabel(("01", "Galeri", "fotografi produk di meja"), ("02", "Teks", "kutipan pendek"))
+        self.assertEqual([k["id"] for k in pk.pilih(kartu, cari="foto")], ["01"])
+        self.assertEqual(pk.pilih(self.tabel(("01", "Galeri", "fotografi produk")), cari="fot"), [])  # awalan hanya untuk kata ≥ 4 huruf; "fot" bukan kata utuh
+
+    def test_sinonim_inggris(self):
+        kartu = self.tabel(("01", "Urutan", "tampilkan langkah satu per satu"), ("02", "Dua Sisi", "perbandingan sebelum dan sesudah pemakaian"))
+        a = [k["id"] for k in pk.pilih(kartu, cari="before after")]
+        self.assertEqual(a, [k["id"] for k in pk.pilih(kartu, cari="sebelum sesudah")]); self.assertEqual(a[:1], ["02"])
+
+    def test_dua_huruf_dipertahankan(self):
+        self.assertEqual(pk.kata_kunci("vo ai 3d di"), ["vo", "ai", "3d"])
+        self.assertNotIn("di", pk.kata_kunci("di")); self.assertEqual(pk.kata_kunci("a an of to"), [])
 
     def test_seri_mengikuti_urutan_index(self):
         self.assertEqual(self.ids(cari="tanpa"), ["63", "67"])
