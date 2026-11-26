@@ -3,6 +3,7 @@
 
   python3 tools/cookbook.py index                 tulis cookbook/CATALOG.md, cookbook/POLA.md, cookbook/SFX.md
   python3 tools/cookbook.py cari <id|path>        cetak path kartu (id, alias, _vault, atau arsip)
+  python3 tools/cookbook.py baca <id> [--pengikat]  cetak kartu; blok Pengikat (kulit video sumber) disembunyikan kecuali --pengikat
   python3 tools/cookbook.py cek [--ketat]         validasi 44 Invariant Cards + rujukan kode + INDEX/Core token budget + CATALOG/POLA/SFX; info struktur vault
   python3 tools/cookbook.py migrasi-path [--tulis]  ganti rujukan pustaka/ lama di seluruh repo
 Hanya stdlib. Fungsi resolve() dipakai skrip lain (juri/resep_check.py)."""
@@ -325,6 +326,52 @@ def cmd_cari(args):
     return 0
 
 
+# ---------- baca ----------
+PENGIKAT_DISEMBUNYIKAN = "## Pengikat (disembunyikan: kulit video sumber; dipakai hanya bila video sumbernya referensi yang dibawa user — tambah --pengikat)"
+BINGKAI_SANDING = ("> Jawab tiap pertanyaan untuk hubungan yang ditanyakan (urutan, ritme, proporsi, peran). Warna, huruf, angka, dan benda yang "
+                   "disebut adalah milik video sumber; bandingkan dengan padanannya di proyek kita, bukan dengan nilainya.")
+
+
+def bingkai_kartu(teks):
+    """Teks kartu untuk dibaca sebagai mekanik: seksi `## Pengikat...` (sampai `## ` berikutnya) jadi satu baris, dan checklist sanding diberi bingkai."""
+    out, lewati = [], False
+    for baris in teks.split("\n"):
+        if baris.startswith("## "):
+            lewati = False
+            if baris.startswith("## Pengikat"):
+                out.append(PENGIKAT_DISEMBUNYIKAN); lewati = True; continue
+            out.append(baris)
+            if baris.startswith("## Yang harus terasa sama saat disandingkan"):
+                out.append(BINGKAI_SANDING)
+            continue
+        if not lewati:
+            out.append(baris)
+    return "\n".join(out)
+
+
+def resolve_vault_dulu(ref):
+    """Kartu vault bernomor itu dulu (id lama seperti 57 adalah alias kartu aktif M20, tetapi yang dibaca di sini sumbernya); lalu resolve() biasa."""
+    for c in id_candidates(ref):
+        for v in ([c, c.zfill(2)] if c.isdigit() and len(c) == 1 else [c]):
+            hit = sorted(glob.glob(os.path.join(CB, "_vault", "*", v + "-*.md")))
+            if hit:
+                return hit[0]
+    return resolve(ref)
+
+
+def cmd_baca(args):
+    ref = [a for a in args if not a.startswith("--")]
+    if not ref:
+        print(__doc__); return 1
+    p = resolve_vault_dulu(ref[0])
+    if not p:
+        print(f"tidak ada kartu untuk '{ref[0]}'", file=sys.stderr); return 1
+    with open(p, encoding="utf-8") as fh:
+        teks = fh.read()
+    sys.stdout.write(teks if "--pengikat" in args else bingkai_kartu(teks))
+    return 0
+
+
 # ---------- cek ----------
 def _indeks_berkas():
     """Nama berkas -> daftar path relatif, untuk seluruh repo kecuali projects/, archive/, .git, node_modules."""
@@ -601,6 +648,7 @@ def main(argv):
     c, a = argv[0], argv[1:]
     if c == "index": return cmd_index()
     if c == "cari": return cmd_cari(a)
+    if c == "baca": return cmd_baca(a)
     if c == "cek": return cmd_cek(a)
     if c == "migrasi-path": return cmd_migrasi(a)
     print(__doc__); return 1
