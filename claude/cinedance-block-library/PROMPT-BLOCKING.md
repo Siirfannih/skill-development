@@ -4,7 +4,7 @@ Source: "Prompt Blocking" PDF I sent on 18 Nov 2026 (original example: 10 s educ
 
 ## 1. Why blocking works
 
-- The prompt is split into **numbered sections with one concern per section** (identity, camera, design, voice, timeline, audio, prohibitions, priorities). The model does not have to guess which sentence governs what. Our earlier prompt failures ("rules too strict and mixed together") came from putting text, camera, and voice rules in a single paragraph; blocking separates them.
+- The prompt is split into **numbered sections with one concern per section** (identity, camera, design, voice, timeline, audio, prohibitions, priorities). The model does not have to guess which sentence governs what. Our earlier prompt failures ("aturan terlalu ketat dan dicampur": rules too strict and mixed together) came from putting text, camera, and voice rules in a single paragraph; blocking separates them.
 - **Locks (LOCK)** are written once at the top (face, wardrobe, language) and apply to all scenes, so the timeline only holds what changes.
 - **Per-second timeline** gives the model a schedule it can follow: each scene has environment, character action, camera, exact dialogue, delivery, and transition.
 - **Dialogue is written twice**: in its scene and again in the audio section's dialogue sequence list, with timestamps. This helps lip sync.
@@ -15,13 +15,13 @@ Source: "Prompt Blocking" PDF I sent on 18 Nov 2026 (original example: 10 s educ
 | # | Section | Contents | Notes |
 |---|---|---|---|
 | 0 | Header | video type, DURATION (exact, "EXACTLY N SECONDS"), ASPECT RATIO, VISUAL STYLE, DIALOGUE (language + locale code, e.g., id-ID), GENRE | One line per key |
-| 01 | MASTER CHARACTER IDENTITY LOCK | identity reference (photo/avatar = the only face reference), subject description, list of preserved features (face shape, eyes-brows-nose-lips, jawline, hair, skin, age, proportions), WARDROBE LOCK, character position/props, drift ban (no beautification, no morphing) | Written as a list |
+| 01 | MASTER CHARACTER IDENTITY LOCK | identity reference (photo/avatar = the only face reference), subject description, list of preserved features (face shape, eyes-brows-nose-lips, jawline, hair, skin, age, proportions), WARDROBE LOCK, character position/props, drift prohibition (no beautification, no morphing) | Written as a list |
 | 02 | CAMERA & LIGHTING | camera body, lens, lights, light setup (key, accent, shadow), CAMERA LANGUAGE (list of allowed moves) | Naming real gear makes the output more photographic |
 | 03 | VISUAL & MOTION GRAPHIC DESIGN | style, design elements, colour palette, text rules (text only on background/empty space, never covering face, mouth, hands) | For B-roll where we build the text ourselves: this section holds set and lighting only, plus one line "no on-screen text" |
-| 04 | VOICE & LANGUAGE LOCK | language, accent (city/region), voice (gender, age), DELIVERY, speak to camera + lip sync, ban on translating, ban on adding dialogue | Also name languages that must NOT appear |
+| 04 | VOICE & LANGUAGE LOCK | language, accent (city/region), voice (gender, age), DELIVERY, speak to camera + lip sync, prohibition on translating, prohibition on adding dialogue | Also name languages that must NOT appear |
 | 05 | EXACT TIMELINE | blocks per time range `[00:00–00:02] SCENE 01 — NAME`: ENVIRONMENT, TYPOGRAPHY (if any), CHARACTER ACTION, CAMERA, DIALOGUE (exact, in quotes), DELIVERY, TRANSITION | PDF example: 5 scenes × 2 s in one take |
 | 06 | AUDIO DESIGN | VOICE, DIALOGUE SEQUENCE (timestamp + line), AUDIO RULES (lip sync, no music, no subtitles, no extra dialogue, consistent voice) | |
-| 07 | STRICT NEGATIVE CONSTRAINTS | concrete, observable "DO NOT GENERATE" list (identity drift, extra fingers, text on face, subtitles, music, wrong language, bad lip sync, random cuts, unmotivated transitions, flickering face) | Concrete, not general traits |
+| 07 | STRICT NEGATIVE CONSTRAINTS | concrete, observable "DO NOT GENERATE" list (identity drift, extra fingers, text on face, subtitles, music, wrong language, wrong lip sync, random cuts, unmotivated transitions, flickering face) | Concrete, not general traits |
 | 08 | FINAL PRODUCTION PRIORITIES | ranked PRIORITY 1…5 + FINAL OUTPUT (one-paragraph summary: duration, ratio, subject, style, dialogue) | Priority 1 is almost always facial identity |
 
 ## 3. How to use it for Gemini Omni (our lessons)
