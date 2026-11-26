@@ -150,7 +150,7 @@ def build():
     rows = []
     sd = os.path.join(ROOT, MG, "scripts")
     for r, _, fs in sorted(os.walk(sd)):
-        if "tests" in r or "__pycache__" in r:
+        if "tests" in r or "__pycache__" in r or "node_modules" in r:
             continue
         for f in sorted(fs):
             if f.endswith((".py", ".sh", ".ts", ".tsx")):
