@@ -5,7 +5,7 @@ Copy the needed sections to `projects/<project>/handoff/`. Usage rules: `referen
 ## BRIEF.md (Director)
 ```
 # Brief <name> · v<N> · <date>
-## My Brief (verbatim)
+## Owner's brief (verbatim)
 > …
 ## Locked
 - Goal · audience · duration · ratio/fps · CTA
@@ -31,7 +31,7 @@ Copy the needed sections to `projects/<project>/handoff/`. Usage rules: `referen
 ## TASK-rN.md (Director)
 ```
 # TASK r<N> · <one-sentence goal>
-Scope: B01–B05 (other beats untouched)
+Scope: B01–B05 (do not touch other beats)
 Allowed to read: templates/gaya/<style>/STYLE.md · references/build.md · <engine>
 Required outputs: still per beat (sheet) · silent render <path> · gate outputs: <list>
 Fix: F-r<N-1>-02 (B03: graphic text vanishes before sentence ends → hold until 0:06.0)
@@ -51,9 +51,9 @@ Open questions: QUESTIONS.md #…
 Written after viewing the still/render **before** reading REPORT.
 ```
 | ID | Beat | Finding | Evidence (tc/frame) | Measurable criterion | Devil's advocate | Status |
-| F-r<N>-01 | B03 | … | 0:13.2 | … | violates PLAN lulus_bila #1 | PASS → TASK r<N+1> |
-| F-r<N>-02 | B04 | … | … | … | taste, not in BRIEF | DROP |
+| F-r<N>-01 | B03 | … | 0:13.2 | … | violates PLAN lulus_bila #1 | KEEP (LOLOS) → TASK r<N+1> |
+| F-r<N>-02 | B04 | … | … | … | taste, not in BRIEF | DROP (BUANG) |
 ```
 
 ## QUESTIONS.md (Builder) and DECISIONS.md (Director)
-One line per item: `Q-03 · B04 · question · options` → answer from Director/me + source.
+One line per item: `Q-03 · B04 · question · options` → answer from the Director or the owner + source.
