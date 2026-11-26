@@ -22,7 +22,7 @@ Setiap panggilan ke Gemini membawa `config/acoustic_style_blueprint.json` + `con
    - Hanya dari keheningan: 0,8 dtk di akhir kalimat, 1,5–1,8 dtk sebelum & sesudah klip Inggris.
    - `vo-direct` meminta Gemini menilai jeda dan memotong klip.
 4. **Mix + gerbang.**
-   - `mix9.py`: satu trek utuh, bed −26 LUFS → mati saat Jensen → −20 LUFS, ducking sidechain, maks 15 SFX dari 3 jenis.
+   - `mix9.py` (diarsipkan: `archive/riwayat/experimental/dual-agent-sound/examples/pengganti-kita-sendiri/`): satu trek utuh, bed −26 LUFS → mati saat Jensen → −20 LUFS, ducking sidechain, maks 15 SFX dari 3 jenis.
    - Gagal bila LRA < 7,0 LU, jeda kalimat rata-rata < 0,5 dtk, atau true peak > −1,5 dBTP.
 5. **QC loop.**
    - `qc` dikirim **tanpa** angka atau catatan engineer (blind). Bila catatan disertakan, Gemini cenderung menyetujui.

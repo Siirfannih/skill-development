@@ -245,7 +245,7 @@ Uji: `board.py` pada templat: tanpa panel → FAIL; kerangka tersisa → FAIL; t
 Status: diterapkan (Irfan 8 Nov: "turunkan jadi skill storyboard ke repo")
 
 ### 2026-11-08 · Uji C: audit V5 dengan skill 15c04a0
-Sesi baru di PC server dengan skill-development 15c04a0 mengaudit 3 klip V5. Skor 24 (sebelumnya terbaik 11; tanpa skill 3; skill 7 Nov 0). Lulus kriteria: audio di 3 temuan teratas, track sama tertangkap dengan bukti terukur, satu-satunya dari 8 kondisi. Rincian: `evals/results/2026-11-08-audit-v5.md`.
+Sesi baru di PC server dengan skill-development 15c04a0 mengaudit 3 klip V5. Skor 24 (sebelumnya terbaik 11; tanpa skill 3; skill 7 Nov 0). Lulus kriteria: audio di 3 temuan teratas, track sama tertangkap dengan bukti terukur, satu-satunya dari 8 kondisi. Rincian: `archive/riwayat/evals/motion-graphic/2026-11-08-audit-v5.md`.
 Sisa: label genre earshot masih dijadikan bukti (funk pada track piano yang sama); SFX jarang hanya di urutan 7 "sedang" walau aturan 43 gerbang keras; musik datar per babak tidak disebut. Usulan di PENDING.
 Status: diterapkan sebagai hasil uji; perbaikan sisa menunggu Irfan
 
@@ -268,7 +268,7 @@ Perubahan: `~/work/CLAUDE.md` PC diberi bagian rujukan bersyarat (tugas video/ko
 Status: diterapkan (Irfan 8 Nov)
 
 ### 2026-11-08 · Uji edit Behindwork (6 klip, skill 96cff28)
-SFX 1,59–1,89/dtk (V5 0,15–0,27), celah senyap 0, 6 track berbeda (`music_batch` PASS), peran+alasan di semua cue, 3 putaran evaluasi berbukti. Dilewati: ears/earshot referensi, `board.py`, `audio_order.py`, `audio_phone` (bug alat, diperbaiki 3e3ab3e), putusan BEDA `ears.py`. Rincian: `evals/results/2026-11-08-behindwork-uji-edit.md`.
+SFX 1,59–1,89/dtk (V5 0,15–0,27), celah senyap 0, 6 track berbeda (`music_batch` PASS), peran+alasan di semua cue, 3 putaran evaluasi berbukti. Dilewati: ears/earshot referensi, `board.py`, `audio_order.py`, `audio_phone` (bug alat, diperbaiki 3e3ab3e), putusan BEDA `ears.py`. Rincian: `archive/riwayat/evals/motion-graphic/2026-11-08-behindwork-uji-edit.md`.
 Status: hasil uji; usulan gerbang preflight menunggu Irfan
 
 ### 2026-11-09 · Behindwork, 3 short Naval (N1–N3)
@@ -339,7 +339,7 @@ Status: menunggu persetujuan
 ## 16 Nov · Aturan SFX dan suara asli hilang atau saling bertabrakan (Irfan)
 - Kata Irfan: aturan 1 SFX untuk 1 objek/visual, SFX sesuai peruntukan dan konsisten, dan suara asli tidak di-loudness/diturunkan (hanya peredam noise, diperbesar bila kalah) dilewatkan semua session; session lain menurunkan loudness ±−17 dB sehingga suara mendem.
 - Akar: koreksi sempit 13 Nov ("jangan bunyi per kata") menghapus aturan 43 utuh pada 14 Nov; aturan konsistensi hanya di guide; tiga aturan level suara bertabrakan (§14.6 loudnorm, delivery −14 LUFS, guide gain 0).
-- Diterapkan: Lantai E23/E24, `voice_level.py`, `sfx_density.py --objects` + konsistensi peran, ekor kata dilindungi di `cut_check`/`recut`, `audio_bus_check.py`, lima fase subagen. Rincian: `evals/results/2026-11-16-sfx-objek-suara-asli.md`.
+- Diterapkan: Lantai E23/E24, `voice_level.py`, `sfx_density.py --objects` + konsistensi peran, ekor kata dilindungi di `cut_check`/`recut`, `audio_bus_check.py`, lima fase subagen. Rincian: `archive/riwayat/evals/motion-graphic/2026-11-16-sfx-objek-suara-asli.md`.
 - Pelajaran: koreksi Irfan atas satu gejala diterapkan pada gejala itu saja; aturan yang lebih luas tidak dihapus tanpa ditanyakan.
 
 ## 16 Nov · Metode animasi dari luar langsung ke main, bukan experimental (Irfan)

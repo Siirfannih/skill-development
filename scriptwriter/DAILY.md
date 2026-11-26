@@ -21,7 +21,7 @@
 - Permintaan: aturan MCP universal untuk room privat yang dapat dipakai ulang; satu skill di `claude/jadisatu-canvas/`, ditemukan melalui INDEX dan AGENTS.
 - Kontrak: baca konteks/gambar aktif, `contextVersion` setiap tulis, revisi item saat edit; reset/restore tetap pemilik dan tidak memberi akses penyedia baru.
 - Contoh klien diteliti dari sumber resmi; token statis melalui environment, tanpa instalasi global atau token baru.
-- Verifikasi offline: quick_validate, 11 contoh kode, dua pemetaan bridge sintetis dan skenario reset agent segar lulus. Bukti: `claude/jadisatu-canvas/evals/results/2026-10-28.md`.
+- Verifikasi offline: quick_validate, 11 contoh kode, dua pemetaan bridge sintetis dan skenario reset agent segar lulus. Bukti: `archive/riwayat/evals/jadisatu-canvas/2026-10-28.md`.
 - Baseline skenario sudah aman; tidak ada klaim peningkatan perilaku, koneksi semua UI, atau pengawasan idle.
 - Audit induk `REQ-20261028-0929-jadisatu-canvas-reusable`: PASS_WITH_NOTES; auditor mengulang43tes aplikasi,7skenario browser dan membaca room live kosong lewat MCP. Integrasi ke main dilanjutkan setelah verdict.
 - Skill yang sama dipasang terbatas ke Claude/Codex lokal dan divalidasi; tidak ada konfigurasi izin MCP global yang diubah. Catatan kemajuan berada di sini mengikuti bagian Menyimpan kemajuan pada AGENTS.md repo.
