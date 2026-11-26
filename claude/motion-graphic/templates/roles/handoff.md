@@ -1,4 +1,4 @@
-# `handoff/` folder scaffold
+# `handoff/` folder skeleton
 
 Copy the needed sections to `projects/<project>/handoff/`. Usage rules: `references/roles.md` §4–5.
 
