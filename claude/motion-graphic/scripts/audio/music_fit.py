@@ -14,7 +14,7 @@ Profil: ../../references/music-profiles.json. Keluaran: peringkat, skor 0-100, d
 Lulus pakai = skor >= 70 DAN snr_min terpenuhi DAN bpm/onset di dalam rentang kategori (di luar = GUGUR, bukan
 penalti). earshot rank dipakai bila terpasang; tanpa earshot skrip tetap memberi peringkat dari ukuran dan mencetak
 TANPA-DENGAR (gerbang DENGAR = NOT RUN: laporan menulis "belum didengar alat", bukan PASS).
-Kumpulan kandidat di bawah bawaan (--min-kandidat, 5 file dari >= 2 folder) = peringatan, bukan FAIL.
+Kumpulan kandidat di bawah bawaan (--min-kandidat, 20 file dari >= 2 folder; REF-SPEC/proyek boleh mengubah) = peringatan, bukan FAIL.
 Telinga Irfan tetap hakim terakhir.
 """
 import argparse, json, os, shutil, subprocess, sys
@@ -134,7 +134,7 @@ def score(m, prof, snr):
     return round(total), snr_ok, why, fix, hard
 
 
-def pool_peringatan(files, minimal=5):
+def pool_peringatan(files, minimal=20):
     """Peringatan (bukan FAIL) bila kumpulan kandidat di bawah bawaan: jumlah file dan jumlah folder sumber."""
     out = []
     if len(files) < minimal:
@@ -162,7 +162,7 @@ def main():
     ap.add_argument("files", nargs="*")
     ap.add_argument("--category"); ap.add_argument("--voice", help="audio/video pembicara atau VO (untuk cek benturan)")
     ap.add_argument("--duration", type=float, help="durasi video (dtk); track lebih pendek ditandai")
-    ap.add_argument("--min-kandidat", type=int, default=5, help="bawaan jumlah kandidat; di bawah ini hanya peringatan")
+    ap.add_argument("--min-kandidat", type=int, default=20, help="bawaan jumlah kandidat; di bawah ini hanya peringatan")
     ap.add_argument("--no-earshot", action="store_true", help="HANYA untuk uji alat; laporan ditandai TANPA-DENGAR = FAIL di Delivery Gate")
     ap.add_argument("--calibrate", metavar="KATEGORI"); ap.add_argument("--measure", action="store_true")
     ap.add_argument("--profiles", default=PROFILES); ap.add_argument("--json")

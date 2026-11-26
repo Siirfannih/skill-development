@@ -28,10 +28,10 @@ Lalu **ukur, jangan percaya label**. Kata "lofi" atau "EDM" di nama file, tag si
 ```
 python3 scripts/audio/music_fit.py --category fokus --voice sumber.mp4 --duration 76 kandidat/*.mp3
 ```
-Skrip mengukur tempo yang dirasakan, kepadatan ketukan, kecerahan, build/drop, dinamika, mayor/minor, dan **benturan dengan suara**: selisih suara vs musik di pita 500–4000 Hz pada level rencana (min 12 dB; ≤ 4 dB kurang = boleh diatasi EQ −4 dB §14.1, lebih dari itu ganti track). Pakai track teratas yang `PAKAI`; tulis keluarannya di laporan Delivery Gate. bpm/onset di luar rentang = `GUGUR`; earshot rank dipakai bila terpasang (tanpa earshot skrip tetap jalan dengan peringatan "belum didengar alat"); kumpulan kandidat di bawah bawaan (≥ 5 file, lebih dari satu folder sumber) = peringatan, bukan FAIL; proyek/REF-SPEC boleh mengubah angkanya (`--min-kandidat`).
+Skrip mengukur tempo yang dirasakan, kepadatan ketukan, kecerahan, build/drop, dinamika, mayor/minor, dan **benturan dengan suara**: selisih suara vs musik di pita 500–4000 Hz pada level rencana (min 12 dB; ≤ 4 dB kurang = boleh diatasi EQ −4 dB §14.1, lebih dari itu ganti track). Pakai track teratas yang `PAKAI`; tulis keluarannya di laporan Delivery Gate. bpm/onset di luar rentang = `GUGUR`; earshot rank dipakai bila terpasang (tanpa earshot skrip tetap jalan dengan peringatan "belum didengar alat"); kumpulan kandidat di bawah bawaan (≥ 20 file dari ≥ 2 folder sumber) = peringatan, bukan FAIL; proyek/REF-SPEC boleh mengubah angkanya (`--min-kandidat`).
 
 **Cara memilih backsound yang terbukti**:
-1. Kumpulkan beberapa kandidat berlisensi (bawaan ≥ 5; ±20 bila ada waktu atau proyek memintanya) dari lebih dari satu sumber (pustaka lokal + YouTube lewat `yt-dlp`, sumber dicatat di `SOURCES.md`). Skrip memberi peringatan di bawah bawaan, bukan FAIL.
+1. Kumpulkan kandidat berlisensi (bawaan ≥ 20 dari ≥ 2 sumber; REF-SPEC/proyek boleh mengubah angkanya) (pustaka lokal + YouTube lewat `yt-dlp`, sumber dicatat di `SOURCES.md`). Skrip memberi peringatan di bawah bawaan, bukan FAIL.
 2. Peringkat dengan `music_fit.py` pada **potongan yang benar-benar dipakai** (`--duration` = durasi video, mulai dari offset yang akan dipakai), bukan track utuh: onset bisa berayun 2,2 → 3,6 hanya karena titik mulai bergeser (N3 Embrace: mulai 32 dtk = 2,22, 34–44 dtk = 3,1–3,6).
 3. Kenali dengan `earshot describe` pada potongan itu bila earshot ada (tanpa itu: cek bebas vokal dari judul/sumber dan spektrum, tandai "belum didengar alat"): instrumental (tanpa tag Speech/Singing AudioSet) dan mood sesuai brief.
 4. Tolak bila menutupi suara (masking > 4 dB di 500–4000 Hz), terbaca sedih/melankolis padahal brief tidak, atau bpm/onset di luar rentang.
@@ -123,7 +123,7 @@ Aturan:
    - (a) folder SFX lokal bila ada (mesin Irfan: PC server `~/sfx/SFXIrfan` dan `~/sfx/Kenyset`; Mac: `~/Downloads/SFXIrfan`, `~/Downloads/Kenyset`); tanpa folder lokal, mulai dari (c);
    - (b) folder `sfx/` proyek yang sudah disetujui, misalnya `projects/jadisatu-60s/remotion/sfx-el` di repo ini;
    - (c) sumber gratis berlisensi lewat `scripts/audio/sfx_cari.py --famili <id>` (Freesound CC0 + Mixkit) dan `scripts/audio/musik_cari.py --kategori <k>` (Mixkit), lalu ElevenLabs SFX dan Music bila ada akunnya (biaya disebut dulu); Epidemic Sound hanya bila MCP `Epidemic_Sound` ada di daftar tool sesi atau `~/.config/epidemic/key` tidak kosong (`guide/sfx/FAMILI.md` §2).
-   Musik mengikuti urutan yang sama: kandidat berlisensi (bawaan ≥ 5) dari lebih dari satu sumber. Brief atau orkestrator tidak boleh mempersempit sumber audio ("hanya pustaka yang sudah dipakai") tanpa alasan tertulis dari Irfan.
+   Musik mengikuti urutan yang sama: kandidat berlisensi (bawaan ≥ 20 dari ≥ 2 sumber). Brief atau orkestrator tidak boleh mempersempit sumber audio ("hanya pustaka yang sudah dipakai") tanpa alasan tertulis dari Irfan.
 2. **Akses dipastikan di awal.** Folder belum terhubung, kredensial belum ada, atau situs memblokir: catat di `STATUS.md`, lewati ke sumber berikutnya, dan sebut sumber yang tak terjangkau di laporan kirim. Jangan lanjut dengan pengganti karangan (butir 3).
 3. **Dilarang memakai bunyi sintetis/karangan sebagai SFX final.** Termasuk bank earshot `sfx_render`, sinus, dan noise generator. Bank earshot hanya untuk analisis/QA.
 4. **Gaya Apple motion** = rekaman UI nyata:

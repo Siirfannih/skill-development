@@ -30,6 +30,11 @@ class KumpulanKandidat(unittest.TestCase):
         self.assertEqual(music_fit.pool_peringatan([f"/{c}/{i}.mp3" for i in range(3) for c in "ab"], 5), [])
         self.assertEqual(music_fit.pool_peringatan(["/a/1.mp3", "/a/2.mp3"], 2), ["kandidat dari < 2 folder sumber"])
 
+    def test_bawaan_20_dari_dua_sumber(self):
+        # standar kerja pemilik: >= 20 kandidat dari >= 2 sumber; di bawahnya peringatan, bukan FAIL
+        self.assertEqual(music_fit.pool_peringatan([f"/a/{i}.mp3" for i in range(19)] + ["/b/x.mp3"]), [])
+        self.assertEqual(music_fit.pool_peringatan([f"/{c}/{i}.mp3" for i in range(5) for c in "ab"]), ["kandidat 10 < 20 (bawaan)"])
+
 
 if __name__ == "__main__":
     unittest.main()
