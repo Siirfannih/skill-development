@@ -64,7 +64,7 @@ Profil merek memilih warna, logo, huruf utama, `huruf_kedua` bila ada, dan nada;
 | anggaran token, satu penilai frame | `references/orkestrasi.md` §4-5 |
 | memotong VO, SFX, musik, mix | `references/audio.md` (bagian atas dulu) |
 | ada pesan revisi atas video atau storyboard | `references/revisi.md` |
-| memilih mekanik per beat | `cookbook/INDEX.md`, lalu `scripts/cookbook/pilih_kartu.py`; buka 2-4 kartu saja |
+| memilih mekanik per beat | `scripts/cookbook/pilih_kartu.py` (cari menurut tugas beat); buka 2-4 kartu saja |
 | membangun dan merender | `references/build.md` (§4 gerbang R1-R5) |
 | rekaman talking head mentah, color grading | `references/selects-editor.md`, `references/grade.md` |
 

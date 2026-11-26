@@ -1,6 +1,6 @@
 # Dunia visual: tema, terjemahan kata gaya, dan gerbang style frame
 
-Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. Isinya digabung dari skill `motion-theme-director` (sudah pensiun). NEGATIF v2 di `SKILL.md` berlaku penuh: butir [mutlak] menang bila ada bentrok, teknik lain dinilai dengan tiga pertanyaan makna, sistem, takaran. Isi diturunkan dari 80+ kartu referensi eksternal yang sudah diaudit; kamu tidak perlu membuka kartunya, buka hanya keyframe yang ditunjuk.
+Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. Isinya digabung dari skill `motion-theme-director` (sudah pensiun). NEGATIF v2 di `SKILL.md` berlaku penuh: butir [mutlak] menang bila ada bentrok, teknik lain dinilai dengan tiga pertanyaan makna, sistem, takaran. Tema memutuskan kulit (warna, huruf, komposisi); mekanik gerak per beat diambil di storyboard lewat `pilih_kartu.py`, dicari menurut tugas beat (hook, angka, langkah), bukan industri klien; 2-4 kartu.
 
 ## 1. Urutan kerja (langkah 1 dan 3-5 alur `SKILL.md`)
 
