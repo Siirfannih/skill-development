@@ -3,7 +3,7 @@
 
   python3 tools/cookbook.py index                 tulis cookbook/CATALOG.md, cookbook/POLA.md, cookbook/SFX.md
   python3 tools/cookbook.py cari <id|path>        cetak path kartu (id, alias, _vault, atau arsip)
-  python3 tools/cookbook.py cek [--ketat]         validasi 44 Invariant Cards + INDEX/Core token budget + CATALOG/POLA/SFX
+  python3 tools/cookbook.py cek [--ketat]         validasi 44 Invariant Cards + rujukan kode + INDEX/Core token budget + CATALOG/POLA/SFX; info struktur vault
   python3 tools/cookbook.py migrasi-path [--tulis]  ganti rujukan pustaka/ lama di seluruh repo
 Hanya stdlib. Fungsi resolve() dipakai skrip lain (juri/resep_check.py)."""
 import json, glob, os, re, sys
@@ -36,6 +36,17 @@ HEAD = re.compile(r"^#{2,3} ", re.M)
 GENERATED = "<!-- dibangkitkan oleh tools/cookbook.py index; jangan diedit tangan -->"
 INDEX_MAX_TOKENS = 600
 CORE_MAX_TOKENS = 1000
+# Id lama yang digabung sebagai alias karena isinya duplikat persis (commit 271ddf41, dibuktikan MD5/isi): id lama -> id kartu vault yang sama.
+# Id ini sengaja tidak punya file vault sendiri; CATALOG mencetaknya supaya alias tanpa file tidak dikira rusak.
+DUPLIKAT = {"8": "65", "9": "71", "42": "71", "50": "68", "51": "78", "52": "77", "54": "77", "53": "23", "70": "55", "82": "20"}
+# Rujukan kode di baris Primitives/Ref: berkas yang hanya ada di proyek selesai tidak boleh jadi rujukan (produksi tidak membuka proyek lain).
+REF_EXT = (".tsx", ".ts", ".py", ".sh", ".md")
+REF_TERLARANG = {"projects", "archive"}
+VAULT_INTI = re.compile(r"\*\*Inti mekanik(?: \([^)]*\))?:\*\*")
+VAULT_BAGIAN = (("Inti mekanik", VAULT_INTI), ("Jangan dipakai untuk", re.compile(r"\*\*Jangan dipakai untuk:\*\*")),
+                ("Kenapa bekerja", re.compile(r"Kenapa bekerja")), ("## Pengikat", re.compile(r"^## Pengikat", re.M)),
+                ("## Yang harus terasa sama saat disandingkan", re.compile(r"^## Yang harus terasa sama saat disandingkan", re.M)))
+VAULT_BAGIAN_S = (("Inti/Kerangka", re.compile(r"\*\*(?:Inti|Kerangka)[^*]*:\*\*|Kerangka")),)
 
 
 # ---------- parsing ----------
@@ -191,6 +202,16 @@ def esc(s):
     return s.replace("|", "\\|")
 
 
+def _vault_files():
+    return sorted(glob.glob(os.path.join(CB, "_vault", "*", "*.md")))
+
+
+def _ada_vault(i):
+    """Apakah ada berkas vault berawalan id ini (mis. '65-...')."""
+    v = i.zfill(2) if i.isdigit() and len(i) == 1 else i
+    return bool(glob.glob(os.path.join(CB, "_vault", "*", v + "-*.md")))
+
+
 def build_catalog(cards):
     ok = sorted([c for c in cards if c["fm"]], key=lambda c: (c["fi"], idkey(c["fm"].get("id", "")), c["rel"]))
     aliases = []
@@ -201,7 +222,11 @@ def build_catalog(cards):
     L = ["# Cookbook · CATALOG (Daftar Invariant Cards)", "", GENERATED, "",
          "File ini dibaca otomatis oleh `scripts/cookbook/pilih_kartu.py`. Agen produksi memuat `00-core-invariants.md` lalu 2–4 kartu hasil `pilih_kartu.py`; pack utuh tidak dimuat.", ""]
     if aliases:
-        L += ["**Alias (id lama → kartu pack):** " + ", ".join(f"`{a} → {t}`" for a, t in aliases), ""]
+        def _alias(a, t):
+            return f"`{a} = duplikat dari {DUPLIKAT[a]} → {t}`" if a in DUPLIKAT and not _ada_vault(a) else f"`{a} → {t}`"
+        L += ["**Alias (id lama → kartu pack):** " + ", ".join(_alias(a, t) for a, t in aliases), ""]
+        n_dup = sum(1 for a, _ in aliases if a in DUPLIKAT and not _ada_vault(a))
+        L += [f"{len(ok)} kartu aktif · {len(_vault_files())} kartu vault · {n_dup} id duplikat", ""]
     L += ["> Dibangkitkan oleh `tools/cookbook.py index`; jangan diedit tangan.", "",
           "| ID | Pola | Narrative trigger | Kategori | Status | Path |", "|---|---|---|---|---|---|"]
     for c in ok:
@@ -299,6 +324,61 @@ def cmd_cari(args):
 
 
 # ---------- cek ----------
+def _indeks_berkas():
+    """Nama berkas -> daftar path relatif, untuk seluruh repo kecuali projects/, archive/, .git, node_modules."""
+    out = {}
+    for dp, dn, fn in os.walk(ROOT):
+        rel = os.path.relpath(dp, ROOT)
+        dn[:] = [d for d in dn if d not in (".git", "node_modules", "__pycache__") and not (rel == "." and d in REF_TERLARANG)]
+        for f in fn:
+            out.setdefault(f, []).append(os.path.normpath(os.path.join(rel, f)))
+    return out
+
+
+def rujukan_kode(teks):
+    """Token berekstensi kode/dokumen di dalam backtick pada segmen Primitives/Ref (sebelum '· Vault:'). Glob dan nama tanpa ekstensi diabaikan."""
+    m = re.search(r"^- \*\*Primitives[/-]Ref:\*\*(.*)$", teks, re.M)
+    if not m:
+        return []
+    seg = m.group(1).split("· Vault:")[0]
+    return [t for t in re.findall(r"`([^`\s]+)`", seg) if t.endswith(REF_EXT) and not re.search(r"[*?\[]", t)]
+
+
+def rujukan_ada(tok, indeks):
+    if "/" in tok:
+        t = os.path.normpath(tok)
+        if t.split(os.sep)[0] in REF_TERLARANG:
+            return False
+        return any(os.path.exists(os.path.join(ROOT, b, t)) for b in ("", os.path.join("claude", "motion-graphic")))
+    return tok in indeks
+
+
+def info_vault(cards):
+    """Temuan struktur vault dan id yatim. Hanya info: tidak pernah GAGAL, tidak dihitung di --ketat."""
+    out = []
+    pakai = set()
+    for c in cards:
+        for vp in (c["fm"] or {}).get("vault", []):
+            pakai.add(os.path.normpath(os.path.join(os.path.dirname(c["path"]), vp)))
+    yatim = []
+    for p in _vault_files():
+        stem = os.path.basename(p)
+        with open(p, encoding="utf-8") as fh:
+            teks = fh.read()
+        fm, _ = parse_front(teks)
+        if os.path.normpath(p) not in pakai:
+            yatim.append(re.match(r"^([A-Za-z]?\d+(?:-\d+)*)", stem).group(1) if re.match(r"^[A-Za-z]?\d", stem) else stem)
+        bagian = VAULT_BAGIAN_S if re.match(r"^S\d", stem) else VAULT_BAGIAN
+        miss = [n for n, rx in bagian if not rx.search(teks)]
+        if not fm or "dilihat_bergerak" not in fm:
+            miss.append("dilihat_bergerak (frontmatter)")
+        if miss:
+            out.append(f"{stem}: tidak ada {', '.join(miss)}")
+    if yatim:
+        out.append("yatim (tidak dirujuk kartu aktif mana pun): " + ", ".join(sorted(yatim, key=idkey)))
+    return out
+
+
 def cmd_cek(args):
     ketat = "--ketat" in args
     cards = load_cards()
@@ -322,6 +402,7 @@ def cmd_cek(args):
                 ok(f"{fname}: ~{tok} tok (< {limit})")
 
     ids, namas = {}, {}
+    indeks = None
     for c in cards:
         r = c["rel"]
         fm = c["fm"]
@@ -371,6 +452,12 @@ def cmd_cek(args):
         if body_lines > 18:
             warn(f"{r}: isi Invariant Card {body_lines} baris (target 10-15)")
 
+        if indeks is None:
+            indeks = _indeks_berkas()
+        for tok in rujukan_kode(c["body"]):
+            if not rujukan_ada(tok, indeks):
+                bad(f"{r}: Primitives-Ref tidak ada: {tok}")
+
         dirc = os.path.dirname(c["path"])
         for vp in fm.get("vault", []):
             full = os.path.normpath(os.path.join(dirc, vp))
@@ -398,6 +485,8 @@ def cmd_cek(args):
 
     for s, m in res:
         print(f"{s:<10} {m}")
+    for m in info_vault(cards):
+        print(f"VAULT (info) {m}")
     n_bad = sum(1 for s, _ in res if s == "GAGAL")
     print(f"\n{len(cards)} kartu · {n_bad} GAGAL · {sum(1 for s, _ in res if s == 'PERINGATAN')} PERINGATAN")
     return 1 if n_bad else 0
