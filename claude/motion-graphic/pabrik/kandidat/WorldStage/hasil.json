@@ -1,0 +1,166 @@
+{
+ "nama": "WorldStage",
+ "spec": "pabrik/spec/63-T1.json",
+ "lulus": false,
+ "putaran": 3,
+ "metrik": {
+  "banding": {
+   "per_still": [
+    {
+     "frame": 2,
+     "luma_range": 60.5,
+     "sat_p95": 0.298,
+     "fokus_pct": 5.7
+    },
+    {
+     "frame": 14,
+     "luma_range": 147.4,
+     "sat_p95": 0.764,
+     "fokus_pct": 73.4
+    },
+    {
+     "frame": 60,
+     "luma_range": 124.7,
+     "sat_p95": 0.746,
+     "fokus_pct": 36.7
+    },
+    {
+     "frame": 95,
+     "luma_range": 141.5,
+     "sat_p95": 0.776,
+     "fokus_pct": 41.1
+    }
+   ],
+   "f1_terpicu": 0,
+   "f3_jarang": 0,
+   "n": 4
+  },
+  "pola_tengah": {
+   "sampel": 56,
+   "berturut_maks": 0
+  },
+  "probe": {
+   "frame_terprobe": [
+    2,
+    14,
+    60,
+    95
+   ],
+   "teks_kecil": 0,
+   "tabrakan": 1,
+   "terpotong": 2
+  },
+  "palet": {
+   "luar_palet": []
+  },
+  "struktur": {
+   "ssim": 0.4579,
+   "edge": 0.2778,
+   "skor": 0.3679,
+   "frame": 2,
+   "ref": "guide/referensi/sheets/keyframes/63-k4-kartu-ui-gelap.jpg",
+   "rata_terbaik_per_ref": 0.2017,
+   "n_ref": 8
+  },
+  "gerak": {
+   "frame_berubah": 0.532,
+   "kategori": "gerak_kamera",
+   "rentang_centroid": 0.3243,
+   "lintasan": {
+    "rms": 0.5196,
+    "rasio_durasi": 0.187,
+    "durasi": 0.467,
+    "n_segmen": 2
+   }
+  },
+  "dua_token": {
+   "edge_struktur": 0.9206,
+   "ssim_struktur": 0.6978,
+   "selisih_piksel": 42.04
+  }
+ },
+ "dosa": {
+  "j": "f2: 'Rencana' x 'produksi'"
+ },
+ "adversarial": [
+  "Frame 2 hanya slide teks datar: judul serif 'Rencana produksi' menempel di kiri atas, tab 'Naskah/Klip/Suara' terpotong di tepi atas, dan sekitar 40% kanan-bawah kosong. KIRI menampilkan kartu UI gelap utuh di tengah dengan ruang napas. Perbaikan: render kartu UI gelap yang sama di tengah frame (±0,6 lebar), jangan slide teks tepi-ke-tepi.",
+  "Dock di frame 14 dan 60 berisi kotak berwarna polos tanpa glyph, cuma lingkaran, persegi dan belah ketupat, jadi terbaca sebagai ikon placeholder. Dock KIRI punya ikon aplikasi asli yang bisa dikenali. Perbaikan: beri glyph yang bermakna (gunting, play, mic, folder) pada tiap ikon dan kecilkan outline krem tebalnya.",
+  "Wallpaper frame 14 adalah ilustrasi vektor datar (bukit ungu, matahari lingkaran) dan bagian atasnya jatuh ke oranye polos. Wallpaper KIRI adalah foto senja bertekstur dengan awan dan detail. Karena itu pemisahan nada terasa seperti poster clip-art. Perbaikan: tambah tekstur, grain dan lapisan kedalaman, atau pakai foto, dengan kontras yang lebih jelas terhadap jendela.",
+  "Frame 60 memotong jendela di tepi kanan dan panel 'Asisten' di kiri adalah blok gelap datar yang menutup wallpaper, tanpa bayangan atau pemisah. Jendela tampak terdorong keluar frame, tidak diberi ruang. KIRI menjaga jendela dan dock utuh. Perbaikan: geser jendela ±0,18 lebar frame sambil mengecil ke ±0,91x supaya tetap utuh, dan beri panel tepi serta bayangan lembut.",
+  "Punch di frame 95 mendarat pada potongan acak: 'Obrolan Pa' terpotong di tepi kanan, label merah raksasa, sisa panel kiri dengan satu tombol panah merah, dan pita ungu kosong di bawah. Tidak ada detail UI yang jelas ditonjolkan. Di frame 14 ada juga tambalan kotak piksel pudar di kanan atas yang tampak seperti artefak. Perbaikan: pivot punch di satu elemen utuh (timeline atau label) dengan margin, dan buat wipe grid kontras serta menyapu penuh dari kiri ke kanan."
+ ],
+ "gagal": [
+  "DOSA j: f2: 'Rencana' x 'produksi'",
+  "gerak RMS 0.5196 > 0.15",
+  "gerak rasio durasi 0.187 di luar 0.5-2.0"
+ ],
+ "lembar": "pabrik/kandidat/WorldStage/lembar-r3.jpg",
+ "riwayat": [
+  {
+   "putaran": 1,
+   "lulus": false,
+   "dosa": [
+    "a",
+    "f",
+    "g",
+    "j"
+   ],
+   "gagal": [
+    "DOSA a: banding.py F1 gradien ragu-ragu di frame [4]",
+    "DOSA f: vision: Baris 1: judul 'Rencana produksi' dan daftar 1-3 di atas latar krem kabur total, padahal itu konten yang harus dibaca. Baris 2: teks 'Obrolan Pagi' dan 'Wawancara' di dalam jendela kabur dan nyaris tak terbaca.",
+    "DOSA g: vision: Baris 2 (frame 14): jendela berisi kisi garis hitam dan putih sebagai pengganti isi, jadi tampak sebagai kotak kosong bergaris. Baris 3: kotak 'Asisten' kiri berisi hampir hanya ruang kosong krem, dan kolom kiri bawah di baris 4 juga kosong.",
+    "DOSA j: f91: 'Ganti warna latar ' x '↑'",
+    "gerak RMS 0.3445 > 0.15",
+    "gerak rasio durasi 0.247 di luar 0.5-2.0"
+   ],
+   "adversarial": [
+    "Baris 1 (frame 4): kartu krem polos berisi 'Rencana produksi' tampil kabur di seluruh area. Referensi di kiri menampilkan UI gelap yang tajam dan utuh. Perbaikan: tajamkan teks sebelum transisi dimulai, dan pertahankan UI gelap sebagai frame pembuka sesuai mekanik.",
+    "Baris 2 (frame 14): grid blok piksel yang seharusnya menyapu ±0,25 dtk dari kiri ke kanan tampil sebagai kisi garis hitam dan putih di atas jendela. Itu terlihat seperti tabel, bukan blok piksel yang menyapu. Referensi memakai blok berwarna yang menyatu dengan isi frame. Perbaikan: pakai blok persegi kecil berwarna sesuai palet, dengan wipe terarah.",
+    "Baris 2 (frame 14): teks 'Obrolan Pagi' dan tombol 'Wawancara' tertimbun grid dan hampir tak terbaca. Perbaikan: turunkan opasitas grid di atas konten, atau urutkan transisi supaya konten tidak tertimpa.",
+    "Baris 3 (frame 53): jendela editor hanya berisi lima kotak warna datar (Intro, Wawancara, Penutup) dan daftar teks. Referensi menampilkan UI editor video dengan timeline berlapis, panel properti, dan pratinjau. Perbaikan: tambahkan detail UI nyata seperti baris track, playhead, dan thumbnail supaya punch-in punya sesuatu untuk ditunjukkan.",
+    "Baris 4 (frame 91): hasil punch 'Intro' dan tombol 'K' terpotong tepi, dan teks krem yang terpotong ('nti warna latar jadi biru, rbesar judul') tidak membentuk kalimat utuh. Referensi menampilkan UI utuh dengan dock rapi. Perbaikan: pilih pivot punch yang menjaga satu elemen lengkap di frame, dan pakai teks input yang tidak terpotong di tengah kata."
+   ]
+  },
+  {
+   "putaran": 2,
+   "lulus": false,
+   "dosa": [
+    "g",
+    "j2"
+   ],
+   "gagal": [
+    "DOSA g: vision: Baris 3: kotak input putih di panel kiri kosong (hanya 'Model utama' kecil) di atas panel krem yang lebih lapang. Pratinjau video 'Obrolan Pagi' di jendela editor (baris 2-3) hanya kotak gelap berteks, tanpa gambar video.",
+    "DOSA j2: jangkar j2 (gradien pucat ragu-ragu, halo di belakan...): Baris 3 kiri: teks abu kecil 'Klip sudah di timeline. Bagian mana yang mau diubah?' di panel krem hampir putih, kontras lemah. Baris 4: 'Episode 12', 'Suara', 'Video' abu pucat di latar ungu gelap. Ini pola teks abu di latar pucat seperti j2.",
+    "gerak RMS 0.2994 > 0.15",
+    "gerak rasio durasi 0.227 di luar 0.5-2.0"
+   ],
+   "adversarial": [
+    "Baris 2, panel wipe kuning translusen dengan garis kisi merah menutupi separuh kanan jendela, termasuk 'Obrolan Pagi' dan 'Narasi pembuka dan wawancara'. Teks ikut pudar, 'Ekspor' dan 'Penutup' kuning-di-kuning hilang, dan kisinya berupa garis tipis, bukan blok piksel seperti referensi. Perbaikan: wipe berupa blok kotak solid kecil yang menyapu dari kiri ke kanan, dan teks jendela tidak boleh tertutup overlay.",
+    "Baris 1, kartu pembuka 'Rencana produksi' hanya judul serif dan tiga baris abu rata kiri di latar ungu-hitam datar. Tidak ada objek, tidak ada kedalaman, dan daftarnya terlihat seperti slide PowerPoint. Perbaikan: ganti dengan satu tipografi besar, atau UI gelap sungguhan seperti referensi (bar tab, kartu, kursor), dengan latar bergradasi dan teks utama putih.",
+    "Baris 3 kiri, panel chat krem lebar ±0,4 frame hampir kosong. Ada tiga baris abu kecil, satu kotak input kosong, dan ruang mati sampai tepi atas. Ini tidak terasa seperti panel yang 'memberi ruang' dan tidak seimbang dengan jendela yang terpotong di kanan. Perbaikan: panel sempit ±0,18 frame, isi dengan pesan dan jawaban nyata, dan gelap seperti jendela utama.",
+    "Baris 3 kanan, wallpaper pegunungan oranye yang sama dengan baris 2 dipotong oleh jendela yang terdorong sampai tepi kanan. Jendela terpotong, padahal seharusnya tetap utuh dan hanya bergeser ±0,18 frame. Dock 'K P F V M C A' yang berupa huruf di kotak warna terlihat mainan dibanding dock ikon di referensi. Perbaikan: geser lebih sedikit dan ganti dock dengan ikon bergaya satu keluarga.",
+    "Baris 4 punch, zoom ke timeline memotong 'Suara' dan 'Judul' di tepi atas dan menyisakan panel krem putih yang terpotong di kiri. Pivot-nya tidak ke sudut ruang kerja yang berisi detail UI. Isi UI-nya terlalu sedikit (dua klip dan satu trek suara) sehingga detail terasa kosong, dan 'Episode 12' abu pucat kontrasnya rendah. Perbaikan: zoom ke sudut dengan detail padat (waveform, penanda waktu, ikon) dan naikkan kontras teks sekunder."
+   ]
+  },
+  {
+   "putaran": 3,
+   "lulus": false,
+   "dosa": [
+    "j"
+   ],
+   "gagal": [
+    "DOSA j: f2: 'Rencana' x 'produksi'",
+    "gerak RMS 0.5196 > 0.15",
+    "gerak rasio durasi 0.187 di luar 0.5-2.0"
+   ],
+   "adversarial": [
+    "Frame 2 hanya slide teks datar: judul serif 'Rencana produksi' menempel di kiri atas, tab 'Naskah/Klip/Suara' terpotong di tepi atas, dan sekitar 40% kanan-bawah kosong. KIRI menampilkan kartu UI gelap utuh di tengah dengan ruang napas. Perbaikan: render kartu UI gelap yang sama di tengah frame (±0,6 lebar), jangan slide teks tepi-ke-tepi.",
+    "Dock di frame 14 dan 60 berisi kotak berwarna polos tanpa glyph, cuma lingkaran, persegi dan belah ketupat, jadi terbaca sebagai ikon placeholder. Dock KIRI punya ikon aplikasi asli yang bisa dikenali. Perbaikan: beri glyph yang bermakna (gunting, play, mic, folder) pada tiap ikon dan kecilkan outline krem tebalnya.",
+    "Wallpaper frame 14 adalah ilustrasi vektor datar (bukit ungu, matahari lingkaran) dan bagian atasnya jatuh ke oranye polos. Wallpaper KIRI adalah foto senja bertekstur dengan awan dan detail. Karena itu pemisahan nada terasa seperti poster clip-art. Perbaikan: tambah tekstur, grain dan lapisan kedalaman, atau pakai foto, dengan kontras yang lebih jelas terhadap jendela.",
+    "Frame 60 memotong jendela di tepi kanan dan panel 'Asisten' di kiri adalah blok gelap datar yang menutup wallpaper, tanpa bayangan atau pemisah. Jendela tampak terdorong keluar frame, tidak diberi ruang. KIRI menjaga jendela dan dock utuh. Perbaikan: geser jendela ±0,18 lebar frame sambil mengecil ke ±0,91x supaya tetap utuh, dan beri panel tepi serta bayangan lembut.",
+    "Punch di frame 95 mendarat pada potongan acak: 'Obrolan Pa' terpotong di tepi kanan, label merah raksasa, sisa panel kiri dengan satu tombol panah merah, dan pita ungu kosong di bawah. Tidak ada detail UI yang jelas ditonjolkan. Di frame 14 ada juga tambalan kotak piksel pudar di kanan atas yang tampak seperti artefak. Perbaikan: pivot punch di satu elemen utuh (timeline atau label) dengan margin, dan buat wipe grid kontras serta menyapu penuh dari kiri ke kanan."
+   ]
+  }
+ ],
+ "tanggal": "2026-11-26"
+}

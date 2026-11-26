@@ -1,0 +1,14 @@
+{
+  "palet": {
+    "A": ["#F1EADB", "#14110F", "#4A4036", "#C8552B", "#E3B04B", "#2B2118"],
+    "B": ["#0E1A33", "#EAF0FB", "#A8BCE3", "#2F6BEA", "#7FB2FF", "#070D1C"]
+  },
+  "fungsi": "Satu kata kunci raksasa menimpa footage dengan huruf masuk satu per satu, dikelilingi kata kecil tersebar, dan tetap bertahan melewati cut footage.",
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "durasi": 120,
+  "stills": [10, 40, 75, 119],
+  "urutan": { "dari": 0, "sampai": 119 },
+  "catatan": "Dua tingkat ukuran saja (raksasa dan kecil). Ukuran raksasa dipas ke lebar target lewat taksiran lebar huruf rata-rata (lebarHurufEm); sesuaikan bila huruf lain. Cut footage di frame 70 tidak menyentuh kata raksasa. Geser, jeda 2 frame, dan tracking -0,04 em adalah perkiraan dari spec."
+}

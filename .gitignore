@@ -12,3 +12,11 @@ __pycache__/
 # bench render (tools/bench-render)
 tools/bench-render/node_modules/
 tools/bench-render/out/
+
+# pabrik primitif: node_modules symlink + keluaran render
+claude/motion-graphic/node_modules
+claude/motion-graphic/pabrik/out/
+claude/motion-graphic/pabrik/registry.json.lock
+claude/motion-graphic/pabrik/node_modules
+claude/motion-graphic/.cache
+claude/motion-graphic/.remotion

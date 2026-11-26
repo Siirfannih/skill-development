@@ -1237,3 +1237,6 @@ Penghitung: nilai mulai 2; +1 gerbang menangkap kegagalan nyata; −1 salah-temb
 - Inti dijadikan satu CLI Node ringan yang membungkus pustaka teruji (sharp, node-vibrant, culori, apca-w3, axe-core); Python hanya pembungkus: Irfan 26 Nov 2026 14:21. APCA (Lc >= 60 / 45) jadi ukuran utama, WCAG 2 dilaporkan; axe-core hanya suplemen karena color-contrast-nya "incomplete" di atas gradien/gambar.
 - Cek ketiga "warna nanggung" (OKLCH chroma 0,03-0,08 pada lightness 0,45-0,75, bukan warna palet) atas permintaan yang sama; ambangnya hasil kalibrasi pada frame L3 dan BW (README `scripts/warna/`), belum diuji lintas tema: kalibrasi ulang bila ada uji berikutnya.
 - Render dua kali (dengan/tanpa teks) untuk memisahkan piksel teks, bukan menebak: keputusan rancangan permintaan yang sama. Prop `sembunyikanTeks` di starter Remotion dan `data-sengaja="pudar"` untuk teks yang sengaja memudar mengikuti pola `data-sengaja="tumpuk"` di `tabrakan_cek.py`.
+
+## pabrik/ (pabrik primitif: ekstrak, sintesis, uji, daftar)
+- Permintaan Irfan 26 Nov 2026 13:58: referensi dibedah jadi primitif terstruktur dan tiap komponen diuji otomatis sebelum masuk registry. Desain kritikus diganti 14:05 (daftar dosa biner, adversarial kiri-kanan, jangkar slop, palet non-AI; skor 1–10 dihapus sebagai syarat lulus).

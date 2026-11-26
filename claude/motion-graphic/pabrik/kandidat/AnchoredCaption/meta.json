@@ -1,0 +1,14 @@
+{
+  "palet": {
+    "A": ["#F2E8D0", "#E3D2AC", "#D9822B", "#1C1A16"],
+    "B": ["#0E1A33", "#1D3566", "#4C7DF0", "#F5F7FF"]
+  },
+  "fungsi": "Caption satu atau dua kata berukuran tetap terkunci di tengah frame, kata diganti di tempat dengan potongan keras mengikuti ucapan sementara gambar di belakangnya berganti dengan ritme sendiri.",
+  "width": 720,
+  "height": 1280,
+  "fps": 30,
+  "durasi": 120,
+  "stills": [5, 40, 70, 110],
+  "urutan": { "dari": 0, "sampai": 119 },
+  "catatan": "Posisi x=0,5 y=0,5, tinggi font 0,07 tinggi frame, tracking -0,02em, bobot 800 untuk semua kata. Ritme kata dari detik per kata (0,25-0,75 dtk), ritme shot terpisah (frame 0, 28, 54, 84, 92, 100). Shot demo memakai zona tegas di atas dan bawah pita teks, tanpa objek di y 0,4-0,6. Scrim tipis di y 0,35-0,65 opsional lewat prop scrim. Bayangan teks tidak dipakai (tidak terbukti di referensi)."
+}

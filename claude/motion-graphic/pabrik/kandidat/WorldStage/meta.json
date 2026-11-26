@@ -1,0 +1,66 @@
+{
+  "palet": {
+    "A": [
+      "#f4ecdc",
+      "#2a2421",
+      "#7a6c5f",
+      "#d6cabb",
+      "#c8442b",
+      "#f2b632",
+      "#e0603a",
+      "#f7b04a",
+      "#fde7a8",
+      "#9c3a4c",
+      "#6d2a48",
+      "#3f1d3a",
+      "#231f2b",
+      "#2b2535",
+      "#3d3549",
+      "#efe4cf",
+      "#2f6f73",
+      "#3d5a80",
+      "#8a9a3a",
+      "#fffaf0",
+      "#322c3b"
+    ],
+    "B": [
+      "#0b1424",
+      "#e8f0ff",
+      "#8fa3c4",
+      "#a9bbd8",
+      "#4cc2ff",
+      "#ffd24a",
+      "#1f4fa8",
+      "#5fb3e8",
+      "#e9f6ff",
+      "#2d6a8a",
+      "#1c4766",
+      "#0f2c45",
+      "#10161f",
+      "#0e1b30",
+      "#16283f",
+      "#1b2f4d",
+      "#ff7a59",
+      "#7be0a4",
+      "#b79bff",
+      "#ff6f91",
+      "#17223a"
+    ]
+  },
+  "fungsi": "Satu dunia datar (wallpaper, jendela, dock, panel chat) digerakkan sebagai satu grup oleh kamera 2D virtual: geser memberi ruang panel masuk, lalu punch ke sudut kiri-bawah, dibuka dari kartu lama lewat blur dan wipe grid.",
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "durasi": 112,
+  "stills": [
+    2,
+    14,
+    60,
+    95
+  ],
+  "urutan": {
+    "dari": 0,
+    "sampai": 111
+  },
+  "catatan": "Mekanik dari kartu 63-T1: satu kamera, tanpa paralaks, kurva heavy, panel digeser dengan jendela waktu kamera. Lintasan memakai nilai spec apa adanya (punch x -0.32, y 0.29, skala 2.1). Grid keluar saat punch tidak dibuat (hanya grid masuk)."
+}

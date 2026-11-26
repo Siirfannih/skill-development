@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "pabrik/spec.schema.json",
+  "title": "Spec primitif pabrik",
+  "description": "Hasil bedah satu teknik kartu menjadi primitif terukur. mekanik = yang dipindahkan; kulit = yang TIDAK dibakukan.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "kartu", "teknik", "kategori", "komponen_usulan", "ringkas", "parameter", "mekanik", "kulit", "bukti", "terukur"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[A-Za-z0-9._-]+$"},
+    "kartu": {"type": "string", "pattern": "^[A-Za-z0-9-]+$"},
+    "teknik": {"type": "string", "pattern": "^[A-Za-z0-9._-]+$"},
+    "kategori": {"enum": ["atmosfer", "gerak_kamera", "permukaan_ui", "tipografi"]},
+    "komponen_usulan": {"type": "string", "pattern": "^[A-Z][A-Za-z0-9]+$"},
+    "ringkas": {"type": "string", "minLength": 10, "maxLength": 400},
+    "terukur": {
+      "type": "object", "additionalProperties": false, "required": ["dari_klip", "catatan"],
+      "properties": {
+        "dari_klip": {"type": "boolean", "description": "true bila parameter gerak diukur dari urutan frame klip; false bila hanya dari keyframe statis"},
+        "catatan": {"type": "string"}
+      }
+    },
+    "parameter": {"type": "object"},
+    "mekanik": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 5}},
+    "kulit": {"type": "array", "items": {"type": "string", "minLength": 3}},
+    "bukti": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false, "required": ["frame", "t"],
+        "properties": {
+          "frame": {"type": "string", "minLength": 3},
+          "t": {"type": ["number", "null"], "minimum": 0, "description": "detik di klip sumber; null untuk keyframe statis"},
+          "catatan": {"type": "string"}
+        }
+      }
+    }
+  },
+  "allOf": [
+    {"if": {"properties": {"kategori": {"const": "atmosfer"}}}, "then": {"properties": {"parameter": {"$ref": "#/$defs/atmosfer"}}}},
+    {"if": {"properties": {"kategori": {"const": "gerak_kamera"}}}, "then": {"properties": {"parameter": {"$ref": "#/$defs/gerak_kamera"}}}},
+    {"if": {"properties": {"kategori": {"const": "permukaan_ui"}}}, "then": {"properties": {"parameter": {"$ref": "#/$defs/permukaan_ui"}}}},
+    {"if": {"properties": {"kategori": {"const": "tipografi"}}}, "then": {"properties": {"parameter": {"$ref": "#/$defs/tipografi"}}}}
+  ],
+  "$defs": {
+    "frac": {"type": "number", "minimum": 0, "maximum": 1},
+    "kurva": {
+      "type": "object", "additionalProperties": false, "required": ["tipe"],
+      "properties": {
+        "tipe": {"enum": ["cubic-bezier", "spring"]},
+        "bezier": {"type": "array", "items": {"type": "number"}, "minItems": 4, "maxItems": 4},
+        "spring": {
+          "type": "object", "additionalProperties": false, "required": ["stiffness", "damping", "mass"],
+          "properties": {"stiffness": {"type": "number", "exclusiveMinimum": 0}, "damping": {"type": "number", "exclusiveMinimum": 0}, "mass": {"type": "number", "exclusiveMinimum": 0}}
+        }
+      },
+      "allOf": [
+        {"if": {"properties": {"tipe": {"const": "cubic-bezier"}}}, "then": {"required": ["bezier"]}},
+        {"if": {"properties": {"tipe": {"const": "spring"}}}, "then": {"required": ["spring"]}}
+      ]
+    },
+    "atmosfer": {
+      "type": "object", "additionalProperties": false, "required": ["tipe", "palet", "arah_cahaya_derajat", "kecepatan", "grain"],
+      "properties": {
+        "tipe": {"enum": ["gradien", "cahaya", "partikel", "tekstur", "polos"]},
+        "palet": {
+          "type": "array", "minItems": 1, "maxItems": 6,
+          "items": {
+            "type": "object", "additionalProperties": false, "required": ["peran", "luma", "saturasi"],
+            "properties": {
+              "peran": {"enum": ["latar", "aksen", "tinta", "sorot", "bayangan"]},
+              "luma": {"$ref": "#/$defs/frac"}, "saturasi": {"$ref": "#/$defs/frac"},
+              "luas": {"$ref": "#/$defs/frac"}
+            }
+          }
+        },
+        "arah_cahaya_derajat": {"type": ["number", "null"], "minimum": 0, "maximum": 360},
+        "kecepatan": {"type": "number", "minimum": 0, "description": "siklus gerak per detik; 0 = diam"},
+        "grain": {"$ref": "#/$defs/frac"}
+      }
+    },
+    "gerak_kamera": {
+      "type": "object", "additionalProperties": false, "required": ["kurva", "durasi_detik", "transisi", "lintasan"],
+      "properties": {
+        "kurva": {"$ref": "#/$defs/kurva"},
+        "durasi_detik": {"type": "number", "exclusiveMinimum": 0, "maximum": 10},
+        "transisi": {"enum": ["tidak_ada", "potong", "grid", "wipe", "zoom", "morf", "blur"]},
+        "lintasan": {
+          "type": "array", "minItems": 2,
+          "items": {
+            "type": "object", "additionalProperties": false, "required": ["t", "x", "y", "skala"],
+            "properties": {"t": {"$ref": "#/$defs/frac"}, "x": {"type": "number", "description": "pergeseran pusat kamera, fraksi lebar frame relatif ke awal"}, "y": {"type": "number", "description": "fraksi tinggi frame relatif ke awal"}, "skala": {"type": "number", "exclusiveMinimum": 0, "description": "faktor zoom relatif ke awal (1 = awal)"},
+                          "catatan": {"type": "string"}}
+          }
+        }
+      }
+    },
+    "permukaan_ui": {
+      "type": "object", "additionalProperties": false, "required": ["radius", "border", "blur", "bayangan"],
+      "properties": {
+        "radius": {"type": "number", "minimum": 0, "description": "radius sudut sebagai fraksi sisi terpendek elemen (0,5 = pil)"},
+        "border": {
+          "type": "object", "additionalProperties": false, "required": ["lebar", "opasitas"],
+          "properties": {"lebar": {"type": "number", "minimum": 0, "description": "fraksi tinggi frame"}, "opasitas": {"$ref": "#/$defs/frac"}}
+        },
+        "blur": {"type": "number", "minimum": 0, "description": "blur latar (backdrop) sebagai fraksi tinggi frame; 0 = tanpa"},
+        "bayangan": {
+          "type": "object", "additionalProperties": false, "required": ["offset_x", "offset_y", "blur", "opasitas"],
+          "properties": {"offset_x": {"type": "number"}, "offset_y": {"type": "number"}, "blur": {"type": "number", "minimum": 0}, "opasitas": {"$ref": "#/$defs/frac"}}
+        }
+      }
+    },
+    "tipografi": {
+      "type": "object", "additionalProperties": false, "required": ["hierarki", "tracking_em", "unit", "pola_masuk", "pola_keluar"],
+      "properties": {
+        "hierarki": {
+          "type": "array", "minItems": 1,
+          "items": {
+            "type": "object", "additionalProperties": false, "required": ["peran", "tinggi_rel"],
+            "properties": {"peran": {"type": "string"}, "tinggi_rel": {"type": "number", "exclusiveMinimum": 0, "maximum": 1.5, "description": "tinggi huruf kapital/ukuran font sebagai fraksi tinggi frame"}}
+          }
+        },
+        "tracking_em": {"type": "number", "minimum": -0.2, "maximum": 0.5},
+        "unit": {"enum": ["kata", "huruf", "baris", "blok"]},
+        "pola_masuk": {"enum": ["fade", "naik", "turun", "geser_samping", "skala", "blur", "ketik", "potong", "mask"]},
+        "pola_keluar": {"enum": ["fade", "naik", "turun", "geser_samping", "skala", "blur", "potong", "mask", "tetap"]}
+      }
+    }
+  }
+}

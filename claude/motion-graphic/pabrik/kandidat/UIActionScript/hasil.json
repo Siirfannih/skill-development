@@ -1,0 +1,101 @@
+{
+ "nama": "UIActionScript",
+ "spec": "pabrik/spec/63-T5.json",
+ "lulus": true,
+ "putaran": 1,
+ "metrik": {
+  "banding": {
+   "per_still": [
+    {
+     "frame": 8,
+     "luma_range": 120.1,
+     "sat_p95": 0.746,
+     "fokus_pct": 58.6
+    },
+    {
+     "frame": 34,
+     "luma_range": 120.8,
+     "sat_p95": 0.746,
+     "fokus_pct": 58.9
+    },
+    {
+     "frame": 64,
+     "luma_range": 114.9,
+     "sat_p95": 0.787,
+     "fokus_pct": 55.8
+    },
+    {
+     "frame": 88,
+     "luma_range": 125.7,
+     "sat_p95": 0.789,
+     "fokus_pct": 77.6
+    }
+   ],
+   "f1_terpicu": 0,
+   "f3_jarang": 0,
+   "n": 4
+  },
+  "pola_tengah": {
+   "sampel": 60,
+   "berturut_maks": 0
+  },
+  "probe": {
+   "frame_terprobe": [
+    8,
+    34,
+    64,
+    88
+   ],
+   "teks_kecil": 0,
+   "tabrakan": 0,
+   "terpotong": 1
+  },
+  "palet": {
+   "luar_palet": []
+  },
+  "struktur": {
+   "ssim": 0.2965,
+   "edge": 0.186,
+   "skor": 0.2412,
+   "frame": 88,
+   "ref": "guide/referensi/sheets/keyframes/63-k4-kartu-ui-gelap.jpg",
+   "rata_terbaik_per_ref": 0.137,
+   "n_ref": 8
+  },
+  "gerak": {
+   "frame_berubah": 0.437,
+   "kategori": "permukaan_ui"
+  },
+  "dua_token": {
+   "edge_struktur": 0.9963,
+   "ssim_struktur": 0.8943,
+   "selisih_piksel": 47.14
+  }
+ },
+ "dosa": {},
+ "adversarial": [
+  "Baris 4 (sapuan grid): sel-selnya hampir opak dan menutup seluruh kotak prompt, sehingga 'tambah sfx dan musik' dan 'Model A Sedang' nyaris tak terbaca. Tepinya kotak keras dan seragam, jadi tampak seperti overlay tempelan, bukan sapuan. Ubah jadi sapuan bertahap: sel depan opak, sel belakang tembus pandang, dengan jeda antar sel dan tanpa menutup teks yang sedang dibaca.",
+  "Baris 1 dan 2 (isi jendela): empat thumbnail identik (gambar matahari yang sama diulang 4x), slider tanpa label, dan klip timeline tanpa nama atau waveform. Isinya terbaca sebagai wireframe berwarna. Kiri punya teks, tombol, dan hirarki nyata. Beri tiap thumbnail frame berbeda, label slider, nama klip, dan waveform di track audio.",
+  "Baris 1 dan 2 (pemisahan jendela dari wallpaper): bagian atas wallpaper ungu-maroon gelap, sehingga luma jendela hampir sama dengan latar di sekitar bar judul. Jendela tidak terbaca mengambang karena tidak ada bayangan lembut di bawah tepinya. Naikkan kecerahan dan saturasi wallpaper di sisi atas, dan tambahkan bayangan jatuh yang terlihat.",
+  "Baris 1 dan 2 (titik-titik oranye di bukit dan dock): butiran tersebar acak di bawah, tanpa fungsi dan tanpa arah gerak. Terbaca sebagai confetti atau noise pengisi. Dock berisi kotak kecil berwarna dengan glyph generik, sama bentuknya dan tanpa label. Buang titik-titik itu, atau buat jadi sumber cahaya yang jelas (misalnya ember). Beri ikon dock bentuk dan identitas masing-masing.",
+  "Baris 3 (hold setelah punch): kotak prompt berupa panel abu-gelap datar dengan border tipis, tanpa kesan kaca (tidak ada blur latar, tidak ada refleksi tepi) dan tanpa bayangan. Label 'Sedang' abu dim di atas abu gelap, kontrasnya lemah. Dock hanya tersisa seiris di tepi bawah, jadi konteks desktop berkurang. Beri kaca semi-transparan dengan blur ringan, naikkan kontras label, dan jaga dock lebih terlihat."
+ ],
+ "gagal": [],
+ "lembar": "pabrik/kandidat/UIActionScript/lembar-r1.jpg",
+ "riwayat": [
+  {
+   "putaran": 1,
+   "lulus": true,
+   "dosa": [],
+   "gagal": [],
+   "adversarial": [
+    "Baris 4 (sapuan grid): sel-selnya hampir opak dan menutup seluruh kotak prompt, sehingga 'tambah sfx dan musik' dan 'Model A Sedang' nyaris tak terbaca. Tepinya kotak keras dan seragam, jadi tampak seperti overlay tempelan, bukan sapuan. Ubah jadi sapuan bertahap: sel depan opak, sel belakang tembus pandang, dengan jeda antar sel dan tanpa menutup teks yang sedang dibaca.",
+    "Baris 1 dan 2 (isi jendela): empat thumbnail identik (gambar matahari yang sama diulang 4x), slider tanpa label, dan klip timeline tanpa nama atau waveform. Isinya terbaca sebagai wireframe berwarna. Kiri punya teks, tombol, dan hirarki nyata. Beri tiap thumbnail frame berbeda, label slider, nama klip, dan waveform di track audio.",
+    "Baris 1 dan 2 (pemisahan jendela dari wallpaper): bagian atas wallpaper ungu-maroon gelap, sehingga luma jendela hampir sama dengan latar di sekitar bar judul. Jendela tidak terbaca mengambang karena tidak ada bayangan lembut di bawah tepinya. Naikkan kecerahan dan saturasi wallpaper di sisi atas, dan tambahkan bayangan jatuh yang terlihat.",
+    "Baris 1 dan 2 (titik-titik oranye di bukit dan dock): butiran tersebar acak di bawah, tanpa fungsi dan tanpa arah gerak. Terbaca sebagai confetti atau noise pengisi. Dock berisi kotak kecil berwarna dengan glyph generik, sama bentuknya dan tanpa label. Buang titik-titik itu, atau buat jadi sumber cahaya yang jelas (misalnya ember). Beri ikon dock bentuk dan identitas masing-masing.",
+    "Baris 3 (hold setelah punch): kotak prompt berupa panel abu-gelap datar dengan border tipis, tanpa kesan kaca (tidak ada blur latar, tidak ada refleksi tepi) dan tanpa bayangan. Label 'Sedang' abu dim di atas abu gelap, kontrasnya lemah. Dock hanya tersisa seiris di tepi bawah, jadi konteks desktop berkurang. Beri kaca semi-transparan dengan blur ringan, naikkan kontras label, dan jaga dock lebih terlihat."
+   ]
+  }
+ ],
+ "tanggal": "2026-11-26"
+}

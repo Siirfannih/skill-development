@@ -1,0 +1,488 @@
+{
+ "versi": 1,
+ "komponen": [
+  {
+   "nama": "AnchoredCaption",
+   "fungsi": "Caption satu atau dua kata berukuran tetap terkunci di tengah frame, kata diganti di tempat dengan potongan keras mengikuti ucapan sementara gambar di belakangnya berganti dengan ritme sendiri.",
+   "kartu_sumber": [
+    "90.T1"
+   ],
+   "kategori": "tipografi",
+   "spec": "pabrik/spec/90-T1.json",
+   "props_schema": "z.object({ tokens: z.object({ tinta: z.string(), huruf: z.string(), scrim: z.string(), }), /** Urutan kata/frasa 1-2 kata; `detik` = lama bertahan (mengikuti ucapan, tidak seragam). */ kata: z.array(z.object({ teks: z.string(), detik: z.number().positive() })).min(1), bobot: z.number(), tinggiRel: z.number().default(0.07), trackingEm: z.number().default(-0.02), x: z.number().default(0.5), y: z.number().default(0.5), /** 0..1: kekuatan gradasi gelap tipis di y 0,35-0,65 untuk shot cerah; 0 = mati. */ scrim: z.number().default(0), })",
+   "demo_stills": [
+    "kandidat/AnchoredCaption/stills-r2/A-f005.jpg",
+    "kandidat/AnchoredCaption/stills-r2/A-f040.jpg",
+    "kandidat/AnchoredCaption/stills-r2/A-f070.jpg",
+    "kandidat/AnchoredCaption/stills-r2/A-f110.jpg",
+    "kandidat/AnchoredCaption/stills-r2/B-f005.jpg",
+    "kandidat/AnchoredCaption/stills-r2/B-f040.jpg",
+    "kandidat/AnchoredCaption/stills-r2/B-f070.jpg",
+    "kandidat/AnchoredCaption/stills-r2/B-f110.jpg"
+   ],
+   "lembar": "pabrik/kandidat/AnchoredCaption/lembar-r2.jpg",
+   "metrik_akhir": {
+    "banding": {
+     "per_still": [
+      {
+       "frame": 5,
+       "luma_range": 95.7,
+       "sat_p95": 0.591,
+       "fokus_pct": 50.5
+      },
+      {
+       "frame": 40,
+       "luma_range": 90.7,
+       "sat_p95": 0.803,
+       "fokus_pct": 36.9
+      },
+      {
+       "frame": 70,
+       "luma_range": 206.4,
+       "sat_p95": 0.803,
+       "fokus_pct": 15.0
+      },
+      {
+       "frame": 110,
+       "luma_range": 206.4,
+       "sat_p95": 0.803,
+       "fokus_pct": 14.5
+      }
+     ],
+     "f1_terpicu": 0,
+     "f3_jarang": 0,
+     "n": 4
+    },
+    "pola_tengah": {
+     "sampel": 60,
+     "berturut_maks": 0
+    },
+    "probe": {
+     "frame_terprobe": [
+      5,
+      40,
+      70,
+      110
+     ],
+     "teks_kecil": 0,
+     "tabrakan": 0,
+     "terpotong": 0
+    },
+    "palet": {
+     "luar_palet": []
+    },
+    "struktur": {
+     "ssim": 0.2911,
+     "edge": 0.217,
+     "skor": 0.2541,
+     "frame": 5,
+     "ref": "guide/referensi/sheets/keyframes/90-k6-transisi-kolase-cermin.jpg",
+     "rata_terbaik_per_ref": 0.1497,
+     "n_ref": 11
+    },
+    "gerak": {
+     "frame_berubah": 0.933,
+     "kategori": "tipografi"
+    },
+    "dua_token": {
+     "edge_struktur": 1.0,
+     "ssim_struktur": 0.0423,
+     "selisih_piksel": 152.95
+    }
+   },
+   "putaran": 2,
+   "status": "teruji",
+   "tanggal": "2026-11-26"
+  },
+  {
+   "nama": "ScaleLadder",
+   "fungsi": "Satu kata kunci raksasa menimpa footage dengan huruf masuk satu per satu, dikelilingi kata kecil tersebar, dan tetap bertahan melewati cut footage.",
+   "kartu_sumber": [
+    "46.T1"
+   ],
+   "kategori": "tipografi",
+   "spec": "pabrik/spec/46-T1.json",
+   "props_schema": "z.object({ /** Kata raksasa (satu kata). */ kata: z.string(), /** Kata kecil pendamping: x = pusat (fraksi lebar frame), y = pusat (fraksi tinggi frame). */ kecil: z.array(z.object({ teks: z.string(), x: z.number(), y: z.number() })), tokens: z.object({ latar: z.string(), tinta: z.string(), tintaKecil: z.string(), bingkai: z.string(), huruf: z.string(), }), /** Kotak footage kecil di bawah tengah (fraksi frame); isi lewat prop `isiKotak`. */ kotak: z.object({ tampil: z.boolean(), cx: z.number(), top: z.number(), lebar: z.number(), tinggi: z.number(), }), /** Lebar target kata raksasa (fraksi lebar frame): 0,5-0,98 menurut panjang kata. */ lebarRel: z.number().default(0.88), /** Batas atas tinggi kapital (fraksi tinggi frame). */ tinggiMaksRel: z.number().default(0.6), pusatX: z.number().default(0.5), pusatY: z.number().default(0.56), /** Rata-rata lebar huruf (em) untuk menaksir ukuran; kata dipas ke lebar target. */ lebarHurufEm: z.number().default(0.6), /** Tinggi kapital per em (rasio font). */ kapitalEm: z.number().default(0.716), trackingEm: z.number().default(-0.04), bobotRaksasa: z.number().default(800), bobotKecil: z.number().default(300), /** x-height kata kecil (fraksi tinggi frame) dan rasio x-height per em. */ kecilXHeightRel: z.number().default(0.055), xHeightEm: z.number().default(0.52), jedaHuruf: z.number().default(2), geserRel: z.number().default(0.08), mulaiKata: z.number().default(6), mulaiKecil: z.number().default(22), /** Dorongan masuk pelan sepanjang adegan (skala akhir - 1). */ dorongRel: z.number().default(0.025), seed: z.number().default(1), })",
+   "demo_stills": [
+    "kandidat/ScaleLadder/stills-r3/A-f010.jpg",
+    "kandidat/ScaleLadder/stills-r3/A-f040.jpg",
+    "kandidat/ScaleLadder/stills-r3/A-f075.jpg",
+    "kandidat/ScaleLadder/stills-r3/A-f119.jpg",
+    "kandidat/ScaleLadder/stills-r3/B-f010.jpg",
+    "kandidat/ScaleLadder/stills-r3/B-f040.jpg",
+    "kandidat/ScaleLadder/stills-r3/B-f075.jpg",
+    "kandidat/ScaleLadder/stills-r3/B-f119.jpg"
+   ],
+   "lembar": "pabrik/kandidat/ScaleLadder/lembar-r3.jpg",
+   "metrik_akhir": {
+    "banding": {
+     "per_still": [
+      {
+       "frame": 10,
+       "luma_range": 200.6,
+       "sat_p95": 0.781,
+       "fokus_pct": 65.6
+      },
+      {
+       "frame": 40,
+       "luma_range": 216.7,
+       "sat_p95": 0.781,
+       "fokus_pct": 65.5
+      },
+      {
+       "frame": 75,
+       "luma_range": 216.7,
+       "sat_p95": 0.781,
+       "fokus_pct": 65.4
+      },
+      {
+       "frame": 119,
+       "luma_range": 216.7,
+       "sat_p95": 0.781,
+       "fokus_pct": 65.6
+      }
+     ],
+     "f1_terpicu": 0,
+     "f3_jarang": 0,
+     "n": 4
+    },
+    "pola_tengah": {
+     "sampel": 60,
+     "berturut_maks": 0
+    },
+    "probe": {
+     "frame_terprobe": [
+      10,
+      40,
+      75,
+      119
+     ],
+     "teks_kecil": 0,
+     "tabrakan": 0,
+     "terpotong": 0
+    },
+    "palet": {
+     "luar_palet": []
+    },
+    "struktur": {
+     "ssim": 0.3531,
+     "edge": 0.1117,
+     "skor": 0.2324,
+     "frame": 119,
+     "ref": "guide/referensi/sheets/keyframes/46-k8-penutup.jpg",
+     "rata_terbaik_per_ref": 0.1211,
+     "n_ref": 8
+    },
+    "gerak": {
+     "frame_berubah": 1.0,
+     "kategori": "tipografi"
+    },
+    "dua_token": {
+     "edge_struktur": 0.9875,
+     "ssim_struktur": 0.3841,
+     "selisih_piksel": 138.33
+    }
+   },
+   "putaran": 3,
+   "status": "teruji-sebagian",
+   "tanggal": "2026-11-26",
+   "catatan": "spec dari keyframe statis: kurva/lintasan gerak adalah perkiraan, tidak diukur dari klip. Hanya keyframe statis 960x400, tanpa klip. Ukuran (x-height, lebar, posisi) diukur dari piksel gambar dan dibagi tinggi atau lebar frame. Presisi sekitar ±0,01–0,02. Kolom tinggi_rel di hierarki memakai ascender/cap-height karena skema meminta tinggi kapital atau ukuran font, jadi bukan x-height. Pola masuk per huruf (geser dari kiri, jeda 2 frame, geser sekitar 0,08 lebar elemen) dan 'bertahan melewati cut' diambil dari uraian kartu dan huruf 'around' yang terpotong di k2. Frame itu tidak cukup untuk mengukur kurva, durasi, atau besar geser. Semuanya perkiraan. Tracking -0,04 em diperkirakan dari kerapatan huruf, bukan diukur. Rasio 8x dipakai di 'life', 3,5x di 'understand'; keduanya dari dua adegan berbeda, bukan satu mekanik tunggal."
+  },
+  {
+   "nama": "UIActionScript",
+   "fungsi": "Jendela UI gelap mengambang di atas foto: kalimat perintah diketik cepat di kotak kaca, kamera melompat ke kotak itu hingga teks terbaca besar, sapuan sel grid, lalu potong ke end card.",
+   "kartu_sumber": [
+    "63.T5"
+   ],
+   "kategori": "permukaan_ui",
+   "spec": "pabrik/spec/63-T5.json",
+   "props_schema": "z.object({ tokens: z.object({ langit: warna, horizon: warna, matahari: warna, bukit1: warna, bukit2: warna, bukit3: warna, jendela: warna, panel: warna, tinta: warna, tinta2: warna, aksen: warna, aksen2: warna, kaca: warna, huruf: z.string(), }), teks: z.string(), labelModel: z.string(), labelTingkat: z.string(), kartuAkhir: z.string(), seed: z.number().int(), // mekanik waktu (frame @ fps komposisi) cps: z.number().positive().default(46), // huruf per detik; dinaikkan otomatis bila tidak selesai sebelum punch mulaiKetik: z.number().int().default(12), punchAt: z.number().int().default(46), punchFrames: z.number().int().min(1).default(4), // 1 = potongan keras; 4-6 = whip sapuAt: z.number().int().default(78), sapuDur: z.number().int().default(18), sapuUmurSel: z.number().int().default(8), potongAt: z.number().int().default(100), // potong ke end card // kamera skala: z.number().default(1.65), driftSkala: z.number().default(0.03), driftGeser: z.number().default(0.008), // fraksi lebar frame, geser pelan selama hold driftAmp: z.number().default(0.008), // napas kamera (fraksi tinggi) layarYPrompt: z.number().default(0.41), // pusat kotak prompt setelah punch (fraksi tinggi) tepiKananPrompt: z.number().default(0.6), // tepi kanan kotak setelah punch (fraksi lebar) // tata letak (fraksi frame) jendelaLebar: z.number().default(0.64), jendelaTinggi: z.number().default(0.67), jendelaPusatY: z.number().default(0.46), promptLebar: z.number().default(0.8), // fraksi lebar jendela promptTinggi: z.number().default(0.18), promptPusatY: z.number().default(0.52), dockPusatY: z.number().default(0.9), ukuranTeks: z.number().default(0.034), ukuranSel: z.number().default(0.1), // sel mosaik di layar setelah punch // kulit kotak kaca (spec.parameter) radius: z.number().default(0.2), // fraksi sisi pendek kotak border: z.object({ lebar: z.number(), opasitas: z.number() }).default({ lebar: 0.002, opasitas: 0.15 }), blur: z.number().default(0.012), bayangan: z .object({ offset_x: z.number(), offset_y: z.number(), blur: z.number(), opasitas: z.number() }) .default({ offset_x: 0, offset_y: 0.012, blur: 0.035, opasitas: 0.35 }), })",
+   "demo_stills": [
+    "kandidat/UIActionScript/stills-r1/A-f008.jpg",
+    "kandidat/UIActionScript/stills-r1/A-f034.jpg",
+    "kandidat/UIActionScript/stills-r1/A-f064.jpg",
+    "kandidat/UIActionScript/stills-r1/A-f088.jpg",
+    "kandidat/UIActionScript/stills-r1/B-f008.jpg",
+    "kandidat/UIActionScript/stills-r1/B-f034.jpg",
+    "kandidat/UIActionScript/stills-r1/B-f064.jpg",
+    "kandidat/UIActionScript/stills-r1/B-f088.jpg"
+   ],
+   "lembar": "pabrik/kandidat/UIActionScript/lembar-r1.jpg",
+   "metrik_akhir": {
+    "banding": {
+     "per_still": [
+      {
+       "frame": 8,
+       "luma_range": 120.1,
+       "sat_p95": 0.746,
+       "fokus_pct": 58.6
+      },
+      {
+       "frame": 34,
+       "luma_range": 120.8,
+       "sat_p95": 0.746,
+       "fokus_pct": 58.9
+      },
+      {
+       "frame": 64,
+       "luma_range": 114.9,
+       "sat_p95": 0.787,
+       "fokus_pct": 55.8
+      },
+      {
+       "frame": 88,
+       "luma_range": 125.7,
+       "sat_p95": 0.789,
+       "fokus_pct": 77.6
+      }
+     ],
+     "f1_terpicu": 0,
+     "f3_jarang": 0,
+     "n": 4
+    },
+    "pola_tengah": {
+     "sampel": 60,
+     "berturut_maks": 0
+    },
+    "probe": {
+     "frame_terprobe": [
+      8,
+      34,
+      64,
+      88
+     ],
+     "teks_kecil": 0,
+     "tabrakan": 0,
+     "terpotong": 1
+    },
+    "palet": {
+     "luar_palet": []
+    },
+    "struktur": {
+     "ssim": 0.2965,
+     "edge": 0.186,
+     "skor": 0.2412,
+     "frame": 88,
+     "ref": "guide/referensi/sheets/keyframes/63-k4-kartu-ui-gelap.jpg",
+     "rata_terbaik_per_ref": 0.137,
+     "n_ref": 8
+    },
+    "gerak": {
+     "frame_berubah": 0.437,
+     "kategori": "permukaan_ui"
+    },
+    "dua_token": {
+     "edge_struktur": 0.9963,
+     "ssim_struktur": 0.8943,
+     "selisih_piksel": 47.14
+    }
+   },
+   "putaran": 1,
+   "status": "teruji",
+   "tanggal": "2026-11-26"
+  },
+  {
+   "nama": "WordBeat",
+   "fungsi": "Membangun kalimat pendek satu kata per ketukan pada skala raksasa dengan blur gerak dan warna pukulan per kata, lalu menarik seluruh grup mengecil menjadi satu baris judul.",
+   "kartu_sumber": [
+    "07.T1"
+   ],
+   "kategori": "tipografi",
+   "spec": "pabrik/spec/07-T1.json",
+   "props_schema": "z.object({ /** Kalimat, satu kata per ketukan (maks 6). */ kata: z.array(z.string()).min(1).max(6), tokens: z.object({ fond: z.string(), tinta: z.string(), huruf: z.string(), bobot: z.number(), /** Warna \"pukulan\" per kata (dipakai berulang bila kurang). */ warnaKata: z.array(z.string()).min(1), warnaBentuk: z.array(z.string()).min(1), /** Warna jalur tegas di belakang baris akhir, warna kata di atasnya, dan warna aksen di atasnya. */ blok: z.string(), teksBlok: z.string(), aksenBlok: z.string(), }), /** Tanda baca: bentuk di sela setelah kata ke-`setelah`; `sisi` = fraksi tinggi frame; `warna` = indeks warnaBentuk. */ sela: z.array( z.object({ setelah: z.number().int().min(0), bentuk: z.enum([\"lingkaran\", \"persegi\", \"seperempat\", \"kapsul\"]), sisi: z.number(), warna: z.number().int().min(0), }), ), /** Indeks kata yang tetap berwarna pada baris akhir. */ aksenTetap: z.array(z.number().int().min(0)), seed: z.number(), /** Tinggi huruf kapital saat dibangun (fraksi tinggi frame). */ kapRaksasa: z.number().default(0.42), /** Tinggi huruf kapital baris akhir (fraksi tinggi frame). */ kapAkhir: z.number().default(0.045), pusatY: z.number().default(0.52), rasioKapital: z.number().default(0.72), /** Celah antar kata, kelipatan tinggi kapital. */ celahEm: z.number().default(0.25), /** Bagian sisi bentuk yang menimpa tepi kata. */ tumpang: z.number().default(0.08), masukFrame: z.number().default(10), jedaBeat: z.number().default(10), jedaPendek: z.number().default(0.75), jitterBeat: z.number().default(1), blurEm: z.number().default(0.18), naikEm: z.number().default(0.1), /** Posisi horizontal tepi kanan kata terbaru (fraksi lebar frame). */ jangkarX: z.number().default(0.9), tahanSebelumTarik: z.number().default(6), tarikFrame: z.number().default(30), lepasFrame: z.number().default(6), /** Seberapa jauh kata baru meluncur dari kanan (kelipatan lebarnya). */ dorong: z.number().default(0.4), /** Lebar zona fade di tepi kiri (fraksi lebar frame). */ fadeKiri: z.number().default(0.1), /** Tinggi minimum jalur baris akhir (fraksi tinggi frame) dan kelipatan tinggi baris teks. */ blokMin: z.number().default(0.3), blokKali: z.number().default(1.5), driftRel: z.number().default(0.004), })",
+   "demo_stills": [
+    "kandidat/WordBeat/stills-r3/A-f019.jpg",
+    "kandidat/WordBeat/stills-r3/A-f049.jpg",
+    "kandidat/WordBeat/stills-r3/A-f080.jpg",
+    "kandidat/WordBeat/stills-r3/A-f112.jpg",
+    "kandidat/WordBeat/stills-r3/B-f019.jpg",
+    "kandidat/WordBeat/stills-r3/B-f049.jpg",
+    "kandidat/WordBeat/stills-r3/B-f080.jpg",
+    "kandidat/WordBeat/stills-r3/B-f112.jpg"
+   ],
+   "lembar": "pabrik/kandidat/WordBeat/lembar-r3.jpg",
+   "metrik_akhir": {
+    "banding": {
+     "per_still": [
+      {
+       "frame": 19,
+       "luma_range": 151.1,
+       "sat_p95": 0.802,
+       "fokus_pct": 6.9
+      },
+      {
+       "frame": 49,
+       "luma_range": 31.8,
+       "sat_p95": 0.108,
+       "fokus_pct": 5.5
+      },
+      {
+       "frame": 80,
+       "luma_range": 214.0,
+       "sat_p95": 0.107,
+       "fokus_pct": 33.3
+      },
+      {
+       "frame": 112,
+       "luma_range": 214.0,
+       "sat_p95": 0.107,
+       "fokus_pct": 33.3
+      }
+     ],
+     "f1_terpicu": 1,
+     "f3_jarang": 1,
+     "n": 4
+    },
+    "pola_tengah": {
+     "sampel": 60,
+     "berturut_maks": 3
+    },
+    "probe": {
+     "frame_terprobe": [
+      19,
+      49,
+      80,
+      112
+     ],
+     "teks_kecil": 0,
+     "tabrakan": 0,
+     "terpotong": 0
+    },
+    "palet": {
+     "luar_palet": []
+    },
+    "struktur": {
+     "ssim": 0.6608,
+     "edge": 0.3405,
+     "skor": 0.5007,
+     "frame": 49,
+     "ref": "guide/referensi/sheets/keyframes/07-k1-pertanyaan-per-kata.jpg",
+     "rata_terbaik_per_ref": 0.3043,
+     "n_ref": 8
+    },
+    "gerak": {
+     "frame_berubah": 0.647,
+     "kategori": "tipografi"
+    },
+    "dua_token": {
+     "edge_struktur": 1.0,
+     "ssim_struktur": 0.5842,
+     "selisih_piksel": 203.79
+    }
+   },
+   "putaran": 3,
+   "status": "ditolak",
+   "tanggal": "2026-11-26",
+   "alasan": [
+    "DOSA a: banding.py F1 gradien ragu-ragu di frame [49]",
+    "DOSA d: fokus < 20 % dan pusat dalam ±12 % tengah pada 3 sampel berturut (stride 2 frame)",
+    "DOSA j2: jangkar j2 (gradien pucat ragu-ragu, halo di belakan...): Baris 2: 'besar' berwarna lavender pucat (kira-kira #CFD2E8) di atas krem terang. Kontrasnya sangat rendah, sama dengan teks abu di latar hampir putih pada j2. Kata ini adalah kata penutup kalimat, tetapi paling tidak terbaca."
+   ]
+  },
+  {
+   "nama": "WorldStage",
+   "fungsi": "Satu dunia datar (wallpaper, jendela, dock, panel chat) digerakkan sebagai satu grup oleh kamera 2D virtual: geser memberi ruang panel masuk, lalu punch ke sudut kiri-bawah, dibuka dari kartu lama lewat blur dan wipe grid.",
+   "kartu_sumber": [
+    "63.T1"
+   ],
+   "kategori": "gerak_kamera",
+   "spec": "pabrik/spec/63-T1.json",
+   "props_schema": "z.object({ /** Semua warna dan huruf datang dari sini; komponen tidak punya gaya bawaan. */ tokens: z.object({ latar: z.string(), tinta: z.string(), tintaRedup: z.string(), panelTinta: z.string(), panelRedup: z.string(), aksen: z.string(), sorot: z.string(), langit: z.string(), cakrawala: z.string(), matahari: z.string(), bukit: z.array(z.string()).min(2), jendela: z.string(), panel: z.string(), panelKotak: z.string(), dock: z.string(), ikon: z.array(z.string()).min(1), ikonTinta: z.string(), huruf: z.string(), }), seed: z.number(), /** Isi jendela utama (satu dunia: ikut digeser kamera bersama semua lapisan). */ isiJendela: z.custom<React.ReactNode>().optional(), /** Adegan sebelum dunia (kartu gelap) yang kabur lalu tersingkap oleh grid. */ kartu: z.custom<React.ReactNode>().optional(), dockItems: z.array(z.string()), panelJudul: z.string(), panelPesan: z.string(), panelBalas: z.string(), promptTeks: z.string(), pilihanModel: z.string(), /** Lintasan kamera: x = lebar frame, y = tinggi frame, skala absolut; t = 0..1 dari durasiGerak. */ lintasan: z .array(z.object({ t: z.number(), x: z.number(), y: z.number(), skala: z.number() })) .optional(), durasiGerak: z.number().optional(), kurva: z.enum(NAMA_KURVA).optional(), mulaiKamera: z.number().optional(), panelIndeks: z.number().optional(), panelTampak: z.number().optional(), panelLebar: z.number().optional(), jendelaLebar: z.number().optional(), jendelaTinggi: z.number().optional(), ketikDari: z.number().optional(), ketikSampai: z.number().optional(), napas: z.number().optional(), gridMulai: z.number().optional(), gridDurasi: z.number().optional(), gridKolom: z.number().optional(), kaburKartu: z.number().optional(), })",
+   "demo_stills": [
+    "kandidat/WorldStage/stills-r3/A-f002.jpg",
+    "kandidat/WorldStage/stills-r3/A-f014.jpg",
+    "kandidat/WorldStage/stills-r3/A-f060.jpg",
+    "kandidat/WorldStage/stills-r3/A-f095.jpg",
+    "kandidat/WorldStage/stills-r3/B-f002.jpg",
+    "kandidat/WorldStage/stills-r3/B-f014.jpg",
+    "kandidat/WorldStage/stills-r3/B-f060.jpg",
+    "kandidat/WorldStage/stills-r3/B-f095.jpg"
+   ],
+   "lembar": "pabrik/kandidat/WorldStage/lembar-r3.jpg",
+   "metrik_akhir": {
+    "banding": {
+     "per_still": [
+      {
+       "frame": 2,
+       "luma_range": 60.5,
+       "sat_p95": 0.298,
+       "fokus_pct": 5.7
+      },
+      {
+       "frame": 14,
+       "luma_range": 147.4,
+       "sat_p95": 0.764,
+       "fokus_pct": 73.4
+      },
+      {
+       "frame": 60,
+       "luma_range": 124.7,
+       "sat_p95": 0.746,
+       "fokus_pct": 36.7
+      },
+      {
+       "frame": 95,
+       "luma_range": 141.5,
+       "sat_p95": 0.776,
+       "fokus_pct": 41.1
+      }
+     ],
+     "f1_terpicu": 0,
+     "f3_jarang": 0,
+     "n": 4
+    },
+    "pola_tengah": {
+     "sampel": 56,
+     "berturut_maks": 0
+    },
+    "probe": {
+     "frame_terprobe": [
+      2,
+      14,
+      60,
+      95
+     ],
+     "teks_kecil": 0,
+     "tabrakan": 1,
+     "terpotong": 2
+    },
+    "palet": {
+     "luar_palet": []
+    },
+    "struktur": {
+     "ssim": 0.4579,
+     "edge": 0.2778,
+     "skor": 0.3679,
+     "frame": 2,
+     "ref": "guide/referensi/sheets/keyframes/63-k4-kartu-ui-gelap.jpg",
+     "rata_terbaik_per_ref": 0.2017,
+     "n_ref": 8
+    },
+    "gerak": {
+     "frame_berubah": 0.532,
+     "kategori": "gerak_kamera",
+     "rentang_centroid": 0.3243,
+     "lintasan": {
+      "rms": 0.5196,
+      "rasio_durasi": 0.187,
+      "durasi": 0.467,
+      "n_segmen": 2
+     }
+    },
+    "dua_token": {
+     "edge_struktur": 0.9206,
+     "ssim_struktur": 0.6978,
+     "selisih_piksel": 42.04
+    }
+   },
+   "putaran": 3,
+   "status": "ditolak",
+   "tanggal": "2026-11-26",
+   "alasan": [
+    "DOSA j: f2: 'Rencana' x 'produksi'",
+    "gerak RMS 0.5196 > 0.15",
+    "gerak rasio durasi 0.187 di luar 0.5-2.0"
+   ]
+  }
+ ]
+}

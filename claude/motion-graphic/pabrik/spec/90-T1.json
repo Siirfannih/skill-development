@@ -1,0 +1,78 @@
+{
+ "id": "90-T1",
+ "kartu": "90",
+ "teknik": "T1",
+ "kategori": "tipografi",
+ "komponen_usulan": "AnchoredCaption",
+ "ringkas": "Caption satu atau dua kata putih berukuran tetap terkunci di titik tetap sekitar tengah frame. Kata diganti di tempat dengan potongan keras mengikuti ucapan. Gambar di belakangnya berganti terpisah dengan potongan keras, jadi caption tidak ikut bergerak.",
+ "parameter": {
+  "hierarki": [
+   {
+    "peran": "caption_kata",
+    "tinggi_rel": 0.07
+   }
+  ],
+  "tracking_em": -0.02,
+  "unit": "kata",
+  "pola_masuk": "potong",
+  "pola_keluar": "potong"
+ },
+ "mekanik": [
+  "Caption berada di lapisan terpisah di atas semua shot dan tidak ikut transform shot. Pusat horizontal x ≈ 0,50 lebar frame, pusat vertikal y ≈ 0,50 tinggi frame. Posisi tidak berubah sepanjang klip (8,5–11,75 dtk).",
+  "Ukuran font ≈ 0,07 tinggi frame (tinggi huruf kapital/ascender ≈ 0,05). Lebar satu frasa dua kata ≈ 0,55 lebar frame, jadi aman dari tepi 9:16. Satu ukuran untuk semua kata, tanpa variasi bobot atau ukuran dalam klip. Bobot tebal, tracking rapat.",
+  "Unit = kata atau frasa 1–2 kata. Kata baru menimpa kata lama di titik yang sama pada frame yang sama: tanpa fade, tanpa slide, tanpa blur, tanpa overlap. Kata terakhir kalimat boleh memakai tanda baca ('still.', 'angles,').",
+  "Waktu ganti kata mengikuti ucapan (kata per kata dari transkrip), bukan interval tetap. Teramati: tiap kata atau frasa bertahan 0,25–0,5 dtk (≈ 2–4 frame pada 8 fps). 'Your video' 0,5 dtk, 'never' 0,5 dtk, 'sit' 0,25 dtk, 'still.' 0,5 dtk, 'Change' 0,25 dtk, 'angles,' 0,75 dtk, 'add' dan 'small' 0,25 dtk. Satu kata kunci boleh bertahan lintas dua shot.",
+  "Gambar berganti dengan potongan keras, tanpa transisi. Teramati: ada shot yang bertahan 0,75–1 dtk, ada yang hanya ≈ 0,25 dtk, dan potongan cepat di frasa pendek ('add' → 'small' → 'motions' tiap ≈ 0,25 dtk). Jadi ritme shot tidak seragam dan mengikuti frasa. Perpindahan shot tidak harus jatuh bersamaan dengan pergantian kata.",
+  "Gambar menggambarkan kalimat: sofa lebar saat 'sit still', kolase wajah saat 'angles', lorong saat 'add'. Caption tidak bergantung pada isi shot. Di shot cerah (kolase ungu, ≈ 10,25–11,0 dtk) caption putih tetap terbaca karena tebal dan mungkin bersayap bayangan lembut. Bayangan tidak bisa dipastikan dari gambar.",
+  "Pembaca tidak perlu mencari: titik pandang tetap di y ≈ 0,50. Lakukan pengecekan kontras per shot. Bila luma latar di sekitar teks > ≈ 0,6, tambahkan gradasi gelap tipis di y 0,35–0,65 atau bayangan lembut."
+ ],
+ "kulit": [
+  "Warna putih caption dan kuning 'WHO AM I?' (teks di dalam footage, bukan caption).",
+  "Jenis font sans tebal yang dipakai.",
+  "Isi kata dan bahasa.",
+  "Footage orang di sofa, kolase wajah ungu, lorong hijau, dan blur gerak.",
+  "Palet gambar: oranye hangat, ungu, hijau pucat.",
+  "Tipografi bertumpuk dan sorot kuning pada kata kunci di keyframe k11 (teknik lain, bukan T1)."
+ ],
+ "bukti": [
+  {
+   "frame": "pabrik/spec/90-T1-klip.jpg",
+   "t": 8.5,
+   "catatan": "'Your video' di y ≈ 0,50 dan x ≈ 0,5, lebar ≈ 0,55 lebar frame. Tinggi kapital ≈ 0,05 tinggi frame."
+  },
+  {
+   "frame": "pabrik/spec/90-T1-klip.jpg",
+   "t": 9.0,
+   "catatan": "Kata berganti ke 'never' pada posisi sama tanpa transisi. Shot sama dengan frame sebelumnya, jadi kata dan shot berganti independen."
+  },
+  {
+   "frame": "pabrik/spec/90-T1-klip.jpg",
+   "t": 9.5,
+   "catatan": "Potongan keras ke shot lebar sofa dengan 'sit'. Caption tetap di y ≈ 0,50."
+  },
+  {
+   "frame": "pabrik/spec/90-T1-klip.jpg",
+   "t": 10.25,
+   "catatan": "Potongan ke shot cerah ungu dengan 'Change'. Caption putih tebal tetap terbaca dan tetap di titik yang sama."
+  },
+  {
+   "frame": "pabrik/spec/90-T1-klip.jpg",
+   "t": 11.5,
+   "catatan": "Urutan 'add' (11,25), 'small' (11,5), 'motions' (11,75): ganti kata dan shot tiap ≈ 0,25 dtk, posisi caption tidak bergerak."
+  },
+  {
+   "frame": "guide/referensi/sheets/keyframes/90-k8-caption-diam-brol.jpg",
+   "t": null,
+   "catatan": "'intentional' di y ≈ 0,50 (640 dari 1280). Tinggi ascender ≈ 0,05 tinggi frame, lebar kata ≈ 0,55 lebar. Putih di atas latar gelap."
+  },
+  {
+   "frame": "guide/referensi/sheets/keyframes/90-k13-urutan-gambar-ganti-kata-diam.jpg",
+   "t": null,
+   "catatan": "Gambar berganti bolak-balik antara dua shot (gelap dan terang) sementara kata ('teach,') tetap di posisi yang sama."
+  }
+ ],
+ "terukur": {
+  "dari_klip": true,
+  "catatan": "Posisi, ritme ganti kata, dan ritme ganti shot diukur dari lembar klip 8 fps (resolusi waktu 0,125 dtk, jadi durasi < 0,25 dtk tidak bisa dipastikan). Ukuran font adalah estimasi dari gambar ukuran tampil 1124x2000 dan keyframe k8 (720x1280). Kartu menyebut 3,5–4 %. Ukuran yang saya baca lebih besar: tinggi kapital ≈ 0,05 dan ukuran font ≈ 0,07. Itu estimasi kasar ±0,01, jadi sebaiknya diuji ulang dengan pengukur pada frame penuh. Ada pergerakan kecil x pada 'sit' (9,5 dtk), tampak sedikit ke kiri, kemungkinan karena lebar kata dan bukan pergeseran. Ada atau tidaknya bayangan caption tidak dapat dipastikan dari gambar. Punch-in per shot (kartu: 1,00→1,05) tidak diukur dan tidak dimasukkan."
+ }
+}

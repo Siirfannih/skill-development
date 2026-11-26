@@ -1,0 +1,117 @@
+{
+ "id": "63-T1",
+ "kartu": "63",
+ "teknik": "T1",
+ "kategori": "gerak_kamera",
+ "komponen_usulan": "WorldStage",
+ "ringkas": "Satu 'dunia' datar (wallpaper tajam, jendela UI gelap utuh di tengah, dock di bawah, panel chat di kiri) digerakkan sebagai satu grup oleh kamera 2D virtual. Jendela bergeser ke kanan dan sedikit mengecil saat panel masuk dari kiri, lalu kamera menghantam (punch) ke sudut kiri-bawah. Elemen tidak bergerak sendiri-sendiri.",
+ "terukur": {
+  "dari_klip": true,
+  "catatan": "Diukur dari lembar klip 8 fps (sel 480x270 per frame). Lebar jendela 13,40-13,90 dtk ±0,65 lebar frame (kartu menyebut 0,56-0,60; frame di sini tampak sedikit lebih besar, selisih tidak terselesaikan dari gambar). Jendela tampak tidak membesar dalam 13,40-13,90 dtk, jadi push 3-7% yang disebut kartu tidak terlihat di klip ini. Setelah panel masuk, pusat jendela bergeser dari ±0,50 ke ±0,68 lebar frame (+0,18) dan lebarnya turun ke ±0,59 (skala ±0,91). Geser mulai ±14,05 dtk, selesai ±14,65 dtk. Punch 15,15-15,40 dtk: ikon dock membesar dari ±17 ke ±40 px (≈×2,3). Titik pivot punch ±(0,25; 1,0) dari frame adalah perkiraan dari dua titik (tepi kiri jendela dan ikon dock), bukan pengukuran presisi. Kurva easing tidak bisa dibaca dari frame diskret, jadi bezier adalah tebakan untuk gerak 'heavy' (cepat di awal, mendarat lembut). Pull saat babak baru dan hold dengan drift tidak teramati di cuplikan 12,4-15,9 dtk. Tanda x kamera: konten bergeser ke kanan = kamera ke kiri (negatif). Lintasan memakai t = 0 pada 13,40 dtk dan t = 1 pada 15,90 dtk."
+ },
+ "parameter": {
+  "kurva": {
+   "tipe": "cubic-bezier",
+   "bezier": [
+    0.16,
+    1,
+    0.3,
+    1
+   ]
+  },
+  "durasi_detik": 2.5,
+  "transisi": "grid",
+  "lintasan": [
+   {
+    "t": 0.0,
+    "x": 0,
+    "y": 0,
+    "skala": 1.0,
+    "catatan": "13,40 dtk: jendela utuh di tengah (lebar ±0,65 frame), wallpaper terlihat di keempat sisi, dock di bawah. Hold dengan drift sangat kecil."
+   },
+   {
+    "t": 0.26,
+    "x": 0,
+    "y": 0,
+    "skala": 1.0,
+    "catatan": "±14,05 dtk: awal geser; pada 14,15 dtk jendela sudah +0,036 lebar ke kanan."
+   },
+   {
+    "t": 0.5,
+    "x": -0.18,
+    "y": 0,
+    "skala": 0.91,
+    "catatan": "14,65 dtk: panel chat masuk dari kiri; jendela +0,18 lebar frame ke kanan dan mengecil ke ±0,91x. Panel menempati ±0,40 lebar di kiri."
+   },
+   {
+    "t": 0.7,
+    "x": -0.18,
+    "y": 0,
+    "skala": 0.91,
+    "catatan": "15,15 dtk: hold, teks prompt terketik di panel."
+   },
+   {
+    "t": 0.8,
+    "x": -0.32,
+    "y": 0.29,
+    "skala": 2.1,
+    "catatan": "15,40 dtk: punch ke sudut kiri-bawah (dock dan tepi panel). Nilai x dan y diturunkan dari pivot perkiraan, bukan ukuran langsung."
+   },
+   {
+    "t": 1.0,
+    "x": -0.32,
+    "y": 0.29,
+    "skala": 2.2,
+    "catatan": "15,90 dtk: hampir diam di zoom besar; teks prompt dan ikon dock mengisi frame."
+   }
+  ]
+ },
+ "mekanik": [
+  "Semua lapisan (wallpaper, jendela, dock, panel) berada di SATU grup 2D yang ditransformasikan bersama oleh satu kamera virtual; tidak ada elemen yang bergerak sendiri-sendiri, jadi paralaks tidak ada (datar).",
+  "Jendela utama utuh di tengah dengan lebar ±0,56-0,65 frame dan tinggi ±0,57-0,65 frame; wallpaper terlihat di keempat sisi dan dock memenuhi ±0,3 lebar frame di bawah jendela. Jendela tidak terpotong tepi kecuali saat punch.",
+  "Panel samping masuk dari kiri sambil menggeser jendela ke kanan ±0,18 lebar frame dan mengecil ke ±0,91x dalam ±0,5 dtk. Kamera 'memberi ruang' untuk panel baru, bukan memotongnya.",
+  "Punch: dari state panel, kamera membesar ±2,1-2,3x dalam ±0,25-0,5 dtk menuju satu sudut ruang kerja (pivot ±(0,25; 1,0) frame) untuk menunjukkan detail UI. Hold sebelum punch ±0,5 dtk.",
+  "Masuk ke dunia dari kartu gelap lewat transisi grid blok piksel: wipe kisi persegi kecil yang menyapu ±0,25 dtk dari kiri ke kanan. Frame sebelumnya (UI gelap) kabur dahulu ±0,25 dtk. Grid yang sama dipakai lagi pada punch keluar.",
+  "Gerak memakai easing 'berat': mulai cepat, mendarat lembut. Hold di antara gerak memakai drift kecil, bukan diam mati.",
+  "Pemisahan nada: jendela UI gelap melawan wallpaper jenuh bernada sedang, tanpa garis tepi tebal. Syarat pakai: UI dan latar berbeda nada."
+ ],
+ "kulit": [
+  "foto wallpaper matahari terbenam bernada jingga-ungu jenuh dan versi gunung berawan biru",
+  "isi UI jendela (editor video gelap, kartu prompt, pratinjau podcaster)",
+  "desain dock macOS dan ikon aplikasi tertentu",
+  "teks prompt chat dan logo model AI",
+  "bentuk pixel-block transisi (warna kuning/hitam/jingga)"
+ ],
+ "bukti": [
+  {
+   "frame": "pabrik/spec/63-T1-klip.jpg",
+   "t": 13.65,
+   "catatan": "Jendela utuh di tengah, lebar ±0,65 frame, wallpaper terlihat di keempat sisi, dock di bawah. Baseline lintasan."
+  },
+  {
+   "frame": "pabrik/spec/63-T1-klip.jpg",
+   "t": 14.65,
+   "catatan": "Panel chat gelap menempati ±0,40 lebar frame di kiri. Jendela bergeser +0,18 lebar frame ke kanan dan mengecil ke ±0,91x."
+  },
+  {
+   "frame": "pabrik/spec/63-T1-klip.jpg",
+   "t": 15.4,
+   "catatan": "Punch ±2,1-2,3x ke sudut kiri-bawah; ikon dock tampak ±2,3x lebih besar dibanding 15,15 dtk."
+  },
+  {
+   "frame": "pabrik/spec/63-T1-klip.jpg",
+   "t": 13.15,
+   "catatan": "Transisi masuk: wipe grid blok persegi kuning/hitam menyapu dari kiri; jendela baru ±0,54 lebar saat tersingkap."
+  },
+  {
+   "frame": "guide/referensi/sheets/keyframes/63-k7-editor-split.jpg",
+   "t": null,
+   "catatan": "Keyframe statis: panel chat ±0,39 lebar di kiri, jendela di kanan terpotong oleh panel, dock di bawah."
+  },
+  {
+   "frame": "guide/referensi/sheets/keyframes/63-k1-dock-wallpaper.jpg",
+   "t": null,
+   "catatan": "Dock ±0,34 lebar frame, tinggi ±0,09, di tengah-atas wallpaper tanpa jendela."
+  }
+ ]
+}

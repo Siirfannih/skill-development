@@ -1,0 +1,119 @@
+{
+ "nama": "AnchoredCaption",
+ "spec": "pabrik/spec/90-T1.json",
+ "lulus": true,
+ "putaran": 2,
+ "metrik": {
+  "banding": {
+   "per_still": [
+    {
+     "frame": 5,
+     "luma_range": 95.7,
+     "sat_p95": 0.591,
+     "fokus_pct": 50.5
+    },
+    {
+     "frame": 40,
+     "luma_range": 90.7,
+     "sat_p95": 0.803,
+     "fokus_pct": 36.9
+    },
+    {
+     "frame": 70,
+     "luma_range": 206.4,
+     "sat_p95": 0.803,
+     "fokus_pct": 15.0
+    },
+    {
+     "frame": 110,
+     "luma_range": 206.4,
+     "sat_p95": 0.803,
+     "fokus_pct": 14.5
+    }
+   ],
+   "f1_terpicu": 0,
+   "f3_jarang": 0,
+   "n": 4
+  },
+  "pola_tengah": {
+   "sampel": 60,
+   "berturut_maks": 0
+  },
+  "probe": {
+   "frame_terprobe": [
+    5,
+    40,
+    70,
+    110
+   ],
+   "teks_kecil": 0,
+   "tabrakan": 0,
+   "terpotong": 0
+  },
+  "palet": {
+   "luar_palet": []
+  },
+  "struktur": {
+   "ssim": 0.2911,
+   "edge": 0.217,
+   "skor": 0.2541,
+   "frame": 5,
+   "ref": "guide/referensi/sheets/keyframes/90-k6-transisi-kolase-cermin.jpg",
+   "rata_terbaik_per_ref": 0.1497,
+   "n_ref": 11
+  },
+  "gerak": {
+   "frame_berubah": 0.933,
+   "kategori": "tipografi"
+  },
+  "dua_token": {
+   "edge_struktur": 1.0,
+   "ssim_struktur": 0.0423,
+   "selisih_piksel": 152.95
+  }
+ },
+ "dosa": {},
+ "adversarial": [
+  "Baris 3 dan 4: kolase empat kartu wajah hampir identik (posisi, rotasi, dan warna nyaris sama) dipakai untuk dua kata berbeda ('angles,' lalu 'motions'). Shot kedua terasa seperti salinan, padahal referensi mengganti gambar sesuai frasa. Perbaikan: beri 'motions' ilustrasi sendiri, misalnya panah atau frame yang bergeser, bukan kolase yang sama.",
+  "Baris 3 dan 4: kolase kartu wajah terdiri dari kartu putih/krem dengan lingkaran dan setengah lingkaran, yaitu siluet avatar yang sangat generik. Ini kurang menggambarkan 'angles' dibanding wajah dari beberapa sudut pandang di referensi. Perbaikan: ubah kartu menjadi tampilan sudut berbeda (profil, tiga perempat, atas) atau tambahkan garis sudut kamera.",
+  "Baris 3 dan 4: pita gradien oranye yang lebih terang di tengah, tepat di belakang teks, terlihat seperti sabuk horizontal buatan. Pita itu memotong komposisi kartu dan menarik perhatian ke arah yang tidak punya makna. Perbaikan: ganti dengan latar oranye datar, dan pakai kontras teks sendiri, atau gradasi sangat tipis yang tidak terbaca sebagai pita.",
+  "Baris 1 dan 2: caption hitam di kanan ditempatkan di zona kosong tanpa hubungan dengan objek. 'Your video' mengambang di antara kotak play dan timeline, dan 'still.' di tengah antara lampu dan sofa. Fokus mata jatuh ke tengah tetapi objek terdorong ke tepi atas dan bawah, jadi frame terasa seperti ruang kosong dengan dua gambar terpisah. Perbaikan: rapatkan objek ke arah tengah atau buat jarak teks ke objek konsisten.",
+  "Baris 2: lampu berdiri di kiri (tiang tipis dengan kap terpotong di tepi atas) dan sofa di bawah terlihat tidak sebanding skalanya. Tiang lampu menyentuh sofa secara canggung, dan kap yang terpotong di tepi atas terasa tidak disengaja. Perbaikan: turunkan lampu sehingga kap utuh di dalam frame, perbaiki proporsi lampu terhadap sofa, atau pindahkan lampu ke sisi sofa dengan jarak jelas."
+ ],
+ "gagal": [],
+ "lembar": "pabrik/kandidat/AnchoredCaption/lembar-r2.jpg",
+ "riwayat": [
+  {
+   "putaran": 1,
+   "lulus": false,
+   "dosa": [
+    "g"
+   ],
+   "gagal": [
+    "DOSA g: vision: Baris 1: kotak krem membulat kosong di panel oranye bawah (sekitar y 0,68–0,88) dan kotak krem dengan ikon play di atas. Baris 3 dan 4: lima persegi panjang krem kosong miring tanpa isi atau makna. Semuanya terbaca sebagai kotak pengganti, bukan objek yang menggambarkan kalimat.",
+    "gerak: hanya 0.11 pasangan frame berubah (< 0.25)"
+   ],
+   "adversarial": [
+    "Baris 3 dan 4: lima persegi panjang krem/oranye miring (kiri atas, kanan atas, kiri bawah, kanan bawah, satu kecil di kanan) tidak menggambarkan apa pun dari 'angles,' atau 'motions'. KIRI menampilkan kolase wajah yang jelas. Ganti dengan kolase bingkai berisi siluet wajah atau perangkat, atau hapus.",
+    "Baris 1: kotak krem kosong di panel oranye bawah (y ≈ 0,68–0,88) tidak punya isi, ikon, atau fungsi, dan terlihat seperti sisa layout. Isi dengan objek bermakna (mis. timeline atau frame video) atau buang panelnya.",
+    "Baris 2: tiang kecil dengan kotak oranye di pojok kiri atas (sekitar 0,05–0,13 lebar, 0,05–0,2 tinggi) terlalu kecil dan terpencil untuk dibaca sebagai lampu. Sofa di bawahnya hanya blok oranye polos tanpa bantalan, kaki, atau bayangan. Beri detail bentuk dan skala yang meyakinkan.",
+    "Baris 3 dan 4: pita gradien oranye horizontal tepat di belakang teks (y ≈ 0,45–0,6) terlihat seperti sabuk pewarnaan buatan. Ia tidak mengikuti sumber cahaya dan memotong komposisi di titik teks. Pakai latar rata atau gradien vertikal halus, atau gradasi gelap tipis yang memang berfungsi sebagai pelindung kontras.",
+    "Palet krem dan oranye terlalu seragam di keempat baris, dan latar bergantian antara krem polos (baris 1 dan 2) dan oranye (baris 3 dan 4) tanpa alasan visual. KIRI punya kedalaman, tekstur, dan variasi tonal. Tambahkan lapisan tonal ketiga dan tekstur halus, serta tentukan kapan latar terang atau gelap dipakai."
+   ]
+  },
+  {
+   "putaran": 2,
+   "lulus": true,
+   "dosa": [],
+   "gagal": [],
+   "adversarial": [
+    "Baris 3 dan 4: kolase empat kartu wajah hampir identik (posisi, rotasi, dan warna nyaris sama) dipakai untuk dua kata berbeda ('angles,' lalu 'motions'). Shot kedua terasa seperti salinan, padahal referensi mengganti gambar sesuai frasa. Perbaikan: beri 'motions' ilustrasi sendiri, misalnya panah atau frame yang bergeser, bukan kolase yang sama.",
+    "Baris 3 dan 4: kolase kartu wajah terdiri dari kartu putih/krem dengan lingkaran dan setengah lingkaran, yaitu siluet avatar yang sangat generik. Ini kurang menggambarkan 'angles' dibanding wajah dari beberapa sudut pandang di referensi. Perbaikan: ubah kartu menjadi tampilan sudut berbeda (profil, tiga perempat, atas) atau tambahkan garis sudut kamera.",
+    "Baris 3 dan 4: pita gradien oranye yang lebih terang di tengah, tepat di belakang teks, terlihat seperti sabuk horizontal buatan. Pita itu memotong komposisi kartu dan menarik perhatian ke arah yang tidak punya makna. Perbaikan: ganti dengan latar oranye datar, dan pakai kontras teks sendiri, atau gradasi sangat tipis yang tidak terbaca sebagai pita.",
+    "Baris 1 dan 2: caption hitam di kanan ditempatkan di zona kosong tanpa hubungan dengan objek. 'Your video' mengambang di antara kotak play dan timeline, dan 'still.' di tengah antara lampu dan sofa. Fokus mata jatuh ke tengah tetapi objek terdorong ke tepi atas dan bawah, jadi frame terasa seperti ruang kosong dengan dua gambar terpisah. Perbaikan: rapatkan objek ke arah tengah atau buat jarak teks ke objek konsisten.",
+    "Baris 2: lampu berdiri di kiri (tiang tipis dengan kap terpotong di tepi atas) dan sofa di bawah terlihat tidak sebanding skalanya. Tiang lampu menyentuh sofa secara canggung, dan kap yang terpotong di tepi atas terasa tidak disengaja. Perbaikan: turunkan lampu sehingga kap utuh di dalam frame, perbaiki proporsi lampu terhadap sofa, atau pindahkan lampu ke sisi sofa dengan jarak jelas."
+   ]
+  }
+ ],
+ "tanggal": "2026-11-26"
+}
