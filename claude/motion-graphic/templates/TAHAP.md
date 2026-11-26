@@ -22,7 +22,7 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap = judul `## Ta
 - [ ] Visual dibangun per adegan, hanya dari token + komponen bersama (satu Editor baru per TASK bila mendelegasikan); lembar sanding semua adegan dicek sekeluarga · baca: `references/roles.md` §5–6, `references/orkestrasi.md` §3 (bila mendelegasikan) · bukti: lembar still per adegan (REPORT tiap TASK bila mendelegasikan) →
 
 ## Tahap 5 · Effects & grade
-- [ ] Tiap efek berfungsi (NEGATIF 10) dan grade terukur, sebelum visual dikunci · baca: NEGATIF 10 di `SKILL.md`, `references/grade.md` · bukti: daftar efek + fungsinya di `RESEP.md` + keluaran `grade_ukur.py` →
+- [ ] Tiap efek berfungsi (NEGATIF 10) dan grade terukur, sebelum visual dikunci · baca: NEGATIF 10 di `SKILL.md`, `references/dunia-visual.md` (palet dikunci di `RESEP.md`), `references/grade.md` · bukti: daftar efek + fungsinya di `RESEP.md` + keluaran `grade_ukur.py` →
 - [ ] Audit visual semua frame LULUS, lalu visual dikunci · baca: `templates/roles/pemeriksa-frame.md` · bukti: `VERDICT.md` tiap potongan + `audio_order.py lock visual` PASS →
 
 ## Tahap 6 · Mix

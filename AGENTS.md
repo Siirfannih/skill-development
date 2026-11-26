@@ -13,6 +13,7 @@ Cara kerja video, desain, dan naskah Irfan; satu model sudah cukup. File ini han
 
 | Pekerjaan | Buka |
 |---|---|
+| Cara bekerja dengan Irfan (setiap tugas) | `claude/working-with-irfan/SKILL.md` |
 | Video | `claude/motion-graphic/SKILL.md`, lalu `projects/<proyek>/`; kartu lewat `scripts/cookbook/pilih_kartu.py` (2–4 per video) |
 | Keluhan atas video yang sudah dirender, sekecil apa pun | `claude/motion-graphic/references/revision-log.md` |
 | Naskah, konten, hook | `claude/script-workshop/SKILL.md`; naskah final → `claude/motion-graphic/references/storyboard.md` |
