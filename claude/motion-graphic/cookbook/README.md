@@ -71,7 +71,7 @@ Bentuk visual yang tidak dijawab brief (tampilan Instagram, chat, dashboard, pet
 1. Cari lewat `INDEX.md` / `pilih_kartu.py` / `POLA.md`. `grep -il <benda> 0*/*.md` hanya untuk menemukan kartunya.
 2. Buka frame kuncinya.
 3. Pinjam mekaniknya dengan gaya user atau `REF-SPEC.md`.
-4. Tidak ada di kartu dan tidak dijawab brief: tanya user sebelum membangun.
+4. Tidak ada di kartu dan tidak dijawab brief: rancang dari NEGATIF dan profil merek, lalu sebut pilihan itu di gerbang berikutnya.
 
 ## 6. Sebelum build (video berfootage)
 
