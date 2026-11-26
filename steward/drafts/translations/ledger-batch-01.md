@@ -19,3 +19,4 @@
 | claude/motion-graphic/references/motion-mechanics.md | en | translate/batch-01 | dependants: none (verified) |
 | claude/motion-graphic/references/slop-catalog.md | en | translate/batch-01 | dependants: none (verified) |
 | claude/brief-gate/SKILL.md | en | translate/batch-01 | dependants: none (verified) |
+| claude/video-reference-deconstructor/SKILL.md | en | translate/batch-01 | dependants: none (verified) |

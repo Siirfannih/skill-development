@@ -1,156 +1,156 @@
 ---
 name: video-reference-deconstructor
-description: Membedah video referensi menjadi primitif gerak atomik (kinetic typography, visual, kamera, transisi) yang terukur, bebas kulit referensi, dan lolos uji transfer, untuk diturunkan pabrik menjadi preset kode di skill-development. Pakai setiap kali kamu membedah, mensintesis, atau me-reverse-engineer video referensi, atau menulis brief untuk agen yang melakukannya.
+description: Deconstructs a reference video into atomic motion primitives (kinetic typography, visual, camera, transition) that are measured, free of the reference's skin and pass the slot-swap test, for the factory to turn into code presets in skill-development. Use whenever you deconstruct, synthesize or reverse-engineer a reference video (bedah, sintesis), or write a brief for an agent that does it.
 ---
 
 # Video Reference Deconstructor
 
-## 0. Kenapa skill ini ada
+## 0. Why this skill exists
 
-Tujuanku: setiap referensi bagus yang sudah kita bedah menjadi **preset gerak** yang bisa diambil model editing lalu disesuaikan ke frame-nya, sehingga model tidak menulis animasi dari nol di setiap video.
+My goal: every good reference we have deconstructed becomes a **motion preset** that an editing model can pick up and adapt to its frame, so the model does not write animation from zero in every video.
 
-Kegagalan yang terus berulang, bahkan di Opus: hasil bedah berubah menjadi **template yang meniru referensi 1:1**. Penyebabnya ada tiga, dan semuanya dicegah di skill ini:
+The failure that keeps repeating, even with Opus: the deconstruction turns into **a template that imitates the reference 1:1**. It has three causes, and this skill prevents all of them:
 
-1. **Unit kerjanya salah.** Model membedah adegan (UI lengkap, latar, panel, objek), bukan cara bergeraknya. → §2 uji atomik.
-2. **Metrik penilaiannya salah.** Hasil dibandingkan dengan tampilan referensi (kemiripan per frame, gambar kiri-kanan). Model lalu mengoptimalkan kemiripan kulit. → §6 uji transfer.
-3. **Angkanya karangan.** Kata sifat dilarang, lalu model menggantinya dengan angka yang tampak presisi tapi tidak pernah diukur. → §3 aturan ukur.
+1. **The wrong unit of work.** The model deconstructs the scene (full UI, background, panels, objects), not the way it moves. → §2 atomic test.
+2. **The wrong judging metric.** The result is compared with the reference's look (per-frame similarity, left-right images). The model then optimizes skin similarity. → §6 slot-swap test.
+3. **Invented numbers.** Adjectives are banned, and the model replaces them with numbers that look precise but were never measured. → §3 measurement rules.
 
-Tiga hal yang dipindahkan dari referensi: **mekanik** (cara bergerak), **pemicu** (kapan dipakai dalam cerita), dan **alasan bekerja** (kenapa itu efektif bagi penonton). Kulitnya tidak pernah ikut.
+Three things transfer from a reference: the **mechanic** (how it moves), the **trigger** (when it is used in the story), and **why it works** (why it is effective for the viewer). Its skin never comes along.
 
-## 1. Tiga lapisan setiap elemen
+## 1. Three layers of every element
 
-| Lapisan | Perlakuan | Contoh |
+| Layer | Treatment | Example |
 |---|---|---|
-| **Mekanik** | Ukur, lalu jadikan parameter | perubahan skala, perpindahan (% frame), durasi (dtk), jenis kurva, urutan dan jeda stagger, arah, offset sinkron audio |
-| **Pemicu + alasan bekerja** | Ekstrak, dan tulis dengan kata-katamu sendiri | "memecah talking head yang statis saat masuk ke poin baru; bekerja karena perubahan skala memberi tanda bab tanpa memotong suara" |
-| **Kulit** | Buang, lalu jadikan slot | hex warna, nama font, maskot, ikon, UI aplikasi tertentu, isi teks, bentuk wadah khas (folder ungu, kartu post) |
+| **Mechanic** | Measure, then make it a parameter | scale change, displacement (% of frame), duration (s), curve type, stagger order and gap, direction, audio sync offset |
+| **Trigger + why it works** | Extract, and write it in your own words | "breaks up a static talking head when moving into a new point; works because the scale change signals a chapter without cutting the voice" |
+| **Skin** | Discard, then make it a slot | colour hex, font name, mascot, icons, a specific app's UI, text content, distinctive container shapes (purple folder, post card) |
 
-Bukti terkuat bahwa sebuah mekanik bisa dipisah dari kulitnya: mekanik itu **muncul lebih dari sekali dengan kulit berbeda**, baik di dalam satu referensi maupun di referensi lain. Catat setiap kemunculannya.
+The strongest evidence that a mechanic can be separated from its skin: the mechanic **appears more than once with different skins**, within one reference or across references. Record every appearance.
 
-## 2. Uji atomik: satu primitif, satu mekanik
+## 2. Atomic test: one primitive, one mechanic
 
-Sebelum menulis primitif, uji: **jika satu bagian dibuang, apakah sisanya masih berfungsi sendiri?** Kalau ya, pecah menjadi dua primitif.
+Before writing a primitive, test: **if one part is removed, does the rest still work on its own?** If yes, split it into two primitives.
 
-- "Talking head masuk ke wadah + teks mengapit kiri-kanan + ikon muncul bertahap dengan parallax" = **tiga** primitif, bukan satu.
-- Kombinasi yang memang bagus disimpan sebagai **resep** yang hanya merujuk id primitif. Resep tidak boleh membawa kode atau kulit sendiri.
-- Kalau deskripsi primitifmu menyebut benda (jendela UI, dock, wallpaper, panel chat), periksa ulang. Benda adalah slot, bukan mekanik. Kalau tanpa benda itu mekaniknya tidak bisa dijelaskan, kemungkinan besar yang kamu bedah masih adegan.
+- "Talking head enters a container + text flanks it left and right + icons appear in stages with parallax" = **three** primitives, not one.
+- A combination that really is good is saved as a **primitive combo** that only references primitive ids. A combo may not carry its own code or skin.
+- If your primitive description names objects (UI window, dock, wallpaper, chat panel), recheck it. Objects are slots, not mechanics. If the mechanic cannot be explained without that object, what you are deconstructing is most likely still a scene.
 
-Lapisan primitif ada empat: **tipografi kinetik**, **visual** (permukaan, latar, tekstur, lapisan kedalaman), **kamera**, dan **transisi**. Sinkron audio bukan lapisan tersendiri. Ia menjadi parameter di dalam primitif (offset bunyi terhadap puncak gerak).
+There are four primitive layers: **kinetic typography**, **visual** (surface, background, texture, depth layers), **camera** and **transition**. Audio sync is not a layer of its own. It becomes a parameter inside a primitive (sound offset relative to the motion peak).
 
-## 3. Aturan ukur dan kejujuran angka
+## 3. Measurement rules and honest numbers
 
-1. **Ukur di fps asli.** Cek dengan `ffprobe`. Ambil frame di fps asli pada jendela gerak (video 30 fps: 1 frame = 0,033 dtk; gerak 0,35 dtk hanya punya ±10 sampel). Lembar kontak 2 fps hanya untuk peta struktur, tidak boleh untuk mengukur gerak. Cek juga frame duplikat (animasi 12/15/24 fps di kontainer 30 fps).
-2. **Pastikan itu memang gerak, bukan cut.** Lacak propertinya per frame (lebar/tinggi bounding box, posisi pusat, opacity) memakai skrip, misalnya mask selisih warna terhadap latar. Kalau properti melompat besar dalam satu frame, itu **cut**, bukan easing. Jangan tulis kurva untuk cut.
-3. **Kurva dari data, bukan dari ingatan.** Ubah lintasan yang terukur menjadi progres 0–1, lalu cocokkan ke jenis kurva terdekat. Bezier bawaan yang populer (misalnya `0.16,1,0.3,1` = easeOutExpo) adalah tanda bahaya: kalau tidak berasal dari plot, beri label `estimated`.
-4. **Setiap angka punya label dan bukti.** `measured` (dari pelacakan frame, sertakan path skrip/data) atau `estimated` (dari pengamatan visual, sertakan alasan). Primitif dengan kurva `estimated` maksimal berstatus `teruji-sebagian`.
-5. **Tidak ada kata sifat kosong**: smooth, cinematic, modern, clean, dinamis, premium. Ganti dengan besaran fisik. Kalau besarannya tidak bisa diukur, tulis "tidak terukur dari bahan ini", jangan dikarang.
-6. **Jangan menebak font atau plugin.** Deskripsikan anatominya (grotesk netral + serif miring sebagai aksen 1–2 kata, tinggi huruf ±6% frame).
-7. **Audio jujur.** Ukur dulu: kalau track bisu (≤ −80 dBFS), tulis `is_silent_stream: true` dan jangan mengarang SFX. Catat gerak yang sengaja dibiarkan tanpa bunyi.
+1. **Measure at the native fps.** Check with `ffprobe`. Extract frames at the native fps over the motion window (30 fps video: 1 frame = 0.033 s; a 0.35 s motion has only ±10 samples). A 2 fps contact sheet is only for the structure map and may not be used to measure motion. Also check for duplicate frames (12/15/24 fps animation in a 30 fps container).
+2. **Make sure it really is motion, not a cut.** Track its properties per frame (bounding box width/height, centre position, opacity) with a script, for example a colour-difference mask against the background. If a property jumps a lot within one frame, it is a **cut**, not easing. Do not write a curve for a cut.
+3. **Curves from data, not from memory.** Turn the measured path into 0–1 progress, then match it to the nearest curve type. A popular stock Bezier (for example `0.16,1,0.3,1` = easeOutExpo) is a warning sign: if it did not come from a plot, label it `estimated`.
+4. **Every number has a label and evidence.** `measured` (from frame tracking; include the script/data path) or `estimated` (from visual observation; include the reason). A primitive with an `estimated` curve has at most the status `teruji-sebagian` (partially tested).
+5. **No empty adjectives**: smooth, cinematic, modern, clean, dynamic, premium. Replace them with physical quantities. If a quantity cannot be measured, write "not measurable from this material"; do not invent it.
+6. **Do not guess the font or plugin.** Describe its anatomy (neutral grotesk + italic serif as a 1–2 word accent, letter height ±6% of frame).
+7. **Honest audio.** Measure first: if the track is silent (≤ −80 dBFS), write `is_silent_stream: true` and do not invent SFX. Record motion that is deliberately left without sound.
 
-## 4. Alur kerja
+## 4. Workflow
 
-### Tahap 1 — Data objektif
-Metadata (resolusi, fps asli, durasi, status audio), lembar kontak 2 fps untuk peta babak dan cut, deteksi cut (`select='gt(scene,0.3)',showinfo`), lalu ekstraksi frame fps asli pada setiap jendela gerak yang akan dibedah.
+### Step 1 — Objective data
+Metadata (resolution, native fps, duration, audio status), a 2 fps contact sheet for the map of sections and cuts, cut detection (`select='gt(scene,0.3)',showinfo`), then native-fps frame extraction over every motion window you will deconstruct.
 
-### Tahap 2 — Audit: pertanyaan, bukan jawaban
-Untuk setiap jendela gerak, jawab dari data:
-- **Kamera:** apa yang bergerak, kamera atau objek? Ke mana, seberapa jauh, berapa lama? Gerak kontinu atau cut?
-- **Tipografi kinetik:** apa unit animasinya (huruf, kata, baris, pil)? Bagaimana penekanan dibuat? Di mana teks berada relatif terhadap subjek? Berapa lama teks bisa dibaca sebelum berubah?
-- **Visual:** berapa bidang kedalaman? Dalam urutan apa elemen muncul? Apa yang berubah saat elemen lain bergerak?
-- **Transisi:** cut atau termotivasi? Kalau termotivasi, objek apa yang membawa penonton dari adegan A ke B?
-- **Ritme dan audio:** di mana bunyi jatuh relatif terhadap puncak gerak? Di mana ada jeda hening?
+### Step 2 — Audit: questions, not answers
+For every motion window, answer from the data:
+- **Camera:** what moves, the camera or the object? Where to, how far, for how long? Continuous motion or a cut?
+- **Kinetic typography:** what is the unit of animation (letter, word, line, pill)? How is emphasis made? Where is the text relative to the subject? How long can the text be read before it changes?
+- **Visual:** how many depth planes? In what order do elements appear? What changes when another element moves?
+- **Transition:** a cut or motivated? If motivated, what object carries the viewer from scene A to B?
+- **Rhythm and audio:** where does sound land relative to the motion peak? Where are the silent pauses?
 
-Jangan membawa angka "umumnya" ke tahap ini (misalnya "hold 3–4 dtk", "pre-hit −0,05 dtk"). Angka seperti itu membuatmu menemukan apa yang kamu harapkan. Kalau repo punya angka pembanding (misalnya `references/camera-transition.md`), buka **setelah** pengukuran selesai, dan hanya untuk membandingkan.
+Do not bring "typical" numbers into this step (for example "hold 3–4 s", "pre-hit −0.05 s"). Numbers like that make you find what you expect. If the repo has comparison numbers (for example `references/camera-transition.md`), open them **after** measurement is done, and only to compare.
 
-### Tahap 3 — Saring: tidak semua layak jadi primitif
-Pola diangkat menjadi primitif hanya kalau:
-- lolos uji atomik (§2),
-- alasan bekerjanya bisa ditulis dalam satu kalimat tentang penonton, bukan tentang tampilan,
-- bisa dipakai di minimal dua konteks format yang berbeda (talking head, demo produk, esai tanpa wajah, dan sejenisnya),
-- belum ada di katalog. **Duplikat** = kategori sama dan mekanik inti sama → tambahkan sebagai variasi atau rentang parameter di primitif yang ada, jangan membuat id baru.
+### Step 3 — Filter: not everything deserves to be a primitive
+A pattern is promoted to a primitive only if:
+- it passes the atomic test (§2),
+- why it works can be written in one sentence about the viewer, not about the look,
+- it can be used in at least two different format contexts (talking head, product demo, faceless essay, and the like),
+- it is not in the catalog yet. **Duplicate** = same category and same core mechanic → add it as a variation or parameter range of the existing primitive; do not create a new id.
 
-### Tahap 4 — Tulis primitif dan arsip
-- **Primitif** ditulis sebagai spec pabrik (`claude/motion-graphic/pabrik/spec.schema.json`). Isi wajib ada di §5.
-- **Arsip bedah per video** (kronologi, semua observasi, bukti, label) disimpan sebagai satu MD per referensi. Arsip untuk audit dan R&D, **tidak dimuat** di sesi editing.
-- Jangan membuat struktur folder atau indeks baru di luar pabrik dan cookbook. Satu perpustakaan, satu registry.
+### Step 4 — Write the primitive and the record
+- **A primitive** is written as a factory spec (`claude/motion-graphic/pabrik/spec.schema.json`). Its required contents are in §5.
+- **The deconstruction record per video** (chronology, every observation, evidence, labels) is saved as one MD per reference. The record is for audit and R&D and is **not loaded** in editing sessions.
+- Do not create new folder structures or indexes outside the factory and the cookbook. One library, one registry.
 
-## 5. Isi wajib satu primitif
+## 5. Required contents of one primitive
 
-| Isi | Keterangan | Field pabrik |
+| Content | Description | Factory field |
 |---|---|---|
-| id | `<lapisan>-<aksi>-<objek-generik>`, contoh `kamera-cut-ke-wadah-lalu-mundur` | `id`, `komponen_usulan` |
-| lapisan | tipografi / visual / kamera / transisi | `kategori` |
-| mekanik | kalimat yang **tidak menyebut benda referensi** | `mekanik` |
-| parameter | angka + label `measured`/`estimated` + rentang aman | `parameter`, `terukur` |
-| pemicu | dari kosakata *Narrative trigger* di `cookbook/CATALOG.md`; kalau tidak ada yang cocok, usulkan istilah baru dan catat | perlu field baru |
-| alasan bekerja | satu kalimat tentang penonton | perlu field baru |
-| slot | semua yang bisa diganti: wadah, warna, huruf, isi, ukuran | perlu field baru |
-| jangan dicuri | daftar kulit referensi yang tidak boleh muncul (warna, bentuk, objek, teks) | `kulit` |
-| bukti | file + detik per observasi; sumber kemunculan lain | `bukti` |
+| id | `<lapisan>-<aksi>-<objek-generik>` (layer-action-generic object), example `kamera-cut-ke-wadah-lalu-mundur` | `id`, `komponen_usulan` |
+| layer | typography / visual / camera / transition | `kategori` |
+| mechanic | a sentence that **does not name reference objects** | `mekanik` |
+| parameters | number + `measured`/`estimated` label + safe range | `parameter`, `terukur` |
+| trigger | from the *Narrative trigger* vocabulary in `cookbook/CATALOG.md`; if none fits, propose a new term and record it | needs a new field |
+| why it works | one sentence about the viewer | needs a new field |
+| slots | everything swappable: container, colour, type, content, size | needs a new field |
+| do-not-steal | list of reference skin that may not appear (colours, shapes, objects, text) | `kulit` |
+| evidence | file + second per observation; sources of other appearances | `bukti` |
 
-Kalau skema pabrik belum punya field yang dibutuhkan (pemicu, alasan bekerja, slot) atau belum punya kategori `transisi` dan `visual`, **perluas skemanya**. Jangan menyelipkannya ke `ringkas` atau `catatan`, karena di sana tidak bisa dicek.
+If the factory schema does not yet have a field you need (trigger, why it works, slots) or does not yet have the categories `transisi` and `visual`, **extend the schema**. Do not slip them into `ringkas` or `catatan`, because they cannot be checked there.
 
-## 6. Uji transfer: syarat primitif lolos
+## 6. Slot-swap test: the condition for a primitive to pass
 
-Primitif hanya lolos kalau komponennya dirender dengan **dua isian slot yang berbeda dari referensi** (dua set token netral, isi teks lain, wadah lain) dan memenuhi semua syarat:
+A primitive passes only if its component is rendered with **two slot fillings different from the reference** (two sets of neutral tokens, other text content, another container) and meets every condition:
 
-1. **Gerak cocok dengan spec**: timing selisih ≤ 2 frame, lintasan/kurva setara dengan data `measured`. Spec `estimated` → status maksimal `teruji-sebagian`.
-2. **Kulit tidak bocor**: tidak ada warna dekat palet referensi, dan tidak ada **bentuk, objek, ikon, atau tata letak** dari daftar "jangan dicuri".
-3. **Mekaniknya terbaca tanpa kulit**: orang yang membaca kalimat mekanik akan mengenali gerak yang sama di kedua demo.
+1. **Motion matches the spec**: timing difference ≤ 2 frames, path/curve equivalent to the `measured` data. An `estimated` spec → status at most `teruji-sebagian`.
+2. **No skin leaks**: no colour close to the reference palette, and no **shape, object, icon or layout** from the do-not-steal list.
+3. **The mechanic reads without the skin**: someone who reads the mechanic sentence would recognize the same motion in both demos.
 
-**Dilarang** menilai lolos/tidak dengan membandingkan tampilan demo terhadap tampilan referensi: SSIM atau korelasi tepi terhadap frame referensi, gambar referensi-kiri kandidat-kanan, atau pertanyaan "apa yang membuat kandidat tampak lebih murah dari referensi". Semua itu mengukur kemiripan kulit dan mendorong kloning. Referensi hanya dipakai sebagai **bahan ukur gerak**. Penilai vision melihat kandidat saja, bersama spec dan daftar "jangan dicuri".
+Judging pass/fail by comparing the demo's look with the reference's look is **forbidden**: SSIM or edge correlation against reference frames, reference-left candidate-right images, or the question "what makes the candidate look cheaper than the reference". All of these measure skin similarity and push toward cloning. The reference is used only as **motion measurement material**. The vision judge sees the candidate only, together with the spec and the do-not-steal list.
 
-## 7. Kalau dikerjakan lewat subagen
+## 7. When it is done through subagents
 
-Sebelum mengirim tugas bedah atau sintesis ke subagen, jalankan skill `brief-gate`. Brief wajib memuat:
-- **Unit kerja**: satu primitif atomik per subagen, bukan satu adegan atau satu video.
-- **Bukan**: tidak membangun ulang UI, latar, objek, atau urutan shot referensi.
-- **Bahan**: frame fps asli + data ukur. Frame referensi diberikan sebagai **bahan ukur, bukan target visual**.
-- **Cara dinilai**: uji transfer §6, ditulis lengkap.
-- **Berhenti dan lapor kalau**: gerak tidak bisa diukur dari bahan, atau mekanik tidak bisa dijelaskan tanpa menyebut benda referensi.
+Before sending a deconstruction or synthesis task to a subagent, run the `brief-gate` skill. The brief must contain:
+- **Unit of work**: one atomic primitive per subagent, not one scene or one video.
+- **Not**: does not rebuild the reference's UI, background, objects or shot order.
+- **Material**: native-fps frames + measurement data. Reference frames are given as **measurement material, not a visual target**.
+- **How it is judged**: the §6 slot-swap test, written out in full.
+- **Stop and report if**: the motion cannot be measured from the material, or the mechanic cannot be explained without naming reference objects.
 
-Pilot satu primitif sampai lolos uji §6 dulu sebelum membagi banyak primitif ke banyak subagen.
+Pilot one primitive until it passes the §6 test before splitting many primitives across many subagents.
 
-## 8. Saat primitif dipakai di sesi editing
+## 8. When primitives are used in an editing session
 
-1. Cocokkan setiap beat naskah dengan pemicu di registry. Muat hanya primitif yang dibutuhkan.
-2. Isi semua slot dari tema proyek aktif. Cek daftar "jangan dicuri" sebelum render.
-3. **Larangan rangkai ulang**: jangan memakai tiga primitif atau lebih dari satu referensi dalam urutan yang sama seperti di referensinya. Mencampur sumber tidak diwajibkan; setiap primitif tetap harus punya alasan visual di beat-nya.
-4. Membuat gerak dari nol hanya boleh kalau tidak ada primitif yang cocok. Catat alasannya, lalu masukkan sebagai kandidat antrean pabrik.
+1. Match every script beat with a trigger in the registry. Load only the primitives you need.
+2. Fill every slot from the active project's theme. Check the do-not-steal list before rendering.
+3. **Re-sequencing ban**: do not use three or more primitives from one reference in the same order as in that reference. Mixing sources is not required; every primitive still needs a visual reason in its beat.
+4. Building motion from zero is allowed only when no primitive fits. Record the reason, then add it as a candidate to the factory queue.
 
-## 9. Contoh: dari klaim karangan ke primitif terukur
+## 9. Example: from an invented claim to a measured primitive
 
-Sumber: `indiavideomotion.mp4` (1276×718, 30 fps), 0,00–1,37 dtk. Pelacakan bounding box per frame (mask selisih warna terhadap latar `#FBF9FC`).
+Source: `indiavideomotion.mp4` (1276×718, 30 fps), 0.00–1.37 s. Per-frame bounding box tracking (colour-difference mask against the background `#FBF9FC`).
 
-**Klaim lama (gagal):** "Talking head full-bleed mengecil `1.0x → 0.42x` dalam `0.35s` (`expo-out`) ke dalam `slot:container_metaphor`, teks mengapit kiri-kanan, elemen pendukung berstagger 0.08s."
-- Tidak pernah diukur, dan datanya membantah: tidak ada animasi mengecil.
-- Tiga mekanik digabung jadi satu.
+**Old claim (failed):** "Full-bleed talking head shrinks `1.0x → 0.42x` in `0.35s` (`expo-out`) into `slot:container_metaphor`, text flanks left and right, supporting elements stagger 0.08s."
+- Never measured, and the data contradicts it: there is no shrinking animation.
+- Three mechanics merged into one.
 
 **Data:**
-| t (dtk) | lebar wadah (fraksi frame) | keterangan |
+| t (s) | container width (fraction of frame) | note |
 |---|---|---|
-| 0,000–0,600 | 1,000 | full-bleed |
-| 0,633 | 0,578 | lompat dalam 1 frame → **cut** |
-| 0,667 → 1,367 | 0,569 → 0,531 | turun kontinu ±8% dalam 0,70 dtk, pusat tetap 0,50 |
+| 0.000–0.600 | 1.000 | full-bleed |
+| 0.633 | 0.578 | jump within 1 frame → **cut** |
+| 0.667 → 1.367 | 0.569 → 0.531 | continuous decrease of ±8% over 0.70 s, centre fixed at 0.50 |
 
-**Primitif yang benar (satu dari tiga yang terpisah):**
+**The correct primitive (one of three separate ones):**
 - id: `kamera-cut-ke-wadah-lalu-mundur`
-- mekanik: cut dari subjek full-bleed ke subjek di dalam wadah ±0,58 lebar frame di tengah, lalu wadah terus mengecil pelan ±8% selama ±0,7 dtk sambil elemen pendukung dibangun di sekitarnya.
-- parameter: lebar awal 0,578 (`measured`), penurunan 0,047 dalam 0,70 dtk (`measured`); bentuk kurva mundur `estimated` (tren hampir linear dengan pelambatan, belum di-fit).
-- pemicu: pecah talking head saat masuk ke definisi/poin pembuka.
-- alasan bekerja: cut ke wadah langsung memberi "bingkai baru" tanpa menunggu animasi, dan gerak mundur pelan membuat ruang kosong terasa disiapkan untuk informasi yang akan datang.
-- slot: bentuk wadah, radius, latar, elemen pendukung.
-- jangan dicuri: latar lavender, bar timeline ungu, teks "you're a video editor", tata letak timeline di bawah wadah.
-- terpisah dari primitif ini: (a) bar timeline yang dibangun bertahap = primitif visual, (b) teks dengan highlight di sisi wadah = primitif tipografi. Bentuk wadah juga muncul berbeda di 7,0 dtk (kartu post), 8,0 dtk (folder), dan 15,0 dtk (lingkaran). Pola cut-ke-wadahnya perlu diukur per kemunculan sebelum disebut berulang.
+- mechanic: cut from a full-bleed subject to the subject inside a container ±0.58 of frame width in the centre, then the container keeps shrinking slowly by ±8% over ±0.7 s while supporting elements build up around it.
+- parameters: starting width 0.578 (`measured`), decrease of 0.047 over 0.70 s (`measured`); pull-back curve shape `estimated` (nearly linear trend with deceleration, not yet fitted).
+- trigger: break up a talking head when entering a definition/opening point.
+- why it works: the cut to a container gives a "new frame" at once without waiting for an animation, and the slow pull-back makes the empty space feel prepared for the information to come.
+- slots: container shape, radius, background, supporting elements.
+- do-not-steal: lavender background, purple timeline bar, the text "you're a video editor", timeline layout below the container.
+- split off from this primitive: (a) the timeline bar built up in stages = a visual primitive, (b) text with a highlight beside the container = a typography primitive. The container shape also appears differently at 7.0 s (post card), 8.0 s (folder) and 15.0 s (circle). The cut-to-container pattern needs measuring at each appearance before it is called recurring.
 
-## 10. Gerbang sebelum menyimpan
+## 10. Gate before saving
 
-- [ ] fps asli tercatat; gerak diukur di fps asli, bukan dari lembar 2 fps.
-- [ ] Setiap gerak sudah dicek bukan cut; tidak ada kurva untuk cut.
-- [ ] Setiap angka berlabel `measured`/`estimated` dan punya bukti.
-- [ ] Tidak ada kata sifat kosong.
-- [ ] Primitif lolos uji atomik; kalimat mekanik tidak menyebut benda referensi.
-- [ ] Pemicu memakai kosakata CATALOG; alasan bekerja ditulis tentang penonton.
-- [ ] Tidak duplikat dengan primitif yang ada (kategori + mekanik inti).
-- [ ] Uji transfer §6 lulus dengan dua isian slot; tidak ada penilaian kemiripan tampilan terhadap referensi.
-- [ ] Arsip bedah per video tersimpan sebagai MD tersendiri dan tidak dimuat di sesi editing.
+- [ ] Native fps recorded; motion measured at native fps, not from the 2 fps sheet.
+- [ ] Every motion checked as not a cut; no curve for a cut.
+- [ ] Every number labelled `measured`/`estimated` and has evidence.
+- [ ] No empty adjectives.
+- [ ] The primitive passes the atomic test; the mechanic sentence names no reference objects.
+- [ ] The trigger uses the CATALOG vocabulary; why it works is written about the viewer.
+- [ ] Not a duplicate of an existing primitive (category + core mechanic).
+- [ ] The §6 slot-swap test passed with two slot fillings; no judging of look similarity against the reference.
+- [ ] The deconstruction record per video is saved as its own MD and is not loaded in editing sessions.
