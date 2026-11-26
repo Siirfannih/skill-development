@@ -2,25 +2,32 @@
 export const PRESETS = {
   "editorial-polos": {
     "komponen": "lightwave",
-    "catatan": "Nyaris polos: satu ekor cahaya sangat tipis dari tepi atas (pusat di luar frame) di atas warna dasar; hanya grain halus supaya tidak banding. Untuk referensi bergaya editorial/datar. Dasar bawaan: terang #F8FAFC, gelap #03050C.",
+    "catatan": "Nyaris polos: core sangat tipis dari tepi atas (pusat di luar frame) dan ambient hampir tak terlihat di atas warna dasar; untuk referensi editorial/datar. Dasar bawaan: terang #F8FAFC, gelap #03050C.",
     "params": {
       "colors": [
         "#F8FAFC",
-        "#E8EEF9"
+        "#EAF0FA",
+        "#DCE6F8"
       ],
       "mode": "light",
-      "glow": {
+      "core": {
         "x": 0.5,
-        "y": -0.45,
-        "r": 2.2,
-        "strength": 0.6,
-        "ratio": 0.5
+        "y": -0.3,
+        "radius": 1.1,
+        "ratio": 0.5,
+        "intensity": 0.35
       },
-      "dir": 90,
-      "waveSpeed": 0.15,
-      "amp": 0.5,
+      "ambient": {
+        "x": 0.5,
+        "y": 0.5,
+        "width": 1.8,
+        "ratio": 0.6,
+        "angle": 0,
+        "intensity": 0.25
+      },
+      "waveSpeed": 0.5,
+      "drift": 0.6,
       "grain": 0.015,
-      "seed": 1,
       "intensity": 1,
       "saturation": 1
     },
@@ -29,7 +36,8 @@ export const PRESETS = {
       "dark": {
         "colors": [
           "#03050C",
-          "#0E1426"
+          "#0E1426",
+          "#1B2748"
         ],
         "mode": "dark"
       }
@@ -37,26 +45,32 @@ export const PRESETS = {
   },
   "hangat-netral": {
     "komponen": "lightwave",
-    "catatan": "Netral hangat: dasar cokelat-abu gelap, satu elips cahaya hangat berpusat di luar kiri bawah, sapuan dari kiri bawah; hanya ekornya masuk.",
+    "catatan": "Netral hangat: dasar cokelat-abu gelap, core hangat berpusat di luar kiri bawah, ambient hangat miring melintasi tengah.",
     "params": {
       "colors": [
         "#110D0B",
-        "#4A3A32",
-        "#D9B99B"
+        "#2A201B",
+        "#8A6246"
       ],
       "mode": "dark",
-      "glow": {
-        "x": -0.22,
-        "y": 1.18,
-        "r": 2.0,
-        "strength": 0.9,
-        "ratio": 0.45
+      "core": {
+        "x": -0.15,
+        "y": 0.95,
+        "radius": 1.0,
+        "ratio": 0.6,
+        "intensity": 0.6
       },
-      "dir": 215,
-      "waveSpeed": 0.45,
-      "amp": 1.3,
+      "ambient": {
+        "x": 0.35,
+        "y": 0.6,
+        "width": 1.5,
+        "ratio": 0.6,
+        "angle": -20,
+        "intensity": 0.4
+      },
+      "waveSpeed": 0.8,
+      "drift": 1,
       "grain": 0.015,
-      "seed": 5,
       "intensity": 1,
       "saturation": 1
     },
@@ -65,8 +79,8 @@ export const PRESETS = {
       "light": {
         "colors": [
           "#FAF7F2",
-          "#EAC49A",
-          "#DC9560"
+          "#F0E2D0",
+          "#E2B88C"
         ],
         "mode": "light"
       }
@@ -74,33 +88,32 @@ export const PRESETS = {
   },
   "researchly-glow": {
     "komponen": "lightwave",
-    "catatan": "Gelap hampir hitam; satu elips cahaya biru raksasa berpusat di luar kanan-atas, hanya ekornya masuk, sapuan dari kanan atas. Varian light: dasar putih kebiruan, ekor periwinkle naik dari tepi bawah (seperti still Researchly). Dasar navy jenuh lewat prop base bila REF-SPEC meminta.",
+    "catatan": "Patokan Irfan apa adanya (patokan-irfan.glsl): ambient wash lebar + core biru di luar kanan-atas (pusat x 1.05), falloff Gaussian. colors = [dasar, ambient, core]. Varian light = warna terang dari komentar uniform patokan.",
     "params": {
       "colors": [
         "#03050C",
-        "#1B3FD6",
-        "#8FB0FF"
+        "#0E256B",
+        "#2563EB"
       ],
       "mode": "dark",
-      "glow": {
-        "x": 1.25,
-        "y": -0.1,
-        "r": 1.9,
-        "strength": 0.95,
-        "ratio": 0.45
+      "core": {
+        "x": 1.05,
+        "y": 0.15,
+        "radius": 0.95,
+        "ratio": 0.6316,
+        "intensity": 0.75
       },
-      "glow2": {
-        "x": -0.25,
-        "y": 1.2,
-        "r": 1.3,
-        "strength": 0.45,
-        "ratio": 0.45
+      "ambient": {
+        "x": 0.75,
+        "y": 0.4,
+        "width": 1.35,
+        "ratio": 0.7037,
+        "angle": 0,
+        "intensity": 0.55
       },
-      "dir": 40,
-      "waveSpeed": 0.4,
-      "amp": 1,
-      "grain": 0.015,
-      "seed": 3,
+      "waveSpeed": 1,
+      "drift": 1,
+      "grain": 0.02,
       "intensity": 1,
       "saturation": 1
     },
@@ -109,19 +122,10 @@ export const PRESETS = {
       "light": {
         "colors": [
           "#F8FAFC",
-          "#B3C3FF",
-          "#8EA6FF"
+          "#D1DFFA",
+          "#94B8FC"
         ],
-        "mode": "light",
-        "glow": {
-          "x": 0.62,
-          "y": 1.3,
-          "r": 2.0,
-          "strength": 0.95,
-          "ratio": 0.5
-        },
-        "glow2": null,
-        "dir": 275
+        "mode": "light"
       }
     }
   },

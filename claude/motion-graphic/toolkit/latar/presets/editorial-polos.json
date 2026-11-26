@@ -1,24 +1,31 @@
 {
   "komponen": "lightwave",
-  "catatan": "Nyaris polos: satu ekor cahaya sangat tipis dari tepi atas (pusat di luar frame) di atas warna dasar; hanya grain halus supaya tidak banding. Untuk referensi bergaya editorial/datar. Dasar bawaan: terang #F8FAFC, gelap #03050C.",
+  "catatan": "Nyaris polos: core sangat tipis dari tepi atas (pusat di luar frame) dan ambient hampir tak terlihat di atas warna dasar; untuk referensi editorial/datar. Dasar bawaan: terang #F8FAFC, gelap #03050C.",
   "params": {
     "colors": [
       "#F8FAFC",
-      "#E8EEF9"
+      "#EAF0FA",
+      "#DCE6F8"
     ],
     "mode": "light",
-    "glow": {
+    "core": {
       "x": 0.5,
-      "y": -0.45,
-      "r": 2.2,
-      "strength": 0.6,
-      "ratio": 0.5
+      "y": -0.3,
+      "radius": 1.1,
+      "ratio": 0.5,
+      "intensity": 0.35
     },
-    "dir": 90,
-    "waveSpeed": 0.15,
-    "amp": 0.5,
+    "ambient": {
+      "x": 0.5,
+      "y": 0.5,
+      "width": 1.8,
+      "ratio": 0.6,
+      "angle": 0,
+      "intensity": 0.25
+    },
+    "waveSpeed": 0.5,
+    "drift": 0.6,
     "grain": 0.015,
-    "seed": 1,
     "intensity": 1,
     "saturation": 1
   },
@@ -27,7 +34,8 @@
     "dark": {
       "colors": [
         "#03050C",
-        "#0E1426"
+        "#0E1426",
+        "#1B2748"
       ],
       "mode": "dark"
     }

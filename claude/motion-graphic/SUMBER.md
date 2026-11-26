@@ -308,7 +308,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 
 | Aturan | Asal-usul |
 |---|---|
-| §3a. Toolkit mekanik (mulai proyek) · `toolkit/` | Irfan 26 Nov 2026 13:34 (diminta, lalu 13:40 latar shader GLSL dan 13:43 preset latar yang bisa disetel); temuan inventaris hari itu: kurva, kamera, transisi sudah ada tapi tersebar, dan sesi uji menulis ulang 350-810 baris easing/kamera HTML-JS tiap kali dengan nama kurva dari ingatan; latar generatif, grain global, orbit, dan kerangka proyek belum ada |
+| §3a. Toolkit mekanik (mulai proyek) · `toolkit/` | Irfan 26 Nov 2026 13:34 (diminta, lalu 13:40 latar shader GLSL dan 13:43 preset latar yang bisa disetel; 14:34-14:35 latar v3 = port shader patokan Irfan: Gaussian falloff, ambient wash + core); temuan inventaris hari itu: kurva, kamera, transisi sudah ada tapi tersebar, dan sesi uji menulis ulang 350-810 baris easing/kamera HTML-JS tiap kali dengan nama kurva dari ingatan; latar generatif, grain global, orbit, dan kerangka proyek belum ada |
 | §3. Alat & pipeline produksi · "UI produk sendiri (Jadisatu): salin komponen…" | Irfan 7 Nov |
 | §3. Alat & pipeline produksi · "Rakit lego (jalur utama video berfootage,…" | Irfan 16 Nov |
 | §3. Alat & pipeline produksi · "Glow/blend dirender di dalam lapisan; compose…" | gagal: bdf26 v10 +4 kecerahan |

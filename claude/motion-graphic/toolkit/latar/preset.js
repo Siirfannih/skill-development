@@ -1,5 +1,5 @@
 // preset.js — registri preset latar. Preset = kumpulan SEMUA parameter bawaan sebuah latar (warna, mode, glow, kecepatan,
-// grain, seed, intensity, saturation), disimpan sebagai presets/*.json; presets/index.js dihasilkan simpan_preset.py.
+// grain, intensity, saturation), disimpan sebagai presets/*.json; presets/index.js dihasilkan simpan_preset.py.
 // Urutan nilai: preset -> varian mode (dark/light) -> props eksplisit. Props eksplisit SELALU menang.
 // `colors: "brand"` mengambil warna dari token proyek: panggil setMerek([...warna dari tema.ts]) sekali.
 // `saturation` dan `intensity` pengali (1 = tetap): "pertajam warnanya" = saturation 1.3.
@@ -24,6 +24,7 @@ export const resolveOptions = (kind, o = {}) => {
     base = { ...p.params, ...((p.varian && p.varian[mode]) || {}) };
   }
   const out = { ...base, ...bersih(own) };
+  for (const k of ["core", "ambient"]) if (base[k] && own[k]) out[k] = { ...base[k], ...bersih(own[k]) };   // objek cahaya digabung per kunci
   if (out.colors === "brand") {
     if (!MEREK) throw new Error('colors="brand": panggil setMerek([...]) dengan warna dari tema.ts dulu');
     out.colors = MEREK;
