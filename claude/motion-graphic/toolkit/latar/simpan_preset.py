@@ -4,7 +4,7 @@
   python3 simpan_preset.py <nama> <params.json> [--komponen lightwave|generative] [--varian dark|light] [--catatan "teks"] [--timpa]
   python3 simpan_preset.py --bangun                 hanya bangun ulang presets/index.js dari presets/*.json
 
-params.json = objek datar berisi parameter (colors, mode, glow, waveSpeed, grain, seed, intensity, saturation, ...), persis props
+params.json = objek datar berisi parameter (colors, mode, glow, glow2, waveSpeed, grain, seed, intensity, saturation, ...), persis props
 yang dipakai pada revisi yang disukai. Tanpa --varian: jadi `params` preset. Dengan --varian dark|light: ditambahkan sebagai
 varian preset yang sudah ada (hanya kunci yang berbeda yang perlu ditulis). Nama: huruf kecil, angka, tanda minus.
 Langkah manual setara: salin salah satu presets/*.json, ubah, lalu jalankan --bangun.
@@ -14,7 +14,7 @@ from pathlib import Path
 
 DIR = Path(__file__).resolve().parent / "presets"
 KUNCI_BOLEH = {"colors", "mode", "glow", "dir", "waveSpeed", "amp", "grain", "seed", "intensity", "saturation", "quality",
-               "base", "zones", "points", "drift", "driftAmp", "scale"}
+               "base", "zones", "points", "drift", "driftAmp", "glow2"}
 
 
 def bangun():
@@ -27,6 +27,10 @@ def bangun():
     return sorted(data)
 
 
+def di_luar(x, y):
+    return x < 0 or x > 1 or y < 0 or y > 1
+
+
 def cek(params):
     if not isinstance(params, dict):
         sys.exit("params.json harus objek")
@@ -36,6 +40,18 @@ def cek(params):
     c = params.get("colors")
     if c is not None and c != "brand" and not (isinstance(c, list) and c):
         sys.exit('colors harus daftar warna atau "brand"')
+    # aturan latar: pusat cahaya di luar frame, grain <= 0.02, tanpa noise
+    for k in ("glow", "glow2"):
+        g = params.get(k)
+        if g and not di_luar(g["x"], g["y"]):
+            sys.exit(f"{k}: pusat ({g['x']}, {g['y']}) harus di luar frame (x atau y di luar 0..1); hanya ekor cahaya yang masuk")
+    for i, z in enumerate(params.get("zones") or []):
+        if not di_luar(z["x"], z["y"]):
+            sys.exit(f"zones[{i}]: pusat ({z['x']}, {z['y']}) harus di luar frame")
+    if params.get("grain", 0) > 0.02:
+        sys.exit("grain maksimal 0.02 (film grain anti-banding, bukan tekstur)")
+    if params.get("mode") == "noise":
+        sys.exit("mode noise dilarang")
 
 
 def main(argv=None):

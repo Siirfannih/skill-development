@@ -78,7 +78,7 @@ class Preset(unittest.TestCase):
             tmp = Path(tmp); (tmp / "presets").mkdir()
             asli = simpan.DIR; simpan.DIR = tmp / "presets"
             try:
-                p = tmp / "p.json"; p.write_text(json.dumps({"colors": ["#000000", "#111111"], "mode": "dark", "glow": {"x": 0.1, "y": 0.2, "r": 0.3}, "saturation": 1.3}))
+                p = tmp / "p.json"; p.write_text(json.dumps({"colors": ["#000000", "#111111"], "mode": "dark", "glow": {"x": 1.2, "y": 0.2, "r": 1.3}, "saturation": 1.3}))
                 self.assertEqual(simpan.main(["baru-ok", str(p)]), 0)
                 self.assertTrue((tmp / "presets/baru-ok.json").exists())
                 self.assertIn("baru-ok", (tmp / "presets/index.js").read_text())

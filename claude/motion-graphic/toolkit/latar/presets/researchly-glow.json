@@ -1,12 +1,53 @@
 {
   "komponen": "lightwave",
-  "catatan": "Biru dalam dengan pita cahaya dan glow di kanan atas. Varian light: dasar putih kebiruan.",
+  "catatan": "Gelap hampir hitam; satu elips cahaya biru raksasa berpusat di luar kanan-atas, hanya ekornya masuk, sapuan dari kanan atas. Varian light: dasar putih kebiruan, ekor periwinkle naik dari tepi bawah (seperti still Researchly). Dasar navy jenuh lewat prop base bila REF-SPEC meminta.",
   "params": {
-    "colors": ["#060B1F", "#1B3FD6", "#8FB0FF"], "mode": "dark",
-    "glow": { "x": 0.72, "y": 0.28, "r": 0.5, "strength": 0.85 },
-    "dir": 35, "waveSpeed": 0.4, "amp": 1, "grain": 0.025, "seed": 3, "intensity": 1, "saturation": 1
+    "colors": [
+      "#03050C",
+      "#1B3FD6",
+      "#8FB0FF"
+    ],
+    "mode": "dark",
+    "glow": {
+      "x": 1.25,
+      "y": -0.1,
+      "r": 1.9,
+      "strength": 0.95,
+      "ratio": 0.45
+    },
+    "glow2": {
+      "x": -0.25,
+      "y": 1.2,
+      "r": 1.3,
+      "strength": 0.45,
+      "ratio": 0.45
+    },
+    "dir": 40,
+    "waveSpeed": 0.4,
+    "amp": 1,
+    "grain": 0.015,
+    "seed": 3,
+    "intensity": 1,
+    "saturation": 1
   },
   "varian": {
-    "light": { "colors": ["#EEF3FF", "#A9C0FF", "#FFFFFF"], "glow": { "x": 0.72, "y": 0.28, "r": 0.55, "strength": 0.9 }, "grain": 0.02 }
+    "dark": {},
+    "light": {
+      "colors": [
+        "#F8FAFC",
+        "#B3C3FF",
+        "#8EA6FF"
+      ],
+      "mode": "light",
+      "glow": {
+        "x": 0.62,
+        "y": 1.3,
+        "r": 2.0,
+        "strength": 0.95,
+        "ratio": 0.5
+      },
+      "glow2": null,
+      "dir": 275
+    }
   }
 }
