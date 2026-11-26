@@ -51,7 +51,7 @@ Glow/blend dirender di dalam lapisan; compose hanya overlay alpha di RGB lalu sa
 - Kirim patch kecil bila hanya beberapa file berubah.
 - Simpan proyek di `~/Documents/<Proyek>` + `PROJECT_STATE.md`.
 
-Aset gambar: generate lewat Codex/ChatGPT di Mac.
+Aset gambar: generate dengan generator gambar yang tersedia.
 - Sprite pose: latar hijau `#00FF00`, lalu di-key.
 - Plate: "dinding saja, tanpa objek utama, tanpa teks".
 

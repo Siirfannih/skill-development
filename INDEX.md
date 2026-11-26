@@ -17,7 +17,6 @@ Katalog skill untuk setiap model yang bekerja dengan Irfan. Pintu masuk repo ada
 | `claude/` | Skill yang dikembangkan Irfan | Aktif |
 | `external/` | Skill open-source yang sudah teruji, sebagai submodule terkunci versi | Aktif, dipakai sebagai pendamping |
 | `projects/` | Dokumen otoritas dan art direction per proyek | Aktif untuk proyeknya saja |
-| `autopilot-video/` | Sistem autopilot produksi video: PRD, desain, ConOps, ADR, tools (gpt-bridge, render, TTS lokal), pilot aff-pompa-01; mulai dari [README](autopilot-video/README.md) | v0, diuji sekali |
 | `scriptwriter/` | Mandat peran dan pengembangan cara kerja ide → naskah → storyboard; mulai dari [README](scriptwriter/README.md) | Fondasi awal; memakai skill aktif di `claude/` |
 | `content-ops/` | Operasi konten harian tiga jalur; mulai dari [content-ops/README.md](content-ops/README.md) | Aktif |
 | `archive/riwayat/GrokAgent/` | Analisis referensi visual+audio (Grok Bot Maximus); mulai dari [archive/riwayat/GrokAgent/README.md](archive/riwayat/GrokAgent/README.md) | Reference findings 2026-10-30; tidak menimpa `claude/` |

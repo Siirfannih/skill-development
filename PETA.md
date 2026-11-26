@@ -139,7 +139,6 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/templates/roles/devils-advocate.md` | **Creative Devil's Advocate · mata luar sebelum render final** — Pembuat video selalu cenderung meloloskan karyanya sendiri. |
 | `claude/motion-graphic/templates/roles/editor.md` | **Prompt Editor (diisi Sutradara, dikirim lewat Agent / SendMessage)** — Ganti <…>. Jangan menambah cerita proses, pendapat, atau kutipan chat Irfan; Editor hanya perlu fakta, keputusan, dan tugas (roles.md §1). |
 | `claude/motion-graphic/templates/roles/handoff.md` | **`handoff/` folder skeleton** — Copy the needed sections to projects/<project>/handoff/. |
-| `claude/motion-graphic/templates/roles/konsul.md` | **KONSUL · <project> (optional)** — Additional notes for tools/tanya-claude.sh. |
 | `claude/motion-graphic/templates/roles/pemeriksa-audio.md` | **Pemeriksa audio terhadap frame · fase audio (satu agen per potongan ≤ 10 dtk)** — Dipanggil setelah fase visual lulus (pemeriksa-frame.md) dan SFX dikunci (audio_order.py lock sfx). |
 | `claude/motion-graphic/templates/roles/pemeriksa-frame.md` | **Menilai frame · fase visual (satu penilai: Sutradara)** — Dijalankan setelah visual selesai disusun dan sebelum SFX dan musik dibuat: render.sh <proyek> frames → scripts/juri/frame_audit.py qc/frames (fase visual). |
 | `claude/motion-graphic/templates/sistem-desain/README.md` | **Sistem desain video (satu per proyek)** — Ditulis Sutradara sebelum pekerja adegan mulai, di remotion/src/<…>/bersama/tema.ts proyek. |
@@ -253,7 +252,6 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 |---|---|
 | `tools/AFTER-EFFECTS.md` | After Effects bukan jalur bawaan. |
 | `tools/ELEVENLABS.md` | Kunci API tidak pernah ada di repo ini, di chat, atau di memori. |
-| `tools/codex-pc.sh` | Menjalankan Codex (ChatGPT) di PC server untuk tugas dari orkestrator. |
 | `tools/cookbook.py` | Alat cookbook motion-graphic (Two-Tier Domain Packs): CATALOG/POLA/SFX, resolver kartu, validasi token & skema. |
 | `tools/doctor.sh` | Cek apakah Claude Code dan Codex memuat skill-development dengan benar. Boleh dijalankan di awal sesi (AGENTS.md). |
 | `tools/engineering-stack.sh` | Pasang tumpukan skill engineering terkurasi (idempoten). |
@@ -262,7 +260,6 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `tools/sync.sh` | ## Tugas video, konten, naskah, storyboard, atau skill -> repo skill-development Folder ini adalah titik masuk remote, jadi aturan video tidak terbaca otomatis. Untuk tugas jenis ini: 1. Baca dulu `{r |
 | `tools/sync_lantai.py` | Cek MIGRASI-LANTAI.md terhadap LANTAI.md. |
 | `tools/sync_negatif.py` | Jaga daftar NEGATIF tetap sama di semua tempat. |
-| `tools/tanya-claude.sh` | Codex (atau model lain) minta pendapat Claude untuk satu video, tanpa Claude membaca kode atau seluruh repo. |
 | `tools/tunggu.sh` | Jalankan pekerjaan panjang (render, frames, Whisper, mix) lepas dari sesi model, lalu tunggu TANPA polling. |
 
 ## projects/ (keputusan per video; buka hanya proyekmu sendiri, isinya bukan aturan untuk video lain)

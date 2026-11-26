@@ -12,7 +12,7 @@ Open when translating an existing Indonesian instruction file. A translation cha
 6. **Guarded copies move together.** NEGATIF: translate `claude/_bersama/NEGATIF.md`, then `python3 tools/sync_negatif.py --tulis`. PETA.md: translate the route text in `tools/peta.py` and regenerate; never hand-edit PETA.md.
 7. **Owner-facing text stays Indonesian:** DECISIONS.md, change reports, inbox questions, on-screen text. Inside an instruction file, keep Indonesian only where the language itself is the point:
    - Indonesian output samples whose wording is what the rule is about: a cliché or rhythm the rule bans or praises, real product copy such as a live tagline. Add an English gloss once;
-   - literal values that a script matches (for example `Aktif` in `tools/tanya-claude.sh`). Keep them in backticks, or make the script accept both languages in a separate Behavior change.
+   - literal values that a script matches (for example `Aktif`, read by a shell script). Keep them in backticks, or make the script accept both languages in a separate Behavior change.
    Everything else is illustration and is translated for meaning, including examples of how I phrase feedback or a brief. Models interpret meaning; these are examples, not fixed vocabulary. A translation never adds an example or a banned word that the source did not have.
 8. **Verify**: equivalence (`references/testing.md` §4), `python3 tools/peta.py` run, structural checks green; results in the commit message or change report.
 9. **Skip files about to change** (anything a backlog item will rewrite or retire): settle the item first.

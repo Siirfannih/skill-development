@@ -19,7 +19,7 @@ Dibaca hanya bila pekerjaan dibagi ke Editor (subagen atau model lain); satu mod
 - **Pelajaran yang sudah ada di repo:**
   - Kritik yang diberi catatan pembuat cenderung menyetujui; kritik buta lebih jujur (`experimental/dual-agent-sound`).
   - Catatan konteks dikutip seolah temuan, jadi konteks yang diserahkan harus netral (`dual-agent-sound`).
-  - Satu sumber kebenaran per beat, perbaikan menyebut ID beat + ID temuan, devil's advocate sebelum temuan sampai ke builder (`autopilot-video/DESIGN.md` §3–4).
+  - Satu sumber kebenaran per beat, perbaikan menyebut ID beat + ID temuan, devil's advocate sebelum temuan sampai ke builder.
 
 Model sama, konteks beda: Sutradara memegang **kenapa**, Editor memegang **bagaimana**.
 
@@ -90,7 +90,7 @@ Hanya bila subagen atau model lain tersedia dan mempercepat; tanpa itu, kamu mem
 - **Batas konteks.** Sesi atau subagen yang konteksnya sudah besar (±200 ribu token, atau sudah melewati satu ronde/tahap penuh) menulis `STATUS.md` (selesai, berikutnya, file kunci) lalu diganti sesi/subagen baru. Sutradara diganti di tiap pergantian tahap `SKILL.md` §0c.
 - **Gambar dilihat di subagen sekali pakai.** Penilaian frame, sanding, dan Devil's Advocate dikerjakan subagen baru yang membuka gambar lalu mengembalikan teks temuan (`dtk | yang terlihat | usul`). Sesi Sutradara dan Editor hanya membuka gambar beat yang sedang diubah, satu lembar sebelum/sesudah, dan tidak membuka ulang gambar yang sudah dinilai.
 - **Render panjang:** Editor menjalankannya di latar belakang dan melapor saat selesai.
-- **Klien lain** (Codex, `claude -p`): prompt yang sama; folder serah terima sama.
+- **Klien lain** (`claude -p`): prompt yang sama; folder serah terima sama.
 - Sutradara tidak memanggil lebih dari satu Editor untuk beat yang sama. Beberapa video sekaligus: satu Editor per video (`references/alur-teknis.md` §4).
 
 ## 7. Kapan boleh satu peran

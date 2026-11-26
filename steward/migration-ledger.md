@@ -9,7 +9,6 @@ Repo state, not an instruction file: translation status of each instruction file
 | `claude/cinedance-block-library/PROMPT-BLOCKING.md` | en | 589ff8ab | dependants: none (verified) |
 | `claude/jadisatu-canvas/references/clients.md` | en | e0681bd0 | dependants: none (verified) |
 | `claude/motion-graphic/templates/cut-sheet.md` | en | b902aea2 | dependants: PETA.md (regenerated at merge) |
-| `claude/motion-graphic/templates/roles/konsul.md` | en | b218bbe4 | dependants: PETA.md (regenerated at merge); project copy `handoff/KONSUL.md` is read whole by `tools/tanya-claude.sh:56` (read, not parsed) |
 | `claude/motion-graphic/templates/roles/handoff.md` | en | 86553df6 | dependants: PETA.md (regenerated at merge) |
 | `claude/motion-graphic/references/kamera-gerak.md` | en | 6ca78608 | dependants: PETA.md (regenerated at merge); size test `test_migrasi_lantai.py:80-81` (≤ 15 KB, passes) |
 | `claude/motion-graphic/references/hybrid-motion-standard.md` | en | 599d43c3 | dependants: PETA.md (regenerated at merge) |

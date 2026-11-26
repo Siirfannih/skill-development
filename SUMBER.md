@@ -28,12 +28,6 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 |---|---|
 | §Skill Development · "Pasang di setiap mesin kerja: Mac…" | gagal: PC server 7–8 Nov akun claude2 tanpa skill video; Codex Mac 16 Nov memakai salinan beku 27 Okt · Irfan 8, 16 Nov |
 
-## `tools/codex-pc.sh`
-
-| Aturan | Asal-usul |
-|---|---|
-| "Keputusanku: di PC,…" | Irfan, 16 Nov |
-
 ## `tools/peta.py`
 
 | Aturan | Asal-usul |
