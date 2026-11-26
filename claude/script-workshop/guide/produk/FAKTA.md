@@ -1,34 +1,34 @@
-# Fakta produk yang boleh diklaim (Jadisatu)
+# Claimable Product Facts (Jadisatu)
 
-Sumber: kata Irfan + repo produk `Siirfannih/jadisatu-partner` (`OFFER.md`, `MASTER-PLAN.md`, `services/*/README.md`). **Cari di sini dan di repo itu dulu**; baru tanya Irfan bila tidak ketemu. Jangan menebak. Fakta baru di sesi → tambahkan di sini dengan tanggal.
+Source: my words + the product repo `Siirfannih/jadisatu-partner` (`OFFER.md`, `MASTER-PLAN.md`, `services/*/README.md`). **Search here and in that repo first**; only ask me if you cannot find it. Do not guess. New facts in a session → add them here with a date.
 
 ## Jadisatu
-- Dua produk (Canvas untuk pasar global, Workspace untuk UMKM Indonesia) + layanan jadisatucreative (sosmed, video editing, desain, kampanye). Situs payung: jadisatu.cloud.
+- Two products (Canvas for the global market, Workspace for Indonesian MSMEs) + jadisatucreative services (social media, video editing, design, campaigns). Umbrella site: jadisatu.cloud.
 
 ## Workspace
-- Halaman disesuaikan per industri/niche (mis. F&B, klinik); pengguna tinggal upload data.
-- Setup gratis, bisa dilakukan sendiri lewat website. Berbayar: kustomisasi (mis. Customer Care AI). Harga per workspace; ada kontrak minimum untuk Workspace dan paket kreatif.
-- **Gratis untuk klien layanan kreatif** (jasa kelola sosmed/konten).
-- **Gratis 100 % untuk yang baru mulai bisnis / belajar administrasi** (termasuk mahasiswa yang jualan): daftar di website, akses penuh termasuk catat lewat WhatsApp; CTA konten: komen "workspace", link dikirim.
-- **Catat lewat WA**: ketik kalimat biasa ("jual 12 risol 60rb", "beli gas 25rb") → dicatat sebagai pemasukan/pengeluaran dengan kategori (penjualan, bahan baku, operasional, transport, gaji, modal); kalimat ragu tidak dicatat diam-diam (`jadisatu-partner` docs/implementation/ws-backend-20261101/PARSER-M3.md).
-- Greatstock: bagian dari Workspace (stok). Detail cara kerjanya: tanya Irfan sebelum diklaim spesifik.
-- Laporan bisa diakses via WhatsApp (gateway, pemilik tidak perlu buka website); agen menjawab chat WhatsApp pemilik dan menulis ke database.
-- MCP: pengguna bisa menghubungkan AI sendiri (Claude, Gemini, dll.) untuk menganalisis data bisnisnya.
-- **Multi-cabang**: tiap cabang bisa punya akun sendiri (multi-akun, member + role), atau semua data di-upload lalu ditandai per cabang.
-- Penjualan dari kasir sampai marketplace dirangkum jadi satu (copy situs); file ekspor (mis. Shopee) bisa dikirim lewat WA (`services/ingest`). TikTok/bank: rencana WS9, cek status sebelum disebut.
-- **Stok** (`services/stock`): peringkat produk, tren mingguan, forecast harian, saran restock (berapa beli, memperhitungkan waktu tunggu supplier) bila stok akhir diunggah. **Tidak memperhitungkan musim/promo** (tertulis di kode): jangan klaim "tahu musim ramai".
-- Analitik lain: akuntansi (laba-rugi, arus kas, rekonsiliasi). Detail dan status per fitur: `jadisatu-partner/STATUS.md`.
-- Live sejak 5 Nov 2026.
+- Pages are tailored per industry/niche (e.g., F&B, clinics); users just upload their data.
+- Free setup, self-serve through the website. Paid: customization (e.g., Customer Care AI). Priced per workspace; minimum contracts apply for Workspace and creative packages.
+- **Free for creative service clients** (social media/content management services).
+- **100% free for people just starting a business / learning administration** (including students who sell): sign up on the website, full access including WhatsApp logging; content CTA: comment "workspace", link is sent.
+- **WhatsApp logging**: type an ordinary sentence ("jual 12 risol 60rb", "beli gas 25rb") → recorded as income/expense with a category (sales, raw materials, operations, transport, payroll, capital); ambiguous sentences are not silently recorded (`jadisatu-partner` docs/implementation/ws-backend-20261101/PARSER-M3.md).
+- Greatstock: part of Workspace (inventory). Details on how it works: ask me before making specific claims.
+- Reports can be accessed via WhatsApp (gateway, owner does not need to open the website); the agent answers the owner's WhatsApp chat and writes to the database.
+- MCP: users can connect their own AI (Claude, Gemini, etc.) to analyze their business data.
+- **Multi-branch**: each branch can have its own account (multi-account, member + role), or all data is uploaded and tagged per branch.
+- Sales from POS to marketplaces are summarized in one place (site copy); export files (e.g., Shopee) can be sent via WhatsApp (`services/ingest`). TikTok/bank: planned for WS9, check status before mentioning.
+- **Inventory** (`services/stock`): product ranking, weekly trends, daily forecast, restock suggestions (how much to buy, accounting for supplier lead time) when ending stock is uploaded. **Does not account for seasonality/promos** (written in code): never claim "knows busy seasons".
+- Other analytics: accounting (profit-and-loss, cash flow, reconciliation). Details and status per feature: `jadisatu-partner/STATUS.md`.
+- Live since 5 Nov 2026.
 
-## Paket agensi / bundling
-- Isi bundling: kelola sosmed, tim datang langsung ambil konten, sampai video TikTok; website profil usaha; optimasi Google Business (landing COPY-v2 masih menandai ulasan Google "Segera": konfirmasi status); Workspace gratis di dalam paket.
-- Pembeda utama (landing `docs/landing/COPY-v2.md`): "Konten yang dipilih dari data penjualanmu, bukan dari tebakan." Uang Jadisatu datang dari jasa kreatif; Workspace adalah pintu masuk.
-- Workspace gratis untuk klien jasa kelola sosmed (OFFER.md).
-- Irfan 7 Nov: landing untuk pemilik bisnis yang mau coba; kelola sosmed sampai video TikTok; refund bila tidak perform/tidak sesuai harapan. Syarat refund belum tertulis (OFFER.md lama: "No Perform No Pay ditunda"): tanya syarat sebelum dijanjikan di konten.
+## Agency / bundling packages
+- Bundle contents: social media management, team comes on-site to shoot content, up to TikTok videos; business profile website; Google Business optimization (landing COPY-v2 still marks Google reviews "Segera": confirm status); Workspace included free inside the package.
+- Main differentiator (landing `docs/landing/COPY-v2.md`): "Content chosen from your sales data, not from guesses." Jadisatu's revenue comes from creative services; Workspace is the entry door.
+- Workspace is free for social media management clients (`OFFER.md`).
+- From me (7 Nov): landing page for business owners who want to try; social media management up to TikTok videos; refund if it does not perform/meet expectations. Refund terms are not yet written (old `OFFER.md`: "No Perform No Pay on hold"): ask for terms before promising in content.
 
-## Harga
-Ada di `OFFER.md` tapi berubah-ubah; jangan tulis harga di konten tanpa konfirmasi Irfan di sesi.
+## Pricing
+Lives in `OFFER.md` but changes frequently; do not put prices in content without confirming with me in the session.
 
-## Bukti & klaim
-- Bukti di landing/konten harus kasus nyata, tidak pernah data simulasi/demo.
-- Belum ada klien/penjualan (Nov 2026): jangan menulis testimoni, jumlah pengguna, atau hasil pelanggan.
+## Proof & claims
+- Proof on landing pages/content must be real cases, never simulated/demo data.
+- No clients/sales yet (Nov 2026): do not write testimonials, user counts, or customer results.
