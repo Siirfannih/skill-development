@@ -3,7 +3,7 @@
 
   python3 tools/cookbook.py index                 tulis cookbook/CATALOG.md, cookbook/POLA.md, cookbook/SFX.md
   python3 tools/cookbook.py cari <id|path>        cetak path kartu (id, alias, _vault, atau arsip)
-  python3 tools/cookbook.py baca <id> [--pengikat]  cetak kartu; blok Pengikat (kulit video sumber) disembunyikan kecuali --pengikat
+  python3 tools/cookbook.py baca <id> [--pengikat]  cetak kartu; blok Pengikat, baris Kata kunci gaya, dan hex di Kondisi footage asli (kulit video sumber) disembunyikan kecuali --pengikat
   python3 tools/cookbook.py cek [--ketat]         validasi 44 Invariant Cards + rujukan kode + INDEX/Core token budget + CATALOG/POLA/SFX; info struktur vault
   python3 tools/cookbook.py migrasi-path [--tulis]  ganti rujukan pustaka/ lama di seluruh repo
 Hanya stdlib. Fungsi resolve() dipakai skrip lain (juri/resep_check.py)."""
@@ -328,24 +328,33 @@ def cmd_cari(args):
 
 # ---------- baca ----------
 PENGIKAT_DISEMBUNYIKAN = "## Pengikat (disembunyikan: kulit video sumber; dipakai hanya bila video sumbernya referensi yang dibawa user — tambah --pengikat)"
+KATA_KUNCI_DISEMBUNYIKAN = "(Kata kunci gaya disembunyikan: kulit video sumber; tambah --pengikat)"
+WARNA_DISAMARKAN = "[warna disembunyikan]"
+HEX_WARNA = re.compile(r"#[0-9A-Fa-f]{3,8}\b")
 BINGKAI_SANDING = ("> Jawab tiap pertanyaan untuk hubungan yang ditanyakan (urutan, ritme, proporsi, peran). Warna, huruf, angka, dan benda yang "
                    "disebut adalah milik video sumber; bandingkan dengan padanannya di proyek kita, bukan dengan nilainya.")
 
 
 def bingkai_kartu(teks):
-    """Teks kartu untuk dibaca sebagai mekanik: seksi `## Pengikat...` (sampai `## ` berikutnya) jadi satu baris, dan checklist sanding diberi bingkai."""
-    out, lewati = [], False
+    """Teks kartu untuk dibaca sebagai mekanik: seksi `## Pengikat...` (sampai `## ` berikutnya) jadi satu baris, baris `**Kata kunci gaya:**`
+    jadi satu catatan, nilai hex di `## Kondisi footage asli` diganti penanda (rasio, fps, durasi, posisi tetap), dan checklist sanding diberi bingkai."""
+    out, lewati, footage = [], False, False
     for baris in teks.split("\n"):
         if baris.startswith("## "):
             lewati = False
+            footage = baris.startswith("## Kondisi footage asli")
             if baris.startswith("## Pengikat"):
                 out.append(PENGIKAT_DISEMBUNYIKAN); lewati = True; continue
             out.append(baris)
             if baris.startswith("## Yang harus terasa sama saat disandingkan"):
                 out.append(BINGKAI_SANDING)
             continue
-        if not lewati:
-            out.append(baris)
+        if lewati:
+            continue
+        if baris.startswith("**Kata kunci gaya:**"):
+            out.append(KATA_KUNCI_DISEMBUNYIKAN)
+        else:
+            out.append(HEX_WARNA.sub(WARNA_DISAMARKAN, baris) if footage else baris)
     return "\n".join(out)
 
 
