@@ -41,7 +41,7 @@ Nama tahap mengikuti judul `## Tahap N` di `motion-graphic/templates/TAHAP.md` (
 | Tahap | Gerbang | Output | Lolos jika |
 |---|---|---|---|
 | Persiapan | Muat pengalaman | Skill ini + skill pendamping dibaca | Bagian workflow sudah dipahami; tidak ada aset proyek lama yang ikut terbawa |
-| Brief | Brief + bedah referensi | Tujuan, audiens, durasi, format, kondisi bisnis, batas waktu; breakdown referensi dengan angka dan timestamp; bila user membawa referensi, `REFERENCE-BRIEF.md` lewat Phase 0 `../motion-theme-director/BEDAH-REFERENSI.md` (5 lapis) | Setiap klaim tentang referensi bisa ditunjuk buktinya (file + detik); brief referensi terisi sebelum storyboard |
+| Brief | Brief + bedah referensi | Tujuan, audiens, durasi, format, kondisi bisnis, batas waktu; breakdown referensi dengan angka dan timestamp; bila user membawa referensi, `REFERENCE-BRIEF.md` lewat Phase 0 `../motion-graphic/references/bedah-referensi.md` (5 lapis) | Setiap klaim tentang referensi bisa ditunjuk buktinya (file + detik); brief referensi terisi sebelum storyboard |
 | Naskah | **Script** | Draft di chat (bukan file), diulang sampai Irfan bilang final | Lolos uji storyteller (§3) **dan** Irfan menyatakan final |
 | Storyboard/block out | Storyboard 100% durasi | Per beat: waktu, aksi tokoh/subjek, teks, kamera, transisi | Pola per beat diracik dari `motion-graphic/cookbook/INDEX.md` + `pilih_kartu.py` (tabel racikan, `cookbook/README.md` §2); lolos tabel kritik `motion-graphic/references/storyboard.md` §5, lalu disetujui Irfan |
 | Storyboard/block out | **VO** (bila ada) | VO final | Hanya dimulai setelah naskah dan storyboard disetujui |

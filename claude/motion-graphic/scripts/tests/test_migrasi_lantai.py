@@ -69,11 +69,18 @@ class SkillRamping(unittest.TestCase):
         for rel in re.findall(r"`((?:references|scripts|templates|cookbook)/[\w./-]+\.(?:md|py|sh))`", self.t):
             self.assertTrue((MG / rel).exists(), rel)
 
-    def test_mtd_hanya_penunjuk_dan_dunia_visual_ada(self):
-        mtd = (ROOT / "claude/motion-theme-director/SKILL.md").read_text(encoding="utf-8")
-        self.assertLess(len(mtd.encode("utf-8")), 2500); self.assertIn("references/dunia-visual.md", mtd)
+    def test_mtd_sudah_digabung_dan_dunia_visual_ada(self):
+        # skill penunjuk motion-theme-director dipensiunkan: tidak ada lagi di claude/, arsipnya (archive/<nama>/)
+        # membuat sync.sh mencabut instalasi lama; bahannya kini di motion-graphic/references/.
+        self.assertFalse((ROOT / "claude/motion-theme-director/SKILL.md").exists())
+        self.assertTrue((ROOT / "archive/motion-theme-director/SKILL.md").exists())
+        for rel in ("bedah-referensi.md", "preset-index.md", "tema/documentary-archive.md", "tema/talking-head-kinetic.md",
+                    "tema/ui-produk-datar.md", "tema/tactile-paper-collage.md", "tema/editorial-metaphor-canvas.md",
+                    "tema/minimalist-dataviz-kinetic.md"):
+            self.assertTrue((MG / "references" / rel).exists(), rel)
         dv = (MG / "references/dunia-visual.md").read_text(encoding="utf-8")
-        for x in ("Router tema", "Lima uji biner", "Gerbang 3 style frame", "Kata di brief"):
+        for x in ("Router tema", "Lima uji biner", "Gerbang 3 style frame", "Kata di brief",
+                  "bedah-referensi.md", "tema/<tema>.md", "preset-index.md"):
             self.assertIn(x, dv)
 
     def test_referensi_baru_dibatasi_15kb(self):

@@ -9,7 +9,7 @@ Layar adalah meja kerja: satu kertas bertekstur sebagai alas, tiap poin ditempel
 Cocok: listicle ≥ 4 poin berbenda konkret, refleksi @siirfannih, talking head dengan catatan di sisi kosong. Tidak cocok: demo UI berlabel kecil, naskah abstrak tanpa benda, kamera genggam yang memenuhi layar.
 
 ## 2. Keyframe wajib dibuka
-`../../motion-graphic/guide/referensi/sheets/keyframes/`
+`../../guide/referensi/sheets/keyframes/`
 1. `98-k2-satu-objek-per-item.jpg` — kertas krem bergrid tipis, tiap sel satu benda (headphone, kardus, kursi); label tebal huruf kecil di blok warna datar, bayangan hitam keras tanpa blur, miring sedikit, sebagian tertutup bendanya.
 2. `97-k4-urutan-belokan-but.jpg` — kertas pindai putih; "i love making stuff" tipis kecil → "but" fotokopi hitam ±57 % tinggi → pertanyaan krayon kapital; gaya pecah hanya di belokan.
 3. `31-k1-daftar-judul.jpg` — presenter kanan, langit kiri; judul spidol merah di strip kertas melintang di atas kepala; lima strip bergaris tulisan tangan miring di separuh kiri; caption putih di kotak oranye bawah tengah.
@@ -61,7 +61,7 @@ Bukti: 97 (nol whoosh), 98-k5 (hard cut), 98-k1 (swish di wipe, sinkron belum te
 Niat: aset sudah padat → ritme: ganti babak terdengar dari energi → penonton: suara intim (hipotesis) → gagal: musik melawan VO; clip.
 Bukti: 98 (bed 21,7 dB di bawah VO), 97 (0 musik), 02 (turun per babak, clip +0,1 dBFS), 31.
 
-## 6. Anti-contoh (`.../../motion-graphic/cookbook/contoh-gagal/`)
+## 6. Anti-contoh (`../../cookbook/contoh-gagal/`)
 - `02-builder-trap-unik-kecil.jpg`: foto wajah kecil di kanvas pola pucat, "unik." ±3–4 % tinggi, subtitle terpisah. Kondisi: latar tanpa kedalaman + subjek kecil + dua lapis teks. Ganti: satu benda 480–620 px, hero ≥ 2,7× pengantar yang menempel.
 - `20-inset-kecil-di-kanvas-kosong.jpg`: kartu kecil berbayangan blur di putih luas. Kondisi: aset kecil + putih digital + blur shadow = slide. Ganti: V1 + V2.
 - Caption mengulang strip (31-k3, referensi sendiri): "2. RISING ACTION" dan "rising action." tampil bersamaan. Kondisi: dua lapis teks mengucapkan hal sama. Di proyek Irfan: kata di strip tidak diulang di caption.

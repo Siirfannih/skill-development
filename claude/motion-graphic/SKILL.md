@@ -36,7 +36,7 @@ Teknik sah bila lolos tiga pertanyaan: **makna** (membawa apa dari naskah), **si
 
 ## Alur
 
-1. **Baca bahan.** Naskah, footage, aset, profil merek, folder proyek. Tulis 5 baris di `DECISIONS.md`: subjek, penonton, tugas video, terjemahan kata gaya brief (NEGATIF 3), "video ini bukan ...". **Ada referensi: bedah referensi → REF-SPEC** (`scripts/ref_spec.py` + mata; palet dari HEX nyata (`warna/cek-warna.mjs masuk` bila ada Node); `../motion-theme-director/BEDAH-REFERENSI.md`): warna, huruf, layout, porsi teks, material, gerak, **alasan per pilihan**, toleransi. Tanpa referensi, REF-SPEC diisi di langkah 3 (merek + tema). Selesai bila: 5 baris (+ REF-SPEC.md bila ada referensi).
+1. **Baca bahan.** Naskah, footage, aset, profil merek, folder proyek. Tulis 5 baris di `DECISIONS.md`: subjek, penonton, tugas video, terjemahan kata gaya brief (NEGATIF 3), "video ini bukan ...". **Ada referensi: bedah referensi → REF-SPEC** (`scripts/ref_spec.py` + mata; palet dari HEX nyata (`warna/cek-warna.mjs masuk` bila ada Node); `references/bedah-referensi.md`): warna, huruf, layout, porsi teks, material, gerak, **alasan per pilihan**, toleransi. Tanpa referensi, REF-SPEC diisi di langkah 3 (merek + tema). Selesai bila: 5 baris (+ REF-SPEC.md bila ada referensi).
 2. **Naskah** disetujui Irfan (gerbang pemilik; `references/copywriting.md`, `../irfan-creative-workflow/SKILL.md` §3). Tanpa persetujuan: tanpa kode dan kredit.
 3. **Dunia visual.** Pilih satu tema dari wujud bukti yang dituntut naskah, bukan kata sifat brief (`references/dunia-visual.md`). Tunjukkan 2-3 keyframe. Tanpa referensi: REF-SPEC.md dari merek + tema. Selesai bila: tema dan REF-SPEC.md ada.
 4. **Tiga style frame**, dilihat penuh dan disandingkan dengan REF-SPEC + `banding.py`; per lapis L0-L3 untuk style frame pertama dan frame yang gagal (TYPO_HERO, SYSTEM_FLOW, UI_PROOF; protokol, `lihat.py`, 5 uji biner: `references/dunia-visual.md` §7-8). Selesai bila: `negatif_cek.py`, `tabrakan_cek.py` hijau, `banding.py` dalam toleransi, Irfan setuju.
@@ -55,7 +55,7 @@ Profil merek memilih warna, logo, huruf utama, `huruf_kedua` bila ada, dan nada;
 
 | Bila | Buka |
 |---|---|
-| membedah referensi jadi REF-SPEC | `../motion-theme-director/BEDAH-REFERENSI.md` |
+| membedah referensi jadi REF-SPEC | `references/bedah-referensi.md` |
 | memilih tema, menerjemahkan kata gaya, style frame, 5 uji biner | `references/dunia-visual.md` |
 | menimbang mode teks/visual per beat, kotak, grafik di atas footage | `references/decision-guide.md` |
 | menulis storyboard, metafora beat, tampilan UI/platform | `references/storyboard.md` |

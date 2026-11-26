@@ -11,7 +11,7 @@ Peringatan: 0 dari 4 kartu dilihat bergerak; semua gerak dan bunyi = hipotesis d
 Ukuran: px pada sisi 1080 (lebar 9:16, tinggi 16:9). Angka hanya dari naskah/data, jangan dikarang.
 
 ## 2. Keyframe wajib dibuka
-Folder: `../../motion-graphic/guide/referensi/sheets/keyframes/`
+Folder: `../../guide/referensi/sheets/keyframes/`
 - `57-k4-bar-persen.jpg`: 3:4 gelap; panel ±75 % lebar, tanpa bayangan; blok atas abu-gelap, "65%" putih Regular di dasar blok, "APY" kecil di pojok kiri-atas; blok bawah lime, "35%" dan "Match" hitam. Satu aksen, nol bold.
 - `67-k2-tumpukan-foto.jpg`: 16:9; kartu putih hangat berinset di bingkai hijau-gelap; "Island Announcing" kecil tepat di atas "$400M" besar (≈ 4,4×); kartu foto buram mengapit atas-bawah.
 - `67-k7-footage-statistik.jpg`: kolom 4 kartu statistik; hanya kartu teratas menyala (foto gelap + "16" mint), 3 lainnya pucat; panel foto di kanan.
@@ -43,7 +43,7 @@ Folder: `../../motion-graphic/guide/referensi/sheets/keyframes/`
 
 **S4 Mode suara dari narator.** Tanpa VO: musik ber-ketukan jelas (±110 bpm) memimpin, cut di ketukan. Dengan VO: bed lemah-ketukan (±90 bpm); layar hanya menahan angka yang diucapkan. Whoosh hanya untuk panel besar bergeser/zoom-through, bukan di cut diam (S-A12). → Niat: satu pemimpin ritme. → Frame: cut ikut ketukan/ucapan. → Penonton (hipotesis): ritme tak bertabrakan. → Bukti: 56, 67 tanpa VO; 58 ber-VO; whoosh 67 di geser panel.
 
-## 6. Anti-contoh (`.../../motion-graphic/cookbook/contoh-gagal/`)
+## 6. Anti-contoh (`../../cookbook/contoh-gagal/`)
 - `20-inset-kecil-di-kanvas-kosong.jpg`: kartu kecil berbayang di kanvas putih luas, "Line 2" jauh di kiri atas, subtitle kotak abu. Penyebab: aset kecil dipasang apa adanya; bayangan + kotak = slide.
 - `17-frasa-terpisah.jpg`: "SKILL" kecil di kiri atas jauh dari "GRATIS". Penyebab: label dijauhkan dari nilai, terbaca dua pesan (S-V13, teks-visual berjauhan).
 - `16-punchline-di-kotak.jpg`: "PROFESIONAL" di kotak video kecil dalam tampilan IG. Penyebab: hero dikurung di wadah kecil, skalanya hilang; di sini: angka hero jangan kecil dalam kartu.

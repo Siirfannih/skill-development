@@ -1,10 +1,10 @@
 # Dunia visual: tema, terjemahan kata gaya, dan gerbang style frame
 
-Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. Isinya dipindahkan dari skill `motion-theme-director` (kini hanya penunjuk ke sini). NEGATIF v2 di `SKILL.md` berlaku penuh: butir [mutlak] menang bila ada bentrok, teknik lain dinilai dengan tiga pertanyaan makna, sistem, takaran. Isi diturunkan dari 80+ kartu referensi eksternal yang sudah diaudit; kamu tidak perlu membuka kartunya, buka hanya keyframe yang ditunjuk.
+Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. Isinya digabung dari skill `motion-theme-director` (sudah pensiun). NEGATIF v2 di `SKILL.md` berlaku penuh: butir [mutlak] menang bila ada bentrok, teknik lain dinilai dengan tiga pertanyaan makna, sistem, takaran. Isi diturunkan dari 80+ kartu referensi eksternal yang sudah diaudit; kamu tidak perlu membuka kartunya, buka hanya keyframe yang ditunjuk.
 
 ## 1. Urutan kerja (langkah 1 dan 3-5 alur `SKILL.md`)
 
-0. **Ada referensi dari user: bedah dulu.** Jalankan `../../motion-theme-director/BEDAH-REFERENSI.md` (5 lapis: state machine naratif, mekanisme vs properti permukaan, kontrak dominasi per frame, rantai sebab-akibat kamera, peta upgrade) dan isi `REF-SPEC.md` (ukur dengan `scripts/ref_spec.py`, alasan per pilihan dengan mata) sebelum storyboard dibuat atau di-upgrade. Referensi adalah kebenaran pilihan user: yang dipindahkan adalah alasan dan sistemnya; bentuknya dipakai bila alasannya berlaku di proyek ini (NEGATIF 7).
+0. **Ada referensi dari user: bedah dulu.** Jalankan `bedah-referensi.md` (5 lapis: state machine naratif, mekanisme vs properti permukaan, kontrak dominasi per frame, rantai sebab-akibat kamera, peta upgrade) dan isi `REF-SPEC.md` (ukur dengan `scripts/ref_spec.py`, alasan per pilihan dengan mata) sebelum storyboard dibuat atau di-upgrade. Referensi adalah kebenaran pilihan user: yang dipindahkan adalah alasan dan sistemnya; bentuknya dipakai bila alasannya berlaku di proyek ini (NEGATIF 7).
 1. **Periksa bahan dulu.** Lihat footage, naskah, dan aset nyata user sebelum memilih teknik. Catat:
    - warna dan motif baju serta dinding di tempat teks akan jatuh;
    - terang-gelap piksel tepat di bawah huruf (bukan rata-rata frame);
@@ -13,7 +13,7 @@ Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun 
 
    Niatnya: teknik referensi yang bagus rusak bila dipakai di kondisi yang berlawanan, misalnya pil kaca di dinding terang, teks tipis di arsip bertekstur, atau KT yang menutup wajah. Bila syarat teknik tidak terpenuhi, ganti tekniknya, jangan dipaksa.
 2. **Pilih tema** (§2). Bila belum jelas dari bahan, tanya (§3).
-3. **Buka `../../motion-theme-director/tema/<tema>.md`** dan 2-3 keyframe wajib di dalamnya. Lihat gambarnya, jangan hanya membaca deskripsinya.
+3. **Buka `tema/<tema>.md`** dan 2-3 keyframe wajib di dalamnya. Lihat gambarnya, jangan hanya membaca deskripsinya.
 4. **Tiga style frame dulu** (gerbang di §7), baru storyboard.
 5. **Storyboard dengan lingkaran still:**
    1. render 1 still per beat kunci (hook + bukti utama dulu) dengan materi asli, bukan teks dummy, per lapis dan dengan komponen yang sudah lulus di butir 4;
@@ -23,7 +23,7 @@ Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun 
 
    Skor yang kamu tulis sendiri bukan bukti. Bukti adalah perbandingan dengan gambar.
 6. **Audio disusun setelah visual lulus**, lalu menyesuaikan gerak final.
-7. **Build**: buka `../../motion-theme-director/PRESET-INDEX.md` hanya di tahap ini.
+7. **Build**: buka `preset-index.md` hanya di tahap ini.
 
 ## 2. Router tema
 

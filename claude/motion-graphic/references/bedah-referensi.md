@@ -2,11 +2,11 @@
 
 Wajib dijalankan setiap kali user membawa referensi (video, gambar, link), **sebelum** storyboard dibuat atau di-upgrade. Referensi adalah desain yang sudah dipilih user: sumber kebenaran seleranya. Tujuan bedah: mengubahnya jadi spesifikasi **terukur dan bisa diterapkan ulang** (`REF-SPEC.md`), dengan **alasan** untuk setiap pilihan. Yang dipindahkan adalah alasan dan sistemnya; bentuknya dipakai bila alasan itu berlaku di proyek ini.
 
-Alat: `python3 ../motion-graphic/scripts/ref_spec.py <video|folder still>` mengekstrak still per adegan, palet, rentang luma, saturasi, anatomi gradien kasar, luas objek, ke `REF-SPEC.json` + kerangka `REF-SPEC.md`. Angka dari skrip adalah bahan; **alasannya diisi dengan mata**. Bukti tetap wajib: contact sheet + timestamp untuk setiap klaim (lihat sendiri, jangan menebak dari nama file).
+Alat: `python3 ../scripts/ref_spec.py <video|folder still>` mengekstrak still per adegan, palet, rentang luma, saturasi, anatomi gradien kasar, luas objek, ke `REF-SPEC.json` + kerangka `REF-SPEC.md`. Angka dari skrip adalah bahan; **alasannya diisi dengan mata**. Bukti tetap wajib: contact sheet + timestamp untuk setiap klaim (lihat sendiri, jangan menebak dari nama file).
 
 Sebelum mulai, petakan **peran tiap referensi**: apa yang dipelajari dari masing-masing. Referensi yang digabung tanpa peran saling bertabrakan (*style bleeding*).
 
-**Kulit vs mekanik, versi 2.** Kulit dari referensi pilihan user (huruf kedua, gradien, kilau, bayangan) **tidak dilarang**. Ia diadopsi bila alasannya berlaku di proyek ini, dan alasannya ditulis di REF-SPEC. Ia ditolak bila hanya disalin karena cantik (tak ada alasan yang bisa diucapkan) atau bila alasannya tidak berlaku (mis. gelap = babak masalah, tetapi proyek ini tidak punya babak masalah). Kata gaya di brief ("Apple", "premium", "kedalaman") diterjemahkan dari REF-SPEC bila ada referensi; tanpa referensi, dari tabel `../motion-graphic/references/dunia-visual.md`.
+**Kulit vs mekanik, versi 2.** Kulit dari referensi pilihan user (huruf kedua, gradien, kilau, bayangan) **tidak dilarang**. Ia diadopsi bila alasannya berlaku di proyek ini, dan alasannya ditulis di REF-SPEC. Ia ditolak bila hanya disalin karena cantik (tak ada alasan yang bisa diucapkan) atau bila alasannya tidak berlaku (mis. gelap = babak masalah, tetapi proyek ini tidak punya babak masalah). Kata gaya di brief ("Apple", "premium", "kedalaman") diterjemahkan dari REF-SPEC bila ada referensi; tanpa referensi, dari tabel `dunia-visual.md`.
 
 ## Lima lapis bedah
 
@@ -84,4 +84,4 @@ Tanpa referensi: isi REF-SPEC dari profil merek + tema, dengan alasan yang sama.
 
 ## Style frame dan 5 uji biner
 
-Gerbang 3 style frame (per lapis L0-L3, bandingkan berdampingan, `banding.py`) dan 5 uji biner per frame ditulis satu kali, di `../motion-graphic/references/dunia-visual.md` §7-8. REF-SPEC di atas adalah patokan yang dipakai gerbang itu; hasil ujinya dicatat di `REF-SPEC.md` atau `STORYBOARD.md`.
+Gerbang 3 style frame (per lapis L0-L3, bandingkan berdampingan, `banding.py`) dan 5 uji biner per frame ditulis satu kali, di `dunia-visual.md` §7-8. REF-SPEC di atas adalah patokan yang dipakai gerbang itu; hasil ujinya dicatat di `REF-SPEC.md` atau `STORYBOARD.md`.

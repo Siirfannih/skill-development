@@ -10,7 +10,7 @@ Cocok: esai VO tanpa wajah (Soalnya Gini, opini @siirfannih), hook manifesto, ko
 Ukuran: px pada sisi 1080 (lebar 9:16, tinggi 16:9).
 
 ## 2. Keyframe wajib dibuka
-Folder: `../../motion-graphic/guide/referensi/sheets/keyframes/`
+Folder: `../../guide/referensi/sheets/keyframes/`
 - `88-k6-lingkaran-satu-dial.jpg`: 9:16 putih; "one dial," duduk di tepi atas satu lingkaran biru solid (±19 % lebar); "one" hitam, "dial," masih abu. Empat elemen, >60 % kosong. Yang diambil: satu benda + ruang kosong + teks menempel. Serif dan halo biru pucat di gambar ini bagian gaya referensinya: dipakai hanya bila alasannya berlaku (REF-SPEC); default tema ini teks sans dan lingkaran datar, karena halo pucat menurunkan kontras teks.
 - `80-k1-kinetik-gelap.jpg`: 16:9 hitam; "Ada" dan "jarak" sans tebal putih segaris, di antaranya garis ukur tipis bertick, "antara" kecil abu di bawahnya.
 - `96-k6-urutan-polaritas.jpg`: 8 still; terang↔gelap tiap 1–3 dtk, 1–3 elemen per adegan, puncak "never" putih raksasa di hitam (kemiringan/italic di gambar tidak punya peran sistem di tema ini; ambil skala dan polaritasnya). Abaikan pita mono kecil di bawah (anti-pola).
@@ -44,7 +44,7 @@ Folder: `../../motion-graphic/guide/referensi/sheets/keyframes/`
 
 **S4 Kosongkan sebelum puncak.** Sebelum hantaman titik balik, stem musik turun 0,3–0,45 dtk; bed ambien tetap. Puncak bunyi ≤ 0,1 dtk dari frame visual, isi 150–450 Hz untuk HP. → Niat: kontras dinamika memberatkan satu hantaman. → Frame: klimaks punya pasangan bunyi. → Penonton (hipotesis): titik balik terasa. → Gagal bila hening digital atau tiap kalimat dihantam. → Bukti: 37, 94-k13-peta-bunyi (lintas tema), sinkron 96.
 
-## 6. Anti-contoh (`.../../motion-graphic/cookbook/contoh-gagal/`)
+## 6. Anti-contoh (`../../cookbook/contoh-gagal/`)
 - `02-builder-trap-unik-kecil.jpg`: "unik." ±3–4 % tinggi + foto kecil di kanvas >80 % kosong, subtitle tumbuh di bawah. Penyebab: ruang kosong disalin tanpa membesarkan objek; dua lapis teks.
 - `04-builder-trap-biru-gelap.jpg`: navy, garis sirkuit, kotak biru melayang, subtitle. Penyebab: "gelap" diartikan dekorasi teknologi + blob biru (S-V21), bukan satu benda bermakna.
 - `01-serif-pucat-raksasa.jpg`: serif italic abu pucat menyentuh tepi, lepas dari ilustrasi, plus subtitle. Penyebab: serif demi gaya, tanpa kontras dan hubungan dengan benda.

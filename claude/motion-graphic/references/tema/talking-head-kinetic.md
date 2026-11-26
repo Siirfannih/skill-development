@@ -9,7 +9,7 @@ Wajah dan ruangannya adalah panggung; teks menumpang pada bidang yang disediakan
 Cocok: reel @siirfannih, Soalnya Gini, hook opini. Tidak cocok: video ≥ 80 % UI/arsip tanpa wajah. Audit footage dulu: baju polos/bermotif, headroom, dinding gelap/terang, tangan di dada.
 
 ## 2. Keyframe wajib dibuka
-Folder: `../../motion-graphic/guide/referensi/sheets/keyframes/`
+Folder: `../../guide/referensi/sheets/keyframes/`
 - `83-k8-urutan-pengantar-at.jpg`: dinding merah gelap; "At" putih kecil muncul dulu, lalu "BARSOL MEDIA" condensed raksasa di belakang kepala, kepala menutup huruf tengah; "At" menempel di sudut kiri atasnya.
 - `85-k10-urutan-neon-ruang.jpg`: saat "ORTHODONTIST" neon biru muncul di belakang kepala, hanya dinding yang berubah dari oranye hangat ke biru-hitam; wajah tetap hangat; caption dada tidak berpindah.
 - `90-k13-urutan-gambar-ganti-kata-diam.jpg`: caption putih bold satu kata diam di poros tengah sementara shot berganti siluet gelap ↔ profil terang.
@@ -37,7 +37,7 @@ Folder: `../../motion-graphic/guide/referensi/sheets/keyframes/`
 
 **SD3 Bunyi ke onset kata dan bentuk gerak.** Aksen jatuh di onset kata kunci atau puncak gerak, bukan grid ketukan musik. Whoosh hanya untuk whip/zoom ber-motion blur; potong keras = klik atau senyap. → Niat: bunyi terbaca sebagai akibat yang terlihat. → Frame: transien ±1 f dari kejadian. → Penonton (hipotesis): perpindahan tidak kasar. → Gagal bila whoosh di potongan tanpa gerak cepat. → Bukti: 26 (89 % onset ≤ 100 ms), 69, 79, 85, 78. Belum didengar.
 
-## 6. Anti-contoh (`.../../motion-graphic/cookbook/contoh-gagal/`)
+## 6. Anti-contoh (`../../cookbook/contoh-gagal/`)
 - `17-frasa-terpisah.jpg`: "SKILL" di pojok kiri atas, jauh dari "GRATIS"; kepala menelan "A". Kondisi: pengantar ditaruh di pojok frame, bukan di sudut kata hero.
 - `16-punchline-di-kotak.jpg`: "PROFESIONAL" di slab di dalam kotak video IG, kepala menutup 3 huruf. Kondisi: slab dipakai di wadah kecil; kata 11 huruf di belakang kepala lebar.
 - `09-skilldev-hero-terlalu-bawah.jpg`: "DECISION" di tepi bawah menutup kedua tangan. Kondisi: zona dada dipakai saat tangan bergestur.

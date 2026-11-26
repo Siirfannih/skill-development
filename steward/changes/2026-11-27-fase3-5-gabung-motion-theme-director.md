@@ -1,0 +1,11 @@
+# Fase 3.5: motion-theme-director digabung ke motion-graphic (Q5)
+Masalah: skill penunjuk ini masih terpasang sendiri (deskripsi dibayar tiap sesi) padahal isinya sudah di `dunia-visual.md`; bahan hidupnya (tema, bedah referensi) masih di foldernya.
+Urutan (bahan dulu, penunjuk terakhir):
+- `git mv` `tema/` (6 berkas) ke `claude/motion-graphic/references/tema/`, `BEDAH-REFERENSI.md` ke `references/bedah-referensi.md`, `PRESET-INDEX.md` ke `references/preset-index.md`. Tautan relatif di dalamnya diperbaiki (`../../guide/...`, `../../cookbook/contoh-gagal/`, `../scripts/ref_spec.py`, `../scripts/remotion/`, `dunia-visual.md`).
+- Rujukan dialihkan: `references/dunia-visual.md` (3 jalur + kalimat pembuka; 15.249 B, batas 15.360), `SKILL.md` motion-graphic (2 tempat, kini 12.258 B: turun 28 B, batas 12.288 tidak disentuh), `claude/_bersama/NEGATIF.md:5` (di luar penanda sync), `irfan-creative-workflow/SKILL.md`, `cookbook/00-core-invariants.md` (rujukan ke "tabel §2" penunjuk kini ke bagian "Kata gaya di brief"), banner `guide/referensi/ganimate.md` dan `markbrazil.md`, `SUMBER.md` akar.
+- `SKILL.md` penunjuk dipindah ke `archive/motion-theme-director/SKILL.md` (isi diganti pemberitahuan pensiun). Konvensi repo: folder `archive/<nama>/` = skill pensiun; `sync.sh` (juga untuk Codex) memindahkan instalasi lamanya ke cadangan ("dicabut"), `doctor.sh` memeriksa hal yang sama. `archive/riwayat/motion-theme-director/` (draf, fase 2) tidak berubah; `riwayat` dilewati sync.
+- Tes: `test_migrasi_lantai.test_mtd_hanya_penunjuk_dan_dunia_visual_ada` (menjaga penunjuk <2500 B) diganti `test_mtd_sudah_digabung_dan_dunia_visual_ada`: folder lama tanpa SKILL.md, arsip ada, enam tema + bedah + preset ada di tempat baru, `dunia-visual.md` memuat Router tema, Lima uji biner, Gerbang 3 style frame, Kata di brief dan tiga rujukan baru. Jumlah tes tetap 357.
+Hasil cek: 357 tes OK (64 skip), peta, cookbook 44 kartu, sumber_cek, sync_lantai, sync_negatif bersih; steward_check 0 error, 53 peringatan; `bash -n` sync/doctor lolos (tidak diubah).
+Dampak: pengguna yang menjalankan `sync.sh` kehilangan skill `motion-theme-director` (dicabut ke cadangan); `motion-graphic` membuka bahannya sendiri.
+Level: Risky ringan (menghapus satu skill utuh) dengan jawaban pemilik Q5 ya
+Cara membatalkan: `git revert` commit ini lalu jalankan `tools/sync.sh`.
