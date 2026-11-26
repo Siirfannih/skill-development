@@ -9,7 +9,7 @@ Skill ini berisi **pengalaman** dari proyek-proyek sebelumnya: urutan kerja, sta
 
 Bayangkan creative director senior yang masuk ke proyek baru. Ia tidak membawa 10 template dari klien sebelumnya. Yang ia bawa adalah cara berpikir, urutan kerja, dan insting tentang apa yang biasanya salah. Hasilnya: prosesnya lebih cepat, dan karyanya lebih bagus.
 
-Pakai skill ini bersama `working-with-irfan` (cara berkomunikasi) dan `motion-graphic` (teknik dan prinsip sutradara untuk video). Sumber kebenaran semua skill adalah repo `Siirfannih/skill-development`; katalognya di `INDEX.md`.
+Pakai skill ini bersama `working-with-irfan` (cara berkomunikasi) dan `motion-graphic` (teknik dan prinsip sutradara untuk video). Sumber kebenaran semua skill adalah repo `Siirfannih/skill-development`; daftar skillnya di `PETA.md`.
 
 ---
 

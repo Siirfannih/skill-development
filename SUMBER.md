@@ -16,12 +16,6 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 | Menyimpan kemajuan · "commit dan push" | Bunyi lama memuat izin satu sesi: "Irfan mengizinkan kemajuan dalam tugas ini diperbarui ke GitHub" (sesi scriptwriter, 27 Okt) |
 - Invarian/§Cara membaca · urutan otoritas kanonik brief → proyek → merek → Lantai/Kelas H → kartu → guide (Lantai di atas kartu); muat cookbook per kartu lewat pilih_kartu.py; rute tugas video lewat MOTION-CORE; PENDING > 7 hari ke PENDING-ARSIP.md: Irfan 25 Nov 2026 (audit skill-development, D-audit). Gagal: 5 file bertentangan soal otoritas; rute video memuat ±19.300 tok sebelum kerja pertama
 
-## `INDEX.md`
-
-| Aturan | Asal-usul |
-|---|---|
-| baris "Siirfannih/canvas-skill-library" | Irfan 6 Nov: library belum stabil |
-
 ## `README.md`
 
 | Aturan | Asal-usul |

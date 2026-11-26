@@ -171,7 +171,7 @@ def build():
         rows.append((f"projects/{d}/", (bersih(first_sentence(open(src, encoding="utf-8").read())[0]) if src else "")
                      + (" · mulai dari STATUS.md" if os.path.exists(st) else "")))
     parts += ["## projects/ (keputusan per video; buka hanya proyekmu sendiri, isinya bukan aturan untuk video lain)", "", table(rows, ("Proyek", "Isi")), ""]
-    top = [("INDEX.md", "katalog skill dan folder"), ("AGENTS.md", "pintu: invarian, urutan otoritas, tabel rute"),
+    top = [("AGENTS.md", "pintu: invarian, urutan otoritas, tabel rute"),
            ("steward/", "keadaan perawatan skill: backlog, kotak masuk pelajaran, laporan perubahan; bukan aturan"),
            ("SUMBER.md, claude/<skill>/SUMBER.md", "asal-usul aturan; bukan instruksi, jangan dibuka saat mengerjakan tugas"),
            ("experimental/", "alur sampingan yang belum terbukti; bukan aturan"), ("archive/", "skill lama; jangan dimuat")]

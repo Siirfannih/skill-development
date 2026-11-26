@@ -22,7 +22,7 @@ POLA = [
     re.compile(r"\b[Gg]agal (?:pertama|sebelumnya|yang membentuk)\b"),
     re.compile(r"\b(?:Permintaan|Koreksi(?: langsung)?|Disetujui|Diputuskan) Irfan[^.]{0,20}\d{1,2} " + BULAN),
 ]
-INSTRUKSI = ["AGENTS.md", "README.md", "INDEX.md", "PETA.md", "scriptwriter/README.md", "content-ops/README.md",
+INSTRUKSI = ["AGENTS.md", "README.md", "PETA.md", "scriptwriter/README.md", "content-ops/README.md",
              "claude/**/*.md", "claude/**/*.py", "claude/**/*.sh", "claude/**/*.ts", "claude/**/*.tsx",
              "tools/*.py", "tools/*.sh"]
 # riwayat, data, dan bukti: tempatnya memang di sini

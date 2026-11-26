@@ -286,7 +286,6 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 
 | File | Isi / kapan dibuka |
 |---|---|
-| `INDEX.md` | katalog skill dan folder |
 | `AGENTS.md` | pintu: invarian, urutan otoritas, tabel rute |
 | `steward/` | keadaan perawatan skill: backlog, kotak masuk pelajaran, laporan perubahan; bukan aturan |
 | `SUMBER.md, claude/<skill>/SUMBER.md` | asal-usul aturan; bukan instruksi, jangan dibuka saat mengerjakan tugas |

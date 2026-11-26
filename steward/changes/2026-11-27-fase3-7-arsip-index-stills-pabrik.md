@@ -1,0 +1,8 @@
+# Fase 3.7: INDEX.md akar diarsipkan (Q7) dan still putaran lama pabrik dibuang (Q8)
+Masalah: `INDEX.md` menggandakan README dan tabel skill di PETA dan isinya basi ("Lantai termuat di SKILL.md", "Pustaka"); `pabrik/kandidat/` menyimpan 63 gambar putaran lama yang tidak dikutip siapa pun.
+Q7: `git mv INDEX.md archive/riwayat/INDEX.md`. `README.md` kini menunjuk `PETA.md` untuk daftar skill; `irfan-creative-workflow/SKILL.md` ("katalognya di PETA.md"); baris INDEX dihapus dari `tools/peta.py` (PETA dibangkitkan ulang) dan `tools/sumber_cek.py`; bagian `INDEX.md` di `SUMBER.md` dibuang. `AGENTS.md` tidak lagi menyebut INDEX sejak fase 2. `cookbook/INDEX.md` (router kartu) tidak sama dan tidak disentuh.
+Q8: `git rm` 63 jpg, 2.730.785 byte, di `claude/motion-graphic/pabrik/kandidat/*/`: semua gambar yang tidak dikutip `registry.json` (`demo_stills`, `lembar`) atau `VALIDASI-MANDA.md` (UIActionScript `stills-r1/` dan `lembar-r1`, AnchoredCaption `stills-r2/` dan `lembar-r2`). Terdiri dari 56 still dan 7 `lembar-r*` ronde lama (AnchoredCaption r1, ScaleLadder r1, UIActionScript r2, WordBeat r1-r2, WorldStage r1-r2); sama dengan hitungan FILES.md. 63 dari 126 gambar tetap. `LAPORAN.md` tiap komponen masih menyebut lembar ronde lama sebagai catatan sejarah ronde itu; sengaja tidak ditulis ulang. `uji.py` tidak diubah (usul "keluaran non-final ke `pabrik/out/`" belum diputuskan).
+Hasil cek: 357 tes OK (64 skip) termasuk `test_pabrik`, peta, cookbook 44 kartu, sumber_cek, sync_lantai, sync_negatif bersih; steward_check 0 error.
+Level: Behavior
+Persetujuan: ya, jawaban Q7 dan Q8
+Cara membatalkan: `git revert` commit ini.
