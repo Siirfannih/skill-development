@@ -75,7 +75,7 @@ Setiap agent mencatat menit nyata per tahap ke `PIECE.md` dan `tracker.csv`: `ri
 
 ## 8. Retro mingguan (Minggu)
 
-Maximus menulis `weekly/<YYYY-Www>.md`: peringkat konten per jalur, pola yang naik/turun, median waktu per tahap, satu usulan perubahan proses dengan bukti. Perubahan skill tetap lewat `EVALS-DESIGN.md`.
+Maximus menulis `weekly/<YYYY-Www>.md`: peringkat konten per jalur, pola yang naik/turun, median waktu per tahap, satu usulan perubahan proses dengan bukti. Perubahan skill tetap lewat `claude/skill-steward/SKILL.md`.
 
 ## 9. Batas yang harus jujur
 

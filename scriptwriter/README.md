@@ -17,7 +17,7 @@ Irfan ingin workflow kreatif yang dapat digunakan berbagai AI, dengan kemajuan y
 | Mengembangkan insight, sudut pandang, hook, dan draft | [script-workshop](../claude/script-workshop/SKILL.md) |
 | Menilai penulisan dan keterucapan naskah | [copywriting](../claude/motion-graphic/references/copywriting.md) |
 | Menurunkan naskah final menjadi beat dan serah terima | [storyboard](../claude/motion-graphic/references/storyboard.md) |
-| Membuktikan perbaikan cara kerja | [EVALS-DESIGN.md](../EVALS-DESIGN.md) |
+| Membuktikan perbaikan cara kerja | [claude/skill-steward/references/testing.md](../claude/skill-steward/references/testing.md) |
 
 `scriptwriter` adalah ruang pengembangan peran. Ia belum menjadi skill baru dan tidak menggantikan skill aktif. Ketika bukti menunjukkan perlu perbaikan, ubah sumber yang paling tepat agar satu konsep tetap punya satu sumber kebenaran.
 
@@ -44,7 +44,7 @@ Gunakan data yang memang tersedia pada tahapnya:
 - Saat memperbaiki skill: perilaku pada kasus yang sama dengan instruksi lama dan baru, ditambah pemeriksaan bahwa kasus lama tetap lulus.
 - Setelah publikasi, bila data diberikan: respons penonton dan metrik platform dengan konteks distribusinya. Skor internal bukan bukti performa penonton.
 
-Belum ada target angka atau baseline untuk ruang kerja ini. Catat pengukuran pertama sebelum menyimpulkan proses lebih cepat atau lebih baik. Ikuti gerbang perubahan skill di `EVALS-DESIGN.md`; jangan mengangkat selera satu konten menjadi aturan umum tanpa pengujian dan persetujuan yang diperlukan.
+Belum ada target angka atau baseline untuk ruang kerja ini. Catat pengukuran pertama sebelum menyimpulkan proses lebih cepat atau lebih baik. Ikuti `claude/skill-steward/SKILL.md` untuk perubahan skill; jangan mengangkat selera satu konten menjadi aturan umum tanpa pengujian dan persetujuan yang diperlukan.
 
 ## 5. Kelanjutan
 

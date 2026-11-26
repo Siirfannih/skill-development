@@ -15,7 +15,7 @@ Di The Gap dan video berikutnya polanya sama: ide, bedah storyboard, dikerjakan,
 1. Setelah gerbang 1, video sampai "siap dinilai Irfan" tanpa interaksi Irfan.
 2. Setiap penyimpangan dari storyboard tertangkap sebelum Irfan melihat, atau tercatat dengan alasan.
 3. Beat yang sudah lulus tidak rusak oleh perbaikan beat lain.
-4. Setiap masukan Irfan di gerbang 2 menjadi aturan atau kasus uji (`EVALS-DESIGN.md`).
+4. Setiap masukan Irfan di gerbang 2 menjadi aturan atau kasus uji (`claude/skill-steward/references/testing.md` §7).
 5. Waktu per tahap dan biaya per video tercatat otomatis (dasar ROI per video).
 
 ## Bukan tujuan (v1)

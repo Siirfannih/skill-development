@@ -76,4 +76,4 @@ Profil merek memilih warna, logo, huruf utama, `huruf_kedua` bila ada, dan nada;
 - `toolkit/mulai.sh <folder> [remotion|storyboard]`: kurva, kamera 2,5D, latar/grain opsional; `toolkit/README.md`.
 - `scripts/lihat.py`: frame per lapis + crop 100 % ke `qc/lihat/`.
 - `scripts/juri/tahap.py projects/<proyek>`: langkah berikutnya; `render.sh` menolak render belum lulus.
-- Mengubah skill: `../../AGENTS.md`, `../../SARINGAN.md`. `LANTAI.md`, `MOTION-CORE.md` = arsip.
+- Mengubah skill: `../skill-steward/SKILL.md`. `LANTAI.md`, `MOTION-CORE.md` = arsip.

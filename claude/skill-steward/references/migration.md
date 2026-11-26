@@ -15,7 +15,7 @@ Open when translating an existing Indonesian instruction file. A translation cha
    - literal values that a script matches (for example `Aktif` in `tools/tanya-claude.sh`). Keep them in backticks, or make the script accept both languages in a separate Behavior change.
    Everything else is illustration and is translated for meaning, including examples of how I phrase feedback or a brief. Models interpret meaning; these are examples, not fixed vocabulary. A translation never adds an example or a banned word that the source did not have.
 8. **Verify**: equivalence (`references/testing.md` §4), `python3 tools/peta.py` run, structural checks green; results in the commit message or change report.
-9. **Skip files about to change** (SARINGAN.md, PENDING.md, EVALS-DESIGN.md, motion-graphic's LANTAI.md and MOTION-CORE.md, anything a backlog item will rewrite): settle the item first.
+9. **Skip files about to change** (anything a backlog item will rewrite or retire): settle the item first.
 
 ## 2. Ledger
 

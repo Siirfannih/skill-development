@@ -40,8 +40,21 @@ To archive a file (Behavior when agents read it, Risky for a whole skill): grep 
 | `steward/migration-ledger.md` | translation status per file (`references/migration.md` §2) |
 | `steward/drafts/` | work not yet applied, such as translation drafts |
 
-PENDING.md is being retired into `steward/inbox/`; a PENDING line and an inbox note on the same idea are one item.
+Lessons that wait for my answer live as notes in `steward/inbox/`; the old PENDING.md queue and its questions are archived in `archive/riwayat/`.
 
 ## 5. What AGENTS.md may contain
 
 It loads into every session, so it stays ≤ ~2000 tokens and holds only entry content: what the repo is, session start and health check, the route entry into PETA.md, the content authority order, where corrections go, that instruction changes follow skill-steward, and how to push without overwriting others. Everything else lives in the owning skill.
+
+## 6. Promoting a lesson to a general rule
+
+One incident is written only to `projects/<project>/DECISIONS.md`, never straight into a guide, card or hard-rules section. A candidate lesson or law passes these in order and stops at the first miss:
+1. A class of failure, not one event: group incidents by failure mechanism. Two different objects can be one class; ten similar complaints can still be one project's taste.
+2. No project nouns (names, brands, files, objects, script lines, coordinates): objects become roles.
+3. Wrong in any style; otherwise it is taste (§1).
+4. Mechanical: it states a number, threshold or way to count. "Smoother" or "tidier" is rejected.
+5. A gate exists: a script with its fail condition, or "show frame X and the reason".
+6. Not a duplicate: when a similar item exists, edit that item by ID.
+7. A hard law also appears in two different projects, does not misfire on frames I already approved, and I approve its wording.
+
+A lesson that passes goes to the home chosen in §1; one that fails stays in the project or waits in `steward/inbox/` for a second case. Change a lesson by ID as a small diff; a bulk rewrite of a guide compresses it and silently drops items.

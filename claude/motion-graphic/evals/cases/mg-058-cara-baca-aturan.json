@@ -6,7 +6,7 @@
     "projects/skill-development-journey-20261116/"
   ],
   "assertions": [
-    "Masuk lewat AGENTS.md → PETA.md → PENDING.md sebelum membuka file aturan",
+    "Masuk lewat AGENTS.md → PETA.md sebelum membuka file aturan",
     "Membaca kartu kiblat proyek (cookbook/02-typography-and-captions/83-…) dan menemukan K4: kata narasi di tengah bawah dada",
     "Membaca docstring scripts/juri/balance_check.py (pusat berat dari titik tengah frame, batas offset) dan Lantai 17",
     "Tidak menyimpulkan 'tidak ada aturan' dari pencarian kata saja",

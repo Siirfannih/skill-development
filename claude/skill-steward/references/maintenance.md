@@ -64,7 +64,7 @@ Optional numbers, when cheap: `steward_check.py --summary` counts, open backlog 
 
 ## 6. Retro categories
 
-Look for slow navigation (sharper pointer or route), errors a script could catch (build the check), defects the judge or Devil's Advocate missed (clarify one judging item), always-loaded growth (move behind a pointer), expensive reads (narrower route), instructions that changed nothing (delete), and information out of reach (request access or add a pointer).
+Look for slow navigation (sharper pointer or route), errors a script could catch (build the check), defects the judge or Devil's Advocate missed (clarify one judging item), always-loaded growth (move behind a pointer), expensive reads (narrower route), instructions that changed nothing (delete), a question I was asked twice (its answer belongs in the skill), a branch always or never opened (move it into or out of the entry file), and information out of reach (request access or add a pointer).
 
 ## 7. Working alongside others
 

@@ -61,4 +61,4 @@ Event visual/menit + kategori dari `scripts/audio/pace_read.py` (9 Nov). Kolom c
 - **17 _ganimate_** (`ganimate.md`) — sistem explainer 4 mode (arsip sinematik, UI asli, editorial putih, data isometrik) dengan tag teal menempel objek dan kamera truck isometrik.
 
 ## 18 Joseph / Arthur Brooks (dibedah Claude 11 Nov) · diambil: taksonomi adegan + logika penempatan + cara melatih gaya
-- `joseph-arthur-brooks.md`: 10 jenis adegan (caption, B-roll+teks, lukisan, garis+teks, garis+ilustrasi, adegan teks, ilustrasi tengah/samping, objek, grafik), logika "umumkan → wajah, jelaskan → tunjukkan", alur 20 video → papan Figma → skill gaya + pustaka animasi, rencana edit 3 opsi per beat, 6 revisi sebagai daftar cek, dan 7 celah skill kita (usulan di `PENDING.md`).
+- `joseph-arthur-brooks.md`: 10 jenis adegan (caption, B-roll+teks, lukisan, garis+teks, garis+ilustrasi, adegan teks, ilustrasi tengah/samping, objek, grafik), logika "umumkan → wajah, jelaskan → tunjukkan", alur 20 video → papan Figma → skill gaya + pustaka animasi, rencana edit 3 opsi per beat, 6 revisi sebagai daftar cek, dan 7 celah skill kita (usulan di `steward/inbox/`).

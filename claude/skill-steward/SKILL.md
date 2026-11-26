@@ -61,9 +61,9 @@ These came from real failures in this repo. Apply them with judgment.
 
 | File | Open when |
 |---|---|
-| `references/placement.md` | unsure where a change belongs, or archiving/retiring files |
+| `references/placement.md` | unsure where a change belongs, promoting a lesson to a general rule, or archiving/retiring files |
 | `references/writing.md` | writing or rewriting instruction text, a description or a card |
-| `references/testing.md` | checking that a behavior change works, or a translation is equal |
+| `references/testing.md` | checking that a behavior change works, a translation is equal, or saving an eval case |
 | `references/conflicts.md` | two instructions disagree |
 | `references/migration.md` | translating an existing file to English |
 | `references/glossary.md` | naming a concept or translating a term |

@@ -1,6 +1,6 @@
 # evals · vibedesign
 
-Mengikuti `../../../EVALS-DESIGN.md`: koreksi → kasus → patch → uji lama vs baru → gerbang persetujuan.
+Mengikuti `../../skill-steward/references/testing.md` §7: koreksi → kasus → patch → uji lama vs baru → gerbang persetujuan.
 
 | Path | Isi |
 |---|---|

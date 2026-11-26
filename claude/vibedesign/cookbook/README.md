@@ -14,4 +14,4 @@
 Ikuti `BEDAH.md` (tiga lapis: kenapa bagus dengan angka terverifikasi alat → token → pohon lapisan kode). Lihat gambar referensinya sendiri dan deskripsikan per elemen sebelum menilai. Hasilnya satu kartu dari `KARTU-TEMPLATE.md` + satu baris di `INDEX.md`. Gambar referensi tidak disimpan di repo ini (lihat `ref/README.md`).
 
 ## 4. Tumbuh
-Frame yang aku tolak → `contoh-gagal/` beserta konteks dan alasannya. Mekanik yang terbukti di ≥ 2 proyek boleh diusulkan menjadi butir `guide/` lewat `../../../SARINGAN.md`.
+Frame yang aku tolak → `contoh-gagal/` beserta konteks dan alasannya. Mekanik yang terbukti di ≥ 2 proyek boleh diusulkan menjadi butir `guide/` lewat `../../skill-steward/references/placement.md` §6.

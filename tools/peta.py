@@ -25,7 +25,7 @@ RUTE = f"""## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo 
 | Pekerjaan | Buka | Jangan buka |
 |---|---|---|
 | Sesi produksi video | `{MG}/SKILL.md` (NEGATIF + alur 8 langkah + tabel "Bila … buka …") → `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`, `STATUS.md`); kartu per kartu via `{MG}/scripts/cookbook/pilih_kartu.py` (2–4 kartu untuk seluruh video; filter `--pack` dari `{MG}/cookbook/INDEX.md`) | pack utuh, `PETA.md` selebihnya, `RETRO.md`, `SUMBER.md`, `cookbook/CATALOG.md` utuh, `_vault/`; folder proyek lain; template gaya tetap |
-| Awal sesi lainnya | `AGENTS.md` → `PETA.md` (file ini) → `PENDING.md` | seluruh `references/` sekaligus |
+| Awal sesi lainnya | `AGENTS.md` → `PETA.md` (file ini) | seluruh `references/` sekaligus |
 | Video: tahap dan rute lengkap | `claude/irfan-creative-workflow/SKILL.md` §2 (tahap Brief → Naskah → Storyboard/block out: bedah bahan user → naskah → storyboard + racikan → persetujuan; belum ada kode sebelum storyboard disetujui) → `{MG}/SKILL.md` (NEGATIF, alur 8 langkah; referensi per tahap lewat tabel "Bila … buka …") → `projects/<proyek>/TAHAP.md` dari `{MG}/templates/TAHAP.md` + `scripts/juri/tahap.py` (langkah berikutnya dan bagian yang dibaca) → profil merek: `{MG}/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md`; `{MG}/MOTION-CORE.md` §1, §3 (tabel tahap, gerbang render R1–R5) dibuka saat render; `LANTAI.md` arsip (peta pindah: `MIGRASI-LANTAI.md`) | skill di `archive/`; `MOTION-CORE.md` dan `LANTAI.md` utuh di awal sesi |
 | Fase 1 pra-produksi (Brief, Naskah, Storyboard/block out): script, bedah referensi, storyboard | `{MG}/cookbook/README.md` (§1 Prinsip, §2 Alur dua langkah) → `{MG}/scripts/cookbook/pilih_kartu.py --cari "<fungsi cerita>"` per beat (mencocokkan *Narrative trigger* di `{MG}/cookbook/CATALOG.md` lewat router `{MG}/cookbook/INDEX.md`; naskah: `--kategori script`) → hanya 2–4 kartu **dan frame kuncinya** (`guide/referensi/sheets/keyframes/`) → tabel racikan disetujui user, `{MG}/cookbook/contoh-gagal/README.md`, `{MG}/references/storyboard.md`, `claude/script-workshop/SKILL.md` | `audio.md`, `build.md` |
 | User membawa draf desain/storyboard/kode Remotion (penaik mutu) | `{MG}/cookbook/README.md` §1 + §3 → `{MG}/cookbook/INDEX.md` / `POLA.md` / `SFX.md` → `{MG}/references/smooth-motion.md`, `{MG}/references/camera-transition.md`, `{MG}/references/pacing-map.md`, `{MG}/guide/sfx/GUIDE.md` → daftar bedah per beat disetujui user, lalu revisi kode yang ada | merombak konsep, palet, huruf, aset, atau urutan user; menulis ulang dari nol |
@@ -39,7 +39,7 @@ RUTE = f"""## Cara membaca (ringkas; lengkapnya `AGENTS.md` §Cara membaca repo 
 | Sesi produksi desain statis (carousel, poster, cover) | `claude/vibedesign/DESIGN-CORE.md` (alur 3 gerbang, pertimbangan utama, gerbang juri) → `projects/<proyek>/` (`BRIEF.md`, `RESEP.md`, `DECISIONS.md`, `TAHAP.md`); referensi baru → `claude/vibedesign/cookbook/BEDAH.md`; kartu lewat `claude/vibedesign/cookbook/INDEX.md` | skill video, `PETA.md` selebihnya |
 | Tulisan konten (caption, hook, copy carousel) | `claude/script-workshop/SKILL.md` | skill video |
 | Proyek dengan PRD/QUEUE | `claude/autopilot-prd/SKILL.md` | — |
-| Mengubah skill | `AGENTS.md` §Akhir sesi, `EVALS-DESIGN.md`, `{MG}/cookbook/README.md` §Tumbuh; asal-usul aturan ke `SUMBER.md` skill itu; lalu `python3 tools/sumber_cek.py` dan `python3 tools/peta.py` | menulis nama, tanggal, atau cerita gagal di file instruksi |
+| Mengubah skill | `claude/skill-steward/SKILL.md` (§3 langkah kerja; `references/` dibuka saat tabelnya menyuruh); asal-usul aturan ke `SUMBER.md` skill itu; lalu `python3 tools/sumber_cek.py` dan `python3 tools/peta.py` | menulis nama, tanggal, atau cerita gagal di file instruksi |
 """
 
 
@@ -171,7 +171,7 @@ def build():
                      + (" · mulai dari STATUS.md" if os.path.exists(st) else "")))
     parts += ["## projects/ (keputusan per video; buka hanya proyekmu sendiri, isinya bukan aturan untuk video lain)", "", table(rows, ("Proyek", "Isi")), ""]
     top = [("INDEX.md", "katalog skill dan folder"), ("AGENTS.md", "aturan awal/akhir sesi untuk semua model"),
-           ("PENDING.md", "pelajaran yang belum disetujui; bukan aturan"), ("EVALS-DESIGN.md", "cara menguji perubahan skill"),
+           ("steward/", "keadaan perawatan skill: backlog, kotak masuk pelajaran, laporan perubahan; bukan aturan"),
            ("SUMBER.md, claude/<skill>/SUMBER.md", "asal-usul aturan; bukan instruksi, jangan dibuka saat mengerjakan tugas"),
            ("experimental/", "alur sampingan yang belum terbukti; bukan aturan"), ("archive/", "skill lama; jangan dimuat")]
     parts += ["## Lain-lain", "", table(top), ""]

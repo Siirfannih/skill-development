@@ -13,7 +13,7 @@ Skill ini lapisan penaik mutu, bukan template. **Konsep dan pesanku + 2–4 kart
 1. **Sesi produksi desain:** baca `DESIGN-CORE.md`, lalu `projects/<proyek>/` (`BRIEF.md`, `RESEP.md`, `DECISIONS.md`, `TAHAP.md`). Belum ada kode sebelum BRIEF terisi.
 2. **Revisi dariku:** catat dulu ke `projects/<proyek>/DECISIONS.md`, lalu ubah kode yang ada (bedah, bukan bangun ulang). Bagian yang aku puji atau tidak aku komentari tetap utuh.
 3. **Membedah referensi baru:** `cookbook/BEDAH.md` (tiga lapis, wajib sebelum menulis kartu atau meracik dari referensi baru) → `cookbook/KARTU-TEMPLATE.md`.
-4. **Mengubah aturan skill:** `../../SARINGAN.md` + `../../EVALS-DESIGN.md`; asal-usul ke `SUMBER.md`.
+4. **Mengubah aturan skill:** `../skill-steward/SKILL.md` (§3 langkah kerja, `references/placement.md` §6 promosi, `references/testing.md` uji); asal-usul ke `SUMBER.md`.
 
 ## NEGATIF bersama
 Batas anti-slop v2 (satu sistem huruf, satu dunia warna/material, objek lengkap, satu fokus; teknik dinilai makna, sistem, takaran, bukan dilarang per nama) ada di `../_bersama/NEGATIF.md`; baca sebelum merancang.

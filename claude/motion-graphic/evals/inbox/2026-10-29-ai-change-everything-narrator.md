@@ -28,4 +28,4 @@ Diagnosis sementara: penerapan konteks dan fungsi referensi gagal. Instruksi mem
 
 Belum ada keluaran revisi berikutnya yang disetujui, reproduksi terkontrol, perbandingan skill lama dengan patch, atau pengukuran penonton. Catatan ini tidak mengubah aturan aktif dan tidak menyatakan perbaikan berhasil.
 
-Ikuti [EVALS-DESIGN.md](../../../../EVALS-DESIGN.md) sebelum mempromosikan temuan menjadi patch skill.
+Ikuti [testing.md](../../../skill-steward/references/testing.md) §7 sebelum mempromosikan temuan menjadi patch skill.

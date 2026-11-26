@@ -40,3 +40,9 @@ Three to five prompts that should open the skill and three to five near-misses s
 - A subagent's success report is a claim: check `git diff` and rerun its check.
 - Branches and worktrees are optional; if you use one, test on its path and run before-runs on `main`.
 - An outside review: check each item against the repo, apply or reject each with a reason, drop rewrites nobody asked for.
+
+## 7. Saved eval cases
+
+A real failure can be kept as a case so a later change is checked against it: `claude/<skill>/evals/cases/<id>.json` with `id`, `source` (where the failure was seen), `prompt` (realistic), `files` and two to five checkable `assertions` (for example "emphasis uses accent colour or scale, not a box behind the word"). Rerun a case when the rule it protects changes; a change that breaks a passing case is rejected, or the case is removed with a written reason. Whoever grades it reads only the transcript and the output and marks each assertion pass or fail with evidence: a fresh subagent if you have one, otherwise a self-check.
+
+Trigger evals (`evals/trigger.json`, about 20 prompts, half that should open the skill and half that should not) check a description; `skill-creator`'s `run_loop.py` and `improve_description.py` run them when installed. There is no schedule: run cases when their rule changes.

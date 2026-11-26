@@ -13,7 +13,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | Pekerjaan | Buka | Jangan buka |
 |---|---|---|
 | Sesi produksi video | `claude/motion-graphic/SKILL.md` (NEGATIF + alur 8 langkah + tabel "Bila … buka …") → `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `TAHAP.md`, `STATUS.md`); kartu per kartu via `claude/motion-graphic/scripts/cookbook/pilih_kartu.py` (2–4 kartu untuk seluruh video; filter `--pack` dari `claude/motion-graphic/cookbook/INDEX.md`) | pack utuh, `PETA.md` selebihnya, `RETRO.md`, `SUMBER.md`, `cookbook/CATALOG.md` utuh, `_vault/`; folder proyek lain; template gaya tetap |
-| Awal sesi lainnya | `AGENTS.md` → `PETA.md` (file ini) → `PENDING.md` | seluruh `references/` sekaligus |
+| Awal sesi lainnya | `AGENTS.md` → `PETA.md` (file ini) | seluruh `references/` sekaligus |
 | Video: tahap dan rute lengkap | `claude/irfan-creative-workflow/SKILL.md` §2 (tahap Brief → Naskah → Storyboard/block out: bedah bahan user → naskah → storyboard + racikan → persetujuan; belum ada kode sebelum storyboard disetujui) → `claude/motion-graphic/SKILL.md` (NEGATIF, alur 8 langkah; referensi per tahap lewat tabel "Bila … buka …") → `projects/<proyek>/TAHAP.md` dari `claude/motion-graphic/templates/TAHAP.md` + `scripts/juri/tahap.py` (langkah berikutnya dan bagian yang dibaca) → profil merek: `claude/motion-graphic/templates/merek/README.md` + `scripts/juri/profil_cek.py` → `projects/<proyek>/STATUS.md`; `claude/motion-graphic/MOTION-CORE.md` §1, §3 (tabel tahap, gerbang render R1–R5) dibuka saat render; `LANTAI.md` arsip (peta pindah: `MIGRASI-LANTAI.md`) | skill di `archive/`; `MOTION-CORE.md` dan `LANTAI.md` utuh di awal sesi |
 | Fase 1 pra-produksi (Brief, Naskah, Storyboard/block out): script, bedah referensi, storyboard | `claude/motion-graphic/cookbook/README.md` (§1 Prinsip, §2 Alur dua langkah) → `claude/motion-graphic/scripts/cookbook/pilih_kartu.py --cari "<fungsi cerita>"` per beat (mencocokkan *Narrative trigger* di `claude/motion-graphic/cookbook/CATALOG.md` lewat router `claude/motion-graphic/cookbook/INDEX.md`; naskah: `--kategori script`) → hanya 2–4 kartu **dan frame kuncinya** (`guide/referensi/sheets/keyframes/`) → tabel racikan disetujui user, `claude/motion-graphic/cookbook/contoh-gagal/README.md`, `claude/motion-graphic/references/storyboard.md`, `claude/script-workshop/SKILL.md` | `audio.md`, `build.md` |
 | User membawa draf desain/storyboard/kode Remotion (penaik mutu) | `claude/motion-graphic/cookbook/README.md` §1 + §3 → `claude/motion-graphic/cookbook/INDEX.md` / `POLA.md` / `SFX.md` → `claude/motion-graphic/references/smooth-motion.md`, `claude/motion-graphic/references/camera-transition.md`, `claude/motion-graphic/references/pacing-map.md`, `claude/motion-graphic/guide/sfx/GUIDE.md` → daftar bedah per beat disetujui user, lalu revisi kode yang ada | merombak konsep, palet, huruf, aset, atau urutan user; menulis ulang dari nol |
@@ -27,7 +27,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | Sesi produksi desain statis (carousel, poster, cover) | `claude/vibedesign/DESIGN-CORE.md` (alur 3 gerbang, pertimbangan utama, gerbang juri) → `projects/<proyek>/` (`BRIEF.md`, `RESEP.md`, `DECISIONS.md`, `TAHAP.md`); referensi baru → `claude/vibedesign/cookbook/BEDAH.md`; kartu lewat `claude/vibedesign/cookbook/INDEX.md` | skill video, `PETA.md` selebihnya |
 | Tulisan konten (caption, hook, copy carousel) | `claude/script-workshop/SKILL.md` | skill video |
 | Proyek dengan PRD/QUEUE | `claude/autopilot-prd/SKILL.md` | — |
-| Mengubah skill | `AGENTS.md` §Akhir sesi, `EVALS-DESIGN.md`, `claude/motion-graphic/cookbook/README.md` §Tumbuh; asal-usul aturan ke `SUMBER.md` skill itu; lalu `python3 tools/sumber_cek.py` dan `python3 tools/peta.py` | menulis nama, tanggal, atau cerita gagal di file instruksi |
+| Mengubah skill | `claude/skill-steward/SKILL.md` (§3 langkah kerja; `references/` dibuka saat tabelnya menyuruh); asal-usul aturan ke `SUMBER.md` skill itu; lalu `python3 tools/sumber_cek.py` dan `python3 tools/peta.py` | menulis nama, tanggal, atau cerita gagal di file instruksi |
 
 ## Skill aktif (`claude/`)
 
@@ -296,8 +296,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 |---|---|
 | `INDEX.md` | katalog skill dan folder |
 | `AGENTS.md` | aturan awal/akhir sesi untuk semua model |
-| `PENDING.md` | pelajaran yang belum disetujui; bukan aturan |
-| `EVALS-DESIGN.md` | cara menguji perubahan skill |
+| `steward/` | keadaan perawatan skill: backlog, kotak masuk pelajaran, laporan perubahan; bukan aturan |
 | `SUMBER.md, claude/<skill>/SUMBER.md` | asal-usul aturan; bukan instruksi, jangan dibuka saat mengerjakan tugas |
 | `experimental/` | alur sampingan yang belum terbukti; bukan aturan |
 | `archive/` | skill lama; jangan dimuat |

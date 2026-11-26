@@ -1,6 +1,6 @@
 # Dual-agent sound design (eksperimental)
 
-Status: **eksperimen**, diuji sekali di video «Pengganti Kita Sendiri» (31 Okt 2026). Belum menjadi aturan skill; `claude/motion-graphic` tetap sumber kebenaran sampai hasil ini lolos telinga Irfan dan gerbang EVALS-DESIGN.
+Status: **eksperimen**, diuji sekali di video «Pengganti Kita Sendiri» (31 Okt 2026). Belum menjadi aturan skill; `claude/motion-graphic` tetap sumber kebenaran sampai hasil ini lolos telinga Irfan dan pemeriksaan di `claude/skill-steward/references/testing.md`.
 
 ## Peran
 - **Claude = sound engineer.** Mengeksekusi: memilih kandidat, merakit VO, mixing, mastering, dan mengukur dengan alat sendiri (earshot/CLAP, pyloudnorm, ffmpeg ebur128).

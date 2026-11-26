@@ -109,16 +109,6 @@ Saat Irfan mengirim video referensi:
 3. Simpan di folder kategori dominannya, lalu `python3 tools/cookbook.py index` dan `cek` dari root repo. Kartu baru dipakai sebagai pengikat sesi itu bila user tidak membawa gaya sendiri.
 
 ## 9. Tumbuh: ke mana pelajaran disimpan
-Skill ini mengajarkan **cara memutuskan** (kapan A, kapan B, dan kenapa), bukan template yang harus dipatuhi. Repo ini memisahkan dua jenis pelajaran, tanpa bertanya ke Irfan apakah koreksinya berlaku untuk video lain:
-1. **Aturan proyek (bawaan).** Koreksi Irfan dan alasannya berlaku untuk video itu → `projects/<proyek>/DECISIONS.md`. Selera dan gaya (warna, jenis huruf, tulisan tangan, gaya komik, efek tertentu) selalu di sini. Sesi lain tidak membuka folder proyek ini dan tidak memakainya sebagai aturan.
-2. **Pelajaran global (hanya kesalahan kerja).** Bila kesalahannya salah di gaya apa pun (teks menutup wajah atau terpotong, fonem terpotong, yang sudah disetujui ikut berubah, elemen ditambahkan padahal tidak diminta), alasannya diturunkan menjadi learning "bila <kondisi>, pilih <X>, karena <alasan>" di bagian **Cara memutuskan** pada `../guide/<urusan>/GUIDE.md`; asal-usulnya dicatat di `../SUMBER.md`. Learning adalah rujukan menimbang, bukan aturan. Ragu = aturan proyek.
-
-Koreksi itu sendiri disimpan di tempat yang cakupannya paling sempit dan masih benar:
-| Koreksi tentang | Simpan di |
-|---|---|
-| video ini saja, termasuk selera dan gaya | `projects/<proyek>/DECISIONS.md` |
-| cara memakai satu gaya | "Catatan pakai" di kartu kiblatnya |
-| frame yang ditolak | `contoh-gagal/` : gambar + satu kalimat sebab + konteksnya |
-| semua video, apa pun gayanya | usul ke `../../../PENDING.md`; masuk `../LANTAI.md` hanya setelah muncul di 2 video berbeda dan Irfan menyetujui bunyinya |
+Skill ini mengajarkan **cara memutuskan**, bukan template. Koreksi Irfan dan alasannya tinggal di `projects/<proyek>/DECISIONS.md` (selera dan gaya selalu di sini); hanya kesalahan kerja yang salah di gaya apa pun yang naik, lewat `../../skill-steward/references/placement.md` §6. Satu pengecualian bentuk: frame yang ditolak → `contoh-gagal/` (gambar + satu kalimat sebab + konteksnya). Ragu = proyek.
 
 Yang tidak dilakukan: menyalin bentuk referensi karena cantik. Teknik di kartu (huruf kedua, kaca, glow, gradien, 3D) dipakai bila alasannya berlaku dan ia menjadi bagian satu sistem (NEGATIF v2); koreksi "serif pucat raksasa" adalah pelajaran sistem, kontras, dan skala, bukan larangan serif.
