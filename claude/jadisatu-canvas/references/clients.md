@@ -16,7 +16,7 @@
 
 Endpoint for all examples: `https://canvas.jadisatu.cloud/mcp`. Choose **Streamable HTTP**, not an invented SSE endpoint. The owner approves OAuth DCR + PKCE for one board, or supplies a single-board token via the `JADISATU_CANVAS_TOKEN` environment variable. The client process must receive that environment variable; another terminal or local host does not automatically pass it to a GUI, container, or remote host.
 
-Examples are snippets to **merge** into an existing configuration, not commands to overwrite files. Do not run them as an automatic installation. No new tokens, accounts, or connections are created by this documentation. Inspecting sources/schemas is not a real login test across all UIs. Gemini web and Grok web are not equivalent to their CLI/API.
+Examples are snippets to **merge** into an existing configuration, not commands to overwrite files. Do not run them as an automatic installation. No new tokens, accounts, or connections are created by this documentation. Inspecting sources/schemas is not a real login test across all UIs. Do not treat Gemini web and Grok web as equivalent to their CLI/API.
 
 ## 2. ChatGPT and Claude web · OAuth
 
@@ -86,7 +86,7 @@ Gemini CLI uses `httpUrl` for Streamable HTTP; `url` selects SSE transport. Let 
 }
 ```
 
-Cursor uses `${env:NAME}`. For OAuth, omit the header and use the client's available authentication flow; do not invent a client secret. Source: [Cursor MCP and config interpolation](https://cursor.com/docs/mcp#config-interpolation).
+Cursor uses `${env:NAME}`. For OAuth, omit the header and use the client's available authentication flow; do not create a client secret. Source: [Cursor MCP and config interpolation](https://cursor.com/docs/mcp#config-interpolation).
 
 ## 7. VS Code / Copilot · choose the matching format
 
@@ -136,7 +136,7 @@ canvas_tool = {
 }
 ```
 
-The example intentionally restricts read tools. Write tasks require a write token and matching allowlist; server permissions still govern. This is xAI's OpenAI-compatible Responses API form. Native xAI SDKs use other names, including `extra_headers` and `allowed_tool_names`; do not copy parameters across SDKs. This support does not prove the connector is available on Grok web. Source: [official xAI remote MCP](https://docs.x.ai/developers/tools/remote-mcp).
+The example intentionally limits itself to read tools. Write tasks require a write token and matching allowlist; server permissions still govern. This is xAI's OpenAI-compatible Responses API form. Native xAI SDKs use other names, including `extra_headers` and `allowed_tool_names`; do not copy parameters across SDKs. This support does not prove the connector is available on Grok web. Source: [official xAI remote MCP](https://docs.x.ai/developers/tools/remote-mcp).
 
 ## 9. Stdio bridge and verification
 
