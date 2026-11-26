@@ -84,3 +84,15 @@ Second-model verification against `origin/main` (`0c4e4aa9`). One section per fi
 | `## Transisi (B13)` | Tanpa crossfade polos, pengecualian micro-blend ≤4 f & blur-to-sharp, pemilihan mekanik dari hubungan ruang, 1 khas + ≥4 tipe/30 dtk (`SceneChain`). | No plain crossfades, micro-blend ≤4 f & blur-to-sharp exceptions, mechanics from spatial relation, 1 signature + ≥4 types/30 s (`SceneChain`). | yes |
 | `## Gerak dirancang per gerak (B13a)` | Pilihan kurva `curves.ts`, durasi dari jarak/bobot (`dur`) + reaksi `react(i)`, gerak keluar 0,65×, hold >1 dtk hidup, tanpa fade-up/blur-in bawaan. | `curves.ts` curve choices, distance/weight duration + `react(i)` stagger, 0.65× exits, alive holds >1 s, no default fade-up/blur-in. | yes |
 | `## Format berulang (B13b)` | Format berulang wajib beda framing tiap kemunculan agar tidak terbaca sebagai template. | Recurring formats vary framing on each appearance so they do not read like templates. | yes |
+
+## `claude/motion-graphic/references/hybrid-motion-standard.md`
+
+| Section | Indonesian meaning (one line) | English meaning (one line) | Equal? |
+|---|---|---|---|
+| Title & intro | Standar minimum Hybrid Motion dari `GrokAgent/reference-videos/`; angka/aturan dapat berubah sesuai kondisi proyek dengan alasan tertulis. | Hybrid Motion minimum standard from `GrokAgent/reference-videos/`; numbers/rules may adapt to project conditions with a recorded reason. | yes |
+| `## System role & objective` | Peran sebagai Motion Director & Sound Designer untuk evaluasi naskah dan desain cue memakai parameter di bawah. | Role as Motion Director & Sound Designer evaluating scripts and designing cues using the parameters below. | yes |
+| `## Kinetic typography & visual` | Ekstraksi 1–3 anchor words (bahasa ikut audio), extreme bezier tanpa fade malas, masking/tracking kedalaman, posterize time 8–12 fps selektif. | Extract 1–3 anchor words (language follows audio), extreme bezier without lazy fades, depth masking/tracking, selective 8–12 fps posterize time. | yes |
+| `## Kamera & ritme editing` | Kamera virtual agresif (snap zoom, whip pan, match-cut spasial) dan potong tersinkron ke ketukan BGM/puncak SFX. | Aggressive virtual camera (snap zoom, whip pan, spatial match-cut) and cuts synced to BGM beats/SFX peaks. | yes |
+| `## Tekstur & styling` | Halftone/paper texture bila diminta referensi tanpa film grain di atas gradien (K2), dan depth-of-field selektif. | Halftone/paper texture when requested without film grain over gradients (K2), plus selective depth of field. | yes |
+| `## Audio` | Bagian audio lama dicabut karena bertentangan dengan palet/mix yang lulus; audio mengikuti `audio.md` (§14.A, §14.5/§14.8, §14.10). | Older audio section withdrawn due to conflicts with passing palette/mix; audio follows `audio.md` (§14.A, §14.5/§14.8, §14.10). | yes |
+| `## Catatan penerapan` | Aturan lain pemilik tetap berlaku (tanpa ear-fatigue 2–6 kHz, SFX tidak mendahului objek, E24, pustaka SFX, tanpa flash putih penutup frame). | My other rules still apply (no 2–6 kHz ear-fatigue, SFX never precedes object, E24, library SFX, no frame-covering white flash). | yes |

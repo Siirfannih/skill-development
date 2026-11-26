@@ -1,32 +1,28 @@
-# Standar Hybrid Motion (barrier minimum, bukan nilai absolut)
+# Hybrid Motion Standard (minimum barrier, not an absolute value)
 
-Diekstrak dari video referensi acuan (`GrokAgent/reference-videos/`).
-Ini **standar minimum yang wajib dipenuhi**, tetapi angka dan aturannya boleh berubah kapan saja sesuai
-situasi dan kondisi proyek. Kalau sebuah adegan sengaja melanggar, catat alasannya di dokumen proyek.
+Extracted from benchmark reference videos (`GrokAgent/reference-videos/`).
+This is a **minimum standard that must be met**, yet its numbers and rules may change anytime based on project situations and conditions. If a scene intentionally breaks one, record the reason in the project document.
 
 ## System role & objective
-Bertindak sebagai **Motion Director dan Sound Designer**. Evaluasi naskah dan rancang audio/visual cue
-secara ketat memakai parameter produksi Hybrid Motion di bawah.
+Act as **Motion Director and Sound Designer**. Evaluate the script and design audio/visual cues strictly using the Hybrid Motion production parameters below.
 
-## Kinetic typography & visual
-- **Rule of Extraction**: dilarang teks bergaya subtitle. Hanya ekstrak 1–3 *anchor words* yang memegang
-  inti emosi kalimat. Bahasa anchor ikut audio yang sedang terdengar.
-- **Motion Dynamics**: extreme bezier — hard snap/whip saat masuk, extreme ease-out saat melambat. Tanpa linear, tanpa fade malas.
-- **Spatial Compositing**: teks punya kedalaman ruang — masking (di belakang objek/subjek) atau motion tracking.
-- **Frame Manipulation**: posterize time 8–12 fps pada grup tipografi / aset grafis tertentu (bukan seluruh video)
-  untuk memecah kehalusan linear dan meniru tekstur taktil.
+## Kinetic typography & visuals
+- **Rule of Extraction**: subtitle-style text is forbidden. Extract only 1–3 *anchor words* that carry the emotional core of the sentence. Anchor language follows the audio currently playing.
+- **Motion Dynamics**: extreme bezier — hard snap/whip on entry, extreme ease-out on deceleration. No linear, no lazy fades.
+- **Spatial Compositing**: text has spatial depth — masking (behind objects/subjects) or motion tracking.
+- **Frame Manipulation**: posterize time 8–12 fps on specific typography groups / graphic assets (not the whole video) to break linear smoothness and mimic tactile texture.
 
-## Kamera & ritme editing
-- **Dynamic Framing**: kamera virtual agresif — snap zoom, whip pan, match-cut spasial antar adegan; hindari pergantian klip statis yang kaku.
-- **Beat-Sync Cutting**: transisi masif dan kemunculan anchor words dikunci pada ketukan BGM atau puncak gelombang SFX.
+## Camera & editing rhythm
+- **Dynamic Framing**: aggressive virtual camera — snap zoom, whip pan, spatial match-cut between scenes; avoid stiff static clip switches.
+- **Beat-Sync Cutting**: major transitions and anchor-word appearances are locked to BGM beats or SFX waveform peaks.
 
-## Tekstur & styling
-- **Organic Overlays**: posterize dilengkapi halftone atau paper texture bila referensi memintanya; tanpa film grain di atas gradien (K2).
-- **Depth of Field**: blur selektif (bukan blur statis penuh) pada foreground/background untuk memaksa fokus ke subjek.
+## Texture & styling
+- **Organic Overlays**: posterize paired with halftone or paper texture when the reference calls for it; no film grain over gradients (K2).
+- **Depth of Field**: selective blur (not full static blur) on foreground/background to force focus onto the subject.
 
 ## Audio
-Bagian audio standar ini dicabut: whoosh rendah 40–80 Hz + sub-impact, glass ping/telemetry blip, panning wajib, dan ducking −6…−8 dB bertentangan dengan palet dan mix yang sudah lulus. Audio mengikuti `audio.md` (§14.A memilih suara, §14.5/§14.8 palet, §14.10 level).
+This standard's older audio section is withdrawn: 40–80 Hz low whoosh + sub-impact, glass ping/telemetry blip, mandatory panning, and −6…−8 dB ducking conflict with the palette and mix that already passed. Audio follows `audio.md` (§14.A choosing sounds, §14.5/§14.8 palette, §14.10 levels).
 
-## Catatan penerapan
-- Tetap berlaku aturan Irfan lain: no ear-fatigue 2–6 kHz, SFX tidak mendahului objek, SFX di momen cerita + gerak terlihat, tanpa bunyi per kata (Lantai E24), sumber SFX dari library (bukan sintesis).
-- Transisi mulus dan tenang (kamera/wipe, tanpa efek kilau): tidak boleh flash putih/radial blow-out yang menutup frame.
+## Application notes
+- Other rules of mine still apply: no 2–6 kHz ear-fatigue, SFX never precedes its object, SFX on story moments + visible motion, no sound per word (Floor E24), SFX sources from libraries (not synthesis).
+- Smooth and calm transitions (camera/wipe, no shimmer effects): no white flash/radial blow-out covering the frame.
