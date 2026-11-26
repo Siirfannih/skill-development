@@ -62,3 +62,15 @@ Second-model verification against `origin/main` (`0c4e4aa9`). One section per fi
 | Title & intro | Catatan tambahan opsional (maks setengah halaman) di `handoff/KONSUL.md` untuk `tanya-claude.sh`; bukan tempat arah video karena dirakit dari LANTAI/RESEP/DECISIONS/STATUS. | Optional supplementary notes (half page max) at `handoff/KONSUL.md` for `tanya-claude.sh`; not for video direction, which is assembled from LANTAI/RESEP/DECISIONS/STATUS. | yes |
 | `## Yang sudah dicoba dan gagal` | Daftar percobaan yang gagal dan rondenya agar tidak diusulkan ulang. | List of failed attempts and rounds so they are not proposed again. | yes |
 | `## Batasan teknis yang perlu diketahui penilai` | Catatan batasan teknis sumber (mis. 720p, plate AI 24 fps). | Notes on source technical constraints (e.g., 720p, 24 fps AI plate). | yes |
+
+## `claude/motion-graphic/templates/roles/handoff.md`
+
+| Section | Indonesian meaning (one line) | English meaning (one line) | Equal? |
+|---|---|---|---|
+| Title & intro | Kerangka folder `handoff/` untuk disalin ke proyek sesuai `references/roles.md` §4–5. | `handoff/` folder scaffold to copy into projects per `references/roles.md` §4–5. | yes |
+| `## BRIEF.md (Sutradara)` | Template brief Sutradara (brief pemilik apa adanya, terkunci, butir Lantai, aset+lisensi, larangan). | Director brief template (my verbatim brief, locked items, Floor items, assets+licenses, bans). | yes |
+| `## PLAN.json (Sutradara)` | Contoh JSON beat per adegan dengan kunci schema `beats.json` + sfx dan `lulus_bila`. | Per-beat JSON example keeping `beats.json` schema keys + sfx and `lulus_bila`. | yes |
+| `## TASK-rN.md (Sutradara)` | Template tugas pekerja (cakupan, bacaan izin, keluaran wajib, perbaikan, larangan ubah, selesai bila). | Builder task template (scope, allowed reads, required outputs, fixes, frozen beats, done criteria). | yes |
+| `## REPORT-rN.md (Editor)` | Template laporan pekerja (tabel beat+bukti+gate, keluaran gate, pertanyaan terbuka). | Builder report template (beat+evidence+gate table, gate output, open questions). | yes |
+| `## REVIEW-rN.md (Sutradara)` | Template review Sutradara yang ditulis setelah melihat still/render sebelum membaca REPORT. | Director review template written after viewing stills/renders before reading REPORT. | yes |
+| `## QUESTIONS.md & DECISIONS.md` | Format satu baris tanya-jawab antara pekerja dan Sutradara/pemilik. | One-line Q&A format between builder and Director/me. | yes |
