@@ -5,6 +5,7 @@ pack: 02-typography-talking-head
 kategori: typography
 kategori_lain: [layout, camera]
 trigger: kata punchline penuh layar; kartu warna datar cutaway saat ucapan memuncak atau berganti gagasan
+fungsi: [penekanan, transisi]
 sumber: gabungan mekanik full-bleed slab & cutaway card
 dilihat_bergerak: ya
 diukur: ya

@@ -5,6 +5,7 @@ pack: 04-ui-cutout-dataviz-visuals
 kategori: layout
 kategori_lain: [camera, typography]
 trigger: panggung UI produk dengan kursor aktif; prompt ke hasil; komponen UI berubah mengikuti kalimat VO
+fungsi: [langkah, bukti]
 sumber: gabungan mekanik UI showreel, kursor, & morph komponen
 dilihat_bergerak: tidak
 diukur: ya

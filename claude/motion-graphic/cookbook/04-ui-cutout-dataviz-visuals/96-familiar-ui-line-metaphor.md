@@ -5,6 +5,7 @@ pack: 04-ui-cutout-dataviz-visuals
 kategori: layout
 kategori_lain: [typography, camera, texture]
 trigger: kalimat VO tentang alat/kebiasaan digital diperankan UI harian frameless; typo lalu dibetulkan; polarity flip
+fungsi: [jelaskan, balik]
 sumber: UI metaphor 30 fps
 dilihat_bergerak: ya
 diukur: ya

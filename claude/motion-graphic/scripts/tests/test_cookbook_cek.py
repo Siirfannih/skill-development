@@ -14,6 +14,7 @@ pack: 01-motion-camera-transitions
 kategori: camera
 kategori_lain: []
 trigger: demo fitur produk dengan klik
+fungsi: {fungsi}
 sumber: contoh
 dilihat_bergerak: ya
 diukur: ya
@@ -61,9 +62,9 @@ class Pohon(unittest.TestCase):
         cb.ROOT, cb.CB, cb.SFXDIR, cb.SFXCAT, cb.FAMJSON = self.simpan
         self.t.cleanup()
 
-    def kartu(self, ref, id_="63", alias="", vault=""):
+    def kartu(self, ref, id_="63", alias="", vault="", fungsi="[langkah, bukti]"):
         p = self.cb / "01-motion-camera-transitions" / f"{id_}-contoh.md"
-        p.write_text(KARTU.format(id=id_, pola="Contoh Pola", ref=ref, alias=alias, vault=vault), encoding="utf-8")
+        p.write_text(KARTU.format(id=id_, pola="Contoh Pola", ref=ref, alias=alias, vault=vault, fungsi=fungsi), encoding="utf-8")
 
     def vault(self, nama="63-contoh.md", isi=VAULT_LENGKAP):
         (self.cb / "_vault/01-camera-and-transitions" / nama).write_text(isi, encoding="utf-8")
@@ -114,6 +115,27 @@ class RujukanKode(Pohon):
         rc, out = self.cek(); self.assertEqual(rc, 0, out)
 
 
+class Fungsi(Pohon):
+    def test_nilai_tidak_dikenal_gagal(self):
+        self.kartu("`curves`", fungsi="[langkah, tukang]")
+        rc, out = self.cek("--ketat"); self.assertNotEqual(rc, 0); self.assertIn("fungsi tidak dikenal: tukang", out)
+
+    def test_daftar_kosong_atau_terlalu_panjang_gagal(self):
+        for f in ("[]", "[hook, jelaskan, angka, banding]"):
+            self.kartu("`curves`", fungsi=f)
+            rc, out = self.cek(); self.assertNotEqual(rc, 0, f); self.assertIn("fungsi harus 1-3 nilai", out)
+
+    def test_kunci_hilang_gagal(self):
+        self.kartu("`curves`")
+        p = self.cb / "01-motion-camera-transitions/63-contoh.md"
+        p.write_text(p.read_text(encoding="utf-8").replace("fungsi: [langkah, bukti]\n", ""), encoding="utf-8")
+        rc, out = self.cek(); self.assertNotEqual(rc, 0); self.assertIn("frontmatter kurang: fungsi", out)
+
+    def test_nilai_sah_lolos(self):
+        self.kartu("`curves`", fungsi="[hook, penutup, qc]")
+        rc, out = self.cek("--ketat"); self.assertEqual(rc, 0, out)
+
+
 class VaultInfo(Pohon):
     def test_bagian_vault_hilang_hanya_info(self):
         self.kartu("`curves`", vault="../_vault/01-camera-and-transitions/63-contoh.md")
@@ -162,6 +184,10 @@ class RepoAsli(unittest.TestCase):
         cat = (Path(cb.CB) / "CATALOG.md").read_text(encoding="utf-8")
         self.assertIn("duplikat dari 71", cat); self.assertIn("44 kartu aktif · 97 kartu vault · 10 id duplikat", cat)
         self.assertEqual(cat.count("ID | Pola | Narrative trigger | Kategori | Status | Path"), 1)
+
+    def test_44_kartu_asli_punya_fungsi_sah(self):
+        for c in cb.load_cards():
+            self.assertTrue(set(c["fm"]["fungsi"]) <= set(cb.FUNGSI), c["rel"]); self.assertTrue(1 <= len(c["fm"]["fungsi"]) <= 3, c["rel"])
 
     def test_vault_tetap_97(self):
         self.assertEqual(len(list((Path(cb.CB) / "_vault").glob("*/*.md"))), 97)

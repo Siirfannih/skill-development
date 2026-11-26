@@ -5,6 +5,7 @@ pack: 02-typography-talking-head
 kategori: typography
 kategori_lain: [camera, layout]
 trigger: kata kunci raksasa di belakang kepala pembicara; scale ladder di dada; pill staircase klimaks
+fungsi: [penekanan, hook]
 sumber: gabungan mekanik oklusi kepala & tangga skala
 dilihat_bergerak: ya
 diukur: ya

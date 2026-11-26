@@ -141,6 +141,52 @@ class Cari(Dasar):
         self.assertEqual(self.ids(limit=3), ["14", "63", "65"])
 
 
+class Fungsi(Dasar):
+    """Sumbu fungsi cerita (`fungsi:` di frontmatter kartu), kartu qc di luar pencarian bawaan, catatan risiko, bantuan tanpa hasil."""
+
+    def kartu_berkas(self, **per_id):
+        for kid, (fungsi, risiko) in per_id.items():
+            nama = {"63": "01-camera/63-virtual-camera-desktop-stage.md", "67": "02-typography/67-morphing-card-number-counter.md",
+                    "93": "05-sfx/93-change-marked-sound-hierarchy.md"}[kid]
+            p = self.index.parent / nama; p.parent.mkdir(parents=True, exist_ok=True)
+            p.write_text(f'---\nid: "{kid}"\nfungsi: [{fungsi}]\n' + (f'risiko: "{risiko}"\n' if risiko else "") + "---\nisi\n", encoding="utf-8")
+        return pk.baca_index(self.index)
+
+    def test_fungsi_menang(self):
+        # B lebih dulu di index dan trigger-nya menyebut "angka" (bobot 3); A hanya punya fungsi angka (bobot 4) dan menang
+        kepala = "| ID | Pola | Narrative trigger | Kategori | Status | Path |\n|---|---|---|---|---|---|\n"
+        self.index.write_text(kepala + "| B | Satu | angka naik pelan | layout | bergerak:ya · diukur:ya | b.md |\n"
+                              "| A | Dua | pembukaan acara tahunan | layout | bergerak:ya · diukur:ya | a.md |\n", encoding="utf-8")
+        for n, f in (("a", "angka"), ("b", "suasana")):
+            (self.index.parent / f"{n}.md").write_text(f"---\nid: {n}\nfungsi: [{f}]\n---\n", encoding="utf-8")
+        self.assertEqual([k["id"] for k in pk.pilih(pk.baca_index(self.index), cari="angka")], ["A", "B"])
+        (self.index.parent / "a.md").write_text("---\nid: a\nfungsi: [suasana]\n---\n", encoding="utf-8")
+        self.assertEqual([k["id"] for k in pk.pilih(pk.baca_index(self.index), cari="angka")], ["B"])
+
+    def test_fungsi_dibaca_dari_frontmatter(self):
+        kartu = {k["id"]: k for k in self.kartu_berkas(**{"63": ("langkah, bukti", ""), "93": ("audio", "")})}
+        self.assertEqual(kartu["63"]["daftar_fungsi"], ["langkah", "bukti"]); self.assertEqual(kartu["63"]["fungsi"], "langkah bukti")
+        self.assertEqual(kartu["14"]["daftar_fungsi"], [])  # berkas kartu tidak ada: kosong, bukan galat
+
+    def test_qc_tidak_muncul_tanpa_saringan_fixture(self):
+        kartu = self.kartu_berkas(**{"93": ("qc", "")})
+        self.assertNotIn("93", [k["id"] for k in pk.pilih(kartu, cari="bunyi")])
+        self.assertIn("93", [k["id"] for k in pk.pilih(kartu, cari="bunyi", pack="05")])
+        self.assertIn("93", [k["id"] for k in pk.pilih(kartu, cari="bunyi", kategori="sfx")])
+
+    def test_risiko_dibaca(self):
+        kartu = {k["id"]: k for k in self.kartu_berkas(**{"63": ("langkah", "hati-hati"), "67": ("angka", "")})}
+        self.assertEqual(kartu["63"]["risiko"], "hati-hati"); self.assertEqual(kartu["67"]["risiko"], "")
+        r = self.cli("--cari", "demo fitur", "--limit", "1"); self.assertEqual(r.returncode, 0)
+        self.assertIn("Risiko 63: hati-hati", r.stdout)
+
+    def test_tanpa_hasil_menyebut_fungsi(self):
+        r = self.cli("--cari", "xyzzy")
+        self.assertEqual(r.returncode, 1); self.assertEqual(r.stdout, "")
+        self.assertTrue(r.stderr.startswith("Tidak ada kartu yang cocok")); self.assertIn("Sebut fungsi beat-nya", r.stderr)
+        self.assertIn("hook, jelaskan, angka, banding, bukti, langkah, balik, penekanan, transisi, suasana, cta, penutup", r.stderr)
+
+
 class Saring(Dasar):
     def test_kategori_utama_dan_tambahan(self):
         self.assertEqual(self.ids(kategori="camera", limit=9), ["14", "63", "65"])
@@ -210,6 +256,20 @@ class IndexAsli(unittest.TestCase):
             self.assertTrue(s[2].startswith("ya/")); self.assertTrue(s[3].startswith("claude/motion-graphic/cookbook/"))
             self.assertTrue((S.parents[2] / s[3]).is_file(), s[3])
             self.assertTrue(s[4] == "-" or "claude/motion-graphic/guide/referensi/sheets/keyframes/" in s[4])
+
+    def test_qc_tidak_muncul_tanpa_saringan(self):
+        ids = [k["id"] for k in pk.pilih(self.kartu, cari="audit frame", limit=99)]
+        self.assertFalse([i for i in ids if i.startswith("Q")], ids)
+        self.assertIn("Q03", [k["id"] for k in pk.pilih(self.kartu, cari="audit frame", pack="06")])
+        self.assertIn("Q03", [k["id"] for k in pk.pilih(self.kartu, cari="audit frame", kategori="qc")])
+
+    def test_risiko_dicetak(self):
+        r = subprocess.run([sys.executable, str(SKRIP), "--cari", "cutout metaphor"], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr); self.assertIn("Risiko 95:", r.stdout)
+        self.assertIn("sidik jari slop", r.stdout)
+
+    def test_semua_kartu_aktif_punya_fungsi(self):
+        self.assertEqual([k["id"] for k in self.kartu if not k["daftar_fungsi"]], [])
 
     def test_kartu_motion_graphic_dan_flash_grid_bergerak(self):
         id_map = {k["id"]: k for k in self.kartu}

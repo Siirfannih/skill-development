@@ -5,6 +5,8 @@ pack: 04-ui-cutout-dataviz-visuals
 kategori: layout
 kategori_lain: [typography, camera]
 trigger: penjelasan konsep/paradoks lewat satu benda cutout foto/halftone di kanvas gradien bersih + prop interaktif
+fungsi: [jelaskan]
+risiko: "kanvas gradien lembut + satu benda di tengah mudah jadi sidik jari slop (S-V31); kulit dari merek, bukan dari kartu"
 sumber: cutout halftone 9:16 · 51,7 dtk
 dilihat_bergerak: ya
 diukur: ya

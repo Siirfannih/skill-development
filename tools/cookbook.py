@@ -29,8 +29,10 @@ PACK_KATS = {
     "06-qc-and-verification": {"qc"},
 }
 KAT = ["camera", "typography", "layout", "texture", "sfx", "script", "qc"]
-WAJIB = ["id", "pola", "pack", "kategori", "kategori_lain", "trigger", "sumber", "dilihat_bergerak", "diukur", "alias", "vault"]
-LIST_KEYS = {"kategori_lain", "alias", "vault"}
+WAJIB = ["id", "pola", "pack", "kategori", "kategori_lain", "trigger", "fungsi", "sumber", "dilihat_bergerak", "diukur", "alias", "vault"]
+LIST_KEYS = {"kategori_lain", "alias", "vault", "fungsi"}
+# Sumbu fungsi cerita: apa yang dikerjakan kartu di sebuah beat, terlepas dari industri. Dipakai pilih_kartu.py (bobot tertinggi) dan menu bantuan tanpa hasil.
+FUNGSI = ("hook", "jelaskan", "angka", "banding", "bukti", "langkah", "balik", "penekanan", "transisi", "suasana", "cta", "penutup", "audio", "qc")
 TBLOK = re.compile(r"^### T(\d+) · (.+?) · (\w+)\s*$", re.M)
 HEAD = re.compile(r"^#{2,3} ", re.M)
 GENERATED = "<!-- dibangkitkan oleh tools/cookbook.py index; jangan diedit tangan -->"
@@ -412,6 +414,12 @@ def cmd_cek(args):
         miss = [k for k in WAJIB if k not in fm or (k not in LIST_KEYS and not fm[k])]
         if miss:
             bad(f"{r}: frontmatter kurang: {', '.join(miss)}")
+        fg = fm.get("fungsi", [])
+        if "fungsi" in fm and not (1 <= len(fg) <= 3):
+            bad(f"{r}: fungsi harus 1-3 nilai, ada {len(fg)}")
+        for f in fg:
+            if f not in FUNGSI:
+                bad(f"{r}: fungsi tidak dikenal: {f} (diizinkan {', '.join(FUNGSI)})")
         kat = fm.get("kategori", "")
         allowed = PACK_KATS.get(c["folder"], {FOLDER_KAT[c["folder"]]})
         if kat not in allowed:

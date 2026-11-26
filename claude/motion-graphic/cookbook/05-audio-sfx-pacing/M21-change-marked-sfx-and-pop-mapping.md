@@ -5,6 +5,7 @@ pack: 05-audio-sfx-pacing
 kategori: sfx
 kategori_lain: [camera, typography]
 trigger: setiap perubahan visual/gestur/KT memicu bunyi sesuai bentuk gerak; kepadatan SFX invers terhadap bicara
+fungsi: [audio, penekanan]
 sumber: gabungan peta cue berbasis perubahan & pop event
 dilihat_bergerak: ya
 diukur: ya

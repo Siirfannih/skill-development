@@ -5,6 +5,7 @@ pack: 04-ui-cutout-dataviz-visuals
 kategori: typography
 kategori_lain: [texture, layout]
 trigger: monolog faceless curhat/ragu di mana tiap kata/frasa punya visual kertas/stop-motion dan medium berbeda
+fungsi: [suasana, penekanan]
 sumber: stop-motion kertas · 30 fps
 dilihat_bergerak: ya
 diukur: ya

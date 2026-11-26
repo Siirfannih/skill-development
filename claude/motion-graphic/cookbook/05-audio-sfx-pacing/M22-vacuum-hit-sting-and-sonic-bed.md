@@ -5,6 +5,7 @@ pack: 05-audio-sfx-pacing
 kategori: sfx
 kategori_lain: [camera, typography]
 trigger: pembuka/penutup merek atau pivot gelap→terang butuh hantaman tunggal mahal sesudah jeda vakum
+fungsi: [audio, hook, penutup]
 sumber: gabungan mekanik sting vakum-lalu-hantaman & bed berfilter
 dilihat_bergerak: ya
 diukur: ya

@@ -5,6 +5,7 @@ pack: 04-ui-cutout-dataviz-visuals
 kategori: layout
 kategori_lain: [typography, texture]
 trigger: klaim bukan X tapi Y dijelaskan lewat satu benda diagram 2D; rantai fakta tiap kalimat ganti benda
+fungsi: [jelaskan, balik]
 sumber: diagram esai 2D · 30 fps
 dilihat_bergerak: ya
 diukur: ya

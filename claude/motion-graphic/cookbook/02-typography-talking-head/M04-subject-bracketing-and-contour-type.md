@@ -5,6 +5,7 @@ pack: 02-typography-talking-head
 kategori: typography
 kategori_lain: [camera, layout]
 trigger: kata mengapit atau mengorbit pembicara; stiker anotasi potongan kertas di sekitar kepala
+fungsi: [penekanan]
 sumber: gabungan mekanik orbit subjek & stiker anotasi
 dilihat_bergerak: ya
 diukur: ya

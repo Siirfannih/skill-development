@@ -5,6 +5,7 @@ pack: 06-qc-and-verification
 kategori: qc
 kategori_lain: [typography, layout]
 trigger: menilai still per beat dan mencegah 6 kelas kesalahan visual yang pernah ditolak pemilik
+fungsi: [qc]
 sumber: sintesis 21 contoh gagal & cek keseimbangan visual
 dilihat_bergerak: ya
 diukur: ya

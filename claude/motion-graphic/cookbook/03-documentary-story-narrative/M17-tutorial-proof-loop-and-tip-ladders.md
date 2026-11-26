@@ -5,6 +5,7 @@ pack: 03-documentary-story-narrative
 kategori: script
 kategori_lain: [layout, typography]
 trigger: tutorial 3–10 langkah; demo AI/alat yang hasilnya langsung tampil; promo metode dibuktikan videonya
+fungsi: [langkah, bukti]
 sumber: gabungan 4 struktur naskah tutorial & proof-loop
 dilihat_bergerak: ya
 diukur: ya

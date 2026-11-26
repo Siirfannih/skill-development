@@ -5,6 +5,7 @@ pack: 01-motion-camera-transitions
 kategori: camera
 kategori_lain: [typography, layout]
 trigger: flash grid wipe antar B-roll atau antar demo berenergi tinggi; kata isi di sekitar pembicara
+fungsi: [transisi, penekanan]
 sumber: tutorial editing 4:3 · 34,3 dtk
 dilihat_bergerak: ya
 diukur: ya

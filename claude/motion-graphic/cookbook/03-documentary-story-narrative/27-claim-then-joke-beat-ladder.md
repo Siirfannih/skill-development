@@ -5,6 +5,7 @@ pack: 03-documentary-story-narrative
 kategori: script
 kategori_lain: [typography, layout]
 trigger: perkenalan diri kreator/freelancer; klaim serius diimbangi humor merendah; chat dua suara
+fungsi: [hook, balik]
 sumber: perkenalan kreator & jasa · 30 fps
 dilihat_bergerak: tidak
 diukur: ya

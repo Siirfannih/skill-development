@@ -5,6 +5,7 @@ pack: 05-audio-sfx-pacing
 kategori: sfx
 kategori_lain: []
 trigger: merancang seluruh lapisan audio dari nol dan menyeimbangkan level SFX, bed, dan VO agar lolos speaker HP
+fungsi: [audio]
 sumber: sintesis standar 5 pilar & level relatif VO
 dilihat_bergerak: ya
 diukur: ya

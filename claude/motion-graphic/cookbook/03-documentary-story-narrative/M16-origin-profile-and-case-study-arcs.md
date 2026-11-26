@@ -5,6 +5,7 @@ pack: 03-documentary-story-narrative
 kategori: script
 kategori_lain: [layout, typography]
 trigger: profil asal-usul pendiri/merek; kisah mitra/klien bergabung; studi kasus bertaruh/janji di awal
+fungsi: [bukti, hook]
 sumber: gabungan 3 struktur naskah profil & studi kasus
 dilihat_bergerak: ya
 diukur: ya

@@ -12,6 +12,8 @@ Masukan: tabel CATALOG.md/INDEX.md berkolom `ID | Pola | Narrative trigger | Kat
               Bobot: fungsi (4), narrative trigger (3), nama pola (2), kategori (1).
   --kategori  hanya kartu yang kategori utama atau tambahannya memuat nilai ini.
   --pack      saring berdasarkan awalan folder pack (mis. 01, P01, 01-motion-camera-transitions).
+  Kartu berfungsi `qc` (aturan kerja, bukan mekanik visual) tidak muncul tanpa --pack atau --kategori.
+  `fungsi:` dan `risiko:` dibaca dari frontmatter kartu lewat kolom Path; kartu yang tidak terbaca dianggap tanpa fungsi.
   --bergerak  hanya kartu berstatus bergerak:ya.
   --limit     jumlah baris paling banyak (bawaan 4).
 """
@@ -57,8 +59,31 @@ PACK_ALIASES = {
 }
 
 
+FUNGSI = ("hook", "jelaskan", "angka", "banding", "bukti", "langkah", "balik", "penekanan", "transisi", "suasana", "cta", "penutup")
+
+
 class Gagal(Exception):
     pass
+
+
+def baca_front(path):
+    """Frontmatter kartu sebagai dict sederhana (daftar `[a, b]` jadi list). Berkas hilang atau tanpa frontmatter: dict kosong."""
+    try:
+        teks = Path(path).read_text(encoding="utf-8")
+    except OSError:
+        return {}
+    m = re.match(r"---\n(.*?)\n---", teks, re.S)
+    fm = {}
+    for baris in (m.group(1).splitlines() if m else []):
+        km = re.match(r"^([A-Za-z_]+):\s*(.*)$", baris)
+        if not km:
+            continue
+        v = km.group(2).strip()
+        if v.startswith("[") and v.endswith("]"):
+            fm[km.group(1)] = [x.strip().strip("\"'") for x in v[1:-1].split(",") if x.strip()]
+        else:
+            fm[km.group(1)] = v[1:-1] if len(v) >= 2 and v[0] == v[-1] and v[0] in "\"'" else v
+    return fm
 
 
 def sel(baris):
@@ -94,6 +119,9 @@ def baca_index(path=INDEX):
         k["tambahan"] = [x.strip().lower() for x in (kat.group(2) or "").split(",") if x.strip()] if kat else []
         st = dict(re.findall(r"(bergerak|diukur)\s*:\s*(\w+)", k["status"]))
         k["bergerak"], k["diukur"] = st.get("bergerak", "?"), st.get("diukur", "?")
+        fm = baca_front(Path(path).parent / k["path"])
+        k["daftar_fungsi"] = fm.get("fungsi", []) if isinstance(fm.get("fungsi", []), list) else []
+        k["fungsi"] = " ".join(k["daftar_fungsi"]); k["risiko"] = fm.get("risiko", "")
         kartu.append(k)
     if kepala is None:
         raise Gagal(f"{path}: tabel berkolom {' | '.join(KOLOM)} tidak ditemukan")
@@ -143,6 +171,8 @@ def pilih(kartu, cari=None, kategori=None, bergerak=False, limit=4, pack=None):
             continue
         if bergerak and k["bergerak"] != "ya":
             continue
+        if not pack_prefix and not kategori and "qc" in k.get("daftar_fungsi", []):
+            continue
         cocok, bobot = nilai(k, kata) if kata else (0, 0)
         if kata and not cocok:
             continue
@@ -189,8 +219,13 @@ def main(argv=None):
     if not hasil:
         saring = " ".join(x for x in (f'--cari "{a.cari}"' if a.cari else "", f"--kategori {a.kategori}" if a.kategori else "", f"--pack {a.pack}" if a.pack else "", "--bergerak" if a.bergerak else "") if x)
         print(f"Tidak ada kartu yang cocok ({saring}). Ganti kata kunci dengan fungsi cerita beat-nya, atau longgarkan saringan.", file=sys.stderr)
+        if a.cari:
+            print(f"Sebut fungsi beat-nya: {', '.join(FUNGSI)} (kata industri seperti \"klinik\" atau \"rumah\" tidak dipakai).", file=sys.stderr)
         return 1
     print(tabel(hasil, a.index, a.keyframes))
+    for k in hasil:
+        if k.get("risiko"):
+            print(f"Risiko {k['id']}: {k['risiko']}")
     return 0
 
 

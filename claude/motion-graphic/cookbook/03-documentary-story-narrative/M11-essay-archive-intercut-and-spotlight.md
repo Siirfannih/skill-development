@@ -5,6 +5,7 @@ pack: 03-documentary-story-narrative
 kategori: typography
 kategori_lain: [camera, layout]
 trigger: esai opini/analogi sejarah ber-intercut bukti arsip, klip, dan kata kunci sorot bertahap
+fungsi: [bukti, banding]
 sumber: gabungan mekanik intercut esai & spotlight kutipan
 dilihat_bergerak: ya
 diukur: ya

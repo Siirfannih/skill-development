@@ -5,6 +5,7 @@ pack: 06-qc-and-verification
 kategori: qc
 kategori_lain: [sfx]
 trigger: verifikasi final seluruh stem VO, SFX, dan musik setelah fase visual lulus dan sebelum MP4 final
+fungsi: [qc]
 sumber: sintesis gerbang produksi audio & uji speaker HP
 dilihat_bergerak: ya
 diukur: ya

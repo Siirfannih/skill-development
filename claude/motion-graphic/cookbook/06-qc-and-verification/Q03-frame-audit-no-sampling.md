@@ -5,6 +5,7 @@ pack: 06-qc-and-verification
 kategori: qc
 kategori_lain: [camera, typography]
 trigger: audit visual menyeluruh setelah adegan tersusun dan sebelum masuk fase SFX/musik maupun render final
+fungsi: [qc]
 sumber: sintesis audit semua frame tanpa sampling
 dilihat_bergerak: ya
 diukur: ya

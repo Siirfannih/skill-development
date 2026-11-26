@@ -5,6 +5,7 @@ pack: 03-documentary-story-narrative
 kategori: script
 kategori_lain: [layout, texture, typography]
 trigger: klip wawancara/esai edukasi yang dipecah per peran kalimat ke adegan ilustratif berganti-ganti
+fungsi: [jelaskan]
 sumber: wawancara edukatif & esai berilustrasi · 30 fps
 dilihat_bergerak: tidak
 diukur: ya

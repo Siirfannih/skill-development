@@ -5,6 +5,7 @@ pack: 02-typography-talking-head
 kategori: typography
 kategori_lain: [camera, layout]
 trigger: judul masuk per huruf di lintasan lengkung; sapuan kilat huruf; kata overhang di atas promo
+fungsi: [hook, penekanan]
 sumber: gabungan mekanik huruf lengkung, kilau, & overhang
 dilihat_bergerak: tidak
 diukur: ya

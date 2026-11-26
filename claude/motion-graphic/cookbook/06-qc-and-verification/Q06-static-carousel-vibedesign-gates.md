@@ -5,11 +5,12 @@ pack: 06-qc-and-verification
 kategori: qc
 kategori_lain: [layout, typography]
 trigger: produksi desain statis carousel Instagram, poster, atau cover berbasis HTML/CSS/SVG → PNG 2×
+fungsi: [qc]
 sumber: sintesis 4 juri otomatis vibedesign
 dilihat_bergerak: ya
 diukur: ya
 alias: []
-vault: [../_vault/03-spatial-and-ui-layouts/95-cutout-collage-metaphor.md]
+vault: []
 ---
 ### Q06 · Static Carousel (`vibedesign`) 4-Judge Gates
 - **Trigger:** produksi desain statis carousel Instagram, poster, atau cover berbasis HTML/CSS/SVG → PNG 2×

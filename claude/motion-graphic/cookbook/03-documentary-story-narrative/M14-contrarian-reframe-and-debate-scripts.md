@@ -5,6 +5,7 @@ pack: 03-documentary-story-narrative
 kategori: script
 kategori_lain: [typography, layout]
 trigger: naskah edukasi membantah anggapan umum; opini kontra-arus; steelman; definisi ulang kata
+fungsi: [balik, hook]
 sumber: gabungan 4 struktur naskah argumentatif terukur
 dilihat_bergerak: ya
 diukur: ya

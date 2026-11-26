@@ -5,6 +5,7 @@ pack: 01-motion-camera-transitions
 kategori: camera
 kategori_lain: [layout, typography]
 trigger: demo fitur atau konsep aplikasi dengan titik masuk kecil (ikon, tombol); kata inline benda UI
+fungsi: [transisi, langkah]
 sumber: camera dive UI · 30 fps
 dilihat_bergerak: sebagian
 diukur: ya

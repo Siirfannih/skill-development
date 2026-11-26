@@ -5,6 +5,7 @@ pack: 03-documentary-story-narrative
 kategori: texture
 kategori_lain: [layout, typography]
 trigger: pergeseran suasana per babak lewat satu warna cahaya atau desaturasi bermakna saat kata kunci muncul
+fungsi: [suasana]
 sumber: gabungan mekanik grading naratif & desaturasi bermakna
 dilihat_bergerak: tidak
 diukur: ya

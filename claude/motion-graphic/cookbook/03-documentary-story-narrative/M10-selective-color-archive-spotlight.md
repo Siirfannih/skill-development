@@ -5,6 +5,7 @@ pack: 03-documentary-story-narrative
 kategori: layout
 kategori_lain: [typography, camera]
 trigger: menyorot satu tokoh di tengah foto kerumunan arsip lama atau daftar banyak pendiri/tim
+fungsi: [penekanan]
 sumber: gabungan mekanik spotlight warna selektif di foto arsip
 dilihat_bergerak: tidak
 diukur: ya

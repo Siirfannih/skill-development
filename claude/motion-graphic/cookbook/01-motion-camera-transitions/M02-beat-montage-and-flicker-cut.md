@@ -5,6 +5,7 @@ pack: 01-motion-camera-transitions
 kategori: camera
 kategori_lain: [texture, sfx]
 trigger: montase satu hari atau b-roll berirama di atas beat musik; pergantian shot terasa dipotret
+fungsi: [suasana, transisi]
 sumber: gabungan montase beat-locked & flicker cut
 dilihat_bergerak: tidak
 diukur: ya

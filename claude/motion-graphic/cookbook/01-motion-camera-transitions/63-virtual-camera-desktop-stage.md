@@ -5,6 +5,7 @@ pack: 01-motion-camera-transitions
 kategori: camera
 kategori_lain: [layout, typography]
 trigger: demo fitur produk atau AI tool tanpa pembicara; urutan klik lalu hasil muncul; prompt terbaca
+fungsi: [langkah, bukti]
 sumber: desktop stage · 30 fps
 dilihat_bergerak: ya
 diukur: ya

@@ -5,6 +5,7 @@ pack: 06-qc-and-verification
 kategori: qc
 kategori_lain: [camera, typography]
 trigger: mengerjakan masukan atau keluhan revisi atas video yang sudah pernah dirender
+fungsi: [qc]
 sumber: sintesis aturan revisi diff per atribut & baseline lock
 dilihat_bergerak: ya
 diukur: ya

@@ -5,6 +5,7 @@ pack: 01-motion-camera-transitions
 kategori: camera
 kategori_lain: [layout, texture]
 trigger: object-match transition; lompatan waktu antarbab; receding zoom-out; object zoom-through chain
+fungsi: [transisi]
 sumber: gabungan mekanik rantai zoom & match-cut
 dilihat_bergerak: tidak
 diukur: ya

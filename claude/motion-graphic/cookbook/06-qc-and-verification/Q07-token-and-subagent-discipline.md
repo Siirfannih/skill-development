@@ -5,11 +5,12 @@ pack: 06-qc-and-verification
 kategori: qc
 kategori_lain: []
 trigger: mendelegasikan adegan ke worker paralel atau melakukan audit frame/still agar biaya token terkendali
+fungsi: [qc]
 sumber: sintesis forensik anggaran konteks & baca gambar
 dilihat_bergerak: ya
 diukur: ya
 alias: []
-vault: [../_vault/01-camera-and-transitions/63-virtual-camera-desktop-stage.md]
+vault: []
 ---
 ### Q07 · Token & Subagent Discipline
 - **Trigger:** mendelegasikan adegan ke worker paralel atau melakukan audit frame/still agar biaya token terkendali

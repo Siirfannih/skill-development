@@ -5,6 +5,7 @@ pack: 04-ui-cutout-dataviz-visuals
 kategori: layout
 kategori_lain: [typography, camera]
 trigger: explainer Vox-style: daftar objek/kategori satu per satu; tag diegetic; sisipan kata & ikon di judul
+fungsi: [jelaskan, langkah]
 sumber: editorial explainer · 30 fps
 dilihat_bergerak: ya
 diukur: ya

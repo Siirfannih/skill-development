@@ -5,6 +5,7 @@ pack: 01-motion-camera-transitions
 kategori: camera
 kategori_lain: [typography, layout]
 trigger: promo atau teaser digerakkan musik; pindah antar-dunia visual; pukulan akhir skala besar
+fungsi: [transisi, hook, penutup]
 sumber: launch burst · 30 fps
 dilihat_bergerak: tidak
 diukur: ya

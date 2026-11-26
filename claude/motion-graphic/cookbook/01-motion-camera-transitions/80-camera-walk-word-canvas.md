@@ -5,6 +5,7 @@ pack: 01-motion-camera-transitions
 kategori: camera
 kategori_lain: [typography, layout]
 trigger: esai ide atau opini bernarasi tanpa wajah; kontras dua sisi; transisi teks ke bukti UI
+fungsi: [banding, transisi]
 sumber: word canvas walk · 30 fps
 dilihat_bergerak: tidak
 diukur: ya

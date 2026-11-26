@@ -5,6 +5,8 @@ pack: 02-typography-talking-head
 kategori: typography
 kategori_lain: [camera, layout]
 trigger: kalimat koreksi bukan X tapi Y; relay kata per beat di pusat frame; teks blur ke tajam
+fungsi: [balik, penekanan]
+risiko: "relay kata di tengah frame berulang > 3 beat = layout sama berulang (S-V31)"
 sumber: gabungan mekanik focus-pull & relay kata pusat
 dilihat_bergerak: ya
 diukur: ya

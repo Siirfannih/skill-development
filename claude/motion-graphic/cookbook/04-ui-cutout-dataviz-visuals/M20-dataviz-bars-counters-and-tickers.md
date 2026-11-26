@@ -5,6 +5,7 @@ pack: 04-ui-cutout-dataviz-visuals
 kategori: layout
 kategori_lain: [typography, sfx]
 trigger: perbandingan bar chart; angka persentase/milestone berubah; pengumpulan biaya/logo berserakan
+fungsi: [angka, banding]
 sumber: gabungan mekanik grafik batang, penghitung angka, & ticker
 dilihat_bergerak: tidak
 diukur: ya

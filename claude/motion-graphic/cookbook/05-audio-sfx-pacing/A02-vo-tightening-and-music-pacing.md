@@ -5,6 +5,7 @@ pack: 05-audio-sfx-pacing
 kategori: sfx
 kategori_lain: [script]
 trigger: memadatkan jeda VO untuk retensi tanpa mempercepat bicara, membersihkan noise, dan memilih musik per babak
+fungsi: [audio]
 sumber: sintesis aturan suara utuh & tempo musik
 dilihat_bergerak: ya
 diukur: ya

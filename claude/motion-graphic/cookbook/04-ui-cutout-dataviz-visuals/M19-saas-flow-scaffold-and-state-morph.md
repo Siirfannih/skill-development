@@ -5,6 +5,7 @@ pack: 04-ui-cutout-dataviz-visuals
 kategori: layout
 kategori_lain: [camera, typography]
 trigger: alur produk SaaS bertahap; approval sequence; framework bertingkat; masalah acak berubah jadi sistem teratur
+fungsi: [langkah, banding]
 sumber: gabungan mekanik alur SaaS, scaffold framework, & dot-field
 dilihat_bergerak: tidak
 diukur: ya

@@ -5,6 +5,7 @@ pack: 03-documentary-story-narrative
 kategori: typography
 kategori_lain: [layout, texture]
 trigger: narasi tokoh atau sejarah di atas foto arsip; kutipan tulisan yang disorot stabilo
+fungsi: [bukti, jelaskan]
 sumber: gabungan mekanik caption arsip & sapuan stabilo
 dilihat_bergerak: ya
 diukur: ya

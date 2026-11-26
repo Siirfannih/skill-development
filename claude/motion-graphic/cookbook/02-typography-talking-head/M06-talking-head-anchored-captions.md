@@ -5,6 +5,7 @@ pack: 02-typography-talking-head
 kategori: typography
 kategori_lain: [camera, layout]
 trigger: caption jangkar di ruang tetap pembicara (dada, atas kepala, mulut) saat shot atau frasa berganti
+fungsi: [penekanan]
 sumber: gabungan mekanik caption jangkar talking head
 dilihat_bergerak: ya
 diukur: ya

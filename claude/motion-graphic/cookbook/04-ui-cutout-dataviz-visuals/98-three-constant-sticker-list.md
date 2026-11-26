@@ -5,6 +5,7 @@ pack: 04-ui-cutout-dataviz-visuals
 kategori: layout
 kategori_lain: [typography, camera]
 trigger: daftar tips/skill cepat tanpa nomor; satu benda stiker per item; aset campur gaya tetap satu sistem
+fungsi: [langkah]
 sumber: sticker list · 30 fps
 dilihat_bergerak: ya
 diukur: ya
