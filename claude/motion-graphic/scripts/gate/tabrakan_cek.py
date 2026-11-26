@@ -13,7 +13,7 @@ Objek penuh layar (>= 80 % kanvas) atau `data-lapis="latar"` dianggap latar, buk
   TEKS-TEKS    dua blok teks berbeda beririsan > ambang (2 %) dari blok yang lebih kecil (luas diukur per baris teks)
   TEKS-OBJEK   teks beririsan > ambang dengan objek yang BUKAN leluhurnya (label di dalam kartunya sendiri aman)
   TEPI         kotak teks keluar dari zona aman (5 % tiap sisi)
-Elemen (atau leluhurnya) ber-`data-sengaja="tumpuk"` dikecualikan. Tiap berkas menulis `<nama>.tabrakan.png` (kotak merah = tabrakan,
+Elemen (atau leluhurnya) ber-`data-sengaja="tumpuk"` dikecualikan. Elemen ber-`data-dekor` (penanda dekoratif vibedesign) diperlakukan sama. Tiap berkas menulis `<nama>.tabrakan.png` (kotak merah = tabrakan,
 oranye = di luar zona aman, garis biru putus = batas zona aman). Keluar: 0 bersih · 1 ada tabrakan · 2 Playwright/berkas bermasalah.
 """
 import argparse, json, os, sys
@@ -32,7 +32,7 @@ JS = r"""
   const invisibleText = el => { let o = 1; for (let e = el; e && e.nodeType === 1; e = e.parentElement) o *= parseFloat(cs(e).opacity);
     const f = cs(el).webkitTextFillColor || cs(el).color; const m = f.match(/rgba?\(([^)]*)\)/); const al = m && m[1].split(/[,\/ ]+/).filter(Boolean)[3];
     return o < 0.05 || f === 'transparent' || (al !== undefined && parseFloat(al) < 0.05); };
-  const exempt = el => !!(el.closest && el.closest('[data-sengaja="tumpuk"]'));
+  const exempt = el => !!(el.closest && el.closest('[data-sengaja="tumpuk"], [data-dekor]'));
   const label = el => (el.tagName.toLowerCase() + (el.id ? '#' + el.id : '') + (el.className && typeof el.className === 'string' ? '.' + el.className.trim().split(/\s+/)[0] : ''));
   const isBlock = el => { const d = cs(el).display; return d !== 'inline' && d !== 'contents' && !d.startsWith('ruby'); };
   const blocks = new Map();

@@ -1,0 +1,161 @@
+### negatif_cek.py (mg-venv python, --size 1080x1350)
+
+--- LAPORAN inventaris permukaan (tidak memblokir; KEBIJAKAN-v2) ---
+== inventaris projects/vibedesign-meta-carousel/slides  (6 berkas) ==
+HURUF: 46 sistem berbeda, 59 pemakaian  [gaya=1, keluarga:sans/lain=44, keluarga:serif=1]
+BAYANGAN: 21 sistem berbeda, 21 pemakaian  [box-shadow=13, drop-shadow=7, text-shadow=1]
+GRADIEN: 15 sistem berbeda, 16 pemakaian  [linear-gradient=8, radial-gradient=6, teks-bergradien=1]
+KACA/BLUR: 5 sistem berbeda, 5 pemakaian  [blur=4, kaca=1]
+3D: 0 sistem berbeda, 0 pemakaian
+
+32 temuan K1/K2 per baris dicatat sebagai INFO (lihat --json atau permukaan_cek.py --gerbang)
+
+ringkasan: 6 berkas permukaan, 0 error, 0 warn, 32 info
+LULUS NEGATIF
+exit: 0
+
+### tabrakan_cek.py (mg-venv python, --size 1080x1350)
+projects/vibedesign-meta-carousel/slides/slide-01.html  teks=13 objek=5 tabrakan=11  -> projects/vibedesign-meta-carousel/slides/slide-01.tabrakan.png
+  #1 TEPI       div.meta "Meta-Experiment"  x  zona aman  (100%)
+  #2 TEPI       b "01 — 06"  x  zona aman  (100%)
+  #3 TEPI       span.l "Kemarin ngedit"  x  zona aman  (100%)
+  #4 TEPI       span.l "videonya kan udah"  x  zona aman  (100%)
+  #5 TEPI       p.q "Sekarang kalau ngedit carousel , bisa ga"  x  zona aman  (100%)
+  #6 TEPI       div.giant-fill "Carousel"  x  zona aman  (100%)
+  #7 TEPI       div.chip "vibe editing"  x  zona aman  (100%)
+  #8 TEPI       div.chip "vibedesign"  x  zona aman  (100%)
+  #9 TEPI       span.at "@"  x  zona aman  (100%)
+  #10 TEPI       div "100% code"  x  zona aman  (100%)
+  #11 TEPI       span "No Canva"  x  zona aman  (100%)
+projects/vibedesign-meta-carousel/slides/slide-02.html  teks=13 objek=10 tabrakan=18  -> projects/vibedesign-meta-carousel/slides/slide-02.tabrakan.png
+  #1 TEKS-TEKS  div.big "NIH !!"  x  div.tapi "Tapi...."  (24%)
+  #2 TEKS-TEKS  span.who "K"  x  div.mbub "Ada impact-nya ga??"  (73%)
+  #3 TEKS-TEKS  span.ts "Klik · 01.32"  x  div.mbub "Ada impact-nya ga??"  (46%)
+  #4 TEKS-OBJEK div.mbub "Hasilnya bisa bagus ga??"  x  svg  (30%)
+  #5 TEKS-OBJEK span.who "K"  x  svg  (100%)
+  #6 TEKS-OBJEK div.mbub "Ada impact-nya ga??"  x  svg  (22%)
+  #7 TEKS-OBJEK div.pg "geser →"  x  svg  (11%)
+  #8 TEPI       div.tabs "carousel.fig @siirfannih"  x  zona aman  (100%)
+  #9 TEPI       div.file "Slide 02 / Pivot"  x  zona aman  (100%)
+  #10 TEPI       div.right "02 / 06 100% IG Share"  x  zona aman  (100%)
+  #11 TEPI       div.big "BISA"  x  zona aman  (100%)
+  #12 TEPI       div.big "NIH !!"  x  zona aman  (100%)
+  #13 TEPI       div.tapi "Tapi...."  x  zona aman  (100%)
+  #14 TEPI       div.mbub "Hasilnya bisa bagus ga??"  x  zona aman  (100%)
+  #15 TEPI       span.who "K"  x  zona aman  (100%)
+  #16 TEPI       div.mbub "Ada impact-nya ga??"  x  zona aman  (100%)
+  #17 TEPI       span.who "N"  x  zona aman  (100%)
+  #18 TEPI       div.pg "geser →"  x  zona aman  (100%)
+projects/vibedesign-meta-carousel/slides/slide-03.html  teks=36 objek=7 tabrakan=41  -> projects/vibedesign-meta-carousel/slides/slide-03.tabrakan.png
+  #1 TEKS-OBJEK div.label-tape "BISAAAA."  x  svg  (3%)
+  #2 TEKS-OBJEK span.no "04"  x  svg  (100%)
+  #3 TEKS-OBJEK span.t "Bikin SaaS"  x  svg  (100%)
+  #4 TEKS-OBJEK span.s "sistem agentic jalan otomatis"  x  svg  (100%)
+  #5 TEKS-OBJEK span.ok "EXECUTED"  x  svg  (100%)
+  #6 TEPI       span "1"  x  zona aman  (100%)
+  #7 TEPI       span "2"  x  zona aman  (100%)
+  #8 TEPI       span "3"  x  zona aman  (100%)
+  #9 TEPI       span "4"  x  zona aman  (100%)
+  #10 TEPI       span "5"  x  zona aman  (100%)
+  #11 TEPI       span "6"  x  zona aman  (100%)
+  #12 TEPI       span "7"  x  zona aman  (100%)
+  #13 TEPI       span "2"  x  zona aman  (100%)
+  #14 TEPI       span "3"  x  zona aman  (100%)
+  #15 TEPI       span "4"  x  zona aman  (100%)
+  #16 TEPI       span "5"  x  zona aman  (100%)
+  #17 TEPI       span "6"  x  zona aman  (100%)
+  #18 TEPI       span "7"  x  zona aman  (100%)
+  #19 TEPI       span "8"  x  zona aman  (100%)
+  #20 TEPI       span "9"  x  zona aman  (100%)
+  #21 TEPI       div.tabs "carousel.fig @siirfannih"  x  zona aman  (100%)
+  #22 TEPI       div.tools "T Slide 03 / 06 — Phenomenon"  x  zona aman  (100%)
+  #23 TEPI       div.right "100% IG Share"  x  zona aman  (100%)
+  #24 TEPI       h2.hl "Kita lagi ada di fenomena dimana bikin a"  x  zona aman  (100%)
+  #25 TEPI       div.label-tape "BISAAAA."  x  zona aman  (100%)
+  #26 TEPI       span.no "01"  x  zona aman  (100%)
+  #27 TEPI       span.t "Vibecoding"  x  zona aman  (100%)
+  #28 TEPI       span.s "prompt → aplikasi jalan"  x  zona aman  (100%)
+  #29 TEPI       span.ok "EXECUTED"  x  zona aman  (100%)
+  #30 TEPI       span.no "02"  x  zona aman  (100%)
+  #31 TEPI       span.t "Vibe Design"  x  zona aman  (100%)
+  #32 TEPI       span.s "poster & UI hitungan detik"  x  zona aman  (100%)
+  #33 TEPI       span.ok "EXECUTED"  x  zona aman  (100%)
+  #34 TEPI       span.no "03"  x  zona aman  (100%)
+  #35 TEPI       span.t "Vibe Editing"  x  zona aman  (100%)
+  #36 TEPI       span.s "cut, subtitle, animasi"  x  zona aman  (100%)
+  #37 TEPI       span.ok "EXECUTED"  x  zona aman  (100%)
+  #38 TEPI       span.no "04"  x  zona aman  (100%)
+  #39 TEPI       span.t "Bikin SaaS"  x  zona aman  (100%)
+  #40 TEPI       span.s "sistem agentic jalan otomatis"  x  zona aman  (100%)
+  #41 TEPI       span.ok "EXECUTED"  x  zona aman  (100%)
+projects/vibedesign-meta-carousel/slides/slide-04.html  teks=11 objek=7 tabrakan=5  -> projects/vibedesign-meta-carousel/slides/slide-04.tabrakan.png
+  #1 TEPI       div.tabs "carousel.fig @siirfannih"  x  zona aman  (100%)
+  #2 TEPI       div.file "Slide 04 / System limitation"  x  zona aman  (100%)
+  #3 TEPI       div.right "04 / 06 100% IG Share"  x  zona aman  (100%)
+  #4 TEPI       div.u "buatin desain konten carousel dong, yang"  x  zona aman  (100%)
+  #5 TEPI       h2.msg "Tapi yang AI gak bisa itu ....."  x  zona aman  (100%)
+projects/vibedesign-meta-carousel/slides/slide-05.html  teks=14 objek=6 tabrakan=13  -> projects/vibedesign-meta-carousel/slides/slide-05.tabrakan.png
+  #1 TEKS-TEKS  div.right "05 / 06 100% I Share"  x  span.big "taste"  (11%)
+  #2 TEKS-TEKS  span.big "taste"  x  span.big "arahnya"  (12%)
+  #3 TEPI       div.tabs "carousel.fig @siirfannih"  x  zona aman  (100%)
+  #4 TEPI       div.file "Slide 05 / Punchline"  x  zona aman  (100%)
+  #5 TEPI       div.right "05 / 06 100% I Share"  x  zona aman  (100%)
+  #6 TEPI       span.w "Mikirin"  x  zona aman  (100%)
+  #7 TEPI       span.q "mau ke mana?"  x  zona aman  (100%)
+  #8 TEPI       div.tip "@siirfannih — I Gede Irfan"  x  zona aman  (100%)
+  #9 TEPI       small "Life Student • 100% Coded Carousel"  x  zona aman  (100%)
+  #10 TEPI       div.hand "Neh kan jelek lagi hasilnya :("  x  zona aman  (100%)
+  #11 TEPI       span "I"  x  zona aman  (100%)
+  #12 TEPI       span.btn "Save"  x  zona aman  (100%)
+  #13 TEPI       span.btn "Share ↗"  x  zona aman  (100%)
+projects/vibedesign-meta-carousel/slides/slide-06.html  teks=21 objek=4 tabrakan=5  -> projects/vibedesign-meta-carousel/slides/slide-06.tabrakan.png
+  #1 TEPI       div.tabs "carousel.fig @siirfannih"  x  zona aman  (100%)
+  #2 TEPI       div.file "Slide 06 / Usage"  x  zona aman  (100%)
+  #3 TEPI       div.right "06 / 06 100% I Share"  x  zona aman  (100%)
+  #4 TEPI       h2.hl "Habis berapa token buat 5 slide ini?"  x  zona aman  (100%)
+  #5 TEPI       div.note "Harga API Opus 5.5 · $20 / 1 jt token ou"  x  zona aman  (100%)
+
+ringkasan: 6 berkas, 93 tabrakan
+GAGAL tabrakan: geser teks/objek (atau beri data-sengaja="tumpuk" bila sengaja).
+exit: 1
+
+### juri/teks_cek.js
+slide 1: lulus · terpotong 0 · tabrakan 0 · < 24px 0
+slide 2: lulus · terpotong 0 · tabrakan 0 · < 24px 0
+slide 3: lulus · terpotong 0 · tabrakan 0 · < 24px 0
+slide 4: lulus · terpotong 0 · tabrakan 0 · < 24px 0
+slide 5: lulus · terpotong 0 · tabrakan 0 · < 24px 0
+slide 6: lulus · terpotong 0 · tabrakan 0 · < 24px 0
+LULUS · teks_cek · laporan: projects/vibedesign-meta-carousel/qc/teks_cek.json
+exit: 0
+
+### juri/kontras_cek.js
+slide 1: lulus · diperiksa 7 · gagal 0 · tidak terukur 1
+slide 2: lulus · diperiksa 6 · gagal 0
+slide 3: lulus · diperiksa 10 · gagal 0
+slide 4: lulus · diperiksa 4 · gagal 0
+slide 5: lulus · diperiksa 6 · gagal 0
+slide 6: lulus · diperiksa 18 · gagal 0
+LULUS · kontras_cek · laporan: projects/vibedesign-meta-carousel/qc/kontras_cek.json
+exit: 0
+
+### juri/hierarki_cek.js
+slide 1: lulus · pola bobot · urutan 1→2 · level ukuran 3
+slide 2: lulus · pola bobot · urutan 1→2→3 · level ukuran 3
+slide 3: GAGAL · pola bobot · urutan 1→2→3 · level ukuran 4
+   gagal       urutan 2 ("BISAAAA.") lebih menonjol 1.69× dari urutan 1 ("Kita lagi ada di fenomena dimana bikin a")
+   peringatan  4 level ukuran teks (150, 78, 56, 24 px); disarankan ≤ 3
+slide 4: lulus · pola cerita · urutan 1→2 · level ukuran 2
+slide 5: GAGAL · pola bobot · urutan 1→2→3→4 · level ukuran 4
+   gagal       urutan 4 ("Neh kan jelek lagi hasilnya :(") lebih menonjol 2.00× dari urutan 3 ("mau ke mana?")
+   peringatan  4 level ukuran teks (250, 200, 112, 46 px); disarankan ≤ 3
+slide 6: lulus · pola bobot · urutan 1→2→3 · level ukuran 5
+   peringatan  5 level ukuran teks (132, 84, 56, 40, 28 px); disarankan ≤ 3
+GAGAL · hierarki_cek · laporan: projects/vibedesign-meta-carousel/qc/hierarki_cek.json
+exit: 1
+
+### juri/aset_cek.js
+karakter 7 · gambar 0 · font 5
+LULUS · aset_cek · laporan: projects/vibedesign-meta-carousel/qc/aset_cek.json
+exit: 0
+

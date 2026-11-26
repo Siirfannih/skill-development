@@ -42,3 +42,4 @@ Bukan instruksi. Jangan dibuka saat mengerjakan tugas: aturan yang berlaku ada d
 - 2026-11-27 [A] evals/cases vd-006…vd-011: enam kasus dari koreksi carousel meta-experiment dan profil merek yang belum ada (2026-11-27-vibedesign-evals)
 - 2026-11-27 [A] guide/komposisi KMP-04, DESIGN-CORE §1.3 dan §2, guide/hindari uji tukar (2026-11-27-vibedesign-ruang-kosong)
 - 2026-11-27 [A] templates/merek, DESIGN-CORE urutan menang, SKILL Mulai di sini: profil merek satu rumah dengan motion-graphic (2026-11-27-vibedesign-profil-merek)
+- 2026-11-27 [A] motion-graphic/scripts/gate/tabrakan_cek.py: elemen ber-data-dekor dikecualikan seperti data-sengaja="tumpuk" (V7; 2026-11-27-vibedesign-gerbang-render)
