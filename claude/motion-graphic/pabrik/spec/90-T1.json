@@ -73,6 +73,11 @@
  ],
  "terukur": {
   "dari_klip": true,
-  "catatan": "Posisi, ritme ganti kata, dan ritme ganti shot diukur dari lembar klip 8 fps (resolusi waktu 0,125 dtk, jadi durasi < 0,25 dtk tidak bisa dipastikan). Ukuran font adalah estimasi dari gambar ukuran tampil 1124x2000 dan keyframe k8 (720x1280). Kartu menyebut 3,5–4 %. Ukuran yang saya baca lebih besar: tinggi kapital ≈ 0,05 dan ukuran font ≈ 0,07. Itu estimasi kasar ±0,01, jadi sebaiknya diuji ulang dengan pengukur pada frame penuh. Ada pergerakan kecil x pada 'sit' (9,5 dtk), tampak sedikit ke kiri, kemungkinan karena lebar kata dan bukan pergeseran. Ada atau tidaknya bayangan caption tidak dapat dipastikan dari gambar. Punch-in per shot (kartu: 1,00→1,05) tidak diukur dan tidak dimasukkan."
+  "catatan": "Posisi, ritme ganti kata, dan ritme ganti shot diukur dari lembar klip 8 fps (resolusi waktu 0,125 dtk, jadi durasi < 0,25 dtk tidak bisa dipastikan). Ukuran font adalah estimasi dari gambar ukuran tampil 1124x2000 dan keyframe k8 (720x1280). Kartu menyebut 3,5–4 %. Ukuran yang saya baca lebih besar: tinggi kapital ≈ 0,05 dan ukuran font ≈ 0,07. Itu estimasi kasar ±0,01, jadi sebaiknya diuji ulang dengan pengukur pada frame penuh. Ada pergerakan kecil x pada 'sit' (9,5 dtk), tampak sedikit ke kiri, kemungkinan karena lebar kata dan bukan pergeseran. Ada atau tidaknya bayangan caption tidak dapat dipastikan dari gambar. Punch-in per shot (kartu: 1,00→1,05) tidak diukur dan tidak dimasukkan.",
+  "klip": {
+   "path": "/home/irfan/work/pustaka-video/unggahan/90-imzache.mp4",
+   "dari": 8.5,
+   "sampai": 12.0
+  }
  }
 }

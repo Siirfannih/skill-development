@@ -7,7 +7,12 @@
  "ringkas": "Satu 'dunia' datar (wallpaper tajam, jendela UI gelap utuh di tengah, dock di bawah, panel chat di kiri) digerakkan sebagai satu grup oleh kamera 2D virtual. Jendela bergeser ke kanan dan sedikit mengecil saat panel masuk dari kiri, lalu kamera menghantam (punch) ke sudut kiri-bawah. Elemen tidak bergerak sendiri-sendiri.",
  "terukur": {
   "dari_klip": true,
-  "catatan": "Diukur dari lembar klip 8 fps (sel 480x270 per frame). Lebar jendela 13,40-13,90 dtk ±0,65 lebar frame (kartu menyebut 0,56-0,60; frame di sini tampak sedikit lebih besar, selisih tidak terselesaikan dari gambar). Jendela tampak tidak membesar dalam 13,40-13,90 dtk, jadi push 3-7% yang disebut kartu tidak terlihat di klip ini. Setelah panel masuk, pusat jendela bergeser dari ±0,50 ke ±0,68 lebar frame (+0,18) dan lebarnya turun ke ±0,59 (skala ±0,91). Geser mulai ±14,05 dtk, selesai ±14,65 dtk. Punch 15,15-15,40 dtk: ikon dock membesar dari ±17 ke ±40 px (≈×2,3). Titik pivot punch ±(0,25; 1,0) dari frame adalah perkiraan dari dua titik (tepi kiri jendela dan ikon dock), bukan pengukuran presisi. Kurva easing tidak bisa dibaca dari frame diskret, jadi bezier adalah tebakan untuk gerak 'heavy' (cepat di awal, mendarat lembut). Pull saat babak baru dan hold dengan drift tidak teramati di cuplikan 12,4-15,9 dtk. Tanda x kamera: konten bergeser ke kanan = kamera ke kiri (negatif). Lintasan memakai t = 0 pada 13,40 dtk dan t = 1 pada 15,90 dtk."
+  "catatan": "Diukur dari lembar klip 8 fps (sel 480x270 per frame). Lebar jendela 13,40-13,90 dtk ±0,65 lebar frame (kartu menyebut 0,56-0,60; frame di sini tampak sedikit lebih besar, selisih tidak terselesaikan dari gambar). Jendela tampak tidak membesar dalam 13,40-13,90 dtk, jadi push 3-7% yang disebut kartu tidak terlihat di klip ini. Setelah panel masuk, pusat jendela bergeser dari ±0,50 ke ±0,68 lebar frame (+0,18) dan lebarnya turun ke ±0,59 (skala ±0,91). Geser mulai ±14,05 dtk, selesai ±14,65 dtk. Punch 15,15-15,40 dtk: ikon dock membesar dari ±17 ke ±40 px (≈×2,3). Titik pivot punch ±(0,25; 1,0) dari frame adalah perkiraan dari dua titik (tepi kiri jendela dan ikon dock), bukan pengukuran presisi. Kurva easing tidak bisa dibaca dari frame diskret, jadi bezier adalah tebakan untuk gerak 'heavy' (cepat di awal, mendarat lembut). Pull saat babak baru dan hold dengan drift tidak teramati di cuplikan 12,4-15,9 dtk. Tanda x kamera: konten bergeser ke kanan = kamera ke kiri (negatif). Lintasan memakai t = 0 pada 13,40 dtk dan t = 1 pada 15,90 dtk.",
+  "klip": {
+   "path": "/home/irfan/work/pustaka-video/unggahan/Motiongrapich.mp4",
+   "dari": 12.4,
+   "sampai": 16.0
+  }
  },
  "parameter": {
   "kurva": {

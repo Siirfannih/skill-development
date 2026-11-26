@@ -1,131 +1,94 @@
 import React from "react";
-import { useCurrentFrame, useVideoConfig } from "remotion";
+import { useCurrentFrame, useVideoConfig, interpolate } from "remotion";
 import { z } from "zod";
-import { CURVE, dur, move, react, lerp, drift } from "../../../toolkit/gerak/curves";
+import { CURVE, move } from "../../../toolkit/gerak/curves";
 import { stagger } from "../../../toolkit/gerak/timing";
 
-export const ScaleLadderPropsSchema = z.object({
-  /** Kata raksasa (satu kata). */
-  kata: z.string(),
-  /** Kata kecil pendamping: x = pusat (fraksi lebar frame), y = pusat (fraksi tinggi frame). */
-  kecil: z.array(z.object({ teks: z.string(), x: z.number(), y: z.number() })),
-  tokens: z.object({
-    latar: z.string(),
-    tinta: z.string(),
-    tintaKecil: z.string(),
-    bingkai: z.string(),
-    huruf: z.string(),
-  }),
-  /** Kotak footage kecil di bawah tengah (fraksi frame); isi lewat prop `isiKotak`. */
-  kotak: z.object({
-    tampil: z.boolean(),
-    cx: z.number(),
-    top: z.number(),
-    lebar: z.number(),
-    tinggi: z.number(),
-  }),
-  /** Lebar target kata raksasa (fraksi lebar frame): 0,5-0,98 menurut panjang kata. */
-  lebarRel: z.number().default(0.88),
-  /** Batas atas tinggi kapital (fraksi tinggi frame). */
-  tinggiMaksRel: z.number().default(0.6),
-  pusatX: z.number().default(0.5),
-  pusatY: z.number().default(0.56),
-  /** Rata-rata lebar huruf (em) untuk menaksir ukuran; kata dipas ke lebar target. */
-  lebarHurufEm: z.number().default(0.6),
-  /** Tinggi kapital per em (rasio font). */
-  kapitalEm: z.number().default(0.716),
-  trackingEm: z.number().default(-0.04),
-  bobotRaksasa: z.number().default(800),
-  bobotKecil: z.number().default(300),
-  /** x-height kata kecil (fraksi tinggi frame) dan rasio x-height per em. */
-  kecilXHeightRel: z.number().default(0.055),
-  xHeightEm: z.number().default(0.52),
-  jedaHuruf: z.number().default(2),
-  geserRel: z.number().default(0.08),
-  mulaiKata: z.number().default(6),
-  mulaiKecil: z.number().default(22),
-  /** Dorongan masuk pelan sepanjang adegan (skala akhir - 1). */
-  dorongRel: z.number().default(0.025),
-  seed: z.number().default(1),
+const TokensSchema = z.object({
+  latar: z.string(),
+  permukaan: z.string(),
+  tinta: z.string(),
+  redup: z.string(),
+  aksen: z.string(),
+  aksen2: z.string(),
+  huruf: z.string(),
 });
-export type ScaleLadderProps = z.input<typeof ScaleLadderPropsSchema> & {
-  /** Lapisan footage penuh-frame (di bawah kata raksasa). */
-  footage?: React.ReactNode;
-  /** Isi kotak footage kecil. */
-  isiKotak?: React.ReactNode;
-};
+
+const KataKecilSchema = z.object({
+  teks: z.string(),
+  x: z.number(), // pusat, fraksi lebar frame
+  y: z.number(), // garis dasar, fraksi tinggi frame
+});
+
+export const ScaleLadderPropsSchema = z.object({
+  tokens: TokensSchema,
+  kata: z.string(), // kata raksasa
+  kecil: z.array(KataKecilSchema), // kata pendamping tersebar
+  beratBesar: z.number(),
+  beratKecil: z.number(),
+  seed: z.number(),
+  lebarRel: z.number().default(0.8), // lebar kata raksasa, fraksi lebar frame (0,47-0,98)
+  pusatY: z.number().default(0.58), // pusat x-height, fraksi tinggi frame (0,5-0,62)
+  lebarHurufEm: z.number().default(0.56), // perkiraan lebar rata-rata huruf (em) untuk memuat kata ke lebarRel
+  tracking: z.number().default(-0.04), // em
+  kecilRel: z.number().default(0.1), // ukuran font kata kecil, fraksi tinggi frame
+  jedaHuruf: z.number().default(2), // frame antar huruf
+  geser: z.number().default(0.08), // geser masuk, fraksi lebar elemen
+  mulai: z.number().default(6), // frame awal huruf pertama
+  mulaiKecil: z.number().default(26), // frame awal kata kecil pertama
+  durMasuk: z.number().default(12), // frame per gerak masuk
+});
+export type ScaleLadderProps = z.infer<typeof ScaleLadderPropsSchema>;
 
 /**
- * Satu kata kunci melompat ke skala raksasa di atas footage, dikelilingi kata kecil tersebar; tanpa ukuran perantara.
- * Pakai bila: satu kata inti perlu ditekankan keras dan tetap tinggal melewati cut footage.
- * Jangan bila: pesan berupa kalimat panjang, atau butuh hierarki tiga ukuran atau lebih.
+ * Satu kata kunci melompat ke skala raksasa (hanya dua tingkat ukuran: raksasa dan kecil) di atas footage, dikelilingi kata kecil tersebar.
+ * Pakai bila: satu kata inti perlu dominasi layar di atas footage, dengan kata pendamping kecil dan kata raksasa bertahan melewati cut.
+ * Jangan bila: butuh kalimat berurutan, ukuran bertingkat tiga atau lebih, atau tidak ada footage/latar di bawah kata.
  */
-export const ScaleLadder: React.FC<ScaleLadderProps> = (raw) => {
-  const p = ScaleLadderPropsSchema.parse(raw);
-  const { footage, isiKotak } = raw;
+export const ScaleLadder: React.FC<ScaleLadderProps & { children?: React.ReactNode }> = (p) => {
   const frame = useCurrentFrame();
-  const { width: W, height: H, fps } = useVideoConfig();
+  const { width: W, height: H } = useVideoConfig();
+  const t = p.tokens;
+
   const letters = Array.from(p.kata);
   const n = letters.length;
+  const fs = (p.lebarRel * W) / (n * (p.lebarHurufEm + p.tracking));
 
-  const estEm = n * p.lebarHurufEm + n * p.trackingEm;
-  const fsLebar = (p.lebarRel * W) / estEm;
-  const fsTinggi = (p.tinggiMaksRel * H) / p.kapitalEm;
-  const fs = Math.min(fsLebar, fsTinggi);
-  const wordW = estEm * fs;
-  const shift = p.geserRel * wordW;
-  const enterFrames = dur(shift, fps, 2.4);
-  const dorong = 1 + p.dorongRel * Math.min(1, frame / (fps * 4));
-
-  const fsKecil = (p.kecilXHeightRel * H) / p.xHeightEm;
+  const fsSmall = p.kecilRel * H;
 
   return (
-    <div style={{ position: "absolute", inset: 0, overflow: "hidden", background: p.tokens.latar }}>
-      {footage}
+    <div style={{ position: "absolute", inset: 0, overflow: "hidden", background: t.latar, fontFamily: t.huruf }}>
+      {/* lapisan 1: footage */}
+      <div style={{ position: "absolute", inset: 0 }}>{p.children}</div>
 
-      {p.kotak.tampil && (
-        <div
-          style={{
-            position: "absolute",
-            left: (p.kotak.cx - p.kotak.lebar / 2) * W,
-            top: p.kotak.top * H,
-            width: p.kotak.lebar * W,
-            height: p.kotak.tinggi * H,
-            overflow: "hidden",
-            border: `${0.004 * H}px solid ${p.tokens.bingkai}`,
-            boxSizing: "border-box",
-          }}
-        >
-          {isiKotak}
-        </div>
-      )}
-
+      {/* lapisan 2: kata raksasa, opak, tepi bersih */}
       <div
         style={{
           position: "absolute",
-          left: p.pusatX * W,
+          left: "50%",
           top: p.pusatY * H,
-          transform: `translate(-50%, -50%) scale(${dorong})`,
+          transform: "translate(-50%, -64%)",
           display: "flex",
+          flexDirection: "row",
           whiteSpace: "nowrap",
-          fontFamily: p.tokens.huruf,
-          fontWeight: p.bobotRaksasa,
           fontSize: fs,
           lineHeight: 1,
-          letterSpacing: `${p.trackingEm}em`,
-          color: p.tokens.tinta,
+          fontWeight: p.beratBesar,
+          color: t.tinta,
         }}
       >
         {letters.map((ch, i) => {
-          const start = p.mulaiKata + stagger(i, n, { gap: p.jedaHuruf });
-          const t = move(frame, start, enterFrames, "land");
+          const s = stagger(i, n, { gap: p.jedaHuruf, start: p.mulai });
+          const pr = move(frame, s, p.durMasuk, "land");
+          const op = move(frame, s, 4, "reveal");
           return (
             <span
               key={i}
               style={{
                 display: "inline-block",
-                transform: `translateX(${lerp(-shift, 0, t)}px)`,
-                visibility: frame < start ? "hidden" : "visible",
+                marginRight: `${p.tracking}em`,
+                transform: `translateX(${-p.geser * fs * p.lebarHurufEm * (1 - pr)}px)`,
+                opacity: op,
               }}
             >
               {ch}
@@ -134,10 +97,12 @@ export const ScaleLadder: React.FC<ScaleLadderProps> = (raw) => {
         })}
       </div>
 
+      {/* lapisan 3: kata kecil, ringan dan tipis */}
       {p.kecil.map((k, i) => {
-        const start = p.mulaiKecil + react(i, fps);
-        const t = move(frame, start, dur(0.03 * W, fps, 1.4), "reveal");
-        const dr = drift(frame, fps, 0.006 * W, p.seed + i * 1.7);
+        const s = p.mulaiKecil + Math.round(interpolate(i, [0, Math.max(1, p.kecil.length - 1)], [0, p.durMasuk * 2]));
+        const pr = move(frame, s, p.durMasuk, "land");
+        const op = move(frame, s, 5, "reveal");
+        const w = k.teks.length * fsSmall * 0.45;
         return (
           <div
             key={i}
@@ -145,14 +110,13 @@ export const ScaleLadder: React.FC<ScaleLadderProps> = (raw) => {
               position: "absolute",
               left: k.x * W,
               top: k.y * H,
-              transform: `translate(-50%, -50%) translate(${dr.x + lerp(-0.03 * W, 0, t)}px, 0px)`,
-              opacity: CURVE.reveal(t),
+              transform: `translate(-50%, -80%) translateX(${-p.geser * w * (1 - pr)}px)`,
               whiteSpace: "nowrap",
-              fontFamily: p.tokens.huruf,
-              fontWeight: p.bobotKecil,
-              fontSize: fsKecil,
+              fontSize: fsSmall,
               lineHeight: 1,
-              color: p.tokens.tintaKecil,
+              fontWeight: p.beratKecil,
+              color: t.tinta,
+              opacity: op,
             }}
           >
             {k.teks}
@@ -162,3 +126,6 @@ export const ScaleLadder: React.FC<ScaleLadderProps> = (raw) => {
     </div>
   );
 };
+
+// CURVE diimpor untuk kontrak toolkit; gerak memakai move() bernama.
+void CURVE;

@@ -1,14 +1,14 @@
 {
   "palet": {
-    "A": ["#7a2a4a", "#f2742c", "#ffc46b", "#b5472f", "#7e3a2c", "#3f2a24", "#14161c", "#1d2029", "#f1ece2", "#9a9aa6", "#ef6a3a", "#4fb3a7", "#262a35"],
-    "B": ["#0f3b6e", "#3fb8c9", "#e8f6ff", "#2a6f9a", "#1f4c7a", "#142a4f", "#0a1020", "#122036", "#e6f4ff", "#8aa3bd", "#ffb347", "#7ee0c3", "#16233d"]
+    "A": ["#F6F5FC", "#F1F1FA", "#0E1426", "#5B6280", "#6F86FF", "#1B2748"],
+    "B": ["#110D0B", "#2A201B", "#FBF8F3", "#A39384", "#EE9440", "#8A6246"]
   },
-  "fungsi": "Jendela UI gelap mengambang di atas foto: kalimat perintah diketik cepat di kotak kaca, kamera melompat ke kotak itu hingga teks terbaca besar, sapuan sel grid, lalu potong ke end card.",
+  "fungsi": "Jendela UI gelap mengambang di atas wallpaper: kalimat prompt diketik cepat, kamera melompat ±1,65× ke kotak prompt, hold berdrift, sapuan sel grid, lalu potong ke end card.",
   "width": 1280,
   "height": 720,
   "fps": 30,
-  "durasi": 120,
-  "stills": [8, 34, 64, 88],
-  "urutan": { "dari": 0, "sampai": 119 },
-  "catatan": "Punch = satu transformasi Camera25D pada seluruh grup desktop (skala 1,65, whip 4 frame), hold dengan drift pelan (+3 % skala), sapuan sel dari kiri hanya di kotak prompt, potong keras ke end card di frame 100. Kecepatan ketik (cps) dan semua waktu adalah props."
+  "durasi": 104,
+  "stills": [28, 50, 74, 95],
+  "urutan": { "dari": 0, "sampai": 103 },
+  "catatan": "Punch = transformasi Camera25D (push+pan) pada seluruh grup desktop, potongan keras 1 frame (tanpa frame antara). Sel mosaik di atas kaca tetapi di bawah teks; baris teks memakai sel gelap berbeda ukuran/opasitas agar kontras terjaga. Wallpaper: gradien berarah, pita cahaya, tiga punggung bukit, kabut. Preview berisi adegan siluet, klip berisi ubin thumbnail dan gelombang. Setelah punch, panel media/preview/inspektur/judul (di luar frame) tidak dirender; kamera ~1,6x dengan tepi kanan kotak di ±0,84 lebar sehingga awal kalimat tidak terpotong, wallpaper kanan dan separuh dock tetap terlihat. Sel sapuan memakai warna aksen di bawah teks."
 }

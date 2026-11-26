@@ -17,7 +17,12 @@
       "type": "object", "additionalProperties": false, "required": ["dari_klip", "catatan"],
       "properties": {
         "dari_klip": {"type": "boolean", "description": "true bila parameter gerak diukur dari urutan frame klip; false bila hanya dari keyframe statis"},
-        "catatan": {"type": "string"}
+        "catatan": {"type": "string"},
+        "klip": {
+          "type": "object", "additionalProperties": false, "required": ["path", "dari", "sampai"],
+          "description": "klip sumber dan jendela waktunya; dipakai uji untuk mengambil frame referensi yang selaras waktu",
+          "properties": {"path": {"type": "string"}, "dari": {"type": "number", "minimum": 0}, "sampai": {"type": "number", "exclusiveMinimum": 0}}
+        }
       }
     },
     "parameter": {"type": "object"},

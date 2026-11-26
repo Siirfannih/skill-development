@@ -1,38 +1,14 @@
 {
- "palet": {
-  "A": [
-   "#F6F1E7",
-   "#1D1B19",
-   "#2B50E8",
-   "#D8392B",
-   "#1E6B4A",
-   "#C96A00",
-   "#FFD23F"
-  ],
-  "B": [
-   "#0C1530",
-   "#EAF0FF",
-   "#7FB2FF",
-   "#FF7A6B",
-   "#5ED6A0",
-   "#FFB454",
-   "#C2362B"
-  ]
- },
- "fungsi": "Membangun kalimat pendek satu kata per ketukan pada skala raksasa dengan blur gerak dan warna pukulan per kata, lalu menarik seluruh grup mengecil menjadi satu baris judul.",
- "width": 1280,
- "height": 720,
- "fps": 30,
- "durasi": 120,
- "stills": [
-  19,
-  49,
-  80,
-  112
- ],
- "urutan": {
-  "dari": 0,
-  "sampai": 119
- },
- "catatan": "Lebar kata diukur lewat kanvas (cadangan: 0,56 em per huruf) untuk tata letak mutlak; kata yang melewati tepi kiri memudar penuh (tanpa huruf terpotong). Kapital raksasa 0,30 tinggi frame (sesuai klip) ditarik ×0,15 ke 0,045; bentuk di lapisan bawah dengan tumpang 20 %, ikut mengecil ke ≈0,04. Jalur tegas (warna blok token) menyapu masuk di belakang baris akhir agar frame akhir punya zona jelas. Bagian kata tunggal dengan foto buram tidak dibuat; foto diganti bentuk geometris."
+  "palet": {
+    "A": ["#F6F5FC", "#F1F1FA", "#0E1426", "#5B6280", "#6F86FF", "#1B2748"],
+    "B": ["#110D0B", "#2A201B", "#FBF8F3", "#A39384", "#EE9440", "#8A6246"]
+  },
+  "fungsi": "Membangun kalimat pendek satu kata per ketukan pada skala raksasa dengan blur gerak dan bentuk kecil sebagai tanda baca, lalu menarik seluruh grup mengecil menjadi satu baris judul.",
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "durasi": 120,
+  "stills": [4, 26, 50, 100],
+  "urutan": { "dari": 0, "sampai": 119 },
+  "catatan": "4 kata, ketukan 8 frame mulai sebelum frame 0; bentuk tebar muncul sejak kata ke-3 dan bertahan;kamera mengikuti kata terbaru, penarikan ×0,225 (cap 0,2 → 0,045 tinggi frame) 36 frame kurva heavy, ditahan ±1 dtk. Bentuk sisipan memakai slot sendiri di antara kata (tanpa menimpa teks) dan berada di lapisan bawah. Fase kata tunggal dengan 4-6 bentuk buram tidak dimasukkan (di luar 120 frame). Tata letak diukur lewat offsetLeft setelah render; kata awal terpotong tepi kiri saat kamera mengikuti (sesuai spec)."
 }

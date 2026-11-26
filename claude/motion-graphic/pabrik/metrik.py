@@ -234,3 +234,64 @@ def analisis_probe(items, w, h, teks_min_px=24.0, tumpang_min=0.05):
                 ox = max(0, min(t["x"] + t["w"], o["x"] + o["w"]) - max(t["x"], o["x"])); oy = max(0, min(t["y"] + t["h"], o["y"] + o["h"]) - max(t["y"], o["y"]))
                 if ox * oy > 0.3 * t["w"] * t["h"] and not o.get("isi_teks"): tab.append(f"'{t['teks'][:18]}' x <{o['tag']}>")
     return {"kecil": kecil, "tabrakan": tab, "terpotong": terpotong}
+
+
+# ---------- oklusi teks (dosa j dan o), dari probe DOM v2 ----------
+def analisis_oklusi(per_frame, tumpang_j=0.10, tumpang_o=0.02):
+    """per_frame: {frame: [item teks]}; item punya teks, op, tutup (bagian titik sampel teks yang tertutup elemen lain 0..1),
+    tutup_objek (bagian yang tertutup elemen BUKAN teks), wadah_keluar (teks melewati kotak wadahnya).
+    j: tertutup > tumpang_j atau keluar wadah; o: elemen non-teks di atas teks (tutup_objek >= tumpang_o) pada frame mana pun.
+    -> {'j': [...], 'o': [...]} (pesan; kosong = bersih)."""
+    j, o = [], []
+    for f in sorted(per_frame):
+        for t in per_frame[f]:
+            if t.get("op", 1) < 0.9 or not t.get("teks", "").strip(): continue
+            nm = t["teks"][:22]
+            if t.get("tutup", 0) > tumpang_j: j.append(f"f{f}: '{nm}' tertutup {t['tutup'] * 100:.0f}%")
+            if t.get("wadah_keluar"): j.append(f"f{f}: '{nm}' keluar kotak wadahnya")
+            if t.get("tutup_objek", 0) >= tumpang_o: o.append(f"f{f}: lapisan non-teks di atas '{nm}' ({t['tutup_objek'] * 100:.0f}% titik)")
+    return {"j": j, "o": o}
+
+
+def teks_tak_terlihat(frame_penuh, frame_tanpa_teks, n_teks_dom, ambang_diff=25, min_frac=0.0003):
+    """Mask teks = selisih render penuh vs render dengan teks disembunyikan. -> (frac_piksel_teks, tak_terlihat) ;
+    tak_terlihat bila DOM punya teks terlihat tetapi selisihnya nyaris nol (teks sewarna latar atau seluruhnya tertutup)."""
+    a = np.asarray(frame_penuh.convert("RGB").resize(frame_tanpa_teks.size), np.int16); b = np.asarray(frame_tanpa_teks.convert("RGB"), np.int16)
+    frac = float((np.abs(a - b).sum(2) > ambang_diff).mean())
+    return round(frac, 5), bool(n_teks_dom > 0 and frac < min_frac)
+
+
+# ---------- dosa shader latar (k-n) ----------
+def ruang_negatif(img, hex_dasar, de_maks=3.0):
+    """Bagian piksel yang ΔE2000 < de_maks dari warna dasar. Dosa m bila < 0,5 (komponen berlatar)."""
+    a = np.asarray(img.convert("RGB").resize((img.width // 2 or 1, img.height // 2 or 1), Image.BILINEAR)).reshape(-1, 3)
+    q = (a >> 2).astype(np.int32); kode = q[:, 0] * 4096 + q[:, 1] * 64 + q[:, 2]
+    u, inv = np.unique(kode, return_inverse=True)
+    rgb = np.stack([(u >> 12) & 63, (u >> 6) & 63, u & 63], 1) * 4 + 2
+    d = de2000(_lab(rgb), _lab([hex_rgb(hex_dasar)])[0][None, :])
+    return float((d < de_maks)[inv].mean())
+
+
+def grain_estimasi(img):
+    """Simpangan baku residu frekuensi tinggi (0..1 dari 255) pada area datar (gradien lokal kecil). Dosa n bila > 0,02."""
+    g = np.asarray(img.convert("L"), np.float32)
+    blur = cv2.GaussianBlur(g, (0, 0), 2.0); res = g - blur
+    gx, gy = cv2.Sobel(blur, cv2.CV_32F, 1, 0), cv2.Sobel(blur, cv2.CV_32F, 0, 1)
+    datar = cv2.erode((np.hypot(gx, gy) < 6.0).astype(np.uint8), np.ones((5, 5), np.uint8)) > 0
+    if datar.sum() < 500: return 0.0
+    return float(res[datar].std() / 255.0)
+
+
+def luar_palet_dekat(img, hex_palet, hex_ref, de_palet=12.0, de_ref=12.0, luas_min=0.005):
+    """Dosa p (kulit referensi bocor): piksel di luar palet demo (seperti palet_dosa) yang dekat (ΔE < de_ref) ke salah satu warna
+    referensi. -> {'luas', 'dosa', 'warna_dominan'}."""
+    a = np.asarray(img.convert("RGB").resize((img.width // 2 or 1, img.height // 2 or 1), Image.BILINEAR))
+    q = (a >> 3).reshape(-1, 3).astype(np.int32); kode = q[:, 0] * 1024 + q[:, 1] * 32 + q[:, 2]
+    uniq, inv = np.unique(kode, return_inverse=True)
+    rgb = np.stack([(uniq >> 10) & 31, (uniq >> 5) & 31, uniq & 31], 1) * 8 + 4; L = _lab(rgb)
+    dp = np.min(de2000(L[:, None, :], _palet_lab(hex_palet)[None, :, :]), axis=1)
+    dr = np.min(de2000(L[:, None, :], _lab([hex_rgb(h) for h in hex_ref])[None, :, :]), axis=1)
+    m = ((dp > de_palet) & (dr < de_ref))[inv].reshape(a.shape[:2]).astype(np.uint8)
+    m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((3, 3), np.uint8)); luas = float(m.mean())
+    dom = "#%02x%02x%02x" % tuple(np.median(a[m.astype(bool)], axis=0).astype(int)) if m.any() else None
+    return {"luas": round(luas, 4), "dosa": luas >= luas_min, "warna_dominan": dom}

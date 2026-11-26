@@ -10,13 +10,13 @@ Berkas yang ditulis model (claude2 --model sonnet, dengan tool Write di pabrik/k
 Cek otomatis setelah ditulis: lint.py + tsc --noEmit; galat dikirim balik ke model (maks 2 perbaikan).
 Mode --revisi: model menerima berkas yang ada + kritik/metrik putaran uji dan menyunting di tempat.
 """
-import argparse, json, subprocess, sys
+import argparse, json, re, subprocess, sys
 from pathlib import Path
 from PIL import Image
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import lib, lint
 
-ATURAN = """ATURAN KOMPONEN (dicek mesin; pelanggaran = ditolak):
+ATURAN_T = """ATURAN KOMPONEN (dicek mesin; pelanggaran = ditolak):
 1. Semua nilai visual berupa PROPS: warna, huruf, ukuran, durasi, kurva, biji acak. Tanpa hex/rgb()/hsl()/nama warna CSS, tanpa font-family literal di <Nama>.tsx. Warna dan huruf datang dari prop `tokens` (mis. latar, tinta, aksen, huruf). Boleh interpolasi token ke gradien/bayangan (`${tokens.aksen}`).
 2. Mandiri dan deterministik per frame: hanya `useCurrentFrame`, `useVideoConfig`, `interpolate`, `spring` dari remotion; tanpa Math.random (pakai PRNG berbiji sendiri dari props.seed), tanpa Date.now/new Date/performance.now/requestAnimationFrame/setTimeout.
 3. WAJIB memakai toolkit repo, bukan versi sendiri. Impor yang boleh: remotion, react, zod, berkas sesama folder, dan modul toolkit (path dari folder komponen): ../../../toolkit/gerak/curves (CURVE, dur, react, move, arc, drift, clamp01, lerp), ../../../toolkit/gerak/timing (stagger, dampTrack, vanWijk, timeline), ../../../toolkit/kamera/Camera25D (Camera25D, Layer25D, cameraAt; kamera berkeyframe + parallax), ../../../toolkit/latar/LightWaveBg dan GenerativeBG dan Grain (hanya bila spec meminta latar/cahaya/tekstur), ../../../toolkit/transisi, ../../../scripts/remotion/ae-primitives/*. Baca ../../../toolkit/README.md dan berkas yang dipakai (Read) sebelum menulis. DILARANG menulis easing/kurva/kamera/latar sendiri bila toolkit sudah punya; panggil kurva bernama dari CURVE.
@@ -24,10 +24,14 @@ ATURAN = """ATURAN KOMPONEN (dicek mesin; pelanggaran = ditolak):
 5. Ekspor: komponen bernama persis <Nama>, `export const <Nama>PropsSchema = z.object({...})` (zod 3), `export type <Nama>Props = z.infer<...>`. Komentar JSDoc di atas komponen: satu kalimat fungsi, baris "Pakai bila:" dan "Jangan bila:".
 6. Tanpa gaya bawaan: tidak ada nilai default untuk warna/huruf; default hanya untuk angka mekanik yang diambil dari spec.parameter (angka kulit tidak dibakukan).
 7. Komponen mereproduksi MEKANIK spec (spec.mekanik), bukan KULIT (spec.kulit): jangan meniru warna, font, objek, kata milik referensi.
-8. Demo.tsx boleh memakai hex/font literal (itu token demo). DemoA dan DemoB memakai komponen yang SAMA dengan props identik kecuali tokens (dua set WARNA yang benar-benar berbeda, mis. terang-krem vs gelap-biru; keluarga huruf dan bobot SAMA di A dan B, karena uji dua-token mengukur bahwa struktur/tata letak tetap sama ketika hanya warna berganti). Isi demo harus bermakna (teks/objek nyata, bukan placeholder atau kotak kosong) dan menampilkan mekanik inti dalam durasi 2-4 detik pada 30 fps (durasi <= 120 frame).
-9. meta.json: {"palet": {"A": ["#hex", ...], "B": ["#hex", ...]} = SEMUA warna token DemoA/DemoB (setiap hex persis ada di Demo.tsx; warna lain di render dianggap dosa),"fungsi": satu kalimat Indonesia, "width","height","fps":30,"durasi":<frame>,"stills":[3-4 indeks frame kunci berbeda yang menampilkan keadaan penting],"urutan":{"dari":0,"sampai":<durasi-1>},"catatan":"..."}. width/height: {wh} (sesuai rasio referensi).
-10. DAFTAR DOSA (satu saja = ditolak): gradien ragu-ragu (frame satu nada pucat tanpa zona tegas); noda/gradien radial bulat di pojok tanpa arah cahaya; bola/benda 3D generik tanpa makna; elemen utama kecil (<20% luas) di tengah seperti slide; halo/glow di belakang teks; blur pada teks yang harus dibaca; placeholder (kotak kosong, garis abu pengganti teks); teks < 24px@1080 (sisi pendek); warna di luar meta.palet (kecuali campuran antar warna palet/hitam/putih); tabrakan teks-teks atau teks-objek; pengulangan pola gambar yang pernah ditolak (zona biru tetap di pojok kanan bawah, bola 3D + garis acak, gradien pucat + teks abu). Hindari semuanya sejak awal.
+8. Demo.tsx boleh memakai hex/font literal, TETAPI hanya dua set token wajib dari tokens-netral.json (netral dingin terang = A, netral hangat gelap = B): A = {tokA}; B = {tokB} (peran latar, permukaan, tinta, redup, aksen, aksen2, berurutan). Setiap hex di Demo.tsx harus salah satu dari 12 nilai itu (atau #000000/#FFFFFF); campuran antar-peran lewat opacity/gradien boleh. DILARANG membawa warna, wallpaper, foto, atau latar bertema meniru referensi (mis. matahari terbenam oranye): kulit referensi tidak ikut, hanya mekanik. Bentuk ilustrasi harus netral dan memakai warna token saja. DemoA dan DemoB memakai komponen yang SAMA dengan props identik kecuali tokens (dua set WARNA yang benar-benar berbeda, mis. terang-krem vs gelap-biru; keluarga huruf dan bobot SAMA di A dan B, karena uji dua-token mengukur bahwa struktur/tata letak tetap sama ketika hanya warna berganti). Isi demo harus bermakna (teks/objek nyata, bukan placeholder atau kotak kosong) dan menampilkan mekanik inti dalam durasi 2-4 detik pada 30 fps (durasi <= 120 frame).
+9. meta.json: {"palet": {"A": [6 hex set A persis], "B": [6 hex set B persis]} (urutan peran sama; setiap hex ada di Demo.tsx; warna lain di render dianggap dosa),"fungsi": satu kalimat Indonesia, "width","height","fps":30,"durasi":<frame>,"stills":[3-4 indeks frame kunci berbeda yang menampilkan keadaan penting],"urutan":{"dari":0,"sampai":<durasi-1>},"catatan":"..."}. width/height: {wh} (sesuai rasio referensi).
+10. DAFTAR DOSA (satu saja = ditolak): elemen/lapisan/grid/transisi yang menutupi atau memotong teks pada frame mana pun (teks tertutup > 10 %, atau ada lapisan non-teks di atas kotak teks); teks keluar kotak wadahnya; frame tampak rusak/glitch; kulit referensi (warna/wallpaper/objek referensi) bocor ke demo; bila memakai latar toolkit: pola dari noise (asap/lava lamp), orb/sumber cahaya utuh di dalam frame (pakai ekor cahaya dari luar layar), ruang negatif < 50 % (piksel ΔE<3 dari warna dasar), grain > 2 %; gradien ragu-ragu (frame satu nada pucat tanpa zona tegas); noda/gradien radial bulat di pojok tanpa arah cahaya; bola/benda 3D generik tanpa makna; elemen utama kecil (<20% luas) di tengah seperti slide; halo/glow di belakang teks; blur pada teks yang harus dibaca; placeholder (kotak kosong, garis abu pengganti teks); teks < 24px@1080 (sisi pendek); warna di luar meta.palet (kecuali campuran antar warna palet/hitam/putih); tabrakan teks-teks atau teks-objek; pengulangan pola gambar yang pernah ditolak (zona biru tetap di pojok kanan bawah, bola 3D + garis acak, gradien pucat + teks abu). Hindari semuanya sejak awal.
 Kontrak render demo: <Composition> dibuat otomatis oleh pabrik dari meta.json: component={DemoA}/{DemoB}, tanpa props. Jangan membuat registerRoot atau entry sendiri."""
+
+
+def aturan(spec):
+    return (ATURAN_T.replace('{wh}', ukuran_rasio(spec)).replace('{tokA}', ", ".join(lib.palet_token("A"))).replace('{tokB}', ", ".join(lib.palet_token("B"))))
 
 
 def tsc(files):
@@ -50,9 +54,13 @@ def cek(nama):
         if m.get("durasi", 0) > 150: g.append("durasi > 150 frame")
         demo = (d / "Demo.tsx").read_text().lower()
         for k in ("A", "B"):
-            for h in m.get("palet", {}).get(k, []):
+            if sorted(h.lower() for h in m.get("palet", {}).get(k, [])) != sorted(h.lower() for h in lib.palet_token(k)):
+                g.append(f"meta.palet.{k} harus persis set token netral wajib {lib.palet_token(k)}")
+            for h in lib.palet_token(k):
                 if h.lower() not in demo: g.append(f"palet {k}: {h} tidak ada di Demo.tsx")
-            if not m.get("palet", {}).get(k): g.append(f"palet {k} kosong")
+        boleh = {h.lower() for k in ("A", "B") for h in lib.palet_token(k)} | {"#000000", "#000", "#ffffff", "#fff"}
+        liar = sorted({x.lower() for x in re.findall(r"#[0-9a-fA-F]{3,8}\b", demo) if x.lower() not in boleh})
+        if liar: g.append(f"Demo.tsx memakai hex di luar set token netral: {liar[:6]}")
     except Exception as e:
         g.append(f"meta.json rusak: {e}")
     if "export const DemoA" not in (d / "Demo.tsx").read_text() or "export const DemoB" not in (d / "Demo.tsx").read_text():
@@ -78,7 +86,7 @@ Tulis berkas dengan tool Write ke: {d}/{nama}.tsx, {d}/Demo.tsx, {d}/meta.json (
 Bahan kurva/timing yang boleh diimpor ada di {lib.MG}/scripts/remotion/curves.ts dan timing.ts: baca keduanya dulu (Read) agar tidak mengarang ulang.
 Lihat juga gambar referensi di spec.bukti (path relatif ke {lib.MG}) dengan Read, supaya proporsi dan tata letak mengikuti ukuran nyata.
 
-{ATURAN.replace('{wh}', ukuran_rasio(spec))}
+{aturan(spec)}
 
 SPEC:
 {json.dumps(spec, ensure_ascii=False, indent=1)}
@@ -94,7 +102,7 @@ HASIL UJI PUTARAN SEBELUMNYA:
         g = cek(nama)
         if not g: break
         print(f"sintesis {nama}: {len(g)} galat otomatis, perbaikan {i + 1}", file=sys.stderr)
-        lib.llm(f"Berkas komponen {nama} di {d} ditolak pemeriksa otomatis. Baca lalu perbaiki di tempat (Edit) tanpa mengubah perilaku selain yang perlu:\n- " + "\n- ".join(g) + f"\n\n{ATURAN.replace('{wh}', ukuran_rasio(spec))}\nBalas SELESAI.", model=model, tulis_di=d)
+        lib.llm(f"Berkas komponen {nama} di {d} ditolak pemeriksa otomatis. Baca lalu perbaiki di tempat (Edit) tanpa mengubah perilaku selain yang perlu:\n- " + "\n- ".join(g) + f"\n\n{aturan(spec)}\nBalas SELESAI.", model=model, tulis_di=d)
     g = cek(nama)
     return nama, g
 

@@ -1,66 +1,14 @@
 {
   "palet": {
-    "A": [
-      "#f4ecdc",
-      "#2a2421",
-      "#7a6c5f",
-      "#d6cabb",
-      "#c8442b",
-      "#f2b632",
-      "#e0603a",
-      "#f7b04a",
-      "#fde7a8",
-      "#9c3a4c",
-      "#6d2a48",
-      "#3f1d3a",
-      "#231f2b",
-      "#2b2535",
-      "#3d3549",
-      "#efe4cf",
-      "#2f6f73",
-      "#3d5a80",
-      "#8a9a3a",
-      "#fffaf0",
-      "#322c3b"
-    ],
-    "B": [
-      "#0b1424",
-      "#e8f0ff",
-      "#8fa3c4",
-      "#a9bbd8",
-      "#4cc2ff",
-      "#ffd24a",
-      "#1f4fa8",
-      "#5fb3e8",
-      "#e9f6ff",
-      "#2d6a8a",
-      "#1c4766",
-      "#0f2c45",
-      "#10161f",
-      "#0e1b30",
-      "#16283f",
-      "#1b2f4d",
-      "#ff7a59",
-      "#7be0a4",
-      "#b79bff",
-      "#ff6f91",
-      "#17223a"
-    ]
+    "A": ["#F6F5FC", "#F1F1FA", "#0E1426", "#5B6280", "#6F86FF", "#1B2748"],
+    "B": ["#110D0B", "#2A201B", "#FBF8F3", "#A39384", "#EE9440", "#8A6246"]
   },
-  "fungsi": "Satu dunia datar (wallpaper, jendela, dock, panel chat) digerakkan sebagai satu grup oleh kamera 2D virtual: geser memberi ruang panel masuk, lalu punch ke sudut kiri-bawah, dibuka dari kartu lama lewat blur dan wipe grid.",
+  "fungsi": "Satu dunia datar (latar, jendela UI, dock, panel chat) digerakkan sebagai satu grup oleh kamera 2D virtual: geser memberi ruang bagi panel, lalu punch ke sudut kiri-bawah.",
   "width": 1280,
   "height": 720,
   "fps": 30,
-  "durasi": 112,
-  "stills": [
-    2,
-    14,
-    60,
-    95
-  ],
-  "urutan": {
-    "dari": 0,
-    "sampai": 111
-  },
-  "catatan": "Mekanik dari kartu 63-T1: satu kamera, tanpa paralaks, kurva heavy, panel digeser dengan jendela waktu kamera. Lintasan memakai nilai spec apa adanya (punch x -0.32, y 0.29, skala 2.1). Grid keluar saat punch tidak dibuat (hanya grid masuk)."
+  "durasi": 120,
+  "stills": [12, 52, 76, 104],
+  "urutan": { "dari": 0, "sampai": 119 },
+  "catatan": "Kamera = titik dunia di pusat layar + skala (cx, cy, skala), bukan x/y spec; diturunkan dari ukuran terukur (geser +0,18 lebar, skala 0,91, punch 2,2x ke sudut kiri-bawah). Panel masuk dengan geser lokal dalam grup. Transisi grid hanya saat masuk (frame 2-11) dan sebelum teks jendela muncul; grid keluar saat punch tidak dibuat agar tidak menutupi teks prompt. Punch berhenti di kolom panel + sudut jendela + dock (label V1/V2/A1 dan teks prompt utuh dalam frame). Isi panel muncul setelah panel tiba."
 }

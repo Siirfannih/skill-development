@@ -108,6 +108,8 @@ def main(argv=None):
             galat = [f"jawaban tidak berisi JSON valid: {e}"]; continue
         spec.setdefault("terukur", {"dari_klip": bool(a.klip), "catatan": ""})
         if not a.klip and spec["terukur"].get("dari_klip"): spec["terukur"]["dari_klip"] = False
+        if a.klip: spec["terukur"]["dari_klip"] = True; spec["terukur"]["klip"] = {"path": str(Path(a.klip).resolve()), "dari": a.dari, "sampai": a.sampai}
+        else: spec["terukur"].pop("klip", None)
         galat = validasi(spec)
         if not galat: break
         print(f"upaya {upaya + 1}: {len(galat)} galat skema", file=sys.stderr)

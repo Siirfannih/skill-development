@@ -34,7 +34,8 @@ def skema_props(src, nama):
 def buat_entri(nama):
     d = lib.PABRIK / "kandidat" / nama; h = json.loads((d / "hasil.json").read_text())
     meta = json.loads((d / "meta.json").read_text()); sp = json.loads((lib.MG / h["spec"]).read_text())  # hasil.json menyimpan path relatif ke claude/motion-graphic
-    if h["lulus"]: status = "teruji" if sp["terukur"]["dari_klip"] else "teruji-sebagian"
+    # referensi tanpa klip yang bisa dibaca = statis: status maksimum teruji-sebagian (tak ada metrik struktur/gerak temporal)
+    if h["lulus"]: status = "teruji" if (sp["terukur"]["dari_klip"] and lib.spec_klip(sp)) else "teruji-sebagian"
     else: status = "ditolak"
     stills = sorted(str(p.relative_to(lib.PABRIK)) for p in (d / f"stills-r{h['putaran']}").glob("*.jpg")) if (d / f"stills-r{h['putaran']}").exists() else []
     e = {"nama": nama, "fungsi": meta.get("fungsi", ""), "kartu_sumber": [f"{sp['kartu']}.{sp['teknik']}"], "kategori": sp["kategori"],

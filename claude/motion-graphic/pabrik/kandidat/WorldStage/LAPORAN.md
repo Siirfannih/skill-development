@@ -4,88 +4,97 @@ Spec: `63-T1` (gerak_kamera). Lulus = nol dosa (skrip + vision + jangkar) DAN me
 
 ## Putaran 1: GAGAL
 
-Dosa terpicu: a, f, g, j
+Dosa terpicu: g, j, j3, o, r
 
 Temuan:
-- DOSA a: banding.py F1 gradien ragu-ragu di frame [4]
-- DOSA f: vision: Baris 1: judul 'Rencana produksi' dan daftar 1-3 di atas latar krem kabur total, padahal itu konten yang harus dibaca. Baris 2: teks 'Obrolan Pagi' dan 'Wawancara' di dalam jendela kabur dan nyaris tak terbaca.
-- DOSA g: vision: Baris 2 (frame 14): jendela berisi kisi garis hitam dan putih sebagai pengganti isi, jadi tampak sebagai kotak kosong bergaris. Baris 3: kotak 'Asisten' kiri berisi hampir hanya ruang kosong krem, dan kolom kiri bawah di baris 4 juga kosong.
-- DOSA j: f91: 'Ganti warna latar ' x '↑'
-- gerak RMS 0.3445 > 0.15
-- gerak rasio durasi 0.247 di luar 0.5-2.0
+- DOSA g: vision: Baris 1: tiga bar gelap polos di dalam jendela, kotak persegi kosong di sisi kiri, dan bar panjang di bawah, semuanya pengganti konten. Garis abu horizontal pengganti teks ada di panel kanan atas pratinjau. Baris 2: bar kosong 'Musik' di baris bawah timeline dan bar abu panjang paling bawah. Baris 3 dan 4: tombol abu kosong di pojok kanan atas dan kartu putih kosong di kanan bawah.
+- DOSA j: f3: 'K' tertutup 100%; f3: 'P' tertutup 100%; f3: 'T' tertutup 100%; f3: 'M' tertutup 100%; f3: 'S' tertutup 100%
+- DOSA j3: jangkar j3 (zona biru selalu di pojok kanan bawah ya...): Zona biru terang selalu menumpuk di sisi kanan dan bawah pada baris 1 dan 2. Pada baris 3 dan 4 panel dan blok biru tetap ada di pojok kanan. Objek terlalu kecil: kartu atau jendela UI di baris 1 dan 2 berisi teks mikro yang sulit dibaca.
+- DOSA o: f3: lapisan non-teks di atas 'K' (100% titik); f3: lapisan non-teks di atas 'P' (100% titik); f3: lapisan non-teks di atas 'T' (100% titik); f3: lapisan non-teks di atas 'M' (100% titik); f3: lapisan non-teks di atas 'S' (100% titik)
+- DOSA r: vision baris 2 (f52): Dua bar 'Pembuka' dan 'Wawancara' bertumpuk di timeline. Dock memotong pojok kiri bawah wallpaper biru dengan bentuk miring.
+- gerak RMS 0.3491 > 0.15
+- gerak rasio durasi 0.173 di luar 0.5-2.0
 
 | Metrik | Nilai |
 |---|---|
-| banding F1 terpicu / F3 jarang (dari 4 still) | 1 / 0 |
-| fokus kecil-tengah, sampel berturut maks | 0 dari 53 |
-| probe: teks kecil / tabrakan / terpotong | 0 / 1 / 2 (frame [4, 14, 53, 91]) |
-| warna luar palet | tidak ada |
-| struktur vs referensi (terbaik; rata-rata per ref; n ref) | 0.4118 (ssim 0.5515, edge 0.272; frame 4 vs `guide/referensi/sheets/keyframes/63-k4-kartu-ui-gelap.jpg`); 0.2259; 8 |
-| gerak (gerak_kamera) | frame berubah 0.433; lintasan {"rms": 0.3445, "rasio_durasi": 0.247, "durasi": 0.617, "n_segmen": 2} |
-| dua token (edge / ssim / selisih piksel) | 0.8489 / 0.5402 / 122.74 |
+| banding F1 terpicu / F3 jarang (dari 4 still) | 0 / 0 |
+| fokus kecil-tengah, sampel berturut maks | 0 dari 60 |
+| probe (44 frame): teks kecil / tabrakan / tertutup-j / lapisan-o / tak terlihat | 0 / 0 / 7 / 7 / 0 |
+| warna: nyasar (cek-warna) / luar palet / kulit bocor | 0 / 0 / 0 |
+| struktur vs referensi | paired 0.1572 vs tak-selaras 0.1428 (n 8) |
+| gerak (gerak_kamera) | frame berubah 0.387; lintasan {"rms": 0.3491, "rasio_durasi": 0.173, "durasi": 0.433, "n_segmen": 3}; korelasi energi vs klip -0.123 |
+| latar | {"dipakai": false} |
+| dua token (edge / ssim / selisih piksel) | 0.9785 / 0.8715 / 36.37 |
 
 5 hal yang membuat kanan lebih murahan (masukan revisi, bukan syarat lulus):
-1. Baris 1 (frame 4): kartu krem polos berisi 'Rencana produksi' tampil kabur di seluruh area. Referensi di kiri menampilkan UI gelap yang tajam dan utuh. Perbaikan: tajamkan teks sebelum transisi dimulai, dan pertahankan UI gelap sebagai frame pembuka sesuai mekanik.
-2. Baris 2 (frame 14): grid blok piksel yang seharusnya menyapu ±0,25 dtk dari kiri ke kanan tampil sebagai kisi garis hitam dan putih di atas jendela. Itu terlihat seperti tabel, bukan blok piksel yang menyapu. Referensi memakai blok berwarna yang menyatu dengan isi frame. Perbaikan: pakai blok persegi kecil berwarna sesuai palet, dengan wipe terarah.
-3. Baris 2 (frame 14): teks 'Obrolan Pagi' dan tombol 'Wawancara' tertimbun grid dan hampir tak terbaca. Perbaikan: turunkan opasitas grid di atas konten, atau urutkan transisi supaya konten tidak tertimpa.
-4. Baris 3 (frame 53): jendela editor hanya berisi lima kotak warna datar (Intro, Wawancara, Penutup) dan daftar teks. Referensi menampilkan UI editor video dengan timeline berlapis, panel properti, dan pratinjau. Perbaikan: tambahkan detail UI nyata seperti baris track, playhead, dan thumbnail supaya punch-in punya sesuatu untuk ditunjukkan.
-5. Baris 4 (frame 91): hasil punch 'Intro' dan tombol 'K' terpotong tepi, dan teks krem yang terpotong ('nti warna latar jadi biru, rbesar judul') tidak membentuk kalimat utuh. Referensi menampilkan UI utuh dengan dock rapi. Perbaikan: pilih pivot punch yang menjaga satu elemen lengkap di frame, dan pakai teks input yang tidak terpotong di tengah kata.
+1. Wallpaper adalah blok biru periwinkle datar di baris 1 dan 2. Referensi memakai foto matahari terbenam yang kaya tekstur dan gradasi, sehingga latar kandidat terlihat seperti kertas warna. Ganti dengan wallpaper bergradasi bertekstur, atau gradien bertitik cahaya yang jelas.
+2. Jendela UI di baris 1 dan 2 berisi kotak abu, bar polos, dan garis tipis yang tidak berarti. Referensi menampilkan editor video nyata dengan timeline, thumbnail, dan kontrol. Isi jendela dengan konten yang spesifik, misalnya thumbnail klip, waveform, dan label track nyata.
+3. Dock di bawah jendela memakai kotak berhuruf tunggal (K, P, M, S, A) dengan warna biru dan hitam bergantian. Ini terlihat seperti placeholder, sedangkan referensi punya ikon aplikasi berwarna, berbayang, dan dikenali. Buat ikon dengan bentuk dan warna khas serta bayangan halus.
+4. Transisi grid piksel di baris 1 berupa blok besar berukuran tidak seragam dan menutup sisi kanan jendela. Referensi memakai kisi kecil seragam yang menyapu dan menembus konten dengan lembut. Perkecil sel hingga seragam, sapu dari kiri ke kanan dengan tepi bergelombang rapi, dan jangan tumpuk di atas jendela.
+5. Baris 3 dan 4 hampir identik: kartu prompt 'Buat latar lebih hangat' di latar navy datar, ditambah kotak kosong di kanan. Punch referensi tetap memperlihatkan konteks (foto, dock, ikon) di sekitar teks dan ada progres antar frame. Pertahankan wallpaper dan elemen UI di sekitar target punch, dan beri perubahan visual yang jelas, misalnya teks diketik atau efek hangat muncul.
 
-Lembar side-by-side (referensi kiri | kandidat kanan): `pabrik/kandidat/WorldStage/lembar-r1.jpg`
+Lembar side-by-side (referensi kiri | kandidat kanan, selaras waktu): `pabrik/kandidat/WorldStage/lembar-r1.jpg`
 
 ## Putaran 2: GAGAL
 
-Dosa terpicu: g, j2
+Dosa terpicu: f, g, j, q, r
 
 Temuan:
-- DOSA g: vision: Baris 3: kotak input putih di panel kiri kosong (hanya 'Model utama' kecil) di atas panel krem yang lebih lapang. Pratinjau video 'Obrolan Pagi' di jendela editor (baris 2-3) hanya kotak gelap berteks, tanpa gambar video.
-- DOSA j2: jangkar j2 (gradien pucat ragu-ragu, halo di belakan...): Baris 3 kiri: teks abu kecil 'Klip sudah di timeline. Bagian mana yang mau diubah?' di panel krem hampir putih, kontras lemah. Baris 4: 'Episode 12', 'Suara', 'Video' abu pucat di latar ungu gelap. Ini pola teks abu di latar pucat seperti j2.
-- gerak RMS 0.2994 > 0.15
-- gerak rasio durasi 0.227 di luar 0.5-2.0
+- DOSA f: vision: Baris 2 dan 3: teks jendela 'Studio Klip' dan isi timeline sangat kecil, sehingga detail kecil (label Skala/Posisi/Opasitas, V1/V2/A1) berada di batas terbaca. Teks asisten di baris 2 juga terpotong tepi kiri ('Asisten', 'ambah subjudul'). Ini bukan blur sebenarnya, hanya detail kecil yang tidak tajam saat dibaca. Karena tidak ada blur nyata, jawaban ini lemah dan ragu mengarah ke Tidak.
+- DOSA g: vision: Baris 1: tiga garis abu tipis horizontal di kanan jendela (x~745-860, y~72-125) berfungsi sebagai pengganti teks. Dua tombol biru kosong tanpa label di y~160 dan satu bar gelap kosong di y~177. Dock memuat kotak-kotak polos tanpa ikon di baris 1 dan hampir semua ikon dock tak bermakna. Baris 4: kotak putih kosong di kanan bawah (x~915-965, y~1010-1055).
+- DOSA j: f8: teks ada di DOM tetapi selisih render penuh vs tanpa-teks 0.0
+- DOSA q: vision baris 4 (f104): Kanan atas: 'V1 V2 A1' terpotong tepi frame dan sebagian tertimpa panel gelap. Kotak putih kosong di kanan bawah memotong tepi frame.
+- DOSA r: vision baris 4 (f104): Frame punch berisi potongan tak terbaca: label 'V1 V2 A1' raksasa di pojok kanan atas dan kotak putih terpotong di kanan bawah, dengan strip biru dan abu tipis di tepi kiri-tengah (x~900-915). Tidak ada konteks UI yang tersisa, wallpaper tidak terlihat.
+- gerak RMS 0.3127 > 0.15
+- gerak rasio durasi 0.293 di luar 0.5-2.0
 
 | Metrik | Nilai |
 |---|---|
 | banding F1 terpicu / F3 jarang (dari 4 still) | 0 / 0 |
-| fokus kecil-tengah, sampel berturut maks | 1 dari 56 |
-| probe: teks kecil / tabrakan / terpotong | 0 / 0 / 2 (frame [2, 14, 53, 91]) |
-| warna luar palet | tidak ada |
-| struktur vs referensi (terbaik; rata-rata per ref; n ref) | 0.431 (ssim 0.5714, edge 0.2906; frame 2 vs `guide/referensi/sheets/keyframes/63-k4-kartu-ui-gelap.jpg`); 0.2207; 8 |
-| gerak (gerak_kamera) | frame berubah 0.459; lintasan {"rms": 0.2994, "rasio_durasi": 0.227, "durasi": 0.567, "n_segmen": 1} |
-| dua token (edge / ssim / selisih piksel) | 0.8779 / 0.6764 / 57.38 |
+| fokus kecil-tengah, sampel berturut maks | 0 dari 60 |
+| probe (44 frame): teks kecil / tabrakan / tertutup-j / lapisan-o / tak terlihat | 0 / 0 / 0 / 0 / 1 |
+| warna: nyasar (cek-warna) / luar palet / kulit bocor | 0 / 0 / 0 |
+| struktur vs referensi | paired 0.1555 vs tak-selaras 0.1417 (n 8) |
+| gerak (gerak_kamera) | frame berubah 0.513; lintasan {"rms": 0.3127, "rasio_durasi": 0.293, "durasi": 0.733, "n_segmen": 3}; korelasi energi vs klip -0.28 |
+| latar | {"dipakai": false} |
+| dua token (edge / ssim / selisih piksel) | 0.9914 / 0.8149 / 46.02 |
 
 5 hal yang membuat kanan lebih murahan (masukan revisi, bukan syarat lulus):
-1. Baris 2, panel wipe kuning translusen dengan garis kisi merah menutupi separuh kanan jendela, termasuk 'Obrolan Pagi' dan 'Narasi pembuka dan wawancara'. Teks ikut pudar, 'Ekspor' dan 'Penutup' kuning-di-kuning hilang, dan kisinya berupa garis tipis, bukan blok piksel seperti referensi. Perbaikan: wipe berupa blok kotak solid kecil yang menyapu dari kiri ke kanan, dan teks jendela tidak boleh tertutup overlay.
-2. Baris 1, kartu pembuka 'Rencana produksi' hanya judul serif dan tiga baris abu rata kiri di latar ungu-hitam datar. Tidak ada objek, tidak ada kedalaman, dan daftarnya terlihat seperti slide PowerPoint. Perbaikan: ganti dengan satu tipografi besar, atau UI gelap sungguhan seperti referensi (bar tab, kartu, kursor), dengan latar bergradasi dan teks utama putih.
-3. Baris 3 kiri, panel chat krem lebar ±0,4 frame hampir kosong. Ada tiga baris abu kecil, satu kotak input kosong, dan ruang mati sampai tepi atas. Ini tidak terasa seperti panel yang 'memberi ruang' dan tidak seimbang dengan jendela yang terpotong di kanan. Perbaikan: panel sempit ±0,18 frame, isi dengan pesan dan jawaban nyata, dan gelap seperti jendela utama.
-4. Baris 3 kanan, wallpaper pegunungan oranye yang sama dengan baris 2 dipotong oleh jendela yang terdorong sampai tepi kanan. Jendela terpotong, padahal seharusnya tetap utuh dan hanya bergeser ±0,18 frame. Dock 'K P F V M C A' yang berupa huruf di kotak warna terlihat mainan dibanding dock ikon di referensi. Perbaikan: geser lebih sedikit dan ganti dock dengan ikon bergaya satu keluarga.
-5. Baris 4 punch, zoom ke timeline memotong 'Suara' dan 'Judul' di tepi atas dan menyisakan panel krem putih yang terpotong di kiri. Pivot-nya tidak ke sudut ruang kerja yang berisi detail UI. Isi UI-nya terlalu sedikit (dua klip dan satu trek suara) sehingga detail terasa kosong, dan 'Episode 12' abu pucat kontrasnya rendah. Perbaikan: zoom ke sudut dengan detail padat (waveform, penanda waktu, ikon) dan naikkan kontras teks sekunder.
+1. Baris 1, jendela 'Studio Klip': isinya hanya waveform dan tiga garis abu serta dua bar kosong tanpa teks. Referensi punya editor video nyata dengan timeline, preview wajah, dan panel properti. Perbaikan: isi garis dan bar itu dengan label dan data nyata, dan beri preview berisi konten.
+2. Baris 1-3, wallpaper: ungu-biru datar dengan dua pita diagonal putih. Referensi memakai foto senja berdetail dengan matahari, gunung, dan bunga, jadi ada kedalaman dan nada hangat yang menjadi lawan UI gelap. Perbaikan: beri wallpaper tekstur, titik fokus, dan gradasi bernada sedang yang bervariasi, bukan dua pita yang sama sepanjang frame.
+3. Baris 1 dan 2, dock: kapsul putih dengan kotak-kotak persegi polos berwarna biru atau hitam. Dock referensi punya ikon aplikasi nyata dengan bentuk dan warna beragam (kalender 'JUL 17', Finder). Perbaikan: ganti kotak dengan ikon bermakna dengan siluet berbeda, kedalaman, dan kecerahan yang beragam.
+4. Baris 2 dan 3, panel Asisten: dipotong tepi kiri frame (huruf awal hilang), tanpa pemisah jelas dari jendela, dan tekstur terlihat seperti strip polos. Di referensi panel masuk menggeser jendela dengan ruang jelas dan teks utuh. Perbaikan: beri margin kiri dan geser jendela lebih jauh agar panel utuh, dengan batas atau bayangan.
+5. Baris 4, frame punch: layar hampir kosong, dengan satu kotak input gelap besar dan potongan 'V1 V2 A1' raksasa di pojok. Punch referensi (grid blok piksel hangat yang menutup sebagian teks) tetap menampilkan konteks wallpaper dan dock. Perbaikan: arahkan pivot ke detail UI yang punya isi (kurva, nilai, klip), bukan teks label kosong, dan pertahankan sedikit wallpaper agar nada tetap terbaca.
 
-Lembar side-by-side (referensi kiri | kandidat kanan): `pabrik/kandidat/WorldStage/lembar-r2.jpg`
+Lembar side-by-side (referensi kiri | kandidat kanan, selaras waktu): `pabrik/kandidat/WorldStage/lembar-r2.jpg`
 
 ## Putaran 3: GAGAL
 
-Dosa terpicu: j
+Dosa terpicu: g, q
 
 Temuan:
-- DOSA j: f2: 'Rencana' x 'produksi'
-- gerak RMS 0.5196 > 0.15
-- gerak rasio durasi 0.187 di luar 0.5-2.0
+- DOSA g: vision: Baris 1-3: grafik 'Pratinjau' hanya satu kurva ease di kotak navy kosong, tanpa preview video. Ini kotak pengganti preview. Baris 2-3: kolom kiri 'Asisten' kosong di tengah. Track V1/V2/A1 berupa balok biru berlabel dan waveform batang seragam, yang terbaca sebagai stand-in dari timeline Premiere di referensi. Ragu: sebagian ini bisa dibaca sebagai desain minimal sengaja, tapi preview kosong jelas terlihat.
+- DOSA q: vision baris 4 (f104): Punch zoom memotong panel kanan: label 'V1 V2 A1' terpotong di tepi atas kanan. Jendela hanya terlihat sebagian dan ikon dock terpotong di tepi bawah (tombol putar terpotong di x=966). Tepi frame memotong konten UI. Teks di kolom kiri utuh.
+- struktur selaras waktu 0.134 < max(0.15, tak-selaras 0.124)
+- gerak RMS 0.3331 > 0.15
+- gerak rasio durasi 0.253 di luar 0.5-2.0
 
 | Metrik | Nilai |
 |---|---|
 | banding F1 terpicu / F3 jarang (dari 4 still) | 0 / 0 |
-| fokus kecil-tengah, sampel berturut maks | 0 dari 56 |
-| probe: teks kecil / tabrakan / terpotong | 0 / 1 / 2 (frame [2, 14, 60, 95]) |
-| warna luar palet | tidak ada |
-| struktur vs referensi (terbaik; rata-rata per ref; n ref) | 0.3679 (ssim 0.4579, edge 0.2778; frame 2 vs `guide/referensi/sheets/keyframes/63-k4-kartu-ui-gelap.jpg`); 0.2017; 8 |
-| gerak (gerak_kamera) | frame berubah 0.532; lintasan {"rms": 0.5196, "rasio_durasi": 0.187, "durasi": 0.467, "n_segmen": 2} |
-| dua token (edge / ssim / selisih piksel) | 0.9206 / 0.6978 / 42.04 |
+| fokus kecil-tengah, sampel berturut maks | 0 dari 60 |
+| probe (43 frame): teks kecil / tabrakan / tertutup-j / lapisan-o / tak terlihat | 0 / 0 / 0 / 0 / 0 |
+| warna: nyasar (cek-warna) / luar palet / kulit bocor | 0 / 0 / 0 |
+| struktur vs referensi | paired 0.1341 vs tak-selaras 0.1239 (n 8) |
+| gerak (gerak_kamera) | frame berubah 0.513; lintasan {"rms": 0.3331, "rasio_durasi": 0.253, "durasi": 0.633, "n_segmen": 3}; korelasi energi vs klip -0.338 |
+| latar | {"dipakai": false} |
+| dua token (edge / ssim / selisih piksel) | 0.987 / 0.745 / 42.46 |
 
 5 hal yang membuat kanan lebih murahan (masukan revisi, bukan syarat lulus):
-1. Frame 2 hanya slide teks datar: judul serif 'Rencana produksi' menempel di kiri atas, tab 'Naskah/Klip/Suara' terpotong di tepi atas, dan sekitar 40% kanan-bawah kosong. KIRI menampilkan kartu UI gelap utuh di tengah dengan ruang napas. Perbaikan: render kartu UI gelap yang sama di tengah frame (±0,6 lebar), jangan slide teks tepi-ke-tepi.
-2. Dock di frame 14 dan 60 berisi kotak berwarna polos tanpa glyph, cuma lingkaran, persegi dan belah ketupat, jadi terbaca sebagai ikon placeholder. Dock KIRI punya ikon aplikasi asli yang bisa dikenali. Perbaikan: beri glyph yang bermakna (gunting, play, mic, folder) pada tiap ikon dan kecilkan outline krem tebalnya.
-3. Wallpaper frame 14 adalah ilustrasi vektor datar (bukit ungu, matahari lingkaran) dan bagian atasnya jatuh ke oranye polos. Wallpaper KIRI adalah foto senja bertekstur dengan awan dan detail. Karena itu pemisahan nada terasa seperti poster clip-art. Perbaikan: tambah tekstur, grain dan lapisan kedalaman, atau pakai foto, dengan kontras yang lebih jelas terhadap jendela.
-4. Frame 60 memotong jendela di tepi kanan dan panel 'Asisten' di kiri adalah blok gelap datar yang menutup wallpaper, tanpa bayangan atau pemisah. Jendela tampak terdorong keluar frame, tidak diberi ruang. KIRI menjaga jendela dan dock utuh. Perbaikan: geser jendela ±0,18 lebar frame sambil mengecil ke ±0,91x supaya tetap utuh, dan beri panel tepi serta bayangan lembut.
-5. Punch di frame 95 mendarat pada potongan acak: 'Obrolan Pa' terpotong di tepi kanan, label merah raksasa, sisa panel kiri dengan satu tombol panah merah, dan pita ungu kosong di bawah. Tidak ada detail UI yang jelas ditonjolkan. Di frame 14 ada juga tambalan kotak piksel pudar di kanan atas yang tampak seperti artefak. Perbaikan: pivot punch di satu elemen utuh (timeline atau label) dengan margin, dan buat wipe grid kontras serta menyapu penuh dari kiri ke kanan.
+1. Latar low-poly biru-ungu (seluruh frame kanan, semua baris) adalah wallpaper stok generik. Referensi memakai foto matahari terbenam yang hangat dan kaya, dengan kedalaman yang nyata. Ganti dengan satu gradien foto atau mesh halus dan hangat bernada sedang, dan kurangi faset kontras tinggi yang berebut perhatian dengan UI.
+2. Kotak 'Pratinjau' di jendela Studio Klip (baris 1-3, kiri atas jendela) hanya berisi satu kurva ease di kotak kosong. Referensi menampilkan potret orang di tengah editor, jadi ada subjek. Isi dengan thumbnail atau frame video yang jelas, atau hapus kotak itu dan perbesar timeline.
+3. Timeline V1/V2/A1 (baris 1-3, bawah jendela) memakai balok biru datar dengan waveform batang seragam, tanpa playhead, ruler, atau variasi lebar klip. Itu terbaca sebagai ilustrasi, bukan editor sungguhan. Tambahkan playhead, penanda waktu, dan variasi tinggi dan warna track.
+4. Dock (baris 1-3, bawah jendela) berisi enam tombol bulat, kotak, dan segitiga monokrom dengan sudut putih. Referensi memakai ikon aplikasi berwarna dan bertekstur. Ganti dengan ikon yang beridentitas, ukuran konsisten, dan bayangan halus. Sekarang ikon-ikon itu terlihat seperti kontrol media bawaan.
+5. Panel 'Asisten' di baris 2-3 (kolom kiri) menyisakan ruang kosong besar di antara header dan bubble chat, dan bubble-nya mengambang di bawah tanpa alur percakapan. Referensi memakai panel gelap dengan satu input di dasar. Rapatkan percakapan, tambah satu atau dua pesan agar panel terisi, dan beri margin yang rapi. Selain itu transisi grid piksel yang diharapkan tidak muncul sama sekali di baris 4, jadi punch terlihat sebagai crop kasar.
 
-Lembar side-by-side (referensi kiri | kandidat kanan): `pabrik/kandidat/WorldStage/lembar-r3.jpg`
+Lembar side-by-side (referensi kiri | kandidat kanan, selaras waktu): `pabrik/kandidat/WorldStage/lembar-r3.jpg`

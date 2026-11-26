@@ -63,6 +63,11 @@
  ],
  "terukur": {
   "dari_klip": true,
-  "catatan": "Ukuran statis (tinggi kapital 0,20, 0,07, celah kata) diukur dari keyframe. Pada klip, tinggi kapital awal tampak ≈ 0,30 tinggi frame, lebih besar dari 0,20 di keyframe, kemungkinan karena kamera masih mendekat; rasio akhir/awal ≈ 0,15 sesuai kartu. Timing ketukan dibaca dari lembar 4 fps per frame, jadi resolusi ≈ ±0,125 dtk. Durasi penarikan dan kurva tidak bisa dipastikan presisi, hanya diperkirakan dari urutan frame. Jarak celah kata dan nilai blur adalah perkiraan visual."
+  "catatan": "Ukuran statis (tinggi kapital 0,20, 0,07, celah kata) diukur dari keyframe. Pada klip, tinggi kapital awal tampak ≈ 0,30 tinggi frame, lebih besar dari 0,20 di keyframe, kemungkinan karena kamera masih mendekat; rasio akhir/awal ≈ 0,15 sesuai kartu. Timing ketukan dibaca dari lembar 4 fps per frame, jadi resolusi ≈ ±0,125 dtk. Durasi penarikan dan kurva tidak bisa dipastikan presisi, hanya diperkirakan dari urutan frame. Jarak celah kata dan nilai blur adalah perkiraan visual.",
+  "klip": {
+   "path": "/home/irfan/work/pustaka-video/unggahan/02_Baikov_TEKS-SFX-CUT.mp4",
+   "dari": 0.0,
+   "sampai": 4.0
+  }
  }
 }

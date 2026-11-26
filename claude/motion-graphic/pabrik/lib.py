@@ -95,3 +95,43 @@ def rel(p):
         return str(Path(p).resolve().relative_to(MG))
     except ValueError:
         return str(p)
+
+
+TOKENS = json.loads((PABRIK / "tokens-netral.json").read_text())
+PERAN_TOKEN = ("latar", "permukaan", "tinta", "redup", "aksen", "aksen2")
+
+
+def palet_token(k):
+    """Palet set token 'A'/'B' -> daftar hex enam peran."""
+    return [TOKENS[k][p] for p in PERAN_TOKEN]
+
+
+def palet_json(k):
+    """Format palet.json yang dibaca scripts/warna/cek-warna.mjs keluar (hanya hex; mode sesuai set)."""
+    s = TOKENS[k]; m = lambda h: {"hex": h}
+    return {"versi": 2, "k": 6, "sumber": [], "mode": {s["mode"]: {"latar": m(s["latar"]), "tinta": m(s["tinta"]), "aksen": [m(s["aksen"]), m(s["aksen2"])],
+            "netral": [m(s["permukaan"]), m(s["redup"])], "n_frames": 1}}, "hex_semua": palet_token(k)}
+
+
+def spec_klip(spec):
+    """-> (path, dari, sampai) bila spec punya klip yang berkas-nya ada, selain itu None (referensi statis)."""
+    k = (spec.get("terukur") or {}).get("klip")
+    if k and Path(os.path.expanduser(k["path"])).exists():
+        return os.path.expanduser(k["path"]), float(k["dari"]), float(k["sampai"])
+    return None
+
+
+def waktu_referensi(spec, u):
+    """Waktu detik di klip sumber untuk posisi relatif u (0..1) di demo (normalisasi durasi)."""
+    p, a, b = spec_klip(spec)
+    return a + min(max(u, 0.0), 1.0) * (b - a)
+
+
+def frame_klip(path, t, lebar=640):
+    """Satu frame klip pada detik t -> PIL.Image RGB (ffmpeg)."""
+    from PIL import Image
+    import io
+    r = subprocess.run(["ffmpeg", "-v", "error", "-ss", f"{t:.3f}", "-i", path, "-frames:v", "1", "-vf", f"scale={lebar}:-2", "-f", "image2pipe", "-vcodec", "png", "-"],
+                       capture_output=True)
+    if r.returncode != 0 or not r.stdout: raise RuntimeError(f"ffmpeg gagal mengambil frame {t}s dari {path}")
+    return Image.open(io.BytesIO(r.stdout)).convert("RGB")

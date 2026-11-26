@@ -191,6 +191,81 @@ class TestMetrik(unittest.TestCase):
 
 
 @unittest.skipUnless(OK, "butuh numpy/PIL/cv2/jsonschema")
+class TestDosaBaru(unittest.TestCase):
+    def test_oklusi_j_dan_o(self):
+        pf = {5: [{"teks": "aman", "op": 1, "tutup": 0.0, "tutup_objek": 0.0},
+                  {"teks": "tertutup grid", "op": 1, "tutup": 0.4, "tutup_objek": 0.4},
+                  {"teks": "tipis", "op": 1, "tutup": 0.05, "tutup_objek": 0.05},
+                  {"teks": "luar wadah", "op": 1, "tutup": 0, "tutup_objek": 0, "wadah_keluar": True},
+                  {"teks": "samar", "op": 0.2, "tutup": 0.9, "tutup_objek": 0.9}]}
+        r = metrik.analisis_oklusi(pf)
+        self.assertEqual(len(r["j"]), 2)            # tertutup > 10 % dan keluar wadah; 5 % dan teks samar tidak
+        self.assertEqual(len(r["o"]), 2)            # lapisan non-teks >= 2 % (grid 40 %, tipis 5 %)
+        self.assertEqual(metrik.analisis_oklusi({1: [{"teks": "x", "op": 1}]}), {"j": [], "o": []})
+
+    def test_teks_tak_terlihat(self):
+        a = _gambar(lambda d: d.text((10, 10), "HALO DUNIA", fill=(0, 0, 0)), bg=(255, 255, 255))
+        kosong = _gambar(lambda d: None, bg=(255, 255, 255))
+        frac, hilang = metrik.teks_tak_terlihat(a, kosong, 1)
+        self.assertGreater(frac, 0.001); self.assertFalse(hilang)
+        frac, hilang = metrik.teks_tak_terlihat(kosong, kosong, 1)
+        self.assertTrue(hilang); self.assertFalse(metrik.teks_tak_terlihat(kosong, kosong, 0)[1])
+
+    def test_ruang_negatif_dan_grain(self):
+        polos = Image.new("RGB", (320, 180), (246, 245, 252))
+        self.assertGreater(metrik.ruang_negatif(polos, "#F6F5FC"), 0.99)
+        ramai = _gambar(lambda d: d.rectangle([0, 0, 320, 120], fill=(200, 60, 40)), bg=(246, 245, 252))
+        self.assertLess(metrik.ruang_negatif(ramai, "#F6F5FC"), 0.5)
+        rng = np.random.default_rng(1)
+        halus = Image.fromarray(np.clip(246 + rng.normal(0, 1, (180, 320, 3)), 0, 255).astype("uint8"))
+        kasar = Image.fromarray(np.clip(246 + rng.normal(0, 12, (180, 320, 3)), 0, 255).astype("uint8"))
+        self.assertLess(metrik.grain_estimasi(halus), 0.02); self.assertGreater(metrik.grain_estimasi(kasar), 0.02)
+
+    def test_kulit_bocor(self):
+        senja = _gambar(lambda d: d.rectangle([0, 0, 160, 120], fill=(221, 130, 98)), bg=(246, 245, 252))
+        pal = ["#F6F5FC", "#0E1426"]
+        self.assertTrue(metrik.luar_palet_dekat(senja, pal, ["#DD8262"])["dosa"])
+        self.assertFalse(metrik.luar_palet_dekat(senja, pal, ["#1887E6"])["dosa"])       # luar palet tetapi bukan warna referensi: bukan (p)
+        self.assertFalse(metrik.luar_palet_dekat(_gambar(lambda d: None, bg=(246, 245, 252)), pal, ["#F6F5FC"])["dosa"])  # warna palet = bukan bocor
+
+
+@unittest.skipUnless(OK, "butuh numpy/PIL/cv2/jsonschema")
+class TestReferensiSelaras(unittest.TestCase):
+    def test_waktu_normalisasi_durasi(self):
+        import lib, tempfile
+        with tempfile.NamedTemporaryFile(suffix=".mp4") as f:
+            sp = {"terukur": {"klip": {"path": f.name, "dari": 12.4, "sampai": 16.0}}}
+            self.assertAlmostEqual(lib.waktu_referensi(sp, 0.0), 12.4); self.assertAlmostEqual(lib.waktu_referensi(sp, 0.5), 14.2)
+            self.assertAlmostEqual(lib.waktu_referensi(sp, 2.0), 16.0)               # dijepit
+            self.assertIsNotNone(lib.spec_klip(sp))
+        self.assertIsNone(lib.spec_klip({"terukur": {"klip": {"path": "/tidak/ada.mp4", "dari": 0, "sampai": 1}}}))
+        self.assertIsNone(lib.spec_klip({"terukur": {"dari_klip": False}}))
+
+    def test_token_netral_enam_peran_dan_palet_json(self):
+        import lib
+        for k in ("A", "B"):
+            self.assertEqual(len(lib.palet_token(k)), 6)
+            j = lib.palet_json(k); self.assertEqual(len(j["hex_semua"]), 6); self.assertIn(lib.TOKENS[k]["mode"], j["mode"])
+        self.assertNotEqual(lib.palet_token("A"), lib.palet_token("B"))
+
+    def test_kontrak_demo_menolak_hex_liar(self):
+        import sintesis, lib
+        d = lib.PABRIK / "kandidat" / "_UjiKontrak"; d.mkdir(parents=True, exist_ok=True)
+        try:
+            (d / "_UjiKontrak.tsx").write_text('import {z} from "zod"; export const _UjiKontrakPropsSchema = z.object({}); export const _UjiKontrak = () => null;')
+            demo = "export const DemoA = () => null; export const DemoB = () => null; " + " ".join(lib.palet_token("A") + lib.palet_token("B")) + " #dd8262"
+            (d / "Demo.tsx").write_text(demo)
+            meta = {"palet": {"A": lib.palet_token("A"), "B": lib.palet_token("B")}, "fungsi": "x", "width": 1, "height": 1, "fps": 30, "durasi": 3, "stills": [0], "urutan": {"dari": 0, "sampai": 2}}
+            (d / "meta.json").write_text(json.dumps(meta))
+            g = sintesis.cek("_UjiKontrak")
+            self.assertTrue(any("di luar set token netral" in x for x in g), g)
+            meta["palet"]["A"] = ["#123456"] * 6; (d / "meta.json").write_text(json.dumps(meta))
+            self.assertTrue(any("harus persis set token" in x for x in sintesis.cek("_UjiKontrak")))
+        finally:
+            import shutil; shutil.rmtree(d, ignore_errors=True)
+
+
+@unittest.skipUnless(OK, "butuh numpy/PIL/cv2/jsonschema")
 class TestRegistry(unittest.TestCase):
     def test_skema_props(self):
         src = 'export const AbcPropsSchema = z.object({\n  a: z.number(),\n  b: z.object({c: z.string()}),\n});\nexport const Abc = () => null;'

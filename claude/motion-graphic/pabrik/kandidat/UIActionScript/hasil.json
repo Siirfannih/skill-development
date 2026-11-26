@@ -1,34 +1,34 @@
 {
  "nama": "UIActionScript",
  "spec": "pabrik/spec/63-T5.json",
- "lulus": true,
- "putaran": 1,
+ "lulus": false,
+ "putaran": 3,
  "metrik": {
   "banding": {
    "per_still": [
     {
-     "frame": 8,
-     "luma_range": 120.1,
-     "sat_p95": 0.746,
-     "fokus_pct": 58.6
+     "frame": 28,
+     "luma_range": 163.5,
+     "sat_p95": 0.649,
+     "fokus_pct": 80.6
     },
     {
-     "frame": 34,
-     "luma_range": 120.8,
-     "sat_p95": 0.746,
-     "fokus_pct": 58.9
+     "frame": 50,
+     "luma_range": 227.3,
+     "sat_p95": 0.653,
+     "fokus_pct": 33.2
     },
     {
-     "frame": 64,
-     "luma_range": 114.9,
-     "sat_p95": 0.787,
-     "fokus_pct": 55.8
+     "frame": 74,
+     "luma_range": 226.3,
+     "sat_p95": 0.652,
+     "fokus_pct": 40.7
     },
     {
-     "frame": 88,
-     "luma_range": 125.7,
-     "sat_p95": 0.789,
-     "fokus_pct": 77.6
+     "frame": 95,
+     "luma_range": 31.6,
+     "sat_p95": 0.65,
+     "fokus_pct": 5.2
     }
    ],
    "f1_terpicu": 0,
@@ -36,64 +36,178 @@
    "n": 4
   },
   "pola_tengah": {
-   "sampel": 60,
+   "sampel": 52,
    "berturut_maks": 0
   },
   "probe": {
-   "frame_terprobe": [
-    8,
-    34,
-    64,
-    88
-   ],
+   "frame_terprobe": 39,
    "teks_kecil": 0,
    "tabrakan": 0,
-   "terpotong": 1
+   "tutup_j": 253,
+   "lapisan_o": 253,
+   "teks_tak_terlihat": 0
   },
   "palet": {
-   "luar_palet": []
+   "cek_warna_nyasar": [],
+   "luar_palet": [],
+   "kulit_bocor": [],
+   "referensi_hex": [
+    "#1b1619",
+    "#eae1de",
+    "#dc7148",
+    "#ba5e43",
+    "#522a17"
+   ]
   },
-  "struktur": {
-   "ssim": 0.2965,
-   "edge": 0.186,
-   "skor": 0.2412,
-   "frame": 88,
-   "ref": "guide/referensi/sheets/keyframes/63-k4-kartu-ui-gelap.jpg",
-   "rata_terbaik_per_ref": 0.137,
-   "n_ref": 8
+  "latar": {
+   "dipakai": false
   },
   "gerak": {
    "frame_berubah": 0.437,
-   "kategori": "permukaan_ui"
+   "kategori": "permukaan_ui",
+   "energi_korelasi": -0.079
+  },
+  "struktur": {
+   "statis": false,
+   "paired": 0.1251,
+   "tak_selaras": 0.108,
+   "n": 8,
+   "per_sampel": [
+    {
+     "frame": 21,
+     "t_ref": 27.11,
+     "skor": 0.1816
+    },
+    {
+     "frame": 28,
+     "t_ref": 27.32,
+     "skor": 0.1714
+    },
+    {
+     "frame": 41,
+     "t_ref": 27.69,
+     "skor": 0.1248
+    },
+    {
+     "frame": 50,
+     "t_ref": 27.96,
+     "skor": 0.115
+    },
+    {
+     "frame": 62,
+     "t_ref": 28.31,
+     "skor": 0.1155
+    },
+    {
+     "frame": 74,
+     "t_ref": 28.66,
+     "skor": 0.1064
+    },
+    {
+     "frame": 82,
+     "t_ref": 28.89,
+     "skor": 0.0698
+    },
+    {
+     "frame": 95,
+     "t_ref": 29.27,
+     "skor": 0.1162
+    }
+   ]
   },
   "dua_token": {
-   "edge_struktur": 0.9963,
-   "ssim_struktur": 0.8943,
-   "selisih_piksel": 47.14
+   "edge_struktur": 0.9572,
+   "ssim_struktur": 0.8138,
+   "selisih_piksel": 32.75
   }
  },
- "dosa": {},
+ "dosa": {
+  "j": "f3: 'Media' tertutup 100%; f3: 'klip-01' tertutup 100%; f3: 'klip-02' tertutup 100%; f3: 'Cerita Awal' tertutup 100%; f3: '100%' tertutup 100%",
+  "o": "f3: lapisan non-teks di atas 'Media' (100% titik); f3: lapisan non-teks di atas 'klip-01' (100% titik); f3: lapisan non-teks di atas 'klip-02' (100% titik); f3: lapisan non-teks di atas 'Cerita Awal' (100% titik); f3: lapisan non-teks di atas '100%' (100% titik)",
+  "q": "vision baris 3 (f74): Sapuan sel grid biru (x≈660–840, y≈622–700) menutupi 'tambah musik dan sfx' di kotak prompt. Sebagian huruf ('tambah', 'musik') berada di bawah blok biru dan kontrasnya turun. Label 'Sedang' juga tertutup sel."
+ },
  "adversarial": [
-  "Baris 4 (sapuan grid): sel-selnya hampir opak dan menutup seluruh kotak prompt, sehingga 'tambah sfx dan musik' dan 'Model A Sedang' nyaris tak terbaca. Tepinya kotak keras dan seragam, jadi tampak seperti overlay tempelan, bukan sapuan. Ubah jadi sapuan bertahap: sel depan opak, sel belakang tembus pandang, dengan jeda antar sel dan tanpa menutup teks yang sedang dibaca.",
-  "Baris 1 dan 2 (isi jendela): empat thumbnail identik (gambar matahari yang sama diulang 4x), slider tanpa label, dan klip timeline tanpa nama atau waveform. Isinya terbaca sebagai wireframe berwarna. Kiri punya teks, tombol, dan hirarki nyata. Beri tiap thumbnail frame berbeda, label slider, nama klip, dan waveform di track audio.",
-  "Baris 1 dan 2 (pemisahan jendela dari wallpaper): bagian atas wallpaper ungu-maroon gelap, sehingga luma jendela hampir sama dengan latar di sekitar bar judul. Jendela tidak terbaca mengambang karena tidak ada bayangan lembut di bawah tepinya. Naikkan kecerahan dan saturasi wallpaper di sisi atas, dan tambahkan bayangan jatuh yang terlihat.",
-  "Baris 1 dan 2 (titik-titik oranye di bukit dan dock): butiran tersebar acak di bawah, tanpa fungsi dan tanpa arah gerak. Terbaca sebagai confetti atau noise pengisi. Dock berisi kotak kecil berwarna dengan glyph generik, sama bentuknya dan tanpa label. Buang titik-titik itu, atau buat jadi sumber cahaya yang jelas (misalnya ember). Beri ikon dock bentuk dan identitas masing-masing.",
-  "Baris 3 (hold setelah punch): kotak prompt berupa panel abu-gelap datar dengan border tipis, tanpa kesan kaca (tidak ada blur latar, tidak ada refleksi tepi) dan tanpa bayangan. Label 'Sedang' abu dim di atas abu gelap, kontrasnya lemah. Dock hanya tersisa seiris di tepi bawah, jadi konteks desktop berkurang. Beri kaca semi-transparan dengan blur ringan, naikkan kontras label, dan jaga dock lebih terlihat."
+  "Wallpaper baris 1 adalah gradien biru datar dengan siluet gunung vektor, sedangkan referensi memakai foto matahari terbenam yang kaya tekstur. Itu yang membuat UI terasa mengambang di atas dunia nyata. Ganti dengan foto atau render lanskap dengan detail, jenuh, dan hangat, supaya kontras gelap-terang dengan UI kembali.",
+  "Jendela UI di baris 1 hanya sedikit lebih gelap daripada latar biru, jadi pemisahan nada lemah. Di referensi, UI hampir hitam melawan oranye cerah. Turunkan luma jendela dan naikkan kecerahan wallpaper agar jendela terbaca sebagai satu objek.",
+  "Baris 2 dan 3 (punch): wallpaper hampir hilang. Hanya pita biru tipis di kanan atas, dan dock terpotong separuh di bawah. Konteks desktop yang diminta (tepi kanan jendela, wallpaper kanan, sebagian dock) terlalu sedikit dibanding referensi, yang masih memperlihatkan gunung dan dock. Kurangi skala punch atau geser pusat kamera agar lebih banyak wallpaper terlihat.",
+  "Sapuan grid di baris 3 memakai sel biru-ungu dari palet UI, bukan warna hangat dari foto seperti di referensi (oranye-amber). Selnya persegi datar dan buram, tanpa gradasi, sehingga terlihat seperti kotak kosong yang menutup teks, bukan sapuan cahaya. Ambil warna sel dari tone wallpaper, tambahkan variasi opasitas per sel, dan jangan biarkan sel menutup kata kunci.",
+  "Isi UI terlalu sederhana dan seragam di baris 1: panel Media dan Inspector berupa kotak biru polos, thumbnail 'Cerita Awal' hanyalah gunung vektor, dan timeline berisi balok datar. Referensi punya UI editor nyata dengan thumbnail video, waveform, dan panel yang padat. Tambahkan thumbnail berbeda, detail panel, dan waveform agar UI terbaca sebagai aplikasi sungguhan."
  ],
- "gagal": [],
- "lembar": "pabrik/kandidat/UIActionScript/lembar-r1.jpg",
+ "gagal": [
+  "DOSA j: f3: 'Media' tertutup 100%; f3: 'klip-01' tertutup 100%; f3: 'klip-02' tertutup 100%; f3: 'Cerita Awal' tertutup 100%; f3: '100%' tertutup 100%",
+  "DOSA o: f3: lapisan non-teks di atas 'Media' (100% titik); f3: lapisan non-teks di atas 'klip-01' (100% titik); f3: lapisan non-teks di atas 'klip-02' (100% titik); f3: lapisan non-teks di atas 'Cerita Awal' (100% titik); f3: lapisan non-teks di atas '100%' (100% titik)",
+  "DOSA q: vision baris 3 (f74): Sapuan sel grid biru (x≈660–840, y≈622–700) menutupi 'tambah musik dan sfx' di kotak prompt. Sebagian huruf ('tambah', 'musik') berada di bawah blok biru dan kontrasnya turun. Label 'Sedang' juga tertutup sel.",
+  "struktur selaras waktu 0.125 < max(0.15, tak-selaras 0.108)"
+ ],
+ "lembar": "pabrik/kandidat/UIActionScript/lembar-r3.jpg",
  "riwayat": [
   {
    "putaran": 1,
-   "lulus": true,
-   "dosa": [],
-   "gagal": [],
+   "lulus": false,
+   "dosa": [
+    "g",
+    "j",
+    "o",
+    "q"
+   ],
+   "gagal": [
+    "DOSA g: vision: Baris 1: panel preview 'Cerita Awal' hanya kotak biru gelap dengan segitiga play, tanpa frame video. Daftar 'klip-01/klip-02' juga tanpa thumbnail. Di referensi preview berisi wajah dan video asli, jadi di sini kotak itu berfungsi sebagai pengganti konten.",
+    "DOSA j: f3: 'Media' tertutup 100%; f3: 'klip-01' tertutup 100%; f3: 'klip-02' tertutup 100%; f3: 'Cerita Awal' tertutup 100%; f3: '100%' tertutup 100%",
+    "DOSA o: f3: lapisan non-teks di atas 'Media' (100% titik); f3: lapisan non-teks di atas 'klip-01' (100% titik); f3: lapisan non-teks di atas 'klip-02' (100% titik); f3: lapisan non-teks di atas 'Cerita Awal' (100% titik); f3: lapisan non-teks di atas '100%' (100% titik)",
+    "DOSA q: vision baris 3 (f74): Sel grid biru menumpuk di kotak prompt dan melintasi kata 'musik' dan 'Nova 5'. Teks masih terbaca, tetapi kontrasnya turun di sel yang terang. Tepi frame tetap memotong 'Cerita Awal' dan awal kalimat."
+   ],
    "adversarial": [
-    "Baris 4 (sapuan grid): sel-selnya hampir opak dan menutup seluruh kotak prompt, sehingga 'tambah sfx dan musik' dan 'Model A Sedang' nyaris tak terbaca. Tepinya kotak keras dan seragam, jadi tampak seperti overlay tempelan, bukan sapuan. Ubah jadi sapuan bertahap: sel depan opak, sel belakang tembus pandang, dengan jeda antar sel dan tanpa menutup teks yang sedang dibaca.",
-    "Baris 1 dan 2 (isi jendela): empat thumbnail identik (gambar matahari yang sama diulang 4x), slider tanpa label, dan klip timeline tanpa nama atau waveform. Isinya terbaca sebagai wireframe berwarna. Kiri punya teks, tombol, dan hirarki nyata. Beri tiap thumbnail frame berbeda, label slider, nama klip, dan waveform di track audio.",
-    "Baris 1 dan 2 (pemisahan jendela dari wallpaper): bagian atas wallpaper ungu-maroon gelap, sehingga luma jendela hampir sama dengan latar di sekitar bar judul. Jendela tidak terbaca mengambang karena tidak ada bayangan lembut di bawah tepinya. Naikkan kecerahan dan saturasi wallpaper di sisi atas, dan tambahkan bayangan jatuh yang terlihat.",
-    "Baris 1 dan 2 (titik-titik oranye di bukit dan dock): butiran tersebar acak di bawah, tanpa fungsi dan tanpa arah gerak. Terbaca sebagai confetti atau noise pengisi. Dock berisi kotak kecil berwarna dengan glyph generik, sama bentuknya dan tanpa label. Buang titik-titik itu, atau buat jadi sumber cahaya yang jelas (misalnya ember). Beri ikon dock bentuk dan identitas masing-masing.",
-    "Baris 3 (hold setelah punch): kotak prompt berupa panel abu-gelap datar dengan border tipis, tanpa kesan kaca (tidak ada blur latar, tidak ada refleksi tepi) dan tanpa bayangan. Label 'Sedang' abu dim di atas abu gelap, kontrasnya lemah. Dock hanya tersisa seiris di tepi bawah, jadi konteks desktop berkurang. Beri kaca semi-transparan dengan blur ringan, naikkan kontras label, dan jaga dock lebih terlihat."
+    "Baris 1, isi jendela: preview 'Cerita Awal' hanya kotak biru dengan segitiga play. Di referensi isinya potret orang dan thumbnail video, jadi jendela kandidat tampak seperti wireframe. Ganti dengan frame foto atau gradien bermakna, dan isi track dengan thumbnail dan waveform.",
+    "Baris 1, wallpaper: gradien periwinkle datar dengan dua lapis siluet gunung terlihat vektor dan hampa. Referensi memakai foto matahari terbenam yang kaya tekstur dan hangat. Beri tekstur, kabut, cahaya hangat berarah, dan grain, atau pakai foto sungguhan.",
+    "Baris 1, nada: wallpaper biru terang dan UI navy sama-sama dingin, jadi kontras luma ada tetapi tidak ada kontras hue. Jendela tidak terpisah tegas seperti oranye hangat melawan UI hitam di referensi. Hangatkan wallpaper atau buat UI netral gelap.",
+    "Baris 2–3, kotak prompt: pada tampilan zoom kotak tampak datar, hanya sedikit lebih terang dari panel di belakangnya. Tidak ada kaca semi-transparan dengan blur latar dan bayangan lembut seperti di referensi. Radiusnya juga lebih kecil dari ±0,2 sisi pendek. Tambahkan backdrop blur, bayangan, dan radius pil.",
+    "Baris 3, sapuan sel: sel berwarna biru solid seragam dan menutupi kotak prompt tanpa mengambil warna tone foto. Referensi memakai sel hangat emas/oranye semi-transparan yang pecah menjadi blok-blok kecil dengan gradasi. Ganti ke warna hangat dari wallpaper, variasikan ukuran dan opasitas sel, dan jangan menumpuk di teks."
+   ]
+  },
+  {
+   "putaran": 2,
+   "lulus": false,
+   "dosa": [
+    "g",
+    "j",
+    "o",
+    "q"
+   ],
+   "gagal": [
+    "DOSA g: vision: Baris 1: panel pratinjau memakai siluet kepala generik biru gelap sebagai pengganti video. Tiga thumbnail Media/klip-01/klip-02 berupa kotak biru polos. Trek Video, Suara, dan Musik di baris 1-3 hanya berisi pita tick seragam sebagai pengganti waveform. Semuanya terbaca sebagai pengisi, bukan konten asli.",
+    "DOSA j: f3: 'Media' tertutup 100%; f3: 'klip-01' tertutup 100%; f3: 'klip-02' tertutup 100%; f3: 'Cerita Awal' tertutup 100%; f3: '100%' tertutup 100%",
+    "DOSA o: f3: lapisan non-teks di atas 'Media' (100% titik); f3: lapisan non-teks di atas 'klip-01' (100% titik); f3: lapisan non-teks di atas 'klip-02' (100% titik); f3: lapisan non-teks di atas 'Cerita Awal' (100% titik); f3: lapisan non-teks di atas '100%' (100% titik)",
+    "DOSA q: vision baris 3 (f74): Sel grid gelap menutupi bagian kanan kotak prompt di sekitar 'Nova 5' dan 'Sedang', sehingga 'Sedang' kabur. Tepi kiri tetap memotong 'klip, lalu...' dan 'erita Awal' seperti baris 2.",
+    "struktur selaras waktu 0.132 < max(0.15, tak-selaras 0.105)"
+   ],
+   "adversarial": [
+    "Wallpaper pada baris 1-3 adalah ilustrasi pegunungan datar biru-ungu dengan gradien langit. Kiri memakai foto matahari terbenam yang kaya tekstur, hangat, dan jenuh. Ganti dengan foto beresolusi tinggi atau tekstur dengan bayangan dan kabut, dan pakai palet hangat agar jendela gelap terpisah dari latar.",
+    "Kontras tonal jendela terhadap wallpaper lemah. Jendela biru-navy di atas langit periwinkle memisahkan UI dan latar jauh lebih lemah daripada UI hitam di atas oranye cerah di referensi. Gelapkan jendela ke luma hampir hitam dan buat wallpaper lebih cerah dan jenuh.",
+    "Isi UI di baris 1-3 hanya placeholder: siluet kepala di pratinjau, thumbnail biru polos, dan trek berisi pita tick seragam. Referensi punya wajah asli, tombol dan menu kecil yang rapat, dan kunci warna kuning-merah-teal di timeline. Ganti dengan frame video nyata dan klip berwarna yang beragam dengan label kecil.",
+    "Transisi di baris 3 hanya beberapa sel gelap, jarang dan kusam, di sekitar tombol kirim. Di referensi sel berwarna hangat dan menyapu penuh dari kiri melintasi kotak prompt. Buat sel lebih rapat, ambil warna dari tone wallpaper, dan sapu dari kiri ke seluruh lebar kotak. Jangan taruh sel di atas label 'Nova 5 Sedang' sampai teks itu tertutup.",
+    "Setelah punch di baris 2-3, tepi frame memotong 'Cerita Awal', 'Posisi', 'Opasitas', dan awal klip secara acak, dan wallpaper kanan hanya sebidang datar biru. Dock hilang dari frame. Referensi masih menyisakan dock dan wallpaper kanan sebagai konteks. Atur pusat kamera dan skala (~1,6×) supaya dock dan lebih banyak wallpaper tetap terlihat, dan pangkas elemen UI yang terpotong tanpa makna."
+   ]
+  },
+  {
+   "putaran": 3,
+   "lulus": false,
+   "dosa": [
+    "j",
+    "o",
+    "q"
+   ],
+   "gagal": [
+    "DOSA j: f3: 'Media' tertutup 100%; f3: 'klip-01' tertutup 100%; f3: 'klip-02' tertutup 100%; f3: 'Cerita Awal' tertutup 100%; f3: '100%' tertutup 100%",
+    "DOSA o: f3: lapisan non-teks di atas 'Media' (100% titik); f3: lapisan non-teks di atas 'klip-01' (100% titik); f3: lapisan non-teks di atas 'klip-02' (100% titik); f3: lapisan non-teks di atas 'Cerita Awal' (100% titik); f3: lapisan non-teks di atas '100%' (100% titik)",
+    "DOSA q: vision baris 3 (f74): Sapuan sel grid biru (x≈660–840, y≈622–700) menutupi 'tambah musik dan sfx' di kotak prompt. Sebagian huruf ('tambah', 'musik') berada di bawah blok biru dan kontrasnya turun. Label 'Sedang' juga tertutup sel.",
+    "struktur selaras waktu 0.125 < max(0.15, tak-selaras 0.108)"
+   ],
+   "adversarial": [
+    "Wallpaper baris 1 adalah gradien biru datar dengan siluet gunung vektor, sedangkan referensi memakai foto matahari terbenam yang kaya tekstur. Itu yang membuat UI terasa mengambang di atas dunia nyata. Ganti dengan foto atau render lanskap dengan detail, jenuh, dan hangat, supaya kontras gelap-terang dengan UI kembali.",
+    "Jendela UI di baris 1 hanya sedikit lebih gelap daripada latar biru, jadi pemisahan nada lemah. Di referensi, UI hampir hitam melawan oranye cerah. Turunkan luma jendela dan naikkan kecerahan wallpaper agar jendela terbaca sebagai satu objek.",
+    "Baris 2 dan 3 (punch): wallpaper hampir hilang. Hanya pita biru tipis di kanan atas, dan dock terpotong separuh di bawah. Konteks desktop yang diminta (tepi kanan jendela, wallpaper kanan, sebagian dock) terlalu sedikit dibanding referensi, yang masih memperlihatkan gunung dan dock. Kurangi skala punch atau geser pusat kamera agar lebih banyak wallpaper terlihat.",
+    "Sapuan grid di baris 3 memakai sel biru-ungu dari palet UI, bukan warna hangat dari foto seperti di referensi (oranye-amber). Selnya persegi datar dan buram, tanpa gradasi, sehingga terlihat seperti kotak kosong yang menutup teks, bukan sapuan cahaya. Ambil warna sel dari tone wallpaper, tambahkan variasi opasitas per sel, dan jangan biarkan sel menutup kata kunci.",
+    "Isi UI terlalu sederhana dan seragam di baris 1: panel Media dan Inspector berupa kotak biru polos, thumbnail 'Cerita Awal' hanyalah gunung vektor, dan timeline berisi balok datar. Referensi punya UI editor nyata dengan thumbnail video, waveform, dan panel yang padat. Tambahkan thumbnail berbeda, detail panel, dan waveform agar UI terbaca sebagai aplikasi sungguhan."
    ]
   }
  ],

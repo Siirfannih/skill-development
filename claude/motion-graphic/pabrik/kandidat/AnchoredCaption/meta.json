@@ -1,14 +1,14 @@
 {
   "palet": {
-    "A": ["#F2E8D0", "#E3D2AC", "#D9822B", "#1C1A16"],
-    "B": ["#0E1A33", "#1D3566", "#4C7DF0", "#F5F7FF"]
+    "A": ["#F6F5FC", "#F1F1FA", "#0E1426", "#5B6280", "#6F86FF", "#1B2748"],
+    "B": ["#110D0B", "#2A201B", "#FBF8F3", "#A39384", "#EE9440", "#8A6246"]
   },
-  "fungsi": "Caption satu atau dua kata berukuran tetap terkunci di tengah frame, kata diganti di tempat dengan potongan keras mengikuti ucapan sementara gambar di belakangnya berganti dengan ritme sendiri.",
+  "fungsi": "Caption satu atau dua kata berukuran tetap terkunci di titik tengah frame, kata diganti di tempat dengan potongan keras sementara gambar di belakangnya berganti terpisah.",
   "width": 720,
   "height": 1280,
   "fps": 30,
   "durasi": 120,
-  "stills": [5, 40, 70, 110],
+  "stills": [10, 42, 70, 105],
   "urutan": { "dari": 0, "sampai": 119 },
-  "catatan": "Posisi x=0,5 y=0,5, tinggi font 0,07 tinggi frame, tracking -0,02em, bobot 800 untuk semua kata. Ritme kata dari detik per kata (0,25-0,75 dtk), ritme shot terpisah (frame 0, 28, 54, 84, 92, 100). Shot demo memakai zona tegas di atas dan bawah pita teks, tanpa objek di y 0,4-0,6. Scrim tipis di y 0,35-0,65 opsional lewat prop scrim. Bayangan teks tidak dipakai (tidak terbukti di referensi)."
+  "catatan": "Kata (12 unit) dan shot (14 potongan) punya garis waktu terpisah, tidak serempak. Shot memenuhi frame penuh dengan komposisi berbeda (kartu menimpa, belahan keras, roll film, shot cerah, klaper miring, kolom, batang) dan bergerak pelan di dalam shot; objek boleh lewat di belakang teks, gradasi gelap per shot (kuat di shot cerah) menjaga kontras. Tanpa fade/slide/blur pada caption; ukuran 0,07 tinggi frame, tracking -0,02em."
 }

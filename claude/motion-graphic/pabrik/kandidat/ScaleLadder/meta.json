@@ -1,14 +1,14 @@
 {
   "palet": {
-    "A": ["#F1EADB", "#14110F", "#4A4036", "#C8552B", "#E3B04B", "#2B2118"],
-    "B": ["#0E1A33", "#EAF0FB", "#A8BCE3", "#2F6BEA", "#7FB2FF", "#070D1C"]
+    "A": ["#F6F5FC", "#F1F1FA", "#0E1426", "#5B6280", "#6F86FF", "#1B2748"],
+    "B": ["#110D0B", "#2A201B", "#FBF8F3", "#A39384", "#EE9440", "#8A6246"]
   },
-  "fungsi": "Satu kata kunci raksasa menimpa footage dengan huruf masuk satu per satu, dikelilingi kata kecil tersebar, dan tetap bertahan melewati cut footage.",
+  "fungsi": "Satu kata kunci melompat ke skala raksasa di atas footage dengan kata kecil tersebar di sekitarnya, tanpa ukuran perantara, dan bertahan melewati cut.",
   "width": 1280,
   "height": 720,
   "fps": 30,
-  "durasi": 120,
-  "stills": [10, 40, 75, 119],
-  "urutan": { "dari": 0, "sampai": 119 },
-  "catatan": "Dua tingkat ukuran saja (raksasa dan kecil). Ukuran raksasa dipas ke lebar target lewat taksiran lebar huruf rata-rata (lebarHurufEm); sesuaikan bila huruf lain. Cut footage di frame 70 tidak menyentuh kata raksasa. Geser, jeda 2 frame, dan tracking -0,04 em adalah perkiraan dari spec."
+  "durasi": 96,
+  "stills": [12, 34, 50, 90],
+  "urutan": { "dari": 0, "sampai": 95 },
+  "catatan": "Footage dikirim sebagai children (Demo memakai punggungan lalu lorong netral, cut di frame 58; kata raksasa tetap). Lebar kata diperkirakan dari lebarHurufEm, bukan diukur: sesuaikan lebarHurufEm per huruf agar kata menyentuh tepi."
 }

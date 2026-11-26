@@ -1,92 +1,89 @@
 import React from "react";
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import { z } from "zod";
-import { clamp01 } from "../../../toolkit/gerak/curves";
-import { timeline } from "../../../toolkit/gerak/timing";
+import { clamp01, lerp } from "../../../toolkit/gerak/curves";
 
 export const AnchoredCaptionPropsSchema = z.object({
   tokens: z.object({
-    tinta: z.string(),
+    teks: z.string(),
+    bayang: z.string(),
     huruf: z.string(),
-    scrim: z.string(),
   }),
-  /** Urutan kata/frasa 1-2 kata; `detik` = lama bertahan (mengikuti ucapan, tidak seragam). */
-  kata: z.array(z.object({ teks: z.string(), detik: z.number().positive() })).min(1),
-  bobot: z.number(),
-  tinggiRel: z.number().default(0.07),
-  trackingEm: z.number().default(-0.02),
-  x: z.number().default(0.5),
-  y: z.number().default(0.5),
-  /** 0..1: kekuatan gradasi gelap tipis di y 0,35-0,65 untuk shot cerah; 0 = mati. */
-  scrim: z.number().default(0),
+  /** Kata/frasa 1-2 kata; `mulai` = frame awal, berlaku sampai kata berikutnya. Urut menaik. */
+  kata: z.array(z.object({ teks: z.string(), mulai: z.number() })),
+  /** Pergantian shot (potongan keras), terpisah dari kata. `scrim` 0..1 = kekuatan gradasi gelap di belakang caption. */
+  shot: z.array(z.object({ mulai: z.number(), scrim: z.number() })),
+  /** Angka mekanik; bila kosong dipakai nilai dari spec (0,07 / -0,02 / 800 / 0,5 / 0,5 / 0,3). */
+  ukuran: z.number().optional(),
+  trackingEm: z.number().optional(),
+  bobot: z.number().optional(),
+  x: z.number().optional(),
+  y: z.number().optional(),
+  scrimTinggi: z.number().optional(),
 });
 export type AnchoredCaptionProps = z.infer<typeof AnchoredCaptionPropsSchema> & {
-  /** Lapisan gambar di belakang (shot); berganti terpisah dari kata, caption tidak ikut bergerak. */
+  /** Satu simpul React per shot, urut sesuai `shot`. */
   children?: React.ReactNode;
 };
 
+const aktif = (mulai: number[], frame: number) => {
+  let idx = -1;
+  for (let i = 0; i < mulai.length; i++) if (frame >= mulai[i]) idx = i;
+  return idx;
+};
+
 /**
- * Caption 1-2 kata berukuran tetap, terkunci di satu titik, kata diganti di tempat dengan potongan keras mengikuti ucapan.
- * Pakai bila: ucapan perlu terbaca per kata di atas gambar yang berganti cepat (klip bicara, reel 9:16).
- * Jangan bila: caption butuh animasi masuk/keluar, hierarki ukuran bertingkat, atau kalimat panjang satu layar.
+ * Caption 1-2 kata terkunci di satu titik; kata diganti di tempat dengan potongan keras dan shot di belakangnya berganti terpisah.
+ * Pakai bila: ucapan/narasi tampil kata per kata di atas gambar yang berganti, dan titik pandang harus tetap.
+ * Jangan bila: butuh teks panjang, animasi masuk/keluar teks, atau caption yang bergerak mengikuti objek.
  */
-export const AnchoredCaption: React.FC<AnchoredCaptionProps> = ({
-  tokens,
-  kata,
-  bobot,
-  tinggiRel = 0.07,
-  trackingEm = -0.02,
-  x = 0.5,
-  y = 0.5,
-  scrim = 0,
-  children,
-}) => {
+export const AnchoredCaption: React.FC<AnchoredCaptionProps> = (raw) => {
+  const p = AnchoredCaptionPropsSchema.parse(raw);
+  const ukuran = p.ukuran ?? 0.07, trackingEm = p.trackingEm ?? -0.02, bobot = p.bobot ?? 800;
+  const px = p.x ?? 0.5, py = p.y ?? 0.5, scrimTinggi = p.scrimTinggi ?? 0.3;
   const frame = useCurrentFrame();
-  const { fps, width, height } = useVideoConfig();
+  const { height } = useVideoConfig();
+  const kids = React.Children.toArray(raw.children);
 
-  const tl = timeline();
-  kata.forEach((k, i) => tl.add(`w${i}`, k.detik * fps));
+  const iKata = aktif(p.kata.map((k) => k.mulai), frame);
+  const iShot = aktif(p.shot.map((s) => s.mulai), frame);
+  const kata = iKata >= 0 ? p.kata[iKata].teks : "";
+  const scrim = iShot >= 0 ? clamp01(p.shot[iShot].scrim) : 0;
 
-  let aktif = 0;
-  for (let i = 0; i < kata.length; i++) {
-    if (frame >= Math.round(tl.at(`w${i}`))) aktif = i;
-  }
-
-  const ukuran = height * tinggiRel;
+  const fs = ukuran * height;
+  const band = scrimTinggi * height;
 
   return (
-    <div style={{ position: "absolute", inset: 0, width, height, overflow: "hidden" }}>
-      {children}
-      {scrim > 0 ? (
-        <div
-          style={{
-            position: "absolute",
-            left: 0,
-            right: 0,
-            top: height * (y - 0.15),
-            height: height * 0.3,
-            opacity: clamp01(scrim),
-            background: `linear-gradient(to bottom, transparent 0%, ${tokens.scrim} 35%, ${tokens.scrim} 65%, transparent 100%)`,
-          }}
-        />
-      ) : null}
+    <div style={{ position: "absolute", inset: 0, overflow: "hidden" }}>
+      <div style={{ position: "absolute", inset: 0 }}>{iShot >= 0 ? kids[iShot] : null}</div>
       <div
         style={{
           position: "absolute",
-          left: width * x,
-          top: height * y,
+          left: 0,
+          right: 0,
+          top: py * height - band / 2,
+          height: band,
+          opacity: lerp(0, 1, scrim),
+          background: `linear-gradient(to bottom, transparent 0%, ${p.tokens.bayang} 35%, ${p.tokens.bayang} 65%, transparent 100%)`,
+        }}
+      />
+      <div
+        style={{
+          position: "absolute",
+          left: `${px * 100}%`,
+          top: `${py * 100}%`,
           transform: "translate(-50%, -50%)",
           whiteSpace: "nowrap",
-          color: tokens.tinta,
-          fontFamily: tokens.huruf,
+          textAlign: "center",
+          fontFamily: p.tokens.huruf,
           fontWeight: bobot,
-          fontSize: ukuran,
+          fontSize: fs,
           lineHeight: 1,
           letterSpacing: `${trackingEm}em`,
-          textAlign: "center",
+          color: p.tokens.teks,
         }}
       >
-        {kata[aktif].teks}
+        {kata}
       </div>
     </div>
   );

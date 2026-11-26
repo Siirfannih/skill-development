@@ -1,154 +1,201 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { AnchoredCaption } from "./AnchoredCaption";
-import { clamp01, drift, lerp } from "../../../toolkit/gerak/curves";
-
-type Warna = { latar: string; panel: string; aksen: string; tinta: string; huruf: string; scrim: string };
 
 const HURUF = "Inter, 'Helvetica Neue', Arial, sans-serif";
 
-const TOKENS_A: Warna = { latar: "#F2E8D0", panel: "#E3D2AC", aksen: "#D9822B", tinta: "#1C1A16", huruf: HURUF, scrim: "#F2E8D0" };
-const TOKENS_B: Warna = { latar: "#0E1A33", panel: "#1D3566", aksen: "#4C7DF0", tinta: "#F5F7FF", huruf: HURUF, scrim: "#0E1A33" };
+// Peran warna: gelap/terang dipetakan per set agar tingkat kecerahan struktur sama di A dan B.
+const A = {
+  latar: "#F6F5FC", permukaan: "#F1F1FA", tinta: "#0E1426", redup: "#5B6280", aksen: "#6F86FF", aksen2: "#1B2748",
+  gelap: "#1B2748", terang: "#F6F5FC", teks: "#FFFFFF", bayang: "#0E1426", huruf: HURUF,
+};
+const B = {
+  latar: "#110D0B", permukaan: "#2A201B", tinta: "#FBF8F3", redup: "#A39384", aksen: "#EE9440", aksen2: "#8A6246",
+  gelap: "#110D0B", terang: "#FBF8F3", teks: "#FBF8F3", bayang: "#110D0B", huruf: HURUF,
+};
+type T = typeof A;
 
 const KATA = [
-  { teks: "Your video", detik: 0.5 },
-  { teks: "never", detik: 0.5 },
-  { teks: "sit", detik: 0.25 },
-  { teks: "still.", detik: 0.5 },
-  { teks: "Change", detik: 0.25 },
-  { teks: "angles,", detik: 0.75 },
-  { teks: "add", detik: 0.25 },
-  { teks: "small", detik: 0.25 },
-  { teks: "motions", detik: 0.75 },
+  { teks: "Kata baru", mulai: 0 },
+  { teks: "menimpa", mulai: 9 },
+  { teks: "yang lama,", mulai: 17 },
+  { teks: "tanpa", mulai: 28 },
+  { teks: "fade", mulai: 35 },
+  { teks: "dan", mulai: 43 },
+  { teks: "tanpa", mulai: 49 },
+  { teks: "geser.", mulai: 57 },
+  { teks: "Gambar", mulai: 68 },
+  { teks: "pindah", mulai: 78 },
+  { teks: "sendiri.", mulai: 87 },
+  { teks: "terpisah.", mulai: 100 },
 ];
 
-// Shot berganti dengan ritme sendiri, tidak selaras dengan pergantian kata.
-const SHOT: { dari: number; jenis: "video" | "sofa" | "kolase" | "lorong" | "garis" }[] = [
-  { dari: 0, jenis: "video" },
-  { dari: 28, jenis: "sofa" },
-  { dari: 54, jenis: "kolase" },
-  { dari: 84, jenis: "lorong" },
-  { dari: 92, jenis: "garis" },
-  { dari: 100, jenis: "kolase" },
-];
+// Potongan shot tidak serempak dengan kata; ritme tak seragam (6-15 frame).
+const MULAI = [0, 11, 19, 31, 38, 47, 55, 62, 74, 80, 92, 98, 106, 113];
+const URUT = [0, 1, 2, 3, 4, 5, 6, 7, 2, 0, 5, 3, 7, 1];
+// scrim kuat untuk shot terang (4, 1, 5 sebagian), sedang untuk lainnya
+const SCRIM_SHOT = [0.55, 0.9, 0.5, 0.55, 0.95, 0.85, 0.6, 0.55];
+const SHOT = MULAI.map((mulai, i) => ({ mulai, scrim: SCRIM_SHOT[URUT[i]] }));
 
-const Kotak: React.FC<{ l: number; t: number; w: number; h: number; c: string; r?: number; rot?: number }> = ({ l, t, w, h, c, r = 0, rot = 0 }) => (
-  <div style={{ position: "absolute", left: l, top: t, width: w, height: h, background: c, borderRadius: r, transform: `rotate(${rot}deg)` }} />
-);
-
-/** Bingkai potret: kepala bulat dan bahu di dalam bingkai. */
-const Wajah: React.FC<{ l: number; t: number; w: number; h: number; rot: number; bg: string; kulit: string; baju: string }> = ({ l, t, w, h, rot, bg, kulit, baju }) => (
-  <div style={{ position: "absolute", left: l, top: t, width: w, height: h, background: bg, transform: `rotate(${rot}deg)`, overflow: "hidden", borderRadius: w * 0.04 }}>
-    <div style={{ position: "absolute", left: w * 0.12, top: h * 0.62, width: w * 0.76, height: h * 0.7, background: baju, borderRadius: "50%" }} />
-    <div style={{ position: "absolute", left: w * 0.32, top: h * 0.14, width: w * 0.36, height: w * 0.36, background: kulit, borderRadius: "50%" }} />
-  </div>
-);
-
-const Shot: React.FC<{ jenis: string; k: Warna }> = ({ jenis, k }) => {
-  const { width: W, height: H } = useVideoConfig();
-  if (jenis === "video") {
-    // jendela pratinjau video di atas (segitiga putar), garis waktu dengan klip dan kepala putar di bawah
-    return (
-      <AbsoluteFill style={{ background: k.latar }}>
-        <Kotak l={W * 0.12} t={H * 0.07} w={W * 0.76} h={H * 0.28} c={k.panel} r={H * 0.015} />
-        <div style={{ position: "absolute", left: W * 0.46, top: H * 0.16, width: 0, height: 0, borderTop: `${H * 0.05}px solid transparent`, borderBottom: `${H * 0.05}px solid transparent`, borderLeft: `${H * 0.085}px solid ${k.aksen}` }} />
-        <Kotak l={0} t={H * 0.66} w={W} h={H * 0.34} c={k.panel} />
-        <Kotak l={W * 0.06} t={H * 0.7} w={W * 0.34} h={H * 0.06} c={k.aksen} r={H * 0.008} />
-        <Kotak l={W * 0.42} t={H * 0.7} w={W * 0.2} h={H * 0.06} c={k.tinta} r={H * 0.008} />
-        <Kotak l={W * 0.64} t={H * 0.7} w={W * 0.3} h={H * 0.06} c={k.aksen} r={H * 0.008} />
-        <Kotak l={W * 0.06} t={H * 0.79} w={W * 0.5} h={H * 0.05} c={k.latar} r={H * 0.008} />
-        <Kotak l={W * 0.58} t={H * 0.79} w={W * 0.36} h={H * 0.05} c={k.tinta} r={H * 0.008} />
-        <Kotak l={W * 0.5} t={H * 0.66} w={W * 0.008} h={H * 0.24} c={k.tinta} />
-      </AbsoluteFill>
-    );
-  }
-  if (jenis === "sofa") {
-    // ruang tamu: dinding, lampu berdiri, sofa lebar dengan sandaran, bantalan, lengan, kaki, bayangan lantai
-    return (
-      <AbsoluteFill style={{ background: k.panel }}>
-        <Kotak l={0} t={H * 0.84} w={W} h={H * 0.16} c={k.latar} />
-        <Kotak l={W * 0.1} t={H * 0.13} w={W * 0.012} h={H * 0.7} c={k.tinta} />
-        <div style={{ position: "absolute", left: W * 0.04, top: H * 0.07, width: W * 0.24, height: H * 0.1, background: k.aksen, clipPath: "polygon(18% 0, 82% 0, 100% 100%, 0 100%)" }} />
-        <Kotak l={W * 0.06} t={H * 0.82} w={W * 0.2} h={H * 0.018} c={k.tinta} r={H * 0.01} />
-        <Kotak l={W * 0.16} t={H * 0.62} w={W * 0.68} h={H * 0.12} c={k.aksen} r={H * 0.035} />
-        <Kotak l={W * 0.1} t={H * 0.7} w={W * 0.8} h={H * 0.12} c={k.aksen} r={H * 0.03} />
-        <Kotak l={W * 0.2} t={H * 0.68} w={W * 0.28} h={H * 0.07} c={k.latar} r={H * 0.02} />
-        <Kotak l={W * 0.52} t={H * 0.68} w={W * 0.28} h={H * 0.07} c={k.latar} r={H * 0.02} />
-        <Kotak l={W * 0.1} t={H * 0.67} w={W * 0.08} h={H * 0.15} c={k.tinta} r={H * 0.03} />
-        <Kotak l={W * 0.82} t={H * 0.67} w={W * 0.08} h={H * 0.15} c={k.tinta} r={H * 0.03} />
-        <Kotak l={W * 0.14} t={H * 0.82} w={W * 0.025} h={H * 0.04} c={k.tinta} />
-        <Kotak l={W * 0.83} t={H * 0.82} w={W * 0.025} h={H * 0.04} c={k.tinta} />
-        <Kotak l={W * 0.1} t={H * 0.865} w={W * 0.8} h={H * 0.02} c={k.panel} r={H * 0.01} />
-      </AbsoluteFill>
-    );
-  }
-  if (jenis === "kolase") {
-    // kolase empat potret wajah dari sudut berbeda, dua di atas dan dua di bawah
-    return (
-      <AbsoluteFill style={{ background: k.aksen }}>
-        <Wajah l={W * 0.04} t={H * 0.05} w={W * 0.42} h={H * 0.28} rot={-5} bg={k.latar} kulit={k.tinta} baju={k.panel} />
-        <Wajah l={W * 0.52} t={H * 0.08} w={W * 0.4} h={H * 0.25} rot={4} bg={k.panel} kulit={k.latar} baju={k.tinta} />
-        <Wajah l={W * 0.06} t={H * 0.67} w={W * 0.4} h={H * 0.26} rot={4} bg={k.panel} kulit={k.latar} baju={k.tinta} />
-        <Wajah l={W * 0.52} t={H * 0.66} w={W * 0.42} h={H * 0.28} rot={-4} bg={k.latar} kulit={k.tinta} baju={k.panel} />
-      </AbsoluteFill>
-    );
-  }
-  if (jenis === "lorong") {
-    // lorong: langit-langit, lantai, dinding menyempit ke titik hilang, pintu dan lampu
-    return (
-      <AbsoluteFill style={{ background: k.panel }}>
-        <div style={{ position: "absolute", inset: 0, background: k.latar, clipPath: "polygon(0 0, 100% 0, 68% 36%, 32% 36%)" }} />
-        <div style={{ position: "absolute", inset: 0, background: k.aksen, clipPath: "polygon(32% 64%, 68% 64%, 100% 100%, 0 100%)" }} />
-        <Kotak l={W * 0.4} t={H * 0.08} w={W * 0.2} h={H * 0.03} c={k.aksen} r={H * 0.008} />
-        <Kotak l={W * 0.36} t={H * 0.2} w={W * 0.28} h={H * 0.014} c={k.tinta} />
-        <Kotak l={W * 0.04} t={H * 0.14} w={W * 0.14} h={H * 0.5} c={k.latar} />
-        <Kotak l={W * 0.82} t={H * 0.14} w={W * 0.14} h={H * 0.5} c={k.latar} />
-      </AbsoluteFill>
-    );
-  }
-  // gerak kecil: ponsel perekam dengan jejak ghost, rel dolly di bawah
+const Scene: React.FC<{ t: T; id: string; start: number; children: (f: number) => React.ReactNode }> = ({ t, id, start, children }) => {
+  const f = Math.max(0, useCurrentFrame() - start);
   return (
-    <AbsoluteFill style={{ background: k.latar }}>
-      <Kotak l={W * 0.1} t={H * 0.07} w={W * 0.24} h={H * 0.2} c={k.panel} r={H * 0.02} />
-      <Kotak l={W * 0.3} t={H * 0.07} w={W * 0.24} h={H * 0.2} c={k.panel} r={H * 0.02} />
-      <Kotak l={W * 0.5} t={H * 0.07} w={W * 0.24} h={H * 0.2} c={k.aksen} r={H * 0.02} />
-      <Kotak l={W * 0.58} t={H * 0.11} w={W * 0.04} h={H * 0.012} c={k.tinta} r={H * 0.006} />
-      <Kotak l={0} t={H * 0.7} w={W} h={H * 0.3} c={k.panel} />
-      <Kotak l={W * 0.08} t={H * 0.78} w={W * 0.84} h={H * 0.012} c={k.tinta} />
-      <Kotak l={W * 0.08} t={H * 0.86} w={W * 0.84} h={H * 0.012} c={k.tinta} />
-      <Kotak l={W * 0.4} t={H * 0.74} w={W * 0.2} h={H * 0.16} c={k.aksen} r={H * 0.015} />
-    </AbsoluteFill>
+    <svg width="100%" height="100%" viewBox="0 0 720 1280" preserveAspectRatio="xMidYMid slice" style={{ display: "block" }}>
+      <defs>
+        <linearGradient id={`b${id}`} x1="0" y1="0" x2="1" y2="0.35">
+          <stop offset="0" stopColor={t.terang} stopOpacity="0.38" />
+          <stop offset="1" stopColor={t.terang} stopOpacity="0" />
+        </linearGradient>
+        <linearGradient id={`s${id}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor={t.bayang} stopOpacity="0" />
+          <stop offset="1" stopColor={t.bayang} stopOpacity="0.55" />
+        </linearGradient>
+      </defs>
+      {children(f)}
+    </svg>
   );
 };
 
-/** Punch-in pelan per shot + drift berbiji: gambar selalu hidup, caption tidak ikut. */
-const Bergerak: React.FC<{ dari: number; frame: number; children: React.ReactNode }> = ({ dari, frame, children }) => {
-  const { fps } = useVideoConfig();
-  const skala = lerp(1.04, 1.12, clamp01((frame - dari) / 24));
-  const d = drift(frame, fps, 14, dari + 1);
-  return <AbsoluteFill style={{ transform: `translate(${d.x}px, ${d.y}px) scale(${skala})` }}>{children}</AbsoluteFill>;
+// Sumber cahaya dari luar layar kiri-atas: ekor sinar diagonal.
+const Sinar: React.FC<{ id: string; k?: number }> = ({ id, k = 1 }) => (
+  <polygon points={`-120,-40 ${380 * k},-40 ${900},1100 ${420},1320 -120,1320`} fill={`url(#b${id})`} />
+);
+
+const adegan = (t: T, start: number, i: number) => {
+  const id = `${i}-${start}`;
+  const S = (fn: (f: number) => React.ReactNode) => (
+    <Scene t={t} id={id} start={start}>
+      {fn}
+    </Scene>
+  );
+  switch (i) {
+    case 0: // kartu bertumpuk menimpa kartu lama
+      return S((f) => (
+        <>
+          <rect width="720" height="1280" fill={t.gelap} />
+          <g transform={`translate(${-f * 1.2} 0) rotate(-8 360 640)`}>
+            <rect x="-60" y="140" width="640" height="560" fill={t.permukaan} />
+            <rect x="60" y="360" width="640" height="600" fill={t.aksen} />
+            <rect x="180" y="640" width="620" height="560" fill={t.redup} />
+          </g>
+          <Sinar id={id} />
+          <rect width="720" height="1280" fill={`url(#s${id})`} />
+        </>
+      ));
+    case 1: // belahan keras terang | gelap
+      return S((f) => (
+        <>
+          <rect width="720" height="1280" fill={t.gelap} />
+          <polygon points="0,0 470,0 250,1280 0,1280" fill={t.terang} />
+          <polygon points={`470,0 520,0 300,1280 250,1280`} fill={t.aksen} />
+          <rect x={560 - f * 2} y="200" width="260" height="120" fill={t.redup} />
+          <rect x={620 - f * 2} y="940" width="260" height="170" fill={t.permukaan} />
+        </>
+      ));
+    case 2: // bidang besar saling menimpa, bidang bawah naik
+      return S((f) => (
+        <>
+          <rect width="720" height="1280" fill={t.redup} />
+          <rect x="-40" y="0" width="520" height="900" fill={t.gelap} />
+          <rect x={260 + f} y={120 - f} width="520" height="760" fill={t.aksen} />
+          <rect x="0" y={1000 - f * 2} width="720" height="400" fill={t.permukaan} />
+          <Sinar id={id} />
+        </>
+      ));
+    case 3: // roll film bergulir vertikal
+      return S((f) => (
+        <>
+          <rect width="720" height="1280" fill={t.gelap} />
+          <rect x="90" y="-100" width="540" height="1480" fill={t.permukaan} />
+          {[0, 1, 2, 3, 4, 5, 6].map((n) => {
+            const y = ((n * 230 - f * 6) % 1610) - 230;
+            return (
+              <g key={n}>
+                <rect x="150" y={y} width="420" height="190" fill={n % 3 === 0 ? t.aksen : n % 3 === 1 ? t.redup : t.terang} />
+                <rect x="104" y={y + 20} width="30" height="40" fill={t.gelap} />
+                <rect x="104" y={y + 130} width="30" height="40" fill={t.gelap} />
+                <rect x="586" y={y + 20} width="30" height="40" fill={t.gelap} />
+                <rect x="586" y={y + 130} width="30" height="40" fill={t.gelap} />
+              </g>
+            );
+          })}
+        </>
+      ));
+    case 4: // shot cerah: bidang terang penuh, pita diagonal
+      return S((f) => (
+        <>
+          <rect width="720" height="1280" fill={t.terang} />
+          <polygon points={`-100,${1000 - f * 3} 820,${600 - f * 3} 820,${1000 - f * 3} -100,${1400 - f * 3}`} fill={t.aksen} />
+          <polygon points="-100,0 340,0 -100,520" fill={t.aksen2} />
+          <rect x="520" y="60" width="70" height="320" fill={t.redup} opacity="0.6" />
+        </>
+      ));
+    case 5: // klaper miring dengan detail
+      return S((f) => (
+        <>
+          <rect width="720" height="1280" fill={t.gelap} />
+          <Sinar id={id} />
+          <g transform={`rotate(-12 360 640) translate(0 ${-f})`}>
+            <rect x="60" y="760" width="600" height="420" fill={t.permukaan} />
+            <rect x="60" y="760" width="600" height="14" fill={t.redup} />
+            {[0, 1, 2].map((n) => (
+              <rect key={n} x="100" y={830 + n * 100} width={[320, 240, 400][n]} height="14" fill={t.redup} />
+            ))}
+            <g transform="rotate(-14 60 740)">
+              <rect x="60" y="640" width="600" height="100" fill={t.terang} />
+              {[0, 1, 2, 3, 4, 5].map((n) => (
+                <polygon key={n} points={`${90 + n * 100},640 ${150 + n * 100},640 ${110 + n * 100},740 ${50 + n * 100},740`} fill={t.aksen2} />
+              ))}
+            </g>
+          </g>
+        </>
+      ));
+    case 6: // tiga kolom penuh tinggi, tiap kolom shot sendiri
+      return S((f) => (
+        <>
+          <rect x="0" width="250" height="1280" fill={t.aksen} />
+          <rect x="250" width="230" height="1280" fill={t.gelap} />
+          <rect x="480" width="240" height="1280" fill={t.redup} />
+          <rect x={30} y={100 + f * 2} width="190" height="300" fill={t.terang} />
+          <rect x={270} y={900 - f * 2} width="190" height="260" fill={t.aksen} />
+          <rect x={510} y={200 + f} width="180" height="520" fill={t.permukaan} />
+          <rect x={510} y={980 - f} width="180" height="160" fill={t.gelap} />
+        </>
+      ));
+    default: // batang ritme dari atas dan bawah
+      return S((f) => (
+        <>
+          <rect width="720" height="1280" fill={t.gelap} />
+          {[0, 1, 2, 3, 4, 5].map((n) => {
+            const h = [380, 520, 300, 600, 420, 480][n] + ((f * (n % 2 ? 3 : -3)) % 120);
+            return (
+              <g key={n}>
+                <rect x={30 + n * 112} y="0" width="88" height={h * 0.45} fill={n % 2 ? t.aksen : t.permukaan} />
+                <rect x={30 + n * 112} y={1280 - h * 0.6} width="88" height={h * 0.6} fill={n % 2 ? t.permukaan : t.aksen} />
+              </g>
+            );
+          })}
+          <Sinar id={id} />
+        </>
+      ));
+  }
 };
 
-const Isi: React.FC<{ k: Warna }> = ({ k }) => {
-  const frame = useCurrentFrame();
-  let jenis = SHOT[0].jenis;
-  let dari = 0;
-  for (const s of SHOT) if (frame >= s.dari) { jenis = s.jenis; dari = s.dari; }
-  return (
+const Isi: React.FC<{ t: T }> = ({ t }) => (
+  <AbsoluteFill style={{ backgroundColor: t.gelap }}>
     <AnchoredCaption
-      tokens={{ tinta: k.tinta, huruf: k.huruf, scrim: k.scrim }}
+      tokens={{ teks: t.teks, bayang: t.bayang, huruf: t.huruf }}
       kata={KATA}
-      bobot={800}
-      tinggiRel={0.07}
+      shot={SHOT}
+      ukuran={0.07}
       trackingEm={-0.02}
-      x={0.5}
-      y={0.5}
-      scrim={0.25}
+      bobot={800}
+      scrimTinggi={0.34}
     >
-      <Bergerak dari={dari} frame={frame}><Shot jenis={jenis} k={k} /></Bergerak>
+      {URUT.map((s, n) => adegan(t, MULAI[n], s))}
     </AnchoredCaption>
-  );
-};
+  </AbsoluteFill>
+);
 
-export const DemoA: React.FC = () => <Isi k={TOKENS_A} />;
-export const DemoB: React.FC = () => <Isi k={TOKENS_B} />;
+export const DemoA: React.FC = () => <Isi t={A} />;
+export const DemoB: React.FC = () => <Isi t={B} />;
