@@ -27,8 +27,12 @@ def perintah_model():
 
 def pesan_tanpa_model(prompt):
     """Simpan prompt ke file sementara dan jelaskan: pasang/atur CLI, atau kerjakan sendiri di sesi ini (jalur satu model)."""
-    f = Path(tempfile.gettempdir()) / f"pabrik-prompt-{os.getpid()}.md"
-    f.write_text(prompt, encoding="utf-8")
+    d = PABRIK / "out"  # folder milik pengguna (di .gitignore), bukan /tmp bersama
+    d.mkdir(mode=0o700, exist_ok=True)
+    fd, nama = tempfile.mkstemp(prefix="pabrik-prompt-", suffix=".md", dir=str(d))  # dibuat atomik, mode 0600
+    with os.fdopen(fd, "w", encoding="utf-8") as fh:
+        fh.write(prompt)
+    f = Path(nama)
     asal = f"PABRIK_CLAUDE={os.environ['PABRIK_CLAUDE']!r} tidak ditemukan" if os.environ.get("PABRIK_CLAUDE") else "tidak ada `claude2` atau `claude` di PATH"
     return (f"Pabrik tidak menemukan CLI model ({asal}). Pasang CLI `claude`, atau arahkan PABRIK_CLAUDE=<perintah> ke CLI yang ada. "
             f"Jalur satu model: kerjakan sendiri prompt di {f} dalam sesi ini (baca gambar dengan Read, tulis hasilnya ke path yang disebut prompt), lalu jalankan fase berikutnya.")
