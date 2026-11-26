@@ -6,7 +6,7 @@ Used to **scan**, not to ban techniques: fingerprints are written as appearance 
 
 | ID | Sign | How to check | Floor |
 |---|---|---|---|
-| S-A1 | Clean source voice becomes muffled, loses its air (breathiness), flat dynamics | `gate/voice_fidelity.py` | Lantai E25a, §14.6 |
+| S-A1 | Clean source voice becomes muffled, its air thinned, dynamics flattened | `gate/voice_fidelity.py` | Lantai E25a, §14.6 |
 | S-A2 | Music mismatches mood (tense/build/drop under calm clip, melancholic when brief isn't) or masks voice | `music_fit.py --category <k> --voice` | Lantai E25 |
 | S-A3 | Slow fade-in backing track or total silence mid-video | 0.5 s RMS of music stem | Lantai E25 |
 | S-A4 | Objects, text, motion, or subtitle phrases without SFX; video feels empty | `gate/sfx_density.py` | Lantai E24 |
@@ -58,7 +58,7 @@ Used to **scan**, not to ban techniques: fingerprints are written as appearance 
 | S-V13 | Text and visual far apart/detached; illustration window crops sides; text sits static while footage/object zooms; camera fails to follow focus object; wrong ending logic (magnifying glass stops on X) | still per beat + check: title ≤ 40 px from object, text follows camera transform, camera keyframes = focus object position | Lantai B12 |
 | S-V14 | Illustrations are only generic shapes not depicting speech | beat table: word → meaning → 3 metaphors → choice | Lantai D19 |
 | S-V15 | Naval's face shown while the host is speaking | speaker label per phrase vs shot | Lantai D21 |
-| S-V16 | Crude self-made logos/icons (drawn by the model instead of the real asset) (plane, ChatGPT knot); glow/triangles leaking out of cards | close-up still of each icon and joint | Lantai D20 |
+| S-V16 | Crude self-made logos/icons (plane, ChatGPT knot); glow/triangles leaking out of cards | close-up still of each icon and joint | Lantai D20 |
 | S-V17 | Picture drifts progressively behind voice (lip-sync slips up to ±0.5 s by end of clip): each video cut rounded up to whole frames while audio is exact, drift accumulates | compare base.mp4 vs voice.wav duration and video vs map cut positions | cut video per segment by exact frame count (`-frames:v` from cumulative 30 fps grid), cut audio separately |
 | S-V18 | Dark vignette/circle on a white/light background | bright scene still: edges no darker than centre | palette.md |
 | S-V19 | Brown + black base palette looks cheap | `palette_check.py`, still | palette.md |
