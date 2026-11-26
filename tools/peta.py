@@ -163,6 +163,8 @@ def build():
     parts += ["## tools/ (perawatan repo)", "", table(rows), ""]
     rows = []
     for d in sorted(os.listdir(os.path.join(ROOT, "projects"))):
+        if not os.path.isdir(os.path.join(ROOT, "projects", d)):
+            continue
         st = os.path.join(ROOT, "projects", d, "STATUS.md")
         dec = os.path.join(ROOT, "projects", d, "DECISIONS.md")
         src = st if os.path.exists(st) else dec if os.path.exists(dec) else None
