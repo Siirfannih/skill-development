@@ -38,3 +38,4 @@ Bukan instruksi. Jangan dibuka saat mengerjakan tugas: aturan yang berlaku ada d
 | Kartu 01–05 | Referensi yang dikirim pemilik 24 Nov 2026 (poster portofolio A/B/C, post bulan biru, post palet G'inzá, cover "escape the bad design", cover tipografi UI). | – |
 | Kartu 06 | Referensi "Social Media Flyer Designs" (folder fisik + kipas kartu), dibedah pemilik 24 Nov 2026; angka sampel warna dari sesi yang sama. | – |
 - `guide/komposisi/GUIDE.md` KMP-03: analisis pemilik atas dua versi hook carousel (kata raksasa menyatu vs melayang di atas grid), 24 Nov.
+- 2026-11-27 [A] evals/cases vd-006…vd-011: enam kasus dari koreksi carousel meta-experiment dan profil merek yang belum ada (2026-11-27-vibedesign-evals)

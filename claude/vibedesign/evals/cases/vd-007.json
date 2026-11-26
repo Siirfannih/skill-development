@@ -1,0 +1,14 @@
+{
+  "id": "vd-007",
+  "source": "projects/vibedesign-meta-carousel/DECISIONS.md D-026, D-031, D-033",
+  "prompt": "Slide 5 kerasa kosong di bagian atas dan jarak ke dock kejauhan. Benerin.",
+  "files": [
+    "fixtures/README.md"
+  ],
+  "assertions": [
+    "Pita kosong terlebar diukur (px) sebelum dan sesudah perubahan dan ditulis di TAHAP.md",
+    "Pita kosong tanpa tugas tertulis di RESEP ≤ 2× jarak antar-kelompok slide itu (KMP-04)",
+    "Margin atas konten slide 5 sama dengan slide ber-header lain (selisih ≤ 1 % tinggi kanvas), angkanya ditulis",
+    "Tipografi yang sudah disetujui tidak berubah"
+  ]
+}

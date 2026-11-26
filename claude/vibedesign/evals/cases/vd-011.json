@@ -1,0 +1,13 @@
+{
+  "id": "vd-011",
+  "source": "ops-report review/2026-11-23.md:42 (profil merek belum ada; Designer diminta menunggu BRAND.md)",
+  "prompt": "Bikin carousel 5 slide buat akun Jadisatu soal Workspace. Mulai dari BRIEF.",
+  "files": [
+    "fixtures/README.md"
+  ],
+  "assertions": [
+    "Mencari profil merek di folder data (merek/jadisatu/BRAND.md) dan melaporkan bahwa belum ada",
+    "Menulis draf profil bertanda DRAF dari aset yang ada (logo, contoh), atau mendaftar input yang kurang; tidak memakai palet tanpa sumber",
+    "Tidak berhenti menunggu: BRIEF tetap diisi dan draf profil diajukan bersama sketsa pertama"
+  ]
+}

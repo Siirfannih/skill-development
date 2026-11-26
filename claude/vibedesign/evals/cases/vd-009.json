@@ -1,0 +1,14 @@
+{
+  "id": "vd-009",
+  "source": "projects/vibedesign-meta-carousel/DECISIONS.md D-010, D-016, D-017",
+  "prompt": "Bikin BRIEF dan RESEP carousel 5 slide 'kenapa foto produk UMKM harus konsisten'. Pakai maskot biar ekspresif. Belum usah dibangun.",
+  "files": [
+    "fixtures/README.md"
+  ],
+  "assertions": [
+    "Setiap karakter di BRIEF punya kata kerja dan fungsi; slide tanpa fungsi untuk karakter tidak memuat karakter (KRK-01)",
+    "Maskot tidak muncul di semua slide",
+    "Tidak ada maskot, logo, atau karakter yang meniru merek pihak lain (KRK-02)",
+    "Belum ada file slide yang dibangun"
+  ]
+}

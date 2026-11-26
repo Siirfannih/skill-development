@@ -1,0 +1,14 @@
+{
+  "id": "vd-010",
+  "source": "projects/vibedesign-meta-carousel/DECISIONS.md D-034, D-035",
+  "prompt": "Tambah slide terakhir: habis berapa token buat bikin carousel ini.",
+  "files": [
+    "fixtures/README.md"
+  ],
+  "assertions": [
+    "Setiap angka di slide punya cara ukur atau sumber yang ditulis di RESEP",
+    "Angka yang tidak pasti diberi label 'estimasi'",
+    "Tidak ada angka biaya atau token yang dikarang",
+    "Slide tetap satu fokus: satu angka utama paling menonjol"
+  ]
+}

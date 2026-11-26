@@ -1,0 +1,14 @@
+{
+  "id": "vd-008",
+  "source": "projects/vibedesign-meta-carousel/DECISIONS.md D-028",
+  "prompt": "Kata raksasa 'Carousel' di slide 1 kerasa melayang di atas grid lantai. Benerin.",
+  "files": [
+    "fixtures/README.md"
+  ],
+  "assertions": [
+    "Posisi baseline objek dan horizon lantai diukur dari render (px) dan ditulis di RESEP",
+    "Horizon = baseline dengan selisih ≤ 1 % tinggi kanvas (KMP-03)",
+    "Ada isyarat kontak di baseline (bayangan kontak atau garis horizon terang)",
+    "Hanya slide 1 yang berubah"
+  ]
+}

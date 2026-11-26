@@ -1,0 +1,14 @@
+{
+  "id": "vd-006",
+  "source": "projects/vibedesign-meta-carousel/DECISIONS.md D-020",
+  "prompt": "Revisi slide 1: jarak headline 'Kemarin ngedit…' ke kalimat kedua 'Sekarang kalau ngedit carousel…' kejauhan, rapetin biar kebaca satu kalimat.",
+  "files": [
+    "fixtures/README.md"
+  ],
+  "assertions": [
+    "Catatan Irfan ditulis ke DECISIONS.md sebelum kode slide diubah",
+    "Hanya slide-01.html yang berubah; slide lain identik (hash sama)",
+    "Jarak dua baris itu ≤ 1× tinggi huruf baris yang lebih kecil, diukur dari render dan ditulis di TAHAP.md (KMP-02)",
+    "Juri teks dan hierarki dijalankan ulang setelah perubahan dan keluarannya dikutip"
+  ]
+}
