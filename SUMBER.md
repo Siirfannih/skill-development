@@ -132,7 +132,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 
 ## `claude/motion-theme-director/`
 
-- Skill tema hasil reverse-engineering 80+ kartu (F1–F5 sesi Gemini, F6–F7 Claude; jejak di `research_notes/reverse-engineering-kartu-20261125/`). Dipindah dari `experimental/` ke `claude/` atas keputusan Irfan 25 Nov 2026 ("itu skill pentingnya"), mendahului hasil uji A/B buta.
+- Skill tema hasil reverse-engineering 80+ kartu (F1–F5 sesi Gemini, F6–F7 Claude; jejak di `archive/riwayat/research_notes/reverse-engineering-kartu-20261125/`). Dipindah dari `experimental/` ke `claude/` atas keputusan Irfan 25 Nov 2026 ("itu skill pentingnya"), mendahului hasil uji A/B buta.
 
 ## `claude/motion-theme-director/BEDAH-REFERENSI.md` · SKILL.md §1 butir 0 · `irfan-creative-workflow` tahap Brief
 
