@@ -1,6 +1,6 @@
 # Competitor Comparison (POS apps) · checked 7 Nov 2026
 
-Used to keep the "different" narrative honest. Do not state unverified competitor shortcomings.
+Used to keep the "beda" (different-from-others) narrative honest. Do not state unverified competitor shortcomings.
 
 | Claim | Status | Source |
 |---|---|---|
