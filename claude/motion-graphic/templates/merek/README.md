@@ -28,10 +28,10 @@ Repo ini hanya menyimpan cara kerja dan cetakan kosong. Data milik user (profil 
 ## Tahap 1: memastikan profil ada
 
 1. Cari `merek/<slug>/BRAND.md` untuk merek di brief. Ada dan `profil_cek.py` LULUS → lanjut ke tahap 2.
-2. Belum ada atau GAGAL → isi dulu bersama user, di percakapan:
+2. Belum ada atau GAGAL → susun drafnya sendiri dan ajukan di percakapan bersama keyframe pertama; pekerjaan lain jalan terus:
    - Kumpulkan dulu yang bisa dicari sendiri: logo, font, dan warna dari aset yang user kirim, situs, atau repo produknya. Tulis apa adanya; nilai yang tidak ditemukan ditulis `?` dan ditanyakan, tidak dikarang.
    - Tanyakan sisanya dalam satu pesan pendek dengan pilihan (mis. tiga pasangan huruf dari kartu terdekat), bukan formulir panjang.
-3. Jalankan `profil_cek.py` sampai LULUS, lalu lanjut.
+3. Jalankan `profil_cek.py` pada draf; GAGAL diperbaiki bersama jawaban user, bukan alasan menunda tahap berikutnya.
 
 ## Tahap 2: editing guideline + preview
 

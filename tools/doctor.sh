@@ -1,6 +1,6 @@
 #!/bin/bash
 # Cek apakah Claude Code dan Codex memuat skill-development dengan benar. Boleh dijalankan di awal sesi (AGENTS.md).
-#   ./tools/doctor.sh            cek saja; exit 1 bila ada yang perlu diperbaiki
+#   ./tools/doctor.sh            cek saja; exit 1 bila ada yang perlu diperbaiki (peringatan, bukan penghalang kerja)
 #   ./tools/doctor.sh --fix      jalankan tools/sync.sh lalu cek ulang
 # Folder akun diambil dari CLAUDE_CONFIG_DIR (claude2 di PC server mengisinya otomatis), bawaan ~/.claude.
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
@@ -26,14 +26,16 @@ for d in "$REPO"/claude/*/; do n=$(basename "$d")
 done
 [ "$fail" -eq 0 ] && ok "skill claude/* terpasang sebagai symlink"
 
-echo "Akun Codex: $CODEX_CFG"
-codex_fail=0
-for d in "$REPO"/claude/*/; do n=$(basename "$d")
-  if [ -L "$CODEX_DEST/$n" ] && [ "$(readlink "$CODEX_DEST/$n")" = "${d%/}" ]; then :
-  elif [ -e "$CODEX_DEST/$n" ]; then bad "skill Codex $n terpasang sebagai salinan, bukan symlink ke repo (membeku)"; codex_fail=1
-  else bad "skill Codex $n tidak terpasang"; codex_fail=1; fi
-done
-[ "$codex_fail" -eq 0 ] && ok "skill Codex claude/* terpasang sebagai symlink"
+if [ -d "$CODEX_CFG" ]; then
+  echo "Akun Codex (opsional): $CODEX_CFG"
+  codex_fail=0
+  for d in "$REPO"/claude/*/; do n=$(basename "$d")
+    if [ -L "$CODEX_DEST/$n" ] && [ "$(readlink "$CODEX_DEST/$n")" = "${d%/}" ]; then :
+    elif [ -e "$CODEX_DEST/$n" ]; then note "skill Codex $n terpasang sebagai salinan, bukan symlink ke repo (membeku)"; codex_fail=1
+    else note "skill Codex $n tidak terpasang"; codex_fail=1; fi
+  done
+  [ "$codex_fail" -eq 0 ] && ok "skill Codex claude/* terpasang sebagai symlink"
+else ok "Codex tidak dipakai di mesin ini; pengecekan dilewati"; fi
 
 nrem=$(ls -d "$DEST"/remotion-*/ 2>/dev/null | wc -l | tr -d ' ')
 [ "$nrem" -ge 5 ] && ok "skill Remotion: $nrem" || bad "skill Remotion resmi tidak terpasang ($nrem)"
@@ -60,7 +62,7 @@ done
 E="$(command -v earshot || ls "$HOME"/work/mg-venv/bin/earshot 2>/dev/null)"
 if [ -n "$E" ]; then
   "$E" doctor 2>/dev/null | grep -q '^problems: \[\]' && ok "earshot siap ($E)" || note "earshot doctor melaporkan masalah ($E doctor)"
-else note "earshot tidak terpasang: wajib untuk pekerjaan video (gerbang DENGAR, three-segment-gate.md)"; fi
+else note "earshot tidak terpasang (opsional): ukuran repo (music_fit, pace_read) dipakai dan laporan menandai 'belum didengar alat'"; fi
 D="$(command -v demucs || ls "$HOME"/work/mg-venv/bin/demucs 2>/dev/null)"
 if [ -n "$D" ]; then ok "demucs siap ($D)"
 else note "demucs tidak terpasang: dipakai audio/ears.py untuk menilai musik dari stem (audio.md §14.0B); pasang saat tugas audio"; fi
@@ -89,8 +91,8 @@ if [ -d "$ENTRY" ]; then
 fi
 echo
 if [ "$fail" -ne 0 ]; then
-  echo "PERBAIKI: minta persetujuan Irfan, lalu jalankan  ./tools/doctor.sh --fix  (memasang skill dari repo ini)."
-  echo "Skill yang baru dipasang mungkin belum masuk daftar sesi ini: baca SKILL.md-nya langsung dari repo (mis. claude/motion-graphic/SKILL.md)."
+  echo "Perbaiki bila perlu: ./tools/doctor.sh --fix memasang skill dari repo ini ke akun (ubah folder akun, jadi dengan izin pemilik mesin)."
+  echo "Hasil GAGAL tidak menghentikan kerja: baca SKILL.md langsung dari repo (mis. claude/motion-graphic/SKILL.md) dan lanjut."
   exit 1
 fi
 [ "$warn" -ne 0 ] && echo "Siap, dengan catatan AWAS di atas." || echo "Siap."

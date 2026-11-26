@@ -1,9 +1,9 @@
 # TAHAP · <proyek>
 
-Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap mengikuti tabel tahap kanonik `MOTION-CORE.md` §1. Kerjakan berurutan. Di tiap langkah, baca **hanya** file/bagian yang disebut langkah itu, saat itu juga. Langkah selesai = `- [x]` + bukti setelah `→` (perintah dan keluarannya, path file, atau ID baris `DECISIONS.md`). Lihat langkah berikutnya: `python3 claude/motion-graphic/scripts/juri/tahap.py projects/<proyek>`. `render.sh final` menolak render selama tahap sebelum Deliver belum selesai berbukti.
+Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap mengikuti tabel tahap kanonik `MOTION-CORE.md` §1. Kerjakan berurutan. Di tiap langkah, baca **hanya** file/bagian yang disebut langkah itu, saat itu juga. Langkah selesai = `- [x]` + bukti setelah `→` (perintah dan keluarannya, path file, atau ID baris `DECISIONS.md`); langkah yang tidak berlaku (tanpa VO, tanpa footage, tanpa subagen) dicentang dengan `→ n/a: <alasan>`. Lihat langkah berikutnya: `python3 claude/motion-graphic/scripts/juri/tahap.py projects/<proyek>`. `render.sh final` menolak render selama tahap sebelum Deliver belum selesai berbukti.
 
 ## Tahap 1 · Brief
-- [ ] Profil merek ada dan lulus · baca: `templates/merek/README.md` §Tahap 1 · bukti: keluaran `profil_cek.py` LULUS →
+- [ ] Profil merek ada (atau drafnya diajukan bersama keyframe pertama) dan lulus · baca: `templates/merek/README.md` §Tahap 1 · bukti: keluaran `profil_cek.py` LULUS →
 - [ ] Brief user disalin verbatim ke `RESEP.md`; bahan user dibedah; kiblat dipilih (2–3 kartu terdekat ditunjukkan bila tema masih kabur) · baca: `../irfan-creative-workflow/SKILL.md` §2, `cookbook/INDEX.md` §2, `cookbook/RESEP-TEMPLATE.md` · bukti: `resep_check.py` LULUS →
 
 ## Tahap 2 · Naskah

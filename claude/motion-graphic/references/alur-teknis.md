@@ -53,7 +53,7 @@ Tahap dikelompokkan jadi lima fase subagen. Batas fase = titik kunci, bukan jeni
 
 | Tahap | Gerbang | Baca cabang | Lolos jika |
 |---|---|---|---|
-| Brief | Muat konteks | — | §6 selesai; `earshot doctor` lulus di mesin kerja (tidak terpasang = lapor Irfan dulu, jangan lanjut) |
+| Brief | Muat konteks | — | §6 selesai; bila earshot terpasang, `earshot doctor` lulus; bila tidak, lanjut dengan alat ukur repo (`music_fit`, `pace_read`, ebur128) dan tandai "belum didengar alat" di laporan kirim |
 | Brief | Brief | `decision.md`, `palette.md`, `templates/gaya/README.md` | Brief Irfan disalin apa adanya; gaya dipilih dari `templates/gaya/` bila cocok (talking head: `minimal-premium` atau `editorial-bold`) dan menjadi rujukan visual utama; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari Irfan. Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
 | Brief | Bedah referensi | `analysis-qa.md` §2, `three-segment-gate.md` (gerbang DENGAR) | Metrik visual + tabel kalimat → adegan → peran kalimat + peta audio dari `earshot timeline --detail high` (label, event/dtk, kepadatan SFX) |
 | Naskah | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file (klip: daftar potongan + timestamp sumber) |

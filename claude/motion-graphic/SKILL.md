@@ -49,7 +49,7 @@ Teknik sah bila lolos tiga pertanyaan: **makna** (membawa apa dari naskah), **si
 
 ## Profil merek
 
-Profil merek memilih warna, logo, huruf utama, `huruf_kedua` bila ada, dan nada; tidak membuka butir [mutlak]. Cek: `scripts/juri/profil_cek.py`; belum ada, isi bersama user (`templates/merek/README.md`).
+Profil merek memilih warna, logo, huruf utama, `huruf_kedua` bila ada, dan nada; tidak membuka butir [mutlak]. Cek: `scripts/juri/profil_cek.py`. Belum ada: draf dari brief dan logo, diajukan bersama keyframe pertama; tak menunggu (`templates/merek/README.md`).
 
 ## Bila ... buka ...
 
@@ -76,4 +76,4 @@ Profil merek memilih warna, logo, huruf utama, `huruf_kedua` bila ada, dan nada;
 - `toolkit/mulai.sh <folder> [remotion|storyboard]`: kurva, kamera 2,5D, latar/grain opsional; `toolkit/README.md`.
 - `scripts/lihat.py`: frame per lapis + crop 100 % ke `qc/lihat/`.
 - `scripts/juri/tahap.py projects/<proyek>`: langkah berikutnya; `render.sh` menolak render belum lulus.
-- Mengubah skill: `../skill-steward/SKILL.md`. `LANTAI.md`, `MOTION-CORE.md` = arsip.
+- Mengubah skill: `../skill-steward/SKILL.md`.
