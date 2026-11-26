@@ -54,3 +54,11 @@ Second-model verification against `origin/main` (`0c4e4aa9`). One section per fi
 | Title & intro | Tabel tunggal timeline cut sheet & mapping visual per video yang diisi Sutradara setelah fase 1b; subagen hanya membaca baris kerjanya + butir Wajib. | Single timeline cut sheet & visual mapping table filled by Director after phase 1b; subagents read only their assigned rows + Mandatory items. | yes |
 | How to fill (5 bullets) | Aturan baris per kalimat/potongan, waktu dari `CUT-MAP` & `transkrip-hasil.md`, penanda `<` / `>`, deskripsi visual & aset, kolom opsional, paragraf musik/SFX. | Rules for one row per sentence/cut, times from `CUT-MAP` & `transkrip-hasil.md`, `<` / `>` markers, visuals & assets, optional columns, music/SFX paragraph. | yes |
 | Table, footer & status | Contoh baris tabel 6 kolom, template arah musik & SFX, dan status progres (`rencana` → `still lulus` → `audit lulus`). | 6-column table example, music & SFX direction template, and row progress status (`rencana` → `still lulus` → `audit lulus`). | yes |
+
+## `claude/motion-graphic/templates/roles/konsul.md`
+
+| Section | Indonesian meaning (one line) | English meaning (one line) | Equal? |
+|---|---|---|---|
+| Title & intro | Catatan tambahan opsional (maks setengah halaman) di `handoff/KONSUL.md` untuk `tanya-claude.sh`; bukan tempat arah video karena dirakit dari LANTAI/RESEP/DECISIONS/STATUS. | Optional supplementary notes (half page max) at `handoff/KONSUL.md` for `tanya-claude.sh`; not for video direction, which is assembled from LANTAI/RESEP/DECISIONS/STATUS. | yes |
+| `## Yang sudah dicoba dan gagal` | Daftar percobaan yang gagal dan rondenya agar tidak diusulkan ulang. | List of failed attempts and rounds so they are not proposed again. | yes |
+| `## Batasan teknis yang perlu diketahui penilai` | Catatan batasan teknis sumber (mis. 720p, plate AI 24 fps). | Notes on source technical constraints (e.g., 720p, 24 fps AI plate). | yes |

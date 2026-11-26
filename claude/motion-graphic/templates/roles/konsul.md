@@ -1,11 +1,10 @@
-# KONSUL · <proyek> (opsional)
+# KONSUL · <project> (optional)
 
-Catatan tambahan untuk `tools/tanya-claude.sh`. Arah video TIDAK ditulis di sini: dosir dirakit otomatis dari
-`LANTAI.md`, kartu kiblat (baris "Kartu:" di RESEP.md), `RESEP.md`, baris Aktif di `DECISIONS.md`, dan `STATUS.md`.
-File ini hanya untuk hal yang belum ada di dokumen itu, maksimal setengah halaman. Disimpan di `projects/<proyek>/handoff/KONSUL.md`.
+Additional notes for `tools/tanya-claude.sh`. Video direction is NOT written here: the dossier is assembled automatically from `LANTAI.md`, the north-star card (the "Kartu:" line in `RESEP.md`), `RESEP.md`, Active rows in `DECISIONS.md`, and `STATUS.md`.
+This file is only for what is not yet in those documents, half a page at most. Stored at `projects/<project>/handoff/KONSUL.md`.
 
-## Yang sudah dicoba dan gagal (supaya tidak diusulkan ulang)
-- <apa · kenapa gagal · ronde>
+## Already tried and failed (so it is not proposed again)
+- <what · why it failed · round>
 
-## Batasan teknis yang perlu diketahui penilai
-- <mis. footage sumber 720p, plate AI 24 fps>
+## Technical constraints the reviewer needs to know
+- <e.g., 720p source footage, 24 fps AI plate>

@@ -7,3 +7,4 @@
 | claude/cinedance-block-library/PROMPT-BLOCKING.md | en | translate/batch-01 | dependants: none (verified) |
 | claude/jadisatu-canvas/references/clients.md | en | translate/batch-01 | dependants: none (verified) |
 | claude/motion-graphic/templates/cut-sheet.md | en | translate/batch-01 | dependants: none (verified) |
+| claude/motion-graphic/templates/roles/konsul.md | en | translate/batch-01 | dependants: none (verified) |
