@@ -18,7 +18,7 @@ Read when choosing between options (family, text style, technique, transition), 
 |---|---|---|
 | Goal, message, CTA, final script, final storyboard | Me | Approval gate; wait for the word "final" |
 | Family, text style, T/C/X techniques, SFX, timing | Agent | Decide yourself with a written reason in the beat spec |
-| Deviations from the approved storyboard | Agent, then reported | Record in the deviations list on delivery |
+| Departures from the approved storyboard | Agent, then reported | Record in the departures list on delivery |
 | Paid generation (VO, generative SFX, music, AI image/video) | Agent after its gate opens | State the estimated cost before generating |
 | New rules in this skill | Me | Proposal via RETRO (`revision-log.md` §20), status "menunggu persetujuan" |
 
@@ -36,7 +36,7 @@ If a technique does not fit the story in one beat, swap in another technique of 
 
 ## 3. Choosing a visual family
 
-Choose per story act, not per shot (details in `direction.md` §5):
+Choose per act, not per shot (details in `direction.md` §5):
 
 | Act content | Family |
 |---|---|
@@ -65,7 +65,7 @@ Write the reason for the choice in one phrase in the beat spec. A choice without
 
 ## 5. Bringing experience, not templates
 
-Carried over from past projects: gate order, how to measure references, QA methods, proven working tools, failure logs.
+Carried over from past projects: gate order, how to measure references, QA methods, proven working tools, error logs.
 
 **Not** carried over unless I ask: palettes, fonts, text styles, characters, mascots, SFX kits, music styles, act structures, and storyboards from other projects. Example: Tuntunly's black/white rules do not apply to Jadisatu.
 
@@ -73,10 +73,10 @@ Reason: old templates make new work feel like a copy and lock decisions before t
 
 ## 6. Cost and credits
 
-- Zero paid generation before its gate opens: VO after the final script, music and SFX after the final storyboard (matching audio lock at the Storyboard/block out stage and SFX/music at the Mix stage, `MOTION-CORE.md` §1).
+- Zero paid generation before its gate opens: VO after the final script, music and SFX after the final storyboard (matching the voice lock (`lock suara`) at the Storyboard/block out stage and SFX/music at the Mix stage, `MOTION-CORE.md` §1).
 - State the estimated cost before generating. Generate 1–2 variations, not 4, unless I ask.
 - Generate in segments so weak segments can be redone on their own.
-- Example prevented: VO generated 3 times (±7,300 credits) before the final script.
+- Failure this prevents: VO generated 3 times (±7,300 credits) before the final script.
 
 ## 7. When to ask
 
@@ -84,7 +84,7 @@ Ask for ambiguities that change the result significantly, max 3 questions at the
 
 | Situation | Action |
 |---|---|
-| Intended reference is uncertain | State in one sentence "yang aku tangkap dari referensi ini adalah…" (Indonesian, keep as-is when replying to me) before continuing |
+| Intended reference is uncertain | State in one sentence, in Indonesian, "yang aku tangkap dari referensi ini adalah…" before continuing |
 | Product UI is inaccessible | Request a screenshot **before** the storyboard |
 | Technical choices (technique, timing, SFX) | Decide yourself, write the reason |
 | Script or storyboard gate | Wait for the word "final" |
