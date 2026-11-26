@@ -1,6 +1,6 @@
 # Camera, motion, and transitions
 
-Opened when designing camera movement and transitions (steps 5-6 of `SKILL.md`). Older `LANTAI.md` items B10-B13b are condensed here with their reasons; the original wording stays in `LANTAI.md` (archive). The principle governing all motion is in NEGATIF 10: every movement has a speakable reason. Mechanical check: `scripts/juri/motion_lint.py`.
+Opened when designing camera movement and transitions (steps 5-6 of the `SKILL.md` workflow). Older `LANTAI.md` items B10-B13b are condensed here with their reasons; the original wording stays in `LANTAI.md` (archive). The principle governing all motion is in NEGATIF 10: every movement has a speakable reason. Mechanical check: `scripts/juri/motion_lint.py`.
 
 ## Living frame (B10, B11, B12)
 - **No flat frames.** Shots longer than 2 seconds have deliberate camera movement (slow push/zoom for focus, pan, object tracking). Only exempt if the north-star card itself uses a static camera, recorded in `RESEP.md`. Reason: a long static frame reads like a slide.
@@ -15,7 +15,7 @@ Opened when designing camera movement and transitions (steps 5-6 of `SKILL.md`).
 ## Motion designed per move (B13a)
 - Curves are chosen by what the move does from `scripts/remotion/curves.ts`: `land` entering from off-frame, `heavy` large objects and camera, `whip` state changes, `reveal` text from mask, `leave` exiting, `drift` holds. Never `Easing.ease` or `inOut(cubic)`.
 - Duration is calculated from distance and weight (`dur(px, fps, weight)`), not a 0.4-0.6 s habit. One primary move is followed by unevenly spaced reactions (`react(i)`: 0, 67, 150, 250, 367, 500 ms), not `i × constant` stagger.
-- Exit motion is ±0.65× entry duration and faster. Holds > 1 s stay alive (drift or camera breathing) unless stillness is intentional. No fade-up or blur-in as a default entrance; blur is for fast motion only.
+- Exit motion takes ±0.65× the entry duration and accelerates. Holds > 1 s stay alive (drift or camera breathing) unless stillness is intentional. No fade-up or blur-in as a default entrance; blur is for fast motion only.
 
 ## Recurring formats (B13b)
 Formats that appear repeatedly vary their framing on each appearance (second chart onward: camera tracks a point, close-up, different position, reveal-out). Reason: repeating identical framing reads like a template.
