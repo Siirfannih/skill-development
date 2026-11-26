@@ -1,15 +1,15 @@
-// generative-bg.js — latar generatif RINGAN (CSS gradient / kanvas kecil) untuk storyboard HTML dan GenerativeBG.tsx.
-// OPT-IN: dipakai hanya bila REF-SPEC/brief meminta latar bergradien. Tanpa warna bawaan: `colors` (keluarga warna dari
-// tema.ts / REF-SPEC) wajib. Deterministik: semua dari (frame, seed); tanpa Math.random/Date. Untuk cahaya mengalir
-// berkualitas shader (sinus + simplex, arah cahaya, grain di shader) pakai light-wave-bg.js.
+// generative-bg.js — latar generatif RINGAN (CSS gradient) untuk storyboard HTML dan GenerativeBG.tsx.
+// OPT-IN: dipakai hanya bila REF-SPEC/brief meminta latar bergradien tanpa WebGL. Tanpa warna bawaan: `colors` wajib.
+// Deterministik: semua dari (frame, seed); tanpa Math.random/Date. Untuk cahaya berkualitas shader: light-wave-bg.js.
+//
+// Aturan sama dengan LightWaveBg: tanpa noise untuk membentuk pola warna (mode noise DIHAPUS dan
+// ditolak), pusat cahaya di luar frame, ruang negatif >= 50 % tetap warna dasar. Hash hanya untuk menyebar posisi/fase.
 //
 // Mode:
-//   zona  satu atau lebih zona cahaya lembut; posisi mengikuti komposisi (zones: [{x,y,r,color?,strength?}], x/y/r 0..1).
-//   mesh  gradien multi-titik dari warna token (points: [{x,y,color?}]; tanpa points: disebar berbiji dari colors).
-//   noise value-noise berbiji (halus), warna dipetakan dari colors; kanvas kecil yang diperbesar mulus.
-// Catatan terukur: jaga luma dan saturasi dalam toleransi REF-SPEC: `python3 scripts/banding.py <frame.png> <REF-SPEC.json>`;
-// tanpa referensi `banding.py <frame.png>` harus lolos F1 (rentang luma >= 35 atau sat p95 >= 0,15). Gradien harus
-// berkomitmen: zona pekat tegas atau latar polos, bukan satu nada ragu-ragu; naikkan `intensity` bila F1 menyala.
+//   zona  satu atau lebih zona cahaya lembut; pusat DI LUAR frame (zones: [{x,y,r,color?,strength?}], x/y 0..1, di luar 0..1 pada
+//         salah satu sumbu), jadi hanya ekor yang masuk. Zona yang pusatnya di dalam frame ditolak.
+//   mesh  (usang: pakai zona/LightWaveBg) gradien titik dari warna token; titik bawaan disebar berbiji DI LUAR tepi frame.
+// Ukur: `python3 scripts/banding.py <frame.png>` tanpa referensi harus lolos F1; dengan REF-SPEC luma/saturasi dalam toleransi.
 
 import { parseColor } from "./warna.js";
 import { resolveOptions } from "./preset.js";
@@ -19,13 +19,6 @@ export const hash2 = (seed, ix, iy) => {
   h = Math.imul(h ^ (h >>> 13), 1274126177);
   return (((h ^ (h >>> 16)) >>> 0) / 4294967296);
 };
-const smooth = (t) => t * t * (3 - 2 * t);
-export const valueNoise = (seed, x, y) => {
-  const ix = Math.floor(x), iy = Math.floor(y), fx = smooth(x - ix), fy = smooth(y - iy);
-  const a = hash2(seed, ix, iy), b = hash2(seed, ix + 1, iy), c = hash2(seed, ix, iy + 1), d = hash2(seed, ix + 1, iy + 1);
-  return a + (b - a) * fx + (c - a) * fy + (a - b - c + d) * fx * fy;
-};
-
 const rgba = (c, a) => { const [r, g, b] = parseColor(c); return `rgba(${r},${g},${b},${+a.toFixed(4)})`; };
 const need = (o) => { if (!o || !Array.isArray(o.colors) || !o.colors.length) throw new Error("GenerativeBG: `colors` wajib (keluarga warna dari tema.ts/REF-SPEC)"); };
 
@@ -47,50 +40,30 @@ export const bgCSS = (o, frame = 0, fps = 30) => {
   const { mode = "zona", colors, base, intensity = 1, seed = 1, drift = 0, driftAmp = 0.03 } = o;
   const layers = [];
   if (mode === "zona") {
-    const zones = o.zones && o.zones.length ? o.zones : [{ x: 0.5, y: 0.5, r: 0.6 }];
+    const zones = o.zones && o.zones.length ? o.zones : [{ x: 1.2, y: 0.25, r: 0.6 }];
     zones.forEach((z, i) => {
+      if (!(z.x < 0 || z.x > 1 || z.y < 0 || z.y > 1)) throw new Error(`bgCSS: pusat zona ${i} (x=${z.x}, y=${z.y}) harus di luar frame (x atau y di luar 0..1); hanya ekor cahaya yang masuk`);
       const [dx, dy] = wobble(frame, fps, seed, i, drift, driftAmp);
       layers.push(radial(z.x + dx, z.y + dy, z.r ?? 0.6, z.color ?? colors[i % colors.length], Math.min(1, (z.strength ?? 1) * intensity)));
     });
   } else if (mode === "mesh") {
     const pts = o.points && o.points.length ? o.points
-      : colors.map((_, i) => ({ x: 0.15 + 0.7 * hash2(seed, i, 1), y: 0.15 + 0.7 * hash2(seed, i, 2) }));
+      : colors.map((_, i) => (hash2(seed, i, 3) < 0.5
+        ? { x: hash2(seed, i, 1) < 0.5 ? -0.2 : 1.2, y: hash2(seed, i, 2) }      // di luar tepi kiri/kanan
+        : { x: hash2(seed, i, 1), y: hash2(seed, i, 2) < 0.5 ? -0.2 : 1.2 }));    // di luar tepi atas/bawah
     pts.forEach((p, i) => {
       const [dx, dy] = wobble(frame, fps, seed, i, drift, driftAmp);
       layers.push(radial(p.x + dx, p.y + dy, p.r ?? 0.75, p.color ?? colors[i % colors.length], Math.min(1, intensity)));
     });
-  } else throw new Error(`bgCSS: mode ${mode} bukan zona/mesh`);
+  } else throw new Error(`bgCSS: mode ${mode} tidak didukung (zona/mesh); mode noise dihapus: dilarang membentuk pola warna dari noise`);
   if (base) layers.push(`linear-gradient(${base}, ${base})`);
   return layers.join(", ");
 };
 
-/** Gambar mode noise ke kanvas kecil (mis. 96x54) lalu biarkan CSS memperbesar. colors dipetakan merata menurut nilai noise. */
-export const drawNoise = (canvas, o, frame = 0, fps = 30) => {
-  o = resolveOptions("generative", o); need(o);
-  const { colors, intensity = 1, seed = 1, drift = 0.2, scale = 2.2, base } = o;
-  const w = canvas.width, h = canvas.height, ctx = canvas.getContext("2d");
-  const img = ctx.createImageData(w, h), cs = colors.map(parseColor), b = base ? parseColor(base) : null;
-  const t = (frame / fps) * drift;
-  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
-    const u = (x / w) * scale * (w / h) + t * 0.6, v = (y / h) * scale + t * 0.4;
-    const n = 0.65 * valueNoise(seed, u, v) + 0.35 * valueNoise(seed + 11, u * 2.1, v * 2.1);
-    const f = Math.min(0.9999, Math.max(0, n)) * (cs.length - 1), i = Math.floor(f), k = f - i;
-    const c = cs[i].map((q, j) => q + (cs[i + 1] ? (cs[i + 1][j] - q) * smooth(k) : 0));
-    const a = Math.min(1, intensity), o4 = (y * w + x) * 4;
-    for (let j = 0; j < 3; j++) img.data[o4 + j] = b ? b[j] + (c[j] - b[j]) * a : c[j];
-    img.data[o4 + 3] = b ? 255 : Math.round(255 * a);
-  }
-  ctx.putImageData(img, 0, 0);
-};
-
-/** HTML: terapkan latar ke elemen div `el` (noise membuat/memakai <canvas> anak). */
+/** HTML: terapkan latar ke elemen div `el`. */
 export const renderBG = (el, o, frame = 0, fps = 30) => {
   o = resolveOptions("generative", o);
-  if ((o.mode ?? "zona") === "noise") {
-    let c = el.querySelector(":scope > canvas[data-bg]");
-    if (!c) { c = document.createElement("canvas"); c.dataset.bg = "1"; c.width = 96; c.height = 54; Object.assign(c.style, { position: "absolute", inset: "0", width: "100%", height: "100%" }); el.prepend(c); }
-    drawNoise(c, o, frame, fps);
-  } else el.style.background = bgCSS(o, frame, fps);
+  el.style.background = bgCSS(o, frame, fps);
 };
 
 /** generativeBg(el, frame, { preset, ...override }, fps): pola sama dengan lightWaveBg. */

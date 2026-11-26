@@ -1,0 +1,20 @@
+{
+  "name": "cek-warna",
+  "private": true,
+  "type": "module",
+  "description": "Gerbang warna (masuk/keluar) untuk motion-graphic: sharp, node-vibrant, culori, apca-w3, axe-core, playwright-core",
+  "bin": {
+    "cek-warna": "cek-warna.mjs"
+  },
+  "engines": {
+    "node": ">=18.17"
+  },
+  "dependencies": {
+    "apca-w3": "0.1.9",
+    "axe-core": "4.14.1",
+    "culori": "4.0.2",
+    "node-vibrant": "4.0.4",
+    "playwright-core": "1.61.1",
+    "sharp": "0.34.5"
+  }
+}
