@@ -14,3 +14,4 @@
 | claude/motion-graphic/references/warna.md | en | translate/batch-01 | dependants: none (verified) |
 | claude/motion-graphic/references/efek-3d.md | en | translate/batch-01 | dependants: none (verified) |
 | claude/motion-graphic/references/revisi.md | en | translate/batch-01 | dependants: none (verified) |
+| claude/motion-graphic/references/decision.md | en | translate/batch-01 | dependants: none (verified) |

@@ -1,91 +1,91 @@
-# Decision — memilih, memutuskan, dan kapan bertanya
+# Decision — choosing, deciding, and when to ask
 
-Baca saat harus memilih di antara beberapa pilihan (family, gaya teks, teknik, transisi), saat dua aturan terasa bertabrakan, atau saat ragu apakah perlu bertanya ke Irfan.
+Read when choosing between options (family, text style, technique, transition), when two rules feel like they conflict, or when unsure whether to ask me.
 
-## Isi
+## Contents
 
-1. Siapa memutuskan apa
-2. Urutan prioritas saat aturan bertabrakan
-3. Memilih family visual
-4. Memilih teknik per momen
-5. Membawa pengalaman, bukan template
-6. Biaya dan kredit
-7. Kapan bertanya
+1. Who decides what
+2. Priority order when rules collide
+3. Choosing a visual family
+4. Choosing a technique per moment
+5. Bringing experience, not templates
+6. Cost and credits
+7. When to ask
 
-## 1. Siapa memutuskan apa
+## 1. Who decides what
 
-| Keputusan | Pemilik | Cara |
+| Decision | Owner | How |
 |---|---|---|
-| Tujuan, pesan, CTA, script final, storyboard final | Irfan | Gerbang persetujuan; tunggu kata "final" |
-| Family, gaya teks, teknik T/C/X, SFX, timing | Agent | Putuskan sendiri dengan alasan tertulis di spec beat |
-| Penyimpangan dari storyboard yang disetujui | Agent, lalu dilaporkan | Catat di daftar penyimpangan saat kirim |
-| Generate berbayar (VO, SFX generatif, musik, gambar, video AI) | Agent setelah gerbangnya terbuka | Sebutkan perkiraan biaya sebelum generate |
-| Aturan baru di skill ini | Irfan | Usulan lewat RETRO (`revision-log.md` §20), status "menunggu persetujuan" |
+| Goal, message, CTA, final script, final storyboard | Me | Approval gate; wait for the word "final" |
+| Family, text style, T/C/X techniques, SFX, timing | Agent | Decide yourself with a written reason in the beat spec |
+| Deviations from the approved storyboard | Agent, then reported | Record in the deviations list on delivery |
+| Paid generation (VO, generative SFX, music, AI image/video) | Agent after its gate opens | State the estimated cost before generating |
+| New rules in this skill | Me | Proposal via RETRO (`revision-log.md` §20), status "menunggu persetujuan" |
 
-Pekerjaan yang sudah tertulis di rencana yang Irfan setujui dianggap disetujui. Kerjakan sampai selesai dan nilai fase secara internal; jangan meminta Irfan menilai tiap fase atau mengirim versi setengah jadi sebagai hasil.
+Work already written in a plan I approved counts as approved. Finish it end to end and judge phases internally; do not ask me to judge every phase or send half-finished versions as deliverables.
 
-## 2. Urutan prioritas saat aturan bertabrakan
+## 2. Priority order when rules collide
 
-1. Arahan Irfan di proyek ini (brief, revisi, storyboard yang disetujui).
-2. Rules inti di `SKILL.md`.
-3. Cerita: apa yang membuat beat ini dipahami penonton (`direction.md` §6).
-4. Standar kualitas: eksekusi minimal setara referensi.
-5. Variasi dan ritme (aturan "≥ 4 tipe per 30 dtk", dsb.).
+1. My direction on this project (brief, revisions, approved storyboard).
+2. Core rules in `SKILL.md`.
+3. Story: what makes viewers understand this beat (`direction.md` §6).
+4. Quality standard: execution at least on par with the reference.
+5. Variety and rhythm (the "≥ 4 types per 30 s" rule, etc.).
 
-Jika sebuah teknik tidak cocok dengan cerita di satu beat, ganti dengan teknik lain yang setara kualitasnya. Jangan pernah menyelesaikan konflik dengan eksekusi yang lebih kasar, dan jangan menambah titik fokus kedua demi memenuhi kuota variasi.
+If a technique does not fit the story in one beat, swap in another technique of equal quality. Never solve a conflict with rougher execution, and never add a second focus point just to fill a variety quota.
 
-## 3. Memilih family visual
+## 3. Choosing a visual family
 
-Pilih per babak, bukan per shot (detail di `direction.md` §5):
+Choose per story act, not per shot (details in `direction.md` §5):
 
-| Isi babak | Family |
+| Act content | Family |
 |---|---|
-| Masalah, tokoh, cerita personal | A. Kolase + karakter |
-| Klaim, pertanyaan, titik balik | B. Tipografi gelap |
-| Solusi, workflow, produk, CTA | C. Kanvas putih UI |
+| Problem, character, personal story | A. Collage + character |
+| Claim, question, turning point | B. Dark typography |
+| Solution, workflow, product, CTA | C. White UI canvas |
 
-Perpindahan family adalah momen cerita, jadi selalu memakai transisi bab dan engsel senyap (`audio.md` §14.4).
+Switching families is a story moment, so it always uses an act transition and a silent hinge (`audio.md` §14.4).
 
-## 4. Memilih teknik per momen
+## 4. Choosing a technique per moment
 
-Tentukan dulu **peran** teks, baru tekniknya. Peran yang sama selalu bergerak dengan cara yang sama di seluruh video (`typography.md` §8):
+Determine the text's **role** first, then its technique. The same role always moves the same way across the video (`typography.md` §8):
 
-| Peran | Teknik |
+| Role | Technique |
 |---|---|
-| R1 narasi | T01 / T19 |
-| R2 kata kunci | T03 / T20 |
-| R3 klaim | T03 + shake |
+| R1 narration | T01 / T19 |
+| R2 keyword | T03 / T20 |
+| R3 claim | T03 + shake |
 | R4 label | T23 / T10 |
-| R5 UI diketik | T11 |
-| R6 kata pahlawan | T04 / C05, maksimal 2× per video |
+| R5 typed UI | T11 |
+| R6 hero word | T04 / C05, max 2× per video |
 
-Untuk transisi, mulai dari pertanyaan "benda apa dari shot A yang bisa dibawa ke shot B?". Jika ada, pakai X01 (object carry). Jika tidak ada, pilih transisi yang arahnya sesuai cerita (`camera-transition.md` §10).
+For transitions, start by asking "what object from shot A can be carried into shot B?". If there is one, use X01 (object carry). If not, pick a transition whose direction fits the story (`camera-transition.md` §10).
 
-Tulis alasan pilihan dalam satu frasa di spec beat. Pilihan tanpa alasan adalah tanda template.
+Write the reason for the choice in one phrase in the beat spec. A choice without a reason is a sign of a template.
 
-## 5. Membawa pengalaman, bukan template
+## 5. Bringing experience, not templates
 
-Yang dibawa dari proyek lama: urutan gerbang, cara mengukur referensi, cara QA, alat yang terbukti jalan, log kesalahan.
+Carried over from past projects: gate order, how to measure references, QA methods, proven working tools, failure logs.
 
-Yang **tidak** dibawa kecuali Irfan meminta: palet, font, gaya teks, karakter, maskot, kit SFX, gaya musik, struktur babak, dan storyboard dari proyek lain. Contoh: aturan hitam/putih Tuntunly tidak berlaku untuk Jadisatu.
+**Not** carried over unless I ask: palettes, fonts, text styles, characters, mascots, SFX kits, music styles, act structures, and storyboards from other projects. Example: Tuntunly's black/white rules do not apply to Jadisatu.
 
-Alasannya: template lama membuat karya baru terasa seperti salinan dan mengunci keputusan sebelum brief dipahami. Jika satu aturan lama terasa relevan, usulkan sebagai pilihan dengan alasannya. Jangan menerapkannya diam-diam.
+Reason: old templates make new work feel like a copy and lock decisions before the brief is understood. If an old rule seems relevant, propose it as an option with its reason. Never apply it silently.
 
-## 6. Biaya dan kredit
+## 6. Cost and credits
 
-- Tidak ada generate berbayar sebelum gerbangnya terbuka: VO setelah script final, musik dan SFX setelah storyboard final (sama dengan kunci suara di tahap Storyboard/block out dan SFX/musik di tahap Mix, `MOTION-CORE.md` §1).
-- Sebelum generate, sebutkan perkiraan biaya. Generate 1–2 variasi, bukan 4, kecuali Irfan meminta.
-- Generate per potong agar potongan yang kurang bisa diulang sendiri.
-- Contoh yang dicegah: VO di-generate 3 kali (± 7.300 kredit) sebelum script final.
+- Zero paid generation before its gate opens: VO after the final script, music and SFX after the final storyboard (matching audio lock at the Storyboard/block out stage and SFX/music at the Mix stage, `MOTION-CORE.md` §1).
+- State the estimated cost before generating. Generate 1–2 variations, not 4, unless I ask.
+- Generate in segments so weak segments can be redone on their own.
+- Example prevented: VO generated 3 times (±7,300 credits) before the final script.
 
-## 7. Kapan bertanya
+## 7. When to ask
 
-Bertanya untuk ambiguitas yang mengubah hasil secara besar, maksimal 3 pertanyaan di awal, dalam satu pesan. Sebelum bertanya, cek apakah jawabannya ada di file proyek, brief, atau memori. Jika setelah dicek kamu masih tidak tahu atau keyakinanmu rendah, **jangan menebak**: tanyakan (rules inti 13 di `SKILL.md`). Ini berlaku juga di tengah pekerjaan, bukan hanya di awal.
+Ask for ambiguities that change the result significantly, max 3 questions at the start, in one message. Before asking, check whether the answer is in project files, the brief, or memory. If after checking you still do not know or your confidence is low, **do not guess**: ask (core rule 13 in `SKILL.md`). This also applies mid-work, not only at the start.
 
-| Situasi | Tindakan |
+| Situation | Action |
 |---|---|
-| Referensi yang dimaksud belum pasti | Sebutkan dalam satu kalimat "yang aku tangkap dari referensi ini adalah…" sebelum lanjut |
-| UI produk tidak bisa diakses | Minta screenshot **sebelum** storyboard |
-| Pilihan teknis (teknik, timing, SFX) | Putuskan sendiri, tulis alasannya |
-| Gerbang script atau storyboard | Tunggu kata "final" |
-| Batas waktu menekan | Bagi waktu per gerbang di awal; batas waktu bukan alasan melompati gerbang script dan storyboard |
+| Intended reference is uncertain | State in one sentence "yang aku tangkap dari referensi ini adalah…" (Indonesian, keep as-is when replying to me) before continuing |
+| Product UI is inaccessible | Request a screenshot **before** the storyboard |
+| Technical choices (technique, timing, SFX) | Decide yourself, write the reason |
+| Script or storyboard gate | Wait for the word "final" |
+| Deadline pressure | Split time per gate up front; deadlines are never a reason to skip the script and storyboard gates |
