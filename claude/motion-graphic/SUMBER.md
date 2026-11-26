@@ -1241,3 +1241,5 @@ Penghitung: nilai mulai 2; +1 gerbang menangkap kegagalan nyata; −1 salah-temb
 ## `references/build.md` §3a · mesin motion graphic = Remotion
 
 - Irfan 26 Nov 2026 15:52: Three.js hanya untuk ilustrasi di dalam postingan/objek; motion graphic (layout, timeline, transisi, kamera, KT) di Remotion. Pemicu: storyboard v8 Behindwork membangun animatic seluruhnya di Three.js (scene.js 763 baris) karena brief menyebut "bangun postingan dan feed dengan Three.js".
+## pabrik/ (pabrik primitif: ekstrak, sintesis, uji, daftar)
+- Permintaan Irfan 26 Nov 2026 13:58: referensi dibedah jadi primitif terstruktur dan tiap komponen diuji otomatis sebelum masuk registry. Desain kritikus diganti 14:05 (daftar dosa biner, adversarial kiri-kanan, jangkar slop, palet non-AI; skor 1–10 dihapus sebagai syarat lulus).

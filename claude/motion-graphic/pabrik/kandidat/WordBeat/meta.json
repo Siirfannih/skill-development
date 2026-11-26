@@ -1,0 +1,14 @@
+{
+  "palet": {
+    "A": ["#F6F5FC", "#F1F1FA", "#0E1426", "#5B6280", "#6F86FF", "#1B2748"],
+    "B": ["#110D0B", "#2A201B", "#FBF8F3", "#A39384", "#EE9440", "#8A6246"]
+  },
+  "fungsi": "Membangun kalimat pendek satu kata per ketukan pada skala raksasa dengan blur gerak dan bentuk kecil sebagai tanda baca, lalu menarik seluruh grup mengecil menjadi satu baris judul.",
+  "width": 1280,
+  "height": 720,
+  "fps": 30,
+  "durasi": 120,
+  "stills": [4, 26, 50, 100],
+  "urutan": { "dari": 0, "sampai": 119 },
+  "catatan": "4 kata, ketukan 8 frame mulai sebelum frame 0; bentuk tebar muncul sejak kata ke-3 dan bertahan;kamera mengikuti kata terbaru, penarikan ×0,225 (cap 0,2 → 0,045 tinggi frame) 36 frame kurva heavy, ditahan ±1 dtk. Bentuk sisipan memakai slot sendiri di antara kata (tanpa menimpa teks) dan berada di lapisan bawah. Fase kata tunggal dengan 4-6 bentuk buram tidak dimasukkan (di luar 120 frame). Tata letak diukur lewat offsetLeft setelah render; kata awal terpotong tepi kiri saat kamera mengikuti (sesuai spec)."
+}

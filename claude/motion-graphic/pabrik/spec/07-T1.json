@@ -1,0 +1,73 @@
+{
+ "id": "07-T1",
+ "kartu": "07",
+ "teknik": "T1",
+ "kategori": "tipografi",
+ "komponen_usulan": "WordBeat",
+ "ringkas": "Kalimat pendek dibangun satu kata per ketukan pada skala raksasa. Tiap kata masuk dengan blur gerak dan warna sendiri, spasi antar kata rapat, dan foto/shape kecil disisipkan sebagai tanda baca. Setelah kata terakhir, seluruh grup ditarik mengecil sampai sekitar 0,15 kali ukuran awal dan menjadi satu baris judul kecil.",
+ "parameter": {
+  "hierarki": [
+   {
+    "peran": "kata_raksasa_saat_dibangun",
+    "tinggi_rel": 0.2
+   },
+   {
+    "peran": "baris_judul_setelah_ditarik",
+    "tinggi_rel": 0.045
+   },
+   {
+    "peran": "kata_tunggal_berikutnya_skala_kecil",
+    "tinggi_rel": 0.07
+   }
+  ],
+  "tracking_em": 0,
+  "unit": "kata",
+  "pola_masuk": "blur",
+  "pola_keluar": "tetap"
+ },
+ "mekanik": [
+  "Satu kata per ketukan, kalimat ≤ 6 kata. Pada klip: 5 kata dalam sekitar 1,8 dtk, jarak ketukan ≈ 0,25–0,5 dtk (rata-rata ≈ 0,35 dtk). Kata pendek diberi jeda lebih singkat.",
+  "Kata raksasa: tinggi huruf kapital ≈ 0,20 tinggi frame pada keyframe statis, pusat vertikal ≈ 0,51–0,54 tinggi frame, lebar satu kata ≈ 0,32–0,48 lebar frame. Tampak sampai ≈ 0,30 tinggi frame pada frame klip awal (0–0,25 dtk).",
+  "Spasi antar kata rapat: celah ≈ 0,2–0,3 kali tinggi kapital, tidak lebih dari lebar huruf kecil 'a'. Celah longgar dianggap salah.",
+  "Masuk: tiap kata naik dari bawah sedikit (≈ 0,1 kali tinggi kapital) sambil blur horizontal yang mengecil menjadi tajam dalam ≈ 8–12 frame pada 30 fps (≈ 0,3–0,4 dtk). Kata yang bergerak cepat tampak buram di tepi kanannya.",
+  "Kamera/grup bergeser horizontal mengikuti kata terbaru, sehingga kata sebelumnya terdorong keluar tepi kiri (0,75–1,25 dtk) sebelum seluruh kalimat muncul. Setelah itu kalimat utuh ditampilkan dalam satu baris.",
+  "Foto/shape kecil (sisi ≈ 0,10–0,27 lebar frame; pada baris kecil ≈ 0,04 tinggi frame) muncul sebagai tanda baca di antara kata. Satu elemen tiap sela, ditumpuk sedikit menimpa tepi, dan paling bawah di urutan lapisan. Setiap foto dimulai buram dan mengecil bersama grup.",
+  "Warna per kata berbeda saat kata itu 'dipukul'. Setelah kata berikutnya masuk, warna kata sebelumnya kembali ke warna tinta netral. Pada baris akhir hanya satu atau dua kata aksen yang tetap berwarna.",
+  "Penarikan akhir: seluruh grup (kata + foto) mengecil serentak sekitar ×0,15 dari ukuran raksasa dalam ≈ 1,0–1,5 dtk pada klip (kartu menyebut ±4,9 dtk untuk video penuh), dengan kurva berat: mula lambat, tengah cepat, ujung melandai. Hasil akhirnya baris tunggal di tengah, cap ≈ 0,04–0,05 tinggi frame, ditahan ≈ 1 dtk.",
+  "Setelah ditarik, grup dipertahankan sebentar lalu diganti oleh kata tunggal berikutnya (skala kecil ≈ 0,07 tinggi kapital) yang dikelilingi 4–6 foto/shape buram (10–27 % lebar). Foto tersebar di sudut dan hanya sedikit bergerak.",
+  "Latar polos terang hangat tanpa gradien. Tidak ada bayangan atau border pada teks. Lapisan dari bawah: latar polos, foto/shape, kata."
+ ],
+ "kulit": [
+  "Warna latar putih hangat, warna kata (tinta gelap, biru, merah, hijau tua, kuning) dan palet shape",
+  "Jenis huruf grotesk tebal-menengah milik referensi",
+  "Isi kalimat 'What makes your company unique?' dan kata 'Mission'",
+  "Konten foto orang di kantor dan bentuk geometris merah/biru/hijau",
+  "Urutan warna per kata"
+ ],
+ "bukti": [
+  {
+   "frame": "guide/referensi/sheets/keyframes/07-k1-pertanyaan-per-kata.jpg",
+   "t": null,
+   "catatan": "Kata 'What' tinggi kapital ≈ 82/414 ≈ 0,20 tinggi frame, pusat y ≈ 0,51. Celah What→makes sempit. 'makes' berwarna biru dengan blur di huruf terakhir. Lebar 'What' ≈ 0,39 lebar frame."
+  },
+  {
+   "frame": "guide/referensi/sheets/keyframes/07-k2-kata-foto-tanda-baca.jpg",
+   "t": null,
+   "catatan": "Kata tunggal 'Mission' kapital ≈ 0,07 tinggi frame di tengah, dikelilingi 6 foto/shape sisi ≈ 0,10–0,25 lebar frame. Sebagian foto buram."
+  },
+  {
+   "frame": "pabrik/spec/07-T1-klip.jpg",
+   "t": 0.5,
+   "catatan": "'What' masih berbentuk kapital besar dan 'makes' biru masuk berblur. Pada 0,75–1,25 dtk grup bergeser ke kiri, 'your' merah masuk, dan foto-shape di sela kata. Pada 1,5–1,75 dtk seluruh kalimat tampil kecil. Pada 2,0–3,0 dtk grup ditahan kecil di cap ≈ 0,045 tinggi frame. Pada 3,25 dtk 'Mission' muncul dengan foto buram."
+  }
+ ],
+ "terukur": {
+  "dari_klip": true,
+  "catatan": "Ukuran statis (tinggi kapital 0,20, 0,07, celah kata) diukur dari keyframe. Pada klip, tinggi kapital awal tampak ≈ 0,30 tinggi frame, lebih besar dari 0,20 di keyframe, kemungkinan karena kamera masih mendekat; rasio akhir/awal ≈ 0,15 sesuai kartu. Timing ketukan dibaca dari lembar 4 fps per frame, jadi resolusi ≈ ±0,125 dtk. Durasi penarikan dan kurva tidak bisa dipastikan presisi, hanya diperkirakan dari urutan frame. Jarak celah kata dan nilai blur adalah perkiraan visual.",
+  "klip": {
+   "path": "/home/irfan/work/pustaka-video/unggahan/02_Baikov_TEKS-SFX-CUT.mp4",
+   "dari": 0.0,
+   "sampai": 4.0
+  }
+ }
+}

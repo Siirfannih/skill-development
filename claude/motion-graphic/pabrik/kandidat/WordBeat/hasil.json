@@ -1,0 +1,226 @@
+{
+ "nama": "WordBeat",
+ "spec": "pabrik/spec/07-T1.json",
+ "lulus": false,
+ "putaran": 3,
+ "metrik": {
+  "banding": {
+   "per_still": [
+    {
+     "frame": 4,
+     "luma_range": 107.7,
+     "sat_p95": 0.494,
+     "fokus_pct": 8.6
+    },
+    {
+     "frame": 26,
+     "luma_range": 207.0,
+     "sat_p95": 0.632,
+     "fokus_pct": 11.1
+    },
+    {
+     "frame": 50,
+     "luma_range": 102.9,
+     "sat_p95": 0.399,
+     "fokus_pct": 5.3
+    },
+    {
+     "frame": 100,
+     "luma_range": 98.1,
+     "sat_p95": 0.354,
+     "fokus_pct": 5.2
+    }
+   ],
+   "f1_terpicu": 0,
+   "f3_jarang": 0,
+   "n": 4
+  },
+  "pola_tengah": {
+   "sampel": 60,
+   "berturut_maks": 1
+  },
+  "probe": {
+   "frame_terprobe": 44,
+   "teks_kecil": 0,
+   "tabrakan": 0,
+   "tutup_j": 28,
+   "lapisan_o": 0,
+   "teks_tak_terlihat": 0
+  },
+  "palet": {
+   "cek_warna_nyasar": [],
+   "luar_palet": [],
+   "kulit_bocor": [],
+   "referensi_hex": [
+    "#fbf6f3",
+    "#080905",
+    "#356341",
+    "#d0d1e0",
+    "#726c66",
+    "#2f2a26"
+   ]
+  },
+  "latar": {
+   "dipakai": false
+  },
+  "gerak": {
+   "frame_berubah": 0.454,
+   "kategori": "tipografi",
+   "energi_korelasi": -0.026
+  },
+  "struktur": {
+   "statis": false,
+   "paired": 0.3928,
+   "tak_selaras": 0.3489,
+   "n": 8,
+   "per_sampel": [
+    {
+     "frame": 4,
+     "t_ref": 0.13,
+     "skor": 0.4983
+    },
+    {
+     "frame": 24,
+     "t_ref": 0.81,
+     "skor": 0.3275
+    },
+    {
+     "frame": 26,
+     "t_ref": 0.87,
+     "skor": 0.3274
+    },
+    {
+     "frame": 48,
+     "t_ref": 1.61,
+     "skor": 0.4674
+    },
+    {
+     "frame": 50,
+     "t_ref": 1.68,
+     "skor": 0.4756
+    },
+    {
+     "frame": 71,
+     "t_ref": 2.39,
+     "skor": 0.4465
+    },
+    {
+     "frame": 95,
+     "t_ref": 3.19,
+     "skor": 0.2959
+    },
+    {
+     "frame": 100,
+     "t_ref": 3.36,
+     "skor": 0.304
+    }
+   ]
+  },
+  "dua_token": {
+   "edge_struktur": 0.9997,
+   "ssim_struktur": 0.624,
+   "selisih_piksel": 211.99
+  }
+ },
+ "dosa": {
+  "j": "f12: 'kata' tertutup 17%; f24: 'ketuk' tertutup 12%; f26: 'ketuk' tertutup 17%; f27: 'ketuk' tertutup 17%; f30: 'ketuk' tertutup 17%",
+  "c": "vision: Baris 2-4: kuadran biru besar di kiri bawah, lingkaran gelap di kiri atas, lingkaran biru di tengah atas, dan kotak abu-abu buram di kanan atas dan bawah. Semuanya shape generik tanpa isi. Kalau dihapus, pesan 'Satu kata tiap ketukan' tidak berkurang. Tidak ada foto yang menjadi tanda baca seperti di referensi.",
+  "f": "vision: Baris 1: 'kata' sangat buram (blur horizontal berat) dan sama sekali tidak terbaca di f4. Baris 2-4: shape dekoratif sengaja diburamkan, tetapi teksnya tajam. Cacat yang jelas ada di baris 1, pada konten yang harus dibaca.",
+  "r": "vision baris 1 (f4): 'Satu' menempel di tepi kiri frame dan nyaris terpotong. 'kata' terlalu buram, mirip artefak render. Celah antar kata dan kotak lebar sekali, jauh dari 'rapat'.",
+  "q": "vision baris 2 (f26): Kuadran biru besar di kiri bawah menyentuh dan sedikit menimpa bagian bawah huruf 'p' di 'tiap'. Huruf 'i' dan 'a' di tepi kiri juga terpotong frame. Tapi 'tiap' seharusnya masih terbaca.",
+  "j3": "jangkar j3 (zona biru selalu di pojok kanan bawah ya...): Baris 2, 3, dan 4 memakai komposisi shape yang sama persis di posisi yang sama: kuadran biru di kiri bawah, lingkaran gelap di kiri atas, kotak abu-abu di kanan. Itu pola template tetap seperti zona biru di pojok pada j3. Shape tidak berubah tempat dan hampir tidak bergerak antar frame. Pada baris 4 shape juga tidak mengelilingi kata secara rapat, sehingga terasa seperti dekorasi pojok."
+ },
+ "adversarial": [
+  "Baris 1, kata 'kata': blur horizontal terlalu berat dan masih tidak terbaca di f4. Di referensi blur hanya tipis di tepi kanan dan kata tetap terbaca. Perbaikan: kurangi blur awal sekitar 70%, dan majukan kata sehingga tajam lebih cepat.",
+  "Baris 1: celah 'Satu' ke kotak biru dan ke 'kata' lebih dari 0,5 kali tinggi kapital, dan 'Satu' menempel di tepi kiri. Referensi rapat sekitar 0,2-0,3 kali. Perbaikan: rapatkan celah dan pusatkan grup sebelum kata baru masuk.",
+  "Baris 2-4: shape dekoratif (kuadran biru, lingkaran, kotak abu-abu) diam di posisi sama dan diburamkan merata, sehingga terlihat seperti wallpaper. Referensi memakai foto nyata yang menumpuk dan memberi isi. Perbaikan: ganti dengan gambar bermakna, sebar acak, dan buat tiap shape bergerak sedikit.",
+  "Baris 2: kuadran biru besar menyentuh dasar huruf 'p' dan 'tiap'. Di referensi foto tidak pernah memotong teks. Perbaikan: jauhkan shape dari kotak teks atau letakkan benar-benar di bawah kata.",
+  "Baris 3: kalimat akhir sangat kecil (cap sekitar 0,03 tinggi frame) dan 'Satu' biru pucat nyaris hilang di latar lavender. Referensi tetap terbaca dengan aksen kuning dan biru yang tegas. Perbaikan: naikkan ukuran ke 0,04-0,05, gelapkan biru aksen, dan hanya aksenkan satu atau dua kata."
+ ],
+ "gagal": [
+  "DOSA c: vision: Baris 2-4: kuadran biru besar di kiri bawah, lingkaran gelap di kiri atas, lingkaran biru di tengah atas, dan kotak abu-abu buram di kanan atas dan bawah. Semuanya shape generik tanpa isi. Kalau dihapus, pesan 'Satu kata tiap ketukan' tidak berkurang. Tidak ada foto yang menjadi tanda baca seperti di referensi.",
+  "DOSA f: vision: Baris 1: 'kata' sangat buram (blur horizontal berat) dan sama sekali tidak terbaca di f4. Baris 2-4: shape dekoratif sengaja diburamkan, tetapi teksnya tajam. Cacat yang jelas ada di baris 1, pada konten yang harus dibaca.",
+  "DOSA j: f12: 'kata' tertutup 17%; f24: 'ketuk' tertutup 12%; f26: 'ketuk' tertutup 17%; f27: 'ketuk' tertutup 17%; f30: 'ketuk' tertutup 17%",
+  "DOSA j3: jangkar j3 (zona biru selalu di pojok kanan bawah ya...): Baris 2, 3, dan 4 memakai komposisi shape yang sama persis di posisi yang sama: kuadran biru di kiri bawah, lingkaran gelap di kiri atas, kotak abu-abu di kanan. Itu pola template tetap seperti zona biru di pojok pada j3. Shape tidak berubah tempat dan hampir tidak bergerak antar frame. Pada baris 4 shape juga tidak mengelilingi kata secara rapat, sehingga terasa seperti dekorasi pojok.",
+  "DOSA q: vision baris 2 (f26): Kuadran biru besar di kiri bawah menyentuh dan sedikit menimpa bagian bawah huruf 'p' di 'tiap'. Huruf 'i' dan 'a' di tepi kiri juga terpotong frame. Tapi 'tiap' seharusnya masih terbaca.",
+  "DOSA r: vision baris 1 (f4): 'Satu' menempel di tepi kiri frame dan nyaris terpotong. 'kata' terlalu buram, mirip artefak render. Celah antar kata dan kotak lebar sekali, jauh dari 'rapat'."
+ ],
+ "lembar": "pabrik/kandidat/WordBeat/lembar-r3.jpg",
+ "riwayat": [
+  {
+   "putaran": 1,
+   "lulus": false,
+   "dosa": [
+    "a",
+    "d",
+    "j",
+    "q"
+   ],
+   "gagal": [
+    "DOSA a: banding.py F1 gradien ragu-ragu di frame [74, 110]",
+    "DOSA d: fokus < 20 % dan pusat dalam ±12 % tengah pada 23 sampel berturut (stride 2 frame)",
+    "DOSA j: f3: 'Satu' x 'Satu'; f6: 'Satu' x 'Satu'; f9: 'Satu' x 'Satu'; f12: 'Satu' x 'Satu'; f12: 'kata' x 'kata'",
+    "DOSA q: vision baris 3 (f74): Huruf 'u' di tepi kiri baris tengah terpotong frame (potongan 'Satu'). Kata sebelumnya masih tersangkut di tepi, padahal seharusnya terdorong keluar bersih.",
+    "struktur selaras waktu 0.542 < max(0.15, tak-selaras 0.547)"
+   ],
+   "adversarial": [
+    "Baris 1, spasi antar kata: celah 'Satu' ke 'kata' sekitar 0,4 kali tinggi kapital, lebih longgar dari target 0,2–0,3 dan lebih longgar dari referensi 'What makes'. Rapatkan word-spacing ke ≈0,25 tinggi kapital.",
+    "Baris 1, tinggi huruf: kapital 'S' sekitar 0,2 tinggi frame, tetapi blok teks naik ke sepertiga atas frame (pusat sekitar 0,4), bukan 0,51–0,54 seperti referensi yang duduk di tengah. Turunkan pusat vertikal baris ke ≈0,52.",
+    "Baris 1–2, blur masuk: 'Satu kata' dan 'ketukan' tajam sempurna pada f19 dan f52, tanpa blur horizontal di tepi kanan seperti 'What makes' di referensi. Gerak terasa kaku. Tambahkan motion blur horizontal yang mengecil dalam 8–12 frame.",
+    "Baris 3–4, foto/shape: hanya kotak 0,02–0,03 tinggi frame dan lingkaran navy, seragam dan datar, diletakkan sebaris di antara kata. Referensi memakai foto nyata yang bertumpuk menimpa tepi dan buram. Perbesar, tumpuk sedikit menimpa kata, taruh di lapisan bawah, dan beri variasi ukuran dan rotasi.",
+    "Baris 4, fase penutup: setelah baris kecil, tidak ada kata tunggal berikutnya yang dikelilingi 4–6 foto/shape buram yang tersebar di sudut. Frame hampir kosong dengan teks mungil di tengah, sedangkan referensi baris 4 penuh komposisi tersebar. Tambahkan fase 'Mission' dengan elemen tersebar."
+   ]
+  },
+  {
+   "putaran": 2,
+   "lulus": false,
+   "dosa": [
+    "a",
+    "d",
+    "j",
+    "q"
+   ],
+   "gagal": [
+    "DOSA a: banding.py F1 gradien ragu-ragu di frame [4, 58]",
+    "DOSA d: fokus < 20 % dan pusat dalam ±12 % tengah pada 11 sampel berturut (stride 2 frame)",
+    "DOSA j: f12: 'kata' tertutup 12%; f15: 'kata' tertutup 12%; f18: 'kata' tertutup 21%; f21: 'kata' tertutup 17%; f24: 'di' tertutup 33%",
+    "DOSA q: vision baris 3 (f58): Huruf 'S' di 'Satu' menempel dan sedikit terpotong tepi kiri frame (x≈483). Kalimat selebar ±0,8 frame. Titik dan kuarter-pie menempel pada 'kata●di' dan 'tiap◢ketukan' tanpa celah."
+   ],
+   "adversarial": [
+    "Latar kanan lavender dingin (≈#F5F5FB), sedangkan referensi krem hangat. Mekanik meminta terang hangat. Ganti ke krem netral hangat seperti kiri supaya tidak terkesan template.",
+    "Huruf tampak seperti sans bawaan sistem (DejaVu-like) yang lebar dan longgar, bukan grotesk rapat berbobot seperti referensi. Tebal dan spasi 'Satu' dan 'ketukan' terasa default. Ganti ke grotesk dengan tracking sekitar -2%.",
+    "Baris 2: 'ketukan' memenuhi sekitar 0,72 lebar frame, jauh di atas target 0,32-0,48. Kata menekan tepi kanan dan tidak ada kata sebelumnya di kiri, jadi terasa seperti kata tunggal yang kebesaran. Kecilkan skala dan perlihatkan kata sebelumnya yang terdorong keluar.",
+    "Baris 3: kalimat selebar ±0,8 frame dan 'S' terpotong tepi kiri, sedangkan referensi ±0,5 dan berada di tengah. Titik, kuarter-pie, dan kotak menempel pada huruf ('kata●di', 'tiap◢ketukan') dengan celah tidak sama. Beri ruang konsisten, rapatkan skala grup, dan pusatkan.",
+    "Baris 4: kotak navy tua besar di kanan atas dan kuarter-lingkaran biru raksasa di kiri bawah jauh lebih berat daripada 'Mission' kecil. Bentuknya hanya primitif datar dengan warna sama, bukan foto beragam, dan buramnya seragam. Perkecil dan ringankan bentuk, beri variasi nilai warna dan ukuran, jauhkan dari tepi, dan beri sedikit gerak berbeda per bentuk."
+   ]
+  },
+  {
+   "putaran": 3,
+   "lulus": false,
+   "dosa": [
+    "c",
+    "f",
+    "j",
+    "j3",
+    "q",
+    "r"
+   ],
+   "gagal": [
+    "DOSA c: vision: Baris 2-4: kuadran biru besar di kiri bawah, lingkaran gelap di kiri atas, lingkaran biru di tengah atas, dan kotak abu-abu buram di kanan atas dan bawah. Semuanya shape generik tanpa isi. Kalau dihapus, pesan 'Satu kata tiap ketukan' tidak berkurang. Tidak ada foto yang menjadi tanda baca seperti di referensi.",
+    "DOSA f: vision: Baris 1: 'kata' sangat buram (blur horizontal berat) dan sama sekali tidak terbaca di f4. Baris 2-4: shape dekoratif sengaja diburamkan, tetapi teksnya tajam. Cacat yang jelas ada di baris 1, pada konten yang harus dibaca.",
+    "DOSA j: f12: 'kata' tertutup 17%; f24: 'ketuk' tertutup 12%; f26: 'ketuk' tertutup 17%; f27: 'ketuk' tertutup 17%; f30: 'ketuk' tertutup 17%",
+    "DOSA j3: jangkar j3 (zona biru selalu di pojok kanan bawah ya...): Baris 2, 3, dan 4 memakai komposisi shape yang sama persis di posisi yang sama: kuadran biru di kiri bawah, lingkaran gelap di kiri atas, kotak abu-abu di kanan. Itu pola template tetap seperti zona biru di pojok pada j3. Shape tidak berubah tempat dan hampir tidak bergerak antar frame. Pada baris 4 shape juga tidak mengelilingi kata secara rapat, sehingga terasa seperti dekorasi pojok.",
+    "DOSA q: vision baris 2 (f26): Kuadran biru besar di kiri bawah menyentuh dan sedikit menimpa bagian bawah huruf 'p' di 'tiap'. Huruf 'i' dan 'a' di tepi kiri juga terpotong frame. Tapi 'tiap' seharusnya masih terbaca.",
+    "DOSA r: vision baris 1 (f4): 'Satu' menempel di tepi kiri frame dan nyaris terpotong. 'kata' terlalu buram, mirip artefak render. Celah antar kata dan kotak lebar sekali, jauh dari 'rapat'."
+   ],
+   "adversarial": [
+    "Baris 1, kata 'kata': blur horizontal terlalu berat dan masih tidak terbaca di f4. Di referensi blur hanya tipis di tepi kanan dan kata tetap terbaca. Perbaikan: kurangi blur awal sekitar 70%, dan majukan kata sehingga tajam lebih cepat.",
+    "Baris 1: celah 'Satu' ke kotak biru dan ke 'kata' lebih dari 0,5 kali tinggi kapital, dan 'Satu' menempel di tepi kiri. Referensi rapat sekitar 0,2-0,3 kali. Perbaikan: rapatkan celah dan pusatkan grup sebelum kata baru masuk.",
+    "Baris 2-4: shape dekoratif (kuadran biru, lingkaran, kotak abu-abu) diam di posisi sama dan diburamkan merata, sehingga terlihat seperti wallpaper. Referensi memakai foto nyata yang menumpuk dan memberi isi. Perbaikan: ganti dengan gambar bermakna, sebar acak, dan buat tiap shape bergerak sedikit.",
+    "Baris 2: kuadran biru besar menyentuh dasar huruf 'p' dan 'tiap'. Di referensi foto tidak pernah memotong teks. Perbaikan: jauhkan shape dari kotak teks atau letakkan benar-benar di bawah kata.",
+    "Baris 3: kalimat akhir sangat kecil (cap sekitar 0,03 tinggi frame) dan 'Satu' biru pucat nyaris hilang di latar lavender. Referensi tetap terbaca dengan aksen kuning dan biru yang tegas. Perbaikan: naikkan ukuran ke 0,04-0,05, gelapkan biru aksen, dan hanya aksenkan satu atau dua kata."
+   ]
+  }
+ ],
+ "tanggal": "2026-11-26"
+}
