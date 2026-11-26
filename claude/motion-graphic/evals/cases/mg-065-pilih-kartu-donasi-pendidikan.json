@@ -1,0 +1,19 @@
+{
+  "id": "mg-065",
+  "source": "reports/RENCANA-PERBAIKAN-KARTU.md §3",
+  "prompt": "NGO pendidikan, 60 detik VO: \"1 dari 3 anak putus sekolah; kisah satu anak; cara donasi\". Pilih mekanik per beat.",
+  "files": [
+    "claude/motion-graphic/SKILL.md",
+    "claude/motion-graphic/scripts/cookbook/pilih_kartu.py"
+  ],
+  "assertions": [
+    "Query per beat berbentuk: angka statistik | kisah bukti | langkah donasi | penutup (atau setara menurut fungsi cerita)",
+    "Memilih M20 untuk angka, M15 atau M16 untuk bukti/alur, M17 atau 98 untuk langkah, M22 untuk penutup bila audio masuk cakupan; 3-4 kartu",
+    "Gagal bila: Kartu 18 \"Sentence-Role Scene Matching\" dipakai utuh dengan gaya ilustrasi video sumbernya",
+    "Setiap beat dicari lewat pilih_kartu.py dengan kata fungsi cerita beat itu (hook, angka, banding, bukti, langkah, penutup, ...), tidak dengan nama industri klien",
+    "Hanya 2-4 kartu dipakai untuk seluruh video; beat berikutnya memakai ulang kartu yang sudah terpilih",
+    "Tidak ada kartu proses Q01-Q07 atau kartu audio yang mengisi slot visual",
+    "Kulit (palet, huruf, benda, komposisi) datang dari profil merek + tema atau referensi yang dibawa user, bukan dari kartu atau video sumbernya",
+    "Tidak ada kanvas gradien lembut dengan satu benda di tengah pada lebih dari 25 % frame (S-V31)"
+  ]
+}

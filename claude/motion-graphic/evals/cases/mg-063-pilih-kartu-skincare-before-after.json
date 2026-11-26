@@ -1,0 +1,20 @@
+{
+  "id": "mg-063",
+  "source": "reports/RENCANA-PERBAIKAN-KARTU.md §3",
+  "prompt": "Skincare, 15 detik: \"before/after kulit 14 hari, suasana hangat\". Pilih mekanik per beat; brief memakai kata Inggris dan sehari-hari.",
+  "files": [
+    "claude/motion-graphic/SKILL.md",
+    "claude/motion-graphic/scripts/cookbook/pilih_kartu.py"
+  ],
+  "assertions": [
+    "Query per beat berbentuk: before after | suasana hangat | penekanan hasil (atau setara menurut fungsi cerita)",
+    "Memilih M19 atau 80 untuk banding, M13 atau M02 untuk suasana, M05 atau M10 untuk penekanan; 2-3 kartu",
+    "Query berbahasa Inggris (`before after`) tetap menemukan kartu lewat sinonim",
+    "Gagal bila: Gradien biru-ungu generik dipakai sebagai latar",
+    "Setiap beat dicari lewat pilih_kartu.py dengan kata fungsi cerita beat itu (hook, angka, banding, bukti, langkah, penutup, ...), tidak dengan nama industri klien",
+    "Hanya 2-4 kartu dipakai untuk seluruh video; beat berikutnya memakai ulang kartu yang sudah terpilih",
+    "Tidak ada kartu proses Q01-Q07 atau kartu audio yang mengisi slot visual",
+    "Kulit (palet, huruf, benda, komposisi) datang dari profil merek + tema atau referensi yang dibawa user, bukan dari kartu atau video sumbernya",
+    "Tidak ada kanvas gradien lembut dengan satu benda di tengah pada lebih dari 25 % frame (S-V31)"
+  ]
+}

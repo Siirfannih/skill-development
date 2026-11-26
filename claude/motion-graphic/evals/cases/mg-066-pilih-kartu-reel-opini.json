@@ -1,0 +1,19 @@
+{
+  "id": "mg-066",
+  "source": "reports/RENCANA-PERBAIKAN-KARTU.md §3",
+  "prompt": "Reel talking head opini: \"bukan kerja keras, tapi sistem\". Pilih mekanik per beat.",
+  "files": [
+    "claude/motion-graphic/SKILL.md",
+    "claude/motion-graphic/scripts/cookbook/pilih_kartu.py"
+  ],
+  "assertions": [
+    "Query per beat berbentuk: hook opini | balik koreksi bukan tapi | penekanan kata kunci (atau setara menurut fungsi cerita)",
+    "Memilih M14 untuk hook/balik, M07 untuk balik (baris Risiko M07 terbaca), M03 atau M06 untuk penekanan; 3 kartu",
+    "Gagal bila: Relay kata M07 dipakai lebih dari 3 beat berturut-turut (baris Risiko diabaikan)",
+    "Setiap beat dicari lewat pilih_kartu.py dengan kata fungsi cerita beat itu (hook, angka, banding, bukti, langkah, penutup, ...), tidak dengan nama industri klien",
+    "Hanya 2-4 kartu dipakai untuk seluruh video; beat berikutnya memakai ulang kartu yang sudah terpilih",
+    "Tidak ada kartu proses Q01-Q07 atau kartu audio yang mengisi slot visual",
+    "Kulit (palet, huruf, benda, komposisi) datang dari profil merek + tema atau referensi yang dibawa user, bukan dari kartu atau video sumbernya",
+    "Tidak ada kanvas gradien lembut dengan satu benda di tengah pada lebih dari 25 % frame (S-V31)"
+  ]
+}

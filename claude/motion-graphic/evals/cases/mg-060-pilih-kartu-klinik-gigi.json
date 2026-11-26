@@ -1,0 +1,20 @@
+{
+  "id": "mg-060",
+  "source": "reports/RENCANA-PERBAIKAN-KARTU.md §3",
+  "prompt": "Klinik gigi, reel 30 detik: \"orang takut ke dokter gigi; tunjukkan paket scaling Rp 199 rb; testimoni; booking via WA\". Rancang pemilihan mekanik per beat sebelum membangun apa pun.",
+  "files": [
+    "claude/motion-graphic/SKILL.md",
+    "claude/motion-graphic/scripts/cookbook/pilih_kartu.py"
+  ],
+  "assertions": [
+    "Query per beat berbentuk: hook takut | harga promo | testimoni pasien | cta booking (atau setara menurut fungsi cerita)",
+    "Memilih M08 atau M14 untuk hook, M20 untuk angka harga, M16 atau M09 untuk bukti, M05 untuk ajakan; 3-4 kartu",
+    "Bila query `klinik gigi` kosong, query diulang dengan kata fungsi beat (menu fungsi dari pemilih), bukan gaya dikarang",
+    "Gagal bila: Kartu 95 (benda cutout gigi di kanvas gradien) dipakai sebagai pembuka",
+    "Setiap beat dicari lewat pilih_kartu.py dengan kata fungsi cerita beat itu (hook, angka, banding, bukti, langkah, penutup, ...), tidak dengan nama industri klien",
+    "Hanya 2-4 kartu dipakai untuk seluruh video; beat berikutnya memakai ulang kartu yang sudah terpilih",
+    "Tidak ada kartu proses Q01-Q07 atau kartu audio yang mengisi slot visual",
+    "Kulit (palet, huruf, benda, komposisi) datang dari profil merek + tema atau referensi yang dibawa user, bukan dari kartu atau video sumbernya",
+    "Tidak ada kanvas gradien lembut dengan satu benda di tengah pada lebih dari 25 % frame (S-V31)"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "id": "mg-061",
+  "source": "reports/RENCANA-PERBAIKAN-KARTU.md §3",
+  "prompt": "Peluncuran software B2B, 45 detik tanpa wajah: \"approval invoice manual 3 hari jadi 10 menit\". Pilih mekanik per beat.",
+  "files": [
+    "claude/motion-graphic/SKILL.md",
+    "claude/motion-graphic/scripts/cookbook/pilih_kartu.py"
+  ],
+  "assertions": [
+    "Query per beat berbentuk: banding sebelum sesudah | langkah alur aplikasi | angka hemat waktu (atau setara menurut fungsi cerita)",
+    "Memilih M19 untuk langkah dan banding, 63 atau M18 untuk langkah UI, M20 untuk angka; 3 kartu",
+    "Gagal bila: Kartu proses Q01 \"pre-build gates\" muncul untuk kata `alur`",
+    "Setiap beat dicari lewat pilih_kartu.py dengan kata fungsi cerita beat itu (hook, angka, banding, bukti, langkah, penutup, ...), tidak dengan nama industri klien",
+    "Hanya 2-4 kartu dipakai untuk seluruh video; beat berikutnya memakai ulang kartu yang sudah terpilih",
+    "Tidak ada kartu proses Q01-Q07 atau kartu audio yang mengisi slot visual",
+    "Kulit (palet, huruf, benda, komposisi) datang dari profil merek + tema atau referensi yang dibawa user, bukan dari kartu atau video sumbernya",
+    "Tidak ada kanvas gradien lembut dengan satu benda di tengah pada lebih dari 25 % frame (S-V31)"
+  ]
+}
