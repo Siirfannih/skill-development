@@ -6,7 +6,7 @@ description: Cara berpikir tema kanvas editorial (satu benda/garis per gagasan, 
 
 ## 1. Identitas
 Satu gagasan per adegan jadi satu benda, garis, atau aksi UI kecil di kanvas polos; kalimat menempel pada benda itu. Pikiran berganti = dunia berganti.
-Cocok: esai VO tanpa wajah (Soalnya Gini, opini @siirfannih), hook manifesto, konsep Jadisatu non-demo. Tidak cocok: wajah memimpin, demo UI, mayoritas angka, arsip foto.
+Cocok: esai VO tanpa wajah, opini, hook manifesto, konsep produk tanpa demo. Tidak cocok: wajah memimpin, demo UI, mayoritas angka, arsip foto.
 Ukuran: px pada sisi 1080 (lebar 9:16, tinggi 16:9).
 
 ## 2. Keyframe wajib dibuka

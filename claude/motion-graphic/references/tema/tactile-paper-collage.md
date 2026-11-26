@@ -6,7 +6,7 @@ description: Tema kolase kertas dan benda fisik (alas kertas, strip catatan, lab
 
 ## 1. Identitas
 Layar adalah meja kerja: satu kertas bertekstur sebagai alas, tiap poin ditempel sebagai benda atau strip kertas, teks terasa dicetak atau ditulis tangan. Semua muncul seketika seperti ditaruh tangan; VO di depan, bunyi hemat.
-Cocok: listicle ≥ 4 poin berbenda konkret, refleksi @siirfannih, talking head dengan catatan di sisi kosong. Tidak cocok: demo UI berlabel kecil, naskah abstrak tanpa benda, kamera genggam yang memenuhi layar.
+Cocok: listicle ≥ 4 poin berbenda konkret, refleksi personal, talking head dengan catatan di sisi kosong. Tidak cocok: demo UI berlabel kecil, naskah abstrak tanpa benda, kamera genggam yang memenuhi layar.
 
 ## 2. Keyframe wajib dibuka
 `../../guide/referensi/sheets/keyframes/`

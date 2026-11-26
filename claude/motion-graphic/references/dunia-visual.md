@@ -66,7 +66,7 @@ Tidak ada teknik yang dikunci oleh namanya. Kata sifat ("premium") bukan izin un
   3. **Peran teks**: porsi teks dari REF-SPEC, atau default VISUAL + kondisi a–d NEGATIF 6.
 - Jangan tanyakan yang sudah jelas dari bahan. Contohnya: rekaman wajah ada berarti talking head sudah jelas; rasio sudah disebut berarti tidak perlu ditanya lagi.
 
-Contoh buruk vs baik (reel opini @siirfannih):
+Contoh buruk vs baik (reel opini):
 - Buruk: "Mau style teks aesthetic, serif atau bold, B-roll banyak efek?"
 - Baik: "Di rekamanmu ruang di atas kepala polos dan gelap. Aku sarankan kata kunci melengkung di ruang atas kepala seperti `83-k1.jpg` **(Rekomendasi)**. Kalau ruangannya ramai, pilihannya potong ke kartu warna penuh seperti `85-k5-slab-warna-kata-hero.jpg`."
 

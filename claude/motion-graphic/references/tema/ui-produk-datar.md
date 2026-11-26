@@ -6,7 +6,7 @@ description: Cara berpikir tema UI produk (UI dibangun ulang, kamera virtual, bu
 
 ## 1. Identitas
 UI produk dibangun ulang sebagai kode dan menjadi aktor: satu jendela di dunia tenang, kamera yang mendekat, bunyi hanya saat layar berubah. Teks ucapan di luar UI.
-Cocok: naskah yang menunjuk aksi software nyata (ketik, klik, setujui), misalnya launch Jadisatu Canvas. Tidak cocok: refleksi tanpa objek UI.
+Cocok: naskah yang menunjuk aksi software nyata (ketik, klik, setujui), misalnya launch produk software. Tidak cocok: refleksi tanpa objek UI.
 
 ## 2. Keyframe wajib dibuka
 Folder: `../../guide/referensi/sheets/keyframes/`

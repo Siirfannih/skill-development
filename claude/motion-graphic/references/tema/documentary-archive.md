@@ -6,7 +6,7 @@ description: Tema esai/dokumenter berbasis bukti nyata (arsip, dokumen, klip) de
 
 ## 1. Identitas
 Narator memimpin; layar membuktikan kalimatnya dengan bahan nyata yang terbaca; teks menuntun mata ke bukti. Gerak sedikit, potong keras di batas kata, bunyi hemat; tekanan dari jeda, ganti lantai, dan satu hentakan skala per babak.
-Cocok: profil, asal-usul, "kenapa X terjadi" (Soalnya Gini), ≥ 3 sumber bukti. Tidak cocok: demo UI, listicle tanpa arsip.
+Cocok: profil, asal-usul, "kenapa X terjadi", ≥ 3 sumber bukti. Tidak cocok: demo UI, listicle tanpa arsip.
 
 ## 2. Keyframe wajib dibuka
 `../../guide/referensi/sheets/keyframes/`

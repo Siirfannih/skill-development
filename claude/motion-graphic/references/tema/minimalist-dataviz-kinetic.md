@@ -6,7 +6,7 @@ description: Cara berpikir tema angka/grafik minimal (satu wadah data, satu akse
 
 ## 1. Identitas
 Satu layar = satu angka atau perbandingan di satu wadah datar, kanvas gelap atau putih hangat, satu aksen menunjuk pemenang.
-Cocok: beat bukti Jadisatu (jam hemat, pesanan, omzet), recap milestone, sisipan 5–7 dtk di tema lain. Tidak cocok: argumen tanpa angka, demo UI, rasa buatan tangan.
+Cocok: beat bukti angka (jam hemat, pesanan, omzet), recap milestone, sisipan 5–7 dtk di tema lain. Tidak cocok: argumen tanpa angka, demo UI, rasa buatan tangan.
 Peringatan: 0 dari 4 kartu dilihat bergerak; semua gerak dan bunyi = hipotesis dari still + vault.
 Ukuran: px pada sisi 1080 (lebar 9:16, tinggi 16:9). Angka hanya dari naskah/data, jangan dikarang.
 

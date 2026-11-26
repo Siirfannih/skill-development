@@ -6,7 +6,7 @@ description: Cara berpikir tema wajah bicara + teks kinetik (caption di bidang p
 
 ## 1. Identitas
 Wajah dan ruangannya adalah panggung; teks menumpang pada bidang yang disediakan footage (dada polos, headroom, belakang kepala) dan sesekali keluar ke slab warna penuh. Bunyi memukul hanya di engsel.
-Cocok: reel @siirfannih, Soalnya Gini, hook opini. Tidak cocok: video ≥ 80 % UI/arsip tanpa wajah. Audit footage dulu: baju polos/bermotif, headroom, dinding gelap/terang, tangan di dada.
+Cocok: reel berwajah, esai opini, hook opini. Tidak cocok: video ≥ 80 % UI/arsip tanpa wajah. Audit footage dulu: baju polos/bermotif, headroom, dinding gelap/terang, tangan di dada.
 
 ## 2. Keyframe wajib dibuka
 Folder: `../../guide/referensi/sheets/keyframes/`

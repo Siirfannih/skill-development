@@ -1,6 +1,6 @@
 ---
 name: motion-graphic
-description: "Bikin atau revisi video/motion Irfan (Jadisatu, Tuntunly, siirfan): video, reel, promo, storyboard, naskah VO, bedah referensi, animasi teks, klip podcast. Pakai walau permintaannya kasar atau Irfan hanya mengirim referensi video."
+description: "Bikin atau revisi video/motion untuk merek apa pun (Jadisatu, Tuntunly, siirfan, klien): video, reel, promo, storyboard, naskah VO, bedah referensi, animasi teks, klip podcast. Pakai walau permintaannya kasar atau hanya berupa referensi video."
 ---
 
 # Motion Graphic (Irfan)
