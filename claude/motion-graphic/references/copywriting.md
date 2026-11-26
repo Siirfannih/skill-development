@@ -1,63 +1,63 @@
-# Copywriting — script VO dan teks layar
+# Copywriting — VO script and on-screen text
 
-Baca di tahap Naskah dan setiap kali menulis teks yang tampil di layar. Script adalah fondasi: script yang lemah tidak bisa diselamatkan oleh animasi sebagus apa pun.
+Read at the Script stage and whenever writing text that appears on screen. The script is the foundation: a weak script cannot be saved by any animation, no matter how good.
 
-## Isi
+## Contents
 
-1. Nilai copy Irfan
-2. Merapikan draft Irfan
-3. Uji per kalimat
-4. Uji per naskah
-5. Teks layar
-6. Menyerahkan script
+1. My copy values
+2. Polishing my draft
+3. Per-sentence check
+4. Per-script check
+5. On-screen text
+6. Handing over the script
 
-## 1. Nilai copy Irfan
+## 1. My copy values
 
-Optimis pada produk, realistis dalam eksekusi. Copy berbicara tentang manfaat dan dampak pada pengguna (seperti gaya Apple atau Clicky), bukan tentang keterbatasan produk. Keterbatasan ditangani di pengalaman produk, bukan di copy.
+Optimistic about the product, realistic in execution. Copy speaks about user benefits and impact (like Apple or Clicky style), not about product limitations. Limitations are handled in the product experience, not in copy.
 
-Standar penulis: bayangkan storyteller berpengalaman 10+ tahun (penulis naskah Apple, storyteller McKinsey). Setiap kalimat harus lolos pertanyaan **"Apakah orang itu akan menulis kalimat ini?"**
+Writer standard: picture a storyteller with 10+ years of experience (Apple scriptwriter, McKinsey storyteller). Every line must pass **"Would that person write this sentence?"**
 
-## 2. Merapikan draft Irfan
+## 2. Polishing my draft
 
-Irfan sering membawa draft kasar yang strukturnya sudah benar. Tugasmu **mempertajam kata**, bukan menulis ulang.
-- Pertahankan urutan, ide, dan frasa terkuatnya. Jangan hilangkan satu ide pun tanpa menyebutkannya.
-- Setelah merapikan, cocokkan ide per ide dengan draft aslinya. Contoh yang dicegah: "kami tidak membangun AI agent/model/sesuatu yang inspiratif" dan "aman dan terencana" hilang saat dirapikan.
-- Sertakan catatan singkat: apa yang diubah, kenapa, dan apa yang masih terbuka.
+I often bring a rough draft whose structure is already right. Your job is to **sharpen the wording**, not rewrite from scratch.
+- Keep its order, ideas, and strongest phrases. Never drop a single idea without noting it.
+- After polishing, match idea for idea against the original draft. Example prevented: "kami tidak membangun AI agent/model/sesuatu yang inspiratif" (Indonesian, keep as-is) and "aman dan terencana" (Indonesian, keep as-is) disappeared during polishing.
+- Include a brief note: what changed, why, and what is still open.
 
-Setiap masukan Irfan (hook, kalimat, struktur) melewati devil's advocate di `working-with-irfan` §2a sebelum dikembangkan.
+Every input of mine (hook, sentence, structure) goes through devil's advocate in `working-with-irfan` §2a before being developed.
 
-## 3. Uji per kalimat
+## 3. Per-sentence check
 
-- **Gambar, bukan label.** Kalimat yang menyuruh penonton percaya ("rasanya produktif", "ada yang jadi", "sangat membantu") diganti dengan sesuatu yang bisa dibayangkan ("kamu kasih arahan, dan dalam hitungan detik sesuatu berdiri di depanmu").
-- **Ritme yang membawa makna.** Siklus berulang terdengar berulang ("Membangun. Membongkarnya. Membangun lagi."). Penekanan datang dari kalimat pendek yang berdiri sendiri.
-- **Uji dibaca keras.** Nyaman diucapkan dalam satu napas, terdengar seperti orang bicara. Ragam bahasa konsisten (jangan mencampur "tidak" dan "nggak" tanpa alasan).
-- **Rasakan dulu, baru beri nama.** Penonton merasakan masalahnya sebelum diberi istilah ("AI builder trap" muncul setelah lingkarannya terasa).
-- **Pola AI dilarang:** "Bukan A, tapi B" berulang, "Tidak hanya X, tapi juga Y", "Di sisi lain", "Pada akhirnya", penutup yang merangkum ulang, kata kosong (krusial, optimal, fenomena, mengidentifikasi). Jika pola kontras memang inti pesan, pakai paling banyak satu kali dan tandai.
-- **Jujur.** Setiap klaim tentang produk atau cerita Irfan harus benar hari ini. Jika belum pasti, tanyakan atau beri versi aman.
+- **Picture, not label.** Sentences telling viewers what to believe ("rasanya produktif", "ada yang jadi", "sangat membantu" — Indonesian, keep as-is) are replaced with something visualizable ("kamu kasih arahan, dan dalam hitungan detik sesuatu berdiri di depanmu" — Indonesian, keep as-is).
+- **Rhythm that carries meaning.** Repeating cycles sound repetitive ("Membangun. Membongkarnya. Membangun lagi." — Indonesian, keep as-is). Emphasis comes from a short standalone sentence.
+- **Read-aloud test.** Comfortable to say in one breath, sounds like a person talking. Consistent register (do not mix "tidak" and "nggak" without a reason).
+- **Feel first, name second.** Viewers feel the problem before being handed the term ("AI builder trap" appears after the loop is felt).
+- **Banned AI patterns:** repeated "Bukan A, tapi B", "Tidak hanya X, tapi juga Y", "Di sisi lain", "Pada akhirnya" (Indonesian AI patterns; equivalent contrast/filler clichés in English), wrap-up summary endings, empty words (crucial, optimal, phenomenon, identify / krusial, optimal, fenomena, mengidentifikasi). If a contrast pattern is genuinely the message's core, use it at most once and flag it.
+- **Honest.** Every claim about the product or my story must be true today. If uncertain, ask or use a safe version.
 
-## 4. Uji per naskah
+## 4. Per-script check
 
-- Satu benang merah dari hook sampai penutup.
-- Kalau pasar sedang jenuh dengan sebuah pola (jualan kelas AI, "komen PROMPT", jualan pekerja AI), cari sudut pandang yang lebih jernih pada topik yang familiar alih-alih mengulang pola jualan itu.
-- CTA adalah lanjutan cerita, bukan pintu keluar transaksional.
-- Durasi diperkirakan dari jumlah kata: VO santai Indonesia ± 2,5–3 kata/detik, VO Inggris narator Jadisatu ± 139 kata/menit. Jangan generate VO "sementara" untuk mengukur timing.
+- One thread from hook to ending.
+- If the market is saturated with a pattern (selling AI courses, comment "PROMPT", selling AI workers), find a clearer angle on the familiar topic instead of repeating that sales pattern.
+- The CTA is a continuation of the story, not a transactional exit door.
+- Estimate duration from word count: casual Indonesian VO ±2.5–3 words/sec, Jadisatu English narrator VO ±139 words/min. Never generate "temporary" VO just to measure timing.
 
-## 5. Teks layar
+## 5. On-screen text
 
-Teks layar adalah turunan script, bukan tulisan baru. Alasannya: teks yang tidak diucapkan memecah perhatian penonton antara mendengar dan membaca.
-- Hanya bersumber dari `voiceover.full_text` (frasa VO atau terjemahannya). Tidak ada kalimat atau angka tambahan. Contoh yang dicegah: "Rp47.000.000" dan "belum cukup bagus" muncul di layar padahal tidak ada di VO.
-- 2–6 kata per frasa, bertahan 1–3 detik. Kata kerja, pendek, bertitik ("Baca." "Catat. Hafal."). Kalimat panjang hanya untuk tagline penutup.
-- Sentence case untuk narasi. KAPITAL hanya untuk kata vonis satu-dua kata (slam) dan label mono.
-- Satu kata aksen per frase, hanya pada kata yang membawa makna atau manfaat. Tidak pernah otomatis di kata pertama.
-- Satu kebiasaan tanda baca per proyek.
-- Tidak ada subtitle statis: teks kinetik adalah caption-nya. Ukuran, warna, dan gerak teks ada di `typography.md`.
+On-screen text is derived from the script, not newly written copy. Reason: unspoken text splits the viewer's attention between listening and reading.
+- Sourced only from `voiceover.full_text` (exact VO phrases or their translation). Zero extra sentences or numbers. Example prevented: "Rp47.000.000" and "belum cukup bagus" (Indonesian, keep as-is) appeared on screen even though they were absent from VO.
+- 2–6 words per phrase, lasting 1–3 seconds. Verbs, short, punctuated ("Baca." "Catat. Hafal." — Indonesian, keep as-is). Long sentences only for the closing tagline.
+- Sentence case for narration. ALL CAPS only for one-to-two-word verdict words (slam) and mono labels.
+- One accent word per phrase, only on the word carrying meaning or benefit. Never automatically on the first word.
+- One punctuation habit per project.
+- No static subtitles: kinetic typography is the caption. Text size, colour, and motion live in `typography.md`.
 
-## 5b. Filter tambahan
+## 5b. Extra filter
 
-Setelah uji §3–§4, saring sekali lagi dengan `external/anti-slop/skills/antislop-copywriting` untuk pola tulisan generik yang belum tertangkap. Jika aturan anti-slop bertentangan dengan arahan Irfan atau file ini, arahan Irfan dan file ini yang menang.
+After the §3–§4 checks, filter once more with `external/anti-slop/skills/antislop-copywriting` for generic writing patterns not yet caught. If anti-slop rules conflict with my direction or this file, my direction and this file win.
 
-## 6. Menyerahkan script
+## 6. Handing over the script
 
-- Draft ditampilkan di chat, bukan file, dan diulang sampai Irfan bilang final. Setelah final, simpan sebagai file sebelum apa pun di-generate.
-- Jangan menyatakan script "siap" hanya karena kamu yang menulisnya. Yang menentukan final adalah Irfan.
-- Cek terakhir: setiap kalimat lolos §3, semua ide draft Irfan masih ada, setiap klaim punya dasar.
+- Show drafts in chat, not as a file, and iterate until I say final. Once final, save as a file before anything is generated.
+- Never declare a script "ready" just because you wrote it. I am the one who decides when it is final.
+- Final check: every line passes §3, all ideas from my draft are still there, every claim has a basis.

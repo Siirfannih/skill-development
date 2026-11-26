@@ -136,3 +136,15 @@ Second-model verification against `origin/main` (`0c4e4aa9`). One section per fi
 | `## 5. Membawa pengalaman, bukan template` | Apa yang boleh dibawa (gerbang, cara ukur, QA, alat) vs tidak boleh dibawa (palet, font, aset proyek lain kecuali diminta). | What carries over (gates, measurement, QA, tools) vs what does not (palettes, fonts, other projects' assets unless asked). | yes |
 | `## 6. Biaya dan kredit` | Larangan generate berbayar sebelum gerbang script/storyboard final, perkiraan biaya, 1–2 variasi per potong (`MOTION-CORE.md` §1). | Ban on paid generation before final script/storyboard gates, cost estimate, 1–2 variations per segment (`MOTION-CORE.md` §1). | yes |
 | `## 7. Kapan bertanya` | Maks 3 pertanyaan awal dalam 1 pesan setelah cek repo, larangan menebak (core rule 13), dan tabel tindakan 5 situasi. | Max 3 upfront questions in 1 message after checking repo, no guessing (core rule 13), and 5-situation action table. | yes |
+
+## `claude/motion-graphic/references/copywriting.md`
+
+| Section | Indonesian meaning (one line) | English meaning (one line) | Equal? |
+|---|---|---|---|
+| Title & Contents | Panduan copywriting VO dan teks layar di tahap Naskah beserta daftar isi 6 bagian. | Copywriting guide for VO scripts and on-screen text at Script stage with 6-item TOC. | yes |
+| `## 1. Nilai copy Irfan` | Nilai copy (optimis pada produk, realistis eksekusi, fokus manfaat, gaya Apple/Clicky, standar storyteller 10+ tahun). | Copy values (optimistic on product, realistic in execution, benefit-focused, Apple/Clicky style, 10+ yr storyteller standard). | yes |
+| `## 2. Merapikan draft Irfan` | Mempertajam kata tanpa menghilangkan ide draft pemilik, catatan perubahan, dan devil's advocate `working-with-irfan` §2a. | Sharpen wording without dropping ideas from my draft, include change note, pass `working-with-irfan` §2a devil's advocate. | yes |
+| `## 3. Uji per kalimat` | 6 uji kalimat (gambar bukan label, ritme, baca keras, rasa dulu baru nama, larangan pola AI, jujur) dengan contoh Indonesia utuh. | 6 sentence tests (picture not label, rhythm, read aloud, feel before name, banned AI patterns, honest) preserving Indonesian samples. | yes |
+| `## 4. Uji per naskah` | Benang merah, sudut jernih saat pola jenuh, CTA lanjutan cerita, perkiraan durasi (2,5–3 kata/dtk ID; 139 kata/mnt EN). | Single thread, clear angle in saturated patterns, story-continuation CTA, word-count duration estimates (2.5–3 wps ID; 139 wpm EN). | yes |
+| `## 5. Teks layar` & `5b` | Teks layar hanya dari `voiceover.full_text`, 2–6 kata/1–3 dtk, sentence case/KAPITAL, 1 kata aksen, tanda baca konsisten, tanpa subtitle statis, filter `antislop-copywriting`. | On-screen text from `voiceover.full_text` only, 2–6 words/1–3 s, sentence case/ALL CAPS, 1 accent word, consistent punctuation, no static subtitles, `antislop-copywriting` filter. | yes |
+| `## 6. Menyerahkan script` | Tampilkan draft di chat sampai pemilik bilang final baru simpan file; cek akhir §3, ide utuh, klaim berdasar. | Show draft in chat until I say final then save file; final check on §3, preserved ideas, grounded claims. | yes |
