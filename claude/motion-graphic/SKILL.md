@@ -61,6 +61,7 @@ Profil merek memilih warna, logo, huruf utama, `huruf_kedua` bila ada, dan nada;
 | menulis storyboard, metafora beat, tampilan UI/platform | `references/storyboard.md` |
 | mengatur teks layar (posisi, ukuran, gerak per peran) | `references/teks.md` |
 | mengatur kamera, transisi, kurva gerak | `references/kamera-gerak.md` |
+| anggaran token, satu penilai frame | `references/orkestrasi.md` §4-5 |
 | memotong VO, SFX, musik, mix | `references/audio.md` (bagian atas dulu) |
 | ada pesan revisi atas video atau storyboard | `references/revisi.md` |
 | memilih mekanik per beat | `cookbook/INDEX.md`, lalu `scripts/cookbook/pilih_kartu.py`; buka 2-4 kartu saja |

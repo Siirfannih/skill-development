@@ -5,7 +5,7 @@
              [--klip video.mp4 --dari 2.0 --sampai 5.0] [--fps 8] [--maks-frame 24]
 
 Masukan: keyframe kartu (guide/referensi/sheets/keyframes/<id>-k*.jpg) dan, bila --klip diberi, frame klip pada --fps
-(lembar kontak berstempel waktu). Model vision (claude2 --model sonnet, membaca gambar lewat tool Read) menulis spec;
+(lembar kontak berstempel waktu). Model vision (CLI claude --model sonnet, membaca gambar lewat tool Read) menulis spec;
 skrip memvalidasi terhadap spec.schema.json dan mengulang (maks 2x) dengan pesan galat bila gagal.
 Keluaran: pabrik/spec/<kartu>-<teknik>.json. Tanpa klip: spec.terukur.dari_klip = false (gerak hanya perkiraan dari keyframe).
 Kartu yang punya field "Video sumber:" dan tidak diberi --klip: dicetak sebagai petunjuk, tidak dipakai otomatis.

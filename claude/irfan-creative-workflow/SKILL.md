@@ -47,11 +47,11 @@ Nama tahap mengikuti judul `## Tahap N` di `motion-graphic/templates/TAHAP.md` (
 | Storyboard/block out | **VO** (bila ada) | VO final | Hanya dimulai setelah naskah dan storyboard disetujui |
 | Animate → Effects & grade → Mix | Build, lalu SFX → musik | Kode/proyek per beat; SFX dan musik disusun setelah visual lulus (`motion-graphic` Lantai F26) | Satu fungsi per beat; revisi mengubah kode yang ada, bukan membangun ulang |
 | Mix → Deliver | QA | Contact sheet, cek audio (`audio_qa.py`, `voice_fidelity.py`), checklist playbook; rakitan klip ditranskrip ulang (`selects/rakitan_cek.py`) | Bagian gagal diperbaiki sebelum dikirim |
-| Deliver | Kirim + posting | Video, caption, catatan penyimpangan; setiap video/audio hasil render diunggah ke Google Drive folder "Claude edit/<proyek>" dan link filenya diberikan | Irfan bisa membuka hasilnya tanpa membuka file lokal |
+| Deliver | Kirim + posting | Video, caption, catatan penyimpangan; setiap video/audio hasil render dikirim lewat saluran yang ada (Google Drive folder "Claude edit/<proyek>" bila remote `gdrive:` tersedia; selain itu path atau link yang bisa dibuka) dan lokasinya diberikan | Irfan bisa membuka hasilnya tanpa membuka file lokal |
 
 **Rekaman talking head mentah** (Irfan merekam dulu, lalu klip dipilih): tahap Naskah adalah *paper edit*, yaitu klip per beat dipilih dari transkrip per kata (satu take utuh per kalimat) dan diuji storyteller seperti script; tahap Storyboard/block out berisi storyboard per klip; tahap Animate memakai rough cut, dan keluaran untuk editor manusia mengikuti `motion-graphic/references/selects-editor.md`. Instruksi Irfan untuk mengerjakan beberapa tahap sekaligus berlaku untuk tahap yang ia sebut; catat urutan yang dilompati di catatan penyimpangan.
 
-**Kirim lewat Drive:** unggah dengan `rclone copy <file> "gdrive:Claude edit/<proyek>/"` satu per satu (unggah paralel ke folder baru membuat folder kembar), ambil ID dengan `rclone lsjson` lalu beri link `https://drive.google.com/file/d/<ID>/view`. Jangan `rclone link`: perintah itu mengubah izin file menjadi "siapa pun yang punya link".
+**Kirim lewat Drive (bila remote `gdrive:` ada):** unggah dengan `rclone copy <file> "gdrive:Claude edit/<proyek>/"` satu per satu (unggah paralel ke folder baru membuat folder kembar), ambil ID dengan `rclone lsjson` lalu beri link `https://drive.google.com/file/d/<ID>/view`. Jangan `rclone link`: perintah itu mengubah izin file menjadi "siapa pun yang punya link".
 
 **Kenapa urutannya begini:** setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Satu kalimat script yang salah bisa diperbaiki dalam 10 detik. Kalau kalimat yang sama sudah jadi VO, memperbaikinya berarti kredit terbuang. Kalau sudah jadi render, memperbaikinya butuh berjam-jam.
 
@@ -109,7 +109,7 @@ Tampilkan di chat. Jangan buat file sebelum final. Jangan menyatakan script "sia
 - **Color grading footage:** `motion-graphic/references/grade.md` + `scripts/gate/grade_ukur.py`; 2–4 varian diukur dan disandingkan sebelum render penuh.
 - **Audio:** ElevenLabs (VO/SFX) hanya setelah storyboard disetujui. Timestamp kata dari Whisper dipakai untuk sinkron teks.
 - **QA audio:** `motion-graphic/scripts/audio_qa.py`, `scripts/gate/voice_fidelity.py` (suara mendem dibanding sumber), `external/earshot`; Gemini multimodal bila tersedia untuk menilai sinkron, emosi, dan kelelahan telinga.
-- **Akses Mac:** minta akses folder `~/Proyek` saat butuh skill atau proyek lama. Baca bagian workflow-nya saja.
+- **Akses Mac:** minta akses folder `~/Proyek` saat butuh skill atau proyek lama; tanpa akses Mac, kerja dari repo dan bahan sesi. Baca bagian workflow-nya saja.
 
 ---
 

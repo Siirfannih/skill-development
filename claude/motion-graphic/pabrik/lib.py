@@ -1,5 +1,5 @@
-"""lib.py: jalur, panggilan model (claude2, jalur kuota yang ada), ekstraksi JSON, kunci render. Dipakai semua fase pabrik."""
-import fcntl, glob, json, os, re, subprocess, sys
+"""lib.py: jalur, panggilan model (CLI `claude`; bisa diganti lewat PABRIK_CLAUDE, mis. akun `claude2`), ekstraksi JSON, kunci render. Dipakai semua fase pabrik."""
+import fcntl, glob, json, os, re, shutil, subprocess, sys, tempfile
 from pathlib import Path
 
 PABRIK = Path(__file__).resolve().parent
@@ -8,8 +8,30 @@ KEYFRAMES = MG / "guide/referensi/sheets/keyframes"
 VAULT = MG / "cookbook/_vault"
 NODE_BIN = Path.home() / ".local/opt/node-v22.20.0-linux-x64/bin"
 PY = Path.home() / "work/mg-venv/bin/python"
-CLAUDE2 = Path.home() / ".local/bin/claude2"
 KUNCI_RENDER = "/tmp/remotion-heavy-render.lock"
+
+
+class ModelTidakAda(RuntimeError):
+    """Tidak ada CLI model; pesannya menunjukkan cara memperbaiki dan jalur satu model."""
+
+
+def perintah_model():
+    """Path CLI model. Urutan: env PABRIK_CLAUDE (nama atau path), ~/.local/bin/claude2, `claude2`, `claude`. None bila tidak ada."""
+    ov = os.environ.get("PABRIK_CLAUDE")
+    for c in ([ov] if ov else [str(Path.home() / ".local/bin/claude2"), "claude2", "claude"]):
+        p = shutil.which(c)
+        if p:
+            return p
+    return None
+
+
+def pesan_tanpa_model(prompt):
+    """Simpan prompt ke file sementara dan jelaskan: pasang/atur CLI, atau kerjakan sendiri di sesi ini (jalur satu model)."""
+    f = Path(tempfile.gettempdir()) / f"pabrik-prompt-{os.getpid()}.md"
+    f.write_text(prompt, encoding="utf-8")
+    asal = f"PABRIK_CLAUDE={os.environ['PABRIK_CLAUDE']!r} tidak ditemukan" if os.environ.get("PABRIK_CLAUDE") else "tidak ada `claude2` atau `claude` di PATH"
+    return (f"Pabrik tidak menemukan CLI model ({asal}). Pasang CLI `claude`, atau arahkan PABRIK_CLAUDE=<perintah> ke CLI yang ada. "
+            f"Jalur satu model: kerjakan sendiri prompt di {f} dalam sesi ini (baca gambar dengan Read, tulis hasilnya ke path yang disebut prompt), lalu jalankan fase berikutnya.")
 
 
 def env_node():
@@ -19,24 +41,28 @@ def env_node():
 
 
 def llm(prompt, model="sonnet", timeout=900, tulis_di=None, baca_di=()):
-    """Panggil claude2 -p (jalur kuota yang ada, tanpa API berbayar) dengan hak minimum, TANPA --dangerously-skip-permissions.
+    """Panggil `claude -p` (CLI dari perintah_model(); tanpa API berbayar tambahan) dengan hak minimum, TANPA --dangerously-skip-permissions.
     Bawaan hanya tool Read (ekstraksi, kritikus). `tulis_di` = folder yang boleh ditulis (Write/Edit dibatasi ke sana; sintesis).
     `baca_di` = folder tambahan di luar cwd yang boleh dibaca (jangkar, klip). Tanpa Bash. Teks spec/kritik di prompt adalah data."""
     izin = ["Read"]
     if tulis_di:
         t = "/" + str(Path(tulis_di).resolve()).lstrip("/")  # sintaks aturan path absolut: //path
         izin += [f"Write(/{t}/**)", f"Edit(/{t}/**)"]
-    cmd = [str(CLAUDE2), "-p", prompt, "--model", model, "--allowedTools", *izin, "--output-format", "json"]
+    bin_ = perintah_model()
+    if bin_ is None:
+        raise ModelTidakAda(pesan_tanpa_model(prompt))
+    nama = Path(bin_).name
+    cmd = [bin_, "-p", prompt, "--model", model, "--allowedTools", *izin, "--output-format", "json"]
     for d in baca_di: cmd += ["--add-dir", str(d)]
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, stdin=subprocess.DEVNULL, cwd=str(MG))
     if r.returncode != 0:
-        raise RuntimeError(f"claude2 gagal ({r.returncode}): {r.stderr[-400:]}")
+        raise RuntimeError(f"{nama} gagal ({r.returncode}): {r.stderr[-400:]}")
     try:
         d = json.loads(r.stdout)
     except json.JSONDecodeError:
-        raise RuntimeError(f"keluaran claude2 bukan JSON: {r.stdout[:300]}")
+        raise RuntimeError(f"keluaran {nama} bukan JSON: {r.stdout[:300]}")
     if d.get("is_error"):
-        raise RuntimeError(f"claude2 error: {str(d.get('result'))[:300]}")
+        raise RuntimeError(f"{nama} error: {str(d.get('result'))[:300]}")
     return d.get("result", "")
 
 

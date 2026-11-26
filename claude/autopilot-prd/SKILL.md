@@ -38,7 +38,7 @@ Untuk butir yang sudah ada di rencana tertulis:
 1. Ambil butir siap teratas (semua ketergantungan sudah merge).
 2. Worktree + branch sendiri. `pnpm install --frozen-lockfile --prefer-offline` setelah `git worktree add`.
 3. Baca hanya file acuan butir itu.
-4. Kerjakan. Delegasikan sub-tugas paralel yang tidak menyentuh file yang sama (subagent, Codex `exec`, worker PC siang hari).
+4. Kerjakan. Bila ada pekerja (subagent, Codex `exec`, worker PC siang hari), delegasikan sub-tugas paralel yang tidak menyentuh file yang sama; tanpa pekerja, kerjakan sendiri per butir.
 5. Gerbang lapis 1. Gagal → perbaiki pada penyebabnya. Masalah yang sama gagal 3× → catat blocker, pindah butir.
 6. Baca ulang spek baris demi baris setelah tes hijau (pelajaran B6).
 7. EVALUASI.md, squash-merge, centang antrean, hapus cache `.next` worktree, kembali ke langkah 1.
@@ -63,7 +63,9 @@ Irfan menjawab dalam satu kali baca untuk semua keputusan, bukan satu per satu.
 
 Rahasia ke repo/log/laporan, perubahan global environment Mac, dan menghentikan proses aplikasi atau sesi lain. PC server boleh dipakai kapan pun setelah mengecek kapasitas dan sesi aktif; pekerjaan baru tidak boleh mengganggu sesi yang sedang berjalan.
 
-## Delegasi ke Codex di PC server
+## Delegasi ke Codex di PC server (opsional)
+
+Hanya di mesin dengan PC worker dan jembatannya; tanpa itu, kerjakan sendiri per butir.
 
 Claude di Mac = perencana + reviewer. Codex di PC = pekerja. Jembatan: `~/AI-OPS/codex-pc/pc.sh`.
 
@@ -75,14 +77,14 @@ Claude di Mac = perencana + reviewer. Codex di PC = pekerja. Jembatan: `~/AI-OPS
 
 Uji yang memanggil DeepSeek ditandai `(offpeak)` dan hanya jalan di luar peak. Peak DeepSeek (tarif 2×) hanya Senin–Jumat 09.00–12.00 dan 14.00–18.00 WITA; Jumat 18.00 sampai Senin 09.00 WITA penuh off-peak. Saat peak, pengembangan memakai provider AI `mock`.
 
-## Report (wajib, berbasis event)
+## Report (berbasis event)
 
-Setiap butir selesai, tertahan, atau sesi berakhir, kirim evaluasinya ke repo report GitHub:
+Setiap butir selesai, tertahan, atau sesi berakhir, kirim evaluasinya ke repo report GitHub bila `ops-report` tersedia; tanpa `ops-report`, tulis `EVALUASI.md` dan titik lanjut di `DAILY` di repo proyek:
 `ops-report add <slug> --agent <Claude|Codex> --item <id> --status <selesai|tertahan|berjalan|gagal> --file <EVALUASI.md>` (atau isi lewat stdin).
 Slug dari `~/.ops-report/registry.json`. Isi: hasil + bukti, sisa, Perlu keputusan. Tanpa rahasia. Push tidak memakai token model.
 Untuk pertanyaan status/konteks proyek: baca `~/.ops-report/INDEX.md` lalu `projects/<slug>.md`, jangan menjelajah repo.
 
-## Hierarki kerja dan pembagian token (PC server)
+## Hierarki kerja dan pembagian token (PC server; bila ada pekerja, selain itu lead mengerjakan sendiri)
 
 | Lapis | Model | Kerjakan | Jangan |
 |---|---|---|---|
@@ -100,7 +102,7 @@ Ukur, jangan tebak: report tiap tugas Codex memuat baris token. Bandingkan per j
 
 ## Kartu review (wajib untuk setiap butir yang selesai)
 
-Isi `ops-report add` untuk butir selesai dimulai dengan kartu ini, supaya Irfan menilai hasil tanpa membaca sesi:
+Isi `ops-report add` (atau `EVALUASI.md`/DAILY bila tanpa ops-report) untuk butir selesai dimulai dengan kartu ini, supaya Irfan menilai hasil tanpa membaca sesi:
 ```
 Kartu review · <id>
 Berubah: <maks 2 baris, bahasa pengguna, bukan bahasa kode>

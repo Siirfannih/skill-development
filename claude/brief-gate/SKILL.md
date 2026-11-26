@@ -23,7 +23,7 @@ Scale to cost:
 - **Light** (one subagent, read-only, cheap to repeat, for example finding files): steps 3.1 and 3.3 only, one minute is enough.
 - **Heavy** (fan-out of ≥3 agents, render, API credits, more than 15 minutes of work, or the result becomes a permanent rule or preset): every step, including the pilot (3.5).
 
-This gate is **not** a reason to stop and ask my permission. A plan I already approved keeps running. This gate is your internal check.
+A single model that delegates nothing skips this gate, except when it writes instructions for another model. This gate is **not** a reason to stop and ask my permission. A plan I already approved keeps running. This gate is your internal check.
 
 ## 3. Gate steps
 

@@ -3,7 +3,7 @@
 
   sintesis.py <spec.json> [--nama Nama] [--revisi hasil-uji.json]
 
-Berkas yang ditulis model (claude2 --model sonnet, dengan tool Write di pabrik/kandidat/<Nama>/):
+Berkas yang ditulis model (CLI claude --model sonnet, dengan tool Write di pabrik/kandidat/<Nama>/):
   <Nama>.tsx   komponen + `export const <Nama>PropsSchema` (zod); semua nilai visual = props; lulus lint.py
   Demo.tsx     DemoA dan DemoB: komponen yang sama dengan dua set token warna/huruf berbeda
   meta.json    {fungsi, width, height, fps, durasi, stills[], urutan{dari,sampai}, catatan}

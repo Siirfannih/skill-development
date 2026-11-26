@@ -12,7 +12,7 @@
 3. **Pilih musik terukur**: `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 kandidat/*` → peringkat, benturan dengan suara, saran EQ.
 4. Suara sumber klip yang terukur bersih tidak diproses (`audio.md` §14.6); rekaman sendiri diukur dulu dan jedanya dibersihkan (`gate/pause_clean.py`). Musik yang menyesuaikan.
 5. **Kandidat musik ≥ 20 dari ≥ 2 sumber** (folder Irfan dan `Asset/musik/MUSIK.md`; `scripts/audio/musik_cari.py --kategori <k>` untuk Mixkit berlisensi; ElevenLabs Music dengan biaya disebut dulu; Epidemic hanya bila tersedia, `../sfx/FAMILI.md` §2; YouTube via `yt-dlp` hanya untuk mengukur, bukan final tanpa lisensi); bukan hanya "yang pernah dipakai" (gerbang skrip FAIL di < 8). Satu track tidak dipakai untuk semua klip dalam satu batch; tiap klip genre berbeda.
-6. **Ukur potongan yang dipakai, bukan track utuh**: offset mulai mengubah onset (2,2 → 3,6). `earshot describe` potongan itu: instrumental, tidak sedih. Pilih bagian tanpa breakdown di dalam durasi klip. Mix: `audio.md` §14.10 resep Behindwork.
+6. **Ukur potongan yang dipakai, bukan track utuh**: offset mulai mengubah onset (2,2 → 3,6). `earshot describe` potongan itu bila earshot ada (tanpa itu: `music_fit.py` + cek bebas vokal dari judul/sumber, tandai "belum didengar alat"): instrumental, tidak sedih. Pilih bagian tanpa breakdown di dalam durasi klip. Mix: `audio.md` §14.10 resep Behindwork.
 
 ## Cara memutuskan (alasan dari koreksi Irfan; rujukan menimbang, bukan aturan)
 - **[AUD-02] Titik potong suara diukur dari gelombang dan transkrip ulang** · kelas P · cek: sebelum suara dikunci

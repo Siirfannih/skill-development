@@ -54,7 +54,7 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
   - gerbang audio (keterdengaran SFX, VO di atas latar pada volume HP).
 - Render final sekali, setelah reviewer segar memberi SHIP.
 
-## Hierarki kerja dengan subagent
+## Hierarki kerja dengan subagent (hanya bila ada worker)
 Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worker bukan keputusan.
 - **Tingkat 0 · mekanis:** worker boleh langsung mengerjakan, dengan bukti still sebelum/sesudah. Contohnya:
   - geser koordinat ke safe zone;
@@ -106,7 +106,7 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
 ## Sesi otonom/terjadwal
 - Proses panjang (render, probe seluruh film, earshot banyak file) wajib dijalankan di **latar belakang**, jangan sebagai perintah foreground yang menunggu.
   - Kasus v21: satu perintah menahan sesi 1 jam 15 menit. Pesan Irfan tidak terbaca dan tidak ada laporan.
-- Kirim **progres singkat minimal setiap 15–20 menit** lewat SendUserMessage: apa yang selesai, apa yang berjalan, dan perkiraan selesai.
+- Bila klienmu punya kanal progres (mis. SendUserMessage), kirim ringkas saat fase selesai atau tiap 15–20 menit untuk proses panjang: apa yang selesai, apa yang berjalan, perkiraan selesai.
 - Sesi yang dibuat untuk Irfan selalu membawa dua instruksi di atas dalam prompt-nya.
 
 ## Kinetic typography: teknik dipilih menurut PERAN teks (prinsip, bukan aturan mutlak)
@@ -137,8 +137,8 @@ Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. 
   - VO tetap di atas latar pada volume HP 20/50/100 %;
   - tidak ada 2–6 kHz yang menusuk.
 
-- **Gerbang DENGAR wajib sebelum SFX atau musik masuk mix, di semua video dan semua mesin.** Tersambung ke gerbang muat konteks dan bedah referensi (Brief), SFX dan musik (Mix), serta preview + QA di `references/alur-teknis.md` §4. Earshot tidak terpasang atau gagal = berhenti dan lapor, bukan lanjut tanpa telinga. Angka level/spektrum tidak memberi tahu bunyinya seperti apa. Langkahnya:
-  1. Jalankan `git submodule update --init external/earshot` lalu pasang earshot; di Mac bila disk cloud sempit, dengan Python 3.12. PC server (`node-c-pc`): earshot terpasang di `~/work/mg-venv` (`earshot doctor` harus lulus).
+- **Gerbang DENGAR sebelum SFX atau musik masuk mix, dengan earshot bila terpasang.** Tersambung ke gerbang muat konteks dan bedah referensi (Brief), SFX dan musik (Mix), serta preview + QA di `references/alur-teknis.md` §4. Earshot tidak terpasang atau gagal: lanjut dengan alat ukur repo (`music_fit`, `pace_read`, `sfx_vet.py`, ebur128) dan tulis "belum didengar alat" di laporan kirim; gerbang DENGAR itu NOT RUN, tidak pernah PASS. Angka level/spektrum tidak memberi tahu bunyinya seperti apa; dengan earshot, langkahnya:
+  1. Jalankan `git submodule update --init external/earshot` lalu pasang earshot; di Mac bila disk cloud sempit, dengan Python 3.12. Bila earshot sudah terpasang di mesin ini (mis. `~/work/mg-venv`), `earshot doctor` harus lulus.
   2. `earshot describe` tiap file.
   3. `earshot match` dengan deskripsi peran plus `--alts` pembanding salah, misalnya "car engine starting", "motorcycle revving", "error buzz", "record scratch".
   4. Hanya kandidat "strong" yang tidak kalah dari pembandingnya yang boleh dipakai.

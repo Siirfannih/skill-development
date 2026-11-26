@@ -1,6 +1,6 @@
 # Dua peran: Sutradara dan Editor (layer komunikasi)
 
-Dibaca di awal tahap Brief setiap pekerjaan video. Gerbang per tahap di `references/alur-teknis.md` §4 tidak berubah; file ini hanya mengatur **siapa** mengerjakan gerbang mana dan **bagaimana** keduanya berbicara.
+Dibaca hanya bila pekerjaan dibagi ke Editor (subagen atau model lain); satu model tidak perlu membukanya. Gerbang per tahap di `references/alur-teknis.md` §4 tidak berubah; file ini hanya mengatur **siapa** mengerjakan gerbang mana dan **bagaimana** keduanya berbicara.
 
 ## Isi
 1. Kenapa dipecah
@@ -81,7 +81,10 @@ Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat men
 6. Maks 3 ronde per beat; gagal 2× di butir sama = ganti pendekatan; gagal 3× = tanya Irfan dengan frame sebelum/sesudah + 2 opsi.
 7. Revisi Irfan: Sutradara memberi nomor setiap catatan, menunggu Irfan selesai ("udah", "go"), menerjemahkan ke satu TASK, Editor mengerjakan dalam satu putaran. Setiap putaran = versi baru, versi yang sudah dilihat Irfan tidak ditimpa.
 
-## 6. Menjalankan Editor
+## 6. Menjalankan Editor (opsional)
+
+Hanya bila subagen atau model lain tersedia dan mempercepat; tanpa itu, kamu memegang kedua peran dalam putaran terpisah (§7).
+
 
 - **Claude Code:** `Agent` (subagent_type `general-purpose`), prompt = isi `templates/roles/editor.md` dengan path proyek dan TASK terisi. **Satu TASK = satu Editor baru.** Ronde berikutnya tidak diteruskan ke Editor yang sama: semua status ada di `handoff/` dan `STATUS.md`, jadi Editor baru membaca TASK + STATUS saja. Editor lama yang dibiarkan hidup lintas ronde membawa seluruh riwayatnya (kode, log, gambar) ke setiap giliran, dan biayanya naik setara ukuran konteks × jumlah giliran.
 - **Batas konteks.** Sesi atau subagen yang konteksnya sudah besar (±200 ribu token, atau sudah melewati satu ronde/tahap penuh) menulis `STATUS.md` (selesai, berikutnya, file kunci) lalu diganti sesi/subagen baru. Sutradara diganti di tiap pergantian tahap `SKILL.md` §0c.
@@ -92,7 +95,7 @@ Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat men
 
 ## 7. Kapan boleh satu peran
 
-Perubahan sekecil satu angka/teks di satu beat yang sudah terkunci, atau pertanyaan tanpa build: Sutradara boleh mengerjakan sendiri dan mencatatnya di `DECISIONS.md`. Selebihnya dua peran.
+Perubahan sekecil satu angka/teks di satu beat yang sudah terkunci, atau pertanyaan tanpa build: Sutradara boleh mengerjakan sendiri dan mencatatnya di `DECISIONS.md`. Bawaan satu model: kamu membangun, lalu menilai dari gambar sebelum membaca catatan buildmu sendiri. Dua peran bila tersedia dan Irfan memintanya.
 
 ## 8. Menguji hipotesis
 

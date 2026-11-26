@@ -18,8 +18,8 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap = judul `## Ta
 - [ ] Spine gaya dikunci: satu still per peran teks di atas footage asli, dinilai berdampingan dengan frame kunci · baca: `cookbook/README.md` §6 butir 2, `references/typography.md` §8a · bukti: `qc/spine/SPINE.md` →
 
 ## Tahap 4 · Animate
-- [ ] Sistem desain video: Sutradara menulis `tema.ts` (token berkategori), satu pekerja membangun komponen bersama, papan acuan disetujui · baca: `templates/sistem-desain/README.md`, `references/orkestrasi.md` §1 · bukti: `tema_cek.py` LULUS + path papan acuan →
-- [ ] Visual dibangun per TASK adegan, satu Editor baru per TASK, hanya dari token + komponen bersama; lembar sanding semua adegan dicek sekeluarga · baca: `references/roles.md` §5–6, `references/orkestrasi.md` §3 · bukti: REPORT tiap TASK →
+- [ ] Sistem desain video: `tema.ts` (token berkategori) ditulis lebih dulu, lalu komponen bersama dari token itu (satu model boleh mengerjakan keduanya; pekerja lain bila ada), papan acuan disetujui · baca: `templates/sistem-desain/README.md`, `references/orkestrasi.md` §2 · bukti: `tema_cek.py` LULUS + path papan acuan →
+- [ ] Visual dibangun per adegan, hanya dari token + komponen bersama (satu Editor baru per TASK bila mendelegasikan); lembar sanding semua adegan dicek sekeluarga · baca: `references/roles.md` §5–6, `references/orkestrasi.md` §3 (bila mendelegasikan) · bukti: lembar still per adegan (REPORT tiap TASK bila mendelegasikan) →
 
 ## Tahap 5 · Effects & grade
 - [ ] Tiap efek berfungsi (NEGATIF 10) dan grade terukur, sebelum visual dikunci · baca: NEGATIF 10 di `SKILL.md`, `references/grade.md` · bukti: daftar efek + fungsinya di `RESEP.md` + keluaran `grade_ukur.py` →
@@ -28,11 +28,11 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap = judul `## Ta
 ## Tahap 6 · Mix
 - [ ] SFX lalu musik dikunci · baca: `guide/sfx/GUIDE.md`, `references/audio.md` §14.3–14.9 · bukti: `audio_order.py lock sfx` + `lock musik` PASS →
 - [ ] Mix dikunci: stem, `mix.wav`, dan `cues.json` final; lulus uji speaker HP · baca: `references/audio.md` §14.10 · bukti: `audio_phone.py --gate` keluar 0 + path `mix.wav` →
-- [ ] Devil's Advocate dari luar, usulnya diputus · baca: `templates/roles/devils-advocate.md` · bukti: `qc/da/USUL.md` + putusan di `qc/JURI.md` →
+- [ ] Mata luar: Devil's Advocate dari subagen/model lain bila ada; bila tidak, satu putaran kritik sendiri dari brief steril (brief Irfan verbatim + frame tahan + kiblat + contoh gagal) **sebelum** membaca catatan desainmu; usulnya diputus · baca: `templates/roles/devils-advocate.md` · bukti: `qc/da/USUL.md` + putusan di `qc/JURI.md` →
 
 ## Tahap 7 · Deliver
 - [ ] Render 1 utuh dikirim ke user · baca: `cookbook/README.md` §Juri 7, `references/delivery-gate.md` · bukti: path MP4 + `render.sh` final PASS →
 - [ ] Semua masukan user dikumpulkan jadi satu ronde · baca: `references/revision-log.md` §0 · bukti: ID baris `DECISIONS.md` →
 - [ ] Masukan dikerjakan, hanya atribut yang diminta · baca: `references/revision-log.md` §0 butir 5–6 · bukti: `revisi_cek.py cek` LULUS →
 - [ ] Render 2 dikirim · bukti: path MP4 →
-- [ ] Hasil diunggah ke Google Drive + caption + daftar penyimpangan · baca: `../irfan-creative-workflow/SKILL.md` §2 (Deliver, Kirim lewat Drive) · bukti: link Drive + caption →
+- [ ] Hasil dikirim lewat saluran yang tersedia (Google Drive bila remote `gdrive:` ada; selain itu path/link yang bisa dibuka user) + caption + daftar penyimpangan · baca: `../irfan-creative-workflow/SKILL.md` §2 (Deliver, Kirim lewat Drive) · bukti: link atau path + caption →

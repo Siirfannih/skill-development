@@ -12,11 +12,12 @@ Pakai:
 
 Profil: ../../references/music-profiles.json. Keluaran: peringkat, skor 0-100, dan alasan per fitur.
 Lulus pakai = skor >= 70 DAN snr_min terpenuhi DAN bpm/onset di dalam rentang kategori (di luar = GUGUR, bukan
-penalti). earshot rank wajib jalan; bila tidak terpasang skrip berhenti (gerbang DENGAR).
+penalti). earshot rank dipakai bila terpasang; tanpa earshot skrip tetap memberi peringkat dari ukuran dan mencetak
+TANPA-DENGAR (gerbang DENGAR = NOT RUN: laporan menulis "belum didengar alat", bukan PASS).
 Kandidat < 8 file atau dari < 2 folder sumber = FAIL (Lantai E24).
 Telinga Irfan tetap hakim terakhir.
 """
-import argparse, json, os, subprocess, sys
+import argparse, json, os, shutil, subprocess, sys
 import numpy as np, librosa, pyloudnorm as pyln
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -134,14 +135,16 @@ def score(m, prof, snr):
 
 
 def earshot_rank(query, paths):
+    """z per file dari `earshot rank`; None bila earshot tidak terpasang atau gagal (peringkat tetap jalan dari ukuran)."""
+    if shutil.which("earshot") is None:
+        return None
     try:
         out = subprocess.run(["earshot", "rank", query, *paths, "--json"], capture_output=True, text=True, timeout=900)
         res = json.loads(out.stdout)
         items = res.get("results") or res.get("ranked") or []
         return {os.path.abspath(r.get("path", r.get("file", ""))): r.get("z") for r in items}
-    except Exception as e:  # gerbang DENGAR: tidak boleh dilewati diam-diam
-        raise SystemExit(f"FAIL earshot rank tidak jalan ({e.__class__.__name__}: {e}). Pasang earshot "
-                         "(three-segment-gate.md gerbang DENGAR) atau lapor ke Irfan; jangan pilih musik tanpa didengar.")
+    except Exception:
+        return None
 
 
 def main():
@@ -185,6 +188,8 @@ def main():
     if len({os.path.dirname(os.path.abspath(f)) for f in a.files}) < 2:
         pool_fail.append("kandidat dari < 2 folder sumber")
     es = {} if a.no_earshot else earshot_rank(prof["query"], [os.path.abspath(f) for f in a.files])
+    tanpa_alat = es is None
+    es = es or {}
     rows = []
     for f in a.files:
         m = measure(f, 180)
@@ -200,6 +205,8 @@ def main():
         print("FAIL kumpulan kandidat: " + "; ".join(pool_fail) + " (cari dari Epidemic, ElevenLabs Music, internet berlisensi, folder Irfan)")
     if a.no_earshot:
         print("TANPA-DENGAR: earshot dimatikan dengan --no-earshot; laporan ini tidak sah untuk Delivery Gate")
+    elif tanpa_alat:
+        print("TANPA-DENGAR: earshot tidak terpasang atau gagal; peringkat dari ukuran saja. Tulis \"belum didengar alat\" di laporan kirim (gerbang DENGAR NOT RUN, bukan PASS)")
     print(f"Kategori: {a.category} ({prof['arti']}) · profil {'terkalibrasi ' + str(prof['kalibrasi']['n']) + ' ref' if prof.get('kalibrasi') else 'awal (belum dikalibrasi)'}")
     print(f"{'#':>2} {'skor':>4} {'snr':>5}  {'bpm':>5} {'onset':>5} {'cent':>5} {'build':>5} {'dyn':>4} {'mode':>5}  file")
     for i, r in enumerate(rows, 1):
@@ -210,7 +217,7 @@ def main():
         for w in r["why"]:
             print(f"      - {w}")
     if a.json:
-        json.dump({"category": a.category, "profile": prof, "pool_fail": pool_fail, "earshot": not a.no_earshot,
+        json.dump({"category": a.category, "profile": prof, "pool_fail": pool_fail, "earshot": not (a.no_earshot or tanpa_alat),
                    "ranked": rows}, open(a.json, "w"), ensure_ascii=False, indent=2)
     if pool_fail:
         sys.exit(1)
