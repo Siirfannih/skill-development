@@ -1,6 +1,6 @@
 # Timeline Cut Sheet & Visual Mapping · <project>
 
-One table for the whole video. The Director fills it once audio cuts are locked (phase 1b); after that, this table becomes the subagent's working reference. Subagents **do not read the entire guideline**: their TASK quotes only the rows they work on + the project's Mandatory items, nothing else.
+One table for the whole video. The Director fills it once audio cuts are locked (phase 1b); after that, this table becomes the subagents' working reference. Subagents **do not read the entire guideline**: their TASK quotes only the rows they work on + the project's `Wajib` (mandatory) items, nothing else.
 
 How to fill:
 - One row = one sentence or one cut with the same visuals. Ordered by the output timeline.
