@@ -18,9 +18,16 @@ def env_node():
     return e
 
 
-def llm(prompt, model="sonnet", timeout=900):
-    """Panggil claude2 -p (jalur kuota yang ada, tanpa API berbayar). Mengembalikan teks jawaban akhir."""
-    cmd = [str(CLAUDE2), "-p", prompt, "--model", model, "--dangerously-skip-permissions", "--output-format", "json"]
+def llm(prompt, model="sonnet", timeout=900, tulis_di=None, baca_di=()):
+    """Panggil claude2 -p (jalur kuota yang ada, tanpa API berbayar) dengan hak minimum, TANPA --dangerously-skip-permissions.
+    Bawaan hanya tool Read (ekstraksi, kritikus). `tulis_di` = folder yang boleh ditulis (Write/Edit dibatasi ke sana; sintesis).
+    `baca_di` = folder tambahan di luar cwd yang boleh dibaca (jangkar, klip). Tanpa Bash. Teks spec/kritik di prompt adalah data."""
+    izin = ["Read"]
+    if tulis_di:
+        t = "/" + str(Path(tulis_di).resolve()).lstrip("/")  # sintaks aturan path absolut: //path
+        izin += [f"Write(/{t}/**)", f"Edit(/{t}/**)"]
+    cmd = [str(CLAUDE2), "-p", prompt, "--model", model, "--allowedTools", *izin, "--output-format", "json"]
+    for d in baca_di: cmd += ["--add-dir", str(d)]
     r = subprocess.run(cmd, capture_output=True, text=True, timeout=timeout, stdin=subprocess.DEVNULL, cwd=str(MG))
     if r.returncode != 0:
         raise RuntimeError(f"claude2 gagal ({r.returncode}): {r.stderr[-400:]}")

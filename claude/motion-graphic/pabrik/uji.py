@@ -245,7 +245,7 @@ Balas HANYA satu blok ```json
     err = None
     for _ in range(2):
         try:
-            j = lib.ambil_json(lib.llm(prompt))
+            j = lib.ambil_json(lib.llm(prompt, baca_di=[DIR_JANGKAR, lib.PABRIK]))
             assert all(isinstance(j["dosa"][k]["ya"], bool) for k in DOSA_VISION) and all(isinstance(j["jangkar"][k]["ya"], bool) for k in JANGKAR)
             j["adversarial"] = [str(x) for x in j["adversarial"]][:5]; assert len(j["adversarial"]) == 5
             return j

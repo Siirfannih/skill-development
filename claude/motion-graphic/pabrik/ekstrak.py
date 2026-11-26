@@ -103,7 +103,7 @@ def main(argv=None):
         q = p if not galat else p + "\n\nPERCOBAAN SEBELUMNYA DITOLAK VALIDATOR, perbaiki:\n- " + "\n- ".join(galat[:12])
         spec = None
         try:
-            spec = lib.ambil_json(lib.llm(q, model=a.model))
+            spec = lib.ambil_json(lib.llm(q, model=a.model, baca_di=[lib.PABRIK, Path(tempfile.gettempdir())]))
         except Exception as e:
             galat = [f"jawaban tidak berisi JSON valid: {e}"]; continue
         spec.setdefault("terukur", {"dari_klip": bool(a.klip), "catatan": ""})

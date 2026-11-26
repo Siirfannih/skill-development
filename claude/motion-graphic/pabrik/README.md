@@ -11,7 +11,7 @@ Memaksa referensi dibedah jadi primitif kecil yang terstruktur, lalu tiap kompon
 | 3 Uji | `uji.py <Nama> --spec spec/X.json [--putaran 3]` | `LAPORAN.md`, `hasil.json`, `lembar-rN.jpg`, `stills-rN/` |
 | 4 Registrasi | `daftar.py <Nama>` | entri di `registry.json` |
 
-Satu perintah: `jalankan.sh kartu:teknik:Nama:kategori[:klip:dari:sampai] ...` (1 → 4 berurutan). Model = `claude2 -p --model sonnet` (jalur kuota yang ada). Render berat memakai kunci `/tmp/remotion-heavy-render.lock`. Dependensi lewat symlink `../node_modules` (tidak masuk git).
+Satu perintah: `jalankan.sh kartu:teknik:Nama:kategori[:klip:dari:sampai] ...` (1 → 4 berurutan). Model = `claude2 -p --model sonnet` (jalur kuota yang ada) dengan hak minimum, tanpa `--dangerously-skip-permissions`: Read saja (ekstraksi, kritikus); sintesis juga Write/Edit hanya di `kandidat/<Nama>/`; tanpa Bash. Render berat memakai kunci `/tmp/remotion-heavy-render.lock`. Dependensi lewat symlink `../node_modules` (tidak masuk git).
 
 ## Skema spec
 `kategori` salah satu dari `atmosfer | gerak_kamera | permukaan_ui | tipografi`; `parameter` terukur per kategori (atmosfer: tipe, palet relatif/peran, arah cahaya, kecepatan, grain · gerak_kamera: kurva cubic-bezier/spring, durasi, transisi, lintasan · permukaan_ui: radius, border, blur, bayangan · tipografi: hierarki tinggi relatif, tracking, unit animasi, pola masuk/keluar). Selain itu `mekanik` (yang dipindahkan), `kulit` (yang TIDAK dibakukan), `bukti` (frame + detik), `terukur.dari_klip` (jujur: false = gerak hanya perkiraan dari keyframe statis).

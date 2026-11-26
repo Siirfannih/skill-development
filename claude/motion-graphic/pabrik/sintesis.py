@@ -89,12 +89,12 @@ MODE REVISI: berkas sudah ada di {d}. Baca ketiganya, lalu SUNTING di tempat (Ed
 HASIL UJI PUTARAN SEBELUMNYA:
 {json.dumps(revisi, ensure_ascii=False, indent=1)}
 """
-    lib.llm(pembuka + "\nSetelah selesai menulis, balas satu kata: SELESAI.", model=model)
+    lib.llm(pembuka + "\nSetelah selesai menulis, balas satu kata: SELESAI.", model=model, tulis_di=d)
     for i in range(2):
         g = cek(nama)
         if not g: break
         print(f"sintesis {nama}: {len(g)} galat otomatis, perbaikan {i + 1}", file=sys.stderr)
-        lib.llm(f"Berkas komponen {nama} di {d} ditolak pemeriksa otomatis. Baca lalu perbaiki di tempat (Edit) tanpa mengubah perilaku selain yang perlu:\n- " + "\n- ".join(g) + f"\n\n{ATURAN.replace('{wh}', ukuran_rasio(spec))}\nBalas SELESAI.", model=model)
+        lib.llm(f"Berkas komponen {nama} di {d} ditolak pemeriksa otomatis. Baca lalu perbaiki di tempat (Edit) tanpa mengubah perilaku selain yang perlu:\n- " + "\n- ".join(g) + f"\n\n{ATURAN.replace('{wh}', ukuran_rasio(spec))}\nBalas SELESAI.", model=model, tulis_di=d)
     g = cek(nama)
     return nama, g
 
