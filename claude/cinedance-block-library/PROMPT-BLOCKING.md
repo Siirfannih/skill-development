@@ -4,7 +4,7 @@ Source: "Prompt Blocking" PDF I sent on 18 Nov 2026 (original example: 10 s educ
 
 ## 1. Why blocking works
 
-- The prompt is split into **numbered sections with one concern per section** (identity, camera, design, voice, timeline, audio, prohibitions, priorities). The model does not have to guess which sentence governs what. Our earlier prompt failures ("aturan terlalu ketat dan dicampur": rules too strict and mixed together) came from putting text, camera, and voice rules in a single paragraph; blocking separates them.
+- The prompt is split into **numbered sections with one concern per section** (identity, camera, design, voice, timeline, audio, prohibitions, priorities). The model does not have to guess which sentence governs what. Our earlier prompt failures ("rules too strict and mixed together") came from putting text, camera, and voice rules in a single paragraph; blocking separates them.
 - **Locks (LOCK)** are written once at the top (face, wardrobe, language) and apply to all scenes, so the timeline only holds what changes.
 - **Per-second timeline** gives the model a schedule it can follow: each scene has environment, character action, camera, exact dialogue, delivery, and transition.
 - **Dialogue is written twice**: in its scene and again in the audio section's dialogue sequence list, with timestamps. This helps lip sync.
