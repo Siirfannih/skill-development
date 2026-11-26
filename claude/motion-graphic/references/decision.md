@@ -73,7 +73,7 @@ Reason: old templates make new work feel like a copy and lock decisions before t
 
 ## 6. Cost and credits
 
-- Zero paid generation before its gate opens: VO after the final script, music and SFX after the final storyboard (matching the voice lock (`lock suara`) at the Storyboard/block out stage and SFX/music at the Mix stage, `MOTION-CORE.md` §1).
+- Zero paid generation before its gate opens: VO after the final script, music and SFX after the final storyboard (matching the voice lock (`lock suara`) at the Storyboard/block out stage and SFX/music at the Mix stage, `templates/TAHAP.md`).
 - State the estimated cost before generating. Generate 1–2 variations, not 4, unless I ask.
 - Generate in segments so weak segments can be redone on their own.
 - Failure this prevents: VO generated 3 times (±7,300 credits) before the final script.

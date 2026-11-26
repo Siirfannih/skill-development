@@ -1,6 +1,6 @@
 # Slop catalog (signs I have rejected)
 
-Used to **scan**, not to ban techniques: fingerprints are written as appearance and measurements (KEBIJAKAN v2, policy v2), and apply unless REF-SPEC states otherwise. One sign with a written reason is allowed; multiple signs appearing together without a reason = video feels "AI". The *Floor* column points to items in `LANTAI.md`. Scan the storyboard (Storyboard/block out stage) and render (preview + QA, Mix → Deliver stage). Each new sign from my revisions gets one row here.
+Used to **scan**, not to ban techniques: fingerprints are written as appearance and measurements (KEBIJAKAN v2, policy v2), and apply unless REF-SPEC states otherwise. One sign with a written reason is allowed; multiple signs appearing together without a reason = video feels "AI". The *Floor* column points to old floor IDs, mapped in `MIGRASI-LANTAI.md`. Scan the storyboard (Storyboard/block out stage) and render (preview + QA, Mix → Deliver stage). Each new sign from my revisions gets one row here.
 
 ## Audio
 

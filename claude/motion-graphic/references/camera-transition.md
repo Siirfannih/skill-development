@@ -6,7 +6,7 @@ Baca saat memilih gerak kamera (C) dan transisi (X) per potongan. Nomor § sama 
 
 **Tegas dan beralasan.**
 - **Selalu keyframe + ease-in-ease-out** untuk zoom, gerak kamera, dan gerak objek: tiap gerak punya keyframe awal dan akhir, kurvanya dari `scripts/remotion/curves.ts` (bukan `linear`, bukan lompat nilai tanpa kurva). Gerak yang di tabel tertulis linear (C08, C12) tetap diberi ease di ujung masuk dan keluarnya. Tujuannya gerak yang halus.
-- Frame tidak datar: setiap shot lebih dari 2 detik punya gerak kamera yang disengaja, dan kamera mengikuti satu objek fokus per beat (`LANTAI.md` B10–B12). Seberapa besar dan sering mengikuti kartu kiblat.
+- Frame tidak datar: setiap shot lebih dari 2 detik punya gerak kamera yang disengaja, dan kamera mengikuti satu objek fokus per beat (`MIGRASI-LANTAI.md` B10–B12). Seberapa besar dan sering mengikuti kartu kiblat.
 - Adegan informasional (UI, workflow, checklist): push pelan ke bagian yang sedang dibicarakan, bukan diam. Kamera diam hanya bila kiblatnya berkamera diam dan itu tertulis di `RESEP.md`.
 - Establishing shot boleh bergerak.
 - Diam untuk dibaca 0,8–3 dtk; setelah reveal UI ≥ 4 dtk. Lalu bergerak besar: push ≥ 10 %, pan ≥ ½ frame, atau zoom ≥ 2×.

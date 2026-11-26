@@ -1,6 +1,6 @@
 # MIGRASI-LANTAI: ke mana tiap butir Lantai pindah
 
-`LANTAI.md` dan `MOTION-CORE.md` tinggal di disk sebagai arsip referensi; pintu aktif adalah `SKILL.md`. Tidak ada butir yang dihapus: tiap ID di bawah punya rumah baru, dan bunyi aslinya masih bisa dibaca di `LANTAI.md`. Yang berubah adalah kapan aturan itu sampai ke model (langkah alur atau bagian referensi yang dibuka per tahap) dan siapa yang menegakkannya (skrip). `tools/sync_lantai.py` dan `scripts/tests/test_migrasi_lantai.py` memastikan setiap ID `LANTAI.md` ada di tabel ini dan semua rumahnya nyata.
+`LANTAI.md` dan `MOTION-CORE.md` sudah dipindah ke `archive/riwayat/`; pintu aktif adalah `SKILL.md` (gerbang render R1–R5 kini di `references/build.md` §4). Tidak ada butir yang dihapus: tiap ID di bawah punya rumah baru, dan bunyi aslinya masih bisa dibaca di `archive/riwayat/LANTAI.md`. Yang berubah adalah kapan aturan itu sampai ke model (langkah alur atau bagian referensi yang dibuka per tahap) dan siapa yang menegakkannya (skrip). `tools/sync_lantai.py` dan `scripts/tests/test_migrasi_lantai.py` memastikan setiap ID `LANTAI.md` ada di tabel ini dan semua rumahnya nyata.
 
 Pemetaan mengikuti desain Fase 1 (laporan audit struktur skill, bagian "Nasib 46 butir"). Rumah pertama di kolom kedua adalah file yang dibuka; kolom ketiga adalah penegak mekanis (kosong = dinilai dengan mata).
 

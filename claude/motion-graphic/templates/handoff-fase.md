@@ -3,7 +3,7 @@
 Kamu subagen untuk **satu fase saja**. Kamu tidak melihat percakapanku dengan sutradara; semua yang perlu ada di file ini dan file yang dirujuknya. Jangan bertanya "lanjut?": kerjakan sampai gerbang fase ini PASS, lalu berhenti dan laporkan.
 
 ## Baca dulu (urut, hanya ini)
-1. `claude/motion-graphic/LANTAI.md`
+1. `claude/_bersama/NEGATIF.md`
 2. Cabang fase ini: <mis. `references/audio.md` §14.0C–14.0D untuk fase 2>
    Fase 3 (visual): `projects/<proyek>/RESEP.md`, `qc/kondisi/KONDISI.md`, `qc/spine/SPINE.md`, lalu **Brief bergambar** di bawah: buka semua gambar yang disebutnya. Kartu penuh tidak perlu dibaca; blok teknik yang dipakai sudah disalin Sutradara.
 3. `projects/<proyek>/STATUS.md`, `contract.json`, `audio/ORDER.json`

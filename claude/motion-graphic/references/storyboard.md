@@ -61,7 +61,7 @@ Satu panel = frame + caption, seperti artboard Wonder.
 
 ## 4. Cara Irfan menilai panel
 
-Bagian ini meniru **cara Irfan berpikir saat menilai**, bukan daftar gaya. Setiap pertanyaan diikuti kasus nyata dari sesi storyboard-nya. Kasus itu adalah jawaban untuk konteksnya sendiri (motion produk yang tenang dan presisi, iklan Jadisatu, video lirik), bukan aturan tetap. Di konteks lain, ajukan pertanyaan yang sama, dan jawabannya boleh berbeda; tulis alasannya di caption panel. Yang tetap hanya standar yang Irfan nyatakan berlaku umum (butir `LANTAI.md`, mis. teks layar satu baris tanpa tanda baca).
+Bagian ini meniru **cara Irfan berpikir saat menilai**, bukan daftar gaya. Setiap pertanyaan diikuti kasus nyata dari sesi storyboard-nya. Kasus itu adalah jawaban untuk konteksnya sendiri (motion produk yang tenang dan presisi, iklan Jadisatu, video lirik), bukan aturan tetap. Di konteks lain, ajukan pertanyaan yang sama, dan jawabannya boleh berbeda; tulis alasannya di caption panel. Yang tetap hanya standar yang Irfan nyatakan berlaku umum (butir NEGATIF, mis. teks layar satu baris tanpa tanda baca).
 
 1. **Apakah ini masuk akal di dunia nyata?** Penonton langsung merasa ada yang janggal walau tidak bisa menyebutnya.
    - Kasus Trojan v4: chat sama ayang, kedua pihak sama-sama bertanya → tidak nyambung; pesan "jual risol" masuk ke chat ayang, padahal seharusnya ke chat Jadisatu.

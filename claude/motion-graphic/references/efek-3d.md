@@ -6,7 +6,7 @@ Standalone reference (not a mandatory gate). Numbers marked (proposed) are untes
 
 Default: CSS 2.5D (`SpatialDepthStage`, `SpatialAnchorCamera`). Choose 3D only when ALL are true:
 1. The beat needs a real viewpoint: the camera passes >= 2 sides of an object, or >= 3 layers with >= 10% parallax shift (proposed).
-2. Primary objects <= 1 per shot, style matching `BRAND.md` (low-poly/voxel/clay). 2D flat/cutout styles: 3D is forbidden without approval in `RESEP.md` (`MOTION-CORE.md`).
+2. Primary objects <= 1 per shot, style matching `BRAND.md` (low-poly/voxel/clay). 2D flat/cutout styles: keep the asset style of `BRAND.md`/REF-SPEC; 3D only if it passes the three NEGATIF questions and the reason is written in `RESEP.md`.
 3. 3D shots >= 2 s, total <= 25% of duration, <= 1 shot per 10 s (proposed).
 4. Text and textures stay sharp at 1080p; only 3D may render at half resolution and upscale.
 

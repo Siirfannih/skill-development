@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Cek MIGRASI-LANTAI.md terhadap LANTAI.md.
 
-LANTAI.md kini arsip referensi (pintu aktif: claude/motion-graphic/SKILL.md). Setiap butir LANTAI tetap harus punya rumah baru:
+LANTAI.md kini di archive/riwayat/LANTAI.md (pintu aktif: claude/motion-graphic/SKILL.md). Setiap butir LANTAI tetap harus punya rumah baru:
 claude/motion-graphic/MIGRASI-LANTAI.md memetakan ID -> file tujuan -> penegak. Skrip ini memastikan (1) tiap ID LANTAI.md ada di tabel,
 (2) tabel tidak menyebut ID yang tidak ada di LANTAI.md, (3) file tujuan pertama tiap baris benar-benar ada. Jalankan setelah menambah,
 menghapus, atau mengganti nomor butir LANTAI.md, atau memindah file tujuan.
@@ -11,6 +11,7 @@ menghapus, atau mengganti nomor butir LANTAI.md, atau memindah file tujuan.
 """
 import os, re, sys
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "claude", "motion-graphic")
+LANTAI = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "archive", "riwayat", "LANTAI.md")
 
 
 def id_lantai(teks):
@@ -39,7 +40,7 @@ def tujuan_pertama(rumah):
 
 
 def periksa():
-    ids = id_lantai(open(os.path.join(R, "LANTAI.md"), encoding="utf-8").read())
+    ids = id_lantai(open(LANTAI, encoding="utf-8").read())
     peta = baris_migrasi(open(os.path.join(R, "MIGRASI-LANTAI.md"), encoding="utf-8").read())
     kurang = [i for i in ids if i not in peta]; lebih = sorted(set(peta) - set(ids))
     hilang = []

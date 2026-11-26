@@ -8,7 +8,7 @@
 #
 # Claude menerima dosir yang DIRAKIT OTOMATIS dari dokumen arah yang memang sudah ditulis di awal setiap video
 # (gerbang brief → kiblat → resep → storyboard), jadi tidak ada dokumen baru yang harus dibuat:
-#   1. claude/motion-graphic/LANTAI.md         mutu minimum semua video (bagian skill-development yang menilai hasil)
+#   1. claude/_bersama/NEGATIF.md              mutu minimum semua video (bagian skill-development yang menilai hasil)
 #   2. kartu kiblat dari baris "Kartu:" di RESEP.md   gaya video ini (warna, huruf, ritme, teknik)
 #   3. RESEP.md                                resep 8 bagian video ini + syarat dari prompt Irfan
 #   4. DECISIONS.md, hanya baris berstatus Aktif   koreksi/keputusan Irfan untuk video ini
@@ -48,7 +48,7 @@ if m:
 dec = "\n".join(l for l in baca(os.path.join(p, "DECISIONS.md")).splitlines() if re.match(r"^\| [RD]-\d+ \|", l) and "Aktif" in l)
 mg = os.path.join(repo, "claude/motion-graphic")
 panduan = [x.strip() for x in os.environ.get("KONSUL_PANDUAN", "teks,visual").split(",") if x.strip()]
-bag = [("LANTAI (mutu minimum semua video)", baca(os.path.join(mg, "LANTAI.md"))),
+bag = [("NEGATIF (mutu minimum semua video)", baca(os.path.join(mg, "..", "_bersama", "NEGATIF.md"))),
        ("CARA MENILAI FRAME", baca(os.path.join(mg, "templates/roles/pemeriksa-frame.md"))),
        *[(f"PANDUAN {g.upper()} (cara memutuskan)", baca(os.path.join(mg, "guide", g, "GUIDE.md"))) for g in panduan],
        ("KARTU KIBLAT video ini", kartu or "(tidak ditemukan dari baris Kartu: di RESEP.md)"),

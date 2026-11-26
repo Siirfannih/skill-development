@@ -42,7 +42,7 @@ Teknik sah bila lolos tiga pertanyaan: **makna** (membawa apa dari naskah), **si
 4. **Tiga style frame, per lapis L0-L3, lalu bandingkan berdampingan + `banding.py`** (TYPO_HERO, SYSTEM_FLOW, UI_PROOF; protokol, `lihat.py`, 5 uji biner: `references/dunia-visual.md` §7-8). Selesai bila: `negatif_cek.py`, `tabrakan_cek.py` hijau, `banding.py` dalam toleransi, Irfan setuju.
 5. **Storyboard dalam batch maksimal 6 panel**, hanya dari komponen yang lulus di langkah 4. Render batch, lihat tiap panel di crop 100 %, perbaiki, baru batch berikutnya. Tiap beat di tabel: **mode teks** (NEGATIF 6) dan **isi objek** (label, angka, kalimat sebenarnya; yang tak bisa ditulis dibuang atau beat jadi TYPO_HERO), lalu 5 uji biner per frame (`dunia-visual.md` §8). Teks yang dibaca ≥ ~24 px @1080 (lebih kecil = tekstur tanpa makna); blur hanya transisi, depth-of-field, atau motion blur, tak pernah pada isi yang dibaca; layout sama di > ~25 % frame atau 3+ berurutan = sidik jari (`banding.py --seri`); tilt/3D dicatat di REF-SPEC/DECISIONS. Selesai bila: semua panel hijau dan tabel racikan disetujui Irfan.
 6. **Build Remotion per adegan**, mulai dari `toolkit/` (`mulai.sh`; gaya dari tema.ts/REF-SPEC; `references/build.md`). Still per beat, berdampingan dengan style frame dan referensi; lalu `scripts/juri/render.sh <proyek> draft`.
-7. **Audio sesudah visual dikunci** (`references/audio.md`, bagian atas wajib). Selesai bila: R2-R4 hijau (`MOTION-CORE.md` §3).
+7. **Audio sesudah visual dikunci** (`references/audio.md`, bagian atas wajib). Selesai bila: R2-R4 hijau (`references/build.md` §4).
 8. **Deliver.** `render.sh <proyek> final` lalu render 1, satu ronde masukan, render 2 (`references/revisi.md`, `references/delivery-gate.md`). Revisi "terlalu berat/ramai" atau "lebih lega/besar" = geser ke tengah; ukur `banding.py --sebelum`. Kirim setelah juri lulus.
 
 **Hukum besi:** tidak ada frame diserahkan tanpa kamu melihatnya di resolusi penuh DAN membandingkannya dengan referensi/REF-SPEC (berdampingan + `banding.py`), serta `negatif_cek.py` + `tabrakan_cek.py` + `warna/cek-warna.mjs keluar` hijau; tanpa referensi, `banding.py --seri <storyboard>` juga hijau (frame jarang ≤ 10 %). "Terlihat premium" bukan bukti; gambar berdampingan dan angka adalah bukti.
@@ -64,9 +64,8 @@ Profil merek memilih warna, logo, huruf utama, `huruf_kedua` bila ada, dan nada;
 | memotong VO, SFX, musik, mix | `references/audio.md` (bagian atas dulu) |
 | ada pesan revisi atas video atau storyboard | `references/revisi.md` |
 | memilih mekanik per beat | `cookbook/INDEX.md`, lalu `scripts/cookbook/pilih_kartu.py`; buka 2-4 kartu saja |
-| membangun dan merender | `references/build.md`, `MOTION-CORE.md` §3 (gerbang R1-R5) |
+| membangun dan merender | `references/build.md` (§4 gerbang R1-R5) |
 | rekaman talking head mentah, color grading | `references/selects-editor.md`, `references/grade.md` |
-| butir Lantai lama pindah ke mana | `MIGRASI-LANTAI.md` |
 
 ## Alat
 

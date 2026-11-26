@@ -6,6 +6,7 @@ Baca saat mulai build.
 
 - 3. Alat & pipeline produksi (Remotion, engine kode, rakit lego)
 - 3a. Toolkit mekanik (mulai proyek)
+- 4. Gerbang render R1–R5 · 5. Batas kerja · 6. Ritme dan keragaman mode visual · 7. Primitif netral
 
 ## 3. Alat & pipeline produksi
 
@@ -63,3 +64,39 @@ Proyek Remotion dan storyboard HTML dimulai dari `toolkit/` (`toolkit/mulai.sh <
 - Semua nilai visual dari `tema.ts` (`tema.js`) dan REF-SPEC; komponen toolkit tidak membawa warna atau huruf. Latar/grain dipakai hanya bila REF-SPEC/brief memintanya; ukur dengan `scripts/banding.py`.
 - Latar punya preset (`toolkit/latar/presets/*.json`) yang bisa ditimpa per props (`saturation`, `intensity`, `glow`) dan disimpan (`simpan_preset.py`). Cara pakai dan contoh: `toolkit/README.md`.
 - **Mesin motion graphic = Remotion.** Layout, kamera, transisi, timeline, kinetic typography, dan latar dibangun di Remotion (React/TypeScript per frame) dengan toolkit; frame storyboard dirender sebagai still dari kode yang sama. Three.js (atau `@remotion/three`) hanya untuk ilustrasi/objek di DALAM satu elemen (mis. gambar di dalam kartu postingan, satu objek 3D), dipasang sebagai lapisan di komposisi Remotion; tidak pernah sebagai mesin seluruh adegan atau kamera dunia. Alasan: adegan yang dirakit di Three.js kehilangan tipografi, layout, dan transisi yang presisi, sehingga desainnya tidak profesional.
+
+## 4. Gerbang render R1–R5 (wajib sebelum render final)
+
+Dari `claude/motion-graphic/scripts/`, berurutan (Python audio: venv ber-numpy, soundfile, scipy).
+
+| Urut | Perintah | Lulus bila |
+|---|---|---|
+| R1 | `python3 gate/cek_komposisi.py <episode.json> --public <proyek>/remotion/public` | keluar 0; **sebelum build** |
+| R2 | `python3 gate/audio_order.py check --dir <proyek>/audio` | keluar 0 |
+| R3 | `python3 audio/sfx_potong.py --laporan <proyek>/audio/sfx_potong.json` | keluar 0 |
+| R4 | `python3 audio/audio_phone.py --root <folder stem> --gate` | keluar 0: SFX harsh 0, median VO clarity ≥ 8 dB |
+| R5 | `bash juri/render.sh <proyek> final <Comp> <keluaran.mp4>` (berfootage: `lego lego/lego.json`) | keluar 0; mengulang R1–R4 (`gerbang_produksi.sh`) + juri |
+
+R1 selalu memblokir empat tanda netral gaya: `WAJAH`, `INSET`, `TEPI`, `ASET`. Tanda lain (`JEDA`, `KARTU`, `PITA`, `LOGO`, …) hanya peringatan, kecuali proyek memilih ketat: flag `--ketat`, atau file `projects/<proyek>/qc/ketat` (kosong = semua tanda memblokir; berisi nama tanda = tanda itu ikut memblokir). Itu keputusan proyek (`DECISIONS.md`), bukan bawaan gaya.
+
+File proyek yang menyalakan R1, R3, R4 di `render.sh` (ada dan gagal = render ditolak): data episode `remotion/src/data/*.json` + `remotion/public/<aset>/aset.json`; `audio/sfx_potong.json`; `stem_vo.wav`, `stem_music.wav`, `stem_sfx.wav`, `mix.wav`, `cues.json` di `audio/` atau `qc/`.
+
+Gerbang yang gagal diperbaiki pada penyebabnya, lalu dijalankan ulang; keluaran terakhirnya disalin ke `TAHAP.md` sebagai bukti. Gerbang yang tidak bisa dijalankan di lingkungan ini dilaporkan **NOT RUN** di laporan kirim, tidak pernah PASS; "PASS tanpa bukti = FAIL" (`delivery-gate.md`) tetap berlaku.
+
+## 5. Batas kerja (alasan dan penjagaannya)
+
+- **Render final lewat `render.sh final`** (atau `lego`). Bila gerbangnya tidak bisa jalan di lingkungan ini, render langsung boleh dengan daftar gerbang yang tidak dijalankan di laporan kirim (NOT RUN, §4); melewati gerbang yang bisa jalan butuh satu baris alasan + bukti di LOG (invarian 4 `AGENTS.md`).
+- **Jangan mengedit `scripts/gate/*` atau `scripts/juri/*` di sesi produksi video**, termasuk menyalinnya ke proyek lalu mengubahnya. Gerbang yang dianggap salah dilaporkan ke user, diperbaiki di sesi perubahan skill.
+- Jangan mematikan gerbang dengan menghapus atau mengganti nama file pemicunya (`qc/ketat`, `aset.json`, `sfx_potong.json`, stem).
+- **Satu video = satu sesi terpisah.** Jangan menyalin `RESEP.md`, racikan, atau kode adegan dari episode lain; yang dipakai ulang hanya blok netral `scripts/remotion/`.
+- Dilarang menambah elemen di luar tabel racikan, storyboard, dan brief.
+
+## 6. Ritme dan keragaman mode visual (retensi short-form / IG, tanpa merombak naskah atau membuat ulang VO)
+
+- **Padatkan jeda suara, bukan kecepatan bicara** (`TEMPO = 1.0`, NEGATIF 9): `scripts/gate/cut_check.py --suggest --max-inner 0.12 --max-sentence 0.22`, lalu `scripts/audio/recut.py` untuk memangkas jeda mati; petakan ulang titik waktu ke `vo_words.json`/`vo_beats.json` tanpa memotong kata.
+- **Perubahan visual ≤ 2,2 dtk & variasi mode:** video > 30 dtk tidak boleh berisi `[zoom B-roll + KT]` bergantian dengan `[kartu teks polos]`. Pecah kalimat panjang menjadi micro-beat (geser titik fokus kamera 2D, insert arsip/UI, `HighlighterSweep`, `SelectiveColorSpotlight`), frame 0 langsung bergerak dan berteks, dan KT 1–3 kata berganti setiap 0,25–0,6 dtk.
+- **Kunci gaya aset:** ikuti `BRAND.md`/`EDITING.md`; untuk proyek bergaya 2D flat, editorial, atau photo-cutout, bangun komponen vektor 2D SVG/HTML atau cutout foto nyata; 3D lolos tiga pertanyaan NEGATIF dan alasannya ditulis di `RESEP.md`.
+
+## 7. Primitif netral (mulai dari `toolkit/`, lalu ini)
+
+Tulis hanya yang belum ada. Tersedia: `scripts/remotion/ae-primitives/` (`SpatialAnchorCamera`, `SpatialDepthStage`, `MotionBlurWrapper`, `WhipPanTransition`, `GridFlashReveal` (pembungkus kompatibilitas: `scripts/remotion/FlashGrid.tsx`), `SceneChain`, `FlashCut`, `InvertFlash`, `HighlighterSweep`, `SelectiveColorSpotlight`, `Scrim`) dan `toolkit/gerak/curves.ts`. Jangan menambal scaffold episode proyek lain. Selesai hanya bila `render.sh final` lulus, termasuk `gerbang_produksi.sh` (§4).

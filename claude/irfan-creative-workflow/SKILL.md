@@ -36,7 +36,7 @@ Ketika Irfan berkata "pastikan kamu bawa skill workflow-nya", artinya: bawa cara
 
 ## 2. Urutan gerbang (dikunci)
 
-Nama tahap mengikuti tabel tahap kanonik `motion-graphic/MOTION-CORE.md` §1 (Brief → Naskah → Storyboard/block out → Animate → Effects & grade → Mix → Deliver); file lain menyebut tahap dengan nama, bukan nomor. Untuk video, butir dan buktinya di `motion-graphic/templates/TAHAP.md`.
+Nama tahap mengikuti judul `## Tahap N` di `motion-graphic/templates/TAHAP.md` (Brief → Naskah → Storyboard/block out → Animate → Effects & grade → Mix → Deliver); file lain menyebut tahap dengan nama, bukan nomor. Untuk video, butir dan buktinya di `motion-graphic/templates/TAHAP.md`.
 
 | Tahap | Gerbang | Output | Lolos jika |
 |---|---|---|---|

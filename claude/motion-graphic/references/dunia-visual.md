@@ -96,7 +96,7 @@ Tiap butir ditulis sebagai rantai: keputusan → niat → kapan dilanggar.
    - Keputusan: SFX nyata (taktil, klik UI, sub, whoosh) hanya saat keadaan visual berubah atau objek mendarat.
    - Whoosh hanya untuk gerak cepat yang terlihat. Cut keras = klik atau diam (S-A12: whoosh di cut tanpa gerak = slop).
    - Sebelum puncak non-VO, stem musik dikosongkan sebentar. Bed ambien tetap ada; tidak ada hening digital.
-   - Tick per kata: ikut mode di RESEP/EDITING (`LANTAI.md` E24, level −12…−18 dB relatif VO). Tema hanya merekomendasikan mode.
+   - Tick per kata: ikut mode di RESEP/EDITING (`audio.md` E24, level −12…−18 dB relatif VO). Tema hanya merekomendasikan mode.
 6. **Bukti tetap utuh.**
    - Keputusan: dokumen dan kutipan tetap tajam dengan stabilo baris, jangan diburamkan demi caption (`../cookbook/contoh-gagal/21`).
    - Narasi VO tidak pernah diketik ke kolom prompt UI (`../cookbook/contoh-gagal/13`).

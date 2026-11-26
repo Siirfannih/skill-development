@@ -2,7 +2,7 @@
 
 > **Banner (NEGATIF v2, 26 Nov 2026):** dokumen ini menggambarkan referensi pilihan Irfan beserta alasannya. Huruf kedua, glow, bloom, dan gradien di dalamnya tidak dilarang karena namanya: pakai bila alasannya (makna yang dibawa) berlaku di proyek ini dan menjadi satu sistem (satu keluarga hue, satu arah cahaya, satu peran huruf). Bedah dulu jadi REF-SPEC (`../../../motion-theme-director/BEDAH-REFERENSI.md`); tanpa alasan, ambil mekaniknya (timing, urutan, skala, hierarki). Potongan kode glow di bawah = contoh dari referensi; salin hanya bila lolos makna, sistem, takaran.
 
-> Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di `sheets/`, scene detect ffmpeg, ebur128, spektrogram + onset librosa). Standar kualitas Irfan; kartu anatominya di `../../cookbook/` (cari lewat `../../cookbook/INDEX.md`). Bila bertentangan dengan `../../LANTAI.md`, lantai menang; bagian "Benturan" berisi usulan yang belum disetujui.
+> Dibedah Claude 9 Nov dari video kiriman Irfan (contact sheet di `sheets/`, scene detect ffmpeg, ebur128, spektrogram + onset librosa). Standar kualitas Irfan; kartu anatominya di `../../cookbook/` (cari lewat `../../cookbook/INDEX.md`). Bila bertentangan dengan `../../SKILL.md` (NEGATIF), NEGATIF menang; bagian "Benturan" berisi usulan yang belum disetujui.
 > Sumber: `_ganimate__DfICqhOvP-0.mp4` · 1280×720 (16:9) · 23,98 fps · 14,4 dtk · **showreel 2×2**: empat proyek motion explainer diputar bersamaan, panel bergantian isi.
 > Karena ini showreel studio, guideline ini merangkum **sistem bersama** + **4 mode** yang bisa dipilih per babak. Status: tata bahasa, **bukan template**. Lihat §11.
 

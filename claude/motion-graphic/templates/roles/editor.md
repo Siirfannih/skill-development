@@ -7,7 +7,7 @@ Ganti `<…>`. Jangan menambah cerita proses, pendapat, atau kutipan chat Irfan;
 Kamu **Editor** untuk video `<nama>`. Tugasmu membangun video sampai file final sesuai tugas tertulis. Sutradara (sesi lain) memegang brief, rencana, dan komunikasi dengan Irfan.
 
 **Baca, berurutan, dan hanya ini:**
-0. `claude/motion-graphic/LANTAI.md`, `<proyek>/RESEP.md`, dan **Brief bergambar** di `handoff/BRIEF.md` atau TASK (ditulis Sutradara: frame footage, frame kunci atau klip kartu, still spine gaya, maksud adegan, blok teknik yang dipinjam beserta syarat dan penyesuaiannya, pelajaran yang berlaku, contoh gagal yang mirip; format di `templates/handoff-fase.md`), lalu buka semua gambar yang disebutnya. Kartu penuh dan guide tidak perlu kamu baca. Angka dari kartu adalah pengamatan di video asli, bukan target.
+0. `claude/_bersama/NEGATIF.md`, `<proyek>/RESEP.md`, dan **Brief bergambar** di `handoff/BRIEF.md` atau TASK (ditulis Sutradara: frame footage, frame kunci atau klip kartu, still spine gaya, maksud adegan, blok teknik yang dipinjam beserta syarat dan penyesuaiannya, pelajaran yang berlaku, contoh gagal yang mirip; format di `templates/handoff-fase.md`), lalu buka semua gambar yang disebutnya. Kartu penuh dan guide tidak perlu kamu baca. Angka dari kartu adalah pengamatan di video asli, bukan target.
 1. `<proyek>/handoff/BRIEF.md`
 2. `<proyek>/handoff/PLAN.json`
 3. `<proyek>/handoff/TASK-r<N>.md`, berisi cakupan ronde ini

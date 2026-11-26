@@ -1,6 +1,6 @@
 # 18 Joseph (Ultimate Editors) · gaya "minimal premium" Arthur Brooks + cara melatih Claude
 
-> Dibedah Claude 11 Nov dari video kiriman Irfan: YouTube `g9xoKm5DEeU` "How to Edit VIRAL Talking Head Videos Using ONLY Claude" (Joseph, 20:57). Bahan: transkrip faster-whisper, contact sheet tiap 8 dtk, frame kunci 720p, scene detect, `pace_read.py`, `earshot timeline`, `audio/ears.py` (stem demucs) pada potongan hasil akhir 17:56–18:53. Standar kualitas Irfan; kartu anatominya `../../cookbook/03-documentary-story-narrative/18-sentence-role-scene-matching.md`. Bila bertentangan dengan `../../LANTAI.md`, lantai menang. Usulan yang menyentuh aturan ada di §8 dan di `PENDING.md`.
+> Dibedah Claude 11 Nov dari video kiriman Irfan: YouTube `g9xoKm5DEeU` "How to Edit VIRAL Talking Head Videos Using ONLY Claude" (Joseph, 20:57). Bahan: transkrip faster-whisper, contact sheet tiap 8 dtk, frame kunci 720p, scene detect, `pace_read.py`, `earshot timeline`, `audio/ears.py` (stem demucs) pada potongan hasil akhir 17:56–18:53. Standar kualitas Irfan; kartu anatominya `../../cookbook/03-documentary-story-narrative/18-sentence-role-scene-matching.md`. Bila bertentangan dengan `../../SKILL.md` (NEGATIF), NEGATIF menang. Usulan yang menyentuh aturan ada di §8 dan di `steward/inbox/`.
 > Contact sheet: `sheets/18-arthur-brooks-10-adegan.jpg` (contoh 10 jenis adegan), `sheets/18-arthur-brooks-hasil.jpg` (hasil edit akhir, tiap 2 dtk).
 > Video ini juga iklan kursus berbayar. Klaim angka (74 SFX, 225 animasi, waktu kerja) adalah kata Joseph, belum dicek kecuali yang ditandai "terukur".
 
@@ -87,7 +87,7 @@ Video penjelasnya memakai latar gelap ber-grid, kartu 9:16 melayang, carousel be
 
 ## 8. Celah skill yang terlihat dari video ini
 
-Status 11 Nov: butir 1–5 diterapkan (`templates/gaya/minimal-premium`, `analysis-qa.md` §2, `storyboard.md` §1, `references/roles.md`) atas permintaan Irfan membuat template dari bedah ini; butir 6–7 masih di `PENDING.md`.
+Status 11 Nov: butir 1–5 diterapkan (`templates/gaya/minimal-premium`, `analysis-qa.md` §2, `storyboard.md` §1, `references/roles.md`) atas permintaan Irfan membuat template dari bedah ini; butir 6–7 masih di `steward/inbox/`.
 1. **Bedah referensi belum memetakan penempatan terhadap naskah.** `analysis-qa.md` §2 mengukur cut, tinggi teks, SFX, tetapi tidak menghasilkan tabel "kalimat pemicu → jenis adegan → peran kalimat (umumkan / jelaskan / sebut orang / cerita / lelucon / angka / penutup)". Itu inti metode Joseph.
 2. **Belum ada paket gaya lintas banyak video satu kreator.** Guideline 14–17 dan kartu `canvas-skill-library` dibuat per video. Belum ada taksonomi adegan bernama + pustaka animasi ber-ID (still awal/tengah/akhir + lembar keyframe) yang bisa dikutip saat merencanakan.
 3. **Belum ada "rencana edit" berbentuk menu.** Storyboard kita memilih satu visual per beat; variasi hanya bila diminta. Untuk klip podcast, Irfan tidak punya titik memilih sama sekali (agent membuat storyboard sendiri). Format Joseph: 3 opsi per beat, tiap opsi mengutip ID referensi, Irfan memilih ±15 menit sebelum build.

@@ -3,7 +3,7 @@ rumahnya ada, daftar NEGATIF sama di file bersama dan SKILL.md, dan batas ukuran
 import importlib.util, re, subprocess, sys, unittest
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[4]; MG = ROOT / "claude/motion-graphic"
+ROOT = Path(__file__).resolve().parents[4]; MG = ROOT / "claude/motion-graphic"; ARSIP = ROOT / "archive/riwayat"
 
 
 def muat(nama, path):
@@ -13,7 +13,7 @@ def muat(nama, path):
 class MigrasiLantai(unittest.TestCase):
     def setUp(self):
         self.sl = muat("sync_lantai", ROOT / "tools/sync_lantai.py")
-        self.ids = self.sl.id_lantai((MG / "LANTAI.md").read_text(encoding="utf-8"))
+        self.ids = self.sl.id_lantai((ARSIP / "LANTAI.md").read_text(encoding="utf-8"))
         self.peta = self.sl.baris_migrasi((MG / "MIGRASI-LANTAI.md").read_text(encoding="utf-8"))
 
     def test_ada_46_butir(self):
@@ -82,8 +82,9 @@ class SkillRamping(unittest.TestCase):
         self.assertIn("Aturan inti (Lantai E23-E25a)", (MG / "references/audio.md").read_text(encoding="utf-8")[:6000])
 
     def test_motion_core_dan_lantai_ditandai_arsip(self):
-        self.assertIn("pintu aktif: SKILL.md", (MG / "LANTAI.md").read_text(encoding="utf-8")[:200])
-        self.assertIn("pintu aktif: SKILL.md", (MG / "MOTION-CORE.md").read_text(encoding="utf-8")[:1500])
+        self.assertIn("pintu aktif: SKILL.md", (ARSIP / "LANTAI.md").read_text(encoding="utf-8")[:200])
+        self.assertIn("pintu aktif: SKILL.md", (ARSIP / "MOTION-CORE.md").read_text(encoding="utf-8")[:1500])
+        self.assertFalse((MG / "LANTAI.md").exists()); self.assertFalse((MG / "MOTION-CORE.md").exists())
 
 
 if __name__ == "__main__":

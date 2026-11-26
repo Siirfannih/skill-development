@@ -1,6 +1,6 @@
 # TAHAP · <proyek>
 
-Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap mengikuti tabel tahap kanonik `MOTION-CORE.md` §1. Kerjakan berurutan. Di tiap langkah, baca **hanya** file/bagian yang disebut langkah itu, saat itu juga. Langkah selesai = `- [x]` + bukti setelah `→` (perintah dan keluarannya, path file, atau ID baris `DECISIONS.md`); langkah yang tidak berlaku (tanpa VO, tanpa footage, tanpa subagen) dicentang dengan `→ n/a: <alasan>`. Lihat langkah berikutnya: `python3 claude/motion-graphic/scripts/juri/tahap.py projects/<proyek>`. `render.sh final` menolak render selama tahap sebelum Deliver belum selesai berbukti.
+Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap = judul `## Tahap N` di bawah. Kerjakan berurutan. Di tiap langkah, baca **hanya** file/bagian yang disebut langkah itu, saat itu juga. Langkah selesai = `- [x]` + bukti setelah `→` (perintah dan keluarannya, path file, atau ID baris `DECISIONS.md`); langkah yang tidak berlaku (tanpa VO, tanpa footage, tanpa subagen) dicentang dengan `→ n/a: <alasan>`. Lihat langkah berikutnya: `python3 claude/motion-graphic/scripts/juri/tahap.py projects/<proyek>`. `render.sh final` menolak render selama tahap sebelum Deliver belum selesai berbukti.
 
 ## Tahap 1 · Brief
 - [ ] Profil merek ada (atau drafnya diajukan bersama keyframe pertama) dan lulus · baca: `templates/merek/README.md` §Tahap 1 · bukti: keluaran `profil_cek.py` LULUS →
@@ -22,7 +22,7 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap mengikuti tabe
 - [ ] Visual dibangun per TASK adegan, satu Editor baru per TASK, hanya dari token + komponen bersama; lembar sanding semua adegan dicek sekeluarga · baca: `references/roles.md` §5–6, `references/orkestrasi.md` §3 · bukti: REPORT tiap TASK →
 
 ## Tahap 5 · Effects & grade
-- [ ] Tiap efek berfungsi (Lantai C18b) dan grade terukur, sebelum visual dikunci · baca: `LANTAI.md` C18a–C18b, `references/grade.md` · bukti: daftar efek + fungsinya di `RESEP.md` + keluaran `grade_ukur.py` →
+- [ ] Tiap efek berfungsi (NEGATIF 10) dan grade terukur, sebelum visual dikunci · baca: NEGATIF 10 di `SKILL.md`, `references/grade.md` · bukti: daftar efek + fungsinya di `RESEP.md` + keluaran `grade_ukur.py` →
 - [ ] Audit visual semua frame LULUS, lalu visual dikunci · baca: `templates/roles/pemeriksa-frame.md` · bukti: `VERDICT.md` tiap potongan + `audio_order.py lock visual` PASS →
 
 ## Tahap 6 · Mix

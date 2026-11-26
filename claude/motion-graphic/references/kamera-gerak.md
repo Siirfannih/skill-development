@@ -1,6 +1,6 @@
 # Camera, motion, and transitions
 
-Opened when designing camera movement and transitions (steps 5-6 of the `SKILL.md` workflow). Older `LANTAI.md` items B10-B13b are condensed here with their reasons; the original wording stays in `LANTAI.md` (archive). The principle governing all motion is in NEGATIF 10: every movement has a speakable reason. Mechanical check: `scripts/juri/motion_lint.py`.
+Opened when designing camera movement and transitions (steps 5-6 of the `SKILL.md` workflow). Older `LANTAI.md` items B10-B13b are condensed here with their reasons; the original wording is in `archive/riwayat/LANTAI.md`. The principle governing all motion is in NEGATIF 10: every movement has a speakable reason. Mechanical check: `scripts/juri/motion_lint.py`.
 
 ## Living frame (B10, B11, B12)
 - **No flat frames.** Shots longer than 2 seconds have deliberate camera movement (slow push/zoom for focus, pan, object tracking). Only exempt if the north-star card itself uses a static camera, recorded in `RESEP.md`. Reason: a long static frame reads like a slide.

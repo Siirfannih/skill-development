@@ -32,7 +32,7 @@ Tidak ada profil format. Motion ber-VO dan klip podcast/wawancara memakai aturan
 
 ## 4. Cara kerja (gerbang dikunci)
 
-Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Render penuh adalah yang termahal, jadi datang paling akhir. Nama tahap mengikuti tabel kanonik `MOTION-CORE.md` §1; tabel di bawah merinci gerbang di dalam tiap tahap.
+Setiap gerbang lebih murah diperbaiki daripada gerbang sesudahnya. Render penuh adalah yang termahal, jadi datang paling akhir. Nama tahap mengikuti judul tahap di `templates/TAHAP.md`; tabel di bawah merinci gerbang di dalam tiap tahap.
 
 ### Lima fase, satu subagen baru per fase
 
@@ -76,7 +76,7 @@ Revisi dari Irfan (pesan apa pun yang mengeluhkan atau mengubah video yang sudah
 ```
 motion-graphic/
 ├── SKILL.md                 inti: ringkasan lantai, kiblat, juri, lalu rujukan teknis
-├── LANTAI.md                satu-satunya daftar mutu yang selalu berlaku (diringkas di tabel §0 SKILL.md)
+├── MIGRASI-LANTAI.md        peta butir Lantai lama ke rumah barunya (mutu yang selalu berlaku: NEGATIF di SKILL.md)
 ├── cookbook/                README (prinsip + alur 2 langkah) · INDEX.md · POLA.md · SFX.md · 01…06-<kategori>/ (Pattern Card per referensi) · RESEP-TEMPLATE.md · contoh-gagal/
 ├── scripts/juri/            render.sh (gerbang render) · resep_check.py · sandingkan.py · frame_audit.py (semua frame: fase visual, lalu fase audio) · teks_cek.py (penunjuk, bukan putusan) · kt_ocr.py (kata KT utuh pada onset + 4 f, proyek lego)
 ├── guide/                   standar rasa per urusan (README → visual · teks · gerak · audio · sfx · hindari · referensi)

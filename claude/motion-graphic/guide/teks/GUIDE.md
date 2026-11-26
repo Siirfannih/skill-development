@@ -13,7 +13,7 @@
 - **1–3 kata per tampil**, frasa diganti utuh di tempat yang sama ("By" → "By People" → "no smarter" → "than you"); kalimat panjang tidak ditumpuk jadi 2 baris subtitle.
 - **Tanpa kotak di belakang narasi.** Bentuk + teks dua baris = lower-third berita, nilai editorialnya hilang. Kotak hanya chip yang menempel dan ikut bergerak dengan objek, atau sorot satu kata hero.
 - **Mode berganti**: kata hero sendirian sangat besar, blok seimbang, frasa pendek, label menempel objek, tumpuk kata (satu kata per baris, muncul per kata); tidak > 2 tampilan berturut dengan mode + posisi sama.
-- **Satu lapisan teks.** Di beat bermode TEKS (NEGATIF 6), teks tampil sebagai tipografi kinetik yang posisinya lahir dari komposisi shot; beat VISUAL tanpa teks; tidak ada baris subtitle terpisah di pita bawah, dan kata penekanan tidak diulang di tempat lain (`LANTAI.md` A1–A3).
+- **Satu lapisan teks.** Di beat bermode TEKS (NEGATIF 6), teks tampil sebagai tipografi kinetik yang posisinya lahir dari komposisi shot; beat VISUAL tanpa teks; tidak ada baris subtitle terpisah di pita bawah, dan kata penekanan tidak diulang di tempat lain (NEGATIF 6).
 - ≤ 2 baris sekali tampil (boleh 4+ kata); lebih panjang → pecah jadi tampilan berurutan.
 - Waktu baca ≥ max(0,8 dtk; 0,30 + 0,06 × huruf); kata tersebar terbaca satu arah; teks/ikon/kartu tidak bertabrakan (Lantai A8).
 - Satu baris satu ukuran; kata yang dibesarkan pindah baris sendiri.

@@ -1,6 +1,6 @@
 # Teks di layar: posisi, keterbacaan, gerak
 
-Dibuka saat mengatur teks layar (langkah 4-6 alur `SKILL.md`). Butir lama LANTAI A2-A9a dipadatkan di sini, tiap butir dengan alasannya; bunyi aslinya tetap di `LANTAI.md` (arsip). Sistem huruf (utama + huruf kedua bila ia punya peran dan frekuensi) diatur NEGATIF 1 dan tidak diulang di sini. Gerak teks per peran kalimat: `references/typography.md` §8a (tabel T dan G).
+Dibuka saat mengatur teks layar (langkah 4-6 alur `SKILL.md`). Butir lama LANTAI A2-A9a dipadatkan di sini, tiap butir dengan alasannya; bunyi aslinya di `archive/riwayat/LANTAI.md`. Sistem huruf (utama + huruf kedua bila ia punya peran dan frekuensi) diatur NEGATIF 1 dan tidak diulang di sini. Gerak teks per peran kalimat: `references/typography.md` §8a (tabel T dan G).
 
 ## Teks hanya bila bekerja: keputusan per beat (NEGATIF 6)
 - Tiap beat di tabel storyboard punya mode dan alasan satu baris. **TEKS**: teks adalah isi beat (a: teks itu subjeknya, yaitu diketik, disunting, kata milik produk; b: penanda hook atau babak; c: angka atau kata yang tak bisa ditunjukkan visual; d: CTA). **VISUAL**: VO + visual membawa beat, tanpa teks. **MENYATU**: teks adalah bagian objek (label, UI, huruf yang disunting) dan bukan lapisan sendiri.

@@ -4,7 +4,7 @@ After Effects bukan jalur bawaan. Jalur bawaan build video adalah Remotion dan r
 - Irfan memintanya (mis. ia ingin file `.aep` yang bisa ia buka dan setel sendiri), atau
 - adegannya butuh hal yang di Remotion tidak tercapai setara: animator teks 3D per huruf dengan kamera AE, motion blur asli AE, atau melanjutkan proyek `.aep` yang sudah ada.
 
-Mutu, gaya, dan cara menilai tetap sama dengan jalur lain: `LANTAI.md`, kartu kiblat, dan `templates/roles/pemeriksa-frame.md`. AE hanya ada di Mac; perintah AE, Homebrew, dan aerender dijalankan di mesin itu.
+Mutu, gaya, dan cara menilai tetap sama dengan jalur lain: NEGATIF, kartu kiblat, dan `templates/roles/pemeriksa-frame.md`. AE hanya ada di Mac; perintah AE, Homebrew, dan aerender dijalankan di mesin itu.
 
 ## Pipeline
 
