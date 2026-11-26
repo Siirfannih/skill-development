@@ -74,3 +74,13 @@ Second-model verification against `origin/main` (`0c4e4aa9`). One section per fi
 | `## REPORT-rN.md (Editor)` | Template laporan pekerja (tabel beat+bukti+gate, keluaran gate, pertanyaan terbuka). | Builder report template (beat+evidence+gate table, gate output, open questions). | yes |
 | `## REVIEW-rN.md (Sutradara)` | Template review Sutradara yang ditulis setelah melihat still/render sebelum membaca REPORT. | Director review template written after viewing stills/renders before reading REPORT. | yes |
 | `## QUESTIONS.md & DECISIONS.md` | Format satu baris tanya-jawab antara pekerja dan Sutradara/pemilik. | One-line Q&A format between builder and Director/me. | yes |
+
+## `claude/motion-graphic/references/kamera-gerak.md`
+
+| Section | Indonesian meaning (one line) | English meaning (one line) | Equal? |
+|---|---|---|---|
+| Title & intro | Panduan kamera/gerak/transisi untuk langkah 5-6 `SKILL.md` (ringkasan B10-B13b dari `LANTAI.md`, NEGATIF 10, `motion_lint.py`). | Camera/motion/transition guide for `SKILL.md` steps 5-6 (condensed B10-B13b from `LANTAI.md`, NEGATIF 10, `motion_lint.py`). | yes |
+| `## Frame hidup (B10, B11, B12)` | Shot >2 dtk bergerak (kecuali kiblat diam di `RESEP.md`), 1 objek fokus per beat patuh ucapan, elemen diam dan kamera yang bergerak. | Shots >2 s move (unless north-star card is static in `RESEP.md`), 1 focus object per beat obeying speech, elements stay still while camera moves. | yes |
+| `## Transisi (B13)` | Tanpa crossfade polos, pengecualian micro-blend ≤4 f & blur-to-sharp, pemilihan mekanik dari hubungan ruang, 1 khas + ≥4 tipe/30 dtk (`SceneChain`). | No plain crossfades, micro-blend ≤4 f & blur-to-sharp exceptions, mechanics from spatial relation, 1 signature + ≥4 types/30 s (`SceneChain`). | yes |
+| `## Gerak dirancang per gerak (B13a)` | Pilihan kurva `curves.ts`, durasi dari jarak/bobot (`dur`) + reaksi `react(i)`, gerak keluar 0,65×, hold >1 dtk hidup, tanpa fade-up/blur-in bawaan. | `curves.ts` curve choices, distance/weight duration + `react(i)` stagger, 0.65× exits, alive holds >1 s, no default fade-up/blur-in. | yes |
+| `## Format berulang (B13b)` | Format berulang wajib beda framing tiap kemunculan agar tidak terbaca sebagai template. | Recurring formats vary framing on each appearance so they do not read like templates. | yes |

@@ -9,3 +9,4 @@
 | claude/motion-graphic/templates/cut-sheet.md | en | translate/batch-01 | dependants: none (verified) |
 | claude/motion-graphic/templates/roles/konsul.md | en | translate/batch-01 | dependants: none (verified) |
 | claude/motion-graphic/templates/roles/handoff.md | en | translate/batch-01 | dependants: none (verified) |
+| claude/motion-graphic/references/kamera-gerak.md | en | translate/batch-01 | dependants: none (verified) |
