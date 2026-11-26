@@ -1,0 +1,12 @@
+{
+  "komponen": "lightwave",
+  "catatan": "Netral hangat: cokelat-abu gelap dengan cahaya lembut dari kiri bawah.",
+  "params": {
+    "colors": ["#1A1614", "#4A3A32", "#D9B99B"], "mode": "dark",
+    "glow": { "x": 0.2, "y": 0.8, "r": 0.55, "strength": 0.7 },
+    "dir": 215, "waveSpeed": 0.3, "amp": 0.8, "grain": 0.025, "seed": 5, "intensity": 1, "saturation": 1
+  },
+  "varian": {
+    "light": { "colors": ["#F6EFE6", "#E6D3BF", "#FFFFFF"] }
+  }
+}

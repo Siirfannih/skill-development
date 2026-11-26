@@ -1,0 +1,12 @@
+{
+  "komponen": "lightwave",
+  "catatan": "Biru dalam dengan pita cahaya dan glow di kanan atas. Varian light: dasar putih kebiruan.",
+  "params": {
+    "colors": ["#060B1F", "#1B3FD6", "#8FB0FF"], "mode": "dark",
+    "glow": { "x": 0.72, "y": 0.28, "r": 0.5, "strength": 0.85 },
+    "dir": 35, "waveSpeed": 0.4, "amp": 1, "grain": 0.025, "seed": 3, "intensity": 1, "saturation": 1
+  },
+  "varian": {
+    "light": { "colors": ["#EEF3FF", "#A9C0FF", "#FFFFFF"], "glow": { "x": 0.72, "y": 0.28, "r": 0.55, "strength": 0.9 }, "grain": 0.02 }
+  }
+}

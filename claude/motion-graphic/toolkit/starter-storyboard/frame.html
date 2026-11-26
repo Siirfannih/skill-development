@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<title>frame</title>
+<style>
+  html, body { margin: 0; background: #000; }
+  #frame { position: relative; width: 1080px; height: 1920px; overflow: hidden; }
+  .lapis { position: absolute; inset: 0; }
+</style>
+</head>
+<body>
+<div id="frame">
+  <div id="panggung" class="lapis"></div>
+</div>
+<script src="tema.js"></script>
+<script src="toolkit/toolkit.js"></script>
+<script>
+// Kerangka storyboard: waktu HANYA dari window.seek(t) (detik) -> frame = round(t * FPS). Tanpa requestAnimationFrame/Date.now/Math.random.
+// Kurva, kamera, latar, grain dari TK (toolkit). Jangan menulis ulang easing di sini.
+const FPS = 30, T = window.TEMA, frameEl = document.getElementById("frame"), stage = document.getElementById("panggung");
+
+// lapis 2,5D: z negatif = jauh. data-lapis dibaca lihat.py (0 latar, 1 objek, 2 teks, 3 label).
+function lapis(z, lapisNo, opts) { const el = document.createElement("div"); el.className = "lapis"; el.dataset.lapis = lapisNo; stage.appendChild(el); return Object.assign({ el, z }, opts); }
+const L = [lapis(-400, 0, { fill: true }), lapis(0, 1)];
+const bgEl = document.createElement("div"); bgEl.style.cssText = "position:absolute;inset:0"; L[0].el.appendChild(bgEl);
+const judul = document.createElement("div");
+judul.style.cssText = `position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:${T.warna.tinta};font-family:${T.huruf.judul};font-size:${T.huruf.ukuranJudul || 64}px`;
+judul.textContent = "Adegan"; L[1].el.appendChild(judul);
+
+const KEYS = [{ at: 0, push: 0, orbit: 0 }, { at: 60, push: 120, orbit: 6, curve: "heavy" }];   // keyframe kamera (frame)
+
+function gambarLatar(frame) {
+  const b = T.latar, w = b.warna.length >= 2 ? b.warna : undefined; if (b.mode === "off" || (!w && !b.preset)) return;
+  if (b.mode === "cahaya") {
+    let c = bgEl.querySelector("canvas"); if (!c) { c = document.createElement("canvas"); c.width = 1080; c.height = 1920; c.style.cssText = "position:absolute;inset:0;width:100%;height:100%"; bgEl.appendChild(c); }
+    TK.lightWaveBg(c, frame, { preset: b.preset || undefined, colors: w, mode: b.gelapTerang || undefined, glow: b.glow || undefined, seed: b.seed ?? undefined, width: 1080, height: 1920 }, FPS);
+  } else TK.generativeBg(bgEl, frame, { preset: b.preset || undefined, mode: b.mode, colors: w, zones: b.glow ? [b.glow] : undefined, seed: b.seed ?? undefined }, FPS);
+}
+
+window.seek = function (t) {
+  const frame = Math.round(t * FPS);
+  gambarLatar(frame);
+  TK.applyCamera25D(stage, L, TK.cameraAt(KEYS, frame, { fps: FPS, drift: { amp: 4, seed: 2 } }));
+  TK.applyGrain(frameEl, frame, T.grain);
+  return frame;
+};
+window.seek(+(new URLSearchParams(location.search).get("t") || 0));
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+{
+  "komponen": "lightwave",
+  "catatan": "Nyaris polos: gelombang dimatikan, hanya grain halus supaya tidak banding. Untuk referensi bergaya editorial/datar.",
+  "params": {
+    "colors": ["#F3F0E8", "#ECE7DB"], "mode": "light",
+    "glow": { "x": 0.5, "y": 0.4, "r": 0.8, "strength": 0.15 },
+    "dir": 90, "waveSpeed": 0, "amp": 0.1, "grain": 0.02, "seed": 1, "intensity": 1, "saturation": 1
+  },
+  "varian": {
+    "dark": { "colors": ["#141414", "#1C1C1C"] }
+  }
+}
