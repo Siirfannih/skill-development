@@ -220,7 +220,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/remotion/Penghitung.tsx` | Penghitung.tsx — blok lego: angka yang naik/turun dan bisa dibaca (cookbook/04-ui-cutout-dataviz-visuals/M20-dataviz-bars-counters-and-tickers.md). |
 | `claude/motion-graphic/scripts/remotion/SmoothAudioClip.tsx` | SmoothAudioClip.tsx — audio motion-graphic §14.7 (Modul 2). |
 | `claude/motion-graphic/scripts/remotion/TeksBlok.tsx` | TeksBlok.tsx — satu blok teks KT sebagai lapisan lego ber-alpha (Lantai A9a, F26). |
-| `claude/motion-graphic/scripts/remotion/curves.ts` | curves.ts — gerak dirancang per gerak, bukan preset (Lantai B13a, 16 Nov 2026). |
+| `claude/motion-graphic/scripts/remotion/curves.ts` | curves.ts — kompatibilitas impor lama (`../curves`). Isi kanonik: toolkit/gerak/curves.ts. |
 | `claude/motion-graphic/scripts/remotion/timing.ts` | timing.ts — stagger, pegas berlintasan, van Wijk, timeline. Semua murni terhadap `frame`: |
 | `claude/motion-graphic/scripts/remotion/ae-primitives/index.ts` | index.ts — satu pintu impor AE-Primitives. Butuh `curves.ts` di folder induk (../curves). |
 | `claude/motion-graphic/scripts/remotion/ae-primitives/presets.ts` | presets.ts — titik awal angka untuk semua primitive: kurva, pegas, durasi, intensitas, token warna netral. |

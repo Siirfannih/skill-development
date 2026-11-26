@@ -157,7 +157,7 @@ class PintuProduksi(unittest.TestCase):
     def test_motion_core_memuat_alur_dua_langkah(self):
         t = baca(MG / "MOTION-CORE.md")
         urut = ["Brief → Naskah → Storyboard/block out", "irfan-creative-workflow/SKILL.md", "Langkah 1", "cookbook/pilih_kartu.py --cari", "2–4 kartu", "tabel racikan dan remix per beat",
-                "| Beat | Fungsi cerita | Pola (ID.Tn) |", "Langkah 2", "Remotion dari nol", "`render.sh final` lulus"]
+                "| Beat | Fungsi cerita | Pola (ID.Tn) |", "Langkah 2", "Mulai dari `toolkit/`", "`render.sh final` lulus"]
         alur = t[t.index("## 1."):t.index("## 2.")]
         pos = [alur.find(x) for x in urut]
         self.assertNotIn(-1, pos, [x for x, p in zip(urut, pos) if p < 0]); self.assertEqual(pos, sorted(pos))

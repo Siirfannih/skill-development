@@ -7,8 +7,10 @@ Memindai src Remotion dan menolak tiga tanda gerak "default AI":
              Easing.bezier(...) sendiri.
   - stagger rata : jeda kemunculan i × konstanta (mis. `i * 3`, `index * 0.08 * fps`). Pakai react(i) dari curves.ts.
   - blur masuk : filter blur pada kemunculan teks/objek ("blur fade"). Blur hanya untuk gerak cepat (motion blur).
+  - gerak sendiri : proyek menulis easing sendiri (`Math.pow(1 - t`, `function land(`, `const heavy =` ...) di .ts/.tsx/.js/.html tanpa
+                    mengimpor kurva toolkit (toolkit/gerak/curves.ts|js, atau `TK.` dari toolkit.js). Mulai dari toolkit/ (mulai.sh).
 Baris yang sengaja dikecualikan diberi komentar `motion-ok: <alasan>` di baris yang sama.
-Pakai: python3 motion_lint.py <folder src> ; exit 1 bila ada temuan.
+Pakai: python3 motion_lint.py <folder src> [<folder storyboard> ...] ; exit 1 bila ada temuan.
 """
 import re, sys
 from pathlib import Path
@@ -19,17 +21,35 @@ RULES = [
     ("blur masuk", re.compile(r"blur\(\s*\$?\{?[^)]*(?:1\s*-\s*|interpolate)")),
 ]
 
+# easing buatan sendiri: pola kurva keluar/masuk umum dan nama kurva toolkit yang didefinisikan ulang
+EASING_SENDIRI = re.compile(
+    r"Math\.pow\(\s*1\s*-\s*\w+|\(\s*1\s*-\s*\w+\s*\)\s*\*\*\s*[2-5]"
+    r"|\bfunction\s+(?:land|heavy|whip|reveal|leave|wind)\s*\("
+    r"|\b(?:const|let|var)\s+(?:land|heavy|whip|reveal|leave|wind)\s*=")
+IMPOR_TOOLKIT = re.compile(
+    r"(?:from\s+|import\s*\(?\s*|require\(\s*)['\"][^'\"]*(?:gerak/curves|/curves|toolkit)[^'\"]*['\"]"
+    r"|<script[^>]+src=['\"][^'\"]*(?:toolkit\.js|curves\.js)['\"]|\bTK\.(?:move|CURVE|dur|react)\b")
+LEWAT_PATH = ("node_modules", "toolkit", "ae-primitives")
+
 TIMING = re.compile(r"delay|start|from=|offset|fps|frame|\bt0\b|\bat\b|stagger|appear|muncul|masuk", re.I)
 
 
 def lint(src, only=None):
     out = []
-    for f in sorted(Path(src).rglob("*.[jt]s*")):
+    for f in sorted(list(Path(src).rglob("*.[jt]s*")) + list(Path(src).rglob("*.html"))):
         if only is not None and f.resolve() not in only:
             continue
         if "node_modules" in f.parts or f.name.startswith("curves."):
             continue
-        for n, line in enumerate(f.read_text(encoding="utf-8", errors="ignore").splitlines(), 1):
+        teks = f.read_text(encoding="utf-8", errors="ignore")
+        lines = teks.splitlines()
+        if not any(p in f.parts for p in LEWAT_PATH) and f.suffix in (".ts", ".tsx", ".js", ".jsx", ".mjs", ".html") and not IMPOR_TOOLKIT.search(teks):
+            for n, line in enumerate(lines, 1):
+                if "motion-ok:" not in line and EASING_SENDIRI.search(line):
+                    out.append(f"{f}:{n} gerak sendiri (tanpa impor toolkit curves): {line.strip()[:90]}")
+        if f.suffix == ".html":
+            continue  # aturan lain khusus kode Remotion
+        for n, line in enumerate(lines, 1):
             if "motion-ok:" in line:
                 continue
             for label, rx in RULES:
@@ -45,8 +65,10 @@ if __name__ == "__main__":
     only = None
     if "--hanya" in args:  # revisi video lama: hanya file yang berubah sejak versi disetujui
         i = args.index("--hanya"); only = {Path(p).resolve() for p in args[i + 1:]}; args = args[:i]
-    issues = lint(args[0] if args else "src", only)
+    issues = []
+    for d in (args or ["src"]):
+        issues += lint(d, only)
     for i in issues[:40]:
         print(" ", i)
-    print("PASS" if not issues else f"FAIL: {len(issues)} gerak preset/stagger rata/blur masuk (pakai curves.ts, atau tulis `motion-ok: <alasan>`)")
+    print("PASS" if not issues else f"FAIL: {len(issues)} gerak preset/stagger rata/blur masuk/easing sendiri (pakai toolkit/gerak/curves, atau tulis `motion-ok: <alasan>`)")
     sys.exit(1 if issues else 0)

@@ -5,6 +5,7 @@ Baca saat mulai build.
 ## Isi
 
 - 3. Alat & pipeline produksi (Remotion, engine kode, rakit lego)
+- 3a. Toolkit mekanik (mulai proyek)
 
 ## 3. Alat & pipeline produksi
 
@@ -54,3 +55,10 @@ Aset gambar: generate lewat Codex/ChatGPT di Mac.
 - Plate: "dinding saja, tanpa objek utama, tanpa teks".
 
 ---
+
+## 3a. Toolkit mekanik (mulai proyek)
+
+Proyek Remotion dan storyboard HTML dimulai dari `toolkit/` (`toolkit/mulai.sh <folder> remotion|storyboard`), bukan dari file kosong atau scaffold proyek lain. Isinya mekanik tanpa gaya: kurva dan timing (`gerak/`), kamera 2,5D dengan orbit (`kamera/Camera25D.tsx`, `camera25d.js`), latar shader dan generatif serta grain (`latar/`, opt-in, mati bawaan), transisi yang sudah ada (`transisi/`), kerangka `starter/` dan `starter-storyboard/`. Aturan pakai:
+- Tulis hanya yang belum ada di toolkit; jangan menulis ulang easing atau kamera (`motion_lint.py` menolak easing buatan sendiri tanpa impor kurva toolkit).
+- Semua nilai visual dari `tema.ts` (`tema.js`) dan REF-SPEC; komponen toolkit tidak membawa warna atau huruf. Latar/grain dipakai hanya bila REF-SPEC/brief memintanya; ukur dengan `scripts/banding.py`.
+- Latar punya preset (`toolkit/latar/presets/*.json`) yang bisa ditimpa per props (`saturation`, `intensity`, `glow`) dan disimpan (`simpan_preset.py`). Cara pakai dan contoh: `toolkit/README.md`.

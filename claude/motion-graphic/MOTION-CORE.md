@@ -1,8 +1,8 @@
-> **Invarian kerja** (berlaku di atas isi lain di file ini; ringkasannya menjaga penalaran mekanikal dan gerbang mutu):
-> 1. **Cookbook = perpustakaan mekanik, bukan template.** Konsep user + 2–4 kartu mekanik cookbook = output baru. Jangan membuat template gaya tetap atau menyalin gaya antar proyek.
+> **Invarian kerja** (berlaku di atas isi lain di file ini):
+> 1. **Cookbook = perpustakaan mekanik, bukan template.** Konsep user + 2–4 kartu mekanik cookbook = output baru. Jangan membuat template gaya tetap atau menyalin gaya antar proyek; toolkit primitif mekanik (tanpa gaya) dipakai ulang; template gaya tidak.
 > 2. **Promosi aturan hanya lewat `SARINGAN.md`** (S = proyek, P = pertimbangan, H = hukum netral-gaya terukur). Selera satu proyek tidak naik ke aturan global.
 > 3. **Gerbang pemilik tidak dilewati.** Konsep/topik, naskah final, serta storyboard + tabel racikan cookbook disetujui pemilik sebelum produksi atau pemakaian kredit.
-> 4. **Aturan = praktik terbaik, bukan hukum tetap, kecuali NEGATIF.** Kartu, `render.sh final`, `gerbang_produksi.sh`, `scripts/gate/*` = default; kondisi nyata menang. Melewati gerbang boleh dengan satu baris alasan + bukti di LOG. Alat gerbang tidak diubah demi satu video.
+> 4. **Aturan = praktik terbaik, bukan hukum tetap, kecuali NEGATIF.** Kartu, `render.sh final`, `gerbang_produksi.sh`, `scripts/gate/*` = default; kondisi nyata menang. Melewati gerbang boleh dengan 1 baris alasan + bukti di LOG. Alat gerbang tidak diubah demi 1 video.
 > 5. **Baca dulu, jangan menebak.** Bahan sumber dan outbox/proyek terkait dibaca sebelum menyimpulkan atau memberi perintah.
 
 Arsip referensi; pintu aktif: SKILL.md.
@@ -48,7 +48,7 @@ Belum ada kode, generate, atau pemakaian kredit sebelum persetujuan storyboard.
    | Beat | Fungsi cerita | Pola (ID.Tn) | Remix: dipertahankan → diganti | SFX |
    |---|---|---|---|---|
 
-**Langkah 2 · Bangun Remotion dari nol.** Kode ditulis baru dari tabel racikan dan `TRANSITION-SHEET` dengan gaya `BRAND.md`: wajib impor `scripts/remotion/ae-primitives/` (`SpatialAnchorCamera`, `SpatialDepthStage`, `MotionBlurWrapper`, `WhipPanTransition`, `GridFlashReveal` (pembungkus kompatibilitas: `scripts/remotion/FlashGrid.tsx`), `SceneChain`, `FlashCut`, `InvertFlash`, `HighlighterSweep`, `SelectiveColorSpotlight`, `Scrim`), `scripts/remotion/curves.ts`, dan pola kamera dunia 2D di `projects/skill-development-journey-20261116/remotion/src/papan/Papan.tsx`. Dilarang menambal scaffold episode proyek lain. Selesai hanya bila `render.sh final` lulus, termasuk `gerbang_produksi.sh` (§3).
+**Langkah 2 · Remotion.** Mulai dari `toolkit/` (`mulai.sh`); tulis hanya yang belum ada; gaya dari `tema.ts`/REF-SPEC. Wajib impor `scripts/remotion/ae-primitives/` (`SpatialAnchorCamera`, `SpatialDepthStage`, `MotionBlurWrapper`, `WhipPanTransition`, `GridFlashReveal` (pembungkus kompatibilitas: `scripts/remotion/FlashGrid.tsx`), `SceneChain`, `FlashCut`, `InvertFlash`, `HighlighterSweep`, `SelectiveColorSpotlight`, `Scrim`), `toolkit/gerak/curves.ts`, dan pola kamera dunia 2D di `projects/skill-development-journey-20261116/remotion/src/papan/Papan.tsx`. Dilarang menambal scaffold episode proyek lain. Selesai hanya bila `render.sh final` lulus, termasuk `gerbang_produksi.sh` (§3).
 
 ## 2. Lantai: 10 aturan yang tidak ditawar
 

@@ -308,6 +308,7 @@ Dibuka hanya saat mengubah skill, menilai cakupan sebuah aturan, atau memeriksa 
 
 | Aturan | Asal-usul |
 |---|---|
+| §3a. Toolkit mekanik (mulai proyek) · `toolkit/` | Irfan 26 Nov 2026 13:34 (diminta, lalu 13:40 latar shader GLSL dan 13:43 preset latar yang bisa disetel); temuan inventaris hari itu: kurva, kamera, transisi sudah ada tapi tersebar, dan sesi uji menulis ulang 350-810 baris easing/kamera HTML-JS tiap kali dengan nama kurva dari ingatan; latar generatif, grain global, orbit, dan kerangka proyek belum ada |
 | §3. Alat & pipeline produksi · "UI produk sendiri (Jadisatu): salin komponen…" | Irfan 7 Nov |
 | §3. Alat & pipeline produksi · "Rakit lego (jalur utama video berfootage,…" | Irfan 16 Nov |
 | §3. Alat & pipeline produksi · "Glow/blend dirender di dalam lapisan; compose…" | gagal: bdf26 v10 +4 kecerahan |
@@ -1220,3 +1221,10 @@ Penghitung: nilai mulai 2; +1 gerbang menangkap kegagalan nyata; −1 salah-temb
 - Lapisan sekitar inti masih membawa aturan lama (urutan otoritas dengan [keras] dan `qc/izin.json`, "semua ucapan tampil", serif dilarang, caption mode, angka ukuran ganda): temuan reviewer independen (Fable) sebelum finalisasi, atas uji Irfan 26 Nov 2026. Inti (NEGATIF, `teks.md`, `revisi.md`, BEDAH-REFERENSI, MIGRASI) sudah konsisten; lapisan sekitar disamakan.
 - Lantai keterbacaan teks (~24 px @1080), batas blur, pola komposisi berulang (S-V31, ambang > ~25 % frame atau 3+ berurutan; ukuran kasar: fokus < 20 % dan pusat dalam ±12 % dari tengah), dan tilt/3D sebagai keputusan sistem: validator eksternal Manda, replay Behindwork v7. Pengukuran `banding.py --seri` adalah peringatan kasar; nilai akhir dengan mata.
 - Gerbang style frame dan 5 uji biner dipusatkan di `dunia-visual.md` §7-8 (SKILL dan BEDAH menunjuk); ruang di `SKILL.md` dipakai untuk butir keterbacaan, blur, pola, tilt.
+
+## `toolkit/` · `scripts/juri/motion_lint.py` (aturan easing sendiri) · `MOTION-CORE.md` Langkah 2 · `AGENTS.md` invarian 1
+
+- Toolkit primitif mekanik tanpa gaya (kurva, kamera 2,5D + orbit, latar shader/generatif, grain, transisi, kerangka Remotion dan storyboard): Irfan 26 Nov 2026 13:34, atas temuan inventaris hari itu (komponen ada tapi tersebar; sesi uji menulis ulang easing/kamera 350-810 baris per proses). Prinsip "mekanik, bukan gaya; latar dan grain opt-in": keputusan Irfan pada permintaan yang sama; ide grainy gradient dari catatan teknik Bang Motion (§7d), dibangun ulang tanpa menyalin gayanya; contoh grain: `kegagalan-eps01-claude2/v2/remotion/src/Video.tsx` (PC).
+- Latar harus shader GLSL sungguhan (`LightWaveBg`, waktu dari frame; GenerativeBG jadi cadangan ringan): Irfan 26 Nov 2026 13:40. Preset latar yang bisa ditimpa dan disimpan (`presets/*.json`, `simpan_preset.py`, `saturation`/`intensity`): Irfan 26 Nov 2026 13:43, supaya masukan "pertajam warnanya" cukup satu angka.
+- Gerbang easing sendiri di `motion_lint.py` (tanpa impor kurva toolkit): lanjutan temuan yang sama; kurva tetap lewat `toolkit/gerak/curves`.
+- Versi Remotion starter 4.0.380: versi yang dipakai proyek yang berjalan di PC server (`soalnya-gini-studio/test-produksi/ep02/remotion`), dicek 26 Nov 2026.
