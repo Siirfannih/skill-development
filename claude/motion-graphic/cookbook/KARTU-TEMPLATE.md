@@ -27,11 +27,6 @@ alias: []
 ## Kondisi footage asli
 <rasio; jenis shot dan skala subjek; terang-gelap latar; pakaian; letak ruang kosong; kamera diam/bergerak. Ini yang dibandingkan dengan footage sendiri sebelum meminjam pola.>
 
-## Pengikat (dipakai utuh hanya bila video sumbernya referensi yang dibawa user)
-### Warna & tekstur
-### Teks
-### Ritme
-
 ## Pola
 Satu blok per pola yang layak dipinjam (maksimal 6). Bagian yang belum terlihat ditulis "belum dibedah", tidak dikarang.
 
@@ -52,11 +47,16 @@ Satu blok per pola yang layak dipinjam (maksimal 6). Bagian yang belum terlihat 
   3. <…, boleh berupa kondisi footage berbeda: latar terang, 16:9, wajah besar>
 - *Pengamatan di video asli, bukan target:* <angka visual bila perlu>
 
+## Pengikat (dipakai utuh hanya bila video sumbernya referensi yang dibawa user)
+### Warna & tekstur
+### Teks
+### Ritme
+
 ## Audio (bila dibedah)
 <SFX dan musik: peran, kepadatan, loudness, sebagai pengamatan. "belum dibedah" bila belum.>
 
 ## Yang harus terasa sama saat disandingkan
-<4–6 pertanyaan yang dijawab dengan melihat still/klip kita di samping frame kunci.>
+<4–6 pertanyaan tentang hubungan: urutan, ritme, proporsi relatif, peran, arah baca. Nilai kulit (hex, nama huruf, nama benda, persen layar) ditulis di Pengikat, tidak di sini.>
 
 ## Catatan pakai
 - <pelajaran dari video yang pernah memakai kartu ini, dengan tanggal dan proyek; disalin utuh dari kartu lama. Kosong bila belum pernah dipakai.>

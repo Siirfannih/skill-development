@@ -158,6 +158,42 @@ class VaultInfo(Pohon):
         rc, out = self.cek(); self.assertNotIn("S01-contoh.md: tidak ada", out)
 
 
+class KulitInfo(Pohon):
+    """C10: nilai kulit (hex, nama huruf, persen layar) di checklist sanding kartu vault dilaporkan sebagai info, tidak pernah GAGAL."""
+
+    TIPO = ("# Tipografi\n\n## 7. Tipografi\n\n| Peran | Fungsi | Pilihan (Jadisatu) | Ukuran @1080 |\n|---|---|---|---|\n"
+            "| Display/Kunci | Kata kunci | Inter Black 900 (atau Neue Haas Grotesk Display 95 di Adobe Fonts) | 200-320 px |\n"
+            "| Aksen | Satu kata | Bobot paling kontras, KAPITAL | — |\n| Data | Angka | Silkscreen (dunia pixel) / JetBrains Mono (UI) | 60-140 px |\n")
+
+    def siap(self, checklist, tipo=True):
+        self.kartu("`curves`", vault="../_vault/01-camera-and-transitions/63-contoh.md")
+        if tipo:
+            (self.cb.parent / "references").mkdir(exist_ok=True); (self.cb.parent / "references/typography.md").write_text(self.TIPO, encoding="utf-8")
+        self.vault(isi=VAULT_LENGKAP.replace("- apa?\n", checklist))
+        return self.cek("--ketat")
+
+    def test_hex_di_checklist_info_rc_tetap(self):
+        rc, out = self.siap("- apakah warna latar #B7B7FF terbaca?\n")
+        self.assertEqual(rc, 0, out); self.assertIn("VAULT (info) kulit di checklist: 63 (1)", out); self.assertIn("0 GAGAL", out)
+
+    def test_nama_huruf_dan_persen_dihitung(self):
+        rc, out = self.siap("- apakah Inter Black memenuhi 60 % layar?\n- dan JetBrains Mono 12%?\n")
+        self.assertEqual(rc, 0, out); self.assertIn("kulit di checklist: 63 (4)", out)
+
+    def test_checklist_bersih_tanpa_info(self):
+        rc, out = self.siap("- apakah urutan masuknya sama?\n- apakah ritmenya sama?\n")
+        self.assertEqual(rc, 0); self.assertNotIn("kulit di checklist", out)
+
+    def test_kulit_di_luar_checklist_tidak_dihitung(self):
+        self.kartu("`curves`", vault="../_vault/01-camera-and-transitions/63-contoh.md")
+        self.vault(isi=VAULT_LENGKAP.replace("isi\n", "latar #B7B7FF, Inter Black, 40 %\n"))
+        rc, out = self.cek("--ketat"); self.assertEqual(rc, 0); self.assertNotIn("kulit di checklist", out)
+
+    def test_tanpa_typography_md_hanya_hex_dan_persen(self):
+        rc, out = self.siap("- Inter Black dan #B7B7FF\n", tipo=False)
+        self.assertEqual(rc, 0); self.assertIn("kulit di checklist: 63 (1)", out)
+
+
 class CatalogDuplikat(Pohon):
     def test_alias_duplikat_dijelaskan_dan_penyebut(self):
         self.kartu("`curves`", id_="M18", alias='"9", "42"')

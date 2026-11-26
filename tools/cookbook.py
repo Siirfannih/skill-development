@@ -402,6 +402,57 @@ def rujukan_ada(tok, indeks):
     return tok in indeks
 
 
+KULIT_BOBOT = {"Black", "ExtraBold", "SemiBold", "Medium", "Bold", "Regular", "Light", "Display", "Fonts", "Adobe"}
+KULIT_HEX = re.compile(r"#[0-9A-Fa-f]{6}\b")
+KULIT_PERSEN = re.compile(r"\d+\s?%")
+CHECKLIST = re.compile(r"^## Yang harus terasa sama saat disandingkan[^\n]*\n(.*?)(?=^## |\Z)", re.M | re.S)
+
+
+def keluarga_huruf():
+    """Nama keluarga huruf dari tabel peran di references/typography.md §7 (kolom Pilihan; baris tanpa ukuran dilewati). Berkas hilang: kosong."""
+    try:
+        with open(os.path.join(CB, "..", "references", "typography.md"), encoding="utf-8") as fh:
+            teks = fh.read()
+    except OSError:
+        return []
+    out, baris, di7 = [], teks.splitlines(), False
+    tabel = []
+    for b in baris:  # tabel pertama sesudah judul "## 7."
+        if re.match(r"^## 7\.", b):
+            di7 = True
+        elif di7 and b.startswith("|"):
+            tabel.append(b)
+        elif di7 and tabel:
+            break
+    for b in tabel:
+        sel = [x.strip() for x in b.strip().strip("|").split("|")]
+        if len(sel) != 4 or sel[3] in ("—", "-", "") or sel[0] in ("Peran",) or set(sel[0]) <= set("-: "):
+            continue
+        pilihan = re.sub(r"\(atau ([^)]*)\)", r" / \1", sel[2])
+        pilihan = re.sub(r"\([^)]*\)", "", pilihan)
+        for bagian in re.split(r"\s*/\s*", pilihan):
+            nama = []
+            for kata in bagian.split():
+                if not kata[0].isupper() or kata in KULIT_BOBOT:
+                    break
+                nama.append(kata)
+            if nama:
+                out.append(" ".join(nama))
+    return sorted(set(out), key=lambda x: (-len(x), x))
+
+
+def kulit_checklist(teks, huruf):
+    """Jumlah nilai kulit (hex, nama huruf, persen layar) di seksi checklist sanding satu kartu vault."""
+    m = CHECKLIST.search(teks)
+    if not m:
+        return 0
+    cl = m.group(1)
+    n = len(KULIT_HEX.findall(cl)) + len(KULIT_PERSEN.findall(cl))
+    for h in huruf:
+        n += len(re.findall(r"(?<![\w-])" + re.escape(h) + r"(?![\w-])", cl))
+    return n
+
+
 def info_vault(cards):
     """Temuan struktur vault dan id yatim. Hanya info: tidak pernah GAGAL, tidak dihitung di --ketat."""
     out = []
@@ -409,12 +460,15 @@ def info_vault(cards):
     for c in cards:
         for vp in (c["fm"] or {}).get("vault", []):
             pakai.add(os.path.normpath(os.path.join(os.path.dirname(c["path"]), vp)))
-    yatim = []
+    yatim, kulit, huruf = [], [], keluarga_huruf()
     for p in _vault_files():
         stem = os.path.basename(p)
         with open(p, encoding="utf-8") as fh:
             teks = fh.read()
         fm, _ = parse_front(teks)
+        nk = kulit_checklist(teks, huruf)
+        if nk:
+            kulit.append((re.match(r"^([A-Za-z]?\d+(?:-\d+)*)", stem).group(1) if re.match(r"^[A-Za-z]?\d", stem) else stem, nk))
         if os.path.normpath(p) not in pakai:
             yatim.append(re.match(r"^([A-Za-z]?\d+(?:-\d+)*)", stem).group(1) if re.match(r"^[A-Za-z]?\d", stem) else stem)
         bagian = VAULT_BAGIAN_S if re.match(r"^S\d", stem) else VAULT_BAGIAN
@@ -425,6 +479,8 @@ def info_vault(cards):
             out.append(f"{stem}: tidak ada {', '.join(miss)}")
     if yatim:
         out.append("yatim (tidak dirujuk kartu aktif mana pun): " + ", ".join(sorted(yatim, key=idkey)))
+    if kulit:
+        out.append("kulit di checklist: " + ", ".join(f"{i} ({n})" for i, n in sorted(kulit, key=lambda x: idkey(x[0]))))
     return out
 
 
