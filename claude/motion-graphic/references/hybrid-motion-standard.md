@@ -1,6 +1,6 @@
 # Hybrid Motion Standard (minimum barrier, not an absolute value)
 
-Extracted from benchmark reference videos (`GrokAgent/reference-videos/`).
+Extracted from benchmark reference videos (`archive/riwayat/GrokAgent/reference-videos/`).
 This is a **minimum standard that must be met**, yet its numbers and rules may change anytime based on project situations and conditions. If a scene intentionally breaks one, record the reason in the project document.
 
 ## System role & objective

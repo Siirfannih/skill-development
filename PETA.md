@@ -85,7 +85,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/dunia-visual.md` | **Dunia visual: tema, terjemahan kata gaya, dan gerbang style frame** — Dibuka di langkah 3-5 alur SKILL.md: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. |
 | `claude/motion-graphic/references/efek-3d.md` | **Effects and 3D: when, which are safe, recipes** — Standalone reference (not a mandatory gate). |
 | `claude/motion-graphic/references/grade.md` | **Color grading footage dengan ffmpeg** — Dibuka saat footage (talking head, b-roll) perlu look tertentu. |
-| `claude/motion-graphic/references/hybrid-motion-standard.md` | **Hybrid Motion Standard (minimum barrier, not an absolute value)** — Extracted from benchmark reference videos (GrokAgent/reference-videos/). |
+| `claude/motion-graphic/references/hybrid-motion-standard.md` | **Hybrid Motion Standard (minimum barrier, not an absolute value)** — Extracted from benchmark reference videos (archive/riwayat/GrokAgent/reference-videos/). |
 | `claude/motion-graphic/references/kamera-gerak.md` | **Camera, motion, and transitions** — Opened when designing camera movement and transitions (steps 5-6 of the SKILL.md workflow). |
 | `claude/motion-graphic/references/motion-mechanics.md` | **Motion mechanics: camera, transitions, cutout (logic and how they work)** — Read when choosing camera moves or transitions, alongside camera-transition.md. |
 | `claude/motion-graphic/references/orkestrasi.md` | **Orkestrasi: kamu memimpin, model lain yang mengulang** — Baca file ini sampai habis sebelum mengerjakan build, render, atau QC video. |
