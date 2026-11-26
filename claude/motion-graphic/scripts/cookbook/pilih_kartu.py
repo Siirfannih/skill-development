@@ -2,7 +2,7 @@
 """Pemilih kartu mekanik cookbook per beat: baca cookbook/CATALOG.md, kembalikan 2-4 kartu yang cocok dengan fungsi cerita.
 
   python3 pilih_kartu.py --cari "<kata kunci fungsi cerita>" [--kategori camera|typography|layout|texture|sfx|script|qc]
-                         [--pack 01..06] [--bergerak] [--limit 4] [--index <CATALOG.md>] [--keyframes <folder>]
+                         [--pack 01..06] [--bergerak] [--limit 4] [--ringkas] [--index <CATALOG.md>] [--keyframes <folder>]
 
 Dipanggil per beat untuk mencari, tetapi 2-4 kartu itu untuk seluruh video: beat berikutnya memakai ulang kartu yang sudah terpilih bila cocok. Kartu adalah mekanik yang
 dipinjam lalu di-remix ke konsep user; keluaran skrip ini bukan template dan bukan gaya yang disalin.
@@ -16,8 +16,11 @@ Masukan: tabel CATALOG.md/INDEX.md berkolom `ID | Pola | Narrative trigger | Kat
   `fungsi:` dan `risiko:` dibaca dari frontmatter kartu lewat kolom Path; kartu yang tidak terbaca dianggap tanpa fungsi.
   --bergerak  hanya kartu berstatus bergerak:ya.
   --limit     jumlah baris paling banyak (bawaan 4).
+  --ringkas   hanya tabel; tanpa catatan risiko, daftar sumber vault, dan baris penutup.
+Keluaran: tabel (baris berawalan `|`), lalu catatan risiko, lalu per kartu satu blok sumber vault (status bergerak, ukuran, inti mekanik,
+jangan dipakai untuk) supaya yang dibuka satu sumber, bukan semuanya, dan alasan kartu bekerja ikut terbaca.
 """
-import argparse, os, re, sys
+import argparse, glob, os, re, sys
 from pathlib import Path
 
 MG = Path(__file__).resolve().parents[2]
@@ -189,16 +192,87 @@ def rel(p):
         return p.as_posix()
 
 
+def _urut_id(i):
+    return [(0, int(p), "") if p.isdigit() else (1, 0, p) for p in re.findall(r"\d+|[A-Za-z]+", i)]
+
+
 def keyframes(kid, folder=KEYFRAMES):
-    n = len(list(Path(folder).glob(f"{kid}-*"))) if Path(folder).is_dir() else 0
-    return f"{n} file: {rel(folder)}/{kid}-*" if n else "-"
+    """Frame kunci kartu: berkas `<id>-*` untuk id kartu, aliasnya, dan id kartu vault-nya (kid bisa satu id atau daftar id).
+    Dicari di folder keyframes dan di folder induknya (sheets/), tempat frame beberapa kartu, mis. 14, disimpan."""
+    ids = [kid] if isinstance(kid, str) else list(dict.fromkeys(kid))
+    bagian, total = [], 0
+    for fol in (Path(folder), Path(folder).parent):
+        if not fol.is_dir():
+            continue
+        kena = {}
+        for i in ids:
+            n = sum(1 for f in fol.glob(f"{glob.escape(i)}-*") if f.is_file())
+            if n:
+                kena[i] = n
+        if kena:
+            nama = sorted(kena, key=_urut_id)
+            total += sum(kena.values())
+            bagian.append(f"{rel(fol)}/{nama[0] if len(nama) == 1 else '{' + ','.join(nama) + '}'}-*")
+    return f"{total} file: {' + '.join(bagian)}" if total else "-"
+
+
+def id_kartu(k, index=INDEX):
+    """Id kartu, aliasnya, dan id kartu vault-nya (dari nama berkas), untuk mencari frame kunci."""
+    fm = baca_front(Path(index).parent / k["path"])
+    ids = [k["id"]] + [a for a in fm.get("alias", []) if isinstance(a, str)]
+    for vp in fm.get("vault", []) if isinstance(fm.get("vault", []), list) else []:
+        m = re.match(r"^(\d+)(?:-(\d+))?-|^([A-Za-z]\d+)", Path(vp).name)
+        if m:
+            ids += [x for x in m.groups() if x]
+    return list(dict.fromkeys(ids))
 
 
 def tabel(hasil, index=INDEX, folder=KEYFRAMES):
     out = ["| ID | Nama | Bergerak/Diukur | Path kartu | Keyframes |", "|---|---|---|---|---|"]
     for k in hasil:
-        out.append(f"| {k['id']} | {k['nama']} | {k['bergerak']}/{k['diukur']} | {rel(Path(index).parent / k['path'])} | {keyframes(k['id'], folder)} |")
+        out.append(f"| {k['id']} | {k['nama']} | {k['bergerak']}/{k['diukur']} | {rel(Path(index).parent / k['path'])} | {keyframes(id_kartu(k, index), folder)} |")
     return "\n".join(out)
+
+
+def _potong(teks, n=140):
+    teks = " ".join(teks.split())
+    return teks if len(teks) <= n else teks[:n - 1].rstrip() + "…"
+
+
+def _sumber(path):
+    """Satu kartu vault: (id, status bergerak, ukuran dalam token, kalimat inti mekanik, klausa pertama jangan-dipakai-untuk)."""
+    teks = path.read_text(encoding="utf-8")
+    fm = baca_front(path)
+    inti = re.search(r"\*\*Inti (?:mekanik|struktur)[^*\n]*:\*\*[ \t]*(.+)", teks)
+    jangan = re.search(r"\*\*Jangan dipakai untuk:\*\*[ \t]*(.+)", teks)
+    inti = _potong(re.split(r"(?<=[.!?])\s", inti.group(1).strip())[0]) if inti else "-"
+    jangan = _potong(re.split(r"[;,]|\.\s|\.$", jangan.group(1).strip())[0]) if jangan else "-"
+    vid = fm.get("id") or re.match(r"^[A-Za-z]?\d+(?:-\d+)*", path.name).group(0)
+    return vid, fm.get("dilihat_bergerak", "?") or "?", int(round(len(teks) / 4, -2)), inti, jangan
+
+
+def blok_sumber(k, index=INDEX, maks=4):
+    """Baris-baris `<id> sumber vault:` untuk satu kartu; kosong bila kartu tak punya sumber vault yang terbaca."""
+    fm = baca_front(Path(index).parent / k["path"])
+    daftar = fm.get("vault", []) if isinstance(fm.get("vault", []), list) else []
+    sumber = []
+    for vp in daftar:
+        p = (Path(index).parent / k["path"]).parent / vp
+        if p.is_file():
+            sumber.append(_sumber(p))
+    if not sumber:
+        return []
+    urut = [x for x in sumber if x[1] == "ya"] + [x for x in sumber if x[1] != "ya"] if len(sumber) > maks else sumber
+    out = [f"{k['id']} sumber vault:"]
+    for vid, ber, tok, inti, jangan in urut[:maks]:
+        out.append(f"  {vid} (bergerak: {ber}, ~{tok} tok) — {inti} · jangan untuk: {jangan}")
+    if len(urut) > maks:
+        out.append(f"  +{len(urut) - maks} sumber lain: python3 tools/cookbook.py cari {k['id']}")
+    return out
+
+
+PENUTUP = ("Angka di Invariant dan di kartu vault = pengamatan dari video sumber, titik awal untuk disetel ke konsep kita, bukan target; "
+           "yang mutlak hanya NEGATIF [mutlak]. Buka satu sumber: python3 tools/cookbook.py baca <vid>. Cek slop: references/slop-catalog.md.")
 
 
 def main(argv=None):
@@ -208,6 +282,7 @@ def main(argv=None):
     ap.add_argument("--pack", help="saring domain pack (mis. 01, P01, 01-motion-camera-transitions)")
     ap.add_argument("--bergerak", action="store_true", help="hanya kartu bergerak:ya")
     ap.add_argument("--limit", type=int, default=4)
+    ap.add_argument("--ringkas", action="store_true", help="hanya tabel, tanpa risiko, sumber vault, dan baris penutup")
     ap.add_argument("--index", default=str(INDEX)); ap.add_argument("--keyframes", default=str(KEYFRAMES))
     a = ap.parse_args(argv)
     if a.limit < 1:
@@ -223,9 +298,16 @@ def main(argv=None):
             print(f"Sebut fungsi beat-nya: {', '.join(FUNGSI)} (kata industri seperti \"klinik\" atau \"rumah\" tidak dipakai).", file=sys.stderr)
         return 1
     print(tabel(hasil, a.index, a.keyframes))
+    if a.ringkas:
+        return 0
     for k in hasil:
         if k.get("risiko"):
             print(f"Risiko {k['id']}: {k['risiko']}")
+    print()
+    for k in hasil:
+        for baris in blok_sumber(k, a.index):
+            print(baris)
+    print(PENUTUP)
     return 0
 
 

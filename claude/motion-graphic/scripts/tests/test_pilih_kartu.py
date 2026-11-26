@@ -34,6 +34,11 @@ Catatan setelah tabel.
 """
 
 
+def baris_tabel(keluaran):
+    """Hanya baris tabel (berawalan `|`); sejak C4 stdout juga memuat risiko, sumber vault, dan baris penutup."""
+    return [x for x in keluaran.strip().splitlines() if x.startswith("|")]
+
+
 class Dasar(unittest.TestCase):
     def setUp(self):
         self.t = tempfile.TemporaryDirectory(); self.d = Path(self.t.name).resolve()
@@ -187,6 +192,52 @@ class Fungsi(Dasar):
         self.assertIn("hook, jelaskan, angka, banding, bukti, langkah, balik, penekanan, transisi, suasana, cta, penutup", r.stderr)
 
 
+class Sumber(Dasar):
+    """C4: sumber vault per kartu, frame kunci lewat alias dan id vault, --ringkas."""
+
+    VAULT = ('---\nid: "{i}"\ndilihat_bergerak: {b}\n---\n# {i}\n**Inti mekanik (1 kalimat):** Satu hal yang bergerak. Kalimat kedua tidak ikut.\n'
+             '**Jangan dipakai untuk:** cerita emosional, wajah.\n')
+
+    def tulis_kartu(self, nama, vault_ids, alias=()):
+        v = self.index.parent / "vault"; v.mkdir(exist_ok=True)
+        for i, b in vault_ids:
+            (v / f"{i}-x.md").write_text(self.VAULT.format(i=i, b=b), encoding="utf-8")
+        k = self.index.parent / nama; k.parent.mkdir(parents=True, exist_ok=True)
+        k.write_text("---\nid: kartu\nalias: [" + ", ".join(alias) + "]\nvault: [" + ", ".join(f"../vault/{i}-x.md" for i, _ in vault_ids) + "]\n---\nisi\n", encoding="utf-8")
+
+    def test_blok_sumber_fixture(self):
+        self.tulis_kartu("01-camera/63-virtual-camera-desktop-stage.md", [("63", "ya"), ("64", "tidak")])
+        r = self.cli("--cari", "demo fitur produk", "--limit", "1"); self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn("63 sumber vault:\n  63 (bergerak: ya, ~", r.stdout)
+        self.assertIn("— Satu hal yang bergerak. · jangan untuk: cerita emosional", r.stdout)
+        self.assertNotIn("Kalimat kedua", r.stdout)
+        self.assertIn("bukan target", r.stdout); self.assertIn("references/slop-catalog.md", r.stdout)
+        self.assertTrue(all(not x.startswith("|") for x in r.stdout.splitlines()[4:]))
+
+    def test_lebih_dari_empat_sumber_yang_bergerak_dulu(self):
+        self.tulis_kartu("01-camera/63-virtual-camera-desktop-stage.md",
+                         [("10", "tidak"), ("11", "tidak"), ("12", "ya"), ("13", "tidak"), ("14", "ya"), ("15", "tidak")])
+        out = self.cli("--cari", "demo fitur produk", "--limit", "1").stdout.splitlines()
+        i = out.index("63 sumber vault:")
+        self.assertTrue(out[i + 1].lstrip().startswith("12 (bergerak: ya")); self.assertTrue(out[i + 2].lstrip().startswith("14 (bergerak: ya"))
+        self.assertEqual(out[i + 5].strip(), "+2 sumber lain: python3 tools/cookbook.py cari 63")
+
+    def test_tanpa_sumber_vault_tidak_ada_blok(self):
+        self.assertNotIn("sumber vault:", self.cli("--cari", "demo fitur", "--limit", "1").stdout)
+
+    def test_keyframes_lewat_alias_fixture(self):
+        self.tulis_kartu("01-camera/65-camera-dive-into-ui.md", [], alias=["63"])
+        r = self.cli("--cari", "dive", "--limit", "1")
+        self.assertIn(f"3 file: {self.kf}/{{63,65}}-*", baris_tabel(r.stdout)[2])
+        self.assertEqual(pk.keyframes(["63", "65"], self.kf), f"3 file: {self.kf}/{{63,65}}-*")
+        self.assertEqual(pk.keyframes(["6", "630"], self.kf), f"2 file: {self.kf}/{{6,630}}-*")  # '6-k1' dan '630-k1' memang ada; '63-*' tidak ikut
+
+    def test_ringkas(self):
+        self.tulis_kartu("01-camera/63-virtual-camera-desktop-stage.md", [("63", "ya")])
+        out = self.cli("--cari", "demo fitur produk", "--ringkas").stdout.strip().splitlines()
+        self.assertTrue(out and all(x.startswith("|") for x in out))
+
+
 class Saring(Dasar):
     def test_kategori_utama_dan_tambahan(self):
         self.assertEqual(self.ids(kategori="camera", limit=9), ["14", "63", "65"])
@@ -208,7 +259,7 @@ class Saring(Dasar):
 class Keluaran(Dasar):
     def test_tabel_dan_keyframes(self):
         r = self.cli("--cari", "demo fitur", "--limit", "2"); self.assertEqual(r.returncode, 0, r.stderr)
-        b = r.stdout.strip().splitlines()
+        b = baris_tabel(r.stdout)
         self.assertEqual(b[0], "| ID | Nama | Bergerak/Diukur | Path kartu | Keyframes |"); self.assertEqual(len(b), 4)
         self.assertEqual([x.strip() for x in b[2].strip("|").split("|")][:3], ["63", "Virtual Camera Desktop Stage", "ya/ya"])
         self.assertIn(str(self.index.parent / "01-camera/63-virtual-camera-desktop-stage.md"), b[2])
@@ -217,11 +268,11 @@ class Keluaran(Dasar):
 
     def test_tanpa_keyframes_bertanda_strip(self):
         r = self.cli("--kategori", "script"); self.assertEqual(r.returncode, 0)
-        self.assertTrue(r.stdout.strip().splitlines()[2].rstrip().endswith("| - |"))
+        self.assertTrue(baris_tabel(r.stdout)[2].rstrip().endswith("| - |"))
         self.assertEqual(pk.keyframes("63", self.d / "tidak-ada"), "-")
 
     def test_limit_bawaan_empat(self):
-        self.assertEqual(len(self.cli().stdout.strip().splitlines()), 2 + 4)
+        self.assertEqual(len(baris_tabel(self.cli().stdout)), 2 + 4)
 
     def test_kode_keluar(self):
         r = self.cli("--cari", "xyzzy"); self.assertEqual(r.returncode, 1); self.assertEqual(r.stdout, ""); self.assertIn("Tidak ada kartu", r.stderr)
@@ -250,12 +301,12 @@ class IndexAsli(unittest.TestCase):
     def test_cli_pada_index_asli(self):
         r = subprocess.run([sys.executable, str(SKRIP), "--cari", "demo fitur produk", "--bergerak"], capture_output=True, text=True)
         self.assertEqual(r.returncode, 0, r.stderr)
-        b = r.stdout.strip().splitlines(); self.assertTrue(3 <= len(b) <= 6)
+        b = baris_tabel(r.stdout); self.assertTrue(3 <= len(b) <= 6)
         for x in b[2:]:
             s = [c.strip() for c in x.strip("|").split("|")]
             self.assertTrue(s[2].startswith("ya/")); self.assertTrue(s[3].startswith("claude/motion-graphic/cookbook/"))
             self.assertTrue((S.parents[2] / s[3]).is_file(), s[3])
-            self.assertTrue(s[4] == "-" or "claude/motion-graphic/guide/referensi/sheets/keyframes/" in s[4])
+            self.assertTrue(s[4] == "-" or "claude/motion-graphic/guide/referensi/sheets/" in s[4])  # sheets/ ikut: frame kartu 14 ada di sana (C4)
 
     def test_qc_tidak_muncul_tanpa_saringan(self):
         ids = [k["id"] for k in pk.pilih(self.kartu, cari="audit frame", limit=99)]
@@ -267,6 +318,25 @@ class IndexAsli(unittest.TestCase):
         r = subprocess.run([sys.executable, str(SKRIP), "--cari", "cutout metaphor"], capture_output=True, text=True)
         self.assertEqual(r.returncode, 0, r.stderr); self.assertIn("Risiko 95:", r.stdout)
         self.assertIn("sidik jari slop", r.stdout)
+
+    def test_sumber_vault_dicetak(self):
+        r = subprocess.run([sys.executable, str(SKRIP), "--cari", "demo fitur produk"], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertIn("sumber vault:", r.stdout); self.assertIn("bukan target", r.stdout)
+
+    def test_keyframes_lewat_alias(self):
+        k14 = next(k for k in self.kartu if k["id"] == "14")
+        self.assertNotEqual(pk.keyframes(pk.id_kartu(k14), pk.KEYFRAMES), "-")
+        r = subprocess.run([sys.executable, str(SKRIP), "--cari", "flash grid", "--bergerak", "--ringkas"], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        sel14 = [x for x in baris_tabel(r.stdout) if x.startswith("| 14 |")][0]
+        self.assertNotIn("| - |", sel14[-8:])
+
+    def test_ringkas(self):
+        r = subprocess.run([sys.executable, str(SKRIP), "--cari", "cutout metaphor", "--ringkas"], capture_output=True, text=True)
+        self.assertEqual(r.returncode, 0, r.stderr)
+        self.assertTrue(all(x.startswith("|") for x in r.stdout.strip().splitlines()))
+        self.assertNotIn("Risiko", r.stdout)
 
     def test_semua_kartu_aktif_punya_fungsi(self):
         self.assertEqual([k["id"] for k in self.kartu if not k["daftar_fungsi"]], [])
