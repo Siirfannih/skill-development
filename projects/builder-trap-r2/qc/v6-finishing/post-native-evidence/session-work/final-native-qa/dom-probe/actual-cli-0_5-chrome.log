@@ -1,5 +1,0 @@
-[1116/214047.280935:WARNING:audio_manager_linux.cc(54)] Falling back to ALSA for audio output. PulseAudio is not available or could not be initialized.
-
-DevTools listening on ws://127.0.0.1:38053/devtools/browser/e27362c2-77f9-4d94-96ca-6638c9c7a3a8
-[1116/214047.489418:WARNING:sandbox_linux.cc(420)] InitializeSandbox() called with multiple threads in process gpu-process.
-[1116/214047.498111:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)

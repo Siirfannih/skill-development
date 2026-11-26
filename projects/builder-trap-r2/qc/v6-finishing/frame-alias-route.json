@@ -1,9 +1,0 @@
-{
-  "alias": "/home/irfan/Documents/Codex/2026-11-16/baca-projects-builder-trap-r2-delivery/work/builder-v6",
-  "symlink": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
-  "resolved": "/home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2",
-  "same_inode": true,
-  "same_device": true,
-  "canonical_cli_failure": "qc/v6-finishing/preserved/frames-path-failure-1794825123890198584",
-  "reason": "Installed CLI treats the dot in .codex anywhere in an absolute sequence directory as an extension. Canonical runner now receives a dot-free task alias to the exact same project; source and tools are unchanged."
-}

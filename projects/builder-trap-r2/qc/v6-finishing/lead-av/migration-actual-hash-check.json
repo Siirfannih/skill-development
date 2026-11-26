@@ -1,5 +1,0 @@
-{
-  "candidate_sha256": "abb19bb15d9518c849ae1fb6f52e7b684a7d615e77126e7349884d6f401ccddd",
-  "audit_actual_hash_verification": false,
-  "reason": "Blocked: chunk HASH stale for actual raw/INFO/audio/cues: c01_000.0-010.0s"
-}

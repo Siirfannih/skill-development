@@ -10,3 +10,5 @@ Ekspor: decode/blank/audio/48 frame seam lolos; peak −1,097 dBTP, lag audio 0.
 Pembanding 540–1080 tetap FAIL pada 301 frame, diterima terpisah lewat disposisi visual dan chunk asli identik; f1082–1084 aktual lolos dual review+ROI.
 Batas: FAIL source/cut/level/order dan 10 Modul 5 tetap tersimpan; 17/63 cue kecil FAIL prediktor 50%; beberapa hold minor; chroma/profile repair berbeda, tanpa klaim RGB identik.
 Bukti: qc/v6-finishing/final-export-closure-v3.json dan drive-delivery.json; kode/bukti pada https://github.com/Siirfannih/skill-development/pull/8 ; Perlu keputusan: —.
+
+Catatan 27 Nov 2026: bukti mesin di `qc/v6-finishing/` dan log/cache hasil generate (`out/v6-chunks/`, `qc/v6-audit/*.json|log`, `qc/frame_audit/*/.hash`) dihapus dari HEAD; pulihkan dari tag git `pra-bersih` (`git show pra-bersih:<path>`). Rujukan lama ke path itu di dokumen proyek ini bersifat historis.

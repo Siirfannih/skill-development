@@ -1,4 +1,0 @@
-
-DevTools listening on ws://127.0.0.1:38683/devtools/browser/c132de6e-d5f3-457d-b83e-8e0a467557d7
-[1116/213858.825276:WARNING:sandbox_linux.cc(420)] InitializeSandbox() called with multiple threads in process gpu-process.
-[1116/213858.837658:WARNING:viz_main_impl.cc(85)] VizNullHypothesis is disabled (not a warning)

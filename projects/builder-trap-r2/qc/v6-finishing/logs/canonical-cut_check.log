@@ -1,8 +1,0 @@
-kata 228 · ucapan median -24.8 dBFS · lantai -44.8 · ambang diam -36.8 dBFS
-  sampah      3  0.49s tuh; 2.11s tuh; 3.57s tuh
-  diam_kata   6  23.62s hal 0.15 dtk; 28.12s Dan 0.17 dtk; 34.02s Build 0.16 dtk; 66.76s Sampai 0.16 dtk; 72.0s mungkin 0.23 dtk; 73.53s sekedar 0.16 dtk
-  diam_kal   13  10.86s aku → perlu 0.15 dtk; 15.11s yang → gak 0.20 dtk; 15.38s gak → orang 0.18 dtk; 32.08s Untuk → belajar. 0.19 dtk; 36.49s aku → mencoba 0.24 dtk; 41.91s Tapi → satu 0.24 dtk; 42.03s satu → hal 0.28 dtk; 44.23s tidak → menjual 0.21 dtk …
-  antar_kal   0  
-  gumam       3  31.42s 0.15dtk; 43.44s 0.17dtk; 80.01s 0.16dtk  (PERIKSA: dengar)
-usulan buang 22 rentang, total 2.59 dtk -> /home/irfan/.codex/worktrees/builder-trap-r2-audit/skill-development/projects/builder-trap-r2/qc/v6-finishing/canonical/suggestions.json
-FAIL: sampah 3, diam_kata 6, diam_kal 13

@@ -1,9 +1,0 @@
-Traceback (most recent call last):
-  File "/home/irfan/work/btr-r2-v5/claude/motion-graphic/scripts/audio/recut.py", line 114, in <module>
-    cmd_cut(a) if a.cmd == "cut" else cmd_remap(a)
-    ^^^^^^^^^^
-  File "/home/irfan/work/btr-r2-v5/claude/motion-graphic/scripts/audio/recut.py", line 82, in cmd_cut
-    subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", a.video, "-threads", "2", "-filter_complex_threads", "1", "-filter_complex", fl, "-map", "[v]", "-r", str(a.fps),
-  File "/usr/lib/python3.12/subprocess.py", line 571, in run
-    raise CalledProcessError(retcode, process.args,
-subprocess.CalledProcessError: Command '['ffmpeg', '-v', 'error', '-y', '-i', 'projects/builder-trap-r2/edit/face_edit.mp4', '-threads', '2', '-filter_complex_threads', '1', '-filter_complex', '[0:v]trim=start=0.0000:end=9.4000,setpts=PTS-STARTPTS[v0];[0:v]trim=start=9.9000:end=24.3000,setpts=PTS-STARTPTS[v1];[0:v]trim=start=24.5000:end=38.8667,setpts=PTS-STARTPTS[v2];[0:v]trim=start=39.0333:end=45.9667,setpts=PTS-STARTPTS[v3];[0:v]trim=start=46.3667:end=58.9000,setpts=PTS-STARTPTS[v4];[0:v]trim=start=59.0667:end=63.7667,setpts=PTS-STARTPTS[v5];[0:v]trim=start=64.3000:end=74.9667,setpts=PTS-STARTPTS[v6];[0:v]trim=start=75.4333:end=77.3333,setpts=PTS-STARTPTS[v7];[0:v]trim=start=77.7667:end=88.2000,setpts=PTS-STARTPTS[v8];[0:v]trim=start=89.0000:end=94.9667,setpts=PTS-STARTPTS[v9];[v0][v1][v2][v3][v4][v5][v6][v7][v8][v9]concat=n=10:v=1:a=0,scale=iw*0.5:ih*0.5[v]', '-map', '[v]', '-r', '30', '-c:v', 'libx264', '-threads', '2', '-crf', '14', '-preset', 'medium', '-pix_fmt', 'yuv420p', 'projects/builder-trap-r2/edit/v5/face-proxy/wajah.mp4']' returned non-zero exit status 255.
