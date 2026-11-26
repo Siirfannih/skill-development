@@ -17,7 +17,7 @@ Choose renderer:
 | `@remotion/three` | estimate <= 2 s/frame; push/orbit, logo, low-poly mascot | 0.95-1.89 s/frame (tested `Kepiting3D.tsx`, SwiftShader) |
 | Blender Cycles | needs GI, DOF, real materials | ~60 s/frame CPU (77 frames = 77 min); Blender not yet in PC PATH |
 
-Total estimate > 30 min: ask the owner (cost/time). `@remotion/three` rules: drive animation from `useCurrentFrame()` (not `useFrame()`), `<Sequence layout="none">` inside the canvas, server render `chromiumOptions.gl: "angle"`. Blender: `scripts/blender/render_seq.sh`, output EXR/PNG as `<Img>` per frame.
+Total estimate > 30 min: ask me (cost/time). `@remotion/three` rules: drive animation from `useCurrentFrame()` (not `useFrame()`), `<Sequence layout="none">` inside the canvas, server render `chromiumOptions.gl: "angle"`. Blender: `scripts/blender/render_seq.sh`, output EXR/PNG as `<Img>` per frame.
 
 ## 2. Determinism matrix
 
@@ -27,7 +27,7 @@ Total estimate > 30 min: ask the owner (cost/time). `@remotion/three` rules: dri
 | `useFrame()`, `requestAnimationFrame`, `Math.random` | unsafe | `random(seed)` from Remotion |
 | GSAP | safe if `paused: true` + `seek(frame/fps)` | |
 | Bloom, glow, vignette | forbidden (K2) | reference skin; do not use |
-| DoF, chromatic aberration (stateless) | safe when working | chromatic aberration on impact moments only |
+| DoF, chromatic aberration (stateless) | safe if it serves a function (not decorative) | chromatic aberration on impact moments only |
 | Afterimage, trail, TAA (needs previous frame) | unsafe | `<CameraMotionBlur>` / `<Trail>`, or bake offline |
 | Real-time browser physics | unsafe | bake (Blender rigid body) then play per frame |
 | Cycles | safe | render sequence |
