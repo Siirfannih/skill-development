@@ -14,6 +14,6 @@
     "audio_order.py lock suara menyimpan hash words aktual, source words, dan cut map; check mengulang cut_check + pause_clean",
     "sfx_density.py menolak palet terlarang walau cue memiliki peran, alasan, dan dengar; folder SFXIrfan tidak diperlakukan sebagai allowlist",
     "render.sh final berhenti sebelum gerbang visual jika audio/ORDER.json hilang, basi, atau salah satu gate audio gagal",
-    "doctor.sh menolak salinan skill Claude/Codex yang beku dan runtime audio tanpa numpy+soundfile"
+    "doctor.sh menolak salinan skill Claude yang beku (salinan Codex: peringatan, hanya bila Codex dipakai) dan runtime audio tanpa numpy+soundfile"
   ]
 }

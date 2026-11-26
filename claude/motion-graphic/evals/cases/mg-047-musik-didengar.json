@@ -7,9 +7,9 @@
   ],
   "assertions": [
     "Referensi dibedah dengan earshot timeline sebelum genre ditulis; genre tidak diambil dari label brief",
-    "music_fit.py jalan dengan earshot aktif (earshot_z tidak null) dan kandidat >= 8 dari >= 2 sumber",
+    "music_fit.py jalan dengan earshot aktif bila terpasang (earshot_z tidak null) dan kandidat >= 20 dari >= 2 sumber (bawaan; di bawahnya peringatan yang disebut di laporan)",
     "Track dengan bpm/onset di luar rentang kategori berstatus GUGUR, tidak dipakai",
     "Tiga klip tidak memakai track yang sama",
-    "Bila earshot tidak terpasang, agent berhenti dan lapor, tidak lanjut"
+    "Bila earshot tidak terpasang, agent lanjut dengan music_fit/pace_read dan laporan menulis \"belum didengar alat\" (gerbang DENGAR NOT RUN), tidak pernah mengklaim musik sudah didengar"
   ]
 }
