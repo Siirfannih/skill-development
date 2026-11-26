@@ -5,7 +5,7 @@ pack: 03-documentary-story-narrative
 kategori: typography
 kategori_lain: [camera, layout]
 trigger: narasi analitis atau pidato di atas montase arsip 16:9 dengan kata kunci meledak di garis tengah
-fungsi: [penekanan, bukti]
+fungsi: [penekanan]
 sumber: gabungan kartu 86 dan 46 (duplikat mekanik garis tengah)
 dilihat_bergerak: sebagian
 diukur: ya

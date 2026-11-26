@@ -94,7 +94,8 @@ class Cari(Dasar):
         self.assertEqual(pk.kata_kunci("di ke"), [])
 
     def test_lebih_banyak_kata_cocok_menang(self):
-        self.assertEqual(self.ids(cari="demo fitur produk"), ["63", "65", "93", "14"])
+        # 65 dan 93 seri (dua kata, bobot sama); 93 sudah dilihat bergerak, 65 baru sebagian, jadi 93 lebih dulu (pemecah seri sejak tinjauan)
+        self.assertEqual(self.ids(cari="demo fitur produk"), ["63", "93", "65", "14"])
 
     def tabel(self, *baris):
         kepala = "| ID | Pola | Narrative trigger | Kategori | Status | Path |\n|---|---|---|---|---|---|\n"
@@ -117,7 +118,12 @@ class Cari(Dasar):
         self.assertEqual(pk.pilih(self.tabel(("01", "Galeri", "fotografi produk")), cari="fot"), [])  # awalan hanya untuk kata ≥ 4 huruf; "fot" bukan kata utuh
 
     def test_sinonim_inggris(self):
+        # kata fungsi dicocokkan ke `fungsi:` kartu (bukan ke teksnya), jadi fixture ini memberi tiap kartu berkas berfrontmatter
         kartu = self.tabel(("01", "Urutan", "tampilkan langkah satu per satu"), ("02", "Dua Sisi", "perbandingan sebelum dan sesudah pemakaian"))
+        for i, f in (("01", "langkah"), ("02", "banding")):
+            (self.index.parent / f"01-x/{i}.md").parent.mkdir(exist_ok=True)
+            (self.index.parent / f"01-x/{i}.md").write_text(f"---\nid: {i}\nfungsi: [{f}]\n---\n", encoding="utf-8")
+        kartu = pk.baca_index(self.index)
         a = [k["id"] for k in pk.pilih(kartu, cari="before after")]
         self.assertEqual(a, [k["id"] for k in pk.pilih(kartu, cari="sebelum sesudah")]); self.assertEqual(a[:1], ["02"])
 
@@ -164,9 +170,12 @@ class Fungsi(Dasar):
                               "| A | Dua | pembukaan acara tahunan | layout | bergerak:ya · diukur:ya | a.md |\n", encoding="utf-8")
         for n, f in (("a", "angka"), ("b", "suasana")):
             (self.index.parent / f"{n}.md").write_text(f"---\nid: {n}\nfungsi: [{f}]\n---\n", encoding="utf-8")
-        self.assertEqual([k["id"] for k in pk.pilih(pk.baca_index(self.index), cari="angka")], ["A", "B"])
+        # B hanya menyebut "angka" di trigger; begitu ada kartu berfungsi angka, B tidak ikut (teks hanya pemecah seri)
+        self.assertEqual([k["id"] for k in pk.pilih(pk.baca_index(self.index), cari="angka")], ["A"])
         (self.index.parent / "a.md").write_text("---\nid: a\nfungsi: [suasana]\n---\n", encoding="utf-8")
-        self.assertEqual([k["id"] for k in pk.pilih(pk.baca_index(self.index), cari="angka")], ["B"])
+        # tidak ada kartu berfungsi angka: pemilih tidak meminjamkan kartu lain lewat kebetulan teks; kata biasa tetap mencari teks
+        self.assertEqual([k["id"] for k in pk.pilih(pk.baca_index(self.index), cari="angka")], [])
+        self.assertEqual([k["id"] for k in pk.pilih(pk.baca_index(self.index), cari="naik pelan")], ["B"])
 
     def test_fungsi_dibaca_dari_frontmatter(self):
         kartu = {k["id"]: k for k in self.kartu_berkas(**{"63": ("langkah, bukti", ""), "93": ("audio", "")})}
@@ -175,9 +184,10 @@ class Fungsi(Dasar):
 
     def test_qc_tidak_muncul_tanpa_saringan_fixture(self):
         kartu = self.kartu_berkas(**{"93": ("qc", "")})
-        self.assertNotIn("93", [k["id"] for k in pk.pilih(kartu, cari="bunyi")])
-        self.assertIn("93", [k["id"] for k in pk.pilih(kartu, cari="bunyi", pack="05")])
-        self.assertIn("93", [k["id"] for k in pk.pilih(kartu, cari="bunyi", kategori="sfx")])
+        # "bunyi" kini kata fungsi audio; kata biasa dari trigger 93 menguji hal yang sama: qc tersaring tanpa --pack/--kategori
+        self.assertNotIn("93", [k["id"] for k in pk.pilih(kartu, cari="perubahan keadaan")])
+        self.assertIn("93", [k["id"] for k in pk.pilih(kartu, cari="perubahan keadaan", pack="05")])
+        self.assertIn("93", [k["id"] for k in pk.pilih(kartu, cari="perubahan keadaan", kategori="sfx")])
 
     def test_risiko_dibaca(self):
         kartu = {k["id"]: k for k in self.kartu_berkas(**{"63": ("langkah", "hati-hati"), "67": ("angka", "")})}

@@ -8,7 +8,7 @@
   ],
   "assertions": [
     "Query per beat berbentuk: hook takut | harga promo | testimoni pasien | cta booking (atau setara menurut fungsi cerita)",
-    "Memilih M08 atau M14 untuk hook, M20 untuk angka harga, M16 atau M09 untuk bukti, M05 untuk ajakan; 3-4 kartu",
+    "Memilih M08 atau M14 untuk hook, M20 untuk angka harga, M16 atau M09 untuk bukti; beat ajakan dirangkai dari mekanik yang sudah dipilih karena pemilih menjawab \"Belum ada kartu untuk fungsi cta\", bukan diisi kartu lain; 3 kartu",
     "Bila query `klinik gigi` kosong, query diulang dengan kata fungsi beat (menu fungsi dari pemilih), bukan gaya dikarang",
     "Gagal bila: Kartu 95 (benda cutout gigi di kanvas gradien) dipakai sebagai pembuka",
     "Setiap beat dicari lewat pilih_kartu.py dengan kata fungsi cerita beat itu (hook, angka, banding, bukti, langkah, penutup, ...), tidak dengan nama industri klien",

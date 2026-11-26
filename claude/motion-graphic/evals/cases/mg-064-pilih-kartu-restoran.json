@@ -8,7 +8,7 @@
   ],
   "assertions": [
     "Query per beat berbentuk: montase suasana ramai | angka promo | cta pesan (atau setara menurut fungsi cerita)",
-    "Memilih M02 untuk suasana dan montase, M20 untuk angka, M05 untuk ajakan; 3 kartu",
+    "Memilih M02 untuk suasana dan montase, M20 untuk angka; beat ajakan dirangkai dari mekanik yang sudah dipilih karena belum ada kartu cta; 2 kartu",
     "Gagal bila: Kartu carousel Q06 muncul untuk kata `menu`",
     "Setiap beat dicari lewat pilih_kartu.py dengan kata fungsi cerita beat itu (hook, angka, banding, bukti, langkah, penutup, ...), tidak dengan nama industri klien",
     "Hanya 2-4 kartu dipakai untuk seluruh video; beat berikutnya memakai ulang kartu yang sudah terpilih",

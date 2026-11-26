@@ -12,8 +12,9 @@ NIAT = {
     "product launch skincare": "hook",
     "real estate property tour": "langkah",
     "restoran menu baru": "hook",
-    "donasi pendidikan": "cta",
 }
+# kata niat yang fungsinya belum punya kartu: hasil kosong yang jujur (tinjauan: M05 bukan kartu ajakan)
+NIAT_TANPA_KARTU = {"donasi pendidikan": "cta"}
 INDUSTRI = "skincare restoran properti"
 
 
@@ -34,6 +35,14 @@ class Niat(unittest.TestCase):
                 for k in hasil:
                     self.assertIn(f, k["daftar_fungsi"], f"{q!r}: kartu {k['id']} tanpa fungsi {f}")
 
+    def test_niat_tanpa_kartu_kosong_dan_menyebut_cara_merangkai(self):
+        for q, f in NIAT_TANPA_KARTU.items():
+            with self.subTest(q=q):
+                self.assertEqual(pk.pilih(self.kartu, q), [])
+                r = cli("--cari", q)
+                self.assertEqual(r.returncode, 1); self.assertIn(f"Belum ada kartu untuk fungsi {f} (donasi)", r.stdout)
+                self.assertRegex(r.stdout, rf"(?m)^  tanpa kartu: {f} ")
+
     def test_cli_mencetak_baris_dicocokkan_lewat_fungsi(self):
         for q, f in NIAT.items():
             with self.subTest(q=q):
@@ -41,6 +50,10 @@ class Niat(unittest.TestCase):
                 self.assertEqual(r.returncode, 0)
                 baris = [x for x in r.stdout.splitlines() if x.startswith("Dicocokkan lewat fungsi beat:")]
                 self.assertEqual(len(baris), 1); self.assertIn(f, baris[0])
+                # baris itu hanya menyebut kartu yang memang memuat fungsi itu di `fungsi:`
+                ids = [x.split("|")[1].strip() for x in r.stdout.splitlines() if x.startswith("|")][2:]
+                disebut = baris[0].split(": ", 2)[2].rstrip(".").split(", ")
+                self.assertEqual(disebut, [i for i in ids if f in next(k for k in self.kartu if k["id"] == i)["daftar_fungsi"]])
 
     def test_kata_fungsi_langsung_tanpa_baris(self):
         r = cli("--cari", "angka yang harus mendarat")
@@ -55,8 +68,9 @@ class Niat(unittest.TestCase):
         self.assertEqual(r.returncode, 1)  # kode keluar tetap 1: pemanggil dan tes lama membedakan "tidak ada" dari galat (2)
         self.assertFalse([x for x in r.stdout.splitlines() if x.startswith("|")])
         self.assertIn("bukan menurut industri", r.stdout)
+        ada = pk.tercakup(self.kartu)
         for f in pk.FUNGSI:
-            self.assertRegex(r.stdout, rf"(?m)^  {f}\s+--cari ")
+            self.assertRegex(r.stdout, rf"(?m)^  {f}\s+--cari " if f in ada else rf"(?m)^  tanpa kartu: .*\b{f}\b")
         self.assertTrue(r.stderr.startswith("Tidak ada kartu yang cocok"))
 
     def test_panduan_tidak_dicetak_bila_saringan_ikut(self):
@@ -66,6 +80,8 @@ class Niat(unittest.TestCase):
     def test_tiap_contoh_panduan_mengembalikan_kartu_dengan_fungsinya(self):
         self.assertEqual([f for f, _ in pk.CONTOH_FUNGSI], list(pk.FUNGSI))
         for f, q in pk.CONTOH_FUNGSI:
+            if f not in pk.tercakup(self.kartu):
+                continue  # fungsi tanpa kartu: panduan menyebut cara merangkainya, bukan contoh query
             with self.subTest(f=f, q=q):
                 hasil = pk.pilih(self.kartu, q)
                 self.assertTrue(hasil)
@@ -82,10 +98,11 @@ class Niat(unittest.TestCase):
         self.assertEqual(pk.kata_niat("launch promo harga")["angka"], ["promo", "harga"])
 
     def test_daftar_di_teks_kartu_bukan_ajakan(self):
-        ids = [k["id"] for k in pk.pilih(self.kartu, "cta")]
-        self.assertEqual(ids[0], "M05")
-        for bukan in ("17", "98", "M10"):
-            self.assertNotIn(bukan, ids)
+        for q in ("cta", "daftar sekarang"):
+            ids = [k["id"] for k in pk.pilih(self.kartu, q)]
+            for bukan in ("17", "98", "M10"):
+                self.assertNotIn(bukan, ids, q)
+            self.assertEqual(ids, [], q)  # belum ada kartu ajakan; kebetulan kata "daftar" di trigger tidak mengisinya
 
 
 if __name__ == "__main__":

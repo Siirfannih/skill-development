@@ -8,7 +8,7 @@
   ],
   "assertions": [
     "Query per beat berbentuk: angka statistik | kisah bukti | langkah donasi | penutup (atau setara menurut fungsi cerita)",
-    "Memilih M20 untuk angka, M15 atau M16 untuk bukti/alur, M17 atau 98 untuk langkah, M22 untuk penutup bila audio masuk cakupan; 3-4 kartu",
+    "Memilih M20 untuk angka, M15 atau M16 untuk bukti/alur, M17 atau 98 untuk langkah, 25 untuk penutup visual atau M22 bila query penutup menyebut bunyi; ajakan donasi tanpa kartu cta; 3-4 kartu",
     "Gagal bila: Kartu 18 \"Sentence-Role Scene Matching\" dipakai utuh dengan gaya ilustrasi video sumbernya",
     "Setiap beat dicari lewat pilih_kartu.py dengan kata fungsi cerita beat itu (hook, angka, banding, bukti, langkah, penutup, ...), tidak dengan nama industri klien",
     "Hanya 2-4 kartu dipakai untuk seluruh video; beat berikutnya memakai ulang kartu yang sudah terpilih",
