@@ -1,9 +1,9 @@
 {
   "komponen": "generative",
-  "catatan": "Satu zona cahaya lembut (GenerativeBG, CSS ringan) di atas dasar gelap; pengganti ringan bila WebGL tidak perlu.",
+  "catatan": "Satu zona cahaya lembut (GenerativeBG, CSS ringan) berpusat di luar tepi kanan di atas dasar gelap; pengganti ringan bila WebGL tidak perlu.",
   "params": {
-    "mode": "zona", "colors": ["#2A52E0"], "base": "#080C1E",
-    "zones": [{ "x": 0.7, "y": 0.3, "r": 0.65, "strength": 0.9 }],
-    "intensity": 1, "saturation": 1, "seed": 1, "drift": 0.3, "driftAmp": 0.03
+    "mode": "zona", "colors": ["#2A52E0"], "base": "#03050C",
+    "zones": [{ "x": 1.2, "y": 0.2, "r": 0.5, "strength": 0.9 }],
+    "intensity": 1, "saturation": 1, "seed": 1, "drift": 0.3, "driftAmp": 0.02
   }
 }

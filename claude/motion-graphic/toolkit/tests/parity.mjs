@@ -53,9 +53,9 @@ ok("camera25d: keyframe, jepit orbit, parallax, blur hanya di belakang fokus");
 
 const P = await import(pathToFileURL(join(T, "latar/preset.js")));
 const b = P.resolveOptions("lightwave", { preset: "researchly-glow" });
-assert.equal(b.mode, "dark"); assert.equal(b.glow.x, 0.72);
+assert.equal(b.mode, "dark"); assert.equal(b.glow.x, 1.25); assert.ok(b.glow.x > 1, "pusat cahaya di luar frame");
 const l = P.resolveOptions("lightwave", { preset: "researchly-glow", mode: "light" });
-assert.equal(l.colors[0], "#EEF3FF");
+assert.equal(l.colors[0], "#F8FAFC");
 const o = P.resolveOptions("lightwave", { preset: "researchly-glow", saturation: 1.3, glow: { x: 0.2, y: 0.8, r: 0.4 } });
 assert.equal(o.glow.x, 0.2); assert.notEqual(o.colors[1], b.colors[1]); assert.equal(o.seed, 3);
 assert.throws(() => P.resolveOptions("lightwave", { preset: "zona-lembut" }));
