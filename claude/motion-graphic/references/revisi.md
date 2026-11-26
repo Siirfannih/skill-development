@@ -8,6 +8,7 @@ Opened when there is a revision message on a video or storyboard, before the fir
 - **Storyboards are also a diff.** "Too plain, improve it more" on an existing storyboard means a diff on the latest version's code: inspect that version first, then change colour or background, relayout, or object content. Never a fresh generator from scratch. Reason: a new generator throws away parts I already approved.
 - **Assemble by range.** Each round is assembled by range (`scripts/lego/compose.py --rentang`) with a before/after sheet. Re-locking audio, full-frame audit, and Devil's Advocate run once before the final render, not every round.
 - **Revising videos made before new rules.** Write `qc/revisi.json` `{"basis": "<commit of approved version>", "alasan": ...}`. New rules and gates (B13a, A9a, E23/E24, lego) apply only to the changed parts; approved parts are not migrated unless I ask for it. `render.sh final` then runs `motion_lint` only on changed files and `audio_order.py check --warisan`.
+- If the frames show no measurable problem with what I named, say so with the numbers; do not substitute a different change to look responsive.
 
 ## Revision direction: toward the middle, not the opposite extreme
 Feedback like "too heavy", "too crowded", "more breathing room", or "bigger" asks for a move toward the middle. Correcting to the opposite pole (heavy -> pale white with one speck in a corner, breathing room -> objects shrunk until text is unreadable, sparse frames) only swaps one complaint for another. Before handing over a revision:

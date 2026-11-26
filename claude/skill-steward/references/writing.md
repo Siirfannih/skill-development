@@ -51,4 +51,4 @@ What every path through a skill needs stays in SKILL.md; the rest goes one level
 
 ## 6. Before you finish
 
-The home matches `references/placement.md`; older instructions on the subject are edited or gone; each rule has a reason and a check; no names, dates, stories or project nouns in a general rule; `steward_check.py --only frontmatter,budget` is clean.
+The home matches `references/placement.md`; every changed line traces to the stated problem, and unrelated finds go to `steward/inbox/`; older instructions on the subject are edited or gone; each rule has a reason and a check; no names, dates, stories or project nouns in a general rule; `steward_check.py --only frontmatter,budget` is clean.

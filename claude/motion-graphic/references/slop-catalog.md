@@ -9,7 +9,7 @@ Used to **scan**, not to ban techniques: fingerprints are written as appearance 
 | S-A1 | Clean source voice becomes muffled, its air thinned, dynamics flattened | `gate/voice_fidelity.py` | Lantai E25a, §14.6 |
 | S-A2 | Music mismatches mood (tense/build/drop under calm clip, melancholic when brief isn't) or masks voice | `music_fit.py --category <k> --voice` | Lantai E25 |
 | S-A3 | Slow fade-in backing track or total silence mid-video | 0.5 s RMS of music stem | Lantai E25 |
-| S-A4 | Objects, text, motion, or subtitle phrases without SFX; video feels empty | `gate/sfx_density.py` | Lantai E24 |
+| S-A4 | Objects, text, motion, or subtitle phrases without SFX; video feels empty, unless silence is the chosen beat and is written in DECISIONS.md | `gate/sfx_density.py` | Lantai E24 |
 | S-A9 | One music track for every clip/act; candidates only from old library | `gate/music_batch.py` (fingerprint, not label); `music_fit.py` on used cuts: ≥ 20 candidates, ≥ 2 sources | Lantai E25, Lantai E24 |
 | S-A11 | SFX spam: whoosh > 1 per second or too loud, same file repeated < 1 s; cues without role/reason | `gate/sfx_density.py` | Lantai E24, §14.3 |
 | S-A10 | Reference or SFX never listened to (no earshot label) | `earshot describe/timeline` log | DENGAR gate |

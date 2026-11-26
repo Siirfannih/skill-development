@@ -34,6 +34,7 @@ Every input of mine (hook, sentence, structure) goes through devil's advocate in
 - **Feel first, name second.** Viewers feel the problem before being handed the term ("AI builder trap" appears after the loop is felt).
 - **Banned AI patterns:** repeated "Bukan A, tapi B", "Tidak hanya X, tapi juga Y", "Di sisi lain", "Pada akhirnya", wrap-up summary endings, empty words (krusial, optimal, fenomena, mengidentifikasi). If a contrast pattern is genuinely the message's core, use it at most once and flag it.
 - **Honest.** Every claim about the product or my story must be true today. If uncertain, ask or use a safe version.
+- **Consistent mock data.** Numbers in mock UI and charts add up across scenes and sit beside a comparator (last month, before, competitor), because an isolated or impossible number reads as fake.
 
 ## 4. Per-script test
 

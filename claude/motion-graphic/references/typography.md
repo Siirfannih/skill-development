@@ -22,8 +22,10 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 | Headline | Kata utama | Inter ExtraBold 800 / NHG 65 | 110–170 px |
 | Sambung/Body | Pengantar, penjelas | Inter Medium 500 / NHG 45 | 56–80 px |
 | Aksen | Satu kata emosional | Bobot paling kontras, KAPITAL, skala 1,5–2× headline di barisnya sendiri, atau warna aksen; semuanya dalam keluarga sans yang sama. Huruf kedua hanya sebagai sistem (lihat di bawah) | — |
-| Data | Angka, kode | Silkscreen (dunia pixel) / JetBrains Mono (UI) | 60–140 px |
+| Data | Angka, kode | Silkscreen (dunia pixel) / JetBrains Mono (UI) | 60–140 px · angka berubah memakai digit tabular (`font-variant-numeric: tabular-nums`) supaya lebar tidak bergoyang |
 | Label | Kategori, callout | JetBrains Mono / Inter SemiBold | 36–48 px |
+
+Teks non-Latin atau RTL (Arab, Ibrani, aksara daerah): pakai keluarga yang memang mendukung aksara itu, arah baca dan animasi per kata mengikuti arah tulis, jangan dipecah per huruf.
 
 **Satu sistem huruf (NEGATIF 1).** Karya di dalam dunia video (iklan, poster, halaman produk di layar UI) memakai huruf dan gaya aslinya: itu isi, bukan sistem huruf video. Penekanan default = bobot/ukuran/warna/kapital dalam satu keluarga. Huruf kedua (serif, script, tulisan tangan) sah bila ia sistem: peran tetap dan sama sepanjang video (mis. suara logo, kata penutup), ≤ 1 kemunculan per frame, sumbernya merek atau REF-SPEC (`huruf_kedua: {keluarga, peran, frekuensi}`). Pola slop: satu kata emosional berganti huruf di banyak frasa tanpa peran. Pergantian di tengah satu kata tetap gagal. Konten Jadisatu: Outfit (display) + Inter (teks). Verifikasi PostScript name sebelum build.
 
