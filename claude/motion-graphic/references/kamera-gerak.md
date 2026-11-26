@@ -1,21 +1,21 @@
-# Kamera, gerak, dan transisi
+# Camera, motion, and transitions
 
-Dibuka saat merancang gerak kamera dan transisi (langkah 5-6 alur `SKILL.md`). Butir lama LANTAI B10-B13b dipadatkan di sini dengan alasannya; bunyi aslinya tetap di `LANTAI.md` (arsip). Prinsip yang berlaku untuk semua gerak ada di NEGATIF 10: setiap gerak punya sebab yang bisa diucapkan. Cek mekanis: `scripts/juri/motion_lint.py`.
+Opened when designing camera movement and transitions (steps 5-6 of the `SKILL.md` workflow). Older `LANTAI.md` items B10-B13b are condensed here with their reasons; the original wording stays in `LANTAI.md` (archive). The principle governing all motion is in NEGATIF 10: every movement has a speakable reason. Mechanical check: `scripts/juri/motion_lint.py`.
 
-## Frame hidup (B10, B11, B12)
-- **Frame tidak datar.** Shot lebih dari 2 detik punya gerak kamera yang disengaja (push/zoom pelan untuk fokus, pan, mengikuti objek). Pengecualian hanya bila kartu kiblat memang berkamera diam, ditulis di `RESEP.md`. Alasan: frame yang diam lama terbaca sebagai slide.
-- **Satu objek fokus per beat.** Kamera mengikuti satu objek dari muncul sampai selesai dan tidak kembali ke posisi awal di tengah jalan. Kamera patuh ucapan: datang di awal kata, tahan sampai kata berikutnya, keyframe dari tabel waktu kata, framing akhir tidak memotong objek.
-- **Elemen diam di dunianya, kamera yang bergerak.** Saat kamera zoom ia melewati teks dan objek; teks tidak ikut bergeser sendiri. Alasan: dunia yang konsisten membuat gerak kamera terasa fisik.
+## Living frame (B10, B11, B12)
+- **No flat frames.** Shots longer than 2 seconds have deliberate camera movement (slow push/zoom for focus, pan, object tracking). Only exempt if the north-star card itself uses a static camera, recorded in `RESEP.md`. Reason: a long static frame reads like a slide.
+- **One focus object per beat.** The camera follows one object from appearance to finish and does not return to the start position midway. The camera obeys speech: arrives at word onset, holds until the next word, keyframes come from the word-timing table, and final framing never crops the object.
+- **Elements sit still in their world; the camera moves.** When the camera zooms, it passes text and objects; text does not shift along on its own. Reason: a consistent world makes camera movement feel physical.
 
-## Transisi (B13)
-- Nol crossfade polos; fade bukan gerak. Yang masuk datang dari suatu arah atau berubah bentuk; gerak cepat memakai motion blur; easing tidak linear. Overlay dan gradien masuk-keluar dengan gerak.
-- Pengecualian bermotivasi: micro-blend ≤ 4 frame hanya di puncak match-cut/zoom-through (`scale ≥ 3×` atau objek ≥ 80 % frame), dan blur-to-sharp yang dipadu gerak `curves.ts`.
-- Mekanik transisi dipilih dari hubungan ruang dua adegan: B di dalam A = push-through; A bagian dari B = pull-back; ganti topik = whip (`references/motion-mechanics.md`, `references/pacing-map.md`). Satu transisi khas per video; ≥ 4 tipe per 30 dtk tanpa tipe sama berturut-turut (`SceneChain`).
+## Transitions (B13)
+- Zero plain crossfades; a fade is not motion. Anything entering arrives from a direction or changes form; fast motion uses motion blur; easing is non-linear. Overlays and gradients enter and exit with motion.
+- Motivated exceptions: micro-blend ≤ 4 frames only at the peak of a match-cut/zoom-through (`scale ≥ 3×` or object ≥ 80% of frame), and blur-to-sharp paired with `curves.ts` motion.
+- Transition mechanics are chosen from the spatial relationship of the two scenes: B inside A = push-through; A part of B = pull-back; topic shift = whip (`references/motion-mechanics.md`, `references/pacing-map.md`). One signature transition per video; ≥ 4 types per 30 s with no same type back-to-back (`SceneChain`).
 
-## Gerak dirancang per gerak (B13a)
-- Kurva dipilih menurut apa geraknya dari `scripts/remotion/curves.ts`: `land` masuk dari luar frame, `heavy` objek besar dan kamera, `whip` ganti keadaan, `reveal` teks dari mask, `leave` keluar, `drift` hold. Bukan `Easing.ease` atau `inOut(cubic)`.
-- Durasi dihitung dari jarak dan bobot (`dur(px, fps, bobot)`), bukan kebiasaan 0,4-0,6 dtk. Satu gerak utama diikuti reaksi berjeda tidak rata (`react(i)`: 0, 67, 150, 250, 367, 500 ms), bukan stagger i × konstanta.
-- Gerak keluar ±0,65× masuk dan makin cepat. Hold > 1 dtk tetap hidup (drift atau napas kamera) kecuali diam disengaja. Tidak ada fade-up atau blur-in sebagai cara masuk bawaan; blur hanya untuk gerak cepat.
+## Motion designed per move (B13a)
+- Curves are chosen by what the move does from `scripts/remotion/curves.ts`: `land` entering from off-frame, `heavy` large objects and camera, `whip` state changes, `reveal` text from mask, `leave` exiting, `drift` holds. Never `Easing.ease` or `inOut(cubic)`.
+- Duration is calculated from distance and weight (`dur(px, fps, weight)`), not a 0.4-0.6 s habit. One primary move is followed by unevenly spaced reactions (`react(i)`: 0, 67, 150, 250, 367, 500 ms), not `i × constant` stagger.
+- Exit motion takes ±0.65× the entry duration and accelerates. Holds > 1 s stay alive (drift or camera breathing) unless stillness is intentional. No fade-up or blur-in as a default entrance; blur is for fast motion only.
 
-## Format berulang (B13b)
-Format yang muncul berulang berbeda framing tiap kemunculan (grafik kedua dan seterusnya: kamera mengikuti titik, close-up, posisi lain, reveal-out). Alasan: pengulangan framing identik terbaca sebagai template.
+## Recurring formats (B13b)
+Formats that appear repeatedly vary their framing on each appearance (second chart onward: camera tracks a point, close-up, different position, reveal-out). Reason: repeating identical framing reads like a template.

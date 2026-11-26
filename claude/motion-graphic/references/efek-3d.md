@@ -1,42 +1,42 @@
-# Efek dan 3D: kapan, mana yang aman, resep
+# Effects and 3D: when, which are safe, recipes
 
-Referensi mandiri (bukan gerbang wajib). Angka bertanda (usulan) belum diuji; sisanya dari uji repo atau dokumen resmi (Remotion, Blender), dicek 25 Nov 2026.
+Standalone reference (not a mandatory gate). Numbers marked (proposed) are untested; the rest come from repo tests or official docs (Remotion, Blender), checked 25 Nov 2026.
 
-## 1. CSS 2,5D, `@remotion/three`, atau Blender
+## 1. CSS 2.5D, `@remotion/three`, or Blender
 
-Default: CSS 2,5D (`SpatialDepthStage`, `SpatialAnchorCamera`). 3D dipilih hanya bila SEMUA benar:
-1. Beat butuh sudut pandang nyata: kamera lewat >= 2 sisi objek, atau >= 3 lapis dengan parallax >= 10% geser (usulan).
-2. Objek utama <= 1 per shot, gaya sesuai `BRAND.md` (low-poly/voxel/clay). Gaya 2D flat/cutout: 3D dilarang tanpa persetujuan di `RESEP.md` (`MOTION-CORE.md`).
-3. Shot 3D >= 2 dtk, total <= 25% durasi, <= 1 shot per 10 dtk (usulan).
-4. Teks dan tekstur tetap tajam 1080p; hanya 3D yang boleh setengah resolusi lalu diperbesar.
+Default: CSS 2.5D (`SpatialDepthStage`, `SpatialAnchorCamera`). Choose 3D only when ALL are true:
+1. The beat needs a real viewpoint: the camera passes >= 2 sides of an object, or >= 3 layers with >= 10% parallax shift (proposed).
+2. Primary objects <= 1 per shot, style matching `BRAND.md` (low-poly/voxel/clay). 2D flat/cutout styles: 3D is forbidden without approval in `RESEP.md` (`MOTION-CORE.md`).
+3. 3D shots >= 2 s, total <= 25% of duration, <= 1 shot per 10 s (proposed).
+4. Text and textures stay sharp at 1080p; only 3D may render at half resolution and upscale.
 
-Pilih renderer:
+Choose renderer:
 
-| Renderer | Pakai bila | Biaya (terukur di mesin tanpa GPU) |
+| Renderer | Use when | Cost (measured on machine without GPU) |
 |---|---|---|
-| `@remotion/three` | perkiraan <= 2 dtk/frame; push/orbit, logo, maskot low-poly | 0,95-1,89 dtk/frame (uji `Kepiting3D.tsx`, SwiftShader) |
-| Blender Cycles | butuh GI, DOF, bahan nyata | ~60 dtk/frame CPU (77 frame = 77 mnt); Blender belum ada di PATH PC |
+| `@remotion/three` | estimate <= 2 s/frame; push/orbit, logo, low-poly mascot | 0.95-1.89 s/frame (tested `Kepiting3D.tsx`, SwiftShader) |
+| Blender Cycles | needs GI, DOF, real materials | ~60 s/frame CPU (77 frames = 77 min); Blender not yet in PC PATH |
 
-Perkiraan total > 30 mnt: tanya pemilik (biaya/waktu). Aturan `@remotion/three`: animasi dari `useCurrentFrame()` (bukan `useFrame()`), `<Sequence layout="none">` di dalam canvas, render server `chromiumOptions.gl: "angle"`. Blender: `scripts/blender/render_seq.sh`, hasil EXR/PNG sebagai `<Img>` per frame.
+Total estimate > 30 min: ask me (cost/time). `@remotion/three` rules: drive animation from `useCurrentFrame()` (not `useFrame()`), `<Sequence layout="none">` inside the canvas, server render `chromiumOptions.gl: "angle"`. Blender: `scripts/blender/render_seq.sh`, output EXR/PNG as `<Img>` per frame.
 
-## 2. Matriks determinisme
+## 2. Determinism matrix
 
-| Mekanisme | Putusan | Perlakuan |
+| Mechanism | Verdict | Handling |
 |---|---|---|
-| Animasi dari `useCurrentFrame()` | aman | standar |
-| `useFrame()`, `requestAnimationFrame`, `Math.random` | tidak aman | `random(seed)` dari Remotion |
-| GSAP | aman bila `paused: true` + `seek(frame/fps)` | |
-| Bloom, glow, vignette | dilarang (K2) | kulit referensi; tidak dipakai |
-| DoF, chromatic aberration (tanpa memori) | aman bila berfungsi | chromatic aberration hanya di momen impact |
-| Afterimage, trail, TAA (butuh frame sebelumnya) | tidak aman | `<CameraMotionBlur>` / `<Trail>`, atau bake offline |
-| Fisika real-time di browser | tidak aman | bake (Blender rigid body) lalu putar per frame |
-| Cycles | aman | render sequence |
+| Animation from `useCurrentFrame()` | safe | standard |
+| `useFrame()`, `requestAnimationFrame`, `Math.random` | unsafe | `random(seed)` from Remotion |
+| GSAP | safe if `paused: true` + `seek(frame/fps)` | |
+| Bloom, glow, vignette | forbidden (K2) | reference skin; do not use |
+| DoF, chromatic aberration (stateless) | safe if it serves a function (not decorative) | chromatic aberration on impact moments only |
+| Afterimage, trail, TAA (needs previous frame) | unsafe | `<CameraMotionBlur>` / `<Trail>`, or bake offline |
+| Real-time browser physics | unsafe | bake (Blender rigid body) then play per frame |
+| Cycles | safe | render sequence |
 
-Motion blur 3D resmi: `<CameraMotionBlur>` (shutter 180, samples 10; biaya x samples). `useCurrentFrame()` di luar komponen blur mematikan blur.
+Official 3D motion blur: `<CameraMotionBlur>` (shutter 180, samples 10; cost x samples). Calling `useCurrentFrame()` outside the blur component disables blur.
 
-## 3. Filter SVG deterministik
+## 3. Deterministic SVG filters
 
-Tanpa paket tambahan; semua parameter dari `frame`. Tanpa grain atau tekstur dekoratif di atas gradien (K2); chromatic aberration <= 2 px usulan, hanya di momen impact.
+Zero extra packages; all parameters driven by `frame`. No grain or decorative texture over gradients (K2); chromatic aberration <= 2 px proposed, on impact moments only.
 
 ```tsx
 const f = useCurrentFrame();
@@ -52,8 +52,8 @@ const f = useCurrentFrame();
 </defs></svg>
 <div style={{ filter: "url(#tex)" }}>...</div>
 ```
-`#tex`: grain (seed berubah per frame) lalu posterize 4 level. `#riak`: displacement riak (seed tetap, `scale` dari frame). Biaya di bench repo 0,4-0,6 dtk/frame. Snippet belum diuji render di sesi ini; ukur dulu di still. Posterize + grain pada footage redup: lihat larangan di `grade.md`.
+`#tex`: grain (seed changes per frame) then 4-level posterize. `#riak`: ripple displacement (fixed seed, `scale` from frame). Cost in repo benchmark 0.4-0.6 s/frame. Snippet not yet render-tested in this session; measure in a still first. Posterize + grain on dim footage: see bans in `grade.md`.
 
-## 4. Catatan mesin
+## 4. Machine notes
 
-WebGL di PC server jatuh ke SwiftShader (CPU) bila akun belum masuk grup `render` dan `video`; GPU tidak terjangkau. Jangan menjalankan `usermod`/`sudo` untuk itu; catat `UNMASKED_RENDERER_WEBGL` dan pakai angka biaya SwiftShader di atas. Hindari `gl: "swangle"` (sekitar 8x lebih lambat, kualitas turun). Cek `blender --version` sebelum menjadwalkan render Blender.
+WebGL on the PC server falls back to SwiftShader (CPU) if the account is not yet in the `render` and `video` groups; GPU is unreachable. Do not run `usermod`/`sudo` for it; record `UNMASKED_RENDERER_WEBGL` and use the SwiftShader cost numbers above. Avoid `gl: "swangle"` (about 8x slower, lower quality). Check `blender --version` before scheduling a Blender render.

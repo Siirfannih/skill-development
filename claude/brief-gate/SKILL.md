@@ -1,132 +1,132 @@
 ---
 name: "brief-gate"
-description: "Gerbang wajib sebelum mengirim tugas ke subagen, worker, atau model lain (Codex, Gemini, Sonnet): cek brief terhadap kalimat asli Irfan, uji baca dingin, cek metrik, pilot satu agen dulu."
+description: "Mandatory gate before you send a task to a subagent, worker or another model (Codex, Gemini, Sonnet). Use when you are about to dispatch work to another agent: check the brief against my original words, run the cold-read test, check the metric, and pilot one agent first."
 ---
 
-# Brief Gate: periksa brief sebelum subagen jalan
+# Brief Gate: check the brief before a subagent runs
 
-## 1. Kenapa skill ini ada
+## 1. Why this skill exists
 
-Kesalahan orkestrasi yang paling mahal buatku bukan subagen yang bodoh, tapi **brief yang salah dan dieksekusi dengan setia**. Subagen tidak punya konteks percakapan kita. Ia hanya punya brief-mu. Kalau brief-nya salah sasaran, semua subagen salah dari langkah pertama, dan aku baru tahu di akhir saat memeriksa hasil.
+The most expensive orchestration mistake for me is not a dumb subagent but **a wrong brief executed faithfully**. A subagent has none of our conversation's context. It has only your brief. If the brief aims at the wrong target, every subagent is wrong from the first step, and I only find out at the end when I check the results.
 
-Kasus nyata: aku minta sintesis video referensi untuk mengambil **cara bergerak** (animation, transition, kinetic typography) sebagai preset di skill-development. Brief pabrik malah menyuruh subagen membangun **adegan utuh** (editor lengkap, wallpaper, panel UI), lalu menilainya dengan **kemiripan per frame terhadap referensi**. Hasilnya, subagen sibuk meniru kulit adegan, dan kegagalannya pun ada di wilayah itu (placeholder, tabrakan, kulit referensi bocor). Subagen tidak salah. Brief dan metriknya yang salah.
+A real case: I asked for a synthesis of reference videos to extract the **way things move** (animation, transition, kinetic typography) as presets in skill-development. The factory brief instead told subagents to build **whole scenes** (a full editor, wallpaper, UI panels), then judged them by **per-frame similarity to the reference**. As a result, the subagents were busy imitating the scene's skin, and their failures landed in that territory too (placeholders, collisions, reference skin leaking). The subagents were not wrong. The brief and its metric were.
 
-Di konteks panjang, kamu bekerja dari ringkasanmu sendiri, bukan dari kalimatku. Ringkasan itu bergeser sedikit demi sedikit. Gerbang ini memaksa kamu kembali ke kalimat asliku sebelum mengirim tugas.
+In a long context, you work from your own summary, not from my words. That summary drifts a little at a time. This gate forces you back to my original words before you send a task.
 
-## 2. Kapan wajib
+## 2. When it is mandatory
 
-- Sebelum **setiap** pemanggilan subagen (Agent tool, worker Codex, sesi Opus lain, Gemini, dll).
-- Sebelum menulis file prompt atau instruksi yang akan dibaca model lain (brief pabrik, AGENTS.md, prompt untuk Codex).
-- Sebelum mengirim ulang tugas setelah aku memberi feedback. Ini titik rawan, karena feedback-ku mengubah tujuan dan brief lama ikut terbawa.
+- Before **every** subagent call (Agent tool, Codex worker, another Opus session, Gemini, etc.).
+- Before writing a prompt or instruction file another model will read (factory brief, AGENTS.md, a prompt for Codex).
+- Before resending a task after I give feedback. This is a weak point, because my feedback changes the goal and the old brief gets carried along.
 
-Skala sesuai biaya:
-- **Ringan** (satu subagen, read-only, murah diulang, misalnya mencari file): langkah 3.1 dan 3.3 saja, cukup satu menit.
-- **Berat** (fan-out ≥3 agen, render, kredit API, lebih dari 15 menit kerja, atau hasilnya jadi aturan atau preset permanen): semua langkah, termasuk pilot (3.5).
+Scale to cost:
+- **Light** (one subagent, read-only, cheap to repeat, for example finding files): steps 3.1 and 3.3 only, one minute is enough.
+- **Heavy** (fan-out of ≥3 agents, render, API credits, more than 15 minutes of work, or the result becomes a permanent rule or preset): every step, including the pilot (3.5).
 
-Gerbang ini **bukan** alasan untuk berhenti dan meminta izin padaku. Plan yang sudah aku setujui tetap jalan. Gerbang ini cek internal milikmu.
+This gate is **not** a reason to stop and ask my permission. A plan I already approved keeps running. This gate is your internal check.
 
-## 3. Langkah gerbang
+## 3. Gate steps
 
-### 3.1 Ambil kalimat asliku, bukan ringkasanmu
-Cari pesan asliku untuk tugas ini (scroll, STATUS.md, plan yang aku setujui) dan kutip apa adanya. Lalu tulis dua baris:
-- **Yang dipindahkan:** benda konkret apa yang aku mau dihasilkan (contoh: "parameter gerak: easing, durasi, urutan, stagger").
-- **Bukan:** apa yang jelas bukan tujuannya, walau kelihatan dekat (contoh: "bukan membangun ulang adegan, UI, latar, atau objek referensi").
+### 3.1 Take my original words, not your summary
+Find my original message for this task (scroll back, STATUS.md, the plan I approved) and quote it as it is. Then write two lines:
+- **What transfers:** what concrete thing I want produced (example: "motion parameters: easing, duration, order, stagger").
+- **Not:** what is clearly not the goal, even if it looks close (example: "not rebuilding the reference's scene, UI, background or objects").
 
-Kalau baris "Bukan" tidak bisa kamu isi, berarti kamu belum paham batas tugasnya. Cari di bahan dulu. Kalau tetap tidak jelas, tanyakan aku sebelum fan-out.
+If you cannot fill the "Not" line, you do not yet understand the task's boundary. Search the material first. If it is still unclear, ask me before fan-out.
 
-### 3.2 Telusuri rantai tujuan
-Empat mata rantai ini harus menunjuk ke benda yang **sama**:
+### 3.2 Trace the goal chain
+These four links must point to the **same** thing:
 
-1. **Tujuan**: kenapa aku butuh ini (contoh: model di skill-development tidak perlu membuat efek dari nol).
-2. **Unit kerja**: apa yang subagen bangun (primitif gerak, bukan adegan).
-3. **Deliverable**: wujud output (preset berparameter, demo di kanvas netral).
-4. **Metrik penerimaan**: cara hasil dinilai.
+1. **Goal**: why I need this (example: the model in skill-development does not have to build effects from zero).
+2. **Unit of work**: what the subagent builds (a motion primitive, not a scene).
+3. **Deliverable**: the shape of the output (a parameterized preset, a demo on a neutral canvas).
+4. **Acceptance metric**: how the result is judged.
 
-**Metrik adalah mata rantai paling berbahaya.** Subagen mengoptimalkan apa yang diukur, bukan apa yang kamu maksud. Tanyakan: "Kalau subagen memaksimalkan metrik ini, apakah hasilnya yang Irfan mau?" Di kasus sintesis, "kemiripan struktur per frame dengan referensi" berarti "tiru kulitnya". Metrik yang benar mengukur gerak: kurva easing, durasi, offset stagger, dan arah, dibandingkan dengan pengukuran dari referensi, pada kanvas yang sengaja berbeda dari referensi.
+**The metric is the most dangerous link.** A subagent optimizes what is measured, not what you mean. Ask whether a subagent that maximizes this metric would produce what I want. In the synthesis case, "per-frame structural similarity to the reference" meant "copy its skin". The right metric measures motion: easing curve, duration, stagger offset and direction, compared with measurements from the reference, on a canvas deliberately different from the reference.
 
-### 3.3 Uji baca dingin
-Baca brief seolah kamu subagen yang tidak tahu apa pun selain teks itu. Tulis prediksi 2–3 kalimat: "Dengan brief ini aku akan membuat ___, menilainya dengan ___, dan menyerahkan ___." Bandingkan dengan 3.1. Kalau tidak cocok, perbaiki brief, jangan perbaiki prediksinya.
+### 3.3 Cold-read test
+Read the brief as if you were a subagent that knows nothing but that text. Write a 2–3 sentence prediction: "With this brief I will build ___, judge it by ___, and hand over ___." Compare it with 3.1. If they do not match, fix the brief, not the prediction.
 
-Untuk tugas berat, lakukan uji ini sungguhan: kirim brief ke satu subagen murah dengan instruksi "Jangan kerjakan. Jelaskan apa yang akan kamu buat, cara kamu menilai hasilnya, dan pertanyaan apa yang kamu punya." Kalau jawabannya menyimpang dari 3.1 atau muncul pertanyaan, brief-nya bolong.
+For heavy tasks, run this test for real: send the brief to one cheap subagent with the instruction "Do not do the task. Explain what you would build, how you would judge the result, and what questions you have." If its answer drifts from 3.1 or questions come up, the brief has holes.
 
-### 3.4 Cek pola gagal yang sudah terbukti
-- **Kata kerja ambigu** dipakai tanpa definisi (lihat §4). Subagen akan memakai arti umumnya, bukan artiku.
-- **Referensi dijadikan target visual.** Kalau subagen diberi frame referensi sebagai "tujuan", ia akan menyalin kulitnya. Berikan referensi sebagai **bahan ukur**, dan minta output di kanvas atau konteks yang berbeda.
-- **Tidak ada baris "Bukan".** Tanpa batas negatif, subagen mengisi kekosongan dengan pekerjaan yang kelihatan rajin.
-- **Konteks yang hanya ada di kepalamu**: path file, bagian skill-development yang relevan, konvensi penamaan, keputusan yang sudah aku ambil, aturan blank canvas. Tulis eksplisit, atau beri path untuk dibaca.
-- **Tidak ada syarat berhenti.** Kapan subagen harus berhenti dan lapor, bukan menebak (akses diblokir, bahan tidak ada, hasil ukur jauh dari target).
-- **Format output tidak jelas**, sehingga hasil antar-subagen tidak bisa digabung atau dibandingkan.
-- **Asumsimu ditulis sebagai fakta** di brief. Tandai sebagai asumsi, atau verifikasi dulu.
-- **Brief lama dipakai ulang setelah feedback-ku** tanpa diperiksa ulang terhadap feedback itu.
+### 3.4 Check the proven failure patterns
+- **Ambiguous verbs** used without a definition (see §4). The subagent will use the common meaning, not mine.
+- **The reference made a visual target.** If a subagent is given reference frames as the "goal", it will copy their skin. Give the reference as **measurement material**, and ask for output on a different canvas or context.
+- **No "Not" line.** Without a negative boundary, the subagent fills the gap with work that looks diligent.
+- **Context that exists only in your head**: file paths, the relevant parts of skill-development, naming conventions, decisions I already made, the blank canvas rule. Write them out explicitly, or give a path to read.
+- **No stop condition.** When the subagent must stop and report instead of guessing (access blocked, material missing, measured result far from target).
+- **Unclear output format**, so results from different subagents cannot be merged or compared.
+- **Your assumptions written as facts** in the brief. Mark them as assumptions, or verify them first.
+- **An old brief reused after my feedback** without being rechecked against that feedback.
 
-### 3.5 Pilot sebelum fan-out
-Untuk tugas berat, jalankan **satu** subagen pada **satu** item dulu. Buka hasilnya sendiri dan cek terhadap 3.1 dan rantai di 3.2, bukan hanya terhadap brief (brief-nya sendiri bisa salah). Baru fan-out setelah pilot lolos. Satu pilot yang salah jauh lebih murah daripada sepuluh subagen yang salah.
+### 3.5 Pilot before fan-out
+For heavy tasks, run **one** subagent on **one** item first. Open its result yourself and check it against 3.1 and the chain in 3.2, not only against the brief (the brief itself can be wrong). Fan out only after the pilot passes. One wrong pilot is far cheaper than ten wrong subagents.
 
-### 3.6 Simpan bukti gerbang
-Sebelum dispatch, tulis catatan singkat di STATUS.md proyek (atau di chat kalau tidak ada proyek):
+### 3.6 Keep the gate evidence
+Before dispatch, write a short note in the project's STATUS.md (or in chat if there is no project):
 
 ```
-GATE <tugas>: kalimat Irfan: "..." | dipindahkan: ... | bukan: ... | metrik: ... | baca dingin: cocok/diperbaiki (apa) | pilot: lolos/belum perlu
+GATE <task>: owner's words: "..." | transfers: ... | not: ... | metric: ... | cold read: matched/fixed (what) | pilot: passed/not needed
 ```
 
-Catatan ini supaya aku bisa mengaudit kenapa brief-nya begitu kalau hasilnya meleset, dan supaya sesi berikutnya tidak mengulang kesalahan yang sama.
+This note lets me audit why the brief was written that way if the result misses, and keeps the next session from repeating the same mistake.
 
-## 4. Kamus kata kerjaku (arti versiku, bukan arti umum)
+## 4. My verb dictionary (my meaning, not the common one)
 
-Tulis definisi ini ke brief setiap kali katanya dipakai:
+Write these definitions into the brief every time the word is used:
 
-- **Sintesis / reverse engineering video**: ekstrak *cara bergerak* (animation, transition, kinetic typography: timing, easing, urutan, stagger, arah, kamera) menjadi primitif yang bisa dipakai ulang. **Bukan** membangun ulang frame, adegan, UI, latar, atau objek referensi.
-- **Preset**: blok gerak berparameter (teks, warna, durasi, dan intensitas bisa diganti) yang tinggal diambil model di skill-development. Satu preset satu gerak. Bukan satu adegan.
-- **Tiru / ikuti referensi**: analisis *kenapa* referensi itu bekerja, lalu terapkan prinsipnya dengan estetika proyek sendiri. Bukan menyalin gayanya.
-- **Pelajari**: hasilkan temuan terukur (angka, frame, timestamp) yang bisa dicek, bukan deskripsi kata sifat.
-- **Blank canvas**: bawa pengalaman kerja (urutan, standar, tools), jangan bawa template atau aturan brand proyek lain.
+- **Synthesis / reverse engineering a video** (*sintesis*): extract the *way things move* (animation, transition, kinetic typography: timing, easing, order, stagger, direction, camera) into reusable primitives. **Not** rebuilding the reference's frames, scenes, UI, background or objects.
+- **Preset**: a parameterized motion block (text, colour, duration and intensity can be swapped) that the model in skill-development just picks up. One preset, one motion. Not one scene.
+- **Imitate / follow a reference** (*tiru / ikuti referensi*): analyze *why* the reference works, then apply its principle with the project's own aesthetics. Not copying its style.
+- **Study** (*pelajari*): produce measured findings (numbers, frames, timestamps) that can be checked, not adjective descriptions.
+- **Blank canvas**: bring work experience (order, standards, tools); do not bring another project's templates or brand rules.
 
-Kalau kamu menemukan kata kerjaku lain yang ternyata disalahpahami subagen, tambahkan ke daftar ini.
+If you find another of my verbs that a subagent turned out to misunderstand, add it to this list.
 
-## 5. Isi wajib brief subagen
+## 5. Required contents of a subagent brief
 
-Bukan template kaku, tapi brief belum boleh dikirim kalau salah satu poin ini kosong:
+Not a rigid template, but the brief may not be sent while any of these points is empty:
 
-1. **Tujuan akhir**: satu kalimat kenapa ini dikerjakan dan siapa yang memakai hasilnya.
-2. **Unit kerja**: apa yang dibangun.
-3. **Bukan**: batas negatif.
-4. **Input**: path atau bahan yang harus dibaca, termasuk bagian skill-development yang relevan saja.
-5. **Output**: format, lokasi file, dan nama.
-6. **Cara dinilai**: metrik atau QC yang kamu pakai saat menerima hasil.
-7. **Berhenti dan lapor kalau**: syarat berhenti.
+1. **End goal**: one sentence on why this is being done and who uses the result.
+2. **Unit of work**: what is built.
+3. **Not**: the negative boundary.
+4. **Input**: paths or material to read, including only the relevant parts of skill-development.
+5. **Output**: format, file location and name.
+6. **How it is judged**: the metric or QC you use when accepting the result.
+7. **Stop and report if**: the stop conditions.
 
-## 6. Saat menerima hasil subagen
+## 6. When you receive a subagent's result
 
-- Nilai terhadap kalimat asliku (3.1) dan rantai tujuan (3.2), bukan hanya "sesuai brief atau tidak".
-- Klaim subagen ("lolos QC", "mirip 92%") diverifikasi dengan alat ukurmu sendiri. Jangan diteruskan mentah ke aku.
-- Kalau hasil meleset, tentukan dulu: **brief yang salah atau eksekusinya?** Kalau brief, perbaiki brief dan catat polanya di 3.4 atau §4. Jangan cuma mengulang dengan brief yang sama.
-- Saran desain dari subagen tetap lewat mini proposal (masalah, perubahan, preview, prinsip, perjalanan penonton) sebelum diterapkan.
+- Judge it against my original words (3.1) and the goal chain (3.2), not only "matches the brief or not".
+- Verify a subagent's claims ("passed QC", "92% similar") with your own measuring tools. Do not pass them raw to me.
+- If the result misses, first decide: **was the brief wrong, or the execution?** If the brief, fix the brief and record the pattern in 3.4 or §4. Do not just repeat with the same brief.
+- Design suggestions from a subagent still go through a mini proposal (problem, change, preview, principle, viewer journey) before they are applied.
 
-## 7. Tanda kamu sedang melewati gerbang
+## 7. Signs you are skipping the gate
 
-| Pikiranmu | Kenyataannya |
+| Your thought | Reality |
 |---|---|
-| "Konteksnya sudah jelas, aku baru membahasnya." | Jelas di kepalamu, bukan di brief. Subagen hanya membaca brief. |
-| "Brief-nya sama dengan yang tadi, tinggal kirim ulang." | Setelah feedback-ku, tujuannya berubah. Cek ulang terhadap feedback itu. |
-| "Metriknya cuma alat bantu." | Metrik adalah tujuan nyata bagi subagen. |
-| "Pilot buang waktu, langsung paralel saja." | Sepuluh subagen yang salah memakan waktu dan token jauh lebih banyak. |
-| "Nanti dicek di akhir." | Di akhir itulah aku selalu menemukan kesalahannya. Cek sekarang. |
+| "The context is clear, I just discussed it." | Clear in your head, not in the brief. The subagent reads only the brief. |
+| "The brief is the same as before, just resend it." | After my feedback, the goal changed. Recheck it against that feedback. |
+| "The metric is just a helper." | The metric is the real goal for the subagent. |
+| "A pilot wastes time, just go parallel." | Ten wrong subagents cost far more time and tokens. |
+| "I'll check at the end." | The end is exactly where I always find the mistake. Check now. |
 
-## 8. Contoh: brief sintesis, sebelum dan sesudah
+## 8. Example: a synthesis brief, before and after
 
-**Sebelum (gagal):** "Pelajari video referensi ini dan buat 5 komponen (UIActionScript, AnchoredCaption, ScaleLadder, WordBeat, WorldStage) yang mereproduksi tampilannya. Bandingkan per frame dengan referensi memakai metrik kemiripan struktur, target ≥0,85."
-→ Baca dingin: "Aku akan membangun ulang adegan referensi selengkap mungkin supaya skor kemiripan tinggi." Tidak cocok dengan kalimatku. Metriknya mengukur kulit.
+**Before (failed):** "Study this reference video and build 5 components (UIActionScript, AnchoredCaption, ScaleLadder, WordBeat, WorldStage) that reproduce its look. Compare per frame with the reference using a structural similarity metric, target ≥0.85."
+→ Cold read: "I will rebuild the reference scene as completely as possible so the similarity score is high." Does not match my words. The metric measures skin.
 
-**Sesudah (lolos gerbang):** "Tujuan: model di skill-development bisa mengambil gerak siap pakai tanpa membuat efek dari nol. Unit kerja: satu primitif gerak per preset (contoh: word-beat pop, scale ladder, anchored caption follow). Bukan: membangun UI, latar, wallpaper, panel, atau objek dari referensi. Input: frame 8–10 fps pada rentang timestamp X–Y. Ukur durasi, kurva easing, offset stagger, dan arah. Output: preset berparameter + demo di kanvas netral (latar polos, teks dummy milik kita) + file ukur referensi vs preset. Dinilai: selisih timing ≤2 frame, kurva easing setara, tidak ada elemen visual referensi di demo. Berhenti dan lapor kalau gerak di referensi tidak bisa diukur dari frame yang ada."
-→ Baca dingin: "Aku akan mengukur gerak lalu membuat blok gerak yang bisa dipakai di mana saja." Cocok.
+**After (passed the gate):** "Goal: the model in skill-development can take ready-to-use motion without building effects from zero. Unit of work: one motion primitive per preset (example: word-beat pop, scale ladder, anchored caption follow). Not: building UI, background, wallpaper, panels or objects from the reference. Input: frames at 8–10 fps over timestamp range X–Y. Measure duration, easing curve, stagger offset and direction. Output: a parameterized preset + a demo on a neutral canvas (plain background, our own dummy text) + a measurement file of reference vs preset. Judged by: timing difference ≤2 frames, equivalent easing curve, no visual element of the reference in the demo. Stop and report if the reference's motion cannot be measured from the available frames."
+→ Cold read: "I will measure the motion, then build a motion block that can be used anywhere." Matches.
 
-## 9. Cek cepat sebelum dispatch
+## 9. Quick check before dispatch
 
-- [ ] Kalimat asli Irfan sudah aku kutip, bukan ringkasanku.
-- [ ] Baris "Bukan" terisi.
-- [ ] Tujuan → unit kerja → deliverable → metrik menunjuk ke benda yang sama.
-- [ ] Kalau subagen memaksimalkan metriknya, hasilnya yang Irfan mau.
-- [ ] Baca dingin cocok (tugas berat: diuji ke subagen sungguhan).
-- [ ] Kata kerja ambigu sudah didefinisikan (§4).
-- [ ] Tugas berat: pilot satu item sudah lolos.
-- [ ] Catatan GATE sudah tertulis.
+- [ ] My original words are quoted, not your summary.
+- [ ] The "Not" line is filled.
+- [ ] Goal → unit of work → deliverable → metric point to the same thing.
+- [ ] If the subagent maximizes its metric, the result is what I want.
+- [ ] The cold read matches (heavy task: tested on a real subagent).
+- [ ] Ambiguous verbs are defined (§4).
+- [ ] Heavy task: a one-item pilot has passed.
+- [ ] The GATE note is written.
