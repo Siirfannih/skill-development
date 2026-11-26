@@ -1,0 +1,15 @@
+# vibedesign: profil merek satu rumah dengan motion-graphic
+Masalah: nilai merek punya dua rumah. motion-graphic menyimpannya di folder data user `merek/<slug>/BRAND.md`, sedangkan vibedesign menyuruh `DESIGN.md` per proyek dengan token warna dan huruf sendiri; keduanya akan berselisih. Selain itu Designer diminta menunggu `BRAND.md` yang belum ada (ops-report `review/2026-11-23.md:42`), padahal motion-graphic sudah punya perilaku "susun draf sendiri, ajukan bersama keyframe pertama" (`motion-graphic/templates/merek/README.md` Tahap 1). Profil nyata sudah ada: `data-video/merek/{siirfan,behindwork}/BRAND.md`.
+Perubahan (hanya vibedesign; tidak ada berkas motion-graphic yang disentuh):
+- `templates/merek/README.md`: isi diganti. Nilai merek di `merek/<slug>/BRAND.md` (sama dengan motion-graphic); vibedesign menambah `merek/<slug>/DESIGN.md` hanya untuk hal khusus desain statis; `projects/<proyek>/DESIGN.md` boleh menimpa; profil belum ada: draf bertanda DRAF, ajukan bersama sketsa pertama, jangan menunggu.
+- `templates/merek/DESIGN.md`: kunci `colors:`/`typography:` diganti `brand: BRAND.md` + `overrides: {}`; bagian Colors dan Typography jadi satu kalimat penunjuk.
+- `DESIGN-CORE.md` baris "Urutan menang"; `SKILL.md` "Mulai di sini" butir 5.
+- Rujukan lama "`DESIGN.md` proyek" diluruskan (agar `grep "DESIGN.md proyek"` kosong): `guide/warna/GUIDE.md` (WRN-01 dan Cara), `tokens/README.md`, `cookbook/05-permukaan-tekstur/06-wadah-fisik-kipas-kartu.md` baris Remix, `templates/BRIEF.md`, `templates/proyek/README.md` (DESIGN.md proyek jadi opsional). Isi aturan WRN-01 tidak berubah selain sumber palet.
+- `SUMBER.md`: baris asal-usul.
+Ukuran berkas bertabel batas di motion-graphic: tidak disentuh (SKILL.md 12.271/12.288, dunia-visual.md 15.298/15.360, storyboard.md 15.257/15.360; literal "Profil merek", "profil_cek", "Google Drive" di test_tahap.py tidak berubah).
+Bukti: dua rumah (lihat Masalah); `data-video/merek/siirfan/BRAND.md` dan `behindwork/BRAND.md` ada; `evals/cases/vd-011.json` menguji perilaku draf.
+Hasil cek: `steward_check.py` 0 error, 52 peringatan (sama); tes motion-graphic, peta, sumber_cek, sync_lantai, sync_negatif, cookbook cek --ketat hijau; `grep -rn "DESIGN.md proyek" claude/vibedesign` kosong; `profil_cek.py` pada `data-video/merek/siirfan` dan `behindwork` memberi keluaran sama sebelum dan sesudah (hanya baca; siirfan GAGAL 2 butir sebelum dan sesudah: huruf.aksen.peran dan frekuensi kosong, terlepas dari perubahan ini). Perilaku "draf, jangan menunggu" belum diuji dengan model: jalankan `evals/cases/vd-011.json` pada agen segar.
+Dampak: Designer mencari `merek/<slug>/BRAND.md`, tidak menyalin nilainya ke `DESIGN.md`, dan bila profil tidak ada langsung menyusun draf. Risiko: profil statis yang sudah ada dengan token `colors:` di `projects/<p>/DESIGN.md` tetap sah sebagai penimpa.
+Level: Behavior
+Persetujuan: permintaan langsung (Irfan 27 Nov, "vibedesign … perlu dilatih lagi", terjemahan) · diterapkan [A]
+Cara membatalkan: `git revert` commit ini.

@@ -1,13 +1,7 @@
 ---
 name: <merek/proyek>
-colors:
-  canvas: "#______"
-  ink: "#______"
-  accent: "#______"        # penekanan: kata kunci, seleksi, wadah
-  support-1: "#______"     # maks 2 pendukung
-typography:
-  display: { family: "<keluarga A>", weights: [500, 800] }
-  ui-kecil: { family: "<keluarga B atau sama>", weights: [500] }
+brand: BRAND.md            # warna, huruf, logo diambil dari sini; jangan diulang
+overrides: {}              # hanya bila desain statis butuh nilai yang berbeda, dengan alasan di prosa
 layout:
   canvas: "{kanvas.carousel-4x5}"
   margin: 64px
@@ -22,10 +16,10 @@ shapes:
 Dunia visual dalam satu paragraf: dari mana bentuk dan teksturnya berasal, dan kenapa cocok dengan pesannya.
 
 ## Colors
-Peran tiap warna. Aksen dipakai untuk apa, dan apa yang tidak boleh memakai aksen.
+Peran warna (aksen untuk apa, apa yang tidak boleh memakai aksen) mengikuti `BRAND.md`; tulis di sini hanya penyesuaian khusus desain statis dan alasannya.
 
 ## Typography
-Peran tiap keluarga huruf (maks 2), skala yang dipakai (rasio terhadap fokus), kapan huruf kedua (serif/script/tulisan tangan) muncul: peran dan frekuensinya.
+Peran huruf dan skala (rasio terhadap fokus) untuk slide; keluarga huruf dari `BRAND.md`.
 
 ## Layout
 Margin, zona aman, aturan elemen sekunder di tepi.

@@ -2,7 +2,7 @@
 
 ```
 projects/<proyek>/
-├── BRIEF.md · RESEP.md · TAHAP.md · DECISIONS.md · STATUS.md · DESIGN.md
+├── BRIEF.md · RESEP.md · TAHAP.md · DECISIONS.md · STATUS.md · DESIGN.md (bila proyek menimpa profil merek)
 ├── slides/slide-0N.html     satu file per slide
 ├── assets/manifest.json     daftar aset + sumber + izin
 ├── qc/                      keluaran juri terakhir, lembar sanding

@@ -1,6 +1,6 @@
 # DESIGN-CORE: pintu sesi produksi desain statis
 
-Urutan menang: instruksiku di sesi → `projects/<proyek>/` (BRIEF, RESEP, DECISIONS) → profil merek (`DESIGN.md` proyek) → kartu cookbook yang dipilih → `guide/` → file ini. `LANTAI.md` tidak dikalahkan kartu atau gaya.
+Urutan menang: instruksiku di sesi → `projects/<proyek>/` (BRIEF, RESEP, DECISIONS) → profil merek (folder data `merek/<slug>/BRAND.md` + `DESIGN.md` bila ada; `projects/<proyek>/DESIGN.md` menimpa) → kartu cookbook yang dipilih → `guide/` → file ini. `LANTAI.md` tidak dikalahkan kartu atau gaya.
 
 ## 1. Alur: tiga gerbang, lalu bangun
 1. **Pesan.** Isi `BRIEF.md` (dari `templates/BRIEF.md`): akar pesan carousel (satu kalimat), akar pesan per slide, copy persis, urutan baca 1→n, bukti visual (kenapa visual ini membuktikan pesan), aksi tiap karakter (kata kerja). Belum ada kode. Rujukan: `guide/pesan/GUIDE.md`.

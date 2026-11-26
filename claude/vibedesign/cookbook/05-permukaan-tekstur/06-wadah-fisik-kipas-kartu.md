@@ -44,4 +44,4 @@ Teknik tersulit → solusi: tab dan sudut cekung folder tidak bisa dibuat dengan
 - T3 Pil label diputar ±12°, z-index di atas headline, menimpa ujung huruf terakhir.
 - T4 Latar polos dingin + kurva tipis.
 
-**Remix wajib:** wadah = objek dunia kita (map file editor, jendela OS, amplop) dan isinya = slide/hasil kerja kita sendiri; palet diganti ke DESIGN.md proyek dengan tetap menjaga kontras suhu (latar dingin vs fokus hangat). Yang dipertahankan: sumbu Z, pil miring, radius bertingkat. Yang diganti: objek, warna persis, teks, ikon.
+**Remix wajib:** wadah = objek dunia kita (map file editor, jendela OS, amplop) dan isinya = slide/hasil kerja kita sendiri; palet diganti ke profil merek proyek dengan tetap menjaga kontras suhu (latar dingin vs fokus hangat). Yang dipertahankan: sumbu Z, pil miring, radius bertingkat. Yang diganti: objek, warna persis, teks, ikon.

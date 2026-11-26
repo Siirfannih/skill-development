@@ -1,6 +1,6 @@
 # tokens: nilai netral-gaya (format W3C DTCG)
 
-Hanya nilai yang berlaku lintas proyek: ukuran kanvas, zona aman, skala export, dan rasio skala huruf/spasi. Warna, font, dan nilai merek tidak di sini; tempatnya `DESIGN.md` proyek (`../templates/merek/DESIGN.md`).
+Hanya nilai yang berlaku lintas proyek: ukuran kanvas, zona aman, skala export, dan rasio skala huruf/spasi. Warna, font, dan nilai merek tidak di sini; tempatnya profil merek (`../templates/merek/README.md`).
 
 Format: `*.tokens.json`, setiap token punya `$value` dan `$type`, keterangan di `$description`, alias ditulis `{grup.token}`. Bisa diubah ke CSS variables dengan Style Dictionary.
 
