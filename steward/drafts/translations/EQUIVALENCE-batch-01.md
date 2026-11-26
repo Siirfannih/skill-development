@@ -148,3 +148,12 @@ Second-model verification against `origin/main` (`0c4e4aa9`). One section per fi
 | `## 4. Uji per naskah` | Benang merah, sudut jernih saat pola jenuh, CTA lanjutan cerita, perkiraan durasi (2,5–3 kata/dtk ID; 139 kata/mnt EN). | Single thread, clear angle in saturated patterns, story-continuation CTA, word-count duration estimates (2.5–3 wps ID; 139 wpm EN). | yes |
 | `## 5. Teks layar` & `5b` | Teks layar hanya dari `voiceover.full_text`, 2–6 kata/1–3 dtk, sentence case/KAPITAL, 1 kata aksen, tanda baca konsisten, tanpa subtitle statis, filter `antislop-copywriting`. | On-screen text from `voiceover.full_text` only, 2–6 words/1–3 s, sentence case/ALL CAPS, 1 accent word, consistent punctuation, no static subtitles, `antislop-copywriting` filter. | yes |
 | `## 6. Menyerahkan script` | Tampilkan draft di chat sampai pemilik bilang final baru simpan file; cek akhir §3, ide utuh, klaim berdasar. | Show draft in chat until I say final then save file; final check on §3, preserved ideas, grounded claims. | yes |
+
+## `claude/motion-graphic/references/motion-mechanics.md`
+
+| Section | Indonesian meaning (one line) | English meaning (one line) | Equal? |
+|---|---|---|---|
+| Title, intro & table | Mekanik gerak kamera/transisi/cutout bersama `camera-transition.md` (30 fps dari referensi disetujui) dan tabel 7 hubungan adegan A→B. | Motion mechanics with `camera-transition.md` (30 fps from approved references) and 7-row scene A→B relationship table. | yes |
+| 6 mechanics (`Push-through`..`Flash montage`) | Cara kerja, angka awal, dan cek untuk Push-through, Pull-back reveal, Whip, Depth fly-through, Orbit gather, dan Flash montage. | How it works, starting numbers, and checks for Push-through, Pull-back reveal, Whip, Depth fly-through, Orbit gather, and Flash montage. | yes |
+| `Hold`, `Gradual text`, `Cutout`, `Camera follows meaning` | Hold dengan drift 1-3%, teks bertahap + tint aksen 4-6 f, cutout subjek ke palet / belakang subjek >=70%, kamera ikut makna. | Hold with 1-3% drift, gradual text + 4-6 f accent tint, subject cutout to palette / behind subject >=70%, camera follows meaning. | yes |
+| `## Timing helper (scripts/remotion/timing.ts)` | API `timeline()`, `stagger()`, `dampTrack()`, `vanWijk()` beserta contoh kode TypeScript dan 5 batasannya. | API for `timeline()`, `stagger()`, `dampTrack()`, `vanWijk()` with TypeScript examples and 5 limitations. | yes |
