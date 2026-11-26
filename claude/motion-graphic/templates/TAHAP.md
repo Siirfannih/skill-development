@@ -4,7 +4,7 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap = judul `## Ta
 
 ## Tahap 1 · Brief
 - [ ] Profil merek ada (atau drafnya diajukan bersama keyframe pertama) dan lulus · baca: `templates/merek/README.md` §Tahap 1 · bukti: keluaran `profil_cek.py` LULUS →
-- [ ] Brief user disalin verbatim ke `RESEP.md`; bahan user dibedah; kiblat dipilih (2–3 kartu terdekat ditunjukkan bila tema masih kabur) · baca: `../irfan-creative-workflow/SKILL.md` §2, `cookbook/INDEX.md` §2, `cookbook/RESEP-TEMPLATE.md` · bukti: `resep_check.py` LULUS →
+- [ ] Brief user disalin verbatim ke `RESEP.md`; bahan user dibedah; kiblat dipilih (tanpa referensi user: REF-SPEC dari profil merek + tema) · baca: `../irfan-creative-workflow/SKILL.md` §2, `cookbook/INDEX.md` §2, `cookbook/RESEP-TEMPLATE.md` · bukti: `resep_check.py` LULUS →
 
 ## Tahap 2 · Naskah
 - [ ] Naskah final disetujui pemilik (lolos uji storyteller) · baca: `../irfan-creative-workflow/SKILL.md` §3, `references/copywriting.md` · bukti: ID baris `DECISIONS.md` yang mencatat persetujuan pemilik →

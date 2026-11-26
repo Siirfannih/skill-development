@@ -5,7 +5,7 @@ Ditulis **Sutradara** sebelum pekerja adegan mulai, di `remotion/src/<…>/bersa
 ## Sumber nilai, urut menang
 
 1. `BRAND.md` merek (warna peran, huruf, logo) dan `EDITING.md`.
-2. `RESEP.md` proyek: pengikat warna & tekstur, teks, dan ritme dari kartu kiblat.
+2. `RESEP.md` proyek: pengikat warna & tekstur, teks, dan ritme dari kartu kiblat atau `REF-SPEC.md`.
 3. Still preview Storyboard/block out yang user setujui.
 4. `references/palette.md` bila merek belum punya palet.
 
@@ -24,7 +24,7 @@ Teks berwarna di atas latar atau footage harus kontras ≥ 4,5 : 1 (Lantai A7); 
 
 ## Selain warna
 
-- `HURUF`: keluarga dari `BRAND.md` + skala ukuran bernama untuk 1080p (mis. `hero`, `judul`, `narasi`, `label`), dari proporsi kartu kiblat. Satu peran teks = satu ukuran di seluruh video.
+- `HURUF`: keluarga dari `BRAND.md` + skala ukuran bernama untuk 1080p (mis. `hero`, `judul`, `narasi`, `label`), dari proporsi kiblat (kartu atau `REF-SPEC.md`). Satu peran teks = satu ukuran di seluruh video.
 - `JARAK`, `RADIUS`, `BAYANGAN`: beberapa nilai bernama, bukan angka bebas per adegan.
 - Kurva gerak: `scripts/remotion/curves.ts` disalin ke proyek, tidak dibuat ulang per adegan.
 

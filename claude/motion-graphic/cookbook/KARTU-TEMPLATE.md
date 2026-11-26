@@ -27,7 +27,7 @@ alias: []
 ## Kondisi footage asli
 <rasio; jenis shot dan skala subjek; terang-gelap latar; pakaian; letak ruang kosong; kamera diam/bergerak. Ini yang dibandingkan dengan footage sendiri sebelum meminjam pola.>
 
-## Pengikat (dipakai utuh hanya bila kartu ini dipilih sebagai pengikat video)
+## Pengikat (dipakai utuh hanya bila video sumbernya referensi yang dibawa user)
 ### Warna & tekstur
 ### Teks
 ### Ritme

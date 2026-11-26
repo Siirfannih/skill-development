@@ -6,7 +6,7 @@ Salin ke `projects/<proyek>/RESEP.md`, isi, lalu jalankan `scripts/juri/resep_ch
 > <tempel prompt>
 
 **Jenis video:** <talking head / klip podcast / motion ber-VO / product film> · **Rasio, durasi target:** <…>
-**Kiblat:** <nama referensi> · **Kartu:** `<path kartu>` · **Asal kiblat:** <referensi baru dari Irfan | dipilih dari PETA>
+**Kiblat:** <nama referensi | REF-SPEC> · **Kartu:** `<path kartu | tidak ada>` · **Asal kiblat:** <referensi dari user | REF-SPEC dari profil merek + tema>
 **Alasan memilih (satu kalimat):** <…>
 
 | Bagian | Jenis | Sumber | Catatan |

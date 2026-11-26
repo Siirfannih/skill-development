@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cek RESEP.md sebelum build: 8 bagian terisi, tiga pengikat dari SATU sumber, kartu kiblat ada.
+"""Cek RESEP.md sebelum build: 8 bagian terisi, tiga pengikat dari SATU sumber (kartu kiblat dari referensi user, atau REF-SPEC.md bila user tanpa referensi), kartu kiblat atau REF-SPEC.md ada.
 
 Pakai:  python3 resep_check.py projects/<proyek>/RESEP.md
 Keluar 0 = LULUS, 1 = GAGAL (alasan dicetak).
@@ -42,7 +42,12 @@ def main():
         if b in rows and kiblat and rows[b][0].lower() != kiblat and "<" not in rows[b][0] and len(rows[b][1]) < 10:
             salah.append(f"'{b}' dipinjam dari '{rows[b][0]}' tanpa catatan alasan dan penyesuaian ke pengikat kiblat")
     m = re.search(r"\*\*Kartu:\*\*\s*`([^`]+)`", s)
+    dari_ref_spec = bool(kiblat) and kiblat.startswith(("ref-spec", "profil merek"))
     if not m or "<" in m.group(1): salah.append("path kartu kiblat belum diisi")
+    elif dari_ref_spec and m.group(1).strip().lower() == "tidak ada":
+        # Tanpa referensi dari user, pengikat datang dari profil merek + tema lewat REF-SPEC.md, bukan dari satu kartu utuh.
+        if not os.path.isfile(os.path.join(os.path.dirname(os.path.abspath(p)), "REF-SPEC.md")):
+            salah.append("pengikat dari REF-SPEC tetapi REF-SPEC.md tidak ada di folder proyek")
     else:
         kp = m.group(1); cand = [kp, os.path.join(os.path.dirname(p), kp), os.path.join(os.path.dirname(__file__), "..", "..", kp),
                                  os.path.join(os.path.dirname(__file__), "..", "..", "cookbook", kp)]

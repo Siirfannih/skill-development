@@ -7,7 +7,7 @@ Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak ko
 ## 1. Prinsip (berlaku sebelum aturan lain di folder ini)
 
 1. **Konsep user dulu.** Tema, palet, aset, huruf, dan arahan kreatif dari user adalah fondasi. Kartu tidak pernah memaksakan estetikanya bila bertentangan dengan visi user. Urutan otoritas: kalimat kanonik `AGENTS.md` (Urutan otoritas).
-2. **Pindahkan mekanik, bukan gaya.** Dari kartu hanya diambil prinsip fisika gerak (kurva, berat, arah), ritme kamera, hierarki tipografi, susunan lapisan, dan peran SFX. Lalu semuanya dikenakan ke gaya visual milik user. Bila user tidak membawa gaya sama sekali, satu kartu boleh dipinjam utuh sebagai **pengikat** (warna, teks, ritme), dan pilihan itu disebut ke user.
+2. **Pindahkan mekanik, bukan gaya.** Dari kartu hanya diambil prinsip fisika gerak (kurva, berat, arah), ritme kamera, hierarki tipografi, susunan lapisan, dan peran SFX. Lalu semuanya dikenakan ke gaya visual milik user. Bila user tidak membawa gaya, pengikat (warna, teks, ritme) datang dari profil merek + tema lewat `REF-SPEC.md` (`SKILL.md` langkah 3), bukan dari kartu; kartu hanya menyumbang mekanik.
 3. **Draf user = mode penaik mutu.** Bila user membawa draf desain, storyboard, atau kode Remotion, cookbook dipakai sebagai standar audit. Yang dilakukan: menghaluskan kurva, menambah kedalaman kamera, memperbaiki pacing, dan melapisi SFX. Konsep dasarnya tidak dirombak. Masalah di konsep atau naskah diusulkan, tidak diubah diam-diam (§3).
 4. **Tiap kartu punya Remix.** Mekaniknya selalu dicoba di konteks lain dulu (benda, warna, arah, rasio berbeda). Hasil yang bisa ditebak "ini kartu 87" berarti menjiplak.
 
@@ -19,7 +19,7 @@ Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak ko
 1. Bedah bahan user sendiri: naskah/transkrip per beat, footage, aset, brand. Dikerjakan sebelum membuka kartu (`../../irfan-creative-workflow/SKILL.md` §2, tahap Brief sampai Storyboard/block out).
 2. Untuk tiap beat, tulis **fungsi ceritanya**: emosi, struktur kalimat, posisi di naskah. Contoh: "kalimat koreksi: bukan X tapi Y", "lompatan waktu", "angka yang harus mendarat".
 3. Cocokkan fungsi cerita itu dengan kolom **Narrative trigger** `CATALOG.md` (dipandu router `INDEX.md`) lewat `python3 ../scripts/cookbook/pilih_kartu.py --cari "<kata kunci fungsi cerita>" [--pack 01..06] [--kategori …] [--bergerak]` (tabel ID, nama, status, path kartu, frame kunci); `CATALOG.md` tidak perlu dibaca utuh. Untuk mencari satu teknik lintas kartu, pakai `POLA.md`. Naskah baru dimulai dari kategori `script` (`03-documentary-story-narrative/`).
-4. Buka **hanya 2–4 kartu**, ditambah frame kuncinya (`../guide/referensi/sheets/keyframes/<id>-k*.jpg`). Jumlah itu untuk seluruh video: **1 kartu pengikat** (hanya bila user tidak punya gaya) + kartu mekanik; tiap beat meminjam dari himpunan kartu itu.
+4. Buka **hanya 2–4 kartu**, ditambah frame kuncinya (`../guide/referensi/sheets/keyframes/<id>-k*.jpg`). Jumlah itu untuk seluruh video, semuanya kartu mekanik (pengikat dari kartu hanya bila kartunya bedahan referensi yang dibawa user); tiap beat meminjam dari himpunan kartu itu.
 5. Tulis racikannya sebagai tabel beat, lalu **minta persetujuan user** sebelum kode:
 
    | Beat | Fungsi cerita | Pola (ID.Tn) | Remix: yang dipertahankan → yang diganti | SFX |
@@ -61,7 +61,7 @@ Satu kartu = satu video referensi. Isinya:
 - **Frontmatter**: `pola`, `kategori`, `trigger`. Inilah yang dibaca `CATALOG.md` dan `pilih_kartu.py`.
 - **Inti mekanik** dan **Narrative trigger**.
 - **Kondisi footage asli**: syarat yang membuat polanya berhasil.
-- **Pengikat**: warna, teks, ritme. Dipakai utuh hanya bila kartu ini jadi pengikat.
+- **Pengikat**: warna, teks, ritme video sumber. Dipakai utuh hanya bila video sumbernya referensi yang dibawa user.
 - **T-blok** per pola. Tiap T-blok berisi: trigger, yang terlihat, kenapa bekerja, Mekanik Remotion, SFX, pakai/jangan, Remix 2–3, dan pengamatan.
 - **Pertanyaan sanding** dan **Catatan pakai**.
 
@@ -70,7 +70,7 @@ Memakai kartu berarti membaca kondisi footage sendiri dulu, memilih pola yang sy
 Bentuk visual yang tidak dijawab brief (tampilan Instagram, chat, dashboard, peta, tokoh) dicari di kartu dulu, tidak dikarang:
 1. Cari lewat `INDEX.md` / `pilih_kartu.py` / `POLA.md`. `grep -il <benda> 0*/*.md` hanya untuk menemukan kartunya.
 2. Buka frame kuncinya.
-3. Pinjam mekaniknya dengan gaya user atau pengikat.
+3. Pinjam mekaniknya dengan gaya user atau `REF-SPEC.md`.
 4. Tidak ada di kartu dan tidak dijawab brief: tanya user sebelum membangun.
 
 ## 6. Sebelum build (video berfootage)
@@ -94,7 +94,7 @@ Dijalankan pada still per beat, sebelum render penuh:
    - **Ruang dekat subjek:** teks menempel subjek/objek yang dirujuk dan memakai ruang kosong terdekat **di dalam bidang gambar**, tidak menyentuh margin 5 %, tidak duduk rendah di dekat batas bawah, dan tidak ditaruh di pita kosong di luar gambar selama ada ruang di dalamnya.
    - **Sekeluarga dengan kiblat:** tidak ada elemen yang terasa tempelan (warna di luar palet, tulisan tangan/panah/stiker di tampilan yang netral).
    Tulis `KESEIMBANGAN <still>: LULUS|GAGAL — <yang terlihat>`. GAGAL diperbaiki posisinya.
-3. `python3 ../scripts/juri/sandingkan.py qc/stills/ <sheet kiblat> qc/sanding.jpg` : lembar sanding still kita vs frame kiblat.
+3. `python3 ../scripts/juri/sandingkan.py qc/stills/ <sheet kiblat> qc/sanding.jpg` : lembar sanding still kita vs frame kiblat. Tanpa kartu kiblat, sandingkan dengan style frame yang disetujui di gerbang 3 style frame.
 4. Lihat lembar sanding itu, lalu isi `qc/JURI.md`: tiap pertanyaan "Yang harus terasa sama saat disandingkan" di kartu kiblat (kartu format lama: "Cek kemiripan"), dijawab untuk hubungan yang ditanyakan; warna, huruf, angka, dan benda yang disebut milik video sumber dan dibandingkan dengan padanannya di proyek kita (`tools/cookbook.py baca <id>`) dan tiap butir NEGATIF 1–10 diberi LULUS/GAGAL + nama still buktinya + apa yang terlihat. Butir yang bertabrakan dengan NEGATIF tidak gugur diam-diam: dicatat di `RESEP.md` §Penyesuaian karena LANTAI (label tetap karena dibaca `resep_check.py`; bunyi butir → versi yang disesuaikan), lalu dinilai terhadap versi itu. Bandingkan juga dengan `contoh-gagal/`.
    Beat yang meminjam **teknik** dari kartu lain (baris teknik di `RESEP.md`) disandingkan juga dengan frame kunci kartu itu, dan pertanyaan kartu itu yang menyangkut teknik pinjaman masuk `qc/JURI.md` dengan jawaban dari yang terlihat: apakah syarat "Kenapa bekerja" teknik itu terpenuhi di footage kita, atau penyesuaian di `RESEP.md` sudah dikerjakan. Angka kartu bukan ukuran lulus. Kiblat lulus tidak menutupi teknik pinjaman yang meleset.
 5. Ada GAGAL = perbaiki adegan itu dan ulangi still-nya saja. Semua LULUS = baris terakhir `qc/JURI.md` ditulis `PUTUSAN: LULUS`, baru `render.sh final`.
@@ -108,7 +108,7 @@ Saat Irfan mengirim video referensi:
    `ffmpeg -v error -ss <detik> -t 1.2 -i <video> -vf "scale=220:-1,drawtext=text='%{n}':x=2:y=2:fontsize=12:fontcolor=yellow,tile=6x6" -frames:v 1 <kerja>/strip_<detik>.jpg`
    Dari strip itu catat: apa yang bergerak (kamera atau teks), urutan masuk (per huruf, per kata, sekaligus), apa yang tajam dan apa yang lunak, kapan latar berubah, apa yang menutupi apa, dan cara keluar. Satu frame diam tidak memperlihatkan semua itu: kata yang sengaja buram terbaca sebagai cacat, latar yang diredupkan lewat matte terbaca sebagai pencahayaan syuting. Gambar kerja disimpan di luar repo; yang masuk repo hanya frame kunci (`keyframes/<no>-k*.jpg`). Lalu transkrip dan ukuran ritme (`../scripts/audio/pace_read.py`).
 2. Tulis kartu visual dari `KARTU-TEMPLATE.md` (frontmatter, kondisi footage, lalu tiap pola dengan trigger, Mekanik Remotion, SFX, Remix) dan, bila video punya struktur naskah, kartu naskah dari `NASKAH-TEMPLATE.md` di `03-documentary-story-narrative/` (transkrip penuh disimpan di luar repo). Hanya yang terlihat atau terukur; bagian yang belum dibedah ditulis "belum dibedah", tidak dikarang. `dilihat_bergerak: ya` hanya bila strip semua frame sudah dibuka.
-3. Simpan di folder kategori dominannya, lalu `python3 tools/cookbook.py index` dan `cek` dari root repo. Kartu baru dipakai sebagai pengikat sesi itu bila user tidak membawa gaya sendiri.
+3. Simpan di folder kategori dominannya, lalu `python3 tools/cookbook.py index` dan `cek` dari root repo.
 
 ## 9. Tumbuh: ke mana pelajaran disimpan
 Skill ini mengajarkan **cara memutuskan**, bukan template. Koreksi Irfan dan alasannya tinggal di `projects/<proyek>/DECISIONS.md` (selera dan gaya selalu di sini); hanya kesalahan kerja yang salah di gaya apa pun yang naik, lewat `../../skill-steward/references/placement.md` §6. Satu pengecualian bentuk: frame yang ditolak → `contoh-gagal/` (gambar + satu kalimat sebab + konteksnya). Ragu = proyek.
