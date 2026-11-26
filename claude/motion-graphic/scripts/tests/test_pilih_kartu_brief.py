@@ -18,7 +18,7 @@ BEAT = [
     (4, "before after", {"M19", "80"}), (4, "suasana hangat", {"M13", "M02"}), (4, "penekanan hasil", {"M05", "M10"}),
     (5, "montase suasana ramai", {"M02"}), (5, "angka promo", {"M20"}),
     (6, "angka statistik", {"M20"}), (6, "kisah bukti", {"M15", "M16"}), (6, "langkah donasi", {"M17", "98"}),
-    (6, "penutup", {"25"}), (6, "penutup bunyi", {"M22"}),
+    (6, "penutup", {"25", "M05"}), (6, "penutup bunyi", {"M22"}),
     (7, "hook opini", {"M14"}), (7, "balik koreksi bukan tapi", {"M14", "M07"}), (7, "penekanan kata kunci", {"M03", "M06"}),
     (8, "langkah demo ui", {"63", "M18"}), (8, "jelaskan konsep", {"88", "96"}), (8, "bukti hasil", {"M17"}),
 ]
@@ -67,6 +67,15 @@ class Brief(unittest.TestCase):
                 self.assertEqual(self.ids(q), [])
                 r = subprocess.run([sys.executable, str(S / "cookbook/pilih_kartu.py"), "--cari", q], capture_output=True, text=True)
                 self.assertEqual(r.returncode, 1); self.assertIn("Belum ada kartu untuk fungsi cta", r.stdout)
+
+    def test_tiap_kartu_hasil_memuat_fungsi_yang_diminta(self):
+        # query di BEAT tidak menyebut nama mekanik, jadi setiap kartu hasil harus memuat salah satu fungsi yang diminta
+        for b, q, _ in BEAT:
+            with self.subTest(brief=b, q=q):
+                minta = set(pk.fungsi_query(q)) & pk.tercakup(self.kartu)
+                for k in pk.pilih(self.kartu, q):
+                    if minta:
+                        self.assertTrue(minta & set(k["daftar_fungsi"]), f"{q!r}: {k['id']} {k['daftar_fungsi']}")
 
     def test_kata_industri_saja_tidak_mengembalikan_kartu(self):
         for q in ("klinik gigi", "skincare restoran properti"):

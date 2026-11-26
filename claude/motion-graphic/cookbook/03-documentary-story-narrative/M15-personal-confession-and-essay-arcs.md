@@ -5,7 +5,7 @@ pack: 03-documentary-story-narrative
 kategori: script
 kategori_lain: [typography, layout]
 trigger: esai personal membantah vonis; pengakuan tekanan ganda; cerita naik dari bukti luar ke diri sendiri
-fungsi: [balik, suasana]
+fungsi: [balik]
 sumber: gabungan 3 struktur naskah pengakuan & esai personal
 dilihat_bergerak: ya
 diukur: ya

@@ -213,6 +213,10 @@ def _token(kartu, kolom):
     return cache[kolom]
 
 
+def _token_harfiah(kartu, kolom):
+    return set(re.findall(r"[\w$%]+", str(kartu.get(kolom, "")).lower()))
+
+
 def _cocok(token, w):
     """Kata utuh, atau awalan kata bila w ≥ 4 huruf (foto → fotografi). Potongan di tengah kata tidak cocok (ui ≠ build)."""
     return w in token or (len(w) >= 4 and any(t.startswith(w) for t in token))
@@ -284,7 +288,10 @@ def pilih(kartu, cari=None, kategori=None, bergerak=False, limit=4, pack=None):
         fg = k.get("daftar_fungsi", [])
         f = len(set(fq) & set(fg))
         if fq:
-            nama = any(_teks(k, w, (("nama", 1),)) for w in biasa)  # menyebut nama mekanik membawa kartunya walau fungsinya lain
+            # menyebut nama mekanik membawa kartunya walau fungsinya lain: kata harfiah di nama pola, dua kata atau satu kata khas (≥ 5 huruf);
+            # satu kata umum ("ui", "aplikasi" lewat sinonim) hanya konteks, bukan nama mekanik
+            sebut = [w for w in biasa if _cocok(_token_harfiah(k, "nama"), w)]
+            nama = len(sebut) >= 2 or any(len(w) >= 5 for w in sebut)
             if not (f or nama):
                 continue
         else:
@@ -398,18 +405,20 @@ CONTOH_FUNGSI = (("hook", "peluncuran baru"), ("jelaskan", "jelaskan konsep"), (
 
 # Fungsi yang belum punya kartu: cara merangkainya dari mekanik dan rujukan yang sudah ada. Lebih jujur daripada meminjam kartu yang salah.
 BANGUN = {"cta": "rangkai dari mekanik yang sudah dipilih (kata tindakan sebagai penekanan, lalu penutup), ritme dan keterbacaannya di "
-                 "references/pacing-map.md (baris Penutup / CTA) dan references/copywriting.md (CTA melanjutkan cerita)"}
+                 "references/pacing-map.md (baris Penutup / CTA) dan references/copywriting.md (CTA melanjutkan cerita); letak CTA di naskah "
+                 "dibahas kartu naskah M16 dan M17"}
 UMUM = "rancang dari NEGATIF dan profil merek"
 
 
-def tanpa_kartu(kartu, cari):
-    """Baris jujur untuk fungsi yang diminta query tetapi tidak dimiliki kartu mana pun di indeks."""
+def tanpa_kartu(kartu, cari, lain=False):
+    """Baris jujur untuk fungsi yang diminta query tetapi tidak dimiliki kartu mana pun di indeks (lain: ada hasil untuk fungsi lain)."""
     ada, out = tercakup(kartu), []
     for f, kata in fungsi_query(cari).items():
         if f in ada or f == "audio" or not any(k.get("daftar_fungsi") for k in kartu):
             continue
         asal = [w for w in kata if w != f]
-        out.append(f"Belum ada kartu untuk fungsi {f}{' (' + ', '.join(asal) + ')' if asal else ''}: jangan pinjam kartu lain supaya ada hasil; "
+        out.append(f"Belum ada kartu untuk fungsi {f}{' (' + ', '.join(asal) + ')' if asal else ''}"
+                   f"{' (kartu di atas menjawab fungsi lain di query ini)' if lain else ''}: jangan pinjam kartu lain untuk beat ini; "
                    f"{BANGUN.get(f, UMUM)}, lalu sebut pilihan itu di gerbang berikutnya (cookbook/README.md §5 butir 4).")
     return out
 
@@ -421,9 +430,9 @@ def panduan_fungsi(kartu=None):
            "properti, restoran, atau skincare. Tulis tugas beat-nya, mis. peluncuran, harga, testimoni, langkah. Fungsi dan contoh query:"]
     out += [f"  {f:<9} --cari \"{q}\"" for f, q in CONTOH_FUNGSI if f in ada]
     kosong = [f for f in FUNGSI if f not in ada]
-    out += [f"  tanpa kartu: {f} ({BANGUN[f]})" for f in kosong if f in BANGUN]
+    out += [f"  tanpa kartu: {f} (fungsi ini belum punya kartu di pustaka; {BANGUN[f]})" for f in kosong if f in BANGUN]
     if [f for f in kosong if f not in BANGUN]:
-        out.append(f"  tanpa kartu: {', '.join(f for f in kosong if f not in BANGUN)} ({UMUM})")
+        out.append(f"  tanpa kartu: {', '.join(f for f in kosong if f not in BANGUN)} (fungsi ini belum punya kartu di pustaka; {UMUM})")
     return "\n".join(out)
 
 
@@ -449,7 +458,7 @@ def main(argv=None):
         hasil = pilih(kartu, a.cari, a.kategori, a.bergerak, a.limit, a.pack)
     except Gagal as e:
         print(f"GAGAL  {e}", file=sys.stderr); return 2
-    jujur = tanpa_kartu(kartu, a.cari) if a.cari else []
+    jujur = tanpa_kartu(kartu, a.cari, bool(hasil)) if a.cari else []
     if not hasil:
         saring = " ".join(x for x in (f'--cari "{a.cari}"' if a.cari else "", f"--kategori {a.kategori}" if a.kategori else "", f"--pack {a.pack}" if a.pack else "", "--bergerak" if a.bergerak else "") if x)
         print(f"Tidak ada kartu yang cocok ({saring}). Ganti kata kunci dengan fungsi cerita beat-nya, atau longgarkan saringan.", file=sys.stderr)

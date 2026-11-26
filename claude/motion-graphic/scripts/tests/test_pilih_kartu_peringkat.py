@@ -58,6 +58,15 @@ class FungsiUtama(Fixture):
                        ("B", "Judul Masuk", "judul tampil", "typography", "ya", "hook", ""))
         self.assertEqual(self.ids(k, "flash grid hook"), ["A", "B"])
 
+    def test_satu_kata_umum_di_nama_tidak_membawa_kartu_lintas_fungsi(self):
+        # "aplikasi" (lewat sinonim ui) atau "ui" saja mengenai nama "Familiar-UI ..." tetapi tidak menyebut mekaniknya
+        k = self.kartu(("A", "Familiar-UI Line Metaphor", "kalimat VO diperankan UI", "layout", "ya", "jelaskan", ""),
+                       ("B", "Flow Scaffold", "alur bertahap", "layout", "ya", "langkah", ""))
+        self.assertEqual(self.ids(k, "langkah alur aplikasi"), ["B"])
+        self.assertEqual(self.ids(k, "langkah ui"), ["B"])
+        # kata nama yang khas (≥ 5 huruf) tetap membawa kartunya; menyebut nama setara satu fungsi, teks memecah seri (sama dengan flash grid)
+        self.assertEqual(self.ids(k, "langkah metaphor"), ["A", "B"])
+
 
 class Audio(Fixture):
     def setUp(self):
@@ -113,6 +122,7 @@ class TanpaKartu(Fixture):
         self.assertEqual(r.returncode, 0, r.stderr)
         self.assertEqual([x.split("|")[1].strip() for x in r.stdout.splitlines() if x.startswith("|")][2:], ["B"])
         self.assertIn("Belum ada kartu untuk fungsi cta (donasi)", r.stdout)
+        self.assertIn("kartu di atas menjawab fungsi lain", r.stdout)  # tidak terbaca seperti larangan yang dilanggar tabelnya sendiri
 
     def test_baris_dicocokkan_menyebut_kartu_yang_benar_cocok(self):
         r = self.cli("--cari", "tour")
