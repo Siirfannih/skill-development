@@ -13,3 +13,5 @@ Dampak: model tunggal tidak melanggar aturan; mesinmu tetap bisa memakai semua a
 Level: Behavior
 Persetujuan: ya, fase 2 disetujui seluruhnya
 Cara membatalkan: `git revert` commit ini.
+
+Tambahan (commit 5b, lupa di commit 5): `claude/motion-graphic/SKILL.md` Alur 1 (palet: `cek-warna.mjs` bila ada Node) dan Hukum besi (RULES M09, M17: alat dijalankan bila ada, yang tak jalan dilaporkan NOT RUN; yang dibandingkan alasan dan angka REF-SPEC, bukan piksel). Untuk muat dalam batas 12.288 byte, bullet `toolkit/mulai.sh` di bagian Alat dihapus (duplikat Alur 6). 12.283 byte.

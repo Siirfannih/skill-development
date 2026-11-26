@@ -36,7 +36,7 @@ Teknik sah bila lolos tiga pertanyaan: **makna** (membawa apa dari naskah), **si
 
 ## Alur
 
-1. **Baca bahan.** Naskah, footage, aset, profil merek, folder proyek. Tulis 5 baris di `DECISIONS.md`: subjek, penonton, tugas video, terjemahan kata gaya brief (NEGATIF 3), "video ini bukan ...". **Ada referensi: bedah referensi → REF-SPEC** (`scripts/ref_spec.py` + mata; palet dari `warna/cek-warna.mjs masuk`, bukan tebakan; `../motion-theme-director/BEDAH-REFERENSI.md`): warna, huruf, layout, porsi teks, material, gerak, **alasan per pilihan**, toleransi. Tanpa referensi, REF-SPEC diisi di langkah 3 (merek + tema). Selesai bila: 5 baris (+ REF-SPEC.md bila ada referensi).
+1. **Baca bahan.** Naskah, footage, aset, profil merek, folder proyek. Tulis 5 baris di `DECISIONS.md`: subjek, penonton, tugas video, terjemahan kata gaya brief (NEGATIF 3), "video ini bukan ...". **Ada referensi: bedah referensi → REF-SPEC** (`scripts/ref_spec.py` + mata; palet dari HEX nyata (`warna/cek-warna.mjs masuk` bila ada Node); `../motion-theme-director/BEDAH-REFERENSI.md`): warna, huruf, layout, porsi teks, material, gerak, **alasan per pilihan**, toleransi. Tanpa referensi, REF-SPEC diisi di langkah 3 (merek + tema). Selesai bila: 5 baris (+ REF-SPEC.md bila ada referensi).
 2. **Naskah** disetujui Irfan (gerbang pemilik; `references/copywriting.md`, `../irfan-creative-workflow/SKILL.md` §3). Tanpa persetujuan: tanpa kode dan kredit.
 3. **Dunia visual.** Pilih satu tema dari wujud bukti yang dituntut naskah, bukan kata sifat brief (`references/dunia-visual.md`). Tunjukkan 2-3 keyframe, maks 3 pertanyaan. Tanpa referensi: REF-SPEC.md dari merek + tema. Selesai bila: tema dan REF-SPEC.md ada.
 4. **Tiga style frame, per lapis L0-L3, lalu bandingkan berdampingan + `banding.py`** (TYPO_HERO, SYSTEM_FLOW, UI_PROOF; protokol, `lihat.py`, 5 uji biner: `references/dunia-visual.md` §7-8). Selesai bila: `negatif_cek.py`, `tabrakan_cek.py` hijau, `banding.py` dalam toleransi, Irfan setuju.
@@ -45,7 +45,7 @@ Teknik sah bila lolos tiga pertanyaan: **makna** (membawa apa dari naskah), **si
 7. **Audio sesudah visual dikunci** (`references/audio.md`, bagian atas wajib). Selesai bila: R2-R4 hijau (`references/build.md` §4).
 8. **Deliver.** `render.sh <proyek> final` lalu render 1, satu ronde masukan, render 2 (`references/revisi.md`, `references/delivery-gate.md`). Revisi "terlalu berat/ramai" atau "lebih lega/besar" = geser ke tengah; ukur `banding.py --sebelum`. Kirim setelah juri lulus.
 
-**Hukum besi:** tidak ada frame diserahkan tanpa kamu melihatnya di resolusi penuh DAN membandingkannya dengan referensi/REF-SPEC (berdampingan + `banding.py`), serta `negatif_cek.py` + `tabrakan_cek.py` + `warna/cek-warna.mjs keluar` hijau; tanpa referensi, `banding.py --seri <storyboard>` juga hijau (frame jarang ≤ 10 %). "Terlihat premium" bukan bukti; gambar berdampingan dan angka adalah bukti.
+**Hukum besi:** tidak ada frame diserahkan tanpa kamu melihatnya di resolusi penuh DAN membandingkannya dengan referensi/REF-SPEC (berdampingan + `banding.py`; yang dibandingkan alasan dan angka REF-SPEC, bukan piksel), serta `negatif_cek.py`, `tabrakan_cek.py`, `warna/cek-warna.mjs keluar` hijau bila alatnya ada (yang tak jalan: NOT RUN); tanpa referensi, `banding.py --seri <storyboard>` juga hijau (frame jarang ≤ 10 %). "Terlihat premium" bukan bukti; gambar berdampingan dan angka adalah bukti.
 
 ## Profil merek
 
@@ -73,7 +73,6 @@ Profil merek memilih warna, logo, huruf utama, `huruf_kedua` bila ada, dan nada;
 - `scripts/gate/negatif_cek.py <folder atau frame>`: satu pintu cek NEGATIF (merah: placeholder, tabrakan; sisanya inventaris `permukaan_cek.py`).
 - `scripts/warna/cek-warna.mjs masuk|keluar`: gerbang warna (HEX terukur, kontras APCA; `references/warna.md`).
 - `scripts/ref_spec.py <video|folder>`: ekstrak REF-SPEC terukur. `scripts/banding.py <frame> <ref>`: frame vs referensi; tanpa ref: `<frame>`, `--seri <folder>`, `--sebelum <lama>`.
-- `toolkit/mulai.sh <folder> [remotion|storyboard]`: kurva, kamera 2,5D, latar/grain opsional; `toolkit/README.md`.
 - `scripts/lihat.py`: frame per lapis + crop 100 % ke `qc/lihat/`.
 - `scripts/juri/tahap.py projects/<proyek>`: langkah berikutnya; `render.sh` menolak render belum lulus.
 - Mengubah skill: `../skill-steward/SKILL.md`.
