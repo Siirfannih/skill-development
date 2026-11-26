@@ -1,55 +1,61 @@
-// light-wave-bg.js — latar shader GLSL (WebGL mentah): 1-2 elips cahaya raksasa yang pusatnya DI LUAR kanvas, sehingga hanya
-// ekor cahaya yang lebar dan lembut masuk ke frame. Ruang negatif (>= 50-60 %) tetap warna dasar murni lewat smoothstep.
-// Arah sapuan tegas (dir). Tidak ada noise untuk membentuk pola warna: bentuk hanya dari elips + sinus. Satu-satunya acak:
-// hash per piksel frekuensi tinggi untuk grain film (<= 0,02) agar tidak banding. OPT-IN; tanpa warna bawaan (colors wajib).
+// light-wave-bg.js — latar shader GLSL (WebGL mentah), v3: port shader patokan Irfan (patokan-irfan.glsl) dengan perubahan sesedikit
+// mungkin. Dua lapis cahaya Gaussian: AMBIENT WASH (sapuan lebar, melintasi area teks) + CORE (sumber utama, pusat di luar frame, ekor lebar).
+// Falloff intensitas = exp(-dot(d,d)*k), d = (posisi - pusat) / radius: tanpa titik henti, tanpa smoothstep/step/clamp pada cahaya.
+// Satu-satunya acak: hash per piksel (grain film <= 0,02). Tanpa noise pembentuk warna. Pusat core dan ambient melayang pelan.
+// OPT-IN; tanpa warna bawaan (colors wajib atau preset). Warna: colors = [dasar, ambient, core] (core bawaan = ambient bila hanya 2).
 //
 // Deterministik: u_time = frame / fps, selalu dari parameter `frame` (di Remotion: useCurrentFrame). Dilarang
-// requestAnimationFrame/Date.now untuk waktu. Grain berbiji: hash(posisi piksel, seed, frame).
-// Dipakai: renderLightWave(canvas, { colors, mode, glow, ... }, frame, fps) lalu screenshot. Headless Chromium (SwiftShader) jalan;
+// requestAnimationFrame/Date.now untuk waktu. Grain: hash(posisi piksel + fract(u_time)).
+// Dipakai: renderLightWave(canvas, { preset, mode, core, ambient, ... }, frame, fps) lalu screenshot. Headless Chromium (SwiftShader) jalan;
 // butuh preserveDrawingBuffer (sudah). Ringan: opts.quality (0.25-1) memperkecil resolusi render kanvas.
-// Ukur: `python3 scripts/banding.py <frame.png>` (tanpa ref) harus lolos F1; luma dan saturasi dalam REF-SPEC
-// (`banding.py <frame.png> <REF-SPEC.json>`).
+// Ukur: scripts/tests/test_latar_v3.py (area kalem, tepi, APCA, grain).
 import { parseColor } from "./warna.js";
 import { resolveOptions } from "./preset.js";
 
 export const GRAIN_MAKS = 0.02;
 
+// Nilai bawaan = patokan Irfan. Posisi dalam koordinat layar 0..1 (y=0 atas); radius dalam satuan tinggi layar.
+export const DEFAULT_CORE = { x: 1.05, y: 0.15, radius: 0.95, ratio: 0.6 / 0.95, intensity: 0.75, falloff: 2.2 };
+export const DEFAULT_AMBIENT = { x: 0.75, y: 0.4, width: 1.35, ratio: 0.95 / 1.35, angle: 0, intensity: 0.55, falloff: 1.4 };
+
 const VERT = `attribute vec2 a; void main(){ gl_Position = vec4(a, 0., 1.); }`;
 const FRAG = `precision highp float;
-uniform vec2 u_res; uniform float u_time, u_int, u_light, u_speed, u_grain, u_seed, u_amp, u_frame;
-uniform vec3 u_c0, u_c1, u_c2; uniform vec2 u_dir;
-uniform vec4 u_g0, u_g1;   // elips cahaya: x, y (pusat, 0..1 layar, boleh di luar), sumbu panjang, sumbu pendek (relatif sisi terpendek)
-uniform vec2 u_s;          // kekuatan elips 0 dan 1
-// grain film: satu-satunya acak. Hash per piksel, tanpa pola warna.
-float hash(vec2 p){ p = fract(p*vec2(123.34, 456.21)); p += dot(p, p+45.32); return fract(p.x*p.y); }
-float grain(vec2 fc, float seed, float frame){
-  return hash(fc + seed*17.31 + frame*1.618) + hash(fc*1.37 + seed*3.7 + frame*2.399) - 1.;   // segitiga -1..1
+uniform float u_time;          // frame / fps
+uniform vec2 u_resolution;
+uniform vec3 u_baseColor, u_ambientColor, u_coreColor;
+uniform float u_grainAmount;   // <= 0.02
+uniform vec4 u_core, u_amb;    // x, y (posisi layar 0..1, y atas = 0), sumbu-x radius, sumbu-y radius (satuan tinggi layar)
+uniform vec3 u_coreI, u_ambI;  // intensitas, falloff k, sudut putar (radian)
+uniform float u_speed, u_drift;
+
+float hash(vec2 p) {
+  p = fract(p * vec2(123.34, 456.21));
+  p += dot(p, p + 45.32);
+  return fract(p.x * p.y);
 }
-// ekor cahaya satu elips. Pusat bergeser pelan sepanjang arah sapuan (sinus), tepi sedikit beriak (sinus). 0 di luar elips.
-float tail(vec2 p, vec4 g, vec2 d, float t, float ph){
-  vec2 c = g.xy + d * sin(t*.8 + ph) * .16 * u_amp;
-  vec2 e = p - c;
-  vec2 q = vec2(dot(e, d), dot(e, vec2(-d.y, d.x)));            // q.x sepanjang sapuan, q.y melintang
-  float k = length(q / vec2(max(g.z, .05), max(g.w, .05)));
-  k *= 1. + .05*sin(q.y*4.2 + t*1.1 + ph*2.);                    // riak lembut sinus
-  float f = 1. - smoothstep(.0, 1., k);
-  return f;
+
+float gaussianGlow(vec2 uv, vec2 center, vec2 scale, float falloff, float ang) {
+  vec2 e = uv - center;
+  float c = cos(ang), s = sin(ang);
+  vec2 d = vec2(c * e.x + s * e.y, -s * e.x + c * e.y) / scale;
+  return exp(-dot(d, d) * falloff);
 }
-void main(){
-  vec2 uv = gl_FragCoord.xy / u_res;
-  float asp = u_res.x / u_res.y, m = min(asp, 1.);
-  vec2 p = uv * vec2(asp, 1.) / m;                               // sisi terpendek = 0..1; pusat elips memakai skala yang sama
-  vec2 d = normalize(u_dir);
-  float t = u_time * u_speed;
-  float a0 = tail(p, vec4(u_g0.xy * vec2(asp, 1.) / m, u_g0.zw), d, t, u_seed) * u_s.x;
-  float a1 = tail(p, vec4(u_g1.xy * vec2(asp, 1.) / m, u_g1.zw), d, t*.8, u_seed + 2.1) * u_s.y;
-  float a = 1. - (1. - a0) * (1. - a1);
-  a = smoothstep(.012, 1., clamp(a * u_int, 0., 1.));            // ruang negatif: di bawah ambang = warna dasar murni
-  vec3 col = mix(u_c0, u_c1, smoothstep(.0, .8, a));
-  float hi = smoothstep(.45, 1., a);
-  col = mix(col + u_c2*hi*.5*(1.-u_light), mix(col, u_c2, hi*.65), u_light);   // gelap: aditif; terang: campur
-  col += grain(gl_FragCoord.xy, u_seed, u_frame) * min(u_grain, ${GRAIN_MAKS});
-  gl_FragColor = vec4(clamp(col, 0., 1.), 1.);
+
+void main() {
+  vec2 uv = gl_FragCoord.xy / u_resolution.xy;
+  float aspect = u_resolution.x / u_resolution.y;
+  vec2 p = vec2((uv.x - 0.5) * aspect, uv.y - 0.5);
+  float t = u_time * 0.35 * u_speed;
+  vec2 ambientPos = vec2((u_amb.x - 0.5) * aspect + sin(t) * 0.15 * u_drift, (0.5 - u_amb.y) + cos(t * 0.8) * 0.12 * u_drift);
+  float ambient = gaussianGlow(p, ambientPos, u_amb.zw, u_ambI.y, u_ambI.z);
+  vec2 corePos = vec2((u_core.x - 0.5) * aspect + cos(t * 0.7) * 0.12 * u_drift, (0.5 - u_core.y) + sin(t * 0.6) * 0.10 * u_drift);
+  float core = gaussianGlow(p, corePos, u_core.zw, u_coreI.y, u_coreI.z);
+  vec3 color = u_baseColor;
+  color = mix(color, u_ambientColor, ambient * u_ambI.x);
+  color = mix(color, u_coreColor, core * u_coreI.x);
+  float grain = (hash(gl_FragCoord.xy + fract(u_time)) - 0.5) * u_grainAmount;
+  color += grain;
+  gl_FragColor = vec4(color, 1.0);
 }`;
 
 const cache = new WeakMap();
@@ -66,45 +72,40 @@ const build = (canvas) => {
 };
 
 const rgb01 = (c) => parseColor(c).map((v) => v / 255);
-
-/** Elips cahaya dari prop glow: pusat (x, y) boleh di luar 0..1; r = sumbu panjang relatif sisi terpendek; ratio = pendek/panjang (bawaan 0.55). */
-const elips = (g, ratio) => g ? [g.x, 1 - g.y, Math.max(0.05, g.r), Math.max(0.05, g.r * (g.ratio ?? ratio)), g.strength ?? 0.8] : [0, 0, 0.05, 0.05, 0];
+const rad = (d) => (d * Math.PI) / 180;
 
 /**
  * Gambar satu frame. o = {
- *   colors: [dasar, tengah, terang?]  2-3 warna satu keluarga hue (wajib, dari tema/REF-SPEC); `base` menimpa colors[0] (warna dasar = token)
- *   mode: "dark" | "light"            cara cahaya bercampur (dark: aditif; light: campur ke warna terang)
- *   glow: { x, y, r, strength?, ratio? }  elips cahaya #1; x/y 0..1 seperti layar (y=0 atas), SEBAIKNYA di luar 0..1 (mis. x 1.2 atau y -0.2)
- *                                     supaya hanya ekor lebar yang masuk frame; r = sumbu panjang relatif sisi terpendek; strength bawaan 0.8
- *   glow2: sama, elips cahaya #2 (opsional)
- *   dir: derajat arah datang cahaya = arah sapuan (0 = dari kanan, 90 = dari atas), bawaan 35; elips memanjang searah dir
- *   preset: nama dari presets/*.json (nilai bawaan; props eksplisit menang) · saturation, intensity: pengali (1 = tetap)
- *   waveSpeed: 0..1+ (0 = beku), amp: jarak sapuan (bawaan 1), grain: <= 0.02 (dibatasi), seed }
+ *   preset: nama dari presets/*.json (nilai bawaan; props eksplisit menang; core/ambient digabung per kunci) · saturation, intensity: pengali (1 = tetap)
+ *   colors: [dasar, ambient, core?] atau "brand" (setMerek([...]) dari tema.ts); `base` menimpa colors[0] (warna dasar = token)
+ *   mode: "dark" | "light"            memilih varian preset (warna dan nilai bawaan)
+ *   core: { x, y, radius, ratio, intensity, falloff? }  sumber utama; x/y 0..1 seperti layar (y=0 atas), SEBAIKNYA di luar 0..1 supaya hanya ekor lebar masuk;
+ *         radius = sumbu-x (satuan tinggi layar), ratio = sumbu-y / sumbu-x, intensity 0..1 (bobot warna core), bawaan = patokan
+ *   ambient: { angle, width, intensity, x?, y?, ratio?, falloff? }  sapuan lebar; width = sumbu panjang (satuan tinggi layar), angle = putar elips (derajat, 0 = mendatar)
+ *   waveSpeed: pengali kecepatan drift (1 = patokan, 0 = beku) · drift: pengali jarak drift (1 = patokan) · grain: <= 0.02 (dibatasi) }
  */
 export const renderLightWave = (canvas, o, frame = 0, fps = 30) => {
   o = resolveOptions("lightwave", o);
-  if (!o || !Array.isArray(o.colors) || o.colors.length < 2) throw new Error("LightWaveBg: `colors` wajib, 2-3 warna dari satu keluarga hue");
+  if (!o || !Array.isArray(o.colors) || o.colors.length < 2) throw new Error("LightWaveBg: `colors` wajib: [dasar, ambient, core?] atau preset");
   let st = cache.get(canvas); if (!st) { st = build(canvas); cache.set(canvas, st); }
   const { gl, pr, u } = st, q = o.quality ?? 1;
   const W = Math.max(2, Math.round((o.width ?? canvas.clientWidth ?? canvas.width) * q)), H = Math.max(2, Math.round((o.height ?? canvas.clientHeight ?? canvas.height) * q));
   if (canvas.width !== W || canvas.height !== H) { canvas.width = W; canvas.height = H; }
   gl.viewport(0, 0, W, H); gl.useProgram(pr);
   const c = o.colors.map(rgb01); if (o.base) c[0] = rgb01(o.base);
-  const e0 = elips(o.glow ?? { x: 1.2, y: -0.2, r: 0.9, strength: 0 }, 0.55), e1 = elips(o.glow2, 0.55);
-  const a = ((o.dir ?? 35) * Math.PI) / 180;
-  gl.uniform2f(u("u_res"), W, H);
+  const core = { ...DEFAULT_CORE, ...(o.core || {}) }, amb = { ...DEFAULT_AMBIENT, ...(o.ambient || {}) };
+  const k = o.intensity ?? 1, w01 = (v) => Math.min(1, Math.max(0, v));   // bobot warna 0..1 (bukan bentuk cahaya)
+  gl.uniform2f(u("u_resolution"), W, H);
   gl.uniform1f(u("u_time"), frame / fps); // determinisme: waktu HANYA dari frame
-  gl.uniform1f(u("u_frame"), frame);
-  gl.uniform1f(u("u_int"), o.intensity ?? 1);
-  gl.uniform1f(u("u_light"), o.mode === "light" ? 1 : 0);
-  gl.uniform1f(u("u_speed"), o.waveSpeed ?? 0.4); gl.uniform1f(u("u_amp"), o.amp ?? 1);
-  gl.uniform1f(u("u_grain"), Math.min(o.grain ?? GRAIN_MAKS, GRAIN_MAKS)); gl.uniform1f(u("u_seed"), o.seed ?? 1);
-  gl.uniform3f(u("u_c0"), ...c[0]); gl.uniform3f(u("u_c1"), ...c[1]); gl.uniform3f(u("u_c2"), ...(c[2] ?? c[1]));
-  gl.uniform4f(u("u_g0"), e0[0], e0[1], e0[2], e0[3]); gl.uniform4f(u("u_g1"), e1[0], e1[1], e1[2], e1[3]);
-  gl.uniform2f(u("u_s"), e0[4], e1[4]);
-  gl.uniform2f(u("u_dir"), Math.cos(a), Math.sin(a));
+  gl.uniform1f(u("u_grainAmount"), Math.min(o.grain ?? GRAIN_MAKS, GRAIN_MAKS));
+  gl.uniform3f(u("u_baseColor"), ...c[0]); gl.uniform3f(u("u_ambientColor"), ...c[1]); gl.uniform3f(u("u_coreColor"), ...(c[2] ?? c[1]));
+  gl.uniform4f(u("u_core"), core.x, core.y, Math.max(0.05, core.radius), Math.max(0.05, core.radius * core.ratio));
+  gl.uniform3f(u("u_coreI"), w01(core.intensity * k), core.falloff, 0);
+  gl.uniform4f(u("u_amb"), amb.x, amb.y, Math.max(0.05, amb.width), Math.max(0.05, amb.width * amb.ratio));
+  gl.uniform3f(u("u_ambI"), w01(amb.intensity * k), amb.falloff, rad(amb.angle));
+  gl.uniform1f(u("u_speed"), o.waveSpeed ?? 1); gl.uniform1f(u("u_drift"), o.drift ?? 1);
   gl.drawArrays(gl.TRIANGLES, 0, 3);
 };
 
-/** Pola preset: lightWaveBg(canvas, frame, { preset: "researchly-glow", saturation: 1.3, glow: {...} }, fps). Props eksplisit menimpa preset. */
+/** Pola preset: lightWaveBg(canvas, frame, { preset: "researchly-glow", saturation: 1.3, core: { x: 1.2 } }, fps). Props eksplisit menimpa preset. */
 export const lightWaveBg = (canvas, frame, o, fps = 30) => renderLightWave(canvas, o, frame, fps);

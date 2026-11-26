@@ -4,7 +4,7 @@
   python3 simpan_preset.py <nama> <params.json> [--komponen lightwave|generative] [--varian dark|light] [--catatan "teks"] [--timpa]
   python3 simpan_preset.py --bangun                 hanya bangun ulang presets/index.js dari presets/*.json
 
-params.json = objek datar berisi parameter (colors, mode, glow, glow2, waveSpeed, grain, seed, intensity, saturation, ...), persis props
+params.json = objek datar berisi parameter (colors, mode, core, ambient, waveSpeed, drift, grain, intensity, saturation, ...), persis props
 yang dipakai pada revisi yang disukai. Tanpa --varian: jadi `params` preset. Dengan --varian dark|light: ditambahkan sebagai
 varian preset yang sudah ada (hanya kunci yang berbeda yang perlu ditulis). Nama: huruf kecil, angka, tanda minus.
 Langkah manual setara: salin salah satu presets/*.json, ubah, lalu jalankan --bangun.
@@ -14,7 +14,7 @@ from pathlib import Path
 
 DIR = Path(__file__).resolve().parent / "presets"
 KUNCI_BOLEH = {"colors", "mode", "glow", "dir", "waveSpeed", "amp", "grain", "seed", "intensity", "saturation", "quality",
-               "base", "zones", "points", "drift", "driftAmp", "glow2"}
+               "base", "zones", "points", "drift", "driftAmp", "glow2", "core", "ambient"}
 
 
 def bangun():
@@ -41,9 +41,9 @@ def cek(params):
     if c is not None and c != "brand" and not (isinstance(c, list) and c):
         sys.exit('colors harus daftar warna atau "brand"')
     # aturan latar: pusat cahaya di luar frame, grain <= 0.02, tanpa noise
-    for k in ("glow", "glow2"):
+    for k in ("glow", "glow2", "core"):
         g = params.get(k)
-        if g and not di_luar(g["x"], g["y"]):
+        if g and "x" in g and "y" in g and not di_luar(g["x"], g["y"]):
             sys.exit(f"{k}: pusat ({g['x']}, {g['y']}) harus di luar frame (x atau y di luar 0..1); hanya ekor cahaya yang masuk")
     for i, z in enumerate(params.get("zones") or []):
         if not di_luar(z["x"], z["y"]):

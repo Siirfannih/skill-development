@@ -53,11 +53,11 @@ ok("camera25d: keyframe, jepit orbit, parallax, blur hanya di belakang fokus");
 
 const P = await import(pathToFileURL(join(T, "latar/preset.js")));
 const b = P.resolveOptions("lightwave", { preset: "researchly-glow" });
-assert.equal(b.mode, "dark"); assert.equal(b.glow.x, 1.25); assert.ok(b.glow.x > 1, "pusat cahaya di luar frame");
+assert.equal(b.mode, "dark"); assert.equal(b.core.x, 1.05); assert.ok(b.core.x > 1, "pusat core di luar frame"); assert.equal(b.colors.length, 3);
 const l = P.resolveOptions("lightwave", { preset: "researchly-glow", mode: "light" });
 assert.equal(l.colors[0], "#F8FAFC");
-const o = P.resolveOptions("lightwave", { preset: "researchly-glow", saturation: 1.3, glow: { x: 0.2, y: 0.8, r: 0.4 } });
-assert.equal(o.glow.x, 0.2); assert.notEqual(o.colors[1], b.colors[1]); assert.equal(o.seed, 3);
+const o = P.resolveOptions("lightwave", { preset: "researchly-glow", saturation: 1.3, core: { x: 0.2 } });
+assert.equal(o.core.x, 0.2); assert.equal(o.core.radius, b.core.radius, "core digabung per kunci"); assert.notEqual(o.colors[1], b.colors[1]);
 assert.throws(() => P.resolveOptions("lightwave", { preset: "zona-lembut" }));
 assert.throws(() => P.resolveOptions("lightwave", { colors: "brand" }));
 P.setMerek(["#112233", "#445566"]); assert.deepEqual(P.resolveOptions("lightwave", { colors: "brand" }).colors, ["#112233", "#445566"]);

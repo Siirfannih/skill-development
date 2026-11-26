@@ -1,7 +1,6 @@
-// LightWaveBg.tsx — latar shader GLSL (WebGL mentah): 1-2 elips cahaya raksasa berpusat DI LUAR frame, hanya ekor lebar yang masuk;
-// ruang negatif >= 50 % tetap warna dasar; tanpa noise pembentuk warna; grain hash <= 0.02 anti-banding. OPT-IN; tanpa warna bawaan (colors wajib).
-// u_time = frame / fps dari useCurrentFrame: deterministik, aman dirender paralel. Logika dan shader: light-wave-bg.js.
-// Contoh: <LightWaveBg colors={[TEMA.gelap, TEMA.primer, TEMA.terang]} mode="dark" glow={{ x: 1.2, y: -0.1, r: 1.9 }} dir={40} waveSpeed={0.4} seed={3} />
+// LightWaveBg.tsx — latar shader GLSL v3 (port patokan Irfan): AMBIENT WASH lebar + CORE di luar frame, falloff Gaussian exp(-dot(d,d)*k),
+// grain hash <= 0.02, tanpa noise pembentuk warna. OPT-IN; colors wajib atau preset. u_time = frame / fps dari useCurrentFrame. Logika dan shader: light-wave-bg.js.
+// Contoh: <LightWaveBg preset="researchly-glow" mode="dark" core={{ x: 1.1, y: 0.2 }} ambient={{ intensity: 0.5 }} />
 import React, { useLayoutEffect, useRef } from "react";
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import { renderLightWave, type LightWaveOptions } from "./light-wave-bg.js";
