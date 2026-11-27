@@ -84,7 +84,7 @@ Perpindahan family adalah momen cerita, memakai transisi bab (§10) + engsel sen
 ### 13.1 Pola layout yang gagal
 - **"Label kecil di pojok + dua kata besar miring bertangga"**: label abu kecil menempel pojok kiri atas, lalu dua nama besar dimiringkan (rotateY/rotate) tersusun diagonal kiri-atas → kanan-bawah. Terbaca seperti template slide, mata melompat tiga kali, dan pojok terasa kosong-sisa.
   - Ganti dengan: satu fokus di tengah atau di sumbu yang jelas; label menempel pada objeknya (di atas/bawah, rata tengah), bukan di pojok bingkai; kata kedua menggantikan atau mendorong kata pertama (slot/stack), bukan ditaruh miring di diagonal.
-- Storyboard/moodboard Irfan adalah **struktur kasar** (apa yang terjadi, urutan, metafora), **bukan visual akhir**. Jangan merender ulang bentuk storyboard apa adanya (garis ukur, kotak, teks placeholder). Untuk setiap beat, rancang visual akhir yang paling mudah dipahami penonton (misalnya grafik editorial: kurva solid vs putus-putus, titik di ujung, label mono kecil, area jarak) lalu validasi satu adegan dulu.
+- Storyboard/moodboard user adalah **struktur kasar** (apa yang terjadi, urutan, metafora), **bukan visual akhir**. Jangan merender ulang bentuk storyboard apa adanya (garis ukur, kotak, teks placeholder). Untuk setiap beat, rancang visual akhir yang paling mudah dipahami penonton (misalnya grafik editorial: kurva solid vs putus-putus, titik di ujung, label mono kecil, area jarak) lalu validasi satu adegan dulu.
 
 ## 18. Jangan ditiru
 - Tick digital 3,5–6 kHz, ding/sparkle, strobo invert warna-warni, smear pelangi, frame putih penuh berulang.

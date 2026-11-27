@@ -1,4 +1,4 @@
-# Delivery Gate (wajib sebelum video ditunjukkan ke Irfan)
+# Delivery Gate (wajib sebelum video ditunjukkan ke user)
 
 Laporan ini dikirim **bersama** video, tiap baris dengan bukti konkret (angka keluaran skrip, timestamp, nama still). Keluaran skrip adalah informasi: lihat sendiri, perbaiki yang memang masalah, tulis alasan untuk sisanya; keputusan kirim ada di user. Gerbang yang tidak bisa dijalankan di lingkungan ini dilaporkan **NOT RUN** beserta alasannya. Ringkasan loop kritik atau laporan workflow lain tidak menggantikan laporan ini.
 

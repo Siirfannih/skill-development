@@ -25,18 +25,18 @@ Model sama, konteks beda: Sutradara memegang **kenapa**, Editor memegang **bagai
 
 ## 2. Peran dan batasnya
 
-| | **Sutradara** (sesi utama, bicara dengan Irfan) | **Editor** (subagen, membangun video) |
+| | **Sutradara** (sesi utama, bicara dengan user) | **Editor** (subagen, membangun video) |
 |---|---|---|
-| Tugas | Intake, pertanyaan ke Irfan, bedah referensi, memilih arah gaya (RESEP + kartu), rencana edit + menu opsi, kontrak beat, review buta, devil's advocate, Delivery Gate, laporan ke Irfan | Persiapan media, build tiap beat, still, render, sound sesuai cue, gate mekanis, laporan berbukti |
+| Tugas | Intake, pertanyaan ke user, bedah referensi, memilih arah gaya (RESEP + kartu), rencana edit + menu opsi, kontrak beat, review buta, devil's advocate, Delivery Gate, laporan ke user | Persiapan media, build tiap beat, still, render, sound sesuai cue, gate mekanis, laporan berbukti |
 | Membaca | `working-with-irfan`, `SKILL.md`, `guide/`, cabang keputusan (`decision*.md`, `storyboard.md`, `analysis-qa.md`, `copywriting.md`, `delivery-gate.md`), `projects/<proyek>/`, RETRO, referensi | **Hanya** `handoff/` + file yang disebut di `TASK` (biasanya `RESEP.md`, `build.md`, `typography.md`, `smooth-motion.md`, skill engine: Remotion / `engines/talking-head-reels/`) |
 | Menulis | `handoff/BRIEF.md`, `PLAN.json`, `TASK-rN.md`, `REVIEW-rN.md`, `DECISIONS.md` | Kode build, aset, render, `handoff/REPORT-rN.md`, `handoff/QUESTIONS.md` |
-| Tidak boleh | Menulis kode build atau render (kecuali skrip ukur), menyetujui hasil tanpa melihat still | Bicara ke Irfan, mengubah `PLAN.json`/`BRIEF.md`, menebak hal yang tidak ada di TASK, mengubah atribut terlihat yang tidak disebut TASK, menafsir kata yang kabur dengan selera sendiri, menulis "final", membaca RETRO atau seluruh skill |
+| Tidak boleh | Menulis kode build atau render (kecuali skrip ukur), menyetujui hasil tanpa melihat still | Bicara ke user, mengubah `PLAN.json`/`BRIEF.md`, menebak hal yang tidak ada di TASK, mengubah atribut terlihat yang tidak disebut TASK, menafsir kata yang kabur dengan selera sendiri, menulis "final", membaca RETRO atau seluruh skill |
 
 **Menilai frame** adalah tugas Sutradara sendiri, satu penilai tanpa pemeriksa lain: setelah visual selesai dan sebelum SFX/musik disusun, ia melihat frame tahan tiap detik berdampingan dengan frame kunci kiblat dan `cookbook/contoh-gagal/`, lalu memberi solusi desain dari kartu untuk frame yang lemah (`templates/roles/pemeriksa-frame.md`, `scripts/juri/frame_audit.py`). Kecocokan bunyi dengan gerak dinilai sesudah SFX dikunci (`templates/roles/pemeriksa-audio.md`, `frame_audit.py --fase audio`).
 
 **Pemetaan penempatan teks** (sesi khusus sebelum build footage): satu sesi melihat frame aktual, memilih area dari fungsi objek → whitespace terdekat wajah/tubuh/fokus → keseimbangan frame, lalu menulis `placement-map.json`. Setiap entri memuat sumber/rentang waktu, objek dan fungsi, fokus, area bukti yang dilindungi, kandidat/area terpilih, koordinat/anchor, alasan, kontras, serta transform kamera. Editor menerima peta koordinat ini dalam TASK dan tidak perlu mengulang pencarian visual; bila shot/crop berubah, petakan ulang entri yang terdampak. Juri tetap memeriksa hasil render. Panduan keputusan: `../guide/teks/GUIDE.md`.
 
-Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat mentah Irfan; ia menerima TASK yang sudah diterjemahkan, ber-ID, dan terukur.
+Instruksi user selalu melewati Sutradara. Editor tidak pernah menerima chat mentah user; ia menerima TASK yang sudah diterjemahkan, ber-ID, dan terukur.
 
 ## 3. Peta gerbang
 
@@ -46,7 +46,7 @@ Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat men
 | 1 Brief (+ pilih gaya) | ✔ | — |
 | 2 Script / daftar potongan | ✔ | transkrip kata per kata + potong jeda (TASK r0) |
 | 3 Bedah referensi | ✔ termasuk tabel kalimat → adegan (`analysis-qa.md` §2) | — |
-| 4 Storyboard / rencana edit menu | ✔ Irfan memilih | — |
+| 4 Storyboard / rencana edit menu | ✔ user memilih | — |
 | 5 TYPE-TEST + TRANSITION-SHEET | review | membangun still |
 | 6 Suara dikunci | mengunci | menyiapkan audio |
 | 7 Validasi satu adegan | review buta | membangun |
@@ -61,7 +61,7 @@ Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat men
 
 | File | Ditulis | Isi |
 |---|---|---|
-| `BRIEF.md` | Sutradara | Brief Irfan apa adanya, keputusan terkunci, gaya terpilih + token, butir Lantai yang relevan, aset + lisensi. Netral: fakta dan keputusan, bukan cerita proses |
+| `BRIEF.md` | Sutradara | Brief user apa adanya, keputusan terkunci, gaya terpilih + token, butir Lantai yang relevan, aset + lisensi. Netral: fakta dan keputusan, bukan cerita proses |
 | `MENU.md` | Sutradara | Rencana edit dengan rekomendasi per beat (opsi hanya untuk beat yang ragu); format di bawah tabel; pilihan masuk PLAN |
 | `PLAN.json` | Sutradara | Beat: `id`, waktu, kata, jenis adegan (kartu cookbook), opsi terpilih, teks layar persis, SFX `peran`+`alasan`, `lulus_bila` terukur. Format `beats.json` storyboard + `adegan` dan `lulus_bila` |
 | `TASK-rN.md` | Sutradara | Cakupan ronde (beat mana), file yang boleh dibaca, keluaran wajib, temuan yang harus diperbaiki (ID), yang tidak boleh berubah |
@@ -70,18 +70,18 @@ Instruksi Irfan selalu melewati Sutradara. Editor tidak pernah menerima chat men
 | `REVIEW-rN.md` | Sutradara | Temuan `F-rN-xx` → beat, bukti (timestamp/frame), kriteria terukur, hasil devil's advocate (LOLOS/BUANG + alasan) |
 | `DECISIONS.md` | Sutradara | Keputusan + sumber `Irfan` / `usul` / `usul-dipilih` (`revision-log.md` §21.1) |
 
-**Format `MENU.md`** (opsi A = rekomendasi Sutradara + alasan dari tabel penempatan `analysis-qa.md` §2). Per beat: judul `## B03 · 0:12.4–0:15.9 · peran: menjelaskan`, kalimat beat dikutip, lalu tabel `Opsi | Adegan | Ide satu baris | Contoh ref` (file + timestamp, agar Irfan bisa melihatnya) dengan A bertanda ✔, dan baris `Catatan Irfan:`. Irfan memilih, mencoret atau menulis catatan (±15 menit). Tanpa kesempatan bertanya: Sutradara memilih A dan mengirim MENU bersama hasil. MENU disimpan sebagai bukti keputusan.
+**Format `MENU.md`** (opsi A = rekomendasi Sutradara + alasan dari tabel penempatan `analysis-qa.md` §2). Per beat: judul `## B03 · 0:12.4–0:15.9 · peran: menjelaskan`, kalimat beat dikutip, lalu tabel `Opsi | Adegan | Ide satu baris | Contoh ref` (file + timestamp, agar user bisa melihatnya) dengan A bertanda ✔, dan baris `Catatan user:`. User memilih, mencoret atau menulis catatan (±15 menit). Tanpa kesempatan bertanya: Sutradara memilih A dan mengirim MENU bersama hasil. MENU disimpan sebagai bukti keputusan.
 
 ## 5. Protokol satu ronde
 
-1. Sutradara menulis `TASK-rN.md`. Satu TASK = satu tujuan yang bisa dicek (mis. "B01–B05 still + render tanpa audio"). Bagian yang meminjam teknik kartu ditulis dengan **angka kartu itu** (skala, lapisan, warna, kamera) yang dikutip, bukan parafrase Sutradara. Gambar referensi Irfan diterjemahkan ke angka kartu; bila gambar dan kartu bertentangan, tulis keduanya dan tanyakan, jangan memilih diam-diam. Pertanyaan Editor yang menafsirkan ulang cara kerja kartu ("teks 10 % dicapai dengan …") dicocokkan dulu dengan kalimat kartunya sebelum diterima.
-2. Editor membangun, menjalankan gate mekanis yang disebut TASK, menulis `REPORT-rN.md`. **Ragu = tanya langsung, dua jalur:** Editor mengirim pertanyaan ke Sutradara saat itu juga (balasan/pesan ke sesi Sutradara) lalu lanjut ke beat lain. Sutradara menjawab dari brief, `DECISIONS.md`, atau kartu bila jawabannya ada di sana; bila tidak, Sutradara langsung bertanya ke Irfan di chat sesinya (pertanyaan pendek + opsi + rujukan kartu), lalu meneruskan jawabannya ke Editor. Pertanyaan tidak pernah hanya ditaruh di file laporan, karena Irfan tidak membacanya.
-2a. **Siapa memutuskan apa.** Brief Irfan selalu yang pertama. Keputusan kecil yang tidak dijawab brief (font, ukuran, warna, gerak) diambil Sutradara dari kartu kiblat atau kartu yang paling mirip dengan permintaan Irfan, dan kartunya disebut di TASK. Ide Sutradara di luar permintaan Irfan boleh, ditulis sebagai baris `usul` dan ditawarkan; pada video yang sudah dilihat Irfan, usul baru dipasang setelah ia memilih. Permintaan bersyarat Irfan ("kalau bisa", "jangan dipaksa") dibuat sebagai still dengan dan tanpa elemen itu; bawaannya tanpa, kecuali versi dengan jelas lebih menyatu dengan frame kunci kiblat.
+1. Sutradara menulis `TASK-rN.md`. Satu TASK = satu tujuan yang bisa dicek (mis. "B01–B05 still + render tanpa audio"). Bagian yang meminjam teknik kartu ditulis dengan **angka kartu itu** (skala, lapisan, warna, kamera) yang dikutip, bukan parafrase Sutradara. Gambar referensi user diterjemahkan ke angka kartu; bila gambar dan kartu bertentangan, tulis keduanya dan tanyakan, jangan memilih diam-diam. Pertanyaan Editor yang menafsirkan ulang cara kerja kartu ("teks 10 % dicapai dengan …") dicocokkan dulu dengan kalimat kartunya sebelum diterima.
+2. Editor membangun, menjalankan gate mekanis yang disebut TASK, menulis `REPORT-rN.md`. **Ragu = tanya langsung, dua jalur:** Editor mengirim pertanyaan ke Sutradara saat itu juga (balasan/pesan ke sesi Sutradara) lalu lanjut ke beat lain. Sutradara menjawab dari brief, `DECISIONS.md`, atau kartu bila jawabannya ada di sana; bila tidak, Sutradara langsung bertanya ke user di chat sesinya (pertanyaan pendek + opsi + rujukan kartu), lalu meneruskan jawabannya ke Editor. Pertanyaan tidak pernah hanya ditaruh di file laporan, karena user tidak membacanya.
+2a. **Siapa memutuskan apa.** Brief user selalu yang pertama. Keputusan kecil yang tidak dijawab brief (font, ukuran, warna, gerak) diambil Sutradara dari kartu kiblat atau kartu yang paling mirip dengan permintaan user, dan kartunya disebut di TASK. Ide Sutradara di luar permintaan user boleh, ditulis sebagai baris `usul` dan ditawarkan; pada video yang sudah dilihat user, usul baru dipasang setelah ia memilih. Permintaan bersyarat user ("kalau bisa", "jangan dipaksa") dibuat sebagai still dengan dan tanpa elemen itu; bawaannya tanpa, kecuali versi dengan jelas lebih menyatu dengan frame kunci kiblat.
 3. **Review buta:** Sutradara melihat still/render dan mengukur sendiri **sebelum** membaca REPORT. Setelah itu baru REPORT dibaca untuk mencocokkan angka.
 4. **Devil's advocate per temuan** (`working-with-irfan` §2a): apakah melanggar BRIEF/PLAN/Lantai, atau hanya selera? Bisakah diukur? Apakah merusak beat yang sudah lolos? Temuan yang tidak lolos dibuang dan dicatat.
 5. Temuan yang lolos masuk `TASK-r(N+1).md` dengan ID. Beat yang lolos dikunci (`scripts/baseline_lock.py`).
-6. Maks 3 ronde per beat; gagal 2× di butir sama = ganti pendekatan; gagal 3× = tanya Irfan dengan frame sebelum/sesudah + 2 opsi.
-7. Revisi Irfan: Sutradara memberi nomor setiap catatan, menunggu Irfan selesai ("udah", "go"), menerjemahkan ke satu TASK, Editor mengerjakan dalam satu putaran. Setiap putaran = versi baru, versi yang sudah dilihat Irfan tidak ditimpa.
+6. Maks 3 ronde per beat; gagal 2× di butir sama = ganti pendekatan; gagal 3× = tanya user dengan frame sebelum/sesudah + 2 opsi.
+7. Revisi user: Sutradara memberi nomor setiap catatan, menunggu user selesai ("udah", "go"), menerjemahkan ke satu TASK, Editor mengerjakan dalam satu putaran. Setiap putaran = versi baru, versi yang sudah dilihat user tidak ditimpa.
 
 ## 6. Menjalankan Editor (opsional)
 
@@ -97,8 +97,8 @@ Hanya bila subagen atau model lain tersedia dan mempercepat; tanpa itu, kamu mem
 
 ## 7. Kapan boleh satu peran
 
-Perubahan sekecil satu angka/teks di satu beat yang sudah terkunci, atau pertanyaan tanpa build: Sutradara boleh mengerjakan sendiri dan mencatatnya di `DECISIONS.md`. Bawaan satu model: kamu membangun, lalu menilai dari gambar sebelum membaca catatan buildmu sendiri. Dua peran bila tersedia dan Irfan memintanya.
+Perubahan sekecil satu angka/teks di satu beat yang sudah terkunci, atau pertanyaan tanpa build: Sutradara boleh mengerjakan sendiri dan mencatatnya di `DECISIONS.md`. Bawaan satu model: kamu membangun, lalu menilai dari gambar sebelum membaca catatan buildmu sendiri. Dua peran bila tersedia dan user memintanya.
 
 ## 8. Menguji hipotesis
 
-Belum terbukti. Uji yang diusulkan (`evals/cases/mg-052-uji-dua-peran.json`): brief + footage yang sama, (A) satu agen, (B) Sutradara + Editor. Bandingkan: skor rubrik R1–R7 oleh `video-reviewer` tanpa tahu versi, jumlah revisi Irfan sampai "oke", pelanggaran Hard Gate, waktu dan token. Hasil masuk `evals/results/`; sampai ada hasil, jangan melaporkan dua peran sebagai "lebih baik".
+Belum terbukti. Uji yang diusulkan (`evals/cases/mg-052-uji-dua-peran.json`): brief + footage yang sama, (A) satu agen, (B) Sutradara + Editor. Bandingkan: skor rubrik R1–R7 oleh `video-reviewer` tanpa tahu versi, jumlah revisi user sampai "oke", pelanggaran Hard Gate, waktu dan token. Hasil masuk `evals/results/`; sampai ada hasil, jangan melaporkan dua peran sebagai "lebih baik".

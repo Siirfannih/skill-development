@@ -16,7 +16,7 @@ Baca saat membedah referensi (tahap Brief) dan sebelum mengirim render (QA di ta
 
 ## 2. Bedah referensi per frame (wajib, dikerjakan sendiri)
 
-Kesalahan termahal di Jadisatu adalah menunggu Irfan menunjuk masalah yang bisa diukur sendiri.
+Kesalahan termahal di Jadisatu adalah menunggu user menunjuk masalah yang bisa diukur sendiri.
 
 **Visual**
 - Bahan yang diekstrak:
@@ -62,7 +62,7 @@ Kesalahan termahal di Jadisatu adalah menunggu Irfan menunjuk masalah yang bisa 
 ### 16.0 Gerbang Karpathy (cara kerja, dicek sebelum 16.1)
 Empat aturan dari [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) (MIT), diterjemahkan untuk editing video di `working-with-irfan` §2b. Jawaban "tidak" diperbaiki atau diberi alasan di laporan.
 - [ ] **Pikir dulu**:
-  - asumsi atas masukan Irfan tertulis di laporan;
+  - asumsi atas masukan user tertulis di laporan;
   - tafsir ganda dan bentrokan aturan (skill vs instruksi baru) sudah ditandai, bukan dipilih diam-diam.
 - [ ] **Sederhana dulu**:
   - setiap elemen, efek, layer, dan SFX menjawab "membantu penonton memahami apa?";
@@ -70,7 +70,7 @@ Empat aturan dari [andrej-karpathy-skills](https://github.com/multica-ai/andrej-
   - elemen wajib (SFX per event, teks dari VO) tetap ada.
 - [ ] **Perubahan bedah**:
   - `git diff` hanya menyentuh adegan/cue yang diminta;
-  - bagian yang dipuji atau tidak dikomentari Irfan tidak berubah;
+  - bagian yang dipuji atau tidak dikomentari user tidak berubah;
   - sisa yatim dari perubahan ini (cue, import, aset) sudah dibersihkan;
   - masalah lain dilaporkan, tidak diubah.
 - [ ] **Berbasis tujuan**: setiap poin revisi punya kriteria terukur dan bukti angka di laporan. Contoh:
@@ -168,7 +168,7 @@ Mode gagal yang umum:
 Perbaiki yang ditemukan dan verifikasi dengan still/klip; tidak ada putaran ulang demi skor.
 
 ### 16.6 Metrik terhadap referensi
-Bandingkan metrik render dengan referensi (§2). Tiap penyimpangan diperbaiki atau diberi alasan tertulis kenapa disengaja (misalnya brief Irfan meminta hold statis). Laporan ke Irfan memuat hasil gerbang dengan jujur, termasuk yang masih menyimpang.
+Bandingkan metrik render dengan referensi (§2). Tiap penyimpangan diperbaiki atau diberi alasan tertulis kenapa disengaja (misalnya brief user meminta hold statis). Laporan ke user memuat hasil gerbang dengan jujur, termasuk yang masih menyimpang.
 
 ### 16.7 Checker layout per frame (wajib di proyek berbasis HTML/Remotion)
 

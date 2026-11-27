@@ -4,7 +4,7 @@ Dibuka saat mengatur teks layar (langkah 4-6 alur `SKILL.md`). Butir lama LANTAI
 
 ## Teks hanya bila bekerja: keputusan per beat (NEGATIF 6)
 - Tiap beat di tabel storyboard punya mode dan alasan satu baris. **TEKS**: teks adalah isi beat (a: teks itu subjeknya, yaitu diketik, disunting, kata milik produk; b: penanda hook atau babak; c: angka atau kata yang tak bisa ditunjukkan visual; d: CTA). **VISUAL**: VO + visual membawa beat, tanpa teks. **MENYATU**: teks adalah bagian objek (label, UI, huruf yang disunting) dan bukan lapisan sendiri.
-- Dengan referensi, porsi mengikuti REF-SPEC §2a "porsi teks" (% frame berteks, kapan, peran, ukuran). Tanpa referensi, default VISUAL; teks dipilih hanya lewat a-d. Alasan: teks yang menyalin ucapan terbaca sebagai subtitle dan berebut mata dengan visual; di referensi Irfan teks hanya muncul saat ia memang isinya.
+- Dengan referensi, porsi mengikuti REF-SPEC §2a "porsi teks" (% frame berteks, kapan, peran, ukuran). Tanpa referensi, default VISUAL; teks dipilih hanya lewat a-d. Alasan: teks yang menyalin ucapan terbaca sebagai subtitle dan berebut mata dengan visual; di referensi user teks hanya muncul saat ia memang isinya.
 - Video tanpa narator: teks adalah naskahnya, tampil tiap beat.
 - Bila teks tampil, ia satu sistem: tidak ada subtitle terpisah di pita bawah (pita hanya untuk label identitas non-ucapan yang muncul sekali), tidak dua lapisan teks sekaligus. Alasan: dua lapisan berebut mata.
 - Teks hanya dari ucapan atau dari isi produk yang ditunjukkan; tidak menambah kalimat atau angka yang tidak diucapkan kecuali ia isi UI/prompt yang sedang ditunjukkan (NEGATIF 6).

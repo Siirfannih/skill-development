@@ -1,6 +1,6 @@
 # Palet: cara memilih dan memakai warna
 
-Dibaca di gerbang brief (1) saat mengunci palet, dan di QA (9). Data hex ada di `palettes.json` (10 palet, diukur dari referensi yang Irfan setujui + token Jadisatu).
+Dibaca di gerbang brief (1) saat mengunci palet, dan di QA (9). Data hex ada di `palettes.json` (10 palet, diukur dari referensi yang user setujui + token Jadisatu).
 
 ## Logika
 

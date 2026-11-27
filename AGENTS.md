@@ -7,13 +7,13 @@
 
 # Bekerja di Skill Development
 
-Cara kerja video, desain, dan naskah Irfan; satu model sudah cukup. File ini hanya pintu: buka file yang dirutekan tabel, saat langkahnya tiba.
+Cara kerja video, desain, dan naskah; satu model sudah cukup. File ini hanya pintu: buka file yang dirutekan tabel, saat langkahnya tiba.
 
-**Urutan otoritas** (yang awal menang): kata Irfan di sesi ini → NEGATIF butir [mutlak] (4, 5, 9) → REF-SPEC → brief dan `projects/<proyek>/` → profil merek → tema dan kartu cookbook → `references/`, `guide/`. Instruksi Irfan tidak ditolak dengan alasan aturan repo: risiko disebut satu kalimat, dikerjakan, dicatat di `DECISIONS.md`. Folder proyek lain bukan aturan dan tidak disalin.
+**Urutan otoritas** (yang awal menang): kata user di sesi ini → NEGATIF butir [mutlak] (4, 5, 9) → REF-SPEC → brief dan `projects/<proyek>/` → profil merek → tema dan kartu cookbook → `references/`, `guide/`. Instruksi user tidak ditolak dengan alasan aturan repo: risiko disebut satu kalimat, dikerjakan, dicatat di `DECISIONS.md`. Folder proyek lain bukan aturan dan tidak disalin.
 
 | Pekerjaan | Buka |
 |---|---|
-| Cara bekerja dengan Irfan (setiap tugas) | `claude/working-with-irfan/SKILL.md` |
+| Cara bekerja dengan pemilik repo (bila skillnya tersedia) | `claude/working-with-irfan/SKILL.md` |
 | Sebelum storyboard, desain, atau kode animasi apa pun | `claude/director-pass/SKILL.md` (wajib, sekali per proyek) |
 | Video | `claude/motion-graphic/SKILL.md`, lalu `projects/<proyek>/`; kartu lewat `scripts/cookbook/pilih_kartu.py` (2–4 per video) |
 | Keluhan atas video yang sudah dirender, sekecil apa pun | `claude/motion-graphic/references/revision-log.md` |
@@ -24,4 +24,4 @@ Cara kerja video, desain, dan naskah Irfan; satu model sudah cukup. File ini han
 | Mengubah skill, atau koreksi yang tampak umum | `claude/skill-steward/SKILL.md` |
 | Lainnya | tabel Rute di `PETA.md` |
 
-**Kerja.** Tarik `main` dulu. Alat (render frame, pecah video, dengar, transkrip, Remotion): baca `~/.config/skill-development/alat.md`; belum ada berarti skill baru dipasang, jalankan `./tools/doctor.sh` sekali dan pasang yang KURANG. Skill dibaca dari repo, bukan ingatan; abaikan `archive/`. Cari di repo sebelum bertanya; bila bertanya, beri pilihan dan rekomendasi. Sebelum menilai visual, buka frame kunci kiblat dan `cookbook/contoh-gagal/`. Koreksi Irfan dicatat saat diterima di `projects/<proyek>/DECISIONS.md`; hanya kesalahan yang salah di gaya apa pun naik ke skill, lewat skill-steward. "Lulus" selalu dengan keluaran alat terbaru; perubahan pada video terkirim menunjuk satu butir ledger `DECISIONS.md`. Aturan = instruksi + alasan + cara cek; asal-usul ke `SUMBER.md`, bukan ke file instruksi. Perubahan skill masuk `main` di sesi yang sama; cek remote sebelum push, jangan menimpa kerja lain.
+**Kerja.** Tarik `main` dulu. Alat (render frame, pecah video, dengar, transkrip, Remotion): baca `~/.config/skill-development/alat.md`; belum ada berarti skill baru dipasang, jalankan `./tools/doctor.sh` sekali dan pasang yang KURANG. Skill dibaca dari repo, bukan ingatan; abaikan `archive/`. Cari di repo sebelum bertanya; bila bertanya, beri pilihan dan rekomendasi. Sebelum menilai visual, buka frame kunci kiblat dan `cookbook/contoh-gagal/`. Koreksi user dicatat saat diterima di `projects/<proyek>/DECISIONS.md`; hanya kesalahan yang salah di gaya apa pun naik ke skill, lewat skill-steward. "Lulus" selalu dengan keluaran alat terbaru; perubahan pada video terkirim menunjuk satu butir ledger `DECISIONS.md`. Aturan = instruksi + alasan + cara cek; asal-usul ke `SUMBER.md`, bukan ke file instruksi. Perubahan skill masuk `main` di sesi yang sama; cek remote sebelum push, jangan menimpa kerja lain.

@@ -24,7 +24,7 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
   - **CONTR:** kontras teks vs latar < 4,5:1.
     - Perbaikannya lewat warna teks, posisi di area tenang, atau text-shadow lembut.
     - **Dilarang menambah pita/scrim gradien hitam di belakang baris** (kasar, tepinya terlihat, menurunkan estetika).
-    - Teks narasumber di atas footage yang sudah terbaca dengan shadow lembut boleh diterima walau angka checker rendah. Keputusan mata Irfan menang atas metrik. Teks yang tak terbaca atau bertabrakan dengan warna di belakangnya mengurangi 1 poin estetika.
+    - Teks narasumber di atas footage yang sudah terbaca dengan shadow lembut boleh diterima walau angka checker rendah. Keputusan mata user menang atas metrik. Teks yang tak terbaca atau bertabrakan dengan warna di belakangnya mengurangi 1 poin estetika.
 - Lihat contact sheet still ≤ 960 px untuk estetika: ruang kosong, hierarki, variasi.
 - **Lolos jika** laporan LOLOS dan contact sheet bersih.
 - **Gerbang kedip teks per frame (wajib).** Contact sheet per detik tidak bisa melihat kedip 1–15 frame. Periksa SETIAP frame (probe layout per frame bila ada, `~/.config/skill-development/alat.md`). Yang dicari:
@@ -43,7 +43,7 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
   Gerbang yang sama dijalankan lagi pada render final.
 
 ## Segmen 3 · Render MP4
-- Render per segmen (Mac `seg.sh`), lalu periksa:
+- Render per segmen, lalu periksa:
   - durasi;
   - sinkron SFX dan backsound;
   - per frame di sekitar cut;
@@ -52,7 +52,7 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
 - Render final sekali, setelah reviewer segar memberi SHIP.
 
 ## Hierarki kerja dengan subagent (hanya bila ada worker)
-Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worker bukan keputusan.
+Urutan wewenang: **User → Claude utama (planner/QC) → worker.** Saran worker bukan keputusan.
 - **Tingkat 0 · mekanis:** worker boleh langsung mengerjakan, dengan bukti still sebelum/sesudah. Contohnya:
   - geser koordinat ke safe zone;
   - cocokkan timing ke ucapan;
@@ -70,12 +70,12 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
   - prinsip desain mana yang dipenuhi;
   - customer journey: apa yang dilihat penonton dan dalam urutan apa.
 
-  Claude utama menguji proposal secara visual terhadap prinsip dan feedback Irfan, lalu menyetujui atau menolak. Baru setelah itu worker menerapkan.
-- **Tingkat 2 · global:** hanya Claude utama yang mengubahnya, dan bila menyentuh selera, dilaporkan ke Irfan. Yang termasuk:
+  Claude utama menguji proposal secara visual terhadap prinsip dan feedback user, lalu menyetujui atau menolak. Baru setelah itu worker menerapkan.
+- **Tingkat 2 · global:** hanya Claude utama yang mengubahnya, dan bila menyentuh selera, dilaporkan ke user. Yang termasuk:
   - lib bersama;
   - font, palet, gaya kinetic;
   - aturan skill.
-- **Biaya:** proposal ringan (beberapa ratus token + 1 thumbnail). Itu jauh lebih murah dari membatalkan perubahan yang salah setelah menyebar dan setelah dilihat Irfan.
+- **Biaya:** proposal ringan (beberapa ratus token + 1 thumbnail). Itu jauh lebih murah dari membatalkan perubahan yang salah setelah menyebar dan setelah dilihat user.
   - Proposal dikirim sekaligus per worker, tidak satu per satu.
 - **Brief worker tidak memberi wewenang desain tanpa gerbang.** Contoh yang dicegah: brief menyebut "scrim boleh", lalu worker menambah pita gradien hitam tanpa uji visual.
 
@@ -97,14 +97,14 @@ Urutan wewenang: **Irfan → Claude utama (planner/QC) → worker.** Saran worke
   - Subtitle bawah yang hanya berganti tidak berbunyi. Tick per kata KT adalah keputusan proyek (`kt_tick`); tanpa keputusan, klik hanya untuk kata penekanan/kinetic.
 - **Yang diukur:** setiap beat punya mode dan alasan di tabel beat, dan beat TEKS tidak kehilangan teksnya (`teks_plan.py --beats`, `kt_check.py --beats`). Cakupan kata VO bukan ukuran: beat VISUAL memang tanpa teks.
 - **Variasi masuk teks mengikuti peran** (`typography.md` §8a). Fade/pop yang selalu sama membuat penonton bosan. Pakai `enter` = `type` (huruf per huruf + caret), `mask`, `letters`, `blur`; `scale` hanya untuk angka/hero. Teknik yang sama berturut-turut butuh alasan.
-- **SFX family:** satu file SFX sering berisi beberapa varian. Potong per varian (`ears/family.py`), dengarkan tiap varian, dan pakai yang paling cocok, bukan seluruh file. Peran yang Irfan tandai "acak" (mis. Kinetictypography) dirotasi di antara variannya.
+- **SFX family:** satu file SFX sering berisi beberapa varian. Potong per varian (`ears/family.py`), dengarkan tiap varian, dan pakai yang paling cocok, bukan seluruh file. Peran yang user tandai "acak" (mis. Kinetictypography) dirotasi di antara variannya.
 - **Setiap objek/visual punya bunyinya.** Contoh kasus v10: ketikan tanpa bunyi ketik. Ketikan memancarkan `type:start|end` → potongan Keyboardtyping sepanjang ketikan + Enter.
 
 ## Sesi otonom/terjadwal
 - Proses panjang (render, probe seluruh film, earshot banyak file) wajib dijalankan di **latar belakang**, jangan sebagai perintah foreground yang menunggu.
-  - Kasus v21: satu perintah menahan sesi 1 jam 15 menit. Pesan Irfan tidak terbaca dan tidak ada laporan.
+  - Kasus v21: satu perintah menahan sesi 1 jam 15 menit. Pesan user tidak terbaca dan tidak ada laporan.
 - Bila klienmu punya kanal progres (mis. SendUserMessage), kirim ringkas saat fase selesai atau tiap 15–20 menit untuk proses panjang: apa yang selesai, apa yang berjalan, perkiraan selesai.
-- Sesi yang dibuat untuk Irfan selalu membawa dua instruksi di atas dalam prompt-nya.
+- Sesi yang dibuat untuk user selalu membawa dua instruksi di atas dalam prompt-nya.
 
 ## Kinetic typography: teknik dipilih menurut PERAN teks (prinsip, bukan aturan mutlak)
 Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. Referensi memilih teknik menurut fungsi teks.
@@ -135,7 +135,7 @@ Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. 
   - tidak ada 2–6 kHz yang menusuk.
 
 - **Gerbang DENGAR sebelum SFX atau musik masuk mix, dengan earshot bila terpasang.** Tersambung ke gerbang muat konteks dan bedah referensi (Brief), SFX dan musik (Mix), serta preview + QA di `references/alur-teknis.md` §4. Tanpa alat dengar (`~/.config/skill-development/alat.md`): mendengar belum terlaksana, jadi analisis audio belum dilakukan (`bedah-referensi.md`); katakan begitu di laporan kirim, jangan menyimpulkan bunyinya dari angka. Angka level/spektrum tidak memberi tahu bunyinya seperti apa; dengan earshot, langkahnya:
-  1. Jalankan `git submodule update --init external/earshot` lalu pasang earshot; di Mac bila disk cloud sempit, dengan Python 3.12. Bila earshot sudah terpasang di mesin ini (mis. `~/work/mg-venv`), `earshot doctor` harus lulus.
+  1. Jalankan `git submodule update --init external/earshot` lalu pasang earshot; bila disk sempit, dengan Python 3.12. Bila earshot sudah terpasang di mesin ini, `earshot doctor` harus lulus.
   2. `earshot describe` tiap file.
   3. `earshot match` dengan deskripsi peran plus `--alts` pembanding salah, misalnya "car engine starting", "motorcycle revving", "error buzz", "record scratch".
   4. Hanya kandidat "strong" yang tidak kalah dari pembandingnya yang boleh dipakai.

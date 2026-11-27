@@ -64,12 +64,12 @@ Bukti: 98 (bed 21,7 dB di bawah VO), 97 (0 musik), 02 (turun per babak, clip +0,
 ## 6. Anti-contoh (`../../cookbook/contoh-gagal/`)
 - `02-builder-trap-unik-kecil.jpg`: foto wajah kecil di kanvas pola pucat, "unik." ±3–4 % tinggi, subtitle terpisah. Kondisi: latar tanpa kedalaman + subjek kecil + dua lapis teks. Ganti: satu benda 480–620 px, hero ≥ 2,7× pengantar yang menempel.
 - `20-inset-kecil-di-kanvas-kosong.jpg`: kartu kecil berbayangan blur di putih luas. Kondisi: aset kecil + putih digital + blur shadow = slide. Ganti: V1 + V2.
-- Caption mengulang strip (31-k3, referensi sendiri): "2. RISING ACTION" dan "rising action." tampil bersamaan. Kondisi: dua lapis teks mengucapkan hal sama. Di proyek Irfan: kata di strip tidak diulang di caption.
+- Caption mengulang strip (31-k3, referensi sendiri): "2. RISING ACTION" dan "rising action." tampil bersamaan. Kondisi: dua lapis teks mengucapkan hal sama. Di proyek contoh: kata di strip tidak diulang di caption.
 
 ## 7. Contoh kerja
 **A · @siirfannih, "3 alasan kontenmu mandek" (talking head 9:16).**
 Sebelum: stiker neon "3 ALASAN" 120 px menutup dahi; tiga stiker muncul serentak, blur shadow 20 px, fade 12 f; caption mengulang poin; pop + whoosh per stiker.
-Sesudah: Irfan di x 520–1080, separuh kiri kosong. "3 ALASAN" spidol merah 200 px di strip HVS, x 60–1000, y 180–400, −2°, ≥ 60 px di atas rambut, 0 f di "tiga". "1. NUNGGU MOOD" 64 px di strip bergaris, x 60–500, y 760, +1,5°, 0 f di "nunggu"; poin 2–3 nanti di y 900 dan 1040 tanpa menggeser poin 1. Caption 60 px di kotak oranye, y 1480, hanya kata yang tak ada di strip. Suara: satu cue di judul; strip dan jump cut senyap; bed musik ±20 dB di bawah VO sejak frame 0.
+Sesudah: pembicara di x 520–1080, separuh kiri kosong. "3 ALASAN" spidol merah 200 px di strip HVS, x 60–1000, y 180–400, −2°, ≥ 60 px di atas rambut, 0 f di "tiga". "1. NUNGGU MOOD" 64 px di strip bergaris, x 60–500, y 760, +1,5°, 0 f di "nunggu"; poin 2–3 nanti di y 900 dan 1040 tanpa menggeser poin 1. Caption 60 px di kotak oranye, y 1480, hanya kata yang tak ada di strip. Suara: satu cue di judul; strip dan jump cut senyap; bed musik ±20 dB di bawah VO sejak frame 0.
 Kenapa: wajah utuh; satu jenis penanda (strip); tak ada teks ganda; satu cue membuat judul terasa dicap.
 
 **B · Jadisatu, "4 hal yang tercecer di 4 aplikasi" (faceless 9:16).** Poin 1: "ide yang kamu catat jam dua pagi".

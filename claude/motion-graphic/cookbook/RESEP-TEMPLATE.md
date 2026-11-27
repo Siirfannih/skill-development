@@ -2,7 +2,7 @@
 
 Salin ke `projects/<proyek>/RESEP.md`, isi, lalu jalankan `scripts/juri/resep_check.py`.
 
-**Prompt Irfan (disalin apa adanya):**
+**Prompt pemilik (disalin apa adanya):**
 > <tempel prompt>
 
 **Jenis video:** <talking head / klip podcast / motion ber-VO / product film> · **Rasio, durasi target:** <…>

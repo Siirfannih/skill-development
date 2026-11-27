@@ -28,7 +28,7 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap = judul `## Ta
 ## Tahap 6 · Mix
 - [ ] SFX lalu musik dikunci · baca: `guide/sfx/GUIDE.md`, `references/audio.md` §14.3–14.9 · bukti: `audio_order.py lock sfx` + `lock musik` PASS →
 - [ ] Mix dikunci: stem, `mix.wav`, dan `cues.json` final; lulus uji speaker HP · baca: `references/audio.md` §14.10 · bukti: `audio_phone.py --gate` keluar 0 + path `mix.wav` →
-- [ ] Mata luar: Devil's Advocate dari subagen/model lain bila ada; bila tidak, satu putaran kritik sendiri dari brief steril (brief Irfan verbatim + frame tahan + kiblat + contoh gagal) **sebelum** membaca catatan desainmu; usulnya diputus · baca: `templates/roles/devils-advocate.md` · bukti: `qc/da/USUL.md` + putusan di `qc/JURI.md` →
+- [ ] Mata luar: Devil's Advocate dari subagen/model lain bila ada; bila tidak, satu putaran kritik sendiri dari brief steril (brief user verbatim + frame tahan + kiblat + contoh gagal) **sebelum** membaca catatan desainmu; usulnya diputus · baca: `templates/roles/devils-advocate.md` · bukti: `qc/da/USUL.md` + putusan di `qc/JURI.md` →
 
 ## Tahap 7 · Deliver
 - [ ] Render 1 utuh dikirim ke user · baca: `cookbook/README.md` §Juri 7, `references/delivery-gate.md` · bukti: path MP4 + `render.sh` final PASS →

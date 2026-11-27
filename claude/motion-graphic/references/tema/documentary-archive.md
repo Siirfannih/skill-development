@@ -70,9 +70,9 @@ Sebelum: foto blur 8 px + gelap 40 %; "PAK RASYID" 140 px kuning di dagu (y 560)
 Sesudah: foto tajam, grade babak ini, drift 1,00→1,04. "namanya / pak rasyid" 80 px putih di dada (baris y 1120, 1205), per kata. Cut ke foto warung: "dan warungnya" di langit kiri, x 80–520, y 320. Cut ke hitam #0E0E0E 1 dtk: "nggak pernah" 80 px di atas "tutup." 320 px (4×). Suara: kata/cut senyap, bed ruang, pad −24 LUFS; 0,4 dtk sebelum kanvas musik turun ke drone; satu impact rendah (isi 300 Hz–3 kHz) di "tutup."
 Kenapa: blur menghapus bukti; kaos gelap = kontras tanpa kotak; satu lapis teks; hentakan di tesis.
 
-**B · Jadisatu, kutipan riset "creator berhenti di bulan ketiga" (9:16).** Irfan: "satu riset nulis begini:", lalu membaca 14 kata asli.
+**B · Jadisatu, kutipan riset "creator berhenti di bulan ketiga" (9:16).** Pembicara: "satu riset nulis begini:", lalu membaca 14 kata asli.
 Sebelum: artikel blur 12 px, kotak merah 96 px, subtitle, whoosh + pop.
-Sesudah: pengantar di dada Irfan. Cut ke halaman #EDEDEF: sumber 36 px abu (x 96, y 660); kutipan 60 px #1A1A1A, x 96–984, y 760–1010. Stabilo biru muda menyapu klausa kunci per baris 10 f di onset katanya; drift 1,00→1,06 selama 3,5 dtk. Suara: perkusi turun ke pad 0,3 dtk sebelum cut; satu cue kertas lembut (aturan produksi); sapuan senyap.
+Sesudah: pengantar di dada pembicara. Cut ke halaman #EDEDEF: sumber 36 px abu (x 96, y 660); kutipan 60 px #1A1A1A, x 96–984, y 760–1010. Stabilo biru muda menyapu klausa kunci per baris 10 f di onset katanya; drift 1,00→1,06 selama 3,5 dtk. Suara: perkusi turun ke pad 0,3 dtk sebelum cut; satu cue kertas lembut (aturan produksi); sapuan senyap.
 Kenapa: kalimat asli terbaca; halaman itu teks ucapannya (tanpa caption kedua); musik turun saat penonton membaca.
 
 ## 8. Pertanyaan pembeda + status bukti

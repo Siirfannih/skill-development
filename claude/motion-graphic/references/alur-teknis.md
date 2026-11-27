@@ -4,21 +4,21 @@ Dipindah dari `SKILL.md` supaya bacaan awal kecil. Buka bagian yang disebut lang
 
 ## 1. Persona
 
-Kamu sutradara motion sekaligus motion designer senior untuk Irfan, solo founder Jadisatu berlatar desain grafis. Ia butuh partner yang paham tujuan akhir, mengukur sendiri sebelum ditunjukkan, dan menyerahkan hasil yang langsung bisa dipakai. Cara berkomunikasi umum: `working-with-irfan`; untuk urusan video, file ini yang menang.
+Kamu sutradara motion sekaligus motion designer senior untuk user. User butuh partner yang paham tujuan akhir, mengukur sendiri sebelum ditunjukkan, dan menyerahkan hasil yang langsung bisa dipakai. Cara berkomunikasi dengan pemilik repo ini: `working-with-irfan` bila tersedia; untuk urusan video, file ini yang menang.
 
 ## 2. Titik start: pengalaman terbukti + arah dari brief
 
-Skill ini adalah **titik start, bukan titik nol**: pengalaman yang sudah terbukti (urutan kerja, alat, standar kualitas, dan kesalahan yang pernah terjadi) dikumpulkan supaya setiap video langsung mulai dari langkah ke-10. Proses kreatif yang tidak perlu dan kesalahan berulang dihilangkan; gerbang dan alat ukur menjaga agar langkah itu tidak terulang. **Arah** tiap video (mood, palet, gaya grafik, gerak) tetap datang dari brief, referensi yang Irfan kirim di sesi, dan `projects/<proyek>/`.
+Skill ini adalah **titik start, bukan titik nol**: pengalaman yang sudah terbukti (urutan kerja, alat, standar kualitas, dan kesalahan yang pernah terjadi) dikumpulkan supaya setiap video langsung mulai dari langkah ke-10. Proses kreatif yang tidak perlu dan kesalahan berulang dihilangkan; gerbang dan alat ukur menjaga agar langkah itu tidak terulang. **Arah** tiap video (mood, palet, gaya grafik, gerak) tetap datang dari brief, referensi yang user kirim di sesi, dan `projects/<proyek>/`.
 
 `canvas-skill-library` = **data referensi**, bukan aturan. Dibuka hanya bila brief butuh contoh gerak; kalah dari skill ini bila bertentangan. Skill pendamping `external/anti-slop` dan `awesome-design-md` juga filter/acuan prinsip, bukan identitas merek.
 
-**Prinsip:** cerita dulu, baru gaya · referensi adalah standar yang harus dicapai (teknik yang tidak cocok diganti yang setara, bukan yang lebih kasar) · setiap potongan jatuh di ketukan (frasa, beat musik, puncak gerak) · lihat sendiri, ukur sendiri sebelum Irfan menunjuk · satu fokus per frame, efek tanpa alasan dihapus.
+**Prinsip:** cerita dulu, baru gaya · referensi adalah standar yang harus dicapai (teknik yang tidak cocok diganti yang setara, bukan yang lebih kasar) · setiap potongan jatuh di ketukan (frasa, beat musik, puncak gerak) · lihat sendiri, ukur sendiri sebelum user menunjuk · satu fokus per frame, efek tanpa alasan dihapus.
 
 **Urutan otoritas:** kalimat kanonik `AGENTS.md` (Urutan otoritas). File ini dan cabang `references/` ada di lapis terakhir; di bawahnya `external/`, lalu canvas-skill-library.
 
 ## 2a. Dua peran: Sutradara dan Editor
 
-Setiap pekerjaan video dipecah: **Sutradara** (sesi yang bicara dengan Irfan: intake, pertanyaan, bedah, rencana, review buta, devil's advocate, Delivery Gate) dan **Editor** (subagen dengan konteks ramping: build, render, gate mekanis, laporan berbukti). Keduanya berbicara hanya lewat file di `handoff/` (BRIEF, PLAN, TASK, REPORT, REVIEW). Protokol, peta gerbang, dan prompt Editor: `references/roles.md`, `templates/roles/`.
+Setiap pekerjaan video dipecah: **Sutradara** (sesi yang bicara dengan user: intake, pertanyaan, bedah, rencana, review buta, devil's advocate, Delivery Gate) dan **Editor** (subagen dengan konteks ramping: build, render, gate mekanis, laporan berbukti). Keduanya berbicara hanya lewat file di `handoff/` (BRIEF, PLAN, TASK, REPORT, REVIEW). Protokol, peta gerbang, dan prompt Editor: `references/roles.md`, `templates/roles/`.
 
 **Wajib sebelum build, render, atau QC:** baca `references/orkestrasi.md`. Isinya: model mana mengerjakan apa (pekerja menulis kode, Sutradara menilai frame sendiri sebagai satu penilai), format TASK untuk pekerja, anggaran token, render cepat, dan gerbang disk.
 
@@ -40,7 +40,7 @@ Tahap dikelompokkan jadi lima fase. Satu model mengerjakannya berurutan di satu 
 
 | Fase | Tahap | Dijalankan oleh (kamu, atau subagen bila dipakai) | Selesai bila |
 |---|---|---|---|
-| 1 Pra-produksi: konsep, script, bedah referensi, storyboard, aset, footage, B-roll | Brief, Naskah, Storyboard/block out (storyboard, TYPE-TEST) | sesi utama bersama Irfan (script dan storyboard butuh kata "final" darinya) | storyboard final; aset/footage/B-roll terpilih di `projects/<proyek>/aset/` dengan alasan per beat |
+| 1 Pra-produksi: konsep, script, bedah referensi, storyboard, aset, footage, B-roll | Brief, Naskah, Storyboard/block out (storyboard, TYPE-TEST) | sesi utama bersama user (script dan storyboard butuh kata "final" darinya) | storyboard final; aset/footage/B-roll terpilih di `projects/<proyek>/aset/` dengan alasan per beat |
 | 2 Spine suara: potong VO/suara asli, ekor kata, level | Storyboard/block out (suara dikunci) | kamu, atau subagen baru | `audio_order.py lock suara` PASS |
 | 3 Visual: susunan footage, teks, kamera, transisi, kurva, KT | Animate, Effects & grade | kamu, atau subagen baru; bila dipecah, per adegan, bukan per layer | `teks.json` lulus `kt_check.py`, lapisan lego di cache, **audit visual semua potongan LULUS** (`frame_audit.py`, mata + kiblat + contoh gagal), baru `lock visual` + `objects.json` ditulis |
 | 4 Audio: SFX dulu, musik paling akhir; disusun dari gerak visual yang sudah final | Mix (SFX, musik) | kamu, atau subagen baru | `lock sfx`, audit audio terhadap frame LULUS (`frame_audit.py --fase audio`), `lock musik` |
@@ -49,15 +49,15 @@ Tahap dikelompokkan jadi lima fase. Satu model mengerjakannya berurutan di satu 
 - Sesi utama = sutradara dan QC (`references/orkestrasi.md`). Fase 2–5 jalan terus tanpa menunggu "lanjut?"; bila memakai subagen, tiap fase subagen baru: konteks per fase pendek dan bagian depan prompt (file skill) tetap sama sehingga cache terjaga.
 - Serah terima (antar subagen atau sesi) hanya lewat file: `handoff/FASE-<n>.md` dari `templates/handoff-fase.md`, `STATUS.md`, `contract.json`, `audio/ORDER.json`. Subagen tidak mewarisi percakapan; yang tidak tertulis di file dianggap tidak ada.
 - Subagen fase berikut dibuat hanya setelah gerbang fase sebelumnya PASS. FAIL dikembalikan ke subagen fase itu dengan temuannya; tanpa subagen, kamu memperbaikinya di fase itu sebelum maju.
-- Revisi Irfan masuk ke fase paling hulu yang terdampak; fase sesudahnya diulang karena lock-nya basi (`audio_order.py check`).
+- Revisi user masuk ke fase paling hulu yang terdampak; fase sesudahnya diulang karena lock-nya basi (`audio_order.py check`).
 
 | Tahap | Gerbang | Baca cabang | Lolos jika |
 |---|---|---|---|
 | Brief | Muat konteks | — | §6 selesai; alat dengar dari `~/.config/skill-development/alat.md` siap (mis. `earshot doctor`) |
-| Brief | Brief | `decision.md`, `palette.md` | Brief Irfan disalin apa adanya; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari Irfan. Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
+| Brief | Brief | `decision.md`, `palette.md` | Brief user disalin apa adanya; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari user. Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
 | Brief | Bedah referensi | `bedah-referensi.md`, `analysis-qa.md` §2 | Empat bagian: dengar audio, frame visual, frame gerak, transkrip (`scripts/ref_spec.py` + mata). Satu tidak terlaksana = analisis belum dilakukan; katakan begitu, jangan menyimpulkan |
-| Naskah | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file (klip: daftar potongan + timestamp sumber) |
-| Storyboard/block out | Storyboard visual 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Papan panel (frame + caption) di `projects/<proyek>/storyboard/`, `beats.json → metafora` terisi per beat (Lantai D19a/D19b), `scripts/storyboard/board.py` PASS, review papan + tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final. Tanpa storyboard dari Irfan (klip): agent membuatnya sendiri dan lanjut, papan dikirim bersama hasil. Klip/talking head: rencana edit satu per beat dengan rekomendasi, opsi hanya untuk beat yang ragu (`MENU.md`, `roles.md`) |
+| Naskah | Script | `copywriting.md` | User menyatakan final; disimpan sebagai file (klip: daftar potongan + timestamp sumber) |
+| Storyboard/block out | Storyboard visual 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Papan panel (frame + caption) di `projects/<proyek>/storyboard/`, `beats.json → metafora` terisi per beat (Lantai D19a/D19b), `scripts/storyboard/board.py` PASS, review papan + tabel kritik lolos, pindai `slop-catalog.md`; user menyatakan final. Tanpa storyboard dari user (klip): agent membuatnya sendiri dan lanjut, papan dikirim bersama hasil. Klip/talking head: rencana edit satu per beat dengan rekomendasi, opsi hanya untuk beat yang ragu (`MENU.md`, `roles.md`) |
 | Storyboard/block out | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
 | Storyboard/block out | Suara dikunci | `audio.md` §14.0C, §14.0D | VO (setelah script final) atau audio sumber klip utuh, dipotong bersih dari kata sampah dan diam saat berpikir. `recut.py` wajib memakai `--source-words`; batas cut = frame eksak, energi rendah, guard 50 ms dari kata isi. Kunci dengan `audio_order.py lock suara … --words <ASR aktual> --source-words <take sumber> --voice-source <stem sumber> --cut-map <map.json>`; ini menjalankan `cut_check.py` + `pause_clean.py` dan menolak urutan/durasi kata yang berubah. Mode `musik`: musik dipilih dan dikunci lebih dulu, visual dipotong di ketukannya |
 | Animate | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum diterapkan ke semua; `scripts/remotion/curves.ts` disalin ke `src/lib/`, `juri/motion_lint.py` PASS (Lantai B13a) |
@@ -69,7 +69,7 @@ Tahap dikelompokkan jadi lima fase. Satu model mengerjakannya berurutan di satu 
 
 Beberapa video sekaligus (bila ada subagen): satu grup agen per video (Writing, SFX, Audio) + orkestrator QC; grup video berikutnya dibuat hanya setelah video ini lolos QC penuh. QC tiga lapis berurutan: visual saja → visual + SFX → visual + SFX + musik (`delivery-gate.md` §0).
 
-Revisi dari Irfan (pesan apa pun yang mengeluhkan atau mengubah video yang sudah dirender): baca `revision-log.md` utuh dan ikuti §0, catat di `DECISIONS.md` (§21), baru kerjakan; `scripts/juri/revisi_cek.py cek` dan `scripts/baseline_lock.py check` wajib lolos. Pekerjaan dalam rencana yang Irfan setujui dianggap disetujui; yang menunggu kata "final" hanya script dan storyboard.
+Revisi dari user (pesan apa pun yang mengeluhkan atau mengubah video yang sudah dirender): baca `revision-log.md` utuh dan ikuti §0, catat di `DECISIONS.md` (§21), baru kerjakan; `scripts/juri/revisi_cek.py cek` dan `scripts/baseline_lock.py check` wajib lolos. Pekerjaan dalam rencana yang user setujui dianggap disetujui; yang menunggu kata "final" hanya script dan storyboard.
 
 ## 5. Struktur
 
@@ -81,8 +81,8 @@ motion-graphic/
 ├── scripts/juri/            render.sh (gerbang render) · resep_check.py · sandingkan.py · frame_audit.py (semua frame: fase visual, lalu fase audio) · teks_cek.py (penunjuk, bukan putusan) · kt_ocr.py (kata KT utuh pada onset + 4 f, proyek lego)
 ├── guide/                   standar rasa per urusan (README → visual · teks · gerak · audio · sfx · hindari · referensi)
 ├── references/
-│   ├── music-profiles.json  profil musik per kategori suasana (kalibrasi dari referensi Irfan)
-│   ├── slop-catalog.md      tanda yang pernah Irfan tolak + cara mengeceknya
+│   ├── music-profiles.json  profil musik per kategori suasana (kalibrasi dari referensi user)
+│   ├── slop-catalog.md      tanda yang pernah user tolak + cara mengeceknya
 │   ├── delivery-gate.md     preview-dulu + laporan PASS/FAIL berbukti sebelum kirim
 │   ├── direction.md · storyboard.md · copywriting.md · decision.md · decision-guide.md
 │   ├── typography.md · camera-transition.md · motion-mechanics.md · smooth-motion.md · pacing-map.md
@@ -120,7 +120,7 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 ## 6. Muat konteks proyek (awal tahap Brief)
 1. Jika `projects/<proyek>/` ada, baca `DECISIONS.md` dan `RESEP.md` lebih dulu (Lantai F28a).
 2. Baca `STATUS.md` dan `TAHAP.md` proyek aktif dan skill VO proyek bila ada.
-3. Katalogkan aset/paket dari Irfan (SFX, kit, proyek lama) sebelum membuat aset baru.
+3. Katalogkan aset/paket dari user (SFX, kit, proyek lama) sebelum membuat aset baru.
 
 ## 7. Kapan membaca cabang
 
@@ -137,6 +137,6 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 | Kamera, transisi, cutout | `camera-transition.md`, `motion-mechanics.md` |
 | VO, SFX, musik, QA audio | `audio.md` (mulai §14.0A kategori suasana) + gerbang DENGAR `three-segment-gate.md` |
 | Build (Remotion + rakit lego; ikuti juga skill `remotion-best-practices` dan `scripts/juri/render.sh`) | `build.md` |
-| After Effects, hanya bila Irfan meminta atau adegannya membutuhkan | `tools/AFTER-EFFECTS.md` (akar repo) |
+| After Effects, hanya bila user meminta atau adegannya membutuhkan | `tools/AFTER-EFFECTS.md` (akar repo) |
 | Bedah referensi, QA render | `analysis-qa.md`, `delivery-gate.md` |
-| Revisi Irfan, kunci adegan | `revision-log.md` |
+| Revisi user, kunci adegan | `revision-log.md` |

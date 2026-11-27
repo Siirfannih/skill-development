@@ -1,6 +1,6 @@
 # Smooth motion — resep motion blur, teks, dan kamera yang terbukti
 
-Baca saat membangun animasi teks, mengatur motion blur, atau saat Irfan bilang gerak "kurang smooth", "patah-patah", atau "kamera berantakan".
+Baca saat membangun animasi teks, mengatur motion blur, atau saat user bilang gerak "kurang smooth", "patah-patah", atau "kamera berantakan".
 
 Resep ini terbukti di proyek Tuntunly (repo `Tuntunly-Video/tuntunly-motion`), bukan dari teori. Tanpa resep ini, motion blur 4–6 subframe meninggalkan "gema".
 
