@@ -162,7 +162,7 @@ Objek isometrik: SVG (bisa dianimasikan per bagian, sesuai aturan vektormu), dil
 | Teks putih kecil mengapit objek di footage arsip | Teks tengah dulu, lalu visual; teks tidak di atas visual | "Everything [TV] around you" sudah kiri-kanan objek ✔. Pastikan ukuran ≥ 3,5 % untuk uji HP. |
 | Teal di latar navy | Jangan biru di latar gelap | Teal `#0099AB` vs navy = 5,85 : 1 (aman sebagai blok), tapi **teks putih di atas teal hanya 3,42 : 1** — kurang untuk teks kecil. **A (disarankan):** gelapkan tag ke `#007C8A` (putih ≈ 4,9 : 1) atau naikkan teks tag ke ≥ 3,5 % tinggi. Tetap jangan pakai teks teal di navy. |
 | Weight Medium semua | Font ramping ✔ | Sejalan, pertahankan. |
-| Mode D: kamera truck kontinu | Info diam (`references/camera-transition.md`) | Truck boleh karena geraknya *adalah* informasi (daftar bertambah); kecepatan konstan, tanpa gerak lain. |
+| Mode D: kamera truck kontinu | Info diam (`references/kamera-gerak.md`) | Truck boleh karena geraknya *adalah* informasi (daftar bertambah); kecepatan konstan, tanpa gerak lain. |
 
 ---
 

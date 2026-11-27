@@ -86,7 +86,7 @@ Suara yang dikunci (tahap Storyboard/block out) harus sudah bebas kata sampah da
 8. Setelah dipotong: transkrip ulang tanpa prompt menjadi `words_actual.json`; `cut_check.py suara.wav words_actual.json --source-words words_source.json --map map.json` PASS. Semua kata isi dan durasi fonem harus benar-benar ada—daftar kata hasil remap/caption tersembunyi tidak membuktikan audio utuh. Dengar setiap sambungan dan cek ekor kata, onset kata berikut, serta lubang fade-to-zero.
 
 ### 14.A Memilih suara: logika
-Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber dan kualitas mix**. Pilihan diturunkan dari dua kolom tabel beat yang sudah ada: mekanik (`motion-mechanics.md`) dan nada (`pacing-map.md`). Suara lahir dari gerak, bukan dari kata.
+Bagian ini menentukan **suara apa dan kapan**; §14.0–14.10 memeriksa **sumber dan kualitas mix**. Pilihan diturunkan dari dua kolom tabel beat yang sudah ada: mekanik (`kamera-gerak.md`) dan nada (`pacing-map.md`). Suara lahir dari gerak, bukan dari kata.
 
 **Mekanik visual → SFX**
 

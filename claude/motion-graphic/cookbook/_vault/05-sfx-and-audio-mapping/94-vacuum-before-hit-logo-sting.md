@@ -50,7 +50,7 @@ Satu kata merek serif besar di tengah (f57–), teks UI sangat kecil (mikro) han
 - **Mekanik Remotion (titik awal):**
   - Lapisan (bawah → atas): latar hitam → pendar radial → bintang → kata merek; audio: track bed rendah → cue swell → cue hit → ekor sub.
   - Gerak: squash 6 f `CURVE.reveal` (`../../scripts/remotion/curves.ts`), kata masuk `CURVE.land` ±6 f dengan cahaya meredup 12 f; gain bed turun ke ±−45…−55 dBFS dalam ramp 8–10 f mulai 12 f sebelum squash, swell 7–8 f, hit di frame kata (onset 1 f sebelum f kata, puncak +2 f).
-  - Ruang: datar; vinyet + pendar; blur: `filter: blur()` kecil pada kata saat muncul, hilang dalam 6–8 f (`../../references/smooth-motion.md`).
+  - Ruang: datar; vinyet + pendar; blur: `filter: blur()` kecil pada kata saat muncul, hilang dalam 6–8 f (`../../references/kamera-gerak.md`).
 - **SFX:** famili `impact` · hantaman sub pendek berekor ≤ 2,5 dtk (pilar 5), didahului `riser` 0,25 dtk (reverse swell); vakum dibuat dengan menurunkan bed, **bukan** hening digital (`../../references/audio.md` §14.4; `sfx_cari.py --famili impact`).
 - **Pakai bila:** ada satu kata/objek yang layak jadi puncak sting; ruang pembuka cukup panjang untuk vakum 0,3–0,45 dtk. · **Jangan pakai bila:** ada suara manusia di jendela vakum (suara tidak boleh ikut turun), atau hantaman kedua sudah ada < 2 dtk sebelumnya.
 - **Remix (anti-jiplak):**
@@ -127,7 +127,7 @@ Satu kata merek serif besar di tengah (f57–), teks UI sangat kecil (mikro) han
   - Lapisan (bawah → atas): latar hitam → pendar → UI (blur 6–10 px, scale 0,8) → kata merek → kursor.
   - Gerak: UI naik `translateY` 25 f `CURVE.drift`; dorongan `scale` 1,00→1,06 selama 27 f; snap zoom `scale` ×1,7 dalam 3 f `CURVE.whip` dengan `CameraMotionBlur`; potongan keras tanpa transisi.
   - Ruang: `perspective` ringan, blur kedalaman pada bidang jauh; kata merek tidak ikut buram.
-  - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` hanya di 3 f snap zoom (`../../references/smooth-motion.md`); pendar dengan `mixBlendMode: screen`.
+  - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` hanya di 3 f snap zoom (`../../references/kamera-gerak.md`); pendar dengan `mixBlendMode: screen`.
 - **SFX:** famili `air` untuk dorongan (swell naik 0,8 dtk di bawah −17), famili `impact` untuk snap zoom (hit −10); potongan keras mengikuti T4.
 - **Pakai bila:** aksi pengguna bisa diperlihatkan ke satu titik di UI. · **Jangan pakai bila:** UI harus terbaca penuh sebelum zoom.
 - **Remix (anti-jiplak):**

@@ -79,7 +79,7 @@ Grotesk netral (mirip Inter Medium), sentence case, **dua skala tanpa perantara*
 - **Mekanik Remotion (titik awal):**
   - Lapisan: latar gelap/oranye → kata raksasa lebih lebar dari frame.
   - Gerak: `translateX` +60 % → −40 % lebar frame `CURVE.land` ±75 f (sapuan penuh) atau ±24 f (pendek); warna oranye ke putih lewat `interpolateColors`. Hub: `strokeDashoffset` ke 0 `CURVE.reveal` ±20 f per cabang.
-  - Ruang: datar. Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` (`../../references/smooth-motion.md`).
+  - Ruang: datar. Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` (`../../references/kamera-gerak.md`).
 - **SFX:** famili `air`, `glitch`, `impact`, `stab` · hit rendah di frame kata mendarat: stab 123 Hz ("Automate", 5,69 dtk), sub 47 Hz ("9000", 15,24), 111 Hz ("+", 16,61). Padanan: `ES_Designed, Bass Dive, Bass Drop, Deep Sub, 50Hz` atau `Move.mp3`; whoosh sapuan `ES_Swooshes, Whoosh, Big, Cinematic`; garis hub tergambar `Scanning dan gerak kurva.mp3` (referensi: rattle tiap ±70 ms, 17,2–19,2 dtk). Stab orkestra tidak ada di SFXIrfan.
 - **Pakai bila:** satu kata atau angka pendek (≤ 8 huruf). · **Jangan pakai bila:** kata yang harus terbaca utuh di satu frame statis.
 - **Remix (anti-jiplak):**

@@ -84,7 +84,7 @@ Sans (paling mirip SF Pro Display / Inter) Semibold–Bold, tracking rapat, satu
   - Lapisan: grup adegan di `<AbsoluteFill>` yang di-scale.
   - Gerak: scale dari 1,0 turun ke 0,3 lewat `Easing.bezier(0.1,0.75,0.15,1)` untuk 25 % awal, hold pelan, lalu `Easing.bezier(0.55,0,0.9,0.35)` (`CURVE.leave`) 8 f terakhir; kurva dirancang per shot, bukan satu preset (`../../scripts/remotion/curves.ts`).
   - Ruang: datar.
-  - Blur & blend: motion blur 200° dengan 16 sampel pada 8 f terakhir (`../../references/smooth-motion.md`).
+  - Blur & blend: motion blur 200° dengan 16 sampel pada 8 f terakhir (`../../references/kamera-gerak.md`).
 - **SFX:** famili `glitch`, `mekanik`, `air` · satu hit tegas di cut (`Cut.mp3` atau `Cutcontrastransision.mp3` untuk terang ↔ gelap); `Woosh.mp3` bila zoom-out besar.
 - **Pakai bila:** ≥ 3 adegan beruntun dengan satu pusat visual tiap adegan. · **Jangan pakai bila:** adegan butuh dibaca lama (gerak terus tak memberi jeda).
 - **Remix (anti-jiplak):**

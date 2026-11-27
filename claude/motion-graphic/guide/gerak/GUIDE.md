@@ -42,4 +42,4 @@
 Kecepatan, gaya easing, jenis transisi, kamera, jumlah overshoot. Energi gerak mengikuti tempo video (lihat `../audio/`).
 
 ## Detail lanjut
-`../../references/smooth-motion.md` · `motion-mechanics.md` · `camera-transition.md`
+`../../references/kamera-gerak.md`

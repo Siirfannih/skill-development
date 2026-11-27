@@ -50,7 +50,7 @@ Seluruh video teks; tiap baris ganti gaya huruf: grotesk berat/ultra-condensed (
   - Lapisan (bawah → atas): grid/kubah pucat + kabut → kata extrude → benda dekat buram yang memotong tepi → label mono.
   - Gerak: kamera virtual `CURVE.drift` + push `CURVE.heavy`; kata masuk `CURVE.land` 10–14 f dengan `rotateY` kecil (−12° → 0).
   - Ruang: `perspective: 1100px`; extrude = tumpukan 12–20 salinan teks dengan `translateZ` bertahap dan warna sisi berbeda; lantai grid `rotateX(70deg)`.
-  - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` (`../../references/smooth-motion.md`), benda dekat `filter: blur(6px)`.
+  - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` (`../../references/kamera-gerak.md`), benda dekat `filter: blur(6px)`.
 - **SFX:** famili `glitch` · satu `Katapertama.mp3` bila kata ini pembuka video; selebihnya senyap. Video asli: tidak ada bunyi terpisah dari lagu.
 - **Pakai bila:** latar terang polos dan kata ≤ 2 per tampil. · **Jangan pakai bila:** kalimat panjang (extrude memakan lebar) atau latar footage yang ramai.
 - **Remix (anti-jiplak):**

@@ -33,8 +33,8 @@ Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak ko
 
 1. Jalankan atau render draf apa adanya, lalu lihat still per beat. Jangan mengubah apa pun dulu.
 2. Untuk tiap beat, tulis fungsi ceritanya dan cari pola yang cocok di `INDEX.md` + `pilih_kartu.py` (`CATALOG.md`) / `POLA.md`. Bandingkan dengan draf di tiga sumbu, masing-masing dengan rujukannya:
-   - **Gerak**: kurva dan berat (`../references/smooth-motion.md`, `curves.ts`)
-   - **Kamera dan kedalaman**: `../references/camera-transition.md`
+   - **Gerak**: kurva dan berat (`../references/kamera-gerak.md`, `curves.ts`)
+   - **Kamera dan kedalaman**: `../references/kamera-gerak.md`
    - **Pacing**: potong dan tahan dari audio (`../references/pacing-map.md`)
    - **SFX**: satu bunyi per objek penting (`../guide/sfx/GUIDE.md`)
 3. Usulkan perubahan sebagai daftar bedah: beat, apa yang diubah, pola rujukannya, dan apa yang tetap. Warna, huruf, aset, komposisi, dan urutan user tidak diubah. Setelah disetujui, ubah kode yang ada (revisi bedah, bukan bangun ulang).

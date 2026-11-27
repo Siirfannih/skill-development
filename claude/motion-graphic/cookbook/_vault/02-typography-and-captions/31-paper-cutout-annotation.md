@@ -119,7 +119,7 @@ Cut keras 5,8/menit (shot median 4,4 dtk); jump cut + ganti stiker 28,8/menit (s
   - Lapisan: footage + stiker.
   - Gerak: scale 1,00→1,37 `CURVE.heavy` 8 f ke posisi sweter, tahan 0,4 dtk, kembali `CURVE.reveal` 6 f; push pelan 1,00→1,034 `CURVE.drift` selama 3 dtk di momen berat.
   - Ruang: datar.
-  - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` hanya di momen angkat (`../../references/smooth-motion.md`); stiker disembunyikan selama momen.
+  - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` hanya di momen angkat (`../../references/kamera-gerak.md`); stiker disembunyikan selama momen.
 - **SFX:** famili `glitch`, `air` · `Woosh.mp3` di momen angkat (puncak di kecepatan tertinggi); jump cut biasa senyap atau `Cut.mp3` sesekali.
 - **Pakai bila:** talking head tripod dengan stiker ruang kiri. · **Jangan pakai bila:** footage genggam yang sudah bergerak.
 - **Remix (anti-jiplak):**

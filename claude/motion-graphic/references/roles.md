@@ -28,7 +28,7 @@ Model sama, konteks beda: Sutradara memegang **kenapa**, Editor memegang **bagai
 | | **Sutradara** (sesi utama, bicara dengan user) | **Editor** (subagen, membangun video) |
 |---|---|---|
 | Tugas | Intake, pertanyaan ke user, bedah referensi, memilih arah gaya (RESEP + kartu), rencana edit + menu opsi, kontrak beat, review buta, devil's advocate, Delivery Gate, laporan ke user | Persiapan media, build tiap beat, still, render, sound sesuai cue, gate mekanis, laporan berbukti |
-| Membaca | `working-with-irfan`, `SKILL.md`, `guide/`, cabang keputusan (`decision*.md`, `storyboard.md`, `analysis-qa.md`, `copywriting.md`, `delivery-gate.md`), `projects/<proyek>/`, RETRO, referensi | **Hanya** `handoff/` + file yang disebut di `TASK` (biasanya `RESEP.md`, `build.md`, `teks.md`, `smooth-motion.md`, skill engine: Remotion / `engines/talking-head-reels/`) |
+| Membaca | `working-with-irfan`, `SKILL.md`, `guide/`, cabang keputusan (`decision*.md`, `storyboard.md`, `analysis-qa.md`, `copywriting.md`, `delivery-gate.md`), `projects/<proyek>/`, RETRO, referensi | **Hanya** `handoff/` + file yang disebut di `TASK` (biasanya `RESEP.md`, `build.md`, `teks.md`, `kamera-gerak.md`, skill engine: Remotion / `engines/talking-head-reels/`) |
 | Menulis | `handoff/BRIEF.md`, `PLAN.json`, `TASK-rN.md`, `REVIEW-rN.md`, `DECISIONS.md` | Kode build, aset, render, `handoff/REPORT-rN.md`, `handoff/QUESTIONS.md` |
 | Tidak boleh | Menulis kode build atau render (kecuali skrip ukur), menyetujui hasil tanpa melihat still | Bicara ke user, mengubah `PLAN.json`/`BRIEF.md`, menebak hal yang tidak ada di TASK, mengubah atribut terlihat yang tidak disebut TASK, menafsir kata yang kabur dengan selera sendiri, menulis "final", membaca RETRO atau seluruh skill |
 

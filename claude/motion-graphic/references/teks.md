@@ -99,7 +99,7 @@ Huruf per huruf hanya bila maknanya "sedang terbentuk": diketik (T11), terbalik 
 | T17 | Text on arc | Kalimat mengikuti busur | Path Options |
 | T18 | Silinder | Daftar pada roda, step-rotate 15–25 f, item aktif ganti warna | 3D per-char + rotasi X |
 | T19 | Word-pop ikut VO | +1…+4 f setelah onset kata VO; 3–4 f scale 0.85→1 + naik ½ cap-height | Marker dari timestamp VO |
-| T20 | Color flash/settle | = G4; travel ±110 px + motion blur, flash 2–4 f, settle ±8 f | Fill Color animator |
+| T20 | Color flash/settle | Gerak untuk G4: travel ±110 px + motion blur; waktu warna (tahan, settle) dari G4 | Fill Color animator |
 | T21 | Decode data | Digit mono/pixel → glitch 1–2 f → kata, ±5 f (hanya kata teknis/angka) | Source Text |
 | T22 | World-locked | Teks sebagai objek di ruang kamera; saat dolly-in skala teks ≤ 1,06× supaya tidak menabrak tokoh | Layer 3D + kamera |
 | T23 | Diegetik | Label menempel objek dengan garis tipis, mono 36–48 px | Parent ke objek |

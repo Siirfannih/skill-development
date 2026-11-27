@@ -1,6 +1,6 @@
 # Peta nada → gerak (dari transkrip + audio)
 
-Dibaca di gerbang storyboard (4), sebelum `motion-mechanics.md`. Nada kalimat menentukan **kapan dan seberapa kuat** gerak; `motion-mechanics.md` menentukan **mekanik mana** dari hubungan dua adegan. Hasilnya ditulis ke tabel beat (kolom: nada · bukti · gerak · cut · tipografi) supaya user bisa mengoreksi nada sebelum render.
+Dibaca di gerbang storyboard (4), sebelum `kamera-gerak.md`. Nada kalimat menentukan **kapan dan seberapa kuat** gerak; `kamera-gerak.md` menentukan **mekanik mana** dari hubungan dua adegan. Hasilnya ditulis ke tabel beat (kolom: nada · bukti · gerak · cut · tipografi) supaya user bisa mengoreksi nada sebelum render.
 
 ## 1. Alat (pasang sendiri di mesin kerja)
 ```sh

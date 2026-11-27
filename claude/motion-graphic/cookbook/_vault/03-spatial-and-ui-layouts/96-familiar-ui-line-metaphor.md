@@ -103,7 +103,7 @@ Satu grotesk medium–bold huruf kecil. Dua lapis: kata kunci besar 1–4 token 
   - Lapisan: hitam → kata (satu `<div>`, ukuran huruf ±55 % tinggi frame) → caption mungil.
   - Gerak: masuk di onset kata ±3 f; `rotateY(35deg) rotateZ(-12deg)` → `rotateY(10deg) rotateZ(-8deg)`, `scale` 0,8 → 1,08 → 1,0 dalam 15 f `CURVE.heavy`; keluar dengan potong.
   - Ruang: `perspective: 900px`, pivot di tengah kata.
-  - Blur & blend: motion blur ringan di 4 f pertama (`<CameraMotionBlur shutterAngle={180} samples={10}>`, `../../references/smooth-motion.md`).
+  - Blur & blend: motion blur ringan di 4 f pertama (`<CameraMotionBlur shutterAngle={180} samples={10}>`, `../../references/kamera-gerak.md`).
 - **SFX:** famili `impact` · tidak ada hit terpisah di video asli (ketukan lagu jatuh di 10,5 dtk). Versi VO: satu hit rendah pendek di frame kata mendarat, ekor ≤0,9 dtk; bila VO sendiri sudah menekan kata itu, senyap lebih kuat.
 - **Pakai bila:** naskah punya satu kata yang jelas paling berat, dan ada adegan padat sebelumnya. · **Jangan pakai bila:** dipakai lebih dari sekali per video, atau katanya panjang sehingga terpotong sampai tak terbaca (cek: ≥60 % huruf terlihat).
 - **Remix (anti-jiplak):**

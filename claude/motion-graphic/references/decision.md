@@ -51,7 +51,7 @@ Determine the text's **role** first, then its technique. The same role always mo
 | R5 typed UI | T11 |
 | R6 hero word | T04 / C05, max 2× per video |
 
-For transitions, start by asking "what object from shot A can be carried into shot B?". If there is one, use X01 (object carry). If not, pick a transition whose direction fits the story (`camera-transition.md` §10).
+For transitions, start by asking "what object from shot A can be carried into shot B?". If there is one, use X01 (object carry). If not, pick a transition whose direction fits the story (`kamera-gerak.md` §Transitions).
 
 Write the reason for the choice in one phrase in the beat spec. A choice without a reason is a sign of a template.
 

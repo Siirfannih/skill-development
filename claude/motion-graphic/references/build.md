@@ -10,7 +10,7 @@ Baca saat mulai build.
 
 ## 3. Alat & pipeline produksi
 
-**Versi Remotion (dicek 25 Okt 2026):** proyek baru memakai Remotion ≥ 4.0.475 (terbaru 4.0.538). Sejak 4.0.475 Studio bisa mengedit keyframe dan props langsung, jadi user bisa menyetel timing sendiri. Proyek Jadisatu lama masih 4.0.380. Saat upgrade, pakai skill `external/remotion-skills/skills/remotion-upgrade`. Resep motion blur, teks, dan kamera ada di `smooth-motion.md`.
+**Versi Remotion (dicek 25 Okt 2026):** proyek baru memakai Remotion ≥ 4.0.475 (terbaru 4.0.538). Sejak 4.0.475 Studio bisa mengedit keyframe dan props langsung, jadi user bisa menyetel timing sendiri. Proyek Jadisatu lama masih 4.0.380. Saat upgrade, pakai skill `external/remotion-skills/skills/remotion-upgrade`. Resep motion blur, teks, dan kamera ada di `kamera-gerak.md`.
 
 **UI produk sendiri (Jadisatu)**: salin komponen asli dari repo produk (mis. `jadisatu-partner/apps/portal`, React) ke proyek Remotion lalu animasikan per elemen; jangan menggambar ulang UI dari screenshot bila kodenya ada.
 

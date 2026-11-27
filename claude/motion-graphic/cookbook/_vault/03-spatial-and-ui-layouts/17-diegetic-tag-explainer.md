@@ -74,7 +74,7 @@ alias: []
   - Lapisan: satu "dunia" `<div>` berisi grid, objek, dan tag (semuanya anak dunia, bergerak bersama) → vignette tidak dipakai.
   - Gerak: `translate(dx, dy)` dunia = `frame * kecepatan` sepanjang vektor 25–30°; objek diletakkan di koordinat dunia sehingga masuk dari tepi pada saat disebut (bukan muncul di tengah); kecepatan tetap, `CURVE.drift` hanya untuk mulai/berhenti 6–8 f. Perpindahan ke peta: translate besar `CURVE.heavy` ±15 f.
   - Ruang: sumbu iso 25–30°; tanpa perspective.
-  - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` di dunia (`../../references/smooth-motion.md`).
+  - Blur & blend: `<CameraMotionBlur shutterAngle={200} samples={16}>` di dunia (`../../references/kamera-gerak.md`).
 - **SFX:** famili `air`, `ui` · tanpa SFX kontinu; `pop up.mp3` hanya per objek baru; whoosh famili `air` yang mengembang lembut (file SFXIrfan lama dilarang; `Woosh.mp3` atau `sfx_cari.py --famili air`) bila kamera pindah ke peta.
 - **Pakai bila:** ≥ 3 objek berurutan dengan kecepatan sebut yang kurang lebih sama. · **Jangan pakai bila:** daftar dua item atau objek yang perlu dibandingkan berdampingan sekaligus (kamera yang bergerak menyembunyikan perbandingan).
 - **Remix (anti-jiplak):**

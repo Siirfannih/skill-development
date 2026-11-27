@@ -80,7 +80,7 @@ Teks ±1 frasa/dtk; potong gambar ±22/menit, jeda tidak rata (0,7–5,6 dtk); d
   - Lapisan (bawah → atas): klip A → klip B (muncul di bawah penutup) → bidang penutup (`<div>` berwarna kayu atau klip foreground).
   - Gerak: bidang penutup `translateX(100%→-100%)` dalam 6–8 f @24–30 fps, `CURVE.whip`; ganti klip tepat saat bidang menutup penuh; ulang 2–3 kali dengan jarak ≥ 0,6 dtk.
   - Ruang: bidang penutup dengan sedikit `rotateY`.
-  - Blur & blend: `<CameraMotionBlur shutterAngle={240} samples={16}>` pada bidang penutup (`../../references/smooth-motion.md`).
+  - Blur & blend: `<CameraMotionBlur shutterAngle={240} samples={16}>` pada bidang penutup (`../../references/kamera-gerak.md`).
 - **SFX:** famili `air` · belum dibedah. Usulan: `Woosh.mp3` (gerak kamera sedang) per ayunan, jarak ≥ 1 dtk, atau senyap bila VO padat.
 - **Pakai bila:** ada benda besar yang wajar lewat di depan lensa (pintu, lengan, kain). · **Jangan pakai bila:** hanya satu pengulangan; penutup tanpa blur gerak terbaca sebagai wipe digital.
 - **Remix (anti-jiplak):**

@@ -69,7 +69,7 @@ Satu sans grotesk sangat tebal, huruf kecil kecuali penekanan ("REALLY", "LESS I
   - Lapisan (bawah → atas): adegan lama → adegan baru (dimulai di frame tutupan penuh) → kelompok pita di atas semuanya.
   - Gerak: satu kelompok `<div>` berisi 4–5 pita (lebar 6–15 % frame, pita terakhir ≥100 % lebar) `translateX` dari −(lebar kelompok) ke +100 % dalam 8 f dengan `CURVE.whip`; potong adegan tepat di frame saat pita lebar menutup penuh. Mulai wipe 0–5 f sebelum onset kata perintah (timestamp kata, bukan interval tetap).
   - Ruang: datar.
-  - Blur & blend: blur horizontal saja di pita (SVG `feGaussianBlur stdDeviation="14 0"`), atau `<CameraMotionBlur shutterAngle={200} samples={16}>` pada lapisan pita (`../../references/smooth-motion.md`).
+  - Blur & blend: blur horizontal saja di pita (SVG `feGaussianBlur stdDeviation="14 0"`), atau `<CameraMotionBlur shutterAngle={200} samples={16}>` pada lapisan pita (`../../references/kamera-gerak.md`).
 - **SFX:** famili `air` · di video asli paling banyak swish sangat pelan (±20 dB di bawah VO, bukti sinkron lemah); bila dipakai, swish terang pendek satu per wipe di bawah VO, atau biarkan senyap seperti aslinya karena pita sudah menjadi penanda.
 - **Pakai bila:** daftar 5–10 item dengan pembuka berulang, dan palet proyek punya 3–5 warna yang bisa dibagi antara label dan pita. · **Jangan pakai bila:** item kurang dari empat (sapuan terasa berlebihan), atau video berlatar footage yang potongannya harus terasa sebagai perpindahan tempat.
 - **Remix (anti-jiplak):**

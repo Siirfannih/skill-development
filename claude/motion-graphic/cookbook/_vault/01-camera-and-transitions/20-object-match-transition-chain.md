@@ -51,7 +51,7 @@ Cepat di rumah, lambat saat terbang (shot langit/judul 11,5–14 dtk); babak (20
 - **Mekanik Remotion (titik awal):**
   - Lapisan: latar B → adegan A (di-mask benda) → benda jembatan (SVG/Three) → cahaya depan.
   - Gerak: wipe benda `CURVE.whip` 8–12 f; lipatan `rotateY/rotateX` 4–6 f per lipatan; crossfade 3–4 f saat benda ≥ 80 % frame; `arc()` (x `CURVE.land`, y `CURVE.heavy`); flash naik 3 f, turun 5 f `CURVE.reveal`.
-  - Ruang/blur: `perspective: 1200px`, `translateZ`; iris dari tengah jendela; `<CameraMotionBlur shutterAngle={200} samples={16}>` (`../../references/smooth-motion.md`); flash `mixBlendMode: "screen"`.
+  - Ruang/blur: `perspective: 1200px`, `translateZ`; iris dari tengah jendela; `<CameraMotionBlur shutterAngle={200} samples={16}>` (`../../references/kamera-gerak.md`); flash `mixBlendMode: "screen"`.
 - **SFX:** famili `air`, `riser`, `taktil` · `documenter.mp3` pada sapuan kertas; `Woosh.mp3` pada halaman dibalik/kertas terbang; `ES_Designed, Riser, Transition, Fast, Short, Clean 01` menuju penutup; selebihnya senyap.
 - **Pakai bila:** tiap adegan punya benda penjembatan. · **Jangan pakai bila:** narasi padat butuh cut tepat di kata; adegan ramai objek kecil.
 - **Remix (anti-jiplak):**
