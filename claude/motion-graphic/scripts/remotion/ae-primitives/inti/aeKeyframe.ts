@@ -94,7 +94,7 @@ export const aeValueN = (keys: AeKeyN[], frame: number): number[] => {
 
 /**
  * Easing ternormalisasi 0→1 dari influence keluar/masuk (speed 0), untuk dipakai di `interpolate({ easing })`.
- * aeEase(18, 92) = cepat di awal, mendarat sangat pelan (resep teks R1 di smooth-motion.md).
+ * aeEase(18, 92) = cepat di awal, mendarat sangat pelan (resep teks R1 di kamera-gerak.md).
  */
 export const aeEase = (influenceOut: number, influenceIn: number) => (x: number) =>
   aeValue([

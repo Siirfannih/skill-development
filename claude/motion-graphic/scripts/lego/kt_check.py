@@ -6,8 +6,8 @@ teks di beat VISUAL, atau masukan rusak. --ketat (atau KETAT=1) mengembalikan ke
 
 Memeriksa teks.json (dari teks_plan.py, diisi model):
   - lengkap   : setiap blok punya peran (R1–R6, sub), kode (T01–T32), alasan, pos [x, y] -> CATATAN bila kosong
-  - kode      : kode harus ada di pustaka typography.md §8; "fade" hanya untuk peran `sub` (eyebrow/sub-line kecil)
-  - konsisten : satu peran = satu kode gerak di seluruh video (typography.md §8: peran dibedakan lewat gerak)
+  - kode      : kode harus ada di pustaka teks.md §8; "fade" hanya untuk peran `sub` (eyebrow/sub-line kecil)
+  - konsisten : satu peran = satu kode gerak di seluruh video (teks.md §8: peran dibedakan lewat gerak)
   - variasi   : tiap jendela 15 dtk yang berisi >= 6 blok memakai >= 3 kode berbeda (menutup "semua fade/word pop")
   - penekanan : tiap jendela 15 dtk yang berisi >= 6 blok punya >= 1 blok penekanan (R2/R3/R6) — kecuali alasan_tenang
                 diisi di blok pertama jendela itu (adegan tenang yang disengaja)

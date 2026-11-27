@@ -394,7 +394,7 @@ def blok_sumber(k, index=INDEX, maks=4):
 
 
 PENUTUP = ("Angka di Invariant dan di kartu vault = pengamatan dari video sumber, titik awal untuk disetel ke konsep kita, bukan target; "
-           "yang mutlak hanya NEGATIF [mutlak]. Sesudah racikan disetujui, buka satu sumber untuk sanding (cookbook/README.md §4): python3 tools/cookbook.py baca <vid>. Cek slop: references/slop-catalog.md.")
+           "yang mutlak hanya NEGATIF [mutlak]. Sesudah racikan disetujui, buka satu sumber untuk sanding (cookbook/README.md §4): python3 tools/cookbook.py baca <vid>. Cek slop: references/pola-salah.md.")
 
 
 # Satu contoh query per fungsi; tes memastikan tiap contoh mengembalikan kartu yang fungsinya memuat fungsi itu.

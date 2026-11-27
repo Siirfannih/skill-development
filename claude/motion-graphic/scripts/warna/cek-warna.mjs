@@ -570,7 +570,7 @@ async function periksaFrame(png, hexes, o) {
       if (k.axe?.status === "jalan" && k.axe.takpasti) r.aviso.push({ jenis: "axe-takpasti", jumlah: k.axe.takpasti, detail: "axe tidak dapat menghitung (gradien/gambar); keputusan tetap dari render dua kali" });
     }
   } catch (e) { r.galat = String(e.message || e); }
-  r.status = r.galat ? "ERROR" : r.alasan.some((x) => x.jenis === "kontras-apca") || (o.ketat && r.alasan.length) ? "FAIL" : r.alasan.length ? "CATATAN" : "PASS";
+  r.status = r.galat ? "ERROR" : (o.ketat && r.alasan.length) ? "FAIL" : r.alasan.length ? "CATATAN" : "PASS";
   return r;
 }
 

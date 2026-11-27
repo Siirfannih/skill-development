@@ -15,7 +15,7 @@ export const kecepatan = (pose: PoseFn, frame: number): Kecepatan => {
 
 /**
  * Simpangan baku blur searah gerak dari kecepatan. Panjang jejak = kecepatan × shutter/360 (shutter 200° = resep
- * smooth-motion.md); gaussian dengan σ ≈ panjang/2,5 terbaca setara jejak itu. Dibatasi `max` supaya frame puncak
+ * kamera-gerak.md); gaussian dengan σ ≈ panjang/2,5 terbaca setara jejak itu. Dibatasi `max` supaya frame puncak
  * whip tidak menjadi bidang rata.
  */
 export const blurDariKecepatan = (speed: number, shutter = 200, max = 48) =>

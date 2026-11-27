@@ -60,7 +60,7 @@ For every motion window, answer from the data:
 - **Transition:** a cut or motivated? If motivated, what object carries the viewer from scene A to B?
 - **Rhythm and audio:** where does sound land relative to the motion peak? Where are the silent pauses?
 
-Do not bring "typical" numbers into this step (for example "hold 3–4 s", "pre-hit −0.05 s"). Numbers like that make you find what you expect. If the repo has comparison numbers (for example `references/camera-transition.md`), open them **after** measurement is done, and only to compare.
+Do not bring "typical" numbers into this step (for example "hold 3–4 s", "pre-hit −0.05 s"). Numbers like that make you find what you expect. If the repo has comparison numbers (for example `references/kamera-gerak.md`), open them **after** measurement is done, and only to compare.
 
 ### Step 3 — Filter: not everything deserves to be a primitive
 A pattern is promoted to a primitive only if:

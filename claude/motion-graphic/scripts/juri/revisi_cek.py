@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Gerbang revisi video lego: lapisan yang berubah sejak versi yang disetujui harus tercakup ledger (Lantai F27, revision-log §21.2).
+"""Gerbang revisi video lego: lapisan yang berubah sejak versi yang disetujui harus tercakup ledger (Lantai F27, revisi.md §21.2).
 
 Aturan "adegan yang sudah disetujui tidak disentuh" butuh hitungan: tanpa menghitung lapisan mana yang ikut berubah,
 revisi beberapa butir bisa mengubah separuh blok teks dan merusak adegan yang tidak diminta.
@@ -27,7 +27,7 @@ Blok teks (`teks.json` di folder proyek, bila ada) dibandingkan per atribut: tek
 t, dur, dan kunci lain (kecuali `alasan`). Blok dicocokkan lewat isi `teks` + nomor `kata`, bukan `id`, karena id bisa
 bergeser saat blok ditambah. Izin untuk blok teks memakai kunci "teks" (pola fnmatch atas isi teks):
      {"teks": "profesional", "atribut": ["pos"], "ledger": "D-413", "sumber": "Irfan"}
-Tiap baris boleh_berubah wajib punya "sumber": "Irfan", "pemilik", "owner" (kata pemilik video), atau "usul-dipilih" (revision-log §21.1). Baris "usul" ditolak:
+Tiap baris boleh_berubah wajib punya "sumber": "Irfan", "pemilik", "owner" (kata pemilik video), atau "usul-dipilih" (revisi.md §21.1). Baris "usul" ditolak:
 ide model ditawarkan ke Irfan dulu, tidak dipasang ke video yang sudah ia lihat.
 Batas alat: hanya membaca rencana rakit (lego.json, teks.json), tidak melihat piksel; untuk itu `scripts/baseline_lock.py check`.
 Mengedit apa pun di `remotion/src` mengganti hash semua lapisan (kunci cache memuat stamp bundle), jadi semuanya terhitung
@@ -161,10 +161,10 @@ def main():
     izin = R.get("boleh_berubah", [])
     tanpa_ledger = [z for z in izin if not str(z.get("ledger", "")).strip()]
     if tanpa_ledger:
-        sys.exit(f"GAGAL: {len(tanpa_ledger)} baris boleh_berubah tanpa ID ledger (revision-log §21.1): {tanpa_ledger[:3]}")
+        sys.exit(f"GAGAL: {len(tanpa_ledger)} baris boleh_berubah tanpa ID ledger (revisi.md §21.1): {tanpa_ledger[:3]}")
     tanpa_sumber = [z for z in izin if z.get("sumber") not in SUMBER_SAH]
     if tanpa_sumber:
-        sys.exit(f"GAGAL: {len(tanpa_sumber)} baris boleh_berubah tanpa sumber Irfan/pemilik/owner/usul-dipilih (revision-log §21.1). "
+        sys.exit(f"GAGAL: {len(tanpa_sumber)} baris boleh_berubah tanpa sumber Irfan/pemilik/owner/usul-dipilih (revisi.md §21.1). "
                  f"Usul model ditawarkan ke Irfan dulu, tidak dipasang: {tanpa_sumber[:3]}")
     basis = muat_basis(a.proyek, R["basis"])
     kini = json.load(open(os.path.join(a.proyek, "lego/lego.json")))

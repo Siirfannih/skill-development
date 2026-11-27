@@ -97,7 +97,7 @@ class Warna(unittest.TestCase):
     def test_teks_putih_di_f8fafc_gagal_navy_lolos(self):
         p, tn = self.pasangan("#FFFFFF")
         rc, j, _ = jalan("keluar", p, "--palet", self.palet, "--tanpa-teks", tn, "--json")
-        self.assertEqual(rc, 1, j)
+        self.assertEqual(rc, 0, j); self.assertEqual(j["status"], "CATATAN")
         k = [x for x in j["alasan"] if x["jenis"] == "kontras-apca"]
         self.assertTrue(k and k[0]["lc"] < 15 and k[0]["min"] in (45, 60) and len(k[0]["xy"]) == 2, j["alasan"])
         p, tn = self.pasangan(NAVY)
@@ -125,7 +125,7 @@ class Warna(unittest.TestCase):
         h, p = self.html("#FFFFFF")
         rc, j, err = jalan("keluar", p, "--palet", self.palet, "--html", h, "--json")
         if rc == 2 or (j and j["status"] == "ERROR"): self.skipTest("Chromium/playwright-core tidak tersedia: " + err[-120:])
-        self.assertEqual(rc, 1, j); self.assertEqual(j["kontras"], "html")
+        self.assertEqual(rc, 0, j); self.assertEqual(j["kontras"], "html")
         k = [x for x in j["alasan"] if x["jenis"] == "kontras-apca"]; self.assertTrue(k and k[0]["blok"] and k[0]["lc"] < 15, j["alasan"])
         h, p = self.html(NAVY)
         rc, j, _ = jalan("keluar", p, "--palet", self.palet, "--html", h, "--json"); self.assertEqual(rc, 0, j)

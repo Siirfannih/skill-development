@@ -168,7 +168,7 @@ class KulitInfo(Pohon):
     def siap(self, checklist, tipo=True):
         self.kartu("`curves`", vault="../_vault/01-camera-and-transitions/63-contoh.md")
         if tipo:
-            (self.cb.parent / "references").mkdir(exist_ok=True); (self.cb.parent / "references/typography.md").write_text(self.TIPO, encoding="utf-8")
+            (self.cb.parent / "references").mkdir(exist_ok=True); (self.cb.parent / "references/teks.md").write_text(self.TIPO, encoding="utf-8")
         self.vault(isi=VAULT_LENGKAP.replace("- apa?\n", checklist))
         return self.cek("--ketat")
 

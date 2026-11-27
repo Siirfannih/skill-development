@@ -1,4 +1,4 @@
-// LightSweep.tsx — gaya G8 "kilat cahaya" (typography.md §7.5).
+// LightSweep.tsx — gaya G8 "kilat cahaya" (teks.md §7.5).
 // Isi huruf = gradien warna (atas terang -> bawah lebih dalam); satu pita cahaya miring menyapu huruf sekali;
 // glow lembut mengikuti pita. Semua dari frame (deterministik), tanpa footage di dalam huruf.
 // Jangan memasukkan klip footage (mis. percikan grayscale, multiply) ke huruf: terbaca seperti bayangan, bukan kilat.

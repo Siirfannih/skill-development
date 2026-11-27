@@ -179,7 +179,7 @@ case "$MODE" in
       echo "mode revisi: basis $BASIS · file berubah: ${CHANGED:-(tidak ada)}"
     fi
     if [ -f "$QC/cakupan-revisi.json" ] && [ -f "$P/lego/lego.json" ]; then
-      # Revisi atas versi yang disetujui: lapisan di luar cakupan ledger tidak boleh berubah (Lantai F27, revision-log §21.2).
+      # Revisi atas versi yang disetujui: lapisan di luar cakupan ledger tidak boleh berubah (Lantai F27, revisi.md §21.2).
       python3 "$HERE/revisi_cek.py" cek "$P" || { echo "GAGAL gerbang revisi: lihat daftar lapisan di atas."; gagal=1; }
     fi
     AUDIO_DIR="$P/audio"

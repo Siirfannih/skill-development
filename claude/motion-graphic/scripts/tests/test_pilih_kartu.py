@@ -221,7 +221,7 @@ class Sumber(Dasar):
         self.assertIn("63 sumber vault:\n  63 (bergerak: ya, ~", r.stdout)
         self.assertIn("— Satu hal yang bergerak. · jangan untuk: cerita emosional", r.stdout)
         self.assertNotIn("Kalimat kedua", r.stdout)
-        self.assertIn("bukan target", r.stdout); self.assertIn("references/slop-catalog.md", r.stdout)
+        self.assertIn("bukan target", r.stdout); self.assertIn("references/pola-salah.md", r.stdout)
         self.assertTrue(all(not x.startswith("|") for x in r.stdout.splitlines()[4:]))
 
     def test_lebih_dari_empat_sumber_yang_bergerak_dulu(self):

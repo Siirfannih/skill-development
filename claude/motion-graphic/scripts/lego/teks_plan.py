@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Kerangka teks.json dari transkrip: isi teks = ucapan hanya di beat bermode TEKS (jalankan dengan `--beats beats.json`); yang dihitung
 mesin hanya WAKTU dan DURASI tiap blok. Peran, kode gerak (T..), gaya (G..), posisi, dan alasan diputuskan model
-dengan tabel `references/typography.md` §8a, lalu `kt_check.py` memeriksanya.
+dengan tabel `references/teks.md` §8a, lalu `kt_check.py` memeriksanya.
 
 Blok: 1–3 kata (Lantai A4), pecah di tanda baca atau jeda >= 0,25 dtk. Muncul +2 f setelah awal kata pertama
 (T19: +1…+4 f), tampil sampai kata terakhir selesai diucapkan + hold, tidak menabrak blok berikutnya (Lantai A8).
@@ -56,7 +56,7 @@ def main():
     vis = visual_ranges(json.load(open(a.beats, encoding="utf-8"))) if a.beats else ()
     blocks = plan(load_words(a.words), a.fps, a.maks_kata, vis)
     json.dump(blocks, open(a.out, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-    print(f"{len(blocks)} blok -> {a.out}. Isi peran/kode/gaya/pos/alasan per blok (typography.md §8a), lalu kt_check.py")
+    print(f"{len(blocks)} blok -> {a.out}. Isi peran/kode/gaya/pos/alasan per blok (teks.md §8a), lalu kt_check.py")
 
 
 if __name__ == "__main__":

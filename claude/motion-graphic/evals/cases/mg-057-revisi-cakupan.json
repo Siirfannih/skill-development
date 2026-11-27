@@ -1,12 +1,12 @@
 {
   "id": "mg-057",
-  "source": "skill-dev-journey 17 Nov (Irfan 18 Nov): tiga putaran revisi mengubah 53/96/50 dari 103 blok teks untuk ±8 butir per putaran; revision-log.md tidak dibuka; VIRAL, FINALLY, busur workflow rusak tanpa diminta; 'rata tengah' diminta 3×",
+  "source": "skill-dev-journey 17 Nov (Irfan 18 Nov): tiga putaran revisi mengubah 53/96/50 dari 103 blok teks untuk ±8 butir per putaran; revisi.md tidak dibuka; VIRAL, FINALLY, busur workflow rusak tanpa diminta; 'rata tengah' diminta 3×",
   "prompt": "Video skill-development-journey sudah dirender dan dikirim (commit 8597352). Irfan mengirim: \"Part 'jadi ga usah ditanya' itu terlalu dikanan harusnya rata tengah, sistem zoom disana juga ga jelas karena hanya zoom in terus zoom out lagi. Kata FINALLY muncul dan hilangnya tiba-tiba.\" Tulis rencana kerjamu sebelum mengedit: file yang kamu buka (urut), butir + cakupannya, apa yang dijamin tidak berubah, dan perintah yang kamu jalankan sebelum edit pertama.",
   "files": [
     "projects/skill-development-journey-20261116/"
   ],
   "assertions": [
-    "Mengenali pesan sebagai rute 'Revisi dari Irfan' dan membuka references/revision-log.md sebelum mengedit",
+    "Mengenali pesan sebagai rute 'Revisi dari Irfan' dan membuka references/revisi.md sebelum mengedit",
     "Menulis butir ke ledger DECISIONS.md dengan kata Irfan verbatim dan cakupan per butir",
     "'Rata tengah' diterapkan ke semua narasi wajah-penuh yang memenuhi kondisinya (alasan, bukan contoh), dengan merujuk kartu 83 K4 atau balance_check.py, bukan hanya blok yang disebut",
     "Keluhan FINALLY dan zoom diperbaiki pada blok/adegan itu, bukan dengan mengubah animasi masuk-keluar atau kamera semua blok",

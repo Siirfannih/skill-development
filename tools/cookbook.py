@@ -418,16 +418,16 @@ CHECKLIST = re.compile(r"^## Yang harus terasa sama saat disandingkan[^\n]*\n(.*
 
 
 def keluarga_huruf():
-    """Nama keluarga huruf dari tabel peran di references/typography.md §7 (kolom Pilihan; baris tanpa ukuran dilewati). Berkas hilang: kosong."""
+    """Nama keluarga huruf dari tabel peran di references/teks.md §Huruf (kolom Pilihan; baris tanpa ukuran dilewati). Berkas hilang: kosong."""
     try:
-        with open(os.path.join(CB, "..", "references", "typography.md"), encoding="utf-8") as fh:
+        with open(os.path.join(CB, "..", "references", "teks.md"), encoding="utf-8") as fh:
             teks = fh.read()
     except OSError:
         return []
     out, baris, di7 = [], teks.splitlines(), False
     tabel = []
-    for b in baris:  # tabel pertama sesudah judul "## 7."
-        if re.match(r"^## 7\.", b):
+    for b in baris:  # tabel pertama sesudah judul "## Huruf"
+        if re.match(r"^## (Huruf|7\.)", b):
             di7 = True
         elif di7 and b.startswith("|"):
             tabel.append(b)

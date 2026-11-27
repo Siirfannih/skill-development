@@ -77,11 +77,11 @@ export const TeksBlok: React.FC<TeksBlokProps> = (p) => {
       break;
     }
     default:
-      throw new Error(`TeksBlok: kode ${p.kode} belum diimplementasikan; tambahkan dengan curves.ts (typography.md §8)`);
+      throw new Error(`TeksBlok: kode ${p.kode} belum diimplementasikan; tambahkan dengan curves.ts (teks.md §8)`);
   }
   return (
     <AbsoluteFill style={{ background: "transparent", display: "flex", alignItems: "center", justifyContent: "center",
-      clipPath: `inset(0 0 ${out * 100}% 0)`, transform: `translateY(${-out * 0.4}em)` }}>  {/* keluar lewat mask, bukan fade (typography.md §8) */}
+      clipPath: `inset(0 0 ${out * 100}% 0)`, transform: `translateY(${-out * 0.4}em)` }}>  {/* keluar lewat mask, bukan fade (teks.md §8) */}
       <div style={base}>{body}</div>
     </AbsoluteFill>
   );

@@ -34,7 +34,7 @@ Kartu cookbook memakai kategori camera / typography / layout / texture, tetapi m
 ## Komponen
 
 ### transisi/WhipPanTransition.tsx · `WhipPanTransition`, `WhipPan`, `whipOffset`
-- Kartu: 19.T3 Flash-Inversion Whip Chain · 65.T2 Cursor-Driven Giant Word Whip · 71.T4 (whip 6–8 f, blur penuh); `camera-transition.md` C07/X06.
+- Kartu: 19.T3 Flash-Inversion Whip Chain · 65.T2 Cursor-Driven Giant Word Whip · 71.T4 (whip 6–8 f, blur penuh); `kamera-gerak.md` C07/X06.
 - Pakai saat: pergantian cepat antar bukti; lompatan dari arsip ke kini; pergantian babak cepat di hook; menyambung dua dunia warna. Jangan bila kata yang lewat adalah punchline (whip membuatnya tak terbaca).
 - Props: `outgoing`, `incoming`, `at` (frame mulai), `durationInFrames` (8 f), `direction` `left|right|up|down` (arah konten bergeser; bawaan `left` = maju), `intensity` `lembut|normal|keras`, `gaya` `strip` (A+B satu pita, `CURVE.whip`) | `tumpang` (B meluncur di atas A, `CURVE.land`), `noChroma`.
 - `<WhipPan phase="in"|"out" from>` membungkus satu adegan (dipakai SceneChain). Blur, regang, dan geser RGB dihitung dari kecepatan: puncak di tengah, nol di ujung.
@@ -57,7 +57,7 @@ Kartu cookbook memakai kategori camera / typography / layout / texture, tetapi m
 ```
 
 ### transisi/SceneChain.tsx · `SceneChain`, `overlapFrames`
-- Kartu: — (perakit). Aturan: `camera-transition.md` §10 (variasi mengikuti REF-SPEC; default ≥ 4 tipe per 30 dtk, tidak ada tipe sama berturut-turut, pemicu di akhir frase VO).
+- Kartu: — (perakit). Aturan: `kamera-gerak.md` §10 (variasi mengikuti REF-SPEC; default ≥ 4 tipe per 30 dtk, tidak ada tipe sama berturut-turut, pemicu di akhir frase VO).
 - Pakai saat: merangkai adegan dengan transisi `cut | whip | grid | flash`. Panjang total = jumlah durasi adegan; adegan lama diperpanjang selama frame transisi berikutnya sehingga tidak ada frame hitam di sambungan.
 - Props: `scenes: { id, durationInFrames, content, enter? }[]`, `background`.
 
@@ -71,7 +71,7 @@ Kartu cookbook memakai kategori camera / typography / layout / texture, tetapi m
 ```
 
 ### aksen/FlashCut.tsx · `FlashCut`, `flashEnvelope`
-- Kartu: 66.T2 Frame-Locked Flash Cut · 19.T3 (kilat 1–2 f); `camera-transition.md` X12; `guide/gerak` GRK-01 (flash = N frame intensitas penuh tanpa naik/turun).
+- Kartu: 66.T2 Frame-Locked Flash Cut · 19.T3 (kilat 1–2 f); `kamera-gerak.md` X12; `guide/gerak` GRK-01 (flash = N frame intensitas penuh tanpa naik/turun).
 - Pakai saat: cut yang perlu diberi aksen "klik kamera", di beat musik. Jangan di konten tenang atau di setiap cut; kilat putih penuh maksimal 1–2× per video (X12).
 - Props: `at`, `hold` (2 f), `decay` (0; `FLASH.exposure` = tahan 1 luruh 3), `color` (putih netral; latar terang → warna gelap), `mode` `solid|overexpose`, `brightness`, `blend`, `children` (wajib untuk overexpose; tanpa children = lapisan saja).
 
@@ -81,7 +81,7 @@ Kartu cookbook memakai kategori camera / typography / layout / texture, tetapi m
 - Props: `at`, `durationInFrames` (2 f), `mode` `solid|flicker`, `every` (2 f), `grayscale` (0..1), `region {x,y,w,h}` (pecahan frame), `children` (membungkus = filter; tanpa children = lapisan `difference` di atas saudaranya).
 
 ### kamera/SpatialAnchorCamera.tsx · `SpatialAnchorCamera`, `anchorCamera`, `coverBox`
-- Kartu: 39.T1 Selective-Color Group Index · 63.T1 Floating Window Virtual Camera · 65.T3 Anchor-Object Camera Dive; `camera-transition.md` C19 (drift saat hold); GRK-02 (teks dunia ikut bidangnya).
+- Kartu: 39.T1 Selective-Color Group Index · 63.T1 Floating Window Virtual Camera · 65.T3 Anchor-Object Camera Dive; `kamera-gerak.md` C19 (drift saat hold); GRK-02 (teks dunia ikut bidangnya).
 - Pakai saat: cerita banyak tokoh dari satu foto, kembali ke foto yang sama untuk menyorot tokoh berikut (39.T1); satu halaman/desktop dibawa satu kamera yang tidak pernah diam (63.T1).
 - Props: `path: FocalKey[]` (`at` frame, `fx`,`fy` 0..1 di aset, `s` zoom ≥ 1 relatif cover, `ax`,`ay` posisi layar, `drift` per detik = 0,012, `pegas`), `contentWidth`/`contentHeight` (ukuran asli aset; isi dirender di kotak ini lalu diskalakan), `pegas` (`PEGAS.jangkar`), `shutter`/`maxBlur` (blur searah saat pindah), `opaque`, `background`.
 - Perilaku: pegas ketat (tanpa pantul) dari posisi kamera yang sebenarnya, zoom di ruang log, drift setelah mendarat; `coverBox` menjepit sehingga tepi aset tidak pernah terlihat. Teks yang ditaruh di dalam aset ikut kamera.
@@ -96,7 +96,7 @@ Kartu cookbook memakai kategori camera / typography / layout / texture, tetapi m
 ```
 
 ### kamera/MotionBlurWrapper.tsx · `MotionBlurWrapper`
-- Kartu: 87.T2 Per-Letter Motion-Blur Landing · 67.T1 Motion-Blur Counter Roll; `smooth-motion.md` §1 (shutter 200°).
+- Kartu: 87.T2 Per-Letter Motion-Blur Landing · 67.T1 Motion-Blur Counter Roll; `kamera-gerak.md` §1 (shutter 200°).
 - Pakai saat: kata isi pendek yang diucapkan cepat dan perlu terasa berat atau bersemangat (87.T2); angka pengumuman yang naik ke nilai akhir (67.T1); objek apa pun yang bergerak cepat.
 - Props: `pose(frame) => {x, y, scale?, rotate?}` (murni), `shutter` (200), `maxBlur` (40), `chromaRatio`/`maxChroma`, `fill`, `opaque`, `origin`.
 - Batas: blur dari translasi saja; blur zoom/rotasi tidak dihitung (snap zoom: `<CameraMotionBlur>` bila paket `@remotion/motion-blur` sudah ada di proyek, dan uji dulu di dalam `<Sequence>`).
@@ -142,7 +142,7 @@ Kartu cookbook memakai kategori camera / typography / layout / texture, tetapi m
 - Props: `side` `left|right|top|bottom|flat`, `strength` (0,62), `color` (hitam netral), `enterAt`/`enterFrames`, `exitAt`/`exitFrames` (meluncur dari sisinya, `CURVE.heavy` / `CURVE.leave`).
 
 ### inti/
-- `aeKeyframe.ts` · `aeValue`, `aeValueN`, `aeEase`, `overshootKeys`, `aeVelocity`, `EASY_EASE`: keyframe gaya Graph Editor AE (influence %, kecepatan di kunci, hold, overshoot). Pakai saat angka AE/kartu menyebut influence (mis. `aeEase(18, 92)` resep teks R1, `smooth-motion.md` §2) atau satu properti punya > 2 kunci. Gerak dua kunci biasa: `move()` + `CURVE`.
+- `aeKeyframe.ts` · `aeValue`, `aeValueN`, `aeEase`, `overshootKeys`, `aeVelocity`, `EASY_EASE`: keyframe gaya Graph Editor AE (influence %, kecepatan di kunci, hold, overshoot). Pakai saat angka AE/kartu menyebut influence (mis. `aeEase(18, 92)` resep teks R1, `kamera-gerak.md` §2) atau satu properti punya > 2 kunci. Gerak dua kunci biasa: `move()` + `CURVE`.
 - `gerak.ts` · `kecepatan`, `blurDariKecepatan`, `chromaDariKecepatan`: kecepatan dari fungsi pose (±0,5 f) dan blur setara shutter.
 - `DirectionalBlur.tsx` · blur searah + geser RGB lewat satu filter SVG; arah miring dengan trik putar. `opaque` untuk isi buram penuh: tepi dibantali salinan bergeser lalu dipotong ke bentuk isi, setara "repeat edge pixels".
 - `acak.ts` · `acakBerbiji`, `acakIndeks`, `idAman`.
