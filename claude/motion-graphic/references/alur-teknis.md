@@ -54,7 +54,7 @@ Tahap dikelompokkan jadi lima fase. Satu model mengerjakannya berurutan di satu 
 | Tahap | Gerbang | Baca cabang | Lolos jika |
 |---|---|---|---|
 | Brief | Muat konteks | — | §6 selesai; alat dengar dari `~/.config/skill-development/alat.md` siap (mis. `earshot doctor`) |
-| Brief | Brief | `decision.md`, `warna.md` | Brief user disalin apa adanya; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari user. Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
+| Brief | Brief | `decision-guide.md`, `warna.md` | Brief user disalin apa adanya; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari user. Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
 | Brief | Bedah referensi | `bedah-referensi.md`, `analysis-qa.md` §2 | Empat bagian: dengar audio, frame visual, frame gerak, transkrip (`scripts/ref_spec.py` + mata). Satu tidak terlaksana = analisis belum dilakukan; katakan begitu, jangan menyimpulkan |
 | Naskah | Script | `copywriting.md` | User menyatakan final; disimpan sebagai file (klip: daftar potongan + timestamp sumber) |
 | Storyboard/block out | Storyboard visual 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Papan panel (frame + caption) di `projects/<proyek>/storyboard/`, `beats.json → metafora` terisi per beat (Lantai D19a/D19b), `scripts/storyboard/board.py` PASS, review papan + tabel kritik lolos, pindai `pola-salah.md`; user menyatakan final. Tanpa storyboard dari user (klip): agent membuatnya sendiri dan lanjut, papan dikirim bersama hasil. Klip/talking head: rencana edit satu per beat dengan rekomendasi, opsi hanya untuk beat yang ragu (`MENU.md`, `roles.md`) |
@@ -84,7 +84,7 @@ motion-graphic/
 │   ├── music-profiles.json  profil musik per kategori suasana (kalibrasi dari referensi user)
 │   ├── pola-salah.md        tanda yang pernah user tolak + cara mengeceknya
 │   ├── delivery-gate.md     preview-dulu + laporan PASS/FAIL berbukti sebelum kirim
-│   ├── direction.md · storyboard.md · copywriting.md · decision.md · decision-guide.md
+│   ├── direction.md · storyboard.md · copywriting.md · decision-guide.md
 │   ├── kamera-gerak.md · pacing-map.md
 │   ├── audio.md · build.md · analysis-qa.md · revisi.md · warna.md (+ palettes.json)
 │   └── hybrid-motion-standard.md · three-segment-gate.md
@@ -129,7 +129,7 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 | Keputusan rasa (visual, teks, gerak, audio, SFX) | `guide/<urusan>/GUIDE.md` |
 | Mulai pekerjaan video: siapa mengerjakan apa | `roles.md` |
 | Rencana menu per beat (klip/talking head) | `references/storyboard.md` §1 |
-| Memilih, aturan bertabrakan, ragu bertanya | `decision.md` |
+| Memilih, aturan bertabrakan, ragu bertanya | `decision-guide.md` §8-9 |
 | Script, teks layar | `copywriting.md` |
 | Tokoh, metafora, family, palet | `direction.md`, `warna.md` |
 | Storyboard, spec beat, mode teks per beat | `storyboard.md`, `decision-guide.md`, `pacing-map.md` |

@@ -1,8 +1,8 @@
-# Panduan keputusan: teks, visual, kotak, warna (logika, bukan contoh)
+# Panduan keputusan: teks, visual, kotak, teknik, dan kapan bertanya
 
-Dibaca saat menulis tabel storyboard (langkah 5 `SKILL.md`) dan saat QA sebelum deliver (langkah 8). Setiap keputusan per beat diambil dengan urutan di bawah, lalu dicatat di tabel beat dengan kolom **mode · alasan · cek**. File ini panduan rasa; urutan otoritas ada di `AGENTS.md` (Urutan otoritas), dan aturan teks per beat (TEKS | VISUAL | MENYATU) di NEGATIF 6 dan `teks.md`. Gerbang DENGAR di `three-segment-gate.md` tidak dikalahkan file ini.
+Dibaca saat menulis tabel storyboard (langkah 5 `SKILL.md`), saat memilih di antara opsi, saat aturan terasa bentrok, saat ragu perlu bertanya, dan saat QA (langkah 8). Keputusan per beat dicatat di tabel beat: **mode · alasan · cek**. Urutan otoritas: `SKILL.md`, `AGENTS.md`; mode teks per beat: NEGATIF 6 dan `teks.md`. Gerbang DENGAR di `three-segment-gate.md` tidak dikalahkan file ini.
 
-Prinsip dasarnya: penonton HP hanya menangkap **satu hal per momen**. Semua aturan di bawah adalah cara memilih hal itu.
+Prinsip dasarnya: penonton HP hanya menangkap **satu hal per momen**. Semua di bawah adalah cara memilih hal itu.
 
 ## 1. Mode teks per beat
 
@@ -10,57 +10,68 @@ Tentukan dulu jenis kalimat VO-nya, baru modenya.
 
 | Kalimat VO membawa… | Mode | Logika |
 |---|---|---|
-| Konsep yang bisa digambar: objek, angka, perbandingan, proses | **Visual saja.** Teks paling banyak berupa label kecil yang menempel ke objek | Gambar dipahami lebih cepat daripada kata. Kata yang sama dengan gambar = dibaca dua kali |
+| Konsep yang bisa digambar: objek, angka, perbandingan, proses | **Visual saja.** Teks paling banyak label kecil yang menempel ke objek | Gambar dipahami lebih cepat daripada kata; kata yang sama dengan gambar dibaca dua kali |
 | Satu kata inti: klaim, vonis, istilah baru, angka kunci | **Penekanan.** Footage atau latar bersih, kata besar di barisnya sendiri | Penekanan hanya terasa bila sekitarnya tenang |
-| Kata yang punya padanan benda nyata (jam, catatan, tombol, playlist, layar) | **Teks diegetik**: kata ditulis DI objek itu (layar, kertas, tombol, papan) | Kata dan visual jadi satu benda, jadi tidak butuh subtitle |
-| Penjelasan, jembatan, ekspresi pembicara | **Footage saja** (mode VISUAL) | Wajah dan suara sudah membawa informasinya |
-| Cerita dokumenter dengan banyak foto/footage arsip | **Teks tenang**: kecil, tanpa kotak, kata kunci berbobot lebih tebal, hanya di beat bermode TEKS | Footage adalah pahlawannya; teks cukup jadi penunjuk |
+| Kata yang punya padanan benda nyata (jam, catatan, tombol, layar) | **Teks diegetik**: kata ditulis DI objek itu | Kata dan visual jadi satu benda, tanpa subtitle |
+| Penjelasan, jembatan, ekspresi pembicara | **Footage saja** (VISUAL) | Wajah dan suara sudah membawa informasinya |
+| Cerita dokumenter dengan banyak foto/arsip | **Teks tenang**: kecil, tanpa kotak, kata kunci lebih tebal, hanya di beat TEKS | Footage pahlawannya; teks cukup penunjuk |
 | Fakta yang harus dibaca tepat (nama studi, sumber, harga) | **Label informasi** kecil yang tenang | Ketepatan lebih penting daripada gaya |
 
-**Satu pemenang per momen.** Beat visual dan beat penekanan tidak tampil bersamaan. Bila keduanya perlu, beri urutan: teks dulu, lalu visual menggantikannya (atau sebaliknya), bukan berdampingan dengan bobot sama.
+**Satu pemenang per momen.** Beat visual dan beat penekanan tidak tampil bersamaan dengan bobot sama; bila keduanya perlu, beri urutan (teks dulu lalu visual menggantikannya, atau sebaliknya).
 
-**Teks dan visual tidak mengatakan hal yang sama.** Bila gambar sudah jelas (ponsel grayscale), kata "GRAY" dihapus. Bila gambar lemah atau abstrak, teks yang menang dan gambarnya mundur.
+**Teks dan visual tidak mengatakan hal yang sama.** Gambar sudah jelas (ponsel grayscale): kata "GRAY" dihapus. Gambar lemah atau abstrak: teks yang menang, gambarnya mundur.
 
-**Teks muncul satu per satu mengikuti VO**, bukan sekaligus. Elemen boleh menumpuk menjadi komposisi asal yang baru masuk selalu menjadi fokus.
-
-### Caption
-Tidak ada mode caption terpisah. Teks layar diputuskan per beat (NEGATIF 6); bentuk blok (≤ 2 baris, 1-3 kata, tanda tanya) dan penempatannya ada di `teks.md`. Subtitle di pita bawah tidak dipakai.
+**Teks muncul satu per satu mengikuti VO.** Elemen boleh menumpuk menjadi komposisi asal yang baru masuk selalu jadi fokus. Tidak ada mode caption atau subtitle pita bawah terpisah; bentuk blok dan penempatan di `teks.md`.
 
 ## 2. Ukuran dan hierarki teks
-- **Satu baris = satu ukuran.** Kata yang dibesarkan pindah ke barisnya sendiri (ditumpuk), maksimal satu kata kunci per frasa, dan harus kata yang membawa makna inti. Alasan: besar-kecil-besar dalam satu baris tanpa alasan membuat baris tidak seimbang.
-- Lompatan skala antar level (sambung kecil → kunci besar) terjadi **antar baris atau antar momen**, tidak di dalam baris.
-- **Satu sistem huruf (NEGATIF 1).** Satu keluarga utama; penekanan lewat bobot, ukuran, warna, atau kapital. Huruf kedua (serif, script, tulisan tangan) sah bila ia sistem: punya peran tetap (mis. suara logo, kata penutup), frekuensi terbatas (≤ 1 per frame), dan datang dari merek atau REF-SPEC. Alasan: yang jadi tanda slop adalah satu kata "emosional" yang berganti huruf di banyak frasa tanpa peran; dua gaya yang sama kuat tanpa peran membuat mata bingung mana yang utama.
+Di `teks.md` (§Huruf, §Ukuran dan bentuk blok). Intinya untuk keputusan: maksimal satu kata kunci per frasa, dan itu kata yang membawa makna inti; lompatan skala terjadi antar baris atau antar momen, tidak di dalam baris.
 
 ## 3. Posisi teks
-- Posisi lahir dari komposisi frame itu: ruang kosong, di belakang subjek (matte), atau menempel objek yang dirujuk.
-- Gagal bila 3 frasa berturut-turut ada di pita tinggi yang sama tanpa alasan .
-- Teks tidak menutupi wajah atau objek yang sedang dibicarakan.
+Di `teks.md` §Posisi: posisi lahir dari komposisi frame (ruang kosong, di belakang subjek, menempel objek), tidak menutupi wajah atau objek yang dibicarakan.
 
 ## 4. Kotak, scrim, dan bayangan
 Kotak di belakang teks adalah **alat keterbacaan**, bukan dekorasi.
-1. Ukur kontras teks terhadap latar di area teks **selama teks tampil**. Bila ≥ 4,5 : 1 dan latarnya stabil, tanpa kotak.
-2. Bila gagal: pindahkan teks ke area tenang, ganti warna teks, atau beri bayangan lembut.
-3. Bila masih gagal (latar terlalu terang/gelap/ramai, atau berganti cut di bawah teks): baru pakai kotak atau scrim.
-4. Kotak sebagai **gaya** (label, chip) hanya bila ditetapkan di brief sebagai elemen sistem dan dipakai konsisten sepanjang video.
+1. Ukur kontras teks terhadap latar di area teks **selama teks tampil** (angka di `teks.md` §Keterbacaan). Lolos dan latarnya stabil: tanpa kotak.
+2. Gagal: pindahkan teks ke area tenang, ganti warna teks, atau beri bayangan lembut.
+3. Masih gagal (latar terlalu terang/gelap/ramai, atau cut berganti di bawah teks): baru kotak atau scrim.
+4. Kotak sebagai **gaya** (label, chip) hanya bila ditetapkan di brief sebagai elemen sistem dan dipakai konsisten.
 
-Halo atau glow di belakang teks yang menurunkan kontras (< 4,5 : 1) adalah sidik jari slop, HD atau tidak. Bayangan dan kilau pada benda sah bila satu sistem (satu arah cahaya, satu jenis per benda sejenis) dan ada di REF-SPEC atau beralasan tertulis.
+Halo atau glow di belakang teks yang menurunkan kontras adalah sidik jari slop. Bayangan dan kilau pada benda sah bila satu sistem (satu arah cahaya, satu jenis per benda sejenis) dan ada di REF-SPEC atau beralasan tertulis.
 
 ## 5. Grafik di atas footage
-Pilih satu dari dua, jangan di tengah-tengah:
-- **Menyatu dengan footage:** warna dari footage atau palet, saturasi tidak melebihi footage, ada bayangan/cahaya dan grain yang sama, ukuran proporsional dengan subjek.
-- **Dunia sendiri:** layar penuh atau panel tegas dengan latar palet. Footage boleh hilang sesaat.
+Pilih satu, jangan di tengah-tengah:
+- **Menyatu dengan footage:** warna dari footage atau palet, saturasi tidak melebihi footage, bayangan/cahaya dan grain yang sama, ukuran proporsional dengan subjek.
+- **Dunia sendiri:** layar penuh atau panel tegas dengan latar palet; footage boleh hilang sesaat.
 
-Gagal: grafik vivid mengambang di atas footage yang di-blur dan digelapkan. Itu yang terasa "tempelan".
-Satu keluarga gaya grafik per video: flat, 3D, line, atau foto. Jangan dicampur.
+Yang terasa "tempelan": grafik vivid mengambang di atas footage yang di-blur dan digelapkan. Satu keluarga gaya grafik per video (flat, 3D, line, atau foto).
 
 ## 6. Warna
-Ikuti `warna.md`: palet dipilih di brief, satu keluarga aksen dominan, netral membawa frame.
+Ikuti `warna.md`: palet dikunci sebelum desain, satu keluarga aksen dominan, netral membawa frame.
 
-## 7. Devil's advocate per beat (wajib, dicatat di tabel beat)
+## 7. Devil's advocate per beat (dicatat di tabel beat)
 1. Kalau elemen ini dihapus, apakah penonton kehilangan informasi? Kalau tidak, hapus.
-2. Squint test: blur still 10 px. Gumpalan mana yang menang? Kalau ada dua gumpalan yang sama kuat, gagal.
-3. Apakah teks dan visual mengatakan hal yang sama? Kalau ya, buang salah satu.
-4. Kotak, blur, atau efek ini menyelesaikan masalah apa? Kalau tidak bisa disebut, hapus.
+2. Squint test: blur still 10 px. Dua gumpalan sama kuat = belum ada pemenang.
+3. Teks dan visual mengatakan hal yang sama? Buang salah satu.
+4. Kotak, blur, atau efek ini menyelesaikan masalah apa? Tidak bisa disebut: hapus.
 5. Warna di beat ini ada di palet terpilih? Kalau tidak, ganti.
 
-Panduan rasa ini sengaja diberi cek supaya tidak kalah oleh aturan yang terukur (cakupan kata, safe zone).
+## 8. Memilih teknik dan keluarga visual
+- Dunia visual datang dari referensi atau brief user. Tanpa itu, `direction.md` §5 memberi satu contoh profil merek (Jadisatu, tiga keluarga), bukan peta babak ke keluarga. Pindah dunia di tengah video adalah momen cerita: transisi babak dan engsel sunyi (`audio.md` §14.4).
+- Teks: tentukan **peran** dulu, baru tekniknya; peran yang sama bergerak sama di seluruh video (`teks.md` §Gerak teks per peran).
+- Transisi: tanya dulu "benda apa dari shot A yang bisa dibawa ke shot B?". Ada: X01 (object carry). Tidak ada: transisi yang arahnya cocok dengan cerita (`kamera-gerak.md` §Transitions).
+- Tulis alasan pilihan dalam satu frasa di spec beat; pilihan tanpa alasan adalah tanda template.
+- Aturan bentrok (sesudah arahan user dan `SKILL.md`): cerita (`direction.md` §6) di atas mutu setara referensi, di atas variasi dan ritme. Teknik yang tak cocok dengan cerita diganti teknik lain yang setara mutunya, bukan eksekusi lebih kasar atau fokus kedua demi kuota variasi.
+- Dari proyek lama dibawa cara kerja (urutan gerbang, cara ukur referensi, QA, alat terbukti, catatan kesalahan), bukan isinya: palet, huruf, gaya teks, tokoh, kit SFX, gaya musik, struktur babak, storyboard hanya bila user minta. Template lama membuat karya baru terasa salinan; aturan lama yang tampak relevan diajukan sebagai opsi dengan alasannya.
+
+## 9. Siapa memutuskan dan kapan bertanya
+| Keputusan | Pemilik | Cara |
+|---|---|---|
+| Tujuan, pesan, CTA, naskah final, storyboard final | user | gerbang persetujuan; tunggu kata "final" |
+| Keluarga, gaya teks, teknik T/C/X, SFX, timing | agen | putuskan sendiri dengan alasan tertulis di spec beat |
+| Simpangan dari storyboard yang disetujui | agen, lalu dilaporkan | daftar simpangan saat kirim |
+| Generate berbayar (VO, SFX generatif, musik, gambar/video AI) | agen setelah gerbangnya terbuka | sebut perkiraan biaya sebelum generate |
+| Aturan baru di skill ini | user | usul di `steward/inbox/` (`claude/skill-steward`), lalu ya dari user |
+
+- Yang tertulis di rencana yang disetujui dianggap disetujui: kerjakan sampai selesai, nilai fase sendiri, jangan kirim versi setengah jadi.
+- Biaya: nol generate berbayar sebelum gerbangnya (VO sesudah naskah final; musik dan SFX sesudah storyboard final). Generate 1–2 variasi, bukan 4, kecuali diminta, dan per segmen supaya segmen lemah bisa diulang sendiri. Kegagalan yang dicegah: VO digenerate 3 kali (±7.300 kredit) sebelum naskah final.
+- Bertanya (cara: `SKILL.md` Sebelum mulai): setelah file proyek, brief, dan memori dicek; juga di tengah kerja bila yakin rendah, jangan menebak. Referensi belum pasti: tulis "yang aku tangkap dari referensi ini adalah…" sebelum lanjut. UI produk tak bisa diakses: minta screenshot **sebelum** storyboard. Pilihan teknis: putuskan sendiri dengan alasan. Tenggat bukan alasan melewati gerbang naskah dan storyboard.
