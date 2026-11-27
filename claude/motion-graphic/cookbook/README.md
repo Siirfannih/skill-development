@@ -44,7 +44,7 @@ Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak ko
 | Path | Isi | Kapan dibaca |
 |---|---|---|
 | `INDEX.md` | daftar pack + filter `--pack` per tipe konten (< 600 tok) | saat memilih filter `pilih_kartu.py` |
-| `00-core-invariants.md` | 7 invarian universal Kelas H lintas semua format (< 1.000 tok) | wajib sekali per sesi produksi |
+| `00-core-invariants.md` | 7 default lintas format (< 1.000 tok) | opsional |
 | `01-motion-camera-transitions/` · `02-typography-talking-head/` · `03-documentary-story-narrative/` · `04-ui-cutout-dataviz-visuals/` · `05-audio-sfx-pacing/` · `06-qc-and-verification/` | Invariant Cards ringkas (10–15 baris) per Domain Pack | per kartu, hanya 2–4 kartu hasil `pilih_kartu.py`; pack utuh tidak dimuat |
 | `CATALOG.md` · `POLA.md` · `SFX.md` | daftar lengkap 44 kartu + alias lama (dibangkitkan `tools/cookbook.py index`) | dibaca oleh CLI `pilih_kartu.py` / pencarian SFX |
 | `_vault/` | arsip utuh 97 kartu bedahan penuh (Tier 2 on-demand) | dibuka hanya sesudah racikan 2–4 kartu disetujui untuk sanding visual |
