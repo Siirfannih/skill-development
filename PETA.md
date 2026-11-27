@@ -81,7 +81,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/delivery-gate.md` | **Delivery Gate (wajib sebelum video ditunjukkan ke Irfan)** — Laporan PASS/FAIL ini dikirim bersama video. |
 | `claude/motion-graphic/references/delivery-spec.md` | **Spesifikasi pengiriman (profil V1)** — Satu master MP4 untuk semua platform. |
 | `claude/motion-graphic/references/direction.md` | **Direction — prinsip sutradara, family visual, elemen, warna** — Baca saat menentukan apa yang terjadi di setiap beat: tokoh, subjek, metafora, family visual, palet. |
-| `claude/motion-graphic/references/dunia-visual.md` | **Dunia visual: tema, terjemahan kata gaya, dan eksplorasi gaya** — Dibuka di langkah 3-5 alur SKILL.md: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. |
+| `claude/motion-graphic/references/dunia-visual.md` | **Dunia visual: tema, terjemahan kata gaya, dan arah gaya** — Dibuka di langkah 3-5 alur SKILL.md: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. |
 | `claude/motion-graphic/references/efek-3d.md` | **Effects and 3D: when, which are safe, recipes** — Standalone reference (not a mandatory gate). |
 | `claude/motion-graphic/references/grade.md` | **Color grading footage dengan ffmpeg** — Dibuka saat footage (talking head, b-roll) perlu look tertentu. |
 | `claude/motion-graphic/references/hybrid-motion-standard.md` | **Hybrid Motion Standard (default from the benchmark references; REF-SPEC wins)** — Extracted from benchmark reference videos (archive/riwayat/GrokAgent/reference-videos/). |
