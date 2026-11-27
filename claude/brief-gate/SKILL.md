@@ -1,6 +1,6 @@
 ---
 name: "brief-gate"
-description: "Mandatory gate before you send a task to a subagent, worker or another model (Codex, Gemini, Sonnet). Use when you are about to dispatch work to another agent: check the brief against my original words, run the cold-read test, check the metric, and pilot one agent first."
+description: "Gate before any dispatch of a task to another model, subagent or worker. Use when you are about to dispatch work to another agent: check the brief against my original words, run the cold-read test, check the metric, and pilot one agent first."
 ---
 
 # Brief Gate: check the brief before a subagent runs
@@ -15,8 +15,8 @@ In a long context, you work from your own summary, not from my words. That summa
 
 ## 2. When it is mandatory
 
-- Before **every** subagent call (Agent tool, Codex worker, another Opus session, Gemini, etc.).
-- Before writing a prompt or instruction file another model will read (factory brief, AGENTS.md, a prompt for Codex).
+- Before **every** dispatch to another model, subagent or worker, whatever its vendor.
+- Before writing a prompt or instruction file another model will read (factory brief, AGENTS.md, a prompt for another model).
 - Before resending a task after I give feedback. This is a weak point, because my feedback changes the goal and the old brief gets carried along.
 
 Scale to cost:
