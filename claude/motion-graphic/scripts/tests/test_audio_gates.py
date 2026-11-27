@@ -682,6 +682,18 @@ class Rules16NovTests(unittest.TestCase):
             issues = motion_lint.lint(src)
         self.assertEqual(len(issues), 3, issues)
 
+    def test_motion_lint_cli_catatan_keluar_0_ketat_1(self):
+        import sys
+        with tempfile.TemporaryDirectory() as folder:
+            src = Path(folder); (src / "A.tsx").write_text("const o = { easing: Easing.inOut(Easing.ease) };\n")
+            script = str(ROOT / "scripts/juri/motion_lint.py")
+            r = subprocess.run([sys.executable, script, str(src)], capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("CATATAN", r.stdout); self.assertIn("preset", r.stdout)
+            r = subprocess.run([sys.executable, script, str(src), "--ketat"], capture_output=True, text=True)
+            self.assertEqual(r.returncode, 1)
+            r = subprocess.run([sys.executable, script, str(src)], capture_output=True, text=True, env={**os.environ, "KETAT": "1"})
+            self.assertEqual(r.returncode, 1)
+
     def test_storyboard_beat_needs_metaphor(self):
         good = {"id": "a", "metafora": {"makna": "m", "emosi": "e", "gerak_pembawa": "kamera mundur saat lega", "aksi": "membuka", "metafora": "x",
                                         "objek": ["1", "2", "3"], "urutan": "u", "bentuk": "exploded view"}}
