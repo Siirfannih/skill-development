@@ -41,7 +41,7 @@ Perpindahan family adalah momen cerita, memakai transisi bab (§10) + engsel sen
 
    Teks memimpin hanya bila teks membawa pesan. Teks pindah posisi karena OBJEK yang dijelaskan berubah, bukan demi variasi (Holy Freak).
 5. **Teks pendek, kata kerja, bertitik.** Kalimat panjang hanya untuk tagline penutup.
-6. **Metafora literal dan spasial.**
+6. **Metafora lewat mekanisme dan ruang.** Kalimat abstrak: tunjukkan apa yang dikerjakan, bukan sekadar bendanya.
    - Jarak = jarak ruang (kamera menjauh).
    - Lupa = benda masuk tong.
    - Jangan mewakili makna dengan efek huruf, misalnya tracking melebar untuk "jauh".

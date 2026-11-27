@@ -31,8 +31,8 @@ Bukti: 98-k2, 98-k5, 02-k1, 02-k7, 31-k1, 31-k5.
 Niat: poin dan ucapan dibedakan oleh tempat → frame: wajah utuh, dua zona teks tak berebut → penonton: memilah sekali lihat (hipotesis) → gagal: strip menyentuh mata/mulut; caption di zona strip. Satu kata seruan sangat singkat boleh menutup wajah.
 Bukti: 31-k1 (judul sampai x ≈ 97 % di atas topi), 31-k3, 02-k1, 02-k4, 98-k2.
 
-**V5 · Satu benda harfiah per poin; aditif untuk detail, reset untuk topik.** Default: poin baru ditempel di halaman yang sama. Pemicu: topik berganti → reset halaman atau ganti material (kertas diremas, fotokopi).
-Niat: poin dipahami dari bendanya sebelum dibaca → frame: halaman tumbuh, jarang dikosongkan → penonton: tak membaca ulang seluruh frame (hipotesis) → gagal: kata abstrak tanpa benda yang terbaca < 0,5 dtk; ikon generik.
+**V5 · Satu benda per poin; aditif untuk detail, reset untuk topik.** Default: poin baru ditempel di halaman yang sama. Pemicu: topik berganti → reset halaman atau ganti material (kertas diremas, fotokopi).
+Niat: poin dipahami dari bendanya sebelum dibaca → frame: halaman tumbuh, jarang dikosongkan → penonton: tak membaca ulang seluruh frame (hipotesis) → gagal: benda tak terbaca < 0,5 dtk; ikon generik; benda harfiah untuk poin abstrak (tunjukkan mekanismenya).
 Bukti: 98-k2, 98-k5, 97-k1, 97-k3, 97-k5 (±87 % aditif, data vault), 95-rt2rj, 31-k5.
 
 ## 4. Kinetic typography
