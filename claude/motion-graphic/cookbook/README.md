@@ -65,7 +65,7 @@ Satu kartu = satu video referensi. Isinya:
 - **T-blok** per pola. Tiap T-blok berisi: trigger, yang terlihat, kenapa bekerja, Mekanik Remotion, SFX, pakai/jangan, Remix 2–3, dan pengamatan.
 - **Pertanyaan sanding** dan **Catatan pakai**.
 
-Memakai kartu berarti membaca kondisi footage sendiri dulu, memilih pola yang syaratnya cocok, lalu me-remix-nya. Menyalin angkanya bukan memakai kartu. Kartu dengan `dilihat_bergerak: tidak` atau `diukur: tidak` dipakai setelah video sumbernya dilihat bergerak (§Referensi baru butir 1).
+Memakai kartu berarti membaca kondisi footage sendiri dulu, memilih pola yang syaratnya cocok, lalu me-remix-nya. Menyalin angkanya bukan memakai kartu. Kartu dengan `dilihat_bergerak: tidak` atau `diukur: tidak` boleh dipakai untuk mekanik diamnya (komposisi, hierarki), dengan catatan "sumber belum dilihat bergerak"; video sumbernya tidak ikut repo.
 
 Bentuk visual yang tidak dijawab brief (tampilan Instagram, chat, dashboard, peta, tokoh) dicari di kartu dulu, tidak dikarang:
 1. Cari lewat `INDEX.md` / `pilih_kartu.py` / `POLA.md`. `grep -il <benda> 0*/*.md` hanya untuk menemukan kartunya.
