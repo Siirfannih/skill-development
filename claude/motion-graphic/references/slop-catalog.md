@@ -64,7 +64,6 @@ Used to **scan**, not to ban techniques: fingerprints are written as appearance 
 | S-V19 | Brown + black base palette looks cheap | `palette_check.py`, still | palette.md |
 | S-V20 | UI screenshot pasted as a static image instead of animated coded UI | asset list: no UI PNGs in scenes | Lantai D20 |
 | S-V21 | Indecisive gradient: radial smudge/coloured blur blob without a crisp saturated zone, or blue gradient spread to scenes with no act change | `banding.py` (luma/saturation); count gradient scenes | palette.md, Lantai F28b |
-| S-V22 | Palette invented from reference even though brand/`palettes.json` already exists | brief names palette from `palettes.json` + `palette_check.py` proof | palette.md §1 |
 | S-V23 | Objects/text in frame edge red zone (outside x 165–1755, y 140–935 @1080p) without camera reason | still per beat with safe-frame overlay | storyboard.md §3 |
 | S-V24 | Visual is only a large symbol/word instead of literal sentence action (good example: "addiction" = keep creating new repos without releasing; "not publishing" = type in Threads then save to draft) | beat table: sentence → visible action | Lantai D19 |
 | S-V25 | Model's "Apple premium" material soup: more than one shadow/light/sheen system in one video; glass/blur on every card without reason; halo behind text (contrast < 4.5 : 1); near-monotone gradient (luma range < ±35, sat p95 < 0.15). Consistent material present in REF-SPEC is allowed | `scripts/banding.py` vs REF-SPEC; `gate/permukaan_cek.py` inventory; 100% still | Lantai C14a |

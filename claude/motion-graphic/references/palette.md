@@ -5,10 +5,11 @@ Dibaca di gerbang brief (1) saat mengunci palet, dan di QA (9). Data hex ada di 
 ## Logika
 
 1. **Palet dikunci di brief, sebelum desain apa pun.** Urutan sumber:
-   - konten Jadisatu → `jadisatu-gelap` atau `jadisatu-terang` (default; font Outfit + Inter);
-   - konten lain → palet di `palettes.json` yang mood-nya cocok;
-   - footage klien/orang lain → warna diambil dari footage (satu warna dominan scene + satu aksen).
-   Setelah dikunci, model tidak memakai hex di luar palet. Alasan: tanpa palet terkunci, tiap grafik memilih warnanya sendiri dan hasilnya pelangi.
+   - referensi user (REF-SPEC) dan brief → warna diambil dari sana;
+   - profil merek bila ada (contoh: Jadisatu → `jadisatu-gelap`/`jadisatu-terang`);
+   - footage klien/orang lain → warna dari footage (satu warna dominan scene + satu aksen);
+   - tidak ada semua itu → `palettes.json` sebagai contoh yang mood-nya cocok.
+   Alasan: tanpa palet terkunci, tiap grafik memilih warnanya sendiri dan hasilnya pelangi.
 2. **Satu keluarga warna aksen yang dominan.** Keluarga terbesar ≥ 70 % piksel berwarna; maksimal 2 keluarga. Keluarga kedua hanya boleh datang dari footage, lampu, atau logo pihak ketiga. Alasan: semua referensi yang diukur punya keluarga dominan 74–100 %.
 3. **Netral membawa frame, aksen hanya menandai.** Hitam, putih, abu mengisi sebagian besar layar; aksen biasanya ≤ 15 % area. Pengecualian: aksen sebagai dunia layar penuh (kartu atau panel warna) yang memang dirancang sebagai jeda.
 4. **Turunan mengikuti aksen.** Tint dan bayangan kontak memakai hue aksen, tidak menambah warna baru. Gradasi dan glow sah bila satu keluarga hue dan beralasan (NEGATIF 2); halo yang menurunkan kontras teks tidak.
