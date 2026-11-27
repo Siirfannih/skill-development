@@ -9,7 +9,8 @@
 #                                                                        (scripts/lego/; jalur utama untuk video berfootage)
 #
 # <proyek> berisi RESEP.md dan folder remotion/ (src/index.ts). Bundle dibuat sekali dan dipakai ulang sampai src berubah.
-# Gerbang `final` (semua harus benar):
+# Gerbang `final` (temuan dicetak sebagai informasi dan render lanjut; KETAT=1 menolak bila ada yang gagal. Keluar keras hanya bila render mustahil:
+#   src, Python audio, atau folder audio tidak ada):
 #   0. audio/ORDER.json lulus audio_order.py check; bukti potongan sumber, jeda, palet SFX, dan urutan lapisan diuji ulang
 #   1. RESEP.md lulus resep_check.py
 #   2. SEMUA still di qc/stills/ lebih baru daripada perubahan terakhir di remotion/src (still paling lama yang dinilai)
@@ -35,8 +36,9 @@
 # Penjaga proses: setiap `npx remotion` jalan di grup proses sendiri dengan batas waktu (RENDER_MAKS_DTK, default 2700, untuk bundle/frames/draft;
 #   FINAL_MAKS_DTK, default 10800, untuk final: render final terlama yang tercatat 2248 dtk; STILL_MAKS_DTK, default 300; KILL_SETELAH_DTK, default 30);
 #   habis waktu = seluruh grup dimatikan, keluar 124, ledger memuat "TIMEOUT <mode> <label>". INT/TERM mematikan grup itu.
+#   Sinyal batal yang didukung: TERM (dan `tunggu.sh hentikan`); INT tidak terpasang bila render.sh dilatarbelakangkan dengan `cmd &`/`nohup`, jadi pemanggil latar memakai `setsid` + TERM. SIGKILL pada render.sh ditangani penjaga (anak mati, Chrome proyek disapu, temp dihapus).
 #   Chrome dari Remotion berjalan di grup sendiri (detached) dan dimatikan oleh Remotion saat menerima TERM; anak tidak mewarisi fd 7/8.
-#   still/draft/bundle memegang kunci proyek qc/.render.lock; frames/final juga (lebih dulu) selain kunci global; lego (ffmpeg saja) tanpa kunci, seperti sebelumnya. Chrome yatim hanya diperingatkan.
+#   still/draft/bundle memegang kunci proyek qc/.render.lock; frames/final juga (lebih dulu) selain kunci global; lego (ffmpeg saja) tanpa kunci, seperti sebelumnya. Sisa Chrome proyek ini disapu (path $R) sesudah render gagal; sisa lama diperingatkan.
 set -euo pipefail
 HERE="$(cd "$(dirname "$0")" && pwd)"
 [ $# -ge 3 ] || { sed -n '2,17p' "$0"; exit 1; }
@@ -51,12 +53,13 @@ if [ -f "$PROFILE" ]; then read -r PH PGL PK < <(python3 -c 'import json,sys;p=j
 K="${KONKURENSI:-${PK:-4}}"; GL="${GL:-${PGL:-default}}"; GLARG=""; [ "$GL" = default ] || GLARG="--gl=$GL"
 # Ledger: setiap pemanggilan menulis satu baris JSON ke qc/jobs.jsonl (antre di kunci render, lama kerja, hasil, commit),
 # supaya waktu antre, render, dan revisi bisa dipisah tanpa menebak (laporan investigasi 24 jam, 16 Nov).
-T0=$(date +%s); ANTRE=0; ARGS="$(printf '%s ' "$@" | tr -d '"\\')"; CATATAN=""; CHILD_PID=""; PROJ_LOCKED=""
+T0=$(date +%s); ANTRE=0; ARGS="$(printf '%s ' "$@" | tr -d '"\\')"; CATATAN=""; CHILD_PID=""; PROJ_LOCKED=""; JOBTMP=""
 ledger() {
   local rc=$? t1; t1=$(date +%s); mkdir -p "$QC"
   printf '{"mode":"%s","comp":"%s","arg":"%s","mulai":"%s","antre_dtk":%d,"kerja_dtk":%d,"rc":%d,"commit":"%s","host":"%s","konkurensi":%s,"gl":"%s"%s}\n' \
     "$MODE" "$COMP" "${ARGS% }" "$(date -d "@$T0" '+%F %T')" "$ANTRE" "$(( t1 - T0 - ANTRE ))" "$rc" \
     "$(git -C "$P" rev-parse --short HEAD 2>/dev/null || echo -)" "$(hostname)" "$K" "$GL" "${CATATAN:+,\"catatan\":\"$CATATAN\"}" >> "$QC/jobs.jsonl"
+  [ -z "$JOBTMP" ] || rm -rf "$JOBTMP"
 }
 trap ledger EXIT
 exec 7>&1  # stdout asli, supaya pesan TIMEOUT tidak ikut dialihkan ke log oleh pemanggil jalankan
@@ -64,24 +67,51 @@ RENDER_MAKS="${RENDER_MAKS_DTK:-2700}"; STILL_MAKS="${STILL_MAKS_DTK:-300}"; KIL
 FINAL_MAKS="${FINAL_MAKS_DTK:-10800}"
 # INT/TERM: matikan grup proses anak yang sedang jalan (TERM, 2 dtk, lalu KILL), baru keluar; trap EXIT di atas tetap menulis ledger.
 mati() { local sig="$1"; trap '' INT TERM
-  if [ -n "$CHILD_PID" ]; then kill -TERM -- "-$CHILD_PID" 2>/dev/null || true; sleep 2; kill -KILL -- "-$CHILD_PID" 2>/dev/null || true; fi
+  if [ -n "$CHILD_PID" ]; then kill -TERM -- "-$CHILD_PID" 2>/dev/null || true; sleep 2; kill -KILL -- "-$CHILD_PID" 2>/dev/null || true; sapu; fi
   exit $(( 128 + sig )); }
 trap 'mati 2' INT; trap 'mati 15' TERM
+# Proses milik render PROYEK INI saja: baris perintahnya memuat Chrome/compositor di $R/node_modules atau direktori temp job.
+# Tidak pernah pencocokan nama global, jadi Chrome proyek lain dan sesi pemilik tidak tersentuh.
+proses_proyek() { ps -eo pid=,args= 2>/dev/null | awk -v a="$R/node_modules/.remotion/" -v c="$R/node_modules/@remotion/compositor" -v b="${JOBTMP:-}" -v me="$$" \
+  '$1!=me && $2!="awk" && (index($0,a) || index($0,c) || (b!="" && index($0,b))) {print $1}' || true; }
+# Sapu: TERM, 2 dtk, lalu KILL, hanya untuk proses di atas. Dipanggil sesudah render gagal (mis. node di-SIGKILL/OOM, Chrome yatim ke PID 1).
+sapu() { local p; p=$(proses_proyek | tr '\n' ' '); [ -n "${p// /}" ] || return 0
+  kill -TERM $p 2>/dev/null || true; sleep 2; p=$(proses_proyek | tr '\n' ' '); [ -z "${p// /}" ] || kill -KILL $p 2>/dev/null || true; }
+# Penjaga: hidup selama satu anak render jalan. Bila render.sh mati keras (tanpa trap), ia mematikan grup anak bila setpriv tidak ada,
+# menunggu grup selesai (lalu KILL), menyapu Chrome proyek, dan menghapus temp job. Memegang kunci proyek (fd 8) sampai selesai.
+hidup() { kill -0 "$1" 2>/dev/null || return 1; local st; st=$(sed -n 's/^State:[[:space:]]*\(.\).*/\1/p' "/proc/$1/status" 2>/dev/null); [ "$st" != Z ]; }
+guarda() { local rpid="$1" g="$2" pd="$3" i
+  while hidup "$rpid"; do sleep 1 8>&- 9>&-; done
+  [ "$pd" != 0 ] || kill -TERM -- "-$g" 2>/dev/null || true
+  for i in $(seq 1 $(( KILL_SETELAH + 5 ))); do kill -0 -- "-$g" 2>/dev/null || break; sleep 1 8>&- 9>&-; done
+  kill -KILL -- "-$g" 2>/dev/null || true; sapu; [ -z "$JOBTMP" ] || rm -rf "$JOBTMP"; }
 # Perintah berat jalan di sesi/grup sendiri dengan batas waktu: jalankan <maks_dtk> <label> <perintah …>. Habis waktu: grup mati, keluar 124.
 jalankan() { local maks="$1" label="$2" rc=0 t; t=$(date +%s); shift 2
   # 7>&-: proses yang lolos dari grup (mis. Chrome yatim) tidak menahan stdout pemanggil. Kunci proyek (fd 8) dan global (fd 9) sengaja
   # diwarisi: selama ada proses render hidup, kunci tetap tertahan, juga bila render.sh sendiri di-SIGKILL (menunggu lebih aman daripada .bundle ganda).
-  ( cd "$R" && exec setsid timeout --kill-after="$KILL_SETELAH" "$maks" "$@" 7>&- ) &
-  CHILD_PID=$!; wait "$CHILD_PID" || rc=$?; CHILD_PID=""
+  # Bila render.sh mati keras (SIGKILL), anak ikut mati: setpriv --pdeathsig TERM bila ada; penjaga di bawah selalu ada (tanpa setpriv ia yang mematikan grup).
+  local pd=(); if command -v setpriv >/dev/null 2>&1 && setpriv --pdeathsig TERM true 2>/dev/null; then pd=(setpriv --pdeathsig TERM); fi
+  ( cd "$R" && exec setsid "${pd[@]}" timeout --kill-after="$KILL_SETELAH" "$maks" "$@" 7>&- ) &
+  CHILD_PID=$!; local jaga; guarda "$$" "$CHILD_PID" "${#pd[@]}" </dev/null >/dev/null 2>&1 7>&- & jaga=$!
+  wait "$CHILD_PID" || rc=$?; CHILD_PID=""; kill "$jaga" 2>/dev/null || true; wait "$jaga" 2>/dev/null || true
+  [ "$rc" = 0 ] || sapu
   if [ "$rc" = 124 ] || { [ "$rc" = 137 ] && [ $(( $(date +%s) - t )) -ge "$maks" ]; }; then
     CATATAN="TIMEOUT $MODE $label"; echo "$CATATAN setelah ${maks} dtk: proses dan anak-anaknya dihentikan (naikkan STILL_MAKS_DTK, RENDER_MAKS_DTK, atau FINAL_MAKS_DTK untuk final, bila memang selama itu)" >&7; exit 124
   fi
+  case "$rc" in
+    137|143) CATATAN="rc $rc $MODE $label"; echo "rc $rc: proses render dimatikan dari luar (SIGKILL/OOM = 137, TERM = 143); sisa Chrome proyek ini sudah disapu. Cek memori (dmesg | grep -i oom) sebelum mengulang." >&7 ;;
+  esac
   return "$rc"; }
 # Kunci proyek (fd 8): satu job still/draft/bundle/frames/final per proyek, supaya bundle bersama dan ledger tidak saling timpa.
 proj_lock() { [ -z "$PROJ_LOCKED" ] || return 0; mkdir -p "$QC"; exec 8>"$QC/.render.lock"
   local q0; q0=$(date +%s)
   flock -n 8 || { echo "kunci proyek: menunggu render lain di proyek ini…"; flock 8; }
-  PROJ_LOCKED=1; ANTRE=$(( ANTRE + $(date +%s) - q0 )); }
+  PROJ_LOCKED=1; ANTRE=$(( ANTRE + $(date +%s) - q0 ))
+  # Temp per job di qc/.tmp (bukan /tmp bersama): sisa job sebelumnya dihapus sekarang karena kunci bebas; job ini dihapus saat keluar.
+  rm -rf "$QC/.tmp"; JOBTMP="$QC/.tmp/job.$$"; mkdir -p "$JOBTMP"; export TMPDIR="$JOBTMP"
+  # Kunci proyek dipegang, jadi proses Chrome/compositor proyek ini yang masih hidup pasti sisa render yang mati (bukan render sah).
+  local y; y=$(proses_proyek | wc -l)
+  [ "${y:-0}" -eq 0 ] || echo "PERINGATAN: $y proses Chrome/compositor proyek ini ($R) masih hidup tanpa render yang memegang kunci. Matikan hanya yang proyek ini: ps -eo pid=,args= | awk -v a='$R/node_modules/' 'index(\$0,a) && \$2!=\"awk\" {print \$1}' | xargs -r kill"; }
 
 audio_python() {
   if [ -n "${PYTHON:-}" ]; then
@@ -98,9 +128,6 @@ audio_python() {
 }
 [ -d "$R/src" ] || { echo "GAGAL: $R/src tidak ada"; exit 1; }
 mkdir -p "$QC/stills"
-# Chrome headless yatim (induk 1) dari render yang sesinya mati: hanya diperingatkan, tidak pernah dimatikan otomatis (bisa milik proyek lain yang sah).
-YATIM=$( { ps -eo pid,ppid,cmd 2>/dev/null | awk '$2==1 && /node_modules\/.remotion\/chrome-headless-shell/' | wc -l; } ) || YATIM=0
-[ "${YATIM:-0}" -eq 0 ] || echo "PERINGATAN: $YATIM proses chrome-headless-shell yatim (induk 1) masih jalan. Bila bukan render sah proyek lain: ps -eo pid,ppid,cmd | awk '\$2==1 && /node_modules\\/.remotion\\/chrome-headless-shell/ {print \$1}' | xargs -r kill"
 newest_src() { find "$R/src" "$R/public" -type f -printf '%T@\n' 2>/dev/null | sort -n | tail -1; }
 mtime() { stat -c %Y "$1" 2>/dev/null || echo 0; }
 bundle() {
@@ -153,7 +180,7 @@ case "$MODE" in
     fi
     if [ -f "$QC/cakupan-revisi.json" ] && [ -f "$P/lego/lego.json" ]; then
       # Revisi atas versi yang disetujui: lapisan di luar cakupan ledger tidak boleh berubah (Lantai F27, revision-log §21.2).
-      python3 "$HERE/revisi_cek.py" cek "$P" || { echo "GAGAL gerbang revisi: lihat daftar lapisan di atas."; exit 1; }
+      python3 "$HERE/revisi_cek.py" cek "$P" || { echo "GAGAL gerbang revisi: lihat daftar lapisan di atas."; gagal=1; }
     fi
     AUDIO_DIR="$P/audio"
     if [ -n "${VARIAN:-}" ]; then
@@ -164,14 +191,15 @@ case "$MODE" in
       if [ "${#ord[@]}" -eq 1 ] && [ -f "${ord[0]}" ]; then AUDIO_DIR="$(dirname "${ord[0]}")"
       elif [ "${#ord[@]}" -gt 1 ]; then echo "GAGAL gerbang audio: beberapa varian terkunci (audio/order-*); pilih dengan VARIAN=<A|B>."; exit 1; fi
     fi
+    [ -d "$AUDIO_DIR" ] || { echo "GAGAL gerbang audio: folder $AUDIO_DIR tidak ada (render tidak bisa memeriksa audio)."; exit 1; }
     echo "gerbang audio: $AUDIO_DIR"
     if ! "$PYTHON_BIN" "$HERE/../gate/audio_order.py" check --dir "$AUDIO_DIR" $WARIS; then
-      echo "GAGAL gerbang audio: kunci suara dengan bukti source words + cut map, lalu visual, SFX, dan musik sebelum render final."
-      exit 1
+      echo "GAGAL gerbang audio: urutan audio belum terkunci dengan bukti source words + cut map (lihat baris di atas)."
+      gagal=1
     fi
     python3 "$HERE/resep_check.py" "$P/RESEP.md" || gagal=1
     if [ -f "$P/qc/merek" ]; then python3 "$HERE/profil_cek.py" "$(tr -d '[:space:]' < "$P/qc/merek")" || { echo "GAGAL gerbang: profil merek (BRAND.md/EDITING.md) belum lulus profil_cek.py."; gagal=1; }; fi
-    TEMA="$(ls -d "$R"/src/*/bersama/tema.ts 2>/dev/null | head -1)"; if [ -n "$TEMA" ] && grep -q "export const MEREK" "$TEMA"; then python3 "$HERE/tema_cek.py" "$(dirname "$(dirname "$TEMA")")" || { echo "GAGAL gerbang: gaya adegan di luar tema.ts (templates/sistem-desain)."; gagal=1; }; fi
+    TEMA="$(ls -d "$R"/src/*/bersama/tema.ts 2>/dev/null | head -1 || true)"; if [ -n "$TEMA" ] && grep -q "export const MEREK" "$TEMA"; then python3 "$HERE/tema_cek.py" "$(dirname "$(dirname "$TEMA")")" || { echo "GAGAL gerbang: gaya adegan di luar tema.ts (templates/sistem-desain)."; gagal=1; }; fi
     if [ -f "$P/lego/lego.json" ] && [ -f "$P/lego/lapisan.json" ]; then python3 "$HERE/kt_ocr.py" "$P/lego" --terima "$QC/kt_ocr_terima.json" --simpan "$QC/kt_ocr" || { echo "GAGAL gerbang: kata KT belum utuh/terbaca 4 f setelah onsetnya (kt_ocr.py; OCR salah baca → qc/kt_ocr_terima.json dengan frame yang dicek)."; gagal=1; }; fi
     if [ -f "$P/TAHAP.md" ]; then python3 "$HERE/tahap.py" "$P" cek final || { echo "GAGAL gerbang: langkah tahap sebelum Deliver belum selesai berbukti (TAHAP.md); jalankan tahap.py untuk langkah berikutnya."; gagal=1; }; fi
     bash "$HERE/gerbang_produksi.sh" "$P" "$AUDIO_DIR" "$PYTHON_BIN" || { echo "GAGAL gerbang produksi: komposisi episode, potong SFX, atau mix speaker HP (lihat baris di atas)."; gagal=1; }

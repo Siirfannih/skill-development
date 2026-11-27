@@ -14,24 +14,27 @@ HERE="$(cd "$(dirname "$0")" && pwd)"; OUT="$HERE/out"; PROFILE="${RENDER_PROFIL
 FR="${BENCH_FRAMES:-0-89}"; NCPU=$(nproc); K0=$(( NCPU / 2 )); [ "$K0" -ge 1 ] || K0=1
 mkdir -p "$OUT"; cd "$HERE" || exit 1
 log() { echo "[bench] $*"; }
+# Perintah remotion jalan di grup proses sendiri (setsid -w, bila ada) dengan batas waktu: habis waktu = grup mati, bukan hanya proses teratas.
+SS=(); command -v setsid >/dev/null 2>&1 && SS=(setsid -w)
+batas() { local t="$1"; shift; "${SS[@]}" timeout --kill-after=30 "$t" "$@"; }
 if [ ! -d node_modules/@remotion/cli ]; then log "npm install (sekali)…"; npm install --no-audit --no-fund >"$OUT/npm.log" 2>&1 || { tail -20 "$OUT/npm.log"; exit 1; }; fi
 exec 9>/tmp/remotion-heavy-render.lock; log "menunggu kunci render global (bila ada render lain)…"; flock 9
 log "mesin: $(hostname) · thread $NCPU · RAM $(free -g | awk '/Mem:/{print $2}') GB"
-{ lspci 2>/dev/null | grep -iE 'vga|3d|display'; echo; timeout 180 npx remotion gpu 2>&1; } > "$OUT/gpu.txt"
+{ lspci 2>/dev/null | grep -iE 'vga|3d|display'; echo; batas 180 npx remotion gpu 2>&1; } > "$OUT/gpu.txt"
 grep -iE 'vga|3d|display' "$OUT/gpu.txt" | head -3
 npx remotion bundle src/index.ts --out-dir "$OUT/bundle" >"$OUT/bundle.log" 2>&1 || { tail -20 "$OUT/bundle.log"; exit 1; }
 RES="$OUT/hasil.tsv"; : > "$RES"
 glarg() { [ "$1" = default ] && echo "" || echo "--gl=$1"; }
 waktu() {  # waktu <gl> <konkurensi> <keluaran> → detik, atau "gagal"
   local t0 t1; t0=$(date +%s.%N)
-  timeout 1800 npx remotion render "$OUT/bundle" Berat "$3" --frames="$FR" --concurrency="$2" $(glarg "$1") --log=error \
+  batas 1800 npx remotion render "$OUT/bundle" Berat "$3" --frames="$FR" --concurrency="$2" $(glarg "$1") --log=error \
     >"$OUT/render_$1_$2.log" 2>&1 || { echo gagal; return; }
   t1=$(date +%s.%N); python3 -c "print(round($t1-$t0,1))"
 }
 psnr() { ffmpeg -nostdin -i "$1" -i "$2" -lavfi psnr -f null - 2>&1 | grep -oE 'average:[0-9.inf]+' | cut -d: -f2; }
 
 for gl in default angle-egl vulkan swangle angle; do
-  timeout 300 npx remotion still "$OUT/bundle" Berat "$OUT/still_$gl.png" --frame=45 $(glarg "$gl") --log=error >"$OUT/still_$gl.log" 2>&1 \
+  batas 300 npx remotion still "$OUT/bundle" Berat "$OUT/still_$gl.png" --frame=45 $(glarg "$gl") --log=error >"$OUT/still_$gl.log" 2>&1 \
     || { log "gl=$gl: still gagal"; printf 'gl\t%s\t%s\tgagal\t-\n' "$gl" "$K0" >> "$RES"; continue; }
   p="inf"; [ "$gl" = default ] || p="$(psnr "$OUT/still_default.png" "$OUT/still_$gl.png")"
   s="$(waktu "$gl" "$K0" "$OUT/r_$gl.mp4")"

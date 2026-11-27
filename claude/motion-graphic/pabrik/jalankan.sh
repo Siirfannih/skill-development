@@ -16,7 +16,7 @@ for B in "$@"; do
   [ -n "${V:-}" ] && ARGS+=(--klip "$V" --dari "$D" --sampai "$S")
   "$PY" "$HERE/ekstrak.py" "${ARGS[@]}" || { echo "ekstrak gagal: $B"; RC=1; continue; }
   SPEC="spec/$K-${T:-T1}.json"
-  "$PY" "$HERE/sintesis.py" "$HERE/$SPEC" --nama "$N" || { echo "sintesis gagal: $B"; }
+  "$PY" "$HERE/sintesis.py" "$HERE/$SPEC" --nama "$N" || { echo "sintesis gagal: $B (butir dihentikan, uji.py tidak dijalankan)"; RC=1; continue; }
   "$PY" "$HERE/uji.py" "$N" --spec "$SPEC" || RC=1
   "$PY" "$HERE/daftar.py" "$N" || RC=1
 done

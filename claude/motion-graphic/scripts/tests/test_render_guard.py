@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """render.sh dan tools/tunggu.sh: render tidak bisa hidup lebih lama dari sesinya. Semua tes memakai `npx` palsu di PATH (tanpa render sungguhan):
-batas waktu mematikan seluruh grup proses, kunci proyek menyerialkan, INT/TERM mematikan grup, proses chrome yatim hanya diperingatkan,
-dan `tunggu.sh hentikan` mematikan grup job."""
+batas waktu mematikan seluruh grup proses, kunci proyek menyerialkan, INT/TERM/SIGKILL pada render.sh mematikan grup, sisa Chrome milik proyek
+disapu (hanya path proyek itu), temp per job dihapus, dan `tunggu.sh hentikan` mematikan grup job. Bukti dengan Chrome nyata:
+steward/changes/2026-11-27-render-yatim-lanjutan.md."""
 import json, os, shutil, signal, subprocess, tempfile, time, unittest
 from pathlib import Path
 
@@ -23,6 +24,8 @@ if [ "${FAKE_HANG:-}" = "$m" ]; then
   [ -z "${FAKE_IGNORE_TERM:-}" ] || trap '' TERM
   sleep 300
 fi
+echo "$TMPDIR" >> "$FAKE_LOG.tmp"
+[ -z "${FAKE_DIE9:-}" ] || kill -KILL $$
 sleep "${FAKE_RUN_SLEEP:-0}"; echo "$(date +%s.%N) end $m $$" >> "$FAKE_LOG"; exit 0
 """
 PS_PALSU = """#!/bin/bash
@@ -207,19 +210,124 @@ class Sinyal(Dasar):
 
 
 class ChromeYatim(Dasar):
-    def test_peringatan_tanpa_membunuh(self):
-        self.fps.write_text("  901     1 /home/x/node_modules/.remotion/chrome-headless-shell/linux64/chrome-headless-shell --a\n"
-                            "  902     1 /home/y/node_modules/.remotion/chrome-headless-shell/linux64/chrome-headless-shell --b\n"
-                            "  903  4000 /home/z/node_modules/.remotion/chrome-headless-shell/linux64/chrome-headless-shell --c\n"
-                            "  904     1 /usr/bin/lain\n")
+    def chrome(self, proj):
+        return f"{proj}/remotion/node_modules/.remotion/chrome-headless-shell/linux64/chrome-headless-shell --a"
+
+    def test_peringatan_hanya_untuk_proyek_ini_tanpa_membunuh(self):
+        self.fps.write_text(f"  901 {self.chrome(self.p)}\n  902 {self.chrome(self.p)}\n"
+                            f"  903 {self.chrome(self.d / 'lain')}\n  904 /usr/bin/lain\n")
         r = self.render("still", "Komp", "satu:1")
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
-        baris = [x for x in r.stdout.splitlines() if x.startswith("PERINGATAN") and "chrome-headless-shell" in x]
-        self.assertEqual(len(baris), 1); self.assertIn("2 proses", baris[0]); self.assertIn("xargs -r kill", baris[0])
+        baris = [x for x in r.stdout.splitlines() if x.startswith("PERINGATAN") and "proyek ini" in x]
+        self.assertEqual(len(baris), 1); self.assertIn("2 proses", baris[0]); self.assertIn("xargs -r kill", baris[0]); self.assertIn(str(self.p), baris[0])
 
-    def test_tanpa_yatim_tanpa_peringatan(self):
-        self.fps.write_text("  903  4000 /home/z/node_modules/.remotion/chrome-headless-shell/x\n")
-        r = self.render("still", "Komp", "satu:1"); self.assertNotIn("chrome-headless-shell", r.stdout)
+    def test_tanpa_sisa_proyek_tanpa_peringatan(self):
+        self.fps.write_text(f"  903 {self.chrome(self.d / 'lain')}\n")
+        r = self.render("still", "Komp", "satu:1"); self.assertNotIn("PERINGATAN", r.stdout)
+
+    def test_rc_137_diberi_label_dan_chrome_proyek_disapu_proyek_lain_tidak(self):
+        milik = subprocess.Popen(["sleep", "300"]); lain = subprocess.Popen(["sleep", "300"])
+        try:
+            self.fps.write_text(f"  {milik.pid} {self.chrome(self.p)}\n  {lain.pid} {self.chrome(self.d / 'lain')}\n")
+            r = self.render("still", "Komp", "satu:1", env={"FAKE_DIE9": "1"}, timeout=90)
+            self.assertIn("rc 137", r.stdout); self.assertIn("GAGAL still satu", r.stdout)
+            self.assertIn("rc 137", self.ledger()[-1].get("catatan", ""))
+            self.assertTrue(tunggu_mati(milik.pid, 5), "Chrome proyek ini tidak disapu"); self.assertIsNone(lain.poll())
+        finally:
+            for x in (milik, lain):
+                x.kill(); x.wait()
+
+
+class TempJob(Dasar):
+    def test_tmpdir_per_job_di_qc_dan_dihapus(self):
+        basi = self.p / "qc/.tmp/job.1"; basi.mkdir(parents=True); (basi / "sisa").write_text("x")
+        r = self.render("still", "Komp", "satu:1"); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        tmp = Path(str(self.log) + ".tmp").read_text().splitlines()
+        self.assertTrue(tmp and all(t.startswith(str(self.p / "qc/.tmp/job.")) for t in tmp), tmp)
+        self.assertFalse(basi.exists(), "sisa job lama tidak dihapus di awal"); self.assertEqual(list((self.p / "qc/.tmp").iterdir()), [])
+
+
+class RenderShDibunuhKeras(Dasar):
+    def test_sigkill_render_sh_anak_mati_kunci_lepas_temp_hilang(self):
+        env = {**self.env, "FAKE_HANG": "still"}
+        pr = subprocess.Popen(["bash", str(RENDER), str(self.p), "still", "K", "a:1"], env=env, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, start_new_session=True)
+        self.assertTrue(tunggu_berkas(self.anak)); anak = int(self.anak.read_text()); time.sleep(0.5)
+        self.assertTrue(hidup(anak)); pr.kill(); pr.communicate(timeout=10)
+        self.assertTrue(tunggu_mati(anak, 15), "anak render hidup sesudah render.sh di-SIGKILL")
+        self.assertTrue(tunggu(lambda: subprocess.run(["flock", "-n", str(self.p / "qc/.render.lock"), "true"]).returncode == 0, 15), "kunci tidak lepas")
+        self.assertTrue(tunggu(lambda: not list((self.p / "qc/.tmp").iterdir()), 15), "temp job tidak dihapus")
+
+
+class GerbangFinalInformasi(Dasar):
+    def final(self, ketat):
+        (self.p / "audio").mkdir(); (self.p / "audio/ORDER.json").write_text("{}")
+        env = {"PYTHON": os.sys.executable, "FINAL_MAKS_DTK": "30", **({"KETAT": "1"} if ketat else {})}
+        return self.render("final", "Komp", str(self.p / "out.mp4"), env=env, timeout=120)
+
+    def test_audio_order_gagal_hanya_informasi_tanpa_ketat(self):
+        if subprocess.run(["flock", "-n", GLOBAL_LOCK, "true"]).returncode != 0:
+            self.skipTest("kunci render global sedang dipegang proses lain")
+        r = self.final(False); out = r.stdout + r.stderr
+        self.assertIn("GAGAL gerbang audio", out); self.assertIn("informasi, bukan putusan", out); self.assertEqual(r.returncode, 0, out)
+        self.assertIn("final ", out)
+
+    def test_ketat_menolak(self):
+        r = self.final(True); out = r.stdout + r.stderr
+        self.assertEqual(r.returncode, 1, out); self.assertIn("Render penuh ditolak (KETAT=1)", out)
+
+    def test_folder_audio_tidak_ada_tetap_keluar_keras(self):
+        r = self.render("final", "Komp", str(self.p / "out.mp4"), env={"PYTHON": os.sys.executable})
+        self.assertEqual(r.returncode, 1); self.assertIn("gerbang audio", r.stdout + r.stderr)
+
+
+class Perkakas(unittest.TestCase):
+    """tools/sync.sh dan tools/doctor.sh diuji di folder sementara: HOME, CLAUDE_CONFIG_DIR, CODEX_CONFIG_DIR, ENTRY_DIR menunjuk ke temp (tidak menyentuh akun asli)."""
+    def setUp(self):
+        self.t = tempfile.TemporaryDirectory(); self.d = Path(self.t.name)
+        self.repo = self.d / "repo"; (self.repo / "tools").mkdir(parents=True)
+        shutil.copy(REPO / "tools/sync.sh", self.repo / "tools/sync.sh")
+        for n in ("a", "b"): (self.repo / "claude" / n).mkdir(parents=True); (self.repo / "claude" / n / "SKILL.md").write_text("x")
+        (self.repo / "archive/lama").mkdir(parents=True)
+        subprocess.run(["git", "init", "-q", str(self.repo)], check=True)
+        self.env = dict(os.environ, HOME=str(self.d / "home"), CLAUDE_CONFIG_DIR=str(self.d / "cfg"), CODEX_CONFIG_DIR=str(self.d / "codex"), ENTRY_DIR=str(self.d / "tidak-ada"))
+        self.env.pop("CODEX", None); (self.d / "home").mkdir()
+
+    def tearDown(self):
+        self.t.cleanup()
+
+    def sync(self, *a, env=None):
+        return subprocess.run(["bash", str(self.repo / "tools/sync.sh"), *a], capture_output=True, text=True, env={**self.env, **(env or {})}, timeout=60)
+
+    def test_sync_codex_tidak_bawaan(self):
+        r = self.sync(); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertTrue((self.d / "cfg/skills/a").is_symlink()); self.assertFalse((self.d / "codex").exists()); self.assertNotIn("Codex", r.stdout)
+
+    def test_sync_codex_dengan_flag_atau_env(self):
+        r = self.sync("--codex"); self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertTrue((self.d / "codex/skills/a").is_symlink())
+        shutil.rmtree(self.d / "codex")
+        r = self.sync(env={"CODEX": "1"}); self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertTrue((self.d / "codex/skills/b").is_symlink())
+
+    def test_sync_kepala_tanpa_triple_quote_agar_peta_membacanya(self):
+        t = (REPO / "tools/sync.sh").read_text(); self.assertNotIn('"""', t)
+        self.assertTrue(t.splitlines()[1].startswith("# Pasang skill aktif"))
+
+    def doctor(self, *a, path=None):
+        env = {**self.env, "SD_ALAT": str(self.d / "alat.md"), "XDG_CONFIG_HOME": str(self.d / "xdg")}
+        if path is not None: env["PATH"] = path
+        return subprocess.run(["bash", str(REPO / "tools/doctor.sh"), *a], capture_output=True, text=True, env=env, timeout=120)
+
+    def test_doctor_kurang_dengan_path_minimal_dan_offline_diam(self):
+        kecil = self.d / "kecil"; kecil.mkdir()
+        for n in ("bash", "dirname", "basename", "ls", "wc", "tr", "date", "hostname", "mkdir", "git", "timeout", "readlink", "cat", "sed", "seq"):
+            w = shutil.which(n)
+            if w: (kecil / n).symlink_to(w)
+        r = self.doctor("--offline", path=str(kecil)); out = r.stdout + r.stderr
+        self.assertEqual(r.returncode, 1, out); self.assertIn("KURANG render frame", out); self.assertIn("KURANG pemecah video", out)
+        self.assertNotIn("fetch", out); self.assertNotIn("/home/irfan", out.replace(str(REPO), ""))
+        self.assertTrue((self.d / "alat.md").exists())
+
+    def test_doctor_fetch_gagal_tidak_jadi_temuan(self):
+        r = self.doctor(); self.assertNotIn("tidak bisa fetch", r.stdout)
 
 
 class Tunggu(unittest.TestCase):
@@ -245,6 +353,22 @@ class Tunggu(unittest.TestCase):
         self.assertTrue(tunggu_mati(anak), "anak job masih hidup")
         self.assertIn("j1 dihentikan", self.sh("status", "j1").stdout)
         self.assertTrue((self.d / "jobs/j1/rc").exists())
+
+    def test_hentikan_memberi_waktu_job_membersihkan_sebelum_kill(self):
+        tanda = self.d / "bersih.txt"
+        self.sh("jalan", "j4", "--", "bash", "-c", f"trap 'sleep 4; echo ok > {tanda}; exit 143' TERM; sleep 300 & echo $! > {self.anak}; wait")
+        self.assertTrue(tunggu_berkas(self.anak)); self.assertTrue(tunggu_berkas(self.d / "jobs/j4/pgid"))
+        r = self.sh("hentikan", "j4"); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertTrue(tanda.exists(), "job di-KILL sebelum selesai membersihkan")
+
+    def test_jalan_tidak_menghapus_folder_job_yang_grupnya_masih_hidup(self):
+        self.sh("jalan", "j5", "--", "bash", "-c", f"sleep 300 & echo $! > {self.anak}; sleep 300")
+        self.assertTrue(tunggu_berkas(self.anak)); self.assertTrue(tunggu_berkas(self.d / "jobs/j5/pgid"))
+        os.kill(int((self.d / "jobs/j5/pid").read_text()), signal.SIGKILL)  # penyelia mati, grup job masih hidup
+        self.assertTrue(tunggu_mati(int((self.d / "jobs/j5/pid").read_text())))
+        r = self.sh("jalan", "j5", "--", "true"); self.assertEqual(r.returncode, 1, r.stdout + r.stderr)
+        self.assertIn("masih hidup", r.stdout); self.assertTrue((self.d / "jobs/j5/pgid").exists()); self.assertTrue(hidup(int(self.anak.read_text())))
+        self.sh("hentikan", "j5")
 
     def test_hentikan_job_tak_dikenal(self):
         self.assertNotEqual(self.sh("hentikan", "tidak-ada").returncode, 0)

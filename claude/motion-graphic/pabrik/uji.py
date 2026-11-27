@@ -143,7 +143,7 @@ def render(nama, comp, dari, sampai, scale, keluar, props=None):
            "--jpeg-quality=90", f"--scale={scale}", f"--frames={dari}-{sampai}", "--config=remotion.config.ts", "--concurrency=2", "--log=verbose"]
     if props: cmd.append("--props=" + json.dumps(props))
     with lib.KunciRender():
-        r = subprocess.run(cmd, capture_output=True, text=True, cwd=str(lib.PABRIK), env=lib.env_node(), timeout=900)
+        r = lib.jalankan_grup(cmd, 900, lib.PABRIK / "out" / "tmp", cwd=str(lib.PABRIK), env=lib.env_node())
     fr = sorted(keluar.glob("element-*.jp*g"), key=_nomor)
     if r.returncode != 0 or not fr:
         raise RuntimeError(f"render {comp} gagal: {(r.stderr or r.stdout)[-800:]}")
