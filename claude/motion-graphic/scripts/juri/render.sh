@@ -57,6 +57,7 @@ ledger() {
   printf '{"mode":"%s","comp":"%s","arg":"%s","mulai":"%s","antre_dtk":%d,"kerja_dtk":%d,"rc":%d,"commit":"%s","host":"%s","konkurensi":%s,"gl":"%s"%s}\n' \
     "$MODE" "$COMP" "${ARGS% }" "$(date -d "@$T0" '+%F %T')" "$ANTRE" "$(( t1 - T0 - ANTRE ))" "$rc" \
     "$(git -C "$P" rev-parse --short HEAD 2>/dev/null || echo -)" "$(hostname)" "$K" "$GL" "${CATATAN:+,\"catatan\":\"$CATATAN\"}" >> "$QC/jobs.jsonl"
+  [ -z "$JOBTMP" ] || rm -rf "$JOBTMP"
 }
 trap ledger EXIT
 exec 7>&1  # stdout asli, supaya pesan TIMEOUT tidak ikut dialihkan ke log oleh pemanggil jalankan
@@ -75,13 +76,13 @@ proses_proyek() { ps -eo pid=,args= 2>/dev/null | awk -v a="$R/node_modules/.rem
 sapu() { local p; p=$(proses_proyek | tr '\n' ' '); [ -n "${p// /}" ] || return 0
   kill -TERM $p 2>/dev/null || true; sleep 2; p=$(proses_proyek | tr '\n' ' '); [ -z "${p// /}" ] || kill -KILL $p 2>/dev/null || true; }
 # Penjaga: hidup selama satu anak render jalan. Bila render.sh mati keras (tanpa trap), ia mematikan grup anak bila setpriv tidak ada,
-# menunggu grup selesai (lalu KILL), dan menyapu Chrome proyek. Memegang kunci proyek (fd 8) sampai selesai.
+# menunggu grup selesai (lalu KILL), menyapu Chrome proyek, dan menghapus temp job. Memegang kunci proyek (fd 8) sampai selesai.
 hidup() { local st; st=$(ps -o stat= -p "$1" 2>/dev/null) || return 1; [ -n "$st" ] && [ "${st#Z}" = "$st" ]; }
 guarda() { local rpid="$1" g="$2" pd="$3" i
   while hidup "$rpid"; do sleep 1; done
   [ "$pd" != 0 ] || kill -TERM -- "-$g" 2>/dev/null || true
   for i in $(seq 1 $(( KILL_SETELAH + 5 ))); do kill -0 -- "-$g" 2>/dev/null || break; sleep 1; done
-  kill -KILL -- "-$g" 2>/dev/null || true; sapu; }
+  kill -KILL -- "-$g" 2>/dev/null || true; sapu; [ -z "$JOBTMP" ] || rm -rf "$JOBTMP"; }
 # Perintah berat jalan di sesi/grup sendiri dengan batas waktu: jalankan <maks_dtk> <label> <perintah …>. Habis waktu: grup mati, keluar 124.
 jalankan() { local maks="$1" label="$2" rc=0 t; t=$(date +%s); shift 2
   # 7>&-: proses yang lolos dari grup (mis. Chrome yatim) tidak menahan stdout pemanggil. Kunci proyek (fd 8) dan global (fd 9) sengaja
@@ -104,6 +105,8 @@ proj_lock() { [ -z "$PROJ_LOCKED" ] || return 0; mkdir -p "$QC"; exec 8>"$QC/.re
   local q0; q0=$(date +%s)
   flock -n 8 || { echo "kunci proyek: menunggu render lain di proyek ini…"; flock 8; }
   PROJ_LOCKED=1; ANTRE=$(( ANTRE + $(date +%s) - q0 ))
+  # Temp per job di qc/.tmp (bukan /tmp bersama): sisa job sebelumnya dihapus sekarang karena kunci bebas; job ini dihapus saat keluar.
+  rm -rf "$QC/.tmp"; JOBTMP="$QC/.tmp/job.$$"; mkdir -p "$JOBTMP"; export TMPDIR="$JOBTMP"
   # Kunci proyek dipegang, jadi proses Chrome/compositor proyek ini yang masih hidup pasti sisa render yang mati (bukan render sah).
   local y; y=$(proses_proyek | wc -l)
   [ "${y:-0}" -eq 0 ] || echo "PERINGATAN: $y proses Chrome/compositor proyek ini ($R) masih hidup tanpa render yang memegang kunci. Matikan hanya yang proyek ini: ps -eo pid=,args= | awk -v a='$R/node_modules/' 'index(\$0,a) && \$2!=\"awk\" {print \$1}' | xargs -r kill"; }
