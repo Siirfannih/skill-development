@@ -15,7 +15,7 @@ Ini daftar pindai, bukan larangan teknik. Satu tanda dengan alasan tertulis bole
 | Objek, teks, atau gerak tanpa bunyi | layar terasa mati | `gate/sfx_density.py` | Objek atau gerak penting tanpa bunyi → beri bunyi dari pilarnya (`../sfx/`) |
 | Grafik vivid melayang di footage blur | tempelan | still | menyatu atau dunia sendiri |
 
-Daftar lengkap riwayat penolakan Irfan: `../../references/slop-catalog.md`.
+Daftar lengkap riwayat penolakan Irfan: `../../references/pola-salah.md`.
 
 ## Cara memutuskan
 - **[QC-01] Gerbang mengukur kegagalan seperti dialami penonton** · kelas P · cek: sebelum menyatakan lulus/selesai

@@ -51,7 +51,7 @@ FAIL bila teknik ini ada tanpa alasan satu baris di tabel beat:
 - Palet lulus `scripts/palette_check.py` — Lantai C18a
 - Transisi tanpa crossfade, mekaniknya dari logika ruang — Lantai B13
 - Satu baris satu ukuran; serif tidak sejajar bold — Lantai A6
-- Pindai `slop-catalog.md`: tiap tanda yang muncul punya alasan tertulis atau sudah dibuang
+- Pindai `pola-salah.md`: tiap tanda yang muncul punya alasan tertulis atau sudah dibuang
 
 ## 4. Devil's advocate audio (wajib, ditulis di laporan sebelum render penuh)
 
