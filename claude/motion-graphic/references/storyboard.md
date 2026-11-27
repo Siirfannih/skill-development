@@ -1,6 +1,6 @@
 # Storyboard visual: dari script atau daftar potongan ke papan panel
 
-Baca di tahap Storyboard/block out. Storyboard adalah gerbang review termurah: satu panel diperbaiki dalam menit, satu render dalam jam. Metodenya diturunkan dari cara kerja Wonder (skill `new-design`, `new-design-arrange`, `design-review`).
+Baca di tahap Storyboard/block out. Storyboard adalah gerbang review termurah: satu panel diperbaiki dalam menit, satu render dalam jam.
 
 ## Isi
 
@@ -35,7 +35,7 @@ Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkun
 3. **Beat dari VO kata per kata.** Satu beat = satu pesan; urutan panel dicocokkan dengan VO sebelum menggambar.
 3a. **Mode teks dan isi objek per beat, sebelum menggambar.** Di tabel storyboard (`beats.json`: `mode`, `mode_alasan`, `isi_objek`): `mode` = TEKS | VISUAL | MENYATU dengan alasan satu baris (NEGATIF 6, `teks.md`; dengan referensi ikuti REF-SPEC §2a porsi teks). `isi_objek` = tiap objek dengan isi sebenarnya (label, angka, kalimat, nama kolom; contoh "kartu: Tagihan Mei · Rp 2.400.000 · Jatuh tempo 3 Jun"). Objek yang isinya tak bisa ditulis dibuang, atau beat menjadi TYPO_HERO. "Kartu perangkat lunak" dengan balok abu bukan isi. Tiap frame lalu lulus uji hapus dan uji clip-art (`BEDAH-REFERENSI.md` §Penutup, 5 uji biner) sebelum lanjut. Satu fokus raksasa per beat (NEGATIF 5): tulis objek mana yang raksasa.
 4. **Kerangka dulu.** `board.py --skeleton` membuat satu panel kosong berlabel per beat; isi satu per satu; kerangka tidak boleh tersisa.
-5. **Gambar panel** (§3), render, lihat hasilnya, perbaiki. Jangan menilai dari kode.
+5. **Gambar panel per putaran** (§3; satu babak atau ±6 panel, `dunia-visual.md` §7), render, lihat, perbaiki. Jangan menilai dari kode.
 6. **Gerak yang tidak terbaca dari satu frame dipecah jadi 2–4 frame** (`<id>-1.html`, `<id>-2.html`) supaya editor motion paham.
 7. **Review papan sekali** (§5), perbaiki temuan, jalankan `board.py` sampai PASS.
 8. **Serah terima** (§8).
@@ -44,7 +44,7 @@ Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkun
 
 Satu panel = frame + caption, seperti artboard Wonder.
 
-- **Frame** berukuran format master (16:9 1920×1080, atau orientasi footage). Isinya **visual yang benar-benar terbaca**: UI asli produk/aplikasi, teks layar final, posisi objek dalam px, empat lapisan susunan di jarak berbeda (kedalaman dari skala dan overlap dulu; bayangan/blur sah sebagai bagian sistem, NEGATIF 2): `L1` latar (paling jauh), `L2` footage/dunia (pembicara, video, grid), `L3` teks, `L4` objek visual (paling dekat). Kamera bergerak melewati lapisan itu (dolly menembus teks/objek, parallax lapis), jadi gambar tidak tipis satu lapis; tiap beat menulis isi L1–L4 + jalur kamera di tabel storyboard sejak awal. Bukan sketsa kotak. Teks berada di dalam safe frame (16:9 1080p: x 165–1755, y 140–935; tepi luar = red zone); objek bleed ikut REF-SPEC §3 (macro terpotong tepi sah), dan keluar frame karena dolly/zoom kamera sah; untuk talking head, teks ditaruh di ruang kosong samping kepala.
+- **Frame** berukuran format master (16:9 1920×1080, atau orientasi footage). Isinya **visual yang benar-benar terbaca**: UI asli produk/aplikasi, teks layar final, posisi objek dalam px, empat lapisan susunan di jarak berbeda (kedalaman dari skala dan overlap, lalu cahaya/bayangan sebagai satu sistem: `bahan.md`): `L1` latar (paling jauh), `L2` footage/dunia (pembicara, video, grid), `L3` teks, `L4` objek visual (paling dekat). Kamera bergerak melewati lapisan itu (dolly menembus teks/objek, parallax lapis), jadi gambar tidak tipis satu lapis; tiap beat menulis isi L1–L4 + jalur kamera di tabel storyboard sejak awal. Bukan sketsa kotak. Teks berada di dalam safe frame (16:9 1080p: x 165–1755, y 140–935; tepi luar = red zone); objek bleed ikut REF-SPEC §3 (macro terpotong tepi sah), dan keluar frame karena dolly/zoom kamera sah; untuk talking head, teks ditaruh di ruang kosong samping kepala.
 - **Caption**: id beat, babak, waktu, kalimat VO, aksi (apa yang bergerak), kamera, transisi keluar, SFX per event (`peran` + `alasan`), dan musik per babak di judul baris.
 - **Papan**: satu baris per babak, beat dari kiri ke kanan; versi lama pindah ke area arsip, bukan dihapus.
 - Kode G, T, C, X diambil dari `typography.md` dan `camera-transition.md`; jangan menciptakan kode baru di storyboard.

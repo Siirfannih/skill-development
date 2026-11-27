@@ -1,0 +1,28 @@
+<!doctype html><!-- Material demo: paper surface + printed ink. Values from 26-k2-kartu-judul, 85-k6-kata-hero-kertas-krem.
+Mechanism: warm off-white base (not grey), low-frequency fibre mottling + fine grain, ink that sits IN the paper
+(multiply blend, slight edge roughness), and a halftone shadow instead of a soft blur shadow. -->
+<html><head><meta charset="utf-8"><style>
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden}
+.f{position:relative;width:1920px;height:1080px;background:#efe6cf;font-family:"Clash Display",sans-serif;overflow:hidden}
+.mottle,.grain{position:absolute;inset:0}
+.mottle{opacity:.55;mix-blend-mode:multiply}
+.grain{opacity:.35;mix-blend-mode:multiply}
+.word{position:absolute;left:330px;top:230px;font-weight:700;font-size:330px;line-height:.86;letter-spacing:-8px;color:#b3233a;
+ mix-blend-mode:multiply;filter:url(#rough);transform:rotate(-6deg)}
+/* cast shadow = a soft blob (light from top-left) printed through a halftone screen, not a blurred copy of the word */
+.shadow{position:absolute;left:520px;top:300px;width:1100px;height:700px;
+ background:radial-gradient(40% 38% at 42% 52%, #2b2118 0%, #2b2118bb 40%, transparent 100%),
+   radial-gradient(20% 45% at 78% 30%, #2b2118aa 0%, transparent 80%);
+ -webkit-mask:radial-gradient(circle, #000 2.6px, transparent 3.6px) 0 0/8px 8px;mask:radial-gradient(circle, #000 2.6px, transparent 3.6px) 0 0/8px 8px;
+ opacity:.75;transform:rotate(-8deg)}
+.cap{position:absolute;right:240px;bottom:150px;font:500 34px "General Sans";color:#3a2f22;letter-spacing:.5px;mix-blend-mode:multiply}
+.rule{position:absolute;left:240px;right:240px;bottom:210px;border-top:3px dotted #3a2f2299}
+</style></head><body><div class="f">
+<svg width="0" height="0" style="position:absolute"><filter id="rough"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="5"/></filter></svg>
+<svg class="mottle" viewBox="0 0 1920 1080" preserveAspectRatio="none"><filter id="m"><feTurbulence type="fractalNoise" baseFrequency=".004 .006" numOctaves="4" seed="11"/><feColorMatrix values="0 0 0 0 .78  0 0 0 0 .70  0 0 0 0 .55  0 0 0 .9 -.2"/></filter><rect width="1920" height="1080" filter="url(#m)"/></svg>
+<svg class="grain" viewBox="0 0 1920 1080"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="2" seed="5"/><feColorMatrix values="0 0 0 0 .4  0 0 0 0 .34  0 0 0 0 .25  0 0 0 -1.2 1"/></filter><rect width="1920" height="1080" filter="url(#g)"/></svg>
+<div class="shadow"></div>
+<div class="word">DRAFT<br>NINE</div>
+<div class="rule"></div>
+<div class="cap">the version nobody saw</div>
+</div></body></html>

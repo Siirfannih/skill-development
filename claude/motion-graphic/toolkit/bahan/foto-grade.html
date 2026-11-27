@@ -1,0 +1,17 @@
+<!doctype html><!-- Attempt: graded photographic sky drawn in code, with large type over it. Reference 77-k7-angka-besar, 70-k2-kartu-judul.
+Kept only as evidence of the limit: see bahan.md "needs a ready asset". -->
+<html><head><meta charset="utf-8"><style>
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden}
+.f{position:relative;width:1920px;height:1080px;overflow:hidden;font-family:"General Sans",sans-serif;
+ background:linear-gradient(180deg in oklab,#3b4f88 0%,#9b6f93 40%,#e08f70 56%,#6f5f8a 64%,#2d3768 100%)}
+.sun{position:absolute;left:880px;top:470px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,#ffe7b0 0%,#ffb36b 45%,transparent 72%);filter:blur(4px)}
+.clouds{position:absolute;inset:0;mix-blend-mode:multiply;opacity:.9}
+.tint{position:absolute;inset:0;background:linear-gradient(180deg,#1b244a55,transparent 40%,#1b244a66);mix-blend-mode:multiply}
+h1{position:absolute;left:0;right:0;top:330px;margin:0;text-align:center;color:#f6f2ff;font-weight:600;font-size:300px;letter-spacing:-12px;opacity:.94}
+h2{position:absolute;left:0;right:0;top:640px;margin:0;text-align:center;color:#f1ecff;font-weight:500;font-size:120px;letter-spacing:-3px;opacity:.9}
+</style></head><body><div class="f">
+<div class="sun"></div>
+<svg class="clouds" viewBox="0 0 1920 1080" preserveAspectRatio="none"><filter id="c" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".0016 .009" numOctaves="5" seed="21"/><feColorMatrix values="0 0 0 0 .25  0 0 0 0 .22  0 0 0 0 .38  0 0 0 2.4 -1.25"/></filter><rect y="380" width="1920" height="360" filter="url(#c)"/></svg>
+<div class="tint"></div>
+<h1>83%</h1><h2>of the day, gone</h2>
+</div></body></html>

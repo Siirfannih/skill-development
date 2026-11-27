@@ -1,0 +1,20 @@
+<!doctype html><!-- Material demo: committed gradient. Values measured from keyframes 36-k7-konfirmasi-gradien, 42-k2-panel-gradien.
+Not a style to copy: take the mechanism (two hues that own the frame, oklab interpolation, light from one corner, 2-3 % grain against banding). -->
+<html><head><meta charset="utf-8"><style>
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden}
+.f{position:relative;width:1920px;height:1080px;
+ /* two committed hues own the frame; oklab keeps the middle saturated instead of muddy */
+ background:
+  radial-gradient(120% 90% at 92% 0%, oklch(0.62 0.23 350 / .95), transparent 62%),
+  linear-gradient(200deg in oklab, oklch(0.64 0.22 5) 0%, oklch(0.74 0.17 55) 100%);
+ font-family:"General Sans",sans-serif;color:#fff}
+.f::after{content:"";position:absolute;inset:0;opacity:.05;mix-blend-mode:overlay;
+ background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' seed='4'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
+.ic{position:absolute;left:50%;top:300px;width:210px;height:210px;margin-left:-105px}
+h1{position:absolute;left:0;right:0;top:560px;margin:0;text-align:center;font-weight:600;font-size:118px;letter-spacing:-3px;
+ text-shadow:0 2px 0 oklch(0.5 0.2 20 / .25)}
+h1 span{font-weight:500;opacity:.92}
+</style></head><body><div class="f">
+<svg class="ic" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="#fff" stroke-width="9" stroke-dasharray="210 52" transform="rotate(-50 50 50)" stroke-linecap="round"/><path d="M33 51 L46 63 L72 34" fill="none" stroke="#fff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<h1>Booked for <span>Tuesday.</span></h1>
+</div></body></html>

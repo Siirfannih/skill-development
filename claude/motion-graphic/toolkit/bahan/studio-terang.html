@@ -1,0 +1,20 @@
+<!doctype html><!-- Material demo: bright studio sweep + one shadow system. Values from 39-k5-kartu-foto, 39-k8-cta-folder.
+Mechanism: off-white that is NOT flat (key light top-centre, 8-12 % falloff to the edges = the vignette has a cause),
+every object gets the SAME two shadows from the same light: a tight contact shadow + a wide soft one offset down. -->
+<html><head><meta charset="utf-8"><style>
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden}
+.f{position:relative;width:1920px;height:1080px;font-family:"General Sans",sans-serif;color:#1d1d1f;
+ background:radial-gradient(75% 85% at 50% 32%, #fbfbfb 0%, #ededee 55%, #d6d6d8 100%)}
+.card{position:absolute;left:760px;top:290px;width:640px;height:470px;background:#fff;border-radius:6px;transform:rotate(-2.2deg);
+ /* one light from top: contact (tight, dark) + soft (wide, faint, pushed down) */
+ box-shadow:0 2px 3px rgba(0,0,0,.22),0 26px 50px -12px rgba(0,0,0,.28),0 60px 90px -30px rgba(0,0,0,.18)}
+.ph{position:absolute;inset:22px 22px 22px 22px;border-radius:2px;overflow:hidden;
+ background:linear-gradient(180deg,#9cc2e6 0%,#d9e7f1 52%,#7d8f5a 52%,#59683f 100%)}
+.ph::before{content:"";position:absolute;left:70px;top:120px;width:150px;height:110px;background:#47552f;border-radius:50% 50% 0 0}
+.ph::after{content:"";position:absolute;right:90px;top:70px;width:80px;height:80px;border-radius:50%;background:#fff6d8;box-shadow:0 0 0 14px #fff6d855}
+.ph b{position:absolute;left:0;right:0;bottom:16px;text-align:center;font:600 30px "General Sans";color:#fff;letter-spacing:.5px}
+h2{position:absolute;left:300px;top:488px;margin:0;font-weight:600;font-size:74px;letter-spacing:-2px}
+</style></head><body><div class="f">
+<h2>day one</h2>
+<div class="card"><div class="ph"><b>12 JUNE · FIRST OFFICE</b></div></div>
+</div></body></html>

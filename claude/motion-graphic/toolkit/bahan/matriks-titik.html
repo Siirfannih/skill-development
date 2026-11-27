@@ -1,0 +1,21 @@
+<!doctype html><!-- Material demo: LED dot matrix over colour zones. Values from 08-k4-pivot-hitam-dot, 65-k3-teks-dotmatrix.
+Mechanism: black field; colour lives in 2 soft zones UNDER a dot mask (round dots ~9 px on a 22 px pitch), so the frame reads as a
+screen, not as a glow. Type sits flat and white on top; the dots never pass under the letters' counters at full strength (centre dimmed). -->
+<html><head><meta charset="utf-8"><style>
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:#000}
+.f{position:relative;width:1920px;height:1080px;font-family:"General Sans",sans-serif;color:#fff}
+.zones{position:absolute;inset:0;
+ background:
+  radial-gradient(45% 60% at 85% 5%, oklch(0.62 0.23 20), transparent 75%),
+  radial-gradient(55% 55% at 62% 108%, oklch(0.62 0.27 325), transparent 75%),
+  radial-gradient(35% 60% at 4% 30%, #e8e4e0, transparent 75%),
+  radial-gradient(70% 50% at 45% 40%, oklch(0.62 0.08 60 / .8), transparent 80%),
+  #262022;
+ -webkit-mask:radial-gradient(circle, #000 5.5px, transparent 6.6px) 0 0/24px 24px;mask:radial-gradient(circle, #000 5.5px, transparent 6.6px) 0 0/24px 24px}
+.dim{position:absolute;inset:0;background:radial-gradient(34% 24% at 50% 50%, #000b, transparent 100%)}
+h1{position:absolute;left:0;right:0;top:470px;margin:0;text-align:center;font-weight:500;font-size:110px;letter-spacing:-3px}
+h1 b{font-weight:700}
+</style></head><body><div class="f">
+<div class="zones"></div><div class="dim"></div>
+<h1><b>Now,</b> imagine this</h1>
+</div></body></html>

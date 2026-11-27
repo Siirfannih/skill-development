@@ -1,0 +1,25 @@
+<!doctype html><!-- Material demo: macro crop, bleed and lens depth. Values from 50-k3-kalender-lingkar, 20-k2-kalender-tahun.
+Mechanism: the camera is so close that the object leaves the frame on 3-4 sides; the plane is tilted (rotateX/rotateZ) so focus
+falls off along it: sharp band through the subject, blur 3-8 px toward the far edge. Paper white with a light fold shadow. -->
+<html><head><meta charset="utf-8"><style>
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden}
+.f{position:relative;width:1920px;height:1080px;overflow:hidden;perspective:1400px;
+ background:linear-gradient(160deg,#f7f6f2 0%,#e9e7e1 100%);font-family:"Satoshi",sans-serif}
+.plane{position:absolute;left:-260px;top:-300px;width:2500px;height:1700px;transform:rotateX(28deg) rotateZ(-14deg);transform-origin:50% 60%}
+.grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(7,330px);grid-auto-rows:300px;padding:40px 60px;
+ font-weight:500;font-size:190px;color:#2b2b2e;letter-spacing:-6px}
+.grid div{display:flex;align-items:center;justify-content:center}
+.grid .r{color:#d1293d}
+.circ{position:relative}
+.circ::after{content:"";position:absolute;left:30px;top:40px;width:270px;height:220px;border:6px solid #d1293d;border-radius:50%;transform:rotate(-12deg);opacity:.9}
+.blurA{position:absolute;inset:0;backdrop-filter:blur(7px);-webkit-mask:linear-gradient(170deg,#000 0%,transparent 30%,transparent 62%,#000 100%);mask:linear-gradient(170deg,#000 0%,transparent 30%,transparent 62%,#000 100%)}
+.fold{position:absolute;inset:0;background:linear-gradient(105deg,transparent 58%,#00000014 63%,transparent 70%)}
+</style></head><body><div class="f">
+<div class="plane"><div class="grid">
+<div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div>8</div>
+<div class="r">9</div><div>10</div><div>11</div><div>12</div><div>13</div><div>14</div><div>15</div>
+<div class="r">16</div><div>17</div><div>18</div><div class="circ">19</div><div>20</div><div>21</div><div>22</div>
+<div class="r">23</div><div>24</div><div>25</div><div>26</div><div>27</div><div>28</div><div>29</div>
+</div></div>
+<div class="fold"></div><div class="blurA"></div>
+</div></body></html>

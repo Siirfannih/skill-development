@@ -1,6 +1,6 @@
-# Dunia visual: tema, terjemahan kata gaya, dan gerbang style frame
+# Dunia visual: tema, terjemahan kata gaya, dan eksplorasi gaya
 
-Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. Isinya digabung dari skill `motion-theme-director` (sudah pensiun). NEGATIF v2 di `SKILL.md` berlaku penuh: butir [mutlak] menang bila ada bentrok, teknik lain dinilai dengan tiga pertanyaan makna, sistem, takaran. Tema memutuskan kulit (warna, huruf, komposisi); mekanik gerak per beat diambil di storyboard lewat `pilih_kartu.py`, dicari menurut tugas beat (hook, angka, langkah), bukan industri klien; 2-4 kartu.
+Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. NEGATIF v2 di `SKILL.md` berlaku penuh: butir [mutlak] menang bila ada bentrok, teknik lain dinilai dengan tiga pertanyaan makna, sistem, takaran. Tema memutuskan kulit (warna, huruf, komposisi); mekanik gerak per beat diambil di storyboard lewat `pilih_kartu.py`, dicari menurut tugas beat (hook, angka, langkah), bukan industri klien; 2-4 kartu.
 
 ## 1. Urutan kerja (langkah 1 dan 3-5 alur `SKILL.md`)
 
@@ -11,17 +11,11 @@ Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun 
    - ruang kosong di atas kepala dan di sekitar subjek;
    - rasio dan resolusi aset.
 
-   Niatnya: teknik referensi yang bagus rusak bila dipakai di kondisi yang berlawanan, misalnya pil kaca di dinding terang, teks tipis di arsip bertekstur, atau KT yang menutup wajah. Bila syarat teknik tidak terpenuhi, ganti tekniknya, jangan dipaksa.
+   Niatnya: teknik referensi rusak di kondisi yang berlawanan (pil kaca di dinding terang, teks tipis di arsip bertekstur, KT menutup wajah); bila syaratnya tak terpenuhi, ganti tekniknya.
 2. **Pilih tema** (§2). Bila belum jelas dari bahan, tanya (§3).
 3. **Buka `tema/<tema>.md`** dan 2-3 keyframe wajib di dalamnya. Lihat gambarnya, jangan hanya membaca deskripsinya.
-4. **Tiga style frame dulu** (gerbang di §7), baru storyboard.
-5. **Storyboard dengan lingkaran still:**
-   1. render 1 still per beat kunci (hook + bukti utama dulu) dengan materi asli, bukan teks dummy, per lapis dan dengan komponen yang sudah lulus di butir 4;
-   2. taruh berdampingan dengan keyframe tema di zoom 25 % (ukuran HP) dan 100 %;
-   3. coret setiap elemen yang tidak menambah pemahaman;
-   4. perbaiki, lalu ulangi sampai still tidak kalah rasa dengan keyframe.
-
-   Skor yang kamu tulis sendiri bukan bukti. Bukti adalah perbandingan dengan gambar.
+4. **Eksplorasi gaya dulu** (§7), baru storyboard.
+5. **Storyboard per putaran kecil** (§7 butir 6): still dengan materi asli, bukan teks dummy, berdampingan dengan keyframe pada 25 % (ukuran HP) dan 100 %; coret elemen yang tidak menambah pemahaman; perbaiki sampai tidak kalah rasa. Skor yang kamu tulis sendiri bukan bukti; perbandingan dengan gambar adalah bukti.
 6. **Audio disusun setelah visual lulus**, lalu menyesuaikan gerak final.
 7. **Build**: buka `preset-index.md` hanya di tahap ini.
 
@@ -40,14 +34,14 @@ Pilih dari **wujud bukti yang dituntut naskah**, bukan dari kata sifat di brief.
 
 Folder keyframe: `../guide/referensi/sheets/keyframes/`.
 
-**Kata gaya di brief diterjemahkan, tidak dieksekusi harfiah.** Model hampir selalu menerjemahkan "Apple", "premium", "kedalaman" jadi tumpukan efek tanpa sistem: kaca biru-ungu di semua kartu, gradien tipis ragu-ragu, bayangan berlapis, kartu miring, dan satu kata berganti huruf (`../cookbook/contoh-gagal/03`, `04`; audit 26 Nov: identik lintas model dan sesi). Terjemahan wajib, tulis di DECISIONS/RESEP. **Ada referensi: terjemahan diambil dari REF-SPEC (angka dan alasannya); tabel ini hanya titik awal bila tidak ada referensi.**
+**Kata gaya di brief diterjemahkan, tidak dieksekusi harfiah.** Tanpa terjemahan, "Apple", "premium", "kedalaman" menjadi tumpukan efek tanpa sistem (kaca biru-ungu di semua kartu, bayangan berlapis, kartu miring; `../cookbook/contoh-gagal/03`, `04`, SLOP-W01 di `pola-salah.md`), atau sebaliknya bidang datar tanpa bahan. Terjemahan wajib, tulis di DECISIONS/RESEP. **Ada referensi: terjemahan diambil dari REF-SPEC (angka dan alasannya); tabel ini hanya titik awal bila tidak ada referensi.**
 
 | Kata di brief | Artinya di frame |
 |---|---|
 | Apple, premium, mewah, elegan | ruang kosong luas, satu fokus, hierarki lewat bobot + ukuran, perataan presisi, palet sedikit, gerak kamera tenang |
-| kedalaman, depth, 3D | kedalaman dari susunan dan kamera lebih dulu: skala, oklusi, parallax; bayangan, blur, atau 3D menyusul sebagai bagian satu sistem material (satu arah cahaya), bukan pengganti susunan |
-| gradient halus | gradien yang berkomitmen: satu keluarga hue, zona pekat tegas atau latar polos dua nada; bukan satu nada ragu-ragu (rentang luma < ±35) atau noda acak |
-| glass, modern, futuristik, neon | bila tanpa referensi: panel solid + garis tepi tipis, aksen satu warna; kaca/blur sah bila satu material untuk semua kartu sejenis dan ada alasannya |
+| kedalaman, depth, 3D | skala, oklusi, parallax, lalu cahaya dan bayangan sebagai satu sistem (`bahan.md`: kedalaman lapis, studio terang) |
+| gradient halus | gradien berkomitmen (`bahan.md`): dua hue memiliki frame, ruang oklab, cahaya dari satu sudut; bukan satu nada (F1 `banding.py`) atau SLOP-W01/W02 |
+| glass, modern, futuristik, neon | satu pemancar cahaya, sisanya diterangi olehnya (`bahan.md`: kaca, kolam cahaya); bukan kaca di semua kartu (S-V25) |
 
 Tidak ada teknik yang dikunci oleh namanya. Kata sifat ("premium") bukan izin untuk efek; yang membuka teknik adalah REF-SPEC atau alasan tertulis yang lolos makna, sistem, takaran (NEGATIF 1-2).
 
@@ -84,10 +78,7 @@ Tiap butir ditulis sebagai rantai: keputusan → niat → kapan dilanggar.
    - Ukuran ditulis dalam px pada kanvas 1080 (lebar untuk 9:16, tinggi untuk 16:9); kata sambung ≥ 56 px; teks yang harus dibaca tidak di bawah ~24 px saat tampil (lantai keterbacaan, `teks.md`).
    - Niat: hierarki terbaca sekali lirik; ukuran tanggung terbaca sebagai salah ketik.
 3. **Kedalaman dari susunan dulu, material sebagai sistem.**
-   - Keputusan: pakai salah satu, sesuai bahan:
-     - oklusi: subjek atau benda menutup ≤ 20 % huruf;
-     - skala dan susunan: benda dekat besar, benda jauh kecil, benda menapak di permukaan yang sama;
-     - bayangan sebagai sistem: satu arah cahaya, satu jenis bayangan untuk benda sejenis (kontak tajam, atau lembut bila REF-SPEC menyatakannya), opasitas tidak menurunkan kontras teks.
+   - Keputusan: oklusi (subjek menutup ≤ 20 % huruf), skala dan susunan (dekat besar, jauh kecil, menapak di permukaan sama), atau bayangan sebagai sistem (satu arah cahaya, satu jenis bayangan untuk benda sejenis, kontras teks tetap). Cara membuatnya: `bahan.md`.
    - Gagal bila: tiap panel punya bayangan/glow berbeda, atau glow biru-ungu ambient di semua kartu tanpa alasan (`../cookbook/contoh-gagal/04`).
 4. **Teks diam saat latar berlari.**
    - Keputusan: bila latar berganti cepat (< 1,5 dtk per shot), kunci teks di satu poros tetap, di lapisan terpisah dari gerak shot. Bila shot bertahan lama, teks boleh pindah ke ruang kosong shot itu.
@@ -102,9 +93,9 @@ Tiap butir ditulis sebagai rantai: keputusan → niat → kapan dilanggar.
    - Narasi VO tidak pernah diketik ke kolom prompt UI (`../cookbook/contoh-gagal/13`).
    - Screenshot kecil mengambang di kanvas kosong gagal (`../cookbook/contoh-gagal/20`). Pilih full-bleed, inset yang tumbuh ke penuh, atau UI yang dibangun ulang.
 7. **Satu dunia material: gradien, kilau, kaca sah sebagai sistem; halo dan blur dekoratif tanpa sebab tidak** (NEGATIF 2, 10).
-   - "Memancar" atau "menyala" digambar lewat perubahan warna, garis sinar, atau skala; glow di belakang teks yang menurunkan kontras = sidik jari slop (halo di `88-k6` dan neon di `83-k7` dinilai: ada di REF-SPEC dengan alasan, atau tidak dibawa).
-   - Blur hanya sebagai transisi, depth-of-field di belakang fokus tajam, atau motion blur saat gerak cepat; tidak pernah pada isi yang dibaca, tidak pernah pengisi; kartu gelap ter-blur di semua adegan = sidik jari. Blur kabur→jelas sah hanya bila naskah berkata "menjadi jelas", sekali per video.
-   - Tilt/3D keputusan sistem: bila dipakai, tulis di REF-SPEC/DECISIONS di mana dan kenapa (mis. hanya artefak melayang di babak solusi); tilt acak di banyak frame = sup material.
+   - "Memancar" digambar lewat sumber cahaya yang terlihat, perubahan warna, garis sinar, atau skala (`bahan.md`); glow di belakang teks yang menurunkan kontras = sidik jari slop.
+   - Blur: transisi, depth-of-field di belakang fokus tajam, atau motion blur; tak pernah pada isi yang dibaca atau sebagai pengisi (S-V32). Kabur→jelas hanya bila naskah berkata "menjadi jelas", sekali per video.
+   - Tilt/3D: tulis di REF-SPEC/DECISIONS di mana dan kenapa; tilt acak = sup material (S-V33).
 
 Hipotesis (2 tema): kontras tempo terasa manusiawi; ledakan gerak singkat diselingi hold yang cukup untuk dibaca, rentetan B-roll padat diputus jeda kanvas polos.
 
@@ -129,16 +120,20 @@ Batas per frame:
 | Teknik kartu vs kondisi footage user | Kondisi footage menang; ganti teknik (§1.1) |
 | Video produksi internal lama sebagai contoh | Hanya boleh sebagai contoh salah; pembanding positif hanya keyframe eksternal |
 
-## 7. Gerbang 3 style frame
+## 7. Eksplorasi gaya (gerbang sebelum storyboard)
 
-Ada referensi atau tema baru: buat **3 style frame** 1920x1080 (atau 1080x1920) dari kode yang sama dengan render, satu per mode fokus: TYPO_HERO, SYSTEM_FLOW, UI_PROOF. Tanpa anotasi, supaya rasa visualnya dinilai murni.
+Ada referensi atau tema baru: jelajahi gaya pada SATU beat sebelum panel pertama. Alasan: tanpa langkah ini model memilih satu arah di kepala lalu membuat puluhan panel darinya, dan semuanya jatuh ke bahan bawaan (bidang datar, kartu putih di latar pucat).
 
-**Framing UI_PROOF tanpa referensi** (NEGATIF 5): bukti UI bukan jendela kecil di tengah kanvas kosong (±40 % lebar tidak terbaca di HP). Saat sesuatu berubah (slider, kata yang menebal, hasil muncul), bagian yang berubah memenuhi frame: kamera masuk ke panel, wilayah yang berubah ≥ ~60 % tinggi frame, tepi panel boleh bleed. Jendela utuh hanya sebagai establishing, maks sekali per babak. Teks di dalam UI (label, angka, prompt) terbaca di lebar 360 px. Dengan referensi, ukuran dan bleed mengikuti REF-SPEC §3.
+1. **Pilih satu beat kunci**: yang paling menentukan rasa video (biasanya hook atau beat masalah).
+2. **Buka keyframe dari tiga kelompok referensi yang berbeda bahannya** (mis. kertas, layar gelap, gradien; `bahan.md` menunjuk sumbernya) sebagai gambar. Tulis nama file yang dibuka di `DECISIONS.md`.
+3. **Render beat itu dalam tiga arah yang berbeda bahan**, bukan tiga warna dari satu gaya; tiap arah bersandar pada satu kelompok dan memakai teknik `bahan.md`. Isi beat (objek, teks, mode) tetap; yang berubah cahaya, permukaan, kedalaman, crop. Bangun per lapis, lihat tiap lapis (`scripts/lihat.py <frame.html> --lapis 0` dst.): L0 latar → L1 objek utama (bentuk nyata, menapak) → L2 teks (tidak menimpa objek) → L3 label.
+4. **Jajarkan** dengan patokannya: `python3 scripts/jelajah_gaya.py --arah A=a.png --arah B=b.png --arah C=c.png --patokan A=<keyframe> … --keluar qc/jelajah`, lalu lihat `jelajah-thumb.jpg` (ukuran HP) dan `jelajah-penuh.jpg`. Dua arah yang sama di thumbnail (atau ditandai MIRIP) baru satu arah: ganti bahannya.
+5. **Pemilik memilih** (gerbang termurah). Tidak bisa dihubungi: pilih dengan alasan tertulis di `DECISIONS.md` sebagai keputusan yang menunggu. Arah lain boleh jadi dunia babak lain (NEGATIF 8).
+6. **Storyboard per putaran kecil**: satu babak atau ±6 panel per putaran, dirender dan dilihat sebelum putaran berikutnya (6 = default; model bekerja lebih baik pada beberapa tugas daripada tugas massal). Komponen dipakai ulang untuk benda (karakter, token); tata letak tiap beat dirancang sendiri, bukan satu generator untuk semua panel.
 
-1. **Bangun per lapis**, satu lapis baru per render, lalu lihat hasilnya di resolusi penuh: `python3 scripts/lihat.py <frame.html> --lapis 0` dst. L0 latar (warna dan gradien sesuai REF-SPEC, berkomitmen) → L1 satu objek utama (bentuk nyata, menapak, terbaca tanpa teks) → L2 teks (lahir dari komposisi, tidak menimpa objek) → L3 label kecil bila perlu. Lalu bandingkan berdampingan dengan frame referensi + `scripts/banding.py <frame> <ref>`.
-2. `scripts/gate/negatif_cek.py <folder kode>` dan `scripts/gate/tabrakan_cek.py <frame.html>` hijau; `banding.py` dalam toleransi REF-SPEC.
-3. Nilai dengan mata memakai 5 uji biner (§8).
-4. Storyboard penuh baru ditulis setelah ketiga frame lulus, memakai token dan komponen dari frame itu. Alasan: bug di satu komponen tersalin ke puluhan panel.
+Arah terpilih lulus bila `scripts/gate/negatif_cek.py` dan `tabrakan_cek.py` hijau, `banding.py <frame> <ref>` dalam toleransi REF-SPEC, dan 5 uji biner (§8) lolos.
+
+**UI_PROOF tanpa referensi** (NEGATIF 5): bagian UI yang berubah memenuhi frame (kamera masuk panel, ≥ ~60 % tinggi, tepi boleh bleed), bukan jendela kecil di kanvas kosong; jendela utuh hanya establishing, maks sekali per babak; teks UI terbaca di lebar 360 px. Dengan referensi, ikuti REF-SPEC §3.
 
 ## 8. Lima uji biner (jalankan pada setiap frame storyboard)
 

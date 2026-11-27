@@ -13,6 +13,7 @@ Mulai: `toolkit/mulai.sh <folder-proyek> [remotion|storyboard]` (menyalin kerang
 | `latar/GenerativeBG.tsx` + `generative-bg.js` | `zona`, `mesh` (usang) berbasis CSS ringan; mode `noise` dihapus dan ditolak; aturan sama: pusat zona di luar frame | latar bergradien tanpa WebGL |
 | `latar/Grain.tsx` + `grain.js` | butiran per frame berbiji, `opacity` 0 = mati; disarankan 0.04-0.12 | REF-SPEC meminta tekstur film |
 | `transisi/` | ekspor ulang WhipPan, GridFlashReveal, SceneChain, FlashCut, InvertFlash | pergantian adegan |
+| `bahan/` | demo bahan (HTML mandiri) + `lembar/` demo vs keyframe sumber; bukan komponen, warnanya contoh | merancang arah gaya (`references/bahan.md`); salin mekaniknya, bukan warnanya |
 | `starter/`, `starter-storyboard/` | kerangka Remotion 4.0.380 dan kerangka `frame.html` (dibuka lewat `lihat.py`) | proyek baru |
 
 ## Aturan

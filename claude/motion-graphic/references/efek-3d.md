@@ -26,7 +26,7 @@ Total estimate > 30 min: ask me (cost/time). `@remotion/three` rules: drive anim
 | Animation from `useCurrentFrame()` | safe | standard |
 | `useFrame()`, `requestAnimationFrame`, `Math.random` | unsafe | `random(seed)` from Remotion |
 | GSAP | safe if `paused: true` + `seek(frame/fps)` | |
-| Bloom, glow, vignette | forbidden (K2) | reference skin; do not use |
+| Bloom, glow, vignette | safe (stateless) | only with a visible light source, one system per frame (`bahan.md`); a halo lighting nothing = SLOP-W02/W05 (`pola-salah.md`) |
 | DoF, chromatic aberration (stateless) | safe if it serves a function (not decorative) | chromatic aberration on impact moments only |
 | Afterimage, trail, TAA (needs previous frame) | unsafe | `<CameraMotionBlur>` / `<Trail>`, or bake offline |
 | Real-time browser physics | unsafe | bake (Blender rigid body) then play per frame |
@@ -36,7 +36,7 @@ Official 3D motion blur: `<CameraMotionBlur>` (shutter 180, samples 10; cost x s
 
 ## 3. Deterministic SVG filters
 
-Zero extra packages; all parameters driven by `frame`. No grain or decorative texture over gradients (K2); chromatic aberration <= 2 px proposed, on impact moments only.
+Zero extra packages; all parameters driven by `frame`. Grain over a gradient only as a 2-5 % anti-banding layer or a paper surface (`bahan.md`), not as decoration; chromatic aberration <= 2 px proposed, on impact moments only.
 
 ```tsx
 const f = useCurrentFrame();

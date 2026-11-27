@@ -1,6 +1,6 @@
 ---
 name: director-pass
-description: Run before any storyboard, design or animation code. Makes you direct the piece instead of executing the brief line by line: separate measuring from directing, write a Gap & Friction report, set aside the first visual association for abstract ideas, and audit your own plan against six defects.
+description: "Run before any storyboard, design or animation code. Makes you direct the piece instead of executing the brief line by line: separate measuring from directing, write a Gap & Friction report, set aside the first visual association for abstract ideas, and audit your own plan against six defects."
 ---
 
 # Director pass: direct first, then draw
