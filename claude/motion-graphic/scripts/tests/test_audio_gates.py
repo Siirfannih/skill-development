@@ -308,13 +308,21 @@ class SfxPolicyTests(unittest.TestCase):
     BED = dict(t=0.0, dur=6.0, pilar="bed", peran="bed_ruang", alasan="pilar 1: tanpa hening digital",
                file="/sfx/room-tone.wav", dengar="quiet room tone")
 
-    def _run_gate(self, cues, bed=True):
+    def _catat(self, cues, bed=True):
+        """Temuan sfx_density = CATATAN: keluar 0 bawaan, keluar 1 dengan --ketat. Mengembalikan keluaran bawaan."""
+        code, output = self._run_gate(cues, bed)
+        self.assertEqual(code, 0, output); self.assertIn("CATATAN", output)
+        code_k, _ = self._run_gate(cues, bed, ketat=True)
+        self.assertEqual(code_k, 1)
+        return output
+
+    def _run_gate(self, cues, bed=True, ketat=False):
         cues = ([dict(self.BED)] if bed else []) + list(cues)
         with tempfile.TemporaryDirectory() as folder:
             cue_path = Path(folder) / "cues.json"
             cue_path.write_text(json.dumps(cues))
             output = io.StringIO()
-            with patch.object(sfx_density.sys, "argv", ["sfx_density.py", "unused.mp4", str(cue_path)]), \
+            with patch.object(sfx_density.sys, "argv", ["sfx_density.py", "unused.mp4", str(cue_path)] + (["--ketat"] if ketat else [])), \
                     patch.object(sfx_density, "visual_events", return_value=(np.array([]), 6.0)), \
                     redirect_stdout(output), self.assertRaises(SystemExit) as exited:
                 sfx_density.main()
@@ -329,34 +337,28 @@ class SfxPolicyTests(unittest.TestCase):
         self.assertEqual(code, 0, output)
 
     def test_ticks_without_variation_fail(self):
-        code, output = self._run_gate(self._ticks(14, files=("/sfx/key-a.wav",), rates=(1.0,)))
-        self.assertEqual(code, 1)
+        output = self._catat(self._ticks(14, files=("/sfx/key-a.wav",), rates=(1.0,)))
         self.assertIn("tick tanpa variasi", output)
 
     def test_tick_rate_outside_range_fails(self):
-        code, output = self._run_gate(self._ticks(6, rates=(0.8, 1.0)))
-        self.assertEqual(code, 1)
+        output = self._catat(self._ticks(6, rates=(0.8, 1.0)))
         self.assertIn("playbackRate", output)
 
     def test_per_word_without_tick_pilar_still_fails(self):
         cues = [dict(t=0.4 + i * 0.3, peran="kata_muncul", alasan="kata", file="/sfx/key-a.wav", dengar="click")
                 for i in range(14)]
-        code, output = self._run_gate(cues)
-        self.assertEqual(code, 1)
+        output = self._catat(cues)
         self.assertIn("bunyi per kata", output)
 
     def test_missing_or_short_bed_fails(self):
-        code, output = self._run_gate(self._cues([1.0, 3.0]), bed=False)
-        self.assertEqual(code, 1)
+        output = self._catat(self._cues([1.0, 3.0]), bed=False)
         self.assertIn("pilar bed", output)
         short = dict(self.BED, dur=2.0)
-        code, output = self._run_gate([short] + self._cues([1.0, 3.0]), bed=False)
-        self.assertEqual(code, 1)
+        output = self._catat([short] + self._cues([1.0, 3.0]), bed=False)
         self.assertIn("pilar bed", output)
 
-    def test_wood_tick_stays_forbidden(self):
-        code, output = self._run_gate(self._ticks(4, files=("/sfx/soft-wood-tap.wav", "/sfx/key-b.wav")))
-        self.assertEqual(code, 1)
+    def test_wood_tick_dicatat_sebagai_informasi(self):
+        output = self._catat(self._ticks(4, files=("/sfx/soft-wood-tap.wav", "/sfx/key-b.wav")))
         self.assertIn("kayu", output)
 
     def test_same_role_same_file_passes_b08_and_b20_object_waves(self):
@@ -405,8 +407,11 @@ class SfxPolicyTests(unittest.TestCase):
                         cue.update(sound)
 
                     self.assertEqual(len(sfx_density.spam_check(cues)), expected_code)
-                    code, output = self._run_gate(cues)
-                    self.assertEqual(code, expected_code, output)
+                    if expected_code:
+                        output = self._catat(cues)
+                    else:
+                        code, output = self._run_gate(cues, ketat=True)
+                        self.assertEqual(code, 0, output)
                     if expected_code:
                         self.assertIn("whoosh 0.00 & 0.65 dtk (< 1 dtk)", output)
 
@@ -429,14 +434,13 @@ class SfxPolicyTests(unittest.TestCase):
 
                     self.assertEqual(len(sfx_density.flam_issues(cues)), expected_issues)
 
-    def test_burst_allows_five_cues_and_rejects_six_within_two_seconds(self):
+    def test_burst_five_cues_quiet_six_within_two_seconds_noted(self):
         five = self._cues([0, 0.4, 0.8, 1.2, 1.6])
         six = self._cues([0, 0.3, 0.6, 0.9, 1.2, 1.5])
 
         code, output = self._run_gate(five)
         self.assertEqual(code, 0, output)
-        code, output = self._run_gate(six)
-        self.assertEqual(code, 1, output)
+        output = self._catat(six)
         self.assertIn("rentetan 6 cue dalam 2 dtk (maks 5)", output)
 
     def test_burst_window_excludes_cue_exactly_two_seconds_after_start(self):
