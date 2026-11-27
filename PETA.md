@@ -33,7 +33,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | Skill | Pakai saat |
 |---|---|
 | `claude/autopilot-prd/SKILL.md` | Pakai setiap kali mengerjakan proyek Irfan yang sudah punya PRD, QUEUE, atau rencana tertulis (Pandu/Tuntunly, Hermes, Jadisatu). Eksekusi sampai antrean habis tanpa menunggu "lanjutkan"; berhenti hanya di Tier 2. Mengal |
-| `claude/brief-gate/SKILL.md` | Mandatory gate before you send a task to a subagent, worker or another model (Codex, Gemini, Sonnet). Use when you are about to dispatch work to another agent: check the brief against my original words, run the cold-read |
+| `claude/brief-gate/SKILL.md` | Gate before any dispatch of a task to another model, subagent or worker. Use when you are about to dispatch work to another agent: check the brief against my original words, run the cold-read test, check the metric, and  |
 | `claude/cinedance-block-library/SKILL.md` | CINEDANCE — BLOCK LIBRARY v1. Assembles a full video-generation prompt from a short brief (TRICK, FORMAT, ASSETS, MAIN, FAIL, COUNT, TASK, ACTING) plus a list of block codes (FACE, BODY, MODEST, TASK, CAM-HANDHELD, CAM-L |
 | `claude/director-pass/SKILL.md` | Run before any storyboard, design or animation code. Makes you direct the piece instead of executing the brief line by line: separate measuring from directing, write a Gap & Friction report, set aside the first visual as |
 | `claude/irfan-creative-workflow/SKILL.md` | Workflow and hard-won lessons for any creative project with Irfan (launch videos, motion graphics, scripts, campaigns): gate order, script quality bar, credit discipline, and what experience to carry vs leave behind. Use |
@@ -50,7 +50,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 
 | File | Isi / kapan dibuka |
 |---|---|
-| `claude/motion-graphic/SKILL.md` | **Motion Graphic (Irfan)** — Kamu sutradara dan editor video Irfan: ia memberi konsep, bahan, selera; kamu memberi mutu. |
+| `claude/motion-graphic/SKILL.md` | **Motion Graphic** — Kamu sutradara dan editor video untuk user: ia memberi konsep, bahan, selera; kamu memberi mutu. |
 | `claude/motion-graphic/MIGRASI-LANTAI.md` | **MIGRASI-LANTAI: ke mana tiap butir Lantai pindah** — LANTAI.md dan MOTION-CORE.md sudah dipindah ke archive/riwayat/; pintu aktif adalah SKILL.md (gerbang render R1–R5 kini di references/build.md §4). |
 | `claude/_bersama/NEGATIF.md` | **NEGATIF: batas keras anti-slop (dipakai motion-graphic dan vibedesign)** — Daftar ini kanonik. claude/motion-graphic/SKILL.md memuat salinan yang sama persis di antara penanda di bawah (dicek tools/sync_negatif.py). |
 
@@ -78,7 +78,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/copywriting.md` | **Copywriting — VO script and on-screen text** — Read at the Script stage and whenever writing text that appears on screen. |
 | `claude/motion-graphic/references/decision-guide.md` | **Panduan keputusan: teks, visual, kotak, warna (logika, bukan contoh)** — Dibaca saat menulis tabel storyboard (langkah 5 SKILL.md) dan saat QA sebelum deliver (langkah 8). |
 | `claude/motion-graphic/references/decision.md` | **Decision — choosing, deciding, and when to ask** — Read when choosing between options (family, text style, technique, transition), when two rules feel like they conflict, or when unsure whether to ask me. |
-| `claude/motion-graphic/references/delivery-gate.md` | **Delivery Gate (wajib sebelum video ditunjukkan ke Irfan)** — Laporan PASS/FAIL ini dikirim bersama video. |
+| `claude/motion-graphic/references/delivery-gate.md` | **Delivery Gate (wajib sebelum video ditunjukkan ke user)** — Laporan ini dikirim bersama video, tiap baris dengan bukti konkret (angka keluaran skrip, timestamp, nama still). |
 | `claude/motion-graphic/references/delivery-spec.md` | **Spesifikasi pengiriman (profil V1)** — Satu master MP4 untuk semua platform. |
 | `claude/motion-graphic/references/direction.md` | **Direction — prinsip sutradara, family visual, elemen, warna** — Baca saat menentukan apa yang terjadi di setiap beat: tokoh, subjek, metafora, family visual, palet. |
 | `claude/motion-graphic/references/dunia-visual.md` | **Dunia visual: tema, terjemahan kata gaya, dan arah gaya** — Dibuka di langkah 3-5 alur SKILL.md: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. |
@@ -98,7 +98,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/roles.md` | **Dua peran: Sutradara dan Editor (layer komunikasi)** — Dibaca hanya bila pekerjaan dibagi ke Editor (subagen atau model lain); satu model tidak perlu membukanya. |
 | `claude/motion-graphic/references/selects-editor.md` | **Paket editor dari rekaman talking head mentah (selects)** — Dibuka saat bahannya rekaman mentah panjang (beberapa menit, banyak take ulang) dan keluarannya paket untuk editor manusia: timeline klip ber-timecode, rough cut, audio, aset motion, storyboard, dan animatic. |
 | `claude/motion-graphic/references/slop-catalog.md` | **Slop catalog (signs I have rejected)** — Used to scan, not to ban techniques: fingerprints are written as appearance and measurements (KEBIJAKAN v2, policy v2), and apply unless REF-SPEC states otherwise. |
-| `claude/motion-graphic/references/smooth-motion.md` | **Smooth motion — resep motion blur, teks, dan kamera yang terbukti** — Baca saat membangun animasi teks, mengatur motion blur, atau saat Irfan bilang gerak "kurang smooth", "patah-patah", atau "kamera berantakan". |
+| `claude/motion-graphic/references/smooth-motion.md` | **Smooth motion — resep motion blur, teks, dan kamera yang terbukti** — Baca saat membangun animasi teks, mengatur motion blur, atau saat user bilang gerak "kurang smooth", "patah-patah", atau "kamera berantakan". |
 | `claude/motion-graphic/references/storyboard.md` | **Storyboard visual: dari script atau daftar potongan ke papan panel** — Baca di tahap Storyboard/block out. |
 | `claude/motion-graphic/references/teks.md` | **Teks di layar: posisi, keterbacaan, gerak** — Dibuka saat mengatur teks layar (langkah 4-6 alur SKILL.md). |
 | `claude/motion-graphic/references/three-segment-gate.md` | **Gerbang 3 Segmen** — Claude tidak melihat video saat menulis kode. |
