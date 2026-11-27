@@ -1,4 +1,4 @@
-# Dunia visual: tema, terjemahan kata gaya, dan eksplorasi gaya
+# Dunia visual: tema, terjemahan kata gaya, dan arah gaya
 
 Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. NEGATIF v2 di `SKILL.md` berlaku penuh: butir [mutlak] menang bila ada bentrok, teknik lain dinilai dengan tiga pertanyaan makna, sistem, takaran. Tema memutuskan kulit (warna, huruf, komposisi); mekanik gerak per beat diambil di storyboard lewat `pilih_kartu.py`, dicari menurut tugas beat (hook, angka, langkah), bukan industri klien; 2-4 kartu.
 
@@ -14,8 +14,8 @@ Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun 
    Niatnya: teknik referensi rusak di kondisi yang berlawanan (pil kaca di dinding terang, teks tipis di arsip bertekstur, KT menutup wajah); bila syaratnya tak terpenuhi, ganti tekniknya.
 2. **Pilih tema** (§2). Bila belum jelas dari bahan, tanya (§3).
 3. **Buka `tema/<tema>.md`** dan 2-3 keyframe wajib di dalamnya. Lihat gambarnya, jangan hanya membaca deskripsinya.
-4. **Eksplorasi gaya dulu** (§7), baru storyboard.
-5. **Storyboard per putaran kecil** (§7 butir 6): still dengan materi asli, bukan teks dummy, berdampingan dengan keyframe pada 25 % (ukuran HP) dan 100 %; coret elemen yang tidak menambah pemahaman; perbaiki sampai tidak kalah rasa. Skor yang kamu tulis sendiri bukan bukti; perbandingan dengan gambar adalah bukti.
+4. **Arah gaya** (§7): milik user bila ada; eksplorasi hanya bila user tidak memberi arah.
+5. **Storyboard per putaran kecil** (§7): still dengan materi asli, bukan teks dummy, berdampingan dengan keyframe pada 25 % (ukuran HP) dan 100 %; coret elemen yang tidak menambah pemahaman; perbaiki sampai tidak kalah rasa. Skor yang kamu tulis sendiri bukan bukti; perbandingan dengan gambar adalah bukti.
 6. **Audio disusun setelah visual lulus**, lalu menyesuaikan gerak final.
 7. **Build**: buka `preset-index.md` hanya di tahap ini.
 
@@ -120,18 +120,24 @@ Batas per frame:
 | Teknik kartu vs kondisi footage user | Kondisi footage menang; ganti teknik (§1.1) |
 | Video produksi internal lama sebagai contoh | Hanya boleh sebagai contoh salah; pembanding positif hanya keyframe eksternal |
 
-## 7. Eksplorasi gaya (gerbang sebelum storyboard)
+## 7. Arah gaya: milik user dulu
 
-Ada referensi atau tema baru: jelajahi gaya pada SATU beat sebelum panel pertama. Alasan: tanpa langkah ini model memilih satu arah di kepala lalu membuat puluhan panel darinya, dan semuanya jatuh ke bahan bawaan (bidang datar, kartu putih di latar pucat).
+Bank referensi repo ini (keyframe tema, kartu) melatih penilaianmu: mana yang rapi, mana yang slop. Ia bukan menu untuk user dan tidak pernah menggantikan arah yang user beri.
 
-1. **Pilih satu beat kunci**: yang paling menentukan rasa video (biasanya hook atau beat masalah).
-2. **Buka keyframe dari tiga kelompok referensi yang berbeda bahannya** (mis. kertas, layar gelap, gradien; `bahan.md` menunjuk sumbernya) sebagai gambar. Tulis nama file yang dibuka di `DECISIONS.md`.
-3. **Render beat itu dalam tiga arah yang berbeda bahan**, bukan tiga warna dari satu gaya; tiap arah bersandar pada satu kelompok dan memakai teknik `bahan.md`. Isi beat (objek, teks, mode) tetap; yang berubah cahaya, permukaan, kedalaman, crop. Bangun per lapis, lihat tiap lapis (`scripts/lihat.py <frame.html> --lapis 0` dst.): L0 latar → L1 objek utama (bentuk nyata, menapak) → L2 teks (tidak menimpa objek) → L3 label.
-4. **Jajarkan** dengan patokannya: `python3 scripts/jelajah_gaya.py --arah A=a.png --arah B=b.png --arah C=c.png --patokan A=<keyframe> … --keluar qc/jelajah`, lalu lihat `jelajah-thumb.jpg` (ukuran HP) dan `jelajah-penuh.jpg`. Dua arah yang sama di thumbnail (atau ditandai MIRIP) baru satu arah: ganti bahannya.
-5. **Pemilik memilih** (gerbang termurah). Tidak bisa dihubungi: pilih dengan alasan tertulis di `DECISIONS.md` sebagai keputusan yang menunggu. Arah lain boleh jadi dunia babak lain (NEGATIF 8).
-6. **Storyboard per putaran kecil**: satu babak atau ±6 panel per putaran, dirender dan dilihat sebelum putaran berikutnya (6 = default; model bekerja lebih baik pada beberapa tugas daripada tugas massal). Komponen dipakai ulang untuk benda (karakter, token); tata letak tiap beat dirancang sendiri, bukan satu generator untuk semua panel.
+**A. User sudah memberi arah** (storyboard, panel, video/gambar referensi, atau deskripsi gaya): itulah arahnya. Jangan membuat pilihan gaya dan jangan meminta user memilih.
+1. Ada storyboard user: gambar ulang panelnya setia pada gaya, urutan, dan isinya, lalu tambahkan hanya yang kurang (beat tanpa panel, detail yang perlu agar bisa dianimasikan) dengan gaya yang sama.
+2. Patokan `banding.py` dan lembar banding adalah bahan user, bukan keyframe repo.
+3. `bahan.md` dipakai sebagai teknik untuk mencapai rupa user, bukan untuk menggantinya.
+4. Tidak setuju dengan sebuah pilihan user: satu kalimat risiko, kerjakan, catat di `DECISIONS.md`.
 
-Arah terpilih lulus bila `scripts/gate/negatif_cek.py` dan `tabrakan_cek.py` hijau, `banding.py <frame> <ref>` dalam toleransi REF-SPEC, dan 5 uji biner (§8) lolos.
+**B. User tidak memberi arah visual, atau meminta opsi**: jelajahi SATU beat kunci sebelum panel pertama, supaya tidak jatuh ke bahan bawaan (kartu putih di latar pucat).
+1. Render beat itu dalam 2-3 arah yang berbeda bahan (`bahan.md`), bukan tiga warna dari satu gaya. Isi beat tetap; yang berubah cahaya, permukaan, kedalaman, crop. Bangun per lapis (`scripts/lihat.py <frame.html> --lapis 0` dst.).
+2. Jajarkan: `python3 scripts/jelajah_gaya.py --arah A=a.png --arah B=b.png --keluar qc/jelajah` (`--patokan` hanya untuk bahan milik user). Dua arah yang sama di thumbnail baru satu arah.
+3. Tawarkan sekali, dengan rekomendasimu. Ini tawaran, bukan gerbang: tanpa jawaban, pakai rekomendasi, catat di `DECISIONS.md`, lanjut.
+
+**Selalu: storyboard per putaran kecil.** Satu babak atau ±6 panel, dirender dan dilihat sebelum putaran berikutnya. Komponen dipakai ulang untuk benda (karakter, token); tata letak tiap beat dirancang sendiri, bukan satu generator untuk semua panel.
+
+Arah lulus bila `scripts/gate/negatif_cek.py` dan `tabrakan_cek.py` hijau, `banding.py <frame> <ref user>` dalam toleransi REF-SPEC (bila ada referensi), dan 5 uji biner (§8) lolos.
 
 **UI_PROOF tanpa referensi** (NEGATIF 5): bagian UI yang berubah memenuhi frame (kamera masuk panel, ≥ ~60 % tinggi, tepi boleh bleed), bukan jendela kecil di kanvas kosong; jendela utuh hanya establishing, maks sekali per babak; teks UI terbaca di lebar 360 px. Dengan referensi, ikuti REF-SPEC §3.
 

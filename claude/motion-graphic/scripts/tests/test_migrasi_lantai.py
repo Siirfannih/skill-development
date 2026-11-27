@@ -79,7 +79,7 @@ class SkillRamping(unittest.TestCase):
                     "tema/minimalist-dataviz-kinetic.md"):
             self.assertTrue((MG / "references" / rel).exists(), rel)
         dv = (MG / "references/dunia-visual.md").read_text(encoding="utf-8")
-        for x in ("Router tema", "Lima uji biner", "Eksplorasi gaya", "Kata di brief",
+        for x in ("Router tema", "Lima uji biner", "Arah gaya", "Kata di brief",
                   "bedah-referensi.md", "tema/<tema>.md", "preset-index.md"):
             self.assertIn(x, dv)
 
