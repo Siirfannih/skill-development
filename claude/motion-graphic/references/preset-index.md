@@ -43,6 +43,6 @@ Gunakan fungsi murni berbasis `(frame, fps)` agar fisika tidak tergantung Remoti
 
 1. **Preset = Fisika & Proporsi, Bukan Warna/Font:** Jangan pernah membawa warna hex atau keluarga huruf dari kartu ke dalam preset; wajib ambil dari `tema.ts` proyek dan lulus uji kontras `≥ 4,5:1` pada piksel aktual.
 2. **Durasi Hidup dari Jarak & VO:** Gunakan `dur(distancePx, fps, weight)` dan timestamp kata `words.json` (`exit ≈ 0,65× enter`). Jangan memakai preset berdurasi mati `0,5 s` di semua blok.
-3. **Wajib Audit Kondisi Bahan (`SKILL.md` §3 I4) Sebelum Memanggil Preset:** Jika footage tidak punya headroom `≥ 20%` atau baju bermotif, **batalkan** pemanggilan preset `talking-head` dada/belakang kepala—alih ke *cutaway slab* / samping kepala.
+3. **Wajib Audit Kondisi Bahan (`dunia-visual.md` §1 butir 1, `../cookbook/README.md` §6) Sebelum Memanggil Preset:** Jika footage tidak punya headroom `≥ 20%` atau baju bermotif, **batalkan** pemanggilan preset `talking-head` dada/belakang kepala—alih ke *cutaway slab* / samping kepala.
 4. **Satu *Hero Motion* per Adegan & Seed Berbeda:** Maksimal 1 gerakan hero aktif per shot; bila preset dipanggil ulang di klip yang sama, ubah `seed` (`acakIndeks`) dan arah agar tidak terasa seperti salinan template.
 5. **Bebas Menulis Kode Kustom Jika Diperlukan:** Jika naskah menuntut metafora visual unik (diagram khusus, objek interaksi baru) yang tak ada di §2, tulis implementasi kustom bersih di atas Lapis 1 (`curves.ts` + `timing.ts` + `aeKeyframe.ts`), bukan memaksakan preset yang salah bentuk.

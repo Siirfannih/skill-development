@@ -1,6 +1,6 @@
 # Hindari: tanda desain "AI slop"
 
-Rujukan utama: `../../../../external/anti-slop/skills/antislop-ui/SKILL.md` (pola UI/visual) dan `../../../../external/anti-slop/skills/antislop-copywriting/SKILL.md` (copy). Baca bagian yang relevan saat cek akhir, bukan seluruhnya.
+Rujukan tambahan bila submodule `external/anti-slop` terpasang (`git submodule update --init external/anti-slop`): `../../../../external/anti-slop/skills/antislop-ui/SKILL.md` (pola UI/visual) dan `../../../../external/anti-slop/skills/antislop-copywriting/SKILL.md` (copy); baca bagian yang relevan saat cek akhir. Tanpa submodule, cek cepat di bawah sudah cukup.
 
 ## Cek cepat sebelum kirim
 - Sidik jari slop (rupa + ukuran): gradien ragu-ragu (hampir satu nada, tanpa zona warna tegas), orb glossy dan glow di mana-mana tanpa makna, halo di belakang teks, ikon generik, emoji sebagai hiasan. Gradien yang berkomitmen (satu keluarga hue, zona pekat jelas) dan kilau yang konsisten sah bila ada di REF-SPEC atau beralasan.

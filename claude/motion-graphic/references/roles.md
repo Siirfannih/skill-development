@@ -89,7 +89,7 @@ Hanya bila subagen atau model lain tersedia dan mempercepat; tanpa itu, kamu mem
 
 
 - **Claude Code:** `Agent` (subagent_type `general-purpose`), prompt = isi `templates/roles/editor.md` dengan path proyek dan TASK terisi. **Satu TASK = satu Editor baru.** Ronde berikutnya tidak diteruskan ke Editor yang sama: semua status ada di `handoff/` dan `STATUS.md`, jadi Editor baru membaca TASK + STATUS saja. Editor lama yang dibiarkan hidup lintas ronde membawa seluruh riwayatnya (kode, log, gambar) ke setiap giliran, dan biayanya naik setara ukuran konteks × jumlah giliran.
-- **Batas konteks.** Sesi atau subagen yang konteksnya sudah besar (±200 ribu token, atau sudah melewati satu ronde/tahap penuh) menulis `STATUS.md` (selesai, berikutnya, file kunci) lalu diganti sesi/subagen baru. Sutradara diganti di tiap pergantian tahap `SKILL.md` §0c.
+- **Batas konteks.** Sesi atau subagen yang konteksnya sudah besar (±200 ribu token, atau sudah melewati satu ronde/tahap penuh) menulis `STATUS.md` (selesai, berikutnya, file kunci) lalu diganti sesi/subagen baru. Sutradara diganti di tiap pergantian tahap (`## Tahap N` di `templates/TAHAP.md`).
 - **Gambar dilihat di subagen sekali pakai.** Penilaian frame, sanding, dan Devil's Advocate dikerjakan subagen baru yang membuka gambar lalu mengembalikan teks temuan (`dtk | yang terlihat | usul`). Sesi Sutradara dan Editor hanya membuka gambar beat yang sedang diubah, satu lembar sebelum/sesudah, dan tidak membuka ulang gambar yang sudah dinilai.
 - **Render panjang:** Editor menjalankannya di latar belakang dan melapor saat selesai.
 - **Klien lain** (`claude -p`): prompt yang sama; folder serah terima sama.
