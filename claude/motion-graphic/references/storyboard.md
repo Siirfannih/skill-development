@@ -45,7 +45,7 @@ Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkun
 Satu panel = frame + caption, seperti artboard Wonder.
 
 - **Frame** berukuran format master (16:9 1920×1080, atau orientasi footage). Isinya **visual yang benar-benar terbaca**: UI asli produk/aplikasi, teks layar final, posisi objek dalam px, empat lapisan susunan di jarak berbeda (kedalaman dari skala dan overlap, lalu cahaya/bayangan sebagai satu sistem: `bahan.md`): `L1` latar (paling jauh), `L2` footage/dunia (pembicara, video, grid), `L3` teks, `L4` objek visual (paling dekat). Kamera bergerak melewati lapisan itu (dolly menembus teks/objek, parallax lapis), jadi gambar tidak tipis satu lapis; tiap beat menulis isi L1–L4 + jalur kamera di tabel storyboard sejak awal. Bukan sketsa kotak. Teks berada di dalam safe frame (16:9 1080p: x 165–1755, y 140–935; tepi luar = red zone); objek bleed ikut REF-SPEC §3 (macro terpotong tepi sah), dan keluar frame karena dolly/zoom kamera sah; untuk talking head, teks ditaruh di ruang kosong samping kepala.
-- **Caption**: id beat, babak, waktu, kalimat VO, aksi (apa yang bergerak), kamera, transisi keluar, SFX per event (`peran` + `alasan`), dan musik per babak di judul baris.
+- **Caption** per adegan: tujuan, ide visual, referensi user yang diikuti, gerak, durasi, kalimat VO. Bunyi boleh dicatat, tetapi disusun di tahap audio.
 - **Papan**: satu baris per babak, beat dari kiri ke kanan; versi lama pindah ke area arsip, bukan dihapus.
 - Kode G, T, C, X diambil dari `teks.md` dan `kamera-gerak.md`; jangan menciptakan kode baru di storyboard.
 
@@ -105,7 +105,6 @@ Kriteria (pertanyaan §4 dipakai di sini, ditambah):
 - **Satu fokus** per frame, dari ukuran, bobot, dan warna sekaligus.
 - **Kontinuitas**: objek dan tokoh yang sama terlihat sama antarpanel; transisi keluar panel A nyambung ke masuk panel B.
 - **Gerak terbaca** dari urutan frame tanpa penjelasan lisan.
-- **Bunyi**: setiap event visual di caption punya SFX dengan peran + alasan.
 
 **Variasi** hanya bila diminta atau untuk satu panel kunci: maksimal 4, masing-masing jawaban desainer yang berbeda (keluarga warna, kategori huruf, komposisi), diletakkan berdampingan, tidak menggantikan yang asli.
 

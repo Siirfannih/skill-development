@@ -1,9 +1,9 @@
 > **Invarian kerja** (berlaku di atas isi lain di file ini):
-> 1. **Cookbook = perpustakaan mekanik, bukan template.** Konsep user + 2–4 kartu mekanik cookbook = output baru. Jangan membuat template gaya tetap atau menyalin gaya antar proyek; toolkit primitif mekanik (tanpa gaya) dipakai ulang; template gaya tidak.
-> 2. **Promosi aturan hanya lewat `skill-steward`** (S = proyek, P = pertimbangan, H = hukum netral-gaya terukur). Selera satu proyek tidak naik ke aturan global.
-> 3. **Gerbang pemilik tidak dilewati.** Konsep/topik, naskah final, serta storyboard + tabel racikan cookbook disetujui pemilik sebelum produksi atau pemakaian kredit.
-> 4. **Aturan = praktik terbaik, bukan hukum tetap, kecuali NEGATIF [mutlak].** Kondisi nyata menang. Skrip ukur (`render.sh final`, `gerbang_produksi.sh`, `scripts/gate/*`) = indera, bukan hakim: merah → lihat, perbaiki atau beri alasan. Penilai akhir: model + user.
-> 5. **Baca dulu, jangan menebak.** Bahan sumber dan outbox/proyek terkait dibaca sebelum menyimpulkan atau memberi perintah.
+> 1. **Gaya = data, bukan aturan.** Kartu cookbook dan tema = katalog inspirasi dan mekanik: bukan menu wajib, bukan template; gaya tidak disalin antar proyek.
+> 2. **Referensi dan arahan user = masukan nomor satu**, dengan catatan apa yang diambil darinya. Arah lemah: tanya.
+> 3. **Storyboard disetujui pemilik sebelum build atau render**; begitu juga naskah final dan pemakaian kredit.
+> 4. **Perbaikan per adegan.** Tiap adegan komposisi sendiri; yang ditolak diperbaiki dan dirender ulang sendiri, bukan seluruh video.
+> 5. **Model = co-editor, pemilik = sutradara, skrip = mata.** Model mengusulkan dan menimbang; skrip hanya kerja pasti dan cek teknis (layout, kontras, frame beku, Chrome nyangkut, berkas hilang), tidak menilai selera. Aturan lain = praktik terbaik, kecuali NEGATIF [mutlak].
 
 # Bekerja di Skill Development
 

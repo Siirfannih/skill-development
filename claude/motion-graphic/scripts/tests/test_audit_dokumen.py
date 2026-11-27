@@ -87,8 +87,8 @@ class Peta(unittest.TestCase):
         self.assertNotIn("formats/", t); self.assertNotIn("Format Bible", t)
 
 
-INVARIAN = ("Cookbook = perpustakaan mekanik, bukan template", "Promosi aturan hanya lewat `skill-steward`", "Gerbang pemilik tidak dilewati",
-            "Aturan = praktik terbaik, bukan hukum tetap", "Baca dulu, jangan menebak")
+INVARIAN = ("Gaya = data, bukan aturan", "Referensi dan arahan user = masukan nomor satu", "Storyboard disetujui pemilik sebelum build atau render",
+            "Perbaikan per adegan", "Model = co-editor, pemilik = sutradara, skrip = mata")
 
 
 def blok_invarian(teks):
