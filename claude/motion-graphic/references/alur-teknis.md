@@ -53,9 +53,9 @@ Tahap dikelompokkan jadi lima fase. Satu model mengerjakannya berurutan di satu 
 
 | Tahap | Gerbang | Baca cabang | Lolos jika |
 |---|---|---|---|
-| Brief | Muat konteks | — | §6 selesai; bila earshot terpasang, `earshot doctor` lulus; bila tidak, lanjut dengan alat ukur repo (`music_fit`, `pace_read`, ebur128) dan tandai "belum didengar alat" di laporan kirim |
+| Brief | Muat konteks | — | §6 selesai; alat dengar dari `~/.config/skill-development/alat.md` siap (mis. `earshot doctor`) |
 | Brief | Brief | `decision.md`, `palette.md` | Brief Irfan disalin apa adanya; tambahan orkestrator ditandai `[orkestrator]` dan tidak boleh mempersempit sumber audio atau genre tanpa alasan dari Irfan. Tujuan, penonton, durasi, CTA, rasio terkunci. Default motion: 16:9 1920×1080, 30 fps native; footage: ikuti orientasi sumber |
-| Brief | Bedah referensi | `analysis-qa.md` §2, `three-segment-gate.md` (gerbang DENGAR) | Metrik visual + tabel kalimat → adegan → peran kalimat + peta audio dari `earshot timeline --detail high` bila earshot ada (label, event/dtk, kepadatan SFX); tanpa earshot: onset/RMS dari ffmpeg + transkrip sumber |
+| Brief | Bedah referensi | `bedah-referensi.md`, `analysis-qa.md` §2 | Empat bagian: dengar audio, frame visual, frame gerak, transkrip (`scripts/ref_spec.py` + mata). Satu tidak terlaksana = analisis belum dilakukan; katakan begitu, jangan menyimpulkan |
 | Naskah | Script | `copywriting.md` | Irfan menyatakan final; disimpan sebagai file (klip: daftar potongan + timestamp sumber) |
 | Storyboard/block out | Storyboard visual 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Papan panel (frame + caption) di `projects/<proyek>/storyboard/`, `beats.json → metafora` terisi per beat (Lantai D19a/D19b), `scripts/storyboard/board.py` PASS, review papan + tabel kritik lolos, pindai `slop-catalog.md`; Irfan menyatakan final. Tanpa storyboard dari Irfan (klip): agent membuatnya sendiri dan lanjut, papan dikirim bersama hasil. Klip/talking head: rencana edit satu per beat dengan rekomendasi, opsi hanya untuk beat yang ragu (`MENU.md`, `roles.md`) |
 | Storyboard/block out | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |

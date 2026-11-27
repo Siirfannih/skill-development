@@ -28,14 +28,14 @@ Kesalahan termahal di Jadisatu adalah menunggu Irfan menunjuk masalah yang bisa 
   - push-in per frame, panjang jejak motion blur (p90 smear), parallax dan depth of field
   - tinggi teks (median dan p90), lama blok teks bertahan, onset teks dari frame bersih per menit, teks di layar (% frame)
   - sumbu dan sudut rotasi teks, stagger, kurva easing (lacak posisi per frame)
-- **Tabel penempatan terhadap naskah** (wajib): untuk setiap animasi/adegan catat `timestamp · kata/kalimat pemicu · jenis adegan · peran kalimat (umumkan / jelaskan / sebut orang / cerita pribadi / lelucon / angka / daftar / penutup) · durasi`. Tabel ini yang menjadi logika penempatan di `MENU.md` (`storyboard.md` §1); metrik tanpa tabel ini belum cukup untuk merencanakan.
-- Alat: `measure.py` + `compare.py` (toolkit metrik proyek Jadisatu: rentang target dari referensi, PASS/WARN/FAIL dengan timestamp).
+- **Tabel penempatan terhadap naskah**: untuk setiap animasi/adegan catat `timestamp · kata/kalimat pemicu · jenis adegan · peran kalimat (umumkan / jelaskan / sebut orang / cerita pribadi / lelucon / angka / daftar / penutup) · durasi`. Tabel ini yang menjadi logika penempatan di `MENU.md` (`storyboard.md` §1); metrik tanpa tabel ini belum cukup untuk merencanakan.
+- Alat: `scripts/ref_spec.py` (still per adegan, palet, luma, saturasi) dan daftar alat `~/.config/skill-development/alat.md`.
 - Mata tetap hakim: lihat sheet-nya.
 
 **Audio (alat sendiri; Gemini hanya data tambahan)**
 - **Audit audio lebih dulu, baru visual**. Sebutkan di 3 temuan teratas: musik (genre/tempo per babak, track sama antar klip), kepadatan SFX, dan level.
 - **Label earshot = skor pertama, lalu divalidasi** (`audio.md` §14.0B): label musik dari stem, bukan dari mix bersuara (mix bersuara bisa terbaca "funk" padahal stem-nya "solo piano"); cek dengan ukuran, Gemini, atau metadata; identitas track lewat `gate/music_batch.py`.
-- **Dengar dulu dengan earshot** (wajib, gerbang DENGAR): `earshot timeline ref.mp4 --detail high` untuk label tiap event, event/dtk, dan prominence. Analisis spektrogram tanpa earshot tidak cukup untuk menyimpulkan instrumen, genre, atau kepadatan SFX; bila earshot tidak tersedia, berhenti dan lapor ke Irfan.
+- **Dengar dulu** (gerbang DENGAR; alat di `~/.config/skill-development/alat.md`, mis. `earshot timeline ref.mp4 --detail high` untuk label tiap event, event/dtk, prominence). Spektrogram tanpa mendengar tidak cukup untuk menyimpulkan instrumen, genre, atau kepadatan SFX; tanpa alat dengar, analisis audio belum dilakukan (`bedah-referensi.md`): katakan begitu.
 - Pemisahan stem: **Demucs** (htdemucs) memisahkan VO / musik / sisa. Cadangan: `librosa.decompose.hpss`.
 - **librosa** sebagai inti analisis:
   - `onset_strength`/`onset_detect` (dengan backtrack) untuk SFX
@@ -48,7 +48,7 @@ Kesalahan termahal di Jadisatu adalah menunggu Irfan menunjuk masalah yang bisa 
   - kepadatan SFX per menit per babak, layering, level relatif VO/musik
   - kedalaman duck, kantong senyap sebelum hit
   - jumlah dan titik ganti musik
-- `compare_audio.py`: peta yang sama untuk render kita, ditambah **daftar event visual yang tidak bersuara**. Kalibrasi detektor memakai `cues.json` kita sebagai ground truth.
+- Peta yang sama untuk render kita, ditambah **daftar event visual yang tidak bersuara**. Kalibrasi detektor memakai `cues.json` kita sebagai ground truth.
 
 **Aturan meniru:** referensi diambil tata bahasanya (ritme, hierarki, cara transisi menyambung, cara bunyi mendukung gerak), tidak pernah palet, logo, karakter, atau isinya. Peran referensi Jadisatu:
 - **Holy Freak** = struktur cerita dan hierarki teks
@@ -88,7 +88,7 @@ Jalankan `scripts/audio_qa.py --module5` (ambang di `audio.md` §14.10). Keluara
 - strip 12 frame berurutan di dua momen tercepat
 - uji HP 360 px
 - strip ±0,5 dtk di setiap batas shot
-- `compare.py` (visual) dan `compare_audio.py` (audio)
+- peta visual dan audio yang sama dengan referensi (§2)
 - ukur loudness
 
 ### 16.2 Pindai anti-monoton & kerapian (pertanyaan, bukan kuota)
@@ -168,7 +168,7 @@ Mode gagal yang umum:
 Perbaiki yang ditemukan dan verifikasi dengan still/klip; tidak ada putaran ulang demi skor.
 
 ### 16.6 Metrik terhadap referensi
-Jalankan `compare.py`. Setiap FAIL harus diperbaiki atau diberi alasan tertulis kenapa disengaja (misalnya brief Irfan meminta hold statis). Laporan ke Irfan memuat hasil gerbang dengan jujur, termasuk yang masih menyimpang.
+Bandingkan metrik render dengan referensi (§2). Tiap penyimpangan diperbaiki atau diberi alasan tertulis kenapa disengaja (misalnya brief Irfan meminta hold statis). Laporan ke Irfan memuat hasil gerbang dengan jujur, termasuk yang masih menyimpang.
 
 ### 16.7 Checker layout per frame (wajib di proyek berbasis HTML/Remotion)
 

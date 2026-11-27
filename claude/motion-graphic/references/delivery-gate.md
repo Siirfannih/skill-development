@@ -7,7 +7,7 @@ Pola ini diadopsi dari `external/anti-slop` (Delivery Gate + tiga tingkat aturan
 ## 0. Preview dulu, render penuh terakhir
 
 Render penuh adalah langkah paling mahal, jadi ia datang paling akhir. Urutan:
-1. **Still per beat**: satu still di frame terpenting tiap beat (Remotion `npx remotion still <Comp> out/beat_NN.png --frame=N`; HyperFrames/AE: snapshot setara). Blok 2 dan 3 dinilai dari still ini.
+1. **Still per beat**: satu still di frame terpenting tiap beat (Remotion `npx remotion still <Comp> out/beat_NN.png --frame=N`; AE: snapshot setara). Blok 2 dan 3 dinilai dari still ini.
 2. **Audio saja**: `npx remotion render <Comp> out/mix.wav --codec=wav` (atau mix dari skrip audio). Blok 1 bagian audio dinilai dari file ini.
 3. **Rentang bermasalah saja**: `--frames=120-240` untuk mengecek gerak di beat yang diragukan.
 4. **Render penuh** hanya setelah 1–3 lulus, lalu jalankan skrip blok 1 sekali lagi pada MP4 final.
@@ -26,7 +26,7 @@ Di blok ini cek mekanis audio dijalankan lebih dulu. Penilaian visual (gaya, pos
 | Ada cue SFX/musik tanpa `peran` + `alasan`, atau spam (whoosh > 1/dtk, file sama < 1 dtk)? | `scripts/gate/sfx_density.py` | Lantai E24, §14.3 |
 | Objek/visual penting tanpa SFX, peran memakai > 1 file, bunyi < 100 ms bertumpuk, bunyi per kata KT yang tidak berlabel `pilar: tick`, > 5 cue dalam 2 dtk, cue tanpa `dengar`, atau palet terlarang? | `python3 scripts/gate/sfx_density.py render.mp4 cues.json --objects objects.json` | Lantai E24 |
 | Suara masih membawa kata sampah/diam, atau cut menyentuh kata isi >20 ms, guard <50 ms, durasi kata <85 %, urutan ASR aktual berubah? Musik dipompa > 1,5 dB saat bicara? | `audio_order.py check` (mengulang `cut_check.py` dengan source words + cut map) · `audio/audio_phone.py --list` | PASS / jendela < 8 dB ≤ 5 |
-| Referensi atau SFX tidak didengar (tidak ada log `earshot timeline` ref + `earshot describe` tiap file)? Tanpa earshot: baris ini NOT RUN dan laporan menulis "belum didengar alat" | log earshot di folder proyek | gerbang DENGAR `three-segment-gate.md` |
+| Referensi atau SFX belum didengar (alat: `~/.config/skill-development/alat.md`)? Tanpa alat dengar, analisis audio belum dilakukan: laporan menyebutnya, tidak menyimpulkan bunyinya | log dengar di folder proyek | `bedah-referensi.md` |
 | Suara sumber klip yang bersih diproses (udara > 9 kHz < 70 % sumber, LRA turun > 2 LU)? | `python3 scripts/gate/voice_fidelity.py sumber.mp4 render.mp4` | Lantai E25a, §14.6 |
 | Kategori suasana tidak tertulis, musik tanpa laporan `music_fit.py` berstatus PAKAI (dengan earshot bila ada), atau kumpulan kandidat di bawah bawaan (≥ 20 dari ≥ 2 sumber; peringatan)? Track yang sama di semua klip/babak dicek hanya bila proyek meminta tiap klip berbeda. | `python3 scripts/audio/music_fit.py --category <k> --voice sumber.mp4 kandidat/*` | Lantai E25, Lantai E24 |
 | Ada teks > 2 baris, kata yatim, teks terpotong tepi, ucapan tanpa teks di beat bermode TEKS, baris subtitle di pita bawah, atau kata yang tampil dua kali? | `python3 scripts/juri/teks_cek.py qc/stills/` + keputusan per still yang ditandai (`caption_lines.py` hanya menghitung baris) | Lantai A1, LANTAI A1–A4 |
@@ -56,7 +56,7 @@ FAIL bila teknik ini ada tanpa alasan satu baris di tabel beat:
 ## 4. Devil's advocate audio (wajib, ditulis di laporan sebelum render penuh)
 
 Jawab dengan bukti, bukan klaim. Jawaban yang lemah menunjukkan apa yang diperbaiki sebelum render penuh.
-1. Apakah referensi **didengar** dengan earshot (bila ada; tanpa earshot, tulis "belum didengar alat")? Berapa event/dtk dan kosakata bunyinya, dan berapa milik kita?
+1. Apakah referensi **didengar** (alat di `~/.config/skill-development/alat.md`; tanpa alat, katakan analisis audio belum dilakukan)? Berapa event/dtk dan kosakata bunyinya, dan berapa milik kita?
 2. Apakah setiap SFX menandai momen cerita atau gerak yang terlihat, dari kosakata kiblat, dan sudah didengar? Adakah lapisan klik yang terdengar terus? (Lantai E24)
 3. Kenapa track musik ini, bukan kandidat lain? Apakah track yang sama dipakai di klip/babak lain?
 4. Bila reviewer menandai "sepi", "datar", atau "tidak terdengar": yang diperbaiki **penyebabnya** (jumlah cue, track) atau hanya level?

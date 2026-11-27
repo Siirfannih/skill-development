@@ -35,9 +35,9 @@ Bagaimana akhir shot A secara fisik melahirkan shot B: elemen jangkar yang berta
 ### Lapis 5 · Peta upgrade ke storyboard asal
 Petakan setiap beat ke satu strategi konkret: beat abstrak → tipografi kinetik dan state shift; beat sistem → UI nyata, progressive staging, atau node flow, bukan kartu dummy.
 
-## Templat `REF-SPEC.md` (wajib terisi sebelum storyboard)
+## Templat `REF-SPEC.md` (isi yang memang ditunjukkan referensi)
 
-Tiap bidang: **nilai terukur**, **Alasan** (makna yang dibawa; satu kalimat), **Toleransi** (dipakai `banding.py`).
+Isi bidang yang terlihat di referensi; sisanya tulis "tidak terlihat". Bidang yang diisi membawa nilai, **Alasan** satu kalimat, dan **Toleransi** bila dibandingkan dengan `banding.py`.
 
 ```markdown
 # REF-SPEC · <proyek>
@@ -60,7 +60,7 @@ Tiap bidang: **nilai terukur**, **Alasan** (makna yang dibawa; satu kalimat), **
 
 ## 3. Layout, ukuran shot & bleed
 - Margin, grid, ruang kosong. Alasan: ... Toleransi: ...
-- **Ukuran shot & bleed**: distribusi macro / close / medium / wide (% durasi atau jumlah shot); luas objek fokus per jenis shot (% lebar dan tinggi frame); apakah objek bleed keluar tepi (bubble raksasa terpotong, panel terpotong, close-up produk ekstrem) dan seberapa sering; ukuran teks UI di 1080 (px). Alasan: ... Toleransi: distribusi ±... , luas fokus ±... Build wajib mencocokkan distribusi ini (storyboard memberi tiap beat jenis shot); semua frame medium di tengah dengan skala seragam = presentasi slide.
+- **Ukuran shot & bleed**: distribusi macro / close / medium / wide (% durasi atau jumlah shot); luas objek fokus per jenis shot (% lebar dan tinggi frame); apakah objek bleed keluar tepi (bubble raksasa terpotong, panel terpotong, close-up produk ekstrem) dan seberapa sering; ukuran teks UI di 1080 (px). Alasan: ... Toleransi: distribusi ±... , luas fokus ±... Build mencocokkan distribusi ini (storyboard memberi tiap beat jenis shot); semua frame medium di tengah dengan skala seragam = presentasi slide.
 
 - **Fokus raksasa per beat**: objek apa yang raksasa di tiap beat/jenis frame (% tinggi frame) dan apa yang mengecil di sekitarnya. Satu per beat; beberapa elemen sama berat = menyimpang. Alasan: ...
 - **Dinamika kejenuhan**: di beat mana latar penuh jenuh (kunci cerita) dan mana pastel/netral, dan kenapa (klimaks, pergantian babak). Model cenderung hanya pastel. Alasan: ...

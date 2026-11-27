@@ -18,10 +18,7 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
   - Tidak ada teks di luar komponen bersama tanpa alasan.
 
 ## Segmen 2 · Pra-render (kanvas + timeline di Remotion)
-- Jalankan `node seg2_probe.mjs <dir> <a> <b> 8 0.25`.
-  - Hasilnya: still kecil tiap 8 frame, plus log `OBJ` berisi kotak layar tiap objek bernama. Kotak diambil dari DOM Remotion, sudah termasuk transform kamera.
-  - Log `SFXEV` ikut tercatat.
-- Jalankan `python3 tools/seg2_layout_check.py <dir>`. Pemeriksaannya:
+- Probe layout proyek bila ada (`~/.config/skill-development/alat.md`): still kecil tiap 8 frame + kotak layar tiap objek bernama dari DOM Remotion. Yang diperiksa:
   - **SAFE:** teks utuh di dalam x 15–85 %, y 20–80 % (1920×1080: x 288–1632, y 216–864), safe zone thumbnail YouTube. Catatan untuk proyek tanpa referensi; dengan referensi, REF-SPEC §3 menang.
   - **CLASH:** dua teks bertumpuk.
   - **CONTR:** kontras teks vs latar < 4,5:1.
@@ -30,7 +27,7 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
     - Teks narasumber di atas footage yang sudah terbaca dengan shadow lembut boleh diterima walau angka checker rendah. Keputusan mata Irfan menang atas metrik. Teks yang tak terbaca atau bertabrakan dengan warna di belakangnya mengurangi 1 poin estetika.
 - Lihat contact sheet still ≤ 960 px untuk estetika: ruang kosong, hierarki, variasi.
 - **Lolos jika** laporan LOLOS dan contact sheet bersih.
-- **Gerbang kedip teks per frame (wajib).** Contact sheet per detik tidak bisa melihat kedip 1–15 frame. Jalankan probe untuk SETIAP frame (`node seg2_probe.mjs <dir> 0 <durasi> 1 0.1`), lalu `tools/text_flicker_check.py` (proyek PKS). Lolos hanya jika temuan berikut nol:
+- **Gerbang kedip teks per frame (wajib).** Contact sheet per detik tidak bisa melihat kedip 1–15 frame. Periksa SETIAP frame (probe layout per frame bila ada, `~/.config/skill-development/alat.md`). Yang dicari:
   - **DIP:** teks yang sama tampil, hilang ≤ 15 f, lalu tampil lagi;
   - **CEPAT:** blok tampil < max(1,0 dtk; 0,4 + 0,2 × jumlah kata dtk);
   - **DULUAN HILANG:** blok hilang sebelum VO selesai mengucapkan kata terakhirnya + 0,25 dtk;
@@ -137,7 +134,7 @@ Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. 
   - VO tetap di atas latar pada volume HP 20/50/100 %;
   - tidak ada 2–6 kHz yang menusuk.
 
-- **Gerbang DENGAR sebelum SFX atau musik masuk mix, dengan earshot bila terpasang.** Tersambung ke gerbang muat konteks dan bedah referensi (Brief), SFX dan musik (Mix), serta preview + QA di `references/alur-teknis.md` §4. Earshot tidak terpasang atau gagal: lanjut dengan alat ukur repo (`music_fit`, `pace_read`, `sfx_vet.py`, ebur128) dan tulis "belum didengar alat" di laporan kirim; gerbang DENGAR itu NOT RUN, tidak pernah PASS. Angka level/spektrum tidak memberi tahu bunyinya seperti apa; dengan earshot, langkahnya:
+- **Gerbang DENGAR sebelum SFX atau musik masuk mix, dengan earshot bila terpasang.** Tersambung ke gerbang muat konteks dan bedah referensi (Brief), SFX dan musik (Mix), serta preview + QA di `references/alur-teknis.md` §4. Tanpa alat dengar (`~/.config/skill-development/alat.md`): mendengar belum terlaksana, jadi analisis audio belum dilakukan (`bedah-referensi.md`); katakan begitu di laporan kirim, jangan menyimpulkan bunyinya dari angka. Angka level/spektrum tidak memberi tahu bunyinya seperti apa; dengan earshot, langkahnya:
   1. Jalankan `git submodule update --init external/earshot` lalu pasang earshot; di Mac bila disk cloud sempit, dengan Python 3.12. Bila earshot sudah terpasang di mesin ini (mis. `~/work/mg-venv`), `earshot doctor` harus lulus.
   2. `earshot describe` tiap file.
   3. `earshot match` dengan deskripsi peran plus `--alts` pembanding salah, misalnya "car engine starting", "motorcycle revving", "error buzz", "record scratch".
@@ -169,12 +166,12 @@ Aturannya:
   | hapus | trash |
 
 - **Karakter bunyi: renyah, agak nyaring, bernada bersih dan presisi seperti motion produk yang tenang.** Ekornya alami pendek; bukan echo yang ditambahkan. Tidak deep, tidak kasar.
-  - Ukur centroid, keharmonisan (autokorelasi), nada dasar, porsi > 6 kHz dan 2–6 kHz, serta ekor (puncak → −30 dB), lalu bandingkan dengan palet proyek yang lulus (`ears/palette.py`).
+  - Ukur centroid, keharmonisan (autokorelasi), nada dasar, porsi > 6 kHz dan 2–6 kHz, serta ekor (puncak → −30 dB), lalu bandingkan dengan palet proyek yang lulus.
 - **Whoosh hanya bila ada gerak nyata.** Cek kurva gerak video (`ears/motion_curve.py`: phase-correlation + beda global).
   - Tidak ada gerak → whoosh dibuang.
   - Ada gerak → **puncak** file jatuh di frame v_max (`align:"peak"` di mixer).
   - Transien klik/pop jatuh di onset objek (`align:"onset"`).
-- **Mixer wajib menyelaraskan isi file, bukan awal file.** `mix_v10c.py` menghitung offset onset/puncak tiap file.
+- **Mixer menyelaraskan isi file, bukan awal file**: offset onset/puncak tiap file dihitung.
 - **Bedah referensi dengan earshot sebelum memilih palet:**
   1. Jalankan `earshot timeline <ref.mp4> --detail high` pada tiap referensi dan proyek yang lulus.
   2. Ringkas dengan `ears/tl_sum.py`: label per jenis, centroid, prominence di atas bed, potongan tanpa bunyi.

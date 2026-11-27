@@ -50,7 +50,7 @@ There are four primitive layers: **kinetic typography**, **visual** (surface, ba
 ## 4. Workflow
 
 ### Step 1 — Objective data
-Metadata (resolution, native fps, duration, audio status), a 2 fps contact sheet for the map of sections and cuts, cut detection (`select='gt(scene,0.3)',showinfo`), then native-fps frame extraction over every motion window you will deconstruct.
+Analysing a video means four things: listen to the audio, inspect visual frames, inspect motion frames, and take the transcript (`claude/motion-graphic/references/bedah-referensi.md`; tools: `~/.config/skill-development/alat.md`). If one is missing, the analysis is not done: say so, do not infer it. Data: metadata (resolution, native fps, duration, audio status), a 2 fps contact sheet for the map of sections and cuts, cut detection (`select='gt(scene,0.3)',showinfo`), native-fps frame extraction over every motion window you will deconstruct.
 
 ### Step 2 — Audit: questions, not answers
 For every motion window, answer from the data:
