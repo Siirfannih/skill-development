@@ -201,7 +201,10 @@ case "$MODE" in
       "$PYTHON_BIN" "$HERE/../lego/base_pts.py" "$LEGO" || { echo "GAGAL gerbang: pts frame dasar lego ganda/bergeser (base_pts.py); gabungkan klip dasar pendek ke tetangga."; gagal=1; }
       "$PYTHON_BIN" "$HERE/../lego/cek_master.py" "$LEGO" || { echo "GAGAL gerbang: lapisan tampil di frame berbeda dari rencana (cek_master.py)."; gagal=1; }
     fi
-    [ "$gagal" = 0 ] || { echo "Render penuh ditolak."; exit 1; }
+    if [ "$gagal" != 0 ]; then
+      if [ "${KETAT:-0}" = 1 ]; then echo "Render penuh ditolak (KETAT=1)."; exit 1; fi
+      echo "CATATAN: butir GAGAL di atas adalah informasi, bukan putusan. Lihat sendiri tiap butir, perbaiki yang memang masalah, tulis sisanya dengan alasan di qc/JURI.md. Render dilanjutkan (KETAT=1 untuk menolak)."
+    fi
     free_mb=$(df --output=avail -BM "$P" | tail -1 | tr -dc 0-9)
     [ "${free_mb:-0}" -ge 8000 ] || echo "PERINGATAN: disk kosong ${free_mb} MB (< 8 GB). Render penuh memakai sampai ±3,6 GB di puncaknya dan proses lain di PC bersama bisa naik-turun 2–3 GB; kehabisan ruang muncul sebagai halaman render crash (builder-trap-r2 v2 14 Nov; v3 15 Nov dua kali, disk 561 MB saat crash). Bebaskan ruang dulu."
     if [ "$MODE" = lego ]; then

@@ -2,6 +2,8 @@
 
 Wajib dijalankan setiap kali user membawa referensi (video, gambar, link), **sebelum** storyboard dibuat atau di-upgrade. Referensi adalah desain yang sudah dipilih user: sumber kebenaran seleranya. Tujuan bedah: mengubahnya jadi spesifikasi **terukur dan bisa diterapkan ulang** (`REF-SPEC.md`), dengan **alasan** untuk setiap pilihan. Yang dipindahkan adalah alasan dan sistemnya; bentuknya dipakai bila alasan itu berlaku di proyek ini.
 
+**Menganalisis video berarti empat hal**: mendengar audionya, membedah frame visual, membedah frame gerak, dan transkrip narasinya (alat dan cara pakainya: `~/.config/skill-development/alat.md`). Bila satu tidak terlaksana, analisis belum dilakukan: katakan begitu, jangan menyimpulkan.
+
 Alat: `python3 ../scripts/ref_spec.py <video|folder still>` mengekstrak still per adegan, palet, rentang luma, saturasi, anatomi gradien kasar, luas objek, ke `REF-SPEC.json` + kerangka `REF-SPEC.md`. Angka dari skrip adalah bahan; **alasannya diisi dengan mata**. Bukti tetap wajib: contact sheet + timestamp untuk setiap klaim (lihat sendiri, jangan menebak dari nama file).
 
 Sebelum mulai, petakan **peran tiap referensi**: apa yang dipelajari dari masing-masing. Referensi yang digabung tanpa peran saling bertabrakan (*style bleeding*).

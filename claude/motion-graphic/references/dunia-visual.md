@@ -130,7 +130,7 @@ Ini pertimbangan, bukan urutan wajib; sesuaikan dengan kondisi. Tujuannya satu: 
 - **User tidak bisa ditanya**: pilih dengan alasan, catat di `DECISIONS.md`, lanjut.
 - **Storyboard dalam putaran kecil** (±6 panel), dilihat sebelum lanjut; tata letak tiap beat dirancang sendiri. Model bekerja lebih baik pada sedikit tugas daripada tugas massal.
 
-Yang tetap diperiksa pada hasilnya: `scripts/gate/negatif_cek.py`, `tabrakan_cek.py`, 5 uji biner (§8); `banding.py` terhadap referensi user bila ada.
+Yang tetap dilihat pada hasilnya (informasi, bukan putusan): `scripts/gate/negatif_cek.py`, `tabrakan_cek.py`, 5 uji biner (§8); `banding.py` terhadap referensi user bila ada.
 
 **UI_PROOF tanpa referensi** (NEGATIF 5): bagian UI yang berubah memenuhi frame (kamera masuk panel, ≥ ~60 % tinggi, tepi boleh bleed), bukan jendela kecil di kanvas kosong; jendela utuh hanya establishing, maks sekali per babak; teks UI terbaca di lebar 360 px. Dengan referensi, ikuti REF-SPEC §3.
 

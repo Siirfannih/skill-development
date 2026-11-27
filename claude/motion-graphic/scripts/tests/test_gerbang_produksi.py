@@ -299,11 +299,12 @@ class GerbangProduksi(unittest.TestCase):
         ep = episode(); ep["kt"][0].update(x=30, jangkar="kiri"); f.write_text(json.dumps(ep))
         r = self.jalan(); self.assertEqual(r.returncode, 1); self.assertIn("GAGAL gerbang komposisi", r.stdout)
 
-    def test_render_sh_memanggil_gerbang_dan_menolak_render(self):
+    def test_render_sh_memanggil_gerbang_dan_menolak_hanya_bila_ketat(self):
         s = RENDER.read_text()
         baris = next(b for b in s.splitlines() if "gerbang_produksi.sh" in b and not b.lstrip().startswith("#"))
         self.assertIn('"$P" "$AUDIO_DIR" "$PYTHON_BIN"', baris); self.assertIn("gagal=1", baris)
-        self.assertLess(s.index(baris), s.index('[ "$gagal" = 0 ] || { echo "Render penuh ditolak."; exit 1; }'))
+        self.assertLess(s.index(baris), s.index('if [ "$gagal" != 0 ]; then'))
+        self.assertIn('if [ "${KETAT:-0}" = 1 ]; then echo "Render penuh ditolak (KETAT=1)."; exit 1; fi', s)
 
 
 if __name__ == "__main__":

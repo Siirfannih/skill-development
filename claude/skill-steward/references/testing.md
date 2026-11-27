@@ -12,7 +12,7 @@ Every change gets the structural checks (§2). A rule, lesson, card, preset stat
 2. The unit tests of each touched skill, if any: `python3 -m unittest discover -s claude/<skill>/scripts/tests`. They assert instruction wording, so a rule edit can break them while `steward_check.py` stays green.
 3. `python3 tools/peta.py --check` when a file is added, moved, renamed, archived or deleted.
 
-If you touch what a repo check reads (NEGATIF, LANTAI IDs, SUMBER files, cards), run it too; where `tools/doctor.sh` cannot run, run its parts: `python3 tools/sync_negatif.py --check`, `python3 tools/sync_lantai.py --check`, `python3 tools/sumber_cek.py`, `python3 tools/cookbook.py cek`. A check failing before your change is reported as such and fixed separately.
+If you touch what a repo check reads (NEGATIF, LANTAI IDs, SUMBER files, cards), run it too; where `tools/doctor.sh --repo` cannot run, run its parts: `python3 tools/sync_negatif.py --check`, `python3 tools/sync_lantai.py --check`, `python3 tools/sumber_cek.py`, `python3 tools/cookbook.py cek`. A check failing before your change is reported as such and fixed separately.
 
 ## 3. Behavior check
 

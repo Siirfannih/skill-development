@@ -255,7 +255,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `tools/AFTER-EFFECTS.md` | After Effects bukan jalur bawaan. |
 | `tools/ELEVENLABS.md` | Kunci API tidak pernah ada di repo ini, di chat, atau di memori. |
 | `tools/cookbook.py` | Alat cookbook motion-graphic (Two-Tier Domain Packs): CATALOG/POLA/SFX, resolver kartu, validasi token & skema. |
-| `tools/doctor.sh` | Cek apakah Claude Code dan Codex memuat skill-development dengan benar. Boleh dijalankan di awal sesi (AGENTS.md). |
+| `tools/doctor.sh` | Periksa alat yang dipakai model untuk melihat, mendengar, dan membangun video. |
 | `tools/engineering-stack.sh` | Pasang tumpukan skill engineering terkurasi (idempoten). |
 | `tools/peta.py` | Tulis PETA.md: peta repo supaya model membuka hanya file yang dibutuhkan. |
 | `tools/sumber_cek.py` | Tolak tanda sumber dan cerita kegagalan di file instruksi (`claude/skill-steward/references/writing.md` §3, SKILL.md §5). |

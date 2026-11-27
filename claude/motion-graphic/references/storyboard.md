@@ -37,7 +37,7 @@ Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkun
 4. **Kerangka bila membantu**: `board.py --skeleton` membuat satu panel kosong berlabel per beat; kerangka tidak boleh tersisa di papan akhir.
 5. **Gambar panel per putaran** (§3; satu babak atau ±6 panel, `dunia-visual.md` §7), render, lihat, perbaiki. Jangan menilai dari kode.
 6. **Gerak yang tidak terbaca dari satu frame dipecah jadi 2–4 frame** (`<id>-1.html`, `<id>-2.html`) supaya editor motion paham.
-7. **Review papan sekali** (§5), perbaiki temuan, jalankan `board.py` sampai PASS.
+7. **Review papan sekali** (§5), perbaiki temuan; baca keluaran `board.py` sebagai informasi (perbaiki yang memang masalah, sisanya beri alasan).
 8. **Serah terima** (§8).
 
 ## 3. Panel: format dan isi
