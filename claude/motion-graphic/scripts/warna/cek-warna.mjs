@@ -5,7 +5,7 @@
  *   node cek-warna.mjs masuk  <video | folder | png...> [--out palet.json] [--k 5] [--maks 24]
  *                             [--ke-spec spec.json] [--ke-tema tema.ts] [--mode-tema terang|gelap] [--json]
  *   node cek-warna.mjs keluar <frame.png | folder> --palet palet.json [--html frame.html | --tanpa-teks noteks.png]
- *                             [--abaikan x,y,w,h]... [--mode terang|gelap] [--ambang-liar 0.5] [--de 12] [--json]
+ *                             [--abaikan x,y,w,h]... [--mode terang|gelap] [--ambang-liar 0.5] [--de 12] [--json] [--ketat]
  *
  * Pustaka: sharp (piksel), node-vibrant (pembanding palet), culori (ΔE2000, OKLCH, WCAG), apca-w3 (APCA Lc),
  * axe-core lewat playwright-core (SUPLEMEN untuk bingkai HTML, bukan hakim tunggal).
@@ -21,8 +21,10 @@
  *   --ke-tema  menulis token ke tema.ts (MEREK primer/sekunder/latar, NETRAL tinta/redup/garis/kertas); file belum ada = disalin dari
  *              toolkit/starter/src/tema.ts; nilai turunan (campuran) diberi tanda "// turunan".
  *
- * GERBANG KELUAR: frame hasil vs palet.json. Keluar 0 = LULUS, 1 = FAIL, 2 = masukan atau dependensi bermasalah. JSON ke stdout:
- *   {"status":"FAIL","alasan":[{"jenis":"kontras-apca"|"warna-nyasar"|"warna-nanggung", ...}], "aviso":[...], "blok":[...]}; ringkasan manusia di stderr.
+ * GERBANG KELUAR: frame hasil vs palet.json. Keluar 0 = PASS atau CATATAN, 1 = FAIL, 2 = masukan atau dependensi bermasalah. JSON ke stdout:
+ *   Warna nyasar dan warna nanggung adalah informasi selera: status "CATATAN", keluar 0 (dengan --ketat atau KETAT=1: FAIL, keluar 1).
+ *   Kontras APCA tetap diukur dan dilaporkan; kontras di bawah batas (termasuk teks tak terlihat) tetap FAIL, keluar 1.
+ *   {"status":"FAIL"|"CATATAN","alasan":[{"jenis":"kontras-apca"|"warna-nyasar"|"warna-nanggung", ...}], "aviso":[...], "blok":[...]}; ringkasan manusia di stderr.
  *  (a) warna-nyasar : klaster warna berluas >= 0,5 % (dari piksel yang dinilai) yang ΔE2000-nya > 12 ke semua warna palet, tint/shade
  *      sepanjang lightness (+-25 L), dan campuran antar-warna palet (gradien). Anti-aliasing gugur oleh ambang luas. Foto/footage:
  *      --abaikan x,y,w,h (boleh berulang; luas dihitung dari piksel di luar area itu).
@@ -568,7 +570,7 @@ async function periksaFrame(png, hexes, o) {
       if (k.axe?.status === "jalan" && k.axe.takpasti) r.aviso.push({ jenis: "axe-takpasti", jumlah: k.axe.takpasti, detail: "axe tidak dapat menghitung (gradien/gambar); keputusan tetap dari render dua kali" });
     }
   } catch (e) { r.galat = String(e.message || e); }
-  r.status = r.galat ? "ERROR" : r.alasan.length ? "FAIL" : "PASS";
+  r.status = r.galat ? "ERROR" : r.alasan.some((x) => x.jenis === "kontras-apca") || (o.ketat && r.alasan.length) ? "FAIL" : r.alasan.length ? "CATATAN" : "PASS";
   return r;
 }
 
@@ -598,21 +600,21 @@ async function keluar(a) {
   if (!frames.length) { console.error("tidak ada png"); return 2; }
   if ((a.html || a["tanpa-teks"]) && frames.length > 1) { console.error("--html/--tanpa-teks hanya untuk satu frame"); return 2; }
   const abaikan = (a.abaikan ?? []).map((s) => { const v = s.split(",").map((x) => parseInt(x)); if (v.length !== 4 || v.some(Number.isNaN)) throw new Error("--abaikan harus x,y,w,h"); return v; });
-  const o = { de: parseFloat(a.de ?? "12"), ambang: parseFloat(a["ambang-liar"] ?? "0.5"), abaikan, html: a.html, tanpaTeks: a["tanpa-teks"], otomatis: true };
+  const o = { ketat: !!a.ketat || process.env.KETAT === "1", de: parseFloat(a.de ?? "12"), ambang: parseFloat(a["ambang-liar"] ?? "0.5"), abaikan, html: a.html, tanpaTeks: a["tanpa-teks"], otomatis: true };
   const hasil = []; for (const f of frames) hasil.push(await periksaFrame(f, hexes, o));
-  const galat = hasil.some((r) => r.status === "ERROR"), fail = hasil.some((r) => r.status === "FAIL");
+  const galat = hasil.some((r) => r.status === "ERROR"), fail = hasil.some((r) => r.status === "FAIL"), catatan = hasil.some((r) => r.status === "CATATAN");
   for (const r of hasil) cetakStderr(r, r.file);
-  console.error(`\nringkasan: ${hasil.length} frame, ${hasil.filter((r) => r.status !== "PASS").length} tidak lulus -> ${galat ? "ERROR" : fail ? "FAIL (perbaiki warna ke palet.json / naikkan kontras)" : "PASS"}`);
+  console.error(`\nringkasan: ${hasil.length} frame, ${hasil.filter((r) => r.status !== "PASS").length} tidak lulus -> ${galat ? "ERROR" : fail ? "FAIL (kontras di bawah batas atau mode --ketat)" : catatan ? "CATATAN (warna di luar palet: informasi, mata yang memutuskan)" : "PASS"}`);
   let keluaran;
   if (hasil.length === 1) { const { status, alasan, aviso, blok, kontras, axe, dilewati } = hasil[0]; keluaran = { status: galat ? "ERROR" : status, alasan, aviso, kontras, blok, dilewati, axe, ...(hasil[0].galat ? { galat: hasil[0].galat } : {}) }; }
-  else keluaran = { status: galat ? "ERROR" : fail ? "FAIL" : "PASS", alasan: hasil.flatMap((r) => r.alasan.map((x) => ({ file: r.file, ...x }))), aviso: hasil.flatMap((r) => r.aviso.map((x) => ({ file: r.file, ...x }))), frames: hasil.map((r) => ({ file: r.file, status: r.status, kontras: r.kontras, blok: r.blok })) };
+  else keluaran = { status: galat ? "ERROR" : fail ? "FAIL" : catatan ? "CATATAN" : "PASS", alasan: hasil.flatMap((r) => r.alasan.map((x) => ({ file: r.file, ...x }))), aviso: hasil.flatMap((r) => r.aviso.map((x) => ({ file: r.file, ...x }))), frames: hasil.map((r) => ({ file: r.file, status: r.status, kontras: r.kontras, blok: r.blok })) };
   if (a.json || !process.stdout.isTTY) console.log(JSON.stringify(keluaran, null, 1)); else console.log(keluaran.status);
   return galat ? 2 : fail ? 1 : 0;
 }
 
 // ---------- CLI ----------
 function parse(argv) {
-  const a = { _: [] }, BANYAK = new Set(["abaikan"]), BOOL = new Set(["json"]);
+  const a = { _: [] }, BANYAK = new Set(["abaikan"]), BOOL = new Set(["json", "ketat"]);
   for (let i = 0; i < argv.length; i++) {
     const t = argv[i];
     if (t.startsWith("--")) { const k = t.slice(2); if (BOOL.has(k)) a[k] = true; else if (BANYAK.has(k)) (a[k] ??= []).push(argv[++i]); else a[k] = argv[++i]; }

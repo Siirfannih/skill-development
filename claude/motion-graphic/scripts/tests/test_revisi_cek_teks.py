@@ -51,6 +51,12 @@ class RevisiCek(unittest.TestCase):
         r = self.cek([{"teks": "profesional", "atribut": ["pos"], "ledger": "D-1"}])
         self.assertNotEqual(r.returncode, 0)
 
+    def test_sumber_pemilik_dan_owner_lulus_seperti_irfan(self):
+        for sumber in ("pemilik", "owner"):
+            self.tulis_teks({"warna": "#F97066"})
+            r = self.cek([{"teks": "profesional", "atribut": ["warna"], "ledger": "D-2", "sumber": sumber}])
+            self.assertEqual(r.returncode, 0, (sumber, r.stdout + r.stderr))
+
     def test_usul_dipilih_lulus(self):
         self.tulis_teks({"warna": "#F97066"})
         r = self.cek([{"teks": "profesional", "atribut": ["warna"], "ledger": "D-2", "sumber": "usul-dipilih"}])

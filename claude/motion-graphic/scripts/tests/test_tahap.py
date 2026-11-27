@@ -1,4 +1,4 @@
-"""Uji tahap.py: langkah dicentang tanpa bukti belum dianggap selesai; cek tahap gagal sampai semua berbukti; `cek final`
+"""Uji tahap.py: langkah dicentang tanpa bukti belum dianggap selesai; cek tahap mencatat (keluar 0; --ketat keluar 1) sampai semua berbukti; `cek final`
 menuntut semua tahap sebelum Deliver (format lama: tahap 1–3); template memakai nama tahap kanonik."""
 import os, re, shutil, subprocess, sys, tempfile, unittest
 
@@ -21,7 +21,12 @@ class Tahap(unittest.TestCase):
     def test_centang_tanpa_bukti_belum_selesai(self):
         self.ganti("- [ ] Profil merek", "- [x] Profil merek"); r = self.run_()
         self.assertIn("Tahap 1", r.stdout); self.assertIn("tanpa bukti", r.stdout.replace("belum ada bukti", "tanpa bukti"))
-        self.assertEqual(self.run_("cek", "1").returncode, 1)
+        r = self.run_("cek", "1"); self.assertEqual(r.returncode, 0); self.assertIn("CATATAN", r.stdout)
+        self.assertEqual(self.run_("cek", "1", "--ketat").returncode, 1)
+
+    def test_proyek_tanpa_tahap_md_tetap_gagal(self):
+        shutil.rmtree(self.d); os.makedirs(self.d)
+        self.assertNotEqual(self.run_("cek", "final").returncode, 0)
 
     def centang(self, sampai):
         """Centang + beri bukti semua langkah tahap 1..sampai."""
@@ -51,7 +56,8 @@ class Tahap(unittest.TestCase):
 
     def test_cek_final_menuntut_semua_tahap_sebelum_deliver(self):
         self.centang(5); r = self.run_("cek", "final")
-        self.assertEqual(r.returncode, 1); self.assertIn("Tahap 6", r.stdout); self.assertNotIn("Tahap 7", r.stdout)
+        self.assertEqual(r.returncode, 0); self.assertIn("Tahap 6", r.stdout); self.assertNotIn("Tahap 7", r.stdout)
+        self.assertEqual(self.run_("cek", "final", "--ketat").returncode, 1)
         self.centang(6); self.assertEqual(self.run_("cek", "final").returncode, 0)
 
     def test_cek_final_format_lama_tetap_tahap_1_3(self):
@@ -60,7 +66,8 @@ class Tahap(unittest.TestCase):
         open(os.path.join(self.d, "TAHAP.md"), "w").write(lama)
         self.assertEqual(self.run_("cek", "final").returncode, 0)
         open(os.path.join(self.d, "TAHAP.md"), "w").write(lama.replace("- [x] c → ok", "- [ ] c →"))
-        self.assertEqual(self.run_("cek", "final").returncode, 1)
+        self.assertEqual(self.run_("cek", "final", "--ketat").returncode, 1)
+        r = self.run_("cek", "final"); self.assertEqual(r.returncode, 0); self.assertIn("CATATAN", r.stdout)
 
 
 if __name__ == "__main__":

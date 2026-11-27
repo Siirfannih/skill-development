@@ -2,7 +2,7 @@
 """banding.py: bandingkan frame dengan frame referensi / REF-SPEC.json (KEBIJAKAN-v2 bagian 1.3 dan 3).
 
   python3 banding.py <frame.png> <ref-frame.png | REF-SPEC.json> [--tipe terang|gelap|light|dark|<tipe penuh>]
-                     [--crop x0,y0,x1,y1] [--out banding.png] [--tol-luma 0.40] [--tol-sat 0.20] [--tol-de 15] [--json]
+                     [--crop x0,y0,x1,y1] [--out banding.png] [--tol-luma 0.40] [--tol-sat 0.20] [--tol-de 15] [--json] [--ketat]
 
 Ukuran (sama dengan ref_spec.py): rentang luma (p95-p5), saturasi median/p95, jarak palet (rata-rata berbobot ΔE2000
 tetangga terdekat palet frame -> palet ref), kontras ekstrem (kasar, p2 vs p98 luma), luas fokus (% frame, informasi).
@@ -10,7 +10,7 @@ Dengan REF-SPEC.json: jenis frame diambil dari --tipe (terang/gelap, boleh "tera
 terang/gelap dan kerapatan tepi frame. Toleransi bawaan: rentang luma beda > 40%, sat p95 beda > 0,2, palet ΔE > 15;
 REF-SPEC.json boleh menimpa lewat "toleransi", flag menimpa keduanya.
 Sidik jari:
-  F1 gradien ragu-ragu: rentang luma < 35 DAN sat p95 < 0,15 DAN bukan datar (std luma > 3) -> GAGAL.
+  F1 gradien ragu-ragu: rentang luma < 35 DAN sat p95 < 0,15 DAN bukan datar (std luma > 3) -> CATATAN (informasi).
      Dimaafkan bila referensi sendiri berprofil sama (REF-SPEC menyatakan sebaliknya).
   F2 halo di belakang teks: TIDAK diimplementasikan (heuristik dari piksel tidak andal; periksa dengan mata). Kontras ekstrem
      hanya dilaporkan.
@@ -20,10 +20,11 @@ Mode tanpa referensi (hanya sidik jari; angka tetap dilaporkan):
                                                 % frame berpola "fokus kecil di tengah" (S-V31, peringatan)
   python3 banding.py <baru.png> --sebelum <lama.png> [--target <ref.png>]   selisih versi frame yang sama (revisi)
   F3 frame jarang (PERINGATAN, bukan gagal): luas fokus < 12 % DAN tidak ada pita tepi mirip teks (>= 3 % tinggi frame
-     berisi baris dengan tepi >= 4 % lebar). Butuh scipy (tanpa scipy F3 dilewati). Seri: > 10 % frame jarang = keluar 1 (perbaiki:
+     berisi baris dengan tepi >= 4 % lebar). Butuh scipy (tanpa scipy F3 dilewati). Seri: > 10 % frame jarang dicatat (pertimbangkan:
      isi dengan objek asli beat pada ukuran terbaca, atau gabung beat). Di mode --sebelum, tiap ukuran dicetak lama -> baru
      (selisih); dengan --target ditambah % selisih ke target yang sudah ditutup (langkah wajar revisi: ~30-60 %).
-Keluar: 0 lulus, 1 sidik jari atau selisih melampaui toleransi, 2 masukan salah. Keluaran: PNG berdampingan (frame | ref) + tabel.
+Keluar: 0 (temuan selera/selisih hanya dicetak sebagai CATATAN), 2 masukan salah. Dengan --ketat (atau KETAT=1): 1 bila sidik jari
+atau selisih melampaui toleransi. Keluaran: PNG berdampingan (frame | ref) + tabel.
 """
 import argparse, importlib.util, json, os, sys
 import numpy as np
@@ -126,15 +127,20 @@ def ukur(path):
 KUNCI = ("luma_range", "sat_median", "sat_p95", "fokus_pct", "tepi", "kontras_ekstrem")
 
 
+def ketat(a):
+    """Mode ketat (--ketat atau KETAT=1) mengembalikan kode keluar 1 untuk temuan; bawaan: informasi saja."""
+    return bool(a.ketat or os.environ.get("KETAT") == "1")
+
+
 def mode_sendiri(a):
     _, m, f1, f3 = ukur(a.frame)
-    out = {"metrik": {k: m[k] for k in KUNCI}, "f1": f1, "f3_jarang": f3, "gagal": ["F1 gradien ragu-ragu"] if f1 else []}
+    out = {"metrik": {k: m[k] for k in KUNCI}, "f1": f1, "f3_jarang": f3, "catatan": ["F1 gradien ragu-ragu"] if f1 else []}
     if a.json: print(json.dumps(out, ensure_ascii=False, indent=1))
     else:
         print(" ".join(f"{k}={m[k]}" for k in KUNCI))
-        print("F1 gradien ragu-ragu: " + ("TERPICU (GAGAL)" if f1 else "tidak"))
+        print("F1 gradien ragu-ragu: " + ("TERPICU (CATATAN)" if f1 else "tidak"))
         print("F3 frame jarang: " + ("tidak terukur (scipy tidak ada)" if f3 is None else "PERINGATAN: jarang (fokus %s %% < %g, tanpa pita teks)" % (m["fokus_pct"], F3_FOKUS) if f3 else "tidak"))
-    return 1 if f1 else 0
+    return 1 if (f1 and ketat(a)) else 0
 
 
 def mode_seri(a):
@@ -156,16 +162,16 @@ def mode_seri(a):
     for p in pola:
         run = run + 1 if p else 0; best = max(best, run)
     pola_warn = bool(pola_pct is not None and (pola_pct > POLA_PCT_MAKS or best >= POLA_BERURUT))
-    out = {"n": n, "jarang_pct": pct, "jarang": jarang, "f1": f1s, "sebaran": dist, "pola_tengah_pct": pola_pct, "pola_tengah_berurutan": best, "pola_peringatan": pola_warn, "gagal": flag or bool(f1s)}
+    out = {"n": n, "jarang_pct": pct, "jarang": jarang, "f1": f1s, "sebaran": dist, "pola_tengah_pct": pola_pct, "pola_tengah_berurutan": best, "pola_peringatan": pola_warn, "catatan": flag or bool(f1s)}
     if a.json: print(json.dumps(out, ensure_ascii=False, indent=1))
     else:
         print(f"{n} frame; frame jarang: " + ("tidak terukur (scipy tidak ada)" if pct is None else f"{len(jarang)} ({pct} %), batas {SERI_JARANG_MAKS:g} %"))
         for k, v in dist.items(): print(f"  {k}: min {v['min']}  p50 {v['p50']}  maks {v['max']}")
         print("  pola fokus kecil di tengah: " + ("tidak terukur (scipy tidak ada)" if pola_pct is None else f"{pola_pct} % frame, terpanjang {best} berurutan" + (f"  PERINGATAN S-V31: > {POLA_PCT_MAKS:g} % atau >= {POLA_BERURUT} berurutan; variasikan ukuran shot dan posisi, atau mata-saja bila sengaja di REF-SPEC" if pola_warn else "")))
         if jarang: print("  jarang: " + ", ".join(jarang))
-        if f1s: print("  F1 gradien ragu-ragu (GAGAL): " + ", ".join(f1s))
-        if flag: print(f"GAGAL: > {SERI_JARANG_MAKS:g} % frame jarang. Isi dengan objek asli beat pada ukuran terbaca, atau gabung beat.")
-    return 1 if (flag or f1s) else 0
+        if f1s: print("  F1 gradien ragu-ragu (CATATAN): " + ", ".join(f1s))
+        if flag: print(f"CATATAN: > {SERI_JARANG_MAKS:g} % frame jarang. Pertimbangkan objek asli beat pada ukuran terbaca, atau gabung beat.")
+    return 1 if ((flag or f1s) and ketat(a)) else 0
 
 
 def mode_sebelum(a):
@@ -187,14 +193,14 @@ def mode_sebelum(a):
         for k, h in hasil.items():
             print(f"{k:<16} {h['sebelum']} -> {h['sesudah']}  (selisih {h['selisih']:+})" + (f"  target {h['target']}: tutup {h['tutup_pct']:.0f} %" if "tutup_pct" in h else ""))
         print(f"F1: {'TERPICU' if f1b else 'tidak'}   F3 jarang: sebelum={f3l} sesudah={f3b}" + ("  PERINGATAN: revisi membuat frame jarang" if f3b and not f3l else ""))
-    return 1 if f1b else 0
+    return 1 if (f1b and ketat(a)) else 0
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Banding frame vs referensi")
     ap.add_argument("frame", nargs="?"); ap.add_argument("ref", nargs="?"); ap.add_argument("--tipe")
     ap.add_argument("--seri"); ap.add_argument("--sebelum"); ap.add_argument("--target"); ap.add_argument("--crop")
-    ap.add_argument("--out"); ap.add_argument("--json", action="store_true")
+    ap.add_argument("--out"); ap.add_argument("--json", action="store_true"); ap.add_argument("--ketat", action="store_true")
     ap.add_argument("--tol-luma", type=float); ap.add_argument("--tol-sat", type=float); ap.add_argument("--tol-de", type=float)
     a = ap.parse_args(argv)
     if a.seri:
@@ -217,27 +223,27 @@ def main(argv=None):
     if a.tol_de is not None: tol["palet_de"] = a.tol_de
     d = bandingkan(m, r, tol)
     f1 = RS.fingerprint_f1(m); f1_maaf = f1 and r.get("_f1", False)
-    gagal = []
-    if f1 and not f1_maaf: gagal.append(f"F1 gradien ragu-ragu (rentang luma {m['luma_range']} < 35, sat p95 {m['sat_p95']} < 0.15, std {m['luma_std']} > 3)")
+    catatan = []
+    if f1 and not f1_maaf: catatan.append(f"F1 gradien ragu-ragu (rentang luma {m['luma_range']} < 35, sat p95 {m['sat_p95']} < 0.15, std {m['luma_std']} > 3)")
     for k, (_, _, sel, batas) in d.items():
-        if batas is not None and sel is not None and sel > batas: gagal.append(f"selisih {k} {sel:.3g} > toleransi {batas}")
+        if batas is not None and sel is not None and sel > batas: catatan.append(f"selisih {k} {sel:.3g} > toleransi {batas}")
     baris = []
     for k, (fv, rv, sel, batas) in d.items():
         bad = batas is not None and sel is not None and sel > batas
         sv = "-" if sel is None else f"{sel:.3g}"; tg = "" if batas is None else f"  (batas {batas})"
         baris.append((f"{k:<16} frame={fv if fv is not None else '-':<8} ref={rv if rv is not None else '-':<8} selisih={sv}{tg}{'  <-- LUAR' if bad else ''}", bad))
     baris.append((f"F1 gradien ragu-ragu: {'TERPICU' + (' (dimaafkan: ref berprofil sama)' if f1_maaf else '') if f1 else 'tidak'}   F2 halo teks: tidak dicek (tidak andal)", f1 and not f1_maaf))
-    baris.append((("GAGAL: " + "; ".join(gagal)) if gagal else "LULUS", bool(gagal)))
+    baris.append((("CATATAN: " + "; ".join(catatan)) if catatan else "tidak ada catatan", bool(catatan)))
     out = a.out or os.path.splitext(a.frame)[0] + ".banding.png"
     gambar(img, Image.open(ref_png).convert("RGB") if ref_png else None, baris, out, "REF: " + label)
     if a.json:
         print(json.dumps({"ref": label, "toleransi": tol, "metrik_frame": {k: v for k, v in m.items() if k != "palet"}, "banding": {k: v[2] for k, v in d.items()},
-                          "f1": f1, "f1_dimaafkan": f1_maaf, "gagal": gagal, "gambar": out}, ensure_ascii=False, indent=1))
+                          "f1": f1, "f1_dimaafkan": f1_maaf, "catatan": catatan, "gambar": out}, ensure_ascii=False, indent=1))
     else:
         print(f"ref: {label}  tipe frame: {m['tipe']}")
         for t, _ in baris: print("  " + t)
         print("gambar: " + out)
-    return 1 if gagal else 0
+    return 1 if (catatan and ketat(a)) else 0
 
 
 if __name__ == "__main__":

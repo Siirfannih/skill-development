@@ -39,9 +39,10 @@ class Banding(unittest.TestCase):
 
     def tearDown(self): self.t.cleanup()
 
-    def test_f1_gagal_untuk_gradien_ragu(self):
+    def test_f1_dicatat_untuk_gradien_ragu_keluar_0_ketat_1(self):
         r = jalan(S / "banding.py", self.ragu, self.tegas, "--out", self.d / "o.png", "--json")
-        d = json.loads(r.stdout); self.assertEqual(r.returncode, 1); self.assertTrue(d["f1"]); self.assertTrue((self.d / "o.png").exists())
+        d = json.loads(r.stdout); self.assertEqual(r.returncode, 0); self.assertTrue(d["f1"]); self.assertTrue(d["catatan"]); self.assertTrue((self.d / "o.png").exists())
+        r = jalan(S / "banding.py", self.ragu, self.tegas, "--out", self.d / "o.png", "--json", "--ketat"); self.assertEqual(r.returncode, 1)
 
     def test_f1_lulus_terhadap_diri_sendiri_dan_datar(self):
         for f in (self.tegas, self.navy, self.datar):
@@ -54,7 +55,8 @@ class Banding(unittest.TestCase):
 
     def test_terang_vs_gelap_selisih_besar(self):
         r = jalan(S / "banding.py", self.tegas, self.navy, "--out", self.d / "o.png", "--json"); d = json.loads(r.stdout)
-        self.assertEqual(r.returncode, 1); self.assertGreater(d["banding"]["palet_de"], 15)
+        self.assertEqual(r.returncode, 0); self.assertGreater(d["banding"]["palet_de"], 15); self.assertTrue(d["catatan"])
+        self.assertEqual(jalan(S / "banding.py", self.tegas, self.navy, "--out", self.d / "o.png", "--ketat").returncode, 1)
 
     def test_crop_dan_toleransi_bendera(self):
         r = jalan(S / "banding.py", self.tegas, self.tegas, "--crop", "0,0,240,135", "--tol-luma", "5", "--tol-sat", "5", "--tol-de", "99", "--out", self.d / "o.png")
@@ -68,7 +70,8 @@ class Banding(unittest.TestCase):
         self.assertEqual(sum(t["n"] for t in spec["tipe"].values()), 2); self.assertEqual({s["metrik"]["gelap"] for s in spec["stills"]}, {True, False})
         self.assertIn("Alasan (isi dengan mata)", (out / "REF-SPEC.md").read_text()); self.assertTrue((out / "contact-sheet.png").exists())
         r = jalan(S / "banding.py", self.tegas, out / "REF-SPEC.json", "--tipe", "terang", "--out", self.d / "o.png"); self.assertEqual(r.returncode, 0, r.stdout)
-        r = jalan(S / "banding.py", self.tegas, out / "REF-SPEC.json", "--tipe", "gelap", "--out", self.d / "o.png"); self.assertEqual(r.returncode, 1)
+        r = jalan(S / "banding.py", self.tegas, out / "REF-SPEC.json", "--tipe", "gelap", "--out", self.d / "o.png"); self.assertEqual(r.returncode, 0); self.assertIn("CATATAN", r.stdout)
+        r = jalan(S / "banding.py", self.tegas, out / "REF-SPEC.json", "--tipe", "gelap", "--out", self.d / "o.png", "--ketat"); self.assertEqual(r.returncode, 1)
 
     def _jarang(self):
         H, W = 270, 480; a = np.full((H, W, 3), 0.0); a[:] = (10, 20, 80); yy, xx = np.ogrid[:H, :W]  # latar navy: F1 tidak terpicu
@@ -82,8 +85,9 @@ class Banding(unittest.TestCase):
     def _besar(self):
         a = np.full((270, 480, 3), 250.0); a[40:230, 60:420] = (30, 70, 200); p = self.d / "besar.png"; simpan(p, a); return p
 
-    def test_mandiri_f1_gagal_dan_lulus(self):
-        r = jalan(S / "banding.py", self.ragu, "--json"); self.assertEqual(r.returncode, 1); self.assertTrue(json.loads(r.stdout)["f1"])
+    def test_mandiri_f1_dicatat_dan_lulus(self):
+        r = jalan(S / "banding.py", self.ragu, "--json"); self.assertEqual(r.returncode, 0); self.assertTrue(json.loads(r.stdout)["f1"])
+        self.assertEqual(jalan(S / "banding.py", self.ragu, "--ketat").returncode, 1)
         r = jalan(S / "banding.py", self.tegas, "--json"); self.assertEqual(r.returncode, 0); self.assertFalse(json.loads(r.stdout)["f1"])
 
     @unittest.skipIf(scipy is None, "scipy tidak ada: F3 dilewati")
@@ -101,7 +105,8 @@ class Banding(unittest.TestCase):
         r = jalan(S / "banding.py", "--seri", s, "--json"); d = json.loads(r.stdout)
         self.assertEqual(d["n"], 10); self.assertEqual(d["jarang_pct"], 10.0); self.assertEqual(r.returncode, 0)
         (s / "j2.png").write_bytes(self._jarang().read_bytes())  # 2/11 = 18 %
-        r = jalan(S / "banding.py", "--seri", s, "--json"); self.assertEqual(r.returncode, 1); self.assertEqual(sorted(json.loads(r.stdout)["jarang"]), ["j.png", "j2.png"])
+        r = jalan(S / "banding.py", "--seri", s, "--json"); self.assertEqual(r.returncode, 0); self.assertEqual(sorted(json.loads(r.stdout)["jarang"]), ["j.png", "j2.png"])
+        self.assertEqual(jalan(S / "banding.py", "--seri", s, "--ketat").returncode, 1)
 
     @unittest.skipIf(scipy is None, "scipy tidak ada: pola dilewati")
     def test_seri_pola_fokus_kecil_di_tengah_peringatan_bukan_gagal(self):
@@ -117,7 +122,8 @@ class Banding(unittest.TestCase):
 
     def test_seri_f1_dan_masukan_salah(self):
         s = self.d / "seri2"; s.mkdir(); (s / "r.png").write_bytes(self.ragu.read_bytes())
-        self.assertEqual(jalan(S / "banding.py", "--seri", s).returncode, 1)
+        self.assertEqual(jalan(S / "banding.py", "--seri", s).returncode, 0)
+        self.assertEqual(jalan(S / "banding.py", "--seri", s, "--ketat").returncode, 1)
         self.assertEqual(jalan(S / "banding.py", "--seri", self.d / "x").returncode, 2)
 
     def test_sebelum_selisih_dan_target(self):

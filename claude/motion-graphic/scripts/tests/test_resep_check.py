@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""resep_check.py: gerbang RESEP.md. Kartu kiblat dari referensi user tetap diperiksa seperti dulu; user tanpa referensi boleh memakai REF-SPEC.md (`Kartu: tidak ada`)."""
+"""resep_check.py: isian RESEP.md yang kurang = CATATAN (keluar 0; --ketat keluar 1); berkas rujukan hilang (kartu kiblat, REF-SPEC.md, RESEP.md) tetap keluar 1.
+User tanpa referensi boleh memakai REF-SPEC.md (`Kartu: tidak ada`)."""
 import subprocess, sys, tempfile, unittest
 from pathlib import Path
 
@@ -42,11 +43,17 @@ class Dasar(unittest.TestCase):
 
     def tearDown(self): self.t.cleanup()
 
-    def jalan(self, teks, ref_spec=False):
+    def jalan(self, teks, ref_spec=False, ketat=False):
         (self.d / "RESEP.md").write_text(teks, encoding="utf-8")
         if ref_spec: (self.d / "REF-SPEC.md").write_text("# REF-SPEC\n", encoding="utf-8")
-        r = subprocess.run([sys.executable, str(SKRIP), str(self.d / "RESEP.md")], capture_output=True, text=True)
+        r = subprocess.run([sys.executable, str(SKRIP), str(self.d / "RESEP.md")] + (["--ketat"] if ketat else []), capture_output=True, text=True)
         return r.returncode, r.stdout + r.stderr
+
+    def catatan(self, teks, ref_spec=False):
+        """Isian kurang: keluar 0 bawaan dengan CATATAN, keluar 1 dengan --ketat. Mengembalikan keluaran bawaan."""
+        rc, out = self.jalan(teks, ref_spec); self.assertEqual(rc, 0, out); self.assertIn("CATATAN", out)
+        rc_k, _ = self.jalan(teks, ref_spec, ketat=True); self.assertEqual(rc_k, 1)
+        return out
 
 
 class JalurKartu(Dasar):
@@ -57,11 +64,10 @@ class JalurKartu(Dasar):
         rc, out = self.jalan(isi(kartu="cookbook/tidak-ada.md")); self.assertEqual(rc, 1); self.assertIn("kartu kiblat tidak ditemukan", out)
 
     def test_path_kartu_kosong_atau_placeholder_gagal(self):
-        rc, out = self.jalan(isi(kartu="<path kartu | tidak ada>")); self.assertEqual(rc, 1); self.assertIn("path kartu kiblat belum diisi", out)
+        self.assertIn("path kartu kiblat belum diisi", self.catatan(isi(kartu="<path kartu | tidak ada>")))
 
     def test_tidak_ada_dengan_kiblat_kartu_tetap_gagal(self):
-        rc, out = self.jalan(isi(kiblat="kartu 63", kartu="tidak ada"), ref_spec=True)
-        self.assertEqual(rc, 1); self.assertIn("kartu kiblat tidak ditemukan: tidak ada", out)
+        self.assertIn("kartu kiblat tidak ditemukan: tidak ada", self.catatan(isi(kiblat="kartu 63", kartu="tidak ada"), ref_spec=True))
 
 
 class JalurRefSpec(Dasar):
@@ -84,57 +90,59 @@ class JalurRefSpec(Dasar):
         self.assertEqual(rc, 1); self.assertIn("kartu kiblat tidak ditemukan", out)
 
     def test_ref_spec_campur_kartu_gagal(self):
-        rc, out = self.jalan(isi(kiblat="REF-SPEC", kartu="tidak ada", teks="kartu 95"), ref_spec=True)
-        self.assertEqual(rc, 1); self.assertIn("lebih dari satu sumber", out)
+        self.assertIn("lebih dari satu sumber", self.catatan(isi(kiblat="REF-SPEC", kartu="tidak ada", teks="kartu 95"), ref_spec=True))
 
     def test_campur_tiga_pengikat_gagal_walau_kartu_tidak_ada(self):
-        rc, out = self.jalan(isi(kiblat="REF-SPEC", kartu="tidak ada", warna="REF-SPEC", teks="REF-SPEC", ritme="kartu 95"), ref_spec=True)
-        self.assertEqual(rc, 1); self.assertIn("lebih dari satu sumber", out)
+        self.assertIn("lebih dari satu sumber", self.catatan(isi(kiblat="REF-SPEC", kartu="tidak ada", warna="REF-SPEC", teks="REF-SPEC", ritme="kartu 95"), ref_spec=True))
 
     def test_tidak_ada_tanpa_sumber_pengikat_terisi_gagal(self):
-        rc, out = self.jalan(isi(kiblat="<kiblat>", kartu="tidak ada"), ref_spec=True)
-        self.assertEqual(rc, 1)
+        self.catatan(isi(kiblat="<kiblat>", kartu="tidak ada"), ref_spec=True)
 
 
-class TetapDitolak(Dasar):
-    """Semua penolakan lama tetap berlaku di jalur REF-SPEC maupun jalur kartu."""
+class IsianJadiCatatan(Dasar):
+    """Isian yang kurang dicatat di jalur REF-SPEC maupun jalur kartu; tidak lagi menggagalkan."""
 
     def kedua_jalur(self):
         yield dict(kiblat="kartu 63"), False
         yield dict(kiblat="REF-SPEC", kartu="tidak ada"), True
 
-    def test_label_wajib_hilang_gagal(self):
-        for label in ("Prompt Irfan", "Alasan memilih", "Penyesuaian karena LANTAI", "Kamera diam?"):
+    def test_label_hilang_jadi_catatan(self):
+        for label in ("Prompt Irfan", "Alasan memilih", "Kamera diam?"):
             for kw, rs in self.kedua_jalur():
                 teks = isi(**kw)
                 bersih = "\n".join(l for l in teks.splitlines() if label not in l)
-                rc, out = self.jalan(bersih, ref_spec=rs)
-                self.assertEqual(rc, 1, (label, kw, out)); self.assertIn(f"'{label}' belum diisi", out)
+                self.assertIn(f"'{label}' belum diisi", self.catatan(bersih, ref_spec=rs))
 
-    def test_baris_bagian_hilang_gagal(self):
+    def test_label_prompt_pemilik_diterima_setara(self):
+        for kw, rs in self.kedua_jalur():
+            rc, out = self.jalan(isi(**kw).replace("**Prompt Irfan", "**Prompt pemilik"), ref_spec=rs)
+            self.assertEqual(rc, 0, out); self.assertNotIn("CATATAN", out)
+            rc, out = self.jalan(isi(**kw).replace("**Prompt Irfan", "**Prompt pemilik"), ref_spec=rs, ketat=True)
+            self.assertEqual(rc, 0, out)
+
+    def test_label_penyesuaian_lantai_tidak_dituntut(self):
+        for kw, rs in self.kedua_jalur():
+            bersih = "\n".join(l for l in isi(**kw).splitlines() if "Penyesuaian karena LANTAI" not in l)
+            rc, out = self.jalan(bersih, ref_spec=rs, ketat=True); self.assertEqual(rc, 0, out)
+
+    def test_baris_bagian_hilang_dicatat(self):
         for kw, rs in self.kedua_jalur():
             teks = "\n".join(l for l in isi(**kw).splitlines() if not l.startswith("| Musik"))
-            rc, out = self.jalan(teks, ref_spec=rs); self.assertEqual(rc, 1); self.assertIn("baris 'musik' tidak ada", out)
+            self.assertIn("baris 'musik' tidak ada", self.catatan(teks, ref_spec=rs))
 
-    def test_sumber_belum_diisi_gagal(self):
+    def test_sumber_belum_diisi_dicatat(self):
         for kw, rs in self.kedua_jalur():
-            rc, out = self.jalan(isi(warna="<kiblat>", **kw), ref_spec=rs); self.assertEqual(rc, 1)
+            self.catatan(isi(warna="<kiblat>", **kw), ref_spec=rs)
 
-    def test_teknik_pinjaman_tanpa_catatan_gagal(self):
+    def test_teknik_pinjaman_tanpa_catatan_dicatat(self):
         for kw, rs in self.kedua_jalur():
-            rc, out = self.jalan(isi(broll="kartu 92", catatan="", **kw), ref_spec=rs)
-            self.assertEqual(rc, 1); self.assertIn("tanpa catatan alasan", out)
+            self.assertIn("tanpa catatan alasan", self.catatan(isi(broll="kartu 92", catatan="", **kw), ref_spec=rs))
             rc, out = self.jalan(isi(broll="kartu 92", catatan="disesuaikan ke pengikat dengan warna merek", **kw), ref_spec=rs)
             self.assertEqual(rc, 0, out)
 
     def test_berkas_resep_tidak_ada_gagal(self):
         r = subprocess.run([sys.executable, str(SKRIP), str(self.d / "tidak-ada.md")], capture_output=True, text=True)
         self.assertEqual(r.returncode, 1); self.assertIn("tidak ada", r.stdout)
-
-    def test_label_penyesuaian_lantai_kosong_gagal(self):
-        for kw, rs in self.kedua_jalur():
-            teks = isi(**kw).replace("**Penyesuaian karena LANTAI:** tidak ada", "**Penyesuaian karena LANTAI:** <isi>")
-            rc, out = self.jalan(teks, ref_spec=rs); self.assertEqual(rc, 1); self.assertIn("'Penyesuaian karena LANTAI' belum diisi", out)
 
 
 if __name__ == "__main__":

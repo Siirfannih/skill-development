@@ -308,13 +308,21 @@ class SfxPolicyTests(unittest.TestCase):
     BED = dict(t=0.0, dur=6.0, pilar="bed", peran="bed_ruang", alasan="pilar 1: tanpa hening digital",
                file="/sfx/room-tone.wav", dengar="quiet room tone")
 
-    def _run_gate(self, cues, bed=True):
+    def _catat(self, cues, bed=True):
+        """Temuan sfx_density = CATATAN: keluar 0 bawaan, keluar 1 dengan --ketat. Mengembalikan keluaran bawaan."""
+        code, output = self._run_gate(cues, bed)
+        self.assertEqual(code, 0, output); self.assertIn("CATATAN", output)
+        code_k, _ = self._run_gate(cues, bed, ketat=True)
+        self.assertEqual(code_k, 1)
+        return output
+
+    def _run_gate(self, cues, bed=True, ketat=False):
         cues = ([dict(self.BED)] if bed else []) + list(cues)
         with tempfile.TemporaryDirectory() as folder:
             cue_path = Path(folder) / "cues.json"
             cue_path.write_text(json.dumps(cues))
             output = io.StringIO()
-            with patch.object(sfx_density.sys, "argv", ["sfx_density.py", "unused.mp4", str(cue_path)]), \
+            with patch.object(sfx_density.sys, "argv", ["sfx_density.py", "unused.mp4", str(cue_path)] + (["--ketat"] if ketat else [])), \
                     patch.object(sfx_density, "visual_events", return_value=(np.array([]), 6.0)), \
                     redirect_stdout(output), self.assertRaises(SystemExit) as exited:
                 sfx_density.main()
@@ -329,34 +337,28 @@ class SfxPolicyTests(unittest.TestCase):
         self.assertEqual(code, 0, output)
 
     def test_ticks_without_variation_fail(self):
-        code, output = self._run_gate(self._ticks(14, files=("/sfx/key-a.wav",), rates=(1.0,)))
-        self.assertEqual(code, 1)
+        output = self._catat(self._ticks(14, files=("/sfx/key-a.wav",), rates=(1.0,)))
         self.assertIn("tick tanpa variasi", output)
 
     def test_tick_rate_outside_range_fails(self):
-        code, output = self._run_gate(self._ticks(6, rates=(0.8, 1.0)))
-        self.assertEqual(code, 1)
+        output = self._catat(self._ticks(6, rates=(0.8, 1.0)))
         self.assertIn("playbackRate", output)
 
     def test_per_word_without_tick_pilar_still_fails(self):
         cues = [dict(t=0.4 + i * 0.3, peran="kata_muncul", alasan="kata", file="/sfx/key-a.wav", dengar="click")
                 for i in range(14)]
-        code, output = self._run_gate(cues)
-        self.assertEqual(code, 1)
+        output = self._catat(cues)
         self.assertIn("bunyi per kata", output)
 
     def test_missing_or_short_bed_fails(self):
-        code, output = self._run_gate(self._cues([1.0, 3.0]), bed=False)
-        self.assertEqual(code, 1)
+        output = self._catat(self._cues([1.0, 3.0]), bed=False)
         self.assertIn("pilar bed", output)
         short = dict(self.BED, dur=2.0)
-        code, output = self._run_gate([short] + self._cues([1.0, 3.0]), bed=False)
-        self.assertEqual(code, 1)
+        output = self._catat([short] + self._cues([1.0, 3.0]), bed=False)
         self.assertIn("pilar bed", output)
 
-    def test_wood_tick_stays_forbidden(self):
-        code, output = self._run_gate(self._ticks(4, files=("/sfx/soft-wood-tap.wav", "/sfx/key-b.wav")))
-        self.assertEqual(code, 1)
+    def test_wood_tick_dicatat_sebagai_informasi(self):
+        output = self._catat(self._ticks(4, files=("/sfx/soft-wood-tap.wav", "/sfx/key-b.wav")))
         self.assertIn("kayu", output)
 
     def test_same_role_same_file_passes_b08_and_b20_object_waves(self):
@@ -405,8 +407,11 @@ class SfxPolicyTests(unittest.TestCase):
                         cue.update(sound)
 
                     self.assertEqual(len(sfx_density.spam_check(cues)), expected_code)
-                    code, output = self._run_gate(cues)
-                    self.assertEqual(code, expected_code, output)
+                    if expected_code:
+                        output = self._catat(cues)
+                    else:
+                        code, output = self._run_gate(cues, ketat=True)
+                        self.assertEqual(code, 0, output)
                     if expected_code:
                         self.assertIn("whoosh 0.00 & 0.65 dtk (< 1 dtk)", output)
 
@@ -429,14 +434,13 @@ class SfxPolicyTests(unittest.TestCase):
 
                     self.assertEqual(len(sfx_density.flam_issues(cues)), expected_issues)
 
-    def test_burst_allows_five_cues_and_rejects_six_within_two_seconds(self):
+    def test_burst_five_cues_quiet_six_within_two_seconds_noted(self):
         five = self._cues([0, 0.4, 0.8, 1.2, 1.6])
         six = self._cues([0, 0.3, 0.6, 0.9, 1.2, 1.5])
 
         code, output = self._run_gate(five)
         self.assertEqual(code, 0, output)
-        code, output = self._run_gate(six)
-        self.assertEqual(code, 1, output)
+        output = self._catat(six)
         self.assertIn("rentetan 6 cue dalam 2 dtk (maks 5)", output)
 
     def test_burst_window_excludes_cue_exactly_two_seconds_after_start(self):
@@ -682,6 +686,18 @@ class Rules16NovTests(unittest.TestCase):
             issues = motion_lint.lint(src)
         self.assertEqual(len(issues), 3, issues)
 
+    def test_motion_lint_cli_catatan_keluar_0_ketat_1(self):
+        import sys
+        with tempfile.TemporaryDirectory() as folder:
+            src = Path(folder); (src / "A.tsx").write_text("const o = { easing: Easing.inOut(Easing.ease) };\n")
+            script = str(ROOT / "scripts/juri/motion_lint.py")
+            r = subprocess.run([sys.executable, script, str(src)], capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("CATATAN", r.stdout); self.assertIn("preset", r.stdout)
+            r = subprocess.run([sys.executable, script, str(src), "--ketat"], capture_output=True, text=True)
+            self.assertEqual(r.returncode, 1)
+            r = subprocess.run([sys.executable, script, str(src)], capture_output=True, text=True, env={**os.environ, "KETAT": "1"})
+            self.assertEqual(r.returncode, 1)
+
     def test_storyboard_beat_needs_metaphor(self):
         good = {"id": "a", "metafora": {"makna": "m", "emosi": "e", "gerak_pembawa": "kamera mundur saat lega", "aksi": "membuka", "metafora": "x",
                                         "objek": ["1", "2", "3"], "urutan": "u", "bentuk": "exploded view"}}
@@ -703,6 +719,22 @@ class Rules16NovTests(unittest.TestCase):
         mix[3]["kode"] = "T01"
         self.assertTrue(any("peran R1" in f for f in kt_check.check(mix)))
 
+    def test_kt_check_cli_selera_catatan_fakta_gagal(self):
+        import sys
+        script = str(ROOT / "scripts/lego/kt_check.py")
+        fade = [{"id": f"T{i}", "teks": "x", "t": i * 1.0, "dur": 0.9, "peran": "R1", "kode": "FADE", "alasan": "a", "pos": [540, 960]} for i in range(8)]
+        with tempfile.TemporaryDirectory() as folder:
+            p = Path(folder) / "teks.json"; p.write_text(json.dumps(fade))
+            r = subprocess.run([sys.executable, script, str(p)], capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("CATATAN", r.stdout); self.assertIn("fade hanya", r.stdout)
+            self.assertEqual(subprocess.run([sys.executable, script, str(p), "--ketat"], capture_output=True, text=True).returncode, 1)
+            self.assertEqual(subprocess.run([sys.executable, script, str(p)], capture_output=True, text=True, env={**os.environ, "KETAT": "1"}).returncode, 1)
+            bentrok = [{**fade[0], "kode": "T19", "id": "A", "t": 0, "dur": 2}, {**fade[0], "kode": "T19", "id": "B", "t": 1, "dur": 2}]
+            p.write_text(json.dumps(bentrok))
+            r = subprocess.run([sys.executable, script, str(p)], capture_output=True, text=True)
+            self.assertEqual(r.returncode, 1); self.assertIn("FAKTA", r.stdout)
+            self.assertNotEqual(subprocess.run([sys.executable, script, str(Path(folder) / "tidak-ada.json")], capture_output=True, text=True).returncode, 0)
+
     def test_mode_teks_per_beat_gate_and_coverage_follows_mode(self):
         ok = {"id": "a", "mode": "VISUAL", "mode_alasan": "UI membawa pesan", "isi_objek": ["kartu: Tagihan Mei Rp 2.400.000"], "layar": ""}
         self.assertEqual(board.mode_issues(ok), [])
@@ -722,8 +754,9 @@ class Rules16NovTests(unittest.TestCase):
     def test_layar_dua_baris_dan_tanda_tanya_lolos(self):
         gagal, catat = board.layar_issues("p1", {"lines": 2, "text": "Kenapa jadi begini?", "out": False})
         self.assertEqual(gagal, []); self.assertEqual(len(catat), 1)            # tanda baca = peringatan, bukan gagal
-        self.assertTrue(board.layar_issues("p1", {"lines": 3, "text": "a b c", "out": False})[0])
-        self.assertTrue(board.layar_issues("p1", {"lines": 1, "text": "a", "out": True})[0])
+        g3, c3 = board.layar_issues("p1", {"lines": 3, "text": "a b c", "out": False})
+        self.assertEqual(g3, []); self.assertTrue(any("3 baris" in c for c in c3))     # 3 baris = catatan, bukan gagal
+        self.assertTrue(board.layar_issues("p1", {"lines": 1, "text": "a", "out": True})[0])   # keluar frame = fakta, tetap gagal
 
     def test_compose_overlays_a_cached_layer_at_its_time(self):
         with tempfile.TemporaryDirectory() as folder:

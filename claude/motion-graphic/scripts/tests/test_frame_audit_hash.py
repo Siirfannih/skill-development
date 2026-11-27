@@ -164,8 +164,9 @@ class FrameAuditHash(unittest.TestCase):
             idx = (out / "INDEX.md").read_text()
             self.assertIn("SELURUH.jpg", idx)
             self.assertIn("Kalibrasi", idx)
-            self.assertIn("3 hal paling amatir", idx)
-            self.assertIn("3 hal paling amatir", (sorted(out.glob("c*"))[0] / "VERDICT.md").read_text())
+            self.assertIn("3 hal paling amatir", idx); self.assertIn("opsional", idx); self.assertNotIn("tidak diterima", idx)
+            v = (sorted(out.glob("c*"))[0] / "VERDICT.md").read_text()
+            self.assertIn("paling amatir", v); self.assertIn("opsional", v); self.assertNotIn("wajib walau lulus", v)
             run(str(fr), str(aud), "--fase", "audio")
             self.assertFalse((aud / "SELURUH.jpg").exists())
 

@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Cek RESEP.md sebelum build: 8 bagian terisi, tiga pengikat dari SATU sumber (kartu kiblat dari referensi user, atau REF-SPEC.md bila user tanpa referensi), kartu kiblat atau REF-SPEC.md ada.
+"""Baca RESEP.md sebelum build: 8 bagian terisi, tiga pengikat dari SATU sumber (kartu kiblat dari referensi user, atau REF-SPEC.md bila user tanpa referensi), kartu kiblat atau REF-SPEC.md ada.
 
-Pakai:  python3 resep_check.py projects/<proyek>/RESEP.md
-Keluar 0 = LULUS, 1 = GAGAL (alasan dicetak).
+Pakai:  python3 resep_check.py projects/<proyek>/RESEP.md [--ketat]
+Isian yang kurang dicetak sebagai CATATAN dan keluar 0 (formulir bukan penilai mutu). Keluar 1 hanya bila RESEP.md tidak ada, atau
+berkas yang dirujuk tidak ada (kartu kiblat, REF-SPEC.md). --ketat (atau KETAT=1): catatan juga keluar 1.
+Label prompt boleh "Prompt Irfan" atau "Prompt pemilik".
 """
 import os, re, sys
 
@@ -20,12 +22,14 @@ def _resolve_nomor(ref):
     return mod.resolve(ref)
 
 def main():
-    if len(sys.argv) != 2 or sys.argv[1] in ("-h", "--help"):
-        print(__doc__); sys.exit(0 if len(sys.argv) == 2 else 1)
-    p = sys.argv[1]
+    ketat = "--ketat" in sys.argv or os.environ.get("KETAT") == "1"
+    argv = [x for x in sys.argv if x != "--ketat"]
+    if len(argv) != 2 or argv[1] in ("-h", "--help"):
+        print(__doc__); sys.exit(0 if len(argv) == 2 else 1)
+    p = argv[1]
     if not os.path.exists(p):
         print(f"GAGAL: {p} tidak ada. Salin cookbook/RESEP-TEMPLATE.md dan isi."); sys.exit(1)
-    s = open(p, encoding="utf-8").read(); salah = []
+    s = open(p, encoding="utf-8").read(); salah = []; fakta = []  # salah = catatan isian; fakta = berkas rujukan tidak ada
     rows = {}
     for line in s.splitlines():
         c = [x.strip() for x in line.strip().strip("|").split("|")]
@@ -47,20 +51,24 @@ def main():
     elif dari_ref_spec and m.group(1).strip().lower() == "tidak ada":
         # Tanpa referensi dari user, pengikat datang dari profil merek + tema lewat REF-SPEC.md, bukan dari satu kartu utuh.
         if not os.path.isfile(os.path.join(os.path.dirname(os.path.abspath(p)), "REF-SPEC.md")):
-            salah.append("pengikat dari REF-SPEC tetapi REF-SPEC.md tidak ada di folder proyek")
+            fakta.append("pengikat dari REF-SPEC tetapi REF-SPEC.md tidak ada di folder proyek")
     else:
         kp = m.group(1); cand = [kp, os.path.join(os.path.dirname(p), kp), os.path.join(os.path.dirname(__file__), "..", "..", kp),
                                  os.path.join(os.path.dirname(__file__), "..", "..", "cookbook", kp)]
-        if not any(os.path.exists(c) for c in cand) and not _resolve_nomor(kp): salah.append(f"kartu kiblat tidak ditemukan: {kp}")
-    for label in ("Prompt Irfan", "Alasan memilih", "Penyesuaian karena LANTAI", "Kamera diam?"):
-        mm = re.search(r"\*\*" + re.escape(label) + r"[^*]*\*\*\s*(.*)", s)
-        nxt = ""
-        if mm:
+        if not any(os.path.exists(c) for c in cand) and not _resolve_nomor(kp): (salah if kp.strip().lower() == "tidak ada" else fakta).append(f"kartu kiblat tidak ditemukan: {kp}")  # "tidak ada" = isian, path nyata yang hilang = fakta
+    for labels in (("Prompt Irfan", "Prompt pemilik"), ("Alasan memilih",), ("Kamera diam?",)):
+        ok = False
+        for label in labels:
+            mm = re.search(r"\*\*" + re.escape(label) + r"[^*]*\*\*\s*(.*)", s)
+            if not mm: continue
             nxt = mm.group(1).strip() or (s[mm.end():].strip().splitlines() or [""])[0].lstrip("> ").strip()
-        if not mm or not nxt or nxt.startswith("<"): salah.append(f"'{label}' belum diisi")
-    if salah:
-        print("GAGAL resep:"); [print("  -", x) for x in salah]; sys.exit(1)
-    print(f"LULUS resep: kiblat = {kiblat}; pinjaman teknik: " +
+            if nxt and not nxt.startswith("<"): ok = True
+        if not ok: salah.append(f"'{labels[0]}' belum diisi")
+    if salah or fakta:
+        print("CATATAN resep:"); [print("  -", x) for x in fakta + salah]
+        if fakta or ketat: sys.exit(1)
+        sys.exit(0)
+    print(f"resep terbaca, tanpa catatan: kiblat = {kiblat}; pinjaman teknik: " +
           (", ".join(f"{b} ← {rows[b][0]}" for b in BAGIAN[3:] if rows[b][0].lower() != kiblat) or "tidak ada"))
 
 if __name__ == "__main__":

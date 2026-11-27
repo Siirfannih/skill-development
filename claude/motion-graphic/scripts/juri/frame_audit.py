@@ -168,8 +168,8 @@ def main():
            f"Sumber: `{a.frames}` · {n} frame · {n / fps:.2f} dtk · potongan {a.chunk:g} dtk · lembar = 1 detik (6×5 = 30 frame)", "",
            *cara,
            "Satu penilai (Sutradara), tanpa pemeriksa kedua. Tulis `VERDICT.md`: satu baris per masalah",
-           "`dtk | frame | apa yang terlihat | solusi | pembanding`, lalu 3 hal paling amatir berperingkat (wajib, juga saat",
-           "lulus; \"tidak ada temuan\" tidak diterima), lalu baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`.",
+           "`dtk | frame | apa yang terlihat | solusi | pembanding`, lalu, bila ada, sampai 3 hal paling amatir berperingkat",
+           "(opsional; \"tidak ada temuan\" jawaban sah), lalu baris terakhir `PUTUSAN: LULUS` atau `PUTUSAN: GAGAL`.",
            "Tanda otomatis hanya penunjuk: tiap tanda dinilai, bukan disalin.",
            "Baris `HASH:` di VERDICT jangan diubah: verdict hanya berlaku untuk isi potongan itu. Periksa hanya potongan",
            "berstatus `perlu periksa`; bila ada `VERDICT.prev.md`, baca temuan yang sudah diputuskan di ronde sebelumnya.", "",
@@ -205,7 +205,7 @@ def main():
         open(os.path.join(cd, ".hash"), "w").write(h + "\n")
         vp = os.path.join(cd, "VERDICT.md")
         fresh = (f"# VERDICT {name}\nHASH: {h}\n\n(belum diperiksa)\n\n"
-                 "## 3 hal paling amatir (berperingkat, wajib walau lulus)\n1. \n2. \n3. \n")
+                 "## Hal paling amatir (opsional, sampai 3, berperingkat; \"tidak ada temuan\" sah)\n")
         old = open(vp, encoding="utf-8").read() if os.path.exists(vp) else ""
         if a.akhir and re.search(r"^PUTUSAN: (LULUS|GAGAL)", old, re.M):
             os.replace(vp, os.path.join(cd, "VERDICT.prev.md"))  # putaran akhir: hash sama pun dinilai ulang

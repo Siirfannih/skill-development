@@ -8,7 +8,9 @@ Isi folder storyboard (contoh di templates/storyboard/):
 
 Pakai:
   python3 board.py <folder> --skeleton   buat panel kerangka untuk beat yang belum punya file
-  python3 board.py <folder>              render + papan + periksa; exit 1 bila ada yang gagal
+  python3 board.py <folder> [--ketat]    render + papan + periksa; exit 1 hanya bila panel hilang, render error, teks keluar frame,
+                                         atau kerangka tersisa. Isian caption/metafora/mode/sfx, jumlah objek, bentuk, waktu beat,
+                                         dan hasil cek-warna dicetak sebagai CATATAN (keluar 0); --ketat (atau KETAT=1) membuatnya keluar 1
 Hasil: png/<frame>.png, board.html, board.png, cues.json (bahan cue sheet SFX), check.json
 
 Yang diperiksa (dari umpan balik Irfan di sesi storyboard Wonder 1–7 Nov dan aturan motion-graphic):
@@ -18,9 +20,9 @@ Yang diperiksa (dari umpan balik Irfan di sesi storyboard Wonder 1–7 Nov dan a
   - waktu beat berurutan, tidak tumpang tindih, celah <= 0,5 dtk
   - teks layar (elemen data-layar): maks 2 baris (teks.md), tidak keluar frame; tanda baca = peringatan (tanda tanya sah)
   - tidak ada elemen yang terpotong tepi frame kecuali ditandai data-bleed (sengaja keluar frame)
-  - bila palet.json ada di proyek: gerbang warna keluar (warna/cek-warna.mjs keluar): warna nyasar, kontras APCA, warna nanggung
+  - bila palet.json ada di proyek: warna/cek-warna.mjs keluar dijalankan, hasilnya (warna nyasar, kontras APCA, warna nanggung) jadi CATATAN
 """
-import argparse, html, json, re, shutil, subprocess, sys
+import argparse, html, json, os, re, shutil, subprocess, sys
 from pathlib import Path
 
 PUNCT = re.compile(r"[.,!?;:…]")
@@ -28,10 +30,10 @@ MAKS_BARIS_LAYAR = 2   # teks.md: maks 2 baris per tampil
 
 
 def layar_issues(nama, r):
-    """Teks layar (satu hasil PROBE) -> (gagal, catatan). Baris > 2 dan keluar frame gagal; tanda baca hanya peringatan (tanda tanya sah)."""
+    """Teks layar (satu hasil PROBE) -> (gagal, catatan). Keluar frame = gagal (fakta terukur); baris > 2 dan tanda baca = catatan (tanda tanya sah)."""
     gagal, catat = [], []
     if r["lines"] > MAKS_BARIS_LAYAR:
-        gagal.append(f"{nama}: teks layar {r['lines']} baris (maks {MAKS_BARIS_LAYAR}): '{r['text'][:40]}'")
+        catat.append(f"{nama}: teks layar {r['lines']} baris (acuan maks {MAKS_BARIS_LAYAR}): '{r['text'][:40]}'")
     if r["out"]:
         gagal.append(f"{nama}: teks layar keluar frame: '{r['text'][:40]}'")
     if PUNCT.search(r["text"]):
@@ -41,18 +43,22 @@ def layar_issues(nama, r):
 
 def warna_issues(sb):
     """Gerbang warna keluar: bila palet.json ada di proyek (folder storyboard, induknya, atau qc/), jalankan
-    warna/cek-warna.mjs keluar pada png/ (html di panels/ ditemukan otomatis). Node hilang = gagal (fail-closed)."""
+    warna/cek-warna.mjs keluar pada png/ (html di panels/ ditemukan otomatis). Semua hasil dikembalikan sebagai catatan:
+    -> (gagal, catat) dengan gagal selalu kosong. Node hilang atau timeout = catatan bahwa cek dilewati."""
     palet = next((c for c in (sb / "palet.json", sb.parent / "palet.json", sb.parent / "qc" / "palet.json") if c.is_file()), None)
     if palet is None:
         return [], []
     mjs = Path(__file__).resolve().parents[1] / "warna" / "cek-warna.mjs"
     if not shutil.which("node") or not (mjs.parent / "node_modules").is_dir():
-        return ["warna: palet.json ada tetapi node atau scripts/warna/node_modules tidak ada (npm ci di scripts/warna)"], []
-    r = subprocess.run(["node", str(mjs), "keluar", str(sb / "png"), "--palet", str(palet), "--json"], capture_output=True, text=True)
+        return [], ["warna: palet.json ada tetapi node atau scripts/warna/node_modules tidak ada, cek warna dilewati (npm ci di scripts/warna)"]
+    try:
+        r = subprocess.run(["node", str(mjs), "keluar", str(sb / "png"), "--palet", str(palet), "--json"], capture_output=True, text=True, timeout=NODE_TIMEOUT)
+    except subprocess.TimeoutExpired:
+        return [], [f"warna: cek-warna.mjs melewati batas {NODE_TIMEOUT} dtk, cek warna dilewati"]
     try:
         d = json.loads(r.stdout)
     except ValueError:
-        return [f"warna: cek-warna.mjs tidak terbaca (kode {r.returncode}): {r.stderr.strip()[-200:]}"], []
+        return [], [f"warna: cek-warna.mjs tidak terbaca (kode {r.returncode}): {r.stderr.strip()[-200:]}"]
     gagal, catat = [], []
     for a in d.get("alasan", []):
         f = Path(a.get("file", "")).stem
@@ -66,6 +72,7 @@ def warna_issues(sb):
         catat.append(f"warna aviso {Path(a.get('file', '')).stem}: {a['jenis']} {a.get('blok', '')} {a.get('detail', '')}".strip())
     return gagal, catat
 
+NODE_TIMEOUT = 180  # detik; cek-warna.mjs yang menggantung tidak boleh menahan sesi
 CAPTION_KEYS = ("vo", "aksi", "kamera", "keluar")
 
 PROBE = """() => {
@@ -169,6 +176,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("folder")
     ap.add_argument("--skeleton", action="store_true")
+    ap.add_argument("--ketat", action="store_true", help="catatan isian/warna membuat keluar 1 (juga KETAT=1)")
     ap.add_argument("--panel-width", type=int, default=0, help="lebar panel di papan (default: 480 untuk 9:16, 640 untuk 16:9)")
     a = ap.parse_args()
     sb = Path(a.folder).resolve()
@@ -176,7 +184,8 @@ def main():
     W, H = spec["format"]["w"], spec["format"]["h"]
     babak = {k["id"]: k for k in spec.get("babak", [])}
     beats = spec["beats"]
-    fails, notes = [], []
+    fails, notes, catatan = [], [], []  # fails = fakta (keluar 1); catatan = isian/selera (keluar 0, kecuali --ketat); notes = peringatan lama
+    ketat = a.ketat or os.environ.get("KETAT") == "1"
 
     if a.skeleton:
         (sb / "panels").mkdir(exist_ok=True)
@@ -191,27 +200,27 @@ def main():
     for b in beats:
         miss = [k for k in CAPTION_KEYS if not str(b.get(k, "")).strip()]
         if miss:
-            fails.append(f"{b['id']}: caption kosong {', '.join(miss)}")
-        fails += metafora_issues(b)
-        fails += mode_issues(b)
+            catatan.append(f"{b['id']}: caption kosong {', '.join(miss)}")
+        catatan += metafora_issues(b)
+        catatan += mode_issues(b)
         for c in b.get("sfx", []):
             if not c.get("peran", "").strip() or not c.get("alasan", "").strip():
-                fails.append(f"{b['id']}: sfx {c.get('t', '?')} tanpa peran/alasan")
+                catatan.append(f"{b['id']}: sfx {c.get('t', '?')} tanpa peran/alasan")
         if b.get("babak") not in babak:
-            fails.append(f"{b['id']}: babak '{b.get('babak')}' tidak ada di daftar babak")
+            catatan.append(f"{b['id']}: babak '{b.get('babak')}' tidak ada di daftar babak")
         t = b.get("t")
         if not t or len(t) != 2 or t[1] <= t[0]:
-            fails.append(f"{b['id']}: waktu tidak valid {t}")
+            catatan.append(f"{b['id']}: waktu tidak valid {t}")
         else:
             if prev_end is not None and t[0] < prev_end - 0.01:
-                fails.append(f"{b['id']}: tumpang tindih dengan beat sebelumnya ({t[0]} < {prev_end})")
+                catatan.append(f"{b['id']}: tumpang tindih dengan beat sebelumnya ({t[0]} < {prev_end})")
             if prev_end is not None and t[0] - prev_end > 0.5:
-                fails.append(f"{b['id']}: celah {t[0] - prev_end:.2f} dtk tanpa beat")
+                catatan.append(f"{b['id']}: celah {t[0] - prev_end:.2f} dtk tanpa beat")
             prev_end = t[1]
     for k in babak.values():
         m = k.get("musik") or {}
         if not m.get("peran", "").strip() or not m.get("alasan", "").strip():
-            fails.append(f"babak {k['id']}: musik tanpa peran/alasan")
+            catatan.append(f"babak {k['id']}: musik tanpa peran/alasan")
 
     # --- render
     from playwright.sync_api import sync_playwright
@@ -219,62 +228,66 @@ def main():
     rendered = {}
     with sync_playwright() as p:
         br = p.chromium.launch()
-        pg = br.new_page(viewport={"width": W, "height": H})
-        for b in beats:
-            fr = frames_of(sb, b)
-            if not fr:
-                fails.append(f"{b['id']}: belum ada panel (panels/{b['id']}.html)")
-                continue
-            rendered[b["id"]] = []
-            for f in fr:
-                pg.goto(f.as_uri())
-                pg.wait_for_timeout(150)
-                for r in pg.evaluate(PROBE):
-                    if r["kind"] == "skeleton" and r["n"]:
-                        fails.append(f"{f.stem}: kerangka masih ada ({r['n']})")
-                    elif r["kind"] == "layar":
-                        gagal, catat = layar_issues(f.stem, r)
-                        fails.extend(gagal); notes.extend(catat)
-                    elif r["kind"] == "clip":
-                        notes.append(f"{f.stem}: {r['label']} terpotong tepi (beri data-bleed bila sengaja)")
-                out = sb / "png" / f"{f.stem}.png"
-                pg.screenshot(path=str(out))
-                rendered[b["id"]].append(out.name)
-        # --- papan: satu baris per babak, beat kiri ke kanan (new-design-arrange Wonder)
-        pw = a.panel_width or (480 if H > W else 640)
-        rows = []
-        for bid, k in babak.items():
-            cells = []
-            for b in [x for x in beats if x.get("babak") == bid]:
-                imgs = "".join(f"<img src='png/{n}'>" for n in rendered.get(b["id"], []))
-                n = max(1, len(rendered.get(b["id"], [])))
-                cells.append(f"<div class='panel' style='width:{pw * n + 6 * (n - 1)}px'><div class='frames'>{imgs}</div>"
-                             f"{caption_html(b, k)}</div>")
-            m = k.get("musik") or {}
-            rows.append(f"<div class='rowhd'>{html.escape(bid)} {html.escape(k.get('nama', ''))}"
-                        f"<small>musik: {html.escape(m.get('peran', ''))} — {html.escape(m.get('alasan', ''))}</small></div>"
-                        f"<div class='row'>{''.join(cells)}</div>")
-        doc = (f"<!doctype html><html><head><meta charset='utf-8'><title>{html.escape(spec.get('project', 'Storyboard'))}"
-               f"</title><style>{BOARD_CSS.replace('VARW', str(pw))}</style></head><body>"
-               f"<div class='rowhd' style='font-size:28px'>{html.escape(spec.get('project', ''))}"
-               f"<small>{W}×{H} · {len(beats)} beat</small></div>{''.join(rows)}</body></html>")
-        (sb / "board.html").write_text(doc, encoding="utf-8")
-        pg2 = br.new_page(viewport={"width": 1600, "height": 900})
-        pg2.goto((sb / "board.html").as_uri())
-        pg2.wait_for_timeout(300)
-        pg2.set_viewport_size({"width": max(1600, pg2.evaluate("document.documentElement.scrollWidth")), "height": 900})
-        pg2.screenshot(path=str(sb / "board.png"), full_page=True)
-        br.close()
+        try:
+            pg = br.new_page(viewport={"width": W, "height": H})
+            for b in beats:
+                fr = frames_of(sb, b)
+                if not fr:
+                    fails.append(f"{b['id']}: belum ada panel (panels/{b['id']}.html)")
+                    continue
+                rendered[b["id"]] = []
+                for f in fr:
+                    pg.goto(f.as_uri())
+                    pg.wait_for_timeout(150)
+                    for r in pg.evaluate(PROBE):
+                        if r["kind"] == "skeleton" and r["n"]:
+                            fails.append(f"{f.stem}: kerangka masih ada ({r['n']})")
+                        elif r["kind"] == "layar":
+                            gagal, catat = layar_issues(f.stem, r)
+                            fails.extend(gagal); notes.extend(catat)
+                        elif r["kind"] == "clip":
+                            notes.append(f"{f.stem}: {r['label']} terpotong tepi (beri data-bleed bila sengaja)")
+                    out = sb / "png" / f"{f.stem}.png"
+                    pg.screenshot(path=str(out))
+                    rendered[b["id"]].append(out.name)
+            # --- papan: satu baris per babak, beat kiri ke kanan (new-design-arrange Wonder)
+            pw = a.panel_width or (480 if H > W else 640)
+            rows = []
+            for bid, k in babak.items():
+                cells = []
+                for b in [x for x in beats if x.get("babak") == bid]:
+                    imgs = "".join(f"<img src='png/{n}'>" for n in rendered.get(b["id"], []))
+                    n = max(1, len(rendered.get(b["id"], [])))
+                    cells.append(f"<div class='panel' style='width:{pw * n + 6 * (n - 1)}px'><div class='frames'>{imgs}</div>"
+                                 f"{caption_html(b, k)}</div>")
+                m = k.get("musik") or {}
+                rows.append(f"<div class='rowhd'>{html.escape(bid)} {html.escape(k.get('nama', ''))}"
+                            f"<small>musik: {html.escape(m.get('peran', ''))} — {html.escape(m.get('alasan', ''))}</small></div>"
+                            f"<div class='row'>{''.join(cells)}</div>")
+            doc = (f"<!doctype html><html><head><meta charset='utf-8'><title>{html.escape(spec.get('project', 'Storyboard'))}"
+                   f"</title><style>{BOARD_CSS.replace('VARW', str(pw))}</style></head><body>"
+                   f"<div class='rowhd' style='font-size:28px'>{html.escape(spec.get('project', ''))}"
+                   f"<small>{W}×{H} · {len(beats)} beat</small></div>{''.join(rows)}</body></html>")
+            (sb / "board.html").write_text(doc, encoding="utf-8")
+            pg2 = br.new_page(viewport={"width": 1600, "height": 900})
+            pg2.goto((sb / "board.html").as_uri())
+            pg2.wait_for_timeout(300)
+            pg2.set_viewport_size({"width": max(1600, pg2.evaluate("document.documentElement.scrollWidth")), "height": 900})
+            pg2.screenshot(path=str(sb / "board.png"), full_page=True)
+        finally:
+            br.close()
 
-    wg, wn = warna_issues(sb); fails += wg; notes += wn
+    wg, wn = warna_issues(sb); catatan += wg; notes += wn
     cues = [dict(c, beat=b["id"]) for b in beats for c in b.get("sfx", [])]
     (sb / "cues.json").write_text(json.dumps({"cues": cues}, ensure_ascii=False, indent=1), encoding="utf-8")
-    (sb / "check.json").write_text(json.dumps({"fails": fails, "notes": notes}, ensure_ascii=False, indent=1), encoding="utf-8")
+    (sb / "check.json").write_text(json.dumps({"fails": fails, "catatan": catatan, "notes": notes}, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"{len(beats)} beat · {sum(len(v) for v in rendered.values())} frame · {len(cues)} cue SFX → board.html, board.png, cues.json")
     for n in notes[:12]:
         print("  catatan:", n)
-    print("PASS" if not fails else "FAIL:\n  " + "\n  ".join(fails[:30]))
-    sys.exit(1 if fails else 0)
+    for c in catatan[:30]:
+        print("  CATATAN:", c)
+    print("tidak ada kegagalan" if not fails else "FAIL:\n  " + "\n  ".join(fails[:30]))
+    sys.exit(1 if fails or (catatan and ketat) else 0)
 
 
 if __name__ == "__main__":

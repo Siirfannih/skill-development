@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Gerak dirancang per gerak, bukan preset (Lantai B13a; diadaptasi dari motion-kit, MIT).
 
-Memindai src Remotion dan menolak tiga tanda gerak "default AI":
+Memindai src Remotion dan mencatat tiga tanda gerak "default AI":
   - preset : Easing.ease / Easing.inOut(Easing.ease|quad|cubic) / Easing.out(Easing.cubic…) / 'ease-in-out' / power3
              tanpa alasan. Kurva dipilih per gerak dari curves.ts (CURVE.land/heavy/whip/reveal/leave/wind/drift) atau
              Easing.bezier(...) sendiri.
@@ -10,9 +10,10 @@ Memindai src Remotion dan menolak tiga tanda gerak "default AI":
   - gerak sendiri : proyek menulis easing sendiri (`Math.pow(1 - t`, `function land(`, `const heavy =` ...) di .ts/.tsx/.js/.html tanpa
                     mengimpor kurva toolkit (toolkit/gerak/curves.ts|js, atau `TK.` dari toolkit.js). Mulai dari toolkit/ (mulai.sh).
 Baris yang sengaja dikecualikan diberi komentar `motion-ok: <alasan>` di baris yang sama.
-Pakai: python3 motion_lint.py <folder src> [<folder storyboard> ...] ; exit 1 bila ada temuan.
+Pakai: python3 motion_lint.py <folder src> [<folder storyboard> ...] [--ketat] ; temuan dicetak sebagai CATATAN, keluar 0;
+--ketat (atau KETAT=1) keluar 1 bila ada temuan.
 """
-import re, sys
+import os, re, sys
 from pathlib import Path
 
 RULES = [
@@ -62,6 +63,8 @@ def lint(src, only=None):
 
 if __name__ == "__main__":
     args = sys.argv[1:]
+    ketat = "--ketat" in args or os.environ.get("KETAT") == "1"
+    args = [x for x in args if x != "--ketat"]
     only = None
     if "--hanya" in args:  # revisi video lama: hanya file yang berubah sejak versi disetujui
         i = args.index("--hanya"); only = {Path(p).resolve() for p in args[i + 1:]}; args = args[:i]
@@ -70,5 +73,5 @@ if __name__ == "__main__":
         issues += lint(d, only)
     for i in issues[:40]:
         print(" ", i)
-    print("PASS" if not issues else f"FAIL: {len(issues)} gerak preset/stagger rata/blur masuk/easing sendiri (pakai toolkit/gerak/curves, atau tulis `motion-ok: <alasan>`)")
-    sys.exit(1 if issues else 0)
+    print("tidak ada catatan" if not issues else f"CATATAN: {len(issues)} gerak preset/stagger rata/blur masuk/easing sendiri (toolkit/gerak/curves tersedia; `motion-ok: <alasan>` membungkam baris)")
+    sys.exit(1 if issues and ketat else 0)

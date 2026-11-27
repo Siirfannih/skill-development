@@ -146,7 +146,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/bedah-kamera.py` | Bedah gerak kamera dari video jadi: transform kemiripan antar-frame (ORB + RANSAC) → zoom, geser, putar per frame. |
 | `claude/motion-graphic/scripts/jelajah_gaya.py` | jelajah_gaya.py: build the side-by-side sheet for style exploration (dunia-visual.md §7). |
 | `claude/motion-graphic/scripts/lihat.py` | Lihat per lapis: render frame HTML atau still Remotion lapis demi lapis, supaya "bangun, lihat, perbaiki" jadi satu perintah. |
-| `claude/motion-graphic/scripts/palette_check.py` | QC palet: hitung keluarga warna aksen di sebuah render. Gagal bila keluarga > 2, atau keluarga terbesar < 70 % piksel vivid (tidak ada warna dominan). |
+| `claude/motion-graphic/scripts/palette_check.py` | QC palet: hitung keluarga warna aksen di sebuah render. Mencetak CATATAN bila keluarga > 2, atau keluarga terbesar < 70 % piksel vivid; keluar 0 (informasi, selera ada di mata). Dengan --ketat (atau K |
 | `claude/motion-graphic/scripts/ref_spec.py` | ref_spec.py: bedah referensi jadi REF-SPEC terukur (KEBIJAKAN-v2 bagian 3: referensi = kebenaran selera). |
 | `claude/motion-graphic/scripts/audio/audio_phone.py` | v16 audio QA: does every SFX survive a phone speaker at 20 / 50 / 100 % volume, is the VO always clear, and is any SFX harsh (2–6 kHz)? Uses render/mix.wav + stems + render/cues.json. |
 | `claude/motion-graphic/scripts/audio/ears.py` | Telinga gabungan: earshot = skor pertama, lalu dicek ukuran independen (audio.md §14.0B). |
@@ -184,7 +184,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/gate/negatif_cek.py` | Satu pintu cek NEGATIF (KEBIJAKAN-v2: negatif = simpangan dari REF-SPEC + sidik jari slop, bukan larangan teknik). |
 | `claude/motion-graphic/scripts/gate/pause_clean.py` | Gerbang jeda bersih (Lantai E23): saat pembicara berhenti/berpikir, stem suara tidak membawa dengung kamar, piring, klik, atau room tone kotor yang ikut dikeraskan. |
 | `claude/motion-graphic/scripts/gate/permukaan_cek.py` | Inventaris permukaan: berapa SISTEM huruf, bayangan, gradien, kaca/blur, dan 3D yang dipakai di kode frame (KEBIJAKAN-v2). |
-| `claude/motion-graphic/scripts/gate/sfx_density.py` | Gerbang Lantai E24 (5 Pilar Sound Design, guide/sfx/FAMILI.md §0): SFX menandai momen cerita dan gerak yang terlihat, tiap cue berlabel `pilar` (bed, transisi, tick, taktil, aksen), tanpa spam. |
+| `claude/motion-graphic/scripts/gate/sfx_density.py` | Pengukur Lantai E24 (5 Pilar Sound Design, guide/sfx/FAMILI.md §0): SFX menandai momen cerita dan gerak yang terlihat, tiap cue berlabel `pilar` (bed, transisi, tick, taktil, aksen), tanpa spam. |
 | `claude/motion-graphic/scripts/gate/tabrakan_cek.py` | Gerbang tabrakan: teks menimpa teks, teks menimpa objek, teks keluar zona aman, diukur dari DOM frame HTML (bukan dari mata). |
 | `claude/motion-graphic/scripts/gate/voice_fidelity.py` | Gerbang suara asli pembicara (format klip podcast/wawancara). |
 | `claude/motion-graphic/scripts/gate/voice_level.py` | Gerbang level suara asli (Lantai E23): suara asli (narasumber, rekaman sendiri, VO) tidak pernah diturunkan, di-loudness-kan, atau di-limit. Yang boleh: peredam noise, lalu gain NAIK yang bersih sampa |
@@ -195,16 +195,16 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/scripts/juri/motion_lint.py` | Gerak dirancang per gerak, bukan preset (Lantai B13a; diadaptasi dari motion-kit, MIT). |
 | `claude/motion-graphic/scripts/juri/profil_cek.py` | Cek profil merek (tahap Brief): BRAND.md dan EDITING.md terisi, nilai pasti benar bentuknya, aset yang dirujuk ada. |
 | `claude/motion-graphic/scripts/juri/render.sh` | Satu pintu render Remotion: still dulu, draft kecil, render penuh paling akhir (LANTAI F26). |
-| `claude/motion-graphic/scripts/juri/resep_check.py` | Cek RESEP.md sebelum build: 8 bagian terisi, tiga pengikat dari SATU sumber (kartu kiblat dari referensi user, atau REF-SPEC.md bila user tanpa referensi), kartu kiblat atau REF-SPEC.md ada. |
+| `claude/motion-graphic/scripts/juri/resep_check.py` | Baca RESEP.md sebelum build: 8 bagian terisi, tiga pengikat dari SATU sumber (kartu kiblat dari referensi user, atau REF-SPEC.md bila user tanpa referensi), kartu kiblat atau REF-SPEC.md ada. |
 | `claude/motion-graphic/scripts/juri/revisi_cek.py` | Gerbang revisi video lego: lapisan yang berubah sejak versi yang disetujui harus tercakup ledger (Lantai F27, revision-log §21.2). |
 | `claude/motion-graphic/scripts/juri/sandingkan.py` | Lembar sanding: still kita di kiri, frame kiblat di kanan, supaya selisihnya terlihat sebelum render penuh. |
 | `claude/motion-graphic/scripts/juri/tahap.py` | Langkah berikutnya dari TAHAP.md proyek: apa yang dikerjakan dan file/bagian mana yang dibaca SEKARANG. |
 | `claude/motion-graphic/scripts/juri/teks_cek.py` | Cek teks di still per beat (LANTAI A1-A4, A7): bukan subtitle film, tidak ganda, tidak menyentuh tepi. |
-| `claude/motion-graphic/scripts/juri/tema_cek.py` | Cek sistem desain video: gaya hanya dari tema.ts, warna merek terkendali, warna UI asli di tempatnya. |
+| `claude/motion-graphic/scripts/juri/tema_cek.py` | Baca sistem desain video (informasi, bukan penilai selera): gaya hanya dari tema.ts, warna merek terkendali, warna UI asli di tempatnya. |
 | `claude/motion-graphic/scripts/lego/base_pts.py` | Ukur pts tiap frame DASAR (tanpa lapisan, tanpa audio) lewat compose.py yang sama. |
 | `claude/motion-graphic/scripts/lego/cek_master.py` | Ukur frame master tempat tiap lapisan ber-alpha benar-benar tampil dan bandingkan dengan rencana lego.json. |
 | `claude/motion-graphic/scripts/lego/compose.py` | Rakit video seperti lego: footage dasar + lapisan (teks/KT, visual, overlay) yang sudah dirender TERPISAH dan disimpan di cache digabung SEKALI dengan ffmpeg. Lapisan yang tidak berubah tidak dirender |
-| `claude/motion-graphic/scripts/lego/kt_check.py` | Gerbang tipografi kinetik (Lantai A9a). |
+| `claude/motion-graphic/scripts/lego/kt_check.py` | Pengukur tipografi kinetik (Lantai A9a): mencetak temuan sebagai informasi. |
 | `claude/motion-graphic/scripts/lego/lapisan.py` | Render lapisan lego satu per satu dengan cache. Hanya lapisan yang berubah yang dirender ulang. |
 | `claude/motion-graphic/scripts/lego/persepsi.py` | Lapisan persepsi untuk Remotion: footage -> matte orang (RVM, stabil antar frame) + posisi wajah per frame (MediaPipe). |
 | `claude/motion-graphic/scripts/lego/teks_plan.py` | Kerangka teks.json dari transkrip: isi teks = ucapan hanya di beat bermode TEKS (jalankan dengan `--beats beats.json`); yang dihitung mesin hanya WAKTU dan DURASI tiap blok. Peran, kode gerak (T..), g |

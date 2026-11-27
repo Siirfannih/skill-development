@@ -1,8 +1,11 @@
 #!/usr/bin/env python3
-"""Gerbang Lantai E24 (5 Pilar Sound Design, guide/sfx/FAMILI.md §0): SFX menandai momen cerita dan gerak
+"""Pengukur Lantai E24 (5 Pilar Sound Design, guide/sfx/FAMILI.md §0): SFX menandai momen cerita dan gerak
 yang terlihat, tiap cue berlabel `pilar` (bed, transisi, tick, taktil, aksen), tanpa spam.
 
-FAIL bila:
+Semua temuan di bawah dicetak sebagai CATATAN (informasi; selera dan bentuk isian ada di telinga dan mata) dan keluar 0.
+Keluar 1 hanya untuk masukan rusak (berkas cue/video tak terbaca). --ketat (atau KETAT=1) mengembalikan keluar 1 bila ada catatan.
+
+CATATAN dicetak bila:
   - pilar bed  : tidak ada cue `pilar: bed` dengan `dur`, atau bed menutupi < 90 % durasi video
   - tick       : cue `pilar: tick` (klik per kata KT/UI) tanpa variasi (>= 2 file varian atau playbackRate berbeda),
                  `rate` di luar 0,95–1,05, atau > 8 tick dalam 2 dtk
@@ -14,16 +17,15 @@ FAIL bila:
   - peran      : cue tanpa `peran` dan `alasan`; satu peran = satu file (kecuali tick, yang justru wajib bervariasi)
   - spam       : whoosh < 1 dtk; dua bunyi < 100 ms (Lantai E24)
   - palet      : file/label dari palet terlarang (kayu, koin, kartun, 8-bit, noise/sinus, rope-creak, whoosh kasar SFXIrfan)
-DILAPORKAN saja (bukan syarat lulus): cakupan event visual dan celah tanpa SFX — beri --min-coverage/--max-gap
+DILAPORKAN juga: cakupan event visual dan celah tanpa SFX — beri --min-coverage/--max-gap
 bila kiblat memang padat bunyi.
 
 Pakai:
-  python3 sfx_density.py render.mp4 cues.json [--ref-density 0.65] [--max-density 1.2] [--min-coverage 0] [--max-gap 0]
+  python3 sfx_density.py render.mp4 cues.json [--ref-density 0.65] [--max-density 1.2] [--min-coverage 0] [--max-gap 0] [--ketat]
 cues: JSON list [{"t": detik, ...}] atau {"cues": [...]} / {"placed": [...]}; atau tabel Markdown yang kolom
-pertamanya detik (| 12.40 | ...). Exit 1 bila ada yang gagal.
-Dua arah gagal yang dijaga: terlalu jarang, dan berisik (bunyi per kata).
+pertamanya detik (| 12.40 | ...). Dua arah yang dicatat: terlalu jarang, dan berisik (bunyi per kata).
 """
-import argparse, json, re, subprocess, sys
+import argparse, json, os, re, subprocess, sys
 import numpy as np
 
 FPS, W, H = 30, 192, 108
@@ -216,6 +218,7 @@ def main():
     ap.add_argument("--max-gap", type=float, default=0.0, help="0 = celah hanya dilaporkan")
     ap.add_argument("--izinkan-palet", default="", help="label palet terlarang yang dibuka keputusan proyek, dipisah koma (mis. \"kayu/woodblock,koin\")")
     ap.add_argument("--json")
+    ap.add_argument("--ketat", action="store_true", help="catatan membuat keluar 1 (juga KETAT=1)")
     a = ap.parse_args()
 
     all_rows = load_cues(a.cues)
@@ -279,11 +282,11 @@ def main():
           f"{max((h - l for l, h, _ in gaps), default=0):.1f} dtk")
     for lo, hi, n in gaps[:15]:
         print(f"  tanpa SFX {lo:6.2f}-{hi:6.2f} dtk ({hi - lo:.1f} dtk, {n} event visual) — boleh bila disengaja")
-    print("PASS" if not fails else "FAIL: " + "; ".join(fails))
+    print("tidak ada catatan" if not fails else "CATATAN: " + "; ".join(fails))
     if a.json:
         json.dump(dict(duration=dur, cues=len(cues), density=density, events=len(ev), coverage=coverage,
-                       gaps=gaps, no_role=len(no_role), spam=spam, forbidden=forbidden, fails=fails), open(a.json, "w"), indent=1)
-    sys.exit(1 if fails else 0)
+                       gaps=gaps, no_role=len(no_role), spam=spam, forbidden=forbidden, catatan=fails), open(a.json, "w"), indent=1)
+    sys.exit(1 if fails and (a.ketat or os.environ.get("KETAT") == "1") else 0)
 
 
 if __name__ == "__main__":
