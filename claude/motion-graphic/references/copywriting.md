@@ -1,6 +1,6 @@
 # Copywriting — VO script and on-screen text
 
-Read at the Script stage and whenever writing text that appears on screen. The script is the foundation: a weak script cannot be saved by any animation, no matter how good.
+Read at the Naskah step and whenever writing text that appears on screen. The script is the foundation: a weak script cannot be saved by any animation, no matter how good.
 
 ## Contents
 

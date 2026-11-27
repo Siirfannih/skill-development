@@ -1,6 +1,6 @@
 # Revision = diff, one round
 
-Opened when a revision message arrives on a video or storyboard, before the first edit (step 8 of the `SKILL.md` workflow; older `LANTAI` item F27). Record first, then work: without this order, fixing one complaint easily changes approved scenes.
+Opened when a revision message arrives on a video or storyboard, before the first edit (Deliver step of the `SKILL.md` workflow; older `LANTAI` item F27). Record first, then work: without this order, fixing one complaint easily changes approved scenes.
 
 ## Rules
 - **One round.** Feedback on render 1 is collected and worked at once into render 2; more rounds only when the user asks. Unclear feedback is asked about once, at the start. Reason: piecemeal revisions change approved scenes too.

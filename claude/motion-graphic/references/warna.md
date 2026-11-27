@@ -1,6 +1,6 @@
 # Colour: palette and colour gates
 
-Opened when locking the palette (step 1-3 of the `SKILL.md` workflow) and before handing frames over. Colour words in a brief ("soft blue") are not values; a palette is measured from a reference or the brand profile. Contrast of text: `teks.md` (≥ 4.5 : 1).
+Opened when locking the palette (Baca bahan to Dunia visual steps of the `SKILL.md` workflow) and before handing frames over. Colour words in a brief ("soft blue") are not values; a palette is measured from a reference or the brand profile. Contrast of text: `teks.md` (≥ 4.5 : 1).
 
 ## Where the palette comes from
 Lock it before any design, in this order: the user's references (REF-SPEC) and brief; the brand profile (e.g. Jadisatu → `jadisatu-gelap`/`jadisatu-terang`); for client or third-party footage, the footage itself (one dominant scene colour + one accent); otherwise an example from `palettes.json` (10 palettes measured from approved references) whose mood fits: studio-merah (firm talking head, dark studio), hitam-kuning-hangat (personal, reflective), merah-menyala (dramatic education, mystery), merah-kertas-dokumenter (archive photos), putih-lavender (light, friendly product), biru-gradasi-terang (clean finance/product), hitam-navy (serious finance, night), monokrom (minimal; emphasis through light). Reason: without a locked palette every graphic picks its own colour and the result is a rainbow.

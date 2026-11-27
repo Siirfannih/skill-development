@@ -1,6 +1,6 @@
 # Storyboard visual: dari script atau daftar potongan ke papan panel
 
-Baca di tahap Storyboard/block out. Storyboard adalah gerbang review termurah: satu panel diperbaiki dalam menit, satu render dalam jam.
+Baca di langkah Storyboard. Storyboard adalah gerbang review termurah: satu panel diperbaiki dalam menit, satu render dalam jam.
 
 ## Isi
 
@@ -19,7 +19,7 @@ Baca di tahap Storyboard/block out. Storyboard adalah gerbang review termurah: s
 | Kondisi | Yang dilakukan |
 |---|---|
 | User memberi storyboard atau panel contoh | Gambar ulang: struktur, urutan, metafora, dan gayanya dihormati; rupa tiap panel dirapikan, yang kurang ditambah (§6, §9) |
-| Tidak ada storyboard (klip podcast, talking head, brief + video saja) | Agent membuat preview Storyboard/block out sendiri: still per beat di atas frame footage asli dari kode yang sama dengan video final (`render.sh still`) + klip draft untuk beat yang punya gerak kamera/transisi, dikirim langsung di percakapan. Produksi penuh dimulai setelah user menyetujui preview (`../templates/merek/README.md` §Tahap 2) |
+| Tidak ada storyboard (klip podcast, talking head, brief + video saja) | Agent membuat preview storyboard sendiri: still per beat di atas frame footage asli dari kode yang sama dengan video final (`render.sh still`) + klip draft untuk beat yang punya gerak kamera/transisi, dikirim langsung di percakapan. Produksi penuh dimulai setelah user menyetujui preview (`../templates/merek/README.md` §Editing guideline + preview) |
 | Klip/talking head | Rencana edit: satu rencana dengan rekomendasi + alasan per beat; kartu cookbook dan `RESEP.md` inspirasi internal, ID kartu tidak ditunjukkan ke user; opsi hanya untuk beat yang benar-benar ragu atau bila user meminta pilihan; rencana masuk `handoff/PLAN.json`. Format `MENU.md`: `roles.md` |
 | Tidak ada video referensi | Gaya dari profil merek + tema (`dunia-visual.md`); mekanik per beat dari `scripts/cookbook/pilih_kartu.py --cari "<tugas beat>"` (hook, angka, langkah; bukan industri klien), 2-4 kartu untuk seluruh video; tulis di `beats.json → arah.sumber_gaya` mana yang dipakai dan kenapa |
 
@@ -57,7 +57,7 @@ Satu panel = frame + caption, seperti artboard Wonder.
         metafora:{makna, emosi, gerak_pembawa, aksi, metafora, objek:[3–6], urutan, bentuk},
         sfx:[{t, peran, alasan}]}]}
 ```
-`cues.json` hasil `board.py` adalah bahan awal cue sheet SFX di tahap Mix: setiap event visual di storyboard sudah punya bunyi (Lantai E24).
+`cues.json` hasil `board.py` adalah bahan awal cue sheet SFX di langkah Audio: setiap event visual di storyboard sudah punya bunyi (Lantai E24).
 
 ## 4. Cara user menilai panel
 

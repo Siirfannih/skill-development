@@ -1,8 +1,8 @@
 # Dunia visual: tema, terjemahan kata gaya, dan arah gaya
 
-Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. NEGATIF v2 di `SKILL.md` berlaku penuh: butir [mutlak] menang bila ada bentrok, teknik lain dinilai dengan tiga pertanyaan makna, sistem, takaran. Tema memutuskan kulit (warna, huruf, komposisi); mekanik gerak per beat diambil di storyboard lewat `pilih_kartu.py`, dicari menurut tugas beat (hook, angka, langkah), bukan industri klien; 2-4 kartu.
+Dibuka di langkah Dunia visual sampai Storyboard (`SKILL.md`): memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. NEGATIF v2 di `SKILL.md` berlaku penuh: butir [mutlak] menang bila ada bentrok, teknik lain dinilai dengan tiga pertanyaan makna, sistem, takaran. Tema memutuskan kulit (warna, huruf, komposisi); mekanik gerak per beat diambil di storyboard lewat `pilih_kartu.py`, dicari menurut tugas beat (hook, angka, langkah), bukan industri klien; 2-4 kartu.
 
-## 1. Urutan kerja (langkah 1 dan 3-5 alur `SKILL.md`)
+## 1. Urutan kerja (Baca bahan, Dunia visual sampai Storyboard di `SKILL.md`)
 
 0. **Ada referensi dari user: bedah dulu.** Jalankan `bedah-referensi.md` (5 lapis: state machine naratif, mekanisme vs properti permukaan, kontrak dominasi per frame, rantai sebab-akibat kamera, peta upgrade) dan isi `REF-SPEC.md` (ukur dengan `scripts/ref_spec.py`, alasan per pilihan dengan mata) sebelum storyboard dibuat atau di-upgrade. Referensi adalah kebenaran pilihan user: yang dipindahkan adalah alasan dan sistemnya; bentuknya dipakai bila alasannya berlaku di proyek ini (NEGATIF 7).
 1. **Periksa bahan dulu.** Lihat footage, naskah, dan aset nyata user sebelum memilih teknik. Catat:

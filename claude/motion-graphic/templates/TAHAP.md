@@ -1,9 +1,9 @@
 # TAHAP · <proyek>
 
-Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap = judul `## Tahap N` di bawah. Kerjakan berurutan. Di tiap langkah, baca **hanya** file/bagian yang disebut langkah itu, saat itu juga. Langkah selesai = `- [x]` + bukti setelah `→` (perintah dan keluarannya, path file, atau ID baris `DECISIONS.md`); langkah yang tidak berlaku (tanpa VO, tanpa footage, tanpa subagen) dicentang dengan `→ n/a: <alasan>`. Lihat langkah berikutnya: `python3 claude/motion-graphic/scripts/juri/tahap.py projects/<proyek>`. `render.sh final` menolak render selama tahap sebelum Deliver belum selesai berbukti.
+Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Judul `## Tahap N` dibaca `tahap.py`; padanannya di Alur `SKILL.md`: Brief = Baca bahan sampai Arah gaya, Storyboard/block out = Storyboard, Animate + Effects & grade = Build, Mix = Audio. Kerjakan berurutan. Di tiap langkah, baca **hanya** file/bagian yang disebut langkah itu, saat itu juga. Langkah selesai = `- [x]` + bukti setelah `→` (perintah dan keluarannya, path file, atau ID baris `DECISIONS.md`); langkah yang tidak berlaku (tanpa VO, tanpa footage, tanpa subagen) dicentang dengan `→ n/a: <alasan>`. Lihat langkah berikutnya: `python3 claude/motion-graphic/scripts/juri/tahap.py projects/<proyek>`. `render.sh final` menolak render selama tahap sebelum Deliver belum selesai berbukti.
 
 ## Tahap 1 · Brief
-- [ ] Profil merek ada (atau drafnya diajukan bersama keyframe pertama) dan lulus · baca: `templates/merek/README.md` §Tahap 1 · bukti: keluaran `profil_cek.py` LULUS →
+- [ ] Profil merek ada (atau drafnya diajukan bersama keyframe pertama) dan lulus · baca: `templates/merek/README.md` (bagian Memastikan profil ada) · bukti: keluaran `profil_cek.py` LULUS →
 - [ ] Brief user disalin verbatim ke `RESEP.md`; bahan user dibedah; kiblat dipilih (tanpa referensi user: REF-SPEC dari profil merek + tema) · baca: `../irfan-creative-workflow/SKILL.md` §2, `cookbook/INDEX.md` §2, `cookbook/RESEP-TEMPLATE.md` · bukti: `resep_check.py` LULUS →
 
 ## Tahap 2 · Naskah
@@ -12,7 +12,7 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap = judul `## Ta
 ## Tahap 3 · Storyboard/block out
 - [ ] Storyboard + tabel racikan cookbook (beat → pola → remix → SFX) disetujui pemilik · baca: `cookbook/README.md` §2, `references/storyboard.md` §5 · bukti: ID baris `DECISIONS.md` yang mencatat persetujuan pemilik + path storyboard →
 - [ ] Suara dipotong dan dikunci · baca: `references/audio.md` §14.0C–14.0D · bukti: `audio_order.py lock suara` PASS →
-- [ ] Preview dikirim di percakapan: still per beat di atas footage asli + klip draft untuk gerak kamera/transisi · baca: `references/storyboard.md` §1, `templates/merek/README.md` §Tahap 2 · bukti: path still/klip yang dikirim →
+- [ ] Preview dikirim di percakapan: still per beat di atas footage asli + klip draft untuk gerak kamera/transisi · baca: `references/storyboard.md` §1, `templates/merek/README.md` (bagian Editing guideline + preview) · bukti: path still/klip yang dikirim →
 - [ ] Masukan user atas preview dicatat dan disetujui · baca: `references/revisi.md` (bagian Ledger and scene locks) · bukti: ID baris `DECISIONS.md` →
 - [ ] Lembar kondisi footage per jenis shot; tiap teknik kartu dicocokkan dengan syaratnya dan penyesuaiannya ditulis di `RESEP.md` · baca: `cookbook/README.md` §6 butir 1, bagian "Kondisi footage asli" + blok teknik kartu yang dipakai · bukti: `qc/kondisi/KONDISI.md` →
 - [ ] Spine gaya dikunci: satu still per peran teks di atas footage asli, dinilai berdampingan dengan frame kunci · baca: `cookbook/README.md` §6 butir 2, `references/teks.md` (bagian Gerak teks per peran) · bukti: `qc/spine/SPINE.md` →

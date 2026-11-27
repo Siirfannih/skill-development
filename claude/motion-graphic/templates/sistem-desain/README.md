@@ -6,7 +6,7 @@ Ditulis **Sutradara** sebelum pekerja adegan mulai, di `remotion/src/<…>/bersa
 
 1. `BRAND.md` merek (warna peran, huruf, logo) dan `EDITING.md`.
 2. `RESEP.md` proyek: pengikat warna & tekstur, teks, dan ritme dari kartu kiblat atau `REF-SPEC.md`.
-3. Still preview Storyboard/block out yang user setujui.
+3. Still preview storyboard yang user setujui.
 4. `references/warna.md` bila merek belum punya palet.
 
 ## Cara memilih warna: peran dulu, lalu keluarga, lalu kontras

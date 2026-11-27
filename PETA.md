@@ -69,33 +69,33 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | File | Isi / kapan dibuka |
 |---|---|
 | `claude/motion-graphic/references/alur-teknis.md` | **Alur teknis motion-graphic (rujukan)** — Dipindah dari SKILL.md supaya bacaan awal kecil. |
-| `claude/motion-graphic/references/analysis-qa.md` | **Analysis & QA — bedah referensi dan gerbang kirim** — Baca saat membedah referensi (tahap Brief) dan sebelum mengirim render (QA di tahap Mix → Deliver). |
+| `claude/motion-graphic/references/analysis-qa.md` | **Analysis & QA — bedah referensi dan gerbang kirim** — Baca saat membedah referensi (langkah Baca bahan) dan sebelum mengirim render (QA di langkah Deliver). |
 | `claude/motion-graphic/references/audio.md` | **Audio — VO, SFX, musik** — Baca hanya di gerbang audio (setelah script dan storyboard final) dan saat QA audio. |
 | `claude/motion-graphic/references/bahan.md` | **Materials: how to build richness from light, depth and surface** — Open when choosing style directions (dunia-visual.md §7) or when a frame looks flat. |
 | `claude/motion-graphic/references/bedah-referensi.md` | **Bedah Referensi · reverse engineering jadi REF-SPEC** — Wajib dijalankan setiap kali user membawa referensi (video, gambar, link), sebelum storyboard dibuat atau di-upgrade. |
 | `claude/motion-graphic/references/build.md` | **Build — Remotion, rakit lego, dan engine kode** — Baca saat mulai build. |
-| `claude/motion-graphic/references/copywriting.md` | **Copywriting — VO script and on-screen text** — Read at the Script stage and whenever writing text that appears on screen. |
-| `claude/motion-graphic/references/decision-guide.md` | **Panduan keputusan: teks, visual, kotak, teknik, dan kapan bertanya** — Dibaca saat menulis tabel storyboard (langkah 5 SKILL.md), saat memilih di antara opsi, saat aturan terasa bentrok, saat ragu perlu bertanya, dan saat QA (langkah 8). |
+| `claude/motion-graphic/references/copywriting.md` | **Copywriting — VO script and on-screen text** — Read at the Naskah step and whenever writing text that appears on screen. |
+| `claude/motion-graphic/references/decision-guide.md` | **Panduan keputusan: teks, visual, kotak, teknik, dan kapan bertanya** — Dibaca saat menulis tabel storyboard (langkah Storyboard SKILL.md), saat memilih di antara opsi, saat aturan terasa bentrok, saat ragu perlu bertanya, dan saat QA (langkah Deliver). |
 | `claude/motion-graphic/references/delivery-gate.md` | **Delivery Gate (wajib sebelum video ditunjukkan ke user)** — Laporan ini dikirim bersama video, tiap baris dengan bukti konkret (angka keluaran skrip, timestamp, nama still). |
 | `claude/motion-graphic/references/delivery-spec.md` | **Spesifikasi pengiriman (profil V1)** — Satu master MP4 untuk semua platform. |
 | `claude/motion-graphic/references/direction.md` | **Direction — prinsip sutradara, family visual, elemen, warna** — Baca saat menentukan apa yang terjadi di setiap beat: tokoh, subjek, metafora, family visual, palet. |
-| `claude/motion-graphic/references/dunia-visual.md` | **Dunia visual: tema, terjemahan kata gaya, dan arah gaya** — Dibuka di langkah 3-5 alur SKILL.md: memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. |
+| `claude/motion-graphic/references/dunia-visual.md` | **Dunia visual: tema, terjemahan kata gaya, dan arah gaya** — Dibuka di langkah Dunia visual sampai Storyboard (SKILL.md): memilih tema bersama user, lalu menuntun cara berpikir desain, kinetic typography, dan sound design supaya storyboard terasa dibuat editor manusia. |
 | `claude/motion-graphic/references/efek-3d.md` | **Effects and 3D: when, which are safe, recipes** — Standalone reference (not a mandatory gate). |
 | `claude/motion-graphic/references/grade.md` | **Color grading footage dengan ffmpeg** — Dibuka saat footage (talking head, b-roll) perlu look tertentu. |
 | `claude/motion-graphic/references/hybrid-motion-standard.md` | **Hybrid Motion Standard (default from the benchmark references; REF-SPEC wins)** — Extracted from benchmark reference videos (archive/riwayat/GrokAgent/reference-videos/). |
-| `claude/motion-graphic/references/kamera-gerak.md` | **Camera, motion, and transitions** — Opened when designing camera, transitions, curves and motion blur (steps 5-6 of the SKILL.md workflow), or when motion feels "not smooth" or "choppy". |
+| `claude/motion-graphic/references/kamera-gerak.md` | **Camera, motion, and transitions** — Opened when designing camera, transitions, curves and motion blur (Storyboard and Build steps of the SKILL.md workflow), or when motion feels "not smooth" or "choppy". |
 | `claude/motion-graphic/references/orkestrasi.md` | **Orkestrasi: kamu memimpin, model lain yang mengulang** — Satu model sudah cukup: kamu yang membangun dan menilai, dalam putaran terpisah (bangun dulu; menilai dari gambar sebelum membaca catatan buildmu sendiri). |
-| `claude/motion-graphic/references/pacing-map.md` | **Peta nada → gerak (dari transkrip + audio)** — Dibaca di gerbang storyboard (4), sebelum kamera-gerak.md. |
+| `claude/motion-graphic/references/pacing-map.md` | **Peta nada → gerak (dari transkrip + audio)** — Dibaca di langkah Storyboard, sebelum kamera-gerak.md. |
 | `claude/motion-graphic/references/persepsi.md` | **Persepsi — letak orang dan wajah di footage** — Baca saat adegan berfootage butuh tahu di mana orang atau wajahnya: teks atau kata hero di belakang kepala, glow di tepi badan, teks mengapit wajah, latar diganti atau diredupkan lewat matte, cutout s |
 | `claude/motion-graphic/references/pola-salah.md` | **Rejected patterns (SLOP and S codes)** — Patterns the owner rejected in real frames and renders, written as what is visible or measurable so a frame can be checked against them. |
 | `claude/motion-graphic/references/preset-index.md` | **PRESET-INDEX · Peta Preset Mekanikal Buatan Sendiri (Dekopled dari Remotion)** — Buka file ini hanya pada tahap build (setelah SKILL.md + tema/<tema>.md + *style frame* dikunci). |
-| `claude/motion-graphic/references/revisi.md` | **Revision = diff, one round** — Opened when a revision message arrives on a video or storyboard, before the first edit (step 8 of the SKILL.md workflow; older LANTAI item F27). |
+| `claude/motion-graphic/references/revisi.md` | **Revision = diff, one round** — Opened when a revision message arrives on a video or storyboard, before the first edit (Deliver step of the SKILL.md workflow; older LANTAI item F27). |
 | `claude/motion-graphic/references/roles.md` | **Dua peran: Sutradara dan Editor (layer komunikasi)** — Dibaca hanya bila pekerjaan dibagi ke Editor (subagen atau model lain); satu model tidak perlu membukanya. |
 | `claude/motion-graphic/references/selects-editor.md` | **Paket editor dari rekaman talking head mentah (selects)** — Dibuka saat bahannya rekaman mentah panjang (beberapa menit, banyak take ulang) dan keluarannya paket untuk editor manusia: timeline klip ber-timecode, rough cut, audio, aset motion, storyboard, dan animatic. |
-| `claude/motion-graphic/references/storyboard.md` | **Storyboard visual: dari script atau daftar potongan ke papan panel** — Baca di tahap Storyboard/block out. |
-| `claude/motion-graphic/references/teks.md` | **Teks di layar: kapan, huruf, posisi, keterbacaan, gerak** — Dibuka saat mengatur teks layar (langkah 4-6 alur SKILL.md). |
+| `claude/motion-graphic/references/storyboard.md` | **Storyboard visual: dari script atau daftar potongan ke papan panel** — Baca di langkah Storyboard. |
+| `claude/motion-graphic/references/teks.md` | **Teks di layar: kapan, huruf, posisi, keterbacaan, gerak** — Dibuka saat mengatur teks layar (langkah Arah gaya, Storyboard, dan Build di SKILL.md). |
 | `claude/motion-graphic/references/three-segment-gate.md` | **Gerbang 3 Segmen** — Claude tidak melihat video saat menulis kode. |
-| `claude/motion-graphic/references/warna.md` | **Colour: palette and colour gates** — Opened when locking the palette (step 1-3 of the SKILL.md workflow) and before handing frames over. |
+| `claude/motion-graphic/references/warna.md` | **Colour: palette and colour gates** — Opened when locking the palette (Baca bahan to Dunia visual steps of the SKILL.md workflow) and before handing frames over. |
 
 ## motion-graphic · guide (rasa per urusan)
 

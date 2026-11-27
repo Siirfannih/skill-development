@@ -40,20 +40,20 @@ Instruksi user selalu melewati Sutradara. Editor tidak pernah menerima chat ment
 
 ## 3. Peta gerbang
 
-| Gerbang (`references/alur-teknis.md` §4) | Sutradara | Editor |
+| Langkah (`SKILL.md` Alur) | Sutradara | Editor |
 |---|---|---|
-| 0 Muat konteks | ✔ | memuat `handoff/` saja |
-| 1 Brief (+ pilih gaya) | ✔ | — |
-| 2 Script / daftar potongan | ✔ | transkrip kata per kata + potong jeda (TASK r0) |
-| 3 Bedah referensi | ✔ termasuk tabel kalimat → adegan (`analysis-qa.md` §2) | — |
-| 4 Storyboard / rencana edit menu | ✔ user memilih | — |
-| 5 TYPE-TEST + TRANSITION-SHEET | review | membangun still |
-| 6 Suara dikunci | mengunci | menyiapkan audio |
-| 7 Validasi satu adegan | review buta | membangun |
-| 8 Build semua adegan | review buta per beat | membangun |
-| 9–10 SFX, musik | menyusun cue sheet dari event + review dengar | menempatkan, mixing |
-| 11 Preview + QA | devil's advocate, Delivery Gate | menjalankan gate mekanis, melapor angka |
-| 12 Kirim | ✔ | — |
+| Sebelum mulai: muat konteks | ✔ | memuat `handoff/` saja |
+| Baca bahan, Arah gaya | ✔ | — |
+| Naskah / daftar potongan | ✔ | transkrip kata per kata + potong jeda (TASK r0) |
+| Baca bahan: bedah referensi | ✔ termasuk tabel kalimat → adegan (`analysis-qa.md` §2) | — |
+| Storyboard / rencana edit menu | ✔ user memilih | — |
+| Storyboard: TYPE-TEST + TRANSITION-SHEET | review | membangun still |
+| Storyboard: suara dikunci | mengunci | menyiapkan audio |
+| Build: validasi satu adegan | review buta | membangun |
+| Build semua adegan | review buta per beat | membangun |
+| Audio: SFX, musik | menyusun cue sheet dari event + review dengar | menempatkan, mixing |
+| Deliver: preview + QA | devil's advocate, Delivery Gate | menjalankan gate mekanis, melapor angka |
+| Deliver: kirim | ✔ | — |
 
 ## 4. Folder serah terima
 

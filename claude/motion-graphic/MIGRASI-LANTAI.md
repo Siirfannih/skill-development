@@ -24,28 +24,28 @@ Pemetaan mengikuti desain Fase 1 (laporan audit struktur skill, bagian "Nasib 46
 | B13b | `references/kamera-gerak.md` | `scripts/juri/motion_lint.py` |
 | C14 | `SKILL.md` (NEGATIF 5) | `scripts/gate/tabrakan_cek.py`; lihat L2 |
 | C14a | `SKILL.md` (NEGATIF 2) | `scripts/banding.py` + `scripts/gate/permukaan_cek.py` (inventaris, NEGATIF v2) |
-| C15 | `SKILL.md` (alur langkah 4, L2) | `scripts/gate/tabrakan_cek.py`, `scripts/gate/cek_komposisi.py` |
-| C16 | `SKILL.md` (alur langkah 4, L2) | `scripts/gate/cek_komposisi.py` (tanda `TEPI`) |
-| C17 | `SKILL.md` (alur langkah 4-5 dan hukum besi) | `scripts/lihat.py` (zoom penuh + crop 100 %) |
-| C18 | `SKILL.md` (alur langkah 4, L0-L3) | `scripts/gate/negatif_cek.py`; lihat per lapis |
+| C15 | `SKILL.md` (Storyboard per putaran, L2) | `scripts/gate/tabrakan_cek.py`, `scripts/gate/cek_komposisi.py` |
+| C16 | `SKILL.md` (Storyboard per putaran, L2) | `scripts/gate/cek_komposisi.py` (tanda `TEPI`) |
+| C17 | `SKILL.md` (Storyboard per putaran, Build, hukum besi) | `scripts/lihat.py` (zoom penuh + crop 100 %) |
+| C18 | `SKILL.md` (Storyboard per putaran, L0-L3) | `scripts/gate/negatif_cek.py`; lihat per lapis |
 | C18a | `references/dunia-visual.md` (palet dikunci di RESEP proyek) | `scripts/palette_check.py` |
 | C18b | `SKILL.md` (NEGATIF 10) | `scripts/juri/motion_lint.py` |
 | D19 | `references/storyboard.md` §9 | lihat per lapis (L1) |
-| D19a | `SKILL.md` (alur langkah 1) + `references/storyboard.md` §2 | `scripts/storyboard/board.py` |
-| D19b | `SKILL.md` (alur langkah 1) + `references/storyboard.md` §2 | `scripts/storyboard/board.py` |
-| D19c | `SKILL.md` (alur langkah 1) + `references/storyboard.md` §9 | `scripts/storyboard/board.py` |
+| D19a | `SKILL.md` (Storyboard per putaran) + `references/storyboard.md` §2 | `scripts/storyboard/board.py` |
+| D19b | `SKILL.md` (Storyboard per putaran) + `references/storyboard.md` §2 | `scripts/storyboard/board.py` |
+| D19c | `SKILL.md` (Storyboard per putaran) + `references/storyboard.md` §9 | `scripts/storyboard/board.py` |
 | D20 | `references/storyboard.md` §9 | lihat L1 |
 | D21 | `references/storyboard.md` §9 | lihat L1 |
 | D22 | `SKILL.md` (NEGATIF 4) | `scripts/gate/negatif_cek.py` (heuristik placeholder) |
 | D22a | `references/storyboard.md` §9 | `references/storyboard.md` §5 (review papan) |
-| D22b | `SKILL.md` (alur langkah 1) + `references/storyboard.md` §9 | `scripts/storyboard/board.py` |
+| D22b | `SKILL.md` (Storyboard per putaran) + `references/storyboard.md` §9 | `scripts/storyboard/board.py` |
 | D22c | `SKILL.md` (NEGATIF 4) | `scripts/juri/frame_audit.py` |
 | E23 | `SKILL.md` (NEGATIF 9) + `references/audio.md` (aturan inti) | `scripts/gate/cut_check.py`, `scripts/gate/voice_level.py` |
-| E24 | `references/audio.md` (aturan inti, wajib di langkah 7) | `scripts/gate/sfx_density.py` |
-| E25 | `references/audio.md` (aturan inti, wajib di langkah 7) | `scripts/audio/music_fit.py` |
-| E25a | `references/audio.md` (aturan inti, wajib di langkah 7) | `scripts/audio/audio_phone.py` |
+| E24 | `references/audio.md` (aturan inti, wajib di langkah Audio) | `scripts/gate/sfx_density.py` |
+| E25 | `references/audio.md` (aturan inti, wajib di langkah Audio) | `scripts/audio/music_fit.py` |
+| E25a | `references/audio.md` (aturan inti, wajib di langkah Audio) | `scripts/audio/audio_phone.py` |
 | F26 | `SKILL.md` (Alur) | `scripts/juri/tahap.py`, `scripts/juri/render.sh` |
-| F26a | `SKILL.md` (Alur langkah 4-5) | `scripts/lihat.py` |
+| F26a | `SKILL.md` (Storyboard per putaran, Build) | `scripts/lihat.py` |
 | F27 | `references/revisi.md` | `scripts/juri/revisi_cek.py` |
 | F28 | `SKILL.md` (Sebelum mulai) | - |
 | F28a | `SKILL.md` (Sebelum mulai) | - |

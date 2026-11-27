@@ -1,6 +1,6 @@
 # Camera, motion, and transitions
 
-Opened when designing camera, transitions, curves and motion blur (steps 5-6 of the `SKILL.md` workflow), or when motion feels "not smooth" or "choppy". Older `LANTAI.md` items B10-B13b live here with their reasons (original wording: `archive/riwayat/LANTAI.md`). Principle: NEGATIF 10, every movement has a speakable reason. Numbers (30 fps) are starting points from approved references; REF-SPEC and VO tempo win. Check: `scripts/juri/motion_lint.py`. Text motion (T, G codes): `teks.md`.
+Opened when designing camera, transitions, curves and motion blur (Storyboard and Build steps of the `SKILL.md` workflow), or when motion feels "not smooth" or "choppy". Older `LANTAI.md` items B10-B13b live here with their reasons (original wording: `archive/riwayat/LANTAI.md`). Principle: NEGATIF 10, every movement has a speakable reason. Numbers (30 fps) are starting points from approved references; REF-SPEC and VO tempo win. Check: `scripts/juri/motion_lint.py`. Text motion (T, G codes): `teks.md`.
 
 ## Living frame (B10, B11, B12)
 - **No flat frames.** Shots over 2 s get deliberate camera movement (slow push, pan, object tracking); informational scenes (UI, checklist) push slowly toward the part being discussed. Static only when the north-star card is, recorded in `RESEP.md`. Reason: a long static frame reads like a slide.

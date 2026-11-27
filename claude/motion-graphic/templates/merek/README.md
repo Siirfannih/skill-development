@@ -25,15 +25,15 @@ Repo ini hanya menyimpan cara kerja dan cetakan kosong. Data milik user (profil 
 - `contoh/` milik merek itu saja. `cookbook/contoh-gagal/` di repo hanya untuk kesalahan kerja yang salah di gaya apa pun.
 - Cek bentuknya: `python3 claude/motion-graphic/scripts/juri/profil_cek.py <folder data>/merek/<slug-merek>`.
 
-## Tahap 1: memastikan profil ada
+## Memastikan profil ada
 
-1. Cari `merek/<slug>/BRAND.md` untuk merek di brief. Ada dan `profil_cek.py` LULUS → lanjut ke tahap 2.
+1. Cari `merek/<slug>/BRAND.md` untuk merek di brief. Ada dan `profil_cek.py` LULUS → lanjut ke editing guideline.
 2. Belum ada atau GAGAL → susun drafnya sendiri dan ajukan di percakapan bersama keyframe pertama; pekerjaan lain jalan terus:
    - Kumpulkan dulu yang bisa dicari sendiri: logo, font, dan warna dari aset yang user kirim, situs, atau repo produknya. Tulis apa adanya; nilai yang tidak ditemukan ditulis `?` dan ditanyakan, tidak dikarang.
    - Tanyakan sisanya dalam satu pesan pendek dengan pilihan (mis. tiga pasangan huruf dari kartu terdekat), bukan formulir panjang.
-3. Jalankan `profil_cek.py` pada draf; GAGAL diperbaiki bersama jawaban user, bukan alasan menunda tahap berikutnya.
+3. Jalankan `profil_cek.py` pada draf; GAGAL diperbaiki bersama jawaban user, bukan alasan menunda langkah berikutnya.
 
-## Tahap 2: editing guideline + preview
+## Editing guideline + preview
 
 Gaya yang disebut user ("Apple style", "cinematic") adalah tema konsep, bukan template. Model menerjemahkannya menjadi visual untuk video ini:
 1. Cari 2–3 kartu terdekat lewat `cookbook/INDEX.md`, lalu tunjukkan frame kuncinya di percakapan: "yang kamu maksud lebih ke yang mana?". Jawaban user ditulis ke `EDITING.md` bila berlaku untuk merek, atau ke `RESEP.md` proyek bila hanya untuk video ini.

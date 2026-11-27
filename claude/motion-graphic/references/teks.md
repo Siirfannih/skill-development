@@ -1,6 +1,6 @@
 # Teks di layar: kapan, huruf, posisi, keterbacaan, gerak
 
-Dibuka saat mengatur teks layar (langkah 4-6 alur `SKILL.md`). Butir lama LANTAI A2-A9a ada di sini dengan alasannya; bunyi aslinya di `archive/riwayat/LANTAI.md`. Sistem huruf diatur NEGATIF 1 dan tidak diulang. Angka ukuran dan kontras hanya ditulis di sini; dokumen lain merujuk ke sini.
+Dibuka saat mengatur teks layar (langkah Arah gaya, Storyboard, dan Build di `SKILL.md`). Butir lama LANTAI A2-A9a ada di sini dengan alasannya; bunyi aslinya di `archive/riwayat/LANTAI.md`. Sistem huruf diatur NEGATIF 1 dan tidak diulang. Angka ukuran dan kontras hanya ditulis di sini; dokumen lain merujuk ke sini.
 
 ## Kapan teks tampil: keputusan per beat (NEGATIF 6)
 - Tiap beat di tabel storyboard punya mode dan alasan satu baris. **TEKS**: teks adalah isi beat (a: teks itu subjeknya, yaitu diketik, disunting, kata milik produk; b: penanda hook atau babak; c: angka atau kata yang tak bisa ditunjukkan visual; d: CTA). **VISUAL**: VO + visual membawa beat, tanpa teks. **MENYATU**: teks adalah bagian objek (label, UI, huruf yang disunting), bukan lapisan sendiri.

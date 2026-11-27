@@ -1,6 +1,6 @@
 # Analysis & QA — bedah referensi dan gerbang kirim
 
-Baca saat membedah referensi (tahap Brief) dan sebelum mengirim render (QA di tahap Mix → Deliver). Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.
+Baca saat membedah referensi (langkah Baca bahan) dan sebelum mengirim render (QA di langkah Deliver). Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.
 
 ## Isi
 

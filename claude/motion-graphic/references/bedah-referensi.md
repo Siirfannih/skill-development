@@ -86,4 +86,4 @@ Tanpa referensi: isi REF-SPEC dari profil merek + tema, dengan alasan yang sama.
 
 ## Style frame dan 5 uji biner
 
-Gerbang 3 style frame (per lapis L0-L3, bandingkan berdampingan, `banding.py`) dan 5 uji biner per frame ditulis satu kali, di `dunia-visual.md` §7-8. REF-SPEC di atas adalah patokan yang dipakai gerbang itu; hasil ujinya dicatat di `REF-SPEC.md` atau `STORYBOARD.md`.
+Style frame langkah Arah gaya (per lapis L0-L3, bandingkan berdampingan, `banding.py`) dan 5 uji biner per frame ditulis satu kali, di `dunia-visual.md` §7-8. REF-SPEC di atas adalah patokan yang dipakai gerbang itu; hasil ujinya dicatat di `REF-SPEC.md` atau `STORYBOARD.md`.

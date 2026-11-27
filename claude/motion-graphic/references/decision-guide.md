@@ -1,6 +1,6 @@
 # Panduan keputusan: teks, visual, kotak, teknik, dan kapan bertanya
 
-Dibaca saat menulis tabel storyboard (langkah 5 `SKILL.md`), saat memilih di antara opsi, saat aturan terasa bentrok, saat ragu perlu bertanya, dan saat QA (langkah 8). Keputusan per beat dicatat di tabel beat: **mode · alasan · cek**. Urutan otoritas: `SKILL.md`, `AGENTS.md`; mode teks per beat: NEGATIF 6 dan `teks.md`. Gerbang DENGAR di `three-segment-gate.md` tidak dikalahkan file ini.
+Dibaca saat menulis tabel storyboard (langkah Storyboard `SKILL.md`), saat memilih di antara opsi, saat aturan terasa bentrok, saat ragu perlu bertanya, dan saat QA (langkah Deliver). Keputusan per beat dicatat di tabel beat: **mode · alasan · cek**. Urutan otoritas: `SKILL.md`, `AGENTS.md`; mode teks per beat: NEGATIF 6 dan `teks.md`. Gerbang DENGAR di `three-segment-gate.md` tidak dikalahkan file ini.
 
 Prinsip dasarnya: penonton HP hanya menangkap **satu hal per momen**. Semua di bawah adalah cara memilih hal itu.
 
