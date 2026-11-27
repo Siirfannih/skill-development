@@ -24,7 +24,7 @@ Urutan menang: instruksiku di sesi → `projects/<proyek>/` (BRIEF, RESEP, DECIS
 |---|---|---|
 | 1 | `juri/` teks (tabrakan, terpotong, ukuran minimum) | keluar 0 |
 | 2 | `juri/` kontras (TKS-01) | keluar 0 |
-| 3 | `juri/` hierarki (urutan baca vs BRIEF) | keluar 0; peringatan boleh dengan alasan di RESEP |
+| 3 | `juri/` hierarki (urutan baca vs BRIEF) | informasi: temuan dibaca lalu dinilai dengan mata (rumusnya hanya menghitung teks); tidak memblokir |
 | 4 | `juri/` aset (manifest, KRK-02) | keluar 0 |
 | 5 | Lembar sanding semua slide berdampingan (≤ 960 px) | dilihat; temuan ditulis di `TAHAP.md` |
 
