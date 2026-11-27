@@ -22,7 +22,7 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
   - Hasilnya: still kecil tiap 8 frame, plus log `OBJ` berisi kotak layar tiap objek bernama. Kotak diambil dari DOM Remotion, sudah termasuk transform kamera.
   - Log `SFXEV` ikut tercatat.
 - Jalankan `python3 tools/seg2_layout_check.py <dir>`. Pemeriksaannya:
-  - **SAFE:** teks utuh di dalam x 15–85 %, y 20–80 % (1920×1080: x 288–1632, y 216–864). Mengikuti safe zone thumbnail YouTube.
+  - **SAFE:** teks utuh di dalam x 15–85 %, y 20–80 % (1920×1080: x 288–1632, y 216–864), safe zone thumbnail YouTube. Catatan untuk proyek tanpa referensi; dengan referensi, REF-SPEC §3 menang.
   - **CLASH:** dua teks bertumpuk.
   - **CONTR:** kontras teks vs latar < 4,5:1.
     - Perbaikannya lewat warna teks, posisi di area tenang, atau text-shadow lembut.
@@ -128,7 +128,7 @@ Kesalahan v9: tiga gaya (fade in, pop up, text melebar) diulang sebagai hiasan. 
   - objek atau ikon disisipkan di antara kata ("Chief [ikon] Marketing").
   - Ini pola terkuat untuk menyambung teks dan visual.
 - **Gaya yang tidak ditemukan di referensi:** tracking-out "melebar" dan pop membesar. Pop hanya dipakai untuk angka atau hero yang bergerak, lalu mendarat di tengah.
-- **Kalimat pesan berada di pita tengah, y sekitar 36–64 %.** Pengecualian hanya untuk yang disengaja: hero full-bleed singkat, dan caption.
+- Tanpa referensi, kalimat pesan biasanya di pita tengah (y sekitar 36–64 %); dengan referensi, posisinya mengikuti REF-SPEC §3.
 
 ## Audio (koreksi)
 - **Rentang −21 s/d −41 dB adalah aturan BACKSOUND (BGM), bukan SFX.**
