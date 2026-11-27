@@ -51,9 +51,7 @@ Glow/blend dirender di dalam lapisan; compose hanya overlay alpha di RGB lalu sa
 - Kirim patch kecil bila hanya beberapa file berubah.
 - Simpan proyek di `~/Documents/<Proyek>` + `PROJECT_STATE.md`.
 
-Aset gambar: generate dengan generator gambar yang tersedia.
-- Sprite pose: latar hijau `#00FF00`, lalu di-key.
-- Plate: "dinding saja, tanpa objek utama, tanpa teks".
+Aset gambar: objek yang bergerak dibangun sebagai SVG/kode/lapisan terpisah supaya tiap bagiannya bisa dianimasikan. Foto mentah dan gambar generator hanya referensi atau plate ("dinding saja, tanpa objek utama, tanpa teks"); sprite raster (latar hijau `#00FF00`, di-key) pengecualian yang mahal.
 
 ---
 

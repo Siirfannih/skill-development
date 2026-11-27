@@ -85,7 +85,7 @@ Bagian ini meniru **cara Irfan berpikir saat menilai**, bukan daftar gaya. Setia
    - Kasus Trojan v4: hook dipecah satu kata per frame; tombol "Gratis" dipecah jadi tiga tahap.
 7. **Apakah aset ini jujur?**
    - Kasus Pengganti: aset yang belum ada (foto Irfan) dibuat sebagai bayangan berlabel, bukan gambar karangan.
-   - UI yang tampil adalah UI asli produknya.
+   - UI yang tampil adalah UI asli produknya. Objek yang akan bergerak digambar sebagai aset yang bisa digerakkan (SVG/kode/berlapis); foto mentah dan sprite raster generator hanya referensi atau plate.
 8. **Apakah keputusan Irfan yang sudah ada dihormati?** Ini satu-satunya pertanyaan yang jawabannya tidak bergantung konteks:
    - elemen yang Irfan hapus tidak dipasang lagi;
    - bagian yang ia puji atau tidak ia komentari tidak diubah;
