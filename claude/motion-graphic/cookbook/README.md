@@ -20,7 +20,7 @@ Cookbook ini lapisan penaik mutu (*quality adjustment layer*), bukan pembajak ko
 2. Untuk tiap beat, tulis **fungsi ceritanya**: emosi, struktur kalimat, posisi di naskah. Contoh: "kalimat koreksi: bukan X tapi Y", "lompatan waktu", "angka yang harus mendarat".
 3. Cocokkan fungsi cerita itu dengan kolom **Narrative trigger** `CATALOG.md` (dipandu router `INDEX.md`) lewat `python3 ../scripts/cookbook/pilih_kartu.py --cari "<kata kunci fungsi cerita>" [--pack 01..06] [--kategori …] [--bergerak]` (tabel ID, nama, status, path kartu, frame kunci); `CATALOG.md` tidak perlu dibaca utuh. Untuk mencari satu teknik lintas kartu, pakai `POLA.md`. Naskah baru dimulai dari kategori `script` (`03-documentary-story-narrative/`).
 4. Buka **hanya 2–4 kartu**, ditambah frame kuncinya (`../guide/referensi/sheets/keyframes/<id>-k*.jpg`). Jumlah itu untuk seluruh video, semuanya kartu mekanik (pengikat dari kartu hanya bila kartunya bedahan referensi yang dibawa user); tiap beat meminjam dari himpunan kartu itu.
-5. Tulis racikannya sebagai tabel beat, lalu **minta persetujuan user** sebelum kode:
+5. Tulis racikannya sebagai tabel beat (catatan kerjamu; pencarian kartu adalah inspirasi internal). Ke user tunjukkan rencana per beat dalam bahasa biasa (yang terlihat dan terdengar), bukan ID kartu atau menu, kecuali user meminta pilihan; **minta persetujuan user** sebelum kode:
 
    | Beat | Fungsi cerita | Pola (ID.Tn) | Remix: yang dipertahankan → yang diganti | SFX |
    |---|---|---|---|---|
