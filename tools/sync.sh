@@ -1,13 +1,14 @@
 #!/bin/bash
-# Pasang skill aktif dari repo ke Claude Code dan Codex sebagai SYMLINK, supaya selalu ikut `git pull`
-# (salinan membeku di versi lama dan tidak ikut pull).
+# Pasang skill aktif dari repo ke akun Claude Code sebagai SYMLINK, supaya selalu ikut `git pull`
+# (salinan membeku di versi lama dan tidak ikut pull). Ini PEMASANG: mengubah <config>/skills, settings.json, dan CLAUDE.md folder masuk remote.
 #
-#   ./tools/sync.sh                                   # Mac / akun default (~/.claude)
-#   CLAUDE_CONFIG_DIR=~/.claude-2 ./tools/sync.sh     # PC server, akun claude2
+#   ./tools/sync.sh                                   # akun default (~/.claude)
+#   CLAUDE_CONFIG_DIR=~/.claude-2 ./tools/sync.sh     # akun lain
+#   ./tools/sync.sh --codex                           # sekaligus pasang ke ~/.codex/skills (atau CODEX=1); bawaan: tidak
 #
 # Yang dilakukan:
 #   1. claude/*                          -> <config>/skills/<nama>  (symlink)
-#      claude/*                          -> ~/.codex/skills/<nama> (symlink; tanpa skill Remotion eksternal)
+#      claude/*                          -> ~/.codex/skills/<nama> (symlink) HANYA dengan --codex / CODEX=1
 #   2. external/remotion-skills/skills/* -> <config>/skills/<nama>  (skill Remotion resmi, symlink)
 #   3. skill di archive/                 -> dicabut dari <config>/skills
 #   4. hook SessionStart: git pull repo ini setiap sesi baru
@@ -18,6 +19,7 @@ set -euo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 CFG="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"; DEST="$CFG/skills"
 BK="$CFG/skills-backup/$(date +%Y%m%d-%H%M%S)"
+CODEX="${CODEX:-0}"; for a in "$@"; do [ "$a" = "--codex" ] && CODEX=1; done
 CODEX_CFG="${CODEX_CONFIG_DIR:-$HOME/.codex}"; CODEX_DEST="$CODEX_CFG/skills"
 CODEX_BK="$CODEX_CFG/skills-backup/$(date +%Y%m%d-%H%M%S)"
 mkdir -p "$DEST"
@@ -33,7 +35,8 @@ for d in "$REPO"/archive/*/; do n=$(basename "$d")
   [ "$n" = riwayat ] && continue   # arsip riwayat bukan skill
   if [ -e "$DEST/$n" ] || [ -L "$DEST/$n" ]; then mkdir -p "$BK"; mv "$DEST/$n" "$BK/"; echo "dicabut  $n"; fi; done
 
-# Codex memakai skill Irfan yang sama. Salinan lama dipindah, bukan dihapus; skill bawaan/plugin lain tidak disentuh.
+# Codex (opsional). Salinan lama dipindah, bukan dihapus; skill bawaan/plugin lain tidak disentuh.
+if [ "$CODEX" = 1 ]; then
 mkdir -p "$CODEX_DEST"
 for d in "$REPO"/claude/*/; do
   n="$(basename "$d")"; src="${d%/}"
@@ -48,6 +51,7 @@ for d in "$REPO"/archive/*/; do n="$(basename "$d")"
     mkdir -p "$CODEX_BK"; mv "$CODEX_DEST/$n" "$CODEX_BK/"; echo "dicabut Codex  $n"
   fi
 done
+fi
 
 python3 - "$CFG/settings.json" "$REPO" <<'EOF'
 import json, os, sys
@@ -73,18 +77,18 @@ p, repo = sys.argv[1], sys.argv[2]
 s = open(p).read() if os.path.exists(p) else "# Claude Code\n"
 if "skill-development/AGENTS.md" in s:
     print("folder masuk remote: rujukan skill-development sudah ada"); sys.exit()
-block = f"""
+block = f'''
 ## Tugas video, konten, naskah, storyboard, atau skill -> repo skill-development
 Folder ini adalah titik masuk remote, jadi aturan video tidak terbaca otomatis. Untuk tugas jenis ini:
-1. Baca dulu `{repo}/AGENTS.md` dan ikuti tabel rutenya (git pull dulu; `./tools/doctor.sh` hanya memeriksa).
+1. Baca dulu `{repo}/AGENTS.md` dan ikuti tabel rutenya (git pull dulu; `./tools/doctor.sh` memeriksa, `--fix` memasang).
 2. Skill utama video: `motion-graphic` (`{repo}/claude/motion-graphic/`); alat di `scripts/` folder itu.
 3. Pelajaran yang Irfan setujui ditulis ke file skill di repo itu dan di-push ke `main` (lewat `claude/skill-steward/SKILL.md`).
 Bagian lain file ini hanya berlaku untuk tugasnya sendiri.
-"""
+'''
 i = s.index("\n") + 1 if s.startswith("#") else 0
 open(p, "w").write(s[:i] + block + s[i:])
 print(f"folder masuk remote: rujukan skill-development ditambahkan ke {p}")
 EOF
 fi
 echo "Selesai. Cadangan Claude (bila ada): $BK"
-echo "Cadangan Codex (bila ada): $CODEX_BK"
+[ "$CODEX" != 1 ] || echo "Cadangan Codex (bila ada): $CODEX_BK"

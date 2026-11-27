@@ -3,9 +3,12 @@
 # Dijalankan sekali saat skill-development baru dipasang di sebuah mesin (atau saat sebuah alat gagal).
 # Hasilnya ditulis ke ALAT (bawaan ~/.config/skill-development/alat.md): sesi berikutnya cukup membaca file itu.
 #   ./tools/doctor.sh            periksa alat + pemasangan skill; tulis alat.md; exit 1 bila ada alat inti yang kurang
-#   ./tools/doctor.sh --fix      jalankan tools/sync.sh (pasang skill ke akun) lalu periksa ulang
+#   ./tools/doctor.sh --fix      PEMASANG, bukan pemeriksa: menjalankan tools/sync.sh (symlink skill, hook SessionStart, rujukan di folder masuk remote) lalu periksa ulang
 #   ./tools/doctor.sh --repo     tambah cek pemeliharaan repo (PETA, cookbook, NEGATIF, sumber, font)
-# Folder akun diambil dari CLAUDE_CONFIG_DIR, bawaan ~/.claude.
+#   ./tools/doctor.sh --offline  jangan menyentuh jaringan (lewati `git fetch` status repo); tanpa jaringan fetch dilewati diam-diam
+# Boleh digabung (mis. --repo --offline). Folder akun dari CLAUDE_CONFIG_DIR (bawaan ~/.claude).
+# Python skrip repo: $MG_PY, lalu python3/python di PATH, lalu ~/work/mg-venv sebagai cadangan terakhir; font lokal: $FONTS_LOKAL (bawaan ~/fonts-lokal).
+# Probe Remotion yang nyata (bundle + still) sengaja tidak ada: butuh node_modules dan unduhan Chrome (±100 MB); alat ini hanya memeriksa node >= 18 dan npx.
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 CFG="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"; DEST="$CFG/skills"
 ALAT="${SD_ALAT:-${XDG_CONFIG_HOME:-$HOME/.config}/skill-development/alat.md}"
@@ -15,14 +18,15 @@ note() { echo "AWAS   $*"; warn=1; }
 ok()   { echo "OK     $*"; }
 catat() { baris+=("| $1 | $2 | $3 |"); }   # kemampuan | status | cara pakai / cara pasang
 
-mode="${1:-}"
-if [ "$mode" = "--fix" ]; then "$REPO/tools/sync.sh" || exit 1; echo; exec "$0"; fi
+mode=""; offline=0; fix=0
+for a in "$@"; do case "$a" in --fix) fix=1 ;; --repo) mode="--repo" ;; --offline) offline=1 ;; esac; done
+if [ "$fix" = 1 ]; then "$REPO/tools/sync.sh" || exit 1; echo; exec "$0" ${mode:+"$mode"} $([ "$offline" = 1 ] && echo --offline); fi
 
 echo "== Alat (indera model dan alat bangun) =="
 
 # Python yang dipakai skrip repo: cari satu yang punya Playwright + PIL + numpy.
 PY=""
-for c in "${MG_PY:-}" "$HOME/work/mg-venv/bin/python" python3 /usr/bin/python3; do
+for c in "${MG_PY:-}" python3 python /usr/bin/python3 "$HOME/work/mg-venv/bin/python"; do
   [ -n "$c" ] && command -v "$c" >/dev/null 2>&1 || continue
   "$c" -c 'import numpy, PIL, playwright' >/dev/null 2>&1 && { PY="$c"; break; }
 done
@@ -38,7 +42,7 @@ elif [ -n "$PY" ]; then
   bad "render frame: Playwright ada, Chromium belum ($PY -m playwright install chromium)"
   catat "Render frame, lihat per lapis" "KURANG" "\`$PY -m playwright install chromium\`"
 else
-  bad "render frame: tidak ada Python dengan numpy + PIL + playwright (python3 -m venv ~/work/mg-venv && ~/work/mg-venv/bin/pip install numpy pillow playwright && ~/work/mg-venv/bin/python -m playwright install chromium)"
+  bad "render frame: tidak ada Python dengan numpy + PIL + playwright (python3 -m venv <venv> && <venv>/bin/pip install numpy pillow playwright && <venv>/bin/python -m playwright install chromium; lalu MG_PY=<venv>/bin/python)"
   catat "Render frame, lihat per lapis" "KURANG" "buat venv dengan numpy, pillow, playwright; lalu \`playwright install chromium\`"
 fi
 
@@ -90,10 +94,11 @@ if punya soundfile; then ok "ukur audio: numpy + soundfile"; catat "Ukur audio (
 else note "ukur audio: soundfile tidak ada (pip install soundfile)"; catat "Ukur audio (level, potongan VO)" "belum" "pip install soundfile"; fi
 D="$(bin_di demucs)"; [ -n "$D" ] && { ok "pisah stem: demucs"; catat "Pisah stem musik" "siap" "\`$D\`"; } || { note "demucs tidak terpasang (pasang saat tugas audio)"; catat "Pisah stem musik" "belum" "pip install demucs"; }
 command -v tesseract >/dev/null && { ok "baca teks di frame: tesseract"; catat "Baca teks di frame (OCR)" "siap" "\`tesseract\`, \`scripts/juri/teks_cek.py\`"; } || { note "tesseract tidak terpasang (sudo apt install tesseract-ocr)"; catat "Baca teks di frame (OCR)" "belum" "pasang tesseract-ocr"; }
-[ -d "$HOME/fonts-lokal" ] && ok "font lokal berlisensi ada (~/fonts-lokal)" || note "~/fonts-lokal tidak ada: font berlisensi diganti padanan (fonts/README.md §B)"
+FL="${FONTS_LOKAL:-$HOME/fonts-lokal}"
+[ -d "$FL" ] && ok "font lokal berlisensi ada ($FL)" || note "folder font lokal ($FL; atur FONTS_LOKAL) tidak ada: font berlisensi diganti padanan (fonts/README.md §B)"
 
 RP="${RENDER_PROFILE:-$HOME/work/render-profile.json}"
-if [ -f "$RP" ] && python3 -c 'import json,socket,sys;sys.exit(json.load(open(sys.argv[1])).get("host")!=socket.gethostname())' "$RP" 2>/dev/null; then
+if [ -f "$RP" ] && "${PY:-python3}" -c 'import json,socket,sys;sys.exit(json.load(open(sys.argv[1])).get("host")!=socket.gethostname())' "$RP" 2>/dev/null; then
   ok "profil render mesin ini ada ($RP)"
 elif command -v npx >/dev/null; then
   note "mesin ini belum dibenchmark: sesi video pertama menjalankan tools/bench-render/bench.sh sekali (orkestrasi.md)"
@@ -101,10 +106,11 @@ fi
 
 echo; echo "== Pemasangan skill =="
 echo "Akun Claude Code: $CFG"
-if git -C "$REPO" fetch -q origin main 2>/dev/null; then
+# Status repo butuh jaringan: opsional. --offline atau fetch gagal/lama = lewati diam-diam (bukan temuan).
+if [ "$offline" = 0 ] && timeout 10 git -C "$REPO" fetch -q origin main >/dev/null 2>&1; then
   behind=$(git -C "$REPO" rev-list --count HEAD..origin/main)
   [ "$behind" -eq 0 ] && ok "repo terbaru" || note "repo tertinggal $behind commit dari origin/main (git pull)"
-else note "tidak bisa fetch origin; status repo tidak dicek"; fi
+fi
 sk=0
 for d in "$REPO"/claude/*/; do n=$(basename "$d")
   if [ -L "$DEST/$n" ] && [ "$(readlink "$DEST/$n")" = "${d%/}" ]; then :

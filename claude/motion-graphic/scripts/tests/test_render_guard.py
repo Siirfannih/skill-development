@@ -280,6 +280,56 @@ class GerbangFinalInformasi(Dasar):
         self.assertEqual(r.returncode, 1); self.assertIn("gerbang audio", r.stdout + r.stderr)
 
 
+class Perkakas(unittest.TestCase):
+    """tools/sync.sh dan tools/doctor.sh diuji di folder sementara: HOME, CLAUDE_CONFIG_DIR, CODEX_CONFIG_DIR, ENTRY_DIR menunjuk ke temp (tidak menyentuh akun asli)."""
+    def setUp(self):
+        self.t = tempfile.TemporaryDirectory(); self.d = Path(self.t.name)
+        self.repo = self.d / "repo"; (self.repo / "tools").mkdir(parents=True)
+        shutil.copy(REPO / "tools/sync.sh", self.repo / "tools/sync.sh")
+        for n in ("a", "b"): (self.repo / "claude" / n).mkdir(parents=True); (self.repo / "claude" / n / "SKILL.md").write_text("x")
+        (self.repo / "archive/lama").mkdir(parents=True)
+        subprocess.run(["git", "init", "-q", str(self.repo)], check=True)
+        self.env = dict(os.environ, HOME=str(self.d / "home"), CLAUDE_CONFIG_DIR=str(self.d / "cfg"), CODEX_CONFIG_DIR=str(self.d / "codex"), ENTRY_DIR=str(self.d / "tidak-ada"))
+        self.env.pop("CODEX", None); (self.d / "home").mkdir()
+
+    def tearDown(self):
+        self.t.cleanup()
+
+    def sync(self, *a, env=None):
+        return subprocess.run(["bash", str(self.repo / "tools/sync.sh"), *a], capture_output=True, text=True, env={**self.env, **(env or {})}, timeout=60)
+
+    def test_sync_codex_tidak_bawaan(self):
+        r = self.sync(); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertTrue((self.d / "cfg/skills/a").is_symlink()); self.assertFalse((self.d / "codex").exists()); self.assertNotIn("Codex", r.stdout)
+
+    def test_sync_codex_dengan_flag_atau_env(self):
+        r = self.sync("--codex"); self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertTrue((self.d / "codex/skills/a").is_symlink())
+        shutil.rmtree(self.d / "codex")
+        r = self.sync(env={"CODEX": "1"}); self.assertEqual(r.returncode, 0, r.stdout + r.stderr); self.assertTrue((self.d / "codex/skills/b").is_symlink())
+
+    def test_sync_kepala_tanpa_triple_quote_agar_peta_membacanya(self):
+        t = (REPO / "tools/sync.sh").read_text(); self.assertNotIn('"""', t)
+        self.assertTrue(t.splitlines()[1].startswith("# Pasang skill aktif"))
+
+    def doctor(self, *a, path=None):
+        env = {**self.env, "SD_ALAT": str(self.d / "alat.md"), "XDG_CONFIG_HOME": str(self.d / "xdg")}
+        if path is not None: env["PATH"] = path
+        return subprocess.run(["bash", str(REPO / "tools/doctor.sh"), *a], capture_output=True, text=True, env=env, timeout=120)
+
+    def test_doctor_kurang_dengan_path_minimal_dan_offline_diam(self):
+        kecil = self.d / "kecil"; kecil.mkdir()
+        for n in ("bash", "dirname", "basename", "ls", "wc", "tr", "date", "hostname", "mkdir", "git", "timeout", "readlink", "cat", "sed", "seq"):
+            w = shutil.which(n)
+            if w: (kecil / n).symlink_to(w)
+        r = self.doctor("--offline", path=str(kecil)); out = r.stdout + r.stderr
+        self.assertEqual(r.returncode, 1, out); self.assertIn("KURANG render frame", out); self.assertIn("KURANG pemecah video", out)
+        self.assertNotIn("fetch", out); self.assertNotIn("/home/irfan", out.replace(str(REPO), ""))
+        self.assertTrue((self.d / "alat.md").exists())
+
+    def test_doctor_fetch_gagal_tidak_jadi_temuan(self):
+        r = self.doctor(); self.assertNotIn("tidak bisa fetch", r.stdout)
+
+
 class Tunggu(unittest.TestCase):
     def setUp(self):
         self.t = tempfile.TemporaryDirectory(); self.d = Path(self.t.name)
