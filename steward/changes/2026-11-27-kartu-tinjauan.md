@@ -80,3 +80,5 @@ Belum diverifikasi:
 Level: Behavior
 Persetujuan: perubahan pemilih dan skrip render ini mengikuti rencana perbaikan kartu yang sudah disetujui. Batas final dan job bisa dinaikkan lewat variabel lingkungan.
 Cara membatalkan: `git revert` commit tinjauan (db448ef8, 90a55ac8, 22a1de39 dan commit laporan ini).
+
+Tinjauan akhir 27 Nov (Opus): baris penutup `pilih_kartu.py` disamakan dengan `cookbook/README.md` §4 (sumber vault dibuka sesudah racikan disetujui, untuk sanding); `cookbook/README.md` §7.6 menyebut cadangan satu model untuk Devil's Advocate (kritik sendiri dari brief steril, seperti Tahap 6 `templates/TAHAP.md`). Temuan Qwen lain yang terbukti masuk `steward/backlog.md` baris 49–55; klaim "audio dikunci sesudah visual padahal waktu dari audio" ditolak (suara dikunci di Tahap 3 sebelum visual; SFX dan musik sesudahnya). Tes pemilih kartu dan `test_audit_dokumen.py` lulus.
