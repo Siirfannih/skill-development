@@ -3,6 +3,7 @@
 numpy
 pyyaml        # motion-graphic/scripts/juri/profil_cek.py
 Pillow
+playwright      # skrip render (storyboard/board.py, lihat.py, dll.); setelah pip install jalankan: python -m playwright install chromium
 opencv-python   # motion-graphic/scripts/bedah-kamera.py
 # motion-graphic/scripts/audio (kit QA audio & sinkron, aturan 33–37)
 scipy
