@@ -11,6 +11,7 @@ Kamu hanya melihat frame, bukan menonton video: tiap langkah desain berakhir den
 
 ## Sebelum mulai
 
+- **Skill ini cara kerja dan bahan pertimbangan, bukan hukum langkah demi langkah.** Sesuaikan dengan kondisi dan utamakan mutu hasil; yang tetap: maunya user, butir [mutlak], gerbang pemilik (naskah, storyboard, biaya).
 - **Baca folder proyek dulu**: `projects/<proyek>/` (`DECISIONS.md`, `RESEP.md`, `STATUS.md`, aset) menang atas ingatan dan moodboard.
 - **Tidak yakin = tanya** setelah file proyek dan skill buntu: maks 3 pertanyaan berpilihan + rekomendasi, bersama naskah/keyframe pertama.
 - **Koreksi Irfan berlaku untuk frame yang ia sebut.** Sebut frame yang berubah sebelum mengubah massal; catat di `DECISIONS.md`.
@@ -45,7 +46,7 @@ Teknik sah bila lolos tiga pertanyaan: **makna** (membawa apa dari naskah), **si
 7. **Audio sesudah visual dikunci** (`references/audio.md`, bagian atas wajib). Selesai bila: R2-R4 hijau (`references/build.md` §4).
 8. **Deliver.** `render.sh <proyek> final` lalu render 1, satu ronde masukan, render 2 (`references/revisi.md`, `references/delivery-gate.md`). Revisi "terlalu berat/ramai" atau "lebih lega/besar" = geser ke tengah; ukur `banding.py --sebelum`. Kirim setelah juri lulus.
 
-**Hukum besi:** tidak ada frame diserahkan tanpa kamu melihatnya di resolusi penuh DAN membandingkannya dengan referensi/REF-SPEC (berdampingan + `banding.py`; yang dibandingkan alasan dan angka REF-SPEC, bukan piksel), serta `negatif_cek.py`, `tabrakan_cek.py`, `warna/cek-warna.mjs keluar` hijau bila alatnya ada (yang tak jalan: NOT RUN); tanpa referensi, `banding.py --seri <storyboard>` juga hijau (frame jarang ≤ 10 %). "Terlihat premium" bukan bukti; gambar berdampingan dan angka adalah bukti.
+**Hukum besi:** lihat tiap frame di resolusi penuh dan bandingkan dengan referensi user/REF-SPEC sebelum menyerahkannya; jalankan cek yang tersedia (`negatif_cek.py`, `tabrakan_cek.py`, `banding.py`; yang tak jalan: NOT RUN). Gambar berdampingan adalah bukti; "terlihat premium" bukan.
 
 ## Profil merek
 

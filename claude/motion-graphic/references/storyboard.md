@@ -18,7 +18,7 @@ Baca di tahap Storyboard/block out. Storyboard adalah gerbang review termurah: s
 
 | Kondisi | Yang dilakukan |
 |---|---|
-| Irfan memberi storyboard atau panel contoh | Gambar ulang setia, tambah yang kurang (§6, `dunia-visual.md` §7) |
+| Irfan memberi storyboard atau panel contoh | Gambar ulang: struktur, urutan, metafora, dan gayanya dihormati; rupa tiap panel dirapikan, yang kurang ditambah (§6, §9) |
 | Tidak ada storyboard (klip podcast, talking head, brief + video saja) | Agent membuat preview Storyboard/block out sendiri: still per beat di atas frame footage asli dari kode yang sama dengan video final (`render.sh still`) + klip draft untuk beat yang punya gerak kamera/transisi, dikirim langsung di percakapan. Produksi penuh dimulai setelah user menyetujui preview (`../templates/merek/README.md` §Tahap 2) |
 | Klip/talking head | Rencana edit: satu rencana dengan rekomendasi + alasan per beat, adegannya dipilih dari kartu cookbook dan `RESEP.md`, bukan dari gaya tetap; opsi alternatif (dengan contoh referensinya) hanya untuk beat yang benar-benar ragu, dan Irfan memilih hanya di situ; rencana masuk `handoff/PLAN.json`. Format `MENU.md`: `roles.md` |
 | Tidak ada video referensi | Gaya dari profil merek + tema (`dunia-visual.md`); mekanik per beat dari `scripts/cookbook/pilih_kartu.py --cari "<tugas beat>"` (hook, angka, langkah; bukan industri klien), 2-4 kartu untuk seluruh video; tulis di `beats.json → arah.sumber_gaya` mana yang dipakai dan kenapa |
@@ -34,7 +34,7 @@ Syarat masuk: script final (atau daftar potongan berstempel waktu), brief terkun
 2a. **Metafora per kalimat (Lantai D19a, D19b).** Untuk tiap beat isi `metafora`: makna, emosi, gerak pembawa (SATU gerak yang membuat penonton merasakan emosi itu; bunyinya di `sfx` beat yang sama), aksi, satu metafora, 3–6 objek, urutan rakit, dan bentuk penjelas (exploded/potongan, piktogram/stick, sebab-akibat, grafik, peta, UI asli). Contoh dari gbro: makna "pengalaman habis terus", aksi "memotong", metafora "editor memotong pita film di jam raksasa, satu putaran hanya menghasilkan potongan pendek", objek jam-film, editor, gunting, potongan pita. Satu kalimat satu metafora; lebih dari 6 objek melemahkan makna.
 3. **Beat dari VO kata per kata.** Satu beat = satu pesan; urutan panel dicocokkan dengan VO sebelum menggambar.
 3a. **Mode teks dan isi objek per beat, sebelum menggambar.** Di tabel storyboard (`beats.json`: `mode`, `mode_alasan`, `isi_objek`): `mode` = TEKS | VISUAL | MENYATU dengan alasan satu baris (NEGATIF 6, `teks.md`; dengan referensi ikuti REF-SPEC §2a porsi teks). `isi_objek` = tiap objek dengan isi sebenarnya (label, angka, kalimat, nama kolom; contoh "kartu: Tagihan Mei · Rp 2.400.000 · Jatuh tempo 3 Jun"). Objek yang isinya tak bisa ditulis dibuang, atau beat menjadi TYPO_HERO. "Kartu perangkat lunak" dengan balok abu bukan isi. Tiap frame lalu lulus uji hapus dan uji clip-art (`BEDAH-REFERENSI.md` §Penutup, 5 uji biner) sebelum lanjut. Satu fokus raksasa per beat (NEGATIF 5): tulis objek mana yang raksasa.
-4. **Kerangka dulu.** `board.py --skeleton` membuat satu panel kosong berlabel per beat; isi satu per satu; kerangka tidak boleh tersisa.
+4. **Kerangka bila membantu**: `board.py --skeleton` membuat satu panel kosong berlabel per beat; kerangka tidak boleh tersisa di papan akhir.
 5. **Gambar panel per putaran** (§3; satu babak atau ±6 panel, `dunia-visual.md` §7), render, lihat, perbaiki. Jangan menilai dari kode.
 6. **Gerak yang tidak terbaca dari satu frame dipecah jadi 2–4 frame** (`<id>-1.html`, `<id>-2.html`) supaya editor motion paham.
 7. **Review papan sekali** (§5), perbaiki temuan, jalankan `board.py` sampai PASS.
@@ -107,13 +107,6 @@ Kriteria (pertanyaan §4 dipakai di sini, ditambah):
 - **Gerak terbaca** dari urutan frame tanpa penjelasan lisan.
 - **Bunyi**: setiap event visual di caption punya SFX dengan peran + alasan.
 
-Tabel kritik sutradara per beat tetap diisi:
-
-| Beat | Tokoh ada & beraksi | 1 fokus | Teks sesuai `teks.md` | Metafora spasial | Efek punya alasan | Kamera ke subjek | Gerak masuk akal | UI asli | Highlight bermakna | Layout tidak berulang > 2 |
-|---|---|---|---|---|---|---|---|---|---|---|
-
-Satu "tidak" harus diperbaiki atau diberi alasan tertulis.
-
 **Variasi** hanya bila diminta atau untuk satu panel kunci: maksimal 4, masing-masing jawaban desainer yang berbeda (keluarga warna, kategori huruf, komposisi), diletakkan berdampingan, tidak menggantikan yang asli.
 
 ## 6. Melanjutkan panel contoh Irfan
@@ -126,7 +119,7 @@ Contoh (Tuntunly, 12 panel): pembuka = fakta dunia, visual sederhana di tengah; 
 
 ## 7. TYPE-TEST dan TRANSITION-SHEET
 
-Dibuat setelah storyboard lolos review:
+Pilihan, bila build butuh kepastian huruf atau potongan:
 - **TYPE-TEST**: satu still per gaya teks (G1–G7, `typography.md` §7.5) berdampingan dengan frame referensi setara, ditambah video 4 detik untuk gaya yang bergerak.
 - **TRANSITION-SHEET**: untuk setiap potongan, frame terakhir A + frame pertama B + kode transisi + benda pembawa. Panel multi-frame dari §2 langkah 6 bisa langsung dipakai.
 

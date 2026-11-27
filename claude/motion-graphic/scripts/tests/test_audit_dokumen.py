@@ -46,7 +46,6 @@ class RujukanBagian(unittest.TestCase):
         for f in PINTU:
             self.assertIsNone(re.search(r"storyboard\.md`?\s*§\s?16", baca(f)), f.name)
         self.assertTrue(ada_bagian(baca(MG / "references/storyboard.md"), "5"))
-        self.assertIn("Tabel kritik", baca(MG / "references/storyboard.md"))
 
     def test_path_di_pintu_produksi_ada(self):
         hilang = []

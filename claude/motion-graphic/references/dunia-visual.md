@@ -125,7 +125,7 @@ Batas per frame:
 Ini pertimbangan, bukan urutan wajib; sesuaikan dengan kondisi. Tujuannya satu: kamu punya gambaran visual yang jelas tentang yang user mau sebelum menggambar banyak panel.
 
 - **Sumber arah, dari yang paling kuat**: storyboard, panel, atau referensi user; lalu jawaban user saat ditanya; lalu merek dan naskah. Bank referensi repo (keyframe tema, kartu) hanya pendukung: dipakai untuk mencocokkan ("dari jawabanmu, ini mirip video X; yang bagus di sana bagian ini, maksudmu begini?") dan untuk mengambil mekanik yang sudah jadi supaya kode tidak dibangun dari nol. Ia tidak pernah menggantikan arah user.
-- **Arah user sudah jelas**: kerjakan. Storyboard user digambar ulang dengan setia, lalu dilengkapi yang kurang, dengan gaya yang sama. Tidak perlu menawarkan pilihan gaya.
+- **Arah user sudah jelas**: kerjakan. Storyboard user digambar ulang (struktur, urutan, metafora, gayanya dihormati; rupanya dirapikan), lalu dilengkapi yang kurang. Tidak perlu menawarkan pilihan gaya.
 - **Arah belum ada atau masih lemah**: tanya. Wawancara singkat (§3) adalah alat utamanya; tunjukkan gambar, bukan kata sifat. Bila gambar lebih cepat dari kata, render satu beat dalam 2-3 arah yang berbeda bahan (`bahan.md`, `scripts/jelajah_gaya.py`) sebagai bahan bicara.
 - **User tidak bisa ditanya**: pilih dengan alasan, catat di `DECISIONS.md`, lanjut.
 - **Storyboard dalam putaran kecil** (±6 panel), dilihat sebelum lanjut; tata letak tiap beat dirancang sendiri. Model bekerja lebih baik pada sedikit tugas daripada tugas massal.
