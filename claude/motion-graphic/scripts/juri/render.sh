@@ -74,12 +74,23 @@ proses_proyek() { ps -eo pid=,args= 2>/dev/null | awk -v a="$R/node_modules/.rem
 # Sapu: TERM, 2 dtk, lalu KILL, hanya untuk proses di atas. Dipanggil sesudah render gagal (mis. node di-SIGKILL/OOM, Chrome yatim ke PID 1).
 sapu() { local p; p=$(proses_proyek | tr '\n' ' '); [ -n "${p// /}" ] || return 0
   kill -TERM $p 2>/dev/null || true; sleep 2; p=$(proses_proyek | tr '\n' ' '); [ -z "${p// /}" ] || kill -KILL $p 2>/dev/null || true; }
+# Penjaga: hidup selama satu anak render jalan. Bila render.sh mati keras (tanpa trap), ia mematikan grup anak bila setpriv tidak ada,
+# menunggu grup selesai (lalu KILL), dan menyapu Chrome proyek. Memegang kunci proyek (fd 8) sampai selesai.
+hidup() { local st; st=$(ps -o stat= -p "$1" 2>/dev/null) || return 1; [ -n "$st" ] && [ "${st#Z}" = "$st" ]; }
+guarda() { local rpid="$1" g="$2" pd="$3" i
+  while hidup "$rpid"; do sleep 1; done
+  [ "$pd" != 0 ] || kill -TERM -- "-$g" 2>/dev/null || true
+  for i in $(seq 1 $(( KILL_SETELAH + 5 ))); do kill -0 -- "-$g" 2>/dev/null || break; sleep 1; done
+  kill -KILL -- "-$g" 2>/dev/null || true; sapu; }
 # Perintah berat jalan di sesi/grup sendiri dengan batas waktu: jalankan <maks_dtk> <label> <perintah …>. Habis waktu: grup mati, keluar 124.
 jalankan() { local maks="$1" label="$2" rc=0 t; t=$(date +%s); shift 2
   # 7>&-: proses yang lolos dari grup (mis. Chrome yatim) tidak menahan stdout pemanggil. Kunci proyek (fd 8) dan global (fd 9) sengaja
   # diwarisi: selama ada proses render hidup, kunci tetap tertahan, juga bila render.sh sendiri di-SIGKILL (menunggu lebih aman daripada .bundle ganda).
-  ( cd "$R" && exec setsid timeout --kill-after="$KILL_SETELAH" "$maks" "$@" 7>&- ) &
-  CHILD_PID=$!; wait "$CHILD_PID" || rc=$?; CHILD_PID=""
+  # Bila render.sh mati keras (SIGKILL), anak ikut mati: setpriv --pdeathsig TERM bila ada; penjaga di bawah selalu ada (tanpa setpriv ia yang mematikan grup).
+  local pd=(); if command -v setpriv >/dev/null 2>&1 && setpriv --pdeathsig TERM true 2>/dev/null; then pd=(setpriv --pdeathsig TERM); fi
+  ( cd "$R" && exec setsid "${pd[@]}" timeout --kill-after="$KILL_SETELAH" "$maks" "$@" 7>&- ) &
+  CHILD_PID=$!; local jaga; guarda "$$" "$CHILD_PID" "${#pd[@]}" </dev/null >/dev/null 2>&1 7>&- & jaga=$!
+  wait "$CHILD_PID" || rc=$?; CHILD_PID=""; kill "$jaga" 2>/dev/null || true; wait "$jaga" 2>/dev/null || true
   [ "$rc" = 0 ] || sapu
   if [ "$rc" = 124 ] || { [ "$rc" = 137 ] && [ $(( $(date +%s) - t )) -ge "$maks" ]; }; then
     CATATAN="TIMEOUT $MODE $label"; echo "$CATATAN setelah ${maks} dtk: proses dan anak-anaknya dihentikan (naikkan STILL_MAKS_DTK, RENDER_MAKS_DTK, atau FINAL_MAKS_DTK untuk final, bila memang selama itu)" >&7; exit 124
