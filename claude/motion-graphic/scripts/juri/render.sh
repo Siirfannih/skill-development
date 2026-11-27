@@ -36,6 +36,7 @@
 # Penjaga proses: setiap `npx remotion` jalan di grup proses sendiri dengan batas waktu (RENDER_MAKS_DTK, default 2700, untuk bundle/frames/draft;
 #   FINAL_MAKS_DTK, default 10800, untuk final: render final terlama yang tercatat 2248 dtk; STILL_MAKS_DTK, default 300; KILL_SETELAH_DTK, default 30);
 #   habis waktu = seluruh grup dimatikan, keluar 124, ledger memuat "TIMEOUT <mode> <label>". INT/TERM mematikan grup itu.
+#   Sinyal batal yang didukung: TERM (dan `tunggu.sh hentikan`); INT tidak terpasang bila render.sh dilatarbelakangkan dengan `cmd &`/`nohup`, jadi pemanggil latar memakai `setsid` + TERM. SIGKILL pada render.sh ditangani penjaga (anak mati, Chrome proyek disapu, temp dihapus).
 #   Chrome dari Remotion berjalan di grup sendiri (detached) dan dimatikan oleh Remotion saat menerima TERM; anak tidak mewarisi fd 7/8.
 #   still/draft/bundle memegang kunci proyek qc/.render.lock; frames/final juga (lebih dulu) selain kunci global; lego (ffmpeg saja) tanpa kunci, seperti sebelumnya. Sisa Chrome proyek ini disapu (path $R) sesudah render gagal; sisa lama diperingatkan.
 set -euo pipefail
