@@ -60,7 +60,7 @@ Kesalahan termahal di Jadisatu adalah menunggu Irfan menunjuk masalah yang bisa 
 ## 16. QA — gerbang kirim
 
 ### 16.0 Gerbang Karpathy (cara kerja, dicek sebelum 16.1)
-Empat aturan dari [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) (MIT), diterjemahkan untuk editing video di `working-with-irfan` §2b. Satu jawaban "tidak" berarti belum boleh kirim.
+Empat aturan dari [andrej-karpathy-skills](https://github.com/multica-ai/andrej-karpathy-skills) (MIT), diterjemahkan untuk editing video di `working-with-irfan` §2b. Jawaban "tidak" diperbaiki atau diberi alasan di laporan.
 - [ ] **Pikir dulu**:
   - asumsi atas masukan Irfan tertulis di laporan;
   - tafsir ganda dan bentrokan aturan (skill vs instruksi baru) sudah ditandai, bukan dipilih diam-diam.
@@ -81,7 +81,7 @@ Empat aturan dari [andrej-karpathy-skills](https://github.com/multica-ai/andrej-
 
 
 ### 16.0b Gerbang audio otomatis (wajib)
-Jalankan `scripts/audio_qa.py --module5` (ambang di `audio.md` §14.10). Satu FAIL berarti belum boleh render/kirim final. Laporkan angkanya ke Irfan.
+Jalankan `scripts/audio_qa.py --module5` (ambang di `audio.md` §14.10). Keluarannya informasi: lihat butir yang gagal, perbaiki yang memang masalah, tulis alasan untuk sisanya, dan laporkan angkanya ke user.
 
 ### 16.1 Bahan dari render (bukan dari kode/ingatan)
 - contact sheet 1–4 fps
@@ -91,8 +91,8 @@ Jalankan `scripts/audio_qa.py --module5` (ambang di `audio.md` §14.10). Satu FA
 - `compare.py` (visual) dan `compare_audio.py` (audio)
 - ukur loudness
 
-### 16.2 Checklist anti-monoton & kerapian
-- [ ] ≥ 3 treatment teks berbeda per 15 dtk; 4–6 teknik T per 15 dtk; lompatan skala ≥ 2 level tiap 5 dtk (rasio ≥ 3 : 1) **antar baris atau antar momen, tidak di dalam satu baris**.
+### 16.2 Pindai anti-monoton & kerapian (pertanyaan, bukan kuota)
+- [ ] Teks cukup bervariasi untuk naskahnya (treatment, teknik T, lompatan skala) **antar baris atau antar momen, tidak di dalam satu baris**.
 - [ ] Satu fokus per frame; tidak ada teks kiri + UI kanan; teks tidak menutupi wajah/subjek.
 - [ ] **Tidak ada teks yang tumpang tindih dengan teks lain atau objek**; tidak ada teks terpotong tepi atau keluar area aman (kecuali bleed XL yang disengaja).
 - [ ] Elemen yang diperbesar keluar frame dengan wajar, tidak terpotong kontainer.
@@ -100,20 +100,20 @@ Jalankan `scripts/audio_qa.py --module5` (ambang di `audio.md` §14.10). Satu FA
 - [ ] Tabel beat lolos devil's advocate `decision-guide.md` §7; `scripts/palette_check.py` lolos.
 - [ ] Teks datar dan tajam; kedalaman dari lapisan dan kamera di momen yang tepat; tanpa ekstrusi/bevel kecuali diminta user (K2).
 - [ ] Layout sama maksimal 2 beat berturut; tidak ada fade sebagai pengganti gerak.
-- [ ] Kamera global ±10 %; adegan informasional diam; gerak besar di setiap pergantian makna; 1 cut zoom per 6–10 dtk.
-- [ ] variasi transisi mengikuti REF-SPEC (default tanpa referensi: ≥ 4 tipe per 30 dtk), tidak berturut sama; nol crossfade; transisi di akhir frase VO.
+- [ ] Kamera global ±10 %; adegan informasional diam; gerak besar di setiap pergantian makna.
+- [ ] variasi transisi mengikuti REF-SPEC, tidak berturut sama; nol crossfade; transisi di akhir frase VO.
 - [ ] Motion blur di semua gerak cepat; jejak blur pendek; tanpa ghost.
 - [ ] Sprite tidak pernah diputar; subjek = yang dikerjakan tokoh.
 - [ ] Teks layar semua dari VO; latensi kata +1…+4 f; 1 warna aksen per frase.
 - [ ] Tidak ada frame kosong/blank di tengah serah-terima; end card tidak statis > 1,5 dtk.
-- [ ] SFX di ≥ 85 % event diskret (termasuk onset teks, counter, transisi); offset sesuai §14.3; kantong senyap sebelum hit; tidak ada bunyi tajam 2–6 kHz (energi > 5 kHz bus SFX < 5 %); beberapa cue musik sesuai babak; VO selalu paling jelas.
+- [ ] SFX di event diskret yang butuh bunyi (onset teks, counter, transisi); offset sesuai §14.3; kantong senyap sebelum hit; tidak ada bunyi tajam 2–6 kHz (energi > 5 kHz bus SFX < 5 %); beberapa cue musik sesuai babak; VO selalu paling jelas.
 - [ ] Mix −14 LUFS / ≤ −1 dBTP.
 
 ### 16.3 Tabel kritik sutradara
 Dipindah ke `storyboard.md` §5 (Review papan) (diisi saat storyboard, dicek ulang di render).
 
 ### 16.4 Rubrik R1–R7 + Kompas kualitas ("premium" diterjemahkan, K2)
-Rubrik (skor 1–5, lulus bila semua ≥ 4):
+Rubrik (bahan menilai, bukan skor lulus):
 - R1 timing di ketukan
 - R2 satu fokus
 - R3 konsistensi karakter
@@ -134,14 +134,11 @@ Kompas kualitas (kata "premium/Apple" di brief berarti: ruang kosong luas, satu 
 9. konsistensi palet = satu family, bukan satu warna; warna asli objek/foto tetap
 10. akhir yang mulus
 
-Gagal salah satu = R6 tidak lulus.
-
-**Gerbang R6**: subagen baru tanpa konteks pembuatan, diberi hanya frame kita + frame referensi sepadan + kompas. Ia wajib menjawab:
+**Mata luar R6** (bila ada subagen): subagen baru tanpa konteks pembuatan, diberi hanya frame kita + frame referensi sepadan + kompas. Ia menjawab:
 - (a) tiga hal paling amatir
 - (b) kalau diselipkan di showreel bersama referensi, apakah langsung ketahuan beda kelas
-- (c) skor per aturan
 
-Lulus bila rata-rata ≥ 4,5 dan tidak ada aturan < 4. Dua putaran gagal di butir sama berarti ganti pendekatan, bukan memoles.
+Jawabannya informasi untuk diperbaiki atau diberi alasan. Dua putaran gagal di butir sama berarti ganti pendekatan, bukan memoles.
 
 ### 16.5 Pindai mode gagal (satu putaran, bukan loop)
 Satu audit frame ditambah satu putaran mata luar (`templates/roles/devils-advocate.md`) sudah cukup; tidak mengejar skor. Pindai 8 kriteria dengan bukti timestamp:

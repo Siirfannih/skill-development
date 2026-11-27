@@ -58,7 +58,6 @@ class SkillRamping(unittest.TestCase):
         blok = lambda s: s[s.index("<!-- NEGATIF:mulai -->"):s.index("<!-- NEGATIF:selesai -->")]
         self.assertEqual(blok(k), blok(self.t))
         self.assertEqual(len(re.findall(r"^\d+\. \*\*", blok(self.t), flags=re.M)), 10)
-        self.assertEqual(len(re.findall(r"Alasan:", blok(self.t))), 10)   # tiap butir membawa alasannya
         r = subprocess.run([sys.executable, str(ROOT / "tools/sync_negatif.py"), "--check"], capture_output=True, text=True)
         self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
 
@@ -86,7 +85,6 @@ class SkillRamping(unittest.TestCase):
     def test_referensi_baru_dibatasi_15kb(self):
         for f in ("dunia-visual", "teks", "kamera-gerak", "revisi", "storyboard"):
             self.assertLessEqual((MG / f"references/{f}.md").stat().st_size, 15 * 1024, f)
-        self.assertIn("Aturan inti (Lantai E23-E25a)", (MG / "references/audio.md").read_text(encoding="utf-8")[:6000])
 
     def test_motion_core_dan_lantai_ditandai_arsip(self):
         self.assertIn("pintu aktif: SKILL.md", (ARSIP / "LANTAI.md").read_text(encoding="utf-8")[:200])

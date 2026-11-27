@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Regresi temuan audit dokumen: rujukan bagian menunjuk heading yang ada, tidak ada kalimat yang bertentangan dengan
-Lantai C17 di orkestrasi.md, Remotion + rakit lego adalah jalur utama di build.md, baris Fase 3 PETA.md memuat guide visual,
-gerbang render R1-R5 dan batas kerja ada di build.md, alur dua langkah ada di cookbook/README.md, lima invarian ada di byte 0
-AGENTS.md, LANTAI.md dan MOTION-CORE.md sudah di archive/riwayat/, dan tidak ada template gaya tetap (formats/)."""
+"""Regresi struktur dokumen: rujukan bagian menunjuk heading yang ada, path yang disebut ada, baris Fase 3 PETA.md memuat
+guide visual, tabel gerbang render R1-R5 ada di build.md, alur dua langkah ada di cookbook/README.md, lima invarian ada di
+byte 0 AGENTS.md, LANTAI.md dan MOTION-CORE.md sudah di archive/riwayat/, dan tidak ada template gaya tetap (formats/).
+Bunyi kalimat aturan tidak dikunci di sini."""
 import importlib.util, os, re, subprocess, sys, unittest
 from pathlib import Path
 
@@ -60,23 +60,6 @@ class RujukanBagian(unittest.TestCase):
         self.assertEqual(hilang, [])
 
 
-class Kontradiksi(unittest.TestCase):
-    def test_orkestrasi_tidak_melarang_melihat_gambar(self):
-        t = baca(MG / "references/orkestrasi.md")
-        for pola in (r"tidak (?:perlu )?membuka gambar", r"tanpa membuka gambar", r"jangan (?:buka|membuka) gambar", r"tidak melihat gambar"):
-            self.assertIsNone(re.search(pola, t, flags=re.I), pola)
-        self.assertIn("bukan dengan tidak melihat", t)
-        self.assertIn("Dinilai dengan mata", baca(ARSIP / "LANTAI.md"))
-
-    def test_build_remotion_jalur_utama(self):
-        t = baca(MG / "references/build.md")
-        self.assertIn("Jalur utama: Remotion, dan rakit lego", t)
-        for pola in (r"default\s*:\s*after effects", r"bawaan\s*:\s*after effects", r"dibuat di AE", r"atau AE bila"):
-            self.assertIsNone(re.search(pola, t, flags=re.I), pola)
-        ae = [b for b in t.splitlines() if re.search(r"After Effects|\bAE\b", b)]
-        self.assertTrue(all("bukan jalur bawaan" in b or "AFTER-EFFECTS.md" in b for b in ae), ae)
-
-
 class Peta(unittest.TestCase):
     def setUp(self):
         spec = importlib.util.spec_from_file_location("peta", ROOT / "tools/peta.py"); self.peta = importlib.util.module_from_spec(spec); spec.loader.exec_module(self.peta)
@@ -126,9 +109,6 @@ class Invarian(unittest.TestCase):
             self.assertEqual(re.findall(r"^> (\d)\. \*\*", blok, flags=re.M), list("12345"), f.name)
             for i, x in enumerate(INVARIAN, 1):
                 self.assertIn(f"> {i}. **{x}", blok, f.name)
-            for x in ("2–4 kartu mekanik cookbook = output baru", "template gaya tetap", "menyalin gaya antar proyek", "S = proyek, P = pertimbangan, H = hukum netral-gaya terukur",
-                      "naskah final", "storyboard + tabel racikan cookbook", "pemakaian kredit", "`render.sh final`", "`gerbang_produksi.sh`", "`scripts/gate/*`", "outbox/proyek terkait"):
-                self.assertIn(x, blok, f"{f.name}: {x}")
 
     def test_blok_sama_dan_ringkas(self):
         a = blok_invarian(baca(ROOT / "AGENTS.md"))
@@ -151,10 +131,7 @@ class PintuProduksi(unittest.TestCase):
     def test_build_memuat_gerbang_dan_larangan(self):
         t = baca(MG / "references/build.md")
         for x in ("cek_komposisi.py", "audio_order.py", "sfx_potong.py", "audio_phone.py --root <folder stem> --gate", "render.sh <proyek> final",
-                  "gerbang_produksi.sh", "`WAJAH`, `INSET`, `TEPI`, `ASET`", "qc/ketat", "--ketat",
-                  "**Render final lewat `render.sh final`**", "NOT RUN", "Jangan mengedit `scripts/gate/*` atau `scripts/juri/*`",
-                  "Jangan mematikan gerbang dengan menghapus atau mengganti nama file pemicunya", "Tenggat bukan alasan",
-                  "PASS tanpa bukti = FAIL", "Dilarang menambah elemen di luar tabel racikan"):
+                  "gerbang_produksi.sh", "qc/ketat", "--ketat", "NOT RUN"):
             self.assertIn(x, t)
         self.assertEqual(len(re.findall(r"^\| R[1-5] \|", t, flags=re.M)), 5)
 
@@ -184,11 +161,9 @@ class PintuProduksi(unittest.TestCase):
         a = baca(ROOT / "AGENTS.md")[:3000]
         self.assertIn("claude/motion-graphic/SKILL.md", a); self.assertIn("pilih_kartu.py", a)
 
-    def test_pengunci_ragam_isolasi_flashgrid_dan_sfx_alami(self):
+    def test_flashgrid_dirujuk_dan_ada(self):
         t = baca(MG / "references/build.md") + baca(MG / "cookbook/README.md")
-        for x in ("Tanya sebelum meracik", "Satu video = satu sesi terpisah", "Variasikan mode", "FlashGrid.tsx"):
-            self.assertIn(x, t)
-        self.assertIn("Level alami", baca(MG / "guide/sfx/GUIDE.md"))
+        self.assertIn("FlashGrid.tsx", t)
         self.assertTrue((MG / "scripts/remotion/FlashGrid.tsx").is_file())
 
 

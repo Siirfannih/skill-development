@@ -136,7 +136,7 @@ Yang tetap dilihat pada hasilnya (informasi, bukan putusan): `scripts/gate/negat
 
 ## 8. Lima uji biner (jalankan pada setiap frame storyboard)
 
-Satu jawaban "gagal" = frame dirombak, bukan dipoles. Tulis hasilnya per frame di `REFERENCE-BRIEF.md` §3 atau `STORYBOARD.md`.
+Jawaban "gagal" biasanya berarti frame dirancang ulang, bukan dipoles; bila kamu menilai itu bukan masalah, tulis alasannya. Tulis hasilnya per frame di `REFERENCE-BRIEF.md` §3 atau `STORYBOARD.md`.
 
 1. **Hapus objek.** Bila sebuah bentuk dihapus dan pesan frame tidak berkurang, hapus bentuk itu.
 2. **Clip-art.** Bila visualnya hanya terjemahan harfiah satu kata ("louder" jadi gelombang suara), ganti dengan tipografi kinetik murni atau bukti UI/produk nyata.

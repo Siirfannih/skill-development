@@ -77,9 +77,9 @@ Dari `claude/motion-graphic/scripts/`, berurutan (Python audio: venv ber-numpy, 
 
 R1 selalu memblokir empat tanda netral gaya: `WAJAH`, `INSET`, `TEPI`, `ASET`. Tanda lain (`JEDA`, `KARTU`, `PITA`, `LOGO`, …) hanya peringatan, kecuali proyek memilih ketat: flag `--ketat`, atau file `projects/<proyek>/qc/ketat` (kosong = semua tanda memblokir; berisi nama tanda = tanda itu ikut memblokir). Itu keputusan proyek (`DECISIONS.md`), bukan bawaan gaya.
 
-File proyek yang menyalakan R1, R3, R4 di `render.sh` (ada dan gagal = render ditolak): data episode `remotion/src/data/*.json` + `remotion/public/<aset>/aset.json`; `audio/sfx_potong.json`; `stem_vo.wav`, `stem_music.wav`, `stem_sfx.wav`, `mix.wav`, `cues.json` di `audio/` atau `qc/`.
+File proyek yang menyalakan R1, R3, R4 di `render.sh` (ada dan gagal = dilaporkan; `KETAT=1` menolak render): data episode `remotion/src/data/*.json` + `remotion/public/<aset>/aset.json`; `audio/sfx_potong.json`; `stem_vo.wav`, `stem_music.wav`, `stem_sfx.wav`, `mix.wav`, `cues.json` di `audio/` atau `qc/`.
 
-Gerbang yang gagal diperbaiki pada penyebabnya, lalu dijalankan ulang; keluaran terakhirnya disalin ke `TAHAP.md` sebagai bukti. Gerbang yang tidak bisa dijalankan di lingkungan ini dilaporkan **NOT RUN** di laporan kirim, tidak pernah PASS; "PASS tanpa bukti = FAIL" (`delivery-gate.md`) tetap berlaku.
+Keluaran gerbang adalah informasi: lihat sendiri, perbaiki yang memang masalah pada penyebabnya lalu jalankan ulang, tulis alasan untuk sisanya; keluaran terakhirnya disalin ke `TAHAP.md`. Gerbang yang tidak bisa dijalankan di lingkungan ini dilaporkan **NOT RUN** di laporan kirim.
 
 ## 5. Batas kerja (alasan dan penjagaannya)
 

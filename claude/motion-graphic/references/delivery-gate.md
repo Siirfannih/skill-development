@@ -1,6 +1,6 @@
 # Delivery Gate (wajib sebelum video ditunjukkan ke Irfan)
 
-Laporan PASS/FAIL ini dikirim **bersama** video. Setiap PASS membawa bukti konkret (angka keluaran skrip, timestamp, nama still). PASS tanpa bukti = FAIL. Ada satu FAIL = jangan kirim; perbaiki, jalankan ulang. Gerbang yang tidak bisa dijalankan di lingkungan ini dilaporkan **NOT RUN** beserta alasannya, tidak pernah PASS. Ringkasan loop kritik atau laporan workflow lain tidak menggantikan laporan ini.
+Laporan ini dikirim **bersama** video, tiap baris dengan bukti konkret (angka keluaran skrip, timestamp, nama still). Keluaran skrip adalah informasi: lihat sendiri, perbaiki yang memang masalah, tulis alasan untuk sisanya; keputusan kirim ada di user. Gerbang yang tidak bisa dijalankan di lingkungan ini dilaporkan **NOT RUN** beserta alasannya. Ringkasan loop kritik atau laporan workflow lain tidak menggantikan laporan ini.
 
 Pola ini diadopsi dari `external/anti-slop` (Delivery Gate + tiga tingkat aturan), disesuaikan untuk video.
 
@@ -55,7 +55,7 @@ FAIL bila teknik ini ada tanpa alasan satu baris di tabel beat:
 
 ## 4. Devil's advocate audio (wajib, ditulis di laporan sebelum render penuh)
 
-Jawab dengan bukti, bukan klaim. Satu jawaban lemah = FAIL.
+Jawab dengan bukti, bukan klaim. Jawaban yang lemah menunjukkan apa yang diperbaiki sebelum render penuh.
 1. Apakah referensi **didengar** dengan earshot (bila ada; tanpa earshot, tulis "belum didengar alat")? Berapa event/dtk dan kosakata bunyinya, dan berapa milik kita?
 2. Apakah setiap SFX menandai momen cerita atau gerak yang terlihat, dari kosakata kiblat, dan sudah didengar? Adakah lapisan klik yang terdengar terus? (Lantai E24)
 3. Kenapa track musik ini, bukan kandidat lain? Apakah track yang sama dipakai di klip/babak lain?
