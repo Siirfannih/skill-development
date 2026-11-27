@@ -69,7 +69,7 @@ Tahap dikelompokkan jadi lima fase. Satu model mengerjakannya berurutan di satu 
 
 Beberapa video sekaligus (bila ada subagen): satu grup agen per video (Writing, SFX, Audio) + orkestrator QC; grup video berikutnya dibuat hanya setelah video ini lolos QC penuh. QC tiga lapis berurutan: visual saja → visual + SFX → visual + SFX + musik (`delivery-gate.md` §0).
 
-Revisi dari user (pesan apa pun yang mengeluhkan atau mengubah video yang sudah dirender): baca `revision-log.md` utuh dan ikuti §0, catat di `DECISIONS.md` (§21), baru kerjakan; `scripts/juri/revisi_cek.py cek` dan `scripts/baseline_lock.py check` wajib lolos. Pekerjaan dalam rencana yang user setujui dianggap disetujui; yang menunggu kata "final" hanya script dan storyboard.
+Revisi dari user (pesan apa pun yang mengeluhkan atau mengubah video yang sudah dirender): baca `revisi.md` utuh dan ikuti urutannya, catat di `DECISIONS.md` (§Ledger and scene locks), baru kerjakan; `scripts/juri/revisi_cek.py cek` dan `scripts/baseline_lock.py check` wajib lolos. Pekerjaan dalam rencana yang user setujui dianggap disetujui; yang menunggu kata "final" hanya script dan storyboard.
 
 ## 5. Struktur
 
@@ -86,7 +86,7 @@ motion-graphic/
 │   ├── delivery-gate.md     preview-dulu + laporan PASS/FAIL berbukti sebelum kirim
 │   ├── direction.md · storyboard.md · copywriting.md · decision.md · decision-guide.md
 │   ├── kamera-gerak.md · pacing-map.md
-│   ├── audio.md · build.md · analysis-qa.md · revision-log.md · palette.md (+ palettes.json)
+│   ├── audio.md · build.md · analysis-qa.md · revisi.md · palette.md (+ palettes.json)
 │   └── hybrid-motion-standard.md · three-segment-gate.md
 ├── templates/storyboard/    contoh beats.json + tokens.css + panel (mulai dari salinan ini)
 ├── templates/roles/        prompt Editor, cara menilai frame (pemeriksa-frame, satu penilai), devils-advocate (mata luar sebelum final), pemeriksa-audio + kerangka folder handoff/ (roles.md)
@@ -139,4 +139,4 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 | Build (Remotion + rakit lego; ikuti juga skill `remotion-best-practices` dan `scripts/juri/render.sh`) | `build.md` |
 | After Effects, hanya bila user meminta atau adegannya membutuhkan | `tools/AFTER-EFFECTS.md` (akar repo) |
 | Bedah referensi, QA render | `analysis-qa.md`, `delivery-gate.md` |
-| Revisi user, kunci adegan | `revision-log.md` |
+| Revisi user, kunci adegan | `revisi.md` |

@@ -13,7 +13,7 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap = judul `## Ta
 - [ ] Storyboard + tabel racikan cookbook (beat → pola → remix → SFX) disetujui pemilik · baca: `cookbook/README.md` §2, `references/storyboard.md` §5 · bukti: ID baris `DECISIONS.md` yang mencatat persetujuan pemilik + path storyboard →
 - [ ] Suara dipotong dan dikunci · baca: `references/audio.md` §14.0C–14.0D · bukti: `audio_order.py lock suara` PASS →
 - [ ] Preview dikirim di percakapan: still per beat di atas footage asli + klip draft untuk gerak kamera/transisi · baca: `references/storyboard.md` §1, `templates/merek/README.md` §Tahap 2 · bukti: path still/klip yang dikirim →
-- [ ] Masukan user atas preview dicatat dan disetujui · baca: `references/revision-log.md` §21.1 · bukti: ID baris `DECISIONS.md` →
+- [ ] Masukan user atas preview dicatat dan disetujui · baca: `references/revisi.md` (bagian Ledger and scene locks) · bukti: ID baris `DECISIONS.md` →
 - [ ] Lembar kondisi footage per jenis shot; tiap teknik kartu dicocokkan dengan syaratnya dan penyesuaiannya ditulis di `RESEP.md` · baca: `cookbook/README.md` §6 butir 1, bagian "Kondisi footage asli" + blok teknik kartu yang dipakai · bukti: `qc/kondisi/KONDISI.md` →
 - [ ] Spine gaya dikunci: satu still per peran teks di atas footage asli, dinilai berdampingan dengan frame kunci · baca: `cookbook/README.md` §6 butir 2, `references/teks.md` (bagian Gerak teks per peran) · bukti: `qc/spine/SPINE.md` →
 
@@ -32,7 +32,7 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap = judul `## Ta
 
 ## Tahap 7 · Deliver
 - [ ] Render 1 utuh dikirim ke user · baca: `cookbook/README.md` §Juri 7, `references/delivery-gate.md` · bukti: path MP4 + `render.sh` final PASS →
-- [ ] Semua masukan user dikumpulkan jadi satu ronde · baca: `references/revision-log.md` §0 · bukti: ID baris `DECISIONS.md` →
-- [ ] Masukan dikerjakan, hanya atribut yang diminta · baca: `references/revision-log.md` §0 butir 5–6 · bukti: `revisi_cek.py cek` LULUS →
+- [ ] Semua masukan user dikumpulkan jadi satu ronde · baca: `references/revisi.md` (Order before the first edit) · bukti: ID baris `DECISIONS.md` →
+- [ ] Masukan dikerjakan, hanya atribut yang diminta · baca: `references/revisi.md` (Order before the first edit, butir 5–6) · bukti: `revisi_cek.py cek` LULUS →
 - [ ] Render 2 dikirim · bukti: path MP4 →
 - [ ] Hasil dikirim lewat saluran yang tersedia (Google Drive bila remote `gdrive:` ada; selain itu path/link yang bisa dibuka user) + caption + daftar penyimpangan · baca: `../irfan-creative-workflow/SKILL.md` §2 (Deliver, Kirim lewat Drive) · bukti: link atau path + caption →

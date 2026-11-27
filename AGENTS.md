@@ -16,7 +16,7 @@ Cara kerja video, desain, dan naskah; satu model sudah cukup. File ini hanya pin
 | Cara bekerja dengan pemilik repo (bila skillnya tersedia) | `claude/working-with-irfan/SKILL.md` |
 | Sebelum storyboard, desain, atau kode animasi apa pun | `claude/director-pass/SKILL.md` (wajib, sekali per proyek) |
 | Video | `claude/motion-graphic/SKILL.md`, lalu `projects/<proyek>/`; kartu lewat `scripts/cookbook/pilih_kartu.py` (2–4 per video) |
-| Keluhan atas video yang sudah dirender, sekecil apa pun | `claude/motion-graphic/references/revision-log.md` |
+| Keluhan atas video yang sudah dirender, sekecil apa pun | `claude/motion-graphic/references/revisi.md` |
 | Naskah, konten, hook | `claude/script-workshop/SKILL.md`; naskah final → `claude/motion-graphic/references/storyboard.md` |
 | Desain statis | `claude/vibedesign/DESIGN-CORE.md` |
 | Rencana tertulis (PRD) | `claude/autopilot-prd/SKILL.md` |

@@ -68,7 +68,7 @@ Instruksi user selalu melewati Sutradara. Editor tidak pernah menerima chat ment
 | `REPORT-rN.md` | Editor (Sutradara menyimpan bila subagen dilarang menulis file laporan) | Yang dikerjakan per beat, path bukti (still sheet, render, keluaran gate), angka, penyimpangan dari TASK + alasan |
 | `QUESTIONS.md` | Editor | Log pertanyaan. Pertanyaannya sendiri dikirim langsung ke Sutradara saat muncul (§5 butir 2), bukan menunggu file dibaca |
 | `REVIEW-rN.md` | Sutradara | Temuan `F-rN-xx` → beat, bukti (timestamp/frame), kriteria terukur, hasil devil's advocate (LOLOS/BUANG + alasan) |
-| `DECISIONS.md` | Sutradara | Keputusan + sumber `Irfan` / `usul` / `usul-dipilih` (`revision-log.md` §21.1) |
+| `DECISIONS.md` | Sutradara | Keputusan + sumber `Irfan` / `usul` / `usul-dipilih` (`revisi.md` §Ledger and scene locks) |
 
 **Format `MENU.md`** (opsi A = rekomendasi Sutradara + alasan dari tabel penempatan `analysis-qa.md` §2). Per beat: judul `## B03 · 0:12.4–0:15.9 · peran: menjelaskan`, kalimat beat dikutip, lalu tabel `Opsi | Adegan | Ide satu baris | Contoh ref` (file + timestamp, agar user bisa melihatnya) dengan A bertanda ✔, dan baris `Catatan user:`. User memilih, mencoret atau menulis catatan (±15 menit). Tanpa kesempatan bertanya: Sutradara memilih A dan mengirim MENU bersama hasil. MENU disimpan sebagai bukti keputusan.
 

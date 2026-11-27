@@ -33,4 +33,4 @@ Satu baris per temuan: `dtk | frame | yang terlihat | kenapa (brief / kartu+fram
 
 ## Yang dilakukan Sutradara
 
-Tiap baris diputus dan dicatat di `qc/JURI.md`: **terima** atau **tolak + alasan**. Yang diterima pada bagian yang belum pernah dilihat Irfan langsung jadi TASK Editor. Yang diterima pada bagian yang sudah dilihat Irfan menjadi baris `usul` di `DECISIONS.md` dan ditawarkan ke Irfan di chat dengan still sebelum/sesudah (`references/revision-log.md` §21.1). Elemen yang Irfan minta secara bersyarat ("kalau bisa", "jangan dipaksa") dan ditandai dipaksakan di sini: bawaannya dihapus.
+Tiap baris diputus dan dicatat di `qc/JURI.md`: **terima** atau **tolak + alasan**. Yang diterima pada bagian yang belum pernah dilihat Irfan langsung jadi TASK Editor. Yang diterima pada bagian yang sudah dilihat Irfan menjadi baris `usul` di `DECISIONS.md` dan ditawarkan ke Irfan di chat dengan still sebelum/sesudah (`references/revisi.md` §Ledger and scene locks). Elemen yang Irfan minta secara bersyarat ("kalau bisa", "jangan dipaksa") dan ditandai dipaksakan di sini: bawaannya dihapus.
