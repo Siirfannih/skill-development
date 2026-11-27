@@ -304,6 +304,22 @@ class Tunggu(unittest.TestCase):
         self.assertIn("j1 dihentikan", self.sh("status", "j1").stdout)
         self.assertTrue((self.d / "jobs/j1/rc").exists())
 
+    def test_hentikan_memberi_waktu_job_membersihkan_sebelum_kill(self):
+        tanda = self.d / "bersih.txt"
+        self.sh("jalan", "j4", "--", "bash", "-c", f"trap 'sleep 4; echo ok > {tanda}; exit 143' TERM; sleep 300 & echo $! > {self.anak}; wait")
+        self.assertTrue(tunggu_berkas(self.anak)); self.assertTrue(tunggu_berkas(self.d / "jobs/j4/pgid"))
+        r = self.sh("hentikan", "j4"); self.assertEqual(r.returncode, 0, r.stdout + r.stderr)
+        self.assertTrue(tanda.exists(), "job di-KILL sebelum selesai membersihkan")
+
+    def test_jalan_tidak_menghapus_folder_job_yang_grupnya_masih_hidup(self):
+        self.sh("jalan", "j5", "--", "bash", "-c", f"sleep 300 & echo $! > {self.anak}; sleep 300")
+        self.assertTrue(tunggu_berkas(self.anak)); self.assertTrue(tunggu_berkas(self.d / "jobs/j5/pgid"))
+        os.kill(int((self.d / "jobs/j5/pid").read_text()), signal.SIGKILL)  # penyelia mati, grup job masih hidup
+        self.assertTrue(tunggu_mati(int((self.d / "jobs/j5/pid").read_text())))
+        r = self.sh("jalan", "j5", "--", "true"); self.assertEqual(r.returncode, 1, r.stdout + r.stderr)
+        self.assertIn("masih hidup", r.stdout); self.assertTrue((self.d / "jobs/j5/pgid").exists()); self.assertTrue(hidup(int(self.anak.read_text())))
+        self.sh("hentikan", "j5")
+
     def test_hentikan_job_tak_dikenal(self):
         self.assertNotEqual(self.sh("hentikan", "tidak-ada").returncode, 0)
 

@@ -5,7 +5,7 @@
 #   tools/tunggu.sh tunggu <nama> [maks_dtk]        SATU panggilan yang tidur sampai job selesai/gagal (default 1500 dtk),
 #                                                    lalu cetak status + 20 baris log terakhir. Belum selesai = keluar 3.
 #   tools/tunggu.sh status [<nama>]                 status semua/satu job (tanpa menunggu)
-#   tools/tunggu.sh hentikan <nama>                 matikan seluruh grup proses job (TERM, lalu KILL), tandai `dihentikan`
+#   tools/tunggu.sh hentikan <nama>                 matikan seluruh grup proses job (TERM, tunggu sampai 10 dtk agar job sempat membersihkan dan menulis ledger, lalu KILL), tandai `dihentikan`
 #   Job jalan di grup proses sendiri dengan batas waktu MAKS_JOB_DTK (default 14400, di atas batas render final 10800 + antre kunci;
 #   habis = rc 124, KILL_SETELAH_DTK default 30).
 #
@@ -21,6 +21,8 @@ case "$cmd" in
     n="${1:?nama job}"; shift; [ "${1:-}" = "--" ] && shift
     [ $# -gt 0 ] || { echo "beri perintah setelah --"; exit 1; }
     d="$J/$n"; if [ -f "$d/pid" ] && kill -0 "$(cat "$d/pid")" 2>/dev/null; then echo "job $n masih berjalan (pid $(cat "$d/pid"))"; exit 1; fi
+    # Penyelia sudah mati tetapi grup job masih hidup (mis. penyelia di-SIGKILL): jangan hapus foldernya, rc/log-nya masih akan ditulis.
+    if [ -f "$d/pgid" ] && kill -0 -- "-$(cat "$d/pgid")" 2>/dev/null; then echo "job $n: grup proses $(cat "$d/pgid") masih hidup; hentikan dulu: tools/tunggu.sh hentikan $n"; exit 1; fi
     rm -rf "$d"; mkdir -p "$d"; printf '%q ' "$@" > "$d/cmd"; date +%s > "$d/mulai"; pwd > "$d/cwd"
     # Penyelia (SUP) menjalankan job lewat `setsid timeout` (grup sendiri = PGID di $d/pgid) dan menulis rc/selesai bila job tidak sempat (habis waktu, dihentikan).
     INNER='d="$1"; shift; "$@" > "$d/log" 2>&1; echo $? > "$d/rc.tmp"; mv "$d/rc.tmp" "$d/rc"; date +%s > "$d/selesai"'
@@ -43,7 +45,10 @@ case "$cmd" in
     for _ in 1 2 3 4 5 6 7 8 9 10; do [ -f "$d/pgid" ] && break; sleep 0.3; done
     if [ -f "$d/rc" ]; then echo "job $n sudah selesai rc=$(cat "$d/rc")"; exit 0; fi
     : > "$d/dihentikan"; g="$(cat "$d/pgid" 2>/dev/null)"
-    if [ -n "$g" ]; then kill -TERM -- "-$g" 2>/dev/null; sleep 2; kill -KILL -- "-$g" 2>/dev/null; fi
+    # Beri waktu pembersihan sendiri job (render.sh menunggu 2 dtk + menyapu Chrome, lalu menulis ledger) sebelum KILL: sampai ${TUNGGU_TERM_DTK:-10} dtk, berhenti begitu grup habis.
+    if [ -n "$g" ]; then kill -TERM -- "-$g" 2>/dev/null
+      for _ in $(seq 1 $(( ${TUNGGU_TERM_DTK:-10} * 2 ))); do kill -0 -- "-$g" 2>/dev/null || break; sleep 0.5; done
+      kill -KILL -- "-$g" 2>/dev/null; fi
     for _ in 1 2 3 4 5 6 7 8 9 10; do [ -f "$d/rc" ] && break; sleep 0.3; done
     [ -f "$d/rc" ] || { echo 143 > "$d/rc"; date +%s > "$d/selesai"; }
     echo "job $n dihentikan (grup ${g:-?})" ;;
