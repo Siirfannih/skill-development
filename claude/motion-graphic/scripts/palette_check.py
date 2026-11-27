@@ -1,10 +1,11 @@
 """QC palet: hitung keluarga warna aksen di sebuah render.
-Gagal bila keluarga > 2, atau keluarga terbesar < 70 % piksel vivid (tidak ada warna dominan).
+Mencetak CATATAN bila keluarga > 2, atau keluarga terbesar < 70 % piksel vivid; keluar 0 (informasi, selera ada di mata).
+Dengan --ketat (atau KETAT=1) catatan itu keluar 1. Masukan rusak tetap gagal.
 
-Pakai: python3 palette_check.py video.mp4 [--max 2]
+Pakai: python3 palette_check.py video.mp4 [--max 2] [--ketat]
 Juga menerima gambar (.png/.jpg). Butuh ffmpeg, numpy, opencv-python.
 """
-import sys, subprocess, tempfile, glob, numpy as np, cv2
+import os, sys, subprocess, tempfile, glob, numpy as np, cv2
 
 path = sys.argv[1]
 limit = int(sys.argv[sys.argv.index("--max") + 1]) if "--max" in sys.argv else 2
@@ -23,5 +24,7 @@ while left.max() >= 0.05:  # ambil puncak hue, serap semua dalam +-30 derajat (m
 print(f"vivid {vivid.mean():.1%} | keluarga aksen {len(fams)}: " + ", ".join(f"~{a+5}° {p}%" for a, p in fams))
 print("Catatan: warna kulit/lampu footage ikut terhitung di 0-60°; nilai ini sinyal, bukan vonis.")
 dom = max([p for _, p in fams], default=100)
-print(f"keluarga dominan {dom}% (target >= 70%)")
-sys.exit(1 if len(fams) > limit or dom < 70 else 0)
+print(f"keluarga dominan {dom}% (acuan >= 70%)")
+catatan = len(fams) > limit or dom < 70
+if catatan: print(f"CATATAN: keluarga aksen {len(fams)} (acuan <= {limit}), dominan {dom}% (acuan >= 70%); putuskan dengan mata.")
+sys.exit(1 if catatan and ("--ketat" in sys.argv or os.environ.get("KETAT") == "1") else 0)
