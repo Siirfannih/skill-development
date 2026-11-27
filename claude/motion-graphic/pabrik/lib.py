@@ -1,5 +1,5 @@
 """lib.py: jalur, panggilan model (CLI `claude`; bisa diganti lewat PABRIK_CLAUDE, mis. akun `claude2`), ekstraksi JSON, kunci render. Dipakai semua fase pabrik."""
-import fcntl, glob, json, os, re, shutil, subprocess, sys, tempfile
+import fcntl, glob, json, os, re, shutil, signal, subprocess, sys, tempfile, time
 from pathlib import Path
 
 PABRIK = Path(__file__).resolve().parent
@@ -106,6 +106,62 @@ class KunciRender:
         self.f = open(KUNCI_RENDER, "a"); fcntl.flock(self.f, fcntl.LOCK_EX); return self
     def __exit__(self, *a):
         fcntl.flock(self.f, fcntl.LOCK_UN); self.f.close()
+
+
+def _pohon(penanda):
+    """PID proses yang baris perintahnya memuat `penanda` (direktori temp pekerjaan ini) beserta semua turunannya. Tidak pernah pencocokan nama global."""
+    keluar = subprocess.run(["ps", "-eo", "pid=,ppid=,args="], capture_output=True, text=True).stdout
+    baris = []
+    for l in keluar.splitlines():
+        b = l.split(None, 2)
+        if len(b) == 3 and b[0].isdigit() and b[1].isdigit():
+            baris.append((int(b[0]), int(b[1]), b[2]))
+    saya = os.getpid()
+    ids = {p for p, _, a in baris if penanda in a and p != saya}
+    tumbuh = True
+    while tumbuh:
+        baru = {p for p, pp, _ in baris if pp in ids and p not in ids and p != saya}
+        tumbuh = bool(baru); ids |= baru
+    return ids
+
+
+def _sapu(penanda):
+    """Matikan sisa proses (Chrome yatim) milik pekerjaan ini: TERM, 2 dtk, KILL. Hanya yang terkait penanda."""
+    for sig in (signal.SIGTERM, signal.SIGKILL):
+        ids = _pohon(penanda)
+        if not ids:
+            return
+        for p in ids:
+            try: os.kill(p, sig)
+            except ProcessLookupError: pass
+        if sig == signal.SIGTERM:
+            time.sleep(2)
+
+
+def jalankan_grup(cmd, timeout, tmp_induk, **kw):
+    """subprocess.run untuk render: proses jalan di sesi/grup sendiri dengan TMPDIR sendiri. Habis waktu, error, atau Ctrl-C:
+    seluruh grup dimatikan (TERM, 3 dtk, KILL) dan sisa Chrome pekerjaan ini disapu (lewat TMPDIR-nya), lalu pengecualian diteruskan.
+    Mengembalikan CompletedProcess (stdout/stderr teks) seperti subprocess.run."""
+    os.makedirs(tmp_induk, exist_ok=True)
+    tmp = tempfile.mkdtemp(prefix="render-", dir=tmp_induk)
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, start_new_session=True,
+                         env={**(kw.pop("env", None) or os.environ), "TMPDIR": tmp}, **kw)
+    try:
+        out, err = p.communicate(timeout=timeout)
+        if p.returncode:
+            _sapu(tmp)
+        return subprocess.CompletedProcess(cmd, p.returncode, out, err)
+    except BaseException:
+        try: os.killpg(p.pid, signal.SIGTERM)
+        except ProcessLookupError: pass
+        try: p.wait(3)
+        except subprocess.TimeoutExpired: pass
+        try: os.killpg(p.pid, signal.SIGKILL)
+        except ProcessLookupError: pass
+        p.wait(); _sapu(tmp)
+        raise
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
 
 
 def kartu_file(kartu_id):

@@ -12,7 +12,7 @@ Kunci cache = sha1(bundle stamp + comp + props + durasi + fps). Keluaran: <proye
 Pakai (di PC server, setelah `render.sh <proyek> still …` membuat bundle):
   python3 lapisan.py <proyek> lapisan.json [--konkurensi 4] [--hanya T01,T02]
 """
-import argparse, hashlib, json, os, subprocess, sys
+import argparse, hashlib, json, os, shutil, signal, subprocess, sys, tempfile, time
 from concurrent.futures import ThreadPoolExecutor
 
 
@@ -29,6 +29,62 @@ def gl_arg():
     return [f"--gl={gl}"] if gl and gl != "default" else []
 
 
+def _pohon(penanda):
+    """PID proses yang baris perintahnya memuat `penanda` (direktori temp pekerjaan ini) beserta semua turunannya. Tidak pernah pencocokan nama global."""
+    keluar = subprocess.run(["ps", "-eo", "pid=,ppid=,args="], capture_output=True, text=True).stdout
+    baris = []
+    for l in keluar.splitlines():
+        b = l.split(None, 2)
+        if len(b) == 3 and b[0].isdigit() and b[1].isdigit():
+            baris.append((int(b[0]), int(b[1]), b[2]))
+    saya = os.getpid()
+    ids = {p for p, _, a in baris if penanda in a and p != saya}
+    tumbuh = True
+    while tumbuh:
+        baru = {p for p, pp, _ in baris if pp in ids and p not in ids and p != saya}
+        tumbuh = bool(baru); ids |= baru
+    return ids
+
+
+def _sapu(penanda):
+    """Matikan sisa proses (Chrome yatim) milik pekerjaan ini: TERM, 2 dtk, KILL. Hanya yang terkait penanda."""
+    for sig in (signal.SIGTERM, signal.SIGKILL):
+        ids = _pohon(penanda)
+        if not ids:
+            return
+        for p in ids:
+            try: os.kill(p, sig)
+            except ProcessLookupError: pass
+        if sig == signal.SIGTERM:
+            time.sleep(2)
+
+
+def jalankan_grup(cmd, timeout, tmp_induk, **kw):
+    """(Salinan pabrik/lib.py.) subprocess.run untuk render: proses jalan di sesi/grup sendiri dengan TMPDIR sendiri. Habis waktu, error, atau Ctrl-C:
+    seluruh grup dimatikan (TERM, 3 dtk, KILL) dan sisa Chrome pekerjaan ini disapu (lewat TMPDIR-nya), lalu pengecualian diteruskan.
+    Mengembalikan CompletedProcess (stdout/stderr teks) seperti subprocess.run."""
+    os.makedirs(tmp_induk, exist_ok=True)
+    tmp = tempfile.mkdtemp(prefix="render-", dir=tmp_induk)
+    p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, start_new_session=True,
+                         env={**(kw.pop("env", None) or os.environ), "TMPDIR": tmp}, **kw)
+    try:
+        out, err = p.communicate(timeout=timeout)
+        if p.returncode:
+            _sapu(tmp)
+        return subprocess.CompletedProcess(cmd, p.returncode, out, err)
+    except BaseException:
+        try: os.killpg(p.pid, signal.SIGTERM)
+        except ProcessLookupError: pass
+        try: p.wait(3)
+        except subprocess.TimeoutExpired: pass
+        try: os.killpg(p.pid, signal.SIGKILL)
+        except ProcessLookupError: pass
+        p.wait(); _sapu(tmp)
+        raise
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
 def key(stamp, item, fps):
     raw = json.dumps([stamp, item["comp"], item.get("props", {}), item.get("durasi"), fps], sort_keys=True)
     return hashlib.sha1(raw.encode()).hexdigest()[:16]
@@ -39,6 +95,7 @@ def main():
     ap.add_argument("proyek"); ap.add_argument("lapisan")
     ap.add_argument("--konkurensi", type=int, default=4); ap.add_argument("--fps", type=int, default=30)
     ap.add_argument("--hanya", default="")
+    ap.add_argument("--maks", type=int, default=int(os.environ.get("LAPISAN_MAKS_DTK", "900")), help="batas waktu per lapisan, detik (default 900 / env LAPISAN_MAKS_DTK)")
     a = ap.parse_args()
     P = os.path.abspath(a.proyek)
     bundle = os.path.join(P, "qc", ".bundle")
@@ -66,7 +123,10 @@ def main():
 
     def run(job):
         lid, cmd = job
-        r = subprocess.run(cmd, cwd=os.path.join(P, "remotion"), capture_output=True, text=True)
+        try:
+            r = jalankan_grup(cmd, a.maks, os.path.join(P, "qc", ".tmp-lapisan"), cwd=os.path.join(P, "remotion"))
+        except subprocess.TimeoutExpired:
+            return lid, 124, f"TIMEOUT setelah {a.maks} dtk (grup proses dimatikan; naikkan --maks atau LAPISAN_MAKS_DTK bila memang selama itu)"
         return lid, r.returncode, (r.stderr or r.stdout)[-400:]
 
     fails = []

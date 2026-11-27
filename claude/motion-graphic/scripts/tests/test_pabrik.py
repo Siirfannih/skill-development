@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Uji pabrik primitif: skema spec, lint props, metrik (fixture kecil), analisis probe, registry. Butuh numpy, PIL, cv2, jsonschema."""
-import json, sys, tempfile, unittest
+import json, os, signal, subprocess, sys, tempfile, time, unittest
 from pathlib import Path
 
 P = Path(__file__).resolve().parents[2] / "pabrik"
@@ -288,6 +288,56 @@ class TestRegistry(unittest.TestCase):
             self.assertIn(e["status"], ("teruji", "teruji-sebagian", "ditolak"))
             for k in ("nama", "fungsi", "kartu_sumber", "kategori", "props_schema", "demo_stills", "metrik_akhir", "tanggal"): self.assertIn(k, e)
             if e["status"] == "ditolak": self.assertTrue(e.get("alasan"))
+
+def _hidup(pid):
+    try: os.kill(pid, 0)
+    except ProcessLookupError: return False
+    try: return Path(f"/proc/{pid}/stat").read_text().rsplit(")", 1)[1].split()[0] != "Z"
+    except OSError: return False
+
+
+def _mati(pid, dtk=8):
+    t = time.time()
+    while time.time() - t < dtk and _hidup(pid): time.sleep(0.1)
+    return not _hidup(pid)
+
+
+class TestRenderGrup(unittest.TestCase):
+    """Jalur render pabrik/lego: grup proses sendiri, habis waktu mematikan seluruh grup dan sisa Chrome milik pekerjaan itu (lewat TMPDIR)."""
+    def modul(self):
+        sys.path.insert(0, str(P.parent / "scripts/lego")); sys.path.insert(0, str(P))
+        import lapisan, lib
+        return [lib, lapisan]
+
+    def test_habis_waktu_grup_dan_yatim_bertemplate_mati_proses_lain_hidup(self):
+        for m in self.modul():
+            with tempfile.TemporaryDirectory() as d:
+                d = Path(d); anak = d / "anak.pid"; yatim = d / "yatim.pid"; lain = subprocess.Popen(["sleep", "300"])
+                # anak: sleep di grup yang sama + proses lolos grup (setsid) yang baris perintahnya memuat $TMPDIR, seperti Chrome milik render ini
+                skrip = f'sleep 300 & echo $! > {anak}; setsid bash -c "exec -a chrome-$TMPDIR sleep 300" </dev/null >/dev/null 2>&1 & echo $! > {yatim}; sleep 300'
+                try:
+                    with self.assertRaises(subprocess.TimeoutExpired):
+                        m.jalankan_grup(["bash", "-c", skrip], 2, d / "tmp")
+                    self.assertTrue(_mati(int(anak.read_text())), f"{m.__name__}: anak grup hidup")
+                    self.assertTrue(_mati(int(yatim.read_text()), 10), f"{m.__name__}: proses lolos grup tidak disapu")
+                    self.assertTrue(_hidup(lain.pid), "proses lain ikut mati"); self.assertEqual(list((d / "tmp").iterdir()), [])
+                finally:
+                    lain.kill(); lain.wait()
+
+    def test_rc_nol_dan_tmpdir_dihapus(self):
+        for m in self.modul():
+            with tempfile.TemporaryDirectory() as d:
+                r = m.jalankan_grup(["bash", "-c", "echo $TMPDIR; exit 0"], 10, Path(d) / "tmp")
+                self.assertEqual(r.returncode, 0); self.assertTrue(r.stdout.strip().startswith(str(Path(d) / "tmp")))
+                self.assertFalse(Path(r.stdout.strip()).exists())
+
+    def test_jalankan_sh_berhenti_di_butir_bila_sintesis_gagal(self):
+        with tempfile.TemporaryDirectory() as d:
+            d = Path(d); log = d / "log"; py = d / "py"
+            py.write_text(f'#!/bin/bash\necho "$(basename "$1")" >> {log}\n[ "$(basename "$1")" != sintesis.py ]\n'); py.chmod(0o755)
+            r = subprocess.run(["bash", str(P / "jalankan.sh"), "63:T1:Contoh:tipografi"], env={**os.environ, "PY": str(py)}, capture_output=True, text=True, cwd=d)
+            self.assertEqual(r.returncode, 1, r.stdout + r.stderr)
+            self.assertEqual(log.read_text().split(), ["ekstrak.py", "sintesis.py"]); self.assertIn("sintesis gagal", r.stdout)
 
 
 if __name__ == "__main__":
