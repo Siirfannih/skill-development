@@ -8,13 +8,13 @@ description: Cara berpikir tema wajah bicara + teks kinetik (caption di bidang p
 Wajah dan ruangannya adalah panggung; teks menumpang pada bidang yang disediakan footage (dada polos, headroom, belakang kepala) dan sesekali keluar ke slab warna penuh. Bunyi memukul hanya di engsel.
 Cocok: reel berwajah, esai opini, hook opini. Tidak cocok: video ≥ 80 % UI/arsip tanpa wajah. Audit footage dulu: baju polos/bermotif, headroom, dinding gelap/terang, tangan di dada.
 
-## 2. Keyframe wajib dibuka
+## 2. Keyframe contoh
 Folder: `../../guide/referensi/sheets/keyframes/`
 - `83-k8-urutan-pengantar-at.jpg`: dinding merah gelap; "At" putih kecil muncul dulu, lalu "BARSOL MEDIA" condensed raksasa di belakang kepala, kepala menutup huruf tengah; "At" menempel di sudut kiri atasnya.
 - `85-k10-urutan-neon-ruang.jpg`: saat "ORTHODONTIST" neon biru muncul di belakang kepala, hanya dinding yang berubah dari oranye hangat ke biru-hitam; wajah tetap hangat; caption dada tidak berpindah.
 - `90-k13-urutan-gambar-ganti-kata-diam.jpg`: caption putih bold satu kata diam di poros tengah sementara shot berganti siluet gelap ↔ profil terang.
 
-## 3. Keputusan visual (px @1080×1920)
+## 3. Keputusan visual (ukuran yang teramati di contoh, px @1080×1920)
 **V1 Kata vonis di belakang kepala.** Satu kata ≤ 10 huruf, condensed tebal ±280 px, di layer antara dinding dan matte kepala, di headroom; awal/akhir kata dan puncak huruf terbaca, kepala boleh menutup sebagian huruf tengah. Kata pengantar 64 px menempel ≤ 24 px di sudut kata hero (target eksekusi). Pemicu: headroom tipis atau matte rambut kotor → pakai slab (V3). → Niat: kata jadi benda di ruang syuting, pengantar + hero terbaca satu frasa. → Frame: kedalaman tanpa kotak. → Penonton (hipotesis): kontak mata tetap, terasa dibuat editor. → Gagal bila kata panjang kehilangan huruf tengah atau pengantar jauh. → Bukti: 83-k8, 69-k1, 61-k2 (3 kreator).
 
 **V2 Regrade hanya latar.** Saat kata menyala muncul di dinding hangat/sedang, hanya layer dinding diredupkan/didinginkan (potong 1 frame atau geser ±24 f); wajah tetap. Regrade bertahan selama kata tampil dan kembali bersama kata keluar. Pemicu: dinding putih terang → teks gelap atau slab. → Niat: kata jadi sumber cahaya tanpa scrim. → Frame: kontras naik di belakang, kulit utuh. → Penonton (hipotesis): ruang berubah suasana, bukan digelapkan. → Gagal bila wajah ikut gelap atau regrade bolak-balik. → Bukti: 83-k7, 85-k10 (bergerak).

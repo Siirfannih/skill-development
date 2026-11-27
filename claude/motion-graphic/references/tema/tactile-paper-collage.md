@@ -8,13 +8,13 @@ description: Tema kolase kertas dan benda fisik (alas kertas, strip catatan, lab
 Layar adalah meja kerja: satu kertas bertekstur sebagai alas, tiap poin ditempel sebagai benda atau strip kertas, teks terasa dicetak atau ditulis tangan. Semua muncul seketika seperti ditaruh tangan; VO di depan, bunyi hemat.
 Cocok: listicle ≥ 4 poin berbenda konkret, refleksi personal, talking head dengan catatan di sisi kosong. Tidak cocok: demo UI berlabel kecil, naskah abstrak tanpa benda, kamera genggam yang memenuhi layar.
 
-## 2. Keyframe wajib dibuka
+## 2. Keyframe contoh
 `../../guide/referensi/sheets/keyframes/`
 1. `98-k2-satu-objek-per-item.jpg` — kertas krem bergrid tipis, tiap sel satu benda (headphone, kardus, kursi); label tebal huruf kecil di blok warna datar, bayangan hitam keras tanpa blur, miring sedikit, sebagian tertutup bendanya.
 2. `97-k4-urutan-belokan-but.jpg` — kertas pindai putih; "i love making stuff" tipis kecil → "but" fotokopi hitam ±57 % tinggi → pertanyaan krayon kapital; gaya pecah hanya di belokan.
 3. `31-k1-daftar-judul.jpg` — presenter kanan, langit kiri; judul spidol merah di strip kertas melintang di atas kepala; lima strip bergaris tulisan tangan miring di separuh kiri; caption putih di kotak oranye bawah tengah.
 
-## 3. Keputusan visual
+## 3. Keputusan visual (ukuran dan hex yang teramati di contoh)
 **V1 · Satu alas kertas bertekstur menyatukan aset.** Default: kertas krem bergrid tipis (sel ±140 px, garis 1 px), terlihat di ≥ 40 % frame. Pemicu: monolog teks tanpa benda → selembar kertas putih pindai, bukan #FFFFFF.
 Niat: 3D, doodle, foto harus terbaca satu meja → frame: teks kontras tanpa kotak gelap → penonton: terasa dirakit tangan (hipotesis) → gagal: putih digital; alas dipaksakan di talking head penuh (di sana dunia kamera alasnya).
 Bukti: 98-k2, 98-k4, 97-k1, 97-k5, 02-k7, 02-k8.

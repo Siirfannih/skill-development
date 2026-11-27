@@ -12,8 +12,8 @@ Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun 
    - rasio dan resolusi aset.
 
    Niatnya: teknik referensi rusak di kondisi yang berlawanan (pil kaca di dinding terang, teks tipis di arsip bertekstur, KT menutup wajah); bila syaratnya tak terpenuhi, ganti tekniknya.
-2. **Pilih tema** (§2). Bila belum jelas dari bahan, tanya (§3).
-3. **Buka `tema/<tema>.md`** dan 2-3 keyframe wajib di dalamnya. Lihat gambarnya, jangan hanya membaca deskripsinya.
+2. **Pilih tema** (§2) hanya bila user tidak memberi referensi atau storyboard; bila belum jelas dari bahan, tanya (§3).
+3. **Buka `tema/<tema>.md`** dan 2-3 keyframe contoh di dalamnya. Lihat gambarnya, jangan hanya membaca deskripsinya.
 4. **Arah gaya** (§7): pahami maunya user; tanya bila arahnya lemah.
 5. **Storyboard per putaran kecil** (§7): still dengan materi asli, bukan teks dummy, berdampingan dengan keyframe pada 25 % (ukuran HP) dan 100 %; coret elemen yang tidak menambah pemahaman; perbaiki sampai tidak kalah rasa. Skor yang kamu tulis sendiri bukan bukti; perbandingan dengan gambar adalah bukti.
 6. **Audio disusun setelah visual lulus**, lalu menyesuaikan gerak final.
@@ -21,7 +21,7 @@ Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun 
 
 ## 2. Router tema
 
-Pilih dari **wujud bukti yang dituntut naskah**, bukan dari kata sifat di brief.
+Dipakai hanya bila user tidak memberi referensi atau storyboard; tema adalah inspirasi, bukan templat. Pilih dari **wujud bukti yang dituntut naskah**, bukan dari kata sifat di brief.
 
 | Bila sebagian besar kalimat menuntut… | Tema | Keyframe contoh untuk ditunjukkan |
 |---|---|---|

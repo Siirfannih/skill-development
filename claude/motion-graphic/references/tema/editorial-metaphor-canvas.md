@@ -9,13 +9,13 @@ Satu gagasan per adegan jadi satu benda, garis, atau aksi UI kecil di kanvas pol
 Cocok: esai VO tanpa wajah, opini, hook manifesto, konsep produk tanpa demo. Tidak cocok: wajah memimpin, demo UI, mayoritas angka, arsip foto.
 Ukuran: px pada sisi 1080 (lebar 9:16, tinggi 16:9).
 
-## 2. Keyframe wajib dibuka
+## 2. Keyframe contoh
 Folder: `../../guide/referensi/sheets/keyframes/`
 - `88-k6-lingkaran-satu-dial.jpg`: 9:16 putih; "one dial," duduk di tepi atas satu lingkaran biru solid (±19 % lebar); "one" hitam, "dial," masih abu. Empat elemen, >60 % kosong. Yang diambil: satu benda + ruang kosong + teks menempel. Serif dan halo biru pucat di gambar ini bagian gaya referensinya: dipakai hanya bila alasannya berlaku (REF-SPEC); default tema ini teks sans dan lingkaran datar, karena halo pucat menurunkan kontras teks.
 - `80-k1-kinetik-gelap.jpg`: 16:9 hitam; "Ada" dan "jarak" sans tebal putih segaris, di antaranya garis ukur tipis bertick, "antara" kecil abu di bawahnya.
 - `96-k6-urutan-polaritas.jpg`: 8 still; terang↔gelap tiap 1–3 dtk, 1–3 elemen per adegan, puncak "never" putih raksasa di hitam (kemiringan/italic di gambar tidak punya peran sistem di tema ini; ambil skala dan polaritasnya). Abaikan pita mono kecil di bawah (anti-pola).
 
-## 3. Keputusan visual
+## 3. Keputusan visual (ukuran dan hex yang teramati di contoh)
 **V1 Satu benda, sisanya kosong.** Satu benda/diagram per adegan, lebar 520–700 px; ≥ 55 % kanvas polos. → Niat: gagasan terbaca sekali lirik bila tanpa tandingan. → Frame: 2–4 kelompok elemen. → Penonton (hipotesis): paham metafora < 1,5 dtk. → Gagal bila ikon pendukung ditambah "biar jelas"; sah dilanggar sekali bila naskah bilang "ramai". → Bukti: 20-k6-koper-merah, 88-k6, 88-k13-otak-jaringan-titik.
 
 **V2 Teks menempel benda.** Default: blok teks di atas tepi benda, jarak 40–60 px. Pemicu: latar berganti < 1,4 dtk/shot → kunci teks di poros 47–55 % tinggi. Pemicu: benda/UI mengisi ≥ 55 % tinggi bawah → teks ke pita atas (pusat 12–26 % tinggi). Benda di satu sisi → teks di sisi lawan, dekat benda. → Niat: mata satu langkah dari benda ke kalimat. → Frame: satu unit. → Penonton (hipotesis): tidak berburu kata. → Gagal bila teks di pojok jauh dari benda (S-V13, teks-visual berjauhan). → Bukti: 88-k6, 88-k7; 40-k4, 80-k3, 80-k8, 37-k3 (belum dilihat bergerak).

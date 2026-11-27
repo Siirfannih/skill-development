@@ -8,13 +8,13 @@ description: Tema esai/dokumenter berbasis bukti nyata (arsip, dokumen, klip) de
 Narator memimpin; layar membuktikan kalimatnya dengan bahan nyata yang terbaca; teks menuntun mata ke bukti. Gerak sedikit, potong keras di batas kata, bunyi hemat; tekanan dari jeda, ganti lantai, dan satu hentakan skala per babak.
 Cocok: profil, asal-usul, "kenapa X terjadi", ≥ 3 sumber bukti. Tidak cocok: demo UI, listicle tanpa arsip.
 
-## 2. Keyframe wajib dibuka
+## 2. Keyframe contoh
 `../../guide/referensi/sheets/keyframes/`
 1. `92-k5-tumpukan-kata-ruang-kosong.jpg` — footage rumahan hangat, anak di kanan; empat baris putih tebal huruf kecil rata kiri di ruang gelap dekat kepalanya, tanpa kotak.
 2. `92-k7-kutipan-sorot-halaman-kosong.jpg` — halaman abu muda, satu kutipan dua baris regular gelap dengan blok sorot biru muda; ±85 % kanvas kosong.
 3. `89-k4-let-me-explain-garis.jpg` — kanvas 9:16 hijau zaitun datar, tiga kata kapital pink zig-zag disambung garis 1–2 px; tak ada lainnya.
 
-## 3. Keputusan visual
+## 3. Keputusan visual (ukuran dan hex yang teramati di contoh)
 **V1 · Peran kalimat memilih lantai.** Klaim → wajah pembicara/tokoh. Bukti → arsip/dokumen. Kalimat pembalik tanpa visual harfiah → kanvas datar satu warna, 1–3 kata.
 Niat: B-roll yang tak dipanggil kalimat terasa ditempel → frame: kanvas ±80 % kosong → penonton: dapat titik cerna (hipotesis) → gagal: kanvas di hampir tiap kalimat (jadi slide) atau menambal footage kosong.
 Bukti: 89-k3, 89-k5, 18-k1, 18-k2, 32-k1; kanvas 89-k4, 04-k2, 39-k2, 76-k7, 77-k4 (durasi di 04/39/76/77 belum dilihat bergerak).

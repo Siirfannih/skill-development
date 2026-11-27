@@ -10,13 +10,13 @@ Cocok: beat bukti angka (jam hemat, pesanan, omzet), recap milestone, sisipan 5�
 Peringatan: 0 dari 4 kartu dilihat bergerak; semua gerak dan bunyi = hipotesis dari still + vault.
 Ukuran: px pada sisi 1080 (lebar 9:16, tinggi 16:9). Angka hanya dari naskah/data, jangan dikarang.
 
-## 2. Keyframe wajib dibuka
+## 2. Keyframe contoh
 Folder: `../../guide/referensi/sheets/keyframes/`
 - `57-k4-bar-persen.jpg`: 3:4 gelap; panel ±75 % lebar, tanpa bayangan; blok atas abu-gelap, "65%" putih Regular di dasar blok, "APY" kecil di pojok kiri-atas; blok bawah lime, "35%" dan "Match" hitam. Satu aksen, nol bold.
 - `67-k2-tumpukan-foto.jpg`: 16:9; kartu putih hangat berinset di bingkai hijau-gelap; "Island Announcing" kecil tepat di atas "$400M" besar (≈ 4,4×); kartu foto buram mengapit atas-bawah.
 - `67-k7-footage-statistik.jpg`: kolom 4 kartu statistik; hanya kartu teratas menyala (foto gelap + "16" mint), 3 lainnya pucat; panel foto di kanan.
 
-## 3. Keputusan visual
+## 3. Keputusan visual (ukuran dan hex yang teramati di contoh)
 **V1 Satu wadah fokus.** Default: wadah 760 px lebar, pusat y 860 (9:16); di luarnya kosong. Pemicu: ≥ 3 metrik → baris dalam satu wadah, satu aktif. → Niat: relasi skala terbaca tanpa mencari di empat sudut. → Frame: semua data dalam satu bidang. → Penonton (hipotesis): nilai tertangkap sekali lirik. → Gagal bila wadah jadi kartu kecil berbayang. → Bukti: 56-k3 (±60 %), 57-k3 (75 %), 57-k6 (64 %), 58-k5 (64 %, + beam dan logo); 67 memakai kartu hampir penuh berinset.
 
 **V2 Satu aksen aktif.** Satu aksen per video; satu elemen per frame memakainya (pemenang, baris aktif, nilai baru); sisanya putih/abu, pucat 30 %. Teks di atas aksen terang → hitam. → Niat: aksen = kursor. → Frame: satu titik terang. → Penonton (hipotesis): tahu pemenang sebelum baca. → Gagal bila tiap kategori/merek diberi warna sendiri. → Bukti: 57-k4, 58-k5, 67-k7, 67-k8; pelanggaran (jangan ditiru): 56-k5 batang merah-kuning-hijau.

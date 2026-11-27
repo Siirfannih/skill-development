@@ -8,13 +8,13 @@ description: Cara berpikir tema UI produk (UI dibangun ulang, kamera virtual, bu
 UI produk dibangun ulang sebagai kode dan menjadi aktor: satu jendela di dunia tenang, kamera yang mendekat, bunyi hanya saat layar berubah. Teks ucapan di luar UI.
 Cocok: naskah yang menunjuk aksi software nyata (ketik, klik, setujui), misalnya launch produk software. Tidak cocok: refleksi tanpa objek UI.
 
-## 2. Keyframe wajib dibuka
+## 2. Keyframe contoh
 Folder: `../../guide/referensi/sheets/keyframes/`
 - `63-k10-urutan-sapuan-grid-dan-punch.jpg`: wallpaper senja tetap tajam di sisi jendela editor gelap; sapuan blok piksel kuning membuka jendela; kamera mendorong ke kotak chat, tepi UI masih tampak.
 - `36-k6-kartu-approve.jpg`: headline satu baris condensed putih di pita atas, satu kartu terang ±65 % lebar di bawahnya, bawah frame kosong; aksen hanya di tombol Approve.
 - `34-k2-sorot-kata.jpg`: kalimat besar satu ukuran; hanya "broken" diberi sorotan blok biru muda datar (opasitas tetap, tanpa blur/glow) + 2 handle bulat. Satu penanda, tidak ada yang lain.
 
-## 3. Keputusan visual (px @1920×1080)
+## 3. Keputusan visual (ukuran yang teramati di contoh, px @1920×1080)
 **V1 Dunia desktop tajam, panel kontras nada.** Wallpaper foto tajam bernada sedang; jendela UI gelap ±1100×620 px di tengah, wallpaper tampak di empat sisi. Pemicu: panel terang di foto terang → panel solid + garis tepi 1–2 px atau nada latar digelapkan datar; default tanpa blur backdrop, kaca, atau bayangan lembut; kaca/blur sah bila REF-SPEC menyatakannya dan satu material untuk semua panel (NEGATIF 2). → Niat: panel terpisah lewat nada, bukan border. → Frame: dua bidang jelas di zoom 25 %. → Penonton (hipotesis): percaya ini aplikasi sungguhan. → Gagal bila resep redam B-roll (blur + gelap) dipakai ke wallpaper: jendela gelap larut (uji transfer: 1,06:1); atau jendela > 65 % lebar, terbaca screenshot. → Bukti: 63-k1, 63-k4, 63-k10, 17-k3; terang 28-k5, 35-k4.
 
 **V2 Satu fokus, zona tegas.** Pita teks satu baris y 150–230 px, UI mulai y ≥ 300 px, ±200 px bawah kosong, satu komponen fokus. → Niat: teks dan UI tidak berbobot kembar. → Frame: ruang kosong mengelilingi satu objek. → Penonton (hipotesis): satu titik baca per lirikan. → Gagal bila pita di y < 140 px (zona merah), dua komponen sama besar bersaing, atau kolase tanpa rongga pusat. → Bukti: 36-k5, 36-k6, 30-k5, 49-k5.
