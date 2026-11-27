@@ -5,7 +5,7 @@ description: "Run before any storyboard, design or animation code. Makes you dir
 
 # Director pass: direct first, then draw
 
-DRAFT under test (27 Nov 2026). Not yet approved by the owner.
+First version (27 Nov 2026). One A/B run so far; expect it to be trimmed and merged with older rules.
 
 Why this exists: a capable model that is handed a brief and a long rule list tends to comply. It illustrates each line literally, copies what the reference shows instead of why it shows it, and stays silent about weak spots in the brief. The owner wants a director who thinks, not a polite executor. The four steps below are short on purpose. They do not replace NEGATIF [mutlak] or the owner's gates.
 
