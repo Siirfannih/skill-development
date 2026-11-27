@@ -16,7 +16,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 ## 7. Tipografi — diperlakukan seperti design system website
 
 ### 7.1 Peran font (sistem huruf: NEGATIF 1)
-| Peran | Fungsi | Pilihan (Jadisatu) | Ukuran @1080 |
+| Peran | Fungsi | Contoh (profil merek Jadisatu) | Ukuran @1080 |
 |---|---|---|---|
 | Display/Kunci | Kata kunci, slam | Inter Black 900 (atau Neue Haas Grotesk Display 95 di Adobe Fonts) | 200–320 px |
 | Headline | Kata utama | Inter ExtraBold 800 / NHG 65 | 110–170 px |
@@ -27,7 +27,7 @@ Baca saat memilih gaya teks, ukuran, dan teknik T, atau mengatur easing. Nomor �
 
 Teks non-Latin atau RTL (Arab, Ibrani, aksara daerah): pakai keluarga yang memang mendukung aksara itu, arah baca dan animasi per kata mengikuti arah tulis, jangan dipecah per huruf.
 
-**Satu sistem huruf (NEGATIF 1).** Karya di dalam dunia video (iklan, poster, halaman produk di layar UI) memakai huruf dan gaya aslinya: itu isi, bukan sistem huruf video. Penekanan default = bobot/ukuran/warna/kapital dalam satu keluarga. Huruf kedua (serif, script, tulisan tangan) sah bila ia sistem: peran tetap dan sama sepanjang video (mis. suara logo, kata penutup), ≤ 1 kemunculan per frame, sumbernya merek atau REF-SPEC (`huruf_kedua: {keluarga, peran, frekuensi}`). Pola slop: satu kata emosional berganti huruf di banyak frasa tanpa peran. Pergantian di tengah satu kata tetap gagal. Konten Jadisatu: Outfit (display) + Inter (teks). Verifikasi PostScript name sebelum build.
+**Satu sistem huruf (NEGATIF 1).** Karya di dalam dunia video (iklan, poster, halaman produk di layar UI) memakai huruf dan gaya aslinya: itu isi, bukan sistem huruf video. Penekanan default = bobot/ukuran/warna/kapital dalam satu keluarga. Huruf kedua (serif, script, tulisan tangan) sah bila ia sistem: peran tetap dan sama sepanjang video (mis. suara logo, kata penutup), ≤ 1 kemunculan per frame, sumbernya merek atau REF-SPEC (`huruf_kedua: {keluarga, peran, frekuensi}`). Pola slop: satu kata emosional berganti huruf di banyak frasa tanpa peran. Pergantian di tengah satu kata tetap gagal. Font datang dari referensi/brief user atau profil merek; verifikasi PostScript name sebelum build.
 
 ### 7.2 Skala & hierarki
 - Nilai ukuran kanonik (dua kutub, rasio, lompatan, kata sambung ≥ 56 px, lantai keterbacaan): `dunia-visual.md` §4 butir 2 dan `teks.md` §Ukuran. Tabel level di sini tidak dipakai sebagai batas; ukur ukuran dari REF-SPEC.
@@ -38,10 +38,7 @@ Teks non-Latin atau RTL (Arab, Ibrani, aksara daerah): pakai keluarga yang meman
   - KAPITAL hanya untuk kata vonis/klaim satu-dua kata (slam) dan label kategori mono (+100…+200 tracking).
   - Tidak ada paragraf kapital.
   - Satu proyek memakai satu kebiasaan tanda baca, misalnya titik di akhir frase pendek.
-- Warna:
-  - teks dasar putih hangat `#FAF8EC` di gelap, navy `#0F172A` di terang
-  - **satu kata aksen per frase** (coral `#F97066` di gelap / biru `#2563EB` di terang)
-  - warna data biru
+- Warna: **satu kata aksen per frase**; nilai hex dari palet proyek (`palette.md` §1).
 - **Gagal (cek di setiap frame):**
   - kotak, stabilo, atau scrim yang tidak menyelesaikan masalah keterbacaan (`decision-guide.md` §4)
   - halo/glow di belakang teks yang menurunkan kontras; bayangan teks hanya bila bagian dari sistem material (satu arah cahaya)

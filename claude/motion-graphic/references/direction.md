@@ -2,13 +2,15 @@
 
 Baca saat menentukan apa yang terjadi di setiap beat: tokoh, subjek, metafora, family visual, palet. Nomor § sama dengan motion-director v3 agar rujukan lama tetap berlaku.
 
-## 5. Tiga family visual (pilih per babak, jangan dicampur dalam satu shot)
+## 5. Family visual (contoh: profil merek Jadisatu)
 
-| Family | Dunia | Aset | Kamera | Untuk |
-|---|---|---|---|---|
-| **A. Kolase + karakter** | Ruang pixel/voxel hangat (Jadisatu: ruang kerja malam Irfan) | Plate latar tanpa objek utama + model 3D low-poly objek utama + sprite pixel karakter (beberapa pose, tampak belakang terpisah) | Kamera 3D sungguhan, parallax/DoF nyata | Masalah, tokoh, cerita personal |
-| **B. Tipografi gelap** | Navy/hitam polos atau dua nada | Teks datar tajam, kedalaman dari susunan lapis dan kamera, kursor ketik | 2D CAM / kamera AE, zoom mikro, slam | Klaim, pertanyaan, titik balik |
-| **C. Kanvas putih UI** | Putih/off-white | UI datar asli: avatar, kursor, kartu, konektor, tiap elemen bergerak independen | 2D CAM, reflow, reveal-out | Solusi, workflow, produk, CTA |
+Tiga family di bawah adalah contoh dari profil merek Jadisatu, bukan default. Dengan referensi atau brief user, dunia visual datang dari sana.
+
+| Family | Dunia | Aset | Kamera |
+|---|---|---|---|
+| **A. Kolase + karakter** | Ruang pixel/voxel hangat | Plate latar tanpa objek utama + model 3D low-poly objek utama + sprite pixel karakter (beberapa pose, tampak belakang terpisah) | Kamera 3D sungguhan, parallax/DoF nyata |
+| **B. Tipografi gelap** | Navy/hitam polos atau dua nada | Teks datar tajam, kedalaman dari susunan lapis dan kamera, kursor ketik | 2D CAM / kamera AE, zoom mikro, slam |
+| **C. Kanvas putih UI** | Putih/off-white | UI datar asli: avatar, kursor, kartu, konektor, tiap elemen bergerak independen | 2D CAM, reflow, reveal-out |
 
 Aturan family A:
 - Storyboard tidak pernah jadi background yang ditumpuk teks.
@@ -73,19 +75,9 @@ Perpindahan family adalah momen cerita, memakai transisi bab (§10) + engsel sen
 ---
 
 ## 13. Warna
-- Jadisatu:
-  - biru `#2563EB` (data/AI, aksen di terang)
-  - coral `#F97066` (kata kunci di gelap)
-  - navy `#0F172A` (latar gelap)
-  - off-white `#FBFAF7`, putih hangat `#FAF8EC`
-- **Hindari:** gradasi merah-cokelat atau latar maroon untuk adegan gelap. Latar gelap = hitam/navy dengan teks dan garis **putih saja**.
-- **Gagal kontras: teks atau elemen biru di atas latar gelap/navy** (contoh gagal: "Adele." biru `#2563EB` di navy `#0F172A`). Biru dan navy berbeda hue tipis tetapi kontras luminansinya rendah, jadi terlihat "nyala tapi tenggelam" dan murahan. Aturannya:
-  - Biru sebagai warna teks/aksen **hanya di latar putih/terang**.
-  - Di latar gelap, penekanan memakai putih penuh vs putih redup (opasitas), ketebalan, skala, atau KAPITAL, bukan warna. Huruf kedua hanya sebagai sistem beralasan (NEGATIF 1).
-  - Satu momen gelap butuh aksen warna? Pindahkan momennya ke latar putih, jangan memaksa warna di gelap.
-  - Cek otomatis: kontras luminansi teks vs latar ≥ 7 : 1 untuk kata kunci; biru `#2563EB` di `#0F172A` hanya ±3,6 : 1, jadi gagal.
+- Warna datang dari referensi/brief user atau profil merek (`palette.md` §1). Contoh profil merek Jadisatu: biru `#2563EB`, coral `#F97066`, navy `#0F172A`, off-white `#FBFAF7`, putih hangat `#FAF8EC`.
+- Kontras teks vs latar diukur, tidak ditebak (`palette.md` §5). Contoh gagal: "Adele." biru `#2563EB` di navy `#0F172A`, hanya ±3,6 : 1, terlihat "nyala tapi tenggelam". Di latar gelap pakai versi terang aksennya, atau tekan lewat opasitas, ketebalan, skala.
 - Satu aksen per momen. Warna adalah bab: pergantian lewat wipe berlapis, bukan cut warna polos.
-- Proyek lain membawa sistemnya (dasar netral + 1 kata aksen + warna data), bukan warnanya.
 
 ---
 

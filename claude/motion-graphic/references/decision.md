@@ -36,15 +36,7 @@ If a technique does not fit the story in one beat, swap in another technique of 
 
 ## 3. Choosing a visual family
 
-Choose per act, not per shot (details in `direction.md` §5):
-
-| Act content | Family |
-|---|---|
-| Problem, character, personal story | A. Collage + character |
-| Claim, question, turning point | B. Dark typography |
-| Solution, workflow, product, CTA | C. White UI canvas |
-
-Switching families is a story moment, so it always uses an act transition and a silent hinge (`audio.md` §14.4).
+The visual world comes from the user's reference or brief. Without one, `direction.md` §5 shows one example brand profile (Jadisatu, three families); it is not a mapping from act to family. Switching worlds mid-video is a story moment: use an act transition and a silent hinge (`audio.md` §14.4).
 
 ## 4. Choosing a technique per moment
 
