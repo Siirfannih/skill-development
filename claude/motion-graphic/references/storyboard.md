@@ -18,7 +18,7 @@ Baca di tahap Storyboard/block out. Storyboard adalah gerbang review termurah: s
 
 | Kondisi | Yang dilakukan |
 |---|---|
-| Irfan memberi storyboard atau panel contoh | Gambar ulang setia, tambah yang kurang (§6, `dunia-visual.md` §7A); tanpa menawarkan pilihan gaya |
+| Irfan memberi storyboard atau panel contoh | Gambar ulang setia, tambah yang kurang (§6, `dunia-visual.md` §7) |
 | Tidak ada storyboard (klip podcast, talking head, brief + video saja) | Agent membuat preview Storyboard/block out sendiri: still per beat di atas frame footage asli dari kode yang sama dengan video final (`render.sh still`) + klip draft untuk beat yang punya gerak kamera/transisi, dikirim langsung di percakapan. Produksi penuh dimulai setelah user menyetujui preview (`../templates/merek/README.md` §Tahap 2) |
 | Klip/talking head | Rencana edit: satu rencana dengan rekomendasi + alasan per beat, adegannya dipilih dari kartu cookbook dan `RESEP.md`, bukan dari gaya tetap; opsi alternatif (dengan contoh referensinya) hanya untuk beat yang benar-benar ragu, dan Irfan memilih hanya di situ; rencana masuk `handoff/PLAN.json`. Format `MENU.md`: `roles.md` |
 | Tidak ada video referensi | Gaya dari profil merek + tema (`dunia-visual.md`); mekanik per beat dari `scripts/cookbook/pilih_kartu.py --cari "<tugas beat>"` (hook, angka, langkah; bukan industri klien), 2-4 kartu untuk seluruh video; tulis di `beats.json → arah.sumber_gaya` mana yang dipakai dan kenapa |

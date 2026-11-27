@@ -22,3 +22,9 @@ Tidak diubah: `bahan.md`, `jelajah_gaya.py`, NEGATIF, skrip gerbang.
 ## Belum dibuktikan
 
 Belum ada storyboard yang dijalankan dengan aturan ini. Uji yang cocok: beri storyboard pemilik + naskah, lihat apakah model melanjutkan tanpa menawarkan gaya.
+
+## Revisi kedua (hari yang sama, atas koreksi pemilik)
+
+Versi pertama masih berbentuk aturan bercabang (A/B) dan melarang bertanya saat user sudah memberi arah. Pemilik: workflow ini bahan pertimbangan, bukan langkah wajib; bila arah user belum ada atau lemah, model boleh bertanya; wawancara adalah kekuatan utama; bank referensi repo pendukung untuk mencocokkan maunya user dan mengambil mekanik yang sudah jadi.
+
+§7 ditulis ulang sebagai lima pertimbangan (lebih pendek: `dunia-visual.md` 15.248 → 14.739 B). Judul §3 tidak lagi membatasi bertanya sekali. Tidak ada aturan baru yang ditambah.

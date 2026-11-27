@@ -14,7 +14,7 @@ Dibuka di langkah 3-5 alur `SKILL.md`: memilih tema bersama user, lalu menuntun 
    Niatnya: teknik referensi rusak di kondisi yang berlawanan (pil kaca di dinding terang, teks tipis di arsip bertekstur, KT menutup wajah); bila syaratnya tak terpenuhi, ganti tekniknya.
 2. **Pilih tema** (§2). Bila belum jelas dari bahan, tanya (§3).
 3. **Buka `tema/<tema>.md`** dan 2-3 keyframe wajib di dalamnya. Lihat gambarnya, jangan hanya membaca deskripsinya.
-4. **Arah gaya** (§7): milik user bila ada; eksplorasi hanya bila user tidak memberi arah.
+4. **Arah gaya** (§7): pahami maunya user; tanya bila arahnya lemah.
 5. **Storyboard per putaran kecil** (§7): still dengan materi asli, bukan teks dummy, berdampingan dengan keyframe pada 25 % (ukuran HP) dan 100 %; coret elemen yang tidak menambah pemahaman; perbaiki sampai tidak kalah rasa. Skor yang kamu tulis sendiri bukan bukti; perbandingan dengan gambar adalah bukti.
 6. **Audio disusun setelah visual lulus**, lalu menyesuaikan gerak final.
 7. **Build**: buka `preset-index.md` hanya di tahap ini.
@@ -50,7 +50,7 @@ Tidak ada teknik yang dikunci oleh namanya. Kata sifat ("premium") bukan izin un
 - pindah material (kertas → kaca neon) tanpa pergantian babak;
 - sistem teks berganti saat tema berganti.
 
-## 3. Bertanya (maksimal 3 pertanyaan, sekali, di awal)
+## 3. Bertanya (default 3 pertanyaan berpilihan di awal; tanya lagi bila arah masih lemah)
 
 - Jangan bertanya kata sifat ("mau modern atau elegan?"). Setiap pertanyaan berisi pilihan konkret dan satu **(Rekomendasi)** yang diturunkan dari naskah.
 - Tanpa referensi visual: tunjukkan 2–3 keyframe tema kandidat, supaya user memilih dengan mata.
@@ -120,24 +120,17 @@ Batas per frame:
 | Teknik kartu vs kondisi footage user | Kondisi footage menang; ganti teknik (§1.1) |
 | Video produksi internal lama sebagai contoh | Hanya boleh sebagai contoh salah; pembanding positif hanya keyframe eksternal |
 
-## 7. Arah gaya: milik user dulu
+## 7. Arah gaya: pahami maunya user dulu
 
-Bank referensi repo ini (keyframe tema, kartu) melatih penilaianmu: mana yang rapi, mana yang slop. Ia bukan menu untuk user dan tidak pernah menggantikan arah yang user beri.
+Ini pertimbangan, bukan urutan wajib; sesuaikan dengan kondisi. Tujuannya satu: kamu punya gambaran visual yang jelas tentang yang user mau sebelum menggambar banyak panel.
 
-**A. User sudah memberi arah** (storyboard, panel, video/gambar referensi, atau deskripsi gaya): itulah arahnya. Jangan membuat pilihan gaya dan jangan meminta user memilih.
-1. Ada storyboard user: gambar ulang panelnya setia pada gaya, urutan, dan isinya, lalu tambahkan hanya yang kurang (beat tanpa panel, detail yang perlu agar bisa dianimasikan) dengan gaya yang sama.
-2. Patokan `banding.py` dan lembar banding adalah bahan user, bukan keyframe repo.
-3. `bahan.md` dipakai sebagai teknik untuk mencapai rupa user, bukan untuk menggantinya.
-4. Tidak setuju dengan sebuah pilihan user: satu kalimat risiko, kerjakan, catat di `DECISIONS.md`.
+- **Sumber arah, dari yang paling kuat**: storyboard, panel, atau referensi user; lalu jawaban user saat ditanya; lalu merek dan naskah. Bank referensi repo (keyframe tema, kartu) hanya pendukung: dipakai untuk mencocokkan ("dari jawabanmu, ini mirip video X; yang bagus di sana bagian ini, maksudmu begini?") dan untuk mengambil mekanik yang sudah jadi supaya kode tidak dibangun dari nol. Ia tidak pernah menggantikan arah user.
+- **Arah user sudah jelas**: kerjakan. Storyboard user digambar ulang dengan setia, lalu dilengkapi yang kurang, dengan gaya yang sama. Tidak perlu menawarkan pilihan gaya.
+- **Arah belum ada atau masih lemah**: tanya. Wawancara singkat (§3) adalah alat utamanya; tunjukkan gambar, bukan kata sifat. Bila gambar lebih cepat dari kata, render satu beat dalam 2-3 arah yang berbeda bahan (`bahan.md`, `scripts/jelajah_gaya.py`) sebagai bahan bicara.
+- **User tidak bisa ditanya**: pilih dengan alasan, catat di `DECISIONS.md`, lanjut.
+- **Storyboard dalam putaran kecil** (±6 panel), dilihat sebelum lanjut; tata letak tiap beat dirancang sendiri. Model bekerja lebih baik pada sedikit tugas daripada tugas massal.
 
-**B. User tidak memberi arah visual, atau meminta opsi**: jelajahi SATU beat kunci sebelum panel pertama, supaya tidak jatuh ke bahan bawaan (kartu putih di latar pucat).
-1. Render beat itu dalam 2-3 arah yang berbeda bahan (`bahan.md`), bukan tiga warna dari satu gaya. Isi beat tetap; yang berubah cahaya, permukaan, kedalaman, crop. Bangun per lapis (`scripts/lihat.py <frame.html> --lapis 0` dst.).
-2. Jajarkan: `python3 scripts/jelajah_gaya.py --arah A=a.png --arah B=b.png --keluar qc/jelajah` (`--patokan` hanya untuk bahan milik user). Dua arah yang sama di thumbnail baru satu arah.
-3. Tawarkan sekali, dengan rekomendasimu. Ini tawaran, bukan gerbang: tanpa jawaban, pakai rekomendasi, catat di `DECISIONS.md`, lanjut.
-
-**Selalu: storyboard per putaran kecil.** Satu babak atau ±6 panel, dirender dan dilihat sebelum putaran berikutnya. Komponen dipakai ulang untuk benda (karakter, token); tata letak tiap beat dirancang sendiri, bukan satu generator untuk semua panel.
-
-Arah lulus bila `scripts/gate/negatif_cek.py` dan `tabrakan_cek.py` hijau, `banding.py <frame> <ref user>` dalam toleransi REF-SPEC (bila ada referensi), dan 5 uji biner (§8) lolos.
+Yang tetap diperiksa pada hasilnya: `scripts/gate/negatif_cek.py`, `tabrakan_cek.py`, 5 uji biner (§8); `banding.py` terhadap referensi user bila ada.
 
 **UI_PROOF tanpa referensi** (NEGATIF 5): bagian UI yang berubah memenuhi frame (kamera masuk panel, ≥ ~60 % tinggi, tepi boleh bleed), bukan jendela kecil di kanvas kosong; jendela utuh hanya establishing, maks sekali per babak; teks UI terbaca di lebar 360 px. Dengan referensi, ikuti REF-SPEC §3.
 
