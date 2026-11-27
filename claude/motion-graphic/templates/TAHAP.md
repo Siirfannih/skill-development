@@ -15,7 +15,7 @@ Disalin ke `projects/<proyek>/TAHAP.md` di awal video. Nama tahap = judul `## Ta
 - [ ] Preview dikirim di percakapan: still per beat di atas footage asli + klip draft untuk gerak kamera/transisi · baca: `references/storyboard.md` §1, `templates/merek/README.md` §Tahap 2 · bukti: path still/klip yang dikirim →
 - [ ] Masukan user atas preview dicatat dan disetujui · baca: `references/revision-log.md` §21.1 · bukti: ID baris `DECISIONS.md` →
 - [ ] Lembar kondisi footage per jenis shot; tiap teknik kartu dicocokkan dengan syaratnya dan penyesuaiannya ditulis di `RESEP.md` · baca: `cookbook/README.md` §6 butir 1, bagian "Kondisi footage asli" + blok teknik kartu yang dipakai · bukti: `qc/kondisi/KONDISI.md` →
-- [ ] Spine gaya dikunci: satu still per peran teks di atas footage asli, dinilai berdampingan dengan frame kunci · baca: `cookbook/README.md` §6 butir 2, `references/typography.md` §8a · bukti: `qc/spine/SPINE.md` →
+- [ ] Spine gaya dikunci: satu still per peran teks di atas footage asli, dinilai berdampingan dengan frame kunci · baca: `cookbook/README.md` §6 butir 2, `references/teks.md` (bagian Gerak teks per peran) · bukti: `qc/spine/SPINE.md` →
 
 ## Tahap 4 · Animate
 - [ ] Sistem desain video: `tema.ts` (token berkategori) ditulis lebih dulu, lalu komponen bersama dari token itu (satu model boleh mengerjakan keduanya; pekerja lain bila ada), papan acuan disetujui · baca: `templates/sistem-desain/README.md`, `references/orkestrasi.md` §2 · bukti: `tema_cek.py` LULUS + path papan acuan →

@@ -40,7 +40,7 @@ The visual world comes from the user's reference or brief. Without one, `directi
 
 ## 4. Choosing a technique per moment
 
-Determine the text's **role** first, then its technique. The same role always moves the same way across the video (`typography.md` §8):
+Determine the text's **role** first, then its technique. The same role always moves the same way across the video (`teks.md` §Gerak teks per peran):
 
 | Role | Technique |
 |---|---|

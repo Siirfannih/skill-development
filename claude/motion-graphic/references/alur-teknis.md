@@ -58,7 +58,7 @@ Tahap dikelompokkan jadi lima fase. Satu model mengerjakannya berurutan di satu 
 | Brief | Bedah referensi | `bedah-referensi.md`, `analysis-qa.md` §2 | Empat bagian: dengar audio, frame visual, frame gerak, transkrip (`scripts/ref_spec.py` + mata). Satu tidak terlaksana = analisis belum dilakukan; katakan begitu, jangan menyimpulkan |
 | Naskah | Script | `copywriting.md` | User menyatakan final; disimpan sebagai file (klip: daftar potongan + timestamp sumber) |
 | Storyboard/block out | Storyboard visual 100 % | `storyboard.md`, `direction.md`, `decision-guide.md`, `pacing-map.md` | Papan panel (frame + caption) di `projects/<proyek>/storyboard/`, `beats.json → metafora` terisi per beat (Lantai D19a/D19b), `scripts/storyboard/board.py` PASS, review papan + tabel kritik lolos, pindai `slop-catalog.md`; user menyatakan final. Tanpa storyboard dari user (klip): agent membuatnya sendiri dan lanjut, papan dikirim bersama hasil. Klip/talking head: rencana edit satu per beat dengan rekomendasi, opsi hanya untuk beat yang ragu (`MENU.md`, `roles.md`) |
-| Storyboard/block out | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `typography.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
+| Storyboard/block out | TYPE-TEST + TRANSITION-SHEET | `storyboard.md` §6, `teks.md`, `camera-transition.md` | Still berdampingan dengan referensi setara |
 | Storyboard/block out | Suara dikunci | `audio.md` §14.0C, §14.0D | VO (setelah script final) atau audio sumber klip utuh, dipotong bersih dari kata sampah dan diam saat berpikir. `recut.py` wajib memakai `--source-words`; batas cut = frame eksak, energi rendah, guard 50 ms dari kata isi. Kunci dengan `audio_order.py lock suara … --words <ASR aktual> --source-words <take sumber> --voice-source <stem sumber> --cut-map <map.json>`; ini menjalankan `cut_check.py` + `pause_clean.py` dan menolak urutan/durasi kata yang berubah. Mode `musik`: musik dipilih dan dikunci lebih dulu, visual dipotong di ketukannya |
 | Animate | Validasi satu adegan | `build.md` | Satu adegan bergerak lolos sebelum diterapkan ke semua; `scripts/remotion/curves.ts` disalin ke `src/lib/`, `juri/motion_lint.py` PASS (Lantai B13a) |
 | Animate → Effects & grade | Build semua adegan → visual dikunci | `build.md` | Komponen sama untuk semua adegan; render tanpa audio, `audio_order.py lock visual`; sebelum `lock visual`, tiap efek berfungsi (Lantai C18b) dan grade terukur (`grade.md`, `scripts/gate/grade_ukur.py`) |
@@ -85,7 +85,7 @@ motion-graphic/
 │   ├── slop-catalog.md      tanda yang pernah user tolak + cara mengeceknya
 │   ├── delivery-gate.md     preview-dulu + laporan PASS/FAIL berbukti sebelum kirim
 │   ├── direction.md · storyboard.md · copywriting.md · decision.md · decision-guide.md
-│   ├── typography.md · camera-transition.md · motion-mechanics.md · smooth-motion.md · pacing-map.md
+│   ├── camera-transition.md · motion-mechanics.md · smooth-motion.md · pacing-map.md
 │   ├── audio.md · build.md · analysis-qa.md · revision-log.md · palette.md (+ palettes.json)
 │   └── hybrid-motion-standard.md · three-segment-gate.md
 ├── templates/storyboard/    contoh beats.json + tokens.css + panel (mulai dari salinan ini)
@@ -133,7 +133,7 @@ Sumber kebenaran: repo `Siirfannih/skill-development` (`claude/motion-graphic/`)
 | Script, teks layar | `copywriting.md` |
 | Tokoh, metafora, family, palet | `direction.md`, `palette.md` |
 | Storyboard, spec beat, mode teks per beat | `storyboard.md`, `decision-guide.md`, `pacing-map.md` |
-| Gaya teks, easing, animasi teks | `typography.md`, `smooth-motion.md` |
+| Gaya teks, easing, animasi teks | `teks.md`, `smooth-motion.md` |
 | Kamera, transisi, cutout | `camera-transition.md`, `motion-mechanics.md` |
 | VO, SFX, musik, QA audio | `audio.md` (mulai §14.0A kategori suasana) + gerbang DENGAR `three-segment-gate.md` |
 | Build (Remotion + rakit lego; ikuti juga skill `remotion-best-practices` dan `scripts/juri/render.sh`) | `build.md` |

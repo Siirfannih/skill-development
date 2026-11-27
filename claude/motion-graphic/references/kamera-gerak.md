@@ -19,3 +19,17 @@ Opened when designing camera movement and transitions (steps 5-6 of the `SKILL.m
 
 ## Recurring formats (B13b)
 Formats that appear repeatedly vary their framing on each appearance (second chart onward: camera tracks a point, close-up, different position, reveal-out). Reason: repeating identical framing reads like a template.
+
+## Easing, springs, timing
+| Character | Influence out (first key) | Influence in (last key) | When |
+|---|---|---|---|
+| Snappy out (most common) | 10–15 % | 85–95 % | text entering, camera landing, panels |
+| Smooth in-out | 50–66 % | 50–66 % | drift, gradients |
+| Accelerate | 70–85 % | 5–10 % | exit, zoom-through, falling |
+| Overshoot | snappy + inertia | | icon/pill pop |
+
+- Web/engine equivalents: enter `cubic-bezier(0.16,1,0.3,1)`, exit `cubic-bezier(0.7,0,0.84,0)`.
+- Closed-form springs (response, damping ratio), pure functions of time: snappy 0.22/0.8 (pills, buttons), default 0.4/0.86 (cards, panels, camera), heavy 0.5/1.0 without overshoot (large text, logo), playful 0.5/0.45 (mascot only).
+- Overshoot ≤ 1.05 on UI; none on large text. Settle over 6–10 f, never a dead stop.
+- One motion register per video (technical, editorial, expressive, calm; "premium" = wide empty space, one focus, firm weight+size hierarchy, few colours, calm camera); within it, curves are chosen per move. No linear except drift/loop rotation.
+- Rhythm: one new event every 12–24 f; something new every 2–4 s. The visual peak leads the beat so it reads on the beat: sound stays on the grid, and the motion apex, not the scene start, hits the beat.

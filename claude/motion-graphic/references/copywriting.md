@@ -51,7 +51,7 @@ On-screen text is derived from the script, not newly written copy. Reason: unspo
 - Sentence case for narration. ALL CAPS only for one-to-two-word verdict words (slam) and mono labels.
 - One accent word per phrase, only on the word carrying meaning or benefit. Never automatically on the first word.
 - One punctuation habit per project.
-- No static subtitles: the kinetic text is the caption. Text size, colour, and motion live in `typography.md`.
+- No static subtitles: the kinetic text is the caption. Text size, colour, and motion live in `teks.md`.
 
 ## 5b. Extra filter
 

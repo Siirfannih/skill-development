@@ -28,7 +28,7 @@ Used to **scan**, not to ban techniques: fingerprints are written as appearance 
 | S-T10 | Words scattered without a clear reading order (jumping back up/left) | still per phrase: one-way word order | Lantai A8 |
 | S-T11 | Quote ≥ 5 words, 3 lines centre-aligned over speaker's face | still; long quotes → blank canvas, left-aligned | Lantai C14, Lantai A8 |
 | S-T12 | Text disappears before it has been fully read/spoken | duration of each phrase ≥ max(0.8; 0.30 + 0.06 × letters) | Lantai A8 |
-| S-T13 | Single kinetic typography style throughout video: same font, size, position, and entrance animation for every word | kinetic word list + T code per word; thresholds (techniques per 15 s, consecutive identical techniques) = `kt_check.py` and `teks.md` §Kotak dan gerak teks, position follows object | `typography.md` §8 |
+| S-T13 | Single kinetic typography style throughout video: same font, size, position, and entrance animation for every word | kinetic word list + T code per word; thresholds (techniques per 15 s, consecutive identical techniques) = `kt_check.py` and `teks.md` §Gerak teks per peran, position follows object | `teks.md` §Gerak teks per peran |
 | S-T2 | Text repeats what is already obvious in the visual ("GRAY" over a grey phone) | squint test, devil's advocate | `decision-guide.md` §1 |
 | S-T3 | Random mixed sizes within one line; serif set inline with bold | still per phrase | Lantai A6 |
 | S-T4 | Box behind text that is already legible | contrast ≥ 4.5 : 1 without box | Lantai A9 |

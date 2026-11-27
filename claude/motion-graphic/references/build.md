@@ -35,7 +35,7 @@ Baca saat mulai build.
 
 **Rakit lego (jalur utama video berfootage, Lantai F26).** Render Remotion penuh menggambar ulang semua lapisan di setiap frame (decode footage di Chrome, blur, glow) dan diulang tiap revisi; itulah yang membuat render di PC lama. Pecah jadi lapisan:
 1. **Dasar** (footage, b-roll, kamera footage push/pull): tidak dirender di Remotion; `compose.py` memotong, mengisi frame, dan menggerakkan kamera dengan ffmpeg (dihitung 2× lalu diperkecil supaya zoom pelan tidak bergetar).
-2. **Teks/KT**: `scripts/lego/teks_plan.py words.json teks.json` menghitung waktu dan durasi dari transkrip; model mengisi peran/kode/gaya/pos/alasan (`typography.md` §8a), `kt_check.py` PASS. Setiap blok dirender sebagai komposisi transparan seukuran kotaknya (`TeksBlok` dengan props isi + gaya; waktu dan posisi tidak masuk props).
+2. **Teks/KT**: `scripts/lego/teks_plan.py words.json teks.json` menghitung waktu dan durasi dari transkrip; model mengisi peran/kode/gaya/pos/alasan (`teks.md` §Gerak teks per peran), `kt_check.py` PASS. Setiap blok dirender sebagai komposisi transparan seukuran kotaknya (`TeksBlok` dengan props isi + gaya; waktu dan posisi tidak masuk props).
 3. **Visual/MG** per beat: komposisi transparan seukuran objeknya. Lapisan yang ikut gerak kamera 2.5D atau berubah skala dirender dengan gerak itu di dalamnya (frame penuh ber-alpha).
 4. `scripts/lego/lapisan.py <proyek> lapisan.json` merender lapisan yang berubah saja (cache sha1 isi+gaya) ke ProRes 4444 ber-alpha.
 5. `lego/lego.json` menyusun dasar + lapisan (t, x, y, gerak x/y) + mix audio; `compose.py lego.json --rentang a b` untuk QC cepat dan audit frame, lalu `render.sh <proyek> lego lego/lego.json` sekali di akhir (gerbang sama dengan `final`).

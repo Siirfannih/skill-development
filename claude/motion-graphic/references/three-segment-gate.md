@@ -11,7 +11,7 @@ Claude tidak melihat video saat menulis kode. Karena itu kode harus ditulis sepe
   - Kamera patah ke wide berarti whoosh.
 - **Koordinat, warna dan kontras ditetapkan di kode:**
   - Teks memakai komponen bersama (`AnchorWord`, `SpeakerLine`) yang menjepit ke safe zone (`lib/safe.ts`).
-  - Warna teks dipilih terhadap latar. Tidak hanya hitam dan putih: warna aksen boleh selama kontrasnya ≥ 3:1.
+  - Warna teks dipilih terhadap latar. Tidak hanya hitam dan putih: warna aksen boleh selama kontrasnya ≥ 4,5 : 1 (`teks.md`).
 - **Lolos jika:**
   - Kode rapi dan mudah dikenali.
   - Tiap objek bernama dan terikat ke SFX/BGM-nya.
@@ -96,7 +96,7 @@ Urutan wewenang: **User → Claude utama (planner/QC) → worker.** Saran worker
   - Saat ada penekanan (AnchorWord/SpeakerLine), subtitle diganti oleh penekanan. Penekanan tampil lebih dulu, dan katanya tidak diulang di subtitle.
   - Subtitle bawah yang hanya berganti tidak berbunyi. Tick per kata KT adalah keputusan proyek (`kt_tick`); tanpa keputusan, klik hanya untuk kata penekanan/kinetic.
 - **Yang diukur:** setiap beat punya mode dan alasan di tabel beat, dan beat TEKS tidak kehilangan teksnya (`teks_plan.py --beats`, `kt_check.py --beats`). Cakupan kata VO bukan ukuran: beat VISUAL memang tanpa teks.
-- **Variasi masuk teks mengikuti peran** (`typography.md` §8a). Fade/pop yang selalu sama membuat penonton bosan. Pakai `enter` = `type` (huruf per huruf + caret), `mask`, `letters`, `blur`; `scale` hanya untuk angka/hero. Teknik yang sama berturut-turut butuh alasan.
+- **Variasi masuk teks mengikuti peran** (`teks.md` §Gerak teks per peran). Fade/pop yang selalu sama membuat penonton bosan. Pakai `enter` = `type` (huruf per huruf + caret), `mask`, `letters`, `blur`; `scale` hanya untuk angka/hero. Teknik yang sama berturut-turut butuh alasan.
 - **SFX family:** satu file SFX sering berisi beberapa varian. Potong per varian (`ears/family.py`), dengarkan tiap varian, dan pakai yang paling cocok, bukan seluruh file. Peran yang user tandai "acak" (mis. Kinetictypography) dirotasi di antara variannya.
 - **Setiap objek/visual punya bunyinya.** Contoh kasus v10: ketikan tanpa bunyi ketik. Ketikan memancarkan `type:start|end` → potongan Keyboardtyping sepanjang ketikan + Enter.
 

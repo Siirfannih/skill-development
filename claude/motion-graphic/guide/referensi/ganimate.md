@@ -157,7 +157,7 @@ Objek isometrik: SVG (bisa dianimasikan per bagian, sesuai aturan vektormu), dil
 ## 11. Benturan dengan aturan tetap Irfan + rekomendasi
 | Referensi melakukan | Aturanmu / motion-graphic | Opsi |
 |---|---|---|
-| Kotak kuning di belakang kata ("Source") — highlight blok | `references/typography.md`: kotak/stabilo hanya bila menyelesaikan keterbacaan | **A (disarankan):** pindahkan aksen ke **isi huruf** (kata hero berwarna, tanpa blok) atau garis bawah tipis yang tumbuh. B: izinkan blok sebagai pengecualian khusus mode C editorial — perlu persetujuanmu dan dicatat di RETRO. |
+| Kotak kuning di belakang kata ("Source") — highlight blok | `references/teks.md`: kotak/stabilo hanya bila menyelesaikan keterbacaan | **A (disarankan):** pindahkan aksen ke **isi huruf** (kata hero berwarna, tanpa blok) atau garis bawah tipis yang tumbuh. B: izinkan blok sebagai pengecualian khusus mode C editorial — perlu persetujuanmu dan dicatat di RETRO. |
 | Label tag kotak teal di belakang teks | sama (blok di belakang kata) | Tag adalah **label objek diegetik** (callout), bukan highlight kalimat → layak dipakai; jaga tetap kecil dan menempel objek. |
 | Teks putih kecil mengapit objek di footage arsip | Teks tengah dulu, lalu visual; teks tidak di atas visual | "Everything [TV] around you" sudah kiri-kanan objek ✔. Pastikan ukuran ≥ 3,5 % untuk uji HP. |
 | Teal di latar navy | Jangan biru di latar gelap | Teal `#0099AB` vs navy = 5,85 : 1 (aman sebagai blok), tapi **teks putih di atas teal hanya 3,42 : 1** — kurang untuk teks kecil. **A (disarankan):** gelapkan tag ke `#007C8A` (putih ≈ 4,9 : 1) atau naikkan teks tag ke ≥ 3,5 % tinggi. Tetap jangan pakai teks teal di navy. |

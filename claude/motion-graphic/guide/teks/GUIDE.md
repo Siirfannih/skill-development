@@ -169,4 +169,4 @@ Cari kelompok yang cocok dengan situasimu, baca butirnya utuh. Kondisinya harus 
 Font, warna aksen kata, posisi, animasi masuk (pop, mask, blur, ketik), kapan pakai penekanan besar. Variasi masuk dianjurkan; teknik sama maks 2× berturut.
 
 ## Detail lanjut
-`../../references/typography.md` · `decision-guide.md` §1–§3 · `smooth-motion.md`
+`../../references/teks.md` · `decision-guide.md` §1–§3 · `smooth-motion.md`

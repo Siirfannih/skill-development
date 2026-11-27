@@ -76,7 +76,7 @@ Empat aturan dari [andrej-karpathy-skills](https://github.com/multica-ai/andrej-
 - [ ] **Berbasis tujuan**: setiap poin revisi punya kriteria terukur dan bukti angka di laporan. Contoh:
   - cakupan SFX ≥ 85 %;
   - tidak ada jendela 100 ms < −45 dBFS di perpindahan pembicara;
-  - teks kalimat ≥ 48 px @1080;
+  - teks kalimat ≥ 56 px @1080 (`teks.md`);
   - teks diam ≥ 0,8 dtk saat dibaca.
 
 

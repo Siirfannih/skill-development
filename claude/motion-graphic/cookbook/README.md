@@ -76,7 +76,7 @@ Bentuk visual yang tidak dijawab brief (tampilan Instagram, chat, dashboard, pet
 ## 6. Sebelum build (video berfootage)
 
 1. **Lembar kondisi footage.** Untuk tiap jenis shot, siapkan satu still asli + catatan rasio, skala subjek, terang-gelap, pakaian, ruang kosong, dan kamera diam/bergerak. Simpan di `projects/<proyek>/qc/kondisi/KONDISI.md`. Tiap pola yang dipilih dicocokkan dengan "Kenapa bekerja" dan "Pakai bila"-nya. Bila kondisinya beda, penyesuaian ditulis di `RESEP.md`.
-2. **Lembar spine gaya.** Satu still per peran teks (`../references/typography.md` §8a) di atas footage tersulit, ditambah satu still per pola pinjaman. Lembar ini dikunci di `qc/spine/SPINE.md` sebelum pekerja paralel mulai.
+2. **Lembar spine gaya.** Satu still per peran teks (`../references/teks.md` §Gerak teks per peran) di atas footage tersulit, ditambah satu still per pola pinjaman. Lembar ini dikunci di `qc/spine/SPINE.md` sebelum pekerja paralel mulai.
 3. Build. Render hanya lewat `../scripts/juri/render.sh` (still → draft → final).
 4. Juri sebelum kirim (di bawah).
 

@@ -15,7 +15,7 @@ Pemetaan mengikuti desain Fase 1 (laporan audit struktur skill, bagian "Nasib 46
 | A7 | `SKILL.md` (NEGATIF 1); non-huruf di `references/teks.md` | `scripts/gate/permukaan_cek.py` (inventaris huruf, NEGATIF v2) |
 | A8 | `references/teks.md` | `scripts/lego/kt_check.py` |
 | A9 | `references/teks.md` | `scripts/lego/kt_check.py` |
-| A9a | `references/teks.md` + `references/typography.md` §8a | `scripts/lego/kt_check.py` |
+| A9a | `references/teks.md` §Gerak teks per peran | `scripts/lego/kt_check.py` |
 | B10 | `references/kamera-gerak.md`; prinsip di `SKILL.md` (NEGATIF 10) | `scripts/juri/motion_lint.py` |
 | B11 | `references/kamera-gerak.md`; prinsip di `SKILL.md` (NEGATIF 10) | `scripts/juri/motion_lint.py` |
 | B12 | `references/kamera-gerak.md`; prinsip di `SKILL.md` (NEGATIF 10) | `scripts/juri/motion_lint.py` |
