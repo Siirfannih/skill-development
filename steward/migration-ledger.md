@@ -22,3 +22,5 @@ Repo state, not an instruction file: translation status of each instruction file
 | `claude/brief-gate/SKILL.md` | en | 06720409 | dependants: none (verified) |
 | `claude/video-reference-deconstructor/SKILL.md` | en | 0f156c2b | dependants: none (verified) |
 
+
+Not in the table: `claude/motion-graphic/templates/roles/konsul.md` was translated in batch 01 (c1232215, b218bbe4) and then archived with the Codex lane (5167b473, now `archive/riwayat/claude/motion-graphic/templates/roles/konsul.md`); archived files get no row. Instruction files not listed are still Indonesian (`id`) and get a row when their translation starts.
