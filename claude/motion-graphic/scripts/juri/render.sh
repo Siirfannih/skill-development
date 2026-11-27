@@ -9,7 +9,8 @@
 #                                                                        (scripts/lego/; jalur utama untuk video berfootage)
 #
 # <proyek> berisi RESEP.md dan folder remotion/ (src/index.ts). Bundle dibuat sekali dan dipakai ulang sampai src berubah.
-# Gerbang `final` (semua harus benar):
+# Gerbang `final` (temuan dicetak sebagai informasi dan render lanjut; KETAT=1 menolak bila ada yang gagal. Keluar keras hanya bila render mustahil:
+#   src, Python audio, atau folder audio tidak ada):
 #   0. audio/ORDER.json lulus audio_order.py check; bukti potongan sumber, jeda, palet SFX, dan urutan lapisan diuji ulang
 #   1. RESEP.md lulus resep_check.py
 #   2. SEMUA still di qc/stills/ lebih baru daripada perubahan terakhir di remotion/src (still paling lama yang dinilai)
@@ -71,17 +72,17 @@ trap 'mati 2' INT; trap 'mati 15' TERM
 # Proses milik render PROYEK INI saja: baris perintahnya memuat Chrome/compositor di $R/node_modules atau direktori temp job.
 # Tidak pernah pencocokan nama global, jadi Chrome proyek lain dan sesi pemilik tidak tersentuh.
 proses_proyek() { ps -eo pid=,args= 2>/dev/null | awk -v a="$R/node_modules/.remotion/" -v c="$R/node_modules/@remotion/compositor" -v b="${JOBTMP:-}" -v me="$$" \
-  '$1!=me && $2!="awk" && (index($0,a) || index($0,c) || (b!="" && index($0,b))) {print $1}'; }
+  '$1!=me && $2!="awk" && (index($0,a) || index($0,c) || (b!="" && index($0,b))) {print $1}' || true; }
 # Sapu: TERM, 2 dtk, lalu KILL, hanya untuk proses di atas. Dipanggil sesudah render gagal (mis. node di-SIGKILL/OOM, Chrome yatim ke PID 1).
 sapu() { local p; p=$(proses_proyek | tr '\n' ' '); [ -n "${p// /}" ] || return 0
   kill -TERM $p 2>/dev/null || true; sleep 2; p=$(proses_proyek | tr '\n' ' '); [ -z "${p// /}" ] || kill -KILL $p 2>/dev/null || true; }
 # Penjaga: hidup selama satu anak render jalan. Bila render.sh mati keras (tanpa trap), ia mematikan grup anak bila setpriv tidak ada,
 # menunggu grup selesai (lalu KILL), menyapu Chrome proyek, dan menghapus temp job. Memegang kunci proyek (fd 8) sampai selesai.
-hidup() { local st; st=$(ps -o stat= -p "$1" 2>/dev/null) || return 1; [ -n "$st" ] && [ "${st#Z}" = "$st" ]; }
+hidup() { kill -0 "$1" 2>/dev/null || return 1; local st; st=$(sed -n 's/^State:[[:space:]]*\(.\).*/\1/p' "/proc/$1/status" 2>/dev/null); [ "$st" != Z ]; }
 guarda() { local rpid="$1" g="$2" pd="$3" i
-  while hidup "$rpid"; do sleep 1; done
+  while hidup "$rpid"; do sleep 1 8>&- 9>&-; done
   [ "$pd" != 0 ] || kill -TERM -- "-$g" 2>/dev/null || true
-  for i in $(seq 1 $(( KILL_SETELAH + 5 ))); do kill -0 -- "-$g" 2>/dev/null || break; sleep 1; done
+  for i in $(seq 1 $(( KILL_SETELAH + 5 ))); do kill -0 -- "-$g" 2>/dev/null || break; sleep 1 8>&- 9>&-; done
   kill -KILL -- "-$g" 2>/dev/null || true; sapu; [ -z "$JOBTMP" ] || rm -rf "$JOBTMP"; }
 # Perintah berat jalan di sesi/grup sendiri dengan batas waktu: jalankan <maks_dtk> <label> <perintah …>. Habis waktu: grup mati, keluar 124.
 jalankan() { local maks="$1" label="$2" rc=0 t; t=$(date +%s); shift 2
@@ -178,7 +179,7 @@ case "$MODE" in
     fi
     if [ -f "$QC/cakupan-revisi.json" ] && [ -f "$P/lego/lego.json" ]; then
       # Revisi atas versi yang disetujui: lapisan di luar cakupan ledger tidak boleh berubah (Lantai F27, revision-log §21.2).
-      python3 "$HERE/revisi_cek.py" cek "$P" || { echo "GAGAL gerbang revisi: lihat daftar lapisan di atas."; exit 1; }
+      python3 "$HERE/revisi_cek.py" cek "$P" || { echo "GAGAL gerbang revisi: lihat daftar lapisan di atas."; gagal=1; }
     fi
     AUDIO_DIR="$P/audio"
     if [ -n "${VARIAN:-}" ]; then
@@ -189,14 +190,15 @@ case "$MODE" in
       if [ "${#ord[@]}" -eq 1 ] && [ -f "${ord[0]}" ]; then AUDIO_DIR="$(dirname "${ord[0]}")"
       elif [ "${#ord[@]}" -gt 1 ]; then echo "GAGAL gerbang audio: beberapa varian terkunci (audio/order-*); pilih dengan VARIAN=<A|B>."; exit 1; fi
     fi
+    [ -d "$AUDIO_DIR" ] || { echo "GAGAL gerbang audio: folder $AUDIO_DIR tidak ada (render tidak bisa memeriksa audio)."; exit 1; }
     echo "gerbang audio: $AUDIO_DIR"
     if ! "$PYTHON_BIN" "$HERE/../gate/audio_order.py" check --dir "$AUDIO_DIR" $WARIS; then
-      echo "GAGAL gerbang audio: kunci suara dengan bukti source words + cut map, lalu visual, SFX, dan musik sebelum render final."
-      exit 1
+      echo "GAGAL gerbang audio: urutan audio belum terkunci dengan bukti source words + cut map (lihat baris di atas)."
+      gagal=1
     fi
     python3 "$HERE/resep_check.py" "$P/RESEP.md" || gagal=1
     if [ -f "$P/qc/merek" ]; then python3 "$HERE/profil_cek.py" "$(tr -d '[:space:]' < "$P/qc/merek")" || { echo "GAGAL gerbang: profil merek (BRAND.md/EDITING.md) belum lulus profil_cek.py."; gagal=1; }; fi
-    TEMA="$(ls -d "$R"/src/*/bersama/tema.ts 2>/dev/null | head -1)"; if [ -n "$TEMA" ] && grep -q "export const MEREK" "$TEMA"; then python3 "$HERE/tema_cek.py" "$(dirname "$(dirname "$TEMA")")" || { echo "GAGAL gerbang: gaya adegan di luar tema.ts (templates/sistem-desain)."; gagal=1; }; fi
+    TEMA="$(ls -d "$R"/src/*/bersama/tema.ts 2>/dev/null | head -1 || true)"; if [ -n "$TEMA" ] && grep -q "export const MEREK" "$TEMA"; then python3 "$HERE/tema_cek.py" "$(dirname "$(dirname "$TEMA")")" || { echo "GAGAL gerbang: gaya adegan di luar tema.ts (templates/sistem-desain)."; gagal=1; }; fi
     if [ -f "$P/lego/lego.json" ] && [ -f "$P/lego/lapisan.json" ]; then python3 "$HERE/kt_ocr.py" "$P/lego" --terima "$QC/kt_ocr_terima.json" --simpan "$QC/kt_ocr" || { echo "GAGAL gerbang: kata KT belum utuh/terbaca 4 f setelah onsetnya (kt_ocr.py; OCR salah baca → qc/kt_ocr_terima.json dengan frame yang dicek)."; gagal=1; }; fi
     if [ -f "$P/TAHAP.md" ]; then python3 "$HERE/tahap.py" "$P" cek final || { echo "GAGAL gerbang: langkah tahap sebelum Deliver belum selesai berbukti (TAHAP.md); jalankan tahap.py untuk langkah berikutnya."; gagal=1; }; fi
     bash "$HERE/gerbang_produksi.sh" "$P" "$AUDIO_DIR" "$PYTHON_BIN" || { echo "GAGAL gerbang produksi: komposisi episode, potong SFX, atau mix speaker HP (lihat baris di atas)."; gagal=1; }
