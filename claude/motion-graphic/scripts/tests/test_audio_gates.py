@@ -715,6 +715,22 @@ class Rules16NovTests(unittest.TestCase):
         mix[3]["kode"] = "T01"
         self.assertTrue(any("peran R1" in f for f in kt_check.check(mix)))
 
+    def test_kt_check_cli_selera_catatan_fakta_gagal(self):
+        import sys
+        script = str(ROOT / "scripts/lego/kt_check.py")
+        fade = [{"id": f"T{i}", "teks": "x", "t": i * 1.0, "dur": 0.9, "peran": "R1", "kode": "FADE", "alasan": "a", "pos": [540, 960]} for i in range(8)]
+        with tempfile.TemporaryDirectory() as folder:
+            p = Path(folder) / "teks.json"; p.write_text(json.dumps(fade))
+            r = subprocess.run([sys.executable, script, str(p)], capture_output=True, text=True)
+            self.assertEqual(r.returncode, 0, r.stdout); self.assertIn("CATATAN", r.stdout); self.assertIn("fade hanya", r.stdout)
+            self.assertEqual(subprocess.run([sys.executable, script, str(p), "--ketat"], capture_output=True, text=True).returncode, 1)
+            self.assertEqual(subprocess.run([sys.executable, script, str(p)], capture_output=True, text=True, env={**os.environ, "KETAT": "1"}).returncode, 1)
+            bentrok = [{**fade[0], "kode": "T19", "id": "A", "t": 0, "dur": 2}, {**fade[0], "kode": "T19", "id": "B", "t": 1, "dur": 2}]
+            p.write_text(json.dumps(bentrok))
+            r = subprocess.run([sys.executable, script, str(p)], capture_output=True, text=True)
+            self.assertEqual(r.returncode, 1); self.assertIn("FAKTA", r.stdout)
+            self.assertNotEqual(subprocess.run([sys.executable, script, str(Path(folder) / "tidak-ada.json")], capture_output=True, text=True).returncode, 0)
+
     def test_mode_teks_per_beat_gate_and_coverage_follows_mode(self):
         ok = {"id": "a", "mode": "VISUAL", "mode_alasan": "UI membawa pesan", "isi_objek": ["kartu: Tagihan Mei Rp 2.400.000"], "layar": ""}
         self.assertEqual(board.mode_issues(ok), [])
