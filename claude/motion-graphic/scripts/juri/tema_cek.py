@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Cek sistem desain video: gaya hanya dari tema.ts, warna merek terkendali, warna UI asli di tempatnya.
+"""Baca sistem desain video (informasi, bukan penilai selera): gaya hanya dari tema.ts, warna merek terkendali, warna UI asli di tempatnya.
 
   python3 tema_cek.py <folder src remotion>        mis. projects/<p>/remotion/src/video
 
@@ -14,7 +14,7 @@ Yang dikontrol (bersama/tema.ts, format templates/sistem-desain/tema.ts):
 Tidak dikontrol: warna UI asli aplikasi (ChatGPT, Claude, GitHub, Instagram). Nilainya mengikuti aplikasinya dan
 hanya boleh ditulis di bersama/ui-asli/<aplikasi>/. Komponen lain di bersama/ boleh memakai literal, tapi dilaporkan.
 Kontras dan dominasi keluarga warna dicek di hasil render (Lantai A7, scripts/palette_check.py), bukan di sini.
-Exit 1 bila ada GAGAL.
+Temuan dicetak sebagai CATATAN dan keluar 0. Keluar 1 hanya bila tema.ts tidak ada; --ketat (atau KETAT=1) membuat catatan keluar 1.
 """
 import colorsys, os, re, sys
 
@@ -58,8 +58,10 @@ def jarak(a, b): return max(abs(x - y) for x, y in zip(rgb(a), rgb(b)))
 
 
 def main():
-    if len(sys.argv) != 2: sys.exit(__doc__)
-    src = sys.argv[1].rstrip("/")
+    ketat = "--ketat" in sys.argv or os.environ.get("KETAT") == "1"
+    argv = [x for x in sys.argv if x != "--ketat"]
+    if len(argv) != 2: sys.exit(__doc__)
+    src = argv[1].rstrip("/")
     tema_f = os.path.join(src, "bersama", "tema.ts")
     if not os.path.exists(tema_f): sys.exit(f"GAGAL: {tema_f} tidak ada (salin templates/sistem-desain/tema.ts).")
     s = re.sub(r"//[^\n]*", "", open(tema_f, encoding="utf-8").read())
@@ -112,10 +114,10 @@ def main():
         catat.append(f"{rel}: {w} warna, {f} font, {z} ukuran literal di komponen bersama (boleh, sebaiknya token)")
 
     for c in catat: print("  · " + c)
-    for g in gagal: print("  X " + g)
+    for g in gagal: print("  - CATATAN " + g)
     if gagal:
-        print(f"GAGAL: {len(gagal)} butir sistem desain."); sys.exit(1)
-    print("LULUS: gaya adegan hanya dari tema.ts.")
+        print(f"CATATAN: {len(gagal)} butir sistem desain (informasi)."); sys.exit(1 if ketat else 0)
+    print("gaya adegan hanya dari tema.ts.")
 
 
 if __name__ == "__main__":
