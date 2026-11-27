@@ -60,10 +60,10 @@ Used to **scan**, not to ban techniques: fingerprints are written as appearance 
 | S-V15 | Naval's face shown while the host is speaking | speaker label per phrase vs shot | Lantai D21 |
 | S-V16 | Crude self-made logos/icons (plane, ChatGPT knot); glow/triangles leaking out of cards | close-up still of each icon and joint | Lantai D20 |
 | S-V17 | Picture drifts progressively behind voice (lip-sync slips up to ±0.5 s by end of clip): each video cut rounded up to whole frames while audio is exact, drift accumulates | compare base.mp4 vs voice.wav duration and video vs map cut positions | cut video per segment by exact frame count (`-frames:v` from cumulative 30 fps grid), cut audio separately |
-| S-V18 | Dark vignette/circle on a white/light background | bright scene still: edges no darker than centre | palette.md |
-| S-V19 | Brown + black base palette looks cheap | `palette_check.py`, still | palette.md |
+| S-V18 | Dark vignette/circle on a white/light background | bright scene still: edges no darker than centre | warna.md |
+| S-V19 | Brown + black base palette looks cheap | `palette_check.py`, still | warna.md |
 | S-V20 | UI screenshot pasted as a static image instead of animated coded UI | asset list: no UI PNGs in scenes | Lantai D20 |
-| S-V21 | Indecisive gradient: radial smudge/coloured blur blob without a crisp saturated zone, or blue gradient spread to scenes with no act change | `banding.py` (luma/saturation); count gradient scenes | palette.md, Lantai F28b |
+| S-V21 | Indecisive gradient: radial smudge/coloured blur blob without a crisp saturated zone, or blue gradient spread to scenes with no act change | `banding.py` (luma/saturation); count gradient scenes | warna.md, Lantai F28b |
 | S-V23 | Objects/text in frame edge red zone (outside x 165–1755, y 140–935 @1080p) without camera reason | still per beat with safe-frame overlay | storyboard.md §3 |
 | S-V24 | Visual is only a large symbol/word or a literal noun instead of what the sentence does (good example: "addiction" = keep creating new repos without releasing; "not publishing" = type in Threads then save to draft) | beat table: sentence → visible action | Lantai D19 |
 | S-V25 | Model's "Apple premium" material soup: more than one shadow/light/sheen system in one video; glass/blur on every card without reason; halo behind text (contrast < 4.5 : 1); near-monotone gradient (luma range < ±35, sat p95 < 0.15). Consistent material present in REF-SPEC is allowed | `scripts/banding.py` vs REF-SPEC; `gate/permukaan_cek.py` inventory; 100% still | Lantai C14a |

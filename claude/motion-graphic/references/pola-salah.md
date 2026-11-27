@@ -13,7 +13,7 @@ Status: the general/bound split for W01, W02, W05 is the planner's default, awai
 | SLOP-W01 | Dark blue to violet gradient across the frame, with glow on the focus object | general, except when that colour belongs to the brand and the gradient stays soft | 04 |
 | SLOP-W02 | One centred radial (white or colour) on black, one layer, nothing it lights | general | none |
 | SLOP-W03 | Pink gradient behind a white UI | bound (one video) | none |
-| SLOP-W04 | Saturated accent from another family on black (pure blue, red) that jumps out | general (one accent family, `palette.md`) | none |
+| SLOP-W04 | Saturated accent from another family on black (pure blue, red) that jumps out | general (one accent family, `warna.md`) | none |
 | SLOP-W05 | White glow behind a dark UI window | general, except when the reference shows the same glow with a reason | none |
 | SLOP-W06 | Rough speckled black canvas where a clean dark field was wanted | bound (scenes sharing that background) | none |
 | SLOP-W07 | Saturated royal-blue UI with yellow shapes, "full colour" UI | bound (one scene) | none |

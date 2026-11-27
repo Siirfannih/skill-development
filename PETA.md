@@ -87,7 +87,6 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/kamera-gerak.md` | **Camera, motion, and transitions** — Opened when designing camera, transitions, curves and motion blur (steps 5-6 of the SKILL.md workflow), or when motion feels "not smooth" or "choppy". |
 | `claude/motion-graphic/references/orkestrasi.md` | **Orkestrasi: kamu memimpin, model lain yang mengulang** — Satu model sudah cukup: kamu yang membangun dan menilai, dalam putaran terpisah (bangun dulu; menilai dari gambar sebelum membaca catatan buildmu sendiri). |
 | `claude/motion-graphic/references/pacing-map.md` | **Peta nada → gerak (dari transkrip + audio)** — Dibaca di gerbang storyboard (4), sebelum kamera-gerak.md. |
-| `claude/motion-graphic/references/palette.md` | **Palet: cara memilih dan memakai warna** — Dibaca di gerbang brief (1) saat mengunci palet, dan di QA (9). |
 | `claude/motion-graphic/references/persepsi.md` | **Persepsi — letak orang dan wajah di footage** — Baca saat adegan berfootage butuh tahu di mana orang atau wajahnya: teks atau kata hero di belakang kepala, glow di tepi badan, teks mengapit wajah, latar diganti atau diredupkan lewat matte, cutout s |
 | `claude/motion-graphic/references/pola-salah.md` | **Rejected patterns (SLOP codes)** — Patterns the owner has rejected in real frames, written as what is visible or measurable, so a frame can be checked against them. |
 | `claude/motion-graphic/references/preset-index.md` | **PRESET-INDEX · Peta Preset Mekanikal Buatan Sendiri (Dekopled dari Remotion)** — Buka file ini hanya pada tahap build (setelah SKILL.md + tema/<tema>.md + *style frame* dikunci). |
@@ -98,7 +97,7 @@ Dibuat oleh `tools/peta.py` dari isi file; jangan diedit tangan (ubah RUTE di sk
 | `claude/motion-graphic/references/storyboard.md` | **Storyboard visual: dari script atau daftar potongan ke papan panel** — Baca di tahap Storyboard/block out. |
 | `claude/motion-graphic/references/teks.md` | **Teks di layar: kapan, huruf, posisi, keterbacaan, gerak** — Dibuka saat mengatur teks layar (langkah 4-6 alur SKILL.md). |
 | `claude/motion-graphic/references/three-segment-gate.md` | **Gerbang 3 Segmen** — Claude tidak melihat video saat menulis kode. |
-| `claude/motion-graphic/references/warna.md` | **Colour gate (entry and exit)** — Moved from dunia-visual.md §9 so that reference stays under 15 KB. |
+| `claude/motion-graphic/references/warna.md` | **Colour: palette and colour gates** — Opened when locking the palette (step 1-3 of the SKILL.md workflow) and before handing frames over. |
 
 ## motion-graphic · guide (rasa per urusan)
 

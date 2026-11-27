@@ -7,7 +7,7 @@ Ditulis **Sutradara** sebelum pekerja adegan mulai, di `remotion/src/<…>/bersa
 1. `BRAND.md` merek (warna peran, huruf, logo) dan `EDITING.md`.
 2. `RESEP.md` proyek: pengikat warna & tekstur, teks, dan ritme dari kartu kiblat atau `REF-SPEC.md`.
 3. Still preview Storyboard/block out yang user setujui.
-4. `references/palette.md` bila merek belum punya palet.
+4. `references/warna.md` bila merek belum punya palet.
 
 ## Cara memilih warna: peran dulu, lalu keluarga, lalu kontras
 
@@ -15,9 +15,9 @@ Yang dikontrol hanya empat warna merek: **merek, primer, sekunder, latar**. Warn
 
 | Kategori | Isi | Aturan |
 |---|---|---|
-| `MEREK` | `merek`, `primer`, `sekunder`, `latar` | dari `BRAND.md`; primer = satu keluarga dominan ≥ 70 % piksel berwarna (`palette.md` §2) |
-| `NETRAL` | 5–7 tingkat dari hitam ke putih untuk latar, garis, teks redup | netral membawa frame, aksen hanya menandai (`palette.md` §3) |
-| `TURUNAN` | tint, shade, glow, gradasi, dikelompokkan per induk (`primer`, `sekunder`, …) | hue ≤ 25° dari induknya; tidak menambah keluarga baru (`palette.md` §4) |
+| `MEREK` | `merek`, `primer`, `sekunder`, `latar` | dari `BRAND.md`; primer = satu keluarga dominan ≥ 70 % piksel berwarna (`warna.md` §Using it) |
+| `NETRAL` | 5–7 tingkat dari hitam ke putih untuk latar, garis, teks redup | netral membawa frame, aksen hanya menandai (`warna.md` §Using it) |
+| `TURUNAN` | tint, shade, glow, gradasi, dikelompokkan per induk (`primer`, `sekunder`, …) | hue ≤ 25° dari induknya; tidak menambah keluarga baru (`warna.md` §Using it) |
 | `PENGECUALIAN` | warna yang sengaja keluar dari keluarga untuk satu adegan (mis. parodi "AI slop") | wajib menyebut adegan + alasan; tidak dipakai di adegan lain |
 
 Teks berwarna di atas latar atau footage harus kontras ≥ 4,5 : 1 (Lantai A7); bila gagal, pakai versi terang/gelap dari keluarga yang sama atau putih. Hasil render dicek `scripts/palette_check.py`.

@@ -75,8 +75,8 @@ Perpindahan family adalah momen cerita, memakai transisi bab (§10) + engsel sen
 ---
 
 ## 13. Warna
-- Warna datang dari referensi/brief user atau profil merek (`palette.md` §1). Contoh profil merek Jadisatu: biru `#2563EB`, coral `#F97066`, navy `#0F172A`, off-white `#FBFAF7`, putih hangat `#FAF8EC`.
-- Kontras teks vs latar diukur, tidak ditebak (`palette.md` §5). Contoh gagal: "Adele." biru `#2563EB` di navy `#0F172A`, hanya ±3,6 : 1, terlihat "nyala tapi tenggelam". Di latar gelap pakai versi terang aksennya, atau tekan lewat opasitas, ketebalan, skala.
+- Warna datang dari referensi/brief user atau profil merek (`warna.md` §Where the palette comes from). Contoh profil merek Jadisatu: biru `#2563EB`, coral `#F97066`, navy `#0F172A`, off-white `#FBFAF7`, putih hangat `#FAF8EC`.
+- Kontras teks vs latar diukur, tidak ditebak (`teks.md` §Keterbacaan). Contoh gagal: "Adele." biru `#2563EB` di navy `#0F172A`, hanya ±3,6 : 1, terlihat "nyala tapi tenggelam". Di latar gelap pakai versi terang aksennya, atau tekan lewat opasitas, ketebalan, skala.
 - Satu aksen per momen. Warna adalah bab: pergantian lewat wipe berlapis, bukan cut warna polos.
 
 ---

@@ -54,7 +54,7 @@ Gagal: grafik vivid mengambang di atas footage yang di-blur dan digelapkan. Itu 
 Satu keluarga gaya grafik per video: flat, 3D, line, atau foto. Jangan dicampur.
 
 ## 6. Warna
-Ikuti `palette.md`: palet dipilih di brief, satu keluarga aksen dominan, netral membawa frame.
+Ikuti `warna.md`: palet dipilih di brief, satu keluarga aksen dominan, netral membawa frame.
 
 ## 7. Devil's advocate per beat (wajib, dicatat di tabel beat)
 1. Kalau elemen ini dihapus, apakah penonton kehilangan informasi? Kalau tidak, hapus.

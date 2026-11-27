@@ -87,4 +87,4 @@
 Gaya grafik (flat, kolase, foto, 3D), latar gelap/terang, layout, ukuran objek, jumlah ruang kosong. Pilih yang paling cocok dengan isi; tulis alasan satu baris.
 
 ## Detail lanjut
-`../../references/decision-guide.md` §1, §4, §5 · `direction.md` · `palette.md` (+ `scripts/palette_check.py`)
+`../../references/decision-guide.md` §1, §4, §5 · `direction.md` · `warna.md` (+ `scripts/palette_check.py`)
