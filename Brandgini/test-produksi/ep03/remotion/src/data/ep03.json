@@ -1,0 +1,2189 @@
+{
+ "durasi": 54.033,
+ "lebar": 1080,
+ "tinggi": 1920,
+ "fps": 30,
+ "adegan": [
+  {
+   "id": "b01",
+   "dari": 0.0,
+   "sampai": 3.633,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S01Cap"
+    }
+   ]
+  },
+  {
+   "id": "b02",
+   "dari": 3.633,
+   "sampai": 5.633,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S02Soalnya"
+    }
+   ]
+  },
+  {
+   "id": "b03",
+   "dari": 5.633,
+   "sampai": 9.767,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S03Tong"
+    }
+   ]
+  },
+  {
+   "id": "b04",
+   "dari": 9.767,
+   "sampai": 14.033,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S04Garam"
+    }
+   ]
+  },
+  {
+   "id": "b05",
+   "dari": 14.033,
+   "sampai": 16.367,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S05Titik"
+    }
+   ]
+  },
+  {
+   "id": "b06",
+   "dari": 16.367,
+   "sampai": 20.2,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S06Termo"
+    }
+   ]
+  },
+  {
+   "id": "b07",
+   "dari": 20.2,
+   "sampai": 22.8,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S07Butuh"
+    }
+   ]
+  },
+  {
+   "id": "b08",
+   "dari": 22.8,
+   "sampai": 27.033,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S08Kaleng"
+    }
+   ]
+  },
+  {
+   "id": "b09",
+   "dari": 27.033,
+   "sampai": 31.5,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S09Beku"
+    }
+   ]
+  },
+  {
+   "id": "b10",
+   "dari": 31.5,
+   "sampai": 33.4,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S10Putar"
+    }
+   ]
+  },
+  {
+   "id": "b11",
+   "dari": 33.4,
+   "sampai": 37.933,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S11Besar"
+    }
+   ]
+  },
+  {
+   "id": "b12",
+   "dari": 37.933,
+   "sampai": 42.6,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S12Kecil"
+    }
+   ]
+  },
+  {
+   "id": "b13",
+   "dari": 42.6,
+   "sampai": 45.533,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S13Tambah"
+    }
+   ]
+  },
+  {
+   "id": "b14",
+   "dari": 45.533,
+   "sampai": 49.933,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S14Gerobak"
+    }
+   ]
+  },
+  {
+   "id": "b15",
+   "dari": 49.933,
+   "sampai": 54.033,
+   "masuk": "potong",
+   "mode": "cutout",
+   "lapisan": [
+    {
+     "k": "kanvas",
+     "warna": "latar"
+    },
+    {
+     "k": "cutout",
+     "src": "cutout/S15Loop"
+    }
+   ]
+  }
+ ],
+ "kt": [
+  {
+   "peran": "r6",
+   "peranVideo": "R6",
+   "kode": "T04",
+   "dari": 0.0,
+   "sampai": 0.8,
+   "x": 540,
+   "y": 300,
+   "jangkar": "tengah",
+   "ukuran": 120,
+   "teks": "Kalau…",
+   "beat": 1,
+   "kata": [
+    {
+     "w": "Kalau",
+     "t": 0.0,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 0.8,
+   "sampai": 1.433,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "kamu taruh kaleng",
+   "beat": 1,
+   "kata": [
+    {
+     "w": "kamu",
+     "t": 0.2,
+     "k": false
+    },
+    {
+     "w": "taruh",
+     "t": 0.44,
+     "k": false
+    },
+    {
+     "w": "kaleng",
+     "t": 0.68,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 1.433,
+   "sampai": 2.033,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "santan di tengah",
+   "beat": 1,
+   "kata": [
+    {
+     "w": "santan",
+     "t": 0.94,
+     "k": false
+    },
+    {
+     "w": "di",
+     "t": 1.26,
+     "k": false
+    },
+    {
+     "w": "tengah",
+     "t": 1.4,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 2.033,
+   "sampai": 2.367,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "es batu",
+   "beat": 1,
+   "kata": [
+    {
+     "w": "es",
+     "t": 1.54,
+     "k": false
+    },
+    {
+     "w": "batu",
+     "t": 1.72,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 2.367,
+   "sampai": 3.167,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "santannya susah",
+   "beat": 1,
+   "kata": [
+    {
+     "w": "santannya",
+     "t": 2.2,
+     "k": false
+    },
+    {
+     "w": "susah",
+     "t": 2.78,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 3.167,
+   "sampai": 3.533,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "beku",
+   "beat": 1,
+   "kata": [
+    {
+     "w": "beku",
+     "t": 3.04,
+     "k": true
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 3.733,
+   "sampai": 4.333,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Kok bisa?",
+   "beat": 2,
+   "kata": [
+    {
+     "w": "Kok",
+     "t": 3.74,
+     "k": false
+    },
+    {
+     "w": "bisa?",
+     "t": 3.88,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r6",
+   "peranVideo": "R6",
+   "kode": "T04",
+   "dari": 4.667,
+   "sampai": 5.633,
+   "x": 540,
+   "y": 300,
+   "jangkar": "tengah",
+   "ukuran": 120,
+   "teks": "Soalnya gini",
+   "beat": 2,
+   "kata": [
+    {
+     "w": "Soalnya",
+     "t": 4.66,
+     "k": false
+    },
+    {
+     "w": "gini",
+     "t": 4.86,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 5.733,
+   "sampai": 6.633,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Es batu itu",
+   "beat": 3,
+   "kata": [
+    {
+     "w": "Es",
+     "t": 5.74,
+     "k": false
+    },
+    {
+     "w": "batu",
+     "t": 5.84,
+     "k": false
+    },
+    {
+     "w": "itu",
+     "t": 6.16,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 6.633,
+   "sampai": 7.167,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "cuma nol",
+   "beat": 3,
+   "kata": [
+    {
+     "w": "cuma",
+     "t": 6.5,
+     "k": false
+    },
+    {
+     "w": "nol",
+     "t": 6.82,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 7.167,
+   "sampai": 7.867,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "derajat",
+   "beat": 3,
+   "kata": [
+    {
+     "w": "derajat",
+     "t": 7.06,
+     "k": true
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 7.867,
+   "sampai": 8.767,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "pas di titik",
+   "beat": 3,
+   "kata": [
+    {
+     "w": "pas",
+     "t": 7.74,
+     "k": false
+    },
+    {
+     "w": "di",
+     "t": 8.3,
+     "k": false
+    },
+    {
+     "w": "titik",
+     "t": 8.44,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 8.767,
+   "sampai": 9.5,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "bekunya air",
+   "beat": 3,
+   "kata": [
+    {
+     "w": "bekunya",
+     "t": 8.66,
+     "k": false
+    },
+    {
+     "w": "air",
+     "t": 8.92,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 9.867,
+   "sampai": 10.3,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Nah",
+   "beat": 4,
+   "kata": [
+    {
+     "w": "Nah",
+     "t": 9.88,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 10.3,
+   "sampai": 11.0,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "abang es puter",
+   "beat": 4,
+   "kata": [
+    {
+     "w": "abang",
+     "t": 10.22,
+     "k": false
+    },
+    {
+     "w": "es",
+     "t": 10.36,
+     "k": false
+    },
+    {
+     "w": "puter",
+     "t": 10.56,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 11.0,
+   "sampai": 11.733,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "nambahin satu",
+   "beat": 4,
+   "kata": [
+    {
+     "w": "nambahin",
+     "t": 10.88,
+     "k": false
+    },
+    {
+     "w": "satu",
+     "t": 11.38,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 11.733,
+   "sampai": 12.667,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "bahan ke esnya",
+   "beat": 4,
+   "kata": [
+    {
+     "w": "bahan",
+     "t": 11.6,
+     "k": false
+    },
+    {
+     "w": "ke",
+     "t": 11.88,
+     "k": false
+    },
+    {
+     "w": "esnya",
+     "t": 12.02,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 12.967,
+   "sampai": 13.967,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Garam",
+   "beat": 4,
+   "kata": [
+    {
+     "w": "Garam",
+     "t": 12.98,
+     "k": true
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 14.133,
+   "sampai": 14.933,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Garam bikin es",
+   "beat": 5,
+   "kata": [
+    {
+     "w": "Garam",
+     "t": 14.12,
+     "k": false
+    },
+    {
+     "w": "bikin",
+     "t": 14.3,
+     "k": false
+    },
+    {
+     "w": "es",
+     "t": 14.6,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 14.933,
+   "sampai": 15.633,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "jadi lebih susah",
+   "beat": 5,
+   "kata": [
+    {
+     "w": "jadi",
+     "t": 14.82,
+     "k": false
+    },
+    {
+     "w": "lebih",
+     "t": 15.04,
+     "k": false
+    },
+    {
+     "w": "susah",
+     "t": 15.24,
+     "k": true
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 15.633,
+   "sampai": 16.133,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "membeku",
+   "beat": 5,
+   "kata": [
+    {
+     "w": "membeku",
+     "t": 15.5,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 16.467,
+   "sampai": 17.233,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "jadi es mulai",
+   "beat": 6,
+   "kata": [
+    {
+     "w": "jadi",
+     "t": 16.48,
+     "k": false
+    },
+    {
+     "w": "es",
+     "t": 16.7,
+     "k": false
+    },
+    {
+     "w": "mulai",
+     "t": 16.9,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 17.233,
+   "sampai": 17.833,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "mencair",
+   "beat": 6,
+   "kata": [
+    {
+     "w": "mencair",
+     "t": 17.12,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 17.833,
+   "sampai": 18.967,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "dan suhunya turun",
+   "beat": 6,
+   "kata": [
+    {
+     "w": "dan",
+     "t": 17.72,
+     "k": false
+    },
+    {
+     "w": "suhunya",
+     "t": 18.06,
+     "k": false
+    },
+    {
+     "w": "turun",
+     "t": 18.42,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 18.967,
+   "sampai": 20.033,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "sampai di bawah",
+   "beat": 6,
+   "kata": [
+    {
+     "w": "sampai",
+     "t": 18.84,
+     "k": false
+    },
+    {
+     "w": "di",
+     "t": 19.14,
+     "k": false
+    },
+    {
+     "w": "bawah",
+     "t": 19.527,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 20.033,
+   "sampai": 20.433,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "nol",
+   "beat": 6,
+   "kata": [
+    {
+     "w": "nol",
+     "t": 19.913,
+     "k": true
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 20.433,
+   "sampai": 20.733,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Nah",
+   "beat": 7,
+   "kata": [
+    {
+     "w": "Nah",
+     "t": 20.3,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 20.733,
+   "sampai": 21.533,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "buat mencair",
+   "beat": 7,
+   "kata": [
+    {
+     "w": "buat",
+     "t": 20.64,
+     "k": false
+    },
+    {
+     "w": "mencair",
+     "t": 20.76,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 21.567,
+   "sampai": 22.9,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "es butuh panas",
+   "beat": 7,
+   "kata": [
+    {
+     "w": "es",
+     "t": 21.58,
+     "k": false
+    },
+    {
+     "w": "butuh",
+     "t": 21.76,
+     "k": false
+    },
+    {
+     "w": "panas",
+     "t": 22.02,
+     "k": true
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 22.9,
+   "sampai": 23.733,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Panas itu diambil",
+   "beat": 8,
+   "kata": [
+    {
+     "w": "Panas",
+     "t": 22.9,
+     "k": false
+    },
+    {
+     "w": "itu",
+     "t": 23.2,
+     "k": false
+    },
+    {
+     "w": "diambil",
+     "t": 23.34,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 23.733,
+   "sampai": 24.167,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "dari mana?",
+   "beat": 8,
+   "kata": [
+    {
+     "w": "dari",
+     "t": 23.62,
+     "k": false
+    },
+    {
+     "w": "mana?",
+     "t": 23.78,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 24.5,
+   "sampai": 25.267,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Dari benda paling",
+   "beat": 8,
+   "kata": [
+    {
+     "w": "Dari",
+     "t": 24.5,
+     "k": false
+    },
+    {
+     "w": "benda",
+     "t": 24.7,
+     "k": false
+    },
+    {
+     "w": "paling",
+     "t": 24.88,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 25.267,
+   "sampai": 25.7,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "dekat",
+   "beat": 8,
+   "kata": [
+    {
+     "w": "dekat",
+     "t": 25.14,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 25.733,
+   "sampai": 26.767,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "yaitu kaleng di",
+   "beat": 8,
+   "kata": [
+    {
+     "w": "yaitu",
+     "t": 25.74,
+     "k": false
+    },
+    {
+     "w": "kaleng",
+     "t": 26.12,
+     "k": true
+    },
+    {
+     "w": "di",
+     "t": 26.5,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 26.767,
+   "sampai": 27.267,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "tengahnya",
+   "beat": 8,
+   "kata": [
+    {
+     "w": "tengahnya",
+     "t": 26.64,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 27.267,
+   "sampai": 28.667,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Jadi adonan di",
+   "beat": 9,
+   "kata": [
+    {
+     "w": "Jadi",
+     "t": 27.14,
+     "k": false
+    },
+    {
+     "w": "adonan",
+     "t": 27.98,
+     "k": false
+    },
+    {
+     "w": "di",
+     "t": 28.46,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 28.667,
+   "sampai": 29.333,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "dalam kaleng",
+   "beat": 9,
+   "kata": [
+    {
+     "w": "dalam",
+     "t": 28.56,
+     "k": false
+    },
+    {
+     "w": "kaleng",
+     "t": 28.78,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 29.333,
+   "sampai": 30.233,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "makin dingin",
+   "beat": 9,
+   "kata": [
+    {
+     "w": "makin",
+     "t": 29.2,
+     "k": false
+    },
+    {
+     "w": "dingin",
+     "t": 29.54,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 30.233,
+   "sampai": 30.8,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "sampai ikut",
+   "beat": 9,
+   "kata": [
+    {
+     "w": "sampai",
+     "t": 30.24,
+     "k": false
+    },
+    {
+     "w": "ikut",
+     "t": 30.48,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 30.8,
+   "sampai": 31.467,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "beku",
+   "beat": 9,
+   "kata": [
+    {
+     "w": "beku",
+     "t": 30.68,
+     "k": true
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 31.6,
+   "sampai": 32.233,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Terus kenapa",
+   "beat": 10,
+   "kata": [
+    {
+     "w": "Terus",
+     "t": 31.6,
+     "k": false
+    },
+    {
+     "w": "kenapa",
+     "t": 31.78,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 32.233,
+   "sampai": 32.633,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "kalengnya",
+   "beat": 10,
+   "kata": [
+    {
+     "w": "kalengnya",
+     "t": 32.12,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 32.633,
+   "sampai": 33.233,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "diputar terus?",
+   "beat": 10,
+   "kata": [
+    {
+     "w": "diputar",
+     "t": 32.46,
+     "k": true
+    },
+    {
+     "w": "terus?",
+     "t": 32.7,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 33.5,
+   "sampai": 34.033,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Soalnya kalau",
+   "beat": 11,
+   "kata": [
+    {
+     "w": "Soalnya",
+     "t": 33.5,
+     "k": false
+    },
+    {
+     "w": "kalau",
+     "t": 33.76,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 34.033,
+   "sampai": 34.933,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "didiamkan",
+   "beat": 11,
+   "kata": [
+    {
+     "w": "didiamkan",
+     "t": 33.92,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 35.033,
+   "sampai": 35.6,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "es di dinding",
+   "beat": 11,
+   "kata": [
+    {
+     "w": "es",
+     "t": 35.02,
+     "k": false
+    },
+    {
+     "w": "di",
+     "t": 35.12,
+     "k": false
+    },
+    {
+     "w": "dinding",
+     "t": 35.3,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 35.6,
+   "sampai": 36.333,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "kaleng tumbuh",
+   "beat": 11,
+   "kata": [
+    {
+     "w": "kaleng",
+     "t": 35.48,
+     "k": false
+    },
+    {
+     "w": "tumbuh",
+     "t": 35.88,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 36.333,
+   "sampai": 37.167,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "jadi kristal besar",
+   "beat": 11,
+   "kata": [
+    {
+     "w": "jadi",
+     "t": 36.22,
+     "k": false
+    },
+    {
+     "w": "kristal",
+     "t": 36.44,
+     "k": false
+    },
+    {
+     "w": "besar",
+     "t": 36.8,
+     "k": true
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 37.167,
+   "sampai": 37.967,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "yang kasar",
+   "beat": 11,
+   "kata": [
+    {
+     "w": "yang",
+     "t": 37.04,
+     "k": false
+    },
+    {
+     "w": "kasar",
+     "t": 37.24,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 38.033,
+   "sampai": 38.833,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Tapi kalau diputar",
+   "beat": 12,
+   "kata": [
+    {
+     "w": "Tapi",
+     "t": 38.02,
+     "k": false
+    },
+    {
+     "w": "kalau",
+     "t": 38.2,
+     "k": false
+    },
+    {
+     "w": "diputar",
+     "t": 38.36,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 38.833,
+   "sampai": 39.6,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "dan dikerok",
+   "beat": 12,
+   "kata": [
+    {
+     "w": "dan",
+     "t": 38.72,
+     "k": false
+    },
+    {
+     "w": "dikerok",
+     "t": 38.92,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 39.6,
+   "sampai": 40.267,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "kristalnya tetap",
+   "beat": 12,
+   "kata": [
+    {
+     "w": "kristalnya",
+     "t": 39.48,
+     "k": false
+    },
+    {
+     "w": "tetap",
+     "t": 39.88,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 40.267,
+   "sampai": 41.0,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "kecil-kecil",
+   "beat": 12,
+   "kata": [
+    {
+     "w": "kecil-kecil",
+     "t": 40.16,
+     "k": true
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 41.133,
+   "sampai": 41.8,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "jadi teksturnya",
+   "beat": 12,
+   "kata": [
+    {
+     "w": "jadi",
+     "t": 41.14,
+     "k": false
+    },
+    {
+     "w": "teksturnya",
+     "t": 41.26,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 41.8,
+   "sampai": 42.333,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "lembut",
+   "beat": 12,
+   "kata": [
+    {
+     "w": "lembut",
+     "t": 41.68,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 42.7,
+   "sampai": 43.033,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Makanya",
+   "beat": 13,
+   "kata": [
+    {
+     "w": "Makanya",
+     "t": 42.7,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 43.033,
+   "sampai": 43.767,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "abangnya sesekali",
+   "beat": 13,
+   "kata": [
+    {
+     "w": "abangnya",
+     "t": 42.88,
+     "k": false
+    },
+    {
+     "w": "sesekali",
+     "t": 43.22,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 43.767,
+   "sampai": 44.333,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "nambah garam",
+   "beat": 13,
+   "kata": [
+    {
+     "w": "nambah",
+     "t": 43.64,
+     "k": true
+    },
+    {
+     "w": "garam",
+     "t": 43.96,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 44.333,
+   "sampai": 45.033,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "sama es baru",
+   "beat": 13,
+   "kata": [
+    {
+     "w": "sama",
+     "t": 44.22,
+     "k": false
+    },
+    {
+     "w": "es",
+     "t": 44.38,
+     "k": false
+    },
+    {
+     "w": "baru",
+     "t": 44.54,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 45.633,
+   "sampai": 46.367,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Gerobak tua",
+   "beat": 14,
+   "kata": [
+    {
+     "w": "Gerobak",
+     "t": 45.62,
+     "k": false
+    },
+    {
+     "w": "tua",
+     "t": 45.92,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 46.567,
+   "sampai": 47.467,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "tanpa listrik",
+   "beat": 14,
+   "kata": [
+    {
+     "w": "tanpa",
+     "t": 46.56,
+     "k": false
+    },
+    {
+     "w": "listrik",
+     "t": 46.8,
+     "k": true
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 47.567,
+   "sampai": 48.067,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "tapi isinya",
+   "beat": 14,
+   "kata": [
+    {
+     "w": "tapi",
+     "t": 47.58,
+     "k": false
+    },
+    {
+     "w": "isinya",
+     "t": 47.7,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 48.067,
+   "sampai": 48.833,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "pelajaran kimia",
+   "beat": 14,
+   "kata": [
+    {
+     "w": "pelajaran",
+     "t": 47.96,
+     "k": false
+    },
+    {
+     "w": "kimia",
+     "t": 48.42,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 48.833,
+   "sampai": 49.2,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "SMA",
+   "beat": 14,
+   "kata": [
+    {
+     "w": "SMA",
+     "t": 48.7,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 50.033,
+   "sampai": 50.333,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "Eh",
+   "beat": 15,
+   "kata": [
+    {
+     "w": "Eh",
+     "t": 50.02,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 50.333,
+   "sampai": 51.1,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "dulu kamu beli",
+   "beat": 15,
+   "kata": [
+    {
+     "w": "dulu",
+     "t": 50.24,
+     "k": false
+    },
+    {
+     "w": "kamu",
+     "t": 50.54,
+     "k": false
+    },
+    {
+     "w": "beli",
+     "t": 50.76,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 51.1,
+   "sampai": 51.733,
+   "x": 540,
+   "y": 1215,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "es puter pakai",
+   "beat": 15,
+   "kata": [
+    {
+     "w": "es",
+     "t": 50.98,
+     "k": false
+    },
+    {
+     "w": "puter",
+     "t": 51.18,
+     "k": false
+    },
+    {
+     "w": "pakai",
+     "t": 51.42,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 51.733,
+   "sampai": 52.833,
+   "x": 540,
+   "y": 1345,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "roti tawar atau",
+   "beat": 15,
+   "kata": [
+    {
+     "w": "roti",
+     "t": 51.62,
+     "k": false
+    },
+    {
+     "w": "tawar",
+     "t": 51.94,
+     "k": false
+    },
+    {
+     "w": "atau",
+     "t": 52.44,
+     "k": false
+    }
+   ]
+  },
+  {
+   "peran": "r1",
+   "peranVideo": "R1",
+   "kode": "T19",
+   "dari": 52.833,
+   "sampai": 53.133,
+   "x": 540,
+   "y": 1300,
+   "jangkar": "tengah",
+   "ukuran": 88,
+   "teks": "cone?",
+   "beat": 15,
+   "kata": [
+    {
+     "w": "cone?",
+     "t": 52.72,
+     "k": true
+    }
+   ]
+  }
+ ],
+ "beats": [
+  {
+   "id": "b01",
+   "sc": "S01Cap",
+   "dari": 0,
+   "sampai": 109,
+   "ev": [
+    55
+   ],
+   "tr": "potong",
+   "trFrames": 0,
+   "slot": "bawah"
+  },
+  {
+   "id": "b02",
+   "sc": "S02Soalnya",
+   "dari": 109,
+   "sampai": 169,
+   "ev": [],
+   "tr": "push-through",
+   "trFrames": 14,
+   "slot": "atas"
+  },
+  {
+   "id": "b03",
+   "sc": "S03Tong",
+   "dari": 169,
+   "sampai": 293,
+   "ev": [
+    62
+   ],
+   "tr": "push-through",
+   "trFrames": 10,
+   "slot": "bawah"
+  },
+  {
+   "id": "b04",
+   "sc": "S04Garam",
+   "dari": 293,
+   "sampai": 421,
+   "ev": [
+    43,
+    85
+   ],
+   "tr": "potong",
+   "trFrames": 0,
+   "slot": "atas"
+  },
+  {
+   "id": "b05",
+   "sc": "S05Titik",
+   "dari": 421,
+   "sampai": 491,
+   "ev": [
+    35
+   ],
+   "tr": "potong",
+   "trFrames": 0,
+   "slot": "bawah"
+  },
+  {
+   "id": "b06",
+   "sc": "S06Termo",
+   "dari": 491,
+   "sampai": 606,
+   "ev": [
+    57
+   ],
+   "tr": "push-through",
+   "trFrames": 10,
+   "slot": "bawah"
+  },
+  {
+   "id": "b07",
+   "sc": "S07Butuh",
+   "dari": 606,
+   "sampai": 684,
+   "ev": [
+    39
+   ],
+   "tr": "potong",
+   "trFrames": 0,
+   "slot": "atas"
+  },
+  {
+   "id": "b08",
+   "sc": "S08Kaleng",
+   "dari": 684,
+   "sampai": 811,
+   "ev": [
+    42,
+    85
+   ],
+   "tr": "potong",
+   "trFrames": 0,
+   "slot": "bawah"
+  },
+  {
+   "id": "b09",
+   "sc": "S09Beku",
+   "dari": 811,
+   "sampai": 945,
+   "ev": [
+    45,
+    89
+   ],
+   "tr": "push-through",
+   "trFrames": 10,
+   "slot": "atas"
+  },
+  {
+   "id": "b10",
+   "sc": "S10Putar",
+   "dari": 945,
+   "sampai": 1002,
+   "ev": [],
+   "tr": "potong",
+   "trFrames": 0,
+   "slot": "bawah"
+  },
+  {
+   "id": "b11",
+   "sc": "S11Besar",
+   "dari": 1002,
+   "sampai": 1138,
+   "ev": [
+    45,
+    91
+   ],
+   "tr": "potong",
+   "trFrames": 0,
+   "slot": "atas"
+  },
+  {
+   "id": "b12",
+   "sc": "S12Kecil",
+   "dari": 1138,
+   "sampai": 1278,
+   "ev": [
+    47,
+    93
+   ],
+   "tr": "potong",
+   "trFrames": 0,
+   "slot": "bawah"
+  },
+  {
+   "id": "b13",
+   "sc": "S13Tambah",
+   "dari": 1278,
+   "sampai": 1366,
+   "ev": [
+    44
+   ],
+   "tr": "potong",
+   "trFrames": 0,
+   "slot": "atas"
+  },
+  {
+   "id": "b14",
+   "sc": "S14Gerobak",
+   "dari": 1366,
+   "sampai": 1498,
+   "ev": [
+    44,
+    88
+   ],
+   "tr": "push-through",
+   "trFrames": 10,
+   "slot": "bawah"
+  },
+  {
+   "id": "b15",
+   "sc": "S15Loop",
+   "dari": 1498,
+   "sampai": 1621,
+   "ev": [
+    61
+   ],
+   "tr": "potong",
+   "trFrames": 0,
+   "slot": "atas"
+  }
+ ]
+}

@@ -1,0 +1,283 @@
+{
+ "cues": [
+  {
+   "t": 0.55,
+   "file": "bass-drop-deep-sub-very-short-01-8df9a95d.wav",
+   "pilar": "aksen",
+   "beat": 1,
+   "durasi": 0.734,
+   "skala_puncak": 1.0,
+   "objek": "gerobak es"
+  },
+  {
+   "t": 3.3,
+   "file": "glue-stick-dab-on-paper-1a9ef820.wav",
+   "pilar": "foley",
+   "beat": 1,
+   "durasi": 0.072,
+   "skala_puncak": 1.0,
+   "objek": "gerobak es"
+  },
+  {
+   "t": 4.7,
+   "file": "led-plastic-button-press-single-ab33e364.wav",
+   "pilar": "transisi",
+   "beat": 2,
+   "durasi": 0.195,
+   "skala_puncak": 1.0,
+   "objek": "Gini"
+  },
+  {
+   "t": 5.7,
+   "file": "playing-card-set-down-db3f8c58.wav",
+   "pilar": "aksen",
+   "beat": 2,
+   "durasi": 0.133,
+   "skala_puncak": 1.0,
+   "objek": "Gini"
+  },
+  {
+   "t": 6.35,
+   "file": "designed-whoosh-soft-airy-073cf199.wav",
+   "pilar": "transisi",
+   "beat": 3,
+   "durasi": 0.775,
+   "skala_puncak": 1.0,
+   "objek": "garis 0–1 km"
+  },
+  {
+   "t": 7.0,
+   "file": "glue-stick-dab-on-paper-1a9ef820.wav",
+   "pilar": "foley",
+   "beat": 3,
+   "durasi": 0.072,
+   "skala_puncak": 1.0,
+   "objek": "garis 0–1 km"
+  },
+  {
+   "t": 9.15,
+   "file": "designed-whoosh-soft-airy-073cf199.wav",
+   "pilar": "transisi",
+   "beat": 4,
+   "durasi": 0.775,
+   "skala_puncak": 1.0,
+   "objek": "gerobak kiri"
+  },
+  {
+   "t": 11.5,
+   "file": "led-plastic-button-press-single-ab33e364.wav",
+   "pilar": "tick",
+   "beat": 4,
+   "durasi": 0.195,
+   "skala_puncak": 1.0,
+   "objek": "gerobak kiri"
+  },
+  {
+   "t": 12.9,
+   "file": "led-plastic-button-press-single-ab33e364.wav",
+   "pilar": "tick",
+   "beat": 4,
+   "durasi": 0.195,
+   "skala_puncak": 1.0,
+   "objek": "gerobak kiri"
+  },
+  {
+   "t": 13.6,
+   "file": "glue-stick-dab-on-paper-1a9ef820.wav",
+   "pilar": "foley",
+   "beat": 5,
+   "durasi": 0.072,
+   "skala_puncak": 1.0,
+   "objek": "titik pembeli"
+  },
+  {
+   "t": 15.75,
+   "file": "designed-whoosh-soft-airy-073cf199.wav",
+   "pilar": "transisi",
+   "beat": 6,
+   "durasi": 0.775,
+   "skala_puncak": 1.0,
+   "objek": "gerobak kiri"
+  },
+  {
+   "t": 19.0,
+   "file": "glue-stick-dab-on-paper-1a9ef820.wav",
+   "pilar": "foley",
+   "beat": 7,
+   "durasi": 0.072,
+   "skala_puncak": 1.0,
+   "objek": "stabilo"
+  },
+  {
+   "t": 22.85,
+   "file": "designed-whoosh-soft-airy-073cf199.wav",
+   "pilar": "transisi",
+   "beat": 8,
+   "durasi": 0.775,
+   "skala_puncak": 1.0,
+   "objek": "gerobak kanan"
+  },
+  {
+   "t": 27.0,
+   "file": "designed-whoosh-soft-airy-073cf199.wav",
+   "pilar": "transisi",
+   "beat": 9,
+   "durasi": 0.775,
+   "skala_puncak": 1.0,
+   "objek": "gerobak kiri"
+  },
+  {
+   "t": 29.6,
+   "file": "led-plastic-button-press-single-ab33e364.wav",
+   "pilar": "tick",
+   "beat": 9,
+   "durasi": 0.195,
+   "skala_puncak": 1.0,
+   "objek": "gerobak kiri"
+  },
+  {
+   "t": 30.35,
+   "file": "designed-whoosh-soft-airy-073cf199.wav",
+   "pilar": "transisi",
+   "beat": 10,
+   "durasi": 0.775,
+   "skala_puncak": 1.0,
+   "objek": "gerobak kanan"
+  },
+  {
+   "t": 33.4,
+   "file": "designed-whoosh-soft-airy-073cf199.wav",
+   "pilar": "transisi",
+   "beat": 10,
+   "durasi": 0.775,
+   "skala_puncak": 1.0,
+   "objek": "gerobak kanan"
+  },
+  {
+   "t": 34.6,
+   "file": "glue-stick-dab-on-paper-1a9ef820.wav",
+   "pilar": "foley",
+   "beat": 11,
+   "durasi": 0.072,
+   "skala_puncak": 1.0,
+   "objek": "gerobak kiri"
+  },
+  {
+   "t": 35.75,
+   "file": "designed-whoosh-soft-airy-073cf199.wav",
+   "pilar": "transisi",
+   "beat": 12,
+   "durasi": 0.775,
+   "skala_puncak": 0.57,
+   "objek": "kartu"
+  },
+  {
+   "t": 38.8,
+   "file": "glockenspiel-single-tone-c3-f93cc6c3.wav",
+   "pilar": "aksen",
+   "beat": 12,
+   "durasi": 1.0,
+   "skala_puncak": 1.0,
+   "objek": "kartu"
+  },
+  {
+   "t": 40.1,
+   "file": "bass-drop-deep-sub-very-short-01-8df9a95d.wav",
+   "pilar": "aksen",
+   "beat": 13,
+   "durasi": 0.734,
+   "skala_puncak": 1.0,
+   "objek": "jalan"
+  },
+  {
+   "t": 40.3,
+   "file": "glue-stick-dab-on-paper-1a9ef820.wav",
+   "pilar": "foley",
+   "beat": 13,
+   "durasi": 0.072,
+   "skala_puncak": 1.0,
+   "objek": "jalan"
+  },
+  {
+   "t": 40.65,
+   "file": "glue-stick-dab-on-paper-1a9ef820.wav",
+   "pilar": "foley",
+   "beat": 13,
+   "durasi": 0.072,
+   "skala_puncak": 1.0,
+   "objek": "jalan"
+  },
+  {
+   "t": 43.0,
+   "file": "glue-stick-dab-on-paper-1a9ef820.wav",
+   "pilar": "foley",
+   "beat": 13,
+   "durasi": 0.072,
+   "skala_puncak": 1.0,
+   "objek": "jalan"
+  },
+  {
+   "t": 43.9,
+   "file": "glue-stick-dab-on-paper-1a9ef820.wav",
+   "pilar": "foley",
+   "beat": 14,
+   "durasi": 0.072,
+   "skala_puncak": 1.0,
+   "objek": "sekolah"
+  },
+  {
+   "t": 44.5,
+   "file": "glue-stick-dab-on-paper-1a9ef820.wav",
+   "pilar": "foley",
+   "beat": 14,
+   "durasi": 0.072,
+   "skala_puncak": 1.0,
+   "objek": "sekolah"
+  },
+  {
+   "t": 46.65,
+   "file": "designed-whoosh-soft-airy-073cf199.wav",
+   "pilar": "transisi",
+   "beat": 15,
+   "durasi": 0.775,
+   "skala_puncak": 0.95,
+   "objek": "minimarket"
+  },
+  {
+   "t": 48.0,
+   "file": "led-plastic-button-press-single-ab33e364.wav",
+   "pilar": "tick",
+   "beat": 15,
+   "durasi": 0.195,
+   "skala_puncak": 1.0,
+   "objek": "minimarket"
+  },
+  {
+   "t": 49.65,
+   "file": "designed-whoosh-soft-airy-073cf199.wav",
+   "pilar": "transisi",
+   "beat": 16,
+   "durasi": 0.775,
+   "skala_puncak": 1.0,
+   "objek": "pembeli"
+  },
+  {
+   "t": 53.0,
+   "file": "designed-whoosh-soft-airy-073cf199.wav",
+   "pilar": "transisi",
+   "beat": 17,
+   "durasi": 0.775,
+   "skala_puncak": 1.0,
+   "objek": "pantai"
+  },
+  {
+   "t": 54.1,
+   "file": "led-plastic-button-press-single-ab33e364.wav",
+   "pilar": "tick",
+   "beat": 17,
+   "durasi": 0.195,
+   "skala_puncak": 1.0,
+   "objek": "pantai"
+  }
+ ]
+}

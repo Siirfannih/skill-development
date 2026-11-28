@@ -1,0 +1,31 @@
+{
+ "id": "si003",
+ "akun": "siirfan",
+ "judul": "klip 5",
+ "tahap": "review_naskah",
+ "dibuat": "2026-11-25T21:47:51",
+ "masuk_tahap": "2026-11-25T21:47:51",
+ "riwayat": [
+  {
+   "dari": "ide",
+   "ke": "fakta",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:47:51",
+   "catatan": ""
+  },
+  {
+   "dari": "fakta",
+   "ke": "naskah",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:47:51",
+   "catatan": ""
+  },
+  {
+   "dari": "naskah",
+   "ke": "review_naskah",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:47:51",
+   "catatan": ""
+  }
+ ]
+}

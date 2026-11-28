@@ -1,0 +1,9 @@
+{
+ "episode": "sg003",
+ "suara": "sg-perempuan",
+ "voice_id": "voice_vy2go8tp73u0",
+ "model": "gemini-3.8-flash-tts",
+ "izin": "D-007",
+ "kata": 141,
+ "waktu": "2026-11-26T00:07:17"
+}

@@ -1,0 +1,1176 @@
+{
+ "episode_id": "sg002",
+ "title": "Kenapa kamu mabuk di mobil, sopirnya nggak? – Soalnya Gini",
+ "gaya": "A-kolase",
+ "kartu_kiblat": [
+  "95",
+  "88",
+  "65"
+ ],
+ "opening_cap": "Kenapa…",
+ "pilar": "C",
+ "target_duration_sec": 53.7,
+ "fps": 30,
+ "beats": [
+  {
+   "adegan": "A1",
+   "beat_id": 1,
+   "start_sec": 0.0,
+   "end_sec": 2.5,
+   "perubahan_sec": [
+    1.3
+   ],
+   "vo_text": "Kenapa kamu mabuk di mobil? Sopirnya nggak.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "Kenapa…",
+     "peran": "R6",
+     "kode": "T04",
+     "baris": 1,
+     "mode": "settle",
+     "mulai_sec": 0.0,
+     "akhir_sec": 1.08
+    }
+   ],
+   "visual_type": "cap_pembuka",
+   "metafora": {
+    "makna": "Penumpang pucat, sopir tenang di mobil yang sama",
+    "aksi": "menikung",
+    "objek": [
+     "mobil tampak samping",
+     "penumpang pucat",
+     "sopir tenang",
+     "jalan"
+    ],
+    "bentuk": "cutout kolase"
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0
+   },
+   "kamera": "push pelan 1,00→1,05 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 0.0,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "aksen"
+    }
+   ],
+   "keyframe_sec": 1.38
+  },
+  {
+   "adegan": "A2",
+   "beat_id": 2,
+   "start_sec": 2.5,
+   "end_sec": 5.52,
+   "perubahan_sec": [
+    3.5,
+    4.5
+   ],
+   "vo_text": "Padahal satu mobil, satu jalan, satu tikungan.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "tikungan",
+     "peran": "R3",
+     "kode": "T01",
+     "baris": 1,
+     "mode": "rise",
+     "mulai_sec": 4.74,
+     "akhir_sec": 5.52
+    }
+   ],
+   "visual_type": "kolase_tukar",
+   "metafora": {
+    "makna": "Kondisinya sama persis untuk semua orang di mobil",
+    "aksi": "menyamakan",
+    "objek": [
+     "mobil",
+     "jalan",
+     "tikungan"
+    ],
+    "bentuk": "tiga benda berurutan"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10,
+    "alasan": "ganti topik ke daftar kondisi"
+   },
+   "kamera": "push-in 1,00→1,06 (CURVE.heavy)",
+   "sfx": [
+    {
+     "t": 2.5,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 3.5,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    },
+    {
+     "t": 4.5,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 5.19
+  },
+  {
+   "adegan": "A3",
+   "beat_id": 3,
+   "start_sec": 5.52,
+   "end_sec": 7.56,
+   "perubahan_sec": [
+    6.6
+   ],
+   "vo_text": "Kok bisa? Soalnya gini.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "Soalnya gini",
+     "peran": "R6",
+     "kode": "T30",
+     "baris": 1,
+     "mode": "spin",
+     "mulai_sec": 6.66,
+     "akhir_sec": 7.56
+    }
+   ],
+   "visual_type": "tanda_tangan_buka",
+   "metafora": {
+    "makna": "Janji membongkar: bagian dalam kepala akan diperlihatkan",
+    "aksi": "membuka potongan kepala",
+    "objek": [
+     "KLIK",
+     "kepala penumpang",
+     "potongan melintang"
+    ],
+    "bentuk": "potongan melintang"
+   },
+   "transisi_masuk": {
+    "tipe": "buka-maskot",
+    "frames": 8,
+    "alasan": "momen tanda tangan"
+   },
+   "kamera": "push pelan 1,00→1,05",
+   "sfx": [
+    {
+     "t": 5.52,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 6.66,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Button, Double Click, Fast, Phone Tap - Epidemic Sound.mp3",
+     "pilar": "aksen"
+    }
+   ],
+   "keyframe_sec": 7.11,
+   "maskot": {
+    "karakter": "maskot_utama",
+    "aksi": "membuka",
+    "fungsi": "membuka potongan kepala penumpang: janji 'dibongkar'",
+    "ekspresi": "penasaran"
+   }
+  },
+  {
+   "adegan": "A4",
+   "beat_id": 4,
+   "start_sec": 7.56,
+   "end_sec": 10.6,
+   "perubahan_sec": [
+    8.8,
+    9.7
+   ],
+   "vo_text": "Di dalam telinga kamu, ada rongga kecil berisi cairan.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "cairan",
+     "peran": "R2",
+     "kode": "T23",
+     "baris": 1,
+     "mode": "diegetik",
+     "mulai_sec": 9.8,
+     "akhir_sec": 10.6
+    }
+   ],
+   "visual_type": "potongan_melintang",
+   "metafora": {
+    "makna": "Telinga dalam punya rongga berisi cairan",
+    "aksi": "memperbesar",
+    "objek": [
+     "telinga dalam",
+     "rongga melingkar",
+     "cairan"
+    ],
+    "bentuk": "potongan melintang"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10,
+    "alasan": "B di dalam A: masuk ke telinga"
+   },
+   "kamera": "push-in 1,00→1,10 masuk ke rongga (CURVE.heavy)",
+   "sfx": [
+    {
+     "t": 7.56,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 9.7,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 10.25
+  },
+  {
+   "adegan": "A5",
+   "beat_id": 5,
+   "start_sec": 10.6,
+   "end_sec": 13.44,
+   "perubahan_sec": [
+    11.8,
+    12.6
+   ],
+   "vo_text": "Tiap mobil belok atau ngerem, cairannya ikut goyang.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "goyang",
+     "peran": "R2",
+     "kode": "T28",
+     "baris": 1,
+     "mode": "flip",
+     "mulai_sec": 12.82,
+     "akhir_sec": 13.44
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "Gerakan mobil menggoyang cairan di telinga",
+    "aksi": "menggoyang",
+    "objek": [
+     "mobil",
+     "rongga",
+     "cairan miring"
+    ],
+    "bentuk": "sebab-akibat: satu elemen menggerakkan elemen lain"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10,
+    "alasan": "dari dalam telinga ke mobil yang bergerak"
+   },
+   "kamera": "push-in 1,00→1,06",
+   "sfx": [
+    {
+     "t": 10.6,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 12.0,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 13.27
+  },
+  {
+   "adegan": "A6",
+   "beat_id": 6,
+   "start_sec": 13.44,
+   "end_sec": 15.58,
+   "perubahan_sec": [
+    14.5
+   ],
+   "vo_text": "Jadi otak tahu nih, badan lagi gerak.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "gerak",
+     "peran": "R2",
+     "kode": "T19",
+     "baris": 1,
+     "mode": "pop",
+     "mulai_sec": 14.76,
+     "akhir_sec": 15.58
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "Otak menerima laporan gerak dari telinga",
+    "aksi": "melapor",
+    "objek": [
+     "telinga",
+     "otak",
+     "sinyal biru"
+    ],
+    "bentuk": "sebab-akibat"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push pelan 1,00→1,06",
+   "sfx": [
+    {
+     "t": 13.44,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 14.5,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 15.21
+  },
+  {
+   "adegan": "A7",
+   "beat_id": 7,
+   "start_sec": 15.58,
+   "end_sec": 18.18,
+   "perubahan_sec": [
+    16.9
+   ],
+   "vo_text": "Nah, tapi mata kamu lagi lihat HP yang diam.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "diam",
+     "peran": "R2",
+     "kode": "T01",
+     "baris": 1,
+     "mode": "rise",
+     "mulai_sec": 17.52,
+     "akhir_sec": 18.18
+    }
+   ],
+   "visual_type": "kolase_tukar",
+   "metafora": {
+    "makna": "Mata melaporkan layar yang diam",
+    "aksi": "menatap",
+    "objek": [
+     "mata",
+     "layar HP",
+     "sinyal biru kedua"
+    ],
+    "bentuk": "sebab-akibat"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push pelan 1,00→1,06",
+   "sfx": [
+    {
+     "t": 15.58,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 16.9,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 17.97
+  },
+  {
+   "adegan": "A8",
+   "beat_id": 8,
+   "start_sec": 18.18,
+   "end_sec": 20.38,
+   "perubahan_sec": [
+    19.3
+   ],
+   "vo_text": "Jadi otak dapat dua laporan yang nggak cocok.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "nggak cocok",
+     "peran": "R3",
+     "kode": "T04",
+     "baris": 1,
+     "mode": "settle",
+     "mulai_sec": 19.46,
+     "akhir_sec": 20.38
+    }
+   ],
+   "visual_type": "angka_kunci",
+   "metafora": {
+    "makna": "Dua laporan bertabrakan di otak",
+    "aksi": "bertabrakan",
+    "objek": [
+     "otak",
+     "dua sinyal",
+     "tanda tanya"
+    ],
+    "bentuk": "sebab-akibat"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push-in 1,00→1,07",
+   "sfx": [
+    {
+     "t": 18.18,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 19.3,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Button, Double Click, Fast, Phone Tap - Epidemic Sound.mp3",
+     "pilar": "aksen"
+    }
+   ],
+   "keyframe_sec": 19.91
+  },
+  {
+   "adegan": "A9a",
+   "beat_id": 9,
+   "start_sec": 20.38,
+   "end_sec": 21.6,
+   "perubahan_sec": [
+    20.9
+   ],
+   "vo_text": "Telinga bilang gerak,",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "gerak",
+     "peran": "R2",
+     "kode": "T28",
+     "baris": 1,
+     "mode": "flip",
+     "mulai_sec": 20.86,
+     "akhir_sec": 21.6
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "Telinga melaporkan gerak",
+    "aksi": "melapor",
+    "objek": [
+     "telinga",
+     "panah"
+    ],
+    "bentuk": "sebab-akibat"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push pelan 1,00→1,05",
+   "sfx": [
+    {
+     "t": 20.38,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 20.9,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 21.31
+  },
+  {
+   "adegan": "A9b",
+   "beat_id": 10,
+   "start_sec": 21.6,
+   "end_sec": 22.9,
+   "perubahan_sec": [
+    22.1
+   ],
+   "vo_text": "mata bilang diam.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "diam",
+     "peran": "R2",
+     "kode": "T28",
+     "baris": 1,
+     "mode": "flip",
+     "mulai_sec": 21.98,
+     "akhir_sec": 22.9
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "Mata melaporkan diam, berlawanan dengan telinga",
+    "aksi": "menolak",
+    "objek": [
+     "mata",
+     "panah berlawanan"
+    ],
+    "bentuk": "sebab-akibat"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push pelan 1,00→1,05",
+   "sfx": [
+    {
+     "t": 21.6,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 22.1,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 22.43
+  },
+  {
+   "adegan": "A10",
+   "beat_id": 11,
+   "start_sec": 22.9,
+   "end_sec": 25.54,
+   "perubahan_sec": [
+    24.0
+   ],
+   "vo_text": "Salah satu penjelasannya namanya konflik sensorik.",
+   "fakta_ids": [
+    "F1"
+   ],
+   "kt": [
+    {
+     "teks": "konflik sensorik",
+     "peran": "R2",
+     "kode": "T01",
+     "baris": 1,
+     "mode": "rise",
+     "mulai_sec": 24.46,
+     "akhir_sec": 25.54
+    }
+   ],
+   "visual_type": "angka_kunci",
+   "metafora": {
+    "makna": "Nama teorinya: konflik sensorik (salah satu penjelasan)",
+    "aksi": "menamai",
+    "objek": [
+     "otak",
+     "tanda seru",
+     "dua sinyal"
+    ],
+    "bentuk": "label diegetik"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push-in 1,00→1,06",
+   "sfx": [
+    {
+     "t": 22.9,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 24.0,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Alert, Notification, Message, Text - Epidemic Sound.mp3",
+     "pilar": "aksen"
+    }
+   ],
+   "keyframe_sec": 24.91
+  },
+  {
+   "adegan": "A11",
+   "beat_id": 12,
+   "start_sec": 25.54,
+   "end_sec": 28.02,
+   "perubahan_sec": [
+    26.8
+   ],
+   "vo_text": "Dan otak membalasnya dengan pusing dan mual.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "pusing",
+     "peran": "R2",
+     "kode": "T19",
+     "baris": 1,
+     "mode": "pop",
+     "mulai_sec": 26.74,
+     "akhir_sec": 27.76
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "Akibatnya penumpang pusing dan mual",
+    "aksi": "memutar",
+    "objek": [
+     "kepala penumpang",
+     "spiral pusing",
+     "wajah hijau"
+    ],
+    "bentuk": "cutout kolase"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push pelan 1,00→1,06",
+   "sfx": [
+    {
+     "t": 25.54,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 26.8,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 27.19
+  },
+  {
+   "adegan": "A12",
+   "beat_id": 13,
+   "start_sec": 28.02,
+   "end_sec": 30.6,
+   "perubahan_sec": [
+    29.4
+   ],
+   "vo_text": "Sopir beda, loh. Dia yang megang setir dan pedal,",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "pedal",
+     "peran": "R2",
+     "kode": "T01",
+     "baris": 1,
+     "mode": "rise",
+     "mulai_sec": 29.96,
+     "akhir_sec": 30.6
+    }
+   ],
+   "visual_type": "kolase_tukar",
+   "metafora": {
+    "makna": "Sopir memegang kendali setir dan pedal",
+    "aksi": "mengendalikan",
+    "objek": [
+     "sopir",
+     "setir",
+     "pedal"
+    ],
+    "bentuk": "cutout kolase"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10,
+    "alasan": "pindah ke sopir"
+   },
+   "kamera": "push-in 1,00→1,06",
+   "sfx": [
+    {
+     "t": 28.02,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 29.4,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 30.41
+  },
+  {
+   "adegan": "A13",
+   "beat_id": 14,
+   "start_sec": 30.6,
+   "end_sec": 33.04,
+   "perubahan_sec": [
+    31.6
+   ],
+   "vo_text": "jadi dia tahu kapan mobil bakal belok atau ngerem,",
+   "fakta_ids": [
+    "F2"
+   ],
+   "kt": [
+    {
+     "teks": "tahu kapan",
+     "peran": "R2",
+     "kode": "T28",
+     "baris": 1,
+     "mode": "flip",
+     "mulai_sec": 30.96,
+     "akhir_sec": 32.08
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "Sopir tahu duluan kapan mobil belok",
+    "aksi": "menebak",
+    "objek": [
+     "sopir",
+     "garis tebakan putus-putus",
+     "tikungan"
+    ],
+    "bentuk": "sebab-akibat"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push pelan 1,00→1,06",
+   "sfx": [
+    {
+     "t": 30.6,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 31.6,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 31.94
+  },
+  {
+   "adegan": "A14",
+   "beat_id": 15,
+   "start_sec": 33.04,
+   "end_sec": 35.9,
+   "perubahan_sec": [
+    34.4
+   ],
+   "vo_text": "sebelum itu kejadian. Otaknya udah nebak duluan,",
+   "fakta_ids": [
+    "F2"
+   ],
+   "kt": [
+    {
+     "teks": "duluan",
+     "peran": "R2",
+     "kode": "T19",
+     "baris": 1,
+     "mode": "pop",
+     "mulai_sec": 35.24,
+     "akhir_sec": 35.9
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "Otak sopir sudah menebak gerakan berikutnya",
+    "aksi": "menebak",
+    "objek": [
+     "otak sopir",
+     "garis tebakan",
+     "mobil"
+    ],
+    "bentuk": "sebab-akibat"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push-in 1,00→1,06",
+   "sfx": [
+    {
+     "t": 33.04,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 34.4,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 35.69
+  },
+  {
+   "adegan": "A15",
+   "beat_id": 16,
+   "start_sec": 35.9,
+   "end_sec": 37.9,
+   "perubahan_sec": [
+    36.7
+   ],
+   "vo_text": "dan tebakannya hampir selalu pas.",
+   "fakta_ids": [
+    "F2"
+   ],
+   "kt": [
+    {
+     "teks": "hampir selalu pas",
+     "peran": "R3",
+     "kode": "T01",
+     "baris": 1,
+     "mode": "rise",
+     "mulai_sec": 36.4,
+     "akhir_sec": 37.86
+    }
+   ],
+   "visual_type": "angka_kunci",
+   "metafora": {
+    "makna": "Tebakan sopir hampir selalu cocok dengan kenyataan",
+    "aksi": "mencocokkan",
+    "objek": [
+     "tiga centang",
+     "garis tebakan"
+    ],
+    "bentuk": "sebab-akibat"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push pelan 1,00→1,05",
+   "sfx": [
+    {
+     "t": 35.9,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 36.7,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, UI Buttons, Confirm, Menu - Epidemic Sound.mp3",
+     "pilar": "aksen"
+    }
+   ],
+   "keyframe_sec": 37.0
+  },
+  {
+   "adegan": "A16",
+   "beat_id": 17,
+   "start_sec": 37.9,
+   "end_sec": 41.14,
+   "perubahan_sec": [
+    38.9,
+    40.0
+   ],
+   "vo_text": "Penumpang nggak tahu. Apalagi yang duduk di belakang sambil main HP.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "nggak tahu",
+     "peran": "R3",
+     "kode": "T04",
+     "baris": 1,
+     "mode": "settle",
+     "mulai_sec": 38.38,
+     "akhir_sec": 39.66
+    }
+   ],
+   "visual_type": "kolase_tukar",
+   "metafora": {
+    "makna": "Penumpang tidak bisa menebak, apalagi yang main HP",
+    "aksi": "menunduk",
+    "objek": [
+     "penumpang belakang",
+     "HP",
+     "jalan tak terlihat"
+    ],
+    "bentuk": "cutout kolase"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10,
+    "alasan": "pindah ke penumpang belakang"
+   },
+   "kamera": "push-in 1,00→1,06",
+   "sfx": [
+    {
+     "t": 37.9,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 39.0,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 39.68
+  },
+  {
+   "adegan": "A17",
+   "beat_id": 18,
+   "start_sec": 41.14,
+   "end_sec": 43.72,
+   "perubahan_sec": [
+    42.2
+   ],
+   "vo_text": "Tiap rem mendadak itu kejutan buat otaknya.",
+   "fakta_ids": [
+    "F0"
+   ],
+   "kt": [
+    {
+     "teks": "kejutan",
+     "peran": "R2",
+     "kode": "T30",
+     "baris": 1,
+     "mode": "spin",
+     "mulai_sec": 42.28,
+     "akhir_sec": 43.34
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "Rem mendadak = kejutan untuk otak penumpang",
+    "aksi": "menyentak",
+    "objek": [
+     "badan tersentak",
+     "mobil mengerem",
+     "tanda seru"
+    ],
+    "bentuk": "cutout kolase"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push-in cepat 1,00→1,08 (CURVE.whip)",
+   "sfx": [
+    {
+     "t": 41.14,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 42.2,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Button, Double Click, Fast, Phone Tap - Epidemic Sound.mp3",
+     "pilar": "aksen"
+    }
+   ],
+   "keyframe_sec": 42.73
+  },
+  {
+   "adegan": "A18a",
+   "beat_id": 19,
+   "start_sec": 43.72,
+   "end_sec": 45.6,
+   "perubahan_sec": [
+    44.6
+   ],
+   "vo_text": "Makin sering tebakannya meleset,",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "meleset",
+     "peran": "R2",
+     "kode": "T01",
+     "baris": 1,
+     "mode": "rise",
+     "mulai_sec": 44.5,
+     "akhir_sec": 45.6
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "Makin sering tebakan meleset",
+    "aksi": "menaikkan",
+    "objek": [
+     "meter meleset"
+    ],
+    "bentuk": "grafik meter"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push pelan 1,00→1,05",
+   "sfx": [
+    {
+     "t": 43.72,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 44.6,
+     "file": "~/sfx/SFXIrfan/ES_Designed, Riser, Transition, Fast, Short, Clean 01 - Epidemic Sound.mp3",
+     "pilar": "aksen"
+    }
+   ],
+   "keyframe_sec": 44.95
+  },
+  {
+   "adegan": "A18b",
+   "beat_id": 20,
+   "start_sec": 45.6,
+   "end_sec": 46.62,
+   "perubahan_sec": [
+    46.0
+   ],
+   "vo_text": "makin gampang mual.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "mual",
+     "peran": "R2",
+     "kode": "T01",
+     "baris": 1,
+     "mode": "rise",
+     "mulai_sec": 45.74,
+     "akhir_sec": 46.62
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "Meter mual ikut naik",
+    "aksi": "menaikkan",
+    "objek": [
+     "meter meleset penuh",
+     "meter mual"
+    ],
+    "bentuk": "grafik meter"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push pelan 1,00→1,05",
+   "sfx": [
+    {
+     "t": 45.6,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 46.0,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "tick"
+    }
+   ],
+   "keyframe_sec": 46.2
+  },
+  {
+   "adegan": "A19",
+   "beat_id": 21,
+   "start_sec": 46.62,
+   "end_sec": 49.84,
+   "perubahan_sec": [
+    47.6,
+    48.7
+   ],
+   "vo_text": "Makanya duduk di depan sambil lihat jalan, sering terasa lebih enak.",
+   "fakta_ids": [
+    "F4"
+   ],
+   "kt": [
+    {
+     "teks": "lihat jalan",
+     "peran": "R3",
+     "kode": "T28",
+     "baris": 1,
+     "mode": "flip",
+     "mulai_sec": 47.62,
+     "akhir_sec": 49.06
+    }
+   ],
+   "visual_type": "payoff_oh_gitu",
+   "metafora": {
+    "makna": "Duduk di depan dan melihat jalan sering terasa lebih enak",
+    "aksi": "pindah dan melihat",
+    "objek": [
+     "penumpang di depan",
+     "jalan",
+     "KLIK oh gitu"
+    ],
+    "bentuk": "cutout kolase"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10,
+    "alasan": "pindah ke jok depan"
+   },
+   "kamera": "push-in 1,00→1,06",
+   "sfx": [
+    {
+     "t": 46.62,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 48.7,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "aksen"
+    }
+   ],
+   "keyframe_sec": 48.39,
+   "maskot": {
+    "karakter": "maskot_utama",
+    "aksi": "mengangguk",
+    "fungsi": "bereaksi 'oh gitu' saat penumpang pindah ke depan",
+    "ekspresi": "oh_gitu"
+   }
+  },
+  {
+   "adegan": "A20",
+   "beat_id": 22,
+   "start_sec": 49.84,
+   "end_sec": 53.7,
+   "perubahan_sec": [
+    51.0,
+    52.3
+   ],
+   "vo_text": "Kamu tim mabuk atau tim tidur di mobil?",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "mabuk atau tidur",
+     "peran": "R3",
+     "kode": "T01",
+     "baris": 1,
+     "mode": "rise",
+     "mulai_sec": 50.5,
+     "akhir_sec": 52.3
+    }
+   ],
+   "visual_type": "loop_tutup",
+   "metafora": {
+    "makna": "Pertanyaan penutup mengembalikan ke tikungan awal",
+    "aksi": "menutup",
+    "objek": [
+     "mobil di tikungan",
+     "KLIK"
+    ],
+    "bentuk": "cutout kolase"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10,
+    "alasan": "kembali ke frame 1 (loop)"
+   },
+   "kamera": "push balik 1,06→1,00",
+   "sfx": [
+    {
+     "t": 49.84,
+     "file": "~/sfx/SFXIrfan/ES_Swooshes, Whoosh, Big, Cinematic - Epidemic Sound.mp3",
+     "pilar": "transisi"
+    },
+    {
+     "t": 52.6,
+     "file": "~/sfx/SFXIrfan/ES_User Interface, Click, Pops, Glass, UI, Pops - Epidemic Sound.mp3",
+     "pilar": "aksen"
+    }
+   ],
+   "keyframe_sec": 51.96,
+   "maskot": {
+    "karakter": "maskot_utama",
+    "aksi": "menutup",
+    "fungsi": "menutup flap/lambaian: jembatan loop ke frame 1",
+    "ekspresi": "netral"
+   }
+  }
+ ]
+}

@@ -1,0 +1,101 @@
+{
+ "id": "so001",
+ "akun": "soalnya-gini",
+ "judul": "Kenapa es puter bisa beku tanpa kulkas? – Soalnya Gini",
+ "tahap": "review_final",
+ "dibuat": "2026-11-25T21:55:46",
+ "masuk_tahap": "2026-11-26T00:50:26",
+ "riwayat": [
+  {
+   "dari": "ide",
+   "ke": "fakta",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:55:46",
+   "catatan": ""
+  },
+  {
+   "dari": "fakta",
+   "ke": "naskah",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:55:46",
+   "catatan": "fakta.md lolos slop-grep"
+  },
+  {
+   "dari": "naskah",
+   "ke": "review_naskah",
+   "oleh": "mesin",
+   "t": "2026-11-25T22:02:23",
+   "catatan": "slop-grep, variasi_cek, beat_frames (kecuali K-05), skema OK"
+  },
+  {
+   "dari": "review_naskah",
+   "ke": "suara",
+   "oleh": "irfan",
+   "t": "2026-11-25T22:02:23",
+   "catatan": "test 25 Nov: naskah dianggap disetujui Irfan (BRIEF-PRODUKSI D-001)"
+  },
+  {
+   "dari": "suara",
+   "ke": "tertahan",
+   "oleh": "mesin",
+   "t": "2026-11-25T22:02:44",
+   "catatan": "TTS HTTP 429 free tier 10 req/hari (~18 jam); lanjut setelah kuota pulih"
+  },
+  {
+   "dari": "tertahan",
+   "ke": "storyboard",
+   "oleh": "mesin",
+   "t": "2026-11-25T22:44:27",
+   "catatan": "deviasi urutan: storyboard sebelum suara (kuota TTS, ADDENDUM-2 b6); timing perkiraan"
+  },
+  {
+   "dari": "storyboard",
+   "ke": "review_storyboard",
+   "oleh": "mesin",
+   "t": "2026-11-25T22:44:27",
+   "catatan": ""
+  },
+  {
+   "dari": "review_storyboard",
+   "ke": "build",
+   "oleh": "irfan",
+   "t": "2026-11-25T22:44:27",
+   "catatan": "test 25 Nov, Irfan minta tanpa jeda storyboard"
+  },
+  {
+   "dari": "build",
+   "ke": "tertahan",
+   "oleh": "mesin",
+   "t": "2026-11-25T22:44:27",
+   "catatan": "menunggu kuota TTS (reset ~16:00 WITA); build siap-VO selesai"
+  },
+  {
+   "dari": "tertahan",
+   "ke": "build",
+   "oleh": "mesin",
+   "t": "2026-11-26T00:50:26",
+   "catatan": "VO Key 3 tersedia, build final"
+  },
+  {
+   "dari": "build",
+   "ke": "render",
+   "oleh": "mesin",
+   "t": "2026-11-26T00:50:26",
+   "catatan": "ep03 render.mp4 selesai; sg_qc; QC-MATA"
+  },
+  {
+   "dari": "render",
+   "ke": "qc",
+   "oleh": "mesin",
+   "t": "2026-11-26T00:50:26",
+   "catatan": "ep03 render.mp4 selesai; sg_qc; QC-MATA"
+  },
+  {
+   "dari": "qc",
+   "ke": "review_final",
+   "oleh": "mesin",
+   "t": "2026-11-26T00:50:26",
+   "catatan": "ep03 render.mp4 selesai; sg_qc; QC-MATA"
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+SKILLDEV=/home/irfan/work/soalnya-gini-studio/_uji/skilldev-snap (5e9d781 SUMBER + PETA: asal-usul audit 25 Nov dan peta terbaru) PY=/home/irfan/work/mg-venv/bin/python
+== data uji
+plan: 12 beat · v2: 15 beat, 142 kata VO
+== T1 slop-grep
+OK    T1a_teks_bersih (exit 0)
+OK    T1b_teks_kotor (exit 1)
+OK    T1c_kode_kotor (exit 1)
+OK    T1d_kode_bersih (exit 0)
+OK    T1e_v1_tokens (exit 1)
+== T2 VO: v2 vo_master vs v1 loudnorm
+OK    T2a_pelan_naik (exit 0)
+OK    T2b_keras_tts_tidak_turun (exit 0)
+OK    T2b2_keras_rekaman_hpf_puncak (exit 1)
+OK    T2c_berpuncak_tanpa_alasan (exit 1)
+OK    T2d_berpuncak_terima (exit 0)
+OK    T2e_v1_loudnorm_keras (exit 1)
+OK    T2f_v1_loudnorm_pelan (exit 0)
+== T3 episode sintetis on-brand + delivery_probe + sg_qc
+    loudness_2pass exit 0 (LULUS)
+OK    T3a_probe_spec (exit 0)
+OK    T3b_probe_v1gaya (exit 1)
+OK    T3c_sg_qc_baik (exit 0)
+OK    T3d_sg_qc_tanpa_ledger_jobs (exit 1)
+OK    T3e_sg_qc_pelangi (exit 1)
+OK    T3f_golden_kosong (exit 1)
+OK    T3g_golden_tanpa_golden (exit 1)
+== T4 words_align (faster-whisper lokal, suara edubizz-2 15 dtk)
+OK    T4a_align_medium85 (exit 0)
+OK    T4b_align_small_v1ambang95 (exit 1)
+OK    T4d_kt_tertangkap (exit 0)
+OK    T4e_kt_salah_dengar (exit 1)
+OK    T4c_align_naskah_salah (exit 1)
+== T5 variasi_cek (10 naskah plan)
+    naskah diekstrak: 10
+OK    T5a_tiap_naskah_lolos (exit 0)
+OK    T5b_daur_ulang_naskah (exit 1)
+OK    T5c_rotasi_cap (exit 1)
+== T6 beat_frames
+OK    T6a_cek_plan_apa_adanya (exit 1)
+OK    T6b_cek_sg001 (exit 0)
+OK    T6c_label (exit 0)
+OK    T6d_storyboard (exit 0)
+OK    T6e_schema (exit 0)
+OK    T6f_maskot_tanpa_fungsi (exit 1)
+== T7 tema_cek (skill-development) atas kit/tema.ts
+OK    T7a_tema_lulus (exit 0)
+OK    T7b_literal_di_adegan (exit 1)
+OK    T7c_motion_lint_bersih (exit 0)
+== T8 antrean
+OK    T8a_review_tanpa_irfan (exit 1)
+OK    T8b_review_oleh_irfan (exit 0)
+OK    T8c_lompat_tahap (exit 1)
+OK    T8d_berikut_hilir_dulu (exit 0)
+OK    T8e_render_tunggu_kunci (exit 0)
+OK    T8f_stop_the_line (exit 0)
+OK    T8g_upload_hanya_irfan (exit 1)
+== T9 tts dry-run (tanpa API, tanpa membaca kunci)
+OK    T9a_tts_dryrun_ganjil (exit 0)
+OK    T9b_tidak_ada_wav (exit 1)
+OK    T9c_giliran_genap (exit 0)
+== T10 keluaran Gemini Voice Design nyata (vo-uji/, dibuat 25 Nov; tidak ada panggilan API di uji ini)
+    ab-sg-laki-lisan.wav I -19.1 LRA 2.5 TP -0.7
+    ab-sg-laki-naskah-tanpa-gaya.wav I -18.3 LRA 2.7 TP -1.2
+    ab-sg-perempuan-lisan.wav I -20.6 LRA 4.8 TP -4.9
+    ab-sg-perempuan-naskah-tanpa-gaya.wav I -19.7 LRA 3.1 TP -2.9
+    uji-sg-laki.wav I -18.8 LRA 2.9 TP -1.3
+    uji-sg-perempuan.wav I -19.4 LRA 2.9 TP -2.3
+OK    T10a_vo_master_perempuan (exit 0)
+OK    T10b_vo_master_laki_puncak_panas (exit 1)
+OK    T10c_align_gemini_p (exit 0)
+OK    T10d_align_gemini_l (exit 0)
+
+RINGKASAN: 50 sesuai harapan, 0 tidak sesuai

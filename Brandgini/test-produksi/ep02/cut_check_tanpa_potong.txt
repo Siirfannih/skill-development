@@ -1,0 +1,6 @@
+  sampah      0  
+  diam_kata   0  
+  diam_kal   12  3.52s mobil, → satu 0.21 dtk; 4.4s jalan, → satu 0.15 dtk; 8.56s kamu, → ada 0.16 dtk; 12.12s ngerem, → cairannya 0.18 dtk; 15.75s Nah, → tapi 0.19 dtk; 21.18s gerak, → mata 0.44 dtk; 30.53s pedal, → jadi 0.15 dtk; 41.87s dadak → itu 0.25 dtk …
+  antar_kal  13  5.97s bisa? → Soalnya 0.70 dtk; 7.04s gini. → Di 0.52 dtk; 14.88s gerak. → Nah, 0.70 dtk; 19.77s cocok. → Telinga 0.62 dtk; 22.3s diam. → Salah 0.60 dtk; 27.5s mual. → Supir 0.53 dtk; 32.5s ngerem. → Sebelum 0.54 dtk; 33.83s kejadian. → Otaknya 0.61 dtk …
+  gumam       1  37.70s 0.20dtk  (PERIKSA: dengar)
+FAIL: diam_kal 12, antar_kal 13

@@ -1,0 +1,137 @@
+[
+ {
+  "beat": "b01",
+  "visual_type": "cap_pembuka",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b02",
+  "visual_type": "tanda_tangan_buka",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b03",
+  "visual_type": "diagram_rakit",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b04",
+  "visual_type": "diagram_rakit",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b05",
+  "visual_type": "kolase_aksi_kursor",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b06",
+  "visual_type": "kolase_tukar",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b07",
+  "visual_type": "diagram_rakit",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b08",
+  "visual_type": "kolase_tukar",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b09",
+  "visual_type": "payoff_oh_gitu",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b10",
+  "visual_type": "diagram_rakit",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b11",
+  "visual_type": "angka_kunci",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b12",
+  "visual_type": "kolase_hero",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b13",
+  "visual_type": "kolase_hero",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b14",
+  "visual_type": "kolase_aksi_kursor",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ },
+ {
+  "beat": "b15",
+  "visual_type": "loop_tutup",
+  "gagal": [
+   "TANPA-GOLDEN: gaya B-arsip belum punya golden frame yang disetujui"
+  ],
+  "perlu_mata": [],
+  "luar_token": 0.0
+ }
+]

@@ -1,0 +1,28 @@
+{
+ "_catatan": "Keputusan Irfan 25 Nov 2026 (KEPUTUSAN-IRFAN D-01, D-02). ID suara bukan rahasia; kunci API hanya di PC ~/.config/soalnya-gini/gemini.env (600). Suara rancangan disimpan di proyek AI Studio Irfan dengan TTL 1 tahun: perbarui sebelum kedaluwarsa. Tanggal kedaluwarsa = dibuat + 1 tahun (PERKIRAAN; cek tanggal pasti di AI Studio).",
+ "engine": "gemini-voice-design",
+ "model": "gemini-3.8-flash-tts",
+ "bahasa": "id-ID",
+ "suara": {
+  "sg-perempuan": {
+   "id": "voice_vy2go8tp73u0",
+   "dibuat": "2026-11-25",
+   "kedaluwarsa": "2027-11-25"
+  },
+  "sg-laki": {
+   "id": "voice_8wwhff4lw2g2",
+   "dibuat": "2026-11-25",
+   "kedaluwarsa": "2027-11-25"
+  }
+ },
+ "giliran": {
+  "ganjil": "sg-perempuan",
+  "genap": "sg-laki"
+ },
+ "anotasi_style": false,
+ "tempo_kata_per_dtk": 2.9,
+ "loudness_mentah_lufs": [
+  -21,
+  -19
+ ]
+}

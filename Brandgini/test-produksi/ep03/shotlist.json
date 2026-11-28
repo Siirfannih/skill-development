@@ -1,0 +1,742 @@
+{
+ "episode_id": "sg003",
+ "title": "Kenapa es puter bisa beku tanpa kulkas? – Soalnya Gini",
+ "gaya": "A-kolase",
+ "kartu_kiblat": [
+  "95",
+  "17",
+  "88"
+ ],
+ "opening_cap": "Kalau…",
+ "target_duration_sec": 54.03,
+ "fps": 30,
+ "beats": [
+  {
+   "beat_id": 1,
+   "start_sec": 0.0,
+   "end_sec": 3.633,
+   "perubahan_sec": [
+    1.817
+   ],
+   "vo_text": "Kalau kamu taruh kaleng santan di tengah es batu, santannya susah beku.",
+   "fakta_ids": [
+    "F5"
+   ],
+   "kt": [
+    {
+     "teks": "Kalau…",
+     "peran": "R6",
+     "kode": "T04"
+    },
+    {
+     "teks": "beku",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "cap_pembuka",
+   "metafora": {
+    "makna": "Kaleng santan di tengah es batu tetap cair",
+    "aksi": "menaruh kaleng ke baskom es",
+    "objek": [
+     "baskom es batu",
+     "kaleng santan",
+     "termometer"
+    ],
+    "bentuk": "objek tunggal berlabel"
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0,
+    "alasan": "frame 0 langsung berisi baskom, kaleng, dan cap"
+   },
+   "kamera": "dunia gugus baskom; push 1,12→1,30 ke kaleng",
+   "sfx": [
+    {
+     "t": 0.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "aksen"
+    },
+    {
+     "t": 1.3,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 2,
+   "start_sec": 3.633,
+   "end_sec": 5.633,
+   "perubahan_sec": [],
+   "vo_text": "Kok bisa? Soalnya gini.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "Soalnya gini",
+     "peran": "R6",
+     "kode": "T04"
+    }
+   ],
+   "visual_type": "tanda_tangan_buka",
+   "metafora": {
+    "makna": "Awal penjelasan",
+    "aksi": "mendekat ke kaleng",
+    "objek": [
+     "mangkuk es",
+     "kaleng santan"
+    ],
+    "bentuk": "objek tunggal"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 14,
+    "alasan": "kamera masuk ke KLIK yang membuka (tanda tangan seri); lalu pan ke gerobak"
+   },
+   "kamera": "push ke mangkuk dan kaleng 1,4→1,7",
+   "sfx": [
+    {
+     "t": 3.983,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "aksen"
+    },
+    {
+     "t": 4.533,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 3,
+   "start_sec": 5.633,
+   "end_sec": 9.767,
+   "perubahan_sec": [
+    7.7
+   ],
+   "vo_text": "Es batu itu cuma nol derajat, pas di titik bekunya air.",
+   "fakta_ids": [
+    "F4"
+   ],
+   "kt": [
+    {
+     "teks": "derajat",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "potongan_melintang",
+   "metafora": {
+    "makna": "Es batu hanya mencapai nol derajat, titik beku air",
+    "aksi": "memotong tong melintang",
+    "objek": [
+     "tong",
+     "es batu",
+     "kaleng",
+     "termometer"
+    ],
+    "bentuk": "potongan melintang"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10,
+    "alasan": "pan satu arah dari meja ke gerobak, tahan, lalu naik ke panel potongan melintang tong dari samping"
+   },
+   "kamera": "start di gerobak 1,2 lalu menyelam ke potongan melintang tong 1,08→1,14",
+   "sfx": [
+    {
+     "t": 5.733,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    },
+    {
+     "t": 8.033,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "tick"
+    }
+   ]
+  },
+  {
+   "beat_id": 4,
+   "start_sec": 9.767,
+   "end_sec": 14.033,
+   "perubahan_sec": [
+    11.189,
+    12.611
+   ],
+   "vo_text": "Nah, abang es puter nambahin satu bahan ke esnya. Garam.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "Garam",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "Satu bahan tambahan: garam",
+    "aksi": "menuang garam ke es",
+    "objek": [
+     "karung garam",
+     "butir garam",
+     "es batu"
+    ],
+    "bentuk": "aksi harfiah"
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0,
+    "alasan": "karung garam masuk dari kanan atas, arah baca kiri ke kanan"
+   },
+   "kamera": "pan ke cincin atas-kanan 1,15→1,32 (karung garam)",
+   "sfx": [
+    {
+     "t": 9.867,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    },
+    {
+     "t": 11.967,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 5,
+   "start_sec": 14.033,
+   "end_sec": 16.367,
+   "perubahan_sec": [
+    15.2
+   ],
+   "vo_text": "Garam bikin es jadi lebih susah membeku,",
+   "fakta_ids": [
+    "F1"
+   ],
+   "kt": [
+    {
+     "teks": "susah",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "Garam membuat es lebih sulit membeku",
+    "aksi": "menempel lalu melelehkan",
+    "objek": [
+     "kubus es",
+     "butir garam",
+     "tetes"
+    ],
+    "bentuk": "close-up benda"
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0,
+    "alasan": "kubus es datang dari atas ke cincin yang sama"
+   },
+   "kamera": "dive ke satu kubus es di cincin 2,9→3,3",
+   "sfx": [
+    {
+     "t": 14.133,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 6,
+   "start_sec": 16.367,
+   "end_sec": 20.2,
+   "perubahan_sec": [
+    18.283
+   ],
+   "vo_text": "jadi es mulai mencair, dan suhunya turun sampai di bawah nol.",
+   "fakta_ids": [
+    "F1"
+   ],
+   "kt": [
+    {
+     "teks": "nol",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "angka_kunci",
+   "metafora": {
+    "makna": "Suhu campuran es dan garam turun di bawah nol",
+    "aksi": "menurunkan air raksa",
+    "objek": [
+     "termometer",
+     "garis nol",
+     "tetes"
+    ],
+    "bentuk": "alat ukur"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10,
+    "alasan": "ganti dari kubus es ke termometer: ganti keadaan"
+   },
+   "kamera": "pan ke termometer 1,55→1,75",
+   "sfx": [
+    {
+     "t": 16.467,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    },
+    {
+     "t": 17.967,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "aksen"
+    }
+   ]
+  },
+  {
+   "beat_id": 7,
+   "start_sec": 20.2,
+   "end_sec": 22.8,
+   "perubahan_sec": [
+    21.5
+   ],
+   "vo_text": "Nah, buat mencair, es butuh panas.",
+   "fakta_ids": [
+    "F1"
+   ],
+   "kt": [
+    {
+     "teks": "panas",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "Es yang mencair butuh panas",
+    "aksi": "menyerap",
+    "objek": [
+     "kubus es",
+     "panah panas putus-putus"
+    ],
+    "bentuk": "sebab-akibat"
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0,
+    "alasan": "satu fokus baru di kanvas yang sama"
+   },
+   "kamera": "dive ke kubus es lain 2,8→3,2 (panah panas)",
+   "sfx": [
+    {
+     "t": 20.3,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 8,
+   "start_sec": 22.8,
+   "end_sec": 27.033,
+   "perubahan_sec": [
+    24.211,
+    25.622
+   ],
+   "vo_text": "Panas itu diambil dari mana? Dari benda paling dekat, yaitu kaleng di tengahnya.",
+   "fakta_ids": [
+    "F1"
+   ],
+   "kt": [
+    {
+     "teks": "kaleng",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "Panas diambil dari kaleng di tengah",
+    "aksi": "mengalir dari kaleng ke es",
+    "objek": [
+     "tong",
+     "kaleng",
+     "panah panas"
+    ],
+    "bentuk": "sebab-akibat"
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0,
+    "alasan": "pergantian ke diagram aliran, pemicu: pertanyaan 'dari mana?'"
+   },
+   "kamera": "pull ke tong 1,10→1,22 (aliran dari kaleng)",
+   "sfx": [
+    {
+     "t": 22.9,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    },
+    {
+     "t": 24.8,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "foley"
+    },
+    {
+     "t": 26.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "aksen"
+    }
+   ]
+  },
+  {
+   "beat_id": 9,
+   "start_sec": 27.033,
+   "end_sec": 31.5,
+   "perubahan_sec": [
+    28.522,
+    30.011
+   ],
+   "vo_text": "Jadi adonan di dalam kaleng makin dingin, sampai ikut beku.",
+   "fakta_ids": [
+    "F1"
+   ],
+   "kt": [
+    {
+     "teks": "beku",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "potongan_melintang",
+   "metafora": {
+    "makna": "Adonan di dalam kaleng ikut dingin lalu beku",
+    "aksi": "membeku dari dinding",
+    "objek": [
+     "kaleng terbelah",
+     "adonan",
+     "kerak es"
+    ],
+    "bentuk": "potongan melintang"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10,
+    "alasan": "masuk menembus dinding kaleng ke dalam adonan"
+   },
+   "kamera": "dive ke kaleng 3,2→3,6",
+   "sfx": [
+    {
+     "t": 27.133,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    },
+    {
+     "t": 29.233,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "aksen"
+    }
+   ]
+  },
+  {
+   "beat_id": 10,
+   "start_sec": 31.5,
+   "end_sec": 33.4,
+   "perubahan_sec": [],
+   "vo_text": "Terus kenapa kalengnya diputar terus?",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "diputar",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "kolase_aksi_kursor",
+   "metafora": {
+    "makna": "Kaleng diputar terus",
+    "aksi": "memutar engkol",
+    "objek": [
+     "tong",
+     "engkol",
+     "panah putar"
+    ],
+    "bentuk": "aksi harfiah"
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0,
+    "alasan": "pertanyaan baru: tong digeser masuk dari kiri"
+   },
+   "kamera": "pull ke tong utuh 1,08→1,16 (tong berputar)",
+   "sfx": [
+    {
+     "t": 31.6,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    },
+    {
+     "t": 32.5,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 11,
+   "start_sec": 33.4,
+   "end_sec": 37.933,
+   "perubahan_sec": [
+    34.911,
+    36.422
+   ],
+   "vo_text": "Soalnya kalau didiamkan, es di dinding kaleng tumbuh jadi kristal besar yang kasar.",
+   "fakta_ids": [
+    "F3"
+   ],
+   "kt": [
+    {
+     "teks": "besar",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "potongan_melintang",
+   "metafora": {
+    "makna": "Didiamkan: kristal es tumbuh besar dan kasar",
+    "aksi": "tumbuh membesar",
+    "objek": [
+     "dinding kaleng",
+     "kristal besar",
+     "adonan"
+    ],
+    "bentuk": "close-up benda"
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0,
+    "alasan": "close-up dinding kaleng di kanvas yang sama"
+   },
+   "kamera": "dive ke dinding kaleng 4,2→4,6",
+   "sfx": [
+    {
+     "t": 33.5,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "foley"
+    },
+    {
+     "t": 35.8,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "aksen"
+    },
+    {
+     "t": 37.4,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 12,
+   "start_sec": 37.933,
+   "end_sec": 42.6,
+   "perubahan_sec": [
+    39.489,
+    41.044
+   ],
+   "vo_text": "Tapi kalau diputar dan dikerok, kristalnya tetap kecil-kecil, jadi teksturnya lembut.",
+   "fakta_ids": [
+    "F3"
+   ],
+   "kt": [
+    {
+     "teks": "kecil-kecil",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "potongan_melintang",
+   "metafora": {
+    "makna": "Diputar dan dikerok: kristal tetap kecil, tekstur lembut",
+    "aksi": "mengerok dinding",
+    "objek": [
+     "pengerok",
+     "kristal kecil",
+     "adonan halus"
+    ],
+    "bentuk": "close-up benda"
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0,
+    "alasan": "ganti keadaan: dari kasar ke halus"
+   },
+   "kamera": "tahan di dinding kaleng 4,2→4,6 (pengerok)",
+   "sfx": [
+    {
+     "t": 38.033,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    },
+    {
+     "t": 39.733,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "foley"
+    },
+    {
+     "t": 41.533,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 13,
+   "start_sec": 42.6,
+   "end_sec": 45.533,
+   "perubahan_sec": [
+    44.067
+   ],
+   "vo_text": "Makanya abangnya sesekali nambah garam sama es baru.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "nambah",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "Garam dan es ditambah berkala",
+    "aksi": "menambah",
+    "objek": [
+     "garam",
+     "es baru",
+     "tong"
+    ],
+    "bentuk": "aksi harfiah"
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0,
+    "alasan": "garam dan es baru jatuh ke cincin yang sama"
+   },
+   "kamera": "pull 1,9→1,08 ke tong",
+   "sfx": [
+    {
+     "t": 42.7,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "foley"
+    },
+    {
+     "t": 44.2,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 14,
+   "start_sec": 45.533,
+   "end_sec": 49.933,
+   "perubahan_sec": [
+    47.0,
+    48.467
+   ],
+   "vo_text": "Gerobak tua, tanpa listrik, tapi isinya pelajaran kimia SMA.",
+   "fakta_ids": [
+    "F6"
+   ],
+   "kt": [
+    {
+     "teks": "listrik",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "payoff_oh_gitu",
+   "metafora": {
+    "makna": "Tanpa listrik, isinya kimia SMA",
+    "aksi": "mengungkap",
+    "objek": [
+     "gerobak",
+     "tiang listrik tanpa kabel ke gerobak",
+     "label"
+    ],
+    "bentuk": "dunia gang"
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10,
+    "alasan": "mundur dari tong ke gerobak utuh (pull ke dunia gang)"
+   },
+   "kamera": "pull-back pengungkapan 1,0→0,62 ke gerobak utuh (satu-satunya zoom <1,08, alasan: tampilan utuh)",
+   "sfx": [
+    {
+     "t": 45.633,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    },
+    {
+     "t": 48.433,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "aksen"
+    }
+   ]
+  },
+  {
+   "beat_id": 15,
+   "start_sec": 49.933,
+   "end_sec": 54.033,
+   "perubahan_sec": [
+    51.983
+   ],
+   "vo_text": "Eh, dulu kamu beli es puter pakai roti tawar atau cone?",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "cone",
+     "peran": "R2",
+     "kode": "T03"
+    }
+   ],
+   "visual_type": "loop_tutup",
+   "metafora": {
+    "makna": "Pertanyaan penutup dan kembali ke kaleng frame 1",
+    "aksi": "memilih",
+    "objek": [
+     "roti tawar",
+     "cone",
+     "es puter",
+     "kaleng"
+    ],
+    "bentuk": "dua pilihan"
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0,
+    "alasan": "roti dan cone masuk dari dua sisi"
+   },
+   "kamera": "potong ke gugus baskom 1,12→1,26",
+   "sfx": [
+    {
+     "t": 50.033,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    },
+    {
+     "t": 51.533,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "tick"
+    },
+    {
+     "t": 52.933,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "aksen"
+    }
+   ]
+  }
+ ]
+}

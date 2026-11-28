@@ -1,0 +1,813 @@
+{
+ "episode_id": "sg001",
+ "title": "Kenapa Indomaret dan Alfamart selalu sebelahan? – Soalnya Gini",
+ "gaya": "A-kolase",
+ "kartu_kiblat": [
+  "95",
+  "17"
+ ],
+ "opening_cap": "Kalau…",
+ "pilar": "F",
+ "target_duration_sec": 55.3,
+ "fps": 30,
+ "beats": [
+  {
+   "beat_id": 1,
+   "start_sec": 0.0,
+   "end_sec": 4.7,
+   "perubahan_sec": [
+    1.5,
+    3.3
+   ],
+   "vo_text": "Kalau kamu jualan es di ujung pantai nih, saingan kamu tuh bakal buka persis di sebelahmu.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "Kalau",
+     "peran": "R6",
+     "kode": "T05",
+     "baris": 1
+    }
+   ],
+   "visual_type": "cap_pembuka",
+   "metafora": {
+    "makna": "cap kata + gerobak di ujung kiri; gerobak kedua jatuh di sebelahnya",
+    "aksi": "membuka lapak",
+    "objek": [
+     "gerobak es",
+     "garis pantai"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0
+   },
+   "kamera": "push pelan 1,72→1,86 (dunia, CURVE.drift)",
+   "sfx": [
+    {
+     "t": 0.55,
+     "file": "~/sfx/Epidemic/impact/bass-drop-deep-sub-very-short-01-8df9a95d.wav",
+     "pilar": "aksen"
+    },
+    {
+     "t": 3.3,
+     "file": "~/sfx/Epidemic/taktil/glue-stick-dab-on-paper-1a9ef820.wav",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 2,
+   "start_sec": 4.7,
+   "end_sec": 6.3,
+   "perubahan_sec": [
+    5.7
+   ],
+   "vo_text": "Kok bisa? Soalnya gini.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "Soalnya gini",
+     "peran": "R6",
+     "kode": "T12",
+     "baris": 1
+    }
+   ],
+   "visual_type": "tanda_tangan_buka",
+   "metafora": {
+    "makna": "Soalnya gini.",
+    "aksi": "membuka kardus",
+    "objek": [
+     "Gini",
+     "gerobak"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 8
+   },
+   "kamera": "push-through 1,07 lalu tahan",
+   "sfx": [
+    {
+     "t": 4.7,
+     "file": "~/sfx/Epidemic/mekanik/led-plastic-button-press-single-ab33e364.wav",
+     "pilar": "transisi"
+    },
+    {
+     "t": 5.7,
+     "file": "~/sfx/Epidemic/taktil/playing-card-set-down-db3f8c58.wav",
+     "pilar": "aksen"
+    }
+   ]
+  },
+  {
+   "beat_id": 3,
+   "start_sec": 6.3,
+   "end_sec": 9.1,
+   "perubahan_sec": [
+    6.6,
+    7.4
+   ],
+   "vo_text": "Bayangin pantainya satu kilometer, pembelinya tersebar rata.",
+   "fakta_ids": [
+    "F0"
+   ],
+   "kt": [
+    {
+     "teks": "satu kilometer",
+     "peran": "R4",
+     "kode": "T08",
+     "baris": 1
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "pantai satu kilometer, titik pembeli tersebar rata",
+    "aksi": "menyebar",
+    "objek": [
+     "garis 0–1 km",
+     "titik pembeli"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "pull-back",
+    "frames": 12
+   },
+   "kamera": "pull-back 1,86→1,0 (CURVE.heavy)",
+   "sfx": [
+    {
+     "t": 6.35,
+     "file": "~/sfx/Epidemic/air/designed-whoosh-soft-airy-073cf199.wav",
+     "pilar": "transisi"
+    },
+    {
+     "t": 7.0,
+     "file": "~/sfx/Epidemic/taktil/glue-stick-dab-on-paper-1a9ef820.wav",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 4,
+   "start_sec": 9.1,
+   "end_sec": 13.5,
+   "perubahan_sec": [
+    9.2,
+    10.4,
+    11.5,
+    12.9
+   ],
+   "vo_text": "Nah, posisi paling adil tuh satu penjual di seperempat, satu lagi di tiga perempat.",
+   "fakta_ids": [
+    "F3"
+   ],
+   "kt": [
+    {
+     "teks": "seperempat",
+     "peran": "R4",
+     "kode": "T08",
+     "baris": 1
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "dua gerobak di ¼ dan ¾, bilah wilayah dua warna",
+    "aksi": "memisah",
+    "objek": [
+     "gerobak kiri",
+     "gerobak kanan",
+     "bilah wilayah"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 6
+   },
+   "kamera": "tahan hidup (drift), hit 1,07",
+   "sfx": [
+    {
+     "t": 9.15,
+     "file": "~/sfx/Epidemic/air/designed-whoosh-soft-airy-073cf199.wav",
+     "pilar": "transisi"
+    },
+    {
+     "t": 11.5,
+     "file": "~/sfx/Epidemic/mekanik/led-plastic-button-press-single-ab33e364.wav",
+     "pilar": "tick"
+    },
+    {
+     "t": 12.9,
+     "file": "~/sfx/Epidemic/mekanik/led-plastic-button-press-single-ab33e364.wav",
+     "pilar": "tick"
+    }
+   ]
+  },
+  {
+   "beat_id": 5,
+   "start_sec": 13.5,
+   "end_sec": 15.7,
+   "perubahan_sec": [
+    14.2
+   ],
+   "vo_text": "Jadi tiap orang tinggal jalan ke yang paling dekat.",
+   "fakta_ids": [
+    "F0"
+   ],
+   "kt": [
+    {
+     "teks": "paling dekat",
+     "peran": "R2",
+     "kode": "T10",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "tiap orang memilih yang terdekat: titik pembeli berwarna",
+    "aksi": "memilih",
+    "objek": [
+     "titik pembeli",
+     "gerobak"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0
+   },
+   "kamera": "tahan hidup",
+   "sfx": [
+    {
+     "t": 13.6,
+     "file": "~/sfx/Epidemic/taktil/glue-stick-dab-on-paper-1a9ef820.wav",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 6,
+   "start_sec": 15.7,
+   "end_sec": 18.9,
+   "perubahan_sec": [
+    16.0,
+    17.6
+   ],
+   "vo_text": "Tapi si penjual kiri mikir, loh, kalau aku geser dikit ke",
+   "fakta_ids": [
+    "F2"
+   ],
+   "kt": [
+    {
+     "teks": "geser dikit",
+     "peran": "R2",
+     "kode": "T10",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_tukar",
+   "metafora": {
+    "makna": "gerobak kiri geser ke tengah",
+    "aksi": "menggeser",
+    "objek": [
+     "gerobak kiri",
+     "bilah wilayah"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 6
+   },
+   "kamera": "ikut gerobak kiri",
+   "sfx": [
+    {
+     "t": 15.75,
+     "file": "~/sfx/Epidemic/air/designed-whoosh-soft-airy-073cf199.wav",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 7,
+   "start_sec": 18.9,
+   "end_sec": 22.8,
+   "perubahan_sec": [
+    19.0,
+    20.3,
+    21.4
+   ],
+   "vo_text": "tengah, aku tetap dapat semua orang di kiri, plus sebagian orang di tengah.",
+   "fakta_ids": [
+    "F2"
+   ],
+   "kt": [
+    {
+     "teks": "sebagian orang",
+     "peran": "R2",
+     "kode": "T10",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_tukar",
+   "metafora": {
+    "makna": "wilayah di tengah ikut tertarik: sorot stabilo",
+    "aksi": "merebut",
+    "objek": [
+     "stabilo",
+     "bilah wilayah"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0
+   },
+   "kamera": "tahan hidup",
+   "sfx": [
+    {
+     "t": 19.0,
+     "file": "~/sfx/Epidemic/taktil/glue-stick-dab-on-paper-1a9ef820.wav",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 8,
+   "start_sec": 22.8,
+   "end_sec": 25.4,
+   "perubahan_sec": [
+    23.0,
+    24.4
+   ],
+   "vo_text": "Penjual kanan ya nggak mau kalah, dia ikut geser.",
+   "fakta_ids": [
+    "F2"
+   ],
+   "kt": [
+    {
+     "teks": "ikut geser",
+     "peran": "R2",
+     "kode": "T10",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_tukar",
+   "metafora": {
+    "makna": "gerobak kanan ikut geser",
+    "aksi": "mengejar",
+    "objek": [
+     "gerobak kanan"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 6
+   },
+   "kamera": "ikut gerobak kanan",
+   "sfx": [
+    {
+     "t": 22.85,
+     "file": "~/sfx/Epidemic/air/designed-whoosh-soft-airy-073cf199.wav",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 9,
+   "start_sec": 25.4,
+   "end_sec": 30.3,
+   "perubahan_sec": [
+    26.0,
+    27.9,
+    29.6
+   ],
+   "vo_text": "Terus, terus, sampai di model sederhana ini dua-duanya ketemu di tengah. Nempel.",
+   "fakta_ids": [
+    "F2"
+   ],
+   "kt": [
+    {
+     "teks": "ketemu di tengah",
+     "peran": "R2",
+     "kode": "T10",
+     "baris": 1
+    },
+    {
+     "teks": "Nempel",
+     "peran": "R6",
+     "kode": "T05",
+     "baris": 1
+    }
+   ],
+   "visual_type": "payoff_oh_gitu",
+   "metafora": {
+    "makna": "keduanya menempel di tengah; Gini oh gitu",
+    "aksi": "menempel",
+    "objek": [
+     "gerobak kiri",
+     "gerobak kanan"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0
+   },
+   "kamera": "dorong ke tengah 1,0→1,42 (CURVE.heavy)",
+   "sfx": [
+    {
+     "t": 27.0,
+     "file": "~/sfx/Epidemic/air/designed-whoosh-soft-airy-073cf199.wav",
+     "pilar": "transisi"
+    },
+    {
+     "t": 29.6,
+     "file": "~/sfx/Epidemic/mekanik/led-plastic-button-press-single-ab33e364.wav",
+     "pilar": "tick"
+    }
+   ]
+  },
+  {
+   "beat_id": 10,
+   "start_sec": 30.3,
+   "end_sec": 33.9,
+   "perubahan_sec": [
+    30.9,
+    32.1,
+    33.4
+   ],
+   "vo_text": "Dan kalau salah satu mundur ke ujung, dia langsung kehilangan pembeli di tengah.",
+   "fakta_ids": [
+    "F2"
+   ],
+   "kt": [
+    {
+     "teks": "mundur ke ujung",
+     "peran": "R2",
+     "kode": "T10",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_tukar",
+   "metafora": {
+    "makna": "gerobak kanan mundur ke ujung, wilayahnya mengecil, lalu kembali",
+    "aksi": "mundur",
+    "objek": [
+     "gerobak kanan",
+     "bilah wilayah"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 6
+   },
+   "kamera": "tahan 1,42, ikut gerobak kanan",
+   "sfx": [
+    {
+     "t": 30.35,
+     "file": "~/sfx/Epidemic/air/designed-whoosh-soft-airy-073cf199.wav",
+     "pilar": "transisi"
+    },
+    {
+     "t": 33.4,
+     "file": "~/sfx/Epidemic/air/designed-whoosh-soft-airy-073cf199.wav",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 11,
+   "start_sec": 33.9,
+   "end_sec": 35.7,
+   "perubahan_sec": [
+    34.6
+   ],
+   "vo_text": "Jadi ya nggak ada yang mau mundur.",
+   "fakta_ids": [
+    "F2"
+   ],
+   "kt": [
+    {
+     "teks": "nggak ada",
+     "peran": "R2",
+     "kode": "T10",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "tidak ada yang mau mundur: keduanya tetap menempel",
+    "aksi": "bertahan",
+    "objek": [
+     "gerobak kiri",
+     "gerobak kanan"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0
+   },
+   "kamera": "tarik mundur 1,42→1,0",
+   "sfx": [
+    {
+     "t": 34.6,
+     "file": "~/sfx/Epidemic/taktil/glue-stick-dab-on-paper-1a9ef820.wav",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 12,
+   "start_sec": 35.7,
+   "end_sec": 40.1,
+   "perubahan_sec": [
+    35.8,
+    36.3,
+    38.4
+   ],
+   "vo_text": "Ekonom namanya Harold Hotelling, nulis pola ini tahun 1929.",
+   "fakta_ids": [
+    "F1"
+   ],
+   "kt": [
+    {
+     "teks": "Hotelling",
+     "peran": "R4",
+     "kode": "T08",
+     "baris": 1
+    },
+    {
+     "teks": "1929",
+     "peran": "R6",
+     "kode": "T05",
+     "baris": 1
+    }
+   ],
+   "visual_type": "angka_kunci",
+   "metafora": {
+    "makna": "kartu Hotelling · 1929 jatuh dari atas, teks diketik",
+    "aksi": "mengutip",
+    "objek": [
+     "kartu",
+     "siluet"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 6
+   },
+   "kamera": "kartu mendarat, dunia tetap",
+   "sfx": [
+    {
+     "t": 35.75,
+     "file": "~/sfx/Epidemic/air/designed-whoosh-soft-airy-073cf199.wav",
+     "pilar": "transisi"
+    },
+    {
+     "t": 38.8,
+     "file": "~/sfx/Epidemic/stab/glockenspiel-single-tone-c3-f93cc6c3.wav",
+     "pilar": "aksen"
+    }
+   ],
+   "keyframe_sec": 39.2
+  },
+  {
+   "beat_id": 13,
+   "start_sec": 40.1,
+   "end_sec": 44.3,
+   "perubahan_sec": [
+    40.3,
+    40.65,
+    42.7,
+    43.7
+   ],
+   "vo_text": "Minimarket tuh mirip. Titik yang ramai, kayak dekat jalan besar, sekolah,",
+   "fakta_ids": [
+    "F5"
+   ],
+   "kt": [
+    {
+     "teks": "Minimarket",
+     "peran": "R4",
+     "kode": "T08",
+     "baris": 1
+    }
+   ],
+   "visual_type": "potongan_melintang",
+   "metafora": {
+    "makna": "potongan melintang ke pojok gang: dua minimarket generik jatuh, jalan besar dan sekolah",
+    "aksi": "memindahkan",
+    "objek": [
+     "jalan",
+     "sekolah",
+     "minimarket"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 10
+   },
+   "kamera": "push-through 1,25→1,0 lalu drift",
+   "sfx": [
+    {
+     "t": 40.1,
+     "file": "~/sfx/Epidemic/impact/bass-drop-deep-sub-very-short-01-8df9a95d.wav",
+     "pilar": "aksen"
+    },
+    {
+     "t": 40.3,
+     "file": "~/sfx/Epidemic/taktil/glue-stick-dab-on-paper-1a9ef820.wav",
+     "pilar": "foley"
+    },
+    {
+     "t": 40.65,
+     "file": "~/sfx/Epidemic/taktil/glue-stick-dab-on-paper-1a9ef820.wav",
+     "pilar": "foley"
+    },
+    {
+     "t": 43.0,
+     "file": "~/sfx/Epidemic/taktil/glue-stick-dab-on-paper-1a9ef820.wav",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 14,
+   "start_sec": 44.3,
+   "end_sec": 46.6,
+   "perubahan_sec": [
+    44.3,
+    44.5,
+    45.3
+   ],
+   "vo_text": "atau perumahan, jumlahnya terbatas.",
+   "fakta_ids": [
+    "F5"
+   ],
+   "kt": [
+    {
+     "teks": "perumahan",
+     "peran": "R4",
+     "kode": "T08",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "titik ramai menyala: sekolah, perumahan",
+    "aksi": "menyalakan",
+    "objek": [
+     "sekolah",
+     "perumahan"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0
+   },
+   "kamera": "tahan hidup",
+   "sfx": [
+    {
+     "t": 43.9,
+     "file": "~/sfx/Epidemic/taktil/glue-stick-dab-on-paper-1a9ef820.wav",
+     "pilar": "foley"
+    },
+    {
+     "t": 44.5,
+     "file": "~/sfx/Epidemic/taktil/glue-stick-dab-on-paper-1a9ef820.wav",
+     "pilar": "foley"
+    }
+   ]
+  },
+  {
+   "beat_id": 15,
+   "start_sec": 46.6,
+   "end_sec": 49.6,
+   "perubahan_sec": [
+    46.7,
+    48.0
+   ],
+   "vo_text": "Jadi dua-duanya ngincer titik yang sama. Itu salah satu penjelasannya.",
+   "fakta_ids": [
+    "F5"
+   ],
+   "kt": [
+    {
+     "teks": "titik yang sama",
+     "peran": "R2",
+     "kode": "T10",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_tukar",
+   "metafora": {
+    "makna": "dua minimarket meluncur ke titik yang sama dan menempel",
+    "aksi": "berebut",
+    "objek": [
+     "minimarket",
+     "titik ramai"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 6
+   },
+   "kamera": "ikut minimarket",
+   "sfx": [
+    {
+     "t": 46.65,
+     "file": "~/sfx/Epidemic/air/designed-whoosh-soft-airy-073cf199.wav",
+     "pilar": "transisi"
+    },
+    {
+     "t": 48.0,
+     "file": "~/sfx/Epidemic/mekanik/led-plastic-button-press-single-ab33e364.wav",
+     "pilar": "tick"
+    }
+   ]
+  },
+  {
+   "beat_id": 16,
+   "start_sec": 49.6,
+   "end_sec": 53.0,
+   "perubahan_sec": [
+    49.9,
+    51.6
+   ],
+   "vo_text": "Yang rugi? Pembeli di ujung, jalannya jadi makin jauh.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "makin jauh",
+     "peran": "R2",
+     "kode": "T10",
+     "baris": 1
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "pembeli di ujung gang berjalan jauh, garis jarak memanjang",
+    "aksi": "menempuh jarak",
+    "objek": [
+     "pembeli",
+     "garis jarak"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 6
+   },
+   "kamera": "tahan hidup",
+   "sfx": [
+    {
+     "t": 49.65,
+     "file": "~/sfx/Epidemic/air/designed-whoosh-soft-airy-073cf199.wav",
+     "pilar": "transisi"
+    }
+   ],
+   "keyframe_sec": 51.8
+  },
+  {
+   "beat_id": 17,
+   "start_sec": 53.0,
+   "end_sec": 55.3,
+   "perubahan_sec": [
+    53.4,
+    54.2
+   ],
+   "vo_text": "Nah, di dekat rumahmu, mereka sebelahan juga?",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "sebelahan juga",
+     "peran": "R4",
+     "kode": "T08",
+     "baris": 1
+    }
+   ],
+   "visual_type": "loop_tutup",
+   "metafora": {
+    "makna": "tarik mundur ke pantai frame pertama; Gini menutup flap",
+    "aksi": "menutup",
+    "objek": [
+     "pantai",
+     "gerobak",
+     "Gini"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "pull-back",
+    "frames": 10
+   },
+   "kamera": "pull-back 2,3→1,76 (CURVE.land)",
+   "sfx": [
+    {
+     "t": 53.0,
+     "file": "~/sfx/Epidemic/air/designed-whoosh-soft-airy-073cf199.wav",
+     "pilar": "transisi"
+    },
+    {
+     "t": 54.1,
+     "file": "~/sfx/Epidemic/mekanik/led-plastic-button-press-single-ab33e364.wav",
+     "pilar": "tick"
+    }
+   ]
+  }
+ ]
+}

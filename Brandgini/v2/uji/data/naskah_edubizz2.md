@@ -1,0 +1,1 @@
+Nah, pas sinar matahari kena panel, cahaya itu bawa partikel kecil namanya foton. Foton ini nabrak atom silikon, terus bikin elektronnya lepas dan bergerak. Gerakan elektron inilah yang jadi listrik. Tapi listrik yang dihasilin ini masih listrik.

@@ -1,0 +1,21 @@
+{
+  "_catatan": "Slot maskot generik. Shotlist memakai beats[].maskot.karakter = 'maskot_utama' (atau kunci kandidat langsung). Komponen Remotion membaca berkas ini; tidak ada kode adegan yang mengunci ke satu maskot. Pilihan final = KEPUTUSAN-IRFAN K-03.",
+  "maskot_utama": "klik",
+  "kandidat": {
+    "klik": {
+      "status": "dipakai untuk uji produksi episode 1 (arahan Irfan 25 Nov 2026), belum final",
+      "sumber": "skill-development claude/vibedesign/engine/cast/cast.js (SVG deterministik, papercut sticker)",
+      "aturan": "claude/vibedesign/guide/karakter/GUIDE.md: KRK-01 tiap kemunculan punya kata kerja + fungsi; KRK-02 bukan milik pihak lain",
+      "warna": {"base": "#2563EB", "dark": "#163E9E", "light": "#4F86F5"},
+      "catatan_palet": "hue KLIK 221° vs Biru Gini 222°: satu keluarga. Pendukung NOTE (lime #B5F52A) = keluarga warna kedua; bila dipakai, palette_check.py bisa gagal (maks 2 keluarga, dominan >= 70 %). Uji dulu satu still.",
+      "komponen_remotion": "BELUM ADA: port cast.js ke komponen Remotion dikerjakan sesi produksi episode 1"
+    },
+    "gini-kardus": {
+      "status": "spesifikasi saja (plan §2.2), aset belum dibuat",
+      "warna": {"badan": "#C99A5B", "garis": "#1B2330", "lakban": "#2D6BFF"},
+      "ekspresi": ["netral", "penasaran", "oh_gitu"],
+      "pose": ["menunjuk", "membuka_diri", "duduk_menonton"],
+      "larangan": "tanpa mulut, tangan manusia, pakaian, glow, kilap 3D, emoji; warna tidak berubah per episode"
+    }
+  }
+}

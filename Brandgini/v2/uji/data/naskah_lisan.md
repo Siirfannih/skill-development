@@ -1,0 +1,1 @@
+Eh, kalau kamu jualan es di ujung pantai nih, saingan kamu tuh bakal buka persis di sebelahmu. Kok bisa? Soalnya gini... Bayangin deh, pantainya satu kilometer, pembelinya nyebar rata. Nah, penjual yang kiri mikir, kalau aku geser dikit ke tengah, yang di kiri tetep ke aku kan, terus aku dapet bonus orang di tengah juga.

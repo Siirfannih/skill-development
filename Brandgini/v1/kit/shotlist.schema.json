@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SoalnyaGiniShotlist",
+  "type": "object",
+  "required": [
+    "episode_id",
+    "title",
+    "style_preset",
+    "opening_cap",
+    "target_duration_sec",
+    "beats"
+  ],
+  "properties": {
+    "episode_id": {
+      "type": "string",
+      "pattern": "^ep[0-9]{2,3}$"
+    },
+    "title": {
+      "type": "string",
+      "maxLength": 70
+    },
+    "style_preset": {
+      "type": "string",
+      "enum": [
+        "STYLE_A_EINSTEIN",
+        "STYLE_B_VOX"
+      ]
+    },
+    "opening_cap": {
+      "type": "string",
+      "enum": [
+        "Kalau\u2026",
+        "Kenapa\u2026",
+        "Katanya\u2026"
+      ]
+    },
+    "target_duration_sec": {
+      "type": "number",
+      "minimum": 45,
+      "maximum": 60
+    },
+    "beats": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 16,
+      "items": {
+        "type": "object",
+        "required": [
+          "beat_id",
+          "start_sec",
+          "end_sec",
+          "vo_text",
+          "display_keywords",
+          "visual_type",
+          "motion_primitive",
+          "sfx_cue"
+        ],
+        "properties": {
+          "beat_id": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "start_sec": {
+            "type": "number",
+            "minimum": 0
+          },
+          "end_sec": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "vo_text": {
+            "type": "string"
+          },
+          "display_keywords": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 4
+          },
+          "visual_type": {
+            "type": "string",
+            "enum": [
+              "opening_cap_hero",
+              "gini_cutaway_transition",
+              "einstein_cutout_wrap",
+              "einstein_metaphor_swap",
+              "vox_newspaper_highlight",
+              "vox_polaroid_drop",
+              "vox_blueprint_diagram",
+              "vox_typewriter_stamp",
+              "vox_stacked_impact",
+              "loop_outro"
+            ]
+          },
+          "subject_cutout": {
+            "type": "string"
+          },
+          "motion_primitive": {
+            "type": "string"
+          },
+          "sfx_cue": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

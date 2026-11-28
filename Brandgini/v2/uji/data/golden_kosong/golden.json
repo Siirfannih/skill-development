@@ -1,0 +1,206 @@
+[
+ {
+  "beat": "b01",
+  "visual_type": "cap_pembuka",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "golden fallback: visual_type ini belum punya golden sendiri",
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-5.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b02",
+  "visual_type": "tanda_tangan_buka",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "golden fallback: visual_type ini belum punya golden sendiri",
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-5.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b03",
+  "visual_type": "diagram_rakit",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-20.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b04",
+  "visual_type": "diagram_rakit",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-20.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b05",
+  "visual_type": "kolase_aksi_kursor",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "golden fallback: visual_type ini belum punya golden sendiri",
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-5.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b06",
+  "visual_type": "kolase_tukar",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "golden fallback: visual_type ini belum punya golden sendiri",
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-5.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b07",
+  "visual_type": "diagram_rakit",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-20.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b08",
+  "visual_type": "kolase_tukar",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "golden fallback: visual_type ini belum punya golden sendiri",
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-5.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b09",
+  "visual_type": "payoff_oh_gitu",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "golden fallback: visual_type ini belum punya golden sendiri",
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-5.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b10",
+  "visual_type": "diagram_rakit",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-20.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b11",
+  "visual_type": "angka_kunci",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "golden fallback: visual_type ini belum punya golden sendiri",
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-5.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b12",
+  "visual_type": "kolase_hero",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-5.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b13",
+  "visual_type": "kolase_hero",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-5.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b14",
+  "visual_type": "kolase_aksi_kursor",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "golden fallback: visual_type ini belum punya golden sendiri",
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-5.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ },
+ {
+  "beat": "b15",
+  "visual_type": "loop_tutup",
+  "gagal": [
+   "KOSONG: std luma 0.000"
+  ],
+  "perlu_mata": [
+   "golden fallback: visual_type ini belum punya golden sendiri",
+   "kepadatan tepi 0.00x golden (lebih kosong)"
+  ],
+  "golden": "A-5.png",
+  "d_luma": 0.062,
+  "rasio_tepi": 0.0
+ }
+]

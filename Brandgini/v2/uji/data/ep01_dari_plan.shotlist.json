@@ -1,0 +1,313 @@
+{
+ "episode_id": "sg001",
+ "title": "Kenapa Indomaret dan Alfamart selalu sebelahan? – Soalnya Gini",
+ "gaya": "A-kolase",
+ "kartu_kiblat": [
+  "95"
+ ],
+ "opening_cap": "Kalau…",
+ "target_duration_sec": 56,
+ "fps": 30,
+ "beats": [
+  {
+   "beat_id": 1,
+   "start_sec": 0,
+   "end_sec": 3,
+   "vo_text": "(lihat naskah plan)",
+   "kt": [
+    {
+     "teks": "Kalau…",
+     "peran": "R2",
+     "kode": "T01"
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "-",
+    "aksi": "-",
+    "objek": [
+     "-"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through"
+   },
+   "kamera": "push-in",
+   "sfx": []
+  },
+  {
+   "beat_id": 2,
+   "start_sec": 3,
+   "end_sec": 6,
+   "vo_text": "(lihat naskah plan)",
+   "kt": [
+    {
+     "teks": "Soalnya gini",
+     "peran": "R2",
+     "kode": "T01"
+    }
+   ],
+   "visual_type": "tanda_tangan_buka",
+   "metafora": {
+    "makna": "-",
+    "aksi": "-",
+    "objek": [
+     "-"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through"
+   },
+   "kamera": "push-in",
+   "sfx": []
+  },
+  {
+   "beat_id": 3,
+   "start_sec": 6,
+   "end_sec": 10,
+   "vo_text": "(lihat naskah plan)",
+   "kt": [
+    {
+     "teks": "1 km",
+     "peran": "R2",
+     "kode": "T01"
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "-",
+    "aksi": "-",
+    "objek": [
+     "-"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through"
+   },
+   "kamera": "push-in",
+   "sfx": []
+  },
+  {
+   "beat_id": 4,
+   "start_sec": 10,
+   "end_sec": 14,
+   "vo_text": "(lihat naskah plan)",
+   "kt": [
+    {
+     "teks": "¼ · ¾",
+     "peran": "R2",
+     "kode": "T01"
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "-",
+    "aksi": "-",
+    "objek": [
+     "-"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through"
+   },
+   "kamera": "push-in",
+   "sfx": []
+  },
+  {
+   "beat_id": 5,
+   "start_sec": 14,
+   "end_sec": 19,
+   "vo_text": "(lihat naskah plan)",
+   "kt": [
+    {
+     "teks": "+pembeli",
+     "peran": "R2",
+     "kode": "T01"
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "-",
+    "aksi": "-",
+    "objek": [
+     "-"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through"
+   },
+   "kamera": "push-in",
+   "sfx": []
+  },
+  {
+   "beat_id": 6,
+   "start_sec": 19,
+   "end_sec": 24,
+   "vo_text": "(lihat naskah plan)",
+   "kt": [],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "-",
+    "aksi": "-",
+    "objek": [
+     "-"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through"
+   },
+   "kamera": "push-in",
+   "sfx": []
+  },
+  {
+   "beat_id": 7,
+   "start_sec": 24,
+   "end_sec": 28,
+   "vo_text": "(lihat naskah plan)",
+   "kt": [
+    {
+     "teks": "Nempel.",
+     "peran": "R2",
+     "kode": "T01"
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "-",
+    "aksi": "-",
+    "objek": [
+     "-"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through"
+   },
+   "kamera": "push-in",
+   "sfx": []
+  },
+  {
+   "beat_id": 8,
+   "start_sec": 28,
+   "end_sec": 33,
+   "vo_text": "(lihat naskah plan)",
+   "kt": [],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "-",
+    "aksi": "-",
+    "objek": [
+     "-"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through"
+   },
+   "kamera": "push-in",
+   "sfx": []
+  },
+  {
+   "beat_id": 9,
+   "start_sec": 33,
+   "end_sec": 37,
+   "vo_text": "(lihat naskah plan)",
+   "kt": [
+    {
+     "teks": "Hotelling · 1929",
+     "peran": "R2",
+     "kode": "T01"
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "-",
+    "aksi": "-",
+    "objek": [
+     "-"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through"
+   },
+   "kamera": "push-in",
+   "sfx": []
+  },
+  {
+   "beat_id": 10,
+   "start_sec": 37,
+   "end_sec": 44,
+   "vo_text": "(lihat naskah plan)",
+   "kt": [
+    {
+     "teks": "Titik ramai terbatas",
+     "peran": "R2",
+     "kode": "T01"
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "-",
+    "aksi": "-",
+    "objek": [
+     "-"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through"
+   },
+   "kamera": "push-in",
+   "sfx": []
+  },
+  {
+   "beat_id": 11,
+   "start_sec": 44,
+   "end_sec": 50,
+   "vo_text": "(lihat naskah plan)",
+   "kt": [
+    {
+     "teks": "Yang rugi: pembeli di ujung",
+     "peran": "R2",
+     "kode": "T01"
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "-",
+    "aksi": "-",
+    "objek": [
+     "-"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through"
+   },
+   "kamera": "push-in",
+   "sfx": []
+  },
+  {
+   "beat_id": 12,
+   "start_sec": 50,
+   "end_sec": 56,
+   "vo_text": "(lihat naskah plan)",
+   "kt": [
+    {
+     "teks": "Di dekatmu sebelahan juga?",
+     "peran": "R2",
+     "kode": "T01"
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "-",
+    "aksi": "-",
+    "objek": [
+     "-"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through"
+   },
+   "kamera": "push-in",
+   "sfx": []
+  }
+ ]
+}

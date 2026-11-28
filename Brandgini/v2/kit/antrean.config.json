@@ -1,0 +1,32 @@
+{
+  "_catatan": "Antrean produksi bersama 5 konten/hari (keputusan Irfan #2). Angka kapasitas = default awal dari pengukuran 25 Nov 2026 (lihat README §4); disetel ulang setelah 7 hari data qc/jobs.jsonl.",
+  "akun": {
+    "soalnya-gini": {"per_hari": 2, "jalur": "remotion", "skill": "soalnya-gini-studio v2"},
+    "siirfan":      {"per_hari": 2, "jalur": "footage-lego", "skill": "motion-graphic (lego)"},
+    "behindwork":   {"per_hari": 1, "jalur": "remotion", "skill": "motion-graphic"}
+  },
+  "tahap": ["ide", "fakta", "naskah", "review_naskah", "suara", "storyboard", "review_storyboard",
+            "build", "render", "qc", "review_final", "siap_unggah", "tayang"],
+  "pelaku": {"review_naskah": "irfan", "review_storyboard": "irfan", "review_final": "irfan", "siap_unggah": "irfan"},
+  "sumber_daya": {
+    "fakta": "llm", "naskah": "llm", "suara": "ringan", "storyboard": "ringan+llm",
+    "build": "ringan+llm", "render": "berat", "qc": "ringan"
+  },
+  "batas": {
+    "buffer_hari": 2,
+    "wip_faktor": 2,
+    "sesi_llm_maks": 2,
+    "kerja_ringan_maks": 2,
+    "render_berat_maks": 1,
+    "kunci_render": "/tmp/remotion-heavy-render.lock",
+    "ram_min_gib_berat": 6,
+    "ram_min_gib_ringan": 3,
+    "disk_min_gib": 10
+  },
+  "review": {
+    "jadwal_wita": ["08:00", "20:00"],
+    "maks_per_sesi": 8,
+    "antre_maks": 10,
+    "batch_naskah": "sekali per minggu: 7-14 naskah dalam satu paket (plan topik §5d)"
+  }
+}

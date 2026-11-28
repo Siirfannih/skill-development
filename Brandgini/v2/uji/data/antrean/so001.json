@@ -1,0 +1,87 @@
+{
+ "id": "so001",
+ "akun": "soalnya-gini",
+ "judul": "Indomaret",
+ "tahap": "siap_unggah",
+ "dibuat": "2026-11-25T21:47:44",
+ "masuk_tahap": "2026-11-25T21:47:51",
+ "riwayat": [
+  {
+   "dari": "ide",
+   "ke": "fakta",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:47:44",
+   "catatan": ""
+  },
+  {
+   "dari": "fakta",
+   "ke": "naskah",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:47:44",
+   "catatan": ""
+  },
+  {
+   "dari": "naskah",
+   "ke": "review_naskah",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:47:44",
+   "catatan": ""
+  },
+  {
+   "dari": "review_naskah",
+   "ke": "suara",
+   "oleh": "irfan",
+   "t": "2026-11-25T21:47:44",
+   "catatan": ""
+  },
+  {
+   "dari": "suara",
+   "ke": "storyboard",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:47:44",
+   "catatan": ""
+  },
+  {
+   "dari": "storyboard",
+   "ke": "review_storyboard",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:47:44",
+   "catatan": ""
+  },
+  {
+   "dari": "review_storyboard",
+   "ke": "build",
+   "oleh": "irfan",
+   "t": "2026-11-25T21:47:44",
+   "catatan": ""
+  },
+  {
+   "dari": "build",
+   "ke": "render",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:47:44",
+   "catatan": ""
+  },
+  {
+   "dari": "render",
+   "ke": "qc",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:47:51",
+   "catatan": ""
+  },
+  {
+   "dari": "qc",
+   "ke": "review_final",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:47:51",
+   "catatan": ""
+  },
+  {
+   "dari": "review_final",
+   "ke": "siap_unggah",
+   "oleh": "irfan",
+   "t": "2026-11-25T21:47:51",
+   "catatan": ""
+  }
+ ]
+}

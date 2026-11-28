@@ -1,0 +1,631 @@
+{
+ "episode_id": "sg001",
+ "title": "Kenapa Indomaret dan Alfamart selalu sebelahan? – Soalnya Gini",
+ "gaya": "A-kolase",
+ "kartu_kiblat": [
+  "95"
+ ],
+ "opening_cap": "Kalau…",
+ "target_duration_sec": 56,
+ "fps": 30,
+ "beats": [
+  {
+   "beat_id": 1,
+   "start_sec": 0.0,
+   "end_sec": 3.0,
+   "perubahan_sec": [
+    1.5
+   ],
+   "vo_text": "Kalau kamu jualan es di ujung pantai, saingan kamu bakal buka tepat di sebelahmu.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "Kalau…",
+     "peran": "R6",
+     "kode": "T05",
+     "baris": 1
+    }
+   ],
+   "visual_type": "cap_pembuka",
+   "metafora": {
+    "makna": "Kalau kamu jualan es di ujung pantai",
+    "aksi": "membuka lapak",
+    "objek": [
+     "gerobak es",
+     "garis pantai"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 0.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "aksen"
+    }
+   ]
+  },
+  {
+   "beat_id": 2,
+   "start_sec": 3.0,
+   "end_sec": 6.0,
+   "perubahan_sec": [
+    4.5
+   ],
+   "vo_text": "Soalnya gini.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "Soalnya gini",
+     "peran": "R6",
+     "kode": "T12",
+     "baris": 1
+    }
+   ],
+   "visual_type": "tanda_tangan_buka",
+   "metafora": {
+    "makna": "Soalnya gini.",
+    "aksi": "membuka kardus",
+    "objek": [
+     "Gini",
+     "gerobak kedua"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "buka-maskot",
+    "frames": 8
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 3.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ],
+   "maskot": {
+    "karakter": "maskot_utama",
+    "aksi": "membuka",
+    "fungsi": "membuka potongan gerobak: janji 'dibongkar'",
+    "ekspresi": "penasaran"
+   }
+  },
+  {
+   "beat_id": 3,
+   "start_sec": 6.0,
+   "end_sec": 10.0,
+   "perubahan_sec": [
+    8.0
+   ],
+   "vo_text": "Bayangin pantai satu kilometer, pembelinya tersebar rata.",
+   "fakta_ids": [
+    "F0"
+   ],
+   "kt": [
+    {
+     "teks": "satu kilometer",
+     "peran": "R4",
+     "kode": "T08",
+     "baris": 1
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "Bayangin pantai satu kilometer",
+    "aksi": "menyebar",
+    "objek": [
+     "garis 0–1 km",
+     "titik pembeli"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "pull-back",
+    "frames": 8
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 6.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 4,
+   "start_sec": 10.0,
+   "end_sec": 14.0,
+   "perubahan_sec": [
+    12.0
+   ],
+   "vo_text": "Posisi paling adil, satu penjual di seperempat, satu lagi di tiga perempat.",
+   "fakta_ids": [
+    "F0"
+   ],
+   "kt": [
+    {
+     "teks": "seperempat",
+     "peran": "R4",
+     "kode": "T08",
+     "baris": 1
+    },
+    {
+     "teks": "tiga perempat",
+     "peran": "R4",
+     "kode": "T08",
+     "baris": 1
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "Posisi paling adil",
+    "aksi": "membagi",
+    "objek": [
+     "dua gerobak",
+     "dua wilayah"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 10.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 5,
+   "start_sec": 14.0,
+   "end_sec": 17.5,
+   "perubahan_sec": [
+    15.75
+   ],
+   "vo_text": "Tiap orang jalan ke yang paling dekat.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "paling dekat",
+     "peran": "R2",
+     "kode": "T03",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_aksi_kursor",
+   "metafora": {
+    "makna": "Tiap orang jalan ke yang paling dekat.",
+    "aksi": "berjalan",
+    "objek": [
+     "pembeli",
+     "panah"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "slide-arah",
+    "frames": 8
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 14.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 6,
+   "start_sec": 17.5,
+   "end_sec": 22.0,
+   "perubahan_sec": [
+    19.0,
+    20.5
+   ],
+   "vo_text": "Tapi penjual kiri mikir, kalau aku geser dikit ke tengah, aku tetap dapat semua orang di kiri,",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "geser",
+     "peran": "R2",
+     "kode": "T03",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_tukar",
+   "metafora": {
+    "makna": "Tapi penjual kiri mikir",
+    "aksi": "menggeser",
+    "objek": [
+     "gerobak kiri",
+     "wilayah membesar"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "match-cut",
+    "frames": 8
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 17.5,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 7,
+   "start_sec": 22.0,
+   "end_sec": 25.0,
+   "perubahan_sec": [
+    23.5
+   ],
+   "vo_text": "plus sebagian orang di tengah.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "di tengah",
+     "peran": "R2",
+     "kode": "T03",
+     "baris": 1
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "plus sebagian orang di tengah.",
+    "aksi": "merebut",
+    "objek": [
+     "wilayah tengah"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 22.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 8,
+   "start_sec": 25.0,
+   "end_sec": 29.0,
+   "perubahan_sec": [
+    27.0
+   ],
+   "vo_text": "Penjual kanan nggak mau kalah, ikut geser. Terus, terus, sampai dua-duanya ketemu di tengah.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "ikut geser",
+     "peran": "R2",
+     "kode": "T03",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_tukar",
+   "metafora": {
+    "makna": "Penjual kanan nggak mau kalah",
+    "aksi": "berkejaran",
+    "objek": [
+     "gerobak kanan"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "whip",
+    "frames": 8
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 25.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 9,
+   "start_sec": 29.0,
+   "end_sec": 31.0,
+   "perubahan_sec": [],
+   "vo_text": "Nempel.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "Nempel.",
+     "peran": "R6",
+     "kode": "T05",
+     "baris": 1
+    }
+   ],
+   "visual_type": "payoff_oh_gitu",
+   "metafora": {
+    "makna": "Nempel.",
+    "aksi": "menempel",
+    "objek": [
+     "dua gerobak",
+     "Gini oh gitu"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0
+   },
+   "kamera": "diam disengaja (beat 2 dtk)",
+   "sfx": [
+    {
+     "t": 29.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ],
+   "maskot": {
+    "karakter": "maskot_utama",
+    "aksi": "menunjuk",
+    "fungsi": "menandai dua gerobak yang menempel"
+   }
+  },
+  {
+   "beat_id": 10,
+   "start_sec": 31.0,
+   "end_sec": 35.5,
+   "perubahan_sec": [
+    32.5,
+    34.0
+   ],
+   "vo_text": "Kalau salah satu mundur ke ujung, dia langsung kehilangan pembeli di tengah. Jadi nggak ada yang mau mundur.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "mundur",
+     "peran": "R3",
+     "kode": "T10",
+     "baris": 1
+    }
+   ],
+   "visual_type": "diagram_rakit",
+   "metafora": {
+    "makna": "Kalau salah satu mundur ke ujung",
+    "aksi": "mundur lalu kembali",
+    "objek": [
+     "gerobak",
+     "wilayah mengecil"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "pull-back",
+    "frames": 8
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 31.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 11,
+   "start_sec": 35.5,
+   "end_sec": 39.0,
+   "perubahan_sec": [
+    37.25
+   ],
+   "vo_text": "Ekonom Harold Hotelling menulis pola ini tahun 1929.",
+   "fakta_ids": [
+    "F1"
+   ],
+   "kt": [
+    {
+     "teks": "Hotelling",
+     "peran": "R4",
+     "kode": "T08",
+     "baris": 1
+    },
+    {
+     "teks": "1929",
+     "peran": "R4",
+     "kode": "T08",
+     "baris": 1
+    }
+   ],
+   "visual_type": "angka_kunci",
+   "metafora": {
+    "makna": "Ekonom Harold Hotelling menulis pola ini tahun 1929.",
+    "aksi": "mencatat",
+    "objek": [
+     "kartu ilustrasi Hotelling"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "grid-flash",
+    "frames": 8
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 35.5,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 12,
+   "start_sec": 39.0,
+   "end_sec": 43.5,
+   "perubahan_sec": [
+    40.5,
+    42.0
+   ],
+   "vo_text": "Minimarket mirip. Titik yang ramai, dekat jalan besar, sekolah, atau perumahan, jumlahnya terbatas,",
+   "fakta_ids": [
+    "F2"
+   ],
+   "kt": [
+    {
+     "teks": "titik ramai",
+     "peran": "R2",
+     "kode": "T03",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "Minimarket mirip. Titik yang ramai",
+    "aksi": "menyala",
+    "objek": [
+     "jalan",
+     "sekolah",
+     "perumahan"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "push-through",
+    "frames": 8
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 39.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 13,
+   "start_sec": 43.5,
+   "end_sec": 47.0,
+   "perubahan_sec": [
+    45.25
+   ],
+   "vo_text": "jadi dua-duanya ngincer titik yang sama. Itu salah satu penjelasannya.",
+   "fakta_ids": [
+    "F2"
+   ],
+   "kt": [
+    {
+     "teks": "titik yang sama",
+     "peran": "R3",
+     "kode": "T10",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_hero",
+   "metafora": {
+    "makna": "jadi dua-duanya ngincer titik yang sama. Itu salah satu penjelasannya.",
+    "aksi": "mendarat",
+    "objek": [
+     "dua minimarket generik"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "potong",
+    "frames": 0
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 43.5,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 14,
+   "start_sec": 47.0,
+   "end_sec": 51.0,
+   "perubahan_sec": [
+    49.0
+   ],
+   "vo_text": "Yang rugi pembeli di ujung, jalannya makin jauh.",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "makin jauh",
+     "peran": "R3",
+     "kode": "T10",
+     "baris": 1
+    }
+   ],
+   "visual_type": "kolase_aksi_kursor",
+   "metafora": {
+    "makna": "Yang rugi pembeli di ujung",
+    "aksi": "berjalan jauh",
+    "objek": [
+     "pembeli di ujung",
+     "garis jarak"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "slide-arah",
+    "frames": 8
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 47.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  },
+  {
+   "beat_id": 15,
+   "start_sec": 51.0,
+   "end_sec": 56.0,
+   "perubahan_sec": [
+    52.67,
+    54.33
+   ],
+   "vo_text": "Di dekat rumahmu, mereka sebelahan juga?",
+   "fakta_ids": [],
+   "kt": [
+    {
+     "teks": "sebelahan juga?",
+     "peran": "R6",
+     "kode": "T12",
+     "baris": 1
+    }
+   ],
+   "visual_type": "loop_tutup",
+   "metafora": {
+    "makna": "Di dekat rumahmu",
+    "aksi": "kembali ke awal",
+    "objek": [
+     "garis pantai",
+     "Gini tutup flap"
+    ]
+   },
+   "transisi_masuk": {
+    "tipe": "pull-back",
+    "frames": 8
+   },
+   "kamera": "push pelan 1,00→1,04 (CURVE.drift)",
+   "sfx": [
+    {
+     "t": 51.0,
+     "file": "~/sfx/SFXIrfan/<dipilih saat Mix>",
+     "pilar": "transisi"
+    }
+   ]
+  }
+ ],
+ "pilar": "F"
+}

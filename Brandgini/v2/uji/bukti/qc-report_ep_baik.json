@@ -1,0 +1,13 @@
+{
+ "gerbang": {
+  "G0_jalur_render": "GAGAL",
+  "G1_format": "LULUS",
+  "G2_pengiriman": "LULUS",
+  "G3_slop": "LULUS",
+  "G4_palet": "LULUS",
+  "G5_beat": "LULUS",
+  "G6_golden": "LULUS"
+ },
+ "lulus_teknis": false,
+ "berikut": "kembali ke skill 06"
+}

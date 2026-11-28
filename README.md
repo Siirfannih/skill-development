@@ -7,6 +7,7 @@ Perpustakaan skill untuk semua model yang bekerja dengan Irfan. Satu repo, satu 
 - `claude/` — skill yang dikembangkan Irfan
 - `external/` — skill open-source yang teruji (submodule terkunci versi)
 - `projects/` — dokumen otoritas dan art direction per proyek
+- `Brandgini/` — konten brand Soalnya Gini (merek, maskot, sistem v1/v2, plan, test produksi ep01–ep03); mulai dari `Brandgini/README.md`
 - `scriptwriter/` — pengembangan cara kerja ide menjadi naskah dan storyboard, terhubung ke skill aktif
 - `archive/` — skill lama yang sudah digantikan (baseline eval)
 

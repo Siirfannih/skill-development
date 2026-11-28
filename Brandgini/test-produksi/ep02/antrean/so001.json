@@ -1,0 +1,87 @@
+{
+ "id": "so001",
+ "akun": "soalnya-gini",
+ "judul": "Kenapa kamu mabuk di mobil, sopirnya nggak? (ep02 test)",
+ "tahap": "review_final",
+ "dibuat": "2026-11-25T21:55:27",
+ "masuk_tahap": "2026-11-25T22:40:13",
+ "riwayat": [
+  {
+   "dari": "ide",
+   "ke": "fakta",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:55:43",
+   "catatan": ""
+  },
+  {
+   "dari": "fakta",
+   "ke": "naskah",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:55:43",
+   "catatan": ""
+  },
+  {
+   "dari": "naskah",
+   "ke": "review_naskah",
+   "oleh": "mesin",
+   "t": "2026-11-25T21:55:43",
+   "catatan": ""
+  },
+  {
+   "dari": "review_naskah",
+   "ke": "suara",
+   "oleh": "irfan",
+   "t": "2026-11-25T22:21:44",
+   "catatan": "naskah disetujui Irfan (BRIEF-PRODUKSI-25Nov-test: naskah dianggap disetujui)"
+  },
+  {
+   "dari": "suara",
+   "ke": "storyboard",
+   "oleh": "mesin",
+   "t": "2026-11-25T22:21:44",
+   "catatan": ""
+  },
+  {
+   "dari": "storyboard",
+   "ke": "review_storyboard",
+   "oleh": "mesin",
+   "t": "2026-11-25T22:21:45",
+   "catatan": ""
+  },
+  {
+   "dari": "review_storyboard",
+   "ke": "build",
+   "oleh": "irfan",
+   "t": "2026-11-25T22:21:45",
+   "catatan": "test 25 Nov, Irfan minta tanpa jeda storyboard"
+  },
+  {
+   "dari": "build",
+   "ke": "tertahan",
+   "oleh": "mesin",
+   "t": "2026-11-25T22:24:11",
+   "catatan": "render.sh final ditolak gerbang audio R2: kunci suara (cut_check) gagal pada jeda koma TTS; golden belum ada. Ada pratinjau, bukan render.mp4. Butuh keputusan Irfan (lihat LOG)."
+  },
+  {
+   "dari": "tertahan",
+   "ke": "render",
+   "oleh": "mesin",
+   "t": "2026-11-25T22:40:13",
+   "catatan": ""
+  },
+  {
+   "dari": "render",
+   "ke": "qc",
+   "oleh": "mesin",
+   "t": "2026-11-25T22:40:13",
+   "catatan": ""
+  },
+  {
+   "dari": "qc",
+   "ke": "review_final",
+   "oleh": "mesin",
+   "t": "2026-11-25T22:40:13",
+   "catatan": ""
+  }
+ ]
+}

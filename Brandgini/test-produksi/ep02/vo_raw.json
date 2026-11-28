@@ -1,0 +1,9 @@
+{
+ "episode": "sg002",
+ "suara": "sg-laki",
+ "voice_id": "voice_wbxo7x53a5kc",
+ "model": "gemini-3.8-flash-tts",
+ "izin": "BRIEF-PRODUKSI-25Nov-test",
+ "kata": 152,
+ "waktu": "2026-11-25T22:01:51"
+}
